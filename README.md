@@ -1,4 +1,4 @@
 iOS7-Headers
 ============
 
-iOS 7 Headers of some things, beta 1 
+iOS 7 beta 1 Headers 
