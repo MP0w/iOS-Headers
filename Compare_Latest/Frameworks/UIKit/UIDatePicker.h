@@ -8,14 +8,19 @@
 
 #import "NSCoding-Protocol.h"
 
-@class NSCalendar, NSDate, NSLocale, NSTimeZone, UIPickerView;
+@class NSCalendar, NSDate, NSLocale, NSTimeZone, _UIDatePickerView;
 
 @interface UIDatePicker : UIControl <NSCoding>
 {
-    UIPickerView *_pickerView;
+    _UIDatePickerView *_pickerView;
 }
 
++ (Class)_pickerViewClass;
+- (void)invalidateIntrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
 - (void)setDate:(id)arg1 animated:(BOOL)arg2;
 @property(nonatomic) int minuteInterval; // @dynamic minuteInterval;
 @property(nonatomic) double countDownDuration; // @dynamic countDownDuration;
@@ -34,6 +39,27 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_insertPickerView;
+- (void)setBounds:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setDate:(id)arg1 animate:(BOOL)arg2;
+- (int)second;
+- (int)minute;
+- (int)hour;
+- (void)setHighlightsToday:(BOOL)arg1;
+- (void)setStaggerTimeIntervals:(BOOL)arg1;
+- (void)setDateComponents:(id)arg1;
+- (id)dateComponents;
+- (double)timeInterval;
+- (void)setTimeInterval:(double)arg1;
+- (void)setDelegate:(id)arg1;
+@property(nonatomic, getter=_allowsZeroCountdownDuration, setter=_setAllowsZeroCountdownDuration:) BOOL allowsZeroCountdownDuration;
+@property(nonatomic, getter=_drawsBackground, setter=_setDrawsBackground:) BOOL drawsBackground;
+@property(nonatomic, getter=_usesBlackChrome, setter=_setUsesBlackChrome:) BOOL usesBlackChrome;
+@property(readonly, nonatomic, getter=_dateUnderSelectionBar) NSDate *dateUnderSelectionBar;
+- (void)_setHidesLabels:(BOOL)arg1;
+- (void)_setHighlightsToday:(BOOL)arg1;
+- (float)_contentWidth;
+- (id)_selectedTextForCalendarUnit:(unsigned int)arg1;
 
 @end
 

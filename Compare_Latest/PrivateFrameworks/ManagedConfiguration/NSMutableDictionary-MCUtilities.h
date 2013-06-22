@@ -7,8 +7,8 @@
 #import "NSMutableDictionary.h"
 
 @interface NSMutableDictionary (MCUtilities)
-- (void)MCDeepCopyEntriesFromDictionary:(id)arg1;
-- (void)MCDeepCopyMissingEntriesFromDictionary:(id)arg1;
 - (void)MCSetObjectIfNotNil:(id)arg1 forKey:(id)arg2;
+- (void)MCDeepCopyMissingEntriesFromDictionary:(id)arg1;
+- (void)MCDeepCopyEntriesFromDictionary:(id)arg1;
 @end
 

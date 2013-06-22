@@ -11,11 +11,11 @@
     struct __CFDictionary *mNameToValueMap;
 }
 
-- (id)initWithDescriptions:(const struct CPXmlEnumDescription *)arg1;
-- (void)dealloc;
-- (BOOL)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3 value:(int *)arg4;
-- (int)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3;
 - (int)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3 def:(int)arg4;
+- (int)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3;
+- (BOOL)readFromNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 name:(const char *)arg3 value:(int *)arg4;
+- (void)dealloc;
+- (id)initWithDescriptions:(const struct CPXmlEnumDescription *)arg1;
 
 @end
 

@@ -10,9 +10,14 @@
 {
     struct CLConnectionClient *fLocationdConnection;
     id fActivityHandler;
-    struct dispatch_source_s *fTimer;
+    struct dispatch_source_s *fWatchdogTimer;
+    struct dispatch_queue_s *fPrivateQueue;
 }
 
+- (void)stopActivityUpdatesPrivate;
+- (void)startActivityUpdatesWithHandlerPrivate:(id)arg1;
+- (void)stopWatchdogCheckinsPrivate;
+- (void)startWatchdogCheckinsPrivate;
 - (void)dealloc;
 - (id)init;
 

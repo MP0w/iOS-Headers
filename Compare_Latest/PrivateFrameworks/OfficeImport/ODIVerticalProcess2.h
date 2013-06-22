@@ -10,8 +10,8 @@
 {
 }
 
-- (void)mapPoint:(id)arg1 bounds:(struct CGRect)arg2;
 - (void)mapStyleFromTransition:(id)arg1 shape:(id)arg2;
+- (void)mapPoint:(id)arg1 bounds:(struct CGRect)arg2;
 
 @end
 

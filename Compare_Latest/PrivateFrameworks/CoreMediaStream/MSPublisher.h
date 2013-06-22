@@ -47,6 +47,7 @@
 @property(retain, nonatomic) NSURL *storageProtocolURL; // @synthesize storageProtocolURL=_storageProtocolURL;
 @property(nonatomic) MSMediaStreamDaemon *daemon; // @synthesize daemon=_daemon;
 @property(nonatomic) id <MSPublisherDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (BOOL)_isInRetryState;
 - (void)stop;
 - (void)abort;

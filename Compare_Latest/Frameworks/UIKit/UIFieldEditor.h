@@ -8,16 +8,15 @@
 
 #import "UIAutoscrollContainer-Protocol.h"
 
-@class DOMDocument, DOMHTMLElement, NSString, UIView<UITextSelectingContainer>;
+@class DOMDocument, DOMHTMLElement, NSString, UIView<UITextInput>;
 
 @interface UIFieldEditor : UIWebDocumentView <UIAutoscrollContainer>
 {
     DOMDocument *_document;
     DOMHTMLElement *_textElement;
     DOMHTMLElement *_sizeElement;
-    NSString *_initialText;
     NSString *_currentStyle;
-    UIView<UITextSelectingContainer> *_proxiedView;
+    UIView<UITextInput> *_proxiedView;
     unsigned int _baseWritingDirectionIsRTL:1;
     unsigned int _changingView:1;
     unsigned int _disableNotifications:1;
@@ -25,16 +24,16 @@
     unsigned int _delegateRespondsToShouldInsertText:1;
     unsigned int _delegateRespondsToShouldReplaceWithText:1;
     unsigned int _fieldEditorReentrancyGuard:1;
-    unsigned int _isResigningFirstResponder:1;
-    unsigned int _mouseWasDragged:1;
-    unsigned int _reserved:21;
+    unsigned int _clearOnDelete:1;
 }
 
++ (id)excludedElementsForHTML;
 + (void)releaseSharedInstance;
 + (id)sharedFieldEditor;
 + (id)activeFieldEditor;
 - (struct CGRect)caretRectForVisiblePosition:(id)arg1;
 - (struct CGRect)caretRect;
+- (void)setBaseWritingDirection:(int)arg1 forRange:(id)arg2;
 - (void)setBaseWritingDirection:(int)arg1;
 - (struct CGRect)contentFrameForView:(id)arg1;
 @property(nonatomic) struct CGPoint autoscrollContentOffset;
@@ -42,7 +41,6 @@
 - (void)updateAutoscroll:(id)arg1;
 - (void)startAutoscroll:(struct CGPoint)arg1;
 - (void)selectionChanged;
-- (struct CGRect)selectionClipRect;
 - (BOOL)isEditing;
 - (id)interactionAssistant;
 - (id)selectionView;
@@ -62,6 +60,7 @@
 - (BOOL)webView:(id)arg1 shouldDeleteDOMRange:(id)arg2;
 - (BOOL)webView:(id)arg1 shouldInsertText:(id)arg2 replacingDOMRange:(id)arg3 givenAction:(int)arg4;
 - (BOOL)webView:(id)arg1 shouldChangeSelectedDOMRange:(id)arg2 toDOMRange:(id)arg3 affinity:(int)arg4 stillSelecting:(BOOL)arg5;
+- (void)beginSelectionChange;
 - (void)webViewDidChange:(id)arg1;
 - (void)scrollToMakeInlineHoleVisible;
 - (void)scrollSelectionToVisible:(BOOL)arg1;
@@ -70,6 +69,11 @@
 - (void)setScrollXOffset:(int)arg1 scrollYOffset:(int)arg2;
 - (int)scrollYOffset;
 - (int)scrollXOffset;
+- (void)disableClearsOnInsertion;
+- (BOOL)isInsideRichlyEditableTextWidget;
+- (void)setAttributedText:(id)arg1 andSetCaretSelectionAfterText:(BOOL)arg2;
+- (void)_setTextElementAttributedText:(id)arg1;
+- (id)attributedText;
 - (id)text;
 - (void)setText:(id)arg1 andSetCaretSelectionAfterText:(BOOL)arg2;
 - (void)_setTextElementString:(id)arg1;
@@ -80,6 +84,7 @@
 - (BOOL)resignFirstResponder;
 - (void)becomeFieldEditorForView:(id)arg1;
 - (id)sizeStyleForRect:(struct CGRect)arg1;
+- (void)deleteBackward;
 - (void)keyboardInputChangedSelection:(id)arg1;
 - (BOOL)keyboardInputChanged:(id)arg1;
 - (BOOL)keyboardInputShouldDelete:(id)arg1;
@@ -97,6 +102,7 @@
 - (void)selectAll;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)_deleteBackwardAndNotify:(BOOL)arg1;
 
 @end
 

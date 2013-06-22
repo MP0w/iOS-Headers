@@ -54,6 +54,7 @@
 - (id)init;
 - (struct __CFCharacterSet *)_expandedCFCharacterSet;
 - (unsigned long)_cfTypeID;
+- (id)replacementObjectForPortCoder:(id)arg1;
 
 @end
 

@@ -11,10 +11,10 @@
 @interface TSUFlushingManager : NSObject
 {
     TSURetainedPointerKeyDictionary *_objects;
-    struct set<TSUFlushableObjectInfo*, TSUFlushableObjectInfoPointerFlushingOrderLess, std::allocator<TSUFlushableObjectInfo*>> *_sortedObjects;
-    struct set<TSUFlushableObjectInfo*, TSUFlushableObjectInfoPointerTimeStampLess, std::allocator<TSUFlushableObjectInfo*>> *_sortedNewObjects;
+    struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerFlushingOrderLess, std::allocator<TSUFlushableObjectInfo *>> *_sortedObjects;
+    struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerTimeStampLess, std::allocator<TSUFlushableObjectInfo *>> *_sortedNewObjects;
     TSUPointerKeyDictionary *_inactiveObjects;
-    unsigned int _clock;
+    unsigned long _clock;
     BOOL _alwaysFlushing;
     BOOL _stopFlushing;
     BOOL _stopFlushingWhenQueueEmpty;
@@ -25,41 +25,48 @@
     NSCondition *_isFlushingCond;
     TSUMemoryWatcher *_memoryWatcher;
     NSThread *_bgThread;
+    unsigned int _backgroundTransitionTaskId;
+    unsigned int _activeBgThreadTask;
 }
 
-+ (id)_singletonAlloc;
-+ (id)sharedManager;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (id)retain;
-- (unsigned int)retainCount;
-- (void)release;
-- (id)autorelease;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)init;
-- (void)dealloc;
-- (void)addObject:(id)arg1;
-- (void)removeObject:(id)arg1;
-- (void)protectObject:(id)arg1;
-- (void)stopProtectingObject:(id)arg1;
-- (void)doneWithObject:(id)arg1;
-- (void)unsafeToFlush:(id)arg1;
-- (void)safeToFlush:(id)arg1 wasAccessed:(BOOL)arg2;
-- (void)didEnterBackground;
-- (void)willEnterForeground;
-- (void)memoryLevelIncreased:(int)arg1 was:(int)arg2;
-- (void)memoryLevelDecreased:(int)arg1 was:(int)arg2;
-- (void)_flushAllEligible;
-- (void)_startFlushingObjects;
-- (void)_stopFlushingObjects;
-- (void)_backgroundThread:(id)arg1;
-- (BOOL)isNewObject:(struct TSUFlushableObjectInfo *)arg1;
-- (struct TSUFlushableObjectInfo *)eraseInfoForObject:(id)arg1;
-- (void)insertObjectInfo:(struct TSUFlushableObjectInfo *)arg1;
-- (void)transferNewObjects;
-- (void)advanceClock;
-- (BOOL)controlsActiveObject:(id)arg1;
-- (BOOL)controlsInactiveObject:(id)arg1;
++ (id)sharedManager;
++ (id)_singletonAlloc;
+- (void)_bgThreadInactive;
+- (void)_bgThreadActive;
+- (void)_bgTaskFinished;
+- (void)_bgTaskStarted;
 - (void)_didUseObject:(id)arg1;
+- (BOOL)controlsInactiveObject:(id)arg1;
+- (BOOL)controlsActiveObject:(id)arg1;
+- (void)advanceClock;
+- (void)transferNewObjects;
+- (void)insertObjectInfo:(struct TSUFlushableObjectInfo *)arg1;
+- (struct TSUFlushableObjectInfo *)eraseInfoForObject:(id)arg1;
+- (BOOL)isNewObject:(struct TSUFlushableObjectInfo *)arg1;
+- (void)_backgroundThread:(id)arg1;
+- (void)_stopFlushingObjects;
+- (void)_startFlushingObjects;
+- (void)_flushAllEligible;
+- (void)memoryLevelDecreased:(int)arg1 was:(int)arg2;
+- (void)memoryLevelIncreased:(int)arg1 was:(int)arg2;
+- (void)didReceiveMemoryWarning;
+- (void)willEnterForeground;
+- (void)didEnterBackground;
+- (void)safeToFlush:(id)arg1 wasAccessed:(BOOL)arg2;
+- (void)unsafeToFlush:(id)arg1;
+- (void)doneWithObject:(id)arg1;
+- (void)stopProtectingObject:(id)arg1;
+- (void)protectObject:(id)arg1;
+- (void)removeObject:(id)arg1;
+- (void)addObject:(id)arg1;
+- (void)dealloc;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)autorelease;
+- (oneway void)release;
+- (unsigned int)retainCount;
+- (id)retain;
 
 @end
 

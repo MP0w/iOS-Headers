@@ -16,15 +16,22 @@
     NSArray *_sectionIndexTitles;
     NSArray *_sectionIndexMapping;
     NSString *_transform;
+    NSString *_firstSectionStartString;
+    NSString *_lastSectionStartString;
+    struct __CFStringTokenizer *_tokenizer;
 }
 
 + (id)currentCollation;
++ (id)collationWithDictionary:(id)arg1;
 - (id)sortedArrayFromArray:(id)arg1 collationStringSelector:(SEL)arg2;
 - (int)sectionForObject:(id)arg1 collationStringSelector:(SEL)arg2;
 - (int)sectionForSectionIndexTitleAtIndex:(int)arg1;
 @property(readonly, nonatomic) NSArray *sectionIndexTitles;
 @property(readonly, nonatomic) NSArray *sectionTitles;
 - (void)dealloc;
+- (struct __CFStringTokenizer *)tokenizer;
+- (id)transformedCollationStringForString:(id)arg1;
+- (id)initWithDictionary:(id)arg1;
 
 @end
 

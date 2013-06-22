@@ -19,6 +19,7 @@
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (void)setDefaults;
 - (id)outputImage;
+- (BOOL)_isIdentity;
 - (id)_kernel;
 
 @end

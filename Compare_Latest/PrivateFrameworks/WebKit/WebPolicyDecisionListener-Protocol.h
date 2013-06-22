@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebPolicyDecisionListener <NSObject>
-- (void)use;
-- (void)download;
 - (void)ignore;
+- (void)download;
+- (void)use;
 @end
 

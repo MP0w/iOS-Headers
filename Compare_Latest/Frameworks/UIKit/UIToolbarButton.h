@@ -55,11 +55,14 @@
 - (void)_UIAppearance_setTintColor:(id)arg1;
 - (id)_backgroundImageForState:(unsigned int)arg1 barMetrics:(int)arg2;
 - (void)_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
+- (void)_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 style:(int)arg3 barMetrics:(int)arg4;
 - (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
+- (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 style:(int)arg3 barMetrics:(int)arg4;
 - (id)_info;
 - (void)_adjustToolbarButtonInfoTintColorHasChanged:(BOOL)arg1;
 - (void)_adjustToolbarButtonInfo;
 - (void)_updateInfoTextColorsForState:(unsigned int)arg1;
+- (void)_updateShadowOffsetWithAttributes:(id)arg1 forState:(unsigned int)arg2;
 - (struct UIOffset)_defaultTitleShadowOffsetForState:(unsigned int)arg1;
 - (id)_defaultTitleShadowColorForState:(unsigned int)arg1;
 - (id)_defaultTitleColorForState:(unsigned int)arg1;
@@ -78,6 +81,8 @@
 - (BOOL)_isBordered;
 - (void)layoutSubviews;
 - (void)_adjustPushButtonForMiniBar:(BOOL)arg1 isChangingBarHeight:(BOOL)arg2;
+- (struct UIEdgeInsets)alignmentRectInsets;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setHighlighted:(BOOL)arg1;
 - (BOOL)_canHandleStatusBarTouchAtLocation:(struct CGPoint)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
@@ -86,6 +91,7 @@
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (void)setEnabled:(BOOL)arg1;
+- (void)_setInfoFlexibleWidth:(BOOL)arg1;
 - (void)_setInfoExtremityWidth:(float)arg1 isMin:(BOOL)arg2;
 - (void)_setInfoWidth:(float)arg1;
 - (void)_setBadgeAnimated:(BOOL)arg1;
@@ -102,7 +108,7 @@
 - (void)_sizeView:(id)arg1 toPossibleTitles:(id)arg2 pressedTitle:(id)arg3;
 - (void)setSizesToFitImage:(BOOL)arg1;
 - (void)dealloc;
-- (id)initWithImage:(id)arg1 pressedImage:(id)arg2 label:(id)arg3 labelHeight:(float)arg4 withBarStyle:(int)arg5 withStyle:(int)arg6 withInsets:(struct UIEdgeInsets)arg7 possibleTitles:(id)arg8 withToolbarTintColor:(id)arg9 bezel:(BOOL)arg10 imageInsets:(struct UIEdgeInsets)arg11 glowInsets:(struct UIEdgeInsets)arg12;
+- (id)initWithImage:(id)arg1 pressedImage:(id)arg2 label:(id)arg3 labelHeight:(float)arg4 withBarStyle:(int)arg5 withStyle:(int)arg6 withInsets:(struct UIEdgeInsets)arg7 possibleTitles:(id)arg8 possibleSystemItems:(id)arg9 withToolbarTintColor:(id)arg10 bezel:(BOOL)arg11 imageInsets:(struct UIEdgeInsets)arg12 glowInsets:(struct UIEdgeInsets)arg13 landscape:(BOOL)arg14;
 - (id)_newButton;
 - (void)_setInTopBar:(BOOL)arg1;
 

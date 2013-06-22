@@ -16,17 +16,20 @@
     UIKBTree *m_key;
     int m_state;
     struct CGPoint m_drawOrigin;
+    int m_clipCorners;
     struct __CFBoolean *m_allowsCaching;
 }
 
 @property(nonatomic) struct CGPoint drawOrigin; // @synthesize drawOrigin=m_drawOrigin;
+@property(nonatomic) int clipCorners; // @synthesize clipCorners=m_clipCorners;
 @property(readonly, nonatomic) int state; // @synthesize state=m_state;
 @property(readonly, nonatomic) UIKBTree *key; // @synthesize key=m_key;
 @property(readonly, nonatomic) UIKBTree *keyboard; // @synthesize keyboard=m_keyboard;
 - (void)drawRect:(struct CGRect)arg1;
+@property(readonly, nonatomic) float cachedWidth;
 @property(readonly, nonatomic) BOOL cacheDeferable;
 - (void)displayLayer:(id)arg1;
-- (BOOL)shouldCache;
+@property(readonly) BOOL shouldCache;
 - (id)cacheKey;
 - (int)textEffectsVisibilityLevel;
 - (void)dealloc;

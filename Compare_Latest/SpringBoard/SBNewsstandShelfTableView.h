@@ -13,10 +13,10 @@
     UIView *_backView;
 }
 
-- (void)didAddSubview:(id)arg1;
-- (void)willRemoveSubview:(id)arg1;
-- (void)reloadData;
 @property(nonatomic) UIView *shelfFrameView; // @synthesize shelfFrameView=_backView;
+- (void)reloadData;
+- (void)willRemoveSubview:(id)arg1;
+- (void)didAddSubview:(id)arg1;
 
 @end
 

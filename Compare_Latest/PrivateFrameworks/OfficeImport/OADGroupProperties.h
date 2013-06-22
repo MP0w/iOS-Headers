@@ -20,20 +20,20 @@
 }
 
 + (id)defaultProperties;
-- (id)initWithDefaults;
-- (void)dealloc;
-- (id)fill;
-- (void)setFill:(id)arg1;
-- (BOOL)hasFill;
-- (id)effects;
-- (void)setEffects:(id)arg1;
-- (BOOL)hasEffects;
-- (id)scene3D;
-- (void)setScene3D:(id)arg1;
-- (BOOL)hasScene3D;
-- (id)shape3D;
-- (void)setShape3D:(id)arg1;
 - (BOOL)hasShape3D;
+- (void)setShape3D:(id)arg1;
+- (id)shape3D;
+- (BOOL)hasScene3D;
+- (void)setScene3D:(id)arg1;
+- (id)scene3D;
+- (BOOL)hasEffects;
+- (void)setEffects:(id)arg1;
+- (id)effects;
+- (BOOL)hasFill;
+- (void)setFill:(id)arg1;
+- (id)fill;
+- (void)dealloc;
+- (id)initWithDefaults;
 
 @end
 

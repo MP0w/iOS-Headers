@@ -11,9 +11,9 @@
     struct __CFString *mName;
 }
 
-- (id)initWithName:(struct __CFString *)arg1;
-- (void)dealloc;
 - (struct __CFString *)name;
+- (void)dealloc;
+- (id)initWithName:(struct __CFString *)arg1;
 
 @end
 

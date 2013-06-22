@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) int sourceTrackID;
 @property(readonly, nonatomic) NSURL *sourceURL;
 @property(readonly, nonatomic, getter=isEmpty) BOOL empty;
+- (id)description;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithTimeRange:(CDStruct_e83c9415)arg1;

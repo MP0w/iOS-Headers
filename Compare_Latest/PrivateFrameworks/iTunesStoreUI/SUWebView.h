@@ -6,57 +6,29 @@
 
 #import "UIWebView.h"
 
-#import "SUScriptInterfaceDelegate-Protocol.h"
+@class NSString, UIColor;
 
-@class NSMutableArray, NSString, SSAuthenticationContext, SUScriptDebugDelegate, SUScriptInterface, SUWebViewDelegate, WebDataSource, WebView;
-
-@interface SUWebView : UIWebView <SUScriptInterfaceDelegate>
+@interface SUWebView : UIWebView
 {
-    SSAuthenticationContext *_authenticationContext;
-    SUScriptDebugDelegate *_debugDelegate;
-    SUWebViewDelegate *_delegateProxy;
-    unsigned int _openURLsExternally:1;
-    SUScriptInterface *_scriptInterface;
-    NSMutableArray *_scrollRequests;
+    UIColor *_originalBackgroundColor;
+    BOOL _originalShowsBackgroundShadow;
     unsigned int _scrollingDisabled:1;
-    unsigned int _sourceIsTrusted:1;
+    BOOL _showsTopBackgroundShadow;
     int _synchronousLayoutCount;
+    UIColor *_topBackgroundColor;
 }
 
-@property(copy, nonatomic) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
-- (void)_performNextScrollRequest;
-- (id)_newLabelForElement:(id)arg1 withText:(id)arg2;
-- (id)_newImageViewForElement:(id)arg1;
-- (id)_localStoragePath;
-- (struct CGRect)_frameForElement:(id)arg1;
-- (void)_finishActiveScrollRequest;
-- (id)_DOMDocument;
-@property(readonly, nonatomic) WebView *webView;
-- (void)resetScriptInterface;
-- (void)reloadWindowScriptObject:(id)arg1;
+@property(retain, nonatomic) UIColor *topBackgroundColor; // @synthesize topBackgroundColor=_topBackgroundColor;
+@property(nonatomic) BOOL showsTopBackgroundShadow; // @synthesize showsTopBackgroundShadow=_showsTopBackgroundShadow;
 - (void)view:(id)arg1 didSetFrame:(struct CGRect)arg2 oldFrame:(struct CGRect)arg3;
-- (id)superviewForImageSheetForWebView:(id)arg1;
-- (void)scriptInterface:(id)arg1 receivedEventOfType:(int)arg2 userInfo:(id)arg3;
-- (void)scriptInterface:(id)arg1 parsedPropertyList:(id)arg2 ofType:(int)arg3;
-- (void)scriptInterface:(id)arg1 animatePurchaseForIdentifier:(id)arg2;
-- (id)parentViewControllerForScriptInterface:(id)arg1;
-- (struct OpaqueJSContext *)javaScriptContextForScriptInterface:(id)arg1;
+- (void)scrollViewDidScroll:(id)arg1;
 - (void)_setRichTextReaderViewportSettings;
-- (void)stopLoading;
-- (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 @property(readonly, nonatomic) id windowScriptObject;
-@property(readonly, nonatomic) WebDataSource *webDataSource;
 @property(readonly, nonatomic) NSString *title;
-@property(nonatomic) BOOL sourceIsTrusted;
 @property(nonatomic, getter=isScrollingEnabled) BOOL scrollingEnabled;
-@property(nonatomic) BOOL openURLsExternally;
-- (void)scrollElementToVisible:(id)arg1 animated:(BOOL)arg2 completionHandler:(id)arg3;
-@property(readonly, nonatomic) SUScriptInterface *scriptInterface; // @synthesize scriptInterface=_scriptInterface;
 - (void)loadArchive:(id)arg1;
-@property(readonly, nonatomic) struct OpaqueJSContext *globalExecutionContext;
-- (struct CGRect)frameForElementWithIdentifier:(id)arg1;
+- (BOOL)getStatusBarStyle:(int *)arg1;
 - (void)endSynchronousLayout;
-- (BOOL)copyImage:(struct CGImage **)arg1 rect:(struct CGRect *)arg2 forElement:(id)arg3;
 - (void)beginSynchronousLayout;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

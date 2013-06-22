@@ -14,8 +14,8 @@
     struct __CFArray *mMasterSlides;
 }
 
-- (void)dealloc;
 - (id)stylesheet;
+- (void)dealloc;
 
 @end
 

@@ -21,6 +21,13 @@ struct CGSize {
     float height;
 };
 
+struct UIEdgeInsets {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+};
+
 struct _NSRange {
     unsigned int _field1;
     unsigned int _field2;

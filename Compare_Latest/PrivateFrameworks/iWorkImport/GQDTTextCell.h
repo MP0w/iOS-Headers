@@ -14,9 +14,11 @@
     GQDWPLayoutStorage *mLayoutStorage;
 }
 
-- (void)dealloc;
-- (struct __CFString *)stringValue;
 - (id)layoutStorage;
+- (struct __CFString *)stringValue;
+- (void)dealloc;
+- (int)readContentForTCell:(struct _xmlTextReader *)arg1;
+- (int)readContentForTextCell:(struct _xmlTextReader *)arg1;
 
 @end
 

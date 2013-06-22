@@ -10,8 +10,8 @@
 {
     struct __CFDictionary *mVectorUidToAlongMap;
     BOOL mReadingRowVectors;
-    vector_355ad652 *mRowPositions;
-    vector_355ad652 *mColumnPositions;
+    vector_7080b1cc *mRowPositions;
+    vector_7080b1cc *mColumnPositions;
     float mCurrentCellMinX;
     float mCurrentCellMaxX;
     float mCurrentCellMinY;
@@ -20,13 +20,13 @@
     id mCurrentCellStyle;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)aboutToReadRowVectors;
-- (void)aboutToReadColumnVectors;
-- (void)aboutToReadCells;
-- (float)alongValueForVectorUid:(const char *)arg1;
 - (void)setAlongValue:(float)arg1 forOwnedVectorUid:(char *)arg2;
+- (float)alongValueForVectorUid:(const char *)arg1;
+- (void)aboutToReadCells;
+- (void)aboutToReadColumnVectors;
+- (void)aboutToReadRowVectors;
+- (void)dealloc;
+- (id)init;
 
 @end
 

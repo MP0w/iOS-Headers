@@ -10,43 +10,43 @@
 {
 }
 
-+ (id)new;
-+ (id)allocWithZone:(struct _NSZone *)arg1;
-+ (id)alloc;
-+ (id)copyWithZone:(struct _NSZone *)arg1;
-+ (id)valueWithBytes:(const void *)arg1 objCType:(const char *)arg2;
 + (id)value:(const void *)arg1 withObjCType:(const char *)arg2;
-- (id)init;
-- (void)dealloc;
-- (id)retain;
-- (oneway void)release;
-- (id)autorelease;
-- (unsigned int)retainCount;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (id)copy;
-- (id)initWithBytes:(const void *)arg1 objCType:(const char *)arg2;
-- (void)getValue:(void *)arg1;
-- (const char *)objCType;
-- (BOOL)charValue;
-- (unsigned char)unsignedCharValue;
-- (short)shortValue;
-- (unsigned short)unsignedShortValue;
-- (int)intValue;
-- (unsigned int)unsignedIntValue;
-- (long)longValue;
-- (unsigned long)unsignedLongValue;
-- (long long)longLongValue;
-- (unsigned long long)unsignedLongLongValue;
-- (float)floatValue;
-- (double)doubleValue;
-- (BOOL)boolValue;
-- (int)integerValue;
-- (unsigned int)unsignedIntegerValue;
-- (id)stringValue;
-- (id)descriptionWithLocale:(id)arg1;
-- (id)description;
++ (id)valueWithBytes:(const void *)arg1 objCType:(const char *)arg2;
++ (id)copyWithZone:(struct _NSZone *)arg1;
++ (id)alloc;
++ (id)allocWithZone:(struct _NSZone *)arg1;
++ (id)new;
 - (id)objectID;
+- (id)description;
+- (id)descriptionWithLocale:(id)arg1;
+- (id)stringValue;
+- (unsigned int)unsignedIntegerValue;
+- (int)integerValue;
+- (BOOL)boolValue;
+- (double)doubleValue;
+- (float)floatValue;
+- (unsigned long long)unsignedLongLongValue;
+- (long long)longLongValue;
+- (unsigned long)unsignedLongValue;
+- (long)longValue;
+- (unsigned int)unsignedIntValue;
+- (int)intValue;
+- (unsigned short)unsignedShortValue;
+- (short)shortValue;
+- (unsigned char)unsignedCharValue;
+- (BOOL)charValue;
+- (const char *)objCType;
+- (void)getValue:(void *)arg1;
+- (id)initWithBytes:(const void *)arg1 objCType:(const char *)arg2;
+- (id)copy;
+- (BOOL)_tryRetain;
+- (BOOL)_isDeallocating;
+- (unsigned int)retainCount;
+- (id)autorelease;
+- (oneway void)release;
+- (id)retain;
+- (void)dealloc;
+- (id)init;
 
 @end
 

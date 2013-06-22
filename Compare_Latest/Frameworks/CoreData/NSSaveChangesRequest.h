@@ -19,14 +19,16 @@
 }
 
 + (void)initialize;
-- (id)initWithInsertedObjects:(id)arg1 updatedObjects:(id)arg2 deletedObjects:(id)arg3 lockedObjects:(id)arg4;
-- (void)dealloc;
-- (id)init;
-- (id)insertedObjects;
-- (id)updatedObjects;
-- (id)deletedObjects;
-- (id)lockedObjects;
 - (unsigned int)requestType;
+- (id)lockedObjects;
+- (id)deletedObjects;
+- (id)updatedObjects;
+- (id)insertedObjects;
+- (id)init;
+- (void)dealloc;
+- (id)initWithInsertedObjects:(id)arg1 updatedObjects:(id)arg2 deletedObjects:(id)arg3 lockedObjects:(id)arg4;
+- (BOOL)hasChanges;
+- (void)setDeletedObjects:(id)arg1;
 
 @end
 

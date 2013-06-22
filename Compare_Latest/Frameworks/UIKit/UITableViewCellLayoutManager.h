@@ -43,16 +43,27 @@
 - (void)cell:(id)arg1 willTransitionToState:(unsigned int)arg2;
 - (void)layoutSubviewsOfCell:(id)arg1;
 - (float)contentIndentationForCell:(id)arg1;
+- (id)badgeForCell:(id)arg1;
 - (id)editableTextFieldForCell:(id)arg1;
 - (id)detailTextLabelForCell:(id)arg1;
 - (id)textLabelForCell:(id)arg1;
 - (id)imageViewForCell:(id)arg1;
+- (id)defaultBadgeForCell:(id)arg1;
 - (id)defaultEditableTextFieldForCell:(id)arg1;
 - (id)defaultLabelForCell:(id)arg1;
 - (id)defaultLabelForCell:(id)arg1 ofClass:(Class)arg2;
 - (id)defaultImageViewForCell:(id)arg1;
 - (float)defaultDetailTextLabelFontSizeForCell:(id)arg1;
 - (float)defaultTextLabelFontSizeForCell:(id)arg1;
+- (struct CGRect)_contentRectForCell:(id)arg1 forEditingState:(BOOL)arg2 showingDeleteConfirmation:(BOOL)arg3;
+- (struct CGRect)_editingAccessoryRectForCell:(id)arg1 offscreen:(BOOL)arg2;
+- (struct CGRect)_accessoryRectForCell:(id)arg1 offscreen:(BOOL)arg2;
+- (struct CGRect)_reorderSeparatorRectForCell:(id)arg1 offscreen:(BOOL)arg2;
+- (struct CGRect)_reorderControlRectForCell:(id)arg1 offscreen:(BOOL)arg2;
+- (struct CGRect)_editControlRectForCell:(id)arg1 offscreen:(BOOL)arg2;
+- (struct CGRect)_adjustedBackgroundContentRectForCell:(id)arg1 forIndentedState:(BOOL)arg2;
+- (struct CGRect)_adjustedBackgroundRectForCell:(id)arg1 forIndentedState:(BOOL)arg2;
+- (struct CGRect)_backgroundRectForCell:(id)arg1 forIndentedState:(BOOL)arg2;
 
 @end
 

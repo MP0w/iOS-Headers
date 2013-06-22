@@ -8,13 +8,15 @@
 
 #import "UIKBCacheableView-Protocol.h"
 
-@class NSMutableDictionary, NSTimer, UIKBTree, UIKeyboardLayoutStar;
+@class NSMutableDictionary, NSTimer, UIKBKeyView, UIKBTree, UIKeyboardLayoutStar;
 
 @interface UIKBKeyplaneView : UIView <UIKBCacheableView>
 {
     UIKBTree *_keyboard;
     UIKBTree *_keyplane;
     UIKeyboardLayoutStar *_layout;
+    UIView *_splitRight;
+    UIKBKeyView *_candidateGapView;
     NSMutableDictionary *_states;
     NSMutableDictionary *_subviewIndex;
     NSMutableDictionary *_activeViewIndex;
@@ -22,6 +24,7 @@
     NSMutableDictionary *_delayedDeactivationKeys;
     NSTimer *_activatedTimer;
     BOOL _performingDeactivation;
+    BOOL _shouldDrawRect;
 }
 
 @property(nonatomic) UIKeyboardLayoutStar *layout; // @synthesize layout=_layout;
@@ -31,13 +34,14 @@
 - (void)activateKeys;
 - (void)deactivateKeys;
 - (void)deactivateKey:(id)arg1;
+- (void)updateDecorationViewsIfNeeded;
 - (id)viewForKey:(id)arg1 state:(int)arg2;
 - (id)viewForKey:(id)arg1;
 - (int)stateForKey:(id)arg1;
 - (void)setState:(int)arg1 forKey:(id)arg2;
 - (Class)classForKey:(id)arg1;
 - (id)containingViewForKey:(id)arg1 withState:(int)arg2;
-- (BOOL)keyIsMaskable:(id)arg1;
+- (int)cornerMaskForKey:(id)arg1 recursive:(BOOL)arg2;
 - (id)cacheIdentifierForKey:(id)arg1 withState:(int)arg2;
 - (id)cacheIdentifierForKey:(id)arg1;
 - (void)removeKeyFromDelayedDeactivationSet:(id)arg1;
@@ -47,6 +51,8 @@
 - (void)cancelDelayedDeactivation;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
+- (BOOL)_shouldDrawLowResBackground;
+@property(readonly, nonatomic) float cachedWidth;
 @property(readonly, nonatomic) BOOL cacheDeferable;
 - (void)displayLayer:(id)arg1;
 - (id)cacheKey;

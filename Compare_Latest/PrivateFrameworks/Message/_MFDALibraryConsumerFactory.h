@@ -16,10 +16,10 @@
     Message *_message;
 }
 
-- (id)dataConsumerForPart:(id)arg1;
-- (void)dealloc;
 @property(retain, nonatomic) Message *message; // @synthesize message=_message;
 @property(retain, nonatomic) MessageLibrary *library; // @synthesize library=_library;
+- (void)dealloc;
+- (id)dataConsumerForPart:(id)arg1;
 
 @end
 

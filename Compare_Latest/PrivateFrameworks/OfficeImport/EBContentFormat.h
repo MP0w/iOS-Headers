@@ -10,8 +10,10 @@
 {
 }
 
-+ (id)edContentFormatFromXlFormat:(struct XlFormat *)arg1 edResources:(id)arg2;
++ (struct XlDXfUserFmt *)xlDXfUserFmtFromEDContentFormat:(id)arg1 state:(id)arg2;
 + (id)edContentFormatFromXlDXfUserFmt:(struct XlDXfUserFmt *)arg1 edResources:(id)arg2;
++ (struct XlFormat *)xlFormatFromEDContentFormat:(id)arg1 state:(id)arg2;
++ (id)edContentFormatFromXlFormat:(struct XlFormat *)arg1 edResources:(id)arg2;
 
 @end
 

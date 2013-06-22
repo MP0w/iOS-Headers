@@ -6,76 +6,63 @@
 
 #import "UIViewController.h"
 
-@class NSURLRequest, QLPreviewController, QLPreviewConverter, QLProgressLayer, UIImage, UIImageView, UIView;
+@class NSString;
 
 @interface QLDisplayBundle : UIViewController
 {
-    UIView *_displayViewContainer;
-    UIView *_displayView;
-    QLPreviewController *_owner;
-    id _delegate;
+    id <QLPreviewItemInteractionDelegate> _delegate;
     id <QLPreviewItem> _previewItem;
-    NSURLRequest *_previewRequest;
-    int _index;
-    QLProgressLayer *_progressLayer;
-    BOOL _loadingProgressVisible;
+    BOOL _overlayHidden;
+    int _previewMode;
     BOOL _loaded;
-    UIImage *_swipeImage;
-    UIImageView *_swipeImageView;
-    QLPreviewConverter *_previewConverter;
-    BOOL _preloaded;
-    BOOL _preloading;
+    BOOL _loading;
+    NSString *_password;
+    CDStruct_6904a77d clientContext;
+    int _index;
 }
 
++ (BOOL)needsAVControls;
++ (int)backgroundTypeForUTI:(id)arg1 andMode:(int)arg2;
 + (id)backgroundColorForBackgroundType:(int)arg1;
-+ (BOOL)canComputeSwipeImage;
-+ (id)copySwipeImageOperation;
-+ (BOOL)canPreloadInThread;
-- (id)initWithPreviewItem:(id)arg1 owner:(id)arg2;
-- (void)dealloc;
-- (int)modalPresentationStyle;
-- (void)loadView;
-- (id)description;
-- (void)deactivate;
-@property(retain) id <QLPreviewItem> previewItem;
-@property(retain) NSURLRequest *previewRequest;
-- (void)_showLoadingProgress:(BOOL)arg1;
-@property(retain) UIView *displayView;
-- (void)startLoadWithHints:(id)arg1;
-- (void)startSlidingIn:(id)arg1;
-- (void)prepareForSlidingIn:(id)arg1;
-- (void)loadWithHints:(id)arg1;
-- (void)prepareForSlidingOut;
-- (void)prepareForZoomingOut;
-- (void)prepareForZoomingIn;
-- (void)cancelLoad;
-- (void)_notifyDidFailLoadingWithError:(id)arg1;
-- (void)didLoad;
-- (void)didFailLoadingWithError:(id)arg1;
-- (void)startTearDownUI;
-- (void)tearDownUI;
-- (void)overlayWillAppearAnimated:(BOOL)arg1;
-- (void)overlayWillDisappearAnimated:(BOOL)arg1;
-- (BOOL)hasCustomToolbar;
-- (int)backgroundType;
-- (BOOL)acceptControllerTouch:(id)arg1 fromGestureRecognizer:(id)arg2;
-- (BOOL)canPrint;
-- (id)printPageRenderer;
-- (id)pdfPreviewURL;
-- (void)preloadInThread;
-- (void)_addProgressUI;
-- (void)_removeProgressiveUI;
-- (void)_removeProgressiveUIAnimation:(id)arg1 finished:(id)arg2 context:(void *)arg3;
-- (void)_addSwipeImage;
-- (void)_removeSwipeImage;
-@property BOOL preloaded; // @synthesize preloaded=_preloaded;
-@property BOOL preloading; // @synthesize preloading=_preloading;
-@property(retain) UIImage *swipeImage; // @synthesize swipeImage=_swipeImage;
++ (double)allowedLoadingDelay;
 @property int index; // @synthesize index=_index;
+@property CDStruct_6904a77d clientContext; // @synthesize clientContext;
+@property BOOL loading; // @synthesize loading=_loading;
 @property BOOL loaded; // @synthesize loaded=_loaded;
-@property(retain) QLPreviewConverter *previewConverter; // @synthesize previewConverter=_previewConverter;
-@property id delegate; // @synthesize delegate=_delegate;
-@property QLPreviewController *owner; // @synthesize owner=_owner;
+@property id <QLPreviewItemInteractionDelegate> delegate; // @synthesize delegate=_delegate;
+- (BOOL)overlayOwnedByDisplayBundle;
+- (void)togglePlayState;
+- (void)endScrubbing;
+- (void)scrubToValue:(double)arg1;
+- (void)beginScrubbing;
+- (id)printPageHelper;
+- (id)printPageRenderer;
+- (id)pdfPreviewData;
+- (BOOL)canCopyToPasteboard;
+- (BOOL)acceptControllerTouch:(id)arg1 fromGestureRecognizer:(id)arg2;
+- (int)backgroundType;
+- (void)requiresDisplayBundle:(id)arg1 withHints:(id)arg2;
+- (void)didFailLoadingWithError:(id)arg1;
+- (void)didLoad;
+- (void)_notifyDidLoadWithError:(id)arg1;
+- (void)cancelLoad;
+- (void)_performCancelLoad;
+- (void)loadWithHints:(id)arg1;
+- (void)enterBackground;
+- (BOOL)overlayIsHidden;
+- (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
+@property int previewMode;
+@property(retain) NSString *password;
+@property(retain) id <QLPreviewItem> previewItem;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)cancelLoadIfNeeded;
+- (void)loadIfNeededWithHints:(id)arg1;
+- (id)description;
+- (int)modalPresentationStyle;
+- (void)didReceiveMemoryWarning;
+- (void)dealloc;
+- (id)init;
+- (BOOL)canBeCached;
 
 @end
 

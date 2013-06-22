@@ -13,14 +13,21 @@
 @interface UIBarItem : NSObject <UIAppearance>
 {
     BOOL _hasCustomizableInstanceAppearanceModifications;
+    BOOL _shouldArchiveUIAppearanceTags;
 }
 
++ (id)_appearanceRecorderWhenContainedIn:(Class)arg1;
 + (id)appearanceWhenContainedIn:(Class)arg1;
++ (id)_appearanceWhenContainedIn:(id)arg1;
++ (id)_appearanceRecorder;
 + (id)appearance;
 + (id)_appearanceProxyViewClasses;
+@property(nonatomic, setter=_setShouldArchiveUIAppearanceTags:) BOOL _shouldArchiveUIAppearanceTags; // @synthesize _shouldArchiveUIAppearanceTags;
 @property(nonatomic, setter=_setHasCustomizableInstanceAppearanceModifications:) BOOL _hasCustomizableInstanceAppearanceModifications; // @synthesize _hasCustomizableInstanceAppearanceModifications;
 - (id)titleTextAttributesForState:(unsigned int)arg1;
 - (void)setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 // Remaining properties
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @dynamic enabled;

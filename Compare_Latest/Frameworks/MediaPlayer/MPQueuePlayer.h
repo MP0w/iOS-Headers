@@ -6,34 +6,47 @@
 
 #import "NSObject.h"
 
-@class AVAudioSessionMediaPlayerOnly, AVPlayer, AVPlayerItem, AVQueuePlayer, NSArray, NSError, NSMutableArray;
+#import "MPAudioDeviceControllerDelegate-Protocol.h"
 
-@interface MPQueuePlayer : NSObject
+@class AVAudioSessionMediaPlayerOnly, AVPlayer, AVPlayerItem, AVQueuePlayer, MPAudioDeviceController, NSArray, NSDictionary, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+
+@interface MPQueuePlayer : NSObject <MPAudioDeviceControllerDelegate>
 {
+    MPAudioDeviceController *_audioDeviceController;
     AVPlayerItem *_currentItem;
     CDStruct_1b6d18a9 _currentTime;
     BOOL _isAirPlayVideoActive;
-    BOOL _pausedForPlaybackTransaction;
+    BOOL _pausedForPlaybackQueueTransaction;
+    NSDictionary *_pickedRouteDescription;
     id _playbackQueueCommitHandler;
     int _playbackQueueTransactionCount;
     AVQueuePlayer *_player;
     NSMutableArray *_queuedOperations;
+    NSObject<OS_dispatch_queue> *_queuedOperationsAccessQueue;
     float _rate;
     float _rateBeforePlaybackQueueTransaction;
+    BOOL _routeDidChangeDuringPlaybackQueueTransaction;
     int _status;
+    int _defaultItemEQPresetType;
+    BOOL _outputObscuredDueToInsufficientExternalProtection;
 }
 
+@property(nonatomic) int defaultItemEQPresetType; // @synthesize defaultItemEQPresetType=_defaultItemEQPresetType;
 @property(copy, nonatomic) id playbackQueueCommitHandler; // @synthesize playbackQueueCommitHandler=_playbackQueueCommitHandler;
+- (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
 - (float)_volume;
 - (void)_setWantsVolumeChangesWhenPausedOrInactive:(BOOL)arg1;
 - (void)_setVolume:(float)arg1;
 - (void)_setStoppingFadeOutDuration:(float)arg1;
 - (void)_setPreferredLanguageList:(id)arg1;
+@property(copy, nonatomic) NSString *externalPlaybackVideoGravity;
 - (void)_setEQPreset:(int)arg1;
+@property(nonatomic) BOOL disallowsAMRAudio;
 - (void)_setClientName:(id)arg1;
 - (void)_setCALayerDestinationIsTVOut:(BOOL)arg1;
 - (BOOL)_resumePlayback:(double)arg1 error:(id *)arg2;
 - (BOOL)_CALayerDestinationIsTVOut;
+@property(readonly, nonatomic) BOOL outputObscuredDueToInsufficientExternalProtection;
 @property(readonly, nonatomic) AVAudioSessionMediaPlayerOnly *playerAVAudioSession;
 @property(nonatomic) BOOL usesAirPlayVideoWhileAirPlayScreenIsActive;
 @property(readonly, nonatomic) int status;
@@ -62,7 +75,7 @@
 @property(readonly, nonatomic) BOOL isPlaybackQueueTransactionActive;
 - (void)beginPlaybackQueueTransactionAndPause:(BOOL)arg1;
 - (void)advanceToNextItem;
-- (id)addBoundaryTimeObserverForTimes:(id)arg1 queue:(struct dispatch_queue_s *)arg2 usingBlock:(id)arg3;
+- (id)addBoundaryTimeObserverForTimes:(id)arg1 queue:(id)arg2 usingBlock:(id)arg3;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)init;

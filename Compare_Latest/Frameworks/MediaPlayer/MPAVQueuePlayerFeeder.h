@@ -8,47 +8,55 @@
 
 #import "SSDownloadManagerObserver-Protocol.h"
 
-@class MPAVItem, MPDownloadManager, MPQueuePlayer, NSArray, NSMutableArray, NSMutableSet;
+@class MPAVItem, MPDownloadManager, MPQueuePlayer, NSArray, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>;
 
 @interface MPAVQueuePlayerFeeder : NSObject <SSDownloadManagerObserver>
 {
-    BOOL _forceSynchronousQueueFilling;
-    NSMutableArray *_items;
+    unsigned int _desiredQueueDepth;
     MPDownloadManager *_downloadManager;
+    BOOL _forceSynchronousQueueFilling;
     BOOL _fillQueueActive;
+    NSMutableArray *_items;
+    BOOL _managesSystemDownloads;
+    unsigned int _maxQueueDepth;
+    unsigned int _minQueueDepth;
     int _nextFillQueueToken;
     NSMutableSet *_pausedDownloads;
+    NSObject<OS_dispatch_queue> *_pausedDownloadsQueue;
     MPQueuePlayer *_player;
-    struct dispatch_queue_s *_playerQueue;
+    NSObject<OS_dispatch_queue> *_playerQueue;
     id <MPAVQueuePlayerFeederSource> _playlistItemSource;
     NSMutableSet *_reusableItems;
-    int _desiredQueueDepth;
 }
 
+@property(nonatomic) BOOL managesSystemDownloads; // @synthesize managesSystemDownloads=_managesSystemDownloads;
+@property(nonatomic) unsigned int minQueueDepth; // @synthesize minQueueDepth=_minQueueDepth;
+@property(nonatomic) unsigned int maxQueueDepth; // @synthesize maxQueueDepth=_maxQueueDepth;
 @property(nonatomic) BOOL forceSynchronousQueueFilling; // @synthesize forceSynchronousQueueFilling=_forceSynchronousQueueFilling;
-@property(nonatomic) int desiredQueueDepth; // @synthesize desiredQueueDepth=_desiredQueueDepth;
 - (void)_updateQueueDepthForRateChange;
 - (void)_updatePlayerQueueWithRemovedItems:(id)arg1 addedItems:(id)arg2 removeCurrentItem:(BOOL)arg3;
 - (void)_removeInvalidItems:(id)arg1;
+- (void)_reloadQueueKeepingCurrentItem:(BOOL)arg1 allowReusingItems:(BOOL)arg2;
 - (void)_pauseOrResumeDownloads:(id)arg1 currentDownloadID:(long long)arg2;
-- (void)invalidate;
-- (void)advanceToNextItem;
-- (void)reloadQueueKeepingCurrentItem:(BOOL)arg1;
-- (void)cancelReusableItemsPassingTest:(id)arg1;
-- (id)acquireReusableItemsUsingBlock:(id)arg1;
 - (void)_markIsReusable:(BOOL)arg1 item:(id)arg2;
+- (void)reloadQueueKeepingCurrentItem:(BOOL)arg1;
+- (void)invalidate;
+- (void)cancelReusableItemsPassingTest:(id)arg1;
+- (void)advanceToNextItem;
+- (id)acquireReusableItemsUsingBlock:(id)arg1;
 @property(readonly, nonatomic) NSArray *items;
 @property(readonly, nonatomic) MPAVItem *currentItem;
+- (void)_effectiveNetworkTypeDidChangeNotification:(id)arg1;
 - (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
+- (void)_removeCurrentItem;
 - (id)_fillInQueueWithExtraSpace:(int)arg1 ignoreExistingItems:(BOOL)arg2 removeCurrentItem:(BOOL)arg3;
 - (id)_fillInQueueWithExtraSpace:(int)arg1 ignoreExistingItems:(BOOL)arg2;
 - (id)_fillInQueueWithExtraSpace:(int)arg1;
 - (void)_fillInQueue;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)_removeCurrentItem;
 - (id)description;
 - (void)dealloc;
-- (id)initWithAVQueuePlayer:(id)arg1 itemSource:(id)arg2;
+- (id)initWithMPQueuePlayer:(id)arg1 itemSource:(id)arg2;
 
 @end
 

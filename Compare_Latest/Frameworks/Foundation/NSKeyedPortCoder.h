@@ -33,7 +33,6 @@
 - (void *)decodeBytesWithReturnedLength:(unsigned int *)arg1;
 - (id)decodePortObject;
 - (id)decodeDataObject;
-- (void)_walkAndDecodeDataWithType:(const char *)arg1 at:(char *)arg2 chase:(BOOL)arg3 invocation:(id)arg4 inStructure:(BOOL)arg5;
 - (id)_decodeObjectNoKey;
 - (void)encodeBytes:(const void *)arg1 length:(unsigned int)arg2;
 - (void)encodeConditionalObject:(id)arg1;
@@ -43,11 +42,10 @@
 - (void)encodeValueOfObjCType:(const char *)arg1 at:(const void *)arg2;
 - (void)encodePortObject:(id)arg1;
 - (void)encodeDataObject:(id)arg1;
-- (void)_walkAndEncodeDataWithType:(const char *)arg1 at:(char *)arg2 chase:(BOOL)arg3;
 - (void)_encodeObjectNoKey:(id)arg1;
+- (void)_setByref:(BOOL)arg1;
+- (void)_setBycopy:(BOOL)arg1;
 - (int)versionForClassName:(id)arg1;
-- (void)_walkDataStructureType:(const char *)arg1 originalType:(const char *)arg2 at:(char *)arg3 chase:(BOOL)arg4 encode:(BOOL)arg5 invocation:(id)arg6;
-- (const char *)_skipAttributesOfType:(const char *)arg1;
 - (id)decodePortObjectForKey:(id)arg1;
 - (id)decodeDataObjectForKey:(id)arg1;
 - (id)_getOutOfLineObjectForKey:(id)arg1;

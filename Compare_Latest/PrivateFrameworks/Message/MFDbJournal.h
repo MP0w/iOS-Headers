@@ -11,21 +11,22 @@
 @interface MFDbJournal : NSObject
 {
     NSString *_path;
-    struct _opaque_pthread_mutex_t _lock;
+    struct _opaque_pthread_mutex_t {
+        long __sig;
+        char __opaque[40];
+    } _lock;
     int _fd;
     NSMutableData *_buffer;
 }
 
-+ (id)sharedInstance;
-- (id)initWithPath:(id)arg1;
-- (void)dealloc;
-- (void)_resetBuffer;
-- (BOOL)append:(const char *)arg1;
-- (BOOL)flush;
-- (void)clear;
-- (BOOL)_processJournalFile:(id)arg1 db:(struct sqlite3 *)arg2;
 - (BOOL)mergeWithDatabase:(struct sqlite3 *)arg1;
-- (void)moveOrDeleteFile;
+- (BOOL)_processJournalFile:(id)arg1 db:(struct sqlite3 *)arg2;
+- (void)clear;
+- (BOOL)flush;
+- (BOOL)append:(const char *)arg1;
+- (void)_resetBuffer;
+- (void)dealloc;
+- (id)initWithPath:(id)arg1;
 
 @end
 

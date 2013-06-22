@@ -8,20 +8,28 @@
 
 #import <GameKit/GKTableSection-Protocol.h>
 
+@class NSIndexSet, NSString;
+
 @interface GKEmptyTableSection : NSObject <GKTableSection>
 {
+    BOOL _needsRedisplay;
 }
 
-+ (id)sharedEmptySection;
-- (float)sectionHeaderHeightInTableView:(id)arg1;
-- (float)sectionFooterHeightInTableView:(id)arg1;
++ (id)emptySection;
+@property(nonatomic) BOOL needsRedisplay; // @synthesize needsRedisplay=_needsRedisplay;
+- (CDStruct_70ce6416)currentMetricsInTableView:(id)arg1;
+- (float)heightForHeaderInTableView:(id)arg1;
+- (float)heightForFooterInTableView:(id)arg1;
 - (id)tableView:(id)arg1 prepareContents:(id)arg2 forCell:(id)arg3 atIndexPath:(id)arg4;
 - (id)tableView:(id)arg1 reuseIdentifierForRow:(int)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (int)sectionRowCountInTableView:(id)arg1;
+- (int)rowCountInTableView:(id)arg1;
 
 // Remaining properties
-@property(nonatomic, getter=isLoading) BOOL loading;
+@property(retain, nonatomic) NSString *abbreviatedTitle;
+@property(retain, nonatomic) NSIndexSet *indexesOfRowsWithLoadedData;
+@property(retain, nonatomic) NSString *secondaryTitle;
+@property(retain, nonatomic) NSString *title;
 
 @end
 

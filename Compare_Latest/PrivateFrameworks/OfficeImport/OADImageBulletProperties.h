@@ -13,10 +13,10 @@
     OADBlipRef *mImage;
 }
 
-- (id)initWithBlipRef:(id)arg1;
-- (void)dealloc;
-- (id)image;
 - (BOOL)isEqual:(id)arg1;
+- (id)image;
+- (void)dealloc;
+- (id)initWithBlipRef:(id)arg1;
 
 @end
 

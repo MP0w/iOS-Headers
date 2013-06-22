@@ -36,6 +36,7 @@
 @property(copy, nonatomic) NSString *customLockSliderLabel; // @dynamic customLockSliderLabel;
 @property(copy, nonatomic) NSDate *fireDate; // @dynamic fireDate;
 @property(nonatomic) BOOL fireNotificationsWhenAppRunning; // @dynamic fireNotificationsWhenAppRunning;
+@property(copy, nonatomic) NSString *firedNotificationName; // @dynamic firedNotificationName;
 @property(nonatomic) BOOL hasAction; // @dynamic hasAction;
 @property(nonatomic) BOOL hideAlertTitle; // @dynamic hideAlertTitle;
 @property(nonatomic) BOOL interruptAudioAndLockDevice; // @dynamic interruptAudioAndLockDevice;
@@ -45,8 +46,9 @@
 @property(nonatomic) unsigned int repeatInterval; // @dynamic repeatInterval;
 @property(nonatomic) BOOL resumeApplicationInBackground; // @dynamic resumeApplicationInBackground;
 @property(nonatomic) BOOL showAlarmStatusBarItem; // @dynamic showAlarmStatusBarItem;
+@property(copy, nonatomic) NSString *snoozedNotificationName; // @dynamic snoozedNotificationName;
 @property(copy, nonatomic) NSString *soundName; // @dynamic soundName;
-@property(nonatomic) BOOL soundNameIsARingtone; // @dynamic soundNameIsARingtone;
+@property(nonatomic) int soundType; // @dynamic soundType;
 @property(copy, nonatomic) NSTimeZone *timeZone; // @dynamic timeZone;
 @property(nonatomic) int totalRepeatCount; // @dynamic totalRepeatCount;
 @property(copy, nonatomic) NSDictionary *userInfo; // @dynamic userInfo;

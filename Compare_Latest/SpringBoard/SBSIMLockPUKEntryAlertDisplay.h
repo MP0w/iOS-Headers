@@ -15,14 +15,14 @@
     NSString *_newPIN;
 }
 
-- (void)dealloc;
-- (id)_pukAttemptsRemainingLabel;
-- (void)setupSuccess;
-- (id)titleText;
-- (void)setupFailureState;
-- (id)label;
-- (void)_attemptPUKUnlock;
 - (void)unlock;
+- (void)_attemptPUKUnlock;
+- (id)label;
+- (void)setupFailureState;
+- (id)titleText;
+- (void)setupSuccess;
+- (id)_pukAttemptsRemainingLabel;
+- (void)dealloc;
 
 @end
 

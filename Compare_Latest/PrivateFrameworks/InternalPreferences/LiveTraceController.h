@@ -14,14 +14,14 @@
     NSString *_enabledTrigger;
 }
 
-- (id)tracingEnabled:(id)arg1;
-- (void)updateEnabled;
-- (void)updateDefaults;
-- (void)setTracingEnabled:(id)arg1 specifier:(id)arg2;
-- (id)specifiers;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (id)specifiers;
+- (void)setTracingEnabled:(id)arg1 specifier:(id)arg2;
+- (void)updateDefaults;
+- (void)updateEnabled;
+- (id)tracingEnabled:(id)arg1;
 
 @end
 

@@ -8,12 +8,11 @@
 
 #import "UITextInput-Protocol.h"
 #import <UIKit/UITextInputTraits-Protocol.h>
-#import "UITextSelectingContainer-Protocol.h"
-#import <UIKit/UITextSelection-Protocol.h>
+#import "UITextLinkInteraction-Protocol.h"
 
-@class DOMHTMLElement, NSDictionary, NSString, UIColor, UIDelayedAction, UIFont, UIResponder<UITextSelection>, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSelectionView, UIView<UITextSelectingContent>, UIWebDocumentView, WebFrame;
+@class DOMHTMLElement, NSAttributedString, NSDictionary, NSString, UIColor, UIDelayedAction, UIFont, UITextInteractionAssistant, UITextPosition, UITextRange, UIWebDocumentView, WebFrame;
 
-@interface UITextContentView : UIView <UITextInput, UITextSelection, UITextSelectingContainer, UITextInputTraits>
+@interface UITextContentView : UIView <UITextInput, UITextLinkInteraction, UITextInputTraits>
 {
     id m_delegate;
     WebFrame *m_frame;
@@ -29,8 +28,9 @@
     BOOL m_reentrancyGuard;
     BOOL m_scrollsSelectionOnWebDocumentChanges;
     BOOL m_hasExplicitTextAlignment;
+    BOOL m_allowsEditingTextAttributes;
+    BOOL m_usesAttributedText;
     UITextInteractionAssistant *m_interactionAssistant;
-    UITextSelectionView *m_selectionView;
     UIWebDocumentView *m_webView;
     UIFont *m_font;
     UIColor *m_textColor;
@@ -39,8 +39,8 @@
 
 @property(nonatomic) BOOL scrollsSelectionOnWebDocumentChanges; // @synthesize scrollsSelectionOnWebDocumentChanges=m_scrollsSelectionOnWebDocumentChanges;
 @property(nonatomic) struct UIEdgeInsets selectionInset; // @synthesize selectionInset=m_selectionInset;
-- (id)rectsForRange:(id)arg1;
-@property(nonatomic) int selectionGranularity;
+- (void)setSelectionGranularity:(int)arg1;
+- (int)selectionGranularity;
 - (id)_findWebViewWordBoundaryFromPosition:(id)arg1;
 @property(nonatomic) int selectionAffinity;
 - (id)characterRangeAtPoint:(struct CGPoint)arg1;
@@ -75,7 +75,7 @@
 - (void)insertDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
 - (void)insertText:(id)arg1;
 - (void)deleteBackward;
-@property(readonly, nonatomic) UIResponder<UITextSelection> *textDocument;
+- (id)_proxyTextInput;
 - (void)setScrollerIndicatorSubrect:(struct CGRect)arg1;
 - (void)setAllowsFourWayRubberBanding:(BOOL)arg1;
 - (BOOL)scrollingEnabled;
@@ -102,6 +102,7 @@
 - (void)updateInteractionWithLinkAtPoint:(struct CGPoint)arg1;
 - (void)startInteractionWithLinkAtPoint:(struct CGPoint)arg1;
 - (void)tapLinkAtPoint:(struct CGPoint)arg1;
+- (unsigned int)_allowedLinkTypes;
 - (BOOL)mightHaveLinks;
 - (void)setDataDetectorTypes:(unsigned int)arg1;
 - (unsigned int)dataDetectorTypes;
@@ -126,10 +127,15 @@
 - (BOOL)hasText;
 @property(retain, nonatomic) UIColor *textColor;
 @property(retain, nonatomic) UIFont *font;
-- (void)setRichText:(BOOL)arg1;
+@property(copy, nonatomic) NSAttributedString *attributedText;
+- (void)_removeTextViewPropertiesFromText:(id)arg1;
+- (void)_removeAttribute:(id)arg1 fromString:(id)arg2 andSetPropertyWith:(SEL)arg3 usingValueClass:(Class)arg4;
+@property(nonatomic) BOOL allowsEditingTextAttributes;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (id)textInputTraits;
+- (id)contentAsAttributedString;
+- (void)setContentToAttributedString:(id)arg1;
 - (id)contentAsHTMLString;
 - (void)setContentToHTMLString:(id)arg1;
 - (struct CGRect)rectForScrollToVisible;
@@ -153,9 +159,10 @@
 - (void)selectAll;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)_showTextStyleOptions:(id)arg1;
-- (void)_underline:(id)arg1;
-- (void)_italicize:(id)arg1;
-- (void)_bold:(id)arg1;
+- (void)toggleUnderline:(id)arg1;
+- (void)toggleItalics:(id)arg1;
+- (void)toggleBoldface:(id)arg1;
+- (void)_addShortcut:(id)arg1;
 - (void)_define:(id)arg1;
 - (void)_promptForReplace:(id)arg1;
 - (void)replace:(id)arg1;
@@ -181,21 +188,15 @@
 - (struct CGRect)closestCaretRectInMarkedTextRangeForPoint:(struct CGPoint)arg1;
 - (id)selectedText;
 - (id)selectionRectsForRange:(id)arg1;
-- (struct CGRect)selectionClipRect;
 - (struct CGRect)caretRectForVisiblePosition:(id)arg1;
-@property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant;
-@property(readonly, nonatomic) UITextSelectionView *selectionView;
-- (BOOL)caretBlinks;
-- (void)setCaretBlinks:(BOOL)arg1;
-- (BOOL)selectionVisible;
-- (void)setSelectionVisible:(BOOL)arg1;
+- (id)interactionAssistant;
+- (id)selectionView;
 - (void)cancelAutoscroll;
 - (void)startAutoscroll:(struct CGPoint)arg1;
 - (BOOL)hasSelection;
 - (void)endSelectionChange;
 - (void)updateSelection;
 - (void)beginSelectionChange;
-@property(readonly, nonatomic) UIView<UITextSelectingContent> *content;
 - (void)_scrollViewDidEndDecelerating;
 - (void)_scrollViewDidEndDraggingWithDeceleration:(BOOL)arg1;
 - (void)_scrollViewWillBeginDragging;
@@ -220,8 +221,6 @@
 - (void)keyboardDidShow:(id)arg1;
 - (void)registerForEditingDelegateNotification:(id)arg1 selector:(SEL)arg2;
 @property(nonatomic) id <UITextContentViewDelegate> delegate; // @dynamic delegate;
-- (void)detachInteractionAssistant;
-- (void)detachSelectionView;
 - (void)removeFromSuperview;
 - (void)dealloc;
 - (void)commonInitWithWebDocumentView:(id)arg1 isDecoding:(BOOL)arg2;
@@ -231,6 +230,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 webView:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)_automationValue;
 
 // Remaining properties
 @property(nonatomic) int autocapitalizationType; // @dynamic autocapitalizationType;

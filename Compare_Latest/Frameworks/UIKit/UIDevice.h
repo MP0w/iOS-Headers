@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSString, NSUUID;
 
 @interface UIDevice : NSObject
 {
@@ -24,6 +24,7 @@
 
 + (id)currentDevice;
 + (int)currentDeviceOrientationAllowingAmbiguous:(BOOL)arg1;
++ (id)modelSpecificLocalizedStringKeyForKey:(id)arg1;
 - (void)_playSystemSound:(unsigned long)arg1;
 - (void)_unregisterForSystemSounds:(id)arg1;
 - (void)_registerForSystemSounds:(id)arg1;
@@ -43,16 +44,24 @@
 - (void)endGeneratingDeviceOrientationNotifications;
 - (void)beginGeneratingDeviceOrientationNotifications;
 @property(readonly, nonatomic) int orientation;
-- (void)setOrientation:(int)arg1;
 - (void)setOrientation:(int)arg1 animated:(BOOL)arg2;
+@property(readonly, nonatomic) NSUUID *identifierForVendor;
 @property(readonly, nonatomic) NSString *uniqueIdentifier;
-- (id)buildVersion;
+@property(readonly, nonatomic) NSString *buildVersion;
 @property(readonly, nonatomic) NSString *systemVersion;
 @property(readonly, nonatomic) NSString *systemName;
 @property(readonly, nonatomic) NSString *localizedModel;
 @property(readonly, nonatomic) NSString *model;
 @property(readonly, nonatomic) NSString *name;
 - (id)deviceInfoForKey:(struct __CFString *)arg1;
+- (void)_enableDeviceOrientationEvents:(BOOL)arg1;
+- (void)_setActiveUserInterfaceIdiom:(int)arg1;
+- (void)setIsWildcat:(BOOL)arg1;
+- (BOOL)isWildcat;
+- (BOOL)_isTTYEnabled;
+- (void)_setBatteryLevel:(float)arg1;
+- (void)_setBatteryState:(int)arg1;
+- (void)_setProximityState:(BOOL)arg1;
 
 @end
 

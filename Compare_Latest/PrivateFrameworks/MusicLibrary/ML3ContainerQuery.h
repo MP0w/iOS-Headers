@@ -14,16 +14,18 @@
     ML3Container *_container;
 }
 
-+ (id)directionalityArrayForCount:(unsigned int)arg1 isDescending:(BOOL)arg2;
 @property(readonly) ML3Container *container; // @synthesize container=_container;
+- (void).cxx_destruct;
 - (id)selectPersistentIDsSQLAndProperties:(id)arg1 ordered:(BOOL)arg2;
+- (unsigned int)countOfEntities;
+- (unsigned int)countOfDistinctRowsForColumn:(id)arg1;
+- (BOOL)hasEntities;
 @property(readonly) NSArray *limitedPersistentIDs;
 - (id)selectLimitingSQL;
-- (BOOL)requiresSmartLimiting;
+@property(readonly) BOOL requiresSmartLimiting;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
-- (id)initWithEntityClass:(Class)arg1 container:(id)arg2 predicate:(id)arg3 orderingProperties:(id)arg4;
+- (id)initWithEntityClass:(Class)arg1 container:(id)arg2 predicate:(id)arg3 orderingTerms:(id)arg4;
 
 @end
 

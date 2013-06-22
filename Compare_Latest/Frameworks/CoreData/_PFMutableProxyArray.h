@@ -19,32 +19,32 @@
     struct __CFArray *_indicesVeneer;
 }
 
-- (id)initWithPFArray:(id)arg1 inRange:(struct _NSRange)arg2;
-- (id)initWithPFArray:(id)arg1;
-- (id)subarrayWithRange:(struct _NSRange)arg1;
-- (void)dealloc;
-- (void)finalize;
-- (id)retain;
-- (oneway void)release;
-- (unsigned int)retainCount;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
-- (unsigned int)count;
-- (void)_rehash;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (id)managedObjectIDAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfObject:(id)arg1;
-- (unsigned int)indexOfObject:(id)arg1 inRange:(struct _NSRange)arg2;
-- (unsigned int)indexOfObjectIdenticalTo:(id)arg1;
-- (unsigned int)indexOfObjectIdenticalTo:(id)arg1 inRange:(struct _NSRange)arg2;
-- (unsigned int)indexOfManagedObjectForObjectID:(id)arg1;
-- (id)arrayFromObjectIDs;
-- (id)newArrayFromObjectIDs;
-- (void)addObject:(id)arg1;
-- (void)removeLastObject;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
 - (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
+- (void)removeObjectAtIndex:(unsigned int)arg1;
+- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)removeLastObject;
+- (void)addObject:(id)arg1;
+- (id)newArrayFromObjectIDs;
+- (id)arrayFromObjectIDs;
+- (unsigned int)indexOfManagedObjectForObjectID:(id)arg1;
+- (unsigned int)indexOfObjectIdenticalTo:(id)arg1 inRange:(struct _NSRange)arg2;
+- (unsigned int)indexOfObjectIdenticalTo:(id)arg1;
+- (unsigned int)indexOfObject:(id)arg1 inRange:(struct _NSRange)arg2;
+- (unsigned int)indexOfObject:(id)arg1;
+- (id)managedObjectIDAtIndex:(unsigned int)arg1;
+- (id)objectAtIndex:(unsigned int)arg1;
+- (void)_rehash;
+- (unsigned int)count;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
+- (unsigned int)retainCount;
+- (oneway void)release;
+- (id)retain;
+- (void)finalize;
+- (void)dealloc;
+- (id)subarrayWithRange:(struct _NSRange)arg1;
+- (id)initWithPFArray:(id)arg1;
+- (id)initWithPFArray:(id)arg1 inRange:(struct _NSRange)arg2;
 
 @end
 

@@ -14,21 +14,22 @@
     unsigned int _type:1;
 }
 
-+ (struct CGSize)defaultSizeForType:(int)arg1;
 + (float)defaultVerticalCenteringOffset;
-- (id)initWithFrame:(struct CGRect)arg1 type:(int)arg2;
-- (id)initTopForIncomingCallWaiting;
-- (id)initTopForTTY;
-- (id)initBottomForIncomingCallWaiting;
-- (id)initBottomForSecondIncomingCallWaiting;
-- (id)initBottomForTTYWithTitle:(id)arg1;
-- (void)dealloc;
-- (void)addTarget:(id)arg1 action:(SEL)arg2 forControlEvents:(unsigned int)arg3;
-- (void)removeTarget:(id)arg1 forControlEvents:(unsigned int)arg2;
-- (void)addTarget:(id)arg1 action:(SEL)arg2 forEvents:(int)arg3;
-- (void)removeTarget:(id)arg1 forEvents:(int)arg2;
-- (void)setEnabled:(BOOL)arg1;
++ (struct CGSize)defaultSizeForType:(int)arg1;
++ (id)_buttonForType:(int)arg1;
 - (BOOL)isEnabled;
+- (void)setEnabled:(BOOL)arg1;
+- (void)removeTarget:(id)arg1 forEvents:(int)arg2;
+- (void)addTarget:(id)arg1 action:(SEL)arg2 forEvents:(int)arg3;
+- (void)removeTarget:(id)arg1 forControlEvents:(unsigned int)arg2;
+- (void)addTarget:(id)arg1 action:(SEL)arg2 forControlEvents:(unsigned int)arg3;
+- (void)dealloc;
+- (id)initBottomForTTYWithTitle:(id)arg1;
+- (id)initBottomForSecondIncomingCallWaiting;
+- (id)initBottomForIncomingCallWaiting;
+- (id)initTopForTTY;
+- (id)initTopForIncomingCallWaiting;
+- (id)initWithFrame:(struct CGRect)arg1 type:(int)arg2;
 
 @end
 

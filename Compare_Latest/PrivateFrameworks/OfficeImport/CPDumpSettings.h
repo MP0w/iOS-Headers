@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)setDumpForQA:(BOOL)arg1;
 + (BOOL)isDumpForQA;
++ (void)setDumpForQA:(BOOL)arg1;
 
 @end
 

@@ -15,6 +15,7 @@
 }
 
 + (id)relations;
++ (id)defaultPropertiesToLoad;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)alarmOwner;

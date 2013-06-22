@@ -13,17 +13,10 @@
 }
 
 + (void)initialize;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-- (void)_setMediaTypes:(id)arg1;
-- (void)_setPrompt:(id)arg1;
-- (void)_setAllowsPickingMultipleItems:(BOOL)arg1;
-- (id)_copyPrompt;
-- (id)_copyMediaTypes;
-- (BOOL)_allowsPickingMultipleItems;
 @property(retain) NSString *prompt;
-- (void)setMediaTypes:(id)arg1;
 @property BOOL allowsPickingMultipleItems;
 @property(readonly) NSArray *mediaTypes;
 - (id)_className;

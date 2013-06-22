@@ -6,14 +6,18 @@
 
 #import "NSObject.h"
 
+#import "SSXPCCoding-Protocol.h"
+
 @class NSDictionary, NSString;
 
-@interface SSRemoteNotification : NSObject
+@interface SSRemoteNotification : NSObject <SSXPCCoding>
 {
     NSDictionary *_userInfo;
 }
 
 - (id)_valueForAlertKey:(id)arg1;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 @property(readonly, nonatomic) NSDictionary *notificationUserInfo;
 - (id)valueForKey:(id)arg1;
 @property(readonly, nonatomic) NSString *soundFileName;

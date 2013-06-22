@@ -11,21 +11,19 @@
 @interface CKMessageEncodingInfo : NSObject
 {
     NSMutableString *_mutableText;
-    BOOL _isTextOnly;
     BOOL _infoCalculated;
     int _characterCountNumerator;
     int _characterCountDenominator;
 }
 
-- (id)initWithContentsOfComposition:(id)arg1;
-- (void)dealloc;
-@property(nonatomic) int characterCountNumerator; // @synthesize characterCountNumerator=_characterCountNumerator;
-@property(nonatomic) int characterCountDenominator; // @synthesize characterCountDenominator=_characterCountDenominator;
-- (void)calculateInfo;
-- (void)_calculateInfoIfNecessary;
-- (void)updateByReloadingFromComposition:(id)arg1 replacementRange:(struct _NSRange)arg2 replacementText:(id)arg3;
-@property(nonatomic) BOOL isTextOnly; // @synthesize isTextOnly=_isTextOnly;
 @property(nonatomic) BOOL infoCalculated; // @synthesize infoCalculated=_infoCalculated;
+@property(nonatomic) int characterCountDenominator; // @synthesize characterCountDenominator=_characterCountDenominator;
+@property(nonatomic) int characterCountNumerator; // @synthesize characterCountNumerator=_characterCountNumerator;
+- (void)updateByReloadingFromComposition:(id)arg1 replacementRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (void)_calculateInfoIfNecessary;
+- (void)calculateInfo;
+- (void)dealloc;
+- (id)initWithContentsOfComposition:(id)arg1;
 
 @end
 

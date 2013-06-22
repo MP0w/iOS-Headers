@@ -18,10 +18,11 @@
     int _comparedToNow;
 }
 
-- (void)setTimeZoneRelativeStartDate:(id)arg1 absoluteStartDate:(id)arg2;
-- (void)dealloc;
-- (id)constructLabelString;
 - (void)timerFiredWithValue:(unsigned int)arg1 forResolution:(int)arg2 comparedToNow:(int)arg3;
+- (id)constructLabelString;
+- (void)prepareForReuse;
+- (void)dealloc;
+- (void)setTimeZoneRelativeStartDate:(id)arg1 absoluteStartDate:(id)arg2;
 
 @end
 

@@ -14,11 +14,11 @@
     NSTimer *_progressTimer;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)_resetStarted:(id)arg1;
-- (void)_resetFinished:(id)arg1;
 - (void)_updateProgress;
+- (void)_resetFinished:(id)arg1;
+- (void)_resetStarted:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -6,12 +6,13 @@
 
 #import <iTunesStoreUI/SUTableDataSource.h>
 
-@class NSMutableArray, SUItem, SUStructuredPage;
+@class NSMutableArray, SUClientInterface, SUItem, SUStructuredPage;
 
 @interface SUStructuredPageTableDataSource : SUTableDataSource
 {
     SUItem *_activeLoadMoreItem;
     NSMutableArray *_cachedHeaderViews;
+    SUClientInterface *_clientInterface;
     float _offerButtonWidth;
     SUStructuredPage *_structuredPage;
     int _style;
@@ -19,6 +20,7 @@
 
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) SUStructuredPage *structuredPage; // @synthesize structuredPage=_structuredPage;
+@property(retain, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 @property(retain, nonatomic) SUItem *activeLoadMoreItem; // @synthesize activeLoadMoreItem=_activeLoadMoreItem;
 - (BOOL)_shouldShowItemOfferButtonForItem:(id)arg1;
 - (id)_itemOfferButtonForCell:(id)arg1 item:(id)arg2;

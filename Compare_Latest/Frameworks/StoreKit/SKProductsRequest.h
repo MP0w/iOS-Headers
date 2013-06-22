@@ -11,9 +11,8 @@
     id _productsRequestInternal;
 }
 
-- (id)_newResponseFromDictionary:(id)arg1;
-- (void)issueRequestForIdentifier:(id)arg1;
-- (BOOL)handleFinishResponse:(id)arg1 returningError:(id *)arg2;
+- (void)_sendXPCMessage;
+- (void)_handleReply:(id)arg1;
 - (void)dealloc;
 - (id)initWithProductIdentifiers:(id)arg1;
 - (id)init;

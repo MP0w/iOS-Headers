@@ -10,16 +10,16 @@
 {
 }
 
-+ (void)initialize;
-+ (id)statistics;
-+ (void)empty;
-+ (void)emptyInMemoryResources;
-+ (void)sizeOfDeadResources:(int *)arg1;
-+ (void)clearCachedCredentials;
-+ (_Bool)addImageToCache:(struct CGImage *)arg1 forURL:(id)arg2;
-+ (void)removeImageFromCacheForURL:(id)arg1;
-+ (void)setDisabled:(BOOL)arg1;
 + (BOOL)isDisabled;
++ (void)setDisabled:(BOOL)arg1;
++ (void)removeImageFromCacheForURL:(id)arg1;
++ (_Bool)addImageToCache:(struct CGImage *)arg1 forURL:(id)arg2;
++ (void)clearCachedCredentials;
++ (void)sizeOfDeadResources:(int *)arg1;
++ (void)emptyInMemoryResources;
++ (void)empty;
++ (id)statistics;
++ (void)initialize;
 
 @end
 

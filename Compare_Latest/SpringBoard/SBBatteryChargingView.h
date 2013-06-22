@@ -6,13 +6,13 @@
 
 #import "UIView.h"
 
-@class UIImage, UIImageView, UILabel;
+@class SBBatteryReflectionView, UIImage, UIImageView, UILabel;
 
 @interface SBBatteryChargingView : UIView
 {
     int _type;
     UIImageView *_topBatteryView;
-    UIImageView *_bottomBatteryView;
+    SBBatteryReflectionView *_bottomBatteryView;
     UIImage *_lastBatteryImage;
     UILabel *_percentLabel;
     int _lastBatteryIndex;
@@ -20,15 +20,15 @@
     unsigned int _showReflection:1;
 }
 
-+ (struct CGSize)defaultSizeForType:(int)arg1;
-+ (float)batteryHeightForType:(int)arg1;
 + (int)redChargeIndexForType:(int)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 type:(int)arg2;
-- (void)dealloc;
-- (void)setShowsReflection:(BOOL)arg1;
-- (int)_currentBatteryIndex;
-- (id)_imageFormatString;
++ (float)batteryHeightForType:(int)arg1;
++ (struct CGSize)defaultSizeForType:(int)arg1;
 - (void)_batteryStatusChanged:(id)arg1;
+- (id)_imageFormatString;
+- (int)_currentBatteryIndex;
+- (void)setShowsReflection:(BOOL)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 type:(int)arg2;
 
 @end
 

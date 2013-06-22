@@ -19,32 +19,32 @@
     struct CGRect *_pageRects;
 }
 
-+ (id)supportedMIMETypes;
-+ (struct CGColor *)shadowColor;
-+ (struct CGColor *)backgroundColor;
 + (Class)_representationClassForWebFrame:(id)arg1;
-- (void)dealloc;
-- (void)drawPage:(struct CGPDFPage *)arg1;
-- (id)_pagesInRect:(struct CGRect)arg1;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)setDataSource:(id)arg1;
-- (void)dataSourceUpdated:(id)arg1;
-- (void)setNeedsLayout:(BOOL)arg1;
-- (void)layout;
-- (void)viewWillMoveToHostWindow:(id)arg1;
-- (void)viewDidMoveToHostWindow;
-- (void)receivedData:(id)arg1 withDataSource:(id)arg2;
-- (void)receivedError:(id)arg1 withDataSource:(id)arg2;
-- (void)_computePageRects;
-- (void)_checkPDFTitle;
-- (void)finishedLoadingWithDataSource:(id)arg1;
-- (BOOL)canProvideDocumentSource;
-- (id)documentSource;
-- (id)title;
-- (unsigned int)pageNumberForRect:(struct CGRect)arg1;
-- (unsigned int)totalPages;
-- (struct CGPDFDocument *)doc;
++ (struct CGColor *)backgroundColor;
++ (struct CGColor *)shadowColor;
++ (id)supportedMIMETypes;
 - (struct CGRect)rectForPageNumber:(unsigned int)arg1;
+- (struct CGPDFDocument *)doc;
+- (unsigned int)totalPages;
+- (unsigned int)pageNumberForRect:(struct CGRect)arg1;
+- (id)title;
+- (id)documentSource;
+- (BOOL)canProvideDocumentSource;
+- (void)finishedLoadingWithDataSource:(id)arg1;
+- (void)_checkPDFTitle;
+- (void)_computePageRects;
+- (void)receivedError:(id)arg1 withDataSource:(id)arg2;
+- (void)receivedData:(id)arg1 withDataSource:(id)arg2;
+- (void)viewDidMoveToHostWindow;
+- (void)viewWillMoveToHostWindow:(id)arg1;
+- (void)layout;
+- (void)setNeedsLayout:(BOOL)arg1;
+- (void)dataSourceUpdated:(id)arg1;
+- (void)setDataSource:(id)arg1;
+- (void)drawRect:(struct CGRect)arg1;
+- (id)_pagesInRect:(struct CGRect)arg1;
+- (void)drawPage:(struct CGPDFPage *)arg1;
+- (void)dealloc;
 
 @end
 

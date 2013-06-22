@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MFStream, NSCondition, NSInvocation, NSString;
+@class MFStream, NSArray, NSCondition, NSData, NSInvocation, NSString;
 
 @interface _MFSocket : NSObject
 {
@@ -15,36 +15,38 @@
     NSString *_protocol;
     NSString *_host;
     NSString *_service;
-    BOOL _allowsTrustPrompt;
-    int _numTimeoutSecs;
     struct __CFString *_connectionServiceType;
     NSInvocation *_eventHandler;
+    int _numTimeoutSecs;
+    BOOL _allowsTrustPrompt;
+    BOOL _usesOpportunisticSockets;
     BOOL _canRead;
     BOOL _canWrite;
 }
 
-- (BOOL)_startSSLHandshakeWithProtocol:(id)arg1 disableSSL2:(BOOL)arg2 errorPtr:(id *)arg3;
-- (id)securityProtocol;
-- (BOOL)setSecurityProtocol:(id)arg1;
-- (id)serverCertificates;
-- (void)setConnectionServiceType:(struct __CFString *)arg1;
-- (id)init;
-- (void)dealloc;
-- (void)abort;
-- (BOOL)isReadable;
-- (BOOL)isWritable;
-- (BOOL)isValid;
-- (BOOL)connectToHost:(id)arg1 withPort:(unsigned int)arg2 service:(id)arg3;
-- (unsigned int)_bufferedByteCount;
-- (int)writeBytes:(const char *)arg1 length:(int)arg2;
-- (int)readBytes:(char *)arg1 length:(int)arg2;
-- (void)setEventHandler:(id)arg1;
-- (id)remoteHostname;
-- (unsigned int)remotePortNumber;
-- (id)sourceIPAddress;
-- (BOOL)isForcedConnection;
 @property(nonatomic) BOOL allowsTrustPrompt; // @synthesize allowsTrustPrompt=_allowsTrustPrompt;
+@property(nonatomic) BOOL usesOpportunisticSockets; // @synthesize usesOpportunisticSockets=_usesOpportunisticSockets;
 @property(nonatomic) int timeout; // @synthesize timeout=_numTimeoutSecs;
+@property(readonly, nonatomic) BOOL isForcedConnection;
+@property(readonly, nonatomic) NSData *sourceIPAddress;
+@property(readonly, nonatomic) unsigned int remotePortNumber;
+@property(readonly, nonatomic) NSString *remoteHostname;
+- (void)setEventHandler:(id)arg1;
+- (int)readBytes:(char *)arg1 length:(int)arg2;
+- (int)writeBytes:(const char *)arg1 length:(int)arg2;
+- (unsigned int)_bufferedByteCount;
+- (BOOL)connectToHost:(id)arg1 withPort:(unsigned int)arg2 service:(id)arg3;
+@property(readonly, nonatomic) BOOL isValid;
+@property(readonly, nonatomic) BOOL isWritable;
+@property(readonly, nonatomic) BOOL isReadable;
+- (void)abort;
+- (void)dealloc;
+- (id)init;
+- (void)setConnectionServiceType:(struct __CFString *)arg1;
+@property(readonly, nonatomic) NSArray *serverCertificates;
+- (BOOL)setSecurityProtocol:(id)arg1;
+- (id)securityProtocol;
+- (BOOL)_startSSLHandshakeWithProtocol:(id)arg1 disableSSL2:(BOOL)arg2 errorPtr:(id *)arg3;
 
 @end
 

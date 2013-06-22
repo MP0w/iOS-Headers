@@ -10,9 +10,15 @@
 {
 }
 
-+ (void)registerForRemoteNotificationTypes:(int)arg1;
-+ (int)enabledRemoteNotificationTypes;
 + (id)getPendingNotificationUserInfo;
++ (int)enabledRemoteNotificationTypes;
++ (void)registerForRemoteNotificationTypes:(int)arg1;
++ (unsigned int)_remoteNotificationServerPort;
++ (void)setEnabledNotificationTypes:(int)arg1 forBundleIdentifier:(id)arg2;
++ (void)getSupportedTypes:(id *)arg1 enabledTypes:(id *)arg2;
++ (BOOL)hasRegisteredBundleIdentifiers;
++ (void)setSystemwideEnabled:(BOOL)arg1;
++ (BOOL)isSystemwideEnabled;
 
 @end
 

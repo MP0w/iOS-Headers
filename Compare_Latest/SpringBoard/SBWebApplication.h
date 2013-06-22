@@ -11,16 +11,29 @@
 @interface SBWebApplication : SBApplication
 {
     UIWebClip *_webClip;
+    BOOL _isLastWebApplication;
 }
 
-- (id)initWithBundleIdentifier:(id)arg1 webClip:(id)arg2 path:(id)arg3 bundle:(id)arg4 infoDictionary:(id)arg5 isSystemApplication:(BOOL)arg6 signerIdentity:(id)arg7 provisioningProfileValidated:(BOOL)arg8;
-- (void)dealloc;
-- (BOOL)isWebApplication;
-- (BOOL)canFindDefaultImage:(char *)arg1 preferredScale:(float)arg2 originalOrientation:(int *)arg3 currentOrientation:(int *)arg4 launchingInterfaceOrientation:(int)arg5 canUseIOSurface:(BOOL)arg6 imagePointer:(id *)arg7;
-- (void)setProcess:(id)arg1;
-- (void)exitedAbnormally;
-- (void)willActivateOtherWebApplication:(id)arg1;
++ (id)displayIdentifierForWebClipIdentifier:(id)arg1;
++ (id)displayIdentifierForWebClip:(id)arg1;
 @property(retain) UIWebClip *webClip; // @synthesize webClip=_webClip;
+- (void)willActivateOtherWebApplication:(id)arg1;
+- (void)_setActivationState:(int)arg1;
+- (void)didExitWithInfo:(id)arg1 type:(int)arg2;
+- (void)disableContextHostingForRequester:(id)arg1;
+- (void)enableContextHostingForRequester:(id)arg1 orderFront:(BOOL)arg2;
+- (id)contextHostViewForRequester:(id)arg1;
+- (id)_contextHostRequesterForRequester:(id)arg1;
+- (void)clearContextHostManager;
+- (void)setContextHostManager:(id)arg1;
+- (void)setRunning:(BOOL)arg1;
+- (void)setProcessInfo:(id)arg1;
+- (id)_newDefaultImageInfoForLaunchingOrientation:(int)arg1 scale:(float)arg2;
+- (BOOL)isWebApplication;
+- (id)activationSettings;
+- (id)_urlForLaunch;
+- (void)dealloc;
+- (id)initWithBundleIdentifier:(id)arg1 webClip:(id)arg2 path:(id)arg3 bundle:(id)arg4 infoDictionary:(id)arg5 isSystemApplication:(BOOL)arg6 signerIdentity:(id)arg7 provisioningProfileValidated:(BOOL)arg8;
 
 @end
 

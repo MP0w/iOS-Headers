@@ -15,21 +15,21 @@
     NSTimer *_delayedDismissTimer;
 }
 
-+ (void)registerForSettingsAlerts;
-+ (void)registerForAlerts;
-+ (void)test;
-+ (id)errorStringForCode:(id)arg1;
-+ (void)_daemonRestart:(id)arg1;
 + (void)_newSIM:(id)arg1;
-- (void)dealloc;
-- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (void)USSDStringAvailable:(id)arg1 allowsResponse:(BOOL)arg2;
-- (BOOL)allowsResponse;
-- (BOOL)receivedString;
-- (void)setDismissOnActivate:(BOOL)arg1;
-- (void)_delayedDismiss;
-- (void)activate;
++ (void)_daemonRestart:(id)arg1;
++ (id)errorStringForCode:(id)arg1;
++ (void)test;
++ (void)registerForAlerts;
++ (void)registerForSettingsAlerts;
 - (void)deactivate;
+- (void)activate;
+- (void)_delayedDismiss;
+- (void)setDismissOnActivate:(BOOL)arg1;
+- (BOOL)receivedString;
+- (BOOL)allowsResponse;
+- (void)USSDStringAvailable:(id)arg1 allowsResponse:(BOOL)arg2;
+- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
+- (void)dealloc;
 
 @end
 

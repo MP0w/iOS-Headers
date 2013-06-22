@@ -37,6 +37,7 @@
 - (void)cancelPrinting;
 - (void)startPrinting;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)dismissAnimated:(BOOL)arg1;
 - (void)dismissPrintPanel:(BOOL)arg1 animated:(BOOL)arg2;

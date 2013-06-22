@@ -22,13 +22,18 @@
     int _autoscrollDirections;
     float _touchOffsetFromMagnificationPoint;
     float _magnifierOffsetFromTouch;
+    BOOL _isHorizontal;
+    BOOL _isAnimating;
+    int _delayedAnimationType;
 }
 
 + (id)sharedRangedMagnifier;
+@property(nonatomic) BOOL isHorizontal; // @synthesize isHorizontal=_isHorizontal;
 @property(nonatomic) struct CGPoint animationPoint; // @synthesize animationPoint=_animationPoint;
 @property(retain, nonatomic) UIView *target; // @synthesize target=_target;
 @property(retain, nonatomic) UIResponder<UITextInput> *text; // @synthesize text=_text;
 - (struct CGPoint)snappedPoint:(struct CGPoint)arg1;
+- (struct CGPoint)clipPoint:(struct CGPoint)arg1 inRect:(struct CGRect)arg2;
 - (void)stopMagnifying:(BOOL)arg1;
 - (void)beginMagnifyingTarget:(id)arg1 text:(id)arg2 magnificationPoint:(struct CGPoint)arg3 offset:(struct CGPoint)arg4 animated:(BOOL)arg5;
 - (void)windowWillRotate:(id)arg1;

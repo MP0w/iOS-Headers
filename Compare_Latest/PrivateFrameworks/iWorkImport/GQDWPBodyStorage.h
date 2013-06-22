@@ -13,9 +13,9 @@
     GQDWPLayoutStorage *mFootnotes;
 }
 
-- (id)footnotes;
-- (struct __CFArray *)body;
 - (void)dealloc;
+- (struct __CFArray *)body;
+- (id)footnotes;
 
 @end
 

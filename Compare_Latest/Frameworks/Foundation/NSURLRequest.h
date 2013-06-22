@@ -22,7 +22,12 @@
 + (id)requestWithURL:(id)arg1;
 + (id)requestWithURL:(id)arg1 cachePolicy:(unsigned int)arg2 timeoutInterval:(double)arg3;
 + (void)checkForSharedCookieStoreNeed:(struct _CFURLRequest *)arg1;
++ (void)setAllowsSpecificHTTPSCertificate:(id)arg1 forHost:(id)arg2;
++ (id)allowsSpecificHTTPSCertificateForHost:(id)arg1;
++ (void)setAllowsAnyHTTPSCertificate:(BOOL)arg1 forHost:(id)arg2;
++ (BOOL)allowsAnyHTTPSCertificateForHost:(id)arg1;
 - (id)boundInterfaceIdentifier;
+- (BOOL)allowsCellularAccess;
 - (unsigned int)networkServiceType;
 - (void)_removePropertyForKey:(id)arg1;
 - (void)_setProperty:(id)arg1 forKey:(id)arg2;
@@ -46,6 +51,18 @@
 - (id)initWithURL:(id)arg1;
 - (id)_initWithCFURLRequest:(struct _CFURLRequest *)arg1;
 - (id)initWithURL:(id)arg1 cachePolicy:(unsigned int)arg2 timeoutInterval:(double)arg3;
+- (id)contentDispositionEncodingFallbackArray;
+- (BOOL)HTTPShouldUsePipelining;
+- (BOOL)HTTPShouldHandleCookies;
+- (id)HTTPUserAgent;
+- (id)HTTPReferrer;
+- (id)HTTPExtraCookies;
+- (id)HTTPContentType;
+- (id)HTTPBodyStream;
+- (id)HTTPBody;
+- (id)valueForHTTPHeaderField:(id)arg1;
+- (id)allHTTPHeaderFields;
+- (id)HTTPMethod;
 
 @end
 

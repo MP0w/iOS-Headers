@@ -8,7 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
-@class NSDictionary, NSString, PFUbiquityKnowledgeVector, PFUbiquityLocation;
+@class NSDictionary, NSMutableDictionary, NSString, PFUbiquityKnowledgeVector, PFUbiquityLocation;
 
 @interface PFUbiquityBaselineMetadata : NSObject <NSCoding>
 {
@@ -18,19 +18,9 @@
     PFUbiquityLocation *_rootLocation;
     PFUbiquityKnowledgeVector *_pKV;
     PFUbiquityKnowledgeVector *_kv;
-    NSDictionary *_peerRanges;
+    NSMutableDictionary *_peerRanges;
 }
 
-- (id)init;
-- (id)initWithLocalPeerID:(id)arg1 storeName:(id)arg2 modelVersionHash:(id)arg3 andUbiquityRootLocation:(id)arg4;
-- (void)dealloc;
-- (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)gatherMetadataWithStoreMetadata:(id)arg1 andError:(id *)arg2;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (void)setPreviousKnowledgeVectorFromCurrentMetadata:(id)arg1;
-- (void)_migrateToModelVersionHash:(id)arg1;
 @property(readonly) NSDictionary *peerRanges; // @synthesize peerRanges=_peerRanges;
 @property(readonly) PFUbiquityKnowledgeVector *knowledgeVector; // @synthesize knowledgeVector=_kv;
 @property(readonly, nonatomic) PFUbiquityKnowledgeVector *previousKnowledgeVector; // @synthesize previousKnowledgeVector=_pKV;
@@ -38,6 +28,20 @@
 @property(readonly) NSString *modelVersionHash; // @synthesize modelVersionHash=_modelVersionHash;
 @property(readonly) NSString *authorPeerID; // @synthesize authorPeerID=_authorPeerID;
 @property(readonly) NSString *storeName; // @synthesize storeName=_storeName;
+- (void)setKnowledgeVector:(id)arg1;
+- (id)createNewLocalRangeWithRangeStart:(unsigned int)arg1 andRangeEnd:(unsigned int)arg2 forEntityNamed:(id)arg3;
+- (void)addDictionaryForPeerRange:(id)arg1;
+- (id)createPeerRangeDictionary:(id)arg1;
+- (void)_migrateToModelVersionHash:(id)arg1;
+- (void)setPreviousKnowledgeVectorFromCurrentMetadata:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (BOOL)gatherMetadataWithStore:(id)arg1 andError:(id *)arg2;
+- (BOOL)isEqual:(id)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)initWithLocalPeerID:(id)arg1 storeName:(id)arg2 modelVersionHash:(id)arg3 andUbiquityRootLocation:(id)arg4;
+- (id)init;
 
 @end
 

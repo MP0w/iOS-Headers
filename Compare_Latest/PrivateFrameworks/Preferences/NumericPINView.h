@@ -13,14 +13,13 @@
     UIPasscodeField *_passcodeField;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)layoutSubviews;
-- (void)hidePasscodeField:(BOOL)arg1;
-- (id)stringValue;
-- (void)setStringValue:(id)arg1;
-- (void)deleteLastCharacter;
 - (void)appendString:(id)arg1;
-- (void)showFailedAttempts:(int)arg1;
+- (void)deleteLastCharacter;
+- (void)setStringValue:(id)arg1;
+- (id)stringValue;
+- (void)hidePasscodeField:(BOOL)arg1;
+- (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

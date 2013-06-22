@@ -27,9 +27,11 @@
 @property(readonly, nonatomic) float preferredVolume;
 @property(readonly, nonatomic) int layer;
 @property(readonly, nonatomic) struct CGAffineTransform preferredTransform;
+@property(readonly, nonatomic) struct CGSize dimensions;
 @property(readonly, nonatomic) struct CGSize naturalSize;
 @property(readonly, nonatomic) NSLocale *locale;
 @property(readonly, nonatomic) NSString *extendedLanguageTag;
+@property(readonly, nonatomic) NSArray *mediaCharacteristics;
 @property(readonly, nonatomic) NSString *languageCode;
 @property(readonly, nonatomic) float estimatedDataRate;
 @property(readonly, nonatomic) int naturalTimeScale;

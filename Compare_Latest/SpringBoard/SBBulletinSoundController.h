@@ -6,37 +6,36 @@
 
 #import "NSObject.h"
 
-@class AVController, BBBulletin, BBObserver, NSMutableArray, NSMutableDictionary;
+#import "BBObserverDelegate-Protocol.h"
+#import "SBBulletinBusyClient-Protocol.h"
 
-@interface SBBulletinSoundController : NSObject
+@class BBObserver, NSMutableArray, NSMutableDictionary;
+
+@interface SBBulletinSoundController : NSObject <BBObserverDelegate, SBBulletinBusyClient>
 {
     BBObserver *_observer;
-    BOOL _deviceIsLocked;
-    BOOL _assistantIsVisible;
     NSMutableArray *_blockQueue;
-    BBBulletin *_ringtoneBulletin;
-    AVController *_ringtoneController;
-    id _ringtoneObserver;
-    NSMutableDictionary *_clientsBySoundIDs;
+    NSMutableDictionary *_playingSounds;
+    BOOL _deviceIsLocked;
+    BOOL _quietModeEnabled;
 }
 
-+ (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
-+ (id)sharedInstance;
 + (id)sharedInstanceIfExists;
-- (id)init;
-- (void)_cleanupSystemSound:(unsigned long)arg1 andKill:(BOOL)arg2;
-- (void)_killSystemSound:(unsigned long)arg1;
-- (void)_killRingtone;
-- (void)_hardwareButtonPressed:(id)arg1;
-- (BOOL)handleVolumeButtonDownEvent;
-- (BOOL)playSoundForBulletin:(id)arg1;
-- (void)killSoundForBulletin:(id)arg1;
-- (BOOL)playSystemAlertSound:(unsigned long)arg1 forBundleID:(id)arg2;
-- (void)killSounds;
-- (void)_enqueueBlock:(id)arg1;
-- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
-- (void)observer:(id)arg1 removeBulletin:(id)arg2;
++ (id)sharedInstance;
++ (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
 - (void)bulletinWindowStoppedBeingBusy;
+- (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned int)arg2;
+- (void)observer:(id)arg1 removeBulletin:(id)arg2;
+- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
+- (void)_enqueueBlock:(id)arg1;
+- (BOOL)_shouldHonorPlaySoundRequestForBulletin:(id)arg1;
+- (void)_hardwareButtonPressed:(id)arg1;
+- (void)_configureBBObserver;
+- (void)killSounds;
+- (void)killSoundForBulletin:(id)arg1;
+- (BOOL)playSoundForBulletin:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

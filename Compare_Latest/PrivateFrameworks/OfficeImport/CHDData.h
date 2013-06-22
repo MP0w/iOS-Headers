@@ -17,22 +17,24 @@
     EDResources *mResources;
 }
 
-+ (id)dataWithResources:(id)arg1;
 + (id)dataWithDataPointCount:(unsigned int)arg1 resources:(id)arg2;
-- (id)initWithResources:(id)arg1;
-- (id)initWithDataPointCount:(unsigned int)arg1 resources:(id)arg2;
-- (void)dealloc;
-- (id)dataValues;
-- (unsigned int)dataValueIndexCount;
-- (void)setDataValueIndexCount:(unsigned int)arg1;
-- (unsigned int)averageDataPointDecimalCount;
-- (id)formula;
-- (void)setFormula:(id)arg1 chart:(id)arg2;
-- (unsigned int)countOfCellsBeingReferenced;
-- (id)contentFormat;
-- (void)setContentFormat:(id)arg1;
-- (_Bool)isEmpty;
++ (id)dataWithResources:(id)arg1;
 - (id)firstValueContentFormatWithWorkbook:(id)arg1;
+- (_Bool)isEmpty;
+- (void)setContentFormat:(id)arg1;
+- (id)contentFormat;
+- (unsigned int)countOfCellsBeingReferenced;
+- (void)setFormula:(id)arg1 chart:(id)arg2;
+- (id)formula;
+- (unsigned int)averageDataPointDecimalCount;
+- (void)setDataValueIndexCount:(unsigned int)arg1;
+- (unsigned int)dataValueIndexCount;
+- (id)dataValues;
+- (void)dealloc;
+- (id)initWithDataPointCount:(unsigned int)arg1 resources:(id)arg2;
+- (id)initWithResources:(id)arg1;
+- (void)setContentFormatId:(unsigned int)arg1;
+- (unsigned int)contentFormatId;
 
 @end
 

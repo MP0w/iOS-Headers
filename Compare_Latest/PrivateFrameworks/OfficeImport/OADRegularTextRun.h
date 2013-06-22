@@ -13,10 +13,10 @@
     NSMutableString *mText;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)isEmpty;
 - (id)text;
+- (BOOL)isEmpty;
+- (void)dealloc;
+- (id)init;
 
 @end
 

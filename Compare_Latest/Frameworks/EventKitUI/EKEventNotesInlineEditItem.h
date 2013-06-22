@@ -8,25 +8,23 @@
 
 #import "UITextViewDelegate-Protocol.h"
 
-@class CalendarNotesCell, UIResponder;
+@class CalendarNotesCell;
 
 @interface EKEventNotesInlineEditItem : EKEventEditItem <UITextViewDelegate>
 {
     CalendarNotesCell *_cell;
-    UIResponder *_selectedTextField;
 }
 
-@property(retain, nonatomic) UIResponder *selectedResponder; // @synthesize selectedResponder=_selectedTextField;
+- (BOOL)textViewShouldReturn:(id)arg1;
 - (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 - (void)textViewDidEndEditing:(id)arg1;
 - (void)textViewDidBeginEditing:(id)arg1;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (id)cellForSubitemAtIndex:(int)arg1;
-- (id)selectedTextField;
+- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
 - (BOOL)isInline;
 - (void)reset;
 - (void)dealloc;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
+- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
 
 @end
 

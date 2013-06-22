@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)chdDataValueProperties;
 + (void)read:(id)arg1 from:(const struct XlChartSeriesFormat *)arg2;
++ (id)chdDataValueProperties;
 
 @end
 

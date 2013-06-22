@@ -7,17 +7,17 @@
 #import "OABColorPropertiesManager-Protocol.h"
 
 @protocol OABFillPropertiesManager <OABColorPropertiesManager>
-- (int)fillType;
-- (long)fillFgAlpha;
-- (long)fillBgAlpha;
-- (long)fillAngle;
-- (long)fillFocus;
-- (long)fillFocusLeft;
-- (long)fillFocusTop;
-- (long)fillFocusRight;
-- (long)fillFocusBottom;
-- (const EshTablePropVal_c5e6088d *)fillGradientColors;
-- (unsigned long)fillBlipID;
 - (id)fillBlipName;
+- (unsigned long)fillBlipID;
+- (const struct EshTablePropVal<EshGradientStop> *)fillGradientColors;
+- (long)fillFocusBottom;
+- (long)fillFocusRight;
+- (long)fillFocusTop;
+- (long)fillFocusLeft;
+- (long)fillFocus;
+- (long)fillAngle;
+- (long)fillBgAlpha;
+- (long)fillFgAlpha;
+- (int)fillType;
 @end
 

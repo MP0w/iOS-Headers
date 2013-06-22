@@ -21,22 +21,22 @@
     NSMutableSet *_readDetails;
 }
 
-- (void)dealloc;
-- (id)initWithAccountInfoProvider:(id)arg1 principalURL:(id)arg2 taskManager:(id)arg3;
-- (id)_mappingsForPrincipalDetails;
-- (void)_processDetailsFromMultiStatus:(id)arg1 allowWrite:(BOOL)arg2;
-- (void)_getPrincipalDetailsForURL:(id)arg1;
-- (id)_popFromArray:(id)arg1;
-- (void)task:(id)arg1 didFinishWithError:(id)arg2;
-- (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
-@property(readonly, retain) NSSet *readOnlyPrincipalDetails;
-@property(readonly, retain) NSSet *readWritePrincipalDetails;
 @property(retain) NSMutableSet *readDetails; // @synthesize readDetails=_readDetails;
 @property(retain) NSMutableSet *writeDetails; // @synthesize writeDetails=_writeDetails;
 @property(retain) NSMutableArray *writePrincipalURLs; // @synthesize writePrincipalURLs=_writePrincipalURLs;
 @property(retain) NSMutableArray *readPrincipalURLs; // @synthesize readPrincipalURLs=_readPrincipalURLs;
 @property(retain) NSURL *principalURL; // @synthesize principalURL=_principalURL;
 @property BOOL serverSupportsExpandPropertyReport; // @synthesize serverSupportsExpandPropertyReport=_serverSupportsExpandPropertyReport;
+@property(readonly) NSSet *readWritePrincipalDetails;
+@property(readonly) NSSet *readOnlyPrincipalDetails;
+- (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
+- (void)task:(id)arg1 didFinishWithError:(id)arg2;
+- (id)_popFromArray:(id)arg1;
+- (void)_getPrincipalDetailsForURL:(id)arg1;
+- (void)_processDetailsFromMultiStatus:(id)arg1 allowWrite:(BOOL)arg2;
+- (id)_mappingsForPrincipalDetails;
+- (id)initWithAccountInfoProvider:(id)arg1 principalURL:(id)arg2 taskManager:(id)arg3;
+- (void)dealloc;
 
 @end
 

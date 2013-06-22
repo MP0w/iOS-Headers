@@ -8,30 +8,30 @@
 
 #import "CPDisposable-Protocol.h"
 
-@class CPLayoutArea, CPList, CPTextLine, NSArray;
+@class CPLayoutArea, CPList, NSArray;
 
 @interface CPListMaker : NSObject <CPDisposable>
 {
     CPLayoutArea *area;
     NSArray *spacers;
     unsigned int textLineCount;
-    CPTextLine **textLines;
+    id *textLines;
     CPList *list;
 }
 
-+ (void)makeListsInLayoutArea:(id)arg1;
-+ (void)makeListsInChunk:(id)arg1;
 + (void)makeListsInPage:(id)arg1;
-- (id)initWithLayoutArea:(id)arg1;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-- (void)fetchTextLine:(id)arg1;
-- (void)fetchTextLinesInColumn:(id)arg1;
-- (void)makeListItemFrom:(struct CPListInfo *)arg1 stopAt:(unsigned int)arg2;
-- (BOOL)makeListFrom:(struct CPListInfo *)arg1;
-- (void)makeListsInColumn:(id)arg1;
++ (void)makeListsInChunk:(id)arg1;
++ (void)makeListsInLayoutArea:(id)arg1;
 - (void)makeLists;
+- (void)makeListsInColumn:(id)arg1;
+- (BOOL)makeListFrom:(struct CPListInfo *)arg1;
+- (void)makeListItemFrom:(struct CPListInfo *)arg1 stopAt:(unsigned int)arg2;
+- (void)fetchTextLinesInColumn:(id)arg1;
+- (void)fetchTextLine:(id)arg1;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)initWithLayoutArea:(id)arg1;
 
 @end
 

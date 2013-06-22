@@ -8,7 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
-@class BBAssertion, NSString;
+@class BBAssertion, NSArray, NSString;
 
 @interface BBResponse : NSObject <NSCoding>
 {
@@ -19,6 +19,7 @@
     NSString *_actionKey;
     BOOL _sent;
     NSString *_replyText;
+    NSArray *_lifeAssertions;
 }
 
 @property(copy, nonatomic) NSString *replyText; // @synthesize replyText=_replyText;
@@ -26,7 +27,7 @@
 @property(nonatomic) BOOL deliverToPublisher; // @synthesize deliverToPublisher=_deliverToPublisher;
 @property(retain, nonatomic) NSString *bulletinID; // @synthesize bulletinID=_bulletinID;
 @property(copy, nonatomic) id sendBlock; // @synthesize sendBlock=_sendBlock;
-@property(retain, nonatomic) BBAssertion *lifeAssertion; // @synthesize lifeAssertion=_lifeAssertion;
+@property(copy, nonatomic) NSArray *lifeAssertions; // @synthesize lifeAssertions=_lifeAssertions;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)send;

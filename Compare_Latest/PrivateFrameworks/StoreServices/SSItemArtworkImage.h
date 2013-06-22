@@ -7,22 +7,21 @@
 #import "NSObject.h"
 
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSMutableDictionary, NSString, NSURL;
 
-@interface SSItemArtworkImage : NSObject <SSCoding, NSCopying>
+@interface SSItemArtworkImage : NSObject <SSXPCCoding, NSCopying>
 {
     NSMutableDictionary *_dictionary;
     NSString *_imageKind;
 }
 
 @property(copy, nonatomic) NSString *imageKind; // @synthesize imageKind=_imageKind;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
 - (void)_setValue:(id)arg1 forKey:(id)arg2;
+@property(readonly, nonatomic) NSString *URLString;
 - (void)setValue:(id)arg1 forProperty:(id)arg2;
 @property(retain, nonatomic) NSURL *URL;
 - (void)setImageKindWithTypeName:(id)arg1 variantName:(id)arg2;

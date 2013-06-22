@@ -13,13 +13,15 @@
     WebTextIteratorPrivate *_private;
 }
 
-- (void)dealloc;
-- (id)initWithRange:(id)arg1;
-- (void)advance;
-- (BOOL)atEnd;
-- (id)currentRange;
-- (const unsigned short *)currentTextPointer;
 - (unsigned int)currentTextLength;
+- (const unsigned short *)currentTextPointer;
+- (id)currentRange;
+- (BOOL)atEnd;
+- (void)advance;
+- (id)initWithRange:(id)arg1;
+- (void)dealloc;
+- (id)currentText;
+- (id)currentNode;
 
 @end
 

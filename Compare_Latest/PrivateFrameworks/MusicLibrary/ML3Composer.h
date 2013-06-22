@@ -10,6 +10,7 @@
 {
 }
 
++ (id)artworkCacheIDProperty;
 + (id)trackForeignPersistentID;
 + (id)propertiesForGroupingKey;
 + (id)foreignPropertyForProperty:(id)arg1 entityClass:(Class)arg2;
@@ -19,6 +20,7 @@
 + (int)revisionTrackingCode;
 + (id)databaseTable;
 + (void)initialize;
+- (void)updateRepresentativeItem:(id)arg1 inLibrary:(id)arg2 withArtworkCacheID:(id)arg3;
 - (void)updateTrackValues:(id)arg1;
 
 @end

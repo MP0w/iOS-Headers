@@ -11,9 +11,9 @@
     OADGraphic *mMasterGraphic;
 }
 
-- (id)graphicProperties;
-- (id)masterGraphic;
 - (void)setMasterGraphic:(id)arg1;
+- (id)masterGraphic;
+- (id)graphicProperties;
 
 @end
 

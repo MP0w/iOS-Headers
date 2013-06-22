@@ -6,7 +6,7 @@
 
 #import <Notes/NoteCollectionObject.h>
 
-@class NSDictionary, NSSet, NSString, NoteStoreObject;
+@class NSDictionary, NSNumber, NSSet, NSString, NoteStoreObject;
 
 @interface NoteAccountObject : NoteCollectionObject
 {
@@ -27,9 +27,11 @@
 
 // Remaining properties
 @property(retain, nonatomic) NSString *accountIdentifier; // @dynamic accountIdentifier;
+@property(retain, nonatomic) NSString *constraintsPath; // @dynamic constraintsPath;
 @property(retain, nonatomic) NoteStoreObject *defaultStore; // @dynamic defaultStore;
 @property(retain, nonatomic) NSString *name; // @dynamic name;
 @property(retain, nonatomic) NSSet *stores; // @dynamic stores;
+@property(retain, nonatomic) NSNumber *type; // @dynamic type;
 
 @end
 

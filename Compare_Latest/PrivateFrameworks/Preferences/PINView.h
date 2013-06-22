@@ -20,22 +20,21 @@
     id _delegate;
 }
 
-- (void)showError:(id)arg1 animate:(BOOL)arg2;
-- (void)hideError;
-- (void)hidePasscodeField:(BOOL)arg1;
-- (void)setTitle:(id)arg1 font:(id)arg2;
-- (id)stringValue;
-- (void)setStringValue:(id)arg1;
-- (void)deleteLastCharacter;
-- (void)appendString:(id)arg1;
-- (BOOL)becomeFirstResponder;
-- (void)setDelegate:(id)arg1;
-- (void)setPINPolicyString:(id)arg1 visible:(BOOL)arg2;
-- (void)showFailedAttempts:(int)arg1;
-- (void)layoutSubviews;
-- (void)hideFailedAttempts;
-- (void)dealloc;
 - (void)setBlocked:(BOOL)arg1;
+- (void)dealloc;
+- (void)hideFailedAttempts;
+- (void)showFailedAttempts:(int)arg1;
+- (void)setPINPolicyString:(id)arg1 visible:(BOOL)arg2;
+- (void)setDelegate:(id)arg1;
+- (BOOL)becomeFirstResponder;
+- (void)appendString:(id)arg1;
+- (void)deleteLastCharacter;
+- (void)setStringValue:(id)arg1;
+- (id)stringValue;
+- (void)setTitle:(id)arg1 font:(id)arg2;
+- (void)hidePasscodeField:(BOOL)arg1;
+- (void)hideError;
+- (void)showError:(id)arg1 animate:(BOOL)arg2;
 
 @end
 

@@ -7,9 +7,12 @@
 #import "UIView.h"
 
 @interface UIView (MPAdditions)
-- (id)mpAncestorViewController;
-- (void)mpPerformRecursiveBlock:(id)arg1;
-- (void)mpSetFrameSize:(struct CGSize)arg1;
-- (void)mpSetFrameOrigin:(struct CGPoint)arg1;
+- (void)setFrameHeight:(float)arg1;
+- (void)setFrameWidth:(float)arg1;
+- (void)setFrameSize:(struct CGSize)arg1;
+- (void)setFrameY:(float)arg1;
+- (void)setFrameEndX:(float)arg1 y:(float)arg2;
+- (void)setFrameX:(float)arg1;
+- (void)setFrameOrigin:(struct CGPoint)arg1;
 @end
 

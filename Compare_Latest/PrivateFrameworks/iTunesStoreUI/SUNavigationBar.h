@@ -10,7 +10,5 @@
 {
 }
 
-- (void)_getTitleViewFrame:(struct CGRect *)arg1 leftViewFrame:(struct CGRect *)arg2 rightViewFrame:(struct CGRect *)arg3 forViews:(id *)arg4 forItemAtIndex:(unsigned int)arg5;
-
 @end
 

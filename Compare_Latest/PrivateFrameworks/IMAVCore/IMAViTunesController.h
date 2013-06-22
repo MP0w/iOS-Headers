@@ -16,8 +16,6 @@
 - (void)resume;
 - (void)dealloc;
 - (id)init;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

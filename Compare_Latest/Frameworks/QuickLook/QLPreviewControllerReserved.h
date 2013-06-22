@@ -6,60 +6,80 @@
 
 #import "NSObject.h"
 
-@class NSOperation, NSTimer, NSURLRequest, QLPopOverState, QLSwipeView, UIBarButtonItem, UIDocumentInteractionController, UIImageView, UINavigationBar, UISegmentedControl, UITapGestureRecognizer, UIToolbar, UIView;
+@class MPDetailSlider, MPVolumeView, NSMutableDictionary, NSMutableSet, NSNumberFormatter, NSOperation, NSString, NSTimer, NSURL, QLPopOverState, QLProgressView, UIBarButtonItem, UIDocumentInteractionController, UIImageView, UILabel, UINavigationController, UISegmentedControl, UITapGestureRecognizer, UIView, UIViewController<QLPreviewContentControllerProtocol>, _UIAsyncInvocation;
 
 @interface QLPreviewControllerReserved : NSObject
 {
     id <QLPreviewItem> previewItem;
     id delegate;
-    NSURLRequest *previewRequest;
     BOOL blockRemoteImages;
     BOOL useCustomActionButton;
     BOOL showActionAsDefaultButton;
+    NSString *loadintTextForMissingFiles;
     int mode;
+    int previousMode;
     id <QLPreviewControllerDataSource> dataSource;
+    NSMutableDictionary *previewItemCache;
     unsigned int numberOfPreviewItems;
     int currentPreviewItemIndex;
-    id <QLPreviewItem> currentPreviewItem;
-    id <QLPreviewItem> cachedPreviewItem;
-    UIView *clippingView;
-    QLSwipeView *swipeView;
+    NSURL *currentPreviewItemURL;
+    id <QLPreviewItem> presentedPreviewItem;
+    NSMutableSet *preloadedPreviewItems;
+    UIViewController<QLPreviewContentControllerProtocol> *previewContentController;
+    int barStyle;
+    int previousToolbarStyle;
+    BOOL translucent;
+    BOOL previousToolbarWasTranlucent;
+    int previousStatusBarStyle;
+    UINavigationController *navigationController;
     NSTimer *overlayTimer;
     int overlayState;
-    UINavigationBar *navigationBar;
     UISegmentedControl *segmentedArrowControl;
-    UISegmentedControl *customToolbarSegmentedArrowControl;
     UIBarButtonItem *arrowsItem;
     UIBarButtonItem *titleItem;
     UIBarButtonItem *actionItem;
-    UIToolbar *bottomToolBar;
-    UIBarButtonItem *leftArrowItem;
-    UIBarButtonItem *rightArrowItem;
-    NSTimer *idleTimer;
-    UITapGestureRecognizer *headerTapRecognizer;
-    BOOL arrowWasTapped;
+    MPDetailSlider *detailSlider;
+    UIImageView *navigationBarBackground;
+    UIImageView *navigationBarShadow;
+    UILabel *scrubSpeedLabel;
+    UILabel *scrubInstructionsLabel;
+    BOOL scrubbing;
+    UIBarButtonItem *indexItem;
+    UILabel *indexLabel;
+    UIBarButtonItem *pauseButton;
+    UIBarButtonItem *routeButton;
+    MPVolumeView *volumeView;
     BOOL internalViewsLoaded;
     UIView *mainView;
+    UIView *clippingView;
+    BOOL clippingViewActive;
     UIView *zoomView;
-    UIView *overlayView;
     UIImageView *iconView;
     UIView *sourceView;
     struct CGRect sourceFrame;
-    int previousStatusBarStyle;
     UIView *parentControllerView;
-    unsigned int isHTMLContent:1;
     unsigned int statusBarWasHidden:1;
+    unsigned int toolbarWasHidden:1;
     unsigned int isZooming:1;
     unsigned int isZoomingIn:1;
     unsigned int useZoomAnimation:1;
     unsigned int useTransitionImage:1;
+    unsigned int hasLoadError:1;
+    unsigned int isDelayingPresentation:1;
+    unsigned int delayedItemIsLoaded:1;
     QLPopOverState *popOverState;
+    NSNumberFormatter *indexFormatter;
+    QLProgressView *progressView;
+    UITapGestureRecognizer *_tapGestureRegnizer;
+    BOOL loadingProgressVisible;
     NSOperation *openOperation;
     UIDocumentInteractionController *interactionController;
+    _UIAsyncInvocation *cancelViewServiceRequest;
+    NSMutableDictionary *avStateForPreviewItems;
 }
 
-- (id)init;
 - (void)dealloc;
+- (id)init;
 
 @end
 

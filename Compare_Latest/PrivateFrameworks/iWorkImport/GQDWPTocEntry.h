@@ -11,8 +11,9 @@
     struct __CFString *mBookmark;
 }
 
-- (void)dealloc;
 - (struct __CFString *)bookmark;
+- (void)dealloc;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

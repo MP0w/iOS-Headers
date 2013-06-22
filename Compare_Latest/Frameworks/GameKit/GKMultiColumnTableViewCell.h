@@ -26,7 +26,6 @@
 @property(copy, nonatomic) NSArray *contentsArray; // @synthesize contentsArray=_contentsArray;
 @property(nonatomic) float columnSeparatorWidth; // @synthesize columnSeparatorWidth=_columnSeparatorWidth;
 @property(nonatomic) int highlightedColumn; // @synthesize highlightedColumn=_highlightedColumn;
-@property(nonatomic) int selectedColumn; // @synthesize selectedColumn=_selectedColumn;
 @property(nonatomic) unsigned int columnCount; // @synthesize columnCount=_columnCount;
 - (void)configureBackgroundView;
 - (void)updateBackgroundViews;
@@ -35,6 +34,7 @@
 - (int)conditionalActiveColumn:(BOOL)arg1;
 @property(readonly, nonatomic) int activeColumn;
 - (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+@property(nonatomic) int selectedColumn; // @synthesize selectedColumn=_selectedColumn;
 - (void)setSelectedColumn:(int)arg1 animated:(BOOL)arg2;
 - (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setHighlightedColumn:(int)arg1 highlighted:(BOOL)arg2 animated:(BOOL)arg3;
@@ -45,6 +45,7 @@
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 tableViewStyle:(int)arg3 backgroundStyle:(int)arg4;
+- (id)_gkDescriptionWithChildren:(int)arg1;
 
 @end
 

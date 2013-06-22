@@ -7,15 +7,25 @@
 #import "NSString.h"
 
 @interface NSString (NSEmailAddressString)
++ (id)mf_partialSurnames;
++ (id)mf_nameExtensions;
 + (id)mf_formattedAddressWithName:(id)arg1 email:(id)arg2 useQuotes:(BOOL)arg3;
-- (id)mf_copyUncommentedAddress;
-- (id)mf_uncommentedAddress;
-- (id)mf_uncommentedAddressRespectingGroups;
-- (id)mf_addressComment;
-- (id)mf_copyAddressComment;
-- (BOOL)mf_isLegalCommentedEmailAddress;
-- (BOOL)mf_isLegalEmailAddress;
-- (id)mf_addressDomain;
+- (id)mf_trimCommasSpacesQuotes;
+- (BOOL)mf_appearsToBeAnInitial;
+- (BOOL)mf_hasSameNamesAs:(id)arg1;
+- (void)mf_firstName:(id *)arg1 middleName:(id *)arg2 lastName:(id *)arg3 extension:(id *)arg4;
+- (void)mf_addressCommentFirstName:(id *)arg1 middleName:(id *)arg2 lastName:(id *)arg3 extension:(id *)arg4;
+- (id)mf_copyIDNAEncodedEmailAddress;
+- (id)mf_copyIDNADecodedEmailAddress;
 - (BOOL)mf_isEqualToAddress:(id)arg1;
+- (id)mf_addressDomain;
+- (struct _NSRange)mf_rangeOfAddressDomain;
+- (BOOL)mf_isLegalEmailAddress;
+- (BOOL)mf_isLegalCommentedEmailAddress;
+- (id)mf_copyAddressComment;
+- (id)mf_addressComment;
+- (id)mf_uncommentedAddressRespectingGroups;
+- (id)mf_uncommentedAddress;
+- (id)mf_copyUncommentedAddress;
 @end
 

@@ -16,20 +16,20 @@
     int _dataEncoding;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (BOOL)isSigned;
-- (id)installationWarnings;
-- (struct __SecCertificate *)copyCertificate;
-- (id)description;
-- (id)persistentResourceID;
++ (id)typeStrings;
+@property(readonly, nonatomic) NSString *password; // @synthesize password=_password;
+@property(readonly, nonatomic) NSData *certificateData; // @synthesize certificateData=_certificateData;
+@property(readonly, nonatomic) int dataEncoding; // @synthesize dataEncoding=_dataEncoding;
+@property(readonly, nonatomic) NSString *certificateFileName; // @synthesize certificateFileName=_certificateFileName;
+- (void).cxx_destruct;
 - (BOOL)isIdentity;
-@property(readonly) NSString *password; // @synthesize password=_password;
-@property(readonly) NSData *certificateData; // @synthesize certificateData=_certificateData;
-@property(readonly) int dataEncoding; // @synthesize dataEncoding=_dataEncoding;
-@property(readonly) NSString *certificateFileName; // @synthesize certificateFileName=_certificateFileName;
+- (id)persistentResourceID;
+- (id)description;
+- (struct __SecCertificate *)copyCertificate;
+- (id)installationWarnings;
+- (BOOL)isSigned;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

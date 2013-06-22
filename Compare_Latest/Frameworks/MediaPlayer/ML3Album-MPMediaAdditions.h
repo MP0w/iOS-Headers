@@ -7,6 +7,7 @@
 #import "ML3Album.h"
 
 @interface ML3Album (MPMediaAdditions)
++ (id)countingQueryForMPMediaEntityProperty:(id)arg1 library:(id)arg2 identifier:(long long)arg3;
 + (id)propertyForMPMediaEntityProperty:(id)arg1;
 @end
 

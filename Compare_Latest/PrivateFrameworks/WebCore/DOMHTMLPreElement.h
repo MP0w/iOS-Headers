@@ -10,8 +10,8 @@
 {
 }
 
-@property int width;
 @property BOOL wrap;
+@property int width;
 
 @end
 

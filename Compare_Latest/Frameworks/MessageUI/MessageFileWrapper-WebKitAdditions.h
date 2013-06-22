@@ -7,9 +7,13 @@
 #import "MessageFileWrapper.h"
 
 @interface MessageFileWrapper (WebKitAdditions)
-- (BOOL)isDisplayableByWebKit;
-- (BOOL)isMedia;
-- (float)minimumZoomFontSize;
 - (id)preferredFilenameStrippingZipIfNeededUseApplications:(BOOL)arg1;
+- (float)minimumZoomFontSize;
+- (BOOL)isZip;
+- (BOOL)isRFC822;
+- (BOOL)_pathExtensionEquals:(id)arg1;
+- (BOOL)isMedia;
+- (BOOL)isDisplayableImage;
+- (BOOL)isDisplayableByWebKit;
 @end
 

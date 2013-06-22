@@ -5,11 +5,11 @@
  */
 
 @protocol ABDateFieldDelegate
-- (void)dateFieldDateDidChange:(id)arg1;
-- (BOOL)dateFieldShouldBeginEditing:(id)arg1;
-- (BOOL)dateFieldShouldEndEditing:(id)arg1;
-- (void)dateFieldDidEndEditing:(id)arg1;
-- (void)dateFieldDidBeginEditing:(id)arg1;
 - (BOOL)dateFieldShouldClear:(id)arg1;
+- (void)dateFieldDidBeginEditing:(id)arg1;
+- (void)dateFieldDidEndEditing:(id)arg1;
+- (BOOL)dateFieldShouldEndEditing:(id)arg1;
+- (BOOL)dateFieldShouldBeginEditing:(id)arg1;
+- (void)dateFieldDateDidChange:(id)arg1;
 @end
 

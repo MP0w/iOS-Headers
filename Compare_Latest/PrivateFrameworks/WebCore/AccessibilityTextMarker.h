@@ -8,26 +8,18 @@
 
 @interface AccessibilityTextMarker : NSObject
 {
-    struct AXObjectCache {
-        struct Document *;
-        struct HashMap<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WTF::RefPtr<WebCore::AccessibilityObject>>>;
-        struct HashMap<WebCore::RenderObject*, unsigned int, WTF::PtrHash<WebCore::RenderObject*>, WTF::HashTraits<WebCore::RenderObject*>, WTF::HashTraits<unsigned int>>;
-        struct HashMap<WebCore::Widget*, unsigned int, WTF::PtrHash<WebCore::Widget*>, WTF::HashTraits<WebCore::Widget*>, WTF::HashTraits<unsigned int>>;
-        struct HashSet<WebCore::Node*, WTF::PtrHash<WebCore::Node*>, WTF::HashTraits<WebCore::Node*>>;
-        struct HashSet<unsigned int, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>>;
-        Timer_0710c5ad;
-        struct Vector<std::pair<WTF::RefPtr<WebCore::AccessibilityObject>, WebCore::AXObjectCache::AXNotification>, 0ul>;
-    } *_cache;
+    struct AXObjectCache *_cache;
     struct TextMarkerData _textMarkerData;
 }
 
 + (id)textMarkerWithVisiblePosition:(struct VisiblePosition *)arg1 cache:(struct AXObjectCache *)arg2;
-- (id)initWithTextMarker:(struct TextMarkerData *)arg1 cache:(struct AXObjectCache *)arg2;
-- (id)initWithData:(id)arg1 cache:(struct AXObjectCache *)arg2;
-- (id)initWithData:(id)arg1 accessibilityObject:(id)arg2;
-- (id)dataRepresentation;
-- (struct VisiblePosition)visiblePosition;
+- (id).cxx_construct;
 - (id)description;
+- (struct VisiblePosition)visiblePosition;
+- (id)dataRepresentation;
+- (id)initWithData:(id)arg1 accessibilityObject:(struct WebAccessibilityObjectWrapper *)arg2;
+- (id)initWithData:(id)arg1 cache:(struct AXObjectCache *)arg2;
+- (id)initWithTextMarker:(struct TextMarkerData *)arg1 cache:(struct AXObjectCache *)arg2;
 
 @end
 

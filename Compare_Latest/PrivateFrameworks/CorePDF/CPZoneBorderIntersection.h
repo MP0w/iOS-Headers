@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "CPCopying-Protocol.h"
 #import "NSCopying-Protocol.h"
 
 @class CPZoneBorder;
 
-@interface CPZoneBorderIntersection : NSObject <NSCopying>
+@interface CPZoneBorderIntersection : NSObject <NSCopying, CPCopying>
 {
     struct CGRect intersectionRect;
     CPZoneBorder *intersectingBorder;
@@ -18,16 +19,17 @@
     BOOL backwardVector;
 }
 
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)setIntersectionRect:(struct CGRect)arg1;
-- (struct CGRect)intersectionRect;
-- (void)setIntersectingBorder:(id)arg1;
-- (id)intersectingBorder;
-- (void)setForwardVector:(BOOL)arg1;
-- (BOOL)forwardVector;
-- (void)setBackwardVector:(BOOL)arg1;
-- (BOOL)backwardVector;
 - (int)comparePositionLengthwise:(id)arg1;
+- (BOOL)backwardVector;
+- (void)setBackwardVector:(BOOL)arg1;
+- (BOOL)forwardVector;
+- (void)setForwardVector:(BOOL)arg1;
+- (id)intersectingBorder;
+- (void)setIntersectingBorder:(id)arg1;
+- (struct CGRect)intersectionRect;
+- (void)setIntersectionRect:(struct CGRect)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initSuper;
 
 @end
 

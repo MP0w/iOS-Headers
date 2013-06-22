@@ -13,12 +13,12 @@
     NSMutableDictionary *mMappings;
 }
 
-- (id)init;
-- (void)dealloc;
-- (int)mappingForIndex:(int)arg1;
-- (void)addMapping:(int)arg1 index:(int)arg2;
-- (BOOL)isEqual:(id)arg1;
 - (void)addDefaultMappings:(BOOL)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (void)addMapping:(int)arg1 index:(int)arg2;
+- (int)mappingForIndex:(int)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

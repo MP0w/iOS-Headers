@@ -15,15 +15,15 @@
     BOOL _isRotating;
 }
 
-- (id)initWithContentViewController:(id)arg1;
-- (void)dealloc;
-- (void)dismissPopoverAnimated:(BOOL)arg1;
-- (BOOL)popoverControllerShouldDismissPopover:(id)arg1;
-- (void)popoverControllerDidDismissPopover:(id)arg1;
-- (void)popoverController:(id)arg1 animationCompleted:(int)arg2;
 @property(nonatomic) BOOL isRotating; // @synthesize isRotating=_isRotating;
 @property(nonatomic) id mailPopoverManager; // @synthesize mailPopoverManager=_mailPopoverManager;
 @property(nonatomic) id <MFMailPopoverManagerDelegate> mailDelegate; // @synthesize mailDelegate=_mailDelegate;
+- (void)popoverController:(id)arg1 animationCompleted:(int)arg2;
+- (void)popoverControllerDidDismissPopover:(id)arg1;
+- (BOOL)popoverControllerShouldDismissPopover:(id)arg1;
+- (void)dismissPopoverAnimated:(BOOL)arg1;
+- (void)dealloc;
+- (id)initWithContentViewController:(id)arg1;
 
 @end
 

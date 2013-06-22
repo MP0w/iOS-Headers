@@ -7,10 +7,10 @@
 #import "NSObject.h"
 
 @interface NSObject (_CAObjectInternal)
-+ (void *)CA_setterForType:(int)arg1;
-+ (void *)CA_getterForType:(int)arg1;
-+ (BOOL)CA_encodePropertyConditionally:(unsigned int)arg1 type:(int)arg2;
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (id)CA_CAMLPropertyForKey:(id)arg1;
++ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (BOOL)CA_encodesPropertyConditionally:(unsigned int)arg1 type:(int)arg2;
++ (void *)CA_getterForType:(int)arg1;
++ (void *)CA_setterForType:(int)arg1;
 @end
 

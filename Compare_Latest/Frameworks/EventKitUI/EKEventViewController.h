@@ -6,7 +6,7 @@
 
 #import "UIViewController.h"
 
-@class EKEvent, EKEventDetailItem, NSArray, NSString, UIActionSheet, UIButton, UITableView, UIToolbar;
+@class EKEvent, EKEventDetailItem, NSArray, NSString, UIActionSheet, UIBarButtonItem, UITableView, UIToolbar, _UIAccessDeniedView;
 
 @interface EKEventViewController : UIViewController
 {
@@ -16,7 +16,7 @@
     int _pendingStatus;
     id <EKEventViewDelegate> _delegate;
     id _editor;
-    UIButton *_responseButtons[3];
+    UIBarButtonItem *_responseButtons[3];
     UIToolbar *_buttonBar;
     int _lastOrientation;
     id _currentEditItem;
@@ -33,14 +33,20 @@
     unsigned int _icsPreview:1;
     unsigned int _needsReload:1;
     unsigned int _showsDoneButton:1;
+    unsigned int _showsDelegateMessage:1;
     NSArray *_items;
     NSArray *_currentSections;
     int _scrollToSection;
     BOOL _ignoreDBChanges;
     BOOL _showsTimeZone;
+    int _lastAuthorizationStatus;
+    _UIAccessDeniedView *_accessDeniedView;
 }
 
++ (void)adjustLayoutForCell:(id)arg1 tableViewWidth:(float)arg2 numRowsInSection:(int)arg3 cellRow:(int)arg4;
 + (void)setDefaultDatesForEvent:(id)arg1;
+@property(retain, nonatomic) _UIAccessDeniedView *accessDeniedView; // @synthesize accessDeniedView=_accessDeniedView;
+@property(nonatomic) int lastAuthorizationStatus; // @synthesize lastAuthorizationStatus=_lastAuthorizationStatus;
 @property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
 @property(nonatomic) BOOL ignoreDBChanges; // @synthesize ignoreDBChanges=_ignoreDBChanges;
 @property(nonatomic) id <EKEventViewDelegate> delegate; // @synthesize delegate=_delegate;
@@ -53,8 +59,7 @@
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (id)rotatingFooterView;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)_responseChanged:(id)arg1;
 - (void)_declineButtonPressed:(id)arg1;
@@ -81,21 +86,23 @@
 - (void)_presentValidationAlert:(id)arg1;
 - (BOOL)_performSave:(int)arg1 animated:(BOOL)arg2;
 - (void)_saveStatus:(int)arg1 span:(int)arg2;
-- (void)_markEventAsRead;
 - (void)editEvent;
 - (void)doneButtonPressed;
-- (void)setupForEvent;
+- (void)_setUpForEvent;
 - (void)_updateFooterIfNeeded;
 - (void)_configureItemsForStoreConstraintsGivenCalendar:(id)arg1;
 - (id)_items;
-- (void)_setupAttendeesWithAcceptedItem:(id)arg1 declinedItem:(id)arg2 maybeItem:(id)arg3 noReplyItem:(id)arg4;
+- (void)_setUpAttendeesWithAcceptedItem:(id)arg1 declinedItem:(id)arg2 maybeItem:(id)arg3 noReplyItem:(id)arg4;
 - (void)_localeChanged;
 - (void)_storeChanged:(id)arg1;
+- (void)_refreshEventAndReload;
 - (void)accessibilityLargeTextDidChange;
 @property(retain, nonatomic) EKEventDetailItem *_currentEditItem;
 - (int)scrollToSection;
 - (void)setScrollToSection:(int)arg1;
 - (void)completeWithAction:(int)arg1;
+- (void)setShowsDelegateMessage:(BOOL)arg1;
+- (BOOL)showsDelegateMessage;
 - (void)setShowsDoneButton:(BOOL)arg1;
 - (BOOL)showsDoneButton;
 - (void)setShowsAddToCalendar:(BOOL)arg1;
@@ -109,8 +116,8 @@
 - (BOOL)allowsSubitems;
 @property(nonatomic) BOOL allowsEditing;
 @property(retain, nonatomic) EKEvent *event;
-- (void)reloadIfNeeded;
-- (void)setNeedsReload;
+- (void)_reloadIfNeeded;
+- (void)_setNeedsReload;
 - (void)_pop;
 - (struct CGSize)_idealSize;
 - (void)_updateNavBarAnimated:(BOOL)arg1;

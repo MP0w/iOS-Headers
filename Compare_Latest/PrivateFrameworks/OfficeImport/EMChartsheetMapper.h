@@ -14,11 +14,12 @@
     struct CGRect mBox;
 }
 
-- (id)initWithChartSheet:(id)arg1 parent:(id)arg2;
-- (int)width;
-- (int)preprocessWidthWithState:(id)arg1;
-- (int)preprocessHeightWithState:(id)arg1;
+- (id).cxx_construct;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
+- (int)preprocessHeightWithState:(id)arg1;
+- (int)preprocessWidthWithState:(id)arg1;
+- (int)width;
+- (id)initWithChartSheet:(id)arg1 parent:(id)arg2;
 
 @end
 

@@ -10,8 +10,8 @@
 
 @interface SYDRemotePreferencesSource : NSObject
 {
-    int _generationCount;
-    int _lastGenerationFromDisk;
+    long _generationCount;
+    long _lastGenerationFromDisk;
     struct __CFString *preferenceID;
     struct __CFURL *urlOnDisk;
     struct __CFDictionary *cache;
@@ -25,34 +25,39 @@
     id registrationBlock;
 }
 
-+ (id)SYDRemotePreferencesSourceDidChangeNotification;
 + (id)SYDRemotePreferencesSourceConfigurationDidChangeNotification;
-- (void)_storeConfiguration:(struct __CFDictionary *)arg1;
-- (struct __CFDictionary *)copyConfigurationDictionary;
-- (long)configurationValueForKey:(struct __CFString *)arg1;
-- (long)maximumKeyCount;
-- (long)maximumKeyLength;
-- (long)maximumDataLengthPerKey;
-- (long)maximumTotalDataLength;
-- (id)initWithApplicationID:(struct __CFString *)arg1 shared:(BOOL)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (void *)getValueForKey:(struct __CFString *)arg1;
-- (void)setValue:(void *)arg1 forKey:(struct __CFString *)arg2;
-- (void)_cachePlistFromDisk;
-- (void)scheduleRemoteSynchronization;
-- (unsigned char)synchronize;
-- (unsigned char)synchronizeForced:(unsigned char)arg1;
-- (unsigned char)isInitialSync;
-- (unsigned char)hasExternalChanges;
-- (id)copyExternalChangesWithChangeCount:(long long *)arg1;
-- (void)discardExternalChangesForChangeCount:(long long)arg1;
-- (struct __CFArray *)copyKeyList;
-- (struct __CFDictionary *)copyDictionary;
-- (long)generationCount;
-- (void)registerForSynchronizedDefaults;
-- (void)unregisterForSynchronizedDefaults;
++ (id)SYDRemotePreferencesSourceDidChangeNotification;
++ (void)initialize;
++ (void)noteAccountChanges:(id)arg1;
++ (void)resetAllApplicationsWithCompletionHandler:(id)arg1;
 - (void)updateConfiguration;
+- (void)unregisterForSynchronizedDefaults;
+- (void)registerForSynchronizedDefaults;
+- (long)generationCount;
+- (struct __CFDictionary *)copyDictionary;
+- (struct __CFArray *)copyKeyList;
+- (void)discardExternalChangesForChangeCount:(long long)arg1;
+- (id)copyExternalChangesWithChangeCount:(long long *)arg1;
+- (unsigned char)hasExternalChanges;
+- (unsigned char)isInitialSync;
+- (unsigned char)synchronizeForced:(unsigned char)arg1;
+- (unsigned char)synchronize;
+- (void)scheduleRemoteSynchronization;
+- (void)_cachePlistFromDisk;
+- (void)setValue:(void *)arg1 forKey:(struct __CFString *)arg2;
+- (void *)getValueForKey:(struct __CFString *)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithApplicationID:(struct __CFString *)arg1 storeID:(struct __CFString *)arg2 shared:(BOOL)arg3 additionalSource:(BOOL)arg4;
+- (id)initWithApplicationID:(struct __CFString *)arg1 storeID:(struct __CFString *)arg2 shared:(BOOL)arg3;
+- (id)initWithApplicationID:(struct __CFString *)arg1 shared:(BOOL)arg2;
+- (long)maximumTotalDataLength;
+- (long)maximumDataLengthPerKey;
+- (long)maximumKeyLength;
+- (long)maximumKeyCount;
+- (long)configurationValueForKey:(struct __CFString *)arg1;
+- (struct __CFDictionary *)copyConfigurationDictionary;
+- (void)_storeConfiguration:(struct __CFDictionary *)arg1;
 
 @end
 

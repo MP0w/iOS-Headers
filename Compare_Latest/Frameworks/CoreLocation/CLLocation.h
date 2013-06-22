@@ -23,13 +23,15 @@
 - (double)distanceFromLocation:(id)arg1;
 - (double)getDistanceFrom:(id)arg1;
 @property(readonly, nonatomic) int type;
+@property(readonly, nonatomic) double rawCourse;
 @property(readonly, nonatomic) double course;
 @property(readonly, nonatomic) double speed;
-@property(readonly, nonatomic) CDStruct_e0333575 clientLocation;
+@property(readonly, nonatomic) CDStruct_c3f64973 clientLocation;
 @property(readonly, nonatomic) NSDate *timestamp;
 @property(readonly, nonatomic) double verticalAccuracy;
 @property(readonly, nonatomic) double horizontalAccuracy;
 @property(readonly, nonatomic) double altitude;
+@property(readonly, nonatomic) CDStruct_2c43369c rawCoordinate;
 @property(readonly, nonatomic) CDStruct_2c43369c coordinate;
 - (id)shortDescription;
 - (id)description;
@@ -37,7 +39,7 @@
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithClientLocation:(CDStruct_e0333575)arg1;
+- (id)initWithClientLocation:(CDStruct_c3f64973)arg1;
 - (id)initWithCoordinate:(CDStruct_2c43369c)arg1 altitude:(double)arg2 horizontalAccuracy:(double)arg3 verticalAccuracy:(double)arg4 course:(double)arg5 speed:(double)arg6 timestamp:(id)arg7;
 - (id)initWithCoordinate:(CDStruct_2c43369c)arg1 altitude:(double)arg2 horizontalAccuracy:(double)arg3 verticalAccuracy:(double)arg4 timestamp:(id)arg5;
 - (id)_initWithCoordinate:(CDStruct_2c43369c)arg1 altitude:(double)arg2 horizontalAccuracy:(double)arg3 verticalAccuracy:(double)arg4 course:(double)arg5 speed:(double)arg6 timestamp:(id)arg7;

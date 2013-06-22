@@ -22,6 +22,7 @@
     float _offset;
     unsigned int _arrowDirection;
     BOOL _updatesEnabled;
+    BOOL _preferLandscapeOrientations;
 }
 
 + (id)_observationKeys;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic) unsigned int arrowDirection; // @synthesize arrowDirection=_arrowDirection;
 @property(readonly, nonatomic) float offset; // @synthesize offset=_offset;
 @property(readonly, nonatomic) struct CGRect frame; // @synthesize frame=_frame;
+@property(nonatomic) BOOL preferLandscapeOrientations; // @synthesize preferLandscapeOrientations=_preferLandscapeOrientations;
 @property(nonatomic) BOOL constrainToTargetRect; // @synthesize constrainToTargetRect=_constrainToTargetRect;
 @property(nonatomic) struct CGRect targetRect; // @synthesize targetRect=_targetRect;
 @property(nonatomic) struct UIEdgeInsets containingFrameInsets; // @synthesize containingFrameInsets=_containingFrameInsets;

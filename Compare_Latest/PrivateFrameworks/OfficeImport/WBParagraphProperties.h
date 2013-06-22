@@ -10,8 +10,12 @@
 {
 }
 
-+ (id)formattingChangeDate:(const struct WrdDateTime *)arg1;
++ (struct WrdParagraphProperties *)createTrackedPropertiesIfNeeded:(id)arg1;
++ (void)write:(id)arg1 properties:(id)arg2 wrdProperties:(struct WrdParagraphProperties *)arg3 tracked:(struct WrdParagraphProperties *)arg4 document:(id)arg5;
 + (void)readFrom:(id)arg1 wrdProperties:(struct WrdParagraphProperties *)arg2 tracked:(struct WrdParagraphProperties *)arg3 document:(id)arg4 properties:(id)arg5;
++ (id)formattingChangeDate:(const struct WrdDateTime *)arg1;
++ (void)mapProperties:(id)arg1 writer:(id)arg2 toWordProperties:(struct WrdParagraphProperties *)arg3;
++ (void)mapWordProperties:(struct WrdParagraphProperties *)arg1 reader:(id)arg2 toProperties:(id)arg3;
 
 @end
 

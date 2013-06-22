@@ -8,38 +8,38 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSColorStub;
+@class TSUColor;
 
 @interface WDBorder : NSObject <NSCopying>
 {
     int mStyle;
-    NSColorStub *mColor;
+    TSUColor *mColor;
     unsigned char mWidth;
     unsigned char mSpace;
     BOOL mShadow;
     BOOL mFrame;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)isEqualToBorder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (void)setBorder:(id)arg1;
-- (void)setNullBorder;
-- (void)setSingleBlackBorder;
-- (int)style;
-- (void)setStyle:(int)arg1;
-- (id)color;
-- (void)setColor:(id)arg1;
-- (unsigned char)width;
-- (void)setWidth:(unsigned char)arg1;
-- (unsigned char)space;
-- (void)setSpace:(unsigned char)arg1;
-- (BOOL)shadow;
-- (void)setShadow:(BOOL)arg1;
-- (BOOL)frame;
-- (void)setFrame:(BOOL)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setFrame:(BOOL)arg1;
+- (BOOL)frame;
+- (void)setShadow:(BOOL)arg1;
+- (BOOL)shadow;
+- (void)setSpace:(unsigned char)arg1;
+- (unsigned char)space;
+- (void)setWidth:(unsigned char)arg1;
+- (unsigned char)width;
+- (void)setColor:(id)arg1;
+- (id)color;
+- (void)setStyle:(int)arg1;
+- (int)style;
+- (void)setSingleBlackBorder;
+- (void)setNullBorder;
+- (void)setBorder:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToBorder:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

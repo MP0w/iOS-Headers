@@ -14,10 +14,13 @@
     CMDrawingContext *mDrawingContext;
 }
 
-- (id)initWithOddDiagram:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 parent:(id)arg4;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (id)diagram;
++ (int)diagramTypeFromString:(id)arg1;
 - (id)styleMatrix;
+- (id)diagram;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id)initWithOddDiagram:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 parent:(id)arg4;
+- (id)copyDiagramMapperForId:(id)arg1;
+- (id)identifierFromLayoutTypeId:(id)arg1;
 
 @end
 

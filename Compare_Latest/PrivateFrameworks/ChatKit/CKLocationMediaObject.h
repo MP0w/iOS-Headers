@@ -4,17 +4,17 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <ChatKit/CKMediaObject.h>
+#import <ChatKit/CKCardMediaObject.h>
 
-@interface CKLocationMediaObject : CKMediaObject
+@interface CKLocationMediaObject : CKCardMediaObject
 {
 }
 
 + (id)mimeTypesToFileExtensions;
+- (id)icon;
+- (id)subtitle;
+- (id)title;
 - (int)mediaType;
-- (BOOL)shouldTranscodeForMMS;
-- (Class)balloonPreviewClassWithPreviewData:(id)arg1;
-- (void)configureBalloon:(id)arg1 withPreviewData:(id)arg2;
 
 @end
 

@@ -11,13 +11,13 @@
     id _delegate;
 }
 
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (id)_pageIndicatorImageForPage:(int)arg1;
-- (id)_pageIndicatorCurrentImageForPage:(int)arg1;
-- (void)setFrame:(struct CGRect)arg1;
 @property(nonatomic) id <SBIconListPageControlDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)setFrame:(struct CGRect)arg1;
+- (id)_pageIndicatorCurrentImageForPage:(int)arg1;
+- (id)_pageIndicatorImageForPage:(int)arg1;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 
 @end
 

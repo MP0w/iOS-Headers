@@ -11,6 +11,7 @@
     NSLocale *loc;
 }
 
++ (BOOL)supportsSecureCoding;
 - (Class)classForCoder;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

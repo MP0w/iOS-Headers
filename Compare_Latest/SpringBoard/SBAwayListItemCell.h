@@ -10,35 +10,37 @@
 
 @interface SBAwayListItemCell : UITableViewCell
 {
-    UIImageView *_separator;
+    UIImageView *_separatorTopHalf;
+    UIImageView *_separatorBottomHalf;
     UIImageView *_iconImageView;
     SBBulletinCellContentViewBase *_cellContentView;
     SBAwayBulletinListController *_controller;
     BOOL _shouldBlinkIcon;
 }
 
-+ (float)_rowHeightForContentHeight:(float)arg1;
-+ (float)_contentWidthForRowWidth:(float)arg1;
-+ (float)_cellIconLeftPadding;
-+ (float)_cellContentLeftPadding;
-+ (float)_cellContentRightPadding;
-+ (float)_cellContentTopPadding;
 + (float)_cellContentExtraPadding;
-- (BOOL)_hasBackgroundColor;
-- (void)_addIconBlinkAnimation;
-- (void)_removeIconBlinkAnimation;
-- (void)_createContentView;
-- (id)initWithReuseIdentifier:(id)arg1;
-- (void)dealloc;
-- (void)setIconImage:(id)arg1;
++ (float)_cellContentTopPadding;
++ (float)_cellContentRightPadding;
++ (float)_cellContentLeftPadding;
++ (float)_cellIconLeftPadding;
++ (float)_contentWidthForRowWidth:(float)arg1;
++ (float)_rowHeightForContentHeight:(float)arg1;
 @property(nonatomic) BOOL shouldBlinkIcon; // @synthesize shouldBlinkIcon=_shouldBlinkIcon;
-- (void)setTitle:(id)arg1;
-- (void)setMessage:(id)arg1;
-- (void)layoutSubviews;
-- (BOOL)_drawsSeparator;
-- (struct CGRect)_contentRect;
-- (struct CGRect)_cellContentViewFrame;
 - (void)setController:(id)arg1;
+- (struct CGRect)_cellContentViewFrame;
+- (struct CGRect)_contentRect;
+- (BOOL)_drawsSeparator;
+- (void)layoutSubviews;
+- (void)setMessage:(id)arg1;
+- (void)setTitle:(id)arg1;
+- (void)setIconImage:(id)arg1;
+- (void)dealloc;
+- (void)setBackgroundColor:(id)arg1;
+- (id)initWithReuseIdentifier:(id)arg1;
+- (void)_createContentView;
+- (void)_removeIconBlinkAnimation;
+- (void)_addIconBlinkAnimation;
+- (BOOL)_hasBackgroundColor;
 
 @end
 

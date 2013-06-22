@@ -25,29 +25,30 @@
     unsigned int _isPlaying:1;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
-- (id)labelWithFontSize:(float)arg1 origin:(struct CGPoint)arg2 fontName:(const char *)arg3;
-- (id)labelWithFontSize:(float)arg1 origin:(struct CGPoint)arg2;
-- (id)newNowPlayingLabelWithFont:(id)arg1 color:(id)arg2;
-- (void)resizeAndPositionNowPlayingLabels;
-- (void)updateLabels;
-- (void)setAlpha:(float)arg1;
-- (void)updateClockFormat;
-- (void)updateClock;
-@property(retain, nonatomic) NSString *title;
-- (void)setArtist:(id)arg1;
-- (void)setAlbum:(id)arg1;
-- (void)removeFromSuperview;
-- (void)didMoveToSuperview;
-- (id)controlsView;
-- (void)setIsShowingControls:(BOOL)arg1;
-- (void)dismissMediaControlsOverlaysAnimated:(BOOL)arg1;
-- (BOOL)isShowingControls;
-- (BOOL)isMediaControlsShowingOverlays;
-@property(nonatomic, getter=isPlaying) BOOL playing;
 @property(nonatomic) id <SBAwayDateViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic, getter=isPlaying) BOOL playing;
+- (BOOL)isMediaControlsShowingOverlays;
+- (BOOL)isShowingControls;
+- (void)dismissMediaControlsOverlaysAnimated:(BOOL)arg1;
+- (void)setIsShowingControls:(BOOL)arg1;
+- (id)controlsView;
+- (void)didMoveToSuperview;
+- (void)setVisible:(BOOL)arg1;
+- (void)removeFromSuperview;
+- (void)setAlbum:(id)arg1;
+- (void)setArtist:(id)arg1;
+@property(retain, nonatomic) NSString *title;
+- (void)updateClock;
+- (void)updateClockFormat;
+- (void)_createFormattersIfNecessary;
+- (void)update;
+- (void)resizeAndPositionNowPlayingLabels;
+- (id)newNowPlayingLabelWithFont:(id)arg1 color:(id)arg2;
+- (id)labelWithFontSize:(float)arg1 origin:(struct CGPoint)arg2;
+- (id)labelWithFontSize:(float)arg1 origin:(struct CGPoint)arg2 fontName:(const char *)arg3;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

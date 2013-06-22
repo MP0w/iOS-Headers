@@ -12,16 +12,17 @@
 {
 }
 
-+ (id)basicAccountProperties;
-+ (id)typeString;
-+ (id)localizedSyncSourceStringForDataClass:(id)arg1 forBeginningOfSentence:(BOOL)arg2;
-+ (id)localizedReferenceToSyncSourceStringForDataClass:(id)arg1;
-+ (BOOL)isTetheredSyncingDataclass:(id)arg1;
-+ (id)tetheredSourceForDataClass:(id)arg1;
 + (id)accountWithBasicAccount:(id)arg1;
-- (id)identifier;
-- (id)displayName;
++ (id)tetheredSourceForDataClass:(id)arg1;
++ (BOOL)isTetheredSyncingDataclass:(id)arg1;
++ (id)localizedReferenceToSyncSourceStringForDataClass:(id)arg1;
++ (id)localizedSyncSourceStringForDataClass:(id)arg1 forBeginningOfSentence:(BOOL)arg2;
++ (id)typeString;
++ (id)basicAccountProperties;
++ (id)_identifier;
 - (id)syncStoreIdentifier;
+- (id)displayName;
+- (id)identifier;
 
 @end
 

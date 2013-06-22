@@ -17,6 +17,7 @@
 - (int)serviceAvailability;
 - (void)handleActiveAccountsChanged:(id)arg1;
 - (void)updateAvailability;
+- (void)_updateAvailability;
 - (void)_postAvailability:(int)arg1;
 - (void)dealloc;
 - (id)initWithServiceType:(int)arg1;

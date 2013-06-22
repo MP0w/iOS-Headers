@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (CARenderValue)
-- (void)CA_prepareRenderValue;
 - (struct Object *)CA_copyRenderValue;
+- (void)CA_prepareRenderValue;
 @end
 

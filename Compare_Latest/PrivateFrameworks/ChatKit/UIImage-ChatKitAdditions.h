@@ -7,7 +7,9 @@
 #import "UIImage.h"
 
 @interface UIImage (ChatKitAdditions)
-+ (id)ckImageNamed:(id)arg1;
 + (id)ckImageWithData:(id)arg1;
++ (id)ckImageNamed:(id)arg1;
+- (void)decode;
+- (id)imageWithOrientation:(int)arg1;
 @end
 

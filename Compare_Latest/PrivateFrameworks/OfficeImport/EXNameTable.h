@@ -11,6 +11,7 @@
 }
 
 + (void)readFrom:(struct _xmlNode *)arg1 state:(id)arg2;
++ (id)edNameFromXmlNameElement:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end
 

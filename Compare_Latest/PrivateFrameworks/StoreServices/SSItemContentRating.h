@@ -24,8 +24,8 @@
 - (BOOL)_isRatingSystemForMusic:(int)arg1;
 - (BOOL)_isRatingSystemForMovies:(int)arg1;
 - (BOOL)_isRatingSystemForApps:(int)arg1;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (void *)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 @property(readonly, nonatomic) SSItemArtworkImage *ratingSystemLogo;
 @property(readonly, nonatomic) NSDictionary *contentRatingDictionary;
 - (id)valueForProperty:(id)arg1;

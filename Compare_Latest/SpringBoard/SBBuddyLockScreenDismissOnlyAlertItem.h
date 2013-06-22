@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)allowInSetup;
 - (BOOL)forcesModalAlertAppearance;
+- (BOOL)allowInSetup;
 
 @end
 

@@ -22,28 +22,30 @@
     float mShearYAngle;
 }
 
-+ (const struct StateSpec *)stateForReading;
-+ (void)transformRect:(struct CGRect)arg1 transform:(id)arg2 upperLeft:(struct CGPoint *)arg3 lowerLeft:(struct CGPoint *)arg4 lowerRight:(struct CGPoint *)arg5 upperRight:(struct CGPoint *)arg6;
 + (struct CGRect)boundsOfTransformedRect:(struct CGRect)arg1 transform:(id)arg2;
-- (struct CGSize)naturalSize;
-- (void)setNaturalSize:(struct CGSize)arg1;
-- (struct CGSize)size;
-- (void)setSize:(struct CGSize)arg1;
-- (BOOL)sizesLocked;
-- (BOOL)aspectRatioLocked;
-- (struct CGPoint)position;
-- (void)setPosition:(struct CGPoint)arg1;
-- (float)angle;
-- (void)setAngle:(float)arg1;
-- (BOOL)horizontalFlip;
-- (BOOL)verticalFlip;
-- (float)shearXAngle;
-- (float)shearYAngle;
-- (struct CGSize)sizeOfBoundingBox;
-- (struct CGPoint)nonrotatedPosition;
-- (struct CGRect)naturalBounds;
-- (struct CGAffineTransform)transform;
++ (void)transformRect:(struct CGRect)arg1 transform:(id)arg2 upperLeft:(struct CGPoint *)arg3 lowerLeft:(struct CGPoint *)arg4 lowerRight:(struct CGPoint *)arg5 upperRight:(struct CGPoint *)arg6;
++ (const struct StateSpec *)stateForReading;
+- (id).cxx_construct;
 - (struct CGAffineTransform)transformHasVFlip:(BOOL)arg1 vFlip:(BOOL)arg2 hasHFlip:(BOOL)arg3 hFlip:(BOOL)arg4;
+- (struct CGAffineTransform)transform;
+- (struct CGRect)naturalBounds;
+- (struct CGPoint)nonrotatedPosition;
+- (struct CGSize)sizeOfBoundingBox;
+- (float)shearYAngle;
+- (float)shearXAngle;
+- (BOOL)verticalFlip;
+- (BOOL)horizontalFlip;
+- (void)setAngle:(float)arg1;
+- (float)angle;
+- (void)setPosition:(struct CGPoint)arg1;
+- (struct CGPoint)position;
+- (BOOL)aspectRatioLocked;
+- (BOOL)sizesLocked;
+- (void)setSize:(struct CGSize)arg1;
+- (struct CGSize)size;
+- (void)setNaturalSize:(struct CGSize)arg1;
+- (struct CGSize)naturalSize;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

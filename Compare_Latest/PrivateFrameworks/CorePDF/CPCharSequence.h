@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "CPCopying-Protocol.h"
 #import "CPDisposable-Protocol.h"
 #import "NSCopying-Protocol.h"
 
 @class CPMemoryOwner;
 
-@interface CPCharSequence : NSObject <NSCopying, CPDisposable>
+@interface CPCharSequence : NSObject <NSCopying, CPCopying, CPDisposable>
 {
     unsigned int length;
     struct CPPDFChar **charArray;
@@ -21,46 +22,47 @@
     BOOL wasMerged;
 }
 
-- (id)initWithSizeFor:(unsigned int)arg1;
-- (id)initWithChars:(struct CPPDFChar *)arg1 length:(unsigned int)arg2;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)resize:(unsigned int)arg1;
-- (unsigned int)length;
-- (struct CPPDFChar *)charAtIndex:(unsigned int)arg1;
-- (struct CPPDFChar **)charArray;
-- (void)addChar:(struct CPPDFChar *)arg1;
-- (void)addChars:(struct CPPDFChar *)arg1 length:(unsigned int)arg2;
-- (void)addChars:(struct CPPDFChar *)arg1 length:(unsigned int)arg2 ifTrue:(void *)arg3 passing:(void *)arg4;
-- (void)addCharsFromSequence:(id)arg1;
-- (void)removeChar;
-- (void)removeAllChars;
-- (void)replaceCharAtIndex:(unsigned int)arg1 withChar:(struct CPPDFChar *)arg2;
-- (void)removeCharAtIndex:(unsigned int)arg1;
-- (void)removeFrom:(unsigned int)arg1;
-- (void)sortByAnchorYDecreasingXIncreasing;
-- (void)sortByAnchorXIncreasingYDecreasing;
-- (void)sortBy:(void *)arg1;
-- (void)mergeByAnchorYDecreasingXIncreasing:(id)arg1;
-- (void)mergeByAnchorXIncreasingYDecreasing:(id)arg1;
-- (void)merge:(id)arg1 by:(void *)arg2;
-- (BOOL)wasMerged;
-- (id)newSubsequenceFrom:(unsigned int)arg1 length:(unsigned int)arg2;
-- (void)splitToSubsequences:(id)arg1 whereTrue:(void *)arg2 passing:(void *)arg3;
-- (BOOL)removeSubsequences:(id)arg1 whereTrue:(void *)arg2 passing:(void *)arg3;
-- (void)copyToSubsequence:(id)arg1 from:(unsigned int)arg2 length:(unsigned int)arg3;
-- (void)copyToSubsequence:(id)arg1 ifTrue:(void *)arg2 passing:(void *)arg3;
-- (BOOL)removeToSubsequence:(id)arg1 ifTrue:(void *)arg2 passing:(void *)arg3;
-- (BOOL)map:(void *)arg1 passing:(void *)arg2;
-- (BOOL)mapWithIndex:(void *)arg1 passing:(void *)arg2;
-- (BOOL)mapWithIndex:(void *)arg1 from:(unsigned int)arg2 length:(unsigned int)arg3 passing:(void *)arg4;
-- (BOOL)mapToPairs:(void *)arg1 passing:(void *)arg2;
-- (BOOL)mapToPairsWithIndex:(void *)arg1 passing:(void *)arg2;
-- (BOOL)map:(void *)arg1 whereNeighborsWith:(id)arg2 passing:(void *)arg3;
-- (struct CGRect)bounds;
 - (struct CGRect)boundsFrom:(unsigned int)arg1 length:(unsigned int)arg2;
+- (struct CGRect)bounds;
+- (BOOL)map:(void *)arg1 whereNeighborsWith:(id)arg2 passing:(void *)arg3;
+- (BOOL)mapToPairsWithIndex:(void *)arg1 passing:(void *)arg2;
+- (BOOL)mapToPairs:(void *)arg1 passing:(void *)arg2;
+- (BOOL)mapWithIndex:(void *)arg1 from:(unsigned int)arg2 length:(unsigned int)arg3 passing:(void *)arg4;
+- (BOOL)mapWithIndex:(void *)arg1 passing:(void *)arg2;
+- (BOOL)map:(void *)arg1 passing:(void *)arg2;
+- (BOOL)removeToSubsequence:(id)arg1 ifTrue:(void *)arg2 passing:(void *)arg3;
+- (void)copyToSubsequence:(id)arg1 ifTrue:(void *)arg2 passing:(void *)arg3;
+- (void)copyToSubsequence:(id)arg1 from:(unsigned int)arg2 length:(unsigned int)arg3;
+- (BOOL)removeSubsequences:(id)arg1 whereTrue:(void *)arg2 passing:(void *)arg3;
+- (void)splitToSubsequences:(id)arg1 whereTrue:(void *)arg2 passing:(void *)arg3;
+- (id)newSubsequenceFrom:(unsigned int)arg1 length:(unsigned int)arg2;
+- (BOOL)wasMerged;
+- (void)merge:(id)arg1 by:(void *)arg2;
+- (void)mergeByAnchorXIncreasingYDecreasing:(id)arg1;
+- (void)mergeByAnchorYDecreasingXIncreasing:(id)arg1;
+- (void)sortBy:(void *)arg1;
+- (void)sortByAnchorXIncreasingYDecreasing;
+- (void)sortByAnchorYDecreasingXIncreasing;
+- (void)removeFrom:(unsigned int)arg1;
+- (void)removeCharAtIndex:(unsigned int)arg1;
+- (void)replaceCharAtIndex:(unsigned int)arg1 withChar:(struct CPPDFChar *)arg2;
+- (void)removeAllChars;
+- (void)removeChar;
+- (void)addCharsFromSequence:(id)arg1;
+- (void)addChars:(struct CPPDFChar *)arg1 length:(unsigned int)arg2 ifTrue:(void *)arg3 passing:(void *)arg4;
+- (void)addChars:(struct CPPDFChar *)arg1 length:(unsigned int)arg2;
+- (void)addChar:(struct CPPDFChar *)arg1;
+- (struct CPPDFChar **)charArray;
+- (struct CPPDFChar *)charAtIndex:(unsigned int)arg1;
+- (unsigned int)length;
+- (void)resize:(unsigned int)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)initSuper;
+- (id)initWithChars:(struct CPPDFChar *)arg1 length:(unsigned int)arg2;
+- (id)initWithSizeFor:(unsigned int)arg1;
 
 @end
 

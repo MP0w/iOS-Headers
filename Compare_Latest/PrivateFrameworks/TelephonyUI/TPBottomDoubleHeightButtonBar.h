@@ -17,12 +17,12 @@
     TPButton *_bottomButton;
 }
 
-+ (id)_backgroundImage;
 + (float)defaultHeightForOrientation:(int)arg1;
-- (id)initForIncomingCallOnFaceTimeCallWithFrame:(struct CGRect)arg1;
++ (id)_backgroundImage;
+@property(readonly, nonatomic) TPButton *bottomButton; // @synthesize bottomButton=_bottomButton;
+@property(readonly, nonatomic) TPButton *topButton; // @synthesize topButton=_topButton;
 - (void)dealloc;
-@property(readonly, retain, nonatomic) TPButton *bottomButton; // @synthesize bottomButton=_bottomButton;
-@property(readonly, retain, nonatomic) TPButton *topButton; // @synthesize topButton=_topButton;
+- (id)initForIncomingCallOnFaceTimeCallWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -4,37 +4,37 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBAlertDisplay.h"
+#import "SBAlertView.h"
 
-@class NSTimer, SBPowerDownController, TPBottomSingleButtonBar, TPTopLockBar, UIView;
+@class NSTimer, TPBottomSingleButtonBar, TPTopLockBar, UIView;
 
-@interface SBPowerDownView : SBAlertDisplay
+@interface SBPowerDownView : SBAlertView
 {
+    id <SBPowerDownViewDelegate> _delegate;
     UIView *_dimView;
     TPTopLockBar *_lockView;
     TPBottomSingleButtonBar *_cancelView;
-    SBPowerDownController *_powerDownController;
     NSTimer *_autoDismissTimer;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)cancelAutoDismissTimer;
-- (void)resetAutoDismissTimer;
-- (void)cancel:(id)arg1;
-- (void)lockBarUnlocked:(id)arg1;
-- (void)lockBarStartedTracking:(id)arg1;
-- (void)lockBarStoppedTracking:(id)arg1;
-- (void)powerDown:(id)arg1;
-- (void)setPowerDownController:(id)arg1;
-- (void)finishedAnimatingIn;
-- (void)finishedAnimatingOut;
-- (void)notifyDelegateOfPowerDown;
-- (void)animateIn;
-- (void)animateOut;
-- (void)animateDark;
-- (BOOL)isSupportedInterfaceOrientation:(int)arg1;
+@property(nonatomic) id <SBPowerDownViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)layoutForInterfaceOrientation:(int)arg1;
+- (BOOL)isSupportedInterfaceOrientation:(int)arg1;
+- (void)animateDark;
+- (void)animateOut;
+- (void)animateIn;
+- (void)notifyDelegateOfPowerDown;
+- (void)finishedAnimatingOut;
+- (void)finishedAnimatingIn;
+- (void)powerDown:(id)arg1;
+- (void)lockBarStoppedTracking:(id)arg1;
+- (void)lockBarStartedTracking:(id)arg1;
+- (void)lockBarUnlocked:(id)arg1;
+- (void)cancel:(id)arg1;
+- (void)resetAutoDismissTimer;
+- (void)cancelAutoDismissTimer;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

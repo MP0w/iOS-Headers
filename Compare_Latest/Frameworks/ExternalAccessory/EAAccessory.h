@@ -15,6 +15,8 @@
 
 - (void)setIPodOutOptionsMask:(int)arg1;
 - (int)iPodOutOptionsMask;
+- (BOOL)supportsPointOfInterest;
+- (void)updateItemProperty:(int)arg1 withValue:(id)arg2;
 - (void)updateSystemProperty:(int)arg1 withValue:(id)arg2;
 - (BOOL)supportsAccessibility;
 - (BOOL)sendEphemeris:(id)arg1;
@@ -42,17 +44,23 @@
 - (void *)cfAccessoryPortPropertyCallback;
 - (void)setCfAccessory:(struct __CFAccessory *)arg1;
 - (struct __CFAccessory *)cfAccessory;
+- (id)macAddress;
+- (BOOL)_internalNotPresentInIAPAccessoriesArray;
+- (unsigned int)_internalConnectionID;
+- (id)_createWakeToken;
 - (void)_endSession:(unsigned int)arg1;
 - (void)_openCompleteForSession:(unsigned int)arg1;
 - (void)_removeSession:(id)arg1;
 - (void)_addSession:(id)arg1;
 - (id)_protocolIDForProtocolString:(id)arg1;
+- (void)_setNotPresentInIAPAccessoriesArray:(BOOL)arg1;
 - (void)_setConnected:(BOOL)arg1;
 - (id)_shortDescription;
 - (void)_updateAccessoryInfo:(id)arg1;
 - (id)_initWithAccessory:(id)arg1;
 @property(nonatomic) id <EAAccessoryDelegate> delegate;
 @property(readonly, nonatomic) NSArray *protocolStrings;
+- (id)wakeToken;
 @property(readonly, nonatomic) NSString *hardwareRevision;
 @property(readonly, nonatomic) NSString *firmwareRevision;
 @property(readonly, nonatomic) NSString *serialNumber;

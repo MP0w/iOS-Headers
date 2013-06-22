@@ -9,13 +9,13 @@
 @protocol UIPrintInteractionControllerDelegate <NSObject>
 
 @optional
-- (id)printInteractionControllerParentViewController:(id)arg1;
-- (id)printInteractionController:(id)arg1 choosePaper:(id)arg2;
-- (void)printInteractionControllerWillPresentPrinterOptions:(id)arg1;
-- (void)printInteractionControllerDidPresentPrinterOptions:(id)arg1;
-- (void)printInteractionControllerWillDismissPrinterOptions:(id)arg1;
-- (void)printInteractionControllerDidDismissPrinterOptions:(id)arg1;
-- (void)printInteractionControllerWillStartJob:(id)arg1;
 - (void)printInteractionControllerDidFinishJob:(id)arg1;
+- (void)printInteractionControllerWillStartJob:(id)arg1;
+- (void)printInteractionControllerDidDismissPrinterOptions:(id)arg1;
+- (void)printInteractionControllerWillDismissPrinterOptions:(id)arg1;
+- (void)printInteractionControllerDidPresentPrinterOptions:(id)arg1;
+- (void)printInteractionControllerWillPresentPrinterOptions:(id)arg1;
+- (id)printInteractionController:(id)arg1 choosePaper:(id)arg2;
+- (id)printInteractionControllerParentViewController:(id)arg1;
 @end
 

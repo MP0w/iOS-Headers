@@ -7,7 +7,6 @@
 #import "UINavigationController.h"
 
 @interface UINavigationController (SUAdditions)
-- (void)populateNavigationHistoryWithItems:(id)arg1;
 - (void)invalidate;
 - (unsigned int)indexOfViewController:(id)arg1;
 - (id)firstViewController;

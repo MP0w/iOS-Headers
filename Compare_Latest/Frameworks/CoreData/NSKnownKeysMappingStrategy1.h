@@ -10,38 +10,39 @@
 {
     int _cd_rc;
     void *_table;
-    unsigned int _length;
+    unsigned long _length;
     id _reserved1;
     id *_keys;
 }
 
-+ (void)initialize;
-+ (BOOL)accessInstanceVariablesDirectly;
-+ (id)alloc;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (struct __CFArray *)_makeBranchTableForKeys:(const char **)arg1 count:(unsigned long)arg2;
-- (void)_coreCreationForKeys:(const id *)arg1 count:(unsigned long)arg2;
-- (id)retain;
-- (oneway void)release;
-- (unsigned int)retainCount;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
-- (id)initForKeys:(const id *)arg1 count:(unsigned int)arg2;
-- (id)initForKeys:(id)arg1;
-- (void)_coreDealloc:(BOOL)arg1;
-- (void)dealloc;
-- (unsigned int)indexForKey:(id)arg1;
-- (unsigned int)fastIndexForKnownKey:(id)arg1;
-- (unsigned int)length;
-- (const id *)keys;
-- (id)allKeys;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (Class)classForCoder;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
++ (id)alloc;
++ (BOOL)accessInstanceVariablesDirectly;
++ (void)initialize;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (Class)classForArchiver;
+- (Class)classForCoder;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)allKeys;
+- (id *)keys;
+- (unsigned int)length;
+- (unsigned int)fastIndexForKnownKey:(id)arg1;
+- (unsigned int)indexForKey:(id)arg1;
+- (void)dealloc;
+- (void)_coreDealloc:(BOOL)arg1;
+- (id)initForKeys:(id)arg1;
+- (id)initForKeys:(id *)arg1 count:(unsigned int)arg2;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
+- (unsigned int)retainCount;
+- (oneway void)release;
+- (id)retain;
+- (void)_coreCreationForKeys:(const id *)arg1 count:(unsigned long)arg2;
+- (struct __CFArray *)_makeBranchTableForKeys:(const char **)arg1 count:(unsigned long)arg2;
 
 @end
 

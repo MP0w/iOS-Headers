@@ -7,13 +7,13 @@
 #import "NSObject-Protocol.h"
 
 @protocol APSConnectionServerDelegate <NSObject>
-- (void)connectionTopicsChanged:(id)arg1;
-- (void)connectionWasClosed:(id)arg1;
-- (BOOL)connectionDelegateHasIdentity:(id)arg1;
-- (BOOL)connectionDelegateIsConnectedToService:(id)arg1;
-- (void)connectionChangedCriticalReliability:(id)arg1;
-- (void)connection:(id)arg1 didReceiveOutgoingMessageToSend:(id)arg2;
-- (void)connection:(id)arg1 didReceiveCancellationForOutgoingMessageWithID:(unsigned int)arg2;
 - (void)connection:(id)arg1 didReceiveFakeMessageToSend:(id)arg2;
+- (void)connection:(id)arg1 didReceiveCancellationForOutgoingMessageWithID:(unsigned int)arg2;
+- (void)connection:(id)arg1 didReceiveOutgoingMessageToSend:(id)arg2;
+- (void)connectionChangedCriticalReliability:(id)arg1;
+- (BOOL)connectionDelegateIsConnectedToService:(id)arg1;
+- (BOOL)connectionDelegateHasIdentity:(id)arg1;
+- (void)connectionWasClosed:(id)arg1;
+- (void)connectionTopicsChanged:(id)arg1;
 @end
 

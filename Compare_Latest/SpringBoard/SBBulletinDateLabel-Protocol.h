@@ -7,8 +7,13 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBBulletinDateLabel <NSObject>
-- (void)setStartDate:(id)arg1 withTimeZone:(id)arg2;
-- (void)setEndDate:(id)arg1 withTimeZone:(id)arg2;
+@property(nonatomic) int labelType;
+@property(nonatomic) id <SBDateLabelDelegate> delegate;
 @property(nonatomic, getter=isAllDay) BOOL allDay;
+- (void)prepareForReuse;
+- (void)stopCoalescingUpdates;
+- (void)startCoalescingUpdates;
+- (void)setEndDate:(id)arg1 withTimeZone:(id)arg2;
+- (void)setStartDate:(id)arg1 withTimeZone:(id)arg2;
 @end
 

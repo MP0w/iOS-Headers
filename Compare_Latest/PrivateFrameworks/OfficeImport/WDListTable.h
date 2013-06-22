@@ -14,13 +14,13 @@
     WDDocument *mDocument;
 }
 
-- (id)document;
-- (int)listCount;
-- (id)listAt:(int)arg1;
-- (id)lists;
-- (id)addList:(id)arg1;
-- (id)initWithDocument:(id)arg1;
 - (void)dealloc;
+- (id)initWithDocument:(id)arg1;
+- (id)addList:(id)arg1;
+- (id)lists;
+- (id)listAt:(int)arg1;
+- (int)listCount;
+- (id)document;
 
 @end
 

@@ -11,8 +11,8 @@
     unsigned int _count;
 }
 
-- (int)appendData:(id)arg1;
 @property(readonly, nonatomic) unsigned int count; // @synthesize count=_count;
+- (int)appendData:(id)arg1;
 
 @end
 

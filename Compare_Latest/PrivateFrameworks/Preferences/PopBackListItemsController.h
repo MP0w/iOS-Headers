@@ -10,8 +10,8 @@
 {
 }
 
-- (void)listItemSelected:(id)arg1;
 - (void)prepareSpecifiersMetadata;
+- (void)listItemSelected:(id)arg1;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "UISearchBarDelegate-Protocol.h"
 #import "UISearchDisplayDelegate-Protocol.h"
 
-@class GKTableView, GKTableViewControllerV2, NSArray, UISearchBar, UISearchDisplayController;
+@class GKTableView, GKTableViewControllerV2, NSOrderedSet, UISearchBar, UISearchDisplayController;
 
 @interface GKTableHeaderSearchController : NSObject <UISearchBarDelegate, UISearchDisplayDelegate>
 {
@@ -17,13 +17,14 @@
     GKTableViewControllerV2 *_tableController;
     UISearchDisplayController *_searchController;
     UISearchBar *_searchBar;
-    NSArray *_searchTableSections;
+    NSOrderedSet *_searchTableSections;
     BOOL _searchBarHidden;
 }
 
 + (id)searchControllerForTableView:(id)arg1 withController:(id)arg2;
++ (id)playerNamePredicateForSearchText:(id)arg1;
 @property(nonatomic) BOOL searchBarHidden; // @synthesize searchBarHidden=_searchBarHidden;
-@property(retain, nonatomic) NSArray *searchTableSections; // @synthesize searchTableSections=_searchTableSections;
+@property(retain, nonatomic) NSOrderedSet *searchTableSections; // @synthesize searchTableSections=_searchTableSections;
 @property(retain, nonatomic) UISearchBar *searchBar; // @synthesize searchBar=_searchBar;
 @property(retain, nonatomic) UISearchDisplayController *searchDisplayController; // @synthesize searchDisplayController=_searchController;
 @property(nonatomic) GKTableViewControllerV2 *tableController; // @synthesize tableController=_tableController;
@@ -35,6 +36,7 @@
 - (void)searchBarCancelButtonClicked:(id)arg1;
 - (void)searchBarSearchButtonClicked:(id)arg1;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
+- (void)updateStatusViewWithResults:(BOOL)arg1;
 - (void)searchDisplayController:(id)arg1 didHideSearchResultsTableView:(id)arg2;
 - (void)searchDisplayController:(id)arg1 didShowSearchResultsTableView:(id)arg2;
 - (Class)_resultsTableViewClass;

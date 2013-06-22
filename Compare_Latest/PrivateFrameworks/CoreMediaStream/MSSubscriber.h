@@ -45,6 +45,7 @@
 @property(nonatomic) long long targetRetrievalByteCount; // @synthesize targetRetrievalByteCount=_targetRetrievalByteCount;
 @property(nonatomic) MSMediaStreamDaemon *daemon; // @synthesize daemon=_daemon;
 @property(nonatomic) id <MSSubscriberDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)reauthorizationProtocol:(id)arg1 reauthorizedAssets:(id)arg2 rejectedAssets:(id)arg3 error:(id)arg4;
 - (void)reauthorizationProtocol:(id)arg1 didReceiveAuthenticationError:(id)arg2;
 - (void)subscribeStorageProtocolDidFinishRetrievingAllAssets:(id)arg1;
@@ -62,7 +63,7 @@
 - (void)checkForOutstandingActivities;
 - (void)retrieveAssets:(id)arg1;
 - (void)subscribeStreamsProtocol:(id)arg1 didFindShareState:(id)arg2;
-- (void)subscribeStreamsProtocol:(id)arg1 difFindTemporarilyUnavailableSubscriptionForPersonID:(id)arg2;
+- (void)subscribeStreamsProtocol:(id)arg1 didFindTemporarilyUnavailableSubscriptionForPersonID:(id)arg2;
 - (void)subscribeStreamsProtocol:(id)arg1 didReceiveAuthenticationError:(id)arg2;
 - (void)_didReceiveAuthenticationError:(id)arg1;
 - (void)subscribeStreamsProtocol:(id)arg1 didFinishError:(id)arg2;

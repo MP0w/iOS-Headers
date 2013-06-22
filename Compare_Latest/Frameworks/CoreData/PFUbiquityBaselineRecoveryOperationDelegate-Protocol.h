@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PFUbiquityBaselineRecoveryOperationDelegate <NSObject>
-- (void)recoveryOperation:(id)arg1 didReplaceLocalStoreFileWithBaseline:(id)arg2;
 - (void)recoveryOperation:(id)arg1 encounteredAnError:(id)arg2 duringRecoveryOfBaseline:(id)arg3;
+- (void)recoveryOperation:(id)arg1 didReplaceLocalStoreFileWithBaseline:(id)arg2;
 @end
 

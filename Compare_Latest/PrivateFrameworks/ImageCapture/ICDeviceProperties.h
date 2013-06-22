@@ -26,9 +26,6 @@
     BOOL _closeSessionPending;
 }
 
-@property struct CGImage *icon; // @dynamic icon;
-- (void)dealloc;
-- (void)finalize;
 @property BOOL closeSessionPending; // @synthesize closeSessionPending=_closeSessionPending;
 @property BOOL openSessionPending; // @synthesize openSessionPending=_openSessionPending;
 @property BOOL autoOpenSession; // @synthesize autoOpenSession=_autoOpenSession;
@@ -42,6 +39,9 @@
 @property(retain) NSString *name; // @synthesize name=_name;
 @property DeviceManager *deviceManager; // @synthesize deviceManager=_deviceManager;
 @property id delegate; // @synthesize delegate=_delegate;
+- (void)finalize;
+- (void)dealloc;
+@property struct CGImage *icon; // @dynamic icon;
 
 @end
 

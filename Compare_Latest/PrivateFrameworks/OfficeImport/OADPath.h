@@ -16,17 +16,18 @@
     BOOL mStroked;
 }
 
-- (id)init;
-- (void)dealloc;
-- (struct CGSize)size;
-- (void)setSize:(struct CGSize)arg1;
-- (void)addElement:(id)arg1;
-- (unsigned int)elementCount;
-- (id)elementAtIndex:(unsigned int)arg1;
-- (int)fillMode;
-- (void)setFillMode:(int)arg1;
-- (BOOL)stroked;
+- (id).cxx_construct;
 - (void)setStroked:(BOOL)arg1;
+- (BOOL)stroked;
+- (void)setFillMode:(int)arg1;
+- (int)fillMode;
+- (id)elementAtIndex:(unsigned int)arg1;
+- (unsigned int)elementCount;
+- (void)addElement:(id)arg1;
+- (void)setSize:(struct CGSize)arg1;
+- (struct CGSize)size;
+- (void)dealloc;
+- (id)init;
 
 @end
 

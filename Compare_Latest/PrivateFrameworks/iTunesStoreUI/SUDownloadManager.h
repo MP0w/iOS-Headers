@@ -6,30 +6,29 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableDictionary, SSDownloadManager, SSPreorderManager;
+@class NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, SSDownloadManager, SUClientInterface;
 
 @interface SUDownloadManager : NSObject
 {
     NSArray *_cachedDownloads;
-    NSArray *_cachedPreorderDownloads;
-    NSArray *_cachedPreorders;
+    SUClientInterface *_clientInterface;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     SSDownloadManager *_downloadManager;
     NSMutableDictionary *_downloadsByID;
-    SSPreorderManager *_preorderManager;
 }
 
 - (void)_removeObject:(id)arg1 fromArray:(id *)arg2;
-- (void)reloadPreorderManager;
+- (void)_reloadDownloadManager;
+- (void)_finishPreflightWithCompletionBlock:(id)arg1;
 - (void)reloadDownloadManager;
-@property(readonly, nonatomic) NSArray *preorders;
-@property(readonly, nonatomic) SSPreorderManager *preorderManager;
+- (void)preflightWithCompletionBlock:(id)arg1;
 @property(readonly, nonatomic) NSArray *downloads;
 @property(readonly, nonatomic) SSDownloadManager *downloadManager;
 - (id)downloadForDownloadIdentifier:(long long)arg1;
-- (BOOL)deletePreorder:(id)arg1;
 - (BOOL)deleteDownload:(id)arg1;
 - (void)dealloc;
-- (id)initWithDownloadManager:(id)arg1 preorderManager:(id)arg2;
+- (id)initWithDownloadManager:(id)arg1 clientInterface:(id)arg2;
+- (id)initWithDownloadManager:(id)arg1;
 
 @end
 

@@ -10,11 +10,11 @@
 {
 }
 
-+ (unsigned long long)hostUniqueIdentifier;
-+ (id)_processNamePrefix;
-+ (id)processNameAndPidIdentifier;
-+ (id)processNamePidAndStringIdentifier:(id)arg1;
 + (int)pidFromMatchingIdentifer:(id)arg1;
++ (id)processNamePidAndStringIdentifier:(id)arg1;
++ (id)processNameAndPidIdentifier;
++ (id)_processNamePrefix;
++ (unsigned long long)hostUniqueIdentifier;
 
 @end
 

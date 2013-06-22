@@ -20,6 +20,7 @@
     NSString *_containerPath;
     SSItemContentRating *_contentRating;
     NSNumber *_itemIdentifier;
+    BOOL _profileValidated;
     NSString *_softwareType;
     NSNumber *_storeFrontIdentifier;
     NSNumber *_versionIdentifier;
@@ -31,6 +32,7 @@
 @property(retain, nonatomic) NSNumber *versionIdentifier; // @synthesize versionIdentifier=_versionIdentifier;
 @property(retain, nonatomic) NSNumber *storeFrontIdentifier; // @synthesize storeFrontIdentifier=_storeFrontIdentifier;
 @property(copy, nonatomic) NSString *softwareType; // @synthesize softwareType=_softwareType;
+@property(nonatomic, getter=isProfileValidated) BOOL profileValidated; // @synthesize profileValidated=_profileValidated;
 @property(retain, nonatomic) NSNumber *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 @property(copy, nonatomic) SSItemContentRating *contentRating; // @synthesize contentRating=_contentRating;
 @property(copy, nonatomic) NSString *containerPath; // @synthesize containerPath=_containerPath;
@@ -40,8 +42,8 @@
 @property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(retain, nonatomic) NSNumber *accountDSID; // @synthesize accountDSID=_accountDSID;
 - (void)_loadMetadataFromContainer:(id)arg1;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (void *)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (id)description;
 - (void)dealloc;
 - (id)initWithMobileInstallationDictionary:(id)arg1;

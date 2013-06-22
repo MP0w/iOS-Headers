@@ -31,6 +31,13 @@
 + (int)thumbnailFormat;
 + (int)thumbnailVersion;
 + (void)removeObsoleteMetadata;
++ (id)defaultThumbnailsDirectory;
++ (void)saveCameraPreviewWellImage:(struct CGImage *)arg1 assetID:(id)arg2;
++ (void)saveCameraPreviewWellImageForAsset:(id)arg1;
++ (id)cameraPreviewWellAssetID;
++ (id)cameraPreviewWellImage;
++ (id)cameraPreviewWellImageFileURL;
++ (id)cameraPreviewWellImageQueue;
 @property(nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 - (id)_tableDescriptions;
 - (void)thumbnailTablesChangedExternally;
@@ -44,9 +51,12 @@
 - (void)deleteThumbnailsAtIndex:(int)arg1 withUUID:(id)arg2;
 - (void)updateThumbnailsForPhoto:(id)arg1 previewImage:(id)arg2 thumbnailImage:(id)arg3 generatePreviewImage:(BOOL)arg4 assignNewIndex:(BOOL)arg5;
 - (void)updateThumbnailsForPhoto:(id)arg1 previewImage:(id)arg2 thumbnailImage:(id)arg3 generatePreviewImage:(BOOL)arg4;
+- (BOOL)copyThumbnailsFromAsset:(id)arg1 toAsset:(id)arg2;
+- (struct __CFDictionary *)placeholderThumbnailDataByFormatID;
 - (void)setThumbnails:(struct __CFDictionary *)arg1 forPhoto:(id)arg2;
+- (id)newUnbakedIndexImageForAsset:(id)arg1;
 - (id)newImageForPhoto:(id)arg1 withFormat:(int)arg2 outImageProperties:(const struct __CFDictionary **)arg3;
-- (struct __CFDictionary *)assetUUIDToThumbnailIndexMappingForFormat:(int)arg1;
+- (struct __CFDictionary *)newAssetUUIDToThumbnailIndexMappingForFormat:(int)arg1;
 - (void)preheatImageDataForAssets:(id)arg1 format:(int)arg2;
 - (id)dataForPhoto:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
 @property(readonly, nonatomic) NSArray *thumbTables;
@@ -57,6 +67,11 @@
 - (void)clearCachedInformation;
 - (void)dealloc;
 - (id)initWithWeakPhotoLibrary:(id)arg1;
+- (id)_imageTableForFormat:(int *)arg1;
+- (id)_dataForInFlightAsset:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8 imageDataFormat:(int *)arg9;
+- (id)_dataForAsset:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8 imageDataFormat:(int *)arg9;
+- (id)_bakedIndexSheetDataForWallpaperAsset:(id)arg1 width:(int *)arg2 height:(int *)arg3 bytesPerRow:(int *)arg4 dataWidth:(int *)arg5 dataHeight:(int *)arg6 imageDataOffset:(int *)arg7;
+- (id)_bakedThumbnailForPhoto:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
 
 @end
 

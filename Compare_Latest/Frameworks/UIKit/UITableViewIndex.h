@@ -39,6 +39,11 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)_displayTitles;
+- (void)mouseUp:(struct __GSEvent *)arg1;
+- (void)mouseDragged:(struct __GSEvent *)arg1;
+- (void)mouseDown:(struct __GSEvent *)arg1;
+- (id)_createTouchesWithMouseEvent:(struct __GSEvent *)arg1 phase:(int)arg2;
 
 @end
 

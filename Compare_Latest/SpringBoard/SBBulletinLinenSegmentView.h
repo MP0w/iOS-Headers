@@ -12,15 +12,17 @@
 {
     UIView *_linenView;
     struct CGSize _linenSize;
+    BOOL _showsLinen;
     SBBulletinImageView *_gradientView;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 linenView:(id)arg2;
-- (void)dealloc;
-- (void)adjustContents;
-- (void)setGradientAlpha:(float)arg1;
-- (void)setFrame:(struct CGRect)arg1;
+@property(nonatomic) BOOL showsLinen; // @synthesize showsLinen=_showsLinen;
 - (void)didMoveToWindow;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setGradientAlpha:(float)arg1;
+- (void)adjustContents;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 linenView:(id)arg2;
 
 @end
 

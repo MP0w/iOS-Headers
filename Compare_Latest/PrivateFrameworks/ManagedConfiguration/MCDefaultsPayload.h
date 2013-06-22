@@ -13,17 +13,17 @@
     NSDictionary *_defaultsByDomain;
 }
 
-+ (id)typeStrings;
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
 + (id)_allowedDefaults;
-- (BOOL)_checkForValidDefaults:(id)arg1 outError:(id *)arg2;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (id)stubDictionary;
-- (id)description;
-- (id)domains;
-- (id)defaultsForDomain:(id)arg1;
++ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)typeStrings;
+- (void).cxx_destruct;
 - (id)subtitle1Description;
+- (id)defaultsForDomain:(id)arg1;
+- (id)domains;
+- (id)description;
+- (id)stubDictionary;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
+- (BOOL)_checkForValidDefaults:(id)arg1 outError:(id *)arg2;
 
 @end
 

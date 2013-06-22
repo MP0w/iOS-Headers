@@ -41,6 +41,9 @@
 - (id)_invertedSkipSet;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithString:(id)arg1;
+- (BOOL)_scanDecimal:(unsigned int)arg1 into:(int *)arg2;
+- (id)_remainingString;
+- (BOOL)scanDecimal:(CDStruct_5fe7aead *)arg1;
 
 @end
 

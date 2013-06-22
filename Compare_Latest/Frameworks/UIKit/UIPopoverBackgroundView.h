@@ -10,20 +10,26 @@
 {
 }
 
-+ (struct CGSize)_shadowOffset;
-+ (float)_shadowRadius;
-+ (float)_shadowOpacity;
-+ (struct UIEdgeInsets)_shadowInsets;
-+ (id)_shadowPathForRect:(struct CGRect)arg1 arrowDirection:(unsigned int)arg2;
++ (BOOL)wantsDefaultContentAppearance;
 + (struct UIEdgeInsets)contentViewInsets;
 + (float)arrowBase;
 + (float)arrowHeight;
 - (int)backgroundStyle;
+- (void)layoutSubviews;
+- (struct CGRect)_backgroundContentViewFrame;
 - (struct CGRect)_contentViewFrame;
 - (id)actionForLayer:(id)arg1 forKey:(id)arg2;
 - (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)_updateShadow;
 - (id)_shadowPath;
+- (struct CGSize)_shadowOffset;
+- (float)_shadowRadius;
+- (float)_shadowOpacity;
+- (struct UIEdgeInsets)_shadowInsets;
+- (id)_shadowPathForRect:(struct CGRect)arg1 arrowDirection:(unsigned int)arg2;
+- (BOOL)_wantsDefaultContentAppearance;
+- (struct UIEdgeInsets)_contentViewInsetsForArrowDirection:(unsigned int)arg1;
+- (struct UIEdgeInsets)_contentViewInsets;
 @property(nonatomic) unsigned int arrowDirection;
 @property(nonatomic) float arrowOffset;
 

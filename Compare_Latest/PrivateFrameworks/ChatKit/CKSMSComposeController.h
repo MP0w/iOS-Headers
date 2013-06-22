@@ -4,41 +4,55 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <ChatKit/CKTranscriptController.h>
+#import "UIViewController.h"
 
-@class NSMutableArray;
+#import "CKSMSCompose-Protocol.h"
+#import "CKSMSComposeRemoteViewControllerDelegate-Protocol.h"
 
-@interface CKSMSComposeController : CKTranscriptController
+@class CKSMSComposeQueuingRemoteViewControllerProxy, CKSMSComposeRemoteViewController, UINavigationController, _UIAsyncInvocation;
+
+@interface CKSMSComposeController : UIViewController <CKSMSCompose, CKSMSComposeRemoteViewControllerDelegate>
 {
     id _delegate;
-    BOOL _mimeType;
-    BOOL _alreadySetUp;
-    NSMutableArray *_partsToInsert;
-    NSMutableArray *_typesToInsert;
     int _entryViewInvisible;
+    _UIAsyncInvocation *_cancellationInvocation;
+    UINavigationController *_clientNavigationController;
+    BOOL _safeToAdd;
+    CKSMSComposeQueuingRemoteViewControllerProxy *_remoteViewControllerProxy;
+    CKSMSComposeRemoteViewController *_remoteViewController;
 }
 
-+ (BOOL)acceptsMIMEType:(id)arg1;
-+ (double)maxTrimDurationForAudio;
-+ (double)maxTrimDurationForVideo;
 + (BOOL)canSendPhotos:(int)arg1 videos:(int)arg2 audioClips:(int)arg3;
-+ (id)_newMediaObjectForFilename:(id)arg1 mimeType:(id)arg2 exportedFilename:(id)arg3 options:(id)arg4;
-- (id)initWithNavigationController:(id)arg1;
-- (void)_addPart:(id)arg1;
-- (BOOL)_insertMediaObject:(id)arg1;
-- (BOOL)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
-- (BOOL)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3 options:(id)arg4;
-- (BOOL)insertData:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
-- (void)setTextEntryContentsVisible:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (BOOL)ckCanDismissWhenSuspending;
-- (BOOL)shouldDismissAfterSend;
-- (void)transitionFromNewMessageToConversation;
-- (void)cancelButtonClicked:(id)arg1;
-- (void)send:(id)arg1;
-@property(nonatomic) BOOL mimeType; // @synthesize mimeType=_mimeType;
++ (double)maxTrimDurationForVideo;
++ (double)maxTrimDurationForAudio;
++ (BOOL)acceptsMIMEType:(id)arg1;
+@property(retain, nonatomic) CKSMSComposeRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
+@property(retain, nonatomic) CKSMSComposeQueuingRemoteViewControllerProxy *remoteViewControllerProxy; // @synthesize remoteViewControllerProxy=_remoteViewControllerProxy;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)_addRemoteVCIfNeeded;
+- (void)setTextEntryContentsVisible:(BOOL)arg1;
+- (void)smsComposeControllerSendStartedWithText:(id)arg1;
+- (void)smsComposeControllerCancelled;
+- (void)smsComposeControllerAppeared;
+- (void)smsComposeControllerDataInserted;
+- (void)setUICustomizationData:(id)arg1;
+- (void)forceCancelComposition;
+- (void)disableCameraAttachments;
+- (void)setCanEditRecipients:(BOOL)arg1;
+- (void)setPendingAddresses:(id)arg1;
+- (void)setText:(id)arg1 addresses:(id)arg2;
+- (BOOL)insertTextPart:(id)arg1;
+- (BOOL)insertData:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
+- (BOOL)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3 options:(id)arg4;
+- (BOOL)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
+- (void)viewServiceDidTerminateWithError:(id)arg1;
+- (void)dealloc;
+- (id)initWithNavigationController:(id)arg1;
+- (id)init;
 
 @end
 

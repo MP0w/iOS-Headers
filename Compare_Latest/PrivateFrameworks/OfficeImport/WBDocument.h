@@ -11,9 +11,14 @@
 }
 
 + (id)readFrom:(id)arg1;
-+ (id)imageBulletParagraph:(id)arg1;
-- (id)init;
++ (unsigned int)setupZIndices:(id)arg1 document:(id)arg2 escherType:(int)arg3;
++ (void)readProperties:(id)arg1 document:(id)arg2;
++ (void)readTextBoxesFrom:(id)arg1;
++ (void)readNoteSeparatorFrom:(id)arg1 type:(int)arg2 separator:(id)arg3;
++ (void)readSectionsFrom:(id)arg1 document:(id)arg2;
++ (void)setTimeStamp:(struct WrdDocumentProperties *)arg1;
 - (id)applicationName;
+- (id)init;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "UIControl.h"
 
-@class MFSlicedImageView, NSString, UITextLabel;
+@class NSString, UIImageView, UILabel;
 
 @interface MFAddressAtom : UIControl
 {
@@ -14,15 +14,10 @@
     void *_person;
     NSString *_fullAddress;
     NSString *_displayString;
-    struct {
-        struct CGRect left;
-        struct CGRect middle;
-        struct CGRect right;
-    } _atomImageSlices;
-    MFSlicedImageView *_leftCap;
-    MFSlicedImageView *_rightCap;
-    MFSlicedImageView *_center;
-    UITextLabel *_addressLabel;
+    UIImageView *_backgroundImageView;
+    struct UIEdgeInsets _atomCapInsets;
+    UILabel *_addressLabel;
+    unsigned int _accessoryStyle;
     int _style;
     unsigned int _maxWidth;
     int _identifier;
@@ -30,34 +25,41 @@
     unsigned int _needsToSendMouseUpEvents:1;
     unsigned int _dragging:1;
     unsigned int _updatedABPerson:1;
+    unsigned int _isDisplayStringFromAddressBook:1;
+    void *_addressBook;
 }
 
-+ (void)initialize;
-- (void)_registerForNotifications;
-- (void)_unregisterForNotifications;
-- (id)initWithAddress:(id)arg1 style:(int)arg2 isPhoneNumber:(BOOL)arg3 maxWidth:(float)arg4 useDisplayString:(BOOL)arg5;
-- (void)_setupForStyle;
-- (void)setDelegate:(id)arg1;
++ (id)copyDisplayStringForAddress:(id)arg1 usingAddressBook:(void *)arg2;
+@property(nonatomic) unsigned int accessoryStyle; // @synthesize accessoryStyle=_accessoryStyle;
 @property(nonatomic) int style; // @synthesize style=_style;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
-- (void)sendAction:(SEL)arg1 to:(id)arg2 forEvent:(id)arg3;
-- (void)dealloc;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)layoutSubviews;
-- (void)setMaxWidth:(unsigned int)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)_updateABPerson;
-- (void)_addressBookRecordDidChange;
-- (void)_updateDisplayStringIncludingABPerson:(BOOL)arg1;
-- (void *)ABPerson;
-- (int)ABPropertyType;
-- (int)identifier;
-- (id)unmodifiedAddressString;
-- (id)displayString;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setOpaque:(BOOL)arg1;
 - (BOOL)_alwaysHandleScrollerMouseEvent;
+- (void)setOpaque:(BOOL)arg1;
+- (void)setHighlighted:(BOOL)arg1;
+- (id)displayString;
+- (id)unmodifiedAddressString;
+- (int)identifier;
+- (int)ABPropertyType;
+- (void *)ABPerson;
+- (void)_updateDisplayStringIncludingABPerson:(BOOL)arg1;
+- (void)_displayStringDidChange;
+- (void)setAddress:(id)arg1;
+- (BOOL)isDisplayStringFromAddressBook;
+- (id)emailAddress;
+- (void)_updateABPerson;
+- (void)_addVIPImageToBackgroundImageViewIsSelected:(BOOL)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)setMaxWidth:(unsigned int)arg1;
+- (void)layoutSubviews;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)dealloc;
+- (void)sendAction:(SEL)arg1 to:(id)arg2 forEvent:(id)arg3;
+- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)setDelegate:(id)arg1;
+- (id)_VIPImageNameForStyle:(int)arg1 selected:(BOOL)arg2;
+- (void)_setupForStyle;
+- (void)addressBookDidChange:(id)arg1;
+- (id)initWithAddress:(id)arg1 style:(int)arg2 isPhoneNumber:(BOOL)arg3 maxWidth:(float)arg4 addressBook:(void *)arg5;
 
 @end
 

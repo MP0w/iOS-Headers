@@ -10,11 +10,11 @@
 #import "MPNowPlayingItemQueueInfoButtonDelegate-Protocol.h"
 #import <MediaPlayer/MPVideoOverlay-Protocol.h>
 
-@class MPAVController, MPAVItem, MPCenteringNavigationBar, MPDetailSlider, MPNowPlayingItemQueueInfoButton, MPTransportControls, MPVideoViewController, UIImageView, UILabel, UINavigationBar, UINavigationButton, UINavigationItem, UIView;
+@class MPAVController, MPAVItem, MPCenteringNavigationBar, MPDetailSlider, MPNowPlayingItemQueueInfoButton, MPTransportControls, UIImageView, UILabel, UINavigationBar, UINavigationButton, UINavigationItem, UIView;
 
 @interface MPFullScreenVideoOverlay : MPSwipableView <MPDetailSliderDelegate, MPNowPlayingItemQueueInfoButtonDelegate, MPVideoOverlay>
 {
-    MPVideoViewController *_videoViewController;
+    id <MPVideoControllerProtocol> _videoViewController;
     id <MPVideoOverlayDelegate> _delegate;
     MPAVController *_player;
     MPAVItem *_item;
@@ -31,27 +31,27 @@
     MPDetailSlider *_scrubControl;
     UILabel *_scrubSpeedLabel;
     UILabel *_scrubInstructionsLabel;
-    unsigned int _desiredParts;
-    unsigned int _disabledParts;
-    unsigned int _visibleParts;
+    unsigned long long _desiredParts;
+    unsigned long long _disabledParts;
+    unsigned long long _visibleParts;
     unsigned int _tvOutEnabled:1;
     unsigned int _wantsTick:1;
     unsigned int _allowsDetailScrubbing:1;
     unsigned int _detailScrubbing:1;
 }
 
-@property(nonatomic) unsigned int visibleParts; // @synthesize visibleParts=_visibleParts;
-@property(nonatomic) MPVideoViewController *videoViewController; // @synthesize videoViewController=_videoViewController;
+@property(nonatomic) unsigned long long visibleParts; // @synthesize visibleParts=_visibleParts;
+@property(nonatomic) id <MPVideoControllerProtocol> videoViewController; // @synthesize videoViewController=_videoViewController;
 @property(readonly, nonatomic) MPTransportControls *transportControls; // @synthesize transportControls=_transportControls;
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
 @property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
-@property(nonatomic) unsigned int disabledParts; // @synthesize disabledParts=_disabledParts;
-@property(nonatomic) unsigned int desiredParts; // @synthesize desiredParts=_desiredParts;
+@property(nonatomic) unsigned long long disabledParts; // @synthesize disabledParts=_disabledParts;
+@property(nonatomic) unsigned long long desiredParts; // @synthesize desiredParts=_desiredParts;
 @property(nonatomic) id <MPVideoOverlayDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_hideScrubInstructions;
 - (void)_showScrubInstructions;
-- (unsigned int)_visiblePartsForTransportControlsWithParts:(unsigned int)arg1;
+- (unsigned long long)_visiblePartsForTransportControlsWithParts:(unsigned long long)arg1;
 - (BOOL)_updateTitleViewItemVisibility;
 - (BOOL)_shouldShowLoadingTitleView;
 - (void)_updateTitleViewItemVisibilityWithAnimation:(BOOL)arg1;
@@ -62,27 +62,28 @@
 - (id)_newStreamingTitleViewWithFrame:(struct CGRect)arg1;
 - (id)_newLoadingMovieTitleViewWithFrame:(struct CGRect)arg1;
 - (id)_newTitleViewWithFrame:(struct CGRect)arg1 text:(id)arg2 showSpinner:(BOOL)arg3;
-- (unsigned int)_desiredPartsForTransportControlsWithParts:(unsigned int)arg1;
 - (void)detailSlider:(id)arg1 didChangeScrubSpeed:(int)arg2;
 - (void)detailSlider:(id)arg1 didChangeValue:(float)arg2;
 - (void)detailSliderTrackingDidCancel:(id)arg1;
 - (void)detailSliderTrackingDidEnd:(id)arg1;
 - (void)detailSliderTrackingDidBegin:(id)arg1;
-- (void)_scaleModeDidChangeNotification:(id)arg1;
+- (void)_videoViewScaleModeDidChangeNotification:(id)arg1;
+- (void)_isAirPlayVideoActiveDidChangeNotification:(id)arg1;
 - (void)_playbackStateDidChangeNotification:(id)arg1;
 - (void)_bufferingStateDidChange:(id)arg1;
 - (void)_statusBarHeightChanged:(id)arg1;
 - (void)_validityChangedNotification:(id)arg1;
 - (void)_timeDidJumpNotification:(id)arg1;
 - (void)_tickNotification:(id)arg1;
+- (void)_didChangeStatusBarOrientation:(id)arg1;
 - (void)_scaleButtonAction:(id)arg1;
 - (void)_backButtonAction:(id)arg1;
 @property(nonatomic) BOOL allowsDetailScrubbing;
 @property(nonatomic) BOOL TVOutEnabled;
-- (void)setVisibleParts:(unsigned int)arg1 animate:(BOOL)arg2;
-- (void)setDesiredParts:(unsigned int)arg1 animate:(BOOL)arg2;
+- (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+- (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (id)viewsToFadeOutWhenShowingBackside;
-- (void)crossedURLTimeMarker:(id)arg1;
+- (void)crossedTimeMakerWithEvent:(id)arg1;
 - (void)_configureLinkButtonForCurrentItemTime;
 - (int)nowPlayingItemQueueInfoButton:(id)arg1 willDisplayInfoType:(int)arg2;
 - (BOOL)updateTimeBasedValues;
@@ -100,6 +101,8 @@
 - (void)stopTicking;
 - (void)startTicking;
 - (void)restoreSanity;
+- (void)unregisterForPlayerNotifications;
+- (void)registerForPlayerNotifications;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 interfaceOrientation:(int)arg2;

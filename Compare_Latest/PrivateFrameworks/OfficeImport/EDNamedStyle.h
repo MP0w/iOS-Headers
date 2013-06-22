@@ -13,10 +13,10 @@
     NSString *mName;
 }
 
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)name;
 - (void)setName:(id)arg1;
+- (id)name;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
 
 @end
 

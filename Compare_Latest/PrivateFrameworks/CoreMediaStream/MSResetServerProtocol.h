@@ -20,6 +20,7 @@
 - (void)_coreProtocolDidFinishError:(id)arg1;
 - (void)resetServerState;
 - (void)dealloc;
+- (void)abort;
 - (id)initWithPersonID:(id)arg1 baseURL:(id)arg2;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;

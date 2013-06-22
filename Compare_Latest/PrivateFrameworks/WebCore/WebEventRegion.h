@@ -16,12 +16,13 @@
     struct CGPoint p4;
 }
 
-- (id)initWithPoints:(struct CGPoint)arg1:(struct CGPoint)arg2:(struct CGPoint)arg3:(struct CGPoint)arg4;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)description;
-- (BOOL)hitTest:(struct CGPoint)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (id).cxx_construct;
 - (struct FloatQuad)quad;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)hitTest:(struct CGPoint)arg1;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithPoints:(struct CGPoint)arg1:(struct CGPoint)arg2:(struct CGPoint)arg3:(struct CGPoint)arg4;
 
 @end
 

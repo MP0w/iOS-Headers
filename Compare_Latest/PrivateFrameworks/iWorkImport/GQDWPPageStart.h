@@ -12,6 +12,7 @@
 }
 
 - (long)index;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

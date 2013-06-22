@@ -7,8 +7,12 @@
 #import "NSURL.h"
 
 @interface NSURL (GKAdditions)
++ (id)_gkURLWithStringAndFallbacks:(id)arg1;
+- (id)_gkFallbackURLs;
+- (void)_gkSetFallbackURLs:(id)arg1;
 - (id)_gkURLByReplacingSchemeWithScheme:(id)arg1;
 - (id)_gkURLByAddingQueryParameters:(id)arg1;
 - (BOOL)_gkIsSecure;
+- (BOOL)_gkIsValidServerURL;
 @end
 

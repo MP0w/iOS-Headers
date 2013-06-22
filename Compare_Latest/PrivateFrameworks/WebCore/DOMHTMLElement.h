@@ -12,30 +12,42 @@
 {
 }
 
-@property(copy) NSString *idName;
-@property(copy) NSString *title;
-@property(copy) NSString *lang;
-@property(copy) NSString *dir;
-@property(copy) NSString *className;
-- (id)classList;
-@property int tabIndex;
-- (BOOL)draggable;
-- (void)setDraggable:(BOOL)arg1;
-- (BOOL)hidden;
-- (void)setHidden:(BOOL)arg1;
-@property(copy) NSString *innerHTML;
-@property(copy) NSString *innerText;
-@property(copy) NSString *outerHTML;
-@property(copy) NSString *outerText;
-@property(readonly, retain) DOMHTMLCollection *children;
-@property(copy) NSString *contentEditable;
-@property(readonly) BOOL isContentEditable;
-- (BOOL)spellcheck;
-- (void)setSpellcheck:(BOOL)arg1;
-@property(readonly, copy) NSString *titleDisplayString;
-- (id)insertAdjacentElement:(id)arg1 element:(id)arg2;
-- (void)insertAdjacentHTML:(id)arg1 html:(id)arg2;
+- (void)click;
 - (void)insertAdjacentText:(id)arg1 text:(id)arg2;
+- (void)insertAdjacentHTML:(id)arg1 html:(id)arg2;
+- (id)insertAdjacentElement:(id)arg1 element:(id)arg2;
+@property(readonly) NSString *titleDisplayString;
+- (void)setSpellcheck:(BOOL)arg1;
+- (BOOL)spellcheck;
+@property(readonly) BOOL isContentEditable;
+@property(copy) NSString *contentEditable;
+@property(readonly) DOMHTMLCollection *children;
+@property(copy) NSString *outerText;
+@property(copy) NSString *outerHTML;
+@property(copy) NSString *innerText;
+@property(copy) NSString *innerHTML;
+@property(copy) NSString *accessKey;
+- (void)setHidden:(BOOL)arg1;
+- (BOOL)hidden;
+- (void)setWebkitdropzone:(id)arg1;
+- (id)webkitdropzone;
+- (void)setDraggable:(BOOL)arg1;
+- (BOOL)draggable;
+@property int tabIndex;
+- (id)classList;
+@property(copy) NSString *className;
+@property(copy) NSString *dir;
+- (void)setTranslate:(BOOL)arg1;
+- (BOOL)translate;
+@property(copy) NSString *lang;
+@property(copy) NSString *title;
+@property(copy) NSString *idName;
+- (void)absolutePosition:(int *)arg1:(int *)arg2:(int *)arg3:(int *)arg4;
+- (void)setScrollXOffset:(int)arg1 scrollYOffset:(int)arg2 adjustForPurpleCaret:(BOOL)arg3;
+- (void)setScrollXOffset:(int)arg1 scrollYOffset:(int)arg2;
+- (int)scrollYOffset;
+- (int)scrollXOffset;
+- (int)structuralComplexityContribution;
 
 @end
 

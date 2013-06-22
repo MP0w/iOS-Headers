@@ -8,7 +8,7 @@
 
 #import "XPCProxyTarget-Protocol.h"
 
-@class NSMapTable, NSMutableDictionary, NSMutableSet;
+@class NSMutableDictionary, NSMutableSet;
 
 @interface BBObserver : NSObject <XPCProxyTarget>
 {
@@ -28,8 +28,9 @@
         unsigned int imageForThumbData:1;
         unsigned int sizeForThumbSize:1;
         unsigned int purgeReferences:1;
+        unsigned int alertBehaviorOverrides:1;
     } _delegateFlags;
-    NSMapTable *_bulletinLifeAssertions;
+    NSMutableDictionary *_bulletinLifeAssertions;
     NSMutableDictionary *_sectionParameters;
     NSMutableDictionary *_attachmentInfoByBulletinID;
     unsigned int _numberOfBulletinFetchesUnderway;
@@ -42,6 +43,7 @@
 + (void)initialize;
 @property(nonatomic) unsigned int observerFeed; // @synthesize observerFeed=_observerFeed;
 @property(nonatomic) id <BBObserverDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)noteAlertBehaviorOverridesChanged:(id)arg1;
 - (void)updateSectionParameters:(id)arg1 forSectionID:(id)arg2;
 - (void)updateSectionInfo:(id)arg1;
 - (void)updateSectionOrder:(id)arg1;
@@ -76,16 +78,21 @@
 - (id)parametersForSectionID:(id)arg1;
 - (void)_getParametersIfNecessaryForSectionIDs:(id)arg1 withCompletion:(id)arg2;
 - (void)_getParametersIfNecessaryForSectionID:(id)arg1 withCompletion:(id)arg2;
+- (void)clearBulletins:(id)arg1 inSection:(id)arg2;
 - (void)clearSection:(id)arg1;
 - (void)sendResponse:(id)arg1;
 - (void)getAttachmentImageForBulletin:(id)arg1 withCompletion:(id)arg2;
 - (void)getRecentUnacknowledgedBulletinsForFeeds:(unsigned int)arg1 withCompletion:(id)arg2;
+- (void)getPrivilegedAddressBookGroupRecordIDAndNameWithCompletion:(id)arg1;
+- (void)getPrivilegedSenderTypesWithCompletion:(id)arg1;
+- (void)getAlertBehaviorOverridesWithCompletion:(id)arg1;
 - (void)getSortDescriptorsForSectionID:(id)arg1 withCompletion:(id)arg2;
 - (void)requestListBulletinsForSectionID:(id)arg1;
 - (void)getSectionInfoWithCompletion:(id)arg1;
 - (void)getSectionOrderRuleWithCompletion:(id)arg1;
 - (void)invalidate;
 - (void)dealloc;
+- (id)initWithQueue:(id)arg1;
 - (id)init;
 
 @end

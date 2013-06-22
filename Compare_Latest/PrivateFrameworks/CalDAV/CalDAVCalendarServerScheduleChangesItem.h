@@ -14,13 +14,13 @@
     CalDAVCalendarServerActionItem *_action;
 }
 
-- (id)init;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
 @property(retain) CalDAVCalendarServerActionItem *action; // @synthesize action=_action;
 @property(retain) CoreDAVLeafItem *dtstamp; // @synthesize dtstamp=_dtstamp;
+- (id)copyParseRules;
+- (id)description;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (id)init;
 
 @end
 

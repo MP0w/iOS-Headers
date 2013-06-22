@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol _WebDocumentViewState <NSObject>
-- (struct CGPoint)scrollPoint;
-- (void)setScrollPoint:(struct CGPoint)arg1;
-- (id)viewState;
 - (void)setViewState:(id)arg1;
+- (id)viewState;
+- (void)setScrollPoint:(struct CGPoint)arg1;
+- (struct CGPoint)scrollPoint;
 @end
 

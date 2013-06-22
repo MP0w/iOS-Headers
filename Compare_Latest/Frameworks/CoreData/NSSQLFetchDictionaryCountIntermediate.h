@@ -13,9 +13,9 @@
     NSSQLFetchIntermediate *_realFetch;
 }
 
-- (id)initWithFetchIntermediate:(id)arg1 inScope:(id)arg2;
-- (void)dealloc;
 - (id)generateSQLStringInContext:(id)arg1;
+- (void)dealloc;
+- (id)initWithFetchIntermediate:(id)arg1 inScope:(id)arg2;
 
 @end
 

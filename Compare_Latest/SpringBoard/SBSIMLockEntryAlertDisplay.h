@@ -14,26 +14,26 @@
     NSString *_code;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 languageCode:(id)arg2;
-- (void)dealloc;
-- (id)localizedStringWithKey:(id)arg1;
-- (id)_pinAttemptsRemainingLabel;
-- (BOOL)alphanumericKeyboard;
-- (void)setupUnlockAttemptState;
-- (id)failureTitle;
-- (id)failureLabel;
-- (void)setupFailureState;
-- (id)titleText;
-- (id)label;
-- (void)setupCurrentLockAttemptState;
-- (int)requiredUnlockStyle;
-- (BOOL)shouldShowEmergencyCallButton;
-- (void)alertDisplayWillBecomeVisible;
-- (void)setupSuccess;
-- (void)_unlock;
-- (void)unlock;
-- (void)deviceLockViewPasscodeEntered:(id)arg1;
 - (void)deviceLockViewCancelButtonPressed:(id)arg1;
+- (void)deviceLockViewPasscodeEntered:(id)arg1;
+- (void)unlock;
+- (void)_unlock;
+- (void)setupSuccess;
+- (void)alertDisplayWillBecomeVisible;
+- (BOOL)shouldShowEmergencyCallButton;
+- (int)requiredUnlockStyle;
+- (void)setupCurrentLockAttemptState;
+- (id)label;
+- (id)titleText;
+- (void)setupFailureState;
+- (id)failureLabel;
+- (id)failureTitle;
+- (void)setupUnlockAttemptState;
+- (BOOL)alphanumericKeyboard;
+- (id)_pinAttemptsRemainingLabel;
+- (id)localizedStringWithKey:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 languageCode:(id)arg2;
 
 @end
 

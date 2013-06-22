@@ -20,10 +20,12 @@
 @property(nonatomic) BOOL keyboardSettingsFromSwitcher; // @synthesize keyboardSettingsFromSwitcher=m_keyboardSettingsFromSwitcher;
 @property(retain, nonatomic) NSArray *inputModes; // @synthesize inputModes=m_inputModes;
 - (void)didSelectItemAtIndex:(int)arg1;
+- (id)subtitleForItemAtIndex:(int)arg1;
 - (id)titleForItemAtIndex:(int)arg1;
 - (int)defaultSelectedIndex;
 - (struct CGSize)preferredSize;
 - (int)numberOfItems;
+- (void)show;
 - (void)selectPreviousInputMode;
 - (id)previousInputMode;
 - (void)selectNextInputMode;

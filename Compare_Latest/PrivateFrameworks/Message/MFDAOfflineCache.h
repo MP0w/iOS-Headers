@@ -13,11 +13,11 @@
     NSString *_lastSelectedFolderID;
 }
 
-- (void)dealloc;
-- (void)setLastSelectedMailbox:(id)arg1;
-- (void)deferOperation:(id)arg1;
-- (BOOL)replayOperationsUsingBlock:(id)arg1;
 - (void)deleteOfflineCacheData;
+- (BOOL)replayOperationsUsingBlock:(id)arg1;
+- (void)deferOperation:(id)arg1;
+- (void)setLastSelectedMailbox:(id)arg1;
+- (void)dealloc;
 
 @end
 

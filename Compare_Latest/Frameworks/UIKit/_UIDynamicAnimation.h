@@ -14,16 +14,21 @@
     unsigned int _running:1;
     unsigned int _yield:1;
     unsigned int _grouped:1;
+    unsigned int _usesNSTimer:1;
 }
 
 + (id)dynamicAnimationForView:(id)arg1 withInitialValue:(double)arg2 velocity:(double)arg3 type:(int)arg4 anchorPoint:(struct CGPoint)arg5;
++ (void)_updateAnimationsWithTimer:(id)arg1;
 + (void)_updateAnimations:(id)arg1;
++ (void)_updateAnimations:(id)arg1 timer:(id)arg2;
 - (id)description;
 - (void)_appendDescriptionToString:(id)arg1 atLevel:(int)arg2;
 - (void)_appendSubclassDescription:(id)arg1 atLevel:(int)arg2;
 - (BOOL)_isRunning;
 - (void)_setGrouped:(BOOL)arg1;
 - (BOOL)_isGrouped;
+- (void)_setUsesNSTimer:(BOOL)arg1;
+- (BOOL)_usesNSTimer;
 - (void)_setShouldYield:(BOOL)arg1;
 - (BOOL)_shouldYield;
 @property(readonly, nonatomic) int state;
@@ -35,6 +40,7 @@
 - (BOOL)_animateForInterval:(double)arg1;
 - (void)_stopAnimation;
 - (void)dealloc;
+- (id)init;
 
 @end
 

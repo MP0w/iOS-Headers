@@ -11,8 +11,8 @@
     struct PlatformCALayer *m_owner;
 }
 
-- (void)animationDidStart:(id)arg1;
 - (void)setOwner:(struct PlatformCALayer *)arg1;
+- (void)animationDidStart:(id)arg1;
 
 @end
 

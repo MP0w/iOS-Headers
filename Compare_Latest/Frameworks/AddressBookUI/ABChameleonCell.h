@@ -12,12 +12,12 @@
     id <ABStyleProvider> _styleProvider;
 }
 
-- (void)dealloc;
-- (void)_updateBackgroundViewsForCellStyleAndLocation;
-- (void)_updateTextStylesForCellStyle;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(nonatomic) int abCellStyle; // @synthesize abCellStyle=_abCellStyle;
 - (void)setSectionLocation:(int)arg1 animated:(BOOL)arg2;
+- (void)_updateTextStylesForCellStyle;
+- (void)_updateBackgroundViewsForCellStyleAndLocation;
+- (void)dealloc;
 
 @end
 

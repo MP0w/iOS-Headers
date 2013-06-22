@@ -24,26 +24,26 @@
 }
 
 + (id)alignmentInfo;
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToAlignmentInfo:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (_Bool)isHorizontalAlignOverridden;
-- (int)horizontalAlignment;
-- (void)setHorizontalAlignment:(int)arg1;
-- (_Bool)isVerticalAlignOverridden;
-- (int)verticalAlignment;
-- (void)setVerticalAlignment:(int)arg1;
-- (_Bool)isIndentOverridden;
-- (int)indent;
-- (void)setIndent:(int)arg1;
-- (_Bool)isTextWrappedOverridden;
-- (_Bool)isTextWrapped;
-- (void)setTextWrapped:(_Bool)arg1;
-- (int)textRotation;
-- (void)setTextRotation:(int)arg1;
 - (void)setDoNotModify:(_Bool)arg1;
+- (void)setTextRotation:(int)arg1;
+- (int)textRotation;
+- (void)setTextWrapped:(_Bool)arg1;
+- (_Bool)isTextWrapped;
+- (_Bool)isTextWrappedOverridden;
+- (void)setIndent:(int)arg1;
+- (int)indent;
+- (_Bool)isIndentOverridden;
+- (void)setVerticalAlignment:(int)arg1;
+- (int)verticalAlignment;
+- (_Bool)isVerticalAlignOverridden;
+- (void)setHorizontalAlignment:(int)arg1;
+- (int)horizontalAlignment;
+- (_Bool)isHorizontalAlignOverridden;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToAlignmentInfo:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

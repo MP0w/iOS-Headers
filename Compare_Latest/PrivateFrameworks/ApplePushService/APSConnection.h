@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSLock, NSMutableDictionary, NSString;
+@class CUTWeakReference, NSArray, NSData, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_xpc_object>, NSString;
 
 @interface APSConnection : NSObject
 {
-    id <APSConnectionDelegate> _delegate;
-    NSLock *_lock;
+    CUTWeakReference *_delegateReference;
+    NSObject<OS_dispatch_queue> *_ivarQueue;
     NSString *_environmentName;
-    struct __CFRunLoopSource *_runLoopSource;
+    NSData *_publicToken;
+    unsigned int _messageSize;
     NSString *_connectionPortName;
     unsigned int _connectionPort;
-    int _serverPID;
     unsigned int _connectionServerPort;
     struct __CFMachPort *_connectionSeverCFMachPort;
     NSArray *_enabledTopics;
@@ -24,43 +24,66 @@
     NSMutableDictionary *_subtopics;
     BOOL _enableCriticalReliability;
     BOOL _enableStatusNotifications;
+    BOOL _isConnected;
     NSMutableDictionary *_idsToOutgoingMessages;
     unsigned int _nextOutgoingMessageID;
+    NSObject<OS_dispatch_queue> *_machQueue;
+    NSObject<OS_dispatch_source> *_mach_source;
+    NSObject<OS_xpc_object> *_connection;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    BOOL _everHadDelegate;
+    NSMutableArray *_queuedDelegateBlocks;
 }
 
-+ (struct __SecIdentity *)copyIdentity;
-+ (double)keepAliveIntervalForEnvironmentName:(id)arg1;
++ (void)notifySafeToSendFilter;
++ (void)_setTokenState;
 + (id)connectionsDebuggingState;
-- (id)initWithEnvironmentName:(id)arg1;
-- (id)initWithEnvironmentName:(id)arg1 namedDelegatePort:(id)arg2;
-- (void)dealloc;
-@property id <APSConnectionDelegate> delegate;
-- (void)_connect;
-- (void)_disconnect;
-- (void)_connectionServerPortInvalidated;
-- (void)scheduleInRunLoop:(id)arg1;
-- (void)removeFromRunLoop;
-- (id)_dataForPropertyList:(id)arg1;
-- (void)setEnabledTopics:(id)arg1;
-- (void)_sendEnabledTopics;
-- (void)setIgnoredTopics:(id)arg1;
-- (void)_sendIgnoredTopics;
-- (void)setSubtopic:(id)arg1 forEnabledTopic:(id)arg2;
-- (id)publicToken;
-- (unsigned int)messageSize;
-- (BOOL)hasIdentity;
-- (BOOL)isConnected;
-- (void)setEnableCriticalReliability:(BOOL)arg1;
-- (void)_sendEnableCriticalReliability;
-- (void)_sendEnableStatusNotifications;
-- (void)_deliverMessageForTopic:(id)arg1 userInfo:(id)arg2;
-- (void)_deliverPublicToken:(id)arg1;
-- (void)_deliverConnectionStatusChange:(BOOL)arg1;
-- (void)_deliverOutgoingMessageResultWithID:(unsigned int)arg1 error:(id)arg2;
-- (void)sendOutgoingMessage:(id)arg1;
-- (void)cancelOutgoingMessage:(id)arg1;
++ (double)keepAliveIntervalForEnvironmentName:(id)arg1;
++ (void)requestCourierConnection;
++ (void)_blockingXPCCallWithArgumentBlock:(id)arg1 resultHandler:(void)arg2;
++ (struct __SecIdentity *)copyIdentity;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *ivarQueue; // @synthesize ivarQueue=_ivarQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 - (void)sendFakeMessage:(id)arg1;
-@property(readonly, nonatomic) int serverPID; // @synthesize serverPID=_serverPID;
+- (void)cancelOutgoingMessage:(id)arg1;
+- (void)sendOutgoingMessage:(id)arg1;
+- (void)_sendOutgoingMessage:(id)arg1 fake:(BOOL)arg2;
+- (BOOL)hasIdentity;
+- (void)_deliverOutgoingMessageResultWithID:(unsigned int)arg1 error:(id)arg2;
+- (void)_deliverConnectionStatusChange:(BOOL)arg1;
+- (void)_deliverPublicToken:(id)arg1;
+- (void)_deliverPublicTokenOnIvarQueue:(id)arg1;
+- (void)_deliverMessage:(id)arg1;
+- (void)_addEnableStatusNotificationsToXPCMessage:(id)arg1;
+- (void)_addEnableCriticalReliabilityToXPCMessage:(id)arg1;
+- (void)setEnableStatusNotifications:(BOOL)arg1;
+- (void)_setEnableStatusNotifications:(BOOL)arg1 sendToDaemon:(BOOL)arg2;
+- (void)setEnableCriticalReliability:(BOOL)arg1;
+- (void)_setEnableCriticalReliability:(BOOL)arg1 sendToDaemon:(BOOL)arg2;
+- (BOOL)isConnected;
+@property(nonatomic) unsigned int messageSize;
+@property(readonly, nonatomic) NSData *publicToken;
+- (void)setSubtopic:(id)arg1 forEnabledTopic:(id)arg2;
+- (void)setIgnoredTopics:(id)arg1;
+- (void)_setIgnoredTopics:(id)arg1 sendToDaemon:(BOOL)arg2;
+- (void)setEnabledTopics:(id)arg1;
+- (void)_setEnabledTopics:(id)arg1 sendToDaemon:(BOOL)arg2;
+- (void)removeFromRunLoop;
+- (void)scheduleInRunLoop:(id)arg1;
+- (void)_disconnectFromDealloc;
+- (void)_disconnect;
+- (void)_disconnectOnIvarQueue;
+- (void)_cancelConnection;
+- (void)_cancelConnectionOnIvarQueue;
+- (void)_connectIfNecessary;
+- (void)_connectIfNecessaryOnIvarQueue;
+- (void)_callDelegateOnIvarQueueWithBlock:(id)arg1;
+@property(nonatomic) id <APSConnectionDelegate> delegate;
+- (void)dealloc;
+- (id)initWithEnvironmentName:(id)arg1 namedDelegatePort:(id)arg2 queue:(id)arg3;
+- (id)initWithEnvironmentName:(id)arg1 queue:(id)arg2;
+- (id)initWithEnvironmentName:(id)arg1 namedDelegatePort:(id)arg2;
+- (id)initWithEnvironmentName:(id)arg1;
 
 @end
 

@@ -15,10 +15,10 @@
     BOOL _incomplete;
 }
 
-- (id)initWithData:(id)arg1 partial:(BOOL)arg2 incomplete:(BOOL)arg3;
-- (id)initWithData:(id)arg1;
-- (id)data;
 - (void)dealloc;
+- (id)data;
+- (id)initWithData:(id)arg1;
+- (id)initWithData:(id)arg1 partial:(BOOL)arg2 incomplete:(BOOL)arg3;
 
 @end
 

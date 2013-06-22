@@ -10,10 +10,10 @@
 {
 }
 
-- (id)allTextDefaultProperties;
-- (id)showLabelsTextDefaultProperties;
-- (id)seriesTitlesTextDefaultProperties;
 - (id)percentageTextDefaultProperties;
+- (id)seriesTitlesTextDefaultProperties;
+- (id)showLabelsTextDefaultProperties;
+- (id)allTextDefaultProperties;
 
 @end
 

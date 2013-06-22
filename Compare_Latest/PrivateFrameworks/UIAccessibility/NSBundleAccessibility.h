@@ -11,6 +11,9 @@
 }
 
 + (void)_initializeSafeCategory;
+- (id)localizedStringForKey:(id)arg1 value:(id)arg2 table:(id)arg3;
+- (void)_loadAXBundleForBundleOnMainThread;
+- (BOOL)loadAndReturnError:(id *)arg1;
 
 @end
 

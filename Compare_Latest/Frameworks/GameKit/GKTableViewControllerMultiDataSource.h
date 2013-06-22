@@ -6,7 +6,7 @@
 
 #import <GameKit/GKSectionArrayDataSource.h>
 
-@class NSArray, NSObject<GKTableViewControllerDataSource>;
+@class NSArray, NSOrderedSet;
 
 @interface GKTableViewControllerMultiDataSource : GKSectionArrayDataSource
 {
@@ -16,23 +16,32 @@
 
 @property(nonatomic) int currentDataSourceIndex; // @synthesize currentDataSourceIndex=_currentDataSourceIndex;
 @property(retain, nonatomic) NSArray *sectionDataSources; // @synthesize sectionDataSources=_sectionDataSources;
+- (void)updateFlexibleSpaceHeightsInTableView:(id)arg1;
+- (BOOL)allowsUpdatesForDataSource:(id)arg1;
+- (void)endSectionUpdates;
+- (void)beginSectionUpdates;
 - (void)setVisibleSections:(id)arg1;
 - (id)visibleSections;
 - (BOOL)respondsToSelector:(SEL)arg1;
-@property(readonly, nonatomic) NSObject<GKTableViewControllerDataSource> *currentDataSource; // @dynamic currentDataSource;
-- (void)tableView:(id)arg1 prepareExpensiveContentAtIndexPaths:(id)arg2 withCompletionHandler:(id)arg3;
+- (void)setPreviousContentOffset:(struct CGPoint)arg1;
+- (struct CGPoint)previousContentOffset;
+- (int)refreshDataGeneration;
+@property(readonly, nonatomic) GKSectionArrayDataSource *currentDataSource; // @dynamic currentDataSource;
 - (void)tableView:(id)arg1 updateStatusViewAfterLoading:(id)arg2 context:(unsigned long long)arg3 withError:(id)arg4;
 - (unsigned long long)contextForTableView:(id)arg1 updateStatusViewBeforeLoading:(id)arg2;
 - (void)refreshCurrentDataSourceWithCompletionHandlerAndError:(id)arg1;
 - (void)refreshDataWithCompletionHandlerAndError:(id)arg1;
-@property(retain, nonatomic) NSArray *contentSections; // @dynamic contentSections;
-- (id)currentMultiSections;
+- (void)tableView:(id)arg1 loadAdditionalDataForIndexPaths:(id)arg2 thenUpdateView:(id)arg3;
+@property(retain, nonatomic) NSOrderedSet *contentSections; // @dynamic contentSections;
+@property(retain, nonatomic) NSOrderedSet *footerSections; // @dynamic footerSections;
+@property(retain, nonatomic) NSOrderedSet *headerSections; // @dynamic headerSections;
+- (id)sections;
+- (void)prepareSections;
+- (void)prepareChildDataSources;
 - (id)description;
 - (void)dealloc;
-
-// Remaining properties
-@property(retain, nonatomic) NSArray *footerSections; // @dynamic footerSections;
-@property(retain, nonatomic) NSArray *headerSections; // @dynamic headerSections;
+- (id)_gkDescriptionWithChildren:(int)arg1;
+- (id)_gkDescription;
 
 @end
 

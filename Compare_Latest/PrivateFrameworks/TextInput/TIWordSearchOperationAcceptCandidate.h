@@ -6,20 +6,22 @@
 
 #import <TextInput/TIWordSearchOperation.h>
 
-@class UIKeyboardCandidate;
+@class TIMecabraWrapper, UIKeyboardCandidate;
 
 @interface TIWordSearchOperationAcceptCandidate : TIWordSearchOperation
 {
-    UIKeyboardCandidate *_acceptedCandidate;
-    BOOL _isPartial;
+    TIMecabraWrapper *_mecabraWrapper;
+    UIKeyboardCandidate *_candidate;
+    BOOL _partialCandidate;
 }
 
-- (id)initWithTIWordSearch:(id)arg1 candidate:(id)arg2 isPartial:(BOOL)arg3;
-- (void)dealloc;
-- (void)cancel;
+@property(nonatomic, getter=isPartialCandidate) BOOL partialCandidate; // @synthesize partialCandidate=_partialCandidate;
+@property(retain, nonatomic) UIKeyboardCandidate *candidate; // @synthesize candidate=_candidate;
+@property(retain, nonatomic) TIMecabraWrapper *mecabraWrapper; // @synthesize mecabraWrapper=_mecabraWrapper;
 - (void)perform;
-@property(readonly, nonatomic) BOOL isPartial; // @synthesize isPartial=_isPartial;
-@property(retain, nonatomic) UIKeyboardCandidate *acceptedCandidate; // @synthesize acceptedCandidate=_acceptedCandidate;
+- (void)cancel;
+- (void)dealloc;
+- (id)initWithWordSearch:(id)arg1 candidate:(id)arg2 isPartial:(BOOL)arg3;
 
 @end
 

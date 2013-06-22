@@ -10,6 +10,7 @@
 {
 }
 
++ (void)write:(id)arg1 to:(struct WrdFontFamilyName *)arg2;
 + (id)readFrom:(const struct WrdFontFamilyName *)arg1 withFontTable:(id)arg2;
 
 @end

@@ -12,14 +12,20 @@
 
 @interface FTProfileMessage : FTMessage <NSCopying>
 {
+    NSData *_pushCert;
+    struct __SecKey *_pushKey;
+    struct __SecKey *_pushPublicKey;
     NSData *_pushToken;
     NSString *_authToken;
     NSString *_profileID;
 }
 
-@property(copy) NSString *profileID; // @synthesize profileID=_profileID;
-@property(copy) NSString *authToken; // @synthesize authToken=_authToken;
-@property(copy) NSData *pushToken; // @synthesize pushToken=_pushToken;
+@property(copy, nonatomic) NSString *profileID; // @synthesize profileID=_profileID;
+@property(copy, nonatomic) NSString *authToken; // @synthesize authToken=_authToken;
+@property(copy, nonatomic) NSData *pushToken; // @synthesize pushToken=_pushToken;
+@property(nonatomic) struct __SecKey *pushPublicKey; // @synthesize pushPublicKey=_pushPublicKey;
+@property(nonatomic) struct __SecKey *pushPrivateKey; // @synthesize pushPrivateKey=_pushKey;
+@property(copy, nonatomic) NSData *pushCertificate; // @synthesize pushCertificate=_pushCert;
 - (void)handleResponseDictionary:(id)arg1;
 - (id)additionalMessageHeaders;
 - (id)additionalMessageHeadersForOutgoingPush;

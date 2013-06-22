@@ -17,9 +17,10 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-+ (id)__new:(const id *)arg1:(unsigned int)arg2;
++ (id)__new:(const id *)arg1:(unsigned int)arg2:(BOOL)arg3;
 - (void)finalize;
 - (void)dealloc;
+- (void)setObject:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
 - (void)removeObjectAtIndex:(unsigned int)arg1;
 - (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;

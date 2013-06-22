@@ -11,30 +11,31 @@
 @interface GKPlayer : NSObject
 {
     GKPlayerInternal *_internal;
-    int _inviteStatus;
     NSArray *_friends;
     GKGame *_lastPlayedGame;
 }
 
 + (int)sizeForPhotoSize:(int)arg1;
++ (void)declineFriendRequestsFromPlayerIDs:(id)arg1 handler:(id)arg2;
++ (void)acceptFriendRequestsFromPlayerIDs:(id)arg1 withHandles:(id)arg2 handler:(id)arg3;
 + (void)loadPlayersForIdentifiers:(id)arg1 withPieces:(unsigned int)arg2 withCompletionHandler:(id)arg3;
 + (void)loadPlayersForIdentifiers:(id)arg1 withCompletionHandler:(id)arg2;
++ (id)cacheKeyForPlayerID:(id)arg1;
++ (BOOL)instancesRespondToSelector:(SEL)arg1;
 + (id)unknownPlayer;
 + (id)anonymousPlayer;
-+ (id)sharedCache;
 @property(retain, nonatomic) GKGame *lastPlayedGame; // @synthesize lastPlayedGame=_lastPlayedGame;
 @property(retain, nonatomic) NSArray *friends; // @synthesize friends=_friends;
-@property(nonatomic) int inviteStatus; // @synthesize inviteStatus=_inviteStatus;
-@property(retain, nonatomic) GKPlayerInternal *internal; // @synthesize internal=_internal;
+@property(retain) GKPlayerInternal *internal; // @synthesize internal=_internal;
 - (id)identifiableNameIncludingSurname:(BOOL)arg1;
 - (id)sortName;
-- (id)displayName;
+@property(readonly, nonatomic) NSString *displayName;
 - (id)displayNameWithIdentifiableName:(BOOL)arg1 quoteAlias:(BOOL)arg2;
 - (id)attributedDisplayName;
+- (id)attributedDisplayNameWithIdentifiableName:(BOOL)arg1 withFont:(id)arg2;
 - (id)attributedDisplayNameWithIdentifiableName:(BOOL)arg1;
 - (id)attributedIdentifiableName:(id)arg1 withFont:(id)arg2 foreColor:(id)arg3 shadowColor:(id)arg4;
 - (id)quotedAlias:(id)arg1 withFont:(id)arg2 foreColor:(id)arg3 shadowColor:(id)arg4;
-- (void)sendFriendRequestWithMessage:(id)arg1 withCompletionHandler:(id)arg2;
 - (void)photoCountWithCompletionHandler:(id)arg1;
 @property(readonly, nonatomic) BOOL hasPhoto;
 - (id)photoURLForSize:(int)arg1;
@@ -46,8 +47,8 @@
 - (void)loadCommonFriends:(BOOL)arg1 profilePieces:(unsigned int)arg2 asPlayersWithCompletionHandler:(id)arg3;
 - (void)loadFriendsAsPlayersWithCompletionHandler:(id)arg1;
 - (void)loadFriendIDsWithCompletionHandler:(id)arg1;
-- (void)declineFriendRequest:(id)arg1;
-- (void)acceptFriendRequestForHandle:(id)arg1 withCompletionHandler:(id)arg2;
+- (void)declineFriendRequestWithCompletionHandler:(id)arg1;
+- (void)acceptFriendRequestWithCompletionHandler:(id)arg1;
 - (void)updateNamesFromAddressBook;
 - (void)postChangeNotification;
 - (void)_postChangeNotification;
@@ -55,9 +56,9 @@
 - (BOOL)isAnonymousPlayer;
 - (BOOL)isLocalPlayer;
 - (void)loadPhotoForSize:(int)arg1 withCompletionHandler:(id)arg2;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-@property(readonly, nonatomic) NSArray *emails;
-@property(readonly, nonatomic) NSString *email;
+- (id)imageURLForPhotoSizeList;
+- (id)emails;
+- (id)email;
 @property(readonly, nonatomic) unsigned int detailPieces;
 @property(readonly, nonatomic) NSString *cacheKey;
 - (BOOL)isEqual:(id)arg1;
@@ -70,6 +71,8 @@
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithInternalRepresentation:(id)arg1;
 

@@ -15,6 +15,7 @@
 }
 
 + (id)hashTableWithOptions:(unsigned int)arg1;
++ (id)weakObjectsHashTable;
 + (id)hashTableWithWeakObjects;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;

@@ -11,6 +11,10 @@
 }
 
 + (const struct StateSpec *)stateForReading;
+- (struct __CFArray *)createSizeArrayFromPositionVector:(vector_7080b1cc *)arg1;
+- (int)setColumnWidthsFromState:(id)arg1;
+- (int)setRowHeightsFromState:(id)arg1;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

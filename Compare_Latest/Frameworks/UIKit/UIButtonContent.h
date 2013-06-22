@@ -9,11 +9,12 @@
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class NSString, UIColor, UIImage;
+@class NSAttributedString, NSString, UIColor, UIImage, _UIGraphicsLetterpressStyle;
 
 @interface UIButtonContent : NSObject <NSCoding, NSCopying>
 {
     NSString *title;
+    NSAttributedString *attributedTitle;
     UIImage *image;
     UIImage *background;
     UIColor *titleColor;
@@ -24,8 +25,10 @@
 @property(retain, nonatomic) UIColor *titleColor; // @synthesize titleColor;
 @property(retain, nonatomic) UIImage *background; // @synthesize background;
 @property(retain, nonatomic) UIImage *image; // @synthesize image;
+@property(retain, nonatomic) NSAttributedString *attributedTitle; // @synthesize attributedTitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title;
 - (id)description;
+@property(retain, nonatomic) _UIGraphicsLetterpressStyle *letterpressStyle;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

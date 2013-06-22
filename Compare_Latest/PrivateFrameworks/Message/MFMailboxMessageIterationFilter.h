@@ -15,9 +15,9 @@
     NSIndexSet *_mailboxes;
 }
 
-- (id)initWithMailboxes:(id)arg1;
-- (void)dealloc;
 - (BOOL)filterMessageWithStatement:(struct sqlite3_stmt *)arg1;
+- (void)dealloc;
+- (id)initWithMailboxes:(id)arg1;
 
 @end
 

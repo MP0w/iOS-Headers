@@ -13,24 +13,24 @@
     SCRCArgumentHolderPrivate *_private;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)process;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (int)compare:(id)arg1;
-- (void)setOption:(id)arg1;
-- (id)option;
-- (void)setArgument:(id)arg1;
-- (id)argument;
-- (void)setTarget:(id)arg1;
-- (id)target;
-- (void)setAction:(SEL)arg1;
-- (SEL)action;
-- (void)setArgumentDescription:(id)arg1;
-- (id)argumentDescription;
-- (void)setIsRequired:(BOOL)arg1;
 - (BOOL)isRequired;
+- (void)setIsRequired:(BOOL)arg1;
+- (id)argumentDescription;
+- (void)setArgumentDescription:(id)arg1;
+- (SEL)action;
+- (void)setAction:(SEL)arg1;
+- (id)target;
+- (void)setTarget:(id)arg1;
+- (id)argument;
+- (void)setArgument:(id)arg1;
+- (id)option;
+- (void)setOption:(id)arg1;
+- (int)compare:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)process;
+- (void)dealloc;
+- (id)init;
 
 @end
 

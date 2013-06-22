@@ -16,7 +16,7 @@
 }
 
 + (void)initialize;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (void)_sendDidChange;

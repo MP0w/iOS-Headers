@@ -7,8 +7,6 @@
 #import "UIWindow.h"
 
 @interface UIWindow (MPAdditions)
-+ (struct __IOSurface *)newCreatedScreenIOSurface;
 - (id)copyIOSurfaceSnapshotView:(int)arg1;
-- (struct __IOSurface *)newCreatedIOSurface;
 @end
 

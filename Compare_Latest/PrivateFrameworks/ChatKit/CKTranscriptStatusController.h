@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class CKAggregateConversation, CKSendingProgressView, NSMutableSet, NSString, NSTimer, UIView;
+@class CKConversation, CKSendingProgressView, NSMutableSet, NSString, NSTimer, UIView;
 
 @interface CKTranscriptStatusController : NSObject
 {
     UIView *_multipleRecipientTitleView;
     CKSendingProgressView *_statusView;
     NSString *_title;
-    CKAggregateConversation *_conversation;
+    CKConversation *_conversation;
     float _lastVal;
     NSString *_lastMsg;
     NSTimer *_progressUpdateTimer;
@@ -25,31 +25,31 @@
     BOOL _suspended;
 }
 
-- (void)dealloc;
-@property(retain, nonatomic) CKAggregateConversation *conversation; // @synthesize conversation=_conversation;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-- (void)brieflyShowName;
-- (void)reset;
-- (BOOL)_shouldShowProgress;
-- (void)refresh;
-- (id)_localizedTitleForSendingPart:(int)arg1 ofPart:(int)arg2;
-- (void)_updateTitle:(BOOL)arg1;
-- (void)_hideName;
-- (id)_statusView;
-- (void)_updateNavItemTitleView:(BOOL)arg1;
-- (void)_updateCurrentMessages;
-- (void)_startUpdatingProgress;
-- (void)_refreshNavigationItemView;
-- (void)_refreshNavigationItemViewAnimate:(BOOL)arg1;
-- (BOOL)_calcVals:(char *)arg1;
-- (void)_finishProgress;
-- (id)_title;
-- (void)resetProgress;
-- (id)_generateStatusTitle;
-- (float)_generateVal;
-- (void)suspend;
-- (void)resume;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+@property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
+- (void)resume;
+- (void)suspend;
+- (float)_generateVal;
+- (id)_generateStatusTitle;
+- (void)resetProgress;
+- (id)_title;
+- (void)_finishProgress;
+- (BOOL)_calcVals:(char *)arg1;
+- (void)_refreshNavigationItemViewAnimate:(BOOL)arg1;
+- (void)_refreshNavigationItemView;
+- (void)_startUpdatingProgress;
+- (void)_updateCurrentMessages;
+- (void)_updateNavItemTitleView:(BOOL)arg1;
+- (id)_statusView;
+- (void)_hideName;
+- (void)_updateTitle:(BOOL)arg1;
+- (id)_localizedTitleForSendingPart:(int)arg1 ofPart:(int)arg2;
+- (void)refresh;
+- (BOOL)_shouldShowProgress;
+- (void)reset;
+- (void)brieflyShowName;
+- (void)dealloc;
 
 @end
 

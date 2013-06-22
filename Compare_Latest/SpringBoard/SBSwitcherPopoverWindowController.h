@@ -19,16 +19,16 @@
 }
 
 + (id)sharedInstance;
-- (void)dealloc;
-@property(readonly, nonatomic) UIView *rootView; // @synthesize rootView=_popoverRootView;
-@property(readonly, nonatomic) UIWindow *window;
-- (void)prepareAndPresentPopoverForFrame:(struct CGRect)arg1 inView:(id)arg2 delegate:(id)arg3 withPresentationBlock:(id)arg4;
-- (void)rotatePopoverWindowToOrientation:(int)arg1;
-- (void)cleanupPopover;
-- (void)willRotateToOrientation:(int)arg1;
-- (void)didRotateFromOrientation:(int)arg1;
 @property(readonly, nonatomic) BOOL popoverVisible; // @synthesize popoverVisible=_popoverVisible;
 @property(nonatomic) id <SBSwitcherPopoverWindowControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)didRotateFromOrientation:(int)arg1;
+- (void)willAnimateRotationToOrientation:(int)arg1;
+- (void)cleanupPopover;
+- (void)rotatePopoverWindowToOrientation:(int)arg1;
+- (void)prepareAndPresentPopoverForFrame:(struct CGRect)arg1 inView:(id)arg2 delegate:(id)arg3 withPresentationBlock:(id)arg4;
+@property(readonly, nonatomic) UIWindow *window;
+@property(readonly, nonatomic) UIView *rootView; // @synthesize rootView=_popoverRootView;
+- (void)dealloc;
 
 @end
 

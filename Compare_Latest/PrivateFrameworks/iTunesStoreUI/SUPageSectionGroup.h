@@ -8,15 +8,19 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSArray;
+@class NSArray, UIColor;
 
 @interface SUPageSectionGroup : NSObject <NSCopying>
 {
     int _defaultSectionIndex;
     NSArray *_sections;
     int _style;
+    UIColor *_tintColor;
+    int _tintStyle;
 }
 
+@property(nonatomic) int tintStyle; // @synthesize tintStyle=_tintStyle;
+@property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(nonatomic) int defaultSectionIndex; // @synthesize defaultSectionIndex=_defaultSectionIndex;

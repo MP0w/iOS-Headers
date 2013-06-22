@@ -12,12 +12,14 @@
 {
     CBPeripheral *_peripheral;
     CBUUID *_UUID;
+    BOOL _isPrimary;
     NSArray *_includedServices;
     NSArray *_characteristics;
 }
 
 @property(retain) NSArray *characteristics; // @synthesize characteristics=_characteristics;
 @property(retain) NSArray *includedServices; // @synthesize includedServices=_includedServices;
+@property(readonly, nonatomic) BOOL isPrimary; // @synthesize isPrimary=_isPrimary;
 @property(readonly, nonatomic) CBUUID *UUID; // @synthesize UUID=_UUID;
 @property(readonly, nonatomic) CBPeripheral *peripheral; // @synthesize peripheral=_peripheral;
 

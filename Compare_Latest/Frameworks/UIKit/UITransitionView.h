@@ -26,8 +26,9 @@
         unsigned int shouldRestoreFromViewAlpha:1;
         unsigned int shouldRasterize:1;
         unsigned int enableRotationAfterTransition:1;
-        unsigned int reserved:25;
+        unsigned int removeFromView:1;
     } _transitionViewFlags;
+    float _curlUpRevealedHeight;
 }
 
 + (double)defaultDurationForTransition:(int)arg1;
@@ -43,6 +44,7 @@
 - (BOOL)isTransitioning;
 - (id)toView;
 - (id)fromView;
+- (BOOL)transition:(int)arg1 fromView:(id)arg2 toView:(id)arg3 removeFromView:(BOOL)arg4;
 - (BOOL)transition:(int)arg1 fromView:(id)arg2 toView:(id)arg3;
 - (void)notifyDidCompleteTransition:(id)arg1;
 - (BOOL)transition:(int)arg1 toView:(id)arg2;
@@ -54,6 +56,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (float)_curlUpRevealedHeight;
 
 @end
 

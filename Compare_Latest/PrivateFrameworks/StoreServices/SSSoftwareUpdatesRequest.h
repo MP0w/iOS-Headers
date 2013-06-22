@@ -13,13 +13,12 @@
     SSSoftwareUpdatesContext *_context;
 }
 
-- (void)_sendResponseToDelegate:(id)arg1;
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
-- (id)handleFailureResponse:(id)arg1;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)startWithCompletionBlock:(id)arg1;
+- (BOOL)start;
 @property(readonly) SSSoftwareUpdatesContext *updateQueueContext;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (id)copyPropertyListEncoding;
+- (void)startWithUpdatesResponseBlock:(id)arg1;
 - (void)dealloc;
 - (id)initWithUpdateQueueContext:(id)arg1;
 

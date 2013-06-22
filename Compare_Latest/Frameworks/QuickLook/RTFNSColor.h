@@ -14,21 +14,21 @@
     float _alpha;
 }
 
-+ (id)colorWithCalibratedWhite:(float)arg1 alpha:(float)arg2;
-+ (id)colorWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
-+ (id)whiteColor;
 + (id)blackColor;
-- (id)init;
-- (id)initWithCalibratedWhite:(float)arg1 alpha:(float)arg2;
-- (id)initWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
-- (id)colorUsingColorSpaceName:(id)arg1;
-- (id)description;
++ (id)whiteColor;
++ (id)colorWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
++ (id)colorWithCalibratedWhite:(float)arg1 alpha:(float)arg2;
 @property float alpha; // @synthesize alpha=_alpha;
 @property float blue; // @synthesize blue=_blue;
 @property float green; // @synthesize green=_green;
 @property float red; // @synthesize red=_red;
+- (id)description;
+- (id)colorUsingColorSpaceName:(id)arg1;
+- (void)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCalibratedRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
+- (id)initWithCalibratedWhite:(float)arg1 alpha:(float)arg2;
+- (id)init;
 
 @end
 

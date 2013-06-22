@@ -13,16 +13,18 @@
     NSDictionary *_parameterValues;
 }
 
-+ (id)carrierServiceName;
-+ (BOOL)ignoresRoamingSwitch;
-+ (BOOL)supportsDetachedStorage;
-+ (id)retryIntervals;
-+ (id)messageNotificationFallbackTimeout;
-+ (BOOL)supportsGreetingChanges;
 + (BOOL)supportsPasswordChanges;
-- (id)initForService:(id)arg1;
-- (void)dealloc;
++ (BOOL)supportsGreetingChanges;
++ (id)messageNotificationFallbackTimeout;
++ (id)retryIntervals;
++ (BOOL)supportsDetachedStorage;
++ (BOOL)ignoresRoamingSwitch;
++ (id)carrierServiceName;
 - (id)parameterValueForKey:(id)arg1;
+- (void)dealloc;
+- (id)initForServiceBundleId:(id)arg1;
+- (id)initForService:(id)arg1;
+- (void)_initForBundle:(id)arg1;
 
 @end
 

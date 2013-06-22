@@ -8,10 +8,11 @@
 
 #import "NSCoding-Protocol.h"
 #import <UIKit/UITableViewDataSource-Protocol.h>
+#import "UITableViewDelegate-Protocol.h"
 
 @class NSMutableArray;
 
-@interface UIPickerView : UIView <NSCoding, UITableViewDataSource>
+@interface UIPickerView : UIView <UITableViewDelegate, NSCoding, UITableViewDataSource>
 {
     NSMutableArray *_tables;
     UIView *_topFrame;
@@ -28,6 +29,7 @@
         unsigned int delegateRespondsToDidSelectRow:1;
         unsigned int delegateRespondsToViewForRow:1;
         unsigned int delegateRespondsToTitleForRow:1;
+        unsigned int delegateRespondsToAttributedTitleForRow:1;
         unsigned int delegateRespondsToWidthForComponent:1;
         unsigned int delegateRespondsToRowHeightForComponent:1;
         unsigned int delegateRespondsToCheckableForRow:1;
@@ -36,12 +38,15 @@
         unsigned int allowSelectingCells:1;
         unsigned int soundsDisabled:1;
         unsigned int usesCheckedSelection:1;
+        unsigned int skipsBackground:1;
     } _pickerViewFlags;
+    BOOL _isInLayoutSubviews;
 }
 
 + (struct CGSize)defaultSizeForCurrentOrientation;
 + (struct CGSize)sizeForCurrentOrientationThatFits:(struct CGSize)arg1;
 + (struct CGSize)sizeThatFits:(struct CGSize)arg1 forInterfaceOrientation:(int)arg2;
+@property(nonatomic, setter=_setInLayoutSubviews:) BOOL _isInLayoutSubviews; // @synthesize _isInLayoutSubviews;
 @property(nonatomic) id <UIPickerViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) id <UIPickerViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -54,6 +59,8 @@
 - (int)selectedRowForColumn:(int)arg1;
 - (int)selectedRowInComponent:(int)arg1;
 - (struct _NSRange)visibleRowsForColumn:(int)arg1;
+- (BOOL)_drawsBackground;
+- (void)_setDrawsBackground:(BOOL)arg1;
 - (BOOL)_usesCheckedSelection;
 - (void)_setUsesCheckedSelection:(BOOL)arg1;
 - (void)_sendSelectionChangedFromTable:(id)arg1;
@@ -64,6 +71,8 @@
 @property(nonatomic) BOOL showsSelectionIndicator;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)_updateWithOldSize:(struct CGSize)arg1 newSize:(struct CGSize)arg2;
+- (void)_resetSelectionOfTables;
 - (void)layoutSubviews;
 - (float)_wheelShift;
 - (void)reloadAllPickerPieces;
@@ -76,6 +85,7 @@
 - (id)_createTableWithFrame:(struct CGRect)arg1 forComponent:(int)arg2;
 - (float)_delegateRowHeightForComponent:(int)arg1;
 - (float)_delegateWidthForComponent:(int)arg1 ofCount:(int)arg2 withSizeLeft:(float)arg3;
+- (id)_delegateAttributedTitleForRow:(int)arg1 forComponent:(int)arg2;
 - (id)_delegateTitleForRow:(int)arg1 forComponent:(int)arg2;
 - (int)_delegateNumberOfRowsInComponent:(int)arg1;
 - (int)_delegateNumberOfComponents;
@@ -83,6 +93,9 @@
 - (void)_sendCheckedRow:(int)arg1 inTableView:(id)arg2 checked:(BOOL)arg3;
 - (struct CGSize)_sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
 - (id)createDividerWithFrame:(struct CGRect)arg1;
 - (id)_createViewForPickerPiece:(int)arg1;
 - (struct CGRect)_selectionBarRectForHeight:(float)arg1;
@@ -112,6 +125,7 @@
 - (float)_tableRowHeight;
 - (BOOL)_isLandscapeOrientation;
 - (struct CGSize)defaultSize;
+- (BOOL)isAccessibilityElementByDefault;
 
 @end
 

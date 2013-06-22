@@ -11,9 +11,11 @@
 }
 
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (int)cellStyle;
+- (id)textFromReminder;
+- (id)newCell;
 - (BOOL)shouldAppearWithVisibility:(int)arg1;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
 
 @end
 

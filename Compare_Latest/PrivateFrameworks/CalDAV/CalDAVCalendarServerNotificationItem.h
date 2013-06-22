@@ -14,13 +14,13 @@
     CoreDAVItem *_content;
 }
 
-- (id)init;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
 @property(retain) CoreDAVItem *content; // @synthesize content=_content;
 @property(retain) CoreDAVLeafItem *dtstamp; // @synthesize dtstamp=_dtstamp;
+- (id)copyParseRules;
+- (id)description;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (id)init;
 
 @end
 

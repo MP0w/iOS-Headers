@@ -13,6 +13,8 @@
     NSMutableDictionary *_siblingsMap;
     NSMutableDictionary *_accountSiblingsMap;
     NSMutableDictionary *_existingAccountSiblingsMap;
+    NSMutableDictionary *_chatSiblingsMap;
+    NSMutableDictionary *_existingChatSiblingsMap;
     NSMutableArray *_allIMHandles;
     NSMutableDictionary *_candidateNamesMap;
     NSMutableDictionary *_usedUniqueNames;

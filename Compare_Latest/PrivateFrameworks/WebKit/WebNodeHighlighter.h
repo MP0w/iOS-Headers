@@ -14,12 +14,12 @@
     WebNodeHighlight *_currentHighlight;
 }
 
-- (id)initWithInspectedWebView:(id)arg1;
-- (void)dealloc;
-- (void)highlightNode:(id)arg1;
-- (void)hideHighlight;
-- (void)didAttachWebNodeHighlight:(id)arg1;
 - (void)willDetachWebNodeHighlight:(id)arg1;
+- (void)didAttachWebNodeHighlight:(id)arg1;
+- (void)hideHighlight;
+- (void)highlight;
+- (void)dealloc;
+- (id)initWithInspectedWebView:(id)arg1;
 
 @end
 

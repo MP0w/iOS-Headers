@@ -6,27 +6,30 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray;
+@class NSMutableDictionary;
 
 @interface _PFGarbageManager : NSObject
 {
-    NSMutableArray *_urlsToCleanUp;
+    NSMutableDictionary *_storeLinksDirs;
+    NSMutableDictionary *_filesToCleanUp;
 }
 
-+ (void)initialize;
-+ (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)defaultInstance;
-- (id)_init__;
-- (id)retain;
-- (unsigned int)retainCount;
-- (void)release;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (id)autorelease;
-- (void)registerURLForCleanup:(id)arg1;
-- (id)temporaryLinksDirectoryForStore:(id)arg1;
-- (void)removeDirectory:(id)arg1;
++ (id)allocWithZone:(struct _NSZone *)arg1;
++ (void)initialize;
 - (void)doCleanupForURL:(id)arg1;
+- (void)removeDirectory:(id)arg1;
+- (id)temporaryLinksDirectoryForStore:(id)arg1;
+- (BOOL)registerURLForCleanup:(id)arg1;
+- (void)_doCleanupForDir:(id)arg1 exceptURLs:(id)arg2;
+- (void)_deleteIfNecessary:(id)arg1;
+- (id)autorelease;
+- (BOOL)_tryRetain;
+- (BOOL)_isDeallocating;
+- (void)release;
+- (unsigned int)retainCount;
+- (id)retain;
+- (id)_init__;
 
 @end
 

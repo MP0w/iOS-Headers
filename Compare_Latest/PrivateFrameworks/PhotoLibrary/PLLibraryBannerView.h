@@ -20,9 +20,11 @@
     BOOL _multipleAssets;
     int _selectionButtonType;
     id _selectionButtonAction;
+    NSString *_selectionButtonCustomTitle;
     id _animationCompletion;
 }
 
+@property(copy, nonatomic) NSString *selectionButtonCustomTitle; // @synthesize selectionButtonCustomTitle=_selectionButtonCustomTitle;
 @property(copy, nonatomic) id selectionButtonAction; // @synthesize selectionButtonAction=_selectionButtonAction;
 @property(nonatomic) int selectionButtonType; // @synthesize selectionButtonType=_selectionButtonType;
 @property(copy, nonatomic) NSString *labelText; // @synthesize labelText=_labelText;

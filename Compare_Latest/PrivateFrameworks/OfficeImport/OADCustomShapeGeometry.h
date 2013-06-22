@@ -10,28 +10,28 @@
 
 @interface OADCustomShapeGeometry : OADShapeGeometry
 {
-    CsRect_48a06276 *mGeometryCoordSpace;
-    CsPoint_37ff02b7 *mLimo;
+    CsRect_0423b3b0 *mGeometryCoordSpace;
+    CsPoint_62d0eb08 *mLimo;
     NSMutableArray *mFormulas;
     NSMutableArray *mTextBodyRects;
     NSMutableArray *mPaths;
 }
 
-- (id)init;
-- (void)dealloc;
-- (CsRect_48a06276)geometryCoordSpace;
-- (void)setGeometryCoordSpace:(CsRect_48a06276)arg1;
-- (CsPoint_37ff02b7)limo;
-- (void)setLimo:(CsPoint_37ff02b7)arg1;
-- (unsigned int)formulaCount;
-- (id)formulaAtIndex:(unsigned int)arg1;
-- (void)addFormula:(id)arg1;
-- (unsigned int)textBodyRectCount;
-- (id)textBodyRectAtIndex:(unsigned int)arg1;
-- (void)addTextBodyRect:(id)arg1;
-- (unsigned int)pathCount;
-- (id)pathAtIndex:(unsigned int)arg1;
 - (void)addPath:(id)arg1;
+- (id)pathAtIndex:(unsigned int)arg1;
+- (unsigned int)pathCount;
+- (void)addTextBodyRect:(id)arg1;
+- (id)textBodyRectAtIndex:(unsigned int)arg1;
+- (unsigned int)textBodyRectCount;
+- (void)addFormula:(id)arg1;
+- (id)formulaAtIndex:(unsigned int)arg1;
+- (unsigned int)formulaCount;
+- (void)setLimo:(CsPoint_62d0eb08)arg1;
+- (CsPoint_62d0eb08)limo;
+- (void)setGeometryCoordSpace:(CsRect_0423b3b0)arg1;
+- (CsRect_0423b3b0)geometryCoordSpace;
+- (void)dealloc;
+- (id)init;
 
 @end
 

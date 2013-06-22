@@ -6,36 +6,31 @@
 
 #import <ChatKit/CKContentEntryBridge.h>
 
-@class NSMutableArray, NSMutableSet;
+@class NSMutableDictionary, NSMutableSet;
 
 @interface CKWebviewBasedContentEntryBridge : CKContentEntryBridge
 {
-    NSMutableArray *_resources;
+    NSMutableDictionary *_resources;
     int _composeResourcePoolID;
     NSMutableSet *_imageDeletionSet;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)newContentViewWithFrame:(struct CGRect)arg1;
-- (void)setMessageComposition:(id)arg1;
-- (id)messageComposition;
-- (id)messageCompositionIfTextOnly;
-- (void)setMessageParts:(id)arg1;
-- (id)attachments;
-- (id)messageParts;
-- (void)insertMessagePart:(id)arg1;
-- (BOOL)hasContent;
-- (id)documentFragmentForPasteboardItemAtIndex:(int)arg1 inTextContentView:(id)arg2;
-- (void)updateComposition;
-- (void)richContentView:(id)arg1 didRemoveImage:(id)arg2;
-- (void)richContentView:(id)arg1 didInsertImage:(id)arg2;
-- (id)_imageURLForPart:(id)arg1 partID:(int)arg2;
-- (id)_textView;
-- (void)_resetResourcePool;
-- (id)_nodeForImagePart:(id)arg1 forRichContentView:(id)arg2;
 - (id)_htmlForMessagePart:(id)arg1;
-- (void)_removeImages;
+- (id)_nodeForImagePart:(id)arg1 forRichContentView:(id)arg2;
+- (id)_textView;
+- (id)_imageURLForPart:(id)arg1 partID:(id)arg2;
+- (void)reset;
+- (void)updateComposition;
+- (id)documentFragmentForPasteboardItemAtIndex:(int)arg1 inTextContentView:(id)arg2;
+- (BOOL)hasContent;
+- (void)insertMessagePart:(id)arg1;
+- (id)attachments;
+- (void)setMessageParts:(id)arg1;
+- (id)messageComposition;
+- (void)setMessageComposition:(id)arg1;
+- (id)newContentViewWithFrame:(struct CGRect)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

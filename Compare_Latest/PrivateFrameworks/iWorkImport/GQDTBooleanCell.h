@@ -11,8 +11,9 @@
     struct __CFBundle *mProcessorBundle;
 }
 
-- (BOOL)boolValue;
 - (struct __CFString *)createStringValue;
+- (BOOL)boolValue;
+- (void)setProcessorBundle:(struct __CFBundle *)arg1;
 
 @end
 

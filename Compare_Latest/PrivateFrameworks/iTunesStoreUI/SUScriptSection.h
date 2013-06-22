@@ -18,12 +18,9 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-- (void)_setBadgeValue:(id)arg1 animated:(BOOL)arg2 blink:(BOOL)arg3;
-- (id)_copyViewController;
-- (id)_copyBadgeValue;
 @property(readonly) SUScriptViewController *viewController;
 @property(readonly) BOOL transient;
 @property(retain) NSString *badgeValue;

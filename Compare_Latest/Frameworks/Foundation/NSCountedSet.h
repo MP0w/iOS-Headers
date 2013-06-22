@@ -12,6 +12,7 @@
     void *_reserved;
 }
 
++ (BOOL)supportsSecureCoding;
 - (void)dealloc;
 - (id)initWithSet:(id)arg1;
 - (id)initWithArray:(id)arg1;

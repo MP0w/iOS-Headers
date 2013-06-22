@@ -36,9 +36,11 @@ struct NSSlice {
     void **items;
     char wantsStrong;
     char wantsWeak;
+    char wantsARC;
     char shouldCopyIn;
     char usesStrong;
     char usesWeak;
+    char usesARC;
     char usesSentinel;
     char pointerPersonality;
     char integerPersonality;
@@ -246,9 +248,15 @@ struct _xmlParserCtxt {
     int _field81;
     unsigned long _field82;
     unsigned long _field83;
+    struct _xmlParserNodeInfo *_field84;
+    int _field85;
+    int _field86;
+    struct _xmlParserNodeInfo *_field87;
 };
 
 struct _xmlParserInput;
+
+struct _xmlParserNodeInfo;
 
 struct _xmlSAXHandler {
     void *_field1;
@@ -374,6 +382,25 @@ typedef struct {
 } CDStruct_c69bce23;
 
 typedef struct {
+    unsigned char _field1;
+    unsigned char _field2;
+    unsigned char _field3;
+    unsigned char _field4;
+    unsigned char _field5;
+    unsigned char _field6;
+    unsigned char _field7;
+    unsigned char _field8;
+    unsigned char _field9;
+    unsigned char _field10;
+    unsigned char _field11;
+    unsigned char _field12;
+    unsigned char _field13;
+    unsigned char _field14;
+    unsigned char _field15;
+    unsigned char _field16;
+} CDStruct_bd2f613f;
+
+typedef struct {
     unsigned int kind;
     NSObject *oldValue;
     NSObject *newValue;
@@ -392,6 +419,10 @@ typedef struct {
     unsigned long *_field3;
     unsigned long _field4[5];
 } CDStruct_11f37819;
+
+typedef struct {
+    unsigned int _field1[8];
+} CDStruct_6ad76789;
 
 typedef struct {
     unsigned int :8;
@@ -423,4 +454,11 @@ typedef struct {
     int _field1;
     int _field2;
 } CDStruct_1ef3fb1f;
+
+#pragma mark Typedef'd Unions
+
+typedef union {
+    id _field1;
+    id _field2;
+} CDUnion_a1fd0927;
 

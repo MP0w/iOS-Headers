@@ -24,6 +24,18 @@
 - (void)appendString:(id)arg1;
 - (void)insertString:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withString:(id)arg2;
+- (void)_cfNormalize:(long)arg1;
+- (void)_cfTrimWS;
+- (void)_trimWithCharacterSet:(id)arg1;
+- (void)_cfTrim:(struct __CFString *)arg1;
+- (void)_cfPad:(struct __CFString *)arg1 length:(unsigned int)arg2 padIndex:(unsigned int)arg3;
+- (void)_cfCapitalize:(const void *)arg1;
+- (void)_cfUppercase:(const void *)arg1;
+- (void)_cfLowercase:(const void *)arg1;
+- (void)_cfAppendCString:(const char *)arg1 length:(int)arg2;
+- (void)appendCharacters:(const unsigned short *)arg1 length:(unsigned int)arg2;
+- (id)replacementObjectForPortCoder:(id)arg1;
+- (unsigned int)_replaceOccurrencesOfRegularExpressionPattern:(id)arg1 withTemplate:(id)arg2 options:(unsigned int)arg3 range:(struct _NSRange)arg4;
 
 @end
 

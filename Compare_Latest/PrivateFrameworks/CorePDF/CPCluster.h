@@ -10,7 +10,7 @@
 
 @interface CPCluster : NSObject <CPDisposable>
 {
-    CDStruct_071390ef *profile;
+    const CDStruct_071390ef *profile;
     unsigned int xCount;
     double *x;
     double *dx;
@@ -32,36 +32,41 @@
 }
 
 + (unsigned int *)createOrderIndexFor:(double *)arg1 ofSize:(unsigned int)arg2;
-- (id)init;
-- (id)initWithProfile:(const CDStruct_071390ef *)arg1;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-- (void)computeDifferencesFromData;
-- (void)computeDataFromDifferences;
-- (void)splitSecondDifferences;
-- (void)assembleDifferenceStats;
-- (BOOL)joinLevelsFrom:(unsigned int)arg1 to:(unsigned int)arg2;
-- (BOOL)joinClosestLevelPairFrom:(unsigned int)arg1 to:(unsigned int)arg2;
-- (BOOL)splitLevelAtIndex:(unsigned int)arg1 betweenValue:(double)arg2 andValue:(double)arg3;
-- (BOOL)coalesceFrom:(unsigned int)arg1 to:(unsigned int)arg2;
-- (void)analyzeDifferences;
-- (void)assembleDataStats;
-- (void)setMinimumClusterSize:(unsigned int)arg1;
-- (void)setMaximumClusterSpread:(double)arg1;
-- (void)setMinimumRecognizedInterClusterDifference:(double)arg1;
-- (void)setMinimumRecognizedInterLevel2ndDifference:(double)arg1;
-- (void)assembleDensityDifferenceStats;
-- (void)analyzeDensities;
-- (void)findClusters:(double *)arg1 count:(unsigned int)arg2;
-- (void)findClustersFromDifferences:(double *)arg1 count:(unsigned int)arg2;
-- (void)findDensityClusters:(double *)arg1 count:(unsigned int)arg2;
-- (BOOL)applyDifferenceHints:(CDStruct_2a61e2ef *)arg1 count:(unsigned int)arg2;
-- (unsigned int)clusterCount;
-- (unsigned int)levels;
-- (CDStruct_2a61e2ef)clusterStatisticsAtIndex:(unsigned int)arg1;
-- (CDStruct_2a61e2ef)differenceClusterStatisticsAtIndex:(unsigned int)arg1;
++ (void)reclusterTextLine:(id)arg1 fromWordIndex:(unsigned int)arg2 count:(unsigned int *)arg3;
++ (void)clusterTextLine:(id)arg1;
 - (CDStruct_2a61e2ef)largestClusterStatistics;
+- (CDStruct_2a61e2ef)differenceClusterStatisticsAtIndex:(unsigned int)arg1;
+- (CDStruct_2a61e2ef)clusterStatisticsAtIndex:(unsigned int)arg1;
+- (unsigned int)levels;
+- (unsigned int)clusterCount;
+- (BOOL)applyDifferenceHints:(CDStruct_2a61e2ef *)arg1 count:(unsigned int)arg2;
+- (void)findDensityClusters:(double *)arg1 count:(unsigned int)arg2;
+- (void)findClustersFromDifferences:(double *)arg1 count:(unsigned int)arg2;
+- (void)findClusters:(double *)arg1 count:(unsigned int)arg2;
+- (void)analyzeDensities;
+- (void)assembleDensityDifferenceStats;
+- (void)setMinimumRecognizedInterLevel2ndDifference:(double)arg1;
+- (void)setMinimumRecognizedInterClusterDifference:(double)arg1;
+- (void)setMaximumClusterSpread:(double)arg1;
+- (void)setMinimumClusterSize:(unsigned int)arg1;
+- (void)assembleDataStats;
+- (void)analyzeDifferences;
+- (BOOL)coalesceFrom:(unsigned int)arg1 to:(unsigned int)arg2;
+- (BOOL)splitLevelAtIndex:(unsigned int)arg1 betweenValue:(double)arg2 andValue:(double)arg3;
+- (BOOL)joinClosestLevelPairFrom:(unsigned int)arg1 to:(unsigned int)arg2;
+- (BOOL)joinLevelsFrom:(unsigned int)arg1 to:(unsigned int)arg2;
+- (void)assembleDifferenceStats;
+- (void)splitSecondDifferences;
+- (void)computeDataFromDifferences;
+- (void)computeDifferencesFromData;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)initWithProfile:(const CDStruct_071390ef *)arg1;
+- (id)init;
+- (void)makeWords:(CDStruct_a823b51b *)arg1 count:(unsigned int)arg2 fromCharacterSequence:(id)arg3 charOffset:(unsigned int)arg4;
+- (void)findClustersFromCharacterSequence:(id)arg1 withSpaceHint:(BOOL)arg2;
+- (void)tryLevel0SplitBetween:(double)arg1 and:(double)arg2 usingHints:(CDStruct_2a61e2ef *)arg3;
 
 @end
 

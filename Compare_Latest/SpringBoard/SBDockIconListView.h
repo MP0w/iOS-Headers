@@ -10,23 +10,23 @@
 {
 }
 
-+ (unsigned int)iconColumnsForInterfaceOrientation:(int)arg1;
-+ (unsigned int)iconRowsForInterfaceOrientation:(int)arg1;
 + (id)backgroundImageForOrientation:(int)arg1;
-- (id)initForOrientation:(int)arg1;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)_updateForOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
-- (void)setOrientation:(int)arg1;
-- (void)setOrientation:(int)arg1 duration:(double)arg2;
-- (int)visibleIconsInDock;
-- (unsigned int)iconsInRowForSpacingCalculation;
-- (float)topIconInset;
-- (unsigned int)rowAtPoint:(struct CGPoint)arg1;
-- (float)sideIconInset;
-- (float)_additionalSideInsetToCenterIcons;
-- (struct CGPoint)originForIconAtX:(unsigned int)arg1 Y:(unsigned int)arg2;
++ (unsigned int)iconRowsForInterfaceOrientation:(int)arg1;
++ (unsigned int)iconColumnsForInterfaceOrientation:(int)arg1;
 - (unsigned int)columnAtPoint:(struct CGPoint)arg1;
+- (struct CGPoint)originForIconAtX:(unsigned int)arg1 Y:(unsigned int)arg2;
+- (float)_additionalSideInsetToCenterIcons;
+- (float)sideIconInset;
+- (unsigned int)rowAtPoint:(struct CGPoint)arg1;
+- (float)topIconInset;
+- (unsigned int)iconsInRowForSpacingCalculation;
+- (int)visibleIconsInDock;
+- (void)setOrientation:(int)arg1 duration:(double)arg2;
+- (void)setOrientation:(int)arg1;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (void)_updateForOrientation:(int)arg1 duration:(double)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 viewMap:(id)arg2;
+- (id)initForOrientation:(int)arg1 viewMap:(id)arg2;
 
 @end
 

@@ -22,25 +22,28 @@
     NSConditionLock *_doneLock;
     int _error;
     id <ABPredicateDelegate> _delegate;
+    BOOL _includePhotosInResults;
 }
 
-- (id)initWithSearchString:(id)arg1 source:(void *)arg2 account:(id)arg3 includeSourceInResults:(BOOL)arg4;
-- (id)initWithSearchString:(id)arg1 source:(void *)arg2 account:(id)arg3;
-- (void)dealloc;
-@property(nonatomic) void *source; // @synthesize source=_source;
 @property(retain, nonatomic) DADConnection *connection; // @synthesize connection=_connection;
-- (void)runPredicate;
-- (void)runPredicateWithDelegate:(id)arg1;
-- (void)ab_runPredicateWithSortOrder:(unsigned int)arg1 inAddressBook:(void *)arg2 withDelegate:(id)arg3;
-- (int)_errorForDAStatusCode:(int)arg1;
-- (void)_searchQueryIsDone;
-- (void)searchQuery:(id)arg1 returnedResults:(id)arg2;
-- (void)searchQuery:(id)arg1 finishedWithError:(id)arg2;
 @property(readonly, nonatomic) int error; // @synthesize error=_error;
 @property(nonatomic) id <ABPredicateDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) BOOL includePhotosInResults; // @synthesize includePhotosInResults=_includePhotosInResults;
 @property(nonatomic) BOOL includeSourceInResults; // @synthesize includeSourceInResults=_includeSourceInResults;
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
+@property(nonatomic) void *source; // @synthesize source=_source;
+- (void)searchQuery:(id)arg1 finishedWithError:(id)arg2;
+- (void)searchQuery:(id)arg1 returnedResults:(id)arg2;
+- (void)_searchQueryIsDone;
+- (int)_errorForDAStatusCode:(int)arg1;
+- (void)ab_runPredicateWithSortOrder:(unsigned int)arg1 inAddressBook:(void *)arg2 withDelegate:(id)arg3;
+- (void)runPredicateWithDelegate:(id)arg1;
+- (void)runPredicate;
+- (void)dealloc;
+- (id)initWithSearchString:(id)arg1 source:(void *)arg2 account:(id)arg3;
+- (id)initWithSearchString:(id)arg1 source:(void *)arg2 account:(id)arg3 includeSourceInResults:(BOOL)arg4;
+- (id)initWithSearchString:(id)arg1 source:(void *)arg2 account:(id)arg3 includeSourceInResults:(BOOL)arg4 includePhotosInResults:(BOOL)arg5;
 
 @end
 

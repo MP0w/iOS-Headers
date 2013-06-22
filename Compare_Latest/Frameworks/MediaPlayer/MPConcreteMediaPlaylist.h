@@ -6,10 +6,14 @@
 
 #import <MediaPlayer/MPMediaPlaylist.h>
 
-@class MPMediaQuery, NSMutableDictionary;
+#import "NSCoding-Protocol.h"
+#import "NSCopying-Protocol.h"
 
-@interface MPConcreteMediaPlaylist : MPMediaPlaylist
+@class MPMediaQuery, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+
+@interface MPConcreteMediaPlaylist : MPMediaPlaylist <NSCoding, NSCopying>
 {
+    NSObject<OS_dispatch_queue> *_accessQueue;
     NSMutableDictionary *_properties;
     MPMediaQuery *_itemsQuery;
     void *_clusterPlaylist;
@@ -18,13 +22,14 @@
 - (void)endGeneratingGeniusClusterItems;
 - (id)geniusClusterItemsWithCount:(unsigned int)arg1 error:(id *)arg2;
 - (BOOL)beginGeneratingGeniusClusterItemsWithSeedItems:(id)arg1 error:(id *)arg2;
-- (void)populateWithSeedItem:(id)arg1 queue:(struct dispatch_queue_s *)arg2 completionBlock:(id)arg3;
+- (void)populateWithSeedItem:(id)arg1 queue:(id)arg2 completionBlock:(id)arg3;
 - (void)populateWithSeedItem:(id)arg1 completionBlock:(id)arg2;
 - (void)moveItemFromIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2 completionBlock:(id)arg3;
 - (void)removeAllItems;
 - (void)removeItems:(id)arg1 atFilteredIndexes:(id)arg2 completionBlock:(id)arg3;
 - (void)addItems:(id)arg1 completionBlock:(id)arg2;
 - (void)addItem:(id)arg1 completionBlock:(id)arg2;
+- (void)_updateLibraryForPlaylistEdit:(id)arg1;
 - (id)valueForProperty:(id)arg1;
 - (int)mediaTypes;
 - (unsigned int)count;

@@ -12,30 +12,30 @@
     unsigned int _byteCount;
 }
 
-- (id)init;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)retain;
-- (void)release;
-- (unsigned int)retainCount;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (id)description;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopy;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (id)privateCopy;
-- (unsigned int)length;
-- (const void *)bytes;
-- (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
-- (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
-- (id)subdataWithRange:(struct _NSRange)arg1;
-- (BOOL)isEqualToData:(id)arg1;
-- (struct _NSRange)rangeOfData:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
-- (BOOL)writeToFile:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
-- (BOOL)writeToFile:(id)arg1 atomically:(BOOL)arg2;
-- (BOOL)writeToURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 - (BOOL)writeToURL:(id)arg1 atomically:(BOOL)arg2;
+- (BOOL)writeToURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+- (BOOL)writeToFile:(id)arg1 atomically:(BOOL)arg2;
+- (BOOL)writeToFile:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+- (struct _NSRange)rangeOfData:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
+- (BOOL)isEqualToData:(id)arg1;
+- (id)subdataWithRange:(struct _NSRange)arg1;
+- (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
+- (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
+- (const void *)bytes;
+- (unsigned int)length;
+- (id)privateCopy;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)mutableCopy;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)description;
+- (BOOL)_tryRetain;
+- (BOOL)_isDeallocating;
+- (unsigned int)retainCount;
+- (void)release;
+- (id)retain;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)init;
 
 @end
 

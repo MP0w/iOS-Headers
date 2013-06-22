@@ -20,6 +20,7 @@
 - (id)headerTitle;
 - (int)numberOfSubitems;
 - (void)setCalendar:(id)arg1 store:(id)arg2;
+@property(readonly, nonatomic) NSMutableArray *cells; // @synthesize cells=_cells;
 - (id)_cellForColor:(id)arg1;
 - (void)reset;
 - (void)dealloc;

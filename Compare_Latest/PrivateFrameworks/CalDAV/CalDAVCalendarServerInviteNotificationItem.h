@@ -20,11 +20,6 @@
     CalDAVSupportedCalendarComponentSet *_supportedCalendarComponentSet;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
-- (BOOL)isComponentSupportedForString:(id)arg1;
 @property(retain) CalDAVSupportedCalendarComponentSet *supportedCalendarComponentSet; // @synthesize supportedCalendarComponentSet=_supportedCalendarComponentSet;
 @property(retain) CoreDAVLeafItem *summary; // @synthesize summary=_summary;
 @property(retain) CalDAVCalendarServerOrganizerItem *organizer; // @synthesize organizer=_organizer;
@@ -33,6 +28,12 @@
 @property(retain) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
 @property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
 @property(retain) CoreDAVLeafItem *uid; // @synthesize uid=_uid;
+- (BOOL)isComponentSupportedForString:(id)arg1;
+- (id)copyParseRules;
+- (id)description;
+- (void)dealloc;
+- (id)initForReplyWithUID:(id)arg1 href:(id)arg2 hostURL:(id)arg3 summary:(id)arg4;
+- (id)init;
 
 @end
 

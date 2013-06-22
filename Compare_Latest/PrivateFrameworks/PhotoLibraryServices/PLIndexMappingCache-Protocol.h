@@ -8,6 +8,10 @@
 
 @protocol PLIndexMappingCache <NSObject>
 @property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
-- (void)mappedDataSourceChanged:(id)arg1;
+- (Class)derivedChangeNotificationClass;
+- (BOOL)mappedDataSourceChanged:(id)arg1 remoteNotificationData:(id)arg2;
+
+@optional
+- (id)currentStateForChange;
 @end
 

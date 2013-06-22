@@ -12,14 +12,14 @@
     BOOL ignoresContentOffsetChanges;
 }
 
-- (void)dealloc;
-- (void)handlePan:(id)arg1;
-- (BOOL)isFastAnimationAvailableForContentOffset;
-- (void)cancelPanGesture;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setContentOffset:(struct CGPoint)arg1;
 @property(nonatomic) BOOL ignoresContentOffsetChanges; // @synthesize ignoresContentOffsetChanges;
 @property(copy, nonatomic) id panGestureRecognizerBlock; // @synthesize panGestureRecognizerBlock=_panGestureRecognizerBlock;
+- (void)setContentOffset:(struct CGPoint)arg1;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)cancelPanGesture;
+- (BOOL)isFastAnimationAvailableForContentOffset;
+- (void)handlePan:(id)arg1;
+- (void)dealloc;
 
 @end
 

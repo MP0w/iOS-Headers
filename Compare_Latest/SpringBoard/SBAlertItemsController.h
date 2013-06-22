@@ -8,57 +8,61 @@
 
 #import "BBObserverDelegate-Protocol.h"
 
-@class BBObserver, CPDistributedNotificationCenter, NSMutableArray, NSTimer;
+@class BBObserver, CPDistributedNotificationCenter, NSArray, NSMutableArray, NSMutableSet, NSTimer;
 
 @interface SBAlertItemsController : NSObject <BBObserverDelegate>
 {
     NSMutableArray *_lockedAlertItems;
     NSMutableArray *_unlockedAlertItems;
     NSMutableArray *_pendingAlertItems;
+    NSMutableArray *_superModalAlertItems;
     NSTimer *_autoDismissTimer;
     CPDistributedNotificationCenter *_notificationCenter;
     unsigned int _notificationClientCount;
     BOOL _systemShuttingDown;
-    BOOL _forceAlertsToPend;
+    NSMutableSet *_forceAlertsToPendReasons;
     BBObserver *_bbObserver;
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (id)description;
-- (void)convertUnlockedAlertsToLockedAlerts;
-- (void)resetAutoDismissTimer;
-- (void)activateAlertItem:(id)arg1;
-- (void)deactivateAlertItem:(id)arg1 reason:(int)arg2;
-- (void)deactivateAlertItem:(id)arg1 reason:(int)arg2 animated:(BOOL)arg3;
-- (void)deactivateAlertItem:(id)arg1;
-- (void)deactivateAlertItemsOfClass:(Class)arg1;
-- (void)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2;
-- (void)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2 animated:(BOOL)arg3;
-- (void)deactivateVisibleAlertItemOfClass:(Class)arg1 reason:(int)arg2;
-- (void)autoDismissAlertItem:(id)arg1;
-- (id)alertItemOfClass:(Class)arg1;
-- (id)alertItemsOfClass:(Class)arg1;
-- (BOOL)hasAlertOfClass:(Class)arg1;
-- (BOOL)hasAlerts;
-- (BOOL)hasVisibleAlert;
-- (id)visibleAlertItem;
-- (BOOL)canDeactivateAlertForMenuClickOrSystemGesture;
-- (BOOL)deactivateAlertForMenuClickOrSystemGestureWithAnimation:(BOOL)arg1;
-- (id)deactivateAlertItemsForLock;
-- (BOOL)dontLockOverAlertItems;
-- (void)deactivateAlertItemsForAlertActivation;
-- (void)noteVolumeOrLockPressedOverLockedAlerts;
-- (void)_postAlertPresentedNotificationForType:(int)arg1 sender:(id)arg2 date:(id)arg3;
-- (void)notifySystemOfAlertItemActivation:(id)arg1;
-- (void)noteSystemShuttingDown;
-- (void)setForceAlertsToPend:(BOOL)arg1;
-- (void)forceAlertsToPendAndMoveActiveAlertsToPendingWithAnimation:(BOOL)arg1;
-- (void)_notificationClientStarted:(id)arg1;
-- (void)_notificationClientEnded:(id)arg1;
-- (void)_buddyDidExit;
+@property(readonly, nonatomic) NSArray *lockedAlertItems; // @synthesize lockedAlertItems=_lockedAlertItems;
 - (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
+- (void)_buddyDidExit;
+- (void)_notificationClientEnded:(id)arg1;
+- (void)_notificationClientStarted:(id)arg1;
+- (void)moveActiveAlertsToPendingWithAnimation:(BOOL)arg1;
+- (void)setForceAlertsToPend:(BOOL)arg1 forReason:(id)arg2;
+- (void)noteSystemShuttingDown;
+- (void)notifySystemOfAlertItemActivation:(id)arg1;
+- (void)_postAlertPresentedNotificationForType:(int)arg1 sender:(id)arg2 date:(id)arg3;
+- (void)noteVolumeOrLockPressedOverLockedAlerts;
+- (void)deactivateAlertItemsForAlertActivationAndPendMiniAlerts:(BOOL)arg1;
+- (BOOL)dontLockOverAlertItems;
+- (BOOL)deactivateAlertForMenuClickOrSystemGestureWithAnimation:(BOOL)arg1;
+- (BOOL)canDeactivateAlertForMenuClickOrSystemGesture;
+- (id)visibleAlertItem;
+- (BOOL)hasVisibleAlert;
+- (BOOL)hasAlerts;
+- (BOOL)hasAlertOfClass:(Class)arg1;
+- (id)alertItemsOfClass:(Class)arg1;
+- (id)alertItemOfClass:(Class)arg1;
+- (void)autoDismissAlertItem:(id)arg1;
+- (void)deactivateVisibleAlertItemOfClass:(Class)arg1 reason:(int)arg2;
+- (void)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2 animated:(BOOL)arg3;
+- (void)deactivateAlertItemsOfClass:(Class)arg1 reason:(int)arg2;
+- (void)deactivateAlertItemsOfClass:(Class)arg1;
+- (void)deactivateAlertItem:(id)arg1;
+- (void)deactivateAlertItem:(id)arg1 reason:(int)arg2 animated:(BOOL)arg3;
+- (void)activatePendedAlertsIfNecessary;
+- (void)_activateSuperModalAlertsIfNecessary;
+- (void)deactivateAlertItem:(id)arg1 reason:(int)arg2;
+- (void)activateAlertItem:(id)arg1;
+- (void)resetAutoDismissTimer;
+- (void)convertUnlockedAlertsToLockedAlerts;
+- (id)description;
+- (BOOL)hasVisibleSuperModalAlert;
+- (void)dealloc;
+- (id)init;
 
 @end
 

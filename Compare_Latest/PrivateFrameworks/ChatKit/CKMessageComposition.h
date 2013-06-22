@@ -6,25 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @interface CKMessageComposition : NSObject
 {
 }
 
-+ (id)newCompositionForText:(id)arg1;
-+ (id)newCompositionForMessage:(id)arg1;
-+ (id)newComposition;
-+ (void)deleteFileWithPrefix:(id)arg1 path:(id)arg2;
 + (id)messageCompositionFromFileWithPrefix:(id)arg1 path:(id)arg2;
-@property(readonly, nonatomic) BOOL hasContent;
-@property(nonatomic) BOOL isTextOnly;
-@property(copy, nonatomic) NSString *markupString;
-@property(copy, nonatomic) NSString *textString;
-@property(retain, nonatomic) NSArray *resources;
-@property(copy, nonatomic) NSString *subject;
-- (id)messageParts;
++ (id)_createMessagePartFromResourceDictionary:(id)arg1 identifier:(id)arg2 relativeToPath:(id)arg3 version:(int)arg4;
++ (void)deleteFileWithPrefix:(id)arg1 path:(id)arg2;
++ (id)newComposition;
++ (id)newCompositionForText:(id)arg1;
 - (void)writeToFileWithPrefix:(id)arg1 path:(id)arg2;
+@property(readonly, nonatomic) NSArray *messageParts;
+@property(readonly, nonatomic) BOOL isTextOnly;
+@property(readonly, nonatomic) NSString *textString;
+@property(readonly, nonatomic) BOOL hasContent;
+@property(readonly, nonatomic) BOOL hasNonwhiteSpaceContent;
+@property(copy, nonatomic) NSString *subject;
+@property(retain, nonatomic) NSDictionary *resources;
+@property(copy, nonatomic) NSString *markupString;
 
 @end
 

@@ -8,14 +8,17 @@
 
 #import "MPMediaLibraryDataProviderPrivate-Protocol.h"
 
-@class ML3MusicLibrary, NSArray, NSSet, NSString;
+@class ML3MusicLibrary, NSArray, NSObject<OS_dispatch_queue>, NSSet, NSString;
 
 @interface MPMediaLibraryDataProviderML3 : NSObject <MPMediaLibraryDataProviderPrivate>
 {
-    struct dispatch_queue_s *_backgroundTaskQueue;
+    NSObject<OS_dispatch_queue> *_backgroundTaskQueue;
     unsigned int _backgroundTask;
     unsigned int _backgroundTaskCount;
+    BOOL _hasScheduledEventPosting;
     ML3MusicLibrary *_library;
+    int _refreshState;
+    NSString *_uniqueIdentifier;
 }
 
 + (id)_unadjustedValueForMPProperty:(id)arg1 withDefaultValue:(id)arg2;
@@ -23,16 +26,24 @@
 - (BOOL)_removeEntitiesWithIdentifiers:(long long *)arg1 count:(unsigned int)arg2 entityClass:(Class)arg3;
 - (void)_loadValueForAggregateFunction:(id)arg1 entityClass:(Class)arg2 property:(id)arg3 query:(id)arg4 completionBlock:(id)arg5;
 - (void)_loadProperties:(id)arg1 ofEntityWithIdentifier:(long long)arg2 ML3EntityClass:(Class)arg3 completionBlock:(id)arg4;
-- (void)_loadEntitiesUsingFetchRequest:(id)arg1 entityQuery:(id)arg2 writeBlock:(id)arg3;
+- (void)_libraryUIDDidChange:(id)arg1;
 - (void)_syncGenerationDidChange:(id)arg1;
 - (void)_displayValuesDidChange:(id)arg1;
+- (void)_invisiblePropertiesDidChange:(id)arg1;
 - (void)_dynamicPropertiesDidChange:(id)arg1;
 - (void)_libraryContentsDidChange:(id)arg1;
+- (void)_postEvents;
+- (void)_coalesceEvents;
 - (id)adjustedValueForMPProperty:(id)arg1 ofEntity:(id)arg2 withDefaultValue:(id)arg3;
 - (void)performBackgroundTaskWithBlock:(id)arg1;
-- (double)timestampForAppliedUbiquitousBookmarkKey:(id)arg1;
-- (void)updateUbiquitousBookmarksWithKey:(id)arg1 bookmarkMediaValue:(id)arg2 timestamp:(double)arg3;
+- (void)updateUbiquitousValuesForTrackWithKey:(id)arg1 mediaPropertyValues:(id)arg2 timestamp:(double)arg3;
+- (void)performUbiquitousDatabaseUpdateTransaction:(id)arg1;
+@property(copy, nonatomic) NSString *ubiquitousBookmarkDomainVersionAnchorToken;
+@property(nonatomic) unsigned long long ubiquitousBookmarkEntityRevisionAnchor;
+- (void)populateLocationPropertiesOfItemWithIdentifier:(long long)arg1 withPath:(id)arg2;
 - (void)downloadItemWithIdentifier:(long long)arg1 completionHandler:(id)arg2;
+- (id)itemResultSetForQueryCriteria:(id)arg1;
+- (id)collectionResultSetForQueryCriteria:(id)arg1;
 - (void)enumerateEntityChangesAfterSyncAnchor:(id)arg1 itemBlock:(id)arg2 collectionBlock:(void)arg3;
 @property(readonly, nonatomic) NSString *syncValidity;
 - (void)loadBestTimedArtworkImageDataForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 atPlaybackTime:(double)arg3 completionBlock:(id)arg4;
@@ -48,25 +59,30 @@
 - (BOOL)removePlaylistWithIdentifier:(long long)arg1;
 - (long long)addPlaylistWithValuesForProperties:(id)arg1;
 - (BOOL)setValue:(id)arg1 forProperty:(id)arg2 ofPlaylistWithIdentifier:(long long)arg3;
+- (BOOL)setValue:(id)arg1 forProperty:(id)arg2 ofCollectionWithIdentifier:(long long)arg3 groupingType:(int)arg4;
 - (BOOL)setValue:(id)arg1 forProperty:(id)arg2 ofItemWithIdentifier:(long long)arg3;
+- (void)performReadTransactionWithBlock:(id)arg1;
 - (BOOL)performTransactionWithBlock:(id)arg1;
-- (void)loadProperties:(id)arg1 ofCollectionWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
+- (void)loadProperties:(id)arg1 ofCollectionWithIdentifier:(long long)arg2 groupingType:(int)arg3 completionBlock:(id)arg4;
 - (void)loadProperties:(id)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
-- (void)loadCollectionsUsingFetchRequest:(id)arg1;
-- (void)loadItemsUsingFetchRequest:(id)arg1;
 - (void)loadValueForAggregateFunction:(id)arg1 onCollectionsForProperty:(id)arg2 queryCriteria:(id)arg3 completionBlock:(id)arg4;
 - (void)loadValueForAggregateFunction:(id)arg1 onItemsForProperty:(id)arg2 queryCriteria:(id)arg3 completionBlock:(id)arg4;
 - (void)enumerateCollectionIdentifiersForQueryCriteria:(id)arg1 cancelBlock:(id)arg2 usingBlock:(void)arg3;
 - (void)enumerateItemIdentifiersForQueryCriteria:(id)arg1 cancelBlock:(id)arg2 usingBlock:(void)arg3;
+- (void)loadQueryCriteria:(id)arg1 countOfCollectionsWithCompletionBlock:(id)arg2;
+- (void)loadQueryCriteria:(id)arg1 countOfItemsWithCompletionBlock:(id)arg2;
 - (void)loadQueryCriteria:(id)arg1 hasCollectionsWithCompletionBlock:(id)arg2;
 - (void)loadQueryCriteria:(id)arg1 hasItemsWithCompletionBlock:(id)arg2;
 - (BOOL)playlistExistsWithPersistentID:(unsigned long long)arg1;
+- (long long)itemPersistentIDForStoreID:(long long)arg1;
 - (BOOL)itemExistsWithPersistentID:(unsigned long long)arg1;
+- (BOOL)hasUniversalBookmarkableItems;
 - (BOOL)hasGeniusMixes;
 - (BOOL)hasMediaOfType:(int)arg1;
 - (BOOL)writable;
 - (long long)playlistGeneration;
 - (unsigned long long)syncGenerationID;
+- (unsigned long long)currentEntityRevision;
 - (id)lastModifiedDate;
 @property(readonly, nonatomic) NSString *uniqueIdentifier;
 @property(readonly, nonatomic) NSString *name;

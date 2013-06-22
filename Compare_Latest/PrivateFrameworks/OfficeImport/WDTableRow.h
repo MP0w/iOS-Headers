@@ -16,17 +16,17 @@
     NSMutableArray *mCells;
 }
 
-- (id)initWithTable:(id)arg1 at:(int)arg2;
-- (void)dealloc;
-- (int)index;
-- (id)table;
-- (id)properties;
-- (int)cellCount;
-- (id)cellAt:(int)arg1;
-- (id)addCell;
-- (id)addCellWithIndex:(int)arg1;
-- (id)cellIterator;
 - (id)newCellIterator;
+- (id)cellIterator;
+- (id)addCellWithIndex:(int)arg1;
+- (id)addCell;
+- (id)cellAt:(int)arg1;
+- (int)cellCount;
+- (id)properties;
+- (id)table;
+- (int)index;
+- (void)dealloc;
+- (id)initWithTable:(id)arg1 at:(int)arg2;
 
 @end
 

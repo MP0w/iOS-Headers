@@ -10,8 +10,12 @@
 {
 }
 
-+ (id)edHyperlinkFromXlHLink:(struct XlHLink *)arg1 edResources:(id)arg2;
++ (struct XlHLinkToolTip *)xlToolTipFromEDHyperLink:(id)arg1 state:(id)arg2;
++ (struct XlHLink *)xlHLinkFromEDHyperlink:(id)arg1 state:(id)arg2;
 + (void)addToolTip:(struct XlHLinkToolTip *)arg1 toEdHyperLink:(id)arg2 edResources:(id)arg3;
++ (id)edHyperlinkFromXlHLink:(struct XlHLink *)arg1 edResources:(id)arg2;
++ (int)xlTypeFromEDHyperlinkType:(int)arg1;
++ (int)edTypeFromXlHyperlinkType:(int)arg1;
 
 @end
 

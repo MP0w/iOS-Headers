@@ -13,16 +13,14 @@
 }
 
 + (void)initialize;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-- (BOOL)_initWithAdamID:(id)arg1;
-- (id)_copyAdamID;
 - (void)setAdamID:(id)arg1;
 - (id)_className;
 @property(readonly) NSNumber *adamID;
 - (id)newNativeViewController;
-- (id)initWithAdamID:(id)arg1;
+- (id)initWithAdamID:(id)arg1 clientInterface:(id)arg2;
 - (id)init;
 
 @end

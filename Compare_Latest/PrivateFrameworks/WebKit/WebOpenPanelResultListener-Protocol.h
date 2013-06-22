@@ -7,8 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebOpenPanelResultListener <NSObject>
-- (void)chooseFilename:(id)arg1;
-- (void)chooseFilenames:(id)arg1;
+- (void)chooseFilenames:(id)arg1 displayString:(id)arg2 iconImage:(struct CGImage *)arg3;
+- (void)chooseFilename:(id)arg1 displayString:(id)arg2 iconImage:(struct CGImage *)arg3;
 - (void)cancel;
+- (void)chooseFilenames:(id)arg1;
+- (void)chooseFilename:(id)arg1;
 @end
 

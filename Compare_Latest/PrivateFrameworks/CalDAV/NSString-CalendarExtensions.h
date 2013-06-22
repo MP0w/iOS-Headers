@@ -8,18 +8,18 @@
 
 @interface NSString (CalendarExtensions)
 + (id)stringWithFileSystemRepresentation:(const char *)arg1;
-- (id)quote;
-- (id)trimWhiteSpace;
-- (id)trimFinalComma;
-- (id)trimFirstComma;
-- (id)trimCommas;
-- (id)trimFinalChar:(unsigned short)arg1;
-- (id)trimFirstChar:(unsigned short)arg1;
-- (id)trimChar:(unsigned short)arg1;
-- (id)unquote;
-- (id)searchAndReplaceString:(id)arg1 withString:(id)arg2;
-- (id)safeFilename;
-- (id)removeSlashIfNeeded;
 - (id)appendSlashIfNeeded;
+- (id)removeSlashIfNeeded;
+- (id)safeFilename;
+- (id)searchAndReplaceString:(id)arg1 withString:(id)arg2;
+- (id)unquote;
+- (id)trimChar:(unsigned short)arg1;
+- (id)trimFirstChar:(unsigned short)arg1;
+- (id)trimFinalChar:(unsigned short)arg1;
+- (id)trimCommas;
+- (id)trimFirstComma;
+- (id)trimFinalComma;
+- (id)trimWhiteSpace;
+- (id)quote;
 @end
 

@@ -19,19 +19,19 @@
     unsigned char originalCellFlag;
 }
 
-- (id)init;
-- (void)handleURL:(id)arg1;
-- (void)dealloc;
-- (id)specifiers;
-- (void)finishedAccountSetup;
-- (id)specifierForAccountType:(id)arg1;
-- (int)numAddControllersInStack;
-- (void)popOutOfAddControllers;
-- (void)dontShowSecondLevelOtherAccountTypes;
-- (void)forceMailSetup;
 @property(retain) NSArray *allowedDataclasses; // @synthesize allowedDataclasses=_allowedDataclasses;
 @property(retain) NSArray *plugins; // @synthesize plugins=_plugins;
 @property(retain) NSArray *preEnabledDataclasses; // @synthesize preEnabledDataclasses=_preEnabledDataclasses;
+- (void)forceMailSetup;
+- (void)dontShowSecondLevelOtherAccountTypes;
+- (void)popOutOfAddControllers;
+- (int)numAddControllersInStack;
+- (id)specifierForAccountType:(id)arg1;
+- (void)finishedAccountSetup;
+- (id)specifiers;
+- (void)dealloc;
+- (void)handleURL:(id)arg1;
+- (id)init;
 
 @end
 

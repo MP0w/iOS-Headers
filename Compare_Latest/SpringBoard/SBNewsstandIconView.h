@@ -10,12 +10,10 @@
 {
 }
 
-- (id)_folderBackgroundImage;
-- (id)_folderForegroundImage;
-- (void)setIconScrollPosition:(int)arg1 animated:(BOOL)arg2;
-- (void)_positionMiniGrid;
-- (void)positionIconImageView;
 - (void)placeIconOverlayView;
+- (void)positionIconImageView;
+- (id)_folderForegroundImage;
+- (id)_folderBackgroundImage;
 
 @end
 

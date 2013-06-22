@@ -13,16 +13,16 @@
     NSMutableArray *mParagraphProperties;
 }
 
-- (id)init;
-- (id)initWithDefaults;
-- (void)dealloc;
-- (id)defaultProperties;
-- (id)propertiesForListLevel:(unsigned int)arg1;
-- (void)setPropertiesForListLevel:(unsigned int)arg1 properties:(id)arg2;
-- (void)setParentTextListStyle:(id)arg1;
-- (void)flatten;
-- (void)overrideWithTextStyle:(id)arg1;
 - (void)removeUnnecessaryOverrides;
+- (void)overrideWithTextStyle:(id)arg1;
+- (void)flatten;
+- (void)setParentTextListStyle:(id)arg1;
+- (void)setPropertiesForListLevel:(unsigned int)arg1 properties:(id)arg2;
+- (id)propertiesForListLevel:(unsigned int)arg1;
+- (id)defaultProperties;
+- (void)dealloc;
+- (id)initWithDefaults;
+- (id)init;
 
 @end
 

@@ -20,9 +20,6 @@
     id <OADColorPalette> mColorPalette;
 }
 
-- (id)initWithTheme:(id)arg1 colorMap:(id)arg2 colorPalette:(id)arg3;
-- (void)applyThemeOverrides:(id)arg1 colorMapOverride:(id)arg2;
-- (void)dealloc;
 @property(retain, nonatomic) id <OADColorPalette> colorPalette; // @synthesize colorPalette=mColorPalette;
 @property(readonly, nonatomic) OADColorMap *colorMap; // @synthesize colorMap=mColorMap;
 @property(readonly, nonatomic) OADColorScheme *colorScheme; // @synthesize colorScheme=mColorScheme;
@@ -31,6 +28,9 @@
 @property(readonly, nonatomic) OADDefaultProperties *textDefaults; // @synthesize textDefaults=mTextDefaults;
 @property(readonly, nonatomic) OADDefaultProperties *lineDefaults; // @synthesize lineDefaults=mLineDefaults;
 @property(readonly, nonatomic) OADDefaultProperties *shapeDefaults; // @synthesize shapeDefaults=mShapeDefaults;
+- (void)dealloc;
+- (void)applyThemeOverrides:(id)arg1 colorMapOverride:(id)arg2;
+- (id)initWithTheme:(id)arg1 colorMap:(id)arg2 colorPalette:(id)arg3;
 
 @end
 

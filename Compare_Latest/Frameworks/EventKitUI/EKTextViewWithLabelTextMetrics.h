@@ -8,7 +8,7 @@
 
 #import "CalendarLabelTextMetrics-Protocol.h"
 
-@class NSString, UIFont;
+@class NSString, UIColor, UIFont;
 
 @interface EKTextViewWithLabelTextMetrics : UITextView <CalendarLabelTextMetrics>
 {
@@ -25,6 +25,8 @@
 // Remaining properties
 @property(retain, nonatomic) UIFont *font; // @dynamic font;
 @property(copy, nonatomic) NSString *text; // @dynamic text;
+@property(nonatomic) int textAlignment;
+@property(retain, nonatomic) UIColor *textColor;
 
 @end
 

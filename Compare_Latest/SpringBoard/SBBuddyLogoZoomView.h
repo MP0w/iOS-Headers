@@ -14,9 +14,9 @@
     id _animationCompleteBlock;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)startAnimationWithCompletionBlock:(id)arg1;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)startAnimationWithCompletionBlock:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

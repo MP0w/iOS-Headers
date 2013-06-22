@@ -9,25 +9,25 @@
 @interface GKList : NSObject
 {
     unsigned int *_items;
-    unsigned int _count;
-    unsigned int _size;
+    unsigned long _count;
+    unsigned long _size;
     struct _opaque_pthread_mutex_t _lock;
 }
 
-- (id)init;
-- (id)initWithSize:(unsigned long)arg1;
-- (void)dealloc;
-- (BOOL)hasID:(unsigned int)arg1;
-- (void)addID:(unsigned int)arg1;
-- (void)copyItemsInto:(id)arg1;
-- (void)addIDsFromList:(id)arg1;
-- (void)removeID:(unsigned int)arg1;
-- (void)removeAllIDs;
-- (id)allMatchingObjectsFromTable:(id)arg1;
-- (void)lock;
-- (void)unlock;
+@property(readonly) unsigned long count; // @synthesize count=_count;
 - (void)print;
-@property(readonly) unsigned int count; // @synthesize count=_count;
+- (void)unlock;
+- (void)lock;
+- (id)allMatchingObjectsFromTable:(id)arg1;
+- (void)removeAllIDs;
+- (void)removeID:(unsigned int)arg1;
+- (void)addIDsFromList:(id)arg1;
+- (void)copyItemsInto:(id)arg1;
+- (void)addID:(unsigned int)arg1;
+- (BOOL)hasID:(unsigned int)arg1;
+- (void)dealloc;
+- (id)initWithSize:(unsigned long)arg1;
+- (id)init;
 
 @end
 

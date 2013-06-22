@@ -26,28 +26,27 @@
     int mStyleType;
 }
 
-+ (id)newIDFromName:(id)arg1;
-- (id)initWithStyleSheet:(id)arg1 id:(id)arg2 type:(int)arg3;
-- (void)dealloc;
-- (id)paragraphProperties;
-- (id)characterProperties;
-- (id)styleSheet;
-- (BOOL)hidden;
-- (void)setHidden:(BOOL)arg1;
-- (BOOL)isAnythingOverridden;
-- (id)tableProperties;
-- (id)tableRowProperties;
-- (id)tableCellProperties;
-- (id)tableStyleOverrideForPart:(int)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
-- (int)type;
-- (id)id;
-- (id)baseStyle;
-- (void)setBaseStyle:(id)arg1;
-- (id)nextStyle;
-- (void)setNextStyle:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setNextStyle:(id)arg1;
+- (id)nextStyle;
+- (void)setBaseStyle:(id)arg1;
+- (id)baseStyle;
+- (id)id;
+- (int)type;
+- (void)setName:(id)arg1;
+- (id)name;
+- (id)tableStyleOverrideForPart:(int)arg1;
+- (id)tableCellProperties;
+- (id)tableRowProperties;
+- (id)tableProperties;
+- (BOOL)isAnythingOverridden;
+- (void)setHidden:(BOOL)arg1;
+- (BOOL)hidden;
+- (id)styleSheet;
+- (id)characterProperties;
+- (id)paragraphProperties;
+- (void)dealloc;
+- (id)initWithStyleSheet:(id)arg1 id:(id)arg2 type:(int)arg3;
 
 @end
 

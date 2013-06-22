@@ -13,20 +13,20 @@
     unsigned int _count;
 }
 
-- (void)dealloc;
-- (void)removeAllObjects;
-- (void)pushArray:(id)arg1;
-- (void)pushObject:(id)arg1;
-- (id)popObject;
-- (id)popObjectRetained;
-- (id)topObject;
-- (void)enqueueObject:(id)arg1;
-- (id)dequeueObjectRetained;
-- (id)dequeueObject;
-- (unsigned int)count;
-- (id)description;
-- (id)objectEnumerator;
 - (BOOL)isEmpty;
+- (id)objectEnumerator;
+- (id)description;
+- (unsigned int)count;
+- (id)dequeueObject;
+- (id)dequeueObjectRetained;
+- (void)enqueueObject:(id)arg1;
+- (id)topObject;
+- (id)popObjectRetained;
+- (id)popObject;
+- (void)pushObject:(id)arg1;
+- (void)pushArray:(id)arg1;
+- (void)removeAllObjects;
+- (void)dealloc;
 
 @end
 

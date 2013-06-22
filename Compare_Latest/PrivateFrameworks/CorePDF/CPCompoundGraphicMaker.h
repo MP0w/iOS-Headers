@@ -8,14 +8,14 @@
 
 #import "CPDisposable-Protocol.h"
 
-@class CPChunk, CPCluster, CPGraphicObject;
+@class CPChunk, CPCluster;
 
 @interface CPCompoundGraphicMaker : NSObject <CPDisposable>
 {
     CPChunk *parentChunk;
     BOOL shapesAreVectorGraphics;
     unsigned int shapeCount;
-    CPGraphicObject **shapes;
+    id *shapes;
     double pageSpread;
     CPCluster *cluster;
     unsigned int groupInfoCount;
@@ -27,17 +27,17 @@
 }
 
 + (BOOL)makeCompoundGraphicsInZonesOf:(id)arg1;
-- (id)initWithGraphicsIn:(id)arg1 ofClass:(Class)arg2;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-- (BOOL)findClusterLevel;
-- (void)addGroupInfoWithIndex:(unsigned int)arg1 bounds:(struct CGRect)arg2;
-- (void)makeCompoundGraphicFromShapesAtIndex:(unsigned int)arg1 count:(unsigned int)arg2;
-- (void)coalesceShapeGroups;
-- (BOOL)makeCompoundGraphicsFromShapeGroups;
-- (BOOL)groupOverlappingGraphics;
 - (BOOL)makeCompoundGraphics;
+- (BOOL)groupOverlappingGraphics;
+- (BOOL)makeCompoundGraphicsFromShapeGroups;
+- (void)coalesceShapeGroups;
+- (void)makeCompoundGraphicFromShapesAtIndex:(unsigned int)arg1 count:(unsigned int)arg2;
+- (void)addGroupInfoWithIndex:(unsigned int)arg1 bounds:(struct CGRect)arg2;
+- (BOOL)findClusterLevel;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)initWithGraphicsIn:(id)arg1 ofClass:(Class)arg2;
 
 @end
 

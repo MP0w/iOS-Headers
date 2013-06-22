@@ -4,35 +4,22 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UIActionSheet.h>
+#import <UIKit/_UIRotatingActionSheet.h>
 
-@class DOMNode, UIWebBrowserView;
+@class UIWebDocumentView;
 
-@interface UIWebRotatingSheet : UIActionSheet
+@interface UIWebRotatingSheet : _UIRotatingActionSheet
 {
-    BOOL _isRotating;
-    id _delegateWhileRotating;
-    DOMNode *_node;
     BOOL _wasDeferringCallbacks;
-    struct CGPoint _fromPoint;
-    unsigned int _arrowDirections;
-    UIWebBrowserView *_webBrowserView;
-    float _documentScale;
+    UIWebDocumentView *_webBrowserView;
 }
 
-@property(nonatomic) unsigned int arrowDirections; // @synthesize arrowDirections=_arrowDirections;
-@property(retain, nonatomic) DOMNode *node; // @synthesize node=_node;
-- (void)didRotate:(id)arg1;
-- (void)_handleDidRotate;
-- (void)willRotate:(id)arg1;
 - (BOOL)presentSheet;
-- (struct CGRect)_calculatePresentationRect;
 - (void)doneWithSheet;
-- (BOOL)_presentSheetWithDisabledWebView:(struct CGRect)arg1;
 - (void)dealloc;
 - (void)_enableWebView;
 - (void)_disableWebView;
-- (id)initWithDOMNode:(id)arg1 atLocation:(struct CGPoint)arg2;
+- (id)initWithUIWebDocumentView:(id)arg1;
 
 @end
 

@@ -16,14 +16,14 @@
     ABPersonTableTinyActionCell *_cell;
 }
 
-- (void)dealloc;
-- (void)unhighlight;
-- (void)refreshActions;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-- (void)setFrame:(struct CGRect)arg1;
 @property(readonly, nonatomic) NSArray *actions; // @synthesize actions=_actions;
 @property(nonatomic) ABPersonTableTinyActionCell *cell; // @synthesize cell=_cell;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)refreshActions;
+- (void)unhighlight;
+- (void)dealloc;
 
 @end
 

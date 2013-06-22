@@ -31,6 +31,7 @@ struct GLKEffectPropertyPrv {
     struct GLKBigInt_s *_field2;
     struct GLKBigInt_s *_field3;
     struct GLKBigInt_s *_field4;
+    id _field5;
 };
 
 #pragma mark Named Unions

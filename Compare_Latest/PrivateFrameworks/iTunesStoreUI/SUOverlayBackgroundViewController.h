@@ -9,7 +9,7 @@
 #import "SUScalingFlipViewDelegate-Protocol.h"
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, SUOverlayViewController, SUScalingFlipView, SUTouchCaptureView;
+@class NSArray, NSMutableArray, SUOverlayViewController, SUScalingFlipView, SUTouchCaptureView, UISwipeGestureRecognizer;
 
 @interface SUOverlayBackgroundViewController : SUViewController <SUScalingFlipViewDelegate, UIGestureRecognizerDelegate>
 {
@@ -21,6 +21,7 @@
     id <SUOverlayBackgroundDelegate> _delegate;
     struct CGRect _keyboardFrame;
     int _selectedViewControllerIndex;
+    UISwipeGestureRecognizer *_swipeGestureRecognizer;
     NSMutableArray *_viewControllers;
 }
 
@@ -29,9 +30,11 @@
 - (float)_viewControllerKeyboardOffset;
 - (float)_viewControllerHorizontalPadding;
 - (void)_tearDownFlipView;
+- (void)_shouldDismissFinishedWithValue:(id)arg1;
 - (void)_sendDidDismiss;
 - (id)_selectedViewController;
 - (void)_removeViewController:(id)arg1;
+- (void)_reloadGestureRecognizers;
 - (void)_performFlipForAction:(id)arg1;
 - (void)_layoutForKeyboardChangeWithInfo:(id)arg1;
 - (struct CGRect)_frameForSlideFromBottomForViewController:(id)arg1;
@@ -50,7 +53,6 @@
 - (void)_finishDismissAction:(id)arg1;
 - (void)_enqueueAction:(id)arg1;
 - (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (void)_shouldDismiss:(id)arg1 finishedWithValue:(id)arg2;
 - (void)scalingFlipViewDidFinish:(id)arg1;
 - (void)_backgroundAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)_swipe:(id)arg1;

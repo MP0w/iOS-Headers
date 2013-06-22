@@ -15,11 +15,11 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
-- (long)index;
-- (float)width;
-- (BOOL)hasSpacing;
 - (float)spacing;
+- (BOOL)hasSpacing;
+- (float)width;
+- (long)index;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

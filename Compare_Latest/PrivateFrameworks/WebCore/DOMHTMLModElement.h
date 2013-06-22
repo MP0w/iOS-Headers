@@ -12,8 +12,8 @@
 {
 }
 
-@property(copy) NSString *cite;
 @property(copy) NSString *dateTime;
+@property(copy) NSString *cite;
 
 @end
 

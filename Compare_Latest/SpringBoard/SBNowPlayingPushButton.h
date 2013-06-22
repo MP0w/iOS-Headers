@@ -13,10 +13,10 @@
 }
 
 + (id)newButtonWithImage:(id)arg1;
-- (void)setYOffset:(float)arg1;
-- (void)setXOffset:(float)arg1;
-- (struct CGRect)hitRect;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (struct CGRect)hitRect;
+- (void)setXOffset:(float)arg1;
+- (void)setYOffset:(float)arg1;
 
 @end
 

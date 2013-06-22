@@ -12,14 +12,17 @@
 {
     unsigned int _pos;
     BOOL _error;
+    const char *_bytes;
     NSData *_data;
     unsigned int _length;
 }
 
 @property unsigned int position; // @synthesize position=_pos;
 @property unsigned int length; // @synthesize length=_length;
+- (id)readBigEndianShortThenString;
 - (id)readBytes:(unsigned int)arg1;
-- (int)read:(const char *)arg1 maxLength:(unsigned int)arg2;
+- (void)recall:(const CDStruct_c0454aff *)arg1;
+- (BOOL)mark:(CDStruct_c0454aff *)arg1;
 - (id)readData;
 - (id)readString;
 - (BOOL)readBOOL;
@@ -44,6 +47,7 @@
 - (BOOL)skipValueWithTag:(unsigned short)arg1 andType:(unsigned char)arg2;
 - (void)readTag:(unsigned short *)arg1 andType:(char *)arg2;
 - (BOOL)seekToOffset:(unsigned int)arg1;
+- (void)updateData:(id)arg1;
 - (unsigned int)offset;
 - (BOOL)hasMoreData;
 - (BOOL)hasError;

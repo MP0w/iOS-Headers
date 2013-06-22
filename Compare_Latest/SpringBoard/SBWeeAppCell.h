@@ -6,25 +6,28 @@
 
 #import "SBBulletinLinenBackedCell.h"
 
-@class SBWeeApp, UIView;
+@class SBWeeApp, UITapGestureRecognizer, UIView;
 
 @interface SBWeeAppCell : SBBulletinLinenBackedCell
 {
     SBWeeApp *_weeApp;
     UIView *_weeAppView;
     BOOL _useTopPadding;
+    UITapGestureRecognizer *_tapRecognizer;
 }
 
 + (float)rowHeightForViewHeight:(float)arg1 withTopPadding:(BOOL)arg2;
-- (id)initWithLinenView:(id)arg1 reuseIdentifier:(id)arg2;
-- (void)dealloc;
 @property(retain, nonatomic) SBWeeApp *weeApp; // @synthesize weeApp=_weeApp;
-- (void)setUsesTopPadding:(BOOL)arg1;
-- (void)layoutSubviews;
-- (void)willMoveToWindow:(id)arg1;
-- (void)didMoveToWindow;
-- (void)prepareForReuse;
 - (void)_tapped:(id)arg1;
+- (void)prepareForReuse;
+- (void)didMoveToWindow;
+- (void)willMoveToWindow:(id)arg1;
+- (void)noteDidDisappear;
+- (void)noteWillAppear;
+- (void)layoutSubviews;
+- (void)setUsesTopPadding:(BOOL)arg1;
+- (void)dealloc;
+- (id)initWithLinenView:(id)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

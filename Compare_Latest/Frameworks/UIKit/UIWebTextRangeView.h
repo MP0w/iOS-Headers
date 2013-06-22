@@ -6,15 +6,15 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSMutableArray, UIView<UITextSelectingContainer>, UIWebDragDotView;
+@class NSArray, NSMutableArray, UIView<UITextInput>, UIWebDragDotView;
 
 @interface UIWebTextRangeView : UIView
 {
-    UIView<UITextSelectingContainer> *m_container;
+    UIView<UITextInput> *m_container;
     NSArray *_rects;
     NSMutableArray *_rectViews;
-    UIWebDragDotView *_topDot;
-    UIWebDragDotView *_bottomDot;
+    UIWebDragDotView *_startDot;
+    UIWebDragDotView *_endDot;
     BOOL _magnifying;
 }
 
@@ -23,6 +23,8 @@
 - (void)doneMagnifying;
 - (void)prepareForMagnification;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (BOOL)endIsHorizontal;
+- (BOOL)startIsHorizontal;
 - (struct CGPoint)endCorner;
 - (struct CGPoint)startCorner;
 - (struct CGRect)endEdge;
@@ -33,7 +35,7 @@
 - (id)rectViewAtIndex:(int)arg1;
 - (struct CGRect)rectAtIndex:(int)arg1;
 - (void)removeFromSuperview;
-@property(readonly, nonatomic) UIView<UITextSelectingContainer> *container;
+@property(readonly, nonatomic) UIView<UITextInput> *container;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
 

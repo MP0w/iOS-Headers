@@ -6,11 +6,8 @@
 
 #import <MediaPlayer/MPMediaDownloadObserver.h>
 
-@class NSNumber;
-
 @interface MPPreparingDownloadObserver : MPMediaDownloadObserver
 {
-    NSNumber *_mediaItemPersistentIdentifier;
 }
 
 - (void)_onQueue_invalidate;

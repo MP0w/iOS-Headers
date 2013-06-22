@@ -27,23 +27,23 @@
     BOOL _hasPKTableChanges;
 }
 
-+ (BOOL)_annotatesMigrationMetadata;
 + (void)_setAnnotatesMigrationMetadata:(BOOL)arg1;
-- (id)initWithStore:(id)arg1 destinationModel:(id)arg2 mappingModel:(id)arg3;
-- (void)dealloc;
-- (BOOL)performMigration:(id *)arg1;
-- (id)createEntityMigrationStatements;
-- (id)createStatementsForUpdatingEntityKeys;
-- (id)createIndexStatementsForEntity:(id)arg1;
-- (void)_determinePropertyDependenciesOnIDForEntity:(id)arg1;
-- (void)_determineReindexedEntitiesAndAffectedProperties;
-- (id)entityMigrationDescriptionForEntity:(id)arg1;
-- (id)tableMigrationDescriptionForEntity:(id)arg1;
-- (void)_populateEntityMigrationDescriptionsAndEntityMap;
-- (void)_populateTableMigrationDescriptions;
-- (void)_addEntityMigration:(id)arg1 toTableMigrationForRootEntity:(id)arg2 migrationType:(int)arg3;
-- (void)_addReindexedProperty:(id)arg1 toSetForEntity:(id)arg2;
++ (BOOL)_annotatesMigrationMetadata;
 @property(readonly) NSSQLAdapter *adapter; // @synthesize adapter=_adapter;
+- (void)_addReindexedProperty:(id)arg1 toSetForEntity:(id)arg2;
+- (void)_addEntityMigration:(id)arg1 toTableMigrationForRootEntity:(id)arg2 migrationType:(int)arg3;
+- (void)_populateTableMigrationDescriptions;
+- (void)_populateEntityMigrationDescriptionsAndEntityMap;
+- (id)tableMigrationDescriptionForEntity:(id)arg1;
+- (id)entityMigrationDescriptionForEntity:(id)arg1;
+- (void)_determineReindexedEntitiesAndAffectedProperties;
+- (void)_determinePropertyDependenciesOnIDForEntity:(id)arg1;
+- (id)createIndexStatementsForEntity:(id)arg1;
+- (id)createStatementsForUpdatingEntityKeys;
+- (id)createEntityMigrationStatements;
+- (BOOL)performMigration:(id *)arg1;
+- (void)dealloc;
+- (id)initWithStore:(id)arg1 destinationModel:(id)arg2 mappingModel:(id)arg3;
 
 @end
 

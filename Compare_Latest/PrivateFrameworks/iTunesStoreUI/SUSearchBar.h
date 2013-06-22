@@ -11,6 +11,7 @@
 }
 
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)_setupCancelButtonWithAppearance:(id)arg1;
 
 @end
 

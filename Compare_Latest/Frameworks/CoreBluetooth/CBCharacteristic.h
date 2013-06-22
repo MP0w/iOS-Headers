@@ -12,7 +12,7 @@
 {
     CBService *_service;
     CBUUID *_UUID;
-    unsigned int _properties;
+    int _properties;
     NSData *_value;
     NSArray *_descriptors;
     BOOL _isBroadcasted;
@@ -23,9 +23,9 @@
 @property(readonly) BOOL isBroadcasted; // @synthesize isBroadcasted=_isBroadcasted;
 @property(retain) NSArray *descriptors; // @synthesize descriptors=_descriptors;
 @property(retain) NSData *value; // @synthesize value=_value;
-@property(readonly, nonatomic) unsigned int properties; // @synthesize properties=_properties;
+@property(readonly, nonatomic) int properties; // @synthesize properties=_properties;
 @property(readonly, nonatomic) CBUUID *UUID; // @synthesize UUID=_UUID;
-@property(readonly, nonatomic) CBService *service; // @synthesize service=_service;
+@property(nonatomic) CBService *service; // @synthesize service=_service;
 
 @end
 

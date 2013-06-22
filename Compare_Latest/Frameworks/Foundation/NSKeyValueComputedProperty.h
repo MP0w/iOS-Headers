@@ -6,13 +6,13 @@
 
 #import <Foundation/NSKeyValueProperty.h>
 
-@class NSKeyValueUnnestedProperty, NSString;
+@class NSString;
 
 @interface NSKeyValueComputedProperty : NSKeyValueProperty
 {
     NSString *_operationName;
     NSString *_operationArgumentKeyPath;
-    NSKeyValueUnnestedProperty *_operationArgumentProperty;
+    NSKeyValueProperty *_operationArgumentProperty;
 }
 
 - (BOOL)matchesWithoutOperatorComponentsKeyPath:(id)arg1;

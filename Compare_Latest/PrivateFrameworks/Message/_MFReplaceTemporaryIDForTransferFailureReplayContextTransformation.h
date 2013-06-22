@@ -16,11 +16,11 @@
     NSString *_newTemporaryID;
 }
 
-- (id)initWithTemporaryID:(id)arg1 newTemporaryID:(id)arg2;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (void)applyToReplayContext:(id)arg1;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithTemporaryID:(id)arg1 newTemporaryID:(id)arg2;
 
 @end
 

@@ -4,13 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSData : NSObject <NSCopying, NSMutableCopying, NSCoding>
+@interface NSData : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
 }
 

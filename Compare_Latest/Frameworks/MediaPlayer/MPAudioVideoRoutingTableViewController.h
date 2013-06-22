@@ -6,25 +6,30 @@
 
 #import "UITableViewController.h"
 
-@class MPAudioDeviceController, NSMutableArray;
+#import "MPAudioDeviceControllerDelegate-Protocol.h"
 
-@interface MPAudioVideoRoutingTableViewController : UITableViewController
+@class MPAudioDeviceController, NSArray;
+
+@interface MPAudioVideoRoutingTableViewController : UITableViewController <MPAudioDeviceControllerDelegate>
 {
     int _airPlayPasswordAlertDidAppearToken;
     BOOL _airPlayPasswordAlertDidAppearTokenIsValid;
+    int _airPlayPasswordAlertDidCancelToken;
     MPAudioDeviceController *_audioDeviceController;
     unsigned int _avItemType;
     BOOL _displayMirroringRoutes;
-    NSMutableArray *_routes;
+    NSArray *_displayedRoutes;
     BOOL _wirelessDisplayCapableRouteIsPicked;
+    BOOL _wirelessDisplayRouteIsPendingAsPicked;
 }
 
 + (id)routesPreferringMirroring;
 @property(readonly, nonatomic) MPAudioDeviceController *audioDeviceController; // @synthesize audioDeviceController=_audioDeviceController;
 - (BOOL)_wirelessDisplayCapableRouteIsPicked;
-- (id)_routes;
 - (id)_pickedRoute;
 - (id)_effectivePickedRouteReturningActualPickedRouteType:(int *)arg1;
+- (id)_displayedRoutes;
+- (id)_availableRoutes;
 - (void)_mirroringSwitchValueDidChange:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;

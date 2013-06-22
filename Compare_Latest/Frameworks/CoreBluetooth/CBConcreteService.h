@@ -14,13 +14,13 @@
     NSNumber *_endHandle;
 }
 
-- (id)initWithPeripheral:(id)arg1 UUID:(id)arg2 startHandle:(id)arg3 endHandle:(id)arg4;
-- (void)dealloc;
-- (void)handlePeripheralDisconnection;
-- (id)handleIncludedServicesDiscovered:(id)arg1;
-- (id)handleCharacteristicsDiscovered:(id)arg1;
 @property(readonly, nonatomic) NSNumber *endHandle; // @synthesize endHandle=_endHandle;
 @property(readonly, nonatomic) NSNumber *startHandle; // @synthesize startHandle=_startHandle;
+- (id)handleCharacteristicsDiscovered:(id)arg1;
+- (id)handleIncludedServicesDiscovered:(id)arg1;
+- (void)invalidate;
+- (void)dealloc;
+- (id)initWithPeripheral:(id)arg1 primary:(BOOL)arg2 UUID:(id)arg3 startHandle:(id)arg4 endHandle:(id)arg5;
 
 @end
 

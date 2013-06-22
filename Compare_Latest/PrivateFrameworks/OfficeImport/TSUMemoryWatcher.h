@@ -17,10 +17,12 @@
     int _urgentRsizeMb;
 }
 
-- (id)initWithFlushingManager:(id)arg1;
-- (void)dealloc;
-- (void)beginObserving;
+- (void)_simulateMemoryWarning:(id)arg1;
+- (void)_periodicallySimulateMemoryWarning:(id)arg1;
 - (void)stopObserving;
+- (void)beginObserving;
+- (void)dealloc;
+- (id)initWithFlushingManager:(id)arg1;
 
 @end
 

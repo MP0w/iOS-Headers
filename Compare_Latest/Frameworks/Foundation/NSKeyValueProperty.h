@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSKeyValueContainerClass, NSString;
 
-@interface NSKeyValueProperty : NSObject
+@interface NSKeyValueProperty : NSObject <NSCopying>
 {
     NSKeyValueContainerClass *_containerClass;
     NSString *_keyPath;

@@ -14,23 +14,23 @@
     BOOL _hasMultipleChildren;
 }
 
-+ (void)_initEmptyHTMLNames;
 + (BOOL)isEmptyHTMLElement:(id)arg1;
-- (id)initWithName:(id)arg1 stringValue:(id)arg2;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)addAttribute:(id)arg1;
-- (void)addChild:(id)arg1;
-- (void)insertChild:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)setObjectValue:(id)arg1;
-- (id)objectValue;
-- (id)stringValue;
-- (int)childrenCount;
-- (int)attributeCount;
-- (void)_appendXMLStringToString:(struct __CFString *)arg1;
-- (id)openingTagString;
-- (id)contentString;
++ (void)_initEmptyHTMLNames;
 - (id)closingTagString;
+- (id)contentString;
+- (id)openingTagString;
+- (void)_appendXMLStringToString:(struct __CFString *)arg1;
+- (int)attributeCount;
+- (int)childrenCount;
+- (id)stringValue;
+- (id)objectValue;
+- (void)setObjectValue:(id)arg1;
+- (void)insertChild:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)addChild:(id)arg1;
+- (void)addAttribute:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 stringValue:(id)arg2;
 
 @end
 

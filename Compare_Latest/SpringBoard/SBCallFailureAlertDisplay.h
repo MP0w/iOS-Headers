@@ -10,11 +10,12 @@
 {
 }
 
-+ (id)newTopBarForInstance:(id)arg1;
-+ (id)newBottomBarForInstance:(id)arg1;
-- (void)ignore:(id)arg1;
-- (void)callBack:(id)arg1;
++ (id)bottomBarForInstance:(id)arg1;
++ (id)topBarForInstance:(id)arg1;
 - (void)setAlert:(id)arg1;
+- (void)callBack:(id)arg1;
+- (void)ignore:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

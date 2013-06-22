@@ -11,8 +11,9 @@
 }
 
 + (id)attendeeWithEmailAddress:(id)arg1 name:(id)arg2;
-+ (id)attendeeWithName:(id)arg1 emailAddress:(id)arg2 externalID:(id)arg3;
++ (id)attendeeWithName:(id)arg1 emailAddress:(id)arg2 address:(id)arg3;
 + (id)relations;
++ (id)defaultPropertiesToLoad;
 - (id)owner;
 - (void)setOwner:(id)arg1;
 @property(nonatomic) int pendingStatus;
@@ -22,8 +23,8 @@
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (int)entityType;
-- (id)initWithExternalID:(id)arg1 name:(id)arg2;
-- (id)initWithName:(id)arg1 emailAddress:(id)arg2 externalID:(id)arg3;
+- (id)initWithAddress:(id)arg1 name:(id)arg2;
+- (id)initWithName:(id)arg1 emailAddress:(id)arg2 address:(id)arg3;
 - (id)initWithEmailAddress:(id)arg1 name:(id)arg2;
 
 @end

@@ -34,6 +34,7 @@
 - (id)tagsInRange:(struct _NSRange)arg1 scheme:(id)arg2 options:(unsigned int)arg3 tokenRanges:(id *)arg4;
 - (id)possibleTagsAtIndex:(unsigned int)arg1 scheme:(id)arg2 tokenRange:(struct _NSRange *)arg3 sentenceRange:(struct _NSRange *)arg4 scores:(id *)arg5;
 - (id)tagAtIndex:(unsigned int)arg1 scheme:(id)arg2 tokenRange:(struct _NSRange *)arg3 sentenceRange:(struct _NSRange *)arg4;
+- (BOOL)_ngramTagsAndFrequenciesForMisspelledRange:(struct _NSRange)arg1 word:(id)arg2 tags:(id *)arg3 frequencies:(id *)arg4;
 - (id)_rankedCandidatesForMisspelledRange:(struct _NSRange)arg1 candidates:(id)arg2;
 - (id)_rankedCandidatesForMisspelledRange:(struct _NSRange)arg1 candidates:(id)arg2 contextualFrequencies:(id *)arg3 baseFrequencies:(id *)arg4;
 - (struct _NSRange)sentenceRangeForRange:(struct _NSRange)arg1;

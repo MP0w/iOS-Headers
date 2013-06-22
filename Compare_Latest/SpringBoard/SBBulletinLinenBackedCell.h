@@ -6,14 +6,20 @@
 
 #import "UITableViewCell.h"
 
+@class UIView;
+
 @interface SBBulletinLinenBackedCell : UITableViewCell
 {
+    UIView *_linenView;
+    BOOL _showsLinen;
 }
 
-- (id)initWithLinenView:(id)arg1 reuseIdentifier:(id)arg2;
-- (void)adjustLinenContents;
-- (void)setLinenGradientAlpha:(float)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)setLinenGradientAlpha:(float)arg1;
+- (void)adjustLinenContents;
+@property(nonatomic) BOOL showsLinen;
+- (void)dealloc;
+- (id)initWithLinenView:(id)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

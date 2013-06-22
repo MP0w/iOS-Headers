@@ -9,8 +9,10 @@
 @interface UIStatusBarStyleAnimationParameters : UIStatusBarAnimationParameters
 {
     int _styleAnimation;
+    double _delay;
 }
 
+@property(nonatomic) double delay; // @synthesize delay=_delay;
 @property(nonatomic) int styleAnimation; // @synthesize styleAnimation=_styleAnimation;
 - (id)initWithDefaultParameters;
 

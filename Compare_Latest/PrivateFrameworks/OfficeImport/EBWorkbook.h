@@ -10,8 +10,12 @@
 {
 }
 
-+ (id)readWithState:(id)arg1 reader:(id)arg2 fileName:(id)arg3 temporaryDirectory:(id)arg4 asThumbnail:(BOOL)arg5 delegate:(id)arg6;
 + (ChVector_be6372b9 *)createSheetNamesFromWorkbook:(id)arg1;
++ (id)readWithState:(id)arg1 reader:(id)arg2;
++ (int)xlSheetTypeEnumFromEDSheet:(id)arg1;
++ (void)setupProcessors:(id)arg1;
++ (void)readDocumentPresentation:(id)arg1 state:(id)arg2;
++ (void)readDocumentProperties:(id)arg1 state:(id)arg2;
 
 @end
 

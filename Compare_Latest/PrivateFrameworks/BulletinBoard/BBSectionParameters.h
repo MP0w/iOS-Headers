@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class BBSectionSubtypeParameters, NSMutableDictionary;
+@class BBSectionSubtypeParameters, NSData, NSLock, NSMutableDictionary, NSString;
 
 @interface BBSectionParameters : NSObject
 {
+    NSLock *_lock;
     BOOL _showsSubtitle;
     unsigned int _messageNumberOfLines;
     BOOL _usesVariableLayout;
@@ -17,8 +18,19 @@
     BOOL _showsDateInFloatingLockScreenAlert;
     BBSectionSubtypeParameters *_defaultSubtypeParameters;
     NSMutableDictionary *_allSubtypeParameters;
+    NSString *_displayName;
+    NSData *_iconData;
+    BOOL _displaysCriticalBulletins;
+    NSString *_uniqueIdentifier;
 }
 
++ (id)copyCachedSectionParametersWithIdentifier:(id)arg1;
++ (void)removeSectionParametersFromCache:(id)arg1;
++ (void)addSectionParametersToCache:(id)arg1;
+@property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+@property(nonatomic) BOOL displaysCriticalBulletins; // @synthesize displaysCriticalBulletins=_displaysCriticalBulletins;
+@property(retain, nonatomic) NSData *iconData; // @synthesize iconData=_iconData;
+@property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSMutableDictionary *allSubtypeParameters; // @synthesize allSubtypeParameters=_allSubtypeParameters;
 @property(retain, nonatomic) BBSectionSubtypeParameters *defaultSubtypeParameters; // @synthesize defaultSubtypeParameters=_defaultSubtypeParameters;
 @property(nonatomic) BOOL showsDateInFloatingLockScreenAlert; // @synthesize showsDateInFloatingLockScreenAlert=_showsDateInFloatingLockScreenAlert;

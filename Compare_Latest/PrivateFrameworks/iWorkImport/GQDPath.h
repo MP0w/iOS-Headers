@@ -11,17 +11,17 @@
     char *mPathString;
 }
 
-+ (char *)createPathString:(struct CGPath *)arg1;
 + (struct __CFString *)createString:(struct CGPath *)arg1;
-- (void)dealloc;
-- (BOOL)isRectangular;
-- (BOOL)isRect;
-- (struct CGPath *)createBezierPath;
-- (char *)pathStr;
-- (BOOL)hasVerticalFlip;
-- (BOOL)hasHorizontalFlip;
-- (BOOL)verticalFlip;
++ (char *)createPathString:(struct CGPath *)arg1;
 - (BOOL)horizontalFlip;
+- (BOOL)verticalFlip;
+- (BOOL)hasHorizontalFlip;
+- (BOOL)hasVerticalFlip;
+- (char *)pathStr;
+- (struct CGPath *)createBezierPath;
+- (BOOL)isRect;
+- (BOOL)isRectangular;
+- (void)dealloc;
 
 @end
 

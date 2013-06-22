@@ -17,6 +17,7 @@
 @property(copy, nonatomic) id dismissHandler; // @synthesize dismissHandler=_dismissHandler;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)dealloc;
+- (void)show;
 
 @end
 

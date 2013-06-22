@@ -12,6 +12,7 @@
 {
     int trackID;
     NSMutableArray *ramps;
+    struct opaqueMTAudioProcessingTap *tap;
 }
 
 @end

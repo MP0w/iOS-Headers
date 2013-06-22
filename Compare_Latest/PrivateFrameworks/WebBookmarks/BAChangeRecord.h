@@ -15,13 +15,13 @@
     int _changeType;
 }
 
-- (id)initWithBookmarkCollection:(id)arg1 bookmark:(id)arg2 changeType:(int)arg3;
-- (void)dealloc;
-- (id)changeTypeDescription;
-- (id)description;
 @property(readonly, nonatomic) int changeType; // @synthesize changeType=_changeType;
 @property(readonly, nonatomic) WebBookmark *bookmark; // @synthesize bookmark=_bookmark;
 @property(readonly, nonatomic) WebBookmarkCollection *collection; // @synthesize collection=_collection;
+- (id)description;
+- (id)changeTypeDescription;
+- (void)dealloc;
+- (id)initWithBookmarkCollection:(id)arg1 bookmark:(id)arg2 changeType:(int)arg3;
 
 @end
 

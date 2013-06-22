@@ -11,10 +11,10 @@
     unsigned int _index;
 }
 
-- (void)_getPoints:(double *)arg1;
-- (id)description;
-- (Class)classForCoder;
 - (id)initWithCoder:(id)arg1;
+- (Class)classForCoder;
+- (id)description;
+- (void)_getPoints:(double *)arg1;
 
 @end
 

@@ -7,7 +7,7 @@
 #import "WAKView.h"
 
 @interface WAKView (WebDocumentViewExtras)
-- (id)_frame;
 - (id)_webView;
+- (id)_frame;
 @end
 

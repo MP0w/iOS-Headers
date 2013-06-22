@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSArray, NSMutableDictionary;
 
-@interface SSPersonalizeOffersResponse : NSObject <SSCoding>
+@interface SSPersonalizeOffersResponse : NSObject <SSXPCCoding>
 {
     NSMutableDictionary *_actionDisplayNames;
     NSMutableDictionary *_actionParameters;
@@ -18,10 +18,8 @@
     NSMutableDictionary *_priceDisplayNames;
 }
 
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
 - (void)_setPersonalizedItems:(id)arg1;
 - (void)setPriceDisplayString:(id)arg1 forItemType:(id)arg2;
 - (void)setActionParameters:(id)arg1 forItemIdentifier:(id)arg2;

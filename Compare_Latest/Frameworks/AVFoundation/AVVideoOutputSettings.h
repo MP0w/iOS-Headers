@@ -14,6 +14,7 @@
 
 + (id)defaultVideoOutputSettings;
 + (id)_videoOutputSettingsWithVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
++ (id)videoOutputSettingsWithTrustedVideoSettingsDictionary:(id)arg1;
 + (id)videoOutputSettingsWithVideoSettingsDictionary:(id)arg1;
 + (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 + (id)registeredOutputSettingsClasses;

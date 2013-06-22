@@ -7,9 +7,9 @@
 #import "NSCoder.h"
 
 @interface NSCoder (CACoderAdditions)
-- (void)CA_encodeObject:(id)arg1 forKey:(id)arg2 conditional:(BOOL)arg3;
-- (id)CA_decodeObjectForKey:(id)arg1;
-- (void)CA_encodeCGFloatArray:(const float *)arg1 count:(unsigned long)arg2 forKey:(id)arg3;
 - (BOOL)CA_decodeCGFloatArray:(float *)arg1 count:(unsigned long)arg2 forKey:(id)arg3;
+- (void)CA_encodeCGFloatArray:(const float *)arg1 count:(unsigned long)arg2 forKey:(id)arg3;
+- (id)CA_decodeObjectForKey:(id)arg1;
+- (void)CA_encodeObject:(id)arg1 forKey:(id)arg2 conditional:(BOOL)arg3;
 @end
 

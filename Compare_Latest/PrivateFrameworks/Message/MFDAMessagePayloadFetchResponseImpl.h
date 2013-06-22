@@ -17,11 +17,11 @@
     NSData *data;
 }
 
-- (id)initWithData:(id)arg1 streaming:(BOOL)arg2 streamingDone:(BOOL)arg3;
-- (BOOL)streaming;
-- (BOOL)streamingDone;
-- (id)data;
 - (void)dealloc;
+- (id)data;
+- (BOOL)streamingDone;
+- (BOOL)streaming;
+- (id)initWithData:(id)arg1 streaming:(BOOL)arg2 streamingDone:(BOOL)arg3;
 
 @end
 

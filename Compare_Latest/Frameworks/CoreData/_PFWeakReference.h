@@ -11,8 +11,8 @@
     void *_weakValue;
 }
 
-- (id)initWithPointer:(void *)arg1;
 - (void *)pointer;
+- (id)initWithPointer:(void *)arg1;
 
 @end
 

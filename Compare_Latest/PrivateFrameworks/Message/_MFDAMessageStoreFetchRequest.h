@@ -20,11 +20,12 @@
     BOOL partial;
 }
 
-- (unsigned long long)generationNumber;
-- (BOOL)shouldSend;
-- (id)deferredOperation;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)deferredOperation;
+@property(readonly, nonatomic) BOOL isUserRequested;
+@property(readonly, nonatomic) BOOL shouldSend;
+- (unsigned long long)generationNumber;
 
 @end
 

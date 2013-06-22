@@ -6,19 +6,22 @@
 
 #import <QuartzCore/CAAnimation.h>
 
-@class NSString;
+@class NSDictionary, NSString;
 
 @interface CATransition : CAAnimation
 {
 }
 
-- (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;
-- (unsigned int)_propertyFlagsForLayer:(id)arg1;
-@property(copy) NSString *type;
-@property(copy) NSString *subtype;
-@property float startProgress;
-@property float endProgress;
 @property(retain) id filter;
+@property float endProgress;
+@property float startProgress;
+@property(copy) NSString *subtype;
+@property(copy) NSString *type;
+- (unsigned int)_propertyFlagsForLayer:(id)arg1;
+- (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;
+- (BOOL)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
+@property unsigned int transitionFlags;
+@property(copy) NSDictionary *options;
 
 @end
 

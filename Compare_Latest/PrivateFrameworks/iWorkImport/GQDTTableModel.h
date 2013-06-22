@@ -27,25 +27,31 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (unsigned short)columnCount;
-- (unsigned short)rowCount;
-- (struct __CFString *)name;
-- (BOOL)isNameVisible;
-- (float)widthForColumn:(unsigned short)arg1;
-- (float)heightForRow:(unsigned short)arg1;
-- (_Bool)visibilityForColumn:(unsigned short)arg1;
-- (_Bool)visibilityForRow:(unsigned short)arg1;
-- (id)cellAt:(unsigned short)arg1;
-- (struct __CFArray *)cells;
-- (unsigned short)headerRowCount;
-- (unsigned short)headerColumnCount;
-- (unsigned short)footerRowCount;
-- (int)typeOfVectorAlongGridline:(unsigned short)arg1 offset:(unsigned short)arg2 length:(unsigned short)arg3 vertical:(BOOL)arg4;
-- (BOOL)hasGroupDisplayType:(unsigned short)arg1 level:(int)arg2 displayType:(int *)arg3 isTypeVisible:(char *)arg4;
-- (unsigned short)firstVisibleColumn;
-- (int)numGroupLevels;
 - (void)setNumGroupLevels:(int)arg1;
+- (int)numGroupLevels;
+- (unsigned short)firstVisibleColumn;
+- (BOOL)hasGroupDisplayType:(unsigned short)arg1 level:(int)arg2 displayType:(int *)arg3 isTypeVisible:(char *)arg4;
+- (int)typeOfVectorAlongGridline:(unsigned short)arg1 offset:(unsigned short)arg2 length:(unsigned short)arg3 vertical:(BOOL)arg4;
+- (unsigned short)footerRowCount;
+- (unsigned short)headerColumnCount;
+- (unsigned short)headerRowCount;
+- (struct __CFArray *)cells;
+- (id)cellAt:(unsigned short)arg1;
+- (_Bool)visibilityForRow:(unsigned short)arg1;
+- (_Bool)visibilityForColumn:(unsigned short)arg1;
+- (float)heightForRow:(unsigned short)arg1;
+- (float)widthForColumn:(unsigned short)arg1;
+- (BOOL)isNameVisible;
+- (struct __CFString *)name;
+- (unsigned short)rowCount;
+- (unsigned short)columnCount;
+- (void)dealloc;
+- (void)setCells:(struct __CFArray *)arg1;
+- (int)addGroupLevelsFrom:(struct _xmlTextReader *)arg1;
+- (int)addRowHeightFrom:(struct _xmlTextReader *)arg1;
+- (int)addColumnWidthFrom:(struct _xmlTextReader *)arg1;
+- (int)readAttributesForGrid:(struct _xmlTextReader *)arg1;
+- (int)readAttributesForModel:(struct _xmlTextReader *)arg1;
 
 @end
 

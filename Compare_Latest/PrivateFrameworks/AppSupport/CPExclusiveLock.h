@@ -16,14 +16,14 @@
     NSString *_name;
 }
 
-- (id)init;
-- (id)initWithName:(id)arg1;
-- (void)dealloc;
-- (void)lock;
-- (void)unlock;
-- (BOOL)tryLock;
-- (void)setName:(id)arg1;
 - (id)name;
+- (void)setName:(id)arg1;
+- (BOOL)tryLock;
+- (void)unlock;
+- (void)lock;
+- (void)dealloc;
+- (id)initWithName:(id)arg1;
+- (id)init;
 
 @end
 

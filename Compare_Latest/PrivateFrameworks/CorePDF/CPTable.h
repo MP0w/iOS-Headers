@@ -9,8 +9,6 @@
 #import "CPDisposable-Protocol.h"
 #import "CPGraphicUser-Protocol.h"
 
-@class CPGraphicObject;
-
 @interface CPTable : CPChunk <CPDisposable, CPGraphicUser>
 {
     struct CGRect tableBounds;
@@ -20,26 +18,26 @@
     float *columnX;
     struct CGColor *backgroundColor;
     unsigned int backgroundGraphicCount;
-    CPGraphicObject **backgroundGraphics;
+    id *backgroundGraphics;
     unsigned int usedGraphicCount;
     BOOL disposed;
 }
 
-- (id)initWithBounds:(struct CGRect)arg1;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-@property(nonatomic) unsigned int rowCount;
-@property(nonatomic) unsigned int columnCount;
-- (struct CGColor *)backgroundColor;
-- (void)setBackgroundGraphics:(id)arg1;
-- (id)backgroundGraphicAtIndex:(unsigned int)arg1;
-- (void)incrementUsedGraphicCount;
-- (unsigned int)usedGraphicCount;
 @property(readonly, nonatomic) unsigned int backgroundGraphicCount; // @synthesize backgroundGraphicCount;
 @property(readonly, nonatomic) float *columnX; // @synthesize columnX;
 @property(readonly, nonatomic) float *rowY; // @synthesize rowY;
 @property(readonly, nonatomic) struct CGRect tableBounds; // @synthesize tableBounds;
+- (unsigned int)usedGraphicCount;
+- (void)incrementUsedGraphicCount;
+- (id)backgroundGraphicAtIndex:(unsigned int)arg1;
+- (void)setBackgroundGraphics:(id)arg1;
+- (struct CGColor *)backgroundColor;
+@property(nonatomic) unsigned int columnCount;
+@property(nonatomic) unsigned int rowCount;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)initWithBounds:(struct CGRect)arg1;
 
 @end
 

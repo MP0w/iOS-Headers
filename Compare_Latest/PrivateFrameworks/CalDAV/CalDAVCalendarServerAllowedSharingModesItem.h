@@ -14,13 +14,13 @@
     CoreDAVItemWithNoChildren *_canBeShared;
 }
 
-- (id)init;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
 @property(retain) CoreDAVItemWithNoChildren *canBeShared; // @synthesize canBeShared=_canBeShared;
 @property(retain) CoreDAVItemWithNoChildren *canBePublished; // @synthesize canBePublished=_canBePublished;
+- (id)copyParseRules;
+- (id)description;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (id)init;
 
 @end
 

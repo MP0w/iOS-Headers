@@ -12,30 +12,36 @@
 {
 }
 
-@property(readonly, copy) NSString *type;
-@property int selectedIndex;
-@property(copy) NSString *value;
-@property(readonly) int length;
-@property(readonly, retain) DOMHTMLFormElement *form;
+- (void)setCustomValidity:(id)arg1;
+- (BOOL)checkValidity;
+- (void)remove:(int)arg1;
+- (void)add:(id)arg1:(id)arg2;
+- (void)add:(id)arg1 before:(id)arg2;
+- (id)namedItem:(id)arg1;
+- (id)item:(unsigned int)arg1;
+- (id)labels;
+- (id)validationMessage;
 - (id)validity;
 @property(readonly) BOOL willValidate;
-- (id)validationMessage;
-@property(readonly, retain) DOMHTMLOptionsCollection *options;
+@property(copy) NSString *value;
+@property int selectedIndex;
+- (id)selectedOptions;
+@property(readonly) int length;
+@property(readonly) DOMHTMLOptionsCollection *options;
+@property(readonly) NSString *type;
+@property int size;
+- (void)setRequired:(BOOL)arg1;
+- (BOOL)required;
+@property(copy) NSString *name;
+@property BOOL multiple;
+@property(readonly) DOMHTMLFormElement *form;
 @property BOOL disabled;
 @property BOOL autofocus;
-@property BOOL multiple;
-@property(copy) NSString *name;
-- (BOOL)required;
-- (void)setRequired:(BOOL)arg1;
-@property int size;
-- (id)labels;
-- (BOOL)checkValidity;
-- (void)setCustomValidity:(id)arg1;
-- (void)add:(id)arg1 before:(id)arg2;
-- (void)add:(id)arg1:(id)arg2;
-- (void)remove:(int)arg1;
-- (id)item:(unsigned int)arg1;
-- (id)namedItem:(id)arg1;
+- (void)_activateItemAtIndex:(int)arg1 allowMultipleSelection:(BOOL)arg2;
+- (void)_activateItemAtIndex:(int)arg1;
+- (int)structuralComplexityContribution;
+- (id)listItemAtIndex:(int)arg1;
+- (unsigned int)completeLength;
 
 @end
 

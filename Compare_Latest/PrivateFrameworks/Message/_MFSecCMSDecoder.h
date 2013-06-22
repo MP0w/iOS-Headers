@@ -12,7 +12,7 @@
 
 @interface _MFSecCMSDecoder : NSObject <MFCollectingDataConsumer>
 {
-    int _SecCMSError;
+    long _SecCMSError;
     struct SecCmsMessageStr *_message;
     struct SecCmsDigestContextStr *_digest;
     NSArray *_signers;
@@ -21,17 +21,17 @@
     BOOL _isEncrypted;
 }
 
-- (id)initWithPartData:(id)arg1 error:(id *)arg2;
-- (void)dealloc;
-- (int)appendData:(id)arg1;
-- (void)done;
-- (id)data;
-- (id)verifyAgainstSenders:(id)arg1 signingError:(id *)arg2;
-- (BOOL)isContentEncrypted;
-- (BOOL)isContentSigned;
-- (id)signedData;
 @property(readonly, nonatomic) NSArray *signers; // @synthesize signers=_signers;
-@property(readonly, nonatomic) int lastSecCMSError; // @synthesize lastSecCMSError=_SecCMSError;
+@property(readonly, nonatomic) long lastSecCMSError; // @synthesize lastSecCMSError=_SecCMSError;
+- (id)signedData;
+- (BOOL)isContentSigned;
+- (BOOL)isContentEncrypted;
+- (id)verifyAgainstSenders:(id)arg1 signingError:(id *)arg2;
+- (id)data;
+- (void)done;
+- (int)appendData:(id)arg1;
+- (void)dealloc;
+- (id)initWithPartData:(id)arg1 error:(id *)arg2;
 
 @end
 

@@ -14,7 +14,7 @@
 + (BOOL)canInitiateDistributedPhotoStreamDeletionForAssetUUID:(id)arg1;
 + (BOOL)writeBreadcrumbContent:(id)arg1 forHashString:(id)arg2;
 + (id)publishBreadcrumbsPath;
-+ (id)photoStreamAccount;
++ (id)iCloudServiceAccount;
 + (BOOL)photoStreamsEnabled;
 + (id)sharedPhotoStreamsHelper;
 - (void)initiateDeletionOfPhotoStreamAssets:(id)arg1;
@@ -26,7 +26,7 @@
 - (id)pathToSavedMetadataForAssetHash:(id)arg1 streamID:(id)arg2 createIntermediateDirs:(BOOL)arg3;
 - (void)resetMstreamdStateForPersonID:(id)arg1;
 - (id)derivedAssetForMasterAsset:(id)arg1;
-- (struct CGSize)_derivedAssetSizeForMasterSizeWidth:(float)arg1 height:(float)arg2;
+- (struct CGSize)derivedAssetSizeForMasterSizeWidth:(float)arg1 height:(float)arg2;
 - (id)temporaryPathForRecentlyUploadedAsset:(id)arg1;
 - (float)derivedAssetDimensionLimit;
 - (int)friendsLimit;
@@ -36,7 +36,6 @@
 - (int)_serverIntegerLimitForKey:(id)arg1 debugDefaultKey:(id)arg2;
 - (BOOL)shouldUploadVideos;
 - (BOOL)shouldPublishScreenShots;
-- (id)photoStreamAlbumTitleForPersonID:(id)arg1;
 - (id)_photoStreamAlbumNameWithFirstName:(id)arg1 lastName:(id)arg2 email:(id)arg3;
 - (void)pollForNewSubscriptionContentOncePerAppForegroundSession;
 - (void)pollForNewSubscriptionContent;
@@ -46,10 +45,12 @@
 - (void)writeDidEnqueueBreadcrumbForHash:(id)arg1 imagePath:(id)arg2;
 - (void)writeWillEnqueueBreadcrumbForHash:(id)arg1 imagePath:(id)arg2;
 - (BOOL)removeBreadcrumbsForHashString:(id)arg1;
+- (id)lastPhotoStreamUpdateDate;
 - (id)psHashAsString:(id)arg1;
 - (id)psHashForData:(id)arg1;
 - (id)photoStreamsPublishStreamID;
 - (void)_appDidEnterBackground:(id)arg1;
+- (void)clearCachedAccountState;
 - (void)dealloc;
 - (id)init;
 

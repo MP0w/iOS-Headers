@@ -21,6 +21,8 @@
 + (BOOL)contextShouldIgnoreChangesForFetchRequest;
 + (BOOL)contextShouldIgnoreChangesForFetchedAssetsSet;
 + (BOOL)contextShouldIgnoreChangesForFetchedAssets;
+- (BOOL)mayHaveAssetsInCommon:(id)arg1;
+- (id)fastPointerAccessSetForAssets:(id)arg1;
 @property(readonly, nonatomic) BOOL hasAssetsCache;
 - (void)updateSnapshotAndClearCaches:(id)arg1;
 - (void)setKeyAsset:(id)arg1;
@@ -38,6 +40,7 @@
 - (id)primitiveAssets;
 @property(retain, nonatomic) NSFetchRequest *fetchRequest;
 - (void)setupFetchRequest;
+- (unsigned int)batchSize;
 - (void)didTurnIntoFault;
 - (void)awakeFromInsert;
 - (void)awakeFromFetch;

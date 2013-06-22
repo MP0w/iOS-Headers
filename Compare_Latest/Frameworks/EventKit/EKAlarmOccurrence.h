@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class EKObjectID, NSDate, NSTimeZone;
+@class EKObjectID, NSDate, NSString, NSTimeZone;
 
 @interface EKAlarmOccurrence : NSObject
 {
@@ -15,18 +15,24 @@
     NSDate *_ownerDate;
     NSTimeZone *_ownerTimeZone;
     NSDate *_fireDate;
+    NSString *_externalID;
+    NSDate *_acknowledgedDate;
 }
 
-+ (id)alarmOccurrenceWithAlarmID:(id)arg1 ownerID:(id)arg2 ownerDate:(id)arg3 ownerTimeZone:(id)arg4 fireDate:(id)arg5;
++ (id)alarmOccurrenceWithAlarmID:(id)arg1 ownerID:(id)arg2 ownerDate:(id)arg3 ownerTimeZone:(id)arg4 fireDate:(id)arg5 externalID:(id)arg6 acknowledgedDate:(id)arg7;
+@property(readonly, nonatomic) NSDate *acknowledgedDate; // @synthesize acknowledgedDate=_acknowledgedDate;
+@property(readonly, nonatomic) NSString *externalID; // @synthesize externalID=_externalID;
 @property(readonly, nonatomic) NSDate *fireDate; // @synthesize fireDate=_fireDate;
 @property(readonly, nonatomic) NSTimeZone *ownerTimeZone; // @synthesize ownerTimeZone=_ownerTimeZone;
 @property(readonly, nonatomic) NSDate *ownerDate; // @synthesize ownerDate=_ownerDate;
 @property(readonly, nonatomic) EKObjectID *ownerID; // @synthesize ownerID=_ownerID;
 @property(readonly, nonatomic) EKObjectID *alarmID; // @synthesize alarmID=_alarmID;
+- (id)dictionaryRepresentation;
+- (id)initWithDictionaryRepresentation:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithAlarmID:(id)arg1 ownerID:(id)arg2 ownerDate:(id)arg3 ownerTimeZone:(id)arg4 fireDate:(id)arg5;
+- (id)initWithAlarmID:(id)arg1 ownerID:(id)arg2 ownerDate:(id)arg3 ownerTimeZone:(id)arg4 fireDate:(id)arg5 externalID:(id)arg6 acknowledgedDate:(id)arg7;
 
 @end
 

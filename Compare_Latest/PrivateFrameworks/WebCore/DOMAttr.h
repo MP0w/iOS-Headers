@@ -12,12 +12,12 @@
 {
 }
 
-@property(readonly, copy) NSString *name;
-@property(readonly) BOOL specified;
-@property(copy) NSString *value;
-@property(readonly, retain) DOMElement *ownerElement;
+@property(readonly) DOMCSSStyleDeclaration *style;
 - (BOOL)isId;
-@property(readonly, retain) DOMCSSStyleDeclaration *style;
+@property(readonly) DOMElement *ownerElement;
+@property(copy) NSString *value;
+@property(readonly) BOOL specified;
+@property(readonly) NSString *name;
 
 @end
 

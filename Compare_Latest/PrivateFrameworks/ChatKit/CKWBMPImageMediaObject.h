@@ -11,8 +11,8 @@
 }
 
 + (id)mimeTypesToFileExtensions;
-- (id)imageData;
 - (int)mediaType;
+- (id)imageData;
 
 @end
 

@@ -14,12 +14,17 @@
     struct CGRect mRect;
 }
 
-- (id)initWithPDSlide:(id)arg1 slideRect:(struct CGRect)arg2 parent:(id)arg3;
-- (id)slideName;
-- (id)defaultTheme;
-- (id)styleMatrix;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id).cxx_construct;
 - (struct CGRect)slideRect;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id)styleMatrix;
+- (id)defaultTheme;
+- (id)slideName;
+- (id)initWithPDSlide:(id)arg1 slideRect:(struct CGRect)arg2 parent:(id)arg3;
+- (void)mapMasterGraphicsAt:(id)arg1 withState:(id)arg2;
+- (void)mapDrawablesAt:(id)arg1 withState:(id)arg2;
+- (void)mapBackgroundAt:(id)arg1 recursive:(BOOL)arg2 withState:(id)arg3;
+- (void)mapMasterSlideAt:(id)arg1 withState:(id)arg2;
 
 @end
 

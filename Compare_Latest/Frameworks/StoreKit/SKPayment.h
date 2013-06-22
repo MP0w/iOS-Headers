@@ -9,7 +9,7 @@
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
 
-@class NSData, NSString;
+@class NSData, NSDictionary, NSString;
 
 @interface SKPayment : NSObject <NSCopying, NSMutableCopying>
 {
@@ -18,6 +18,7 @@
 
 + (id)paymentWithProductIdentifier:(id)arg1;
 + (id)paymentWithProduct:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *requestParameters;
 @property(readonly, nonatomic) NSData *requestData;
 @property(readonly, nonatomic) int quantity;
 @property(readonly, nonatomic) NSString *productIdentifier;

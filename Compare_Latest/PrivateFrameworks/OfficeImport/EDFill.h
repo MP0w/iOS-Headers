@@ -16,9 +16,9 @@
 }
 
 + (id)fillWithResources:(id)arg1;
-- (id)initWithResources:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEmpty;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithResources:(id)arg1;
 
 @end
 

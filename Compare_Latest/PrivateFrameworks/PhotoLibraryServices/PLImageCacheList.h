@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class PLLoadRequestKey;
+@class NSObject<OS_dispatch_queue>, PLLoadRequestKey;
 
 @interface PLImageCacheList : NSObject
 {
-    struct dispatch_queue_s *_isolation;
+    NSObject<OS_dispatch_queue> *_isolation;
     unsigned int _length;
     unsigned int _lastFailLocation;
     id *_keys;

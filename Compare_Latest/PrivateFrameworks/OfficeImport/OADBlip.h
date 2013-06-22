@@ -10,20 +10,20 @@
 
 @interface OADBlip : NSObject
 {
-    unsigned int mReferenceCount;
+    unsigned long mReferenceCount;
     OADSubBlip *mMainSubBlip;
     OADSubBlip *mAltSubBlip;
 }
 
 + (id)pathExtensionForBlipType:(int)arg1;
-- (void)dealloc;
-- (id)mainSubBlip;
-- (void)setMainSubBlip:(id)arg1;
-- (id)altSubBlip;
-- (void)setAltSubBlip:(id)arg1;
-- (unsigned int *)referenceCount;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (unsigned int *)referenceCount;
+- (void)setAltSubBlip:(id)arg1;
+- (id)altSubBlip;
+- (void)setMainSubBlip:(id)arg1;
+- (id)mainSubBlip;
+- (void)dealloc;
 
 @end
 

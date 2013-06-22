@@ -9,16 +9,22 @@
 #import "UITableViewDelegate-Protocol.h"
 
 @protocol MFMailComposeViewDelegate <UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource>
-- (void)selectCurrentEntryForFromAddressPickerView:(id)arg1;
-- (void)scrollToSelectedEntryInFromAddressTableView:(id)arg1;
-- (id)sendingEmailAddressIfExists;
-- (BOOL)canShowFromField;
-- (BOOL)canShowImageSizeField;
-- (BOOL)sendingEmailDirtied;
-- (BOOL)bccAddressesDirtied;
-- (BOOL)hasAttachments;
-- (id)currentScaleImageSize;
+- (id)popoverManager;
+- (void)insertPhotoOrVideo;
 - (int)compositionType;
+- (id)currentScaleImageSize;
+- (BOOL)hasAttachments;
+- (BOOL)bccAddressesDirtied;
+- (BOOL)sendingEmailDirtied;
+- (BOOL)canShowImageSizeField;
+- (BOOL)canShowFromField;
+- (id)sendingAccountProxy;
+- (id)setSendingEmailAddress:(id)arg1;
+- (id)sendingEmailAddress;
+- (id)sendingEmailAddressIfExists;
+- (id)emailAddresses;
+- (void)scrollToSelectedEntryInFromAddressTableView:(id)arg1;
+- (void)selectCurrentEntryForFromAddressPickerView:(id)arg1;
 
 @optional
 - (void)composeBodyFieldDidFinishLoad;

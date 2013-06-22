@@ -19,6 +19,9 @@
     PBDataReader *_dataReader;
     unsigned int _lastGoodDataOffset;
     unsigned int _uploadPayloadSize;
+    unsigned int _downloadPayloadSize;
+    unsigned long long _timeRequestSent;
+    unsigned long long _timeResponseReceived;
     int _responseStatusCode;
     NSMutableArray *_requests;
     NSMutableArray *_responses;
@@ -30,6 +33,7 @@
     struct __CFRunLoopTimer *_timeoutTimer;
     NSString *_logRequestToFile;
     NSString *_logResponseToFile;
+    BOOL _didNotifyRequestCompleted;
     NSArray *_clientCertificates;
     BOOL _shouldHandleCookies;
     struct {
@@ -50,6 +54,7 @@
 + (BOOL)usesEncodedMessages;
 @property(nonatomic) BOOL shouldHandleCookies; // @synthesize shouldHandleCookies=_shouldHandleCookies;
 @property(retain, nonatomic) NSArray *clientCertificates; // @synthesize clientCertificates=_clientCertificates;
+@property(readonly, nonatomic) unsigned int downloadPayloadSize; // @synthesize downloadPayloadSize=_downloadPayloadSize;
 @property(readonly, nonatomic) unsigned int uploadPayloadSize; // @synthesize uploadPayloadSize=_uploadPayloadSize;
 @property(retain, nonatomic) NSString *logResponseToFile; // @synthesize logResponseToFile=_logResponseToFile;
 @property(retain, nonatomic) NSString *logRequestToFile; // @synthesize logRequestToFile=_logRequestToFile;
@@ -58,12 +63,15 @@
 @property(retain, nonatomic) NSURLConnection *connection; // @synthesize connection=_connection;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+- (id)newConnectionWithCFURLRequest:(struct _CFURLRequest *)arg1 delegate:(id)arg2;
+- (struct _CFURLRequest *)newCFMutableURLRequestWithURL:(id)arg1;
 - (id)decodeResponseData:(id)arg1;
 - (void)encodeRequestData:(id)arg1 startRequestCallback:(id)arg2;
 - (void)_timeoutTimerFired;
 - (void)_resetTimeoutTimer;
 - (void)_removeTimeoutTimer;
 - (void)_startTimeoutTimer;
+@property(readonly, nonatomic) unsigned int requestResponseTime;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
@@ -79,6 +87,7 @@
 - (BOOL)isPaused;
 - (void)pause;
 - (void)cancel;
+- (void)_cancelNoNotify;
 - (void)start;
 - (void)_sendPayload:(id)arg1;
 - (void)writeRequest:(id)arg1 into:(id)arg2;

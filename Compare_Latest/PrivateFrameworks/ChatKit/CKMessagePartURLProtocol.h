@@ -10,13 +10,13 @@
 {
 }
 
-+ (void)initialize;
-+ (id)URLScheme;
-+ (BOOL)canInitWithRequest:(id)arg1;
-+ (id)canonicalRequestForRequest:(id)arg1;
 + (BOOL)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
-- (void)startLoading;
++ (id)canonicalRequestForRequest:(id)arg1;
++ (BOOL)canInitWithRequest:(id)arg1;
++ (id)URLScheme;
++ (void)initialize;
 - (void)stopLoading;
+- (void)startLoading;
 
 @end
 

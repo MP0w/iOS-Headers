@@ -6,15 +6,25 @@
 
 #import "SBIcon.h"
 
-@interface SBLeafIcon : SBIcon
+#import "NSCopying-Protocol.h"
+
+@class NSString;
+
+@interface SBLeafIcon : SBIcon <NSCopying>
 {
+    NSString *_leafIdentifier;
 }
 
-- (id)representation;
-- (BOOL)matchesRepresentation:(id)arg1;
-- (id)description;
-- (BOOL)isEqual:(id)arg1;
+- (id)nodeIdentifier;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)description;
+- (BOOL)matchesRepresentation:(id)arg1;
+- (id)representation;
+- (id)leafIdentifier;
+- (void)dealloc;
+- (id)initWithLeafIdentifier:(id)arg1;
 
 @end
 

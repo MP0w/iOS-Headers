@@ -29,21 +29,21 @@
     BOOL _subqueryHasTruePredicate;
 }
 
-- (id)initWithExpression:(id)arg1 trailingKeypath:(id)arg2 inScope:(id)arg3;
-- (void)dealloc;
-- (BOOL)_isKeypathScopedToSubquery:(id)arg1;
-- (id)fetchIntermediateForKeypathExpression:(id)arg1;
-- (id)governingEntityForKeypathExpression:(id)arg1;
-- (id)governingAliasForKeypathExpression:(id)arg1;
-- (id)_generateSQLForVariableExpression:(id)arg1 inContext:(id)arg2;
-- (void)_promoteJoinsForSubqueryScopedKeypath:(id)arg1;
-- (void)_promoteJoinsForSubqueryScopedKeypaths;
-- (BOOL)keypathExpressionIsSafeLHSForIn:(id)arg1;
-- (void)selectDistinct;
-- (void)_createSelectClauseInFetchWithContext:(id)arg1;
-- (void)_setVariableColumn:(id)arg1;
-- (void)_createCollectionJoinsForFetchInContext:(id)arg1;
 - (id)generateSQLStringInContext:(id)arg1;
+- (void)_createCollectionJoinsForFetchInContext:(id)arg1;
+- (void)_setVariableColumn:(id)arg1;
+- (void)_createSelectClauseInFetchWithContext:(id)arg1;
+- (void)selectDistinct;
+- (BOOL)keypathExpressionIsSafeLHSForIn:(id)arg1;
+- (void)_promoteJoinsForSubqueryScopedKeypaths;
+- (void)_promoteJoinsForSubqueryScopedKeypath:(id)arg1;
+- (id)_generateSQLForVariableExpression:(id)arg1 inContext:(id)arg2;
+- (id)governingAliasForKeypathExpression:(id)arg1;
+- (id)governingEntityForKeypathExpression:(id)arg1;
+- (id)fetchIntermediateForKeypathExpression:(id)arg1;
+- (BOOL)_isKeypathScopedToSubquery:(id)arg1;
+- (void)dealloc;
+- (id)initWithExpression:(id)arg1 trailingKeypath:(id)arg2 inScope:(id)arg3;
 
 @end
 

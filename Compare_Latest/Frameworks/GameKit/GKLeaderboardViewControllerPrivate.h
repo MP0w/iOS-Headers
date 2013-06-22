@@ -10,11 +10,13 @@
 {
 }
 
+- (void)didSelectScore:(id)arg1;
 - (void)didSelectPlayer:(id)arg1;
 - (void)setTimeScope:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)prepareDataSource;
-- (void)viewWillAppear:(BOOL)arg1;
+- (BOOL)usesCrossfade;
+- (void)updateNavbarButtons;
+- (float)marginForTableView:(id)arg1;
+- (Class)dataSourceClass;
 - (void)loadView;
 
 @end

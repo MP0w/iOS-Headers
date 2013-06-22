@@ -11,11 +11,11 @@
     id mFormat;
 }
 
-- (void)dealloc;
-- (id)format;
-- (BOOL)isDateFormat;
-- (BOOL)isDurationFormat;
 - (BOOL)isNumberFormat;
+- (BOOL)isDurationFormat;
+- (BOOL)isDateFormat;
+- (id)format;
+- (void)dealloc;
 
 @end
 

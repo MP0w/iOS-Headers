@@ -15,12 +15,12 @@
     PDAnimationInfoData *mMedia;
 }
 
-- (void)dealloc;
-- (void)setEntranceData:(id)arg1;
-- (id)entranceData;
-- (void)setExitData:(id)arg1;
-- (id)exitData;
 @property(retain, nonatomic) PDAnimationInfoData *mediaData; // @synthesize mediaData=mMedia;
+- (id)exitData;
+- (void)setExitData:(id)arg1;
+- (id)entranceData;
+- (void)setEntranceData:(id)arg1;
+- (void)dealloc;
 
 @end
 

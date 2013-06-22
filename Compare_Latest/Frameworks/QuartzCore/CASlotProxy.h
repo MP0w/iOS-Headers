@@ -11,9 +11,9 @@
     struct Proxy *_proxy;
 }
 
-- (id)initWithName:(unsigned int)arg1;
-- (void)dealloc;
 - (struct Object *)CA_copyRenderValue;
+- (void)dealloc;
+- (id)initWithName:(unsigned int)arg1;
 
 @end
 

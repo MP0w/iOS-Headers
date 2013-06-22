@@ -8,7 +8,12 @@
 
 @interface WebGeolocationPositionInternal : NSObject
 {
+    struct RefPtr<WebCore::GeolocationPosition> _position;
 }
+
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (id)initWithCoreGeolocationPosition:(PassRefPtr_1f71bc30)arg1;
 
 @end
 

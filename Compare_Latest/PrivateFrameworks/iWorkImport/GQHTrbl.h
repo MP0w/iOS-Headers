@@ -14,17 +14,17 @@
     int mLeft;
 }
 
-- (id)init;
-- (void)setTop:(int)arg1 right:(int)arg2 bottom:(int)arg3 left:(int)arg4;
-- (void)setTop:(int)arg1;
-- (int)top;
-- (void)setRight:(int)arg1;
-- (int)right;
-- (void)setBottom:(int)arg1;
-- (int)bottom;
-- (void)setLeft:(int)arg1;
-- (int)left;
 - (struct __CFString *)createStringRef;
+- (int)left;
+- (void)setLeft:(int)arg1;
+- (int)bottom;
+- (void)setBottom:(int)arg1;
+- (int)right;
+- (void)setRight:(int)arg1;
+- (int)top;
+- (void)setTop:(int)arg1;
+- (void)setTop:(int)arg1 right:(int)arg2 bottom:(int)arg3 left:(int)arg4;
+- (id)init;
 
 @end
 

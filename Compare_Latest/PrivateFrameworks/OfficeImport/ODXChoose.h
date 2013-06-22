@@ -11,6 +11,8 @@
 }
 
 + (void)readNode:(struct _xmlNode *)arg1 toChoose:(id)arg2;
++ (void)readElseNode:(struct _xmlNode *)arg1 toChoose:(id)arg2;
++ (void)readIfNode:(struct _xmlNode *)arg1 toChoose:(id)arg2;
 
 @end
 

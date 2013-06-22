@@ -12,6 +12,7 @@
 {
 }
 
+@property(readonly, nonatomic) NSString *appleID;
 @property(readonly, nonatomic) NSString *personID;
 @property(readonly, nonatomic) NSString *statusMessage;
 @property(readonly, nonatomic) NSNumber *status;

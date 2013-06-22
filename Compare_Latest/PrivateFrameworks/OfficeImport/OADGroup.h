@@ -16,18 +16,20 @@
     NSMutableArray *mChildren;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)groupProperties;
-- (struct CGRect)logicalBounds;
-- (void)setLogicalBounds:(struct CGRect)arg1;
-- (unsigned int)childCount;
-- (void)addChild:(id)arg1;
-- (void)addChildren:(id)arg1;
-- (id)childAtIndex:(unsigned int)arg1;
-- (id)children;
-- (void)setParentTextListStyle:(id)arg1;
+- (id).cxx_construct;
 - (void)removeUnnecessaryOverrides;
+- (void)setParentTextListStyle:(id)arg1;
+- (void)replaceChild:(id)arg1 with:(id)arg2;
+- (id)children;
+- (id)childAtIndex:(unsigned int)arg1;
+- (void)addChildren:(id)arg1;
+- (void)addChild:(id)arg1;
+- (unsigned int)childCount;
+- (void)setLogicalBounds:(struct CGRect)arg1;
+- (struct CGRect)logicalBounds;
+- (id)groupProperties;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -19,19 +19,19 @@
     BOOL _hasSetLocalizationDictionary;
 }
 
-- (id)initWithURL:(id)arg1;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)_ensureLocalizationDictionaryIsInitialized;
-- (void)_ensureFullLocalizationDictionaryIsLoaded;
-- (id)_localizedStringForKey:(id)arg1 value:(void *)arg2;
-- (id)_cachedObjectForKey:(id)arg1 value:(void *)arg2;
-- (id)localizationDictionary;
-- (void)setLocalizationDictionary:(id)arg1;
-- (id)localizedEntityNameForEntity:(id)arg1;
-- (id)_localizedPropertyNameForProperty:(id)arg1 entity:(id)arg2;
-- (id)localizedPropertyNameForProperty:(id)arg1;
 - (id)localizedModelStringForKey:(id)arg1;
+- (id)localizedPropertyNameForProperty:(id)arg1;
+- (id)_localizedPropertyNameForProperty:(id)arg1 entity:(id)arg2;
+- (id)localizedEntityNameForEntity:(id)arg1;
+- (void)setLocalizationDictionary:(id)arg1;
+- (id)localizationDictionary;
+- (id)_cachedObjectForKey:(id)arg1 value:(void *)arg2;
+- (id)_localizedStringForKey:(id)arg1 value:(void *)arg2;
+- (void)_ensureFullLocalizationDictionaryIsLoaded;
+- (void)_ensureLocalizationDictionaryIsInitialized;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithURL:(id)arg1;
 
 @end
 

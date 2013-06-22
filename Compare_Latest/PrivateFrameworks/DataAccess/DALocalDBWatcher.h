@@ -6,14 +6,18 @@
 
 #import "NSObject.h"
 
+@class NoteContext;
+
 @interface DALocalDBWatcher : NSObject
 {
     int _lastSavedCalSequenceNumber;
     int _lastSavedABSequenceNumber;
     void *_abWatcher;
     struct CalDatabase *_calWatcher;
+    NoteContext *_noteWatcher;
     struct __CFDictionary *_concernedABPartyToBlockMap;
     struct __CFDictionary *_concernedCalPartyToBlockMap;
+    struct __CFDictionary *_concernedNotePartyToBlockMap;
     BOOL _watchingBookmarks;
     struct __CFDictionary *_concernedBookmarkPartyToBlockMap;
 }
@@ -23,6 +27,9 @@
 @property int lastSavedABSequenceNumber; // @synthesize lastSavedABSequenceNumber=_lastSavedABSequenceNumber;
 - (void)noteCalDBDirChanged;
 - (void)noteABDBDirChanged;
+- (void)removeConcernedNoteParty:(id)arg1;
+- (void)registerConcernedNoteParty:(id)arg1 withChangedBlock:(id)arg2;
+- (void)_notesChangedExternally:(id)arg1;
 - (void)removeConcernedBookmarkParty:(id)arg1;
 - (void)registerConcernedBookmarkParty:(id)arg1 withChangedBlock:(id)arg2;
 - (void)_handleBookmarkChangeNotification;

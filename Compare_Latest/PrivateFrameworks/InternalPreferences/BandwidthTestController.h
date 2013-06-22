@@ -37,18 +37,18 @@
     NSString *_testName;
 }
 
-- (id)specifiers;
-- (char *)createBandwidthLogPath;
-- (void)_downloadTestFileInBackground;
-- (void)_downloadTestComplete:(id)arg1;
-- (void)suspend;
-- (void)_insertKBPSSpecifier:(id)arg1;
-- (void)_testBandwidth:(char *)arg1;
-- (void)testGoogleBandwidth:(id)arg1;
-- (void)testAppleBandwidth:(id)arg1;
-- (void)testAppleBandwidthWithMovie:(id)arg1;
-- (void)testHTTPBandwidth:(id)arg1;
 - (void)dealloc;
+- (void)testHTTPBandwidth:(id)arg1;
+- (void)testAppleBandwidthWithMovie:(id)arg1;
+- (void)testAppleBandwidth:(id)arg1;
+- (void)testGoogleBandwidth:(id)arg1;
+- (void)_testBandwidth:(char *)arg1;
+- (void)_insertKBPSSpecifier:(id)arg1;
+- (void)suspend;
+- (void)_downloadTestComplete:(id)arg1;
+- (void)_downloadTestFileInBackground;
+- (char *)createBandwidthLogPath;
+- (id)specifiers;
 
 @end
 

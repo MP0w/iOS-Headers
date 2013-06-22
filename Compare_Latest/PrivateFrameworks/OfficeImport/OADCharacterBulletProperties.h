@@ -13,10 +13,10 @@
     NSString *mBullet;
 }
 
-- (id)initWithBullet:(id)arg1;
-- (void)dealloc;
-- (id)bullet;
 - (BOOL)isEqual:(id)arg1;
+- (id)bullet;
+- (void)dealloc;
+- (id)initWithBullet:(id)arg1;
 
 @end
 

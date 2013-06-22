@@ -4,15 +4,16 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSNull : NSObject <NSCopying, NSCoding>
+@interface NSNull : NSObject <NSCopying, NSSecureCoding>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)null;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

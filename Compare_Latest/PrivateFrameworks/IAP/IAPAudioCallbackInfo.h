@@ -19,6 +19,7 @@
     void *_volumeControlSupportChangedCallback;
     void *_volumeControlSupportChangedContext;
     CPDistributedNotificationCenter *_dnCenter;
+    CPDistributedNotificationCenter *_dnCenteriAP2;
     struct __CFRunLoop *_dnCenterRunLoop;
     NSLock *_lock;
 }

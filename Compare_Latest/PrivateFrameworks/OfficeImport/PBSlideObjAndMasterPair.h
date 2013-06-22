@@ -15,10 +15,10 @@
 }
 
 + (id)createPair:(id)arg1 masterId:(int)arg2;
-- (void)setSlide:(id)arg1 masterId:(int)arg2;
-- (id)slide;
-- (int)masterId;
 - (void)dealloc;
+- (int)masterId;
+- (id)slide;
+- (void)setSlide:(id)arg1 masterId:(int)arg2;
 
 @end
 

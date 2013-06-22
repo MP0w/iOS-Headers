@@ -23,25 +23,27 @@
     SFUCryptoKey *mCryptoKey;
 }
 
-- (id)initFromCentralFileHeader:(const char *)arg1 dataRepresentation:(id)arg2;
-- (id)initWithDataRepresentation:(id)arg1 compressionMethod:(int)arg2 compressedSize:(unsigned long long)arg3 uncompressedSize:(unsigned long long)arg4 offset:(unsigned long long)arg5 crc:(unsigned int)arg6;
-- (void)dealloc;
-- (BOOL)isReadable;
-- (long long)dataLength;
-- (long long)encodedLength;
-- (id)inputStream;
-- (id)data;
-- (void)copyToFile:(id)arg1;
-- (BOOL)isCompressed;
-- (BOOL)isEncrypted;
-- (BOOL)isBackedByFile;
-- (id)backingFilePath;
-- (unsigned long long)backingFileDataOffset;
-- (unsigned int)crc;
-- (void)readZip64ExtraField:(const char *)arg1 size:(unsigned long)arg2;
-- (void)setCompressionFlags:(unsigned short)arg1;
-- (void)setCryptoKey:(id)arg1;
 - (void)setDataLength:(long long)arg1;
+- (void)setCryptoKey:(id)arg1;
+- (void)setCompressionFlags:(unsigned short)arg1;
+- (void)readZip64ExtraField:(const char *)arg1 size:(unsigned long)arg2;
+- (unsigned int)crc;
+- (unsigned long long)backingFileDataOffset;
+- (id)backingFilePath;
+- (BOOL)isBackedByFile;
+- (BOOL)isEncrypted;
+- (BOOL)isCompressed;
+- (void)copyToFile:(id)arg1;
+- (id)data;
+- (id)inputStream;
+- (long long)encodedLength;
+- (long long)dataLength;
+- (BOOL)isReadable;
+- (void)dealloc;
+- (id)initWithDataRepresentation:(id)arg1 compressionMethod:(int)arg2 compressedSize:(unsigned long long)arg3 uncompressedSize:(unsigned long long)arg4 offset:(unsigned long long)arg5 crc:(unsigned int)arg6;
+- (id)initFromCentralFileHeader:(const char *)arg1 dataRepresentation:(id)arg2;
+- (unsigned long long)calculateEncodedLength;
+- (unsigned long long)dataOffset;
 
 @end
 

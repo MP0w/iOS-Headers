@@ -13,8 +13,9 @@
     WebDeviceOrientationInternal *m_internal;
 }
 
-- (id)initWithCanProvideAlpha:(_Bool)arg1 alpha:(double)arg2 canProvideBeta:(_Bool)arg3 beta:(double)arg4 canProvideGamma:(_Bool)arg5 gamma:(double)arg6;
 - (void)dealloc;
+- (id)initWithCanProvideAlpha:(_Bool)arg1 alpha:(double)arg2 canProvideBeta:(_Bool)arg3 beta:(double)arg4 canProvideGamma:(_Bool)arg5 gamma:(double)arg6;
+- (id)initWithCoreDeviceOrientation:(PassRefPtr_ce175d97)arg1;
 
 @end
 

@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class AVAssetWriterHelper, AVWeakReference;
+@class AVAssetWriterHelper, AVWeakReference, NSObject<OS_dispatch_queue>;
 
 @interface AVAssetWriterInternal : NSObject
 {
     AVWeakReference *weakReference;
     AVAssetWriterHelper *helper;
-    struct dispatch_queue_s *helperReadWriteQueue;
+    NSObject<OS_dispatch_queue> *helperReadWriteQueue;
 }
 
 @end

@@ -7,7 +7,6 @@
 #import "NSObject.h"
 
 @interface NSObject (SUInvocationAdditions)
-- (id)webThreadMainThreadProxy;
 - (id)responderChainProxy:(id)arg1;
 @end
 

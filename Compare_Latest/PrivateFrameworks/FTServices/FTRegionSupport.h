@@ -25,8 +25,6 @@
 - (void)startLoading;
 - (void)_buildMessageDeliveryIfNeeded;
 - (void)dealloc;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

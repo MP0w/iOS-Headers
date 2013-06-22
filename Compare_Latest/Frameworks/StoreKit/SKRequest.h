@@ -6,26 +6,21 @@
 
 #import "NSObject.h"
 
+@class SKPaymentQueueClient;
+
 @interface SKRequest : NSObject
 {
     id _requestInternal;
 }
 
-- (void)_unregisterForNotifications;
-- (void)_sendFinishToDelegate;
-- (void)_sendErrorToDelegate:(id)arg1;
-- (void)_registerForNotifications;
-- (id)_newIdentifier;
 - (void)_endBackgroundTask;
 - (void)_beginBackgroundTask;
-- (void)_requestFinishedNotification:(id)arg1;
-- (void)_requestFailedNotification:(id)arg1;
-- (void)_mainThreadDaemonExited:(id)arg1;
-- (void)_daemonExited:(id)arg1;
-- (void)issueRequestForIdentifier:(id)arg1;
-- (BOOL)handleFinishResponse:(id)arg1 returningError:(id *)arg2;
-@property(nonatomic) id <SKRequestDelegate> delegate;
+- (void)_startWithMessage:(id)arg1 replyBlock:(id)arg2;
+- (void)_shutdownRequest;
+- (void)_sendXPCMessage;
+@property(copy, nonatomic) SKPaymentQueueClient *paymentQueueClient;
 - (void)start;
+@property(nonatomic) id <SKRequestDelegate> delegate;
 - (void)cancel;
 - (void)dealloc;
 - (id)init;

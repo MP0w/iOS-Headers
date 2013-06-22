@@ -12,16 +12,16 @@
 {
     id _target;
     SEL _selector;
-    unsigned int _count;
+    unsigned long _count;
     void *_objects[4];
     NSConditionLock *_waitLock;
-    unsigned int _mask;
+    unsigned long _mask;
 }
 
-- (id)initWithTarget:(id)arg1 selector:(SEL)arg2 cancelMask:(unsigned long)arg3 count:(unsigned long)arg4 firstObject:(id)arg5 moreObjects:(char *)arg6;
-- (void)dealloc;
-- (void)setWaitLock:(id)arg1;
 - (void)fire;
+- (void)setWaitLock:(id)arg1;
+- (void)dealloc;
+- (id)initWithTarget:(id)arg1 selector:(SEL)arg2 cancelMask:(unsigned long)arg3 count:(unsigned long)arg4 firstObject:(id)arg5 moreObjects:(char *)arg6;
 
 @end
 

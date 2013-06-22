@@ -19,7 +19,6 @@
 - (void)processGameKitURLComponents:(id)arg1;
 @property(readonly, nonatomic) NSURL *url;
 - (void)viewWillAppear:(BOOL)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)dealloc;
 - (id)initWithPlayer:(id)arg1;
 

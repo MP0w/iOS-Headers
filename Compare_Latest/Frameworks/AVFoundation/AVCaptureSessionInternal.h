@@ -14,7 +14,7 @@
     NSString *sessionPreset;
     int beginConfigRefCount;
     NSMutableDictionary *captureOptions;
-    NSMutableDictionary *previousFigRecorderOptions;
+    NSMutableDictionary *figRecorderOptions;
     AVCaptureFigAudioDevice *audioDevice;
     AVCaptureFigVideoDevice *videoDevice;
     struct OpaqueCMBaseObject *recorder;

@@ -21,29 +21,29 @@
     float maxParagraphDistance;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)columns;
-- (BOOL)intervalOverlapLeft:(float)arg1 right:(float)arg2 paragraphs:(id)arg3;
-- (void)partitionShapes:(id)arg1;
-- (BOOL)cuttingShapeBetween:(id)arg1 and:(id)arg2;
-- (BOOL)paragraph:(id)arg1 notOnSameShapeAs:(id)arg2;
-- (BOOL)paragraph:(id)arg1 isAbove:(id)arg2;
-- (BOOL)paragraph:(id)arg1 isBelow:(id)arg2;
-- (id)paragraphBelow:(id)arg1 in:(id)arg2;
-- (id)paragraphAbove:(id)arg1 in:(id)arg2;
-- (id)chunkAbove:(id)arg1 in:(id)arg2;
-- (BOOL)paragraph:(id)arg1 isLinkedBelowTo:(id)arg2;
-- (BOOL)column:(id)arg1 isLinkedBelowTo:(id)arg2;
-- (BOOL)canSafelyAdd:(id)arg1 to:(id)arg2;
-- (void)intersectionCallout:(id)arg1;
-- (void)callOuts;
-- (BOOL)closeImagesBetween:(id)arg1 and:(id)arg2 bounds:(struct CGRect)arg3;
-- (float)averageSpacing:(id)arg1;
-- (void)splitColumns:(id)arg1;
-- (void)anchorImages;
-- (void)makeColumnsFrom:(id)arg1 zone:(id)arg2;
 @property struct CGRect pageBounds; // @synthesize pageBounds;
+- (void)makeColumnsFrom:(id)arg1 zone:(id)arg2;
+- (void)anchorImages;
+- (void)splitColumns:(id)arg1;
+- (float)averageSpacing:(id)arg1;
+- (BOOL)closeImagesBetween:(id)arg1 and:(id)arg2 bounds:(struct CGRect)arg3;
+- (void)callOuts;
+- (void)intersectionCallout:(id)arg1;
+- (BOOL)canSafelyAdd:(id)arg1 to:(id)arg2;
+- (BOOL)column:(id)arg1 isLinkedBelowTo:(id)arg2;
+- (BOOL)paragraph:(id)arg1 isLinkedBelowTo:(id)arg2;
+- (id)chunkAbove:(id)arg1 in:(id)arg2;
+- (id)paragraphAbove:(id)arg1 in:(id)arg2;
+- (id)paragraphBelow:(id)arg1 in:(id)arg2;
+- (BOOL)paragraph:(id)arg1 isBelow:(id)arg2;
+- (BOOL)paragraph:(id)arg1 isAbove:(id)arg2;
+- (BOOL)paragraph:(id)arg1 notOnSameShapeAs:(id)arg2;
+- (BOOL)cuttingShapeBetween:(id)arg1 and:(id)arg2;
+- (void)partitionShapes:(id)arg1;
+- (BOOL)intervalOverlapLeft:(float)arg1 right:(float)arg2 paragraphs:(id)arg3;
+- (id)columns;
+- (void)dealloc;
+- (id)init;
 
 @end
 

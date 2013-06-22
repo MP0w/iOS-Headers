@@ -7,9 +7,9 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (SBArrayStackAdditions)
-- (void)push:(id)arg1;
-- (id)pop;
-- (id)popObject:(id)arg1;
 - (id)top;
+- (id)popObject:(id)arg1;
+- (id)pop;
+- (void)push:(id)arg1;
 @end
 

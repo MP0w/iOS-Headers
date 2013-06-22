@@ -30,6 +30,9 @@
 - (BOOL)resumeVideoProcessing;
 - (void)setSuspendsVideoProcessingDuringStillImageCapture:(BOOL)arg1;
 - (BOOL)suspendsVideoProcessingDuringStillImageCapture;
+- (void)setRawCaptureEnabled:(BOOL)arg1;
+- (BOOL)isRawCaptureEnabled;
+- (BOOL)isRawCaptureSupported;
 - (void)setChromaNoiseReductionEnabled:(BOOL)arg1;
 - (BOOL)isChromaNoiseReductionEnabled;
 - (void)setEV0CaptureEnabled:(BOOL)arg1;
@@ -44,7 +47,7 @@
 @property(readonly, nonatomic) NSArray *availableImageDataCodecTypes;
 @property(readonly, nonatomic) NSArray *availableImageDataCVPixelFormatTypes;
 @property(copy, nonatomic) NSDictionary *outputSettings;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

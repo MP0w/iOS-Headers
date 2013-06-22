@@ -63,8 +63,6 @@
 - (BOOL)_shouldRunConferences;
 - (BOOL)_shouldHandleInvites;
 - (BOOL)_runningInLegacyVCApp;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

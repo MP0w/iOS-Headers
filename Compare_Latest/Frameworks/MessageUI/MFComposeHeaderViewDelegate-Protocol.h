@@ -7,8 +7,8 @@
 @protocol MFComposeHeaderViewDelegate
 
 @optional
-- (void)composeHeaderViewDidChangeValue:(id)arg1;
-- (void)composeHeaderViewDidConfirmValue:(id)arg1;
 - (void)composeHeaderViewClicked:(id)arg1;
+- (void)composeHeaderViewDidConfirmValue:(id)arg1;
+- (void)composeHeaderViewDidChangeValue:(id)arg1;
 @end
 

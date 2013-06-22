@@ -8,7 +8,7 @@
 
 #import "NSStreamDelegate-Protocol.h"
 
-@class NSError, NSInputStream, NSMutableDictionary, NSOutputStream;
+@class NSError, NSInputStream, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOutputStream;
 
 @interface MFStream : NSObject <NSStreamDelegate>
 {
@@ -16,9 +16,9 @@
     NSOutputStream *_wStream;
     NSMutableDictionary *_properties;
     id _callback;
-    struct dispatch_queue_s *_location;
-    unsigned int _capacity;
-    unsigned int _length;
+    NSObject<OS_dispatch_queue> *_location;
+    unsigned long _capacity;
+    unsigned long _length;
     char *_buffer;
     NSError *_error;
     BOOL _canRead;
@@ -26,23 +26,23 @@
     BOOL _sentCanRead;
 }
 
-+ (id)networkThread;
++ (id)_networkDispatchQueue;
 + (void)setNetworkThread:(id)arg1;
-+ (struct dispatch_queue_s *)_networkDispatchQueue;
-- (id)init;
-- (id)initCallBack:(id)arg1 onDispatchQueue:(void)arg2;
-- (void)dealloc;
-@property(readonly, nonatomic) BOOL isOpen;
-- (id)_copyPropertyForKey:(id)arg1;
-- (id)propertyForKey:(id)arg1;
-- (BOOL)setProperty:(id)arg1 forKey:(id)arg2;
-- (void)openToHostName:(id)arg1 port:(int)arg2;
-- (int)read:(char *)arg1 maxLength:(unsigned int)arg2;
-- (int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
-- (void)close;
-- (void)_readBytesFromStream;
-- (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
++ (id)networkThread;
 @property(readonly, nonatomic) NSError *streamError; // @synthesize streamError=_error;
+- (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
+- (void)_readBytesFromStream;
+- (void)close;
+- (int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
+- (int)read:(char *)arg1 maxLength:(unsigned int)arg2;
+- (void)openToHostName:(id)arg1 port:(int)arg2;
+- (BOOL)setProperty:(id)arg1 forKey:(id)arg2;
+- (id)propertyForKey:(id)arg1;
+- (id)_copyPropertyForKey:(id)arg1;
+@property(readonly, nonatomic) BOOL isOpen;
+- (void)dealloc;
+- (id)initCallBack:(id)arg1 onDispatchQueue:(void)arg2;
+- (id)init;
 
 @end
 

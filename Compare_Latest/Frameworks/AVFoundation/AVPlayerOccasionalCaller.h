@@ -12,21 +12,15 @@
 {
     NSArray *_times;
     id _block;
-    struct OpaqueFigPlaybackItem *_figPlaybackItem;
 }
 
-- (void)_stopObservingPlaybackItemNotifications;
-- (void)itemTimeJumped;
-- (void)_resetTimerForPlayerNewRate:(float)arg1 time:(CDStruct_1b6d18a9)arg2;
-- (void)_startObservingPlaybackItemNotificationsForCurrentItem;
+- (void)_handleTimeDiscontinuity;
+- (void)_resetNextFireTime;
 - (CDStruct_1b6d18a9)_nextFiringTimeAfterTime:(CDStruct_1b6d18a9)arg1;
 - (CDStruct_1b6d18a9)_previousFiringTimeBeforeTime:(CDStruct_1b6d18a9)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)invalidate;
-- (void)_stopRespondingToPlayerStateChanges;
-- (void)finalize;
+- (void)_effectiveRateChanged;
 - (void)dealloc;
-- (id)initWithPlayer:(id)arg1 times:(id)arg2 queue:(struct dispatch_queue_s *)arg3 block:(id)arg4;
+- (id)initWithPlayer:(id)arg1 times:(id)arg2 queue:(id)arg3 block:(id)arg4;
 
 @end
 

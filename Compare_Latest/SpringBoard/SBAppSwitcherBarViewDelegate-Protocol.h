@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBAppSwitcherBarViewDelegate <NSObject>
-- (void)appSwitcherBarRemovedFromSuperview:(id)arg1;
-- (BOOL)appSwitcherBar:(id)arg1 scrollShouldCancelInContentForView:(id)arg2;
-- (void)appSwitcherBar:(id)arg1 pageAtIndexDidAppear:(int)arg2;
 - (void)appSwitcherBar:(id)arg1 pageAtIndexDidDisappear:(int)arg2;
+- (void)appSwitcherBar:(id)arg1 pageAtIndexDidAppear:(int)arg2;
+- (BOOL)appSwitcherBar:(id)arg1 scrollShouldCancelInContentForView:(id)arg2;
+- (void)appSwitcherBarRemovedFromSuperview:(id)arg1;
 @end
 

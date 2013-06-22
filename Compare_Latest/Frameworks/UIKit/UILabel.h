@@ -8,30 +8,29 @@
 
 #import "NSCoding-Protocol.h"
 
-@class NSString, UIColor, UIFont;
+@class NSAttributedString, NSMutableAttributedString, NSMutableDictionary, NSString, UIColor, UIFont;
 
 @interface UILabel : UIView <NSCoding>
 {
     struct CGSize _size;
-    NSString *_text;
-    UIColor *_color;
     UIColor *_highlightedColor;
-    UIColor *_shadowColor;
-    UIFont *_font;
-    struct CGSize _shadowOffset;
-    float _minFontSize;
-    float _actualFontSize;
     int _numberOfLines;
     float _lastLineBaseline;
+    float _minimumScaleFactor;
+    NSMutableAttributedString *_attributedText;
+    NSAttributedString *_scaledAttributedText;
+    NSAttributedString *_synthesizedAttributedText;
+    NSMutableDictionary *_defaultAttributes;
+    float _actualFontSize;
+    float _minimumFontSize;
     int _lineSpacing;
-    float _shadowBlur;
     struct {
-        unsigned int lineBreakMode:3;
+        unsigned int unused1:3;
         unsigned int highlighted:1;
         unsigned int autosizeTextToFit:1;
         unsigned int autotrackTextToFit:1;
         unsigned int baselineAdjustment:2;
-        unsigned int alignment:2;
+        unsigned int unused2:2;
         unsigned int enabled:1;
         unsigned int wordRoundingEnabled:1;
         unsigned int explicitAlignment:1;
@@ -39,11 +38,18 @@
         unsigned int marqueeRunable:1;
         unsigned int marqueeRequired:1;
         unsigned int drawsLetterpress:1;
-        unsigned int drawsUnderline:1;
+        unsigned int unused3:1;
+        unsigned int usesLegacyStringDrawing:1;
     } _textLabelFlags;
+    float _preferredMaxLayoutWidth;
 }
 
++ (id)_synthesizedAttributedString:(id)arg1 withWordWrapping:(BOOL)arg2;
++ (id)_defaultAttributes;
 + (id)defaultFont;
++ (void)initialize;
+@property(nonatomic) float minimumScaleFactor; // @synthesize minimumScaleFactor=_minimumScaleFactor;
+@property(nonatomic) float preferredMaxLayoutWidth; // @synthesize preferredMaxLayoutWidth=_preferredMaxLayoutWidth;
 - (BOOL)drawsUnderline;
 - (void)setDrawsUnderline:(BOOL)arg1;
 - (id)letterpressStyle;
@@ -55,23 +61,31 @@
 - (void)_stopMarqueeWithRedisplay:(BOOL)arg1;
 - (void)_startMarqueeIfNecessary;
 - (void)_startMarquee;
+- (void)_drawFullMarqueeTextInRect:(struct CGRect)arg1;
 - (void)_coordinateBeginTimeForMarqueeAnimations:(double)arg1;
 - (float)_maximumMarqueeTextWidth;
 - (id)_siblingMarqueeLabels;
 - (void)setMarqueeEnabled:(BOOL)arg1;
+- (BOOL)_shouldDrawUnderlinesLikeWebKit;
 - (BOOL)_allowAscentRounding;
 - (void)_setWordRoundingEnabled:(BOOL)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)_drawTextInRect:(struct CGRect)arg1 baselineCalculationOnly:(BOOL)arg2;
+- (void)_legacy_drawTextInRect:(struct CGRect)arg1 baselineCalculationOnly:(BOOL)arg2;
 - (id)_attributes;
+- (BOOL)_drawsUnderline;
 - (void)drawTextInRect:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)intrinsicContentSize;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (float)_baselineOffsetFromBottom;
 @property(readonly, nonatomic) float _lastLineBaseline;
 @property(nonatomic) int baselineAdjustment;
-@property(nonatomic) BOOL autotrackTextToFit;
+@property(nonatomic) BOOL adjustsLetterSpacingToFitWidth;
 @property(nonatomic) int lineSpacing;
 @property(nonatomic) int numberOfLines;
 @property(nonatomic) int lineBreakMode;
+- (void)_setLineBreakMode:(int)arg1;
 @property(nonatomic, getter=isHighlighted) BOOL highlighted;
 - (BOOL)_usesCGToDrawShadow;
 - (float)shadowBlur;
@@ -79,29 +93,66 @@
 @property(nonatomic) struct CGSize shadowOffset;
 - (void)_setShadowUIOffset:(struct UIOffset)arg1;
 @property(retain, nonatomic) UIColor *shadowColor;
+- (id)_shadow;
+- (void)_setShadow:(id)arg1;
 @property(retain, nonatomic) UIFont *font;
+- (void)_setFont:(id)arg1;
 - (id)currentTextColor;
 - (id)_disabledFontColor;
 @property(retain, nonatomic) UIColor *highlightedTextColor;
 @property(nonatomic) int textAlignment;
+- (void)_setTextAlignment:(int)arg1;
 - (float)actualFontSize;
 - (void)setActualFontSize:(float)arg1;
 @property(nonatomic) float minimumFontSize;
+- (float)_minimumFontSize;
+- (void)_setMinimumFontSize:(float)arg1;
 @property(nonatomic) BOOL adjustsFontSizeToFitWidth;
 @property(retain, nonatomic) UIColor *textColor;
+- (void)_setTextColor:(id)arg1;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
 @property(nonatomic, getter=isUserInteractionEnabled) BOOL userInteractionEnabled; // @dynamic userInteractionEnabled;
+@property(copy, nonatomic) NSAttributedString *attributedText;
 @property(copy, nonatomic) NSString *text;
+- (void)_setText:(id)arg1;
 - (void)_invalidateTextSize;
 - (struct CGRect)_textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2 includingShadow:(BOOL)arg3;
+- (struct CGRect)_legacy_textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2 includingShadow:(BOOL)arg3;
 - (struct CGRect)textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2;
 - (struct CGSize)textSize;
+- (struct CGSize)_legacy_textSize;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)_invalidateAsNeededForNewSize:(struct CGSize)arg1 oldSize:(struct CGSize)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonInit;
+@property(retain, nonatomic, getter=_synthesizedAttributedText, setter=_setSynthesizedAttributedText:) NSAttributedString *_synthesizedAttributedText;
+- (void)_setUsesLegacyStringDrawing:(BOOL)arg1;
+- (BOOL)_usesLegacyStringDrawing;
+- (void)_setDefaultAttributes:(id)arg1;
+- (id)_defaultAttributes;
+- (float)_preferredLayoutWidth;
+- (void)_setPreferredLayoutWidth:(float)arg1;
+- (BOOL)isTextFieldCenteredLabel;
+- (id)_scriptingInfo;
+- (struct CGSize)rawSize;
+- (void)setRawSize:(struct CGSize)arg1;
+- (void)drawContentsInRect:(struct CGRect)arg1;
+- (struct CGRect)textRectForBounds:(struct CGRect)arg1;
+- (struct CGSize)textSizeForWidth:(float)arg1;
+- (BOOL)centersHorizontally;
+- (void)setCentersHorizontally:(BOOL)arg1;
+- (id)color;
+- (void)setColor:(id)arg1;
+- (void)_setColor:(id)arg1;
+- (BOOL)autotrackTextToFit;
+- (void)setAutotrackTextToFit:(BOOL)arg1;
+- (unsigned long long)defaultAccessibilityTraits;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+- (BOOL)isAccessibilityElementByDefault;
 
 @end
 

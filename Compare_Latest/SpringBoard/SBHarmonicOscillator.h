@@ -21,18 +21,18 @@
     float zeta;
 }
 
-- (id)init;
-- (void)setSpringConstant:(float)arg1;
-@property(nonatomic) float mass; // @synthesize mass=m;
-- (void)updateParameters;
-- (float)amplitudeForElapsedTime:(double)arg1;
 @property(nonatomic) float minimumMass; // @synthesize minimumMass=minm;
 @property(nonatomic) float massDecay; // @synthesize massDecay=dm;
+@property(nonatomic) float mass; // @synthesize mass=m;
 @property(nonatomic) float minimumSpringStrength; // @synthesize minimumSpringStrength=mink;
 @property(nonatomic) float springDecay; // @synthesize springDecay=dk;
 @property(nonatomic) float springStrength; // @synthesize springStrength=k;
 @property(nonatomic) float endingAmplitude; // @synthesize endingAmplitude=Z;
 @property(nonatomic) float startingAmplitude; // @synthesize startingAmplitude=A;
+- (float)amplitudeForElapsedTime:(double)arg1;
+- (void)updateParameters;
+- (void)setSpringConstant:(float)arg1;
+- (id)init;
 
 @end
 

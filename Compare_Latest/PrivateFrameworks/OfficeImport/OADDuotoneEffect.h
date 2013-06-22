@@ -16,20 +16,20 @@
     int mTransferMode2;
 }
 
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)color1;
-- (void)setColor1:(id)arg1;
-- (id)color2;
-- (void)setColor2:(id)arg1;
-- (int)transferMode1;
-- (void)setTransferMode1:(int)arg1;
-- (int)transferMode2;
-- (void)setTransferMode2:(int)arg1;
-- (void)setStyleColor:(id)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setStyleColor:(id)arg1;
+- (void)setTransferMode2:(int)arg1;
+- (int)transferMode2;
+- (void)setTransferMode1:(int)arg1;
+- (int)transferMode1;
+- (void)setColor2:(id)arg1;
+- (id)color2;
+- (void)setColor1:(id)arg1;
+- (id)color1;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

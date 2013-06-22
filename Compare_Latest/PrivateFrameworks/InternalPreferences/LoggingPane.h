@@ -26,13 +26,21 @@
 }
 
 + (id)systemVersionDescription;
-- (BOOL)handlesDoneButton;
-- (void)dealloc;
-- (void)stopTimer;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)startTimer;
-- (void)setPreferenceSpecifier:(id)arg1;
 - (void)saveLogFile;
+- (void)setPreferenceSpecifier:(id)arg1;
+- (void)startTimer;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (void)stopTimer;
+- (void)dealloc;
+- (BOOL)handlesDoneButton;
+- (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
+- (void)emailButtonClicked;
+- (void)_finished:(id)arg1;
+- (void)_pipeThread:(id)arg1;
+- (void)_aslQuery:(id)arg1;
+- (void)_run;
+- (void)_updateText:(id)arg1;
+- (void)_showAlertForFailedCommand:(id)arg1;
 
 @end
 

@@ -8,6 +8,8 @@
 
 @optional
 - (void)pauseWithFadeoutDuration:(id)arg1;
+- (void)setCurrentPlaybackRate:(id)arg1;
+- (id)currentPlaybackRate;
 - (void)setCurrentPlaybackTime:(id)arg1;
 - (id)currentPlaybackTime;
 - (void)endSeeking;
@@ -25,6 +27,7 @@
 - (void)pause;
 - (void)shuffle;
 - (void)play;
+- (void)prepareToPlay;
 - (id)isNowPlayingItemFromGeniusMix;
 - (id)unshuffledIndexOfNowPlayingItem;
 - (id)indexOfNowPlayingItem;
@@ -50,6 +53,7 @@
 - (void)setQueueWithItemCollection:(id)arg1;
 - (void)setQueueWithQuery:(id)arg1 firstItem:(id)arg2;
 - (void)setQueueWithQuery:(id)arg1;
+- (id)isGeniusAvailableForSeedItems:(id)arg1;
 - (id)isGeniusAvailable;
 - (void)registerForServerDiedNotifications;
 - (id)serverIsAlive;

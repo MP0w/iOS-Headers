@@ -6,7 +6,7 @@
 
 #import <GameKit/GKPlayerCellContentView.h>
 
-@class GKScore, NSAttributedString, NSString;
+@class GKScore, GKTouchConsumingView, NSAttributedString;
 
 @interface GKLeaderboardCellContents : GKPlayerCellContentView
 {
@@ -15,10 +15,10 @@
     unsigned int _totalScores;
     float _rankWidth;
     int _disclosureStyle;
-    NSString *_placeholderString;
+    GKTouchConsumingView *_touchEater;
 }
 
-@property(retain, nonatomic) NSString *placeholderString; // @synthesize placeholderString=_placeholderString;
+@property(retain, nonatomic) GKTouchConsumingView *touchEater; // @synthesize touchEater=_touchEater;
 @property(nonatomic) int disclosureStyle; // @synthesize disclosureStyle=_disclosureStyle;
 @property(nonatomic) float rankWidth; // @synthesize rankWidth=_rankWidth;
 @property(nonatomic) unsigned int totalScores; // @synthesize totalScores=_totalScores;
@@ -28,15 +28,16 @@
 - (void)updateLines;
 - (BOOL)shouldShowPhoto;
 - (void)drawRect:(struct CGRect)arg1;
+- (id)defaultImage;
+- (void)layoutSubviews;
+- (id)representedObject;
 - (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;
 - (float)fontSizeForRank;
 @property(readonly, nonatomic) float rankAvailableWidth;
 - (int)digits;
+- (void)setScore:(id)arg1 updateBackgroundViews:(BOOL)arg2;
 - (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, nonatomic) float contentsMargin; // @dynamic contentsMargin;
 
 @end
 

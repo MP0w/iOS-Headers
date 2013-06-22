@@ -11,8 +11,8 @@
     BOOL _lockToPortrait;
 }
 
-- (void)setLockToPortrait:(BOOL)arg1;
 - (BOOL)requiresPortraitOrientation;
+- (void)setLockToPortrait:(BOOL)arg1;
 
 @end
 

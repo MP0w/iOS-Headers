@@ -12,9 +12,9 @@
 {
 }
 
-@property(copy) NSString *color;
-@property(copy) NSString *face;
 @property(copy) NSString *size;
+@property(copy) NSString *face;
+@property(copy) NSString *color;
 
 @end
 

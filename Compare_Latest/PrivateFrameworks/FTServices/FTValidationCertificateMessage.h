@@ -16,8 +16,8 @@
     NSData *_pushToken;
 }
 
-@property(copy) NSData *pushToken; // @synthesize pushToken=_pushToken;
-@property(copy) NSData *responseCertificateData; // @synthesize responseCertificateData=_responseCertificateData;
+@property(copy, nonatomic) NSData *pushToken; // @synthesize pushToken=_pushToken;
+@property(copy, nonatomic) NSData *responseCertificateData; // @synthesize responseCertificateData=_responseCertificateData;
 - (void)handleResponseDictionary:(id)arg1;
 - (id)additionalMessageHeaders;
 - (id)messageBody;

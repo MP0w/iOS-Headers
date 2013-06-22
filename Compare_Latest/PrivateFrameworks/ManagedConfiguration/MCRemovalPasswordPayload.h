@@ -13,12 +13,12 @@
     NSString *_removalPasscode;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
++ (id)typeStrings;
+@property(retain, nonatomic) NSString *removalPasscode; // @synthesize removalPasscode=_removalPasscode;
+- (void).cxx_destruct;
 - (id)stubDictionary;
-@property(retain) NSString *removalPasscode; // @synthesize removalPasscode=_removalPasscode;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

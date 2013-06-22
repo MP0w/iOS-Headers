@@ -14,9 +14,12 @@
     BOOL dontSynchronizePreferences;
 }
 
++ (void)handleSpecificHardwareKeyboard;
 + (void)preferencesChangedCallback:(id)arg1;
 + (id)sharedPreferencesController;
 @property(nonatomic) BOOL dontSynchronizePreferences; // @synthesize dontSynchronizePreferences;
+- (BOOL)spaceConfirmationEnabled;
+- (float)rivenSizeFactor:(float)arg1;
 - (BOOL)costlyCapture;
 - (BOOL)typologyEnabled;
 - (void)setInputModeLastUsed:(id)arg1;
@@ -30,11 +33,11 @@
 - (id)valueForKey:(int)arg1;
 @property(readonly) BOOL isInternalInstall;
 - (id)defaultForKey:(int)arg1;
-- (CDStruct_ab713c7a *)domainForType:(int)arg1;
+- (CDStruct_59875e80 *)domainForType:(int)arg1;
 - (void)dealloc;
 - (id)init;
 - (CDStruct_982099be *)preferences;
-- (CDStruct_ab713c7a *)domains;
+- (CDStruct_59875e80 *)domains;
 
 @end
 

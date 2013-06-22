@@ -6,23 +6,24 @@
 
 #import "NSObject.h"
 
-@class GEODaemon, NSMutableSet;
+@class GEODaemon, NSMutableSet, NSObject<OS_xpc_object>;
 
 @interface GEOServer : NSObject
 {
     NSMutableSet *_peers;
-    struct _xpc_connection_s *_listener;
+    NSObject<OS_xpc_object> *_listener;
     GEODaemon *_daemon;
 }
 
 + (Class)peerClass;
 + (id)identifier;
 @property(nonatomic) GEODaemon *daemon; // @synthesize daemon=_daemon;
+- (id)description;
 - (void)daemonWillTerminateWithReason:(int)arg1;
 - (void)peerDidDisconnect:(id)arg1;
 - (void)peerDidConnect:(id)arg1;
-- (void)handleIncomingMessage:(void *)arg1 fromPeer:(id)arg2;
-- (void)_handleNewConnection:(struct _xpc_connection_s *)arg1;
+- (void)handleIncomingMessage:(id)arg1 fromPeer:(id)arg2;
+- (void)_handleNewConnection:(id)arg1;
 - (void)startServer;
 @property(readonly) BOOL hasPeers;
 - (void)dealloc;

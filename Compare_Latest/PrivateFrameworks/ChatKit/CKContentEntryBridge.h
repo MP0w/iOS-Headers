@@ -15,20 +15,20 @@
 }
 
 + (id)newContentEntryBridge;
-- (void)dealloc;
 @property(nonatomic) int outgoingBubbleColor; // @synthesize outgoingBubbleColor=_outgoingBubbleColor;
-- (void)setMessageComposition:(id)arg1;
-- (id)messageComposition;
-- (id)messageCompositionIfTextOnly;
-- (void)setMessageParts:(id)arg1;
-- (id)messageParts;
-- (id)attachments;
-- (void)insertMessagePart:(id)arg1;
-- (BOOL)hasContent;
-- (id)newContentViewWithFrame:(struct CGRect)arg1;
-- (id)documentFragmentForPasteboardItemAtIndex:(int)arg1 inTextContentView:(id)arg2;
-- (void)updateComposition;
 @property(nonatomic) NSObject<CKContentEntryBridgeClient> *contentEntryView; // @synthesize contentEntryView=_entryView;
+- (void)reset;
+- (void)updateComposition;
+- (id)documentFragmentForPasteboardItemAtIndex:(int)arg1 inTextContentView:(id)arg2;
+- (id)newContentViewWithFrame:(struct CGRect)arg1;
+- (BOOL)hasContent;
+- (void)insertMessagePart:(id)arg1;
+- (id)attachments;
+- (id)messageParts;
+- (void)setMessageParts:(id)arg1;
+- (id)messageComposition;
+- (void)setMessageComposition:(id)arg1;
+- (void)dealloc;
 
 @end
 

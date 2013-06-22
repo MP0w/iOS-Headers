@@ -12,19 +12,20 @@
 {
 }
 
-@property(copy) NSString *frameBorder;
-@property(copy) NSString *longDesc;
-@property(copy) NSString *marginHeight;
-@property(copy) NSString *marginWidth;
-@property(copy) NSString *name;
-@property BOOL noResize;
-@property(copy) NSString *scrolling;
-@property(copy) NSString *src;
-@property(readonly, retain) DOMDocument *contentDocument;
-@property(readonly, retain) DOMAbstractView *contentWindow;
-@property(copy) NSString *location;
-@property(readonly) int width;
 @property(readonly) int height;
+@property(readonly) int width;
+@property(copy) NSString *location;
+@property(readonly) DOMAbstractView *contentWindow;
+@property(readonly) DOMDocument *contentDocument;
+@property(copy) NSString *src;
+@property(copy) NSString *scrolling;
+@property BOOL noResize;
+@property(copy) NSString *name;
+@property(copy) NSString *marginWidth;
+@property(copy) NSString *marginHeight;
+@property(copy) NSString *longDesc;
+@property(copy) NSString *frameBorder;
+- (int)structuralComplexityContribution;
 
 @end
 

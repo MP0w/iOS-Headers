@@ -17,16 +17,16 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (id)initWithName:(id)arg1 andDelegate:(id)arg2;
-- (id)initWithName:(id)arg1 condition:(int)arg2 andDelegate:(id)arg3;
-- (BOOL)isLockedByMe;
-- (BOOL)lockBeforeDate:(id)arg1;
-- (BOOL)lockWhenCondition:(int)arg1 beforeDate:(id)arg2;
-- (void)unlock;
-- (void)unlockWithCondition:(int)arg1;
-- (id)description;
 - (void)dealloc;
+- (id)description;
+- (void)unlockWithCondition:(int)arg1;
+- (void)unlock;
+- (BOOL)lockWhenCondition:(int)arg1 beforeDate:(id)arg2;
+- (BOOL)lockBeforeDate:(id)arg1;
+- (BOOL)isLockedByMe;
+- (id)initWithName:(id)arg1 condition:(int)arg2 andDelegate:(id)arg3;
+- (id)initWithName:(id)arg1 andDelegate:(id)arg2;
+- (id)init;
 
 @end
 

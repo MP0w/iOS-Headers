@@ -16,11 +16,11 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
-- (void)dealloc;
-- (float)position;
-- (int)alignment;
 - (struct __CFString *)leader;
+- (int)alignment;
+- (float)position;
+- (void)dealloc;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

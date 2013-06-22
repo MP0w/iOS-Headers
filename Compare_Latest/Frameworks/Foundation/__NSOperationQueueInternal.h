@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSOperation;
+@class NSObject<OS_dispatch_queue>, NSOperation;
 
 @interface __NSOperationQueueInternal : NSObject
 {
@@ -17,7 +17,7 @@
     NSOperation *__pendingLastOperation;
     NSOperation *__firstPriOperation[5];
     NSOperation *__lastPriOperation[5];
-    struct dispatch_queue_s *__pending_barrier;
+    NSObject<OS_dispatch_queue> *__pending_barrier;
     int __maxNumOps;
     int __actualMaxNumOps;
     int __numExecOps;

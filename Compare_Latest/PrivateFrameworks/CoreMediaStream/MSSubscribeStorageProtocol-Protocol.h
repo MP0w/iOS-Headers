@@ -7,7 +7,7 @@
 #import "MSStorageProtocol-Protocol.h"
 
 @protocol MSSubscribeStorageProtocol <MSStorageProtocol>
-@property id <MSSubscribeStorageProtocolDelegate> delegate;
+@property(nonatomic) id <MSSubscribeStorageProtocolDelegate> delegate;
 - (void)abort;
 - (void)retrieveAssets:(id)arg1;
 @end

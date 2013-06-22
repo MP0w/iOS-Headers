@@ -13,13 +13,14 @@
     struct CGPoint mBy;
 }
 
-- (id)init;
-- (struct CGPoint)to;
-- (void)setTo:(struct CGPoint)arg1;
-- (struct CGPoint)from;
-- (void)setFrom:(struct CGPoint)arg1;
-- (struct CGPoint)by;
+- (id).cxx_construct;
 - (void)setBy:(struct CGPoint)arg1;
+- (struct CGPoint)by;
+- (void)setFrom:(struct CGPoint)arg1;
+- (struct CGPoint)from;
+- (void)setTo:(struct CGPoint)arg1;
+- (struct CGPoint)to;
+- (id)init;
 
 @end
 

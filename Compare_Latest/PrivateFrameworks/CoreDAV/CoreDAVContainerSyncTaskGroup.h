@@ -72,6 +72,7 @@
 - (void)syncAway;
 - (void)startTaskGroup;
 - (void)_getDataPayloads;
+- (void)_configureMultiGet:(id)arg1;
 - (void)_getOrder;
 - (void)_getETags;
 - (id)copyGetEtagTaskWithPropertiesToFind:(id)arg1;

@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol UITextInputTraits <NSObject>
-@property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
 
 @optional
+@property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
 @property(nonatomic) int returnKeyType;
 @property(nonatomic) int keyboardAppearance;

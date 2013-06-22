@@ -16,6 +16,9 @@
 
 @property(retain, nonatomic) NSString *etag; // @synthesize etag=_etag;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

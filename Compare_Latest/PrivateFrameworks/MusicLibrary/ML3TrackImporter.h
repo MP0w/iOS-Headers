@@ -17,6 +17,7 @@
 
 @property(nonatomic) BOOL updateSmartPlaylists; // @synthesize updateSmartPlaylists=_updateSmartPlaylists;
 @property(retain, nonatomic) NSDictionary *nameOrders; // @synthesize nameOrders=_nameOrders;
+- (void).cxx_destruct;
 - (BOOL)_shouldInsertITMediaKindIntoPurchasedPlaylist:(unsigned long)arg1;
 - (id)_newTrackPropertiesByProcessingImportTrack:(id)arg1 insertStringsIntoSortMap:(BOOL)arg2;
 - (id)_addStoreLinkForImportTrackProperties:(id)arg1;
@@ -27,7 +28,6 @@
 - (id)_addAlbumArtistForImportTrackProperties:(id)arg1;
 - (BOOL)updateTrack:(id)arg1 withImportTrack:(id)arg2;
 - (void)importTrack:(id)arg1 withCompletionBlock:(id)arg2;
-- (void)dealloc;
 - (id)initWithMusicLibrary:(id)arg1;
 
 @end

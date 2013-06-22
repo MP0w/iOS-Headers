@@ -15,12 +15,12 @@
 }
 
 + (id)propertyGroupIdentifierWithProperty:(int)arg1 context:(void *)arg2;
-- (id)initWithProperty:(int)arg1 context:(void *)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
 @property(readonly, nonatomic) void *context; // @synthesize context=_context;
 @property(readonly, nonatomic) int property; // @synthesize property=_property;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithProperty:(int)arg1 context:(void *)arg2;
 
 @end
 

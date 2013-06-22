@@ -14,11 +14,10 @@
 }
 
 + (struct CADoubleRect)effectiveFrameWithFrame:(struct CADoubleRect)arg1;
-+ (float)accuracyDiameter:(float)arg1 level:(unsigned int)arg2;
++ (float)accuracyDiameter:(float)arg1;
 + (unsigned int)_selectedZIndex;
 + (unsigned int)_zIndex;
 + (Class)layerClass;
-+ (void)initialize;
 - (id)description;
 - (void)_setMapType:(unsigned int)arg1;
 - (void)willMoveToWindow:(id)arg1;
@@ -46,7 +45,6 @@
 @property(nonatomic) id delegate;
 @property(nonatomic) BOOL shouldDisplayHeading;
 @property(nonatomic) BOOL shouldDisplayAccuracy;
-@property(nonatomic) BOOL effectsVisible;
 @property(nonatomic) BOOL shouldDisplayEffects;
 @property(nonatomic) BOOL shouldDisplayHalo;
 @property(readonly, nonatomic) CALayer *headingLayer;
@@ -56,6 +54,7 @@
 - (struct CADoubleRect)effectiveFrame;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)actionForLayer:(id)arg1 forKey:(id)arg2;
 
 @end
 

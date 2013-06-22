@@ -28,7 +28,7 @@
 + (void)enumerateDeletedItemsInResponseData:(id)arg1 usingHandler:(id)arg2;
 + (void)enumerateItemsInResponseData:(id)arg1 usingHandler:(id)arg2;
 + (void)parseItemWithBytes:(const char *)arg1 length:(unsigned int)arg2 usingHandler:(id)arg3;
-+ (unsigned int)parseItemWithBytes:(const char *)arg1 length:(unsigned int)arg2 valuesOut:(CDStruct_af21f5be *)arg3 valuesCapacity:(unsigned int)arg4;
++ (unsigned int)parseItemWithBytes:(const char *)arg1 length:(unsigned int)arg2 valuesOut:(CDStruct_30baf813 *)arg3 valuesCapacity:(unsigned int)arg4;
 + (id)enumerateRawItemsInResponseData:(id)arg1 usingHandler:(id)arg2;
 + (id)parseResponseData:(id)arg1;
 

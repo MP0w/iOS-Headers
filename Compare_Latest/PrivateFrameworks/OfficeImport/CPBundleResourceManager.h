@@ -13,12 +13,13 @@
     NSMutableDictionary *mPackageMap;
 }
 
-+ (id)instance;
 + (void)disposeInstance;
-- (id)init;
-- (void)dealloc;
-- (id)dataForResource:(id)arg1 ofType:(id)arg2 inPackage:(id)arg3;
++ (id)instance;
 - (struct _xmlDoc *)xmlDocumentForResource:(id)arg1 ofType:(id)arg2 inPackage:(id)arg3;
+- (id)dataForResource:(id)arg1 ofType:(id)arg2 inPackage:(id)arg3;
+- (void)dealloc;
+- (id)init;
+- (id)packageWithName:(id)arg1;
 
 @end
 

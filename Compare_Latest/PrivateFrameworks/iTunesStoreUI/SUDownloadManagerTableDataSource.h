@@ -10,13 +10,9 @@
 {
 }
 
-- (id)_preorderCellForIndexPath:(id)arg1;
-- (id)_downloadCellForIndexPath:(id)arg1;
-- (int)tableViewStyle;
 - (void)reloadCellContexts;
 - (void)configureCell:(id)arg1 forIndexPath:(id)arg2;
 - (float)cellHeightForIndexPath:(id)arg1;
-- (id)cellForIndexPath:(id)arg1;
 
 @end
 

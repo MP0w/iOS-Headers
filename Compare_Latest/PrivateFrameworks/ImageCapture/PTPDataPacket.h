@@ -11,7 +11,7 @@
 @interface PTPDataPacket : NSObject
 {
     unsigned short _operationCode;
-    unsigned int _transactionID;
+    unsigned long _transactionID;
     id _data;
     NSString *_filepath;
     int _fd;
@@ -21,33 +21,33 @@
     long long _bytesTransferred;
 }
 
-- (id)filepath;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 andData:(id)arg3;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 andFilepath:(id)arg3;
-- (id)initWithTCPBuffer:(void *)arg1;
-- (id)initWithUSBBuffer:(void *)arg1;
-- (void)dealloc;
-- (id)contentForTCP;
-- (id)contentForUSB;
-- (id)contentForUSBUsingBuffer:(void *)arg1 capacity:(unsigned long)arg2;
-- (id)description;
-- (unsigned short)operationCode;
-- (void)setOperationCode:(unsigned short)arg1;
-- (unsigned long)transactionID;
-- (void)setTransactionID:(unsigned long)arg1;
-- (id)data;
-- (void)setData:(id)arg1;
-- (long long)bufferSize;
-- (long long)offsetInBuffer;
-- (struct _PTPRange)range;
-- (int)setRange:(struct _PTPRange)arg1;
-- (long long)bytesTransferred;
-- (void)setBytesTransferred:(long long)arg1;
-- (long long)copyToBuffer:(void *)arg1 numBytes:(long long)arg2;
-- (long long)copyToWrappedBytes:(id)arg1 forTransport:(unsigned short)arg2;
-- (long long)copyDataToWrappedBytes:(id)arg1 forTransport:(unsigned short)arg2 fromOffset:(unsigned long long)arg3;
-- (long long)copyHeaderToWrappedBytes:(id)arg1 forTransport:(unsigned short)arg2;
 - (long long)copyFromBuffer:(void *)arg1 numBytes:(long long)arg2;
+- (long long)copyHeaderToWrappedBytes:(id)arg1 forTransport:(unsigned short)arg2;
+- (long long)copyDataToWrappedBytes:(id)arg1 forTransport:(unsigned short)arg2 fromOffset:(unsigned long long)arg3;
+- (long long)copyToWrappedBytes:(id)arg1 forTransport:(unsigned short)arg2;
+- (long long)copyToBuffer:(void *)arg1 numBytes:(long long)arg2;
+- (void)setBytesTransferred:(long long)arg1;
+- (long long)bytesTransferred;
+- (int)setRange:(struct _PTPRange)arg1;
+- (struct _PTPRange)range;
+- (long long)offsetInBuffer;
+- (long long)bufferSize;
+- (void)setData:(id)arg1;
+- (id)data;
+- (void)setTransactionID:(unsigned long)arg1;
+- (unsigned long)transactionID;
+- (void)setOperationCode:(unsigned short)arg1;
+- (unsigned short)operationCode;
+- (id)description;
+- (id)contentForUSBUsingBuffer:(void *)arg1 capacity:(unsigned long)arg2;
+- (id)contentForUSB;
+- (id)contentForTCP;
+- (void)dealloc;
+- (id)initWithUSBBuffer:(void *)arg1;
+- (id)initWithTCPBuffer:(void *)arg1;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 andFilepath:(id)arg3;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 andData:(id)arg3;
+- (id)filepath;
 
 @end
 

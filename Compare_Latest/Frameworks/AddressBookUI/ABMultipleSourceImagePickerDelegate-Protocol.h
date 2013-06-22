@@ -5,7 +5,7 @@
  */
 
 @protocol ABMultipleSourceImagePickerDelegate
-- (void)multipleSourcePicker:(id)arg1 didSelectPerson:(void *)arg2;
 - (void)multipleSourcePickerDidSelectPhotoPicker:(id)arg1;
+- (void)multipleSourcePicker:(id)arg1 didSelectPerson:(void *)arg2;
 @end
 

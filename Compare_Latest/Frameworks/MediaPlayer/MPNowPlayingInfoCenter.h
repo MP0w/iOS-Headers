@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSDictionary;
+@class NSDate, NSDictionary;
 
 @interface MPNowPlayingInfoCenter : NSObject
 {
-    struct MPNowPlayingInfoCenterInternal _internal;
+    NSDictionary *_nowPlayingInfo;
+    NSDictionary *_queuedNowPlayingInfo;
+    NSDate *_pushDate;
 }
 
 + (id)defaultCenter;
-@property(nonatomic) struct MPNowPlayingInfoCenterInternal _internal; // @synthesize _internal;
 @property(copy) NSDictionary *nowPlayingInfo;
+- (void)_pushNowPlayingInfoAndRetry:(BOOL)arg1;
 - (id)init;
 - (id)_init;
 

@@ -66,11 +66,31 @@ struct _GEOTileKey {
 };
 
 struct _NSRange {
-    unsigned int location;
-    unsigned int length;
+    unsigned int _field1;
+    unsigned int _field2;
 };
 
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    double _field1;
+    double _field2;
+    double _field3;
+} CDStruct_39925896;
+
+typedef struct {
+    int _field1;
+    int _field2;
+    float _field3;
+} CDStruct_e2152fa8;
+
+typedef struct {
+    float _field1;
+    struct {
+        double _field1;
+        double _field2;
+    } _field2;
+} CDStruct_0c7fa811;
 
 typedef struct {
     int _field1;
@@ -85,15 +105,10 @@ typedef struct {
 } CDStruct_dc034332;
 
 typedef struct {
-    int _field1;
     struct {
-        double _field1;
-        double _field2;
-    } _field2;
-} CDStruct_411ed4d8;
-
-typedef struct {
-    CDStruct_34734122 origin;
+        double x;
+        double y;
+    } origin;
     CDStruct_8caa76fc size;
 } CDStruct_02837cd9;
 
@@ -112,9 +127,4 @@ typedef struct {
     double width;
     double height;
 } CDStruct_8caa76fc;
-
-typedef struct {
-    double x;
-    double y;
-} CDStruct_34734122;
 

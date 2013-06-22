@@ -26,11 +26,6 @@ struct _NSRange {
     unsigned int length;
 };
 
-struct _opaque_pthread_mutex_t {
-    long __sig;
-    char __opaque[40];
-};
-
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -54,9 +49,4 @@ typedef struct {
     char minute;
     double second;
 } CDStruct_b0fa4487;
-
-typedef struct {
-    int _field1;
-    int _field2;
-} CDStruct_1ef3fb1f;
 

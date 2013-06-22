@@ -12,15 +12,15 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, copy) NSString *type;
+@property(readonly) DOMMediaList *media;
+@property(readonly) NSString *title;
+@property(readonly) NSString *href;
+@property(readonly) DOMStyleSheet *parentStyleSheet;
+@property(readonly) DOMNode *ownerNode;
 @property BOOL disabled;
-@property(readonly, retain) DOMNode *ownerNode;
-@property(readonly, retain) DOMStyleSheet *parentStyleSheet;
-@property(readonly, copy) NSString *href;
-@property(readonly, copy) NSString *title;
-@property(readonly, retain) DOMMediaList *media;
+@property(readonly) NSString *type;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

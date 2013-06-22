@@ -6,23 +6,22 @@
 
 #import <StoreServices/SSRequest.h>
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSURLRequest, SSURLRequestProperties;
 
-@interface SSURLConnectionRequest : SSRequest <SSCoding>
+@interface SSURLConnectionRequest : SSRequest <SSXPCCoding>
 {
     SSURLRequestProperties *_requestProperties;
 }
 
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)startWithCompletionBlock:(id)arg1;
+- (BOOL)start;
 @property(readonly) NSURLRequest *URLRequest;
+- (void)startWithConnectionResponseBlock:(id)arg1;
 @property(readonly) SSURLRequestProperties *requestProperties;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
 - (void)dealloc;
 - (id)initWithURLRequest:(id)arg1;
 - (id)initWithRequestProperties:(id)arg1;

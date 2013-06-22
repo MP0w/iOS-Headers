@@ -17,11 +17,11 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
-- (float)scale;
-- (float)baselineOffset;
-- (BOOL)scaleWithText;
 - (int)labelAlignment;
+- (BOOL)scaleWithText;
+- (float)baselineOffset;
+- (float)scale;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

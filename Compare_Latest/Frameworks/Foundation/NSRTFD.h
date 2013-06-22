@@ -56,6 +56,18 @@
 - (id)initWithDictionary:(id)arg1 copyItems:(BOOL)arg2;
 - (id)initWithObjects:(id *)arg1 forKeys:(id *)arg2 count:(unsigned int)arg3;
 - (id)init;
+- (id)initFromElement:(id)arg1 ofDocument:(id)arg2;
+- (unsigned int)addDirNamed:(id)arg1 lazy:(BOOL)arg2;
+- (unsigned int)realAddDirNamed:(id)arg1;
+- (unsigned int)insertItem:(id)arg1 path:(id)arg2 dirInfo:(id)arg3 zone:(struct _NSZone *)arg4 plist:(id)arg5;
+- (unsigned int)addFileNamed:(id)arg1 fileAttributes:(id)arg2;
+- (id)getDirInfo:(BOOL)arg1;
+- (id)initWithPasteboardDataRepresentation:(id)arg1;
+- (id)pasteboardDataRepresentation;
+- (id)initFromSerialized:(id)arg1;
+- (id)freeSerialized:(void *)arg1 length:(unsigned int)arg2;
+- (id)serialize:(void **)arg1 length:(unsigned int *)arg2;
+- (BOOL)_isLink:(id)arg1;
 
 @end
 

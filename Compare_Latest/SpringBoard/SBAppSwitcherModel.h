@@ -6,26 +6,29 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSTimer;
 
 @interface SBAppSwitcherModel : NSObject
 {
     NSMutableArray *_recentDisplayIdentifiers;
+    NSTimer *_saveTimer;
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)_saveRecents;
-- (id)_recentsFromPrefs;
-- (void)addToFront:(id)arg1;
-- (void)remove:(id)arg1;
-- (id)appAtIndex:(unsigned int)arg1;
-- (id)identifierAtIndex:(unsigned int)arg1;
-- (unsigned int)count;
-- (id)identifiers;
-- (void)appsRemoved:(id)arg1 added:(id)arg2;
 - (id)snapshot;
+- (void)appsRemoved:(id)arg1 added:(id)arg2;
+- (id)identifiers;
+- (unsigned int)count;
+- (id)identifierAtIndex:(unsigned int)arg1;
+- (id)appAtIndex:(unsigned int)arg1;
+- (void)remove:(id)arg1;
+- (void)addToFront:(id)arg1;
+- (id)_recentsFromPrefs;
+- (void)_saveRecents;
+- (void)_saveRecentsDelayed;
+- (void)_invalidateSaveTimer;
+- (void)dealloc;
+- (id)init;
 
 @end
 

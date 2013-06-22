@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)isShapeRegion;
 - (void)accept:(id)arg1;
+- (BOOL)isShapeRegion;
 
 @end
 

@@ -6,22 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableSet, UIView;
+@class NSDictionary, NSMutableSet, SBHostWrapperView;
 
 @interface SBHostRequesterInfo : NSObject
 {
-    UIView *_wrapperView;
+    SBHostWrapperView *_wrapperView;
     NSMutableSet *_hiddenContexts;
     NSDictionary *_realContextHostViewChangedProperties;
     NSDictionary *_realContextHostViewOriginalProperties;
 }
 
-- (id)init;
-- (void)dealloc;
 @property(retain, nonatomic) NSDictionary *realContextHostViewOriginalProperties; // @synthesize realContextHostViewOriginalProperties=_realContextHostViewOriginalProperties;
 @property(retain, nonatomic) NSDictionary *realContextHostViewChangedProperties; // @synthesize realContextHostViewChangedProperties=_realContextHostViewChangedProperties;
 @property(readonly, nonatomic) NSMutableSet *hiddenContexts; // @synthesize hiddenContexts=_hiddenContexts;
-@property(readonly, nonatomic) UIView *wrapperView; // @synthesize wrapperView=_wrapperView;
+@property(readonly, nonatomic) SBHostWrapperView *wrapperView; // @synthesize wrapperView=_wrapperView;
+- (void)dealloc;
+- (id)init;
 
 @end
 

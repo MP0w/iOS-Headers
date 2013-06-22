@@ -13,17 +13,20 @@
     UIStatusBar *_statusBar;
     int _orientation;
     UIStatusBarCorners *_topCorners;
+    float _topCornersOffset;
     UIStatusBarCorners *_bottomCorners;
     BOOL _cornersHidden;
 }
 
 + (struct CGRect)statusBarWindowFrame;
++ (BOOL)isIncludedInClassicJail;
 - (void)_updateTransformLayerForClassicPresentation;
 - (BOOL)_isStatusBarWindow;
 - (BOOL)_disableGroupOpacity;
 - (BOOL)_disableViewScaling;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)setTopCornerStyle:(int)arg1 bottomCornerStyle:(int)arg2 animationParameters:(id)arg3;
+- (void)_styleAnimationDidStop:(id)arg1 finished:(id)arg2 completion:(void *)arg3;
+- (void)setTopCornerStyle:(int)arg1 topCornersOffset:(float)arg2 bottomCornerStyle:(int)arg3 animationParameters:(id)arg4;
 - (void)setCornersHidden:(BOOL)arg1 animationParameters:(id)arg2;
 - (int)orientation;
 - (void)_rotate;

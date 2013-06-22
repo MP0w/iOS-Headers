@@ -20,17 +20,21 @@
 }
 
 + (id)contentFormatWithFormatString:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToContentFormat:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (unsigned int)key;
-- (id)formatString;
-- (unsigned int)formatId;
-- (_Bool)builtIn;
++ (id)contentFormatWithFormatString:(id)arg1 formatId:(unsigned int)arg2;
++ (id)contentFormatWithNSString:(id)arg1 formatId:(unsigned int)arg2 builtIn:(_Bool)arg3;
 - (_Bool)referenced;
+- (_Bool)builtIn;
+- (unsigned int)formatId;
+- (id)formatString;
+- (int)key;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToContentFormat:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)init;
+- (void)setReferenced:(_Bool)arg1;
+- (void)setFormatId:(unsigned int)arg1;
 
 @end
 

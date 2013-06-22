@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSLocale, NSMutableDictionary, NSString;
+@class NSDictionary, NSLocale, NSString;
 
 @interface AVMetadataItemInternal : NSObject
 {
@@ -19,7 +19,7 @@
     id value;
     CDStruct_1b6d18a9 time;
     CDStruct_1b6d18a9 duration;
-    NSMutableDictionary *extras;
+    NSDictionary *extras;
 }
 
 @end

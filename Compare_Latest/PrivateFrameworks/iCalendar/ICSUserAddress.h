@@ -24,6 +24,7 @@
 + (int)scheduleStatusFromICSString:(id)arg1;
 + (int)participationStatusFromICSString:(id)arg1;
 + (int)calendarUserFromICSString:(id)arg1;
++ (id)URLForNoMail;
 - (id)x_calendarserver_email;
 - (void)setX_calendarserver_email:(id)arg1;
 @property(retain) NSString *email;
@@ -45,6 +46,8 @@
 - (BOOL)hasEmailAddress;
 - (id)initWithEmailAddress:(id)arg1;
 - (id)initWithURL:(id)arg1;
+- (void)fixAddress;
+- (void)setURL:(id)arg1;
 
 @end
 

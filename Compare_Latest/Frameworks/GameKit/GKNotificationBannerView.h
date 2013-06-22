@@ -23,8 +23,8 @@
 
 + (void)decrementCount;
 + (void)incrementCount;
-+ (struct dispatch_semaphore_s *)semaphore;
-+ (struct dispatch_queue_s *)queue;
++ (id)semaphore;
++ (id)queue;
 + (id)bannerWindow;
 @property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
@@ -43,6 +43,7 @@
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)orientationChanged:(id)arg1;
 - (id)initWithTitle:(id)arg1 message:(id)arg2;
+- (id)initWithTitle:(id)arg1 image:(id)arg2 message:(id)arg3;
 
 @end
 

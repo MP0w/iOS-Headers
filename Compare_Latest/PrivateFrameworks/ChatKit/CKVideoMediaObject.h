@@ -6,9 +6,11 @@
 
 #import <ChatKit/CKAVMediaObject.h>
 
+#import "CKPreviewableAttachment-Protocol.h"
+
 @class NSDictionary, NSString, UIImage;
 
-@interface CKVideoMediaObject : CKAVMediaObject
+@interface CKVideoMediaObject : CKAVMediaObject <CKPreviewableAttachment>
 {
     NSDictionary *_transcodeOptions;
     UIImage *_videoPreviewImage;
@@ -16,36 +18,28 @@
     NSString *_transcodePath;
 }
 
-+ (id)mimeTypesAllowedForMMS;
 + (id)mimeTypesToFileExtensions;
-- (void)dealloc;
-- (BOOL)shouldTranscodeForMMS;
-- (int)mediaType;
-- (id)transcodedFilename;
-- (Class)balloonPreviewClassWithPreviewData:(id)arg1;
-- (float)balloonHeightWithPreviewData:(id)arg1;
-- (BOOL)shouldGeneratePreviewInBackground;
-- (id)videoImage;
-- (id)newPreview:(int)arg1 highlight:(BOOL)arg2;
-- (void)configureBalloon:(id)arg1 withPreviewData:(id)arg2;
-- (unsigned long long)sizeInBytes;
-- (id)optionsForMedia;
-- (id)transcodePath;
-- (id)transcodeMimeType;
-- (double)transcodeStartTime;
-- (double)transcodeEndTime;
-- (double)transcodeDuration;
-- (id)effectiveExportedFilename;
-- (id)transcodedPathExtension;
-- (void)prepareForTranscode;
-- (id)_transcodeOptions;
-- (id)_newPreviewImageWithTailStyle:(int)arg1;
-- (id)_newPreviewImageForIncomingVideoWithTailStyle:(int)arg1;
-- (void)_generatePreviewOnMainThreadForVideoFile:(id)arg1;
-- (void)_generateImageOnMainThreadForVideoFile:(id)arg1;
-- (id)_newVideoPreviewImageForImage:(id)arg1 withTailStyle:(int)arg2;
-- (id)filenameForMedia;
 - (void)copyToPasteboard:(id)arg1;
+- (id)_newVideoPreviewImageForImage:(id)arg1 withTailStyle:(int)arg2;
+- (void)_generateImageOnMainThreadForVideoFile:(id)arg1;
+- (void)_generatePreviewOnMainThreadForVideoFile:(id)arg1;
+- (id)_newPreviewImageForIncomingVideoWithTailStyle:(int)arg1;
+- (id)_newPreviewImageWithTailStyle:(int)arg1;
+- (id)_transcodeOptions;
+- (void)prepareForTranscode;
+- (id)effectiveExportedFilename;
+- (double)transcodeDuration;
+- (double)transcodeEndTime;
+- (double)transcodeStartTime;
+- (id)transcodeMimeType;
+- (BOOL)savePreview:(id)arg1 toPath:(id)arg2 forOrientation:(int)arg3;
+- (id)savedPreviewFromPath:(id)arg1 forOrientation:(int)arg2;
+- (id)previewForOrientation:(int)arg1 highlight:(BOOL)arg2;
+- (struct CGSize)naturalSize;
+- (id)videoImage;
+- (id)transcodedFilename;
+- (int)mediaType;
+- (void)dealloc;
 
 @end
 

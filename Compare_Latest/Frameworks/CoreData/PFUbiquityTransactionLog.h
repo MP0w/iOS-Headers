@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSNumber, NSString, PFUbiquityKnowledgeVector, PFUbiquityLocation, PFUbiquitySaveSnapshot;
+@class NSMutableDictionary, NSNumber, NSRecursiveLock, NSString, PFUbiquityKnowledgeVector, PFUbiquityLocation, PFUbiquitySaveSnapshot;
 
 @interface PFUbiquityTransactionLog : NSObject
 {
@@ -23,38 +23,24 @@
     BOOL _inPermanentLocation;
     PFUbiquityKnowledgeVector *_knowledgeVector;
     PFUbiquitySaveSnapshot *_saveSnapshot;
+    NSString *_localPeerID;
+    BOOL _loadUsingRetry;
+    BOOL _loadedComparisonMetadata;
+    BOOL _loadedImportMetadata;
+    BOOL _loadedContents;
+    NSRecursiveLock *_contentsLock;
 }
 
-+ (id)loadPlistAtLocation:(id)arg1 withError:(id *)arg2;
-+ (void)pruneStagingDirectoryForLocalPeerID:(id)arg1 andStoreName:(id)arg2 andModelVersionHash:(id)arg3 withStack:(id)arg4 andStoreTransactionNumber:(id)arg5;
-+ (void)truncateLogFilesBeforeBaselineMetadata:(id)arg1 withLocalPeerID:(id)arg2 andUbiquityRootLocation:(id)arg3;
-+ (id)transactionLogFilenameUUID;
-+ (id)createTransactionLogFilenameForLogType:(int)arg1;
-+ (int)transactionLogTypeFromLocation:(id)arg1;
-+ (id)generateTransactionLogFilename;
 + (void)updateModificationTimesForLocation:(id)arg1;
-- (id)init;
-- (id)initWithTransactionLogURL:(id)arg1 andUbiquityRootLocation:(id)arg2;
-- (id)initWithTransactionLogLocation:(id)arg1;
-- (id)initWithStoreName:(id)arg1 andSaveSnapshot:(id)arg2;
-- (void)dealloc;
-- (id)description;
-@property(readonly, nonatomic) NSString *storeName;
-@property(readonly, nonatomic) NSString *exportingPeerID;
-@property(readonly, nonatomic) NSString *modelVersionHash;
-@property(readonly, nonatomic) NSString *transactionLogFilename;
-@property(readonly, nonatomic) PFUbiquityLocation *currentLocation;
-- (BOOL)loadComparisonMetadataWithError:(id *)arg1;
-- (BOOL)loadImportMetadataWithError:(id *)arg1;
-- (BOOL)loadInsertedObjectsDataWithError:(id *)arg1;
-- (BOOL)loadUpdatedObjectsDataWithError:(id *)arg1;
-- (BOOL)loadDeletedObjectsDataWithError:(id *)arg1;
-- (void)cleanupExternalDataReferences;
-- (BOOL)deleteLogFileWithError:(id *)arg1;
-- (BOOL)moveFileToPermanentLocationWithError:(id *)arg1;
-- (BOOL)writeToDiskWithError:(id *)arg1 andUpdateFilenameInTransactionEntries:(id)arg2;
-- (id)generatePeerCodeKnowledgeVectorWithManagedObjectContext:(id)arg1;
-- (void)populateContents;
++ (id)generateTransactionLogFilename;
++ (int)transactionLogTypeFromLocation:(id)arg1;
++ (id)createTransactionLogFilenameForLogType:(int)arg1;
++ (id)transactionLogFilenameUUID;
++ (BOOL)pruneTemporaryLogDirectoryForPeerRootLocation:(id)arg1 error:(id *)arg2;
++ (void)truncateLogFilesBeforeBaselineMetadata:(id)arg1 withLocalPeerID:(id)arg2 andUbiquityRootLocation:(id)arg3;
++ (void)pruneStagingDirectoryForLocalPeerID:(id)arg1 andStoreName:(id)arg2 andModelVersionHash:(id)arg3 withStack:(id)arg4 andStoreTransactionNumber:(id)arg5;
+@property(nonatomic) BOOL loadUsingRetry; // @synthesize loadUsingRetry=_loadUsingRetry;
+@property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) PFUbiquityKnowledgeVector *knowledgeVector; // @synthesize knowledgeVector=_knowledgeVector;
 @property(readonly, nonatomic) int transactionLogType; // @synthesize transactionLogType=_transactionLogType;
 @property(readonly, nonatomic) PFUbiquityLocation *temporaryTransactionLogLocation; // @synthesize temporaryTransactionLogLocation=_temporaryTransactionLogLocation;
@@ -67,6 +53,31 @@
 @property(readonly, nonatomic) BOOL inPermanentLocation; // @synthesize inPermanentLocation=_inPermanentLocation;
 @property(readonly, nonatomic) BOOL inTemporaryLocation; // @synthesize inTemporaryLocation=_inTemporaryLocation;
 @property(nonatomic) BOOL useTemporaryLogLocation; // @synthesize useTemporaryLogLocation=_useTemporaryLogLocation;
+- (void)populateContents;
+- (id)generatePeerCodeKnowledgeVectorWithManagedObjectContext:(id)arg1;
+- (BOOL)writeToDiskWithError:(id *)arg1 andUpdateFilenameInTransactionEntries:(id)arg2;
+- (BOOL)moveFileToPermanentLocationWithError:(id *)arg1;
+- (BOOL)deleteLogFileWithError:(id *)arg1;
+- (void)cleanupExternalDataReferences;
+- (id)loadPlistAtLocation:(id)arg1 withError:(id *)arg2;
+- (BOOL)loadDeletedObjectsDataWithError:(id *)arg1;
+- (BOOL)loadUpdatedObjectsDataWithError:(id *)arg1;
+- (BOOL)loadInsertedObjectsDataWithError:(id *)arg1;
+- (BOOL)loadImportMetadataWithError:(id *)arg1;
+- (BOOL)loadComparisonMetadataWithError:(id *)arg1;
+- (BOOL)loadContents:(id *)arg1;
+- (BOOL)releaseContents:(id *)arg1;
+@property(readonly, nonatomic) PFUbiquityLocation *currentLocation;
+@property(readonly, nonatomic) NSString *transactionLogFilename;
+@property(readonly, nonatomic) NSString *modelVersionHash;
+@property(readonly, nonatomic) NSString *exportingPeerID;
+@property(readonly, nonatomic) NSString *storeName;
+- (id)description;
+- (void)dealloc;
+- (id)initWithStoreName:(id)arg1 andSaveSnapshot:(id)arg2;
+- (id)initWithTransactionLogLocation:(id)arg1 andLocalPeerID:(id)arg2;
+- (id)initWithTransactionLogURL:(id)arg1 ubiquityRootLocation:(id)arg2 andLocalPeerID:(id)arg3;
+- (id)init;
 
 @end
 

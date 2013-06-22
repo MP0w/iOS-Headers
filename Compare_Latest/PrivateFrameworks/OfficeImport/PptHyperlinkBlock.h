@@ -14,10 +14,10 @@
     ESDObject *mTxInteractiveInfoAtomHolder;
 }
 
-- (id)interactiveInfoContainerHolder;
-- (void)setInteractiveInfoContainerHolder:(id)arg1;
-- (struct PptTxInteracInfoAtom *)txtInteractiveInfoAtom;
 - (void)setTxInteractiveInfoAtomHolder:(id)arg1;
+- (struct PptTxInteracInfoAtom *)txtInteractiveInfoAtom;
+- (void)setInteractiveInfoContainerHolder:(id)arg1;
+- (id)interactiveInfoContainerHolder;
 
 @end
 

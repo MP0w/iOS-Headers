@@ -16,11 +16,11 @@
     unsigned int mCrc;
 }
 
-- (id)initFromCentralFileHeader:(const char *)arg1 inputStream:(id)arg2;
-- (void)dealloc;
-- (id)inputStream;
-- (id)data;
 - (void)copyToFile:(id)arg1;
+- (id)data;
+- (id)inputStream;
+- (void)dealloc;
+- (id)initFromCentralFileHeader:(const char *)arg1 inputStream:(id)arg2;
 
 @end
 

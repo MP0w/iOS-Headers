@@ -27,6 +27,7 @@
 - (BOOL)shouldLogAtLevel:(int)arg1;
 
 @optional
+- (BOOL)isPerformanceLoggingEnabled;
 - (id)pushToken;
 - (id)pushTokenForPersonID:(id)arg1;
 - (BOOL)policyMaySendDelete;

@@ -21,37 +21,37 @@
     struct _PFBatchFaultingArrayFlags _flags;
 }
 
-+ (void)initialize;
-+ (BOOL)accessInstanceVariablesDirectly;
-+ (id)alloc;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (id)initWithPFArray:(id)arg1 andRequest:(id)arg2 andContext:(id)arg3;
-- (BOOL)isEqualToArray:(id)arg1;
-- (id)_newSubArrayInRange:(struct _NSRange)arg1 asMutable:(BOOL)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)retain;
-- (oneway void)release;
-- (unsigned int)retainCount;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
-- (void)_turnAllBatchesIntoFaults;
-- (void)getObjects:(id *)arg1;
-- (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
-- (unsigned int)indexOfObject:(id)arg1;
-- (unsigned int)indexOfObject:(id)arg1 inRange:(struct _NSRange)arg2;
-- (unsigned int)indexOfObjectIdenticalTo:(id)arg1;
-- (unsigned int)indexOfObjectIdenticalTo:(id)arg1 inRange:(struct _NSRange)arg2;
-- (unsigned int)indexOfManagedObjectForObjectID:(id)arg1;
-- (id)managedObjectIDAtIndex:(unsigned int)arg1;
-- (id)subarrayWithRange:(struct _NSRange)arg1;
-- (id)arrayFromObjectIDs;
-- (id)newArrayFromObjectIDs;
-- (id)description;
-- (unsigned int)count;
++ (id)alloc;
++ (BOOL)accessInstanceVariablesDirectly;
++ (void)initialize;
 - (id)objectAtIndex:(unsigned int)arg1;
+- (unsigned int)count;
+- (id)description;
+- (id)newArrayFromObjectIDs;
+- (id)arrayFromObjectIDs;
+- (id)subarrayWithRange:(struct _NSRange)arg1;
+- (id)managedObjectIDAtIndex:(unsigned int)arg1;
+- (unsigned int)indexOfManagedObjectForObjectID:(id)arg1;
+- (unsigned int)indexOfObjectIdenticalTo:(id)arg1 inRange:(struct _NSRange)arg2;
+- (unsigned int)indexOfObjectIdenticalTo:(id)arg1;
+- (unsigned int)indexOfObject:(id)arg1 inRange:(struct _NSRange)arg2;
+- (unsigned int)indexOfObject:(id)arg1;
+- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
+- (void)getObjects:(id *)arg1;
+- (void)_turnAllBatchesIntoFaults;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
+- (unsigned int)retainCount;
+- (oneway void)release;
+- (id)retain;
+- (void)dealloc;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_newSubArrayInRange:(struct _NSRange)arg1 asMutable:(BOOL)arg2;
+- (BOOL)isEqualToArray:(id)arg1;
+- (id)initWithPFArray:(id)arg1 andRequest:(id)arg2 andContext:(id)arg3;
 
 @end
 

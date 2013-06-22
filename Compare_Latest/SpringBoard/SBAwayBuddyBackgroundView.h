@@ -10,14 +10,14 @@
 
 @interface SBAwayBuddyBackgroundView : UIView
 {
-    UIImageView *_linenView;
     UIImageView *_titleView;
     UIButton *_infoButton;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)layoutSubviews;
 - (void)setInfoButtonAlpha:(float)arg1;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

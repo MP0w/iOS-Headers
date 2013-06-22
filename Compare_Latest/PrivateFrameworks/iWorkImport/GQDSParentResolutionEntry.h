@@ -14,10 +14,10 @@
     GQDSStyle *mStyle;
 }
 
-- (id)initWithStyle:(id)arg1 parentIdentifier:(const char *)arg2;
-- (void)dealloc;
-- (id)style;
 - (const char *)parentIdentifier;
+- (id)style;
+- (void)dealloc;
+- (id)initWithStyle:(id)arg1 parentIdentifier:(const char *)arg2;
 
 @end
 

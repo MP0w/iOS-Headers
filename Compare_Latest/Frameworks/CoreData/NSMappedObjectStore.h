@@ -14,32 +14,32 @@
     NSSet *_entitiesToFetch;
 }
 
-- (id)init;
-- (id)initWithPersistentStoreCoordinator:(id)arg1 configurationName:(id)arg2 URL:(id)arg3 options:(id)arg4;
-- (void)dealloc;
-- (id)_theMap;
-- (void)_setMap:(id)arg1;
-- (id)dataForKey:(id)arg1;
-- (id)_pathFromURI:(id)arg1;
-- (void)save;
-- (void)saveDocumentToPath:(id)arg1;
-- (id)executeRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
-- (id)executeFetchRequest:(id)arg1 withContext:(id)arg2;
-- (id)executeCountRequest:(id)arg1 withContext:(id)arg2;
-- (id)executeSaveChangesRequest:(id)arg1 withContext:(id)arg2;
-- (id)newValuesForObjectWithID:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
-- (id)newValueForRelationship:(id)arg1 forObjectWithID:(id)arg2 withContext:(id)arg3 error:(id *)arg4;
-- (id)obtainPermanentIDsForObjects:(id)arg1 error:(id *)arg2;
-- (id)getNewIDForObject:(id)arg1;
-- (void)_addObject:(id)arg1 objectIDMap:(id)arg2;
-- (void)_removeObject:(id)arg1 objectIDMap:(id)arg2;
-- (void)_updateObject:(id)arg1 objectIDMap:(id)arg2;
-- (void)managedObjectContextDidRegisterObjectsWithIDs:(id)arg1;
-- (void)managedObjectContextDidUnregisterObjectsWithIDs:(id)arg1;
-- (id)identifier;
-- (id)_rawMetadata__;
-- (id)metadata;
 - (void)setMetadata:(id)arg1;
+- (id)metadata;
+- (id)_rawMetadata__;
+- (id)identifier;
+- (void)managedObjectContextDidUnregisterObjectsWithIDs:(id)arg1;
+- (void)managedObjectContextDidRegisterObjectsWithIDs:(id)arg1;
+- (void)_updateObject:(id)arg1 objectIDMap:(id)arg2;
+- (void)_removeObject:(id)arg1 objectIDMap:(id)arg2;
+- (void)_addObject:(id)arg1 objectIDMap:(id)arg2;
+- (id)getNewIDForObject:(id)arg1;
+- (id)obtainPermanentIDsForObjects:(id)arg1 error:(id *)arg2;
+- (id)newValueForRelationship:(id)arg1 forObjectWithID:(id)arg2 withContext:(id)arg3 error:(id *)arg4;
+- (id)newValuesForObjectWithID:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
+- (id)executeSaveChangesRequest:(id)arg1 withContext:(id)arg2;
+- (id)executeCountRequest:(id)arg1 withContext:(id)arg2;
+- (id)executeFetchRequest:(id)arg1 withContext:(id)arg2;
+- (id)executeRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
+- (void)saveDocumentToPath:(id)arg1;
+- (void)save;
+- (id)_pathFromURI:(id)arg1;
+- (id)dataForKey:(id)arg1;
+- (void)_setMap:(id)arg1;
+- (id)_theMap;
+- (void)dealloc;
+- (id)initWithPersistentStoreCoordinator:(id)arg1 configurationName:(id)arg2 URL:(id)arg3 options:(id)arg4;
+- (id)init;
 
 @end
 

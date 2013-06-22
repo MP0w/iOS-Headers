@@ -13,11 +13,12 @@
     SBAppContextHostManager *_manager;
 }
 
-- (id)initWithDefaultSize;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)description;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 @property(nonatomic) SBAppContextHostManager *manager; // @synthesize manager=_manager;
+- (id)window;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (id)description;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithDefaultSize;
 
 @end
 

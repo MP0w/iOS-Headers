@@ -22,23 +22,23 @@
     ABSwellTextView *_parent;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-@property(nonatomic) BOOL disallowsSetContentOffset; // @synthesize disallowsSetContentOffset=_disallowsSetContentOffset;
-- (void)_secretSetFrame:(struct CGRect)arg1;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)setContentOffset:(struct CGPoint)arg1;
-- (void)setContentSize:(struct CGSize)arg1;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_isHighlighted;
-- (void)setTextColor:(id)arg1;
-- (BOOL)becomeFirstResponder;
-- (void)_beginPinningInputViews;
-- (void)_endPinningInputViews;
-- (void)_updateStylesheet;
-@property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
 @property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
+@property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
+@property(nonatomic) BOOL disallowsSetContentOffset; // @synthesize disallowsSetContentOffset=_disallowsSetContentOffset;
 @property(retain, nonatomic) UIColor *highlightedTextColor; // @synthesize highlightedTextColor=_highlightedTextColor;
+@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_isHighlighted;
 @property(nonatomic) ABSwellTextView *parent; // @synthesize parent=_parent;
+- (void)_updateStylesheet;
+- (void)_endPinningInputViews;
+- (void)_beginPinningInputViews;
+- (BOOL)becomeFirstResponder;
+- (void)setTextColor:(id)arg1;
+- (void)setContentSize:(struct CGSize)arg1;
+- (void)setContentOffset:(struct CGPoint)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)_secretSetFrame:(struct CGRect)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -9,12 +9,12 @@
 #import "UIKeyboardCandidateList-Protocol.h"
 #import "UIKeyboardCandidateListDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSString, UIKeyboardCandidateBarBackgroundView, UIKeyboardCandidateExtended, UIScrollView;
+@class NSArray, NSMutableArray, NSString, UIImageView, UIScrollView;
 
 @interface UIKeyboardCandidateBar : UIView <UIKeyboardCandidateList, UIKeyboardCandidateListDelegate>
 {
     id <UIKeyboardCandidateListDelegate> m_delegate;
-    UIKeyboardCandidateBarBackgroundView *m_cellsContainerView;
+    UIScrollView *m_scrollView;
     NSArray *m_candidates;
     NSArray *m_allCandidates;
     NSString *m_inlineText;
@@ -22,26 +22,20 @@
     unsigned int m_currentCandidateIndex;
     struct CGRect m_inlineRect;
     float m_maxX;
-    BOOL m_largeUIShowing;
-    UIKeyboardCandidateExtended *m_extendedCandidatesView;
-    UIScrollView *m_scrollView;
-    UIView *m_extendedButton;
-    UIView *m_shadowView;
-    BOOL m_minimized;
-    BOOL m_animating;
+    UIImageView *m_candidateMaskView;
+    BOOL m_canExtend;
 }
 
++ (float)defaultCandidateWidth;
 + (float)candidateBarHeight;
-+ (id)activeInstance;
-+ (id)sharedInstance;
-@property(nonatomic, getter=isAnimating) BOOL animating; // @synthesize animating=m_animating;
-@property(nonatomic, getter=isMinimized) BOOL minimized; // @synthesize minimized=m_minimized;
-@property(retain, nonatomic) UIKeyboardCandidateExtended *extendedCandidatesView; // @synthesize extendedCandidatesView=m_extendedCandidatesView;
-@property(retain, nonatomic) UIKeyboardCandidateBarBackgroundView *cellsContainerView; // @synthesize cellsContainerView=m_cellsContainerView;
-- (id).cxx_construct;
-- (void)_hideExtendedCandidatesViewWithAnimation:(BOOL)arg1;
-- (void)_showExtendedCandidatesView;
+@property(readonly, nonatomic) UIImageView *candidateMaskView; // @synthesize candidateMaskView=m_candidateMaskView;
+@property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=m_scrollView;
+@property(readonly, nonatomic) NSString *inlineText; // @synthesize inlineText=m_inlineText;
+@property(retain, nonatomic) NSArray *candidates; // @synthesize candidates=m_candidates;
+@property BOOL canExtend; // @synthesize canExtend=m_canExtend;
 - (void)_forceLayoutTo:(unsigned int)arg1;
+- (void)layoutSubviews;
+- (void)setFrame:(struct CGRect)arg1;
 - (BOOL)_addCells:(int)arg1;
 - (void)_bgAddCells:(id)arg1;
 - (struct CGSize)screenSpaceBetweenStatusBarAndKeyboard;
@@ -57,18 +51,24 @@
 - (id)candidateAtIndex:(unsigned int)arg1;
 - (unsigned int)currentIndex;
 - (id)currentCandidate;
-- (void)showPreviousPage;
+- (BOOL)hasNextPage;
+- (BOOL)hasPreviousPage;
 - (void)showNextPage;
+- (void)showPreviousPage;
+- (float)_selectCandidateClosestToPageOffset:(float)arg1 withForwardPagingDirection:(BOOL)arg2;
 - (void)showPageAtIndex:(unsigned int)arg1;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
+- (void)showCandidate:(id)arg1;
 - (void)_setCurrentCandidateIndex:(unsigned int)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
-- (void)layout;
+- (void)candidatesDidChange;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
+@property(nonatomic) unsigned int selectedCandidateIndex; // @synthesize selectedCandidateIndex=m_currentCandidateIndex;
+- (void)layoutCells;
+- (void)layout;
 - (void)dealloc;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

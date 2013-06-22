@@ -24,13 +24,19 @@
     BezelView *_backgroundView;
     unsigned int _imageCount;
     BOOL _scrubbing;
+    UIView *_accessoryView;
     BOOL _deferImageLoading;
     BOOL _loadImagesSynchronously;
     int _currentRotationDegrees;
+    float _horizontalInsetMargin;
+    float _vertialInsetMargin;
 }
 
 + (id)_shadowImage;
 + (id)_backgroundImage;
+@property(nonatomic) float horizontalInsetMargin; // @synthesize horizontalInsetMargin=_horizontalInsetMargin;
+@property(nonatomic) float vertialInsetMargin; // @synthesize vertialInsetMargin=_vertialInsetMargin;
+@property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 - (int)displayedImageIndex;
 - (void)setDisplayedImageIndex:(int)arg1;
 - (void)_setDisplayedImageIndex:(id)arg1;

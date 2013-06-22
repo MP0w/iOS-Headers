@@ -14,12 +14,12 @@
     } _rwLock;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)wrlock;
-- (int)tryrdlock;
-- (void)rdlock;
 - (void)unlock;
+- (void)rdlock;
+- (int)tryrdlock;
+- (void)wrlock;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -11,8 +11,8 @@
     CDStruct_d18cc6b1 _notchInfo;
 }
 
-- (id)initWithNotchInfo:(CDStruct_d18cc6b1)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+- (id)initWithNotchInfo:(CDStruct_d18cc6b1)arg1;
 
 @end
 

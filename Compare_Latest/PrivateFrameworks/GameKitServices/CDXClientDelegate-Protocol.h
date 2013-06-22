@@ -5,7 +5,7 @@
  */
 
 @protocol CDXClientDelegate
-- (void)CDXClient:(id)arg1 preblob:(id)arg2;
 - (void)CDXClient:(id)arg1 error:(id)arg2;
+- (void)CDXClient:(id)arg1 preblob:(id)arg2;
 @end
 

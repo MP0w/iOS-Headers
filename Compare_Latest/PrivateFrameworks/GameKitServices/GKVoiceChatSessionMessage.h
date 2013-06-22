@@ -6,25 +6,25 @@
 
 #import <GameKitServices/GKOOBMessage.h>
 
-@class NSMutableData;
+@class NSData;
 
 @interface GKVoiceChatSessionMessage : GKOOBMessage
 {
-    NSMutableData *_data;
+    NSData *_data;
     unsigned int _conferenceID;
     unsigned int _subtype;
 }
 
-- (id)init;
-- (id)initWithBytes:(void *)arg1 length:(unsigned long)arg2;
-- (id)initWithPayload:(id)arg1 conferenceID:(unsigned int)arg2 subtype:(unsigned int)arg3;
-- (void)dealloc;
-- (id)data;
-- (id)payload;
-- (unsigned int)subtype;
-- (BOOL)_checkType:(unsigned short)arg1;
-- (BOOL)_checkSize:(unsigned long)arg1;
 - (unsigned int)conferenceID;
+- (BOOL)_checkSize:(unsigned long)arg1;
+- (BOOL)_checkType:(unsigned short)arg1;
+- (unsigned int)subtype;
+- (id)payload;
+- (id)data;
+- (void)dealloc;
+- (id)initWithPayload:(id)arg1 conferenceID:(unsigned int)arg2 subtype:(unsigned int)arg3;
+- (id)initWithBytes:(const void *)arg1 length:(unsigned long)arg2;
+- (id)init;
 
 @end
 

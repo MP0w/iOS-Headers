@@ -13,10 +13,10 @@
 }
 
 + (char *)generatedNameSuffix;
-- (id)initWithObject:(id)arg1;
-- (void)dealloc;
-- (id)_retainedURIString;
 - (id)_referenceData;
+- (id)_retainedURIString;
+- (void)dealloc;
+- (id)initWithObject:(id)arg1;
 
 @end
 

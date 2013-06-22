@@ -18,11 +18,11 @@
     BOOL _isFirstSection;
 }
 
-- (id)initWithAttributes:(id)arg1;
-- (void)setSectionIsFirst:(BOOL)arg1;
-- (void)layoutSubviews;
-- (float)headerHeightForWidth:(float)arg1 inTableView:(id)arg2;
 - (void)dealloc;
+- (float)headerHeightForWidth:(float)arg1 inTableView:(id)arg2;
+- (void)layoutSubviews;
+- (void)setSectionIsFirst:(BOOL)arg1;
+- (id)initWithAttributes:(id)arg1;
 
 @end
 

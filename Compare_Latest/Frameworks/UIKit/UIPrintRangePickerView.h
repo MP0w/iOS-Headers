@@ -11,7 +11,6 @@
     float _shift;
 }
 
-- (id)table:(id)arg1 cellForRow:(int)arg2 column:(id)arg3 reusing:(id)arg4;
 - (void)setFrame:(struct CGRect)arg1;
 - (float)_wheelShift;
 

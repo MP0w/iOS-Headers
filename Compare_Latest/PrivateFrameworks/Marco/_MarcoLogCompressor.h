@@ -21,8 +21,6 @@
 - (void)compressDirectory:(id)arg1 intoArchive:(id)arg2;
 - (void)dealloc;
 - (id)init;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

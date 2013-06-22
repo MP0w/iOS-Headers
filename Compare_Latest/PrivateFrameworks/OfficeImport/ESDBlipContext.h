@@ -16,10 +16,10 @@
     unsigned int mByteCount;
 }
 
-- (id)initWithOffset:(unsigned int)arg1 byteCount:(unsigned int)arg2 stream:(struct SsrwOOStream *)arg3 streamID:(unsigned int)arg4;
-- (_Bool)saveDelayedMedia:(id)arg1 toFile:(id)arg2;
-- (_Bool)loadDelayedNode:(id)arg1;
 - (struct SsrwOOStream *)stream;
+- (_Bool)loadDelayedNode:(id)arg1;
+- (_Bool)saveDelayedMedia:(id)arg1 toFile:(id)arg2;
+- (id)initWithOffset:(unsigned int)arg1 byteCount:(unsigned int)arg2 stream:(struct SsrwOOStream *)arg3 streamID:(unsigned int)arg4;
 
 @end
 

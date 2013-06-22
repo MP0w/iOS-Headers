@@ -12,13 +12,13 @@
 {
 }
 
-@property(copy) NSString *align;
-@property(copy) NSString *ch;
-@property(copy) NSString *chOff;
-@property(copy) NSString *vAlign;
-@property(readonly, retain) DOMHTMLCollection *rows;
-- (id)insertRow:(int)arg1;
 - (void)deleteRow:(int)arg1;
+- (id)insertRow:(int)arg1;
+@property(readonly) DOMHTMLCollection *rows;
+@property(copy) NSString *vAlign;
+@property(copy) NSString *chOff;
+@property(copy) NSString *ch;
+@property(copy) NSString *align;
 
 @end
 

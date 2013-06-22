@@ -33,9 +33,16 @@
     NSArray *_emailAddresses;
     NSDictionary *_photos;
     NSArray *_friends;
+    BOOL _allowMultiplayerInvites;
+    NSString *_facebookUserID;
+    NSString *_twitterUserID;
 }
 
++ (id)fullNameWithFirstName:(id)arg1 lastName:(id)arg2;
 + (id)codedPropertyKeys;
+@property(retain, nonatomic) NSString *twitterUserID; // @synthesize twitterUserID=_twitterUserID;
+@property(retain, nonatomic) NSString *facebookUserID; // @synthesize facebookUserID=_facebookUserID;
+@property(nonatomic) BOOL allowMultiplayerInvites; // @synthesize allowMultiplayerInvites=_allowMultiplayerInvites;
 @property(retain, nonatomic) NSArray *friends; // @synthesize friends=_friends;
 @property(retain, nonatomic) NSDictionary *photos; // @synthesize photos=_photos;
 @property(retain, nonatomic) NSArray *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
@@ -59,7 +66,9 @@
 @property(retain, nonatomic) NSString *status; // @synthesize status=_status;
 @property(retain, nonatomic) NSString *alias; // @synthesize alias=_alias;
 @property(retain, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
-- (id)description;
+- (id)displayName;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)serverRepresentation;
 - (void)dealloc;
 

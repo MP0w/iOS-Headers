@@ -10,6 +10,8 @@
 {
 }
 
+- (BOOL)dismissOnLock;
+- (BOOL)shouldShowInLockScreen;
 - (void)didDeactivateForReason:(int)arg1;
 
 @end

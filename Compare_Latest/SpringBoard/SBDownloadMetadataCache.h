@@ -14,14 +14,14 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)_ensureMetadataCachedForDownload:(id)arg1;
-- (id)softwareTypeForDownload:(id)arg1;
-- (id)titleForDownload:(id)arg1;
-- (id)bundleIdentifierForDownload:(id)arg1;
-- (id)applicationIdentifierForDownload:(id)arg1;
-- (BOOL)artworkIsPrerenderedForDownload:(id)arg1;
 - (void)downloadRemoved:(id)arg1;
+- (BOOL)artworkIsPrerenderedForDownload:(id)arg1;
+- (id)applicationIdentifierForDownload:(id)arg1;
+- (id)bundleIdentifierForDownload:(id)arg1;
+- (id)titleForDownload:(id)arg1;
+- (id)softwareTypeForDownload:(id)arg1;
+- (void)_ensureMetadataCachedForDownload:(id)arg1;
+- (id)init;
 
 @end
 

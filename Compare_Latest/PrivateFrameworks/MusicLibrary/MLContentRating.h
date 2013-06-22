@@ -15,6 +15,7 @@
     NSMutableDictionary *_dictionary;
 }
 
+- (void).cxx_destruct;
 - (void)_setValueCopy:(id)arg1 forKey:(id)arg2;
 - (void)_setValue:(id)arg1 forKey:(id)arg2;
 - (id)copyStringRepresentation;
@@ -24,7 +25,6 @@
 @property(copy, nonatomic) NSString *ratingLabel;
 @property(copy, nonatomic) NSString *ratingDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithContentRatingDictionary:(id)arg1;
 - (id)init;
 

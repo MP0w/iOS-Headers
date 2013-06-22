@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVMediaFileType, AVWeakReference, NSString;
+@class AVMediaFileType, AVWeakReference, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVFigAssetWriterTrack : NSObject
 {
@@ -15,18 +15,24 @@
     int _trackID;
     NSString *_mediaType;
     AVMediaFileType *_mediaFileType;
-    struct dispatch_queue_s *_aboveHighWaterLevelQueue;
+    NSObject<OS_dispatch_queue> *_aboveHighWaterLevelQueue;
     BOOL _aboveHighWaterLevel;
     CDStruct_1b6d18a9 _sampleBufferCoalescingInterval;
 }
 
-+ (id)assetWriterTrackWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 outputSettings:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
++ (id)assetWriterTrackWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 formatSpecification:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
 @property(readonly, nonatomic) AVMediaFileType *mediaFileType; // @synthesize mediaFileType=_mediaFileType;
 @property(readonly, nonatomic) NSString *mediaType; // @synthesize mediaType=_mediaType;
 @property(readonly, nonatomic) int trackID; // @synthesize trackID=_trackID;
 @property(readonly, nonatomic) struct OpaqueFigAssetWriter *figAssetWriter; // @synthesize figAssetWriter=_figAssetWriter;
 @property(nonatomic) CDStruct_1b6d18a9 sampleBufferCoalescingInterval; // @synthesize sampleBufferCoalescingInterval=_sampleBufferCoalescingInterval;
-- (int)_attachToFigAssetWriterUsingOutputSettings:(id)arg1 sourcePixelBufferAttributes:(id)arg2 error:(id *)arg3;
+- (int)_attachToFigAssetWriterUsingFormatSpecification:(id)arg1 sourcePixelBufferAttributes:(id)arg2 error:(id *)arg3;
+- (void)setExcludeFromAutoSelection:(BOOL)arg1;
+- (void)setAlternateGroupID:(short)arg1;
+- (void)setMarksOutputTrackAsEnabled:(BOOL)arg1;
+- (void)setExtendedLanguageTag:(id)arg1;
+- (void)setLanguageCode:(id)arg1;
+- (void)setFigDimensions:(id)arg1;
 - (void)setMediaTimeScale:(int)arg1;
 - (void)setFigTrackMatrix:(id)arg1;
 - (void)setFigMetadata:(id)arg1;
@@ -40,7 +46,7 @@
 @property(readonly, nonatomic) struct __CVPixelBufferPool *pixelBufferPool;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 outputSettings:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
+- (id)initWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 formatSpecification:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
 - (id)init;
 
 @end

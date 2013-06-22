@@ -16,6 +16,7 @@
     AVAudioMixInternal *_audioMix;
 }
 
+- (struct opaqueMTAudioProcessingTap *)_audioTapProcessorForTrackID:(int)arg1;
 - (id)_audioVolumeCurveForTrackID:(int)arg1;
 - (void)setInputParameters:(id)arg1;
 @property(readonly, nonatomic) NSArray *inputParameters;

@@ -12,8 +12,9 @@
 {
 }
 
+@property(readonly) DOMDocument *document;
 - (void)dealloc;
-@property(readonly, retain) DOMDocument *document;
+- (void)_disconnectFrame;
 
 @end
 

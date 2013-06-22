@@ -24,6 +24,8 @@
     BOOL _isFilePackage;
     NSString *_lastRequestedChildName;
     NSFileAccessNode *_lastRequestedChild;
+    id _progressPublisherOrPublishers;
+    id _progressSubscriberOrSubscribers;
 }
 
 - (id)description;
@@ -31,6 +33,16 @@
 - (void)assertDescendantsLive;
 - (void)assertLive;
 - (void)assertDead;
+- (id)parent;
+- (void)forEachProgressThingOfItemOrContainedItemPerformProcedure:(id)arg1;
+- (void)forEachProgressSubscriberOfItemOrContainingItemPerformProcedure:(id)arg1;
+- (void)forEachProgressSubscriberOfItemPerformProcedure:(id)arg1;
+- (void)forEachProgressPublisherOfItemOrContainedItemPerformProcedure:(id)arg1;
+- (void)forEachProgressPublisherOfItemPerformProcedure:(id)arg1;
+- (void)removeProgressSubscriber:(id)arg1;
+- (void)addProgressSubscriber:(id)arg1;
+- (void)removeProgressPublisher:(id)arg1;
+- (void)addProgressPublisher:(id)arg1;
 - (id)standardizedURL;
 - (id)pathExceptPrivate;
 - (id)url;

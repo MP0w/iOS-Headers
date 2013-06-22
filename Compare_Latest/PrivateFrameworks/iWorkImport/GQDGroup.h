@@ -17,9 +17,9 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (struct __CFArray *)drawables;
 - (id)externalTextWrap;
+- (struct __CFArray *)drawables;
+- (void)dealloc;
 
 @end
 

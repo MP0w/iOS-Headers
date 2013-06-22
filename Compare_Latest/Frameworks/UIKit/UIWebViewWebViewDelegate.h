@@ -35,6 +35,7 @@
 - (void)webView:(id)arg1 didClearWindowObject:(id)arg2 forFrame:(id)arg3;
 - (id)webView:(id)arg1 resource:(id)arg2 willSendRequest:(id)arg3 redirectResponse:(id)arg4 fromDataSource:(id)arg5;
 - (id)webView:(id)arg1 connectionPropertiesForResource:(id)arg2 dataSource:(id)arg3;
+- (void)webViewSupportedOrientationsUpdated:(id)arg1;
 - (void)webView:(id)arg1 didReceiveTitle:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 didCommitLoadForFrame:(id)arg2;
 - (void)webView:(id)arg1 didStartProvisionalLoadForFrame:(id)arg2;

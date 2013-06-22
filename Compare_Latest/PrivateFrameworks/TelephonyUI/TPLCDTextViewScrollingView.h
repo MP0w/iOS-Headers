@@ -13,9 +13,9 @@
     TPLCDTextView *_owner;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 owner:(id)arg2;
-- (void)setOwner:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)setOwner:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 owner:(id)arg2;
 
 @end
 

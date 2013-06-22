@@ -17,10 +17,11 @@
     struct CGSize mPageSize;
 }
 
-- (id)initWithRows:(id)arg1 fileName:(id)arg2 columnCount:(unsigned int)arg3 archiver:(id)arg4;
-- (void)dealloc;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id).cxx_construct;
 - (struct CGSize)pageSize;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (void)dealloc;
+- (id)initWithRows:(id)arg1 fileName:(id)arg2 columnCount:(unsigned int)arg3 archiver:(id)arg4;
 
 @end
 

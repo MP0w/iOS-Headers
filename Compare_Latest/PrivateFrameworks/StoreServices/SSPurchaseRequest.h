@@ -6,17 +6,14 @@
 
 #import <StoreServices/SSRequest.h>
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
-@class NSArray, NSMutableIndexSet, SSXPCConnection;
+@class NSArray;
 
-@interface SSPurchaseRequest : SSRequest <SSCoding>
+@interface SSPurchaseRequest : SSRequest <SSXPCCoding>
 {
-    NSMutableIndexSet *_acknowledgedPurchases;
     BOOL _isBackgroundRequest;
     NSArray *_purchases;
-    SSXPCConnection *_requestConnection;
-    SSXPCConnection *_responseConnection;
     BOOL _shouldValidatePurchases;
     BOOL _needsAuthentication;
 }
@@ -24,20 +21,13 @@
 @property(nonatomic) BOOL shouldValidatePurchases; // @synthesize shouldValidatePurchases=_shouldValidatePurchases;
 @property(nonatomic) BOOL needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;
 @property(nonatomic, getter=isBackgroundRequest) BOOL backgroundRequest; // @synthesize backgroundRequest=_isBackgroundRequest;
-- (void)_sendError:(id)arg1 forPurchase:(id)arg2;
 - (id)_purchaseForUniqueIdentifier:(id)arg1;
-- (void)_purchaseFinishedNotification:(id)arg1;
-- (void)_purchaseFailedNotification:(id)arg1;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)startWithCompletionBlock:(id)arg1;
+- (BOOL)start;
 - (void)startWithPurchaseBlock:(id)arg1 completionBlock:(void)arg2;
-- (void)unregisterForDaemonNotifications;
-- (void)registerForDaemonNotifications;
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (void)handleDaemonExit;
 @property(readonly) NSArray *purchases;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
 - (void)dealloc;
 - (id)initWithPurchases:(id)arg1;
 - (id)init;

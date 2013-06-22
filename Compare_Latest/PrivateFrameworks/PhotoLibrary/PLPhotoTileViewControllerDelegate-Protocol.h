@@ -4,9 +4,12 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@protocol PLPhotoTileViewControllerDelegate
+#import "NSObject-Protocol.h"
+
+@protocol PLPhotoTileViewControllerDelegate <NSObject>
 - (void)photoTileViewControllerDidEndGesture:(id)arg1;
 - (void)photoTileViewControllerWillBeginGesture:(id)arg1;
+- (void)photoTileViewControllerDoubleTap:(id)arg1;
 - (void)photoTileViewControllerSingleTap:(id)arg1;
 - (void)photoTileViewControllerCancelImageRequests:(id)arg1;
 - (void)photoTileViewControllerRequestsFullSizeImage:(id)arg1;
@@ -16,6 +19,9 @@
 - (void)photoTileViewController:(id)arg1 willAppear:(BOOL)arg2;
 
 @optional
+- (void)photoTileViewController:(id)arg1 commentsControllerWillBeginScrolling:(id)arg2;
+- (void)photoTileViewController:(id)arg1 didExitEditModeInCommentsController:(id)arg2;
+- (void)photoTileViewController:(id)arg1 willEnterEditModeInCommentsController:(id)arg2;
 - (void)photoTileViewControllerDidSetHDRTypeForPhoto:(id)arg1;
 - (BOOL)isPhotoTileParentPageControllerAnimating:(id)arg1;
 - (BOOL)photoTileViewControllerAllowsEditing:(id)arg1;

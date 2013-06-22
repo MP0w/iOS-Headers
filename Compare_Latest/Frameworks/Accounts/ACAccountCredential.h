@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSString;
+@class NSDate, NSMutableDictionary, NSString;
 
 @interface ACAccountCredential : NSObject
 {
@@ -14,22 +14,34 @@
     NSString *_credentialType;
 }
 
++ (id)nonPersistentCredentialItemsForType:(id)arg1;
 + (id)keysForType:(id)arg1;
 + (id)credentialWithPassword:(id)arg1;
 + (id)credentialWithOAuthToken:(id)arg1 tokenSecret:(id)arg2;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *credentialType;
+@property(copy, nonatomic) NSString *appleidMadridToken;
+@property(copy, nonatomic) NSString *appleidGameCenterToken;
+@property(copy, nonatomic) NSString *appleidFacetimeToken;
+@property(copy, nonatomic) NSString *appleidiCloudToken;
 @property(copy, nonatomic) NSString *password;
+@property(retain, nonatomic) NSDate *expiryDate;
+@property(copy, nonatomic) NSString *oauthRefreshToken;
 @property(copy, nonatomic) NSString *oauthTokenSecret;
 @property(copy, nonatomic) NSString *oauthToken;
 - (void)setCredentialItem:(id)arg1 forKey:(id)arg2;
 - (id)credentialItemForKey:(id)arg1;
 - (id)keysForCredentialItems;
-- (void)dealloc;
+- (id)credentialItems;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
+- (id)initWithAppleIDiCloudToken:(id)arg1 facetimeToken:(id)arg2 madridToken:(id)arg3 gamecenterToken:(id)arg4;
 - (id)initWithPassword:(id)arg1;
 - (id)initWithOAuthToken:(id)arg1 tokenSecret:(id)arg2;
+- (id)initWithOAuth2Token:(id)arg1 refreshToken:(id)arg2 expiryDate:(id)arg3;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 
 @end
 

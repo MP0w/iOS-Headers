@@ -10,24 +10,24 @@
 
 @interface SBCallFailureAlert : SBAlert
 {
-    int _causeCode;
+    long _causeCode;
     NSString *_address;
     int _uid;
     struct __CTCall *_call;
 }
 
-+ (BOOL)shouldDisplayForCauseCode:(long)arg1 modemCauseCode:(long)arg2;
-+ (void)activateForCall:(struct __CTCall *)arg1 causeCode:(long)arg2;
 + (void)test;
-- (id)initWithCauseCode:(long)arg1 call:(struct __CTCall *)arg2;
-- (void)dealloc;
-- (void)activateWhenPossible;
-- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (long)causeCode;
-- (struct __CTCall *)call;
-- (id)callAddress;
-- (int)addressBookUID;
++ (void)activateForCall:(struct __CTCall *)arg1 causeCode:(long)arg2;
++ (BOOL)shouldDisplayForCauseCode:(long)arg1 modemCauseCode:(long)arg2;
 - (void)setCallAddress:(id)arg1;
+- (int)addressBookUID;
+- (id)callAddress;
+- (struct __CTCall *)call;
+- (long)causeCode;
+- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
+- (void)activateWhenPossible;
+- (void)dealloc;
+- (id)initWithCauseCode:(long)arg1 call:(struct __CTCall *)arg2;
 
 @end
 

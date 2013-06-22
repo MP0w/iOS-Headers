@@ -13,10 +13,10 @@
     PSListController *_parent;
 }
 
-- (void)load;
-- (void)unload;
-- (id)specifiersWithSpecifier:(id)arg1;
 - (id)initWithParentListController:(id)arg1;
+- (id)specifiersWithSpecifier:(id)arg1;
+- (void)unload;
+- (void)load;
 
 @end
 

@@ -14,30 +14,29 @@
     FTRegConnectionHandler *_connectionHandler;
 }
 
-- (id)initWithAccount:(id)arg1;
-- (void)dealloc;
-- (id)specifiers;
-- (id)bundle;
-- (BOOL)canBeShownFromSuspendedState;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (id)specifierForAlias:(id)arg1;
-- (void)killImagent;
-- (BOOL)isConnectedToDaemon;
-- (id)accountLoginStatus:(id)arg1;
-- (id)registrationStatus:(id)arg1;
-- (id)accountLogin:(id)arg1;
-- (id)accountType:(id)arg1;
-- (id)statusForAlias:(id)arg1;
-- (id)accountDisplayName:(id)arg1;
-- (id)registrationFailureReason:(id)arg1;
-- (id)accountIsActive:(id)arg1;
-- (void)_startListeningForNotifications;
-- (void)_stopListeningForNotifications;
-- (void)_handleDaemonDisconnected:(id)arg1;
-- (void)_handleDaemonConnected:(id)arg1;
-- (void)_handleAccountNotification:(id)arg1;
 @property(retain, nonatomic) IMAccount *account; // @synthesize account=_account;
+- (void)_handleAccountNotification:(id)arg1;
+- (void)_handleDaemonConnected:(id)arg1;
+- (void)_handleDaemonDisconnected:(id)arg1;
+- (void)_stopListeningForNotifications;
+- (void)_startListeningForNotifications;
+- (id)accountIsActive:(id)arg1;
+- (id)registrationFailureReason:(id)arg1;
+- (id)accountDisplayName:(id)arg1;
+- (id)statusForAlias:(id)arg1;
+- (id)accountType:(id)arg1;
+- (id)accountLogin:(id)arg1;
+- (id)registrationStatus:(id)arg1;
+- (id)accountLoginStatus:(id)arg1;
+- (BOOL)isConnectedToDaemon;
+- (id)specifierForAlias:(id)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (BOOL)canBeShownFromSuspendedState;
+- (id)bundle;
+- (id)specifiers;
+- (void)dealloc;
+- (id)initWithAccount:(id)arg1;
 
 @end
 

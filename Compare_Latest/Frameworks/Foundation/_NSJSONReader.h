@@ -12,33 +12,14 @@
 {
     id input;
     int kind;
-    char *buf;
-    unsigned int options;
     NSError *error;
-    unsigned int bufLength;
-    unsigned int idx;
-    struct {
-        char *location;
-        unsigned int length;
-        id value;
-        unsigned int hash;
-    } cache[256];
 }
 
 + (BOOL)validForJSON:(id)arg1 depth:(unsigned int)arg2 allowFragments:(BOOL)arg3;
 - (id)parseStream:(id)arg1 options:(unsigned int)arg2;
 - (id)parseData:(id)arg1 options:(unsigned int)arg2;
 - (unsigned int)findEncodingFromData:(id)arg1 withBOMSkipLength:(unsigned int *)arg2;
-- (id)parseUTF8JSONData:(id)arg1 skipBytes:(unsigned int)arg2;
-- (id)newJSONObject;
-- (id)newJSONArray;
-- (id)newJSONValue;
-- (BOOL)skipJSONWhitespace;
-- (id)newJSONBooleanOrNull;
-- (id)newJSONString;
-- (unsigned short)parseJSONUnicodePointAtLocation:(unsigned int)arg1 end:(unsigned int)arg2;
-- (id)newJSONNumber;
-- (id)newJSONNumberAtPosition:(unsigned int)arg1;
+- (id)parseUTF8JSONData:(id)arg1 skipBytes:(unsigned int)arg2 options:(unsigned int)arg3;
 - (void)setError:(id)arg1;
 - (id)error;
 - (void)dealloc;

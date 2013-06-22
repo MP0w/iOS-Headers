@@ -9,9 +9,9 @@
 @protocol GKSessionDelegate <NSObject>
 
 @optional
-- (void)session:(id)arg1 peer:(id)arg2 didChangeState:(int)arg3;
-- (void)session:(id)arg1 didReceiveConnectionRequestFromPeer:(id)arg2;
-- (void)session:(id)arg1 connectionWithPeerFailed:(id)arg2 withError:(id)arg3;
 - (void)session:(id)arg1 didFailWithError:(id)arg2;
+- (void)session:(id)arg1 connectionWithPeerFailed:(id)arg2 withError:(id)arg3;
+- (void)session:(id)arg1 didReceiveConnectionRequestFromPeer:(id)arg2;
+- (void)session:(id)arg1 peer:(id)arg2 didChangeState:(int)arg3;
 @end
 

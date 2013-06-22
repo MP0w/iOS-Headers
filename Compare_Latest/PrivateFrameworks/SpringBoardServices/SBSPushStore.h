@@ -14,22 +14,23 @@
     NSHashTable *_observers;
 }
 
-+ (void)initialize;
-+ (id)pushStoreForBundleID:(id)arg1;
-+ (id)notificationsForBundleID:(id)arg1;
-+ (id)bundleIDsWithUpdatesSince:(id)arg1;
-+ (id)allNotificationEnabledBundleIDs;
-+ (unsigned int)effectivePushSettingsForBundleID:(id)arg1;
 + (void)setEffectivePushSettings:(unsigned int)arg1 forBundleID:(id)arg2;
-- (id)initWithBundleID:(id)arg1;
-- (void)addObserver:(id)arg1;
-- (void)removeObserver:(id)arg1;
-- (void)notifyPushStoreUpdated;
-- (void)notifyPushStoreCleared;
-- (void)notifyPushSettingsChanged;
-- (void)notifyPushDeliveryAccepted;
-- (id)storedNotifications;
++ (unsigned int)effectivePushSettingsForBundleID:(id)arg1;
++ (id)allNotificationEnabledBundleIDs;
++ (id)bundleIDsWithUpdatesSince:(id)arg1;
++ (id)notificationsForBundleID:(id)arg1;
++ (id)uniqueIdentifierForNotification:(id)arg1;
++ (id)pushStoreForBundleID:(id)arg1;
++ (void)initialize;
 - (void)dealloc;
+- (id)storedNotifications;
+- (void)notifyPushDeliveryAccepted;
+- (void)notifyPushSettingsChanged;
+- (void)notifyPushStoreCleared;
+- (void)notifyPushStoreUpdated;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
+- (id)initWithBundleID:(id)arg1;
 
 @end
 

@@ -30,8 +30,6 @@
 - (void)dealloc;
 - (id)initWithTopics:(id)arg1;
 - (id)init;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

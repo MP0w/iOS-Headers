@@ -7,7 +7,7 @@
 #import "BasicAccount.h"
 
 @interface BasicAccount (SyncPrivate)
-- (BOOL)isMobileMeAccount;
 - (BOOL)isMailAccount;
+- (BOOL)isMobileMeAccount;
 @end
 

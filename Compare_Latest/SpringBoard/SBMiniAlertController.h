@@ -6,50 +6,31 @@
 
 #import "NSObject.h"
 
-@class SBApplication, UIView, UIWindow;
+@class SBApplication, UIView;
 
 @interface SBMiniAlertController : NSObject
 {
     SBApplication *_displayShowingAnAlert;
-    UIWindow *_dimmingWindow;
     unsigned int _sbMiniAlertVisible:1;
-    unsigned int _showDimmingWindowAfterAlertsDismissed:1;
     UIView *_hiddenAlertWindow;
-    struct CGAffineTransform _dimmingWindowTranslation;
-    int _dimmingWindowOrientation;
-    UIView *_overrideDimmingParent;
-    UIView *_dimmingContentView;
-    struct CGAffineTransform _dimmingViewTranslation;
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (id)dimImageForKeyboard:(BOOL)arg1;
-- (void)showDimmingWindow;
-- (void)finishedAnimatingDimWindowOut:(id)arg1 didFinish:(id)arg2;
-- (void)cancelHideDimmingWindow;
-- (void)hideDimmingWindowAfterDelay;
-- (void)hideDimmingWindow;
-- (void)replaceDimmingWindowWithParent:(id)arg1;
-- (void)restoreDimmingViewToDimmingWindow;
-- (void)applyTranslationToDimmingWindow:(struct CGAffineTransform)arg1;
-- (void)applyTranslationToDimmingView:(struct CGAffineTransform)arg1;
-- (void)rotateDimmingWindowToOrientation:(int)arg1;
-- (void)deactivateAlertItemsForDisplay:(id)arg1;
-- (void)_setDisplayShowingAnAlert:(id)arg1;
-- (void)displayWillShowMiniAlert:(id)arg1 fenceId:(unsigned int)arg2;
-- (id)displayShowingAnAlert;
-- (void)displayWillDismissMiniAlert:(id)arg1 andShowAnother:(BOOL)arg2 fenceId:(unsigned int)arg3;
-- (void)displayDidDismissMiniAlert:(id)arg1;
-- (void)showApplicationMiniAlertsIfNeeded;
-- (void)hideApplicationMiniAlerts;
-- (void)noteMiniAlertStateChanged;
-- (void)hideAlertWindowForFullscreenAlertActivation:(id)arg1;
-- (void)noteFullscreenAlertsDismissed;
-- (BOOL)isHidingAlertWindow;
-- (BOOL)miniAlertVisible;
 - (BOOL)canShowAlerts;
+- (BOOL)miniAlertVisible;
+- (void)_setAlertVisibleNotifyState:(BOOL)arg1;
+- (void)noteMiniAlertStateChanged;
+- (void)hideApplicationMiniAlerts;
+- (void)_hideMiniAlertsForApp:(id)arg1;
+- (void)showApplicationMiniAlertsIfNeeded;
+- (void)displayDidDismissMiniAlert:(id)arg1;
+- (void)displayWillDismissMiniAlert:(id)arg1;
+- (id)displayShowingAnAlert;
+- (void)displayWillShowMiniAlert:(id)arg1;
+- (void)_setDisplayShowingAnAlert:(id)arg1;
+- (void)deactivateAlertItemsForDisplay:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

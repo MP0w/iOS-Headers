@@ -6,36 +6,46 @@
 
 #import "NSObject.h"
 
-@class NSString, UIPDFPage, UIPDFPageImageCache;
+@class NSString, UIPDFPageImageCache;
 
 @interface UIPDFDocument : NSObject
 {
     struct CGPDFDocument *_cgDocument;
-    UIPDFPage **_pageArray;
+    id *_pageArray;
     unsigned int _numberOfPages;
     float _cachedWidth;
+    NSString *_documentID;
     NSString *_documentName;
     UIPDFPageImageCache *_pageImageCache;
     unsigned int _imageCacheCount;
     unsigned int _imageCacheLookAhead;
     int _lock;
     int _imageCacheLock;
+    UIPDFPageImageCache *_thumbnailCache;
+    int _thumbnailLock;
 }
 
 + (id)documentNamed:(id)arg1;
-- (void)_clearCachedState;
-- (void)purgePagesBefore:(unsigned int)arg1;
-- (struct CGPDFDocument *)copyCGPDFDocument;
-- (void)setCGPDFDocument:(struct CGPDFDocument *)arg1;
-- (id)initWithCGPDFDocument:(struct CGPDFDocument *)arg1;
-- (id)initWithURL:(id)arg1;
-- (void)dealloc;
-- (void)setImageCacheCount:(unsigned int)arg1 lookAhead:(unsigned int)arg2;
-@property(readonly) unsigned int numberOfPages; // @dynamic numberOfPages;
+@property(readonly) struct CGPDFDocument *CGDocument; // @synthesize CGDocument=_cgDocument;
+- (BOOL)allowsCopying;
+@property(readonly) NSString *documentID; // @dynamic documentID;
+- (id)copyPageAtIndex:(unsigned int)arg1;
 - (id)pageAtIndex:(unsigned int)arg1;
-
-// Remaining properties
+@property(readonly) unsigned int numberOfPages; // @dynamic numberOfPages;
+- (void)setImageCacheCount:(unsigned int)arg1 lookAhead:(unsigned int)arg2;
+- (void)dealloc;
+- (id)initWithURL:(id)arg1;
+- (id)initWithCGPDFDocument:(struct CGPDFDocument *)arg1;
+- (void)setCGPDFDocument:(struct CGPDFDocument *)arg1;
+- (struct CGPDFDocument *)copyCGPDFDocument;
+- (void)purgePagesBefore:(unsigned int)arg1;
+- (void)_clearCachedState;
+@property(retain) UIPDFPageImageCache *thumbnailCache; // @dynamic thumbnailCache;
 @property(retain) UIPDFPageImageCache *pageImageCache; // @dynamic pageImageCache;
+- (float)sumHeight;
+- (float)sumWidth;
+- (float)maxHeight;
+- (float)maxWidth;
 
 @end
 

@@ -14,12 +14,11 @@
     double maxFontLineHeight;
 }
 
-- (float)center;
-- (void)calculateMetrics;
-- (float)maxFontSize;
-- (double)maxFontLineHeight;
-- (void)clearCachedInfo;
 - (void)translateObjectYBy:(float)arg1;
+- (void)clearCachedInfo;
+- (double)maxFontLineHeight;
+- (float)maxFontSize;
+- (void)calculateMetrics;
 
 @end
 

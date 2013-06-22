@@ -6,16 +6,14 @@
 
 #import "NSObject.h"
 
-@class GEOExpiringTileCache, GEOTileCache, NSLock, NSMapTable, NSMutableArray;
+@class GEOExpiringTileCache, GEOTileCache, NSLock, NSMutableArray;
 
 @interface GEOTileLoader : NSObject
 {
     GEOTileCache *_tiles;
     GEOExpiringTileCache *_expTiles;
-    NSMapTable *_pendingLoads;
+    NSMutableArray *_pendingLoads;
     NSLock *_pendingLoadsLock;
-    NSMapTable *_pendingNetworkLoads;
-    NSLock *_pendingNetworkLoadsLock;
     NSMutableArray *_tileDecoders;
     id <GEOTileServerProxy> _serverConnection;
     int _memoryHits;
@@ -26,20 +24,30 @@
 + (id)sharedLoader;
 + (id)diskCacheLocation;
 + (void)setDiskCacheLocation:(id)arg1;
++ (void)setMemoryCacheTotalCostLimit:(unsigned int)arg1;
++ (void)setMemoryCacheCountLimit:(unsigned int)arg1;
++ (void)setMemoryCacheMinCapacity:(unsigned int)arg1;
 + (void)useLocalLoader;
 + (void)useRemoteLoader;
 - (id)expireTilesWithType:(unsigned char)arg1 provider:(unsigned short)arg2 olderThan:(double)arg3;
 - (void)tileServerProxy:(id)arg1 requestFinished:(id)arg2;
 - (void)tileServerProxy:(id)arg1 receivedError:(id)arg2 forRequest:(id)arg3;
 - (void)tileServerProxy:(id)arg1 requestMovedToNetwork:(id)arg2;
-- (void)tileServerProxy:(id)arg1 receivedData:(id)arg2 forKey:(struct _GEOTileKey)arg3 forRequest:(id)arg4 fromDisk:(BOOL)arg5;
+- (void)tileServerProxy:(id)arg1 receivedData:(id)arg2 forKey:(struct _GEOTileKey)arg3 forRequest:(id)arg4 fromDisk:(BOOL)arg5 userInfo:(id)arg6;
+- (void)endPreloadSession;
+- (void)beginPreloadSessionOfSize:(unsigned long long)arg1;
+- (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
+- (void)_preempt:(id)arg1;
 - (void)cancelRequest:(id)arg1;
-- (void)cancelAllRequests;
+- (void)preloadTiles:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4;
 - (void)loadTiles:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4;
 - (void)loadTilesFromCache:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4;
 - (void)loadTilesFromCacheAndNetwork:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4;
 - (void)loadTilesFromCacheAndNetwork:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4 skipNetwork:(void)arg5;
 - (void)_loadTilesFromServer:(id)arg1 checkDisk:(BOOL)arg2 allowNetworking:(BOOL)arg3;
+- (id)_pendingLoadForNetworkLoadList:(id)arg1 acquireLock:(BOOL)arg2;
+- (id)_pendingLoadForOriginalList:(id)arg1 acquireLock:(BOOL)arg2;
+- (void)_activeTileGroupChanged:(id)arg1;
 - (void)_tileEditionChanged:(id)arg1;
 - (void)openDatabase;
 - (void)closeDatabase;
@@ -51,6 +59,11 @@
 - (void)registerTileDecoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (void)registerTileLoader:(Class)arg1;
+@property(readonly, nonatomic) int networkHits;
+@property(readonly, nonatomic) int diskHits;
+@property(readonly, nonatomic) int memoryHits;
+- (void)shrinkDiskCacheToSize:(unsigned long long)arg1 finished:(id)arg2;
 
 @end
 

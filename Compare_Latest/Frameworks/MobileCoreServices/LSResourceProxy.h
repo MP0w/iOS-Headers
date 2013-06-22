@@ -22,33 +22,33 @@
     BOOL _boundIconIsBadge;
 }
 
-- (id)_initWithLocalizedName:(id)arg1 boundApplicationIdentifier:(id)arg2 boundContainerURL:(id)arg3 boundResourcesDirectoryURL:(id)arg4 boundIconsDictionary:(id)arg5 boundIconCacheKey:(id)arg6 boundIconFileNames:(id)arg7 typeOwner:(id)arg8 boundIconIsPrerendered:(BOOL)arg9 boundIconIsBadge:(BOOL)arg10;
-- (id)_initWithLocalizedName:(id)arg1;
-- (void)dealloc;
-- (void)setLocalizedName:(id)arg1;
-- (id)boundApplicationIdentifier;
-- (void)setBoundApplicationIdentifier:(id)arg1;
-- (id)boundContainerURL;
-- (void)setBoundContainerURL:(id)arg1;
-- (id)boundResourcesDirectoryURL;
-- (void)setBoundResourcesDirectoryURL:(id)arg1;
-- (id)boundIconsDictionary;
-@property(readonly, nonatomic) NSDictionary *iconsDictionary;
-- (void)setBoundIconsDictionary:(id)arg1;
-- (id)boundIconCacheKey;
-- (void)setBoundIconCacheKey:(id)arg1;
-- (id)boundIconFileNames;
-- (void)setBoundIconFileNames:(id)arg1;
-- (id)typeOwner;
-- (void)setTypeOwner:(id)arg1;
-- (BOOL)boundIconIsPrerendered;
-- (void)setBoundIconIsPrerendered:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL boundIconIsBadge;
-- (void)setBoundIconIsBadge:(BOOL)arg1;
-- (id)iconDataForStyle:(id)arg1 width:(int)arg2 height:(int)arg3 options:(unsigned int)arg4;
-- (id)iconDataForVariant:(int)arg1;
-- (id)iconStyleDomain;
 @property(readonly, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
+- (id)iconStyleDomain;
+- (id)iconDataForVariant:(int)arg1;
+- (id)iconDataForStyle:(id)arg1 width:(int)arg2 height:(int)arg3 options:(unsigned int)arg4;
+- (void)setBoundIconIsBadge:(BOOL)arg1;
+@property(readonly, nonatomic) BOOL boundIconIsBadge;
+- (void)setBoundIconIsPrerendered:(BOOL)arg1;
+- (BOOL)boundIconIsPrerendered;
+- (void)setTypeOwner:(id)arg1;
+- (id)typeOwner;
+- (void)setBoundIconFileNames:(id)arg1;
+- (id)boundIconFileNames;
+- (void)setBoundIconCacheKey:(id)arg1;
+- (id)boundIconCacheKey;
+- (void)setBoundIconsDictionary:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *iconsDictionary;
+- (id)boundIconsDictionary;
+- (void)setBoundResourcesDirectoryURL:(id)arg1;
+- (id)boundResourcesDirectoryURL;
+- (void)setBoundContainerURL:(id)arg1;
+- (id)boundContainerURL;
+- (void)setBoundApplicationIdentifier:(id)arg1;
+- (id)boundApplicationIdentifier;
+- (void)setLocalizedName:(id)arg1;
+- (void)dealloc;
+- (id)_initWithLocalizedName:(id)arg1;
+- (id)_initWithLocalizedName:(id)arg1 boundApplicationIdentifier:(id)arg2 boundContainerURL:(id)arg3 boundResourcesDirectoryURL:(id)arg4 boundIconsDictionary:(id)arg5 boundIconCacheKey:(id)arg6 boundIconFileNames:(id)arg7 typeOwner:(id)arg8 boundIconIsPrerendered:(BOOL)arg9 boundIconIsBadge:(BOOL)arg10;
 
 @end
 

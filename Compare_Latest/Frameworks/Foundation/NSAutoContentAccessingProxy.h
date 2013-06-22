@@ -14,6 +14,9 @@
 + (id)proxyWithTarget:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
+- (void)forwardInvocation:(id)arg1;
+- (id)methodSignatureForSelector:(SEL)arg1;
+- (id)forwardingTargetForSelector:(SEL)arg1;
 
 @end
 

@@ -13,7 +13,11 @@
     NSDictionary *_urls;
 }
 
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *activeEmailDomain;
 @property(readonly, nonatomic) BOOL setupAssistantServerEnabled;
+@property(readonly, nonatomic) NSString *upgradeIOSTermsUI;
+@property(readonly, nonatomic) NSString *loginDelegatesURL;
 @property(readonly, nonatomic) NSString *existingAppleIDTermsUIURL;
 @property(readonly, nonatomic) NSString *iForgotURL;
 @property(readonly, nonatomic) NSString *checkValidityURL;
@@ -21,6 +25,7 @@
 @property(readonly, nonatomic) NSString *updateAppleIDURL;
 @property(readonly, nonatomic) NSString *createAppleIDURL;
 @property(readonly, nonatomic) NSString *authenticateURL;
+@property(readonly, nonatomic) NSString *aboutURL;
 @property(readonly, nonatomic) NSString *xmlUI;
 @property(readonly, nonatomic) NSString *signingSessionURL;
 @property(readonly, nonatomic) NSString *signingSessionCertURL;

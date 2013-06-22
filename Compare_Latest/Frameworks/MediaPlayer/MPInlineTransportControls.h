@@ -14,12 +14,15 @@
     UIActivityIndicatorView *_loadingMovieIndicator;
 }
 
+- (void)_enableAnimationIfNecessary:(id)arg1;
+- (void)_disableAnimationIfNecessary:(id)arg1;
 @property(readonly, nonatomic) struct CGRect availableProgressControlAreaFrame;
 - (void)layoutSubviews;
-- (void)setDisabledParts:(unsigned int)arg1;
+- (void)setDisabledParts:(unsigned long long)arg1;
 - (id)pauseButtonImage;
 - (id)playButtonImage;
-- (id)buttonImageForPart:(unsigned int)arg1;
+- (id)buttonImageForPart:(unsigned long long)arg1;
+- (id)newButtonForPart:(unsigned long long)arg1;
 - (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(BOOL)arg3;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

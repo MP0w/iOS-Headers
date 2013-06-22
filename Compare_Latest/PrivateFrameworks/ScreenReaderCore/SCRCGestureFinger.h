@@ -12,10 +12,10 @@
     struct CGPoint _location;
 }
 
-- (id)initWithIdentifier:(unsigned int)arg1 location:(struct CGPoint)arg2;
-- (id)description;
-- (unsigned int)identifier;
 - (struct CGPoint)location;
+- (unsigned int)identifier;
+- (id)description;
+- (id)initWithIdentifier:(unsigned int)arg1 location:(struct CGPoint)arg2;
 
 @end
 

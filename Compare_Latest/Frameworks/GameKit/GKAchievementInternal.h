@@ -11,6 +11,7 @@
 @interface GKAchievementInternal : GKInternalRepresentation
 {
     NSString *_identifier;
+    NSString *_groupIdentifier;
     NSDate *_lastReportedDate;
     double _percentComplete;
 }
@@ -18,9 +19,13 @@
 + (id)codedPropertyKeys;
 @property(nonatomic) double percentComplete; // @synthesize percentComplete=_percentComplete;
 @property(retain, nonatomic) NSDate *lastReportedDate; // @synthesize lastReportedDate=_lastReportedDate;
+@property(retain, nonatomic) NSString *groupIdentifier; // @synthesize groupIdentifier=_groupIdentifier;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (id)description;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)serverRepresentation;
 - (void)dealloc;
+- (id)challengeServerRepresentationForCancel:(BOOL)arg1;
 
 @end
 

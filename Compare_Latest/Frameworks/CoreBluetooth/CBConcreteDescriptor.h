@@ -14,12 +14,13 @@
     NSNumber *_handle;
 }
 
-- (id)initWithCharacteristic:(id)arg1 UUID:(id)arg2 peripheral:(id)arg3 handle:(id)arg4;
-- (void)dealloc;
-- (void)handlePeripheralDisconnection;
-- (id)handleValueUpdated:(id)arg1;
-- (id)handleValueWritten:(id)arg1;
 @property(readonly, nonatomic) NSNumber *handle; // @synthesize handle=_handle;
+@property(readonly, nonatomic) CBConcretePeripheral *peripheral; // @synthesize peripheral=_peripheral;
+- (id)handleValueWritten:(id)arg1;
+- (id)handleValueUpdated:(id)arg1;
+- (void)invalidate;
+- (void)dealloc;
+- (id)initWithCharacteristic:(id)arg1 UUID:(id)arg2 peripheral:(id)arg3 handle:(id)arg4;
 
 @end
 

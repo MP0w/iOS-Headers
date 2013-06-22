@@ -17,14 +17,14 @@
     unsigned long long _originalMessageFlags;
 }
 
-- (id)initWithOriginalRemoteID:(id)arg1 mailboxID:(id)arg2 messageFlags:(unsigned long long)arg3;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
-- (id)description;
 @property(readonly, nonatomic) unsigned long long originalMessageFlags; // @synthesize originalMessageFlags=_originalMessageFlags;
 @property(readonly, nonatomic) NSString *originalMailboxID; // @synthesize originalMailboxID=_originalMailboxID;
 @property(readonly, nonatomic) NSString *originalRemoteID; // @synthesize originalRemoteID=_originalRemoteID;
+- (id)description;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithOriginalRemoteID:(id)arg1 mailboxID:(id)arg2 messageFlags:(unsigned long long)arg3;
 
 @end
 

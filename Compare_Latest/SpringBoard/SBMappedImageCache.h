@@ -6,25 +6,29 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface SBMappedImageCache : NSObject
 {
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
     NSString *_path;
     NSMutableDictionary *_images;
 }
 
-+ (id)persistentCache;
-+ (id)sessionCache;
++ (id)imageNamed:(id)arg1 options:(int)arg2;
 + (id)imageNamed:(id)arg1;
-- (id)initWithPath:(id)arg1;
-- (void)dealloc;
-- (id)imageForKey:(id)arg1 generateImageWithBlockIfNecessary:(id)arg2;
-- (void)setImage:(id)arg1 forKey:(id)arg2;
-- (id)imageForKey:(id)arg1;
-- (void)removeImageForKey:(id)arg1;
++ (id)sessionCache;
++ (id)persistentCache;
 - (void)removeAllObjects;
+- (void)removeImageForKey:(id)arg1;
+- (void)warmupImageForKey:(id)arg1;
+- (void)setImage:(id)arg1 forKey:(id)arg2;
+- (id)imageForKey:(id)arg1 generateImageWithBlockIfNecessary:(id)arg2;
+- (id)imageForKey:(id)arg1 options:(int)arg2 generateImageWithBlockIfNecessary:(id)arg3;
+- (id)imageForKey:(id)arg1 options:(int)arg2;
+- (id)imageForKey:(id)arg1;
+- (void)dealloc;
+- (id)initWithPath:(id)arg1;
 
 @end
 

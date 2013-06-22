@@ -17,18 +17,19 @@
     unsigned int mIndex;
 }
 
-- (id)init;
-- (void)dealloc;
-- (struct CGPoint)position;
-- (void)setPosition:(struct CGPoint)arg1;
-- (id)text;
-- (void)setText:(id)arg1;
-- (unsigned int)authorId;
-- (void)setAuthorId:(unsigned int)arg1;
-- (id)date;
-- (void)setDate:(id)arg1;
-- (unsigned int)index;
+- (id).cxx_construct;
 - (void)setIndex:(unsigned int)arg1;
+- (unsigned int)index;
+- (void)setDate:(id)arg1;
+- (id)date;
+- (void)setAuthorId:(unsigned int)arg1;
+- (unsigned int)authorId;
+- (void)setText:(id)arg1;
+- (id)text;
+- (void)setPosition:(struct CGPoint)arg1;
+- (struct CGPoint)position;
+- (void)dealloc;
+- (id)init;
 
 @end
 

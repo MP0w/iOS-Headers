@@ -8,9 +8,9 @@
 
 @interface NSString (MCUtilities)
 + (id)MCMakeUUID;
-- (id)MCSafeFilenameHash;
-- (id)MCSafeFilenameHashWithExtension:(id)arg1;
-- (id)MCSHA256DigestWithSalt;
 - (id)MCAppendDeviceName;
+- (id)MCSHA256DigestWithSalt;
+- (id)MCSafeFilenameHashWithExtension:(id)arg1;
+- (id)MCSafeFilenameHash;
 @end
 

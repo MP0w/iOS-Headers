@@ -12,7 +12,6 @@
 
 @interface AVAVVideoSettingsVideoOutputSettings : AVVideoOutputSettings <AVReencodedVideoSettingsForFig>
 {
-    BOOL _dictionaryWasFullyFormed;
     NSDictionary *_adaptedVideoCompressionProperties;
 }
 
@@ -24,9 +23,11 @@
 @property(readonly, nonatomic) unsigned long videoCodecType;
 - (int)height;
 - (int)width;
-- (BOOL)isDictionaryFullyFormed;
+- (BOOL)canFullySpecifyOutputFormatReturningReason:(id *)arg1;
+- (BOOL)isCodecAvailableOnCurrentSystem;
 - (BOOL)willYieldCompressedSamples;
 - (void)dealloc;
+- (id)initWithTrustedAVVideoSettingsDictionary:(id)arg1;
 - (id)initWithAVVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 
 @end

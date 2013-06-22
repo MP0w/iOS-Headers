@@ -30,9 +30,11 @@
 - (id)requestURLForBaseURL:(id)arg1 sessionID:(unsigned int)arg2;
 - (void)setValue:(id)arg1 forArgument:(id)arg2;
 - (void)setValue:(id)arg1 forHeaderField:(id)arg2;
+- (id)descriptionWithoutHeaderFields;
 - (id)description;
 - (void)dealloc;
 - (id)initWithAction:(id)arg1;
+- (id)requestURLForConnection:(id)arg1;
 
 @end
 

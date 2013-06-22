@@ -19,10 +19,11 @@
 + (id)allProperties;
 + (id)predisambiguatedProperties;
 + (id)sectionPropertyForProperty:(id)arg1;
-+ (id)joinClauseForProperty:(id)arg1;
++ (id)joinClausesForProperty:(id)arg1;
 + (id)defaultOrderingProperties;
 + (id)databaseTable;
 + (void)initialize;
+- (void)updateRepresentativeItem:(id)arg1 inLibrary:(id)arg2 withArtworkCacheID:(id)arg3;
 - (void)updateTrackValues:(id)arg1;
 
 @end

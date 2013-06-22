@@ -14,27 +14,34 @@
     NSData *_iconImageData;
     struct CGSize _cachedImageSize;
     unsigned int _hasBeenDownloaded:1;
+    BOOL _displayableAsIcon;
 }
 
-- (id)initWithWrapper:(id)arg1;
-- (id)initWithMimeTextAttachment:(id)arg1 andMessageBody:(id)arg2;
-- (void)inlineDisplayData:(id *)arg1 mimeType:(id *)arg2;
-- (unsigned int)approximateSize;
-- (BOOL)shouldDownloadAttachmentOnDisplay;
-- (id)textEncodingGuess;
-- (float)constrainedWidth;
-- (struct CGSize)imageDimensions;
-- (void)_cacheImageSizeIfNecessary;
-- (void)setFileWrapper:(id)arg1;
-- (void)_setImageDimensions:(struct CGSize)arg1;
-- (void)setupForComposition;
-- (void)setDisplayableInline:(BOOL)arg1;
-- (BOOL)isDisplayableInline;
-- (void)setDisplayableInsidePlugin:(BOOL)arg1;
-- (BOOL)isDisplayableInsidePlugin;
-- (void)download;
-- (BOOL)hasBeenDownloaded;
++ (unsigned int)precedenceLevel;
+@property BOOL displayableAsIcon; // @synthesize displayableAsIcon=_displayableAsIcon;
 - (void)dealloc;
+- (id)persistentUniqueIdentifier;
+- (BOOL)hasBeenDownloaded;
+- (void)download;
+- (BOOL)needsRedownload;
+- (void)setNeedsRedownload:(BOOL)arg1;
+- (BOOL)isDisplayableInsidePlugin;
+- (void)setDisplayableInsidePlugin:(BOOL)arg1;
+- (BOOL)isDisplayableInline;
+- (void)setDisplayableInline:(BOOL)arg1;
+- (void)setupForComposition;
+- (void)_setImageDimensions:(struct CGSize)arg1;
+- (void)setFileWrapper:(id)arg1;
+- (void)_cacheImageSizeIfNecessary;
+- (struct CGSize)imageDimensions;
+- (float)constrainedWidth;
+- (id)mimeTextAttachment;
+- (id)textEncodingGuess;
+- (BOOL)shouldDownloadAttachmentOnDisplay;
+- (unsigned int)approximateSize;
+- (void)inlineDisplayData:(id *)arg1 mimeType:(id *)arg2;
+- (id)initWithMimeTextAttachment:(id)arg1 andMessageBody:(id)arg2;
+- (id)initWithWrapper:(id)arg1;
 
 @end
 

@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol GQPObjectReader <NSObject>
-- (int)beginReadingFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 - (int)doneReading:(id)arg1;
+- (int)beginReadingFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 @end
 

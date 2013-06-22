@@ -27,28 +27,28 @@
     BOOL _showPopoverWhenRotationComplete;
 }
 
-- (id)initWithSwitcherController:(id)arg1;
-- (void)dealloc;
-- (BOOL)printStatusViewIsShowing;
-- (void)activatePrintStatusView;
-- (void)activatePrintStatusPopoverForView:(id)arg1;
-- (void)dismissPrintStatusView;
-- (void)_updateStateForNumberOfJobs:(int)arg1;
-- (void)_printStateChanged:(id)arg1;
-- (void)_cleanupPrintController;
-- (void)_cleanupPopoverViews:(BOOL)arg1;
-- (void)_dismissPrintStatus;
-- (void)transitionViewDidComplete:(id)arg1 fromView:(id)arg2 toView:(id)arg3;
-- (double)durationForTransition:(int)arg1;
-- (void)printStatusViewController:(id)arg1 didDismissWithCancel:(BOOL)arg2;
-- (void)printStatusViewControllerJobDidCancel:(id)arg1;
-- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
-- (int)statusBar:(id)arg1 styleForRequestedStyle:(int)arg2 overrides:(int)arg3;
-- (void)statusBar:(id)arg1 willAnimateFromHeight:(float)arg2 toHeight:(float)arg3 duration:(double)arg4 animation:(int)arg5;
-- (void)statusBar:(id)arg1 didAnimateFromHeight:(float)arg2 toHeight:(float)arg3 animation:(int)arg4;
-- (void)switcherPopoverController:(id)arg1 willRotateToOrientation:(int)arg2 duration:(double)arg3;
-- (void)switcherPopoverController:(id)arg1 didRotateFromInterfaceOrientation:(int)arg2;
 @property(readonly, nonatomic) int numPrintJobs; // @synthesize numPrintJobs=_numPrintJobs;
+- (void)switcherPopoverController:(id)arg1 didRotateFromInterfaceOrientation:(int)arg2;
+- (void)switcherPopoverController:(id)arg1 willRotateToOrientation:(int)arg2 duration:(double)arg3;
+- (void)statusBar:(id)arg1 didAnimateFromHeight:(float)arg2 toHeight:(float)arg3 animation:(int)arg4;
+- (void)statusBar:(id)arg1 willAnimateFromHeight:(float)arg2 toHeight:(float)arg3 duration:(double)arg4 animation:(int)arg5;
+- (int)statusBar:(id)arg1 styleForRequestedStyle:(int)arg2 overrides:(int)arg3;
+- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
+- (void)printStatusViewControllerJobDidCancel:(id)arg1;
+- (void)printStatusViewController:(id)arg1 didDismissWithCancel:(BOOL)arg2;
+- (double)durationForTransition:(int)arg1;
+- (void)transitionViewDidComplete:(id)arg1 fromView:(id)arg2 toView:(id)arg3;
+- (void)_dismissPrintStatus;
+- (void)_cleanupPopoverViews:(BOOL)arg1;
+- (void)_cleanupPrintController;
+- (void)_printStateChanged:(id)arg1;
+- (void)_updateStateForNumberOfJobs:(int)arg1;
+- (void)dismissPrintStatusView;
+- (void)activatePrintStatusPopoverForView:(id)arg1;
+- (void)activatePrintStatusView;
+- (BOOL)printStatusViewIsShowing;
+- (void)dealloc;
+- (id)initWithSwitcherController:(id)arg1;
 
 @end
 

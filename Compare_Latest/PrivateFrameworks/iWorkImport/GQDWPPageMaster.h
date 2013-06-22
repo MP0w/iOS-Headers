@@ -15,9 +15,9 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (struct __CFString *)headerIdentifier;
 - (struct __CFString *)footerIdentifier;
+- (struct __CFString *)headerIdentifier;
+- (void)dealloc;
 
 @end
 

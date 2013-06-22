@@ -15,8 +15,12 @@
     int _animation;
     float _offset;
     UITableViewUpdateGap *_gap;
+    BOOL _headerFooterOnly;
+    BOOL _skipAnimation;
 }
 
+@property(nonatomic) BOOL skipAnimation; // @synthesize skipAnimation=_skipAnimation;
+@property(nonatomic) BOOL headerFooterOnly; // @synthesize headerFooterOnly=_headerFooterOnly;
 @property(nonatomic) UITableViewUpdateGap *gap; // @synthesize gap=_gap;
 @property(nonatomic) float offset; // @synthesize offset=_offset;
 @property(nonatomic) int animation; // @synthesize animation=_animation;

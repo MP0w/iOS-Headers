@@ -16,18 +16,18 @@
     id <ABPersonTableTinyActionDelegate> _delegate;
 }
 
-- (id)_tinyActionContentView;
-- (void)_resizeInnerContentView;
-- (id)initWithFrame:(struct CGRect)arg1 reuseIdentifier:(id)arg2;
-- (void)dealloc;
-- (void)refreshActions;
-@property(readonly) unsigned int actionsCount;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-- (void)setBackgroundView:(id)arg1;
 @property(nonatomic) id <ABPersonTableTinyActionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(retain, nonatomic) ABPersonTableActionDataSource *actionDataSource; // @synthesize actionDataSource=_actionDataSource;
+- (void)setBackgroundView:(id)arg1;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+@property(readonly) unsigned int actionsCount;
+- (void)refreshActions;
+- (void)dealloc;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (void)_resizeInnerContentView;
+- (id)_tinyActionContentView;
 
 @end
 

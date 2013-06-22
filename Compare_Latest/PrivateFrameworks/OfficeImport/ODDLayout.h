@@ -13,9 +13,9 @@
     ODDLayoutNode *mRootNode;
 }
 
-- (id)init;
-- (void)dealloc;
 - (id)rootNode;
+- (void)dealloc;
+- (id)init;
 
 @end
 

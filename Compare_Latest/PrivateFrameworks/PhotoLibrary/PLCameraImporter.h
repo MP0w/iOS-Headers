@@ -65,8 +65,6 @@
 - (void)_downloadImportItems:(id)arg1;
 - (void)_clearImportItemsForDownload:(id)arg1;
 - (void)_separateItems:(id)arg1 intoEventsWithGranularity:(int)arg2;
-- (struct NSObject *)_eventWithDate:(id)arg1;
-- (id)_eventNameFromDate:(id)arg1;
 - (unsigned long long)approximateBytesRequiredToImportItem:(id)arg1;
 - (void)didDownloadFile:(id)arg1 error:(id)arg2 options:(id)arg3 contextInfo:(void *)arg4;
 - (void)didReceiveThumbnail:(struct CGImage *)arg1 forCameraFile:(id)arg2 error:(id)arg3;

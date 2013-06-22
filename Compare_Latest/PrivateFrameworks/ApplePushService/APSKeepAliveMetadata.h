@@ -17,13 +17,13 @@
     int _keepAliveInterval;
 }
 
-- (id)initWithUsingWWAN:(BOOL)arg1 keepAliveInterval:(int)arg2;
-- (void)dealloc;
 @property(nonatomic) int keepAliveInterval; // @synthesize keepAliveInterval=_keepAliveInterval;
 @property(retain, nonatomic) NSString *hardwareVersion; // @synthesize hardwareVersion=_hardwareVersion;
 @property(retain, nonatomic) NSString *softwareBuild; // @synthesize softwareBuild=_softwareBuild;
 @property(retain, nonatomic) NSString *softwareVersion; // @synthesize softwareVersion=_softwareVersion;
 @property(retain, nonatomic) NSString *carrier; // @synthesize carrier=_carrier;
+- (void)dealloc;
+- (id)initWithUsingWWAN:(BOOL)arg1 keepAliveInterval:(int)arg2;
 
 @end
 

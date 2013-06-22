@@ -6,9 +6,24 @@
 
 #import <OfficeImport/PDCommonTimeNodeData.h>
 
+@class NSString, PDAnimationTargetElement;
+
 @interface PDSequentialTimeNodeGroup : PDCommonTimeNodeData
 {
 }
+
++ (id)createSequentialTimeNodeGroupForAnimationInfo;
+@property(retain, nonatomic) NSString *groupId;
+@property(nonatomic) double direction;
+@property(nonatomic) double delay;
+@property(nonatomic) int iterateType;
+@property(nonatomic) int triggerType;
+@property(nonatomic) int presetId;
+@property(nonatomic) int presetClass;
+@property(retain, nonatomic) PDAnimationTargetElement *targetElement;
+- (id)level3SetBehavior;
+- (id)level2ParallelTimeNodeGroup;
+- (id)level1ParallelTimeNodeGroup;
 
 @end
 

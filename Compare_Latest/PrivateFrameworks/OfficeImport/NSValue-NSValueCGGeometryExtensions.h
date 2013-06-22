@@ -7,11 +7,11 @@
 #import "NSValue.h"
 
 @interface NSValue (NSValueCGGeometryExtensions)
-+ (id)valueWithCGPoint:(struct CGPoint)arg1;
-+ (id)valueWithCGSize:(struct CGSize)arg1;
 + (id)valueWithCGRect:(struct CGRect)arg1;
-- (struct CGPoint)cgPointValue;
-- (struct CGSize)cgSizeValue;
++ (id)valueWithCGSize:(struct CGSize)arg1;
++ (id)valueWithCGPoint:(struct CGPoint)arg1;
 - (struct CGRect)cgRectValue;
+- (struct CGSize)cgSizeValue;
+- (struct CGPoint)cgPointValue;
 @end
 

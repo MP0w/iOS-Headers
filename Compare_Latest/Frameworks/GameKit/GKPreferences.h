@@ -14,23 +14,33 @@
     unsigned int _maxDefaultPlayersP2P;
     unsigned int _maxDefaultPlayersHosted;
     unsigned int _maxDefaultPlayersTurnBased;
-    BOOL _isStoreDemoModeEnabled;
+    unsigned int _maxDefaultGameStateSizeTurnBasedd;
+    BOOL __shouldSynchronizeOnNextRead;
 }
 
 + (id)hostNameForEnvironment:(int)arg1;
-+ (BOOL)isSystemWideNotificationsEnabled;
 + (id)sharedPreferences;
-@property(readonly, nonatomic) BOOL isStoreDemoModeEnabled; // @synthesize isStoreDemoModeEnabled=_isStoreDemoModeEnabled;
+@property(nonatomic) BOOL _shouldSynchronizeOnNextRead; // @synthesize _shouldSynchronizeOnNextRead=__shouldSynchronizeOnNextRead;
+@property(nonatomic) unsigned int maxDefaultGameStateSizeTurnBased; // @synthesize maxDefaultGameStateSizeTurnBased=_maxDefaultGameStateSizeTurnBasedd;
 @property(nonatomic) unsigned int maxDefaultPlayersTurnBased; // @synthesize maxDefaultPlayersTurnBased=_maxDefaultPlayersTurnBased;
 @property(nonatomic) unsigned int maxDefaultPlayersHosted; // @synthesize maxDefaultPlayersHosted=_maxDefaultPlayersHosted;
 @property(nonatomic) unsigned int maxDefaultPlayersP2P; // @synthesize maxDefaultPlayersP2P=_maxDefaultPlayersP2P;
 @property(nonatomic) BOOL HTTPShouldUsePipelining; // @synthesize HTTPShouldUsePipelining=_HTTPShouldUsePipelining;
+@property(nonatomic) BOOL shouldAddPlayerInfoToAddressBook;
+@property(readonly, nonatomic) BOOL shouldDisallowInvitesFromStrangers;
+@property(nonatomic) BOOL shouldLinkPlayerToFacebook;
+@property(nonatomic) BOOL shouldLinkPlayerToTwitter;
+@property(nonatomic) BOOL shouldLinkPlayerToICloud;
+@property(readonly, nonatomic) BOOL isStoreDemoModeEnabled;
+@property(nonatomic) BOOL shouldUseTestIcons;
+@property(nonatomic) BOOL shouldTrackAtlasImageUsage;
+@property(nonatomic) BOOL shouldAnnotateImageUsage;
+@property(nonatomic) double cacheTTLOverride;
 @property(nonatomic) double minimumCacheTTL;
 @property(nonatomic) double garbageCollectionInterval;
 @property(nonatomic) double terminationInterval;
 @property(nonatomic) BOOL useInternalHeader;
-@property(nonatomic) BOOL showPopularityInsteadOfRating;
-@property(nonatomic) BOOL showRating;
+@property(nonatomic) unsigned int maxGameStateSizeTurnBased;
 @property(nonatomic) unsigned int maxPlayersTurnBased;
 @property(nonatomic) unsigned int maxPlayersHosted;
 @property(nonatomic) unsigned int maxPlayersP2P;
@@ -47,6 +57,7 @@
 @property(nonatomic) unsigned int operationRetryCount;
 @property(nonatomic) double operationRetryDelay;
 @property(nonatomic) double operationTimeout;
+@property(readonly, nonatomic, getter=isGameCenterRestricted) BOOL gameCenterRestricted;
 @property(readonly, nonatomic, getter=isAccountModificationRestricted) BOOL accountModificationRestricted;
 @property(readonly, nonatomic, getter=isAppInstallationRestricted) BOOL appInstallationRestricted;
 @property(readonly, nonatomic, getter=isAddingFriendsRestricted) BOOL addingFriendsRestricted;
@@ -56,6 +67,20 @@
 @property(nonatomic) BOOL allowUnsignedBag;
 @property(retain, nonatomic) NSString *storeBagURL;
 @property(nonatomic) int environment;
+- (BOOL)managedBooleanForKey:(id)arg1;
+- (void)setTimeInterval:(double)arg1 forKey:(struct __CFString *)arg2;
+- (double)timeIntervalForKey:(struct __CFString *)arg1 defaultValue:(double)arg2;
+- (void)setUnsignedIntegerValue:(int)arg1 forKey:(struct __CFString *)arg2;
+- (int)unsignedIntegerValueForKey:(struct __CFString *)arg1 defaultValue:(int)arg2;
+- (void)setIntegerValue:(int)arg1 forKey:(struct __CFString *)arg2;
+- (int)integerValueForKey:(struct __CFString *)arg1 defaultValue:(int)arg2;
+- (void)setBooleanValue:(BOOL)arg1 forKey:(struct __CFString *)arg2;
+- (BOOL)booleanValueForKey:(struct __CFString *)arg1;
+- (BOOL)booleanValueForKey:(struct __CFString *)arg1 defaultValue:(BOOL)arg2;
+- (void)applicationWillEnterBackground:(id)arg1;
+- (void)_didWriteKey:(struct __CFString *)arg1;
+- (void)synchronize;
+- (void)invalidate;
 - (id)init;
 
 @end

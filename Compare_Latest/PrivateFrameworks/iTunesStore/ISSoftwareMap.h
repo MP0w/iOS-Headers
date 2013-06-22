@@ -23,7 +23,6 @@
 + (BOOL)currentMapIsValid;
 + (id)currentMap;
 + (BOOL)haveApplicationsOfType:(struct __CFString *)arg1;
-- (id)_softwareUpdatesAccountsStringForApplications:(id)arg1;
 - (id)_newSoftwareUpdateDictionaryForApplication:(id)arg1;
 - (void)_loadFromMobileInstallation;
 - (id)copySoftwareUpdatesPropertyListWithUpdatesContext:(id)arg1;

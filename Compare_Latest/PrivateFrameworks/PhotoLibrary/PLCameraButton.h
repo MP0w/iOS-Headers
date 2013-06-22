@@ -26,6 +26,22 @@
     BOOL _watchingOrientationChanges;
 }
 
++ (struct UIEdgeInsets)hitRectExtension;
++ (struct UIEdgeInsets)backgroundResizableEdgeInsets;
++ (struct CGRect)defaultFrame;
++ (id)videoOnIconName;
++ (id)videoOffIconName;
++ (id)photoIconLandscapeName;
++ (id)photoIconPortraitName;
++ (id)backgroundPanoOnPressedImageName;
++ (id)backgroundPanoOnImageName;
++ (id)backgroundPanoOffPressedImageName;
++ (id)backgroundPanoOffImageName;
++ (id)backgroundVideoPressedImageName;
++ (id)backgroundVideoImageName;
++ (id)backgroundPressedImageName;
++ (id)backgroundImageName;
++ (id)defaultIconName;
 - (int)orientation;
 - (void)setButtonOrientation:(int)arg1 animated:(BOOL)arg2;
 - (void)_deviceOrientationChanged:(id)arg1;

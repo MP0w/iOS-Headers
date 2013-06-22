@@ -6,9 +6,12 @@
 
 #import <MediaPlayer/MPMediaItemCollection.h>
 
+#import "NSCoding-Protocol.h"
+#import "NSCopying-Protocol.h"
+
 @class MPMediaItem, MPMediaQuery;
 
-@interface MPConcreteMediaItemCollection : MPMediaItemCollection
+@interface MPConcreteMediaItemCollection : MPMediaItemCollection <NSCoding, NSCopying>
 {
     long long _identifier;
     MPMediaQuery *_itemsQuery;
@@ -21,6 +24,8 @@
 - (id)representativeItem;
 - (id)items;
 - (id)itemsQuery;
+- (void)setValue:(id)arg1 forProperty:(id)arg2;
+- (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
 - (unsigned long long)persistentID;
 - (id)mediaLibrary;
@@ -31,6 +36,7 @@
 - (void)dealloc;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)initWithIdentifier:(long long)arg1 itemsQuery:(id)arg2 grouping:(int)arg3;
 - (id)initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(int)arg4 representativeItemIdentifier:(long long)arg5;
 
 @end

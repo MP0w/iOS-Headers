@@ -14,10 +14,8 @@
     NSObject<GKTextLayout> *_textLayout;
     id _contentPath;
     float _leading;
-    BOOL _shouldQuoteText;
     BOOL _shouldDrawEmoji;
     BOOL _shouldSizeToTextImageBounds;
-    BOOL _hasTruncationClusters;
     BOOL _adjustsFontSizeToFitWidth;
     NSString *_truncationSymbol;
     int _numberOfLines;
@@ -27,8 +25,10 @@
     UIColor *_shadowColor;
     struct CGSize _shadowOffset;
     struct CGRect _bounds;
+    BOOL _hasCalculatedBounds;
 }
 
+@property(nonatomic) BOOL hasCalculatedBounds; // @synthesize hasCalculatedBounds=_hasCalculatedBounds;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
 @property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
@@ -38,17 +38,14 @@
 @property(nonatomic) int numberOfLines; // @synthesize numberOfLines=_numberOfLines;
 @property(copy, nonatomic) NSString *truncationSymbol; // @synthesize truncationSymbol=_truncationSymbol;
 @property(nonatomic) BOOL adjustsFontSizeToFitWidth; // @synthesize adjustsFontSizeToFitWidth=_adjustsFontSizeToFitWidth;
-@property(nonatomic) BOOL hasTruncationClusters; // @synthesize hasTruncationClusters=_hasTruncationClusters;
 @property(nonatomic) BOOL shouldSizeToTextImageBounds; // @synthesize shouldSizeToTextImageBounds=_shouldSizeToTextImageBounds;
 @property(nonatomic) BOOL shouldDrawEmoji; // @synthesize shouldDrawEmoji=_shouldDrawEmoji;
-@property(nonatomic) BOOL shouldQuoteText; // @synthesize shouldQuoteText=_shouldQuoteText;
 @property(nonatomic) float leading; // @synthesize leading=_leading;
 @property(retain, nonatomic) id contentPath; // @synthesize contentPath=_contentPath;
 @property(retain, nonatomic) NSObject<GKTextLayout> *textLayout; // @synthesize textLayout=_textLayout;
 @property(retain, nonatomic) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)_drawInContext:(struct CGContext *)arg1 drawEmoji:(BOOL)arg2;
-- (struct __CTRun *)truncateLine:(struct __CTLine *)arg1 removingStringRange:(CDStruct_dff5684f)arg2 runAttributes:(struct __CFDictionary *)arg3 truncationSymbol:(id)arg4;
 - (struct CGRect)textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2;
 - (float)lineHeightForAttributedString:(id)arg1;
 - (float)lineImageHeightForAttributedString:(id)arg1;

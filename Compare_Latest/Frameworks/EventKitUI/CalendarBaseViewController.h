@@ -16,6 +16,7 @@
     id <CalendarInvitationButtonDelegate> _invitationButtonDelegate;
 }
 
+- (void)applicationWillResignActive;
 - (void)applicationDidBecomeActive;
 - (BOOL)containsRangeForStartDate:(double)arg1 endDate:(double)arg2;
 - (id)inspectorPassthroughViews;

@@ -13,12 +13,12 @@
     NSString *_previousScheduleTag;
 }
 
-- (id)initWithDataPayload:(id)arg1 dataContentType:(id)arg2 atURL:(id)arg3 previousETag:(id)arg4;
-- (void)dealloc;
-- (id)description;
-- (id)additionalHeaderValues;
-- (void)finishCoreDAVTaskWithError:(id)arg1;
 @property(retain) NSString *previousScheduleTag; // @synthesize previousScheduleTag=_previousScheduleTag;
+- (void)finishCoreDAVTaskWithError:(id)arg1;
+- (id)additionalHeaderValues;
+- (id)description;
+- (void)dealloc;
+- (id)initWithDataPayload:(id)arg1 dataContentType:(id)arg2 atURL:(id)arg3 previousETag:(id)arg4;
 
 // Remaining properties
 @property(nonatomic) id <CalDAVPostCalendarItemTaskDelegate> delegate; // @dynamic delegate;

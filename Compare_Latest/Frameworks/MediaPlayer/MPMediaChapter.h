@@ -6,17 +6,15 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
-
-@interface MPMediaChapter : NSObject <NSCoding>
+@interface MPMediaChapter : NSObject
 {
     int _chapterType;
-    id _value;
-    id _valueLoader;
     unsigned int _indexInChaptersWithAnyType;
     unsigned int _indexInChaptersWithSameType;
-    double _playbackTime;
     double _playbackDuration;
+    double _playbackTime;
+    id _value;
+    id _valueLoader;
 }
 
 @property(copy, nonatomic) id valueLoader; // @synthesize valueLoader=_valueLoader;
@@ -32,6 +30,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (void)dealloc;
+- (int)_sortByChapterIndex:(id)arg1;
 
 @end
 

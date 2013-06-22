@@ -11,25 +11,48 @@
     Class isa;
 }
 
++ (id)description;
++ (void *)methodForSelector:(SEL)arg1;
++ (void *)instanceMethodForSelector:(SEL)arg1;
++ (BOOL)instancesRespondToSelector:(SEL)arg1;
 + (BOOL)conformsToProtocol:(id)arg1;
++ (BOOL)isKindOfClass:(Class)arg1;
++ (BOOL)isMemberOfClass:(Class)arg1;
 + (BOOL)isSubclassOfClass:(Class)arg1;
 + (BOOL)isProxy;
 + (BOOL)isFault;
 + (id)performSelector:(SEL)arg1 withObject:(id)arg2 withObject:(id)arg3;
 + (id)performSelector:(SEL)arg1 withObject:(id)arg2;
 + (id)performSelector:(SEL)arg1;
++ (unsigned int)hash;
++ (BOOL)isEqual:(id)arg1;
 + (id)_copyDescription;
 + (id)debugDescription;
-+ (Class)superclass;
++ (struct _NSZone *)zone;
++ (BOOL)retainWeakReference;
++ (BOOL)allowsWeakReference;
++ (BOOL)_isDeallocating;
++ (BOOL)_tryRetain;
++ (void)finalize;
++ (void)dealloc;
++ (id)init;
++ (void)doesNotRecognizeSelector:(SEL)arg1;
++ (void)forwardInvocation:(id)arg1;
++ (id)methodSignatureForSelector:(SEL)arg1;
++ (id)instanceMethodSignatureForSelector:(SEL)arg1;
++ (id)forwardingTargetForSelector:(SEL)arg1;
 + (BOOL)isAncestorOfObject:(id)arg1;
 + (BOOL)respondsToSelector:(SEL)arg1;
 + (id)mutableCopyWithZone:(struct _NSZone *)arg1;
++ (id)mutableCopy;
 + (id)copyWithZone:(struct _NSZone *)arg1;
++ (id)copy;
 + (unsigned int)retainCount;
 + (id)autorelease;
 + (oneway void)release;
 + (id)retain;
 + (id)self;
++ (Class)superclass;
 + (Class)class;
 + (id)alloc;
 + (id)allocWithZone:(struct _NSZone *)arg1;
@@ -48,12 +71,14 @@
 - (id)_copyDescription;
 - (id)debugDescription;
 - (id)description;
+- (BOOL)_allowsDirectEncoding;
 - (struct _NSZone *)zone;
-- (id)self;
-- (Class)class;
-- (Class)superclass;
 - (void)finalize;
 - (void)dealloc;
+- (BOOL)retainWeakReference;
+- (BOOL)allowsWeakReference;
+- (BOOL)_tryRetain;
+- (BOOL)_isDeallocating;
 - (id)autorelease;
 - (oneway void)release;
 - (unsigned int)retainCount;
@@ -62,7 +87,11 @@
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
-- (long long)forward:(SEL)arg1:(void *)arg2;
+- (id)self;
+- (Class)superclass;
+- (Class)class;
+- (BOOL)_conformsToProtocolNamed:(const char *)arg1;
+- (struct objc_method_description *)methodDescriptionForSelector:(SEL)arg1;
 
 @end
 

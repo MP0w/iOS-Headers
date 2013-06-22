@@ -5,8 +5,8 @@
  */
 
 @protocol DAMailboxStreamingContentConsumer
-- (BOOL)shouldBeginStreamingForMailMessage:(id)arg1 format:(int)arg2;
-- (void)consumeData:(char *)arg1 length:(int)arg2 format:(int)arg3 mailMessage:(id)arg4;
 - (void)didEndStreamingForMailMessage:(id)arg1;
+- (void)consumeData:(char *)arg1 length:(int)arg2 format:(int)arg3 mailMessage:(id)arg4;
+- (BOOL)shouldBeginStreamingForMailMessage:(id)arg1 format:(int)arg2;
 @end
 

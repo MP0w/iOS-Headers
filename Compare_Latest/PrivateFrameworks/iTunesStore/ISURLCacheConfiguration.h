@@ -8,30 +8,20 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSArray, NSSet, NSString;
+@class NSString;
 
 @interface ISURLCacheConfiguration : NSObject <NSCopying>
 {
-    NSArray *_clientIdentifiers;
     unsigned int _diskCapacity;
-    NSSet *_fileExtensions;
     unsigned int _memoryCapacity;
     NSString *_persistentIdentifier;
-    NSArray *_urlPatterns;
 }
 
-@property(copy, nonatomic) NSArray *URLPatterns; // @synthesize URLPatterns=_urlPatterns;
 @property(copy, nonatomic) NSString *persistentIdentifier; // @synthesize persistentIdentifier=_persistentIdentifier;
 @property(nonatomic) unsigned int memoryCapacity; // @synthesize memoryCapacity=_memoryCapacity;
-@property(copy, nonatomic) NSSet *fileExtensions; // @synthesize fileExtensions=_fileExtensions;
 @property(nonatomic) unsigned int diskCapacity; // @synthesize diskCapacity=_diskCapacity;
-@property(copy, nonatomic) NSArray *clientIdentifiers; // @synthesize clientIdentifiers=_clientIdentifiers;
-- (void)_setURLPatternsFromPropertyList:(id)arg1;
-- (void)_setFileExtensionsFromPropertyList:(id)arg1;
-- (void)_setClientIdentifiersFromPropertyList:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithPropertyList:(id)arg1;
 
 @end
 

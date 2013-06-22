@@ -10,7 +10,6 @@
 
 @interface FTEntitlementSupport : NSObject
 {
-    struct __CFMachPort *_ctServerMachPort;
 }
 
 + (id)sharedInstance;
@@ -25,8 +24,6 @@
 @property(readonly, nonatomic) NSDictionary *registrationState;
 @property(readonly, nonatomic) BOOL faceTimeNonWiFiEntitled;
 - (id)init;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

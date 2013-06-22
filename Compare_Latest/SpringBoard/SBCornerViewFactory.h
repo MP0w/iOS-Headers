@@ -10,8 +10,8 @@
 {
 }
 
++ (id)newCornerWindowForCorner:(int)arg1 windowLevel:(float)arg2 cornersFrame:(struct CGRect)arg3;
 + (id)newCornerViewForCorner:(int)arg1 cornersFrame:(struct CGRect)arg2;
-+ (id)createCornerWindowForCorner:(int)arg1 windowLevel:(float)arg2 cornersFrame:(struct CGRect)arg3;
 
 @end
 

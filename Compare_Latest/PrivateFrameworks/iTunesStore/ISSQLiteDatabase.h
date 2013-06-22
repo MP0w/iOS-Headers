@@ -6,23 +6,36 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>, NSString;
+
 @interface ISSQLiteDatabase : NSObject
 {
     struct sqlite3 *_db;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSString *_databasePath;
     BOOL _isInTransaction;
-    struct dispatch_queue_s *_dispatchQueue;
+    id _setupBlock;
     struct __CFDictionary *_statementCache;
 }
 
 + (void)_stepStatement:(struct sqlite3_stmt *)arg1 hasRow:(char *)arg2 didFinish:(char *)arg3;
 + (BOOL)statementHasRowAfterStepping:(struct sqlite3_stmt *)arg1;
 + (BOOL)statementDidFinishAfterStepping:(struct sqlite3_stmt *)arg1;
+@property(copy, nonatomic) id setupBlock; // @synthesize setupBlock=_setupBlock;
 - (struct sqlite3_stmt *)_statementForSQL:(id)arg1 cache:(BOOL)arg2;
+- (BOOL)_resetDatabaseWithPath:(id)arg1;
+- (void)_resetCorruptDatabase;
 - (int)_resetAndReopenDatabaseWithPath:(id)arg1;
+- (int)_openDatabase;
 - (void)_accessDatabaseUsingBlock:(id)arg1;
+- (BOOL)setUserVersion:(int)arg1;
 - (void)prepareStatementForSQL:(id)arg1 cache:(BOOL)arg2 usingBlock:(id)arg3;
 - (void)performTransactionWithBlock:(id)arg1;
+- (id)newDispatchSourceWithType:(struct dispatch_source_type_s *)arg1;
 - (BOOL)executeSQL:(id)arg1;
+- (void)dispatchBlockSync:(id)arg1;
+- (void)dispatchBlockAsync:(id)arg1;
+- (void)dispatchAfter:(unsigned long long)arg1 block:(id)arg2;
 - (void)accessDatabaseUsingBlock:(id)arg1;
 - (void)dealloc;
 - (id)initWithDatabaseURL:(id)arg1;

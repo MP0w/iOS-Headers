@@ -18,6 +18,7 @@
     CoreDAVItemWithNoChildren *_selfItem;
 }
 
++ (id)copyParseRules;
 @property(retain) CoreDAVItemWithNoChildren *selfItem; // @synthesize selfItem=_selfItem;
 @property(retain) CoreDAVItem *property; // @synthesize property=_property;
 @property(retain) CoreDAVItemWithNoChildren *unauthenticated; // @synthesize unauthenticated=_unauthenticated;
@@ -25,7 +26,6 @@
 @property(retain) CoreDAVItemWithNoChildren *all; // @synthesize all=_all;
 @property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
 - (id)hashString;
-- (id)copyParseRules;
 - (void)write:(id)arg1;
 - (id)description;
 - (void)dealloc;

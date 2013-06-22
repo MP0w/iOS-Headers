@@ -18,8 +18,8 @@
     TLVibrationRecorderControlsView *_controlsView;
     UILabel *_instructionsLabel;
     BOOL _replayMode;
-    unsigned int _leftButtonIdentifier;
-    unsigned int _rightButtonIdentifier;
+    int _leftButtonIdentifier;
+    int _rightButtonIdentifier;
     double _vibrationPatternMaximumDuration;
     double _currentVibrationProgressDidStartTimestamp;
     BOOL _isWaitingForEndOfCurrentVibrationComponent;
@@ -38,15 +38,15 @@
 - (void)enterRecordingModeWithAnimation:(BOOL)arg1;
 - (void)_exitWaitingModeWithAnimation:(BOOL)arg1;
 - (void)_enterWaitingModeWithAnimation:(BOOL)arg1 animateButtons:(BOOL)arg2 enablePlayButton:(BOOL)arg3;
-- (void)_getButtonPropertiesForIdentifier:(unsigned int)arg1 enabled:(BOOL)arg2 color:(int *)arg3 title:(id *)arg4 icon:(id *)arg5;
+- (void)_getButtonPropertiesForIdentifier:(int)arg1 enabled:(BOOL)arg2 color:(int *)arg3 title:(id *)arg4 icon:(id *)arg5;
 - (void)vibrationRecorderTouchSurface:(id)arg1 didExitRecordingModeWithContextObject:(id)arg2;
 - (BOOL)vibrationRecorderTouchSurfaceDidEnterRecordingMode:(id)arg1;
 - (void)vibrationRecorderTouchSurfaceDidFinishReplayingVibration:(id)arg1;
 - (void)vibrationRecorderControlsView:(id)arg1 buttonTappedAtIndex:(unsigned int)arg2;
 - (void)vibrationComponentDidEndForVibrationRecorderTouchSurface:(id)arg1;
 - (void)vibrationComponentDidStartForVibrationRecorderTouchSurface:(id)arg1;
-- (void)_setLeftButtonIdentifier:(unsigned int)arg1 enabled:(BOOL)arg2 rightButtonIdentifier:(unsigned int)arg3 enabled:(BOOL)arg4 animate:(BOOL)arg5 completion:(id)arg6;
-- (void)_setLeftButtonIdentifier:(unsigned int)arg1 enabled:(BOOL)arg2 rightButtonIdentifier:(unsigned int)arg3 enabled:(BOOL)arg4 animate:(BOOL)arg5;
+- (void)_setLeftButtonIdentifier:(int)arg1 enabled:(BOOL)arg2 rightButtonIdentifier:(int)arg3 enabled:(BOOL)arg4 animate:(BOOL)arg5 completion:(id)arg6;
+- (void)_setLeftButtonIdentifier:(int)arg1 enabled:(BOOL)arg2 rightButtonIdentifier:(int)arg3 enabled:(BOOL)arg4 animate:(BOOL)arg5;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 vibrationPatternMaximumDuration:(double)arg2;
 

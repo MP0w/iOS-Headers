@@ -15,14 +15,14 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)objectForKey:(id)arg1;
-- (void)reload;
-- (void)save;
-- (id)_path;
 - (void)_load;
+- (id)_path;
+- (void)save;
+- (void)reload;
+- (id)objectForKey:(id)arg1;
+- (void)setValue:(id)arg1 forKey:(id)arg2;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -59,7 +59,7 @@
 - (int)_clientOrderOfItemPrecedingItemAtServerOrder:(int)arg1 inParentWithURL:(id)arg2;
 - (id)_dbRelativeString:(id)arg1;
 - (int)_serverOrderForChange:(void *)arg1;
-- (void)_setServerIdOnItem:(void *)arg1 isBookmark:(BOOL)arg2;
+- (void)_setServerIdOnItem:(void *)arg1 isBookmark:(BOOL)arg2 suggestedId:(id)arg3;
 - (id)_copyDAVFolderFromFolderRef:(void *)arg1;
 - (id)_copyDAVBookmarkFromBookmarkRef:(void *)arg1;
 - (void)getAccountPropertiesWithCompletionHandler:(id)arg1;
@@ -71,6 +71,17 @@
 - (void)_invokeAndNilGetAccountPropertiesHandlerWithSuccess:(BOOL)arg1 error:(id)arg2;
 - (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2 openDBBlock:(id)arg3 getDBBlock:(void)arg4 saveDBBlock:(id)arg5 closeDBBlock:(void)arg6 registerForPush:(id)arg7 forceSafariOrdering:(void)arg8;
+- (void)_finishInitialSyncShouldPushChanges:(BOOL)arg1;
+- (BOOL)_applyReturnedBookmarks:(id)arg1 withPushedBookmarks:(struct __CFArray *)arg2;
+- (BOOL)_applyReturnedFolders:(id)arg1 parentToArrayOfChildrenFolders:(struct __CFDictionary *)arg2 topmostFolders:(struct __CFArray *)arg3 postedToURL:(id)arg4;
+- (BOOL)_matchParsedFolders:(id)arg1 toPushedFolders:(struct __CFDictionary *)arg2 unmatchedParsedFolders:(id)arg3 parsedSetsOfChildrenFoldersByParentURL:(id)arg4 arraysOfChildrenByNameByParent:(struct __CFDictionary *)arg5;
+- (void)_setRootCTag:(id)arg1 rootSyncToken:(id)arg2 knownOrderings:(id)arg3;
+- (BOOL)_applyUnmatchedParsedFolders:(id)arg1;
+- (void)_removeTempIdsFromFoldersInDict:(struct __CFDictionary *)arg1;
+- (id)_bookmarkXBELDataForBookmarkChanges:(struct __CFArray *)arg1 pushedBookmarks:(struct __CFArray *)arg2 maxResources:(int)arg3 maxSize:(int)arg4;
+- (id)_folderXBELDataForTopmostFolderChanges:(struct __CFArray *)arg1 foldersToAddByServerId:(struct __CFDictionary *)arg2 parentToArrayOfChildrenFolderChanges:(struct __CFDictionary *)arg3 pushedParentToArrayOfChildrenFolders:(struct __CFDictionary *)arg4 pushedTopmostFolders:(struct __CFArray *)arg5 maxResources:(int)arg6 maxSize:(int)arg7;
+- (BOOL)_addChange:(void *)arg1 toData:(id)arg2 numActionsP:(int *)arg3 runningSizeP:(int *)arg4 maxResources:(int)arg5 maxSize:(int)arg6 foldersToAddByServerId:(struct __CFDictionary *)arg7 parentToArrayOfChildrenFolderChanges:(struct __CFDictionary *)arg8 pushedParentToArrayOfChildrenFolders:(struct __CFDictionary *)arg9;
+- (BOOL)_handleErrorItem:(id)arg1 forBAItem:(void *)arg2;
 
 @end
 

@@ -12,10 +12,10 @@
     int mStartIndex;
 }
 
-- (id)initWithAutoNumberSchemeType:(int)arg1 startIndex:(unsigned int)arg2;
-- (int)autoNumberSchemeType;
-- (unsigned int)startIndex;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)startIndex;
+- (int)autoNumberSchemeType;
+- (id)initWithAutoNumberSchemeType:(int)arg1 startIndex:(unsigned int)arg2;
 
 @end
 

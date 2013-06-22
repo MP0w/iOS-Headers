@@ -18,14 +18,14 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (id)model;
-- (void)setModel:(id)arg1;
-- (id)tableStyle;
-- (void)setTableStyle:(id)arg1;
-- (BOOL)isStreamed;
-- (id)defaultVectorStyleForVectorType:(int)arg1;
 - (int)walkTableWithGenerator:(Class)arg1 state:(id)arg2;
+- (id)defaultVectorStyleForVectorType:(int)arg1;
+- (BOOL)isStreamed;
+- (void)setTableStyle:(id)arg1;
+- (id)tableStyle;
+- (void)setModel:(id)arg1;
+- (id)model;
+- (void)dealloc;
 
 @end
 

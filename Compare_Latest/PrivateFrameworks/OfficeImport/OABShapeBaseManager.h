@@ -13,35 +13,35 @@
     struct EshShapeBase *mShapeBase;
 }
 
-- (id)initWithShapeBase:(struct EshShapeBase *)arg1 shapeType:(int)arg2 masterShape:(struct EshShape *)arg3;
-- (void)dealloc;
-- (BOOL)isStroked;
-- (struct EshColor)strokeFgColor;
-- (struct EshColor)strokeBgColor;
-- (struct EshColor)shadowColor;
-- (int)strokeFillType;
-- (unsigned long)strokeFillBlipID;
-- (id)strokeFillBlipName;
-- (long)strokeFgAlpha;
-- (long)strokeWidth;
-- (long)strokeMiterLimit;
-- (int)strokeCompoundType;
-- (int)strokePresetDash;
-- (const EshTablePropVal_0be01c99 *)strokeCustomDash;
-- (int)strokeCapStyle;
-- (int)strokeJoinStyle;
-- (int)strokeStartArrowType;
-- (int)strokeStartArrowWidth;
-- (int)strokeStartArrowLength;
-- (int)strokeEndArrowType;
-- (int)strokeEndArrowWidth;
-- (int)strokeEndArrowLength;
-- (BOOL)isShadowed;
-- (int)shadowType;
-- (long)shadowAlpha;
-- (long)shadowOffsetX;
-- (long)shadowOffsetY;
 - (long)shadowSoftness;
+- (long)shadowOffsetY;
+- (long)shadowOffsetX;
+- (long)shadowAlpha;
+- (int)shadowType;
+- (BOOL)isShadowed;
+- (int)strokeEndArrowLength;
+- (int)strokeEndArrowWidth;
+- (int)strokeEndArrowType;
+- (int)strokeStartArrowLength;
+- (int)strokeStartArrowWidth;
+- (int)strokeStartArrowType;
+- (int)strokeJoinStyle;
+- (int)strokeCapStyle;
+- (const struct EshTablePropVal<long> *)strokeCustomDash;
+- (int)strokePresetDash;
+- (int)strokeCompoundType;
+- (long)strokeMiterLimit;
+- (long)strokeWidth;
+- (long)strokeFgAlpha;
+- (id)strokeFillBlipName;
+- (unsigned long)strokeFillBlipID;
+- (int)strokeFillType;
+- (struct EshColor)shadowColor;
+- (struct EshColor)strokeBgColor;
+- (struct EshColor)strokeFgColor;
+- (BOOL)isStroked;
+- (void)dealloc;
+- (id)initWithShapeBase:(struct EshShapeBase *)arg1 shapeType:(int)arg2 masterShape:(struct EshShape *)arg3;
 
 @end
 

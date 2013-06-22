@@ -13,12 +13,12 @@
     UIImageView *shadowImageView;
 }
 
-- (void)dealloc;
-- (id)init;
-- (BOOL)shadowHidden;
-@property(nonatomic, getter=isShadowHidden) BOOL shadowHidden; // @dynamic shadowHidden;
-- (void)didAddSubview:(id)arg1;
 @property(retain, nonatomic) UIImageView *shadowImageView; // @synthesize shadowImageView;
+- (void)didAddSubview:(id)arg1;
+@property(nonatomic, getter=isShadowHidden) BOOL shadowHidden; // @dynamic shadowHidden;
+- (BOOL)shadowHidden;
+- (id)init;
+- (void)dealloc;
 
 @end
 

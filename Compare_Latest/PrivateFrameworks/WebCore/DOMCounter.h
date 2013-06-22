@@ -12,11 +12,11 @@
 {
 }
 
-- (void)dealloc;
+@property(readonly) NSString *separator;
+@property(readonly) NSString *listStyle;
+@property(readonly) NSString *identifier;
 - (void)finalize;
-@property(readonly, copy) NSString *identifier;
-@property(readonly, copy) NSString *listStyle;
-@property(readonly, copy) NSString *separator;
+- (void)dealloc;
 
 @end
 

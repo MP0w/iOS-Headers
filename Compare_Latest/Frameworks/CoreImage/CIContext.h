@@ -11,11 +11,16 @@
     struct CIContextInternal *_priv;
 }
 
++ (BOOL)applicationIsInForegroundState;
++ (int)_crashed_because_nonaddressable_memory_was_passed_to_render:(id)arg1 toBitmap:(void *)arg2 rowBytes:(int)arg3 bounds:(struct CGRect)arg4 format:(int)arg5 colorSpace:(struct CGColorSpace *)arg6;
 + (id)contextWithEAGLContext:(id)arg1 options:(id)arg2;
 + (id)contextWithEAGLContext:(id)arg1;
 + (id)contextWithOptions:(id)arg1;
 + (id)context;
 + (id)_singletonContext;
++ (id)clContextOptions:(id)arg1;
++ (id)glesContextOptions:(id)arg1;
++ (struct Context *)glesInternalContextOptions:(id)arg1;
 - (struct CGSize)outputImageMaximumSize;
 - (struct CGSize)inputImageMaximumSize;
 - (unsigned long)maximumOutputImageSize;
@@ -25,7 +30,8 @@
 - (struct CGImage *)createCGImage:(id)arg1 fromRect:(struct CGRect)arg2;
 - (void)drawImage:(id)arg1 inRect:(struct CGRect)arg2 fromRect:(struct CGRect)arg3;
 - (void)drawImage:(id)arg1 atPoint:(struct CGPoint)arg2 fromRect:(struct CGRect)arg3;
-- (_Bool)_isGPUContext;
+- (void)_insertEventMarker:(const char *)arg1;
+- (_Bool)_isEAGLBackedContext;
 - (void)render:(id)arg1 toCVPixelBuffer:(struct __CVBuffer *)arg2 bounds:(struct CGRect)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (void)render:(id)arg1 toCVPixelBuffer:(struct __CVBuffer *)arg2;
 - (void)render:(id)arg1 toBitmap:(void *)arg2 rowBytes:(int)arg3 bounds:(struct CGRect)arg4 format:(int)arg5 colorSpace:(struct CGColorSpace *)arg6;
@@ -35,6 +41,9 @@
 - (id)initWithEAGLContext:(id)arg1;
 - (void)unlock;
 - (void)lock;
+- (void)_gpuContextCheck;
+- (struct CGColorSpace *)_colorspace;
+- (id)_initWithInternalRepresentation:(void *)arg1;
 
 @end
 

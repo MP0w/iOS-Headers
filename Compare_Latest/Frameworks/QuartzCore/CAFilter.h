@@ -21,26 +21,26 @@
     void *_cache;
 }
 
-+ (id)filterTypes;
-+ (id)filterWithType:(id)arg1;
-+ (id)filterWithName:(id)arg1;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-- (id)initWithType:(id)arg1;
-- (id)initWithName:(id)arg1;
-@property(readonly) NSString *type;
-@property(copy) NSString *name;
++ (id)filterWithName:(id)arg1;
++ (id)filterWithType:(id)arg1;
++ (id)filterTypes;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (struct Object *)CA_copyRenderValue;
+- (void)dealloc;
+- (void)setDefaults;
+- (id)valueForKey:(id)arg1;
+- (void)setValue:(id)arg1 forKey:(id)arg2;
+@property BOOL cachesInputImage;
 @property(getter=isEnabled) BOOL enabled;
 - (BOOL)enabled;
-@property BOOL cachesInputImage;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)valueForKey:(id)arg1;
-- (void)setDefaults;
-- (void)dealloc;
-- (struct Object *)CA_copyRenderValue;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+@property(copy) NSString *name;
+@property(readonly) NSString *type;
+- (id)initWithName:(id)arg1;
+- (id)initWithType:(id)arg1;
 
 @end
 

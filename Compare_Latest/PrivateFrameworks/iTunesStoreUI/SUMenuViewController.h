@@ -20,6 +20,7 @@
 
 @property(nonatomic) int selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 @property(nonatomic) id <SUMenuViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)_tableView;
 - (BOOL)_sendDidCancel;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;

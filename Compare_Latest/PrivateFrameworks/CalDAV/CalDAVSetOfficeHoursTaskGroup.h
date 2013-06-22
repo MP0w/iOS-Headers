@@ -16,12 +16,12 @@
     ICSDocument *_calendarAvailability;
 }
 
-- (void)dealloc;
-- (id)initWithAccountInfoProvider:(id)arg1 inboxURL:(id)arg2 calendarAvailability:(id)arg3 taskManager:(id)arg4;
-- (void)startTaskGroup;
-- (void)propPatchTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 @property(retain) ICSDocument *calendarAvailability; // @synthesize calendarAvailability=_calendarAvailability;
 @property(retain) NSURL *inboxURL; // @synthesize inboxURL=_inboxURL;
+- (void)propPatchTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
+- (void)startTaskGroup;
+- (id)initWithAccountInfoProvider:(id)arg1 inboxURL:(id)arg2 calendarAvailability:(id)arg3 taskManager:(id)arg4;
+- (void)dealloc;
 
 // Remaining properties
 @property(nonatomic) id <CoreDAVTaskGroupDelegate> delegate; // @dynamic delegate;

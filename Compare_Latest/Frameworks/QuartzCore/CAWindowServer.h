@@ -13,22 +13,22 @@
     struct CAWindowServerImpl *_impl;
 }
 
-+ (id)context;
-+ (id)contextWithOptions:(id)arg1;
-+ (id)server;
 + (id)serverIfRunning;
-- (id)init;
-- (id)_init;
-- (void)addDisplay:(id)arg1;
-- (void)removeDisplay:(id)arg1;
-- (void)removeAllDisplays;
-- (id)displayWithName:(id)arg1;
-- (void)_detectDisplays;
-- (void)dealloc;
-@property(readonly) NSArray *displays;
-@property(getter=isMirroringEnabled) BOOL mirroringEnabled;
-@property unsigned int rendererFlags;
++ (id)server;
++ (id)contextWithOptions:(id)arg1;
++ (id)context;
 - (id)description;
+@property unsigned int rendererFlags;
+@property(getter=isMirroringEnabled) BOOL mirroringEnabled;
+@property(readonly) NSArray *displays;
+- (void)dealloc;
+- (void)_detectDisplays;
+- (id)displayWithName:(id)arg1;
+- (void)removeAllDisplays;
+- (void)removeDisplay:(id)arg1;
+- (void)addDisplay:(id)arg1;
+- (id)_init;
+- (id)init;
 
 @end
 

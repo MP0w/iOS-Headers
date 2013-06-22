@@ -7,9 +7,9 @@
 #import "NSObject.h"
 
 @interface NSObject (CKMessageEntryViewDelegate)
-- (BOOL)messageEntryView:(id)arg1 contentSizeChanged:(struct CGSize)arg2 animate:(BOOL)arg3;
-- (void)messageEntryViewSendButtonHit:(id)arg1;
-- (void)messageEntryViewSendButtonHitWhileDisabled:(id)arg1;
 - (BOOL)getContainerWidth:(float *)arg1 offset:(float *)arg2;
+- (void)messageEntryViewSendButtonHitWhileDisabled:(id)arg1;
+- (void)messageEntryViewSendButtonHit:(id)arg1;
+- (BOOL)messageEntryView:(id)arg1 contentSizeChanged:(struct CGSize)arg2 animate:(BOOL)arg3;
 @end
 

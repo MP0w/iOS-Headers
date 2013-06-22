@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDate, NSError, NSString, SKPayment, SKPaymentTransaction;
+@class NSArray, NSData, NSDate, NSError, NSString, SKPayment, SKPaymentTransaction;
 
 @interface SKPaymentTransactionInternal : NSObject
 {
+    NSArray *_downloads;
     NSError *_error;
     SKPaymentTransaction *_originalTransaction;
     SKPayment *_payment;

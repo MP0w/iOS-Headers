@@ -13,20 +13,20 @@
     CPZone *tableZone;
     CPTable *table;
     unsigned int cellIndex;
-    CDStruct_dcd939b8 *rowYIntervals;
-    CDStruct_dcd939b8 *columnXIntervals;
+    CDStruct_b2fbf00d *rowYIntervals;
+    CDStruct_b2fbf00d *columnXIntervals;
 }
 
-+ (BOOL)isTable:(id)arg1;
-+ (void)makeTableFrom:(id)arg1;
-+ (void)makeTablesInZone:(id)arg1;
 + (void)makeTablesInPage:(id)arg1;
-- (id)initWithZone:(id)arg1;
-- (void)dealloc;
-- (id)newBackgroundGraphicArrayFromRectangularZone:(id)arg1;
-- (id)newTableCellFromZone:(id)arg1;
-- (void)determineRowsAndColumns:(BOOL)arg1;
++ (void)makeTablesInZone:(id)arg1;
++ (void)makeTableFrom:(id)arg1;
++ (BOOL)isTable:(id)arg1;
 - (void)makeTable;
+- (void)determineRowsAndColumns:(BOOL)arg1;
+- (id)newTableCellFromZone:(id)arg1;
+- (id)newBackgroundGraphicArrayFromRectangularZone:(id)arg1;
+- (void)dealloc;
+- (id)initWithZone:(id)arg1;
 
 @end
 

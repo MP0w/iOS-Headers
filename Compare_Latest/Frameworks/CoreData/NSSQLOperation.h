@@ -18,22 +18,22 @@
     NSMutableDictionary *_mtmDeltas;
 }
 
-- (id)initWithObject:(id)arg1 entity:(id)arg2;
-- (void)dealloc;
-- (id)dbSnapshot;
-- (void)setDBSnapshot:(id)arg1;
-- (id)rowForUpdate;
-- (void)setRowForUpdate:(id)arg1;
-- (id)objectID;
-- (id)object;
-- (unsigned int)databaseOperator;
-- (void)setDatabaseOperator:(unsigned int)arg1;
-- (id)adapterOperations;
-- (void)addAdapterOperation:(id)arg1;
-- (void)removeAdapterOperation:(id)arg1;
-- (id)description;
-- (void)addDelta:(id)arg1 forManyToManyKey:(id)arg2;
 - (id)manyToManyDeltas;
+- (void)addDelta:(id)arg1 forManyToManyKey:(id)arg2;
+- (id)description;
+- (void)removeAdapterOperation:(id)arg1;
+- (void)addAdapterOperation:(id)arg1;
+- (id)adapterOperations;
+- (void)setDatabaseOperator:(unsigned int)arg1;
+- (unsigned int)databaseOperator;
+- (id)object;
+- (id)objectID;
+- (void)setRowForUpdate:(id)arg1;
+- (id)rowForUpdate;
+- (void)setDBSnapshot:(id)arg1;
+- (id)dbSnapshot;
+- (void)dealloc;
+- (id)initWithObject:(id)arg1 entity:(id)arg2;
 
 @end
 

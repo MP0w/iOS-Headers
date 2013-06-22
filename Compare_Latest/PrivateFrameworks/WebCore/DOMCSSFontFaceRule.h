@@ -12,7 +12,7 @@
 {
 }
 
-@property(readonly, retain) DOMCSSStyleDeclaration *style;
+@property(readonly) DOMCSSStyleDeclaration *style;
 
 @end
 

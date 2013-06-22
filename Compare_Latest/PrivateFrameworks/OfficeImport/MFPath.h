@@ -12,18 +12,18 @@
 {
 }
 
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)state;
-- (BOOL)isOpen;
-- (int)begin;
-- (int)end;
-- (int)abort;
-- (struct CGPoint)currentPoint;
-- (int)closeFigure;
-- (int)flatten;
-- (int)widen:(id)arg1;
-- (int)stroke:(id)arg1;
 - (int)fill:(id)arg1;
+- (int)stroke:(id)arg1;
+- (int)widen:(id)arg1;
+- (int)flatten;
+- (int)closeFigure;
+- (struct CGPoint)currentPoint;
+- (int)abort;
+- (int)end;
+- (int)begin;
+- (BOOL)isOpen;
+- (int)state;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

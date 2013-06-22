@@ -16,11 +16,13 @@
     struct XlLinkTable *mXlLinkTable;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)setupWithWorkbook:(id)arg1;
-- (struct XlFormulaProcessor *)xlFormulaProcessorLasso;
 - (struct XlFormulaProcessor *)xlFormulaProcessorXl;
+- (struct XlFormulaProcessor *)xlFormulaProcessorLasso;
+- (void)setupWithWorkbook:(id)arg1;
+- (void)dealloc;
+- (id)init;
+- (ChVector_be6372b9 *)sheetNamesFromWorkbook:(id)arg1;
+- (struct XlFormulaProcessor *)setupWithWorkbook:(id)arg1 xlNameTable:(struct XlNameTable *)arg2 sheetNames:(ChVector_be6372b9 *)arg3 xlLinkTable:(struct XlLinkTable *)arg4 lassoSyntax:(_Bool)arg5;
 
 @end
 

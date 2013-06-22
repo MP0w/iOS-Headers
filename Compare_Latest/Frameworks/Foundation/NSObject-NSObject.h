@@ -12,12 +12,10 @@
 + (BOOL)implementsSelector:(SEL)arg1;
 + (BOOL)instancesImplementSelector:(SEL)arg1;
 + (void)load;
-+ (void)initialize;
 - (BOOL)implementsSelector:(SEL)arg1;
 - (id)replacementObjectForCoder:(id)arg1;
+- (BOOL)_allowsDirectEncoding;
 - (Class)classForCoder;
 - (id)awakeAfterUsingCoder:(id)arg1;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 @end
 

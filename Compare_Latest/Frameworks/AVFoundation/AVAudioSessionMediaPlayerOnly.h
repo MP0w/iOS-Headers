@@ -34,7 +34,7 @@
 - (BOOL)setCategory:(id)arg1 error:(id *)arg2;
 - (BOOL)setActive:(BOOL)arg1 withFlags:(int)arg2 error:(id *)arg3;
 - (BOOL)setActive:(BOOL)arg1 error:(id *)arg2;
-@property id <AVAudioSessionDelegateMediaPlayerOnly> delegate; // @dynamic delegate;
+@property id <AVAudioSessionDelegateMediaPlayerOnly> delegate;
 - (void)dealloc;
 - (id)init;
 

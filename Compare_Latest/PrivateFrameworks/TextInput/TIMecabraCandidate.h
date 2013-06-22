@@ -6,20 +6,27 @@
 
 #import "UIKeyboardCandidate.h"
 
+@class NSString;
+
 @interface TIMecabraCandidate : UIKeyboardCandidate
 {
     void *_candidate;
+    NSString *_displayReading;
+    NSString *_firstSyllable;
 }
 
-- (id)candidate;
-- (id)input;
-- (id)initConversionCandidateWithSurface:(id)arg1 andInput:(id)arg2;
-- (id)initWithMecabraCandidate:(const void *)arg1;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void *)mecabraCandidate;
-- (BOOL)isExtensionCandidate;
 - (BOOL)isForShortcutConversion;
+- (BOOL)isExtensionCandidate;
+@property(readonly, nonatomic) NSString *displayReading;
+- (void *)mecabraCandidate;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithMecabraCandidate:(const void *)arg1;
+- (id)initConversionCandidateWithSurface:(id)arg1 andInput:(id)arg2;
+@property(readonly, nonatomic) NSString *firstSyllable;
+@property(readonly, nonatomic) NSString *convertedInput;
+- (id)input;
+- (id)candidate;
 
 @end
 

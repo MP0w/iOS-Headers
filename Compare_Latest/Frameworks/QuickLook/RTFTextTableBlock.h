@@ -19,16 +19,16 @@
     void *_tableBlockSecondary;
 }
 
-- (id)initWithTable:(id)arg1 startingRow:(int)arg2 rowSpan:(int)arg3 startingColumn:(int)arg4 columnSpan:(int)arg5;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)table;
-- (int)startingRow;
-- (int)rowSpan;
-- (int)startingColumn;
-- (int)columnSpan;
-- (void)_setRowSpan:(int)arg1;
 - (void)_setColumnSpan:(int)arg1;
+- (void)_setRowSpan:(int)arg1;
+- (int)columnSpan;
+- (int)startingColumn;
+- (int)rowSpan;
+- (int)startingRow;
+- (id)table;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithTable:(id)arg1 startingRow:(int)arg2 rowSpan:(int)arg3 startingColumn:(int)arg4 columnSpan:(int)arg5;
 
 @end
 

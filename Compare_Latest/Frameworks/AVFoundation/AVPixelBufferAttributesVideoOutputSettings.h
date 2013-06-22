@@ -17,10 +17,12 @@
 + (id)_videoOutputSettingsWithVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 + (id)eligibleOutputSettingsDictionaryKeys;
 @property(readonly, nonatomic) NSDictionary *pixelBufferAttributes;
-- (BOOL)isDictionaryFullyFormed;
+- (BOOL)canFullySpecifyOutputFormatReturningReason:(id *)arg1;
+- (BOOL)isCodecAvailableOnCurrentSystem;
 - (BOOL)willYieldCompressedSamples;
 - (int)height;
 - (int)width;
+- (id)initWithTrustedPixelBufferAttributes:(id)arg1;
 - (id)initWithPixelBufferAttributes:(id)arg1 exceptionReason:(id *)arg2;
 
 @end

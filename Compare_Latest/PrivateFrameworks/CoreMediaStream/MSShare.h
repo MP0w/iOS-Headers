@@ -29,12 +29,12 @@
 @property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 @property(retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
 - (unsigned int)hash;
-- (void)dealloc;
 @property(retain, nonatomic) NSString *fullName;
 @property(nonatomic) int sharingTheirPhotostream;
 @property(nonatomic) int sharingOurPhotostream;

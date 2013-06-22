@@ -14,9 +14,9 @@
     int _priority;
 }
 
-- (id)initWithTarget:(id)arg1 operationQueue:(id)arg2 priority:(int)arg3;
-- (void)dealloc;
 - (void)forwardInvocation:(id)arg1;
+- (void)dealloc;
+- (id)initWithTarget:(id)arg1 operationQueue:(id)arg2 priority:(int)arg3;
 
 @end
 

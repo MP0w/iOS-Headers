@@ -23,7 +23,7 @@
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) unsigned long long persistentID;
 - (BOOL)existsInLibrary;
-- (id)geniusMixArtworkForSize:(struct CGSize)arg1;
+- (id)loadGeniusMixArtworkWithTileLength:(float)arg1 completionBlock:(id)arg2;
 - (id)valueForProperty:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

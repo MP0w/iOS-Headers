@@ -15,15 +15,15 @@
     NSString *mText;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)isEmpty;
-- (id)paragraphProperties;
-- (id)id;
-- (void)setId:(id)arg1;
-- (id)text;
-- (void)setText:(id)arg1;
 - (void)removeUnnecessaryOverrides;
+- (void)setText:(id)arg1;
+- (id)text;
+- (void)setId:(id)arg1;
+- (id)id;
+- (id)paragraphProperties;
+- (BOOL)isEmpty;
+- (void)dealloc;
+- (id)init;
 
 @end
 

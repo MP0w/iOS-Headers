@@ -11,17 +11,17 @@
     void *_msCameraFolderProperties;
 }
 
-- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3 fsSN:(unsigned long long)arg4 fsCreationTime:(struct timespec)arg5 fsModificationTime:(struct timespec)arg6 fsSize:(long long)arg7 fsFlags:(unsigned int)arg8;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly) unsigned long long fsSN;
-@property(readonly) struct timespec fsCreationTime;
-@property(readonly) struct timespec fsModificationTime;
-@property(readonly) long long fsSize;
-- (void)enumerateContent;
-- (BOOL)deleteItemFromCamera:(id)arg1;
-- (id)itemMatchingName:(id)arg1 fsSN:(unsigned long long)arg2 fsCreationTime:(struct timespec *)arg3 fsSize:(long long)arg4;
 - (id)folderMatchingPath:(id)arg1;
+- (id)itemMatchingName:(id)arg1 fsSN:(unsigned long long)arg2 fsCreationTime:(struct timespec *)arg3 fsSize:(long long)arg4;
+- (BOOL)deleteItemFromCamera:(id)arg1;
+- (void)enumerateContent;
+@property(readonly) long long fsSize;
+@property(readonly) struct timespec fsModificationTime;
+@property(readonly) struct timespec fsCreationTime;
+@property(readonly) unsigned long long fsSN;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3 fsSN:(unsigned long long)arg4 fsCreationTime:(struct timespec)arg5 fsModificationTime:(struct timespec)arg6 fsSize:(long long)arg7 fsFlags:(unsigned int)arg8;
 
 @end
 

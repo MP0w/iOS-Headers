@@ -17,15 +17,16 @@
 }
 
 + (void)initialize;
-- (id)initWithObjectID:(id)arg1 withValues:(id)arg2 version:(unsigned long long)arg3;
-- (void)dealloc;
-- (void)updateWithValues:(id)arg1 version:(unsigned long long)arg2;
-- (id)objectID;
-- (unsigned long long)version;
-- (const id *)knownKeyValuesPointer;
-- (id)_snapshot_;
-- (unsigned int)_versionNumber;
 - (id)valueForPropertyDescription:(id)arg1;
+- (unsigned int)_versionNumber;
+- (id)_snapshot_;
+- (const id *)knownKeyValuesPointer;
+- (unsigned long long)version;
+- (id)objectID;
+- (void)updateWithValues:(id)arg1 version:(unsigned long long)arg2;
+- (void)dealloc;
+- (id)initWithObjectID:(id)arg1 withValues:(id)arg2 version:(unsigned long long)arg3;
+- (id)_propertyCache;
 
 @end
 

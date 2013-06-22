@@ -92,8 +92,7 @@
 - (id)userLocation;
 - (void)setDidAddUserLocationView:(BOOL)arg1;
 - (BOOL)didAddUserLocationView;
-- (void)set_mapTileView:(id)arg1;
-- (id)_mapTileView;
+- (void)showBubbleAfterRegionChange;
 - (void)showBubbleAfterScroll;
 - (void)_scrollToBubble;
 - (void)_updateAnnotationViewPerspective;
@@ -134,6 +133,12 @@
 - (id)delegate;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)_removeAnnotationViewsExcludingAnnotation:(id)arg1 ofClassType:(Class)arg2;
+- (void)_setRegisteredForAddressBookChanges:(BOOL)arg1;
+- (BOOL)_registeredForAddressBookChanges;
+- (void)_replaceAnnotation:(id)arg1 withAnnotation:(id)arg2;
+- (id)searchResultPins;
+- (void)_updateBubble;
 
 @end
 

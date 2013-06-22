@@ -17,9 +17,9 @@
     NSString *mType;
 }
 
-- (id)initWithSheetLocation:(id)arg1 sheetXmlType:(id)arg2 state:(id)arg3;
-- (void)dealloc;
 - (_Bool)loadDelayedNode:(id)arg1;
+- (void)dealloc;
+- (id)initWithSheetLocation:(id)arg1 sheetXmlType:(id)arg2 state:(id)arg3;
 
 @end
 

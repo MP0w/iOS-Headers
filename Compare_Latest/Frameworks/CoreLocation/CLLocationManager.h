@@ -13,6 +13,8 @@
     id _internal;
 }
 
++ (BOOL)shutdownDaemon;
++ (BOOL)dumpLogsWithMessage:(id)arg1;
 + (void)setDefaultEffectiveBundle:(id)arg1;
 + (void)setDefaultEffectiveBundleIdentifier:(id)arg1;
 + (void)setAuthorizationStatus:(BOOL)arg1 forBundle:(id)arg2;
@@ -22,6 +24,8 @@
 + (int)authorizationStatusForBundle:(id)arg1;
 + (int)authorizationStatusForBundleIdentifier:(id)arg1;
 + (int)_authorizationStatusForBundleIdentifier:(id)arg1 bundle:(id)arg2;
++ (BOOL)deferredLocationUpdatesAvailable;
++ (BOOL)mapCorrectionAvailable;
 + (BOOL)regionMonitoringEnabled;
 + (BOOL)regionMonitoringAvailable;
 + (BOOL)significantLocationChangeMonitoringAvailable;
@@ -30,9 +34,24 @@
 + (BOOL)locationServicesEnabled:(BOOL)arg1;
 + (BOOL)locationServicesEnabled;
 + (id)sharedManager;
++ (void)setEntityAuthorized:(BOOL)arg1 forLocationDictionary:(id)arg2;
++ (BOOL)isEntityAuthorizedForLocationDictionary:(id)arg1;
++ (id)dateLocationLastUsedForLocationDictionary:(id)arg1;
++ (unsigned int)activeLocationServiceTypesForLocationDictionary:(id)arg1;
++ (BOOL)isLocationActiveForLocationDictionary:(id)arg1;
++ (unsigned int)entityClassesForLocationDictionary:(id)arg1;
++ (unsigned int)primaryEntityClassForLocationDictionary:(id)arg1;
++ (BOOL)isStatusBarIconEnabledForLocationEntityClass:(unsigned int)arg1;
++ (void)setStatusBarIconEnabled:(BOOL)arg1 forLocationEntityClass:(unsigned int)arg2;
 - (void)registerAsLocationClient;
 @property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) BOOL locationServicesPreferencesDialogEnabled;
 @property(nonatomic, getter=isPersistentMonitoringEnabled) BOOL persistentMonitoringEnabled;
+- (void)onClientEventInterrupted:(id)arg1;
+- (void)onClientEventBatch:(id)arg1;
+- (void)onClientEventAutopauseStatus:(id)arg1;
+- (void)onDidBecomeActive:(id)arg1;
+- (void)pauseLocationUpdates:(BOOL)arg1;
+- (void)resumeLocationUpdates;
 - (void)onClientEventRegionSetupCompleted:(id)arg1;
 - (void)onClientEventRegionResponseDelayed:(id)arg1;
 - (void)onClientEventRegionError:(id)arg1;
@@ -68,8 +87,12 @@
 @property(nonatomic) double headingFilter;
 @property(readonly, nonatomic) BOOL headingAvailable;
 - (void)historicLocationsFromDate:(id)arg1 forInterval:(double)arg2;
+- (void)disallowDeferredLocationUpdates;
+- (void)allowDeferredLocationUpdatesUntilTraveled:(double)arg1 timeout:(double)arg2;
 - (void)stopUpdatingLocation;
 - (void)startUpdatingLocation;
+- (void)startUpdatingLocationWithPrompt;
+@property(nonatomic) int activityType;
 @property(copy, nonatomic) NSString *purpose;
 @property(nonatomic) BOOL privateMode;
 @property(readonly, nonatomic) struct __CLClient *internalClient;
@@ -80,6 +103,7 @@
 @property(readonly, nonatomic) BOOL locationServicesEnabled;
 @property(readonly, nonatomic) BOOL locationServicesAvailable;
 @property(readonly, nonatomic) CLLocation *location;
+@property(nonatomic) BOOL pausesLocationUpdatesAutomatically;
 @property(nonatomic) double desiredAccuracy;
 @property(nonatomic) double distanceFilter;
 @property(nonatomic) id <CLLocationManagerDelegate> delegate;

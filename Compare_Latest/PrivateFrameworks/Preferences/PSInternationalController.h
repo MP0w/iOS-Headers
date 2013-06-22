@@ -17,38 +17,38 @@
     NSArray *_voiceControlValues;
 }
 
-+ (void)setLanguage:(id)arg1;
-+ (void)setLocale:(id)arg1;
-+ (id)capitalizeFirstPartOfCountry:(id)arg1;
 + (id)voiceControlLanguageData;
-- (void)localeChangedAction;
-- (id)init;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)dealloc;
-- (void)viewWillAppear:(BOOL)arg1;
-- (id)localizedComponent:(id)arg1 forDictionary:(id)arg2;
-- (void)reloadSpecifiers;
-- (void)reloadLocale;
-- (void)_loadLocaleIfNeeded;
-- (id)specifiers;
-- (void)showLanguageSheet:(id)arg1;
-- (id)language:(id)arg1;
-- (id)localizedLanguage:(id)arg1;
-- (void)setVoiceControlLanguage:(id)arg1 specifier:(id)arg2;
-- (id)voiceControlLanguage:(id)arg1;
-- (void)setLanguage:(id)arg1 specifier:(id)arg2;
-- (void)setLocale:(id)arg1 specifier:(id)arg2;
-- (id)locale:(id)arg1;
-- (void)setCalendar:(id)arg1 specifier:(id)arg2;
-- (id)calendar:(id)arg1;
-- (id)formattedDate:(id)arg1;
-- (id)formattedTime:(id)arg1;
-- (id)formattedPhoneNumber:(id)arg1;
-- (id)defaultCalendarForLocale:(id)arg1;
-- (void)_initVoiceControlData;
-- (id)voiceControlTitles:(id)arg1;
-- (id)voiceControlShortTitles;
++ (id)capitalizeFirstPartOfCountry:(id)arg1;
++ (void)setLocale:(id)arg1;
++ (void)setLanguage:(id)arg1;
 - (id)voiceControlValues:(id)arg1;
+- (id)voiceControlShortTitles;
+- (id)voiceControlTitles:(id)arg1;
+- (void)_initVoiceControlData;
+- (id)defaultCalendarForLocale:(id)arg1;
+- (id)formattedPhoneNumber:(id)arg1;
+- (id)formattedTime:(id)arg1;
+- (id)formattedDate:(id)arg1;
+- (id)calendar:(id)arg1;
+- (void)setCalendar:(id)arg1 specifier:(id)arg2;
+- (id)locale:(id)arg1;
+- (void)setLocale:(id)arg1 specifier:(id)arg2;
+- (void)setLanguage:(id)arg1 specifier:(id)arg2;
+- (id)voiceControlLanguage:(id)arg1;
+- (void)setVoiceControlLanguage:(id)arg1 specifier:(id)arg2;
+- (id)localizedLanguage:(id)arg1;
+- (id)language:(id)arg1;
+- (void)showLanguageSheet:(id)arg1;
+- (id)specifiers;
+- (void)_loadLocaleIfNeeded;
+- (void)reloadLocale;
+- (void)reloadSpecifiers;
+- (id)localizedComponent:(id)arg1 forDictionary:(id)arg2;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)dealloc;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)init;
+- (void)localeChangedAction;
 
 @end
 

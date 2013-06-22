@@ -11,10 +11,10 @@
     int mType;
 }
 
-- (id)initWithType:(int)arg1;
-- (int)type;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (int)type;
+- (id)initWithType:(int)arg1;
 
 @end
 

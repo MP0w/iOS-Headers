@@ -4,17 +4,18 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 #import "NSFastEnumeration-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSSet : NSObject <NSCopying, NSMutableCopying, NSCoding, NSFastEnumeration>
+@interface NSSet : NSObject <NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)setWithSet:(id)arg1;
 + (id)setWithSet:(id)arg1 copyItems:(BOOL)arg2;
 + (id)setWithOrderedSet:(id)arg1;
@@ -26,6 +27,7 @@
 + (id)setWithArray:(id)arg1 range:(struct _NSRange)arg2;
 + (id)setWithArray:(id)arg1 range:(struct _NSRange)arg2 copyItems:(BOOL)arg3;
 + (id)setWithObjects:(id)arg1;
++ (id)newSetWithObjects:(const id *)arg1 count:(unsigned int)arg2;
 + (id)set;
 + (id)setWithObject:(id)arg1;
 + (id)setWithObjects:(const id *)arg1 count:(unsigned int)arg2;

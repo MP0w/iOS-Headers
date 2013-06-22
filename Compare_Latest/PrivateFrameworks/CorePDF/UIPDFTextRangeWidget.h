@@ -28,25 +28,25 @@
     BOOL _hiDPI;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)layoutLeftSelectionGrabber:(struct CGRect)arg1 transform:(struct CGAffineTransform *)arg2 width:(float)arg3 extraHeight:(float)arg4 unitSize:(struct CGSize)arg5;
-- (void)layoutRightSelectionGrabber:(struct CGRect)arg1 transform:(struct CGAffineTransform *)arg2 width:(float)arg3 extraHeight:(float)arg4 unitSize:(struct CGSize)arg5;
-- (void)layoutWidget;
-- (void)setSelectedGrabber:(unsigned int)arg1;
-- (void)setSelection:(id)arg1;
-- (void)remove;
-- (struct CGPoint)selectedPointFor:(struct CGPoint)arg1;
-- (BOOL)hitTest:(struct CGPoint)arg1 fixedPoint:(struct CGPoint *)arg2 preceeds:(char *)arg3;
-- (struct CGPoint)viewOffset;
-- (void)layout;
-- (void)track:(struct CGPoint)arg1;
-- (void)endTracking;
-- (struct CGRect)selectionRectangle;
-@property(readonly, nonatomic) struct CGPoint currentSelectionPointOnPage;
-- (void)hide;
 @property(readonly, nonatomic) struct CGPoint initialSelectionPointOnPage; // @synthesize initialSelectionPointOnPage=_initialSelectionPointOnPage;
 @property(nonatomic) UIPDFPageView *pageView; // @synthesize pageView=_pageView;
+- (void)hide;
+@property(readonly, nonatomic) struct CGPoint currentSelectionPointOnPage;
+- (struct CGRect)selectionRectangle;
+- (void)endTracking;
+- (void)track:(struct CGPoint)arg1;
+- (void)layout;
+- (struct CGPoint)viewOffset;
+- (BOOL)hitTest:(struct CGPoint)arg1 fixedPoint:(struct CGPoint *)arg2 preceeds:(char *)arg3;
+- (struct CGPoint)selectedPointFor:(struct CGPoint)arg1;
+- (void)remove;
+- (void)setSelection:(id)arg1;
+- (void)setSelectedGrabber:(unsigned int)arg1;
+- (void)layoutWidget;
+- (void)layoutRightSelectionGrabber:(struct CGRect)arg1 transform:(struct CGAffineTransform *)arg2 width:(float)arg3 extraHeight:(float)arg4 unitSize:(struct CGSize)arg5;
+- (void)layoutLeftSelectionGrabber:(struct CGRect)arg1 transform:(struct CGAffineTransform *)arg2 width:(float)arg3 extraHeight:(float)arg4 unitSize:(struct CGSize)arg5;
+- (void)dealloc;
+- (id)init;
 
 @end
 

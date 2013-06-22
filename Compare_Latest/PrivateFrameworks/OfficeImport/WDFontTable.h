@@ -6,22 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, SFUNoCopyDictionary;
+@class NSMutableArray, TSUNoCopyDictionary;
 
 @interface WDFontTable : NSObject
 {
-    SFUNoCopyDictionary *mFontTable;
+    TSUNoCopyDictionary *mFontTable;
     NSMutableArray *mFontsInOrderOfInsertion;
 }
 
-- (id)init;
-- (void)dealloc;
-- (int)count;
-- (void)clear;
-- (id)fontWithName:(id)arg1;
-- (id)fontWithName:(id)arg1 create:(BOOL)arg2;
-- (id)createFontWithName:(id)arg1;
 - (id)fonts;
+- (id)createFontWithName:(id)arg1;
+- (id)fontWithName:(id)arg1 create:(BOOL)arg2;
+- (id)fontWithName:(id)arg1;
+- (void)clear;
+- (int)count;
+- (void)dealloc;
+- (id)init;
 
 @end
 

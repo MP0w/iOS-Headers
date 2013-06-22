@@ -7,7 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (AlertItemsAdditions)
-- (id)objectOfClass:(Class)arg1;
 - (void)addObjectsOfClass:(Class)arg1 toArray:(id)arg2;
+- (id)objectOfClass:(Class)arg1;
 @end
 

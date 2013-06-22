@@ -11,29 +11,28 @@
 @interface SBAwayLockBar : TPBottomLockBar
 {
     UIButton *_slideshowButton;
-    UIButton *_cameraButton;
     UIView *_cameraGrabber;
     NSMutableDictionary *_orientationToButtonImages;
 }
 
-- (void)dealloc;
-- (float)knobTrackInsetLeft;
-- (void)setLabel:(id)arg1;
-- (BOOL)_shouldStopLabelAnimationForGrab;
-- (void)setShowsSlideshowButton:(BOOL)arg1;
-- (void)setSlideshowButtonSelected:(BOOL)arg1;
-- (void)setShowsCameraButton:(BOOL)arg1;
-- (void)setShowsCameraGrabber:(BOOL)arg1;
-- (BOOL)showsCameraGrabber;
-- (void)setOrientation:(int)arg1;
-- (id)_newButtonWithAction:(SEL)arg1 tag:(int)arg2 hasComposedImage:(BOOL)arg3;
-- (id)_unselectedImageForButtonTag:(int)arg1 interfaceOrientation:(int)arg2;
-- (id)_selectedImageForButtonTag:(int)arg1 interfaceOrientation:(int)arg2;
-- (void)_setImagesForButton:(id)arg1 orientation:(int)arg2;
-- (void)_setShowsButton:(BOOL)arg1 button:(id *)arg2 buttonTag:(int)arg3 hasComposedImage:(BOOL)arg4 action:(SEL)arg5 animated:(BOOL)arg6;
-- (void)_slideshowButtonActivated:(id)arg1;
-- (void)_cameraButtonHit:(id)arg1;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)_slideshowButtonActivated:(id)arg1;
+- (void)_setShowsButton:(BOOL)arg1 button:(id *)arg2 buttonTag:(int)arg3 hasComposedImage:(BOOL)arg4 action:(SEL)arg5 animated:(BOOL)arg6;
+- (void)_setImagesForButton:(id)arg1 orientation:(int)arg2;
+- (id)_selectedImageForButtonTag:(int)arg1 interfaceOrientation:(int)arg2;
+- (id)_unselectedImageForButtonTag:(int)arg1 interfaceOrientation:(int)arg2;
+- (id)_newButtonWithAction:(SEL)arg1 tag:(int)arg2 hasComposedImage:(BOOL)arg3;
+- (void)setOrientation:(int)arg1;
+- (BOOL)showsCameraGrabber;
+- (void)setShowsCameraGrabber:(BOOL)arg1;
+- (void)setSlideshowButtonSelected:(BOOL)arg1;
+- (void)setShowsSlideshowButton:(BOOL)arg1;
+- (BOOL)_shouldStopLabelAnimationForGrab;
+- (void)setLabel:(id)arg1;
+- (void)dealloc;
 
 @end
 

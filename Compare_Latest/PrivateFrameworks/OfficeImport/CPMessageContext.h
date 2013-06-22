@@ -16,32 +16,30 @@
     NSMutableDictionary *m_placeholderToObjectIdMap;
 }
 
-+ (void)initialize;
-+ (void)reportObjectOrPlaceholder:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2 parameters:(char *)arg3;
-+ (id)currentObjectOrPlaceholder;
-+ (void)reportObject:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2;
-+ (void)reportWarning:(struct CPTaggedMessageStructure *)arg1;
-+ (void)reportError:(struct CPTaggedMessageStructure *)arg1;
-+ (void)reportWarningException:(id)arg1;
-+ (void)reportErrorException:(id)arg1;
-+ (void)createContextForCurrentThread;
-+ (void)removeContextForCurrentThread;
-+ (id)getWarningArray;
-+ (id)getErrorArray;
-+ (void)setIsFileStructuredStorage:(BOOL)arg1;
-+ (BOOL)isFileStructuredStorage;
-+ (void)pushCurrentObject:(id)arg1;
-+ (void)popCurrentObject;
-+ (id)pushCurrentPlaceholder;
-+ (void)popCurrentPlaceholder:(id)arg1;
-+ (void)setObject:(id)arg1 forPlaceholder:(id)arg2;
-+ (void)replacePlaceholdersWithObjects;
-+ (unsigned int)saveObjectStack;
 + (void)restoreObjectStack:(unsigned int)arg1;
-+ (id)errorsUsingName:(id)arg1;
-+ (id)warningsUsingName:(id)arg1;
-- (id)init;
++ (unsigned int)saveObjectStack;
++ (void)replacePlaceholdersWithObjects;
++ (void)setObject:(id)arg1 forPlaceholder:(id)arg2;
++ (void)popCurrentPlaceholder:(id)arg1;
++ (id)pushCurrentPlaceholder;
++ (void)popCurrentObject;
++ (void)pushCurrentObject:(id)arg1;
++ (BOOL)isFileStructuredStorage;
++ (void)setIsFileStructuredStorage:(BOOL)arg1;
++ (id)getErrorArray;
++ (id)getWarningArray;
++ (void)removeContextForCurrentThread;
++ (void)createContextForCurrentThread;
++ (void)reportErrorException:(id)arg1;
++ (void)reportWarningException:(id)arg1;
++ (void)reportError:(struct CPTaggedMessageStructure *)arg1;
++ (void)reportWarning:(struct CPTaggedMessageStructure *)arg1;
++ (void)reportObject:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2;
++ (id)currentObjectOrPlaceholder;
++ (void)reportObjectOrPlaceholder:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2 parameters:(char *)arg3;
++ (void)initialize;
 - (void)dealloc;
+- (id)init;
 
 @end
 

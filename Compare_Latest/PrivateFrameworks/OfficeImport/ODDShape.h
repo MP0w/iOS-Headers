@@ -15,14 +15,14 @@
     NSMutableArray *mAdjustments;
 }
 
-- (id)init;
-- (void)dealloc;
-- (int)type;
-- (void)setType:(int)arg1;
-- (int)presetType;
-- (void)setPresetType:(int)arg1;
-- (id)adjustments;
 - (void)addAdjustment:(id)arg1;
+- (id)adjustments;
+- (void)setPresetType:(int)arg1;
+- (int)presetType;
+- (void)setType:(int)arg1;
+- (int)type;
+- (void)dealloc;
+- (id)init;
 
 @end
 

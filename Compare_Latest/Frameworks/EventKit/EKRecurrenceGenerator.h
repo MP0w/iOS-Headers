@@ -54,11 +54,14 @@
 - (void)_prepareForCalRecurrence:(void *)arg1 locked:(BOOL)arg2;
 - (void)_prepareForPersistentRecurrence:(id)arg1;
 - (void)_prepareForEKRecurrence:(id)arg1;
+- (id)nextOccurrenceDateWithEKRecurrences:(id)arg1 exceptionDates:(id)arg2 initialDate:(id)arg3 afterDate:(id)arg4;
 - (id)nextOccurrenceDateWithEKRecurrences:(id)arg1 initialDate:(id)arg2 afterDate:(id)arg3;
+- (BOOL)occurrenceDate:(id)arg1 matchesRecurrenceRule:(id)arg2 forEvent:(id)arg3 includeDetachedEventsInSeries:(BOOL)arg4;
 - (BOOL)isOccurrenceDate:(id)arg1 validForEvent:(id)arg2;
 - (id)copyOccurrenceDatesWithInitialDate:(id)arg1 calRecurrences:(id)arg2 rangeStart:(id)arg3 rangeEnd:(id)arg4 timeZone:(id)arg5;
 - (id)copyOccurrenceDatesWithEvent:(id)arg1 recurrenceRule:(id)arg2 startDate:(CDStruct_b0fa4487)arg3 endDate:(CDStruct_b0fa4487)arg4 timeZone:(id)arg5 limit:(int)arg6;
 - (id)copyOccurrenceDatesWithEvent:(id)arg1 startDate:(CDStruct_b0fa4487)arg2 endDate:(CDStruct_b0fa4487)arg3 timeZone:(id)arg4 limit:(int)arg5;
+- (id)copyOccurrenceDatesWithEKEvent:(id)arg1 recurrenceRule:(id)arg2 startDate:(CDStruct_b0fa4487)arg3 endDate:(CDStruct_b0fa4487)arg4 timeZone:(id)arg5 exceptionDates:(id)arg6 limit:(int)arg7;
 - (id)copyOccurrenceDatesWithEKEvent:(id)arg1 recurrenceRule:(id)arg2 startDate:(CDStruct_b0fa4487)arg3 endDate:(CDStruct_b0fa4487)arg4 timeZone:(id)arg5 limit:(int)arg6;
 - (id)copyOccurrenceDatesWithCalEvent:(void *)arg1 startDate:(CDStruct_b0fa4487)arg2 endDate:(CDStruct_b0fa4487)arg3 timeZone:(id)arg4 limit:(int)arg5 locked:(BOOL)arg6;
 - (id)copyOccurrenceDatesWithEKEvent:(id)arg1 startDate:(CDStruct_b0fa4487)arg2 endDate:(CDStruct_b0fa4487)arg3 timeZone:(id)arg4 limit:(int)arg5;

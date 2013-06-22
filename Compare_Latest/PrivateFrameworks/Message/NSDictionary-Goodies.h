@@ -7,7 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (Goodies)
-- (BOOL)mf_boolForKey:(id)arg1;
 - (int)mf_integerForKey:(id)arg1;
+- (BOOL)mf_boolForKey:(id)arg1;
 @end
 

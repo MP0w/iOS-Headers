@@ -14,9 +14,9 @@
     MFConditionLock *_lock;
 }
 
-- (int)appendData:(id)arg1;
 @property(nonatomic) MFConditionLock *lock; // @synthesize lock=_lock;
 @property(nonatomic) MFGenericAttachmentStore *store; // @synthesize store=_store;
+- (int)appendData:(id)arg1;
 
 @end
 

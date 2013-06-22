@@ -16,11 +16,11 @@
     NSString *_variableBase;
 }
 
-- (id)init;
-- (id)initWithNestingLevel:(unsigned int)arg1;
-- (void)dealloc;
-- (id)generateTableAlias;
 - (id)generateSubqueryVariableAlias;
+- (id)generateTableAlias;
+- (void)dealloc;
+- (id)initWithNestingLevel:(unsigned int)arg1;
+- (id)init;
 
 @end
 

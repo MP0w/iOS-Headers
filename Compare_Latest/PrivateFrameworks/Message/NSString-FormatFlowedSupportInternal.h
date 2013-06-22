@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (FormatFlowedSupportInternal)
-- (unsigned int)mf_lineBreakBeforeIndex:(unsigned int)arg1 withinRange:(struct _NSRange)arg2;
 - (unsigned int)mf_nextWordFromIndex:(unsigned int)arg1 forward:(BOOL)arg2;
+- (unsigned int)mf_lineBreakBeforeIndex:(unsigned int)arg1 withinRange:(struct _NSRange)arg2;
 @end
 

@@ -17,13 +17,13 @@
     NSData *data;
 }
 
-- (id)init;
-- (unsigned int)type;
-- (unsigned int)band;
-- (id)data;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)data;
+- (unsigned int)band;
+- (unsigned int)type;
+- (id)init;
 
 @end
 

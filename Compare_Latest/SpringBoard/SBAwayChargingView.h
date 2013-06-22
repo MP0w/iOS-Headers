@@ -19,29 +19,29 @@
     unsigned int _showingHeadsetBattery:1;
 }
 
-+ (id)backgroundImage;
-+ (struct CGSize)defaultSize;
-+ (BOOL)shouldShowDeviceBattery;
 + (BOOL)shouldShowHeadsetBattery;
-- (id)initWithFrame:(struct CGRect)arg1 awayView:(id)arg2;
-- (void)dealloc;
-- (void)updateInterface:(BOOL)arg1;
-- (id)chargingView;
-- (void)addChargingView;
-- (void)hideChargingView;
-- (id)headsetChargingView;
-- (void)addHeadsetChargingView;
-- (void)hideHeadsetChargingView;
-- (struct CGPoint)_dualBatteryPositionForBattery:(id)arg1;
-- (struct CGPoint)_singleBatteryPositionForBattery:(id)arg1;
-- (void)_switchFromBattery:(id)arg1 toView:(id)arg2 animate:(BOOL)arg3;
-- (void)_slideBattery:(id)arg1 toShowBattery:(id)arg2 animate:(BOOL)arg3;
-- (void)_slideBattery:(id)arg1 toHideBattery:(id)arg2 animate:(BOOL)arg3;
-- (void)_finishedFadeForSwitch:(id)arg1 finished:(BOOL)arg2 context:(id)arg3;
-- (void)_finishedSlideForSlideToReveal:(id)arg1 finished:(BOOL)arg2 context:(id)arg3;
-- (void)_finishedHideForHideToSlide:(id)arg1 finished:(BOOL)arg2 context:(id)arg3;
-- (void)_batteryAnimationFinished:(id)arg1;
++ (BOOL)shouldShowDeviceBattery;
++ (struct CGSize)defaultSize;
++ (id)backgroundImage;
 - (void)_test:(id)arg1;
+- (void)_batteryAnimationFinished:(id)arg1;
+- (void)_finishedHideForHideToSlide:(id)arg1 finished:(BOOL)arg2 context:(id)arg3;
+- (void)_finishedSlideForSlideToReveal:(id)arg1 finished:(BOOL)arg2 context:(id)arg3;
+- (void)_finishedFadeForSwitch:(id)arg1 finished:(BOOL)arg2 context:(id)arg3;
+- (void)_slideBattery:(id)arg1 toHideBattery:(id)arg2 animate:(BOOL)arg3;
+- (void)_slideBattery:(id)arg1 toShowBattery:(id)arg2 animate:(BOOL)arg3;
+- (void)_switchFromBattery:(id)arg1 toView:(id)arg2 animate:(BOOL)arg3;
+- (struct CGPoint)_singleBatteryPositionForBattery:(id)arg1;
+- (struct CGPoint)_dualBatteryPositionForBattery:(id)arg1;
+- (void)hideHeadsetChargingView;
+- (void)addHeadsetChargingView;
+- (id)headsetChargingView;
+- (void)hideChargingView;
+- (void)addChargingView;
+- (id)chargingView;
+- (void)updateInterface:(BOOL)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 awayView:(id)arg2;
 
 @end
 

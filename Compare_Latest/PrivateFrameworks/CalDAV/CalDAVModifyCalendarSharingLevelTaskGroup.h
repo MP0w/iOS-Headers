@@ -17,16 +17,16 @@
     int _state;
 }
 
-- (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
-- (id)initWithSharingAction:(int)arg1 atCalendarURL:(id)arg2 accountInfoProvider:(id)arg3 taskManager:(id)arg4;
-- (void)dealloc;
-- (id)description;
-- (void)startTaskGroup;
-- (void)task:(id)arg1 didFinishWithError:(id)arg2;
-- (void)finishWithError:(id)arg1;
 @property int state; // @synthesize state=_state;
 @property(retain) NSURL *url; // @synthesize url=_url;
 @property int action; // @synthesize action=_action;
+- (void)finishWithError:(id)arg1;
+- (void)task:(id)arg1 didFinishWithError:(id)arg2;
+- (void)startTaskGroup;
+- (id)description;
+- (void)dealloc;
+- (id)initWithSharingAction:(int)arg1 atCalendarURL:(id)arg2 accountInfoProvider:(id)arg3 taskManager:(id)arg4;
+- (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
 
 @end
 

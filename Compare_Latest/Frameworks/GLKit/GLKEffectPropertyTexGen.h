@@ -31,12 +31,6 @@
 @property(nonatomic) float *plane; // @synthesize plane=_plane;
 @property(nonatomic) int mode; // @synthesize mode=_mode;
 - (void)dealloc;
-- (char **)fshMaskStr;
-- (char **)vshMaskStr;
-- (unsigned int)fshMaskCt;
-- (unsigned int)vshMaskCt;
-- (struct GLKBigInt_s *)fshMasks;
-- (struct GLKBigInt_s *)vshMasks;
 - (void)bind;
 - (void)initializeMasks;
 - (void)setShaderBindings;

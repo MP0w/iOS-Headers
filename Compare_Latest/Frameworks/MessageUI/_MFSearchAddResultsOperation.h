@@ -16,8 +16,8 @@
 }
 
 + (id)operationWithResults:(id)arg1 ofType:(int)arg2 consumer:(id)arg3;
-- (void)dealloc;
 - (void)main;
+- (void)dealloc;
 
 @end
 

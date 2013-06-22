@@ -13,8 +13,8 @@
     PBPresentationReaderState *mPresentationState;
 }
 
-- (id)initWithPresentationState:(id)arg1;
 - (id)presentationState;
+- (id)initWithPresentationState:(id)arg1;
 
 @end
 

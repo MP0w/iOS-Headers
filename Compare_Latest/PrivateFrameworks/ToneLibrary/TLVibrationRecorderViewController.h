@@ -17,7 +17,7 @@
     id <TLVibrationRecorderViewControllerDelegate> _delegate;
     TLVibratorController *_vibratorController;
     NSDictionary *_indefiniteVibrationPattern;
-    unsigned int _mode;
+    int _mode;
     TLVibrationPattern *_recordedVibrationPattern;
     double _currentVibrationComponentDidStartTime;
     BOOL _isWaitingForEndOfCurrentVibrationComponent;
@@ -43,8 +43,8 @@
 - (void)vibrationRecorderView:(id)arg1 didExitRecordingModeWithContextObject:(id)arg2;
 - (BOOL)vibrationRecorderViewDidEnterRecordingMode:(id)arg1;
 - (void)vibrationRecorderViewDidFinishReplayingVibration:(id)arg1;
-- (void)_vibrationRecorderView:(id)arg1 buttonTappedWithIdentifier:(unsigned int)arg2 animateButtonUpdate:(BOOL)arg3;
-- (void)vibrationRecorderView:(id)arg1 buttonTappedWithIdentifier:(unsigned int)arg2;
+- (void)_vibrationRecorderView:(id)arg1 buttonTappedWithIdentifier:(int)arg2 animateButtonUpdate:(BOOL)arg3;
+- (void)vibrationRecorderView:(id)arg1 buttonTappedWithIdentifier:(int)arg2;
 - (void)vibrationComponentDidEndForVibrationRecorderView:(id)arg1;
 - (void)vibrationComponentDidStartForVibrationRecorderView:(id)arg1;
 - (void)_eraseCurrentVibrationComponentDidStartTime;

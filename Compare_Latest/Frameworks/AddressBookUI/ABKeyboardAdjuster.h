@@ -15,26 +15,26 @@
 }
 
 + (id)sharedAdjuster;
-- (id)recordForScrollView:(id)arg1;
-- (void)cancelDelayedAdjustmentsForView:(id)arg1;
-- (void)_adjustTableForKeyboardInfo:(id)arg1;
-- (void)manuallyAdjustEdgeInsets:(struct UIEdgeInsets)arg1 force:(BOOL)arg2;
-- (void)_keyboardWillShow:(id)arg1;
-- (void)_keyboardWillHide:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (void)addScrollView:(id)arg1;
-- (void)removeScrollView:(id)arg1;
-- (BOOL)containsScrollView:(id)arg1;
-- (BOOL)shouldForceAutomaticKeyboardForView:(id)arg1;
-- (void)textFieldTextDidBeginEditingNotification:(id)arg1;
-- (void)textFieldTextDidEndEditingNotification:(id)arg1;
-- (void)textViewTextDidBeginEditingNotification:(id)arg1;
-- (void)textViewTextDidEndEditingNotification:(id)arg1;
-- (void)dateFieldDateDidBeginEditingNotification:(id)arg1;
-- (void)dateFieldDateDidEndEditingNotification:(id)arg1;
 @property(nonatomic) BOOL active; // @synthesize active=_active;
 - (void)resetAdjustment;
+- (void)dateFieldDateDidEndEditingNotification:(id)arg1;
+- (void)dateFieldDateDidBeginEditingNotification:(id)arg1;
+- (void)textViewTextDidEndEditingNotification:(id)arg1;
+- (void)textViewTextDidBeginEditingNotification:(id)arg1;
+- (void)textFieldTextDidEndEditingNotification:(id)arg1;
+- (void)textFieldTextDidBeginEditingNotification:(id)arg1;
+- (BOOL)shouldForceAutomaticKeyboardForView:(id)arg1;
+- (BOOL)containsScrollView:(id)arg1;
+- (void)removeScrollView:(id)arg1;
+- (void)addScrollView:(id)arg1;
+- (void)dealloc;
+- (id)init;
+- (void)_keyboardWillHide:(id)arg1;
+- (void)_keyboardWillShow:(id)arg1;
+- (void)manuallyAdjustEdgeInsets:(struct UIEdgeInsets)arg1 force:(BOOL)arg2;
+- (void)_adjustTableForKeyboardInfo:(id)arg1;
+- (void)cancelDelayedAdjustmentsForView:(id)arg1;
+- (id)recordForScrollView:(id)arg1;
 
 @end
 

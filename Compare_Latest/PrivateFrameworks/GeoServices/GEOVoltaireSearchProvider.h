@@ -18,14 +18,18 @@
     id _refinement;
 }
 
-+ (id)hostname;
++ (id)_searchURLForRequest:(id)arg1;
 + (unsigned short)provider;
++ (void)setUsePersistentConnection:(BOOL)arg1;
++ (int)defaultLocalSearchProviderID;
++ (int)localSearchProviderID;
 + (void)_resetURL;
++ (id)searchProviderURL;
 - (void)requester:(id)arg1 didFailWithError:(id)arg2;
 - (void)requesterDidCancel:(id)arg1;
 - (void)requesterDidFinish:(id)arg1;
 - (void)cancel;
-- (void)search:(id)arg1 finished:(id)arg2 spellingSuggestion:(void)arg3 refinement:(id)arg4 error:(void)arg5;
+- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(id)arg4 spellingSuggestion:(void)arg5 refinement:(id)arg6 error:(void)arg7 isCompletions:(id)arg8;
 - (void)dealloc;
 - (id)init;
 

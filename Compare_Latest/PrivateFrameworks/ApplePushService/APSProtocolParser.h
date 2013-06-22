@@ -8,21 +8,21 @@
 
 @interface APSProtocolParser : NSObject
 {
-    BOOL _useSerialProtocol;
 }
 
-- (id)initUsingSerialProtocol:(BOOL)arg1;
-- (id)copyConnectMessageWithToken:(id)arg1;
-- (id)copyFilterMessageWithEnabledHashes:(id)arg1 ignoredHashes:(id)arg2;
-- (id)copyMessageAcknowledgeMessageWithResponse:(int)arg1 messageId:(id)arg2;
-- (id)copyKeepAliveMessageWithMetadata:(id)arg1;
-- (id)copyMessageWithTopicHash:(id)arg1 identifier:(unsigned int)arg2 payload:(id)arg3;
-- (BOOL)parseMessage:(id)arg1 parameters:(id *)arg2 isInvalid:(char *)arg3 lengthParsed:(unsigned int *)arg4;
-- (BOOL)_parseConnectedMessage:(id)arg1 parameters:(id *)arg2 isInvalid:(char *)arg3 lengthParsed:(unsigned int *)arg4;
-- (BOOL)_parseMessageMessage:(id)arg1 parameters:(id *)arg2 isInvalid:(char *)arg3 lengthParsed:(unsigned int *)arg4;
-- (BOOL)_parseKeepAliveResponseMessage:(id)arg1 parameters:(id *)arg2 isInvalid:(char *)arg3 lengthParsed:(unsigned int *)arg4;
-- (BOOL)_parseSerialMesage:(id)arg1 parameters:(id *)arg2 isInvalid:(char *)arg3 lengthParsed:(unsigned int *)arg4;
 - (void)_setSerialItemInParameters:(id)arg1 commandID:(unsigned int)arg2 itemID:(unsigned int)arg3 itemData:(id)arg4;
+- (BOOL)_parseSerialMessage:(id)arg1 parameters:(id *)arg2 isInvalid:(char *)arg3 lengthParsed:(unsigned int *)arg4;
+- (BOOL)_parseKeepAliveResponseMessage:(id)arg1 parameters:(id *)arg2 isInvalid:(char *)arg3 lengthParsed:(unsigned int *)arg4;
+- (BOOL)_parseMessageMessage:(id)arg1 parameters:(id *)arg2 isInvalid:(char *)arg3 lengthParsed:(unsigned int *)arg4;
+- (BOOL)_parseConnectedMessage:(id)arg1 parameters:(id *)arg2 isInvalid:(char *)arg3 lengthParsed:(unsigned int *)arg4;
+- (BOOL)parseMessage:(id)arg1 parameters:(id *)arg2 isInvalid:(char *)arg3 lengthParsed:(unsigned int *)arg4;
+- (id)copyFlushResponseMessageWithPaddingLength:(int)arg1;
+- (id)copyFlushMessageWithWantPaddingLength:(int)arg1 paddingLength:(int)arg2;
+- (id)copyMessageWithTopicHash:(id)arg1 identifier:(unsigned int)arg2 payload:(id)arg3;
+- (id)copyKeepAliveMessageWithMetadata:(id)arg1;
+- (id)copyMessageAcknowledgeMessageWithResponse:(int)arg1 messageId:(id)arg2;
+- (id)copyFilterMessageWithEnabledHashes:(id)arg1 ignoredHashes:(id)arg2;
+- (id)copyConnectMessageWithToken:(id)arg1;
 
 @end
 

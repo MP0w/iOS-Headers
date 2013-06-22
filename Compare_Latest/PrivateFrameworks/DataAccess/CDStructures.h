@@ -142,6 +142,34 @@ struct ASEvent {
     id _field48;
 };
 
+struct ASNote {
+    Class _field1;
+    id _field2;
+    id _field3;
+    int _field4;
+    int _field5;
+    id _field6;
+    int _field7;
+    id _field8;
+    int _field9;
+    id _field10;
+    int _field11;
+    id _field12;
+    id _field13;
+    id _field14;
+    char _field15;
+    char _field16;
+    id _field17;
+    id _field18;
+    id _field19;
+    id _field20;
+    char _field21;
+    id _field22;
+    id _field23;
+    id _field24;
+    id _field25;
+};
+
 struct ASToDo {
     Class _field1;
     id _field2;

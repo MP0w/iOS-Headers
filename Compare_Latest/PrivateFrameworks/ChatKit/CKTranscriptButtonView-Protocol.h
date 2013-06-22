@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol CKTranscriptButtonView <NSObject>
-- (struct CGRect)frameForButton:(short)arg1;
 @property(readonly, nonatomic) BOOL isGroupMessage;
 @property(nonatomic) BOOL hasContact;
 @property(nonatomic) id <CKTranscriptButtonViewDelegate> transcriptButtonDelegate;
+- (struct CGRect)frameForButton:(short)arg1;
 @end
 

@@ -4,17 +4,18 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 #import "NSFastEnumeration-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSArray : NSObject <NSCopying, NSMutableCopying, NSCoding, NSFastEnumeration>
+@interface NSArray : NSObject <NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)arrayWithSet:(id)arg1;
 + (id)arrayWithSet:(id)arg1 copyItems:(BOOL)arg2;
 + (id)arrayWithOrderedSet:(id)arg1;
@@ -26,6 +27,7 @@
 + (id)arrayWithArray:(id)arg1 range:(struct _NSRange)arg2;
 + (id)arrayWithArray:(id)arg1 range:(struct _NSRange)arg2 copyItems:(BOOL)arg3;
 + (id)arrayWithObjects:(id)arg1;
++ (id)newArrayWithObjects:(const id *)arg1 count:(unsigned int)arg2;
 + (id)array;
 + (id)arrayWithObject:(id)arg1;
 + (id)arrayWithObjects:(const id *)arg1 count:(unsigned int)arg2;
@@ -68,6 +70,7 @@
 - (id)objectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
 - (id)objectsAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
 - (id)objectsAtIndexes:(id)arg1;
+- (id)objectAtIndexedSubscript:(unsigned int)arg1;
 - (void)makeObjectsPerformSelector:(SEL)arg1 withObject:(id)arg2;
 - (void)makeObjectsPerformSelector:(SEL)arg1;
 - (id)lastObject;

@@ -17,16 +17,16 @@
 }
 
 + (Class)layerClass;
-- (id)init;
-- (void)dealloc;
-- (void)didMoveToSuperview;
-- (void)connectToContextID:(unsigned int)arg1 forIdentifier:(id)arg2 application:(id)arg3;
-- (void)_setIsConnected:(BOOL)arg1;
-- (void)noteConnectionLost;
-- (void)disconnect;
 @property(nonatomic) BOOL remoteViewOpaque; // @synthesize remoteViewOpaque=_remoteViewOpaque;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *remoteViewIdentifier; // @synthesize remoteViewIdentifier=_remoteViewIdentifier;
+- (void)disconnect;
+- (void)noteConnectionLost;
+- (void)_setIsConnected:(BOOL)arg1;
+- (void)connectToContextID:(unsigned int)arg1 forIdentifier:(id)arg2 application:(id)arg3;
+- (void)didMoveToSuperview;
+- (void)dealloc;
+- (id)init;
 
 @end
 

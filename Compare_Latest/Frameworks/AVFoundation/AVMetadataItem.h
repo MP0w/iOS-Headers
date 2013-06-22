@@ -10,7 +10,7 @@
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
 
-@class AVMetadataItemInternal, NSDictionary, NSLocale, NSString;
+@class AVMetadataItemInternal, NSData, NSDate, NSDictionary, NSLocale, NSNumber, NSString;
 
 @interface AVMetadataItem : NSObject <AVAsynchronousKeyValueLoading, NSCopying, NSMutableCopying>
 {
@@ -20,6 +20,7 @@
 + (id)_figMetadataPropertyFromMetadataItems:(id)arg1;
 + (id)metadataItemsFromArray:(id)arg1 withStringValue:(id)arg2;
 + (id)metadataItemsFromArray:(id)arg1 withKey:(id)arg2 keySpace:(id)arg3;
++ (id)metadataItemsFromArray:(id)arg1 filteredAndSortedAccordingToPreferredLanguages:(id)arg2;
 + (id)metadataItemsFromArray:(id)arg1 withLocale:(id)arg2;
 - (void)cancelLoading;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
@@ -45,6 +46,16 @@
 - (id)_initWithFigMetadataDictionary:(id)arg1;
 - (id)_initWithReader:(struct OpaqueFigMetadataReader *)arg1 itemIndex:(long)arg2;
 - (id)init;
+- (id)_keyAsString;
+- (void)_extractPropertiesFromDictionary:(id)arg1;
+- (void)_updateCommonKey;
+- (void)_makePropertiesReady;
+- (void)_makeValueReady;
+- (struct CGImage *)imageValue;
+@property(readonly) NSData *dataValue;
+@property(readonly) NSDate *dateValue;
+@property(readonly) NSNumber *numberValue;
+@property(readonly) NSString *stringValue;
 
 @end
 

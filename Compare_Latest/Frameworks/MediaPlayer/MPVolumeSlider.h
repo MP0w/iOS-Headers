@@ -6,21 +6,32 @@
 
 #import "UISlider.h"
 
-@class MPAVController, NSString, NSTimer, UIImageView, UILabel;
+@class MPAVController, NSString, NSTimer, UIImageView, UILabel, UIView;
 
 @interface MPVolumeSlider : UISlider
 {
     NSTimer *_commitTimer;
-    MPAVController *_avController;
-    NSString *_volumeAudioCategory;
-    int _style;
+    MPAVController *_player;
     UILabel *_routeNameLabel;
+    int _style;
     UIImageView *_thumbImageView;
     UIImageView *_thumbMaskImageView;
+    NSString *_volumeAudioCategory;
+    BOOL _isOffScreen;
+    BOOL _volumeWarningEnabled;
+    UIView *_volumeWarningView;
+    int _volumeWarningState;
+    float _EUVolumeLimit;
+    BOOL _volumeWarningBlinking;
 }
 
+@property(nonatomic, setter=_setIsOffScreen:) BOOL _isOffScreen; // @synthesize _isOffScreen;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
+- (void)_endBlinkingWarningView;
+- (void)_blinkWarningView;
+- (void)_beginBlinkingWarningView;
 - (void)_routeNameLabelAnimationDidEnd;
+- (void)_layoutVolumeWarningView;
 - (void)_layoutForAvailableRoutes;
 - (void)_layoutMaskForThumb;
 - (id)_maxTrackImageForStyle:(int)arg1;
@@ -28,6 +39,9 @@
 - (id)_thumbImageForStyle:(int)arg1;
 - (void)_commitVolumeChange;
 - (void)_updateVolumeFromAVController;
+- (float)_volumeFromAVController;
+- (void)_EUVolumeLimitEnforcedDidChange:(id)arg1;
+- (void)_EUVolumeLimitDidChange:(id)arg1;
 - (void)_volumeDidChange:(id)arg1;
 - (void)_systemVolumeDidChange:(id)arg1;
 - (void)_systemMuteDidChange:(id)arg1;
@@ -36,7 +50,7 @@
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 @property(copy, nonatomic) NSString *volumeAudioCategory;
-@property(retain, nonatomic) MPAVController *MPAVController;
+@property(retain, nonatomic) MPAVController *player;
 - (void)setUserInteractionEnabled:(BOOL)arg1;
 - (void)setHidden:(BOOL)arg1;
 - (void)setAlpha:(float)arg1;
@@ -50,10 +64,11 @@
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (id)createThumbView;
 - (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
-- (float)maximumValue;
+- (void)setValue:(float)arg1 animated:(BOOL)arg2;
 - (float)minimumValue;
+- (float)maximumValue;
+- (id)createThumbView;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;

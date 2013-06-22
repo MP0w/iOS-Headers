@@ -6,11 +6,14 @@
 
 #import "NSObject.h"
 
+#import "GKSessionVoiceChatDelegate-Protocol.h"
+#import "GKVoiceChatClient-Protocol.h"
+#import "VideoConferenceSpeakingDelegate-Protocol.h"
 #import "WifiListenerDelegate-Protocol.h"
 
-@class GKRWLock, GKSessionInternal, GKVoiceChatServiceFocus, GKWifiListener, NSArray, NSMutableArray, NSMutableDictionary, NSString, VoiceChatSessionRoster;
+@class GKRWLock, GKSessionInternal, GKVoiceChatServiceFocus, GKWifiListener, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, VoiceChatSessionRoster;
 
-@interface GKVoiceChatSessionInternal : NSObject <WifiListenerDelegate>
+@interface GKVoiceChatSessionInternal : NSObject <GKSessionVoiceChatDelegate, GKVoiceChatClient, VideoConferenceSpeakingDelegate, WifiListenerDelegate>
 {
     NSString *_sessionName;
     unsigned int _conferenceID;
@@ -34,54 +37,74 @@
     GKRWLock *_rwLock;
     GKVoiceChatServiceFocus *_vcService;
     VoiceChatSessionRoster *_roster;
-    struct dispatch_queue_s *_sendQueue;
+    NSObject<OS_dispatch_queue> *_sendQueue;
     id <GKVoiceChatSessionDelegate> delegate;
     unsigned int congestionState;
     id _publicWrapper;
     GKWifiListener *_wifiListener;
     BOOL _currentWifiState;
-    unsigned long _audioInputAvailable;
 }
 
 + (void)brokenHash:(id)arg1 response:(char *)arg2;
-- (void)wifiStateDidChange:(BOOL)arg1;
-- (id)initWithGKSession:(id)arg1 publicWrapper:(id)arg2 sessionName:(id)arg3;
-- (void)calculateConferenceID;
-- (id)encodePeerID:(id)arg1;
-- (id)decodePeerID:(id)arg1;
-- (void)dealloc;
-- (void)cleanup;
-- (void)cleanupProc:(id)arg1;
-- (void)startSession;
-- (void)startSessionInternal;
-- (void)stopSession;
-- (void)stopSessionInternal;
-- (void)audioInputDidChange:(unsigned long)arg1;
-- (void)setMute:(BOOL)arg1 forPeer:(id)arg2;
-@property(readonly) NSArray *peerList;
-@property(getter=isActiveSession) BOOL activeSession;
-@property(readonly, nonatomic) NSString *sessionName;
-@property(readonly, nonatomic) unsigned int conferenceID;
-@property float sessionVolume;
-- (BOOL)isEqual:(id)arg1;
-- (void)updatedSubscribedBeaconList:(id)arg1;
-- (void)updatedFocusID:(unsigned int)arg1;
-- (void)updatedMutedPeers:(id)arg1 forPeer:(id)arg2;
-- (void)sendMutedPeers;
-- (void)parseMutedPeers:(id)arg1 forPeer:(id)arg2;
-- (void)pauseAll;
-- (void)unPauseAll;
-- (void)pruneBadLinks;
-- (void)addPeerToFocusPausedList:(id)arg1;
-- (void)removeFromFocusPausedList:(id)arg1;
-- (void)updatedFocusPeers:(id)arg1;
-- (void)updatedConnectedPeers:(id)arg1;
-- (void)sendConnectedPeers;
-- (void)parseConnectedPeers:(id)arg1;
+@property BOOL isUsingSuppression;
+@property unsigned int talkingPeersLimit;
 - (unsigned int)peerCount;
-@property unsigned int talkingPeersLimit; // @synthesize talkingPeersLimit;
-@property BOOL isUsingSuppression; // @synthesize isUsingSuppression;
-@property id <GKVoiceChatSessionDelegate> delegate; // @synthesize delegate;
+- (void)parseConnectedPeers:(id)arg1;
+- (void)sendConnectedPeers;
+- (void)updatedConnectedPeers:(id)arg1;
+- (void)updatedFocusPeers:(id)arg1;
+- (void)removeFromFocusPausedList:(id)arg1;
+- (void)addPeerToFocusPausedList:(id)arg1;
+- (void)pruneBadLinks;
+- (void)unPauseAll;
+- (void)pauseAll;
+- (void)parseMutedPeers:(id)arg1 forPeer:(id)arg2;
+- (void)sendMutedPeers;
+- (void)updatedMutedPeers:(id)arg1 forPeer:(id)arg2;
+- (void)updatedFocusID:(unsigned int)arg1;
+- (void)updatedSubscribedBeaconList:(id)arg1;
+- (void)handlePeerDisconnected:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+@property float sessionVolume;
+@property(readonly, nonatomic) unsigned int conferenceID;
+@property(readonly, nonatomic) NSString *sessionName;
+@property(getter=isActiveSession) BOOL activeSession;
+@property(readonly) NSArray *peerList;
+- (void)setMute:(BOOL)arg1 forPeer:(id)arg2;
+- (void)stopSessionInternal;
+- (void)stopSession;
+- (void)startSessionInternal;
+- (void)startSession;
+- (void)cleanupProc:(id)arg1;
+- (void)cleanup;
+- (void)dealloc;
+- (id)decodePeerID:(id)arg1;
+- (id)encodePeerID:(id)arg1;
+- (void)calculateConferenceID;
+- (id)initWithGKSession:(id)arg1 publicWrapper:(id)arg2 sessionName:(id)arg3;
+- (void)wifiStateDidChange:(BOOL)arg1;
+- (void)session:(id)arg1 didReceiveOOBAudioPacket:(id)arg2 fromPeerID:(id)arg3;
+- (void)session:(id)arg1 peer:(id)arg2 didChangeState:(int)arg3;
+- (void)session:(id)arg1 didReceiveAudioPacket:(id)arg2 fromPeerID:(id)arg3;
+- (void)informClientVoiceChatFocusChange:(id)arg1;
+- (void)informClientVoiceChatSilent:(id)arg1;
+- (void)informClientVoiceChatSpeaking:(id)arg1;
+- (void)informClientVoiceChatDidStop:(id)arg1;
+- (void)informClientVoiceChatCouldNotConnect:(id)arg1;
+- (void)informClientVoiceChatConnecting:(id)arg1;
+- (void)informClientVoiceChatDidStart:(id)arg1;
+@property id <GKVoiceChatSessionDelegate> delegate;
+- (void)voiceChatService:(id)arg1 didReceiveInvitationFromParticipantID:(id)arg2 callID:(int)arg3;
+- (void)voiceChatService:(id)arg1 didStopWithParticipantID:(id)arg2 error:(id)arg3;
+- (void)voiceChatService:(id)arg1 didNotStartWithParticipantID:(id)arg2 error:(id)arg3;
+- (void)voiceChatService:(id)arg1 didStartWithParticipantID:(id)arg2;
+- (id)participantID;
+- (void)voiceChatService:(id)arg1 sendData:(id)arg2 toParticipantID:(id)arg3;
+- (void)didStopSpeaking:(id)arg1;
+- (void)didStartSpeaking:(id)arg1;
+- (void)lossRate:(float)arg1 forParticipantID:(id)arg2;
+- (int)goodChannels;
+- (int)calculateChannelQualities;
 
 @end
 

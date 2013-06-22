@@ -7,6 +7,6 @@
 #import "UIView.h"
 
 @interface UIView (MPAlternateTracksAddition)
-- (id)firstLabelSubview;
+- (id)mpFirstLabelSubview;
 @end
 

@@ -10,15 +10,20 @@
 {
 }
 
++ (int)numForgivable401s;
 + (BOOL)isAppleInternalInstall;
 + (BOOL)isCustomerInstall;
 + (BOOL)isInHoldingPattern;
++ (BOOL)easNotesEnabled;
 + (BOOL)sendMeCardEverywhere;
 + (BOOL)writeOutBrokenCancelationRequests;
 + (BOOL)completelyIgnoreNotes;
 + (BOOL)allIMAPServersSupportNotesSearch;
 + (id)mobileMeServerURL;
 + (id)APSEnv;
++ (BOOL)CFNetworkLogging;
++ (BOOL)perfLogging;
++ (BOOL)useThunderhillBetaServers;
 + (BOOL)compressRequests;
 + (BOOL)promptForAllCerts;
 + (BOOL)calDAVRemindersForAll;

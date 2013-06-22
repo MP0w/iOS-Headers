@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 
 @end
 

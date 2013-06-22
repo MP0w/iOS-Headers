@@ -7,8 +7,13 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBBulletinWindowClient <NSObject>
-- (void)bulletinWindowWillRotateToOrientation:(int)arg1;
-- (void)bulletinWindowIsAnimatingRotationToOrientation:(int)arg1;
 - (void)bulletinWindowDidRotateFromOrientation:(int)arg1;
+- (void)bulletinWindowIsAnimatingRotationToOrientation:(int)arg1;
+- (void)bulletinWindowWillRotateToOrientation:(int)arg1;
+
+@optional
+- (void)bulletinWindowDidResignKey;
+- (void)bulletinWindowDidBecomeKey;
+- (BOOL)requiresKeyWindow;
 @end
 

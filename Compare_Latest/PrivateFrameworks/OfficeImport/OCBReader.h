@@ -4,28 +4,27 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <OfficeImport/OCDEncryptedReader.h>
 
-#import "OCDReader-Protocol.h"
-
-@class NSData;
-
-@interface OCBReader : NSObject <OCDReader>
+@interface OCBReader : OCDEncryptedReader
 {
     struct OcBinaryReader *mBinaryReader;
     struct __sFILE *mFile;
-    NSData *mData;
 }
 
-+ (void)setReadAdvisoryOnFile:(struct __sFILE *)arg1;
-+ (id)readFromFileName:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4 delegate:(id)arg5;
-+ (id)readFromData:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4 delegate:(id)arg5;
-- (id)initWithBinaryReader:(struct OcBinaryReader *)arg1;
-- (void)dealloc;
+@property(nonatomic) struct __sFILE *file; // @synthesize file=mFile;
+@property(nonatomic) struct OcBinaryReader *binaryReader; // @synthesize binaryReader=mBinaryReader;
+- (id)read;
+- (BOOL)start;
+- (void)restartReaderToUseDecryptedDocument;
+- (BOOL)retainDecryptorWithErrorCode:(int *)arg1;
+- (id)allocDecryptorWithCryptoKey:(struct OCCCryptoKey *)arg1 baseOutputFilename:(id)arg2;
+- (struct OCCBinaryStreamer *)allocBinaryStreamerWithCryptoKey:(struct OCCCryptoKey *)arg1 baseOutputFilenameInUTF8:(const char *)arg2;
 - (_Bool)isBinaryReader;
-- (struct OcBinaryReader *)binaryReader;
-- (void)setFile:(struct __sFILE *)arg1;
-- (void)setData:(id)arg1;
+@property(readonly, nonatomic) struct OCCEncryptionInfoReader *encryptionInfoReader;
+- (void)closeFile;
+- (void)dealloc;
+- (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
 
 @end
 

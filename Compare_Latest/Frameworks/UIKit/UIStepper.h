@@ -6,7 +6,7 @@
 
 #import <UIKit/UIControl.h>
 
-@class NSTimer, UIButton, UIImageView;
+@class NSMutableDictionary, NSTimer, UIButton, UIColor, UIImageView;
 
 @interface UIStepper : UIControl
 {
@@ -16,6 +16,8 @@
     UIButton *_minusButton;
     NSTimer *_repeatTimer;
     int _repeatCount;
+    NSMutableDictionary *_dividerImages;
+    UIColor *_tintColor;
     double _value;
     double _minimumValue;
     double _maximumValue;
@@ -32,6 +34,21 @@
 @property(nonatomic) double maximumValue; // @synthesize maximumValue=_maximumValue;
 @property(nonatomic) double minimumValue; // @synthesize minimumValue=_minimumValue;
 @property(nonatomic) double value; // @synthesize value=_value;
+@property(retain, nonatomic) UIColor *tintColor;
+- (id)decrementImageForState:(unsigned int)arg1;
+- (void)setDecrementImage:(id)arg1 forState:(unsigned int)arg2;
+- (void)_setDecrementImage:(id)arg1 forState:(unsigned int)arg2;
+- (id)incrementImageForState:(unsigned int)arg1;
+- (void)setIncrementImage:(id)arg1 forState:(unsigned int)arg2;
+- (void)_setIncrementImage:(id)arg1 forState:(unsigned int)arg2;
+- (id)dividerImageForLeftSegmentState:(unsigned int)arg1 rightSegmentState:(unsigned int)arg2;
+- (void)setDividerImage:(id)arg1 forLeftSegmentState:(unsigned int)arg2 rightSegmentState:(unsigned int)arg3;
+- (void)_setDividerImage:(id)arg1 forLeftSegmentState:(unsigned int)arg2 rightSegmentState:(unsigned int)arg3;
+- (id)backgroundImageForState:(unsigned int)arg1;
+- (void)setBackgroundImage:(id)arg1 forState:(unsigned int)arg2;
+- (void)_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2;
+- (void)layoutSubviews;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_updateCount:(id)arg1;
 - (void)_stopTimer;
 - (void)_startTimer;
@@ -40,12 +57,16 @@
 - (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)_updateDividerImageForButtonState;
 - (void)_updateHighlightingAtPoint:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_updateButtonEnabled;
 - (void)_commonStepperInit;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
 - (void)dealloc;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;

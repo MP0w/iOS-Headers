@@ -6,14 +6,17 @@
 
 #import "SBAlertItem.h"
 
-@class AVController, NSDictionary, NSString, NSTimer, UIImage;
+@class AVController, BKSProcessAssertion, NSDictionary, NSObject<OS_dispatch_source>, NSString, NSTimer, UIImage;
 
 @interface SBUserNotificationAlert : SBAlertItem
 {
     unsigned int _replyPort;
+    NSObject<OS_dispatch_source> *_portWatcher;
+    NSObject<OS_dispatch_source> *_expirationTimer;
+    BOOL _cleanedUp;
     int _token;
     int _timeout;
-    unsigned int _requestFlags;
+    unsigned long _requestFlags;
     NSString *_alertHeader;
     id _alertMessage;
     NSString *_alertMessageDelimiter;
@@ -42,45 +45,27 @@
     int _defaultButtonIndex;
     int _alternateButtonIndex;
     int _otherButtonIndex;
+    NSString *_defaultResponseLaunchBundleID;
     unsigned int _cancel:1;
     unsigned int _isActivated:1;
     unsigned int _aboveLock:1;
     unsigned int _hideButtonsInAwayView:1;
     unsigned int _dismissOnLock:1;
     unsigned int _dontDismissOnUnlock:1;
+    unsigned int _behavesSuperModally:1;
     unsigned int _allowMenuButtonDismissal:1;
     unsigned int _oneButtonPerLine:1;
     unsigned int _groupsTextFields:1;
+    unsigned int _usesUndoStyle:1;
     unsigned int _configuredLocked:1;
     unsigned int _configuredNeedsPasscode:1;
+    unsigned int _defaultResponseAppLaunchWaitingForPasscode:1;
     UIImage *_alertImage;
     AVController *_avController;
+    BKSProcessAssertion *_processAssertion;
 }
 
-- (id)_safeLocalizedValue:(id)arg1 withBundle:(id)arg2;
-- (id)initWithMessage:(id)arg1 replyPort:(unsigned int)arg2 requestFlags:(int)arg3;
-- (void)updateWithMessage:(id)arg1 requestFlags:(int)arg2;
-- (void)dealloc;
-- (Class)alertSheetClass;
-- (int)token;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)dismissOnLock;
-- (BOOL)allowMenuButtonDismissal;
-- (void)willActivate;
-- (void)stopSound;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)wakeup;
-- (void)cancel;
-- (void)_setSheetDefaultButtonTitle:(id)arg1;
-- (void)_textFieldButtonPressed:(id)arg1;
-- (void)_sendResponse:(int)arg1;
-- (BOOL)_needsDismissalWithClickedButtonIndex:(int)arg1;
-- (void)performUnlockAction;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)noteVolumeOrLockPressed;
-- (void)willDeactivateForReason:(int)arg1;
-- (void)didDeactivateForReason:(int)arg1;
-- (void)didFailToActivate;
+@property(retain) NSString *defaultResponseLaunchBundleID; // @synthesize defaultResponseLaunchBundleID=_defaultResponseLaunchBundleID;
 @property(retain) UIImage *alertImage; // @synthesize alertImage=_alertImage;
 @property(retain) NSString *otherButtonTitle; // @synthesize otherButtonTitle=_otherButtonTitle;
 @property(retain) NSString *alternateButtonTitle; // @synthesize alternateButtonTitle=_alternateButtonTitle;
@@ -100,6 +85,34 @@
 @property(retain) id autocorrectionTypes; // @synthesize autocorrectionTypes=_autocorrectionTypes;
 @property(retain) id autocapitalizationTypes; // @synthesize autocapitalizationTypes=_autocapitalizationTypes;
 @property(retain) id keyboardTypes; // @synthesize keyboardTypes=_keyboardTypes;
+- (void)didFailToActivate;
+- (void)didDeactivateForReason:(int)arg1;
+- (void)willDeactivateForReason:(int)arg1;
+- (void)noteVolumeOrLockPressed;
+- (BOOL)reappearsAfterUnlock;
+- (BOOL)reappearsAfterLock;
+- (BOOL)behavesSuperModally;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)performUnlockAction;
+- (BOOL)_needsDismissalWithClickedButtonIndex:(int)arg1;
+- (void)_sendResponse:(int)arg1;
+- (void)_textFieldButtonPressed:(id)arg1;
+- (void)_setSheetDefaultButtonTitle:(id)arg1;
+- (void)cancel;
+- (void)_cleanup;
+- (void)_setActivated:(BOOL)arg1;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)stopSound;
+- (void)willActivate;
+- (BOOL)allowMenuButtonDismissal;
+- (BOOL)dismissOnLock;
+- (BOOL)shouldShowInLockScreen;
+- (int)token;
+- (Class)alertSheetClass;
+- (void)dealloc;
+- (void)updateWithMessage:(id)arg1 requestFlags:(int)arg2;
+- (id)initWithMessage:(id)arg1 replyPort:(unsigned int)arg2 requestFlags:(int)arg3 auditToken:(CDStruct_6ad76789)arg4;
+- (id)_safeLocalizedValue:(id)arg1 withBundle:(id)arg2;
 
 @end
 

@@ -13,31 +13,35 @@
     WebScriptObjectPrivate *_private;
 }
 
-+ (void)initialize;
-+ (id)scriptObjectForJSObject:(struct OpaqueJSValue *)arg1 originRootObject:(struct RootObject *)arg2 rootObject:(struct RootObject *)arg3;
-+ (BOOL)throwException:(id)arg1;
 + (id)_convertValueToObjcValue:(struct JSValue)arg1 originRootObject:(struct RootObject *)arg2 rootObject:(struct RootObject *)arg3;
-- (void)_setImp:(struct JSObject *)arg1 originRootObject:(PassRefPtr_8e019d1c)arg2 rootObject:(PassRefPtr_8e019d1c)arg3;
-- (void)_setOriginRootObject:(PassRefPtr_8e019d1c)arg1 andRootObject:(PassRefPtr_8e019d1c)arg2;
-- (id)_initWithJSObject:(struct JSObject *)arg1 originRootObject:(PassRefPtr_8e019d1c)arg2 rootObject:(PassRefPtr_8e019d1c)arg3;
-- (struct JSObject *)_imp;
-- (BOOL)_hasImp;
-- (struct RootObject *)_rootObject;
-- (struct RootObject *)_originRootObject;
-- (BOOL)_isSafeScript;
-- (void)dealloc;
-- (void)finalize;
-- (id)callWebScriptMethod:(id)arg1 withArguments:(id)arg2;
-- (id)evaluateWebScript:(id)arg1;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)valueForKey:(id)arg1;
-- (void)removeWebScriptKey:(id)arg1;
-- (BOOL)hasWebScriptKey:(id)arg1;
-- (id)stringRepresentation;
-- (id)webScriptValueAtIndex:(unsigned int)arg1;
-- (void)setWebScriptValueAtIndex:(unsigned int)arg1 value:(id)arg2;
-- (void)setException:(id)arg1;
++ (BOOL)throwException:(id)arg1;
++ (id)scriptObjectForJSObject:(struct OpaqueJSValue *)arg1 originRootObject:(struct RootObject *)arg2 rootObject:(struct RootObject *)arg3;
++ (void)initialize;
 - (struct OpaqueJSValue *)JSObject;
+- (void)setException:(id)arg1;
+- (void)setWebScriptValueAtIndex:(unsigned int)arg1 value:(id)arg2;
+- (id)webScriptValueAtIndex:(unsigned int)arg1;
+- (id)stringRepresentation;
+- (BOOL)hasWebScriptKey:(id)arg1;
+- (void)removeWebScriptKey:(id)arg1;
+- (id)valueForKey:(id)arg1;
+- (void)setValue:(id)arg1 forKey:(id)arg2;
+- (id)evaluateWebScript:(id)arg1;
+- (id)callWebScriptMethod:(id)arg1 withArguments:(id)arg2;
+- (void)finalize;
+- (void)dealloc;
+- (oneway void)release;
+- (BOOL)_isSafeScript;
+- (struct RootObject *)_originRootObject;
+- (struct RootObject *)_rootObject;
+- (BOOL)_hasImp;
+- (struct JSObject *)_imp;
+- (id)_initWithJSObject:(struct JSObject *)arg1 originRootObject:(PassRefPtr_8e019d1c)arg2 rootObject:(PassRefPtr_8e019d1c)arg3;
+- (void)_setOriginRootObject:(PassRefPtr_8e019d1c)arg1 andRootObject:(PassRefPtr_8e019d1c)arg2;
+- (void)_setImp:(struct JSObject *)arg1 originRootObject:(PassRefPtr_8e019d1c)arg2 rootObject:(PassRefPtr_8e019d1c)arg3;
+- (void)_initializeScriptDOMNodeImp;
+- (id)_init;
+- (id)objectAtIndex:(unsigned int)arg1;
 
 @end
 

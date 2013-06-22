@@ -8,24 +8,33 @@
 
 #import "UIAlertViewDelegate-Protocol.h"
 
-@class NSArray, NSDictionary, NSString;
+@class BKSApplicationStateMonitor, NSArray, NSDictionary, NSMutableArray, NSString;
 
 @interface MPAudioDeviceController : NSObject <UIAlertViewDelegate>
 {
     NSString *_category;
     id _delegate;
+    BOOL _determiningPickableRoutes;
     BOOL _fakeRouteAvailable;
     NSArray *_pickableRoutes;
     NSDictionary *_pickedRoute;
     BOOL _pickedRouteHasVolumeControl;
     BOOL _pickedRouteHasVolumeControlIsValid;
+    NSMutableArray *_pickableRoutesCompletionHandlers;
+    BKSApplicationStateMonitor *_applicationMonitor;
+    int _retainCount;
 }
 
 + (void)setRouteDiscoveryEnabled:(BOOL)arg1;
 + (BOOL)routeDiscoveryEnabled;
+@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 - (void)_sendFakeRouteChange;
 - (void)_registerForAVControllerNotifications;
+- (void)_routeDiscoveryDidEndNotification:(id)arg1;
 - (void)_portStatusDidChangeNotification:(id)arg1;
+- (void)_sendDelegateAudioRoutesChanged;
+- (void)_scheduleSendDelegateAudioRoutesChanged;
+- (void)_activeAudioRouteDidChange:(id)arg1;
 - (void)_pickableRoutesChangedNotification:(id)arg1;
 - (void)_mediaServerDied;
 - (BOOL)_routeIsWireless:(id)arg1;
@@ -64,10 +73,15 @@
 - (id)pickedRouteDescription;
 - (id)nameOfPickedRoute;
 - (BOOL)volumeControlIsAvailable;
-- (void)setDelegate:(id)arg1;
 - (void)setCategory:(id)arg1;
+- (BOOL)isPickedRouteDistinctFromRoute:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
+- (unsigned int)retainCount;
+- (oneway void)release;
+- (id)retain;
 
 @end
 

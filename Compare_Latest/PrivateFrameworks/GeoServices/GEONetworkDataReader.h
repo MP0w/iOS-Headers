@@ -20,10 +20,12 @@
 - (BOOL)hasUnreadData;
 - (void)seekToMarkedOffset;
 - (void)markOffset;
-- (id)readData:(unsigned short)arg1;
-- (unsigned short)readUnsignedShort;
+- (id)readData:(unsigned int)arg1;
+- (BOOL)readUnsignedInt:(unsigned int *)arg1;
+- (BOOL)readUnsignedShort:(unsigned short *)arg1;
 - (id)readString;
 - (void)appendNetworkData:(id)arg1;
+- (id)allData;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;
 

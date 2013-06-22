@@ -33,8 +33,8 @@
 @property(readonly, nonatomic) NSString *itemKind; // @synthesize itemKind=_itemKind;
 @property(readonly, nonatomic) SSItemImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
 @property(readonly, nonatomic) NSString *artistName; // @synthesize artistName=_artistName;
-- (void *)copyXPCEncoding;
-- (id)initWithXPCEncoding:(void *)arg1;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)description;

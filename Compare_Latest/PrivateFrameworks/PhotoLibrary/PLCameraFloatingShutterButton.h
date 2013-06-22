@@ -8,17 +8,19 @@
 
 @interface PLCameraFloatingShutterButton : PLCameraButton
 {
-    float hitRectExtension;
 }
 
-@property(nonatomic) float hitRectExtension; // @synthesize hitRectExtension;
++ (struct UIEdgeInsets)hitRectExtension;
++ (struct UIEdgeInsets)backgroundResizableEdgeInsets;
++ (struct CGRect)defaultFrame;
++ (id)videoOnIconName;
++ (id)videoOffIconName;
++ (id)photoIconLandscapeName;
++ (id)photoIconPortraitName;
++ (id)backgroundPressedImageName;
++ (id)backgroundImageName;
++ (id)defaultIconName;
 - (struct CGRect)hitRectFrame;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (struct CGRect)hitRect;
-- (void)_loadVideoResources;
-- (void)_loadStillLandscapeResources;
-- (void)_loadStillResources;
-- (id)initWithDefaultSize;
 
 @end
 

@@ -13,8 +13,8 @@
     EXState *mExcelState;
 }
 
-- (id)initWithExcelState:(id)arg1;
 - (id)excelState;
+- (id)initWithExcelState:(id)arg1;
 
 @end
 

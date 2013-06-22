@@ -8,34 +8,34 @@
 
 #import "UITableViewDataSource-Protocol.h"
 
-@class PreferencesTextTableCell, UITableView, UITextField;
+@class UITableView, UITableViewCell, UITextField;
 
 @interface AlphanumericPINView : PINView <UITableViewDataSource>
 {
     UITextField *_passcodeField;
-    PreferencesTextTableCell *_cell;
+    UITableViewCell *_cell;
     UITableView *_table;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)layoutSubviews;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)setBlocked:(BOOL)arg1;
-- (BOOL)keyboardInputChanged:(id)arg1;
-- (void)showError:(id)arg1 animate:(BOOL)arg2;
-- (void)dealloc;
-- (id)stringValue;
-- (void)okButtonPressed:(id)arg1;
-- (void)hidePasscodeField:(BOOL)arg1;
-- (BOOL)isFirstResponder;
-- (BOOL)canBecomeFirstResponder;
-- (BOOL)becomeFirstResponder;
-- (BOOL)resignFirstResponder;
-- (void)setStringValue:(id)arg1;
-- (void)appendString:(id)arg1;
-- (void)deleteLastCharacter;
 - (BOOL)textFieldShouldReturn:(id)arg1;
+- (void)deleteLastCharacter;
+- (void)appendString:(id)arg1;
+- (void)setStringValue:(id)arg1;
+- (BOOL)resignFirstResponder;
+- (BOOL)becomeFirstResponder;
+- (BOOL)canBecomeFirstResponder;
+- (BOOL)isFirstResponder;
+- (void)hidePasscodeField:(BOOL)arg1;
+- (void)okButtonPressed:(id)arg1;
+- (id)stringValue;
+- (void)dealloc;
+- (void)showError:(id)arg1 animate:(BOOL)arg2;
+- (BOOL)keyboardInputChanged:(id)arg1;
+- (void)setBlocked:(BOOL)arg1;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

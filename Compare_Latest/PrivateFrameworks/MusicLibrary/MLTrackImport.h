@@ -28,6 +28,7 @@
 @property(nonatomic) BOOL assignArtworkCacheIDFromAlbum; // @synthesize assignArtworkCacheIDFromAlbum=_assignArtworkCacheIDFromAlbum;
 @property(copy, nonatomic) NSString *assetFilePath; // @synthesize assetFilePath=_assetFilePath;
 @property(copy, nonatomic) NSData *artworkData; // @synthesize artworkData=_artworkData;
+- (void).cxx_destruct;
 - (void)_addSortStrings;
 - (void)normalizeEntityProperties;
 - (id)copyEntityProperties;
@@ -38,7 +39,6 @@
 @property(copy, nonatomic) MLContentRating *contentRating;
 @property(readonly, nonatomic) NSDictionary *entityProperties;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -14,19 +14,21 @@
     _Bool mContainsStringValue;
 }
 
-- (id)init;
-- (id)initWithDataPointCount:(unsigned int)arg1;
-- (void)resetWithDataPointCount:(unsigned int)arg1;
-- (void)dealloc;
-- (unsigned int)count;
-- (_Bool)addDataPoint:(struct CHDDataPoint *)arg1;
-- (_Bool)addDataValue:(id)arg1;
-- (struct CHDDataPoint *)dataPointAtIndex:(unsigned int)arg1;
-- (struct CHDDataPoint *)dataPointWithIndex:(unsigned int)arg1;
-- (id)dataValueAtIndex:(unsigned int)arg1;
-- (id)dataValueWithIndex:(unsigned int)arg1;
-- (void)finishReading;
 - (_Bool)containsStringValue;
+- (void)finishReading;
+- (id)dataValueWithIndex:(unsigned int)arg1;
+- (id)dataValueAtIndex:(unsigned int)arg1;
+- (struct CHDDataPoint *)dataPointWithIndex:(unsigned int)arg1;
+- (struct CHDDataPoint *)dataPointAtIndex:(unsigned int)arg1;
+- (_Bool)addDataValue:(id)arg1;
+- (_Bool)addDataPoint:(struct CHDDataPoint *)arg1;
+- (unsigned int)count;
+- (void)dealloc;
+- (void)resetWithDataPointCount:(unsigned int)arg1;
+- (id)initWithDataPointCount:(unsigned int)arg1;
+- (id)init;
+- (void)cleanup;
+- (void)setupBufferForValues:(unsigned int)arg1;
 
 @end
 

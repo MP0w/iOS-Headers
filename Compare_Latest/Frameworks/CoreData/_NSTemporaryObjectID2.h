@@ -15,15 +15,15 @@
 }
 
 + (id)initWithEntity:(id)arg1 andUUIDString:(id)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (unsigned int)hash;
-- (id)_storeIdentifier;
-- (id)persistentStore;
-- (BOOL)_isPersistentStoreAlive;
-- (void)_setPersistentStore:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
 - (id)_referenceData;
+- (BOOL)isEqual:(id)arg1;
+- (void)_setPersistentStore:(id)arg1;
+- (BOOL)_isPersistentStoreAlive;
+- (id)persistentStore;
+- (id)_storeIdentifier;
+- (unsigned int)hash;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

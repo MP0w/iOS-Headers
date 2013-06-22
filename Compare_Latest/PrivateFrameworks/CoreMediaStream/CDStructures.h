@@ -8,6 +8,11 @@
 
 struct CFURLConnectionClient_V1;
 
+struct CGSize {
+    float _field1;
+    float _field2;
+};
+
 struct _CFURLConnection;
 
 struct _MSDSPCContext {

@@ -14,21 +14,14 @@
     SPSearchQuery *_query;
     id <SPDaemonQueryDelegate> _delegate;
     unsigned int _queryID;
-    unsigned int _sortsInFlight;
-    BOOL _completed;
 }
 
-@property(nonatomic) BOOL completed; // @synthesize completed=_completed;
-@property(nonatomic) unsigned int sortsInFlight; // @synthesize sortsInFlight=_sortsInFlight;
 @property(readonly, nonatomic) SPSearchQuery *query; // @synthesize query=_query;
 @property(readonly, nonatomic) unsigned int queryID; // @synthesize queryID=_queryID;
 @property(nonatomic) id <SPDaemonQueryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)dealloc;
-- (id)initWithQuery:(id)arg1 andCallbackPort:(unsigned int)arg2;
-- (void)_sendCompletion;
-- (void)_sendError:(id)arg1;
-- (void)_sendResults:(id)arg1;
-- (void)_callbackPipeBrokenCallback:(struct __CFMachPort *)arg1;
+- (id)initWithQuery:(id)arg1;
+- (void)handleMessage:(id)arg1;
 
 @end
 

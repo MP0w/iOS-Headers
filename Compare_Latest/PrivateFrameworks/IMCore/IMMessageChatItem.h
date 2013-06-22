@@ -12,6 +12,8 @@
 {
 }
 
+- (int)_reverseCompareToChatItem:(id)arg1;
+- (int)_compareToChatItem:(id)arg1;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (void)_setMessage:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "SBBulletinDateLabel-Protocol.h"
 
-@class NSDate;
+@class NSDate, NSTimer;
 
 @interface SBDefaultDateLabel : UILabel <SBBulletinDateLabel>
 {
@@ -19,24 +19,39 @@
     NSDate *_effectiveAllDayLastValidDate;
     NSDate *_effectiveAllDayEndDate;
     BOOL _effectiveAllDay;
+    BOOL _isCoalescingUpdates;
+    BOOL _needsUpdateFromCoalesce;
+    NSTimer *_updateTimer;
+    id <SBDateLabelDelegate> _delegate;
+    int _labelType;
 }
 
-+ (void)initialize;
-- (id)init;
-- (void)dealloc;
++ (id)_currentCalendar;
+@property(nonatomic) int labelType; // @synthesize labelType=_labelType;
+@property(nonatomic) id <SBDateLabelDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=isAllDay) BOOL allDay; // @synthesize allDay=_allDay;
-- (void)setTimeZoneRelativeStartDate:(id)arg1 absoluteStartDate:(id)arg2;
-- (void)setTimeZoneRelativeEndDate:(id)arg1;
-- (void)setStartDate:(id)arg1 withTimeZone:(id)arg2;
-- (void)setEndDate:(id)arg1 withTimeZone:(id)arg2;
-- (void)_resetEffectiveAllDayState:(BOOL)arg1;
-- (void)_updateEffectiveAllDayTimes;
-- (id)_localDateForDate:(id)arg1 inTimeZone:(id)arg2;
-- (BOOL)isDateWithinEffectiveAllDayRange:(id)arg1;
-- (BOOL)isEffectiveAllDay;
-- (id)constructLabelString;
-- (void)updateTextIfNecessary;
+- (void)stopCoalescingUpdates;
+- (void)startCoalescingUpdates;
 - (void)update;
+- (void)_forceUpdate;
+- (void)updateTextIfNecessary;
+- (void)_updateTimerFired:(id)arg1;
+- (void)updateTextIfNecessary:(BOOL)arg1;
+- (id)constructLabelString;
+- (BOOL)isEffectiveAllDay;
+- (BOOL)isDateWithinEffectiveAllDayRange:(id)arg1;
+- (id)_localDateForDate:(id)arg1 inTimeZone:(id)arg2;
+- (void)_updateEffectiveAllDayTimes;
+- (void)_resetEffectiveAllDayState:(BOOL)arg1;
+- (void)setEndDate:(id)arg1 withTimeZone:(id)arg2;
+- (void)setStartDate:(id)arg1 withTimeZone:(id)arg2;
+- (void)setTimeZoneRelativeEndDate:(id)arg1;
+- (void)setTimeZoneRelativeStartDate:(id)arg1 absoluteStartDate:(id)arg2;
+- (void)_configureTimer;
+- (void)_invalidateTimer;
+- (void)prepareForReuse;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -7,8 +7,8 @@
 #import "UITableView.h"
 
 @interface UITableView (ABKeyboardAdjuster)
-- (void)ab_delayedScrollRespectingCaretOfActiveTextViewToCell:(id)arg1 atIndexPath:(id)arg2 atScrollPosition:(int)arg3 animated:(BOOL)arg4;
-- (void)ab_internalScrollToRowAtIndexPathRespectingCaretOfActiveTextView:(id)arg1 atScrollPosition:(int)arg2 animated:(BOOL)arg3;
 - (void)ab_scrollToRowAtIndexPathRespectingCaretOfActiveTextView:(id)arg1 atScrollPosition:(int)arg2 animated:(BOOL)arg3;
+- (void)ab_internalScrollToRowAtIndexPathRespectingCaretOfActiveTextView:(id)arg1 atScrollPosition:(int)arg2 animated:(BOOL)arg3;
+- (void)ab_delayedScrollRespectingCaretOfActiveTextViewToCell:(id)arg1 atIndexPath:(id)arg2 atScrollPosition:(int)arg3 animated:(BOOL)arg4;
 @end
 

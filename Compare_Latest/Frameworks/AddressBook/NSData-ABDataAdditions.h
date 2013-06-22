@@ -7,11 +7,11 @@
 #import "NSData.h"
 
 @interface NSData (ABDataAdditions)
-- (id)abStringAtRange:(struct _NSRange)arg1 inEncoding:(unsigned int)arg2;
-- (BOOL)abIsUTF16EntourageVCard;
-- (id)abEncodeVCardBase64DataWithInitialLength:(unsigned int)arg1;
-- (id)abEncodeBase64DataBreakLines:(BOOL)arg1 allowSlash:(BOOL)arg2 padChar:(BOOL)arg3;
-- (id)abDecodedUTF7;
 - (id)abDecodeVCardBase64;
+- (id)abDecodedUTF7;
+- (id)abEncodeBase64DataBreakLines:(BOOL)arg1 allowSlash:(BOOL)arg2 padChar:(BOOL)arg3;
+- (id)abEncodeVCardBase64DataWithInitialLength:(unsigned int)arg1;
+- (BOOL)abIsUTF16EntourageVCard;
+- (id)abStringAtRange:(struct _NSRange)arg1 inEncoding:(unsigned int)arg2;
 @end
 

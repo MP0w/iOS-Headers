@@ -12,7 +12,7 @@
 #import "UIPopoverControllerDelegate-Protocol.h"
 #import "UIScrollViewDelegate-Protocol.h"
 
-@class CIFilter, NSArray, NSDictionary, NSMutableArray, NSTimer, NSUndoManager, PLImageAdjustmentView, PLManagedAsset, UIActionSheet, UIAlertView, UIImage, UILabel, UINavigationBar, UIPopoverController, UIProgressHUD, UIScrollView, UIToolbar, UIView;
+@class CIFilter, NSArray, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSTimer, NSUndoManager, PLImageAdjustmentView, PLManagedAsset, UIActionSheet, UIAlertView, UIImage, UILabel, UINavigationBar, UIPopoverController, UIProgressHUD, UIScrollView, UIToolbar, UIView;
 
 @interface PLEditPhotoController : UIViewController <PLImageAdjustmentViewDelegate, UIScrollViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate>
 {
@@ -47,7 +47,7 @@
     float _rotationAngle;
     NSDictionary *_cachedMetadata;
     UIImage *_scaledCachedImage;
-    struct dispatch_queue_s *_cachedImageQueue;
+    NSObject<OS_dispatch_queue> *_cachedImageQueue;
     id _didEndZoomingBlock;
     id _editCompletionBlock;
     id _actionCompletionBlock;
@@ -57,6 +57,7 @@
     unsigned int _isUserAction:1;
     unsigned int _isCroppingImage:1;
     unsigned int _didTapForRedEyeCorrection:1;
+    unsigned int _didEverTapForRedEyeCorrection:1;
     unsigned int _isCanceling:1;
     unsigned int _isOrderedOut:1;
     unsigned int _autoAdjustmentEnabled:1;
@@ -83,6 +84,7 @@
 @property(readonly, nonatomic) UIScrollView *scrollView;
 @property(retain, nonatomic) UIToolbar *toolbar;
 @property(retain, nonatomic) UINavigationBar *navigationBar;
+- (void)_updateAggregateInfoForCurrentAdjustmentState;
 - (BOOL)_currentStateIsEqualToAdjustmentState:(id)arg1;
 - (id)_originalState;
 - (id)_adjustmentState;

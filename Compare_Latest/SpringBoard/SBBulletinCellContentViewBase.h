@@ -6,16 +6,22 @@
 
 #import "UIView.h"
 
-@class UIColor, UIImageView, UILabel, UILabel<SBBulletinDateLabel>;
+#import "SBDateLabelDelegate-Protocol.h"
 
-@interface SBBulletinCellContentViewBase : UIView
+@class SBStringMetrics, UIColor, UIImageView, UILabel, UILabel<SBBulletinDateLabel>;
+
+@interface SBBulletinCellContentViewBase : UIView <SBDateLabelDelegate>
 {
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     UILabel *_messageLabel;
+    SBStringMetrics *_messageMetrics;
     UILabel<SBBulletinDateLabel> *_dateLabel;
+    UILabel<SBBulletinDateLabel> *_endDateLabel;
     UIImageView *_attachmentImageView;
     UILabel *_attachmentLabel;
+    BOOL _isVIP;
+    UIImageView *_vipImageView;
     unsigned int _maxMessageLines;
     unsigned int _maxTitleLines;
     struct CGSize _imageSize;
@@ -29,41 +35,44 @@
     int _dateFormatStyle;
 }
 
-- (id)_initForLayoutStyle:(int)arg1;
-- (id)initForBulletinStyle;
-- (id)initForSystemAlertStyle;
-- (void)dealloc;
-- (void)setTitleMaxLines:(unsigned int)arg1;
-- (void)setMessageMaxLines:(unsigned int)arg1;
-- (void)setShadowColor:(id)arg1;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
-- (id)_modifiedLabel:(id)arg1 withText:(id)arg2 font:(id)arg3 alignment:(int)arg4;
-- (id)_modifiedLabel:(id)arg1 withText:(id)arg2 font:(id)arg3;
-- (void)setTitle:(id)arg1;
-- (void)setSubtitle:(id)arg1;
-- (void)setMessage:(id)arg1;
-- (void)setAttachmentText:(id)arg1;
-- (void)dateLabelDidChange:(id)arg1;
-- (void)setStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(BOOL)arg4 formatStyle:(int)arg5;
-- (void)setAttachmentImage:(id)arg1;
-- (void)setAttachmentImageSize:(struct CGSize)arg1;
-- (void)_updateLabelFontsAndLineHeights;
-- (float)_heightForLabel:(id)arg1 forWidth:(float)arg2 minLines:(unsigned int)arg3 maxLines:(unsigned int)arg4 lineHeight:(float)arg5;
-- (float)_heightForLabel:(id)arg1 forWidth:(float)arg2 maxHeight:(float)arg3;
-- (void)_configureLabel:(id)arg1 withFont:(id)arg2 alignment:(int)arg3;
-- (id)_dateFont;
-- (id)_titleFont;
-- (id)_subtitleFont;
-- (id)_messageFont;
-- (id)_attachmentFont;
 @property(nonatomic) int dateFormatStyle; // @synthesize dateFormatStyle=_dateFormatStyle;
 @property(nonatomic) int layoutStyle; // @synthesize layoutStyle=_layoutStyle;
+@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
 @property(retain, nonatomic) UIImageView *attachmentImageView; // @synthesize attachmentImageView=_attachmentImageView;
+@property(retain, nonatomic) UILabel<SBBulletinDateLabel> *endDateLabel; // @synthesize endDateLabel=_endDateLabel;
 @property(retain, nonatomic) UILabel<SBBulletinDateLabel> *dateLabel; // @synthesize dateLabel=_dateLabel;
 @property(retain, nonatomic) UILabel *attachmentLabel; // @synthesize attachmentLabel=_attachmentLabel;
 @property(retain, nonatomic) UILabel *messageLabel; // @synthesize messageLabel=_messageLabel;
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+- (id)_vipAccessoryImage;
+- (id)_attachmentFont;
+- (id)_messageFont;
+- (id)_subtitleFont;
+- (id)_titleFont;
+- (id)_dateFont;
+- (void)_configureLabel:(id)arg1 withFont:(id)arg2 color:(id)arg3 alignment:(int)arg4;
+- (float)_heightForLabel:(id)arg1 forWidth:(float)arg2 maxHeight:(float)arg3;
+- (float)_heightForLabel:(id)arg1 forWidth:(float)arg2 minLines:(unsigned int)arg3 maxLines:(unsigned int)arg4 lineHeight:(float)arg5;
+- (void)_updateLabelFontsAndLineHeights;
+- (void)setVIP:(BOOL)arg1;
+- (void)setAttachmentImageSize:(struct CGSize)arg1;
+- (void)setAttachmentImage:(id)arg1;
+- (void)setStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(BOOL)arg4 formatStyle:(int)arg5;
+- (void)dateLabelDidChange:(id)arg1;
+- (void)setAttachmentText:(id)arg1;
+- (void)setMessage:(id)arg1;
+- (void)setSubtitle:(id)arg1;
+- (void)setTitle:(id)arg1;
+- (id)_modifiedLabel:(id)arg1 withText:(id)arg2 font:(id)arg3;
+- (id)_modifiedLabel:(id)arg1 withText:(id)arg2 font:(id)arg3 alignment:(int)arg4;
+- (void)setShadowColor:(id)arg1;
+- (void)setMessageMaxLines:(unsigned int)arg1;
+- (void)setTitleMaxLines:(unsigned int)arg1;
+- (void)dealloc;
+- (id)initForSystemAlertStyle;
+- (id)initForBulletinStyle;
+- (id)_initForLayoutStyle:(int)arg1;
 
 @end
 

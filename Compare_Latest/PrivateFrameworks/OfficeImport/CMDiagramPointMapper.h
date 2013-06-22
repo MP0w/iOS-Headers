@@ -16,28 +16,29 @@
     NSString *mPresentationName;
 }
 
-- (id)initWithPoint:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 parent:(id)arg4;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)mapStyledRectangle:(struct CGRect)arg1 at:(id)arg2 withState:(id)arg3;
-- (id)presentationName;
-- (void)setPresentationName:(id)arg1;
-- (void)mapChlidrenAt:(id)arg1 withState:(id)arg2;
-- (id)presentationWithName:(id)arg1;
-- (id)shapeStyle;
-- (id)styleMatrix;
-- (void)applyDiagramStyleToShapeProperties;
-- (id)fill;
-- (id)stroke;
-- (void)renderShapeAsBackgroundInBounds:(id)arg1;
-- (void)mapTextAt:(id)arg1 withBounds:(id)arg2 isCentered:(BOOL)arg3 includeChildren:(BOOL)arg4 withState:(id)arg5;
-- (void)mapChildrenTextAt:(id)arg1 style:(id)arg2 level:(int)arg3 withState:(id)arg4;
-- (void)mapSiblingTextAt:(id)arg1 style:(id)arg2 level:(int)arg3 withState:(id)arg4;
-- (id)transformForPresentationWithName:(id)arg1;
-- (id)transformPresentationName;
-- (id)plainText;
-- (id)baseTextListStyleWithBounds:(id)arg1 isCentered:(BOOL)arg2;
-- (id)diagram;
 - (float)defaultFontSize;
+- (id)diagram;
+- (id)baseTextListStyleWithBounds:(id)arg1 isCentered:(BOOL)arg2;
+- (id)plainText;
+- (id)transformPresentationName;
+- (id)transformForPresentationWithName:(id)arg1;
+- (void)mapSiblingTextAt:(id)arg1 style:(id)arg2 level:(int)arg3 withState:(id)arg4;
+- (void)mapChildrenTextAt:(id)arg1 style:(id)arg2 level:(int)arg3 withState:(id)arg4;
+- (void)mapTextAt:(id)arg1 withBounds:(id)arg2 isCentered:(BOOL)arg3 includeChildren:(BOOL)arg4 withState:(id)arg5;
+- (void)renderShapeAsBackgroundInBounds:(id)arg1;
+- (id)stroke;
+- (id)fill;
+- (void)applyDiagramStyleToShapeProperties;
+- (id)styleMatrix;
+- (id)shapeStyle;
+- (id)presentationWithName:(id)arg1;
+- (void)mapChlidrenAt:(id)arg1 withState:(id)arg2;
+- (void)setPresentationName:(id)arg1;
+- (id)presentationName;
+- (void)mapStyledRectangle:(struct CGRect)arg1 at:(id)arg2 withState:(id)arg3;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id)initWithPoint:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 parent:(id)arg4;
+- (void)mapPointTextAt:(id)arg1 style:(id)arg2 level:(int)arg3 withState:(id)arg4;
 
 @end
 

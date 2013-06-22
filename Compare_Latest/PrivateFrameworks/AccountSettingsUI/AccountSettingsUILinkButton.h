@@ -11,10 +11,10 @@
     BOOL underline;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)drawRect:(struct CGRect)arg1;
 @property(nonatomic) BOOL underline; // @synthesize underline;
+- (void)drawRect:(struct CGRect)arg1;
+- (void)setHighlighted:(BOOL)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

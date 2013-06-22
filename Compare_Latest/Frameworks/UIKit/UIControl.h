@@ -65,6 +65,31 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (BOOL)pointMostlyInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (BOOL)pointMostlyInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
+- (void)_cancelDelayedActions;
+- (void)_sendDelayedActions;
+- (void)_delayActions;
+- (void)_setHighlightOnMouseDown:(BOOL)arg1;
+- (void)_sendActionsForEvents:(int)arg1 withEvent:(id)arg2;
+- (void)_sendActionsForEventMask:(int)arg1 withEvent:(struct __GSEvent *)arg2;
+- (BOOL)_hasActionForEventMask:(int)arg1;
+- (void)setTracking:(BOOL)arg1;
+- (void)removeTarget:(id)arg1 forEvents:(int)arg2;
+- (void)addTarget:(id)arg1 action:(SEL)arg2 forEvents:(int)arg3;
+- (BOOL)hasOneOrMoreTargets;
+- (BOOL)requiresDisplayOnTracking;
+- (void)setRequiresDisplayOnTracking:(BOOL)arg1;
+- (BOOL)touchDragged;
+- (BOOL)shouldTrack;
+- (void)endTrackingAt:(struct CGPoint)arg1 previous:(struct CGPoint)arg2 withEvent:(struct __GSEvent *)arg3;
+- (BOOL)continueTrackingAt:(struct CGPoint)arg1 previous:(struct CGPoint)arg2 withEvent:(struct __GSEvent *)arg3;
+- (BOOL)beginTrackingAt:(struct CGPoint)arg1 withEvent:(struct __GSEvent *)arg2;
+- (void)sendAction:(SEL)arg1 toTarget:(id)arg2 forEvent:(struct __GSEvent *)arg3;
+- (BOOL)mouseInside;
+- (void)_sendDelayedActions:(BOOL)arg1;
+- (void)_unhighlight;
+- (void)_connectInterfaceBuilderEventConnection:(id)arg1;
 
 @end
 

@@ -14,9 +14,12 @@
 }
 
 + (BOOL)matchOutcomeIsValidForDoneState:(int)arg1;
++ (BOOL)instancesRespondToSelector:(SEL)arg1;
 @property(retain, nonatomic) GKTurnBasedParticipantInternal *internal; // @synthesize internal=_internal;
+@property(retain, nonatomic) NSDate *lastTurnDate; // @dynamic lastTurnDate;
 @property(readonly, nonatomic) BOOL isWinner;
 @property(readonly, nonatomic) NSString *matchOutcomeString;
+@property(readonly, nonatomic) NSString *matchStatusString;
 - (id)basicMatchOutcomeString;
 @property(nonatomic) int status;
 - (id)description;
@@ -33,9 +36,9 @@
 // Remaining properties
 @property(readonly, nonatomic) NSString *inviteMessage; // @dynamic inviteMessage;
 @property(retain, nonatomic) NSString *invitedBy; // @dynamic invitedBy;
-@property(retain, nonatomic) NSDate *lastTurnDate; // @dynamic lastTurnDate;
 @property(nonatomic) int matchOutcome; // @dynamic matchOutcome;
 @property(retain, nonatomic) NSString *playerID; // @dynamic playerID;
+@property(retain, nonatomic) NSDate *timeoutDate; // @dynamic timeoutDate;
 
 @end
 

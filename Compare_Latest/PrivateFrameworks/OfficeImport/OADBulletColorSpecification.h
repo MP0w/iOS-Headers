@@ -13,11 +13,11 @@
     OADColor *mColor;
 }
 
-- (id)initWithBulletColor:(id)arg1;
-- (void)dealloc;
-- (id)color;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)color;
+- (void)dealloc;
+- (id)initWithBulletColor:(id)arg1;
 
 @end
 

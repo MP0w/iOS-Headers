@@ -15,23 +15,23 @@
     NSString *_orderColumnName;
 }
 
-- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (void)dealloc;
-- (id)correlationTableName;
-- (BOOL)isMaster;
-- (void)_setInverseManyToMany:(id)arg1;
-- (BOOL)isReflexive;
-- (id)columnName;
-- (id)orderColumnName;
-- (unsigned int)columnSQLType;
-- (unsigned int)orderColumnSQLType;
-- (void)_setColumnName:(id)arg1;
-- (void)_setOrderColumnName:(id)arg1;
-- (void)_setCorrelationTableName:(id)arg1;
-- (id)inverseManyToMany;
-- (id)inverseColumnName;
-- (id)inverseOrderColumnName;
 - (BOOL)isTableSchemaEqual:(id)arg1;
+- (id)inverseOrderColumnName;
+- (id)inverseColumnName;
+- (id)inverseManyToMany;
+- (void)_setCorrelationTableName:(id)arg1;
+- (void)_setOrderColumnName:(id)arg1;
+- (void)_setColumnName:(id)arg1;
+- (unsigned int)orderColumnSQLType;
+- (unsigned int)columnSQLType;
+- (id)orderColumnName;
+- (id)columnName;
+- (BOOL)isReflexive;
+- (void)_setInverseManyToMany:(id)arg1;
+- (BOOL)isMaster;
+- (id)correlationTableName;
+- (void)dealloc;
+- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
 
 @end
 

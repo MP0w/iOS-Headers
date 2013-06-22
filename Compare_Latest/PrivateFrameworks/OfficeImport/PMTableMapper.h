@@ -16,15 +16,18 @@
     OADOrientedBounds *mBounds;
 }
 
-- (id)initWithOadTable:(id)arg1 bounds:(id)arg2 parent:(id)arg3;
-- (void)dealloc;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (id)grid;
-- (float)columnWidthAtIndex:(int)arg1 state:(id)arg2;
-- (id)defaultCellFillWithState:(id)arg1;
-- (id)defaultCellFillForRow:(unsigned int)arg1 withState:(id)arg2;
-- (id)tableBorderStyle;
 - (unsigned int)rowCount;
+- (id)tableBorderStyle;
+- (id)defaultCellFillForRow:(unsigned int)arg1 withState:(id)arg2;
+- (id)defaultCellFillWithState:(id)arg1;
+- (float)columnWidthAtIndex:(int)arg1 state:(id)arg2;
+- (id)grid;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (void)dealloc;
+- (id)initWithOadTable:(id)arg1 bounds:(id)arg2 parent:(id)arg3;
+- (id)cellStyle;
+- (void)mapColumnGridAt:(id)arg1 withState:(id)arg2;
+- (void)mapTablePropertiesWithState:(id)arg1;
 
 @end
 

@@ -10,12 +10,12 @@
 {
 }
 
-- (int)width;
-- (int)height;
-- (struct CGSize)adjustedSize;
-- (int)preprocessWidthWithState:(id)arg1;
-- (int)preprocessHeightWithState:(id)arg1;
 - (struct CGSize)preprocessSizeWithState:(id)arg1;
+- (int)preprocessHeightWithState:(id)arg1;
+- (int)preprocessWidthWithState:(id)arg1;
+- (struct CGSize)adjustedSize;
+- (int)height;
+- (int)width;
 
 @end
 

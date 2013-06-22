@@ -10,16 +10,16 @@
 {
 }
 
-- (unsigned int)chartType;
-- (_Bool)useSecondaryAxis;
-- (id)values;
-- (struct CGColor *)fillColor;
-- (struct CGColor *)strokeColor;
-- (float)strokeWidth;
-- (unsigned int)markerType;
-- (struct CGColor *)markerColor;
-- (float)markerWidth;
 - (float)offset;
+- (float)markerWidth;
+- (struct CGColor *)markerColor;
+- (unsigned int)markerType;
+- (float)strokeWidth;
+- (struct CGColor *)strokeColor;
+- (struct CGColor *)fillColor;
+- (id)values;
+- (_Bool)useSecondaryAxis;
+- (unsigned int)chartType;
 
 @end
 

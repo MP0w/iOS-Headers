@@ -6,7 +6,7 @@
 
 #import "UITableViewCell.h"
 
-@class SUCellConfiguration, SUItemOfferButton, SUTableCellContentView, UIColor;
+@class SUCellConfiguration, SUItemOfferButton, SUTableCellContentView, UIBezierPath, UIColor;
 
 @interface SUTableCell : UITableViewCell
 {
@@ -28,6 +28,7 @@
 @property(retain, nonatomic) SUCellConfiguration *configuration;
 @property(nonatomic) int clipCorners;
 @property(readonly, nonatomic) SUItemOfferButton *itemOfferButton;
+@property(readonly, nonatomic) UIBezierPath *clippingPath;
 - (void)setShowingDeleteConfirmation:(BOOL)arg1;
 - (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;

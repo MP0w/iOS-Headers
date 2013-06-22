@@ -15,26 +15,28 @@
     OADCharacterProperties *mParagraphEndCharacterProperties;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)properties;
-- (void)setProperties:(id)arg1;
-- (BOOL)isEmpty;
-- (unsigned int)textRunCount;
-- (id)textRunAtIndex:(unsigned int)arg1;
-- (void)removeAllTextRuns;
-- (id)addTextLineBreak;
-- (id)addRegularTextRun;
-- (id)addGenericTextField;
-- (id)addDateTimeField;
-- (id)addFooterField;
-- (id)paragraphEndCharacterProperties;
-- (void)setParagraphEndCharacterProperties:(id)arg1;
-- (BOOL)hasBulletCharacterProperties;
-- (id)bulletCharacterProperties;
-- (void)setParentTextListStyle:(id)arg1;
-- (void)applyProperties:(id)arg1;
 - (void)removeUnnecessaryOverrides;
+- (void)applyProperties:(id)arg1;
+- (void)setParentTextListStyle:(id)arg1;
+- (id)bulletCharacterProperties;
+- (BOOL)hasBulletCharacterProperties;
+- (void)setParagraphEndCharacterProperties:(id)arg1;
+- (id)paragraphEndCharacterProperties;
+- (id)addFooterField;
+- (id)addDateTimeField;
+- (id)addGenericTextField;
+- (id)addRegularTextRun;
+- (id)addTextLineBreak;
+- (void)removeAllTextRuns;
+- (id)textRunAtIndex:(unsigned int)arg1;
+- (unsigned int)textRunCount;
+- (BOOL)isEmpty;
+- (void)setProperties:(id)arg1;
+- (id)properties;
+- (void)dealloc;
+- (id)init;
+- (id)findFirstTextRunOfClass:(Class)arg1;
+- (id)addSlideNumberField;
 - (id)plainText;
 
 @end

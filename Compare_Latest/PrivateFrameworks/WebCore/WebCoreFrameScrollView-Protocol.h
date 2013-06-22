@@ -5,10 +5,10 @@
  */
 
 @protocol WebCoreFrameScrollView
-- (void)setScrollingModes:(int)arg1 vertical:(int)arg2 andLock:(BOOL)arg3;
-- (void)scrollingModes:(int *)arg1 vertical:(int *)arg2;
-- (void)setScrollBarsSuppressed:(BOOL)arg1 repaintOnUnsuppress:(BOOL)arg2;
-- (void)setScrollOrigin:(struct CGPoint)arg1 updatePositionAtAll:(BOOL)arg2 immediately:(BOOL)arg3;
 - (struct CGPoint)scrollOrigin;
+- (void)setScrollOrigin:(struct CGPoint)arg1 updatePositionAtAll:(BOOL)arg2 immediately:(BOOL)arg3;
+- (void)setScrollBarsSuppressed:(BOOL)arg1 repaintOnUnsuppress:(BOOL)arg2;
+- (void)scrollingModes:(int *)arg1 vertical:(int *)arg2;
+- (void)setScrollingModes:(int)arg1 vertical:(int)arg2 andLock:(BOOL)arg3;
 @end
 

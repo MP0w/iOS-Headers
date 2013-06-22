@@ -20,26 +20,32 @@
     NSArray *_representativeImageItems;
 }
 
++ (id)artworkImageForMediaItem:(id)arg1 scaleMode:(int)arg2;
 + (id)artworkImageForMediaItem:(id)arg1;
 + (id)artworkCacheDirectoryPath;
++ (id)mixQueue;
 @property(readonly, nonatomic) MPMediaPlaylist *playlist; // @synthesize playlist=_playlist;
 - (id)_representativeImageItemsWithMaxCount:(unsigned int)arg1;
-- (unsigned long long)_entityArtworkCacheHashForRepresentativeItems:(id)arg1;
+- (unsigned long long)_entityArtworkCacheHashForRepresentativeItems:(id)arg1 ensureItemArtworkFilesExist:(BOOL)arg2;
 - (id)_cachedRepresentativeImagePath;
 - (id)_cacheDirectoryPath;
 @property(readonly, nonatomic) MPMediaQuery *seedTracksQuery;
-- (struct CGImage *)representativeImageWithSize:(struct CGSize)arg1 count:(unsigned int)arg2 cacheOnly:(BOOL)arg3;
-- (struct CGImage *)representativeImageWithSize:(struct CGSize)arg1 count:(unsigned int)arg2;
+- (struct CGImage *)loadRepresentativeImageWithTileLength:(float)arg1 completionBlock:(id)arg2;
+- (void)preloadRepresentativeImageWithTileLength:(float)arg1 completionBlock:(id)arg2;
+- (struct CGImage *)_getAlreadyLoadedRepresentativeImageWithTileLength:(float)arg1 loadCompletionBlock:(id)arg2;
+- (void)_generateMixImageWithTileLength:(float)arg1 imageDidLoadBlock:(id)arg2;
+- (BOOL)_observeMixImageLoadingWithImageDidLoadBlock:(id)arg1;
+- (void)_onQueueLoadRepresentativeImageWithTileLength:(float)arg1;
+- (struct CGImage *)_placeholderMixImageWithTileLength:(float)arg1;
+- (struct CGImage *)_placeholderImageWithTileLength:(float)arg1;
 @property(readonly, nonatomic) NSArray *representativeArtists;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) BOOL isDownloading;
 @property(readonly, nonatomic) BOOL isCloudMix;
 @property(readonly, nonatomic) float downloadProgress;
 - (void)downloadMixWithCompletionHandler:(id)arg1;
-- (unsigned int)countOfRepresentativeImagesWithMaxCount:(unsigned int)arg1;
 - (BOOL)canPlayUsingNetworkType:(int)arg1;
 - (void)cancelDownload;
-- (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

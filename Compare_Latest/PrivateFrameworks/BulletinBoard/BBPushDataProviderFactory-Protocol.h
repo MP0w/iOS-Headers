@@ -4,11 +4,10 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject-Protocol.h"
+#import "BBDataProviderFactory-Protocol.h"
 
-@protocol BBPushDataProviderFactory <NSObject>
+@protocol BBPushDataProviderFactory <BBDataProviderFactory>
 - (void)setPushSettings:(unsigned int)arg1 alertType:(unsigned int)arg2 forDataProvider:(id)arg3;
 - (unsigned int)pushSettingsForDataProvider:(id)arg1;
-- (id)dataProviders;
 @end
 

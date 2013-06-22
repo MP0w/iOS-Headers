@@ -10,11 +10,11 @@
 {
 }
 
-- (unsigned int)_sqlTypeForAttributeType:(unsigned int)arg1 flags:(unsigned int)arg2;
-- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (id)initForReadOnlyFetchWithExpression:(id)arg1;
-- (id)attributeDescription;
 - (BOOL)shouldIndex;
+- (id)attributeDescription;
+- (id)initForReadOnlyFetchWithExpression:(id)arg1;
+- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
+- (unsigned int)_sqlTypeForAttributeType:(unsigned int)arg1 flags:(unsigned int)arg2;
 
 @end
 

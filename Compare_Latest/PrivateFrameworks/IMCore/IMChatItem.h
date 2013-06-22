@@ -20,6 +20,8 @@
 
 @property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(retain, nonatomic) NSString *guid; // @synthesize guid=_guid;
+- (int)_reverseCompareToChatItem:(id)arg1;
+- (int)_compareToChatItem:(id)arg1;
 @property(readonly, nonatomic) BOOL isFromArchive;
 - (void)_setIsFromArchive:(BOOL)arg1;
 @property(readonly, nonatomic) IMMessage *message;

@@ -6,29 +6,38 @@
 
 #import <GameKit/GKTableSection.h>
 
-@class NSArray, NSMutableDictionary;
+@class NSDictionary, NSMutableDictionary;
 
 @interface GKFriendPickerListSection : GKTableSection
 {
-    NSArray *_friends;
-    NSMutableDictionary *_ranks;
+    NSDictionary *_ranks;
+    NSMutableDictionary *_inviteStatusDict;
     int _maxPlayers;
     int _numSelected;
+    unsigned int _scope;
+    unsigned int _headerTitle;
+    float _topMargin;
 }
 
+@property(nonatomic) float topMargin; // @synthesize topMargin=_topMargin;
+@property(nonatomic) unsigned int headerTitle; // @synthesize headerTitle=_headerTitle;
+@property(nonatomic) unsigned int scope; // @synthesize scope=_scope;
 @property(nonatomic) int numSelected; // @synthesize numSelected=_numSelected;
 @property(nonatomic) int maxPlayers; // @synthesize maxPlayers=_maxPlayers;
-@property(retain, nonatomic) NSMutableDictionary *ranks; // @synthesize ranks=_ranks;
-@property(retain, nonatomic) NSArray *friends; // @synthesize friends=_friends;
+@property(retain, nonatomic) NSMutableDictionary *inviteStatusDict; // @synthesize inviteStatusDict=_inviteStatusDict;
+@property(retain, nonatomic) NSDictionary *ranks; // @synthesize ranks=_ranks;
+- (id)titleForHeaderInTableView:(id)arg1;
 - (int)tableView:(id)arg1 indexOfItemForPlayerID:(id)arg2;
-- (id)tableView:(id)arg1 itemAtIndex:(int)arg2;
-- (int)sectionItemCountInTableView:(id)arg1;
+- (int)columnCountInTableView:(id)arg1;
 - (id)sectionReuseIdentifierInTableView:(id)arg1;
-- (float)sectionFooterHeightInTableView:(id)arg1;
-- (float)sectionHeaderHeightInTableView:(id)arg1;
+- (float)heightForFooterInTableView:(id)arg1;
+- (float)heightForHeaderInTableView:(id)arg1;
 - (void)filterWithSearchText:(id)arg1;
+- (void)tableView:(id)arg1 didSelectIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 prepareContents:(id)arg2 forItem:(id)arg3;
+- (void)tableView:(id)arg1 willDrawCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 loadAdditionalDataForItems:(id)arg2 thenUpdateView:(id)arg3;
 - (void)dealloc;
 - (id)init;
 

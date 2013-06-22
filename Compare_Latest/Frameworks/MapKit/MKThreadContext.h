@@ -12,6 +12,7 @@
 }
 
 + (id)currentContext;
+- (void)_CA_setDisableActions:(BOOL)arg1;
 
 @end
 

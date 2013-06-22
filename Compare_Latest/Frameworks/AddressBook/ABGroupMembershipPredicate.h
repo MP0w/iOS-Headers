@@ -15,14 +15,14 @@
     NSString *_accountIdentifier;
 }
 
-- (void)dealloc;
-- (BOOL)isValid;
-@property(nonatomic) void *group; // @synthesize group=_group;
-@property(nonatomic) void *store; // @synthesize store=_store;
-- (id)queryWhereString;
-- (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
-- (id)description;
 @property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
+@property(nonatomic) void *store; // @synthesize store=_store;
+@property(nonatomic) void *group; // @synthesize group=_group;
+- (id)description;
+- (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
+- (id)queryWhereString;
+- (BOOL)isValid;
+- (void)dealloc;
 
 @end
 

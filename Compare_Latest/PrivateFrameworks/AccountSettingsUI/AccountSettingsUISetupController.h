@@ -16,13 +16,13 @@
     NSString *_emailEnteredByUser;
 }
 
-- (void)dealloc;
-- (id)syncControllerSpecifierNamed:(id)arg1 account:(id)arg2;
-- (void)forceMailSetup;
-- (void)controller:(id)arg1 finishedSetupWithAccount:(id)arg2;
-- (void)finishedAccountSetup;
-- (void)_reallyFinishedAccountSetup;
 @property(retain, nonatomic) NSString *emailEnteredByUser; // @synthesize emailEnteredByUser=_emailEnteredByUser;
+- (void)_reallyFinishedAccountSetup;
+- (void)finishedAccountSetup;
+- (void)controller:(id)arg1 finishedSetupWithAccount:(id)arg2;
+- (void)forceMailSetup;
+- (id)syncControllerSpecifierNamed:(id)arg1 account:(id)arg2;
+- (void)dealloc;
 
 @end
 

@@ -14,15 +14,21 @@
     ABPersonIconImageView *_iconImageView;
 }
 
-- (id)initWithIconImageView:(id)arg1 imageView:(id)arg2;
-- (void)clearWeakReferencesToObject:(id)arg1;
-- (void)_clearAsStyleProvider;
-- (void)dealloc;
-- (id)cardPhotoOverlayImage;
-- (id)cardPhotoMaskImage;
-- (BOOL)cardPlaceholderImageShouldApplyMaskAndOverlay;
-- (id)cardPlaceholderPersonImage;
+- (float)personViewHeaderImageHeight;
+- (float)personViewHeaderImageWidth;
+- (struct CGSize)cardPhotoOffset;
+- (float)cardPhotoFrameBorderSize;
+- (id)cardPhotoFacebookAttributionImage;
 - (id)cardPlaceholderCompanyImage;
+- (id)cardPlaceholderPersonImage;
+- (BOOL)cardPlaceholderImageShouldApplyMaskAndOverlay;
+- (id)cardPhotoMaskImage;
+- (id)cardPhotoOverlayImage;
+- (id)cardPhotoBackgroundImage;
+- (void)dealloc;
+- (void)_clearAsStyleProvider;
+- (void)clearWeakReferencesToObject:(id)arg1;
+- (id)initWithIconImageView:(id)arg1 imageView:(id)arg2;
 
 @end
 

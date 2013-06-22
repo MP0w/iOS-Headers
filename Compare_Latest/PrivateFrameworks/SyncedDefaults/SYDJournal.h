@@ -15,16 +15,16 @@
     BOOL readonly;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)initWithStore:(id)arg1;
-- (id)initWithMutableStore:(id)arg1;
-- (int)changeSinceChangeCount:(long long)arg1 forKey:(id)arg2;
-- (id)changesSinceChangeCount:(long long)arg1;
-- (long long)maximumChangeCount;
-- (void)addChange:(int)arg1 forKey:(id)arg2 changeCount:(long long)arg3;
-- (BOOL)removeChangesUntilChangeCount:(long long)arg1;
 - (id)description;
+- (BOOL)removeChangesUntilChangeCount:(long long)arg1;
+- (void)addChange:(int)arg1 forKey:(id)arg2 changeCount:(long long)arg3;
+- (long long)maximumChangeCount;
+- (id)changesSinceChangeCount:(long long)arg1;
+- (int)changeSinceChangeCount:(long long)arg1 forKey:(id)arg2;
+- (id)initWithMutableStore:(id)arg1;
+- (id)initWithStore:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

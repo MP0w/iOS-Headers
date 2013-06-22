@@ -14,14 +14,14 @@
     NSMutableArray *mProcessors;
 }
 
-- (id)initWithWorkbook:(id)arg1;
-- (void)dealloc;
-- (void)addProcessorClass:(Class)arg1;
-- (_Bool)hasProcessors;
-- (void)removeProcessorClass:(Class)arg1;
-- (void)removeAllObjects;
-- (void)markObject:(id)arg1 processor:(Class)arg2;
 - (void)applyProcessorsWithSheet:(id)arg1;
+- (void)markObject:(id)arg1 processor:(Class)arg2;
+- (void)removeAllObjects;
+- (void)removeProcessorClass:(Class)arg1;
+- (_Bool)hasProcessors;
+- (void)addProcessorClass:(Class)arg1;
+- (void)dealloc;
+- (id)initWithWorkbook:(id)arg1;
 
 @end
 

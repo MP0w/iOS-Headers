@@ -6,30 +6,29 @@
 
 #import "NSObject.h"
 
-@class UIImageView, UIStatusBarViewController, UIWindow, UIZoomViewController;
+@class UIStatusBarViewController, UIView, UIWindow, UIZoomViewController;
 
 @interface UIClassicController : NSObject
 {
     UIWindow *_window;
-    UIImageView *_imageView;
+    UIView *_chromeView;
     UIStatusBarViewController *_statusBarViewController;
     UIZoomViewController *_zoomViewController;
-    BOOL _masksToWindowBounds;
     BOOL _hidesClassicChrome;
     BOOL _hidesStatusBarFiller;
 }
 
-- (void)setMasksToWindowBounds:(BOOL)arg1;
-- (void)setDrawsClassicChrome:(BOOL)arg1;
++ (id)sharedClassicController;
+@property(nonatomic) BOOL drawsClassicChrome;
 - (BOOL)_shouldHideStatusBar;
-- (BOOL)drawsClassicChrome;
 - (void)_classicChangeStatusBarOrientationFinished:(id)arg1 finished:(BOOL)arg2 context:(void *)arg3;
 - (void)_classicChangeStatusBarOrientation:(id)arg1;
 - (void)_initializeStatusBarOrientation;
-- (void)setZoomed:(BOOL)arg1;
-- (BOOL)isZoomed;
+@property(nonatomic, getter=isZoomed) BOOL zoomed;
 - (void)_finishZoom:(BOOL)arg1;
-- (void)_updateImageView:(id)arg1 orientation:(int)arg2;
+- (BOOL)_supportsZoom;
+- (void)_updateChromeView:(id)arg1 orientation:(int)arg2;
+- (id)_newChromeViewForOrientation:(int)arg1;
 - (id)_chromeImageWithOrientation:(int)arg1;
 - (id)_window;
 - (void)_setupWindow;
@@ -38,6 +37,8 @@
 - (void)setStatusBarStyle:(int)arg1 animationParameters:(id)arg2;
 - (void)setStatusBarHidden:(BOOL)arg1 animationParameters:(id)arg2;
 - (void)dealloc;
+@property(nonatomic) BOOL drawsStatusBarFiller;
+- (void)setZoomed:(BOOL)arg1 animated:(BOOL)arg2;
 
 @end
 

@@ -6,21 +6,19 @@
 
 #import "NSObject.h"
 
-@class AVPlayer, AVSubtitleTextLayer;
+@class AVPlayer, NSDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AVSubtitleLayerInternal : NSObject
 {
     AVPlayer *player;
     struct OpaqueFigSubtitleRenderer *renderer;
-    AVSubtitleTextLayer *textLayer;
-    struct __CFAttributedString *currentSubtitleSample;
-    id boundaryTimeObserver;
+    NSDictionary *currentSubtitleSample;
     BOOL currentSubtitleSampleIsForced;
     BOOL nonForcedSubtitleDisplayEnabled;
     BOOL shouldObservePlayer;
     BOOL isObservingPlayer;
     BOOL hasPlayerToObserve;
-    struct dispatch_queue_s *serialQueue;
+    NSObject<OS_dispatch_queue> *serialQueue;
     BOOL isPresentationLayer;
     BOOL isOverscanSubtitleSupportEnabled;
 }

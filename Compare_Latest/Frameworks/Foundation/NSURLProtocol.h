@@ -24,6 +24,11 @@
 + (id)canonicalRequestForRequest:(id)arg1;
 + (id)_canonicalRequestForRequest:(id)arg1 allowCF:(BOOL)arg2;
 + (BOOL)canInitWithRequest:(id)arg1;
++ (void)_removePropertyForKey:(id)arg1 inRequest:(id)arg2;
++ (id)_makeRequestCanonicalByMakingRequestURLCanonical:(id)arg1;
++ (Class)_protocolClassForRequest:(id)arg1;
++ (Class)_protocolClassForRequest:(id)arg1 allowCF:(BOOL)arg2;
++ (id)_registeredClasses;
 - (void)stopLoading;
 - (void)startLoading;
 - (void)dealloc;
@@ -31,6 +36,9 @@
 - (id)request;
 - (id)client;
 - (id)initWithRequest:(id)arg1 cachedResponse:(id)arg2 client:(id)arg3;
+- (void)_resumeLoading;
+- (void)_suspendLoading;
+- (void)_releaseProtocolClientReference;
 
 @end
 

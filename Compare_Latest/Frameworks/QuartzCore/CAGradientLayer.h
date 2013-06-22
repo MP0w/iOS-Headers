@@ -12,19 +12,20 @@
 {
 }
 
-+ (id)defaultValueForKey:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-- (void)didChangeValueForKey:(id)arg1;
-- (id)implicitAnimationForKeyPath:(id)arg1;
-- (void)_renderBackgroundInContext:(struct CGContext *)arg1;
-- (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
-- (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
-- (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;
-@property(copy) NSArray *colors;
-@property(copy) NSArray *locations;
-@property struct CGPoint startPoint;
-@property struct CGPoint endPoint;
++ (id)defaultValueForKey:(id)arg1;
 @property(copy) NSString *type;
+@property struct CGPoint endPoint;
+@property struct CGPoint startPoint;
+@property(copy) NSArray *locations;
+@property(copy) NSArray *colors;
+- (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;
+- (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
+- (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
+- (void)_renderBackgroundInContext:(struct CGContext *)arg1;
+- (id)implicitAnimationForKeyPath:(id)arg1;
+- (void)didChangeValueForKey:(id)arg1;
+@property(retain) id colorMap;
 
 @end
 

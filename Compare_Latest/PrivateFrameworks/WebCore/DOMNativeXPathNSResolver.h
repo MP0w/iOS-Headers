@@ -12,9 +12,9 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
 - (id)lookupNamespaceURI:(id)arg1;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

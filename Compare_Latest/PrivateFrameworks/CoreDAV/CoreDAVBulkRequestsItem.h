@@ -15,6 +15,7 @@
     NSMutableSet *_supportedItems;
 }
 
++ (id)copyParseRules;
 @property(readonly) NSSet *supportedItems; // @synthesize supportedItems=_supportedItems;
 @property(retain) CoreDAVLeafItem *maxSizeItem; // @synthesize maxSizeItem=_maxSizeItem;
 @property(retain) CoreDAVLeafItem *maxResourcesItem; // @synthesize maxResourcesItem=_maxResourcesItem;
@@ -25,7 +26,6 @@
 @property(readonly) int maxSize;
 @property(readonly) int maxResources;
 @property(readonly) NSDictionary *dictRepresentation;
-- (id)copyParseRules;
 - (void)addSupportedItem:(id)arg1;
 - (id)description;
 - (void)dealloc;

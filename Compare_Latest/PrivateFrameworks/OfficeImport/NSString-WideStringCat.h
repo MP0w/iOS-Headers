@@ -8,7 +8,7 @@
 
 @interface NSString (WideStringCat)
 + (id)stringWithWideCString:(int *)arg1;
-- (id)initWithWideCString:(int *)arg1;
 - (int *)cWideString;
+- (id)initWithWideCString:(int *)arg1;
 @end
 

@@ -13,6 +13,8 @@
     id _internal;
 }
 
++ (void)disableSharedPhotoStreamsSupport;
++ (int)authorizationStatus;
 + (id)_library;
 @property(retain, nonatomic) ALAssetsLibraryPrivate *internal; // @synthesize internal=_internal;
 - (void)addAssetsGroupAlbumWithName:(id)arg1 resultBlock:(id)arg2 failureBlock:(void)arg3;
@@ -32,8 +34,7 @@
 - (id)publicErrorFromPrivateError:(id)arg1;
 - (BOOL)_libraryIsAvailable;
 - (void)_performBlockAndWait:(id)arg1;
-- (void)addAsset:(id)arg1;
-- (void)photoLibraryDidChange:(id)arg1;
+- (void)registerAlbum:(struct NSObject *)arg1 assetGroupPrivate:(id)arg2;
 - (BOOL)isValid;
 - (void)dealloc;
 - (id)init;

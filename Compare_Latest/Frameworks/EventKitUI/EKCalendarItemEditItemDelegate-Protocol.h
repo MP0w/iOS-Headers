@@ -11,11 +11,17 @@
 
 @optional
 - (id)viewControllerForEditItem:(id)arg1;
+- (void)editItem:(id)arg1 textViewShouldReturn:(id)arg2;
+- (void)editItemRequiresPopoverSizeUpdate:(id)arg1;
 - (void)editItemRequiresHeightChange:(id)arg1;
+- (void)editItem:(id)arg1 didEndDatePickingAnimated:(BOOL)arg2;
+- (void)editItem:(id)arg1 willBeginDatePickingWithDate:(id)arg2 action:(SEL)arg3 animated:(BOOL)arg4 forSubitem:(int)arg5 inSubsection:(int)arg6;
+- (void)editItem:(id)arg1 wantsRowInsertions:(id)arg2 rowDeletions:(id)arg3;
+- (void)editItem:(id)arg1 wantsDoneButtonDisabled:(BOOL)arg2;
 - (void)editItem:(id)arg1 wantsKeyboardPinned:(BOOL)arg2;
 - (void)editItemTextChanged:(id)arg1;
 - (void)editItemDidEndEditing:(id)arg1;
-- (void)editItemDidCommit:(id)arg1;
+- (void)editItem:(id)arg1 didCommitFromDetailViewController:(BOOL)arg2;
 - (void)editItemDidStartEditing:(id)arg1;
 @end
 

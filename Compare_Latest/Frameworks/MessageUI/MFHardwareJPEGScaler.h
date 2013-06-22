@@ -10,8 +10,8 @@
 {
 }
 
-- (id)initWithImageData:(id)arg1 imageSource:(struct CGImageSource *)arg2;
 - (BOOL)scaleImageToFitLargestDimension:(id)arg1 dataConsumer:(id)arg2;
+- (id)initWithImageData:(id)arg1 imageSource:(struct CGImageSource *)arg2;
 
 @end
 

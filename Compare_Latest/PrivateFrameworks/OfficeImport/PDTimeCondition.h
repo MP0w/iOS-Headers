@@ -16,15 +16,15 @@
     PDAnimationTargetElement *mTgtElement;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)hasDelay;
-- (int)delay;
-- (void)setDelay:(int)arg1;
-- (int)triggerEvent;
-- (void)setTriggerEvent:(int)arg1;
-- (id)tgtElement;
 - (void)setTgtElement:(id)arg1;
+- (id)tgtElement;
+- (void)setTriggerEvent:(int)arg1;
+- (int)triggerEvent;
+- (void)setDelay:(int)arg1;
+- (int)delay;
+- (BOOL)hasDelay;
+- (void)dealloc;
+- (id)init;
 
 @end
 

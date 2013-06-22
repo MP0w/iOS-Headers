@@ -15,15 +15,15 @@
     id <ABMultipleSourceImagePickerDelegate> _delegate;
 }
 
-- (id)initWithStyle:(int)arg1;
-- (void)viewDidLoad;
-- (void)addImageData:(id)arg1 title:(id)arg2 isSelectedImage:(BOOL)arg3 person:(void *)arg4;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)dealloc;
 @property(nonatomic) id <ABMultipleSourceImagePickerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)dealloc;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (int)numberOfSectionsInTableView:(id)arg1;
+- (void)addImageData:(id)arg1 title:(id)arg2 isSelectedImage:(BOOL)arg3 person:(void *)arg4;
+- (void)viewDidLoad;
+- (id)initWithStyle:(int)arg1;
 
 @end
 

@@ -8,14 +8,14 @@
 
 @interface UIPDFPageContentLayer : CALayer
 {
-    CALayer *selectionLayer;
+    CALayer *_selectionLayer;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)setNeedsDisplay;
-- (void)layoutSublayers;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
+- (void)layoutSublayers;
+- (void)setNeedsDisplay;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -13,17 +13,18 @@
     struct z_stream_s mStream;
     long long mOffset;
     long long mEnd;
-    unsigned int mCalculatedCrc;
-    unsigned int mCheckCrc;
+    unsigned long mCalculatedCrc;
+    unsigned long mCheckCrc;
     id <RTFCPZArchiveInputStream> mInput;
     char *mOutBuffer;
-    unsigned int mOutBufferSize;
+    unsigned long mOutBufferSize;
 }
 
-- (id)initWithOffset:(long long)arg1 end:(long long)arg2 uncompressedSize:(unsigned long long)arg3 crc:(unsigned long)arg4 input:(id)arg5;
-- (void)dealloc;
-- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned int *)arg2;
+- (id).cxx_construct;
 - (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
+- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned int *)arg2;
+- (void)dealloc;
+- (id)initWithOffset:(long long)arg1 end:(long long)arg2 uncompressedSize:(unsigned long long)arg3 crc:(unsigned long)arg4 input:(id)arg5;
 
 @end
 

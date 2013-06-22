@@ -8,8 +8,6 @@
 
 #import <MapKit/MKUserLocationAnnotation-Protocol.h>
 
-@class NSString;
-
 @interface MKUserLocationAnnotation : NSObject <MKUserLocationAnnotation>
 {
     CDStruct_2c43369c _coordinate;
@@ -17,12 +15,8 @@
 }
 
 @property(nonatomic) double accuracy; // @synthesize accuracy=_accuracy;
-@property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
+- (CDStruct_c3b9c2ee)coordinate;
 - (void)setCoordinate:(CDStruct_c3b9c2ee)arg1;
-
-// Remaining properties
-@property(readonly, nonatomic) NSString *subtitle;
-@property(readonly, nonatomic) NSString *title;
 
 @end
 

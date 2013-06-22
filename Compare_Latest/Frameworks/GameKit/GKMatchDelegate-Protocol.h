@@ -12,7 +12,6 @@
 @optional
 - (BOOL)match:(id)arg1 shouldReinvitePlayer:(id)arg2;
 - (void)match:(id)arg1 didFailWithError:(id)arg2;
-- (void)match:(id)arg1 connectionWithPlayerFailed:(id)arg2 withError:(id)arg3;
 - (void)match:(id)arg1 player:(id)arg2 didChangeState:(int)arg3;
 @end
 

@@ -4,25 +4,17 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <iTunesStoreUI/SUArtworkCellConfiguration.h>
+#import <iTunesStoreUI/SUDownloadCellConfiguration.h>
 
-#import <iTunesStoreUI/SUDownloadCellConfiguration-Protocol.h>
-
-@interface SUDownloadGridCellConfiguration : SUArtworkCellConfiguration <SUDownloadCellConfiguration>
+@interface SUDownloadGridCellConfiguration : SUDownloadCellConfiguration
 {
 }
 
-+ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
 + (id)copyDefaultContext;
-- (id)newProgressBar;
++ (float)rowHeightForContext:(id)arg1 representedObject:(id)arg2;
 - (struct CGRect)frameForProgressBar:(id)arg1;
-- (void)reloadStrings;
 - (void)reloadLayoutInformation;
-- (void)reloadImages;
-- (BOOL)getShadowColor:(id *)arg1 offset:(struct CGSize *)arg2 forLabelAtIndex:(unsigned int)arg3 withModifiers:(unsigned int)arg4;
-- (id)fontForLabelAtIndex:(unsigned int)arg1;
-- (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
-- (id)init;
+- (struct CGRect)frameForTitle;
 
 @end
 

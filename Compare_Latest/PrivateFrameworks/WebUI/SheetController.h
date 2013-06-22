@@ -6,16 +6,15 @@
 
 #import "NSObject.h"
 
-#import "BrowserPanel-Protocol.h"
 #import "UIModalViewDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSMutableArray, UIAlertView;
+@class NSMutableArray, NSMutableDictionary, UIAlertView;
 
-@interface SheetController : NSObject <BrowserPanel, UIModalViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SheetController : NSObject <UIModalViewDelegate, UITableViewDelegate, UITableViewDataSource>
 {
-    struct __CFDictionary *_views;
+    NSMutableDictionary *_views;
     UIAlertView *_view;
     NSMutableArray *_alertInvocationQueue;
     id _delegate;
@@ -23,23 +22,18 @@
     BOOL _isDismissed;
 }
 
-- (id)initWithDelegate:(id)arg1;
-- (void)dealloc;
-- (int)panelType;
-- (int)panelState;
-- (int)pausesPages;
-- (BOOL)ignoresPrivateBrowsingStyle;
-- (BOOL)disablesStatusBarPress;
-- (void)_showSheetForAlert:(id)arg1 inView:(id)arg2 withClass:(Class)arg3;
-- (void)showSheetForAlert:(id)arg1 inView:(id)arg2;
-- (void)hideSheet;
-- (void)setDelegate:(id)arg1;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)didPresentAlertView:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (void)didPresentAlertView:(id)arg1;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)setDelegate:(id)arg1;
+- (void)hideSheet;
+- (void)showSheetForAlert:(id)arg1 inView:(id)arg2;
+- (void)_showSheetForAlert:(id)arg1 inView:(id)arg2 withClass:(Class)arg3;
+- (void)dealloc;
+- (id)initWithDelegate:(id)arg1;
 
 @end
 

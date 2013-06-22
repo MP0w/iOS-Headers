@@ -14,10 +14,10 @@
     EDWorksheet *mWorksheet;
 }
 
-- (id)initWithResources:(id)arg1 worksheet:(id)arg2;
-- (void)dealloc;
-- (id)columnInfoForColumnNumber:(int)arg1;
 - (id)columnInfoCreateIfNilForColumnNumber:(int)arg1;
+- (id)columnInfoForColumnNumber:(int)arg1;
+- (void)dealloc;
+- (id)initWithResources:(id)arg1 worksheet:(id)arg2;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "NSCoding-Protocol.h"
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class NSString, NSTimer, UIButton, UIColor, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer, UITableView, UITextField;
+@class NSIndexPath, NSString, NSTimer, UIButton, UIColor, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer, UITableView, UITextField, _UITableViewCellOldEditingData;
 
 @interface UITableViewCell : UIView <NSCoding, UIGestureRecognizerDelegate>
 {
@@ -41,8 +41,10 @@
     UIView *_floatingSeparatorView;
     UIView *_topShadowAnimationView;
     UIView *_bottomShadowAnimationView;
+    id _badge;
     struct __CFDictionary *_unhighlightedStates;
     id _selectionSegueTemplate;
+    id _accessoryActionSegueTemplate;
     struct {
         unsigned int showingDeleteConfirmation:1;
         unsigned int separatorStyle:3;
@@ -96,8 +98,11 @@
     UIColor *_accessoryTintColor;
     UIImage *_reorderControlImage;
     UILongPressGestureRecognizer *_menuGesture;
+    id _highlightingSupport;
+    NSIndexPath *_representedIndexPath;
 }
 
++ (id)_defaultTopShadowColor;
 - (void)setSectionLocation:(int)arg1 animated:(BOOL)arg2;
 - (void)setSectionLocation:(int)arg1;
 - (void)_setupSelectedBackgroundView;
@@ -114,6 +119,7 @@
 - (void)layoutSubviews;
 - (void)didMoveToSuperview;
 - (void)willMoveToSuperview:(id)arg1;
+- (void)_setHiddenForReuse:(BOOL)arg1;
 - (void)removeFromSuperview;
 - (SEL)accessoryAction;
 - (void)setAccessoryAction:(SEL)arg1;
@@ -175,7 +181,6 @@
 - (void)setSelectionTintColor:(id)arg1;
 @property(nonatomic) int selectionStyle;
 - (void)_setSelectionStyle:(int)arg1 selectionTintColor:(id)arg2;
-- (void)_setUnhighlightedBackgroundColor:(id)arg1 forSubview:(id)arg2;
 - (void)_setOpaque:(BOOL)arg1 forSubview:(id)arg2;
 - (id)_multiselectBackgroundColor;
 - (void)_clearOpaqueViewState:(id)arg1;
@@ -204,6 +209,8 @@
 - (void)selectedBackgroundViewChange:(id)arg1 finished:(id)arg2 context:(id)arg3;
 @property(retain, nonatomic) UIView *backgroundView;
 @property(readonly, nonatomic) UIView *contentView;
+- (id)_badgeText;
+- (void)_setBadgeText:(id)arg1;
 - (id)selectedImage;
 - (void)setSelectedImage:(id)arg1;
 - (id)image;
@@ -241,6 +248,128 @@
 - (void)_updateSeparatorContent;
 - (id)selectionSegueTemplate;
 - (void)setSelectionSegueTemplate:(id)arg1;
+- (id)accessoryActionSegueTemplate;
+- (void)setAccessoryActionSegueTemplate:(id)arg1;
+- (void)_setDrawsTopSeparatorDuringReordering:(BOOL)arg1;
+- (BOOL)_drawsTopSeparatorDuringReordering;
+- (void)_setReordering:(BOOL)arg1;
+- (void)_resetSelectionTimer;
+- (void)paste:(id)arg1;
+- (void)copy:(id)arg1;
+- (void)cut:(id)arg1;
+- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (void)_menuDismissed:(id)arg1;
+- (void)_topShadowDidFadeOut;
+- (void)_updateTopShadowView:(BOOL)arg1;
+- (void)_updateContentClip;
+- (void)_longPressGestureRecognized:(id)arg1;
+- (BOOL)_gestureRecognizerShouldBegin:(id)arg1;
+- (void)_editingTransitionAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+- (struct CGSize)_imageInsetSize;
+- (struct CGSize)_textInsetSize;
+- (id)_badge;
+- (id)_imageView;
+- (id)_editableTextField;
+- (id)_detailTextLabel;
+- (id)_textLabel;
+- (id)_defaultFont;
+- (void)_showReorderControl;
+- (void)_updateAndCacheBackgroundColorForHighlightIgnoringSelection:(BOOL)arg1;
+- (void)_updateHighlightColorsForAnimationHalfwayPoint;
+- (BOOL)_isCurrentlyConsideredHighlighted;
+- (void)_updateHighlightColorsForView:(id)arg1 highlighted:(BOOL)arg2;
+- (void)_layoutSubviewsAnimated:(BOOL)arg1;
+- (void)_removeRemoveControl;
+- (void)_releaseRemoveControl;
+- (id)_createRemoveControlForStyle:(int)arg1;
+- (id)_currentAccessoryView:(BOOL)arg1;
+- (id)_disclosurePressedImage:(BOOL)arg1;
+- (id)_disclosureImage:(BOOL)arg1;
+- (id)_tintedDisclosureImagePressed:(BOOL)arg1;
+- (void)_finishedFadingGrabber:(id)arg1 finished:(BOOL)arg2;
+- (void)_setGrabberHidden:(BOOL)arg1;
+- (void)_releaseReorderingControl;
+- (id)_reorderingSeparatorView;
+- (id)_reorderingControl;
+- (void)_createReorderControlIfNeeded;
+@property(retain, nonatomic) _UITableViewCellOldEditingData *oldEditingData;
+- (void)_setIndexPath:(id)arg1;
+- (id)_indexPath;
+- (BOOL)_isUsingOldStyleMultiselection;
+- (BOOL)_shouldSaveOpaqueStateForView:(id)arg1;
+- (void)_setMultiselecting:(BOOL)arg1;
+- (void)_multiselectColorChanged;
+- (void)_startToEditTextField;
+- (id)_scriptingInfo;
+- (void)setTableViewStyle:(int)arg1;
+- (int)tableViewStyle;
+- (void)removeControl:(id)arg1 wasCanceledForTarget:(id)arg2;
+- (struct CGRect)removeControl:(id)arg1 endFrameForTarget:(id)arg2;
+- (struct CGRect)removeControl:(id)arg1 startFrameForTarget:(id)arg2;
+@property(nonatomic, getter=_drawsTopShadow, setter=_setDrawsTopShadow:) BOOL drawsTopShadow;
+@property(nonatomic, getter=_needsSetup, setter=_setNeedsSetup:) BOOL needsSetup;
+- (void)_descendent:(id)arg1 didMoveFromSuperview:(id)arg2 toSuperview:(id)arg3;
+- (void)_descendent:(id)arg1 willMoveFromSuperview:(id)arg2 toSuperview:(id)arg3;
+- (SEL)_accessoryAction;
+- (void)_setAccessoryAction:(SEL)arg1;
+- (id)_target;
+- (void)_setTarget:(id)arg1;
+@property(nonatomic) BOOL wasSwiped;
+- (BOOL)_hasEditingAccessoryView;
+- (BOOL)_hasAccessoryView;
+- (id)_titleForDeleteConfirmationButton;
+- (id)_topShadowView:(BOOL)arg1;
+- (id)_selectedBackgroundView:(BOOL)arg1;
+- (id)_backgroundView:(BOOL)arg1;
+- (id)_customEditingAccessoryView:(BOOL)arg1;
+- (id)_customAccessoryView:(BOOL)arg1;
+- (id)_editingAccessoryView:(BOOL)arg1;
+- (id)_accessoryView:(BOOL)arg1;
+- (id)_defaultAccessoryView;
+- (void)removeEditingData;
+- (id)editingData:(BOOL)arg1;
+- (float)_backgroundInset;
+- (float)_editingButtonOffset;
+- (BOOL)_isReorderable;
+- (void)deleteConfirmationControlWasCancelled:(id)arg1;
+- (void)deleteConfirmationControlWasClicked:(id)arg1;
+- (void)editControlWasClicked:(id)arg1;
+- (void)removeControlWillHideRemoveConfirmation:(id)arg1;
+- (void)insertControl:(id)arg1 shouldInsertWithTarget:(id)arg2;
+- (void)removeControl:(id)arg1 willRemoveTarget:(id)arg2;
+- (void)_willBeDeleted;
+- (void)_uiRemoveControlMinusButtonHideAnimationDone:(id)arg1;
+- (void)_grabberReleased:(id)arg1;
+- (void)_grabberDragged:(id)arg1 yDelta:(float)arg2;
+- (void)_grabberBeganReorder:(id)arg1;
+- (id)_removeControl;
+- (void)_removeInnerShadow;
+- (void)_animateInnerShadowForInsertion:(BOOL)arg1 withRowAnimation:(int)arg2;
+- (void)_removeFloatingSeparator;
+- (void)_animateFloatingSeparatorForInsertion:(BOOL)arg1 withRowAnimation:(int)arg2;
+- (void)_drawSeparatorInRect:(struct CGRect)arg1;
+- (void)_setDrawsTopSeparator:(BOOL)arg1;
+- (void)_setShouldIndentWhileEditing:(BOOL)arg1;
+- (void)_setShowingDeleteConfirmation:(BOOL)arg1;
+- (void)_setEditingStyle:(int)arg1;
+- (id)_reorderControlImage;
+- (void)_setReorderControlImage:(id)arg1;
+- (void)_setShowsReorderControl:(BOOL)arg1;
+- (id)_badge:(BOOL)arg1;
+- (id)_imageView:(BOOL)arg1;
+- (id)_editableTextField:(BOOL)arg1;
+- (id)_detailTextLabel:(BOOL)arg1;
+- (id)_textLabel:(BOOL)arg1;
+- (id)_tableView;
+- (void)_setTableView:(id)arg1;
+- (void)_performAction:(SEL)arg1 sender:(id)arg2;
+- (SEL)returnAction;
+- (void)setReturnAction:(SEL)arg1;
+- (void)textFieldDidBecomeFirstResponder:(id)arg1;
+- (void)setPlaceHolderValue:(id)arg1;
+@property(nonatomic, setter=setTextFieldOffset:) float textFieldOffset;
+@property(readonly, nonatomic) UITextField *editableTextField;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
 
 @end
 

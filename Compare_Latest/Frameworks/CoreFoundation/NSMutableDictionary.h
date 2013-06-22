@@ -11,11 +11,15 @@
 }
 
 + (id)dictionaryWithCapacity:(unsigned int)arg1;
++ (id)dictionaryWithSharedKeySet:(id)arg1;
 - (id)initWithObjects:(const id *)arg1 forKeys:(const id *)arg2 count:(unsigned int)arg3;
 - (id)initWithCapacity:(unsigned int)arg1;
+- (void)__setObject:(id)arg1 forKey:(id)arg2;
+- (void)__addObject:(id)arg1 forKey:(id)arg2;
 - (void)setDictionary:(id)arg1;
 - (void)setObjects:(id)arg1 forKeys:(id)arg2;
 - (void)setObjects:(const id *)arg1 forKeys:(const id *)arg2 count:(unsigned int)arg3;
+- (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (void)setEntriesFromDictionary:(id)arg1;
 - (void)replaceObjects:(id)arg1 forKeys:(id)arg2;
 - (void)replaceObjects:(const id *)arg1 forKeys:(const id *)arg2 count:(unsigned int)arg3;

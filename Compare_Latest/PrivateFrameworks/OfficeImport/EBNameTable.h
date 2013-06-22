@@ -10,8 +10,10 @@
 {
 }
 
-+ (void)readFromState:(id)arg1;
 + (struct XlNameTable *)createXlNameTableFromNamesCollection:(id)arg1 state:(id)arg2;
++ (void)readFromState:(id)arg1;
++ (struct XlName *)xlNameFromEDName:(id)arg1 state:(id)arg2;
++ (id)edNameFromXlName:(struct XlName *)arg1 name:(struct OcText)arg2 state:(id)arg3;
 
 @end
 

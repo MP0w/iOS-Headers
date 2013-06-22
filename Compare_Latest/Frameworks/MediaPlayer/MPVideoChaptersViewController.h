@@ -35,7 +35,6 @@
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
-- (void)viewDidUnload;
 - (void)loadView;
 @property(nonatomic) BOOL videoOutActive;
 @property(nonatomic) float topPadding;

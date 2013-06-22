@@ -20,13 +20,13 @@
     unsigned int _endIndex;
 }
 
-- (void)dealloc;
-- (void)setStartIcon:(id)arg1 endIcon:(id)arg2 inIconList:(id)arg3 fromOrientation:(int)arg4 toOrientation:(int)arg5;
-- (void)setOrigin:(struct CGPoint)arg1;
-- (void)prepareToCrossfade;
-- (void)crossfadeWithDuration:(double)arg1 inIconList:(id)arg2;
-- (id)newSnapshot:(id)arg1 includingShadows:(BOOL)arg2;
 @property(retain, nonatomic) SBIcon *icon; // @synthesize icon=_icon;
+- (id)newSnapshot:(id)arg1 includingShadows:(BOOL)arg2;
+- (void)crossfadeWithDuration:(double)arg1 inIconList:(id)arg2;
+- (void)prepareToCrossfade;
+- (void)setOrigin:(struct CGPoint)arg1;
+- (void)setStartIcon:(id)arg1 endIcon:(id)arg2 inIconList:(id)arg3 fromOrientation:(int)arg4 toOrientation:(int)arg5;
+- (void)dealloc;
 
 @end
 

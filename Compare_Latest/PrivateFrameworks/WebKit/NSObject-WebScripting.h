@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (WebScripting)
-+ (BOOL)isSelectorExcludedFromWebScript:(SEL)arg1;
 + (BOOL)isKeyExcludedFromWebScript:(const char *)arg1;
++ (BOOL)isSelectorExcludedFromWebScript:(SEL)arg1;
 @end
 

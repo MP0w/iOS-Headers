@@ -10,33 +10,33 @@
 
 @interface OABFillPropertiesManager : NSObject <OABFillPropertiesManager>
 {
-    struct EshFill *mFill;
+    const struct EshFill *mFill;
     int mShapeType;
     id <OABPropertiesManager> mMasterManager;
 }
 
-- (id)initWithFill:(const struct EshFill *)arg1 shapeType:(int)arg2 masterShape:(struct EshShape *)arg3;
-- (void)dealloc;
-- (BOOL)isFilled;
-- (struct EshColor)fillFgColor;
-- (struct EshColor)fillBgColor;
-- (BOOL)isStroked;
-- (struct EshColor)strokeFgColor;
-- (struct EshColor)strokeBgColor;
-- (struct EshColor)shadowColor;
-- (int)fillType;
-- (long)fillFgAlpha;
-- (long)fillBgAlpha;
-- (long)fillAngle;
-- (long)fillFocus;
-- (long)fillFocusLeft;
-- (long)fillFocusTop;
-- (long)fillFocusRight;
-- (long)fillFocusBottom;
-- (const EshTablePropVal_c5e6088d *)fillGradientColors;
-- (unsigned long)fillBlipID;
-- (struct EshBlip *)fillBlipDataReference;
 - (id)fillBlipName;
+- (struct EshBlip *)fillBlipDataReference;
+- (unsigned long)fillBlipID;
+- (const struct EshTablePropVal<EshGradientStop> *)fillGradientColors;
+- (long)fillFocusBottom;
+- (long)fillFocusRight;
+- (long)fillFocusTop;
+- (long)fillFocusLeft;
+- (long)fillFocus;
+- (long)fillAngle;
+- (long)fillBgAlpha;
+- (long)fillFgAlpha;
+- (int)fillType;
+- (struct EshColor)shadowColor;
+- (struct EshColor)strokeBgColor;
+- (struct EshColor)strokeFgColor;
+- (BOOL)isStroked;
+- (struct EshColor)fillBgColor;
+- (struct EshColor)fillFgColor;
+- (BOOL)isFilled;
+- (void)dealloc;
+- (id)initWithFill:(const struct EshFill *)arg1 shapeType:(int)arg2 masterShape:(struct EshShape *)arg3;
 
 @end
 

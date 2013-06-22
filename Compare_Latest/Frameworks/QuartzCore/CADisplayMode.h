@@ -12,22 +12,22 @@
 {
     void *_priv;
     CADisplay *_dpy;
-    unsigned int _width;
-    unsigned int _height;
+    unsigned long _width;
+    unsigned long _height;
 }
 
 + (id)_displayModeWithMode:(int)arg1 display:(id)arg2;
-- (id)_initWithMode:(int)arg1 display:(id)arg2;
-- (void)dealloc;
-- (id)_display;
-- (int)_mode;
-- (void)_setWidth:(unsigned long)arg1 height:(unsigned long)arg2;
-@property(readonly, nonatomic) unsigned int width;
-@property(readonly, nonatomic) unsigned int height;
-@property(readonly, nonatomic) float pixelAspectRatio;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
 - (id)description;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) float pixelAspectRatio;
+@property(readonly, nonatomic) unsigned long height;
+@property(readonly, nonatomic) unsigned long width;
+- (void)_setWidth:(unsigned long)arg1 height:(unsigned long)arg2;
+- (int)_mode;
+- (id)_display;
+- (void)dealloc;
+- (id)_initWithMode:(int)arg1 display:(id)arg2;
 
 @end
 

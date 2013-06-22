@@ -28,26 +28,20 @@
     BOOL _supportsPrincipalPropertySearch;
     BOOL _supportsExtendedCalendarQuery;
     BOOL _supportsRequestCompression;
+    BOOL _supportsManagedAttachments;
+    NSString *_supportedCalendarComponentSets;
     NSSet *_complianceClasses;
+    NSString *_serverHeader;
 }
 
-+ (id)_prototypeMatchingServerHeaders:(id)arg1;
-+ (id)versionWithHTTPHeaders:(id)arg1;
 + (id)versionWithPropertyValue:(id)arg1;
-- (void)dealloc;
-- (id)_propertiesToComplianceClasses;
-- (id)_additionalFlagKeys;
-- (id)_allFlagKeys;
-- (void)_setPropertiesFromComplianceClasses:(id)arg1;
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (id)description;
-@property(readonly, nonatomic) NSString *type;
-- (id)propertyValue;
++ (id)versionWithHTTPHeaders:(id)arg1;
++ (id)_prototypeMatchingServerHeaders:(id)arg1;
+@property(copy, nonatomic) NSString *supportedCalendarComponentSets; // @synthesize supportedCalendarComponentSets=_supportedCalendarComponentSets;
+@property(nonatomic) BOOL supportsManagedAttachments; // @synthesize supportsManagedAttachments=_supportsManagedAttachments;
 @property(nonatomic) BOOL supportsRequestCompression; // @synthesize supportsRequestCompression=_supportsRequestCompression;
 @property(nonatomic) BOOL supportsExtendedCalendarQuery; // @synthesize supportsExtendedCalendarQuery=_supportsExtendedCalendarQuery;
+@property(copy, nonatomic) NSString *serverHeader; // @synthesize serverHeader=_serverHeader;
 @property(retain, nonatomic) NSSet *complianceClasses; // @synthesize complianceClasses=_complianceClasses;
 @property(nonatomic) BOOL supportsPrincipalPropertySearch; // @synthesize supportsPrincipalPropertySearch=_supportsPrincipalPropertySearch;
 @property(nonatomic) BOOL supportsSubscriptionCalendars; // @synthesize supportsSubscriptionCalendars=_supportsSubscriptionCalendars;
@@ -63,6 +57,18 @@
 @property(nonatomic) BOOL supportsTodoTimeRangeFilter; // @synthesize supportsTodoTimeRangeFilter=_supportsTodoTimeRangeFilter;
 @property(nonatomic) BOOL supportsTimeRangeFilter; // @synthesize supportsTimeRangeFilter=_supportsTimeRangeFilter;
 @property(nonatomic) double version; // @synthesize version=_version;
+- (id)propertyValue;
+@property(readonly, nonatomic) NSString *type;
+- (id)description;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
+- (void)_setPropertiesFromComplianceClasses:(id)arg1;
+- (id)_allFlagKeys;
+- (id)_additionalFlagKeys;
+- (id)_propertiesToComplianceClasses;
+- (void)dealloc;
 
 @end
 

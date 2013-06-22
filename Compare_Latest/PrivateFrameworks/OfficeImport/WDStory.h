@@ -14,12 +14,12 @@
     BOOL mOle;
 }
 
-- (id)initWithHead:(id)arg1;
-- (void)dealloc;
-- (id)head;
-- (id)text;
-- (void)setOle:(BOOL)arg1;
 - (BOOL)isOle;
+- (void)setOle:(BOOL)arg1;
+- (id)text;
+- (id)head;
+- (void)dealloc;
+- (id)initWithHead:(id)arg1;
 
 @end
 

@@ -26,35 +26,36 @@
     OADFontScheme *mFontScheme;
 }
 
-- (id)initWithClient:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (id)client;
-- (id)packagePart;
-- (void)setPackagePart:(id)arg1;
-- (id)styleMatrix;
-- (void)setStyleMatrix:(id)arg1;
-- (id)tableStyleCache;
-- (void)setTableStyleCache:(id)arg1;
-- (id)drawableForShapeId:(unsigned long)arg1;
-- (void)setDrawable:(id)arg1 forShapeId:(unsigned long)arg2;
-- (void)clearDrawableForShapeIdMap;
-- (id)documentState;
-- (void)setDocumentState:(id)arg1;
-- (id)oavState;
-- (void)setOavState:(id)arg1;
-- (id)colorScheme;
-- (void)setColorScheme:(id)arg1;
-- (id)colorMap;
-- (void)setColorMap:(id)arg1;
-- (id)fontScheme;
-- (void)setFontScheme:(id)arg1;
-- (id)targetBlipCollection;
-- (void)setTargetBlipCollection:(id)arg1;
-- (void)setTargetBulletBlipArray:(id)arg1;
-- (id)blipRefWithURL:(id)arg1 blipArray:(id)arg2 blipURLtoIndexMap:(id)arg3;
-- (id)blipRefForURL:(id)arg1;
 - (id)bulletBlipRefForURL:(id)arg1;
+- (id)blipRefForURL:(id)arg1;
+- (id)blipRefWithURL:(id)arg1 blipArray:(id)arg2 blipURLtoIndexMap:(id)arg3;
+- (void)setTargetBulletBlipArray:(id)arg1;
+- (void)setTargetBlipCollection:(id)arg1;
+- (void)clearTargetBlipCollection;
+- (id)targetBlipCollection;
+- (void)setFontScheme:(id)arg1;
+- (id)fontScheme;
+- (void)setColorMap:(id)arg1;
+- (id)colorMap;
+- (void)setColorScheme:(id)arg1;
+- (id)colorScheme;
+- (void)setOavState:(id)arg1;
+- (id)oavState;
+- (void)setDocumentState:(id)arg1;
+- (id)documentState;
+- (void)clearDrawableForShapeIdMap;
+- (void)setDrawable:(id)arg1 forShapeId:(unsigned long)arg2;
+- (id)drawableForShapeId:(unsigned long)arg1;
+- (void)setTableStyleCache:(id)arg1;
+- (id)tableStyleCache;
+- (void)setStyleMatrix:(id)arg1;
+- (id)styleMatrix;
+- (void)setPackagePart:(id)arg1;
+- (id)packagePart;
+- (id)client;
+- (void)dealloc;
+- (id)init;
+- (id)initWithClient:(id)arg1;
 
 @end
 

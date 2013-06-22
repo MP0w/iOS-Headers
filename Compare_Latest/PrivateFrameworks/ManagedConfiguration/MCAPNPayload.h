@@ -14,23 +14,23 @@
     BOOL _wasInstalled;
 }
 
-+ (id)typeStrings;
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
 + (id)apnDomainName;
-- (id)_validationErrorType:(int)arg1 forInvalidKey:(id)arg2;
-- (BOOL)_checkForValidContents:(id)arg1 outError:(id *)arg2;
-- (void)_finishInitializationWithContents:(id)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (id)apnDefaults;
-- (id)_strippedAPNDefaults;
-- (id)stubDictionary;
-- (id)description;
-- (id)subtitle1Label;
-- (id)subtitle1Description;
-- (id)subtitle2Label;
-- (id)subtitle2Description;
++ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)typeStrings;
 @property(nonatomic) BOOL wasInstalled; // @synthesize wasInstalled=_wasInstalled;
+- (void).cxx_destruct;
+- (id)subtitle2Description;
+- (id)subtitle2Label;
+- (id)subtitle1Description;
+- (id)subtitle1Label;
+- (id)description;
+- (id)stubDictionary;
+- (id)_strippedAPNDefaults;
+- (id)apnDefaults;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
+- (void)_finishInitializationWithContents:(id)arg1;
+- (BOOL)_checkForValidContents:(id)arg1 outError:(id *)arg2;
+- (id)_validationErrorType:(int)arg1 forInvalidKey:(id)arg2;
 
 @end
 

@@ -15,11 +15,11 @@
     BOOL _reallyHighlighted;
 }
 
-- (void)dealloc;
-- (void)layoutSubviews;
-- (void)_setHighlightedNow;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
 @property(retain, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
+@property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
+- (void)_setHighlightedNow;
+- (void)layoutSubviews;
+- (void)dealloc;
 
 @end
 

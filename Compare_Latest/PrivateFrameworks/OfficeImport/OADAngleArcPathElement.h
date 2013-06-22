@@ -15,12 +15,13 @@
     BOOL mConnectedToPrevious;
 }
 
-- (id)initWithCenter:(struct OADAdjustPoint)arg1 semiaxes:(struct OADAdjustPoint)arg2 startAngle:(struct OADAdjustCoord)arg3 angleLength:(struct OADAdjustCoord)arg4 connectedToPrevious:(BOOL)arg5;
-- (struct OADAdjustPoint)center;
-- (struct OADAdjustPoint)semiaxes;
-- (struct OADAdjustCoord)startAngle;
-- (struct OADAdjustCoord)angleLength;
+- (id).cxx_construct;
 - (BOOL)connectedToPrevious;
+- (struct OADAdjustCoord)angleLength;
+- (struct OADAdjustCoord)startAngle;
+- (struct OADAdjustPoint)semiaxes;
+- (struct OADAdjustPoint)center;
+- (id)initWithCenter:(struct OADAdjustPoint)arg1 semiaxes:(struct OADAdjustPoint)arg2 startAngle:(struct OADAdjustCoord)arg3 angleLength:(struct OADAdjustCoord)arg4 connectedToPrevious:(BOOL)arg5;
 
 @end
 

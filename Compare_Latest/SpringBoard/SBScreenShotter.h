@@ -12,9 +12,9 @@
 }
 
 + (id)sharedInstance;
-- (void)finishedWritingScreenshot:(id)arg1 didFinishSavingWithError:(id)arg2 context:(void *)arg3;
-- (void)saveScreenshot:(BOOL)arg1;
 @property BOOL writingScreenshot; // @synthesize writingScreenshot=_writingScreenshot;
+- (void)saveScreenshot:(BOOL)arg1;
+- (void)finishedWritingScreenshot:(id)arg1 didFinishSavingWithError:(id)arg2 context:(void *)arg3;
 
 @end
 

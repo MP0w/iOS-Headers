@@ -19,6 +19,7 @@
 - (void)dealloc;
 - (void)unselect;
 - (void)setSelected:(BOOL)arg1;
+- (BOOL)isGroup;
 - (BOOL)selected;
 - (id)node;
 - (id)initWithHTMLOptGroupNode:(id)arg1;

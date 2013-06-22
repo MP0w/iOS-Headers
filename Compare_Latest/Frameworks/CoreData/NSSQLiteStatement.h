@@ -11,11 +11,11 @@
     struct sqlite3_stmt *_cachedSQLiteStatement;
 }
 
-- (void)clearCaches;
-- (void)finalize;
-- (void)dealloc;
-- (struct sqlite3_stmt *)cachedSQLiteStatement;
 - (void)setCachedSQLiteStatement:(struct sqlite3_stmt *)arg1;
+- (struct sqlite3_stmt *)cachedSQLiteStatement;
+- (void)dealloc;
+- (void)finalize;
+- (void)clearCaches;
 
 @end
 

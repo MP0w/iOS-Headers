@@ -6,11 +6,10 @@
 
 #import <OfficeImport/OCBReader.h>
 
-@class NSMutableArray, NSString, SFUNoCopyDictionary, WBOfficeArtReaderState, WDDocument;
+@class NSMutableArray, TSUNoCopyDictionary, WBOfficeArtReaderState, WDDocument;
 
 @interface WBReader : OCBReader
 {
-    struct WrdBinaryReader *mWrdReader;
     struct WrdNoteTable *mFootnoteTable;
     struct WrdNoteTable *mEndnoteTable;
     struct WrdAnnotationTable *mAnnotationTable;
@@ -25,57 +24,55 @@
     struct WrdEshObjectFactory *mEshObjectFactory;
     struct WrdParagraphProperties *mLastRowParagraphProperties;
     NSMutableArray *mAnnotationOwners;
-    SFUNoCopyDictionary *mIndexToStyles;
-    SFUNoCopyDictionary *mIndexToFonts;
+    TSUNoCopyDictionary *mIndexToStyles;
+    TSUNoCopyDictionary *mIndexToFonts;
     WDDocument *mTargetDocument;
     WBOfficeArtReaderState *mOfficeArtState;
     struct vector<WBTextBoxReaderInfo, std::allocator<WBTextBoxReaderInfo>> *mTextBoxes;
-    NSString *mFileName;
     BOOL mReportProgress;
     id mAnnotationRangeStart;
-    id <OCCancelDelegate> mCancelDelegate;
-    BOOL mIsThumbnail;
 }
 
-+ (id)readFromFileName:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4;
-+ (id)readFromData:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4;
-- (void)dealloc;
-- (struct WrdBinaryReader *)wrdReader;
-- (struct OcReader *)ocReader;
-- (void)setIsThumbnail:(BOOL)arg1;
-- (BOOL)isThumbnail;
-- (struct WrdNoteTable *)footnoteTable;
-- (struct WrdNoteTable *)endnoteTable;
-- (struct WrdAnnotationTable *)annotationTable;
-- (id)annotationOwner:(int)arg1;
-- (struct WrdCPTableHeaders *)tableHeaders;
-- (struct WrdBookmarkTable *)bookmarkTable;
-- (struct WrdBookmarkTable *)annotationBookmarkTable;
-- (struct WrdFieldPositionTable *)fieldPositionTableForTextType:(int)arg1;
-- (id)readCharactersForTextRun:(struct WrdTextRun *)arg1;
-- (id)readCharactersFrom:(unsigned long)arg1 to:(unsigned long)arg2 textType:(int)arg3;
-- (struct WrdStoryTable *)storyTable;
-- (struct WrdStoryTable *)headerStoryTable;
-- (struct WrdFileShapeAddressTable *)fileShapeAddressTable;
-- (struct WrdFileShapeAddressTable *)fileShapeAddressHeaderTable;
-- (struct WrdEshObjectFactory *)eshObjectFactory;
-- (struct WrdParagraphProperties *)lastRowParagraphProperties;
-- (void)setLastRowParagraphProperties:(struct WrdParagraphProperties *)arg1;
-- (id)styleAtIndex:(int)arg1;
-- (void)addStyle:(id)arg1 index:(int)arg2;
-- (id)fontAtIndex:(int)arg1;
-- (void)addFont:(id)arg1 index:(int)arg2;
-- (id)fileName;
-- (BOOL)reportProgress;
-- (void)setReportProgress:(BOOL)arg1;
-- (id)officeArtState;
-- (void)setOfficeArtState:(id)arg1;
-- (id)drawableForShapeId:(unsigned int)arg1;
-- (void)cacheTextBox:(id)arg1 withChainIndex:(unsigned short)arg2;
-- (unsigned int)textBoxCount;
-- (struct WBTextBoxReaderInfo)textBoxInfoAtIndex:(unsigned int)arg1;
-@property(readonly, retain, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
 @property(nonatomic) WDDocument *targetDocument; // @synthesize targetDocument=mTargetDocument;
+- (struct WBTextBoxReaderInfo)textBoxInfoAtIndex:(unsigned int)arg1;
+- (unsigned int)textBoxCount;
+- (void)cacheTextBox:(id)arg1 withChainIndex:(unsigned short)arg2;
+- (id)drawableForShapeId:(unsigned int)arg1;
+- (void)setOfficeArtState:(id)arg1;
+- (id)officeArtState;
+- (void)setReportProgress:(BOOL)arg1;
+- (BOOL)reportProgress;
+- (void)addFont:(id)arg1 index:(int)arg2;
+- (id)fontAtIndex:(int)arg1;
+- (void)addStyle:(id)arg1 index:(int)arg2;
+- (id)styleAtIndex:(int)arg1;
+- (void)setLastRowParagraphProperties:(struct WrdParagraphProperties *)arg1;
+- (struct WrdParagraphProperties *)lastRowParagraphProperties;
+- (struct WrdEshObjectFactory *)eshObjectFactory;
+- (struct WrdFileShapeAddressTable *)fileShapeAddressHeaderTable;
+- (struct WrdFileShapeAddressTable *)fileShapeAddressTable;
+- (struct WrdStoryTable *)headerStoryTable;
+- (struct WrdStoryTable *)storyTable;
+- (id)readCharactersFrom:(unsigned long)arg1 to:(unsigned long)arg2 textType:(int)arg3;
+- (id)readCharactersForTextRun:(struct WrdTextRun *)arg1;
+- (struct WrdFieldPositionTable *)fieldPositionTableForTextType:(int)arg1;
+- (struct WrdBookmarkTable *)annotationBookmarkTable;
+- (struct WrdBookmarkTable *)bookmarkTable;
+- (struct WrdCPTableHeaders *)tableHeaders;
+- (id)annotationOwner:(int)arg1;
+- (struct WrdAnnotationTable *)annotationTable;
+- (struct WrdNoteTable *)endnoteTable;
+- (struct WrdNoteTable *)footnoteTable;
+- (struct WrdBinaryReader *)wrdReader;
+- (struct OCCBinaryStreamer *)allocBinaryStreamerWithCryptoKey:(struct OCCCryptoKey *)arg1 baseOutputFilenameInUTF8:(const char *)arg2;
+- (struct OCCEncryptionInfoReader *)encryptionInfoReader;
+- (id)read;
+- (BOOL)start;
+- (void)dealloc;
+- (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
+- (void)initialize;
+- (void)setAnnotationRangeStart:(id)arg1;
+- (id)annotationRangeStart;
 
 @end
 

@@ -13,10 +13,10 @@
     PrefsUILinkLabel *_aboutDiagnosticsLinkLabel;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
-- (void)setController:(id)arg1;
-- (void)layoutSubviews;
 - (void)dealloc;
+- (void)layoutSubviews;
+- (void)setController:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 
 @end
 

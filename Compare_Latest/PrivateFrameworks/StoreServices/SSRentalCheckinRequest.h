@@ -14,12 +14,11 @@
     NSNumber *_rentalKeyIdentifier;
 }
 
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)startWithCompletionBlock:(id)arg1;
 @property(readonly) NSNumber *rentalKeyIdentifier;
 @property(readonly) NSNumber *accountIdentifier;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (id)copyPropertyListEncoding;
 - (void)dealloc;
 - (id)initWithAccountIdentifier:(id)arg1 rentalKeyIdentifier:(id)arg2;
 - (id)init;

@@ -17,17 +17,17 @@
     OADVector3D *mUp;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)anchor;
-- (void)setAnchor:(id)arg1;
-- (id)normal;
-- (void)setNormal:(id)arg1;
-- (id)up;
-- (void)setUp:(id)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setUp:(id)arg1;
+- (id)up;
+- (void)setNormal:(id)arg1;
+- (id)normal;
+- (void)setAnchor:(id)arg1;
+- (id)anchor;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

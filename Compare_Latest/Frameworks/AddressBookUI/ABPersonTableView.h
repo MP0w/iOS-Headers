@@ -6,17 +6,29 @@
 
 #import "UITableView.h"
 
-@class ABPersonViewControllerHelper;
+#import "ABPersonTabsScrollView-Protocol.h"
 
-@interface ABPersonTableView : UITableView
+@class ABPersonViewControllerHelper, UIView;
+
+@interface ABPersonTableView : UITableView <ABPersonTabsScrollView>
 {
+    float _minimumBottomInset;
+    struct UIEdgeInsets _savedContentInset;
     ABPersonViewControllerHelper *_helper;
+    id <ABPersonTabsLayoutManager> _tabsLayoutManager;
 }
 
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (BOOL)touchesShouldCancelInContentView:(id)arg1;
-- (void)setContentOffset:(struct CGPoint)arg1;
+@property(nonatomic) id <ABPersonTabsLayoutManager> tabsLayoutManager; // @synthesize tabsLayoutManager=_tabsLayoutManager;
 @property(nonatomic) ABPersonViewControllerHelper *helper; // @synthesize helper=_helper;
+- (void)layoutSubviews;
+- (void)setContentInset:(struct UIEdgeInsets)arg1;
+@property(nonatomic) float minimumBottomInset;
+- (void)setContentOffset:(struct CGPoint)arg1;
+- (BOOL)touchesShouldCancelInContentView:(id)arg1;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+
+// Remaining properties
+@property(retain, nonatomic) UIView *backgroundView;
 
 @end
 

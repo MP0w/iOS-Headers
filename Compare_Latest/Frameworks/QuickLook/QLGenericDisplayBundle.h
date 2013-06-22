@@ -17,13 +17,12 @@
     NSError *_error;
 }
 
-- (void)loadView;
-- (void)_relayout;
-- (void)_loadPreviewItemInfos;
-- (void)prepareForSlidingIn:(id)arg1;
-- (void)loadWithHints:(id)arg1;
-- (void)_showLoadingProgress:(BOOL)arg1;
 @property(retain) NSError *error; // @synthesize error=_error;
+- (void)_showLoadingProgress:(BOOL)arg1;
+- (void)loadWithHints:(id)arg1;
+- (void)_loadPreviewItemInfos;
+- (void)_relayout;
+- (void)loadView;
 
 @end
 

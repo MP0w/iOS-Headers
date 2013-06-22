@@ -16,7 +16,7 @@
 + (id)allProperties;
 + (id)predisambiguatedProperties;
 + (id)defaultOrderingProperties;
-+ (id)joinClauseForProperty:(id)arg1;
++ (id)joinClausesForProperty:(id)arg1;
 + (int)revisionTrackingCode;
 + (id)databaseTable;
 + (void)initialize;

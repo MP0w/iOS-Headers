@@ -16,15 +16,9 @@
     AVMediaSelectionOption *_defaultOption;
 }
 
-- (id)mediaSelectionOptionWithPropertyList:(id)arg1;
-- (id)_optionWithID:(id)arg1;
-- (BOOL)_matchesGroupID:(id)arg1 mediaType:(id)arg2;
-- (id)_mediaType;
-- (id)_groupID;
 - (id)_defaultOption;
 - (BOOL)_isKeyValueGroup;
 - (id)dictionary;
-- (BOOL)allowsEmptySelection;
 - (id)options;
 - (id)asset;
 - (unsigned int)hash;

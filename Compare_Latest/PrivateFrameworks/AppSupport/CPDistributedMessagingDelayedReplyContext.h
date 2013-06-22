@@ -12,10 +12,10 @@
     BOOL _portPassing;
 }
 
-- (id)initWithReplyPort:(unsigned int)arg1 portPassing:(BOOL)arg2;
-- (void)dealloc;
 @property(nonatomic) BOOL portPassing; // @synthesize portPassing=_portPassing;
 @property(nonatomic) unsigned int replyPort; // @synthesize replyPort=_replyPort;
+- (void)dealloc;
+- (id)initWithReplyPort:(unsigned int)arg1 portPassing:(BOOL)arg2;
 
 @end
 

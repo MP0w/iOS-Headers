@@ -16,6 +16,7 @@
     UIColor *_navigationBarTintColor;
     struct CGSize _boundsAdjustment;
     id _appearanceStorage;
+    NSSet *_possibleSystemItems;
     unsigned int _size:2;
     unsigned int _pad:30;
     float _minimumWidth;
@@ -48,7 +49,9 @@
 - (void)_UIAppearance_setTintColor:(id)arg1;
 - (id)_backgroundImageForState:(unsigned int)arg1 barMetrics:(int)arg2;
 - (void)_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
+- (void)_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 style:(int)arg3 barMetrics:(int)arg4;
 - (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
+- (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 style:(int)arg3 barMetrics:(int)arg4;
 - (void)_updateContentInsets;
 - (void)_setBoundsAdjustment:(struct CGSize)arg1;
 - (void)setFrame:(struct CGRect)arg1;
@@ -57,8 +60,11 @@
 - (BOOL)_canHandleStatusBarTouchAtLocation:(struct CGPoint)arg1;
 - (void)setNavigationBarTintColor:(id)arg1;
 @property(nonatomic) int controlSize;
+- (void)setEnabled:(BOOL)arg1;
 - (void)setHighlighted:(BOOL)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
 - (BOOL)contentsEqualTo:(id)arg1 withStyle:(int)arg2;
 @property(retain, nonatomic) UIImage *image;
 @property(retain, nonatomic) NSString *title;
@@ -71,9 +77,11 @@
 - (id)initWithTitle:(id)arg1 style:(int)arg2;
 - (id)initWithTitle:(id)arg1;
 - (id)initWithValue:(id)arg1 width:(float)arg2 style:(int)arg3 barStyle:(int)arg4 possibleTitles:(id)arg5 tintColor:(id)arg6;
-- (id)initWithValue:(id)arg1 width:(float)arg2 style:(int)arg3 barStyle:(int)arg4 possibleTitles:(id)arg5 tintColor:(id)arg6 applyBezel:(BOOL)arg7 forButtonItemStyle:(int)arg8;
+- (id)initWithValue:(id)arg1 width:(float)arg2 style:(int)arg3 barStyle:(int)arg4 possibleTitles:(id)arg5 possibleSystemItems:(id)arg6 tintColor:(id)arg7 applyBezel:(BOOL)arg8 forButtonItemStyle:(int)arg9;
 - (void)_updateStyle;
+- (int)_barButtonItemStyle;
 - (void)_updateTitleColorsForState:(unsigned int)arg1;
+- (void)_updateShadowOffsetWithAttributes:(id)arg1 forState:(unsigned int)arg2;
 - (struct UIOffset)_defaultTitleShadowOffsetForState:(unsigned int)arg1;
 - (id)_defaultTitleShadowColorForState:(unsigned int)arg1;
 - (id)_defaultTitleColorForState:(unsigned int)arg1;

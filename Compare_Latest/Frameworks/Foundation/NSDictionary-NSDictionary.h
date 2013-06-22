@@ -10,6 +10,7 @@
 + (id)newWithContentsOf:(id)arg1 immutable:(BOOL)arg2;
 + (id)dictionaryWithContentsOfURL:(id)arg1;
 + (id)dictionaryWithContentsOfFile:(id)arg1;
++ (BOOL)supportsSecureCoding;
 - (id)initWithContentsOfURL:(id)arg1;
 - (id)initWithContentsOfFile:(id)arg1;
 - (BOOL)writeToURL:(id)arg1 atomically:(BOOL)arg2;

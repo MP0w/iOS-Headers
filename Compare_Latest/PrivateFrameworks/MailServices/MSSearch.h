@@ -6,22 +6,26 @@
 
 #import <MailServices/MSMailDefaultService.h>
 
-@class NSThread;
+@class NSObject<MSSearchDelegate>, NSObject<OS_dispatch_queue>;
 
 @interface MSSearch : MSMailDefaultService
 {
-    NSThread *_originalThread;
+    NSObject<OS_dispatch_queue> *_resultsQueue;
+    NSObject<MSSearchDelegate> *_delegate;
 }
 
 + (id)findMessageData:(id)arg1 matchingCriterion:(id)arg2 shouldFetch:(BOOL)arg3 onServer:(BOOL)arg4 onlyInboxes:(BOOL)arg5 delegate:(id)arg6;
 + (id)findMessageData:(id)arg1 matchingCriterion:(id)arg2 shouldFetch:(BOOL)arg3 onServer:(BOOL)arg4 delegate:(id)arg5;
-+ (id)smi_serverCommandName;
++ (void)setUnitTestingResultsArray:(id)arg1;
+@property(nonatomic) NSObject<MSSearchDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void)_generateUnitTestResponsesForResultArray:(id)arg1;
 - (id)_generateUnitTestReplyForMethod:(id)arg1 arg:(id)arg2 error:(id *)arg3;
 - (BOOL)_unitTestsAreEnabled;
-- (id)_didFindMessageData:(id)arg1 userInfo:(id)arg2;
-- (void)_smi_notifyClientDidFinishWithError:(id)arg1;
-- (id)_findMessageData:(id)arg1 matchingCriterion:(id)arg2 shouldFetch:(BOOL)arg3 onServer:(BOOL)arg4 onlyInboxes:(BOOL)arg5;
+- (void)_delegateDidFindResults:(id)arg1;
+- (void)_delegateDidFinishWithError:(id)arg1;
+- (void)_findMessageData:(id)arg1 matchingCriterion:(id)arg2 shouldFetch:(BOOL)arg3 onServer:(BOOL)arg4 onlyInboxes:(BOOL)arg5;
+- (void)responseConnection:(id)arg1 handleResponse:(id)arg2;
+- (void)responseConnection:(id)arg1 handleError:(id)arg2;
 - (void)dealloc;
 - (id)_initWithDelegate:(id)arg1;
 

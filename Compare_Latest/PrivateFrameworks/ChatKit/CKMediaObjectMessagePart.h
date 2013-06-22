@@ -17,21 +17,15 @@
     NSData *_dataForHighlight;
 }
 
-- (id)detachedCopy;
-- (id)initWithMediaObject:(id)arg1;
-- (BOOL)usesColoredBalloon;
-@property(copy, nonatomic) NSArray *composeImages; // @synthesize composeImages=_composeImages;
-- (BOOL)isDisplayable;
-- (int)_orientation;
-- (void)setComposeData:(id)arg1;
-- (void)setPreviewData:(id)arg1;
-- (id)highlightData;
-- (id)composeData;
-- (id)previewData;
-- (void)copyToPasteboard;
-- (int)type;
-- (void)dealloc;
 @property(readonly, nonatomic) CKMediaObject *mediaObject; // @synthesize mediaObject=_mediaObject;
+@property(copy, nonatomic) NSArray *composeImages; // @synthesize composeImages=_composeImages;
+- (void)dealloc;
+- (int)type;
+- (void)copyToPasteboard;
+- (int)_orientation;
+- (BOOL)isDisplayable;
+- (id)initWithMediaObject:(id)arg1;
+- (id)detachedCopy;
 
 @end
 

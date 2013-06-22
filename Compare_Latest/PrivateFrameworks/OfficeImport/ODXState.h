@@ -13,9 +13,9 @@
     OAXDrawingState *mOfficeArtState;
 }
 
-- (id)initWithOfficeArtState:(id)arg1;
-- (void)dealloc;
 - (id)officeArtState;
+- (void)dealloc;
+- (id)initWithOfficeArtState:(id)arg1;
 
 @end
 

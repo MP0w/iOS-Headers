@@ -12,14 +12,14 @@
 {
 }
 
-+ (int)beginDrawables:(id)arg1;
-+ (int)handleDrawable:(id)arg1 state:(id)arg2;
-+ (void)aboutToGenerateDrawable:(id)arg1 htmlState:(id)arg2;
-+ (void)doneGeneratingDrawable:(id)arg1 htmlState:(id)arg2;
-+ (int)handleFloatingDrawable:(id)arg1 htmlState:(id)arg2;
-+ (int)handleInlineDrawable:(id)arg1 htmlState:(id)arg2;
-+ (int)endDrawables:(id)arg1;
 + (Class)beginTable:(id)arg1;
++ (int)endDrawables:(id)arg1;
++ (int)handleInlineDrawable:(id)arg1 htmlState:(id)arg2;
++ (int)handleFloatingDrawable:(id)arg1 htmlState:(id)arg2;
++ (void)doneGeneratingDrawable:(id)arg1 htmlState:(id)arg2;
++ (void)aboutToGenerateDrawable:(id)arg1 htmlState:(id)arg2;
++ (int)handleDrawable:(id)arg1 state:(id)arg2;
++ (int)beginDrawables:(id)arg1;
 
 @end
 

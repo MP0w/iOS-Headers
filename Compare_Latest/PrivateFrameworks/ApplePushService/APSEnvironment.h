@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSString;
+#import "NSCopying-Protocol.h"
 
-@interface APSEnvironment : NSObject
+@class NSString, NSURL;
+
+@interface APSEnvironment : NSObject <NSCopying>
 {
     NSString *_name;
     NSString *_domain;
@@ -20,15 +22,16 @@
     BOOL _serialProtocolSupported;
     BOOL _debugHostname;
     unsigned int _messageSize;
+    NSURL *_configurationURL;
 }
 
-+ (void)initialize;
++ (void)_saveCachedProperties;
++ (void)_loadCachedProperties;
 + (id)environmentForName:(id)arg1;
-+ (void)_loadProperties;
-+ (void)_saveProperties;
-@property(nonatomic) unsigned int messageSize; // @synthesize messageSize=_messageSize;
++ (void)initialize;
+@property(retain, nonatomic) NSURL *configurationURL; // @synthesize configurationURL=_configurationURL;
 @property(nonatomic) BOOL debugHostname; // @synthesize debugHostname=_debugHostname;
-@property(nonatomic, getter=isSerialProtocolSupport) BOOL serialProtocolSupported; // @synthesize serialProtocolSupported=_serialProtocolSupported;
+@property(nonatomic) unsigned int messageSize; // @synthesize messageSize=_messageSize;
 @property(nonatomic, getter=isLoadBalanced) BOOL loadBalanced; // @synthesize loadBalanced=_loadBalanced;
 @property(nonatomic, getter=isCertificateValidated) BOOL certificateValidated; // @synthesize certificateValidated=_certificateValidated;
 @property(nonatomic) unsigned int alternatePort; // @synthesize alternatePort=_alternatePort;
@@ -36,6 +39,8 @@
 @property(retain, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
 @property(retain, nonatomic) NSString *domain; // @synthesize domain=_domain;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+- (unsigned int)hash;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

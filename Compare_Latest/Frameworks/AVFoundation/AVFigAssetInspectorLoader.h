@@ -6,14 +6,15 @@
 
 #import <AVFoundation/AVAssetInspectorLoader.h>
 
-@class AVAssetCache, AVAssetInspector, NSDictionary, NSMutableArray, NSURL;
+@class AVAssetCache, AVAssetInspector, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSURL;
 
 @interface AVFigAssetInspectorLoader : AVAssetInspectorLoader
 {
     struct OpaqueFigAsset *_figAsset;
     struct OpaqueFigFormatReader *_formatReader;
+    BOOL _formatReaderObtained;
     long _figAssetCreationStatus;
-    struct dispatch_queue_s *_completionHandlerQueue;
+    NSObject<OS_dispatch_queue> *_completionHandlerQueue;
     struct OpaqueFigSimpleMutex *_loadingMutex;
     struct OpaqueFigSemaphore *_playabilityValidationSemaphore;
     int _playableStatus;
@@ -32,6 +33,7 @@
     NSURL *_downloadDestinationURL;
     NSDictionary *_validationPlist;
     unsigned int _referenceRestrictions;
+    NSURL *_URL;
 }
 
 + (id)_figAssetTrackPropertiesForKeys;
@@ -44,6 +46,7 @@
 - (unsigned int)referenceRestrictions;
 - (BOOL)_isStreaming;
 - (BOOL)hasProtectedContent;
+- (unsigned long long)downloadToken;
 - (id)resolvedURL;
 - (id)URL;
 - (id)chapterGroupInfo;
@@ -66,7 +69,7 @@
 - (struct OpaqueFigSemaphore *)_playabilityValidationSemaphore;
 - (id)_loadingBatches;
 - (struct OpaqueFigSimpleMutex *)_loadingMutex;
-- (struct dispatch_queue_s *)_completionHandlerQueue;
+- (id)_completionHandlerQueue;
 - (struct OpaqueFigAsset *)_figAsset;
 - (id)assetInspector;
 - (struct OpaqueFigFormatReader *)_formatReader;
@@ -76,6 +79,8 @@
 - (void)dealloc;
 - (void)_removeFigAssetNotifications;
 - (void)_addFigAssetNotifications;
+- (id)_initWithDownloadToken:(unsigned long long)arg1;
+- (id)_initWithFigAsset:(struct OpaqueFigAsset *)arg1 options:(id)arg2;
 - (id)initWithURL:(id)arg1 options:(id)arg2;
 
 @end

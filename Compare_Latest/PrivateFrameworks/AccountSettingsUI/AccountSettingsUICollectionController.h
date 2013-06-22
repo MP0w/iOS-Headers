@@ -10,9 +10,9 @@
 {
 }
 
-- (id)specifiers;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)removeContiguousSpecifiers:(id)arg1 animated:(BOOL)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)specifiers;
 
 @end
 

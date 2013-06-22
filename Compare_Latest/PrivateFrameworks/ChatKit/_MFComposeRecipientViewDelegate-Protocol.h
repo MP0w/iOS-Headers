@@ -7,22 +7,22 @@
 @protocol _MFComposeRecipientViewDelegate
 
 @optional
-- (void)composeRecipientView:(id)arg1 requestDeleteRecipientAtIndex:(int)arg2;
-- (void)composeRecipientViewDidFinishEnteringRecipient:(id)arg1;
-- (void)composeRecipientViewBeganEditing:(id)arg1;
-- (void)composeRecipientViewEndedEditing:(id)arg1;
-- (void)composeRecipientView:(id)arg1 didChangeSize:(struct CGSize)arg2;
-- (void)composeRecipientView:(id)arg1 textDidChange:(id)arg2;
-- (void)composeRecipientViewRequestAddRecipient:(id)arg1;
-- (BOOL)composeRecipientViewIsShowingPeoplePicker:(id)arg1;
-- (void)composeRecipientViewDidFinishPickingRecipient:(id)arg1;
-- (void)composeRecipientView:(id)arg1 showPersonCardForAtom:(id)arg2;
-- (id)composeRecipientView:(id)arg1 composeRecipientForAddress:(id)arg2;
-- (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 identifier:(int)arg3;
-- (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (void)composeRecipientViewReturnPressed:(id)arg1;
-- (void)composeRecipientViewDidResignFirstResponder:(id)arg1;
-- (void)composeRecipientViewWillBecomeFirstResponder:(id)arg1;
 - (void)composeRecipientViewDidBecomeFirstResponder:(id)arg1;
+- (void)composeRecipientViewWillBecomeFirstResponder:(id)arg1;
+- (void)composeRecipientViewDidResignFirstResponder:(id)arg1;
+- (void)composeRecipientViewReturnPressed:(id)arg1;
+- (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 identifier:(int)arg3;
+- (id)composeRecipientView:(id)arg1 composeRecipientForAddress:(id)arg2;
+- (void)composeRecipientView:(id)arg1 showPersonCardForAtom:(id)arg2;
+- (void)composeRecipientViewDidFinishPickingRecipient:(id)arg1;
+- (BOOL)composeRecipientViewIsShowingPeoplePicker:(id)arg1;
+- (void)composeRecipientViewRequestAddRecipient:(id)arg1;
+- (void)composeRecipientView:(id)arg1 textDidChange:(id)arg2;
+- (void)composeRecipientView:(id)arg1 didChangeSize:(struct CGSize)arg2;
+- (void)composeRecipientViewEndedEditing:(id)arg1;
+- (void)composeRecipientViewBeganEditing:(id)arg1;
+- (void)composeRecipientViewDidFinishEnteringRecipient:(id)arg1;
+- (void)composeRecipientView:(id)arg1 requestDeleteRecipientAtIndex:(int)arg2;
 @end
 

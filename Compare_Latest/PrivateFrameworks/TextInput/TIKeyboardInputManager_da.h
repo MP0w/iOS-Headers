@@ -10,8 +10,8 @@
 {
 }
 
-- (struct TIInputManagerZephyr *)initImplementation;
 - (void)setCollatorLocale;
+- (struct TIInputManagerZephyr *)initImplementation;
 
 @end
 

@@ -18,16 +18,16 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)setMode:(int)arg1;
-- (void)setProgress:(float)arg1;
-- (float)progress;
-- (void)beginReset;
-- (void)_beginReset:(id)arg1;
-- (void)_resetThread;
-- (void)_postResetEnded;
 - (void)_resetFinished;
+- (void)_postResetEnded;
+- (void)_resetThread;
+- (void)_beginReset:(id)arg1;
+- (void)beginReset;
+- (float)progress;
+- (void)setProgress:(float)arg1;
+- (void)setMode:(int)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -14,10 +14,10 @@
     struct _xmlDoc *mXmlDocument;
 }
 
-- (id)initWithZipEntry:(id)arg1;
-- (void)dealloc;
-- (id)data;
 - (struct _xmlDoc *)xmlDocument;
+- (id)data;
+- (void)dealloc;
+- (id)initWithZipEntry:(id)arg1;
 
 @end
 

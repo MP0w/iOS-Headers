@@ -20,7 +20,6 @@
 - (void)drainContainer;
 - (struct __CFArray *)copyOfAllLocalObjectsInContainer;
 - (BOOL)saveContainer;
-- (BOOL)mapWithoutCommitting;
 - (void *)copyLocalObjectFromId:(int)arg1;
 - (int)getIdFromLocalObject:(void *)arg1;
 - (int)dataclass;

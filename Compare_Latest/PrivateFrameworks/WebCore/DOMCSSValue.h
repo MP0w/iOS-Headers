@@ -12,10 +12,10 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(copy) NSString *cssText;
 @property(readonly) unsigned short cssValueType;
+@property(copy) NSString *cssText;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

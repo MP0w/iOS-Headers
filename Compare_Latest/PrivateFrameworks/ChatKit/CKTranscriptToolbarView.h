@@ -21,16 +21,16 @@
     UIButton *_cancelButton;
 }
 
-@property(nonatomic, getter=isCancelButtonVisible) BOOL cancelButtonVisible; // @synthesize cancelButtonVisible=_cancelButtonVisible;
-@property(nonatomic) BOOL hasContact; // @synthesize hasContact=_hasContact;
-- (id)initAsGroupMessage:(BOOL)arg1 hasMessages:(BOOL)arg2;
-- (void)dealloc;
-- (void)sizeToFit;
-- (void)layoutSubviews;
-- (struct CGRect)frameForButton:(short)arg1;
-- (void)_buttonClicked:(id)arg1;
 @property(readonly, nonatomic) BOOL isGroupMessage; // @synthesize isGroupMessage=_isGroupMessage;
+@property(nonatomic) BOOL hasContact; // @synthesize hasContact=_hasContact;
+@property(nonatomic, getter=isCancelButtonVisible) BOOL cancelButtonVisible; // @synthesize cancelButtonVisible=_cancelButtonVisible;
 @property(nonatomic) id <CKTranscriptButtonViewDelegate> transcriptButtonDelegate; // @synthesize transcriptButtonDelegate=_transcriptButtonDelegate;
+- (void)_buttonClicked:(id)arg1;
+- (struct CGRect)frameForButton:(short)arg1;
+- (void)layoutSubviews;
+- (void)sizeToFit;
+- (void)dealloc;
+- (id)initAsGroupMessage:(BOOL)arg1 hasMessages:(BOOL)arg2;
 
 @end
 

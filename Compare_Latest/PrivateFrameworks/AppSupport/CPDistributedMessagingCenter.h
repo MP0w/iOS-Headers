@@ -25,35 +25,35 @@
 }
 
 + (id)centerNamed:(id)arg1;
-- (id)_initWithServerName:(id)arg1;
-- (id)_initAnonymousServer;
-- (id)_initClientWithPort:(unsigned int)arg1;
-- (void)dealloc;
-- (id)name;
-- (void)_setupInvalidationSource;
-- (unsigned int)_sendPort;
-- (void)_setSendPort:(unsigned int)arg1;
-- (BOOL)sendMessageName:(id)arg1 userInfo:(id)arg2;
-- (BOOL)sendNonBlockingMessageName:(id)arg1 userInfo:(id)arg2;
-- (id)sendMessageAndReceiveReplyName:(id)arg1 userInfo:(id)arg2;
-- (id)sendMessageAndReceiveReplyName:(id)arg1 userInfo:(id)arg2 error:(id *)arg3;
-- (void)sendMessageAndReceiveReplyName:(id)arg1 userInfo:(id)arg2 toTarget:(id)arg3 selector:(SEL)arg4 context:(void *)arg5;
-- (BOOL)_sendMessage:(id)arg1 userInfo:(id)arg2 receiveReply:(id *)arg3 error:(id *)arg4 toTarget:(id)arg5 selector:(SEL)arg6 context:(void *)arg7;
-- (BOOL)_sendMessage:(id)arg1 userInfo:(id)arg2 receiveReply:(id *)arg3 error:(id *)arg4 toTarget:(id)arg5 selector:(SEL)arg6 context:(void *)arg7 nonBlocking:(BOOL)arg8;
-- (BOOL)_sendMessage:(id)arg1 userInfoData:(id)arg2 oolKey:(id)arg3 oolData:(id)arg4 makeServer:(BOOL)arg5 receiveReply:(id *)arg6 nonBlocking:(BOOL)arg7 error:(id *)arg8;
-- (unsigned int)_serverPort;
-- (void)runServerOnCurrentThread;
-- (void)runServerOnCurrentThreadProtectedByEntitlement:(id)arg1;
-- (void)stopServer;
-- (void)registerForMessageName:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
-- (id)delayReply;
-- (void)sendDelayedReply:(id)arg1 dictionary:(id)arg2;
-- (void)unregisterForMessageName:(id)arg1;
-- (BOOL)doesServerExist;
-- (void)_dispatchMessageNamed:(id)arg1 userInfo:(id)arg2 reply:(id *)arg3 auditToken:(CDStruct_6ad76789 *)arg4;
-- (void)_sendReplyMessage:(id)arg1 portPassing:(BOOL)arg2 onMachPort:(unsigned int)arg3;
-- (BOOL)_isTaskEntitled:(CDStruct_6ad76789 *)arg1;
 - (id)_requiredEntitlement;
+- (BOOL)_isTaskEntitled:(CDStruct_6ad76789 *)arg1;
+- (void)_sendReplyMessage:(id)arg1 portPassing:(BOOL)arg2 onMachPort:(unsigned int)arg3;
+- (void)_dispatchMessageNamed:(id)arg1 userInfo:(id)arg2 reply:(id *)arg3 auditToken:(CDStruct_6ad76789 *)arg4;
+- (BOOL)doesServerExist;
+- (void)unregisterForMessageName:(id)arg1;
+- (void)sendDelayedReply:(id)arg1 dictionary:(id)arg2;
+- (id)delayReply;
+- (void)registerForMessageName:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
+- (void)stopServer;
+- (void)runServerOnCurrentThreadProtectedByEntitlement:(id)arg1;
+- (void)runServerOnCurrentThread;
+- (unsigned int)_serverPort;
+- (BOOL)_sendMessage:(id)arg1 userInfoData:(id)arg2 oolKey:(id)arg3 oolData:(id)arg4 makeServer:(BOOL)arg5 receiveReply:(id *)arg6 nonBlocking:(BOOL)arg7 error:(id *)arg8;
+- (BOOL)_sendMessage:(id)arg1 userInfo:(id)arg2 receiveReply:(id *)arg3 error:(id *)arg4 toTarget:(id)arg5 selector:(SEL)arg6 context:(void *)arg7 nonBlocking:(BOOL)arg8;
+- (BOOL)_sendMessage:(id)arg1 userInfo:(id)arg2 receiveReply:(id *)arg3 error:(id *)arg4 toTarget:(id)arg5 selector:(SEL)arg6 context:(void *)arg7;
+- (void)sendMessageAndReceiveReplyName:(id)arg1 userInfo:(id)arg2 toTarget:(id)arg3 selector:(SEL)arg4 context:(void *)arg5;
+- (id)sendMessageAndReceiveReplyName:(id)arg1 userInfo:(id)arg2 error:(id *)arg3;
+- (id)sendMessageAndReceiveReplyName:(id)arg1 userInfo:(id)arg2;
+- (BOOL)sendNonBlockingMessageName:(id)arg1 userInfo:(id)arg2;
+- (BOOL)sendMessageName:(id)arg1 userInfo:(id)arg2;
+- (void)_setSendPort:(unsigned int)arg1;
+- (unsigned int)_sendPort;
+- (void)_setupInvalidationSource;
+- (id)name;
+- (void)dealloc;
+- (id)_initClientWithPort:(unsigned int)arg1;
+- (id)_initAnonymousServer;
+- (id)_initWithServerName:(id)arg1;
 
 @end
 

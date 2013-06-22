@@ -22,21 +22,23 @@
 }
 
 + (id)phoneticInfoWithResources:(id)arg1;
-- (id)initWithResources:(id)arg1;
-- (void)dealloc;
-- (BOOL)isEqualToEDPhoneticInfo:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (int)type;
-- (void)setType:(int)arg1;
-- (int)align;
-- (void)setAlign:(int)arg1;
-- (id)string;
-- (void)setString:(id)arg1;
-- (id)font;
-- (void)setFont:(id)arg1;
-- (id)runs;
 - (void)setDoNotModify:(_Bool)arg1;
+- (id)runs;
+- (void)setFont:(id)arg1;
+- (id)font;
+- (void)setString:(id)arg1;
+- (id)string;
+- (void)setAlign:(int)arg1;
+- (int)align;
+- (void)setType:(int)arg1;
+- (int)type;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToEDPhoneticInfo:(id)arg1;
+- (void)dealloc;
+- (id)initWithResources:(id)arg1;
+- (void)setFontIndex:(unsigned int)arg1;
+- (unsigned int)fontIndex;
 
 @end
 

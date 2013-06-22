@@ -11,33 +11,31 @@
 @interface MimeBody : MessageBody
 {
     MimePart *_topLevelPart;
-    unsigned int _preferredTextEncoding;
     unsigned int _preferredAlternative:16;
     unsigned int _numAlternatives:16;
 }
 
-+ (id)versionString;
 + (id)copyNewMimeBoundary;
-- (id)init;
-- (void)dealloc;
-- (id)topLevelPart;
-- (void)setTopLevelPart:(id)arg1;
-- (unsigned long)preferredTextEncoding;
-- (void)setPreferredTextEncoding:(unsigned long)arg1;
-- (id)mimeType;
-- (id)mimeSubtype;
-- (id)partWithNumber:(id)arg1;
-- (unsigned int)numberOfAttachmentsSigned:(char *)arg1 encrypted:(char *)arg2;
-- (id)attachments;
-- (BOOL)isHTML;
-- (BOOL)isRich;
-- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2 asHTML:(BOOL)arg3 isComplete:(char *)arg4;
-- (unsigned int)totalTextSize;
-- (int)numberOfAlternatives;
-- (void)setPreferredAlternative:(int)arg1;
-- (int)preferredAlternative;
-- (id)preferredBodyPart;
++ (id)versionString;
 - (id)textHtmlPart;
+- (id)preferredBodyPart;
+- (int)preferredAlternative;
+- (void)setPreferredAlternative:(int)arg1;
+- (int)numberOfAlternatives;
+- (unsigned int)totalTextSize;
+- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2 asHTML:(BOOL)arg3 isComplete:(char *)arg4;
+- (BOOL)isRich;
+- (BOOL)isHTML;
+- (id)attachments;
+- (unsigned int)numberOfAttachmentsSigned:(char *)arg1 encrypted:(char *)arg2;
+- (id)firstPartPassingTest:(id)arg1;
+- (id)partWithNumber:(id)arg1;
+- (id)mimeSubtype;
+- (id)mimeType;
+- (void)setTopLevelPart:(id)arg1;
+- (id)topLevelPart;
+- (void)dealloc;
+- (id)init;
 
 @end
 

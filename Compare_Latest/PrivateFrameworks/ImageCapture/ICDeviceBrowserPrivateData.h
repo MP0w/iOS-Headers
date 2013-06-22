@@ -15,11 +15,11 @@
     NSMutableArray *_internalDevices;
 }
 
-- (void)dealloc;
-- (void)finalize;
 @property(retain) NSMutableArray *internalDevices; // @synthesize internalDevices=_internalDevices;
 @property(getter=isBrowsing) BOOL browsing; // @synthesize browsing=_browsing;
 @property id delegate; // @synthesize delegate=_delegate;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

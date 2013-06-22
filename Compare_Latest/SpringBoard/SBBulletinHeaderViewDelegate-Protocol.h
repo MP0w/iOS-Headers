@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBBulletinHeaderViewDelegate <NSObject>
-- (void)headerViewWillAppear:(id)arg1;
 - (void)headerViewWillDisappear:(id)arg1;
+- (void)headerViewWillAppear:(id)arg1;
 @end
 

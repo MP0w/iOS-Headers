@@ -6,24 +6,25 @@
 
 #import "NSObject.h"
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
-@class NSDictionary, SSAccount;
+@class NSDictionary, NSError, SSAccount;
 
-@interface SSAuthenticateResponse : NSObject <SSCoding>
+@interface SSAuthenticateResponse : NSObject <SSXPCCoding>
 {
     SSAccount *_authenticatedAccount;
+    NSError *_error;
     NSDictionary *_responseDictionary;
     int _responseType;
 }
 
 @property(copy, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
+@property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) int authenticateResponseType; // @synthesize authenticateResponseType=_responseType;
 @property(retain, nonatomic) SSAccount *authenticatedAccount; // @synthesize authenticatedAccount=_authenticatedAccount;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)_setError:(id)arg1;
 - (void)dealloc;
 
 @end

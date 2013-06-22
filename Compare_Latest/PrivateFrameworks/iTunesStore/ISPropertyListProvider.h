@@ -24,10 +24,10 @@
 @property BOOL shouldProcessAuthenticationDialogs; // @synthesize shouldProcessAuthenticationDialogs=_shouldProcessAuthenticationDialogs;
 @property BOOL shouldProcessAccount; // @synthesize shouldProcessAccount=_shouldProcessAccount;
 @property BOOL shouldPostFooterSectionChanged; // @synthesize shouldPostFooterSectionChanged=_shouldPostFooterSectionChanged;
-- (BOOL)_runAuthorizationDialog:(id)arg1 returningError:(id *)arg2;
 - (BOOL)_processFailureTypeFromPropertyList:(id)arg1 error:(id *)arg2;
 - (void)_selectFooterSection:(id)arg1;
 - (void)_performActionsForResponse:(id)arg1;
+- (void)_checkInAppPurchaseQueueForAction:(id)arg1;
 - (void)_checkDownloadQueues;
 - (BOOL)parseData:(id)arg1 returningError:(id *)arg2;
 - (BOOL)processPropertyList:(id)arg1 returningError:(id *)arg2;

@@ -12,17 +12,19 @@
 {
 }
 
-@property BOOL disabled;
-@property(copy) NSString *charset;
-@property(copy) NSString *href;
-@property(copy) NSString *hreflang;
-@property(copy) NSString *media;
-@property(copy) NSString *rel;
-@property(copy) NSString *rev;
-@property(copy) NSString *target;
+@property(readonly) NSURL *absoluteLinkURL;
+@property(readonly) DOMStyleSheet *sheet;
 @property(copy) NSString *type;
-@property(readonly, retain) DOMStyleSheet *sheet;
-@property(readonly, copy) NSURL *absoluteLinkURL;
+@property(copy) NSString *target;
+@property(copy) NSString *rev;
+@property(copy) NSString *rel;
+@property(copy) NSString *media;
+@property(copy) NSString *hreflang;
+@property(copy) NSString *href;
+@property(copy) NSString *charset;
+@property BOOL disabled;
+- (BOOL)_mediaQueryMatches;
+- (BOOL)_mediaQueryMatchesForOrientation:(int)arg1;
 
 @end
 

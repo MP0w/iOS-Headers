@@ -18,30 +18,30 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)run;
-- (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
-- (void)noteApplicationFinishedLaunching:(id)arg1;
-- (void)connection:(id)arg1 didReceiveMessageForTopic:(id)arg2 userInfo:(id)arg3;
-- (id)lastNotificationReceivedBundleIdentifier;
-- (id)allAppEnabledTypeValues;
-- (id)allSettingsEnabledTypeValues;
-- (void)calculateTopics;
-- (void)registerApplication:(id)arg1 forEnvironment:(id)arg2 withTypes:(int)arg3;
-- (void)unregisterApplication:(id)arg1;
-- (int)getEffectiveEnabledTypesForApplication:(id)arg1;
-- (BOOL)isSystemwideEnabled;
-- (void)setSystemwideEnabled:(BOOL)arg1;
-- (BOOL)hasRegisteredBundleIdentifiers;
-- (void)notePermissionAlertAcceptedTypes:(int)arg1 forBundleIdentifier:(id)arg2;
-- (int)appEnabledTypesForBundleIdentifier:(id)arg1;
-- (int)settingsEnabledTypesForBundleIdentifier:(id)arg1;
-- (void)setSettingsTypes:(int)arg1 forBundleIdentifier:(id)arg2;
-- (void)postSettingsChangedNotificationForBundleIdentifier:(id)arg1;
-- (void)setMessageUserInfo:(id)arg1 forBundleIdentifier:(id)arg2;
-- (id)getMessageUserInfoForBundleIdentifier:(id)arg1;
 - (id)_allPushRegisteredThirdPartyBundleIDs;
+- (id)getMessageUserInfoForBundleIdentifier:(id)arg1;
+- (void)setMessageUserInfo:(id)arg1 forBundleIdentifier:(id)arg2;
+- (void)postSettingsChangedNotificationForBundleIdentifier:(id)arg1;
+- (void)setSettingsTypes:(unsigned int)arg1 forBundleIdentifier:(id)arg2;
+- (unsigned int)settingsEnabledTypesForBundleIdentifier:(id)arg1;
+- (unsigned int)appEnabledTypesForBundleIdentifier:(id)arg1;
+- (void)notePermissionAlertAcceptedTypes:(unsigned int)arg1 forBundleIdentifier:(id)arg2;
+- (BOOL)hasRegisteredBundleIdentifiers;
+- (void)setSystemwideEnabled:(BOOL)arg1;
+- (BOOL)isSystemwideEnabled;
+- (unsigned int)getEffectiveEnabledTypesForApplication:(id)arg1;
+- (void)unregisterApplication:(id)arg1;
+- (void)registerApplication:(id)arg1 forEnvironment:(id)arg2 withTypes:(unsigned int)arg3;
+- (void)calculateTopics;
+- (id)allSettingsEnabledTypeValues;
+- (id)allAppEnabledTypeValues;
+- (id)lastNotificationReceivedBundleIdentifier;
+- (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
+- (void)noteApplicationFinishedLaunching:(id)arg1;
+- (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
+- (void)run;
+- (void)dealloc;
+- (id)init;
 
 @end
 

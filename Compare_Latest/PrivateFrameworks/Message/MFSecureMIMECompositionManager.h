@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class MFError, MailAccount, NSLock, NSMutableDictionary, NSMutableSet, NSSet, NSString;
+@class MFError, MailAccount, NSLock, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString;
 
 @interface MFSecureMIMECompositionManager : NSObject
 {
     id <MFSecureMIMECompositionManagerDelegate> _delegate;
     NSLock *_lock;
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
     MailAccount *_sendingAccount;
     NSString *_sendingAddress;
     struct __SecIdentity *_signingIdentity;
@@ -31,38 +31,38 @@
     BOOL _invalidated;
 }
 
-+ (struct __SecIdentity *)copySigningIdentityForAccount:(id)arg1 sendingAddress:(id)arg2 error:(id *)arg3;
-+ (struct __SecIdentity *)copyEncryptionIdentityForAccount:(id)arg1 sendingAddress:(id)arg2 error:(id *)arg3;
 + (id)copyEncryptionCertificatesForAccount:(id)arg1 recipientAddress:(id)arg2 error:(id *)arg3;
-- (id)init;
-- (id)initWithSigningPolicy:(int)arg1 encryptionPolicy:(int)arg2;
-- (id)initWithSendingAccount:(id)arg1 signingPolicy:(int)arg2 encryptionPolicy:(int)arg3;
-- (void)dealloc;
-- (void)addRecipients:(id)arg1;
-- (void)removeRecipients:(id)arg1;
-- (void)invalidate;
-@property id <MFSecureMIMECompositionManagerDelegate> delegate;
-@property(copy) NSString *sendingAddress;
-@property(readonly) MailAccount *sendingAccount;
-@property(readonly) int signingPolicy;
-@property(readonly) int encryptionPolicy;
-- (void)_determineSigningStatusWithSendingAddress:(id)arg1;
-- (void)_notifyDelegateSigningStatusDidChange:(int)arg1 identity:(struct __SecIdentity *)arg2 error:(id)arg3;
-- (BOOL)_updateSigningStatus_nts;
-- (void)_setSigningIdentityError_nts:(id)arg1;
-@property(readonly) int signingStatus;
-- (void)_determineEncryptionStatusWithSendingAddress:(id)arg1;
-- (void)_determineEncryptionStatusWithNewRecipients:(id)arg1;
-- (BOOL)_updateEncryptionStatus_nts;
-- (void)_setEncryptionIdentityError_nts:(id)arg1;
-- (void)_notifyDelegateEncryptionStatusDidChange:(int)arg1 certsByRecipient:(id)arg2 errorsByRecipient:(id)arg3 identity:(struct __SecIdentity *)arg4 error:(id)arg5;
-@property(readonly) int encryptionStatus;
-@property(readonly) NSSet *recipients;
-- (id)compositionSpecification;
-- (BOOL)shouldAllowSend;
-- (BOOL)_shouldSign_nts;
-- (BOOL)_shouldEncrypt_nts;
++ (struct __SecIdentity *)copyEncryptionIdentityForAccount:(id)arg1 sendingAddress:(id)arg2 error:(id *)arg3;
++ (struct __SecIdentity *)copySigningIdentityForAccount:(id)arg1 sendingAddress:(id)arg2 error:(id *)arg3;
 - (BOOL)_shouldAllowSend_nts;
+- (BOOL)_shouldEncrypt_nts;
+- (BOOL)_shouldSign_nts;
+- (BOOL)shouldAllowSend;
+- (id)compositionSpecification;
+@property(readonly) NSSet *recipients;
+@property(readonly) int encryptionStatus;
+- (void)_notifyDelegateEncryptionStatusDidChange:(int)arg1 certsByRecipient:(id)arg2 errorsByRecipient:(id)arg3 identity:(struct __SecIdentity *)arg4 error:(id)arg5;
+- (void)_setEncryptionIdentityError_nts:(id)arg1;
+- (BOOL)_updateEncryptionStatus_nts;
+- (void)_determineEncryptionStatusWithNewRecipients:(id)arg1;
+- (void)_determineEncryptionStatusWithSendingAddress:(id)arg1;
+@property(readonly) int signingStatus;
+- (void)_setSigningIdentityError_nts:(id)arg1;
+- (BOOL)_updateSigningStatus_nts;
+- (void)_notifyDelegateSigningStatusDidChange:(int)arg1 identity:(struct __SecIdentity *)arg2 error:(id)arg3;
+- (void)_determineSigningStatusWithSendingAddress:(id)arg1;
+@property(readonly) int encryptionPolicy;
+@property(readonly) int signingPolicy;
+@property(readonly) MailAccount *sendingAccount;
+@property(copy) NSString *sendingAddress;
+@property id <MFSecureMIMECompositionManagerDelegate> delegate;
+- (void)invalidate;
+- (void)removeRecipients:(id)arg1;
+- (void)addRecipients:(id)arg1;
+- (void)dealloc;
+- (id)initWithSendingAccount:(id)arg1 signingPolicy:(int)arg2 encryptionPolicy:(int)arg3;
+- (id)initWithSigningPolicy:(int)arg1 encryptionPolicy:(int)arg2;
+- (id)init;
 
 @end
 

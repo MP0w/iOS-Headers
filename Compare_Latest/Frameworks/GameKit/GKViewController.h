@@ -12,14 +12,18 @@
 {
     GKViewController *_rootViewController;
     GKImageBackgroundView *_statusView;
+    BOOL _shouldUpdateContentOnlyWhenAuthenticated;
 }
 
+@property(nonatomic) BOOL shouldUpdateContentOnlyWhenAuthenticated; // @synthesize shouldUpdateContentOnlyWhenAuthenticated=_shouldUpdateContentOnlyWhenAuthenticated;
 @property(retain, nonatomic) GKViewController *rootViewController; // @synthesize rootViewController=_rootViewController;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)pushFullScreenViewController:(id)arg1 animated:(BOOL)arg2;
+- (void)popToRootViewControllerAnimated:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)displayUsingSplitNavigationBar;
 @property(nonatomic) BOOL statusViewVisible; // @dynamic statusViewVisible;
 @property(retain, nonatomic) GKImageBackgroundView *statusView; // @synthesize statusView=_statusView;
-- (void)viewDidUnload;
 - (void)dealloc;
 
 @end

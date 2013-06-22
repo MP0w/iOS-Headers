@@ -5,8 +5,8 @@
  */
 
 @protocol PSViewControllerOffsetProtocol
-- (void)setDesiredVerticalContentOffset:(float)arg1;
-- (void)setDesiredVerticalContentOffsetItemNamed:(id)arg1;
 - (float)verticalContentOffset;
+- (void)setDesiredVerticalContentOffsetItemNamed:(id)arg1;
+- (void)setDesiredVerticalContentOffset:(float)arg1;
 @end
 

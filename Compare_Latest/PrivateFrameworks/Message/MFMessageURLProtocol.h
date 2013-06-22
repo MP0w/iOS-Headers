@@ -17,15 +17,15 @@
     BOOL _stopped;
 }
 
-+ (void)initialize;
-+ (BOOL)canInitWithRequest:(id)arg1;
-+ (id)canonicalRequestForRequest:(id)arg1;
 + (BOOL)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
-- (void)startLoading;
-- (void)stopLoading;
-- (void)_downloadAttachment;
-- (void)_downloadedData:(id)arg1 mimeType:(id)arg2;
++ (id)canonicalRequestForRequest:(id)arg1;
++ (BOOL)canInitWithRequest:(id)arg1;
++ (void)initialize;
 - (void)dealloc;
+- (void)_downloadedData:(id)arg1 mimeType:(id)arg2;
+- (void)_downloadAttachment;
+- (void)stopLoading;
+- (void)startLoading;
 
 @end
 

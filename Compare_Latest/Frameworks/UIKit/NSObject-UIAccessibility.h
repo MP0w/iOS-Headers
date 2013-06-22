@@ -9,6 +9,7 @@
 @class NSString;
 
 @interface NSObject (UIAccessibility)
+@property(nonatomic) BOOL shouldGroupAccessibilityChildren; // @dynamic shouldGroupAccessibilityChildren;
 - (void)setAccessibilityIdentifier:(id)arg1;
 @property(retain, nonatomic) NSString *accessibilityLanguage; // @dynamic accessibilityLanguage;
 - (void)setAccessibilityContainer:(id)arg1;
@@ -27,6 +28,7 @@
 - (id)storedAccessibilityTraits;
 - (id)storedAccessibilityViewIsModal;
 - (id)storedAccessibilityElementsHidden;
+- (id)storedShouldGroupAccessibilityChildren;
 - (id)accessibilityIdentifier;
 - (id)accessibilityContainer;
 @end

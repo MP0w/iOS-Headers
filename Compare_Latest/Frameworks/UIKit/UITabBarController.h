@@ -36,6 +36,7 @@
 + (Class)_moreNavigationControllerClass;
 @property(nonatomic) id <UITabBarControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) NSMutableArray *moreChildViewControllers; // @synthesize moreChildViewControllers=_moreChildViewControllers;
+- (void)_setBadgeValue:(id)arg1 forTabBarItem:(id)arg2;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willAnimateSecondHalfOfRotationFromInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)didAnimateFirstHalfOfRotationToInterfaceOrientation:(int)arg1;
@@ -48,6 +49,7 @@
 - (id)rotatingHeaderView;
 - (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (BOOL)_shouldSynthesizeSupportedOrientations;
 - (BOOL)_doAllViewControllersSupportInterfaceOrientation:(int)arg1;
 - (BOOL)_allowsAutorotation;
 - (void)_setMaximumNumberOfItems:(unsigned int)arg1;
@@ -113,6 +115,8 @@
 - (void)_populateArchivedChildViewControllers:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
 
 @end
 

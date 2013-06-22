@@ -7,7 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol BasicAccountSyncing <NSObject>
-- (id)defaultContainerIdentifierForDataclass:(id)arg1;
 
 @optional
 - (BOOL)refreshContainerListForDataclass:(id)arg1;

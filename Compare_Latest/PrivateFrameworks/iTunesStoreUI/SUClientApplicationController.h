@@ -8,34 +8,39 @@
 
 #import "SUTabBarControllerDelegate-Protocol.h"
 
-@class ISOperation, NSString, NSURL, SSRemoteNotificationClient, SULocationObserver, SUMediaPlayerViewController, SUPlaceholderViewController, SUSectionsResponse, SUTabBarController, UINavigationController;
+@class ISOperation, NSString, NSURL, SUMediaPlayerViewController, SUPlaceholderViewController, SUPreviewOverlayViewController, SUSectionsResponse, SUTabBarController, UINavigationController;
 
 @interface SUClientApplicationController : SUClientController <SUTabBarControllerDelegate>
 {
     SUMediaPlayerViewController *_activeMediaPlayer;
+    NSString *_exitStoreButtonTitle;
     SUPlaceholderViewController *_fetchSectionsPlaceholder;
     int _ignoreDownloadQueueChangeCount;
     NSURL *_launchURL;
     SUSectionsResponse *_lastBackgroundSectionsResponse;
     SUSectionsResponse *_lastSectionsResponse;
     ISOperation *_loadSectionsOperation;
-    SULocationObserver *_locationObserver;
+    id _locationObserver;
     NSString *_preMediaDefaultPNG;
+    SUPreviewOverlayViewController *_previewOverlay;
     BOOL _reloadForStorefrontChangeAfterAccountSetup;
     BOOL _reloadSectionsOnNextLaunch;
-    SSRemoteNotificationClient *_remoteNotificationClient;
+    BOOL _shouldPrepareUserInterfaceWhenActivated;
     SUTabBarController *_tabBarController;
 }
 
 + (id)sharedController;
 + (void)setSharedController:(id)arg1;
+@property(nonatomic) BOOL shouldPrepareUserInterfaceWhenActivated; // @synthesize shouldPrepareUserInterfaceWhenActivated=_shouldPrepareUserInterfaceWhenActivated;
 @property(readonly, nonatomic) NSURL *launchURL; // @synthesize launchURL=_launchURL;
+@property(copy, nonatomic) NSString *exitStoreButtonTitle; // @synthesize exitStoreButtonTitle=_exitStoreButtonTitle;
 @property(retain, nonatomic, getter=_activeMediaPlayer, setter=_setActiveMediaPlayer:) SUMediaPlayerViewController *_activeMediaPlayer; // @synthesize _activeMediaPlayer;
 - (BOOL)_showWildcatAccountViewController:(id)arg1 animated:(BOOL)arg2;
+- (void)_showPreviewOverlayAnimated:(BOOL)arg1;
 - (void)_setupTabBarController;
 - (id)_resumableViewController;
+- (id)_previewOverlayViewController;
 - (void)_cancelSuspendAfterDialogsDismissed;
-- (void)_beginObservingLocation;
 - (id)_accountViewController;
 - (void)_handleSearchURL:(id)arg1;
 - (void)_handleAccountURL:(id)arg1;
@@ -53,19 +58,25 @@
 - (void)_storeFrontChangedNotification:(id)arg1;
 - (void)_selectFooterSectionNotification:(id)arg1;
 - (void)_restrictionsChangedNotification:(id)arg1;
-- (void)_remoteNotificationsAvailableNotification:(id)arg1;
 - (void)_reloadForNetworkTypeChange:(id)arg1;
 - (void)_dialogDidFinishNotification:(id)arg1;
 - (void)bagDidLoadNotification:(id)arg1;
 - (void)_accountControllerDisappearedNotification:(id)arg1;
+- (BOOL)tabBarController:(id)arg1 shouldShowSection:(id)arg2;
+- (id)tabBarControllerForClientInterface:(id)arg1;
+- (void)returnToLibraryForClientInterface:(id)arg1;
+- (id)previewOverlayForClientInterface:(id)arg1;
+- (void)clientInterface:(id)arg1 showPreviewOverlayAnimated:(BOOL)arg2;
+- (void)clientInterface:(id)arg1 hidePreviewOverlayAnimated:(BOOL)arg2;
+- (id)_showPageForExternalOriginatedURLBagKey:(id)arg1;
 - (void)_restorePreMediaPlayerSettings;
+- (id)_newTabBarController;
 - (void)resignActive;
 - (BOOL)presentOverlayBackgroundViewController:(id)arg1;
 - (void)presentExternalURLViewController:(id)arg1;
 - (BOOL)presentAccountViewController:(id)arg1 showNavigationBar:(BOOL)arg2 animated:(BOOL)arg3;
 - (id)overlayBackgroundViewController;
 - (BOOL)openClientURL:(id)arg1;
-- (BOOL)gotoStorePage:(id)arg1 animated:(BOOL)arg2;
 - (BOOL)displayClientURL:(id)arg1;
 - (BOOL)dismissTopViewControllerAnimated:(BOOL)arg1;
 - (void)dismissOverlayBackgroundViewController;
@@ -80,18 +91,17 @@
 - (BOOL)selectSectionWithIdentifier:(id)arg1;
 - (void)returnToLibrary;
 - (BOOL)reloadSectionWithIdentifier:(id)arg1 url:(id)arg2;
-- (void)performActionForRemoteNotification:(id)arg1;
+- (void)prepareUserInterface;
 @property(readonly, nonatomic, getter=isTabBarControllerLoaded) BOOL tabBarControllerLoaded;
 @property(readonly, nonatomic, getter=isIgnoringDownloadQueueChanges) BOOL ignoringDownloadQueueChanges;
 - (void)exitStoreAfterDialogsDismiss;
 - (void)endIgnoringDownloadQueueChanges;
-- (void)dequeueRemoteNotifications;
 @property(readonly, nonatomic) NSString *defaultPNGNameForSuspend;
 - (double)defaultImageSnapshotExpiration;
 - (id)copySuspendSettings;
 - (void)beginIgnoringDownloadQueueChanges;
 - (void)dealloc;
-- (id)initWithClientIdentifier:(id)arg1;
+- (id)initWithClientInterface:(id)arg1;
 
 @end
 

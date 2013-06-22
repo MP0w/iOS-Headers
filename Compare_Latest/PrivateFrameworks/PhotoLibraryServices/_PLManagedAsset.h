@@ -58,6 +58,7 @@
 @property(retain, nonatomic) NSNumber *originalWidth;
 @property(nonatomic) short originalHeightValue;
 @property(retain, nonatomic) NSNumber *originalHeight;
+@property(retain, nonatomic) NSString *originalAssetsUUID;
 @property(retain, nonatomic) NSString *creatorBundleID;
 - (void)setPrimitiveWidthValue:(short)arg1;
 - (short)primitiveWidthValue;

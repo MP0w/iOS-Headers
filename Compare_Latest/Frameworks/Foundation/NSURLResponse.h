@@ -29,6 +29,15 @@
 - (id)init;
 - (id)initWithURL:(id)arg1 MIMEType:(id)arg2 expectedContentLength:(int)arg3 textEncodingName:(id)arg4;
 - (id)_initWithCFURLResponse:(struct _CFURLResponse *)arg1;
+- (id)_peerCertificateChain;
+- (void)dealloc;
+- (double)_calculatedExpiration;
+- (double)_freshnessLifetime;
+- (BOOL)_mustRevalidate;
+- (id)_lastModifiedDate;
+- (id)_createdDate;
+- (void)_setMIMEType:(id)arg1;
+- (void)_setExpectedContentLength:(long long)arg1;
 
 @end
 

@@ -19,19 +19,19 @@
     UITableView *_table;
 }
 
-- (id)initWithNavigationController:(id)arg1;
-- (void)dealloc;
-- (void)setDelegate:(id)arg1;
-- (void)setLinkProperties:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)loadView;
-- (void)viewDidUnload;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (int)numberOfSectionsInTableView:(id)arg1;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)viewDidUnload;
+- (void)loadView;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)setLinkProperties:(id)arg1;
+- (void)setDelegate:(id)arg1;
+- (void)dealloc;
+- (id)initWithNavigationController:(id)arg1;
 
 @end
 

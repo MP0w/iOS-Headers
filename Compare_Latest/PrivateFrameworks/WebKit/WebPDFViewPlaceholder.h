@@ -15,44 +15,47 @@
 {
     NSString *_title;
     NSArray *_pageRects;
+    NSArray *_pageYOrigins;
     struct CGPDFDocument *_document;
     WebDataSource *_dataSource;
     NSObject<WebPDFViewPlaceholderDelegate> *_delegate;
     BOOL _didFinishLoadAndMemoryMap;
 }
 
-+ (void)setAsPDFDocRepAndView;
-+ (Class)_representationClassForWebFrame:(id)arg1;
 + (id)supportedMIMETypes;
-@property(readonly) struct CGPDFDocument *document; // @synthesize document=_document;
-- (void)setDocument:(struct CGPDFDocument *)arg1;
-@property(readonly) struct CGPDFDocument *doc;
-@property(readonly) unsigned int totalPages;
-- (void)dealloc;
-- (void)setDataSource:(id)arg1;
-- (void)_notifyDidCompleteLayout;
-- (void)dataSourceUpdated:(id)arg1;
-- (void)layout;
-- (void)viewWillMoveToHostWindow:(id)arg1;
-- (void)viewDidMoveToHostWindow;
-- (void)receivedData:(id)arg1 withDataSource:(id)arg2;
-- (void)receivedError:(id)arg1 withDataSource:(id)arg2;
-- (void)_doPostLoadOrUnlockTasks;
-- (void)dataSourceMemoryMapped;
-- (void)dataSourceMemoryMapFailed;
-- (void)finishedLoadingWithDataSource:(id)arg1;
-- (BOOL)canProvideDocumentSource;
-- (id)documentSource;
-- (void)_evaluateJSForDocument:(struct CGPDFDocument *)arg1;
-- (void)_updateTitleForURL:(id)arg1;
-- (void)_updateTitleForDocumentIfAvailable;
-- (struct CGRect)_getPDFPageBounds:(struct CGPDFPage *)arg1;
-- (struct CGSize)_computePageRects:(struct CGPDFDocument *)arg1;
-- (void)didUnlockDocument;
-- (struct CGRect)rectForPageNumber:(unsigned int)arg1;
++ (Class)_representationClassForWebFrame:(id)arg1;
++ (void)setAsPDFDocRepAndView;
 @property(retain) NSString *title; // @synthesize title=_title;
+@property(retain) NSArray *pageYOrigins; // @synthesize pageYOrigins=_pageYOrigins;
 @property(retain) NSArray *pageRects; // @synthesize pageRects=_pageRects;
 @property NSObject<WebPDFViewPlaceholderDelegate> *delegate; // @synthesize delegate=_delegate;
+- (void)simulateClickOnLinkToURL:(id)arg1;
+- (struct CGRect)rectForPageNumber:(unsigned int)arg1;
+- (void)didUnlockDocument;
+- (struct CGSize)_computePageRects:(struct CGPDFDocument *)arg1;
+- (struct CGRect)_getPDFPageBounds:(struct CGPDFPage *)arg1;
+- (void)_updateTitleForDocumentIfAvailable;
+- (void)_updateTitleForURL:(id)arg1;
+- (void)_evaluateJSForDocument:(struct CGPDFDocument *)arg1;
+- (id)documentSource;
+- (BOOL)canProvideDocumentSource;
+- (void)finishedLoadingWithDataSource:(id)arg1;
+- (void)dataSourceMemoryMapFailed;
+- (void)dataSourceMemoryMapped;
+- (void)_doPostLoadOrUnlockTasks;
+- (void)receivedError:(id)arg1 withDataSource:(id)arg2;
+- (void)receivedData:(id)arg1 withDataSource:(id)arg2;
+- (void)viewDidMoveToHostWindow;
+- (void)viewWillMoveToHostWindow:(id)arg1;
+- (void)layout;
+- (void)dataSourceUpdated:(id)arg1;
+- (void)_notifyDidCompleteLayout;
+- (void)setDataSource:(id)arg1;
+- (void)dealloc;
+@property(readonly) unsigned int totalPages;
+@property(readonly) struct CGPDFDocument *doc;
+- (void)setDocument:(struct CGPDFDocument *)arg1;
+@property(readonly) struct CGPDFDocument *document; // @synthesize document=_document;
 
 @end
 

@@ -20,6 +20,7 @@
     CDStruct_b0fa4487 _endGr;
     int _lastSelectedRow;
     BOOL _allDay;
+    unsigned int _showsAllDaySwitch:1;
     unsigned int _changingDate:1;
     unsigned int _switchChanging:1;
     unsigned int _endTimeWasMessedUp:1;
@@ -29,6 +30,7 @@
     BOOL _showsTimeZone;
 }
 
+@property(nonatomic) BOOL showsAllDaySwitch; // @synthesize showsAllDaySwitch=_showsAllDaySwitch;
 @property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
 @property(copy, nonatomic) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
@@ -63,6 +65,12 @@
 - (id)_timeZoneDescription;
 - (id)navigationTitle;
 - (void)_localeChanged;
+- (int)_timeZoneRow;
+- (int)_allDayRow;
+- (int)_endDateRow;
+- (int)_startDateRow;
+- (int)_rowForSubitem:(int)arg1;
+- (int)_subitemAtRow:(int)arg1;
 - (void)dealloc;
 - (void)viewDidUnload;
 - (void)viewDidLoad;

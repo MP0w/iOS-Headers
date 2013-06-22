@@ -13,10 +13,10 @@
     UIView *_separatorHighlight;
 }
 
-- (void)dealloc;
-- (void)layoutSubviews;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setSeparatorHighlightVisible:(BOOL)arg1;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)layoutSubviews;
+- (void)dealloc;
 
 @end
 

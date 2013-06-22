@@ -13,7 +13,6 @@
 @interface PLSharingController : NSObject <MFMailComposeViewControllerDelegate>
 {
     UIViewController *_parentController;
-    MFMailComposeViewController *_composeController;
     NSArray *_photos;
     NSMutableArray *_views;
     NSMutableDictionary *_trimmedFilePaths;
@@ -29,6 +28,7 @@
     unsigned int _delegateWillSetComposeFrame:1;
     unsigned int _delegateDidFinishMail:1;
     unsigned int _delegateViewForPhoto:1;
+    MFMailComposeViewController *_composeController;
 }
 
 + (void)copyItemsToPasteboard:(id)arg1;
@@ -38,16 +38,15 @@
 - (id)views;
 - (void)mailComposeController:(id)arg1 bodyFinishedLoadingWithResult:(BOOL)arg2 error:(id)arg3;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
-- (id)autosaveIdentifier;
-- (void)setAutosaveIdentifier:(id)arg1;
+@property(nonatomic) id <NSCoding> autosaveIdentifier;
 - (void)_discardTrimmedFiles;
 - (void)setTrimmedPath:(id)arg1 forVideo:(id)arg2;
 - (BOOL)isComposeSheetReady;
 - (void)_setComposeParentViewController:(id)arg1;
 - (void)_dismissMailComposeController;
-- (id)_addAudio:(id)arg1 toCompositionContext:(id)arg2;
-- (id)_addVideo:(id)arg1 toCompositionContext:(id)arg2;
-- (id)_addPhoto:(id)arg1 toCompositionContext:(id)arg2 index:(unsigned int)arg3;
+- (id)_addAudio:(id)arg1 toCompositionController:(id)arg2;
+- (id)_addVideo:(id)arg1 toCompositionController:(id)arg2;
+- (id)_addPhoto:(id)arg1 toCompositionController:(id)arg2 index:(unsigned int)arg3;
 - (void)_autosaveMailComposition;
 - (void)_showMailComposeSheetForAutosavedMessageWithIdentifier:(id)arg1;
 - (void)composeMailForPhotos:(id)arg1;

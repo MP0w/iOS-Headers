@@ -17,13 +17,13 @@
     CALayerHost *_layerHost;
 }
 
-- (void)dealloc;
-- (id)description;
 @property(nonatomic, getter=isOrderOutPending) BOOL orderOutPending; // @synthesize orderOutPending=_orderOutPending;
 @property(retain, nonatomic) CALayerHost *layerHost; // @synthesize layerHost=_layerHost;
 @property(nonatomic, getter=isHidden) BOOL hidden; // @synthesize hidden=_hidden;
 @property(nonatomic) float windowLevel; // @synthesize windowLevel=_windowLevel;
 @property(nonatomic) unsigned int contextId; // @synthesize contextId=_contextId;
+- (id)description;
+- (void)dealloc;
 
 @end
 

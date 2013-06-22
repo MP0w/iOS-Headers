@@ -17,16 +17,16 @@
 }
 
 + (id)functionWithName:(id)arg1;
-- (id)_initWithName:(int)arg1;
-- (void)dealloc;
-@property(readonly) NSString *name;
-- (unsigned long)inputCount;
-- (unsigned long)outputCount;
-- (BOOL)apply:(const double *)arg1 result:(double *)arg2;
-- (BOOL)apply:(const double *)arg1 result:(double *)arg2 parameterFunction:(void *)arg3 context:(void *)arg4;
-- (struct Object *)CA_copyRenderValue;
-- (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (struct Object *)CA_copyRenderValue;
+- (BOOL)apply:(const double *)arg1 result:(double *)arg2 parameterFunction:(void *)arg3 context:(void *)arg4;
+- (BOOL)apply:(const double *)arg1 result:(double *)arg2;
+- (unsigned long)outputCount;
+- (unsigned long)inputCount;
+@property(readonly) NSString *name;
+- (void)dealloc;
+- (id)_initWithName:(int)arg1;
 
 @end
 

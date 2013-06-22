@@ -15,6 +15,9 @@
 
 + (void)reset;
 + (id)urlConfiguration;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *genericTermsURL;
+@property(readonly, nonatomic) NSString *emailLookupURL;
 @property(readonly, nonatomic) NSString *signingSessionURL;
 @property(readonly, nonatomic) NSString *signingSessionCertURL;
 @property(readonly, nonatomic) NSString *mobileMeOfferAlertURL;
@@ -30,7 +33,6 @@
 @property(readonly, nonatomic) NSString *registerURL;
 @property(readonly, nonatomic) NSString *updateAccountURL;
 @property(readonly, nonatomic) NSString *accountCreationURL;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 
 @end

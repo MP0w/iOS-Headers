@@ -12,29 +12,28 @@
 {
 }
 
+@property(readonly) NSURL *absoluteLinkURL;
+@property(readonly) NSString *text;
+@property(readonly) NSString *search;
+@property(readonly) NSString *protocol;
+@property(readonly) NSString *port;
+@property(readonly) NSString *pathname;
+@property(readonly) NSString *hostname;
+@property(readonly) NSString *host;
+@property(readonly) NSString *hashName;
 @property(copy) NSString *accessKey;
-@property(copy) NSString *charset;
-@property(copy) NSString *coords;
-@property(copy) NSString *href;
-@property(copy) NSString *hreflang;
-@property(copy) NSString *name;
-- (id)ping;
-- (void)setPing:(id)arg1;
-@property(copy) NSString *rel;
-@property(copy) NSString *rev;
-@property(copy) NSString *shape;
-@property(copy) NSString *target;
 @property(copy) NSString *type;
-@property(readonly, copy) NSString *hashName;
-@property(readonly, copy) NSString *host;
-@property(readonly, copy) NSString *hostname;
-@property(readonly, copy) NSString *pathname;
-@property(readonly, copy) NSString *port;
-@property(readonly, copy) NSString *protocol;
-@property(readonly, copy) NSString *search;
-@property(readonly, copy) NSString *text;
-@property(readonly, copy) NSURL *absoluteLinkURL;
-- (id)getParameter:(id)arg1;
+@property(copy) NSString *target;
+@property(copy) NSString *shape;
+@property(copy) NSString *rev;
+@property(copy) NSString *rel;
+- (void)setPing:(id)arg1;
+- (id)ping;
+@property(copy) NSString *name;
+@property(copy) NSString *hreflang;
+@property(copy) NSString *href;
+@property(copy) NSString *coords;
+@property(copy) NSString *charset;
 
 @end
 

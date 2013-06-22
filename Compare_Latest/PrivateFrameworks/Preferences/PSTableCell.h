@@ -4,45 +4,90 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Preferences/PreferencesTableCell.h>
+#import "UITableViewCell.h"
 
-@class UIView;
+@class NSString, PSSpecifier, UIImageView, UIView;
 
-@interface PSTableCell : PreferencesTableCell
+@interface PSTableCell : UITableViewCell
 {
+    id _value;
+    UIImageView *_checkedImageView;
+    BOOL _checked;
+    BOOL _shouldHideTitle;
+    NSString *_hiddenTitle;
+    int _alignment;
+    SEL _pAction;
+    id _pTarget;
+    BOOL _cellEnabled;
+    PSSpecifier *_specifier;
+    int _type;
+    BOOL _lazyIcon;
+    BOOL _lazyIconDontUnload;
+    BOOL _lazyIconForceSynchronous;
+    NSString *_lazyIconAppID;
+    UIView *_topShadow;
     UIView *_topEtchLine;
     UIView *_bottomEtchLine;
     BOOL _etch;
+    BOOL _reusedCell;
 }
 
-+ (int)cellTypeFromString:(id)arg1;
-+ (id)_cellForSpecifier:(id)arg1 defaultClass:(Class)arg2 type:(int)arg3;
-+ (void)refreshSwitchCellContentsWithSpecifier:(id)arg1 andCell:(id)arg2;
-+ (id)switchCellWithSpecifier:(id)arg1;
-+ (id)segmentCellWithSpecifier:(id)arg1;
-+ (void)refreshSliderCellContentsWithSpecifier:(id)arg1 andCell:(id)arg2;
-+ (id)sliderCellWithSpecifier:(id)arg1;
-+ (void)refreshTextFieldCellContentsWithSpecifier:(id)arg1 andCell:(id)arg2;
-+ (id)textFieldCellWithSpecifier:(id)arg1;
-+ (id)textViewCellWithSpecifier:(id)arg1;
-+ (id)spinnerCellWithSpecifier:(id)arg1;
-+ (id)groupHeaderCellWithSpecifier:(id)arg1;
-+ (void)refreshCellContentsWithSpecifier:(id)arg1 andCell:(id)arg2;
-+ (id)cellWithSpecifier:(id)arg1;
-+ (id)topEtchLineView;
 + (id)bottomEtchLineView;
-- (void)layoutSubviews;
-- (void)setValueChangedTarget:(id)arg1 action:(SEL)arg2 specifier:(id)arg3;
-- (id)titleTextLabel;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
-- (void)_updateEtchState:(BOOL)arg1;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
++ (id)topEtchLineView;
++ (Class)cellClassForSpecifier:(id)arg1;
++ (int)cellStyle;
++ (id)reuseIdentifierForSpecifier:(id)arg1;
++ (id)reuseIdentifierForClassAndType:(int)arg1;
++ (id)reuseIdentifierForBasicCellTypes:(int)arg1;
++ (id)stringFromCellType:(int)arg1;
++ (int)cellTypeFromString:(id)arg1;
+@property(nonatomic) BOOL reusedCell; // @synthesize reusedCell=_reusedCell;
+@property(nonatomic) int type; // @synthesize type=_type;
+@property(retain, nonatomic) PSSpecifier *specifier; // @synthesize specifier=_specifier;
+- (void)_setBottomEtchHidden:(BOOL)arg1;
+- (void)_setTopEtchHidden:(BOOL)arg1;
+- (void)_setTopShadowHidden:(BOOL)arg1;
+- (float)textFieldOffset;
+- (void)reloadWithSpecifier:(id)arg1 animated:(BOOL)arg2;
+- (BOOL)cellEnabled;
+- (void)setCellEnabled:(BOOL)arg1;
+- (SEL)action;
+- (void)setAction:(SEL)arg1;
+- (id)target;
+- (void)setTarget:(id)arg1;
+- (void)setAlignment:(int)arg1;
+- (id)iconImageView;
+- (id)valueLabel;
+- (id)titleLabel;
+- (id)value;
+- (void)setValue:(id)arg1;
 - (void)setIcon:(id)arg1;
-- (void)dealloc;
-- (BOOL)canReload;
-- (void)refreshCellContentsWithSpecifier:(id)arg1;
+- (BOOL)canBeChecked;
+- (BOOL)isChecked;
+- (void)setChecked:(BOOL)arg1;
+- (void)setShouldHideTitle:(BOOL)arg1;
+- (void)setTitle:(id)arg1;
+- (id)title;
+- (id)getIcon;
+- (void)forceSynchronousIconLoadOnNextIconLoad;
+- (void)cellRemovedFromView;
+- (id)blankIcon;
+- (id)getLazyIconID;
+- (id)getLazyIcon;
 - (id)_contentString;
+- (BOOL)canReload;
+- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_updateEtchState:(BOOL)arg1;
+- (id)titleTextLabel;
+- (void)setValueChangedTarget:(id)arg1 action:(SEL)arg2 specifier:(id)arg3;
+- (void)layoutSubviews;
+- (void)prepareForReuse;
+- (void)refreshCellContentsWithSpecifier:(id)arg1;
+- (void)dealloc;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)scriptingInfoWithChildren;
+- (id)_automationID;
 
 @end
 

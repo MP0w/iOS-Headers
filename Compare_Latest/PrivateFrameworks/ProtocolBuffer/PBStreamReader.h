@@ -4,23 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <ProtocolBuffer/PBDataReader.h>
+#import "NSObject.h"
 
-@class NSInputStream;
-
-@interface PBStreamReader : PBDataReader
+@interface PBStreamReader : NSObject
 {
-    NSInputStream *_stream;
 }
 
 + (id)readProtoBuffersOfClass:(Class)arg1 fromFile:(id)arg2 error:(id *)arg3;
-@property(retain) NSInputStream *stream; // @synthesize stream=_stream;
-- (BOOL)seekToOffset:(unsigned int)arg1;
-- (id)readBytes:(unsigned int)arg1;
-- (int)read:(const char *)arg1 maxLength:(unsigned int)arg2;
-- (id)readProtoBuffer;
-- (void)dealloc;
-- (id)initWithStream:(id)arg1;
 
 @end
 

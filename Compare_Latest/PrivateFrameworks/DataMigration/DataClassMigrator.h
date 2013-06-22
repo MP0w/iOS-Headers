@@ -13,17 +13,17 @@
     NSDictionary *_context;
 }
 
-- (void)dealloc;
-@property(readonly, nonatomic) BOOL didRestoreFromBackup;
-@property(readonly, nonatomic) BOOL didMigrateBackupFromDifferentDevice;
-@property(readonly, nonatomic) BOOL didRestoreFromCloudBackup;
-@property(readonly, nonatomic) BOOL shouldPreserveSettingsAfterRestore;
-@property(readonly, nonatomic) BOOL wasPasscodeSetInBackup;
-- (id)dataClassName;
-- (BOOL)performMigration;
-- (float)estimatedDuration;
-- (float)migrationProgress;
 @property(retain, nonatomic) NSDictionary *context; // @synthesize context=_context;
+- (float)migrationProgress;
+- (float)estimatedDuration;
+- (BOOL)performMigration;
+- (id)dataClassName;
+@property(readonly, nonatomic) BOOL wasPasscodeSetInBackup;
+@property(readonly, nonatomic) BOOL shouldPreserveSettingsAfterRestore;
+@property(readonly, nonatomic) BOOL didRestoreFromCloudBackup;
+@property(readonly, nonatomic) BOOL didMigrateBackupFromDifferentDevice;
+@property(readonly, nonatomic) BOOL didRestoreFromBackup;
+- (void)dealloc;
 
 @end
 

@@ -7,9 +7,13 @@
 #import "UIView.h"
 
 @interface UIView (GKAdditions)
+- (struct UIEdgeInsets)_gkPopoverPresentationInsets;
+- (struct CGRect)_gkPopoverPresentationRect;
+- (struct CGRect)_gkPopoverPresentationArea;
 - (void)_gkAddStandardFadeTransition;
 - (id)_gkParentCell;
 - (id)_gkTileBackgroundImage:(id)arg1 existingTiles:(id)arg2 withBounds:(struct CGRect)arg3 offset:(struct CGSize)arg4;
+- (struct UIEdgeInsets)_gkRemoveFormSheetFrameImages;
 - (struct UIEdgeInsets)_gkAddFormSheetFrameImagesAtOffset:(struct CGPoint)arg1;
 @property(nonatomic) struct CGPoint integralCenter;
 @end

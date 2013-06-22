@@ -6,7 +6,7 @@
 
 #import "NSOperation.h"
 
-@class NSArray, NSError, NSLock, NSRunLoop, NSString, SSOperationProgress;
+@class NSArray, NSError, NSLock, NSMutableArray, NSRunLoop, NSString, SSOperationProgress;
 
 @interface ISOperation : NSOperation
 {
@@ -18,15 +18,15 @@
     SSOperationProgress *_progress;
     BOOL _shouldMessageMainThread;
     NSString *_powerAssertionIdentifier;
-    ISOperation *_subOperation;
     NSArray *_serializationLockIdentifiers;
+    NSMutableArray *_subOperations;
     BOOL _shouldRunWithBackgroundPriority;
+    BOOL _stopped;
     BOOL _success;
     id _threadSafeDelegate;
 }
 
 @property BOOL success; // @synthesize success=_success;
-@property(retain) ISOperation *subOperation; // @synthesize subOperation=_subOperation;
 @property BOOL shouldRunWithBackgroundPriority; // @synthesize shouldRunWithBackgroundPriority=_shouldRunWithBackgroundPriority;
 @property(retain) NSString *powerAssertionIdentifier; // @synthesize powerAssertionIdentifier=_powerAssertionIdentifier;
 @property(retain) ISOperation *parentOperation; // @synthesize parentOperation=_parentOperation;
@@ -35,15 +35,18 @@
 - (void)_sendWillStartToDelegate;
 - (void)_sendSuccessToDelegate;
 - (void)_sendErrorToDelegate:(id)arg1;
+- (void)_removeSubOperation:(id)arg1;
 - (void)_main:(BOOL)arg1;
+- (void)_keepAliveTimer:(id)arg1;
 - (void)_failAfterException;
-- (void)_dispatchCompletionBlock;
+- (void)_addSubOperation:(id)arg1;
 - (void)unlock;
 @property(copy) NSArray *serializationLockIdentifiers;
 - (void)sendProgressToDelegate;
 - (void)sendDidTakeSerializationLocks;
 - (void)run:(BOOL)arg1;
 - (void)lock;
+- (void)dispatchCompletionBlock;
 - (id)copySerializationLocks;
 - (id)copyActivePowerAssertionIdentifiers;
 - (void)main;
@@ -53,7 +56,7 @@
 @property BOOL shouldMessageMainThread;
 - (BOOL)shouldFailAfterUniquePredecessorError:(id)arg1;
 @property id <ISOperationDelegate> delegate;
-- (void)stopRunLoop;
+- (BOOL)stopRunLoop;
 - (BOOL)runSubOperation:(id)arg1 onQueue:(id)arg2 error:(id *)arg3;
 - (BOOL)runSubOperation:(id)arg1 returningError:(id *)arg2;
 - (long)runRunLoopUntilStopped;
@@ -62,6 +65,10 @@
 @property(readonly, nonatomic) SSOperationProgress *progress;
 - (void)dealloc;
 - (id)init;
+- (BOOL)loadURLBagWithContext:(id)arg1 returningError:(id *)arg2;
+- (BOOL)loadSoftwareMapReturningError:(id *)arg1;
+- (BOOL)copyAccountID:(id *)arg1 byAuthenticatingWithContext:(id)arg2 returningError:(id *)arg3;
+- (id)authenticatedAccountDSID;
 
 @end
 

@@ -12,21 +12,21 @@
 {
 }
 
-@property(readonly) int cellIndex;
-@property(copy) NSString *abbr;
-@property(copy) NSString *align;
-@property(copy) NSString *axis;
-@property(copy) NSString *bgColor;
-@property(copy) NSString *ch;
-@property(copy) NSString *chOff;
-@property int colSpan;
-@property(copy) NSString *headers;
-@property(copy) NSString *height;
-@property BOOL noWrap;
-@property int rowSpan;
-@property(copy) NSString *scope;
-@property(copy) NSString *vAlign;
 @property(copy) NSString *width;
+@property(copy) NSString *vAlign;
+@property(copy) NSString *scope;
+@property int rowSpan;
+@property BOOL noWrap;
+@property(copy) NSString *height;
+@property(copy) NSString *headers;
+@property int colSpan;
+@property(copy) NSString *chOff;
+@property(copy) NSString *ch;
+@property(copy) NSString *bgColor;
+@property(copy) NSString *axis;
+@property(copy) NSString *align;
+@property(copy) NSString *abbr;
+@property(readonly) int cellIndex;
 
 @end
 

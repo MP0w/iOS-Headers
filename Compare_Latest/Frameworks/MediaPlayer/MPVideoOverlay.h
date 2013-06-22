@@ -9,11 +9,11 @@
 #import "MPDetailSliderDelegate-Protocol.h"
 #import <MediaPlayer/MPVideoOverlay-Protocol.h>
 
-@class MPAVController, MPAVItem, MPDetailSlider, MPVideoViewController, NSMutableDictionary, UINavigationBar;
+@class MPAVController, MPAVItem, MPDetailSlider, NSMutableDictionary, UINavigationBar;
 
 @interface MPVideoOverlay : UIView <MPVideoOverlay, MPDetailSliderDelegate>
 {
-    MPVideoViewController *_videoViewController;
+    id <MPVideoControllerProtocol> _videoViewController;
     id <MPVideoOverlayDelegate> _delegate;
     MPAVItem *_item;
     MPAVController *_player;
@@ -21,20 +21,20 @@
     int _interfaceOrientation;
     BOOL _controlsAutohideDisabled;
     BOOL _wantsTick;
-    unsigned int _desiredParts;
-    unsigned int _visibleParts;
-    unsigned int _disabledParts;
+    unsigned long long _desiredParts;
+    unsigned long long _visibleParts;
+    unsigned long long _disabledParts;
     NSMutableDictionary *_tickTimeEvents;
     double _lastTickTime;
 }
 
-@property(nonatomic) unsigned int visibleParts; // @synthesize visibleParts=_visibleParts;
-@property(nonatomic) MPVideoViewController *videoViewController; // @synthesize videoViewController=_videoViewController;
+@property(nonatomic) unsigned long long visibleParts; // @synthesize visibleParts=_visibleParts;
+@property(nonatomic) id <MPVideoControllerProtocol> videoViewController; // @synthesize videoViewController=_videoViewController;
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
 @property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
-@property(nonatomic) unsigned int disabledParts; // @synthesize disabledParts=_disabledParts;
-@property(nonatomic) unsigned int desiredParts; // @synthesize desiredParts=_desiredParts;
+@property(nonatomic) unsigned long long disabledParts; // @synthesize disabledParts=_disabledParts;
+@property(nonatomic) unsigned long long desiredParts; // @synthesize desiredParts=_desiredParts;
 @property(nonatomic) id <MPVideoOverlayDelegate> delegate; // @synthesize delegate=_delegate;
 - (double)_playableDuration;
 - (double)_duration;
@@ -46,8 +46,8 @@
 - (void)showAlternateTracks;
 - (void)stopTicking;
 - (void)startTicking;
-- (void)setVisibleParts:(unsigned int)arg1 animate:(BOOL)arg2;
-- (void)setDesiredParts:(unsigned int)arg1 animate:(BOOL)arg2;
+- (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+- (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 @property(nonatomic) BOOL allowsWirelessPlayback;
 - (void)_itemDurationDidChangeNotification:(id)arg1;
 - (void)_tickNotification:(id)arg1;
@@ -59,6 +59,8 @@
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)didMoveToSuperview;
 - (void)layoutSubviews;
+- (void)unregisterForPlayerNotifications;
+- (void)registerForPlayerNotifications;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

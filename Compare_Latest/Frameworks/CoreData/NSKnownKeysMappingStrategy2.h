@@ -10,16 +10,16 @@
 {
 }
 
-- (id)init;
-- (id)initForKeys:(id)arg1;
-- (id)initForKeys:(id *)arg1 count:(unsigned int)arg2;
-- (void)dealloc;
-- (id)_setupForKeys:(id *)arg1 count:(unsigned int)arg2 table:(void *)arg3 inData:(id)arg4;
-- (id)retain;
-- (void)release;
-- (unsigned int)retainCount;
-- (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
+- (BOOL)_isDeallocating;
+- (unsigned int)retainCount;
+- (void)release;
+- (id)retain;
+- (id)_setupForKeys:(id *)arg1 count:(unsigned int)arg2 table:(void *)arg3 inData:(id)arg4;
+- (void)dealloc;
+- (id)initForKeys:(id *)arg1 count:(unsigned int)arg2;
+- (id)initForKeys:(id)arg1;
+- (id)init;
 
 @end
 

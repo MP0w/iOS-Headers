@@ -14,18 +14,23 @@
 {
 }
 
++ (void *)findABPersonByURL:(id)arg1 inAddressBook:(void *)arg2;
 - (void *)ABRecordWithAddressBook:(void *)arg1;
 - (BOOL)isEqualToParticipant:(id)arg1;
 @property(readonly, nonatomic) NSURL *URL;
-- (BOOL)isCurrentUser;
+@property(readonly, nonatomic) BOOL isCurrentUser;
 @property(readonly, nonatomic) int participantRole;
 @property(readonly, nonatomic) int participantStatus;
 @property(readonly, nonatomic) int participantType;
-- (void)setExternalID:(id)arg1;
-- (id)externalID;
+- (void)setLastName:(id)arg1;
+- (id)lastName;
+- (void)setFirstName:(id)arg1;
+- (id)firstName;
+- (void)setAddress:(id)arg1;
+- (id)address;
 - (void)setEmailAddress:(id)arg1;
 - (id)emailAddress;
-- (void)setName:(id)arg1;
+- (void)setDisplayName:(id)arg1;
 @property(readonly, nonatomic) NSString *name;
 - (id)UUID;
 - (id)_persistentItem;

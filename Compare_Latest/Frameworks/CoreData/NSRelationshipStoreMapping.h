@@ -16,19 +16,19 @@
     unsigned int _joinSemantic;
 }
 
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (id)relationship;
-- (id)destinationEntityExternalName;
-- (void)setDestinationEntityExternalName:(id)arg1;
-- (id)foreignKeys;
-- (void)setForeignKeys:(id)arg1;
-- (id)joins;
-- (void)setJoins:(id)arg1;
-- (unsigned int)joinSemantic;
-- (void)setJoinSemantic:(unsigned int)arg1;
-- (id)columnDefinitions;
 - (id)constraintDefinitions;
+- (id)columnDefinitions;
+- (void)setJoinSemantic:(unsigned int)arg1;
+- (unsigned int)joinSemantic;
+- (void)setJoins:(id)arg1;
+- (id)joins;
+- (void)setForeignKeys:(id)arg1;
+- (id)foreignKeys;
+- (void)setDestinationEntityExternalName:(id)arg1;
+- (id)destinationEntityExternalName;
+- (id)relationship;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
 
 @end
 

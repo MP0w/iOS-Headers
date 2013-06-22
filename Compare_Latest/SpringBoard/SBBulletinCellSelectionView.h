@@ -14,10 +14,10 @@
     float _cellSeparatorHeight;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)setCellSeparatorHeight:(float)arg1;
 - (void)layoutSubviews;
+- (void)setCellSeparatorHeight:(float)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

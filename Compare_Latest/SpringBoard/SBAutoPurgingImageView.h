@@ -11,11 +11,11 @@
     id _block;
 }
 
-- (id)initWithBlock:(id)arg1;
-- (id)initWithImageNamed:(id)arg1;
-- (void)dealloc;
-- (void)didMoveToWindow;
 - (void)setImage:(id)arg1;
+- (void)didMoveToWindow;
+- (void)dealloc;
+- (id)initWithImageNamed:(id)arg1;
+- (id)_initWithImageBlock:(id)arg1 andInitialLoadBlock:(void)arg2;
 
 @end
 

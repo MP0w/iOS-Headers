@@ -7,11 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol OADProperties3DParent <NSObject>
-- (id)scene3D;
-- (void)setScene3D:(id)arg1;
-- (BOOL)hasScene3D;
-- (id)shape3D;
-- (void)setShape3D:(id)arg1;
 - (BOOL)hasShape3D;
+- (void)setShape3D:(id)arg1;
+- (id)shape3D;
+- (BOOL)hasScene3D;
+- (void)setScene3D:(id)arg1;
+- (id)scene3D;
 @end
 

@@ -15,25 +15,23 @@
     PSRootController *_parentRootController;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)handleURL:(id)arg1;
-- (id)parentController;
-- (void)setupController;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)pushController:(id)arg1;
-- (void)setParentController:(id)arg1;
-- (id)controller;
-- (void)dismiss;
-- (void)dismissAnimated:(BOOL)arg1;
-- (void)pushControllerOnParentWithSpecifier:(id)arg1;
-- (void)popControllerOnParent;
-- (id)methodSignatureForSelector:(SEL)arg1;
-- (void)forwardInvocation:(id)arg1;
-- (BOOL)usePopupStyle;
-- (BOOL)popupStyleIsModal;
 - (void)statusBarWillChangeHeight:(id)arg1;
+- (BOOL)popupStyleIsModal;
+- (BOOL)usePopupStyle;
+- (void)popControllerOnParent;
+- (void)pushControllerOnParentWithSpecifier:(id)arg1;
+- (void)dismissAnimated:(BOOL)arg1;
+- (void)dismiss;
+- (id)controller;
+- (void)setParentController:(id)arg1;
+- (void)pushController:(id)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)setupController;
+- (id)parentController;
+- (void)handleURL:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

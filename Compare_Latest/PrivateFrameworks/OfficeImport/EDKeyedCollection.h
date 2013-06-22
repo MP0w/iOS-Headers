@@ -13,14 +13,18 @@
     TSUPointerKeyDictionary *mMap;
 }
 
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)addObject:(id)arg1;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
-- (void)removeAllObjects;
 - (id)objectWithKey:(int)arg1;
+- (void)removeAllObjects;
+- (void)removeObjectAtIndex:(unsigned int)arg1;
+- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
+- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (unsigned int)addObject:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (_Bool)isOverwritingKeyOK;
+- (void)removeFromMap:(id)arg1;
+- (void)insertIntoMap:(id)arg1;
+- (_Bool)isObjectInMap:(id)arg1;
 
 @end
 

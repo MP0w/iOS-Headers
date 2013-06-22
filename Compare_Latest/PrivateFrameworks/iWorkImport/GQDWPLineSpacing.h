@@ -15,9 +15,10 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (id)init;
-- (int)mode;
 - (float)amount;
+- (int)mode;
+- (id)init;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

@@ -13,22 +13,22 @@
     UILabel *_displayLabel;
 }
 
-+ (struct CGRect)displayLabelFrameForValueViewFrame:(struct CGRect)arg1 styleProvider:(id)arg2 whenEditing:(BOOL)arg3;
-+ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6 includeRows:(BOOL)arg7;
-+ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6;
-+ (id)displayLabelForReuse;
-+ (void)numberOfLines:(int *)arg1 lineBreakMode:(int *)arg2 forDisplayLabelWithPropertyGroup:(id)arg3 styleProvider:(id)arg4;
 + (void)setupDisplayLabel:(id)arg1 withPropertyGroup:(id)arg2 styleProvider:(id)arg3;
-- (struct CGRect)valueTextRect;
-@property(readonly, nonatomic) NSString *displayText;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)updateSubviewsForNewStateAnimated:(BOOL)arg1;
-- (void)reloadDisplayText;
-- (void)reloadIncludingRows:(BOOL)arg1 includingDisplayView:(BOOL)arg2;
-- (void)reload;
-- (void)reloadFromModelIncludingRows:(BOOL)arg1;
-- (void)reloadFromModel;
++ (void)numberOfLines:(int *)arg1 lineBreakMode:(int *)arg2 forDisplayLabelWithPropertyGroup:(id)arg3 styleProvider:(id)arg4;
++ (id)displayLabelForReuse;
++ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6;
++ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6 includeRows:(BOOL)arg7;
++ (struct CGRect)displayLabelFrameForValueViewFrame:(struct CGRect)arg1 styleProvider:(id)arg2 whenEditing:(BOOL)arg3;
 - (void)setAbCellStyle:(int)arg1;
+- (void)reloadFromModel;
+- (void)reloadFromModelIncludingRows:(BOOL)arg1;
+- (void)reload;
+- (void)reloadIncludingRows:(BOOL)arg1 includingDisplayView:(BOOL)arg2;
+- (void)reloadDisplayText;
+- (void)updateSubviewsForNewStateAnimated:(BOOL)arg1;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+@property(readonly, nonatomic) NSString *displayText;
+- (struct CGRect)valueTextRect;
 
 @end
 

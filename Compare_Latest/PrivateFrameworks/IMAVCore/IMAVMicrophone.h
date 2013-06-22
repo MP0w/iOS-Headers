@@ -15,11 +15,11 @@
 
 - (id)description;
 @property(readonly, nonatomic) NSString *uniqueID;
-- (id)_FTAudioDevice;
+- (id)_AVAudioDevice;
 @property(readonly, nonatomic) NSString *name;
 - (void)dealloc;
 - (id)init;
-- (id)_initWithFTAudioDevice:(id)arg1;
+- (id)_initWithAVAudioDevice:(id)arg1;
 
 @end
 

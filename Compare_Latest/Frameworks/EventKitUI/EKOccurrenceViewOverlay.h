@@ -10,14 +10,20 @@
 {
     BOOL _selected;
     BOOL _tentative;
+    BOOL _needsReply;
     BOOL _dimmed;
 }
 
++ (Class)layerClass;
 @property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
+@property(nonatomic) BOOL needsReply; // @synthesize needsReply=_needsReply;
 @property(nonatomic) BOOL tentative; // @synthesize tentative=_tentative;
 @property(nonatomic) BOOL selected; // @synthesize selected=_selected;
+- (id)_dashedOutlineColor;
+- (id)_timedDashedOutlineWithColor:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (id)_tentativeOutline;
+- (void)displayLayer:(id)arg1;
+- (void)setNeedsDisplay;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

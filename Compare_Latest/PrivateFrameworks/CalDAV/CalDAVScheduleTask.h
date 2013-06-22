@@ -15,14 +15,14 @@
     CalDAVScheduleResponseItem *_scheduleResponse;
 }
 
-- (void)dealloc;
-- (id)initWithOriginator:(id)arg1 attendees:(id)arg2 outboxURL:(id)arg3 payload:(id)arg4;
-- (id)additionalHeaderValues;
-- (id)copyDefaultParserForContentType:(id)arg1;
-- (void)finishCoreDAVTaskWithError:(id)arg1;
 @property(retain) NSArray *attendees; // @synthesize attendees=_attendees;
 @property(retain) NSString *originator; // @synthesize originator=_originator;
 @property(retain) CalDAVScheduleResponseItem *scheduleResponse; // @synthesize scheduleResponse=_scheduleResponse;
+- (void)finishCoreDAVTaskWithError:(id)arg1;
+- (id)copyDefaultParserForContentType:(id)arg1;
+- (id)additionalHeaderValues;
+- (id)initWithOriginator:(id)arg1 attendees:(id)arg2 outboxURL:(id)arg3 payload:(id)arg4;
+- (void)dealloc;
 
 @end
 

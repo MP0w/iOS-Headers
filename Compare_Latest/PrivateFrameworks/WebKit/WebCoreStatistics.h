@@ -10,39 +10,39 @@
 {
 }
 
-+ (id)statistics;
-+ (unsigned long)javaScriptObjectsCount;
-+ (unsigned long)javaScriptGlobalObjectsCount;
-+ (unsigned long)javaScriptProtectedObjectsCount;
-+ (unsigned long)javaScriptProtectedGlobalObjectsCount;
-+ (id)javaScriptProtectedObjectTypeCounts;
-+ (id)javaScriptObjectTypeCounts;
-+ (void)garbageCollectJavaScriptObjects;
-+ (void)garbageCollectJavaScriptObjectsOnAlternateThreadForDebugging:(BOOL)arg1;
-+ (unsigned long)iconPageURLMappingCount;
-+ (unsigned long)iconRetainedPageURLCount;
-+ (unsigned long)iconRecordCount;
-+ (unsigned long)iconsWithDataCount;
-+ (unsigned long)cachedFontDataCount;
-+ (unsigned long)cachedFontDataInactiveCount;
-+ (void)purgeInactiveFontData;
-+ (unsigned long)glyphPageCount;
-+ (BOOL)shouldPrintExceptions;
-+ (void)setShouldPrintExceptions:(BOOL)arg1;
-+ (void)emptyCache;
-+ (void)setCacheDisabled:(BOOL)arg1;
-+ (void)startIgnoringWebCoreNodeLeaks;
-+ (void)stopIgnoringWebCoreNodeLeaks;
-+ (id)memoryStatistics;
-+ (void)returnFreeMemoryToSystem;
-+ (int)cachedPageCount;
-+ (int)cachedFrameCount;
-+ (int)autoreleasedPageCount;
-+ (unsigned long)javaScriptNoGCAllowedObjectsCount;
-+ (unsigned long)javaScriptReferencedObjectsCount;
-+ (id)javaScriptRootObjectClasses;
-+ (unsigned long)javaScriptInterpretersCount;
 + (id)javaScriptRootObjectTypeCounts;
++ (unsigned long)javaScriptInterpretersCount;
++ (id)javaScriptRootObjectClasses;
++ (unsigned long)javaScriptReferencedObjectsCount;
++ (unsigned long)javaScriptNoGCAllowedObjectsCount;
++ (int)autoreleasedPageCount;
++ (int)cachedFrameCount;
++ (int)cachedPageCount;
++ (void)returnFreeMemoryToSystem;
++ (id)memoryStatistics;
++ (void)stopIgnoringWebCoreNodeLeaks;
++ (void)startIgnoringWebCoreNodeLeaks;
++ (void)setCacheDisabled:(BOOL)arg1;
++ (void)emptyCache;
++ (void)setShouldPrintExceptions:(BOOL)arg1;
++ (BOOL)shouldPrintExceptions;
++ (unsigned long)glyphPageCount;
++ (void)purgeInactiveFontData;
++ (unsigned long)cachedFontDataInactiveCount;
++ (unsigned long)cachedFontDataCount;
++ (unsigned long)iconsWithDataCount;
++ (unsigned long)iconRecordCount;
++ (unsigned long)iconRetainedPageURLCount;
++ (unsigned long)iconPageURLMappingCount;
++ (void)garbageCollectJavaScriptObjectsOnAlternateThreadForDebugging:(BOOL)arg1;
++ (void)garbageCollectJavaScriptObjects;
++ (id)javaScriptObjectTypeCounts;
++ (id)javaScriptProtectedObjectTypeCounts;
++ (unsigned long)javaScriptProtectedGlobalObjectsCount;
++ (unsigned long)javaScriptProtectedObjectsCount;
++ (unsigned long)javaScriptGlobalObjectsCount;
++ (unsigned long)javaScriptObjectsCount;
++ (id)statistics;
 
 @end
 

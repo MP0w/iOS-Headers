@@ -7,11 +7,16 @@
 @protocol UIWebPDFViewHandlerDelegate
 
 @optional
-- (void)pdfViewHandler:(id)arg1 linkClicked:(id)arg2;
-- (struct CGRect)frameForPDFViewWithHandler:(id)arg1 proposedFrame:(struct CGRect)arg2;
-- (struct CGPoint)originForPDFPageLabelViewWithHandler:(id)arg1 proposedOrigin:(struct CGPoint)arg2;
-- (id)passwordForPDFViewHandler:(id)arg1;
-- (void)highlightSearchResultBounds:(struct CGRect)arg1 resultRects:(id)arg2 contentViews:(id)arg3 forPDFViewHandler:(id)arg4;
+- (id)alertViewForUIWebPDFViewHandler:(id)arg1;
+- (float)minimumVerticalContentOffsetForPDFViewHandler:(id)arg1;
+- (id)hostViewForLinkSheet:(id)arg1;
+- (id)pdfViewHandler:(id)arg1 actionsForURL:(id)arg2 suggestedActions:(id)arg3;
 - (void)pdfViewHandlerCompletedLayoutAndIsUnlocked:(id)arg1;
+- (void)highlightSearchResultBounds:(struct CGRect)arg1 resultRects:(id)arg2 contentViews:(id)arg3 forPDFViewHandler:(id)arg4;
+- (id)passwordForPDFViewHandler:(id)arg1;
+- (struct CGPoint)originForPDFPageLabelViewWithHandler:(id)arg1 proposedOrigin:(struct CGPoint)arg2;
+- (struct CGRect)frameForPDFViewWithHandler:(id)arg1 proposedFrame:(struct CGRect)arg2;
+- (void)pdfViewHandler:(id)arg1 linkClicked:(id)arg2;
+- (void)pdfViewHandler:(id)arg1 willClickLink:(id)arg2;
 @end
 

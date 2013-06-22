@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
 @interface NSInvocation : NSObject
 {
@@ -17,6 +17,7 @@
 }
 
 + (id)invocationWithMethodSignature:(id)arg1;
++ (id)_invocationWithMethodSignature:(id)arg1 frame:(void *)arg2;
 - (void)invokeWithTarget:(id)arg1;
 - (void)invokeSuper;
 - (void)invokeUsingIMP:(void *)arg1;

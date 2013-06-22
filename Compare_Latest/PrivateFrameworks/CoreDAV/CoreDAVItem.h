@@ -17,8 +17,12 @@
     NSMutableSet *_attributes;
     NSMutableArray *_extraChildItems;
     NSData *_payload;
+    BOOL _useCDATA;
 }
 
++ (id)parseRuleCache;
++ (id)copyParseRules;
+@property BOOL useCDATA; // @synthesize useCDATA=_useCDATA;
 @property(retain) NSData *payload; // @synthesize payload=_payload;
 @property(retain) NSMutableArray *extraChildItems; // @synthesize extraChildItems=_extraChildItems;
 @property(retain) NSMutableSet *attributes; // @synthesize attributes=_attributes;

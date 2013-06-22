@@ -12,6 +12,7 @@
 {
 }
 
+- (BOOL)containsAttachments;
 @property(retain, nonatomic) NSString *externalContentRef;
 @property(retain, nonatomic) NSData *externalRepresentation;
 @property(readonly, nonatomic) BOOL hasValidServerIntId;
@@ -31,6 +32,9 @@
 @property(retain, nonatomic) NSNumber *containsCJK; // @dynamic containsCJK;
 @property(retain, nonatomic) NSNumber *contentType; // @dynamic contentType;
 @property(retain, nonatomic) NSDate *creationDate; // @dynamic creationDate;
+@property(retain, nonatomic) NSNumber *deletedFlag; // @dynamic deletedFlag;
+@property(retain, nonatomic) NSNumber *externalFlags; // @dynamic externalFlags;
+@property(retain, nonatomic) NSNumber *externalServerIntId; // @dynamic externalServerIntId;
 @property(retain, nonatomic) NSString *guid; // @dynamic guid;
 @property(retain, nonatomic) NSNumber *integerId; // @dynamic integerId;
 @property(retain, nonatomic) NSNumber *isBookkeepingEntry; // @dynamic isBookkeepingEntry;

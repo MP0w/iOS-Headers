@@ -26,6 +26,7 @@
     PLExpandableView *_forwardingView;
     unsigned int _itemCount;
     unsigned int _tableViewRowCount;
+    struct _NSRange _pendingRemoveRows;
     id <PLStackViewDelegate> _stackDelegate;
     id <PLStackViewDataSource> _dataSource;
     NSArray *_stackedViews;
@@ -34,6 +35,7 @@
     NSMutableIndexSet *_badgedIndexes;
     UIImage *_badgeImage;
     NSMutableDictionary *_customBadgeImages;
+    unsigned int _unreadStartMarkerIndex;
     UIImage *_placeholder;
     UIImage *_stackedImage;
     PLStackedImageView *_stackedImageView;
@@ -50,6 +52,7 @@
     struct CGSize _collapsedImageSize;
     struct CGSize _expandedImageSize;
     struct CGSize _preferredStackedImageSize;
+    struct CGPoint _collapsedImageOffset;
     struct __CFDictionary *_itemCellsByIndex;
     struct _NSRange _displayedImageIndexes;
     NSIndexSet *_collapsedStackIndexes;
@@ -88,7 +91,10 @@
         unsigned int dragInProgress:1;
         unsigned int dataSourceImplementsDataForImage:1;
         unsigned int dataSourceImplementsTextBadgeStringForImage:1;
-        unsigned int dataSourceImplementsLabelForItem:1;
+        unsigned int dataSourceImplementsImageBadgeForImage:1;
+        unsigned int dataSourceImplementsTitleForItem:1;
+        unsigned int dataSourceImplementsSubtitleForItem:1;
+        unsigned int dataSourceImplementsShowUnreadIndicatorForItem:1;
         unsigned int dataSourceImplementsPreheatImagesInRange:1;
         unsigned int dataSourcePrefersLazyPreheating:1;
         unsigned int dataSourceImplementsEditingOptionsForItemAtIndex:1;
@@ -97,6 +103,7 @@
         unsigned int stackDelegateImplementsShouldSelectItemAtIndex:1;
         unsigned int stackDelegateImplementsShouldEnableItemAtIndex:1;
         unsigned int stackDelegateImplementsSelectionDidChange:1;
+        unsigned int stackDelegateImplementsShouldProcessTap:1;
         unsigned int replaceBitmapWithItemViewCells:1;
         unsigned int dragSelectionState:2;
         unsigned int expansionFractionIsDirty:1;
@@ -117,6 +124,8 @@
 + (id)selectionBadgeImage;
 + (float)maxStackedAngle;
 + (void)initialize;
+@property(nonatomic) struct CGPoint collapsedImageOffset; // @synthesize collapsedImageOffset=_collapsedImageOffset;
+@property(nonatomic) unsigned int unreadStartMarkerIndex; // @synthesize unreadStartMarkerIndex=_unreadStartMarkerIndex;
 @property(nonatomic) PLStackItemViewCell *contextItemCell; // @synthesize contextItemCell=_contextItemCell;
 @property(retain, nonatomic) PLExpandableView *forwardingView; // @synthesize forwardingView=_forwardingView;
 @property(retain, nonatomic) NSString *initialScrollPositionOffsetKey; // @synthesize initialScrollPositionOffsetKey=_initialScrollPositionOffsetKey;
@@ -136,7 +145,7 @@
 - (void)_layoutItemCellsFromIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2 inTableCell:(id)arg3 animated:(BOOL)arg4;
 - (void)pulseItemAtIndex:(unsigned int)arg1 fromZero:(BOOL)arg2 completion:(id)arg3;
 - (void)scrollToVisibleWithMotionBlurItemAtIndex:(unsigned int)arg1;
-- (void)scrollToVisibleItemAtIndex:(unsigned int)arg1 animated:(BOOL)arg2;
+- (void)scrollToVisibleItemAtIndex:(unsigned int)arg1 animated:(BOOL)arg2 completion:(id)arg3;
 @property(readonly, nonatomic) BOOL isScrollingDownward;
 - (id)tableView;
 - (void)_setTableView:(id)arg1;
@@ -175,11 +184,14 @@
 - (void)selectAllNotifyingDelegate:(id)arg1;
 - (void)_setSelectedIndexes:(id)arg1 animated:(BOOL)arg2;
 - (void)_dragSelect:(id)arg1;
+- (void)setFooterView:(id)arg1 animated:(BOOL)arg2;
 @property(nonatomic) BOOL allowsReordering;
 @property(nonatomic, getter=isItemExpansionDuringEditingAllowed) BOOL allowsItemExpansionDuringEditing;
 @property(nonatomic) BOOL allowsSelectionGestures;
 @property(nonatomic) BOOL allowsSelection;
 - (void)setAllowsSelection:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_updateUnreadMarkerForCell:(id)arg1 atIndex:(unsigned int)arg2 animated:(BOOL)arg3;
+- (void)setUnreadStartMarkerIndex:(unsigned int)arg1 animated:(BOOL)arg2;
 @property(retain, nonatomic) UIImage *badgeImage;
 - (void)setCustomBadgeImage:(id)arg1 forItemAtIndex:(unsigned int)arg2;
 - (id)customBadgeForItemAtIndex:(unsigned int)arg1;
@@ -187,7 +199,6 @@
 @property(retain, nonatomic) NSIndexSet *badgedIndexes;
 - (void)_updateBadgesForItemAtIndex:(unsigned int)arg1 animated:(BOOL)arg2;
 - (void)_updateBadgesForOldIndexes:(id)arg1 newIndexes:(id)arg2 animated:(BOOL)arg3;
-- (void)_badgeChangeAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)endEditingCurrentItem;
 - (void)beginEditingItemAtIndex:(unsigned int)arg1 animated:(BOOL)arg2;
 @property(nonatomic) int editAnimation;
@@ -204,6 +215,7 @@
 - (void)stateDidChangeFrom:(int)arg1;
 - (void)stateWillChangeTo:(int)arg1;
 - (void)finishStateTransition;
+- (void)setExpansionFraction:(float)arg1;
 - (float)completeTrackingPinch:(id)arg1 toState:(int)arg2 duration:(double)arg3;
 - (float)continueTrackingPinch:(id)arg1;
 - (void)beginTrackingPinch:(id)arg1;
@@ -223,6 +235,7 @@
 - (struct CGRect)_contractedLayoutBounds;
 - (void)_beginExpansion;
 - (void)_updateDisplayedImageIndexes;
+- (void)_updateExpansionInitialScrollPosition;
 - (void)_imageDidChangeForItemsAtIndexes:(id)arg1;
 - (void)imageDidChangeForItemIndex:(unsigned int)arg1;
 - (struct CGSize)preferredStackedImageSize;
@@ -259,9 +272,7 @@
 - (void)removeItemsAtIndexes:(id)arg1 withItemAnimation:(int)arg2;
 - (void)removeItemsAtIndexes:(id)arg1;
 - (void)insertItemsAtIndexes:(id)arg1;
-- (void)unloadItemAtIndex:(int)arg1;
-- (void)_reloadItemAtIndex:(int)arg1 synchronously:(BOOL)arg2;
-- (void)reloadImagesForItemAtIndex:(int)arg1;
+- (void)unloadItemAtIndex:(int)arg1 hideLabel:(BOOL)arg2;
 - (void)reloadItemAtIndex:(int)arg1;
 - (void)reloadData;
 - (void)_reloadVisibleRows;
@@ -274,7 +285,7 @@
 - (void)_reconfigureViewWithFrame:(struct CGRect)arg1 force:(BOOL)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_calculateLayout;
-- (void)expandWithAnimation:(BOOL)arg1;
+- (void)expandWithAnimation:(BOOL)arg1 completion:(id)arg2;
 - (BOOL)canBecomeFirstResponder;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

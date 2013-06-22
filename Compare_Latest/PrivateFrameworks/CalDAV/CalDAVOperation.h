@@ -15,14 +15,14 @@
     NSMutableSet *_outstandingTaskGroups;
 }
 
-- (id)init;
-- (id)initWithPrincipal:(id)arg1;
-- (void)dealloc;
-- (void)_tearDownAllTaskGroupsWithBlock:(id)arg1;
-- (void)cancelTaskGroup;
-- (void)bailWithError:(id)arg1;
 @property(readonly) NSMutableSet *outstandingTaskGroups; // @synthesize outstandingTaskGroups=_outstandingTaskGroups;
 @property(readonly) id <CalDAVPrincipal> principal; // @synthesize principal=_principal;
+- (void)bailWithError:(id)arg1;
+- (void)cancelTaskGroup;
+- (void)_tearDownAllTaskGroupsWithBlock:(id)arg1;
+- (void)dealloc;
+- (id)initWithPrincipal:(id)arg1;
+- (id)init;
 
 @end
 

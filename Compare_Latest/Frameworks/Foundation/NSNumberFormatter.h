@@ -20,6 +20,8 @@
 + (void)initialize;
 + (void)setDefaultFormatterBehavior:(unsigned int)arg1;
 + (unsigned int)defaultFormatterBehavior;
+- (void)_setUsesCharacterDirection:(BOOL)arg1;
+- (BOOL)_usesCharacterDirection;
 - (void)setPartialStringValidationEnabled:(BOOL)arg1;
 - (BOOL)isPartialStringValidationEnabled;
 - (void)setMaximumSignificantDigits:(unsigned int)arg1;
@@ -147,6 +149,7 @@
 - (id)init;
 - (void *)__Keynote_NOOP;
 - (void)_regenerateFormatter;
+- (void)_clearFormatter;
 
 @end
 

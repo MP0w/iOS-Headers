@@ -7,9 +7,9 @@
 #import "NSMutableData.h"
 
 @interface NSMutableData (NSDataUtils)
-- (void)mf_appendCString:(const char *)arg1;
-- (void)mf_convertNetworkLineEndingsToUnixInRange:(struct _NSRange)arg1;
-- (void)mf_convertNetworkLineEndingsToUnix;
 - (void)mf_makeImmutable;
+- (void)mf_convertNetworkLineEndingsToUnix;
+- (void)mf_convertNetworkLineEndingsToUnixInRange:(struct _NSRange)arg1;
+- (void)mf_appendCString:(const char *)arg1;
 @end
 

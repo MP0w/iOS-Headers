@@ -6,28 +6,35 @@
 
 #import "NSObject.h"
 
+#import "UIActionSheetDelegate-Protocol.h"
+
 @class UIActionSheet;
 
-@interface CKActionSheetManager : NSObject
+@interface CKActionSheetManager : NSObject <UIActionSheetDelegate>
 {
     UIActionSheet *_actionSheet;
     id _handler;
     id _presenter;
+    BOOL _performBeforeAnimation;
     BOOL _dismissingActionSheetForRotation;
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)showActionSheet:(id)arg1 withPresenter:(id)arg2 withHandler:(void)arg3;
-- (void)dismissCurrentActionSheet;
-- (void)willStartRotating;
-- (void)didFinishRotating;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+@property(nonatomic) BOOL performBeforeAnimation; // @synthesize performBeforeAnimation=_performBeforeAnimation;
 @property(retain, nonatomic) UIActionSheet *actionSheet; // @synthesize actionSheet=_actionSheet;
 @property(copy, nonatomic) id presenter; // @synthesize presenter=_presenter;
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)dismissActionSheet:(id)arg1 withButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(int)arg2;
+- (void)didFinishRotating;
+- (void)willStartRotating;
+- (void)dismissCurrentActionSheet;
+- (void)showActionSheet:(id)arg1 withPresenter:(id)arg2 performBeforeAnimation:(void)arg3 withHandler:(BOOL)arg4;
+- (void)showActionSheet:(id)arg1 withPresenter:(id)arg2 withHandler:(void)arg3;
+- (void)dealloc;
+- (id)init;
 
 @end
 

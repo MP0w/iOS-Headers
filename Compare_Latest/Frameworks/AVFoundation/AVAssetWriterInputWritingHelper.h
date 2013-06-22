@@ -19,12 +19,13 @@
 @property(readonly, nonatomic, getter=_assetWriterTrack) AVFigAssetWriterTrack *assetWriterTrack; // @synthesize assetWriterTrack=_assetWriterTrack;
 - (struct __CVPixelBufferPool *)pixelBufferPool;
 - (void)transitionToTerminalStatus:(int)arg1;
+- (int)trackID;
 - (void)markAsFinished;
 - (BOOL)prepareToFinishWritingReturningError:(id *)arg1;
 - (void)prepareToEndSession;
 - (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
 - (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
-- (void)requestMediaDataWhenReadyOnQueue:(struct dispatch_queue_s *)arg1 usingBlock:(id)arg2;
+- (void)requestMediaDataWhenReadyOnQueue:(id)arg1 usingBlock:(id)arg2;
 - (BOOL)isReadyForMoreMediaData;
 - (int)status;
 - (void)finalize;

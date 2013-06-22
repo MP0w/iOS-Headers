@@ -20,6 +20,7 @@
 - (void)makeError:(id *)arg1 withDescription:(id)arg2 code:(long)arg3;
 - (BOOL)setAttribute:(id)arg1 forKey:(id)arg2 error:(id *)arg3;
 - (id)attributeForKey:(id)arg1;
+- (BOOL)allowUserToExceedEUVolumeLimit;
 - (BOOL)currentRouteHasVolumeControl;
 - (id)pickableRoutesForCategory:(id)arg1;
 - (id)volumeCategoryForAudioCategory:(id)arg1;

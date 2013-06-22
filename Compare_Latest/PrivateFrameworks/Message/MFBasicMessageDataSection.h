@@ -18,11 +18,11 @@
     NSString *_partName;
 }
 
-- (void)dealloc;
 @property(retain, nonatomic) NSString *partName; // @synthesize partName=_partName;
 @property(nonatomic, getter=isComplete) BOOL complete; // @synthesize complete=_complete;
 @property(nonatomic, getter=isPartial) BOOL partial; // @synthesize partial=_partial;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
+- (void)dealloc;
 
 @end
 

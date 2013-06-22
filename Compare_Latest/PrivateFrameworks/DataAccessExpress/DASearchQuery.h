@@ -14,7 +14,7 @@
     NSString *_searchString;
     struct _NSRange _range;
     int _timeLimit;
-    unsigned int _searchID;
+    NSString *_searchID;
     id <DASearchQueryConsumer> _consumer;
 }
 
@@ -24,7 +24,7 @@
 @property int timeLimit; // @synthesize timeLimit=_timeLimit;
 @property struct _NSRange range; // @synthesize range=_range;
 @property(readonly) NSString *searchString; // @synthesize searchString=_searchString;
-@property unsigned int searchID; // @synthesize searchID=_searchID;
+@property(copy) NSString *searchID; // @synthesize searchID=_searchID;
 @property unsigned int maxResults;
 - (id)dictionaryRepresentation;
 - (void)sendFinishedToConsumerWithError:(id)arg1;

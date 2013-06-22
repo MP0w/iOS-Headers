@@ -6,33 +6,80 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class AVAudioSessionRouteDescription, NSString;
 
 @interface AVAudioSession : NSObject
 {
     void *_impl;
 }
 
++ (id)allocWithZone:(struct _NSZone *)arg1;
++ (void)privateAllocInitSingleton;
 + (id)sharedInstance;
+- (void)privateUpdateDataSources:(id)arg1 forInput:(BOOL)arg2;
+- (void)privateUpdateInputGain:(id)arg1;
+- (void)privateUpdatePromptStyle:(id)arg1;
+- (void)privateUpdateOutputVolume:(id)arg1;
+- (BOOL)privateSetPropertyValue:(unsigned long)arg1 withBool:(BOOL)arg2 error:(id *)arg3;
+- (void)privateHandleServerDied;
+- (void)privateMarkKVOPropertiesDirty;
+- (void)privateHandlePromptStyleChange:(id)arg1;
+- (void)privateHandleOutputDataSourcesChange:(id)arg1;
+- (void)privateHandleInputDataSourcesChange:(id)arg1;
+- (void)privateHandleOutputVolumeChange:(id)arg1;
+- (void)privateHandleInputGainChange:(id)arg1;
 - (void)privateEndInterruptionWithFlags:(id)arg1;
-- (void)privateEndInterruption;
 - (void)privateBeginInterruption;
 - (void)privateInputIsAvailableChanged:(id)arg1;
-- (BOOL)setMode:(id)arg1 error:(id *)arg2;
-@property(readonly) NSString *mode; // @dynamic mode;
-@property(readonly) int currentHardwareOutputNumberOfChannels; // @dynamic currentHardwareOutputNumberOfChannels;
-@property(readonly) int currentHardwareInputNumberOfChannels; // @dynamic currentHardwareInputNumberOfChannels;
-@property(readonly) double preferredIOBufferDuration; // @dynamic preferredIOBufferDuration;
-@property(readonly) double preferredHardwareSampleRate; // @dynamic preferredHardwareSampleRate;
-@property(readonly) double currentHardwareSampleRate; // @dynamic currentHardwareSampleRate;
-@property(readonly) BOOL inputIsAvailable; // @dynamic inputIsAvailable;
-- (BOOL)setPreferredIOBufferDuration:(double)arg1 error:(id *)arg2;
+- (double)preferredHardwareSampleRate;
+- (int)currentHardwareOutputNumberOfChannels;
+- (int)currentHardwareInputNumberOfChannels;
+- (double)currentHardwareSampleRate;
+- (BOOL)inputIsAvailable;
 - (BOOL)setPreferredHardwareSampleRate:(double)arg1 error:(id *)arg2;
 - (BOOL)setActive:(BOOL)arg1 withFlags:(int)arg2 error:(id *)arg3;
+- (void)setDelegate:(id)arg1;
+- (id)delegate;
+@property(readonly) AVAudioSessionRouteDescription *currentRoute;
+- (BOOL)overrideOutputAudioPort:(unsigned int)arg1 error:(id *)arg2;
+- (BOOL)setMode:(id)arg1 error:(id *)arg2;
+@property(readonly) NSString *mode;
+- (int)outputNumberOfChannels;
+- (int)inputNumberOfChannels;
+- (double)preferredIOBufferDuration;
+- (double)preferredSampleRate;
+- (double)IOBufferDuration;
+- (double)outputLatency;
+- (double)inputLatency;
+- (double)sampleRate;
+@property(readonly, getter=isOtherAudioPlaying) BOOL otherAudioPlaying;
+- (BOOL)isInputAvailable;
+- (BOOL)isInputGainSettable;
+- (id)outputDataSource;
+- (id)outputDataSources;
+- (id)inputDataSource;
+- (id)inputDataSources;
+- (id)privateGetDataSources:(BOOL)arg1;
+- (float)inputGain;
+- (unsigned int)promptStyle;
+- (float)outputVolume;
+- (BOOL)setOutputDataSource:(id)arg1 error:(id *)arg2;
+- (BOOL)setInputDataSource:(id)arg1 error:(id *)arg2;
+- (BOOL)setInputGain:(float)arg1 error:(id *)arg2;
+- (BOOL)setPreferredIOBufferDuration:(double)arg1 error:(id *)arg2;
+- (BOOL)setPreferredSampleRate:(double)arg1 error:(id *)arg2;
+- (BOOL)setActive:(BOOL)arg1 withOptions:(unsigned int)arg2 error:(id *)arg3;
 - (BOOL)setActive:(BOOL)arg1 error:(id *)arg2;
+- (BOOL)setCategory:(id)arg1 withOptions:(unsigned int)arg2 error:(id *)arg3;
 - (BOOL)setCategory:(id)arg1 error:(id *)arg2;
-@property(readonly) NSString *category; // @dynamic category;
-@property id <AVAudioSessionDelegate> delegate; // @dynamic delegate;
+@property(readonly) unsigned int categoryOptions;
+@property(readonly) NSString *category;
+- (id)autorelease;
+- (oneway void)release;
+- (unsigned int)retainCount;
+- (id)retain;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

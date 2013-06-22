@@ -10,7 +10,7 @@
 - (void)downloadQueue:(id)arg1 changedWithRemovals:(id)arg2;
 
 @optional
-- (void)downloadQueue:(id)arg1 downloadStatusChangedAtIndex:(int)arg2;
 - (void)downloadQueueNetworkUsageChanged:(id)arg1;
+- (void)downloadQueue:(id)arg1 downloadStatusChangedAtIndex:(int)arg2;
 @end
 

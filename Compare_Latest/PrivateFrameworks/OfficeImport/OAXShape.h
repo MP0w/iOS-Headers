@@ -10,9 +10,9 @@
 {
 }
 
-+ (void)readCoreFromXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 toShape:(id)arg3 drawingState:(id)arg4;
-+ (void)readNonVisualShapeProperties:(struct _xmlNode *)arg1 nodeName:(const char *)arg2 inNamespace:(id)arg3 shapeProperties:(id)arg4;
 + (id)readFromXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 drawingState:(id)arg3;
++ (void)readNonVisualShapeProperties:(struct _xmlNode *)arg1 nodeName:(const char *)arg2 inNamespace:(id)arg3 shapeProperties:(id)arg4;
++ (void)readCoreFromXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 toShape:(id)arg3 drawingState:(id)arg4;
 
 @end
 

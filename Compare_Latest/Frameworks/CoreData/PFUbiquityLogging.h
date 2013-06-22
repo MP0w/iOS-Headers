@@ -10,10 +10,11 @@
 {
 }
 
-+ (void)initialize;
 + (BOOL)canLogMessageAtLevel:(int)arg1;
-- (id)init;
++ (void)setLoggingLevel:(int)arg1;
++ (void)initialize;
 - (void)dealloc;
+- (id)init;
 
 @end
 

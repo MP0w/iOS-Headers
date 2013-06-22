@@ -52,6 +52,11 @@ struct UIEdgeInsets {
     float right;
 };
 
+struct UIOffset {
+    float _field1;
+    float _field2;
+};
+
 struct _NSRange {
     unsigned int _field1;
     unsigned int _field2;

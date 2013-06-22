@@ -12,10 +12,11 @@
     struct CGPoint mTo;
 }
 
-- (struct CGPoint)from;
-- (void)setFrom:(struct CGPoint)arg1;
-- (struct CGPoint)to;
+- (id).cxx_construct;
 - (void)setTo:(struct CGPoint)arg1;
+- (struct CGPoint)to;
+- (void)setFrom:(struct CGPoint)arg1;
+- (struct CGPoint)from;
 
 @end
 

@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSError, SSDownloadPhase;
 
-@interface SSDownloadStatus : NSObject <SSCoding, NSCopying>
+@interface SSDownloadStatus : NSObject <SSXPCCoding, NSCopying>
 {
     SSDownloadPhase *_activePhase;
     BOOL _contentRestricted;
@@ -25,17 +25,15 @@
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic, getter=isContentRestricted) BOOL contentRestricted; // @synthesize contentRestricted=_contentRestricted;
 @property(readonly, nonatomic) SSDownloadPhase *activePhase; // @synthesize activePhase=_activePhase;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setPercentComplete:(float)arg1;
 @property(nonatomic, getter=isPausable) BOOL pausable;
 - (void)setOperationType:(int)arg1;
 - (void)setOperationProgress:(id)arg1;
 @property(readonly, nonatomic) float percentComplete;
 @property(readonly, nonatomic, getter=isFailedTransient) BOOL failedTransient;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
 - (void)dealloc;
 
 @end

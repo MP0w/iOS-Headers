@@ -11,17 +11,21 @@
 @interface CNFHUDButtonContentView : UIView
 {
     UIImageView *_imageView;
+    UIView *_titleView;
     UILabel *_titleLabel;
     int _orientation;
+    float _titleInset;
 }
 
-- (id)initWithTitle:(id)arg1 image:(id)arg2;
-- (void)dealloc;
+@property(nonatomic) float titleInset; // @synthesize titleInset=_titleInset;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
+- (void)layoutSubviews;
+- (struct CGPoint)_updatedCenter:(struct CGPoint)arg1 forBounds:(struct CGRect)arg2;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)dealloc;
+- (id)initWithTitle:(id)arg1 image:(id)arg2;
 
 @end
 

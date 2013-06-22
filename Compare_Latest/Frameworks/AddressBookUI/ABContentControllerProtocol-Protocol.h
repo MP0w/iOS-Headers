@@ -5,7 +5,7 @@
  */
 
 @protocol ABContentControllerProtocol
-- (void)back:(BOOL)arg1 save:(BOOL)arg2;
 - (void)reload;
+- (void)back:(BOOL)arg1 save:(BOOL)arg2;
 @end
 

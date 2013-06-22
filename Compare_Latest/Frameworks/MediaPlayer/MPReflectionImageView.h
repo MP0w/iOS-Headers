@@ -6,7 +6,7 @@
 
 #import "_UIReflectingView.h"
 
-@class UIImageView;
+@class UIImage, UIImageView;
 
 @interface MPReflectionImageView : _UIReflectingView
 {
@@ -16,9 +16,10 @@
 
 + (float)defaultReflectionHeight;
 @property(nonatomic) BOOL squareImage; // @synthesize squareImage=_squareImage;
+@property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 - (void)setReflectionVisible:(BOOL)arg1 withDuration:(float)arg2;
 - (void)setFrame:(struct CGRect)arg1 withReflectionHeight:(float)arg2;
-- (void)setAlbumArtImage:(id)arg1;
+@property(retain, nonatomic) UIImage *image;
 - (void)setAlbumVisible:(BOOL)arg1 reflectionVisible:(BOOL)arg2;
 - (id)albumArtImage;
 - (void)dealloc;

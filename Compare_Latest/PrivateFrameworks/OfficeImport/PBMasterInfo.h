@@ -12,25 +12,25 @@
 {
     PDSlideMaster *mSlideMaster;
     NSMutableArray *mTgtSlideLayoutArray;
-    unsigned int mMainPbRef;
-    unsigned int mTitlePbRef;
+    unsigned long mMainPbRef;
+    unsigned long mTitlePbRef;
     NSDictionary *mLayoutMap;
     ChVector_b45fc7a7 *mSrcTextStyling;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)setSlideMaster:(id)arg1;
-- (id)slideMaster;
-- (void)setMainPbRef:(unsigned long)arg1;
-- (unsigned long)mainPbRef;
-- (void)setTitlePbRef:(unsigned long)arg1;
-- (unsigned long)titlePbRef;
-- (void)cacheTargetLayoutType:(int)arg1;
-- (id)allTargetLayoutTypes;
-- (void)cacheSlideLayouts;
-- (id)slideLayoutForSlideHolder:(id)arg1;
 - (ChVector_b45fc7a7 *)sourceTextStyling;
+- (id)slideLayoutForSlideHolder:(id)arg1;
+- (void)cacheSlideLayouts;
+- (id)allTargetLayoutTypes;
+- (void)cacheTargetLayoutType:(int)arg1;
+- (unsigned long)titlePbRef;
+- (void)setTitlePbRef:(unsigned long)arg1;
+- (unsigned long)mainPbRef;
+- (void)setMainPbRef:(unsigned long)arg1;
+- (id)slideMaster;
+- (void)setSlideMaster:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -43,6 +43,7 @@
 @property(readonly, nonatomic) float actualFontSize; // @synthesize actualFontSize=_actualFontSize;
 @property(nonatomic) float minimumFontSize; // @synthesize minimumFontSize=_minimumFontSize;
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
+- (id)attributesDictionary:(BOOL)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (int)ellipsisStyle;
 - (float)letterSpacing;

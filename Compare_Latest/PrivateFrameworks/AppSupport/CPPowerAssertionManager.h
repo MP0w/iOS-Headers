@@ -20,20 +20,20 @@
 }
 
 + (id)sharedInstance;
-@property(readonly) NSString *uuid; // @synthesize uuid=_uuid;
-- (unsigned int)retainCountForContext:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (void)setUUIDPrefix:(id)arg1;
-- (void)retainPowerAssertionWithContext:(id)arg1;
-- (void)retainPowerAssertionWithContext:(id)arg1 withGroupIdentifier:(id)arg2;
-- (void)releasePowerAssertionWithContext:(id)arg1;
-- (id)description;
-- (void)temporarilyReleasePowerAssertionsForGroupIdentifier:(id)arg1;
-- (void)reretainPowerAssertionsForGroupIdentifier:(id)arg1;
-- (void)_retainAssertions;
-- (void)_releaseAssertions;
 @property id <CPPowerAssertionManagerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_releaseAssertions;
+- (void)_retainAssertions;
+- (void)reretainPowerAssertionsForGroupIdentifier:(id)arg1;
+- (void)temporarilyReleasePowerAssertionsForGroupIdentifier:(id)arg1;
+- (id)description;
+- (void)releasePowerAssertionWithContext:(id)arg1;
+- (void)retainPowerAssertionWithContext:(id)arg1 withGroupIdentifier:(id)arg2;
+- (void)retainPowerAssertionWithContext:(id)arg1;
+- (void)setUUIDPrefix:(id)arg1;
+- (void)dealloc;
+- (id)init;
+- (unsigned int)retainCountForContext:(id)arg1;
+@property(readonly) NSString *uuid; // @synthesize uuid=_uuid;
 
 @end
 

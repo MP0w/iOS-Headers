@@ -20,27 +20,27 @@
     NSData *_lastCropRectChecksum;
 }
 
-- (void)setLocalRecordHasAdditionalProperties:(BOOL)arg1;
-- (id)initWithData:(id)arg1;
-- (void)dealloc;
-- (id)genericLabel;
-- (id)defaultLabel;
-- (id)defaultADRLabel;
-- (id)defaultURLLabel;
-- (BOOL)parseUID;
-- (BOOL)_handleUnknownTag:(id)arg1 withValue:(id)arg2;
-- (BOOL)importToPerson:(void *)arg1 removeExistingProperties:(BOOL)arg2;
-- (BOOL)importToGroup:(void *)arg1 removeExistingProperties:(BOOL)arg2;
-- (void *)createRecordInSource:(void *)arg1 outRecordType:(unsigned int *)arg2;
-- (void)noteLackOfValueForProperty:(unsigned int)arg1;
-- (void)noteLackOfValueForImageData;
-- (void)cleanUpCardState;
 @property(readonly) NSData *lastCropRectChecksum; // @synthesize lastCropRectChecksum=_lastCropRectChecksum;
 @property(readonly) int lastCropRectHeight; // @synthesize lastCropRectHeight=_lastCropRectHeight;
 @property(readonly) int lastCropRectWidth; // @synthesize lastCropRectWidth=_lastCropRectWidth;
 @property(readonly) int lastCropRectY; // @synthesize lastCropRectY=_lastCropRectY;
 @property(readonly) int lastCropRectX; // @synthesize lastCropRectX=_lastCropRectX;
 @property(readonly) BOOL localRecordHasAdditionalProperties; // @synthesize localRecordHasAdditionalProperties=_localRecordHasAdditionalProperties;
+- (void)cleanUpCardState;
+- (void)noteLackOfValueForImageData;
+- (void)noteLackOfValueForProperty:(unsigned int)arg1;
+- (void *)createRecordInSource:(void *)arg1 outRecordType:(unsigned int *)arg2;
+- (BOOL)importToGroup:(void *)arg1 removeExistingProperties:(BOOL)arg2;
+- (BOOL)importToPerson:(void *)arg1 removeExistingProperties:(BOOL)arg2;
+- (BOOL)_handleUnknownTag:(id)arg1 withValue:(id)arg2;
+- (BOOL)parseUID;
+- (id)defaultURLLabel;
+- (id)defaultADRLabel;
+- (id)defaultLabel;
+- (id)genericLabel;
+- (void)dealloc;
+- (id)initWithData:(id)arg1;
+- (void)setLocalRecordHasAdditionalProperties:(BOOL)arg1;
 
 @end
 

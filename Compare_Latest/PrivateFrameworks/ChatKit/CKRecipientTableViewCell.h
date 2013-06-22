@@ -6,20 +6,15 @@
 
 #import "MFRecipientTableViewCell.h"
 
-@class UIImageView;
-
 @interface CKRecipientTableViewCell : MFRecipientTableViewCell
 {
-    UIImageView *_availableIcon;
     BOOL _recipientAvailable;
 }
 
-+ (id)cellForRecipient:(id)arg1;
-+ (id)availableImage;
 + (id)highlightedAvailableImage;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
++ (id)availableImage;
++ (id)cellForRecipient:(id)arg1;
 @property(nonatomic, getter=isRecipientAvailable) BOOL recipientAvailable; // @synthesize recipientAvailable=_recipientAvailable;
-- (void)dealloc;
 
 @end
 

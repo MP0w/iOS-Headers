@@ -13,16 +13,18 @@
     EKEventStore *_store;
     EKCalendarChooser *_chooser;
     EKCalendar *_selectedCalendar;
-    int _entityType;
+    unsigned int _entityType;
+    BOOL _limitToSource;
 }
 
+@property(nonatomic) BOOL limitToSource; // @synthesize limitToSource=_limitToSource;
 @property(retain, nonatomic) EKCalendar *selectedCalendar;
 - (void)viewDidUnload;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2 styleProvider:(id)arg3;
-- (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2 styleProvider:(id)arg3 entityType:(int)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2 styleProvider:(id)arg3 entityType:(unsigned int)arg4;
 
 @end
 

@@ -11,9 +11,9 @@
     struct TileGrid *_tileGrid;
 }
 
-- (id)initWithTileGrid:(struct TileGrid *)arg1;
-- (id)actionForKey:(id)arg1;
 - (void)renderInContext:(struct CGContext *)arg1;
+- (id)actionForKey:(id)arg1;
+- (id)initWithTileGrid:(struct TileGrid *)arg1;
 
 @end
 

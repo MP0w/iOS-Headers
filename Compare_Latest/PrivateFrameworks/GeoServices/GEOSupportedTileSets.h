@@ -14,6 +14,9 @@
 }
 
 @property(retain, nonatomic) NSMutableArray *tileSets; // @synthesize tileSets=_tileSets;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
@@ -21,6 +24,7 @@
 - (id)tileSetAtIndex:(unsigned int)arg1;
 - (unsigned int)tileSetsCount;
 - (void)addTileSet:(id)arg1;
+- (void)clearTileSets;
 - (void)dealloc;
 
 @end

@@ -7,18 +7,16 @@
 #import "NSObject.h"
 
 #import "ISStoreURLOperationDelegate-Protocol.h"
-#import <iTunesStoreUI/SUWebViewDelegate-Protocol.h>
+#import "SUWebViewDelegate-Protocol.h"
 
 @class ISStoreURLOperation, SUWebView;
 
 @interface SUScriptExecutionContext : NSObject <ISStoreURLOperationDelegate, SUWebViewDelegate>
 {
     ISStoreURLOperation *_loadOperation;
-    BOOL _sourceIsTrusted;
     SUWebView *_webView;
 }
 
-@property(nonatomic) BOOL sourceIsTrusted; // @synthesize sourceIsTrusted=_sourceIsTrusted;
 - (id)_webView;
 - (id)_newLoadOperation;
 - (void)_cancelLoadOperation;

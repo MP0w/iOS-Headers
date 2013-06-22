@@ -16,13 +16,13 @@
     NSString *_localPeerID;
 }
 
-- (id)initWithLocalPeerID:(id)arg1;
-- (void)dealloc;
-- (id)description;
-- (id)storeExportContextForStoreName:(id)arg1;
-- (id)storeExportContextForStore:(id)arg1;
 @property(retain, nonatomic) NSSet *storesToExportFrom; // @synthesize storesToExportFrom=_storesToExportFrom;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
+- (id)storeExportContextForStore:(id)arg1;
+- (id)storeExportContextForStoreName:(id)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)initWithLocalPeerID:(id)arg1;
 
 @end
 

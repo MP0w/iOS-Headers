@@ -9,13 +9,18 @@
 @interface UIStatusBarCorners : UIView
 {
     int _cornerStyle;
+    int _cornerAlignment;
+    UIView *_leftCorner;
+    UIView *_rightCorner;
 }
 
 + (float)cornerRadius;
-- (void)_addCornersForAlignment:(int)arg1 style:(int)arg2;
+- (void)layoutSubviews;
+- (void)setFrame:(struct CGRect)arg1;
 - (id)_imageForCornerWithStyle:(int)arg1;
 - (int)cornerStyle;
-- (id)initForOrientation:(int)arg1 alignment:(int)arg2 style:(int)arg3;
+- (void)dealloc;
+- (id)initForAlignment:(int)arg1 style:(int)arg2;
 
 @end
 

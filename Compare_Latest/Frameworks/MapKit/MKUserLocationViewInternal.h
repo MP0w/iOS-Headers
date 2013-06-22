@@ -34,7 +34,6 @@
         unsigned int enforceLowerBound:1;
         unsigned int shouldDisplayHalo:1;
         unsigned int shouldDisplayEffects:1;
-        unsigned int effectsVisible:1;
         unsigned int shouldDisplayAccuracy:1;
         unsigned int shouldDisplayHeading:1;
         unsigned int stale:1;
@@ -51,7 +50,7 @@
 + (struct CGSize)effectsSize;
 + (id)haloImages;
 + (id)bounceImageRects;
-+ (float)accuracyDiameter:(float)arg1 level:(unsigned int)arg2;
++ (float)accuracyDiameter:(float)arg1;
 + (id)headingAngleLargeImage;
 + (id)headingAngleMediumImage;
 + (id)headingAngleSmallImage;
@@ -59,7 +58,6 @@
 + (id)greyDotImage;
 + (id)dotPressedImage;
 + (id)dotImage;
-+ (void)initialize;
 @property(nonatomic) int zoomDirection; // @synthesize zoomDirection;
 @property(nonatomic) unsigned int mapType; // @synthesize mapType;
 @property(nonatomic) double headingAccuracy; // @synthesize headingAccuracy;
@@ -115,7 +113,6 @@
 - (BOOL)isZooming;
 @property(nonatomic) BOOL shouldDisplayHeading;
 @property(nonatomic) BOOL shouldDisplayAccuracy;
-@property(nonatomic) BOOL effectsVisible;
 @property(nonatomic) BOOL shouldDisplayEffects;
 @property(nonatomic) BOOL shouldDisplayHalo;
 @property(nonatomic, getter=isStale) BOOL stale;
@@ -126,6 +123,14 @@
 - (void)removeSublayers;
 - (void)setContentsScale:(float)arg1;
 - (id)initWithView:(id)arg1;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)animationDidStart:(id)arg1;
+- (id)actionForLayer:(id)arg1 forKey:(id)arg2;
+- (id)haloAnimation;
+@property(readonly, nonatomic) MKHoverAnimation *hoverAnimation;
+- (id)dotBounceAnimation;
+- (id)accuracyAnimation;
+@property(readonly, nonatomic) MKUserLocationPositionAnimation *positionAnimation;
 
 @end
 

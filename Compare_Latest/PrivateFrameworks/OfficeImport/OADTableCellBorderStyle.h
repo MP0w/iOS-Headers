@@ -20,29 +20,29 @@
     OADStroke *mBottomLeftToTopRightStroke;
 }
 
-+ (id)defaultAxisParallelStroke;
-+ (id)defaultObliqueStroke;
 + (id)defaultStyle;
-- (void)dealloc;
-- (id)stroke:(int)arg1;
-- (id)leftStroke;
-- (void)setLeftStroke:(id)arg1;
-- (id)rightStroke;
-- (void)setRightStroke:(id)arg1;
-- (id)topStroke;
-- (void)setTopStroke:(id)arg1;
-- (id)bottomStroke;
-- (void)setBottomStroke:(id)arg1;
-- (id)horzInsideStroke;
-- (void)setHorzInsideStroke:(id)arg1;
-- (id)vertInsideStroke;
-- (void)setVertInsideStroke:(id)arg1;
-- (id)topLeftToBottomRightStroke;
-- (void)setTopLeftToBottomRightStroke:(id)arg1;
-- (id)bottomLeftToTopRightStroke;
-- (void)setBottomLeftToTopRightStroke:(id)arg1;
-- (id)shallowCopy;
++ (id)defaultObliqueStroke;
++ (id)defaultAxisParallelStroke;
 - (void)applyOverridesFrom:(id)arg1;
+- (id)shallowCopy;
+- (void)setBottomLeftToTopRightStroke:(id)arg1;
+- (id)bottomLeftToTopRightStroke;
+- (void)setTopLeftToBottomRightStroke:(id)arg1;
+- (id)topLeftToBottomRightStroke;
+- (void)setVertInsideStroke:(id)arg1;
+- (id)vertInsideStroke;
+- (void)setHorzInsideStroke:(id)arg1;
+- (id)horzInsideStroke;
+- (void)setBottomStroke:(id)arg1;
+- (id)bottomStroke;
+- (void)setTopStroke:(id)arg1;
+- (id)topStroke;
+- (void)setRightStroke:(id)arg1;
+- (id)rightStroke;
+- (void)setLeftStroke:(id)arg1;
+- (id)leftStroke;
+- (id)stroke:(int)arg1;
+- (void)dealloc;
 
 @end
 

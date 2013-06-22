@@ -12,18 +12,19 @@
 {
 }
 
-- (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;
-- (void)CA_prepareRenderValue;
-@property(copy) NSString *calculationMode;
-@property(copy) NSArray *keyTimes;
-@property(copy) NSArray *timingFunctions;
-@property(copy) NSArray *values;
-@property struct CGPath *path;
-- (void)applyForTime:(double)arg1 presentationObject:(id)arg2 modelObject:(id)arg3;
-@property(copy) NSArray *tensionValues;
-@property(copy) NSArray *continuityValues;
-@property(copy) NSArray *biasValues;
 @property(copy) NSString *rotationMode;
+@property(copy) NSArray *biasValues;
+@property(copy) NSArray *continuityValues;
+@property(copy) NSArray *tensionValues;
+- (void)applyForTime:(double)arg1 presentationObject:(id)arg2 modelObject:(id)arg3;
+@property struct CGPath *path;
+@property(copy) NSArray *values;
+@property(copy) NSArray *timingFunctions;
+@property(copy) NSArray *keyTimes;
+@property(copy) NSString *calculationMode;
+- (void)CA_prepareRenderValue;
+- (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;
+- (BOOL)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
 
 @end
 

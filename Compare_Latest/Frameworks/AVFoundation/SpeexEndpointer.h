@@ -28,6 +28,7 @@
 - (BOOL)configureWithSampleRate:(double)arg1 andFrameRate:(unsigned long)arg2;
 - (void)dealloc;
 - (id)init;
+- (int)getStatus:(float *)arg1 count:(unsigned long)arg2;
 
 @end
 

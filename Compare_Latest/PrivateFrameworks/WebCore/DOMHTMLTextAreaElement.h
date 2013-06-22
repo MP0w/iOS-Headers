@@ -12,38 +12,47 @@
 {
 }
 
-@property(copy) NSString *defaultValue;
-@property(readonly, retain) DOMHTMLFormElement *form;
-- (id)validity;
-@property(copy) NSString *accessKey;
-@property int cols;
-@property BOOL disabled;
-@property BOOL autofocus;
-- (int)maxLength;
-- (void)setMaxLength:(int)arg1;
-@property(copy) NSString *name;
-- (id)placeholder;
-- (void)setPlaceholder:(id)arg1;
-@property BOOL readOnly;
-- (BOOL)required;
-- (void)setRequired:(BOOL)arg1;
-@property int rows;
-@property(readonly, copy) NSString *type;
-@property(copy) NSString *value;
-- (unsigned int)textLength;
-@property(readonly) BOOL willValidate;
-- (id)validationMessage;
-@property int selectionStart;
-@property int selectionEnd;
-- (id)labels;
-- (BOOL)autocorrect;
-- (void)setAutocorrect:(BOOL)arg1;
-- (id)autocapitalize;
-- (void)setAutocapitalize:(id)arg1;
-- (void)select;
-- (BOOL)checkValidity;
-- (void)setCustomValidity:(id)arg1;
 - (void)setSelectionRange:(int)arg1 end:(int)arg2;
+- (void)select;
+- (void)setCustomValidity:(id)arg1;
+- (BOOL)checkValidity;
+@property(copy) NSString *accessKey;
+- (void)setAutocapitalize:(id)arg1;
+- (id)autocapitalize;
+- (void)setAutocorrect:(BOOL)arg1;
+- (BOOL)autocorrect;
+- (void)setSelectionDirection:(id)arg1;
+- (id)selectionDirection;
+@property int selectionEnd;
+@property int selectionStart;
+- (id)labels;
+- (id)validationMessage;
+- (id)validity;
+@property(readonly) BOOL willValidate;
+- (unsigned int)textLength;
+@property(copy) NSString *value;
+@property(copy) NSString *defaultValue;
+@property(readonly) NSString *type;
+- (void)setWrap:(id)arg1;
+- (id)wrap;
+@property int rows;
+- (void)setRequired:(BOOL)arg1;
+- (BOOL)required;
+@property BOOL readOnly;
+- (void)setPlaceholder:(id)arg1;
+- (id)placeholder;
+@property(copy) NSString *name;
+- (void)setMaxLength:(int)arg1;
+- (int)maxLength;
+@property(readonly) DOMHTMLFormElement *form;
+@property BOOL disabled;
+- (void)setDirName:(id)arg1;
+- (id)dirName;
+@property int cols;
+@property BOOL autofocus;
+- (BOOL)_isEdited;
+- (int)_autocapitalizeType;
+- (int)structuralComplexityContribution;
 
 @end
 

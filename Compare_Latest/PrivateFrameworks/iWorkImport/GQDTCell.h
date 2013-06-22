@@ -17,17 +17,17 @@
     GQDSStyle *mStyle;
 }
 
-- (void)dealloc;
-- (unsigned short)columnIndex;
-- (unsigned short)rowIndex;
-- (unsigned short)columnSpan;
-- (unsigned short)rowSpan;
-- (id)cellStyle;
-- (void)setCellStyle:(id)arg1;
-- (int)readAttributesForBaseCell:(struct _xmlTextReader *)arg1 processor:(id)arg2;
-- (int)readAttributesForBaseTabularCell:(struct _xmlTextReader *)arg1 processor:(id)arg2;
-- (int)readBaseAttributesForBaseCell:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 - (void)incrementColumnSpan;
+- (int)readBaseAttributesForBaseCell:(struct _xmlTextReader *)arg1 processor:(id)arg2;
+- (int)readAttributesForBaseTabularCell:(struct _xmlTextReader *)arg1 processor:(id)arg2;
+- (int)readAttributesForBaseCell:(struct _xmlTextReader *)arg1 processor:(id)arg2;
+- (void)setCellStyle:(id)arg1;
+- (id)cellStyle;
+- (unsigned short)rowSpan;
+- (unsigned short)columnSpan;
+- (unsigned short)rowIndex;
+- (unsigned short)columnIndex;
+- (void)dealloc;
 
 @end
 

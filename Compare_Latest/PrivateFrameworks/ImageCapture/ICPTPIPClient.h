@@ -11,19 +11,19 @@
     id _clientProperties;
 }
 
-- (id)init;
-- (int)pid;
-- (void)setPid:(int)arg1;
-- (BOOL)registered;
-- (void)setRegistered:(BOOL)arg1;
-- (struct __CFFileDescriptor *)fdref;
-- (void)setFdref:(struct __CFFileDescriptor *)arg1;
-- (struct __CFMessagePort *)remotePort;
-- (void)setRemotePort:(struct __CFMessagePort *)arg1;
-- (int)remoteAddress;
-- (void)setRemoteAddress:(int)arg1;
-- (int)serverFD;
 - (void)setServerFD:(int)arg1;
+- (int)serverFD;
+- (void)setRemoteAddress:(int)arg1;
+- (int)remoteAddress;
+- (void)setRemotePort:(struct __CFMessagePort *)arg1;
+- (struct __CFMessagePort *)remotePort;
+- (void)setFdref:(struct __CFFileDescriptor *)arg1;
+- (struct __CFFileDescriptor *)fdref;
+- (void)setRegistered:(BOOL)arg1;
+- (BOOL)registered;
+- (void)setPid:(int)arg1;
+- (int)pid;
+- (id)init;
 
 @end
 

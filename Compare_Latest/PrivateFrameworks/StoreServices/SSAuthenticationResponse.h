@@ -17,9 +17,10 @@
 
 @property int URLBagType; // @synthesize URLBagType=_urlBagType;
 @property(readonly) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
-- (id)_statusValue;
+- (id)_valueForFirstAvailableKey:(id)arg1;
 - (int)_responseTypeForStatusValue:(int)arg1;
 - (int)_responseTypeForFailureType:(int)arg1;
+- (int)_responseTypeForErrorNumber:(int)arg1;
 @property(readonly) NSString *userMessage;
 @property(readonly) NSHTTPURLResponse *URLResponse;
 @property(readonly) NSString *token;

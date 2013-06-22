@@ -13,11 +13,11 @@
     NSString *mFont;
 }
 
-- (id)initWithFont:(id)arg1;
-- (void)dealloc;
-- (id)font;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)font;
+- (void)dealloc;
+- (id)initWithFont:(id)arg1;
 
 @end
 

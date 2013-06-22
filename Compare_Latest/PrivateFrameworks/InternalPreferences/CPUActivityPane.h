@@ -18,15 +18,15 @@
     char *_writeBuffer;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)_cleanupTextView;
-- (void)_startWorker;
-- (void)_killWorker;
-- (void)willMoveToSuperview:(id)arg1;
-- (void)setPreferenceSpecifier:(id)arg1;
-- (void)_switchBuffers:(id)arg1;
 - (void)_worker;
+- (void)_switchBuffers:(id)arg1;
+- (void)setPreferenceSpecifier:(id)arg1;
+- (void)willMoveToSuperview:(id)arg1;
+- (void)_killWorker;
+- (void)_startWorker;
+- (void)_cleanupTextView;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

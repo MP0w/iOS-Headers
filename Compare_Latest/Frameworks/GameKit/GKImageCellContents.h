@@ -24,6 +24,8 @@
 @property(nonatomic) struct UIEdgeInsets imageInsets; // @synthesize imageInsets=_imageInsets;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) GKUITheme *theme; // @synthesize theme=_theme;
+- (void)drawImage:(id)arg1 inRect:(struct CGRect)arg2;
+- (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;
 - (float)preferredHeightForOrientation:(int)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;

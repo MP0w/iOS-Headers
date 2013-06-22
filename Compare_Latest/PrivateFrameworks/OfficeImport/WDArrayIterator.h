@@ -14,9 +14,9 @@
     unsigned int mNextIndex;
 }
 
-- (id)initWithArray:(id)arg1;
-- (BOOL)hasNext;
 - (id)next;
+- (BOOL)hasNext;
+- (id)initWithArray:(id)arg1;
 
 @end
 

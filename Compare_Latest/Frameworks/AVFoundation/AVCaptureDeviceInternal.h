@@ -6,17 +6,16 @@
 
 #import "NSObject.h"
 
-@class AVCaptureSession;
+@class AVCaptureDeviceFormat, AVCaptureDeviceInput;
 
 @interface AVCaptureDeviceInternal : NSObject
 {
-    AVCaptureSession *_session;
     int _openRefCount;
     int _configLockRefCount;
     int _configLockPid;
     BOOL _usingDevice;
-    BOOL _subjectMonitoringEnabled;
-    BOOL _faceDetectionDrivenImageProcessingEnabled;
+    AVCaptureDeviceFormat *_activeFormat;
+    AVCaptureDeviceInput *_activeInput;
 }
 
 @end

@@ -13,6 +13,7 @@
     NSMutableArray *_actionQueue;
     UIViewController *_activeViewController;
     UIViewController *_backViewController;
+    BOOL _canSwipeToDismiss;
     UIViewController *_frontViewController;
     SUOverlayTransition *_lastFlipTransition;
     struct CGSize _overlaySize;
@@ -33,6 +34,7 @@
 @property(retain, nonatomic) SUOverlayTransition *presentationTransition; // @synthesize presentationTransition=_presentationTransition;
 @property(nonatomic) struct CGSize overlaySize; // @synthesize overlaySize=_overlaySize;
 @property(retain, nonatomic) UIViewController *frontViewController; // @synthesize frontViewController=_frontViewController;
+@property(nonatomic) BOOL canSwipeToDismiss; // @synthesize canSwipeToDismiss=_canSwipeToDismiss;
 @property(retain, nonatomic) UIViewController *backViewController; // @synthesize backViewController=_backViewController;
 - (void)_tearDownTouchCaptureView;
 - (id)_subviewContainerView;

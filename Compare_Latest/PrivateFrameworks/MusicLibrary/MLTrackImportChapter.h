@@ -26,11 +26,12 @@
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) unsigned int startTimeInMilliseconds; // @synthesize startTimeInMilliseconds=_startTimeInMilliseconds;
 @property(copy, nonatomic) NSData *imageData; // @synthesize imageData=_imageData;
+- (void).cxx_destruct;
 - (BOOL)isEqualIgnoringTimesAndTitle:(id)arg1;
 - (int)compare:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (void)dealloc;
+- (void)normalizeProperties;
 
 @end
 

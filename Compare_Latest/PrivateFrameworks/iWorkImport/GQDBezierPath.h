@@ -18,18 +18,20 @@
     BOOL mHFlip;
 }
 
-+ (const struct StateSpec *)stateForReading;
 + (struct __CFString *)createCFStringFromPath:(struct CGPath *)arg1;
-- (id)initWithPathString:(const char *)arg1;
-- (void)dealloc;
-- (BOOL)isRectangular;
-- (struct CGPath *)path;
-- (char *)pathStr;
-- (struct CGPath *)createBezierPath;
-- (BOOL)hasVerticalFlip;
-- (BOOL)hasHorizontalFlip;
-- (BOOL)verticalFlip;
++ (const struct StateSpec *)stateForReading;
++ (struct CGPath *)createPathFromCString:(const char *)arg1;
 - (BOOL)horizontalFlip;
+- (BOOL)verticalFlip;
+- (BOOL)hasHorizontalFlip;
+- (BOOL)hasVerticalFlip;
+- (struct CGPath *)createBezierPath;
+- (char *)pathStr;
+- (struct CGPath *)path;
+- (BOOL)isRectangular;
+- (void)dealloc;
+- (id)initWithPathString:(const char *)arg1;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <PhotoLibrary/PLCameraViewController.h>
 
-@class NSDictionary, PLCameraImageWellView, UIToolbar;
+@class NSDictionary, NSObject<OS_dispatch_queue>, PLCameraImageWellView, UIToolbar;
 
 @interface PLApplicationCameraViewController : PLCameraViewController
 {
@@ -14,33 +14,52 @@
     id _previewButtonAction;
     id _doneButtonAction;
     NSDictionary *_configuration;
-    int _testPictureCounter;
     id <PLApplicationCameraViewControllerDelegate> _delegate;
     BOOL _usesSessionAlbum;
+    NSObject<OS_dispatch_queue> *_photoStreamDispatchQueue;
+    BOOL _isReadyToTest;
+    int _testPictureCounter;
+    int _testPicturesReceivedCounter;
+    double _testPictureRepeatDelay;
+    UIToolbar *_bottomButtonBar;
 }
 
+@property(readonly, nonatomic) UIToolbar *bottomButtonBar; // @synthesize bottomButtonBar=_bottomButtonBar;
 @property(nonatomic) id <PLApplicationCameraViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) id previewButtonAction; // @synthesize previewButtonAction=_previewButtonAction;
+@property(nonatomic) double testPictureRepeatDelay; // @synthesize testPictureRepeatDelay=_testPictureRepeatDelay;
 @property(nonatomic) int testPictureCounter; // @synthesize testPictureCounter=_testPictureCounter;
 - (void)resumePhotoStreams;
 - (void)pausePhotoStreams;
-- (void)_libraryRebuildProgressDidUpdate:(id)arg1;
 - (void)_saveConfiguration;
 - (void)_applyConfiguration;
+- (void)_defaultCameraDevice:(id *)arg1 cameraMode:(id *)arg2;
+- (BOOL)_shouldResetMode:(id)arg1;
+- (void)handleVolumeButtonUpEvent;
+- (void)handleVolumeButtonDownEvent;
 - (void)updatePreviewWellImage:(id)arg1;
 - (void)prepareForDefaultImageSnapshot;
-- (void)tearDownCaptureSession;
 - (void)animateIrisForSuspension;
 - (BOOL)shouldAnimateIrisForSuspension;
+- (void)saveCameraConfiguration;
+- (void)setUsesSessionAlbum:(BOOL)arg1;
 - (void)stopCameraPreviewAnimated:(BOOL)arg1;
+- (void)startCameraPreview:(id)arg1;
+- (void)startCameraPreviewWithSavedConfiguration;
 - (void)startCameraPreview;
 - (BOOL)showingCameraPreview;
-@property(readonly, nonatomic) UIToolbar *cameraButtonBar;
+- (id)cameraButtonBar;
+- (BOOL)_cameraIsRunning;
+- (void)cleanupForCameraEnd;
+- (void)setupForCameraStart;
+- (void)_kickoffCameraControllerPreview;
 - (void)_photosButtonClicked:(id)arg1;
 - (void)cameraViewFinishedTakingPicture:(id)arg1;
-- (void)cameraViewIsReady:(id)arg1;
 - (void)takePicture;
 - (void)startPictureTest;
+- (void)_startPictureTestAfterSeconds:(double)arg1;
+- (void)testSetAutofocusDisabled:(BOOL)arg1;
+- (void)testSetHDROn:(BOOL)arg1;
 - (void)cameraViewDidFinishOpeningIrisForPreview:(id)arg1;
 - (void)cameraViewFinishedClosingIris:(id)arg1;
 - (BOOL)cameraViewShouldShowPreviewAfterSelection:(id)arg1;
@@ -57,7 +76,7 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)init;
-- (id)initWithSessionAlbum:(BOOL)arg1 usesCameraLocationBundleID:(BOOL)arg2;
+- (id)initWithSessionAlbum:(BOOL)arg1 usesCameraLocationBundleID:(BOOL)arg2 startPreviewImmediately:(BOOL)arg3;
 
 @end
 

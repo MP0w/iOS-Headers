@@ -18,6 +18,7 @@
 @property(nonatomic) double y; // @synthesize y;
 @property(nonatomic) double x; // @synthesize x;
 @property(nonatomic) double timestamp; // @synthesize timestamp;
+- (id)description;
 
 @end
 

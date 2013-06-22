@@ -17,15 +17,15 @@
     struct __CFArray *paragraphs;
 }
 
-- (id)init;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-- (unsigned int)paragraphCount;
-- (id)paragraphAtIndex:(unsigned int)arg1;
-- (void)addParagraph:(id)arg1;
 @property(nonatomic) int number; // @synthesize number;
 @property(retain, nonatomic) CPList *list; // @synthesize list;
+- (void)addParagraph:(id)arg1;
+- (id)paragraphAtIndex:(unsigned int)arg1;
+- (unsigned int)paragraphCount;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)init;
 
 @end
 

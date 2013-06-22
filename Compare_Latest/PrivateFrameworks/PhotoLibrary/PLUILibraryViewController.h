@@ -19,12 +19,17 @@
 - (void)_updateFilteredAlbumListWithFilter:(int)arg1;
 - (void)albumListDidChange:(id)arg1;
 - (void)cancelButtonClicked:(id)arg1;
+- (BOOL)shouldShowUnreadIndicatorForAlbum:(struct NSObject *)arg1;
+- (int)accessoryTypeForAlbum:(struct NSObject *)arg1;
 - (void)updateNavigationItemButtons;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)dealloc;
 - (id)init;
+- (void)fixContentInsetIfNeeded;
+- (BOOL)subtitleForAlbumAllowsEmail;
+- (void)navigateToAlbum:(struct NSObject *)arg1 animated:(BOOL)arg2 completion:(id)arg3;
 
 @end
 

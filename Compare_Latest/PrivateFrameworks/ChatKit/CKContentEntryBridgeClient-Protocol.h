@@ -5,9 +5,8 @@
  */
 
 @protocol CKContentEntryBridgeClient
-- (void)attachmentsDidChange;
-- (id)subject;
-- (id)contentViews;
 - (BOOL)canPasteObject:(id)arg1;
+- (id)contentViews;
+- (id)subject;
 @end
 

@@ -25,6 +25,7 @@
 - (void)dealloc;
 - (id)initWithSource:(id)arg1 dest:(id)arg2 mode:(id)arg3 options:(id)arg4;
 - (struct OpaqueFigRemaker *)createFigRemaker;
+- (id)retrieveAudioSettingForNumChannels:(id)arg1;
 - (BOOL)canPassThroughVideo:(id)arg1;
 - (BOOL)canPassThroughAudio:(id)arg1;
 - (id)settingForFigRemaker;

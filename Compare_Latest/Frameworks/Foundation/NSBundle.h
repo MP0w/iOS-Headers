@@ -69,6 +69,7 @@
 - (id)privateFrameworksPath;
 - (id)URLForAuxiliaryExecutable:(id)arg1;
 - (id)pathForAuxiliaryExecutable:(id)arg1;
+- (id)appStoreReceiptURL;
 - (id)executableURL;
 - (id)executablePath;
 - (id)resourceURL;

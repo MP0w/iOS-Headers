@@ -10,11 +10,12 @@
 {
 }
 
-- (id)specifiers;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)launchE911Tester:(id)arg1;
-- (id)logLocations:(id)arg1;
 - (void)setLogLocations:(id)arg1 specifier:(id)arg2;
+- (id)logLocations:(id)arg1;
+- (void)launchE911Tester:(id)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (id)specifiers;
+- (void)removeSpecificLoggingModulesIfNeeded;
 
 @end
 

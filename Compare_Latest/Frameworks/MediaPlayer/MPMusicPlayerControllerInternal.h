@@ -12,14 +12,16 @@
 
 @interface MPMusicPlayerControllerInternal : MPServerObjectProxy <MPMusicPlayerController>
 {
-    MPMusicPlayerController *_musicPlayerController;
     unsigned int _clientPort;
-    struct __CFRunLoopSource *_runLoopSource;
-    int _playbackState;
-    int _playbackNotificationObservers;
-    MPMediaQuery *_query;
-    MPMediaItemCollection *_itemCollection;
     int _inBlockHandlingPlaybackStateChangedMessageFromServer;
+    MPMediaItemCollection *_itemCollection;
+    MPMusicPlayerController *_musicPlayerController;
+    int _playbackNotificationObservers;
+    int _playbackState;
+    BOOL _preparedToPlay;
+    struct SBSProcessAssertion *_processAssertion;
+    MPMediaQuery *_query;
+    struct __CFRunLoopSource *_runLoopSource;
     unsigned int _didCheckIn:1;
     unsigned int _useApplicationSpecificQueue:1;
     unsigned int _useCachedPlaybackState:1;
@@ -27,10 +29,13 @@
     unsigned int _allowsRemoteUIAccess:1;
 }
 
+- (id)_bundleIdentifier;
 @property BOOL inBlockHandlingPlaybackStateChangedMessageFromServer;
+- (void)acquireProcessAssertion;
 - (void)serverConnectionDied;
 - (void)didPrepareForRemoteSelectorInvocation;
 - (BOOL)prepareForRemoteSelectorInvocation;
+- (void)dealloc;
 - (id)initWithMusicPlayerController:(id)arg1;
 
 @end

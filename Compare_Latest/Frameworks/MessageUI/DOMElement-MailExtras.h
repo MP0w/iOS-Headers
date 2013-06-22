@@ -8,11 +8,15 @@
 
 @interface DOMElement (MailExtras)
 + (BOOL)isRichTextStyle:(id)arg1;
-- (BOOL)hasMarginsOfZero;
-- (BOOL)isRichTextElementType;
-- (BOOL)isRichTextElement;
-- (int)mf_quoteLevelDelta;
-- (void)recursivelyRemoveMailAttributes;
+- (BOOL)mf_isContainedInAnyElementInSet:(id)arg1;
+@property(readonly) DOMElement *mf_containingQuoteBlockElement;
+@property(readonly) BOOL mf_isContainedInQuoteBlock;
+@property(readonly) BOOL mf_isContainedInTable;
 - (void)mf_stripCSSStyle;
+- (void)recursivelyRemoveMailAttributes;
+- (int)mf_quoteLevelDelta;
+- (BOOL)isRichTextElement;
+- (BOOL)isRichTextElementType;
+- (BOOL)hasMarginsOfZero;
 @end
 

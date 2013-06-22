@@ -7,13 +7,13 @@
 #import "NSObject-Protocol.h"
 
 @protocol OABColorPropertiesManager <NSObject>
-- (BOOL)isFilled;
-- (struct EshColor)fillFgColor;
-- (struct EshColor)fillBgColor;
-- (BOOL)isStroked;
-- (struct EshColor)strokeFgColor;
-- (struct EshColor)strokeBgColor;
-- (struct EshColor)shadowColor;
 - (struct EshBlip *)fillBlipDataReference;
+- (struct EshColor)shadowColor;
+- (struct EshColor)strokeBgColor;
+- (struct EshColor)strokeFgColor;
+- (BOOL)isStroked;
+- (struct EshColor)fillBgColor;
+- (struct EshColor)fillFgColor;
+- (BOOL)isFilled;
 @end
 

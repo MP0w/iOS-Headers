@@ -14,11 +14,12 @@
     struct OADAdjustCoord mBottom;
 }
 
-- (id)initWithLeft:(struct OADAdjustCoord)arg1 top:(struct OADAdjustCoord)arg2 right:(struct OADAdjustCoord)arg3 bottom:(struct OADAdjustCoord)arg4;
-- (struct OADAdjustCoord)left;
-- (struct OADAdjustCoord)top;
-- (struct OADAdjustCoord)right;
+- (id).cxx_construct;
 - (struct OADAdjustCoord)bottom;
+- (struct OADAdjustCoord)right;
+- (struct OADAdjustCoord)top;
+- (struct OADAdjustCoord)left;
+- (id)initWithLeft:(struct OADAdjustCoord)arg1 top:(struct OADAdjustCoord)arg2 right:(struct OADAdjustCoord)arg3 bottom:(struct OADAdjustCoord)arg4;
 
 @end
 

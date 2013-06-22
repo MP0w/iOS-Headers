@@ -27,6 +27,7 @@
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)_getContainerTopLevelInfo;
 - (void)_getContainerHomeSet;
+- (int)containerInfoDepthForURL:(id)arg1;
 - (void)taskGroupWillCancelWithError:(id)arg1;
 - (void)startTaskGroup;
 - (id)description;

@@ -20,20 +20,20 @@
     NSPropertyMapping *_currentPropertyMapping;
 }
 
-- (id)initWithMigrationManager:(id)arg1;
-- (void)dealloc;
-- (void)clearAssociationTables;
-- (id)currentEntityMapping;
-- (void)setCurrentEntityMapping:(id)arg1;
-- (id)currentPropertyMapping;
-- (void)setCurrentPropertyMapping:(id)arg1;
-- (unsigned int)currentMigrationStep;
-- (void)setCurrentMigrationStep:(unsigned int)arg1;
-- (void)_createAssociationsBySource:(id)arg1 withDestination:(id)arg2 forEntityMapping:(id)arg3;
-- (void)_createAssociationsByDestination:(id)arg1 fromSource:(id)arg2 forEntityMapping:(id)arg3;
-- (void)associateSourceInstance:(id)arg1 withDestinationInstance:(id)arg2 forEntityMapping:(id)arg3;
-- (id)destinationInstancesForEntityMapping:(id)arg1 sourceInstance:(id)arg2;
 - (id)sourceInstancesForEntityMapping:(id)arg1 destinationInstance:(id)arg2;
+- (id)destinationInstancesForEntityMapping:(id)arg1 sourceInstance:(id)arg2;
+- (void)associateSourceInstance:(id)arg1 withDestinationInstance:(id)arg2 forEntityMapping:(id)arg3;
+- (void)_createAssociationsByDestination:(id)arg1 fromSource:(id)arg2 forEntityMapping:(id)arg3;
+- (void)_createAssociationsBySource:(id)arg1 withDestination:(id)arg2 forEntityMapping:(id)arg3;
+- (void)setCurrentMigrationStep:(unsigned int)arg1;
+- (unsigned int)currentMigrationStep;
+- (void)setCurrentPropertyMapping:(id)arg1;
+- (id)currentPropertyMapping;
+- (void)setCurrentEntityMapping:(id)arg1;
+- (id)currentEntityMapping;
+- (void)clearAssociationTables;
+- (void)dealloc;
+- (id)initWithMigrationManager:(id)arg1;
 
 @end
 

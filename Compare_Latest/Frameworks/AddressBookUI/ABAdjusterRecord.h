@@ -17,15 +17,15 @@
 }
 
 + (id)recordWithScrollView:(id)arg1;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (void)_adjustTableForKeyboardInfo:(id)arg1;
-- (void)cancelDelayedAdjustments;
 @property(retain, nonatomic) NSTimer *delayedScrollTimer; // @synthesize delayedScrollTimer=_delayedScrollTimer;
 @property(nonatomic) BOOL manuallyAdjusted; // @synthesize manuallyAdjusted=_manuallyAdjusted;
 @property(nonatomic) float adjustment; // @synthesize adjustment=_adjustment;
 @property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
+- (void)cancelDelayedAdjustments;
+- (void)_adjustTableForKeyboardInfo:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
 
 @end
 

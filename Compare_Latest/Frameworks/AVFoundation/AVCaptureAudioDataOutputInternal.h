@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>;
+
 @interface AVCaptureAudioDataOutputInternal : NSObject
 {
     id <AVCaptureAudioDataOutputSampleBufferDelegate> delegate;
-    struct dispatch_queue_s *clientQueue;
+    NSObject<OS_dispatch_queue> *clientQueue;
 }
 
 - (void)dealloc;

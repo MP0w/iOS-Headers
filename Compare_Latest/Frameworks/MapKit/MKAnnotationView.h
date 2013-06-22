@@ -38,8 +38,6 @@
 @property(retain, nonatomic) UIView *leftCalloutAccessoryView;
 - (void)_setMapType:(unsigned int)arg1;
 - (unsigned int)_mapType;
-- (void)_setCanDisplayStreetViewInCallout:(BOOL)arg1;
-- (BOOL)_canDisplayStreetViewInCallout;
 - (void)_setCanDisplayPlacemarkInCallout:(BOOL)arg1;
 - (BOOL)_canDisplayPlacemarkInCallout;
 - (void)_setCanDisplayDisclosureInCallout:(BOOL)arg1;

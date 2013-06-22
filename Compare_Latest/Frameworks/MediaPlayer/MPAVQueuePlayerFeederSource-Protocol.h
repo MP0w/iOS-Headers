@@ -4,7 +4,9 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@protocol MPAVQueuePlayerFeederSource
+#import "NSObject-Protocol.h"
+
+@protocol MPAVQueuePlayerFeederSource <NSObject>
 - (void)queuePlayerFeederFailedToQueueAnyItems:(id)arg1;
 - (void)queuePlayerFeederDidUpdateQueue:(id)arg1 queuedItems:(id)arg2 dequeuedItems:(id)arg3;
 - (BOOL)queuePlayerFeeder:(id)arg1 willInsertItem:(id)arg2;

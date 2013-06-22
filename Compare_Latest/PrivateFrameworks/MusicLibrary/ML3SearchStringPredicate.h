@@ -17,7 +17,9 @@
 + (id)predicateWithConcatenatedProperties:(id)arg1 searchString:(id)arg2;
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(copy, nonatomic) NSArray *properties; // @synthesize properties=_properties;
-- (void)bindToSqlite3Statement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
+- (void).cxx_destruct;
+- (BOOL)isDynamicForEntityClass:(Class)arg1;
+- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)SQLJoinClausesForClass:(Class)arg1;
 - (id)description;
@@ -25,7 +27,6 @@
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithConcatenatedProperties:(id)arg1 searchString:(id)arg2;
 
 @end

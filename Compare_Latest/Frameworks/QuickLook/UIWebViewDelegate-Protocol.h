@@ -9,9 +9,9 @@
 @protocol UIWebViewDelegate <NSObject>
 
 @optional
-- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
-- (void)webViewDidStartLoad:(id)arg1;
-- (void)webViewDidFinishLoad:(id)arg1;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
+- (void)webViewDidFinishLoad:(id)arg1;
+- (void)webViewDidStartLoad:(id)arg1;
+- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
 @end
 

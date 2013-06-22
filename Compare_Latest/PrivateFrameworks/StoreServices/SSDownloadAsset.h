@@ -27,7 +27,7 @@
 @property(readonly) NSString *downloadFileName;
 - (int)assetType;
 - (id)initWithURLRequest:(id)arg1 type:(int)arg2;
-- (void *)copyXPCEncoding;
+- (id)copyXPCEncoding;
 - (int)_legacyAssetType;
 - (id)_initWithDownloadMetadata:(id)arg1 type:(id)arg2;
 @property(readonly) SSURLRequestProperties *URLRequestProperties;

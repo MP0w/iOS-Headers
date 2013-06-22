@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class GEOPeer, NSDictionary, NSString;
+@class GEOPeer, NSDictionary, NSObject<OS_xpc_object>, NSString;
 
 @interface GEOMessage : NSObject
 {
-    void *_xpcMessage;
+    NSObject<OS_xpc_object> *_xpcMessage;
     NSDictionary *_decodedMessage;
     GEOPeer *_peer;
 }
@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) NSString *messageName;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithXPCMessage:(void *)arg1 peer:(id)arg2;
+- (id)initWithXPCMessage:(id)arg1 peer:(id)arg2;
 
 @end
 

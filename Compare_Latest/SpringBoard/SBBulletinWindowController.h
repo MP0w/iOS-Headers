@@ -6,37 +6,61 @@
 
 #import "NSObject.h"
 
+#import "SBUIActiveOrientationObserver-Protocol.h"
+
 @class NSMutableSet, UIWindow;
 
-@interface SBBulletinWindowController : NSObject
+@interface SBBulletinWindowController : NSObject <SBUIActiveOrientationObserver>
 {
     UIWindow *_bulletinWindow;
-    int _bulletinWindowOrientation;
+    int _trueBulletinWindowOrientation;
+    int _overrideBulletinWindowOrientation;
+    BOOL _rotatingKeyboard;
+    BOOL _aboveShowcase;
     NSMutableSet *_windowClients;
+    NSMutableSet *_keyClients;
     NSMutableSet *_busyClients;
     NSMutableSet *_busyReasons;
 }
 
++ (BOOL)shouldSuppressAlertForBulletin:(id)arg1;
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)setBusy:(BOOL)arg1 forReason:(id)arg2;
-- (BOOL)isBusy;
-- (BOOL)allowsShowNotificationsGesture;
-- (BOOL)allowsHideNotificationsGesture;
-- (BOOL)allowsDismissBannerGesture;
-- (void)addWindowClient:(id)arg1;
-- (void)removeWindowClient:(id)arg1;
-- (void)addBusyClient:(id)arg1;
-- (void)removeBusyClient:(id)arg1;
-- (void)updateBulletinWindowOrientation;
-- (void)setBulletinWindowOrientation:(int)arg1 duration:(double)arg2;
-- (void)prepareToRotateToOrientation:(int)arg1;
-- (void)rotateToOrientation:(int)arg1;
-- (void)cleanUpAfterRotatingFromOrientation:(int)arg1;
-- (void)_setWindowOrientation:(int)arg1;
-@property(readonly, nonatomic) int windowOrientation; // @synthesize windowOrientation=_bulletinWindowOrientation;
+@property(nonatomic, getter=isWindowAboveShowcase) BOOL windowAboveShowcase; // @synthesize windowAboveShowcase=_aboveShowcase;
 @property(readonly, nonatomic) UIWindow *window; // @synthesize window=_bulletinWindow;
+- (BOOL)_hasKeyWindowClients;
+- (void)activeInterfaceOrientationDidChangeToOrientation:(int)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(int)arg3;
+- (void)activeInterfaceOrientationWillChangeToOrientation:(int)arg1;
+- (void)_setTrueWindowOrientation:(int)arg1;
+- (void)_setOverrideWindowOrientation:(int)arg1;
+- (void)_cleanUpAfterRotatingFromOrientation:(int)arg1;
+- (void)_doRotationToOrientation:(int)arg1 duration:(double)arg2 forOverride:(BOOL)arg3;
+- (void)_prepareToRotateToOrientation:(int)arg1 forOverride:(BOOL)arg2;
+- (void)clearOverrideWindowOrientation;
+- (BOOL)_hasOrientationOverride;
+- (void)overrideWindowOrientation:(int)arg1;
+- (void)updateBulletinWindowOrientation;
+- (int)windowOrientationWithoutOverrides;
+- (int)windowOrientation;
+- (void)removeBusyClient:(id)arg1;
+- (void)addBusyClient:(id)arg1;
+- (void)removeWindowClient:(id)arg1;
+- (void)_updateWindowTransformAndFrameForOrientation;
+- (void)addWindowClient:(id)arg1;
+- (void)_didResignKeyWindow:(id)arg1;
+- (void)_didBecomeKeyWindow:(id)arg1;
+- (void)_resignAsKeyWindow;
+- (void)_becomeKeyWindow;
+- (BOOL)allowsDismissBannerGesture;
+- (BOOL)allowsHideNotificationsGesture;
+- (BOOL)allowsShowNotificationsGesture;
+- (BOOL)allowsShowNotificationsGestureFromBanner;
+- (BOOL)_allowsShowNotificationsGestureFromBanner:(BOOL)arg1;
+- (BOOL)_isBusyForReason:(id)arg1;
+- (BOOL)isBusy;
+- (void)_assignWindowLevel;
+- (void)setBusy:(BOOL)arg1 forReason:(id)arg2;
+- (void)dealloc;
+- (id)init;
 
 @end
 

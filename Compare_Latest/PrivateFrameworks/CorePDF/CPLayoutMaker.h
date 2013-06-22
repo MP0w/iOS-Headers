@@ -11,6 +11,7 @@
 }
 
 - (void)makeLayouts:(id)arg1 from:(id)arg2;
+- (BOOL)column:(id)arg1 fits:(id)arg2;
 
 @end
 

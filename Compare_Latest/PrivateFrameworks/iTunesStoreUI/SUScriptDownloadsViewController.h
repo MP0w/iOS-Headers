@@ -11,12 +11,10 @@
 }
 
 + (void)initialize;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_nativeViewController;
-- (void)_setButtons:(id)arg1;
-- (id)_copyButtons;
 @property(retain) id buttons;
 - (id)_className;
 - (id)newNativeViewController;

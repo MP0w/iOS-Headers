@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "UICalloutBarDelegate-Protocol.h"
+
 @class NSArray;
 
-@interface UIMenuController : NSObject
+@interface UIMenuController : NSObject <UICalloutBarDelegate>
 {
     struct CGRect _targetRect;
     int _arrowDirection;
@@ -27,6 +29,9 @@
 @property(nonatomic, getter=isMenuVisible) BOOL menuVisible;
 - (void)dealloc;
 - (id)init;
+- (BOOL)_updateAnimated:(BOOL)arg1 checkVisible:(BOOL)arg2;
+- (void)calloutBar:(id)arg1 didFinishAnimation:(id)arg2;
+- (void)calloutBar:(id)arg1 willStartAnimation:(id)arg2;
 
 @end
 

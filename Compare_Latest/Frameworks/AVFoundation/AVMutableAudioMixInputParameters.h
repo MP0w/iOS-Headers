@@ -17,6 +17,7 @@
 + (id)audioMixInputParametersWithTrack:(id)arg1;
 - (void)setVolume:(float)arg1 atTime:(CDStruct_1b6d18a9)arg2;
 - (void)setVolumeRampFromStartVolume:(float)arg1 toEndVolume:(float)arg2 timeRange:(CDStruct_e83c9415)arg3;
+@property(retain, nonatomic) struct opaqueMTAudioProcessingTap *audioTapProcessor;
 @property(nonatomic) int trackID;
 
 @end

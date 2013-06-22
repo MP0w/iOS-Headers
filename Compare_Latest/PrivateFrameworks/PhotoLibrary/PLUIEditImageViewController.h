@@ -10,9 +10,12 @@
 {
     id _delegate;
     int _saveOptions;
+    int _mode;
 }
 
+@property(nonatomic) int mode; // @synthesize mode=_mode;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+- (int)cropOverlayMode;
 - (id)imageTile;
 - (int)imageFormat;
 - (id)photo;

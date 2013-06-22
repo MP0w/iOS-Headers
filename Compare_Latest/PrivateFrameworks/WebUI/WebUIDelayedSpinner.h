@@ -10,11 +10,11 @@
 {
 }
 
-+ (void)_setShowStatusBarSpinnerTimer:(id)arg1;
-+ (void)_showStatusBarSpinner:(id)arg1;
-+ (void)_setShowStatusBarSpinner:(BOOL)arg1 withDelay:(double)arg2;
-+ (void)showWithDelay;
 + (void)hide;
++ (void)showWithDelay;
++ (void)_setShowStatusBarSpinner:(BOOL)arg1 withDelay:(double)arg2;
++ (void)_showStatusBarSpinner:(id)arg1;
++ (void)_setShowStatusBarSpinnerTimer:(id)arg1;
 
 @end
 

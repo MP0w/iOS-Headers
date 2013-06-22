@@ -11,11 +11,11 @@
 }
 
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-- (void)didChangeValueForKey:(id)arg1;
-- (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
-- (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
-- (void)layerDidBecomeVisible:(BOOL)arg1;
 @property unsigned int contextId;
+- (void)layerDidBecomeVisible:(BOOL)arg1;
+- (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
+- (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
+- (void)didChangeValueForKey:(id)arg1;
 
 @end
 

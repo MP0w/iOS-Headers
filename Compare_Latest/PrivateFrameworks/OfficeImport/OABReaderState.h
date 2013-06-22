@@ -17,18 +17,18 @@
     NSMutableDictionary *mBlipIdMap;
 }
 
-- (id)init;
-- (id)initWithClient:(Class)arg1;
-- (void)dealloc;
-- (Class)client;
-- (id)drawableForShapeId:(int)arg1;
-- (void)setDrawable:(id)arg1 forShapeId:(int)arg2;
-- (struct EshContent *)eshContentForId:(int)arg1;
-- (void)setEshContent:(struct EshContent *)arg1 forId:(int)arg2;
-- (id)colorPalette;
-- (void)setColorPalette:(id)arg1;
-- (id)drawableForBlipId:(int)arg1;
 - (void)setDrawable:(id)arg1 forBlipId:(int)arg2;
+- (id)drawableForBlipId:(int)arg1;
+- (void)setColorPalette:(id)arg1;
+- (id)colorPalette;
+- (void)setEshContent:(struct EshContent *)arg1 forId:(int)arg2;
+- (struct EshContent *)eshContentForId:(int)arg1;
+- (void)setDrawable:(id)arg1 forShapeId:(int)arg2;
+- (id)drawableForShapeId:(int)arg1;
+- (Class)client;
+- (void)dealloc;
+- (id)initWithClient:(Class)arg1;
+- (id)init;
 
 @end
 

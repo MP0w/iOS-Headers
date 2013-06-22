@@ -8,16 +8,19 @@
 
 @interface __NSDictionaryI : NSDictionary
 {
-    unsigned int _used;
+    unsigned int _used:26;
+    unsigned int _szidx:6;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-+ (id)__new:(const id *)arg1:(const id *)arg2:(unsigned int)arg3;
++ (id)__new:(const id *)arg1:(const id *)arg2:(unsigned int)arg3:(BOOL)arg4:(BOOL)arg5;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (void)getObjects:(id *)arg1 andKeys:(id *)arg2 count:(unsigned int)arg3;
 - (id)keyEnumerator;
 - (id)objectForKey:(id)arg1;
 - (unsigned int)count;

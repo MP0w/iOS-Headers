@@ -18,15 +18,17 @@
     NSPersistentStore *_store;
 }
 
-- (id)initWithStore:(id)arg1 andLocalPeerID:(id)arg2;
-- (void)dealloc;
-- (id)description;
 @property(readonly, nonatomic) NSPersistentStore *store; // @synthesize store=_store;
 @property(readonly, nonatomic) NSString *modelVersionHash; // @synthesize modelVersionHash=_modelVersionHash;
 @property(readonly, nonatomic) NSManagedObjectModel *model; // @synthesize model=_model;
 @property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
 @property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
+- (id)description;
+- (void)dealloc;
+- (void)storeWillBeRemoved:(id)arg1;
+- (id)initWithStoreName:(id)arg1 localPeerID:(id)arg2 modelVersionHash:(id)arg3 andRootLocation:(id)arg4;
+- (id)initWithStore:(id)arg1 andLocalPeerID:(id)arg2;
 
 @end
 

@@ -11,19 +11,19 @@
 
 @interface WebFramePolicyListener : NSObject <WebPolicyDecisionListener, WebFormSubmissionListener>
 {
-    Frame_7b826bcf *m_frame;
+    struct Frame *m_frame;
 }
 
 + (void)initialize;
-- (id)initWithWebCoreFrame:(struct Frame *)arg1;
-- (void)invalidate;
-- (void)dealloc;
-- (void)finalize;
-- (void)receivedPolicyDecision:(int)arg1;
-- (void)ignore;
-- (void)download;
-- (void)use;
 - (void)continue;
+- (void)use;
+- (void)download;
+- (void)ignore;
+- (void)receivedPolicyDecision:(int)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (void)invalidate;
+- (id)initWithWebCoreFrame:(struct Frame *)arg1;
 
 @end
 

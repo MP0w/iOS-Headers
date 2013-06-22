@@ -6,28 +6,36 @@
 
 #import "UIToolbar.h"
 
+#import "PLCameraButtonBarProtocol-Protocol.h"
+
 @class PLCameraButton, PLCameraOptionsButton, PLCameraToggleButton;
 
-@interface PLCameraButtonBar : UIToolbar
+@interface PLCameraButtonBar : UIToolbar <PLCameraButtonBarProtocol>
 {
     PLCameraOptionsButton *_optionsButton;
     PLCameraButton *_cameraButton;
     PLCameraToggleButton *_toggleButton;
     int _buttonBarStyle;
+    int _buttonBarMode;
+    unsigned int _isBackgroundVisible:1;
 }
 
 + (float)defaultHeight;
 + (id)backgroundImage;
 + (id)backgroundImageForButtonBarStyle:(int)arg1;
++ (float)buttonBarHeightForTallScreen:(BOOL)arg1;
+@property(nonatomic) int buttonBarMode; // @synthesize buttonBarMode=_buttonBarMode;
 @property(nonatomic) int buttonBarStyle; // @synthesize buttonBarStyle=_buttonBarStyle;
 @property(retain, nonatomic) PLCameraToggleButton *toggleButton; // @synthesize toggleButton=_toggleButton;
 @property(retain, nonatomic) PLCameraButton *cameraButton; // @synthesize cameraButton=_cameraButton;
 @property(retain, nonatomic) PLCameraOptionsButton *optionsButton; // @synthesize optionsButton=_optionsButton;
 - (void)layoutSubviews;
+- (void)setButtonBarMode:(int)arg1 animationDuration:(double)arg2;
+- (void)_setVisibility:(BOOL)arg1;
+- (BOOL)isBackgroundVisible;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 buttonBarStyle:(int)arg2;
-- (id)initInView:(id)arg1 withItems:(CDStruct_dbaf35c5 *)arg2 withCount:(int)arg3;
 
 @end
 

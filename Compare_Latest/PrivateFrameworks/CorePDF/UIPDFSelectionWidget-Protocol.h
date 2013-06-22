@@ -7,19 +7,19 @@
 @class UIPDFPageView;
 
 @protocol UIPDFSelectionWidget
-- (void)setSelection:(id)arg1;
-- (void)remove;
-- (void)hide;
-- (BOOL)hitTest:(struct CGPoint)arg1 fixedPoint:(struct CGPoint *)arg2 preceeds:(char *)arg3;
-- (struct CGPoint)selectedPointFor:(struct CGPoint)arg1;
-- (struct CGPoint)viewOffset;
-- (void)layout;
-- (void)track:(struct CGPoint)arg1;
-- (void)endTracking;
-- (struct CGRect)selectionRectangle;
-- (void)setSelectedGrabber:(unsigned int)arg1;
 @property(nonatomic) UIPDFPageView *pageView;
 @property(readonly, nonatomic) struct CGPoint currentSelectionPointOnPage;
 @property(readonly, nonatomic) struct CGPoint initialSelectionPointOnPage;
+- (void)setSelectedGrabber:(unsigned int)arg1;
+- (struct CGRect)selectionRectangle;
+- (void)endTracking;
+- (void)track:(struct CGPoint)arg1;
+- (void)layout;
+- (struct CGPoint)viewOffset;
+- (struct CGPoint)selectedPointFor:(struct CGPoint)arg1;
+- (BOOL)hitTest:(struct CGPoint)arg1 fixedPoint:(struct CGPoint *)arg2 preceeds:(char *)arg3;
+- (void)hide;
+- (void)remove;
+- (void)setSelection:(id)arg1;
 @end
 

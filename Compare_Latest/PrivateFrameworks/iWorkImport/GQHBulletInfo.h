@@ -20,24 +20,24 @@
     GQDSStyle *mStyle;
 }
 
-- (void)dealloc;
-- (void)setNumber:(int)arg1;
-- (int)number;
-- (BOOL)hasNumber;
-- (void)setHasNumber:(BOOL)arg1;
-- (void)setLabelType:(int)arg1;
-- (int)labelType;
-- (void)setType:(int)arg1;
-- (int)type;
-- (void)setBulletChar:(struct __CFString *)arg1;
-- (struct __CFString *)bulletChar;
-- (struct __CFString *)createTierStringNumber;
-- (void)setBulletIndent:(int)arg1;
-- (int)bulletIndent;
-- (void)setTextIndent:(int)arg1;
-- (int)textIndent;
-- (void)setStyle:(id)arg1;
 - (id)style;
+- (void)setStyle:(id)arg1;
+- (int)textIndent;
+- (void)setTextIndent:(int)arg1;
+- (int)bulletIndent;
+- (void)setBulletIndent:(int)arg1;
+- (struct __CFString *)createTierStringNumber;
+- (struct __CFString *)bulletChar;
+- (void)setBulletChar:(struct __CFString *)arg1;
+- (int)type;
+- (void)setType:(int)arg1;
+- (int)labelType;
+- (void)setLabelType:(int)arg1;
+- (void)setHasNumber:(BOOL)arg1;
+- (BOOL)hasNumber;
+- (int)number;
+- (void)setNumber:(int)arg1;
+- (void)dealloc;
 
 @end
 

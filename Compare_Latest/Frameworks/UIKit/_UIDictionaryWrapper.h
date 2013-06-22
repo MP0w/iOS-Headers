@@ -6,32 +6,39 @@
 
 #import "NSObject.h"
 
-@class NSString, NSURL;
+@class ASAsset, NSArray, NSOrderedSet, NSString;
 
 @interface _UIDictionaryWrapper : NSObject
 {
-    const struct __DCSDictionary *dictionary;
-    NSURL *fileURL;
+    struct __DCSDictionary *dictionary;
     NSString *indexLanguage;
     NSString *definitionLanguage;
     int type;
+    ASAsset *asset;
 }
 
-+ (id)dictionariesWithDictionary:(struct __DCSDictionary *)arg1;
++ (id)_wrappersWithAsset:(id)arg1;
++ (id)_availableDictionaryAssets;
+@property(readonly, nonatomic) ASAsset *asset; // @synthesize asset;
 @property(readonly, nonatomic) int type; // @synthesize type;
 @property(readonly, nonatomic) NSString *definitionLanguage; // @synthesize definitionLanguage;
 @property(readonly, nonatomic) NSString *indexLanguage; // @synthesize indexLanguage;
-@property(readonly, nonatomic) NSURL *fileURL; // @synthesize fileURL;
 @property(readonly, nonatomic) struct __DCSDictionary *dictionary; // @synthesize dictionary;
 - (int)compareToDictionary:(id)arg1;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (BOOL)_correspondsToCurrentInputKeyboardAndIsNotPresent;
+- (BOOL)_isBilingual;
 - (id)markupForString:(id)arg1;
 - (BOOL)hasMarkupForString:(id)arg1;
 @property(readonly, nonatomic) unsigned int definitionLanguageDirection;
+@property(readonly, nonatomic) NSOrderedSet *supportedKeyboardStrings;
+- (id)languageCode;
+@property(readonly, nonatomic) NSArray *countryCodes;
+@property(readonly, nonatomic) NSString *dictionaryPackageName;
 - (void)dealloc;
-- (id)initWithDictionary:(struct __DCSDictionary *)arg1 language:(id)arg2;
+- (id)initWithAsset:(id)arg1 indexLanguage:(id)arg2;
 
 @end
 

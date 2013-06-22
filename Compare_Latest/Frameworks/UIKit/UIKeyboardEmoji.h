@@ -11,8 +11,11 @@
 @interface UIKeyboardEmoji : NSObject
 {
     NSString *emojiString;
+    unsigned short _glyph;
 }
 
++ (id)emojiWithString:(id)arg1;
+@property unsigned short glyph; // @synthesize glyph=_glyph;
 @property(retain) NSString *emojiString; // @synthesize emojiString;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly) NSString *key;

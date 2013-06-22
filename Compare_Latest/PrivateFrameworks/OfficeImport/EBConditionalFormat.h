@@ -11,6 +11,12 @@
 }
 
 + (void)readXlConditionalFormat:(struct XlConditionalFormat *)arg1 toEDConditionalFormatting:(id)arg2 state:(id)arg3;
++ (int)convertEDConditionalFmtOperatorEnumToXl:(int)arg1;
++ (int)convertXlConditionalFmtOperatorEnumToED:(int)arg1;
++ (int)convertXlConditionalFmtTypeEnumToED:(int)arg1;
++ (int)convertEDConditionalFmtTypeEnumToXl:(int)arg1;
++ (_Bool)validXlCf:(struct XlCf *)arg1;
++ (void)convertTokensToSharedTokens:(id)arg1;
 
 @end
 

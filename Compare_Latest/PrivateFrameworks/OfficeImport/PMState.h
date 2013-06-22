@@ -14,11 +14,11 @@
     OADTablePartStyle *mCurrentRowStyle;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)listState;
-- (void)setCurrentRowStyle:(id)arg1;
 - (id)currentRowStyle;
+- (void)setCurrentRowStyle:(id)arg1;
+- (id)listState;
+- (void)dealloc;
+- (id)init;
 
 @end
 

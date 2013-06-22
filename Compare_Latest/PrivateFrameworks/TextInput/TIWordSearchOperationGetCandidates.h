@@ -6,28 +6,31 @@
 
 #import <TextInput/TIWordSearchOperation.h>
 
-@class NSArray, NSString;
+@class NSArray, NSString, TIWordSearch;
 
 @interface TIWordSearchOperationGetCandidates : TIWordSearchOperation
 {
     NSString *_inputString;
     NSArray *_results;
     id _target;
+    NSArray *_geometryModelData;
     SEL _action;
     BOOL _withPrediction;
-    NSArray *_geometryModelData;
+    TIWordSearch *_wordSearch;
 }
 
-- (id)initWithTIWordSearch:(id)arg1 inputString:(id)arg2 withPrediction:(BOOL)arg3 target:(id)arg4 action:(SEL)arg5 geometryModelData:(id)arg6;
-- (void)dealloc;
+@property(retain) TIWordSearch *wordSearch; // @synthesize wordSearch=_wordSearch;
+@property(readonly) BOOL withPrediction; // @synthesize withPrediction=_withPrediction;
+@property(readonly) SEL action; // @synthesize action=_action;
+@property(readonly) NSArray *geometryModelData; // @synthesize geometryModelData=_geometryModelData;
+@property(readonly) id target; // @synthesize target=_target;
+@property(retain) NSArray *results; // @synthesize results=_results;
+@property(readonly) NSString *inputString; // @synthesize inputString=_inputString;
 - (void)completeSearchOnMainThreadWithResults:(id)arg1;
 - (void)perform;
-@property(readonly, nonatomic) BOOL withPrediction; // @synthesize withPrediction=_withPrediction;
-@property(readonly, nonatomic) SEL action; // @synthesize action=_action;
-@property(readonly, nonatomic) NSArray *geometryModelData; // @synthesize geometryModelData=_geometryModelData;
-@property(readonly, retain, nonatomic) id target; // @synthesize target=_target;
-@property(retain, nonatomic) NSArray *results; // @synthesize results=_results;
-@property(readonly, nonatomic) NSString *inputString; // @synthesize inputString=_inputString;
+- (void)checkForCachedResults;
+- (void)dealloc;
+- (id)initWithWordSearch:(id)arg1 inputString:(id)arg2 withPrediction:(BOOL)arg3 target:(id)arg4 action:(SEL)arg5 geometryModelData:(id)arg6;
 
 @end
 

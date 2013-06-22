@@ -10,37 +10,37 @@
 {
 }
 
-- (int)abCellStyleForGroupsTablePlain;
-- (int)abCellStyleForMembersTable;
-- (int)separatorStyleForCellStyle:(int)arg1;
-- (BOOL)searchIsAlwaysActive;
-- (BOOL)serverSearchNavigationBarHidingEnabled;
-- (BOOL)searchControllerForceKeyboardDisplayEnabled;
-- (id)cardTableCellBorderColor;
-- (int)composeModalPresentationStyle;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (id)personHeaderPasteboardColor;
-- (id)personHeaderShadowColor;
-- (float)personViewHorizontalCellInset;
-- (float)personLabelFontMinSize;
-- (id)personLabelFont;
-- (id)personLabelColor;
-- (float)personValueFontMinSize;
-- (id)personValueColor;
-- (id)personValueHighlightColor;
-- (id)personValueEmphasizedColor;
-- (id)personValueImportantColor;
-- (id)personActionFont;
-- (id)personActionColor;
-- (float)personEditorFieldVerticalInset;
-- (id)editorViewLargeFont;
-- (id)editorViewSmallFont;
-- (id)editorViewColor;
-- (BOOL)labelPickerShouldPushCustomLabelCreator;
-- (struct UIEdgeInsets)cardActionButtonTitleSingleLineInsets;
-- (struct UIEdgeInsets)cardActionButtonImageInsets;
+- (BOOL)membersSearchBarIsInTableHeader;
 - (id)membersHeaderBackgroundColor;
-- (BOOL)membersSearchBarScrolls;
+- (struct UIEdgeInsets)cardActionButtonImageInsets;
+- (struct UIEdgeInsets)cardActionButtonTitleSingleLineInsets;
+- (BOOL)labelPickerShouldPushCustomLabelCreator;
+- (id)editorViewColor;
+- (id)editorViewSmallFont;
+- (id)editorViewLargeFont;
+- (float)personEditorFieldVerticalInset;
+- (id)personActionColor;
+- (id)personActionFont;
+- (id)personValueImportantColor;
+- (id)personValueEmphasizedColor;
+- (id)personValueHighlightColor;
+- (id)personValueColor;
+- (float)personValueFontMinSize;
+- (id)personLabelColor;
+- (id)personLabelFont;
+- (float)personLabelFontMinSize;
+- (float)personViewHorizontalCellInset;
+- (id)personHeaderShadowColor;
+- (id)personHeaderPasteboardColor;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (int)composeModalPresentationStyle;
+- (id)cardTableCellBorderColor;
+- (BOOL)searchControllerForceKeyboardDisplayEnabled;
+- (BOOL)serverSearchNavigationBarHidingEnabled;
+- (BOOL)searchIsAlwaysActive;
+- (int)separatorStyleForCellStyle:(int)arg1;
+- (int)abCellStyleForMembersTable;
+- (int)abCellStyleForGroupsTablePlain;
 
 @end
 

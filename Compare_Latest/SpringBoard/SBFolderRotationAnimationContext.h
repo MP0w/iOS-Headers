@@ -15,10 +15,10 @@
     double _duration;
 }
 
-- (void)dealloc;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) CDStruct_d18cc6b1 notchInfo; // @synthesize notchInfo=_notchInfo;
 @property(retain, nonatomic) NSSet *icons; // @synthesize icons=_icons;
+- (void)dealloc;
 
 @end
 

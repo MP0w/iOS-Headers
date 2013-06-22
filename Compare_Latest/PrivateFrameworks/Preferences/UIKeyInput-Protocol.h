@@ -7,8 +7,8 @@
 #import "UITextInputTraits-Protocol.h"
 
 @protocol UIKeyInput <UITextInputTraits>
-- (BOOL)hasText;
-- (void)insertText:(id)arg1;
 - (void)deleteBackward;
+- (void)insertText:(id)arg1;
+- (BOOL)hasText;
 @end
 

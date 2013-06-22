@@ -10,8 +10,9 @@
 {
 }
 
-+ (void)readHyperlinksWithPresentationState:(id)arg1;
++ (id)writeHyperlink:(id)arg1 instance:(int)arg2 presentationState:(id)arg3;
 + (id)readAnimationInfoContainerHolder:(id)arg1 presentationState:(id)arg2;
++ (void)readHyperlinksWithPresentationState:(id)arg1;
 
 @end
 

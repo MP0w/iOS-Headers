@@ -10,7 +10,12 @@
 {
 }
 
++ (void)copy:(id)arg1 properties:(id)arg2 toRowProperties:(struct WrdTableProperties *)arg3;
++ (void)write:(id)arg1 properties:(id)arg2 wrdProperties:(struct WrdTableProperties *)arg3 tracked:(struct WrdTableProperties *)arg4;
 + (void)readFrom:(id)arg1 wrdProperties:(struct WrdTableProperties *)arg2 tracked:(struct WrdTableProperties *)arg3 properties:(id)arg4;
++ (void)mapProperties:(id)arg1 writer:(id)arg2 toWordProperties:(struct WrdTableProperties *)arg3;
++ (void)mapWordProperties:(struct WrdTableProperties *)arg1 reader:(id)arg2 toProperties:(id)arg3;
++ (id)formattingChangeDate:(const struct WrdDateTime *)arg1;
 
 @end
 

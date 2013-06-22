@@ -11,9 +11,9 @@
     struct CGPDFDocument *_documentRef;
 }
 
-- (id)initWithPDFDocumentRef:(struct CGPDFDocument *)arg1;
-- (void)dealloc;
 - (void)main;
+- (void)dealloc;
+- (id)initWithPDFDocumentRef:(struct CGPDFDocument *)arg1;
 
 @end
 

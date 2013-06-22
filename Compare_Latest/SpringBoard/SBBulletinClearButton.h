@@ -18,19 +18,29 @@
     float _widthWhenShowingClear;
     id _clearShownAction;
     id _clearPressedAction;
+    id <SBBulletinClearButtonDelegate> _delegate;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)resetAnimated:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)_pressAction;
-- (void)_setShowsClear:(BOOL)arg1 animated:(BOOL)arg2;
-- (id)_clearImage;
-- (id)_xImage;
-- (id)_background;
++ (void)initialize;
++ (void)_removeCachedClearImage;
+@property(nonatomic) id <SBBulletinClearButtonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) id clearPressedAction; // @synthesize clearPressedAction=_clearPressedAction;
 @property(copy, nonatomic) id clearShownAction; // @synthesize clearShownAction=_clearShownAction;
+- (id)_precompositedXImage;
+- (id)_background;
+- (id)_xImage;
+- (id)_clearImage;
+- (void)_setShowsClear:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_switchToUsingSubviews;
+- (struct CGRect)_clearImageFrame;
+- (struct CGRect)_xImageFrame;
+- (struct CGRect)_xImageFrameInBounds:(struct CGRect)arg1;
+- (void)_pressAction;
+- (void)setHighlighted:(BOOL)arg1;
+- (void)resetAnimated:(BOOL)arg1;
+- (BOOL)showingClear;
+- (void)dealloc;
+- (id)init;
 
 @end
 

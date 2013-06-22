@@ -16,9 +16,9 @@ struct __CFDictionary;
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long _field1;
-    id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
+    unsigned long state;
+    id *itemsPtr;
+    unsigned long *mutationsPtr;
+    unsigned long extra[5];
+} CDStruct_c73467ff;
 

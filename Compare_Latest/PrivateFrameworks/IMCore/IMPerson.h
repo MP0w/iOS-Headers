@@ -15,6 +15,14 @@
     BOOL _beingTornDown;
 }
 
++ (id)existingABPersonWithFirstName:(id)arg1 andLastName:(id)arg2 andNickName:(id)arg3 orEmail:(id)arg4 orNumber:(id)arg5;
++ (id)existingABPersonWithFirstName:(id)arg1 andLastName:(id)arg2 andNickName:(id)arg3 orEmail:(id)arg4 orNumber:(id)arg5 countryCode:(id)arg6 identifier:(int *)arg7;
++ (id)existingABPersonWithFirstName:(id)arg1 andLastName:(id)arg2 andNickName:(id)arg3 orEmail:(id)arg4 orNumber:(id)arg5 identifier:(int *)arg6;
++ (id)existingABPersonWithFirstName:(id)arg1 andLastName:(id)arg2 orEmail:(id)arg3 orNumber:(id)arg4;
++ (id)existingABPersonForPerson:(id)arg1;
++ (id)existingABPersonWithFirstName:(id)arg1 andLastName:(id)arg2 orEmail:(id)arg3;
++ (id)existingABPersonWithFirstName:(id)arg1 lastName:(id)arg2;
++ (id)allPeople;
 @property(readonly, nonatomic) BOOL _beingTornDown; // @synthesize _beingTornDown;
 @property(readonly, nonatomic) BOOL _registered; // @synthesize _registered;
 @property(readonly, nonatomic) int _recordID; // @synthesize _recordID;
@@ -32,12 +40,11 @@
 - (void)appendID:(id)arg1 toProperty:(id)arg2;
 - (void)save;
 @property(readonly, nonatomic) NSArray *mobileNumbers;
-@property(readonly, nonatomic) NSArray *phoneNumbers;
+@property(nonatomic) NSArray *phoneNumbers;
 - (id)allHandlesForProperty:(id)arg1;
 - (void)setValues:(id)arg1 forProperty:(id)arg2;
 - (void)setValues:(id)arg1 forIMProperty:(id)arg2;
 - (id)valuesForProperty:(id)arg1;
-- (id)_valuesAndLabelsForProperty:(id)arg1;
 - (id)valuesForIMProperty:(id)arg1;
 @property(readonly, nonatomic) BOOL isInAddressBook;
 @property(copy, nonatomic) NSArray *emails;
@@ -60,6 +67,7 @@
 @property(readonly, nonatomic) int recordID;
 - (id)initWithABRecordID:(int)arg1;
 - (id)init;
+- (id)imHandleRegistrarGUID;
 
 @end
 

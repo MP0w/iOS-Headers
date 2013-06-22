@@ -11,13 +11,13 @@
     int mPresetShadowType;
 }
 
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)presetShadowType;
-- (void)setPresetShadowType:(int)arg1;
-- (id)equivalentOuterShadowEffect;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)equivalentOuterShadowEffect;
+- (void)setPresetShadowType:(int)arg1;
+- (int)presetShadowType;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

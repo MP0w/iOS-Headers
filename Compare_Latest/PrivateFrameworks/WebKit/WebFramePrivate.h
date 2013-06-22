@@ -10,7 +10,7 @@
 
 @interface WebFramePrivate : NSObject
 {
-    Frame_7b826bcf *coreFrame;
+    struct Frame *coreFrame;
     WebFrameView *webFrameView;
     struct WebScriptDebugger *scriptDebugger;
     id internalLoadDelegate;
@@ -20,9 +20,9 @@
     BOOL isSingleLine;
 }
 
-- (void)dealloc;
-- (void)finalize;
 - (void)setWebFrameView:(id)arg1;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

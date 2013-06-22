@@ -18,21 +18,21 @@
     NSCharacterSet *mDecimalDigitCharacterSet;
 }
 
-- (id)initWithString:(id)arg1;
-- (void)dealloc;
-- (unsigned short)nextCharacter;
-- (void)skipWhitespace;
-- (id)parseHexCharacter;
-- (void)appendCharactersInRange:(struct _NSRange)arg1 toString:(id)arg2;
-- (id)parseString;
-- (id)parseDictionary;
-- (id)parseArray;
-- (BOOL)parseConstantString:(const char *)arg1;
-- (id)parseNull;
-- (id)parseTrue;
-- (id)parseFalse;
-- (id)parseNumber;
 - (id)parseObject;
+- (id)parseNumber;
+- (id)parseFalse;
+- (id)parseTrue;
+- (id)parseNull;
+- (BOOL)parseConstantString:(const char *)arg1;
+- (id)parseArray;
+- (id)parseDictionary;
+- (id)parseString;
+- (void)appendCharactersInRange:(struct _NSRange)arg1 toString:(id)arg2;
+- (id)parseHexCharacter;
+- (void)skipWhitespace;
+- (unsigned short)nextCharacter;
+- (void)dealloc;
+- (id)initWithString:(id)arg1;
 
 @end
 

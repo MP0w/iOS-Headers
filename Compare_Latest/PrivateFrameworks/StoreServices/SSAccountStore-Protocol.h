@@ -9,6 +9,7 @@
 @class NSArray, SSAccount;
 
 @protocol SSAccountStore <NSObject>
+@property(readonly, getter=isAuthenticationActive) BOOL authenticationActive;
 @property(readonly, getter=isExpired) BOOL expired;
 @property(readonly) NSArray *accounts;
 @property(readonly) SSAccount *activeLockerAccount;

@@ -13,13 +13,13 @@
     unsigned int mBaseCharCount;
 }
 
-- (id)init;
-- (unsigned int)charIndex;
-- (void)setCharIndex:(unsigned int)arg1;
-- (unsigned int)charBaseIndex;
-- (void)setCharBaseIndex:(unsigned int)arg1;
-- (unsigned int)charBaseCount;
 - (void)setCharBaseCount:(unsigned int)arg1;
+- (unsigned int)charBaseCount;
+- (void)setCharBaseIndex:(unsigned int)arg1;
+- (unsigned int)charBaseIndex;
+- (void)setCharIndex:(unsigned int)arg1;
+- (unsigned int)charIndex;
+- (id)init;
 
 @end
 

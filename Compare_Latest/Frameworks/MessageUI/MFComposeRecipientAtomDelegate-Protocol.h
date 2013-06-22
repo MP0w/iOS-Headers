@@ -5,10 +5,10 @@
  */
 
 @protocol MFComposeRecipientAtomDelegate
-- (void)selectComposeRecipientAtom:(id)arg1;
-- (void)deselectComposeRecipientAtom:(id)arg1;
-- (void)composeRecipientAtomShowPersonCard:(id)arg1;
-- (void)composeRecipientAtomSelectPrevious:(id)arg1;
 - (void)composeRecipientAtomSelectNext:(id)arg1;
+- (void)composeRecipientAtomSelectPrevious:(id)arg1;
+- (void)composeRecipientAtomShowPersonCard:(id)arg1;
+- (void)deselectComposeRecipientAtom:(id)arg1;
+- (void)selectComposeRecipientAtom:(id)arg1;
 @end
 

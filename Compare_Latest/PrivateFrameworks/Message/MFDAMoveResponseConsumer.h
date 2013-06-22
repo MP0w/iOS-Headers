@@ -18,11 +18,11 @@
     MFError *_error;
 }
 
-- (id)initWithMessageIDs:(id)arg1 newRemoteIDsByMessageID:(id)arg2 failures:(id)arg3;
-- (void)dealloc;
-- (void)taskFailed:(id)arg1 withStatusCode:(int)arg2;
-- (void)resultsForMessageMove:(id)arg1;
 @property(retain, nonatomic) MFError *error; // @synthesize error=_error;
+- (void)resultsForMessageMove:(id)arg1;
+- (void)taskFailed:(id)arg1 statusCode:(int)arg2 error:(id)arg3;
+- (void)dealloc;
+- (id)initWithMessageIDs:(id)arg1 newRemoteIDsByMessageID:(id)arg2 failures:(id)arg3;
 
 @end
 

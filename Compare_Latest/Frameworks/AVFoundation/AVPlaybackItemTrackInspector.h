@@ -22,6 +22,7 @@
 - (float)nominalFrameRate;
 - (float)preferredVolume;
 - (struct CGAffineTransform)preferredTransform;
+- (struct CGSize)dimensions;
 - (struct CGSize)naturalSize;
 - (id)extendedLanguageTag;
 - (id)languageCode;

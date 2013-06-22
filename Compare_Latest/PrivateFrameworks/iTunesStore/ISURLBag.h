@@ -20,6 +20,8 @@
 }
 
 + (id)_copyFallbackContextForContext:(id)arg1;
++ (BOOL)_allowUnsignedBags;
++ (id)diskCachedURLBagForContext:(id)arg1;
 + (id)valueForKey:(id)arg1 inBagContext:(id)arg2;
 + (BOOL)urlIsTrusted:(id)arg1 inBagContext:(id)arg2;
 + (id)urlForKey:(id)arg1 inBagContext:(id)arg2;
@@ -28,9 +30,12 @@
 + (id)copyExtraHeadersForURL:(id)arg1 inBagContext:(id)arg2;
 + (id)storeFrontURLBagKeyForItemKind:(id)arg1;
 + (void)_loadItemKindURLBagKeyMap;
++ (id)URLBagForContext:(id)arg1 wasDiskCached:(char *)arg2;
 + (id)urlBagForContext:(id)arg1;
 + (id)_urlBagForContext:(id)arg1;
 + (void)setURLBag:(id)arg1 forContext:(id)arg2;
++ (void)_setURLBag:(id)arg1 forContext:(id)arg2;
++ (void)_observeStoreFrontChanges;
 + (void)invalidateAllBags;
 @property(nonatomic) double invalidationTime; // @synthesize invalidationTime=_invalidationTime;
 - (void)_writeURLResolutionCacheFile;
@@ -38,11 +43,11 @@
 - (void)_setDictionary:(id)arg1;
 - (id)_networkConstraintsCachePath;
 - (BOOL)_loadFromSignedDictionary:(id)arg1 returningError:(id *)arg2;
-- (struct __CFString *)_diskCacheExpirationTimeKey;
 - (id)_copyHeaderPatternsFromDictionary:(id)arg1;
 - (id)_copyGUIDSchemesFromDictionary:(id)arg1;
 - (id)_copyGUIDPatternsFromDictionary:(id)arg1;
 - (BOOL)writeToFile:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+@property(readonly, nonatomic) long long versionIdentifier;
 @property(readonly, nonatomic) NSDictionary *URLBagDictionary;
 @property(copy, nonatomic) SSURLBagContext *URLBagContext;
 - (id)sanitizedURLForURL:(id)arg1;

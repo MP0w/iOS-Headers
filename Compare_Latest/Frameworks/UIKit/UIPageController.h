@@ -94,6 +94,9 @@
 - (void)viewDidUnload;
 - (void)loadView;
 - (void)dealloc;
+- (id)_pageControllerScrollView;
+- (void)reloadViewControllerAtIndex:(int)arg1;
+- (void)setVisibleIndex:(int)arg1 preservingLoadedViewControllers:(BOOL)arg2 animated:(BOOL)arg3;
 
 @end
 

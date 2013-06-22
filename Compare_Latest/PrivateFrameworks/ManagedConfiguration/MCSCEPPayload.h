@@ -23,27 +23,27 @@
     unsigned int _retryDelay;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (BOOL)isRoot;
-- (BOOL)isIdentity;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (struct __SecCertificate *)copyCertificate;
-- (struct __SecIdentity *)copyIdentityFromKeychain;
-- (id)stubDictionary;
++ (id)typeStrings;
+@property(readonly, nonatomic) unsigned int retryDelay; // @synthesize retryDelay=_retryDelay;
+@property(readonly, nonatomic) unsigned int retries; // @synthesize retries=_retries;
+@property(readonly, nonatomic) NSDictionary *subjectAltName; // @synthesize subjectAltName=_subjectAltName;
+@property(readonly, nonatomic) NSArray *CACaps; // @synthesize CACaps=_CACaps;
+@property(readonly, nonatomic) NSData *CAFingerprint; // @synthesize CAFingerprint=_CAFingerprint;
+@property(readonly, nonatomic) int usageFlags; // @synthesize usageFlags=_usageFlags;
+@property(readonly, nonatomic) unsigned int keySize; // @synthesize keySize=_keySize;
+@property(readonly, nonatomic) NSArray *subject; // @synthesize subject=_subject;
+@property(readonly, nonatomic) NSString *challenge; // @synthesize challenge=_challenge;
+@property(readonly, nonatomic) NSString *CAInstanceName; // @synthesize CAInstanceName=_CAInstanceName;
+@property(readonly, nonatomic) NSString *URLString; // @synthesize URLString=_URLString;
+- (void).cxx_destruct;
 - (id)description;
-@property(readonly) unsigned int retryDelay; // @synthesize retryDelay=_retryDelay;
-@property(readonly) unsigned int retries; // @synthesize retries=_retries;
-@property(readonly) NSDictionary *subjectAltName; // @synthesize subjectAltName=_subjectAltName;
-@property(readonly) NSArray *CACaps; // @synthesize CACaps=_CACaps;
-@property(readonly) NSData *CAFingerprint; // @synthesize CAFingerprint=_CAFingerprint;
-@property(readonly) int usageFlags; // @synthesize usageFlags=_usageFlags;
-@property(readonly) unsigned int keySize; // @synthesize keySize=_keySize;
-@property(readonly) NSArray *subject; // @synthesize subject=_subject;
-@property(readonly) NSString *challenge; // @synthesize challenge=_challenge;
-@property(readonly) NSString *CAInstanceName; // @synthesize CAInstanceName=_CAInstanceName;
-@property(readonly) NSString *URLString; // @synthesize URLString=_URLString;
+- (id)stubDictionary;
+- (struct __SecIdentity *)copyIdentityFromKeychain;
+- (struct __SecCertificate *)copyCertificate;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
+- (BOOL)isIdentity;
+- (BOOL)isRoot;
 
 @end
 

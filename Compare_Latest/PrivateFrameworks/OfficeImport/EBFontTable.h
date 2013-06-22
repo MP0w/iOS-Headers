@@ -10,9 +10,9 @@
 {
 }
 
-+ (void)readWithState:(id)arg1;
-+ (unsigned int)edFontIndexFromXlFontIndex:(unsigned int)arg1;
 + (unsigned int)xlFontIndexFromEDFontIndex:(unsigned int)arg1;
++ (unsigned int)edFontIndexFromXlFontIndex:(unsigned int)arg1;
++ (void)readWithState:(id)arg1;
 
 @end
 

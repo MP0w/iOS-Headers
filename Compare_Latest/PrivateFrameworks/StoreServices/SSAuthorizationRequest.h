@@ -6,11 +6,11 @@
 
 #import <StoreServices/SSRequest.h>
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSNumber, NSString;
 
-@interface SSAuthorizationRequest : SSRequest <SSCoding>
+@interface SSAuthorizationRequest : SSRequest <SSXPCCoding>
 {
     NSNumber *_accountIdentifier;
     NSString *_keybagPath;
@@ -18,14 +18,13 @@
 }
 
 @property(copy) NSString *keybagPath; // @synthesize keybagPath=_keybagPath;
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
-@property(readonly) NSNumber *accountIdentifier;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)startWithCompletionBlock:(id)arg1;
+- (BOOL)start;
+- (void)startWithAuthorizationResponseBlock:(id)arg1;
 @property(readonly) id authorizationToken;
+@property(readonly) NSNumber *accountIdentifier;
 - (void)dealloc;
 - (id)initWithAuthorizationToken:(id)arg1 accountIdentifier:(id)arg2;
 - (id)init;

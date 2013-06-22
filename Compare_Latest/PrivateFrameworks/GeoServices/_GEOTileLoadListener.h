@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEOTileKeyList, NSError, NSLock;
+@class GEOTileKeyList, GEOTileUsageInfo, NSError, NSLock;
 
 @interface _GEOTileLoadListener : NSObject
 {
@@ -16,12 +16,18 @@
     GEOTileKeyList *_originalList;
     GEOTileKeyList *_networkLoadList;
     GEOTileKeyList *_satisfiedList;
+    struct __CFRunLoop *_runloop;
     BOOL _finishWhenDecoded;
     int _tilesDecoding;
-    NSError *_noNetworkError;
+    NSError *_finishError;
     NSLock *_callbacksLock;
+    BOOL _checkDiskAllowed;
+    BOOL _preload;
+    GEOTileUsageInfo *_usageInfo;
 }
 
+@property(nonatomic, getter=isPreload) BOOL preload; // @synthesize preload=_preload;
+@property(nonatomic) BOOL checkDiskAllowed; // @synthesize checkDiskAllowed=_checkDiskAllowed;
 @property(retain, nonatomic) GEOTileKeyList *satisfiedList; // @synthesize satisfiedList=_satisfiedList;
 @property(retain, nonatomic) GEOTileKeyList *networkLoadList; // @synthesize networkLoadList=_networkLoadList;
 @property(retain, nonatomic) GEOTileKeyList *originalList; // @synthesize originalList=_originalList;
@@ -33,8 +39,10 @@
 - (void)finishDecodingAndSendError:(id)arg1;
 - (void)finishWhenDecoded;
 - (void)endDecode;
+- (void)_tryFinish;
 - (void)beginDecode;
-- (void)addSatisfiedKey:(const struct _GEOTileKey *)arg1;
+- (struct __CFRunLoop *)runloop;
+- (void)addSatisfiedKey:(const struct _GEOTileKey *)arg1 fromDisk:(BOOL)arg2 dataLength:(unsigned int)arg3;
 - (void)dealloc;
 - (id)init;
 

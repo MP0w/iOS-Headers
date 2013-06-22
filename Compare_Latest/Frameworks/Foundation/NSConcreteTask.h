@@ -6,7 +6,7 @@
 
 #import <Foundation/NSTask.h>
 
-@class NSMutableDictionary, NSPort;
+@class NSMutableDictionary, NSObject<OS_dispatch_source>, NSPort;
 
 @interface NSConcreteTask : NSTask
 {
@@ -19,7 +19,7 @@
     id _terminationHandler;
     int _pid;
     int _platformExitInfo;
-    struct dispatch_source_s *_dsrc;
+    NSObject<OS_dispatch_source> *_dsrc;
     NSPort *_tmpPort;
 }
 

@@ -6,14 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSMutableIndexSet;
+@class NSMutableIndexSet, NSObject<OS_dispatch_queue>;
 
 @interface PLThumbnailIndexes : NSObject
 {
-    struct dispatch_queue_s *isolation;
+    NSObject<OS_dispatch_queue> *isolation;
     NSMutableIndexSet *unusedIndexes;
     int usedMax;
-    NSMutableIndexSet *_blackList;
 }
 
 + (void)recycleThumbnailIndex:(unsigned int)arg1;
@@ -21,7 +20,13 @@
 + (unsigned int)nextAvailableThumbnailIndex;
 + (void)getAvailableThumbnailIndexWithHandler:(id)arg1;
 + (void)getAvailableThumbnailIndexesWithCount:(unsigned int)arg1 handler:(id)arg2;
++ (id)sharedInstance;
 - (id)init;
+- (id)fetchOccupiedThumbnailIndexesWithLibrary:(id)arg1;
+- (void)recycleThumbnailIndex:(unsigned int)arg1;
+- (void)recycleThumbnailIndexes:(id)arg1;
+- (void)getAvailableThumbnailIndexesFromDatabase;
+- (void)getAvailableThumbnailIndexesWithCount:(unsigned int)arg1 handler:(id)arg2;
 
 @end
 

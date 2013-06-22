@@ -10,26 +10,30 @@
 
 @interface GEOStructuredAddress : PBCodable
 {
-    NSString *_country;
-    NSString *_countryCode;
+    CDStruct_815f15fd _geoIds;
     NSString *_administrativeArea;
     NSString *_administrativeAreaCode;
-    NSString *_subAdministrativeArea;
-    NSString *_locality;
-    NSString *_postCode;
-    NSString *_subLocality;
-    NSString *_premises;
-    NSString *_thoroughfare;
-    NSString *_subThoroughfare;
-    NSString *_fullThoroughfare;
-    NSString *_postCodeExtension;
     NSMutableArray *_areaOfInterests;
-    NSString *_inlandWater;
-    NSString *_ocean;
+    NSString *_country;
+    NSString *_countryCode;
     NSMutableArray *_dependentLocalitys;
-    CDStruct_815f15fd _geoIds;
+    NSString *_fullThoroughfare;
+    NSString *_inlandWater;
+    NSString *_locality;
+    NSString *_ocean;
+    NSString *_postCode;
+    NSString *_postCodeExtension;
+    NSString *_premise;
+    NSString *_premises;
+    NSString *_subAdministrativeArea;
+    NSString *_subLocality;
+    NSMutableArray *_subPremises;
+    NSString *_subThoroughfare;
+    NSString *_thoroughfare;
 }
 
+@property(retain, nonatomic) NSMutableArray *subPremises; // @synthesize subPremises=_subPremises;
+@property(retain, nonatomic) NSString *premise; // @synthesize premise=_premise;
 @property(retain, nonatomic) NSMutableArray *dependentLocalitys; // @synthesize dependentLocalitys=_dependentLocalitys;
 @property(retain, nonatomic) NSString *ocean; // @synthesize ocean=_ocean;
 @property(retain, nonatomic) NSString *inlandWater; // @synthesize inlandWater=_inlandWater;
@@ -47,6 +51,9 @@
 @property(retain, nonatomic) NSString *administrativeArea; // @synthesize administrativeArea=_administrativeArea;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(retain, nonatomic) NSString *country; // @synthesize country=_country;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
@@ -57,14 +64,21 @@
 - (void)clearGeoIds;
 @property(readonly, nonatomic) long long *geoIds;
 @property(readonly, nonatomic) unsigned int geoIdsCount;
+- (id)subPremiseAtIndex:(unsigned int)arg1;
+- (unsigned int)subPremisesCount;
+- (void)addSubPremise:(id)arg1;
+- (void)clearSubPremises;
+@property(readonly, nonatomic) BOOL hasPremise;
 - (id)dependentLocalityAtIndex:(unsigned int)arg1;
 - (unsigned int)dependentLocalitysCount;
 - (void)addDependentLocality:(id)arg1;
+- (void)clearDependentLocalitys;
 @property(readonly, nonatomic) BOOL hasOcean;
 @property(readonly, nonatomic) BOOL hasInlandWater;
 - (id)areaOfInterestAtIndex:(unsigned int)arg1;
 - (unsigned int)areaOfInterestsCount;
 - (void)addAreaOfInterest:(id)arg1;
+- (void)clearAreaOfInterests;
 @property(readonly, nonatomic) BOOL hasPostCodeExtension;
 @property(readonly, nonatomic) BOOL hasFullThoroughfare;
 @property(readonly, nonatomic) BOOL hasSubThoroughfare;

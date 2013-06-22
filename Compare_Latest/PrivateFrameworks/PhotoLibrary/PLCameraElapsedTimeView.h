@@ -10,7 +10,6 @@
 
 @interface PLCameraElapsedTimeView : UIImageView
 {
-    UILabel *_hours;
     UILabel *_minutes;
     UILabel *_seconds;
     NSTimer *_timer;
@@ -29,6 +28,7 @@
 - (void)stopTimer;
 - (void)startTimer;
 - (void)_update:(id)arg1;
+- (id)_createTimeLabelWithFont:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

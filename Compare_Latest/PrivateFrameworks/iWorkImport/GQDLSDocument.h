@@ -16,11 +16,12 @@
 }
 
 + (struct _xmlNs *)appNamespace;
-- (void)dealloc;
-- (id)stylesheet;
-- (void)setStylesheet:(id)arg1;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
 - (void)initializeAppBundleResourcesUrl;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
+- (void)setStylesheet:(id)arg1;
+- (id)stylesheet;
+- (void)dealloc;
+- (struct __CFString *)createUpgradedAppBundleResourcePath:(struct __CFString *)arg1;
 
 @end
 

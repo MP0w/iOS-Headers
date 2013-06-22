@@ -16,14 +16,14 @@
     unsigned int mCrc;
 }
 
-- (id)initFromCentralFileHeader:(const char *)arg1 inputStream:(id)arg2;
-- (void)dealloc;
-- (id)inputStream;
-- (id)data;
-- (struct _xmlDoc *)xmlDocument;
-- (struct _xmlDoc *)recoverXmlDocument;
-- (struct _xmlTextReader *)xmlReader:(BOOL)arg1;
 - (void)readZip64ExtraField:(const char *)arg1 size:(unsigned long)arg2;
+- (struct _xmlTextReader *)xmlReader:(BOOL)arg1;
+- (struct _xmlDoc *)recoverXmlDocument;
+- (struct _xmlDoc *)xmlDocument;
+- (id)data;
+- (id)inputStream;
+- (void)dealloc;
+- (id)initFromCentralFileHeader:(const char *)arg1 inputStream:(id)arg2;
 
 @end
 

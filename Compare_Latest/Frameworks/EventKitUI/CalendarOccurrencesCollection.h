@@ -15,17 +15,15 @@
     NSArray *_occurrences;
     NSArray *_allDayOccurrences;
     NSArray *_timedOccurrences;
-    BOOL _timedOccurrencesExtendPastRange;
 }
 
 - (id)description;
-@property(readonly, nonatomic) BOOL timedOccurrencesExtendPastRange;
 @property(readonly, nonatomic) NSArray *timedOccurrences;
 @property(readonly, nonatomic) NSArray *allDayOccurrences;
 @property(readonly, nonatomic) NSArray *occurrences;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithOccurrences:(id)arg1 timedOccurrences:(id)arg2 allDayOccurrences:(id)arg3 timedOccurrencesExtendPastRange:(BOOL)arg4;
+- (id)initWithOccurrences:(id)arg1 timedOccurrences:(id)arg2 allDayOccurrences:(id)arg3;
 
 @end
 

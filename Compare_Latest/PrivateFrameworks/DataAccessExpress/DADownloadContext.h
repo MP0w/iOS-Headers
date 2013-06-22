@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface DADownloadContext : NSObject
 {
     NSString *_attachmentUUID;
     NSString *_accountID;
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
     id _progressBlock;
     id _completionBlock;
 }
@@ -20,7 +20,7 @@
 - (void)finishedWithError:(id)arg1;
 - (void)updateProgressDownloadedByteCount:(long long)arg1 totalByteCount:(long long)arg2;
 - (void)dealloc;
-- (id)initWithAttachmentUUID:(id)arg1 accountID:(id)arg2 queue:(struct dispatch_queue_s *)arg3 downloadProgressBlock:(id)arg4 completionBlock:(void)arg5;
+- (id)initWithAttachmentUUID:(id)arg1 accountID:(id)arg2 queue:(id)arg3 downloadProgressBlock:(id)arg4 completionBlock:(void)arg5;
 
 @end
 

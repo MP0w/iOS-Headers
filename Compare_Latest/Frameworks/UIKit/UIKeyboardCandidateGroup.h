@@ -21,6 +21,7 @@
 - (void)sortWithOptions:(unsigned int)arg1 usingComparator:(id)arg2;
 - (void)sortUsingComparator:(id)arg1;
 - (void)addCandidate:(id)arg1;
+- (BOOL)hasAlternativeText;
 - (id)mutableCandidates;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;

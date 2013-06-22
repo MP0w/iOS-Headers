@@ -14,10 +14,10 @@
     NSDictionary *mFills;
 }
 
-- (id)initWithColors:(id)arg1 fills:(id)arg2;
-- (void)dealloc;
-- (id)colors;
 - (id)fills;
+- (id)colors;
+- (void)dealloc;
+- (id)initWithColors:(id)arg1 fills:(id)arg2;
 
 @end
 

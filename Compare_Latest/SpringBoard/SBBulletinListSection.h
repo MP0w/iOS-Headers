@@ -6,31 +6,45 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDate, NSMutableArray, SBWeeApp;
+@class NSArray, NSDate, NSMutableArray, NSString, SBWeeApp, UIImage;
 
 @interface SBBulletinListSection : NSObject
 {
+    NSString *_sectionID;
     unsigned int _sectionType;
     SBWeeApp *_weeApp;
     NSMutableArray *_bulletins;
     NSArray *_sortDescriptors;
+    NSString *_displayName;
+    UIImage *_iconImage;
+    BOOL _displaysCriticalBulletins;
     NSDate *_lastSortDate;
 }
 
-- (BOOL)isWeeAppSection;
-- (BOOL)isBulletinSection;
-- (unsigned int)bulletinCount;
-- (BOOL)hasClearableBulletins;
-- (id)lastSortDate;
-- (id)initWithSectionType:(unsigned int)arg1;
-- (void)dealloc;
+@property(copy, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
+@property(retain, nonatomic) UIImage *iconImage; // @synthesize iconImage=_iconImage;
+@property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSArray *sortDescriptors; // @synthesize sortDescriptors=_sortDescriptors;
-- (unsigned int)_indexForNewBulletin:(id)arg1;
-- (unsigned int)indexOfBulletinID:(id)arg1;
-- (unsigned int)addBulletin:(id)arg1;
-- (unsigned int)removeBulletin:(id)arg1;
-- (id)bulletinAtIndex:(unsigned int)arg1;
 @property(retain, nonatomic) SBWeeApp *weeApp; // @synthesize weeApp=_weeApp;
+- (id)bulletinAtIndex:(unsigned int)arg1;
+- (unsigned int)replaceBulletin:(id)arg1 withBulletin:(id)arg2;
+- (unsigned int)removeBulletin:(id)arg1;
+- (unsigned int)_removeBulletin:(id)arg1;
+- (unsigned int)addBulletin:(id)arg1;
+- (unsigned int)indexOfBulletinID:(id)arg1;
+- (unsigned int)_indexForNewBulletin:(id)arg1;
+- (int)compareSection:(id)arg1 forOrder:(unsigned int)arg2;
+- (int)compare:(id)arg1;
+- (void)dealloc;
+- (id)initWithSectionInfo:(id)arg1;
+- (BOOL)showsTodaysDate;
+- (BOOL)displaysCriticalBulletins;
+- (id)lastSortDate;
+- (BOOL)hasClearableBulletins;
+- (unsigned int)bulletinCount;
+- (BOOL)isBulletinSection;
+- (BOOL)isWeeAppSection;
+- (id)description;
 
 @end
 

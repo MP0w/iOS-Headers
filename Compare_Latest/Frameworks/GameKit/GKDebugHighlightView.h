@@ -12,8 +12,10 @@
 {
     UIColor *_color;
     NSString *_caption;
+    BOOL _isOval;
 }
 
+@property(nonatomic) BOOL isOval; // @synthesize isOval=_isOval;
 @property(retain, nonatomic) NSString *caption; // @synthesize caption=_caption;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 - (void)drawRect:(struct CGRect)arg1;

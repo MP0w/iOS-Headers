@@ -24,9 +24,9 @@
     BOOL is64Bit;
 }
 
-- (void)dealloc;
-- (id)description;
 - (int)compareByOffset:(id)arg1;
+- (id)description;
+- (void)dealloc;
 
 @end
 

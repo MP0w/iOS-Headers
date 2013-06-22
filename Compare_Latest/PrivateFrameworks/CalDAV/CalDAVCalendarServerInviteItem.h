@@ -13,13 +13,13 @@
     NSMutableSet *_users;
 }
 
-- (id)init;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
-- (void)addUser:(id)arg1;
 @property(retain) NSMutableSet *users; // @synthesize users=_users;
+- (void)addUser:(id)arg1;
+- (id)copyParseRules;
+- (id)description;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (id)init;
 
 @end
 

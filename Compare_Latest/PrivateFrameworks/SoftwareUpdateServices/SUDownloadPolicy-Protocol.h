@@ -13,12 +13,14 @@
 - (BOOL)isDownloadableForCurrentNetworkConditions:(int *)arg1 cellularFeesApply:(char *)arg2 powerRequired:(char *)arg3;
 - (BOOL)isDownloadableForCurrentNetworkConditions:(int *)arg1 cellularFeesApply:(char *)arg2;
 - (BOOL)isDownloadAllowableForWiFi;
+- (BOOL)isDownloadAllowableForCellularRoaming;
 - (BOOL)isDownloadAllowableForCellular2G;
 - (BOOL)isDownloadAllowableForCellular;
 - (BOOL)isDownloadFreeForCellular;
 - (BOOL)isDownloadable;
 - (BOOL)isPowerRequired;
 - (BOOL)hasEnoughDiskSpace;
+- (BOOL)isSamePolicy:(id)arg1;
 - (id)initWithDescriptor:(id)arg1;
 @end
 

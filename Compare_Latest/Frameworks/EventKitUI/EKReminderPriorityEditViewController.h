@@ -21,7 +21,6 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (int)_rowForPriority:(unsigned int)arg1;
 - (void)viewDidUnload;
 - (void)loadView;
 - (void)dealloc;

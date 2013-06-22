@@ -14,6 +14,7 @@
 }
 
 + (id)relations;
++ (id)defaultPropertiesToLoad;
 @property(readonly, nonatomic) EKSourceConstraints *constraints; // @synthesize constraints=_constraints;
 - (void)reset;
 - (BOOL)refresh;

@@ -10,9 +10,9 @@
 {
 }
 
-- (void)drawBorder:(struct CGRect)arg1;
-- (struct CGRect)textRect;
 - (void)drawRect:(struct CGRect)arg1;
+- (struct CGRect)textRect;
+- (void)drawBorder:(struct CGRect)arg1;
 
 @end
 

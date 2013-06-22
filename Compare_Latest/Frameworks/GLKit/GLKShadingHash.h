@@ -21,6 +21,7 @@
 - (void)setCompiledFsh:(id)arg1 forKey:(id)arg2;
 - (id)compiledVshForKey:(id)arg1;
 - (void)setCompiledVsh:(id)arg1 forKey:(id)arg2;
+- (void)purgeAllShaders;
 - (id)init;
 
 @end

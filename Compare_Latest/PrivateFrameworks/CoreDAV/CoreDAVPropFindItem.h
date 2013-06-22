@@ -16,11 +16,11 @@
     CoreDAVItem *_prop;
 }
 
++ (id)copyParseRules;
 @property(retain) CoreDAVItem *prop; // @synthesize prop=_prop;
 @property(retain) CoreDAVItem *include; // @synthesize include=_include;
 @property(retain) CoreDAVItemWithNoChildren *allProp; // @synthesize allProp=_allProp;
 @property(retain) CoreDAVItemWithNoChildren *propName; // @synthesize propName=_propName;
-- (id)copyParseRules;
 - (id)description;
 - (void)dealloc;
 - (id)init;

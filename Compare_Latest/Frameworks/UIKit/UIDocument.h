@@ -8,7 +8,7 @@
 
 #import "NSFilePresenter-Protocol.h"
 
-@class NSDate, NSDocumentDifferenceSize, NSLock, NSMutableArray, NSOperationQueue, NSString, NSTimer, NSURL, NSUndoManager;
+@class NSDate, NSDocumentDifferenceSize, NSLock, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSOperationQueue, NSString, NSTimer, NSURL, NSUndoManager;
 
 @interface UIDocument : NSObject <NSFilePresenter>
 {
@@ -17,9 +17,9 @@
     NSString *_localizedName;
     NSUndoManager *_undoManager;
     NSDate *_fileModificationDate;
-    struct dispatch_queue_s *_fileAccessQueue;
-    struct dispatch_queue_s *_openingQueue;
-    struct dispatch_semaphore_s *_fileAccessSemaphore;
+    NSObject<OS_dispatch_queue> *_fileAccessQueue;
+    NSObject<OS_dispatch_queue> *_openingQueue;
+    NSObject<OS_dispatch_semaphore> *_fileAccessSemaphore;
     NSOperationQueue *_filePresenterQueue;
     id _differenceDueToRecentChanges;
     id _differenceSincePreservingPreviousVersion;
@@ -53,11 +53,14 @@
 + (id)_customizationOfError:(id)arg1 withDescription:(id)arg2 recoverySuggestion:(id)arg3 recoveryAttempter:(id)arg4;
 + (id)_typeForContentsOfURL:(id)arg1 error:(id *)arg2;
 + (void)initialize;
++ (id)_fileModificationDateForURL:(id)arg1;
 @property(readonly, nonatomic) NSDocumentDifferenceSize *differenceSinceSaving; // @synthesize differenceSinceSaving=_differenceSinceSaving;
 @property(readonly, nonatomic) NSDocumentDifferenceSize *differenceSincePreservingPreviousVersion; // @synthesize differenceSincePreservingPreviousVersion=_differenceSincePreservingPreviousVersion;
 @property(readonly, nonatomic) NSDocumentDifferenceSize *differenceDueToRecentChanges; // @synthesize differenceDueToRecentChanges=_differenceDueToRecentChanges;
 - (void)disableEditing;
 - (void)enableEditing;
+- (void)presentedSubitemAtURL:(id)arg1 didResolveConflictVersion:(id)arg2;
+- (void)presentedItemDidResolveConflictVersion:(id)arg1;
 - (void)presentedSubitemAtURL:(id)arg1 didLoseVersion:(id)arg2;
 - (void)presentedSubitemAtURL:(id)arg1 didGainVersion:(id)arg2;
 - (void)presentedSubitemAtURL:(id)arg1 didMoveToURL:(id)arg2;
@@ -66,6 +69,7 @@
 - (void)accommodatePresentedSubitemDeletionAtURL:(id)arg1 completionHandler:(id)arg2;
 - (void)presentedItemDidLoseVersion:(id)arg1;
 - (void)presentedItemDidGainVersion:(id)arg1;
+- (void)_updateConflictState;
 - (void)presentedItemDidChange;
 - (void)presentedItemDidMoveToURL:(id)arg1;
 - (void)accommodatePresentedItemDeletionWithCompletionHandler:(id)arg1;
@@ -117,7 +121,7 @@
 - (void)_unlockFileAccessQueue;
 - (void)_lockFileAccessQueueAndPerformBlock:(id)arg1;
 - (void)performAsynchronousFileAccessUsingBlock:(id)arg1;
-@property(readonly) int documentState;
+@property(readonly) unsigned int documentState;
 - (void)_sendStateChangedNotification;
 - (BOOL)_isInConflict;
 - (void)_setInConflict:(BOOL)arg1;
@@ -127,8 +131,7 @@
 - (void)_setInOpen:(BOOL)arg1;
 - (BOOL)_isOpen;
 - (void)_setOpen:(BOOL)arg1;
-- (BOOL)_isEditingDisabled;
-- (void)_setEditingDisabled:(BOOL)arg1;
+@property(getter=_isEditingDisabled, setter=_setEditingDisabled:) BOOL editingDisabled;
 @property(copy) NSDate *fileModificationDate;
 @property(readonly) NSString *fileType;
 - (void)setFileType:(id)arg1;
@@ -141,6 +144,12 @@
 - (void)dealloc;
 - (id)initWithFileURL:(id)arg1;
 - (id)init;
+- (void)_performBlockSynchronouslyOnMainThread:(id)arg1;
+- (void)_performBlock:(id)arg1 synchronouslyOnQueue:(void)arg2;
+- (id)_fileOpeningQueue;
+
+// Remaining properties
+@property(readonly) NSURL *primaryPresentedItemURL;
 
 @end
 

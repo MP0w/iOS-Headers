@@ -16,16 +16,16 @@
     unsigned int mColorIndex;
 }
 
-- (id)init;
-- (void)dealloc;
-- (unsigned int)id;
-- (void)setId:(unsigned int)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
-- (id)initials;
-- (void)setInitials:(id)arg1;
-- (unsigned int)colorIndex;
 - (void)setColorIndex:(unsigned int)arg1;
+- (unsigned int)colorIndex;
+- (void)setInitials:(id)arg1;
+- (id)initials;
+- (void)setName:(id)arg1;
+- (id)name;
+- (void)setId:(unsigned int)arg1;
+- (unsigned int)id;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -7,47 +7,50 @@
 #import <PhotoLibrary/PLAbstractLibraryViewController.h>
 
 #import "PLLibraryTableViewCellEditingDelegate-Protocol.h"
-#import "PLPhotosPickerSessionParticipant-Protocol.h"
 #import "UIActionSheetDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class PLEmptyAlbumView, PLLibraryBannerView, PLLibraryView, PLPhotosPickerSession, PLSyncProgressView, UIActionSheet, UITableView;
+@class PLEmptyAlbumView, PLLibraryView, PLPhotosPickerSession, PLSyncProgressView, UIActionSheet, UITableView, UIView;
 
-@interface PLLibraryViewController : PLAbstractLibraryViewController <UIActionSheetDelegate, PLLibraryTableViewCellEditingDelegate, UITableViewDataSource, UITableViewDelegate, PLPhotosPickerSessionParticipant>
+@interface PLLibraryViewController : PLAbstractLibraryViewController <UIActionSheetDelegate, PLLibraryTableViewCellEditingDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     PLLibraryView *_tableView;
+    UIView *_bannerView;
     PLEmptyAlbumView *_emptyLibraryView;
     PLSyncProgressView *_syncProgressView;
-    PLLibraryBannerView *_bannerView;
     UIActionSheet *_deleteAlbumActionSheet;
-    id <PLLibraryViewControllerDelegate> _delegate;
+    UIActionSheet *_invitationConfirmationSheet;
     unsigned int _renamingAlbumIndex;
-    PLPhotosPickerSession *_currentPickerSession;
+    PLPhotosPickerSession *_activePhotosPickerSession;
+    BOOL _albumListHasUnseenContent;
     struct {
         unsigned int delegateDeterminesAccessoryType:1;
-        unsigned int delegateDeterminesEnabledRows:1;
         unsigned int adjustedForKeyboard:1;
         unsigned int endEditingAfterKeyboardDismiss:1;
-        unsigned int reserved:28;
+        unsigned int automaticallyRestoresConfiguration:1;
+        unsigned int adjustsStatusBarStyle:1;
+        unsigned int reserved:26;
     } _lvcFlags;
 }
 
-@property(retain, nonatomic) PLPhotosPickerSession *currentPickerSession; // @synthesize currentPickerSession=_currentPickerSession;
+@property(retain, nonatomic) UIView *bannerView; // @synthesize bannerView=_bannerView;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
-@property(nonatomic) id <PLLibraryViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)loadCurrentConfiguration:(id)arg1;
 - (void)storeCurrentConfiguration:(id)arg1;
 - (id)tableOffsetKey;
 - (void)updateNavigationItemButtons;
+- (BOOL)_shouldShowEditButton;
 - (void)_presentActionSheet:(id)arg1;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_keyboardDidHide:(id)arg1;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)setCurrentPickerSession:(id)arg1;
 - (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
+- (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 moveRowAtIndexPath:(id)arg2 toIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 targetIndexPathForMoveFromRowAtIndexPath:(id)arg2 toProposedIndexPath:(id)arg3;
@@ -58,20 +61,51 @@
 - (void)tableViewCell:(id)arg1 didChangeTextToText:(id)arg2;
 - (void)tableViewCellDidBeginEditingText:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)_updateCell:(id)arg1 forAlbum:(struct NSObject *)arg2 animated:(BOOL)arg3;
+- (unsigned int)_displayedAssetsCountForAlbum:(struct NSObject *)arg1;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (void)animateBannerThumbnailToAlbum:(struct NSObject *)arg1 completion:(id)arg2;
-- (void)hideBannerView;
-- (void)showBannerViewWithAssets:(id)arg1;
+- (int)numberOfSectionsInTableView:(id)arg1;
+- (BOOL)shouldShowUnreadIndicatorForAlbum:(struct NSObject *)arg1;
+- (int)accessoryTypeForAlbum:(struct NSObject *)arg1;
+- (void)prepareForDefaultImageSnapshot;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidLoad;
+- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (float)_largestAccessoryWidth;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (id)contentScrollView;
 - (void)viewDidUnload;
+- (void)viewDidLoad;
 - (void)loadView;
-@property(readonly, nonatomic) BOOL allowsEditingAlbums;
-- (BOOL)isEnabledRowForAlbum:(struct NSObject *)arg1;
+@property(nonatomic) BOOL adjustsStatusBarStyle;
+@property(nonatomic) BOOL automaticallyRestoresConfiguration;
+- (BOOL)albumIsDisplayedEnabled:(struct NSObject *)arg1;
+@property(nonatomic) id <PLLibraryViewControllerDelegate> delegate;
 - (void)dealloc;
 - (id)init;
+- (void)dismissSharedStreamOptionsViewController;
+- (void)presentSharedStreamOptionsViewController:(id)arg1;
+- (void)showInvitationConfirmationForAlbum:(id)arg1;
+- (void)cancelAddPhotosSessionAnimated:(BOOL)arg1;
+- (void)beginAddPhotosSessionForAlbum:(id)arg1 didShowHandler:(id)arg2 completionHandler:(void)arg3;
+- (void)fixContentInsetIfNeeded;
+- (void)setSyncProgressVisible:(BOOL)arg1;
+- (id)syncProgressView;
+- (id)visibleCellViewForAlbumAtIndex:(unsigned int)arg1;
+- (void)updateAlbumListHeader;
+- (BOOL)updateInterfaceForDeletedAlbumIndexes:(id)arg1 addedIndexes:(id)arg2 changedIndexes:(id)arg3 isReordering:(BOOL)arg4 needsFullReload:(BOOL)arg5;
+- (void)_updateAlbumListHasUnseenContent;
+- (void)updateInterfaceForHasContentChange;
+- (void)navigateToRevealAlbum:(struct NSObject *)arg1 initiallyHidden:(BOOL)arg2 animated:(BOOL)arg3;
+- (void)navigateToAlbum:(struct NSObject *)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (void)scrollToAlbumAtIndex:(unsigned int)arg1 animated:(BOOL)arg2 select:(BOOL)arg3;
+- (void)setHiddenAlbum:(struct NSObject *)arg1 animated:(BOOL)arg2;
+- (int)interfaceIdiom;
+- (void)_navigateToAlbum:(struct NSObject *)arg1 animated:(BOOL)arg2 completion:(id)arg3 allowShowingEmptyAlbumView:(void)arg4;
+- (int)_cellEditStyleForAlbum:(struct NSObject *)arg1;
+- (BOOL)_canReorderRowForAlbum:(struct NSObject *)arg1;
+- (BOOL)_shouldShowAlbumList;
 
 @end
 

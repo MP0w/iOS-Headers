@@ -33,6 +33,8 @@
 - (void)setText:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)_progressIndicator;
+- (void)show:(BOOL)arg1;
+- (id)initWithWindow:(id)arg1;
 
 @end
 

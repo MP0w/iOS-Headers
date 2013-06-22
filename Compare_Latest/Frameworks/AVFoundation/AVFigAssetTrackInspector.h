@@ -6,19 +6,20 @@
 
 #import <AVFoundation/AVAssetTrackInspector.h>
 
-@class AVWeakReference, NSMutableArray;
+@class AVWeakReference, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface AVFigAssetTrackInspector : AVAssetTrackInspector
 {
     struct OpaqueFigAssetTrack *_figAssetTrack;
     struct OpaqueFigSimpleMutex *_loadingMutex;
     struct OpaqueFigSemaphore *_playabilityValidationSemaphore;
-    struct dispatch_queue_s *_completionHandlerQueue;
+    NSObject<OS_dispatch_queue> *_completionHandlerQueue;
     int _playableStatus;
     long _playableResult;
     BOOL _playable;
     NSMutableArray *_loadingBatches;
     AVWeakReference *_weakReferenceToAsset;
+    NSArray *_cachedMediaCharacteristics;
 }
 
 - (unsigned int)hash;
@@ -33,8 +34,10 @@
 - (float)preferredVolume;
 - (int)layer;
 - (struct CGAffineTransform)preferredTransform;
+- (struct CGSize)dimensions;
 - (struct CGSize)naturalSize;
 - (id)extendedLanguageTag;
+- (id)mediaCharacteristics;
 - (id)languageCode;
 - (float)estimatedDataRate;
 - (int)naturalTimeScale;
@@ -47,11 +50,12 @@
 - (id)formatDescriptions;
 - (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
 - (id)mediaType;
+- (unsigned long)_figMediaType;
 - (int)trackID;
 - (struct OpaqueFigSemaphore *)_playabilityValidationSemaphore;
 - (id)_loadingBatches;
 - (struct OpaqueFigSimpleMutex *)_loadingMutex;
-- (struct dispatch_queue_s *)_completionHandlerQueue;
+- (id)_completionHandlerQueue;
 - (struct OpaqueFigAssetTrack *)_figAssetTrack;
 - (id)asset;
 - (void)_ensureAllDependenciesOfKeyAreLoaded:(id)arg1;

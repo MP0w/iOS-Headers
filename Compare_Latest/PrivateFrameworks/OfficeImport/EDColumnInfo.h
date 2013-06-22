@@ -23,21 +23,25 @@
 }
 
 + (id)columnInfoWithResources:(id)arg1 worksheet:(id)arg2;
-- (id)initWithResources:(id)arg1 worksheet:(id)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (unsigned int)key;
-- (double)width;
-- (void)setWidth:(double)arg1;
-- (_Bool)isHidden;
-- (void)setHidden:(_Bool)arg1;
-- (id)range;
-- (void)setRange:(id)arg1;
-- (void)setRangeWithFirstColumn:(int)arg1 lastColumn:(int)arg2;
-- (id)style;
-- (void)setStyle:(id)arg1;
-- (unsigned char)outlineLevel;
 - (void)setOutlineLevel:(unsigned char)arg1;
+- (unsigned char)outlineLevel;
+- (void)setStyle:(id)arg1;
+- (id)style;
+- (void)setRangeWithFirstColumn:(int)arg1 lastColumn:(int)arg2;
+- (void)setRange:(id)arg1;
+- (id)range;
+- (void)setHidden:(_Bool)arg1;
+- (_Bool)isHidden;
+- (void)setWidth:(double)arg1;
+- (double)width;
+- (int)key;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithResources:(id)arg1 worksheet:(id)arg2;
+- (void)setStyleIndex:(unsigned int)arg1;
+- (unsigned int)styleIndex;
+- (void)setWidthInXlUnits:(int)arg1;
+- (int)widthInXlUnits;
 
 @end
 

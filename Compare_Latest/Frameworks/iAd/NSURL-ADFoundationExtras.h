@@ -10,5 +10,6 @@
 + (id)_iAd_validatedURLForURL:(id)arg1;
 - (BOOL)_iAd_isHttpOrHttps;
 - (BOOL)_iAd_isHttpOnly;
+- (id)_iAd_URLByReplacingQueryStringWithString:(id)arg1;
 @end
 

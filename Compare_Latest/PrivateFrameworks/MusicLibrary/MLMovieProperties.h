@@ -15,6 +15,7 @@
     NSMutableDictionary *_dictionary;
 }
 
+- (void).cxx_destruct;
 - (void)_setValueCopy:(id)arg1 forKey:(id)arg2;
 - (void)_setValue:(id)arg1 forKey:(id)arg2;
 - (id)copyMoviePropertiesDictionary;
@@ -25,7 +26,6 @@
 @property(copy, nonatomic) NSString *copyrightWarning;
 @property(copy, nonatomic) NSArray *castMembers;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithMoviePropertiesDictionary:(id)arg1;
 - (id)init;
 

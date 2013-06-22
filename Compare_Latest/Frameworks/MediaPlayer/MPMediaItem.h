@@ -15,6 +15,7 @@
 + (BOOL)_isValidItemProperty:(id)arg1;
 + (void)_createFilterableDictionary;
 + (id)dynamicProperties;
++ (id)fallbackTitlePropertyForGroupingType:(int)arg1;
 + (id)titlePropertyForGroupingType:(int)arg1;
 + (id)persistentIDPropertyForGroupingType:(int)arg1;
 + (BOOL)canFilterByProperty:(id)arg1;
@@ -23,7 +24,8 @@
 - (id)_libraryLinkKind;
 - (id)_libraryLinkArtist;
 - (id)_directStoreURL;
-- (void)gaplessHeuristicInfo:(unsigned int *)arg1 duration:(unsigned int *)arg2 lastPacketsResync:(unsigned int *)arg3 encodingDelay:(unsigned int *)arg4 encodingDrain:(unsigned int *)arg5;
+@property(readonly, nonatomic) BOOL isUsableAsRepresentativeItem;
+- (void)gaplessHeuristicInfo:(unsigned int *)arg1 durationInSamples:(unsigned long long *)arg2 lastPacketsResync:(unsigned long long *)arg3 encodingDelay:(unsigned int *)arg4 encodingDrain:(unsigned int *)arg5;
 - (unsigned int)countOfChaptersOfType:(int)arg1;
 - (id)chapterOfType:(int)arg1 atTime:(double)arg2;
 - (id)chapterOfType:(int)arg1 atIndex:(unsigned int)arg2;
@@ -33,6 +35,7 @@
 @property(copy, nonatomic) NSDate *lastSkippedDate;
 @property(nonatomic) unsigned int skipCountSinceSync;
 @property(nonatomic) unsigned int skipCount;
+@property(copy, nonatomic) NSDate *lastUsedDate;
 @property(copy, nonatomic) NSDate *lastPlayedDate;
 @property(nonatomic) unsigned int playCountSinceSync;
 @property(nonatomic) unsigned int playCount;
@@ -58,15 +61,29 @@
 @property(readonly, nonatomic) NSString *effectiveAlbumArtist;
 @property(readonly, nonatomic) NSString *albumArtist;
 @property(readonly, nonatomic) NSArray *chapters;
+- (void)populateLocationPropertiesWithPath:(id)arg1;
 - (BOOL)existsInLibrary;
 - (id)representativeItem;
 - (id)_bestStoreURL;
+- (void)didReceiveMemoryWarning;
+- (void)clearBookmarkTime;
+- (void)updateLastUsedDateToCurrentDate;
+- (BOOL)incrementPlayCountForStopTime:(double)arg1;
+- (void)incrementPlayCountForPlayingToEnd;
+- (void)incrementSkipCount;
+- (void)noteWasPlayedToTime:(double)arg1 skipped:(BOOL)arg2;
+- (void)markNominalAmountHasBeenPlayed;
+- (BOOL)didSkipWithPlayedToTime:(double)arg1;
+- (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)initWithPersistentID:(unsigned long long)arg1;
+- (BOOL)isDownloadInProgress;
+- (BOOL)isDownloadable;
+@property(readonly, nonatomic) BOOL mediaTypeCanSeedGenius;
 
 @end
 

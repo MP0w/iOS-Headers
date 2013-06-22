@@ -60,6 +60,7 @@
 - (BOOL)handleCertificateError:(id)arg1;
 - (BOOL)handleTrustChallenge:(id)arg1 withConnection:(id)arg2;
 - (BOOL)handleTrustChallenge:(id)arg1;
+- (id)oauthToken;
 - (id)additionalHeaderValues;
 - (void)promptUserForNewCoreDAVPasswordWithCompletionBlock:(id)arg1;
 - (id)url;

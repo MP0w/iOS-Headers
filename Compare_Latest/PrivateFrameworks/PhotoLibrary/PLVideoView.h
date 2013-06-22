@@ -10,7 +10,7 @@
 #import "UIMovieScrubberDataSource-Protocol.h"
 #import "UIMovieScrubberDelegate-Protocol.h"
 
-@class AVRemaker, NSArray, NSDictionary, NSLock, NSMutableDictionary, NSString, NSTimer, NSURL, PLAirPlayBackgroundView, PLAirTunesService, PLManagedAsset, PLMoviePlayerController, PLPhotoBakedThumbnails, PLPhotoTileViewController, PLVideoEditingOverlayView, PLVideoOutBackgroundView, PLVideoPosterFrameView, UIButton, UIImage, UIImageView, UIMovieScrubber;
+@class AVRemaker, NSArray, NSDictionary, NSLock, NSMutableDictionary, NSString, NSTimer, NSURL, PLAirPlayBackgroundView, PLAirTunesService, PLManagedAsset, PLMoviePlayerController, PLPhotoBakedThumbnails, PLPhotoTileViewController, PLProgressStack, PLVideoEditingOverlayView, PLVideoOutBackgroundView, PLVideoPosterFrameView, UIButton, UIImage, UIImageView, UIMovieScrubber;
 
 @interface PLVideoView : UIView <UIMovieScrubberDelegate, UIMovieScrubberDataSource, PLMoviePlayerControllerDelegate>
 {
@@ -37,14 +37,7 @@
     NSString *_videoPathAfterTrim;
     NSTimer *_trimProgressTimer;
     PLManagedAsset *_trimmedVideoClip;
-    struct {
-        id _field1;
-        float _field2;
-        struct __CFArray *_field3;
-        float _field4;
-        char _field5;
-        id _field6;
-    } *_trimProgressStack;
+    PLProgressStack *_trimProgressStack;
     float _progress;
     int _interfaceOrientation;
     PLMoviePlayerController *_moviePlayer;
@@ -108,6 +101,7 @@
 }
 
 + (id)videoViewForVideoFileAtURL:(id)arg1;
+@property(retain, nonatomic) PLProgressStack *trimProgressStack; // @synthesize trimProgressStack=_trimProgressStack;
 @property(readonly, nonatomic) UIView *posterFrameView; // @synthesize posterFrameView=_posterFrameView;
 @property(nonatomic) float scrubberWidth; // @synthesize scrubberWidth=_scrubberWidth;
 @property(readonly, nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
@@ -235,6 +229,7 @@
 - (BOOL)moviePlayerHeadsetPreviousTrackPressed:(id)arg1;
 - (BOOL)moviePlayerHeadsetNextTrackPressed:(id)arg1;
 - (BOOL)moviePlayerHeadsetPlayPausePressed:(id)arg1;
+- (BOOL)moviePlayerCanManageStatusBar:(id)arg1;
 - (void)willResignMoviePlayerDelegate:(id)arg1;
 - (void)didBecomeMoviePlayerDelegate:(id)arg1;
 - (void)_prepareMoviePlayerIfNeeded;

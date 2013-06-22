@@ -6,14 +6,15 @@
 
 #import "UIView.h"
 
-@class SBBannerView, UIImageView;
+@class UIImageView, UIView<SBUIBannerItemView>;
 
 @interface SBBannerAndShadowView : UIView
 {
-    SBBannerView *_banner;
+    UIView<SBUIBannerItemView> *_banner;
     UIImageView *_shadow[5];
     struct CGRect _shadowFrame[5];
     struct CGSize _bannerSize;
+    struct CGPoint _bannerOrigin;
     float _sideWidth;
     float _bottomHeight;
     BOOL _shadowsInPortraitWindow;
@@ -21,22 +22,22 @@
     UIImageView *_roller;
 }
 
-- (id)initWithBanner:(id)arg1;
-- (void)dealloc;
-- (id)banner;
-- (void)replaceBannerWithBanner:(id)arg1;
-- (void)setBannerFrame:(struct CGRect)arg1;
-- (BOOL)_showsSideShadows;
-- (struct CGRect)_frameForBannerFrame:(struct CGRect)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)_layoutSubviews;
-- (void)moveShadowsToPortraitWindow:(id)arg1 fromOrientation:(int)arg2;
-- (void)pullShadowsBack;
-- (void)setShadowAlpha:(float)arg1;
-- (void)prepareRoller;
-- (void)setRollerProgress:(float)arg1;
-- (void)clearRoller;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)clearRoller;
+- (void)setRollerProgress:(float)arg1;
+- (void)prepareRoller;
+- (void)setShadowAlpha:(float)arg1;
+- (void)pullShadowsBack;
+- (void)moveShadowsToPortraitWindow:(id)arg1 fromOrientation:(int)arg2;
+- (void)_layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGRect)_frameForBannerFrame:(struct CGRect)arg1;
+- (BOOL)_showsSideShadows;
+- (void)setBannerFrame:(struct CGRect)arg1;
+- (void)replaceBannerWithBanner:(id)arg1;
+- (id)banner;
+- (void)dealloc;
+- (id)initWithBanner:(id)arg1;
 
 @end
 

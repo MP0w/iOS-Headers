@@ -16,13 +16,13 @@
     NSSet *_sharees;
 }
 
-- (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
-- (id)initWithCalendarURL:(id)arg1 accountInfoProvider:(id)arg2 taskManager:(id)arg3;
-- (void)dealloc;
-- (void)startTaskGroup;
-- (void)task:(id)arg1 didFinishWithError:(id)arg2;
 @property(retain) NSSet *sharees; // @synthesize sharees=_sharees;
 @property(retain) NSURL *url; // @synthesize url=_url;
+- (void)task:(id)arg1 didFinishWithError:(id)arg2;
+- (void)startTaskGroup;
+- (void)dealloc;
+- (id)initWithCalendarURL:(id)arg1 accountInfoProvider:(id)arg2 taskManager:(id)arg3;
+- (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
 
 @end
 

@@ -7,7 +7,7 @@
 #import "NSData.h"
 
 @interface NSData (WebKitExtras)
-- (id)_webkit_guessedMIMETypeForXML;
 - (id)_webkit_guessedMIMEType;
+- (id)_webkit_guessedMIMETypeForXML;
 @end
 

@@ -7,7 +7,7 @@
 #import "MimePart.h"
 
 @interface MimePart (SMIMESupport)
-- (id)SMIMEError;
 - (id)copySigners;
+- (id)SMIMEError;
 @end
 

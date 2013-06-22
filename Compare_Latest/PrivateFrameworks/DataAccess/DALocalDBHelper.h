@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NoteContext;
+
 @interface DALocalDBHelper : NSObject
 {
     void *_abDB;
@@ -14,6 +16,8 @@
     int _calConnectionCount;
     void *_bookmarkDB;
     int _bookmarkConnectionCount;
+    NoteContext *_noteDB;
+    int _noteConnectionCount;
     id _calUnitTestCallbackBlock;
 }
 
@@ -23,6 +27,11 @@
 + (void)abSetTestABDBDir:(id)arg1;
 + (id)sharedInstanceForAccountType:(id)arg1 creatingClass:(Class)arg2;
 - (void)calUnitTestsSetCallbackBlockForSave:(id)arg1;
+- (int)noteConnectionCount;
+- (BOOL)noteCloseDBAndSave:(BOOL)arg1;
+- (BOOL)noteSaveDB;
+- (void)noteOpenDB;
+- (id)noteDB;
 - (void)bookmarkCloseDBAndSave:(BOOL)arg1;
 - (void)bookmarkSaveDB;
 - (BOOL)bookmarkOpenDB;
@@ -31,7 +40,6 @@
 - (BOOL)calCloseDBAndSave:(BOOL)arg1;
 - (BOOL)calSaveDBAndFlushCaches;
 - (BOOL)calSaveDB;
-- (void)calProcessAddedRecords;
 - (void)calOpenDBWithChangeLogging;
 - (void)calOpenDB;
 - (void)_registerForCalendarYieldNotifications;

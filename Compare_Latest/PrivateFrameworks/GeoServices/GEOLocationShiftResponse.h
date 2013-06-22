@@ -6,19 +6,21 @@
 
 #import "PBCodable.h"
 
-@class GEOPixelPoint;
-
 @interface GEOLocationShiftResponse : PBCodable
 {
-    GEOPixelPoint *_shiftedPixel;
+    CDStruct_bddcf505 _shiftedPixel;
 }
 
-@property(retain, nonatomic) GEOPixelPoint *shiftedPixel; // @synthesize shiftedPixel=_shiftedPixel;
+@property(nonatomic) CDStruct_bddcf505 shiftedPixel; // @synthesize shiftedPixel=_shiftedPixel;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;
+@property(readonly) CDStruct_c3b9c2ee shiftedCoordinate;
 
 @end
 

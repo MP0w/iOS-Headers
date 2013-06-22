@@ -42,10 +42,12 @@
 - (float)shadowPadding;
 - (float)shadowPaddingForStyle:(int)arg1;
 - (float)standardPadding;
+- (int)textAlignment;
 - (id)textColorForStyle:(int)arg1;
 - (id)textFont;
 - (BOOL)usesSmallerTextFont;
 - (void)drawText:(id)arg1 forStyle:(int)arg2 forWidth:(float)arg3 lineBreakMode:(int)arg4 letterSpacing:(float)arg5;
+- (void)_drawText:(id)arg1 inRect:(struct CGRect)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4 letterSpacing:(float)arg5 textAlignment:(int)arg6;
 - (void)drawText:(id)arg1 forStyle:(int)arg2;
 - (float)updateContentsAndWidth;
 - (float)setStatusBarData:(id)arg1 actions:(int)arg2;

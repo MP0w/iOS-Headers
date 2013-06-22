@@ -34,6 +34,7 @@
     } _tabBarItemFlags;
 }
 
++ (id)_appearanceProxyViewClasses;
 - (void)setTag:(int)arg1;
 - (int)tag;
 - (struct UIOffset)titlePositionAdjustment;
@@ -58,6 +59,25 @@
 - (id)initWithTabBarSystemItem:(int)arg1 tag:(int)arg2;
 - (id)initWithTitle:(id)arg1 image:(id)arg2 tag:(int)arg3;
 - (id)init;
+- (id)_internalTemplateImage;
+- (void)_setInternalTemplateImage:(id)arg1;
+- (id)_internalTitle;
+- (void)_setInternalTitle:(id)arg1;
+@property(nonatomic) SEL action;
+@property(nonatomic) id target;
+@property(retain, nonatomic) UIImage *unselectedImage;
+@property(retain, nonatomic) UIImage *selectedImage;
+@property(nonatomic) BOOL animatedBadge;
+@property(nonatomic) BOOL viewIsCustom;
+@property(retain, nonatomic) UIView *view;
+- (int)systemItem;
+- (BOOL)isSystemItem;
+- (void)_updateView;
+- (id)_createViewForTabBar:(id)arg1 showingBadge:(BOOL)arg2 withTint:(BOOL)arg3;
+- (id)_createViewForTabBar:(id)arg1 showingBadge:(BOOL)arg2;
+- (void)_setTitleTextAttributeValue:(id)arg1 forAttributeKey:(id)arg2 state:(unsigned int)arg3;
+- (id)nextResponder;
+- (id)_updateImageWithTintColor:(id)arg1 isSelected:(BOOL)arg2 getImageOffset:(struct UIOffset *)arg3;
 
 @end
 

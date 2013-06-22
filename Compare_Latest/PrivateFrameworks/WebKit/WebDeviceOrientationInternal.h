@@ -11,9 +11,9 @@
     struct RefPtr<WebCore::DeviceOrientation> m_orientation;
 }
 
-- (id)initWithCoreDeviceOrientation:(PassRefPtr_ce175d97)arg1;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (id)initWithCoreDeviceOrientation:(PassRefPtr_ce175d97)arg1;
 
 @end
 

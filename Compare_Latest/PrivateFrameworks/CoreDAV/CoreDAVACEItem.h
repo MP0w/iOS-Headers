@@ -19,13 +19,13 @@
 }
 
 + (id)privilegeItemWithNameSpace:(id)arg1 andName:(id)arg2;
++ (id)copyParseRules;
 @property(retain) CoreDAVItemWithHrefChildItem *inherited; // @synthesize inherited=_inherited;
 @property(retain) CoreDAVItemWithNoChildren *protectedItem; // @synthesize protectedItem=_protectedItem;
 @property(retain) CoreDAVDenyItem *deny; // @synthesize deny=_deny;
 @property(retain) CoreDAVGrantItem *grant; // @synthesize grant=_grant;
 @property(retain) CoreDAVInvertItem *invert; // @synthesize invert=_invert;
 @property(retain) CoreDAVPrincipalItem *principal; // @synthesize principal=_principal;
-- (id)copyParseRules;
 - (void)write:(id)arg1;
 - (id)description;
 - (void)dealloc;

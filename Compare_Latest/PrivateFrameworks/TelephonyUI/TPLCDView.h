@@ -18,37 +18,37 @@
     unsigned int _layoutAsLabelled:1;
 }
 
-+ (float)textFontSize;
 + (float)labelFontSize;
-- (struct CGRect)fullSizedContentViewFrame;
-- (void)_resetContentViewFrame;
-- (id)initWithDefaultSizeForOrientation:(int)arg1;
-- (void)dealloc;
-- (BOOL)shouldCenterText;
-- (BOOL)shouldCenterContentView;
-- (BOOL)showImageViewOnLeftSide;
-- (void)setContentsAlpha:(float)arg1;
-- (float)_labelVInset;
-- (float)_textVInset;
-- (void)setText:(id)arg1;
-- (id)text;
-- (struct CGRect)_text1Frame;
-- (struct CGRect)textFrame;
-- (struct CGRect)_text2Frame;
-- (id)secondLineText;
-- (struct CGRect)_labelFrame;
-- (struct CGRect)_imageViewFrame;
-- (void)layoutSubviews;
-- (void)setSecondLineText:(id)arg1;
-- (void)didFinishAnimatingLCDLabelFadeOut:(id)arg1 finished:(id)arg2 context:(id)arg3;
-- (void)setLabel:(id)arg1 animate:(BOOL)arg2;
-- (void)setLabel:(id)arg1;
-- (id)label;
-- (void)blinkLabel;
-- (void)setSubImage:(id)arg1;
-- (id)subImage;
-- (void)setShadowColor:(id)arg1;
++ (float)textFontSize;
 - (void)setLayoutAsLabelled:(BOOL)arg1;
+- (void)setShadowColor:(id)arg1;
+- (id)subImage;
+- (void)setSubImage:(id)arg1;
+- (void)blinkLabel;
+- (id)label;
+- (void)setLabel:(id)arg1;
+- (void)setLabel:(id)arg1 animate:(BOOL)arg2;
+- (void)didFinishAnimatingLCDLabelFadeOut:(id)arg1 finished:(id)arg2 context:(id)arg3;
+- (void)setSecondLineText:(id)arg1;
+- (void)layoutSubviews;
+- (struct CGRect)_imageViewFrame;
+- (struct CGRect)_labelFrame;
+- (id)secondLineText;
+- (struct CGRect)_text2Frame;
+- (struct CGRect)textFrame;
+- (struct CGRect)_text1Frame;
+- (id)text;
+- (void)setText:(id)arg1;
+- (float)_textVInset;
+- (float)_labelVInset;
+- (void)setContentsAlpha:(float)arg1;
+- (BOOL)showImageViewOnLeftSide;
+- (BOOL)shouldCenterContentView;
+- (BOOL)shouldCenterText;
+- (void)dealloc;
+- (id)initWithDefaultSizeForOrientation:(int)arg1;
+- (void)_resetContentViewFrame;
+- (struct CGRect)fullSizedContentViewFrame;
 
 @end
 

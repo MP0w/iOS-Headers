@@ -54,7 +54,7 @@
 - (void)configureForSingle:(int)arg1;
 - (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;
 - (struct CGRect)titleRectForContentRect:(struct CGRect)arg1;
-- (struct CGRect)adjustRectForPosition:(struct CGRect)arg1 scaleVertically:(BOOL)arg2;
+- (struct CGRect)adjustRectForPosition:(struct CGRect)arg1 scaleRect:(BOOL)arg2;
 - (void)removeFromSuperview;
 - (void)layoutSubviews;
 - (void)configureLabel;

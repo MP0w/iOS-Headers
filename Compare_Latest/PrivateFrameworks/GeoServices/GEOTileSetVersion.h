@@ -6,23 +6,47 @@
 
 #import "PBCodable.h"
 
-@class NSMutableArray;
-
 @interface GEOTileSetVersion : PBCodable
 {
+    CDStruct_d66e66b9 *_availableTiles;
+    unsigned int _availableTilesCount;
+    unsigned int _availableTilesSpace;
+    CDStruct_8f5f9923 *_genericTiles;
+    unsigned int _genericTilesCount;
+    unsigned int _genericTilesSpace;
     unsigned int _identifier;
-    NSMutableArray *_availableTiles;
+    unsigned int _supportedLanguagesVersion;
+    unsigned int _timeToLiveSeconds;
+    struct {
+        unsigned int supportedLanguagesVersion:1;
+        unsigned int timeToLiveSeconds:1;
+    } _has;
 }
 
-@property(retain, nonatomic) NSMutableArray *availableTiles; // @synthesize availableTiles=_availableTiles;
+@property(nonatomic) unsigned int supportedLanguagesVersion; // @synthesize supportedLanguagesVersion=_supportedLanguagesVersion;
+@property(nonatomic) unsigned int timeToLiveSeconds; // @synthesize timeToLiveSeconds=_timeToLiveSeconds;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)availableTilesAtIndex:(unsigned int)arg1;
-- (unsigned int)availableTilesCount;
-- (void)addAvailableTiles:(id)arg1;
+@property(nonatomic) BOOL hasSupportedLanguagesVersion;
+- (void)setGenericTiles:(CDStruct_8f5f9923 *)arg1 count:(unsigned int)arg2;
+- (CDStruct_8f5f9923)genericTileAtIndex:(unsigned int)arg1;
+- (void)addGenericTile:(CDStruct_8f5f9923)arg1;
+- (void)clearGenericTiles;
+@property(readonly, nonatomic) CDStruct_8f5f9923 *genericTiles;
+@property(readonly, nonatomic) unsigned int genericTilesCount;
+@property(nonatomic) BOOL hasTimeToLiveSeconds;
+- (void)setAvailableTiles:(CDStruct_d66e66b9 *)arg1 count:(unsigned int)arg2;
+- (CDStruct_d66e66b9)availableTilesAtIndex:(unsigned int)arg1;
+- (void)addAvailableTiles:(CDStruct_d66e66b9)arg1;
+- (void)clearAvailableTiles;
+@property(readonly, nonatomic) CDStruct_d66e66b9 *availableTiles;
+@property(readonly, nonatomic) unsigned int availableTilesCount;
 - (void)dealloc;
 
 @end

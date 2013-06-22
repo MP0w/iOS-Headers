@@ -13,9 +13,9 @@
     NSDictionary *_ancestorSnapshot;
 }
 
-- (id)initWithSource:(id)arg1 newVersion:(unsigned int)arg2 oldVersion:(unsigned int)arg3 cachedSnapshot:(id)arg4 persistedSnapshot:(id)arg5;
-- (void)dealloc;
 @property(retain) NSDictionary *ancestorSnapshot; // @synthesize ancestorSnapshot=_ancestorSnapshot;
+- (void)dealloc;
+- (id)initWithSource:(id)arg1 newVersion:(unsigned int)arg2 oldVersion:(unsigned int)arg3 cachedSnapshot:(id)arg4 persistedSnapshot:(id)arg5;
 
 @end
 

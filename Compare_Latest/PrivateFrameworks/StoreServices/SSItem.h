@@ -41,6 +41,8 @@
 - (id)releaseDateString;
 - (id)releaseDate;
 - (id)rawItemDictionary;
+- (id)podcastFeedURL;
+- (id)podcastEpisodeGUID;
 - (id)numberOfItemsInCollection;
 - (id)numberOfCollectionsInCollectionGroup;
 - (id)networkName;
@@ -68,6 +70,8 @@
 - (id)buyParameters;
 @property(readonly, nonatomic) NSURL *viewItemURL;
 - (id)valueForProperty:(id)arg1;
+- (id)tweetURL;
+- (id)tweetInitialText;
 @property(readonly, nonatomic) NSArray *thumbnailImages;
 - (id)tellAFriendSubject;
 - (id)tellAFriendBodyURL;
@@ -75,6 +79,7 @@
 - (id)tellAFriendBody;
 - (id)relatedItemsForRelationType:(id)arg1;
 @property(readonly, nonatomic) int numberOfUserRatings;
+- (int)numberOfPrintedPages;
 - (void)loadTellAFriendMessageWithCompletionHandler:(id)arg1;
 @property(readonly, nonatomic) NSNumber *ITunesStoreIdentifier;
 @property(readonly, nonatomic) NSString *itemTitle;

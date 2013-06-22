@@ -13,10 +13,11 @@
     struct OADAdjustCoord mAngleLength;
 }
 
-- (id)initWithSemiaxes:(struct OADAdjustPoint)arg1 startAngle:(struct OADAdjustCoord)arg2 angleLength:(struct OADAdjustCoord)arg3;
-- (struct OADAdjustPoint)semiaxes;
-- (struct OADAdjustCoord)startAngle;
+- (id).cxx_construct;
 - (struct OADAdjustCoord)angleLength;
+- (struct OADAdjustCoord)startAngle;
+- (struct OADAdjustPoint)semiaxes;
+- (id)initWithSemiaxes:(struct OADAdjustPoint)arg1 startAngle:(struct OADAdjustCoord)arg2 angleLength:(struct OADAdjustCoord)arg3;
 
 @end
 

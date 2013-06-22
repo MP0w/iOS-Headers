@@ -11,7 +11,7 @@
 @interface WDFieldMarker : WDRun
 {
     WDCharacterProperties *mProperties;
-    int mFieldPosition;
+    long mFieldPosition;
     int mMarkerType;
     unsigned char mFieldType;
     unsigned int mZombieEmbed:1;
@@ -23,31 +23,31 @@
     unsigned int mHasSeparator:1;
 }
 
-- (id)properties;
-- (void)clearProperties;
-- (id)initWithParagraph:(id)arg1;
-- (void)dealloc;
-- (long)fieldPosition;
-- (void)setFieldPosition:(long)arg1;
-- (int)fieldMarkerType;
-- (void)setFieldMarkerType:(int)arg1;
-- (unsigned char)fieldType;
-- (void)setFieldType:(unsigned char)arg1;
-- (int)runType;
-- (BOOL)zombieEmbed;
-- (void)setZombieEmbed:(BOOL)arg1;
-- (BOOL)resultDirty;
-- (void)setResultDirty:(BOOL)arg1;
-- (BOOL)resultEdited;
-- (void)setResultEdited:(BOOL)arg1;
-- (BOOL)locked;
-- (void)setLocked:(BOOL)arg1;
-- (BOOL)privateResult;
-- (void)setPrivateResult:(BOOL)arg1;
-- (BOOL)nested;
-- (void)setNested:(BOOL)arg1;
-- (BOOL)hasSeparator;
 - (void)setHasSeparator:(BOOL)arg1;
+- (BOOL)hasSeparator;
+- (void)setNested:(BOOL)arg1;
+- (BOOL)nested;
+- (void)setPrivateResult:(BOOL)arg1;
+- (BOOL)privateResult;
+- (void)setLocked:(BOOL)arg1;
+- (BOOL)locked;
+- (void)setResultEdited:(BOOL)arg1;
+- (BOOL)resultEdited;
+- (void)setResultDirty:(BOOL)arg1;
+- (BOOL)resultDirty;
+- (void)setZombieEmbed:(BOOL)arg1;
+- (BOOL)zombieEmbed;
+- (int)runType;
+- (void)setFieldType:(unsigned char)arg1;
+- (unsigned char)fieldType;
+- (void)setFieldMarkerType:(int)arg1;
+- (int)fieldMarkerType;
+- (void)setFieldPosition:(long)arg1;
+- (long)fieldPosition;
+- (void)dealloc;
+- (id)initWithParagraph:(id)arg1;
+- (void)clearProperties;
+- (id)properties;
 
 @end
 

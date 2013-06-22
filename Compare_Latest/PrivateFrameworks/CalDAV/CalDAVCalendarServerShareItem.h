@@ -14,8 +14,8 @@
     NSMutableSet *_shareesToSet;
 }
 
-@property(readonly, retain) NSMutableSet *shareesToSet; // @synthesize shareesToSet=_shareesToSet;
-@property(readonly, retain) NSMutableSet *shareesToRemove; // @synthesize shareesToRemove=_shareesToRemove;
+@property(readonly) NSMutableSet *shareesToSet; // @synthesize shareesToSet=_shareesToSet;
+@property(readonly) NSMutableSet *shareesToRemove; // @synthesize shareesToRemove=_shareesToRemove;
 
 @end
 

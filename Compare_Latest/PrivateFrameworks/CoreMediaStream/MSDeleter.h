@@ -13,14 +13,14 @@
 
 @interface MSDeleter : MSCupidStateMachine <MSDeleter, MSDeleteStreamsProtocolDelegate>
 {
-    id <MSDeleterDelegate> _delegate;
-    MSMediaStreamDaemon *_daemon;
     MSDeleteStreamsProtocol *_protocol;
     int _state;
     MSObjectQueue *_deleteQueue;
     NSMutableArray *_requestedDeleteWrappers;
     int _batchSize;
     int _maxErrorCount;
+    id <MSDeleterDelegate> _delegate;
+    MSMediaStreamDaemon *_daemon;
 }
 
 + (BOOL)isInRetryState;
@@ -37,6 +37,7 @@
 @property(nonatomic) int batchSize; // @synthesize batchSize=_batchSize;
 @property(nonatomic) MSMediaStreamDaemon *daemon; // @synthesize daemon=_daemon;
 @property(nonatomic) id <MSDeleterDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (BOOL)_isInRetryState;
 - (void)stop;
 - (void)abort;

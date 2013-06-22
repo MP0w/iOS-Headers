@@ -4,31 +4,37 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import "SBUIBannerItem.h"
 
-@class BBBulletin, NSArray;
+@class BBBulletin, BBObserver, NSArray, SBUISound, UIImage;
 
-@interface SBBulletinBannerItem : NSObject
+@interface SBBulletinBannerItem : SBUIBannerItem
 {
     BBBulletin *_seedBulletin;
+    BBObserver *_observer;
     NSArray *_additionalBulletins;
+    UIImage *_iconImage;
+    SBUISound *_sound;
 }
 
-+ (id)itemWithBulletin:(id)arg1;
-+ (id)itemWithSeedBulletin:(id)arg1 additionalBulletins:(id)arg2;
-- (id)_initWithSeedBulletin:(id)arg1 additionalBulletins:(id)arg2;
-- (void)dealloc;
-- (id)attachmentImage;
-- (id)iconImage;
-- (id)_appName;
-- (id)title;
-- (id)message;
-- (id)attachmentText;
-- (BOOL)playSound;
-- (void)killSound;
-- (void)sendResponse;
-- (id)launchBlock;
++ (id)itemWithSeedBulletin:(id)arg1 additionalBulletins:(id)arg2 andObserver:(id)arg3;
++ (id)itemWithBulletin:(id)arg1 andObserver:(id)arg2;
+- (BOOL)canShowInAssistant;
+- (id)sortDate;
 - (id)seedBulletin;
+- (id)action;
+- (id)sound;
+- (void)_setSound;
+- (int)accessoryStyle;
+- (id)attachmentText;
+- (id)message;
+- (id)title;
+- (id)_appName;
+- (id)iconImage;
+- (id)attachmentImage;
+- (id)additionalBulletins;
+- (void)dealloc;
+- (id)_initWithSeedBulletin:(id)arg1 additionalBulletins:(id)arg2 andObserver:(id)arg3;
 
 @end
 

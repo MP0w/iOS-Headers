@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (NSURLAdditionsAdditions)
-- (BOOL)containsPercentEscapes;
 - (id)stringByPercentEscaping;
+- (BOOL)containsPercentEscapes;
 @end
 

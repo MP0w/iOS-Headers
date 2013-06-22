@@ -6,24 +6,26 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>;
+
 @interface MCJobQueue : NSObject
 {
-    struct dispatch_queue_s *_executionQueue;
-    struct dispatch_queue_s *_jobQueue;
-    struct dispatch_group_s *_jobGroup;
+    NSObject<OS_dispatch_queue> *_executionQueue;
+    NSObject<OS_dispatch_queue> *_jobQueue;
+    NSObject<OS_dispatch_group> *_jobGroup;
     id _abortCompletionBlock;
     id <MCJobQueueObserver> _observer;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)enqueueJob:(id)arg1;
-- (BOOL)hasJobsEnqueued;
-- (void)jobDidFinish;
-- (void)waitForEnqueuedJobsToCompleteCompletionBlock:(id)arg1;
+@property(nonatomic) __weak id <MCJobQueueObserver> observer; // @synthesize observer=_observer;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *executionQueue; // @synthesize executionQueue=_executionQueue;
+- (void).cxx_destruct;
 - (void)abortEnqueuedJobsCompletionBlock:(id)arg1;
-@property(nonatomic) id <MCJobQueueObserver> observer; // @synthesize observer=_observer;
-@property(nonatomic) struct dispatch_queue_s *executionQueue; // @synthesize executionQueue=_executionQueue;
+- (void)waitForEnqueuedJobsToCompleteCompletionBlock:(id)arg1;
+- (void)jobDidFinish;
+- (BOOL)hasJobsEnqueued;
+- (void)enqueueJob:(id)arg1;
+- (id)init;
 
 @end
 

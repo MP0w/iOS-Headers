@@ -21,33 +21,33 @@
     struct __CFArray *_actionsForProperty;
 }
 
-+ (id)newActionsControllerForProperty:(int)arg1;
 + (int)defaultActionForProperty:(int)arg1;
-- (id)initWithProperty:(int)arg1;
-- (id)init;
-- (void)dealloc;
-- (void *)person;
-- (int)actionsCountForProperty:(int)arg1;
-- (id)titleForAction:(int)arg1;
-- (id)titleAtIndex:(int)arg1 forProperty:(int)arg2;
-- (void)resetPrimaryPropertyActions;
-- (id)urlForAction:(int)arg1 forProperty:(int)arg2;
-- (void)performAction:(int)arg1;
-- (int)defaultAction;
-- (void)performDefaultAction;
-- (void)performActionAtIndex:(int)arg1 forProperty:(int)arg2;
-- (id)stringValue;
-- (void)setStringValue:(id)arg1;
-- (id)value;
-- (void)setValue:(id)arg1;
-- (void)setMultiValueIdentifier:(int)arg1;
-- (void)setRecordID:(int)arg1;
-- (void)setPerson:(void *)arg1;
-- (void *)context;
-- (void)setContext:(void *)arg1;
-- (struct __CFArray *)_actionsForProperty:(int)arg1;
-- (int)_actionAtIndex:(int)arg1 forProperty:(int)arg2;
++ (id)newActionsControllerForProperty:(int)arg1;
 - (void)_performAction:(int)arg1 forProperty:(int)arg2;
+- (int)_actionAtIndex:(int)arg1 forProperty:(int)arg2;
+- (struct __CFArray *)_actionsForProperty:(int)arg1;
+- (void)setContext:(void *)arg1;
+- (void *)context;
+- (void)setPerson:(void *)arg1;
+- (void)setRecordID:(int)arg1;
+- (void)setMultiValueIdentifier:(int)arg1;
+- (void)setValue:(id)arg1;
+- (id)value;
+- (void)setStringValue:(id)arg1;
+- (id)stringValue;
+- (void)performActionAtIndex:(int)arg1 forProperty:(int)arg2;
+- (void)performDefaultAction;
+- (int)defaultAction;
+- (void)performAction:(int)arg1;
+- (id)urlForAction:(int)arg1 forProperty:(int)arg2;
+- (void)resetPrimaryPropertyActions;
+- (id)titleAtIndex:(int)arg1 forProperty:(int)arg2;
+- (id)titleForAction:(int)arg1;
+- (int)actionsCountForProperty:(int)arg1;
+- (void *)person;
+- (void)dealloc;
+- (id)init;
+- (id)initWithProperty:(int)arg1;
 
 @end
 

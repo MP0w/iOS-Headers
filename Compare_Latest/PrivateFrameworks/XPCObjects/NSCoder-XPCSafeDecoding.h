@@ -7,13 +7,13 @@
 #import "NSCoder.h"
 
 @interface NSCoder (XPCSafeDecoding)
-- (id)safeDecodeObjectForKey:(id)arg1 expectedClass:(Class)arg2;
-- (id)safeDecodeStringForKey:(id)arg1;
-- (id)safeDecodeDateForKey:(id)arg1;
-- (id)safeDecodeNumberForKey:(id)arg1;
-- (id)_safeDecodeContainerForKey:(id)arg1 containerClass:(Class)arg2 valueClass:(Class)arg3;
-- (id)safeDecodeArrayForKey:(id)arg1 valueClass:(Class)arg2;
-- (id)safeDecodeSetForKey:(id)arg1 valueClass:(Class)arg2;
 - (id)safeDecodeDictionaryForKey:(id)arg1 keyClass:(Class)arg2 valueClass:(Class)arg3;
+- (id)safeDecodeSetForKey:(id)arg1 valueClass:(Class)arg2;
+- (id)safeDecodeArrayForKey:(id)arg1 valueClass:(Class)arg2;
+- (id)_safeDecodeContainerForKey:(id)arg1 containerClass:(Class)arg2 valueClass:(Class)arg3;
+- (id)safeDecodeNumberForKey:(id)arg1;
+- (id)safeDecodeDateForKey:(id)arg1;
+- (id)safeDecodeStringForKey:(id)arg1;
+- (id)safeDecodeObjectForKey:(id)arg1 expectedClass:(Class)arg2;
 @end
 

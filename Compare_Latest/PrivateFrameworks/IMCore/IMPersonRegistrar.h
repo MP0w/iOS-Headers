@@ -20,8 +20,6 @@
 - (void)unregisterPerson:(id)arg1;
 - (void)registerPerson:(id)arg1;
 - (void)dealloc;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

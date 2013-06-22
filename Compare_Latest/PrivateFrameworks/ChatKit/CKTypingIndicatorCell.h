@@ -4,22 +4,22 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UITableViewCell.h"
+#import <ChatKit/CKTranscriptCell.h>
 
 @class CKTypingIndicatorView;
 
-@interface CKTypingIndicatorCell : UITableViewCell
+@interface CKTypingIndicatorCell : CKTranscriptCell
 {
     CKTypingIndicatorView *_typingIndicatorView;
 }
 
-+ (float)defaultTypingIndicatorHeight;
 + (id)typingIndicatorImage;
-- (void)setEditing:(BOOL)arg1;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
-- (void)layoutSubviews;
-- (void)dealloc;
++ (float)defaultTypingIndicatorHeight;
 - (void)setContactImage:(id)arg1;
+- (void)dealloc;
+- (void)layoutSubviews;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (void)setEditing:(BOOL)arg1;
 
 @end
 

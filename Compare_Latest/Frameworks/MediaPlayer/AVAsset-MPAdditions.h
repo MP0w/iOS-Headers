@@ -7,6 +7,6 @@
 #import "AVAsset.h"
 
 @interface AVAsset (MPAdditions)
-- (void)mpLoadValuesAsynchronouslyForKeys:(id)arg1 completionQueue:(struct dispatch_queue_s *)arg2 completionHandler:(id)arg3;
+- (void)mpLoadValuesAsynchronouslyForKeys:(id)arg1 completionQueue:(id)arg2 completionHandler:(id)arg3;
 @end
 

@@ -21,31 +21,31 @@
     BOOL _checkOutWhenRemoved;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (id)_invalidRightsError;
-- (id)_invalidTopicError;
-- (id)_nonHTTPSURLErrorForField:(id)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (id)stubDictionary;
-- (id)description;
-@property(readonly) NSArray *localizedAccessRightDescriptions;
-- (id)installationWarnings;
-- (void)dealloc;
-- (id)title;
-- (id)subtitle1Label;
-- (id)subtitle1Description;
-- (id)subtitle2Label;
++ (id)typeStrings;
+@property(readonly, nonatomic) BOOL checkOutWhenRemoved; // @synthesize checkOutWhenRemoved=_checkOutWhenRemoved;
+@property(readonly, nonatomic) BOOL signMessage; // @synthesize signMessage=_signMessage;
+@property(readonly, nonatomic) int accessRights; // @synthesize accessRights=_accessRights;
+@property(readonly, nonatomic) NSString *checkInURLString; // @synthesize checkInURLString=_checkInURLString;
+@property(readonly, nonatomic) BOOL useDevelopmentAPNS; // @synthesize useDevelopmentAPNS=_useDevelopmentAPNS;
+@property(readonly, nonatomic) NSString *serverURLString; // @synthesize serverURLString=_serverURLString;
+@property(readonly, nonatomic) NSString *topic; // @synthesize topic=_topic;
+@property(retain, nonatomic) NSData *identityPersistentID; // @synthesize identityPersistentID=_identityPersistentID;
+@property(readonly, nonatomic) NSString *identityUUID; // @synthesize identityUUID=_identityUUID;
+- (void).cxx_destruct;
 - (id)subtitle2Description;
-@property(readonly) BOOL checkOutWhenRemoved; // @synthesize checkOutWhenRemoved=_checkOutWhenRemoved;
-@property(readonly) BOOL signMessage; // @synthesize signMessage=_signMessage;
-@property(readonly) int accessRights; // @synthesize accessRights=_accessRights;
-@property(readonly) NSString *checkInURLString; // @synthesize checkInURLString=_checkInURLString;
-@property(readonly) BOOL useDevelopmentAPNS; // @synthesize useDevelopmentAPNS=_useDevelopmentAPNS;
-@property(readonly) NSString *serverURLString; // @synthesize serverURLString=_serverURLString;
-@property(readonly) NSString *topic; // @synthesize topic=_topic;
-@property(retain) NSData *identityPersistentID; // @synthesize identityPersistentID=_identityPersistentID;
-@property(readonly) NSString *identityUUID; // @synthesize identityUUID=_identityUUID;
+- (id)subtitle2Label;
+- (id)subtitle1Description;
+- (id)subtitle1Label;
+- (id)title;
+- (id)installationWarnings;
+@property(readonly, nonatomic) NSArray *localizedAccessRightDescriptions;
+- (id)description;
+- (id)stubDictionary;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
+- (id)_nonHTTPSURLErrorForField:(id)arg1;
+- (id)_invalidTopicError;
+- (id)_invalidRightsError;
 
 @end
 

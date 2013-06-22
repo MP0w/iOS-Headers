@@ -12,5 +12,7 @@
 @property(readonly, nonatomic) int _mapkit_source;
 - (BOOL)isEqualToLocationCoordinate:(CDStruct_c3b9c2ee)arg1;
 - (id)locationDescription;
+- (BOOL)hasValidCourse;
+- (BOOL)isStale;
 @end
 

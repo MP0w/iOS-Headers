@@ -20,20 +20,24 @@
 }
 
 + (id)trendlineLabelWithResources:(id)arg1;
-- (id)initWithResources:(id)arg1;
-- (void)dealloc;
-- (id)lastCachedName;
-- (void)setLastCachedName:(id)arg1;
-- (id)name;
-- (void)setName:(id)arg1 chart:(id)arg2;
-- (id)contentFormat;
-- (void)setContentFormat:(id)arg1;
-- (_Bool)isGeneratedText;
-- (void)setGeneratedText:(_Bool)arg1;
-- (_Bool)isAutomaticLabelDeleted;
-- (void)setAutomaticLabelDeleted:(_Bool)arg1;
-- (id)graphicProperties;
 - (void)setGraphicProperties:(id)arg1;
+- (id)graphicProperties;
+- (void)setAutomaticLabelDeleted:(_Bool)arg1;
+- (_Bool)isAutomaticLabelDeleted;
+- (void)setGeneratedText:(_Bool)arg1;
+- (_Bool)isGeneratedText;
+- (void)setContentFormat:(id)arg1;
+- (id)contentFormat;
+- (void)setName:(id)arg1 chart:(id)arg2;
+- (id)name;
+- (void)setLastCachedName:(id)arg1;
+- (id)lastCachedName;
+- (void)dealloc;
+- (id)initWithResources:(id)arg1;
+- (void)setContentFormatId:(unsigned int)arg1;
+- (unsigned int)contentFormatId;
+- (void)setStringIndex:(unsigned int)arg1;
+- (unsigned int)stringIndex;
 
 @end
 

@@ -6,20 +6,27 @@
 
 #import <OfficeImport/OCBReader.h>
 
+@class NSString;
+
 @interface EBReader : OCBReader
 {
+    NSString *mTemporaryDirectory;
     struct XlObjectFactory *mXlObjectFactory;
+    BOOL mUseStringOptimization;
+    BOOL mIsFileStructuredStorage;
+    const void *mBuffer;
 }
 
-+ (id)readerWithXlReader:(struct XlChartBinaryReader *)arg1 xlObjectFactory:(struct XlObjectFactory *)arg2;
-+ (BOOL)isCSV;
-+ (id)readFromFileName:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4 delegate:(id)arg5;
-+ (id)readFromFileName:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 temporaryDirectory:(id)arg4 asThumbnail:(BOOL)arg5 delegate:(id)arg6;
-+ (id)readFromData:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4 delegate:(id)arg5;
-+ (id)readFromData:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 temporaryDirectory:(id)arg4 asThumbnail:(BOOL)arg5 delegate:(id)arg6;
-- (id)initWithXlReader:(struct XlChartBinaryReader *)arg1 xlObjectFactory:(struct XlObjectFactory *)arg2;
+@property(nonatomic) BOOL isFileStructuredStorage; // @synthesize isFileStructuredStorage=mIsFileStructuredStorage;
+@property(nonatomic) BOOL useStringOptimization; // @synthesize useStringOptimization=mUseStringOptimization;
+@property(retain, nonatomic) NSString *temporaryDirectory; // @synthesize temporaryDirectory=mTemporaryDirectory;
+@property(readonly, nonatomic) struct XlBinaryReader *xlReader;
+- (struct OCCBinaryStreamer *)allocBinaryStreamerWithCryptoKey:(struct OCCCryptoKey *)arg1 baseOutputFilenameInUTF8:(const char *)arg2;
+- (struct OCCEncryptionInfoReader *)encryptionInfoReader;
+- (id)read;
+- (BOOL)start;
 - (void)dealloc;
-- (_Bool)isCSV;
+- (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
 
 @end
 

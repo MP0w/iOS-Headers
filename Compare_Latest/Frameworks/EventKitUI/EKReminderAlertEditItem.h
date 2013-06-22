@@ -6,24 +6,121 @@
 
 #import <EventKitUI/EKReminderEditItem.h>
 
-@class NSString;
+#import "EKReminderLocationPickerDelegate-Protocol.h"
+#import "EKReminderLocationPickerModelDelegate-Protocol.h"
+#import "UIAlertViewDelegate-Protocol.h"
 
-@interface EKReminderAlertEditItem : EKReminderEditItem
+@class EKReminderDueDateEditItem, EKReminderLocationPickerModel, EKReminderRecurrenceEditItem, EKStructuredLocation, NSDate, NSString, UIAlertView, UIImageView, UILabel, UITableViewCell, UIView;
+
+@interface EKReminderAlertEditItem : EKReminderEditItem <EKReminderLocationPickerModelDelegate, EKReminderLocationPickerDelegate, UIAlertViewDelegate>
 {
-    NSString *_lastSeenFooterString;
+    UITableViewCell *_dateCell;
+    UITableViewCell *_locationCell;
+    UITableViewCell *_onArrivalCell;
+    UITableViewCell *_onExitCell;
+    EKReminderLocationPickerModel *_locationPickerModel;
+    UILabel *_explanatoryLabel;
+    UIView *_explanatoryLabelContainer;
+    BOOL _locationAlertsAvailable;
+    UIAlertView *_wifiDisabledAlert;
+    BOOL _ignoreLocationPickerModelSelectionChanges;
+    BOOL _dontRefreshInnerEditItems;
+    EKReminderDueDateEditItem *_dueDateItem;
+    EKReminderRecurrenceEditItem *_recurrenceItem;
+    BOOL _showsDueDate;
+    BOOL _allowsRecurrence;
+    struct CGSize _lastSeenFooterSize;
+    NSString *_footerString;
+    UIView *_footerView;
+    UIView *_chevronView;
+    UIImageView *_spinnerView;
+    NSDate *_date;
+    EKStructuredLocation *_structuredLocation;
+    BOOL _showsLocation;
+    BOOL _isAtALocation;
+    BOOL _isOnADay;
+    int _alarmProximity;
 }
 
+@property(nonatomic) int alarmProximity; // @synthesize alarmProximity=_alarmProximity;
+@property(nonatomic) BOOL isOnADay; // @synthesize isOnADay=_isOnADay;
+@property(nonatomic) BOOL isAtALocation; // @synthesize isAtALocation=_isAtALocation;
+@property(nonatomic) BOOL showsLocation; // @synthesize showsLocation=_showsLocation;
+@property(copy, nonatomic) EKStructuredLocation *structuredLocation; // @synthesize structuredLocation=_structuredLocation;
+@property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
+- (int)_recurrenceOffset;
+- (int)_dueDateOffset;
+- (BOOL)_isRecurrenceSubitem:(int)arg1 inSubsection:(int)arg2;
+- (BOOL)_isDueDateSubitem:(int)arg1 inSubsection:(int)arg2;
+- (BOOL)_isDatePickerSubitem:(int)arg1 inSubsection:(int)arg2;
+- (BOOL)_shouldShowRecurrence;
+- (void)setCalendarItem:(id)arg1 store:(id)arg2;
+- (void)setDelegate:(id)arg1;
+- (void)setStyleProvider:(id)arg1;
+- (void)reset;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)locationPickerRequiresHeightChange:(id)arg1;
+- (void)locationPickerModel:(id)arg1 didEncounterError:(id)arg2;
+- (void)locationPickerModelDidChangeSelection:(id)arg1;
+- (void)locationPickerModelDidUpdateCustomLocation:(id)arg1;
+- (void)locationPickerModelDidUpdateCurrentLocation:(id)arg1;
+- (void)locationPickerModel:(id)arg1 didUpdateMeCardItem:(int)arg2;
+- (void)_selectedItemChangedInModel:(id)arg1;
+- (BOOL)isShowingLocation;
+- (void)_setAlarmProximity:(int)arg1 updateTable:(BOOL)arg2;
+- (void)_setCell:(id)arg1 checked:(BOOL)arg2;
+- (id)_cellForProximity:(int)arg1;
+- (void)_setIsAtALocation:(BOOL)arg1 updateTable:(BOOL)arg2 updateReminder:(BOOL)arg3;
+- (void)_deselectDatePickerRowIfSelected;
+- (void)_wifiStatusDidChange:(id)arg1;
+- (void)_showWifiAlertIfNecessary;
+- (void)_removeExistingWifiAlert;
+- (void)_datePickerDateChanged:(id)arg1;
+- (void)_setDate:(id)arg1 updateTable:(BOOL)arg2 updateReminder:(BOOL)arg3;
+- (id)_indexPathsForDueDate;
+- (void)_setStructuredLocation:(id)arg1 updateModel:(BOOL)arg2;
+- (void)_localeChanged;
+- (void)_isAtALocationChanged:(id)arg1;
+- (void)_isOnADayChanged:(id)arg1;
+- (void)_setIsOnADay:(BOOL)arg1 updateTable:(BOOL)arg2 animateDatePicker:(BOOL)arg3 updateReminder:(BOOL)arg4;
+- (void)_dismissDatePickerAnimated:(BOOL)arg1;
+- (void)_presentDatePickerAnimated:(BOOL)arg1;
+- (void)_updateFooterString;
+- (void)_updateFooterStringAndUpdateHeight:(BOOL)arg1;
+- (void)_updateLocationTextAndAccessoryView;
+- (void)_updateDateText;
+- (void)_updateDateTextOnCell:(id)arg1;
+- (id)_locationPickerModel;
+- (void)_updateReminderFromInlineSubitem:(int)arg1 inSubsection:(int)arg2;
 - (BOOL)editItemViewControllerCommit:(id)arg1;
-- (BOOL)editItemViewControllerCommit:(id)arg1 notify:(BOOL)arg2;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
+- (void)_cleanupAndCommitFromSubitem:(int)arg1 inSubsection:(int)arg2 wasAllDay:(BOOL)arg3;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
+- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
+- (id)_setupLocationPickerCell;
+- (id)_makeSwitchCell:(BOOL)arg1;
+- (id)_getProximityCellAtIndex:(int)arg1;
+- (void)editor:(id)arg1 didStartEditingItem:(id)arg2;
+- (void)editorDidScroll:(id)arg1;
+- (void)editor:(id)arg1 didDeselectSubitem:(int)arg2 inSubsection:(int)arg3;
+- (void)editor:(id)arg1 didSelectSubitem:(int)arg2 inSubsection:(int)arg3;
+- (BOOL)editor:(id)arg1 canSelectSubitem:(int)arg2 inSubsection:(int)arg3;
+- (BOOL)editor:(id)arg1 shouldClearSelectionFromSubitem:(int)arg2 inSubsection:(int)arg3;
+- (BOOL)usesDetailViewControllerForSubitem:(int)arg1 inSubsection:(int)arg2;
+- (int)numberOfSubitemsInSubsection:(int)arg1;
+- (int)numberOfSubsections;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
 - (id)footerView;
+- (id)_footerLabel;
 - (float)footerHeightForWidth:(float)arg1;
 - (id)_footerString;
-- (id)cellForSubitemAtIndex:(int)arg1;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2;
-- (BOOL)applicationDidResume;
+- (void)applicationDidResume;
 - (BOOL)configureForCalendarConstraints:(id)arg1;
+- (void)refreshFromCalendarItemAndStore;
+- (id)_reasonableAlarmDateForDueDate:(id)arg1;
+- (id)_alarmDateFromReminder:(id)arg1 withAlarm:(id)arg2;
+- (void)_updateShowsDueDate;
 - (void)dealloc;
+- (id)init;
 
 @end
 

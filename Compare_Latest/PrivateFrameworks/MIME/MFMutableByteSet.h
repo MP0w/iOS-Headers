@@ -10,9 +10,9 @@
 {
 }
 
-- (void)addBytesInRange:(struct _NSRange)arg1;
-- (void)removeBytesInRange:(struct _NSRange)arg1;
 - (void)invert;
+- (void)removeBytesInRange:(struct _NSRange)arg1;
+- (void)addBytesInRange:(struct _NSRange)arg1;
 
 @end
 

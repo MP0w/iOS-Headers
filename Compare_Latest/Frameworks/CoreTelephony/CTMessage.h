@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CTPhoneNumber, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<CTMessageAddress><NSCopying>, NSString;
+@class CTPhoneNumber, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<CTMessageAddress><NSCopying>, NSString, NSUUID;
 
 @interface CTMessage : NSObject
 {
@@ -23,8 +23,10 @@
     NSMutableDictionary *_contentTypeParams;
     unsigned int _replaceMessage;
     NSString *_countryCode;
+    NSUUID *_uuid;
 }
 
+@property(retain, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uuid;
 @property(readonly, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(readonly) unsigned int replaceMessage; // @synthesize replaceMessage=_replaceMessage;
 @property(copy, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;

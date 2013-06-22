@@ -13,14 +13,14 @@
     NSMutableDictionary *mColors;
 }
 
-- (id)init;
-- (void)dealloc;
-- (unsigned int)colorCount;
-- (id)colorForIndex:(int)arg1;
-- (void)addColor:(id)arg1 index:(int)arg2;
-- (void)setColor:(id)arg1 index:(int)arg2;
-- (void)addDefaultColors;
 - (BOOL)isEqual:(id)arg1;
+- (void)addDefaultColors;
+- (void)setColor:(id)arg1 index:(int)arg2;
+- (void)addColor:(id)arg1 index:(int)arg2;
+- (id)colorForIndex:(int)arg1;
+- (unsigned int)colorCount;
+- (void)dealloc;
+- (id)init;
 
 @end
 

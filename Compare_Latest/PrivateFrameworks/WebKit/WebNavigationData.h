@@ -13,14 +13,14 @@
     WebNavigationDataPrivate *_private;
 }
 
-- (id)initWithURLString:(id)arg1 title:(id)arg2 originalRequest:(id)arg3 response:(id)arg4 hasSubstituteData:(BOOL)arg5 clientRedirectSource:(id)arg6;
-- (id)url;
-- (id)title;
-- (id)originalRequest;
-- (id)response;
-- (BOOL)hasSubstituteData;
-- (id)clientRedirectSource;
 - (void)dealloc;
+- (id)clientRedirectSource;
+- (BOOL)hasSubstituteData;
+- (id)response;
+- (id)originalRequest;
+- (id)title;
+- (id)url;
+- (id)initWithURLString:(id)arg1 title:(id)arg2 originalRequest:(id)arg3 response:(id)arg4 hasSubstituteData:(BOOL)arg5 clientRedirectSource:(id)arg6;
 
 @end
 

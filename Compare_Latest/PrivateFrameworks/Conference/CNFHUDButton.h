@@ -17,19 +17,20 @@
     float _contentViewHeightOffset;
 }
 
-- (id)initWithTitle:(id)arg1 image:(id)arg2 tag:(int)arg3;
-- (void)dealloc;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-@property(readonly, retain, nonatomic) UILabel *titleLabel;
-@property(readonly, retain, nonatomic) UIImageView *imageView;
-- (void)setTitle:(id)arg1 image:(id)arg2;
-- (void)setOrientation:(int)arg1;
-- (BOOL)pointMostlyInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 @property(nonatomic) float contentViewHeightOffset; // @synthesize contentViewHeightOffset=_contentViewHeightOffset;
 @property(nonatomic) float contentViewWidthOffset; // @synthesize contentViewWidthOffset=_contentViewWidthOffset;
 @property(nonatomic) float contentViewOriginXOffset; // @synthesize contentViewOriginXOffset=_contentViewOriginXOffset;
 @property(nonatomic) BOOL resizesToFit; // @synthesize resizesToFit=_resizesToFit;
+- (BOOL)pointMostlyInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)setOrientation:(int)arg1;
+- (void)setTitleInset:(float)arg1;
+- (void)setTitle:(id)arg1 image:(id)arg2;
+@property(readonly, nonatomic) UIImageView *imageView;
+@property(readonly, nonatomic) UILabel *titleLabel;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)dealloc;
+- (id)initWithTitle:(id)arg1 image:(id)arg2 tag:(int)arg3;
 
 @end
 

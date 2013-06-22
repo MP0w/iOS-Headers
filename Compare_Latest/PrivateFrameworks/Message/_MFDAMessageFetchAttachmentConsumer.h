@@ -19,14 +19,14 @@
     BOOL _fetchSucceeded;
 }
 
-- (void)consumeData:(id)arg1 ofContentType:(id)arg2 forAttachmentNamed:(id)arg3 ofMessageWithServerID:(id)arg4;
-- (void)attachmentFetchCompletedWithStatus:(int)arg1 forAttachmentNamed:(id)arg2 ofMessageWithServerID:(id)arg3 dataWasBase64:(BOOL)arg4;
-- (id)initWithActivityMonitor:(id)arg1;
-- (void)dealloc;
 @property(readonly) BOOL fetchSucceeded; // @synthesize fetchSucceeded=_fetchSucceeded;
 @property(readonly) BOOL dataWasBase64; // @synthesize dataWasBase64=_dataWasBase64;
 @property(nonatomic) unsigned int expectedLength; // @synthesize expectedLength=_expectedLength;
 @property(readonly, nonatomic) NSData *accumulatedData; // @synthesize accumulatedData=_accumulatedData;
+- (void)dealloc;
+- (id)initWithActivityMonitor:(id)arg1;
+- (void)attachmentFetchCompletedWithStatus:(int)arg1 forAttachmentNamed:(id)arg2 ofMessageWithServerID:(id)arg3 dataWasBase64:(BOOL)arg4;
+- (void)consumeData:(id)arg1 ofContentType:(id)arg2 forAttachmentNamed:(id)arg3 ofMessageWithServerID:(id)arg4;
 
 @end
 

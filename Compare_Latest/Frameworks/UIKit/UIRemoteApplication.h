@@ -24,8 +24,8 @@
 - (void)sheetWithRemoteViewIdentifierDidDismiss:(id)arg1;
 - (void)simpleRemoteActionDidOccur:(int)arg1;
 - (void)statusBarWillChangeOrientation:(int)arg1 duration:(float)arg2;
-- (void)showTopMostMiniAlert;
-- (void)hideTopMostMiniAlert:(int)arg1;
+- (void)showTopMostMiniAlertWithSynchronizationPort:(unsigned int)arg1;
+- (void)hideTopMostMiniAlert;
 - (void)updatePort;
 - (void)dealloc;
 - (id)initWithMachServiceName:(id)arg1;

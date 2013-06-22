@@ -13,11 +13,11 @@
     NSMutableArray *textLines;
 }
 
-- (void)dealloc;
-- (id)textLines;
-- (void)splitByGraphic:(id)arg1 with:(struct CPPDFContext *)arg2;
-- (void)zOrderSplitLines:(id)arg1;
 - (unsigned int)makeTextLines:(id)arg1;
+- (void)zOrderSplitLines:(id)arg1;
+- (void)splitByGraphic:(id)arg1 with:(struct CPPDFContext *)arg2;
+- (id)textLines;
+- (void)dealloc;
 
 @end
 

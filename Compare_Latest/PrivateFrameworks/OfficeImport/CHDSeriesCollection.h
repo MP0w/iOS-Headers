@@ -14,10 +14,10 @@
 }
 
 + (id)seriesCollectionWithChart:(id)arg1;
-- (id)initWithChart:(id)arg1;
-- (unsigned int)addObject:(id)arg1;
-- (unsigned int)nonEmptySeriesCount;
 - (id)firstNonEmptySeries;
+- (unsigned int)nonEmptySeriesCount;
+- (unsigned int)addObject:(id)arg1;
+- (id)initWithChart:(id)arg1;
 
 @end
 

@@ -8,14 +8,17 @@
 
 @interface GEOSearchSubstring : PBCodable
 {
-    int _stringType;
     int _beginIndex;
     int _endIndex;
+    int _stringType;
 }
 
 @property(nonatomic) int endIndex; // @synthesize endIndex=_endIndex;
 @property(nonatomic) int beginIndex; // @synthesize beginIndex=_beginIndex;
 @property(nonatomic) int stringType; // @synthesize stringType=_stringType;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

@@ -8,7 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
-@class UIColor, UIImage, UIImageView;
+@class UIColor, UIImage, UIImageView, UIView;
 
 @interface UISlider : UIControl <NSCoding>
 {
@@ -22,6 +22,7 @@
     UIImageView *_thumbView;
     UIImageView *_minTrackView;
     UIImageView *_maxTrackView;
+    UIView *_maxTrackClipView;
     struct {
         unsigned int continuous:1;
         unsigned int animating:1;
@@ -61,6 +62,7 @@
 @property(nonatomic) float maximumValue; // @dynamic maximumValue;
 @property(nonatomic) float minimumValue; // @dynamic minimumValue;
 - (void)_setValue:(float)arg1 andSendAction:(BOOL)arg2;
+- (void)_setValue:(float)arg1 minValue:(float)arg2 maxValue:(float)arg3 andSendAction:(BOOL)arg4;
 - (void)setValue:(float)arg1 animated:(BOOL)arg2;
 @property(nonatomic) float value; // @dynamic value;
 - (void)setAlpha:(float)arg1;
@@ -74,7 +76,10 @@
 - (void)layoutSubviews;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (struct UIEdgeInsets)alignmentRectInsets;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
 - (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)maximumValueImageRectForBounds:(struct CGRect)arg1;
@@ -90,6 +95,7 @@
 - (void)setMaximumTrackImage:(id)arg1 forState:(unsigned int)arg2;
 - (void)setMinimumTrackImage:(id)arg1 forState:(unsigned int)arg2;
 - (void)setThumbImage:(id)arg1 forState:(unsigned int)arg2;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (void)_initSubviews;
@@ -99,6 +105,33 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
+- (struct UIEdgeInsets)_thumbHitEdgeInsets;
+- (BOOL)_isThumbEnabled;
+- (void)_setMinimumTrackVisible:(BOOL)arg1 withDuration:(double)arg2;
+- (void)_setThumbEnabled:(BOOL)arg1;
+- (BOOL)_trackEnabled;
+- (void)_setTrackEnabled:(BOOL)arg1;
+- (void)setMaximumTrackImage:(id)arg1 forStates:(unsigned int)arg2;
+- (void)setMinimumTrackImage:(id)arg1 forStates:(unsigned int)arg2;
+- (void)setThumbImage:(id)arg1 forStates:(unsigned int)arg2;
+- (id)createThumbView;
+- (struct CGRect)valueTextRectForBounds:(struct CGRect)arg1;
+- (void)setShowValue:(BOOL)arg1;
+- (BOOL)isAnimatingValueChange;
+- (BOOL)_alwaysHandleScrollerMouseEvent;
+- (id)_maximumTrackImageForState:(unsigned int)arg1;
+- (id)_minimumTrackImageForState:(unsigned int)arg1;
+- (id)_thumbImageForState:(unsigned int)arg1;
+- (id)_contentForState:(unsigned int)arg1;
+- (void)_setMaximumTrackImage:(id)arg1 forStates:(unsigned int)arg2;
+- (void)_setMinimumTrackImage:(id)arg1 forStates:(unsigned int)arg2;
+- (void)_setThumbTintColor:(id)arg1 forStates:(unsigned int)arg2;
+- (void)_setThumbImage:(id)arg1 forStates:(unsigned int)arg2;
+- (void)_setContent:(id)arg1 forState:(unsigned int)arg2;
+- (id)scriptingInfoWithChildren;
+- (id)_scriptingInfo;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+- (BOOL)isAccessibilityElementByDefault;
 
 @end
 

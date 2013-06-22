@@ -10,10 +10,10 @@
 {
 }
 
-+ (struct _xmlNode *)xmlNodeForObject:(id)arg1;
 + (struct _xmlNode *)xmlNodeWithName:(id)arg1 forObject:(id)arg2;
-- (_Bool)isXmlNodeNeeded;
++ (struct _xmlNode *)xmlNodeForObject:(id)arg1;
 - (void)addXmlProperties:(struct _xmlNode *)arg1;
+- (_Bool)isXmlNodeNeeded;
 
 @end
 

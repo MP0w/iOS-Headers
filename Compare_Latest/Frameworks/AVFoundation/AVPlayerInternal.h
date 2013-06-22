@@ -6,25 +6,27 @@
 
 #import "NSObject.h"
 
-@class AVAudioSessionMediaPlayerOnly, AVPlayerItem, AVPropertyStorage, AVWeakReference, CALayer, NSArray, NSError, NSMutableDictionary, NSMutableSet;
+@class AVAudioSessionMediaPlayerOnly, AVPixelBufferAttributeMediator, AVPlayerItem, AVPropertyStorage, AVWeakReference, NSArray, NSDictionary, NSError, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVPlayerInternal : NSObject
 {
     AVWeakReference *weakReference;
     struct OpaqueFigPlayer *figPlayer;
+    struct OpaqueCMClock *figMasterClock;
     AVPropertyStorage *propertyStorage;
+    AVPixelBufferAttributeMediator *pixelBufferAttributeMediator;
     NSMutableDictionary *pendingFigPlayerProperties;
     AVPlayerItem *currentItem;
     AVPlayerItem *lastItem;
     struct OpaqueFigPlaybackItem *figPlaybackItemToIdentifyNextCurrentItem;
     NSMutableSet *items;
-    CALayer *caLayer;
+    NSObject<OS_dispatch_queue> *layersQ;
+    NSMutableSet *caLayers;
+    NSString *externalPlaybackVideoGravity;
     int status;
     NSError *error;
-    struct dispatch_queue_s *stateDispatchQueue;
+    NSObject<OS_dispatch_queue> *stateDispatchQueue;
     NSArray *displaysUsedForPlayback;
-    int figPlayerType;
-    BOOL waitsUntilItemsAreReadyForInspectionBeforeEnqueuingIntoFigPlayer;
     BOOL needsToCreateFigPlayer;
     BOOL logPerformanceData;
     BOOL reevaluateBackgroundPlayback;
@@ -32,6 +34,12 @@
     BOOL hadAssociatedOnscreenPlayerLayerWhenSuspended;
     BOOL iapdExtendedModeIsActive;
     AVAudioSessionMediaPlayerOnly *audioSessionMediaPlayerOnly;
+    struct OpaqueFigSimpleMutex *prerollIDMutex;
+    int nextPrerollIDToGenerate;
+    int pendingPrerollID;
+    id prerollCompletionHandler;
+    NSObject<OS_dispatch_queue> *subtitleQueue;
+    NSDictionary *currentSubtitlesPayload;
 }
 
 @end

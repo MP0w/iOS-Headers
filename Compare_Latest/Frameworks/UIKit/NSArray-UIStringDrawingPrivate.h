@@ -7,8 +7,6 @@
 #import "NSArray.h"
 
 @interface NSArray (UIStringDrawingPrivate)
-- (struct CGSize)drawComponentsJoinedByString:(id)arg1 atPoint:(struct CGPoint)arg2 forWidth:(float)arg3 withFont:(id)arg4 lineBreakMode:(int)arg5;
-- (struct CGSize)sizeOfComponentsJoinedByString:(id)arg1 withFont:(id)arg2 forWidth:(float)arg3 lineBreakMode:(int)arg4;
 - (struct CGSize)_drawComponentsJoinedByString:(id)arg1 atPoint:(struct CGPoint *)arg2 forWidth:(float)arg3 withFont:(id)arg4 lineBreakMode:(int)arg5;
 @end
 

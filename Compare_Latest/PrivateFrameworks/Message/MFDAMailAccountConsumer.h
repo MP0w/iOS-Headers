@@ -17,15 +17,15 @@
     BOOL _alwaysReportFailures;
 }
 
-- (id)init;
-- (id)initWithAlwaysReportFailures:(BOOL)arg1;
-- (void)setDone:(BOOL)arg1;
-- (BOOL)waitUntilDoneBeforeDate:(id)arg1;
-- (void)waitUntilDone;
-- (void)actionFailed:(int)arg1 forTask:(id)arg2 error:(id)arg3;
-- (void)taskFailed:(id)arg1 withStatusCode:(int)arg2;
-- (BOOL)shouldRetryRequest;
 - (void)dealloc;
+- (BOOL)shouldRetryRequest;
+- (void)taskFailed:(id)arg1 statusCode:(int)arg2 error:(id)arg3;
+- (void)actionFailed:(int)arg1 forTask:(id)arg2 error:(id)arg3;
+- (void)waitUntilDone;
+- (BOOL)waitUntilDoneBeforeDate:(id)arg1;
+- (void)setDone:(BOOL)arg1;
+- (id)initWithAlwaysReportFailures:(BOOL)arg1;
+- (id)init;
 
 @end
 

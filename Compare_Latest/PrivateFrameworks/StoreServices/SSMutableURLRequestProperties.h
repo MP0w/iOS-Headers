@@ -16,6 +16,9 @@
 @property(copy) id URLBagURLBlock; // @dynamic URLBagURLBlock;
 @property int URLBagType; // @dynamic URLBagType;
 @property BOOL shouldProcessProtocol; // @dynamic shouldProcessProtocol;
+@property BOOL shouldDecodeResponse; // @dynamic shouldDecodeResponse;
+@property BOOL requiresExtendedValidationCertificates; // @dynamic requiresExtendedValidationCertificates;
+- (void)setMultiPartFormDataWithDictionary:(id)arg1;
 @property(retain) NSInputStream *HTTPBodyStream; // @dynamic HTTPBodyStream;
 - (void)setValue:(id)arg1 forRequestParameter:(id)arg2;
 - (void)setValue:(id)arg1 forHTTPHeaderField:(id)arg2;
@@ -23,7 +26,9 @@
 @property(retain) NSURL *URL; // @dynamic URL;
 @property(copy) NSString *URLBagKey; // @dynamic URLBagKey;
 @property double timeoutInterval; // @dynamic timeoutInterval;
+@property BOOL shouldDisableCellularFallback; // @dynamic shouldDisableCellularFallback;
 @property(copy) NSDictionary *requestParameters; // @dynamic requestParameters;
+@property unsigned int networkServiceType; // @dynamic networkServiceType;
 @property(getter=isITunesStoreRequest) BOOL ITunesStoreRequest; // @dynamic ITunesStoreRequest;
 @property(copy) NSString *HTTPMethod; // @dynamic HTTPMethod;
 @property(copy) NSDictionary *HTTPHeaders; // @dynamic HTTPHeaders;

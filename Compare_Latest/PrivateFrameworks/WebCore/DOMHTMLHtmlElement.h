@@ -12,9 +12,9 @@
 {
 }
 
-@property(copy) NSString *version;
-- (id)manifest;
 - (void)setManifest:(id)arg1;
+- (id)manifest;
+@property(copy) NSString *version;
 
 @end
 

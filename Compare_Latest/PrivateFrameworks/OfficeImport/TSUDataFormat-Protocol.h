@@ -8,7 +8,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol TSUDataFormat <NSObject, NSCopying>
-- (id)formatName;
 - (void)setFormatName:(id)arg1;
+- (id)formatName;
 @end
 

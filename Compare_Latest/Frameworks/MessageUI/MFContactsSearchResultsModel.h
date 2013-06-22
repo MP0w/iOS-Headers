@@ -6,15 +6,18 @@
 
 #import "NSObject.h"
 
+#import "_MFSearchResultsConsumer-Protocol.h"
+
 @class NSArray, NSMutableDictionary, NSOperationQueue;
 
-@interface MFContactsSearchResultsModel : NSObject
+@interface MFContactsSearchResultsModel : NSObject <_MFSearchResultsConsumer>
 {
     NSOperationQueue *_queue;
     NSArray *_recentSearchResults;
+    NSArray *_infrequentRecentSearchResults;
     NSMutableDictionary *_localSearchResultsByAddress;
     NSMutableDictionary *_serverSearchResultsByAddress;
-    NSMutableDictionary *_recipientsByAddress;
+    NSMutableDictionary *_recentRecipientsByAddress;
     struct __CFArray *_resultTypesSortOrder;
     struct __CFArray *_resultTypesPriorityOrder;
     struct __CFSet *_finishedResultTypes;
@@ -23,23 +26,23 @@
     int _resetCount;
 }
 
-- (id)init;
-- (id)initWithFavorMobileNumbers:(BOOL)arg1;
-- (id)initWithResultTypeSortOrderComparator:(void *)arg1 resultTypePriorityComparator:(void *)arg2 favorMobileNumbers:(BOOL)arg3;
-- (void)dealloc;
-- (void)reset;
-- (BOOL)_isResetting;
-- (void)_addResults:(id)arg1 ofType:(int)arg2;
-- (void)addResults:(id)arg1 ofType:(int)arg2;
-- (void)_finishSearchOfType:(int)arg1;
-- (BOOL)_shouldProcessResultsAfterFinishingType:(int)arg1;
-- (BOOL)_didFinishSearchForType:(int)arg1;
-- (void)_enumerateSearchResultTypesInSortOrderUsingBlock:(id)arg1;
-- (id)_bestRecipientForAddress:(id)arg1 fallback:(id)arg2;
-- (void)_addBestRecipientsForRecipients:(id)arg1 excluding:(id)arg2 toArray:(id)arg3;
-- (void)_appendSortedResultsOfType:(int)arg1 excluding:(id)arg2 toResults:(id)arg3;
-- (void)processAddedResultsOfType:(int)arg1 completion:(id)arg2;
 - (id)_dictionaryForResultType:(int)arg1;
+- (void)processAddedResultsOfType:(int)arg1 completion:(id)arg2;
+- (void)_appendSortedResultsOfType:(int)arg1 excluding:(id)arg2 toResults:(id)arg3;
+- (void)_addBestRecipientsForRecipients:(id)arg1 excluding:(id)arg2 toArray:(id)arg3;
+- (id)_bestRecipientForAddress:(id)arg1 fallback:(id)arg2;
+- (void)_enumerateSearchResultTypesInSortOrderUsingBlock:(id)arg1;
+- (BOOL)_didFinishSearchForType:(int)arg1;
+- (BOOL)_shouldProcessResultsAfterFinishingType:(int)arg1;
+- (void)_finishSearchOfType:(int)arg1;
+- (void)addResults:(id)arg1 ofType:(int)arg2;
+- (void)_addResults:(id)arg1 ofType:(int)arg2;
+- (BOOL)_isResetting;
+- (void)reset;
+- (void)dealloc;
+- (id)initWithResultTypeSortOrderComparator:(void *)arg1 resultTypePriorityComparator:(void *)arg2 favorMobileNumbers:(BOOL)arg3;
+- (id)initWithFavorMobileNumbers:(BOOL)arg1;
+- (id)init;
 
 @end
 

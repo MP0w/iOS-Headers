@@ -29,6 +29,7 @@
 - (id)touchTrackingViewForEventGestureController:(id)arg1;
 
 @optional
+- (BOOL)eventGestureController:(id)arg1 shouldFadeOccurrenceAfterFling:(id)arg2;
 - (BOOL)eventEditorPopoverActiveWhileDraggingForEventGestureController:(id)arg1;
 - (struct CGRect)marginFrameForEventGestureController:(id)arg1;
 - (float)eventGestureController:(id)arg1 convertXForMargin:(float)arg2;

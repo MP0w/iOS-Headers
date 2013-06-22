@@ -14,11 +14,11 @@
 }
 
 + (void)initialize;
-- (id)initWithOddDiagram:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 identifier:(id)arg4 parent:(id)arg5;
-- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
-- (struct CGRect)circumscribedBounds;
-- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
 - (struct CGSize)textSizeForShapeSize:(struct CGSize)arg1;
+- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
+- (struct CGRect)circumscribedBounds;
+- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
+- (id)initWithOddDiagram:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 identifier:(id)arg4 parent:(id)arg5;
 
 @end
 

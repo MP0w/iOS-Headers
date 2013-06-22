@@ -6,30 +6,36 @@
 
 #import "NSObject.h"
 
-@class NSFileWatcherObservations, NSMutableDictionary, NSURL;
+@class NSFileWatcherObservations, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSURL;
 
 @interface NSFileWatcher : NSObject
 {
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
     NSURL *_url;
     id _observer;
     BOOL _isWatching;
-    struct dispatch_source_s *_eventSource;
+    NSObject<OS_dispatch_source> *_eventSource;
+    unsigned long long _lastObservedEventID;
     struct __FSEventStream *_eventStream;
+    BOOL _eventsAreAboutDirectory;
     BOOL _isUnsettled;
     NSFileWatcherObservations *_itemObservations;
     NSMutableDictionary *_subitemObservationsByEventPath;
+    NSURL *_fileReferenceURL;
+    NSString *_formerPath;
     NSURL *_formerURL;
 }
 
 - (void)stop;
 - (void)settle;
+- (void)unsettle;
 - (void)startWithObserver:(id)arg1;
+- (void)setLastObservedEventID:(unsigned long long)arg1;
 - (void)setURL:(id)arg1;
 - (void)watchItem;
 - (void)handleFSEventPath:(id)arg1 flags:(unsigned long)arg2 id:(unsigned long long)arg3;
 - (void)dealloc;
-- (id)initWithQueue:(struct dispatch_queue_s *)arg1;
+- (id)initWithQueue:(id)arg1;
 
 @end
 

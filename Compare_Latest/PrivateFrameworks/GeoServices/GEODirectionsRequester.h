@@ -16,7 +16,6 @@
 }
 
 + (id)sharedRequester;
-- (id)hostnameForProviderID:(short)arg1;
 - (Class)classForProviderID:(short)arg1;
 - (void)registerProvider:(Class)arg1;
 - (void)cancelRequest:(id)arg1;

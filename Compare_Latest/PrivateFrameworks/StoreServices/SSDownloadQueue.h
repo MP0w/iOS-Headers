@@ -24,6 +24,7 @@
 + (id)softwareApplicationDownloadKinds;
 + (id)mediaDownloadKinds;
 @property(nonatomic) BOOL shouldAutomaticallyFinishDownloads; // @synthesize shouldAutomaticallyFinishDownloads=_autoFinishDownloads;
+- (void)_handleDownloadsRemoved:(id)arg1;
 - (void)_handleDownloadsDidChange:(id)arg1;
 - (void)_sendQueuePreOrdersChanged;
 - (void)_sendQueueNetworkUsageChanged;

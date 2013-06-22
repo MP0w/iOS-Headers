@@ -6,20 +6,20 @@
 
 #import "NSObject.h"
 
-@class ML3SqliteDatabase;
+@class ML3MusicLibrary, ML3SqliteDatabase;
 
 @interface ITDBGeniusDatabase : NSObject
 {
-    ML3SqliteDatabase *_db;
+    ML3MusicLibrary *_musicLibrary;
+    ML3SqliteDatabase *_geniusDB;
     double _connectionFailedTime;
     struct __CFDictionary *_statementCache;
     BOOL _isInTransaction;
 }
 
 + (id)sharedGeniusDatabase;
-+ (id)fallbackGeniusDatabaseFilePath;
-+ (id)geniusDatabaseFilePath;
 @property(nonatomic) BOOL isInTransaction; // @synthesize isInTransaction=_isInTransaction;
+- (void).cxx_destruct;
 - (BOOL)getGeniusSimilaritiesDataAndBytesForGlobalID:(unsigned long long)arg1 intoData:(id)arg2;
 - (BOOL)getGeniusMetadataDataAndBytesForGlobalID:(unsigned long long)arg1 intoData:(id)arg2;
 - (BOOL)getGeniusConfigrationDataAndBytesIntoData:(id)arg1;
@@ -42,7 +42,7 @@
 - (unsigned int)_hasRowsInTable:(id)arg1;
 - (id)database;
 - (void)_connect;
-- (void)_loadDatabaseAtPath:(id)arg1;
+- (void)_invalidateDatabase;
 - (id)init;
 
 @end

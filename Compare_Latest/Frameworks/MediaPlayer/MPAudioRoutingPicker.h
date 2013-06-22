@@ -6,12 +6,13 @@
 
 #import "UIAlertView.h"
 
+#import "MPAudioDeviceControllerDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
 @class MPAudioDeviceController, NSArray;
 
-@interface MPAudioRoutingPicker : UIAlertView <UITableViewDataSource, UITableViewDelegate>
+@interface MPAudioRoutingPicker : UIAlertView <MPAudioDeviceControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     MPAudioDeviceController *_audioDeviceController;
     BOOL _ignoringInteractionEvents;

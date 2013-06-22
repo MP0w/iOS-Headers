@@ -10,8 +10,8 @@
 {
 }
 
-- (void)setStartIcon:(id)arg1 endIcon:(id)arg2 inIconList:(id)arg3 fromOrientation:(int)arg4 toOrientation:(int)arg5;
 - (void)crossfadeWithDuration:(double)arg1 inIconList:(id)arg2;
+- (void)setStartIcon:(id)arg1 endIcon:(id)arg2 inIconList:(id)arg3 fromOrientation:(int)arg4 toOrientation:(int)arg5;
 
 @end
 

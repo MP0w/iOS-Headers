@@ -16,18 +16,18 @@
     BOOL notifyForExternalChangeOnly;
 }
 
-- (id)init;
-- (void)dealloc;
-@property(nonatomic) BOOL airplaneMode;
-- (void)refresh;
-- (void)initializeSCPrefs:(id)arg1;
-- (void)notifyTarget:(unsigned int)arg1;
-- (void)synchronize;
-- (void *)getValueForKey:(id)arg1;
-- (void)setValue:(void *)arg1 forKey:(id)arg2;
-- (void)setCallback:(void *)arg1 withContext:(CDStruct_60d14f2d *)arg2;
 @property(nonatomic) BOOL notifyForExternalChangeOnly; // @synthesize notifyForExternalChangeOnly;
 @property(nonatomic) id <RadiosPreferencesDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)setCallback:(void *)arg1 withContext:(CDStruct_60d14f2d *)arg2;
+- (void)setValue:(void *)arg1 forKey:(id)arg2;
+- (void *)getValueForKey:(id)arg1;
+- (void)synchronize;
+- (void)notifyTarget:(unsigned int)arg1;
+- (void)initializeSCPrefs:(id)arg1;
+- (void)refresh;
+@property(nonatomic) BOOL airplaneMode;
+- (void)dealloc;
+- (id)init;
 
 @end
 

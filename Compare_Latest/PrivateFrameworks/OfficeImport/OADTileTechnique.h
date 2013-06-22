@@ -23,28 +23,28 @@
 }
 
 + (id)defaultProperties;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithDefaults;
-- (float)offsetX;
-- (void)setOffsetX:(float)arg1;
-- (BOOL)isOffsetXOverridden;
-- (float)offsetY;
-- (void)setOffsetY:(float)arg1;
-- (BOOL)isOffsetYOverridden;
-- (float)scaleX;
-- (void)setScaleX:(float)arg1;
-- (BOOL)isScaleXOverridden;
-- (float)scaleY;
-- (void)setScaleY:(float)arg1;
-- (BOOL)isScaleYOverridden;
-- (int)flipMode;
-- (void)setFlipMode:(int)arg1;
-- (BOOL)isFlipModeOverridden;
-- (int)alignment;
-- (void)setAlignment:(int)arg1;
-- (BOOL)isAlignmentOverridden;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isAlignmentOverridden;
+- (void)setAlignment:(int)arg1;
+- (int)alignment;
+- (BOOL)isFlipModeOverridden;
+- (void)setFlipMode:(int)arg1;
+- (int)flipMode;
+- (BOOL)isScaleYOverridden;
+- (void)setScaleY:(float)arg1;
+- (float)scaleY;
+- (BOOL)isScaleXOverridden;
+- (void)setScaleX:(float)arg1;
+- (float)scaleX;
+- (BOOL)isOffsetYOverridden;
+- (void)setOffsetY:(float)arg1;
+- (float)offsetY;
+- (BOOL)isOffsetXOverridden;
+- (void)setOffsetX:(float)arg1;
+- (float)offsetX;
+- (id)initWithDefaults;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

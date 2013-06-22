@@ -13,14 +13,14 @@
 }
 
 + (id)defaultProperties;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithDefaults;
-- (int)type;
-- (void)setType:(int)arg1;
-- (BOOL)isTypeOverridden;
-- (id)equivalentCustomDash;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)equivalentCustomDash;
+- (BOOL)isTypeOverridden;
+- (void)setType:(int)arg1;
+- (int)type;
+- (id)initWithDefaults;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

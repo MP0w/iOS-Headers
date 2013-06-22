@@ -10,8 +10,9 @@
 #import "GKURLHandling-Protocol.h"
 
 @interface UINavigationController (GKAdditions) <GKContentRefresh, GKURLHandling>
-- (void)_gkRestoreStatusBarStyle:(BOOL)arg1;
-- (void)_gkSaveStatusBarStyle:(BOOL)arg1;
+- (id)_gkAlertViewControllerWithTitle:(id)arg1 message:(id)arg2 cancelButtonTitle:(id)arg3 dismissHandler:(id)arg4;
+- (void)_gkRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
+- (struct UIEdgeInsets)_gkRemoveFormSheetFrameImages;
 - (struct UIEdgeInsets)_gkAddFormSheetFrameImages;
 @property(readonly, nonatomic) struct UIEdgeInsets _gkFormSheetContentInsets;
 @property(readonly, nonatomic) BOOL _gkHasFormSheetImages;

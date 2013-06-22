@@ -22,31 +22,31 @@
     int _textLevel;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)componentByName:(id)arg1;
-- (void)setComponentWithName:(id)arg1 value:(id)arg2;
-- (void)setResourceUrlPrefix:(id)arg1;
-- (id)resourceUrlPrefix;
-- (void)setHtmlResource:(id)arg1;
-- (id)getHtmlResource;
-- (void)setSrcFormat:(int)arg1;
-- (int)sourceFormat;
-- (id)colorMap;
-- (void)setColorMap:(id)arg1;
-- (id)colorScheme;
-- (void)setColorScheme:(id)arg1;
-- (id)resources;
-- (void)setResources:(id)arg1;
-- (void)copyFromCMStateWithoutComponents:(id)arg1;
-- (BOOL)isOffice12;
-- (void)setIsThumbnail:(BOOL)arg1;
-- (BOOL)isThumbnail;
-- (void)setIsOnPhone:(BOOL)arg1;
-- (BOOL)isOnPhone;
-- (void)pushTextLevel;
-- (void)popTextLevel;
 - (int)textLevel;
+- (void)popTextLevel;
+- (void)pushTextLevel;
+- (BOOL)isOnPhone;
+- (void)setIsOnPhone:(BOOL)arg1;
+- (BOOL)isThumbnail;
+- (void)setIsThumbnail:(BOOL)arg1;
+- (BOOL)isOffice12;
+- (void)copyFromCMStateWithoutComponents:(id)arg1;
+- (void)setResources:(id)arg1;
+- (id)resources;
+- (void)setColorScheme:(id)arg1;
+- (id)colorScheme;
+- (void)setColorMap:(id)arg1;
+- (id)colorMap;
+- (int)sourceFormat;
+- (void)setSrcFormat:(int)arg1;
+- (id)getHtmlResource;
+- (void)setHtmlResource:(id)arg1;
+- (id)resourceUrlPrefix;
+- (void)setResourceUrlPrefix:(id)arg1;
+- (void)setComponentWithName:(id)arg1 value:(id)arg2;
+- (id)componentByName:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -19,6 +19,8 @@
 - (BOOL)hasAttribute:(id)arg1;
 - (id)coalescedFontAttributes;
 - (id)attributedSubstringFromRange:(struct _NSRange)arg1;
+- (id)uppercaseString;
+- (id)lowercaseString;
 - (id)string;
 - (BOOL)isAXAttributedString;
 - (id)attributesAtIndex:(int)arg1 effectiveRange:(struct _NSRange *)arg2;
@@ -32,6 +34,7 @@
 - (void)replaceString:(struct __CFString *)arg1;
 - (unsigned short)characterAtIndex:(unsigned int)arg1;
 - (unsigned int)length;
+- (void)convertAttachmentsWithBlock:(id)arg1;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCFAttributedString:(struct __CFAttributedString *)arg1;

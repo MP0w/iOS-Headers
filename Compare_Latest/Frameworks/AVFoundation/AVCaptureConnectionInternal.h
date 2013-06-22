@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class AVCaptureInputPort, AVCaptureOutput, NSArray, NSMutableArray;
+@class AVCaptureInputPort, AVCaptureOutput, AVCaptureVideoPreviewLayer, NSArray, NSMutableArray;
 
 @interface AVCaptureConnectionInternal : NSObject
 {
     NSMutableArray *inputPorts;
     AVCaptureOutput *output;
+    AVCaptureVideoPreviewLayer *videoPreviewLayer;
     BOOL active;
     BOOL enabled;
     int outputChangeSeedOnDisable;
@@ -21,18 +22,17 @@
     long long lastGetAudioLevelsTime;
     AVCaptureInputPort *videoInputPort;
     BOOL videoMirroringSupported;
+    BOOL automaticallyAdjustsVideoMirroring;
     BOOL videoMirrored;
-    BOOL videoMirroredIsSetByClient;
     BOOL videoOrientationSupported;
     int videoOrientation;
     CDStruct_1b6d18a9 videoMinFrameDuration;
     CDStruct_1b6d18a9 videoMaxFrameDuration;
     float videoMaxScaleAndCropFactor;
     float videoScaleAndCropFactor;
-    struct CGRect videoCropRect;
-    BOOL videoFirstAndLastFramesUncropped;
     int videoRetainedBufferCountHint;
-    struct CGSize videoMotionFilterOverlapRatios;
+    BOOL enablesVideoStabilizationWhenAvailable;
+    BOOL videoStabilizationEnabled;
 }
 
 @end

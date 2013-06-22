@@ -10,39 +10,45 @@
 
 @interface GEORating : PBCodable
 {
-    BOOL _hasScore;
-    double _score;
-    BOOL _hasMaxScore;
     double _maxScore;
-    BOOL _hasNumberOfRatings;
+    double _score;
     int _numberOfRatings;
-    NSString *_provider;
-    NSString *_uRL;
-    NSMutableArray *_reviews;
-    BOOL _hasNumberOfReviews;
     int _numberOfReviews;
+    NSString *_provider;
+    NSMutableArray *_reviews;
+    NSString *_uRL;
+    struct {
+        unsigned int maxScore:1;
+        unsigned int score:1;
+        unsigned int numberOfRatings:1;
+        unsigned int numberOfReviews:1;
+    } _has;
 }
 
 @property(nonatomic) int numberOfReviews; // @synthesize numberOfReviews=_numberOfReviews;
-@property(nonatomic) BOOL hasNumberOfReviews; // @synthesize hasNumberOfReviews=_hasNumberOfReviews;
 @property(retain, nonatomic) NSMutableArray *reviews; // @synthesize reviews=_reviews;
 @property(retain, nonatomic) NSString *uRL; // @synthesize uRL=_uRL;
 @property(retain, nonatomic) NSString *provider; // @synthesize provider=_provider;
 @property(nonatomic) int numberOfRatings; // @synthesize numberOfRatings=_numberOfRatings;
-@property(nonatomic) BOOL hasNumberOfRatings; // @synthesize hasNumberOfRatings=_hasNumberOfRatings;
-@property(nonatomic) double maxScore; // @synthesize maxScore=_maxScore;
-@property(nonatomic) BOOL hasMaxScore; // @synthesize hasMaxScore=_hasMaxScore;
 @property(nonatomic) double score; // @synthesize score=_score;
-@property(nonatomic) BOOL hasScore; // @synthesize hasScore=_hasScore;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasNumberOfReviews;
 - (id)reviewAtIndex:(unsigned int)arg1;
 - (unsigned int)reviewsCount;
 - (void)addReview:(id)arg1;
+- (void)clearReviews;
 @property(readonly, nonatomic) BOOL hasURL;
 @property(readonly, nonatomic) BOOL hasProvider;
+@property(nonatomic) BOOL hasNumberOfRatings;
+@property(nonatomic) BOOL hasMaxScore;
+@property(nonatomic) double maxScore; // @synthesize maxScore=_maxScore;
+@property(nonatomic) BOOL hasScore;
 - (void)dealloc;
 
 @end

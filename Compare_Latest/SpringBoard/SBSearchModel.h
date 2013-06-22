@@ -4,92 +4,33 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import "SPSearchAgent.h"
 
 #import "SPDaemonQueryDelegate-Protocol.h"
 
-@class CPSearchMatcher, NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSString, NSTimer, SPDaemonQueryToken, SPSearchResult, SPSearchResultDeserializer;
+@class NSDate, NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSTimer;
 
-@interface SBSearchModel : NSObject <SPDaemonQueryDelegate>
+@interface SBSearchModel : SPSearchAgent <SPDaemonQueryDelegate>
 {
-    NSString *_queryString;
-    NSString *_firstNoResultsQuery;
-    CPSearchMatcher *_queryMatcher;
-    unsigned int *_domainOrdering;
-    NSArray *_querySearchDomains;
-    unsigned int *_nakedQuerySearchDomains;
-    BOOL _querySearchDomainsIncludesApplications;
-    int *_sectionToGroupMap;
-    BOOL _sectionToGroupMapIsValid;
-    int _resultSectionCount;
-    int _applicationsSectionIndex;
-    SPSearchResultDeserializer **_resultGroups;
-    SPSearchResultDeserializer **_accumulatingResultGroups;
-    char *_resultGroupsIsCurrent;
-    SPDaemonQueryToken *_currentToken;
-    NSArray *_matchingLaunchingIcons;
-    NSMutableArray *_accumulatingLaunchingIcons;
     NSTimer *_clearSearchTimer;
     NSDate *_clearSearchDate;
-    BOOL _hasResults;
-    BOOL _queryFinished;
-    BOOL _haveCachedWebSearchFlag;
-    BOOL _isAbleToShowWebSearch;
-    unsigned int _domainCount;
-    NSMutableDictionary *_cachedCustomImages;
-    SPSearchResult *_topHitResult;
+    NSMutableDictionary *_cachedImages;
+    NSObject<OS_dispatch_semaphore> *_cacheLock;
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)_makeArrays;
-- (void)_freeArrays;
-- (void)updateSearchOrdering;
-- (void)resetClearSearchTimer;
-- (void)startClearSearchTimer;
-- (void)_updateClearSearchTimerFireDate;
-- (void)_clearSearchTimerFired;
-- (BOOL)setQueryString:(id)arg1;
-- (id)queryString;
-- (BOOL)hasQueryString;
-- (BOOL)_shouldIgnoreQuery:(id)arg1;
-- (BOOL)_searchResultDeserializer:(id)arg1 isTopHitResult:(id)arg2;
-- (void)_pruneTopHitFromAccumulatingResuts;
-- (void)searchDaemonQuery:(id)arg1 addedResults:(id)arg2;
-- (void)searchDaemonQuery:(id)arg1 encounteredError:(id)arg2;
-- (void)searchDaemonQueryCompleted:(id)arg1;
-- (BOOL)shouldDisplayApplicationSearchResults;
-- (BOOL)hasSearchResults;
-- (void)_clearCachedWebSearchFlag;
-- (BOOL)isAbleToShowWebSearchResults;
-- (BOOL)_shouldDisplayWebSearchResults;
-- (int)numberOfSections;
-- (void)_promoteAccumulatedResults;
-- (void)_releaseAccumulatingResultGroups;
-- (void)_releaseResultGroups;
-- (void)_updateSectionToGroupMap;
-- (id)groupForSection:(int)arg1;
-- (int)_groupIndexForSection:(int)arg1;
-- (int)_resultSectionCount;
-- (id)launchingURLForResult:(id)arg1 withDisplayIdentifier:(id)arg2;
-- (id)iconForAppIndex:(int)arg1;
-- (id)webSearchTitleForRow:(int)arg1;
-- (id)launchingURLForWebSearchRow:(int)arg1 queryString:(id)arg2;
-- (id)imageForWebSearch;
-- (void)_sendUpdateNotification;
-- (void)_updateApplicationSearchResults;
-- (void)_promoteAccumulatedApplicationResults;
-- (id)imageForDomain:(unsigned int)arg1 andDisplayID:(id)arg2;
+- (id)_customImageForPath:(id)arg1;
 - (id)imageForDisplayIdentifier:(id)arg1 spotlightKey:(id)arg2;
-- (id)_cachedCustomImageForPath:(id)arg1;
-- (void)clearSearchResults;
-- (BOOL)sectionIsApp:(int *)arg1 appOffset:(int *)arg2;
-- (BOOL)sectionIsWebSearch:(int)arg1;
-- (int)sectionItemCount:(int)arg1;
-@property(readonly, nonatomic) NSString *firstNoResultsQuery; // @synthesize firstNoResultsQuery=_firstNoResultsQuery;
-@property(readonly, nonatomic) BOOL queryFinished; // @synthesize queryFinished=_queryFinished;
-@property(readonly, nonatomic) BOOL hasResults; // @synthesize hasResults=_hasResults;
+- (id)imageViewForDomain:(unsigned int)arg1 andDisplayID:(id)arg2;
+- (id)_imageForDomain:(unsigned int)arg1 andDisplayID:(id)arg2;
+- (void)handleOptionsForNewSections:(id)arg1;
+- (id)launchingURLForResult:(id)arg1 withDisplayIdentifier:(id)arg2 andSection:(id)arg3;
+- (void)_updateClearSearchTimerFireDate;
+- (void)startClearSearchTimer;
+- (void)_clearSearchTimerFired;
+- (void)resetClearSearchTimer;
+- (void)dealloc;
+- (id)init;
 
 @end
 

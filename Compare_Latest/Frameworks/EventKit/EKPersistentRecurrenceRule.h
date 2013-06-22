@@ -26,8 +26,8 @@
 @property(copy, nonatomic) NSArray *daysOfTheWeek;
 - (id)_helper;
 @property(nonatomic) int firstDayOfTheWeek;
-- (id)cachedEndDate;
-@property(nonatomic) int count;
+@property(readonly, nonatomic) NSDate *cachedEndDate;
+@property(nonatomic) unsigned int count;
 @property(copy, nonatomic) NSDate *endDate;
 @property(nonatomic) int interval;
 @property(nonatomic) int frequency;

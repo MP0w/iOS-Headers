@@ -9,23 +9,17 @@
 #import "PBRequesterDelegate-Protocol.h"
 #import "UITextFieldDelegate-Protocol.h"
 
-@class GEOTileAvailabilityRequest, MKAnnotationContainerView, MKMapTileView, MKMapView, MKMapViewPositioningChange, MKOverlayContainerView, MKScrollView, MKVariableDelayTapRecognizer, NSTimer, UIColor, UIEvent, UIGestureRecognizer, UIImageView, UILabel, UILongPressGestureRecognizer, UITapGestureRecognizer, UITouch, UIView;
+@class MKAnnotationContainerView, MKAttributionLabel, MKMapGestureController, MKMapView, MKMapViewPositioningChange, MKOverlayContainerView, MKVariableDelayTapRecognizer, NSTimer, UIEvent, UIGestureRecognizer, UIImageView, UILabel, UILongPressGestureRecognizer, UITapGestureRecognizer, UITouch, UIView, VKMapView;
 
 @interface MKMapViewInternal : NSObject <UITextFieldDelegate, PBRequesterDelegate>
 {
     MKMapView *view;
     UIView *contentView;
-    MKScrollView *scrollView;
-    MKMapTileView *mapTileView;
     MKAnnotationContainerView *annotationContainer;
-    UIImageView *badgeView;
-    UILabel *copyrightLabel;
-    int trafficStatus;
-    GEOTileAvailabilityRequest *hasTrafficRequest;
+    MKAttributionLabel *_attributionLabel;
+    UIImageView *attributionBadgeView;
     NSTimer *annotationTimer;
     NSTimer *startEffectsTimer;
-    NSTimer *copyrightLabelTimer;
-    unsigned int lastCopyrightMapType;
     id <MKMapViewDelegate><MKMapViewDelegatePrivate> delegate;
     int animationType;
     unsigned int suspendedEffectsCount;
@@ -35,13 +29,11 @@
     struct CGRect centeringRect;
     unsigned int tileCount;
     unsigned int levelViewLoadingCount;
-    unsigned int levelViewTrafficLoadingCount;
     NSTimer *defaultLocationTimer;
     double hoverStartTime;
     NSTimer *hoverExpirationTimer;
     NSTimer *scrollToReCenterUserTimer;
     NSTimer *positioningChangeTimer;
-    NSTimer *trafficAvailabilityTimer;
     UILabel *debugView;
     NSTimer *debugTimer;
     MKMapViewPositioningChange *positioningChange;
@@ -55,29 +47,26 @@
     MKVariableDelayTapRecognizer *doubleTapGestureRecognizer;
     UITapGestureRecognizer *twoFingerTapGestureRecognizer;
     UIGestureRecognizer *locationConsoleGesture;
-    UIGestureRecognizer *toggleCountryGesture;
     int scrollViewTouchCount;
     UITouch *savedTouchBegan;
     UIEvent *savedEventBegan;
+    MKMapGestureController *gestureController;
     MKOverlayContainerView *overlayContainer;
     int rotationState;
     float angularVelocity;
-    UIColor *darkCopyrightTextColor;
-    UIColor *darkCopyrightShadowColor;
-    UIColor *lightCopyrightTextColor;
-    UIColor *lightCopyrightShadowColor;
     int userTrackingMode;
+    VKMapView *mapView;
+    UIView *scrollContainerView;
+    id regionSetterWhenSized;
     struct {
         unsigned int callsDelegateForAllRegionChanges:1;
         unsigned int changingRegion:1;
-        unsigned int checkTrafficAvailable:1;
         unsigned int debugViewHeading:1;
         unsigned int didStartDragging:1;
         unsigned int draggingInterrupted:1;
         unsigned int didStartSmoothScrolling:1;
         unsigned int drawGridBackground:1;
         unsigned int hasRenderedSomething:1;
-        unsigned int hot:1;
         unsigned int ignoreHeadingUpdates:1;
         unsigned int ignoreLocationUpdates:1;
         unsigned int isRunningPositioningChange:1;
@@ -95,7 +84,6 @@
         unsigned int scrollIsAnimated:1;
         unsigned int shouldRotateForHeading:1;
         unsigned int showsUserLocation:1;
-        unsigned int trafficEnabled:1;
         unsigned int zoomEnabled:1;
         unsigned int zoomIsAnimated:1;
         unsigned int zooming:1;
@@ -104,6 +92,11 @@
         unsigned int annotationViewsAreAddedImmediately:1;
         unsigned int nextPositioningChangeIsInstant:1;
         unsigned int isChangingViewSize:1;
+        unsigned int shouldSetRegionOnSizeChange:1;
+        unsigned int showsAttribution:1;
+        unsigned int showsAttributionBadge:1;
+        unsigned int wantsShowBubbleAfterRegionChange:1;
+        unsigned int locationUpdatesPausedForRegionChange:1;
         unsigned int delegateShouldReceiveTouch:1;
         unsigned int delegateShouldDelayTapResponse:1;
         unsigned int delegateWillChangeRotation:1;
@@ -124,10 +117,7 @@
 - (void)runPositioningChangeIfNeeded;
 - (void)scrollToUserLocation;
 - (void)stopHoverWithChange:(id)arg1;
-- (void)updateTrafficAvailable;
 - (void)startEffects;
-- (void)showAddedAnnotationsAndRouteAnimated;
-- (void)delayedShowAddedAnnotationsAnimated;
 
 @end
 

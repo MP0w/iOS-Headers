@@ -12,22 +12,34 @@
 {
     NSString *_mediaType;
     AVOutputSettings *_outputSettings;
-    struct opaqueCMFormatDescription *_sampleBufferFormatHint;
+    struct opaqueCMFormatDescription *_sourceFormatHint;
     NSDictionary *_sourcePixelBufferAttributes;
     BOOL _attachedToPixelBufferAdaptor;
     NSArray *_metadataItems;
     struct CGAffineTransform _transform;
     int _mediaTimeScale;
     BOOL _expectsMediaDataInRealTime;
+    struct CGSize _naturalSize;
+    NSString *_languageCode;
+    NSString *_extendedLanguageTag;
+    BOOL _marksOutputTrackAsEnabled;
+    short _alternateGroupID;
+    NSDictionary *_trackReferences;
 }
 
+@property(copy, nonatomic) NSDictionary *trackReferences; // @synthesize trackReferences=_trackReferences;
+@property(nonatomic) short alternateGroupID; // @synthesize alternateGroupID=_alternateGroupID;
+@property(nonatomic) BOOL marksOutputTrackAsEnabled; // @synthesize marksOutputTrackAsEnabled=_marksOutputTrackAsEnabled;
+@property(copy, nonatomic) NSString *extendedLanguageTag; // @synthesize extendedLanguageTag=_extendedLanguageTag;
+@property(copy, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;
+@property(nonatomic) struct CGSize naturalSize; // @synthesize naturalSize=_naturalSize;
 @property(nonatomic) BOOL expectsMediaDataInRealTime; // @synthesize expectsMediaDataInRealTime=_expectsMediaDataInRealTime;
 @property(nonatomic) int mediaTimeScale; // @synthesize mediaTimeScale=_mediaTimeScale;
 @property(nonatomic) struct CGAffineTransform transform; // @synthesize transform=_transform;
 @property(copy, nonatomic) NSArray *metadataItems; // @synthesize metadataItems=_metadataItems;
 @property(nonatomic) BOOL attachedToPixelBufferAdaptor; // @synthesize attachedToPixelBufferAdaptor=_attachedToPixelBufferAdaptor;
 @property(copy, nonatomic) NSDictionary *sourcePixelBufferAttributes; // @synthesize sourcePixelBufferAttributes=_sourcePixelBufferAttributes;
-@property(retain, nonatomic) struct opaqueCMFormatDescription *sampleBufferFormatHint; // @synthesize sampleBufferFormatHint=_sampleBufferFormatHint;
+@property(retain, nonatomic) struct opaqueCMFormatDescription *sourceFormatHint; // @synthesize sourceFormatHint=_sourceFormatHint;
 @property(copy, nonatomic) AVOutputSettings *outputSettings; // @synthesize outputSettings=_outputSettings;
 @property(copy, nonatomic) NSString *mediaType; // @synthesize mediaType=_mediaType;
 - (void)dealloc;

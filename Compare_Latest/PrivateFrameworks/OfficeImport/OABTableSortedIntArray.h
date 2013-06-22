@@ -13,11 +13,11 @@
     NSArray *mIntArray;
 }
 
-- (id)initWithIntSet:(id)arg1;
-- (void)dealloc;
-- (int)indexOfInt:(int)arg1;
-- (int)intAtIndex:(int)arg1;
 - (int)dim;
+- (int)intAtIndex:(int)arg1;
+- (int)indexOfInt:(int)arg1;
+- (void)dealloc;
+- (id)initWithIntSet:(id)arg1;
 
 @end
 

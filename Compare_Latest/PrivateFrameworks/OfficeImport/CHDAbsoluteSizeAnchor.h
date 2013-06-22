@@ -12,10 +12,11 @@
     struct CGSize mSize;
 }
 
-- (struct CGPoint)from;
-- (void)setFrom:(struct CGPoint)arg1;
-- (struct CGSize)size;
+- (id).cxx_construct;
 - (void)setSize:(struct CGSize)arg1;
+- (struct CGSize)size;
+- (void)setFrom:(struct CGPoint)arg1;
+- (struct CGPoint)from;
 
 @end
 

@@ -6,14 +6,19 @@
 
 #import "UIView.h"
 
-@class NSMutableDictionary, PLCameraFocusLockView, PLCameraFocusPointView, PLCameraFocusView;
+@class CALayer, NSMutableDictionary, PLCameraFocusLockView, PLCameraFocusPointView, PLCameraFocusView;
 
 @interface PLCameraPreviewView : UIView
 {
-    struct CGPoint _touchLocation;
+    UIView *_maskingContainerView;
+    UIView *_previewContainer;
+    CALayer *_previewLayer;
+    UIView *_focusContainerView;
     PLCameraFocusPointView *_focusView;
     PLCameraFocusView *_autoFocusView;
     PLCameraFocusLockView *_lockFocusView;
+    struct CGPoint _touchLocation;
+    UIView *_facesContainerView;
     NSMutableDictionary *_faceIDsToViews;
     UIView *_disabledView;
     UIView *_snapshotView;
@@ -23,8 +28,8 @@
     unsigned int _controlsAreVisible:1;
 }
 
-+ (struct CGAffineTransform)defaultAffineTransform;
 @property(nonatomic) float dimmingStrength; // @synthesize dimmingStrength=_dimmingStrength;
+@property(retain, nonatomic) CALayer *previewLayer; // @synthesize previewLayer=_previewLayer;
 - (void)fadeOutFaceTrackingViews;
 - (void)showFaceTrackingViewsForFaces:(id)arg1;
 - (void)setDimmingStrength:(float)arg1 duration:(double)arg2;
@@ -36,7 +41,7 @@
 - (void)removeAllFocusViews;
 - (void)setCameraIsChangingModes:(BOOL)arg1;
 - (void)motionEnded:(int)arg1 withEvent:(id)arg2;
-- (void)zoomFromFactor:(float)arg1 toFactor:(float)arg2 transform:(struct CGAffineTransform)arg3;
+- (void)zoomToFactor:(float)arg1;
 - (void)animateFocusScaleDown;
 - (void)animateFocusLock;
 - (void)showLockFocusAtPoint:(struct CGPoint)arg1;

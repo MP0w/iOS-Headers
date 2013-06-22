@@ -10,9 +10,21 @@
 {
 }
 
-+ (id)readColor:(const struct EshColor *)arg1 colorPropertiesManager:(id)arg2 colorPalette:(id)arg3;
-+ (int)oadMapColorIndexWithEshSchemeColorIndex:(unsigned short)arg1;
 + (unsigned short)eshSchemeColorIndexWithOADMapColorIndex:(int)arg1;
++ (int)oadMapColorIndexWithEshSchemeColorIndex:(unsigned short)arg1;
++ (float)writeOpacityOfColor:(id)arg1;
++ (struct EshColor)writeColor:(id)arg1 flatten:(BOOL)arg2 state:(id)arg3;
++ (struct EshColor)writeColor:(id)arg1 state:(id)arg2;
++ (int)writeSystemColorID:(int)arg1;
++ (id)readColor:(const struct EshColor *)arg1 colorPropertiesManager:(id)arg2 colorPalette:(id)arg3;
++ (id)applyTransforms:(id)arg1 toRgbColor:(id)arg2;
++ (id)applyExpTransformWithValue:(float)arg1 toRgbColor:(id)arg2;
++ (id)applyHSLTransform:(id)arg1 toRgbColor:(id)arg2;
++ (id)applyRGBTransform:(id)arg1 toRgbColor:(id)arg2;
++ (float)applyAlphaTransform:(id)arg1 toAlpha:(float)arg2;
++ (struct EshColor)propertyColor:(int)arg1 colorPropertiesManager:(id)arg2;
++ (int)readColorAdjustmentType:(int)arg1;
++ (int)readSystemColorID:(int)arg1;
 
 @end
 

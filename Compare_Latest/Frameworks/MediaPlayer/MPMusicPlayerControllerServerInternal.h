@@ -14,21 +14,23 @@
 {
     id <MPMusicPlayerControllerServerDelegate> _delegate;
     MPMusicPlayerControllerServer *_musicPlayerServer;
+    int _activeClientPID;
     NSMutableArray *_clientPorts;
     NSMutableDictionary *_clientPortsForPIDs;
     NSMutableDictionary *_clientStateForPIDs;
-    MPVideoViewController *_videoViewController;
-    int _activeClientPID;
     int _extendedModeNotifyToken;
+    MPVideoViewController *_videoViewController;
     unsigned int _queuePrepared:1;
 }
 
 + (BOOL)_canSeedGeniusWithItem:(id)arg1;
+- (unsigned int)_numberOfItems;
 - (void)_tearDownVideoView;
 - (void)_endPlayback;
 - (void)_endPlaybackForClientIfNecessary:(int)arg1;
 - (void)_prepareQueueIfNecessary;
 - (void)_setQueueWithQuery:(id)arg1;
+- (void)_setQueuePrepared:(BOOL)arg1;
 - (id)_avControllerForClientPID:(int)arg1 ignoreExtendedMode:(BOOL)arg2;
 - (id)_avControllerForClientPID:(int)arg1;
 - (id)_avController;
@@ -67,6 +69,7 @@
 - (id)queueAsQuery;
 - (void)setQueueWithQuery:(id)arg1 firstItem:(id)arg2;
 - (id)setQueueWithSeedItems:(id)arg1;
+- (id)isGeniusAvailableForSeedItems:(id)arg1;
 - (id)isGeniusAvailable;
 - (void)skipToBeginningOrPreviousItem;
 - (void)skipToPreviousItem;
@@ -83,9 +86,12 @@
 - (id)playbackState;
 - (void)setCurrentPlaybackTime:(id)arg1;
 - (id)currentPlaybackTime;
+- (void)setCurrentPlaybackRate:(id)arg1;
+- (id)currentPlaybackRate;
 - (void)stop;
 - (void)pause;
 - (void)shuffle;
+- (void)prepareToPlay;
 - (void)play;
 - (void)setQueueWithItemCollection:(id)arg1;
 - (void)setQueueWithQuery:(id)arg1;

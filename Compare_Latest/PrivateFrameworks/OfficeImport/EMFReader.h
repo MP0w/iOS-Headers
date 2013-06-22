@@ -15,10 +15,10 @@
     EMFPlayer *m_player;
 }
 
-- (id)initWithEMFPlayer:(id)arg1;
-- (void)dealloc;
-- (oneway void)release;
 - (int)play:(id)arg1;
+- (oneway void)release;
+- (void)dealloc;
+- (id)initWithEMFPlayer:(id)arg1;
 
 @end
 

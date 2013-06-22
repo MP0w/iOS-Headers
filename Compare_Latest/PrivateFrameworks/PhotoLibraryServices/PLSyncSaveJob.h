@@ -15,6 +15,7 @@
     BOOL isVideo;
     NSString *uuid;
     NSDate *creationDate;
+    NSDate *modificationDate;
     NSSet *albumURIs;
     CLLocation *location;
     NSNumber *sortToken;
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) NSNumber *sortToken; // @synthesize sortToken;
 @property(copy, nonatomic) CLLocation *location; // @synthesize location;
 @property(copy, nonatomic) NSSet *albumURIs; // @synthesize albumURIs;
+@property(copy, nonatomic) NSDate *modificationDate; // @synthesize modificationDate;
 @property(copy, nonatomic) NSDate *creationDate; // @synthesize creationDate;
 @property(copy, nonatomic) NSString *uuid; // @synthesize uuid;
 @property(nonatomic) BOOL isVideo; // @synthesize isVideo;

@@ -6,19 +6,24 @@
 
 #import "WAKView.h"
 
-@class WebNodeHighlight;
+@class NSMutableArray, WebNodeHighlight;
 
 @interface WebNodeHighlightView : WAKView
 {
     WebNodeHighlight *_webNodeHighlight;
+    NSMutableArray *_layers;
 }
 
-- (id)initWithWebNodeHighlight:(id)arg1;
-- (void)dealloc;
-- (void)detachFromWebNodeHighlight;
-- (BOOL)isFlipped;
-- (void)drawInContext:(struct CGContext *)arg1;
 - (id)webNodeHighlight;
+- (void)layoutSublayers:(id)arg1;
+- (void)_layoutForRectsHighlight:(struct Highlight *)arg1 parent:(id)arg2;
+- (void)_layoutForNodeHighlight:(struct Highlight *)arg1 parent:(id)arg2;
+- (void)_attach:(id)arg1 numLayers:(unsigned int)arg2;
+- (BOOL)isFlipped;
+- (void)detachFromWebNodeHighlight;
+- (void)dealloc;
+- (id)initWithWebNodeHighlight:(id)arg1;
+- (void)_removeAllLayers;
 
 @end
 

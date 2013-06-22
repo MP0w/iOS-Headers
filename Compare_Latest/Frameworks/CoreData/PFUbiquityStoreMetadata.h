@@ -6,12 +6,34 @@
 
 #import <CoreData/NSManagedObject.h>
 
-@class NSData, NSSet, NSString;
+@class NSData, NSDictionary, NSSet, NSString, NSURL, PFUbiquityLocation;
 
 @interface PFUbiquityStoreMetadata : NSManagedObject
 {
 }
 
++ (BOOL)isBaselineRootURL:(id)arg1;
++ (id)baselineRootDirectoryForUbiquityName:(id)arg1 andUbiquityLogURL:(id)arg2;
++ (id)baselineMetaFileURLForUbiquityName:(id)arg1 andUbiquityLogURL:(id)arg2;
++ (id)baselineGCModelURLForUbiquityName:(id)arg1 andUbiquityLogURL:(id)arg2;
++ (id)baselineModelURLForUbiquityName:(id)arg1 andUbiquityLogURL:(id)arg2;
++ (id)baselineStoreURLForUbiquityName:(id)arg1 andUbiquityLogURL:(id)arg2;
++ (id)addMetadataForPersistentStore:(id)arg1 withLocalPeerID:(id)arg2 inManagedObjectContext:(id)arg3;
++ (id)metadataForStoreWithName:(id)arg1 inManagedObjectContext:(id)arg2;
++ (id)storeMetadatasWithName:(id)arg1 inManagedObjectContext:(id)arg2;
++ (id)allStoreMetadataInManagedObjectContext:(id)arg1;
+@property(retain, nonatomic) NSDictionary *storeOptions;
+@property(readonly) PFUbiquityLocation *ubiquityRootLocation;
+@property(readonly, nonatomic) NSURL *ubiquityRootURL;
+- (id)peerStoreURLForPeerIdentifier:(id)arg1;
+- (id)peerURLForPeerIdentifier:(id)arg1;
+- (void)updatePeerStatesToMatchKnowledgeVector:(id)arg1;
+- (id)peerStateForPeerID:(id)arg1;
+- (id)createPeerRangesForBaselineWithLocalPeerID:(id)arg1;
+- (id)createKnowledgeVectorForBaseline;
+- (void)loadFromBaselineMetadata:(id)arg1 withLocalPeerID:(id)arg2;
+- (void)updateWithStore:(id)arg1;
+- (id)initWithUbiquityName:(id)arg1 andUbiquityRootLocation:(id)arg2 insertIntoManagedObjectContext:(id)arg3;
 
 // Remaining properties
 @property(retain, nonatomic) NSString *modelVersionHashString; // @dynamic modelVersionHashString;
@@ -25,5 +47,6 @@
 @property(retain, nonatomic) NSString *ubiquityName; // @dynamic ubiquityName;
 @property(retain, nonatomic) NSString *ubiquityRelativePath; // @dynamic ubiquityRelativePath;
 @property(retain, nonatomic) NSString *ubiquityRootURLString; // @dynamic ubiquityRootURLString;
+
 @end
 

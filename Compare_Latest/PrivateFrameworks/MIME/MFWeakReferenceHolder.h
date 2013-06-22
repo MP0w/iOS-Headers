@@ -6,24 +6,19 @@
 
 #import "NSObject.h"
 
-@class MFWeakSet, NSLock;
-
 @interface MFWeakReferenceHolder : NSObject
 {
     id <NSObject> _reference;
-    NSLock *_lock;
-    MFWeakSet *_observers;
+    unsigned int _isZeroing:1;
 }
 
-+ (id)weakReferenceWithObject:(id)arg1 referenceObserver:(id)arg2;
++ (id)weakReferenceWithObject:(id)arg1 allowNonZeroing:(BOOL)arg2;
 + (id)weakReferenceWithObject:(id)arg1;
-- (id)init;
-- (id)_initWithObject:(id)arg1;
-- (void)dealloc;
-- (void)_override_release;
-- (void)_addObserver:(id)arg1;
-- (void)removeReferenceObserver:(id)arg1;
+- (BOOL)isZeroingWeakReference;
 - (id)retainedReference;
+- (void)dealloc;
+- (id)_initWithObject:(id)arg1 allowNonZeroing:(BOOL)arg2;
+- (id)init;
 
 @end
 

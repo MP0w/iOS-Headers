@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAssetImageGeneratorInternal, AVVideoComposition, NSString;
+@class AVAsset, AVAssetImageGeneratorInternal, AVVideoComposition, NSString;
 
 @interface AVAssetImageGenerator : NSObject
 {
@@ -34,6 +34,7 @@
 - (id)_makeAutoreleasedAssetReader;
 - (struct __CFDictionary *)_createPixelBufferAttributesWithSize:(struct CGSize)arg1;
 - (void)_ensureFigAssetImageGenerator;
+@property(readonly, nonatomic) AVAsset *asset;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithAsset:(id)arg1;

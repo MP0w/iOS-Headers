@@ -12,7 +12,7 @@
 }
 
 @property(nonatomic) unsigned short providerID; // @synthesize providerID=_providerID;
-@property(nonatomic) CDStruct_2c43369c coordinate;
+@property(nonatomic) CDStruct_c3b9c2ee coordinate;
 
 @end
 

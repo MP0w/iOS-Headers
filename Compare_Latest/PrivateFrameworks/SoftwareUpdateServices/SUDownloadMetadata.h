@@ -14,19 +14,23 @@
     BOOL _autoDownload;
     BOOL _enabledFor2G;
     BOOL _enabledFor3G;
+    BOOL _enabledFor4G;
+    BOOL _enabledForCellularRoaming;
     BOOL _enabledForWifi;
     BOOL _enabledOnBatteryPower;
     BOOL _enforceWifiOnlyOverride;
-    int _activeDownloadPolicy;
+    int _activeDownloadPolicyType;
     int _downloadFeeAgreementStatus;
 }
 
 @property(nonatomic) BOOL enforceWifiOnlyOverride; // @synthesize enforceWifiOnlyOverride=_enforceWifiOnlyOverride;
 @property(nonatomic, getter=isEnabledOnBatteryPower) BOOL enabledOnBatteryPower; // @synthesize enabledOnBatteryPower=_enabledOnBatteryPower;
+@property(nonatomic, getter=isEnabledForCellularRoaming) BOOL enabledForCellularRoaming; // @synthesize enabledForCellularRoaming=_enabledForCellularRoaming;
 @property(nonatomic, getter=isEnabledForWifi) BOOL enabledForWifi; // @synthesize enabledForWifi=_enabledForWifi;
+@property(nonatomic, getter=isEnabledFor4G) BOOL enabledFor4G; // @synthesize enabledFor4G=_enabledFor4G;
 @property(nonatomic, getter=isEnabledFor3G) BOOL enabledFor3G; // @synthesize enabledFor3G=_enabledFor3G;
 @property(nonatomic, getter=isEnabledFor2G) BOOL enabledFor2G; // @synthesize enabledFor2G=_enabledFor2G;
-@property(nonatomic) int activeDownloadPolicy; // @synthesize activeDownloadPolicy=_activeDownloadPolicy;
+@property(nonatomic) int activeDownloadPolicyType; // @synthesize activeDownloadPolicyType=_activeDownloadPolicyType;
 @property(nonatomic) int downloadFeeAgreementStatus; // @synthesize downloadFeeAgreementStatus=_downloadFeeAgreementStatus;
 @property(nonatomic, getter=isAutoDownload) BOOL autoDownload; // @synthesize autoDownload=_autoDownload;
 - (unsigned int)hash;
@@ -34,6 +38,9 @@
 - (id)description;
 - (id)_stringForBool:(BOOL)arg1;
 - (BOOL)isEnabledForNetworkType:(int)arg1;
+- (BOOL)matchesDownloadPolicy:(id)arg1;
+- (id)availableDownloadPolicyIfDifferentFromActive:(id)arg1;
+- (id)activeDownloadPolicy:(id)arg1;
 - (void)applyDownloadPolicy:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

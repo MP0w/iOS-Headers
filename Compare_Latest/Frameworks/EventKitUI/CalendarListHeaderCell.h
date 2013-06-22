@@ -6,22 +6,23 @@
 
 #import "UIView.h"
 
+@class CalendarListHeaderCellContentView;
+
 @interface CalendarListHeaderCell : UIView
 {
+    CalendarListHeaderCellContentView *_contentView;
     double _date;
-    unsigned int _indentsForDots:1;
 }
 
-@property(nonatomic) double date; // @synthesize date=_date;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)drawBackground:(struct CGRect)arg1;
+- (void)setNeedsDisplay;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)_backgroundImage;
-- (void)drawTitle:(id)arg1 inRect:(struct CGRect)arg2;
-- (void)drawTitle:(id)arg1 withColor:(id)arg2 withShadowColor:(id)arg3 inRect:(struct CGRect)arg4;
+- (void)setFrame:(struct CGRect)arg1;
 - (void)setOpaque:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL reusable;
 @property(nonatomic) BOOL indentsForDots;
+@property(nonatomic) double date; // @synthesize date=_date;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 date:(double)arg2;
 
 @end

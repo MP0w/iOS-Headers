@@ -14,7 +14,7 @@
 {
     BOOL _loadedAssets;
     ALAssetsLibrary *_library;
-    NSObject<PLAssetContainer> *_album;
+    struct NSObject *_album;
     ALAssetsFilter *_assetsFilter;
     unsigned int _groupType;
     BOOL _isValid;
@@ -32,6 +32,8 @@
 - (void)libraryWillDisappear;
 - (void)libraryDidChange;
 @property(nonatomic) ALAssetsLibrary *library;
+- (void)setValue:(id)arg1 forProperty:(id)arg2;
+- (id)valueForProperty:(id)arg1;
 - (void)populateAssets;
 - (void)resetAssets;
 - (void)dealloc;

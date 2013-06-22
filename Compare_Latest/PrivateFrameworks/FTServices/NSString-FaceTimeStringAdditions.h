@@ -9,16 +9,6 @@
 @class NSData;
 
 @interface NSString (FaceTimeStringAdditions)
-- (id)_FTNormalizedPhoneNumber;
-- (id)_FTIDFromFTIDType:(int)arg1;
-- (id)_URIFromFTIDType:(int)arg1;
-@property(readonly, nonatomic) int _FTBestGuessFTIDType;
-- (id)_URIFromPhoneNumber;
-- (id)_URIFromEmail;
-@property(readonly, nonatomic) int _FTIDType;
-- (id)_FTIDFromPhoneNumber;
-- (id)_FTIDFromEmail;
-- (id)_FTStripFTIDPrefix;
 @property(readonly, nonatomic) NSData *_FTDataFromHexString;
 @property(readonly, nonatomic) NSData *_FTDataFromBase64String;
 @end

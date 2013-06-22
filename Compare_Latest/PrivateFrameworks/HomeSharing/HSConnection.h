@@ -6,47 +6,39 @@
 
 #import "NSObject.h"
 
-@class HSConnectionStream, HSFairPlayInfo, NSDictionary, NSString, NSURL, SSAccount;
+@class HSConnectionConfiguration, HSConnectionStream, HSFairPlayInfo, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface HSConnection : NSObject
 {
-    SSAccount *_account;
-    NSURL *_baseURL;
+    HSConnectionConfiguration *_configuration;
     int _connectionState;
     HSConnectionStream *_connectionStream;
     HSConnectionStream *_concurrentConnectionStream;
     int _connectionType;
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
     struct __CFReadStream *_readStream;
     BOOL authenticationRequired;
     unsigned int basePlaylistContainerID;
-    NSString *buildIdentifier;
-    NSDictionary *cookies;
     unsigned int databaseID;
     unsigned int databaseRevision;
     HSFairPlayInfo *fairPlayInfo;
     NSString *homeSharingGroupID;
     NSString *password;
     unsigned int sessionID;
-    NSString *userAgent;
     NSString *username;
 }
 
 @property(copy) NSString *username; // @synthesize username;
-@property(copy) NSString *userAgent; // @synthesize userAgent;
 @property unsigned int sessionID; // @synthesize sessionID;
 @property(copy) NSString *password; // @synthesize password;
 @property(copy) NSString *homeSharingGroupID; // @synthesize homeSharingGroupID;
 @property(retain) HSFairPlayInfo *fairPlayInfo; // @synthesize fairPlayInfo;
 @property unsigned int databaseRevision; // @synthesize databaseRevision;
 @property unsigned int databaseID; // @synthesize databaseID;
-@property(copy) NSDictionary *cookies; // @synthesize cookies;
 @property(readonly) int connectionType; // @synthesize connectionType=_connectionType;
 @property int connectionState; // @synthesize connectionState=_connectionState;
-@property(copy) NSString *buildIdentifier; // @synthesize buildIdentifier;
 @property unsigned int basePlaylistContainerID; // @synthesize basePlaylistContainerID;
 @property(getter=isAuthenticationRequired) BOOL authenticationRequired; // @synthesize authenticationRequired;
-@property(retain) SSAccount *account; // @synthesize account=_account;
 - (void)_sendRequest:(id)arg1 onConnectionStream:(id)arg2 withInternalResponseHandler:(id)arg3;
 - (void)_notifyServerOfActivity;
 - (void)_loadDatabaseWithInternalConnectionCompletionHandler:(id)arg1;
@@ -58,6 +50,7 @@
 - (void)connectWithCompletionHandler:(id)arg1;
 @property(readonly) NSURL *baseURL;
 - (void)dealloc;
+- (id)initWithConfiguration:(id)arg1 connectionType:(int)arg2;
 - (id)initWithBaseURL:(id)arg1 connectionType:(int)arg2;
 - (id)initWithBaseURL:(id)arg1;
 

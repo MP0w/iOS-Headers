@@ -8,7 +8,7 @@
 
 #import "UITableViewDataSource-Protocol.h"
 
-@class ABModel, AccountsManager, NSArray, NSDictionary, NSMutableDictionary;
+@class ABModel, ACAccountStore, AccountsManager, NSArray, NSDictionary;
 
 @interface ABAccountsAndGroupDataSource : NSObject <UITableViewDataSource>
 {
@@ -16,39 +16,37 @@
     NSArray *_accountIdentifiers;
     NSArray *_accountDisplayNames;
     NSDictionary *_groupsByAccountIdentifier;
-    NSMutableDictionary *_headerViewsBySection;
     BOOL _hidesSearchableSources;
     BOOL _hidesGlobalGroupWrapper;
     AccountsManager *_accountsManager;
+    ACAccountStore *_accountStore;
+    BOOL _dirty;
 }
 
-- (id)init;
-- (void)dealloc;
-@property(retain, nonatomic) AccountsManager *accountsManager; // @synthesize accountsManager=_accountsManager;
-- (id)defaultGroupWrapper;
-- (void)reloadDataIncludingAccountsManager:(BOOL)arg1;
-- (void)reloadData;
-- (int)preferredTableViewStyle;
-- (id)groupWrapperForIndexPath:(id)arg1;
-- (id)indexPathForGroupWrapper:(id)arg1;
-- (id)accountGroupWrappers;
-- (BOOL)hasMultipleAccountsOrGroups;
-- (int)numberOfGroupsInAccountAtIndex:(int)arg1;
-- (int)numberOfAccounts;
-- (id)groupNameForIndexPath:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (id)accountDisplayNameAtIndex:(int)arg1;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)cachedHeaderViewForSection:(unsigned int)arg1;
-- (void)cacheHeaderView:(id)arg1 forSection:(unsigned int)arg2;
-- (int)numberOfGroupsForAccountIdentifier:(id)arg1;
-- (void)scheduleRefresh;
-- (void)cancelScheduledRefresh;
 @property(retain, nonatomic) ABModel *model; // @synthesize model=_model;
+@property(nonatomic, getter=isDirty) BOOL dirty; // @synthesize dirty=_dirty;
+@property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
+@property(retain, nonatomic) AccountsManager *accountsManager; // @synthesize accountsManager=_accountsManager;
 @property(nonatomic) BOOL hidesGlobalGroupWrapper; // @synthesize hidesGlobalGroupWrapper=_hidesGlobalGroupWrapper;
 @property(nonatomic) BOOL hidesSearchableSources; // @synthesize hidesSearchableSources=_hidesSearchableSources;
+- (void)cancelScheduledRefresh;
+- (void)scheduleRefresh;
+- (int)numberOfGroupsForAccountIdentifier:(id)arg1;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)accountDisplayNameAtIndex:(int)arg1;
+- (int)numberOfSectionsInTableView:(id)arg1;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (int)numberOfAccounts;
+- (int)numberOfGroupsInAccountAtIndex:(int)arg1;
+- (id)newContactsFilterFromSelectedGroupWrappers;
+- (id)indexPathForGroupWrapper:(id)arg1;
+- (id)groupWrapperForIndexPath:(id)arg1;
+- (void)reloadData;
+- (void)reloadDataIncludingAccountsManager:(BOOL)arg1 usingArchivedState:(BOOL)arg2;
+- (id)defaultGroupWrapper;
+- (void)dealloc;
+- (id)init;
 
 @end
 

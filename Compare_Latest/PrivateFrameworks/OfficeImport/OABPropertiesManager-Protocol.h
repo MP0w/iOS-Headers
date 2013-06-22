@@ -7,19 +7,19 @@
 #import "OABBasePropertiesManager-Protocol.h"
 
 @protocol OABPropertiesManager <OABBasePropertiesManager>
-- (BOOL)isFillOK;
-- (BOOL)isStrokeOK;
-- (BOOL)isShadowOK;
-- (BOOL)isTextPath;
-- (id)textPathUnicodeString;
-- (int)textPathTextAlignment;
-- (long)textPathFontSize;
-- (id)textPathFontFamily;
-- (BOOL)textPathBold;
-- (BOOL)textPathItalic;
-- (BOOL)textPathUnderline;
-- (BOOL)textPathSmallcaps;
-- (BOOL)textPathStrikethrough;
 - (BOOL)hidden;
+- (BOOL)textPathStrikethrough;
+- (BOOL)textPathSmallcaps;
+- (BOOL)textPathUnderline;
+- (BOOL)textPathItalic;
+- (BOOL)textPathBold;
+- (id)textPathFontFamily;
+- (long)textPathFontSize;
+- (int)textPathTextAlignment;
+- (id)textPathUnicodeString;
+- (BOOL)isTextPath;
+- (BOOL)isShadowOK;
+- (BOOL)isStrokeOK;
+- (BOOL)isFillOK;
 @end
 

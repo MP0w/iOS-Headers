@@ -23,10 +23,10 @@
 + (id)internalRepresentationCache;
 + (id)cacheKeyForPlayer:(id)arg1 internal:(id)arg2;
 + (id)cacheKeyForPlayer:(id)arg1 game:(id)arg2;
++ (void)partionGameRecords:(id)arg1 returniOS:(id *)arg2 returnMac:(id *)arg3;
 @property(retain, nonatomic) GKPlayer *player; // @synthesize player=_player;
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
 @property(retain, nonatomic) GKGameRecordInternal *internal; // @synthesize internal=_internal;
-- (void)submitRating:(float)arg1 withCompletionHandler:(id)arg2;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

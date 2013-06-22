@@ -21,16 +21,16 @@
 }
 
 + (id)checkWithRequest:(id)arg1 target:(id)arg2 resultObject:(id)arg3 selector:(SEL)arg4 controller:(id)arg5 contextInfo:(id)arg6;
-- (id)initWithRequest:(id)arg1 target:(id)arg2 resultObject:(id)arg3 selector:(SEL)arg4 controller:(id)arg5 contextInfo:(id)arg6;
-- (void)finalize;
-- (void)dealloc;
-- (void)_continueWithPolicy:(int)arg1;
-- (BOOL)_isForbiddenFileLoad;
-- (id)_actionInformationWithURL:(id)arg1;
-- (void)_askPolicyDelegate;
-- (void)start;
-- (void)cancel;
 - (id)contextInfo;
+- (void)cancel;
+- (void)start;
+- (void)_askPolicyDelegate;
+- (id)_actionInformationWithURL:(id)arg1;
+- (BOOL)_isForbiddenFileLoad;
+- (void)_continueWithPolicy:(int)arg1;
+- (void)dealloc;
+- (void)finalize;
+- (id)initWithRequest:(id)arg1 target:(id)arg2 resultObject:(id)arg3 selector:(SEL)arg4 controller:(id)arg5 contextInfo:(id)arg6;
 
 @end
 

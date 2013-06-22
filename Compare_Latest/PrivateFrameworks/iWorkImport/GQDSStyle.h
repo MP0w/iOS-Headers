@@ -14,34 +14,35 @@
     struct GQDSMap *mPropertyMap;
 }
 
-+ (const struct StateSpec *)stateForReading;
-+ (struct GQDSMap *)defaultMapForStyleType:(int)arg1;
-+ (id)createReplacementForMissingObject:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 + (int)styleTypeForNodeName:(const char *)arg1;
-- (void)dealloc;
-- (void)setPropertyMap:(struct GQDSMap *)arg1;
-- (id)parent;
-- (void)setParent:(id)arg1;
-- (BOOL)valueForBoolProperty:(int)arg1;
-- (BOOL)hasValueForBoolProperty:(int)arg1 value:(char *)arg2;
-- (BOOL)hasValueForBoolProperty:(int)arg1 value:(char *)arg2 wasOverriddenWithNull:(char *)arg3;
-- (BOOL)overridesBoolProperty:(int)arg1 value:(char *)arg2;
-- (int)valueForIntProperty:(int)arg1;
-- (BOOL)hasValueForIntProperty:(int)arg1 value:(int *)arg2;
-- (BOOL)hasValueForIntProperty:(int)arg1 value:(int *)arg2 wasOverriddenWithNull:(char *)arg3;
-- (BOOL)overridesIntProperty:(int)arg1 value:(int *)arg2;
-- (float)valueForFloatProperty:(int)arg1;
-- (BOOL)hasValueForFloatProperty:(int)arg1 value:(float *)arg2;
-- (BOOL)hasValueForFloatProperty:(int)arg1 value:(float *)arg2 wasOverriddenWithNull:(char *)arg3;
-- (BOOL)overridesFloatProperty:(int)arg1 value:(float *)arg2;
-- (double)valueForDoubleProperty:(int)arg1;
-- (BOOL)hasValueForDoubleProperty:(int)arg1 value:(double *)arg2;
-- (BOOL)hasValueForDoubleProperty:(int)arg1 value:(double *)arg2 wasOverriddenWithNull:(char *)arg3;
-- (BOOL)overridesDoubleProperty:(int)arg1 value:(double *)arg2;
-- (id)valueForObjectProperty:(int)arg1;
-- (BOOL)hasValueForObjectProperty:(int)arg1 value:(id *)arg2;
-- (BOOL)hasValueForObjectProperty:(int)arg1 value:(id *)arg2 wasOverriddenWithNull:(char *)arg3;
++ (id)createReplacementForMissingObject:(struct _xmlTextReader *)arg1 processor:(id)arg2;
++ (struct GQDSMap *)defaultMapForStyleType:(int)arg1;
++ (const struct StateSpec *)stateForReading;
++ (id)createReplacementForMissingStyleOfType:(int)arg1;
 - (BOOL)overridesObjectProperty:(int)arg1 value:(id *)arg2;
+- (BOOL)hasValueForObjectProperty:(int)arg1 value:(id *)arg2 wasOverriddenWithNull:(char *)arg3;
+- (BOOL)hasValueForObjectProperty:(int)arg1 value:(id *)arg2;
+- (id)valueForObjectProperty:(int)arg1;
+- (BOOL)overridesDoubleProperty:(int)arg1 value:(double *)arg2;
+- (BOOL)hasValueForDoubleProperty:(int)arg1 value:(double *)arg2 wasOverriddenWithNull:(char *)arg3;
+- (BOOL)hasValueForDoubleProperty:(int)arg1 value:(double *)arg2;
+- (double)valueForDoubleProperty:(int)arg1;
+- (BOOL)overridesFloatProperty:(int)arg1 value:(float *)arg2;
+- (BOOL)hasValueForFloatProperty:(int)arg1 value:(float *)arg2 wasOverriddenWithNull:(char *)arg3;
+- (BOOL)hasValueForFloatProperty:(int)arg1 value:(float *)arg2;
+- (float)valueForFloatProperty:(int)arg1;
+- (BOOL)overridesIntProperty:(int)arg1 value:(int *)arg2;
+- (BOOL)hasValueForIntProperty:(int)arg1 value:(int *)arg2 wasOverriddenWithNull:(char *)arg3;
+- (BOOL)hasValueForIntProperty:(int)arg1 value:(int *)arg2;
+- (int)valueForIntProperty:(int)arg1;
+- (BOOL)overridesBoolProperty:(int)arg1 value:(char *)arg2;
+- (BOOL)hasValueForBoolProperty:(int)arg1 value:(char *)arg2 wasOverriddenWithNull:(char *)arg3;
+- (BOOL)hasValueForBoolProperty:(int)arg1 value:(char *)arg2;
+- (BOOL)valueForBoolProperty:(int)arg1;
+- (void)setParent:(id)arg1;
+- (id)parent;
+- (void)setPropertyMap:(struct GQDSMap *)arg1;
+- (void)dealloc;
 
 @end
 

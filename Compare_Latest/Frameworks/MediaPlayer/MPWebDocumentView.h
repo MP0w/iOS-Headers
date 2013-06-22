@@ -20,8 +20,8 @@
 @property(retain, nonatomic) NSString *stylesheet; // @synthesize stylesheet=_stylesheet;
 @property(nonatomic) id loadDelegate; // @synthesize loadDelegate=_loadDelegate;
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
-- (void)openURL:(id)arg1;
 - (void)webView:(id)arg1 didFinishLoadForFrame:(id)arg2;
+- (void)openURL:(id)arg1;
 - (struct CGSize)layoutWithAutoresizingSize:(struct CGSize)arg1 contentBlock:(id)arg2;
 - (void)setContentWithString:(id)arg1 stylesheet:(id)arg2;
 - (void)setPlaintextString:(id)arg1 manuallyWrap:(BOOL)arg2;

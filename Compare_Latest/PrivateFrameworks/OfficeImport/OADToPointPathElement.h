@@ -12,10 +12,11 @@
     BOOL mRelative;
 }
 
-- (id)initWithToPoint:(struct OADAdjustPoint)arg1;
-- (struct OADAdjustPoint)toPoint;
-- (BOOL)relative;
+- (id).cxx_construct;
 - (void)setRelative:(BOOL)arg1;
+- (BOOL)relative;
+- (struct OADAdjustPoint)toPoint;
+- (id)initWithToPoint:(struct OADAdjustPoint)arg1;
 
 @end
 

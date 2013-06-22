@@ -17,8 +17,8 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (id)imageBinary;
 - (void)dealloc;
+- (id)imageBinary;
 
 @end
 

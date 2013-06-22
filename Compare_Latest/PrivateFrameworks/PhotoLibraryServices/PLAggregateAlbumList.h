@@ -15,18 +15,23 @@
 {
     NSMutableOrderedSet *_allAlbums;
     NSMutableOrderedSet *_childAlbumLists;
-    int filter;
+    int _filter;
 }
 
 + (struct NSObject *)albumListWithFilter:(int)arg1 inPhotoLibrary:(id)arg2;
-@property(nonatomic) int filter; // @synthesize filter;
+@property(nonatomic) int filter; // @synthesize filter=_filter;
 @property(readonly, nonatomic) NSString *_typeDescription;
 @property(readonly, nonatomic) NSString *_prettyDescription;
 - (id)photoLibrary;
+- (void)updateAlbumsOrderIfNeeded;
+- (BOOL)needsReordering;
+- (void)setNeedsReordering;
+@property(readonly, nonatomic) id albumsSortingComparator;
 - (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;
 - (BOOL)canEditAlbums;
 - (int)albumListType;
 - (id)managedObjectContext;
+@property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 - (BOOL)hasAtLeastOneAlbum;
 - (id)albums;
 - (id)identifier;

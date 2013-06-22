@@ -18,16 +18,15 @@
     UIColor *_progressTintColor;
     UIColor *_trackTintColor;
     UIImageView *_trackView;
-    UIImageView *_progressViews[3];
+    UIImageView *_progressView;
     BOOL _isAnimating;
     UIImage *_trackImage;
     UIImage *_progressImage;
 }
 
-+ (CDStruct_89ddc8e1)_standardImagesForStyle:(int)arg1 barStyle:(int)arg2;
++ (CDStruct_d58a15aa)_standardImagesForStyle:(int)arg1 barStyle:(int)arg2;
 + (int)_indexForStyle:(int)arg1 barStyle:(int)arg2;
-+ (CDStruct_89ddc8e1)_sliceImage:(id)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (struct CGSize)defaultSize;
 @property(retain, nonatomic) UIColor *trackTintColor; // @synthesize trackTintColor=_trackTintColor;
 @property(retain, nonatomic) UIColor *progressTintColor; // @synthesize progressTintColor=_progressTintColor;
 @property(retain, nonatomic) UIImage *progressImage; // @synthesize progressImage=_progressImage;
@@ -38,14 +37,18 @@
 - (id)_progressColor;
 - (void)_setProgressAnimated:(float)arg1 duration:(double)arg2 delay:(double)arg3 options:(unsigned int)arg4;
 - (void)setProgress:(float)arg1 animated:(BOOL)arg2;
-- (void)_updateCapsAtEndOfAnimation;
-- (void)_updateCapsAtStartOfAnimation;
 - (void)_setProgress:(float)arg1;
 - (void)layoutSubviews;
 - (void)_updateImages;
+- (id)_appropriateProgressImage;
+- (id)_appropriateTrackImage;
 - (BOOL)_shouldTintTrack;
 - (BOOL)_shouldTintProgress;
+- (struct UIEdgeInsets)alignmentRectInsets;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
 - (void)_populateArchivedSubviews:(id)arg1;
@@ -53,6 +56,9 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithProgressViewStyle:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)setBarStyle:(int)arg1;
+- (int)barStyle;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
 
 @end
 

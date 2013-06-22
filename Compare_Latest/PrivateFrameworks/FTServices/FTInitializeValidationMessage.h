@@ -18,10 +18,10 @@
     NSData *_pushToken;
 }
 
-@property(copy) NSData *pushToken; // @synthesize pushToken=_pushToken;
-@property(copy) NSNumber *responseTTL; // @synthesize responseTTL=_responseTTL;
-@property(copy) NSData *responseSessionInfo; // @synthesize responseSessionInfo=_responseSessionInfo;
-@property(copy) NSData *sessionInfoRequest; // @synthesize sessionInfoRequest=_sessionInfoRequest;
+@property(copy, nonatomic) NSData *pushToken; // @synthesize pushToken=_pushToken;
+@property(copy, nonatomic) NSNumber *responseTTL; // @synthesize responseTTL=_responseTTL;
+@property(copy, nonatomic) NSData *responseSessionInfo; // @synthesize responseSessionInfo=_responseSessionInfo;
+@property(copy, nonatomic) NSData *sessionInfoRequest; // @synthesize sessionInfoRequest=_sessionInfoRequest;
 - (void)handleResponseDictionary:(id)arg1;
 - (id)additionalMessageHeaders;
 - (id)messageBody;

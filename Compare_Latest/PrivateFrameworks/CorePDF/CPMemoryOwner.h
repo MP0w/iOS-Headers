@@ -13,10 +13,10 @@
     void *memory;
 }
 
-- (id)initWithAllocatedMemory:(void *)arg1;
-- (void)dispose;
-- (void)finalize;
 - (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)initWithAllocatedMemory:(void *)arg1;
 
 @end
 

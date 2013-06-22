@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSFileAccessNode;
+@class NSFileAccessNode, NSObject<OS_xpc_object>;
 
 @interface NSFileReactorProxy : NSObject
 {
-    struct _xpc_connection_s *_client;
+    NSObject<OS_xpc_object> *_client;
     id _reactorID;
     id _messageSender;
     NSFileAccessNode *_itemLocation;
@@ -23,10 +23,10 @@
 - (void)setItemLocation:(id)arg1;
 - (id)messageSender;
 - (id)reactorID;
-- (struct _xpc_connection_s *)client;
+- (id)client;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithClient:(struct _xpc_connection_s *)arg1 reactorID:(id)arg2 messageSender:(id)arg3;
+- (id)initWithClient:(id)arg1 reactorID:(id)arg2 messageSender:(id)arg3;
 
 @end
 

@@ -44,6 +44,7 @@
 - (id)initWithKey:(id)arg1 ascending:(BOOL)arg2 comparator:(id)arg3;
 - (id)initWithKey:(id)arg1 ascending:(BOOL)arg2 selector:(SEL)arg3;
 - (id)initWithKey:(id)arg1 ascending:(BOOL)arg2;
+- (id)replacementObjectForPortCoder:(id)arg1;
 
 @end
 

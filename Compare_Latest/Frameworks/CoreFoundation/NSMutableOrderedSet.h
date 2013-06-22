@@ -22,6 +22,7 @@
 - (void)setOrderedSet:(id)arg1;
 - (void)setArray:(id)arg1;
 - (void)setObject:(id)arg1;
+- (void)setObject:(id)arg1 atIndexedSubscript:(unsigned int)arg2;
 - (void)setObject:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)rollObjectsInRange:(struct _NSRange)arg1 by:(int)arg2;
 - (void)replaceObjectsInRange:(struct _NSRange)arg1 withObjectsFromSet:(id)arg2;

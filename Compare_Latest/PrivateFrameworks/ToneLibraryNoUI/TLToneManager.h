@@ -22,12 +22,14 @@
 
 + (BOOL)identifierIsTextTone:(id)arg1;
 + (id)sharedRingtoneManager;
++ (BOOL)migrateLegacyToneSettings;
 - (BOOL)transferPurchasedToITunes:(id)arg1;
 - (id)installedTones;
 - (void)deleteAllSyncedData;
 - (BOOL)_removeToneFromManifest:(id)arg1 fileName:(id)arg2 deletedMetadata:(id *)arg3;
 - (BOOL)_addToneToManifest:(id)arg1 metadata:(id)arg2 fileName:(id)arg3 mediaDirectory:(id)arg4;
 - (id)iTunesToneForPID:(id)arg1;
+- (void)removeImportedToneWithIdentifier:(id)arg1;
 - (void)importTone:(id)arg1 metadata:(id)arg2 completionBlock:(id)arg3;
 - (BOOL)deleteSyncedToneByPID:(id)arg1;
 - (BOOL)insertPurchasedToneMetadata:(id)arg1 filename:(id)arg2;
@@ -55,9 +57,12 @@
 - (id)defaultTextToneIdentifier;
 - (void)setCurrentRingtoneIdentifier:(id)arg1;
 - (void)setCurrentTextToneIdentifier:(id)arg1;
+- (void)setCurrentToneIdentifier:(id)arg1 forAlertType:(int)arg2;
+- (void)setCurrentToneIdentifier:(id)arg1 forAlertType:(int)arg2 accountIdentifier:(id)arg3;
+- (id)_copySystemWideTonePreferenceKeyForAlertType:(int)arg1 accountIdentifier:(id)arg2;
 - (id)copyCurrentTextToneName;
 - (id)copyCurrentTextToneIdentifier;
-- (BOOL)isValidToneIdentifier:(id)arg1;
+- (id)currentTextToneIdentifier;
 - (void)loadTextToneInfo;
 - (id)systemNewSoundDirectory;
 - (id)systemSoundDirectory;
@@ -69,12 +74,15 @@
 - (id)rootDirectory;
 - (void)_reloadITunesRingtonesAfterExternalChange;
 - (id)_copyITunesRingtonesFromManifestPath:(id)arg1 mediaDirectoryPath:(id)arg2;
+- (BOOL)isTonePrivateWithIdentifier:(id)arg1;
 - (BOOL)isToneProtectedWithIdentifier:(id)arg1;
 - (unsigned int)durationOfToneWithIdentifier:(id)arg1;
 - (BOOL)isAlertTone:(id)arg1;
 - (BOOL)isRingtonePurchased:(id)arg1;
 - (id)newAVItemWithRingtoneIdentifier:(id)arg1;
+- (BOOL)toneWithIdentifierIsNone:(id)arg1;
 - (BOOL)toneWithIdentifierIsValid:(id)arg1;
+- (BOOL)_toneWithIdentifierIsValid:(id)arg1;
 - (id)copyNameOfIdentifier:(id)arg1 isValid:(char *)arg2;
 - (id)copyIdentifierForRingtoneAtPath:(id)arg1 isValid:(char *)arg2;
 - (id)copyPathOfRingtoneWithIdentifier:(id)arg1 isValid:(char *)arg2;
@@ -99,9 +107,38 @@
 - (BOOL)shouldShowAlarmSounds;
 - (BOOL)shouldShowRingtones;
 - (void)dealloc;
+- (id)initWithITunesRingtonePlistAtPath:(id)arg1 registerForChangeNotifications:(BOOL)arg2 skipInitializingGraphicsServices:(BOOL)arg3;
 - (id)initWithITunesRingtonePlistAtPath:(id)arg1 registerForChangeNotifications:(BOOL)arg2;
+- (id)initWithChangeNotifications:(BOOL)arg1 skipInitializingGraphicsServices:(BOOL)arg2;
 - (id)initWithChangeNotifications:(BOOL)arg1;
 - (id)init;
+- (void)removeNewMailToneForAccount:(id)arg1;
+- (unsigned long)currentFacebookPostToneSoundID;
+- (unsigned long)currentSentTweetToneSoundID;
+- (unsigned long)currentNewReminderAlertToneSoundID;
+- (unsigned long)currentNewCalendarAlertToneSoundID;
+- (unsigned long)currentNewVoicemailToneSoundID;
+- (unsigned long)currentSentMailToneSoundID;
+- (unsigned long)currentNewMailToneSoundIDForAccount:(id)arg1;
+- (unsigned long)currentNewMailToneSoundID;
+- (id)currentIdentifierForContext:(int)arg1;
+- (id)currentFacebookPostToneIdentifier;
+- (id)currentSentTweetToneIdentifier;
+- (id)currentReminderAlertToneIdentifier;
+- (id)currentCalendarAlertToneIdentifier;
+- (id)currentNewVoicemailToneIdentifier;
+- (id)currentSentMailToneIdentifier;
+- (id)currentNewMailToneIdentifierForAccount:(id)arg1;
+- (id)newMailPreferenceKeyForAccount:(id)arg1;
+- (id)currentNewMailToneIdentifier;
+- (id)defaultIdentifierForContext:(int)arg1;
+- (id)defaultFacebookPostToneIdentifier;
+- (id)defaultSentTweetToneIdentifier;
+- (id)defaultReminderAlertToneIdentifier;
+- (id)defaultCalendarAlertToneIdentifier;
+- (id)defaultNewVoicemailToneIdentifier;
+- (id)defaultSentMailToneIdentifier;
+- (id)defaultNewMailToneIdentifier;
 
 @end
 

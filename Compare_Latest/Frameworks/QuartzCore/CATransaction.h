@@ -10,23 +10,30 @@
 {
 }
 
-+ (void)begin;
-+ (BOOL)beginWithoutBlocking;
-+ (void)commit;
-+ (void)flush;
-+ (void)lock;
-+ (void)unlock;
-+ (double)animationDuration;
-+ (void)setAnimationDuration:(double)arg1;
-+ (id)animationTimingFunction;
-+ (void)setAnimationTimingFunction:(id)arg1;
-+ (BOOL)disableActions;
-+ (void)setDisableActions:(BOOL)arg1;
-+ (id)completionBlock;
-+ (void)setCompletionBlock:(id)arg1;
-+ (id)valueForKey:(id)arg1;
 + (void)setValue:(id)arg1 forKey:(id)arg2;
-- (void)_addTimer:(struct __CFRunLoopTimer *)arg1;
++ (id)valueForKey:(id)arg1;
++ (void)setCompletionBlock:(id)arg1;
++ (id)completionBlock;
++ (void)setDisableActions:(BOOL)arg1;
++ (BOOL)disableActions;
++ (void)setAnimationTimingFunction:(id)arg1;
++ (id)animationTimingFunction;
++ (void)setAnimationDuration:(double)arg1;
++ (double)animationDuration;
++ (void)unlock;
++ (void)lock;
++ (void)flush;
++ (void)commit;
++ (BOOL)beginWithoutBlocking;
++ (void)begin;
++ (unsigned int)currentState;
++ (void)synchronize;
++ (void)activateBackground:(BOOL)arg1;
++ (void)activate;
++ (id)animator;
++ (void)popAnimator;
++ (void)pushAnimator:(id)arg1;
++ (id)_implicitAnimationForLayer:(id)arg1 keyPath:(id)arg2;
 
 @end
 

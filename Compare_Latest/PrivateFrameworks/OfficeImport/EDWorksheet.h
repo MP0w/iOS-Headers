@@ -6,7 +6,7 @@
 
 #import <OfficeImport/EDSheet.h>
 
-@class EDCollection, EDColumnInfoCollection, EDMergedCellCollection, EDPane, EDReference, EDRowBlocks, EDWarnings, SFUPointerKeyDictionary;
+@class EDCollection, EDColumnInfoCollection, EDMergedCellCollection, EDPane, EDReference, EDRowBlocks, EDWarnings, TSUPointerKeyDictionary;
 
 @interface EDWorksheet : EDSheet
 {
@@ -25,27 +25,48 @@
     unsigned int mMaxColumnOutlineLevel;
     _Bool mFitToPage;
     EDReference *mMaxCellReferencedInFormulas;
-    SFUPointerKeyDictionary *mMergedRows;
-    SFUPointerKeyDictionary *mMergedCols;
+    TSUPointerKeyDictionary *mMergedRows;
+    TSUPointerKeyDictionary *mMergedCols;
     EDReference *mImplicitCellArea;
 }
 
-- (double)defaultColumnWidth;
-- (void)setDefaultColumnWidth:(double)arg1;
-- (unsigned short)defaultRowHeight;
-- (void)setDefaultRowHeight:(unsigned short)arg1;
-- (_Bool)fitToPage;
-- (void)setFitToPage:(_Bool)arg1;
-- (id)rowBlocks;
-- (id)columnInfos;
-- (id)conditionalFormattings;
-- (id)hyperlinks;
-- (id)tables;
-- (id)pivotTables;
-- (id)mergedCells;
-- (id)pane;
-- (void)setPane:(id)arg1;
+- (_Bool)hasMergedCells;
 - (id)worksheetWarnings;
+- (void)setPane:(id)arg1;
+- (id)pane;
+- (id)mergedCells;
+- (id)pivotTables;
+- (id)tables;
+- (id)hyperlinks;
+- (id)conditionalFormattings;
+- (id)columnInfos;
+- (id)rowBlocks;
+- (void)setFitToPage:(_Bool)arg1;
+- (_Bool)fitToPage;
+- (void)setDefaultRowHeight:(unsigned short)arg1;
+- (unsigned short)defaultRowHeight;
+- (void)setDefaultColumnWidth:(double)arg1;
+- (double)defaultColumnWidth;
+- (void)reduceMemoryIfPossible;
+- (id)mergedColRef:(unsigned int)arg1;
+- (BOOL)isColMerged:(unsigned int)arg1;
+- (BOOL)hasMergedCol;
+- (id)mergedRowRef:(unsigned int)arg1;
+- (BOOL)isRowMerged:(unsigned int)arg1;
+- (BOOL)hasMergedRow;
+- (void)setMergedColsRef:(id)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3;
+- (void)setMergedRowsRef:(id)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3;
+- (void)updateMaxColumnOutlineLevelIfNeeded:(unsigned int)arg1;
+- (void)setMaxColumnOutlineLevel:(unsigned int)arg1;
+- (unsigned int)maxColumnOutlineLevel;
+- (void)updateMaxRowOutlineLevelIfNeeded:(unsigned int)arg1;
+- (void)setMaxRowOutlineLevel:(unsigned int)arg1;
+- (unsigned int)maxRowOutlineLevel;
+- (void)teardown;
+- (void)setup;
+- (id)maxCellReferencedInFormulas;
+- (void)setImplicitCellArea:(id)arg1;
+- (id)implicitCellArea;
 
 @end
 

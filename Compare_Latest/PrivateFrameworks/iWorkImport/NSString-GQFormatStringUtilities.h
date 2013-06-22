@@ -8,17 +8,17 @@
 
 @interface NSString (GQFormatStringUtilities)
 + (id)numberSymbols;
-- (id)createStringBySubstitutingCharactersCFNumberFormatterDoesntUnderstand;
-- (BOOL)isNumberFormatPattern;
-- (id)createRangesOfEscapedCharactersInNumberFormatPattern;
-- (id)stringByRemovingEscapedCharactersFromNumberFormatPattern;
-- (int)indexOfNumberFormatSubpatternSeparator;
-- (id)positiveSubpatternOfNumberFormatPattern;
-- (id)negativeSubpatternOfNumberFormatPattern;
-- (id)numberPortionOfNumberFormatSubpattern;
-- (int)indexOfLastNonSuffixCharacterInNumberFormatSubpattern;
-- (id)suffixOfNumberFormatSubpattern;
-- (int)indexOfFirstNonPrefixCharacterInNumberFormatSubpattern;
 - (id)prefixOfNumberFormatSubpattern;
+- (int)indexOfFirstNonPrefixCharacterInNumberFormatSubpattern;
+- (id)suffixOfNumberFormatSubpattern;
+- (int)indexOfLastNonSuffixCharacterInNumberFormatSubpattern;
+- (id)numberPortionOfNumberFormatSubpattern;
+- (id)negativeSubpatternOfNumberFormatPattern;
+- (id)positiveSubpatternOfNumberFormatPattern;
+- (int)indexOfNumberFormatSubpatternSeparator;
+- (id)stringByRemovingEscapedCharactersFromNumberFormatPattern;
+- (id)createRangesOfEscapedCharactersInNumberFormatPattern;
+- (BOOL)isNumberFormatPattern;
+- (id)createStringBySubstitutingCharactersCFNumberFormatterDoesntUnderstand;
 @end
 

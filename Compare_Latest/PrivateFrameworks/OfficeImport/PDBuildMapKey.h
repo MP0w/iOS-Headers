@@ -6,24 +6,26 @@
 
 #import "NSObject.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString, NSValue;
 
-@interface PDBuildMapKey : NSObject
+@interface PDBuildMapKey : NSObject <NSCopying>
 {
     NSValue *mDrawableValue;
     NSString *mGroupId;
 }
 
-- (id)init;
-- (id)initWithDrawable:(id)arg1 groupId:(id)arg2;
-- (void)dealloc;
-- (id)drawable;
-- (void)setDrawable:(id)arg1;
-- (id)groupId;
-- (void)setGroupId:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setGroupId:(id)arg1;
+- (id)groupId;
+- (void)setDrawable:(id)arg1;
+- (id)drawable;
+- (void)dealloc;
+- (id)initWithDrawable:(id)arg1 groupId:(id)arg2;
+- (id)init;
 
 @end
 

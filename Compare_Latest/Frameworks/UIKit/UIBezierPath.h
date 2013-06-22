@@ -40,6 +40,7 @@
 + (id)bezierPathWithOvalInRect:(struct CGRect)arg1;
 + (id)bezierPathWithRect:(struct CGRect)arg1;
 + (id)bezierPath;
++ (id)shadowBezierPath:(struct CGRect)arg1 withRoundedEdges:(int)arg2;
 @property(nonatomic) BOOL usesEvenOddFillRule; // @synthesize usesEvenOddFillRule=_usesEvenOddFillRule;
 @property(nonatomic) float flatness; // @synthesize flatness=_flatness;
 @property(nonatomic) float miterLimit; // @synthesize miterLimit=_miterLimit;
@@ -68,6 +69,7 @@
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, getter=isEmpty) BOOL empty;
 @property(nonatomic) struct CGPath *CGPath;
+- (id)bezierPathByReversingPath;
 - (void)removeAllPoints;
 - (void)closePath;
 - (void)applyTransform:(struct CGAffineTransform)arg1;

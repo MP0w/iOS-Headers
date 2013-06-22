@@ -6,51 +6,63 @@
 
 #import "SBIcon.h"
 
-@class SBFolder;
+#import "SBIconIndexNodeObserver-Protocol.h"
+#import "SBIconObserver-Protocol.h"
 
-@interface SBFolderIcon : SBIcon
+@class NSHashTable, NSMutableSet, SBFolder;
+
+@interface SBFolderIcon : SBIcon <SBIconObserver, SBIconIndexNodeObserver>
 {
     SBFolder *_folder;
+    NSHashTable *_nodeObservers;
+    NSMutableSet *_finishedDownloadIdentifiers;
     float _progress;
 }
 
-- (id)initWithFolder:(id)arg1;
-- (void)dealloc;
-- (id)generateIconImage:(int)arg1;
-- (id)getGenericIconImage:(int)arg1;
-- (id)croppedImageForIcon:(id)arg1;
-- (id)iconOverlayImageForLocation:(int)arg1;
-- (id)displayName;
-- (id)representation;
-- (BOOL)matchesRepresentation:(id)arg1;
++ (Class)_iconGridImageClass;
++ (unsigned int)_maxIconsInGridImage;
 - (id)folder;
-- (id)description;
-- (void)launch;
-- (void)updateLabel;
-- (void)_updateBadgeValue;
-- (void)_updateProgressBar;
-@property(readonly) float progress;
-- (void)noteContainedIconsAdded:(id)arg1 removed:(id)arg2;
-- (void)noteContainedIcon:(id)arg1 replacedIcon:(id)arg2;
-- (void)noteContainedIconBadgeChanged:(id)arg1;
-- (id)updateGridImageIcon:(id)arg1 inGrid:(id)arg2 withImage:(id)arg3 skipping:(BOOL)arg4;
-- (void)noteContainedIconImageChanged:(id)arg1;
-- (void)noteContainedIconDownloadingStateChanged:(id)arg1;
-- (struct CGSize)_sizeOfMiniIconGridWithRows:(unsigned int)arg1;
-- (struct CGRect)_rectForMiniIconImage:(id)arg1 atIndex:(unsigned int)arg2;
-- (struct CGRect)_rectForMiniIconAtIndex:(unsigned int)arg1;
-- (id)_miniIconGridWithSkipping:(BOOL)arg1;
-- (unsigned int)_maxIcons;
-- (float)_miniIconSize;
-- (float)_miniIconGap;
-- (unsigned int)_gridRows;
-- (unsigned int)_gridColumns;
-- (unsigned int)_firstSkippedIconIndex;
-- (unsigned int)_numberOfExcessIcons;
-- (unsigned int)_skippingIconThreshold;
-- (id)miniImageForIcon:(id)arg1;
-- (BOOL)shouldSkipIcons;
+- (BOOL)isFolderIcon;
+- (void)node:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
+- (void)node:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
+- (id)nodeDescriptionWithPrefix:(id)arg1;
+- (void)removeNodeObserver:(id)arg1;
+- (void)addNodeObserver:(id)arg1;
+- (id)nodesAlongIndexPath:(id)arg1 consumedIndexes:(unsigned int)arg2;
+- (id)indexPathsForContainedNodeIdentifier:(id)arg1 prefixPath:(id)arg2;
+- (id)containedNodeIdentifiers;
+- (BOOL)containsNodeIdentifier:(id)arg1;
+- (id)nodeIdentifier;
+- (void)downloadingIconStatusDidChange:(id)arg1;
+- (void)iconAccessoriesDidUpdate:(id)arg1;
+- (void)iconImageDidUpdate:(id)arg1;
+- (id)miniGridCellImageForIcon:(id)arg1;
 - (id)gridImageWithSkipping:(BOOL)arg1;
+- (id)_miniIconGridWithSkipping:(BOOL)arg1;
+- (unsigned int)gridCellIndexForIconIndex:(unsigned int)arg1 withSkipping:(BOOL)arg2;
+- (BOOL)gridImageShouldSkipIcons;
+- (struct _NSRange)_gridImageSkippedIconsRange;
+- (void)_containedIconImageChanged:(id)arg1;
+- (void)noteContainedIcon:(id)arg1 replacedIcon:(id)arg2;
+- (void)noteContainedIconsAdded:(id)arg1 removed:(id)arg2;
+- (void)_adjustForIconsAdded:(id)arg1 removed:(id)arg2;
+- (void)updateProgress;
+@property(readonly) float progress;
+- (void)_updateProgressBar;
+- (void)noteCompletedDownloadIdentifier:(id)arg1;
+- (void)_updateBadgeValue;
+- (void)updateLabel;
+- (void)launch;
+- (id)description;
+- (void)localeChanged;
+- (BOOL)matchesRepresentation:(id)arg1;
+- (id)representation;
+- (id)displayName;
+- (id)iconOverlayImageForLocation:(int)arg1;
+- (id)getGenericIconImage:(int)arg1;
+- (id)generateIconImage:(int)arg1;
+- (void)dealloc;
+- (id)initWithFolder:(id)arg1;
 
 @end
 

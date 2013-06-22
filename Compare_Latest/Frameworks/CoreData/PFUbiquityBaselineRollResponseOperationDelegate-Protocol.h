@@ -7,7 +7,7 @@
 #import "PFUbiquityBaselineRollOperationDelegate-Protocol.h"
 
 @protocol PFUbiquityBaselineRollResponseOperationDelegate <PFUbiquityBaselineRollOperationDelegate>
-- (void)rollResponseOperation:(id)arg1 successfullyAdoptedBaseline:(id)arg2;
 - (void)rollResponseOperation:(id)arg1 encounteredAnError:(id)arg2 whileTryingToAdoptBaseline:(id)arg3;
+- (void)rollResponseOperation:(id)arg1 successfullyAdoptedBaseline:(id)arg2;
 @end
 

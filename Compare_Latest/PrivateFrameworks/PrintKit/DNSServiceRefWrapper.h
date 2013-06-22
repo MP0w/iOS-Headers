@@ -11,8 +11,8 @@
     struct _DNSServiceRef_t *ref;
 }
 
-- (id)initDNSServiceRefWrapperWithRef:(struct _DNSServiceRef_t *)arg1;
 - (void)dealloc;
+- (id)initDNSServiceRefWrapperWithRef:(struct _DNSServiceRef_t *)arg1;
 
 @end
 

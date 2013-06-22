@@ -10,8 +10,8 @@
 - (void)flush;
 
 @optional
-- (void)setFlushingManager:(id)arg1;
-- (int)reloadCost;
 - (int)flushCost;
+- (int)reloadCost;
+- (void)setFlushingManager:(id)arg1;
 @end
 

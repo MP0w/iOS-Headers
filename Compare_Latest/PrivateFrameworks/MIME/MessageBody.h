@@ -13,19 +13,19 @@
     Message *_message;
 }
 
-- (id)rawData;
-- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2 asHTML:(BOOL)arg3;
-- (id)htmlContentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2;
-- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2 asHTML:(BOOL)arg3 isComplete:(char *)arg4;
-- (id)htmlContent;
-- (BOOL)isHTML;
-- (BOOL)isRich;
-- (void)setMessage:(id)arg1;
-- (id)message;
-- (unsigned int)numberOfAttachmentsSigned:(char *)arg1 encrypted:(char *)arg2;
-- (id)attachments;
-- (id)textHtmlPart;
 - (void)dealloc;
+- (id)textHtmlPart;
+- (id)attachments;
+- (unsigned int)numberOfAttachmentsSigned:(char *)arg1 encrypted:(char *)arg2;
+- (id)message;
+- (void)setMessage:(id)arg1;
+- (BOOL)isRich;
+- (BOOL)isHTML;
+- (id)htmlContent;
+- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2 asHTML:(BOOL)arg3 isComplete:(char *)arg4;
+- (id)htmlContentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2;
+- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int *)arg2 asHTML:(BOOL)arg3;
+- (id)rawData;
 
 @end
 

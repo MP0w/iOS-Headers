@@ -15,15 +15,15 @@
     NSString *_relationshipKey;
 }
 
-- (id)init;
-- (id)initForRelationshipAtKey:(id)arg1;
-- (void)dealloc;
-- (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (void)diffWithLogSnapshot:(id)arg1 andPreviousSnapshot:(id)arg2;
 @property(readonly, nonatomic) NSString *relationshipKey; // @synthesize relationshipKey=_relationshipKey;
 @property(readonly, nonatomic) NSMutableSet *deletedObjectIDs; // @synthesize deletedObjectIDs=_deletedObjectIDs;
 @property(readonly, nonatomic) NSMutableSet *insertedObjectIDs; // @synthesize insertedObjectIDs=_insertedObjectIDs;
+- (void)diffWithLogSnapshot:(id)arg1 andPreviousSnapshot:(id)arg2;
+- (BOOL)isEqual:(id)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)initForRelationshipAtKey:(id)arg1;
+- (id)init;
 
 @end
 

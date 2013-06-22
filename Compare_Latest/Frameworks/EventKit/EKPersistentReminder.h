@@ -6,20 +6,20 @@
 
 #import <EventKit/EKPersistentCalendarItem.h>
 
-@class NSDate, NSString, NSTimeZone;
+@class EKObjectID, NSDate, NSTimeZone;
 
 @interface EKPersistentReminder : EKPersistentCalendarItem
 {
-    NSString *_parentUUID;
+    EKObjectID *_parentID;
 }
 
-+ (id)defaultPropertiesToLoad;
 + (id)generateUniqueIDWithReminder:(id)arg1 calendar:(id)arg2;
-@property(copy, nonatomic) NSString *parentUUID; // @synthesize parentUUID=_parentUUID;
+@property(copy, nonatomic) EKObjectID *parentID; // @synthesize parentID=_parentID;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)validate:(id *)arg1;
 @property(nonatomic, getter=isCompleted) BOOL completed;
 - (id)description;
+@property(nonatomic) unsigned int displayOrder;
 @property(copy, nonatomic) NSDate *completionDate;
 @property(nonatomic) BOOL dueDateAllDay;
 @property(copy, nonatomic) NSTimeZone *dueDateTimeZone;

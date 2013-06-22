@@ -6,15 +6,18 @@
 
 #import "NSObject.h"
 
-#import "OAVClient-Protocol.h"
+#import <OfficeImport/OAVClient-Protocol.h>
 
 @interface EXVmlClient : NSObject <OAVClient>
 {
 }
 
-+ (void)readClientDataFromShape:(struct _xmlNode *)arg1 toGraphic:(id)arg2 state:(id)arg3;
-+ (void)readClientDataFromGroup:(struct _xmlNode *)arg1 toGroup:(id)arg2 state:(id)arg3;
 + (int)vmlSupportLevel;
++ (void)readClientDataFromGroup:(struct _xmlNode *)arg1 toGroup:(id)arg2 state:(id)arg3;
++ (void)readClientDataFromShape:(struct _xmlNode *)arg1 toGraphic:(id)arg2 state:(id)arg3;
++ (id)edTextBoxForVmlTextInShape:(struct _xmlNode *)arg1 to:(id)arg2 state:(id)arg3;
++ (id)readComment:(struct _xmlNode *)arg1 to:(id)arg2;
++ (void)readAnchor:(struct _xmlNode *)arg1 to:(id)arg2;
 
 @end
 

@@ -23,6 +23,7 @@
 }
 
 @property(nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
+@property(readonly, nonatomic, getter=_caughtDeceleratingScrollView) BOOL caughtDeceleratingScrollView;
 @property(nonatomic, getter=isDirectionalLockEnabled) BOOL directionalLockEnabled;
 - (float)_hysteresis;
 - (void)_scrollViewDidEndZooming;

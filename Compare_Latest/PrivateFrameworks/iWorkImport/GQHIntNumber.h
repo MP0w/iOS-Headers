@@ -12,10 +12,10 @@
     int mValue;
 }
 
-- (void)setType:(int)arg1 value:(int)arg2;
-- (int)type;
-- (int)value;
 - (struct __CFString *)createStringRef;
+- (int)value;
+- (int)type;
+- (void)setType:(int)arg1 value:(int)arg2;
 
 @end
 

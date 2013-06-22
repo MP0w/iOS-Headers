@@ -6,99 +6,80 @@
 
 #import "UIView.h"
 
-#import "ADBannerControllerDelegate-Protocol.h"
-#import <iAd/ADBannerControllerRecipient-Protocol.h>
+#import "ADAdRecipient-Protocol.h"
 
-@class ADBannerController, ADBannerControllerRecipient, ADLocalAd, ADRemoteView, ADTapGestureRecognizer, NSSet, NSString;
+@class ADAdRecipientRecord, ADRemoteView, ADTapGestureRecognizer, NSString;
 
-@interface ADBannerView : UIView <ADBannerControllerRecipient, ADBannerControllerDelegate>
+@interface ADBannerView : UIView <ADAdRecipient>
 {
+    ADAdRecipientRecord *_recipientRecord;
+    int _adType;
+    int _internalAdType;
     id <ADBannerViewDelegate> _weakDelegate;
+    id <ADBannerViewDelegate> _internalDelegate;
     BOOL _bannerLoaded;
-    NSSet *_requiredContentSizeIdentifiers;
-    NSString *_currentContentSizeIdentifier;
     NSString *_advertisingSection;
     BOOL _bannerViewActionInProgress;
-    ADBannerController *_controller;
     ADRemoteView *_remoteView;
     UIView *_dimmerView;
-    ADLocalAd *_localAd;
-    ADBannerControllerRecipient *_recipient;
     ADTapGestureRecognizer *_gestureRecognizer;
     NSString *_authenticationUserName;
-    BOOL _delegateImplementsDidLoadAd;
-    BOOL _delegateImplementsError;
-    BOOL _delegateImplementsActionShouldBegin;
-    BOOL _delegateImplementsActionDidFinish;
+    NSString *_identifier;
     BOOL _createdForIBInternal;
-    int _previousOrientation;
     BOOL _hasFailedHitTest;
-    BOOL _hasRecentlyChangedSize;
+    BOOL _dimmed;
 }
 
 + (struct CGSize)sizeFromBannerContentSizeIdentifier:(id)arg1;
 + (void)setServerURL:(id)arg1;
-@property(nonatomic) BOOL hasRecentlyChangedSize; // @synthesize hasRecentlyChangedSize=_hasRecentlyChangedSize;
+@property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
 @property(nonatomic) BOOL hasFailedHitTest; // @synthesize hasFailedHitTest=_hasFailedHitTest;
-@property(nonatomic) int previousOrientation; // @synthesize previousOrientation=_previousOrientation;
 @property(readonly, nonatomic) BOOL createdForIBInternal; // @synthesize createdForIBInternal=_createdForIBInternal;
-@property(readonly, nonatomic) BOOL delegateImplementsActionDidFinish; // @synthesize delegateImplementsActionDidFinish=_delegateImplementsActionDidFinish;
-@property(readonly, nonatomic) BOOL delegateImplementsActionShouldBegin; // @synthesize delegateImplementsActionShouldBegin=_delegateImplementsActionShouldBegin;
-@property(readonly, nonatomic) BOOL delegateImplementsError; // @synthesize delegateImplementsError=_delegateImplementsError;
-@property(readonly, nonatomic) BOOL delegateImplementsDidLoadAd; // @synthesize delegateImplementsDidLoadAd=_delegateImplementsDidLoadAd;
+@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
 @property(retain, nonatomic) ADTapGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
-@property(retain, nonatomic) ADBannerControllerRecipient *recipient; // @synthesize recipient=_recipient;
-@property(retain, nonatomic) ADLocalAd *localAd; // @synthesize localAd=_localAd;
 @property(retain, nonatomic) UIView *dimmerView; // @synthesize dimmerView=_dimmerView;
 @property(retain, nonatomic) ADRemoteView *remoteView; // @synthesize remoteView=_remoteView;
-@property(retain, nonatomic) ADBannerController *controller; // @synthesize controller=_controller;
 @property(nonatomic, getter=isBannerViewActionInProgress) BOOL bannerViewActionInProgress; // @synthesize bannerViewActionInProgress=_bannerViewActionInProgress;
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
 @property(readonly, nonatomic, getter=isBannerLoaded) BOOL bannerLoaded; // @synthesize bannerLoaded=_bannerLoaded;
+@property(nonatomic) id <ADBannerViewDelegate> _internalDelegate; // @synthesize _internalDelegate;
+@property(nonatomic) int internalAdType; // @synthesize internalAdType=_internalAdType;
+@property(readonly, nonatomic) int adType; // @synthesize adType=_adType;
 - (void)_sanitizeAndForwardErrorToDelegate:(id)arg1;
-- (void)_propagateProperties;
-- (void)_orientationChanged;
-- (void)_propagateFrame;
 - (void)cancelBannerViewAction;
-@property(copy, nonatomic) NSString *currentContentSizeIdentifier; // @synthesize currentContentSizeIdentifier=_currentContentSizeIdentifier;
-@property(copy, nonatomic) NSSet *requiredContentSizeIdentifiers; // @synthesize requiredContentSizeIdentifiers=_requiredContentSizeIdentifiers;
-- (void)_setContentSizeIdentifier:(id)arg1;
+- (id)currentContentSizeIdentifier;
+- (void)setCurrentContentSizeIdentifier:(id)arg1;
+- (id)requiredContentSizeIdentifiers;
+- (void)setRequiredContentSizeIdentifiers:(id)arg1;
 @property(nonatomic) id <ADBannerViewDelegate> delegate; // @synthesize delegate=_weakDelegate;
-- (void)serverStoryboardDidFinishFirstSignificantDraw:(id)arg1;
-- (void)serverStoryboardDidTransitionOut:(id)arg1;
-- (void)serverBannerViewDidFailToReceiveAd:(id)arg1 withError:(id)arg2;
-- (void)serverBannerViewDidLoad:(id)arg1;
-- (void)serverBannerViewWillLoad:(id)arg1;
-- (void)controller:(id)arg1 didFailWithError:(id)arg2;
-- (void)controllerDidClose:(id)arg1;
-- (void)controllerDidOpen:(id)arg1 withWindowContextId:(id)arg2;
-- (int)creativeType;
-- (void)bannerControllerDidBecomeAvailable:(id)arg1;
+- (void)serverStoryboardDidTransitionOut;
+- (void)serverBannerViewDidFailToReceiveAdWithError:(id)arg1;
+- (void)serverBannerViewDidLoad;
+- (void)serverBannerViewWillLoad;
+- (void)bannerControllerRevoked;
+- (void)bannerControllerGranted;
 - (void)_bannerTapped:(id)arg1;
 - (void)setBannerLoaded:(BOOL)arg1;
 - (void)didMoveToWindow;
-- (BOOL)isVisible:(BOOL)arg1;
 - (void)setCenter:(struct CGPoint)arg1;
 - (void)setAlpha:(float)arg1;
 - (void)setHidden:(BOOL)arg1;
 - (void)setTransform:(struct CGAffineTransform)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)setAutoresizingMask:(unsigned int)arg1;
+- (void)resizeWithOldSuperviewSize:(struct CGSize)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_commonInit;
+- (id)initFromIBWithFrame:(struct CGRect)arg1 adType:(int)arg2;
 - (id)initFromIBWithFrame:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)_initWithInternalAdType:(int)arg1;
+- (id)initWithAdType:(int)arg1;
 - (void)dealloc;
-- (void)insertSubview:(id)arg1 above:(id)arg2;
-- (void)insertSubview:(id)arg1 below:(id)arg2;
-- (void)insertSubview:(id)arg1 aboveSubview:(id)arg2;
-- (void)insertSubview:(id)arg1 belowSubview:(id)arg2;
-- (void)addSubview:(id)arg1;
-- (void)exchangeSubviewAtIndex:(int)arg1 withSubviewAtIndex:(int)arg2;
-- (void)insertSubview:(id)arg1 atIndex:(int)arg2;
-- (void)_addOurSubviews;
 
 @end
 

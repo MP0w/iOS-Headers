@@ -6,17 +6,18 @@
 
 #import <iTunesStoreUI/SUScriptObject.h>
 
+@class UIColor;
+
 @interface SUScriptColor : SUScriptObject
 {
-    struct CGColor *_color;
+    UIColor *_color;
 }
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-- (void)_ntsSetColor:(struct CGColor *)arg1;
 @property(readonly) float red;
 @property(readonly) float green;
 - (id)_className;
@@ -26,10 +27,11 @@
 - (void)setRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
 - (void)setHue:(float)arg1 saturation:(float)arg2 brightness:(float)arg3 alpha:(float)arg4;
 - (id)stringRepresentation;
+@property(readonly) UIColor *nativeColor;
 - (struct CGColor *)copyCGColor;
 - (void)dealloc;
 - (id)initWithStyleString:(id)arg1;
-- (id)initWithCGColor:(struct CGColor *)arg1;
+- (id)initWithUIColor:(id)arg1;
 
 @end
 

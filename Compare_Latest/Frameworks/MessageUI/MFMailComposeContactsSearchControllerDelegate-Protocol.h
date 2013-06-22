@@ -7,7 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol MFMailComposeContactsSearchControllerDelegate <NSObject>
-- (void)composeContactsSearchController:(id)arg1 didSortResults:(id)arg2;
 - (void)composeContactsSearchController:(id)arg1 finishedWithResults:(BOOL)arg2;
+- (void)composeContactsSearchController:(id)arg1 didSortResults:(id)arg2;
+- (id)sendingAddressForComposeContactsSearchController:(id)arg1;
 @end
 

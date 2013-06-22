@@ -12,10 +12,10 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, copy) NSString *type;
 - (BOOL)matchMedium:(id)arg1;
+@property(readonly) NSString *type;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

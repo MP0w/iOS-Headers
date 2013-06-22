@@ -14,20 +14,20 @@
     PDSlideMaster *mSlideMaster;
 }
 
-- (id)initWithSlideMaster:(id)arg1;
-- (void)dealloc;
-- (int)slideLayoutType;
-- (void)setSlideLayoutType:(int)arg1;
-- (id)slideMaster;
-- (void)setSlideMaster:(id)arg1;
-- (id)defaultTheme;
-- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
-- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(BOOL)arg4;
-- (id)parentTextStyleForTables;
-- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
-- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
-- (id)parentSlideBase;
 - (void)doneWithContent;
+- (id)parentSlideBase;
+- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)parentTextStyleForTables;
+- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(BOOL)arg4;
+- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)defaultTheme;
+- (void)setSlideMaster:(id)arg1;
+- (id)slideMaster;
+- (void)setSlideLayoutType:(int)arg1;
+- (int)slideLayoutType;
+- (void)dealloc;
+- (id)initWithSlideMaster:(id)arg1;
 
 @end
 

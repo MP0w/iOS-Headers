@@ -7,11 +7,11 @@
 @protocol IMAVInvitationControllerDelegate
 
 @optional
-- (void)conference:(id)arg1 receivedInvitationFromIMHandle:(id)arg2;
-- (void)conference:(id)arg1 receivedCancelledInvitationFromIMHandle:(id)arg2;
-- (void)conference:(id)arg1 handleMissedInvitationFromIMHandle:(id)arg2;
-- (void)avChatStateChangedFrom:(unsigned int)arg1 to:(unsigned int)arg2 reason:(unsigned int)arg3;
-- (BOOL)conference:(id)arg1 requiresWiFiAssociationForInvitationFromIMHandle:(id)arg2 isWiFiEnabled:(BOOL)arg3 foundActiveWiFi:(BOOL)arg4;
 - (void)avChatStateChangedFrom:(unsigned int)arg1 to:(unsigned int)arg2;
+- (BOOL)conference:(id)arg1 requiresWiFiAssociationForInvitationFromIMHandle:(id)arg2 isWiFiEnabled:(BOOL)arg3 foundActiveWiFi:(BOOL)arg4;
+- (void)avChatStateChangedFrom:(unsigned int)arg1 to:(unsigned int)arg2 reason:(unsigned int)arg3;
+- (void)conference:(id)arg1 handleMissedInvitationFromIMHandle:(id)arg2;
+- (void)conference:(id)arg1 receivedCancelledInvitationFromIMHandle:(id)arg2;
+- (void)conference:(id)arg1 receivedInvitationFromIMHandle:(id)arg2;
 @end
 

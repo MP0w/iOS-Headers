@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
+#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
 #import "SSXPCCoding-Protocol.h"
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
-@interface SSNetworkConstraints : NSObject <SSCoding, SSXPCCoding, NSCopying>
+@interface SSNetworkConstraints : NSObject <NSCoding, SSXPCCoding, NSCopying>
 {
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSMutableDictionary *_sizeLimits;
 }
 
@@ -22,22 +22,23 @@
 + (id)_newLegacyNetworkConstraintsWithDictionary:(id)arg1;
 + (void)_addNetworkConstraintsToDictionary:(id)arg1 forNetworkType:(int)arg2 legacyDictionary:(id)arg3;
 + (id)newNetworkConstraintsByDownloadKindFromURLBag:(id)arg1;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (long long)_sizeLimitForNetworkType:(int)arg1;
 - (void)_setSizeLimit:(long long)arg1 forNetworkType:(int)arg2;
 - (void)_disableAllNetworkTypes;
 - (id)_copySizeLimits;
 - (void)setSizeLimitsWithStoreConstraintDictionary:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
 - (long long)sizeLimitForNetworkType:(int)arg1;
 - (void)setSizeLimit:(long long)arg1 forNetworkType:(int)arg2;
 - (void)setAllNetworkTypesDisabled;
 @property(readonly, getter=isAnyNetworkTypeEnabled) BOOL anyNetworkTypeEnabled;
+- (BOOL)hasSizeLimitForNetworkType:(int)arg1;
 - (void)disableCellularNetworkTypes;
 - (void)dealloc;
 - (id)init;

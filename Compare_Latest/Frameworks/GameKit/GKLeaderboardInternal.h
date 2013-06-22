@@ -14,14 +14,18 @@
     NSString *_localizedTitle;
     unsigned int _maxRank;
     NSString *_scoreType;
+    NSString *_groupID;
 }
 
 + (id)codedPropertyKeys;
+@property(retain, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
 @property(retain, nonatomic) NSString *scoreType; // @synthesize scoreType=_scoreType;
 @property(nonatomic) unsigned int maxRank; // @synthesize maxRank=_maxRank;
 @property(retain, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
 @property(retain, nonatomic) NSString *categoryID; // @synthesize categoryID=_categoryID;
-- (id)description;
+- (id)initWithLeaderboardID:(id)arg1 serverRepresentation:(id)arg2;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

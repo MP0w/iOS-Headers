@@ -10,10 +10,12 @@
 {
 }
 
-+ (id)edProtectionFromXlXf:(struct XlXf *)arg1;
-+ (id)edProtectionFromXlDXfProtect:(struct XlDXfProtect *)arg1;
-+ (id)edProtectionFromXlGraphicsInfo:(struct XlGraphicsInfo *)arg1;
 + (struct XlDXfProtect *)xlDXfProtectFromEDProtection:(id)arg1;
++ (void)writeProtection:(id)arg1 toXlGraphicsInfo:(struct XlGraphicsInfo *)arg2;
++ (void)writeProtection:(id)arg1 toXlXf:(struct XlXf *)arg2;
++ (id)edProtectionFromXlGraphicsInfo:(struct XlGraphicsInfo *)arg1;
++ (id)edProtectionFromXlDXfProtect:(struct XlDXfProtect *)arg1;
++ (id)edProtectionFromXlXf:(struct XlXf *)arg1;
 
 @end
 

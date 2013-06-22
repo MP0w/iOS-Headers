@@ -8,38 +8,57 @@
 
 #import "UITextFieldDelegate-Protocol.h"
 
-@class PLAlbumTextField, PLImageView, UIButton, UIImage, UIImageView, UILabel, UIView<PLStackableImage>;
+@class NSString, PLAlbumTextField, PLImageView, PLLabel, PLUnreadMarkerView, UIButton, UIImage, UIImageView, UIView<PLStackableImage>;
 
 @interface PLStackItemViewCell : UIView <UITextFieldDelegate>
 {
-    UIView<PLStackableImage> *_sourceView;
-    UIImageView *_badgeView;
-    UIImage *_badgeImage;
+    float _previousEnabledAlpha;
     UIButton *_closeButton;
-    UILabel *_titleLabel;
+    PLLabel *_titleLabel;
+    PLLabel *_subtitleLabel;
     PLAlbumTextField *_editField;
-    float _stackedAngle;
-    struct CGSize _lastItemSize;
-    BOOL _didHaveSourceView;
-    BOOL _ignoreEndEditing;
-    unsigned int _showBadge:1;
-    unsigned int _titleIsEditable:1;
+    UIImageView *_unreadBadge;
+    PLUnreadMarkerView *_unreadMarkerStartView;
+    UIImageView *_badgeView;
     id _closeAction;
     id _renameAction;
+    NSString *_title;
+    UIView<PLStackableImage> *_sourceView;
+    BOOL _unreadStartMarkerShowsProgress;
+    float _stackedAngle;
+    UIImage *_badgeImage;
+    float _labelsAlpha;
+    BOOL _labelsHidden;
+    BOOL _labelsShadowEnabled;
+    BOOL _labelIsEditable;
+    BOOL _showsUnreadStartMarker;
+    BOOL _ignoreEndEditing;
     BOOL _enabled;
-    float _previousEnabledAlpha;
+    NSString *_subtitle;
+    BOOL _showsUnreadIndicator;
+    unsigned int _unreadStartMarkerCount;
 }
 
-+ (struct CGSize)badgeOffset;
 + (void)initialize;
-@property(nonatomic) BOOL ignoreEndEditing; // @synthesize ignoreEndEditing=_ignoreEndEditing;
+@property(nonatomic) unsigned int unreadStartMarkerCount; // @synthesize unreadStartMarkerCount=_unreadStartMarkerCount;
+@property(nonatomic) BOOL showsUnreadIndicator; // @synthesize showsUnreadIndicator=_showsUnreadIndicator;
+@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) BOOL ignoreEndEditing; // @synthesize ignoreEndEditing=_ignoreEndEditing;
+@property(nonatomic) BOOL showsUnreadStartMarker; // @synthesize showsUnreadStartMarker=_showsUnreadStartMarker;
+@property(nonatomic, getter=isLabelEditable) BOOL labelIsEditable; // @synthesize labelIsEditable=_labelIsEditable;
+@property(nonatomic, getter=isLabelShadowEnabled) BOOL labelsShadowEnabled; // @synthesize labelsShadowEnabled=_labelsShadowEnabled;
+@property(nonatomic) BOOL labelsHidden; // @synthesize labelsHidden=_labelsHidden;
+@property(nonatomic) float labelsAlpha; // @synthesize labelsAlpha=_labelsAlpha;
+@property(retain, nonatomic) UIImage *badgeImage; // @synthesize badgeImage=_badgeImage;
+@property(nonatomic) float stackedAngle; // @synthesize stackedAngle=_stackedAngle;
+@property(nonatomic) BOOL unreadStartMarkerShowsProgress; // @synthesize unreadStartMarkerShowsProgress=_unreadStartMarkerShowsProgress;
+@property(retain, nonatomic) UIView<PLStackableImage> *sourceView; // @synthesize sourceView=_sourceView;
+@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(copy, nonatomic) id renameAction; // @synthesize renameAction=_renameAction;
 @property(copy, nonatomic) id closeAction; // @synthesize closeAction=_closeAction;
-@property(retain, nonatomic) UILabel *title; // @synthesize title=_titleLabel;
-@property(readonly, nonatomic) UIView *badgeView; // @synthesize badgeView=_badgeView;
-@property(nonatomic) float stackedAngle; // @synthesize stackedAngle=_stackedAngle;
-@property(retain, nonatomic) UIView<PLStackableImage> *sourceView; // @synthesize sourceView=_sourceView;
+- (void)layoutSubviews;
+- (void)_getTitleFrame:(struct CGRect *)arg1 subtitleFrame:(struct CGRect *)arg2 unreadIndicatorFrame:(struct CGRect *)arg3;
 @property(nonatomic, getter=isShadowEnabled) BOOL shadowEnabled;
 - (BOOL)textFieldShouldReturn:(id)arg1;
 - (struct _NSRange)textField:(id)arg1 willChangeSelectionFromCharacterRange:(struct _NSRange)arg2 toCharacterRange:(struct _NSRange)arg3;
@@ -47,21 +66,24 @@
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
+- (void)_updateLabelsState;
 @property(readonly, nonatomic) BOOL isLabelEditing;
-@property(nonatomic, getter=isLabelEditable) BOOL labelIsEditable;
 - (BOOL)becomeFirstResponder;
 - (BOOL)canBecomeFirstResponder;
 - (void)_handleCloseBoxTap;
 @property(readonly, nonatomic) struct CGPoint closeBoxPosition;
 @property(nonatomic, getter=isCloseBoxShown) BOOL showCloseBox;
 - (void)setShowCloseBox:(BOOL)arg1 animated:(BOOL)arg2;
-@property(retain, nonatomic) UIImage *badgeImage;
-@property(nonatomic, getter=isBadgeShown) BOOL showBadge;
+- (void)_updateUnreadStartMarkerAnimated:(BOOL)arg1;
+- (void)setUnreadStartMarkerShowsProgress:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setShowsUnreadStartMarker:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setShowsUnreadIndicator:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setBadgeImage:(id)arg1 animated:(BOOL)arg2;
+- (void)_updateBadgeViewAnimated:(BOOL)arg1 forImageChange:(BOOL)arg2;
 @property(readonly, nonatomic) PLImageView *imageView;
 - (void)resetToInitialSizeAndAngle;
 - (void)setSize:(struct CGSize)arg1 angle:(float)arg2;
 @property(nonatomic) unsigned int imageIndex;
-- (void)_positionBadgeView;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (BOOL)pointIsInsideTitle:(struct CGPoint)arg1;
 - (void)dealloc;

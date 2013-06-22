@@ -13,8 +13,8 @@
     OADDrawable *mDrawable;
 }
 
-- (void)addPositionProperties:(struct CGRect)arg1;
 - (void)addPositionUsingOffsets:(struct CGRect)arg1;
+- (void)addPositionProperties:(struct CGRect)arg1;
 
 @end
 

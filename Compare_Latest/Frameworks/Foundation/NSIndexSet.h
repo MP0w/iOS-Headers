@@ -29,7 +29,7 @@
     } _internal;
 }
 
-+ (id)indexSetWithIndexes:(unsigned int *)arg1 count:(unsigned int)arg2;
++ (id)indexSetWithIndexes:(const unsigned int *)arg1 count:(unsigned int)arg2;
 + (id)indexSetWithIndexesInRange:(struct _NSRange)arg1;
 + (id)indexSetWithIndex:(unsigned int)arg1;
 + (id)indexSet;
@@ -76,13 +76,15 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithIndexes:(unsigned int *)arg1 count:(unsigned int)arg2;
+- (id)initWithIndexes:(const unsigned int *)arg1 count:(unsigned int)arg2;
 - (id)initWithIndexSet:(id)arg1;
 - (void)_setContentToContentFromIndexSet:(id)arg1;
 - (id)initWithIndexesInRange:(struct _NSRange)arg1;
 - (id)initWithIndex:(unsigned int)arg1;
 - (id)init;
 - (id)_init;
+- (id)replacementObjectForPortCoder:(id)arg1;
+- (unsigned int)_indexAtIndex:(unsigned int)arg1;
 
 @end
 

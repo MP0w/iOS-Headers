@@ -11,6 +11,15 @@
 }
 
 + (void)_initializeSafeCategory;
+- (id)accessibilityUserDefinedActivationPoint;
+- (id)accessibilityUserDefinedIdentifier;
+- (id)accessibilityUserDefinedLanguage;
+- (id)isAccessibilityUserDefinedElement;
+- (id)accessibilityUserDefinedTraits;
+- (id)accessibilityUserDefinedFrame;
+- (id)accessibilityUserDefinedHint;
+- (id)accessibilityUserDefinedValue;
+- (id)accessibilityUserDefinedLabel;
 
 @end
 

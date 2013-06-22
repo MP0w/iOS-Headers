@@ -11,7 +11,6 @@
 
 @interface AVAVAudioSettingsAudioOutputSettings : AVAudioOutputSettings <AVReencodedAudioSettingsForFig, AVDecodedAudioSettingsForFig>
 {
-    BOOL _dictionaryWasFullyFormed;
 }
 
 + (id)_audioOutputSettingsWithAudioSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
@@ -19,8 +18,10 @@
 - (id)audioOptions;
 - (struct AudioChannelLayout *)copyAudioChannelLayoutForSourceFormatDescription:(struct opaqueCMFormatDescription *)arg1 audioChannelLayoutSize:(unsigned int *)arg2;
 - (void)getAudioStreamBasicDescription:(struct AudioStreamBasicDescription *)arg1 forAudioFileTypeID:(unsigned long)arg2 sourceFormatDescription:(struct opaqueCMFormatDescription *)arg3;
-- (BOOL)isDictionaryFullyFormed;
+- (BOOL)canFullySpecifyOutputFormatReturningReason:(id *)arg1;
+- (BOOL)isCodecAvailableOnCurrentSystem;
 - (BOOL)willYieldCompressedSamples;
+- (id)initWithTrustedAVAudioSettingsDictionary:(id)arg1;
 - (id)initWithAVAudioSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 
 @end

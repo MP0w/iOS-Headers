@@ -26,7 +26,7 @@
 - (void)vcCapabilitiesChanged:(unsigned long long)arg1;
 - (void)setupComplete;
 - (void)activeAccountsChanged:(id)arg1 forService:(id)arg2;
-- (void)account:(id)arg1 loginStatusChanged:(unsigned int)arg2 message:(id)arg3 reason:(unsigned int)arg4 properties:(id)arg5;
+- (void)account:(id)arg1 loginStatusChanged:(unsigned int)arg2 message:(id)arg3 reason:(int)arg4 properties:(id)arg5;
 - (void)_processAccountStatusChange;
 - (void)imHandleInfoChangedNotification:(id)arg1;
 - (void)imHandleStatusChangedNotification:(id)arg1;

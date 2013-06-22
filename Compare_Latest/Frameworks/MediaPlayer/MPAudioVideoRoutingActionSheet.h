@@ -8,7 +8,7 @@
 
 #import "UIActionSheetDelegate-Protocol.h"
 
-@class MPAudioDeviceController, UIViewController, UIWindow;
+@class MPAudioDeviceController, NSArray, UIViewController, UIWindow;
 
 @interface MPAudioVideoRoutingActionSheet : UIActionSheet <UIActionSheetDelegate>
 {
@@ -19,9 +19,10 @@
     id _completionHandler;
     UIViewController *_viewControllerForActionSheet;
     UIWindow *_windowForActionSheet;
+    NSArray *_displayedRoutes;
 }
 
-- (id)_routes;
+- (id)_availableRoutes;
 - (BOOL)_isDeviceVideoRoute:(id)arg1;
 - (void)showInPopoverFromRect:(struct CGRect)arg1 inView:(id)arg2 backgroundStyle:(int)arg3 animated:(BOOL)arg4 completionHandler:(id)arg5;
 - (void)showWithValidInterfaceOrientationsBlock:(id)arg1 completionHandler:(void)arg2;

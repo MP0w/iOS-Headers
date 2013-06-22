@@ -6,22 +6,23 @@
 
 #import <GameKit/GKGameCellContents.h>
 
-@class SSItem;
+@class GKStoreItemInternal;
 
 @interface GKPurchasableGameCellContents : GKGameCellContents
 {
-    SSItem *_storeItem;
+    GKStoreItemInternal *_storeItem;
+    float _capturedRating;
 }
 
 + (int)lineCount;
 + (id)purchasableGameCellContentsWithTheme:(id)arg1;
-@property(retain, nonatomic) SSItem *storeItem; // @synthesize storeItem=_storeItem;
+@property(nonatomic) float capturedRating; // @synthesize capturedRating=_capturedRating;
+@property(retain, nonatomic) GKStoreItemInternal *storeItem; // @synthesize storeItem=_storeItem;
 - (void)prepareForReuse;
 - (void)drawStoreRatingAtPoint:(struct CGPoint)arg1;
 - (void)drawLineIndex:(unsigned int)arg1 inRect:(struct CGRect *)arg2 highlighted:(BOOL)arg3;
 - (void)setConfirmationButtonRect:(struct CGRect)arg1;
 - (void)updateLines;
-- (void)refreshExpensiveContent;
 - (void)configureLines;
 - (void)setGame:(id)arg1;
 - (void)dealloc;

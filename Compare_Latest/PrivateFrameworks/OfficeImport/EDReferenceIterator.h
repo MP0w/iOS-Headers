@@ -25,15 +25,18 @@
     unsigned int mPreviousColumnNumber;
 }
 
-+ (id)referenceIteratorWithReference:(id)arg1 workbook:(id)arg2;
 + (id)referenceIteratorWithReferenceArray:(id)arg1 workbook:(id)arg2;
-- (id)initWithReferenceArray:(id)arg1 reference:(id)arg2 workbook:(id)arg3;
-- (id)initWithReference:(id)arg1 workbook:(id)arg2;
-- (id)initWithReferenceArray:(id)arg1 workbook:(id)arg2;
-- (void)dealloc;
-- (void)setCurrentSheet:(id)arg1;
-- (struct EDCellHeader *)nextCell;
++ (id)referenceIteratorWithReference:(id)arg1 workbook:(id)arg2;
 - (unsigned int)currentCellIndex;
+- (struct EDCellHeader *)nextCell;
+- (void)setCurrentSheet:(id)arg1;
+- (void)dealloc;
+- (id)initWithReferenceArray:(id)arg1 workbook:(id)arg2;
+- (id)initWithReference:(id)arg1 workbook:(id)arg2;
+- (id)initWithReferenceArray:(id)arg1 reference:(id)arg2 workbook:(id)arg3;
+- (_Bool)nextRow;
+- (_Bool)nextReference;
+- (void)setReference:(id)arg1;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <UIKit/UITextInputMode.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface UIKeyboardInputMode : UITextInputMode
 {
@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSString *softwareLayout; // @synthesize softwareLayout;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier;
 @property(retain, nonatomic) NSString *primaryLanguage; // @synthesize primaryLanguage;
+@property(readonly, nonatomic) NSArray *normalizedIdentifierLevels;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;
 

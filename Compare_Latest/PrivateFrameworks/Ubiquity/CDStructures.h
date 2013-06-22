@@ -4,11 +4,3 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#pragma mark Typedef'd Structures
-
-typedef struct {
-    unsigned char _field1[16];
-    _Bool _field2;
-    void *_field3;
-} CDStruct_6703a762;
-

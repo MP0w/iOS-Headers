@@ -9,16 +9,16 @@
 #import "AccountSettingsUIAccount-Protocol.h"
 
 @interface DeviceLocalAccount (AccountSettingsUI) <AccountSettingsUIAccount>
-+ (id)displayedShortAccountTypeString;
-+ (id)displayedAccountTypeString;
 + (void *)createSyncDataSourceForDataclass:(id)arg1 options:(id)arg2;
-- (BOOL)supportsPush;
-- (id)uniqueId;
-- (void)setEnabled:(BOOL)arg1 forDataclass:(id)arg2;
-- (void)setTetheredEnabled:(BOOL)arg1 forDataclass:(id)arg2;
-- (void)deleteLocalDataSourceForDataclass:(id)arg1;
-- (BOOL)otherAccountEnabledForDataclass:(id)arg1;
-- (void)showLocalStoreIfAppropriateForDataclass:(id)arg1;
++ (id)displayedAccountTypeString;
++ (id)displayedShortAccountTypeString;
 - (void)hideLocalStoreForDataclass:(id)arg1;
+- (void)showLocalStoreIfAppropriateForDataclass:(id)arg1;
+- (BOOL)otherAccountEnabledForDataclass:(id)arg1;
+- (void)deleteLocalDataSourceForDataclass:(id)arg1;
+- (void)setTetheredEnabled:(BOOL)arg1 forDataclass:(id)arg2;
+- (void)setEnabled:(BOOL)arg1 forDataclass:(id)arg2;
+- (id)uniqueId;
+- (BOOL)supportsPush;
 @end
 

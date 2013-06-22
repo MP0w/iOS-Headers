@@ -14,6 +14,7 @@
 }
 
 @property(nonatomic) UISelectionGrabber *grabber; // @synthesize grabber=m_grabber;
+- (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
 - (int)textEffectsVisibilityLevel;
 - (int)textEffectsVisibilityLevelWhenKey;

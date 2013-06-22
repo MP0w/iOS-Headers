@@ -12,12 +12,11 @@
 {
     id <MSStreamsProtocolDelegate> _delegate;
     NSString *_personID;
-    NSURL *_URL;
 }
 
-+ (id)deviceInfoDictForPersonID:(id)arg1;
 @property(readonly, nonatomic) NSString *personID; // @synthesize personID=_personID;
 @property(nonatomic) id <MSStreamsProtocolDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_refreshAuthTokenForContext:(struct __MSSPCContext *)arg1;
 - (void)_didReceiveRetryAfterDate:(id)arg1;
 - (void)_didFindServerSideConfigurationVersion:(id)arg1;
@@ -29,7 +28,6 @@
 @property(readonly, nonatomic) NSURL *resetURL;
 @property(readonly, nonatomic) NSURL *putURL;
 @property(readonly, nonatomic) NSURL *getURL;
-- (void)dealloc;
 - (id)initWithPersonID:(id)arg1 baseURL:(id)arg2;
 
 @end

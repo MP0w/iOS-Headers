@@ -8,25 +8,25 @@
 
 #import "MFObject-Protocol.h"
 
-@class NSColorStub;
+@class TSUColor;
 
 @interface MFPen : NSObject <MFObject>
 {
     int m_penStyle;
-    int m_penWidth;
-    NSColorStub *m_colour;
+    long m_penWidth;
+    TSUColor *m_colour;
     double *m_userStyleArray;
 }
 
-+ (id)pen;
 + (id)penWithStyle:(int)arg1 width:(long)arg2 colour:(id)arg3 styleArray:(double *)arg4;
-- (id)init;
-- (id)initWithStyle:(int)arg1 width:(long)arg2 colour:(id)arg3 styleArray:(double *)arg4;
-- (void)dealloc;
-- (int)selectInto:(id)arg1;
-- (id)getColor;
-- (long)getWidth;
++ (id)pen;
 - (int)getStyle;
+- (long)getWidth;
+- (id)getColor;
+- (int)selectInto:(id)arg1;
+- (void)dealloc;
+- (id)initWithStyle:(int)arg1 width:(long)arg2 colour:(id)arg3 styleArray:(double *)arg4;
+- (id)init;
 
 @end
 

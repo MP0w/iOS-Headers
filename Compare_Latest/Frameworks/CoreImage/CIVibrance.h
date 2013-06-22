@@ -22,6 +22,8 @@
 - (void)setDefaults;
 - (id)_kernelPos;
 - (id)_kernelNeg;
+- (id)_initFromProperties:(id)arg1;
+- (id)_outputProperties;
 
 @end
 

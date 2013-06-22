@@ -36,6 +36,8 @@
 - (void)_setIgnoreTapsInDimmingView:(BOOL)arg1;
 - (BOOL)_isIgnoringTapsInDimmingView;
 - (id)_viewForModalPresentationOfViewController:(id)arg1;
+- (void)_hideArrow;
+- (void)_showArrow;
 - (void)_setCornerRadius:(float)arg1;
 - (void)_setFrame:(struct CGRect)arg1 arrowOffset:(float)arg2;
 - (void)setUseToolbarShine:(BOOL)arg1;
@@ -58,6 +60,7 @@
 - (BOOL)_needsLayoutOnAnimatedFrameChangeForNewFrame:(struct CGRect)arg1;
 - (int)_style;
 - (void)layoutSubviews;
+- (void)_layoutToolbarShine;
 - (void)willMoveToWindow:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

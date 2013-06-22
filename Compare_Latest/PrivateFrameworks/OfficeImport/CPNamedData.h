@@ -15,10 +15,10 @@
 }
 
 + (id)namedDataWithData:(id)arg1 named:(id)arg2;
-- (id)initWithData:(id)arg1 named:(id)arg2;
-- (void)dealloc;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=mName;
 @property(readonly, nonatomic) NSData *data; // @synthesize data=mData;
+- (void)dealloc;
+- (id)initWithData:(id)arg1 named:(id)arg2;
 
 @end
 

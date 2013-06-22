@@ -13,7 +13,6 @@
 @interface PLPhonePhotoScrollerViewController : PLPhotoScrollerViewController <UINavigationControllerDelegate>
 {
     UIView *_savedButtonBarSuperview;
-    int _previousGroup;
     unsigned int _isModalTransition:1;
     unsigned int _didDisappearUnderModalTransition:1;
     UIView *_viewToRemoveForSlideShow;

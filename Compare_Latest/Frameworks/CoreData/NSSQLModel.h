@@ -17,30 +17,32 @@
     unsigned int _brokenHashVersion;
     BOOL _retainLeopardStyleDictionaries;
     BOOL _modelHasPrecomputedKeyOrder;
+    BOOL _hasVirtualToOnes;
 }
 
-- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 retainHashHack:(BOOL)arg3 brokenHashVersion:(unsigned int)arg4;
-- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2;
-- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 retainHashHack:(BOOL)arg3;
-- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 brokenHashVersion:(unsigned int)arg3;
-- (void)dealloc;
-- (void)finalize;
-- (id)configurationName;
-- (id)managedObjectModel;
-- (void)_generateModel:(id)arg1;
-- (id)_entityMapping;
-- (id)entityNamed:(id)arg1;
-- (id)_sqlEntityWithRenamingIdentifier:(id)arg1;
-- (unsigned long)entityIDForName:(id)arg1;
-- (id)entities;
-- (id)entitiesByName;
-- (id)entityForID:(unsigned long)arg1;
-- (void)_addIndexedEntity:(id)arg1;
-- (BOOL)_useLeopardStyleHashing;
-- (BOOL)_useSnowLeopardStyleHashing;
-- (BOOL)_retainHashHack;
-- (BOOL)_modelHasPrecomputedKeyOrder;
+- (void)_recordHasVirtualToOnes;
 - (id)_precomputedKeyOrderForEntity:(id)arg1;
+- (BOOL)_modelHasPrecomputedKeyOrder;
+- (BOOL)_retainHashHack;
+- (BOOL)_useSnowLeopardStyleHashing;
+- (BOOL)_useLeopardStyleHashing;
+- (void)_addIndexedEntity:(id)arg1;
+- (id)entityForID:(unsigned long)arg1;
+- (id)entitiesByName;
+- (id)entities;
+- (unsigned long)entityIDForName:(id)arg1;
+- (id)_sqlEntityWithRenamingIdentifier:(id)arg1;
+- (id)entityNamed:(id)arg1;
+- (id)_entityMapping;
+- (BOOL)_generateModel:(id)arg1 error:(id *)arg2;
+- (id)managedObjectModel;
+- (id)configurationName;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 brokenHashVersion:(unsigned int)arg3;
+- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 retainHashHack:(BOOL)arg3;
+- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2;
+- (id)initWithManagedObjectModel:(id)arg1 configurationName:(id)arg2 retainHashHack:(BOOL)arg3 brokenHashVersion:(unsigned int)arg4;
 
 @end
 

@@ -11,13 +11,13 @@
     int wdValue;
 }
 
-- (id)initWithEnum:(int)arg1;
-- (int)value;
-- (id)mapJustification;
-- (id)mapUnderline;
-- (id)mapVerticalAlign;
-- (id)mapCellTextVAlign;
 - (id)cssStringForName:(id)arg1;
+- (id)mapCellTextVAlign;
+- (id)mapVerticalAlign;
+- (id)mapUnderline;
+- (id)mapJustification;
+- (int)value;
+- (id)initWithEnum:(int)arg1;
 
 @end
 

@@ -14,16 +14,17 @@
     UILabel *_label;
 }
 
-- (id)initWithDescriptor:(id)arg1;
-- (void)dealloc;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)willPresentAlertView:(id)arg1;
-- (BOOL)reappearsAfterUnlock;
-- (BOOL)reappearsAfterLock;
-- (BOOL)undimsScreen;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)allowMenuButtonDismissal;
 - (BOOL)dismissOnLock;
+- (BOOL)allowMenuButtonDismissal;
+- (BOOL)shouldShowInLockScreen;
+- (BOOL)undimsScreen;
+- (BOOL)behavesSuperModally;
+- (BOOL)reappearsAfterLock;
+- (BOOL)reappearsAfterUnlock;
+- (void)willPresentAlertView:(id)arg1;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)dealloc;
+- (id)initWithDescriptor:(id)arg1;
 
 @end
 

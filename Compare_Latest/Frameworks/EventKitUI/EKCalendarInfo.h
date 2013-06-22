@@ -13,14 +13,17 @@
     EKCalendar *_calendar;
     UIColor *_color;
     BOOL _selected;
+    int _customGroupType;
     EKGroupInfo *_group;
 }
 
+@property(nonatomic) int customGroupType; // @synthesize customGroupType=_customGroupType;
 @property(nonatomic) EKGroupInfo *group; // @synthesize group=_group;
 @property(nonatomic) BOOL selected; // @synthesize selected=_selected;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 - (id)description;
 @property(readonly, nonatomic) BOOL isEditable;
+@property(readonly, nonatomic) BOOL isPublished;
 @property(readonly, nonatomic) BOOL isShared;
 @property(readonly, nonatomic) BOOL isSubscribed;
 @property(readonly, nonatomic) int displayOrder;
@@ -28,6 +31,7 @@
 @property(retain, nonatomic) EKCalendar *calendar;
 - (void)dealloc;
 - (id)initWithCalendar:(id)arg1;
+- (void)_updateCustomGroupType;
 
 @end
 

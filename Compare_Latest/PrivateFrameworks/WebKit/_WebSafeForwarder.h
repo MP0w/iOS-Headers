@@ -6,19 +6,24 @@
 
 #import "NSObject.h"
 
+@class _WebSafeAsyncForwarder;
+
 @interface _WebSafeForwarder : NSObject
 {
     id target;
     id defaultTarget;
     BOOL catchExceptions;
+    _WebSafeAsyncForwarder *asyncForwarder;
+    long asyncForwarderPred;
 }
 
-- (id)initWithTarget:(id)arg1 defaultTarget:(id)arg2 catchExceptions:(BOOL)arg3;
-- (void)dealloc;
-- (void)clearTarget;
-- (void)forwardInvocation:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
+- (void)forwardInvocation:(id)arg1;
+- (void)clearTarget;
+- (void)dealloc;
+- (id)asyncForwarder;
+- (id)initWithTarget:(id)arg1 defaultTarget:(id)arg2 catchExceptions:(BOOL)arg3;
 
 @end
 

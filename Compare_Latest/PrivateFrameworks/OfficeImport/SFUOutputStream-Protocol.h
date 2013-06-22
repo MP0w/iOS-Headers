@@ -7,12 +7,12 @@
 #import "SFUSimpleOutputStream-Protocol.h"
 
 @protocol SFUOutputStream <SFUSimpleOutputStream>
-- (BOOL)canSeek;
-- (void)seekToOffset:(long long)arg1 whence:(int)arg2;
-- (long long)offset;
-- (BOOL)canCreateInputStream;
-- (id)inputStream;
-- (void)close;
 - (id)closeLocalStream;
+- (void)close;
+- (id)inputStream;
+- (BOOL)canCreateInputStream;
+- (long long)offset;
+- (void)seekToOffset:(long long)arg1 whence:(int)arg2;
+- (BOOL)canSeek;
 @end
 

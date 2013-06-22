@@ -12,10 +12,10 @@
 {
 }
 
-@property(readonly, retain) DOMHTMLFormElement *form;
 @property(copy) NSString *accessKey;
-@property(copy) NSString *htmlFor;
 - (id)control;
+@property(copy) NSString *htmlFor;
+@property(readonly) DOMHTMLFormElement *form;
 
 @end
 

@@ -16,10 +16,10 @@
     MFDAFolderChangeResult *_result;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)folderChange:(id)arg1 finishedWithStatus:(int)arg2 error:(id)arg3;
 - (id)waitForResult;
+- (void)folderChange:(id)arg1 finishedWithStatus:(int)arg2 error:(id)arg3;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -7,17 +7,17 @@
 #import "NSData.h"
 
 @interface NSData (NSDataUtils)
-- (struct _NSRange)mf_rangeOfRFC822HeaderData;
-- (id)mf_subdataToIndex:(unsigned int)arg1;
-- (id)mf_subdataFromIndex:(unsigned int)arg1;
-- (struct _NSRange)mf_rangeOfData:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
-- (struct _NSRange)mf_rangeOfByteFromSet:(id)arg1 range:(struct _NSRange)arg2;
-- (struct _NSRange)mf_rangeOfByteFromSet:(id)arg1;
-- (struct _NSRange)mf_rangeOfCString:(const char *)arg1;
-- (struct _NSRange)mf_rangeOfCString:(const char *)arg1 options:(unsigned int)arg2;
-- (struct _NSRange)mf_rangeOfCString:(const char *)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
-- (id)mf_locationsOfUnixNewlinesNeedingConversion;
-- (id)mf_dataByConvertingUnixNewlinesToNetwork;
 - (id)mf_copyHexString;
+- (id)mf_dataByConvertingUnixNewlinesToNetwork;
+- (id)mf_locationsOfUnixNewlinesNeedingConversion;
+- (struct _NSRange)mf_rangeOfCString:(const char *)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
+- (struct _NSRange)mf_rangeOfCString:(const char *)arg1 options:(unsigned int)arg2;
+- (struct _NSRange)mf_rangeOfCString:(const char *)arg1;
+- (struct _NSRange)mf_rangeOfByteFromSet:(id)arg1;
+- (struct _NSRange)mf_rangeOfByteFromSet:(id)arg1 range:(struct _NSRange)arg2;
+- (struct _NSRange)mf_rangeOfData:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
+- (id)mf_subdataFromIndex:(unsigned int)arg1;
+- (id)mf_subdataToIndex:(unsigned int)arg1;
+- (struct _NSRange)mf_rangeOfRFC822HeaderData;
 @end
 

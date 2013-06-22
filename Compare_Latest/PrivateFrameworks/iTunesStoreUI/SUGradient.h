@@ -22,9 +22,11 @@
 }
 
 + (id)gradientWithColor:(id)arg1;
+- (id)description;
 @property(readonly) struct SUGradientPoint p1;
 @property(readonly) struct SUGradientPoint p0;
 @property(readonly) int numberOfColorStops;
+- (id)newPatternColorWithSize:(struct CGSize)arg1 opaque:(BOOL)arg2;
 @property(readonly) int gradientType;
 - (struct CGShading *)copyShading;
 - (struct CGGradient *)copyCGGradient;

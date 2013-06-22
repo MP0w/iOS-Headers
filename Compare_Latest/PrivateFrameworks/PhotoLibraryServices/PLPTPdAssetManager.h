@@ -8,7 +8,7 @@
 
 #import "PLManagedObjectContextPTPNotificationDelegate-Protocol.h"
 
-@class NSArray, NSFileManager, NSMutableArray, NSObject<PhotoLibraryPTPDelegate>, NSString, PLPhotoLibrary;
+@class NSArray, NSFileManager, NSMutableArray, NSObject<PhotoLibraryPTPDelegate>, NSString, PLManagedObjectContext, PLPhotoLibrary;
 
 @interface PLPTPdAssetManager : NSObject <PLManagedObjectContextPTPNotificationDelegate>
 {
@@ -31,6 +31,22 @@
 - (id)albumHandles;
 - (void)dealloc;
 - (id)init;
+- (BOOL)libraryIsAvailable;
+- (BOOL)ptpCanDeleteFiles;
+- (id)ptpInformationForPhotosWithPrimaryKeys:(id)arg1;
+- (id)ptpInformationForPhotoWithObjectID:(id)arg1;
+@property(nonatomic) NSObject<PhotoLibraryPTPDelegate> *delegate;
+- (void)setPtpDelegate:(id)arg1;
+- (BOOL)ptpDeletePhotoWithKey:(struct NSObject *)arg1 andExtension:(id)arg2;
+- (id)ptpThumbnailForPhotoWithKey:(struct NSObject *)arg1;
+- (id)ptpInformationForFilesInDirectory:(id)arg1;
+- (id)_ptpInformationForAllAssets;
+- (id)_allAssetObjectIDs;
+- (BOOL)_isPTPAlbum:(id)arg1;
+@property(readonly, nonatomic) NSArray *albumObjectIDs;
+@property(readonly) PLManagedObjectContext *managedObjectContext;
+- (void)_performBlockAndWait:(id)arg1;
+- (void)_performTransactionAndWait:(id)arg1;
 
 @end
 

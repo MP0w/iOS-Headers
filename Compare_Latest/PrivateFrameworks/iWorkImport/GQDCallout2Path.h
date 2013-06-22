@@ -15,13 +15,15 @@
     BOOL mTailAtCenter;
 }
 
-- (struct CGPoint)tailCenter;
-- (struct CGPath *)createBezierPath;
-- (struct CGSize)size;
-- (double)cornerRadius;
-- (struct CGPoint)tailPosition;
-- (double)tailSize;
+- (id).cxx_construct;
 - (BOOL)tailAtCenter;
+- (double)tailSize;
+- (struct CGPoint)tailPosition;
+- (double)cornerRadius;
+- (struct CGSize)size;
+- (struct CGPath *)createBezierPath;
+- (struct CGPoint)tailCenter;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

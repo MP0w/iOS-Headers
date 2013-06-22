@@ -15,13 +15,13 @@
     id _delegate;
 }
 
-- (void)dealloc;
-- (void)clearQueue;
-- (id)dequeueItems;
-- (void)enqueueItem:(id)arg1 fireDate:(id)arg2;
-- (void)_updateFireTimer;
-- (void)_timerFired;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+- (void)_timerFired;
+- (void)_updateFireTimer;
+- (void)enqueueItem:(id)arg1 fireDate:(id)arg2;
+- (id)dequeueItems;
+- (void)clearQueue;
+- (void)dealloc;
 
 @end
 

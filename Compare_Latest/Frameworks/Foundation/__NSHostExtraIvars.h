@@ -6,22 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface __NSHostExtraIvars : NSObject
 {
     NSString *thingToResolve;
     int resolveType;
-    struct dispatch_queue_s *resolveQueue;
-    struct dispatch_queue_s *cacheAccessQueue;
-    struct dispatch_queue_s *callbackQueue;
+    NSObject<OS_dispatch_queue> *resolveQueue;
+    NSObject<OS_dispatch_queue> *cacheAccessQueue;
+    NSObject<OS_dispatch_queue> *callbackQueue;
     BOOL startedResolving;
 }
 
 @property BOOL startedResolving; // @synthesize startedResolving;
-@property(readonly) struct dispatch_queue_s *callbackQueue; // @synthesize callbackQueue;
-@property(readonly) struct dispatch_queue_s *cacheAccessQueue; // @synthesize cacheAccessQueue;
-@property(readonly) struct dispatch_queue_s *resolveQueue; // @synthesize resolveQueue;
+@property(readonly) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue;
+@property(readonly) NSObject<OS_dispatch_queue> *cacheAccessQueue; // @synthesize cacheAccessQueue;
+@property(readonly) NSObject<OS_dispatch_queue> *resolveQueue; // @synthesize resolveQueue;
 @property(retain, nonatomic) NSString *thingToResolve; // @synthesize thingToResolve;
 @property(nonatomic) int resolveType; // @synthesize resolveType;
 - (void)dealloc;

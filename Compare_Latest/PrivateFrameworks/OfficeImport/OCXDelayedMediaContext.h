@@ -16,10 +16,10 @@
     NSURL *mTargetLocation;
 }
 
-- (id)initWithTargetLocation:(id)arg1 package:(id)arg2;
-- (void)dealloc;
-- (_Bool)loadDelayedNode:(id)arg1;
 - (_Bool)saveDelayedMedia:(id)arg1 toFile:(id)arg2;
+- (_Bool)loadDelayedNode:(id)arg1;
+- (void)dealloc;
+- (id)initWithTargetLocation:(id)arg1 package:(id)arg2;
 
 @end
 

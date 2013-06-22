@@ -21,13 +21,14 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (float)miterLimit;
-- (float)width;
-- (int)cap;
-- (int)join;
-- (id)color;
 - (id)pattern;
+- (id)color;
+- (int)join;
+- (int)cap;
+- (float)width;
+- (float)miterLimit;
+- (void)dealloc;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

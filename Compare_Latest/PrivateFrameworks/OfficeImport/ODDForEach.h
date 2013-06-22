@@ -13,9 +13,9 @@
     ODDIteratorSpecification *mIteratorSpecification;
 }
 
-- (id)init;
-- (void)dealloc;
 - (id)iteratorSpecification;
+- (void)dealloc;
+- (id)init;
 
 @end
 

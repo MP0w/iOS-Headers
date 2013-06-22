@@ -30,6 +30,7 @@
 
 + (id)messageFromFZMessage:(id)arg1 sender:(id)arg2 subject:(id)arg3;
 + (id)fromMeIMHandle:(id)arg1 withText:(id)arg2 fileTransferGUIDs:(id)arg3 flags:(unsigned long long)arg4;
++ (id)instantMessageWithText:(id)arg1 messageSubject:(id)arg2 fileTransferGUIDs:(id)arg3 flags:(unsigned long long)arg4;
 + (id)instantMessageWithText:(id)arg1 messageSubject:(id)arg2 flags:(unsigned long long)arg3;
 + (id)instantMessageWithText:(id)arg1 flags:(unsigned long long)arg2;
 + (id)defaultInvitationMessageFromSender:(id)arg1 flags:(unsigned long long)arg2;
@@ -43,9 +44,11 @@
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 - (void)_updateFlags:(unsigned long long)arg1;
 @property(nonatomic) unsigned long long flags; // @synthesize flags=_flags;
-@property(readonly, nonatomic) long long messageID; // @synthesize messageID=_messageID;
+- (void)_updateMessageID:(long long)arg1;
+@property(nonatomic) long long messageID; // @synthesize messageID=_messageID;
 @property(readonly, nonatomic) NSString *guid; // @synthesize guid=_guid;
-@property(readonly, nonatomic) NSAttributedString *text; // @synthesize text=_text;
+- (void)_updateText:(id)arg1;
+@property(retain, nonatomic) NSAttributedString *text; // @synthesize text=_text;
 - (void)_updateTime:(id)arg1;
 @property(retain, nonatomic) NSDate *time; // @synthesize time=_time;
 @property(readonly, nonatomic) NSAttributedString *messageSubject; // @synthesize messageSubject=_messageSubject;
@@ -60,6 +63,8 @@
 - (int)_compareIMMessageIDs:(id)arg1;
 - (int)_compareIMMessageDates:(id)arg1;
 - (int)_compareIMMessageGUIDs:(id)arg1;
+@property(readonly, nonatomic) BOOL wasDataDetected;
+@property(readonly, nonatomic) BOOL wasDowngraded;
 @property(readonly, nonatomic) BOOL isAlert;
 @property(readonly, nonatomic) BOOL isAddressedToMe;
 - (void)setIsAddressedToMe:(BOOL)arg1;
@@ -70,12 +75,11 @@
 @property(readonly, nonatomic) BOOL isDelayed;
 @property(readonly, nonatomic) BOOL isEmpty;
 @property(readonly, nonatomic) BOOL isFromMe;
-@property(readonly, nonatomic) BOOL fromMe;
 @property(readonly, nonatomic) BOOL isEmote;
 @property(readonly, nonatomic) NSArray *inlineAttachmentAttributesArray;
 @property(readonly, nonatomic) BOOL hasInlineAttachments;
-@property(readonly, nonatomic) BOOL finished;
 @property(readonly, nonatomic) BOOL isSent;
+@property(readonly, nonatomic) BOOL isTypingMessage;
 @property(readonly, nonatomic) BOOL isFinished;
 @property(readonly, nonatomic) BOOL hasDataDetectorResults;
 @property(readonly, nonatomic) NSString *summaryString;
@@ -85,7 +89,8 @@
 - (id)initWithSender:(id)arg1 fileTransfer:(id)arg2;
 - (id)initWithSender:(id)arg1 time:(id)arg2 text:(id)arg3 fileTransferGUIDs:(id)arg4 flags:(unsigned long long)arg5 error:(id)arg6 guid:(id)arg7 subject:(id)arg8;
 - (id)initWithSender:(id)arg1 time:(id)arg2 text:(id)arg3 messageSubject:(id)arg4 fileTransferGUIDs:(id)arg5 flags:(unsigned long long)arg6 error:(id)arg7 guid:(id)arg8 subject:(id)arg9;
-- (id)_initWithSender:(id)arg1 time:(id)arg2 timeRead:(id)arg3 timeDelivered:(id)arg4 text:(id)arg5 messageSubject:(id)arg6 fileTransferGUIDs:(id)arg7 flags:(unsigned long long)arg8 error:(id)arg9 guid:(id)arg10 messageID:(long long)arg11 subject:(id)arg12;
+- (id)_initWithSender:(id)arg1 time:(id)arg2 timeRead:(id)arg3 timeDelivered:(id)arg4 plainText:(id)arg5 text:(id)arg6 messageSubject:(id)arg7 fileTransferGUIDs:(id)arg8 flags:(unsigned long long)arg9 error:(id)arg10 guid:(id)arg11 messageID:(long long)arg12 subject:(id)arg13;
+- (id)_copyWithFlags:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

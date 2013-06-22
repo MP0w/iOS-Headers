@@ -8,8 +8,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol MFDAStreamingContentConsumer <DAMailboxStreamingContentConsumer, NSObject>
-- (id)data;
-- (BOOL)succeeded;
 - (double)timeOfLastActivity;
+- (BOOL)succeeded;
+- (id)data;
 @end
 

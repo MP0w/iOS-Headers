@@ -16,31 +16,31 @@
     WDTableCell *mTableCell;
 }
 
-- (id)initWithDocument:(id)arg1 textType:(int)arg2;
-- (id)initWithDocument:(id)arg1 textType:(int)arg2 tableCell:(id)arg3;
-- (void)dealloc;
-- (id)blocks;
-- (int)blockCount;
-- (id)blockAt:(int)arg1;
-- (id)lastBlock;
-- (int)indexOfBlock:(id)arg1;
-- (void)addBlock:(id)arg1;
-- (id)document;
-- (int)textType;
-- (id)tableCell;
-- (id)addParagraph;
-- (id)addParagraphAtIndex:(int)arg1;
-- (id)addTable;
-- (id)addTableAtIndex:(int)arg1;
-- (void)removeLastCharacter:(unsigned short)arg1;
-- (void)removeLastBlock;
-- (int)tableNestingLevel;
-- (id)blockIterator;
-- (id)newBlockIterator;
-- (id)runIterator;
-- (id)newRunIterator;
-- (BOOL)isEmpty;
 - (id)content;
+- (BOOL)isEmpty;
+- (id)newRunIterator;
+- (id)runIterator;
+- (id)newBlockIterator;
+- (id)blockIterator;
+- (int)tableNestingLevel;
+- (void)removeLastBlock;
+- (void)removeLastCharacter:(unsigned short)arg1;
+- (id)addTableAtIndex:(int)arg1;
+- (id)addTable;
+- (id)addParagraphAtIndex:(int)arg1;
+- (id)addParagraph;
+- (id)tableCell;
+- (int)textType;
+- (id)document;
+- (void)addBlock:(id)arg1;
+- (int)indexOfBlock:(id)arg1;
+- (id)lastBlock;
+- (id)blockAt:(int)arg1;
+- (int)blockCount;
+- (id)blocks;
+- (void)dealloc;
+- (id)initWithDocument:(id)arg1 textType:(int)arg2 tableCell:(id)arg3;
+- (id)initWithDocument:(id)arg1 textType:(int)arg2;
 
 @end
 

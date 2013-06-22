@@ -13,6 +13,8 @@
 + (void)_accessibilityStopServer;
 + (void)_accessibilityReenabled;
 + (void)_accessibilityStartServer;
++ (void)_accessibilityInitializeRuntimeOverrides;
++ (void)_accessibilityLoadSubbundles:(id)arg1;
 + (id)_loadAXBundleForBundle:(id)arg1 didLoad:(char *)arg2;
 + (id)_loadAXBundleForBundle:(id)arg1 didLoad:(char *)arg2 forceLoad:(BOOL)arg3 loadSubbundles:(BOOL)arg4;
 + (id)loadAccessibilityBundle:(id)arg1 didLoad:(char *)arg2 force:(BOOL)arg3;

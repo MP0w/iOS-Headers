@@ -12,7 +12,7 @@
 {
 }
 
-@property(readonly, copy) NSString *encoding;
+@property(readonly) NSString *encoding;
 
 @end
 

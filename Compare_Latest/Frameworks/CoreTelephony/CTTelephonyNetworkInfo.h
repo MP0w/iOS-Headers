@@ -27,8 +27,6 @@
 - (void)dealloc;
 - (id)init;
 - (void)cleanUpServerConnection;
-- (void)cleanUpServerConnectionNoLock;
-- (void)reestablishServerConnectionIfNeeded;
 - (BOOL)setUpServerConnection;
 
 @end

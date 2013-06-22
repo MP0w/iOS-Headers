@@ -6,23 +6,25 @@
 
 #import "NSObject.h"
 
+#import "CPCopying-Protocol.h"
 #import "NSCopying-Protocol.h"
 
 @class CPShape;
 
-@interface CPZoneBorderNeighbor : NSObject <NSCopying>
+@interface CPZoneBorderNeighbor : NSObject <NSCopying, CPCopying>
 {
     CPShape *neighborShape;
     int shapeSide;
 }
 
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (void)setNeighborShape:(id)arg1;
-- (id)neighborShape;
-- (void)setShapeSide:(int)arg1;
 - (int)shapeSide;
+- (void)setShapeSide:(int)arg1;
+- (id)neighborShape;
+- (void)setNeighborShape:(id)arg1;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initSuper;
+- (id)init;
 
 @end
 

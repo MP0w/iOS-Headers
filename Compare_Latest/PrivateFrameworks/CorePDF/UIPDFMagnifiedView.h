@@ -25,14 +25,14 @@
     struct CGImage *_image;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 loupe:(BOOL)arg2;
-- (void)dealloc;
-@property(nonatomic) struct CGImage *image; // @synthesize image=_image;
-@property(nonatomic) struct CGPoint touchPoint; // @synthesize touchPoint=_touchPoint;
-- (void)setSelection:(struct CGPath *)arg1;
-- (void)createGrabbers;
-- (void)setGrabbersAt:(struct CGRect)arg1 and:(struct CGRect)arg2;
 @property(nonatomic) unsigned int pageRotation; // @synthesize pageRotation=_pageRotation;
+@property(nonatomic) struct CGPoint touchPoint; // @synthesize touchPoint=_touchPoint;
+@property(nonatomic) struct CGImage *image; // @synthesize image=_image;
+- (void)setGrabbersAt:(struct CGRect)arg1 and:(struct CGRect)arg2;
+- (void)createGrabbers;
+- (void)setSelection:(struct CGPath *)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 loupe:(BOOL)arg2;
 
 @end
 

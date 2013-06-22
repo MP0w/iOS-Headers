@@ -10,8 +10,6 @@
 + (id)CDVDefaultPortForScheme:(id)arg1;
 + (id)CDVURLWithScheme:(id)arg1 host:(id)arg2 port:(id)arg3 path:(id)arg4;
 + (id)CDVURLWithScheme:(id)arg1 user:(id)arg2 password:(id)arg3 host:(id)arg4 port:(id)arg5 path:(id)arg6;
-- (id)CDVInitWithDirtyString:(id)arg1;
-- (id)initWithCDVDirtyString:(id)arg1;
 - (id)CDVfixedURLByAppendingPathComponent:(id)arg1;
 - (id)CDVFileSystemSafePath;
 - (BOOL)CDVIsEqualToURL:(id)arg1;

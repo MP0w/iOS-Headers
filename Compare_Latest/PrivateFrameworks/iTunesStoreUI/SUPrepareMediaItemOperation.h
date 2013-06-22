@@ -6,29 +6,16 @@
 
 #import "ISOperation.h"
 
-@class AVFileValidator, SUMediaPlayerItem;
+@class SUMediaPlayerItem;
 
 @interface SUPrepareMediaItemOperation : ISOperation
 {
-    AVFileValidator *_fileValidator;
     SUMediaPlayerItem *_mediaItem;
-    int _movieSourceType;
 }
 
 @property(readonly, nonatomic) SUMediaPlayerItem *mediaPlayerItem; // @synthesize mediaPlayerItem=_mediaItem;
-- (void)_startAVFileValidator;
-- (void)_setMovieSourceType:(int)arg1;
 - (BOOL)_runHEADRequest:(id *)arg1;
-- (void)_runAVFileValidator;
-- (void)_mainThreadStartAVFileValidator;
-- (void)_endObservingAVFileValidator;
-- (void)_beginObservingAVFileValidator:(id)arg1;
-- (void)_timeoutTimer:(id)arg1;
-- (void)_validationFinished:(id)arg1;
-- (void)stopRunLoop;
 - (void)run;
-- (void)cancel;
-@property(readonly) int movieSourceType;
 - (void)dealloc;
 - (id)initWithMediaPlayerItem:(id)arg1;
 - (id)init;

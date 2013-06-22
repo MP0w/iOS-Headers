@@ -14,10 +14,10 @@
     GQDWPLayoutFrame *mNoteFrame;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)master;
 - (id)noteFrame;
+- (id)master;
+- (void)dealloc;
+- (id)init;
 
 @end
 

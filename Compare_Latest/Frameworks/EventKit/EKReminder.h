@@ -6,7 +6,7 @@
 
 #import <EventKit/EKCalendarItem.h>
 
-@class NSDate;
+@class NSDate, NSDateComponents;
 
 @interface EKReminder : EKCalendarItem
 {
@@ -15,18 +15,20 @@
 + (id)reminderWithEventStore:(id)arg1;
 - (BOOL)commit:(id *)arg1;
 - (BOOL)validate:(id *)arg1;
-- (void)clearParentUUID;
-- (id)parentUUID;
+- (void)clearParentID;
+- (id)parentID;
 @property(nonatomic, getter=isCompleted) BOOL completed;
 - (id)description;
+@property(nonatomic) int priority;
+- (void)setDisplayOrder:(unsigned int)arg1;
+- (unsigned int)displayOrder;
 @property(copy, nonatomic) NSDate *completionDate;
-- (int)compareDueDateWithReminder:(id)arg1;
-- (void)setDueDateComponents:(id)arg1;
-- (id)dueDateComponents;
-@property(readonly, nonatomic) NSDate *dueDate;
-- (void)setStartDateComponents:(id)arg1;
-- (id)startDateComponents;
+- (void)setTimeZone:(id)arg1;
+@property(copy, nonatomic) NSDateComponents *dueDateComponents;
+- (id)dueDate;
+@property(copy, nonatomic) NSDateComponents *startDateComponents;
 - (id)externalURI;
+- (id)reminderIdentifier;
 - (void)_sendModifiedNote;
 - (id)_persistentReminder;
 - (void)dealloc;

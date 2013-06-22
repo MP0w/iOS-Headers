@@ -15,16 +15,16 @@
 }
 
 + (id)conditionalFormatting;
-- (id)init;
-- (void)dealloc;
-- (unsigned int)ruleCount;
-- (id)ruleAtIndex:(unsigned int)arg1;
-- (void)addRule:(id)arg1;
-- (void)insertRule:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)sortRulesByPriority;
-- (unsigned int)rangeCount;
-- (id)rangeAtIndex:(unsigned int)arg1;
 - (void)addRange:(id)arg1;
+- (id)rangeAtIndex:(unsigned int)arg1;
+- (unsigned int)rangeCount;
+- (void)sortRulesByPriority;
+- (void)insertRule:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)addRule:(id)arg1;
+- (id)ruleAtIndex:(unsigned int)arg1;
+- (unsigned int)ruleCount;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -26,6 +26,8 @@
 @property(retain, nonatomic) NSString *accountName; // @synthesize accountName=_accountName;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void)processGameKitURLComponents:(id)arg1;
+- (void)linkAccounts:(id)arg1 parameters:(id)arg2 complete:(id)arg3;
+- (void)availableAccountTypes:(id)arg1 parameters:(id)arg2 complete:(id)arg3;
 - (void)finish;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewWillAppear:(BOOL)arg1;

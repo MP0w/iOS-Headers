@@ -15,34 +15,27 @@
     BOOL _usesFilter;
     float _gradientAlpha;
     struct CGRect _wallpaperContentsRect;
-    BOOL _postsNotifications;
-    BOOL _flushWallpaperAutomatically;
 }
 
-- (id)initWithOrientation:(int)arg1 variant:(int)arg2;
-- (void)dealloc;
-- (void)setImage:(id)arg1;
-- (void)_resetImage;
-- (void)_wallpaperChanged;
-- (void)_setGradientImagesWithOrientation:(int)arg1;
-- (void)_setOrientation:(int)arg1 duration:(double)arg2 force:(BOOL)arg3;
-@property(nonatomic) int orientation; // @synthesize orientation=_orientation;
-- (void)setOrientation:(int)arg1 duration:(double)arg2;
-- (void)setViewAlpha:(float)arg1;
 @property(nonatomic) BOOL usesFilter; // @synthesize usesFilter=_usesFilter;
-@property(nonatomic) float filterAlpha;
-- (float)alpha;
-- (void)setAlpha:(float)arg1;
 @property(nonatomic) float gradientAlpha; // @synthesize gradientAlpha=_gradientAlpha;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
-- (id)gradientImageForInterfaceOrientation:(int)arg1;
-- (struct CGRect)wallpaperContentsRect;
-- (void)replaceWallpaperWithImage:(id)arg1;
-- (void)resetCurrentImageToWallpaper;
-- (void)didMoveToWindow;
-@property(nonatomic) BOOL flushWallpaperAutomatically; // @synthesize flushWallpaperAutomatically=_flushWallpaperAutomatically;
-@property(nonatomic) BOOL postsNotifications; // @synthesize postsNotifications=_postsNotifications;
 @property(readonly, nonatomic) int variant; // @synthesize variant=_variant;
+@property(nonatomic) int orientation; // @synthesize orientation=_orientation;
+- (void)resetCurrentImageToWallpaper;
+- (void)replaceWallpaperWithImage:(id)arg1;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (void)setAlpha:(float)arg1;
+- (float)alpha;
+@property(nonatomic) float filterAlpha;
+- (void)setOrientation:(int)arg1 duration:(double)arg2;
+- (void)_setOrientation:(int)arg1 duration:(double)arg2 force:(BOOL)arg3;
+- (void)_setGradientImagesWithOrientation:(int)arg1;
+- (BOOL)_shouldShowGradientOverWallpaper;
+- (void)_wallpaperChanged;
+- (void)_resetImage;
+- (void)setImage:(id)arg1;
+- (void)dealloc;
+- (id)initWithOrientation:(int)arg1 variant:(int)arg2;
 
 @end
 

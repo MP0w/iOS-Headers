@@ -18,21 +18,12 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (void)_resetCaches;
 - (void)_beginWatchingLibraryIfNecessary;
 - (void)_libraryChangedNotification:(id)arg1;
-- (void)_setGroupingType:(id)arg1;
-- (void)_setFilterPredicates:(id)arg1;
-- (void)_removeFilterPredicate:(id)arg1;
-- (id)_copyItems;
-- (id)_copyGroupingType;
-- (id)_copyFilterPredicates;
-- (id)_copyCollections;
-- (BOOL)_canFilterByProperty:(id)arg1;
-- (void)_addFilterPredicate:(id)arg1;
 @property(readonly) NSString *groupingTypeTitle;
 @property(readonly) NSString *groupingTypePodcastTitle;
 @property(readonly) NSString *groupingTypePlaylist;

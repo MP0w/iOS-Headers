@@ -11,7 +11,7 @@
 #import <UIKit/UITableViewDataSource-Protocol.h>
 #import "UITableViewDelegate-Protocol.h"
 
-@class UILabel, UIPrintPanelViewController, UIPrintRangePickerView, UITableView;
+@class UIPrintPanelViewController, UIPrintRangePickerView, UITableView;
 
 @interface UIPrintRangeViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -20,7 +20,6 @@
     struct _NSRange _pageRange;
     UIPrintRangePickerView *_fromPicker;
     UIPrintRangePickerView *_toPicker;
-    UILabel *_toLabel;
     UITableView *_tableView;
     float _pickerWidth;
 }
@@ -35,6 +34,7 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;

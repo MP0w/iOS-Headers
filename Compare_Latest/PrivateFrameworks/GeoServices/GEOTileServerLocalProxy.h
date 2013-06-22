@@ -21,11 +21,16 @@
     id <GEOTileServerProxyDelegate> _delegate;
 }
 
+- (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
+- (void)endPreloadSession;
+- (void)beginPreloadSessionOfSize:(unsigned long long)arg1;
+- (void)shrinkDiskCacheToSize:(unsigned long long)arg1 finished:(id)arg2;
+- (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)dataForKey:(struct _GEOTileKey *)arg1 asyncHandler:(id)arg2;
 - (id)dataForKey:(struct _GEOTileKey *)arg1;
 - (void)tileRequesterFinished:(id)arg1;
 - (void)tileRequester:(id)arg1 receivedError:(id)arg2;
-- (void)tileRequester:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 forKey:(struct _GEOTileKey)arg5;
+- (void)tileRequester:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 forKey:(struct _GEOTileKey)arg5 userInfo:(id)arg6;
 - (void)cancelLoad:(id)arg1;
 - (void)loadTiles:(id)arg1 checkDisk:(BOOL)arg2 allowNetworking:(BOOL)arg3 bundleIdentifier:(id)arg4 bundleVersion:(id)arg5;
 - (id)_contextForNetworkList:(id)arg1;
@@ -34,7 +39,6 @@
 - (void)openCacheConnection;
 - (void)closeCacheConnection;
 - (void)setDelegate:(id)arg1;
-- (id)hostnameForProviderID:(unsigned short)arg1;
 - (void)registerProvider:(Class)arg1;
 - (void)_registerBuiltInProviders;
 - (void)dealloc;

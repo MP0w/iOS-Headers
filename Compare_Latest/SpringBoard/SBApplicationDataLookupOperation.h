@@ -6,11 +6,17 @@
 
 #import "NSOperation.h"
 
+@class NSSet;
+
 @interface SBApplicationDataLookupOperation : NSOperation
 {
+    NSSet *_registeredBundleIDs;
+    NSSet *_unregisteredBundleIDs;
 }
 
 - (void)main;
+- (void)dealloc;
+- (id)initWithRegisteredBundleIDs:(id)arg1 unregisteredBundleIDs:(id)arg2;
 
 @end
 

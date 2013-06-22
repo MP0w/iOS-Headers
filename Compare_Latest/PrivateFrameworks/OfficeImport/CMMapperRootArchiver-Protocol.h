@@ -5,7 +5,7 @@
  */
 
 @protocol CMMapperRootArchiver
-- (id)root;
 - (id)archiver;
+- (id)root;
 @end
 

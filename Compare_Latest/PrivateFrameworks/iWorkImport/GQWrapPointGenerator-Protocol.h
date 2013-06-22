@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol GQWrapPointGenerator <NSObject>
-- (void)addWrapPoint:(id)arg1;
-- (const set_e74177a8 *)wrapPoints;
-- (vector_8a2ced25 *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
 - (void)clearWrapPoints;
+- (vector_8a2ced25 *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
+- (const set_ac3beeb4 *)wrapPoints;
+- (void)addWrapPoint:(id)arg1;
 @end
 

@@ -15,8 +15,6 @@
 @property(copy) id activityHandler;
 - (void)dealloc;
 - (id)init;
-- (void)stopWatchdogCheckins;
-- (void)startWatchdogCheckins;
 
 @end
 

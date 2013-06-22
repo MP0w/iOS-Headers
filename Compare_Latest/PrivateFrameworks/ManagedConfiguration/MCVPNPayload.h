@@ -32,11 +32,8 @@
     NSString *_pin;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (void)_validateVPNPayload:(id)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
++ (id)typeStrings;
 @property(copy, nonatomic) NSString *pin; // @synthesize pin=_pin;
 @property(copy, nonatomic) NSString *sharedSecret; // @synthesize sharedSecret=_sharedSecret;
 @property(copy, nonatomic) NSString *proxyPassword; // @synthesize proxyPassword=_proxyPassword;
@@ -57,6 +54,9 @@
 @property(readonly, nonatomic) unsigned char userNameRequired; // @synthesize userNameRequired=_userNameRequired;
 @property(readonly, nonatomic) NSString *certificateUUID; // @synthesize certificateUUID=_certificateUUID;
 @property(readonly, nonatomic) NSDictionary *atom; // @synthesize atom=_atom;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
+- (void)_validateVPNPayload:(id)arg1;
 
 @end
 

@@ -10,13 +10,13 @@
 
 @interface GKTurnBasedMatchInternal : GKInternalRepresentation
 {
-    NSString *_sessionID;
+    NSString *_matchID;
     NSString *_status;
     NSDate *_creationDate;
     NSString *_currentPlayerID;
     NSDate *_lastTurnDate;
     NSString *_message;
-    NSString *_matchID;
+    NSString *_unusedID;
     NSString *_reason;
     int _minPlayers;
     int _maxPlayers;
@@ -26,9 +26,15 @@
     NSString *_lastTurnPlayerID;
     NSData *_matchData;
     NSArray *_participants;
+    NSData *_turnSequenceData;
+    int _turnSequenceIndex;
+    NSString *_matchDataVersion;
 }
 
 + (id)codedPropertyKeys;
+@property(retain, nonatomic) NSString *matchDataVersion; // @synthesize matchDataVersion=_matchDataVersion;
+@property(nonatomic) int turnSequenceIndex; // @synthesize turnSequenceIndex=_turnSequenceIndex;
+@property(retain, nonatomic) NSData *turnSequenceData; // @synthesize turnSequenceData=_turnSequenceData;
 @property(retain, nonatomic) NSArray *participants; // @synthesize participants=_participants;
 @property(retain, nonatomic) NSData *matchData; // @synthesize matchData=_matchData;
 @property(retain, nonatomic) NSString *lastTurnPlayerID; // @synthesize lastTurnPlayerID=_lastTurnPlayerID;
@@ -38,13 +44,13 @@
 @property(nonatomic) int maxPlayers; // @synthesize maxPlayers=_maxPlayers;
 @property(nonatomic) int minPlayers; // @synthesize minPlayers=_minPlayers;
 @property(retain, nonatomic) NSString *reason; // @synthesize reason=_reason;
-@property(retain, nonatomic) NSString *matchID; // @synthesize matchID=_matchID;
+@property(retain, nonatomic) NSString *unusedID; // @synthesize unusedID=_unusedID;
 @property(retain, nonatomic) NSString *message; // @synthesize message=_message;
 @property(retain, nonatomic) NSDate *lastTurnDate; // @synthesize lastTurnDate=_lastTurnDate;
 @property(retain, nonatomic) NSString *currentPlayerID; // @synthesize currentPlayerID=_currentPlayerID;
 @property(retain, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(retain, nonatomic) NSString *status; // @synthesize status=_status;
-@property(retain, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
+@property(retain, nonatomic) NSString *matchID; // @synthesize matchID=_matchID;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)dealloc;

@@ -8,23 +8,29 @@
 
 @interface SBUserInstalledApplicationIcon : SBApplicationIcon
 {
+    BOOL _shouldHaveSash;
 }
 
-- (BOOL)allowsUninstall;
-- (void)completeUninstall;
-- (BOOL)hasBeenSyncedBackToITunes;
-- (id)ratingsAlertTitle;
-- (id)ratingsAlertBody;
-- (id)ratingsAlertSkipTitle;
-- (id)ratingsAlertRateButtonTitle;
-- (id)uninstallAlertTitle;
-- (id)uninstallAlertTitleForAppWithDocumentsInCloud;
-- (id)uninstallAlertTitleForAppWithDocumentUpdatesPending;
-- (id)uninstallAlertBody;
-- (id)uninstallAlertBodyForAppWithDocumentsInCloud;
-- (id)uninstallAlertBodyForAppWithDocumentUpdatesPending;
-- (id)uninstallAlertConfirmTitle;
+- (id)badgeTextForLocation:(int)arg1;
+- (int)accessoryTypeForLocation:(int)arg1;
+- (void)_checkHasBeenLaunchedState;
+- (BOOL)_shouldShowSashForNewlyInstalledApp;
+- (id)_newlyInstalledSashLabel;
 - (id)uninstallAlertCancelTitle;
+- (id)uninstallAlertConfirmTitle;
+- (id)uninstallAlertBodyForAppWithDocumentUpdatesPending;
+- (id)uninstallAlertBodyForAppWithDocumentsInCloud;
+- (id)uninstallAlertBody;
+- (id)uninstallAlertTitleForAppWithDocumentUpdatesPending;
+- (id)uninstallAlertTitleForAppWithDocumentsInCloud;
+- (id)uninstallAlertTitle;
+- (id)ratingsAlertRateButtonTitle;
+- (id)ratingsAlertSkipTitle;
+- (id)ratingsAlertBody;
+- (id)ratingsAlertTitle;
+- (BOOL)hasBeenSyncedBackToITunes;
+- (BOOL)allowsUninstall;
+- (id)initWithApplication:(id)arg1;
 
 @end
 

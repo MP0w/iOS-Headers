@@ -6,12 +6,16 @@
 
 #import <iTunesStoreUI/SUNavigationItem.h>
 
+@class NSNumber;
+
 @interface SUDelayedNavigationItem : SUNavigationItem
 {
-    id _delayedLeftBarButtonItem;
+    id _delayedBackButtonTitle;
+    id _delayedLeftBarButtonItems;
+    NSNumber *_delayedLeftItemsSupplementBackButton;
+    id _delayedTitle;
     id _delayedTitleView;
-    id _delayedRightBarButtonItem;
-    id _delayedSecondaryLeftBarButtonItem;
+    id _delayedRightBarButtonItems;
     BOOL _shouldDelayChanges;
     SUNavigationItem *_wrappedNavigationItem;
 }
@@ -21,14 +25,22 @@
 - (void)_scheduleCommit;
 - (void)_prepareButtonItemForDisplay:(id)arg1;
 - (id)titleView;
+- (id)title;
 - (void)setTitleView:(id)arg1;
-- (void)setSecondaryLeftBarButtonItem:(id)arg1 animated:(BOOL)arg2;
+- (void)setTitle:(id)arg1;
+- (void)setRightBarButtonItems:(id)arg1 animated:(BOOL)arg2;
 - (void)setRightBarButtonItem:(id)arg1 animated:(BOOL)arg2;
+- (void)setLeftItemsSupplementBackButton:(BOOL)arg1;
+- (void)setLeftBarButtonItems:(id)arg1 animated:(BOOL)arg2;
 - (void)setLeftBarButtonItem:(id)arg1 animated:(BOOL)arg2;
+- (void)setBackButtonTitle:(id)arg1;
+- (id)rightBarButtonItems;
 - (id)rightBarButtonItem;
 - (id)navigationBar;
+- (BOOL)leftItemsSupplementBackButton;
+- (id)leftBarButtonItems;
 - (id)leftBarButtonItem;
-- (id)internalTitleView;
+- (id)backButtonTitle;
 - (void)commitDelayedChanges;
 - (void)dealloc;
 - (id)initWithNavigationItem:(id)arg1;

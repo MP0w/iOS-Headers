@@ -16,9 +16,9 @@
     void *_unqiueIdentifier;
 }
 
-- (id)initForScheduledWake:(BOOL)arg1 wakeDate:(id)arg2 serviceIdentifier:(id)arg3 uniqueIdentifier:(void *)arg4;
-- (void)main;
 - (void)dealloc;
+- (void)main;
+- (id)initForScheduledWake:(BOOL)arg1 wakeDate:(id)arg2 serviceIdentifier:(id)arg3 uniqueIdentifier:(void *)arg4;
 
 @end
 

@@ -4,47 +4,26 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIView.h"
+#import <GameKit/GKDetailHeaderView.h>
 
-#import "GKTableViewCellContents-Protocol.h"
+@class GKGameRecord, GKGameTitleView, GKHeaderSegmentedControl, UIImageView;
 
-@class GKGame, GKGameRecord, GKLabel, GKRatingHeaderControl, NSURL, UIImageView;
-
-@interface GKGameDetailHeaderView : UIView <GKTableViewCellContents>
+@interface GKGameDetailHeaderView : GKDetailHeaderView
 {
-    GKLabel *_titleView;
-    GKLabel *_subtitleView;
-    UIImageView *_iconView;
-    GKGame *_game;
-    GKGameRecord *_gameRecord;
-    NSURL *_fontURL;
-    UIView *_dividerView;
-    GKRatingHeaderControl *_ratingControl;
 }
 
-+ (float)defaultRowHeight;
-@property(retain, nonatomic) GKRatingHeaderControl *ratingControl; // @synthesize ratingControl=_ratingControl;
-@property(retain, nonatomic) UIView *dividerView; // @synthesize dividerView=_dividerView;
-@property(retain, nonatomic) NSURL *fontURL; // @synthesize fontURL=_fontURL;
-@property(retain, nonatomic) GKGameRecord *gameRecord; // @synthesize gameRecord=_gameRecord;
-@property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
-@property(retain, nonatomic) UIImageView *iconView; // @synthesize iconView=_iconView;
-@property(retain, nonatomic) GKLabel *subtitleView; // @synthesize subtitleView=_subtitleView;
-@property(retain, nonatomic) GKLabel *titleView; // @synthesize titleView=_titleView;
-- (void)setTheme:(id)arg1;
-- (id)theme;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (float)preferredHeightForOrientation:(int)arg1;
-- (void)applyRating:(id)arg1;
-- (void)setSubtitleText:(id)arg1;
-- (void)readRating;
-- (void)prepareForReuse;
-- (void)layoutSubviews;
-- (void)dealloc;
-- (id)init;
++ (id)ratableHeaderView;
++ (id)headerView;
+- (void)applyStoreItem:(id)arg1 toBuyButton:(id)arg2 titleView:(id)arg3;
+@property(readonly, nonatomic) int gameIconStyle;
+- (void)updateFromGameRecord;
 
 // Remaining properties
-@property(nonatomic) struct CGRect confirmationButtonRect;
+@property(retain, nonatomic) GKGameRecord *gameRecordLocalPlayer; // @dynamic gameRecordLocalPlayer;
+@property(retain, nonatomic) UIImageView *iconView; // @dynamic iconView;
+@property(nonatomic) BOOL landscapeStyle; // @dynamic landscapeStyle;
+@property(nonatomic) GKHeaderSegmentedControl *segmentedControl; // @dynamic segmentedControl;
+@property(retain, nonatomic) GKGameTitleView *titleView; // @dynamic titleView;
 
 @end
 

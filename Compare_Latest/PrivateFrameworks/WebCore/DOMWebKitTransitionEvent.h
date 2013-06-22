@@ -12,9 +12,8 @@
 {
 }
 
-@property(readonly, copy) NSString *propertyName;
 @property(readonly) double elapsedTime;
-- (void)initWebKitTransitionEvent:(id)arg1 canBubbleArg:(BOOL)arg2 cancelableArg:(BOOL)arg3 propertyNameArg:(id)arg4 elapsedTimeArg:(double)arg5;
+@property(readonly) NSString *propertyName;
 
 @end
 

@@ -11,11 +11,11 @@
     int mSystemColorID;
 }
 
-- (id)initWithSystemColorID:(int)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)systemColorID;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (int)systemColorID;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithSystemColorID:(int)arg1;
 
 @end
 

@@ -23,28 +23,28 @@
     id _actionHandler;
 }
 
-- (id)initWithType:(int)arg1 title:(id)arg2 bodyText:(id)arg3 defaultAction:(int)arg4 otherAction:(int)arg5 tableAction:(int)arg6;
-- (id)initWithType:(int)arg1 title:(id)arg2 defaultAction:(int)arg3 otherAction:(int)arg4 tableAction:(int)arg5;
-- (id)initWithType:(int)arg1 title:(id)arg2 bodyText:(id)arg3 defaultAction:(int)arg4 otherAction:(int)arg5;
-- (id)initWithType:(int)arg1 title:(id)arg2 defaultAction:(int)arg3 otherAction:(int)arg4;
-- (void)dealloc;
-- (int)type;
-- (id)title;
-- (id)bodyText;
-- (id)_buttonTitleForAction:(int)arg1;
-- (id)buttonTitles;
-- (int)actionForButtonTag:(unsigned int)arg1;
-- (int)defaultAction;
-- (int)hideAction;
-- (int)tableAction;
-- (void)setHideAction:(int)arg1;
-- (void)setContext:(id)arg1;
-- (id)context;
-- (id)tableItems;
-- (void)setTableItems:(id)arg1 withTitles:(id)arg2;
-- (void)setSelectedTableItemIndex:(int)arg1;
-- (id)selectedTableItem;
 @property(copy, nonatomic) id actionHandler; // @synthesize actionHandler=_actionHandler;
+- (id)selectedTableItem;
+- (void)setSelectedTableItemIndex:(int)arg1;
+- (void)setTableItems:(id)arg1 withTitles:(id)arg2;
+- (id)tableItems;
+- (id)context;
+- (void)setContext:(id)arg1;
+- (void)setHideAction:(int)arg1;
+- (int)tableAction;
+- (int)hideAction;
+- (int)defaultAction;
+- (int)actionForButtonTag:(unsigned int)arg1;
+- (id)buttonTitles;
+- (id)_buttonTitleForAction:(int)arg1;
+- (id)bodyText;
+- (id)title;
+- (int)type;
+- (void)dealloc;
+- (id)initWithType:(int)arg1 title:(id)arg2 defaultAction:(int)arg3 otherAction:(int)arg4;
+- (id)initWithType:(int)arg1 title:(id)arg2 bodyText:(id)arg3 defaultAction:(int)arg4 otherAction:(int)arg5;
+- (id)initWithType:(int)arg1 title:(id)arg2 defaultAction:(int)arg3 otherAction:(int)arg4 tableAction:(int)arg5;
+- (id)initWithType:(int)arg1 title:(id)arg2 bodyText:(id)arg3 defaultAction:(int)arg4 otherAction:(int)arg5 tableAction:(int)arg6;
 
 @end
 

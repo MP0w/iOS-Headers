@@ -12,9 +12,9 @@
 {
 }
 
-@property(readonly, copy) NSString *href;
-@property(readonly, retain) DOMMediaList *media;
-@property(readonly, retain) DOMCSSStyleSheet *styleSheet;
+@property(readonly) DOMCSSStyleSheet *styleSheet;
+@property(readonly) DOMMediaList *media;
+@property(readonly) NSString *href;
 
 @end
 

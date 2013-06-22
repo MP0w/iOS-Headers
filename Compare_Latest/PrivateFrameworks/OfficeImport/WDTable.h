@@ -14,22 +14,22 @@
     NSMutableArray *mRows;
 }
 
-- (id)initWithText:(id)arg1;
-- (void)dealloc;
-- (id)properties;
-- (void)clearProperties;
-- (int)rowCount;
-- (id)rowAt:(int)arg1;
-- (id)addRow;
-- (void)clearRows;
-- (int)blockType;
-- (int)nestingLevel;
-- (id)rowIterator;
-- (id)newRowIterator;
-- (id)cellIterator;
-- (id)newCellIterator;
-- (id)runIterator;
 - (id)newRunIterator;
+- (id)runIterator;
+- (id)newCellIterator;
+- (id)cellIterator;
+- (id)newRowIterator;
+- (id)rowIterator;
+- (int)nestingLevel;
+- (int)blockType;
+- (void)clearRows;
+- (id)addRow;
+- (id)rowAt:(int)arg1;
+- (int)rowCount;
+- (void)clearProperties;
+- (id)properties;
+- (void)dealloc;
+- (id)initWithText:(id)arg1;
 
 @end
 

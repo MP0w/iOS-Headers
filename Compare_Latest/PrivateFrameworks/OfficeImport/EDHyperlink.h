@@ -20,21 +20,21 @@
 }
 
 + (id)hyperlink;
-- (void)dealloc;
-- (id)path;
-- (void)setPath:(id)arg1;
-- (id)dosPath;
-- (void)setDosPath:(id)arg1;
-- (id)descriptionText;
-- (void)setDescriptionText:(id)arg1;
-- (id)textMark;
-- (void)setTextMark:(id)arg1;
-- (id)toolTip;
-- (void)setToolTip:(id)arg1;
-- (id)reference;
-- (void)setReference:(id)arg1;
-- (int)type;
 - (void)setType:(int)arg1;
+- (int)type;
+- (void)setReference:(id)arg1;
+- (id)reference;
+- (void)setToolTip:(id)arg1;
+- (id)toolTip;
+- (void)setTextMark:(id)arg1;
+- (id)textMark;
+- (void)setDescriptionText:(id)arg1;
+- (id)descriptionText;
+- (void)setDosPath:(id)arg1;
+- (id)dosPath;
+- (void)setPath:(id)arg1;
+- (id)path;
+- (void)dealloc;
 
 @end
 

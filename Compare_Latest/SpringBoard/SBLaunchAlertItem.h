@@ -6,25 +6,25 @@
 
 #import "SBAlertItem.h"
 
-@class NSString, SBDisplay;
+@class NSString, SBApplication;
 
 @interface SBLaunchAlertItem : SBAlertItem
 {
-    SBDisplay *_associatedDisplay;
+    SBApplication *_associatedDisplay;
     int _type;
     NSString *_bundleID;
     BOOL _isDataAlert;
     BOOL _usesCellNetwork;
 }
 
-- (id)initWithLaunchAlertType:(int)arg1 dataAlert:(BOOL)arg2 usesCellNetwork:(BOOL)arg3 bundleID:(id)arg4;
-- (void)dealloc;
-- (void)setAssociatedWithDisplay:(id)arg1;
-- (void)_displayDeactivated:(id)arg1;
-- (BOOL)dismissOnLock;
-- (id)_customAirplaneModeAlertPrompt;
-- (id)alertSheet;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (id)alertSheet;
+- (id)_customAirplaneModeAlertPrompt;
+- (BOOL)dismissOnLock;
+- (void)_displayDeactivated:(id)arg1;
+- (void)setAssociatedWithDisplay:(id)arg1;
+- (void)dealloc;
+- (id)initWithLaunchAlertType:(int)arg1 dataAlert:(BOOL)arg2 usesCellNetwork:(BOOL)arg3 bundleID:(id)arg4;
 
 @end
 

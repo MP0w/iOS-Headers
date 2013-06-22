@@ -18,17 +18,19 @@
     _Bool mIsVertical;
 }
 
-- (id)initWithResources:(id)arg1;
-- (void)dealloc;
-- (int)legendPosition;
-- (void)setLegendPosition:(int)arg1;
-- (id)graphicProperties;
-- (void)setGraphicProperties:(id)arg1;
-- (id)font;
-- (void)setFont:(id)arg1;
-- (id)legendEntries;
-- (_Bool)isSingleColumnLegend;
 - (void)setIsSingleColumnLegend:(_Bool)arg1;
+- (_Bool)isSingleColumnLegend;
+- (id)legendEntries;
+- (void)setFont:(id)arg1;
+- (id)font;
+- (void)setGraphicProperties:(id)arg1;
+- (id)graphicProperties;
+- (void)setLegendPosition:(int)arg1;
+- (int)legendPosition;
+- (void)dealloc;
+- (id)initWithResources:(id)arg1;
+- (void)setFontIndex:(unsigned int)arg1;
+- (unsigned int)fontIndex;
 
 @end
 

@@ -12,9 +12,9 @@
 {
 }
 
-- (int)appendData:(id)arg1;
-- (id)description;
 - (void)done;
+- (id)description;
+- (int)appendData:(id)arg1;
 
 @end
 

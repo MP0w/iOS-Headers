@@ -13,12 +13,12 @@
     NSSet *_mergedPolicies;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)addPolicy:(id)arg1;
-- (id)_localizedStringForKey:(id)arg1 value:(void *)arg2;
 - (void)_ensureFullLocalizationDictionaryIsLoaded;
+- (id)_localizedStringForKey:(id)arg1 value:(void *)arg2;
+- (void)addPolicy:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -12,6 +12,8 @@
 {
 }
 
++ (id)brush;
+- (id)drawnImageForSize:(struct CGSize)arg1 opaque:(BOOL)arg2 input:(id)arg3;
 - (float)scaleForInput:(id)arg1;
 - (struct CGSize)sizeForInput:(id)arg1;
 - (void)drawInRect:(struct CGRect)arg1 withContext:(struct CGContext *)arg2 input:(id)arg3;

@@ -8,37 +8,43 @@
 
 #import "GEOTileServerProxy-Protocol.h"
 
-@class NSLock, NSMutableArray;
+@class NSLock, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
 
 @interface GEOTileServerRemoteProxy : NSObject <GEOTileServerProxy>
 {
     id _delegate;
     NSMutableArray *_inProgress;
     NSLock *_inProgressLock;
-    struct dispatch_queue_s *_connQueue;
-    struct _xpc_connection_s *_conn;
+    NSObject<OS_dispatch_queue> *_connQueue;
+    NSObject<OS_xpc_object> *_conn;
     NSLock *_connLock;
     int _suspendCount;
     unsigned long long _handleCounter;
+    BOOL _cancelling;
 }
 
+- (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
+- (void)endPreloadSession;
+- (void)beginPreloadSessionOfSize:(unsigned long long)arg1;
+- (void)shrinkDiskCacheToSize:(unsigned long long)arg1 finished:(id)arg2;
 - (void)flushPendingWrites;
 - (void)openCacheConnection;
 - (void)closeCacheConnection;
+- (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)dataForKey:(struct _GEOTileKey *)arg1 asyncHandler:(id)arg2;
 - (id)dataForKey:(struct _GEOTileKey *)arg1;
 - (void)cancelLoad:(id)arg1;
 - (void)loadTiles:(id)arg1 checkDisk:(BOOL)arg2 allowNetworking:(BOOL)arg3 bundleIdentifier:(id)arg4 bundleVersion:(id)arg5;
 - (void)setDelegate:(id)arg1;
 - (void)_handleBadDataForRequest:(id)arg1 reason:(id)arg2;
-- (void)_handleEditionUpgrade:(void *)arg1;
-- (void)_handleNetworkBegan:(void *)arg1;
-- (void)_handleFinished:(void *)arg1;
-- (void)_handleError:(void *)arg1;
+- (void)_handleEditionUpgrade:(id)arg1;
+- (void)_handleNetworkBegan:(id)arg1;
+- (void)_handleFinished:(id)arg1;
+- (void)_handleError:(id)arg1;
 - (void)_sendError:(id)arg1 forRequest:(id)arg2;
-- (void)_handleTile:(void *)arg1;
-- (id)_requestForEvent:(void *)arg1 acquireLock:(BOOL)arg2;
-- (void)_handleEvent:(void *)arg1;
+- (void)_handleTile:(id)arg1;
+- (id)_requestForEvent:(id)arg1 acquireLock:(BOOL)arg2;
+- (void)_handleEvent:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

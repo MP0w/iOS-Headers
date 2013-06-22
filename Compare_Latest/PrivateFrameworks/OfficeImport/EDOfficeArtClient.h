@@ -23,25 +23,26 @@
     _Bool mIsBoundsSet;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)clientState;
-- (void)setClientState:(id)arg1;
-- (id)anchor;
-- (void)setAnchor:(id)arg1;
-- (_Bool)areBoundsSet;
-- (void)setBounds:(struct CGRect)arg1;
-- (BOOL)hasBounds;
-- (struct CGRect)bounds;
-- (id)sheet;
-- (void)setSheet:(id)arg1;
-- (id)tableModels;
-- (void)setTableModels:(id)arg1;
-- (id)textBox;
-- (void)setTextBox:(id)arg1;
-- (id)comment;
-- (void)setComment:(id)arg1;
+- (id).cxx_construct;
 - (BOOL)hasText;
+- (void)setComment:(id)arg1;
+- (id)comment;
+- (void)setTextBox:(id)arg1;
+- (id)textBox;
+- (void)setTableModels:(id)arg1;
+- (id)tableModels;
+- (void)setSheet:(id)arg1;
+- (id)sheet;
+- (struct CGRect)bounds;
+- (BOOL)hasBounds;
+- (void)setBounds:(struct CGRect)arg1;
+- (_Bool)areBoundsSet;
+- (void)setAnchor:(id)arg1;
+- (id)anchor;
+- (void)setClientState:(id)arg1;
+- (id)clientState;
+- (void)dealloc;
+- (id)init;
 
 @end
 

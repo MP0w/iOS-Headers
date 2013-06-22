@@ -8,11 +8,12 @@
 
 #import "ISURLOperationDelegate-Protocol.h"
 
-@class NSString, SUSectionsResponse;
+@class NSString, SUClientInterface, SUSectionsResponse;
 
 @interface SULoadSectionsOperation : ISOperation <ISURLOperationDelegate>
 {
     NSString *_activeSectionVersionString;
+    SUClientInterface *_clientInterface;
     SUSectionsResponse *_sectionsResponse;
     BOOL _shouldUseCache;
 }
@@ -27,6 +28,7 @@
 @property(copy) NSString *activeSectionVersionString;
 @property(readonly) SUSectionsResponse *sectionsResponse;
 - (void)dealloc;
+- (id)initWithClientInterface:(id)arg1;
 - (id)init;
 
 @end

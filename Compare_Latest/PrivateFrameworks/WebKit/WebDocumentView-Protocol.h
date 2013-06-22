@@ -7,11 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebDocumentView <NSObject>
-- (void)setDataSource:(id)arg1;
-- (void)dataSourceUpdated:(id)arg1;
-- (void)setNeedsLayout:(BOOL)arg1;
-- (void)layout;
-- (void)viewWillMoveToHostWindow:(id)arg1;
 - (void)viewDidMoveToHostWindow;
+- (void)viewWillMoveToHostWindow:(id)arg1;
+- (void)layout;
+- (void)setNeedsLayout:(BOOL)arg1;
+- (void)dataSourceUpdated:(id)arg1;
+- (void)setDataSource:(id)arg1;
 @end
 

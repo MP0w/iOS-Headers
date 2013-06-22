@@ -11,34 +11,18 @@
 + (id)mapsURLWithSourceAddress:(id)arg1 destinationAddress:(id)arg2;
 + (id)mapsURLWithAddress:(id)arg1;
 + (id)mapsURLWithQuery:(id)arg1;
-+ (id)videoCallPromptURLWithURL:(id)arg1;
-+ (id)URLWithTelephoneNumber:(id)arg1 addressBookUID:(int)arg2 forceAssist:(BOOL)arg3 suppressAssist:(BOOL)arg4 wasAssisted:(BOOL)arg5;
-+ (id)URLWithTelephoneNumber:(id)arg1 addressBookUID:(int)arg2;
-+ (id)URLWithTelephoneNumber:(id)arg1 promptUser:(BOOL)arg2;
-+ (id)URLWithTelephoneNumber:(id)arg1;
+- (BOOL)isHTTPOrHTTPSURL;
 - (BOOL)isJavaScriptURL;
 - (BOOL)isWebcalURL;
-- (id)webSafeTelephoneURL;
-- (BOOL)isWebSafeTelephoneURL;
 - (BOOL)isSpringboardHandledURL;
 - (id)searchResultIdentifier;
 - (id)searchResultDomain;
 - (id)radarWebURL;
-- (id)youTubeURL;
-- (id)fmfURL;
-- (id)gamecenterURL;
 - (id)appleStoreURL;
 - (id)itmsURL;
 - (id)phobosURL;
-- (id)mapsURL;
 - (BOOL)isGoogleMapsURL;
 - (BOOL)_isGoogleMapsDomain:(id)arg1 subdomain:(id)arg2 path:(id)arg3 queryKeysAndValues:(id)arg4;
 - (void)_domain:(id *)arg1 subdomain:(id *)arg2;
-- (BOOL)isVideoCallURL;
-- (BOOL)hasTelephonyScheme;
-- (void)getPhoneNumber:(id *)arg1 addressBookUID:(int *)arg2 forceAssist:(char *)arg3 suppressAssist:(char *)arg4 wasAlreadyAssisted:(char *)arg5;
-- (void)getPhoneNumber:(id *)arg1 addressBookUID:(int *)arg2;
-- (id)phoneNumber;
-- (id)_queryParameters;
 @end
 

@@ -26,33 +26,34 @@
     int mZIndex;
 }
 
-- (id)init;
-- (double)wrapDistanceLeft;
-- (void)setWrapDistanceLeft:(double)arg1;
-- (double)wrapDistanceTop;
-- (void)setWrapDistanceTop:(double)arg1;
-- (double)wrapDistanceRight;
-- (void)setWrapDistanceRight:(double)arg1;
-- (double)wrapDistanceBottom;
-- (void)setWrapDistanceBottom:(double)arg1;
-- (int)horizontalPosition;
-- (void)setHorizontalPosition:(int)arg1;
-- (int)verticalPosition;
-- (void)setVerticalPosition:(int)arg1;
-- (BOOL)isBehindText;
-- (void)setBehindText:(BOOL)arg1;
-- (int)relativeHorizontalPosition;
-- (void)setRelativeHorizontalPosition:(int)arg1;
-- (int)relativeVerticalPosition;
-- (void)setRelativeVerticalPosition:(int)arg1;
-- (int)zIndex;
-- (void)setZIndex:(int)arg1;
-- (int)zIndexTotal;
-- (void)setZIndexTotal:(int)arg1;
 @property(nonatomic) BOOL allowOverlap; // @synthesize allowOverlap=mAllowOverlap;
 @property(nonatomic) int textWrappingModeType; // @synthesize textWrappingModeType=mTextWrappingModeType;
 @property(nonatomic) int textWrappingMode; // @synthesize textWrappingMode=mTextWrappingMode;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=mBounds;
+- (id).cxx_construct;
+- (void)setZIndexTotal:(int)arg1;
+- (int)zIndexTotal;
+- (void)setZIndex:(int)arg1;
+- (int)zIndex;
+- (void)setRelativeVerticalPosition:(int)arg1;
+- (int)relativeVerticalPosition;
+- (void)setRelativeHorizontalPosition:(int)arg1;
+- (int)relativeHorizontalPosition;
+- (void)setBehindText:(BOOL)arg1;
+- (BOOL)isBehindText;
+- (void)setVerticalPosition:(int)arg1;
+- (int)verticalPosition;
+- (void)setHorizontalPosition:(int)arg1;
+- (int)horizontalPosition;
+- (void)setWrapDistanceBottom:(double)arg1;
+- (double)wrapDistanceBottom;
+- (void)setWrapDistanceRight:(double)arg1;
+- (double)wrapDistanceRight;
+- (void)setWrapDistanceTop:(double)arg1;
+- (double)wrapDistanceTop;
+- (void)setWrapDistanceLeft:(double)arg1;
+- (double)wrapDistanceLeft;
+- (id)init;
 
 @end
 

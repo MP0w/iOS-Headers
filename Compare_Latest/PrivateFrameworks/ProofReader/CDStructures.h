@@ -36,8 +36,6 @@ struct _PR_DBINIT {
     struct _PR_FILE *_field3;
     struct _PR_FILE *_field4;
     struct _PR_FILE *_field5;
-    struct _PR_FILE *_field6;
-    struct _PR_FILE *_field7;
 };
 
 struct _PR_DB_IO {

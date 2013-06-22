@@ -12,7 +12,7 @@
 {
 }
 
-- (id)viewController;
+- (void)prepareViewControllerForActionController:(id)arg1;
 - (void)eventEditViewController:(id)arg1 didCompleteWithAction:(int)arg2;
 - (int)interactionType;
 - (id)localizedName;

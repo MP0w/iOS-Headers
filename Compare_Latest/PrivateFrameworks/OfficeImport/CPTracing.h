@@ -13,11 +13,9 @@
     NSString *mFilename;
 }
 
-- (id)initWithFilename:(id)arg1;
-- (void)dealloc;
-- (void)updateOpstat:(long *)arg1 isStarting:(_Bool)arg2;
-- (void)writeOpstat:(long *)arg1 tracePoint:(long)arg2 filter:(int)arg3;
 - (void)writeHeader;
+- (void)dealloc;
+- (id)initWithFilename:(id)arg1;
 
 @end
 

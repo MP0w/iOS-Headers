@@ -19,10 +19,10 @@
 + (id)subscribedStreamWithStreamID:(id)arg1;
 @property(retain, nonatomic) NSString *ctag; // @synthesize ctag=_ctag;
 @property(retain, nonatomic) NSString *streamID; // @synthesize streamID=_streamID;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)initWithStreamID:(id)arg1;
 
 @end

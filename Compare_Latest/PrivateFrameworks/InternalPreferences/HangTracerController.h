@@ -14,22 +14,31 @@
 {
     BOOL _enabled;
     float _duration;
-    PSSpecifier *_durationSlider;
+    float _launchDuration;
     PSSpecifier *_textSpec;
+    PSSpecifier *_durationSlider;
     PSSpecifier *_durationLabel;
+    PSSpecifier *_launchDurationText;
+    PSSpecifier *_launchDurationSlider;
+    PSSpecifier *_launchDurationLabel;
 }
 
-- (id)init;
-- (id)tracingEnabled:(id)arg1;
-- (void)setTracingEnabled:(id)arg1 specifier:(id)arg2;
-- (void)setDuration:(id)arg1 specifier:(id)arg2;
-- (id)duration:(id)arg1;
-- (id)durationText:(id)arg1;
-- (BOOL)textFieldShouldReturn:(id)arg1;
-- (id)keepOneOffs:(id)arg1;
-- (void)setKeepOneOffs:(id)arg1 specifier:(id)arg2;
-- (id)specifiers;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)handleSliderTouchUpEvent:(id)arg1;
+- (void)handleSliderChangedEvent:(id)arg1;
+- (id)specifiers;
+- (void)setKeepOneOffs:(id)arg1 specifier:(id)arg2;
+- (id)keepOneOffs:(id)arg1;
+- (id)launchDurationText:(id)arg1;
+- (id)launchDuration:(id)arg1;
+- (void)setLaunchDuration:(id)arg1 specifier:(id)arg2;
+- (BOOL)textFieldShouldReturn:(id)arg1;
+- (id)durationText:(id)arg1;
+- (id)duration:(id)arg1;
+- (void)setDuration:(id)arg1 specifier:(id)arg2;
+- (void)setTracingEnabled:(id)arg1 specifier:(id)arg2;
+- (id)tracingEnabled:(id)arg1;
+- (id)init;
 
 @end
 

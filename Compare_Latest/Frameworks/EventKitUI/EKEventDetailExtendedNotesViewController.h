@@ -18,6 +18,7 @@
 }
 
 @property(copy, nonatomic) NSString *notes; // @synthesize notes=_notes;
+- (void)webViewDidFinishLoad:(id)arg1;
 - (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
 - (id)_webView;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;

@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVAsset.h>
 
-@class AVURLAssetInternal, NSURL;
+@class AVAssetCache, AVAssetResourceLoader, AVURLAssetInternal, NSString, NSURL;
 
 @interface AVURLAsset : AVAsset
 {
@@ -17,15 +17,16 @@
 + (BOOL)isPlayableExtendedMIMEType:(id)arg1;
 + (id)audiovisualMIMETypes;
 + (id)audiovisualTypes;
-+ (void)_ensureAudiovisualTypes;
++ (id)_UTTypes;
++ (id)_figMIMETypes;
 + (id)_avfValidationPlist;
-+ (void)initialize;
 - (id)lyrics;
 - (void)cancelLoading;
 @property(readonly, nonatomic) NSURL *URL;
-- (struct __CFURL *)_URL;
+- (id)_absoluteURL;
 - (void)_tracksDidChange;
 - (id)tracks;
+- (id)_tracks;
 - (struct OpaqueFigFormatReader *)_formatReader;
 - (id)_assetInspector;
 - (void)_setAssetInspectorLoader:(id)arg1;
@@ -38,6 +39,23 @@
 - (id)_errorForFigNotificationPayload:(struct __CFDictionary *)arg1 key:(struct __CFString *)arg2;
 - (id)initWithURL:(id)arg1 options:(id)arg2;
 - (id)init;
+- (id)chapterMetadataGroupsBestMatchingPreferredLanguages:(id)arg1;
+- (id)chapterMetadataGroupsWithTitleLocale:(id)arg1 containingItemsWithCommonKeys:(id)arg2;
+- (unsigned int)_addChapterMetadataItem:(id)arg1 timeRange:(CDStruct_e83c9415)arg2 toChapters:(id)arg3 fromIndex:(unsigned int)arg4;
+- (id)availableChapterLocales;
+- (id)_chapterGroupInfo;
+- (id)SHA1Digest;
+- (unsigned long long)downloadToken;
+- (id)downloadDestinationURL;
+- (id)resolvedURL;
+@property(readonly, nonatomic) NSString *cacheKey;
+@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
+@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly;
+@property(readonly, nonatomic) AVAssetCache *assetCache;
+@property(readonly, nonatomic) AVAssetResourceLoader *resourceLoader;
+- (id)requestForStreamingKeyForContext:(id)arg1 appID:(id)arg2 assetID:(id)arg3 options:(id)arg4 errorOut:(id *)arg5;
+- (void)_handleURLRequest:(id)arg1;
+- (void)_finishLoadingURLRequestWithResponseProperties:(id)arg1 context:(id)arg2;
 
 @end
 

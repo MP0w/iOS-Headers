@@ -14,6 +14,7 @@
     UINavigationBar *_navBar;
 }
 
+- (void)setFrame:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (struct CGRect)promptBounds;
 - (id)prompt;

@@ -17,21 +17,21 @@
     int mXlCurrentPlotIndex;
 }
 
-- (id)initWithEBReaderSheetState:(id)arg1;
-- (id)ebReaderSheetState;
-- (id)workbook;
-- (id)resources;
-- (struct XlChartBinaryReader *)xlReader;
-- (int)axisGroup;
-- (void)setAxisGroup:(int)arg1;
-- (void)readAndCacheXlChartDataSeries;
-- (int)xlPlotCount;
-- (int)xlCurrentPlotIndex;
-- (void)setXlCurrentPlotIndex:(int)arg1;
-- (struct XlChartPlot *)xlCurrentPlot;
-- (void)setXlCurrentPlot:(struct XlChartPlot *)arg1;
-- (const struct XlChartSeriesFormat *)xlCurrentDefaultSeriesFormat;
 - (const struct XlChartSeriesFormat *)defaultFormatForXlSeries:(const struct XlChartDataSeries *)arg1;
+- (const struct XlChartSeriesFormat *)xlCurrentDefaultSeriesFormat;
+- (void)setXlCurrentPlot:(struct XlChartPlot *)arg1;
+- (struct XlChartPlot *)xlCurrentPlot;
+- (void)setXlCurrentPlotIndex:(int)arg1;
+- (int)xlCurrentPlotIndex;
+- (int)xlPlotCount;
+- (void)readAndCacheXlChartDataSeries;
+- (void)setAxisGroup:(int)arg1;
+- (int)axisGroup;
+- (struct XlChartBinaryReader *)xlReader;
+- (id)resources;
+- (id)workbook;
+- (id)ebReaderSheetState;
+- (id)initWithEBReaderSheetState:(id)arg1;
 
 @end
 

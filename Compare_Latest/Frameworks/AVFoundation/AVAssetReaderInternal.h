@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVWeakKeyValueObserverProxy, AVWeakReference, NSError, NSMutableArray;
+@class AVAsset, AVWeakKeyValueObserverProxy, AVWeakReference, NSError, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface AVAssetReaderInternal : NSObject
 {
@@ -18,7 +18,7 @@
     NSMutableArray *outputs;
     int status;
     NSError *error;
-    struct dispatch_queue_s *statusReadWriteQueue;
+    NSObject<OS_dispatch_queue> *statusReadWriteQueue;
 }
 
 @end

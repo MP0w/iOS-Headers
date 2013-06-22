@@ -14,19 +14,20 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_topNavigationItem;
 - (id)_nativeNavigationBar;
 - (id)_copyTopNavigationItem;
-- (id)_copyNavigationItems;
-- (id)_copyBackNavigationItem;
 - (void)setRightButton:(id)arg1 animated:(BOOL)arg2;
 @property(retain) SUScriptButton *rightButton;
 - (void)setLeftButton:(id)arg1 animated:(BOOL)arg2;
 @property(retain) SUScriptButton *leftButton;
 - (id)buttonWithTitle:(id)arg1 style:(id)arg2 target:(id)arg3 action:(id)arg4;
+@property(readonly) int barStyleDefault;
+@property(readonly) int barStyleBlack;
+@property(copy) id translucent;
 @property(readonly) SUScriptNavigationItem *topNavigationItem;
 - (void)setTopNavigationItem:(id)arg1;
 - (void)setRightItem:(id)arg1 animated:(BOOL)arg2;
@@ -35,6 +36,7 @@
 - (void)setNavigationItems:(id)arg1;
 - (void)setLeftItem:(id)arg1 animated:(BOOL)arg2;
 @property(retain) id <SUScriptNavigationItem> leftItem;
+@property int barStyle;
 - (void)setBackNavigationItem:(id)arg1;
 @property(readonly) NSArray *navigationItems;
 - (id)_className;

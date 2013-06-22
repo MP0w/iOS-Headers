@@ -18,22 +18,24 @@
     unsigned int _portNumber;
     struct __CFString *_connectionServiceType;
     BOOL _usesSSL;
+    BOOL _usesOpportunisticSockets;
     BOOL _tryDirectSSLConnection;
     BOOL _allowsTrustPrompt;
 }
 
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (struct __CFString *)connectionServiceType;
-- (void)setConnectionServiceType:(struct __CFString *)arg1;
-- (id)description;
 @property(nonatomic) BOOL allowsTrustPrompt; // @synthesize allowsTrustPrompt=_allowsTrustPrompt;
 @property(nonatomic) BOOL tryDirectSSL; // @synthesize tryDirectSSL=_tryDirectSSLConnection;
+@property(nonatomic) BOOL usesOpportunisticSockets; // @synthesize usesOpportunisticSockets=_usesOpportunisticSockets;
 @property(nonatomic) BOOL usesSSL; // @synthesize usesSSL=_usesSSL;
 @property(nonatomic) unsigned int portNumber; // @synthesize portNumber=_portNumber;
 @property(copy, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
 @property(copy, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
 @property(copy, nonatomic) NSString *certUIService; // @synthesize certUIService=_certUIService;
+- (id)description;
+- (void)setConnectionServiceType:(struct __CFString *)arg1;
+- (struct __CFString *)connectionServiceType;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
 
 @end
 

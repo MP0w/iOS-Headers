@@ -10,11 +10,13 @@
 {
 }
 
++ (void)performBlock:(id)arg1;
 + (id)_threadedABAddressBookLock;
 + (void *)_threadedABAddressBookRef;
 + (void *)abAddressBookRef;
 + (void *)_abAddressBookRef;
 + (id *)abAddressBook;
++ (void)_watchLocaleChanges;
 
 @end
 

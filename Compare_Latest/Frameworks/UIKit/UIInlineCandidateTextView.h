@@ -45,7 +45,7 @@
 - (void)showHighlightedArrow;
 - (BOOL)_arrowHighlighted;
 - (unsigned int)numberOfShownItems;
-- (float)_layoutCandidates:(id)arg1 maxCount:(int)arg2 height:(float)arg3 maxScreenWidth:(float)arg4;
+- (float)_layoutCandidates:(id)arg1 maxCount:(int)arg2 height:(float)arg3 maxScreenWidth:(float)arg4 hasExtensionCandidates:(BOOL)arg5;
 - (void)setTarget:(id)arg1 action:(SEL)arg2;
 - (void)_cellSelected:(id)arg1;
 - (void)setAnimating:(BOOL)arg1;
@@ -53,7 +53,7 @@
 - (int)textEffectsVisibilityLevel;
 - (int)edgeType;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 candidates:(id)arg2 type:(int)arg3 maxScreenWidth:(float)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 candidates:(id)arg2 type:(int)arg3 maxScreenWidth:(float)arg4 hasExtensionCandidates:(BOOL)arg5;
 
 @end
 

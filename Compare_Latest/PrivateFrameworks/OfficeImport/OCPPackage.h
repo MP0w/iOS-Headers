@@ -16,12 +16,17 @@
     NSMutableDictionary *mContentTypeOverrides;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)partForLocation:(id)arg1;
-- (id)relationshipForIdentifier:(id)arg1;
-- (id)relationshipsByType:(id)arg1;
 - (id)properties;
+- (id)relationshipsByType:(id)arg1;
+- (id)relationshipForIdentifier:(id)arg1;
+- (id)partForLocation:(id)arg1;
+- (void)dealloc;
+- (id)init;
+- (id)contentTypeForPartLocation:(id)arg1;
+- (id)initWithRelationshipsXml:(struct _xmlDoc *)arg1 propertiesXml:(struct _xmlDoc *)arg2 contentTypesXml:(struct _xmlDoc *)arg3;
+- (void)readContentTypeOverrideFromElement:(struct _xmlNode *)arg1;
+- (void)readDefaultContentTypeFromElement:(struct _xmlNode *)arg1;
+- (void)readContentTypesXml:(struct _xmlDoc *)arg1;
 
 @end
 

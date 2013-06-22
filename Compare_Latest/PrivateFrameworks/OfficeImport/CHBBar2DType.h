@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)chdChartTypeWithState:(id)arg1;
 + (void)readWithState:(id)arg1 chartType:(id)arg2;
++ (id)chdChartTypeWithState:(id)arg1;
 
 @end
 

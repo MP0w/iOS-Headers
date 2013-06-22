@@ -35,11 +35,11 @@
 @property(nonatomic) struct __SecKey *pushPrivateKey; // @synthesize pushPrivateKey=_pushKey;
 @property(copy, nonatomic) NSData *pushCertificate; // @synthesize pushCertificate=_pushCert;
 - (id)additionalMessageHeaders;
-- (id)nonStandardMessageHeadersForOutgoingPush;
-- (id)messageBody;
 - (int)responseCommand;
 - (int)command;
 - (BOOL)wantsBinaryPush;
+- (BOOL)wantsBodySignature;
+- (BOOL)wantsSignature;
 - (BOOL)wantsCompressedBody;
 - (BOOL)wantsHTTPHeaders;
 - (BOOL)wantsBagKey;

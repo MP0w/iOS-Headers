@@ -6,11 +6,11 @@
 
 #import <MediaPlayer/MPPlaybackControlsView.h>
 
-@class MPInlineAudioTransportControls, MPVideoViewController, NSString, UIImageView, UILabel, UIView;
+@class MPInlineAudioTransportControls, NSString, UIImageView, UILabel, UIView;
 
 @interface MPInlineAudioOverlay : MPPlaybackControlsView
 {
-    MPVideoViewController *_videoViewController;
+    id <MPVideoControllerProtocol> _videoViewController;
     int _style;
     UIView *_backgroundView;
     MPInlineAudioTransportControls *_transportControls;
@@ -29,7 +29,7 @@
     UIImageView *_largeRightImageView;
 }
 
-@property(nonatomic) MPVideoViewController *videoViewController; // @synthesize videoViewController=_videoViewController;
+@property(nonatomic) id <MPVideoControllerProtocol> videoViewController; // @synthesize videoViewController=_videoViewController;
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(copy, nonatomic) NSString *playbackErrorDescription; // @synthesize playbackErrorDescription=_playbackErrorDescription;
 - (struct CGRect)_frameInBackgroundViewForDescriptionLabel:(id)arg1;
@@ -38,7 +38,7 @@
 - (void)_itemDurationDidChangeNotification:(id)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)setPlayer:(id)arg1;
-- (unsigned int)displayablePartsInPartMask:(unsigned int)arg1;
+- (unsigned long long)displayablePartsInPartMask:(unsigned long long)arg1;
 - (void)reloadView;
 - (void)setItem:(id)arg1;
 - (void)setCurrentTime:(double)arg1;

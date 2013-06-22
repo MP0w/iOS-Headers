@@ -16,21 +16,21 @@
     OADColorMap *mColorMapOverride;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)showMasterPlaceholderAnimations;
-- (void)setShowMasterPlaceholderAnimations:(BOOL)arg1;
-- (BOOL)showMasterShapes;
-- (void)setShowMasterShapes:(BOOL)arg1;
-- (id)themeOverrides;
-- (id)colorMapOverride;
-- (void)setColorMapOverride:(id)arg1;
-- (id)colorScheme;
-- (id)fontScheme;
-- (id)colorMap;
-- (id)styleMatrix;
-- (void)doneWithContent;
 - (id)drawingTheme;
+- (void)doneWithContent;
+- (id)styleMatrix;
+- (id)colorMap;
+- (id)fontScheme;
+- (id)colorScheme;
+- (void)setColorMapOverride:(id)arg1;
+- (id)colorMapOverride;
+- (id)themeOverrides;
+- (void)setShowMasterShapes:(BOOL)arg1;
+- (BOOL)showMasterShapes;
+- (void)setShowMasterPlaceholderAnimations:(BOOL)arg1;
+- (BOOL)showMasterPlaceholderAnimations;
+- (void)dealloc;
+- (id)init;
 
 @end
 

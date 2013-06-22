@@ -55,7 +55,6 @@
 - (id)committedValueForKey:(id)arg1;
 - (BOOL)isNew;
 - (BOOL)hasChanges;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)existsInStore;
 - (id)objectID;

@@ -24,19 +24,24 @@
 }
 
 + (struct _xmlNs *)appNamespace;
-- (id)init;
-- (void)dealloc;
-- (struct CGSize)pageSize;
-- (id)pageMargins;
-- (void)setPageMargins:(id)arg1;
-- (id)stylesheet;
-- (void)setStylesheet:(id)arg1;
-- (BOOL)hasBody;
-- (void)initializeAppBundleResourcesUrl;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
-- (BOOL)showOutliner;
-- (BOOL)hasHeaders;
+- (id).cxx_construct;
 - (BOOL)hasFooters;
+- (BOOL)hasHeaders;
+- (BOOL)showOutliner;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
+- (void)initializeAppBundleResourcesUrl;
+- (BOOL)hasBody;
+- (void)setStylesheet:(id)arg1;
+- (id)stylesheet;
+- (void)setPageMargins:(id)arg1;
+- (id)pageMargins;
+- (struct CGSize)pageSize;
+- (void)dealloc;
+- (id)init;
+- (struct __CFString *)createUpgradedPathForOldAssetPath:(struct __CFString *)arg1;
+- (struct __CFArray *)createUpgradedPathComponentsFromOldTemplatePathComponents:(struct __CFArray *)arg1;
+- (struct __CFString *)createFixedPathForOldAppBundleResourcePath:(struct __CFString *)arg1;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

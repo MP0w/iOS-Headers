@@ -14,14 +14,12 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (void)_setSelectedIdentifier:(id)arg1;
 - (id)_fixedSelectedIdentifier;
-- (id)_copySelectedSection;
 - (id)_copySectionWithIdentifier:(id)arg1;
-- (id)_copySections;
 - (void)_tabBarConfigurationChangedNotification:(id)arg1;
 - (void)setRootViewController:(id)arg1 forSection:(id)arg2;
 @property(retain) SUScriptSection *selectedSection;

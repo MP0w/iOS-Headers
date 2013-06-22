@@ -18,6 +18,10 @@
 }
 
 + (id)processInfo;
+- (BOOL)automaticTerminationSupportEnabled;
+- (void)setAutomaticTerminationSupportEnabled:(BOOL)arg1;
+- (void)enableAutomaticTermination:(id)arg1;
+- (void)disableAutomaticTermination:(id)arg1;
 - (int)_suddenTerminationDisablingCount;
 - (void)_exitWhenSuddenTerminationEnabledWithStatus:(int)arg1;
 - (void)_exitIfSuddenTerminationEnabledWithStatus:(int)arg1;

@@ -33,6 +33,7 @@
 - (void)setDelegate:(id)arg1;
 - (BOOL)clear;
 - (void)updateForKeyboard:(id)arg1 key:(id)arg2;
+- (BOOL)shouldCache;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 keyboard:(id)arg2 key:(id)arg3 state:(int)arg4;
 

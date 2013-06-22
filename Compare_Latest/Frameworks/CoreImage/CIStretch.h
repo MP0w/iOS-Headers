@@ -12,12 +12,15 @@
 {
     CIImage *inputImage;
     CIVector *inputPoint;
+    CIVector *inputSize;
 }
 
 + (id)customAttributes;
+@property(copy, nonatomic) CIVector *inputSize; // @synthesize inputSize;
 @property(copy, nonatomic) CIVector *inputPoint; // @synthesize inputPoint;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (struct CGRect)computeDOD:(struct vec4)arg1;
 - (void)setDefaults;
 - (id)_kernel;
 

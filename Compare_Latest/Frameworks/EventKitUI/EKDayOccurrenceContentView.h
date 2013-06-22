@@ -14,7 +14,6 @@
     NSString *_location;
     UIColor *_color;
     UIColor *_textColor;
-    float _visibleHeight;
     NSIndexSet *_titleMetrics;
     NSIndexSet *_locationMetrics;
     struct CGPoint _titleEndPoint;
@@ -22,28 +21,36 @@
     struct CGRect _titleRect;
     struct CGRect _locationRect;
     struct CGRect _fullTextRect;
+    BOOL _isAllDay;
     BOOL _isBirthday;
+    BOOL _isFacebook;
     BOOL _usesSmallText;
     BOOL _cancelled;
     BOOL _tentative;
+    BOOL _needsReply;
     BOOL _borderless;
     BOOL _dimmed;
     BOOL _dragging;
 }
 
++ (Class)layerClass;
 @property(nonatomic) BOOL dragging; // @synthesize dragging=_dragging;
 @property(nonatomic, getter=isDimmed) BOOL dimmed; // @synthesize dimmed=_dimmed;
 @property(nonatomic, getter=isBorderless) BOOL borderless; // @synthesize borderless=_borderless;
+@property(nonatomic) BOOL needsReply; // @synthesize needsReply=_needsReply;
 @property(nonatomic, getter=isTentative) BOOL tentative; // @synthesize tentative=_tentative;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic) BOOL usesSmallText; // @synthesize usesSmallText=_usesSmallText;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
+@property(nonatomic, getter=isFacebook) BOOL facebook; // @synthesize facebook=_isFacebook;
 @property(nonatomic, getter=isBirthday) BOOL birthday; // @synthesize birthday=_isBirthday;
+@property(nonatomic, getter=isAllDay) BOOL allDay; // @synthesize allDay=_isAllDay;
 @property(copy, nonatomic) NSString *location; // @synthesize location=_location;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (id)_tentativeOutline;
+- (id)_allDayDashedOutlineWithColor:(id)arg1;
+- (id)_dashedOutline;
 - (id)_locationMetricsForSize:(struct CGSize)arg1;
 - (id)_locationFont;
 - (id)_textColor;
@@ -55,6 +62,8 @@
 - (void)dealloc;
 - (id)initWithContentView:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)displayLayer:(id)arg1;
+- (void)setNeedsDisplay;
 
 @end
 

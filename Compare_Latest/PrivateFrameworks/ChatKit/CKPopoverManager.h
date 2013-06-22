@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "UIPopoverControllerDelegate-Protocol.h"
+
 @class UIPopoverController;
 
-@interface CKPopoverManager : NSObject
+@interface CKPopoverManager : NSObject <UIPopoverControllerDelegate>
 {
     UIPopoverController *_popoverController;
     id _presenter;
@@ -17,15 +19,15 @@
 }
 
 + (id)sharedInstance;
-- (void)dealloc;
-- (void)showPopover:(id)arg1 withPresenter:(id)arg2 withHandler:(void)arg3;
-- (void)dismissCurrentPopover;
-- (void)willStartRotating;
-- (void)didFinishRotating;
-- (void)popoverControllerDidDismissPopover:(id)arg1;
 @property(retain, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_popoverController;
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
 @property(copy, nonatomic) id presenter; // @synthesize presenter=_presenter;
+- (void)popoverControllerDidDismissPopover:(id)arg1;
+- (void)didFinishRotating;
+- (void)willStartRotating;
+- (void)dismissCurrentPopover;
+- (void)showPopover:(id)arg1 withPresenter:(id)arg2 withHandler:(void)arg3;
+- (void)dealloc;
 
 @end
 

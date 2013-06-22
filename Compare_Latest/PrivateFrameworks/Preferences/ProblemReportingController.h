@@ -15,15 +15,15 @@
 }
 
 + (BOOL)isProblemReportingEnabled;
-- (Class)tableViewClass;
-- (void)diagnosticsDonePressed:(id)arg1;
-- (void)showAboutDiagnosticsSheet:(id)arg1;
-- (void)viewDidLoad;
-- (void)setProblemReportingEnabled:(BOOL)arg1;
-- (id)specifiers;
-- (BOOL)shouldEnableProblemReportingForCheckedSpecifier;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)dealloc;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (BOOL)shouldEnableProblemReportingForCheckedSpecifier;
+- (id)specifiers;
+- (void)setProblemReportingEnabled:(BOOL)arg1;
+- (void)viewDidLoad;
+- (void)showAboutDiagnosticsSheet:(id)arg1;
+- (void)diagnosticsDonePressed:(id)arg1;
+- (Class)tableViewClass;
 
 @end
 

@@ -8,23 +8,31 @@
 
 #import "SUOverlayBackgroundDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSString, UIViewController;
+@class NSArray, NSMutableArray, NSString, SUClientInterface, SUPreviewOverlayViewController, UIImage, UIViewController;
 
 @interface SUTabBarController : UITabBarController <SUOverlayBackgroundDelegate>
 {
+    SUClientInterface *_clientInterface;
     NSString *_moreListTitle;
     NSMutableArray *_overlayBackgroundViewControllers;
     UIViewController *_preTransientSelectedViewController;
     int _reloadingUnderneathTransientControllerCount;
     NSArray *_sections;
+    BOOL _ignoreTabReselection;
+    UIImage *_moreListSelectedImage;
+    UIImage *_moreListUnselectedImage;
+    SUPreviewOverlayViewController *_previewOverlayViewController;
 }
 
 + (Class)_moreNavigationControllerClass;
 @property(retain, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(retain, nonatomic) NSString *moreListTitle; // @synthesize moreListTitle=_moreListTitle;
+@property(readonly, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 - (id)_viewControllerForContext:(id)arg1;
 - (void)_transitionSafeHandlePartnerChange:(id)arg1;
-- (void)_transitionSafeHandleLocationChange:(id)arg1;
+- (void)_showPhonePreviewOverlay:(id)arg1 animated:(BOOL)arg2;
+- (void)_showPadPreviewOverlay:(id)arg1 animated:(BOOL)arg2;
+- (id)_sectionForType:(int)arg1;
 - (id)_sectionForIdentifier:(id)arg1;
 - (BOOL)_saveTransientNavigationPathToDefaults;
 - (BOOL)_saveNavigationPathToDefaults;
@@ -32,17 +40,24 @@
 - (void)_restoreArchivedTransientContexts:(id)arg1;
 - (void)_restoreOverlayContexts:(id)arg1;
 - (void)_restoreArchivedContexts:(id)arg1;
+- (void)_removePreviewOverlayViewController;
 - (void)_reloadViewControllersFromSections:(id)arg1 animated:(BOOL)arg2;
+- (void)_moveView:(id)arg1 toView:(id)arg2;
 - (void)_moveTransientViewController:(id)arg1 toSectionWithIdentifier:(id)arg2 asRoot:(BOOL)arg3;
 - (BOOL)_isReloadingUnderneathTransientViewController;
+- (void)_hidePhonePreviewOverlayAnimated:(BOOL)arg1;
+- (void)_hidePadPreviewOverlayAnimated:(BOOL)arg1;
 - (void)_fixupViewControllers;
 - (void)_fixupTabBarSelection;
 - (void)_endReloadingUnderneathTransientViewController;
 - (void)_beginReloadingUnderneathTransientViewController;
 - (id)_archivedContextsForViewController:(id)arg1;
-- (void)_applyMoreListTitle;
+- (void)_applyMoreListConfiguration;
+- (void)_showPreviewOverlay:(id)arg1 animated:(BOOL)arg2;
+@property(readonly, nonatomic, getter=_previewOverlayViewController) SUPreviewOverlayViewController *_previewOverlayViewController;
+- (void)_hidePreviewOverlayAnimated:(BOOL)arg1;
 - (void)_partnerChanged:(id)arg1;
-- (void)_locationChanged:(id)arg1;
+- (void)_applicationDidChangeStatusBarFrame:(id)arg1;
 - (id)viewControllerForSectionType:(int)arg1;
 - (id)viewControllerForSectionIdentifier:(id)arg1;
 @property(retain, nonatomic) NSString *selectedIdentifier;
@@ -60,7 +75,9 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
+- (void)tabBar:(id)arg1 willShowCustomizationSheet:(id)arg2 withNavigationBar:(id)arg3;
 - (void)tabBar:(id)arg1 willEndCustomizingItems:(id)arg2 changed:(BOOL)arg3;
+- (void)tabBar:(id)arg1 didEndCustomizingItems:(id)arg2 changed:(BOOL)arg3;
 - (void)setViewControllers:(id)arg1 animated:(BOOL)arg2;
 - (void)setTransientViewController:(id)arg1 animated:(BOOL)arg2;
 - (id)selectedViewController;
@@ -72,15 +89,19 @@
 - (void)loadView;
 - (void)setTransientViewController:(id)arg1 onSectionWithIdentifier:(id)arg2;
 - (void)setSectionOrdering:(id)arg1;
+- (void)setMoreListSelectedImage:(id)arg1 unselectedImage:(id)arg2;
 - (void)selectSectionOfType:(int)arg1;
 - (void)selectDefaultSection;
 - (BOOL)saveToDefaults;
 - (BOOL)saveOrderingToDefaults;
 - (void)resetUserDefaults;
 - (void)resetToSystemDefaults;
+- (void)reloadSectionWithIdentifier:(id)arg1 URL:(id)arg2;
+- (void)reloadSectionVisibilityAnimated:(BOOL)arg1;
 - (void)pushTransientViewController:(id)arg1 onSectionWithIdentifier:(id)arg2;
 - (BOOL)loadFromDefaults;
 - (void)dealloc;
+- (id)initWithClientInterface:(id)arg1;
 - (id)init;
 
 // Remaining properties

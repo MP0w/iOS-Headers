@@ -13,24 +13,25 @@
 @interface AOSContext : NSObject <NSPortDelegate>
 {
     struct AOSAccount *_account;
-    struct AOSTransaction *_transaction;
+    struct AOSTransactionC *_transaction;
     void *_callback;
     NSThread *_callbackThread;
     id _info;
 }
 
-+ (id)contextWithAccount:(struct AOSAccount *)arg1 andTransaction:(struct AOSTransaction *)arg2;
-- (id)init;
-- (void)dealloc;
-- (void)setAccount:(struct AOSAccount *)arg1;
-- (struct AOSAccount *)account;
-- (void)setTransaction:(struct AOSTransaction *)arg1;
-- (struct AOSTransaction *)transaction;
-- (void)setInfo:(id)arg1;
-- (id)info;
-- (BOOL)scheduleCallback;
-- (id)_callbackThread;
++ (id)contextWithAccount:(struct AOSAccount *)arg1 andTransaction:(struct AOSTransactionC *)arg2;
 - (void)_performCallback;
+- (id)_callbackThread;
+- (BOOL)scheduleCallback;
+- (id)info;
+- (void)setInfo:(id)arg1;
+- (struct AOSTransactionC *)transaction;
+- (void)setTransaction:(struct AOSTransactionC *)arg1;
+- (struct AOSAccount *)account;
+- (void)setAccount:(struct AOSAccount *)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
 
 @end
 

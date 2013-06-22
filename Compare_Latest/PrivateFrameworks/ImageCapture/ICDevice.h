@@ -13,29 +13,29 @@
     void *_deviceProperties;
 }
 
-- (id)init;
-- (id)description;
-- (void)dealloc;
-- (void)finalize;
-@property id <ICDeviceDelegate> delegate;
-@property DeviceManager *deviceManager;
-@property(copy) NSString *name;
-@property(copy) NSString *productKind;
-@property(copy) NSString *transportType;
-@property int usbLocationID;
-@property int usbProductID;
-@property int usbVendorID;
-@property(copy) NSString *UUIDString;
-@property BOOL hasOpenSession;
-@property BOOL autoOpenSession;
-@property BOOL openSessionPending;
-@property BOOL closeSessionPending;
-- (void)requestOpenSession;
-- (void)requestCloseSession;
-- (id)valueForUndefinedKey:(id)arg1;
-@property(readonly) struct CGImage *icon;
-- (void)handleCommandCompletionNotification:(id)arg1;
 - (void)handleImageCaptureEventNotification:(id)arg1;
+- (void)handleCommandCompletionNotification:(id)arg1;
+@property(readonly) struct CGImage *icon;
+- (id)valueForUndefinedKey:(id)arg1;
+- (void)requestCloseSession;
+- (void)requestOpenSession;
+@property BOOL closeSessionPending;
+@property BOOL openSessionPending;
+@property BOOL autoOpenSession;
+@property BOOL hasOpenSession;
+@property(copy) NSString *UUIDString;
+@property int usbVendorID;
+@property int usbProductID;
+@property int usbLocationID;
+@property(copy) NSString *transportType;
+@property(copy) NSString *productKind;
+@property(copy) NSString *name;
+@property DeviceManager *deviceManager;
+@property id <ICDeviceDelegate> delegate;
+- (void)finalize;
+- (void)dealloc;
+- (id)description;
+- (id)init;
 
 @end
 

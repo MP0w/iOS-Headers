@@ -13,15 +13,15 @@
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (id)initWithDelegate:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
-- (void)retrievePeripherals:(id)arg1;
-- (void)retrieveConnectedPeripherals;
-- (void)scanForPeripheralsWithServices:(id)arg1 options:(id)arg2;
-- (void)stopScan;
-- (void)connectPeripheral:(id)arg1 options:(id)arg2;
-- (void)cancelPeripheralConnection:(id)arg1;
 @property(readonly) int state; // @synthesize state=_state;
 @property(nonatomic) id <CBCentralManagerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)cancelPeripheralConnection:(id)arg1;
+- (void)connectPeripheral:(id)arg1 options:(id)arg2;
+- (void)stopScan;
+- (void)scanForPeripheralsWithServices:(id)arg1 options:(id)arg2;
+- (void)retrieveConnectedPeripherals;
+- (void)retrievePeripherals:(id)arg1;
+- (id)initWithDelegate:(id)arg1 queue:(id)arg2;
 
 @end
 

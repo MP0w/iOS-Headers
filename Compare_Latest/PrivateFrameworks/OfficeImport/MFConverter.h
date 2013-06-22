@@ -10,11 +10,12 @@
 {
 }
 
-+ (void)_play:(id)arg1 frame:(struct CGRect)arg2 colorMap:(id)arg3 fillMap:(id)arg4;
-+ (id)play:(id)arg1 frame:(struct CGRect)arg2 colorMap:(id)arg3 fillMap:(id)arg4;
-+ (id)readerFor:(id)arg1 frame:(struct CGRect)arg2 colorMap:(id)arg3 fillMap:(id)arg4;
-+ (BOOL)mapToPdf:(id)arg1;
++ (struct CGRect)boundsInLogicalUnits:(id)arg1;
 + (struct CGRect)boundsInPoints:(id)arg1;
++ (BOOL)mapToPdf:(id)arg1;
++ (void)playInCurrentContext:(id)arg1 frame:(struct CGRect)arg2 colorMap:(id)arg3 fillMap:(id)arg4;
++ (id)play:(id)arg1 frame:(struct CGRect)arg2 colorMap:(id)arg3 fillMap:(id)arg4;
++ (void)fromBinary:(id)arg1 toXml:(id)arg2;
 
 @end
 

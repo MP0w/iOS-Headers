@@ -16,19 +16,20 @@
     unsigned int _delegateRespondsToTextChange:1;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)layoutSubviews;
-- (BOOL)becomeFirstResponder;
-- (void)textFieldDidResignFirstResponder:(id)arg1;
-- (void)textFieldDidBecomeFirstResponder:(id)arg1;
-- (id)text;
-- (void)setText:(id)arg1;
-- (void)setDelegate:(id)arg1;
-- (void)textChanged:(id)arg1;
-- (BOOL)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(BOOL)arg3;
-- (BOOL)endEditing:(BOOL)arg1;
-- (void)dealloc;
+@property(readonly, nonatomic) UITextField *textField; // @synthesize textField=_textField;
 - (BOOL)_canBecomeFirstResponder;
+- (void)dealloc;
+- (BOOL)endEditing:(BOOL)arg1;
+- (BOOL)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(BOOL)arg3;
+- (void)textChanged:(id)arg1;
+- (void)setDelegate:(id)arg1;
+- (void)setText:(id)arg1;
+- (id)text;
+- (void)textFieldDidBecomeFirstResponder:(id)arg1;
+- (void)textFieldDidResignFirstResponder:(id)arg1;
+- (BOOL)becomeFirstResponder;
+- (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

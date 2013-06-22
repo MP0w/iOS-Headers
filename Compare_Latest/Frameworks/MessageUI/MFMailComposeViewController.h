@@ -9,43 +9,38 @@
 @interface MFMailComposeViewController : UINavigationController
 {
     id _internal;
+    id _setupAnimationBlock;
 }
 
-+ (BOOL)canSendMail;
-+ (BOOL)hasAutosavedMessageWithIdentifier:(id)arg1;
 + (void)removeAutosavedMessageWithIdentifier:(id)arg1;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (id)initWithURL:(id)arg1;
-- (id)initWithComposition:(id)arg1;
-- (id)initWithComposition:(id)arg1 contentSize:(struct CGSize)arg2 mailComposeControllerOptions:(unsigned int)arg3;
-- (void)dealloc;
-- (id)_rootViewController;
-- (id)view;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-@property(nonatomic) id <MFMailComposeViewControllerDelegate> mailComposeDelegate;
-- (void)setSubject:(id)arg1;
-- (id)_validEmailAddressesFromArray:(id)arg1;
-- (void)setToRecipients:(id)arg1;
-- (void)setCcRecipients:(id)arg1;
-- (void)setBccRecipients:(id)arg1;
-- (void)setMessageBody:(id)arg1 isHTML:(BOOL)arg2;
-- (void)addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
-- (struct CGRect)frameForAttachmentWithIdentifier:(id)arg1;
-- (void)setKeyboardVisible:(BOOL)arg1;
-- (void)setContentVisible:(BOOL)arg1;
-- (void)recoverAutosavedMessageWithIdentifier:(id)arg1;
-- (void)autosaveWithHandler:(id)arg1;
-- (id)performAutosaveImmediately;
-- (void)setAutorotationDelegate:(id)arg1;
++ (BOOL)hasAutosavedMessageWithIdentifier:(id)arg1;
++ (unsigned int)maximumAttachmentSize;
++ (BOOL)canSendMail;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (id)_mailComposeController;
-- (id)_mailComposeView;
-- (void)_setCompositionContext:(id)arg1;
-- (BOOL)isDirty;
-- (int)resolution;
-- (void)scrollToTopAnimated:(BOOL)arg1;
-- (void)setInitialTitle:(id)arg1;
+- (void)setAutorotationDelegate:(id)arg1;
+- (void)autosaveWithHandler:(id)arg1;
+- (void)recoverAutosavedMessageWithIdentifier:(id)arg1;
+- (void)addSetupAnimationBlock:(id)arg1;
+- (void)finalizeCompositionValues;
+- (void)setContentVisible:(BOOL)arg1;
+- (void)setKeyboardVisible:(BOOL)arg1;
+- (void)requestFramesForAttachmentsWithIdentifiers:(id)arg1 resultHandler:(id)arg2;
+- (id)_addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
+- (void)addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
+- (void)setMessageBody:(id)arg1 isHTML:(BOOL)arg2;
+- (void)setBccRecipients:(id)arg1;
+- (void)setCcRecipients:(id)arg1;
+- (void)setToRecipients:(id)arg1;
+- (id)_validEmailAddressesFromArray:(id)arg1;
+- (void)setSubject:(id)arg1;
+@property(nonatomic) id <MFMailComposeViewControllerDelegate> mailComposeDelegate;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)__viewControllerWillBePresented:(BOOL)arg1;
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (id)_internalViewController;
+- (void)dealloc;
+- (id)initWithURL:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

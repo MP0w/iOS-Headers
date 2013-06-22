@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVPlayer, AVPlayerItem, AVSubtitleLayer, CALayer, NSString;
+@class AVPlayer, AVPlayerItem, AVSubtitleLayer, CALayer, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVPlayerLayerInternal : NSObject
 {
@@ -15,16 +15,19 @@
     NSString *videoGravity;
     NSString *subtitleGravity;
     AVSubtitleLayer *subtitleLayer;
+    struct CGRect latestPlayerLayerBoundsAtRendering;
+    struct CGRect latestSubtitleLayoutAtRendering;
     BOOL shouldObservePlayer;
     BOOL isObservingPlayer;
     BOOL hasPlayerToObserve;
     BOOL isOverscanSubtitleSupportEnabled;
-    struct dispatch_queue_s *serialQueue;
+    NSObject<OS_dispatch_queue> *serialQueue;
     BOOL isPresentationLayer;
     BOOL isReadyForDisplay;
     struct OpaqueFigSimpleMutex *isReadyForDisplayMutex;
     AVPlayerItem *itemMarkedReadyForDisplay;
     struct CGSize presentationSize;
+    struct CGSize latestPresentationSizeAtRendering;
 }
 
 @end

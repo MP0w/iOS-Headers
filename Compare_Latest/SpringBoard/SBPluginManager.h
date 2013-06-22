@@ -6,18 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSMutableDictionary, NSString;
 
 @interface SBPluginManager : NSObject
 {
     NSString *_pluginsDirectory;
+    NSMutableDictionary *_plugins;
 }
 
 + (id)sharedInstance;
-- (id)springBoardPluginsDirectory;
-- (void)loadAllLaunchPlugins;
-- (Class)loadPluginNamed:(id)arg1;
 - (Class)loadPluginBundle:(id)arg1;
+- (Class)loadPluginNamed:(id)arg1;
+- (void)loadAllLaunchPlugins;
+- (id)springBoardPluginsDirectory;
+- (void)dealloc;
+- (id)init;
 
 @end
 

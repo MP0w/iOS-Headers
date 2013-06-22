@@ -32,6 +32,8 @@
 + (BOOL)archiveRootObject:(id)arg1 toFile:(id)arg2;
 + (id)archivedDataWithRootObject:(id)arg1;
 + (void)initialize;
+- (void)setRequiresSecureCoding:(BOOL)arg1;
+- (BOOL)requiresSecureCoding;
 - (unsigned int)systemVersion;
 - (int)versionForClassName:(id)arg1;
 - (void)encodeArrayOfObjCType:(const char *)arg1 count:(unsigned int)arg2 at:(const void *)arg3;

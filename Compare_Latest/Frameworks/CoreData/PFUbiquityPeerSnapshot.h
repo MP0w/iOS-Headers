@@ -18,20 +18,20 @@
     NSString *_exportingPeerID;
 }
 
-- (id)initWithTranasctionEntry:(id)arg1 andLogSnapshot:(id)arg2;
-- (id)initWithExportingPeerID:(id)arg1 logSnapshot:(id)arg2 transactionNumber:(id)arg3 transactionDate:(id)arg4 andKnowledgeVector:(id)arg5;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (id)description;
-- (int)compare:(id)arg1;
-- (void)computeDiffToPreviousSnapshot:(id)arg1;
-- (void)removeValuesChangedByPeerSnapshot:(id)arg1;
 @property(readonly, nonatomic) NSString *exportingPeerID; // @synthesize exportingPeerID=_exportingPeerID;
 @property(readonly, nonatomic) NSDate *transactionDate; // @synthesize transactionDate=_transactionDate;
 @property(readonly, nonatomic) NSNumber *transactionNumber; // @synthesize transactionNumber=_transactionNumber;
 @property(readonly, nonatomic) PFUbiquityKnowledgeVector *knowledgeVector; // @synthesize knowledgeVector=_kv;
 @property(readonly, nonatomic) NSDictionary *diffFromPrevious; // @synthesize diffFromPrevious=_diffFromPrevious;
 @property(readonly, nonatomic) NSDictionary *logSnapshot; // @synthesize logSnapshot=_logSnapshot;
+- (void)removeValuesChangedByPeerSnapshot:(id)arg1;
+- (void)computeDiffToPreviousSnapshot:(id)arg1;
+- (int)compare:(id)arg1;
+- (id)description;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)initWithExportingPeerID:(id)arg1 logSnapshot:(id)arg2 transactionNumber:(id)arg3 transactionDate:(id)arg4 andKnowledgeVector:(id)arg5;
+- (id)initWithTranasctionEntry:(id)arg1 andLogSnapshot:(id)arg2;
 
 @end
 

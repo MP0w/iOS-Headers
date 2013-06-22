@@ -10,22 +10,22 @@
 {
 }
 
-+ (id)rectAlignmentEnumMap;
-+ (long)readRequiredLongFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (long)readOptionalLongFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (float)readRequiredLengthFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (float)readOptionalLengthFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (float)readRequiredAngleFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (float)readOptionalAngleFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (float)readRequiredFractionFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (float)readOptionalFractionFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (struct CGPoint)readPoint2DFromXmlNode:(struct _xmlNode *)arg1;
-+ (struct CGSize)readSize2DFromXmlNode:(struct _xmlNode *)arg1;
-+ (id)readRelativeRectFromXmlNode:(struct _xmlNode *)arg1;
-+ (int)readRectAlignmentFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (id)readVector3DFromXmlNode:(struct _xmlNode *)arg1;
-+ (id)readPoint3DFromXmlNode:(struct _xmlNode *)arg1;
 + (id)readRotation3DFromXmlNode:(struct _xmlNode *)arg1;
++ (id)readPoint3DFromXmlNode:(struct _xmlNode *)arg1;
++ (id)readVector3DFromXmlNode:(struct _xmlNode *)arg1;
++ (int)readRectAlignmentFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (id)readRelativeRectFromXmlNode:(struct _xmlNode *)arg1;
++ (struct CGSize)readSize2DFromXmlNode:(struct _xmlNode *)arg1;
++ (struct CGPoint)readPoint2DFromXmlNode:(struct _xmlNode *)arg1;
++ (float)readOptionalFractionFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (float)readRequiredFractionFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (float)readOptionalAngleFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (float)readRequiredAngleFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (float)readOptionalLengthFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (float)readRequiredLengthFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (long)readOptionalLongFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (long)readRequiredLongFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (id)rectAlignmentEnumMap;
 
 @end
 

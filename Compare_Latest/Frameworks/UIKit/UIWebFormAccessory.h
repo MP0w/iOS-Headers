@@ -4,18 +4,23 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UIToolbar.h>
+#import <UIKit/UIInputView.h>
 
-@class UIBarButtonItem, UISegmentedControl;
+@class UIBarButtonItem, UISegmentedControl, UIToolbar;
 
-@interface UIWebFormAccessory : UIToolbar
+@interface UIWebFormAccessory : UIInputView
 {
+    UIToolbar *_leftToolbar;
+    UIToolbar *_rightToolbar;
     UISegmentedControl *_tab;
     UIBarButtonItem *_autofill;
     UIBarButtonItem *_clearButton;
+    UIBarButtonItem *_doneButton;
+    UIBarButtonItem *_flexibleSpaceItem;
     id <UIWebFormAccessoryDelegate> delegate;
 }
 
++ (id)toolbarWithItems:(id)arg1;
 @property(nonatomic) id <UIWebFormAccessoryDelegate> delegate; // @synthesize delegate;
 @property(retain, nonatomic) UIBarButtonItem *_clearButton; // @synthesize _clearButton;
 @property(retain, nonatomic) UIBarButtonItem *_autofill; // @synthesize _autofill;
@@ -25,14 +30,16 @@
 - (void)setClearVisible:(BOOL)arg1;
 - (void)setAutoFillVisible:(BOOL)arg1;
 @property(nonatomic, getter=isAutoFillEnabled) BOOL autoFillEnabled;
+- (void)_refreshAutofillPresentation;
 - (void)clear:(id)arg1;
 - (void)autoFill:(id)arg1;
 - (void)tab:(id)arg1;
 - (void)done:(id)arg1;
+- (void)layoutSubviews;
 - (void)_updateFrame;
 - (void)_orientationDidChange:(id)arg1;
 - (void)dealloc;
-- (id)init;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

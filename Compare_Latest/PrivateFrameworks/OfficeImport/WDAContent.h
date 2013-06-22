@@ -19,26 +19,27 @@
     int mTextType;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)createAnchor;
-- (void)clearAnchor;
-- (id)createTextBoxWithDocument:(id)arg1 textType:(int)arg2;
-- (BOOL)hasBounds;
-- (struct CGRect)bounds;
-- (void)setBounds:(struct CGRect)arg1;
-- (id)textBox;
-- (void)setTextBox:(id)arg1;
-- (id)drawable;
-- (void)setDrawable:(id)arg1;
-- (_Bool)isShape;
-- (_Bool)isLine;
-- (_Bool)isTopLevelObject;
-- (int)textType;
-- (void)setTextType:(int)arg1;
-- (BOOL)floating;
-- (BOOL)hasText;
++ (Class)classForType:(unsigned short)arg1;
 @property(readonly, nonatomic) WDAAnchor *anchor; // @synthesize anchor=mAnchor;
+- (BOOL)hasText;
+- (BOOL)floating;
+- (void)setTextType:(int)arg1;
+- (int)textType;
+- (_Bool)isTopLevelObject;
+- (_Bool)isLine;
+- (_Bool)isShape;
+- (void)setDrawable:(id)arg1;
+- (id)drawable;
+- (void)setTextBox:(id)arg1;
+- (id)textBox;
+- (void)setBounds:(struct CGRect)arg1;
+- (struct CGRect)bounds;
+- (BOOL)hasBounds;
+- (id)createTextBoxWithDocument:(id)arg1 textType:(int)arg2;
+- (void)clearAnchor;
+- (id)createAnchor;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -11,23 +11,23 @@
     struct __CFDictionary *mDictionary;
 }
 
-- (id)init;
-- (id)initWithCFDictionary:(struct __CFDictionary *)arg1;
-- (id)initWithCapacity:(unsigned int)arg1;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (void)removeObjectForKey:(id)arg1;
-- (void)removeAllObjects;
-- (void)setObject:(id)arg1 forKey:(id)arg2;
-- (unsigned int)count;
-- (void)getObjects:(id *)arg1 andKeys:(id *)arg2;
-- (id)objectForKey:(id)arg1;
-- (id)allValues;
-- (id)objectEnumerator;
-- (id)allKeys;
-- (id)keyEnumerator;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (id)keyEnumerator;
+- (id)allKeys;
+- (id)objectEnumerator;
+- (id)allValues;
+- (id)objectForKey:(id)arg1;
+- (void)getObjects:(id *)arg1 andKeys:(id *)arg2;
+- (unsigned int)count;
+- (void)setObject:(id)arg1 forKey:(id)arg2;
+- (void)removeAllObjects;
+- (void)removeObjectForKey:(id)arg1;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithCapacity:(unsigned int)arg1;
+- (id)initWithCFDictionary:(struct __CFDictionary *)arg1;
+- (id)init;
 
 @end
 

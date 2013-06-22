@@ -7,16 +7,19 @@
 #import <EventKitUI/EKEventDetailItem.h>
 
 #import "EKEventAttachmentCellControllerDelegate-Protocol.h"
+#import "UIDocumentInteractionControllerDelegate-Protocol.h"
 
 @class NSArray;
 
-@interface EKEventAttachmentDetailItem : EKEventDetailItem <EKEventAttachmentCellControllerDelegate>
+@interface EKEventAttachmentDetailItem : EKEventDetailItem <EKEventAttachmentCellControllerDelegate, UIDocumentInteractionControllerDelegate>
 {
     NSArray *_cellControllers;
 }
 
+- (void)documentInteractionControllerWillEndPreview:(id)arg1;
+- (id)documentInteractionControllerViewControllerForPreview:(id)arg1;
 - (id)owningEventForAttachmentCellController:(id)arg1;
-- (id)parentViewControllerForAttachmentCellController:(id)arg1;
+- (id)_parentViewControllerForAttachmentCellController;
 - (void)eventViewController:(id)arg1 didSelectSubitem:(int)arg2;
 - (int)numberOfSubitems;
 - (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;

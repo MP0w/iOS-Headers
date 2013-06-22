@@ -13,13 +13,13 @@
 
 + (id)predicateWithPredicate:(id)arg1;
 @property(retain, nonatomic) ML3Predicate *predicate; // @synthesize predicate=_predicate;
-- (void)bindToSqlite3Statement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
+- (void).cxx_destruct;
+- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
 - (id)SQLJoinClausesForClass:(Class)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithPredicate:(id)arg1;
 
 @end

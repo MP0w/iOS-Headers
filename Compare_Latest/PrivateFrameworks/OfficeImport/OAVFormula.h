@@ -11,6 +11,8 @@
 }
 
 + (void)readFormulasFromManager:(id)arg1 toGeometry:(id)arg2;
++ (struct OADFormulaArg)readArgument:(id)arg1;
++ (id)readFormula:(struct _xmlNode *)arg1;
 
 @end
 

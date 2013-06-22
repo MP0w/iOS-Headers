@@ -10,29 +10,22 @@
 {
 }
 
-+ (BOOL)_isValidProcess;
-+ (id)services;
-+ (id)faceTimeSourceAccount;
-+ (BOOL)conferencingIsSupported;
-+ (BOOL)conferencingIsRestricted;
-+ (BOOL)isFaceTimeActivated;
-+ (void)activateFaceTime;
-+ (void)deactivateFaceTime;
-+ (int)activationState;
-+ (unsigned long long)capabilities;
-+ (void)setCapabilities:(unsigned long long)arg1;
-+ (BOOL)invitationListener;
-+ (void)updateConferenceCapabilitiesForControllerType:(int)arg1;
-+ (BOOL)conferencingIsRegisteredForAccount:(id)arg1;
-+ (BOOL)conferencingHasValidatedAliasForAccount:(id)arg1;
-+ (BOOL)conferencingIsAvailable;
-+ (void)_accountRegistrationStatusChanged:(id)arg1;
-+ (void)_availabilityChanged:(id)arg1;
-+ (void)_daemonConnectedNotification:(id)arg1;
-+ (BOOL)connect:(BOOL)arg1;
-+ (BOOL)connect;
-+ (BOOL)isConnected;
 + (BOOL)disconnect;
++ (BOOL)isConnected;
++ (BOOL)connect;
++ (BOOL)connect:(BOOL)arg1;
++ (void)_daemonConnectedNotification:(id)arg1;
++ (void)_accountRegistrationStatusChanged:(id)arg1;
++ (BOOL)faceTimeIsAvailable;
++ (void)setupServiceHandlerForControllerType:(int)arg1;
++ (void)updateConferenceCapabilitiesForControllerType:(int)arg1;
++ (void)setCapabilities:(unsigned long long)arg1;
++ (unsigned long long)capabilities;
++ (int)activationState;
++ (void)activateFaceTime;
++ (BOOL)faceTimeIsSupported;
++ (id)faceTimeSourceAccount;
++ (BOOL)_isValidProcess;
 
 @end
 

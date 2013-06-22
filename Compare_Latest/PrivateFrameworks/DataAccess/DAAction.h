@@ -29,6 +29,15 @@
 - (void)_setChangedItem:(id)arg1;
 - (id)initWithItemChangeType:(int)arg1 changedItem:(id)arg2 serverId:(id)arg3;
 - (void)dealloc;
+- (struct ASEvent *)event;
+- (id)deletedEventID;
+- (struct ASContact *)contact;
+- (id)deletedContactID;
+- (id)message;
+- (struct ASToDo *)toDo;
+- (id)deletedToDoID;
+- (struct ASNote *)note;
+- (id)deletedNoteID;
 
 @end
 

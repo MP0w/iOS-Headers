@@ -13,11 +13,11 @@
     NSString *cachedCssString;
 }
 
-- (id)initWithCssString:(id)arg1;
-- (id)cssString;
-- (id)cachedCssStringForName:(id)arg1;
-- (id)cssStringForName:(id)arg1;
 - (int)compareValue:(id)arg1;
+- (id)cssStringForName:(id)arg1;
+- (id)cachedCssStringForName:(id)arg1;
+- (id)cssString;
+- (id)initWithCssString:(id)arg1;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "UITableViewCell.h"
 
-@class GKUITheme, UIImageView, UIView<GKTableViewCellContents>;
+@class GKUITheme, UIButton, UIImageView, UIView<GKTableViewCellContents>;
 
 @interface GKTableViewCell : UITableViewCell
 {
@@ -21,8 +21,10 @@
     struct UIEdgeInsets _backgroundInsets;
     int _backgroundStyle;
     BOOL _groupHighlightEnabled;
+    UIButton *_disclosureButton;
 }
 
+@property(retain, nonatomic) UIButton *disclosureButton; // @synthesize disclosureButton=_disclosureButton;
 @property(nonatomic) BOOL groupHighlightEnabled; // @synthesize groupHighlightEnabled=_groupHighlightEnabled;
 @property(nonatomic) int backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;
 @property(nonatomic) struct UIEdgeInsets backgroundInsets; // @synthesize backgroundInsets=_backgroundInsets;
@@ -51,6 +53,7 @@
 - (id)initWithReuseIdentifier:(id)arg1 tableViewStyle:(int)arg2;
 - (id)initWithReuseIdentifier:(id)arg1 tableViewStyle:(int)arg2 backgroundStyle:(int)arg3;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 tableViewStyle:(int)arg3 backgroundStyle:(int)arg4;
+- (id)_gkDescriptionWithChildren:(int)arg1;
 
 @end
 

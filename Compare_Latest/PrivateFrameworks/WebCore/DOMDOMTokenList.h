@@ -10,14 +10,14 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly) unsigned int length;
-- (id)item:(unsigned int)arg1;
-- (BOOL)contains:(id)arg1;
-- (void)add:(id)arg1;
-- (void)remove:(id)arg1;
 - (BOOL)toggle:(id)arg1;
+- (void)remove:(id)arg1;
+- (void)add:(id)arg1;
+- (BOOL)contains:(id)arg1;
+- (id)item:(unsigned int)arg1;
+@property(readonly) unsigned int length;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

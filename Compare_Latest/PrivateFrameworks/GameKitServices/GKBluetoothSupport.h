@@ -10,12 +10,12 @@
 {
 }
 
-+ (int)bluetoothStatus;
-+ (void)cleanup;
-+ (void)turnBluetoothOn;
-+ (void)initialize;
-+ (int)_determineBluetoothStatus;
 + (int)_directBTStatus;
++ (int)_determineBluetoothStatus;
++ (void)initialize;
++ (void)turnBluetoothOn;
++ (void)cleanup;
++ (int)bluetoothStatus;
 
 @end
 

@@ -21,22 +21,22 @@
     id _sectionObjects;
 }
 
-- (id)initWithController:(id)arg1 name:(id)arg2 indexTitle:(id)arg3 sectionOffset:(unsigned int)arg4;
-- (void)dealloc;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)setNumberOfObjects:(unsigned int)arg1;
-- (void)setSectionOffset:(unsigned int)arg1;
-@property(readonly, nonatomic) unsigned int sectionNumber;
-- (void)setController:(id)arg1;
-- (void)clearSectionObjectsCache;
-@property(readonly, nonatomic) NSArray *objects;
-- (unsigned int)indexOfObject:(id)arg1;
 @property(nonatomic) unsigned int oldSectionNumber; // @synthesize oldSectionNumber=_oldSectionNumber;
 @property(readonly, nonatomic) unsigned int numberOfObjects; // @synthesize numberOfObjects=_numberOfObjects;
 @property(readonly, nonatomic) unsigned int sectionOffset; // @synthesize sectionOffset=_sectionOffset;
 @property(readonly, nonatomic) NSString *indexTitle; // @synthesize indexTitle=_indexTitle;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+- (unsigned int)indexOfObject:(id)arg1;
+@property(readonly, nonatomic) NSArray *objects;
+- (void)clearSectionObjectsCache;
+- (void)setController:(id)arg1;
+@property(readonly, nonatomic) unsigned int sectionNumber;
+- (void)setSectionOffset:(unsigned int)arg1;
+- (void)setNumberOfObjects:(unsigned int)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (void)dealloc;
+- (id)initWithController:(id)arg1 name:(id)arg2 indexTitle:(id)arg3 sectionOffset:(unsigned int)arg4;
 
 @end
 

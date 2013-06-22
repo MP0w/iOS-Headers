@@ -23,23 +23,23 @@
     NSMutableArray *_pendingTransforms;
 }
 
-- (id)initWithEntityMapping:(id)arg1 sourceEntity:(id)arg2 destinationEntity:(id)arg3;
-- (void)dealloc;
-- (void)_generateSQLValueMappingsWithMigrationContext:(struct _NSSQLMigrationContext)arg1;
-- (id)sourceEntitiesByToOneWithNewEntityKey;
-- (void)_populateSQLValuesForDestinationToOne:(id)arg1 fromSourceToOne:(id)arg2;
-- (id)_unmappedRelationshipForFormerlyVirtualToOne:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
-- (void)_populateSQLValuesForVirtualToOnesWithMigrationContext:(struct _NSSQLMigrationContext)arg1;
-- (void)_populateSQLValuesByPropertyFromTransforms:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
-- (id)sqlValueForColumnName:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
-- (id)addedManyToManys;
-- (id)removedManyToManys;
-- (id)transformedManyToManys;
-- (id)nextPropertyTransform;
 @property(readonly) int migrationType; // @synthesize migrationType=_migrationType;
 @property(readonly) NSEntityMapping *entityMapping; // @synthesize entityMapping=_entityMapping;
 @property(readonly) NSSQLEntity *destinationEntity; // @synthesize destinationEntity=_dstEntity;
 @property(readonly) NSSQLEntity *sourceEntity; // @synthesize sourceEntity=_srcEntity;
+- (id)nextPropertyTransform;
+- (id)transformedManyToManys;
+- (id)removedManyToManys;
+- (id)addedManyToManys;
+- (id)sqlValueForColumnName:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (void)_populateSQLValuesByPropertyFromTransforms:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (void)_populateSQLValuesForVirtualToOnesWithMigrationContext:(struct _NSSQLMigrationContext)arg1;
+- (id)_unmappedRelationshipForFormerlyVirtualToOne:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (void)_populateSQLValuesForDestinationToOne:(id)arg1 fromSourceToOne:(id)arg2;
+- (id)sourceEntitiesByToOneWithNewEntityKey;
+- (void)_generateSQLValueMappingsWithMigrationContext:(struct _NSSQLMigrationContext)arg1;
+- (void)dealloc;
+- (id)initWithEntityMapping:(id)arg1 sourceEntity:(id)arg2 destinationEntity:(id)arg3;
 
 @end
 

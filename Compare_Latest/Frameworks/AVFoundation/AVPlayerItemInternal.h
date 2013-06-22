@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVAudioMix, AVPlayerConnection, AVPlayerItem, AVPropertyStorage, AVVideoComposition, AVWeakReference, NSArray, NSDate, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSString, NSURL;
+@class AVAsset, AVAudioMix, AVPlayerConnection, AVPlayerItem, AVPropertyStorage, AVVideoComposition, AVWeakReference, NSArray, NSDate, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface AVPlayerItemInternal : NSObject
 {
@@ -15,10 +15,11 @@
     AVPlayerItem *nextItem;
     struct OpaqueFigPlaybackItem *figPlaybackItem;
     struct OpaqueFigCPEProtector *figCPEProtector;
+    struct OpaqueCMTimebase *figTimebase;
     AVWeakReference *playerReference;
     AVPlayerConnection *playerConnection;
     BOOL isCurrentPlayerItem;
-    struct dispatch_queue_s *stateDispatchQueue;
+    NSObject<OS_dispatch_queue> *stateDispatchQueue;
     AVPropertyStorage *propertyStorage;
     int status;
     NSError *error;
@@ -26,6 +27,7 @@
     AVAsset *asset;
     AVAsset *assetWithFigPlaybackItem;
     NSArray *trackIDsForAssetWithFigPlaybackItem;
+    NSObject<OS_dispatch_queue> *syncLayersQ;
     NSMutableArray *syncLayers;
     NSArray *timedMetadata;
     CDStruct_1b6d18a9 initialDuration;
@@ -37,11 +39,18 @@
     NSDate *initialDate;
     NSDate *initialEstimatedDate;
     BOOL initialLimitReadAhead;
+    int initialPlaybackLikelyToKeepUpTrigger;
     BOOL initialAlwaysMonitorsPlayability;
+    BOOL initialWillNeverSeekBackwardsHint;
     BOOL initialContinuesPlayingDuringPrerollForSeek;
     BOOL initialContinuesPlayingDuringPrerollForRateChange;
+    double initialBufferingTargetMinimum;
+    double initialBufferingTargetMaximum;
+    struct __CFString *initialFigTimePitchAlgorithm;
     AVAudioMix *audioMix;
     AVVideoComposition *videoComposition;
+    BOOL seekingWaitsForVideoCompositionRendering;
+    NSArray *textStyleRules;
     NSDictionary *gaplessInfo;
     NSDictionary *audibleDRMInfo;
     NSDictionary *rampInOutInfo;
@@ -70,6 +79,8 @@
     int pendingSeekID;
     id seekCompletionHandler;
     NSString *dataYouTubeID;
+    NSMutableArray *itemOutputs;
+    NSMutableArray *itemVideoOutputs;
 }
 
 @end

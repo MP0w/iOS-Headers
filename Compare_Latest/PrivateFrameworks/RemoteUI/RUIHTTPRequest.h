@@ -19,29 +19,31 @@
     id _delegate;
 }
 
-+ (id)serviceUnavailableError;
-+ (id)invalidResponseError;
++ (id)safeBaseURL;
 + (BOOL)anyRequestLoading;
-- (id)init;
-- (void)dealloc;
-- (void)setDelegate:(id)arg1;
-- (void)_startedLoading;
-- (void)_finishedLoading;
-- (BOOL)loggingEnabled;
-- (void)loadRequest:(id)arg1;
-- (void)cancel;
-- (BOOL)isLoading;
-- (void)loadStatusChanged;
-- (id)request;
-- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
-- (void)connection:(id)arg1 didReceiveData:(id)arg2;
-- (void)connectionDidFinishLoading:(id)arg1;
-- (void)connection:(id)arg1 didFailWithError:(id)arg2;
-- (void)willParseData;
-- (void)didParseData;
-- (void)parseData:(id)arg1;
-- (void)failWithError:(id)arg1;
++ (id)nonSecureConnectionNotAllowedError;
++ (id)invalidResponseError;
++ (id)serviceUnavailableError;
 - (BOOL)receivedValidResponse:(id)arg1;
+- (void)failWithError:(id)arg1;
+- (void)parseData:(id)arg1;
+- (void)didParseData;
+- (void)willParseData;
+- (void)connection:(id)arg1 didFailWithError:(id)arg2;
+- (void)connectionDidFinishLoading:(id)arg1;
+- (void)connection:(id)arg1 didReceiveData:(id)arg2;
+- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
+- (id)request;
+- (void)loadStatusChanged;
+- (BOOL)isLoading;
+- (void)cancel;
+- (void)loadRequest:(id)arg1;
+- (BOOL)loggingEnabled;
+- (void)_finishedLoading;
+- (void)_startedLoading;
+- (void)setDelegate:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -12,9 +12,9 @@
 {
 }
 
-@property(readonly, copy) NSString *wholeText;
-- (id)splitText:(unsigned int)arg1;
 - (id)replaceWholeText:(id)arg1;
+- (id)splitText:(unsigned int)arg1;
+@property(readonly) NSString *wholeText;
 
 @end
 

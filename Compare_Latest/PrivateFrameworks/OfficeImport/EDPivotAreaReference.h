@@ -16,17 +16,17 @@
 }
 
 + (id)pivotAreaReference;
-- (id)init;
-- (_Bool)byPosition;
-- (void)setByPosition:(_Bool)arg1;
-- (_Bool)relative;
-- (void)setRelative:(_Bool)arg1;
-- (_Bool)selected;
-- (void)setSelected:(_Bool)arg1;
-- (unsigned int)fieldId;
-- (void)setFieldId:(unsigned int)arg1;
-- (unsigned int)count;
 - (void)setCount:(unsigned int)arg1;
+- (unsigned int)count;
+- (void)setFieldId:(unsigned int)arg1;
+- (unsigned int)fieldId;
+- (void)setSelected:(_Bool)arg1;
+- (_Bool)selected;
+- (void)setRelative:(_Bool)arg1;
+- (_Bool)relative;
+- (void)setByPosition:(_Bool)arg1;
+- (_Bool)byPosition;
+- (id)init;
 
 @end
 

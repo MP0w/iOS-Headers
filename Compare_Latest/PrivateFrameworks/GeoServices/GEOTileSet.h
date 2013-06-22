@@ -6,38 +6,52 @@
 
 #import "PBCodable.h"
 
-@class GEOTileSetVersion, NSMutableArray, NSString;
+@class NSMutableArray, NSString;
 
 @interface GEOTileSet : PBCodable
 {
     NSString *_baseURL;
+    NSString *_localizationURL;
     NSString *_multiTileURL;
-    int _style;
-    GEOTileSetVersion *_preferredVersion;
-    NSMutableArray *_validVersions;
     int _scale;
     int _size;
-    NSMutableArray *_providers;
+    int _style;
+    NSMutableArray *_supportedLanguages;
+    NSMutableArray *_validVersions;
+    BOOL _multiTileURLUsesStatusCodes;
+    struct {
+        unsigned int multiTileURLUsesStatusCodes:1;
+    } _has;
 }
 
-@property(retain, nonatomic) NSMutableArray *providers; // @synthesize providers=_providers;
+@property(nonatomic) BOOL multiTileURLUsesStatusCodes; // @synthesize multiTileURLUsesStatusCodes=_multiTileURLUsesStatusCodes;
+@property(retain, nonatomic) NSMutableArray *supportedLanguages; // @synthesize supportedLanguages=_supportedLanguages;
+@property(retain, nonatomic) NSString *localizationURL; // @synthesize localizationURL=_localizationURL;
 @property(nonatomic) int size; // @synthesize size=_size;
 @property(nonatomic) int scale; // @synthesize scale=_scale;
 @property(retain, nonatomic) NSMutableArray *validVersions; // @synthesize validVersions=_validVersions;
-@property(retain, nonatomic) GEOTileSetVersion *preferredVersion; // @synthesize preferredVersion=_preferredVersion;
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) NSString *multiTileURL; // @synthesize multiTileURL=_multiTileURL;
 @property(retain, nonatomic) NSString *baseURL; // @synthesize baseURL=_baseURL;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)providerAtIndex:(unsigned int)arg1;
-- (unsigned int)providersCount;
-- (void)addProvider:(id)arg1;
+@property(nonatomic) BOOL hasMultiTileURLUsesStatusCodes;
+- (id)supportedLanguageAtIndex:(unsigned int)arg1;
+- (unsigned int)supportedLanguagesCount;
+- (void)addSupportedLanguage:(id)arg1;
+- (void)clearSupportedLanguages;
+@property(readonly, nonatomic) BOOL hasLocalizationURL;
 - (id)validVersionAtIndex:(unsigned int)arg1;
 - (unsigned int)validVersionsCount;
 - (void)addValidVersion:(id)arg1;
+- (void)clearValidVersions;
+@property(readonly, nonatomic) BOOL hasMultiTileURL;
+@property(readonly, nonatomic) BOOL hasBaseURL;
 - (void)dealloc;
 
 @end

@@ -30,7 +30,7 @@
 - (BOOL)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(BOOL)arg2;
 - (void)forwardUsingMessageSender:(id)arg1 crashHandler:(void)arg2;
 - (void)dealloc;
-- (id)initWithClient:(struct _xpc_connection_s *)arg1 messageParameters:(id)arg2 replySender:(id)arg3;
+- (id)initWithClient:(id)arg1 messageParameters:(id)arg2 replySender:(id)arg3;
 - (id)initWithPurposeID:(id)arg1 url:(id)arg2 options:(unsigned int)arg3 url:(id)arg4 options:(unsigned int)arg5 claimer:(id)arg6;
 
 @end

@@ -6,21 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSString, SSXPCServer;
+@class NSMutableArray, NSObject<OS_dispatch_queue>, NSString, SSXPCServer;
 
 @interface SSDistributedNotificationCenter : NSObject
 {
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSMutableArray *_observers;
     NSString *_portName;
     SSXPCServer *_server;
 }
 
 - (void)_sendRegistrationMessage:(long long)arg1 name:(id)arg2;
-- (void)_distributedNotificationMessage:(void *)arg1 connection:(struct _xpc_connection_s *)arg2;
+- (void)_distributedNotificationMessage:(id)arg1 connection:(id)arg2;
 - (void)removeObserver:(id)arg1;
 @property(readonly) NSString *namedPort;
-- (id)addObserverForName:(id)arg1 queue:(struct dispatch_queue_s *)arg2 usingBlock:(id)arg3;
+- (id)addObserverForName:(id)arg1 queue:(id)arg2 usingBlock:(id)arg3;
 - (void)dealloc;
 - (id)initWithNamedPort:(id)arg1;
 - (id)init;

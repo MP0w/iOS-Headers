@@ -16,33 +16,33 @@
     unsigned int _propertyType;
 }
 
-- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (void)dealloc;
-- (void)setPropertyDescription:(id)arg1;
-- (id)columnName;
-- (id)externalName;
-- (id)name;
-- (void)_setName:(id)arg1;
-- (unsigned int)propertyType;
-- (BOOL)isColumn;
-- (BOOL)isAttribute;
-- (BOOL)isPrimaryKey;
-- (BOOL)isForeignKey;
-- (BOOL)isForeignEntityKey;
-- (BOOL)isForeignOrderKey;
-- (BOOL)isEntityKey;
-- (BOOL)isOptLockKey;
-- (BOOL)isRelationship;
-- (BOOL)isToOne;
-- (BOOL)isToMany;
-- (BOOL)isManyToMany;
-- (BOOL)isEqual:(id)arg1;
-- (id)propertyDescription;
-- (id)entity;
-- (id)description;
-- (unsigned int)slot;
-- (void)copyValuesForReadOnlyFetch:(id)arg1;
 - (void)setEntityForReadOnlyFetch:(id)arg1;
+- (void)copyValuesForReadOnlyFetch:(id)arg1;
+- (unsigned int)slot;
+- (id)description;
+- (id)entity;
+- (id)propertyDescription;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isManyToMany;
+- (BOOL)isToMany;
+- (BOOL)isToOne;
+- (BOOL)isRelationship;
+- (BOOL)isOptLockKey;
+- (BOOL)isEntityKey;
+- (BOOL)isForeignOrderKey;
+- (BOOL)isForeignEntityKey;
+- (BOOL)isForeignKey;
+- (BOOL)isPrimaryKey;
+- (BOOL)isAttribute;
+- (BOOL)isColumn;
+- (unsigned int)propertyType;
+- (void)_setName:(id)arg1;
+- (id)name;
+- (id)externalName;
+- (id)columnName;
+- (void)setPropertyDescription:(id)arg1;
+- (void)dealloc;
+- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
 
 @end
 

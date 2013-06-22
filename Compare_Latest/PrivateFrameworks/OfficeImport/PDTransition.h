@@ -21,23 +21,23 @@
     PDTransitionOptions *mOptions;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)hasType;
-- (int)type;
-- (void)setType:(int)arg1;
-- (BOOL)hasIsAdvanceOnClick;
-- (BOOL)isAdvanceOnClick;
-- (void)setIsAdvanceOnClick:(BOOL)arg1;
-- (BOOL)hasSpeed;
-- (int)speed;
-- (void)setSpeed:(int)arg1;
-- (BOOL)hasAdvanceAfterTime;
-- (int)advanceAfterTime;
-- (void)setAdvanceAfterTime:(int)arg1;
-- (BOOL)hasTransitionOptions;
-- (id)options;
 - (void)setOptions:(id)arg1;
+- (id)options;
+- (BOOL)hasTransitionOptions;
+- (void)setAdvanceAfterTime:(int)arg1;
+- (int)advanceAfterTime;
+- (BOOL)hasAdvanceAfterTime;
+- (void)setSpeed:(int)arg1;
+- (int)speed;
+- (BOOL)hasSpeed;
+- (void)setIsAdvanceOnClick:(BOOL)arg1;
+- (BOOL)isAdvanceOnClick;
+- (BOOL)hasIsAdvanceOnClick;
+- (void)setType:(int)arg1;
+- (int)type;
+- (BOOL)hasType;
+- (void)dealloc;
+- (id)init;
 
 @end
 

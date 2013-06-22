@@ -17,7 +17,12 @@
 - (id)instantiateWithOwner:(id)arg1 options:(id)arg2;
 - (id)unarchiverForInstantiatingReturningError:(id *)arg1;
 - (id)lazyArchiveData;
+- (id)bundleResourcePath;
+- (id)identifierForStringsFile;
+- (void)setIdentifierForStringsFile:(id)arg1;
 - (id)effectiveBundle;
+- (void)setCaptureImplicitLoadingContextOnDecode:(BOOL)arg1;
+- (BOOL)captureImplicitLoadingContextOnDecode;
 - (void)setCaptureEnclosingNIBBundleOnDecode:(BOOL)arg1;
 - (BOOL)captureEnclosingNIBBundleOnDecode;
 - (void)setInstantiatingForSimulator:(BOOL)arg1;
@@ -27,7 +32,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithContentsOfFile:(id)arg1;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)initWithNibName:(id)arg1 directory:(id)arg2 bundle:(id)arg3;
 - (id)initWithData:(id)arg1 bundle:(id)arg2;
 - (id)initWithBundle:(id)arg1;
 

@@ -28,6 +28,7 @@
 @property(readonly) unsigned int name; // @synthesize name;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+- (id)description;
 - (id)initWithTexture:(id)arg1 textureName:(unsigned int)arg2;
 
 @end

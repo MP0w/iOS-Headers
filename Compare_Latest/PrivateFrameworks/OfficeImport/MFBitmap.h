@@ -20,20 +20,20 @@
     NSMutableData *m_bmpData;
 }
 
-- (BOOL)parseHeader:(const char *)arg1:(unsigned int)arg2;
-- (void)writePaletteEntry:(id)arg1:(int)arg2;
-- (void)writeFileHeader;
-- (void)writeInfoHeader;
-- (void)setNull;
-- (void)appendDIBPalette:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
-- (BOOL)processDIBHeader:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
-- (id)init;
-- (id)initWithDIBitmap:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
-- (id)initWithDIBitmap:(id)arg1:(const char *)arg2:(unsigned int)arg3:(const char *)arg4:(unsigned int)arg5:(int)arg6;
-- (id)initWithBitmap:(id)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(const char *)arg6:(unsigned int)arg7;
-- (void)dealloc;
-- (void)setMonoPalette:(id)arg1;
 - (BOOL)isEmpty;
+- (void)setMonoPalette:(id)arg1;
+- (void)dealloc;
+- (id)initWithBitmap:(id)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(const char *)arg6:(unsigned int)arg7;
+- (id)initWithDIBitmap:(id)arg1:(const char *)arg2:(unsigned int)arg3:(const char *)arg4:(unsigned int)arg5:(int)arg6;
+- (id)initWithDIBitmap:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
+- (id)init;
+- (BOOL)processDIBHeader:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
+- (void)appendDIBPalette:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
+- (void)setNull;
+- (void)writeInfoHeader;
+- (void)writeFileHeader;
+- (void)writePaletteEntry:(id)arg1:(int)arg2;
+- (BOOL)parseHeader:(const char *)arg1:(unsigned int)arg2;
 
 @end
 

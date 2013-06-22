@@ -7,76 +7,78 @@
 #import "NSObject.h"
 
 #import "CAMediaTiming-Protocol.h"
+#import "CAPropertyInfo-Protocol.h"
 #import "NSCoding-Protocol.h"
 
 @class NSArray, NSDictionary, NSString;
 
-@interface CAEmitterCell : NSObject <NSCoding, CAMediaTiming>
+@interface CAEmitterCell : NSObject <CAPropertyInfo, NSCoding, CAMediaTiming>
 {
     void *_attr[2];
     void *_state;
     unsigned int _flags;
 }
 
-+ (id)emitterCell;
-+ (id)defaultValueForKey:(id)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-- (void)dealloc;
-- (void)CA_prepareRenderValue;
-- (struct Object *)CA_copyRenderValue;
-- (BOOL)shouldArchiveValueForKey:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)valueForKey:(id)arg1;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)valueForUndefinedKey:(id)arg1;
-- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
-- (id)valueForKeyPath:(id)arg1;
-- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
-- (id)debugDescription;
-@property double beginTime;
-@property double timeOffset;
-@property double duration;
-@property float speed;
-@property float repeatCount;
-@property double repeatDuration;
-@property BOOL autoreverses;
-@property(copy) NSString *fillMode;
-@property(copy) NSString *name;
-@property(getter=isEnabled) BOOL enabled;
-@property(copy) NSDictionary *style;
-@property float birthRate;
-@property float lifetime;
-@property float lifetimeRange;
-@property float emissionLatitude;
-@property float emissionLongitude;
-@property float emissionRange;
-@property float velocity;
-@property float velocityRange;
-@property float xAcceleration;
-@property float yAcceleration;
-@property float zAcceleration;
-@property float scale;
-@property float scaleRange;
-@property float scaleSpeed;
-@property float spin;
-@property float spinRange;
-@property struct CGColor *color;
-@property float redRange;
-@property float redSpeed;
-@property float greenRange;
-@property float greenSpeed;
-@property float blueRange;
-@property float blueSpeed;
-@property float alphaRange;
-@property float alphaSpeed;
-@property(retain) id contents;
-@property struct CGRect contentsRect;
-@property(copy) NSString *magnificationFilter;
-@property(copy) NSString *minificationFilter;
-@property float minificationFilterBias;
++ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (id)defaultValueForKey:(id)arg1;
++ (id)emitterCell;
++ (id)properties;
 @property(copy) NSArray *emitterCells;
+@property float minificationFilterBias;
+@property(copy) NSString *minificationFilter;
+@property(copy) NSString *magnificationFilter;
+@property struct CGRect contentsRect;
+@property(retain) id contents;
+@property float alphaSpeed;
+@property float alphaRange;
+@property float blueSpeed;
+@property float blueRange;
+@property float greenSpeed;
+@property float greenRange;
+@property float redSpeed;
+@property float redRange;
+@property struct CGColor *color;
+@property float spinRange;
+@property float spin;
+@property float scaleSpeed;
+@property float scaleRange;
+@property float scale;
+@property float zAcceleration;
+@property float yAcceleration;
+@property float xAcceleration;
+@property float velocityRange;
+@property float velocity;
+@property float emissionRange;
+@property float emissionLongitude;
+@property float emissionLatitude;
+@property float lifetimeRange;
+@property float lifetime;
+@property float birthRate;
+@property(copy) NSDictionary *style;
+@property(getter=isEnabled) BOOL enabled;
+@property(copy) NSString *name;
+@property(copy) NSString *fillMode;
+@property BOOL autoreverses;
+@property double repeatDuration;
+@property float repeatCount;
+@property float speed;
+@property double duration;
+@property double timeOffset;
+@property double beginTime;
+- (id)debugDescription;
+- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
+- (id)valueForKeyPath:(id)arg1;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
+- (id)valueForUndefinedKey:(id)arg1;
+- (void)setValue:(id)arg1 forKey:(id)arg2;
+- (id)valueForKey:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (BOOL)shouldArchiveValueForKey:(id)arg1;
+- (struct Object *)CA_copyRenderValue;
+- (void)CA_prepareRenderValue;
+- (void)dealloc;
 
 @end
 

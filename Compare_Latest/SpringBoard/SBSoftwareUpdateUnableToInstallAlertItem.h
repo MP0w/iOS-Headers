@@ -13,17 +13,17 @@
     NSError *_error;
 }
 
-- (void)dealloc;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)buildUnavailableSheet;
-- (void)buildDefaultSheetWithBody:(id)arg1 isLocked:(BOOL)arg2;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (BOOL)reappearsAfterLock;
-- (BOOL)undimsScreen;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)allowMenuButtonDismissal;
-- (BOOL)dismissOnLock;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
+- (BOOL)dismissOnLock;
+- (BOOL)allowMenuButtonDismissal;
+- (BOOL)shouldShowInLockScreen;
+- (BOOL)undimsScreen;
+- (BOOL)reappearsAfterLock;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)buildDefaultSheetWithBody:(id)arg1 isLocked:(BOOL)arg2;
+- (void)buildUnavailableSheet;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)dealloc;
 
 @end
 

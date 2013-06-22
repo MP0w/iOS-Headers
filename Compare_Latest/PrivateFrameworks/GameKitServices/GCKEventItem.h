@@ -12,11 +12,11 @@
     unsigned int _pid;
 }
 
-- (id)init;
-- (id)initWithEvent:(CDStruct_68f9d01f *)arg1 remotePeer:(unsigned int)arg2;
-- (void)dealloc;
 @property unsigned int pid; // @synthesize pid=_pid;
 @property CDStruct_68f9d01f *event; // @synthesize event=_event;
+- (void)dealloc;
+- (id)initWithEvent:(CDStruct_68f9d01f *)arg1 remotePeer:(unsigned int)arg2;
+- (id)init;
 
 @end
 

@@ -25,17 +25,23 @@
     NSData *userInfoData;
     BOOL hideAlertTitle;
     BOOL allowSnooze;
-    BOOL soundNameIsARingtone;
+    int soundType;
     BOOL interruptAudioAndLockDevice;
     BOOL resumeApplicationInBackground;
     BOOL fireNotificationsWhenAppRunning;
     BOOL showAlarmStatusBarItem;
     NSString *customLockSliderLabel;
+    NSString *firedNotificationName;
+    NSString *snoozedNotificationName;
     BOOL isSystemAlert;
 }
 
 - (void)setIsSystemAlert:(BOOL)arg1;
 - (BOOL)isSystemAlert;
+- (void)setSnoozedNotificationName:(id)arg1;
+- (id)snoozedNotificationName;
+- (void)setFiredNotificationName:(id)arg1;
+- (id)firedNotificationName;
 - (void)setCustomLockSliderLabel:(id)arg1;
 - (id)customLockSliderLabel;
 - (void)setShowAlarmStatusBarItem:(BOOL)arg1;
@@ -46,8 +52,7 @@
 - (BOOL)resumeApplicationInBackground;
 - (void)setInterruptAudioAndLockDevice:(BOOL)arg1;
 - (BOOL)interruptAudioAndLockDevice;
-- (void)setSoundNameIsARingtone:(BOOL)arg1;
-- (BOOL)soundNameIsARingtone;
+- (int)soundType;
 - (void)setAllowSnooze:(BOOL)arg1;
 - (BOOL)allowSnooze;
 - (void)setHideAlertTitle:(BOOL)arg1;
@@ -92,6 +97,7 @@
 - (void)dealloc;
 - (id)init;
 - (void)setTotalRepeatCount:(int)arg1;
+- (void)setSoundType:(int)arg1;
 
 @end
 

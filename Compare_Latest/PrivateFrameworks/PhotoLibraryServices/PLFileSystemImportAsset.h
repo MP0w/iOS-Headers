@@ -12,7 +12,7 @@
 {
     NSMutableSet *_urls;
     NSDate *_dateCreated;
-    NSObject<PLAssetContainer> *_destinationAlbum;
+    struct NSObject *_destinationAlbum;
     int assetKind;
 }
 
@@ -23,7 +23,7 @@
 - (int)compare:(id)arg1;
 - (void)dealloc;
 - (BOOL)isCameraKit;
-- (id)initWithURLs:(id)arg1 creationDate:(id)arg2 destinationAlbum:(struct NSObject *)arg3 isPhotoStream:(BOOL)arg4 isSavedPhotos:(BOOL)arg5 isCameraKit:(BOOL)arg6;
+- (id)initWithURLs:(id)arg1 creationDate:(id)arg2 destinationAlbum:(struct NSObject *)arg3 assetKind:(int)arg4;
 
 @end
 

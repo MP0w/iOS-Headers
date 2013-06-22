@@ -18,16 +18,16 @@
     float mDefaultScale;
 }
 
-- (id)initWithOddDiagram:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 identifier:(id)arg4 parent:(id)arg5;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (struct CGRect)circumscribedBounds;
-- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
-- (float)defaultFontSize;
-- (void)setDefaultFonSize;
-- (void)setFonSizeForChildNode:(id)arg1 atIndex:(unsigned int)arg2;
-- (struct CGSize)textSizeForShapeSize:(struct CGSize)arg1;
-- (float)setFonSizeForChildNode:(id)arg1 atIndex:(unsigned int)arg2 level:(int)arg3;
 - (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
+- (float)setFonSizeForChildNode:(id)arg1 atIndex:(unsigned int)arg2 level:(int)arg3;
+- (struct CGSize)textSizeForShapeSize:(struct CGSize)arg1;
+- (void)setFonSizeForChildNode:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)setDefaultFonSize;
+- (float)defaultFontSize;
+- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
+- (struct CGRect)circumscribedBounds;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id)initWithOddDiagram:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 identifier:(id)arg4 parent:(id)arg5;
 
 @end
 

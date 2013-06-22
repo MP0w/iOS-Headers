@@ -10,10 +10,11 @@
 #import "UIKeyboardCandidateListDelegate-Protocol.h"
 #import "UIKeyboardCandidateScrollViewControllerDelegate-Protocol.h"
 
-@class NSArray, NSString, UIKeyboardCandidateInlinePadBottomShadowView, UIKeyboardCandidateScrollViewController, UIKeyboardCandidateSortSelectionBar;
+@class NSArray, NSString, UIKeyboardCandidateScrollViewController, UIKeyboardCandidateSortControl;
 
 @interface UIKeyboardCandidateInlineFloatingView : UIView <UIKeyboardCandidateList, UIKeyboardCandidateListDelegate, UIKeyboardCandidateScrollViewControllerDelegate>
 {
+    BOOL _reducedWidth;
     NSArray *_candidates;
     NSString *_inlineText;
     struct CGRect _inlineRect;
@@ -21,24 +22,21 @@
     BOOL _expanded;
     UIKeyboardCandidateScrollViewController *_scrollViewController;
     id <UIKeyboardCandidateListDelegate> _candidateListDelegate;
-    UIKeyboardCandidateInlinePadBottomShadowView *_shadowView;
-    UIKeyboardCandidateSortSelectionBar *_sortSelectionBar;
     int _position;
-    BOOL _reducedWidth;
     struct CGRect _previousCollapsedFrame;
+    UIKeyboardCandidateSortControl *_sortSelectionBar;
 }
 
 @property(nonatomic) struct CGRect previousCollapsedFrame; // @synthesize previousCollapsedFrame=_previousCollapsedFrame;
-@property(nonatomic) BOOL reducedWidth; // @synthesize reducedWidth=_reducedWidth;
 @property(nonatomic) int position; // @synthesize position=_position;
-@property(retain, nonatomic) UIKeyboardCandidateInlinePadBottomShadowView *shadowView; // @synthesize shadowView=_shadowView;
 @property(nonatomic) id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
+@property(readonly, nonatomic, getter=isReducedWidth) BOOL reducedWidth; // @synthesize reducedWidth=_reducedWidth;
 @property(nonatomic) BOOL expanded; // @synthesize expanded=_expanded;
 @property(nonatomic) float maxX; // @synthesize maxX=_maxX;
 @property(nonatomic) struct CGRect inlineRect; // @synthesize inlineRect=_inlineRect;
 @property(copy, nonatomic) NSString *inlineText; // @synthesize inlineText=_inlineText;
 @property(retain, nonatomic) NSArray *candidates; // @synthesize candidates=_candidates;
-@property(readonly, nonatomic) UIKeyboardCandidateSortSelectionBar *sortSelectionBar; // @synthesize sortSelectionBar=_sortSelectionBar;
+@property(readonly, nonatomic) UIKeyboardCandidateSortControl *sortSelectionBar; // @synthesize sortSelectionBar=_sortSelectionBar;
 @property(readonly, nonatomic) UIKeyboardCandidateScrollViewController *scrollViewController; // @synthesize scrollViewController=_scrollViewController;
 - (void)sortSelectionBarAction;
 - (void)padInlineFloatingViewExpand:(id)arg1;
@@ -60,9 +58,10 @@
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
+- (void)showCandidate:(id)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)layout;
-- (void)layoutShadow;
+- (void)candidatesDidChange;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
 - (void)setCandidates:(id)arg1 type:(int)arg2 inlineText:(id)arg3 inlineRect:(struct CGRect)arg4 maxX:(float)arg5 layout:(BOOL)arg6;
 - (void)adjustFrameForInlineText:(id)arg1 inlineRect:(struct CGRect)arg2 maxX:(float)arg3;
@@ -71,9 +70,10 @@
 - (struct CGRect)adjustedInlineRectFromInlineText:(id)arg1 inlineRect:(struct CGRect)arg2;
 - (void)collapse;
 - (void)expand;
-@property(readonly, nonatomic) struct CGSize expandedSize;
-@property(readonly, nonatomic) struct CGSize collapsedSize;
+- (struct CGSize)expandedSize;
+- (struct CGSize)collapsedSize;
 - (void)setFrame:(struct CGRect)arg1;
+- (id)activeCandidateList;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

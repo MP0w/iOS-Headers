@@ -10,10 +10,10 @@
 {
 }
 
-- (BOOL)_cancelAllNotifications;
-- (void)dealloc;
-- (BOOL)displayUserNotificationWithTitle:(id)arg1 message:(id)arg2 defaultButtonText:(id)arg3 alternateButtonText:(id)arg4 completionBlock:(id)arg5;
 - (void)cancelAllNotificationsCompletionBlock:(id)arg1;
+- (BOOL)displayUserNotificationWithTitle:(id)arg1 message:(id)arg2 defaultButtonText:(id)arg3 alternateButtonText:(id)arg4 completionBlock:(id)arg5;
+- (void)dealloc;
+- (BOOL)_cancelAllNotifications;
 
 @end
 

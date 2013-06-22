@@ -19,7 +19,7 @@
 @property(retain, nonatomic) NSString *body; // @synthesize body=_body;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSString *sourcePersonID; // @synthesize sourcePersonID=_sourcePersonID;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithTitle:(id)arg1 body:(id)arg2 sourcePersonID:(id)arg3;
 
 @end

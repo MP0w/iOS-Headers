@@ -19,6 +19,8 @@
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(retain, nonatomic) GKGameInternal *game; // @synthesize game=_game;
 @property(retain, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

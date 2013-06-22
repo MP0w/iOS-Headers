@@ -55,13 +55,13 @@
 - (void)setTitle:(id)arg1;
 - (void)setTitle:(id)arg1 okButtonTitle:(id)arg2;
 - (struct CGRect)cropRect;
-- (struct CGRect)visibleCropRect;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)setEnabled:(BOOL)arg1;
 - (void)_pauseButtonPressed:(id)arg1;
 - (void)cropOverlayBottomBarPauseButtonClicked:(id)arg1;
 - (void)_playButtonPressed:(id)arg1;
 - (void)cropOverlayBottomBarPlayButtonClicked:(id)arg1;
+- (void)cropOverlayBottomBarToggleButtonClicked:(id)arg1;
 - (void)cropOverlayBottomBarDoneButtonClicked:(id)arg1;
 - (void)cropOverlayBottomBarCancelButtonClicked:(id)arg1;
 - (void)okButtonClicked:(id)arg1;
@@ -82,6 +82,7 @@
 - (void)setModeSwitch:(id)arg1;
 - (id)telephonyUIBottomBar;
 - (id)telephonyUIShutterButton;
+- (id)toggleButton;
 - (id)shutterButton;
 - (struct CGRect)bottomBarFrame;
 - (id)bottomBar;
@@ -94,11 +95,14 @@
 - (id)overlayContainerView;
 - (void)setControlsAreVisible:(BOOL)arg1;
 - (BOOL)controlsAreVisible;
-- (id)initWithFrame:(struct CGRect)arg1 mode:(int)arg2 offsettingStatusBar:(BOOL)arg3 isDisplayedInPopover:(BOOL)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 mode:(int)arg2 offsettingStatusBar:(BOOL)arg3 isDisplayedInPopover:(BOOL)arg4 buttonBarStyle:(int)arg5;
 - (id)_newOverlayViewWithFrame:(struct CGRect)arg1 lighterEdgeOnTop:(BOOL)arg2;
 - (void)layoutSubviews;
 - (void)_updateCropRectInRect:(struct CGRect)arg1;
 - (void)_updateToolbarItems:(BOOL)arg1;
+- (void)_savePhotoFinished:(id)arg1;
+- (void)_backgroundSavePhoto:(id)arg1;
+- (void)beginBackgroundSaveWithTile:(id)arg1 progressTitle:(id)arg2 completionCallbackTarget:(id)arg3 options:(int)arg4;
 
 @end
 

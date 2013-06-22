@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class AVPlayerItem;
+@class AVPlayerItem, NSObject<OS_dispatch_queue>;
 
 @interface AVSynchronizedLayerInternal : NSObject
 {
     AVPlayerItem *playerItem;
     BOOL isVisible;
-    struct dispatch_queue_s *serialQueue;
+    NSObject<OS_dispatch_queue> *serialQueue;
 }
 
 @end

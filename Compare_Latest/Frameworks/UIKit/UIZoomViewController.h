@@ -15,6 +15,7 @@
 }
 
 @property(readonly, nonatomic) UIWindow *window; // @synthesize window=_window;
+- (id)screen;
 - (void)_getRotationContentSettings:(CDStruct_19ba41f1 *)arg1 forWindow:(id)arg2;
 - (void)_suspendAnimationStarted:(id)arg1;
 - (void)_applicationDidFinishLaunching:(id)arg1;

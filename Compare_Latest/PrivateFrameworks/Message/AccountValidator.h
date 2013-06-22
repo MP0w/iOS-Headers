@@ -27,25 +27,25 @@
     NSArray *_smtpServerAuthSchemes;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)setDelegate:(id)arg1;
-- (void)validateAccount:(id)arg1 useSSL:(BOOL)arg2;
-- (void)validateAccountWithoutFallbacks:(id)arg1;
-- (id)account;
-- (void)cancelValidation;
-- (id)_ispAccountInfo;
-- (void)_backgroundValidateAccountFinished:(id)arg1 authSchemes:(id)arg2;
-- (void)_validateAccount:(id)arg1;
-- (void)_validateAccountWithoutFallbacks:(id)arg1;
-- (BOOL)_incomingServerValid;
-- (BOOL)_outgoingServerValid;
-- (void)stop;
-- (BOOL)accountValidationCanceled;
-- (void)_validateAccountInBackground:(id)arg1 withFallbacks:(BOOL)arg2;
-- (BOOL)accountIsValid;
-- (BOOL)accountSupportsSSL;
 - (id)error;
+- (BOOL)accountSupportsSSL;
+- (BOOL)accountIsValid;
+- (void)_validateAccountInBackground:(id)arg1 withFallbacks:(BOOL)arg2;
+- (BOOL)accountValidationCanceled;
+- (void)stop;
+- (BOOL)_outgoingServerValid;
+- (BOOL)_incomingServerValid;
+- (void)_validateAccountWithoutFallbacks:(id)arg1;
+- (void)_validateAccount:(id)arg1;
+- (void)_backgroundValidateAccountFinished:(id)arg1 authSchemes:(id)arg2;
+- (id)_ispAccountInfo;
+- (void)cancelValidation;
+- (id)account;
+- (void)validateAccountWithoutFallbacks:(id)arg1;
+- (void)validateAccount:(id)arg1 useSSL:(BOOL)arg2;
+- (void)setDelegate:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

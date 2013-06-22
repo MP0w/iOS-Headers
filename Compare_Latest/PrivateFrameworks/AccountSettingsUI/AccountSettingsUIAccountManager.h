@@ -15,11 +15,11 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (id)accountsBySyncStoreIdentifier;
-- (id)allAccounts;
 - (id)accountWithSyncStoreIdentifier:(id)arg1;
+- (id)allAccounts;
+- (id)accountsBySyncStoreIdentifier;
+- (void)dealloc;
+- (id)init;
 
 @end
 

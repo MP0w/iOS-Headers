@@ -11,7 +11,7 @@
 @interface EAOutputStream : NSOutputStream
 {
     id _delegate;
-    int _outfd;
+    int _sock;
     EAAccessory *_accessory;
     EASession *_session;
     BOOL _isOpenCompletedEventSent;
@@ -46,7 +46,7 @@
 - (void)close;
 - (void)open;
 - (void)dealloc;
-- (id)initWithAccessory:(id)arg1 forSession:(id)arg2;
+- (id)initWithAccessory:(id)arg1 forSession:(id)arg2 socket:(int)arg3;
 
 @end
 

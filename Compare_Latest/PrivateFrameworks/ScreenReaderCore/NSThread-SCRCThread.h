@@ -7,9 +7,8 @@
 #import "NSThread.h"
 
 @interface NSThread (SCRCThread)
-+ (id)stackBacktrace;
-- (void)registerForStopNotification;
-- (void)unregisterForStopNotification;
 - (BOOL)shouldStop;
+- (void)unregisterForStopNotification;
+- (void)registerForStopNotification;
 @end
 

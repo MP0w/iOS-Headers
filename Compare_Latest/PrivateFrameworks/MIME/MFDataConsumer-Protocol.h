@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol MFDataConsumer <NSObject>
-- (int)appendData:(id)arg1;
 - (void)done;
+- (int)appendData:(id)arg1;
 @end
 

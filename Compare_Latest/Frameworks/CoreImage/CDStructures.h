@@ -49,18 +49,22 @@ struct Context {
     struct CGColorSpace *_field4;
 };
 
-struct Data;
-
 struct FaceCoreAPI {
     void **_field1;
-    struct Data *_field2;
-    int _field3;
-    struct basic_string<char, std::char_traits<char>, std::allocator<char>> _field4;
-    struct basic_string<char, std::char_traits<char>, std::allocator<char>> _field5;
+    struct FaceCoreAPIInternal *_field2;
+    struct FaceCoreContext *_field3;
+    void *_field4;
 };
 
-struct _Alloc_hider {
-    char *_field1;
+struct FaceCoreAPIInternal;
+
+struct FaceCoreContext;
+
+struct Rectangle {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
 };
 
 struct _Vector_impl {
@@ -69,16 +73,30 @@ struct _Vector_impl {
     struct face *_field3;
 };
 
-struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
-    struct _Alloc_hider _field1;
-};
-
 struct face;
 
 struct image {
     char *_field1;
     int _field2;
     int _field3;
+};
+
+struct vec2 {
+    float _field1;
+    float _field2;
+};
+
+struct vec3 {
+    float _field1;
+    float _field2;
+    float _field3;
+};
+
+struct vec4 {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
 };
 
 struct vector<vision::lib::face, std::allocator<vision::lib::face>> {
@@ -98,6 +116,11 @@ typedef struct {
     int bytesPerSample;
     float resolution;
 } CDStruct_c3faddef;
+
+typedef struct {
+    int *_field1;
+    int _field2;
+} CDStruct_84b23d7a;
 
 typedef struct {
     char _field1;

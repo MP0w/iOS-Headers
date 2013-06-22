@@ -17,15 +17,15 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (id)initWithName:(id)arg1 andDelegate:(id)arg2;
-- (BOOL)isLockedByMe;
-- (void)lock;
-- (BOOL)tryLock;
-- (BOOL)lockBeforeDate:(id)arg1;
-- (void)unlock;
-- (id)description;
 - (void)dealloc;
+- (id)description;
+- (void)unlock;
+- (BOOL)lockBeforeDate:(id)arg1;
+- (BOOL)tryLock;
+- (void)lock;
+- (BOOL)isLockedByMe;
+- (id)initWithName:(id)arg1 andDelegate:(id)arg2;
+- (id)init;
 
 @end
 

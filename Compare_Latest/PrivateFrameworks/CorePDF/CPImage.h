@@ -12,14 +12,15 @@
     BOOL renderedBoundsComputed;
 }
 
-- (id)initWithBounds:(struct CGRect)arg1;
-- (struct CPPDFImage *)imageData;
-- (struct CGRect)renderedBounds;
-- (struct CGRect)bounds;
-- (void)recomputeRenderedBounds;
-- (void)accept:(id)arg1;
-- (long)zOrder;
 - (BOOL)isVisible;
+- (long)zOrder;
+- (void)accept:(id)arg1;
+- (void)recomputeRenderedBounds;
+- (struct CGRect)bounds;
+- (struct CGRect)renderedBounds;
+- (struct CPPDFImage *)imageData;
+- (id)initWithBounds:(struct CGRect)arg1;
+- (id)initWithPDFImage:(struct CPPDFImage *)arg1;
 
 @end
 

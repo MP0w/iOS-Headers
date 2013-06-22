@@ -13,15 +13,16 @@
     struct CAMediaTimingFunctionPrivate *_priv;
 }
 
-+ (id)functionWithControlPoints:(float)arg1:(float)arg2:(float)arg3:(float)arg4;
 + (id)functionWithName:(id)arg1;
-- (id)initWithControlPoints:(float)arg1:(float)arg2:(float)arg3:(float)arg4;
-- (void)dealloc;
-- (void)_getPoints:(double *)arg1;
-- (void)getControlPointAtIndex:(unsigned long)arg1 values:(float [2])arg2;
-- (id)description;
-- (void)encodeWithCoder:(id)arg1;
++ (id)functionWithControlPoints:(float)arg1:(float)arg2:(float)arg3:(float)arg4;
 - (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)description;
+- (void)getControlPointAtIndex:(unsigned long)arg1 values:(float [2])arg2;
+- (void)_getPoints:(double *)arg1;
+- (void)dealloc;
+- (id)initWithControlPoints:(float)arg1:(float)arg2:(float)arg3:(float)arg4;
+- (float)_solveForInput:(float)arg1;
 
 @end
 

@@ -12,11 +12,12 @@
 {
 }
 
-@property NSObject<PFUbiquityBaselineRollOperationDelegate> *delegate;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)haveConsistentStateForBaselineRoll;
-- (BOOL)rollBaselineWithError:(id *)arg1;
 - (void)main;
+- (BOOL)rollBaselineWithError:(id *)arg1;
+- (BOOL)haveConsistentStateForBaselineRoll;
+- (BOOL)isEqual:(id)arg1;
+- (id)retainedDelegate;
+@property NSObject<PFUbiquityBaselineRollOperationDelegate> *delegate;
 
 @end
 

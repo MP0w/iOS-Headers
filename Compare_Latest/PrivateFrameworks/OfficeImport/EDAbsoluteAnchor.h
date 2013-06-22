@@ -12,12 +12,13 @@
     struct CGSize mSize;
 }
 
-- (struct CGPoint)position;
-- (void)setPosition:(struct CGPoint)arg1;
-- (struct CGSize)size;
-- (void)setSize:(struct CGSize)arg1;
-- (struct CGRect)bounds;
+- (id).cxx_construct;
 - (void)setBounds:(struct CGRect)arg1;
+- (struct CGRect)bounds;
+- (void)setSize:(struct CGSize)arg1;
+- (struct CGSize)size;
+- (void)setPosition:(struct CGPoint)arg1;
+- (struct CGPoint)position;
 
 @end
 

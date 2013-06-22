@@ -8,7 +8,7 @@
 
 #import "DASearchQueryConsumer-Protocol.h"
 
-@class NSArray, NSMutableDictionary, NSOperationQueue, NSSet;
+@class NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSOperationQueue, NSOrderedSet, NSString;
 
 @interface MFContactsSearchManager : NSObject <DASearchQueryConsumer>
 {
@@ -17,27 +17,36 @@
     void *_addressBook;
     NSOperationQueue *_queue;
     unsigned int _genNumber;
-    NSSet *_properties;
+    NSOrderedSet *_properties;
     unsigned int _searchTypes;
     NSArray *_searchAccountIDs;
-    struct dispatch_queue_s *_serverSearchQueue;
+    NSObject<OS_dispatch_queue> *_serverSearchQueue;
+    BOOL _registeredForAddressBookChanges;
+    NSString *_recentsBundleIdentifier;
+    NSString *_sendingAddress;
 }
 
-- (id)initWithAddressBook:(void *)arg1 properties:(int *)arg2 propertyCount:(unsigned int)arg3;
-- (void)setSearchTypes:(unsigned int)arg1;
-- (id)searchForText:(id)arg1 consumer:(id)arg2;
-- (void)_handleTaskFinished:(id)arg1 context:(id)arg2;
-- (void)_handleLocalSearchResults:(id)arg1 type:(int)arg2 operation:(id)arg3 taskID:(id)arg4;
-- (void)_handleSearchQueriesByAccountID:(id)arg1 operation:(id)arg2 taskID:(id)arg3;
-- (void)_handleSearchQueryFinished:(id)arg1 context:(id)arg2;
-- (void)_handleSearchQuery:(id)arg1 returnedResults:(id)arg2;
-- (void)searchQuery:(id)arg1 returnedResults:(id)arg2;
-- (void)_handleSearchQuery:(id)arg1 finishedWithError:(id)arg2;
-- (void)searchQuery:(id)arg1 finishedWithError:(id)arg2;
-- (void)cancelTaskWithID:(id)arg1;
-- (struct dispatch_queue_s *)_serverSearchQueue;
-- (void)dealloc;
+@property(copy, nonatomic) NSString *sendingAddress; // @synthesize sendingAddress=_sendingAddress;
 @property(retain) NSArray *searchAccountIDs; // @synthesize searchAccountIDs=_searchAccountIDs;
+@property(copy, nonatomic) NSString *recentsBundleIdentifier; // @synthesize recentsBundleIdentifier=_recentsBundleIdentifier;
+- (void)dealloc;
+- (id)_serverSearchQueue;
+- (void)cancelTaskWithID:(id)arg1;
+- (void)searchQuery:(id)arg1 finishedWithError:(id)arg2;
+- (void)_handleSearchQuery:(id)arg1 finishedWithError:(id)arg2;
+- (void)searchQuery:(id)arg1 returnedResults:(id)arg2;
+- (void)_handleSearchQuery:(id)arg1 returnedResults:(id)arg2;
+- (void)_handleSearchQueryFinished:(id)arg1 context:(id)arg2;
+- (void)_handleSearchQueriesByAccountID:(id)arg1 operation:(id)arg2 taskID:(id)arg3;
+- (void)_handleLocalSearchResults:(id)arg1 type:(int)arg2 operation:(id)arg3 taskID:(id)arg4;
+- (void)_handleRecentsSearchFrequentResults:(id)arg1 infrequentResults:(id)arg2 operation:(id)arg3 taskID:(id)arg4;
+- (void)_registerForAddressBookChanges;
+- (void)_handleAddressBookChangeNotification;
+- (void)_handleTaskFinished:(id)arg1 context:(id)arg2;
+- (id)searchForText:(id)arg1 consumer:(id)arg2;
+- (void)setSearchTypes:(unsigned int)arg1;
+- (id)initWithAddressBook:(void *)arg1 properties:(int *)arg2 propertyCount:(unsigned int)arg3;
+- (id)initWithAddressBook:(void *)arg1 properties:(int *)arg2 propertyCount:(unsigned int)arg3 recentsBundleIdentifier:(id)arg4;
 
 @end
 

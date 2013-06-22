@@ -12,13 +12,13 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, retain) DOMCSSPrimitiveValue *red;
-@property(readonly, retain) DOMCSSPrimitiveValue *green;
-@property(readonly, retain) DOMCSSPrimitiveValue *blue;
-@property(readonly, retain) DOMCSSPrimitiveValue *alpha;
 - (struct CGColor *)color;
+@property(readonly) DOMCSSPrimitiveValue *alpha;
+@property(readonly) DOMCSSPrimitiveValue *blue;
+@property(readonly) DOMCSSPrimitiveValue *green;
+@property(readonly) DOMCSSPrimitiveValue *red;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

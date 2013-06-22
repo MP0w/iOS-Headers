@@ -10,8 +10,8 @@
 {
 }
 
-- (id)initWithGraphicObjects:(id)arg1 withRenderedBounds:(struct CGRect)arg2;
 - (void)accept:(id)arg1;
+- (id)initWithGraphicObjects:(id)arg1 withRenderedBounds:(struct CGRect)arg2;
 
 @end
 

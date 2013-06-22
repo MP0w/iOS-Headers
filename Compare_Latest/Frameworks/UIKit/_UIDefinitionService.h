@@ -13,7 +13,6 @@
 @interface _UIDefinitionService : NSObject <UIWebViewDelegate>
 {
     NSArray *_dictionaries;
-    id <_UIDefinitionServiceDelegate> _delegate;
     UIColor *_backgroundColor;
     NSURL *_stylesheetURL;
 }
@@ -22,7 +21,6 @@
 + (id)backgroundColor;
 @property(readonly, nonatomic) NSURL *stylesheetURL; // @synthesize stylesheetURL=_stylesheetURL;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(nonatomic) id <_UIDefinitionServiceDelegate> delegate; // @synthesize delegate=_delegate;
 - (unsigned int)languageDirectionForString:(id)arg1;
 - (id)markupForString:(id)arg1;
 - (BOOL)hasMarkupForString:(id)arg1;

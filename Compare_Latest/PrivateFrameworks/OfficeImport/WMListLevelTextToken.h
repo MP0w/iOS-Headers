@@ -15,11 +15,11 @@
 }
 
 + (id)tokenWithString:(id)arg1 andLevel:(int)arg2;
-- (id)initWithString:(id)arg1 andLevel:(int)arg2;
-- (void)dealloc;
-- (id)string;
-- (id)stringForIndex:(int)arg1 withFormat:(int)arg2 initialNumber:(int)arg3;
 - (int)level;
+- (id)stringForIndex:(int)arg1 withFormat:(int)arg2 initialNumber:(int)arg3;
+- (id)string;
+- (void)dealloc;
+- (id)initWithString:(id)arg1 andLevel:(int)arg2;
 
 @end
 

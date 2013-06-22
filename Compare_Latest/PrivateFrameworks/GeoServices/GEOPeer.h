@@ -6,24 +6,28 @@
 
 #import "NSObject.h"
 
-@class GEOServer, NSString;
+@class GEOServer, NSObject<OS_xpc_object>, NSString;
 
 @interface GEOPeer : NSObject
 {
     GEOServer *_server;
-    struct _xpc_connection_s *_connection;
+    NSObject<OS_xpc_object> *_connection;
     NSString *_bundleIdentifier;
     NSString *_bundleVersion;
+    BOOL _preloading;
 }
 
+@property(nonatomic) BOOL preloading; // @synthesize preloading=_preloading;
 @property(readonly, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
-@property(readonly, nonatomic) struct _xpc_connection_s *connection; // @synthesize connection=_connection;
+@property(readonly, nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
+- (BOOL)hasEntitlement:(id)arg1;
+@property(readonly, nonatomic) BOOL isLocationd;
 @property(readonly, nonatomic) BOOL hasPrivilege;
 @property(readonly, nonatomic) NSString *bundleIdentifier;
 - (id)description;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithConnection:(struct _xpc_connection_s *)arg1 server:(id)arg2;
+- (id)initWithConnection:(id)arg1 server:(id)arg2;
 
 @end
 

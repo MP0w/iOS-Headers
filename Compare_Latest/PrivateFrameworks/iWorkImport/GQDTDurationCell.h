@@ -15,8 +15,10 @@
     struct __CFBundle *mProcessorBundle;
 }
 
-- (void)dealloc;
 - (struct __CFString *)createStringValue;
+- (void)dealloc;
+- (void)setProcessorBundle:(struct __CFBundle *)arg1;
+- (int)readAttributesForDurationCell:(struct _xmlTextReader *)arg1;
 
 @end
 

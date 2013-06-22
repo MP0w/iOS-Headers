@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "TSUFlushable-Protocol.h"
+
 @class EDCollection, EDWorksheet, NSMutableArray, NSRecursiveLock, NSString;
 
-@interface EDRowBlocks : NSObject
+@interface EDRowBlocks : NSObject <TSUFlushable>
 {
     EDWorksheet *mWorksheet;
     NSMutableArray *mRowBlocks;
@@ -20,19 +22,29 @@
     NSRecursiveLock *mSaveLoadLock;
 }
 
-- (id)initWithWorksheet:(id)arg1;
-- (void)dealloc;
-- (unsigned int)rowBlockCount;
-- (id)rowBlockAtIndex:(unsigned int)arg1;
-- (void)removeRowBlockAtIndex:(unsigned int)arg1;
-- (unsigned int)expectedIndexOfRowBlockForRowNumber:(unsigned int)arg1;
-- (unsigned int)indexOfRowBlockForRowNumber:(unsigned int)arg1;
-- (id)rowBlockForRowNumber:(unsigned int)arg1 currentRowBlock:(id)arg2;
-- (id)rowBlockForRowNumber:(unsigned int)arg1 currentRowBlock:(id)arg2 createIfNil:(_Bool)arg3;
-- (struct EDCellHeader *)cellWithRowNumber:(unsigned int)arg1 columnNumber:(int)arg2;
-- (unsigned int)maxPopulatedRow;
-- (unsigned int)maxPopulatedColumn;
 - (id)formulas;
+- (unsigned int)maxPopulatedColumn;
+- (unsigned int)maxPopulatedRow;
+- (struct EDCellHeader *)cellWithRowNumber:(unsigned int)arg1 columnNumber:(int)arg2;
+- (id)rowBlockForRowNumber:(unsigned int)arg1 currentRowBlock:(id)arg2 createIfNil:(_Bool)arg3;
+- (id)rowBlockForRowNumber:(unsigned int)arg1 currentRowBlock:(id)arg2;
+- (unsigned int)indexOfRowBlockForRowNumber:(unsigned int)arg1;
+- (unsigned int)expectedIndexOfRowBlockForRowNumber:(unsigned int)arg1;
+- (void)removeRowBlockAtIndex:(unsigned int)arg1;
+- (id)rowBlockAtIndex:(unsigned int)arg1;
+- (unsigned int)rowBlockCount;
+- (void)dealloc;
+- (id)initWithWorksheet:(id)arg1;
+- (id)fileNameForPersistingRowBlocks;
+- (_Bool)spaceForRowNumber:(unsigned int)arg1 rowBlock:(id)arg2;
+- (void)flush;
+- (void)save;
+- (void)load;
+- (void)unlock;
+- (void)lock;
+- (Class)classForFormulaType:(unsigned char)arg1;
+- (unsigned char)formulaTypeForFormula:(id)arg1;
+- (void)updateMaxPopulatedRow:(unsigned int)arg1 column:(unsigned int)arg2;
 
 @end
 

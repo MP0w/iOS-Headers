@@ -10,8 +10,8 @@
 {
 }
 
-- (id)_buttonBackgroundImage;
 - (void)drawRect:(struct CGRect)arg1;
+- (id)_buttonBackgroundImage;
 
 @end
 

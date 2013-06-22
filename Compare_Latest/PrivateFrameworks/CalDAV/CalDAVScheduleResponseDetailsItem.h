@@ -17,17 +17,17 @@
     NSString *_responseDescription;
 }
 
-- (void)dealloc;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)_setCalendarDataWithLeafItem:(id)arg1;
-- (id)copyParseRules;
-@property(readonly) NSString *recipientString;
-- (id)description;
 @property(retain) NSString *responseDescription; // @synthesize responseDescription=_responseDescription;
 @property(retain) CoreDAVErrorItem *topLevelErrorItem; // @synthesize topLevelErrorItem=_topLevelErrorItem;
 @property(retain) ICSDocument *calendarData; // @synthesize calendarData=_calendarData;
 @property(retain) CoreDAVLeafItem *requestStatus; // @synthesize requestStatus=_requestStatus;
 @property(retain) CoreDAVItemWithHrefChildItem *recipientHREF; // @synthesize recipientHREF=_recipientHREF;
+- (id)description;
+@property(readonly) NSString *recipientString;
+- (id)copyParseRules;
+- (void)_setCalendarDataWithLeafItem:(id)arg1;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (void)dealloc;
 
 @end
 

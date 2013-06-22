@@ -9,5 +9,6 @@
 @interface NSArray (Additions)
 - (id)pl_arrayOfUniqueObjectsNotInOrderedSet:(id)arg1;
 - (unsigned int)pl_countOfObjectsPassingTest:(id)arg1;
+- (id)pl_shortDescription;
 @end
 

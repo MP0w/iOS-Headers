@@ -14,7 +14,6 @@
     id _errorHandler;
 }
 
-+ (id)providerHostname;
 + (unsigned short)providerID;
 @property(copy, nonatomic) id errorHandler; // @synthesize errorHandler=_errorHandler;
 @property(copy, nonatomic) id finishedHandler; // @synthesize finishedHandler=_finishedHandler;

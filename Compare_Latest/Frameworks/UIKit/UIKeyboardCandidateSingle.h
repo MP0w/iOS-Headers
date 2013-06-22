@@ -11,11 +11,17 @@
 @interface UIKeyboardCandidateSingle : UIKeyboardCandidate
 {
     NSString *_candidate;
+    NSString *_input;
 }
 
++ (id)candidateWithUnchangedInput:(id)arg1;
++ (id)candidateWithCandidate:(id)arg1 forInput:(id)arg2;
+@property(copy, nonatomic) NSString *input; // @synthesize input=_input;
 @property(copy, nonatomic) NSString *candidate; // @synthesize candidate=_candidate;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+- (id)initWithUnchangedInput:(id)arg1;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2;
 - (id)initWithCandidate:(id)arg1;
 
 @end

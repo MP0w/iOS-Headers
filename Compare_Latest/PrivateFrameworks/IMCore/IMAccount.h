@@ -8,11 +8,10 @@
 
 #import "IMSystemMonitorListener-Protocol.h"
 
-@class IMHandle, IMPeople, IMRemoteProxy<IMServiceSessionProtocol>, IMServiceImpl, NSArray, NSAttributedString, NSData, NSDate, NSDictionary, NSMutableDictionary, NSString, UIImage;
+@class IMHandle, IMPeople, IMServiceImpl, NSArray, NSAttributedString, NSData, NSDate, NSDictionary, NSMutableDictionary, NSString;
 
 @interface IMAccount : NSObject <IMSystemMonitorListener>
 {
-    IMRemoteProxy<IMServiceSessionProtocol> *_remoteSession;
     IMServiceImpl *_service;
     IMPeople *_buddyList;
     NSMutableDictionary *_imHandles;
@@ -23,11 +22,13 @@
     NSString *_loginID;
     NSString *_displayName;
     NSString *_uniqueID;
+    int _accountType;
     NSDictionary *_data;
     NSMutableDictionary *_dataChanges;
     NSDictionary *_profile;
     NSMutableDictionary *_profileChanges;
     NSString *_countryCode;
+    int _profileStatus;
     NSDictionary *_accountPreferences;
     NSMutableDictionary *_accountPreferencesChanges;
     NSDictionary *_accountPersistentProperties;
@@ -47,12 +48,15 @@
     NSData *_myPictureData;
     NSData *_accountImageData;
     unsigned long long _capabilities;
+    unsigned long long _defaultHandleCapabilities;
+    BOOL _hasCheckedDefaultHandleCapabilities;
     NSAttributedString *_myProfile;
     int _registrationStatus;
     int _registrationFailureReason;
     NSDictionary *_registrationAlertInfo;
     unsigned int _loginStatus;
     BOOL _isActive;
+    BOOL _hasPostedOfflineNotification;
     BOOL _justLoggedIn;
     BOOL _useMeCardName;
     unsigned int _cachedBlockingMode;
@@ -64,8 +68,8 @@
     BOOL _needToCheckForWatchedIMHandles;
     BOOL _iconChecked;
     BOOL _hasBeenRemoved;
-    UIImage *_smallImage;
-    UIImage *_accountImage;
+    id _smallImage;
+    id _accountImage;
     BOOL _asleep;
 }
 
@@ -96,7 +100,6 @@
 @property(readonly, nonatomic) NSDictionary *myStatusDictionary; // @synthesize myStatusDictionary=_currentAccountStatus;
 @property(readonly, nonatomic) IMServiceImpl *service; // @synthesize service=_service;
 @property(retain, nonatomic) NSString *login; // @synthesize login=_loginID;
-- (id)_remoteSession;
 - (void)_handleIncomingCommand:(id)arg1 withProperties:(id)arg2 fromBuddyInfo:(id)arg3;
 - (void)_handleDeliveredCommand:(id)arg1 withProperties:(id)arg2 fromBuddyInfo:(id)arg3;
 - (void)_handleIncomingData:(id)arg1 fromBuddyInfo:(id)arg2;
@@ -137,11 +140,16 @@
 - (int)validationStatusForAlias:(id)arg1 type:(int)arg2;
 - (int)validationStatusForAlias:(id)arg1;
 - (BOOL)validateAlias:(id)arg1 type:(int)arg2;
+- (BOOL)validateAliases:(id)arg1;
 - (BOOL)validateAlias:(id)arg1;
+- (BOOL)unvalidateAliases:(id)arg1;
+- (BOOL)unvalidateAlias:(id)arg1;
 - (int)typeForAlias:(id)arg1;
 - (BOOL)removeAlias:(id)arg1 type:(int)arg2;
+- (BOOL)removeAliases:(id)arg1;
 - (BOOL)removeAlias:(id)arg1;
 - (BOOL)addAlias:(id)arg1 type:(int)arg2;
+- (BOOL)addAliases:(id)arg1;
 - (BOOL)addAlias:(id)arg1;
 - (id)aliasesForType:(int)arg1;
 - (BOOL)hasAlias:(id)arg1 type:(int)arg2;
@@ -149,6 +157,7 @@
 @property(readonly, nonatomic) NSArray *aliases;
 - (id)_statuses;
 - (id)_aliasInfoForAlias:(id)arg1;
+- (BOOL)refreshVettedAliases;
 - (id)_aliases;
 @property(readonly, nonatomic) NSArray *vettedAliases;
 - (void)_updateProfileInfo:(id)arg1;
@@ -212,7 +221,7 @@
 - (int)compareNames:(id)arg1;
 - (void)groupsChanged:(id)arg1 error:(id)arg2;
 - (void)_syncWithRemoteBuddies;
-- (void)setIMAccountLoginStatus:(unsigned int)arg1 errorMessage:(id)arg2 reason:(unsigned int)arg3;
+- (void)setIMAccountLoginStatus:(unsigned int)arg1 errorMessage:(id)arg2 reason:(int)arg3;
 - (void)setIMAccountLoginStatus:(unsigned int)arg1 errorMessage:(id)arg2;
 - (void)setIMAccountLoginStatus:(unsigned int)arg1;
 - (void)setIsActive:(BOOL)arg1;
@@ -227,12 +236,16 @@
 - (void)_updateRegistrationStatus:(int)arg1 error:(int)arg2 info:(id)arg3;
 @property(readonly, nonatomic) BOOL supportsRegistration;
 @property(readonly, nonatomic) NSDictionary *registrationFailureAlertInfo;
+@property(readonly, nonatomic) BOOL isOperational;
+@property(readonly, nonatomic) BOOL isRegistered;
+@property(readonly, nonatomic) BOOL _isUsableForSending;
 - (void)accountDidDeactivate;
 - (void)accountDidBecomeActive;
 - (void)accountWillBeRemoved;
 - (void)_serviceDidDisconnect:(id)arg1;
 - (void)_serviceDidReconnect:(id)arg1;
 - (void)_serviceDidConnect:(id)arg1;
+- (void)_registrationStatusChanged:(id)arg1;
 - (void)setBuddyProperties:(id)arg1 buddyPictures:(id)arg2;
 - (void)buddyPictureChanged:(id)arg1 imageData:(id)arg2 imageHash:(id)arg3;
 - (void)buddyPropertiesChanged:(id)arg1;
@@ -334,7 +347,7 @@
 - (void)_updateMyStatus:(unsigned int)arg1 message:(id)arg2;
 @property(readonly, nonatomic) int accountType;
 - (void)_updateLogin:(id)arg1;
-- (void)loginStatusChanged:(unsigned int)arg1 message:(id)arg2 reason:(unsigned int)arg3 properties:(id)arg4;
+- (void)loginStatusChanged:(unsigned int)arg1 message:(id)arg2 reason:(int)arg3 properties:(id)arg4;
 - (void)logoutAccount;
 - (void)loginAccount;
 - (void)autoLoginAccount;

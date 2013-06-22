@@ -4,19 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UINavigationController.h"
+#import <GameKit/GKGameCenterViewController.h>
 
-@interface GKAchievementViewController : UINavigationController
+@interface GKAchievementViewController : GKGameCenterViewController
 {
     id <GKAchievementViewControllerDelegate> _achievementDelegate;
 }
 
 @property(nonatomic) id <GKAchievementViewControllerDelegate> achievementDelegate; // @synthesize achievementDelegate=_achievementDelegate;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)donePressed:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (id)initWithRootViewController:(id)arg1;
+- (void)notifyDelegateOnWillFinish;
 - (void)dealloc;
 - (id)init;
 

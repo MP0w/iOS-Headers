@@ -6,23 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSCountedSet, NSMutableDictionary, NSMutableSet, NSString;
+@class NSCountedSet, NSMutableDictionary, NSMutableSet;
 
 @interface DAPowerAssertionManager : NSObject
 {
-    NSString *_uuid;
     NSCountedSet *_contexts;
     NSMutableDictionary *_groupIdentifierToContexts;
     struct __CFDictionary *_contextToGroupIdentifier;
     NSMutableSet *_heldAsideGroupIdentifiers;
     NSCountedSet *_heldAsideContexts;
-    void *_timedAssertionRef;
+    struct __CFDictionary *_contextToPowerAssertionRef;
 }
 
 + (id)sharedPowerAssertionManager;
 + (void)vendDaemons:(Class)arg1;
-- (void)_releaseAssertions;
-- (void)_retainAssertions;
+- (void)_releaseAssertionForContext:(id)arg1;
+- (void)_retainAssertionForContext:(id)arg1;
 - (void)reattainPowerAssertionsForGroupIdentifier:(id)arg1;
 - (void)dropPowerAssertionsForGroupIdentifier:(id)arg1;
 - (id)stateString;

@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class UILongPressGestureRecognizer, UIMenuController, UIPDFPageView, UIPDFSelectionController, UIPDFViewMagnifyController, UITapGestureRecognizer, UITextEffectsWindow;
+@class UILongPressGestureRecognizer, UIMenuController, UIPDFPageView, UIPDFSelectionController, UIPDFViewMagnifyController, UITapGestureRecognizer;
 
 @interface UIPDFViewTouchHandler : UIResponder <UIGestureRecognizerDelegate>
 {
@@ -17,34 +17,41 @@
     UITapGestureRecognizer *_singleTapRecognizer;
     UILongPressGestureRecognizer *_briefPressRecognizer;
     UILongPressGestureRecognizer *_longPressRecognizer;
+    UITapGestureRecognizer *_twoFingerTapRecognizer;
     UIMenuController *_menuController;
     UIPDFSelectionController *_selectionController;
     UIPDFViewMagnifyController *_magnifyController;
     BOOL _trackingSelection;
     BOOL _showMagnifier;
     BOOL _showLoupe;
-    UITextEffectsWindow *_textEffectsWindow;
+    BOOL _firstTouch;
+    BOOL _useDelegateForLinks;
+    BOOL _allowMenu;
 }
 
-- (id)initWithView:(id)arg1;
-- (void)dealloc;
-- (void)enableRecognizers;
-- (void)disableRecognizers;
-- (id)nextResponder;
-- (BOOL)canBecomeFirstResponder;
-- (BOOL)resignFirstResponder;
-- (void)briefPressRecognized:(id)arg1;
-- (void)longPressRecognized:(id)arg1;
-- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
-- (void)doubleTapRecognized:(id)arg1;
-- (void)singleTapRecognized:(id)arg1;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
-- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
-- (void)copy:(id)arg1;
-- (void)selectAll:(id)arg1;
-- (void)showMenu;
++ (void)releaseViewManager;
+@property BOOL allowMenu; // @synthesize allowMenu=_allowMenu;
 - (void)hideMenu;
+- (void)showMenu;
+- (void)selectAll:(id)arg1;
+- (void)copy:(id)arg1;
+- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (void)twoFingerTapRecognized:(id)arg1;
+- (void)singleTapRecognized:(id)arg1;
+- (void)doubleTapRecognized:(id)arg1;
+- (void)longPressRecognized:(id)arg1;
+- (void)briefPressRecognized:(id)arg1;
+- (void)setFirstTouch;
+- (BOOL)resignFirstResponder;
+- (BOOL)canBecomeFirstResponder;
+- (id)nextResponder;
+- (void)disableRecognizers;
+- (void)enableRecognizers;
+- (void)dealloc;
+- (id)initWithView:(id)arg1;
 
 @end
 

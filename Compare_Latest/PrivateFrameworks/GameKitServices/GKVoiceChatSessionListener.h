@@ -15,13 +15,13 @@
     GKRWLock *_rwlock;
 }
 
-- (id)initWithSession:(id)arg1;
-- (void)dealloc;
-- (void)registerNewGKVoiceChatSession:(id)arg1;
-- (void)removeSession:(id)arg1;
-- (id)currentSessions;
-- (void)receivedNewVoiceChatOOBMessage:(id)arg1 fromPeerID:(id)arg2;
 - (void)session:(id)arg1 peer:(id)arg2 didChangeState:(int)arg3;
+- (void)receivedNewVoiceChatOOBMessage:(id)arg1 fromPeerID:(id)arg2;
+- (id)currentSessions;
+- (void)removeSession:(id)arg1;
+- (void)registerNewGKVoiceChatSession:(id)arg1;
+- (void)dealloc;
+- (id)initWithSession:(id)arg1;
 
 @end
 

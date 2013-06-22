@@ -7,9 +7,9 @@
 #import "NSObject.h"
 
 @interface NSObject (CKSMSComposeControllerDelegate)
-- (void)smsComposeControllerDataInserted:(id)arg1;
-- (void)smsComposeControllerAppeared:(id)arg1;
-- (void)smsComposeControllerCancelled:(id)arg1;
 - (void)smsComposeControllerSendStarted:(id)arg1;
+- (void)smsComposeControllerCancelled:(id)arg1;
+- (void)smsComposeControllerAppeared:(id)arg1;
+- (void)smsComposeControllerDataInserted:(id)arg1;
 @end
 

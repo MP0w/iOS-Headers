@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class AVAssetWriterInputWritingHelper;
+@class AVAssetWriterInputWritingHelper, NSObject<OS_dispatch_queue>;
 
 @interface AVAssetWriterInputMediaDataRequester : NSObject
 {
     AVAssetWriterInputWritingHelper *_writingHelper;
-    struct dispatch_queue_s *_requestQueue;
+    NSObject<OS_dispatch_queue> *_requestQueue;
     id _requestBlock;
 }
 
 @property(readonly, nonatomic) id requestBlock; // @synthesize requestBlock=_requestBlock;
-@property(readonly, nonatomic) struct dispatch_queue_s *requestQueue; // @synthesize requestQueue=_requestQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *requestQueue; // @synthesize requestQueue=_requestQueue;
 - (void)_requestMediaDataIfReady;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)invalidate;
@@ -24,7 +24,7 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
-- (id)initWithAssetWriterInputWritingHelper:(id)arg1 requestQueue:(struct dispatch_queue_s *)arg2 requestBlock:(id)arg3;
+- (id)initWithAssetWriterInputWritingHelper:(id)arg1 requestQueue:(id)arg2 requestBlock:(id)arg3;
 
 @end
 

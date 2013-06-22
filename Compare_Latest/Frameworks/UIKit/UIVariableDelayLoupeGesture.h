@@ -6,16 +6,17 @@
 
 #import <UIKit/UILongPressGestureRecognizer.h>
 
-@class UIView<UITextSelectingContainer>;
+@class UIResponder<UITextInput>;
 
 @interface UIVariableDelayLoupeGesture : UILongPressGestureRecognizer
 {
-    UIView<UITextSelectingContainer> *_textView;
+    UIResponder<UITextInput> *_textView;
 }
 
-@property UIView<UITextSelectingContainer> *textView; // @synthesize textView=_textView;
+@property UIResponder<UITextInput> *textView; // @synthesize textView=_textView;
 - (void)startTimer;
 - (BOOL)isCloseToCaret;
+- (void)invalidate;
 
 @end
 

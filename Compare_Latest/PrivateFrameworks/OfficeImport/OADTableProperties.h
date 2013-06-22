@@ -25,31 +25,31 @@
 }
 
 + (id)defaultProperties;
-- (id)initWithDefaults;
-- (void)dealloc;
-- (id)styleId;
-- (void)setStyleId:(id)arg1;
-- (id)style;
-- (void)setStyle:(id)arg1;
-- (BOOL)rightToLeft;
-- (void)setRightToLeft:(BOOL)arg1;
-- (BOOL)firstRow;
-- (void)setFirstRow:(BOOL)arg1;
-- (BOOL)firstColumn;
-- (void)setFirstColumn:(BOOL)arg1;
-- (BOOL)lastRow;
-- (void)setLastRow:(BOOL)arg1;
-- (BOOL)lastColumn;
-- (void)setLastColumn:(BOOL)arg1;
-- (BOOL)bandRow;
-- (void)setBandRow:(BOOL)arg1;
-- (BOOL)bandColumn;
-- (void)setBandColumn:(BOOL)arg1;
-- (BOOL)hasBandsNormalToDir:(int)arg1;
-- (BOOL)hasVectorNormalToDir:(int)arg1 atExtremePos:(int)arg2;
-- (id)effects;
-- (void)setEffects:(id)arg1;
 - (BOOL)hasEffects;
+- (void)setEffects:(id)arg1;
+- (id)effects;
+- (BOOL)hasVectorNormalToDir:(int)arg1 atExtremePos:(int)arg2;
+- (BOOL)hasBandsNormalToDir:(int)arg1;
+- (void)setBandColumn:(BOOL)arg1;
+- (BOOL)bandColumn;
+- (void)setBandRow:(BOOL)arg1;
+- (BOOL)bandRow;
+- (void)setLastColumn:(BOOL)arg1;
+- (BOOL)lastColumn;
+- (void)setLastRow:(BOOL)arg1;
+- (BOOL)lastRow;
+- (void)setFirstColumn:(BOOL)arg1;
+- (BOOL)firstColumn;
+- (void)setFirstRow:(BOOL)arg1;
+- (BOOL)firstRow;
+- (void)setRightToLeft:(BOOL)arg1;
+- (BOOL)rightToLeft;
+- (void)setStyle:(id)arg1;
+- (id)style;
+- (void)setStyleId:(id)arg1;
+- (id)styleId;
+- (void)dealloc;
+- (id)initWithDefaults;
 
 @end
 

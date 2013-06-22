@@ -30,6 +30,8 @@
 - (void)_activityGestureRecognized:(id)arg1;
 - (void)_tapGestureRecognized:(id)arg1;
 - (void)_swipeGestureRecognized:(id)arg1;
+- (void)didMoveToSuperview;
+- (void)willMoveToSuperview:(id)arg1;
 - (void)removeGestureRecognizer:(id)arg1;
 - (void)addGestureRecognizer:(id)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;

@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString, NSURL;
+@class NSDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface SUMediaObject : NSObject
 {
-    struct dispatch_queue_s *_dispatchQueue;
-    unsigned int _imagePickerQualityType;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    int _imagePickerQualityType;
     NSDictionary *_pickerInfo;
 }
 
 + (id)newMediaObjectWithImagePickerInfo:(id)arg1;
 - (id)_newLibraryThumbnail;
 - (id)_fullSizeImage;
-@property unsigned int imagePickerQualityType;
+@property int imagePickerQualityType;
 - (void)saveToLibraryWithCompletionBlock:(id)arg1;
 @property(readonly) NSURL *referenceURL;
 - (id)newThumbnailImageWithMaximumSize:(float)arg1;

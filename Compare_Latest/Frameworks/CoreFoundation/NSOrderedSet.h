@@ -4,17 +4,18 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 #import "NSFastEnumeration-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSOrderedSet : NSObject <NSCopying, NSMutableCopying, NSCoding, NSFastEnumeration>
+@interface NSOrderedSet : NSObject <NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)orderedSetWithSet:(id)arg1;
 + (id)orderedSetWithSet:(id)arg1 copyItems:(BOOL)arg2;
 + (id)orderedSetWithOrderedSet:(id)arg1;
@@ -26,6 +27,7 @@
 + (id)orderedSetWithArray:(id)arg1 range:(struct _NSRange)arg2;
 + (id)orderedSetWithArray:(id)arg1 range:(struct _NSRange)arg2 copyItems:(BOOL)arg3;
 + (id)orderedSetWithObjects:(id)arg1;
++ (id)newOrderedSetWithObjects:(const id *)arg1 count:(unsigned int)arg2;
 + (id)orderedSet;
 + (id)orderedSetWithObject:(id)arg1;
 + (id)orderedSetWithObjects:(const id *)arg1 count:(unsigned int)arg2;
@@ -63,6 +65,7 @@
 - (id)objectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
 - (id)objectsAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
 - (id)objectsAtIndexes:(id)arg1;
+- (id)objectAtIndexedSubscript:(unsigned int)arg1;
 - (id)lastObject;
 - (BOOL)isSubsetOfSet:(id)arg1;
 - (BOOL)isSubsetOfOrderedSet:(id)arg1;

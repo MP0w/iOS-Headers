@@ -12,14 +12,14 @@
 {
 }
 
-@property(readonly, retain) DOMHTMLFormElement *form;
-@property BOOL defaultSelected;
-@property(readonly, copy) NSString *text;
 @property(readonly) int index;
-@property BOOL disabled;
-@property(copy) NSString *label;
-@property BOOL selected;
+@property(readonly) NSString *text;
 @property(copy) NSString *value;
+@property BOOL selected;
+@property BOOL defaultSelected;
+@property(copy) NSString *label;
+@property(readonly) DOMHTMLFormElement *form;
+@property BOOL disabled;
 
 @end
 

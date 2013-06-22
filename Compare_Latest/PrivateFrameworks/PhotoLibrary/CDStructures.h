@@ -68,31 +68,12 @@ typedef struct {
 typedef struct {
     int _field1;
     int _field2;
-    id _field3;
-    id _field4;
-    float _field5;
-    int _field6;
-    SEL _field7;
-    id _field8;
-} CDStruct_dbaf35c5;
-
-typedef struct {
-    int _field1;
-    int _field2;
     int _field3;
     int _field4;
     int _field5;
     int _field6;
     char _field7;
 } CDStruct_3ff5127f;
-
-typedef struct {
-    CDStruct_2c43369c center;
-    struct {
-        double latitudeDelta;
-        double longitudeDelta;
-    } span;
-} CDStruct_feeb6407;
 
 // Ambiguous groups
 typedef struct {
@@ -104,4 +85,23 @@ typedef struct {
     double latitude;
     double longitude;
 } CDStruct_2c43369c;
+
+typedef struct {
+    struct {
+        double _field1;
+        double _field2;
+    } _field1;
+    struct {
+        double _field1;
+        double _field2;
+    } _field2;
+} CDStruct_90e2a262;
+
+typedef struct {
+    CDStruct_2c43369c center;
+    struct {
+        double latitudeDelta;
+        double longitudeDelta;
+    } span;
+} CDStruct_feeb6407;
 

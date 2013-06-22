@@ -13,14 +13,14 @@
     void *_ptpCameraProperties;
 }
 
-- (id)initWithUSBLocationID:(unsigned int)arg1;
-- (id)initWithTCPIPInfo:(id)arg1;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly) PTPInitiator *initiator;
-- (void)enumerateContent;
-- (BOOL)eject;
 - (void)addToEventHandlerQ:(id)arg1;
+- (BOOL)eject;
+- (void)enumerateContent;
+@property(readonly) PTPInitiator *initiator;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithTCPIPInfo:(id)arg1;
+- (id)initWithUSBLocationID:(unsigned int)arg1;
 
 @end
 

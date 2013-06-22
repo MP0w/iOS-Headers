@@ -16,18 +16,19 @@
     NSString *_externalConversationID;
 }
 
-- (id)initWithDAMailMessage:(id)arg1 mailbox:(id)arg2;
-- (void)dealloc;
-- (id)remoteID;
-- (id)externalConversationID;
-- (id)mailbox;
-- (id)headers;
-- (unsigned long long)messageFlags;
-- (id)messageBody;
-- (BOOL)messageData:(id *)arg1 messageSize:(unsigned int *)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
-- (id)remoteMailboxURL;
-- (unsigned int)messageSize;
 @property(readonly, nonatomic) DAMailMessage *DAMailMessage; // @synthesize DAMailMessage=_DAMailMessage;
+- (unsigned int)messageSize;
+- (id)remoteMailboxURL;
+- (BOOL)messageData:(id *)arg1 messageSize:(unsigned int *)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
+- (id)messageBody;
+- (unsigned long long)messageFlags;
+- (id)headersIfAvailable;
+- (id)headers;
+- (id)mailbox;
+- (id)externalConversationID;
+- (id)remoteID;
+- (void)dealloc;
+- (id)initWithDAMailMessage:(id)arg1 mailbox:(id)arg2;
 
 @end
 

@@ -14,6 +14,7 @@
     char *_searchUTF8String;
 }
 
+- (void).cxx_destruct;
 - (void)dealloc;
 
 @end

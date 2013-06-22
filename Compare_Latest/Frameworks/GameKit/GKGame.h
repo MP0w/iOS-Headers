@@ -6,35 +6,43 @@
 
 #import "NSObject.h"
 
-@class GKGameInternal, GKLoadStoreItemContext, NSDate, NSDictionary, NSNumber, NSString, SSItem;
+#import "NSCoding-Protocol.h"
 
-@interface GKGame : NSObject
+@class GKGameInternal, GKStoreItemInternal, NSDictionary, NSNumber, NSString;
+
+@interface GKGame : NSObject <NSCoding>
 {
     GKGameInternal *_internal;
-    SSItem *_storeItem;
+    GKStoreItemInternal *_storeItem;
     BOOL _sandboxed;
-    GKLoadStoreItemContext *_storeItemLoadContext;
-    NSDate *_storeItemLoadExpirationDate;
 }
 
 + (id)defaultGameIconWithStyle:(int)arg1;
 + (void)loadStoreItemsForGames:(id)arg1 withCompletionHandler:(id)arg2;
++ (struct CGSize)serverImageSizeForIconStyle:(int)arg1;
 + (void)updateGames:(id)arg1 withCompletionHandler:(id)arg2;
 + (id)currentGame;
 + (BOOL)isGameCenter;
-@property(retain, nonatomic) NSDate *storeItemLoadExpirationDate; // @synthesize storeItemLoadExpirationDate=_storeItemLoadExpirationDate;
-@property(retain, nonatomic) GKLoadStoreItemContext *storeItemLoadContext; // @synthesize storeItemLoadContext=_storeItemLoadContext;
++ (void)removeHistoryForGameWithBundleIdentifier:(id)arg1 completionHandler:(id)arg2;
++ (id)lookupMobileInstallation:(id)arg1;
 @property(nonatomic, getter=isSandboxed) BOOL sandboxed; // @synthesize sandboxed=_sandboxed;
-@property(retain, nonatomic) SSItem *storeItem; // @synthesize storeItem=_storeItem;
-@property(retain, nonatomic) GKGameInternal *internal; // @synthesize internal=_internal;
+@property(retain, nonatomic) GKStoreItemInternal *storeItem; // @synthesize storeItem=_storeItem;
+@property(retain) GKGameInternal *internal; // @synthesize internal=_internal;
 - (BOOL)isStoreItemUnexpired;
-- (void)loadRecentFriendPlayersWithCompletionHandler:(id)arg1;
+- (void)getFriendPlayersForAchievement:(id)arg1 handler:(id)arg2;
+- (void)getFriendPlayersForLeaderboard:(id)arg1 handler:(id)arg2;
+- (void)getFriendPlayersIncludingCompatibleGames:(BOOL)arg1 handler:(id)arg2;
+- (void)submitRating:(float)arg1 withCompletionHandler:(id)arg2;
+- (void)loadGameRatingWithCompletionHandler:(id)arg1;
 - (void)loadStoreItemWithCompletionHandler:(id)arg1;
-- (void)loadIconForStyle:(int)arg1 withCompletionHandler:(id)arg2;
+- (id)loadIconForStyle:(int)arg1 withCompletionHandler:(id)arg2;
+- (id)URLStringForImageWithShineIfNeeded;
 - (id)cachedIconForStyle:(int)arg1;
 - (id)imageSourceForIconStyle:(int)arg1;
-- (id)loadAndRenderIconForStyle:(int)arg1 withImageBrush:(id)arg2 completionHandler:(id)arg3;
+- (id)macBrushForIconStyle:(int)arg1;
+- (id)imageSourceForiOSIconStyle:(int)arg1;
 - (id)_imageURLForIconStyle:(int)arg1;
+- (void)updateWithInternal:(id)arg1;
 @property(readonly, nonatomic) struct GKGameInfo gameInfo;
 @property(readonly, nonatomic) NSString *cacheKey;
 @property(readonly, nonatomic) NSDictionary *gameDescriptor;
@@ -48,7 +56,13 @@
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (id)init;
+- (id)initWithBundleID:(id)arg1;
 - (id)initWithInternalRepresentation:(id)arg1;
+@property(readonly, nonatomic, getter=isDownloading) BOOL downloading;
+@property(readonly, nonatomic, getter=isInstalled) BOOL installed;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)loadTellAFriendMessageWithCompletionHandler:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) NSNumber *adamID; // @dynamic adamID;
@@ -57,6 +71,7 @@
 @property(readonly, nonatomic) NSString *defaultCategory; // @dynamic defaultCategory;
 @property(readonly, nonatomic) NSNumber *externalVersion; // @dynamic externalVersion;
 @property(readonly, nonatomic) NSString *name; // @dynamic name;
+@property(nonatomic) unsigned int platform; // @dynamic platform;
 @property(nonatomic, getter=isPrerendered) BOOL prerendered; // @dynamic prerendered;
 
 @end

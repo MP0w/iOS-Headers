@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class AVAssetTrack, AVAudioMix, AVURLAsset, AVVideoComposition, AVWeakReference, NSArray, NSError, NSString, NSURL;
+@class AVAsset, AVAssetTrack, AVAudioMix, AVVideoComposition, AVWeakReference, NSArray, NSError, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface AVAssetExportSessionInternal : NSObject
 {
     AVWeakReference *weakReference;
-    struct dispatch_queue_s *readWriteQueue;
+    NSObject<OS_dispatch_queue> *readWriteQueue;
     struct OpaqueFigRemaker *remaker;
     int status;
     NSError *error;
     float progress;
-    AVURLAsset *asset;
+    AVAsset *asset;
     AVAssetTrack *firstVideoTrack;
     NSString *preset;
     NSString *preset16x9;
@@ -30,7 +30,10 @@
     id handler;
     BOOL optimizeForNetworkUse;
     BOOL outputFileCreatedByRemaker;
-    struct dispatch_queue_s *remakerNotificationSerializationQueue;
+    BOOL useHardwareVideoEncoderIfAvailable;
+    long compatibleFileTypesDispatchOncePredicate;
+    NSArray *compatibleFileTypes;
+    NSObject<OS_dispatch_queue> *remakerNotificationSerializationQueue;
 }
 
 @end

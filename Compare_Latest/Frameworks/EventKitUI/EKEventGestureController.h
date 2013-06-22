@@ -78,6 +78,7 @@
 - (void)endForcedStart;
 - (void)forceStartWithOccurrence:(id)arg1;
 - (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (BOOL)isDraggingOccurrence;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)promptUserForRecurrenceActionOnOccurrence:(id)arg1 whenFinished:(id)arg2;
 - (void)removeDraggedOccurrence;

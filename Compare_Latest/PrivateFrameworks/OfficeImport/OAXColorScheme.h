@@ -10,8 +10,9 @@
 {
 }
 
-+ (void)readFromXmlNode:(struct _xmlNode *)arg1 toColorScheme:(id)arg2;
++ (id)colorForScheme:(id)arg1 value:(id)arg2;
 + (id)schemeColorEnumMap;
++ (void)readFromXmlNode:(struct _xmlNode *)arg1 toColorScheme:(id)arg2;
 
 @end
 

@@ -36,12 +36,6 @@
     BOOL _accessRestrictedAppleDevice;
 }
 
-- (void)lockMediaFiles;
-- (void)unlockMediaFiles;
-- (void)lockContents;
-- (void)unlockContents;
-- (void)dealloc;
-- (void)finalize;
 @property BOOL accessRestrictedAppleDevice; // @synthesize accessRestrictedAppleDevice=_accessRestrictedAppleDevice;
 @property struct dispatch_semaphore_s *deviceQSemaphore; // @synthesize deviceQSemaphore=_deviceQSemaphore;
 @property struct dispatch_queue_s *generalQ; // @synthesize generalQ=_generalQ;
@@ -66,6 +60,12 @@
 @property BOOL beingEjected; // @synthesize beingEjected=_beingEjected;
 @property BOOL ejectable; // @synthesize ejectable=_ejectable;
 @property(retain) NSString *volumePath; // @synthesize volumePath=_volumePath;
+- (void)finalize;
+- (void)dealloc;
+- (void)unlockContents;
+- (void)lockContents;
+- (void)unlockMediaFiles;
+- (void)lockMediaFiles;
 
 @end
 

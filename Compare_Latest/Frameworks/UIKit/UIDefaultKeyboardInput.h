@@ -8,15 +8,14 @@
 
 #import "UIKeyboardInput-Protocol.h"
 
-@class NSDictionary, UIColor, UIImage, UIResponder<UITextSelection>, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSelectionView, UIView<UITextSelectingContent>;
+@class NSDictionary, UIColor, UIImage, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange;
 
 @interface UIDefaultKeyboardInput : UIView <UIKeyboardInput>
 {
     UITextInputTraits *m_traits;
 }
 
-@property(readonly, nonatomic) UIResponder<UITextSelection> *textDocument;
-- (id)rectsForRange:(id)arg1;
+- (id)selectionRectsForRange:(id)arg1;
 @property(nonatomic) id <UITextInputDelegate> inputDelegate;
 @property(readonly, nonatomic) id <UITextInputTokenizer> tokenizer;
 - (id)rangeEnclosingPosition:(id)arg1 withGranularity:(int)arg2 inDirection:(int)arg3;
@@ -47,17 +46,13 @@
 @property(copy) UITextRange *selectedTextRange;
 - (BOOL)hasText;
 - (struct CGRect)visibleBounds;
-- (void)detachInteractionAssistant;
-- (void)detachSelectionView;
 - (void)setBecomesEditableWithGestures:(BOOL)arg1;
 - (BOOL)becomesEditableWithGestures;
 - (void)updateSelection;
-- (void)endSelectionChange;
-- (void)beginSelectionChange;
-@property(readonly, nonatomic) UIView<UITextSelectingContent> *content;
+- (BOOL)isEditing;
+- (BOOL)isEditable;
 @property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant;
-- (struct CGRect)selectionClipRect;
-@property(readonly, nonatomic) UITextSelectionView *selectionView;
+- (id)selectionView;
 @property(nonatomic) BOOL acceptsEmoji; // @dynamic acceptsEmoji;
 - (void)setSecure:(BOOL)arg1;
 - (BOOL)isSecure;
@@ -119,9 +114,8 @@
 @property(nonatomic) int autocapitalizationType; // @dynamic autocapitalizationType;
 @property(nonatomic) int autocorrectionType; // @dynamic autocorrectionType;
 @property(nonatomic) BOOL contentsIsSingleValue; // @dynamic contentsIsSingleValue;
+@property(nonatomic) BOOL deferBecomingResponder;
 @property(nonatomic) BOOL displaySecureTextUsingPlainText;
-@property(readonly, nonatomic, getter=isEditable) BOOL editable; // @dynamic editable;
-@property(readonly, nonatomic, getter=isEditing) BOOL editing; // @dynamic editing;
 @property(nonatomic) int emptyContentReturnKeyType;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically; // @dynamic enablesReturnKeyAutomatically;
 @property(nonatomic) BOOL forceEnableDictation;
@@ -132,7 +126,6 @@
 @property(nonatomic) BOOL learnsCorrections;
 @property(nonatomic) BOOL returnKeyGoesToNextResponder;
 @property(nonatomic) int returnKeyType; // @dynamic returnKeyType;
-@property(nonatomic, getter=isRichText) BOOL richText;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry; // @dynamic secureTextEntry;
 @property(nonatomic) int selectionAffinity;
 @property(retain, nonatomic) UIColor *selectionBarColor;
@@ -147,6 +140,7 @@
 @property(nonatomic) int textSelectionBehavior; // @dynamic textSelectionBehavior;
 @property(nonatomic) id textSuggestionDelegate; // @dynamic textSuggestionDelegate;
 @property(nonatomic) struct __CFCharacterSet *textTrimmingSet; // @dynamic textTrimmingSet;
+@property(nonatomic) BOOL useInterfaceLanguageForLocalization;
 
 @end
 

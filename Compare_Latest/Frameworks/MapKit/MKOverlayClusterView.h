@@ -15,6 +15,7 @@
         char __opaque[124];
     } _viewsLock;
     NSMutableArray *_proxiedViews;
+    int _subviewsImplementingCanDraw;
     struct {
         unsigned int levelCrossFade:1;
         unsigned int drawingDisabled:1;

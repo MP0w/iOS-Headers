@@ -10,9 +10,9 @@
 {
 }
 
-+ (id)axisTypeMap;
-+ (id)elementTypeMap;
 + (void)readFromNode:(struct _xmlNode *)arg1 toSpecification:(id)arg2;
++ (id)elementTypeMap;
++ (id)axisTypeMap;
 
 @end
 

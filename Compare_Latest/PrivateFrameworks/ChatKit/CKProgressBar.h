@@ -15,14 +15,14 @@
     float _progressValue;
 }
 
-+ (float)defaultHeight;
 + (float)_minFillWidth;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)layoutSubviews;
++ (float)defaultHeight;
 @property(nonatomic) float progressValue; // @synthesize progressValue=_progressValue;
-- (void)_setupFillFrame;
 - (void)_stopAnimating;
+- (void)_setupFillFrame;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

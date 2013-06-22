@@ -12,11 +12,12 @@
 }
 
 @property(readonly, nonatomic) int visibilityToCommit;
-- (void)eventEditor:(id)arg1 didSelectSubitem:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2;
+- (void)editor:(id)arg1 didSelectSubitem:(int)arg2 inSubsection:(int)arg3;
+- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
 - (BOOL)shouldAppearWithVisibility:(int)arg1;
-- (BOOL)isInline;
+- (BOOL)editor:(id)arg1 shouldClearSelectionFromSubitem:(int)arg2 inSubsection:(int)arg3;
+- (BOOL)usesDetailViewControllerForSubitem:(int)arg1 inSubsection:(int)arg2;
 
 @end
 

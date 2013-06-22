@@ -13,12 +13,12 @@
     NSMutableArray *mBlips;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)blipAtIndex:(long)arg1;
-- (unsigned long)addBlip:(id)arg1;
-- (unsigned long)blipCount;
 @property(retain, nonatomic) NSMutableArray *blips; // @synthesize blips=mBlips;
+- (unsigned long)blipCount;
+- (unsigned long)addBlip:(id)arg1;
+- (id)blipAtIndex:(long)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

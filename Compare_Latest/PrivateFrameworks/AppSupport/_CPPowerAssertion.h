@@ -15,10 +15,10 @@
     NSArray *_stack;
 }
 
-- (id)initWithIdentifier:(id)arg1 timeout:(double)arg2;
-- (void)dealloc;
-- (void)timedout;
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
+- (void)timedout;
+- (void)dealloc;
+- (id)initWithIdentifier:(id)arg1 timeout:(double)arg2;
 
 @end
 

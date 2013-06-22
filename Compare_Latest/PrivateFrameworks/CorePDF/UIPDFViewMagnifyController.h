@@ -19,23 +19,27 @@
     UIPDFMagnifiedView *_magnifiedView;
     UIWindow *_textEffectsWindow;
     UIPDFPageView *_pageView;
+    int _lock;
     float _magnification;
+    BOOL needImage;
 }
 
-- (id)init;
-- (void)setPosition:(struct CGPoint)arg1 viewPoint:(struct CGPoint)arg2 loupe:(BOOL)arg3;
-- (struct CGImage *)createBitMap:(struct CGRect)arg1 source:(struct CGRect)arg2;
-- (struct CGImage *)createBackingImage;
-- (struct CGPoint)transformPointToTSpace:(struct CGPoint)arg1 transform:(struct CGAffineTransform *)arg2;
-- (void)setSelectionPath;
-- (void)selectPower;
-- (void)showGlass:(BOOL)arg1 size:(struct CGSize)arg2;
-- (void)showLoupe;
-- (void)showMagnifier;
-- (void)move;
-- (void)hide;
+@property BOOL needImage; // @synthesize needImage;
 @property(nonatomic) float magnification; // @synthesize magnification=_magnification;
 @property(nonatomic) UIPDFPageView *pageView; // @synthesize pageView=_pageView;
+- (void)hide;
+- (void)move;
+- (void)setPosition:(struct CGPoint)arg1 viewPoint:(struct CGPoint)arg2 loupe:(BOOL)arg3;
+- (void)setSelectionPath;
+- (void)showMagnifier;
+- (void)showLoupe;
+- (void)showGlass:(BOOL)arg1 size:(struct CGSize)arg2;
+- (void)_makeMagnifiedImage;
+- (void)selectPower;
+- (struct CGPoint)transformPointToTSpace:(struct CGPoint)arg1 transform:(struct CGAffineTransform *)arg2;
+- (struct CGImage *)newBackingImage;
+- (struct CGImage *)newBitMap:(struct CGRect)arg1 source:(struct CGRect)arg2;
+- (id)init;
 
 @end
 

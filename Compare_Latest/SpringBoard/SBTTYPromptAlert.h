@@ -14,13 +14,13 @@
     int _uid;
 }
 
-+ (void)displayForNumber:(id)arg1 addressBookUID:(int)arg2;
 + (BOOL)dialNumberPromptingIfNecessary:(id)arg1 addressBookUID:(int)arg2 urlAddition:(id)arg3;
-- (id)initWithNumber:(id)arg1 addressBookUID:(int)arg2;
-- (void)dealloc;
-- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (id)number;
++ (void)displayForNumber:(id)arg1 addressBookUID:(int)arg2;
 - (int)addressBookUID;
+- (id)number;
+- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
+- (void)dealloc;
+- (id)initWithNumber:(id)arg1 addressBookUID:(int)arg2;
 
 @end
 

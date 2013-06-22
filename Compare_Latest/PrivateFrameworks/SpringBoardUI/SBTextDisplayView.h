@@ -15,14 +15,14 @@
     UIColor *_fontColor;
 }
 
-- (id)initWithWidth:(float)arg1 font:(id)arg2 fontColor:(id)arg3;
-- (void)dealloc;
-- (void)_updateText;
-- (void)setText:(id)arg1;
-- (void)setFont:(id)arg1;
-- (void)setFontColor:(id)arg1;
-- (void)drawRect:(struct CGRect)arg1;
 - (id)_scriptingInfo;
+- (void)drawRect:(struct CGRect)arg1;
+- (void)setFontColor:(id)arg1;
+- (void)setFont:(id)arg1;
+- (void)setText:(id)arg1;
+- (void)_updateText;
+- (void)dealloc;
+- (id)initWithWidth:(float)arg1 font:(id)arg2 fontColor:(id)arg3;
 
 @end
 

@@ -12,10 +12,10 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (id)initWithCoreResource:(PassRefPtr_43de0ce5)arg1;
-- (void)dealloc;
 - (void)finalize;
+- (void)dealloc;
+- (id)initWithCoreResource:(PassRefPtr_43de0ce5)arg1;
+- (id)init;
 
 @end
 

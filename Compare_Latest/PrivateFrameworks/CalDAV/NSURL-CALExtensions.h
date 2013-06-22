@@ -7,17 +7,17 @@
 #import "NSURL.h"
 
 @interface NSURL (CALExtensions)
-+ (id)davCompatibleFilenameForFilename:(id)arg1;
 + (id)iDiskSmallNameCompatibleNameForFilename:(id)arg1;
-- (id)queryParameters;
-- (id)URLWithUsername:(id)arg1 withPassword:(id)arg2;
-- (id)URLByRemovingLastPathComponent;
-- (id)lastPathComponent;
-- (id)initWithScheme:(id)arg1 host:(id)arg2 port:(int)arg3 path:(id)arg4;
-- (id)unquotedPassword;
-- (id)serverURL;
-- (BOOL)isEqualToURL:(id)arg1;
-- (id)pathWithoutTrailingRemovingSlash;
++ (id)davCompatibleFilenameForFilename:(id)arg1;
 - (id)pathWithoutDecodingAndRemovingTrailingSlash;
+- (id)pathWithoutTrailingRemovingSlash;
+- (BOOL)isEqualToURL:(id)arg1;
+- (id)serverURL;
+- (id)unquotedPassword;
+- (id)initWithScheme:(id)arg1 host:(id)arg2 port:(int)arg3 path:(id)arg4;
+- (id)lastPathComponent;
+- (id)URLByRemovingLastPathComponent;
+- (id)URLWithUsername:(id)arg1 withPassword:(id)arg2;
+- (id)queryParameters;
 @end
 

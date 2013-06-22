@@ -15,17 +15,17 @@
     NSData *mData;
 }
 
-- (id)initWithData:(id)arg1;
-- (void)dealloc;
-- (id)data;
-- (BOOL)isReadable;
-- (long long)dataLength;
-- (id)inputStream;
-- (id)bufferedInputStream;
-- (id)bufferedInputStreamWithBufferSize:(unsigned long)arg1;
-- (BOOL)hasSameLocationAs:(id)arg1;
-- (id)inputStreamWithOffset:(long long)arg1 length:(long long)arg2;
 - (id)bufferedInputStreamWithOffset:(long long)arg1 length:(long long)arg2;
+- (id)inputStreamWithOffset:(long long)arg1 length:(long long)arg2;
+- (BOOL)hasSameLocationAs:(id)arg1;
+- (id)bufferedInputStreamWithBufferSize:(unsigned long)arg1;
+- (id)bufferedInputStream;
+- (id)inputStream;
+- (long long)dataLength;
+- (BOOL)isReadable;
+- (id)data;
+- (void)dealloc;
+- (id)initWithData:(id)arg1;
 
 @end
 

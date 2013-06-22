@@ -5,7 +5,7 @@
  */
 
 @protocol AKActor
-- (id)send;
 - (id)mailbox;
+- (id)send;
 @end
 

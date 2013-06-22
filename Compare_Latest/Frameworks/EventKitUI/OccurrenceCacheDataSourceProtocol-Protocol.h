@@ -7,34 +7,20 @@
 #import "NSObject-Protocol.h"
 
 @protocol OccurrenceCacheDataSourceProtocol <NSObject>
-- (void)restartSearchWithTerm:(id)arg1;
+- (void)invalidate;
 - (void)stopSearching;
-- (void)startSearching;
-- (struct CalEventOccurrence *)cachedOccurrenceAtIndex:(int)arg1;
-- (int)fixDayIndexToFitInCachedDays:(int)arg1;
-- (int)indexOfFirstCachedOccurrence;
-- (int)dayIndexOfCachedOccurrenceIndex:(int)arg1;
-- (int)dayIndexOfCachedOccurrenceAtIndex:(int)arg1;
-- (int)indexOfLastOccurrenceForDayIndex:(int)arg1;
-- (int)indexOfFirstOccurrenceForDayIndex:(int)arg1;
-- (int)dayCountBeforeDay:(double)arg1;
-- (int)countOfOccurrencesOnDay:(double)arg1;
-- (void)loadOccurrencesForRange:(CDStruct_1ef3fb1f)arg1;
-- (double)dateForDayIndex:(int)arg1;
-- (int)totalOccurrencesCount;
-- (BOOL)dayIndexAlreadyCached:(int)arg1;
-- (int)cachedOccurrenceCountOnOrAfterDate:(double)arg1;
-- (int)cachedOccurrenceCount;
+- (void)searchWithTerm:(id)arg1;
+- (void)fetchDaysInBackgroundStartingFromSection:(int)arg1;
+- (void)invalidateCachedOccurrences;
+- (int)sectionForCachedOccurrencesOnDate:(id)arg1;
+- (id)cachedOccurrenceAtIndexPath:(id)arg1;
+- (id)dateAtDayIndex:(int)arg1;
+- (int)countOfOccurrencesAtDayIndex:(int)arg1;
 - (int)cachedDayCount;
 - (BOOL)cachedOccurrencesAreBeingGenerated;
+- (BOOL)cachedOccurrencesAreLoaded;
 - (BOOL)supportsFakeTodaySection;
 - (BOOL)supportsInvitations;
-- (struct _NSRange)cachedDayRange;
-- (void)setCachedDayRange:(struct _NSRange)arg1;
-- (void)invalidateCachedDays;
-- (void)invalidateCachedDayIndexes;
-- (void)invalidateCachedOccurrences;
-- (void)invalidate;
-- (id)initWithDatabase:(struct CalDatabase *)arg1 filter:(struct CalFilter *)arg2;
+- (id)initWithEventStore:(id)arg1 calendars:(id)arg2;
 @end
 

@@ -12,13 +12,14 @@
     WDIterator *mChildIterator;
 }
 
-- (id)initWithParentIterator:(id)arg1;
-- (void)dealloc;
-- (id)childIteratorFrom:(id)arg1;
-- (id)newChildIteratorFrom:(id)arg1;
-- (BOOL)hasNext;
-- (id)next;
 @property(retain, nonatomic) WDIterator *childIterator; // @synthesize childIterator=mChildIterator;
+- (id)next;
+- (BOOL)hasNext;
+- (id)newChildIteratorFrom:(id)arg1;
+- (id)childIteratorFrom:(id)arg1;
+- (void)dealloc;
+- (id)initWithParentIterator:(id)arg1;
+- (void)incrementChildIterator;
 
 @end
 

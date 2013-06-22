@@ -18,17 +18,17 @@
 }
 
 + (id)activeItem;
-- (id)init;
-- (void)dealloc;
-- (void)didPresentAlertView:(id)arg1;
-- (void)_updateTextView;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)_simStatusChanged:(id)arg1;
-- (void)willActivate;
-- (void)didDeactivateForReason:(int)arg1;
-- (BOOL)forcesModalAlertAppearance;
-- (void)cleanPreviousConfiguration;
 - (BOOL)allowInSetup;
+- (void)cleanPreviousConfiguration;
+- (BOOL)forcesModalAlertAppearance;
+- (void)didDeactivateForReason:(int)arg1;
+- (void)willActivate;
+- (void)_simStatusChanged:(id)arg1;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)_updateTextView;
+- (void)didPresentAlertView:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

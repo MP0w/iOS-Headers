@@ -7,14 +7,14 @@
 #import "MessageTextAttachment.h"
 
 @interface MessageTextAttachment (DisplayableTest)
-- (id)_contentTypeByStrippingZipIfNeeded:(BOOL)arg1;
-- (id)contentType;
-- (id)unzippedContentType;
-- (id)mimeType;
-- (BOOL)_isSinglePagePDFThatIsAllowedToBeInline;
-- (BOOL)isContentOpenable;
-- (BOOL)isContentDownloadable;
-- (BOOL)isDisplayableInsidePlugin;
 - (BOOL)isDisplayableInline;
+- (BOOL)isDisplayableInsidePlugin;
+- (BOOL)isContentDownloadable;
+- (BOOL)isContentOpenable;
+- (BOOL)_isSinglePagePDFThatIsAllowedToBeInline;
+- (id)mimeType;
+- (id)unzippedContentType;
+- (id)contentType;
+- (id)_contentTypeByStrippingZipIfNeeded:(BOOL)arg1;
 @end
 

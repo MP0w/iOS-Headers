@@ -10,10 +10,10 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly) unsigned long long size;
 - (id)type;
+@property(readonly) unsigned long long size;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

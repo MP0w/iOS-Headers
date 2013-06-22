@@ -6,40 +6,54 @@
 
 #import "SBBulletinCellContentViewBase.h"
 
+@class UIView;
+
 @interface SBBulletinCellContentView : SBBulletinCellContentViewBase
 {
-    BOOL _italicizeContent;
+    UIView *_blurView;
+    UIView *_contentView;
     float _shadowBlur;
+    void *_data;
+    unsigned long _dataLength;
     BOOL _buttonsBelowContent;
 }
 
-+ (id)_titleFont:(BOOL)arg1;
-+ (id)_dateFont:(BOOL)arg1;
-+ (id)_subtitleFont:(BOOL)arg1;
-+ (id)_messageFont:(BOOL)arg1;
-+ (id)_attachmentFont:(BOOL)arg1;
-+ (float)heightForBulletinStyleWithSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 contentWidth:(float)arg4 italicize:(BOOL)arg5;
-+ (float)heightForBulletinStyleWithSubtitle:(id)arg1 imageHeight:(float)arg2 italicize:(BOOL)arg3;
 + (float)heightForSystemAlertStyleWithTitle:(id)arg1 maxLines:(unsigned int)arg2 message:(id)arg3 maxLines:(unsigned int)arg4 contentWidth:(float)arg5;
-- (void)setItalicizesContent:(BOOL)arg1;
-- (void)setShadowBlur:(float)arg1;
-- (void)setHasButtonBelow:(BOOL)arg1;
-- (id)_initForLayoutStyle:(int)arg1;
-- (void)_configureLabel:(id)arg1 withFont:(id)arg2 alignment:(int)arg3;
-- (id)_dateFont;
-- (id)_titleFont;
-- (id)_subtitleFont;
-- (id)_messageFont;
-- (id)_attachmentFont;
-- (BOOL)_shouldVerticallyCenterBulletinStyleTitleAndDate;
-- (float)_layoutTitleAtX:(float)arg1 y:(float)arg2;
-- (float)_layoutSubtitleAtX:(float)arg1 y:(float)arg2;
-- (float)_layoutAttachmentImageAtX:(float)arg1 y:(float)arg2;
-- (float)_layoutMessageAtX:(float)arg1 y:(float)arg2;
-- (void)_layoutAttachmentTextAtX:(float)arg1;
-- (void)layoutSubviews;
-- (void)_drawLabel:(id)arg1 inContext:(struct CGContext *)arg2;
++ (float)heightForBulletinStyleWithSubtitle:(id)arg1 imageHeight:(float)arg2;
++ (float)heightForBulletinStyleWithSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 contentWidth:(float)arg4;
++ (id)_attachmentFont;
++ (id)_messageFont;
++ (id)_subtitleFont;
++ (id)_dateFont;
++ (id)_titleFont;
+- (void)displayLayer:(id)arg1;
+- (void)drawInGrayscaleContexts;
+- (void)drawInColorContext;
+- (BOOL)getSourceData:(struct vImage_Buffer *)arg1 dstData:(struct vImage_Buffer *)arg2;
+- (void)setNeedsDisplay;
+- (void)setShadowColor:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)_drawLabel:(id)arg1 inContext:(struct CGContext *)arg2;
+- (void)_drawLabel:(id)arg1 withMetrics:(id)arg2 inContext:(struct CGContext *)arg3;
+- (void)_configureCTMForDrawingLabel:(id)arg1 inContext:(struct CGContext *)arg2;
+- (void)layoutSubviews;
+- (void)_layoutAttachmentTextAtX:(float)arg1;
+- (float)_layoutMessageAtX:(float)arg1 y:(float)arg2;
+- (float)_layoutAttachmentImageAtX:(float)arg1 y:(float)arg2;
+- (float)_layoutSubtitleAtX:(float)arg1 y:(float)arg2;
+- (float)_layoutTitleAtX:(float)arg1 y:(float)arg2;
+- (BOOL)_shouldVerticallyCenterBulletinStyleDate;
+- (BOOL)_shouldVerticallyCenterBulletinStyleTitle;
+- (id)_attachmentFont;
+- (id)_messageFont;
+- (id)_subtitleFont;
+- (id)_titleFont;
+- (id)_dateFont;
+- (void)_configureLabel:(id)arg1 withFont:(id)arg2 color:(id)arg3 alignment:(int)arg4;
+- (void)dealloc;
+- (id)_initForLayoutStyle:(int)arg1;
+- (void)setHasButtonBelow:(BOOL)arg1;
+- (void)setShadowBlur:(float)arg1;
 
 @end
 

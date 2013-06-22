@@ -14,27 +14,27 @@
 }
 
 + (id)defaultSession;
-- (void)updateFromEntity;
-- (void)setStateToEntity;
-- (void)refreshBonjourName;
-- (id)init;
-- (void)dealloc;
-@property(nonatomic, getter=isEnabled) BOOL enabled;
-@property(readonly, nonatomic) unsigned int networkPort;
-@property(readonly, nonatomic) NSString *networkName;
-@property(readonly, nonatomic) NSString *localName;
-@property(nonatomic) unsigned int connectionPolicy;
-- (id)connections;
-- (BOOL)addOrRemoveConnection:(id)arg1 add:(BOOL)arg2;
-- (BOOL)addConnection:(id)arg1;
-- (BOOL)removeConnection:(id)arg1;
-- (id)contacts;
-- (BOOL)addContact:(id)arg1;
-- (BOOL)removeContact:(id)arg1;
-- (void)sessionChanged;
-- (void)contactsChanged;
-- (struct OpaqueMIDIEndpoint *)sourceEndpoint;
 - (struct OpaqueMIDIEndpoint *)destinationEndpoint;
+- (struct OpaqueMIDIEndpoint *)sourceEndpoint;
+- (void)contactsChanged;
+- (void)sessionChanged;
+- (BOOL)removeContact:(id)arg1;
+- (BOOL)addContact:(id)arg1;
+- (id)contacts;
+- (BOOL)removeConnection:(id)arg1;
+- (BOOL)addConnection:(id)arg1;
+- (BOOL)addOrRemoveConnection:(id)arg1 add:(BOOL)arg2;
+- (id)connections;
+@property(nonatomic) unsigned int connectionPolicy;
+@property(readonly, nonatomic) NSString *localName;
+@property(readonly, nonatomic) NSString *networkName;
+@property(readonly, nonatomic) unsigned int networkPort;
+@property(nonatomic, getter=isEnabled) BOOL enabled;
+- (void)dealloc;
+- (id)init;
+- (void)refreshBonjourName;
+- (void)setStateToEntity;
+- (void)updateFromEntity;
 
 @end
 

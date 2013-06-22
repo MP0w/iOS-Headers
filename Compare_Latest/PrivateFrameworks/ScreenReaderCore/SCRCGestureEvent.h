@@ -17,23 +17,23 @@
     struct CGPoint _averageLocation;
 }
 
-- (id)initWithDeviceIdentifier:(unsigned int)arg1;
-- (void)dealloc;
-- (id)description;
-- (unsigned int)deviceIdentifier;
-- (double)time;
-- (void)addFingerWithIdentifier:(unsigned int)arg1 location:(struct CGPoint)arg2;
-- (void)removeFingerWithIdentifier:(unsigned int)arg1;
-- (unsigned int)fingerCount;
-- (id)fingerAtIndex:(unsigned int)arg1;
-- (id)fingerWithIdentifier:(unsigned int)arg1;
-- (id)fingerWithoutIdentifier:(unsigned int)arg1;
-- (id)fingers;
-- (struct CGRect)fingerFrame;
-- (struct CGPoint)averageLocation;
-- (struct CGPoint)balancedLocation;
-- (BOOL)isCancelEvent;
 - (struct CGPoint)magneticLocation;
+- (BOOL)isCancelEvent;
+- (struct CGPoint)balancedLocation;
+- (struct CGPoint)averageLocation;
+- (struct CGRect)fingerFrame;
+- (id)fingers;
+- (id)fingerWithoutIdentifier:(unsigned int)arg1;
+- (id)fingerWithIdentifier:(unsigned int)arg1;
+- (id)fingerAtIndex:(unsigned int)arg1;
+- (unsigned int)fingerCount;
+- (void)removeFingerWithIdentifier:(unsigned int)arg1;
+- (void)addFingerWithIdentifier:(unsigned int)arg1 location:(struct CGPoint)arg2;
+- (double)time;
+- (unsigned int)deviceIdentifier;
+- (id)description;
+- (void)dealloc;
+- (id)initWithDeviceIdentifier:(unsigned int)arg1;
 
 @end
 

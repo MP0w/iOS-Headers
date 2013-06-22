@@ -10,10 +10,22 @@
 {
 }
 
-+ (id)readFromParentXmlNode:(struct _xmlNode *)arg1;
-+ (id)readCustomGeometryFromXmlNode:(struct _xmlNode *)arg1 hasImplicitFormulas:(BOOL)arg2;
-+ (int)shapeTypeForString:(id)arg1;
 + (id)stringForShapeType:(int)arg1;
++ (int)shapeTypeForString:(id)arg1;
++ (id)readCustomGeometryFromXmlNode:(struct _xmlNode *)arg1 hasImplicitFormulas:(BOOL)arg2;
++ (id)readFromParentXmlNode:(struct _xmlNode *)arg1;
++ (id)pathFillModeEnumMap;
++ (id)formulaKeywordEnumMap;
++ (id)formulaTypeEnumMap;
++ (id)shapeTypeEnumMap;
++ (void)readPathsFromCustomGeometryXmlNode:(struct _xmlNode *)arg1 toCustomGeometry:(id)arg2 formulaNameToIndexMap:(id)arg3;
++ (void)readTextRectFromCustomGeometryXmlNode:(struct _xmlNode *)arg1 toCustomGeometry:(id)arg2 formulaNameToIndexMap:(id)arg3;
++ (struct OADAdjustCoord)readAdjustCoordFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2 formulaNameToIndexMap:(id)arg3;
++ (void)addFormulasFromFile:(id)arg1 toCustomGeometry:(id)arg2 formulaNameToIndexMap:(id)arg3;
++ (void)readFormulasFromCustomGeometryXmlNode:(struct _xmlNode *)arg1 toCustomGeometry:(id)arg2 adjustValueNameToIndexMap:(id)arg3 formulaNameToIndexMap:(id)arg4;
++ (void)readAdjustValuesFromCustomGeometryXmlNode:(struct _xmlNode *)arg1 toCustomGeometry:(id)arg2 adjustValueNameToIndexMap:(id)arg3;
++ (id)readPresetGeometryFromXmlNode:(struct _xmlNode *)arg1;
++ (int)adjustValueWithGuideXmlNode:(struct _xmlNode *)arg1;
 
 @end
 

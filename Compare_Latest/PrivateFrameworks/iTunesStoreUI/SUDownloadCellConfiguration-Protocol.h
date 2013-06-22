@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SUDownloadCellConfiguration <NSObject>
+- (BOOL)showProgressBar;
 - (id)newProgressBar;
 - (struct CGRect)frameForProgressBar:(id)arg1;
 @end

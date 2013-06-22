@@ -13,15 +13,15 @@
 {
 }
 
-- (void)drawRect:(struct CGRect)arg1;
-- (void)setDataSource:(id)arg1;
-- (void)dataSourceUpdated:(id)arg1;
-- (void)setNeedsLayout:(BOOL)arg1;
-- (void)layout;
-- (void)viewWillMoveToHostWindow:(id)arg1;
-- (void)viewDidMoveToHostWindow;
-- (id)elementAtPoint:(struct CGPoint)arg1;
 - (id)elementAtPoint:(struct CGPoint)arg1 allowShadowContent:(BOOL)arg2;
+- (id)elementAtPoint:(struct CGPoint)arg1;
+- (void)viewDidMoveToHostWindow;
+- (void)viewWillMoveToHostWindow:(id)arg1;
+- (void)layout;
+- (void)setNeedsLayout:(BOOL)arg1;
+- (void)dataSourceUpdated:(id)arg1;
+- (void)setDataSource:(id)arg1;
+- (void)drawRect:(struct CGRect)arg1;
 
 @end
 

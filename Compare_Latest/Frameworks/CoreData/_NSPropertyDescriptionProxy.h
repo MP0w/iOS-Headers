@@ -17,22 +17,22 @@
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)arg1;
-- (id)initWithPropertyDescription:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)description;
-- (id)_underlyingProperty;
-- (void)_setEntitysReferenceID:(unsigned int)arg1;
-- (unsigned int)_entitysReferenceID;
-- (id)entity;
-- (void)_createCachesAndOptimizeState;
-- (void)_setEntity:(id)arg1;
-- (BOOL)isKindOfClass:(Class)arg1;
-- (void)_versionHash:(char *)arg1;
-- (Class)class;
-- (BOOL)isEqual:(id)arg1;
-- (id)forwardingTargetForSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
+- (id)forwardingTargetForSelector:(SEL)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (Class)class;
+- (void)_versionHash:(char *)arg1 inStyle:(unsigned int)arg2;
+- (BOOL)isKindOfClass:(Class)arg1;
+- (void)_setEntity:(id)arg1;
+- (void)_createCachesAndOptimizeState;
+- (id)entity;
+- (unsigned int)_entitysReferenceID;
+- (void)_setEntitysReferenceID:(unsigned int)arg1;
+- (id)_underlyingProperty;
+- (id)description;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithPropertyDescription:(id)arg1;
 
 @end
 

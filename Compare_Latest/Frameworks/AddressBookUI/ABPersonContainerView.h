@@ -6,15 +6,42 @@
 
 #import "UIView.h"
 
-@class ABPersonTableViewDataSource;
+#import "ABPersonTabsLayoutManager-Protocol.h"
 
-@interface ABPersonContainerView : UIView
+@class ABPersonOverlayingContainerView, ABPersonTableView, ABPersonTableViewDataSource, UIImageView, UIScrollView<ABPersonTabsScrollView>, UISegmentedControl;
+
+@interface ABPersonContainerView : UIView <ABPersonTabsLayoutManager>
 {
+    UISegmentedControl *_contentSwitchingTabs;
+    UIView *_nonScrollableHeaderView;
+    ABPersonTableView *_tableView;
     ABPersonTableViewDataSource *_dataSource;
+    ABPersonOverlayingContainerView *_overlayingContainerView;
+    UIImageView *_contentSwitchingTabsPocketShadow;
+    UIImageView *_contentSwitchingTabsBorder;
+    BOOL _hidesContentSwitchingTabs;
 }
 
-- (void)setFrame:(struct CGRect)arg1;
+@property(nonatomic) BOOL hidesContentSwitchingTabs; // @synthesize hidesContentSwitchingTabs=_hidesContentSwitchingTabs;
+@property(retain, nonatomic) UIImageView *contentSwitchingTabsBorder; // @synthesize contentSwitchingTabsBorder=_contentSwitchingTabsBorder;
+@property(retain, nonatomic) UIImageView *contentSwitchingTabsPocketShadow; // @synthesize contentSwitchingTabsPocketShadow=_contentSwitchingTabsPocketShadow;
+@property(retain, nonatomic) UISegmentedControl *contentSwitchingTabs; // @synthesize contentSwitchingTabs=_contentSwitchingTabs;
+@property(retain, nonatomic) ABPersonOverlayingContainerView *overlayingContainerView; // @synthesize overlayingContainerView=_overlayingContainerView;
 @property(nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
+@property(retain, nonatomic) ABPersonTableView *tableView; // @synthesize tableView=_tableView;
+@property(retain, nonatomic) UIView *nonScrollableHeaderView; // @synthesize nonScrollableHeaderView=_nonScrollableHeaderView;
+- (void)layoutSubviews;
+- (void)restoreTabsPosition:(id)arg1;
+- (id)prepareToRestoreTabsPosition;
+- (void)didChangeContentOffset:(struct CGPoint)arg1 inScrollView:(id)arg2;
+- (void)repositionContentSwitchingTabs;
+- (void)moveContentSwitchingTabsAboveView:(id)arg1 inScrollView:(id)arg2;
+- (float)heightForHeaderAndContentSwitchingTabs;
+- (float)heightNeededForContentSwitchingTabs;
+- (void)setFrame:(struct CGRect)arg1;
+@property(readonly, nonatomic) UIScrollView<ABPersonTabsScrollView> *currentScrollView;
+- (id)viewContainingHeaderView;
+- (void)dealloc;
 
 @end
 

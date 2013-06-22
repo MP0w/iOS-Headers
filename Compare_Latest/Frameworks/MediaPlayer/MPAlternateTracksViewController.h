@@ -34,7 +34,6 @@
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (void)_doneButtonAction:(id)arg1;
 - (void)_cancelButtonAction:(id)arg1;
-- (void)viewDidUnload;
 - (void)loadView;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)willChangeToInterfaceOrientation:(int)arg1;

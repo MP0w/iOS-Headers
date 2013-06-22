@@ -13,8 +13,9 @@
 {
 }
 
+- (BOOL)isDynamicForEntityClass:(Class)arg1;
 - (id)SQLForEntityClass:(Class)arg1;
-- (void)bindToSqlite3Statement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
+- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)SQLJoinClausesForClass:(Class)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

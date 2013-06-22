@@ -17,13 +17,12 @@
     int _orientation;
 }
 
-+ (id)_pathForCachedBackgroundTile;
-+ (id)_backgroundTileImage;
-+ (void)setupCache;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)configureForOrientation:(int)arg1;
++ (id)backgroundImage;
++ (void)load;
 - (void)layoutSubviews;
+- (void)configureForOrientation:(int)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

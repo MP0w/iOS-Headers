@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class SKPaymentQueueClient, SKXPCConnection;
 
 @interface SKRequestInternal : NSObject
 {
     int _backgroundTaskIdentifier;
+    SKPaymentQueueClient *_client;
+    SKXPCConnection *_connection;
     id <SKRequestDelegate> _delegate;
-    NSString *_identifier;
     int _state;
 }
 

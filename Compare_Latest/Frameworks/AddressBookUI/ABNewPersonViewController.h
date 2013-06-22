@@ -6,7 +6,7 @@
 
 #import "UIViewController.h"
 
-@class ABGroupWrapper, ABPersonViewControllerHelper;
+@class ABContactsFilter, ABPersonTableViewDataSource, ABPersonViewControllerHelper, _UIAccessDeniedView;
 
 @interface ABNewPersonViewController : UIViewController
 {
@@ -14,45 +14,54 @@
     id _parentGroup;
     id _helper;
     void *_recordForNewPerson;
+    ABPersonTableViewDataSource *_dataSource;
+    _UIAccessDeniedView *_accessDeniedView;
+    BOOL _isRealViewLoaded;
 }
 
-@property(readonly, nonatomic) ABPersonViewControllerHelper *helper;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2 style:(int)arg3;
-- (id)init;
-- (id)initWithStyle:(int)arg1;
-- (void)dealloc;
-@property(nonatomic) id <ABNewPersonViewControllerDelegate> newPersonViewDelegate;
-@property(nonatomic) void *addressBook;
-@property(retain, nonatomic) id <ABStyleProvider> styleProvider;
-@property(nonatomic) void *displayedPerson;
-@property(nonatomic) void *parentGroup;
-@property(retain, nonatomic) ABGroupWrapper *parentGroupWrapper;
-@property(nonatomic) BOOL showsCancelButton;
-@property(nonatomic) BOOL savesNewContactOnSuspend;
-- (void)savePerson:(void *)arg1;
-- (void)saveAndTellDelegate:(BOOL)arg1;
-- (void)cancel:(id)arg1;
-- (void)attemptSaveAndTellDelegate:(BOOL)arg1;
-- (void)save:(id)arg1;
-- (float)ab_heightToFitForViewInPopoverView;
-- (void)viewDidLoad;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-@property(readonly, nonatomic) void *recordForNewPerson;
-- (void)updateNavigationButtons;
-- (void)loadView;
-- (void)viewDidUnload;
-- (BOOL)_allowsAutorotation;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)applicationWillSuspend;
-- (void)applicationWillTerminate:(id)arg1;
-- (void)applicationDidResume;
+@property(nonatomic) BOOL isRealViewLoaded; // @synthesize isRealViewLoaded=_isRealViewLoaded;
+@property(readonly, nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
+@property(retain, nonatomic) ABContactsFilter *parentContactsFilter; // @synthesize parentContactsFilter=_parentGroup;
+- (void)accessChanged;
 - (int)abViewControllerType;
+- (void)applicationDidResume;
+- (void)applicationWillTerminate:(id)arg1;
+- (void)applicationWillSuspend;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
+- (BOOL)_allowsAutorotation;
+- (void)viewDidUnload;
+- (void)loadView;
+@property(readonly, nonatomic) _UIAccessDeniedView *accessDeniedView; // @synthesize accessDeniedView=_accessDeniedView;
+- (void)updateNavigationButtons;
+@property(readonly, nonatomic) void *recordForNewPerson;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)viewDidLoad;
+- (float)ab_heightToFitForViewInPopoverView;
+- (void)save:(id)arg1;
+- (void)attemptSaveAndTellDelegate:(BOOL)arg1;
+- (void)cancel:(id)arg1;
+- (void)saveAndTellDelegate:(BOOL)arg1;
+- (void)savePerson:(void *)arg1;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
+@property(nonatomic) BOOL savesNewContactOnSuspend;
+@property(nonatomic) BOOL showsCancelButton;
+@property(nonatomic) void *parentGroup;
+@property(nonatomic) void *displayedPerson;
+@property(retain, nonatomic) id <ABStyleProvider> styleProvider;
+@property(nonatomic) void *addressBook;
+@property(nonatomic) id <ABNewPersonViewControllerDelegate> newPersonViewDelegate;
+- (void)dealloc;
+- (id)initWithStyle:(int)arg1;
+- (id)init;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2 style:(int)arg3;
+@property(readonly, nonatomic) ABPersonViewControllerHelper *helper;
 
 @end
 

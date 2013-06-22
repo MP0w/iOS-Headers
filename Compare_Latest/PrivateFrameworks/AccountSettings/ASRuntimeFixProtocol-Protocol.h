@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol ASRuntimeFixProtocol <NSObject>
-- (int)fixBasicAccountIfNeeded:(id)arg1 loggingMessage:(id)arg2;
-- (void)accountsHaveBeenSaved:(BOOL)arg1;
 - (id)supportedAccountTypes;
+- (void)accountsHaveBeenSaved:(BOOL)arg1;
+- (int)fixBasicAccountIfNeeded:(id)arg1 loggingMessage:(id)arg2;
 @end
 

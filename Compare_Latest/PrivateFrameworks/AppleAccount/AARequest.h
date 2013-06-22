@@ -12,17 +12,21 @@
 {
     NSString *_urlString;
     BOOL _flushCache;
+    struct OpaqueCFHTTPCookieStorage *_cookieStorage;
 }
 
 + (id)protocolVersion;
 + (Class)responseClass;
 @property(nonatomic) BOOL flushCache; // @synthesize flushCache=_flushCache;
+- (void).cxx_destruct;
+- (id)redactedBodyStringWithPropertyList:(id)arg1;
 - (void)dealloc;
 - (void)performRequestWithHandler:(id)arg1;
 - (id)bodyDictionary;
 - (id)urlCredential;
 @property(readonly) NSURLRequest *urlRequest;
 - (id)urlString;
+- (void)setCookieStorage:(struct OpaqueCFHTTPCookieStorage *)arg1;
 - (id)initWithURLString:(id)arg1;
 
 @end

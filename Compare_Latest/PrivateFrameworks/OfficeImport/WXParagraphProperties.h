@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)initialize;
 + (void)readFrom:(struct _xmlNode *)arg1 to:(id)arg2 readBaseStyle:(BOOL)arg3 state:(id)arg4;
++ (void)initialize;
 
 @end
 

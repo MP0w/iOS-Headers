@@ -13,15 +13,15 @@
     int mBuildStep;
 }
 
-- (id)init;
-- (int)catagoryIndex;
-- (void)setCatagoryIndex:(int)arg1;
-- (int)seriesIndex;
-- (void)setSeriesIndex:(int)arg1;
-- (int)buildStep;
-- (void)setBuildStep:(int)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setBuildStep:(int)arg1;
+- (int)buildStep;
+- (void)setSeriesIndex:(int)arg1;
+- (int)seriesIndex;
+- (void)setCatagoryIndex:(int)arg1;
+- (int)catagoryIndex;
+- (id)init;
 
 @end
 

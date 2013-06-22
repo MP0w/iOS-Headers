@@ -11,8 +11,8 @@
     BOOL mStartsVertical;
 }
 
-- (id)initWithToPoint:(struct OADAdjustPoint)arg1 startsVertical:(BOOL)arg2;
 - (BOOL)startsVertical;
+- (id)initWithToPoint:(struct OADAdjustPoint)arg1 startsVertical:(BOOL)arg2;
 
 @end
 

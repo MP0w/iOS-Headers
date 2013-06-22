@@ -11,6 +11,7 @@
 }
 
 + (id)readFrom:(struct _xmlNode *)arg1 state:(id)arg2;
++ (BOOL)isAxisElement:(struct _xmlNode *)arg1;
 
 @end
 

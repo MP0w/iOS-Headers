@@ -14,11 +14,13 @@
 
 
 // Remaining properties
+@property(retain, nonatomic) NSDate *acknowledgedDate; // @dynamic acknowledgedDate;
 @property(retain, nonatomic) NSNumber *alarmID; // @dynamic alarmID;
 @property(retain, nonatomic) NSNumber *allDay; // @dynamic allDay;
 @property(retain, nonatomic) NSDate *entityDate; // @dynamic entityDate;
 @property(retain, nonatomic) NSNumber *entityID; // @dynamic entityID;
 @property(retain, nonatomic) NSString *entityTimeZone; // @dynamic entityTimeZone;
+@property(retain, nonatomic) NSString *externalID; // @dynamic externalID;
 @property(retain, nonatomic) NSDate *fireTime; // @dynamic fireTime;
 @end
 

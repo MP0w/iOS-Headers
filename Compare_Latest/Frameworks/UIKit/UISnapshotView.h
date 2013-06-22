@@ -6,9 +6,11 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, UIColor;
+#import "UIStatusBarTinting-Protocol.h"
 
-@interface UISnapshotView : UIView
+@class NSMutableArray, UIColor, UIImageView;
+
+@interface UISnapshotView : UIView <UIStatusBarTinting>
 {
     struct CGSize _contentSize;
     struct UIEdgeInsets _contentBeyondBounds;
@@ -19,10 +21,14 @@
     UIView *_imageView;
     NSMutableArray *_edgePaddingViews;
     struct CGRect _snapshotRect;
+    UIImageView *_shadowView;
     unsigned int _disableEdgeAntialiasing:1;
     unsigned int _disableVerticalStretch:1;
+    UIColor *_statusBarTintColor;
 }
 
+@property(retain, nonatomic, setter=_setStatusBarTintColor:) UIColor *_statusBarTintColor; // @synthesize _statusBarTintColor;
+@property(retain, nonatomic) UIImageView *shadowView; // @synthesize shadowView=_shadowView;
 @property(retain, nonatomic) UIColor *edgePaddingColor; // @synthesize edgePaddingColor=_edgePaddingColor;
 @property(nonatomic, getter=_contentOffset, setter=_setContentOffset:) struct CGPoint contentOffset; // @synthesize contentOffset=_contentOffset;
 @property(readonly, nonatomic, getter=_contentSize) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
@@ -38,6 +44,7 @@
 - (void)layoutSubviews;
 - (void)_updateContentsRect;
 - (void)_positionImageView;
+- (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (void)setContentStretch:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;

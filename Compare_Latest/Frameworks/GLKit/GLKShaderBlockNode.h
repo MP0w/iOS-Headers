@@ -35,6 +35,7 @@
 + (void)buildUnrollNodeArray:(id)arg1 array:(id)arg2;
 + (void)setMasksWithRoot:(id)arg1 treeRoot:(id)arg2 mask:(struct GLKBigInt_s *)arg3;
 + (struct GLKBigInt_s)maskForLabel:(id)arg1 root:(id)arg2 index:(int)arg3;
++ (id)copyTreeWithRootButNotSiblings:(id)arg1 parent:(id)arg2;
 + (id)copyTreeWithRoot:(id)arg1 parent:(id)arg2;
 @property(nonatomic) BOOL indexedMask; // @synthesize indexedMask=_indexedMask;
 @property(nonatomic) unsigned int index; // @synthesize index=_index;

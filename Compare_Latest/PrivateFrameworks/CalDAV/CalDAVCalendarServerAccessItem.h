@@ -13,13 +13,13 @@
     CoreDAVItemWithNoChildren *_accessLevel;
 }
 
-- (id)init;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (id)initWithAccess:(int)arg1;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
 @property(retain) CoreDAVItemWithNoChildren *accessLevel; // @synthesize accessLevel=_accessLevel;
+- (id)copyParseRules;
+- (id)description;
+- (void)dealloc;
+- (id)initWithAccess:(int)arg1;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (id)init;
 
 @end
 

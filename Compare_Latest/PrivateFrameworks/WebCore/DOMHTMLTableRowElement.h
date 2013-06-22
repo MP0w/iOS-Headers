@@ -12,16 +12,16 @@
 {
 }
 
-@property(readonly) int rowIndex;
-@property(readonly) int sectionRowIndex;
-@property(readonly, retain) DOMHTMLCollection *cells;
-@property(copy) NSString *align;
-@property(copy) NSString *bgColor;
-@property(copy) NSString *ch;
-@property(copy) NSString *chOff;
-@property(copy) NSString *vAlign;
-- (id)insertCell:(int)arg1;
 - (void)deleteCell:(int)arg1;
+- (id)insertCell:(int)arg1;
+@property(copy) NSString *vAlign;
+@property(copy) NSString *chOff;
+@property(copy) NSString *ch;
+@property(copy) NSString *bgColor;
+@property(copy) NSString *align;
+@property(readonly) DOMHTMLCollection *cells;
+@property(readonly) int sectionRowIndex;
+@property(readonly) int rowIndex;
 
 @end
 

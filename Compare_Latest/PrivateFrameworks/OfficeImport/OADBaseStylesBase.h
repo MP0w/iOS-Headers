@@ -15,10 +15,10 @@
     OADFontScheme *mFontScheme;
 }
 
-- (void)dealloc;
-- (id)colorScheme;
-- (id)styleMatrix;
 @property(retain, nonatomic) OADFontScheme *fontScheme; // @synthesize fontScheme=mFontScheme;
+- (id)styleMatrix;
+- (id)colorScheme;
+- (void)dealloc;
 
 @end
 

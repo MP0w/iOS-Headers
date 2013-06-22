@@ -15,11 +15,11 @@
 }
 
 + (float)defaultHeight;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)setGapRect:(struct CGRect)arg1;
-- (void)setFrame:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setGapRect:(struct CGRect)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

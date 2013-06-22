@@ -7,9 +7,9 @@
 #import "NSString.h"
 
 @interface NSString (DAVExtensions)
-- (id)stringByXMLUnquoting;
-- (id)stringByURLQuotingPaths;
-- (id)stringByURLQuoting;
 - (id)stringByURLUnquoting;
+- (id)stringByURLQuoting;
+- (id)stringByURLQuotingPaths;
+- (id)stringByXMLUnquoting;
 @end
 

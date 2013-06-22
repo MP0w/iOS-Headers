@@ -16,20 +16,20 @@
     int mBaseTimeUnit;
 }
 
-- (id)initWithResources:(id)arg1;
-- (_Bool)isDate;
-- (_Bool)isAutomatic;
-- (void)setAutomatic:(_Bool)arg1;
-- (double)majorUnitValue;
-- (void)setMajorUnitValue:(double)arg1;
-- (double)minorUnitValue;
-- (void)setMinorUnitValue:(double)arg1;
-- (int)majorTimeUnit;
-- (void)setMajorTimeUnit:(int)arg1;
-- (int)minorTimeUnit;
-- (void)setMinorTimeUnit:(int)arg1;
-- (int)baseTimeUnit;
 - (void)setBaseTimeUnit:(int)arg1;
+- (int)baseTimeUnit;
+- (void)setMinorTimeUnit:(int)arg1;
+- (int)minorTimeUnit;
+- (void)setMajorTimeUnit:(int)arg1;
+- (int)majorTimeUnit;
+- (void)setMinorUnitValue:(double)arg1;
+- (double)minorUnitValue;
+- (void)setMajorUnitValue:(double)arg1;
+- (double)majorUnitValue;
+- (void)setAutomatic:(_Bool)arg1;
+- (_Bool)isAutomatic;
+- (_Bool)isDate;
+- (id)initWithResources:(id)arg1;
 
 @end
 

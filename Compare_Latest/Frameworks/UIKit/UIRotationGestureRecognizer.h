@@ -20,14 +20,21 @@
     struct CGPoint _anchorPoint;
     id _transformAnalyzer;
     UITouch *_touches[2];
+    float _preRecognitionWeight;
+    float _postRecognitionWeight;
 }
 
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (float)_postRecognitionWeight;
+- (void)_setPostRecognitionWeight:(float)arg1;
+- (float)_preRecognitionWeight;
+- (void)_setPreRecognitionWeight:(float)arg1;
 @property(readonly, nonatomic) float velocity;
 @property(nonatomic) float rotation;
+- (void)_updateTransformAnalyzerWeights;
 - (struct CGPoint)anchorPoint;
 - (void)_resetGestureRecognizer;
 - (void)dealloc;

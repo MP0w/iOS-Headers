@@ -12,19 +12,19 @@
 {
 }
 
-@property BOOL autofocus;
-@property(copy) NSString *challenge;
-@property BOOL disabled;
-@property(readonly, retain) DOMHTMLFormElement *form;
-@property(copy) NSString *keytype;
-@property(copy) NSString *name;
-@property(readonly, copy) NSString *type;
-@property(readonly) BOOL willValidate;
-@property(readonly, retain) DOMValidityState *validity;
-@property(readonly, copy) NSString *validationMessage;
-@property(readonly, retain) DOMNodeList *labels;
-- (BOOL)checkValidity;
 - (void)setCustomValidity:(id)arg1;
+- (BOOL)checkValidity;
+@property(readonly) DOMNodeList *labels;
+@property(readonly) NSString *validationMessage;
+@property(readonly) DOMValidityState *validity;
+@property(readonly) BOOL willValidate;
+@property(readonly) NSString *type;
+@property(copy) NSString *name;
+@property(copy) NSString *keytype;
+@property(readonly) DOMHTMLFormElement *form;
+@property BOOL disabled;
+@property(copy) NSString *challenge;
+@property BOOL autofocus;
 
 @end
 

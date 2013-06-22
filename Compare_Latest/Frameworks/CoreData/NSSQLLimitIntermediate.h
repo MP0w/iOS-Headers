@@ -11,8 +11,8 @@
     unsigned int _limit;
 }
 
-- (id)initWithLimit:(unsigned int)arg1 inScope:(id)arg2;
 - (id)generateSQLStringInContext:(id)arg1;
+- (id)initWithLimit:(unsigned int)arg1 inScope:(id)arg2;
 
 @end
 

@@ -13,11 +13,11 @@
 }
 
 + (id)defaultProperties;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithDefaults;
-- (float)limit;
-- (void)setLimit:(float)arg1;
 - (BOOL)isLimitOverridden;
+- (void)setLimit:(float)arg1;
+- (float)limit;
+- (id)initWithDefaults;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

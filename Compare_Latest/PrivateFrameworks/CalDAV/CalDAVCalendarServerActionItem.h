@@ -16,15 +16,15 @@
     CalDAVCalendarServerReplyItem *_reply;
 }
 
-- (id)init;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
 @property(retain) CalDAVCalendarServerCancelItem *cancel; // @synthesize cancel=_cancel;
 @property(retain) CalDAVCalendarServerReplyItem *reply; // @synthesize reply=_reply;
 @property(retain) CalDAVCalendarServerUpdateItem *update; // @synthesize update=_update;
 @property(retain) CoreDAVItemWithNoChildren *create; // @synthesize create=_create;
+- (id)copyParseRules;
+- (id)description;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (id)init;
 
 @end
 

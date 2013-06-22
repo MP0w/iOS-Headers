@@ -6,25 +6,11 @@
 
 #import <GeoServices/GEOTileCache.h>
 
-#import "NSCacheDelegate-Protocol.h"
-
-@class NSRecursiveLock;
-
-@interface GEOExpiringTileCache : GEOTileCache <NSCacheDelegate>
+@interface GEOExpiringTileCache : GEOTileCache
 {
-    NSRecursiveLock *_entryLock;
-    void *_head;
-    void *_tail;
 }
 
-- (void)removeAllObjects;
-- (void)setTile:(id)arg1 forKey:(const struct _GEOTileKey *)arg2 cost:(unsigned int)arg3;
-- (id)tileForKey:(const struct _GEOTileKey *)arg1;
 - (id)expireTilesWithType:(unsigned char)arg1 provider:(unsigned short)arg2 olderThan:(double)arg3;
-- (void)willEvictObject:(id)arg1;
-- (void)dealloc;
-- (void)_removeAllEntries;
-- (id)init;
 
 @end
 

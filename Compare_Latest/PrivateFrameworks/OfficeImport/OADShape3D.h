@@ -23,27 +23,27 @@
 }
 
 + (id)nullShape3D;
-- (id)init;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)topBevel;
-- (void)setTopBevel:(id)arg1;
-- (id)bottomBevel;
-- (void)setBottomBevel:(id)arg1;
-- (id)extrusionColor;
-- (void)setExtrusionColor:(id)arg1;
-- (float)extrusionHeight;
-- (void)setExtrusionHeight:(float)arg1;
-- (id)contourColor;
-- (void)setContourColor:(id)arg1;
-- (float)contourWidth;
-- (void)setContourWidth:(float)arg1;
-- (float)shapeDepth;
-- (void)setShapeDepth:(float)arg1;
-- (int)material;
-- (void)setMaterial:(int)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setMaterial:(int)arg1;
+- (int)material;
+- (void)setShapeDepth:(float)arg1;
+- (float)shapeDepth;
+- (void)setContourWidth:(float)arg1;
+- (float)contourWidth;
+- (void)setContourColor:(id)arg1;
+- (id)contourColor;
+- (void)setExtrusionHeight:(float)arg1;
+- (float)extrusionHeight;
+- (void)setExtrusionColor:(id)arg1;
+- (id)extrusionColor;
+- (void)setBottomBevel:(id)arg1;
+- (id)bottomBevel;
+- (void)setTopBevel:(id)arg1;
+- (id)topBevel;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -13,9 +13,9 @@
 }
 
 + (id)targetSelectorWithTarget:(id)arg1 selector:(SEL)arg2;
-- (id)initWithTarget:(id)arg1 selector:(SEL)arg2;
-- (id)target;
 - (SEL)selector;
+- (id)target;
+- (id)initWithTarget:(id)arg1 selector:(SEL)arg2;
 
 @end
 

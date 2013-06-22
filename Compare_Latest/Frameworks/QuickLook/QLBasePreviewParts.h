@@ -10,10 +10,10 @@
 {
 }
 
-+ (BOOL)canConvertDocumentType:(id)arg1;
-+ (BOOL)isBundleURL:(id)arg1;
-+ (void *)urlCallbackForUTI:(id)arg1;
 + (void *)dataCallbackForUTI:(id)arg1 andSize:(unsigned int)arg2;
++ (void *)urlCallbackForUTI:(id)arg1;
++ (BOOL)isBundleURL:(id)arg1;
++ (BOOL)canConvertDocumentType:(id)arg1;
 - (void)computePreview;
 
 @end

@@ -14,12 +14,13 @@
 }
 
 @property(copy, nonatomic) NSString *property; // @synthesize property=_property;
+- (void).cxx_destruct;
+- (BOOL)isDynamicForEntityClass:(Class)arg1;
 - (id)SQLJoinClausesForClass:(Class)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithProperty:(id)arg1;
 
 @end

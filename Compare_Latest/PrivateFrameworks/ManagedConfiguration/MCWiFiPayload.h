@@ -32,20 +32,8 @@
     NSString *_proxyUsername;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (BOOL)_configIsValid:(id)arg1 error:(id *)arg2;
-- (id)_eapUsernameFromConfig:(id)arg1 isRequired:(char *)arg2;
-- (id)_eapPasswordFromConfig:(id)arg1 isRequired:(char *)arg2;
-- (BOOL)_isEAPSIMConfig:(id)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (id)stubDictionary;
-- (id)subtitle1Label;
-- (id)subtitle1Description;
-- (id)subtitle2Label;
-- (id)subtitle2Description;
-- (id)description;
++ (id)typeStrings;
 @property(retain, nonatomic) NSString *credentialUUID; // @synthesize credentialUUID=_credentialUUID;
 @property(readonly, nonatomic) NSString *proxyPACURLString; // @synthesize proxyPACURLString=_proxyPACURLString;
 @property(readonly, nonatomic) NSString *proxyPassword; // @synthesize proxyPassword=_proxyPassword;
@@ -66,6 +54,18 @@
 @property(readonly, nonatomic) NSString *encryptionType; // @synthesize encryptionType=_encryptionType;
 @property(readonly, nonatomic) BOOL isHidden; // @synthesize isHidden=_hidden;
 @property(readonly, nonatomic) NSString *ssid; // @synthesize ssid=_ssid;
+- (void).cxx_destruct;
+- (id)description;
+- (id)subtitle2Description;
+- (id)subtitle2Label;
+- (id)subtitle1Description;
+- (id)subtitle1Label;
+- (id)stubDictionary;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
+- (BOOL)_isEAPSIMConfig:(id)arg1;
+- (id)_eapPasswordFromConfig:(id)arg1 isRequired:(char *)arg2;
+- (id)_eapUsernameFromConfig:(id)arg1 isRequired:(char *)arg2;
+- (BOOL)_configIsValid:(id)arg1 error:(id *)arg2;
 
 @end
 

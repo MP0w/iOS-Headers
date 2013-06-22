@@ -7,12 +7,12 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebDocumentRepresentation <NSObject>
-- (void)setDataSource:(id)arg1;
-- (void)receivedData:(id)arg1 withDataSource:(id)arg2;
-- (void)receivedError:(id)arg1 withDataSource:(id)arg2;
-- (void)finishedLoadingWithDataSource:(id)arg1;
-- (BOOL)canProvideDocumentSource;
-- (id)documentSource;
 - (id)title;
+- (id)documentSource;
+- (BOOL)canProvideDocumentSource;
+- (void)finishedLoadingWithDataSource:(id)arg1;
+- (void)receivedError:(id)arg1 withDataSource:(id)arg2;
+- (void)receivedData:(id)arg1 withDataSource:(id)arg2;
+- (void)setDataSource:(id)arg1;
 @end
 

@@ -18,6 +18,7 @@
 + (id)dataWithBytes:(const void *)arg1 length:(unsigned int)arg2;
 + (id)data;
 + (id)allocWithZone:(struct _NSZone *)arg1;
++ (BOOL)supportsSecureCoding;
 - (id)base64Encoding;
 - (id)initWithBase64Encoding:(id)arg1;
 - (struct _NSRange)rangeOfData:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
@@ -44,6 +45,7 @@
 - (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
 - (void)getBytes:(void *)arg1;
 - (BOOL)_bytesAreVM;
+- (BOOL)_allowsDirectEncoding;
 - (Class)classForCoder;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

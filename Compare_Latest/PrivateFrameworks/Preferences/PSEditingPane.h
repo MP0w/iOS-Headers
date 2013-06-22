@@ -17,29 +17,29 @@
     UIView *_pinstripeView;
 }
 
-+ (id)defaultBackgroundColor;
 + (float)preferredHeight;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (struct CGRect)contentRect;
-- (void)dealloc;
-- (void)setDelegate:(id)arg1;
-- (void)setPreferenceSpecifier:(id)arg1;
-- (id)preferenceSpecifier;
-- (void)setPreferenceValue:(id)arg1;
-- (id)preferenceValue;
-- (BOOL)requiresKeyboard;
-@property(nonatomic) struct CGRect pinstripeRect;
-- (id)specifierLabel;
-- (BOOL)wantsNewButton;
-- (void)viewDidBecomeVisible;
-- (void)addNewValue;
-- (void)editMode;
-- (void)doneEditing;
-- (BOOL)handlesDoneButton;
-- (BOOL)changed;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
++ (id)defaultBackgroundColor;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (BOOL)changed;
+- (BOOL)handlesDoneButton;
+- (void)doneEditing;
+- (void)editMode;
+- (void)addNewValue;
+- (void)viewDidBecomeVisible;
+- (BOOL)wantsNewButton;
+- (id)specifierLabel;
+@property(nonatomic) struct CGRect pinstripeRect;
+- (BOOL)requiresKeyboard;
+- (id)preferenceValue;
+- (void)setPreferenceValue:(id)arg1;
+- (id)preferenceSpecifier;
+- (void)setPreferenceSpecifier:(id)arg1;
+- (void)setDelegate:(id)arg1;
+- (void)dealloc;
+- (struct CGRect)contentRect;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

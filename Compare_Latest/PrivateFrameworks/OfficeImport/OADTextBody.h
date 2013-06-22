@@ -15,22 +15,24 @@
     OADTextListStyle *mTextListStyle;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)properties;
-- (void)setProperties:(id)arg1;
-- (unsigned int)paragraphCount;
-- (id)paragraphAtIndex:(unsigned int)arg1;
-- (id)addParagraph;
-- (void)removeAllParagraphs;
-- (id)textListStyle;
-- (id)overrideTextListStyle;
-- (void)applyTextListStyle:(id)arg1;
-- (void)setParentTextListStyle:(id)arg1;
-- (void)removeTrailingNewlines;
-- (BOOL)isEmpty;
-- (void)flattenProperties;
 - (void)removeUnnecessaryOverrides;
+- (void)flattenProperties;
+- (BOOL)isEmpty;
+- (void)removeTrailingNewlines;
+- (void)setParentTextListStyle:(id)arg1;
+- (void)applyTextListStyle:(id)arg1;
+- (id)overrideTextListStyle;
+- (id)textListStyle;
+- (void)removeAllParagraphs;
+- (id)addParagraph;
+- (id)paragraphAtIndex:(unsigned int)arg1;
+- (unsigned int)paragraphCount;
+- (void)setProperties:(id)arg1;
+- (id)properties;
+- (void)dealloc;
+- (id)init;
+- (id)findFirstTextRunOfClass:(Class)arg1;
+- (void)addParagraphsFromTextBody:(id)arg1;
 - (id)plainText;
 
 @end

@@ -8,6 +8,7 @@
 
 @interface UIColor (MKAdditions)
 + (id)_mapkit_userLocationAccuracyRingFillColor;
++ (id)_mapkit_userLocationAccuracyRingStrokeColorSatellite;
 + (id)_mapkit_userLocationAccuracyRingStrokeColor;
 @end
 

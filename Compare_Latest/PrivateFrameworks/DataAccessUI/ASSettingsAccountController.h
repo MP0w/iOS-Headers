@@ -6,15 +6,11 @@
 
 #import <DataAccessUI/DASettingsAccountController.h>
 
-@class NSArray;
-
 @interface ASSettingsAccountController : DASettingsAccountController
 {
-    NSArray *_specifiersToInsert;
     unsigned int _diagsVisibleValue;
 }
 
-- (void)dealloc;
 - (id)localizedAccountTitleString;
 - (id)localizedAccountSetupTitleString;
 - (id)localizedDisablingAccountString;
@@ -33,6 +29,7 @@
 - (void)finishedAccountSetup;
 - (void)account:(id)arg1 isValid:(BOOL)arg2 validationError:(id)arg3;
 - (void)account:(id)arg1 wasAutoDiscovered:(BOOL)arg2 error:(id)arg3;
+- (void)_faultInPostAutoDiscoverSpecifiers;
 - (BOOL)autodiscoverAccount;
 - (BOOL)validateAccount;
 - (id)accountSpecifiers;

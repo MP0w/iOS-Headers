@@ -19,16 +19,23 @@
     double mTint;
 }
 
-+ (id)colorReferenceWithResources:(id)arg1;
 + (id)colorReferenceWithColor:(id)arg1 resources:(id)arg2;
-- (id)initWithResources:(id)arg1;
-- (id)initWithColor:(id)arg1 resources:(id)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToColorReference:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)color;
++ (id)colorReferenceWithResources:(id)arg1;
++ (id)colorReferenceWithXlThemeIndex:(unsigned int)arg1 tint:(double)arg2 resources:(id)arg3;
++ (id)colorReferenceWithColorIndex:(unsigned int)arg1 resources:(id)arg2;
++ (id)colorReferenceWithSystemColorID:(int)arg1 resources:(id)arg2;
 - (_Bool)isValid;
+- (id)color;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToColorReference:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithColor:(id)arg1 resources:(id)arg2;
+- (id)initWithResources:(id)arg1;
+- (double)tint;
+- (unsigned int)themeIndex;
+- (unsigned int)colorIndex;
+- (int)systemColorID;
 
 @end
 

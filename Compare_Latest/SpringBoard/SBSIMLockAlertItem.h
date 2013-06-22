@@ -13,26 +13,25 @@
     int _unlockButtonIndex;
 }
 
-+ (id)alertTitleForStatus:(int)arg1 languageCode:(id)arg2;
 + (id)alertTitleForStatus:(int)arg1;
-- (id)initWithStatus:(int)arg1;
-- (void)_resetButtonIndexes;
-- (void)dealloc;
-- (BOOL)canUnlock;
-- (id)alertTitleForLanguageCode:(id)arg1;
-- (id)alertTextForLanguageCode:(id)arg1;
-- (int)status;
-- (void)didDeactivateForReason:(int)arg1;
-- (void)unlock;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)performUnlockAction;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (id)lockLabel;
-- (BOOL)forcesModalAlertAppearance;
-- (BOOL)allowInSetup;
-- (BOOL)pendInSetupIfNotAllowed;
-- (BOOL)reappearsAfterUnlock;
++ (id)alertTitleForStatus:(int)arg1 languageCode:(id)arg2;
 - (BOOL)reappearsAfterLock;
+- (BOOL)reappearsAfterUnlock;
+- (BOOL)pendInSetupIfNotAllowed;
+- (BOOL)allowInSetup;
+- (BOOL)forcesModalAlertAppearance;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)performUnlockAction;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)unlock;
+- (void)didDeactivateForReason:(int)arg1;
+- (int)status;
+- (id)alertTextForLanguageCode:(id)arg1;
+- (id)alertTitleForLanguageCode:(id)arg1;
+- (BOOL)canUnlock;
+- (void)dealloc;
+- (void)_resetButtonIndexes;
+- (id)initWithStatus:(int)arg1;
 
 @end
 

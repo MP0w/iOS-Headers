@@ -6,18 +6,15 @@
 
 #import "NSObject.h"
 
-@class PBStreamReader;
+@class NSInputStream;
 
 @interface PBMessageStreamReader : NSObject
 {
-    PBStreamReader *_reader;
+    NSInputStream *_stream;
     Class _classOfNextMessage;
-    id <PBMessageStreamDelegate> _delegate;
 }
 
 @property Class classOfNextMessage; // @synthesize classOfNextMessage=_classOfNextMessage;
-@property(retain) id <PBMessageStreamDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain) PBStreamReader *reader; // @synthesize reader=_reader;
 - (id)nextMessage;
 - (void)dealloc;
 - (id)initWithStream:(id)arg1;

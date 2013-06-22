@@ -38,6 +38,9 @@
 - (void)accelerometer:(id)arg1 didAccelerateWithTimeStamp:(double)arg2 x:(float)arg3 y:(float)arg4 z:(float)arg5 eventType:(int)arg6;
 - (void)_idleTimerFired;
 - (void)_accelerometerDidDetectMovementWithTimestamp:(double)arg1;
+- (BOOL)_isDetectingMotionEvents;
+- (BOOL)_detectWhenNotActive;
+- (void)_updateAccelerometerEnabled;
 - (void)_willSuspend;
 - (void)_willResume;
 - (id)description;

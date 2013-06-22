@@ -14,15 +14,12 @@
         unsigned short buffer[64];
         struct __CFString *theString;
         unsigned short *directBuffer;
-        struct {
-            int location;
-            int length;
-        } rangeToBuffer;
+        CDStruct_dff5684f rangeToBuffer;
         int bufferedRangeStart;
         int bufferedRangeEnd;
     } _inputBuffer;
-    int _currentIndex;
-    int _inputLength;
+    long _currentIndex;
+    long _inputLength;
     unsigned int _noFillLevel:30;
     unsigned int _eatOneNewline:1;
     unsigned int _insideComment:1;
@@ -36,26 +33,26 @@
     float _indentWidth;
 }
 
-+ (struct __CFCharacterSet *)punctuationSet;
 + (struct __CFCharacterSet *)parenSet;
-- (void)setWantsHTML:(BOOL)arg1;
-- (void)mismatchError:(id)arg1;
-- (void)dealloc;
-- (void)appendStringToBuffer:(id)arg1;
-- (void)resetStateWithString:(id)arg1 outputString:(id)arg2;
-- (void)nowWouldBeAGoodTimeToAppendToTheAttributedString;
-- (void)closeUpQuoting;
-- (void)handleNoParameterCommand:(const CDStruct_3441fd00 *)arg1;
-- (void)setupFontStackEntry:(struct _CommandStackEntry *)arg1;
-- (void)beginCommand:(id)arg1;
-- (void)endCommand:(id)arg1;
-- (void)parseParameterString:(id)arg1;
-- (id)currentFont;
-- (void)appendNewLine:(id)arg1;
-- (int)readTokenInto:(id *)arg1;
-- (void)convertRichTextString:(id)arg1 intoOutputString:(id)arg2;
-- (void)convertEnrichedString:(id)arg1 intoOutputString:(id)arg2;
++ (struct __CFCharacterSet *)punctuationSet;
 - (id)description;
+- (void)convertEnrichedString:(id)arg1 intoOutputString:(id)arg2;
+- (void)convertRichTextString:(id)arg1 intoOutputString:(id)arg2;
+- (int)readTokenInto:(id *)arg1;
+- (void)appendNewLine:(id)arg1;
+- (id)currentFont;
+- (void)parseParameterString:(id)arg1;
+- (void)endCommand:(id)arg1;
+- (void)beginCommand:(id)arg1;
+- (void)setupFontStackEntry:(struct _CommandStackEntry *)arg1;
+- (void)handleNoParameterCommand:(const CDStruct_3441fd00 *)arg1;
+- (void)closeUpQuoting;
+- (void)nowWouldBeAGoodTimeToAppendToTheAttributedString;
+- (void)resetStateWithString:(id)arg1 outputString:(id)arg2;
+- (void)appendStringToBuffer:(id)arg1;
+- (void)dealloc;
+- (void)mismatchError:(id)arg1;
+- (void)setWantsHTML:(BOOL)arg1;
 
 @end
 

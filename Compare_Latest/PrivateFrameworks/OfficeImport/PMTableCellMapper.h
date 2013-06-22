@@ -17,10 +17,14 @@
     float mWidth;
 }
 
-- (id)initWithOadTableCell:(id)arg1 rowIndex:(unsigned int)arg2 columnIndex:(int)arg3 parent:(id)arg4;
-- (void)dealloc;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
 - (float)widthWithState:(id)arg1;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (void)dealloc;
+- (id)initWithOadTableCell:(id)arg1 rowIndex:(unsigned int)arg2 columnIndex:(int)arg3 parent:(id)arg4;
+- (void)mapCellPropertiesWithState:(id)arg1 textAnchor:(int)arg2;
+- (void)mapBordersWithState:(id)arg1;
+- (id)rowMapper;
+- (id)tableMapper;
 
 @end
 

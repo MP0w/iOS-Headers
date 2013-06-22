@@ -10,21 +10,22 @@
 
 @interface OutgoingMessage : MailMessage
 {
-    MessageBody *messageBody;
-    MutableMessageHeaders *messageHeaders;
+    MessageBody *_messageBody;
+    MutableMessageHeaders *_messageHeaders;
 }
 
-- (void)dealloc;
-- (void)setMessageBody:(id)arg1;
-- (id)messageStore;
-- (id)messageBody;
-- (id)messageBodyIfAvailable;
-- (id)messageData;
-- (BOOL)messageData:(id *)arg1 messageSize:(unsigned int *)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
-- (id)mutableHeaders;
-- (void)setMutableHeaders:(id)arg1;
-- (id)headers;
 - (unsigned int)messageSize;
+- (id)headersIfAvailable;
+- (id)headers;
+- (void)setMutableHeaders:(id)arg1;
+- (id)mutableHeaders;
+- (BOOL)messageData:(id *)arg1 messageSize:(unsigned int *)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
+- (id)messageData;
+- (id)messageBodyIfAvailable;
+- (id)messageBody;
+- (id)messageStore;
+- (void)setMessageBody:(id)arg1;
+- (void)dealloc;
 
 @end
 

@@ -14,10 +14,13 @@
 {
 }
 
++ (id)defaultPropertiesToLoad;
 + (id)relations;
 - (BOOL)validate:(id *)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic, getter=isDefaultAlarm) BOOL defaultAlarm;
+@property(copy, nonatomic) NSDate *acknowledgedDate;
 @property(copy, nonatomic) EKPersistentLocation *location;
 @property(nonatomic) int proximity;
 - (void)setOwner:(id)arg1;

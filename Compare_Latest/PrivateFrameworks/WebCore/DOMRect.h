@@ -12,12 +12,12 @@
 {
 }
 
-- (void)dealloc;
+@property(readonly) DOMCSSPrimitiveValue *left;
+@property(readonly) DOMCSSPrimitiveValue *bottom;
+@property(readonly) DOMCSSPrimitiveValue *right;
+@property(readonly) DOMCSSPrimitiveValue *top;
 - (void)finalize;
-@property(readonly, retain) DOMCSSPrimitiveValue *top;
-@property(readonly, retain) DOMCSSPrimitiveValue *right;
-@property(readonly, retain) DOMCSSPrimitiveValue *bottom;
-@property(readonly, retain) DOMCSSPrimitiveValue *left;
+- (void)dealloc;
 
 @end
 

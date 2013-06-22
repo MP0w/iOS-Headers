@@ -12,9 +12,10 @@
     struct CGSize mSize;
 }
 
-- (struct CGPoint)point;
-- (struct CGSize)size;
+- (id).cxx_construct;
 - (struct CGPath *)createBezierPath;
+- (struct CGSize)size;
+- (struct CGPoint)point;
 
 @end
 

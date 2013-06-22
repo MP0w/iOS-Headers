@@ -13,36 +13,37 @@
     NSMutableSet *pluginDatabases;
     struct String path;
     struct PluginInfo pluginInfo;
-    struct RetainPtr<__CFBundle*> cfBundle;
+    struct RetainPtr<__CFBundle *> cfBundle;
     void *BP_CreatePluginMIMETypesPreferences;
 }
 
-+ (void)initialize;
-+ (id)pluginWithPath:(id)arg1;
 + (id)preferredLocalizationName;
-- (id)initWithPath:(id)arg1;
-- (void)unload;
-- (void)createPropertyListFile;
-- (id)pListForPath:(id)arg1 createFile:(BOOL)arg2;
-- (id)_objectForInfoDictionaryKey:(id)arg1;
-- (BOOL)getPluginInfoFromPLists;
-- (BOOL)load;
-- (void)dealloc;
-- (void)finalize;
-- (const struct String *)path;
-- (const struct PluginInfo *)pluginInfo;
-- (BOOL)supportsExtension:(const struct String *)arg1;
-- (BOOL)supportsMIMEType:(const struct String *)arg1;
-- (id)MIMETypeForExtension:(const struct String *)arg1;
-- (BOOL)isQuickTimePlugIn;
-- (BOOL)isJavaPlugIn;
-- (BOOL)isNativeLibraryData:(id)arg1;
-- (unsigned long)versionNumber;
-- (void)wasAddedToPluginDatabase:(id)arg1;
-- (void)wasRemovedFromPluginDatabase:(id)arg1;
-- (struct String)bundleIdentifier;
++ (id)pluginWithPath:(id)arg1;
++ (void)initialize;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (struct String)bundleVersion;
+- (struct String)bundleIdentifier;
+- (void)wasRemovedFromPluginDatabase:(id)arg1;
+- (void)wasAddedToPluginDatabase:(id)arg1;
+- (unsigned long)versionNumber;
+- (BOOL)isNativeLibraryData:(id)arg1;
+- (BOOL)isJavaPlugIn;
+- (BOOL)isQuickTimePlugIn;
+- (id)MIMETypeForExtension:(const struct String *)arg1;
+- (BOOL)supportsMIMEType:(const struct String *)arg1;
+- (BOOL)supportsExtension:(const struct String *)arg1;
+- (const struct PluginInfo *)pluginInfo;
+- (const struct String *)path;
+- (void)finalize;
+- (void)dealloc;
+- (BOOL)load;
+- (BOOL)getPluginInfoFromPLists;
+- (id)_objectForInfoDictionaryKey:(id)arg1;
+- (id)pListForPath:(id)arg1 createFile:(BOOL)arg2;
+- (void)createPropertyListFile;
+- (void)unload;
+- (id)initWithPath:(id)arg1;
 
 @end
 

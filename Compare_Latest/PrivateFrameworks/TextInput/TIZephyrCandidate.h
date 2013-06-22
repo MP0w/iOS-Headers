@@ -6,16 +6,23 @@
 
 #import "UIKeyboardCandidateSingle.h"
 
+@class NSArray;
+
 @interface TIZephyrCandidate : UIKeyboardCandidateSingle
 {
     unsigned int _wordOriginFeedbackID;
+    NSArray *_usageTrackingTypes;
     BOOL extensionCandidate;
 }
 
-- (id)initWithCandidate:(id)arg1 wordOriginFeedbackID:(unsigned int)arg2;
-- (unsigned int)wordOriginFeedbackID;
+@property(nonatomic, getter=isExtensionCandidate) BOOL extensionCandidate; // @synthesize extensionCandidate;
+- (id)usageTrackingTypes;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(getter=isExtensionCandidate) BOOL extensionCandidate; // @synthesize extensionCandidate;
+- (BOOL)isAutocorrection;
+- (unsigned int)wordOriginFeedbackID;
+- (void)dealloc;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned int)arg3 usageTrackingTypes:(id)arg4;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned int)arg3;
 
 @end
 

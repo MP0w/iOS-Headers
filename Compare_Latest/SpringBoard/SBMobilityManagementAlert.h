@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)registerForAlerts;
 + (void)test;
++ (void)registerForAlerts;
 
 @end
 

@@ -12,35 +12,38 @@
 
 @interface OADBlipRef : NSObject <NSCopying>
 {
-    int mIndex;
+    long mIndex;
     NSString *mName;
     NSMutableArray *mEffects;
     OADBlip *mBlip;
 }
 
-+ (int)blipTypeForExtension:(id)arg1;
 + (id)inflatedExtensionForGzippedExtension:(id)arg1;
-- (id)init;
-- (id)initWithIndex:(long)arg1 name:(id)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (long)index;
-- (void)setIndex:(long)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
-- (void)addEffect:(id)arg1;
-- (unsigned int)effectCount;
-- (id)effectAtIndex:(unsigned int)arg1;
-- (void)removeEffectAtIndex:(unsigned int)arg1;
-- (id)blip;
-- (void)setBlip:(id)arg1;
-- (void)setFilename:(id)arg1 data:(id)arg2;
-- (void)setFilenameAndDelayedContext:(id)arg1 context:(id)arg2 targetSize:(long)arg3;
-- (void)setPath:(id)arg1;
-- (BOOL)isNull;
-- (id)effects;
-- (unsigned int)hash;
++ (int)blipTypeForImageData:(id)arg1;
++ (int)blipTypeForContentType:(id)arg1;
++ (int)blipTypeForExtension:(id)arg1;
++ (id)blipRefWithIndex:(long)arg1 name:(id)arg2 blip:(id)arg3;
++ (id)blipRefWithIndex:(long)arg1 name:(id)arg2 blip:(id)arg3 effects:(id)arg4;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)effects;
+- (BOOL)isNull;
+- (void)removeEffectAtIndex:(unsigned int)arg1;
+- (id)effectAtIndex:(unsigned int)arg1;
+- (unsigned int)effectCount;
+- (void)setEffects:(id)arg1;
+- (void)addEffect:(id)arg1;
+- (void)setBlip:(id)arg1;
+- (id)blip;
+- (void)setName:(id)arg1;
+- (id)name;
+- (void)setIndex:(long)arg1;
+- (long)index;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithIndex:(long)arg1 name:(id)arg2 blip:(id)arg3;
+- (id)initWithIndex:(long)arg1 name:(id)arg2 blip:(id)arg3 effects:(id)arg4;
+- (id)init;
 
 @end
 

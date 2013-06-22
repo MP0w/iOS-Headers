@@ -4,20 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIView.h"
+#import "UIImageView.h"
 
-@class UIImage;
-
-@interface MFSearchShadowView : UIView
+@interface MFSearchShadowView : UIImageView
 {
-    UIImage *_image;
 }
 
-+ (id)_shadowImage;
 + (float)defaultHeight;
++ (id)_shadowImage;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)drawRect:(struct CGRect)arg1;
 
 @end
 

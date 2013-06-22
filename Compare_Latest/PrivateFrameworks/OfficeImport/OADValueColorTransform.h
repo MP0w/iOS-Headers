@@ -11,10 +11,10 @@
     float mValue;
 }
 
-- (float)value;
-- (void)setValue:(float)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setValue:(float)arg1;
+- (float)value;
 
 @end
 

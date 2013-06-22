@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class DOMRange, UIResponder<UITextSelection>, UITextRange, UIView<UITextSelectingContainer>;
+@class DOMRange, UIResponder<UITextInputPrivate>, UITextRange;
 
 @interface UITextSelection : NSObject
 {
-    UIResponder<UITextSelection> *_document;
+    UIResponder<UITextInputPrivate> *_document;
     int _granularity;
     UITextRange *_selectedRange;
     UITextRange *_base;
@@ -19,7 +19,7 @@
 }
 
 @property(readonly, nonatomic) BOOL isCommitting; // @synthesize isCommitting=_isCommitting;
-@property(readonly, nonatomic) UIResponder<UITextSelection> *document; // @synthesize document=_document;
+@property(readonly, nonatomic) UIResponder<UITextInputPrivate> *document; // @synthesize document=_document;
 @property(retain, nonatomic) UITextRange *selectedRange; // @synthesize selectedRange=_selectedRange;
 @property(retain, nonatomic) UITextRange *initialExtent; // @synthesize initialExtent=_initialExtent;
 @property(nonatomic) int granularity; // @synthesize granularity=_granularity;
@@ -29,6 +29,7 @@
 - (void)setSelectionWithFirstPoint:(struct CGPoint)arg1 secondPoint:(struct CGPoint)arg2;
 - (BOOL)setRangedSelectionExtentPoint:(struct CGPoint)arg1 baseIsStart:(BOOL)arg2;
 - (BOOL)setRangedSelectionExtentPoint:(struct CGPoint)arg1 baseIsStart:(BOOL)arg2 allowFlipping:(BOOL)arg3;
+- (struct CGPoint)clipPoint:(struct CGPoint)arg1 inRect:(struct CGRect)arg2;
 - (void)setRangedSelectionInitialExtentToCurrentSelectionEnd;
 - (void)setRangedSelectionInitialExtentToCurrentSelectionStart;
 - (void)clearRangedSelectionInitialExtent;
@@ -43,6 +44,7 @@
 - (void)aggressivelyExpandSelectionToWordContainingCaretSelection;
 - (void)collapseSelection;
 - (void)clearSelection;
+- (void)selectAll;
 - (void)setSelectionWithPoint:(struct CGPoint)arg1;
 - (unsigned int)offsetInMarkedText;
 - (struct CGRect)closestCaretRectForPoint:(struct CGPoint)arg1 inSelection:(BOOL)arg2;
@@ -55,8 +57,8 @@
 @property(readonly, nonatomic, getter=_domRange) DOMRange *domRange;
 - (void)commit;
 - (void)selectionChanged;
-@property(readonly, nonatomic) UIView<UITextSelectingContainer> *viewAsContainer;
 - (void)dealloc;
+- (void)invalidate;
 - (id)initWithDocument:(id)arg1;
 
 @end

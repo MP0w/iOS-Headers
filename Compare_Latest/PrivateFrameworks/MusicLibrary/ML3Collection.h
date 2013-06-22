@@ -17,6 +17,7 @@
 + (id)propertiesForGroupingKey;
 + (id)foreignPropertyForProperty:(id)arg1 entityClass:(Class)arg2;
 + (void)initialize;
+- (void)updateRepresentativeItem:(id)arg1 inLibrary:(id)arg2 withArtworkCacheID:(id)arg3;
 - (void)updateCloudStatus;
 - (void)updateTrackValues:(id)arg1;
 - (id)initWithDictionary:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3;

@@ -18,14 +18,16 @@
     NSArray *_orderingProperties;
     NSSet *_itemPropertiesToFetch;
     NSSet *_collectionPropertiesToFetch;
+    BOOL _useSections;
 }
 
+@property(nonatomic) int entityOrder; // @synthesize entityOrder=_entityOrder;
 @property(copy, nonatomic) NSSet *itemPropertiesToFetch; // @synthesize itemPropertiesToFetch=_itemPropertiesToFetch;
 @property(copy, nonatomic) NSSet *filterPredicates; // @synthesize filterPredicates=_filterPredicates;
 @property(copy, nonatomic) NSArray *orderingProperties; // @synthesize orderingProperties=_orderingProperties;
 @property(nonatomic) int groupingType; // @synthesize groupingType=_groupingType;
 @property(copy, nonatomic) NSSet *collectionPropertiesToFetch; // @synthesize collectionPropertiesToFetch=_collectionPropertiesToFetch;
-- (id)sanitizedQueryCriteria;
+- (id)queryCriteriaByApplyingStandardPredicates:(BOOL)arg1 externalClientFilteringPredicates:(BOOL)arg2;
 @property(readonly, nonatomic) BOOL specifiesPlaylistItems;
 - (void)removePredicatesForProperty:(id)arg1;
 - (id)predicateForProperty:(id)arg1;
@@ -38,6 +40,11 @@
 - (id)description;
 - (void)dealloc;
 - (id)init;
+- (id)ML3CollectionsQueryInLibrary:(id)arg1;
+- (id)ML3ItemsQueryInLibrary:(id)arg1 orderingProperties:(id)arg2 nameBlankProperty:(id)arg3;
+- (id)ML3ItemsQueryInLibrary:(id)arg1;
+- (id)ML3OrderingPropertiesForGroupingType:(int)arg1;
+- (id)ML3OrderingPropertiesForMPOrderingProperties:(id)arg1;
 
 @end
 

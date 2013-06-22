@@ -4,14 +4,14 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSString;
 
-@interface NSURL : NSObject <NSCoding, NSCopying>
+@interface NSURL : NSObject <NSSecureCoding, NSCopying>
 {
     NSString *_urlString;
     NSURL *_baseURL;
@@ -23,6 +23,7 @@
 + (BOOL)writeBookmarkData:(id)arg1 toURL:(id)arg2 options:(unsigned int)arg3 error:(id *)arg4;
 + (id)resourceValuesForKeys:(id)arg1 fromBookmarkData:(id)arg2;
 + (id)URLByResolvingBookmarkData:(id)arg1 options:(unsigned int)arg2 relativeToURL:(id)arg3 bookmarkDataIsStale:(char *)arg4 error:(id *)arg5;
++ (BOOL)supportsSecureCoding;
 - (id)bookmarkDataWithAliasRecord:(id)arg1;
 - (id)initByResolvingBookmarkData:(id)arg1 options:(unsigned int)arg2 relativeToURL:(id)arg3 bookmarkDataIsStale:(char *)arg4 error:(id *)arg5;
 - (id)bookmarkDataWithOptions:(unsigned int)arg1 includingResourceValuesForKeys:(id)arg2 relativeToURL:(id)arg3 error:(id *)arg4;

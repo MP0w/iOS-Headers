@@ -24,6 +24,7 @@
     BOOL _torchDeviceOpen;
     BOOL _torchDeviceOn;
     BOOL _isDeviceLocked;
+    BOOL _isQuietModeEnabled;
     BOOL _captureSessionRunning;
     BOOL _conferenceCallRinging;
     BOOL _skipAutomaticStopOnUserInteraction;

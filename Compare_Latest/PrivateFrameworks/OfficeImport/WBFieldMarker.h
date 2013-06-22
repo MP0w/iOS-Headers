@@ -11,6 +11,7 @@
 }
 
 + (void)readFrom:(id)arg1 position:(const struct WrdFieldPosition *)arg2 paragraph:(id)arg3 fieldMarker:(id)arg4;
++ (int)getFieldTypeFrom:(id)arg1 for:(id)arg2;
 
 @end
 

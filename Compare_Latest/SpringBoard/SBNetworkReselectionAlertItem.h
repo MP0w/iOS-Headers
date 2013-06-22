@@ -10,13 +10,13 @@
 {
 }
 
-- (id)init;
-- (void)_showPrefs;
-- (id)lockLabel;
-- (id)shortLockLabel;
-- (void)performUnlockAction;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)performUnlockAction;
+- (id)shortLockLabel;
+- (id)lockLabel;
+- (void)_showPrefs;
+- (id)init;
 
 @end
 

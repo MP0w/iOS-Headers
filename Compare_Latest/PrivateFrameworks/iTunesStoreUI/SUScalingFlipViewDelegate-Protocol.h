@@ -7,6 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol SUScalingFlipViewDelegate <NSObject>
+
+@optional
 - (void)scalingFlipViewDidFinish:(id)arg1;
 @end
 

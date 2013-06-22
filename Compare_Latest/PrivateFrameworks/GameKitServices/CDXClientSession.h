@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CDXClient, NSData, NSIndexSet, NSMutableIndexSet;
+@class CDXClient, NSData, NSIndexSet, NSMutableIndexSet, NSObject<OS_dispatch_source>;
 
 @interface CDXClientSession : NSObject
 {
@@ -21,28 +21,28 @@
     unsigned short seq_;
     unsigned char pid_;
     unsigned short *ack_;
-    struct dispatch_source_s *retransmitTimer_;
+    NSObject<OS_dispatch_source> *retransmitTimer_;
     id inboundHandler_;
 }
 
-- (id)initWithCDXClient:(id)arg1 ticket:(id)arg2 sessionKey:(id)arg3;
-- (void)stopRetransmitTimer;
-- (void)invalidate;
-- (BOOL)retransmitEvent;
-- (void)resetRetransmitTimer;
-- (void)dealloc;
-@property(copy, nonatomic) NSData *ticket; // @synthesize ticket=ticket_;
-- (id)decrypt:(id)arg1 ticket:(id)arg2;
-- (id)encrypt:(id)arg1;
-- (BOOL)sendRaw:(id)arg1 toParticipants:(id)arg2;
-- (BOOL)sendData:(id)arg1;
-- (BOOL)sendData:(id)arg1 toParticipants:(id)arg2;
-- (void)recvRaw:(id)arg1 ticket:(id)arg2;
 @property(copy, nonatomic) id inboundHandler; // @synthesize inboundHandler=inboundHandler_;
-@property(readonly, copy, nonatomic) NSIndexSet *participantsInFlight; // @synthesize participantsInFlight=participantsInFlight_;
-@property(readonly, copy, nonatomic) NSData *sessionKey; // @synthesize sessionKey=sessionKey_;
+@property(readonly, nonatomic) NSIndexSet *participantsInFlight; // @synthesize participantsInFlight=participantsInFlight_;
+@property(readonly, nonatomic) NSData *sessionKey; // @synthesize sessionKey=sessionKey_;
+@property(copy, nonatomic) NSData *ticket; // @synthesize ticket=ticket_;
 @property(nonatomic) id <CDXClientSessionDelegate> delegate; // @synthesize delegate=delegate_;
-@property(readonly, retain, nonatomic) CDXClient *CDXClient; // @synthesize CDXClient=CDXClient_;
+@property(readonly, nonatomic) CDXClient *CDXClient; // @synthesize CDXClient=CDXClient_;
+- (void)recvRaw:(id)arg1 ticket:(id)arg2;
+- (BOOL)sendData:(id)arg1 toParticipants:(id)arg2;
+- (BOOL)sendData:(id)arg1;
+- (BOOL)sendRaw:(id)arg1 toParticipants:(id)arg2;
+- (id)encrypt:(id)arg1;
+- (id)decrypt:(id)arg1 ticket:(id)arg2;
+- (void)dealloc;
+- (void)resetRetransmitTimer;
+- (BOOL)retransmitEvent;
+- (void)invalidate;
+- (void)stopRetransmitTimer;
+- (id)initWithCDXClient:(id)arg1 ticket:(id)arg2 sessionKey:(id)arg3;
 
 @end
 

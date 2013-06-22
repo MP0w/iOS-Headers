@@ -14,13 +14,13 @@
     BOOL _newAccount;
 }
 
-+ (id)laterButtonTitle;
 + (id)nowButtonTitle;
-- (id)initWithAccountURL:(id)arg1 carrierName:(id)arg2 newAccount:(BOOL)arg3;
-- (void)dealloc;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
++ (id)laterButtonTitle;
 @property(nonatomic, getter=isNewAccount) BOOL newAccount; // @synthesize newAccount=_newAccount;
 @property(copy, nonatomic) NSString *carrierName; // @synthesize carrierName=_carrierName;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)dealloc;
+- (id)initWithAccountURL:(id)arg1 carrierName:(id)arg2 newAccount:(BOOL)arg3;
 
 @end
 

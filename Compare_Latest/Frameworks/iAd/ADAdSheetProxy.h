@@ -33,9 +33,9 @@
 - (void)commitFence;
 - (void)resetAdSheetThrottle;
 - (BOOL)isBootstrapped;
-- (BOOL)doesServerExist;
 - (id)remoteObjectForMessageName:(id)arg1 senderId:(id)arg2;
 - (void)sendMessage:(id)arg1 userInfo:(id)arg2;
+- (id)init;
 
 @end
 

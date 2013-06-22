@@ -9,38 +9,54 @@
 #import "MFAddressAtomDelegate-Protocol.h"
 #import "MFPassthroughViewProvider-Protocol.h"
 
-@class NSMutableArray, NSString, UITextLabel;
+@class NSDictionary, NSMutableArray, NSString, UILabel;
 
 @interface MFLabelledAtomList : UIView <MFPassthroughViewProvider, MFAddressAtomDelegate>
 {
     NSMutableArray *_addressAtoms;
-    UITextLabel *_label;
+    UILabel *_label;
     NSString *_title;
+    UILabel *_captionLabel;
     id <MFLabelledAtomListDelegate> _delegate;
+    NSDictionary *_recipients;
     float _firstLineWidth;
+    BOOL _usePadDisplayStyle;
     unsigned int _needsReflow:1;
     unsigned int _isChangingFrame:1;
+    void *_addressBook;
+    BOOL _labelVisible;
+    BOOL _primary;
 }
 
-- (id)initWithLabel:(id)arg1 title:(id)arg2 totalWidth:(float)arg3 firstLineWidth:(float)arg4 addresses:(id)arg5 arePhoneNumbers:(id)arg6 style:(int)arg7;
-- (id)initWithLabel:(id)arg1 title:(id)arg2 totalWidth:(float)arg3 firstLineWidth:(float)arg4 addresses:(id)arg5 arePhoneNumbers:(id)arg6;
-- (id)initWithLabel:(id)arg1 totalWidth:(float)arg2 firstLineWidth:(float)arg3 addresses:(id)arg4 arePhoneNumbers:(id)arg5;
-- (void)dealloc;
-- (void)setDelegate:(id)arg1;
-- (void)setFirstLineWidth:(float)arg1;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)addressAtom:(id)arg1 displayStringDidChange:(id)arg2;
-- (void)_setNeedsReflow;
-- (void)_reflow;
-- (void)setAddressAtomTarget:(id)arg1 action:(SEL)arg2;
-- (id)labelText;
-- (struct CGRect)labelFrame;
-- (id)title;
-- (id)atomDisplayStrings;
-- (id)addressAtoms;
-- (void)setAtomAlpha:(float)arg1;
-- (void)setOpaque:(BOOL)arg1;
+@property(nonatomic) BOOL primary; // @synthesize primary=_primary;
+@property(retain, nonatomic) NSDictionary *recipients; // @synthesize recipients=_recipients;
+@property(nonatomic) BOOL usePadDisplayStyle; // @synthesize usePadDisplayStyle=_usePadDisplayStyle;
+- (void)crossFadeLabelVisibility:(BOOL)arg1 animationDuration:(double)arg2;
 - (id)passthroughViews;
+- (void)setOpaque:(BOOL)arg1;
+- (void)setAtomAlpha:(float)arg1;
+- (id)addressAtoms;
+- (id)atomDisplayStrings;
+- (id)title;
+- (void)updateAtomsForVIP;
+- (void)setCaptionWithToRecipients:(id)arg1 ccRecipients:(id)arg2 bccRecipients:(id)arg3 withReceivingEmailAddresses:(id)arg4;
+@property(nonatomic, getter=isCaptionVisible) BOOL captionVisible;
+- (void)_createCaptionLabelIfNecessary;
+@property(nonatomic, getter=isLabelVisible) BOOL labelVisible;
+- (struct CGRect)labelFrame;
+- (id)labelText;
+- (void)setAddressAtomTarget:(id)arg1 action:(SEL)arg2;
+- (void)_updateCaptionText;
+- (void)_reflow;
+- (void)_setNeedsReflow;
+- (void)addressAtom:(id)arg1 displayStringDidChange:(id)arg2;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setFirstLineWidth:(float)arg1 reflow:(BOOL)arg2;
+- (void)setFirstLineWidth:(float)arg1;
+- (void)setDelegate:(id)arg1;
+- (void)addressBookDidChange:(id)arg1;
+- (void)dealloc;
+- (id)initWithLabel:(id)arg1 title:(id)arg2 totalWidth:(float)arg3 firstLineWidth:(float)arg4 addresses:(id)arg5 arePhoneNumbers:(id)arg6 style:(int)arg7 addressBook:(void *)arg8 completionBlock:(id)arg9;
 
 @end
 

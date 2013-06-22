@@ -46,6 +46,7 @@
 - (void)_startModal:(id)arg1;
 - (void)_requestCancelTasksWithReason:(int)arg1;
 - (void)_performTask:(id)arg1;
+- (BOOL)taskIsModal:(id)arg1;
 - (void)taskEndModal:(id)arg1;
 - (void)taskRequestModal:(id)arg1;
 - (void)taskDidFinish:(id)arg1;
@@ -72,7 +73,6 @@
 - (int)port;
 - (id)user;
 @property DAAccount *account; // @synthesize account=_account;
-- (id)deviceID;
 - (id)userAgent;
 - (id)deviceType;
 - (BOOL)_useFakeDescriptions;

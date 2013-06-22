@@ -18,6 +18,7 @@
     struct CGRect m_frame;
     struct CGRect m_paddedFrame;
     unsigned int m_uid;
+    BOOL m_scaled;
 }
 
 + (id)shapeByCombining:(id)arg1 withShape:(id)arg2;
@@ -26,6 +27,8 @@
 @property(nonatomic) struct CGRect paddedFrame; // @synthesize paddedFrame=m_paddedFrame;
 @property(nonatomic) struct CGRect frame; // @synthesize frame=m_frame;
 @property(retain, nonatomic) UIKBGeometry *geometry; // @synthesize geometry=m_geometry;
+- (void)scaleIfNeeded:(float)arg1 onlyYAxis:(BOOL)arg2;
+- (struct CGRect)_scaleRect:(struct CGRect)arg1 inYAxis:(BOOL)arg2;
 - (void)scaleWidth:(float)arg1;
 - (void)addRectFrom:(id)arg1 widthFraction:(float)arg2 adjustOriginFactor:(float)arg3;
 - (void)addRectFrom:(id)arg1;

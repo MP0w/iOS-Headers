@@ -19,26 +19,23 @@
     NSTimer *_delayedUnhighlightTimer;
 }
 
-+ (id)_cachedImagePathForName:(id)arg1 scale:(float)arg2;
-+ (id)_cachedCardImagePath;
-+ (id)_cachedTextImagePath;
-+ (id)_cachedImageAtPath:(id)arg1;
-+ (id)_cachedCardImage;
-+ (id)_cachedTextImage;
-+ (void)_generatedCachedImages;
 + (void)setupCache;
-- (id)init;
-- (void)dealloc;
-- (struct CATransform3D)skewTransform;
-- (void)setSkewed:(BOOL)arg1;
-- (float)shadowPadding;
-- (id)overlayImage;
-- (void)_delayedUnhighlight;
-- (void)setHighlighted:(BOOL)arg1 delayUnhighlight:(BOOL)arg2;
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
++ (void)_fetchAndCacheImagesIfNecessary:(id *)arg1 outCardTextImage:(id *)arg2;
++ (void)_fetchAndCacheImagesIfNecessary;
++ (void)_removeCachedLocalizedImages;
++ (void)load;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)setHighlighted:(BOOL)arg1 delayUnhighlight:(BOOL)arg2;
+- (void)_delayedUnhighlight;
+- (id)overlayImage;
+- (float)shadowPadding;
+- (void)setSkewed:(BOOL)arg1;
+- (struct CATransform3D)skewTransform;
+- (void)dealloc;
+- (id)init;
 
 @end
 

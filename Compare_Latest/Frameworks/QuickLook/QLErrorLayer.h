@@ -16,9 +16,9 @@
     UILabel *_errorLabel;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)_relayout;
 - (void)setError:(id)arg1;
+- (void)_relayout;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -10,8 +10,9 @@
 {
 }
 
-+ (void)readCharacterProperties:(id)arg1 characterPropertyRun:(struct PptCharRun *)arg2 state:(id)arg3;
++ (void)writeCharacterProperties:(id)arg1 characterProperties:(struct PptCharProperty *)arg2 state:(id)arg3;
 + (void)readCharacterProperties:(id)arg1 characterProperty:(struct PptCharProperty *)arg2 state:(id)arg3;
++ (void)readCharacterProperties:(id)arg1 characterPropertyRun:(struct PptCharRun *)arg2 state:(id)arg3;
 
 @end
 

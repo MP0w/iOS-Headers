@@ -22,7 +22,7 @@
 - (id)_monitors;
 - (void)resolve;
 - (void)resolveWithTimeout:(double)arg1;
-- (BOOL)getInputStream:(id *)arg1 outputStream:(id *)arg2;
+- (BOOL)getInputStream:(out id *)arg1 outputStream:(out id *)arg2;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)description;

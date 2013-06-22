@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol OADEffectsParent <NSObject>
-- (id)effects;
-- (void)setEffects:(id)arg1;
 - (BOOL)hasEffects;
+- (void)setEffects:(id)arg1;
+- (id)effects;
 @end
 

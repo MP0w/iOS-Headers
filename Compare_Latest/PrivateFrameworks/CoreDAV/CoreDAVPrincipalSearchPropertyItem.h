@@ -14,9 +14,9 @@
     CoreDAVLeafItem *_descriptionItem;
 }
 
++ (id)copyParseRules;
 @property(retain) CoreDAVLeafItem *descriptionItem; // @synthesize descriptionItem=_descriptionItem;
 @property(retain) CoreDAVItem *prop; // @synthesize prop=_prop;
-- (id)copyParseRules;
 - (id)description;
 - (void)dealloc;
 - (id)init;

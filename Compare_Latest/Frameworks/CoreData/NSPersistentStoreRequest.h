@@ -16,11 +16,11 @@
 }
 
 + (void)initialize;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (unsigned int)requestType;
-- (id)affectedStores;
 - (void)setAffectedStores:(id)arg1;
+- (id)affectedStores;
+- (unsigned int)requestType;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

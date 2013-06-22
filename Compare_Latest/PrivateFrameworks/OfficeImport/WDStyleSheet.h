@@ -22,33 +22,33 @@
     NSMutableDictionary *mIdDictionaryForName;
 }
 
-- (id)initWithDocument:(id)arg1;
-- (void)dealloc;
-- (id)document;
-- (id)styles;
-- (int)styleCount;
-- (id)styleIdFromStyleName:(id)arg1;
-- (id)styleWithId:(id)arg1;
-- (id)styleWithName:(id)arg1;
-- (id)paragraphStyleWithStartingName:(id)arg1;
-- (id)createStyleWithId:(id)arg1 type:(int)arg2;
-- (id)createStyleWithName:(id)arg1 type:(int)arg2;
-- (void)addStyle:(id)arg1 name:(id)arg2;
-- (void)setName:(id)arg1 forId:(id)arg2;
-- (void)removeStyleWithId:(id)arg1;
-- (id)defaultCharacterProperties;
-- (id)defaultParagraphProperties;
-- (void)createDefaultStyles;
-- (id)defaultParagraphStyle;
-- (void)setDefaultParagraphStyle:(id)arg1;
-- (id)defaultCharacterStyle;
-- (void)setDefaultCharacterStyle:(id)arg1;
-- (id)defaultTableStyle;
-- (void)setDefaultTableStyle:(id)arg1;
-- (id)defaultListStyle;
-- (void)setDefaultListStyle:(id)arg1;
-- (id)styleIdForName:(id)arg1;
 - (id)styleNameToId:(id)arg1;
+- (id)styleIdForName:(id)arg1;
+- (void)setDefaultListStyle:(id)arg1;
+- (id)defaultListStyle;
+- (void)setDefaultTableStyle:(id)arg1;
+- (id)defaultTableStyle;
+- (void)setDefaultCharacterStyle:(id)arg1;
+- (id)defaultCharacterStyle;
+- (void)setDefaultParagraphStyle:(id)arg1;
+- (id)defaultParagraphStyle;
+- (void)createDefaultStyles;
+- (id)defaultParagraphProperties;
+- (id)defaultCharacterProperties;
+- (void)removeStyleWithId:(id)arg1;
+- (void)setName:(id)arg1 forId:(id)arg2;
+- (void)addStyle:(id)arg1 name:(id)arg2;
+- (id)createStyleWithName:(id)arg1 type:(int)arg2;
+- (id)createStyleWithId:(id)arg1 type:(int)arg2;
+- (id)paragraphStyleWithStartingName:(id)arg1;
+- (id)styleWithName:(id)arg1;
+- (id)styleWithId:(id)arg1;
+- (int)styleCount;
+- (id)styles;
+- (id)document;
+- (void)dealloc;
+- (id)initWithDocument:(id)arg1;
+- (void)initializeDefaultProperties;
 
 @end
 

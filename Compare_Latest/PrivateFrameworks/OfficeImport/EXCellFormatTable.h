@@ -10,9 +10,10 @@
 {
 }
 
-+ (void)readFromCellXfsElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (void)readFromCellStyleXfsElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)readFromCellStylesElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (void)readFromCellStyleXfsElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (void)readFromCellXfsElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (void)readCellFormatsFrom:(struct _xmlNode *)arg1 cellStyleXfsOffset:(unsigned int)arg2 isStyle:(_Bool)arg3 state:(id)arg4;
 
 @end
 

@@ -9,9 +9,5 @@
 @interface DOMElement (WebDOMElementOperationsPrivate)
 + (id)_DOMElementFromJSContext:(struct OpaqueJSContext *)arg1 value:(struct OpaqueJSValue *)arg2;
 - (id)_markerTextForListItem;
-- (id)_shadowPseudoId;
-- (struct OpaqueJSValue *)_shadowRoot:(struct OpaqueJSContext *)arg1;
-- (struct OpaqueJSValue *)_ensureShadowRoot:(struct OpaqueJSContext *)arg1;
-- (void)_removeShadowRoot;
 @end
 

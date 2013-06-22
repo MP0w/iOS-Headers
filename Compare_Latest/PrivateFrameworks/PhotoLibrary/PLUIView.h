@@ -8,8 +8,10 @@
 
 @interface PLUIView : UIView
 {
+    BOOL _disableViewInPopoverRule;
 }
 
+@property(nonatomic) BOOL disableViewInPopoverRule; // @synthesize disableViewInPopoverRule=_disableViewInPopoverRule;
 - (void)didMoveToWindow;
 
 @end

@@ -12,13 +12,13 @@
     int listId;
 }
 
-- (id)init;
-- (id)initWithListId:(int)arg1;
-- (void)reset;
-- (int)listId;
-- (void)setCounterTo:(int)arg1 atLevel:(int)arg2;
-- (int)counterAtLevel:(int)arg1;
 - (void)increaseCounterAtLevel:(int)arg1;
+- (int)counterAtLevel:(int)arg1;
+- (void)setCounterTo:(int)arg1 atLevel:(int)arg2;
+- (int)listId;
+- (void)reset;
+- (id)initWithListId:(int)arg1;
+- (id)init;
 
 @end
 

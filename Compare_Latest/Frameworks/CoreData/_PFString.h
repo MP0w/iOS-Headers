@@ -15,32 +15,32 @@
     int _reserved2;
 }
 
-+ (BOOL)accessInstanceVariablesDirectly;
-+ (id)alloc;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)retain;
-- (oneway void)release;
-- (unsigned int)retainCount;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
-- (void)encodeWithCoder:(id)arg1;
-- (id)copy;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)length;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
-- (void)getCharacters:(unsigned short *)arg1;
-- (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
-- (const char *)cString;
-- (const char *)_fastCStringContents:(BOOL)arg1;
-- (const char *)UTF8String;
-- (void)getCString:(char *)arg1;
-- (unsigned int)cStringLength;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToString:(id)arg1;
++ (id)alloc;
++ (BOOL)accessInstanceVariablesDirectly;
 - (id)description;
+- (BOOL)isEqualToString:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (unsigned int)cStringLength;
+- (void)getCString:(char *)arg1;
+- (const char *)UTF8String;
+- (const char *)_fastCStringContents:(BOOL)arg1;
+- (const char *)cString;
+- (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
+- (void)getCharacters:(unsigned short *)arg1;
+- (unsigned short)characterAtIndex:(unsigned int)arg1;
+- (unsigned int)length;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)copy;
+- (void)encodeWithCoder:(id)arg1;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
+- (unsigned int)retainCount;
+- (oneway void)release;
+- (id)retain;
+- (void)dealloc;
 
 @end
 

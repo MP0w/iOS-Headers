@@ -10,9 +10,9 @@
 {
 }
 
-- (id)init;
-- (id)type;
 - (BOOL)supportsTimeRangeFilterWithoutEndDate;
+- (id)type;
+- (id)init;
 
 @end
 

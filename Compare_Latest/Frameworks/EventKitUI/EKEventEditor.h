@@ -18,15 +18,18 @@
 - (BOOL)_canDetachSingleOccurrence;
 - (void)_revertEvent;
 - (void)_copyEventForPossibleRevert;
+- (unsigned int)entityType;
 - (id)notificationNamesForLocaleChange;
 - (id)defaultAlertTitle;
 - (void)setupDeleteButton;
 - (id)_nameForDeleteButton;
 - (id)defaultTitleForCalendarItem;
 - (id)preferredTitle;
+- (BOOL)saveCalendarItemWithSpan:(int)arg1 error:(id *)arg2;
 - (id)_editItems;
 - (void)refreshStartAndEndDates;
 @property(retain, nonatomic) EKEvent *event;
+- (void)loadView;
 
 @end
 

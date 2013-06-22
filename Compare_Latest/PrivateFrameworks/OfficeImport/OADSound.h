@@ -12,18 +12,18 @@
 {
     NSData *mSoundData;
     NSString *mName;
-    int mSizeInBytes;
+    long mSizeInBytes;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)soundData;
-- (void)setSoundData:(id)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
-- (long)sizeInBytes;
-- (void)setSizeInBytes:(long)arg1;
 - (_Bool)isLoaded;
+- (void)setSizeInBytes:(long)arg1;
+- (long)sizeInBytes;
+- (void)setName:(id)arg1;
+- (id)name;
+- (void)setSoundData:(id)arg1;
+- (id)soundData;
+- (void)dealloc;
+- (id)init;
 
 @end
 

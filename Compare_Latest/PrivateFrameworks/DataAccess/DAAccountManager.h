@@ -19,10 +19,13 @@
     int _pendingAccountSetupCount;
 }
 
++ (id)accountStore;
 + (id)sharedInstance;
 + (void)vendDaemonManagers:(Class)arg1;
 + (void)reacquireClientRestrictions:(id)arg1;
 + (id)oneshotListOfAccountPersistentUUIDs;
+- (id)acAccountsWeOwn;
+- (id)_childAccountTypes;
 - (void)checkValidityForAccount:(id)arg1 consumer:(id)arg2;
 - (id)init;
 - (void)dealloc;
@@ -56,6 +59,7 @@
 - (void)disableDaemon;
 - (void)enableDaemon;
 - (BOOL)hasActiveAccounts;
+- (BOOL)_hasDataclassWeCareAbout:(id)arg1;
 
 @end
 

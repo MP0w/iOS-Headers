@@ -8,19 +8,21 @@
 
 @interface CXNamespace : NSObject
 {
-    char *mUri;
+    const char *mUri;
     struct _xmlDoc *mDocument;
     struct _xmlNs *mDocumentNamespace;
 }
 
-+ (BOOL)isNamespaceSupported:(const char *)arg1;
-+ (BOOL)isPrefixSupportedFromNodeContext:(struct _xmlNode *)arg1 prefix:(const char *)arg2;
-+ (BOOL)isPrefixSupportedFromStream:(struct _xmlTextReader *)arg1 prefix:(const char *)arg2;
 + (void)clearRegisteredNamespaces;
-- (id)initWithUri:(const char *)arg1;
-- (BOOL)containsNode:(struct _xmlNode *)arg1;
-- (BOOL)containsAttribute:(struct _xmlAttr *)arg1;
++ (BOOL)isPrefixSupportedFromStream:(struct _xmlTextReader *)arg1 prefix:(const char *)arg2;
++ (BOOL)isPrefixSupportedFromNodeContext:(struct _xmlNode *)arg1 prefix:(const char *)arg2;
++ (BOOL)isNamespaceSupported:(const char *)arg1;
++ (void)registerNamespace:(id)arg1;
 - (const char *)uri;
+- (BOOL)containsAttribute:(struct _xmlAttr *)arg1;
+- (BOOL)containsNode:(struct _xmlNode *)arg1;
+- (id)initUnsupportedNsWithUri:(const char *)arg1;
+- (id)initWithUri:(const char *)arg1;
 
 @end
 

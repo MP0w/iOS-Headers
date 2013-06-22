@@ -16,14 +16,10 @@
 }
 
 + (void)initialize;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_playlistAttributesForScriptArray:(id)arg1;
-- (void)_setProperty:(id)arg1 value:(id)arg2 comparisonType:(int)arg3;
-- (id)_copyValue;
-- (id)_copyProperty;
-- (id)_copyComparisonType;
 @property(readonly) id value;
 @property(readonly) NSString *property;
 @property(readonly) NSString *comparisonType;

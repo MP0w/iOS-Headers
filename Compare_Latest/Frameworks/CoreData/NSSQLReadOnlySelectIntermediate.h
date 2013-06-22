@@ -11,8 +11,8 @@
     BOOL _onlyFetchesAggregates;
 }
 
-- (BOOL)onlyFetchesAggregates;
 - (id)generateSQLStringInContext:(id)arg1;
+- (BOOL)onlyFetchesAggregates;
 
 @end
 

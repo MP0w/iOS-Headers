@@ -12,9 +12,11 @@
     struct GraphicsContext3D *m_context;
 }
 
-- (id)initWithGraphicsContext3D:(struct GraphicsContext3D *)arg1;
-- (struct CGImage *)copyImageSnapshotWithColorSpace:(struct CGColorSpace *)arg1;
 - (void)display;
+- (struct CGImage *)copyImageSnapshotWithColorSpace:(struct CGColorSpace *)arg1;
+- (id)initWithGraphicsContext3D:(struct GraphicsContext3D *)arg1;
+- (struct GraphicsLayer *)layerOwner;
+- (void)setLayerOwner:(struct GraphicsLayer *)arg1;
 
 @end
 

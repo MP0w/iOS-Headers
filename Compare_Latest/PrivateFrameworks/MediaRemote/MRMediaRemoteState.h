@@ -12,7 +12,6 @@
 {
     BOOL _canBeNowPlayingApp;
     id _commandHandlerBlock;
-    BOOL _includeVideoRoutes;
     BOOL _isOverrideApp;
     int _notifyLaunchedToken;
     NSData *_nowPlayingArtworkData;
@@ -20,17 +19,16 @@
     unsigned int _routeDiscoveryCount;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)_avSystemControllerServerConnectionDiedNotification:(id)arg1;
-- (void)beginRouteDiscovery;
-- (void)endRouteDiscovery;
 @property(retain, nonatomic) NSDictionary *nowPlayingInfo; // @synthesize nowPlayingInfo=_nowPlayingInfo;
 @property(retain, nonatomic) NSData *nowPlayingArtworkData; // @synthesize nowPlayingArtworkData=_nowPlayingArtworkData;
 @property(nonatomic) BOOL isOverrideApp; // @synthesize isOverrideApp=_isOverrideApp;
-@property(nonatomic) BOOL includeVideoRoutes; // @synthesize includeVideoRoutes=_includeVideoRoutes;
 @property(copy, nonatomic) id commandHandlerBlock; // @synthesize commandHandlerBlock=_commandHandlerBlock;
 @property(nonatomic) BOOL canBeNowPlayingApp; // @synthesize canBeNowPlayingApp=_canBeNowPlayingApp;
+- (void)endRouteDiscovery;
+- (void)beginRouteDiscovery;
+- (void)_avSystemControllerServerConnectionDiedNotification:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

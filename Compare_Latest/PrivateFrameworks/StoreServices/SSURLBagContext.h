@@ -7,26 +7,34 @@
 #import "NSObject.h"
 
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
 #import "SSXPCCoding-Protocol.h"
 
 @class NSDictionary, NSMutableDictionary, NSNumber, NSString;
 
-@interface SSURLBagContext : NSObject <SSCoding, SSXPCCoding, NSCopying>
+@interface SSURLBagContext : NSObject <SSXPCCoding, NSCopying>
 {
+    int _allowedRetryCount;
+    BOOL _allowsExpiredBags;
     int _bagType;
     NSMutableDictionary *_httpHeaders;
+    BOOL _ignoresDiskCache;
     NSNumber *_userIdentifier;
+    BOOL _usesCachedBagsOnly;
 }
 
 + (id)contextWithBagType:(int)arg1;
+@property(nonatomic) BOOL usesCachedBagsOnly; // @synthesize usesCachedBagsOnly=_usesCachedBagsOnly;
 @property(retain, nonatomic) NSNumber *userIdentifier; // @synthesize userIdentifier=_userIdentifier;
+@property(nonatomic) BOOL ignoresDiskCache; // @synthesize ignoresDiskCache=_ignoresDiskCache;
 @property(nonatomic) int bagType; // @synthesize bagType=_bagType;
-- (void *)copyXPCEncoding;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)copyPropertyListEncoding;
-- (id)initWithPropertyListEncoding:(id)arg1;
+@property(nonatomic) BOOL allowsExpiredBags; // @synthesize allowsExpiredBags=_allowsExpiredBags;
+@property(nonatomic) int allowedRetryCount; // @synthesize allowedRetryCount=_allowedRetryCount;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) NSString *diskCachePath;
+@property(readonly, nonatomic) NSString *diskCacheKey;
+@property(readonly, nonatomic) struct __CFString *diskCacheExpirationTimeKey;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)description;
@@ -35,6 +43,7 @@
 @property(copy, nonatomic) NSDictionary *allHTTPHeaders;
 @property(readonly, nonatomic) NSString *cacheKey;
 - (void)dealloc;
+- (id)init;
 
 @end
 

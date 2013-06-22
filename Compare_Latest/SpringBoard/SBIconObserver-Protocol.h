@@ -4,11 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@protocol SBIconObserver
+#import "NSObject-Protocol.h"
+
+@protocol SBIconObserver <NSObject>
 
 @optional
-- (void)iconImageDidUpdate:(id)arg1;
-- (void)iconAccessoriesDidUpdate:(id)arg1;
 - (void)iconLaunchEnabledDidChange:(id)arg1;
+- (void)iconAccessoriesDidUpdate:(id)arg1;
+- (void)iconImageDidUpdate:(id)arg1;
 @end
 

@@ -11,9 +11,12 @@
     unsigned int mNextContentFormatId;
 }
 
-- (id)init;
-- (unsigned int)addObject:(id)arg1;
 - (unsigned int)addOrEquivalentObject:(id)arg1;
+- (unsigned int)addObject:(id)arg1;
+- (id)init;
+- (_Bool)isOverwritingKeyOK;
+- (void)addDefaultWithNSString:(id)arg1 formatId:(unsigned int)arg2;
+- (void)setupDefaults;
 
 @end
 

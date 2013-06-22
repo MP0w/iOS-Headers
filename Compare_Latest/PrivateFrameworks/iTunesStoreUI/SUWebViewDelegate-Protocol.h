@@ -9,13 +9,6 @@
 @protocol SUWebViewDelegate <UIWebViewDelegate>
 
 @optional
-- (void)webView:(id)arg1 willInjectScriptObject:(id)arg2;
-- (void)webView:(id)arg1 receivedEventOfType:(int)arg2 userInfo:(id)arg3;
-- (void)webView:(id)arg1 performPurchaseAnimationWithView:(id)arg2;
-- (void)webView:(id)arg1 foundPropertyList:(id)arg2 ofType:(int)arg3;
 - (void)webView:(id)arg1 documentViewDidSetFrame:(struct CGRect)arg2;
-- (BOOL)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
-- (void)webView:(id)arg1 decidePolicyForMIMEType:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
-- (id)parentViewControllerForWebView:(id)arg1;
 @end
 

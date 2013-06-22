@@ -14,9 +14,9 @@
     BOOL _immediateForMatchingThread;
 }
 
-- (id)initWithTarget:(id)arg1 thread:(id)arg2 immediateForMatchingThread:(BOOL)arg3;
-- (void)dealloc;
 - (void)forwardInvocation:(id)arg1;
+- (void)dealloc;
+- (id)initWithTarget:(id)arg1 thread:(id)arg2 immediateForMatchingThread:(BOOL)arg3;
 
 @end
 

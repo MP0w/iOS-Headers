@@ -17,13 +17,15 @@
 }
 
 + (id)sharedWebUIGeolocationSupport;
-- (id)siteFile;
-- (void)load;
-- (void)save;
-- (void)clear;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (BOOL)webFrame:(id)arg1 decidePolicyForGeolocationRequestFromOrigin:(id)arg2;
 - (void)webView:(id)arg1 decidePolicyForGeolocationRequestFromOrigin:(id)arg2 frame:(id)arg3 listener:(id)arg4;
+- (BOOL)webFrame:(id)arg1 decidePolicyForGeolocationRequestFromOrigin:(id)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)clearCache;
+- (void)save;
+- (void)load;
+- (id)siteFile;
+- (void)dealloc;
+- (id)init;
 
 @end
 

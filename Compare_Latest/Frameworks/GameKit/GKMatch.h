@@ -8,11 +8,11 @@
 
 #import "GKSessionDelegate-Protocol.h"
 
-@class GKConnection, GKSession, NSArray, NSData, NSMutableArray, NSMutableDictionary;
+@class GKConnection, GKSession, NSArray, NSData, NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
 
 @interface GKMatch : NSObject <GKSessionDelegate>
 {
-    id <GKMatchDelegate> _delegate;
+    id <GKMatchDelegate> _delegateWeak;
     GKSession *_session;
     GKConnection *_connection;
     unsigned int _expectedPlayerCount;
@@ -20,16 +20,27 @@
     NSMutableArray *_reinvitedPlayers;
     NSData *_selfBlob;
     unsigned char _version;
-    id <GKMatchDelegate> _inviteDelegate;
+    id <GKMatchDelegate> _inviteDelegateWeak;
     unsigned int _packetSequenceNumber;
     NSMutableDictionary *_playerPushTokens;
     NSMutableArray *_opponentIDs;
+    NSString *_rematchID;
+    int _rematchCount;
+    NSDictionary *_networkStatistics;
+    NSMutableDictionary *_hostScores;
+    BOOL _needHostScore;
+    id _chooseHostCompletion;
 }
 
+@property(copy, nonatomic) id chooseHostCompletion; // @synthesize chooseHostCompletion=_chooseHostCompletion;
+@property(nonatomic) BOOL needHostScore; // @synthesize needHostScore=_needHostScore;
+@property(retain, nonatomic) NSMutableDictionary *hostScores; // @synthesize hostScores=_hostScores;
+@property(retain, nonatomic) NSDictionary *networkStatistics; // @synthesize networkStatistics=_networkStatistics;
+@property(nonatomic) int rematchCount; // @synthesize rematchCount=_rematchCount;
+@property(retain, nonatomic) NSString *rematchID; // @synthesize rematchID=_rematchID;
 @property(retain, nonatomic) NSMutableArray *opponentIDs; // @synthesize opponentIDs=_opponentIDs;
 @property(retain, nonatomic) NSMutableDictionary *playerPushTokens; // @synthesize playerPushTokens=_playerPushTokens;
 @property(nonatomic) unsigned int packetSequenceNumber; // @synthesize packetSequenceNumber=_packetSequenceNumber;
-@property(nonatomic) id <GKMatchDelegate> inviteDelegate; // @synthesize inviteDelegate=_inviteDelegate;
 @property(nonatomic) unsigned char version; // @synthesize version=_version;
 @property(retain, nonatomic) NSData *selfBlob; // @synthesize selfBlob=_selfBlob;
 @property(retain, nonatomic) NSMutableArray *reinvitedPlayers; // @synthesize reinvitedPlayers=_reinvitedPlayers;
@@ -37,7 +48,6 @@
 @property(readonly, nonatomic) unsigned int expectedPlayerCount; // @synthesize expectedPlayerCount=_expectedPlayerCount;
 @property(retain, nonatomic) GKConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) GKSession *session; // @synthesize session=_session;
-@property(nonatomic) id <GKMatchDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)dataFromBase64String:(id)arg1;
 - (void)session:(id)arg1 updateRelay:(id)arg2 forPeer:(id)arg3;
 - (void)session:(id)arg1 initiateRelay:(id)arg2 forPeer:(id)arg3;
@@ -56,10 +66,16 @@
 - (void)initRelayInfoFromServerResponse:(id)arg1 forPlayer:(id)arg2;
 - (void)relayPush:(id)arg1;
 - (void)relayPushNotification:(id)arg1;
+- (void)session:(id)arg1 networkStatisticsChanged:(id)arg2;
 - (void)receiveData:(id)arg1 fromPeer:(id)arg2 inSession:(id)arg3 context:(void *)arg4;
 - (void)session:(id)arg1 didFailWithError:(id)arg2;
 - (void)session:(id)arg1 connectionWithPeerFailed:(id)arg2 withError:(id)arg3;
 - (void)session:(id)arg1 peer:(id)arg2 didChangeState:(int)arg3;
+- (void)chooseBestHostPlayerWithCompletionHandler:(id)arg1;
+- (void)calculateAndSendHostScore;
+- (void)selectHostIfAllScored;
+- (void)addHostScore:(int)arg1 forPlayer:(id)arg2;
+- (void)rematchWithCompletionHandler:(id)arg1;
 - (void)conditionallyRelaunchPlayer:(id)arg1;
 - (void)conditionallyReinvitePlayer:(id)arg1 sessionToken:(id)arg2;
 - (void)reinviteeDeclinedNotification:(id)arg1;
@@ -81,14 +97,20 @@
 - (BOOL)sendData:(id)arg1 toPlayers:(id)arg2 withDataMode:(int)arg3 error:(id *)arg4;
 - (id)packet:(unsigned char)arg1 data:(id)arg2;
 - (void)inviteeComboMatched:(int)arg1;
+- (void)connectToNearbyPlayer:(id)arg1 withConnectionData:(id)arg2;
 - (void)connectToPeersWithDictionaries:(id)arg1 version:(unsigned char)arg2 sessionToken:(id)arg3 cdxTicket:(id)arg4;
+- (void)updateRematchID;
 - (void)preLoadInviter:(id)arg1 sessionToken:(id)arg2;
+- (id)nearbyConnectionData;
 - (void)getLocalConnectionDataWithCompletionHandler:(id)arg1;
 - (void)dealloc;
 - (id)init;
+@property(nonatomic) id <GKMatchDelegate> inviteDelegate; // @synthesize inviteDelegate=_inviteDelegateWeak;
+@property(nonatomic) id <GKMatchDelegate> delegate; // @synthesize delegate=_delegateWeak;
 - (BOOL)connected:(id)arg1;
 - (id)allIDs;
 @property(readonly, nonatomic) NSArray *playerIDs;
+- (id)description;
 
 @end
 

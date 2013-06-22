@@ -10,14 +10,14 @@
 {
 }
 
-+ (struct CGSize)nodeSizeWithState:(id)arg1;
-+ (struct CGRect)mapGSpaceWithState:(id)arg1;
-+ (void)addShapeForNode:(id)arg1 relativeBounds:(struct CGRect)arg2 state:(id)arg3;
-+ (void)mapNode:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
-+ (void)addShapeForTransition:(id)arg1 relativeBounds:(struct CGRect)arg2 rotation:(float)arg3 state:(id)arg4;
-+ (void)mapTransition:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
-+ (BOOL)map1NodeWithState:(id)arg1;
 + (BOOL)map2NodeWithState:(id)arg1;
++ (BOOL)map1NodeWithState:(id)arg1;
++ (void)mapTransition:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
++ (void)addShapeForTransition:(id)arg1 relativeBounds:(struct CGRect)arg2 rotation:(float)arg3 state:(id)arg4;
++ (void)mapNode:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
++ (void)addShapeForNode:(id)arg1 relativeBounds:(struct CGRect)arg2 state:(id)arg3;
++ (struct CGRect)mapGSpaceWithState:(id)arg1;
++ (struct CGSize)nodeSizeWithState:(id)arg1;
 
 @end
 

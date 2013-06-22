@@ -14,13 +14,13 @@
     NSDate *mDate;
 }
 
-- (void)dealloc;
-- (id)initWithParagraph:(id)arg1 date:(id)arg2;
-- (id)properties;
-- (void)setProperties:(id)arg1;
-- (void)clearProperties;
-- (id)date;
 - (int)runType;
+- (id)date;
+- (void)clearProperties;
+- (void)setProperties:(id)arg1;
+- (id)properties;
+- (id)initWithParagraph:(id)arg1 date:(id)arg2;
+- (void)dealloc;
 
 @end
 

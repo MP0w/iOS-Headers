@@ -37,9 +37,10 @@
 }
 
 + (void)initialize;
-- (void)dealloc;
-- (void)finalize;
+- (id).cxx_construct;
 - (void)clear;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

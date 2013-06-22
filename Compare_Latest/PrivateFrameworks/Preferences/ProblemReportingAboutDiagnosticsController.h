@@ -10,9 +10,9 @@
 {
 }
 
-- (id)init;
-- (void)donePressed;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)donePressed;
+- (id)init;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVVideoComposition, AVWeakReference, NSMutableArray, NSString;
+@class AVAsset, AVVideoComposition, AVWeakReference, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVAssetImageGeneratorInternal : NSObject
 {
@@ -19,10 +19,10 @@
     CDStruct_1b6d18a9 requestedTimeToleranceBefore;
     CDStruct_1b6d18a9 requestedTimeToleranceAfter;
     NSMutableArray *requests;
-    struct dispatch_queue_s *requestsQueue;
+    NSObject<OS_dispatch_queue> *requestsQueue;
     int nextRequestID;
     AVVideoComposition *videoComposition;
-    struct dispatch_queue_s *imageRequestQueue;
+    NSObject<OS_dispatch_queue> *imageRequestQueue;
     int cancelledRequestIDThreshold;
 }
 

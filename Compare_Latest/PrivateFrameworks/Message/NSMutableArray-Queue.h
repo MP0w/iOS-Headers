@@ -7,7 +7,7 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (Queue)
-- (id)mf_popElement;
 - (BOOL)mf_isEmpty;
+- (id)mf_popElement;
 @end
 

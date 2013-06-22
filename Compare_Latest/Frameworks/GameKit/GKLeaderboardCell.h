@@ -24,7 +24,6 @@
 @property(nonatomic) int topEdgeStyle; // @synthesize topEdgeStyle=_topEdgeStyle;
 - (void)updateBackgroundViews;
 - (void)configureBackgroundView;
-- (float)contentsMargin;
 - (void)setSectionLocation:(int)arg1 animated:(BOOL)arg2;
 @property(readonly, nonatomic) GKLeaderboardCellBackgroundView *selectedLeaderboardBackgroundView;
 @property(readonly, nonatomic) GKLeaderboardCellBackgroundView *leaderboardBackgroundView;

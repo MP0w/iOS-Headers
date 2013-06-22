@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class NSArray, NSString, UIBarButtonItem, UIPanGestureRecognizer, UIPopoverController, UIView;
+@class NSArray, NSString, UIBarButtonItem, UIGestureRecognizer, UIPopoverController, UIView;
 
 @interface UISplitViewController : UIViewController <UIGestureRecognizerDelegate>
 {
@@ -29,9 +29,9 @@
     UIView *_masterBackgroundView;
     BOOL _presentsInFadingPopover;
     BOOL _presentsWithGesture;
-    UIPanGestureRecognizer *_masterViewPresentationGestureRecognizer;
-    UIPanGestureRecognizer *_dimmingViewGestureRecognizer;
+    UIGestureRecognizer *_popoverPresentationGestureRecognizer;
     struct {
+        unsigned int validDelegateHiddenMasterOrientations:5;
         unsigned int delegateHiddenMasterOrientations:5;
         unsigned int delegateImplementsShouldHide:1;
         unsigned int hidden:3;
@@ -42,6 +42,7 @@
         unsigned int delegateWantsWillShowCallback:1;
         unsigned int delegateWantsWillHideCallback:1;
         unsigned int delegateWantsWillPresentCallback:1;
+        unsigned int delegateWantsNavigationRequests:1;
     } _splitViewControllerFlags;
 }
 
@@ -59,20 +60,18 @@
 - (void)snapshotAllViews;
 - (void)snapshotMasterView;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)_invalidateHidesMasterViewInOrientation:(int)arg1;
 - (BOOL)hidesMasterViewDuringRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
 - (BOOL)revealsMasterViewDuringRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
 - (BOOL)_isRotating;
+- (BOOL)_shouldSynthesizeSupportedOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)_swipeMasterView:(id)arg1;
-- (BOOL)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
-- (BOOL)_gestureRecognizerShouldBegin:(id)arg1;
-- (void)dismissPresentedViewController;
-- (void)presentHiddenViewController;
-- (void)_dismissMasterView:(id)arg1;
+- (void)popoverWillAppear:(id)arg1;
+- (void)_presentGestureAttemptedWithPresentedPopoverController:(id)arg1;
+- (struct CGSize)_contentSizeForChildViewController:(id)arg1 inPopoverController:(id)arg2;
 - (void)toggleMasterVisible:(id)arg1;
-- (void)_toggleMasterVisible;
 - (void)_dismissMasterViewController;
-- (void)_presentMasterViewController;
+- (void)_presentMasterViewController:(BOOL)arg1;
 - (void)purgeMemoryForReason:(int)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
@@ -91,7 +90,6 @@
 - (id)masterViewController;
 @property(copy, nonatomic) NSArray *viewControllers;
 - (void)_slideIn:(BOOL)arg1 viewController:(id)arg2 animated:(BOOL)arg3 totalDuration:(double)arg4 completion:(id)arg5;
-- (void)_addMasterViewPresentationGestureRecognizer:(BOOL)arg1;
 - (BOOL)_canSlideMaster;
 - (BOOL)_canDisplayHostedMaster;
 - (BOOL)_delegateUsesLegacySlideSPI;
@@ -102,7 +100,10 @@
 - (void)_setupRoundedCorners;
 - (struct CGRect)_detailViewFrame;
 - (struct CGRect)_masterViewFrame;
+- (void)_addOrRemovePopoverPresentationGestureRecognizer;
 - (void)_calculateDelegateHiddenMasterOrientations;
+- (BOOL)_isHidesMasterInLandscapeValid;
+- (BOOL)_isHidesMasterInPortraitValid;
 - (BOOL)_isMasterViewShown;
 - (BOOL)_isMasterViewShownByDefault;
 - (void)unloadViewForced:(BOOL)arg1;
@@ -116,6 +117,8 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)_commonInit;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
 
 @end
 

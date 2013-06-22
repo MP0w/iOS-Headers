@@ -14,18 +14,18 @@
     BOOL _nonChaperonePairingAllowed;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (id)stubDictionary;
-- (id)subtitle1Label;
-- (id)subtitle1Description;
-- (id)subtitle2Label;
-- (id)subtitle2Description;
-- (id)description;
++ (id)typeStrings;
 @property(readonly, nonatomic) BOOL nonChaperonePairingAllowed; // @synthesize nonChaperonePairingAllowed=_nonChaperonePairingAllowed;
 @property(readonly, nonatomic) NSData *pairingCertificateData; // @synthesize pairingCertificateData=_pairingCertificateData;
+- (void).cxx_destruct;
+- (id)description;
+- (id)subtitle2Description;
+- (id)subtitle2Label;
+- (id)subtitle1Description;
+- (id)subtitle1Label;
+- (id)stubDictionary;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

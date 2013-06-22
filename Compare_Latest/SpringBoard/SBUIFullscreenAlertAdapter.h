@@ -6,38 +6,44 @@
 
 #import "SBAlert.h"
 
-@class SBAlertDisplay, SBUIFullscreenAlertController;
+@class SBAlertView, SBUIFullscreenAlertController;
 
 @interface SBUIFullscreenAlertAdapter : SBAlert
 {
     SBUIFullscreenAlertController *_alertController;
-    SBAlertDisplay *_alertDisplay;
+    SBAlertView *_alertDisplay;
+    BOOL _animatingDeactivation;
 }
 
-- (id)initWithAlertController:(id)arg1;
-- (BOOL)allowsEventOnlySuspension;
-- (BOOL)hasTranslucentBackground;
-- (void)dealloc;
-- (void)deactivate;
-- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (BOOL)viewIsReadyToBeRemoved;
-- (BOOL)viewDisplaysAboveStatusBar;
-- (void)setViewShouldAnimateIn:(BOOL)arg1;
-- (void)prepareViewToAnimateOut;
-- (void)animateViewOut;
-- (void)_pluginViewAnimatedOut:(id)arg1;
-- (id)alertController;
-- (void)alertWindowResizedFromContentFrame:(struct CGRect)arg1 toContentFrame:(struct CGRect)arg2;
-- (void)alertWindowWillRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)alertWindowWillAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)alertWindowDidRotateFromInterfaceOrientation:(int)arg1;
-- (BOOL)handleMenuButtonTap;
-- (BOOL)handleLockButtonPressed;
-- (BOOL)handleVolumeUpButtonPressed;
-- (BOOL)handleVolumeDownButtonPressed;
-- (BOOL)handleHeadsetButtonPressed:(BOOL)arg1;
-- (void)launchSucceeded:(BOOL)arg1;
 - (id)description;
+- (void)launchSucceeded:(BOOL)arg1;
+- (void)handleAutoLock;
+- (BOOL)handleHeadsetButtonPressed:(BOOL)arg1;
+- (BOOL)handleVolumeDownButtonPressed;
+- (BOOL)handleVolumeUpButtonPressed;
+- (BOOL)handleLockButtonPressed;
+- (BOOL)handleMenuButtonTap;
+- (BOOL)dismissPresentedModalAlertIfNecessary;
+- (void)presentAlertModally:(id)arg1;
+- (void)alertWindow:(id)arg1 didRotateFromInterfaceOrientation:(int)arg2;
+- (void)alertWindow:(id)arg1 willAnimateRotationToInterfaceOrientation:(int)arg2 duration:(double)arg3;
+- (void)alertWindow:(id)arg1 willRotateToInterfaceOrientation:(int)arg2 duration:(double)arg3;
+- (void)alertWindow:(id)arg1 resizedFromContentFrame:(struct CGRect)arg2 toContentFrame:(struct CGRect)arg3;
+- (id)alertController;
+- (void)_updateForTransparentDismiss:(id)arg1;
+- (void)_pluginViewAnimatedOut:(id)arg1;
+- (void)animateViewOut;
+- (void)prepareViewToAnimateOut;
+- (BOOL)currentlyAnimatingDeactivation;
+- (void)setViewShouldAnimateIn:(BOOL)arg1;
+- (BOOL)viewDisplaysAboveStatusBar;
+- (BOOL)viewIsReadyToBeRemoved;
+- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
+- (void)dealloc;
+- (BOOL)allowsStackingOfAlert:(id)arg1;
+- (BOOL)hasTranslucentBackground;
+- (BOOL)allowsEventOnlySuspension;
+- (id)initWithAlertController:(id)arg1;
 
 @end
 

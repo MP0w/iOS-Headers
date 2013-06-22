@@ -20,6 +20,8 @@
     BOOL _isAOLInterop;
     BOOL _usingICE;
     BOOL _networkStalled;
+    BOOL _videoDegraded;
+    BOOL _mediaStalled;
     BOOL _isRecording;
     NSString *_vcPartyID;
     int _avRelayStatus;
@@ -48,8 +50,10 @@
     struct CGSize _remotePIPLandscapeOrientation;
     struct CGRect _remotePortraitContentRect;
     struct CGRect _remoteLandscapeContentRect;
+    unsigned int __screenOrientation;
 }
 
+@property(nonatomic, setter=_setScreenOrientation:) unsigned int _screenOrientation; // @synthesize _screenOrientation=__screenOrientation;
 @property(nonatomic, setter=_setRemoteLandscapeContentRect:) struct CGRect _remoteLandscapeContentRect; // @synthesize _remoteLandscapeContentRect;
 @property(nonatomic, setter=_setRemotePortraitContentRect:) struct CGRect _remotePortraitContentRect; // @synthesize _remotePortraitContentRect;
 @property(nonatomic, setter=_setRemotePIPLandscapeOrientation:) struct CGSize _remotePIPLandscapeOrientation; // @synthesize _remotePIPLandscapeOrientation;
@@ -80,6 +84,8 @@
 @property(setter=setAVRelayStatus:) int avRelayStatus; // @synthesize avRelayStatus=_avRelayStatus;
 @property(retain, setter=setVCPartyID:) NSString *vcPartyID; // @synthesize vcPartyID=_vcPartyID;
 @property(setter=setRecording:) BOOL isRecording; // @synthesize isRecording=_isRecording;
+@property(setter=setMediaStalled:) BOOL isMediaStalled; // @synthesize isMediaStalled=_mediaStalled;
+@property(setter=setVideoDegraded:) BOOL isVideoDegraded; // @synthesize isVideoDegraded=_videoDegraded;
 @property(setter=setNetworkStalled:) BOOL isNetworkStalled; // @synthesize isNetworkStalled=_networkStalled;
 @property(readonly, nonatomic) BOOL isUsingICE; // @synthesize isUsingICE=_usingICE;
 @property(setter=setAOLInterop:) BOOL isAOLInterop; // @synthesize isAOLInterop=_isAOLInterop;
@@ -101,6 +107,7 @@
 - (void)setStateToEndedWithReason:(unsigned int)arg1 andError:(int)arg2;
 - (void)_noteInviteDelivered;
 - (void)_handleIMAVResponse:(unsigned int)arg1;
+- (id)_natType;
 - (id)rebuildLocalICEData;
 - (id)getLocalICEData;
 - (void)requestIconIfNecessary;
@@ -115,6 +122,29 @@
 - (id)initAs:(id)arg1 invitedBy:(id)arg2 toChat:(id)arg3 account:(id)arg4;
 - (id)_initAs:(id)arg1 invitedBy:(id)arg2 sendingAudio:(BOOL)arg3 sendingVideo:(BOOL)arg4 usingICE:(BOOL)arg5 toChat:(id)arg6 inState:(unsigned int)arg7 withError:(int)arg8 andReason:(unsigned int)arg9 andVCPartyID:(id)arg10 account:(id)arg11;
 - (id)init;
+- (void)_connectTimeout:(id)arg1;
+- (void)resetWaitingToConnectTimer;
+- (void)setWaitingToConnect:(BOOL)arg1;
+- (void)receivedRelayProposalAcceptWithConnectionData:(id)arg1;
+- (void)receivedRelayProposalRequestWithConnectionData:(id)arg1;
+- (void)sendRelayProposal;
+- (void)sendCounterProposal;
+- (void)sendResponse:(unsigned int)arg1;
+- (void)sendVCUpdate;
+- (void)cancelInvitation;
+- (void)sendInvitation;
+- (void)_enqueueOperation:(id)arg1;
+- (void)_cancelMessagesQueue;
+- (void)_flushMessagesQueue;
+- (void)_setError:(int)arg1;
+- (id)errorStringFor:(int)arg1;
+@property(readonly, nonatomic) NSString *errorString;
+@property(readonly, nonatomic) NSString *rawErrorString;
+- (void)_generateErrorStrings;
+- (void)_getErrorString:(id *)arg1 rawString:(id *)arg2 forError:(int)arg3;
+@property(readonly, nonatomic) IMAVChatParticipant *remoteErrorParticipant;
+@property(nonatomic) void *videoBackLayer;
+@property(nonatomic) void *videoLayer;
 
 @end
 

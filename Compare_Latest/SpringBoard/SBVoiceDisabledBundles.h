@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)setAppDisabledVoiceControl:(BOOL)arg1 bundleIdentifier:(id)arg2;
 + (BOOL)voiceControlDisabledByCurrentlyRunningApp;
++ (void)setAppDisabledVoiceControl:(BOOL)arg1 bundleIdentifier:(id)arg2;
 
 @end
 

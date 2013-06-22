@@ -12,9 +12,9 @@
     BOOL locked;
 }
 
-- (void)_updateLockedImage;
-- (id)init;
 @property(nonatomic, getter=isLocked) BOOL locked; // @synthesize locked;
+- (id)init;
+- (void)_updateLockedImage;
 
 @end
 

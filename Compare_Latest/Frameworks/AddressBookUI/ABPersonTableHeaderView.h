@@ -6,87 +6,93 @@
 
 #import "UIView.h"
 
-@class ABMultiCellContentView, ABNamePropertyGroup, ABPersonImageView, ABPersonNameDisplayView, ABPersonNameEditingViewContainer, NSString, UIFont, UIImageView;
+#import "UITableViewDataSource-Protocol.h"
+#import "UITableViewDelegate-Protocol.h"
 
-@interface ABPersonTableHeaderView : UIView
+@class ABMultiCell, ABMultiCellContentView, ABNamePropertyGroup, ABPersonImageView, ABPersonNameDisplayView, NSString, UIFont, UIImageView, UITableView;
+
+@interface ABPersonTableHeaderView : UIView <UITableViewDelegate, UITableViewDataSource>
 {
     BOOL _editing;
     BOOL _representsLinkedPeople;
     ABPersonImageView *_imageView;
     UIImageView *_imageShadowView;
     ABPersonNameDisplayView *_displayView;
-    UIImageView *_multiplePhotoBackdropView;
     BOOL _showsMultiplePhotoBackdropView;
     ABNamePropertyGroup *_namePropertyGroup;
     ABMultiCellContentView *_editingView;
-    ABPersonNameEditingViewContainer *_editingViewContainer;
+    ABMultiCell *_editingViewCell;
+    UITableView *_editingViewContainer;
     UIView *_extraHeaderView;
     BOOL _extraHeaderViewAlignsToImage;
     id <ABPersonTableHeaderViewDelegate> _delegate;
     id <ABStyleProvider> _styleProvider;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)setBackgroundColor:(id)arg1;
-- (void)dealloc;
-@property(nonatomic) id <ABPersonTableHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)_isSpecialInternalHeaderView;
-- (BOOL)canBecomeFirstResponder;
-- (BOOL)becomeFirstResponder;
-- (BOOL)canResignFirstResponder;
-- (BOOL)resignFirstResponder;
-- (BOOL)isFirstResponder;
-- (struct CGRect)_imageViewFrameWhenEditing:(BOOL)arg1;
-- (struct CGRect)_multiplePhotoBackdropViewFrame;
-- (struct CGPoint)_displayViewOrigin;
-- (float)_displayViewWidthForWidth:(float)arg1;
-- (struct CGRect)_displayViewFrameForWidth:(float)arg1;
-- (struct CGPoint)_editingViewOrigin;
-- (float)_editingViewWidthForWidth:(float)arg1;
-- (struct CGRect)_editingViewFrameForWidth:(float)arg1;
-- (struct CGRect)_frameForEditingView;
-- (float)extraHeaderViewHorizontalPaddingWhenEditing:(BOOL)arg1;
-- (struct CGPoint)_extraHeaderViewOriginForWidth:(float)arg1 whenEditing:(BOOL)arg2;
-- (float)_extraHeaderViewAvailableWidthForWidth:(float)arg1 whenEditing:(BOOL)arg2;
-- (id)_displayView;
-- (id)_imageShadowView;
-- (id)_multiplePhotoBackdropViewImage;
-- (id)_multiplePhotoBackdropView;
-- (void *)personForName;
-@property(nonatomic) void *personForImageView;
-- (id)_newEditingViewContainerForWidth:(float)arg1;
-- (void)_updateShowsMultiplePhotoBackdrop;
-@property(retain, nonatomic) ABNamePropertyGroup *namePropertyGroup; // @synthesize namePropertyGroup=_namePropertyGroup;
-@property(copy, nonatomic) NSString *alternateName;
-@property(copy, nonatomic) NSString *message;
-@property(retain, nonatomic) UIFont *messageFont;
-@property(copy, nonatomic) NSString *messageDetail;
-@property(retain, nonatomic) UIFont *messageDetailFont;
-@property(retain, nonatomic) UIView *customMessageView;
-@property(retain, nonatomic) UIView *extraHeaderView; // @synthesize extraHeaderView=_extraHeaderView;
-- (void)_layoutExtraHeaderView;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-@property(nonatomic) BOOL representsLinkedPeople; // @synthesize representsLinkedPeople=_representsLinkedPeople;
-- (void)deselectAnimated:(BOOL)arg1;
-- (struct CGPoint)extraHeaderViewOrigin;
-- (void)setPrimaryProperty:(int)arg1 countryCode:(id)arg2;
-- (void)reloadNameDataAnimated:(BOOL)arg1;
-- (void)reloadNameDataButNotModelAnimated:(BOOL)arg1;
-- (void)reloadImageData;
-- (void)reloadData;
-- (void)setAllowsEditing:(BOOL)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-- (void)imageViewSelected:(id)arg1;
-- (void)_updateRecordIfNeeded;
-- (id)entryFieldForRow:(unsigned int)arg1;
-@property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(nonatomic) BOOL extraHeaderViewAlignsToImage; // @synthesize extraHeaderViewAlignsToImage=_extraHeaderViewAlignsToImage;
+@property(retain, nonatomic) UIView *extraHeaderView; // @synthesize extraHeaderView=_extraHeaderView;
+@property(nonatomic) BOOL representsLinkedPeople; // @synthesize representsLinkedPeople=_representsLinkedPeople;
+@property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
+@property(nonatomic) id <ABPersonTableHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) ABNamePropertyGroup *namePropertyGroup; // @synthesize namePropertyGroup=_namePropertyGroup;
 @property(readonly, nonatomic) ABMultiCellContentView *editingView; // @synthesize editingView=_editingView;
-@property(readonly, nonatomic) UIView *editingViewContainer; // @synthesize editingViewContainer=_editingViewContainer;
 @property(readonly, nonatomic) ABPersonNameDisplayView *displayView; // @synthesize displayView=_displayView;
 @property(readonly, nonatomic) ABPersonImageView *imageView; // @synthesize imageView=_imageView;
+- (float)marginForTableView:(id)arg1;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (BOOL)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (int)numberOfSectionsInTableView:(id)arg1;
+- (id)entryFieldForRow:(unsigned int)arg1;
+- (void)_updateRecordIfNeeded;
+- (void)imageViewSelected:(id)arg1;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)setAllowsEditing:(BOOL)arg1;
+- (void)reloadData;
+- (void)reloadImageData;
+- (void)reloadNameDataButNotModelAnimated:(BOOL)arg1;
+- (void)reloadNameDataAnimated:(BOOL)arg1;
+- (void)setPrimaryProperty:(int)arg1 countryCode:(id)arg2;
+- (struct CGPoint)extraHeaderViewOrigin;
+- (void)deselectAnimated:(BOOL)arg1;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_layoutExtraHeaderView;
+@property(retain, nonatomic) UIView *customMessageView;
+@property(retain, nonatomic) UIFont *messageDetailFont;
+@property(copy, nonatomic) NSString *messageDetail;
+@property(retain, nonatomic) UIFont *messageFont;
+@property(copy, nonatomic) NSString *message;
+@property(copy, nonatomic) NSString *alternateName;
+- (void)_updateShowsMultiplePhotoBackdrop;
+- (void)_recreateEditingViewContainer;
+@property(nonatomic) void *personForImageView;
+- (void *)personForName;
+- (id)_imageShadowView;
+- (id)_displayView;
+- (float)_extraHeaderViewAvailableWidthForWidth:(float)arg1 whenEditing:(BOOL)arg2;
+- (struct CGPoint)_extraHeaderViewOriginForWidth:(float)arg1 whenEditing:(BOOL)arg2;
+- (float)extraHeaderViewHorizontalPaddingWhenEditing:(BOOL)arg1;
+- (struct CGRect)_editingViewContainerFrameForWidth:(float)arg1;
+- (float)_editingViewWidthForWidth:(float)arg1;
+- (struct CGPoint)_editingViewOrigin;
+- (struct CGRect)_displayViewFrameForWidth:(float)arg1;
+- (float)_displayViewWidthForWidth:(float)arg1;
+- (struct CGPoint)_displayViewOrigin;
+- (struct CGRect)_imageViewFrameWhenEditing:(BOOL)arg1;
+- (BOOL)isFirstResponder;
+- (BOOL)resignFirstResponder;
+- (BOOL)canResignFirstResponder;
+- (BOOL)becomeFirstResponder;
+- (BOOL)canBecomeFirstResponder;
+- (BOOL)_isSpecialInternalHeaderView;
+- (void)dealloc;
+- (void)setBackgroundColor:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;
 
 @end
 

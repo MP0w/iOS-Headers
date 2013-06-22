@@ -15,6 +15,7 @@
     NSURLAuthenticationChallengeInternal *_internal;
 }
 
++ (id)_createAuthenticationChallengeForCFAuthChallenge:(struct _CFURLAuthChallenge *)arg1 sender:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)sender;
@@ -28,6 +29,8 @@
 - (id)initWithAuthenticationChallenge:(id)arg1 sender:(id)arg2;
 - (id)initWithProtectionSpace:(id)arg1 proposedCredential:(id)arg2 previousFailureCount:(int)arg3 failureResponse:(id)arg4 error:(id)arg5 sender:(id)arg6;
 - (id)init;
+- (void)setSender:(id)arg1;
+- (struct _CFURLAuthChallenge *)_createCFAuthChallenge;
 
 @end
 

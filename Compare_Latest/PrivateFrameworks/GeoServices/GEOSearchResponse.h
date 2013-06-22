@@ -6,14 +6,17 @@
 
 #import <GeoServices/GEOPlaceSearchResponse.h>
 
-@class NSString;
+@class NSMapTable, NSString;
 
 @interface GEOSearchResponse : GEOPlaceSearchResponse
 {
     NSString *_businessQuery;
+    NSMapTable *_attributionKeysToInfo;
 }
 
 @property(retain, nonatomic) NSString *businessQuery; // @synthesize businessQuery=_businessQuery;
+- (id)attributionInfoForSourceIdentifier:(id)arg1 sourceVersion:(unsigned int)arg2;
+- (void)_addAttributionInfo:(id)arg1;
 - (void)dealloc;
 
 @end

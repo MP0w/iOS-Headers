@@ -10,7 +10,6 @@
 {
 }
 
-- (void)_initWithMediaPlayerItem:(id)arg1;
 - (id)_className;
 - (id)initWithMediaPlayerItem:(id)arg1;
 

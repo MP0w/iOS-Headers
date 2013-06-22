@@ -11,10 +11,10 @@
     UIView *_topBar;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 topBarFrame:(struct CGRect)arg2 bottomBarFrame:(struct CGRect)arg3;
-- (id)topBar;
-- (void)setTopBar:(id)arg1;
 - (void)dealloc;
+- (void)setTopBar:(id)arg1;
+- (id)topBar;
+- (id)initWithFrame:(struct CGRect)arg1 topBarFrame:(struct CGRect)arg2 bottomBarFrame:(struct CGRect)arg3;
 
 @end
 

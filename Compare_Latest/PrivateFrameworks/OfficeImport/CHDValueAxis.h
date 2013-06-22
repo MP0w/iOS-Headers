@@ -16,18 +16,18 @@
     double mScalingLogBase;
 }
 
-- (id)initWithResources:(id)arg1;
-- (double)majorUnitValue;
-- (void)setMajorUnitValue:(double)arg1;
-- (double)minorUnitValue;
-- (void)setMinorUnitValue:(double)arg1;
-- (double)scalingLogBase;
-- (void)setScalingLogBase:(double)arg1;
-- (_Bool)isPercentageFormattingFlag;
-- (void)setPercentageFormattingFlag:(_Bool)arg1;
-- (_Bool)isAutoMajorUnitValue;
-- (_Bool)isAutoMinorUnitValue;
 - (void)adjustAxisPositionForHorizontalChart;
+- (_Bool)isAutoMinorUnitValue;
+- (_Bool)isAutoMajorUnitValue;
+- (void)setPercentageFormattingFlag:(_Bool)arg1;
+- (_Bool)isPercentageFormattingFlag;
+- (void)setScalingLogBase:(double)arg1;
+- (double)scalingLogBase;
+- (void)setMinorUnitValue:(double)arg1;
+- (double)minorUnitValue;
+- (void)setMajorUnitValue:(double)arg1;
+- (double)majorUnitValue;
+- (id)initWithResources:(id)arg1;
 
 @end
 

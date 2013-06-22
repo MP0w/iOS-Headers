@@ -36,7 +36,6 @@
 @property(retain) NSDictionary *inspectionNotificationInfo; // @synthesize inspectionNotificationInfo=_inspectionNotificationInfo;
 - (id)evenlySpacedThumbnailTimesFromStartTime:(double)arg1 toEndTime:(double)arg2 maxCount:(int)arg3;
 - (id)nextThumbnailTimesStartingAt:(double)arg1 minimumInterval:(double)arg2 forwards:(BOOL)arg3 maxCount:(int)arg4;
-- (id)chapterImageForImageID:(int)arg1;
 - (void)stealControlOfAVItem;
 - (void)setBookmarkTime:(double)arg1;
 - (struct OpaqueFigPlaybackItem *)fpItem;

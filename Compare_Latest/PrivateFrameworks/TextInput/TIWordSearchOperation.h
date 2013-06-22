@@ -6,18 +6,12 @@
 
 #import "NSOperation.h"
 
-@class TIWordSearch;
-
 @interface TIWordSearchOperation : NSOperation
 {
-    TIWordSearch *_kbws;
 }
 
-- (id)initWithTIWordSearch:(id)arg1;
-- (void)dealloc;
-- (void)perform;
 - (void)main;
-@property(readonly, retain, nonatomic) TIWordSearch *kbws; // @synthesize kbws=_kbws;
+- (void)perform;
 
 @end
 

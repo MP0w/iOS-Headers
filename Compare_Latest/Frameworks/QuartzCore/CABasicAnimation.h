@@ -10,12 +10,17 @@
 {
 }
 
-- (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;
-- (void)CA_prepareRenderValue;
-@property(retain) id fromValue;
-@property(retain) id toValue;
-@property(retain) id byValue;
+- (double)_timeFunction:(double)arg1;
 - (void)applyForTime:(double)arg1 presentationObject:(id)arg2 modelObject:(id)arg3;
+@property(retain) id byValue;
+@property(retain) id toValue;
+@property(retain) id fromValue;
+- (void)CA_prepareRenderValue;
+- (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;
+- (BOOL)_setCARenderAnimation:(struct Animation *)arg1 layer:(id)arg2;
+@property float endAngle;
+@property float startAngle;
+@property BOOL roundsToInteger;
 
 @end
 

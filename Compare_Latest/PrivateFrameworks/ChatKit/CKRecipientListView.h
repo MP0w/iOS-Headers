@@ -22,22 +22,22 @@
 }
 
 + (float)separatorHeight;
-- (id)initWithFrame:(struct CGRect)arg1 toFieldRecipients:(id)arg2 style:(int)arg3 delegate:(id)arg4;
-- (void)dealloc;
-- (void)timerFired:(id)arg1;
-- (void)layoutSubviews;
-- (float)heightWithoutSeparator;
-@property(nonatomic) int style; // @synthesize style=_style;
-- (void)setExpanded:(BOOL)arg1 animate:(BOOL)arg2;
-@property(nonatomic, getter=isSeparatorShadowHidden) BOOL separatorShadowHidden; // @dynamic separatorShadowHidden;
-- (void)addressAtomClicked:(id)arg1;
-- (void)atomListView:(id)arg1 contentSizeDidChange:(struct CGSize)arg2;
-- (void)_clearToField;
-- (void)_adjustContentSize;
-- (void)_setupToField;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
-@property(readonly, retain, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
+@property(nonatomic) int style; // @synthesize style=_style;
+@property(readonly, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
+- (void)_setupToField;
+- (void)_adjustContentSize;
+- (void)_clearToField;
+- (void)atomListView:(id)arg1 contentSizeDidChange:(struct CGSize)arg2;
+- (void)addressAtomClicked:(id)arg1;
+@property(nonatomic, getter=isSeparatorShadowHidden) BOOL separatorShadowHidden; // @dynamic separatorShadowHidden;
+- (void)setExpanded:(BOOL)arg1 animate:(BOOL)arg2;
+- (float)heightWithoutSeparator;
+- (void)layoutSubviews;
+- (void)timerFired:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 toFieldRecipients:(id)arg2 style:(int)arg3 delegate:(id)arg4;
 
 @end
 

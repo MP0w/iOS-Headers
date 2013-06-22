@@ -20,18 +20,18 @@
 }
 
 + (unsigned long long)encodedLengthForDataLength:(unsigned long long)arg1 key:(id)arg2;
-- (id)initForEncryptionWithOutputStream:(id)arg1 key:(id)arg2;
-- (id)initForEncryptionWithOutputStream:(id)arg1 key:(id)arg2 computeCrc32:(BOOL)arg3;
-- (void)dealloc;
-- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
-- (BOOL)canSeek;
-- (void)seekToOffset:(long long)arg1 whence:(int)arg2;
-- (long long)offset;
-- (BOOL)canCreateInputStream;
-- (id)inputStream;
-- (unsigned int)crc32;
-- (void)close;
 - (id)closeLocalStream;
+- (void)close;
+- (unsigned int)crc32;
+- (id)inputStream;
+- (BOOL)canCreateInputStream;
+- (long long)offset;
+- (void)seekToOffset:(long long)arg1 whence:(int)arg2;
+- (BOOL)canSeek;
+- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
+- (void)dealloc;
+- (id)initForEncryptionWithOutputStream:(id)arg1 key:(id)arg2 computeCrc32:(BOOL)arg3;
+- (id)initForEncryptionWithOutputStream:(id)arg1 key:(id)arg2;
 
 @end
 

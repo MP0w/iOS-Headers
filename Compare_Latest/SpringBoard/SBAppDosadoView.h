@@ -10,8 +10,8 @@
 {
 }
 
-- (void)beginTransition;
 - (void)endTransition;
+- (void)beginTransition;
 
 @end
 

@@ -10,15 +10,17 @@
 {
 }
 
-+ (void)userDefaultsDidChanged:(id)arg1;
-+ (id)calendarAlarmPath;
-+ (id)ringtoneIdentifier;
-+ (id)ringtonePath;
-+ (BOOL)playLockSound;
-+ (id)vibratePattern;
-+ (BOOL)vibrateWhenRinging;
-+ (BOOL)vibrateWhenSilent;
++ (BOOL)shouldVibrateForCurrentRingerStateWithAudioCategory:(id)arg1;
 + (BOOL)shouldVibrateForCurrentRingerState;
++ (BOOL)vibrateWhenSilent;
++ (BOOL)vibrateWhenRinging;
++ (id)vibratePattern;
++ (BOOL)playLockSound;
++ (id)ringtonePath;
++ (id)ringtoneIdentifier;
++ (id)calendarAlarmPath;
++ (void)userDefaultsDidChanged:(id)arg1;
++ (void)_loadDefaultsIfNeeded;
 
 @end
 

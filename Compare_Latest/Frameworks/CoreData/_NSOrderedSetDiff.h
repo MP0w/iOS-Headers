@@ -11,9 +11,9 @@
     id _diffObject;
 }
 
-- (id)initWithObject:(id)arg1;
-- (void)dealloc;
 - (void)applyToSet:(id)arg1;
+- (void)dealloc;
+- (id)initWithObject:(id)arg1;
 
 @end
 

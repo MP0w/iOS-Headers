@@ -6,19 +6,14 @@
 
 #import "UINavigationItem.h"
 
-@class UIBarButtonItem, UIView;
+@class UIBarButtonItem;
 
 @interface SUNavigationItem : UINavigationItem
 {
-    BOOL _returnsInternalTitleView;
 }
 
-- (void)_setReturnsInternalTitleView:(BOOL)arg1;
-- (id)titleView;
-- (void)setTitleView:(id)arg1;
 - (void)setSecondaryLeftBarButtonItem:(id)arg1 animated:(BOOL)arg2;
 @property(retain, nonatomic) UIBarButtonItem *secondaryLeftBarButtonItem;
-@property(readonly, nonatomic) UIView *internalTitleView;
 
 @end
 

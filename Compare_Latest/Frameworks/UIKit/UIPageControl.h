@@ -6,7 +6,7 @@
 
 #import <UIKit/UIControl.h>
 
-@class NSMutableArray;
+@class NSMutableArray, UIColor, UIImage;
 
 @interface UIPageControl : UIControl
 {
@@ -17,13 +17,23 @@
         unsigned int hideForSinglePage:1;
         unsigned int defersCurrentPageDisplay:1;
     } _pageControlFlags;
+    UIImage *_currentPageImage;
+    UIImage *_pageImage;
+    UIColor *_currentPageIndicatorTintColor;
+    UIColor *_pageIndicatorTintColor;
 }
 
+@property(retain, nonatomic) UIColor *pageIndicatorTintColor; // @synthesize pageIndicatorTintColor=_pageIndicatorTintColor;
+@property(retain, nonatomic) UIColor *currentPageIndicatorTintColor; // @synthesize currentPageIndicatorTintColor=_currentPageIndicatorTintColor;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (struct CGSize)sizeForNumberOfPages:(int)arg1;
 - (void)updateCurrentPageDisplay;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)endTrackingAt:(struct CGPoint)arg1 previous:(struct CGPoint)arg2 withEvent:(struct __GSEvent *)arg3;
 - (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(nonatomic) BOOL defersCurrentPageDisplay; // @dynamic defersCurrentPageDisplay;
 @property(nonatomic) BOOL hidesForSinglePage; // @dynamic hidesForSinglePage;
@@ -37,6 +47,11 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonPageControlInit;
+- (void)_updateCurrentPageDisplay;
+- (void)_setCurrentPage:(int)arg1;
+- (int)_displayedPage;
+- (void)_setDisplayedPage:(int)arg1;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
 
 @end
 

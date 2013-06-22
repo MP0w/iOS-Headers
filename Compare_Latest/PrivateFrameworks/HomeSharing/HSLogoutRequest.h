@@ -10,6 +10,8 @@
 {
 }
 
++ (id)requestWithSessionID:(unsigned int)arg1;
+- (id)initWithSessionID:(unsigned int)arg1;
 - (id)init;
 
 @end

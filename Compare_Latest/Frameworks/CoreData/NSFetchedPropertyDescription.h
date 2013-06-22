@@ -16,18 +16,19 @@
     NSString *_lazyFetchRequestEntityName;
 }
 
-- (void)dealloc;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (id)description;
-- (id)fetchRequest;
-- (void)setFetchRequest:(id)arg1;
-- (BOOL)isTransient;
-- (BOOL)isReadOnly;
-- (unsigned int)_propertyType;
 - (void)_createCachesAndOptimizeState;
+- (unsigned int)_propertyType;
+- (BOOL)isReadOnly;
+- (BOOL)isTransient;
+- (void)setFetchRequest:(id)arg1;
+- (id)fetchRequest;
+- (id)description;
+- (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (void)dealloc;
+- (void)_writeIntoData:(id)arg1 propertiesDict:(id)arg2 uniquedPropertyNames:(id)arg3 uniquedStrings:(id)arg4 uniquedData:(id)arg5 entitiesSlots:(id)arg6 fetchRequests:(id)arg7;
 
 @end
 

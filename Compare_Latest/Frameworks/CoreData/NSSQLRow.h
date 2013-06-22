@@ -13,37 +13,38 @@
     _CDSnapshot *_snapshot;
 }
 
-+ (void)initialize;
-+ (id)allocForSQLEntity:(id)arg1;
-+ (id)allocWithZone:(struct _NSZone *)arg1;
 + (unsigned int)newBatchRowAllocation:(id *)arg1 count:(unsigned int)arg2 forSQLEntity:(id)arg3 withOwnedObjectIDs:(struct _NSScalarObjectID **)arg4 andTimestamp:(double)arg5;
-- (id)initWithSQLEntity:(id)arg1 objectID:(struct _NSScalarObjectID *)arg2;
-- (id)initWithSQLEntity:(id)arg1 ownedObjectID:(struct _NSScalarObjectID *)arg2 andTimestamp:(double)arg3;
-- (void)dealloc;
-- (struct _NSScalarObjectID *)newObjectIDForToOne:(id)arg1;
-- (id)entity;
-- (id)copy;
-- (id)description;
-- (struct _NSScalarObjectID *)objectID;
-- (long long)pk64;
-- (unsigned int)entityID;
-- (void)setObjectID:(struct _NSScalarObjectID *)arg1;
-- (void)setForeignKeySlot:(unsigned int)arg1 int64:(long long)arg2;
-- (void)setForeignEntityKeySlot:(unsigned int)arg1 unsigned:(unsigned int)arg2;
-- (void)setForeignOrderKeySlot:(unsigned int)arg1 unsigned:(unsigned int)arg2;
-- (long long)foreignKeyForSlot:(unsigned int)arg1;
-- (unsigned int)foreignEntityKeyForSlot:(unsigned int)arg1;
-- (unsigned int)foreignOrderKeyForSlot:(unsigned int)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (void)_validateToOnes;
-- (id)valueForKey:(id)arg1;
-- (id)attributeValueForSlot:(unsigned int)arg1;
-- (long long)optLock;
-- (void)setOptLock:(long long)arg1;
-- (unsigned int)_versionNumber;
-- (struct __CFBitVector *)newCalculatedDeltaMaskFrom:(id)arg1;
-- (const id *)knownKeyValuesPointer;
++ (id)allocWithZone:(struct _NSZone *)arg1;
++ (id)allocForSQLEntity:(id)arg1;
++ (void)initialize;
 - (id)_snapshot_;
+- (const id *)knownKeyValuesPointer;
+- (struct __CFBitVector *)newCalculatedDeltaMaskFrom:(id)arg1;
+- (unsigned int)_versionNumber;
+- (void)setOptLock:(long long)arg1;
+- (long long)version;
+- (long long)optLock;
+- (id)attributeValueForSlot:(unsigned int)arg1;
+- (id)valueForKey:(id)arg1;
+- (void)_validateToOnes;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)foreignOrderKeyForSlot:(unsigned int)arg1;
+- (unsigned int)foreignEntityKeyForSlot:(unsigned int)arg1;
+- (long long)foreignKeyForSlot:(unsigned int)arg1;
+- (void)setForeignOrderKeySlot:(unsigned int)arg1 unsigned:(unsigned int)arg2;
+- (void)setForeignEntityKeySlot:(unsigned int)arg1 unsigned:(unsigned int)arg2;
+- (void)setForeignKeySlot:(unsigned int)arg1 int64:(long long)arg2;
+- (void)setObjectID:(struct _NSScalarObjectID *)arg1;
+- (unsigned int)entityID;
+- (long long)pk64;
+- (struct _NSScalarObjectID *)objectID;
+- (id)description;
+- (id)copy;
+- (id)entity;
+- (struct _NSScalarObjectID *)newObjectIDForToOne:(id)arg1;
+- (void)dealloc;
+- (id)initWithSQLEntity:(id)arg1 ownedObjectID:(struct _NSScalarObjectID *)arg2 andTimestamp:(double)arg3;
+- (id)initWithSQLEntity:(id)arg1 objectID:(struct _NSScalarObjectID *)arg2;
 
 @end
 

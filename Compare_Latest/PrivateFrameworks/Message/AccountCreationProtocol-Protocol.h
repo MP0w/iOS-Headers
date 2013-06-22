@@ -7,7 +7,7 @@
 @protocol AccountCreationProtocol
 
 @optional
-+ (Class)classForAccountType:(id)arg1;
 + (id)accountWithBasicAccount:(id)arg1;
++ (Class)classForAccountType:(id)arg1;
 @end
 

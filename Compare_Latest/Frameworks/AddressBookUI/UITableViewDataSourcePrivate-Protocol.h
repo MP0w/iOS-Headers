@@ -7,12 +7,12 @@
 #import "UITableViewDataSource-Protocol.h"
 
 @protocol UITableViewDataSourcePrivate <UITableViewDataSource>
-- (BOOL)tableView:(id)arg1 shouldShowMenuForRowAtIndexPath:(id)arg2;
-- (BOOL)tableView:(id)arg1 canPerformAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
 - (void)tableView:(id)arg1 performAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
+- (BOOL)tableView:(id)arg1 canPerformAction:(SEL)arg2 forRowAtIndexPath:(id)arg3 withSender:(id)arg4;
+- (BOOL)tableView:(id)arg1 shouldShowMenuForRowAtIndexPath:(id)arg2;
 
 @optional
-- (id)tableView:(id)arg1 indexPathForSectionIndexTitle:(id)arg2 atIndex:(int)arg3;
 - (id)tableView:(id)arg1 detailTextForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 indexPathForSectionIndexTitle:(id)arg2 atIndex:(int)arg3;
 @end
 

@@ -6,7 +6,7 @@
 
 #import <PhotoLibraryServices/PLChangeNotification.h>
 
-@class NSArray, NSIndexSet, PLObjectSnapshot;
+@class NSArray, NSIndexSet, NSString, PLManagedObject, PLObjectSnapshot;
 
 @interface PLContainerChangeNotification : PLChangeNotification
 {
@@ -26,7 +26,7 @@
 @property(readonly, nonatomic) NSArray *changedObjects;
 @property(readonly, nonatomic) NSArray *insertedObjects;
 @property(readonly, nonatomic) NSArray *deletedObjects;
-- (BOOL)countDidChange;
+@property(readonly, nonatomic) BOOL countDidChange;
 @property(readonly, nonatomic) NSIndexSet *changedIndexes;
 @property(readonly, nonatomic) BOOL hasMoves;
 - (void)enumerateMovesWithBlock:(id)arg1;
@@ -37,6 +37,17 @@
 - (id)object;
 - (void)dealloc;
 - (id)init;
+- (void)_calculateDiffs;
+- (void)_calculateDiffsIfNecessary;
+- (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
+@property(readonly, nonatomic) NSString *_diffDescription;
+@property(readonly, nonatomic) PLObjectSnapshot *snapshot;
+@property(readonly, nonatomic) NSString *_contentRelationshipName;
+@property(readonly, nonatomic) NSArray *_changedObjects;
+@property(readonly, nonatomic) PLManagedObject *_managedObject;
+@property(readonly, nonatomic) BOOL _didCalculateDiffs;
+- (id)_initWithObject:(id)arg1 snapshot:(id)arg2 changedObjects:(id)arg3;
+- (id)_init;
 
 @end
 

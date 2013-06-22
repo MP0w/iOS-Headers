@@ -33,6 +33,12 @@ struct in_addr {
     unsigned int s_addr;
 };
 
+struct sockaddr {
+    unsigned char _field1;
+    unsigned char _field2;
+    char _field3[14];
+};
+
 struct sockaddr_in {
     unsigned char sin_len;
     unsigned char sin_family;
@@ -43,6 +49,7 @@ struct sockaddr_in {
 
 struct tagCONNRESULT {
     int iCallID;
+    int iRole;
     int iRemoteCallID;
     int proto;
     int bIfRelay;
@@ -59,6 +66,7 @@ struct tagCONNRESULT {
     int bIfRemoteCellularQoS;
     int iLocalCellTech;
     int iRemoteCellTech;
+    unsigned short wCellularMTU;
 };
 
 struct tagIPPORT {

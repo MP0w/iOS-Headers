@@ -7,8 +7,8 @@
 #import "DeviceLocalAccount.h"
 
 @interface DeviceLocalAccount (Internal)
-- (BOOL)_setTetheredDataSourceEnabled:(BOOL)arg1 forDataclass:(id)arg2;
-- (BOOL)_deleteDataSourceForDataclass:(id)arg1;
 - (void)_saveChangesToOnMyDeviceAccount;
+- (BOOL)_deleteDataSourceForDataclass:(id)arg1;
+- (BOOL)_setTetheredDataSourceEnabled:(BOOL)arg1 forDataclass:(id)arg2;
 @end
 

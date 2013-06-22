@@ -6,14 +6,23 @@
 
 #import "NSObject.h"
 
-@class NSURL;
+@class MPAVItem, NSURL;
 
 @interface MPMovie : NSObject
 {
-    id _internal;
+    MPAVItem *_item;
+    NSURL *_url;
+    int _movieSourceType;
+    double _startPlaybackTime;
+    double _endPlaybackTime;
+    BOOL _explicitlySetMovieSourceType;
+    BOOL _movieIsUnplayable;
+    double _lastKnownDuration;
+    struct CGSize _lastKnownNaturalSize;
+    unsigned int _lastKnownType;
 }
 
-+ (id)movieWithURL:(id)arg1 error:(id *)arg2;
++ (id)movieWithURL:(id)arg1 options:(id)arg2 error:(id *)arg3;
 - (void)_determineMediaType;
 - (id)_MPArrayQueueItem;
 - (void)_typeAvailableNotification:(id)arg1;
@@ -28,7 +37,7 @@
 @property(readonly, nonatomic) int movieMediaTypes;
 @property(readonly, nonatomic) NSURL *url;
 - (void)dealloc;
-- (id)_initWithURL:(id)arg1 error:(id *)arg2;
+- (id)_initWithURL:(id)arg1 options:(id)arg2 error:(id *)arg3;
 
 @end
 

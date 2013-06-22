@@ -11,16 +11,17 @@
 }
 
 + (int)maxListCount;
-- (id)init;
-- (id)icon;
-- (void)setIsOpen:(BOOL)arg1;
-- (Class)listModelClass;
-- (Class)listViewClass;
-- (Class)folderViewClass;
-- (BOOL)isNewsstandFolder;
-- (id)folderType;
-- (BOOL)canAddIcon;
+- (id)nodeIdentifier;
 - (void)_setDisplayNameFromRepresentation:(id)arg1;
+- (BOOL)canAddIcon;
+- (id)folderType;
+- (BOOL)isNewsstandFolder;
+- (Class)folderViewClass;
+- (Class)listViewClass;
+- (Class)listModelClass;
+- (void)setIsOpen:(BOOL)arg1;
+- (id)icon;
+- (id)init;
 
 @end
 

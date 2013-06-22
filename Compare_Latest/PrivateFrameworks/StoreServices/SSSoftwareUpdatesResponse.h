@@ -15,13 +15,15 @@
     NSArray *_updateItems;
 }
 
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)setUpdateItemsWithItemDictionaries:(id)arg1;
 - (id)copyUpdateItemDictionaries;
 - (id)description;
 @property(readonly) NSArray *updateItems;
 @property(readonly, getter=isFailed) BOOL failed;
 @property(readonly) NSError *error;
 - (void)dealloc;
-- (id)initWithDictionaryResponse:(id)arg1;
 - (id)initWithError:(id)arg1;
 
 @end

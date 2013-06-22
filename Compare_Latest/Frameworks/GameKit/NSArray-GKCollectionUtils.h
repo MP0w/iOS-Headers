@@ -7,6 +7,11 @@
 #import "NSArray.h"
 
 @interface NSArray (GKCollectionUtils)
+- (id)_gkFirstObject;
+- (id)_gkDistinctValuesForKeyPath:(id)arg1;
+- (id)_gkValuesForKeyPath:(id)arg1;
+- (id)_gkMapDictionaryWithKeyPath:(id)arg1 valueKeyPath:(id)arg2;
+- (id)_gkMapDictionaryWithKeyPath:(id)arg1;
 - (id)_gkMapWithBlock:(id)arg1;
 - (id)_gkMapConcurrentlyWithBlock:(id)arg1;
 @end

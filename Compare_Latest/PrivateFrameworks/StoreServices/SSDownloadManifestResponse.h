@@ -7,22 +7,20 @@
 #import "NSObject.h"
 
 #import "NSCoding-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSArray;
 
-@interface SSDownloadManifestResponse : NSObject <SSCoding, NSCoding>
+@interface SSDownloadManifestResponse : NSObject <SSXPCCoding, NSCoding>
 {
     NSArray *_validDownloads;
 }
 
-@property(retain) NSArray *validDownloads;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(copy) NSArray *validDownloads;
 - (void)dealloc;
 
 @end

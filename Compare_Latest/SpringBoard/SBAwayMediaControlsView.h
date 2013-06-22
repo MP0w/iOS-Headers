@@ -15,33 +15,39 @@
     UIButton *_prevButton;
     UIButton *_nextButton;
     UIButton *_playPauseButton;
+    UIButton *_fifteenSecondRewindButton;
+    UIButton *_fifteenSecondFFButton;
     MPVolumeView *_volumeView;
     MPVolumeView *_iPhoneRouteButtonVolumeView;
     int _orientation;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dismissMediaControlsOverlaysAnimated:(BOOL)arg1;
-- (BOOL)isMediaControlsShowingOverlays;
-- (void)dealloc;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
-- (id)routeButtonVolumeView;
-- (void)layoutSubviews;
-- (void)setAlpha:(float)arg1;
-- (void)removeFromSuperview;
-- (void)_playPauseButtonAction:(id)arg1;
-- (void)_changeTrackButtonDown:(id)arg1;
-- (void)_changeTrackButtonUp:(id)arg1;
-- (void)_changeTrackButtonEndSeek:(id)arg1;
-- (void)_changeTrackButtonTouchPause:(id)arg1;
-- (void)_volumeChange:(id)arg1;
-- (void)_volumeViewVisibilityChanged;
-- (void)_didPresentRoutePicker;
-- (void)_registerForNowPlayingNotifications;
-- (void)_unregisterForNowPlayingNotifications;
-- (void)_nowPlayingChanged:(id)arg1;
-- (id)_newButtonWithImage:(id)arg1 action:(SEL)arg2 tag:(int)arg3;
 - (void)_updateInformation;
+- (id)_fifteenSecondFFButton;
+- (id)_fifteenSecondRewindButton;
+- (id)_newButtonWithImage:(id)arg1 action:(SEL)arg2 tag:(int)arg3;
+- (void)_nowPlayingChanged:(id)arg1;
+- (void)_unregisterForNowPlayingNotifications;
+- (void)_registerForNowPlayingNotifications;
+- (void)_didPresentRoutePicker;
+- (void)_volumeViewVisibilityChanged;
+- (void)_volumeChange:(id)arg1;
+- (void)_fifteenSecondFFButtonAction:(id)arg1;
+- (void)_fifteenSecondRewindButtonAction:(id)arg1;
+- (void)_changeTrackButtonTouchPause:(id)arg1;
+- (void)_changeTrackButtonEndSeek:(id)arg1;
+- (void)_changeTrackButtonUp:(id)arg1;
+- (void)_changeTrackButtonDown:(id)arg1;
+- (void)_playPauseButtonAction:(id)arg1;
+- (void)removeFromSuperview;
+- (void)setAlpha:(float)arg1;
+- (void)layoutSubviews;
+- (id)routeButtonVolumeView;
+- (void)dealloc;
+- (BOOL)isMediaControlsShowingOverlays;
+- (void)dismissMediaControlsOverlaysAnimated:(BOOL)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

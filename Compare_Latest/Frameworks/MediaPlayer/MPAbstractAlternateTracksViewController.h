@@ -13,7 +13,6 @@
 }
 
 - (unsigned int)typeForGroup:(int)arg1;
-- (id)titleForTrack:(id)arg1;
 - (unsigned int)indexForGroup:(int)arg1;
 - (id)arrayForGroup:(int)arg1;
 - (id)alternateTracks;

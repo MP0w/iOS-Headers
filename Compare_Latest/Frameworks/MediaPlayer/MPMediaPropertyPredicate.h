@@ -26,6 +26,9 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+- (id)_ML3PredicateForML3EntityProperty:(id)arg1;
+- (id)ML3PredicateForContainer;
+- (id)ML3PredicateForTrack;
 
 @end
 

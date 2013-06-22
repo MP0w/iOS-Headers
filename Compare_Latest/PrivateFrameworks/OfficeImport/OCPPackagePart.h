@@ -16,17 +16,18 @@
     struct _xmlDoc *mDocument;
 }
 
-- (void)dealloc;
-- (id)location;
-- (id)data;
-- (void)copyToFile:(id)arg1;
-- (struct _xmlDoc *)xmlDocument;
-- (struct _xmlTextReader *)xmlReader;
-- (id)relationshipForIdentifier:(id)arg1;
-- (id)relationshipsByType:(id)arg1;
-- (id)firstPartWithRelationshipOfType:(id)arg1;
-- (id)package;
 - (id)contentType;
+- (id)package;
+- (id)firstPartWithRelationshipOfType:(id)arg1;
+- (id)relationshipsByType:(id)arg1;
+- (id)relationshipForIdentifier:(id)arg1;
+- (struct _xmlTextReader *)xmlReader;
+- (struct _xmlDoc *)xmlDocument;
+- (void)copyToFile:(id)arg1;
+- (id)data;
+- (id)location;
+- (void)dealloc;
+- (id)initWithLocation:(id)arg1 relationshipsXml:(struct _xmlDoc *)arg2 package:(id)arg3;
 
 @end
 

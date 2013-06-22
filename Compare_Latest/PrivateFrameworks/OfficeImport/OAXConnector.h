@@ -10,9 +10,9 @@
 {
 }
 
-+ (void)readConnectionFromParent:(struct _xmlNode *)arg1 nodeName:(const char *)arg2 connection:(id)arg3;
-+ (void)readNonVisualConnectorProperties:(struct _xmlNode *)arg1 inNamespace:(id)arg2 connectorProperties:(id)arg3;
 + (id)readFromXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 drawingState:(id)arg3;
++ (void)readNonVisualConnectorProperties:(struct _xmlNode *)arg1 inNamespace:(id)arg2 connectorProperties:(id)arg3;
++ (void)readConnectionFromParent:(struct _xmlNode *)arg1 nodeName:(const char *)arg2 connection:(id)arg3;
 
 @end
 

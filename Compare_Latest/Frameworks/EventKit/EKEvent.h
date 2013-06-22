@@ -6,7 +6,7 @@
 
 #import <EventKit/EKCalendarItem.h>
 
-@class EKCalendarDate, EKParticipant, EKRecurrenceRule, NSDate, NSNumber, NSString;
+@class EKCalendarDate, EKParticipant, NSDate, NSNumber, NSString;
 
 @interface EKEvent : EKCalendarItem
 {
@@ -29,19 +29,23 @@
 - (BOOL)removeWithSpan:(int)arg1 error:(id *)arg2;
 - (BOOL)_isInitialOccurrenceDate:(id)arg1;
 - (BOOL)_cancelWithSpan:(int)arg1 error:(id *)arg2;
+- (void)_deleteThisOccurrence;
 - (BOOL)_deleteWithSpan:(int)arg1 error:(id *)arg2;
+- (BOOL)_shouldDeclineInsteadOfDelete;
 - (BOOL)_shouldCancelInsteadOfDeleteWithSpan:(int)arg1;
 - (BOOL)_checkStartDateConstraintAgainstDate:(CDStruct_b0fa4487)arg1 timeZone:(id)arg2 error:(id *)arg3;
 - (BOOL)_occurrenceExistsOnDate:(double)arg1 timeZone:(id)arg2;
 - (BOOL)_validateAlarmIntervalConstrainedToRecurrenceInterval:(int)arg1;
 - (BOOL)_validateDurationConstrainedToRecurrenceInterval;
 - (BOOL)_validateDatesAndRecurrencesGivenSpan:(int)arg1 error:(id *)arg2;
+- (id)_dateForNextOccurrence;
 - (void)rollback;
 - (void)revert;
 - (void)didCommit;
 - (id)dirtyPropertiesToSkip;
 - (BOOL)commitWithSpan:(int)arg1 error:(id *)arg2;
 - (BOOL)validateWithSpan:(int)arg1 error:(id *)arg2;
+- (BOOL)_isAlarmAcknowledgedPropertyDirty;
 - (BOOL)refresh;
 - (id)description;
 - (BOOL)canBeRespondedTo;
@@ -60,13 +64,18 @@
 - (int)compareStartDateWithEvent:(id)arg1;
 - (BOOL)canMoveToCalendar:(id)arg1 fromCalendar:(id)arg2 error:(id *)arg3;
 - (BOOL)isTentative;
-- (void)clearReadState;
-- (void)setReadState:(unsigned int)arg1;
-- (unsigned int)readState;
+- (BOOL)locationChanged;
+- (BOOL)titleChanged;
+- (BOOL)timeChanged;
+- (BOOL)dateChanged;
+- (void)clearInvitationStatus;
+- (void)setInvitationStatus:(unsigned int)arg1;
+- (unsigned int)invitationStatus;
 - (void)setResponseComment:(id)arg1;
 - (id)responseComment;
 @property(nonatomic) int availability;
-@property(retain, nonatomic) EKRecurrenceRule *recurrenceRule;
+- (void)setRecurrenceRule:(id)arg1;
+- (id)recurrenceRule;
 - (id)attachments;
 - (int)alarmCount;
 - (int)attendeeCount;
@@ -85,6 +94,7 @@
 - (CDStruct_b0fa4487)startDatePinnedForAllDay;
 - (CDStruct_b0fa4487)endDateGr;
 - (CDStruct_b0fa4487)startDateGr;
+- (CDStruct_b0fa4487)_gregorianDateCorrectedForTimeZoneFromCalendarDate:(id)arg1 orNSDate:(id)arg2;
 - (id)initialEndDate;
 - (id)occurrenceDate;
 - (id)initialStartDate;
@@ -101,6 +111,7 @@
 - (id)committedValueForKey:(id)arg1;
 - (void)_sendModifiedNote;
 - (BOOL)isDirtyIgnoringCalendar;
+- (BOOL)isAllDayDirty;
 - (BOOL)isEndDateDirty;
 - (BOOL)isStartDateDirty;
 - (BOOL)isStatusDirty;
@@ -109,6 +120,7 @@
 - (id)exportToICS;
 - (id)eventStore;
 - (id)externalURL;
+- (id)externalURI;
 @property(readonly, nonatomic) NSString *eventIdentifier;
 - (void)dealloc;
 - (id)_persistentEvent;

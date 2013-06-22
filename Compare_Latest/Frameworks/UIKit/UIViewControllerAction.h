@@ -12,16 +12,19 @@
 {
     UIViewController *_viewController;
     NSString *_name;
-    BOOL _animated;
+    int _transition;
     id _completion;
+    float _curlUpRevealedHeight;
 }
 
 @property(copy, nonatomic) id completion; // @synthesize completion=_completion;
-@property(nonatomic) BOOL animated; // @synthesize animated=_animated;
+@property(nonatomic) int transition; // @synthesize transition=_transition;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) UIViewController *viewController; // @synthesize viewController=_viewController;
+@property(nonatomic, setter=_setCurlUpRevealedHeight:) float _curlUpRevealedHeight; // @synthesize _curlUpRevealedHeight;
+@property(readonly, nonatomic) BOOL animated;
 - (void)dealloc;
-- (id)initWithViewController:(id)arg1 name:(id)arg2 animated:(BOOL)arg3;
+- (id)initWithViewController:(id)arg1 name:(id)arg2 transition:(int)arg3;
 
 @end
 

@@ -17,25 +17,25 @@
     NSManagedObjectContext *_currentMOCon;
 }
 
-- (id)initWithSQLCore:(id)arg1;
-- (void)finalize;
-- (void)dealloc;
-- (id)connection;
-- (id)_propertiesToFetch;
-- (void)setCurrentEntity:(id)arg1;
-- (void)setCurrentContext:(id)arg1;
-- (BOOL)isFetchInProgress;
-- (id)sqlCore;
-- (void)selectRowsWithFetchRequest:(id)arg1;
-- (void)selectRowsWithStatement:(id)arg1;
-- (void)selectRowsWithCachedStatement:(id)arg1;
-- (BOOL)selectCountWithFetchRequest:(id)arg1;
-- (void)endFetch;
-- (void)endFetchAndRecycleStatement:(BOOL)arg1;
-- (void)_openChannel;
-- (void)_closeChannel;
-- (id)currentContext;
 - (void)_setCurrentEntityAndRelationshipWithFetchRequest:(id)arg1;
+- (id)currentContext;
+- (void)_closeChannel;
+- (void)_openChannel;
+- (void)endFetchAndRecycleStatement:(BOOL)arg1;
+- (void)endFetch;
+- (BOOL)selectCountWithFetchRequest:(id)arg1;
+- (void)selectRowsWithCachedStatement:(id)arg1;
+- (void)selectRowsWithStatement:(id)arg1;
+- (void)selectRowsWithFetchRequest:(id)arg1;
+- (id)sqlCore;
+- (BOOL)isFetchInProgress;
+- (void)setCurrentContext:(id)arg1;
+- (void)setCurrentEntity:(id)arg1;
+- (id)_propertiesToFetch;
+- (id)connection;
+- (void)dealloc;
+- (void)finalize;
+- (id)initWithSQLCore:(id)arg1;
 
 @end
 

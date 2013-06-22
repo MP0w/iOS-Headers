@@ -11,7 +11,7 @@
 - (void)vibrationRecorderView:(id)arg1 didExitRecordingModeWithContextObject:(id)arg2;
 - (BOOL)vibrationRecorderViewDidEnterRecordingMode:(id)arg1;
 - (void)vibrationRecorderViewDidFinishReplayingVibration:(id)arg1;
-- (void)vibrationRecorderView:(id)arg1 buttonTappedWithIdentifier:(unsigned int)arg2;
+- (void)vibrationRecorderView:(id)arg1 buttonTappedWithIdentifier:(int)arg2;
 - (void)vibrationComponentDidEndForVibrationRecorderView:(id)arg1;
 - (void)vibrationComponentDidStartForVibrationRecorderView:(id)arg1;
 @end

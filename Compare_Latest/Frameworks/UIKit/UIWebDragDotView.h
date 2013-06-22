@@ -13,14 +13,19 @@
     UIColor *m_insertionPointColor;
     UIColor *m_selectionBarColor;
     UIImageView *m_dot;
-    BOOL m_dotAtTop;
+    int m_orientation;
 }
 
 @property(nonatomic) BOOL showsBall;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (BOOL)isPointedLeft;
+- (BOOL)isPointedRight;
+- (BOOL)isPointedUp;
+- (BOOL)isPointedDown;
+- (BOOL)isVertical;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 container:(id)arg2 withDotAtTop:(BOOL)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 container:(id)arg2 orientation:(int)arg3;
 
 @end
 

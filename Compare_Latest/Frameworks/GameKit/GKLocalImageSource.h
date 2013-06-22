@@ -6,14 +6,17 @@
 
 #import <GameKit/GKImageSource.h>
 
+@class NSMapTable;
+
 @interface GKLocalImageSource : GKImageSource
 {
-    struct CGSize _imageSize;
+    NSMapTable *_keysForSizes;
 }
 
-@property(nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;
-- (id)renderedImageWithImage:(id)arg1 imageBrush:(id)arg2 returnContext:(id *)arg3;
-- (void)loadImageForIdentifier:(id)arg1 imageBrush:(id)arg2 withCompletionHandler:(id)arg3;
+@property(retain, nonatomic) NSMapTable *keysForSizes; // @synthesize keysForSizes=_keysForSizes;
+- (id)imageForImageSize:(struct CGSize)arg1;
+- (id)keyForImageSize:(struct CGSize)arg1;
+- (void)dealloc;
 
 @end
 

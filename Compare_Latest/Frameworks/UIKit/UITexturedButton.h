@@ -17,7 +17,7 @@
 - (id)titleColorForState:(unsigned int)arg1;
 - (void)setTitleColor:(id)arg1 forStates:(unsigned int)arg2;
 - (void)drawRect:(struct CGRect)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
 - (void)setHighlighted:(BOOL)arg1;
 - (int)buttonType;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -15,7 +15,6 @@
 
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void)processGameKitURLComponents:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)dealloc;
 

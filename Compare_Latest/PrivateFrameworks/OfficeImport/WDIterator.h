@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)hasNext;
 - (id)next;
+- (BOOL)hasNext;
 
 @end
 

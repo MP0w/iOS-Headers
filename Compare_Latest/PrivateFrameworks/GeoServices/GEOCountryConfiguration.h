@@ -6,14 +6,10 @@
 
 #import "NSObject.h"
 
-#import "NSURLConnectionDelegate-Protocol.h"
+@class NSDictionary, NSString;
 
-@class NSDictionary, NSMutableData, NSString, NSURLConnection;
-
-@interface GEOCountryConfiguration : NSObject <NSURLConnectionDelegate>
+@interface GEOCountryConfiguration : NSObject
 {
-    NSURLConnection *_connection;
-    NSMutableData *_responseData;
     NSString *_countryCode;
     NSDictionary *_oldProvidersInfo;
     NSString *_oldCountryCode;
@@ -25,13 +21,7 @@
 @property(copy, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 - (id)countryDefaultForKey:(id)arg1;
 - (id)defaultForKey:(id)arg1 defaultValue:(id)arg2;
-- (void)toggleCountry;
 - (void)_useCountryCodeProvider:(id)arg1;
-- (void)connectionDidFinishLoading:(id)arg1;
-- (void)connection:(id)arg1 didReceiveData:(id)arg2;
-- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
-- (id)connection:(id)arg1 willCacheResponse:(id)arg2;
-- (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)_checkCountryProviders;
 - (void)_registerNetworkDefaults;
 - (void)_checkCountryCode;

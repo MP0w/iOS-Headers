@@ -10,21 +10,32 @@
 
 @interface GEOTrafficTile : PBCodable
 {
-    NSData *_vertices;
+    NSMutableArray *_trafficIncidents;
     NSMutableArray *_trafficSegments;
+    NSData *_vertices;
 }
 
+@property(retain, nonatomic) NSMutableArray *trafficIncidents; // @synthesize trafficIncidents=_trafficIncidents;
 @property(retain, nonatomic) NSMutableArray *trafficSegments; // @synthesize trafficSegments=_trafficSegments;
 @property(retain, nonatomic) NSData *vertices; // @synthesize vertices=_vertices;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)trafficIncidentAtIndex:(unsigned int)arg1;
+- (unsigned int)trafficIncidentsCount;
+- (void)addTrafficIncident:(id)arg1;
+- (void)clearTrafficIncidents;
 - (id)trafficSegmentAtIndex:(unsigned int)arg1;
 - (unsigned int)trafficSegmentsCount;
 - (void)addTrafficSegment:(id)arg1;
+- (void)clearTrafficSegments;
 @property(readonly, nonatomic) BOOL hasVertices;
 - (void)dealloc;
+- (CDStruct_1ef3fb1f *)createUnpackedVerticesWithGutterSize:(int)arg1;
 
 @end
 

@@ -19,6 +19,7 @@
     CoreDAVLeafItem *_serverUID;
 }
 
++ (id)copyParseRules;
 @property(retain) CoreDAVLeafItem *serverUID; // @synthesize serverUID=_serverUID;
 @property(retain) CoreDAVItemWithHrefChildItem *location; // @synthesize location=_location;
 @property(retain) CoreDAVLeafItem *responseDescription; // @synthesize responseDescription=_responseDescription;
@@ -31,7 +32,6 @@
 - (id)firstHref;
 - (void)addHref:(id)arg1;
 - (void)addPropStat:(id)arg1;
-- (id)copyParseRules;
 - (id)description;
 - (void)dealloc;
 - (id)init;

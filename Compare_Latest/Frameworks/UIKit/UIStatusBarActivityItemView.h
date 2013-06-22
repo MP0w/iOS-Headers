@@ -13,6 +13,7 @@
     UIActivityIndicatorView *_activityIndicator;
     BOOL _slowActivity;
     BOOL _syncActivity;
+    BOOL _newsstandActivity;
 }
 
 - (float)shadowPaddingForStyle:(int)arg1;

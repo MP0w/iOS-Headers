@@ -13,12 +13,14 @@
     SUGradient *_nativeGradient;
 }
 
++ (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 @property(readonly) NSString *type;
 - (id)_className;
+- (id)patternColorWithWidth:(float)arg1 height:(float)arg2 opaque:(BOOL)arg3;
 - (void)addColorStopWithOffset:(float)arg1 color:(id)arg2;
 - (id)copyNativeGradient;
 - (void)dealloc;

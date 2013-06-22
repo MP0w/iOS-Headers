@@ -12,6 +12,6 @@
 - (id)copyValuesForKeys:(id)arg1;
 - (id)copyJSONDataWithContext:(struct OpaqueJSContext *)arg1;
 - (id)copyArrayOrDictionaryWithContext:(struct OpaqueJSContext *)arg1;
-- (BOOL)copyArrayValue:(id *)arg1 withValidator:(void *)arg2 context:(void *)arg3;
+- (id)copyArrayValueWithValidator:(void *)arg1 context:(void *)arg2;
 @end
 

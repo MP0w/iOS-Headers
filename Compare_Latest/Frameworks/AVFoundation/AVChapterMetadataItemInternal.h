@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVWeakReference, NSLocale, NSMutableArray, NSString;
+@class AVWeakReference, NSLocale, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface AVChapterMetadataItemInternal : NSObject
 {
@@ -22,7 +22,7 @@
     int valueStatus;
     long valueErrorCode;
     NSMutableArray *completions;
-    struct dispatch_queue_s *readWriteQueue;
+    NSObject<OS_dispatch_queue> *readWriteQueue;
 }
 
 @end

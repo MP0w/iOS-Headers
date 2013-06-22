@@ -14,11 +14,11 @@
     PDAnimationTargetElement *mTgtElement;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)commonTimeNodeData;
-- (id)target;
 - (void)setTarget:(id)arg1;
+- (id)target;
+- (id)commonTimeNodeData;
+- (void)dealloc;
+- (id)init;
 
 @end
 

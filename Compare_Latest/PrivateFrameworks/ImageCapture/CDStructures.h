@@ -11,11 +11,6 @@ struct _PTPRange {
     unsigned long long length;
 };
 
-struct _opaque_pthread_mutex_t {
-    long __sig;
-    char __opaque[40];
-};
-
 struct timespec {
     int _field1;
     long _field2;

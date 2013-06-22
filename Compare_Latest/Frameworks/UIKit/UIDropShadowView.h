@@ -18,7 +18,6 @@
 
 @property(nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property float cornerRadius; // @synthesize cornerRadius=_cornerRadius;
-- (BOOL)_wantsCornerSnapshotsForScrolling;
 - (void)didFinishRotation;
 - (void)willBeginRotationWithOriginalBounds:(struct CGRect)arg1 newBounds:(struct CGRect)arg2;
 - (void)setBounds:(struct CGRect)arg1;

@@ -11,15 +11,16 @@
     struct _CALayerArrayIvars _ivars;
 }
 
-- (id)initWithLayers:(id *)arg1 count:(unsigned long)arg2 retain:(BOOL)arg3;
-- (void)dealloc;
-- (unsigned int)count;
-- (id)objectAtIndex:(unsigned int)arg1;
-- (void)getObjects:(id *)arg1;
-- (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id).cxx_construct;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
+- (void)getObjects:(id *)arg1;
+- (id)objectAtIndex:(unsigned int)arg1;
+- (unsigned int)count;
+- (void)dealloc;
+- (id)initWithLayers:(id *)arg1 count:(unsigned long)arg2 retain:(BOOL)arg3;
 
 @end
 

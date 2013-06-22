@@ -18,15 +18,16 @@
     BOOL mConnectedToPrevious;
 }
 
-- (id)initWithLeft:(struct OADAdjustCoord)arg1 top:(struct OADAdjustCoord)arg2 right:(struct OADAdjustCoord)arg3 bottom:(struct OADAdjustCoord)arg4 startVector:(struct OADAdjustPoint)arg5 endVector:(struct OADAdjustPoint)arg6 clockwise:(BOOL)arg7 connectedToPrevious:(BOOL)arg8;
-- (struct OADAdjustCoord)left;
-- (struct OADAdjustCoord)top;
-- (struct OADAdjustCoord)right;
-- (struct OADAdjustCoord)bottom;
-- (struct OADAdjustPoint)startVector;
-- (struct OADAdjustPoint)endVector;
-- (BOOL)clockwise;
+- (id).cxx_construct;
 - (BOOL)connectedToPrevious;
+- (BOOL)clockwise;
+- (struct OADAdjustPoint)endVector;
+- (struct OADAdjustPoint)startVector;
+- (struct OADAdjustCoord)bottom;
+- (struct OADAdjustCoord)right;
+- (struct OADAdjustCoord)top;
+- (struct OADAdjustCoord)left;
+- (id)initWithLeft:(struct OADAdjustCoord)arg1 top:(struct OADAdjustCoord)arg2 right:(struct OADAdjustCoord)arg3 bottom:(struct OADAdjustCoord)arg4 startVector:(struct OADAdjustPoint)arg5 endVector:(struct OADAdjustPoint)arg6 clockwise:(BOOL)arg7 connectedToPrevious:(BOOL)arg8;
 
 @end
 

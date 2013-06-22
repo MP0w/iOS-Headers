@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSError, NSMutableDictionary, NSString;
+@class NSData, NSError, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
 @interface CDXClient : NSObject
 {
@@ -21,41 +21,44 @@
     NSString *server_;
     unsigned short port_;
     unsigned short localPort_;
+    int restartCount_;
     struct sockaddr_in cdxaddr_ipv4;
     double holePunchInterval_;
     BOOL preblobIsUpToDate_;
     BOOL willReconfigureShortly_;
     struct __SCDynamicStore *scDynamicStore_;
     struct __CFRunLoopSource *scDynamicStoreRunLoopSource_;
-    struct dispatch_queue_s *queue_;
-    struct dispatch_source_s *source_;
-    struct dispatch_source_s *holePunchTimer_;
+    NSObject<OS_dispatch_queue> *queue_;
+    NSObject<OS_dispatch_source> *source_;
+    NSObject<OS_dispatch_source> *holePunchTimer_;
     id preblobCallback_;
     void *padding_[10];
 }
 
-- (void)setError:(id)arg1;
-- (void)setPreblob:(id)arg1;
-- (void)sendHolePunch;
-- (BOOL)handleHolePunchEvent;
-- (void)resetHolepunchTimer;
-- (void)handleFDEvent;
-- (void)networkDidChange;
-- (void)stopListeningOnSockets;
-- (void)startListeningOnSockets;
-- (id)initWithOptions:(id)arg1 delegate:(id)arg2;
-- (void)dealloc;
-- (void)start;
-- (void)restart;
-- (void)invalidate;
-- (BOOL)sendRaw:(id)arg1;
-- (void)invalidateSession:(id)arg1;
-- (id)createSessionWithTicket:(id)arg1 sessionKey:(id)arg2;
++ (id)sharedClient;
 @property(nonatomic) id <CDXClientDelegate> delegate; // @synthesize delegate=delegate_;
-@property(readonly, nonatomic) NSError *error; // @synthesize error=error_;
-@property(readonly, nonatomic) NSData *preblob; // @synthesize preblob=preblob_;
 @property(copy, nonatomic) id preblobCallback; // @synthesize preblobCallback=preblobCallback_;
-@property(readonly, nonatomic) struct dispatch_queue_s *queue; // @synthesize queue=queue_;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=queue_;
+- (id)createSessionWithTicket:(id)arg1 sessionKey:(id)arg2;
+- (void)invalidateSession:(id)arg1;
+- (BOOL)sendRaw:(id)arg1;
+- (void)invalidate;
+- (void)stopHolePunchTimer;
+- (void)restart;
+- (void)start;
+- (void)dealloc;
+- (id)initWithOptions:(id)arg1 delegate:(id)arg2;
+- (void)startListeningOnSockets;
+- (void)stopListeningOnSockets;
+- (void)networkDidChange;
+- (void)handleFDEvent;
+- (void)resetHolepunchTimer;
+- (BOOL)handleHolePunchEvent;
+- (void)sendHolePunch;
+- (void)setPreblob:(id)arg1;
+@property(readonly) NSData *preblob; // @synthesize preblob=preblob_;
+- (void)setError:(id)arg1;
+@property(readonly, nonatomic) NSError *error; // @synthesize error=error_;
 
 @end
 

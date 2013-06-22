@@ -6,21 +6,21 @@
 
 #import <MessageUI/MFComposeHeaderView.h>
 
-@class UIImageView, UITextLabel;
+@class UIImageView, UILabel;
 
 @interface MFComposeFromView : MFComposeHeaderView
 {
-    UITextLabel *_accountLabel;
+    UILabel *_accountLabel;
     UIImageView *_background;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)layoutSubviews;
-- (id)_accountLabel;
-- (struct CGRect)accountLabelRect;
-- (void)setAccountLabel:(id)arg1;
 - (void)setLabelHighlighted:(BOOL)arg1;
+- (void)setAccountLabel:(id)arg1;
+- (struct CGRect)accountLabelRect;
+- (id)_accountLabel;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

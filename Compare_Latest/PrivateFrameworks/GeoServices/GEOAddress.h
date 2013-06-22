@@ -11,20 +11,32 @@
 @interface GEOAddress : PBCodable
 {
     NSMutableArray *_formattedAddressLines;
+    int _formattedAddressType;
     GEOStructuredAddress *_structuredAddress;
+    struct {
+        unsigned int formattedAddressType:1;
+    } _has;
 }
 
 @property(retain, nonatomic) GEOStructuredAddress *structuredAddress; // @synthesize structuredAddress=_structuredAddress;
 @property(retain, nonatomic) NSMutableArray *formattedAddressLines; // @synthesize formattedAddressLines=_formattedAddressLines;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasFormattedAddressType;
+@property(nonatomic) int formattedAddressType; // @synthesize formattedAddressType=_formattedAddressType;
 @property(readonly, nonatomic) BOOL hasStructuredAddress;
 - (id)formattedAddressLineAtIndex:(unsigned int)arg1;
 - (unsigned int)formattedAddressLinesCount;
 - (void)addFormattedAddressLine:(id)arg1;
+- (void)clearFormattedAddressLines;
 - (void)dealloc;
+- (id)addressDictionary;
+- (id)initWithAddressString:(id)arg1;
 
 @end
 

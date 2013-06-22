@@ -10,17 +10,19 @@
 {
 }
 
-+ (BOOL)isViceroyLoggingEnabled;
-+ (void)setViceroyLoggingEnabled:(BOOL)arg1;
-+ (BOOL)isConferenceConsoleLoggingEnabled;
-+ (void)setConferenceConsoleLoggingEnabled:(BOOL)arg1;
-+ (void)killImagent;
-+ (void)syncImagentLogSettings;
-+ (void)killMediaServerd;
-+ (void)killEverything;
-+ (void)nukeKeychain;
-+ (id)currentInternalSettingsBundle;
++ (void)setIDSEnvironment:(id)arg1;
++ (id)IDSEnvironment;
 + (void)setCurrentInternalSettingsBundle:(id)arg1;
++ (id)currentInternalSettingsBundle;
++ (void)signOutAllAccounts;
++ (void)nukeKeychain;
++ (void)killEverything;
++ (void)killMediaServerd;
++ (void)syncImagentLogSettings;
++ (void)killImavagent;
++ (void)killImagent;
++ (void)setViceroyLoggingEnabled:(BOOL)arg1;
++ (BOOL)isViceroyLoggingEnabled;
 
 @end
 

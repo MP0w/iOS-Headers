@@ -5,7 +5,7 @@
  */
 
 @protocol MFComposeSubjectViewDelegate
-- (void)composeSubjectViewTextFieldDidResignFirstResponder:(id)arg1;
 - (void)composeSubjectViewTextFieldDidBecomeFirstResponder:(id)arg1;
+- (void)composeSubjectViewTextFieldDidResignFirstResponder:(id)arg1;
 @end
 

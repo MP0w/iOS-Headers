@@ -19,24 +19,24 @@
 }
 
 + (id)defaultProperties;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)initWithDefaults;
-- (void)setParent:(id)arg1;
-- (id)fgColor;
-- (void)setFgColor:(id)arg1;
-- (BOOL)isFgColorOverridden;
-- (id)bgColor;
-- (void)setBgColor:(id)arg1;
-- (BOOL)isBgColorOverridden;
-- (id)pattern;
-- (void)setPattern:(id)arg1;
-- (BOOL)isPatternOverridden;
-- (void)setColor:(id)arg1;
-- (void)setStyleColor:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
 - (id)namedImageDataWithBlipCollection:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setStyleColor:(id)arg1;
+- (void)setColor:(id)arg1;
+- (BOOL)isPatternOverridden;
+- (void)setPattern:(id)arg1;
+- (id)pattern;
+- (BOOL)isBgColorOverridden;
+- (void)setBgColor:(id)arg1;
+- (id)bgColor;
+- (BOOL)isFgColorOverridden;
+- (void)setFgColor:(id)arg1;
+- (id)fgColor;
+- (void)setParent:(id)arg1;
+- (id)initWithDefaults;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

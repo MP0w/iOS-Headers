@@ -14,10 +14,10 @@
     int mType;
 }
 
-- (id)cmd;
-- (void)setCmd:(id)arg1;
-- (int)type;
 - (void)setType:(int)arg1;
+- (int)type;
+- (void)setCmd:(id)arg1;
+- (id)cmd;
 
 @end
 

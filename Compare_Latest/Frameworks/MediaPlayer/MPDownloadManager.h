@@ -8,18 +8,21 @@
 
 #import "SSDownloadManagerObserverPrivate-Protocol.h"
 
-@class NSArray, NSMutableDictionary, SSDownloadManager;
+@class NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, SSDownloadManager;
 
 @interface MPDownloadManager : NSObject <SSDownloadManagerObserverPrivate>
 {
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_observerQueue;
     SSDownloadManager *_downloadManager;
     NSMutableDictionary *_downloadsByID;
+    NSMutableDictionary *_downloadsByStoreItemID;
     struct __CFArray *_observers;
 }
 
-+ (BOOL)isCellularDataRestricted;
++ (id)mediaPlayerDownloadManager;
 - (void)_rebuildCacheIfNecessary;
+- (void)_clearCache;
 - (id)_copyObservers;
 - (void)_applyBlockToObservers:(id)arg1;
 - (void)downloadManagerNetworkUsageDidChange:(id)arg1;
@@ -27,6 +30,7 @@
 - (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
 - (void)downloadManager:(id)arg1 downloadsDidChange:(id)arg2;
 - (void)removeObserver:(id)arg1;
+- (id)inProgressDownloadWithStoreItemID:(long long)arg1;
 - (id)downloadWithIdentifier:(long long)arg1;
 @property(readonly, nonatomic) NSArray *downloads;
 - (void)cancelDownloads:(id)arg1 completionBlock:(id)arg2;

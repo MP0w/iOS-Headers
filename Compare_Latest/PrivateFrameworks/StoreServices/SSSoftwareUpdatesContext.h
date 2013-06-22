@@ -8,11 +8,11 @@
 
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSArray, NSString;
 
-@interface SSSoftwareUpdatesContext : NSObject <SSCoding, NSCopying, NSMutableCopying>
+@interface SSSoftwareUpdatesContext : NSObject <SSXPCCoding, NSCopying, NSMutableCopying>
 {
     NSString *_clientIdentifierHeader;
     BOOL _forced;
@@ -23,10 +23,8 @@
 @property(readonly, nonatomic) NSString *clientIdentifierHeader; // @synthesize clientIdentifierHeader=_clientIdentifierHeader;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 @property(readonly, nonatomic) NSArray *softwareTypes; // @synthesize softwareTypes=_softwareTypes;
 - (void)dealloc;
 

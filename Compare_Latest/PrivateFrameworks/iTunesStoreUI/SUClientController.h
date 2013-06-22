@@ -7,29 +7,26 @@
 #import "NSObject.h"
 
 #import "MFMailComposeViewControllerDelegate-Protocol.h"
+#import "SUClientInterfaceDelegate-Protocol.h"
 #import "SUPurchaseManagerDelegate-Protocol.h"
 
-@class ISURLOperationPool, MFMailComposeViewController, NSArray, NSMutableArray, NSMutableDictionary, NSString, SUImageCache, SUPurchaseManager, SUScriptExecutionContext, SUViewControllerFactory, UIViewController;
+@class ISURLOperationPool, MFMailComposeViewController, NSArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SUClientInterface, SUImageCache, SUScriptExecutionContext, UIViewController;
 
-@interface SUClientController : NSObject <MFMailComposeViewControllerDelegate, SUPurchaseManagerDelegate>
+@interface SUClientController : NSObject <SUClientInterfaceDelegate, MFMailComposeViewControllerDelegate, SUPurchaseManagerDelegate>
 {
     BOOL _active;
-    NSString *_clientIdentifier;
-    struct dispatch_queue_s *_dispatchQueue;
-    NSMutableArray *_downloadManagers;
+    SUClientInterface *_clientInterface;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     SUImageCache *_imageCache;
     ISURLOperationPool *_imagePool;
     NSString *_localStoreFrontAtLastSuspend;
     MFMailComposeViewController *_mailComposeViewController;
     struct __CFArray *_offeredAssetTypes;
     NSArray *_overlayConfigurations;
-    NSMutableArray *_preorderManagers;
-    SUPurchaseManager *_purchaseManager;
     UIViewController *_rootViewController;
     SUScriptExecutionContext *_scriptExecutionContext;
     NSString *_synchedStoreFrontAtLastSuspend;
     NSMutableDictionary *_urlBagKeys;
-    SUViewControllerFactory *_viewControllerFactory;
     ISURLOperationPool *_imageOperationPool;
 }
 
@@ -37,28 +34,35 @@
 + (void)setSharedController:(id)arg1;
 @property(retain, nonatomic) ISURLOperationPool *imageOperationPool; // @synthesize imageOperationPool=_imageOperationPool;
 @property(retain, nonatomic) SUImageCache *imageCache; // @synthesize imageCache=_imageCache;
-@property(retain, nonatomic) SUViewControllerFactory *viewControllerFactory; // @synthesize viewControllerFactory=_viewControllerFactory;
 @property(retain, nonatomic) UIViewController *rootViewController; // @synthesize rootViewController=_rootViewController;
-@property(readonly, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 @property(readonly, nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
 - (void)_reloadUserDefaultsFromURLBag;
 - (void)_reloadScriptExecutionContextFromURLBag;
 - (void)_reloadOverlayConfigurationsFromURLBag;
 - (void)_purgeCaches;
-- (id)_ntsQueueSessionWithQueue:(id)arg1 fromArray:(id)arg2;
-- (id)_ntsQueueSessionWithManagerOptions:(id)arg1 fromArray:(id)arg2;
-- (id)_ntsQueueSessionWithDownloadKinds:(id)arg1 fromArray:(id)arg2;
-- (void)_ntsEndQueueSession:(id)arg1 fromArray:(id)arg2;
+- (void)_presentDialog:(id)arg1;
 - (id)_newComposeReviewViewControllerForButtonAction:(id)arg1;
 - (id)_newAccountViewControllerForButtonAction:(id)arg1;
 - (void)_memoryWarningNotification:(id)arg1;
 - (void)bagDidLoadNotification:(id)arg1;
+- (void)_dialogNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)purchaseManagerWillBeginUpdates:(id)arg1;
 - (void)purchaseManagerDidEndUpdates:(id)arg1;
 - (void)purchaseManager:(id)arg1 willAddPurchases:(id)arg2;
 - (void)purchaseManager:(id)arg1 failedToAddPurchases:(id)arg2;
 - (void)purchaseManager:(id)arg1 didAddPurchases:(id)arg2;
+- (id)scriptInterfaceForClientInterface:(id)arg1;
+- (void)clientInterface:(id)arg1 setStatusBarStyle:(int)arg2 animated:(BOOL)arg3;
+- (void)clientInterface:(id)arg1 setStatusBarHidden:(BOOL)arg2 withAnimation:(int)arg3;
+- (void)clientInterface:(id)arg1 presentDialog:(id)arg2;
+- (void)clientInterface:(id)arg1 exitStoreWithReason:(int)arg2;
+- (id)viewControllerFactory;
+- (id)userAgent;
+- (void)setViewControllerFactory:(id)arg1;
+- (void)setUserAgent:(id)arg1;
+- (id)clientIdentifier;
+- (id)initWithClientIdentifier:(id)arg1;
 @property(readonly, nonatomic) BOOL storeFrontDidChangeSinceLastSuspend;
 @property(readonly, nonatomic) NSString *storeContentLanguage;
 @property(readonly, nonatomic) SUScriptExecutionContext *scriptExecutionContext; // @synthesize scriptExecutionContext=_scriptExecutionContext;
@@ -71,12 +75,12 @@
 - (void)composeEmailWithSubject:(id)arg1 body:(id)arg2;
 - (void)composeEmailByRestoringAutosavedMessage;
 - (void)autosaveMessageWithCompletionBlock:(id)arg1;
-@property(copy, nonatomic) NSString *userAgent;
 - (id)URLBagKeyForIdentifier:(id)arg1;
 - (void)setURLBagKey:(id)arg1 forIdentifier:(id)arg2;
-@property(copy, nonatomic) struct __CFArray *offeredAssetTypes;
+- (void)setOfferedAssetTypes:(struct __CFArray *)arg1;
+- (void)setIgnoresExpectedClientsProtocol:(BOOL)arg1;
+@property(copy) SUClientInterface *clientInterface;
 - (void)resignActive;
-- (BOOL)reportAProblemForItemIdentifier:(unsigned long long)arg1;
 - (BOOL)presentOverlayBackgroundViewController:(id)arg1;
 - (void)presentExternalURLViewController:(id)arg1;
 - (BOOL)presentAccountViewController:(id)arg1 showNavigationBar:(BOOL)arg2 animated:(BOOL)arg3;
@@ -86,24 +90,20 @@
 - (BOOL)openURL:(id)arg1 inClientWithIdentifier:(id)arg2;
 - (BOOL)openURL:(id)arg1;
 - (BOOL)openClientURL:(id)arg1;
+- (struct __CFArray *)offeredAssetTypes;
 - (id)newScriptInterface;
 - (BOOL)libraryContainsItemIdentifier:(unsigned long long)arg1;
 @property(readonly, nonatomic, getter=isStoreEnabled) BOOL storeEnabled;
-- (BOOL)gotoStorePage:(id)arg1 animated:(BOOL)arg2;
+- (BOOL)ignoresExpectedClientsProtocol;
 - (void)exitStoreWithReason:(int)arg1;
-- (void)endPreorderManagerSessionWithManager:(id)arg1;
-- (void)endDownloadManagerSessionForManager:(id)arg1;
 - (BOOL)displayClientURL:(id)arg1;
 - (BOOL)dismissTopViewControllerAnimated:(BOOL)arg1;
 - (void)dismissOverlayBackgroundViewController;
 - (BOOL)composeReviewWithViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)cancelAllOperations;
-- (id)beginPreorderManagerSessionWithItemKinds:(id)arg1;
-- (id)beginDownloadManagerSessionWithManagerOptions:(id)arg1;
-- (id)beginDownloadManagerSessionForDownloadKind:(id)arg1;
 - (void)becomeActive;
 - (void)dealloc;
-- (id)initWithClientIdentifier:(id)arg1;
+- (id)initWithClientInterface:(id)arg1;
 - (id)init;
 
 @end

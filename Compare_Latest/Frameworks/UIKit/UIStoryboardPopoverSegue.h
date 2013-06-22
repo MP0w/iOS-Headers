@@ -6,11 +6,12 @@
 
 #import <UIKit/UIStoryboardSegue.h>
 
-@class UIBarButtonItem, UIPopoverController, UIView;
+@class NSArray, UIBarButtonItem, UIPopoverController, UIView;
 
 @interface UIStoryboardPopoverSegue : UIStoryboardSegue
 {
     UIPopoverController *_popoverController;
+    NSArray *_passthroughViews;
     unsigned int _permittedArrowDirections;
     UIView *_anchorView;
     UIBarButtonItem *_anchorBarButtonItem;
@@ -21,9 +22,9 @@
 @property(retain, nonatomic, setter=_setAnchorBarButtonItem:) UIBarButtonItem *_anchorBarButtonItem; // @synthesize _anchorBarButtonItem;
 @property(retain, nonatomic, setter=_setAnchorView:) UIView *_anchorView; // @synthesize _anchorView;
 @property(nonatomic, setter=_setPermittedArrowDirections:) unsigned int _permittedArrowDirections; // @synthesize _permittedArrowDirections;
-- (void)_setPopoverController:(id)arg1;
-@property(retain, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_popoverController;
+@property(copy, nonatomic, setter=_setPassthroughViews:) NSArray *_passthroughViews; // @synthesize _passthroughViews;
 - (void)perform;
+@property(readonly, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_popoverController;
 - (void)dealloc;
 
 @end

@@ -14,18 +14,16 @@
 {
 }
 
-- (void)_updateFooterView;
-- (void)_reloadDataAnimated:(BOOL)arg1;
 - (id)_downloadsViewController;
-- (void)_accountsChangedNotification:(id)arg1;
+- (void)_reloadPreviewOverlayVisibility;
 - (id)visibleDownloadCellForDownload:(id)arg1;
 @property(retain, nonatomic) NSArray *scriptButtons;
 - (void)reloadDownloadCellForDownload:(id)arg1;
-- (void)startPreOrderDownloadAction:(id)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)tabBarControllerDidReselectTabBarItem:(id)arg1;
-- (void)reloadData;
 - (void)loadView;
 - (BOOL)handleSelectionForIndexPath:(id)arg1 tapCount:(int)arg2;
+- (void)didMoveToParentViewController:(id)arg1;
 - (BOOL)deleteRowAtIndexPath:(id)arg1;
 - (void)dealloc;
 - (id)init;

@@ -14,11 +14,12 @@
     struct ResourceHandle *m_handle;
 }
 
-- (id)initWithConnection:(struct _CFURLConnection *)arg1 handle:(struct ResourceHandle *)arg2;
-- (void)connection:(id)arg1 didReceiveDataArray:(id)arg2;
-- (void)connection:(id)arg1 didReceiveData:(id)arg2 lengthReceived:(long long)arg3;
-- (void)connectionDidFinishLoading:(id)arg1;
+- (void)clearHandle;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
+- (void)connectionDidFinishLoading:(id)arg1;
+- (void)connection:(id)arg1 didReceiveData:(id)arg2 lengthReceived:(long long)arg3;
+- (void)connection:(id)arg1 didReceiveDataArray:(id)arg2;
+- (id)initWithConnection:(struct _CFURLConnection *)arg1 handle:(struct ResourceHandle *)arg2;
 
 @end
 

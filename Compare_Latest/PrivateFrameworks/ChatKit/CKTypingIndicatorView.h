@@ -15,11 +15,11 @@
     BOOL _editing;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)layoutSubviews;
-- (void)setContactImage:(id)arg1;
 @property(nonatomic, getter=isEditing) BOOL editing; // @synthesize editing=_editing;
+- (void)setContactImage:(id)arg1;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

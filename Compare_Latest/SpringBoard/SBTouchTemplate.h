@@ -16,13 +16,13 @@
     float m_acceptFactor;
 }
 
-- (id)initWithPoints:(struct CGPoint *)arg1 count:(unsigned int)arg2;
-- (void)dealloc;
-@property(readonly, nonatomic) unsigned int pointCount;
-- (BOOL)acceptPoints:(struct CGPoint *)arg1 count:(unsigned int)arg2;
-- (BOOL)acceptPolygon:(id)arg1;
 @property(nonatomic) float acceptFactor; // @synthesize acceptFactor=m_acceptFactor;
 @property(nonatomic) unsigned int transformType; // @synthesize transformType=m_transformType;
+- (BOOL)acceptPolygon:(id)arg1;
+- (BOOL)acceptPoints:(struct CGPoint *)arg1 count:(unsigned int)arg2;
+@property(readonly, nonatomic) unsigned int pointCount;
+- (void)dealloc;
+- (id)initWithPoints:(struct CGPoint *)arg1 count:(unsigned int)arg2;
 
 @end
 

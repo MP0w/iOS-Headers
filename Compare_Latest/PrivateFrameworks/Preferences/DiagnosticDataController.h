@@ -10,9 +10,9 @@
 {
 }
 
-- (id)init;
-- (void)viewDidLoad;
 - (id)specifiers;
+- (void)viewDidLoad;
+- (id)init;
 
 @end
 

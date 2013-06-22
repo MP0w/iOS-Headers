@@ -7,7 +7,8 @@
 #import "NSArray.h"
 
 @interface NSArray (ComposeRecipientConvenience)
-- (id)composeRecipientAddresses;
 - (id)composeRecipientNormalizedAddresses;
+- (id)composeRecipientAddresses;
+- (id)composeRecipientHandles;
 @end
 

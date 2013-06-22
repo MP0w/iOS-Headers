@@ -16,18 +16,18 @@
     unsigned int mChartIndex;
 }
 
-- (id)initWithReaderState:(id)arg1;
-- (void)dealloc;
-- (id)readerState;
-- (struct XlBinaryReader *)xlReader;
-- (id)workbook;
-- (id)resources;
-- (id)edSheet;
-- (void)setEDSheet:(id)arg1;
-- (unsigned int)sharedFormulaIndexForRowCol:(int)arg1;
-- (void)setSharedFormulaIndex:(unsigned int)arg1 forRowCol:(int)arg2;
-- (unsigned int)nextChartIndex;
 - (void)reportWorksheetWarning:(struct CPTaggedMessageStructure *)arg1;
+- (unsigned int)nextChartIndex;
+- (void)setSharedFormulaIndex:(unsigned int)arg1 forRowCol:(int)arg2;
+- (unsigned int)sharedFormulaIndexForRowCol:(int)arg1;
+- (void)setEDSheet:(id)arg1;
+- (id)edSheet;
+- (id)resources;
+- (id)workbook;
+- (struct XlBinaryReader *)xlReader;
+- (id)readerState;
+- (void)dealloc;
+- (id)initWithReaderState:(id)arg1;
 
 @end
 

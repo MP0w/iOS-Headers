@@ -18,18 +18,18 @@
 }
 
 + (id)mailboxWithTarget:(id)arg1 protocol:(id)arg2;
-- (id)initWithTarget:(id)arg1 protocol:(id)arg2;
-- (void)dealloc;
-- (BOOL)conformsToProtocol:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
-- (void)forwardInvocation:(id)arg1;
-- (id)methodSignatureForSelector:(SEL)arg1;
-- (id)send;
-- (void)setDispatchQueue:(id)arg1;
-- (id)dispatchQueue;
-- (void)setPrivateMessages:(id)arg1;
-- (BOOL)swapCurrentTarget:(id)arg1 forNewTarget:(id)arg2;
 @property(nonatomic) id target; // @synthesize target=_target;
+- (BOOL)swapCurrentTarget:(id)arg1 forNewTarget:(id)arg2;
+- (void)setPrivateMessages:(id)arg1;
+- (id)dispatchQueue;
+- (void)setDispatchQueue:(id)arg1;
+- (id)send;
+- (id)methodSignatureForSelector:(SEL)arg1;
+- (void)forwardInvocation:(id)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
+- (BOOL)conformsToProtocol:(id)arg1;
+- (void)dealloc;
+- (id)initWithTarget:(id)arg1 protocol:(id)arg2;
 
 @end
 

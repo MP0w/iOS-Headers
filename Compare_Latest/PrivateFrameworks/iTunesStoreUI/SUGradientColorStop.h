@@ -18,6 +18,7 @@
     struct CGColor *_rawColor;
 }
 
+- (id)description;
 @property(readonly, nonatomic) float offset;
 - (struct CGColor *)copyCGColor;
 - (int)compare:(id)arg1;

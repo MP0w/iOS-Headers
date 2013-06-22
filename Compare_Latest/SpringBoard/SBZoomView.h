@@ -6,27 +6,17 @@
 
 #import "UIView.h"
 
-@class NSMutableArray;
-
 @interface SBZoomView : UIView
 {
-    BOOL _hasImage;
-    BOOL _hasFullSizedImage;
-    BOOL _usesRoundedCorners;
-    NSMutableArray *_cornerViews;
 }
 
++ (id)_chromeStatusBarImageForInterfaceOrientation:(int)arg1;
++ (struct CGSize)_rotateAndNormalizeSize:(struct CGSize)arg1 withTransform:(struct CGAffineTransform)arg2;
++ (int)_degreesForRotationFromOriginalImageOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
++ (int)_degreesForRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
+- (void)setRoundedCorners:(int)arg1 withCornersFrame:(struct CGRect)arg2;
+- (id)_initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithSnapshotFrame:(struct CGRect)arg1 image:(id)arg2 originalImageOrientation:(int)arg3 currentImageOrientation:(int)arg4 interfaceOrientation:(int)arg5 doubleHeightStatusBar:(BOOL)arg6 preventSplit:(BOOL)arg7 chrome:(id)arg8 chromeStatusBarHidden:(BOOL)arg9 needsZoomFilter:(BOOL)arg10 asyncDecodeImage:(BOOL)arg11;
-- (id)initWithSnapshotFrame:(struct CGRect)arg1 ioSurface:(void *)arg2 snapshotTransform:(struct CGAffineTransform)arg3;
-- (id)initWithImage:(id)arg1;
-- (void)dealloc;
-- (int)_degreesForRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
-- (int)_degreesForRotationFromOriginalImageOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
-- (struct CGSize)_rotateAndNormalizeSize:(struct CGSize)arg1 withTransform:(struct CGAffineTransform)arg2;
-- (void)_createCornerViewsIfNecessaryWithCornersFrame:(struct CGRect)arg1;
-- (void)setUsesRoundedCorners:(BOOL)arg1 withCornersFrame:(struct CGRect)arg2;
-- (id)_chromeStatusBarImageForInterfaceOrientation:(int)arg1;
 
 @end
 

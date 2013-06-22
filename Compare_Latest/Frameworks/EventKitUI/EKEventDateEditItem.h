@@ -18,9 +18,9 @@
 @property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
 - (void)shortenCell:(id)arg1;
 - (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
+- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
+- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
 - (BOOL)requiresReconfigurationOnCommit;
 - (BOOL)configureForCalendarConstraints:(id)arg1;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;

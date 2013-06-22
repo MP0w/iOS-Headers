@@ -15,16 +15,16 @@
     float mHeight;
 }
 
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)type;
-- (void)setType:(int)arg1;
-- (float)width;
-- (void)setWidth:(float)arg1;
-- (float)height;
-- (void)setHeight:(float)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setHeight:(float)arg1;
+- (float)height;
+- (void)setWidth:(float)arg1;
+- (float)width;
+- (void)setType:(int)arg1;
+- (int)type;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

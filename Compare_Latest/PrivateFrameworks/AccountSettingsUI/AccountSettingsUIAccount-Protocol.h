@@ -7,24 +7,24 @@
 #import "NSObject-Protocol.h"
 
 @protocol AccountSettingsUIAccount <NSObject>
-+ (id)displayedAccountTypeString;
-+ (id)displayedShortAccountTypeString;
 + (void *)createSyncDataSourceForDataclass:(id)arg1 options:(id)arg2;
-- (id)displayName;
-- (id)uniqueId;
-- (id)syncStoreIdentifier;
-- (id)enabledDataclasses;
-- (BOOL)isEnabledForDataclass:(id)arg1;
-- (void)setEnabled:(BOOL)arg1 forDataclass:(id)arg2;
-- (BOOL)supportsPush;
++ (id)displayedShortAccountTypeString;
++ (id)displayedAccountTypeString;
 - (BOOL)otherAccountEnabledForDataclass:(id)arg1;
+- (BOOL)supportsPush;
+- (void)setEnabled:(BOOL)arg1 forDataclass:(id)arg2;
+- (BOOL)isEnabledForDataclass:(id)arg1;
+- (id)enabledDataclasses;
+- (id)syncStoreIdentifier;
+- (id)uniqueId;
+- (id)displayName;
 
 @optional
-+ (Class)detailControllerClass;
 + (Class)syncControllerClass;
-- (id)accountInfoUsername;
-- (id)localizedDetailString;
-- (void *)createSyncDataSourceForDataclass:(id)arg1 options:(id)arg2;
++ (Class)detailControllerClass;
 - (BOOL)supportsPushForDataclass:(id)arg1;
+- (void *)createSyncDataSourceForDataclass:(id)arg1 options:(id)arg2;
+- (id)localizedDetailString;
+- (id)accountInfoUsername;
 @end
 

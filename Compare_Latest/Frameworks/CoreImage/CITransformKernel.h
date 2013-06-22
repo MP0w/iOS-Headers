@@ -11,7 +11,7 @@
 }
 
 + (id)kernelWithOptions:(id)arg1;
-- (id)applyWithArguments:(id)arg1 extent:(struct CGRect)arg2 roiCallback:(id)arg3;
+- (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(id)arg2 andArguments:(void)arg3;
 - (id)initWithOptions:(id)arg1;
 
 @end

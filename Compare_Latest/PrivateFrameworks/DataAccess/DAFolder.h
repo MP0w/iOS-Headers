@@ -28,6 +28,8 @@
 - (unsigned int)hash;
 - (id)description;
 - (void)dealloc;
+- (id)parentMailboxID;
+- (id)mailboxID;
 
 @end
 

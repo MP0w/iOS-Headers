@@ -17,14 +17,13 @@
     NSURL *startupImageURL;
     NSURL *startupLandscapeImageURL;
     NSString *title;
-    float scale;
-    struct CGPoint scrollPoint;
     BOOL fullScreen;
     BOOL classicMode;
     BOOL removalDisallowed;
     BOOL iconIsScreenShotBased;
     BOOL iconIsPrecomposed;
     BOOL iconIsPrerendered;
+    unsigned int supportedOrientations;
     int statusBarStyle;
     UIImage *iconImage;
     UIImage *startupImage;
@@ -41,13 +40,19 @@
 }
 
 + (id)urlForWebClipWithIdentifier:(id)arg1;
++ (id)pathForWebClipCacheWithIdentifier:(id)arg1;
++ (id)pathForWebClipStorageWithIdentifier:(id)arg1;
 + (id)pathForWebClipWithIdentifier:(id)arg1;
 + (id)webClipsDirectoryPath;
 + (id)webClipIconsForWebDocumentView:(id)arg1;
++ (unsigned int)webClipOrientationsForWebDocumentView:(id)arg1;
 + (BOOL)webClipClassicModeValueForWebDocumentView:(id)arg1;
++ (id)webClipTitleForWebDocumentView:(id)arg1;
 + (BOOL)webClipFullScreenValueForWebDocumentView:(id)arg1;
 + (int)webClipStatusBarStyleForWebDocumentView:(id)arg1;
 + (id)_contentForMetaName:(id)arg1 inWebDocumentView:(id)arg2;
++ (id)webClipIdentifierFromBundleIdentifier:(id)arg1;
++ (BOOL)bundleIdentifierContainsWebClipIdentifier:(id)arg1;
 + (id)webClips;
 + (id)webClipWithURL:(id)arg1;
 + (id)webClipWithIdentifier:(id)arg1;
@@ -57,14 +62,13 @@
 @property(retain, nonatomic) UIImage *startupLandscapeImage; // @synthesize startupLandscapeImage;
 @property(retain, nonatomic) UIImage *startupImage; // @synthesize startupImage;
 @property int statusBarStyle; // @synthesize statusBarStyle;
+@property unsigned int supportedOrientations; // @synthesize supportedOrientations;
 @property(readonly) BOOL iconIsPrerendered; // @synthesize iconIsPrerendered;
 @property(readonly) BOOL iconIsPrecomposed; // @synthesize iconIsPrecomposed;
 @property(readonly) BOOL iconIsScreenShotBased; // @synthesize iconIsScreenShotBased;
 @property BOOL removalDisallowed; // @synthesize removalDisallowed;
 @property BOOL classicMode; // @synthesize classicMode;
 @property BOOL fullScreen; // @synthesize fullScreen;
-@property struct CGPoint scrollPoint; // @synthesize scrollPoint;
-@property float scale; // @synthesize scale;
 @property(copy) NSString *title; // @synthesize title;
 @property(retain) NSURL *startupLandscapeImageURL; // @synthesize startupLandscapeImageURL;
 @property(retain) NSURL *startupImageURL; // @synthesize startupImageURL;
@@ -81,7 +85,7 @@
 - (BOOL)tryLoadingNextCustomIcon;
 - (void)updateCustomMediaLocationsFromWebDocumentView:(id)arg1;
 - (void)requestIconUpdateInSpringBoard;
-- (id)_displayIdentifierString;
+- (id)bundleIdentifier;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)stopLoadingStartupLandscapeImage;
 - (void)stopLoadingStartupImage;

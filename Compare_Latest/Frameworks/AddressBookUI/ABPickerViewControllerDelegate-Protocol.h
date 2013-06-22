@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol ABPickerViewControllerDelegate <NSObject>
-- (BOOL)pickerViewController:(id)arg1 shouldDismissAfterSelectingItem:(id)arg2;
 - (BOOL)pickerViewControllerShouldDismissKeyboard:(id)arg1;
+- (BOOL)pickerViewController:(id)arg1 shouldDismissAfterSelectingItem:(id)arg2;
 @end
 

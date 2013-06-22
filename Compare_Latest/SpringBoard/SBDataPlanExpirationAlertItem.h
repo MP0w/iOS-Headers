@@ -13,10 +13,10 @@
     NSDate *_expirationDate;
 }
 
-- (id)initWithAccountURL:(id)arg1 expirationDate:(id)arg2;
-- (void)dealloc;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 @property(retain, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)dealloc;
+- (id)initWithAccountURL:(id)arg1 expirationDate:(id)arg2;
 
 @end
 

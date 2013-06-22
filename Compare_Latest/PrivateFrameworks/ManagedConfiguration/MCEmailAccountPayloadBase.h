@@ -18,20 +18,22 @@
     NSString *_SMIMEEncryptionIdentityUUID;
     NSData *_SMIMESigningIdentityPersistentID;
     NSData *_SMIMEEncryptionIdentityPersistentID;
+    BOOL _isRecentsSyncingDisabled;
 }
 
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (id)stubDictionary;
-- (id)description;
 @property(retain, nonatomic) NSData *SMIMEEncryptionIdentityPersistentID; // @synthesize SMIMEEncryptionIdentityPersistentID=_SMIMEEncryptionIdentityPersistentID;
 @property(retain, nonatomic) NSData *SMIMESigningIdentityPersistentID; // @synthesize SMIMESigningIdentityPersistentID=_SMIMESigningIdentityPersistentID;
 @property(readonly, nonatomic) NSString *SMIMEEncryptionIdentityUUID; // @synthesize SMIMEEncryptionIdentityUUID=_SMIMEEncryptionIdentityUUID;
 @property(readonly, nonatomic) NSString *SMIMESigningIdentityUUID; // @synthesize SMIMESigningIdentityUUID=_SMIMESigningIdentityUUID;
+@property(readonly, nonatomic) BOOL isRecentsSyncingDisabled; // @synthesize isRecentsSyncingDisabled=_isRecentsSyncingDisabled;
 @property(readonly, nonatomic) BOOL SMIMEEncryptionEnabled; // @synthesize SMIMEEncryptionEnabled=_SMIMEEncryptionEnabled;
 @property(readonly, nonatomic) BOOL SMIMEEnabled; // @synthesize SMIMEEnabled=_SMIMEEnabled;
 @property(readonly, nonatomic) BOOL preventAppSheet; // @synthesize preventAppSheet=_preventAppSheet;
 @property(readonly, nonatomic) BOOL preventMove; // @synthesize preventMove=_preventMove;
+- (void).cxx_destruct;
+- (id)description;
+- (id)stubDictionary;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

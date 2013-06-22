@@ -23,33 +23,33 @@
 }
 
 + (id)defaultProperties;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)initWithDefaults;
-- (void)setParent:(id)arg1;
-- (id)stops;
-- (void)setStops:(id)arg1;
-- (BOOL)areStopsOverridden;
-- (void)clearStops;
-- (unsigned int)stopCount;
-- (id)stopColorAtIndex:(unsigned int)arg1;
-- (float)stopPositionAtIndex:(unsigned int)arg1;
-- (void)addStopColor:(id)arg1 position:(float)arg2;
-- (id)tileRect;
-- (void)setTileRect:(id)arg1;
-- (BOOL)isTileRectOverridden;
-- (int)flipMode;
-- (void)setFlipMode:(int)arg1;
-- (BOOL)isFlipModeOverridden;
-- (BOOL)rotateWithShape;
-- (void)setRotateWithShape:(BOOL)arg1;
-- (BOOL)isRotateWithShapeOverridden;
-- (id)shade;
-- (void)setShade:(id)arg1;
-- (BOOL)isShadeOverridden;
-- (void)setStyleColor:(id)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setStyleColor:(id)arg1;
+- (BOOL)isShadeOverridden;
+- (void)setShade:(id)arg1;
+- (id)shade;
+- (BOOL)isRotateWithShapeOverridden;
+- (void)setRotateWithShape:(BOOL)arg1;
+- (BOOL)rotateWithShape;
+- (BOOL)isFlipModeOverridden;
+- (void)setFlipMode:(int)arg1;
+- (int)flipMode;
+- (BOOL)isTileRectOverridden;
+- (void)setTileRect:(id)arg1;
+- (id)tileRect;
+- (void)addStopColor:(id)arg1 position:(float)arg2;
+- (float)stopPositionAtIndex:(unsigned int)arg1;
+- (id)stopColorAtIndex:(unsigned int)arg1;
+- (unsigned int)stopCount;
+- (void)clearStops;
+- (BOOL)areStopsOverridden;
+- (void)setStops:(id)arg1;
+- (id)stops;
+- (void)setParent:(id)arg1;
+- (id)initWithDefaults;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

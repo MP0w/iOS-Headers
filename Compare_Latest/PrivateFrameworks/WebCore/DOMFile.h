@@ -12,10 +12,8 @@
 {
 }
 
-@property(readonly, copy) NSString *name;
 - (double)lastModifiedDate;
-@property(readonly, copy) NSString *fileName;
-@property(readonly) unsigned long long fileSize;
+@property(readonly) NSString *name;
 
 @end
 

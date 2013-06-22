@@ -16,12 +16,12 @@
     int _settingsButtonIndex;
 }
 
-- (id)initWithErrorCode:(int)arg1 reason:(id)arg2 suggestWiFi:(BOOL)arg3;
-- (void)dealloc;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (BOOL)dismissOnLock;
-- (void)_showNetworkPrefs;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)_showNetworkPrefs;
+- (BOOL)dismissOnLock;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)dealloc;
+- (id)initWithErrorCode:(int)arg1 reason:(id)arg2 suggestWiFi:(BOOL)arg3;
 
 @end
 

@@ -21,6 +21,7 @@
 }
 
 @property(retain, nonatomic) AAAccount *account; // @synthesize account=_account;
+- (void).cxx_destruct;
 - (void)search:(id)arg1 didFinishWithError:(id)arg2;
 - (BOOL)search:(id)arg1 didFindResults:(id)arg2;
 - (void)_validateToken:(id)arg1;
@@ -28,7 +29,6 @@
 - (void)cancel;
 - (void)verifyWithHandler:(id)arg1;
 - (void)sendVerificationEmail;
-- (void)dealloc;
 - (id)initWithAccount:(id)arg1;
 - (id)init;
 

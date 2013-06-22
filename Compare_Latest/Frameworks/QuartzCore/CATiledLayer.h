@@ -10,21 +10,31 @@
 {
 }
 
-+ (double)fadeDuration;
-+ (id)defaultValueForKey:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-- (void)didChangeValueForKey:(id)arg1;
-- (BOOL)shouldArchiveValueForKey:(id)arg1;
-- (void)setNeedsDisplayInRect:(struct CGRect)arg1;
-- (void)setContents:(id)arg1;
-- (void)invalidateContents;
-- (void)_dealloc;
-- (void)dealloc;
-- (void)_display;
-- (BOOL)_canDisplayConcurrently;
-@property unsigned int levelsOfDetail;
-@property unsigned int levelsOfDetailBias;
++ (id)defaultValueForKey:(id)arg1;
++ (double)fadeDuration;
++ (unsigned int)prefetchedTiles;
++ (BOOL)shouldDrawOnMainThread;
 @property struct CGSize tileSize;
+@property unsigned long levelsOfDetailBias;
+@property unsigned long levelsOfDetail;
+- (BOOL)_canDisplayConcurrently;
+- (void)_display;
+- (void)dealloc;
+- (void)_dealloc;
+- (void)invalidateContents;
+- (void)setContents:(id)arg1;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1;
+- (BOOL)shouldArchiveValueForKey:(id)arg1;
+- (void)didChangeValueForKey:(id)arg1;
+@property(getter=isDrawingEnabled) BOOL drawingEnabled;
+@property float maximumTileScale;
+@property struct CGColor *fillColor;
+- (BOOL)queueIsEmpty;
+- (void)displayInRect:(struct CGRect)arg1 levelOfDetail:(int)arg2 options:(id)arg3;
+- (BOOL)canDrawRect:(struct CGRect)arg1 levelOfDetail:(int)arg2;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1 levelOfDetail:(int)arg2;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1 levelOfDetail:(int)arg2 options:(id)arg3;
 
 @end
 

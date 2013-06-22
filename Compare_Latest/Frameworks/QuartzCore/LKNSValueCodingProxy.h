@@ -18,13 +18,15 @@
         struct CADoublePoint dpoint;
         struct CADoubleSize dsize;
         struct CADoubleRect drect;
+        struct CAColorMatrix color_matrix;
     } _u;
 }
 
-- (id)initWithObject:(id)arg1;
-- (id)decodedObject;
-- (void)encodeWithCoder:(id)arg1;
+- (id).cxx_construct;
 - (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)decodedObject;
+- (id)initWithObject:(id)arg1;
 
 @end
 

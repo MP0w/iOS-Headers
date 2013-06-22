@@ -15,19 +15,19 @@
     unsigned int _statusDetail:10;
 }
 
-- (id)initWithStatus:(int)arg1;
-- (void)setStatus:(int)arg1;
-- (void)dealloc;
-- (void)_updateEnhancedStatusCodesFromLastResponse;
-- (id)lastResponseLine;
-- (void)setLastResponseLine:(id)arg1;
-- (int)failureReason;
-- (id)errorMessageWithAddress:(id)arg1 defaultMessage:(id)arg2;
-- (id)description;
 @property(readonly, nonatomic) unsigned int statusDetail; // @synthesize statusDetail=_statusDetail;
 @property(readonly, nonatomic) unsigned int statusSubject; // @synthesize statusSubject=_statusSubject;
 @property(readonly, nonatomic) unsigned int statusClass; // @synthesize statusClass=_statusClass;
 @property(readonly, nonatomic) int status; // @synthesize status=_status;
+- (id)description;
+- (id)errorMessageWithAddress:(id)arg1 defaultMessage:(id)arg2;
+- (int)failureReason;
+- (void)setLastResponseLine:(id)arg1;
+- (id)lastResponseLine;
+- (void)_updateEnhancedStatusCodesFromLastResponse;
+- (void)dealloc;
+- (void)setStatus:(int)arg1;
+- (id)initWithStatus:(int)arg1;
 
 @end
 

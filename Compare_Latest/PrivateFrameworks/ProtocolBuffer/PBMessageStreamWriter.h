@@ -6,16 +6,13 @@
 
 #import "NSObject.h"
 
-@class PBDataWriter, PBStreamWriter;
+@class NSOutputStream;
 
 @interface PBMessageStreamWriter : NSObject
 {
-    PBStreamWriter *_writer;
-    PBDataWriter *_messageWriter;
+    NSOutputStream *_stream;
 }
 
-@property(retain) PBDataWriter *messageWriter; // @synthesize messageWriter=_messageWriter;
-@property(retain) PBStreamWriter *writer; // @synthesize writer=_writer;
 - (BOOL)writeMessage:(id)arg1;
 - (void)dealloc;
 - (id)initWithOutputStream:(id)arg1;

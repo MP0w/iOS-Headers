@@ -15,11 +15,11 @@
     float _resetProgress;
 }
 
-- (void)dealloc;
-- (void)setResetProgress:(float)arg1;
-- (id)_outlinePath;
-- (id)_progressColor;
 - (void)drawRect:(struct CGRect)arg1;
+- (id)_progressColor;
+- (id)_outlinePath;
+- (void)setResetProgress:(float)arg1;
+- (void)dealloc;
 
 @end
 

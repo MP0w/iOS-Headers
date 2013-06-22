@@ -11,7 +11,8 @@
 @interface SBAwayInCallController : NSObject
 {
     TPLCDView *_lcdView;
-    BOOL _showsInCallInfo;
+    BOOL _shouldShowInCallInfo;
+    BOOL _isShowingInCallInfo;
     NSTimer *_durationTimer;
     struct __CTCall *_displayedCall;
     NSString *_localizedLabel;
@@ -19,14 +20,16 @@
     BOOL _isFullScreen;
 }
 
-- (id)initWithLCDView:(id)arg1;
-- (void)dealloc;
-- (id)callerImage;
-- (BOOL)callerImageIsFullScreen;
-- (void)fetchCallInformation:(id *)arg1 name:(id *)arg2 label:(id *)arg3 image:(id *)arg4 isFullScreen:(char *)arg5 wantsHighResolution:(BOOL)arg6;
-- (void)updateDuration;
+- (void)_setShowingInCallInfo:(BOOL)arg1;
+- (BOOL)isShowingInCallInfo;
+- (void)setShouldShowInCallInfo:(BOOL)arg1;
 - (void)reload;
-- (void)setShowsInCallInfo:(BOOL)arg1;
+- (void)updateDuration;
+- (void)fetchCallInformation:(id *)arg1 name:(id *)arg2 label:(id *)arg3 image:(id *)arg4 isFullScreen:(char *)arg5 wantsHighResolution:(BOOL)arg6;
+- (BOOL)callerImageIsFullScreen;
+- (id)callerImage;
+- (void)dealloc;
+- (id)initWithLCDView:(id)arg1;
 
 @end
 

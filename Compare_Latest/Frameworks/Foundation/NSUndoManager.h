@@ -20,6 +20,8 @@
     void *_NSUndoManagerPrivate3;
 }
 
++ (void)_endTopLevelGroupings;
++ (void)_setEndsTopLevelGroupingsAfterRunLoopIterations:(BOOL)arg1;
 - (id)redoMenuTitleForUndoActionName:(id)arg1;
 - (id)undoMenuTitleForUndoActionName:(id)arg1;
 - (id)redoMenuItemTitle;
@@ -66,6 +68,11 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
+- (void)_rollbackUndoGrouping;
+- (void)_commitUndoGrouping;
+- (void)_processEndOfEventNotification:(id)arg1;
+- (BOOL)_shouldCoalesceTypingForText:(id)arg1:(id)arg2;
+- (id)_undoStack;
 
 @end
 

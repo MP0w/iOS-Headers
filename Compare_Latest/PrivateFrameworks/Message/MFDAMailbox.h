@@ -6,20 +6,20 @@
 
 #import <Message/MailboxUid.h>
 
-@class DAFolder;
+@class NSString;
 
 @interface MFDAMailbox : MailboxUid
 {
-    DAFolder *_DAFolder;
+    NSString *_folderID;
 }
 
-- (id)initWithName:(id)arg1 attributes:(unsigned int)arg2 account:(id)arg3 folder:(id)arg4;
 - (id)description;
-- (id)DAFolder;
-- (void)setDAFolder:(id)arg1;
-- (id)folderID;
 - (id)URLStringWithAccount:(id)arg1;
+- (id)_folderID;
+@property(copy) NSString *folderID;
+- (BOOL)mergeWithUserInfo:(id)arg1;
 - (void)dealloc;
+- (id)initWithName:(id)arg1 attributes:(unsigned int)arg2 account:(id)arg3 folderID:(id)arg4;
 
 @end
 

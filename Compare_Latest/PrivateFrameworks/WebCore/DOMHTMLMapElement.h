@@ -12,8 +12,8 @@
 {
 }
 
-@property(readonly, retain) DOMHTMLCollection *areas;
 @property(copy) NSString *name;
+@property(readonly) DOMHTMLCollection *areas;
 
 @end
 

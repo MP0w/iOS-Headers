@@ -14,6 +14,7 @@
     UIColor *_rgbColor;
 }
 
+- (BOOL)_getWhite:(float *)arg1 alpha:(float *)arg2;
 - (BOOL)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
@@ -25,6 +26,7 @@
 - (void)set;
 - (id)_rgbColor;
 - (id)description;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithCIColor:(id)arg1;
 

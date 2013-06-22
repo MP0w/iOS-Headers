@@ -8,9 +8,11 @@
 
 @interface MSBatteryPowerMonitor : NSObject
 {
+    BOOL _isExternalPowerConnected;
 }
 
 + (id)defaultMonitor;
+@property(readonly, nonatomic) BOOL isExternalPowerConnected; // @synthesize isExternalPowerConnected=_isExternalPowerConnected;
 - (double)batteryPercentRemaining;
 
 @end

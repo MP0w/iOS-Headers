@@ -21,12 +21,12 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (void)dealloc;
-- (void)finalize;
-- (void)lock;
-- (BOOL)tryLock;
 - (void)unlock;
+- (BOOL)tryLock;
+- (void)lock;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
 
 @end
 

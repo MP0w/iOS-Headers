@@ -18,21 +18,21 @@
     id <ABStyleProvider> _styleProvider;
 }
 
-- (void)dealloc;
-@property(readonly, nonatomic) UIBarButtonItem *cancelBarButtonItem;
-@property(readonly, nonatomic) UIBarButtonItem *doneBarButtonItem;
-@property(nonatomic) SEL selectionAction; // @synthesize selectionAction=_selectionAction;
-- (void)attemptDismissAfterSelectingItem:(id)arg1;
-- (void)cancelButtonClicked:(id)arg1;
-- (float)ab_heightToFitForViewInPopoverView;
-- (void)viewDidLoad;
-- (BOOL)_allowsAutorotation;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
+@property(nonatomic) SEL selectionAction; // @synthesize selectionAction=_selectionAction;
 @property(nonatomic) id <ABPickerViewControllerDismissDelegate> dismissDelegate; // @synthesize dismissDelegate=_dismissDelegate;
 @property(nonatomic) id <ABPickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id defaultValue; // @synthesize defaultValue=_defaultValue;
 @property(nonatomic) void *context; // @synthesize context=_context;
+- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
+- (BOOL)_allowsAutorotation;
+- (void)viewDidLoad;
+- (float)ab_heightToFitForViewInPopoverView;
+- (void)cancelButtonClicked:(id)arg1;
+- (void)attemptDismissAfterSelectingItem:(id)arg1;
+@property(readonly, nonatomic) UIBarButtonItem *doneBarButtonItem;
+@property(readonly, nonatomic) UIBarButtonItem *cancelBarButtonItem;
+- (void)dealloc;
 
 @end
 

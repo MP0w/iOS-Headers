@@ -17,14 +17,17 @@
 }
 
 + (void)mapPlaceholderAt:(id)arg1 rect:(struct CGRect)arg2 withState:(id)arg3;
-- (id)initWithBlock:(id)arg1 parent:(id)arg2;
-- (void)dealloc;
-- (id)activeNode;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)mapParagraphBodyWithState:(id)arg1;
-- (void)mapRunAt:(id)arg1 run:(id)arg2 withState:(id)arg3;
-- (void)mapFieldMarkerAt:(id)arg1 marker:(id)arg2 withState:(id)arg3;
 - (id)runAtIndex:(int)arg1;
+- (void)mapFieldMarkerAt:(id)arg1 marker:(id)arg2 withState:(id)arg3;
+- (void)mapRunAt:(id)arg1 run:(id)arg2 withState:(id)arg3;
+- (void)mapParagraphBodyWithState:(id)arg1;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id)activeNode;
+- (void)dealloc;
+- (id)initWithBlock:(id)arg1 parent:(id)arg2;
+- (BOOL)isTextFrame;
+- (BOOL)containsOfficeArt;
+- (BOOL)isCollapsable:(id)arg1;
 
 @end
 

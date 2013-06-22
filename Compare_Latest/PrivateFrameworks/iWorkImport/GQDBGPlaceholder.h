@@ -14,9 +14,9 @@
     BOOL mIsVisible;
 }
 
-- (void)dealloc;
-- (id)placeholderStyle;
 - (BOOL)isVisible;
+- (id)placeholderStyle;
+- (void)dealloc;
 
 @end
 

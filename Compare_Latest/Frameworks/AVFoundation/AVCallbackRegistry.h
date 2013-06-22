@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>;
+
 @interface AVCallbackRegistry : NSObject
 {
     struct __CFBag *_observers;
-    struct dispatch_queue_s *_readWriteQueue;
+    NSObject<OS_dispatch_queue> *_readWriteQueue;
 }
 
 + (id)sharedCallbackRegistry;

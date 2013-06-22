@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableArray, NSMutableIndexSet, NSString;
+@class NSDictionary, NSMutableArray, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface PLImageTable : NSObject
 {
@@ -25,8 +25,8 @@
     int _segmentCount;
     NSMutableArray *_allSegments;
     NSMutableIndexSet *_preheatIndexes;
-    struct dispatch_queue_s *_preheatIndexIsolation;
-    struct dispatch_queue_s *_preheatQueue;
+    NSObject<OS_dispatch_queue> *_preheatIndexIsolation;
+    NSObject<OS_dispatch_queue> *_preheatQueue;
 }
 
 + (struct CGRect)scaleSize:(struct CGSize)arg1 toFitWithinSize:(struct CGSize)arg2;
@@ -71,6 +71,12 @@
 @property(readonly, nonatomic) int imageWidth;
 - (id)initWithPath:(id)arg1 imageFormat:(int)arg2;
 - (id)initWithPath:(id)arg1 imageFormat:(int)arg2 readOnly:(BOOL)arg3;
+- (void)preheatImageDataAtIndexex:(id)arg1;
+- (id)_getAndClearPreheatIndexes;
+- (void)_addPreheatIndexes:(id)arg1;
+- (id)imageDataAtIndex:(int)arg1 width:(int *)arg2 height:(int *)arg3 bytesPerRow:(int *)arg4 dataWidth:(int *)arg5 dataHeight:(int *)arg6 dataOffset:(int *)arg7;
+- (BOOL)thumbnailForAsset:(id)arg1 existsAtIndex:(int)arg2;
+- (struct __CFDictionary *)newCurrentAssetUUIDsToIndexesMapping;
 
 @end
 

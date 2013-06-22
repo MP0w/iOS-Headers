@@ -8,17 +8,21 @@
 
 #import "ASDynamicAccountClassLoader-Protocol.h"
 
-@class NSArray, NSDictionary, NSLock, NSOperationQueue, NSString;
+@class ACAccount, ACAccountStore, NSArray, NSDictionary, NSLock, NSOperationQueue, NSString;
 
 @interface AAAccount : BasicAccount <ASDynamicAccountClassLoader>
 {
     NSString *_cachedPassword;
     NSString *_cachedToken;
-    NSString *_unsavedToken;
     NSString *_cachedCommerceToken;
+    NSString *_cachedFMIPToken;
     NSOperationQueue *_requesterQueue;
     NSLock *_tokenLock;
     NSLock *_passwordLock;
+    NSLock *_fmipTokenLock;
+    NSString *_appleIDAccountIdentifier;
+    ACAccountStore *_accountStore;
+    ACAccount *_appleIDAccount;
 }
 
 + (BOOL)loadBundleForAccountWithProperties:(id)arg1;
@@ -36,6 +40,11 @@
 + (id)accountTypeString;
 + (id)accountWithBasicAccount:(id)arg1;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_cachedPassword;
+- (void).cxx_destruct;
+- (void)refreshTokensWithHandler:(id)arg1;
+- (void)verifyCredentialsForAppleIDWithHandler:(id)arg1;
+- (void)renewCredentialsForAppleIDWithHandler:(id)arg1;
+- (void)removeAppleIDAccount;
 - (void)removeChildAccountWithIdentifier:(id)arg1;
 - (void)addChildAccount:(id)arg1;
 - (BOOL)_removeChildAccountsOfTypes:(id)arg1;
@@ -47,6 +56,7 @@
 - (void)configureAppleIDCerts;
 - (id)_errorWithDescriptionForResponseError:(id)arg1;
 - (id)_mailChildAccountProperties;
+- (void)_setFMIPToken:(id)arg1;
 - (void)_setToken:(id)arg1;
 - (id)_deviceSpecificLocalizedString:(id)arg1;
 - (BOOL)isConfiguredSyncAccount;
@@ -65,14 +75,17 @@
 - (void)savePasswordInKeychain;
 - (void)removeTokensFromKeychain;
 - (void)saveTokensInKeychain;
+- (void)saveFMIPTokenInKeychain;
 - (void)presentQuotaDepletionAlertForDataclass:(id)arg1;
 - (void)presentQuotaDepletionAlertForDataclass:(id)arg1 withHandler:(id)arg2;
 - (BOOL)presentQuotaDepletionAlertForDataclassIfNecessary:(id)arg1;
 - (BOOL)presentQuotaDepletionAlertForDataclassIfNecessary:(id)arg1 withHandler:(id)arg2;
 - (void)notifyUserOfQuotaDepletion;
 - (void)cancelNetworkActivity;
+- (void)lookupEmailAddresses:(id)arg1 withHandler:(id)arg2;
 - (void)resendVerificationEmail:(id)arg1;
 - (void)authenticateWithHandler:(id)arg1;
+- (void)_updateAccountRequestWithHandler:(id)arg1;
 - (void)updateAccountPropertiesWithHandler:(id)arg1;
 - (void)registerWithHandler:(id)arg1;
 - (void)signInWithHandler:(id)arg1;
@@ -95,11 +108,19 @@
 @property(readonly, nonatomic) NSString *lastName;
 @property(readonly, nonatomic) NSString *firstName;
 @property(readonly, nonatomic) NSString *personID;
+@property(readonly, nonatomic) NSString *protocolVersion;
+@property(readonly, nonatomic) NSString *fmipToken;
 @property(readonly, nonatomic) NSString *authToken;
+@property(readonly, nonatomic) NSString *appleIDAccountIdentifier;
+- (id)appleIDAccount;
+- (BOOL)_requestAccessToAppleIDAccount;
+- (id)_createNewAppleIDAccount;
 @property(copy, nonatomic) NSString *username;
 - (id)displayName;
 - (id)description;
+- (id)_accountStore;
 - (void)dealloc;
+- (void)_accountStoreChanged:(id)arg1;
 - (id)initWithProperties:(id)arg1;
 
 @end

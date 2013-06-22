@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebPluginContainerCheckController <NSObject>
-- (void)_webPluginContainerCancelCheckIfAllowedToLoadRequest:(id)arg1;
-- (id)webFrame;
 - (id)webView;
+- (id)webFrame;
+- (void)_webPluginContainerCancelCheckIfAllowedToLoadRequest:(id)arg1;
 @end
 

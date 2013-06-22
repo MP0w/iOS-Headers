@@ -8,11 +8,11 @@
 
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSArray, NSData, NSDate, NSDictionary, NSLock, NSMutableDictionary, NSNumber, NSString, NSURL, SSItemImageCollection;
 
-@interface SSDownloadMetadata : NSObject <SSCoding, NSCoding, NSCopying>
+@interface SSDownloadMetadata : NSObject <SSXPCCoding, NSCoding, NSCopying>
 {
     NSMutableDictionary *_dictionary;
     int _keyStyle;
@@ -32,6 +32,7 @@
 - (id)_assetDictionary;
 - (id)valueForMetadataKey:(id)arg1;
 - (id)valueForFirstAvailableKey:(id)arg1;
+@property(copy) NSURL *transitMapDataURL;
 @property(retain) NSArray *sinfs;
 @property BOOL shouldDownloadAutomatically;
 - (void)setValuesFromDownload:(id)arg1;
@@ -42,6 +43,7 @@
 @property(copy) NSString *redownloadActionParameters;
 @property(retain) NSURL *primaryAssetURL;
 @property unsigned long long preOrderIdentifier;
+@property(copy) NSString *preferredAssetFlavor;
 - (void)setMD5HashStrings:(id)arg1 numberOfBytesToHash:(id)arg2;
 @property int keyStyle;
 @property(retain) NSString *fileExtension;
@@ -106,6 +108,7 @@
 - (void)setCollectionIndexInCollectionGroup:(id)arg1;
 - (void)setCollectionIdentifier:(unsigned long long)arg1;
 - (void)setCollectionArtistName:(id)arg1;
+- (void)setCloudIdentifier:(id)arg1;
 - (void)setBundleIdentifier:(id)arg1;
 - (void)setArtworkIsPrerendered:(BOOL)arg1;
 @property(copy) NSString *artistName;
@@ -115,6 +118,7 @@
 - (id)seasonNumber;
 - (unsigned long long)sagaIdentifier;
 - (id)purchaseDate;
+@property(readonly) NSDictionary *primaryAssetDictionary;
 - (id)podcastType;
 - (id)podcastFeedURL;
 - (id)podcastEpisodeGUID;
@@ -137,13 +141,12 @@
 - (id)collectionIndexInCollectionGroup;
 - (unsigned long long)collectionIdentifier;
 - (id)collectionArtistName;
+- (id)cloudIdentifier;
 - (id)bundleIdentifier;
 - (BOOL)artworkIsPrerendered;
 - (id)applicationIdentifier;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

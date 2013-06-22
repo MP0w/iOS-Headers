@@ -8,17 +8,17 @@
 
 @interface WebCoreMediaPlayerNotificationHelper : NSObject
 {
-    struct MediaPlayerPrivateiPhone *_client;
+    struct MediaPlayerPrivateIOS *_client;
     BOOL _deferredPropertiesScheduled;
 }
 
-- (id)initWithClient:(struct MediaPlayerPrivateiPhone *)arg1;
-- (void)disconnect;
-- (void)cancelPendingRequests;
-- (void)delayNotification:(int)arg1;
-- (void)deliverNotification:(id)arg1;
-- (void)schedulePrepareToPlayWithOptionalDelay:(id)arg1;
 - (void)scheduleDeferredPropertiesWithOptionalDelay:(id)arg1;
+- (void)schedulePrepareToPlayWithOptionalDelay:(id)arg1;
+- (void)deliverNotification:(id)arg1;
+- (void)delayNotification:(int)arg1;
+- (void)cancelPendingRequests;
+- (void)disconnect;
+- (id)initWithClient:(struct MediaPlayerPrivateIOS *)arg1;
 
 @end
 

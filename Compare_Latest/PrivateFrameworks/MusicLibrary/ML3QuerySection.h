@@ -14,8 +14,10 @@
 
 @property(nonatomic) unsigned int sectionIndex; // @synthesize sectionIndex=_sectionIndex;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
-- (void)dealloc;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (id)description;
+- (id)initWithRange:(struct _NSRange)arg1 sectionIndex:(unsigned int)arg2;
 
 @end
 

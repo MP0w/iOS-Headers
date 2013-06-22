@@ -42,6 +42,8 @@
 @property(readonly, nonatomic) NSMutableDictionary *_contexts; // @synthesize _contexts;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
+- (void)databaseNoLongerFull;
+- (void)databaseFull;
 - (void)databaseUpdated:(id)arg1;
 - (void)_deferredSetup:(id)arg1;
 - (void)setupComplete:(BOOL)arg1 info:(id)arg2;
@@ -79,7 +81,7 @@
 - (void)vcCapabilitiesChanged:(unsigned long long)arg1;
 - (void)account:(id)arg1 capabilitiesChanged:(unsigned long long)arg2;
 - (void)account:(id)arg1 statusChanged:(id)arg2;
-- (void)account:(id)arg1 loginStatusChanged:(unsigned int)arg2 message:(id)arg3 reason:(unsigned int)arg4 properties:(id)arg5;
+- (void)account:(id)arg1 loginStatusChanged:(unsigned int)arg2 message:(id)arg3 reason:(int)arg4 properties:(id)arg5;
 - (void)accountRemoved:(id)arg1;
 - (void)accountAdded:(id)arg1 defaults:(id)arg2 service:(id)arg3;
 - (void)account:(id)arg1 defaultsChanged:(id)arg2;

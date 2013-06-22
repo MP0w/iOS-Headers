@@ -12,9 +12,9 @@
 {
 }
 
-@property(readonly, copy) NSString *target;
+@property(readonly) DOMStyleSheet *sheet;
 @property(copy) NSString *data;
-@property(readonly, retain) DOMStyleSheet *sheet;
+@property(readonly) NSString *target;
 
 @end
 

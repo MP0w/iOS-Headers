@@ -8,26 +8,29 @@
 
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSArray, NSDictionary, NSNumber, NSString;
 
-@interface SSAuthenticationContext : NSObject <SSCoding, NSCopying, NSMutableCopying>
+@interface SSAuthenticationContext : NSObject <SSXPCCoding, NSCopying, NSMutableCopying>
 {
     NSString *_accountName;
     BOOL _accountNameEditable;
     int _accountScope;
+    BOOL _allowsRetry;
     BOOL _canCreateNewAccount;
+    BOOL _canSetActiveAccount;
     NSString *_clientIdentifierHeader;
     BOOL _demoAccount;
     NSDictionary *_httpHeaders;
-    BOOL _ignoresTokenExpiration;
+    NSString *_initialPassword;
     NSString *_preferredITunesStoreClient;
     int _promptStyle;
     NSDictionary *_requestParameters;
     NSNumber *_requiredUniqueIdentifier;
     BOOL _shouldFollowAccountButtons;
     BOOL _shouldIgnoreProtocol;
+    BOOL _shouldSuppressDialogs;
     NSDictionary *_signupRequestParameters;
     int _tokenType;
     NSArray *_userAgentComponents;
@@ -37,27 +40,30 @@
 @property(readonly, nonatomic) NSArray *userAgentComponents; // @synthesize userAgentComponents=_userAgentComponents;
 @property(readonly, nonatomic) int tokenType; // @synthesize tokenType=_tokenType;
 @property(readonly, nonatomic) NSDictionary *signupRequestParameters; // @synthesize signupRequestParameters=_signupRequestParameters;
+@property(readonly, nonatomic) BOOL shouldSuppressDialogs; // @synthesize shouldSuppressDialogs=_shouldSuppressDialogs;
 @property(readonly, nonatomic) BOOL shouldIgnoreProtocol; // @synthesize shouldIgnoreProtocol=_shouldIgnoreProtocol;
 @property(readonly, nonatomic) BOOL shouldFollowAccountButtons; // @synthesize shouldFollowAccountButtons=_shouldFollowAccountButtons;
 @property(readonly, nonatomic) NSNumber *requiredUniqueIdentifier; // @synthesize requiredUniqueIdentifier=_requiredUniqueIdentifier;
 @property(readonly, nonatomic) NSDictionary *requestParameters; // @synthesize requestParameters=_requestParameters;
 @property(readonly, nonatomic) int promptStyle; // @synthesize promptStyle=_promptStyle;
 @property(readonly, nonatomic) NSString *preferredITunesStoreClient; // @synthesize preferredITunesStoreClient=_preferredITunesStoreClient;
+@property(readonly, nonatomic) NSString *initialPassword; // @synthesize initialPassword=_initialPassword;
 @property(readonly, nonatomic) NSDictionary *HTTPHeaders; // @synthesize HTTPHeaders=_httpHeaders;
 @property(readonly, nonatomic, getter=isDemoAccount) BOOL demoAccount; // @synthesize demoAccount=_demoAccount;
 @property(readonly, nonatomic) NSString *clientIdentifierHeader; // @synthesize clientIdentifierHeader=_clientIdentifierHeader;
+@property(readonly, nonatomic) BOOL canSetActiveAccount; // @synthesize canSetActiveAccount=_canSetActiveAccount;
 @property(readonly, nonatomic) BOOL canCreateNewAccount; // @synthesize canCreateNewAccount=_canCreateNewAccount;
+@property(readonly, nonatomic) BOOL allowsRetry; // @synthesize allowsRetry=_allowsRetry;
 @property(readonly) int accountScope; // @synthesize accountScope=_accountScope;
 @property(readonly, nonatomic) NSString *accountName; // @synthesize accountName=_accountName;
 - (void)_copyIvarsToCopy:(id)arg1 withZone:(struct _NSZone *)arg2;
+- (BOOL)_allowCreateAccount;
 @property(readonly, nonatomic, getter=isAccountNameEditable) BOOL accountNameEditable; // @synthesize accountNameEditable=_accountNameEditable;
 - (id)description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (void)dealloc;
 - (id)initWithAccountIdentifier:(id)arg1;
 - (id)initWithAccount:(id)arg1;

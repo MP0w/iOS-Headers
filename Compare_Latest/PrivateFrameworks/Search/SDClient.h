@@ -4,55 +4,36 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SDDisableableObject.h"
+#import "NSObject.h"
 
-#import "SDActorClient-Protocol.h"
+@class NSDate, NSMutableDictionary, NSString, SDUpdatesFile;
 
-@class NSMutableDictionary, NSString, SDUpdatesFile;
-
-@interface SDClient : SDDisableableObject <SDActorClient>
+@interface SDClient : NSObject
 {
-    unsigned int _serverPort;
-    unsigned int _clientCallbackPort;
-    unsigned int _serverPortNoSender;
-    struct dispatch_source_s *_serverPortSource;
-    struct dispatch_source_s *_serverPortNoSenderSource;
-    struct dispatch_source_s *_clientCallbackPortSource;
-    struct dispatch_source_s *_timeoutSource;
     NSMutableDictionary *_queriesByExternId;
     BOOL _updating;
     NSString *_applicationDisplayID;
     NSString *_category;
     SDUpdatesFile *_updatesFile;
     NSMutableDictionary *_contentIndices;
-    BOOL _inactive;
-    unsigned char _timeoutDisabled;
+    NSDate *_timer;
 }
 
-+ (int)_decrClientCount;
-+ (int)_incrClientCount;
-+ (int)clientCount;
-@property(readonly) unsigned int serverPort; // @synthesize serverPort=_serverPort;
++ (void)registerMessageHandlersWithServer:(id)arg1;
++ (id)clientForConnection:(id)arg1;
 - (void)dealloc;
-- (id)init;
-- (void)disable;
-- (unsigned int)clientCallbackPort;
-- (void)_createServerPort;
-- (void)_bundleWillStartIndexingForDisplayID:(id)arg1 category:(id)arg2;
-- (void)_updateContentIndexWithDictionary:(id)arg1 moreComing:(BOOL)arg2;
-- (void)_retrieveUpdateListWithReplyPort:(unsigned int)arg1;
-- (void)_saveUpdateForApplication:(id)arg1 category:(id)arg2 recordIDs:(id)arg3;
-- (void)_closeRecordUpdateTransactionForApplication:(id)arg1 category:(id)arg2;
+- (void)updateContentIndexWithDictionary:(id)arg1 moreComing:(BOOL)arg2 onConnection:(id)arg3;
+- (id)_recordForID:(id)arg1 fromRecords:(id)arg2;
+- (id)updateListForDisplayIdentifier:(id)arg1 category:(id)arg2;
+- (void)closeRecordUpdateTransactionForApplication:(id)arg1 category:(id)arg2;
 - (BOOL)_validateApplicationID:(id)arg1 andCategory:(id)arg2;
-- (void)_openRecordUpdateTransactionForApplication:(id)arg1 andCategory:(id)arg2;
-- (void)_cancelQueryWithExternalID:(unsigned int)arg1;
-- (void)_addAndStartQuery:(id)arg1;
-- (void)actor:(id)arg1 completedQuery:(id)arg2;
-- (void)actor:(id)arg1 encounteredError:(id)arg2 forQuery:(id)arg3;
-- (void)actor:(id)arg1 addedResults:(id)arg2 forQuery:(id)arg3;
-- (id)_queryHolderForExternalID:(unsigned int)arg1;
-- (id)_queryHolderForQuery:(id)arg1;
-- (void)_tearDownHolder:(id)arg1;
+- (void)saveUpdateForApplication:(id)arg1 category:(id)arg2 recordIDs:(id)arg3;
+- (void)openRecordUpdateTransactionForApplication:(id)arg1 category:(id)arg2;
+- (void)cancelQueryWithExternalID:(unsigned int)arg1;
+- (void)addAndStartQuery:(id)arg1;
+- (void)removeActiveQuery:(id)arg1;
+- (void)_endCrashHandling;
+- (void)_beginCrashHandlingForStore:(id)arg1 andQuery:(id)arg2;
 
 @end
 

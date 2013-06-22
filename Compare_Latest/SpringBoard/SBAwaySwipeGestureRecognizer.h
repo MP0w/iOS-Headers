@@ -15,15 +15,15 @@
     int _gestureType;
 }
 
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (int)recognizedGestureType;
-- (unsigned int)fingerCount;
-- (BOOL)isGestureFromLocation:(struct CGPoint)arg1 count:(unsigned int)arg2 toLocation:(struct CGPoint)arg3 count:(unsigned int)arg4 elapsedTime:(double)arg5 gestureType:(int *)arg6;
-- (struct CGPoint)averagePositionForTouches:(id)arg1;
-- (BOOL)_isView:(id)arg1 subviewOfClass:(Class)arg2;
 @property(nonatomic) unsigned int requiredTouchCount; // @synthesize requiredTouchCount=_requiredTouchCount;
+- (BOOL)_isView:(id)arg1 subviewOfClass:(Class)arg2;
+- (struct CGPoint)averagePositionForTouches:(id)arg1;
+- (BOOL)isGestureFromLocation:(struct CGPoint)arg1 count:(unsigned int)arg2 toLocation:(struct CGPoint)arg3 count:(unsigned int)arg4 elapsedTime:(double)arg5 gestureType:(int *)arg6;
+- (unsigned int)fingerCount;
+- (int)recognizedGestureType;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 
 @end
 

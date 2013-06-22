@@ -24,6 +24,7 @@
 + (id)escapedPatternForString:(id)arg1;
 + (id)regularExpressionWithPattern:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 + (void)initialize;
++ (id)escapedTemplateForString:(id)arg1;
 @property(readonly) unsigned int numberOfCaptureGroups;
 @property(readonly) unsigned int options;
 @property(readonly) NSString *pattern;
@@ -36,6 +37,14 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithPattern:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
+- (struct _NSRange)rangeOfFirstMatchInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
+- (id)firstMatchInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
+- (unsigned int)numberOfMatchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
+- (id)matchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3;
+- (void)enumerateMatchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3 usingBlock:(id)arg4;
+- (id)replacementStringForResult:(id)arg1 inString:(id)arg2 offset:(int)arg3 template:(id)arg4;
+- (unsigned int)replaceMatchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3 withTemplate:(id)arg4;
+- (id)stringByReplacingMatchesInString:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3 withTemplate:(id)arg4;
 
 @end
 

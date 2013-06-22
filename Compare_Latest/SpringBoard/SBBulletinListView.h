@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class SBBulletinBlurredShadowLabel, SBBulletinListTouchEater, SBBulletinTableView, UIImageView, UIStatusBar;
+@class SBBulletinBlurredShadowLabel, SBBulletinListTouchEater, SBBulletinTableView, SBLinenFadeContainer, SBWeeAppPresentationView, UIImageView, UIStatusBar;
 
 @interface SBBulletinListView : UIView
 {
@@ -14,55 +14,62 @@
     float _currentY;
     UIView *_slidingView;
     UIImageView *_linenView;
+    UIView *_linenContainer;
     struct CGSize _linenSize;
     SBBulletinTableView *_tableView;
+    SBLinenFadeContainer *_tableContainer;
     UIStatusBar *_statusBar;
     UIView *_statusBarPocket;
     UIView *_grabber;
+    SBWeeAppPresentationView *_presentationView;
     SBBulletinBlurredShadowLabel *_noNotificationsLabel;
     SBBulletinListTouchEater *_clearButtonTouchEater;
     UIView *_cornerView[4];
     UIView *_bottomShadowView;
-    UIView *_linenMask;
     UIView *_linenGradient;
     UIView *_linenRim;
-    UIView *_linenContainer;
     UIView *_wholeShadowView;
     UIView *_sideShadowView[2];
-    float _tableViewContentHeight;
+    float _contentHeight;
 }
 
 + (id)linen;
-+ (id)_pathToLinenCache;
-+ (void)removeCachedLinen;
-+ (void)loadLinen;
-- (id)initWithFrame:(struct CGRect)arg1 delegate:(id)arg2;
-- (void)dealloc;
-- (id)tableView;
-- (id)linenView;
-- (float)linenGradientAlpha;
-- (void)positionSlidingViewAtY:(float)arg1;
-- (float)onscreenY;
-- (float)offscreenY;
-- (float)currentY;
-- (void)setBottomCornersOffscreen:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setCornerAlpha:(float)arg1;
-- (void)setBottomShadowAlpha:(float)arg1;
-- (void)_positionNoNotificationsLabel;
-- (void)setShowsNoNotificationsLabel:(BOOL)arg1 animated:(BOOL)arg2;
-- (struct CGRect)slidingViewFrame;
-- (id)slidingView;
-- (id)clearButtonTouchEater;
-- (void)handleStatusBarTap:(id)arg1;
-- (void)handleTableViewOffsetChange;
-- (void)layoutForOrientation:(int)arg1;
-- (void)_ensureContentHeightHasBeenComputed;
-- (float)_iPadSlidingViewHeightInOrientation:(int)arg1;
-- (float)_linenGradientAlphaForHeight:(float)arg1;
-- (void)adjustLayoutForAnimatedTableViewContentHeightChange:(float)arg1;
-- (void)adjustLayoutForTableViewReload;
-- (void)willRotateToOrientation:(int)arg1;
++ (void)load;
+- (void)presentWeeApp:(id)arg1 animateWithDuration:(float)arg2 delay:(float)arg3 completion:(id)arg4;
+- (id)presentingWeeApp;
+- (void)_removePresentingWeeAppWithDuration:(float)arg1 delay:(float)arg2 completion:(id)arg3;
+- (void)_presentWeeApp:(id)arg1 duration:(float)arg2 delay:(float)arg3 completion:(id)arg4;
+- (void)_removePresentationView;
 - (void)didRotateFromOrientation:(int)arg1;
+- (void)willRotateToOrientation:(int)arg1;
+- (void)adjustLayoutForTableViewReload;
+- (void)adjustLayoutForAnimatedTableViewContentHeightChange:(float)arg1 duration:(float)arg2 delay:(float)arg3;
+- (void)adjustLayoutForAnimatedTableViewContentHeightChange:(float)arg1;
+- (float)_linenGradientAlphaForHeight:(float)arg1;
+- (float)_iPadSlidingViewHeightInOrientation:(int)arg1;
+- (void)_ensureContentHeightHasBeenComputed;
+- (void)layoutForOrientation:(int)arg1;
+- (void)handleTableViewOffsetChange;
+- (float)_pocketAlphaForTableViewOffset;
+- (void)handleStatusBarTap:(id)arg1;
+- (id)clearButtonTouchEater;
+- (id)slidingView;
+- (struct CGRect)slidingViewFrame;
+- (void)setShowsNoNotificationsLabel:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_positionNoNotificationsLabel;
+- (void)setBottomShadowAlpha:(float)arg1;
+- (void)setCornerAlpha:(float)arg1;
+- (void)setBottomCornersOffscreen:(BOOL)arg1 animated:(BOOL)arg2;
+- (float)currentY;
+- (float)offscreenY;
+- (float)onscreenY;
+- (void)positionSlidingViewAtY:(float)arg1;
+- (id)activeContentView;
+- (float)linenGradientAlpha;
+- (id)linenView;
+- (id)tableView;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 delegate:(id)arg2;
 
 @end
 

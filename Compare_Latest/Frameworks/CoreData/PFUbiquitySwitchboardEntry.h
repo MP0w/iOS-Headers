@@ -6,31 +6,44 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSString, NSURL, _PFUbiquityRecordsExporter, _PFUbiquityRecordsImporter;
+@class NSDictionary, NSMutableDictionary, NSRecursiveLock, NSString, PFUbiquityFilePresenter, PFUbiquityLocation, _PFUbiquityRecordsExporter, _PFUbiquityRecordsImporter;
 
 @interface PFUbiquitySwitchboardEntry : NSObject
 {
     _PFUbiquityRecordsImporter *_importer;
     _PFUbiquityRecordsExporter *_exporter;
     NSString *_localPeerID;
-    NSURL *_ubiquityRootURL;
+    PFUbiquityLocation *_ubiquityRootLocation;
+    PFUbiquityFilePresenter *_fp;
     unsigned int _activeStoreCount;
+    NSMutableDictionary *_storeNameToStores;
+    NSMutableDictionary *_storeNameToModelVersionHash;
+    NSMutableDictionary *_storeNameToImporterPSC;
     NSMutableDictionary *_registeredCoordinators;
+    NSMutableDictionary *_storeNameToCacheWrapper;
+    NSRecursiveLock *_storeNameToCacheWrapperLock;
 }
 
-- (id)init;
-- (id)initWithLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (void)registerPersistentStoreCoordinator:(id)arg1 forPersistentStoreWithName:(id)arg2;
-- (void)unregisterPersistentStoreCoordinator:(id)arg1;
-- (id)createSetOfPersistentStoreCoordinatorsRegisteredForStoreName:(id)arg1;
-- (id)createSetOfActiveStoreNames;
+@property(readonly) PFUbiquityFilePresenter *filePresenter; // @synthesize filePresenter=_fp;
+@property(readonly) NSDictionary *storeNameToImporterPSC; // @synthesize storeNameToImporterPSC=_storeNameToImporterPSC;
+@property(readonly) NSDictionary *storeNameToModelVersionHash; // @synthesize storeNameToModelVersionHash=_storeNameToModelVersionHash;
+@property(readonly) NSDictionary *storeNameToStores; // @synthesize storeNameToStores=_storeNameToStores;
 @property(readonly) _PFUbiquityRecordsExporter *exporter; // @synthesize exporter=_exporter;
 @property(readonly) _PFUbiquityRecordsImporter *importer; // @synthesize importer=_importer;
-@property(readonly) NSURL *ubiquityRootURL; // @synthesize ubiquityRootURL=_ubiquityRootURL;
+@property(readonly) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
 @property(readonly) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property unsigned int activeStoreCount; // @synthesize activeStoreCount=_activeStoreCount;
+- (void)entryWillBeRemovedFromSwitchboard;
+- (id)createSetOfActiveStoreNames;
+- (id)createSetOfPersistentStoreCoordinatorsRegisteredForStoreName:(id)arg1;
+- (id)cacheWrapperForStoreName:(id)arg1;
+- (void)unregisterPersistentStore:(id)arg1;
+- (void)unregisterPersistentStoreCoordinator:(id)arg1;
+- (void)registerPersistentStore:(id)arg1 withStoreName:(id)arg2;
+- (id)description;
+- (void)dealloc;
+- (id)initWithLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
+- (id)init;
 
 @end
 

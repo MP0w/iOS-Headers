@@ -6,15 +6,20 @@
 
 #import <UIKit/UIStatusBarItemView.h>
 
+@class NSString;
+
 @interface UIStatusBarBatteryPercentItemView : UIStatusBarItemView
 {
-    int _capacity;
+    NSString *_percentString;
 }
 
+- (int)textAlignment;
+- (BOOL)usesSmallerTextFont;
 - (BOOL)animatesDataChange;
 - (float)extraRightPadding;
 - (id)contentsImageForStyle:(int)arg1;
 - (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
+- (void)dealloc;
 
 @end
 

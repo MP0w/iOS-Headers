@@ -21,12 +21,12 @@
     BOOL mCallGenerator;
 }
 
-- (void)dealloc;
-- (id)slideStyle;
-- (id)stylesheet;
-- (BOOL)isHidden;
-- (char *)ID;
 - (int)readAttributesForSlide:(struct _xmlTextReader *)arg1;
+- (char *)ID;
+- (BOOL)isHidden;
+- (id)stylesheet;
+- (id)slideStyle;
+- (void)dealloc;
 
 @end
 

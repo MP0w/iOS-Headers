@@ -27,8 +27,11 @@
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)_init;
+- (id)initWithItemsQuery:(id)arg1;
 - (id)initWithItems:(id)arg1;
 - (id)init;
+- (BOOL)hasDownloadingItem;
+- (BOOL)hasDownloadableItem;
 
 @end
 

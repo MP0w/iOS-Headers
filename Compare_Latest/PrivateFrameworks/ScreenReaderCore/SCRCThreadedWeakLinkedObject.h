@@ -15,12 +15,12 @@
     BOOL _calledDealloc;
 }
 
-- (id)init;
-- (unsigned int)retainCount;
-- (id)retain;
-- (void)invalidateThreadsWithWeakLinks;
-- (oneway void)release;
 - (void)dealloc;
+- (oneway void)release;
+- (void)invalidateThreadsWithWeakLinks;
+- (id)retain;
+- (unsigned int)retainCount;
+- (id)init;
 
 @end
 

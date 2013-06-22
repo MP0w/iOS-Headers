@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSString, UIKeyboardEmojiView, UITouch;
+@class NSArray, UIKeyboardEmojiInputController, UIKeyboardEmojiView, UITouch;
 
 @interface UIKeyboardEmojiPage : UIView
 {
@@ -18,22 +18,21 @@
     struct CGPoint _margin;
     struct CGSize _emojiSize;
     struct CGRect _keyActivationRect;
-    NSString *_optionalText;
-    id <UIKeyboardEmojiController> _controller;
     UITouch *_activeTouch;
     BOOL _needsLayout;
     BOOL _needsEmojiRendering;
     UIKeyboardEmojiView *_touched;
     UIKeyboardEmojiView *_pendingDisplay;
     UIKeyboardEmojiView *_onDisplay;
+    UIKeyboardEmojiInputController *_inputController;
 }
 
+@property BOOL needsLayout; // @synthesize needsLayout=_needsLayout;
+@property UIKeyboardEmojiInputController *inputController; // @synthesize inputController=_inputController;
 @property struct CGRect keyActivationRect; // @synthesize keyActivationRect=_keyActivationRect;
 @property(retain) UIKeyboardEmojiView *onDisplay; // @synthesize onDisplay=_onDisplay;
 @property(retain) UIKeyboardEmojiView *pendingDisplay; // @synthesize pendingDisplay=_pendingDisplay;
 @property(retain) UITouch *activeTouch; // @synthesize activeTouch=_activeTouch;
-@property(retain) NSString *optionalText; // @synthesize optionalText=_optionalText;
-@property id <UIKeyboardEmojiController> controller; // @synthesize controller=_controller;
 @property(retain) NSArray *emoji; // @synthesize emoji=_emoji;
 @property(retain) UIKeyboardEmojiView *touched; // @synthesize touched=_touched;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
@@ -52,13 +51,14 @@
 - (struct CGRect)emojiRectForPoint:(struct CGPoint)arg1 index:(unsigned int *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)deactivatePopUps;
-- (void)clearSubviews;
 - (void)generateSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (int)takeEmoji:(id)arg1 fromIndex:(int)arg2;
+@property(readonly, nonatomic) int emojiCountPerPage;
 - (struct CGRect)rectForRow:(int)arg1 Col:(int)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)updateLayoutConstants;
+- (void)removeFromSuperview;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

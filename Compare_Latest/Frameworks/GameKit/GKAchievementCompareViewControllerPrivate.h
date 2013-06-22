@@ -6,7 +6,7 @@
 
 #import <GameKit/GKAchievementViewControllerPrivate.h>
 
-@class GKAchievementCompareHeaderDataSourceSection, GKAchievementCompareViewSectionDataSource, GKGameRecord, GKPlayer, NSArray, UIImage;
+@class GKAchievementCompareHeaderSection, GKAchievementCompareViewSection, GKGameRecord, GKPlayer, NSArray, UIImage;
 
 @interface GKAchievementCompareViewControllerPrivate : GKAchievementViewControllerPrivate
 {
@@ -14,23 +14,23 @@
     UIImage *_compositeCheckMark;
     GKGameRecord *_friendRecord;
     NSArray *_friendAchievements;
-    GKAchievementCompareViewSectionDataSource *_achievementCompareViewSection;
-    GKAchievementCompareHeaderDataSourceSection *_achievementCompareMeHeaderViewSection;
-    GKAchievementCompareHeaderDataSourceSection *_achievementCompareFriendHeaderViewSection;
+    GKAchievementCompareViewSection *_achievementCompareViewSection;
+    GKAchievementCompareHeaderSection *_achievementCompareMeHeaderViewSection;
+    GKAchievementCompareHeaderSection *_achievementCompareFriendHeaderViewSection;
 }
 
-@property(retain, nonatomic) GKAchievementCompareHeaderDataSourceSection *achievementCompareFriendHeaderViewSection; // @synthesize achievementCompareFriendHeaderViewSection=_achievementCompareFriendHeaderViewSection;
-@property(retain, nonatomic) GKAchievementCompareHeaderDataSourceSection *achievementCompareMeHeaderViewSection; // @synthesize achievementCompareMeHeaderViewSection=_achievementCompareMeHeaderViewSection;
-@property(retain, nonatomic) GKAchievementCompareViewSectionDataSource *achievementCompareViewSection; // @synthesize achievementCompareViewSection=_achievementCompareViewSection;
+@property(retain, nonatomic) GKAchievementCompareHeaderSection *achievementCompareFriendHeaderViewSection; // @synthesize achievementCompareFriendHeaderViewSection=_achievementCompareFriendHeaderViewSection;
+@property(retain, nonatomic) GKAchievementCompareHeaderSection *achievementCompareMeHeaderViewSection; // @synthesize achievementCompareMeHeaderViewSection=_achievementCompareMeHeaderViewSection;
+@property(retain, nonatomic) GKAchievementCompareViewSection *achievementCompareViewSection; // @synthesize achievementCompareViewSection=_achievementCompareViewSection;
 @property(retain, nonatomic) UIImage *compositeCheckMark; // @synthesize compositeCheckMark=_compositeCheckMark;
 @property(retain, nonatomic) NSArray *friendAchievements; // @synthesize friendAchievements=_friendAchievements;
 @property(retain, nonatomic) GKGameRecord *friendRecord; // @synthesize friendRecord=_friendRecord;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (void)_gkResetContents;
 - (void)_gkUpdateContentsWithCompletionHandlerAndError:(id)arg1;
+- (BOOL)_gkShouldRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
 - (void)updateStatusWithError:(id)arg1;
 - (void)dealloc;
-- (void)viewDidUnload;
 - (void)viewDidLoad;
 - (id)title;
 - (void)playTapped;

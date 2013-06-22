@@ -34,6 +34,9 @@
 + (float)timeWidthForOrientation:(int)arg1;
 + (float)timeInsetForOrientation:(int)arg1;
 + (float)verticalPadding;
++ (float)_hourWidthForOrientation:(int)arg1;
++ (void)_calculateWidthForOrientation:(int)arg1;
++ (void)_invalidateWidth;
 @property(nonatomic) int hoursToPad; // @synthesize hoursToPad=_hoursToPad;
 @property(nonatomic) BOOL showsTimeMarker; // @synthesize showsTimeMarker=_showsTimeMarker;
 @property(readonly, nonatomic) float timeWidth; // @synthesize timeWidth=_timeWidth;

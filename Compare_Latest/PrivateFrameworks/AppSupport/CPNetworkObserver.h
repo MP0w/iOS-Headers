@@ -24,23 +24,23 @@
 }
 
 + (id)sharedNetworkObserver;
-- (id)init;
-- (void)dealloc;
-- (void)addObserver:(id)arg1 selector:(SEL)arg2 forHostname:(id)arg3;
-- (void)removeObserver:(id)arg1;
-- (void)removeObserver:(id)arg1 forHostname:(id)arg2;
-- (void)_networkObserversInitialize;
-- (void)_networkReachableCallBack:(unsigned int)arg1;
-- (void)_networkReachableFirstCallBack:(id)arg1;
-- (BOOL)isNetworkReachable;
-- (void)addNetworkReachableObserver:(id)arg1 selector:(SEL)arg2;
-- (void)removeNetworkReachableObserver:(id)arg1;
-- (void)_wifiObserversInitialize;
-- (void)_wifiCallBack:(unsigned int)arg1;
-- (void)_wifiFirstCallBack:(id)arg1;
-- (BOOL)isWiFiEnabled;
-- (void)addWiFiObserver:(id)arg1 selector:(SEL)arg2;
 - (void)removeWiFiObserver:(id)arg1;
+- (void)addWiFiObserver:(id)arg1 selector:(SEL)arg2;
+- (BOOL)isWiFiEnabled;
+- (void)_wifiFirstCallBack:(id)arg1;
+- (void)_wifiCallBack:(unsigned int)arg1;
+- (void)_wifiObserversInitialize;
+- (void)removeNetworkReachableObserver:(id)arg1;
+- (void)addNetworkReachableObserver:(id)arg1 selector:(SEL)arg2;
+- (BOOL)isNetworkReachable;
+- (void)_networkReachableFirstCallBack:(id)arg1;
+- (void)_networkReachableCallBack:(unsigned int)arg1;
+- (void)_networkObserversInitialize;
+- (void)removeObserver:(id)arg1 forHostname:(id)arg2;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1 selector:(SEL)arg2 forHostname:(id)arg3;
+- (void)dealloc;
+- (id)init;
 
 @end
 

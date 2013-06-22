@@ -5,8 +5,8 @@
  */
 
 @protocol QLScrubViewDataSource
-- (int)numberOfPagesInScrubView:(id)arg1;
-- (id)scrubView:(id)arg1 thumbnailOperationForPageAtIndex:(unsigned int)arg2;
 - (struct CGSize)scrubView:(id)arg1 pageSizeAtIndex:(unsigned int)arg2;
+- (id)scrubView:(id)arg1 thumbnailOperationForPageAtIndex:(unsigned int)arg2;
+- (int)numberOfPagesInScrubView:(id)arg1;
 @end
 

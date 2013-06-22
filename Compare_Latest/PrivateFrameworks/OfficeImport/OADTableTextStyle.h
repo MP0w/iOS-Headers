@@ -16,23 +16,23 @@
     int mItalic;
 }
 
-+ (id)defaultColor;
-+ (id)defaultFontReference;
-+ (int)defaultBold;
-+ (int)defaultItalic;
 + (id)defaultStyle;
-- (id)init;
-- (void)dealloc;
-- (id)fontReference;
-- (void)setFontReference:(id)arg1;
-- (id)color;
-- (void)setColor:(id)arg1;
-- (int)bold;
-- (void)setBold:(int)arg1;
-- (int)italic;
-- (void)setItalic:(int)arg1;
-- (id)shallowCopy;
++ (int)defaultItalic;
++ (int)defaultBold;
++ (id)defaultFontReference;
++ (id)defaultColor;
 - (void)applyOverridesFrom:(id)arg1;
+- (id)shallowCopy;
+- (void)setItalic:(int)arg1;
+- (int)italic;
+- (void)setBold:(int)arg1;
+- (int)bold;
+- (void)setColor:(id)arg1;
+- (id)color;
+- (void)setFontReference:(id)arg1;
+- (id)fontReference;
+- (void)dealloc;
+- (id)init;
 
 @end
 

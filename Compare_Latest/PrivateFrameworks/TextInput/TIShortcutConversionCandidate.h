@@ -6,18 +6,11 @@
 
 #import "UIKeyboardCandidateSingle.h"
 
-@class NSString;
-
 @interface TIShortcutConversionCandidate : UIKeyboardCandidateSingle
 {
-    NSString *_input;
-    BOOL _isForShortcutConversion;
 }
 
-- (id)initWithCandidate:(id)arg1 input:(id)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-@property(nonatomic) BOOL isForShortcutConversion; // @synthesize isForShortcutConversion=_isForShortcutConversion;
-@property(copy, nonatomic) NSString *input; // @synthesize input=_input;
+- (BOOL)isForShortcutConversion;
 
 @end
 

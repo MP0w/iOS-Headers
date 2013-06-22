@@ -10,9 +10,9 @@
 {
 }
 
-- (id)initWithUri:(const char *)arg1;
-- (BOOL)containsNode:(struct _xmlNode *)arg1;
 - (BOOL)containsAttribute:(struct _xmlAttr *)arg1;
+- (BOOL)containsNode:(struct _xmlNode *)arg1;
+- (id)initWithUri:(const char *)arg1;
 
 @end
 

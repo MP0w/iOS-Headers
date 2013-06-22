@@ -6,45 +6,34 @@
 
 #import <GameKit/GKTableViewControllerV2.h>
 
-#import "GKGameInviteMessageViewControllerDelegate-Protocol.h"
 #import "UISearchBarDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class GKFriendPickerListSection, GKGameInviteMessageViewController, GKMatchmakerNavView, GKSectionArrayDataSource, GKTableHeaderSearchController, GKUITheme, NSArray, NSMutableDictionary, NSString;
+@class GKFriendPickerDataSource, GKGameInviteComposeController, GKTableHeaderSearchController, GKUITheme, NSSet, NSString;
 
-@interface GKFriendPickerViewController : GKTableViewControllerV2 <GKGameInviteMessageViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface GKFriendPickerViewController : GKTableViewControllerV2 <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 {
     id <GKFriendPickerViewControllerDelegate> _delegate;
     int _maxPlayers;
     int _numSelected;
     GKUITheme *_theme;
-    NSMutableDictionary *_ranks;
-    struct UIEdgeInsets _formSheetInsets;
-    GKGameInviteMessageViewController *_messageViewController;
-    NSString *_inviteMessage;
     BOOL _loadingFriendsFailed;
-    GKMatchmakerNavView *_navView;
-    GKFriendPickerListSection *_friendListSection;
-    GKSectionArrayDataSource *_friendPickerDataSource;
+    NSString *_inviteMessage;
+    GKFriendPickerDataSource *_dataSource;
     GKTableHeaderSearchController *_searchController;
+    GKGameInviteComposeController *_composeMessageViewController;
 }
 
+@property(retain, nonatomic) GKGameInviteComposeController *composeMessageViewController; // @synthesize composeMessageViewController=_composeMessageViewController;
 @property(retain, nonatomic) GKTableHeaderSearchController *searchController; // @synthesize searchController=_searchController;
-@property(retain, nonatomic) GKSectionArrayDataSource *friendPickerDataSource; // @synthesize friendPickerDataSource=_friendPickerDataSource;
-@property(retain, nonatomic) GKFriendPickerListSection *friendListSection; // @synthesize friendListSection=_friendListSection;
-@property(retain, nonatomic) GKMatchmakerNavView *navView; // @synthesize navView=_navView;
+@property(retain, nonatomic) GKFriendPickerDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) NSString *inviteMessage; // @synthesize inviteMessage=_inviteMessage;
 @property(nonatomic) BOOL loadingFriendsFailed; // @synthesize loadingFriendsFailed=_loadingFriendsFailed;
-@property(nonatomic) struct UIEdgeInsets formSheetInsets; // @synthesize formSheetInsets=_formSheetInsets;
 @property(retain, nonatomic) GKUITheme *theme; // @synthesize theme=_theme;
-@property(retain, nonatomic) NSMutableDictionary *ranks; // @synthesize ranks=_ranks;
 @property(nonatomic) int numSelected; // @synthesize numSelected=_numSelected;
 @property(nonatomic) int maxPlayers; // @synthesize maxPlayers=_maxPlayers;
 @property(nonatomic) id <GKFriendPickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)gameInviteMessageViewController:(id)arg1 didFinishWithMessage:(id)arg2;
-- (void)didSelectPlayer:(id)arg1;
-- (id)contentsForItem:(id)arg1;
 - (void)updateEnabledStateForVisibleCells;
 - (id)visibleTableView;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
@@ -52,19 +41,22 @@
 - (void)done;
 - (void)donePickingPlayersWithMessage:(id)arg1;
 - (void)showMessageViewController;
-- (void)selectFriends:(id)arg1;
 - (id)selectedPlayers;
 - (void)setPlayerRangeText;
-@property(retain, nonatomic) NSArray *pickableFriends;
-- (void)updateNavViewLayoutForOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+@property(nonatomic) BOOL showsNearbyPlayers; // @dynamic showsNearbyPlayers;
+@property(retain, nonatomic) NSSet *uninvitableFriends; // @dynamic uninvitableFriends;
+- (void)friendPickerSelectionDidChangeNotification:(id)arg1;
+- (void)friendPickerScopeSelectorTouched:(id)arg1;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)_gkUpdateContentsWithCompletionHandlerAndError:(id)arg1;
-- (void)viewDidUnload;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)dealloc;
-- (id)initWithTheme:(id)arg1;
+@property(retain, nonatomic) NSString *achievementID; // @dynamic achievementID;
+@property(retain, nonatomic) NSString *leaderboardID; // @dynamic leaderboardID;
+- (BOOL)_gkShouldRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
+- (id)initWithGame:(id)arg1;
 
 @end
 

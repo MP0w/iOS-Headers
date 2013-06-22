@@ -25,7 +25,7 @@
 - (id)_properties;
 - (void)_initializeProperties;
 - (void)_setProperties:(id)arg1;
-@property(nonatomic) unsigned int videoQuality;
+@property(nonatomic) int videoQuality;
 @property(nonatomic) double videoMaximumDuration;
 @property(copy, nonatomic) NSString *videoPath;
 - (void)editVideoViewController:(id)arg1 didFailWithError:(id)arg2;

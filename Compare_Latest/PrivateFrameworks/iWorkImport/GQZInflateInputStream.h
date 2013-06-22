@@ -14,10 +14,11 @@
     id <GQZEntryInputStream> mInput;
 }
 
-- (id)initWithInput:(id)arg1;
-- (void)dealloc;
-- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned int *)arg2;
+- (id).cxx_construct;
 - (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
+- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned int *)arg2;
+- (void)dealloc;
+- (id)initWithInput:(id)arg1;
 
 @end
 

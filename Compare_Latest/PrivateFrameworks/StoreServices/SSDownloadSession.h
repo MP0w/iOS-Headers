@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class SSDownload, SSDownloadAsset, SSXPCConnection;
+@class NSObject<OS_dispatch_queue>, SSDownload, SSDownloadAsset, SSXPCConnection;
 
 @interface SSDownloadSession : NSObject
 {
     SSXPCConnection *_controlConnection;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     long long _sessionID;
 }
 
-- (void *)_copySessionPropertyWithKey:(const char *)arg1;
+- (id)_copySessionPropertyWithKey:(const char *)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 @property(readonly) SSDownloadAsset *downloadAsset;

@@ -15,12 +15,14 @@
     struct CGRect mBounds;
 }
 
-- (id)mainChart;
-- (void)setMainChart:(id)arg1;
-- (_Bool)areBoundsSet;
-- (struct CGRect)bounds;
-- (void)setBounds:(struct CGRect)arg1;
+- (id).cxx_construct;
 - (void)addDrawable:(id)arg1;
+- (void)setBounds:(struct CGRect)arg1;
+- (struct CGRect)bounds;
+- (_Bool)areBoundsSet;
+- (void)setMainChart:(id)arg1;
+- (id)mainChart;
+- (void)teardown;
 
 @end
 

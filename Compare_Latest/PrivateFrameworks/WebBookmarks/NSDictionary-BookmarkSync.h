@@ -7,11 +7,11 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (BookmarkSync)
-- (id)_sync_title;
-- (id)_sync_address;
-- (id)_sync_externalUUID;
-- (BOOL)_sync_isFolder;
-- (BOOL)_sync_shouldSkip;
 - (BOOL)_sync_isEqual:(id)arg1;
+- (BOOL)_sync_shouldSkip;
+- (BOOL)_sync_isFolder;
+- (id)_sync_externalUUID;
+- (id)_sync_address;
+- (id)_sync_title;
 @end
 

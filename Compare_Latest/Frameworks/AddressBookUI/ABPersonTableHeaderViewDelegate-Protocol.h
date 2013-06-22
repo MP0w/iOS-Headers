@@ -5,9 +5,8 @@
  */
 
 #import "ABMultiCellContentViewUpdateDelegate-Protocol.h"
-#import "ABPersonImageDataDelegate-Protocol.h"
 
-@protocol ABPersonTableHeaderViewDelegate <ABMultiCellContentViewUpdateDelegate, ABPersonImageDataDelegate>
+@protocol ABPersonTableHeaderViewDelegate <ABMultiCellContentViewUpdateDelegate>
 - (void)personTableHeaderView:(id)arg1 imageViewWasSelected:(id)arg2;
 @end
 

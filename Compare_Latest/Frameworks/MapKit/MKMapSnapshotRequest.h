@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEOTileKeyList, MKMapSnapshotCreator, NSMutableDictionary, NSString, UIImage;
+@class MKMapSnapshotCreator, NSString, UIImage, VKMapSnapshotCreator;
 
 @interface MKMapSnapshotRequest : NSObject
 {
@@ -14,19 +14,11 @@
     id _context;
     CDStruct_2c43369c _coordinate;
     unsigned int _zoomLevel;
-    unsigned int _zoomAdd;
     struct CGSize _size;
-    GEOTileKeyList *_tileKeyList;
     UIImage *_image;
     NSString *_attributionString;
     MKMapSnapshotCreator *_delegate;
-    unsigned int _minX;
-    unsigned int _minY;
-    unsigned int _maxX;
-    unsigned int _maxY;
-    struct CGPoint _renderOffset;
-    BOOL _paused;
-    NSMutableDictionary *_objects;
+    VKMapSnapshotCreator *_snapshotCreator;
 }
 
 @property(retain, nonatomic) NSString *attributionString; // @synthesize attributionString=_attributionString;
@@ -37,13 +29,9 @@
 @property(nonatomic) CDStruct_c3b9c2ee coordinate; // @synthesize coordinate=_coordinate;
 @property(retain, nonatomic) id requester; // @synthesize requester=_requester;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
-- (void)_restartLoadingAfterPause:(id)arg1;
-- (void)tileRequesterFailedWithError:(id)arg1;
-- (void)tileRequesterCompleted;
-- (void)stopLoading;
-- (void)startLoading;
+- (void)cancel;
+- (void)start;
 - (void)dealloc;
-- (id)init;
 - (id)description;
 
 @end

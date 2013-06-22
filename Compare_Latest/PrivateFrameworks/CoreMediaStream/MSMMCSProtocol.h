@@ -19,8 +19,9 @@
 }
 
 + (id)computeItemIDForAsset:(id)arg1;
-@property(readonly) struct __MMCSEngine *engine; // @synthesize engine=_engine;
-@property(readonly) NSString *personID; // @synthesize personID=_personID;
+@property(readonly, nonatomic) struct __MMCSEngine *engine; // @synthesize engine=_engine;
+@property(readonly, nonatomic) NSString *personID; // @synthesize personID=_personID;
+- (void).cxx_destruct;
 - (void)_requestCompleted;
 - (void)_putItemDone:(unsigned long long)arg1 error:(id)arg2;
 - (void)_getItemDone:(unsigned long long)arg1 path:(id)arg2 error:(id)arg3;

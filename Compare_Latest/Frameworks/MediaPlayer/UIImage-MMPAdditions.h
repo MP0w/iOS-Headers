@@ -7,6 +7,6 @@
 #import "UIImage.h"
 
 @interface UIImage (MMPAdditions)
-- (BOOL)isCoverflowPlaceholder;
+- (BOOL)mpIsCoverflowPlaceholder;
 @end
 

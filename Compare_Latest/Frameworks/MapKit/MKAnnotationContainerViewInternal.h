@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class MKAnnotationView, MKMapTileView, MKQuadTrie, MKUserLocation, MKUserLocationView, NSMapTable, NSMutableArray, NSMutableSet, UICalloutView;
+@class MKAnnotationView, MKQuadTrie, MKUserLocation, MKUserLocationView, NSMapTable, NSMutableArray, NSMutableSet, UICalloutView;
 
 @interface MKAnnotationContainerViewInternal : NSObject
 {
-    MKMapTileView *mapTileView;
     MKQuadTrie *annotationsTrie;
     NSMutableSet *pendingAnnotations;
     NSMutableArray *managedAnnotations;

@@ -16,6 +16,7 @@
     NSInputStream *_inputStream;
     NSOutputStream *_outputStream;
     BOOL _openCompleted;
+    int _sock;
 }
 
 @property(readonly, nonatomic) NSOutputStream *outputStream; // @synthesize outputStream=_outputStream;

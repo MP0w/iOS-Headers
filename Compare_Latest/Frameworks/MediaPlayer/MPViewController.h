@@ -7,10 +7,11 @@
 #import "UIViewController.h"
 
 #import "MPAVControllerNode-Protocol.h"
+#import "MPControllerProtocol-Protocol.h"
 
-@class MPAVController, MPAVItem, MPTransitionController, NSTimer;
+@class MPAVController, MPAVItem, MPTransitionController, NSTimer, UIView;
 
-@interface MPViewController : UIViewController <MPAVControllerNode>
+@interface MPViewController : UIViewController <MPControllerProtocol, MPAVControllerNode>
 {
     id _delegate;
     NSTimer *_idleTimerDisablerTimer;
@@ -23,9 +24,11 @@
     unsigned int _appearing:1;
     unsigned int _observesApplicationSuspendResumeEventsOnly:1;
     unsigned int _showOverlayWhileAppearingDisabled:1;
+    BOOL _registeredForPlayerNotifications;
     int _playerLockedCount;
 }
 
+@property(nonatomic) BOOL registeredForPlayerNotifications; // @synthesize registeredForPlayerNotifications=_registeredForPlayerNotifications;
 @property(copy, nonatomic) id popViewControllerHandler; // @synthesize popViewControllerHandler=_popViewControllerHandler;
 @property(nonatomic) int orientation; // @synthesize orientation=_interfaceOrientation;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
@@ -35,7 +38,6 @@
 - (BOOL)_canReloadView;
 - (void)removeChildViewController:(id)arg1;
 - (void)addChildViewController:(id)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
@@ -44,15 +46,18 @@
 - (void)clearWeakReferencesToObject:(id)arg1;
 - (void)setOrientation:(int)arg1 animate:(BOOL)arg2;
 @property(nonatomic, getter=idleTimerDisabled, setter=setIdleTimerDisabled:) BOOL idleTimerDisabled;
+- (void)incrementAggregateStatisticsDisplayCount;
+- (void)unregisterForPlayerNotifications;
+- (void)registerForPlayerNotifications;
 - (void)unlockPlayer;
 - (void)lockPlayer;
 - (void)setAppearing:(BOOL)arg1;
-- (void)_disableIdleTimer:(id)arg1;
 - (void)willChangeToInterfaceOrientation:(int)arg1;
 - (id)popViewControllerAnimated:(BOOL)arg1;
 - (void)pushViewController:(id)arg1 withTransition:(id)arg2;
 - (void)noteIgnoredChangeTypes:(unsigned int)arg1;
 @property(nonatomic) BOOL observesApplicationSuspendResumeEventsOnly;
+- (void)applicationResumed;
 - (void)applicationDidResumeEventsOnly;
 - (void)applicationDidSuspendEventsOnly;
 - (void)stopTicking;
@@ -61,13 +66,16 @@
 - (void)endIgnoringChangeTypes:(unsigned int)arg1;
 - (int)displayableInterfaceOrientationForInterfaceOrientation:(int)arg1;
 - (void)didChangeToInterfaceOrientation:(int)arg1;
-- (void)endTransitionOverlayHiddingWithTransferedOverlayView:(id)arg1;
+- (void)endTransitionOverlayHidingWithTransferedOverlayView:(id)arg1;
 - (void)beginTransitionOverlayHidding;
 - (id)copyOverlayViewForTransitionToItem:(id)arg1;
 - (BOOL)canDisplayItem:(id)arg1 withInterfaceOrientation:(int)arg2;
 - (void)beginIgnoringChangeTypes:(unsigned int)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, nonatomic) UIView *view;
 
 @end
 

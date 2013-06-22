@@ -9,7 +9,7 @@
 #import "AVAsynchronousKeyValueLoading-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class AVAssetInternal;
+@class AVAssetInternal, NSArray;
 
 @interface AVAsset : NSObject <NSCopying, AVAsynchronousKeyValueLoading>
 {
@@ -25,6 +25,7 @@
 - (BOOL)isPlayable;
 - (BOOL)hasProtectedContent;
 - (id)compatibleTrackForCompositionTrack:(id)arg1;
+- (id)tracksWithMediaCharacteristics:(id)arg1;
 - (id)tracksWithMediaCharacteristic:(id)arg1;
 - (id)tracksWithMediaType:(id)arg1;
 - (id)trackWithTrackID:(int)arg1;
@@ -37,11 +38,7 @@
 - (id)creationDate;
 - (id)trackReferences;
 - (id)mediaSelectionGroupForMediaCharacteristic:(id)arg1;
-- (id)_mediaSelectionTrackGroupForMediaCharacteristic:(id)arg1;
-- (id)_mediaSelectionKeyValueGroupFromGroups:(id)arg1 forMediaCharacteristic:(id)arg2;
 - (id)availableMediaCharacteristicsWithMediaSelectionOptions;
-- (id)_mediaCharacteristicsOfAlternateTrackGroups:(id)arg1;
-- (id)_mediaCharacteristicsOfMediaSelectionGroups:(id)arg1;
 - (id)mediaSelectionGroups;
 - (id)alternateTrackGroups;
 - (id)subtitleAlternatesTrackGroup;
@@ -57,7 +54,7 @@
 @property(readonly, nonatomic) float preferredRate;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 duration;
 - (BOOL)_isStreaming;
-- (struct __CFURL *)_URL;
+- (id)_absoluteURL;
 - (struct OpaqueFigPlaybackItem *)_playbackItem;
 - (struct OpaqueFigFormatReader *)_formatReader;
 - (struct OpaqueFigAsset *)_figAsset;
@@ -76,6 +73,13 @@
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
+- (id)chapterMetadataGroupsBestMatchingPreferredLanguages:(id)arg1;
+- (id)chapterMetadataGroupsWithTitleLocale:(id)arg1 containingItemsWithCommonKeys:(id)arg2;
+@property(readonly) NSArray *availableChapterLocales;
+- (int)unusedTrackID;
+- (BOOL)_containsAtLeastOnePlayableVideoTrack;
+- (BOOL)_containsAtLeastOnePlayableAudioTrack;
+- (id)_chapterTracks;
 
 @end
 

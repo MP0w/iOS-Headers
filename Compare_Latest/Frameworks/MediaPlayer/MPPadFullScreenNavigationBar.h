@@ -10,6 +10,7 @@
 {
 }
 
+- (void)layoutSubviews;
 - (void)drawBackgroundInRect:(struct CGRect)arg1 withStyle:(int)arg2;
 
 @end

@@ -17,6 +17,7 @@
 + (BOOL)updateMovieMetadataInFile:(id)arg1 withMetadata:(id)arg2 error:(id *)arg3;
 + (id)recorderCommonMetadataForAVMetadataItemArray:(id)arg1;
 + (void)initialize;
+- (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (long)_stopRecording;
 - (long)_startRecording:(id)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;

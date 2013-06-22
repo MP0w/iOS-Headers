@@ -11,15 +11,15 @@
     float rotationAngle;
 }
 
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isBoxRegion;
-- (void)accept:(id)arg1;
-- (void)setRotationAngle:(float)arg1;
-- (float)rotationAngle;
-- (BOOL)isRotated;
-- (struct CGRect)bounds;
 - (id)description;
+- (struct CGRect)bounds;
+- (BOOL)isRotated;
+- (float)rotationAngle;
+- (void)setRotationAngle:(float)arg1;
+- (void)accept:(id)arg1;
+- (BOOL)isBoxRegion;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

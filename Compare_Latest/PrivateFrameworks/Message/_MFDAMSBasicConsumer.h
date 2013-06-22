@@ -15,13 +15,13 @@
     MFMailMessageLibrary *library;
     ActivityMonitor *monitor;
     MFError *error;
-    int numNewMessages;
+    unsigned int numNewMessages;
 }
 
-- (id)initWithMaximumSize:(unsigned int)arg1 latency:(double)arg2;
-- (void)dealloc;
 @property(retain, nonatomic) MFError *error; // @synthesize error;
 @property(retain, nonatomic) ActivityMonitor *monitor; // @synthesize monitor;
+- (void)dealloc;
+- (id)initWithMaximumSize:(unsigned int)arg1 latency:(double)arg2;
 
 @end
 

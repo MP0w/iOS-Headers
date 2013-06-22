@@ -8,26 +8,31 @@
 
 #import "MPAVQueuePlayerFeederSource-Protocol.h"
 
-@class MPAVItem, MPAVQueuePlayerFeeder, MPQueuePlayer;
+@class MPAVItem, MPAVQueuePlayerFeeder, MPQueuePlayer, NSString;
 
 @interface MPAVPlaylistManager : NSObject <MPAVQueuePlayerFeederSource>
 {
-    id <AVPlaylistFeeder> _playlistFeeder;
-    MPQueuePlayer *_player;
-    MPAVQueuePlayerFeeder *_feeder;
-    int _repeatMode;
+    NSString *_audioSessionModeOverride;
     MPAVItem *_currentItem;
+    MPAVQueuePlayerFeeder *_feeder;
+    BOOL _goToTargetIndex;
     int _isChangingPlaylistFeeder;
-    int _targetIndex;
     int _lastSelectionDirection;
-    unsigned int _goToTargetIndex:1;
+    MPQueuePlayer *_player;
+    id <MPAVPlaylistFeeder> _playlistFeeder;
+    int _repeatMode;
     int _retainCount;
+    int _targetIndex;
+    BOOL _updatedAudioSessionMode;
 }
 
 @property(readonly) int lastSelectionDirection; // @synthesize lastSelectionDirection=_lastSelectionDirection;
-@property(retain, nonatomic) id <AVPlaylistFeeder> playlistFeeder; // @synthesize playlistFeeder=_playlistFeeder;
-@property(readonly) MPAVItem *currentItem; // @synthesize currentItem=_currentItem;
+@property(retain, nonatomic) id <MPAVPlaylistFeeder> playlistFeeder; // @synthesize playlistFeeder=_playlistFeeder;
 @property(readonly) MPQueuePlayer *player; // @synthesize player=_player;
+@property(readonly) MPAVItem *currentItem; // @synthesize currentItem=_currentItem;
+@property(retain, nonatomic) NSString *audioSessionModeOverride; // @synthesize audioSessionModeOverride=_audioSessionModeOverride;
+- (void)_updateAudioSessionMode;
+- (id)_audioSessionModeForMediaItem:(id)arg1;
 - (id)_feeder;
 - (void)queuePlayerFeederFailedToQueueAnyItems:(id)arg1;
 - (void)queuePlayerFeederDidUpdateQueue:(id)arg1 queuedItems:(id)arg2 dequeuedItems:(id)arg3;
@@ -49,8 +54,14 @@
 - (void)setCurrentIndex:(int)arg1 selectionDirection:(int)arg2;
 - (int)_prepareToQueuePlaybackIndex:(int)arg1 selectionDirection:(int)arg2;
 - (id)_feederItemForIndex:(int)arg1;
+- (void)updateForSoundCheckDefaultsChange;
+@property(nonatomic) unsigned int minQueueDepth;
+@property(nonatomic) unsigned int maxQueueDepth;
+@property(nonatomic) BOOL managesSystemDownloads;
 @property(nonatomic) BOOL forceSynchronousQueueFilling;
 - (void)_networkTypeDidChangeNotification:(id)arg1;
+- (void)_mediaLibraryDisplayValuesDidChangeNotification:(id)arg1;
+- (void)_assetCancelNotification:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)init;

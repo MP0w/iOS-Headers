@@ -4,16 +4,14 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "GKTableViewControllerDataSource-Protocol.h"
+@class NSArray, NSOrderedSet, NSPredicate;
 
-@class NSArray, NSPredicate;
-
-@protocol GKSearchableSectionDataSource <GKTableViewControllerDataSource>
+@protocol GKSearchableSectionDataSource
 @property(retain, nonatomic) NSPredicate *filterPredicate;
 @property(retain, nonatomic) NSArray *sortDescriptors;
-@property(retain, nonatomic) NSArray *searchableSections;
-@property(retain, nonatomic) NSArray *visibleItems;
-@property(retain, nonatomic) NSArray *items;
+@property(retain, nonatomic) NSOrderedSet *searchableSections;
+@property(retain, nonatomic) NSOrderedSet *visibleItems;
+@property(retain, nonatomic) NSOrderedSet *items;
 
 @optional
 @end

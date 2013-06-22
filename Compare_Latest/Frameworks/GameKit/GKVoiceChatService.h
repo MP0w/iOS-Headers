@@ -27,6 +27,7 @@
 - (void)stopVoiceChatWithParticipantID:(id)arg1;
 - (BOOL)startVoiceChatWithParticipantID:(id)arg1 error:(id *)arg2;
 @property id <GKVoiceChatClient> client;
+- (void)dealloc;
 
 @end
 

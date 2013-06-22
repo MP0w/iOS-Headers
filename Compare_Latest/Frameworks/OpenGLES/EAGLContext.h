@@ -6,27 +6,30 @@
 
 #import "NSObject.h"
 
-@class EAGLSharegroup;
+@class EAGLSharegroup, NSString;
 
 @interface EAGLContext : NSObject
 {
     struct _EAGLContextPrivate *_private;
+    NSString *debugLabel;
 }
 
-+ (BOOL)setCurrentContext:(id)arg1;
 + (id)currentContext;
-- (id)initWithAPI:(unsigned int)arg1;
-- (id)initWithAPI:(unsigned int)arg1 sharedWithCompute:(BOOL)arg2;
-- (id)initWithAPI:(unsigned int)arg1 sharegroup:(id)arg2;
-- (id)initWithAPI:(unsigned int)arg1 properties:(id)arg2;
-- (void)dealloc;
-@property(readonly) unsigned int API;
-@property(readonly) EAGLSharegroup *sharegroup;
-- (BOOL)renderbufferStorage:(unsigned int)arg1 fromDrawable:(id)arg2;
-- (BOOL)presentRenderbuffer:(unsigned int)arg1;
-- (unsigned int)setParameter:(unsigned int)arg1 to:(int *)arg2;
-- (unsigned int)getParameter:(unsigned int)arg1 to:(int *)arg2;
++ (BOOL)setCurrentContext:(id)arg1;
+@property(copy, nonatomic) NSString *debugLabel; // @synthesize debugLabel;
 - (struct EAGLMacroContext *)GetMacroContextPrivate;
+- (struct EAGLMacroContext *)getMacroContextPrivate;
+- (unsigned int)getParameter:(unsigned int)arg1 to:(int *)arg2;
+- (unsigned int)setParameter:(unsigned int)arg1 to:(int *)arg2;
+- (BOOL)presentRenderbuffer:(unsigned int)arg1;
+- (BOOL)renderbufferStorage:(unsigned int)arg1 fromDrawable:(id)arg2;
+@property(readonly) EAGLSharegroup *sharegroup;
+@property(readonly) unsigned int API;
+- (void)dealloc;
+- (id)initWithAPI:(unsigned int)arg1 properties:(id)arg2;
+- (id)initWithAPI:(unsigned int)arg1 sharegroup:(id)arg2;
+- (id)initWithAPI:(unsigned int)arg1 sharedWithCompute:(BOOL)arg2;
+- (id)initWithAPI:(unsigned int)arg1;
 
 @end
 

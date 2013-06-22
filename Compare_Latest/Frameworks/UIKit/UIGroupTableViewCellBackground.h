@@ -42,6 +42,22 @@
 - (void)displayLayer:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)_layoutSubviews:(BOOL)arg1;
+- (struct CGRect)_contentsCenter:(BOOL)arg1;
+- (struct CGRect)_contentsRect:(BOOL)arg1;
+- (float)_pixelDisplayedImageHeight;
+- (void)_updateSeparatorViews;
+- (id)_fillColor;
+- (id)_bottomShadowColor;
+- (id)_topShadowColor;
+- (id)_separatorColor;
+- (id)_sectionBorderColor;
+- (id)_backgroundColor;
+- (void)_decrementAnimationCount;
+- (void)_incrementAnimationCount;
+- (struct CGRect)_contentRectForContentHeight:(float)arg1;
+- (id)_cachedImageForKey:(id)arg1;
+- (id)_roundedRectBezierPathInRect:(struct CGRect)arg1 withSectionLocation:(int)arg2 forBorder:(BOOL)arg3 cornerRadiusAdjustment:(float)arg4;
 
 @end
 

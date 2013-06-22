@@ -9,6 +9,9 @@
 @protocol CLLocationManagerDelegate <NSObject>
 
 @optional
+- (void)locationManager:(id)arg1 didFinishDeferredUpdatesWithError:(id)arg2;
+- (void)locationManagerDidResumeLocationUpdates:(id)arg1;
+- (void)locationManagerDidPauseLocationUpdates:(id)arg1;
 - (void)locationManager:(id)arg1 didStartMonitoringForRegion:(id)arg2;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)locationManager:(id)arg1 monitoringDidFailForRegion:(id)arg2 withError:(id)arg3;
@@ -17,6 +20,7 @@
 - (void)locationManager:(id)arg1 didEnterRegion:(id)arg2;
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(id)arg1;
 - (void)locationManager:(id)arg1 didUpdateHeading:(id)arg2;
+- (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateToLocation:(id)arg2 fromLocation:(id)arg3;
 @end
 

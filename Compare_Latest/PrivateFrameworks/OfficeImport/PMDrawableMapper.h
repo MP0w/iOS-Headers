@@ -15,14 +15,25 @@
     BOOL mTopLevelMapper;
 }
 
-- (void)dealloc;
-- (void)setDrawingContext:(id)arg1;
-- (id)drawingContext;
-- (void)setTopLevelMapper:(BOOL)arg1;
-- (BOOL)isTopLevelMapper;
-- (struct CGRect)slideRect;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
++ (id)orientedBoundsForDrawable:(id)arg1;
 - (void)mapBounds;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (struct CGRect)slideRect;
+- (BOOL)isTopLevelMapper;
+- (void)setTopLevelMapper:(BOOL)arg1;
+- (id)drawingContext;
+- (void)setDrawingContext:(id)arg1;
+- (void)dealloc;
+- (struct CGRect)transformRectToPage:(struct CGRect)arg1;
+- (struct CGRect)shapeTextBoxWithState:(id)arg1;
+- (void)mapFreeForm:(id)arg1 orientedBounds:(id)arg2 transformedBounds:(struct CGRect *)arg3 state:(id)arg4;
+- (void)mapShapeAsBackgroundAt:(id)arg1 withState:(id)arg2;
+- (void)mapChartAt:(id)arg1 withState:(id)arg2;
+- (void)mapDiagramAt:(id)arg1 withState:(id)arg2;
+- (void)mapOfficeArtGroupAt:(id)arg1 withState:(id)arg2;
+- (void)mapRectangularShapeAt:(id)arg1 withState:(id)arg2;
+- (void)mapOfficeArtShapeAt:(id)arg1 withState:(id)arg2;
+- (void)mapOfficeArtImageAt:(id)arg1 withState:(id)arg2;
 
 @end
 

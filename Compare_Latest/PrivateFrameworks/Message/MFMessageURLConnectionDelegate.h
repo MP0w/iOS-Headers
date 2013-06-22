@@ -18,11 +18,11 @@
     NSURLResponse *_response;
 }
 
-- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
-- (void)connection:(id)arg1 didReceiveData:(id)arg2;
-- (void)connection:(id)arg1 didFailWithError:(id)arg2;
-- (void)connectionDidFinishLoading:(id)arg1;
 - (void)dealloc;
+- (void)connectionDidFinishLoading:(id)arg1;
+- (void)connection:(id)arg1 didFailWithError:(id)arg2;
+- (void)connection:(id)arg1 didReceiveData:(id)arg2;
+- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 
 @end
 

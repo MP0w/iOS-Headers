@@ -6,56 +6,53 @@
 
 #pragma mark Named Structures
 
-struct AVCapturePrivate {
-    struct OpaqueFigRecorder *_field1;
-};
-
 struct AVControllerPrivate {
     id _field1;
     id _field2;
     id _field3;
     id _field4;
-    Class _field5;
-    id _field6;
-    int _field7;
+    id _field5;
+    Class _field6;
+    id _field7;
     int _field8;
-    float _field9;
+    int _field9;
     float _field10;
-    int _field11;
-    char _field12;
-    id _field13;
-    float _field14;
-    struct __CFString *_field15;
-    id _field16;
-    char _field17;
+    float _field11;
+    int _field12;
+    char _field13;
+    id _field14;
+    float _field15;
+    struct __CFString *_field16;
+    id _field17;
     char _field18;
     char _field19;
-    id _field20;
-    struct OpaqueFigVisualContext *_field21;
-    id _field22;
-    struct __CFRunLoop *_field23;
-    unsigned int _field24;
-    int _field25;
+    char _field20;
+    id _field21;
+    struct OpaqueFigVisualContext *_field22;
+    id _field23;
+    struct __CFRunLoop *_field24;
+    unsigned int _field25;
     int _field26;
     int _field27;
-    char _field28;
+    int _field28;
     char _field29;
     char _field30;
     char _field31;
-    id _field32;
-    struct OpaqueFigPlayer *_field33;
-    id _field34;
+    char _field32;
+    id _field33;
+    struct OpaqueFigPlayer *_field34;
     id _field35;
     id _field36;
-    char _field37;
+    id _field37;
     char _field38;
-    id _field39;
+    char _field39;
     id _field40;
-    char _field41;
+    id _field41;
     char _field42;
     char _field43;
-    int _field44;
-    char _field45;
+    char _field44;
+    int _field45;
+    char _field46;
 };
 
 struct AVExternalAudioPrivate {
@@ -93,16 +90,15 @@ struct AVItemPrivate {
     char _field14;
     id _field15;
     id _field16;
-    id _field17;
+    char _field17;
     char _field18;
-    char _field19;
+    id _field19;
     id _field20;
-    id _field21;
-    struct OpaqueFigThread *_field22;
-    struct OpaqueCMByteStream *_field23;
-    int _field24;
+    struct OpaqueFigThread *_field21;
+    struct OpaqueCMByteStream *_field22;
+    int _field23;
+    id _field24;
     id _field25;
-    id _field26;
 };
 
 struct AVRecorderPrivate {
@@ -198,8 +194,6 @@ struct FigOpaqueMediaValidator;
 struct OpaqueCMByteStream;
 
 struct OpaqueFigPlayer;
-
-struct OpaqueFigRecorder;
 
 struct OpaqueFigRemaker;
 

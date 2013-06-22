@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLMoviePlayerControllerDelegate <NSObject>
+- (BOOL)moviePlayerCanManageStatusBar:(id)arg1;
 - (void)didBecomeMoviePlayerDelegate:(id)arg1;
 - (void)willResignMoviePlayerDelegate:(id)arg1;
 @end

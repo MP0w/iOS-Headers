@@ -35,7 +35,6 @@
     unsigned int _loadingOccurrences:1;
     unsigned int _allowsOccurrenceSelection:1;
     unsigned int _putSelectionOnTop:1;
-    unsigned int _showsGrid:1;
     unsigned int _didLoad:1;
     unsigned int _scrollbarShowsInside:1;
     unsigned int _scrollingToOccurrence:1;
@@ -121,9 +120,9 @@
 - (void)dayContentView:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)dayOccurrenceViewClicked:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (CDStruct_b0fa4487)_selectedDate;
-- (double)scrollToDate:(id)arg1 animated:(BOOL)arg2;
+- (void)scrollToDate:(id)arg1 animated:(BOOL)arg2 whenFinished:(id)arg3;
 - (void)_finishedScrollToSecond;
-- (double)_scrollToSecond:(int)arg1 animated:(BOOL)arg2;
+- (void)_scrollToSecond:(int)arg1 animated:(BOOL)arg2 whenFinished:(id)arg3;
 - (void)scrollToEvent:(id)arg1 animated:(BOOL)arg2;
 - (id)_faderForFaderImage:(id)arg1 fader:(id)arg2 sizeToImage:(BOOL)arg3;
 - (void)setTopFader:(id)arg1 bottomFader:(id)arg2 sizeToImage:(BOOL)arg3;
@@ -131,7 +130,6 @@
 @property(nonatomic) BOOL dimsNonSelectedItems;
 @property(nonatomic) int outlineStyle;
 @property(nonatomic) BOOL showsSelectionOnTop;
-@property(nonatomic) BOOL showsGrid;
 @property(nonatomic) BOOL showsLeftBorder;
 @property(nonatomic) BOOL eventsFillGrid;
 @property(nonatomic) BOOL allowsOccurrenceSelection;
@@ -140,6 +138,7 @@
 @property(nonatomic) BOOL showsTimeMarker;
 @property(readonly, nonatomic) double dayEnd;
 @property(readonly, nonatomic) double dayStart;
+- (void)adjustForSignificantTimeChange;
 - (void)setOrientation:(int)arg1;
 - (void)setTimeZone:(id)arg1;
 - (void)_adjustForDateOrCalendarChange;

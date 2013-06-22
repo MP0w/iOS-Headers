@@ -33,8 +33,10 @@
     CDStruct_19ba41f1 _rotationSettings;
     float contentBottomInset;
     UIWindow *_window;
+    BOOL _skipClientRotationCallbacks;
 }
 
+@property(nonatomic) BOOL skipClientRotationCallbacks; // @synthesize skipClientRotationCallbacks=_skipClientRotationCallbacks;
 @property(readonly, nonatomic) int toOrientation; // @synthesize toOrientation=_toOrientation;
 @property(readonly, nonatomic) int fromOrientation; // @synthesize fromOrientation=_fromOrientation;
 @property(readonly, nonatomic) float duration; // @synthesize duration=_duration;

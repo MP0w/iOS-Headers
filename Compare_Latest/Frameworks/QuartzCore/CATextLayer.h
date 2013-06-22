@@ -13,29 +13,32 @@
     struct CATextLayerPrivate *_state;
 }
 
-+ (id)defaultValueForKey:(id)arg1;
-+ (BOOL)needsDisplayForKey:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-- (id)implicitAnimationForKeyPath:(id)arg1;
-- (id)init;
-- (id)initWithLayer:(id)arg1;
-- (void)dealloc;
-- (void)didChangeValueForKey:(id)arg1;
-- (id)_createStringDict;
-- (struct __CTTypesetter *)_retainTypesetter;
-- (struct __CTLine *)_createTruncationToken;
-- (struct CGSize)_preferredSize;
-- (void)_applyLinesToFunction:(void *)arg1 info:(void *)arg2;
-- (void)_drawLine:(struct __CTLine *)arg1 inContext:(struct CGContext *)arg2 atPoint:(struct CGPoint)arg3;
-- (void)drawInContext:(struct CGContext *)arg1;
-- (void)_prepareContext:(struct CGContext *)arg1;
-@property(copy) id string;
-@property float fontSize;
-@property void *font;
-@property struct CGColor *foregroundColor;
-@property(getter=isWrapped) BOOL wrapped;
-@property(copy) NSString *truncationMode;
++ (BOOL)needsDisplayForKey:(id)arg1;
++ (id)defaultValueForKey:(id)arg1;
 @property(copy) NSString *alignmentMode;
+@property(copy) NSString *truncationMode;
+@property(getter=isWrapped) BOOL wrapped;
+@property struct CGColor *foregroundColor;
+@property void *font;
+@property float fontSize;
+@property(copy) id string;
+- (void)_prepareContext:(struct CGContext *)arg1;
+- (void)drawInContext:(struct CGContext *)arg1;
+- (void)_drawLine:(struct __CTLine *)arg1 inContext:(struct CGContext *)arg2 atPoint:(struct CGPoint)arg3;
+- (void)_applyLinesToFunction:(void *)arg1 info:(void *)arg2;
+- (struct CGSize)_preferredSize;
+- (struct __CTLine *)_createTruncationToken;
+- (struct __CTTypesetter *)_retainTypesetter;
+- (id)_createStringDict;
+- (void)didChangeValueForKey:(id)arg1;
+- (void)dealloc;
+- (id)initWithLayer:(id)arg1;
+- (id)init;
+- (id)implicitAnimationForKeyPath:(id)arg1;
+@property BOOL allowsFontSubpixelQuantization;
+@property(copy) id truncationString;
+- (BOOL)wrapped;
 
 @end
 

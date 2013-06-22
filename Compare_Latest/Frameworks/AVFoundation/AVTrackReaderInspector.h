@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVAssetTrackInspector.h>
 
-@class AVWeakReference;
+@class AVWeakReference, NSArray;
 
 @interface AVTrackReaderInspector : AVAssetTrackInspector
 {
@@ -15,6 +15,7 @@
     int _trackID;
     unsigned long _mediaType;
     AVWeakReference *_weakReferenceToAsset;
+    NSArray *_cachedMediaCharacteristics;
 }
 
 - (unsigned int)hash;
@@ -29,8 +30,10 @@
 - (float)preferredVolume;
 - (int)layer;
 - (struct CGAffineTransform)preferredTransform;
+- (struct CGSize)dimensions;
 - (struct CGSize)naturalSize;
 - (id)extendedLanguageTag;
+- (id)mediaCharacteristics;
 - (id)languageCode;
 - (float)estimatedDataRate;
 - (int)naturalTimeScale;

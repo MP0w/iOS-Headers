@@ -14,7 +14,7 @@
 }
 
 - (struct CGPath *)copyPathForMaskWithSize:(struct CGSize)arg1;
-- (struct CGImage *)copyMaskImageWithSize:(struct CGSize)arg1;
+- (id)copyMaskImageWithSize:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithFunction:(id)arg1;
 

@@ -15,14 +15,17 @@
     NSMutableArray *mRows;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)tableProperties;
-- (id)grid;
-- (unsigned int)rowCount;
-- (id)rowAtIndex:(unsigned int)arg1;
-- (id)addRow;
 - (void)setParentTextListStyle:(id)arg1;
+- (id)addRow;
+- (id)rowAtIndex:(unsigned int)arg1;
+- (unsigned int)rowCount;
+- (id)grid;
+- (id)tableProperties;
+- (void)dealloc;
+- (id)init;
+- (id)masterCellOfPos:(struct OADTMatrixPos)arg1;
+- (struct OADTMatrixPos)masterPosOfPos:(struct OADTMatrixPos)arg1;
+- (id)cellAtPos:(struct OADTMatrixPos)arg1;
 
 @end
 

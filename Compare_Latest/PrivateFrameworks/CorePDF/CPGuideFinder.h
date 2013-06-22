@@ -26,36 +26,36 @@
     NSMutableArray *rightGuides;
 }
 
-+ (BOOL)guideSeparates:(id)arg1 from:(id)arg2;
-+ (BOOL)gutterSeparates:(id)arg1 from:(id)arg2;
-+ (void)reclusterPreservingAlignment:(id)arg1;
 + (void)reclusterBetweenGuides:(id)arg1;
-- (id)initWithContentZone:(id)arg1;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-- (float)medianFontSizeOfFirstCharacter;
-- (float)medianFontSizeOfLastCharacter;
-- (void)getWordEdges;
-- (BOOL)addStripTo:(id)arg1 bottom:(float)arg2 left:(float)arg3 top:(float)arg4 right:(float)arg5;
-- (void)setAlignForWordWithExtent:(CDStruct_efade31e *)arg1 stripArray:(id)arg2 stripMax:(double)arg3;
-- (void)subdivideStripInto:(id)arg1 from:(double)arg2 to:(double)arg3 borderedBy:(CDStruct_efade31e *)arg4 ofCount:(unsigned int)arg5 crossedBy:(CDStruct_efade31e *)arg6 ofCount:(unsigned int)arg7;
-- (void)subdivideGutterFrom:(unsigned int)arg1 to:(unsigned int)arg2;
-- (void)subdivideLeftGuideAt:(unsigned int)arg1;
-- (void)subdivideRightGuideAt:(unsigned int)arg1;
-- (void)findWordEdgeClusters;
-- (void)findGutters;
-- (void)findGuides;
-- (void)splitTextLinesAtBorderWords;
-- (void)splitTextLinesBetweenBorderWords;
-- (void)splitTextLines;
-- (void)markTextLines;
-- (BOOL)hasGutters;
-- (id)gutters;
-- (BOOL)hasLeftGuides;
-- (id)leftGuides;
-- (BOOL)hasRightGuides;
++ (void)reclusterPreservingAlignment:(id)arg1;
++ (BOOL)gutterSeparates:(id)arg1 from:(id)arg2;
++ (BOOL)guideSeparates:(id)arg1 from:(id)arg2;
 - (id)rightGuides;
+- (BOOL)hasRightGuides;
+- (id)leftGuides;
+- (BOOL)hasLeftGuides;
+- (id)gutters;
+- (BOOL)hasGutters;
+- (void)markTextLines;
+- (void)splitTextLines;
+- (void)splitTextLinesBetweenBorderWords;
+- (void)splitTextLinesAtBorderWords;
+- (void)findGuides;
+- (void)findGutters;
+- (void)findWordEdgeClusters;
+- (void)subdivideRightGuideAt:(unsigned int)arg1;
+- (void)subdivideLeftGuideAt:(unsigned int)arg1;
+- (void)subdivideGutterFrom:(unsigned int)arg1 to:(unsigned int)arg2;
+- (void)subdivideStripInto:(id)arg1 from:(double)arg2 to:(double)arg3 borderedBy:(CDStruct_efade31e *)arg4 ofCount:(unsigned int)arg5 crossedBy:(CDStruct_efade31e *)arg6 ofCount:(unsigned int)arg7;
+- (void)setAlignForWordWithExtent:(CDStruct_efade31e *)arg1 stripArray:(id)arg2 stripMax:(double)arg3;
+- (BOOL)addStripTo:(id)arg1 bottom:(float)arg2 left:(float)arg3 top:(float)arg4 right:(float)arg5;
+- (void)getWordEdges;
+- (float)medianFontSizeOfLastCharacter;
+- (float)medianFontSizeOfFirstCharacter;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)initWithContentZone:(id)arg1;
 
 @end
 

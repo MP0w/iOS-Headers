@@ -5,8 +5,8 @@
  */
 
 @protocol NSPredicateVisitor
-- (void)visitPredicate:(id)arg1;
-- (void)visitPredicateExpression:(id)arg1;
 - (void)visitPredicateOperator:(id)arg1;
+- (void)visitPredicateExpression:(id)arg1;
+- (void)visitPredicate:(id)arg1;
 @end
 

@@ -15,14 +15,14 @@
 }
 
 + (id)protectionWithHidden:(_Bool)arg1 locked:(_Bool)arg2;
-- (id)init;
-- (id)initWithHidden:(_Bool)arg1 locked:(_Bool)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToProtection:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (_Bool)isHidden;
 - (_Bool)isLocked;
+- (_Bool)isHidden;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToProtection:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithHidden:(_Bool)arg1 locked:(_Bool)arg2;
+- (id)init;
 
 @end
 

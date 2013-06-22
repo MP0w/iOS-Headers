@@ -24,6 +24,12 @@
 + (BOOL)_canSafelyMapFilesAtPath:(id)arg1;
 + (BOOL)_forPath:(id)arg1 getItemKind:(id *)arg2 modificationDate:(id *)arg3;
 + (void)initialize;
++ (void)_removeTemporaryDirectoryAtURL:(id)arg1;
++ (BOOL)_finishWritingToURL:(id)arg1 byTakingContentsFromItemAtURL:(id)arg2 addingAttributes:(id)arg3 usingTemporaryDirectoryAtURL:(id)arg4 backupFileName:(id)arg5 error:(id *)arg6;
++ (BOOL)_finishWritingToURL:(id)arg1 byMovingItemAtURL:(id)arg2 addingAttributes:(id)arg3 error:(id *)arg4;
++ (void)_writeAttributes:(id)arg1 toURL:(id)arg2;
++ (id)_temporaryDirectoryURLForWritingToURL:(id)arg1 error:(id *)arg2;
++ (id)_pathForURL:(id)arg1 reading:(BOOL)arg2 error:(id *)arg3;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)symbolicLinkDestinationURL;
@@ -70,6 +76,7 @@
 - (id)initWithURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 - (id)_init;
 - (id)init;
+- (id)_fullDescription:(BOOL)arg1;
 
 @end
 

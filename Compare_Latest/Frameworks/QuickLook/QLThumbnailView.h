@@ -18,16 +18,16 @@
     struct CGRect _unselectedFrame;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)dealloc;
-@property(retain) QLThumbnailOperation *thumbnailOperation; // @synthesize thumbnailOperation=_thumbnailOperation;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 @property struct CGRect unselectedFrame; // @synthesize unselectedFrame=_unselectedFrame;
 @property BOOL alwaysVisible; // @synthesize alwaysVisible=_alwaysVisible;
 @property int pageNumber; // @synthesize pageNumber=_pageNumber;
 @property(retain) UIImage *image; // @synthesize image=_image;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)setFrame:(struct CGRect)arg1;
+@property(retain) QLThumbnailOperation *thumbnailOperation;
+- (void)dealloc;
+- (void)drawRect:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

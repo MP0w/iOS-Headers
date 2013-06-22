@@ -10,7 +10,7 @@
 {
 }
 
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
 - (id)_setupBackgroundView;
 - (void)setEnabled:(BOOL)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 buttonType:(int)arg2;

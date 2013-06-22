@@ -14,12 +14,12 @@
     unsigned int mCurrentGroupId;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)reset;
-- (void)addBuild:(id)arg1 order:(unsigned int)arg2;
-- (id)buildOrderMap;
 - (unsigned int)generateGroupId;
+- (id)buildOrderMap;
+- (void)addBuild:(id)arg1 order:(unsigned int)arg2;
+- (void)reset;
+- (void)dealloc;
+- (id)init;
 
 @end
 

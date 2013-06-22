@@ -18,29 +18,29 @@
     unsigned int _subentityID;
 }
 
-- (id)initWithEntity:(id)arg1;
-- (void)dealloc;
-- (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (id)entity;
-- (void)setEntity:(id)arg1;
-- (id)propertyMappings;
-- (void)setPropertyMappings:(id)arg1;
-- (id)primaryKeys;
-- (void)setPrimaryKeys:(id)arg1;
-- (BOOL)isSingleTableEntity;
-- (void)setSingleTableEntity:(BOOL)arg1;
-- (id)subentityColumn;
-- (void)setSubentityColumn:(id)arg1;
-- (unsigned int)subentityID;
-- (void)setSubentityID:(unsigned int)arg1;
-- (id)attributeMappings;
-- (id)relationshipMappings;
-- (id)primaryKeyColumnDefinitions;
-- (id)attributeColumnDefinitions;
-- (id)foreignKeyColumnDefinitions;
-- (id)foreignKeyConstraintDefinitions;
 - (id)createTableStatement;
+- (id)foreignKeyConstraintDefinitions;
+- (id)foreignKeyColumnDefinitions;
+- (id)attributeColumnDefinitions;
+- (id)primaryKeyColumnDefinitions;
+- (id)relationshipMappings;
+- (id)attributeMappings;
+- (void)setSubentityID:(unsigned int)arg1;
+- (unsigned int)subentityID;
+- (void)setSubentityColumn:(id)arg1;
+- (id)subentityColumn;
+- (void)setSingleTableEntity:(BOOL)arg1;
+- (BOOL)isSingleTableEntity;
+- (void)setPrimaryKeys:(id)arg1;
+- (id)primaryKeys;
+- (void)setPropertyMappings:(id)arg1;
+- (id)propertyMappings;
+- (void)setEntity:(id)arg1;
+- (id)entity;
+- (BOOL)isEqual:(id)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)initWithEntity:(id)arg1;
 
 @end
 

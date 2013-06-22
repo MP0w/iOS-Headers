@@ -12,11 +12,11 @@
     id mNext;
 }
 
-- (id)initWithIterator:(id)arg1;
-- (void)dealloc;
-- (BOOL)test:(id)arg1;
-- (BOOL)hasNext;
 - (id)next;
+- (BOOL)hasNext;
+- (BOOL)test:(id)arg1;
+- (void)dealloc;
+- (id)initWithIterator:(id)arg1;
 
 @end
 

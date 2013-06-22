@@ -20,6 +20,7 @@
 + (id)uniqueNameWithType:(int)arg1;
 @property(retain, nonatomic) NSMutableDictionary *refs; // @synthesize refs;
 @property(retain, nonatomic) NSMutableDictionary *symbols; // @synthesize symbols;
+- (BOOL)_needsScaling;
 @property(nonatomic) BOOL variable;
 @property(readonly, nonatomic) NSArray *refList;
 - (void)setAttributeSet:(id)arg1;

@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "MPMediaPlayback-Protocol.h"
+
 @class MPMusicPlayerControllerInternal;
 
-@interface MPMusicPlayerController : NSObject
+@interface MPMusicPlayerController : NSObject <MPMediaPlayback>
 {
     MPMusicPlayerControllerInternal *_internal;
 }
@@ -21,10 +23,12 @@
 - (void)_stopMigServer;
 - (void)_runMigServerOnPort:(unsigned int)arg1;
 - (void)_itemPlaybackDidEnd:(unsigned long long)arg1;
+- (void)_isQueuePreparedDidChange:(BOOL)arg1;
 - (void)_repeatModeDidChange:(int)arg1;
 - (void)_shuffleModeDidChange:(int)arg1;
 - (void)_nowPlayingItemDidChange:(unsigned long long)arg1;
 - (void)_playbackStateDidChange:(int)arg1;
+- (BOOL)_musicPlayerExistencePortIsValid;
 - (void)_clientCheckInUsingExistencePort:(BOOL)arg1;
 - (void)_unregisterForLaunchNotifications;
 - (void)_registerForLaunchNotifications;
@@ -48,11 +52,10 @@
 - (void)pauseWithFadeoutDuration:(double)arg1;
 - (id)nowPlayingItemAtIndex:(unsigned int)arg1;
 - (BOOL)setQueueWithSeedItems:(id)arg1;
+- (BOOL)isGeniusAvailableForSeedItems:(id)arg1;
 - (BOOL)isGeniusAvailable;
 - (void)endGeneratingPlaybackNotifications;
 - (void)beginGeneratingPlaybackNotifications;
-- (void)setCurrentPlaybackTime:(double)arg1;
-- (double)currentPlaybackTime;
 - (void)setVolume:(float)arg1;
 - (float)volume;
 - (void)setShuffleMode:(int)arg1;
@@ -63,6 +66,16 @@
 - (void)setQueueWithItemCollection:(id)arg1;
 - (void)setQueueWithQuery:(id)arg1;
 - (id)nowPlayingItem;
+- (void)stop;
+@property(nonatomic) double currentPlaybackTime;
+@property(nonatomic) float currentPlaybackRate;
+- (void)pause;
+- (void)play;
+- (void)prepareToPlay;
+@property(readonly, nonatomic) BOOL isPreparedToPlay;
+- (void)endSeeking;
+- (void)beginSeekingBackward;
+- (void)beginSeekingForward;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (void)_systemVolumeDidChange:(id)arg1;

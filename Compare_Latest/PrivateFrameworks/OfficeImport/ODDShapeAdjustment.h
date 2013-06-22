@@ -12,10 +12,10 @@
     double mValue;
 }
 
-- (unsigned int)index;
-- (void)setIndex:(unsigned int)arg1;
-- (double)value;
 - (void)setValue:(double)arg1;
+- (double)value;
+- (void)setIndex:(unsigned int)arg1;
+- (unsigned int)index;
 
 @end
 

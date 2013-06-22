@@ -18,14 +18,14 @@
 }
 
 + (id)alertImage;
-- (void)_accessoriesChanged;
-@property(nonatomic) int remoteUIAccessoryType; // @synthesize remoteUIAccessoryType=_remoteUIAccessoryType;
 @property(retain, nonatomic) UIView *remoteUIAccessoryView; // @synthesize remoteUIAccessoryView=_remoteUIAccessoryView;
-- (void)layoutSubviews;
-- (void)setRowInvalid:(BOOL)arg1;
-- (void)dealloc;
+@property(nonatomic) int remoteUIAccessoryType; // @synthesize remoteUIAccessoryType=_remoteUIAccessoryType;
 @property(nonatomic) BOOL leftAlignDetailLabel; // @synthesize leftAlignDetailLabel=_leftAlignDetailLabel;
 @property(nonatomic) BOOL forceFullSizeDetailLabel; // @synthesize forceFullSizeDetailLabel=_forceFullDetailLabel;
+- (void)dealloc;
+- (void)setRowInvalid:(BOOL)arg1;
+- (void)layoutSubviews;
+- (void)_accessoriesChanged;
 
 @end
 

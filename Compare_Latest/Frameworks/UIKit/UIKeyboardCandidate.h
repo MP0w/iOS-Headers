@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface UIKeyboardCandidate : NSObject <NSCopying>
 {
@@ -17,7 +17,9 @@
 }
 
 @property(copy, nonatomic) NSString *alternativeText; // @synthesize alternativeText=_alternativeText;
+@property(readonly, nonatomic) NSArray *usageTrackingTypes;
 @property(readonly, nonatomic, getter=isExtensionCandidate) BOOL extensionCandidate;
+@property(readonly, nonatomic) BOOL isAutocorrection;
 @property(readonly, nonatomic) BOOL isForShortcutConversion;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
@@ -25,7 +27,7 @@
 @property(readonly, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;
 @property(readonly, nonatomic) unsigned int deleteCount;
 @property(readonly, nonatomic) unsigned int wordOriginFeedbackID;
-@property(readonly, nonatomic) NSString *insertion;
+@property(readonly, nonatomic) NSString *label;
 @property(readonly, nonatomic) NSString *input;
 @property(readonly, nonatomic) NSString *candidate;
 - (void)dealloc;

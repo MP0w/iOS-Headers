@@ -11,8 +11,8 @@
     BOOL mIsFullScreen;
 }
 
-- (BOOL)isFullScreen;
 - (void)setIsFullScreen:(BOOL)arg1;
+- (BOOL)isFullScreen;
 
 @end
 

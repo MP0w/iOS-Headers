@@ -6,31 +6,35 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSURL;
+@class NSArray, NSDictionary, NSURL;
 
 @interface AVAudioRecorder : NSObject
 {
     void *_impl;
 }
 
+@property(copy, nonatomic) NSArray *channelAssignments;
 - (void)endInterruption;
 - (void)endInterruptionWithFlags;
 - (void)beginInterruption;
 - (float)averagePowerForChannel:(unsigned int)arg1;
 - (float)peakPowerForChannel:(unsigned int)arg1;
 - (void)updateMeters;
-@property(getter=isMeteringEnabled) BOOL meteringEnabled; // @dynamic meteringEnabled;
-@property id <AVAudioRecorderDelegate> delegate; // @dynamic delegate;
-@property(readonly) double currentTime; // @dynamic currentTime;
+@property(getter=isMeteringEnabled) BOOL meteringEnabled;
+@property id <AVAudioRecorderDelegate> delegate;
+@property(readonly) double deviceCurrentTime;
+@property(readonly) double currentTime;
 - (BOOL)deleteRecording;
 - (void)stop;
 - (void)pause;
+- (BOOL)recordAtTime:(double)arg1 forDuration:(double)arg2;
 - (BOOL)recordForDuration:(double)arg1;
+- (BOOL)recordAtTime:(double)arg1;
 - (BOOL)record;
 - (BOOL)prepareToRecord;
-@property(readonly) NSDictionary *settings; // @dynamic settings;
-@property(readonly) NSURL *url; // @dynamic url;
-@property(readonly, getter=isRecording) BOOL recording; // @dynamic recording;
+@property(readonly) NSDictionary *settings;
+@property(readonly) NSURL *url;
+@property(readonly, getter=isRecording) BOOL recording;
 - (id)initWithURL:(id)arg1 settings:(id)arg2 error:(id *)arg3;
 - (id)baseInit;
 - (void)dealloc;

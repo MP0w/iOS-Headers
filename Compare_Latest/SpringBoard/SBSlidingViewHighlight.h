@@ -15,13 +15,13 @@
     struct CGRect _notchRect;
 }
 
-+ (float)defaultHeight;
 + (id)highlightImage;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 notchRect:(struct CGRect)arg2;
-- (void)layoutSubviews;
-- (void)setNotchRect:(struct CGRect)arg1;
++ (float)defaultHeight;
 - (void)dealloc;
+- (void)setNotchRect:(struct CGRect)arg1;
+- (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1 notchRect:(struct CGRect)arg2;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

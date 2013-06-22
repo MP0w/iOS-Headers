@@ -14,31 +14,31 @@
     int m_type;
     unsigned long m_userFlags;
     unsigned long m_size;
-    int m_creationTime;
-    int m_modificationTime;
+    long m_creationTime;
+    long m_modificationTime;
     int m_accessMode;
     CDStruct_214f2dba m_clsid;
 }
 
-- (id)init;
-- (id)initWithStgInfo:(struct _StgInfo *)arg1;
-- (void)dealloc;
-- (id)getName;
-- (void)setName:(id)arg1;
-- (int)getType;
-- (void)setType:(int)arg1;
-- (unsigned long)getUserFlags;
-- (void)setUserFlags:(unsigned long)arg1;
-- (unsigned long)getSize;
-- (void)setSize:(unsigned long)arg1;
-- (long)getCreationTime;
-- (void)setCreationTime:(long)arg1;
-- (long)getModificationTime;
-- (void)setModificationTime:(long)arg1;
-- (int)getAccessMode;
-- (void)setAccessMode:(int)arg1;
-- (CDStruct_214f2dba)getCLSID;
 - (void)setCLSID:(CDStruct_214f2dba)arg1;
+- (CDStruct_214f2dba)getCLSID;
+- (void)setAccessMode:(int)arg1;
+- (int)getAccessMode;
+- (void)setModificationTime:(long)arg1;
+- (long)getModificationTime;
+- (void)setCreationTime:(long)arg1;
+- (long)getCreationTime;
+- (void)setSize:(unsigned long)arg1;
+- (unsigned long)getSize;
+- (void)setUserFlags:(unsigned long)arg1;
+- (unsigned long)getUserFlags;
+- (void)setType:(int)arg1;
+- (int)getType;
+- (void)setName:(id)arg1;
+- (id)getName;
+- (void)dealloc;
+- (id)initWithStgInfo:(struct _StgInfo *)arg1;
+- (id)init;
 
 @end
 

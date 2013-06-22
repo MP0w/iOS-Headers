@@ -6,18 +6,22 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface EAGLSharegroup : NSObject
 {
     struct _EAGLSharegroupPrivate *_private;
+    NSString *debugLabel;
 }
 
-- (void)loadGLIPlugin:(struct __GLDPixelFormatRec *)arg1 sharedWithCompute:(BOOL)arg2;
-- (id)init;
-- (id)initWithAPI:(unsigned int)arg1;
-- (id)initWithAPI:(unsigned int)arg1 sharedWithCompute:(BOOL)arg2;
-- (void)dealloc;
-- (unsigned int)APIs;
+@property(copy, nonatomic) NSString *debugLabel; // @synthesize debugLabel;
 - (struct __GLISharedRec *)getGLIShared;
+- (unsigned int)APIs;
+- (void)dealloc;
+- (id)initWithAPI:(unsigned int)arg1 sharedWithCompute:(BOOL)arg2;
+- (id)initWithAPI:(unsigned int)arg1;
+- (id)init;
+- (void)loadGLIPlugin:(struct __GLDPixelFormatRec *)arg1 sharedWithCompute:(BOOL)arg2;
 
 @end
 

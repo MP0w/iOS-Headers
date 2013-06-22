@@ -10,10 +10,10 @@
 {
 }
 
-- (id)displayName;
-- (id)fullPath;
-- (id)tildeAbbreviatedPath;
 - (id)storeForMailboxUid:(id)arg1;
+- (id)tildeAbbreviatedPath;
+- (id)fullPath;
+- (id)displayName;
 
 @end
 

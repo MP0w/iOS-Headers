@@ -132,3 +132,11 @@ typedef struct {
     void *equal;
 } CDStruct_6a83575d;
 
+typedef struct {
+    int pid;
+    struct {
+        unsigned int val[8];
+    } audit_token;
+    struct CGRect contentFrame;
+} CDStruct_6904a77d;
+

@@ -10,19 +10,19 @@
 {
 }
 
-- (id)position;
-- (unsigned int)type;
-- (id)label;
-- (float)minValue;
-- (float)maxValue;
-- (float)unit;
-- (_Bool)isLogarithmic;
-- (id)labels;
-- (_Bool)centerLabels;
-- (id)values;
-- (struct CGColor *)strokeColor;
-- (float)strokeWidth;
 - (struct CGColor *)textColor;
+- (float)strokeWidth;
+- (struct CGColor *)strokeColor;
+- (id)values;
+- (_Bool)centerLabels;
+- (id)labels;
+- (_Bool)isLogarithmic;
+- (float)unit;
+- (float)maxValue;
+- (float)minValue;
+- (id)label;
+- (unsigned int)type;
+- (id)position;
 
 @end
 

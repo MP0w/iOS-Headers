@@ -15,13 +15,13 @@
 }
 
 + (void)initialize;
-- (id)initWithValues:(id *)arg1 objectID:(id)arg2;
-- (id)initWithCoder:(id)arg1;
-- (void)_doAttributeDecoding;
-- (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
-- (const id *)attributeValues;
 - (id)valueForKey:(id)arg1;
+- (const id *)attributeValues;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (void)_doAttributeDecoding;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithValues:(id *)arg1 objectID:(id)arg2;
 
 @end
 

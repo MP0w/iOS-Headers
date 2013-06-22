@@ -14,13 +14,13 @@
     NSMutableSet *_allTargets;
 }
 
-- (void)dealloc;
-- (BOOL)addActivityTarget:(id)arg1;
-- (BOOL)removeActivityTarget:(id)arg1;
-- (id)primaryTarget;
-- (void)setPrimaryTarget:(id)arg1;
-- (id)allTargets;
 - (id)displayName;
+- (id)allTargets;
+- (void)setPrimaryTarget:(id)arg1;
+- (id)primaryTarget;
+- (BOOL)removeActivityTarget:(id)arg1;
+- (BOOL)addActivityTarget:(id)arg1;
+- (void)dealloc;
 
 @end
 

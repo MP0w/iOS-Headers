@@ -6,27 +6,25 @@
 
 #import <StoreServices/SSRequest.h>
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSURLRequest;
 
-@interface SSDownloadManifestRequest : SSRequest <SSCoding>
+@interface SSDownloadManifestRequest : SSRequest <SSXPCCoding>
 {
     int _manifestFormat;
     BOOL _shouldHideUserPrompts;
     NSURLRequest *_urlRequest;
 }
 
-@property(nonatomic) BOOL shouldHideUserPrompts; // @synthesize shouldHideUserPrompts=_shouldHideUserPrompts;
-@property(nonatomic) int manifestFormat; // @synthesize manifestFormat=_manifestFormat;
-- (void)_sendResponseToDelegate:(id)arg1;
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)startWithCompletionBlock:(id)arg1;
+- (BOOL)start;
+@property int manifestFormat;
 @property(readonly) NSURLRequest *URLRequest;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (void)startWithManifestResponseBlock:(id)arg1;
+@property BOOL shouldHideUserPrompts;
 - (void)dealloc;
 - (id)initWithURLRequest:(id)arg1;
 - (id)init;

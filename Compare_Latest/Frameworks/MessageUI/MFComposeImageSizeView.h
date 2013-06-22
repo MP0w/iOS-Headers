@@ -13,13 +13,13 @@
     UISegmentedControl *_segmentedControl;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)layoutSubviews;
-- (unsigned long)_segmentIndexForScale:(int)arg1;
-- (void)setSizeDescription:(id)arg1 forScale:(int)arg2;
-- (void)setScale:(int)arg1;
 - (void)segmentedControlChanged;
+- (void)setScale:(unsigned int)arg1;
+- (void)setSizeDescription:(id)arg1 forScale:(unsigned int)arg2;
+- (unsigned long)_segmentIndexForScale:(unsigned int)arg1;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

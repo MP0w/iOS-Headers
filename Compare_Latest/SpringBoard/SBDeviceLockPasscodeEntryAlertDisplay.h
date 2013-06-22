@@ -10,13 +10,13 @@
 {
 }
 
-- (void)useEmergencyCallButton;
-- (void)deviceUnlockSucceeded;
-- (void)deviceUnlockCanceled;
-- (void)alertDisplayWillBecomeVisible;
-- (void)dismiss;
-- (float)delayForOthersActivation;
 - (float)durationForOthersActivation;
+- (float)delayForOthersActivation;
+- (void)dismiss;
+- (void)alertDisplayWillBecomeVisible;
+- (void)deviceUnlockCanceled;
+- (void)deviceUnlockSucceeded;
+- (void)useEmergencyCallButton;
 
 @end
 

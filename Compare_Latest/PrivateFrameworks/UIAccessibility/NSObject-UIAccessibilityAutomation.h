@@ -8,6 +8,9 @@
 
 @interface NSObject (UIAccessibilityAutomation)
 - (id)_accessibilityUserTestingChildren;
+- (id)_accessibilityUserTestingChildrenWithRange:(struct _NSRange)arg1;
+- (int)_accessibilityUserTestingChildrenCount;
+- (id)_accessibilityUserTestingSupplementaryViews:(BOOL)arg1;
 - (id)_accessibilityAncestry;
 - (id)_accessibilityUserTestingParent;
 - (id)_accessibilityUserTestingElementType;

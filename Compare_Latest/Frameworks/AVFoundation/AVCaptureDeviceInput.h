@@ -15,7 +15,7 @@
 
 + (id)deviceInputWithDevice:(id)arg1 error:(id *)arg2;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (void)didStartForSession:(id)arg1;
 - (void)willStartForSession:(id)arg1;
 - (void)setSession:(id)arg1;

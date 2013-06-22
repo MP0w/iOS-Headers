@@ -14,16 +14,16 @@
     TPWellButtonView *_rightWellButtonView;
 }
 
-- (struct CGRect)_rightWellFrame;
-- (struct CGRect)_leftWellFrame;
-- (id)initWithDefaultSizeForOrientation:(int)arg1;
-- (void)dealloc;
-@property(readonly, retain, nonatomic) TPButton *leftButton;
-@property(readonly, retain, nonatomic) TPButton *rightButton;
-- (struct CGRect)fullSizedContentViewFrame;
-- (BOOL)shouldCenterText;
-- (BOOL)shouldCenterContentView;
 - (BOOL)showImageViewOnLeftSide;
+- (BOOL)shouldCenterContentView;
+- (BOOL)shouldCenterText;
+- (struct CGRect)fullSizedContentViewFrame;
+@property(readonly, nonatomic) TPButton *rightButton;
+@property(readonly, nonatomic) TPButton *leftButton;
+- (void)dealloc;
+- (id)initWithDefaultSizeForOrientation:(int)arg1;
+- (struct CGRect)_leftWellFrame;
+- (struct CGRect)_rightWellFrame;
 
 @end
 

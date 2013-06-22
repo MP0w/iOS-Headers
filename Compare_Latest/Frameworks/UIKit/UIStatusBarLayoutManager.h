@@ -12,7 +12,7 @@
 {
     UIStatusBarForegroundView *_foregroundView;
     int _region;
-    UIStatusBarItemView *_itemViews[23];
+    UIStatusBarItemView *_itemViews[24];
 }
 
 @property(nonatomic) UIStatusBarForegroundView *foregroundView; // @synthesize foregroundView=_foregroundView;
@@ -44,6 +44,8 @@
 - (void)_positionNewItemViewsWithEnabledItems:(char *)arg1;
 - (void)_prepareEnabledItemType:(int)arg1 withEnabledItems:(char *)arg2 withData:(id)arg3 actions:(int)arg4 itemAppearing:(char *)arg5 itemDisappearing:(char *)arg6;
 - (BOOL)updateItemsWithData:(id)arg1 actions:(int)arg2 animated:(BOOL)arg3;
+- (void)setVisibilityOfItem:(id)arg1 visible:(BOOL)arg2;
+- (void)setVisibilityOfAllItems:(BOOL)arg1;
 - (BOOL)prepareEnabledItems:(char *)arg1 withData:(id)arg2 actions:(int)arg3;
 - (void)dealloc;
 - (id)initWithRegion:(int)arg1 foregroundView:(id)arg2;

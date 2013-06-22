@@ -97,6 +97,7 @@
 - (id)initWithFrame:(struct CGRect)arg1 layeredFill:(BOOL)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
+- (id)_scriptingInfo;
 
 @end
 

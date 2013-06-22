@@ -12,12 +12,12 @@
 }
 
 + (id)indexedColorWithIndex:(int)arg1;
-- (id)initWithIndex:(int)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)index;
-- (id)colorFromPalette:(id)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)colorFromPalette:(id)arg1;
+- (int)index;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithIndex:(int)arg1;
 
 @end
 

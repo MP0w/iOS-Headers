@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class UITextPosition;
+@class UITextPosition, UITextRangeImpl;
 
 @interface UITextRange : NSObject
 {
@@ -15,6 +15,9 @@
 @property(readonly, nonatomic) UITextPosition *end;
 @property(readonly, nonatomic) UITextPosition *start;
 @property(readonly, nonatomic, getter=isEmpty) BOOL empty;
+@property(readonly, nonatomic, getter=_isImpl) UITextRangeImpl *isImpl;
+@property(readonly, nonatomic, getter=_isRanged) BOOL isRanged;
+@property(readonly, nonatomic, getter=_isCaret) BOOL isCaret;
 
 @end
 

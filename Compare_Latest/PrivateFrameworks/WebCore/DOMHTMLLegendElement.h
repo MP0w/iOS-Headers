@@ -12,9 +12,9 @@
 {
 }
 
-@property(readonly, retain) DOMHTMLFormElement *form;
 @property(copy) NSString *accessKey;
 @property(copy) NSString *align;
+@property(readonly) DOMHTMLFormElement *form;
 
 @end
 

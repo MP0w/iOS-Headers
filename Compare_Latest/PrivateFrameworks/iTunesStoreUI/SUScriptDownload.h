@@ -6,26 +6,25 @@
 
 #import <iTunesStoreUI/SUScriptObject.h>
 
-@class NSNumber, NSString;
+@class ISUDownload, NSNumber, NSString;
 
 @interface SUScriptDownload : SUScriptObject
 {
-    NSNumber *_adamID;
-    NSString *_phase;
+    ISUDownload *_download;
 }
 
 + (void)initialize;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 + (id)phaseStringForDownload:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
+@property(readonly) float progress;
 @property(readonly) NSString *phase;
 - (id)_className;
 @property(readonly) NSNumber *adamID;
-- (BOOL)isEqualToDownload:(id)arg1;
 - (void)dealloc;
-- (id)initWithDownload:(id)arg1;
-- (id)initWithAdamID:(id)arg1 phase:(id)arg2;
+- (id)initWithSSDownload:(id)arg1;
+- (id)initWithISUDownload:(id)arg1;
 
 @end
 

@@ -8,29 +8,35 @@
 
 #import <GameKit/GKTableSection-Protocol.h>
 
-@class UITextField;
+@class NSIndexSet, NSString, UITextField;
 
 @interface GKTableSectionTextField : NSObject <GKTableSection>
 {
     UITextField *_textField;
     struct UIEdgeInsets _backgroundInsets;
     float _headerHeight;
+    BOOL _needsRedisplay;
 }
 
+@property(nonatomic) BOOL needsRedisplay; // @synthesize needsRedisplay=_needsRedisplay;
 @property(nonatomic) float headerHeight; // @synthesize headerHeight=_headerHeight;
 @property(nonatomic) struct UIEdgeInsets backgroundInsets; // @synthesize backgroundInsets=_backgroundInsets;
 @property(retain, nonatomic) UITextField *textField; // @synthesize textField=_textField;
+- (CDStruct_70ce6416)currentMetricsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 prepareContents:(id)arg2 forCell:(id)arg3 atIndexPath:(id)arg4;
 - (id)tableView:(id)arg1 reuseIdentifierForRow:(int)arg2;
 - (int)tableView:(id)arg1 numberOfColumnsForRow:(int)arg2;
-- (int)sectionRowCountInTableView:(id)arg1;
+- (int)rowCountInTableView:(id)arg1;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (float)sectionHeaderHeightInTableView:(id)arg1;
+- (float)heightForHeaderInTableView:(id)arg1;
 - (void)dealloc;
 - (id)init;
 
 // Remaining properties
-@property(nonatomic, getter=isLoading) BOOL loading;
+@property(retain, nonatomic) NSString *abbreviatedTitle;
+@property(retain, nonatomic) NSIndexSet *indexesOfRowsWithLoadedData;
+@property(retain, nonatomic) NSString *secondaryTitle;
+@property(retain, nonatomic) NSString *title;
 
 @end
 

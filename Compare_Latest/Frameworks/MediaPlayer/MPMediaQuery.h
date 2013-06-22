@@ -9,7 +9,7 @@
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class MPMediaLibrary, MPMediaQuerySectionInfo, NSArray, NSSet;
+@class MPMediaItemCollection, MPMediaLibrary, MPMediaQuerySectionInfo, NSArray, NSSet;
 
 @interface MPMediaQuery : NSObject <NSCoding, NSCopying>
 {
@@ -23,12 +23,15 @@
 + (id)tvShowsQuery;
 + (id)musicVideosQuery;
 + (id)videosQuery;
++ (BOOL)isFilteringDisabled;
 + (void)setFilteringDisabled:(BOOL)arg1;
++ (void)initFilteringDisabled;
 + (id)genresQuery;
 + (id)composersQuery;
 + (id)compilationsQuery;
 + (id)audibleAudiobooksQuery;
 + (id)audiobooksQuery;
++ (id)videoITunesUAudioQuery;
 + (id)ITunesUAudioQuery;
 + (id)podcastsQuery;
 + (id)playlistsQuery;
@@ -36,6 +39,7 @@
 + (id)artistsQuery;
 + (id)albumsQuery;
 + (void)initialize;
++ (id)activeGeniusPlaylist;
 @property(nonatomic) struct MPMediaQueryInternal _internal; // @synthesize _internal;
 - (void)setCriteria:(id)arg1;
 - (id)criteria;
@@ -53,20 +57,27 @@
 - (unsigned int)groupingThreshold;
 @property(readonly, nonatomic) BOOL specifiesPlaylistItems;
 @property(readonly, nonatomic) BOOL excludesEntitiesWithBlankNames;
+@property(nonatomic) BOOL useSections;
 @property(nonatomic) BOOL sortItems;
 @property(copy, nonatomic, getter=_orderingProperties, setter=_setOrderingProperties:) NSArray *orderingProperties;
 @property(readonly, nonatomic) MPMediaQuerySectionInfo *collectionSectionInfo;
 @property(readonly, nonatomic) MPMediaQuerySectionInfo *itemSectionInfo;
+@property(readonly, nonatomic) NSArray *collectionPersistentIdentifiers;
+@property(readonly, nonatomic) NSArray *itemPersistentIdentifiers;
+@property(readonly, nonatomic) unsigned int _countOfCollections;
+@property(readonly, nonatomic) unsigned int _countOfItems;
+@property(readonly, nonatomic) BOOL _hasCollections;
+@property(readonly, nonatomic) BOOL _hasItems;
 @property(copy, nonatomic) NSSet *collectionPropertiesToFetch;
 @property(copy, nonatomic) NSSet *itemPropertiesToFetch;
 @property(nonatomic) int groupingType;
 @property(readonly, nonatomic) NSArray *collections;
 @property(readonly, nonatomic) NSArray *items;
-- (id)_itemsImmediately:(BOOL)arg1;
 @property(retain, nonatomic) MPMediaLibrary *mediaLibrary;
 - (void)removeFilterPredicate:(id)arg1;
 - (void)addFilterPredicate:(id)arg1;
 @property(retain, nonatomic) NSSet *filterPredicates;
+- (id)copyByRemovingStaticEntities;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -79,6 +90,17 @@
 - (id)initWithFilterPredicatesInternal:(id)arg1;
 - (id)initWithCriteria:(id)arg1 library:(id)arg2;
 - (id)init;
+@property(readonly, nonatomic) MPMediaItemCollection *collectionByJoiningCollections;
+- (BOOL)updateFilterPredicatesToHideUnreachableWhenOfflineCloudContent:(BOOL)arg1;
+- (BOOL)_updatePredicateForProperty:(id)arg1 withPropertyPredicate:(id)arg2;
+- (void)setFilterPropertyPredicate:(id)arg1;
+- (void)setFilterPredicate:(id)arg1 forProperty:(id)arg2;
+- (void)removePredicatesForProperty:(id)arg1;
+- (id)predicateForProperty:(id)arg1;
+- (id)mediaQueryWithDownloadingEntities;
+- (id)mediaQueryWithDownloadableEntities;
+- (BOOL)hasDownloadingEntities;
+- (BOOL)hasDownloadableEntities;
 
 @end
 

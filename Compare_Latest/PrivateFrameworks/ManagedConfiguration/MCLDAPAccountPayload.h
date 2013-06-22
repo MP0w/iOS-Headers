@@ -19,17 +19,8 @@
     NSString *_accountPersistentUUID;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (id)description;
-- (id)stubDictionary;
-- (id)title;
-- (id)subtitle1Label;
-- (id)subtitle1Description;
-- (id)subtitle2Label;
-- (id)subtitle2Description;
++ (id)typeStrings;
 @property(copy, nonatomic) NSString *accountPersistentUUID; // @synthesize accountPersistentUUID=_accountPersistentUUID;
 @property(readonly, nonatomic) NSArray *searchSettings; // @synthesize searchSettings=_searchSettings;
 @property(readonly, nonatomic) BOOL useSSL; // @synthesize useSSL=_useSSL;
@@ -37,6 +28,15 @@
 @property(retain, nonatomic) NSString *username; // @synthesize username=_username;
 @property(readonly, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
 @property(readonly, nonatomic) NSString *accountDescription; // @synthesize accountDescription=_accountDescription;
+- (void).cxx_destruct;
+- (id)subtitle2Description;
+- (id)subtitle2Label;
+- (id)subtitle1Description;
+- (id)subtitle1Label;
+- (id)title;
+- (id)stubDictionary;
+- (id)description;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

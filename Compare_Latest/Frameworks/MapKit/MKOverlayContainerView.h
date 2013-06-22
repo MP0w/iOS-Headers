@@ -16,10 +16,10 @@
     NSMutableArray *_views;
     NSMutableArray *_viewClusters;
     id <MKOverlayContainerViewDelegate> _delegate;
-    struct CGAffineTransform _mapTransform;
+    float _mapZoomScale;
 }
 
-@property(nonatomic) struct CGAffineTransform mapTransform; // @synthesize mapTransform=_mapTransform;
+@property(nonatomic) float mapZoomScale; // @synthesize mapZoomScale=_mapZoomScale;
 @property(nonatomic) id <MKOverlayContainerViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_coalesceAdjacentClusters;
 - (void)_insertOverlayView:(id)arg1 forOverlay:(id)arg2 atIndex:(int)arg3;
@@ -44,6 +44,7 @@
 - (void)setDrawingEnabled:(BOOL)arg1;
 - (void)setLevelCrossFade:(BOOL)arg1;
 - (void)visibleRectChanged;
+- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

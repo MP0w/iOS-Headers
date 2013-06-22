@@ -17,13 +17,12 @@
     int _orientation;
 }
 
-+ (void)setupCache;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)showHeaderView;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)configureForOrientation:(int)arg1;
 - (void)layoutSubviews;
+- (void)configureForOrientation:(int)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)showHeaderView;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

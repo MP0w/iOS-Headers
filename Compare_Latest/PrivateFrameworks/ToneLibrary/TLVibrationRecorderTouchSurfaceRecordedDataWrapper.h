@@ -19,11 +19,11 @@
     double _vibrationPatternMaximumDuration;
 }
 
-- (BOOL)getTouchLocation:(struct CGPoint *)arg1 touchPhase:(unsigned int *)arg2 forTimeInterval:(double)arg3;
+- (BOOL)getTouchLocation:(struct CGPoint *)arg1 touchPhase:(int *)arg2 forTimeInterval:(double)arg3;
 - (void)didStopRecording;
 - (void)_updateMaximumFramesPerSecondRate:(id)arg1;
-- (void)recordTouchLocation:(struct CGPoint)arg1 touchPhase:(unsigned int)arg2;
-- (void)_recordFinalDataWithTouchLocation:(struct CGPoint)arg1 touchPhase:(unsigned int)arg2 timeIntervalSinceBeginningOfPattern:(double)arg3;
+- (void)recordTouchLocation:(struct CGPoint)arg1 touchPhase:(int)arg2;
+- (void)_recordFinalDataWithTouchLocation:(struct CGPoint)arg1 touchPhase:(int)arg2 timeIntervalSinceBeginningOfPattern:(double)arg3;
 - (void)_prepareRecordedDataBufferForStoringEnoughElementsForRecordingDuration:(double)arg1 maximumFramesPerSecondsRate:(unsigned int)arg2;
 - (void)dealloc;
 - (id)initWithVibrationPatternMaximumDuration:(double)arg1;

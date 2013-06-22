@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVPlayer, AVPlayerItem, AVWeakReference, NSError;
+@class AVPlayer, AVPlayerItem, AVWeakReference, NSError, NSObject<OS_dispatch_queue>;
 
 @interface AVPlayerConnection : NSObject
 {
@@ -18,11 +18,10 @@
     AVPlayerItem *_previousPlayerItem;
 }
 
-@property(readonly, nonatomic) struct dispatch_queue_s *serializationQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *serializationQueue;
 @property(readonly, nonatomic) NSError *error;
 @property(readonly, nonatomic) int status;
 - (void)removeItemFromPlayQueue;
-- (void)ensureItemAddedToPlayQueueWithCompletionHandler:(id)arg1;
 - (BOOL)addItemToPlayQueue;
 @property(readonly, nonatomic) AVPlayerItem *playerItem;
 @property(readonly, nonatomic) AVPlayer *player;

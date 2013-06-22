@@ -22,6 +22,7 @@
 - (id)credentialsForProtectionSpace:(id)arg1;
 - (id)init;
 - (void)dealloc;
+- (id)_internalInit;
 
 @end
 

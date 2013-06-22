@@ -6,29 +6,38 @@
 
 #import "UIView.h"
 
+@class UIImageView;
+
 @interface TPBottomBar : UIView
 {
     int _orientation;
     int _style;
+    BOOL _suppressDrawingBackground;
+    UIImageView *_shadowView;
 }
 
-+ (id)_backgroundImage;
-+ (void)preloadImages;
-+ (float)defaultHeightForStyle:(int)arg1 orientation:(int)arg2;
-+ (float)defaultHeightForStyle:(int)arg1;
-+ (float)defaultHeightForOrientation:(int)arg1;
-+ (float)defaultHeight;
-+ (int)fullscreenStyle;
 + (int)overlayStyle;
-- (id)initWithDefaultSize;
-- (id)initWithDefaultSizeForOrientation:(int)arg1;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
-- (id)init;
-- (void)setOrientation:(int)arg1 updateFrame:(BOOL)arg2;
-- (void)setOrientation:(int)arg1;
-- (int)orientation;
++ (int)fullscreenStyle;
++ (float)defaultHeight;
++ (float)defaultHeightForOrientation:(int)arg1;
++ (float)defaultHeightForStyle:(int)arg1;
++ (float)defaultHeightForStyle:(int)arg1 orientation:(int)arg2;
++ (id)upsideDownShadowImage;
++ (id)_backgroundImage;
+@property(readonly) UIImageView *shadowView; // @synthesize shadowView=_shadowView;
+@property(nonatomic) BOOL suppressDrawingBackground; // @synthesize suppressDrawingBackground=_suppressDrawingBackground;
+- (void)setWellAlpha:(float)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)layoutSubviews;
+- (int)orientation;
+- (void)setOrientation:(int)arg1;
+- (void)setOrientation:(int)arg1 updateFrame:(BOOL)arg2;
+- (void)dealloc;
+- (id)init;
+- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithDefaultSizeForOrientation:(int)arg1;
+- (id)initWithDefaultSize;
 
 @end
 

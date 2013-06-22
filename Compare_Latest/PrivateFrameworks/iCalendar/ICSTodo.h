@@ -19,6 +19,7 @@
 @property int percentComplete;
 @property(retain) ICSDate *completed;
 - (BOOL)validate:(id *)arg1;
+- (void)fixComponent;
 
 // Remaining properties
 @property(retain) NSArray *attach; // @dynamic attach;

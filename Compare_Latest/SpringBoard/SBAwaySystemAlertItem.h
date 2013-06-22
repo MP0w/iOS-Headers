@@ -21,18 +21,18 @@
     BOOL _isAlarm;
 }
 
-- (id)initWithSystemAlert:(id)arg1;
-- (void)dealloc;
-- (id)currentAlert;
-- (void)setCurrentAlert:(id)arg1;
-- (id)message;
-- (id)title;
-- (id)iconImage;
-- (id)sortDate;
-- (id)buttonLabels;
-- (void)buttonPressedAtIndex:(int)arg1;
-- (int)cancelButtonIndex;
 - (BOOL)isAlarm;
+- (int)cancelButtonIndex;
+- (void)buttonPressedAtIndex:(int)arg1;
+- (id)buttonLabels;
+- (id)sortDate;
+- (id)iconImage;
+- (id)title;
+- (id)message;
+- (void)setCurrentAlert:(id)arg1;
+- (id)currentAlert;
+- (void)dealloc;
+- (id)initWithSystemAlert:(id)arg1;
 
 @end
 

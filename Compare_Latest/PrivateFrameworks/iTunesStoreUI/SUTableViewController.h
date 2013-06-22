@@ -54,8 +54,8 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)setScriptProperties:(id)arg1;
-- (void)purgeMemoryForReason:(int)arg1;
 - (void)loadView;
+- (void)didReceiveMemoryWarning;
 - (id)copyScriptProperties;
 - (id)copyDefaultScriptProperties;
 - (id)copyArchivableContext;

@@ -13,8 +13,8 @@
     EDStyle *edStyle;
 }
 
-- (id)initWithEdStyle:(id)arg1;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id)initWithEdStyle:(id)arg1;
 
 @end
 

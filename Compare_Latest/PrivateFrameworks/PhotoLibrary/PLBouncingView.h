@@ -10,8 +10,14 @@
 {
     int _captureOrientation;
     BOOL _isFlipped;
+    struct CGSize _captureDimensions;
+    struct CGRect _animationLandFrame;
+    struct CGRect _animationEndFrame;
 }
 
+@property(nonatomic) struct CGRect animationEndFrame; // @synthesize animationEndFrame=_animationEndFrame;
+@property(nonatomic) struct CGRect animationLandFrame; // @synthesize animationLandFrame=_animationLandFrame;
+@property(nonatomic) struct CGSize captureDimensions; // @synthesize captureDimensions=_captureDimensions;
 @property(nonatomic) BOOL isFlipped; // @synthesize isFlipped=_isFlipped;
 @property(nonatomic) int captureOrientation; // @synthesize captureOrientation=_captureOrientation;
 

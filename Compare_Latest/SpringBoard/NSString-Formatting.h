@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (Formatting)
-- (id)ICCID;
 - (id)IMEI;
+- (id)ICCID;
 @end
 

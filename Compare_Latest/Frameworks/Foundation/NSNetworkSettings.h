@@ -22,6 +22,9 @@
 - (id)proxyDictionary;
 - (void)dealloc;
 - (id)init;
+- (id)_init;
+- (void)_listenForProxySettingChanges;
+- (void)_updateProxySettings;
 
 @end
 

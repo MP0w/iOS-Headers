@@ -8,30 +8,23 @@
 
 #import "ISSingleton-Protocol.h"
 
-@class NSString;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface ISDevice : NSObject <ISSingleton>
 {
     unsigned int _daemonLaunchCount;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSString *_guid;
-    BOOL _pluggedIn;
-    int _pluggedInToken;
+    double _lastFreeSpaceRequest;
 }
 
 + (id)sharedInstance;
 + (void)setSharedInstance:(id)arg1;
-- (void)_setPluggedIn:(BOOL)arg1;
-- (void)_schedulePowerAssertionRelease:(id)arg1;
-- (BOOL)_releasePowerAssertion:(id)arg1;
-- (void)_cancelScheduledPowerAssertionRelease:(id)arg1;
+- (int)_deviceClass;
 - (id)supportedOfferDeviceForDevices:(id)arg1;
-- (void)daemonWillExitCleanly;
-- (void)daemonDidLaunch;
-- (unsigned int)daemonLaunchCount;
+- (void)requestFreeSpace:(unsigned long long)arg1 atPath:(id)arg2 withOptions:(id)arg3 completionBlock:(id)arg4;
 @property(readonly) NSString *systemName;
 @property(readonly) NSString *serialNumber;
-@property(readonly, getter=isPluggedIn) BOOL pluggedIn;
 @property(readonly) NSString *hardwareName;
 @property(readonly) NSString *guid;
 @property(readonly) NSString *deviceName;

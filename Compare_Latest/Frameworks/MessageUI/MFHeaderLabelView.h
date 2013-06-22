@@ -12,14 +12,16 @@
 {
     NSString *_label;
     unsigned int _highlighted:1;
+    unsigned int _drawsLetterPress:1;
 }
 
-- (id)initWithLabel:(id)arg1;
-- (struct CGColor *)labelColor;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)setLabel:(id)arg1;
-- (void)setLabelHighlighted:(BOOL)arg1;
 - (void)dealloc;
+- (void)setLabelHighlighted:(BOOL)arg1;
+- (void)setLabel:(id)arg1;
+- (void)drawRect:(struct CGRect)arg1;
+- (struct CGColor *)labelColor;
+- (id)initWithLabel:(id)arg1 withLetterpress:(BOOL)arg2;
+- (id)initWithLabel:(id)arg1;
 
 @end
 

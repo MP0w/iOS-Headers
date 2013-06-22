@@ -6,7 +6,7 @@
 
 #import <GameKit/GKTableViewControllerV2.h>
 
-@class GKAchievementSectionDataSource, GKGameRecord, GKTableViewCell, NSArray, NSMutableArray;
+@class GKAchievementSection, GKGameRecord, GKTableViewCell, NSArray, NSMutableArray;
 
 @interface GKAchievementViewControllerPrivate : GKTableViewControllerV2
 {
@@ -15,10 +15,10 @@
     GKGameRecord *_gameRecord;
     GKTableViewCell *_detailHeaderCell;
     BOOL _showRatingControl;
-    GKAchievementSectionDataSource *_achievementViewSection;
+    GKAchievementSection *_achievementViewSection;
 }
 
-@property(retain, nonatomic) GKAchievementSectionDataSource *achievementViewSection; // @synthesize achievementViewSection=_achievementViewSection;
+@property(retain, nonatomic) GKAchievementSection *achievementViewSection; // @synthesize achievementViewSection=_achievementViewSection;
 @property(nonatomic) BOOL showRatingControl; // @synthesize showRatingControl=_showRatingControl;
 @property(retain, nonatomic) GKTableViewCell *detailHeaderCell; // @synthesize detailHeaderCell=_detailHeaderCell;
 @property(retain, nonatomic) NSArray *achievements; // @synthesize achievements=_achievements;
@@ -26,13 +26,10 @@
 - (id)tokenImageForAchievement:(id)arg1 withCompletionHandler:(id)arg2;
 - (void)_gkResetContents;
 - (void)_gkUpdateContentsWithCompletionHandlerAndError:(id)arg1;
-- (void)updateStatusWithError:(id)arg1;
+- (BOOL)_gkShouldRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)reloadView;
 - (void)playTapped;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidUnload;
-- (void)localPlayerDidAuthenticate:(id)arg1;
 - (id)title;
 @property(nonatomic, getter=isPlayButtonVisible) BOOL playButtonVisible;
 - (float)marginForTableView:(id)arg1;

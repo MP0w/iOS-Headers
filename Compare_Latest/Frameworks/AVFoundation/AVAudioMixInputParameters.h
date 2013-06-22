@@ -23,6 +23,8 @@
 - (void)setVolume:(float)arg1 atTime:(CDStruct_1b6d18a9)arg2;
 - (void)setVolumeRampFromStartVolume:(float)arg1 toEndVolume:(float)arg2 timeRange:(CDStruct_e83c9415)arg3;
 - (void)_setVolumeRampFromStartVolume:(float)arg1 toEndVolume:(float)arg2 timeRange:(CDStruct_e83c9415)arg3;
+- (void)setAudioTapProcessor:(struct opaqueMTAudioProcessingTap *)arg1;
+@property(readonly, nonatomic) struct opaqueMTAudioProcessingTap *audioTapProcessor;
 - (void)setTrackID:(int)arg1;
 @property(readonly, nonatomic) int trackID;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

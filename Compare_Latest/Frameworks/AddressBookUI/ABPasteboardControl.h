@@ -10,14 +10,14 @@
 {
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)longPress:(id)arg1;
-- (BOOL)abShouldShowMenu;
-- (void)abMenuControllerWillShow:(id)arg1;
-- (void)abMenuControllerWillHide;
-- (void)menuControllerWillShow:(id)arg1;
 - (void)menuControllerWillHide:(id)arg1;
+- (void)menuControllerWillShow:(id)arg1;
+- (void)abMenuControllerWillHide;
+- (void)abMenuControllerWillShow:(id)arg1;
+- (BOOL)abShouldShowMenu;
+- (void)longPress:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

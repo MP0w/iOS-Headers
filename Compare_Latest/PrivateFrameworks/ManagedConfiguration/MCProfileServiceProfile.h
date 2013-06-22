@@ -18,19 +18,19 @@
     NSArray *_bogusPayloads;
 }
 
-- (id)_badDataTypeErrorWithFieldName:(id)arg1;
-- (id)_unsupportedValueErrorWithFieldName:(id)arg1 value:(id)arg2;
-- (id)initWithDictionary:(id)arg1 originalData:(id)arg2 wasEncrypted:(BOOL)arg3 allowEmptyPayload:(BOOL)arg4 outError:(id *)arg5;
-- (void)dealloc;
-- (id)localizedPayloadSummaryByType;
-- (id)payloads;
-- (id)stubDictionary;
+@property(readonly, nonatomic) BOOL confirmInstallation; // @synthesize confirmInstallation=_confirmInstallation;
+@property(retain, nonatomic) NSData *enrollmentIdentityPersistentID; // @synthesize enrollmentIdentityPersistentID=_enrollmentIdentityPersistentID;
+@property(readonly, nonatomic) id challenge; // @synthesize challenge=_challenge;
+@property(readonly, nonatomic) NSArray *deviceAttributes; // @synthesize deviceAttributes=_deviceAttributes;
+@property(retain, nonatomic) NSString *URLString; // @synthesize URLString=_URLString;
+- (void).cxx_destruct;
 - (id)description;
-@property(readonly) BOOL confirmInstallation; // @synthesize confirmInstallation=_confirmInstallation;
-@property(retain) NSData *enrollmentIdentityPersistentID; // @synthesize enrollmentIdentityPersistentID=_enrollmentIdentityPersistentID;
-@property(readonly) id challenge; // @synthesize challenge=_challenge;
-@property(readonly) NSArray *deviceAttributes; // @synthesize deviceAttributes=_deviceAttributes;
-@property(retain) NSString *URLString; // @synthesize URLString=_URLString;
+- (id)stubDictionary;
+- (id)payloads;
+- (id)localizedPayloadSummaryByType;
+- (id)initWithDictionary:(id)arg1 originalData:(id)arg2 wasEncrypted:(BOOL)arg3 allowEmptyPayload:(BOOL)arg4 outError:(id *)arg5;
+- (id)_unsupportedValueErrorWithFieldName:(id)arg1 value:(id)arg2;
+- (id)_badDataTypeErrorWithFieldName:(id)arg1;
 
 @end
 

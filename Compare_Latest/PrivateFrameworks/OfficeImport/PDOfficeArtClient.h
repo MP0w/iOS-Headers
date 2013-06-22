@@ -21,23 +21,23 @@
     int mInheritedTextStylePlaceholderType;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)hasBounds;
-- (struct CGRect)bounds;
-- (id)imageRecolorInfo;
-- (void)setImageRecolorInfo:(id)arg1;
-- (BOOL)hasPlaceholder;
-- (id)placeholder;
-- (void)setPlaceholder:(id)arg1;
-- (BOOL)isComment;
-- (void)setIsComment:(BOOL)arg1;
-- (BOOL)hasAnimationInfo;
-- (void)setAnimationInfo:(id)arg1;
-- (id)animationInfo;
-- (BOOL)hasOleChart;
-- (void)setHasOleChart:(BOOL)arg1;
 @property(nonatomic) int inheritedTextStylePlaceholderType; // @synthesize inheritedTextStylePlaceholderType=mInheritedTextStylePlaceholderType;
+- (void)setHasOleChart:(BOOL)arg1;
+- (BOOL)hasOleChart;
+- (id)animationInfo;
+- (void)setAnimationInfo:(id)arg1;
+- (BOOL)hasAnimationInfo;
+- (void)setIsComment:(BOOL)arg1;
+- (BOOL)isComment;
+- (void)setPlaceholder:(id)arg1;
+- (id)placeholder;
+- (BOOL)hasPlaceholder;
+- (void)setImageRecolorInfo:(id)arg1;
+- (id)imageRecolorInfo;
+- (struct CGRect)bounds;
+- (BOOL)hasBounds;
+- (void)dealloc;
+- (id)init;
 
 @end
 

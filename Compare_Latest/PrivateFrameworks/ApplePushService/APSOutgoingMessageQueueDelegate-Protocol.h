@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol APSOutgoingMessageQueueDelegate <NSObject>
+- (void)outgoingMessageQueueRequestCriticalMessageFlush:(id)arg1 withPaddingLength:(int)arg2;
 - (void)outgoingMessageQueue:(id)arg1 lateAcknowledgmentForCriticalOutgoingMessage:(id)arg2;
 @end
 

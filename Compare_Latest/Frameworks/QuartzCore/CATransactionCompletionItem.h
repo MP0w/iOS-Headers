@@ -12,9 +12,9 @@
 }
 
 + (id)completionItem;
-- (id)init;
-- (void)invalidate;
 - (void)dealloc;
+- (void)invalidate;
+- (id)init;
 
 @end
 

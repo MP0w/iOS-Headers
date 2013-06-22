@@ -19,6 +19,7 @@
     NSMutableDictionary *_containerContents;
 }
 
+- (void).cxx_destruct;
 - (BOOL)commitToLibrary:(id)arg1;
 - (void)reset;
 - (id)trackPersistentIDDataForContainerWithPersistentID:(long long)arg1;

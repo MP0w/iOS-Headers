@@ -6,20 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, PLPhotoLibrary;
+@class ALAssetsLibrary, NSHashTable, NSMutableDictionary, PLPhotoLibrary;
 
 @interface ALAssetsLibraryPrivate : NSObject
 {
+    ALAssetsLibrary *_assetsLibrary;
     PLPhotoLibrary *_photoLibrary;
-    NSMutableArray *_assets;
+    NSHashTable *_assetGroupInternals;
+    NSMutableDictionary *_groupURLSByAlbumOID;
     BOOL _isValid;
 }
 
 @property(nonatomic) BOOL isValid; // @synthesize isValid=_isValid;
-@property(retain, nonatomic) NSMutableArray *assets; // @synthesize assets=_assets;
-@property(retain, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
+@property(nonatomic) ALAssetsLibrary *assetsLibrary; // @synthesize assetsLibrary=_assetsLibrary;
 - (void)dealloc;
-- (id)init;
+- (void)registerAlbum:(struct NSObject *)arg1 assetGroupPrivate:(id)arg2;
+- (void)photoLibraryDidChange:(id)arg1;
+@property(readonly, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
+- (id)initWithAssetsLibrary:(id)arg1;
 
 @end
 

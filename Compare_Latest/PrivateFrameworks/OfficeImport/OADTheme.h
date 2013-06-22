@@ -16,16 +16,16 @@
     OADDefaultProperties *mTextDefaults;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)baseStyles;
-- (void)addDefaults;
-- (id)shapeDefaults;
-- (id)addShapeDefaults;
-- (id)lineDefaults;
-- (id)addLineDefaults;
-- (id)textDefaults;
 - (id)addTextDefaults;
+- (id)textDefaults;
+- (id)addLineDefaults;
+- (id)lineDefaults;
+- (id)addShapeDefaults;
+- (id)shapeDefaults;
+- (void)addDefaults;
+- (id)baseStyles;
+- (void)dealloc;
+- (id)init;
 
 @end
 

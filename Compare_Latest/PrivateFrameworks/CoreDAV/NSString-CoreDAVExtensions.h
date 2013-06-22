@@ -14,7 +14,6 @@
 - (id)CDVStringByXMLUnquoting;
 - (id)CDVStringByXMLQuoting;
 - (id)CDVStringByAddingPercentEscapesForUserOrPassword;
-- (BOOL)CDVIsEqualToXmlCharString:(const char *)arg1;
 - (BOOL)CDVIsHTTPStatusLineWithStatusCode:(int)arg1;
 - (id)CDVStringByRemovingTerminatingSlashIfNeeded;
 - (id)CDVStringByAppendingSlashIfNeeded;

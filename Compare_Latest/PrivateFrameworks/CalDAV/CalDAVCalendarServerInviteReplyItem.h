@@ -6,20 +6,34 @@
 
 #import "CoreDAVItem.h"
 
+@class CoreDAVHrefItem, CoreDAVItemWithHrefChildItem, CoreDAVItemWithNoChildren, CoreDAVLeafItem, NSString, NSURL;
+
 @interface CalDAVCalendarServerInviteReplyItem : CoreDAVItem
 {
-    CoreDAVItem *_href;
-    CoreDAVItem *_inviteStatus;
-    CoreDAVItem *_hostURL;
-    CoreDAVItem *_inReplyTo;
-    CoreDAVItem *_summary;
+    CoreDAVHrefItem *_href;
+    CoreDAVItemWithNoChildren *_inviteStatus;
+    CoreDAVItemWithHrefChildItem *_hostURL;
+    CoreDAVLeafItem *_inReplyTo;
+    CoreDAVLeafItem *_summary;
+    NSString *_firstName;
+    NSString *_lastName;
+    NSURL *_acceptedURL;
 }
 
-@property(readonly, retain) CoreDAVItem *summary; // @synthesize summary=_summary;
-@property(readonly, retain) CoreDAVItem *inReplyTo; // @synthesize inReplyTo=_inReplyTo;
-@property(readonly, retain) CoreDAVItem *hostURL; // @synthesize hostURL=_hostURL;
-@property(readonly, retain) CoreDAVItem *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
-@property(readonly, retain) CoreDAVItem *href; // @synthesize href=_href;
+@property(retain) NSURL *acceptedURL; // @synthesize acceptedURL=_acceptedURL;
+@property(retain) NSString *lastName; // @synthesize lastName=_lastName;
+@property(retain) NSString *firstName; // @synthesize firstName=_firstName;
+@property(retain) CoreDAVLeafItem *summary; // @synthesize summary=_summary;
+@property(retain) CoreDAVLeafItem *inReplyTo; // @synthesize inReplyTo=_inReplyTo;
+@property(retain) CoreDAVItemWithHrefChildItem *hostURL; // @synthesize hostURL=_hostURL;
+@property(retain) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
+@property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
+- (id)copyParseRules;
+- (void)setAcceptedURLItem:(id)arg1;
+- (void)setLastNameItem:(id)arg1;
+- (void)setFirstNameItem:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

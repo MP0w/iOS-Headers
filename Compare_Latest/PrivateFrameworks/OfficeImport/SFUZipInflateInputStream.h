@@ -14,26 +14,27 @@
     long long mOffset;
     id <SFUBufferedInputStream> mInput;
     char *mOutBuffer;
-    unsigned int mOutBufferSize;
+    unsigned long mOutBufferSize;
     BOOL mReachedEnd;
     BOOL mIsFromZip;
-    unsigned int mCalculatedCrc;
-    unsigned int mCheckCrc;
+    unsigned long mCalculatedCrc;
+    unsigned long mCheckCrc;
 }
 
-- (id)initWithOffset:(long long)arg1 end:(long long)arg2 uncompressedSize:(unsigned long long)arg3 crc:(unsigned long)arg4 dataRepresentation:(id)arg5;
-- (id)initWithInput:(id)arg1;
-- (void)dealloc;
-- (unsigned long)readToOwnBuffer:(const char **)arg1 size:(unsigned long)arg2;
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
-- (void)seekToOffset:(long long)arg1;
-- (BOOL)canSeek;
-- (long long)offset;
-- (void)disableSystemCaching;
-- (void)enableSystemCaching;
-- (void)close;
-- (id)closeLocalStream;
 - (long long)totalCompressedBytesConsumed;
+- (id)closeLocalStream;
+- (void)close;
+- (void)enableSystemCaching;
+- (void)disableSystemCaching;
+- (long long)offset;
+- (BOOL)canSeek;
+- (void)seekToOffset:(long long)arg1;
+- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
+- (unsigned long)readToOwnBuffer:(const char **)arg1 size:(unsigned long)arg2;
+- (void)dealloc;
+- (id)initWithInput:(id)arg1;
+- (id)initWithOffset:(long long)arg1 end:(long long)arg2 uncompressedSize:(unsigned long long)arg3 crc:(unsigned long)arg4 dataRepresentation:(id)arg5;
+- (void)setupInflateStream;
 
 @end
 

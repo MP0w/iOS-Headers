@@ -33,24 +33,24 @@
     NSString *mGroupId;
 }
 
-+ (void)loadAnimationCache:(id)arg1 pdAnimation:(id)arg2 state:(id)arg3;
 + (id)createAnimationInfoDataForCacheItem:(id)arg1 order:(unsigned int)arg2;
-- (id)initWithAnimationInfo:(id)arg1;
-- (void)dealloc;
-@property(nonatomic) double delay; // @synthesize delay=mDelay;
-@property(nonatomic) double duration; // @synthesize duration=mDuration;
-@property(nonatomic) double direction; // @synthesize direction=mDirection;
-@property(nonatomic) int partCount; // @synthesize partCount=mPartCount;
-@property(nonatomic) double value; // @synthesize value=mValue;
++ (void)loadAnimationCache:(id)arg1 pdAnimation:(id)arg2 state:(id)arg3;
++ (void)mapAnimationInfo:(id)arg1 cacheData:(id)arg2 state:(id)arg3;
++ (void)mapCommonData:(id)arg1 cacheData:(id)arg2 state:(id)arg3;
 @property(retain, nonatomic) PDBuild *build; // @synthesize build=mBuild;
 @property(nonatomic) int level; // @synthesize level=mLevel;
 @property(nonatomic) BOOL isHead; // @synthesize isHead=mIsHead;
 @property(retain, nonatomic) NSString *groupId; // @synthesize groupId=mGroupId;
+@property(nonatomic) double value; // @synthesize value=mValue;
 @property(nonatomic) BOOL hasValue; // @synthesize hasValue=mHasValue;
 @property(retain, nonatomic) PDAnimateMotionBehavior *motionPath; // @synthesize motionPath=mMotionPath;
+@property(nonatomic) int partCount; // @synthesize partCount=mPartCount;
 @property(nonatomic) BOOL hasPartCount; // @synthesize hasPartCount=mHasPartCount;
+@property(nonatomic) double direction; // @synthesize direction=mDirection;
 @property(nonatomic) BOOL hasDirection; // @synthesize hasDirection=mHasDirection;
+@property(nonatomic) double duration; // @synthesize duration=mDuration;
 @property(nonatomic) BOOL hasDuration; // @synthesize hasDuration=mHasDuration;
+@property(nonatomic) double delay; // @synthesize delay=mDelay;
 @property(nonatomic) BOOL hasDelay; // @synthesize hasDelay=mHasDelay;
 @property(nonatomic) int iterateType; // @synthesize iterateType=mIterateType;
 @property(nonatomic) int presetClass; // @synthesize presetClass=mPresetClass;
@@ -58,6 +58,8 @@
 @property(nonatomic) int presetId; // @synthesize presetId=mPresetId;
 @property(nonatomic) int nodeType; // @synthesize nodeType=mNodeType;
 @property(retain, nonatomic) PDAnimationTargetElement *targetElement; // @synthesize targetElement=mTargetElement;
+- (void)dealloc;
+- (id)initWithAnimationInfo:(id)arg1;
 
 @end
 

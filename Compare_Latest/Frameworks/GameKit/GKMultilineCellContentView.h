@@ -6,7 +6,7 @@
 
 #import <GameKit/GKImageCellContents.h>
 
-@class NSArray;
+@class NSArray, UIImage;
 
 @interface GKMultilineCellContentView : GKImageCellContents
 {
@@ -16,11 +16,16 @@
     NSArray *_lines;
     int _disclosureStyle;
     struct CGRect _confirmationButtonRect;
+    UIImage *_accessoryImage;
+    struct UIEdgeInsets _accessoryImageInsets;
 }
 
 + (id)threeLineContentViewWithTheme:(id)arg1 shouldHighlight:(BOOL)arg2;
++ (id)twoLineContentViewWithTheme:(id)arg1;
 + (id)oneLineContentViewWithTheme:(id)arg1;
 + (id)threeLineContentViewWithTheme:(id)arg1;
+@property(nonatomic) struct UIEdgeInsets accessoryImageInsets; // @synthesize accessoryImageInsets=_accessoryImageInsets;
+@property(retain, nonatomic) UIImage *accessoryImage; // @synthesize accessoryImage=_accessoryImage;
 @property(nonatomic) struct CGRect confirmationButtonRect; // @synthesize confirmationButtonRect=_confirmationButtonRect;
 @property(nonatomic) int disclosureStyle; // @synthesize disclosureStyle=_disclosureStyle;
 @property(retain, nonatomic) NSArray *lines; // @synthesize lines=_lines;
@@ -32,14 +37,15 @@
 - (BOOL)isAccessibilityElement;
 - (void)prepareForReuse;
 - (void)drawLines:(id)arg1 inRect:(struct CGRect)arg2;
-- (void)drawImage:(id)arg1 inRect:(struct CGRect)arg2;
+- (void)adjustLineRects:(struct CGRect *)arg1 forLines:(id)arg2 inTextRect:(struct CGRect)arg3;
 - (void)drawRect:(struct CGRect)arg1;
+- (struct CGRect)accessoryImageRectForContentRect:(struct CGRect)arg1;
 - (struct CGRect)textRectForContentRect:(struct CGRect)arg1;
-- (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;
 - (struct CGRect)contentRectForBounds:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL showingConfirmationButton;
 - (void)setFont:(id)arg1 forLine:(unsigned int)arg2;
 - (void)setTextColor:(id)arg1 forLine:(unsigned int)arg2;
+- (void)setAttributedHighlightedText:(id)arg1 forLine:(unsigned int)arg2;
 - (void)setAttributedText:(id)arg1 forLine:(unsigned int)arg2;
 - (void)setText:(id)arg1 forLine:(unsigned int)arg2;
 - (id)lineAtIndex:(unsigned int)arg1;

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIImageView.h>
 
-@class UIColor, UIView, _UISegmentedControlAppearanceStorage;
+@class NSArray, NSString, UIColor, UIView, _UIBadgeView, _UISegmentedControlAppearanceStorage;
 
 @interface UISegment : UIImageView
 {
@@ -16,6 +16,10 @@
     struct CGSize _contentOffset;
     UIColor *_tintColor;
     int _barStyle;
+    unsigned int _rightSegmentState;
+    NSString *_badgeValue;
+    _UIBadgeView *_badgeView;
+    id _objectValue;
     struct {
         unsigned int style:3;
         unsigned int size:2;
@@ -28,29 +32,37 @@
         unsigned int autosizeText:1;
         unsigned int isMomentary:1;
     } _segmentFlags;
+    NSArray *_infoConstraints;
 }
 
+@property(copy, nonatomic, setter=_setInfoConstraints:) NSArray *_infoConstraints; // @synthesize _infoConstraints;
+- (id)viewForBaselineLayout;
 - (float)_idealWidth;
-- (float)_paddingForLeft:(BOOL)arg1;
+- (struct UIEdgeInsets)_paddingInsets;
 - (BOOL)useBlockyMagnificationInClassic;
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)infoName;
-- (id)info;
-- (void)setInfo:(id)arg1;
+- (id)objectValue;
+- (void)setObjectValue:(id)arg1;
 - (void)setContentOffset:(struct CGSize)arg1;
 - (void)setPosition:(unsigned int)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_positionInfo;
+- (void)updateConstraints;
+- (void)_invalidateInfoConstraints;
 - (struct CGSize)contentSize;
 - (float)_barHeight;
 - (struct CGRect)contentRect;
+- (struct CGRect)_contentRectForBounds:(struct CGRect)arg1;
 - (void)animateRemoveForWidth:(float)arg1;
 - (void)animateAdd:(BOOL)arg1;
 - (void)setShowDivider:(BOOL)arg1;
 @property int controlSize;
 @property(getter=isMomentary) BOOL momentary;
+@property(readonly) UIView *badgeView;
+@property(copy, nonatomic) NSString *badgeValue;
 - (void)setHighlighted:(BOOL)arg1;
 - (BOOL)isHighlighted;
 @property(getter=isSelected) BOOL selected;
@@ -69,10 +81,11 @@
 - (id)_texturedRightCapImage;
 - (id)_texturedLeftCapImage;
 - (void)_tileImage:(id)arg1 inRect:(struct CGRect)arg2;
-- (void)updateDividerViewToMatchSegment:(id)arg1;
+- (void)updateDividerViewForChangedSegment:(id)arg1;
 - (void)insertDividerView;
-- (id)_dividerImageForRight:(BOOL)arg1;
-- (id)_dividerImageForRight:(BOOL)arg1 isCustom:(char *)arg2;
+- (id)_dividerImage;
+- (void)updateForAppearance:(id)arg1 style:(int)arg2;
+- (id)_dividerImageIsCustom:(char *)arg1;
 - (unsigned int)_segmentState;
 - (BOOL)_isInMiniBar;
 - (void)dealloc;

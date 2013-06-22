@@ -11,9 +11,9 @@
     unsigned int _port;
 }
 
-- (id)init;
-- (void)dealloc;
 - (unsigned int)port;
+- (void)dealloc;
+- (id)init;
 
 @end
 

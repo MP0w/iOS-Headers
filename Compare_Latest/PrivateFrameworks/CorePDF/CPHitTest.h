@@ -15,17 +15,22 @@
     float mapTemp;
 }
 
-- (id)initWithPage:(id)arg1;
-- (void)dealloc;
-- (id)page;
-- (id)paragraph:(struct CGPoint)arg1;
-- (id)paragraphNear:(struct CGPoint)arg1;
-- (id)layoutArea:(struct CGPoint)arg1;
-- (unsigned int)columnsAt:(struct CGPoint)arg1;
-- (id)column:(struct CGPoint)arg1;
-- (id)textLine:(struct CGPoint)arg1;
-- (id)objectAtPoint:(struct CGPoint)arg1;
 - (int)compareByReadingOrder:(struct CGPoint)arg1 to:(struct CGPoint)arg2;
+- (id)objectAtPoint:(struct CGPoint)arg1;
+- (id)textLine:(struct CGPoint)arg1;
+- (id)column:(struct CGPoint)arg1;
+- (unsigned int)columnsAt:(struct CGPoint)arg1;
+- (id)layoutArea:(struct CGPoint)arg1;
+- (id)paragraphNear:(struct CGPoint)arg1;
+- (id)paragraph:(struct CGPoint)arg1;
+- (id)page;
+- (void)dealloc;
+- (id)initWithPage:(id)arg1;
+- (id)findObjectIn:(id)arg1 at:(struct CGPoint)arg2 count:(int *)arg3;
+- (id)findBestMatch:(id)arg1 atPoint:(struct CGPoint)arg2;
+- (BOOL)hitTestParagraph:(id)arg1 point:(struct CGPoint)arg2;
+- (BOOL)hitTestGraphicObject:(id)arg1 point:(struct CGPoint)arg2;
+- (void)findClickableObjects:(BOOL)arg1;
 
 @end
 

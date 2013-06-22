@@ -6,39 +6,40 @@
 
 #import <AddressBook/ABPredicate.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface ABNamePredicate : ABPredicate
 {
     void *_addressBook;
     NSString *_name;
-    void *_source;
-    void *_group;
-    NSString *_accountIdentifier;
-    BOOL _showPersonLinks;
     BOOL _matchWholeWords;
-    BOOL _matchNameOnly;
-    struct __CFArray *_tokenizations;
+    BOOL _matchPersonOrCompanyNamesExclusively;
+    BOOL _matchPreferredName;
+    void *_tokenizations;
     struct __CFArray *_tokenizationSortKeys;
+    NSArray *_groups;
+    NSArray *_sources;
 }
 
-- (id)init;
-- (void)dealloc;
+@property(retain, nonatomic) NSArray *sources; // @synthesize sources=_sources;
+@property(retain, nonatomic) NSArray *groups; // @synthesize groups=_groups;
+@property(nonatomic) BOOL matchPreferredName; // @synthesize matchPreferredName=_matchPreferredName;
+@property(nonatomic) BOOL matchPersonOrCompanyNamesExclusively; // @synthesize matchPersonOrCompanyNamesExclusively=_matchPersonOrCompanyNamesExclusively;
+@property(nonatomic) BOOL matchWholeWords; // @synthesize matchWholeWords=_matchWholeWords;
 @property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(nonatomic) void *group; // @synthesize group=_group;
-@property(nonatomic) void *source; // @synthesize source=_source;
-- (struct __CFArray *)tokenizations;
-- (BOOL)isValid;
-- (id)queryJoinsInCompound:(BOOL)arg1;
-- (id)queryWhereString;
-- (void)_doBindingWithStatement:(struct CPSqliteStatement *)arg1 bindingOffset:(int *)arg2;
-- (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
 - (id)predicateFormat;
-@property(nonatomic) BOOL matchNameOnly; // @synthesize matchNameOnly=_matchNameOnly;
-@property(nonatomic) BOOL matchWholeWords; // @synthesize matchWholeWords=_matchWholeWords;
-@property(nonatomic) BOOL showPersonLinks; // @synthesize showPersonLinks=_showPersonLinks;
-@property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
+- (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
+- (id)queryWhereString;
+- (id)_personNameKeys;
+- (id)queryJoinsInCompound:(BOOL)arg1;
+- (BOOL)isValid;
+- (void *)tokenizations;
+@property(copy, nonatomic) NSString *accountIdentifier;
+@property(nonatomic) void *group;
+@property(nonatomic) void *source;
+- (void)dealloc;
+- (id)init;
 
 @end
 

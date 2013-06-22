@@ -6,14 +6,16 @@
 
 #import "UIView.h"
 
-@class UIImageView;
+@class MPAVController, UIImageView;
 
 @interface MPMovieTVHUDView : UIView
 {
     unsigned int _currentState;
     UIImageView *_playbackMode;
+    MPAVController *_player;
 }
 
+@property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
 - (void)_playbackStateDidChangeNotification:(id)arg1;
 - (void)animationDidStop:(id)arg1;
 - (void)_fadeOut;

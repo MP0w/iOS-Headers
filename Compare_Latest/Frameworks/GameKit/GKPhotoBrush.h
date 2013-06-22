@@ -14,8 +14,10 @@
     struct UIEdgeInsets _edgeInsets;
     struct CGRect _contentRect;
     float _rotation;
+    BOOL _flipHorizontal;
 }
 
+@property(nonatomic) BOOL flipHorizontal; // @synthesize flipHorizontal=_flipHorizontal;
 @property(nonatomic) float rotation; // @synthesize rotation=_rotation;
 @property(nonatomic) struct CGRect contentRect; // @synthesize contentRect=_contentRect;
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;

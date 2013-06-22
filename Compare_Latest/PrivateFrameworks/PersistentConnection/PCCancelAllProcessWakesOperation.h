@@ -10,8 +10,8 @@
 {
 }
 
-- (void)main;
 - (BOOL)doesPidMatchCurrentProcessName:(int)arg1;
+- (void)main;
 
 @end
 

@@ -26,8 +26,6 @@
 - (BOOL)_isValidServiceType:(int)arg1;
 - (void)dealloc;
 - (id)init;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

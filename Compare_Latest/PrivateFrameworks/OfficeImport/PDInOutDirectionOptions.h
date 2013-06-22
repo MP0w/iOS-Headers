@@ -11,8 +11,8 @@
     int mInOut;
 }
 
-- (int)inOut;
 - (void)setInOut:(int)arg1;
+- (int)inOut;
 
 @end
 

@@ -13,6 +13,9 @@
     id _internal;
 }
 
+- (_Bool)doingBiasEstimation;
+- (_Bool)doingYawCorrection;
+- (int)magneticFieldCalibrationLevel;
 @property(readonly, nonatomic) CDStruct_27fd20ed magneticField;
 @property(readonly, nonatomic) CDStruct_31142d93 userAcceleration;
 @property(readonly, nonatomic) CDStruct_31142d93 gravity;
@@ -23,7 +26,7 @@
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDeviceMotion:(CDStruct_2e6f786d)arg1 andTimestamp:(double)arg2;
+- (id)initWithDeviceMotion:(CDStruct_7fb6ae47)arg1 andTimestamp:(double)arg2;
 
 @end
 

@@ -4,8 +4,6 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@class CPChunk, CPFont;
-
 #pragma mark Named Structures
 
 struct CGAffineTransform {
@@ -48,7 +46,7 @@ struct CGSize {
 
 struct CPInlineContainer {
     unsigned int _field1;
-    CPChunk *_field2;
+    id _field2;
     struct CPInlineContainer *_field3;
 };
 
@@ -67,6 +65,8 @@ struct CPListInfo {
     void *_field12;
 };
 
+struct CPMultiUnicodes;
+
 struct CPPDFChar {
     struct CPPDFObject _field1;
     unsigned short _field2;
@@ -79,10 +79,10 @@ struct CPPDFChar {
 };
 
 struct CPPDFClipBuffer {
-    unsigned int top;
-    unsigned int currentIndex;
-    unsigned int *data;
-    unsigned int size;
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int *_field3;
+    unsigned int _field4;
 };
 
 struct CPPDFContext {
@@ -105,11 +105,12 @@ struct CPPDFContext {
     unsigned int _field17;
     unsigned int _field18;
     int _field19;
-    int _field20;
+    struct CPMultiUnicodes *_field20;
     int _field21;
-    unsigned int *_field22;
-    struct CGPath **_field23;
-    char _field24;
+    int _field22;
+    unsigned int *_field23;
+    struct CGPath **_field24;
+    char _field25;
 };
 
 struct CPPDFGraphicState;
@@ -127,9 +128,9 @@ struct CPPDFImage {
 };
 
 struct CPPDFObject {
-    struct CGRect bounds;
-    unsigned int clipIndex;
-    unsigned int insertionOrder;
+    struct CGRect _field1;
+    unsigned int _field2;
+    unsigned int _field3;
 };
 
 struct CPPDFShape {
@@ -154,7 +155,7 @@ struct CPPDFStyle {
     unsigned char _field8;
     int _field9;
     float _field10;
-    CPFont *_field11;
+    id _field11;
     float _field12;
     union CGPDFObject *_field13;
     union CGPDFObject *_field14;
@@ -163,14 +164,14 @@ struct CPPDFStyle {
 };
 
 struct PrimitiveBuffer {
-    void *data;
-    void *pos;
-    void *limit;
-    unsigned int size;
-    unsigned int previousSize;
-    unsigned int count;
-    unsigned int previousCount;
-    int index;
+    void *_field1;
+    void *_field2;
+    void *_field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    unsigned int _field7;
+    int _field8;
 };
 
 struct __CFDictionary;
@@ -208,9 +209,9 @@ typedef struct {
 } CDStruct_071390ef;
 
 typedef struct {
-    float x;
-    float width;
-} CDStruct_dcd939b8;
+    float _field1;
+    float _field2;
+} CDStruct_b2fbf00d;
 
 typedef struct {
     int location;
@@ -228,6 +229,13 @@ typedef struct {
     int *_field6;
     struct CPPDFStyle *_field7;
 } CDStruct_efade31e;
+
+typedef struct {
+    struct CGPoint _field1;
+    struct CGPoint _field2;
+    struct CGPoint _field3;
+    struct CGPoint _field4;
+} CDStruct_95077174;
 
 typedef struct {
     unsigned int _field1;

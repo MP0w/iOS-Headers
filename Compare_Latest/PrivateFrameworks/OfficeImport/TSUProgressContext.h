@@ -15,27 +15,32 @@
     double m_lastProgressReport;
 }
 
-+ (id)_singletonAlloc;
-+ (id)sharedContext;
-+ (id)allocWithZone:(struct _NSZone *)arg1;
-+ (void)reset;
-+ (void)addProgressObserver:(id)arg1 selector:(SEL)arg2;
-+ (void)removeProgressObserver:(id)arg1;
-+ (void)createStageWithSteps:(double)arg1 takingSteps:(double)arg2;
-+ (void)createStageWithSteps:(double)arg1;
-+ (void)nextSubStageWillTakeThisManyOfMySteps:(double)arg1;
-+ (void)endStage;
-+ (void)advanceProgress:(double)arg1;
-+ (void)setProgress:(double)arg1;
-+ (void)setPercentageProgressFromCPProgressContext:(double)arg1;
-+ (void)setMessage:(id)arg1;
-+ (double)currentPosition;
 + (double)overallProgress;
-- (id)retain;
-- (unsigned int)retainCount;
-- (void)release;
-- (id)autorelease;
++ (double)currentPosition;
++ (void)setMessage:(id)arg1;
++ (void)setPercentageProgressFromCPProgressContext:(double)arg1;
++ (void)setProgress:(double)arg1;
++ (void)advanceProgress:(double)arg1;
++ (void)endStage;
++ (void)nextSubStageWillTakeThisManyOfMySteps:(double)arg1;
++ (void)createStageWithSteps:(double)arg1;
++ (void)createStageWithSteps:(double)arg1 takingSteps:(double)arg2;
++ (void)removeProgressObserver:(id)arg1;
++ (void)addProgressObserver:(id)arg1 selector:(SEL)arg2;
++ (void)reset;
++ (id)allocWithZone:(struct _NSZone *)arg1;
++ (id)sharedContext;
++ (id)_singletonAlloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)autorelease;
+- (oneway void)release;
+- (unsigned int)retainCount;
+- (id)retain;
+- (void)reportProgress:(double)arg1 overallProgress:(double)arg2;
+- (id)currentStage;
+- (void)_reset;
+- (void)dealloc;
+- (id)init;
 
 @end
 

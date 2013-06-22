@@ -22,6 +22,7 @@
 - (void)forwardInvocation:(id)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
+- (void)_runMigServer;
 
 @end
 

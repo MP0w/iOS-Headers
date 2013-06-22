@@ -15,14 +15,16 @@
     NSArray *_miniSnapshots;
     NSArray *_addedIcons;
     BOOL _openFolderOnFinish;
+    id _completeBlock;
 }
 
-- (void)dealloc;
+@property(copy, nonatomic) id completeBlock; // @synthesize completeBlock=_completeBlock;
 @property(nonatomic) BOOL openFolderOnFinish; // @synthesize openFolderOnFinish=_openFolderOnFinish;
 @property(retain, nonatomic) NSArray *miniSnapshots; // @synthesize miniSnapshots=_miniSnapshots;
 @property(retain, nonatomic) NSArray *iconSnapshots; // @synthesize iconSnapshots=_iconSnapshots;
 @property(retain, nonatomic) NSArray *addedIcons; // @synthesize addedIcons=_addedIcons;
 @property(retain, nonatomic) SBFolderIcon *folderIcon; // @synthesize folderIcon=_folderIcon;
+- (void)dealloc;
 
 @end
 

@@ -13,10 +13,10 @@
     UITextView *_textView;
 }
 
-- (BOOL)handlesDoneButton;
-- (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
 - (void)setPreferenceSpecifier:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (void)dealloc;
+- (BOOL)handlesDoneButton;
 
 @end
 

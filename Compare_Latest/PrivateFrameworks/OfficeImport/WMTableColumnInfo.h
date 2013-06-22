@@ -13,12 +13,12 @@
     NSMutableArray *mStopArray;
 }
 
-- (id)initWithStopArray:(id)arg1;
-- (void)dealloc;
-- (float)stopAt:(unsigned int)arg1;
-- (void)mergeStopArray:(id)arg1;
-- (unsigned int)columnSpan:(float)arg1 at:(unsigned int)arg2;
 - (unsigned int)count;
+- (unsigned int)columnSpan:(float)arg1 at:(unsigned int)arg2;
+- (void)mergeStopArray:(id)arg1;
+- (float)stopAt:(unsigned int)arg1;
+- (void)dealloc;
+- (id)initWithStopArray:(id)arg1;
 
 @end
 

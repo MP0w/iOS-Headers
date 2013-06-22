@@ -61,7 +61,7 @@
 - (void)addTarget:(id)arg1 action:(SEL)arg2;
 - (void)completeBounceAnimation;
 - (void)_markDidMoveCalled;
-- (void)fadeOutWithDuration:(float)arg1;
+- (void)fadeOutWithDuration:(double)arg1;
 - (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)setAnchorPoint:(struct CGPoint)arg1 boundaryRect:(struct CGRect)arg2 animate:(BOOL)arg3;
 - (void)_layoutSubviews:(BOOL)arg1;
@@ -99,7 +99,7 @@
 @property(readonly, nonatomic) float UICalloutViewHorizontalPadding;
 @property(readonly, nonatomic) float UICalloutViewHorizontalMargin;
 @property(readonly, nonatomic) float UICalloutViewButtonPadding;
-@property(readonly, nonatomic) float UICalloutViewLayoutDuration;
+@property(readonly, nonatomic) double UICalloutViewLayoutDuration;
 @property(readonly, nonatomic) float UICalloutViewCapPaddingTop;
 @property(readonly, nonatomic) float UICalloutViewCapHeight;
 

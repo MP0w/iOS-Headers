@@ -10,7 +10,9 @@
 {
 }
 
++ (int)preferredVideoQuality;
 - (id)canonicalResponseForResponse:(id)arg1;
+- (id)initWithAction:(id)arg1;
 - (id)init;
 
 @end

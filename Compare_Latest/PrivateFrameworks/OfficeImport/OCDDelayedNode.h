@@ -12,14 +12,12 @@
     _Bool mLoaded;
 }
 
-+ (void)disableDelayedLoading;
-+ (void)enableDelayedLoading;
-- (void)dealloc;
-- (void)setDelayedContext:(id)arg1;
-- (id)delayedContext;
-- (_Bool)isLoaded;
-- (void)setLoaded:(_Bool)arg1;
 - (_Bool)load;
+- (void)setLoaded:(_Bool)arg1;
+- (_Bool)isLoaded;
+- (id)delayedContext;
+- (void)setDelayedContext:(id)arg1;
+- (void)dealloc;
 
 @end
 

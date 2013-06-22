@@ -12,15 +12,17 @@
 {
 }
 
-@property(copy) NSString *text;
-@property(copy) NSString *htmlFor;
-@property(copy) NSString *event;
-@property(copy) NSString *charset;
-- (BOOL)async;
-- (void)setAsync:(BOOL)arg1;
-@property BOOL defer;
-@property(copy) NSString *src;
+- (void)setCrossOrigin:(id)arg1;
+- (id)crossOrigin;
 @property(copy) NSString *type;
+@property(copy) NSString *src;
+@property BOOL defer;
+- (void)setAsync:(BOOL)arg1;
+- (BOOL)async;
+@property(copy) NSString *charset;
+@property(copy) NSString *event;
+@property(copy) NSString *htmlFor;
+@property(copy) NSString *text;
 
 @end
 

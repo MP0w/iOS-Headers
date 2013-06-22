@@ -20,8 +20,10 @@
     BOOL _ringtone;
     BOOL _purchased;
     BOOL _protected;
+    BOOL _private;
 }
 
+@property(nonatomic) BOOL private; // @synthesize private=_private;
 @property(nonatomic) BOOL protected; // @synthesize protected=_protected;
 @property(nonatomic) unsigned int duration; // @synthesize duration=_duration;
 @property(retain, nonatomic) NSString *artworkFile; // @synthesize artworkFile=_artworkFile;

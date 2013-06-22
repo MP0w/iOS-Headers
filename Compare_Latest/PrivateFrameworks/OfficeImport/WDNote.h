@@ -15,13 +15,13 @@
     BOOL mAutomaticNumbering;
 }
 
-- (id)text;
-- (id)reference;
-- (BOOL)automaticNumbering;
-- (void)setAutomaticNumbering:(BOOL)arg1;
-- (int)runType;
-- (id)initWithParagraph:(id)arg1 footnote:(BOOL)arg2;
 - (void)dealloc;
+- (id)initWithParagraph:(id)arg1 footnote:(BOOL)arg2;
+- (int)runType;
+- (void)setAutomaticNumbering:(BOOL)arg1;
+- (BOOL)automaticNumbering;
+- (id)reference;
+- (id)text;
 
 @end
 

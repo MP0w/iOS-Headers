@@ -13,11 +13,11 @@
     long long _rowid;
 }
 
-- (id)init;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 @property(nonatomic) long long rowid; // @synthesize rowid=_rowid;
 - (BOOL)hasRowid;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)init;
 
 @end
 

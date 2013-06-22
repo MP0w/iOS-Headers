@@ -6,23 +6,30 @@
 
 #import <AVFoundation/AVAssetWriterHelper.h>
 
-@class AVWeakReference;
+#import "AVAssetWriterFigAssetWriterNotificationHandlerDelegate-Protocol.h"
 
-@interface AVAssetWriterWritingHelper : AVAssetWriterHelper
+@class AVAssetWriterFigAssetWriterNotificationHandler, AVWeakReference, NSObject<OS_dispatch_queue>;
+
+@interface AVAssetWriterWritingHelper : AVAssetWriterHelper <AVAssetWriterFigAssetWriterNotificationHandlerDelegate>
 {
     AVWeakReference *_weakReference;
     struct OpaqueFigAssetWriter *_figAssetWriter;
+    NSObject<OS_dispatch_queue> *_figAssetWriterAccessQueue;
     BOOL _startSessionCalled;
+    AVAssetWriterFigAssetWriterNotificationHandler *_notificationHandler;
 }
 
-- (void)_handleFailedNotificationWithError:(id)arg1;
+- (void)finishWritingWithCompletionHandler:(id)arg1;
 - (void)finishWriting;
 - (void)cancelWriting;
+- (struct OpaqueFigAssetWriter *)_retainedFigAssetWriter;
 - (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
 - (void)startSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
 - (int)status;
+- (void)didReceiveFigAssetWriterNotificationWithSuccess:(BOOL)arg1 error:(id)arg2;
 - (void)finalize;
 - (void)dealloc;
+- (id)figTrackReferences;
 - (id)initWithConfigurationState:(id)arg1 error:(id *)arg2;
 - (id)initWithConfigurationState:(id)arg1;
 

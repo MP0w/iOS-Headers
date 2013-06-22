@@ -10,9 +10,17 @@
 {
 }
 
+- (void)_validateAllowedClass:(Class)arg1 forKey:(id)arg2 allowingInvocations:(BOOL)arg3;
+- (void)validateAllowedClass:(Class)arg1 forKey:(id)arg2;
+- (id)allowedClasses;
+- (id)decodePropertyListForKey:(id)arg1;
+- (id)decodeObjectOfClasses:(id)arg1 forKey:(id)arg2;
+- (id)decodeObjectOfClass:(Class)arg1 forKey:(id)arg2;
+- (BOOL)requiresSecureCoding;
 - (unsigned int)systemVersion;
 - (struct _NSZone *)objectZone;
 - (void)setObjectZone:(struct _NSZone *)arg1;
+- (void)setAllowedClasses:(id)arg1;
 - (const char *)decodeBytesForKey:(id)arg1 returnedLength:(unsigned int *)arg2;
 - (double)decodeDoubleForKey:(id)arg1;
 - (float)decodeFloatForKey:(id)arg1;
@@ -53,6 +61,18 @@
 - (void)decodeValueOfObjCType:(const char *)arg1 at:(void *)arg2;
 - (void)encodeDataObject:(id)arg1;
 - (void)encodeValueOfObjCType:(const char *)arg1 at:(const void *)arg2;
+- (struct CGRect)decodeRect;
+- (void)encodeRect:(struct CGRect)arg1;
+- (struct CGSize)decodeSize;
+- (void)encodeSize:(struct CGSize)arg1;
+- (struct CGPoint)decodePoint;
+- (void)encodePoint:(struct CGPoint)arg1;
+- (struct CGRect)decodeRectForKey:(id)arg1;
+- (struct CGSize)decodeSizeForKey:(id)arg1;
+- (struct CGPoint)decodePointForKey:(id)arg1;
+- (void)encodeRect:(struct CGRect)arg1 forKey:(id)arg2;
+- (void)encodeSize:(struct CGSize)arg1 forKey:(id)arg2;
+- (void)encodePoint:(struct CGPoint)arg1 forKey:(id)arg2;
 
 @end
 

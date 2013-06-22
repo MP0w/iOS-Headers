@@ -10,9 +10,9 @@
 {
 }
 
-- (id)initWithTCPBuffer:(void *)arg1;
-- (id)contentForTCP;
 - (id)description;
+- (id)contentForTCP;
+- (id)initWithTCPBuffer:(void *)arg1;
 
 @end
 

@@ -6,11 +6,10 @@
 
 #import <UIKit/UIControl.h>
 
-@class NSString, UITableCell;
+@class NSString;
 
 @interface UIRemoveControlTextButton : UIControl
 {
-    UITableCell *_tableCell;
     NSString *_label;
 }
 

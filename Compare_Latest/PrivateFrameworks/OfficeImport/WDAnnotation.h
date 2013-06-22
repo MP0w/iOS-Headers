@@ -19,20 +19,20 @@
     WDAnnotation *mOtherEndOfRangedAnnotation;
 }
 
-- (id)initWithParagraph:(id)arg1 type:(int)arg2;
-- (id)text;
-- (id)reference;
-- (BOOL)referencePropertiesFixed;
-- (void)setReferencePropertiesFixed;
-- (int)runType;
-- (int)annotationType;
-- (id)date;
-- (void)setDate:(id)arg1;
-- (id)owner;
-- (void)setOwner:(id)arg1;
-- (id)otherEndOfRangedAnnotation;
-- (void)setOtherEndOfRangedAnnotation:(id)arg1;
 - (void)dealloc;
+- (void)setOtherEndOfRangedAnnotation:(id)arg1;
+- (id)otherEndOfRangedAnnotation;
+- (void)setOwner:(id)arg1;
+- (id)owner;
+- (void)setDate:(id)arg1;
+- (id)date;
+- (int)annotationType;
+- (int)runType;
+- (void)setReferencePropertiesFixed;
+- (BOOL)referencePropertiesFixed;
+- (id)reference;
+- (id)text;
+- (id)initWithParagraph:(id)arg1 type:(int)arg2;
 
 @end
 

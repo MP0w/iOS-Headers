@@ -18,17 +18,17 @@
     BOOL m_requiresSecondTouchInRange;
 }
 
-- (id)initForOffscreenEdge:(int)arg1;
-- (void)reset;
-@property(nonatomic) float edgeMargin; // @synthesize edgeMargin=m_edgeMargin;
-@property(nonatomic) float falseEdge; // @synthesize falseEdge=m_falseEdge;
-- (BOOL)firstTouchInRange:(struct CGPoint)arg1;
-- (BOOL)secondTouchInRange:(struct CGPoint)arg1;
-- (void)_updateAnimationDistanceAndEdgeCenter;
-- (void)updateForBeganOrMovedTouches:(struct __SBGestureContext *)arg1;
 @property(nonatomic) float edgeCenter; // @synthesize edgeCenter=m_edgeCenter;
 @property(nonatomic) BOOL requiresSecondTouchInRange; // @synthesize requiresSecondTouchInRange=m_requiresSecondTouchInRange;
 @property(nonatomic) float allowableDistanceFromEdgeCenter; // @synthesize allowableDistanceFromEdgeCenter=m_allowableDistanceFromEdgeCenter;
+@property(nonatomic) float falseEdge; // @synthesize falseEdge=m_falseEdge;
+@property(nonatomic) float edgeMargin; // @synthesize edgeMargin=m_edgeMargin;
+- (void)updateForBeganOrMovedTouches:(struct __SBGestureContext *)arg1;
+- (void)_updateAnimationDistanceAndEdgeCenter;
+- (BOOL)secondTouchInRange:(struct CGPoint)arg1;
+- (BOOL)firstTouchInRange:(struct CGPoint)arg1;
+- (void)reset;
+- (id)initForOffscreenEdge:(int)arg1;
 
 @end
 

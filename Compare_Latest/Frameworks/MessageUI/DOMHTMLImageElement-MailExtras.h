@@ -7,8 +7,8 @@
 #import "DOMHTMLImageElement.h"
 
 @interface DOMHTMLImageElement (MailExtras)
-- (void)mf_constrainImageToSize:(struct CGSize)arg1;
-- (void)mf_unconstrainImageSize;
 - (void)recursivelyRemoveMailAttributes;
+- (void)mf_unconstrainImageSize;
+- (void)mf_constrainImageToSize:(struct CGSize)arg1;
 @end
 

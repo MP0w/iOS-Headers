@@ -6,7 +6,14 @@
 
 #import "NSURL.h"
 
-@interface NSURL (QLPreviewConvenienceAdditions)
-- (id)previewItemURL;
+#import "QLPreviewItem-Protocol.h"
+
+@class NSString;
+
+@interface NSURL (QLPreviewConvenienceAdditions) <QLPreviewItem>
+@property(readonly) NSURL *previewItemURL;
+
+// Remaining properties
+@property(readonly) NSString *previewItemTitle;
 @end
 

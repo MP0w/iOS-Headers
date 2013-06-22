@@ -12,28 +12,32 @@
 {
 }
 
-@property(readonly, retain) DOMHTMLCollection *embeds;
-@property(readonly, retain) DOMHTMLCollection *plugins;
-@property(readonly, retain) DOMHTMLCollection *scripts;
-@property(readonly) int width;
-@property(readonly) int height;
-@property(copy) NSString *dir;
-@property(copy) NSString *designMode;
-@property(readonly, copy) NSString *compatMode;
-@property(readonly, retain) DOMElement *activeElement;
-@property(copy) NSString *bgColor;
-@property(copy) NSString *fgColor;
-@property(copy) NSString *alinkColor;
-@property(copy) NSString *linkColor;
-@property(copy) NSString *vlinkColor;
-- (void)open;
-- (void)close;
-- (void)write:(id)arg1;
-- (void)writeln:(id)arg1;
-- (void)clear;
-- (void)captureEvents;
-- (void)releaseEvents;
 - (BOOL)hasFocus;
+- (void)releaseEvents;
+- (void)captureEvents;
+- (void)clear;
+- (void)writeln:(id)arg1;
+- (void)write:(id)arg1;
+- (void)close;
+- (void)open;
+@property(copy) NSString *vlinkColor;
+@property(copy) NSString *linkColor;
+@property(copy) NSString *alinkColor;
+@property(copy) NSString *fgColor;
+@property(copy) NSString *bgColor;
+@property(readonly) DOMElement *activeElement;
+@property(readonly) NSString *compatMode;
+@property(copy) NSString *designMode;
+@property(copy) NSString *dir;
+@property(readonly) int height;
+@property(readonly) int width;
+@property(readonly) DOMHTMLCollection *scripts;
+@property(readonly) DOMHTMLCollection *plugins;
+@property(readonly) DOMHTMLCollection *embeds;
+- (id)createDocumentFragmentWithText:(id)arg1;
+- (id)createDocumentFragmentWithMarkupString:(id)arg1 baseURL:(id)arg2;
+- (id)_createDocumentFragmentWithText:(id)arg1;
+- (id)_createDocumentFragmentWithMarkupString:(id)arg1 baseURLString:(id)arg2;
 
 @end
 

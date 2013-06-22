@@ -19,6 +19,5 @@
 - (const char *)subtitleUTF8String;
 - (const char *)titleUTF8String;
 - (const char *)resultDisplayIdentifierUTF8String;
-- (int)resultDomain;
 @end
 

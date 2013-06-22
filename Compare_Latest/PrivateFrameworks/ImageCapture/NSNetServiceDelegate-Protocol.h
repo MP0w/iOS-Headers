@@ -9,13 +9,13 @@
 @protocol NSNetServiceDelegate <NSObject>
 
 @optional
-- (void)netServiceWillPublish:(id)arg1;
-- (void)netServiceDidPublish:(id)arg1;
-- (void)netService:(id)arg1 didNotPublish:(id)arg2;
-- (void)netServiceWillResolve:(id)arg1;
-- (void)netServiceDidResolveAddress:(id)arg1;
-- (void)netService:(id)arg1 didNotResolve:(id)arg2;
-- (void)netServiceDidStop:(id)arg1;
 - (void)netService:(id)arg1 didUpdateTXTRecordData:(id)arg2;
+- (void)netServiceDidStop:(id)arg1;
+- (void)netService:(id)arg1 didNotResolve:(id)arg2;
+- (void)netServiceDidResolveAddress:(id)arg1;
+- (void)netServiceWillResolve:(id)arg1;
+- (void)netService:(id)arg1 didNotPublish:(id)arg2;
+- (void)netServiceDidPublish:(id)arg1;
+- (void)netServiceWillPublish:(id)arg1;
 @end
 

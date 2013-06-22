@@ -13,11 +13,11 @@
     BOOL m_caseSensitive;
 }
 
-- (id)initWithStructs:(const struct CPEnumerationStruct *)arg1 count:(int)arg2;
-- (id)initWithStructs:(const struct CPEnumerationStruct *)arg1 count:(int)arg2 caseSensitive:(BOOL)arg3;
-- (void)dealloc;
-- (int)valueForString:(id)arg1;
 - (id)stringForValue:(int)arg1;
+- (int)valueForString:(id)arg1;
+- (void)dealloc;
+- (id)initWithStructs:(const struct CPEnumerationStruct *)arg1 count:(int)arg2 caseSensitive:(BOOL)arg3;
+- (id)initWithStructs:(const struct CPEnumerationStruct *)arg1 count:(int)arg2;
 
 @end
 

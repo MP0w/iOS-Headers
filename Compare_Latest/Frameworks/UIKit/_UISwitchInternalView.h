@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class UIColor, UIImage, UIImageView;
+@class CALayer, UIColor, UIImage, UIImageView;
 
 @interface _UISwitchInternalView : UIView
 {
@@ -20,24 +20,36 @@
     UIImageView *_colorView;
     UIImageView *_thumbView;
     UIImageView *_labelView;
+    UIColor *_onTintColor;
     UIColor *_tintColor;
+    UIColor *_thumbTintColor;
     UIColor *_nonAlternateColor;
+    UIImage *_onImage;
+    UIImage *_offImage;
     BOOL _on;
     BOOL _sendAction;
-    BOOL _useAleternateColor;
+    BOOL _useAlternateColor;
     BOOL _animating;
     UIImageView *_idleImageView;
     UIView *_interactiveView;
+    CALayer *_backgroundLayer;
 }
 
-@property(nonatomic) BOOL useAleternateColor; // @synthesize useAleternateColor=_useAleternateColor;
++ (id)_defaultOnTintColor;
+@property(retain, nonatomic) UIColor *thumbTintColor; // @synthesize thumbTintColor=_thumbTintColor;
+@property(nonatomic) BOOL useAlternateColor; // @synthesize useAlternateColor=_useAlternateColor;
 @property(nonatomic) BOOL on; // @synthesize on=_on;
 @property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
+@property(retain, nonatomic) UIColor *onTintColor; // @synthesize onTintColor=_onTintColor;
+@property(retain, nonatomic) UIImage *offImage;
+@property(retain, nonatomic) UIImage *onImage;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)_buildControl;
-- (id)_createLabelImage;
+- (void)_setupThumbImages;
+- (void)_setupBackgroundLayer;
+- (id)_labelImage;
 - (id)_colorImage;
 - (BOOL)sendAction;
 - (void)setSendAction:(BOOL)arg1;
@@ -52,7 +64,7 @@
 - (id)_snapshotImage;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)_setTintColor:(id)arg1;
+- (void)_setOnTintColor:(id)arg1;
 
 @end
 

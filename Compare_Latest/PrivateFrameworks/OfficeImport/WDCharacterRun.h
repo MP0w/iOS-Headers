@@ -15,20 +15,22 @@
     BOOL mBinaryWriterContentFlag;
 }
 
-- (void)dealloc;
-- (int)runType;
-- (id)properties;
-- (void)setPropertiesForDocument;
-- (void)clearProperties;
-- (id)string;
-- (void)setString:(id)arg1;
-- (void)appendString:(id)arg1;
-- (void)clearString;
-- (id)initWithParagraph:(id)arg1;
-- (id)initWithParagraph:(id)arg1 string:(id)arg2;
-- (void)removeLastCharacter:(unsigned short)arg1;
-- (void)copyPropertiesFrom:(id)arg1;
 - (BOOL)isEmpty;
+- (void)copyPropertiesFrom:(id)arg1;
+- (void)removeLastCharacter:(unsigned short)arg1;
+- (id)initWithParagraph:(id)arg1 string:(id)arg2;
+- (id)initWithParagraph:(id)arg1;
+- (void)clearString;
+- (void)appendString:(id)arg1;
+- (void)setString:(id)arg1;
+- (id)string;
+- (void)clearProperties;
+- (void)setPropertiesForDocument;
+- (id)properties;
+- (int)runType;
+- (void)dealloc;
+- (void)setBinaryWriterContentFlag:(BOOL)arg1;
+- (BOOL)binaryWriterContentFlag;
 
 @end
 

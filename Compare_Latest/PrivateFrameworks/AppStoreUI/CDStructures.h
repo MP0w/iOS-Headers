@@ -21,18 +21,6 @@ struct CGSize {
     float height;
 };
 
-struct UIEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
-};
-
-struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
-};
-
 #pragma mark Typedef'd Structures
 
 typedef struct {

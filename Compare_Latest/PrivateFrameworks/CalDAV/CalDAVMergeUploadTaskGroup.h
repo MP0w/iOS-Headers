@@ -15,11 +15,11 @@
     CalDAVBulkUploadTaskGroup *_uploadTaskGroup;
 }
 
-- (id)initWithCalendar:(id)arg1 principal:(id)arg2 accountInfoProvider:(id)arg3 taskManager:(id)arg4;
-- (void)dealloc;
-- (id)dataContentType;
-- (void)startTaskGroup;
 - (void)cancelTaskGroup;
+- (void)startTaskGroup;
+- (id)dataContentType;
+- (void)dealloc;
+- (id)initWithCalendar:(id)arg1 principal:(id)arg2 accountInfoProvider:(id)arg3 taskManager:(id)arg4;
 
 @end
 

@@ -8,8 +8,8 @@
 
 @interface MFQuotedPrintableEncoder : MFBaseFilterDataConsumer
 {
-    unsigned int _line;
-    unsigned int _matchedFrom;
+    unsigned long _line;
+    unsigned long _matchedFrom;
     unsigned char _lastHorizontalWhitespace;
     BOOL _forTextPart;
     BOOL _lastWasNewLine;
@@ -17,10 +17,10 @@
 }
 
 + (unsigned long)requiredSizeToEncodeHeaderBytes:(const char *)arg1 length:(unsigned long)arg2;
-- (int)appendData:(id)arg1;
-- (void)done;
 @property(nonatomic) BOOL forHeader; // @synthesize forHeader=_forHeader;
 @property(nonatomic) BOOL forTextPart; // @synthesize forTextPart=_forTextPart;
+- (void)done;
+- (int)appendData:(id)arg1;
 
 @end
 

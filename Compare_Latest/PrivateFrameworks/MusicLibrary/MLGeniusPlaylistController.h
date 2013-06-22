@@ -24,6 +24,7 @@
 + (BOOL)hasGeniusDataAvailable;
 + (BOOL)useFakeGeniusData;
 + (void)ignoreUnusedWarnings;
+- (void).cxx_destruct;
 - (id)_tracksFromClusterForPlaylistItemMax:(unsigned int)arg1 error:(id *)arg2;
 - (BOOL)_createClusterPlaylistWithSeedTracks:(id)arg1 error:(id *)arg2;
 - (id)tracksFromClusterForCount:(unsigned int)arg1 error:(id *)arg2;

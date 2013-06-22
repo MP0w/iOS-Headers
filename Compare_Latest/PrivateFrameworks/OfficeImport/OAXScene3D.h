@@ -10,13 +10,13 @@
 {
 }
 
-+ (id)cameraTypeEnumMap;
-+ (id)lightRigTypeEnumMap;
-+ (id)lightRigDirectionEnumMap;
-+ (id)readCameraFromXmlNode:(struct _xmlNode *)arg1;
-+ (id)readLightRigFromXmlNode:(struct _xmlNode *)arg1;
-+ (id)readBackdropFromXmlNode:(struct _xmlNode *)arg1;
 + (id)readScene3DFromXmlNode:(struct _xmlNode *)arg1 packagePart:(id)arg2;
++ (id)readBackdropFromXmlNode:(struct _xmlNode *)arg1;
++ (id)readLightRigFromXmlNode:(struct _xmlNode *)arg1;
++ (id)readCameraFromXmlNode:(struct _xmlNode *)arg1;
++ (id)lightRigDirectionEnumMap;
++ (id)lightRigTypeEnumMap;
++ (id)cameraTypeEnumMap;
 
 @end
 

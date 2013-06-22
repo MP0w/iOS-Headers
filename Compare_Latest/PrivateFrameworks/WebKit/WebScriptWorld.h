@@ -13,13 +13,14 @@
     WebScriptWorldPrivate *_private;
 }
 
-+ (id)standardWorld;
-+ (id)world;
 + (id)scriptWorldForGlobalContext:(struct OpaqueJSContext *)arg1;
-- (id)initWithWorld:(PassRefPtr_7f281a75)arg1;
-- (id)init;
-- (void)unregisterWorld;
++ (id)world;
++ (id)standardWorld;
++ (id)findOrCreateWorld:(struct DOMWrapperWorld *)arg1;
 - (void)dealloc;
+- (void)unregisterWorld;
+- (id)init;
+- (id)initWithWorld:(PassRefPtr_7f281a75)arg1;
 
 @end
 

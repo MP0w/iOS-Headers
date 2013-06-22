@@ -10,19 +10,19 @@
 
 @interface SBCallFailureAlertItem : SBAlertItem
 {
-    int _causeCode;
+    long _causeCode;
     NSString *_address;
     struct __CTCall *_call;
 }
 
-- (id)initWithCauseCode:(long)arg1 call:(struct __CTCall *)arg2;
-- (void)dealloc;
-- (void)_callback;
-- (id)lockLabel;
-- (id)shortLockLabel;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)performUnlockAction;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)performUnlockAction;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (id)shortLockLabel;
+- (id)lockLabel;
+- (void)_callback;
+- (void)dealloc;
+- (id)initWithCauseCode:(long)arg1 call:(struct __CTCall *)arg2;
 
 @end
 

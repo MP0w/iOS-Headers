@@ -13,7 +13,7 @@
     int mPrevRowIndex;
     int mPrevColumnIndex;
     GQDTTable *mTable;
-    vector_96bb2c3c *mCellCountInColumns;
+    vector_e7f19545 *mCellCountInColumns;
     int mGroupLevel;
     _Bool mSplitTable;
     double mCurrentTablePosition;
@@ -22,26 +22,26 @@
     double mOriginalTableHeight;
 }
 
-- (id)init;
-- (void)dealloc;
-- (int)prevRowIndex;
-- (int)prevColumnIndex;
-- (void)setPrevRowIndex:(int)arg1 columnIndex:(int)arg2;
-- (id)table;
-- (void)setTable:(id)arg1;
-- (vector_96bb2c3c *)cellCountInColumns;
-- (int)groupLevel;
-- (void)setGroupLevel:(int)arg1;
-- (_Bool)splitTable;
-- (void)setSplitTable:(_Bool)arg1;
-- (void)setSplitTableIndex:(long)arg1;
-- (long)nextSplitTableIndex;
-- (double)currentTablePosition;
-- (void)addRowHeight:(float)arg1;
-- (double)lastAttachmentPosition;
-- (void)setLastAttachmentPosition:(double)arg1;
-- (double)originalTableHeight;
 - (void)setOriginalTableHeight:(double)arg1;
+- (double)originalTableHeight;
+- (void)setLastAttachmentPosition:(double)arg1;
+- (double)lastAttachmentPosition;
+- (void)addRowHeight:(float)arg1;
+- (double)currentTablePosition;
+- (long)nextSplitTableIndex;
+- (void)setSplitTableIndex:(long)arg1;
+- (void)setSplitTable:(_Bool)arg1;
+- (_Bool)splitTable;
+- (void)setGroupLevel:(int)arg1;
+- (int)groupLevel;
+- (vector_e7f19545 *)cellCountInColumns;
+- (void)setTable:(id)arg1;
+- (id)table;
+- (void)setPrevRowIndex:(int)arg1 columnIndex:(int)arg2;
+- (int)prevColumnIndex;
+- (int)prevRowIndex;
+- (void)dealloc;
+- (id)init;
 
 @end
 

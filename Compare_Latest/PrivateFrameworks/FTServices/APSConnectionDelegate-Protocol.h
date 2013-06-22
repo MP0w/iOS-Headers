@@ -7,7 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol APSConnectionDelegate <NSObject>
-- (void)connection:(id)arg1 didReceiveMessageForTopic:(id)arg2 userInfo:(id)arg3;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
 
 @optional
@@ -15,5 +14,7 @@
 - (void)connection:(id)arg1 didChangeConnectedStatus:(BOOL)arg2;
 - (void)connection:(id)arg1 didFailToSendOutgoingMessage:(id)arg2 error:(id)arg3;
 - (void)connection:(id)arg1 didSendOutgoingMessage:(id)arg2;
+- (void)connection:(id)arg1 didReceiveMessageForTopic:(id)arg2 userInfo:(id)arg3;
+- (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
 @end
 

@@ -15,10 +15,10 @@
     id <RTFCPZArchiveInputStream> mInput;
 }
 
-- (id)initWithOffset:(long long)arg1 end:(long long)arg2 input:(id)arg3;
-- (void)dealloc;
-- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned int *)arg2;
 - (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
+- (void)readToOwnBuffer:(const char **)arg1 size:(unsigned int *)arg2;
+- (void)dealloc;
+- (id)initWithOffset:(long long)arg1 end:(long long)arg2 input:(id)arg3;
 
 @end
 

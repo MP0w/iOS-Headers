@@ -6,15 +6,16 @@
 
 #import <OfficeImport/OCXReader.h>
 
+@class NSString;
+
 @interface EXReader : OCXReader
 {
+    NSString *mTemporaryDirectory;
 }
 
-+ (id)readFromFileName:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4 delegate:(id)arg5;
-+ (id)readFromFileName:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 temporaryDirectory:(id)arg4;
-+ (id)readFromData:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4 delegate:(id)arg5;
-+ (id)readFromData:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 temporaryDirectory:(id)arg4;
-+ (id)readFromPackage:(id)arg1 fileName:(id)arg2 cancel:(id)arg3 tracing:(id)arg4 temporaryDirectory:(id)arg5;
+@property(retain, nonatomic) NSString *temporaryDirectory; // @synthesize temporaryDirectory=mTemporaryDirectory;
+- (id)read;
+- (void)dealloc;
 
 @end
 

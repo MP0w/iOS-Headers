@@ -14,13 +14,13 @@
     id _participant;
 }
 
-- (void)dealloc;
-- (id)initWithComposeRecipient:(id)arg1;
-- (void)setCalAttendeeName:(id)arg1;
-@property(retain, nonatomic) id participant;
-- (id)displayString;
-- (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)displayString;
+@property(retain, nonatomic) id participant;
+- (void)setCalAttendeeName:(id)arg1;
+- (id)initWithComposeRecipient:(id)arg1;
+- (void)dealloc;
 
 @end
 

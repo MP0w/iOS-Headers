@@ -8,15 +8,15 @@
 
 #import "CKTranscriptButtonView-Protocol.h"
 
-@class UIPlacardButton;
+@class UIButton;
 
 @interface CKTranscriptHeaderView : UIView <CKTranscriptButtonView>
 {
     id _transcriptButtonDelegate;
-    UIPlacardButton *_callButton;
-    UIPlacardButton *_faceTimeButton;
-    UIPlacardButton *_contactsButton;
-    UIPlacardButton *_loadMoreButton;
+    UIButton *_callButton;
+    UIButton *_faceTimeButton;
+    UIButton *_contactsButton;
+    UIButton *_loadMoreButton;
     BOOL _hasContact;
     BOOL _callingAvailable;
     BOOL _faceTimeAvailable;
@@ -27,21 +27,21 @@
 }
 
 + (float)defaultHeight;
-@property(nonatomic, getter=isFaceTimeAvailable) BOOL faceTimeAvailable; // @synthesize faceTimeAvailable=_faceTimeAvailable;
-- (void)_updateCallButton;
-@property(nonatomic, getter=isCallingAvailable) BOOL callingAvailable; // @synthesize callingAvailable=_callingAvailable;
-@property(nonatomic) BOOL hasContact; // @synthesize hasContact=_hasContact;
-@property(nonatomic) BOOL hasMoreMessages; // @synthesize hasMoreMessages=_hasMoreMessages;
 @property(nonatomic) BOOL disableFirstButtonRow; // @synthesize disableFirstButtonRow=_disableFirstButtonRow;
-- (id)initWithFrame:(struct CGRect)arg1 isPhoneTranscript:(BOOL)arg2 displayLoadPrevious:(BOOL)arg3 isGroupMessage:(BOOL)arg4;
-- (void)dealloc;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-- (struct CGRect)frameForButton:(short)arg1;
-- (void)setButtonsEnabled:(BOOL)arg1;
-- (void)_buttonClicked:(id)arg1;
+@property(nonatomic) BOOL hasMoreMessages; // @synthesize hasMoreMessages=_hasMoreMessages;
 @property(readonly, nonatomic) BOOL isGroupMessage; // @synthesize isGroupMessage=_isGroupMessage;
+@property(nonatomic, getter=isCallingAvailable) BOOL callingAvailable; // @synthesize callingAvailable=_callingAvailable;
+@property(nonatomic, getter=isFaceTimeAvailable) BOOL faceTimeAvailable; // @synthesize faceTimeAvailable=_faceTimeAvailable;
+@property(nonatomic) BOOL hasContact; // @synthesize hasContact=_hasContact;
 @property(nonatomic) id <CKTranscriptButtonViewDelegate> transcriptButtonDelegate; // @synthesize transcriptButtonDelegate=_transcriptButtonDelegate;
+- (void)_buttonClicked:(id)arg1;
+- (void)setButtonsEnabled:(BOOL)arg1;
+- (struct CGRect)frameForButton:(short)arg1;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 isPhoneTranscript:(BOOL)arg2 displayLoadPrevious:(BOOL)arg3 isGroupMessage:(BOOL)arg4;
+- (void)_updateCallButton;
 
 @end
 

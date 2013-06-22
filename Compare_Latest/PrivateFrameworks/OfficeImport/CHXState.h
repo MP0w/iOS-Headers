@@ -21,26 +21,26 @@
     id <CHAutoStyling> mAutoStyling;
 }
 
-- (id)initWithDrawingState:(id)arg1;
-- (void)dealloc;
-- (id)drawingState;
-- (id)chart;
-- (void)setChart:(id)arg1;
-- (id)resources;
-- (void)setResources:(id)arg1;
-- (id)chartPart;
-- (void)setChartPart:(id)arg1;
-- (id)currentChartType;
-- (void)setCurrentChartType:(id)arg1;
-- (id)currentSeries;
-- (void)setCurrentSeries:(id)arg1;
-- (id)exState;
-- (id)defaultTextProperties;
-- (void)setDefaultTextProperties:(id)arg1;
-- (void)setDefaultTextPropertiesHaveExplicitFontSize:(BOOL)arg1;
-- (void)pushTitleTextProperties:(BOOL)arg1;
-- (void)popTitleTextProperties;
 - (id)autoStyling;
+- (void)popTitleTextProperties;
+- (void)pushTitleTextProperties:(BOOL)arg1;
+- (void)setDefaultTextPropertiesHaveExplicitFontSize:(BOOL)arg1;
+- (void)setDefaultTextProperties:(id)arg1;
+- (id)defaultTextProperties;
+- (id)exState;
+- (void)setCurrentSeries:(id)arg1;
+- (id)currentSeries;
+- (void)setCurrentChartType:(id)arg1;
+- (id)currentChartType;
+- (void)setChartPart:(id)arg1;
+- (id)chartPart;
+- (void)setResources:(id)arg1;
+- (id)resources;
+- (void)setChart:(id)arg1;
+- (id)chart;
+- (id)drawingState;
+- (void)dealloc;
+- (id)initWithDrawingState:(id)arg1;
 
 @end
 

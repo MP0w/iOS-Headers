@@ -11,6 +11,11 @@
 }
 
 + (void)readFrom:(struct XlChartErrorBar *)arg1 toSeries:(id)arg2 state:(id)arg3;
++ (int)xlErrorBarSourceFrom:(int)arg1;
++ (int)xlErrorBarTypeFrom:(int)arg1 direction:(int)arg2;
++ (id)readErrorBarGraphicProperties:(const struct XlChartSeriesFormat *)arg1 forStyleIndex:(int)arg2 state:(id)arg3;
++ (int)edErrorBarDirectionFrom:(int)arg1;
++ (int)edErrorBarTypeFrom:(int)arg1;
 
 @end
 

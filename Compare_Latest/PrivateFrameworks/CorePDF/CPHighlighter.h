@@ -18,11 +18,11 @@
 }
 
 + (BOOL)reconstructHighlightFor:(id)arg1;
-- (id)initWithTextLine:(id)arg1 inZone:(id)arg2 ofColor:(struct CGColor *)arg3;
-- (void)highlight;
 @property(nonatomic) struct CPPDFStyle *highlightedStyle; // @synthesize highlightedStyle;
 @property(nonatomic) struct CPPDFStyle *style; // @synthesize style;
 @property(readonly, nonatomic) struct CGColor *color; // @synthesize color;
+- (void)highlight;
+- (id)initWithTextLine:(id)arg1 inZone:(id)arg2 ofColor:(struct CGColor *)arg3;
 
 @end
 

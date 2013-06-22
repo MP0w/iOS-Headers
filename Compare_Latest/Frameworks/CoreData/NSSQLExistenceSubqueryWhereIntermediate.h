@@ -17,14 +17,14 @@
     NSSQLEntity *_governingEntityForVariable;
 }
 
-- (id)initWithPredicate:(id)arg1 inScope:(id)arg2;
-- (BOOL)isExistenceScoped;
-- (BOOL)_isKeypathScopedToSubquery:(id)arg1;
-- (id)fetchIntermediateForKeypathExpression:(id)arg1;
-- (id)governingEntityForKeypathExpression:(id)arg1;
-- (id)governingAliasForKeypathExpression:(id)arg1;
-- (id)_generateSQLForVariableExpression:(id)arg1 inContext:(id)arg2;
 - (id)generateSQLStringInContext:(id)arg1;
+- (id)_generateSQLForVariableExpression:(id)arg1 inContext:(id)arg2;
+- (id)governingAliasForKeypathExpression:(id)arg1;
+- (id)governingEntityForKeypathExpression:(id)arg1;
+- (id)fetchIntermediateForKeypathExpression:(id)arg1;
+- (BOOL)_isKeypathScopedToSubquery:(id)arg1;
+- (BOOL)isExistenceScoped;
+- (id)initWithPredicate:(id)arg1 inScope:(id)arg2;
 
 @end
 

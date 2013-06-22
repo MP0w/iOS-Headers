@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "PLDataArrayInputStreamProgressDelegate-Protocol.h"
+#import "UIAlertViewDelegate-Protocol.h"
 
 @class NSData, NSMutableArray, NSString, PLVideoRemaker, UIViewController;
 
-@interface PLPublishingAgent : NSObject <PLDataArrayInputStreamProgressDelegate>
+@interface PLPublishingAgent : NSObject <PLDataArrayInputStreamProgressDelegate, UIAlertViewDelegate>
 {
     id _userInfo;
     id _delegate;
@@ -63,6 +64,8 @@
 @property(nonatomic) long long approximateHDUploadSize; // @synthesize approximateHDUploadSize=_approximateHDUploadSize;
 @property(nonatomic) BOOL ownerIsCamera; // @synthesize ownerIsCamera=_ownerIsCamera;
 @property(nonatomic) id <PLPublishingAgentDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)showAlertWithError:(id)arg1;
 - (int)_remakerModeForSelectedOption;
 - (id)progressViewMessageDuringRemake;
 - (void)videoRemaker:(id)arg1 progressDidChange:(float)arg2;
@@ -81,6 +84,8 @@
 - (void)setTotalBytesWritten:(int)arg1 totalBytes:(int)arg2;
 - (void)dataArrayInputStreamBytesWereRead:(id)arg1;
 - (double)maximumVideoDuration;
+- (BOOL)allowsViewingOnHost;
+- (BOOL)allowsTellingFriend;
 - (id)tellAFriendBody;
 - (id)tellAFriendSubject;
 - (id)tellAFriendURL;

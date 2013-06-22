@@ -5,7 +5,7 @@
  */
 
 @protocol QLPreviewControllerDataSource
-- (int)numberOfPreviewItemsInPreviewController:(id)arg1;
 - (id)previewController:(id)arg1 previewItemAtIndex:(int)arg2;
+- (int)numberOfPreviewItemsInPreviewController:(id)arg1;
 @end
 

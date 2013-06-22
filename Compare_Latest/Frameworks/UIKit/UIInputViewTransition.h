@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class UIInputViewAnimationStyle, UIInputViewSet;
+@class UIInputViewAnimationStyle, UIInputViewSet, UISnapshotView;
 
 @interface UIInputViewTransition : NSObject
 {
@@ -26,8 +26,12 @@
     struct CGRect endFloatingFrame;
     struct CGRect beginFloatingFrameScreen;
     struct CGRect endFloatingFrameScreen;
+    UISnapshotView *snapshotView;
+    struct CGRect snapshotViewEndFrame;
 }
 
+@property(nonatomic) struct CGRect snapshotViewEndFrame; // @synthesize snapshotViewEndFrame;
+@property(retain, nonatomic) UISnapshotView *snapshotView; // @synthesize snapshotView;
 @property(nonatomic) struct CGRect endFloatingFrameScreen; // @synthesize endFloatingFrameScreen;
 @property(nonatomic) struct CGRect beginFloatingFrameScreen; // @synthesize beginFloatingFrameScreen;
 @property(nonatomic) struct CGRect endFloatingFrame; // @synthesize endFloatingFrame;
@@ -53,7 +57,6 @@
 @property(readonly, nonatomic) int transitioningState;
 @property(readonly, nonatomic) int beginState;
 - (BOOL)fadeAccessoryView;
-- (BOOL)canAnimate;
 - (void)postNotificationsForTransitionEnd;
 - (void)postNotificationsForTransitionStart;
 - (id)userInfoForTransition;

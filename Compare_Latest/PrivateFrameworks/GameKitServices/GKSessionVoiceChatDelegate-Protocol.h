@@ -7,7 +7,7 @@
 #import "GKSessionDelegate-Protocol.h"
 
 @protocol GKSessionVoiceChatDelegate <GKSessionDelegate>
-- (void)session:(id)arg1 didReceiveAudioPacket:(id)arg2 fromPeerID:(id)arg3;
 - (void)session:(id)arg1 didReceiveOOBAudioPacket:(id)arg2 fromPeerID:(id)arg3;
+- (void)session:(id)arg1 didReceiveAudioPacket:(id)arg2 fromPeerID:(id)arg3;
 @end
 

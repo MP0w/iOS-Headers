@@ -10,7 +10,7 @@
 {
 }
 
-- (void)resizeForConferenceFailureMessage;
+- (void)resizeForFaceTimeFailureMessage;
 
 @end
 

@@ -17,15 +17,15 @@
     NSURL *_baseURL;
 }
 
-- (id)initWithMarkupString:(id)arg1 baseURL:(id)arg2;
-- (id)initWithMarkupData:(id)arg1 textEncodingName:(id)arg2 baseURL:(id)arg3;
-- (id)markupString;
-- (id)markupData;
-- (id)mimeType;
-- (id)encodingName;
-- (id)baseURL;
-- (id)description;
 - (void)dealloc;
+- (id)description;
+- (id)baseURL;
+- (id)encodingName;
+- (id)mimeType;
+- (id)markupData;
+- (id)markupString;
+- (id)initWithMarkupData:(id)arg1 textEncodingName:(id)arg2 baseURL:(id)arg3;
+- (id)initWithMarkupString:(id)arg1 baseURL:(id)arg2;
 
 @end
 

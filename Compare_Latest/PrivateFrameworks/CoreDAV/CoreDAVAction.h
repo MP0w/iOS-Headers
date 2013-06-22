@@ -10,8 +10,10 @@
 {
     int _action;
     id _context;
+    id _changeContext;
 }
 
+@property(retain) id changeContext; // @synthesize changeContext=_changeContext;
 @property(readonly) id context; // @synthesize context=_context;
 @property(readonly) int action; // @synthesize action=_action;
 - (id)description;

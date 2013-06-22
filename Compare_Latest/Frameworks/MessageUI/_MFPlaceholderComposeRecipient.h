@@ -13,9 +13,9 @@
     NSString *_displayString;
 }
 
-- (void)dealloc;
-- (void)setDisplayString:(id)arg1;
 - (id)displayString;
+- (void)setDisplayString:(id)arg1;
+- (void)dealloc;
 
 @end
 

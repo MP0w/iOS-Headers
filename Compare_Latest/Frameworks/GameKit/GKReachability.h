@@ -12,17 +12,17 @@
     struct __SCNetworkReachability *reachabilityRef;
 }
 
-+ (id)reachabilityForLocalWiFi;
-+ (id)reachabilityForInternetConnection;
-+ (id)reachabilityWithAddress:(const struct sockaddr_in *)arg1;
-+ (id)reachabilityWithHostName:(id)arg1;
-- (int)currentReachabilityStatus;
-- (BOOL)connectionRequired;
++ (id)_gkReachabilityForLocalWiFi;
++ (id)_gkReachabilityForInternetConnection;
++ (id)_gkReachabilityWithAddress:(const struct sockaddr_in *)arg1;
++ (id)_gkReachabilityWithHostName:(id)arg1;
+- (int)_gkCurrentReachabilityStatus;
+- (BOOL)_gkConnectionRequired;
 - (int)networkStatusForFlags:(unsigned int)arg1;
 - (int)localWiFiStatusForFlags:(unsigned int)arg1;
 - (void)dealloc;
-- (void)stopNotifier;
-- (BOOL)startNotifier;
+- (void)_gkStopNotifier;
+- (BOOL)_gkStartNotifier;
 
 @end
 

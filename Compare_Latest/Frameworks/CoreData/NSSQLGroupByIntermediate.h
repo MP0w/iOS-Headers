@@ -13,9 +13,9 @@
     NSArray *_properties;
 }
 
-- (id)initWithProperties:(id)arg1 inScope:(id)arg2;
-- (void)dealloc;
 - (id)generateSQLStringInContext:(id)arg1;
+- (void)dealloc;
+- (id)initWithProperties:(id)arg1 inScope:(id)arg2;
 
 @end
 

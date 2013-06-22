@@ -19,20 +19,20 @@
     id <OCCancelDelegate> mCancel;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)oavState;
-- (id)modelObjectForLocation:(id)arg1;
-- (void)setModelObject:(id)arg1 forLocation:(id)arg2;
-- (id)officeArtState;
-- (void)resetOfficeArtState;
-- (id)tableStyleCache;
-- (int)slideIndexForSlideURL:(id)arg1;
-- (void)setSlideIndex:(int)arg1 forSlideURL:(id)arg2;
-- (id)tgtPresentation;
-- (void)setTgtPresentation:(id)arg1;
-- (BOOL)isCancelled;
 @property(retain, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancel;
+- (BOOL)isCancelled;
+- (void)setTgtPresentation:(id)arg1;
+- (id)tgtPresentation;
+- (void)setSlideIndex:(int)arg1 forSlideURL:(id)arg2;
+- (int)slideIndexForSlideURL:(id)arg1;
+- (id)tableStyleCache;
+- (void)resetOfficeArtState;
+- (id)officeArtState;
+- (void)setModelObject:(id)arg1 forLocation:(id)arg2;
+- (id)modelObjectForLocation:(id)arg1;
+- (id)oavState;
+- (void)dealloc;
+- (id)init;
 
 @end
 

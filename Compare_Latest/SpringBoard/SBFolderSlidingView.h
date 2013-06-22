@@ -25,18 +25,18 @@
     UIImageView *_outgoingDockView;
 }
 
-- (id)initWithPosition:(int)arg1 folderView:(id)arg2;
-- (void)prepareToSetDockOrientation:(int)arg1;
-- (void)cleanUpAfterDockOrientationChange;
-- (void)setOrientation:(int)arg1 wallpaperRect:(struct CGRect)arg2 notchInfo:(CDStruct_d18cc6b1)arg3;
-- (id)folderView;
-- (void)dealloc;
-- (struct CGRect)_rectByAddingOverlapToRect:(struct CGRect)arg1;
-- (void)_placeNotchAndHighlights;
-- (id)_newDockViewForOrientation:(int)arg1;
-- (void)setShowsHighlight:(BOOL)arg1;
+- (void)handleGestureInWallpaperContainer:(id)arg1;
 - (void)setShouldRasterize:(BOOL)arg1;
-- (void)handleTapGestureInWallpaperContainer:(id)arg1;
+- (void)setShowsHighlight:(BOOL)arg1;
+- (id)_newDockViewForOrientation:(int)arg1;
+- (void)_placeNotchAndHighlights;
+- (struct CGRect)_rectByAddingOverlapToRect:(struct CGRect)arg1;
+- (void)dealloc;
+- (id)folderView;
+- (void)setOrientation:(int)arg1 wallpaperRect:(struct CGRect)arg2 notchInfo:(CDStruct_d18cc6b1)arg3;
+- (void)cleanUpAfterDockOrientationChange;
+- (void)prepareToSetDockOrientation:(int)arg1;
+- (id)initWithPosition:(int)arg1 folderView:(id)arg2;
 
 @end
 

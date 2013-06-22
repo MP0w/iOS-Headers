@@ -5,7 +5,7 @@
  */
 
 @protocol CPGraphicUser
-- (void)incrementUsedGraphicCount;
 - (unsigned int)usedGraphicCount;
+- (void)incrementUsedGraphicCount;
 @end
 

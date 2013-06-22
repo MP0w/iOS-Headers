@@ -11,5 +11,7 @@
 @optional
 - (void)padInlineFloatingViewExpand:(id)arg1;
 - (BOOL)padInlineFloatingViewIsExpanded:(id)arg1;
+- (id)indexTitlesForGroupTitles:(id)arg1;
+- (id)groupedCandidatesForUnsortedCandidates:(id)arg1;
 @end
 

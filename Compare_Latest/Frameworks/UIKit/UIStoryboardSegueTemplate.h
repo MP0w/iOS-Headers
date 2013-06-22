@@ -16,11 +16,14 @@
     NSString *_segueClassName;
     UIViewController *_viewController;
     NSString *_destinationViewControllerIdentifier;
+    BOOL _performOnViewLoad;
 }
 
+@property(nonatomic) BOOL performOnViewLoad; // @synthesize performOnViewLoad=_performOnViewLoad;
 @property(nonatomic) UIViewController *viewController; // @synthesize viewController=_viewController;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)perform:(id)arg1;
+- (void)_perform:(id)arg1;
 - (id)segueWithDestinationViewController:(id)arg1;
 - (Class)effectiveSegueClass;
 - (id)defaultSegueClassName;

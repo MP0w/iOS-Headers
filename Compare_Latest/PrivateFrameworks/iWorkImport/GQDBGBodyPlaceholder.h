@@ -16,9 +16,9 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (id)layoutFrame;
 - (BOOL)isBlank;
+- (id)layoutFrame;
+- (void)dealloc;
 
 @end
 

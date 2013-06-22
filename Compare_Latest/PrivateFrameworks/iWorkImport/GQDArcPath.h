@@ -15,12 +15,14 @@
     double mArrowLength;
 }
 
-- (struct CGSize)size;
-- (double)headAngle;
-- (double)arcWidth;
-- (double)arrowWidth;
-- (double)arrowLength;
+- (id).cxx_construct;
 - (struct CGPath *)createBezierPath;
+- (double)arrowLength;
+- (double)arrowWidth;
+- (double)arcWidth;
+- (double)headAngle;
+- (struct CGSize)size;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

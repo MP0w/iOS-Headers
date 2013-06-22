@@ -13,10 +13,9 @@
 @interface GKBackgroundView : UIView <GKTableViewCellContents>
 {
     GKUITheme *_theme;
-    BOOL _loading;
+    NSString *_loadingText;
     struct UIEdgeInsets _contentInsets;
     struct UIEdgeInsets _backgroundInsets;
-    id _loadingHandler;
     float _infoTextWidth;
     int _infoTextExpectedNumberOfLines;
     BOOL _actionExpected;
@@ -25,15 +24,19 @@
     GKButton *_actionButton;
     UIImageView *_imageView;
     UIActivityIndicatorView *_loadingSpinner;
-    BOOL _shouldHideLabelAfterLoading;
-    struct UIEdgeInsets _statusInsets;
     float currentInfoTextWidth;
+    NSString *_status;
+    int _displayStateGeneration;
+    unsigned int _displayState;
+    struct UIEdgeInsets _additionalContentInsets;
 }
 
 + (float)defaultRowHeight;
+@property(nonatomic) struct UIEdgeInsets additionalContentInsets; // @synthesize additionalContentInsets=_additionalContentInsets;
+@property(nonatomic) unsigned int displayState; // @synthesize displayState=_displayState;
+@property(nonatomic) int displayStateGeneration; // @synthesize displayStateGeneration=_displayStateGeneration;
+@property(retain, nonatomic) NSString *status; // @synthesize status=_status;
 @property(nonatomic) float currentInfoTextWidth; // @synthesize currentInfoTextWidth;
-@property(nonatomic) struct UIEdgeInsets statusInsets; // @synthesize statusInsets=_statusInsets;
-@property(nonatomic) BOOL shouldHideLabelAfterLoading; // @synthesize shouldHideLabelAfterLoading=_shouldHideLabelAfterLoading;
 @property(retain, nonatomic) UIActivityIndicatorView *loadingSpinner; // @synthesize loadingSpinner=_loadingSpinner;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) GKButton *actionButton; // @synthesize actionButton=_actionButton;
@@ -42,23 +45,28 @@
 @property(nonatomic) BOOL actionExpected; // @synthesize actionExpected=_actionExpected;
 @property(nonatomic) int infoTextExpectedNumberOfLines; // @synthesize infoTextExpectedNumberOfLines=_infoTextExpectedNumberOfLines;
 @property(nonatomic) float infoTextWidth; // @synthesize infoTextWidth=_infoTextWidth;
-@property(copy, nonatomic) id loadingHandler; // @synthesize loadingHandler=_loadingHandler;
 @property(nonatomic) struct UIEdgeInsets backgroundInsets; // @synthesize backgroundInsets=_backgroundInsets;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
+@property(retain, nonatomic) NSString *loadingText; // @synthesize loadingText=_loadingText;
 @property(retain, nonatomic) GKUITheme *theme; // @synthesize theme=_theme;
 - (float)preferredHeightForOrientation:(int)arg1;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
+- (void)layoutForTextDisplay;
+- (void)layoutForStaticInformationDisplay;
+- (void)layoutForLoadingDisplay;
+- (void)layoutForBlankDisplay;
 @property(readonly, nonatomic) struct CGRect contentBounds;
-- (void)setLoadingWithNoDelay;
-@property(nonatomic) BOOL loading; // @synthesize loading=_loading;
-- (void)updateLoading;
+- (void)showInformationImmediately:(BOOL)arg1;
+- (void)showLoadingImmediately:(BOOL)arg1;
+- (void)showBlankImmediately:(BOOL)arg1;
+- (void)setDisplayState:(unsigned int)arg1 immediately:(BOOL)arg2;
+- (void)_setDisplayState:(unsigned int)arg1;
+- (BOOL)loading;
 - (void)clearStatus;
-- (void)clearAllButStatus;
 @property(retain, nonatomic) NSString *actionTitle;
 - (void)setInfoWithError:(id)arg1;
 @property(retain, nonatomic) NSString *info;
-@property(retain, nonatomic) NSString *status;
 @property(retain, nonatomic) UIImage *image;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -39,7 +39,8 @@
 @property(retain, nonatomic) NSDate *purchaseDate; // @synthesize purchaseDate=_purchaseDate;
 @property(retain, nonatomic) NSDate *lastPlayedDate; // @synthesize lastPlayedDate=_lastPlayedDate;
 @property(retain, nonatomic) GKGameInternal *game; // @synthesize game=_game;
-- (id)description;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (void)dealloc;
 
 @end

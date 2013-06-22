@@ -8,11 +8,12 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSString;
+@class NSString, SUClientInterface;
 
 @interface SUSearchFieldConfiguration : NSObject <NSCopying>
 {
     NSString *_cancelString;
+    SUClientInterface *_clientInterface;
     struct __CFDictionary *_hintURLs;
     int _location;
     NSString *_placeholder;
@@ -20,8 +21,11 @@
     struct __CFDictionary *_searchURLs;
     NSString *_userDefaultsKey;
     float _width;
+    float _widthLandscape;
+    float _widthPortrait;
 }
 
++ (id)defaultConfigurationWithClientInterface:(id)arg1;
 + (id)defaultConfiguration;
 @property(readonly, nonatomic) float width; // @synthesize width=_width;
 @property(readonly, nonatomic) NSString *userDefaultsKey; // @synthesize userDefaultsKey=_userDefaultsKey;
@@ -35,13 +39,15 @@
 - (struct __CFDictionary *)_newURLsDictionaryWithDictionary:(id)arg1;
 - (id)_newQueryStringDictionaryForNetworkType:(int)arg1;
 - (int)_locationForString:(id)arg1;
-- (id)_initWithoutDictionary;
+- (id)_initWithClientInterface:(id)arg1;
+- (float)widthForOrientation:(int)arg1;
 - (id)URLRequestPropertiesWithBaseURL:(id)arg1 forNetworkType:(int)arg2;
 - (id)searchURLRequestPropertiesForNetworkType:(int)arg1;
 - (void)loadFromDictionary:(id)arg1;
 - (id)hintsURLRequestPropertiesForNetworkType:(int)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+- (id)initWithDictionary:(id)arg1 clientInterface:(id)arg2;
 - (id)initWithDictionary:(id)arg1;
 - (id)init;
 

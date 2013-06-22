@@ -6,73 +6,58 @@
 
 #import <iTunesStoreUI/SUScriptViewController.h>
 
-@class NSNumber, SUScriptSegmentedControl;
+@class NSArray, NSNumber, NSString, SUScriptSegmentedControl;
 
 @interface SUScriptStorePageViewController : SUScriptViewController
 {
+    NSArray *_initialURLStrings;
 }
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 + (BOOL)copyURLStrings:(id *)arg1 forValue:(id)arg2;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_storePageViewController;
-- (id)_storePageScriptProperties;
 - (void)_setValue:(id)arg1 forScriptPropertyKey:(id)arg2;
 - (id)_pathForWebArchiveWithIdentifier:(id)arg1 inDirectory:(id)arg2;
 - (BOOL)_isSegmentedControlValid:(id)arg1;
-- (id)_copyValueForScriptPropertyKey:(id)arg1;
 - (id)_copyURLsFromURLStrings:(id)arg1;
-- (BOOL)_showsBackgroundShadow;
-- (BOOL)_shouldShowFormAccessory;
-- (BOOL)_shouldLoadProgressively;
-- (BOOL)_shouldInvalidateForLowMemory;
 - (void)_setURLs:(id)arg1;
-- (void)_setTimeoutInterval:(double)arg1;
-- (void)_setShowsBackgroundShadow:(BOOL)arg1;
-- (void)_setShouldShowFormAccessory:(BOOL)arg1;
-- (void)_setShouldLoadProgressively:(BOOL)arg1;
-- (void)_setShouldInvalidateForLowMemory:(BOOL)arg1;
-- (void)_setSegmentedControl:(id)arg1;
-- (void)_setScrollingEnabled:(BOOL)arg1;
-- (void)_setPlaceholderBackgroundGradient:(id)arg1;
-- (void)_setDoubleTapEnabled:(BOOL)arg1;
-- (BOOL)_scrollingEnabled;
-- (BOOL)_saveWebArchiveWithIdentifier:(id)arg1 toDirectory:(id)arg2;
-- (void)_reload;
-- (BOOL)_loadWebArchiveWithIdentifier:(id)arg1 fromDirectory:(id)arg2;
-- (BOOL)_isDoubleTapEnabled;
-- (id)_copyURLs;
-- (id)_copyTimeoutInterval;
-- (id)_copySegmentedControl;
-- (id)_copyPlaceholderBackgroundGradient;
-- (id)_copyRootScriptObject;
 @property(readonly) int indicatorStyleWhite;
 @property(readonly) int indicatorStyleGray;
+@property(retain) NSString *userInfo;
 @property(retain) id URLs;
 @property(retain) NSNumber *timeoutInterval;
+@property id showsVerticalScrollIndicator;
+@property id showsHorizontalScrollIndicator;
 @property BOOL showsBackgroundShadow;
 @property id shouldShowFormAccessory;
 @property BOOL shouldInvalidateForLowMemory;
 @property BOOL shouldLoadProgressively;
 @property(retain) SUScriptSegmentedControl *segmentedControl;
 @property BOOL scrollingEnabled;
-- (void)setRootObject:(id)arg1;
 @property(retain) id placeholderBackgroundStyle;
+@property id loadsWhenHidden;
 @property(retain) id loadingTextShadowColor;
 @property(retain) id loadingTextColor;
 @property int loadingIndicatorStyle;
 @property id inputViewObeysDOMFocus;
+@property BOOL flashesScrollIndicators;
 @property BOOL doubleTapEnabled;
+@property id alwaysDispatchesScrollEvents;
 @property(readonly) id rootObject;
 - (id)_className;
+- (void)setScrollEdgeInsetsWithTop:(float)arg1 left:(float)arg2 bottom:(float)arg3 right:(float)arg4;
 - (id)saveWebArchiveWithIdentifier:(id)arg1 toDirectory:(id)arg2;
-- (void)reload;
+- (void)reloadWithCallback:(id)arg1;
 - (id)loadWebArchiveWithIdentifier:(id)arg1 fromDirectory:(id)arg2;
 - (void)setNativeViewController:(id)arg1;
 - (id)newNativeViewController;
+@property(readonly) NSArray *URLStrings;
+- (void)applyURLStrings:(id)arg1 toViewController:(id)arg2;
+- (void)dealloc;
 - (id)initWithURLStrings:(id)arg1;
 - (id)init;
 

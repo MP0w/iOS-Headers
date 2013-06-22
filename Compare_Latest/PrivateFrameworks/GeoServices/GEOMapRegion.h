@@ -6,31 +6,54 @@
 
 #import "PBCodable.h"
 
+@class NSMutableArray;
+
 @interface GEOMapRegion : PBCodable
 {
-    BOOL _hasSouthLat;
-    double _southLat;
-    BOOL _hasWestLng;
-    double _westLng;
-    BOOL _hasNorthLat;
-    double _northLat;
-    BOOL _hasEastLng;
     double _eastLng;
+    double _northLat;
+    double _southLat;
+    double _westLng;
+    NSMutableArray *_vertexs;
+    struct {
+        unsigned int eastLng:1;
+        unsigned int northLat:1;
+        unsigned int southLat:1;
+        unsigned int westLng:1;
+    } _has;
 }
 
+@property(retain, nonatomic) NSMutableArray *vertexs; // @synthesize vertexs=_vertexs;
 @property(nonatomic) double eastLng; // @synthesize eastLng=_eastLng;
-@property(nonatomic) BOOL hasEastLng; // @synthesize hasEastLng=_hasEastLng;
 @property(nonatomic) double northLat; // @synthesize northLat=_northLat;
-@property(nonatomic) BOOL hasNorthLat; // @synthesize hasNorthLat=_hasNorthLat;
 @property(nonatomic) double westLng; // @synthesize westLng=_westLng;
-@property(nonatomic) BOOL hasWestLng; // @synthesize hasWestLng=_hasWestLng;
 @property(nonatomic) double southLat; // @synthesize southLat=_southLat;
-@property(nonatomic) BOOL hasSouthLat; // @synthesize hasSouthLat=_hasSouthLat;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)vertexAtIndex:(unsigned int)arg1;
+- (unsigned int)vertexsCount;
+- (void)addVertex:(id)arg1;
+- (void)clearVertexs;
+@property(nonatomic) BOOL hasEastLng;
+@property(nonatomic) BOOL hasNorthLat;
+@property(nonatomic) BOOL hasWestLng;
+@property(nonatomic) BOOL hasSouthLat;
 - (void)dealloc;
+- (BOOL)containsCoordinate:(CDStruct_c3b9c2ee)arg1;
+@property(readonly, nonatomic) double spanLng;
+@property(readonly, nonatomic) double spanLat;
+@property(readonly, nonatomic) double centerLng;
+@property(readonly, nonatomic) double centerLat;
+- (void)setSpannedRegion:(CDStruct_e4d5fc44)arg1;
+- (void)setMapRect:(CDStruct_90e2a262)arg1;
+- (id)initWithSpannedRegion:(CDStruct_e4d5fc44)arg1;
+- (id)initWithMapRect:(CDStruct_90e2a262)arg1;
+- (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
 
 @end
 

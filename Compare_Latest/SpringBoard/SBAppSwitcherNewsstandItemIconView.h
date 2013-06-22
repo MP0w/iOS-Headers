@@ -10,16 +10,14 @@
 {
 }
 
-+ (BOOL)allowsRecycling;
-+ (id)createBadgeLabelImageAndGetTextCenterPoint:(struct CGPoint *)arg1;
-+ (float)_badgeLabelFontSize;
-+ (struct CGPoint)badgeLabelCenterPoint;
-- (void)positionCloseBoxOfType:(int)arg1;
++ (Class)_labelImageParametersClassForIcon:(id)arg1 location:(int)arg2;
+- (id)_superviewForAccessoryView;
 - (void)positionIconImageView;
-- (float)_badgeHorizontalPadding;
-- (float)_badgeVerticalPadding;
-- (id)_superviewForBadge;
-- (id)_overriddenBadgeTextForText:(id)arg1;
+- (void)positionCloseBoxOfType:(int)arg1;
+- (void)_updateLabelVisibility;
+- (void)setShadowsHidden:(BOOL)arg1;
+- (struct CGRect)defaultFrameForProgressBar;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

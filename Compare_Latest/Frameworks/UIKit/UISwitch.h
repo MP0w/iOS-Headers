@@ -8,7 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
-@class UIColor;
+@class UIColor, UIImage;
 
 @interface UISwitch : UIControl <NSCoding>
 {
@@ -18,15 +18,22 @@
 
 @property(nonatomic) float enabledAlpha; // @synthesize enabledAlpha=_enabledAlpha;
 - (void)_populateArchivedSubviews:(id)arg1;
+@property(retain, nonatomic) UIImage *onImage;
+@property(retain, nonatomic) UIImage *offImage;
+@property(retain, nonatomic) UIColor *thumbTintColor;
+@property(retain, nonatomic) UIColor *tintColor;
 @property(retain, nonatomic) UIColor *onTintColor;
 - (id)_onTintColor;
 - (void)_setOnTintColor:(id)arg1;
-- (id)_onColor;
-- (void)_setOnColor:(id)arg1;
+@property(retain, nonatomic, getter=_onColor, setter=_setOnColor:) UIColor *onColor;
 - (void)setEnabled:(BOOL)arg1;
 - (void)setAlpha:(float)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (struct UIEdgeInsets)alignmentRectInsets;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
 - (void)_onAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)setOn:(BOOL)arg1 animated:(BOOL)arg2;
 @property(nonatomic, getter=isOn) BOOL on; // @dynamic on;
@@ -41,6 +48,11 @@
 - (void)_handlePanNL:(id)arg1;
 - (void)_commonInitNewLook;
 - (BOOL)_useOldSize;
+- (void)setAlternateColors:(BOOL)arg1;
+- (id)_scriptingInfo;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+- (unsigned long long)defaultAccessibilityTraits;
+- (BOOL)isAccessibilityElementByDefault;
 
 @end
 

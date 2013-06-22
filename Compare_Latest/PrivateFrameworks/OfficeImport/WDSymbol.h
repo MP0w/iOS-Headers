@@ -15,15 +15,15 @@
     unsigned short mCharacter;
 }
 
-- (void)dealloc;
-- (id)initWithParagraph:(id)arg1;
-- (id)properties;
-- (void)clearProperties;
-- (id)font;
-- (void)setFont:(id)arg1;
-- (unsigned short)character;
-- (void)setCharacter:(unsigned short)arg1;
 - (int)runType;
+- (void)setCharacter:(unsigned short)arg1;
+- (unsigned short)character;
+- (void)setFont:(id)arg1;
+- (id)font;
+- (void)clearProperties;
+- (id)properties;
+- (id)initWithParagraph:(id)arg1;
+- (void)dealloc;
 
 @end
 

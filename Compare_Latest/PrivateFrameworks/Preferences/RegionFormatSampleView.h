@@ -6,23 +6,23 @@
 
 #import "UIView.h"
 
-#import "PreferencesTableCustomView-Protocol.h"
+#import "PSHeaderFooterView-Protocol.h"
 
 @class UILabel;
 
-@interface RegionFormatSampleView : UIView <PreferencesTableCustomView>
+@interface RegionFormatSampleView : UIView <PSHeaderFooterView>
 {
     UILabel *_labels[4];
     float _sized;
 }
 
-- (id)generateRegionSampleLabel;
-- (void)setTextForRegionExample:(id)arg1;
-- (id)initWithSpecifier:(id)arg1;
-- (float)preferredHeightForWidth:(float)arg1;
-- (void)dealloc;
-- (void)layoutSubviews;
 - (id)_accessibilityLabels;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (float)preferredHeightForWidth:(float)arg1;
+- (id)initWithSpecifier:(id)arg1;
+- (void)setTextForRegionExample:(id)arg1;
+- (id)generateRegionSampleLabel;
 
 @end
 

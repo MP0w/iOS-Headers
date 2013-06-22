@@ -10,16 +10,13 @@
 {
 }
 
-- (id)displayName;
-- (id)leafIdentifier;
++ (Class)_iconGridImageClass;
++ (unsigned int)_maxIconsInGridImage;
+- (BOOL)isNewsstandIcon;
 - (id)folder;
-- (unsigned int)_maxIcons;
-- (float)_miniIconSize;
-- (float)_miniIconGap;
-- (id)croppedImageForIcon:(id)arg1;
-- (struct CGSize)_sizeOfMiniIconGridWithRows:(unsigned int)arg1;
-- (struct CGRect)_rectForMiniIconImage:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)launchFromViewSwitcher;
+- (id)leafIdentifier;
+- (id)displayName;
 
 @end
 

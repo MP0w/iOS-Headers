@@ -18,7 +18,9 @@
     NSString *_bundleVersion;
 }
 
-+ (id)hostname;
++ (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
++ (CDStruct_e4886f83 *)expiringTilesets;
++ (unsigned int)expiringTilesetsCount;
 + (unsigned char)tileProviderIdentifier;
 @property(retain, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;

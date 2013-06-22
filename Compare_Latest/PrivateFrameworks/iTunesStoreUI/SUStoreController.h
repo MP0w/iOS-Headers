@@ -12,7 +12,7 @@
 #import "SUTabBarControllerDelegate-Protocol.h"
 #import "UIApplicationDelegate-Protocol.h"
 
-@class ISOperation, MFMailComposeViewController, NSArray, NSDictionary, NSString, NSURL, SUClient, SULocationObserver, SUPurchaseManager, SUSectionsResponse, SUTabBarController, UINavigationController, UIWindow;
+@class ISOperation, MFMailComposeViewController, NSArray, NSDictionary, NSString, NSURL, SUClient, SUSectionsResponse, SUTabBarController, UINavigationController, UIWindow;
 
 @interface SUStoreController : NSObject <SUClientDelegate, SUPurchaseManagerDelegate, SUTabBarControllerDelegate, UIApplicationDelegate, MFMailComposeViewControllerDelegate>
 {
@@ -22,9 +22,8 @@
     NSURL *_launchURL;
     ISOperation *_loadSectionsOperation;
     NSString *_localStoreFrontAtLastSuspend;
-    SULocationObserver *_locationObserver;
+    id _locationObserver;
     NSArray *_overlayConfigurations;
-    SUPurchaseManager *_purchaseManager;
     BOOL _reloadForStorefrontChangeAfterAccountSetup;
     BOOL _reloadSectionsOnNextLaunch;
     NSString *_synchedStoreFrontAtLastSuspend;
@@ -74,8 +73,8 @@
 - (BOOL)client:(id)arg1 presentAccountViewController:(id)arg2 animated:(BOOL)arg3;
 - (BOOL)client:(id)arg1 openInternalURL:(id)arg2;
 - (void)_storeFrontChangedNotification:(id)arg1;
-- (void)_mainThreadStoreFrontChangedNotification:(id)arg1;
 - (void)_selectFooterSectionNotification:(id)arg1;
+- (void)_mainThreadStoreFrontChangedNotification:(id)arg1;
 - (void)_restrictionsChangedNotification:(id)arg1;
 - (void)_reloadForNetworkTypeChange:(id)arg1;
 - (void)_dialogDidFinishNotification:(id)arg1;
@@ -89,7 +88,6 @@
 - (void)tearDownUI;
 - (BOOL)showDialogForCapabilities:(id)arg1 mismatches:(id)arg2;
 - (BOOL)selectSectionWithIdentifier:(id)arg1;
-- (BOOL)reportAProblemForItemIdentifier:(unsigned long long)arg1;
 - (BOOL)reloadSectionWithIdentifier:(id)arg1 url:(id)arg2;
 - (BOOL)presentOverlayBackgroundViewController:(id)arg1;
 - (void)presentExternalURLViewController:(id)arg1;
@@ -100,7 +98,6 @@
 - (BOOL)libraryContainsItemIdentifier:(unsigned long long)arg1;
 @property(readonly, nonatomic, getter=isTabBarControllerLoaded) BOOL tabBarControllerLoaded;
 @property(readonly, nonatomic, getter=isStoreEnabled) BOOL storeEnabled;
-- (BOOL)gotoStorePage:(id)arg1 animated:(BOOL)arg2;
 - (void)exitStoreWithReason:(int)arg1;
 - (void)exitStoreAfterDialogsDismiss;
 - (void)endPurchaseBatch;

@@ -12,6 +12,7 @@
     unsigned int _cnt;
 }
 
+- (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
 - (id)objectAtIndex:(unsigned int)arg1;
 - (unsigned int)count;
 - (void)dealloc;

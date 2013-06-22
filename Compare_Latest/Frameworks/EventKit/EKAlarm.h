@@ -8,15 +8,17 @@
 
 #import "NSCopying-Protocol.h"
 
-@class EKObjectToOneRelation, NSDate;
+@class EKObjectToOneRelation, EKStructuredLocation, NSDate;
 
 @interface EKAlarm : EKObject <NSCopying>
 {
     EKObjectToOneRelation *_locationRelation;
 }
 
++ (BOOL)areLocationsCurrentlyEnabled;
 + (BOOL)areLocationsAllowedWithAuthorizationStatus:(int)arg1;
 + (BOOL)areLocationsAllowed;
++ (int)_currentAuthorizationStatus;
 + (BOOL)areLocationsAvailable;
 + (id)alarmWithRelativeOffset:(double)arg1;
 + (id)alarmWithAbsoluteDate:(id)arg1;
@@ -25,13 +27,16 @@
 - (id)description;
 - (BOOL)rebase;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setDefaultAlarm:(BOOL)arg1;
+- (BOOL)isDefaultAlarm;
 - (id)ownerUUID;
-- (id)structuredLocation;
-- (void)setStructuredLocation:(id)arg1;
+@property(copy, nonatomic) EKStructuredLocation *structuredLocation;
 - (id)_locationRelation;
-- (int)proximity;
-- (void)setProximity:(int)arg1;
+@property(nonatomic) int proximity;
 - (BOOL)isAbsolute;
+- (id)externalID;
+- (void)setAcknowledgedDate:(id)arg1;
+- (id)acknowledgedDate;
 @property(copy, nonatomic) NSDate *absoluteDate;
 @property(nonatomic) double relativeOffset;
 - (id)UUID;

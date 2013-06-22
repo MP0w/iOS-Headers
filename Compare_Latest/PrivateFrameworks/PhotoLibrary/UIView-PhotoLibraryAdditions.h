@@ -7,7 +7,7 @@
 #import "UIView.h"
 
 @interface UIView (PhotoLibraryAdditions)
-- (void)pl_debugSetLayerNames;
+- (void)pl_drawBorderWithColor:(id)arg1 width:(float)arg2;
 - (BOOL)pl_isOnScreen:(id)arg1;
 @end
 

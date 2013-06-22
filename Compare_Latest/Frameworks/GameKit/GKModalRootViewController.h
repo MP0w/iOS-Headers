@@ -10,13 +10,12 @@
 
 @interface GKModalRootViewController : GKViewController
 {
-    int _statusBarOrientation;
     UIViewController *oldRootViewController;
     id oldDelegate;
-    BOOL stopAuthenticating;
+    int statusBarOrientation;
 }
 
-@property(nonatomic) BOOL stopAuthenticating; // @synthesize stopAuthenticating;
+@property(nonatomic) int statusBarOrientation; // @synthesize statusBarOrientation;
 @property(retain, nonatomic) id oldDelegate; // @synthesize oldDelegate;
 @property(retain, nonatomic) UIViewController *oldRootViewController; // @synthesize oldRootViewController;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;

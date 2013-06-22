@@ -21,15 +21,15 @@
 }
 
 + (id)sharedInstance;
-- (void)dealloc;
-- (void)forceUserToChangePasscode;
-- (void)_passwordEntered:(id)arg1;
-- (void)_userWantsToComplyNow:(BOOL)arg1;
-- (void)_abort;
-- (void)_didEndCall;
-- (void)_startListeningToTelephonyNotifications;
-- (void)_stopListeningToTelephonyNotifications;
 - (void)checkPasscodeCompliance;
+- (void)_stopListeningToTelephonyNotifications;
+- (void)_startListeningToTelephonyNotifications;
+- (void)_didEndCall;
+- (void)_abort;
+- (void)_userWantsToComplyNow:(BOOL)arg1;
+- (void)_passwordEntered:(id)arg1;
+- (void)forceUserToChangePasscode;
+- (void)dealloc;
 
 @end
 

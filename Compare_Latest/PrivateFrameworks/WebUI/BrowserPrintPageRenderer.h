@@ -28,19 +28,23 @@
     BOOL _printFooter;
 }
 
-- (id)init;
-- (void)dealloc;
-- (int)numberOfPages;
-- (void)drawContentForPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
-- (void)drawFooterForPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
-- (void)printInteractionControllerWillStartJob:(id)arg1;
-- (void)printInteractionControllerDidFinishJob:(id)arg1;
 @property(nonatomic) BOOL printFooter; // @synthesize printFooter=_printFooter;
 @property(readonly, nonatomic) UIWebPaginationInfo *paginationInfo; // @synthesize paginationInfo=_paginationInfo;
 @property(retain, nonatomic) NSString *URLString; // @synthesize URLString=_URLString;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(retain, nonatomic) WebFrame *webFrame; // @synthesize webFrame=_webFrame;
 @property(retain, nonatomic) UIWebBrowserView *browserView; // @synthesize browserView=_browserView;
+- (void)associateWithPrintController:(id)arg1;
+- (id)printInfoWithPageTitle:(id)arg1;
+- (id)printControllerWithPageTitle:(id)arg1;
+- (void)printInteractionControllerDidFinishJob:(id)arg1;
+- (void)printInteractionControllerWillStartJob:(id)arg1;
+- (id)printingFrame;
+- (void)drawFooterForPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
+- (void)drawContentForPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
+- (int)numberOfPages;
+- (void)dealloc;
+- (id)init;
 
 @end
 

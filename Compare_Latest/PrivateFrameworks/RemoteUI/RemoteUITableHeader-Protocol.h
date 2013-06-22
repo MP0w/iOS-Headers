@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol RemoteUITableHeader <NSObject>
-- (id)initWithAttributes:(id)arg1;
-- (void)setSectionIsFirst:(BOOL)arg1;
 - (float)headerHeightForWidth:(float)arg1 inTableView:(id)arg2;
+- (void)setSectionIsFirst:(BOOL)arg1;
+- (id)initWithAttributes:(id)arg1;
 @end
 

@@ -7,24 +7,24 @@
 #import "NSString.h"
 
 @interface NSString (GQCustomNumberFormatAdditions)
-+ (id)customNumberFormatTokenStringOfType:(int)arg1 content:(id)arg2;
-+ (id)customNumberFormatIntegerTokenDisplayStringWithDigits:(unsigned int)arg1 separator:(BOOL)arg2 digitString:(id)arg3;
-+ (id)customNumberFormatIntegerTokenRepresentedStringWithDigits:(unsigned int)arg1 separator:(BOOL)arg2 digitString:(id)arg3;
-+ (id)customNumberFormatIntegerFormatStringWithDigits:(unsigned int)arg1 digitString:(id)arg2;
-+ (id)customNumberFormatDecimalTokenDisplayStringWithDigits:(unsigned int)arg1 digitString:(id)arg2;
-+ (id)customNumberFormatDecimalTokenRepresentedStringWithDigits:(unsigned int)arg1 digitString:(id)arg2;
 + (id)customNumberFormatDecimalFormatStringWithDigits:(unsigned int)arg1 digitString:(id)arg2 includeDecimalSeparator:(BOOL)arg3;
-- (BOOL)isSpecialCustomNumberFormatToken;
-- (BOOL)isSpecialCustomNumberFormatTokenOfType:(int)arg1;
-- (unsigned int)numberOfDigitsInCustomNumberFormatIntegerToken;
-- (BOOL)customFormatIntegerTokenUsesSeparator;
-- (id)stringByInsertingGroupingSeparators;
-- (unsigned int)numberOfDigitsInCustomNumberFormatDecimalToken;
-- (id)digitPlaceholderStringInDigitToken;
-- (id)currencyCodeFromCustomNumberFormatCurrencyToken;
-- (int)fractionAccuracyFromCustomNumberFormatFractionToken;
-- (id)formatStringFromCustomNumberFormatScaleToken;
-- (unsigned short)scaleCharacterInCustomNumberFormatScaleToken;
++ (id)customNumberFormatDecimalTokenRepresentedStringWithDigits:(unsigned int)arg1 digitString:(id)arg2;
++ (id)customNumberFormatDecimalTokenDisplayStringWithDigits:(unsigned int)arg1 digitString:(id)arg2;
++ (id)customNumberFormatIntegerFormatStringWithDigits:(unsigned int)arg1 digitString:(id)arg2;
++ (id)customNumberFormatIntegerTokenRepresentedStringWithDigits:(unsigned int)arg1 separator:(BOOL)arg2 digitString:(id)arg3;
++ (id)customNumberFormatIntegerTokenDisplayStringWithDigits:(unsigned int)arg1 separator:(BOOL)arg2 digitString:(id)arg3;
++ (id)customNumberFormatTokenStringOfType:(int)arg1 content:(id)arg2;
 - (unsigned short)spaceCharacterInCustomNumberFormatSpaceToken;
+- (unsigned short)scaleCharacterInCustomNumberFormatScaleToken;
+- (id)formatStringFromCustomNumberFormatScaleToken;
+- (int)fractionAccuracyFromCustomNumberFormatFractionToken;
+- (id)currencyCodeFromCustomNumberFormatCurrencyToken;
+- (id)digitPlaceholderStringInDigitToken;
+- (unsigned int)numberOfDigitsInCustomNumberFormatDecimalToken;
+- (id)stringByInsertingGroupingSeparators;
+- (BOOL)customFormatIntegerTokenUsesSeparator;
+- (unsigned int)numberOfDigitsInCustomNumberFormatIntegerToken;
+- (BOOL)isSpecialCustomNumberFormatTokenOfType:(int)arg1;
+- (BOOL)isSpecialCustomNumberFormatToken;
 @end
 

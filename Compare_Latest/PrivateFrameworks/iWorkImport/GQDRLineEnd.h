@@ -19,12 +19,14 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (char *)pathStr;
-- (struct CGPath *)path;
-- (struct CGPoint)endPoint;
-- (BOOL)isFilled;
+- (id).cxx_construct;
 - (double)scale;
+- (BOOL)isFilled;
+- (struct CGPoint)endPoint;
+- (struct CGPath *)path;
+- (char *)pathStr;
+- (void)dealloc;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

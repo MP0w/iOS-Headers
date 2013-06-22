@@ -7,10 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol MFContactsSearchConsumer <NSObject>
-- (void)consumeSearchResults:(id)arg1 type:(int)arg2 taskID:(id)arg3;
-- (void)finishedSearchingForType:(int)arg1;
-- (void)finishedTaskWithID:(id)arg1;
-- (void)beganNetworkActivity;
 - (void)endedNetworkActivity;
+- (void)beganNetworkActivity;
+- (void)finishedTaskWithID:(id)arg1;
+- (void)finishedSearchingForType:(int)arg1;
+- (void)consumeSearchResults:(id)arg1 type:(int)arg2 taskID:(id)arg3;
 @end
 

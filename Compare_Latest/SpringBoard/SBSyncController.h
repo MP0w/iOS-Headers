@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSTimer;
+@class NSTimer, SBDeviceLockDisableAssertion;
 
 @interface SBSyncController : NSObject
 {
@@ -18,40 +18,41 @@
     BOOL _appsChangedDuringSync;
     int _restoreStartedNotifyToken;
     int _restoreEndedNotifyToken;
+    SBDeviceLockDisableAssertion *_disableDeviceLockAssertion;
 }
 
 + (id)sharedInstance;
-- (void)dealloc;
-- (void)startObserving;
-- (void)stopObserving;
-- (void)_setRestoreState:(int)arg1;
-- (void)frontLockedWhenPossible;
-- (void)syncSessionDidEnd;
-- (void)_wirelessSyncEnded:(id)arg1;
-- (BOOL)isRestoring;
-- (int)restoreState;
-- (void)_notifyRestoreCanProceed;
-- (void)_killApplications;
-- (void)beginRestoring;
-- (void)finishedTerminatingApplications;
-- (void)cancelRestoring;
-- (void)_rebootNow;
-- (void)finishEndRestoring;
-- (void)didEndRestoring:(int)arg1;
-- (BOOL)isResetting;
-- (int)resetState;
-- (void)_delayedQuitApplications;
-- (void)_delayedBeginReset;
-- (void)beginResetting:(BOOL)arg1;
-- (void)didEndResetting;
-- (void)_resetStarted:(id)arg1;
-- (void)_resetEnded:(id)arg1;
-- (void)_invalidateRestoreTimer;
-- (BOOL)_isBackupAgentRunning;
-- (void)_restoreTimerFired:(id)arg1;
-- (void)_setupRestoreTimer;
-- (void)_appInstallationNotification;
 - (BOOL)isInUse;
+- (void)_appInstallationNotification;
+- (void)_setupRestoreTimer;
+- (void)_restoreTimerFired:(id)arg1;
+- (BOOL)_isBackupAgentRunning;
+- (void)_invalidateRestoreTimer;
+- (void)_resetEnded:(id)arg1;
+- (void)_resetStarted:(id)arg1;
+- (void)didEndResetting;
+- (void)beginResetting:(BOOL)arg1;
+- (void)_delayedBeginReset;
+- (void)_delayedQuitApplications;
+- (int)resetState;
+- (BOOL)isResetting;
+- (void)didEndRestoring:(int)arg1;
+- (void)finishEndRestoring;
+- (void)_rebootNow;
+- (void)cancelRestoring;
+- (void)finishedTerminatingApplications;
+- (void)beginRestoring;
+- (void)_killApplications;
+- (void)_notifyRestoreCanProceed;
+- (int)restoreState;
+- (BOOL)isRestoring;
+- (void)_wirelessSyncEnded:(id)arg1;
+- (void)syncSessionDidEnd;
+- (void)frontLockedWhenPossible;
+- (void)_setRestoreState:(int)arg1;
+- (void)stopObserving;
+- (void)startObserving;
+- (void)dealloc;
 
 @end
 

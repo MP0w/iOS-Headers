@@ -7,7 +7,7 @@
 #import "UIView.h"
 
 @interface UIView (ABUIViewIndexPathDrillDown)
-- (id)abIndexPathOfSubview:(id)arg1;
 - (id)abSubviewAtIndexPath:(id)arg1;
+- (id)abIndexPathOfSubview:(id)arg1;
 @end
 

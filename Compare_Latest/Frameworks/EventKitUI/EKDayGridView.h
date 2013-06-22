@@ -15,7 +15,6 @@
     float _timeWidth;
     unsigned int _leftBorder:1;
     unsigned int _rightBorder:1;
-    unsigned int _drawsContent:1;
     unsigned int _showsTimeMarker:1;
     unsigned int _showsTimeLine:1;
     int _selected;
@@ -64,7 +63,6 @@
 - (void)removeFromSuperview;
 - (void)_invalidateMarkerTimer;
 - (void)_setMarkerTimer;
-@property(nonatomic) BOOL drawsContent;
 - (void)dealloc;
 - (float)hourHeight;
 @property(readonly, nonatomic) float timeInset;

@@ -4,13 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <OfficeImport/CMTop.h>
 
 #import "OIProgressiveReaderDelegate-Protocol.h"
 
 @class CMArchiveManager, PMPresentationMapper, PMState;
 
-@interface PMTop : NSObject <OIProgressiveReaderDelegate>
+@interface PMTop : CMTop <OIProgressiveReaderDelegate>
 {
     CMArchiveManager *_archiver;
     PMState *_state;
@@ -18,10 +18,17 @@
     BOOL _xml;
 }
 
-+ (void)fillHTMLArchiveForPowerPointFile:(id)arg1 xmlFlag:(BOOL)arg2 archiver:(id)arg3;
 + (void)fillHTMLArchiveForPowerPointData:(id)arg1 fileName:(id)arg2 xmlFlag:(BOOL)arg3 archiver:(id)arg4;
-- (void)readData:(id)arg1 fileName:(id)arg2 xmlFlag:(BOOL)arg3 archiver:(id)arg4;
++ (void)fillHTMLArchiveForPowerPointFile:(id)arg1 xmlFlag:(BOOL)arg2 archiver:(id)arg3;
++ (void)fillHTMLArchiveForPowerPointFrom:(id)arg1 inMemory:(BOOL)arg2 xmlFlag:(BOOL)arg3 archiver:(id)arg4;
 - (void)readFile:(id)arg1 xmlFlag:(BOOL)arg2 archiver:(id)arg3;
+- (void)readData:(id)arg1 fileName:(id)arg2 xmlFlag:(BOOL)arg3 archiver:(id)arg4;
+- (BOOL)isCancelled;
+- (void)readerDidEndDocument:(id)arg1;
+- (void)readerDidReadElement:(id)arg1 atIndex:(unsigned int)arg2 inDocument:(id)arg3 isLastElement:(BOOL)arg4;
+- (void)readerDidStartDocument:(id)arg1 withElementCount:(int)arg2;
+- (void)dealloc;
+- (void)readFrom:(id)arg1 inMemory:(BOOL)arg2 xmlFlag:(BOOL)arg3 archiver:(id)arg4;
 
 @end
 

@@ -16,25 +16,24 @@
     unsigned int mTotalCellsWithContentCount;
     unsigned int mTotalCellsWithFormulaCount;
     struct XlEshObjectFactory *mXlEshObjectFactory;
-    BOOL m_shouldRestoreHostEshFactory;
     OABReaderState *mOAState;
     BOOL mImportCSV;
 }
 
-- (id)initWithXlReader:(struct XlBinaryReader *)arg1 cancelDelegate:(id)arg2 tracing:(id)arg3;
-- (void)dealloc;
-- (void)pauseReading;
-- (void)resumeReading;
-- (struct XlBinaryReader *)xlReader;
-- (void)readGlobalXlObjects;
-- (struct XlSheetInfoTable *)xlSheetInfoTable;
-- (id)columnWidthConvertor;
-- (unsigned int)cellsWithContentCount;
-- (void)incrementCellsWithContentCount;
-- (void)incrementCellsWithFormulaCount;
-- (id)oaState;
-- (void)reportWarning:(struct CPTaggedMessageStructure *)arg1;
 @property(nonatomic) BOOL importCSV; // @synthesize importCSV=mImportCSV;
+- (void)reportWarning:(struct CPTaggedMessageStructure *)arg1;
+- (id)oaState;
+- (void)incrementCellsWithFormulaCount;
+- (void)incrementCellsWithContentCount;
+- (unsigned int)cellsWithContentCount;
+- (id)columnWidthConvertor;
+- (struct XlSheetInfoTable *)xlSheetInfoTable;
+- (void)readGlobalXlObjects;
+- (struct XlBinaryReader *)xlReader;
+- (void)resumeReading;
+- (void)pauseReading;
+- (void)dealloc;
+- (id)initWithXlReader:(struct XlBinaryReader *)arg1 cancelDelegate:(id)arg2 tracing:(id)arg3;
 
 @end
 

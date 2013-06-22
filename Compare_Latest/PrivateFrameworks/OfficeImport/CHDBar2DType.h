@@ -13,15 +13,15 @@
     int mOverlap;
 }
 
-- (id)initWithChart:(id)arg1;
-- (int)gapWidth;
-- (void)setGapWidth:(int)arg1;
-- (int)overlap;
-- (void)setOverlap:(int)arg1;
-- (_Bool)isColumn;
-- (void)setColumn:(_Bool)arg1;
-- (_Bool)isHorizontal;
 - (int)defaultLabelPosition;
+- (_Bool)isHorizontal;
+- (void)setColumn:(_Bool)arg1;
+- (_Bool)isColumn;
+- (void)setOverlap:(int)arg1;
+- (int)overlap;
+- (void)setGapWidth:(int)arg1;
+- (int)gapWidth;
+- (id)initWithChart:(id)arg1;
 
 @end
 

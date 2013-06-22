@@ -7,16 +7,16 @@
 #import "NSObject.h"
 
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSObject<OS_dispatch_queue>;
 
-@interface SSOperationProgress : NSObject <SSCoding, NSCopying>
+@interface SSOperationProgress : NSObject <SSXPCCoding, NSCopying>
 {
     BOOL _canPause;
     double _changeRate;
     long long _currentValue;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     double _estimatedTimeRemaining;
     long long _maxValue;
     long long _normalizedCurrentValue;
@@ -28,6 +28,8 @@
 }
 
 - (void)_updateStatisticsFromSnapshots;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (id)description;
 @property int units;
 - (void)snapshot;
@@ -40,10 +42,6 @@
 @property double changeRate;
 @property BOOL canPause;
 - (void)resetSnapshots;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)init;

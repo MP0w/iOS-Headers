@@ -14,9 +14,9 @@
     unsigned int _index;
 }
 
-- (void)dealloc;
-- (id)initWithMailbox:(id)arg1;
 - (id)nextObject;
+- (id)initWithMailbox:(id)arg1;
+- (void)dealloc;
 
 @end
 

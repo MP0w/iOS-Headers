@@ -12,10 +12,10 @@
 {
 }
 
-@property(copy) NSString *content;
-@property(copy) NSString *httpEquiv;
-@property(copy) NSString *name;
 @property(copy) NSString *scheme;
+@property(copy) NSString *name;
+@property(copy) NSString *httpEquiv;
+@property(copy) NSString *content;
 
 @end
 

@@ -6,17 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, NSTimer;
+@class NSMutableSet, NSObject<OS_dispatch_source>;
 
 @interface GEODaemon : NSObject
 {
     NSMutableSet *_servers;
-    NSTimer *_timeoutTimer;
+    NSObject<OS_dispatch_source> *_sigUSR1Src;
 }
 
-- (void)_stopTimeout;
-- (void)_considerStartingTimeout;
-- (void)_timeoutFired:(id)arg1;
+- (id)description;
 - (void)_localeChanged:(id)arg1;
 - (void)dealloc;
 - (void)startServer:(id)arg1;

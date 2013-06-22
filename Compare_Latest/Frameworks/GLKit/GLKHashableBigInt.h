@@ -6,7 +6,9 @@
 
 #import "NSObject.h"
 
-@interface GLKHashableBigInt : NSObject
+#import "NSCopying-Protocol.h"
+
+@interface GLKHashableBigInt : NSObject <NSCopying>
 {
     struct GLKBigInt_s _bigInt;
 }

@@ -15,22 +15,22 @@
     BOOL _shouldSaveDeviceLocalAccount;
 }
 
-- (void)dealloc;
-- (id)_syncActionsAccount;
-- (void *)createDeviceLocalSyncDataSourceForDataclass:(id)arg1;
-@property(readonly, nonatomic) DeviceLocalAccount *deviceLocalAccount; // @synthesize deviceLocalAccount=_deviceLocalAccount;
-- (void)saveDeviceLocalAccount;
-- (void)mergeLocalDataForDataclass:(id)arg1;
-- (void)removeLocalDataStoreForDataclass:(id)arg1;
-- (void)removeDataStoreForDataclass:(id)arg1;
-- (void)mergeSyncDataForDataclass:(id)arg1;
-- (void)createLocalDataSourceForDataclass:(id)arg1;
-- (void)clearAnchorsForDataclass:(id)arg1;
-- (void)clearAnchorsForLocalDataclass:(id)arg1;
-- (void)hideLocalStoreForDataclass:(id)arg1;
-- (void)showLocalStoreIfAppropriateForDataclass:(id)arg1;
 @property(readonly, nonatomic) BOOL shouldSaveDeviceLocalAccount; // @synthesize shouldSaveDeviceLocalAccount=_shouldSaveDeviceLocalAccount;
 @property(retain, nonatomic) BasicAccount<AccountSettingsUIAccount> *syncAccount; // @synthesize syncAccount=_syncAccount;
+- (void)showLocalStoreIfAppropriateForDataclass:(id)arg1;
+- (void)hideLocalStoreForDataclass:(id)arg1;
+- (void)clearAnchorsForLocalDataclass:(id)arg1;
+- (void)clearAnchorsForDataclass:(id)arg1;
+- (void)createLocalDataSourceForDataclass:(id)arg1;
+- (void)mergeSyncDataForDataclass:(id)arg1;
+- (void)removeDataStoreForDataclass:(id)arg1;
+- (void)removeLocalDataStoreForDataclass:(id)arg1;
+- (void)mergeLocalDataForDataclass:(id)arg1;
+- (void)saveDeviceLocalAccount;
+@property(readonly, nonatomic) DeviceLocalAccount *deviceLocalAccount; // @synthesize deviceLocalAccount=_deviceLocalAccount;
+- (void *)createDeviceLocalSyncDataSourceForDataclass:(id)arg1;
+- (id)_syncActionsAccount;
+- (void)dealloc;
 
 @end
 

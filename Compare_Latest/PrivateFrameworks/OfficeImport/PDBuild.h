@@ -14,12 +14,12 @@
     OADDrawable *mDrawable;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)isAnimateBackground;
-- (void)setIsAnimateBackground:(BOOL)arg1;
-- (id)drawable;
 - (void)setDrawable:(id)arg1;
+- (id)drawable;
+- (void)setIsAnimateBackground:(BOOL)arg1;
+- (BOOL)isAnimateBackground;
+- (void)dealloc;
+- (id)init;
 
 @end
 

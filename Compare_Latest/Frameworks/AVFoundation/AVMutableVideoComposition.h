@@ -13,8 +13,8 @@
     AVMutableVideoCompositionInternal *_mutableVideoComposition;
 }
 
-+ (id)videoCompositionForAsset:(id)arg1 videoGravity:(id)arg2;
-+ (id)videoCompositionForAsset:(id)arg1;
++ (id)videoCompositionWithPropertiesOfAsset:(id)arg1 videoGravity:(id)arg2;
++ (id)videoCompositionWithPropertiesOfAsset:(id)arg1;
 + (id)videoComposition;
 @property(retain, nonatomic) AVVideoCompositionCoreAnimationTool *animationTool;
 @property(copy, nonatomic) NSArray *instructions;

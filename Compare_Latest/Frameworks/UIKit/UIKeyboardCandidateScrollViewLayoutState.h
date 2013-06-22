@@ -20,6 +20,7 @@
     float _rowHeight;
     BOOL _grouped;
     float _groupBarWidth;
+    BOOL _hasIndex;
     id _completion;
     BOOL _layoutFinished;
     unsigned int _currentGroupIndex;
@@ -38,6 +39,7 @@
 @property(nonatomic) unsigned int currentGroupIndex; // @synthesize currentGroupIndex=_currentGroupIndex;
 @property(nonatomic) BOOL layoutFinished; // @synthesize layoutFinished=_layoutFinished;
 @property(copy, nonatomic) id completion; // @synthesize completion=_completion;
+@property(nonatomic) BOOL hasIndex; // @synthesize hasIndex=_hasIndex;
 @property(nonatomic) float groupBarWidth; // @synthesize groupBarWidth=_groupBarWidth;
 @property(nonatomic) BOOL grouped; // @synthesize grouped=_grouped;
 @property(nonatomic) float rowHeight; // @synthesize rowHeight=_rowHeight;

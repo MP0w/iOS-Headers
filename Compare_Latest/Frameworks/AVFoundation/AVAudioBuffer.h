@@ -19,6 +19,9 @@
 @property int bytesDataSize;
 @property(readonly) int bytesCapacity;
 @property(readonly) int channels;
+- (id)initWithAudioQueueBuffer:(struct MyAudioQueueBuffer *)arg1 channels:(int)arg2;
+- (void)dealloc;
+- (void)finalize;
 
 @end
 

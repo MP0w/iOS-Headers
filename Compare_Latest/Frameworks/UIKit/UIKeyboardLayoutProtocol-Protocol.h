@@ -21,6 +21,7 @@
 - (void)setLabel:(id)arg1 forKey:(id)arg2;
 - (BOOL)hasCandidateKeys;
 - (id)candidateList;
+- (BOOL)performSpaceAction;
 - (BOOL)performReturnAction;
 - (void)didClearInput;
 - (void)longPressAction;
@@ -30,9 +31,8 @@
 - (BOOL)ignoresShiftState;
 - (BOOL)usesAutoShift;
 - (void)updateLocalizedKeys:(BOOL)arg1;
-- (void)updateReturnKey;
 - (void)deactivateActiveKeys;
-- (void)clearUnusedObjects;
+- (void)clearUnusedObjects:(BOOL)arg1;
 - (void)showKeyboardType:(int)arg1 withAppearance:(int)arg2;
 
 @optional

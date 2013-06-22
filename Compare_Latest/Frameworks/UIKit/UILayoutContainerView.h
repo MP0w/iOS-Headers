@@ -7,28 +7,20 @@
 #import <UIKit/UIView.h>
 
 #import "NSCoding-Protocol.h"
-#import "_UIViewFastModeSupport-Protocol.h"
 
-@class UIRoundedCornerView;
-
-@interface UILayoutContainerView : UIView <NSCoding, _UIViewFastModeSupport>
+@interface UILayoutContainerView : UIView <NSCoding>
 {
     id _delegate;
     BOOL _usesRoundedCorners;
     float _cornerRadius;
-    BOOL _fastMode;
-    UIRoundedCornerView *_roundedCornerView;
     BOOL _usesInnerShadow;
     BOOL _shadowViewsInstalled;
     UIView *_shadowView;
 }
 
 @property(nonatomic) BOOL usesInnerShadow; // @synthesize usesInnerShadow=_usesInnerShadow;
-@property(nonatomic) BOOL useFastMode; // @synthesize useFastMode=_fastMode;
 @property(nonatomic) BOOL usesRoundedCorners; // @synthesize usesRoundedCorners=_usesRoundedCorners;
 - (void)dealloc;
-- (void)_endFastMode;
-- (void)_beginFastMode;
 - (void)addSubview:(id)arg1;
 - (void)_tearDownShadowViews;
 - (void)_installShadowViews;

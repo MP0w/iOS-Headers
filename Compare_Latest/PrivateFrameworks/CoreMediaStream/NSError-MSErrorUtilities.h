@@ -7,6 +7,7 @@
 #import "NSError.h"
 
 @interface NSError (MSErrorUtilities)
++ (id)MSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3 underlyingError:(id)arg4 additionalUserInfo:(id)arg5;
 + (id)MSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3 underlyingError:(id)arg4;
 + (id)MSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3 suggestion:(id)arg4;
 + (id)MSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3;
@@ -19,6 +20,7 @@
 - (BOOL)MSIsCounted;
 - (BOOL)MSNeedsBackoff;
 - (BOOL)MSCanBeIgnored;
+- (BOOL)MSASStateMachineIsCanceledError;
 - (BOOL)MSIsTemporaryNetworkError;
 - (void)_MSApplyBlock:(id)arg1;
 - (id)MSFindPrimaryError;

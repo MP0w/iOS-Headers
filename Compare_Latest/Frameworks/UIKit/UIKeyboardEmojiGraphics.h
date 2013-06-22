@@ -33,12 +33,9 @@
 + (struct __CFDictionary *)emojiFontAttributes;
 + (struct __CFDictionary *)createEmojiFontAttributes:(BOOL)arg1;
 + (id)imageWithRect:(struct CGRect)arg1 name:(id)arg2 pressed:(BOOL)arg3;
++ (BOOL)isLandscape;
 + (id)sharedInstance;
 - (id)categoryKeyGenerator:(BOOL)arg1 rect:(struct CGRect)arg2;
-- (id)controlSpaceKeyGenerator:(BOOL)arg1 rect:(struct CGRect)arg2;
-- (id)controlDeleteKeyGenerator:(BOOL)arg1 rect:(struct CGRect)arg2;
-- (id)controlDismissKeyGenerator:(BOOL)arg1 rect:(struct CGRect)arg2;
-- (id)controlInternationalKeyGenerator:(BOOL)arg1 rect:(struct CGRect)arg2;
 - (id)keyImageWithDisplayString:(id)arg1 state:(int)arg2 rect:(struct CGRect)arg3 fontSize:(float)arg4;
 - (id)keyImageWithDisplayString:(id)arg1 state:(int)arg2 rect:(struct CGRect)arg3 fontSize:(float)arg4 offset:(struct CGPoint)arg5;
 - (id)protoKeyboard;
@@ -48,9 +45,6 @@
 - (id)backgroundGradientGenerator:(id)arg1;
 - (id)pageIndicatorCurrentGenerator:(id)arg1;
 - (id)pageIndicatorGenerator:(id)arg1;
-- (id)controlDeleteGenerator:(id)arg1;
-- (id)controlInternationalGenerator:(id)arg1;
-- (id)controlWithSymbol:(id)arg1 corners:(int)arg2 padding:(struct CGSize)arg3 generator:(id)arg4;
 - (id)categorySymbolsGenerator:(id)arg1;
 - (id)categoryPlacesGenerator:(id)arg1;
 - (id)categoryObjectsGenerator:(id)arg1;

@@ -16,32 +16,32 @@
     BOOL _cacheComplete;
 }
 
-+ (void)initialize;
 + (void)initializeLookupTable;
-- (id)initWithHitTestResult:(const struct HitTestResult *)arg1;
-- (void)dealloc;
-- (void)finalize;
-- (void)_fillCache;
-- (unsigned int)count;
-- (id)keyEnumerator;
-- (id)objectForKey:(id)arg1;
-- (id)_domNode;
-- (id)_webFrame;
-- (id)_altDisplayString;
-- (id)_spellingToolTip;
-- (id)_image;
-- (id)_imageRect;
-- (id)_absoluteImageURL;
-- (id)_absoluteMediaURL;
-- (id)_isSelected;
-- (id)_title;
-- (id)_absoluteLinkURL;
-- (id)_targetWebFrame;
-- (id)_titleDisplayString;
-- (id)_textContent;
-- (id)_isLiveLink;
-- (id)_isContentEditable;
++ (void)initialize;
 - (id)_isInScrollBar;
+- (id)_isContentEditable;
+- (id)_isLiveLink;
+- (id)_textContent;
+- (id)_titleDisplayString;
+- (id)_targetWebFrame;
+- (id)_absoluteLinkURL;
+- (id)_title;
+- (id)_isSelected;
+- (id)_absoluteMediaURL;
+- (id)_absoluteImageURL;
+- (id)_imageRect;
+- (id)_image;
+- (id)_spellingToolTip;
+- (id)_altDisplayString;
+- (id)_webFrame;
+- (id)_domNode;
+- (id)objectForKey:(id)arg1;
+- (id)keyEnumerator;
+- (unsigned int)count;
+- (void)_fillCache;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithHitTestResult:(const struct HitTestResult *)arg1;
 
 @end
 

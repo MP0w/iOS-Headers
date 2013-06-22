@@ -7,20 +7,21 @@
 #import <MediaPlayer/MPViewController.h>
 
 #import "MPSwipableViewDelegate-Protocol.h"
+#import "MPVideoControllerProtocol-Protocol.h"
 #import "MPVideoTransferViewController-Protocol.h"
 #import "UIModalViewDelegate-Protocol.h"
 
-@class MPClosedCaptionDisplay, MPImageCache, MPImageCacheRequest, MPSwipableView, MPTVOutWindow, MPVideoBackgroundView, MPVideoView, UIActivityIndicatorView, UIAlertView, UIColor, UIImage, UIView, UIView<MPVideoOverlay>;
+@class MPAVController, MPAVItem, MPClosedCaptionDisplay, MPImageCache, MPImageCacheRequest, MPSwipableView, MPTVOutWindow, MPVideoBackgroundView, MPVideoView, UIActivityIndicatorView, UIAlertView, UIColor, UIImage, UIView, UIView<MPVideoOverlay>, _UIHostedWindow;
 
-@interface MPVideoViewController : MPViewController <MPSwipableViewDelegate, MPVideoTransferViewController, UIModalViewDelegate>
+@interface MPVideoViewController : MPViewController <MPVideoControllerProtocol, MPSwipableViewDelegate, MPVideoTransferViewController, UIModalViewDelegate>
 {
     MPVideoBackgroundView *_backgroundView;
     MPSwipableView *_backstopView;
     BOOL _batteryMonitoringWasEnabled;
     MPClosedCaptionDisplay *_captionView;
-    unsigned int _desiredParts;
-    unsigned int _disabledParts;
-    unsigned int _visibleParts;
+    unsigned long long _desiredParts;
+    unsigned long long _disabledParts;
+    unsigned long long _visibleParts;
     unsigned int _tvOutEnabled:1;
     unsigned int _allowsTVOutInBackground:1;
     unsigned int _itemTypeOverride;
@@ -33,6 +34,7 @@
     UIActivityIndicatorView *_loadingIndicator;
     MPTVOutWindow *_tvOutWindow;
     int _extendedModeNotifyToken;
+    unsigned int _backgroundTaskId;
     int _artworkImageStyle;
     UIImage *_posterImage;
     unsigned int _canAnimateControlsOverlay:1;
@@ -53,19 +55,21 @@
 
 + (struct CGRect)calculateArtworkImageViewFrameInRect:(struct CGRect)arg1;
 + (BOOL)supportsFullscreenDisplay;
+@property(nonatomic) unsigned long long visibleParts; // @synthesize visibleParts=_visibleParts;
 @property(retain, nonatomic) UIImage *posterImage; // @synthesize posterImage=_posterImage;
-@property(nonatomic) int artworkImageStyle; // @synthesize artworkImageStyle=_artworkImageStyle;
 @property(nonatomic) unsigned int itemTypeOverride; // @synthesize itemTypeOverride=_itemTypeOverride;
+@property(nonatomic) unsigned long long disabledParts; // @synthesize disabledParts=_disabledParts;
+@property(nonatomic) unsigned long long desiredParts; // @synthesize desiredParts=_desiredParts;
 @property(retain, nonatomic) UIColor *backstopColor; // @synthesize backstopColor=_backstopColor;
-@property(nonatomic) unsigned int visibleParts; // @synthesize visibleParts=_visibleParts;
-@property(nonatomic) unsigned int disabledParts; // @synthesize disabledParts=_disabledParts;
-@property(nonatomic) unsigned int desiredParts; // @synthesize desiredParts=_desiredParts;
-- (BOOL)_canEnableAirPlayVideoRoutes;
+@property(nonatomic) int artworkImageStyle; // @synthesize artworkImageStyle=_artworkImageStyle;
 - (void)_updateProgressControlForItem:(id)arg1;
+- (void)_updateIdleTimerDisabledFromPlaybackState:(unsigned int)arg1;
 - (BOOL)_showDestinationPlaceholder;
 - (void)_hideLoadingIndicator;
+- (void)_delayedUpdateBackgroundView;
+- (BOOL)_canEnableAirPlayVideoRoutes;
 - (void)_cancelArtworkImageRequest;
-- (unsigned int)disabledPartsForProposedParts:(unsigned int)arg1;
+- (unsigned long long)disabledPartsForProposedParts:(unsigned long long)arg1;
 - (void)backgroundViewDidUpdate;
 - (id)createChapterFlipTransition;
 - (id)newAlternateTracksTransition;
@@ -88,30 +92,30 @@
 - (void)_screenDidDisconnect:(id)arg1;
 - (void)_screenDidConnect:(id)arg1;
 - (void)_popForTimeJump:(id)arg1;
-- (void)bufferingStateChangedNotification:(id)arg1;
+- (void)videoView_bufferingStateChangedNotification:(id)arg1;
 - (void)_updateBackgroundView:(BOOL)arg1;
-- (void)_delayedUpdateBackgroundView;
 - (void)videoView_firstVideoFrameDisplayedNotification:(id)arg1;
 - (void)videoView_itemTypeAvailableNotification:(id)arg1;
 - (void)_videoView_validityChangedNotification:(id)arg1;
-- (void)_videoView_tvOutCapabilityDidChangeNotification:(id)arg1;
+- (void)videoView_tvOutCapabilityDidChangeNotification:(id)arg1;
 - (void)_videoView_timedImageMetadataAvailableNotification:(id)arg1;
 - (void)_videoView_sizeChangedNotification:(id)arg1;
 - (void)_videoView_scaleModeChangedNotification:(id)arg1;
 - (void)_videoView_resumeEventsOnlyNotification:(id)arg1;
-- (void)_videoView_playbackStateChangedNotification:(id)arg1;
+- (void)videoView_playbackStateChangedNotification:(id)arg1;
 - (void)_exitPlayerForPlaybackError;
 - (void)_videoView_playbackErrorNotification:(id)arg1;
 - (void)_videoView_isAirPlayVideoActiveDidChangeNotification:(id)arg1;
 - (void)_videoView_effectiveScaleModeChangedNotification:(id)arg1;
 - (void)_videoView_batteryStateDidChangeNotification:(id)arg1;
+- (void)_videoView_availableRoutesDidChangeNotification:(id)arg1;
 - (void)_videoView_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_videoView_applicationSuspendedNotification:(id)arg1;
+- (void)_endBackgroundTask;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 @property(readonly, nonatomic) BOOL viewControllerWillRequestExit;
 - (void)chapterListDidDisappear:(id)arg1;
 - (void)chapterList:(id)arg1 selectedChapter:(unsigned int)arg2;
-- (BOOL)infoOverlayShouldDisplayQueuePositionUI:(id)arg1;
 @property(readonly, nonatomic) BOOL canShowQTAudioOnlyUI;
 - (void)setFullscreen:(BOOL)arg1 animated:(BOOL)arg2;
 @property(nonatomic, getter=isFullscreen) BOOL fullscreen;
@@ -123,14 +127,16 @@
 @property(readonly, nonatomic) MPVideoView *videoView;
 @property(nonatomic) BOOL allowsTVOutInBackground;
 @property(nonatomic) BOOL TVOutEnabled;
-- (void)setPlayer:(id)arg1;
+@property(retain, nonatomic) MPAVController *player;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)prepareToDisplayVideo;
 - (void)removeChildViewController:(id)arg1;
 - (void)noteIgnoredChangeTypes:(unsigned int)arg1;
-- (void)viewDidUnload;
 - (void)loadView;
+@property(readonly, nonatomic) unsigned int hostedWindowContextID;
+@property(readonly, nonatomic) _UIHostedWindow *hostedWindow;
+- (void)setUseHostedWindowWhenFullscreen:(BOOL)arg1;
 @property(readonly, nonatomic) UIView *artworkImageView;
 @property(readonly, nonatomic) BOOL showArtworkForTVOut;
 - (void)setControlsNeedLayout;
@@ -140,18 +146,18 @@
 @property(nonatomic) BOOL allowsWirelessPlayback;
 @property(nonatomic) BOOL allowsDetailScrubbing;
 - (void)toggleScaleMode:(BOOL)arg1;
-- (unsigned int)visiblePartsForProposedParts:(unsigned int)arg1;
-- (void)setVisibleParts:(unsigned int)arg1 animate:(BOOL)arg2;
+- (unsigned long long)visiblePartsForProposedParts:(unsigned long long)arg1;
+- (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (void)setScaleModeOverride:(unsigned int)arg1 animated:(BOOL)arg2;
 @property(nonatomic) unsigned int scaleMode; // @synthesize scaleMode=_scaleMode;
 - (void)setScaleMode:(unsigned int)arg1 animated:(BOOL)arg2;
 @property(nonatomic) BOOL ownsStatusBar;
 @property(nonatomic) BOOL disableControlsAutohide;
-- (void)setDesiredParts:(unsigned int)arg1 animate:(BOOL)arg2;
-- (void)setItem:(id)arg1;
+- (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+@property(retain, nonatomic) MPAVItem *item;
 - (void)_updateAlwaysPlayWheneverPossible;
 @property(readonly, nonatomic) BOOL canChangeScaleMode;
-@property(readonly) struct CGRect backgroundViewSnapshotFrame;
+@property(readonly, nonatomic) struct CGRect backgroundViewSnapshotFrame;
 @property(readonly, nonatomic) UIView *backgroundView;
 - (void)_fixupViewHierarchyIfNecessary;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -165,9 +171,7 @@
 - (struct CGRect)calculateFullScreenArtworkImageViewFrame;
 - (int)displayArtworkImageStyle;
 - (BOOL)isFullscreenForLayoutPurposes;
-- (void)crossedClosedCaptionTimeMarker:(id)arg1;
-- (void)crossedArtworkTimeMarker:(id)arg1;
-- (void)_updateIdleTimerDisabledFromPlaybackState:(unsigned int)arg1;
+- (void)crossedTimeMakerWithEvent:(id)arg1;
 - (void)showChaptersController;
 - (void)showChaptersControllerAndFadeViews:(id)arg1;
 - (void)_updateClosedCaptionDisplay;
@@ -177,11 +181,16 @@
 - (void)setClosedCaptions:(id)arg1;
 - (BOOL)isStatusBarHidden;
 - (int)statusBarStyle;
+- (void)unregisterForPlayerNotifications;
+- (void)registerForPlayerNotifications;
 - (void)dealloc;
 - (id)init;
 
 // Remaining properties
+@property(nonatomic) id delegate;
 @property(nonatomic) BOOL inhibitOverlay;
+@property(nonatomic) int orientation;
+@property(readonly, nonatomic) UIView *view;
 
 @end
 

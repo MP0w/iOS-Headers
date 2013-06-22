@@ -21,26 +21,35 @@
     NSString *_persistentResourceID;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (void)dealloc;
-@property(readonly) NSString *friendlyName;
-- (id)description;
-@property(readonly) NSArray *installationWarnings;
-- (id)title;
-- (id)subtitle1Label;
-- (id)subtitle1Description;
-- (id)subtitle2Label;
++ (id)typeStrings;
++ (id)wrapperPayloadDictionary;
++ (id)badFieldValueErrorWithField:(id)arg1;
++ (id)badFieldTypeErrorWithField:(id)arg1;
++ (id)payloadFromDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
++ (id)payloadsFromArray:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
+@property(retain, nonatomic) NSString *persistentResourceID; // @synthesize persistentResourceID=_persistentResourceID;
+@property(readonly, nonatomic) int version; // @synthesize version=_version;
+@property(readonly, nonatomic) NSString *UUID; // @synthesize UUID=_UUID;
+@property(readonly, nonatomic) NSString *organization; // @synthesize organization=_organization;
+@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
+@property(readonly, nonatomic) NSString *payloadDescription; // @synthesize payloadDescription=_payloadDescription;
+@property(readonly, nonatomic) NSString *type; // @synthesize type=_type;
+@property(readonly, nonatomic) MCProfile *profile; // @synthesize profile=_profile;
+- (void).cxx_destruct;
 - (id)subtitle2Description;
-@property(retain) NSString *persistentResourceID; // @synthesize persistentResourceID=_persistentResourceID;
-@property(readonly) int version; // @synthesize version=_version;
-@property(readonly) NSString *UUID; // @synthesize UUID=_UUID;
-@property(readonly) NSString *organization; // @synthesize organization=_organization;
-@property(readonly) NSString *identifier; // @synthesize identifier=_identifier;
-@property(retain) NSString *displayName; // @synthesize displayName=_displayName;
-@property(readonly) NSString *payloadDescription; // @synthesize payloadDescription=_payloadDescription;
-@property(readonly) NSString *type; // @synthesize type=_type;
-@property(readonly) MCProfile *profile; // @synthesize profile=_profile;
+- (id)subtitle2Label;
+- (id)subtitle1Description;
+- (id)subtitle1Label;
+- (id)title;
+@property(readonly, nonatomic) NSArray *installationWarnings;
+- (id)description;
+@property(readonly, nonatomic) NSString *friendlyName;
+- (void)dealloc;
+- (id)stubDictionary;
+- (id)malformedPayloadErrorWithError:(id)arg1;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

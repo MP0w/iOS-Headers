@@ -15,6 +15,10 @@
     NSMutableDictionary *_accountTypeToAccountFrameworkSubpath;
     NSMutableDictionary *_accountTypeToAccountDaemonBundleSubpath;
     NSMutableDictionary *_accountTypeToClassNames;
+    NSMutableDictionary *_acAccountTypeToAccountFrameworkSubpath;
+    NSMutableDictionary *_acAccountTypeToAccountDaemonBundleSubpath;
+    NSMutableDictionary *_acAccountTypeToClassNames;
+    NSMutableDictionary *_acParentAccountTypeToChildAccountTypes;
 }
 
 + (BOOL)loadBundleForAccountWithProperties:(id)arg1;
@@ -27,6 +31,13 @@
 - (Class)accountClassForAccountType:(id)arg1;
 - (void)loadDaemonBundleForAccountType:(id)arg1;
 - (void)loadFrameworkForAccountType:(id)arg1;
+- (Class)daemonAppropriateAccountClassForACAccount:(id)arg1;
+- (Class)agentClassForACAccount:(id)arg1;
+- (Class)daemonAccountClassForACAccount:(id)arg1;
+- (Class)clientAccountClassForACAccount:(id)arg1;
+- (Class)accountClassForACAccount:(id)arg1;
+- (void)loadDaemonBundleForACAccountType:(id)arg1;
+- (void)loadFrameworkForACAccountType:(id)arg1;
 - (BOOL)_loadFrameworkAtSubpath:(id)arg1;
 - (id)init;
 - (void)_addAccountInfo:(id)arg1 forFrameworkNamed:(id)arg2;

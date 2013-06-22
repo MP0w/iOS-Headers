@@ -15,6 +15,8 @@
     NSMutableDictionary *_trackChangeDictionary;
 }
 
++ (id)fallbackSubtitleOptionForAsset:(id)arg1 withSelectedAudioOption:(id)arg2;
+- (id)_titleOfOption:(id)arg1;
 - (id)_keyForTrackType:(unsigned int)arg1;
 - (void)reloadData;
 - (unsigned int)trackCountForTypes:(unsigned int)arg1;

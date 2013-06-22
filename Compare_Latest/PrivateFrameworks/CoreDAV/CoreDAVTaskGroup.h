@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "CoreDAVSubmittable-Protocol.h"
+
 @class NSError, NSMutableSet;
 
-@interface CoreDAVTaskGroup : NSObject
+@interface CoreDAVTaskGroup : NSObject <CoreDAVSubmittable>
 {
     id <CoreDAVTaskManager> _taskManager;
     id <CoreDAVAccountInfoProvider> _accountInfoProvider;
@@ -23,13 +25,15 @@
 }
 
 @property double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
-@property(readonly) id <CoreDAVTaskManager> taskManager; // @synthesize taskManager=_taskManager;
+@property(nonatomic) id <CoreDAVTaskManager> taskManager; // @synthesize taskManager=_taskManager;
 @property(copy, nonatomic) id progressBlock; // @synthesize progressBlock=_progressBlock;
 @property(readonly) NSMutableSet *outstandingTasks; // @synthesize outstandingTasks=_outstandingTasks;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) id <CoreDAVTaskGroupDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) id completionBlock; // @synthesize completionBlock=_completionBlock;
-@property(readonly) id <CoreDAVAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
+@property(nonatomic) id <CoreDAVAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
+- (void)submitWithTaskManager:(id)arg1;
+- (void)finishEarlyWithError:(id)arg1;
 - (void)finishCoreDAVTaskGroupWithError:(id)arg1;
 - (void)cancelTaskGroup;
 - (void)bailWithError:(id)arg1;

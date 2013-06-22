@@ -11,6 +11,7 @@
 }
 
 + (id)chdMarkerFromXmlMarkerElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (int)chdMarkerStyleFromXmlMarkerStyleElement:(struct _xmlNode *)arg1;
 
 @end
 

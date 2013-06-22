@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "AVPlaylistFeeder-Protocol.h"
+#import "MPAVPlaylistFeeder-Protocol.h"
 
 @class MPAVController, NSDictionary;
 
-@interface MPQueueFeeder : NSObject <AVPlaylistFeeder>
+@interface MPQueueFeeder : NSObject <MPAVPlaylistFeeder>
 {
     MPAVController *_avController;
     struct __CFSet *_itemsWithReferencesToClear;
@@ -21,16 +21,18 @@
     BOOL _fullScreenPlaybackQueue;
     BOOL _isSourceChangeInProgress;
     BOOL _deallocating;
+    unsigned int _activeShuffleType;
 }
 
 + (void)restoreAVControllerPlaybackQueue:(id)arg1 fromUnarchiver:(id)arg2 feederClass:(Class)arg3;
 @property(nonatomic) BOOL isSourceChangeInProgress; // @synthesize isSourceChangeInProgress=_isSourceChangeInProgress;
 @property(nonatomic) BOOL fullScreenPlaybackQueue; // @synthesize fullScreenPlaybackQueue=_fullScreenPlaybackQueue;
 @property(retain, nonatomic) id <NSObject> representedObject; // @synthesize representedObject=_representedObject;
+@property(nonatomic) unsigned int activeShuffleType; // @synthesize activeShuffleType=_activeShuffleType;
 @property(nonatomic) unsigned int shuffleType; // @synthesize shuffleType=_shuffleType;
 @property(nonatomic) unsigned int repeatType; // @synthesize repeatType=_repeatType;
 @property(nonatomic) MPAVController *AVController; // @synthesize AVController=_avController;
-- (unsigned int)numberOfPaths;
+@property(readonly, nonatomic) unsigned int nonRepeatingItemCount;
 - (id)pathAtIndex:(unsigned int)arg1;
 - (id)localizedPositionInPlaylistString:(id)arg1;
 - (void)archiveAVControllerPlaybackQueue:(id)arg1 toArchiver:(id)arg2;
@@ -42,7 +44,8 @@
 - (void)contentsDidChangeByRemovingRange:(struct _NSRange)arg1;
 - (BOOL)shouldReloadForChangeFromNetworkType:(int)arg1 toNetworkType:(int)arg2;
 - (id)itemForIndex:(unsigned int)arg1;
-- (unsigned int)itemCount;
+@property(readonly, nonatomic) unsigned int itemCount;
+@property(readonly, nonatomic) unsigned int initialPlaybackQueueDepth;
 - (void)assumeOwnershipOfItems:(id)arg1;
 @property(readonly, nonatomic) unsigned int realShuffleType;
 @property(readonly, nonatomic) unsigned int realRepeatType;
@@ -52,6 +55,7 @@
 @property(readonly, nonatomic) NSDictionary *preferredLanguages;
 - (unsigned int)itemTypeForIndex:(unsigned int)arg1;
 @property(readonly, nonatomic) Class itemClass;
+- (BOOL)canSkipItem:(id)arg1;
 - (BOOL)shouldBeginPlaybackOfItem:(id)arg1 error:(id *)arg2;
 - (id)errorResolverForItem:(id)arg1;
 - (void)commitSourceChangeWithStartQueueIndex:(unsigned int)arg1;
@@ -59,6 +63,7 @@
 - (BOOL)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(BOOL)arg2;
 - (BOOL)reloadWithDataSource:(id)arg1;
 - (void)shuffleItemsWithAnchor:(unsigned int *)arg1;
+- (void)setSubsequenceFocused:(BOOL)arg1 currentItemIndex:(unsigned int)arg2;
 - (void)invalidateQueueCaches;
 - (void)setNextStartTime:(double)arg1 forIndex:(unsigned int)arg2;
 - (void)_fixNextStartTimesByRemovingRange:(struct _NSRange)arg1;

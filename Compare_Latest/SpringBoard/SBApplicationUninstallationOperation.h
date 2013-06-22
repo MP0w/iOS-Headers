@@ -13,9 +13,9 @@
     NSString *_bundleIdentifier;
 }
 
-- (id)initWithBundleIdentifier:(id)arg1;
-- (void)dealloc;
 - (void)main;
+- (void)dealloc;
+- (id)initWithBundleIdentifier:(id)arg1;
 
 @end
 

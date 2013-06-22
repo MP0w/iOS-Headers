@@ -13,9 +13,9 @@
     NSString *mImagePresentationName;
 }
 
-- (id)initWithImagePresentationName:(id)arg1 state:(id)arg2;
-- (void)dealloc;
 - (void)mapPoint:(id)arg1 bounds:(struct CGRect)arg2;
+- (void)dealloc;
+- (id)initWithImagePresentationName:(id)arg1 state:(id)arg2;
 
 @end
 

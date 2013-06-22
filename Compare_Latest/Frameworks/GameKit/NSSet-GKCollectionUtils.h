@@ -7,6 +7,11 @@
 #import "NSSet.h"
 
 @interface NSSet (GKCollectionUtils)
+- (id)_gkSetByRemovingObject:(id)arg1;
+- (id)_gkDistinctValuesForKeyPath:(id)arg1;
+- (id)_gkValuesForKeyPath:(id)arg1;
+- (id)_gkMapDictionaryWithKeyPath:(id)arg1 valueKeyPath:(id)arg2;
+- (id)_gkMapDictionaryWithKeyPath:(id)arg1;
 - (id)_gkMapWithBlock:(id)arg1;
 @end
 

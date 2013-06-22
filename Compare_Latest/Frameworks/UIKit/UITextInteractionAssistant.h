@@ -8,15 +8,17 @@
 
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class NSMutableArray, NSMutableSet, UIFieldEditor, UILongPressGestureRecognizer, UITapGestureRecognizer, UITextChecker, UIView, UIView<UITextSelectingContainer>;
+@class NSMutableArray, NSMutableSet, UIFieldEditor, UIGestureRecognizer, UILongPressGestureRecognizer, UIResponder<UITextInput>, UITapGestureRecognizer, UITextChecker, UITextSelectionView, UIView;
 
 @interface UITextInteractionAssistant : NSObject <UIGestureRecognizerDelegate>
 {
-    UIView<UITextSelectingContainer> *_view;
+    UIResponder<UITextInput> *_view;
+    UITextSelectionView *_selectionView;
     NSMutableArray *_recognizers;
     NSMutableSet *_linkGestures;
     UILongPressGestureRecognizer *_loupeGesture;
     UITapGestureRecognizer *_singleTapGesture;
+    UIGestureRecognizer *_doubleTapGesture;
     int _autoscrollRamp;
     float _autoscrollFactor;
     struct CGPoint _autoscrollBasePoint;
@@ -26,14 +28,15 @@
     BOOL _inGesture;
     BOOL _autoscrolled;
     BOOL _isTryingToHighlightLink;
+    BOOL _externalTextInput;
 }
 
-@property(nonatomic) BOOL autoscrolled; // @synthesize autoscrolled=_autoscrolled;
-@property(nonatomic) struct CGPoint autoscrollUntransformedExtentPoint; // @synthesize autoscrollUntransformedExtentPoint=_autoscrollUntransformedExtentPoint;
-@property(readonly, nonatomic) UIView<UITextSelectingContainer> *view; // @synthesize view=_view;
-@property(nonatomic) BOOL inGesture; // @synthesize inGesture=_inGesture;
-@property(retain, nonatomic) UITapGestureRecognizer *singleTapGesture; // @synthesize singleTapGesture=_singleTapGesture;
-@property(retain, nonatomic) UILongPressGestureRecognizer *loupeGesture; // @synthesize loupeGesture=_loupeGesture;
+- (id)textSelectionView;
+- (void)clearGestureRecognizers;
+- (id)initWithResponder:(id)arg1;
+- (void)didEndScrollingOverflow;
+- (void)willStartScrollingOverflow;
+- (void)layoutChangedByScrolling:(BOOL)arg1;
 - (BOOL)swallowsDoubleTapWithScale:(float)arg1 atPoint:(struct CGPoint)arg2;
 - (void)scheduleReplacementsForRange:(id)arg1 withOptions:(unsigned int)arg2;
 - (void)scheduleDictationReplacementsForAlternatives:(id)arg1 range:(id)arg2;
@@ -57,7 +60,7 @@
 - (void)twoFingerSingleTap:(id)arg1;
 - (void)notifyKeyboardSelectionChanged;
 - (void)clearSelection;
-- (void)selectAll;
+- (void)selectAll:(id)arg1;
 - (void)selectWordWithoutShowingCommands;
 - (void)selectWord;
 - (void)oneFingerTripleTap:(id)arg1;
@@ -76,34 +79,60 @@
 - (void)tapAndAHalf:(id)arg1;
 - (void)confirmMarkedText:(id)arg1;
 - (void)loupeGesture:(id)arg1;
+- (void)scrollSelectionToVisible;
 - (void)setFirstResponderIfNecessary;
 - (void)setGestureRecognizers;
+- (id)linkInteractionView;
 - (id)addPhraseBoundaryGestureRecognizer;
+- (id)phraseBoundaryGestureRecognizer;
 - (id)addTapAndHoldOnLinkRecognizer;
 - (id)addHighlightLinkRecognizer;
 - (id)addTwoFingerRangedSelectRecognizer;
+- (id)twoFingerRangedSelectRecognizer;
 - (id)addLoupeGestureRecognizer:(BOOL)arg1;
+- (id)loupeGestureRecognizer:(BOOL)arg1;
 - (id)addTapAndAHalfRecognizer;
+- (id)tapAndAHalfRecognizer;
 - (id)addTwoFingerSingleTapRecognizer;
+- (id)twoFingerSingleTapRecognizer;
 - (id)addSelectionTapRecognizer;
 - (id)addSelectionTapRecognizer:(SEL)arg1;
+- (id)selectionTapRecognizer:(SEL)arg1;
 - (id)addOneFingerTripleTapRecognizer;
+- (id)oneFingerTripleTapRecognizer;
 - (id)addOneFingerTapRecognizer;
 - (id)addOneFingerTapRecognizer:(SEL)arg1;
+- (id)oneFingerTapRecognizer:(SEL)arg1;
 - (id)addOneFingerDoubleTapRecognizer;
 - (id)addOneFingerDoubleTapRecognizer:(SEL)arg1;
+- (id)oneFingerDoubleTapRecognizer:(SEL)arg1;
 - (BOOL)useGesturesForEditableContent;
-- (void)clearGestureRecognizers;
 - (void)clearGestureRecognizers:(BOOL)arg1;
+- (void)disableClearsOnInsertion;
 - (void)turnOffDrawsAsAtomIfPlainStyleAtom;
+- (BOOL)containerIsBrowserView;
+- (BOOL)containerClearsOnInsertion;
 - (BOOL)containerIsPlainStyleAtom;
 - (BOOL)containerIsAtom;
 - (BOOL)containerIsTextField;
-@property(readonly, nonatomic) UIFieldEditor *fieldEditor;
+@property(readonly, nonatomic) UIFieldEditor *fieldEditor; // @dynamic fieldEditor;
 @property(readonly, nonatomic) UIView *scrollView;
 - (void)attach;
 - (void)detach;
 - (void)detach:(BOOL)arg1;
+@property(readonly, nonatomic) BOOL externalTextInput;
+@property(nonatomic) struct CGPoint autoscrollUntransformedExtentPoint;
+@property(nonatomic) BOOL autoscrolled;
+@property(nonatomic) BOOL inGesture;
+@property(retain, nonatomic) UILongPressGestureRecognizer *loupeGesture;
+@property(retain, nonatomic) UIGestureRecognizer *doubleTapGesture;
+@property(retain, nonatomic) UITapGestureRecognizer *singleTapGesture; // @dynamic singleTapGesture;
+@property(readonly, nonatomic) UIResponder<UITextInput> *textDocument;
+- (id)_selectionView;
+@property(readonly, nonatomic) UITextSelectionView *selectionView;
+@property(readonly, nonatomic) UIResponder<UITextInput> *view;
+- (id)_scrollable;
+- (id)_asText;
 - (void)dealloc;
 - (id)initWithView:(id)arg1;
 

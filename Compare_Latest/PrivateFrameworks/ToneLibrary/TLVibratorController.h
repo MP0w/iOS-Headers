@@ -8,24 +8,12 @@
 
 @interface TLVibratorController : NSObject
 {
-    id _avController;
-    BOOL _customAVController;
-    BOOL _startedInterruption;
 }
 
 - (void)turnOff;
 - (void)turnOnWithVibrationPattern:(id)arg1;
 - (void)_turnOff;
 - (void)_turnOnWithVibrationPattern:(id)arg1;
-- (void)uninterruptAVControllerIfAppropriate;
-- (void)_uninterruptAVControllerIfAppropriate;
-- (id)_interruptedAVController;
-@property(retain, nonatomic, setter=setAVController:) id avController;
-- (void)_setAVController:(id)arg1;
-- (id)_avController;
-- (void)dealloc;
-- (id)initWithAVController:(id)arg1;
-- (id)init;
 
 @end
 

@@ -10,8 +10,8 @@
 {
 }
 
-+ (struct URegularExpression *)createRegularExpressionFromString:(id)arg1;
 + (id)matchedRangesForString:(id)arg1 withRegularExpression:(struct URegularExpression *)arg2;
++ (struct URegularExpression *)createRegularExpressionFromString:(id)arg1;
 
 @end
 

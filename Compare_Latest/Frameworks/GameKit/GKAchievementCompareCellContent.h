@@ -17,7 +17,7 @@
 @property(retain, nonatomic) UIImage *imageCheck1; // @synthesize imageCheck1=_imageCheck1;
 @property(retain, nonatomic) UIImage *imageCheck0; // @synthesize imageCheck0=_imageCheck0;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)drawLineIndex:(unsigned int)arg1 inRect:(struct CGRect *)arg2 highlighted:(BOOL)arg3;
+- (void)adjustLineRects:(struct CGRect *)arg1 forLines:(id)arg2 inTextRect:(struct CGRect)arg3;
 - (void)setTheme:(id)arg1;
 - (void)dealloc;
 - (id)init;

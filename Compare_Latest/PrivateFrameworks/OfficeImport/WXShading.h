@@ -10,10 +10,10 @@
 {
 }
 
-+ (void)initialize;
-+ (void)readFrom:(struct _xmlNode *)arg1 to:(id)arg2;
-+ (id)getColorFromString:(id)arg1;
 + (id)getColorFromCString:(const char *)arg1;
++ (id)getColorFromString:(id)arg1;
++ (void)readFrom:(struct _xmlNode *)arg1 to:(id)arg2;
++ (void)initialize;
 
 @end
 

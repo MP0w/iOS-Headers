@@ -23,25 +23,25 @@
     NSNumber *_minComplexCharacters;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (id)stubDictionary;
-- (id)description;
-- (id)title;
++ (id)typeStrings;
+@property(readonly, nonatomic) NSNumber *minComplexCharacters; // @synthesize minComplexCharacters=_minComplexCharacters;
+@property(readonly, nonatomic) NSNumber *maxPasscodeAgeDays; // @synthesize maxPasscodeAgeDays=_maxPasscodeAgeDays;
+@property(readonly, nonatomic) NSNumber *passcodeHistoryCount; // @synthesize passcodeHistoryCount=_passcodeHistoryCount;
+@property(readonly, nonatomic) NSNumber *maxInactivityMinutes; // @synthesize maxInactivityMinutes=_maxInactivityMinutes;
+@property(readonly, nonatomic) NSNumber *maxGracePeriodMinutes; // @synthesize maxGracePeriodMinutes=_maxGracePeriodMinutes;
+@property(readonly, nonatomic) NSNumber *maxFailedAttempts; // @synthesize maxFailedAttempts=_maxFailedAttempts;
+@property(readonly, nonatomic) NSNumber *minLength; // @synthesize minLength=_minLength;
+@property(readonly, nonatomic) NSNumber *isManualFetchingWhenRoaming; // @synthesize isManualFetchingWhenRoaming=_isManualFetchingWhenRoaming;
+@property(readonly, nonatomic) NSNumber *isAlphanumericPasscodeRequired; // @synthesize isAlphanumericPasscodeRequired=_isAlphanumericPasscodeRequired;
+@property(readonly, nonatomic) NSNumber *isPasscodeRequired; // @synthesize isPasscodeRequired=_isPasscodeRequired;
+@property(readonly, nonatomic) NSNumber *isSimplePasscodeAllowed; // @synthesize isSimplePasscodeAllowed=_isSimplePasscodeAllowed;
+- (void).cxx_destruct;
 - (id)subtitle1Description;
-@property(readonly) NSNumber *minComplexCharacters; // @synthesize minComplexCharacters=_minComplexCharacters;
-@property(readonly) NSNumber *maxPasscodeAgeDays; // @synthesize maxPasscodeAgeDays=_maxPasscodeAgeDays;
-@property(readonly) NSNumber *passcodeHistoryCount; // @synthesize passcodeHistoryCount=_passcodeHistoryCount;
-@property(readonly) NSNumber *maxInactivityMinutes; // @synthesize maxInactivityMinutes=_maxInactivityMinutes;
-@property(readonly) NSNumber *maxGracePeriodMinutes; // @synthesize maxGracePeriodMinutes=_maxGracePeriodMinutes;
-@property(readonly) NSNumber *maxFailedAttempts; // @synthesize maxFailedAttempts=_maxFailedAttempts;
-@property(readonly) NSNumber *minLength; // @synthesize minLength=_minLength;
-@property(readonly) NSNumber *isManualFetchingWhenRoaming; // @synthesize isManualFetchingWhenRoaming=_isManualFetchingWhenRoaming;
-@property(readonly) NSNumber *isAlphanumericPasscodeRequired; // @synthesize isAlphanumericPasscodeRequired=_isAlphanumericPasscodeRequired;
-@property(readonly) NSNumber *isPasscodeRequired; // @synthesize isPasscodeRequired=_isPasscodeRequired;
-@property(readonly) NSNumber *isSimplePasscodeAllowed; // @synthesize isSimplePasscodeAllowed=_isSimplePasscodeAllowed;
+- (id)title;
+- (id)description;
+- (id)stubDictionary;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

@@ -11,6 +11,7 @@
 }
 
 + (id)edTableStyleElementFromXmlTableStyleElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (int)edStyleTableTypeFromXmlStyleTableType:(id)arg1;
 
 @end
 

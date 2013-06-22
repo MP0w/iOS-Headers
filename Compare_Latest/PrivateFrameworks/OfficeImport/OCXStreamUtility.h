@@ -10,8 +10,8 @@
 {
 }
 
-+ (BOOL)pScanStreamForwardToApplicableContentInAlternateContent:(struct _xmlTextReader *)arg1;
 + (BOOL)readStream:(struct _xmlTextReader *)arg1 streamState:(id)arg2;
++ (BOOL)pScanStreamForwardToApplicableContentInAlternateContent:(struct _xmlTextReader *)arg1;
 
 @end
 

@@ -13,9 +13,13 @@
 @interface MPMoviePlayerController : NSObject <MPMediaPlayback>
 {
     void *_internal;
+    BOOL _readyForDisplay;
 }
 
 + (void)allInstancesResignActive;
+@property(readonly, nonatomic) BOOL readyForDisplay; // @synthesize readyForDisplay=_readyForDisplay;
+- (struct CGRect)_videoFrame;
+- (BOOL)_isReadyForDisplay;
 - (void)_resignActive;
 @property(nonatomic) float currentPlaybackRate;
 @property(nonatomic) double currentPlaybackTime;
@@ -46,7 +50,6 @@
 @property(nonatomic) int scalingMode;
 - (void)setFullscreen:(BOOL)arg1 animated:(BOOL)arg2;
 @property(nonatomic, getter=isFullscreen) BOOL fullscreen;
-@property(nonatomic) BOOL useApplicationAudioSession;
 @property(nonatomic) BOOL shouldAutoplay;
 @property(nonatomic) int repeatMode;
 @property(nonatomic) int controlStyle;

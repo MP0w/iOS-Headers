@@ -7,7 +7,7 @@
 #import "DOMHTMLTextAreaElement.h"
 
 @interface DOMHTMLTextAreaElement (VisiblePositionExtensions)
-- (id)startPosition;
 - (id)endPosition;
+- (id)startPosition;
 @end
 

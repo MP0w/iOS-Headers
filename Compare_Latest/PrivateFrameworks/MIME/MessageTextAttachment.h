@@ -13,19 +13,27 @@
     NSMutableDictionary *_cache;
 }
 
-- (id)init;
-- (id)initWithWrapper:(id)arg1;
-- (void)dealloc;
-- (id)description;
-- (id)cachedValueForKey:(id)arg1;
-- (void)setCachedValue:(id)arg1 forKey:(id)arg2;
-@property(retain, nonatomic) MessageFileWrapper *fileWrapper;
-- (unsigned int)approximateSize;
-- (BOOL)hasBeenDownloaded;
-- (void)download;
-- (BOOL)isPlaceholder;
-- (void)inlineDisplayData:(id *)arg1 mimeType:(id *)arg2;
++ (unsigned int)precedenceLevel;
+- (id)persistentUniqueIdentifier;
 - (id)fileWrapperForcingDownload:(BOOL)arg1;
+- (void)inlineDisplayData:(id *)arg1 mimeType:(id *)arg2;
+- (BOOL)isPlaceholder;
+- (void)download;
+- (BOOL)needsRedownload;
+- (BOOL)hasBeenDownloaded;
+- (unsigned int)approximateSize;
+@property(retain, nonatomic) MessageFileWrapper *fileWrapper;
+- (void)setCachedValue:(id)arg1 forKey:(id)arg2;
+- (id)cachedValueForKey:(id)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)initWithWrapper:(id)arg1;
+- (id)init;
+- (void)setMimePart:(id)arg1;
+- (id)mimePart;
+- (id)textEncodingNameForData:(id)arg1 mimeType:(id)arg2;
+- (id)textEncodingGuess;
+- (BOOL)shouldDownloadAttachmentOnDisplay;
 
 @end
 

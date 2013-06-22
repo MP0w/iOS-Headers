@@ -19,10 +19,10 @@
     id _dotForCurrentVibrationComponent;
     double _currentVibrationComponentDidBeginTimeInterval;
     double _previousPauseDidBeginTimeInterval;
-    unsigned int _roundedCornersCompensationDelayMode;
+    int _roundedCornersCompensationDelayMode;
 }
 
-@property(nonatomic) unsigned int roundedCornersCompensationDelayMode; // @synthesize roundedCornersCompensationDelayMode=_roundedCornersCompensationDelayMode;
+@property(nonatomic) int roundedCornersCompensationDelayMode; // @synthesize roundedCornersCompensationDelayMode=_roundedCornersCompensationDelayMode;
 @property(nonatomic) double currentTimeInterval; // @synthesize currentTimeInterval=_currentTimeInterval;
 - (struct CGRect)_frameForDotAtTimeInterval:(double)arg1 duration:(double)arg2;
 - (double)_cappedValueForTimeInterval:(double)arg1;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString, PFUbiquityKnowledgeVector, PFUbiquityPeer, PFUbiquityStoreMetadata, PFUbiquityStoreSaveSnapshot, PFUbiquityTransactionLog, _PFUbiquityStack;
+@class NSDictionary, NSMutableDictionary, NSString, PFUbiquityKnowledgeVector, PFUbiquityPeer, PFUbiquityStoreMetadata, PFUbiquityStoreSaveSnapshot, PFUbiquitySwitchboardCacheWrapper, PFUbiquityTransactionLog, _PFUbiquityStack;
 
 @interface PFUbiquityImportContext : NSObject
 {
@@ -19,21 +19,27 @@
     PFUbiquityTransactionLog *_transactionLog;
     PFUbiquityStoreSaveSnapshot *_storeSaveSnapshot;
     NSDictionary *_globalIDToLocalIDURICache;
+    NSMutableDictionary *_globalIDToFetchedObject;
+    PFUbiquitySwitchboardCacheWrapper *_cacheWrapper;
 }
 
-- (id)initWithStoreName:(id)arg1 andUbiquityRootLocation:(id)arg2 withLocalPeerID:(id)arg3;
-- (id)initWithStack:(id)arg1 andStoreMetadata:(id)arg2;
-- (void)dealloc;
-- (void)setActingPeer:(id)arg1;
-@property(retain, nonatomic) NSString *exportingPeerID; // @synthesize exportingPeerID=_exportingPeerID;
+@property(readonly, nonatomic) NSMutableDictionary *globalIDToFetchedObject; // @synthesize globalIDToFetchedObject=_globalIDToFetchedObject;
+@property(retain, nonatomic) PFUbiquitySwitchboardCacheWrapper *cacheWrapper; // @synthesize cacheWrapper=_cacheWrapper;
 @property(retain, nonatomic) NSDictionary *globalIDToLocalIDURICache; // @synthesize globalIDToLocalIDURICache=_globalIDToLocalIDURICache;
 @property(retain, nonatomic) PFUbiquityStoreSaveSnapshot *storeSaveSnapshot; // @synthesize storeSaveSnapshot=_storeSaveSnapshot;
 @property(retain, nonatomic) PFUbiquityTransactionLog *transactionLog; // @synthesize transactionLog=_transactionLog;
+@property(retain, nonatomic) NSString *exportingPeerID; // @synthesize exportingPeerID=_exportingPeerID;
 @property(retain, nonatomic) PFUbiquityKnowledgeVector *currentKnowledgeVector; // @synthesize currentKnowledgeVector=_currentKnowledgeVector;
 @property(retain, nonatomic) PFUbiquityKnowledgeVector *knowledgeVector; // @synthesize knowledgeVector=_kv;
 @property(readonly, nonatomic) PFUbiquityPeer *actingPeer; // @synthesize actingPeer=_actingPeer;
-@property(readonly, nonatomic) PFUbiquityStoreMetadata *storeMetadata; // @synthesize storeMetadata=_storeMetadata;
-@property(readonly, nonatomic) _PFUbiquityStack *stack; // @synthesize stack=_stack;
+@property(retain, nonatomic) PFUbiquityStoreMetadata *storeMetadata; // @synthesize storeMetadata=_storeMetadata;
+@property(retain, nonatomic) _PFUbiquityStack *stack; // @synthesize stack=_stack;
+- (BOOL)prefetchManagedObjectsInContext:(id)arg1 error:(id *)arg2;
+- (void)setActingPeer:(id)arg1;
+- (void)dealloc;
+- (id)initWithStack:(id)arg1 andStoreMetadata:(id)arg2;
+- (id)initWithStoreName:(id)arg1 andUbiquityRootLocation:(id)arg2 withLocalPeerID:(id)arg3;
+- (id)init;
 
 @end
 

@@ -18,7 +18,7 @@
 - (id)valueForKey:(id)arg1;
 - (void)_setQuery:(id)arg1;
 - (void)dealloc;
-- (id)_init:(void *)arg1;
+- (id)_init:(CDUnion_a1fd0927)arg1;
 
 @end
 

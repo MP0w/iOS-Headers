@@ -11,6 +11,7 @@
     struct CGPoint _originalOffset;
     struct CGPoint _targetOffset;
     float _accuracy;
+    BOOL _adjustsForContentOffsetDelta;
 }
 
 - (void)dealloc;

@@ -14,13 +14,9 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)scriptPropertyForNativeProperty:(id)arg1;
 + (id)scriptMediaTypeForNativeMediaType:(int)arg1;
-+ (id)nativePropertyForScriptProperty:(id)arg1;
 + (int)nativeMediaTypesForScriptMediaTypes:(id)arg1;
 + (id)copyScriptMediaTypesForNativeMediaTypes:(int)arg1;
-- (id)_copyValueForProperty:(id)arg1;
-- (id)_copyImageURLWithWidth:(int)arg1 height:(int)arg2;
 - (id)_className;
 - (id)valueForProperty:(id)arg1;
 - (id)imageURLWithWidth:(id)arg1 height:(id)arg2;

@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class UILabel;
+@class NSNumberFormatter, UILabel;
 
 @interface QLPageNumberView : UIView
 {
@@ -14,16 +14,19 @@
     int _pageCount;
     UILabel *_backgroundLabel;
     UILabel *_label;
+    NSNumberFormatter *_indexFormatter;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)_updateString;
-@property int pageNumber; // @synthesize pageNumber=_pageNumber;
-@property int pageCount; // @synthesize pageCount=_pageCount;
-- (void)sizeToFit;
-- (void)layoutSubviews;
-- (struct CGPath *)_copyMutablePathForRoundedRect:(struct CGRect)arg1 radius:(float)arg2 inverted:(BOOL)arg3;
 - (void)drawRect:(struct CGRect)arg1;
+- (struct CGPath *)_copyMutablePathForRoundedRect:(struct CGRect)arg1 radius:(float)arg2 inverted:(BOOL)arg3;
+- (void)layoutSubviews;
+- (void)sizeToFit;
+@property int pageCount;
+@property int pageNumber;
+- (void)_updateString;
+- (id)_indexFormatter;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

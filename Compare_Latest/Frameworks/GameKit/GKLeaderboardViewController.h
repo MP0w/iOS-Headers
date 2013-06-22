@@ -4,28 +4,19 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UINavigationController.h"
+#import <GameKit/GKGameCenterViewController.h>
 
-@class GKLeaderboardCategoryViewController, GKLeaderboardViewControllerPrivate, NSString;
+@class NSString;
 
-@interface GKLeaderboardViewController : UINavigationController
+@interface GKLeaderboardViewController : GKGameCenterViewController
 {
-    GKLeaderboardCategoryViewController *_categoryController;
-    GKLeaderboardViewControllerPrivate *_privateViewController;
+    id <GKLeaderboardViewControllerDelegate> _leaderboardDelegate;
 }
 
-@property(retain, nonatomic) GKLeaderboardViewControllerPrivate *privateViewController; // @synthesize privateViewController=_privateViewController;
-@property(retain, nonatomic) GKLeaderboardCategoryViewController *categoryController; // @synthesize categoryController=_categoryController;
-- (void)authenticatedStatusChanged;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)dealloc;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+@property(nonatomic) id <GKLeaderboardViewControllerDelegate> leaderboardDelegate; // @synthesize leaderboardDelegate=_leaderboardDelegate;
+- (void)notifyDelegateOnWillFinish;
 @property(retain, nonatomic) NSString *category;
 @property(nonatomic) int timeScope;
-@property(nonatomic) id <GKLeaderboardViewControllerDelegate> leaderboardDelegate;
-- (void)setGame:(id)arg1;
-- (id)game;
 - (id)init;
 
 @end

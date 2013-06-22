@@ -13,11 +13,11 @@
     CoreDAVItemWithNoChildren *_transparent;
 }
 
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-@property(readonly) BOOL isScheduleTransparent;
-- (id)copyParseRules;
 @property(retain) CoreDAVItemWithNoChildren *transparent; // @synthesize transparent=_transparent;
+- (id)copyParseRules;
+@property(readonly) BOOL isScheduleTransparent;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
 
 @end
 

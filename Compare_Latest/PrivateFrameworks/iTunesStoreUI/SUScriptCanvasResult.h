@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
+@class UIImage;
+
 @interface SUScriptCanvasResult : NSObject
 {
-    struct CGImage *_image;
+    UIImage *_image;
     struct CGPath *_path;
 }
 
 @property(readonly, nonatomic) struct CGPath *canvasPath; // @synthesize canvasPath=_path;
-@property(readonly, nonatomic) struct CGImage *canvasImage; // @synthesize canvasImage=_image;
+@property(readonly, nonatomic) UIImage *canvasImage; // @synthesize canvasImage=_image;
 - (void)dealloc;
 - (id)_initWithCanvas:(id)arg1;
 

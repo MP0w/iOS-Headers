@@ -14,9 +14,9 @@
     NSMutableDictionary *mEntryMap;
 }
 
-- (id)initWithZipArchive:(id)arg1;
-- (void)dealloc;
 - (id)entryWithName:(id)arg1;
+- (void)dealloc;
+- (id)initWithZipArchive:(id)arg1;
 
 @end
 

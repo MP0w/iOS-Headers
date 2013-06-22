@@ -9,7 +9,7 @@
 #import "UIAlertViewDelegate-Protocol.h"
 #import "UIWebViewDelegate-Protocol.h"
 
-@class GKBackgroundView, GKPhotoPicker, NSData, NSString, NSURLRequest, UIAlertView, UIWebView;
+@class GKBackgroundView, NSData, NSString, NSURLRequest, UIActivityIndicatorView, UIAlertView, UIWebView;
 
 @interface GKServerWebViewController : GKViewController <UIWebViewDelegate, UIAlertViewDelegate>
 {
@@ -28,13 +28,17 @@
     id _completionHandler;
     struct UIEdgeInsets _backgroundInsets;
     UIAlertView *_alert;
-    GKPhotoPicker *_photoPicker;
     BOOL _dismissOnAuthenticate;
+    UIActivityIndicatorView *_rightNavSpinner;
+    NSString *_rightButtonTitle;
+    int _alertTag;
 }
 
+@property(nonatomic) int alertTag; // @synthesize alertTag=_alertTag;
+@property(retain, nonatomic) NSString *rightButtonTitle; // @synthesize rightButtonTitle=_rightButtonTitle;
+@property(retain, nonatomic) UIActivityIndicatorView *rightNavSpinner; // @synthesize rightNavSpinner=_rightNavSpinner;
 @property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) BOOL dismissOnAuthenticate; // @synthesize dismissOnAuthenticate=_dismissOnAuthenticate;
-@property(retain, nonatomic) GKPhotoPicker *photoPicker; // @synthesize photoPicker=_photoPicker;
 @property(retain, nonatomic) UIAlertView *alert; // @synthesize alert=_alert;
 @property(nonatomic) BOOL addedSheetFrame; // @synthesize addedSheetFrame=_addedSheetFrame;
 @property(retain, nonatomic) NSData *pushToken; // @synthesize pushToken=_pushToken;
@@ -50,13 +54,11 @@
 @property(retain, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
 @property(retain, nonatomic) GKBackgroundView *backgroundView; // @synthesize backgroundView=_backgroundView;
 - (void)uploadContacts;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)changePhoto;
 - (void)cancelAlertWithoutDelegateCallback;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)parseAlertURLString:(id)arg1;
 - (void)showMessageForError:(id)arg1;
+- (void)processSpinnerURLComponents:(id)arg1;
 - (void)rightNavButtonPressed;
 - (void)leftNavButtonPressed;
 - (void)parseNavBarURLString:(id)arg1;
@@ -66,10 +68,13 @@
 - (void)webViewDidFinishLoad:(id)arg1;
 - (void)webViewDidStartLoad:(id)arg1;
 - (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
+- (void)webView:(id)arg1 processNativeCommand:(id)arg2;
+- (void)startCommandProcessingForWebView:(id)arg1;
 - (void)authenticateAndTryURLRequestAgain:(id)arg1;
 - (void)setHeadersForRequest:(id)arg1;
 - (void)finish;
 - (void)loadURL:(id)arg1;
+- (void)updateNavBarForLoading:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;

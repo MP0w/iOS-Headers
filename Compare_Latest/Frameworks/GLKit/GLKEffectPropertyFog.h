@@ -34,15 +34,11 @@
 @property(nonatomic) int mode; // @synthesize mode=_mode;
 @property(nonatomic) unsigned char enabled; // @synthesize enabled=_enabled;
 - (void)dealloc;
-- (char **)fshMaskStr;
-- (char **)vshMaskStr;
-- (unsigned int)fshMaskCt;
-- (unsigned int)vshMaskCt;
-- (struct GLKBigInt_s *)fshMasks;
-- (struct GLKBigInt_s *)vshMasks;
+- (id)description;
 - (void)bind;
 - (void)setShaderBindings;
-- (_Bool)includeShaderTextForRootNode:(id)arg1;
+- (_Bool)includeFshShaderTextForRootNode:(id)arg1;
+- (_Bool)includeVshShaderTextForRootNode:(id)arg1;
 - (void)initializeMasks;
 - (void)dirtyAllUniforms;
 - (id)init;

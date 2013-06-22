@@ -6,36 +6,44 @@
 
 #import "MFWebAttachmentSource.h"
 
-@class MFConditionLock, NSMutableArray;
+@class MFConditionLock, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface MFGenericAttachmentStore : MFWebAttachmentSource
 {
     struct __CFDictionary *_attachmentSizes;
     NSMutableArray *_attachmentsOrder;
     unsigned int _size;
-    struct dispatch_queue_s *_scalingQueue;
+    NSObject<OS_dispatch_queue> *_scalingQueue;
     MFConditionLock *_scalingThrottle;
+    int _pendingImageScalingOperations;
     BOOL _outgoing;
     BOOL _didCancelImageScalingOperations;
+    BOOL _isScalingEnabled;
+    BOOL _isScalingThrottled;
 }
 
-+ (void)beginPreventingInlinePDFs;
-+ (void)endPreventingInlinePDFs;
++ (void)addAttachmentUniqueIdentifierStore:(id)arg1;
 + (BOOL)isPreventingInlinePDFs;
-- (id)initOutgoing;
-- (id)description;
-- (void)dealloc;
-- (void)cancelImageScalingOperations;
-- (BOOL)didCancelImageScalingOperations;
-- (BOOL)setAttachment:(id)arg1 forURL:(id)arg2;
-- (BOOL)addAttachment:(id)arg1;
-- (BOOL)addAttachment:(id)arg1 allowingOverride:(id)arg2;
-- (void)_enqueueScaleAttachment:(id)arg1 withFlags:(unsigned int)arg2 originalSize:(unsigned int)arg3;
-- (void)removeAttachmentForURL:(id)arg1;
++ (void)endPreventingInlinePDFs;
++ (void)beginPreventingInlinePDFs;
+@property(nonatomic) BOOL scalingThrottled; // @synthesize scalingThrottled=_isScalingThrottled;
+@property(readonly, nonatomic) NSArray *attachments;
 - (void)removeAttachmentsForURLs:(id)arg1;
-- (id)attachments;
-- (void)_delayedSetScalingEnabled;
-- (void)setScalingThrottled:(BOOL)arg1;
+- (void)removeAttachmentForURL:(id)arg1;
+- (void)_enqueueScaleAttachment:(id)arg1 withFlags:(unsigned int)arg2 originalSize:(unsigned int)arg3;
+- (void)_notifyAttachmentCachedSizesChanged;
+- (void)_decrementPendingImageScalingOperations;
+- (void)_inrementPendingImageScalingOperations;
+- (BOOL)addAttachment:(id)arg1 allowingOverride:(id)arg2;
+- (BOOL)addAttachment:(id)arg1;
+- (BOOL)setAttachment:(id)arg1 forURL:(id)arg2;
+- (BOOL)didCancelImageScalingOperations;
+- (void)cancelImageScalingOperations;
+- (BOOL)hasPendingImageScalingOperations;
+- (void)dealloc;
+- (id)description;
+- (id)initOutgoing;
+- (unsigned long)sizeForScale:(unsigned int)arg1 imagesOnly:(BOOL)arg2;
 
 @end
 

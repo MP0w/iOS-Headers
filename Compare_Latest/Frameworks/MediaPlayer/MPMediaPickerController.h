@@ -19,13 +19,15 @@
 + (void)preheatMediaPicker;
 - (void)_pickerDidPickItems:(id)arg1;
 - (void)_pickerDidCancel;
+@property(nonatomic) BOOL showsCloudItems;
 @property(nonatomic) BOOL allowsPickingMultipleItems;
 @property(copy, nonatomic) NSString *prompt;
 @property(nonatomic) id <MPMediaPickerControllerDelegate> delegate;
 @property(readonly, nonatomic) int mediaTypes;
 - (void)mediaPickerModalContext:(id)arg1 didPickMediaItems:(id)arg2;
 - (void)modalContextDidDismiss:(id)arg1 withSuccess:(BOOL)arg2;
-- (void)viewDidUnload;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithMediaTypes:(int)arg1;

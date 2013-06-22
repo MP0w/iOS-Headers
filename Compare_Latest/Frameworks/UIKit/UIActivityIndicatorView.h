@@ -32,11 +32,13 @@
     BOOL _useArtwork;
     NSString *_artBackupKeyString;
     UIImageView *_internalView;
+    BOOL _useOutlineShadow;
 }
 
 + (struct CGSize)size;
 + (struct CGSize)defaultSizeForStyle:(int)arg1;
 + (id)_loadResourcesForStyle:(int)arg1;
+@property(nonatomic) BOOL useOutlineShadow; // @synthesize useOutlineShadow=_useOutlineShadow;
 @property(readonly, nonatomic) UIImageView *internalView; // @synthesize internalView=_internalView;
 @property(readonly, nonatomic) NSString *artBackupKeyString; // @synthesize artBackupKeyString=_artBackupKeyString;
 @property(nonatomic) BOOL useArtwork; // @synthesize useArtwork=_useArtwork;
@@ -81,6 +83,7 @@
 - (float)_spokeLengthForGearWidth:(float)arg1;
 - (float)_spokeWidthForGearWidth:(float)arg1;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
+- (void)_removeAllAnimations:(BOOL)arg1;
 - (void)setHighlighted:(BOOL)arg1;
 - (BOOL)isHighlighted;
 - (void)setAnimationDuration:(double)arg1;
@@ -90,6 +93,9 @@
 - (void)startAnimating;
 - (void)_setUpAnimation;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -99,6 +105,7 @@
 - (id)_commonInitWithFrame:(struct CGRect)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
 
 @end
 

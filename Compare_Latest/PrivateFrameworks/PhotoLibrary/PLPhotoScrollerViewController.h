@@ -8,13 +8,12 @@
 
 #import "PLAlbumChangeObserver-Protocol.h"
 
-@class NSArray, UIBarButtonItem, UINavigationItem, UIToolbar;
+@class UIBarButtonItem, UINavigationItem, UIToolbar;
 
 @interface PLPhotoScrollerViewController : PLPhotoBrowserController <PLAlbumChangeObserver>
 {
     UINavigationItem *_navItem;
     UIBarButtonItem *_doneItem;
-    NSArray *_items;
     int _previousInterfaceOrientation;
     unsigned int _modalSheetIsPresent:1;
     unsigned int _dontChangeStatusBar:1;
@@ -24,9 +23,7 @@
 
 @property(retain, nonatomic) UIBarButtonItem *doneItem;
 - (void)_forceRotationToPortaitIfNecessary;
-- (BOOL)_visibleItemAllowsRotation;
 - (void)updateNavigationItemTitle;
-- (id)itemAtIndex:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned int visibleItemIndex;
 - (void)didMoveToPhotoAtIndex:(unsigned int)arg1;
 - (void)startSettingWallpaper;
@@ -37,14 +34,17 @@
 - (void)addAirTunesButton;
 - (BOOL)dontChangeStatusBar;
 - (void)setDontChangeStatusBar:(BOOL)arg1;
+- (void)removeRemakerContainerView;
 - (id)remakerContainerView;
 - (void)_setupButtonBar;
 @property(retain, nonatomic) UIToolbar *buttonBar;
 - (void)_updateToolbar:(BOOL)arg1;
 - (void)setToolbarHidden:(BOOL)arg1 withDuration:(double)arg2;
+- (void)_updateCommentsButtonFrameForUIOrientation:(int)arg1;
 - (id)_currentToolbarItems;
 - (id)navigationItem;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewWillLayoutSubviews;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)setParentViewController:(id)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
@@ -54,8 +54,6 @@
 - (void)loadView;
 - (void)dealloc;
 - (id)_initWithAlbum:(struct NSObject *)arg1 lockStatusBar:(BOOL)arg2 currentImageIndex:(int)arg3 delayImageLoading:(BOOL)arg4;
-- (id)initWithItems:(id)arg1 startingIndex:(int)arg2;
-- (id)initWithItems:(id)arg1;
 
 @end
 

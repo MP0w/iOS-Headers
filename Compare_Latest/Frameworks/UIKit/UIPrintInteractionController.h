@@ -68,6 +68,9 @@
 - (id)_init;
 - (id)init;
 - (oneway void)release;
+- (void)_cancelManualPrintPage;
+- (void)_manualPrintPage;
+- (void)_enableManualPrintPage:(BOOL)arg1;
 
 @end
 

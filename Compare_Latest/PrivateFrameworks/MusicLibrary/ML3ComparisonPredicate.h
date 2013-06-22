@@ -29,7 +29,8 @@
 @property(nonatomic) BOOL caseInsensitive; // @synthesize caseInsensitive=_caseInsensitive;
 @property(nonatomic) int comparison; // @synthesize comparison=_comparison;
 @property(retain, nonatomic) id value; // @synthesize value=_value;
-- (void)bindToSqlite3Statement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
+- (void).cxx_destruct;
+- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 @property(readonly, nonatomic) NSString *operator;
 - (id)description;
@@ -37,7 +38,6 @@
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3 caseInsensitive:(BOOL)arg4 transformFunction:(id)arg5 treatNullAsBlank:(BOOL)arg6;
 
 @end

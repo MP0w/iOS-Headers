@@ -6,79 +6,92 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, SBFolderIcon;
+#import "SBIconIndexMutableListObserver-Protocol.h"
+#import "SBIconIndexNode-Protocol.h"
 
-@interface SBFolder : NSObject
+@class NSHashTable, NSMutableDictionary, NSMutableSet, NSString, SBFolderIcon, SBIconIndexMutableList;
+
+@interface SBFolder : NSObject <SBIconIndexNode, SBIconIndexMutableListObserver>
 {
     NSString *_displayName;
     NSString *_defaultDisplayName;
-    NSMutableArray *_lists;
     BOOL _open;
     SBFolderIcon *_icon;
     BOOL _cancelable;
     NSMutableSet *_addedIcons;
     NSMutableSet *_removedIcons;
     NSMutableDictionary *_coalesceChangesRequests;
+    NSHashTable *_nodeObservers;
+    SBIconIndexMutableList *_lists;
 }
 
 + (int)maxListCount;
-- (Class)listModelClass;
-- (Class)listViewClass;
-- (Class)folderViewClass;
-- (Class)folderSlidingViewClass;
-- (id)init;
-- (void)dealloc;
-@property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
-@property(nonatomic) BOOL isOpen; // @synthesize isOpen=_open;
-- (void)purgeIconImages;
-- (id)lists;
-- (unsigned int)listCount;
-- (BOOL)isEmpty;
-- (BOOL)isFull;
-- (BOOL)isNewsstandFolder;
-- (BOOL)compactLists;
-- (void)compactIconsAndLists;
-- (id)addEmptyList;
-- (void)removeEmptyList:(id)arg1;
-- (BOOL)isIconStateDirty;
-- (void)markIconStateClean;
-- (id)listAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfList:(id)arg1;
-- (void)purgeLists;
-- (id)placeIcon:(id)arg1 atIndexPath:(id *)arg2;
-- (id)insertIcon:(id)arg1 atIndexPath:(id *)arg2;
-- (void)removeIconAtIndexPath:(id)arg1;
-- (id)addIcon:(id)arg1;
-- (BOOL)canAddIcon;
-- (id)performCascadingIconInsertion:(id)arg1 listIndex:(unsigned int)arg2 iconIndex:(unsigned int)arg3 addPageIfNecessary:(BOOL)arg4;
-- (id)indexPathForFirstFreeSlotAvoidingFirstList:(BOOL)arg1;
-- (id)iconsOfClass:(Class)arg1;
-- (id)allIcons;
-- (id)leafIcons;
-- (id)folderIcons;
-- (id)visibleIcons;
-- (id)listContainingIcon:(id)arg1;
-- (id)listContainingLeafIconWithIdentifier:(id)arg1;
-- (id)indexPathForIcon:(id)arg1;
-- (id)indexPathForIconWithIdentifier:(id)arg1;
-- (id)iconAtIndexPath:(id)arg1;
-- (id)folderContainingIndexPath:(id)arg1 relativeIndexPath:(id *)arg2;
-- (id)folderContainingIcon:(id)arg1 relativeIndexPath:(id *)arg2;
-- (id)indexPathForEntity:(id)arg1;
-- (BOOL)_isCoalescingContentChanges;
-- (void)noteIconAdded:(id)arg1;
-- (void)noteIconRemoved:(id)arg1;
-- (void)noteIcon:(id)arg1 replacedIcon:(id)arg2;
-- (void)startCoalescingContentChangesWithRequestID:(id)arg1;
-- (void)stopCoalescingContentChangesForRequestID:(id)arg1;
-- (void)stopCoalescingContentChangesForRequestID:(id)arg1 forceReload:(BOOL)arg2;
-- (void)_setDisplayNameFromRepresentation:(id)arg1;
-- (BOOL)resetWithRepresentation:(id)arg1 leafIdentifiersAdded:(id)arg2;
-- (id)folderType;
-- (id)representation;
-- (BOOL)matchesRepresentation:(id)arg1;
 @property(nonatomic, getter=isCancelable) BOOL cancelable; // @synthesize cancelable=_cancelable;
 @property(nonatomic) SBFolderIcon *icon; // @synthesize icon=_icon;
+@property(nonatomic) BOOL isOpen; // @synthesize isOpen=_open;
+@property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
+- (void)list:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
+- (void)list:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
+- (id)nodeDescriptionWithPrefix:(id)arg1;
+- (void)removeNodeObserver:(id)arg1;
+- (void)addNodeObserver:(id)arg1;
+- (id)nodesAlongIndexPath:(id)arg1 consumedIndexes:(unsigned int)arg2;
+- (id)indexPathsForContainedNodeIdentifier:(id)arg1 prefixPath:(id)arg2;
+- (id)containedNodeIdentifiers;
+- (BOOL)containsNodeIdentifier:(id)arg1;
+- (id)nodeIdentifier;
+- (BOOL)matchesRepresentation:(id)arg1;
+- (id)representation;
+- (id)folderType;
+- (BOOL)resetWithRepresentation:(id)arg1 model:(id)arg2 leafIdentifiersAdded:(id)arg3;
+- (void)_setDisplayNameFromRepresentation:(id)arg1;
+- (void)stopCoalescingContentChangesForRequestID:(id)arg1 forceReload:(BOOL)arg2;
+- (void)stopCoalescingContentChangesForRequestID:(id)arg1;
+- (void)startCoalescingContentChangesWithRequestID:(id)arg1;
+- (void)noteIcon:(id)arg1 replacedIcon:(id)arg2;
+- (void)noteIconRemoved:(id)arg1;
+- (void)noteIconAdded:(id)arg1;
+- (BOOL)_isCoalescingContentChanges;
+- (id)folderContainingIndexPath:(id)arg1 relativeIndexPath:(id *)arg2;
+- (id)iconAtIndexPath:(id)arg1;
+- (id)indexPathForIconWithIdentifier:(id)arg1;
+- (id)indexPathForIcon:(id)arg1;
+- (id)indexPathForNodeIdentifier:(id)arg1;
+- (id)listContainingLeafIconWithIdentifier:(id)arg1;
+- (id)listContainingIcon:(id)arg1;
+- (id)visibleIcons;
+- (id)folderIcons;
+- (id)leafIcons;
+- (id)allIcons;
+- (id)iconsOfClass:(Class)arg1;
+- (id)indexPathForFirstFreeSlotAvoidingFirstList:(BOOL)arg1;
+- (id)performCascadingIconInsertion:(id)arg1 listIndex:(unsigned int)arg2 iconIndex:(unsigned int)arg3 addPageIfNecessary:(BOOL)arg4;
+- (BOOL)canAddIcon;
+- (id)addIcon:(id)arg1;
+- (void)removeIconAtIndexPath:(id)arg1;
+- (id)insertIcon:(id)arg1 atIndexPath:(id *)arg2;
+- (id)placeIcon:(id)arg1 atIndexPath:(id *)arg2;
+- (void)purgeLists;
+- (unsigned int)indexOfList:(id)arg1;
+- (id)listAtIndex:(unsigned int)arg1;
+- (void)markIconStateClean;
+- (BOOL)isIconStateDirty;
+- (void)removeEmptyList:(id)arg1;
+- (id)addEmptyList;
+- (void)compactIconsAndLists;
+- (BOOL)compactLists;
+- (BOOL)isNewsstandFolder;
+- (BOOL)isFull;
+- (BOOL)isEmpty;
+- (unsigned int)listCount;
+- (id)lists;
+- (void)purgeIconImages;
+- (void)dealloc;
+- (id)init;
+- (Class)folderSlidingViewClass;
+- (Class)folderViewClass;
+- (Class)listViewClass;
+- (Class)listModelClass;
 
 @end
 

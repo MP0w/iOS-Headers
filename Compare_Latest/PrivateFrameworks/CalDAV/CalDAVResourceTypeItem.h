@@ -18,17 +18,17 @@
     CoreDAVItemWithNoChildren *_sharedOwner;
 }
 
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
-- (void)write:(id)arg1;
 @property(retain) CoreDAVItemWithNoChildren *sharedOwner; // @synthesize sharedOwner=_sharedOwner;
 @property(retain) CoreDAVItemWithNoChildren *subscribed; // @synthesize subscribed=_subscribed;
 @property(retain) CoreDAVItemWithNoChildren *notification; // @synthesize notification=_notification;
 @property(retain) CoreDAVItemWithNoChildren *scheduleOutbox; // @synthesize scheduleOutbox=_scheduleOutbox;
 @property(retain) CoreDAVItemWithNoChildren *scheduleInbox; // @synthesize scheduleInbox=_scheduleInbox;
 @property(retain) CoreDAVItemWithNoChildren *calendar; // @synthesize calendar=_calendar;
+- (void)write:(id)arg1;
+- (id)copyParseRules;
+- (id)description;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
 
 @end
 

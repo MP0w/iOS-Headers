@@ -11,8 +11,8 @@
 }
 
 + (id)fakeApplication;
-- (id)init;
 - (BOOL)isFakeApp;
+- (id)init;
 
 @end
 

@@ -19,36 +19,36 @@
     void *_priv;
 }
 
-+ (id)behavior;
-+ (id)defaultValueForKey:(id)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-+ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-+ (void *)CA_setterForType:(int)arg1;
-+ (void *)CA_getterForType:(int)arg1;
 + (BOOL)resolveInstanceMethod:(SEL)arg1;
-- (id)init;
-- (id)retain;
-- (BOOL)retainWeakReference;
-- (void)release;
-- (unsigned int)retainCount;
-- (BOOL)allowsWeakReference;
-- (void)dealloc;
-- (void)_setCARenderBehavior:(struct Behavior *)arg1;
-- (BOOL)shouldArchiveValueForKey:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)valueForKey:(id)arg1;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)valueForUndefinedKey:(id)arg1;
-- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
-- (id)valueForKeyPath:(id)arg1;
-- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)debugDescription;
-@property(copy) NSString *name;
-@property(getter=isEnabled) BOOL enabled;
-@property id delegate;
++ (void *)CA_getterForType:(int)arg1;
++ (void *)CA_setterForType:(int)arg1;
++ (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (id)defaultValueForKey:(id)arg1;
++ (id)behavior;
 @property(copy) NSDictionary *style;
+@property id delegate;
+@property(getter=isEnabled) BOOL enabled;
+@property(copy) NSString *name;
+- (id)debugDescription;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
+- (id)valueForKeyPath:(id)arg1;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
+- (id)valueForUndefinedKey:(id)arg1;
+- (void)setValue:(id)arg1 forKey:(id)arg2;
+- (id)valueForKey:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (BOOL)shouldArchiveValueForKey:(id)arg1;
+- (void)_setCARenderBehavior:(struct Behavior *)arg1;
+- (void)dealloc;
+- (BOOL)allowsWeakReference;
+- (unsigned int)retainCount;
+- (oneway void)release;
+- (BOOL)retainWeakReference;
+- (id)retain;
+- (id)init;
 
 @end
 

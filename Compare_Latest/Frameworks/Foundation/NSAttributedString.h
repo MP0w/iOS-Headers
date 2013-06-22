@@ -36,6 +36,9 @@
 - (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 effectiveRange:(struct _NSRange *)arg3;
 - (id)attributesAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
 - (id)string;
+- (id)replacementObjectForPortCoder:(id)arg1;
+- (id)_createAttributedSubstringWithRange:(struct _NSRange)arg1;
+- (unsigned long)_cfTypeID;
 
 @end
 

@@ -6,17 +6,26 @@
 
 #import "PBRequester.h"
 
-@class NSThread;
+@class NSString, NSThread;
 
 @interface GEORequester : PBRequester
 {
     BOOL _disableReplay;
     NSThread *_thread;
+    BOOL _usePersistentConnection;
+    BOOL _useBackgroundConnection;
+    NSString *_debugRequestName;
 }
 
 + (void)replayRequests;
 + (void)stopAllRequests;
 @property BOOL disableReplay; // @synthesize disableReplay=_disableReplay;
+@property(retain, nonatomic) NSString *debugRequestName; // @synthesize debugRequestName=_debugRequestName;
+- (id)newConnectionWithCFURLRequest:(struct _CFURLRequest *)arg1 delegate:(id)arg2;
+- (struct _CFURLRequest *)newCFMutableURLRequestWithURL:(id)arg1;
+- (id)persistentConnectionSession;
+- (id)logResponseToFile;
+- (id)logRequestToFile;
 - (void)start;
 - (void)_handleResumeOnThread;
 - (void)_applicationWantsToReplayRequests:(id)arg1;
@@ -24,6 +33,8 @@
 - (void)_applicationDidStopAllRequests:(id)arg1;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 andDelegate:(id)arg2;
+- (id)initWithURL:(id)arg1 andDelegate:(id)arg2 usePersistentConnection:(BOOL)arg3;
+- (id)initWithURL:(id)arg1 andDelegate:(id)arg2 usePersistentConnection:(BOOL)arg3 useBackgroundConnection:(BOOL)arg4;
 
 @end
 

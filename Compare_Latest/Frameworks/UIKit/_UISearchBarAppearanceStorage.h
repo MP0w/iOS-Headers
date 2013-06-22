@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSValue;
+@class NSMutableDictionary, NSValue, UIImage;
 
 @interface _UISearchBarAppearanceStorage : NSObject
 {
     NSMutableDictionary *searchFieldBackgroundImages;
     NSValue *searchFieldPositionAdjustment;
     NSMutableDictionary *iconImages;
+    UIImage *separatorImage;
 }
 
+@property(retain, nonatomic) UIImage *separatorImage; // @synthesize separatorImage;
 @property(retain, nonatomic) NSValue *searchFieldPositionAdjustment; // @synthesize searchFieldPositionAdjustment;
 - (void)dealloc;
 - (id)imageForIcon:(int)arg1 state:(unsigned int)arg2;

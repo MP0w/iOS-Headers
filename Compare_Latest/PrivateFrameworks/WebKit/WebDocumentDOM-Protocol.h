@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebDocumentDOM <NSObject>
-- (id)DOMDocument;
 - (BOOL)canSaveAsWebArchive;
+- (id)DOMDocument;
 @end
 

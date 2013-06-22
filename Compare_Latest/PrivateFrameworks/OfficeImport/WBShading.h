@@ -10,8 +10,9 @@
 {
 }
 
-+ (void)readFrom:(struct WrdShading *)arg1 to:(id)arg2;
 + (void)write:(id)arg1 to:(struct WrdShading *)arg2;
++ (void)readFrom:(struct WrdShading *)arg1 to:(id)arg2;
++ (void)setToSolidWhite:(id)arg1;
 
 @end
 

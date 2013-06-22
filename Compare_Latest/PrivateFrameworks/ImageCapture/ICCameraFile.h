@@ -13,30 +13,29 @@
     void *_fileProperties;
 }
 
-- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
-- (void)dealloc;
-- (void)finalize;
-- (id)description;
-@property long long fileSize;
-@property(getter=isRaw) BOOL raw;
-@property unsigned int orientation;
-@property(readonly) BOOL hasOverriddenOrientation;
-- (BOOL)hasThumbnail;
-- (void)setHasThumbnail:(BOOL)arg1;
-- (BOOL)hasMetadata;
-- (void)setHasMetadata:(BOOL)arg1;
-@property BOOL fetchingThumbnail;
-@property BOOL fetchingMetadata;
-- (void)overrideOrientation:(unsigned int)arg1;
-- (void)handleCommandCompletionNotification:(id)arg1;
-- (struct CGImage *)thumbnail;
-- (id)metadata;
-@property(retain) NSMutableDictionary *metadata_hidden;
-- (void)requestThumbnail;
-- (void)requestMetadata;
-- (void)flushThumbnailCache;
 - (void)flushMetadataCache;
-- (BOOL)raw;
+- (void)flushThumbnailCache;
+- (void)requestMetadata;
+- (void)requestThumbnail;
+@property(retain) NSMutableDictionary *metadata_hidden;
+- (id)metadata;
+- (struct CGImage *)thumbnail;
+- (void)handleCommandCompletionNotification:(id)arg1;
+- (void)overrideOrientation:(unsigned int)arg1;
+@property BOOL fetchingMetadata;
+@property BOOL fetchingThumbnail;
+- (void)setHasMetadata:(BOOL)arg1;
+- (BOOL)hasMetadata;
+- (void)setHasThumbnail:(BOOL)arg1;
+- (BOOL)hasThumbnail;
+@property(readonly) BOOL hasOverriddenOrientation;
+@property unsigned int orientation;
+@property(getter=isRaw) BOOL raw;
+@property long long fileSize;
+- (id)description;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
 
 @end
 

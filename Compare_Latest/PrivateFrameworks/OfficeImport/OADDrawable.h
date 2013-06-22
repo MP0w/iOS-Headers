@@ -11,28 +11,29 @@
 @interface OADDrawable : NSObject
 {
     BOOL mHidden;
-    unsigned int mId;
+    long mId;
     OADDrawableProperties *mDrawableProperties;
     id <OADClient> mClientData;
     OADDrawable<OADDrawableContainer> *mParent;
 }
 
-- (id)initWithPropertiesClass:(Class)arg1;
-- (void)dealloc;
-- (BOOL)hidden;
-- (void)setHidden:(BOOL)arg1;
-- (unsigned long)id;
-- (void)setId:(unsigned long)arg1;
-- (id)drawableProperties;
-- (void)setDrawableProperties:(id)arg1;
-- (void)setClientData:(id)arg1;
-- (id)clientData;
-- (id)ensureClientDataOfClass:(Class)arg1;
-- (void)setParent:(id)arg1;
-- (id)parent;
-- (void)setParentTextListStyle:(id)arg1;
-- (void)removeUnnecessaryOverrides;
 - (id)createOrientedBoundsWithBounds:(struct CGRect)arg1;
+- (void)removeUnnecessaryOverrides;
+- (void)setParentTextListStyle:(id)arg1;
+- (id)parent;
+- (void)setParent:(id)arg1;
+- (id)ensureClientDataOfClass:(Class)arg1;
+- (id)clientData;
+- (void)setClientData:(id)arg1;
+- (void)setDrawableProperties:(id)arg1;
+- (id)drawableProperties;
+- (void)setId:(long)arg1;
+- (long)id;
+- (void)setHidden:(BOOL)arg1;
+- (BOOL)hidden;
+- (void)dealloc;
+- (id)initWithPropertiesClass:(Class)arg1;
+- (id)createWordClientDataWithTextType:(int)arg1;
 
 @end
 

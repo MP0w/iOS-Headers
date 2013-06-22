@@ -26,32 +26,36 @@
 }
 
 + (id)dataLabelWithResources:(id)arg1;
-- (id)initWithResources:(id)arg1;
-- (void)dealloc;
-- (id)string;
-- (void)setString:(id)arg1;
-- (id)contentFormat;
-- (void)setContentFormat:(id)arg1;
-- (int)position;
-- (void)setPosition:(int)arg1;
-- (_Bool)isShowLeaderLines;
-- (void)setShowLeaderLines:(_Bool)arg1;
-- (_Bool)isShowCategoryName;
-- (void)setShowCategoryName:(_Bool)arg1;
-- (_Bool)isShowSeriesName;
-- (void)setShowSeriesName:(_Bool)arg1;
-- (_Bool)isShowPercent;
-- (void)setShowPercent:(_Bool)arg1;
-- (_Bool)isShowValue;
-- (void)setShowValue:(_Bool)arg1;
-- (_Bool)isShowLegendKey;
-- (void)setShowLegendKey:(_Bool)arg1;
-- (id)graphicProperties;
-- (void)setGraphicProperties:(id)arg1;
-- (void)setIsPositionAffineTransform:(_Bool)arg1;
-- (_Bool)isPositionAffineTransform;
-- (double)rotationAngle;
 - (void)setRotationAngle:(double)arg1;
+- (double)rotationAngle;
+- (_Bool)isPositionAffineTransform;
+- (void)setIsPositionAffineTransform:(_Bool)arg1;
+- (void)setGraphicProperties:(id)arg1;
+- (id)graphicProperties;
+- (void)setShowLegendKey:(_Bool)arg1;
+- (_Bool)isShowLegendKey;
+- (void)setShowValue:(_Bool)arg1;
+- (_Bool)isShowValue;
+- (void)setShowPercent:(_Bool)arg1;
+- (_Bool)isShowPercent;
+- (void)setShowSeriesName:(_Bool)arg1;
+- (_Bool)isShowSeriesName;
+- (void)setShowCategoryName:(_Bool)arg1;
+- (_Bool)isShowCategoryName;
+- (void)setShowLeaderLines:(_Bool)arg1;
+- (_Bool)isShowLeaderLines;
+- (void)setPosition:(int)arg1;
+- (int)position;
+- (void)setContentFormat:(id)arg1;
+- (id)contentFormat;
+- (void)setString:(id)arg1;
+- (id)string;
+- (void)dealloc;
+- (id)initWithResources:(id)arg1;
+- (void)setContentFormatId:(unsigned int)arg1;
+- (unsigned int)contentFormatId;
+- (void)setStringIndex:(unsigned int)arg1;
+- (unsigned int)stringIndex;
 
 @end
 

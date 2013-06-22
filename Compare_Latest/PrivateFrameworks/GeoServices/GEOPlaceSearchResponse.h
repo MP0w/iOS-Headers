@@ -10,27 +10,46 @@
 
 @interface GEOPlaceSearchResponse : PBCodable
 {
-    int _status;
-    NSMutableArray *_placeResults;
+    int _localSearchProviderID;
     GEOMapRegion *_mapRegion;
+    NSMutableArray *_placeResults;
     NSMutableArray *_searchs;
+    int _status;
+    int _statusCodeInfo;
+    BOOL _abTestResponse;
+    struct {
+        unsigned int localSearchProviderID:1;
+        unsigned int statusCodeInfo:1;
+        unsigned int abTestResponse:1;
+    } _has;
 }
 
+@property(nonatomic) int statusCodeInfo; // @synthesize statusCodeInfo=_statusCodeInfo;
+@property(nonatomic) BOOL abTestResponse; // @synthesize abTestResponse=_abTestResponse;
+@property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
 @property(retain, nonatomic) NSMutableArray *searchs; // @synthesize searchs=_searchs;
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(retain, nonatomic) NSMutableArray *placeResults; // @synthesize placeResults=_placeResults;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasStatusCodeInfo;
+@property(nonatomic) BOOL hasAbTestResponse;
+@property(nonatomic) BOOL hasLocalSearchProviderID;
 - (id)searchAtIndex:(unsigned int)arg1;
 - (unsigned int)searchsCount;
 - (void)addSearch:(id)arg1;
+- (void)clearSearchs;
 @property(readonly, nonatomic) BOOL hasMapRegion;
 - (id)placeResultAtIndex:(unsigned int)arg1;
 - (unsigned int)placeResultsCount;
 - (void)addPlaceResult:(id)arg1;
+- (void)clearPlaceResults;
 - (void)dealloc;
 
 @end

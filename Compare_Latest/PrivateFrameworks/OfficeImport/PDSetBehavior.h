@@ -11,10 +11,10 @@
     id mValue;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)value;
 - (void)setValue:(id)arg1;
+- (id)value;
+- (void)dealloc;
+- (id)init;
 
 @end
 

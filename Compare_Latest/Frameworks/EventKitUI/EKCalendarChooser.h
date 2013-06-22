@@ -6,7 +6,7 @@
 
 #import "UIViewController.h"
 
-@class EKEventStore, NSArray, NSIndexPath, NSMutableDictionary, NSMutableSet, NSSet, UITableView;
+@class EKEventStore, EKSource, NSArray, NSIndexPath, NSMutableDictionary, NSMutableSet, NSSet, UITableView, _UIAccessDeniedView;
 
 @interface EKCalendarChooser : UIViewController
 {
@@ -17,18 +17,26 @@
     id <EKCalendarChooserDelegate> _delegate;
     NSArray *_groups;
     NSMutableDictionary *_storeGroupMap;
+    NSMutableDictionary *_customGroupMap;
     NSIndexPath *_checkedRow;
     id <EKStyleProvider> _styleProvider;
     CDStruct_1cfc42b8 _flags;
     NSMutableSet *_selectedCalendars;
-    int _entityType;
+    unsigned int _entityType;
+    EKSource *_limitedToSource;
+    _UIAccessDeniedView *_accessDeniedView;
+    int _lastAuthorizationStatus;
 }
 
-@property(nonatomic) int entityType; // @synthesize entityType=_entityType;
+@property(nonatomic) int lastAuthorizationStatus; // @synthesize lastAuthorizationStatus=_lastAuthorizationStatus;
+@property(retain, nonatomic) _UIAccessDeniedView *accessDeniedView; // @synthesize accessDeniedView=_accessDeniedView;
+@property(retain, nonatomic) EKSource *limitedToSource; // @synthesize limitedToSource=_limitedToSource;
+@property(nonatomic) unsigned int entityType; // @synthesize entityType=_entityType;
 @property(retain, nonatomic) NSMutableSet *selectedCalendarSet; // @synthesize selectedCalendarSet=_selectedCalendars;
 @property(nonatomic) CDStruct_1cfc42b8 flags; // @synthesize flags=_flags;
 @property(retain, nonatomic) id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(retain, nonatomic) NSIndexPath *checkedRow; // @synthesize checkedRow=_checkedRow;
+@property(retain, nonatomic) NSMutableDictionary *customGroupMap; // @synthesize customGroupMap=_customGroupMap;
 @property(retain, nonatomic) NSMutableDictionary *storeGroupMap; // @synthesize storeGroupMap=_storeGroupMap;
 @property(retain, nonatomic) NSArray *groups; // @synthesize groups=_groups;
 @property(nonatomic) id <EKCalendarChooserDelegate> delegate; // @synthesize delegate=_delegate;
@@ -37,6 +45,7 @@
 @property(retain, nonatomic) EKEventStore *eventStore; // @synthesize eventStore=_eventStore;
 - (void)calendarEditor:(id)arg1 didCompleteWithAction:(int)arg2;
 - (float)marginForTableView:(id)arg1;
+- (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (void)_selectAllCalendarsAndStores:(BOOL)arg1;
@@ -49,6 +58,7 @@
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
+- (BOOL)_shouldShowGroupNameInSection:(int)arg1;
 - (id)_stringForSharedCalendar:(id)arg1;
 - (BOOL)_isEllipsisCellForGroup:(id)arg1 rowIndex:(int)arg2;
 - (BOOL)_tableShouldDisplayNewCalendarCellForGroup:(id)arg1;
@@ -64,9 +74,10 @@
 - (void)_applySelection;
 - (id)_loadCalendars;
 - (id)_filterCalendars:(id)arg1;
-- (void)calendarsChanged:(id)arg1;
+- (void)_eventStoreChanged:(id)arg1;
 - (void)_restoreSelection:(id)arg1 newCalendars:(id)arg2;
 - (id)_saveSelection;
+- (id)_groupForCustomGroupType:(int)arg1;
 - (id)_groupForSource:(id)arg1;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (BOOL)_calendarAvailableForEditing:(id)arg1;
@@ -86,12 +97,14 @@
 - (BOOL)allowsRotation;
 - (void)setAllowsRotation:(BOOL)arg1;
 - (struct CGSize)contentSizeForViewInPopover;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithSelectionStyle:(int)arg1 displayStyle:(int)arg2 eventStore:(id)arg3;
-- (id)initWithSelectionStyle:(int)arg1 displayStyle:(int)arg2 entityType:(int)arg3 eventStore:(id)arg4;
+- (id)initWithSelectionStyle:(int)arg1 displayStyle:(int)arg2 entityType:(unsigned int)arg3 eventStore:(id)arg4;
+- (id)initWithSelectionStyle:(int)arg1 displayStyle:(int)arg2 entityType:(unsigned int)arg3 eventStore:(id)arg4 limitedToSource:(id)arg5;
 
 @end
 

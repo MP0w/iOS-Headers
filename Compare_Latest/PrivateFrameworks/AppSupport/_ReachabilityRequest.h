@@ -19,14 +19,14 @@
     BOOL _receivedAtLeastOneCallback;
 }
 
-- (id)initWithHostname:(id)arg1;
-- (void)dealloc;
-- (id)description;
-- (void)reachabilityChangedWithFlags:(unsigned int)arg1;
-- (void)addObserver:(id)arg1 selector:(SEL)arg2;
-- (void)removeObserver:(id)arg1;
-- (BOOL)hasObservers;
 @property(nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
+- (BOOL)hasObservers;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1 selector:(SEL)arg2;
+- (void)reachabilityChangedWithFlags:(unsigned int)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)initWithHostname:(id)arg1;
 
 @end
 

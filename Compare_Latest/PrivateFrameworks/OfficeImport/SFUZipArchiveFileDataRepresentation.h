@@ -16,16 +16,16 @@
     int mFd;
 }
 
-- (id)initWithPath:(id)arg1;
-- (void)dealloc;
-- (BOOL)isReadable;
-- (long long)dataLength;
-- (BOOL)isEncrypted;
-- (id)inputStream;
-- (BOOL)hasSameLocationAs:(id)arg1;
-- (id)path;
-- (id)inputStreamWithOffset:(long long)arg1 length:(long long)arg2;
 - (id)bufferedInputStreamWithOffset:(long long)arg1 length:(long long)arg2;
+- (id)inputStreamWithOffset:(long long)arg1 length:(long long)arg2;
+- (id)path;
+- (BOOL)hasSameLocationAs:(id)arg1;
+- (id)inputStream;
+- (BOOL)isEncrypted;
+- (long long)dataLength;
+- (BOOL)isReadable;
+- (void)dealloc;
+- (id)initWithPath:(id)arg1;
 
 @end
 

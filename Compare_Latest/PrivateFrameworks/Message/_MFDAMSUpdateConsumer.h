@@ -12,11 +12,11 @@
 {
 }
 
-- (void)drainMailbox;
-- (BOOL)handleItems:(id)arg1;
-- (void)receiveSyncActions:(id)arg1;
-- (void)commitSyncActions;
 - (void)handleResponse:(id)arg1 error:(id)arg2;
+- (void)commitSyncActions;
+- (void)receiveSyncActions:(id)arg1;
+- (BOOL)handleItems:(id)arg1;
+- (void)drainMailbox;
 
 @end
 

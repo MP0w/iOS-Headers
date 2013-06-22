@@ -13,23 +13,19 @@
     UIWebClip *_webClip;
 }
 
-- (id)initWithApplication:(id)arg1;
-- (void)dealloc;
-- (id)_urlForLaunch;
-- (void)launch;
-- (void)launchFromViewSwitcher;
-- (id)generateIconImage:(int)arg1;
-- (BOOL)shouldEllipsizeLabel;
-- (BOOL)allowsUninstall;
-- (void)completeUninstall;
-- (id)uninstallAlertTitle;
-- (id)uninstallAlertBody;
-- (id)uninstallAlertConfirmTitle;
-- (id)uninstallAlertCancelTitle;
-- (id)webClip;
-- (id)folderTitleOptions;
+@property(retain, nonatomic) UIWebClip *webClip; // @synthesize webClip=_webClip;
 - (id)folderFallbackTitle;
-- (BOOL)canGenerateGhostlyImageInBackground;
+- (id)folderTitleOptions;
+- (id)uninstallAlertCancelTitle;
+- (id)uninstallAlertConfirmTitle;
+- (id)uninstallAlertBody;
+- (id)uninstallAlertTitle;
+- (BOOL)allowsUninstall;
+- (BOOL)shouldEllipsizeLabel;
+- (BOOL)canGenerateImageInBackgroundForFormat:(int)arg1;
+- (id)generateIconImage:(int)arg1;
+- (void)dealloc;
+- (id)initWithApplication:(id)arg1;
 
 @end
 

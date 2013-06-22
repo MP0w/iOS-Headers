@@ -8,7 +8,7 @@
 
 #import "NSNetServiceDelegate-Protocol.h"
 
-@class AirPlayRemoteSlideshow, MCMediaControlClientRemote, MediaControlClient, NSDictionary, NSMutableArray, NSNetService, NSString;
+@class AirPlayRemoteSlideshow, MCMediaControlClientRemote, MediaControlClient, NSDictionary, NSMutableArray, NSNetService, NSObject<OS_dispatch_queue>, NSString;
 
 @interface PLAirTunesService : NSObject <NSNetServiceDelegate>
 {
@@ -28,11 +28,14 @@
     NSDictionary *_remoteSlideshowAvailableFeatures;
     NSString *_password;
     BOOL _requiresPassword;
+    BOOL _requiresPIN;
+    BOOL _showingPasswordAlert;
     BOOL _validPassword;
+    BOOL _validated;
     BOOL _sentPhoto;
     double _playStartTime;
     unsigned int _features;
-    struct dispatch_queue_s *_resolveQueue;
+    NSObject<OS_dispatch_queue> *_resolveQueue;
 }
 
 + (void)endNetworkAssertion;
@@ -43,6 +46,7 @@
 @property(nonatomic) id <PLAirTunesServicePhotoBrowsingDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) NSString *password; // @synthesize password=_password;
 @property(nonatomic) BOOL validPassword; // @synthesize validPassword=_validPassword;
+@property(nonatomic) BOOL requiresPIN; // @synthesize requiresPIN=_requiresPIN;
 @property(nonatomic) BOOL requiresPassword; // @synthesize requiresPassword=_requiresPassword;
 @property(retain, nonatomic) NSDictionary *remoteSlideshowAvailableFeatures; // @synthesize remoteSlideshowAvailableFeatures=_remoteSlideshowAvailableFeatures;
 @property(retain, nonatomic) AirPlayRemoteSlideshow *remoteSlideshow; // @synthesize remoteSlideshow=_remoteSlideshow;
@@ -64,6 +68,7 @@
 - (void)setRate:(float)arg1;
 - (void)playVideo:(id)arg1 startTime:(double)arg2 stateChangedBlock:(id)arg3;
 - (void)streamPhoto:(id)arg1 withTransition:(id)arg2;
+- (void)invalidatePhotoCache;
 - (void)_streamPhotosAdjacentToPhoto:(id)arg1 withTransition:(id)arg2;
 - (void)_streamPhoto:(id)arg1 withTransition:(id)arg2 andAction:(id)arg3;
 - (void)stopStreamingWithCompletionBlock:(id)arg1;
@@ -73,8 +78,7 @@
 - (BOOL)_allowsPhotoCaching;
 - (BOOL)_supportsPhotoCaching;
 - (void)validate;
-- (void)_validateWithCompletionBlock:(id)arg1;
-- (void)_invalidatePassword;
+- (void)_validateForBadPassword:(BOOL)arg1 completionBlock:(id)arg2;
 - (void *)_keychainAccessibility;
 - (BOOL)isAvailable;
 - (id)name;

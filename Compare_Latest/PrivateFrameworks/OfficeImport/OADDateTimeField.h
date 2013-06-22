@@ -11,10 +11,10 @@
     int mFormat;
 }
 
-- (id)init;
-- (int)format;
-- (void)setFormat:(int)arg1;
 - (BOOL)isEmpty;
+- (void)setFormat:(int)arg1;
+- (int)format;
+- (id)init;
 
 @end
 

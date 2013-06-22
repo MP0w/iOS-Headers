@@ -18,6 +18,12 @@
 @property(readonly, nonatomic) double timestamp;
 @property(readonly, nonatomic) int subtype;
 @property(readonly, nonatomic) int type;
+- (int)_shakeState;
+- (id)_touchesForGestureRecognizer:(id)arg1;
+- (struct __GSEvent *)_gsEvent;
+- (id)_initWithEvent:(struct __GSEvent *)arg1 touches:(id)arg2;
+- (void)_setTimestamp:(double)arg1;
+- (id)_init;
 
 @end
 

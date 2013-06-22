@@ -6,28 +6,31 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
 
 @interface SYDClient : NSObject
 {
-    struct dispatch_queue_s *_queue;
-    struct _xpc_connection_s *_connection;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_xpc_object> *_connection;
     NSString *_bundleIdentifier;
+    NSString *_storeIdentifier;
+    BOOL _additionalSource;
 }
 
-- (id)initWithQueue:(struct dispatch_queue_s *)arg1 bundleIdentifier:(struct __CFString *)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (void)_createConnectionIfNecessary;
-- (void)_resetConnection;
-- (void)shutdown;
-- (id)_newMessageWithName:(id)arg1 userInfo:(id)arg2;
-- (id)_sendMessageWithReplySync:(id)arg1;
-- (void)_sendMessageNoReply:(id)arg1;
-- (void)_sendMessage:(id)arg1 replyHandler:(id)arg2;
-- (void)sendMessageWithName:(id)arg1;
-- (id)sendMessageWithName:(id)arg1 userInfo:(id)arg2;
 - (void)sendMessageWithName:(id)arg1 replyHandler:(id)arg2;
+- (id)sendMessageWithName:(id)arg1 userInfo:(id)arg2;
+- (void)sendMessageWithName:(id)arg1;
+- (void)_sendMessage:(id)arg1 replyHandler:(id)arg2;
+- (void)_sendMessageNoReply:(id)arg1;
+- (id)_sendMessageWithReplySync:(id)arg1;
+- (id)_newMessageWithName:(id)arg1 userInfo:(id)arg2;
+- (void)shutdown;
+- (void)_resetConnection;
+- (void)_createConnectionIfNecessary;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithQueue:(id)arg1 bundleIdentifier:(struct __CFString *)arg2 storeIdentifier:(struct __CFString *)arg3;
+- (id)initWithQueue:(id)arg1 bundleIdentifier:(struct __CFString *)arg2 storeIdentifier:(struct __CFString *)arg3 additionalSource:(BOOL)arg4;
 
 @end
 

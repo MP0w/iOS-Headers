@@ -17,10 +17,12 @@
 }
 
 + (id)currencyConverter;
-- (void)dealloc;
-- (id)lassoCurrencyCodeFromXl:(id)arg1;
-- (id)xlCurrencyCodeFromLasso:(id)arg1;
 - (int)xlAccountFormatFromLasso:(id)arg1;
+- (id)xlCurrencyCodeFromLasso:(id)arg1;
+- (id)lassoCurrencyCodeFromXl:(id)arg1;
+- (void)dealloc;
+- (id)lassoCurrencyCodeForDollar;
+- (void)populateDictionaries;
 
 @end
 

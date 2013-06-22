@@ -15,15 +15,15 @@
     float _pointSize;
 }
 
-+ (id)userFixedPitchFontOfSize:(float)arg1;
-+ (id)userFontOfSize:(float)arg1;
-+ (id)systemFontOfSize:(float)arg1;
 + (id)fontWithName:(id)arg1 size:(float)arg2;
-- (id)initWithName:(id)arg1 size:(float)arg2;
-- (unsigned int)mostCompatibleStringEncoding;
++ (id)systemFontOfSize:(float)arg1;
++ (id)userFontOfSize:(float)arg1;
++ (id)userFixedPitchFontOfSize:(float)arg1;
 @property float pointSize; // @synthesize pointSize=_pointSize;
 @property float fontSize; // @synthesize fontSize=_fontSize;
 @property(retain) NSString *fontName; // @synthesize fontName=_fontName;
+- (unsigned int)mostCompatibleStringEncoding;
+- (id)initWithName:(id)arg1 size:(float)arg2;
 
 @end
 

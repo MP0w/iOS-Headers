@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class IMAVMicrophone, NSArray, NSMutableArray;
+@class IMAVMicrophone, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface IMAVMicrophoneController : NSObject
 {
     id _internal;
     NSMutableArray *_microphones;
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)sharedInstance;
@@ -22,8 +22,6 @@
 - (void)dealloc;
 @property(readonly, nonatomic) NSArray *microphones;
 - (id)init;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

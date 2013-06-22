@@ -15,6 +15,7 @@
     id _fillStyle;
     int _fillStyleType;
     float _height;
+    float _scale;
     float _shadowBlur;
     SUScriptColor *_shadowColor;
     float _shadowOffsetX;
@@ -26,7 +27,7 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (void)_ntsApplyShadow;
@@ -66,7 +67,7 @@
 - (void)clip;
 - (void)clearRectWithX:(float)arg1 y:(float)arg2 width:(float)arg3 height:(float)arg4;
 - (struct CGPath *)copyCanvasPath;
-- (struct CGImage *)copyCanvasImage;
+- (id)copyCanvasImage;
 - (void)bezierCurveToCP1X:(float)arg1 cp1y:(float)arg2 cp2x:(float)arg3 cp2y:(float)arg4 x:(float)arg5 y:(float)arg6;
 - (void)beginPath;
 - (void)arcWithX:(float)arg1 y:(float)arg2 radius:(float)arg3 startAngle:(float)arg4 endAngle:(float)arg5 antiClockwise:(BOOL)arg6;

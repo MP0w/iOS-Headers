@@ -6,30 +6,29 @@
 
 #import "NSObject.h"
 
-#import "UIDocumentInteractionControllerDelegate-Protocol.h"
+@class EKAttachment, EKEventAttachmentCell, UIDocumentInteractionController;
 
-@class EKAttachment, EKEventAttachmentCell;
-
-@interface EKEventAttachmentCellController : NSObject <UIDocumentInteractionControllerDelegate>
+@interface EKEventAttachmentCellController : NSObject
 {
     EKAttachment *_attachment;
     id _downloadID;
     EKEventAttachmentCell *_cell;
-    id <EKEventAttachmentCellControllerDelegate> _delegate;
+    id <EKEventAttachmentCellControllerDelegate><UIDocumentInteractionControllerDelegate> _delegate;
+    UIDocumentInteractionController *_documentController;
 }
 
 + (id)cellControllersForAttachments:(id)arg1 givenExistingControllers:(id)arg2;
 + (BOOL)_attachmentIsViewable:(id)arg1;
 @property(retain, nonatomic) EKAttachment *attachment; // @synthesize attachment=_attachment;
 @property(readonly) EKEventAttachmentCell *cell; // @synthesize cell=_cell;
-@property(nonatomic) id <EKEventAttachmentCellControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)documentInteractionControllerViewForPreview:(id)arg1;
-- (id)documentInteractionControllerViewControllerForPreview:(id)arg1;
+@property(nonatomic) id <EKEventAttachmentCellControllerDelegate><UIDocumentInteractionControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)cellSelected;
 - (void)_presentPreviewWithURL:(id)arg1 filename:(id)arg2;
+- (void)_cleanupDocumentController;
 - (void)_presentPreviewOnMainThreadWithInfo:(id)arg1;
 - (id)_downloadProgressStringWithDownloadedBytes:(id)arg1 outOfTotalBytes:(id)arg2;
 - (void)tearDown;
+- (void)_clearDownloadID;
 - (void)dealloc;
 - (id)initWithAttachment:(id)arg1;
 

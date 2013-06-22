@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class MFBrush, MFFont, MFPalette, MFPath, MFPen, MFTransform, NSColorStub, NSObject<MFDeviceDriver>;
+@class MFBrush, MFFont, MFPalette, MFPath, MFPen, MFTransform, NSObject<MFDeviceDriver>, TSUColor;
 
 @interface MFDeviceContext : NSObject <NSCopying>
 {
@@ -19,11 +19,11 @@
     int m_textVerticalAlign;
     int m_textDirection;
     MFFont *m_font;
-    NSColorStub *m_textColour;
+    TSUColor *m_textColour;
     int m_textBreakExtra;
     int m_textBreakCount;
     int m_textCharExtra;
-    NSColorStub *m_bkColour;
+    TSUColor *m_bkColour;
     int m_bkMode;
     struct CGPoint m_brushOrg;
     struct CGPoint m_penPos;
@@ -39,54 +39,55 @@
 }
 
 + (id)deviceContextWithDriver:(id)arg1;
-- (id)initWithDriver:(id)arg1;
-- (void)dealloc;
-- (struct CGPoint)getPenPosition;
-- (void)setPenPosition:(struct CGPoint)arg1;
-- (void)setTextUpdateCP:(_Bool)arg1;
-- (_Bool)getTextUpdateCP;
-- (void)setMiterLimit:(double)arg1;
-- (double)getMiterLimit;
-- (void)setTextHorizontalAlign:(int)arg1;
-- (int)getTextHorizontalAlign;
-- (void)setTextVerticalAlign:(int)arg1;
-- (int)getTextVerticalAlign;
-- (void)setTextDirection:(int)arg1;
-- (int)getTextDirection;
-- (void)setTextColour:(id)arg1;
-- (id)getTextColour;
-- (void)setTextJustification:(int)arg1:(int)arg2;
-- (int)getTextBreakExtra;
-- (int)getTextBreakCount;
-- (void)setTextCharExtra:(int)arg1;
-- (int)getTextCharExtra;
-- (void)setBkColour:(id)arg1;
-- (id)getBkColour;
-- (void)setBkMode:(int)arg1;
-- (int)getBkMode;
-- (void)setBrushOrg:(struct CGPoint)arg1;
-- (struct CGPoint)getBrushOrg;
-- (void)setFont:(id)arg1;
-- (id)getFont;
-- (void)setArcDirection:(int)arg1;
-- (int)getArcDirection;
-- (void)setPolyFillMode:(int)arg1;
-- (int)getPolyFillMode;
-- (void)setStretchBltMode:(int)arg1;
-- (int)getStretchBltMode;
-- (void)setCurrentTransform:(id)arg1;
-- (id)getCurrentTransform;
-- (id)getPath;
-- (void)setPath:(id)arg1;
-- (id)getSelectedPalette;
-- (void)setSelectedPalette:(id)arg1;
-- (id)getPen;
-- (void)setPen:(id)arg1;
-- (id)getBrush;
-- (void)setBrush:(id)arg1;
-- (int)getRop2;
-- (void)setRop2:(int)arg1;
+- (id).cxx_construct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setRop2:(int)arg1;
+- (int)getRop2;
+- (void)setBrush:(id)arg1;
+- (id)getBrush;
+- (void)setPen:(id)arg1;
+- (id)getPen;
+- (void)setSelectedPalette:(id)arg1;
+- (id)getSelectedPalette;
+- (void)setPath:(id)arg1;
+- (id)getPath;
+- (id)getCurrentTransform;
+- (void)setCurrentTransform:(id)arg1;
+- (int)getStretchBltMode;
+- (void)setStretchBltMode:(int)arg1;
+- (int)getPolyFillMode;
+- (void)setPolyFillMode:(int)arg1;
+- (int)getArcDirection;
+- (void)setArcDirection:(int)arg1;
+- (id)getFont;
+- (void)setFont:(id)arg1;
+- (struct CGPoint)getBrushOrg;
+- (void)setBrushOrg:(struct CGPoint)arg1;
+- (int)getBkMode;
+- (void)setBkMode:(int)arg1;
+- (id)getBkColour;
+- (void)setBkColour:(id)arg1;
+- (int)getTextCharExtra;
+- (void)setTextCharExtra:(int)arg1;
+- (int)getTextBreakCount;
+- (int)getTextBreakExtra;
+- (void)setTextJustification:(int)arg1:(int)arg2;
+- (id)getTextColour;
+- (void)setTextColour:(id)arg1;
+- (int)getTextDirection;
+- (void)setTextDirection:(int)arg1;
+- (int)getTextVerticalAlign;
+- (void)setTextVerticalAlign:(int)arg1;
+- (int)getTextHorizontalAlign;
+- (void)setTextHorizontalAlign:(int)arg1;
+- (double)getMiterLimit;
+- (void)setMiterLimit:(double)arg1;
+- (_Bool)getTextUpdateCP;
+- (void)setTextUpdateCP:(_Bool)arg1;
+- (void)setPenPosition:(struct CGPoint)arg1;
+- (struct CGPoint)getPenPosition;
+- (void)dealloc;
+- (id)initWithDriver:(id)arg1;
 
 @end
 

@@ -4,24 +4,23 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
-
-#import "OCDReader-Protocol.h"
+#import <OfficeImport/OCDEncryptedReader.h>
 
 @class OCPZipPackage;
 
-@interface OCXReader : NSObject <OCDReader>
+@interface OCXReader : OCDEncryptedReader
 {
     OCPZipPackage *mZipPackage;
 }
 
-+ (id)readerWithZipPackage:(id)arg1;
-+ (id)readFromFileName:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4 delegate:(id)arg5;
-+ (id)readFromData:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4 delegate:(id)arg5;
-- (id)initWithZipPackage:(id)arg1;
-- (void)dealloc;
+@property(retain, nonatomic) OCPZipPackage *zipPackage; // @synthesize zipPackage=mZipPackage;
+- (id)read;
+- (BOOL)start;
+- (void)restartReaderToUseDecryptedDocument;
+- (BOOL)retainDecryptorWithErrorCode:(int *)arg1;
 - (_Bool)isBinaryReader;
-- (id)zipPackage;
+- (BOOL)verifyFileFormat;
+- (void)dealloc;
 
 @end
 

@@ -7,10 +7,10 @@
 #import "NSURL.h"
 
 @interface NSURL (SFUtilityAdditions)
-+ (id)properlyEscapedString:(id)arg1;
-+ (id)improperlyEscapedString:(id)arg1;
-+ (id)relativeURLWithEscapes:(id)arg1;
 + (id)filePathURLWithEscapes:(id)arg1;
++ (id)relativeURLWithEscapes:(id)arg1;
++ (id)improperlyEscapedString:(id)arg1;
++ (id)properlyEscapedString:(id)arg1;
 - (BOOL)isRelative;
 @end
 

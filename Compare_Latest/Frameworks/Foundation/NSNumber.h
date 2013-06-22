@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)numberWithBool:(BOOL)arg1;
 + (id)numberWithDouble:(double)arg1;
 + (id)numberWithFloat:(float)arg1;
@@ -26,6 +27,7 @@
 + (id)numberWithUnsignedChar:(unsigned char)arg1;
 + (id)numberWithChar:(BOOL)arg1;
 + (id)allocWithZone:(struct _NSZone *)arg1;
+- (_Bool)_getCString:(char *)arg1 length:(int)arg2 multiplier:(double)arg3;
 - (id)initWithBool:(BOOL)arg1;
 - (id)initWithDouble:(double)arg1;
 - (id)initWithFloat:(float)arg1;
@@ -44,6 +46,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (BOOL)_allowsDirectEncoding;
 - (Class)classForCoder;
 - (id)stringValue;
 - (id)description;
@@ -67,6 +70,12 @@
 - (unsigned int)unsignedIntegerValue;
 - (int)integerValue;
 - (BOOL)boolValue;
+- (int)_reverseCompare:(id)arg1;
+- (unsigned char)_getValue:(void *)arg1 forType:(long)arg2;
+- (long)_cfNumberType;
+- (unsigned long)_cfTypeID;
+- (BOOL)isNSNumber__;
+- (CDStruct_5fe7aead)decimalValue;
 
 @end
 

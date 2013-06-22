@@ -6,6 +6,8 @@
 
 #pragma mark Named Structures
 
+struct AVAudioPlayerCpp;
+
 struct AudioChannelDescription {
     unsigned int _field1;
     unsigned int _field2;
@@ -33,61 +35,8 @@ struct AudioPlayerImpl {
     id _field3;
     id _field4;
     id _field5;
-    struct AudioStreamBasicDescription _field6;
-    struct AudioStreamBasicDescription _field7;
-    unsigned int _field8;
-    char *_field9;
-    unsigned int _field10;
-    struct AudioFormatListItem *_field11;
-    unsigned int _field12;
-    struct OpaqueAudioFileID *_field13;
-    struct OpaqueAudioQueue *_field14;
-    long long _field15;
-    long long _field16;
-    long long _field17;
-    float _field18;
-    float _field19;
-    float _field20;
-    unsigned int _field21;
-    double _field22;
-    int _field23;
-    struct AudioFilePacketTableInfo _field24;
-    int _field25;
-    int _field26;
-    _Bool _field27;
-    _Bool _field28;
-    _Bool _field29;
-    _Bool _field30;
-    _Bool _field31;
-    _Bool _field32;
-    _Bool _field33;
-    _Bool _field34;
-    double _field35;
-    double _field36;
-    double _field37;
-    double _field38;
-    _Bool _field39;
-    struct AudioQueueLevelMeterState *_field40;
-    struct AudioQueueBuffer *_field41[3];
-    struct AudioQueueBuffer *_field42;
-    int _field43;
-    _Bool _field44;
-    _Bool _field45;
-    _Bool _field46;
-    _Bool _field47;
-    _Bool _field48;
-    struct AudioQueueBuffer *_field49;
-    _Bool _field50;
-    unsigned int _field51;
-    _Bool _field52;
-    _Bool _field53;
-    _Bool _field54;
-    _Bool _field55;
-    long long _field56;
-    int _field57;
-    unsigned int _field58;
-    unsigned int _field59;
-    struct _opaque_pthread_mutex_t _field60;
+    struct AVAudioPlayerCpp *_field6;
+    id _field7;
 };
 
 struct AudioQueueBuffer {
@@ -107,51 +56,57 @@ struct AudioRecorderImpl {
     id _field2;
     id _field3;
     id _field4;
-    unsigned int _field5;
-    struct AudioStreamBasicDescription _field6;
-    struct OpaqueAudioFileID *_field7;
-    struct OpaqueAudioQueue *_field8;
-    long long _field9;
+    id _field5;
+    unsigned int _field6;
+    struct AudioStreamBasicDescription _field7;
+    struct OpaqueAudioFileID *_field8;
+    struct OpaqueAudioQueue *_field9;
     long long _field10;
     long long _field11;
-    double _field12;
+    long long _field12;
     double _field13;
     double _field14;
-    unsigned int _field15;
-    char *_field16;
-    unsigned int _field17;
-    struct AudioFormatListItem *_field18;
-    _Bool _field19;
+    double _field15;
+    unsigned int _field16;
+    char *_field17;
+    unsigned int _field18;
+    struct AudioFormatListItem *_field19;
     _Bool _field20;
     _Bool _field21;
     _Bool _field22;
     _Bool _field23;
     _Bool _field24;
     _Bool _field25;
-    struct AudioQueueLevelMeterState *_field26;
-    struct AudioQueueBuffer *_field27[4];
-    struct AudioQueueBuffer *_field28;
-    _Bool _field29;
-    unsigned int _field30;
-    _Bool _field31;
+    _Bool _field26;
+    struct AudioQueueLevelMeterState *_field27;
+    struct AudioQueueBuffer *_field28[4];
+    struct AudioQueueBuffer *_field29;
+    _Bool _field30;
+    unsigned int _field31;
+    _Bool _field32;
 };
 
 struct AudioStreamBasicDescription {
-    double _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    unsigned int _field7;
-    unsigned int _field8;
-    unsigned int _field9;
+    double mSampleRate;
+    unsigned int mFormatID;
+    unsigned int mFormatFlags;
+    unsigned int mBytesPerPacket;
+    unsigned int mFramesPerPacket;
+    unsigned int mBytesPerFrame;
+    unsigned int mChannelsPerFrame;
+    unsigned int mBitsPerChannel;
+    unsigned int mReserved;
 };
 
 struct AudioStreamPacketDescription {
     long long _field1;
     unsigned int _field2;
     unsigned int _field3;
+};
+
+struct AudioValueRange {
+    double _field1;
+    double _field2;
 };
 
 struct CAStreamBasicDescription {
@@ -209,6 +164,13 @@ struct CGSize {
     float height;
 };
 
+struct ChannelDescriptionImpl {
+    id _field1;
+    id _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+};
+
 struct ControllerImpl {
     id _field1;
     id _field2;
@@ -219,51 +181,51 @@ struct ControllerImpl {
     struct AudioQueueLevelMeterState *_field7;
     struct OpaqueAudioQueue *_field8;
     int _field9;
-    struct OpaqueAudioComponentInstance *_field10;
-    struct OpaqueAudioConverter *_field11;
+    struct OpaqueAudioConverter *_field10;
+    unsigned int _field11;
     unsigned int _field12;
     unsigned int _field13;
     unsigned int _field14;
-    unsigned int _field15;
-    struct AudioQueueBuffer **_field16;
-    unsigned long long _field17;
+    struct AudioQueueBuffer **_field15;
+    unsigned long long _field16;
+    int _field17;
     int _field18;
-    int _field19;
-    _Bool _field20;
-    struct MemorySyncBool _field21;
-    _Bool _field22;
-    float _field23;
-    id _field24;
-    _Bool _field25;
-    unsigned int _field26;
-    id _field27;
-    struct CAStreamBasicDescription _field28;
-    double _field29;
-    struct OpaqueAudioQueue *_field30;
-    int _field31;
-    id _field32;
-    unsigned int _field33;
-    struct AudioQueueBuffer **_field34;
-    int _field35;
+    _Bool _field19;
+    struct MemorySyncBool _field20;
+    _Bool _field21;
+    float _field22;
+    id _field23;
+    unsigned int _field24;
+    id _field25;
+    struct CAStreamBasicDescription _field26;
+    double _field27;
+    struct OpaqueAudioQueue *_field28;
+    int _field29;
+    id _field30;
+    unsigned int _field31;
+    struct AudioQueueBuffer **_field32;
+    int _field33;
+    _Bool _field34;
+    _Bool _field35;
     _Bool _field36;
     _Bool _field37;
-    _Bool _field38;
+    struct MemorySyncBool _field38;
     _Bool _field39;
-    struct MemorySyncBool _field40;
-    _Bool _field41;
-    float _field42;
-    unsigned int _field43;
-    struct CAStreamBasicDescription _field44;
-    long long _field45;
-    struct OpaqueAudioQueue *_field46;
-    struct map<AVVoiceAlertType, NSURL *, std::less<AVVoiceAlertType>, std::allocator<std::pair<const AVVoiceAlertType, NSURL *>>> _field47;
-    struct map<AVVoiceAlertType, AudioQueueBuffer *, std::less<AVVoiceAlertType>, std::allocator<std::pair<const AVVoiceAlertType, AudioQueueBuffer *>>> _field48;
-    _Bool _field49;
-    int _field50;
-    float _field51;
-    double _field52;
-    unsigned long long _field53;
-    float _field54;
+    float _field40;
+    unsigned int _field41;
+    struct CAStreamBasicDescription _field42;
+    long long _field43;
+    struct OpaqueAudioQueue *_field44;
+    struct map<AVVoiceAlertType, NSURL *, std::less<AVVoiceAlertType>, std::allocator<std::pair<const AVVoiceAlertType, NSURL *>>> _field45;
+    struct map<AVVoiceAlertType, AudioQueueBuffer *, std::less<AVVoiceAlertType>, std::allocator<std::pair<const AVVoiceAlertType, AudioQueueBuffer *>>> _field46;
+    _Bool _field47;
+    int _field48;
+    float _field49;
+    double _field50;
+    unsigned long long _field51;
+    float _field52;
+    float _field53;
+    struct OpaqueAudioQueue *_field54;
     id _field55;
     struct OpaqueAudioFileID *_field56;
     unsigned int _field57;
@@ -288,15 +250,23 @@ struct ControllerImpl {
     double _field76;
     _Bool _field77;
     _Bool _field78;
-    int _field79;
-    int _field80;
-    _Bool _field81;
-    unsigned int _field82;
+    id _field79;
+    unsigned char _field80;
+    int _field81;
+    _Bool _field82;
     _Bool _field83;
     int _field84;
     _Bool _field85;
-    struct _opaque_pthread_mutex_t _field86[4];
+    struct _opaque_pthread_mutex_t {
+        long _field1;
+        char _field2[40];
+    } _field86[5];
     int _field87;
+};
+
+struct DataSourceDescriptionImpl {
+    id _field1;
+    id _field2;
 };
 
 struct MemorySyncBool {
@@ -313,13 +283,32 @@ struct MyAudioQueueBuffer {
     unsigned int _field7;
 };
 
-struct OpaqueAudioComponentInstance;
-
 struct OpaqueAudioConverter;
 
 struct OpaqueAudioFileID;
 
 struct OpaqueAudioQueue;
+
+struct PortDescriptionImpl {
+    id _field1;
+    id _field2;
+    id _field3;
+    id _field4;
+};
+
+struct RouteDescriptionImpl {
+    id _field1;
+    id _field2;
+};
+
+struct SubtitleLayoutParameters {
+    struct CGRect _field1;
+    struct CGSize _field2;
+    struct CGAffineTransform _field3;
+    unsigned char _field4;
+    float _field5;
+    int _field6;
+};
 
 struct _Rb_tree<AVVoiceAlertType, std::pair<const AVVoiceAlertType, AudioQueueBuffer *>, std::_Select1st<std::pair<const AVVoiceAlertType, AudioQueueBuffer *>>, std::less<AVVoiceAlertType>, std::allocator<std::pair<const AVVoiceAlertType, AudioQueueBuffer *>>> {
     struct _Rb_tree_impl<std::less<AVVoiceAlertType>, false> _field1;
@@ -340,11 +329,6 @@ struct _Rb_tree_node_base {
     struct _Rb_tree_node_base *_field2;
     struct _Rb_tree_node_base *_field3;
     struct _Rb_tree_node_base *_field4;
-};
-
-struct _opaque_pthread_mutex_t {
-    long _field1;
-    char _field2[40];
 };
 
 struct less<AVVoiceAlertType>;

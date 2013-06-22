@@ -11,16 +11,16 @@
     struct _Storage *m_pCStorage;
 }
 
-- (id)init;
-- (id)initWithCStorage:(struct _Storage *)arg1;
-- (void)dealloc;
-- (void)close;
-- (id)openStream:(id)arg1 withMode:(int)arg2;
-- (id)openStorage:(id)arg1 withMode:(int)arg2;
-- (id)getInfo;
-- (id)getChildrenInfo;
-- (int)getChildType:(id)arg1;
 - (void)setClass:(CDStruct_214f2dba)arg1;
+- (int)getChildType:(id)arg1;
+- (id)getChildrenInfo;
+- (id)getInfo;
+- (id)openStorage:(id)arg1 withMode:(int)arg2;
+- (id)openStream:(id)arg1 withMode:(int)arg2;
+- (void)close;
+- (void)dealloc;
+- (id)initWithCStorage:(struct _Storage *)arg1;
+- (id)init;
 
 @end
 

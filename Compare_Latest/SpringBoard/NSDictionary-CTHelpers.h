@@ -7,18 +7,18 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (CTHelpers)
-- (id)callClass;
-- (id)callForwardingReason;
-- (id)callBarringFacility;
-- (id)callingLineIDRestrictionValue;
-- (id)callingLinePresentationValue;
-- (id)connectedLineIDRestrictionValue;
-- (id)connectedLinePresentationValue;
-- (id)enabledString;
-- (id)serviceCenterAddress;
-- (id)ssServiceType;
-- (id)mmiProcedure;
-- (struct __CFString *)settingType;
 - (id)callingNamePresentationValue;
+- (struct __CFString *)settingType;
+- (id)mmiProcedure;
+- (id)ssServiceType;
+- (id)serviceCenterAddress;
+- (id)enabledString;
+- (id)connectedLinePresentationValue;
+- (id)connectedLineIDRestrictionValue;
+- (id)callingLinePresentationValue;
+- (id)callingLineIDRestrictionValue;
+- (id)callBarringFacility;
+- (id)callForwardingReason;
+- (id)callClass;
 @end
 

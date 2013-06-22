@@ -6,21 +6,25 @@
 
 #import "NSObject.h"
 
-@class GEOTileDBMRU, NSString;
+@class GEOTileDBMRU, NSObject<OS_dispatch_queue>, NSString;
 
 @interface GEOTileDBReader : NSObject
 {
     BOOL _defunct;
     BOOL _closed;
-    struct dispatch_queue_s *_readQueue;
+    int _editionUpdating;
+    NSObject<OS_dispatch_queue> *_readQueue;
     NSString *_path;
     struct sqlite3 *_db;
     struct sqlite3_stmt *_tileQuery;
     struct sqlite3_stmt *_versionQuery;
     GEOTileDBMRU *_tileDBMRU;
+    CDStruct_e4886f83 *_expirationRecords;
+    unsigned int _expirationRecordCount;
 }
 
 @property(retain, nonatomic) GEOTileDBMRU *tileDBMRU; // @synthesize tileDBMRU=_tileDBMRU;
+- (void)setExpirationRecords:(CDStruct_e4886f83 *)arg1 count:(unsigned int)arg2;
 - (void)dataForKeys:(id)arg1 asyncHandler:(id)arg2;
 - (void)dataForKey:(struct _GEOTileKey *)arg1 asyncHandler:(id)arg2;
 - (id)dataForKey:(struct _GEOTileKey *)arg1;
@@ -28,6 +32,8 @@
 @property BOOL closed;
 - (void)_openDB;
 - (void)_closeDB;
+- (void)_editionUpdateEnd:(id)arg1;
+- (void)_editionUpdateBegin:(id)arg1;
 - (void)_deviceLocking;
 - (void)_databaseReset:(id)arg1;
 - (void)dealloc;

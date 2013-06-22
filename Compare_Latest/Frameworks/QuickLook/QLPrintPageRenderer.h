@@ -6,22 +6,20 @@
 
 #import "UIPrintPageRenderer.h"
 
-@class NSString, NSURLRequest, QLPreviewConverter, UIWebBrowserView;
-
 @interface QLPrintPageRenderer : UIPrintPageRenderer
 {
-    UIWebBrowserView *_browserView;
-    NSURLRequest *_request;
-    NSString *_documentType;
-    QLPreviewConverter *_previewConverter;
+    id <QLPrintPageRendererDataSource> _dataSource;
+    int _numberOfPages;
+    BOOL _printingDone;
+    int _numberOfPrintedPages;
 }
 
-+ (BOOL)_isXPathType:(id)arg1;
-+ (id)printPageRendererWithBrowserView:(id)arg1 request:(id)arg2 documentType:(id)arg3;
-- (id)initWithWebBrowserView:(id)arg1 request:(id)arg2 documentType:(id)arg3;
-- (void)dealloc;
-- (void)_waitForPreview;
-@property(retain) QLPreviewConverter *previewConverter; // @synthesize previewConverter=_previewConverter;
+@property id <QLPrintPageRendererDataSource> dataSource; // @synthesize dataSource=_dataSource;
+- (void)drawPageAtIndex:(int)arg1 inRect:(struct CGRect)arg2;
+- (void)prepareForDrawingPages:(struct _NSRange)arg1;
+- (int)numberOfPages;
+- (void)prepareForPrinting;
+- (id)init;
 
 @end
 

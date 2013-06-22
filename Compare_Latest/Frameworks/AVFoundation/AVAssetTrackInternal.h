@@ -6,14 +6,12 @@
 
 #import "NSObject.h"
 
-@class AVAssetTrackInspector, AVWeakReference, NSArray;
+@class AVAssetTrackInspector, AVWeakReference;
 
 @interface AVAssetTrackInternal : NSObject
 {
     AVAssetTrackInspector *trackInspector;
     AVWeakReference *assetWeakReference;
-    long getTaggedCharacteristicsOncePerTrack;
-    NSArray *taggedCharacteristics;
 }
 
 @end

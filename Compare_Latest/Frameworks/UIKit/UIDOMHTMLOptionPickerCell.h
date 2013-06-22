@@ -8,10 +8,13 @@
 
 @interface UIDOMHTMLOptionPickerCell : UIPickerContentView
 {
+    BOOL _disabled;
 }
 
+@property(nonatomic) BOOL disabled; // @synthesize disabled=_disabled;
 - (id)initWithHTMLOptionNode:(id)arg1;
 - (id)initCommon;
+- (BOOL)_isSelectable;
 
 @end
 

@@ -14,7 +14,6 @@
     id _cancelHandler;
     double _startTime;
     double _displayTime;
-    int _printInfoState;
     UIAlertView *_alert;
     UIPrintingProgressViewController *_viewController;
     BOOL _donePrinting;

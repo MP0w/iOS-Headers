@@ -7,9 +7,11 @@
 #import "UITextInput-Protocol.h"
 #import "UITextInputTokenizer-Protocol.h"
 #import "UITextInputTraits_Private-Protocol.h"
-#import "UITextSelectingContainer-Protocol.h"
 
-@protocol UITextInputPrivate <UITextInput, UITextInputTokenizer, UITextInputTraits_Private, UITextSelectingContainer>
+@class UITextInteractionAssistant;
+
+@protocol UITextInputPrivate <UITextInput, UITextInputTokenizer, UITextInputTraits_Private>
+@property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant;
 - (BOOL)hasSelection;
 - (id)fontForCaretSelection;
 - (id)textColorForCaretSelection;
@@ -32,12 +34,10 @@
 - (id)textInputTraits;
 
 @optional
+@property(nonatomic) int selectionGranularity;
 - (id)nextUnperturbedDictationResultBoundaryFromPosition:(id)arg1;
 - (id)previousUnperturbedDictationResultBoundaryFromPosition:(id)arg1;
 - (id)metadataDictionariesForDictationResults;
-- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
-- (struct CGRect)frameForDictationResultPlaceholder:(id)arg1;
-- (id)insertDictationResultPlaceholder;
 - (void)insertDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
 - (id)automaticallySelectedOverlay;
 - (void)setBottomBufferHeight:(float)arg1;

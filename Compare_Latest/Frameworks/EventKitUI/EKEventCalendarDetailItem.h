@@ -15,8 +15,10 @@
 
 - (BOOL)editItemViewControllerCommit:(id)arg1;
 - (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
+- (BOOL)hasDetailViewControllerAtIndex:(unsigned int)arg1;
 - (id)cellForSubitemAtIndex:(int)arg1;
 - (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
+- (BOOL)_calendarCanBeChanged;
 - (void)reset;
 - (void)dealloc;
 

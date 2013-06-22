@@ -10,7 +10,7 @@
 
 @interface CTCallCenter : NSObject
 {
-    void *_internal;
+    void *_server;
     NSSet *_currentCalls;
     id _callEventHandler;
 }
@@ -25,8 +25,6 @@
 - (void)dealloc;
 - (id)init;
 - (void)cleanUpServerConnection;
-- (void)cleanUpServerConnectionNoLock;
-- (void)reestablishServerConnectionIfNeeded;
 - (BOOL)setUpServerConnection;
 
 @end

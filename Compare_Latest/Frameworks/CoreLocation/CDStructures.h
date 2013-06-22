@@ -42,7 +42,9 @@ typedef struct {
     int confidence;
     double lifespan;
     int type;
-} CDStruct_e0333575;
+    CDStruct_2c43369c rawCoordinate;
+    double rawCourse;
+} CDStruct_c3f64973;
 
 typedef struct {
     CDStruct_2c43369c center;

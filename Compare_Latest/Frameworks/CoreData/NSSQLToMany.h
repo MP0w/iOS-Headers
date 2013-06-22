@@ -10,9 +10,9 @@
 {
 }
 
-- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (id)inverseToOne;
 - (BOOL)isToMany;
+- (id)inverseToOne;
+- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
 
 @end
 

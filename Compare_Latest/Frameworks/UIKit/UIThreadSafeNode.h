@@ -23,6 +23,7 @@
 - (void)dealloc;
 - (id)description;
 - (id)initWithNode:(id)arg1;
+- (id)_realNode;
 
 @end
 

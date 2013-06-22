@@ -17,19 +17,19 @@
     unsigned int _touchesWereCancelled:1;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 recipient:(id)arg2;
-- (id)initWithFrame:(struct CGRect)arg1 recipient:(id)arg2 style:(int)arg3;
-- (void)dealloc;
-@property(readonly, nonatomic) MFComposeRecipient *recipient;
 @property(nonatomic) id <MFComposeRecipientAtomDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
-- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)handleTouchAndHold;
-- (void)moveLeft;
-- (void)moveRight;
 - (void)_handleKeyEvent:(struct __GSEvent *)arg1;
+- (void)moveRight;
+- (void)moveLeft;
+- (void)handleTouchAndHold;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+@property(readonly, nonatomic) MFComposeRecipient *recipient;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 recipient:(id)arg2 style:(int)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 recipient:(id)arg2;
 
 @end
 

@@ -17,16 +17,16 @@
 }
 
 + (id)pane;
-- (id)init;
-- (void)dealloc;
-- (double)xSplitPosition;
-- (void)setXSplitPosition:(double)arg1;
-- (double)ySplitPosition;
-- (void)setYSplitPosition:(double)arg1;
-- (id)topLeftCell;
-- (void)setTopLeftCell:(id)arg1;
-- (int)activePane;
 - (void)setActivePane:(int)arg1;
+- (int)activePane;
+- (void)setTopLeftCell:(id)arg1;
+- (id)topLeftCell;
+- (void)setYSplitPosition:(double)arg1;
+- (double)ySplitPosition;
+- (void)setXSplitPosition:(double)arg1;
+- (double)xSplitPosition;
+- (void)dealloc;
+- (id)init;
 
 @end
 

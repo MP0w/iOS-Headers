@@ -11,20 +11,22 @@
 @interface TPLCDBar : UIImageView
 {
     UIImage *_barBackground;
+    UIImageView *_shadowView;
 }
 
-+ (void)preloadImages;
-+ (id)backgroundImage;
-+ (float)defaultHeight;
 + (float)defaultHeightForOrientation:(int)arg1;
-- (id)initWithDefaultSizeForOrientation:(int)arg1;
-- (id)initWithDefaultSize;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)setOrientation:(int)arg1 updateFrame:(BOOL)arg2;
-- (void)setOrientation:(int)arg1;
-- (struct CGRect)contentStretchRect;
++ (float)defaultHeight;
++ (id)shadowImage;
++ (id)backgroundImage;
+@property(readonly) UIImageView *shadowView; // @synthesize shadowView=_shadowView;
 @property(retain, nonatomic) UIImage *barBackground; // @synthesize barBackground=_barBackground;
+- (struct CGRect)contentStretchRect;
+- (void)setOrientation:(int)arg1;
+- (void)setOrientation:(int)arg1 updateFrame:(BOOL)arg2;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithDefaultSize;
+- (id)initWithDefaultSizeForOrientation:(int)arg1;
 
 @end
 

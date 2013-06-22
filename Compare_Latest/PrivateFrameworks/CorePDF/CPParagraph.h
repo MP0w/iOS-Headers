@@ -19,36 +19,36 @@
     float preformatWidth;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)flowProperties;
-- (void)setFlowProperties:(id)arg1;
-- (void)accept:(id)arg1;
-- (BOOL)isParagraphRegion;
-- (BOOL)isListItemRegion;
-- (unsigned int)index;
-- (BOOL)isTextRegion;
-- (void)setIsTextRegion:(BOOL)arg1;
-- (BOOL)isBoxRegion;
-- (BOOL)isGraphicalRegion;
-- (BOOL)isRowRegion;
-- (void)setIsImageRegion:(BOOL)arg1;
-- (BOOL)isImageRegion;
-- (BOOL)isShapeRegion;
-- (void)setNoIndentation:(BOOL)arg1;
-- (BOOL)noIndentation;
-- (BOOL)hasDropCap;
-- (void)setHasDropCap:(BOOL)arg1;
-- (void)explode;
-- (struct CGRect)reducedBounds;
-- (float)selectionBottom;
-- (void)setBelow:(BOOL)arg1;
-- (BOOL)below;
-- (unsigned int)alignment;
-- (void)setAlignment:(unsigned int)arg1;
-- (BOOL)isPreformattedWithUnitWidth:(float *)arg1;
 @property(retain, nonatomic) CPListItem *listItem; // @synthesize listItem;
+- (BOOL)isPreformattedWithUnitWidth:(float *)arg1;
+- (void)setAlignment:(unsigned int)arg1;
+- (unsigned int)alignment;
+- (BOOL)below;
+- (void)setBelow:(BOOL)arg1;
+- (float)selectionBottom;
+- (struct CGRect)reducedBounds;
+- (void)explode;
+- (void)setHasDropCap:(BOOL)arg1;
+- (BOOL)hasDropCap;
+- (BOOL)noIndentation;
+- (void)setNoIndentation:(BOOL)arg1;
+- (BOOL)isShapeRegion;
+- (BOOL)isImageRegion;
+- (void)setIsImageRegion:(BOOL)arg1;
+- (BOOL)isRowRegion;
+- (BOOL)isGraphicalRegion;
+- (BOOL)isBoxRegion;
+- (void)setIsTextRegion:(BOOL)arg1;
+- (BOOL)isTextRegion;
+- (unsigned int)index;
+- (BOOL)isListItemRegion;
+- (BOOL)isParagraphRegion;
+- (void)accept:(id)arg1;
+- (void)setFlowProperties:(id)arg1;
+- (id)flowProperties;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

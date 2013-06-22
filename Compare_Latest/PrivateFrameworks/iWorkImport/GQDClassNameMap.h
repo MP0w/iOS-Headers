@@ -10,10 +10,11 @@
 {
 }
 
-+ (void)initialize;
-+ (void)registerClass:(Class)arg1 forName:(const char *)arg2 inRootType:(Class)arg3;
-+ (void)registerGlobalClass:(Class)arg1 name:(const char *)arg2;
 + (Class)classForName:(const char *)arg1 inRootType:(Class)arg2;
++ (void)registerGlobalClass:(Class)arg1 name:(const char *)arg2;
++ (void)registerClass:(Class)arg1 forName:(const char *)arg2 inRootType:(Class)arg3;
++ (void)initialize;
++ (void)registerDefaults;
 
 @end
 

@@ -12,6 +12,7 @@
 
 - (void)setContentScaleFactor:(float)arg1;
 - (void)_updateTransformLayerForClassicPresentation;
+- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 
 @end
 

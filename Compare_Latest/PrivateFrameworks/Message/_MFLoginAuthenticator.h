@@ -11,9 +11,9 @@
     BOOL _justSentPassword;
 }
 
-- (id)saslName;
-- (id)responseForServerData:(id)arg1;
 - (BOOL)justSentPlainTextPassword;
+- (id)responseForServerData:(id)arg1;
+- (id)saslName;
 
 @end
 

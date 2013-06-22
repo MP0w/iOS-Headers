@@ -11,16 +11,16 @@
     BOOL _checked;
 }
 
-+ (id)normalBackground;
 + (id)highlightedBackground;
-- (id)_shadowColor;
-- (id)_shadowHighlightedColor;
-- (id)highlightedIcon;
-- (id)enabledIcon;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
-- (void)setChecked:(BOOL)arg1;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
++ (id)normalBackground;
 - (void)layoutSubviews;
+- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setChecked:(BOOL)arg1;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (id)enabledIcon;
+- (id)highlightedIcon;
+- (id)_shadowHighlightedColor;
+- (id)_shadowColor;
 
 @end
 

@@ -17,11 +17,28 @@
 }
 
 + (void)_updatePersistentStoragePaths;
++ (void)_fixPathsForSandboxDirectoryChange;
++ (id)_relativePathFromAbsolutePath:(id)arg1 removingPathComponents:(unsigned int)arg2;
+- (void)_addShortcut:(id)arg1;
 - (void)_define:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)select:(id)arg1;
 - (void)copy:(id)arg1;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (void)configureWithSettings:(id)arg1;
+- (unsigned int)_audioSessionCategoryOverride;
+- (void)_setAudioSessionCategoryOverride:(unsigned int)arg1;
+- (BOOL)_alwaysDispatchesScrollEvents;
+- (void)_setAlwaysDispatchesScrollEvents:(BOOL)arg1;
+- (unsigned int)_pageCount;
+- (void)_setGapBetweenPages:(float)arg1;
+- (float)_gapBetweenPages;
+- (void)_setPageLength:(float)arg1;
+- (float)_pageLength;
+- (void)_setPaginationBehavesLikeColumns:(BOOL)arg1;
+- (BOOL)_paginationBehavesLikeColumns;
+- (void)_setPaginationMode:(int)arg1;
+- (int)_paginationMode;
 - (void)_setDrawInWebThread:(BOOL)arg1;
 - (void)_setWebSelectionEnabled:(BOOL)arg1;
 - (void)_setDrawsCheckeredPattern:(BOOL)arg1;
@@ -30,7 +47,7 @@
 - (id)_scrollView;
 - (id)_documentView;
 - (id)_browserView;
-- (void)saveGeolocation:(id)arg1;
+- (id)_initWithWebView:(id)arg1;
 - (struct CGImage *)newSnapshotWithRect:(struct CGRect)arg1;
 - (struct CGImage *)createSnapshotWithRect:(struct CGRect)arg1;
 - (void)webView:(id)arg1 didChangeLocationWithinPageForFrame:(id)arg2;
@@ -44,8 +61,9 @@
 - (id)webView:(id)arg1 runJavaScriptTextInputPanelWithPrompt:(id)arg2 defaultText:(id)arg3 initiatedByFrame:(id)arg4;
 - (BOOL)webView:(id)arg1 runJavaScriptConfirmPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3;
 - (void)webView:(id)arg1 runJavaScriptAlertPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3;
+- (id)_makeAlertView;
 - (void)webViewClose:(id)arg1;
-- (void)modalView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)webView:(id)arg1 didFirstLayoutInFrame:(id)arg2;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 didFinishLoadForFrame:(id)arg2;
@@ -58,6 +76,7 @@
 - (void)webView:(id)arg1 didCommitLoadForFrame:(id)arg2;
 - (void)webView:(id)arg1 didStartProvisionalLoadForFrame:(id)arg2;
 - (void)_updateRequest;
+- (void)webViewSupportedOrientationsUpdated:(id)arg1;
 - (void)webView:(id)arg1 printFrameView:(id)arg2;
 - (void)webView:(id)arg1 exceededApplicationCacheOriginQuotaForSecurityOrigin:(id)arg2 totalSpaceNeeded:(unsigned int)arg3;
 - (void)webView:(id)arg1 frame:(id)arg2 exceededDatabaseQuotaForSecurityOrigin:(id)arg3 database:(id)arg4;
@@ -78,6 +97,7 @@
 - (id)viewForZoomingInScrollView:(id)arg1;
 - (void)restoreStateFromHistoryItem:(id)arg1 forWebView:(id)arg2;
 - (void)saveStateToHistoryItem:(id)arg1 forWebView:(id)arg2;
+- (void)webViewMainFrameDidFailLoad:(id)arg1 withError:(id)arg2;
 - (void)webViewMainFrameDidFinishLoad:(id)arg1;
 - (void)webViewMainFrameDidCommitLoad:(id)arg1;
 - (void)webViewMainFrameDidFirstVisuallyNonEmptyLayoutInFrame:(id)arg1;
@@ -95,6 +115,7 @@
 - (void)_beginRotation;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_updateCheckeredPattern;
+@property(nonatomic) BOOL suppressesIncrementalRendering;
 @property(readonly, nonatomic, getter=canGoForward) BOOL canGoForward;
 @property(readonly, nonatomic, getter=canGoBack) BOOL canGoBack;
 - (void)goForward;
@@ -116,20 +137,21 @@
 @property(nonatomic) BOOL detectsPhoneNumbers;
 - (id)stringByEvaluatingJavaScriptFromString:(id)arg1;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
-- (oneway void)release;
-- (id)retain;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)_webViewCommonInit:(BOOL)arg1;
+- (id)_initWithFrame:(struct CGRect)arg1 enableReachability:(BOOL)arg2;
+- (void)_webViewCommonInitWithWebView:(id)arg1 scalesPageToFit:(BOOL)arg2 shouldEnableReachability:(BOOL)arg3;
 - (void)_updateViewSettings;
 - (void)_setRichTextReaderViewportSettings;
 - (void)_setScalesPageToFitViewportSettings;
 - (void)_didRotate:(id)arg1;
+@property(nonatomic) BOOL keyboardDisplayRequiresUserAction;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+- (Class)_printFormatterClass;
 
 @end
 

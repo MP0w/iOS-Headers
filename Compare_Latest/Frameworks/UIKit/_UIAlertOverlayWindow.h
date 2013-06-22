@@ -11,6 +11,9 @@
 }
 
 + (struct CGRect)constrainFrameToScreen:(struct CGRect)arg1;
+- (void)handleStatusBarChangeFromHeight:(float)arg1 toHeight:(float)arg2;
+- (void)_updateTransformLayerForClassicPresentation;
+- (BOOL)_affectsTintView;
 - (BOOL)isInternalWindow;
 - (id)representation;
 - (BOOL)_shouldUseKeyWindowStack;

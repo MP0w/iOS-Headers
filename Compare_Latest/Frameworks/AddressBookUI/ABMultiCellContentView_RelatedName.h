@@ -14,9 +14,9 @@
 }
 
 + (void)setupRelatedNamesView:(id)arg1 withStyleProvider:(id)arg2;
-- (void)dealloc;
-@property(readonly, nonatomic) UIButton *accessoryButton; // @synthesize accessoryButton=_accessoryButton;
 - (void)setName:(id)arg1;
+@property(readonly, nonatomic) UIButton *accessoryButton; // @synthesize accessoryButton=_accessoryButton;
+- (void)dealloc;
 
 @end
 

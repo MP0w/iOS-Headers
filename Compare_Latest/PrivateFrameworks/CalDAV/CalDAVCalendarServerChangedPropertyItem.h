@@ -12,15 +12,17 @@
 {
     NSMutableSet *_changedParameters;
     NSString *_nameAttribute;
+    NSString *_typeAttribute;
 }
 
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (void)parserFoundAttributes:(id)arg1;
-- (void)addChangedParameter:(id)arg1;
-- (id)copyParseRules;
+@property(retain) NSString *typeAttribute; // @synthesize typeAttribute=_typeAttribute;
 @property(retain) NSString *nameAttribute; // @synthesize nameAttribute=_nameAttribute;
 @property(retain) NSMutableSet *changedParameters; // @synthesize changedParameters=_changedParameters;
+- (id)copyParseRules;
+- (void)addChangedParameter:(id)arg1;
+- (void)parserFoundAttributes:(id)arg1;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
 
 @end
 

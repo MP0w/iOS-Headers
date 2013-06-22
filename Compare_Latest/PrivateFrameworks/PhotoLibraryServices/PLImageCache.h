@@ -23,6 +23,12 @@
 - (id)_imageLoader;
 - (void)dealloc;
 - (id)init;
+- (void)resumeLoading;
+- (void)pauseLoading;
+- (void)cancelLoadFromSource:(id)arg1 asset:(id)arg2 imageLoadingQueue:(id)arg3;
+- (void)removeImageLoadingQueue:(id)arg1;
+- (id)newCachedImageWithImageContents:(void *)arg1 orientation:(int)arg2 metadata:(id)arg3 fromSource:(id)arg4 asset:(id)arg5;
+- (id)cachedImageFromSource:(id)arg1 asset:(id)arg2 loadIfNeeded:(BOOL)arg3 synchronously:(BOOL)arg4 priority:(int)arg5 forImageLoadingQueue:(id)arg6 completion:(id)arg7;
 
 @end
 

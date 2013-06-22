@@ -27,6 +27,8 @@
 @property(retain, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_currentPopoverController;
 @property(retain, nonatomic) id interactionDelegate; // @synthesize interactionDelegate=_interactionDelegate;
 - (void)actionDidFinish;
+- (void)failedToPrepareViewControllerForAction:(id)arg1;
+- (void)action:(id)arg1 viewControllerReady:(id)arg2;
 - (void)performAction:(id)arg1;
 - (void)_dismissCurrentViewControllerOurselves;
 - (void)_presentCurrentViewControllerOurselves;

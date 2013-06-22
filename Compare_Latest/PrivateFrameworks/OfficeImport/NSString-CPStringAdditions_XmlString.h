@@ -8,11 +8,11 @@
 
 @interface NSString (CPStringAdditions_XmlString)
 + (id)stringWithXmlString:(const char *)arg1;
-- (id)initWithXmlString:(const char *)arg1;
-- (const char *)xmlString;
-- (id)initWithValueOfXmlAttribute:(struct _xmlAttr *)arg1;
-- (id)initWithContentOfXmlNode:(struct _xmlNode *)arg1;
-- (id)initFromXmlNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 attributeName:(const char *)arg3;
 - (id)componentsSeparatedByWhitespace;
+- (id)initFromXmlNode:(struct _xmlNode *)arg1 ns:(const char *)arg2 attributeName:(const char *)arg3;
+- (id)initWithContentOfXmlNode:(struct _xmlNode *)arg1;
+- (id)initWithValueOfXmlAttribute:(struct _xmlAttr *)arg1;
+- (const char *)xmlString;
+- (id)initWithXmlString:(const char *)arg1;
 @end
 

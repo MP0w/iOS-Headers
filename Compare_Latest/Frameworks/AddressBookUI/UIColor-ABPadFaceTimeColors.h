@@ -7,11 +7,11 @@
 #import "UIColor.h"
 
 @interface UIColor (ABPadFaceTimeColors)
-+ (id)padFaceTimeBabyBlueColor;
-+ (id)padFaceTimeLightBabyBlueColor;
-+ (id)padFaceTimeShadowedGroupBackgroundColor;
-+ (id)padFaceTimeDarkSeparatorColor;
-+ (id)padFaceTimeLightSeparatorColor;
 + (id)padFaceTimeSectionOutlineColor;
++ (id)padFaceTimeLightSeparatorColor;
++ (id)padFaceTimeDarkSeparatorColor;
++ (id)padFaceTimeShadowedGroupBackgroundColor;
++ (id)padFaceTimeLightBabyBlueColor;
++ (id)padFaceTimeBabyBlueColor;
 @end
 

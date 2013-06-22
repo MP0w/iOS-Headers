@@ -17,16 +17,16 @@
     id _delegate;
 }
 
-- (id)initWithTargetView:(id)arg1 inspectorController:(struct InspectorController *)arg2;
-- (void)dealloc;
-- (void)attach;
-- (id)delegate;
-- (void)detach;
-- (id)highlightView;
-- (void)setDelegate:(id)arg1;
-- (void)setNeedsDisplay;
-- (id)targetView;
 - (struct InspectorController *)inspectorController;
+- (id)targetView;
+- (void)setNeedsDisplay;
+- (void)setDelegate:(id)arg1;
+- (id)highlightView;
+- (void)detach;
+- (id)delegate;
+- (void)attach;
+- (void)dealloc;
+- (id)initWithTargetView:(id)arg1 inspectorController:(struct InspectorController *)arg2;
 
 @end
 

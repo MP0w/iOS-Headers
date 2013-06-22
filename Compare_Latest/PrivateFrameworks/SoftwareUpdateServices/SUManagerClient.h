@@ -6,17 +6,23 @@
 
 #import "NSObject.h"
 
+#import "SUManagerClientInterface-Protocol.h"
 #import "XPCProxyTarget-Protocol.h"
 
-@interface SUManagerClient : NSObject <XPCProxyTarget>
+@class SUDescriptor;
+
+@interface SUManagerClient : NSObject <XPCProxyTarget, SUManagerClientInterface>
 {
     id _serverProxy;
     id <SUManagerClientDelegate> _delegate;
     BOOL _connected;
     BOOL _serverIsExiting;
     int _clientType;
+    BOOL _installing;
+    SUDescriptor *_installDescriptor;
 }
 
+@property(retain, nonatomic) SUDescriptor *installDescriptor; // @synthesize installDescriptor=_installDescriptor;
 @property(nonatomic) int clientType; // @synthesize clientType=_clientType;
 @property(nonatomic) id <SUManagerClientDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)installDidFinish:(id)arg1;
@@ -35,11 +41,13 @@
 - (void)noteServerExiting;
 - (void)noteConnectionDropped;
 - (void)connectToServerIfNecessary;
+- (void)_invalidateProxy;
 - (void)installUpdate:(id)arg1;
 - (void)isUpdateReadyForInstallation:(id)arg1;
 - (void)download:(id)arg1;
 - (void)updateDownloadMetadata:(id)arg1 withResult:(id)arg2;
 - (void)resumeDownload:(id)arg1;
+- (void)pauseDownload:(id)arg1;
 - (void)cancelDownload:(id)arg1;
 - (void)startDownloadWithMetadata:(id)arg1 withResult:(id)arg2;
 - (void)startDownload:(id)arg1;

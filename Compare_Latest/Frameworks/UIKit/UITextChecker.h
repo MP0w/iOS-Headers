@@ -49,8 +49,6 @@
 - (id)init;
 - (void)initGlobals;
 - (void)initUserDictionaries;
-- (void)initUserPersonalEntries;
-- (void)initUserAddressBook;
 - (void)_setDocumentDictionaryName:(id)arg1;
 - (void)_setLanguageDictionaryName:(id)arg1;
 - (id)_nameOfDictionaryForDocumentTag:(int)arg1;

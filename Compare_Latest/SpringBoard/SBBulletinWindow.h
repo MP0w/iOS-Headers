@@ -11,6 +11,7 @@
 }
 
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (BOOL)_canBecomeKeyWindow;
 
 @end
 

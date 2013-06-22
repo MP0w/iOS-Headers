@@ -10,14 +10,16 @@
 {
 }
 
++ (void)setStorageDatabaseIdleInterval:(double)arg1;
++ (id)_storageDirectoryPath;
 + (id)sharedWebStorageManager;
-- (id)init;
-- (id)origins;
-- (void)deleteAllOrigins;
-- (void)deleteOrigin:(id)arg1;
-- (unsigned long long)diskUsageForOrigin:(id)arg1;
-- (void)syncLocalStorage;
 - (void)syncFileSystemAndTrackerDatabase;
+- (void)syncLocalStorage;
+- (unsigned long long)diskUsageForOrigin:(id)arg1;
+- (void)deleteOrigin:(id)arg1;
+- (void)deleteAllOrigins;
+- (id)origins;
+- (id)init;
 
 @end
 

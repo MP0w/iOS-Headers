@@ -13,20 +13,26 @@
     AVAssetWriterInternal *_internal;
 }
 
++ (id)_errorForOSStatus:(long)arg1;
 + (id)keyPathsForValuesAffectingError;
 + (id)keyPathsForValuesAffectingStatus;
++ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)assetWriterWithURL:(id)arg1 fileType:(id)arg2 error:(id *)arg3;
 + (void)initialize;
 - (void)_transitionToFailedStatusWithError:(id)arg1;
+- (void)finishWritingWithCompletionHandler:(id)arg1;
 - (BOOL)finishWriting;
 - (void)cancelWriting;
 - (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
 - (void)startSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
 - (BOOL)startWriting;
 @property(copy, nonatomic) NSArray *metadata;
+- (void)addInputGroup:(id)arg1;
+- (BOOL)canAddInputGroup:(id)arg1;
 - (void)addInput:(id)arg1;
 - (BOOL)canAddInput:(id)arg1;
 - (BOOL)canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2;
+- (id)inputGroups;
 @property(readonly, nonatomic) NSArray *inputs;
 - (void)setMovieTimeScale:(int)arg1;
 - (int)movieTimeScale;
@@ -38,7 +44,9 @@
 @property(readonly, nonatomic) NSArray *availableMediaTypes;
 @property(readonly, nonatomic) NSString *outputFileType;
 @property(readonly, nonatomic) NSURL *outputURL;
-@property(retain, getter=_helper, setter=_setHelper:) AVAssetWriterHelper *helper;
+- (BOOL)_setHelper:(id)arg1 ifCurrentHelper:(id)arg2 withBlock:(id)arg3;
+- (BOOL)_setHelper:(id)arg1 ifCurrentHelper:(id)arg2;
+@property(readonly, getter=_helper) AVAssetWriterHelper *helper;
 - (id)description;
 - (void)finalize;
 - (void)dealloc;

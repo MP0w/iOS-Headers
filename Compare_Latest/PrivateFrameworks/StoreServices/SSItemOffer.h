@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSArray, NSMutableDictionary, NSSet, NSString, SSDialog, SSItem, SSItemMedia;
+@class NSArray, NSMutableDictionary, NSSet, NSString, SSDialog, SSItem, SSItemMedia, SSNetworkConstraints;
 
 @interface SSItemOffer : NSObject <NSCopying>
 {
@@ -36,6 +36,7 @@
 @property(readonly, nonatomic) NSString *priceDisplay;
 - (id)playableMedia;
 @property(readonly, nonatomic) SSItemMedia *offerMedia;
+@property(readonly, nonatomic) SSNetworkConstraints *networkConstraints;
 @property(readonly, nonatomic, getter=isPreorder) BOOL preorder;
 @property(readonly, nonatomic, getter=isOneTapOffer) BOOL oneTapOffer;
 - (id)documentUTI;

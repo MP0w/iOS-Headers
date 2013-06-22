@@ -18,19 +18,19 @@
     NSDateComponents *_todoFilterEndDate;
 }
 
-- (void)dealloc;
-- (id)description;
-- (id)httpMethod;
-- (id)_icsDateStringForNSDateComponents:(id)arg1;
-- (void)_appendTimeRangeFilterToXMLData:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
-- (void)_appendComponentFiltersToXMLData:(id)arg1;
-- (id)requestBody;
 @property(retain) NSDateComponents *todoFilterEndDate; // @synthesize todoFilterEndDate=_todoFilterEndDate;
 @property(retain) NSDateComponents *todoFilterStartDate; // @synthesize todoFilterStartDate=_todoFilterStartDate;
 @property(retain) NSDateComponents *eventFilterEndDate; // @synthesize eventFilterEndDate=_eventFilterEndDate;
 @property(retain) NSDateComponents *eventFilterStartDate; // @synthesize eventFilterStartDate=_eventFilterStartDate;
 @property BOOL syncTodos; // @synthesize syncTodos=_syncTodos;
 @property BOOL syncEvents; // @synthesize syncEvents=_syncEvents;
+- (id)requestBody;
+- (void)_appendComponentFiltersToXMLData:(id)arg1;
+- (void)_appendTimeRangeFilterToXMLData:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
+- (id)_icsDateStringForNSDateComponents:(id)arg1;
+- (id)httpMethod;
+- (id)description;
+- (void)dealloc;
 
 @end
 

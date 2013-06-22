@@ -12,10 +12,10 @@
     int mPosition;
 }
 
-- (int)type;
-- (id)initWithType:(int)arg1 position:(int)arg2;
-- (int)position;
 - (void)setPosition:(int)arg1;
+- (int)position;
+- (id)initWithType:(int)arg1 position:(int)arg2;
+- (int)type;
 
 @end
 

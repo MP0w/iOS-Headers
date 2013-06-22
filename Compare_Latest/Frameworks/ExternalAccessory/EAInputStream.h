@@ -13,7 +13,7 @@
     id _delegate;
     EAAccessory *_accessory;
     EASession *_session;
-    int _inputFromAccFd;
+    int _sock;
     char *_inputFromAccBuffer;
     NSMutableData *_inputFromAccData;
     NSCondition *_inputFromAccCondition;
@@ -47,7 +47,7 @@
 - (void)close;
 - (void)open;
 - (void)dealloc;
-- (id)initWithAccessory:(id)arg1 forSession:(id)arg2;
+- (id)initWithAccessory:(id)arg1 forSession:(id)arg2 socket:(int)arg3;
 
 @end
 

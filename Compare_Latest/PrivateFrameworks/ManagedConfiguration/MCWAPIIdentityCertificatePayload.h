@@ -13,15 +13,15 @@
     NSData *_pemData;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (struct __SecCertificate *)copyCertificate;
-- (struct __SecIdentity *)copyIdentityFromKeychain;
-- (BOOL)isIdentity;
++ (id)typeStrings;
+@property(readonly, nonatomic) NSData *pemData; // @synthesize pemData=_pemData;
+- (void).cxx_destruct;
 - (id)description;
-@property(readonly) NSData *pemData; // @synthesize pemData=_pemData;
+- (BOOL)isIdentity;
+- (struct __SecIdentity *)copyIdentityFromKeychain;
+- (struct __SecCertificate *)copyCertificate;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

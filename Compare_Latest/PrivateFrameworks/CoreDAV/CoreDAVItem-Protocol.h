@@ -7,6 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol CoreDAVItem <NSObject>
++ (id)parseRuleCache;
++ (id)copyParseRules;
 - (void)parserSuggestsBaseURL:(id)arg1;
 - (BOOL)validate;
 - (void)write:(id)arg1;

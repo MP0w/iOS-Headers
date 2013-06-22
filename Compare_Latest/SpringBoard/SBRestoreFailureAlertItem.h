@@ -11,18 +11,18 @@
     BOOL _runningModal;
 }
 
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)didPresentAlertView:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (double)autoDismissInterval;
-- (void)_rebootNow;
-- (void)restartSystemEvent;
-- (void)performUnlockAction;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (BOOL)allowMenuButtonDismissal;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)forcesModalAlertAppearance;
 - (BOOL)allowInSetup;
+- (BOOL)forcesModalAlertAppearance;
+- (BOOL)shouldShowInLockScreen;
+- (BOOL)allowMenuButtonDismissal;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)performUnlockAction;
+- (void)restartSystemEvent;
+- (void)_rebootNow;
+- (double)autoDismissInterval;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)didPresentAlertView:(id)arg1;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 
 @end
 

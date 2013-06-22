@@ -6,55 +6,31 @@
 
 #import "NSObject.h"
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
-@class NSLock, NSString, SSRequestGroup;
+@class NSObject<OS_dispatch_queue>, SSXPCConnection;
 
-@interface SSRequest : NSObject <SSCoding>
+@interface SSRequest : NSObject <SSXPCCoding>
 {
     int _backgroundTaskIdentifier;
     BOOL _cancelAfterTaskExpiration;
     id <SSRequestDelegate> _delegate;
-    SSRequestGroup *_group;
-    NSString *_groupIdentifier;
-    NSString *_identifier;
-    NSLock *_lock;
-    int _state;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    SSXPCConnection *_requestConnection;
+    SSXPCConnection *_responseConnection;
 }
 
-@property(nonatomic) BOOL shouldCancelAfterTaskExpiration; // @synthesize shouldCancelAfterTaskExpiration=_cancelAfterTaskExpiration;
-@property(retain, nonatomic) NSString *requestIdentifier; // @synthesize requestIdentifier=_identifier;
-@property(retain, nonatomic) NSString *requestGroupIdentifier; // @synthesize requestGroupIdentifier=_groupIdentifier;
 @property(nonatomic) id <SSRequestDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_setRequestState:(int)arg1;
-- (id)_newIdentifier;
-- (void)_finish;
-- (void)_failWithError:(id)arg1;
+- (void)_shutdownRequestWithMessageID:(long long)arg1;
 - (void)_endBackgroundTask;
 - (void)_beginBackgroundTask;
-- (void)_requestFinishedNotification:(id)arg1;
-- (void)_requestFailedNotification:(id)arg1;
-- (void)_mainThreadDaemonExited:(id)arg1;
-- (void)_daemonExited:(id)arg1;
-- (void)unregisterForDaemonNotifications;
-@property(nonatomic) SSRequestGroup *requestGroup;
-- (void)sendDidFinish;
-- (void)sendDidFailWithError:(id)arg1;
-- (void)registerForDaemonNotifications;
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
-- (id)handleFailureResponse:(id)arg1;
-- (void)handleDaemonExit;
-- (void)handleBackgroundTaskExpiration;
-- (void)awakeFromDaemonInRequestGroup:(id)arg1;
+- (void)_startWithMessageID:(long long)arg1 messageBlock:(id)arg2;
+- (void)_shutdownRequest;
+@property(nonatomic) BOOL shouldCancelAfterTaskExpiration;
+- (void)startWithCompletionBlock:(id)arg1;
 - (BOOL)start;
-@property(readonly) int requestState;
 - (void)disconnect;
 - (void)cancel;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
 - (void)dealloc;
 - (id)init;
 - (id)_initSSRequest;

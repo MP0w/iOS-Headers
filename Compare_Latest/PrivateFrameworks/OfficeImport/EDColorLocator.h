@@ -6,23 +6,23 @@
 
 #import "NSObject.h"
 
-@class NSColorStub;
+@class TSUColor;
 
 @interface EDColorLocator : NSObject
 {
     unsigned int mColorOffset;
     int mColorIndex;
-    NSColorStub *mColor;
+    TSUColor *mColor;
 }
 
-- (id)initWith:(id)arg1 index:(int)arg2 offset:(unsigned int)arg3;
-- (void)dealloc;
-- (unsigned int)offset;
-- (void)setOffset:(unsigned int)arg1;
-- (int)colorIndex;
-- (void)setColorIndex:(int)arg1;
-- (id)color;
 - (void)setColor:(id)arg1;
+- (id)color;
+- (void)setColorIndex:(int)arg1;
+- (int)colorIndex;
+- (void)setOffset:(unsigned int)arg1;
+- (unsigned int)offset;
+- (void)dealloc;
+- (id)initWith:(id)arg1 index:(int)arg2 offset:(unsigned int)arg3;
 
 @end
 

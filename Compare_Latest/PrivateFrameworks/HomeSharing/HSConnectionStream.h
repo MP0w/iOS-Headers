@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>;
+
 @interface HSConnectionStream : NSObject
 {
     struct __CFReadStream *_readStream;
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 - (void)sendCFHTTPMessage:(struct __CFHTTPMessage *)arg1 withResponseHandler:(id)arg2;

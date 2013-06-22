@@ -21,9 +21,6 @@
     NSSet *_supportedReports;
     NSString *_quotaAvailable;
     NSString *_quotaUsed;
-    NSString *_maxResourceSize;
-    NSString *_maxImageSize;
-    NSURL *_meCardURL;
     NSURL *_owner;
     NSURL *_addMemberURL;
     NSDictionary *_bulkRequests;
@@ -38,9 +35,6 @@
 @property(retain) NSURL *owner; // @synthesize owner=_owner;
 @property(retain) CoreDAVResourceTypeItem *resourceType; // @synthesize resourceType=_resourceType;
 @property(retain) NSSet *supportedReports; // @synthesize supportedReports=_supportedReports;
-@property(retain) NSURL *meCardURL; // @synthesize meCardURL=_meCardURL;
-@property(retain) NSString *maxImageSize; // @synthesize maxImageSize=_maxImageSize;
-@property(retain) NSString *maxResourceSize; // @synthesize maxResourceSize=_maxResourceSize;
 @property(retain) NSString *quotaUsed; // @synthesize quotaUsed=_quotaUsed;
 @property(retain) NSString *quotaAvailable; // @synthesize quotaAvailable=_quotaAvailable;
 @property(retain) NSURL *resourceID; // @synthesize resourceID=_resourceID;
@@ -59,9 +53,6 @@
 @property(readonly) BOOL hasReadPrivileges;
 @property(readonly) NSSet *privilegesAsStringSet;
 @property(readonly) BOOL isPrincipal;
-@property(readonly) BOOL isSharedAddressBook;
-@property(readonly) BOOL isSearchAddressBook;
-@property(readonly) BOOL isAddressBook;
 @property(readonly) NSSet *resourceTypeAsStringSet;
 - (void)applyParsedProperties:(id)arg1;
 - (id)description;

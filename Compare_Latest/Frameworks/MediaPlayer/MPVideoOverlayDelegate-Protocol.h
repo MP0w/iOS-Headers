@@ -9,6 +9,8 @@
 @protocol MPVideoOverlayDelegate <NSObject>
 
 @optional
+- (void)overlayDidEndScrubbing:(id)arg1;
+- (void)overlayDidBeginScrubbing:(id)arg1;
 - (void)overlayDidDismissAlternateTracksPopover:(id)arg1;
 - (void)overlayTappedScaleModeButton:(id)arg1;
 - (void)overlayTappedBackButton:(id)arg1;

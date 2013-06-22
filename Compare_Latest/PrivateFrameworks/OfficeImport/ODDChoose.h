@@ -14,12 +14,12 @@
     ODDOtherwise *mOtherwise;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)whens;
-- (void)addWhen:(id)arg1;
-- (id)otherwise;
 - (void)setOtherwise:(id)arg1;
+- (id)otherwise;
+- (void)addWhen:(id)arg1;
+- (id)whens;
+- (void)dealloc;
+- (id)init;
 
 @end
 

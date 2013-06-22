@@ -12,13 +12,13 @@
     int _orientation;
 }
 
-+ (id)_keyComponentForNotchInfoRect:(struct CGRect)arg1;
-+ (id)_keyForNotchInfo:(CDStruct_d18cc6b1)arg1 orientation:(int)arg2;
-+ (id)_squareImageForNotchInfo:(CDStruct_d18cc6b1)arg1 orientation:(int)arg2;
-+ (id)_imageForNotchInfo:(CDStruct_d18cc6b1)arg1 orientation:(int)arg2;
 + (id)notchForNotchInfo:(CDStruct_d18cc6b1)arg1 orientation:(int)arg2;
-- (id)initWithFrame:(struct CGRect)arg1 notchInfo:(CDStruct_d18cc6b1)arg2 orientation:(int)arg3;
++ (id)_imageForNotchInfo:(CDStruct_d18cc6b1)arg1 orientation:(int)arg2;
++ (id)_squareImageForNotchInfo:(CDStruct_d18cc6b1)arg1 orientation:(int)arg2;
++ (id)_keyForNotchInfo:(CDStruct_d18cc6b1)arg1 orientation:(int)arg2;
++ (id)_keyComponentForNotchInfoRect:(struct CGRect)arg1;
 - (void)setNotchInfo:(CDStruct_d18cc6b1)arg1 orientation:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 notchInfo:(CDStruct_d18cc6b1)arg2 orientation:(int)arg3;
 
 @end
 

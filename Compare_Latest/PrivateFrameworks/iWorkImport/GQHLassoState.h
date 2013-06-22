@@ -11,40 +11,49 @@
 @interface GQHLassoState : GQHState
 {
     GQHXML *mNavigation;
+    GQHXML *mIndex;
     int mSheetCount;
     int mTableCount;
     struct __CFString *mCssUri;
     struct __CFString *mCurrentSheetFilename;
+    struct __CFArray *mSheetFilenameList;
+    struct __CFArray *mSheetUriList;
     struct __CFString *mCurrentSheetUri;
     struct CGPoint mMaxCanvasPoint;
     unsigned int mCurrentDrawableZOrder;
     unsigned int mZOrderedDrawableCount;
     struct __CFDictionary *mDrawableUidToCssZOrderClassMap;
     struct __CFArray *mSheetCssUriList;
+    struct __CFArray *mSheetCssLastUriList;
     struct __CFString *mSheetCssFilename;
+    struct __CFString *mSheetCssLastFilename;
     struct __CFString *mSheetOneCss;
     struct __CFString *mSheetOneLastCSS;
     char *mFirstWorkspaceName;
     _Bool mIsProgressiveMode;
 }
 
-- (id)initWithState:(id)arg1;
-- (void)dealloc;
-- (void)beginNewSheet:(const char *)arg1 processorState:(id)arg2;
-- (void)writeAnchorInNavigationPage:(char *)arg1;
-- (int)endSheet;
-- (void)addStyle:(struct __CFString *)arg1 className:(struct __CFString *)arg2 srcStyle:(id)arg3;
-- (struct __CFString *)makeInlineStyle:(struct __CFString *)arg1;
-- (void)addCachedStyle:(struct __CFString *)arg1;
-- (BOOL)finishMainHtml;
-- (struct CGPoint)maxCanvasPoint;
-- (void)addedDrawableWithBounds:(struct CGRect)arg1;
-- (BOOL)drawablesNeedCssZOrdering;
-- (struct __CFString *)cssZOrderClassForDrawableUid:(const char *)arg1;
-- (unsigned int)currentDrawableZOrder;
-- (void)writeIndexPageWithDocumentSize:(struct CGSize)arg1;
-- (void)writeNavigationPage:(id)arg1;
+- (id).cxx_construct;
+- (struct __CFString *)writeTabsJS;
 - (BOOL)inProgressiveMode;
+- (void)writeNavigationPage:(id)arg1;
+- (BOOL)writeIndexPageWithIFrame:(id)arg1;
+- (void)writeIndexPageWithDocumentSize:(struct CGSize)arg1;
+- (unsigned int)currentDrawableZOrder;
+- (struct __CFString *)cssZOrderClassForDrawableUid:(const char *)arg1;
+- (BOOL)drawablesNeedCssZOrdering;
+- (void)addedDrawableWithBounds:(struct CGRect)arg1;
+- (struct CGPoint)maxCanvasPoint;
+- (BOOL)finishMainHtml;
+- (void)addCachedStyle:(struct __CFString *)arg1;
+- (struct __CFString *)makeInlineStyle:(struct __CFString *)arg1;
+- (void)addStyle:(struct __CFString *)arg1 className:(struct __CFString *)arg2 srcStyle:(id)arg3;
+- (int)endSheet;
+- (void)cacheAnchorForIndexPage:(char *)arg1;
+- (void)writeAnchorInNavigationPage:(char *)arg1;
+- (void)beginNewSheet:(const char *)arg1 processorState:(id)arg2;
+- (void)dealloc;
+- (id)initWithState:(id)arg1;
 
 @end
 

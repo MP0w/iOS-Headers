@@ -12,9 +12,9 @@
 {
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (struct CGRect)textRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)editingRectForBounds:(struct CGRect)arg1;
+- (struct CGRect)textRectForBounds:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant; // @dynamic interactionAssistant;

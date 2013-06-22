@@ -15,15 +15,20 @@
     MKUserLocationInternal *_internal;
 }
 
++ (id)keyPathsForValuesAffectingSubtitle;
 + (void)_setAnnotationClass:(Class)arg1;
 - (void)reset;
 @property(readonly, nonatomic) NSString *shortDescription;
 - (void)_updateCoordinate;
 - (id)annotation;
+@property(readonly, nonatomic) double headingDegrees;
 @property(nonatomic) CDStruct_c3b9c2ee coordinate;
 - (BOOL)isEqualToLocation:(id)arg1;
+@property(readonly, nonatomic) double accuracy;
 @property(retain, nonatomic) CLLocation *location;
 @property(copy, nonatomic) NSString *subtitle;
+- (void)setCourse:(double)arg1;
+- (double)course;
 @property(copy, nonatomic) NSString *title;
 @property(nonatomic) double timestamp;
 @property(nonatomic) int source;

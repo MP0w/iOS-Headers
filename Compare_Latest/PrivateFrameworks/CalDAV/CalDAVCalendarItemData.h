@@ -8,17 +8,21 @@
 
 #import "CalDAVCalendarItemProtocol-Protocol.h"
 
-@class CalDAVCalendarServerScheduleChangesItem, NSString;
+@class CalDAVCalendarServerScheduleChangesItem, CalDAVUpdateOwnerItem, NSString;
 
 @interface CalDAVCalendarItemData : CoreDAVLeafDataPayload <CalDAVCalendarItemProtocol>
 {
     NSString *_scheduleTag;
     CalDAVCalendarServerScheduleChangesItem *_scheduleChanges;
+    CalDAVUpdateOwnerItem *_createdBy;
+    CalDAVUpdateOwnerItem *_updatedBy;
 }
 
-- (void)dealloc;
+@property(retain) CalDAVUpdateOwnerItem *updatedBy; // @synthesize updatedBy=_updatedBy;
+@property(retain) CalDAVUpdateOwnerItem *createdBy; // @synthesize createdBy=_createdBy;
 @property(retain) NSString *scheduleTag; // @synthesize scheduleTag=_scheduleTag;
 @property(retain) CalDAVCalendarServerScheduleChangesItem *scheduleChanges; // @synthesize scheduleChanges=_scheduleChanges;
+- (void)dealloc;
 
 @end
 

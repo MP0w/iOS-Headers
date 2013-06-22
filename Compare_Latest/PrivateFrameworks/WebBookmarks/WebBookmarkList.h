@@ -19,10 +19,17 @@
     WebBookmarkCollection *_collection;
 }
 
-- (BOOL)stepThroughIndex:(unsigned int)arg1;
-- (id)bookmarkAtIndex:(unsigned int)arg1;
-- (unsigned int)bookmarkCount;
 @property(readonly, nonatomic) unsigned int folderID; // @synthesize folderID=_folderID;
+- (id)bookmarkArrayRequestingCount:(unsigned int)arg1;
+- (id)bookmarkArray;
+- (unsigned int)bookmarkCount;
+- (id)bookmarkAtIndex:(unsigned int)arg1;
+- (BOOL)stepThroughIndex:(unsigned int)arg1;
+- (unsigned int)_reverseOrderIndex:(unsigned int)arg1;
+- (void)_moveBookmarkAtIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2;
+- (void)dealloc;
+- (id)initWithBookmarksWhere:(id)arg1 collection:(id)arg2 bookmarkCount:(unsigned int)arg3 skipOffset:(unsigned int)arg4;
+- (id)initWithFolderID:(unsigned int)arg1 inCollection:(id)arg2 bookmarkCount:(unsigned int)arg3 skipOffset:(unsigned int)arg4 includeHidden:(BOOL)arg5;
 
 @end
 

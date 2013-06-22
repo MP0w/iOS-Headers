@@ -13,12 +13,12 @@
     SBApplication *_app;
 }
 
-- (id)initWithApplication:(id)arg1;
-- (void)dealloc;
-- (void)_showNotificationsPrefs;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 - (BOOL)shouldShowInLockScreen;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)_showNotificationsPrefs;
+- (void)dealloc;
+- (id)initWithApplication:(id)arg1;
 
 @end
 

@@ -32,6 +32,8 @@
 - (void)reset;
 - (void)updatePersistentObject;
 - (BOOL)isWeak;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (void)dealloc;
 - (id)initWithOwner:(id)arg1 relationName:(id)arg2 inverseRelationName:(id)arg3;
 

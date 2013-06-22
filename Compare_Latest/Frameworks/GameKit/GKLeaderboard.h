@@ -20,15 +20,17 @@
     unsigned int _maxRange;
     GKScore *_localPlayerScore;
     int _loadingCount;
-    int _sequenceNumber;
     NSObject<GKLeaderboardDelegate> *_weakDelegate;
+    NSString *_groupIdentifier;
 }
 
 + (void)setDefaultLeaderboard:(id)arg1 withCompletionHandler:(id)arg2;
 + (void)loadCategoriesForGame:(id)arg1 withCompletionHandler:(id)arg2;
++ (void)loadCategoryWithID:(id)arg1 forGame:(id)arg2 withPlayer:(id)arg3 withCompletionHandler:(id)arg4;
 + (void)loadCategoriesForGame:(id)arg1 withPlayer:(id)arg2 withCompletionHandler:(id)arg3;
++ (void)loadLeaderboardsWithCompletionHandler:(id)arg1;
 + (void)loadCategoriesWithCompletionHandler:(id)arg1;
-@property int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
+@property(retain, nonatomic) NSString *groupIdentifier; // @synthesize groupIdentifier=_groupIdentifier;
 @property(nonatomic) int loadingCount; // @synthesize loadingCount=_loadingCount;
 @property(retain, nonatomic) GKScore *localPlayerScore; // @synthesize localPlayerScore=_localPlayerScore;
 @property(nonatomic) unsigned int maxRange; // @synthesize maxRange=_maxRange;
@@ -46,6 +48,8 @@
 @property(readonly, getter=isLoading) BOOL loading;
 @property(nonatomic) NSObject<GKLeaderboardDelegate> *delegate; // @synthesize delegate=_weakDelegate;
 - (id)description;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithPlayerIDs:(id)arg1;
 - (id)init;

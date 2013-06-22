@@ -8,27 +8,29 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSColorStub;
+@class TSUColor;
 
 @interface WDShading : NSObject <NSCopying>
 {
     int mStyle;
-    NSColorStub *mForegroundColor;
-    NSColorStub *mBackgroundColor;
+    TSUColor *mForegroundColor;
+    TSUColor *mBackgroundColor;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)isEqualToShading:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (void)setShading:(id)arg1;
-- (int)style;
-- (void)setStyle:(int)arg1;
-- (id)foreground;
-- (void)setForeground:(id)arg1;
-- (id)background;
-- (void)setBackground:(id)arg1;
++ (id)autoBackgroundColor;
++ (id)autoForegroundColor;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setBackground:(id)arg1;
+- (id)background;
+- (void)setForeground:(id)arg1;
+- (id)foreground;
+- (void)setStyle:(int)arg1;
+- (int)style;
+- (void)setShading:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToShading:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

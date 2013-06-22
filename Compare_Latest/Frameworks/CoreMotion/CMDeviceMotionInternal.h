@@ -18,13 +18,15 @@
     CMAttitude *fAttitude;
     CDStruct_31142d93 fMagneticField;
     int fMagneticFieldCalibrationLevel;
+    _Bool fDoingYawCorrection;
+    _Bool fDoingBiasEstimation;
 }
 
 - (id).cxx_construct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithDeviceMotion:(CDStruct_2e6f786d)arg1;
-- (void)setDeviceMotion:(CDStruct_2e6f786d)arg1;
+- (id)initWithDeviceMotion:(CDStruct_7fb6ae47)arg1;
+- (void)setDeviceMotion:(CDStruct_7fb6ae47)arg1;
 
 @end
 

@@ -16,11 +16,6 @@ struct _NSRange {
     unsigned int length;
 };
 
-struct _opaque_pthread_mutex_t {
-    long __sig;
-    char __opaque[40];
-};
-
 struct internal_state;
 
 struct z_stream_s {
@@ -55,5 +50,11 @@ typedef struct {
     unsigned int _field2;
     char _field3;
     char _field4;
-} CDStruct_87ebd36c;
+    char _field5;
+} CDStruct_7721b905;
+
+typedef struct {
+    int location;
+    int length;
+} CDStruct_dff5684f;
 

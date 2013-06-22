@@ -15,14 +15,14 @@
     unsigned int typeToSend;
 }
 
-- (id)init;
-- (void)dealloc;
-- (struct tagVoiceChatBeacon *)lastReceivedBeacon;
-- (void)setLastReceivedBeacon:(struct tagVoiceChatBeacon *)arg1;
 @property(nonatomic) unsigned int typeToSend; // @synthesize typeToSend;
 @property(nonatomic) BOOL needsSend; // @synthesize needsSend;
 @property(nonatomic) unsigned int receivedState; // @synthesize receivedState;
 @property(nonatomic) unsigned int sentState; // @synthesize sentState;
+- (void)setLastReceivedBeacon:(struct tagVoiceChatBeacon *)arg1;
+- (struct tagVoiceChatBeacon *)lastReceivedBeacon;
+- (void)dealloc;
+- (id)init;
 
 @end
 

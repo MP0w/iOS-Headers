@@ -19,6 +19,9 @@
 @property(retain, nonatomic) NSString *engineID; // @synthesize engineID=_engineID;
 @property(retain, nonatomic) NSString *reason; // @synthesize reason=_reason;
 @property(retain, nonatomic) GKGameInternal *game; // @synthesize game=_game;
+- (id)serverRepresentation;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

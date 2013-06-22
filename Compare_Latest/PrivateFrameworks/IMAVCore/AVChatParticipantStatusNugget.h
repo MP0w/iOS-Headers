@@ -19,8 +19,9 @@
     BOOL _sendingAudio;
     BOOL _sendingVideo;
     BOOL _usingICE;
-    unsigned int _ardRole;
+    int _ardRole;
     unsigned int _state;
+    unsigned int _newState;
     int _error;
     unsigned int _reason;
 }
@@ -32,8 +33,9 @@
 - (void)setVCPartyID:(id)arg1;
 @property(readonly, nonatomic) unsigned int reason;
 @property(readonly, nonatomic) int error;
+@property(readonly, nonatomic) unsigned int newState;
 @property(readonly, nonatomic) unsigned int state;
-@property(readonly, nonatomic) unsigned int ardRole;
+@property(readonly, nonatomic) int ardRole;
 @property(readonly, nonatomic) BOOL isUsingICE;
 @property(readonly, nonatomic) BOOL sendingVideo;
 @property(readonly, nonatomic) BOOL sendingAudio;
@@ -42,6 +44,7 @@
 @property(readonly, nonatomic) NSString *ID;
 @property(readonly, nonatomic) NSString *name;
 - (void)dealloc;
+- (id)description;
 @property(readonly, nonatomic) NSDictionary *dictionaryDescription;
 - (void)_configureWithDictionaryDescription:(id)arg1;
 - (id)initWithParticipant:(id)arg1;

@@ -13,9 +13,9 @@
     OADShapeStyle *mShapeStyle;
 }
 
-- (void)dealloc;
-- (id)shapeStyle;
 - (void)setShapeStyle:(id)arg1;
+- (id)shapeStyle;
+- (void)dealloc;
 
 @end
 

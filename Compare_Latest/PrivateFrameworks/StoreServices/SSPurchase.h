@@ -8,44 +8,51 @@
 
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSNumber, NSString, SSItem, SSItemOffer, SSURLRequestProperties;
+@class NSArray, NSDictionary, NSMutableDictionary, NSNumber, NSObject<OS_dispatch_queue>, NSString, SSDownloadPolicy, SSItem, SSItemOffer, SSNetworkConstraints, SSURLRequestProperties;
 
-@interface SSPurchase : NSObject <SSCoding, NSCoding, NSCopying>
+@interface SSPurchase : NSObject <SSXPCCoding, NSCoding, NSCopying>
 {
     NSNumber *_accountIdentifier;
+    NSString *_affiliateIdentifier;
     NSString *_buyParameters;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    SSDownloadPolicy *_downloadPolicy;
     NSMutableDictionary *_downloadProperties;
     NSArray *_filteredAssetTypes;
+    BOOL _ignoresForcedPasswordRestriction;
     SSItem *_item;
     SSItemOffer *_itemOffer;
+    SSNetworkConstraints *_networkConstraints;
     long long _placeholderDownloadIdentifier;
     SSURLRequestProperties *_requestProperties;
     NSString *_uniqueIdentifier;
 }
 
 + (id)purchaseWithBuyParameters:(id)arg1;
-@property(nonatomic) long long placeholderDownloadIdentifier; // @synthesize placeholderDownloadIdentifier=_placeholderDownloadIdentifier;
-@property(readonly, nonatomic) SSItemOffer *itemOffer; // @synthesize itemOffer=_itemOffer;
-@property(readonly, nonatomic) SSItem *item; // @synthesize item=_item;
-@property(copy, nonatomic) NSArray *filteredAssetTypes; // @synthesize filteredAssetTypes=_filteredAssetTypes;
-@property(copy, nonatomic) NSString *buyParameters; // @synthesize buyParameters=_buyParameters;
-@property(retain, nonatomic) NSNumber *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 - (void)setDownloadMetadata:(id)arg1;
 - (id)downloadMetadata;
-@property(readonly, nonatomic) NSString *uniqueIdentifier;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(readonly) NSString *uniqueIdentifier;
+@property long long placeholderDownloadIdentifier;
+@property(readonly) SSItemOffer *itemOffer;
+@property(readonly) SSItem *item;
 - (id)valueForDownloadProperty:(id)arg1;
 - (void)setValue:(id)arg1 forDownloadProperty:(id)arg2;
-@property(copy, nonatomic) SSURLRequestProperties *requestProperties;
-@property(copy, nonatomic) NSDictionary *downloadProperties;
+@property(copy) SSURLRequestProperties *requestProperties;
+@property(copy) SSNetworkConstraints *networkConstraints;
+@property BOOL ignoresForcedPasswordRestriction;
+@property(copy) NSArray *filteredAssetTypes;
+@property(copy) NSDictionary *downloadProperties;
+@property(copy) SSDownloadPolicy *downloadPolicy;
+@property(copy) NSString *buyParameters;
+@property(copy) NSString *affiliateIdentifier;
+@property(retain) NSNumber *accountIdentifier;
 - (void)dealloc;
 - (id)initWithItem:(id)arg1 offer:(id)arg2;
 - (id)initWithItem:(id)arg1;

@@ -4,27 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <EventKitUI/EKEventDetailCell.h>
+#import <EventKitUI/EKEventDetailTwoValueCell.h>
 
-@class UILabel;
-
-@interface EKEventDetailAlarmCell : EKEventDetailCell
+@interface EKEventDetailAlarmCell : EKEventDetailTwoValueCell
 {
-    int _style;
-    UILabel *_alertTitleView;
-    UILabel *_alertView;
-    UILabel *_alert2View;
-    unsigned int _visibleItems;
 }
 
-- (void)layoutForWidth:(float)arg1 position:(int)arg2;
-- (id)_alert2View;
-- (id)_alertView;
-- (id)_alertTitleView;
 - (BOOL)update;
 - (void)setAlarms:(id)arg1;
 - (BOOL)isEditable;
-- (void)dealloc;
 - (id)initWithEvent:(id)arg1 editable:(BOOL)arg2 platformStyle:(int)arg3;
 
 @end

@@ -10,8 +10,8 @@
 {
 }
 
-@property(readonly) unsigned int length;
 - (id)item:(unsigned int)arg1;
+@property(readonly) unsigned int length;
 
 @end
 

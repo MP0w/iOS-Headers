@@ -6,7 +6,7 @@
 
 #import "NSOperation.h"
 
-@class MFContactsSearchManager, NSNumber, NSSet, NSString;
+@class MFContactsSearchManager, NSNumber, NSOrderedSet, NSString;
 
 @interface MFContactsSearchOperation : NSOperation
 {
@@ -14,17 +14,19 @@
     MFContactsSearchManager *_owner;
     NSNumber *_taskID;
     NSString *_text;
-    NSSet *_properties;
+    NSOrderedSet *_properties;
+    NSString *_sendingAddress;
 }
 
 + (id)operationWithAddressBook:(void *)arg1 owner:(id)arg2 text:(id)arg3 taskID:(id)arg4 properties:(id)arg5;
-- (int)type;
-- (void)dealloc;
-@property(readonly, nonatomic) NSSet *properties; // @synthesize properties=_properties;
+@property(readonly, nonatomic) NSOrderedSet *properties; // @synthesize properties=_properties;
+@property(readonly, nonatomic) NSString *sendingAddress; // @synthesize sendingAddress=_sendingAddress;
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 @property(readonly, nonatomic) NSNumber *taskID; // @synthesize taskID=_taskID;
 @property(readonly, nonatomic) MFContactsSearchManager *owner; // @synthesize owner=_owner;
 @property(readonly, nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
+- (void)dealloc;
+- (int)type;
 
 @end
 

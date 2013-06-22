@@ -6,15 +6,23 @@
 
 #import "NSObject.h"
 
-@class UITextRange;
+@class UITextSelectionRectImpl;
 
 @interface UITextSelectionRect : NSObject
 {
 }
 
++ (BOOL)endIsHorizontal:(id)arg1;
++ (BOOL)startIsHorizontal:(id)arg1;
 + (struct CGRect)endEdgeFromRects:(id)arg1;
++ (id)endRectFromRects:(id)arg1;
 + (struct CGRect)startEdgeFromRects:(id)arg1;
-@property(readonly, nonatomic) UITextRange *range;
++ (id)startRectFromRects:(id)arg1;
+@property(readonly, nonatomic) BOOL isVertical;
+@property(readonly, nonatomic) BOOL containsStart;
+@property(readonly, nonatomic) BOOL containsEnd;
+@property(readonly, nonatomic, getter=_isImpl) UITextSelectionRectImpl *isImpl;
+- (id)range;
 @property(readonly, nonatomic) int writingDirection;
 @property(readonly, nonatomic) struct CGRect rect;
 

@@ -18,17 +18,20 @@
     int _nextCalendarOrder;
 }
 
-- (void)dealloc;
-- (void)_finishRefresh;
-- (void)refreshCalendarProperties;
-- (int)_sharingStatusForContainer:(id)arg1;
-- (void)_setPropertyString:(id)arg1 forName:(id)arg2 andNamespace:(id)arg3 atURL:(id)arg4;
-- (id)_generateTimeZoneString:(id)arg1;
-- (void)_scheduleMkcalendarTaskForCalendar:(id)arg1;
-- (void)_continueHandleContainerInfoTask:(id)arg1 completedWithContainers:(id)arg2 error:(id)arg3;
-- (void)_createDefaultCalendarForPrincipal:(id)arg1 isEventCalendar:(BOOL)arg2;
-- (void)_createDefaultCalendarsIfNeededForPrincipal:(id)arg1;
 - (void)containerInfoTask:(id)arg1 completedWithContainers:(id)arg2 error:(id)arg3;
+- (void)_getDefaultCalendarsTasksIfNeededForPrincipal:(id)arg1 tasks:(id)arg2;
+- (id)_getDefaultMkCalendarForPrincipalTask:(id)arg1 isEventCalendar:(BOOL)arg2;
+- (void)_continueHandleContainerInfoTask:(id)arg1 completedWithContainers:(id)arg2 error:(id)arg3;
+- (id)_getMkcalendarTaskForCalendar:(id)arg1;
+- (id)_generateTimeZoneString:(id)arg1;
+- (id)_getSetPropertyStringTask:(id)arg1 forName:(id)arg2 andNamespace:(id)arg3 atURL:(id)arg4;
+- (int)_sharingStatusForContainer:(id)arg1;
+- (void)refreshCalendarProperties;
+- (void)_prepareCalendarsBeforeRefresh;
+- (void)_handleCalendarPublish;
+- (void)_reallyRefreshCalendarProperties;
+- (void)_finishRefresh;
+- (void)dealloc;
 
 // Remaining properties
 @property(nonatomic) id <CalDAVCalendarPropertyRefreshDelegate> delegate; // @dynamic delegate;

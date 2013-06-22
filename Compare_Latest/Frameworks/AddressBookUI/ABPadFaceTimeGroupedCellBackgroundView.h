@@ -10,13 +10,14 @@
 {
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)setAbCellStyle:(int)arg1;
-- (void)setSectionLocation:(int)arg1;
-- (BOOL)isTopCell;
-- (BOOL)isBottomCell;
 - (void)drawRect:(struct CGRect)arg1;
+- (BOOL)isBottomCell;
+- (BOOL)isTopCell;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setSectionLocation:(int)arg1;
+- (void)setAbCellStyle:(int)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

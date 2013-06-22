@@ -11,9 +11,17 @@
     struct WebInspectorFrontendClient *m_frontendClient;
 }
 
-- (id)initWithFrontendClient:(struct WebInspectorFrontendClient *)arg1;
-- (void)attach;
+- (void)showConsole;
+- (void)setTimelineProfilingEnabled:(BOOL)arg1;
+- (BOOL)isTimelineProfilingEnabled;
+- (void)stopProfilingJavaScript;
+- (void)startProfilingJavaScript;
+- (BOOL)isProfilingJavaScript;
+- (void)setDebuggingEnabled:(BOOL)arg1;
+- (BOOL)isDebuggingEnabled;
 - (void)detach;
+- (void)attach;
+- (id)initWithFrontendClient:(struct WebInspectorFrontendClient *)arg1;
 
 @end
 

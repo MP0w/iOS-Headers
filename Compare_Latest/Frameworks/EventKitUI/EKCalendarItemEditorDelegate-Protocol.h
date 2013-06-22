@@ -9,8 +9,8 @@
 @protocol EKCalendarItemEditorDelegate <NSObject>
 
 @optional
-- (void)eventEditorDidChangeHeight:(id)arg1;
-- (void)eventEditor:(id)arg1 didCompleteWithAction:(int)arg2;
-- (void)eventEditor:(id)arg1 prepareCalendarItemForEdit:(id)arg2;
+- (void)editor:(id)arg1 didChangeHeightAnimated:(BOOL)arg2;
+- (void)editor:(id)arg1 didCompleteWithAction:(int)arg2;
+- (void)editor:(id)arg1 prepareCalendarItemForEdit:(id)arg2;
 @end
 

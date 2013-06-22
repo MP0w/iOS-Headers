@@ -15,14 +15,14 @@
 }
 
 + (id)tokenTreeNodeWithIndexAndType:(unsigned int)arg1 type:(int)arg2;
-- (id)init;
-- (id)initWithIndexAndType:(unsigned int)arg1 type:(int)arg2;
-- (void)dealloc;
-- (unsigned int)tokenIndex;
-- (id)firstChild;
-- (void)setFirstChild:(id)arg1;
-- (id)sibling;
 - (void)setSibling:(id)arg1;
+- (id)sibling;
+- (void)setFirstChild:(id)arg1;
+- (id)firstChild;
+- (unsigned int)tokenIndex;
+- (void)dealloc;
+- (id)initWithIndexAndType:(unsigned int)arg1 type:(int)arg2;
+- (id)init;
 
 @end
 

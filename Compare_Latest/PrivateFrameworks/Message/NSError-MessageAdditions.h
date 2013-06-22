@@ -7,9 +7,9 @@
 #import "NSError.h"
 
 @interface NSError (MessageAdditions)
-- (BOOL)mf_isUserCancelledError;
-- (BOOL)mf_shouldBeReportedToUser;
-- (id)mf_moreInfo;
 - (id)mf_shortDescription;
+- (id)mf_moreInfo;
+- (BOOL)mf_shouldBeReportedToUser;
+- (BOOL)mf_isUserCancelledError;
 @end
 

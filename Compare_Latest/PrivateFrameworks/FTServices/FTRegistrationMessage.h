@@ -19,10 +19,12 @@
     NSArray *_capabilities;
     NSString *_softwareVersion;
     NSString *_protocolVersion;
+    NSString *_deviceName;
     NSNumber *_responseNextHBI;
 }
 
 @property(copy) NSNumber *responseNextHBI; // @synthesize responseNextHBI=_responseNextHBI;
+@property(copy) NSString *deviceName; // @synthesize deviceName=_deviceName;
 @property(copy) NSString *protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(copy) NSString *softwareVersion; // @synthesize softwareVersion=_softwareVersion;
 @property(copy) NSArray *capabilities; // @synthesize capabilities=_capabilities;

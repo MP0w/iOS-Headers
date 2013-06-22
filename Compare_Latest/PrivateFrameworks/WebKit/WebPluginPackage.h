@@ -13,11 +13,11 @@
     NSBundle *nsBundle;
 }
 
-- (id)initWithPath:(id)arg1;
-- (void)dealloc;
-- (Class)viewFactory;
-- (BOOL)load;
 - (id)bundle;
+- (BOOL)load;
+- (Class)viewFactory;
+- (void)dealloc;
+- (id)initWithPath:(id)arg1;
 
 @end
 

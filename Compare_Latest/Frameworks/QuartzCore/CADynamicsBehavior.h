@@ -13,18 +13,18 @@
 }
 
 + (id)defaultValueForKey:(id)arg1;
-- (struct Object *)CA_copyRenderValue;
-@property(copy) NSArray *springs;
-@property(copy) NSArray *forceFields;
-@property double timeStep;
-@property double minimumTimeStep;
-@property float stoppedVelocity;
-@property float stoppedAngularVelocity;
-@property double collisionInterval;
-@property float springScale;
-@property float drag;
-@property float angularDrag;
 @property BOOL reactsToCollisions;
+@property float angularDrag;
+@property float drag;
+@property float springScale;
+@property double collisionInterval;
+@property float stoppedAngularVelocity;
+@property float stoppedVelocity;
+@property double minimumTimeStep;
+@property double timeStep;
+@property(copy) NSArray *forceFields;
+@property(copy) NSArray *springs;
+- (struct Object *)CA_copyRenderValue;
 
 @end
 

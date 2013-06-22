@@ -25,6 +25,7 @@
 @property(copy, nonatomic) NSString *fileFormat;
 @property(copy, nonatomic) NSString *fileName;
 @property(copy, nonatomic) NSURL *URL;
+- (int)entityType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

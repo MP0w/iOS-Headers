@@ -16,15 +16,15 @@
 }
 
 + (id)sharedInstance;
-- (void)dealloc;
-- (void)_createUIWithColor:(id)arg1;
-- (void)_tearDown;
-- (void)_orderWindowOut:(id)arg1;
-- (void)_orderWindowFront:(id)arg1 withColor:(id)arg2;
-- (void)stopFlash;
-- (void)flash;
-- (void)flashColor:(id)arg1;
 - (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+- (void)flashColor:(id)arg1;
+- (void)flash;
+- (void)stopFlash;
+- (void)_orderWindowFront:(id)arg1 withColor:(id)arg2;
+- (void)_orderWindowOut:(id)arg1;
+- (void)_tearDown;
+- (void)_createUIWithColor:(id)arg1;
+- (void)dealloc;
 
 @end
 

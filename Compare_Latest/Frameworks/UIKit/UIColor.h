@@ -7,14 +7,17 @@
 #import "NSObject.h"
 
 #import "NSCoding-Protocol.h"
+#import "NSCopying-Protocol.h"
 
 @class CIColor, NSString;
 
-@interface UIColor : NSObject <NSCoding>
+@interface UIColor : NSObject <NSCoding, NSCopying>
 {
     NSString *_systemColorName;
 }
 
++ (id)__halfTransparentWhiteColor;
++ (id)__halfTransparentBlackColor;
 + (id)infoTextOverPinStripeTextColor;
 + (id)textFieldAtomPurpleColor;
 + (id)textFieldAtomBlueColor;
@@ -53,6 +56,7 @@
 + (id)lightGrayColor;
 + (id)darkGrayColor;
 + (id)blackColor;
++ (id)classFallbacksForKeyedArchiver;
 + (id)_systemColorForColor:(id)arg1 withName:(id)arg2;
 + (id)_systemColorWithName:(id)arg1;
 + (id)colorWithCIColor:(id)arg1;
@@ -63,15 +67,30 @@
 + (id)colorWithWhite:(float)arg1 alpha:(float)arg2;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;
++ (id)scrollViewTexturedBackgroundColor;
++ (id)underPageBackgroundColor;
++ (id)viewFlipsideBackgroundColor;
++ (id)groupTableViewBackgroundColor;
++ (id)darkTextColor;
++ (id)lightTextColor;
++ (id)insertionPointColor;
++ (id)selectionHighlightColor;
++ (id)pinStripeColor;
++ (id)_dimmingViewColor;
++ (id)_translucentPaperTextureColor;
++ (id)noContentDarkGradientBackgroundColor;
++ (id)noContentLightGradientBackgroundColor;
 @property(retain, nonatomic, getter=_systemColorName, setter=_setSystemColorName:) NSString *systemColorName;
 - (BOOL)isPatternColor;
 - (id)styleString;
 - (float)alphaComponent;
 - (struct CGColor *)cgColor;
+- (BOOL)_getWhite:(float *)arg1 alpha:(float *)arg2;
 - (BOOL)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
 - (BOOL)getHue:(float *)arg1 saturation:(float *)arg2 brightness:(float *)arg3 alpha:(float *)arg4;
 - (BOOL)getWhite:(float *)arg1 alpha:(float *)arg2;
 - (unsigned int)hash;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) CIColor *CIColor;
 @property(readonly, nonatomic) struct CGColor *CGColor;

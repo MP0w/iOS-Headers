@@ -6,7 +6,10 @@
 
 #import "UIViewController.h"
 
+@class SUViewControllerFactory;
+
 @interface UIViewController (SUAdditions)
+@property(readonly, nonatomic) SUViewControllerFactory *viewControllerFactory;
 @property(readonly, nonatomic) BOOL shouldInvalidateForMemoryPurge;
 - (void)setBadgeValue:(id)arg1 animated:(BOOL)arg2 blink:(BOOL)arg3;
 - (id)section;

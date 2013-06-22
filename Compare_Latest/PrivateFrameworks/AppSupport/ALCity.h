@@ -26,22 +26,6 @@
     BOOL _localizationAttempted;
 }
 
-- (id)init;
-- (id)initWithProperties:(id)arg1;
-- (id)initWithSQLRow:(char **)arg1;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (void)ensureLocalized;
-- (id)displayNameIncludingCountry:(BOOL)arg1;
-@property(readonly, nonatomic) NSString *classicIdentifier;
-@property(readonly, nonatomic) NSDictionary *properties;
-@property(retain, nonatomic) NSString *name;
-@property(retain, nonatomic) NSString *countryName;
-@property(retain, nonatomic) NSString *countryOverride;
-@property(retain, nonatomic) NSString *unlocalizedName;
-@property(retain, nonatomic) NSString *unlocalizedCountryName;
-- (id)description;
 @property(retain, nonatomic) NSString *unlocalizedCountryOverride; // @synthesize unlocalizedCountryOverride=_unlocalizedCountryOverride;
 @property(retain, nonatomic) NSString *yahooCode; // @synthesize yahooCode=_yahooCode;
 @property(nonatomic) float latitude; // @synthesize latitude=_latitude;
@@ -49,6 +33,23 @@
 @property(retain, nonatomic) NSString *timeZone; // @synthesize timeZone=_timeZone;
 @property(retain, nonatomic) NSString *localeCode; // @synthesize localeCode=_localeCode;
 @property(nonatomic) int identifier; // @synthesize identifier=_identifier;
+- (id)description;
+@property(retain, nonatomic) NSString *unlocalizedCountryName;
+@property(retain, nonatomic) NSString *unlocalizedName;
+@property(retain, nonatomic) NSString *countryOverride;
+@property(retain, nonatomic) NSString *countryName;
+@property(retain, nonatomic) NSString *name;
+@property(readonly, nonatomic) NSDictionary *properties;
+@property(readonly, nonatomic) NSString *classicIdentifier;
+- (id)displayNameIncludingCountry:(BOOL)arg1;
+- (id)displayNameIncludingCountry:(BOOL)arg1 withFormat:(id)arg2;
+- (void)ensureLocalized;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)initWithSQLRow:(char **)arg1;
+- (id)initWithProperties:(id)arg1;
+- (id)init;
 
 @end
 

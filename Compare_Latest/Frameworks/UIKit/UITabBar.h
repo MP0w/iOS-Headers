@@ -6,12 +6,15 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, UIColor, UIImage, UITabBarItem;
+#import "_UIShadowedView-Protocol.h"
 
-@interface UITabBar : UIView
+@class NSArray, NSMutableArray, UIColor, UIImage, UIImageView, UITabBarItem;
+
+@interface UITabBar : UIView <_UIShadowedView>
 {
     UIView *_customizeView;
     UIView *_backgroundView;
+    UIImageView *_shadowView;
     id <UITabBarDelegate> _delegate;
     NSArray *_items;
     UITabBarItem *_selectedItem;
@@ -27,23 +30,51 @@
     NSArray *_buttonItems;
     struct __CFArray *_hiddenItems;
     id _appearanceStorage;
+    float _nextSelectionSlideDuration;
+    float _tabButtonWidth;
+    float _interTabButtonSpacing;
+    BOOL _dividerImagesChangeWithSelection;
+    BOOL _dividerImagesAreInvalid;
+    NSMutableArray *_dividerImageViews;
 }
 
++ (float)defaultHeightForBarSize:(int)arg1;
++ (float)_buttonGap;
+@property(retain, nonatomic, setter=_setDividerImageViews:) NSMutableArray *_dividerImageViews; // @synthesize _dividerImageViews;
+@property(nonatomic, setter=_setDividerImagesAreInvalid:) BOOL _dividerImagesAreInvalid; // @synthesize _dividerImagesAreInvalid;
+@property(nonatomic, setter=_setDividerImagesChangeWithSelection:) BOOL _dividerImagesChangeWithSelection; // @synthesize _dividerImagesChangeWithSelection;
+@property(nonatomic, setter=_setInterTabButtonSpacing:) float _interTabButtonSpacing; // @synthesize _interTabButtonSpacing;
+@property(nonatomic, setter=_setTabButtonWidth:) float _tabButtonWidth; // @synthesize _tabButtonWidth;
+@property(nonatomic, setter=_setNextSelectionSlideDuration:) float _nextSelectionSlideDuration; // @synthesize _nextSelectionSlideDuration;
 @property(nonatomic) id <UITabBarDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)_dividerImageForLeftButtonState:(unsigned int)arg1 rightButtonState:(unsigned int)arg2;
+- (void)_setDividerImage:(id)arg1 forLeftButtonState:(unsigned int)arg2 rightButtonState:(unsigned int)arg3;
+- (void)_invalidateDividerImages;
+- (id)_shadowView;
 @property(retain, nonatomic) UIColor *selectedImageTintColor;
 @property(retain, nonatomic) UIColor *tintColor;
 - (void)_updateTintedImages:(id)arg1 selected:(BOOL)arg2;
 @property(retain, nonatomic) UIImage *selectionIndicatorImage;
+@property(retain, nonatomic) UIImage *shadowImage;
 @property(retain, nonatomic) UIImage *backgroundImage;
 - (BOOL)isCustomizing;
 - (BOOL)endCustomizingAnimated:(BOOL)arg1;
 - (void)beginCustomizingItems:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (void)removeConstraint:(id)arg1;
+- (void)addConstraint:(id)arg1;
+- (void)setTranslatesAutoresizingMaskIntoConstraints:(BOOL)arg1;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (void)_showItemsAnimated:(BOOL)arg1;
+- (void)_hideItemsAnimated:(BOOL)arg1;
 - (void)setItems:(id)arg1 animated:(BOOL)arg2;
 - (void)_finishSetItems:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)_sendAction:(id)arg1 withEvent:(id)arg2;
 @property(nonatomic) UITabBarItem *selectedItem;
+- (void)_animateSelectionChangeFromView:(id)arg1 toView:(id)arg2 duration:(float)arg3;
+- (id)_topmostDividerImageView;
 @property(copy, nonatomic) NSArray *items;
 - (void)setLocked:(BOOL)arg1;
 - (BOOL)isLocked;
@@ -54,6 +85,55 @@
 - (id)initWithCoder:(id)arg1;
 - (BOOL)_canDrawContent;
 - (BOOL)_subclassImplementsDrawRect;
+- (void)_setLabelShadowOffset:(struct CGSize)arg1;
+- (void)_setLabelShadowColor:(id)arg1;
+- (void)_setLabelTextColor:(id)arg1 selectedTextColor:(id)arg2;
+- (void)_setLabelFont:(id)arg1;
+- (void)_setSelectionIndicatorImage:(id)arg1;
+- (void)_setBackgroundImage:(id)arg1;
+- (id)_appearanceStorage;
+@property(retain, nonatomic, setter=_setBackgroundView:) UIView *_backgroundView;
+- (void)setButtonItems:(id)arg1;
+- (id)buttonItems;
+- (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
+- (void)drawRect:(struct CGRect)arg1;
+- (void)setBounds:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setAutoresizingMask:(unsigned int)arg1;
+- (void)setBadgeAnimated:(BOOL)arg1 forButton:(int)arg2;
+- (void)setBadgeGlyph:(id)arg1 forButton:(int)arg2;
+- (void)setBadgeValue:(id)arg1 forButton:(int)arg2;
+- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)dismissCustomizeSheet:(BOOL)arg1;
+- (void)_tabBarFinishedAnimating;
+- (void)_activityViewControllerIsDisappearing:(id)arg1;
+- (void)_activityViewControllerIsAppearing:(id)arg1;
+- (void)_alertDidHide;
+- (void)_alertWillShow:(BOOL)arg1 duration:(float)arg2;
+- (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
+- (void)_positionTabBarButtons:(id)arg1 ignoringItem:(id)arg2;
+- (void)_updateDividerImagesIfNecessary;
+- (void)_configureTabBarReplacingItem:(id)arg1 withNewItem:(id)arg2 dragging:(BOOL)arg3 swapping:(BOOL)arg4;
+- (void)_updateAppearanceCustomizationIfNecessaryForItem:(id)arg1;
+- (void)_customizeWithAvailableItems:(id)arg1;
+- (void)_finishCustomizeAnimation:(id)arg1;
+- (void)_customizeDoneButtonAction:(id)arg1;
+- (void)_dismissCustomizeSheet:(BOOL)arg1;
+- (void)_adjustButtonSelection:(id)arg1;
+- (void)_buttonCancel:(id)arg1;
+- (void)_buttonUp:(id)arg1;
+- (void)_buttonDownDelayed:(id)arg1;
+- (void)_buttonDown:(id)arg1;
+- (void)_updateBackgroundImage;
+- (BOOL)_isHidden:(id)arg1;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+- (float)_autolayoutSpacingAtEdge:(int)arg1 nextToNeighbor:(id)arg2;
+- (float)_autolayoutSpacingAtEdge:(int)arg1 inContainer:(id)arg2;
+- (BOOL)_hasCustomAutolayoutNeighborSpacing;
 
 @end
 

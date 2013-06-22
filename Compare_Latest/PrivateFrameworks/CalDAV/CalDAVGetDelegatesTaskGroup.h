@@ -14,17 +14,17 @@
     NSMutableArray *_nestedGroupPrincipalURLs;
 }
 
-- (void)dealloc;
-- (id)initWithAccountInfoProvider:(id)arg1 principalURL:(id)arg2 taskManager:(id)arg3;
-- (void)_finishWithError:(id)arg1 state:(int)arg2;
-- (void)_expandProperties;
-- (void)_getGroupMembershipForURL:(id)arg1 state:(int)arg2;
-- (void)_getChildProperties;
-- (void)startTaskGroup;
-- (void)task:(id)arg1 didFinishWithError:(id)arg2;
-- (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
 @property(retain) NSMutableArray *nestedGroupPrincipalURLs; // @synthesize nestedGroupPrincipalURLs=_nestedGroupPrincipalURLs;
 @property int state; // @synthesize state=_state;
+- (void)taskGroup:(id)arg1 didFinishWithError:(id)arg2;
+- (void)task:(id)arg1 didFinishWithError:(id)arg2;
+- (void)startTaskGroup;
+- (void)_getChildProperties;
+- (void)_getGroupMembershipForURL:(id)arg1 state:(int)arg2;
+- (void)_expandProperties;
+- (void)_finishWithError:(id)arg1 state:(int)arg2;
+- (id)initWithAccountInfoProvider:(id)arg1 principalURL:(id)arg2 taskManager:(id)arg3;
+- (void)dealloc;
 
 @end
 

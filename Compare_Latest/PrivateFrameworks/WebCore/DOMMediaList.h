@@ -12,13 +12,13 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(copy) NSString *mediaText;
-@property(readonly) unsigned int length;
-- (id)item:(unsigned int)arg1;
-- (void)deleteMedium:(id)arg1;
 - (void)appendMedium:(id)arg1;
+- (void)deleteMedium:(id)arg1;
+- (id)item:(unsigned int)arg1;
+@property(readonly) unsigned int length;
+@property(copy) NSString *mediaText;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

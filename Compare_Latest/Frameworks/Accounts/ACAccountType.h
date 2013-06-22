@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ACAccountStore, NSString, NSURL;
+@class ACAccountStore, NSSet, NSString, NSURL;
 
 @interface ACAccountType : NSObject
 {
@@ -18,24 +18,33 @@
     int _visibility;
     id _credentialProtectionPolicy;
     ACAccountStore *_accountStore;
+    int _supportsAuthentication;
+    int _maximumSavedAllowed;
+    BOOL _supportsMultipleAccounts;
+    NSSet *_supportedDataclasses;
+    NSSet *_syncableDataclasses;
+    NSSet *_accessKeys;
 }
 
-@property(nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
-@property(readonly, nonatomic) BOOL authenticationSupported;
+@property(nonatomic) __weak ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSSet *accessKeys; // @synthesize accessKeys=_accessKeys;
+@property(readonly, nonatomic) BOOL supportsMultipleAccounts; // @synthesize supportsMultipleAccounts=_supportsMultipleAccounts;
+@property(nonatomic) int supportsAuthentication; // @synthesize supportsAuthentication=_supportsAuthentication;
 @property(readonly, nonatomic) BOOL accessGranted;
 @property(copy, nonatomic) id credentialProtectionPolicy;
 @property(nonatomic) int visibility;
 @property(nonatomic) int credentialAvailability;
-- (id)credentialType;
+@property(readonly, nonatomic) NSString *credentialType; // @synthesize credentialType=_credentialType;
 - (void)setCredentialType:(id)arg1;
 @property(retain, nonatomic) NSURL *objectID; // @synthesize objectID=_objectID;
 - (void)setAccountTypeDescription:(id)arg1;
 @property(readonly, nonatomic) NSString *accountTypeDescription; // @synthesize accountTypeDescription=_accountTypeDescription;
 - (void)setIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (id)supportedDataclasses;
+@property(readonly, nonatomic) NSSet *syncableDataclasses; // @synthesize syncableDataclasses=_syncableDataclasses;
+@property(readonly, nonatomic) NSSet *supportedDataclasses; // @synthesize supportedDataclasses=_supportedDataclasses;
 - (id)description;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 description:(id)arg2;

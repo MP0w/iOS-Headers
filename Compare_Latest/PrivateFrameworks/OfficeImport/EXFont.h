@@ -11,6 +11,8 @@
 }
 
 + (id)edFontFromXmlFontElement:(struct _xmlNode *)arg1 inConditionalFormat:(_Bool)arg2 state:(id)arg3;
++ (int)edUnderlineFromXmlUnderlineElement:(struct _xmlNode *)arg1;
++ (int)edScriptFromXmlVertAlignElement:(struct _xmlNode *)arg1;
 
 @end
 

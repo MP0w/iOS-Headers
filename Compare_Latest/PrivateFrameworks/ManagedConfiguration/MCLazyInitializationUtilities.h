@@ -10,7 +10,5 @@
 {
 }
 
-+ (void)initUIApplication;
-
 @end
 

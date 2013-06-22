@@ -9,7 +9,6 @@
 @protocol TLVibrationPickerViewControllerDelegate <NSObject>
 
 @optional
-- (void)vibrationPickerViewController:(id)arg1 willPlayVibrationWithIdentifier:(id)arg2;
 - (void)vibrationPickerViewController:(id)arg1 selectedVibrationWithIdentifier:(id)arg2;
 @end
 

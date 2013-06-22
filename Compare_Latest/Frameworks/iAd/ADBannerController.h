@@ -6,46 +6,48 @@
 
 #import "NSObject.h"
 
-@class ADHostWindowController, NSString, UIView<ADBannerControllerDelegate>;
+@class ADAdRecipientRecord, ADLocalViewController, NSString;
 
 @interface ADBannerController : NSObject
 {
-    UIView<ADBannerControllerDelegate> *_delegate;
-    ADHostWindowController *_hostWindowController;
+    BOOL _closeInProgress;
+    ADAdRecipientRecord *_recipient;
     BOOL _isOpen;
     BOOL _bannerWillLeaveApplication;
     NSString *_identifier;
     double _createdAt;
     id _remoteSession;
     id _remoteBannerController;
-    BOOL _storyboardSupportsPortrait;
-    BOOL _storyboardSupportsPortraitUpsideDown;
-    BOOL _storyboardSupportsLandscapeLeft;
-    BOOL _storyboardSupportsLandscapeRight;
+    ADLocalViewController *_localViewController;
+    int _supportedOrientations;
+    int _adType;
+    unsigned int _remoteWindowContextId;
+    int _adState;
 }
 
-@property BOOL storyboardSupportsLandscapeRight; // @synthesize storyboardSupportsLandscapeRight=_storyboardSupportsLandscapeRight;
-@property BOOL storyboardSupportsLandscapeLeft; // @synthesize storyboardSupportsLandscapeLeft=_storyboardSupportsLandscapeLeft;
-@property BOOL storyboardSupportsPortraitUpsideDown; // @synthesize storyboardSupportsPortraitUpsideDown=_storyboardSupportsPortraitUpsideDown;
-@property BOOL storyboardSupportsPortrait; // @synthesize storyboardSupportsPortrait=_storyboardSupportsPortrait;
+@property(readonly, nonatomic) int adState; // @synthesize adState=_adState;
+@property(readonly, nonatomic) unsigned int remoteWindowContextId; // @synthesize remoteWindowContextId=_remoteWindowContextId;
+@property(readonly, nonatomic) int adType; // @synthesize adType=_adType;
+@property(nonatomic) int supportedOrientations; // @synthesize supportedOrientations=_supportedOrientations;
+@property(retain, nonatomic) ADLocalViewController *localViewController; // @synthesize localViewController=_localViewController;
 @property(retain, nonatomic) id remoteBannerController; // @synthesize remoteBannerController=_remoteBannerController;
 @property(retain, nonatomic) id remoteSession; // @synthesize remoteSession=_remoteSession;
 @property double createdAt; // @synthesize createdAt=_createdAt;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) BOOL bannerWillLeaveApplication; // @synthesize bannerWillLeaveApplication=_bannerWillLeaveApplication;
 @property(readonly, nonatomic) BOOL isOpen; // @synthesize isOpen=_isOpen;
-@property(retain, nonatomic) ADHostWindowController *hostWindowController; // @synthesize hostWindowController=_hostWindowController;
-@property(nonatomic) UIView<ADBannerControllerDelegate> *delegate; // @synthesize delegate=_delegate;
-- (void)checkForSessionOpenTimeout;
+@property(nonatomic) ADAdRecipientRecord *recipient; // @synthesize recipient=_recipient;
+- (void)_remote_dismissModalViewController:(id)arg1;
+- (void)_remote_presentModalViewController:(id)arg1;
+- (void)_remote_storyboardDismissedLocalViewController:(id)arg1;
 - (void)_remote_storyboardDidChangeSupportedOrientations:(id)arg1;
-- (void)_remote_storyboardDidFinishFirstSignificantDraw:(id)arg1;
-- (void)_remote_storyboardDidTransitionOut:(id)arg1;
-- (void)_remote_storyboardWillTransitionOut:(id)arg1;
-- (void)_remote_storyboardDidTransitionIn:(id)arg1;
-- (void)_remote_storyboardWillTransitionIn:(id)arg1;
+- (void)_remote_setStatusBarVisibility:(id)arg1;
+- (void)_remote_dismissRemoteViewController:(id)arg1;
+- (void)_remote_presentRemoteViewController:(id)arg1;
+- (void)_remote_requestRemoteViewController:(id)arg1;
 - (void)_remote_openURL:(id)arg1;
 - (void)_remote_bannerControllerDidOpen:(id)arg1;
-- (void)_remote_interstitialViewExpiredAndWasUnloaded:(id)arg1;
+- (void)_remote_adExpiredAndWasUnloaded:(id)arg1;
 - (void)_remote_bannerViewDidFail:(id)arg1;
 - (void)_remote_bannerViewDidLoadAd:(id)arg1;
 - (void)_remote_bannerViewWillLoadAd:(id)arg1;
@@ -53,29 +55,21 @@
 - (void)applicationDidResignActive:(id)arg1;
 - (void)applicationDidBecomeActive:(id)arg1;
 - (void)applicationWillEnterForeground:(id)arg1;
-- (void)unloadAndClose;
 - (void)interstitialTouchedDismissAreaWithControlEvent:(unsigned int)arg1;
-- (void)loadDebuggerFromPath:(id)arg1 portName:(id)arg2;
-- (void)setAuthenticationUserName:(id)arg1;
-- (void)loadLocalAd:(id)arg1;
 - (void)interstitialPresentedInView:(BOOL)arg1;
-- (void)controllerKeysDidChange:(id)arg1;
-- (void)bannerKeysDidChange:(id)arg1;
-- (id)keysDidChangeMessageDictionary:(id)arg1;
 - (void)interstitialWasRemovedFromSuperview:(id)arg1;
-- (void)bannerFrameDidChange:(struct CGRect)arg1 viewControllerOrientation:(int)arg2;
-- (void)updateSpecification;
+- (void)updateAdViewProperties:(id)arg1;
 - (void)handleBannerVisibilityHeartbeatNotification:(id)arg1;
+- (void)reportVisibility:(int)arg1;
 - (void)cancelBannerViewAction;
 - (void)refuseBannerViewAction;
 - (void)executeBannerViewActionFrom:(struct CGRect)arg1 withClickLocation:(struct CGPoint)arg2;
 - (void)close;
 - (void)_closeAndReportError:(id)arg1;
 - (void)_close;
-- (void)open;
-- (void)dismissHostWindowController;
+- (void)dismissLocalViewController;
 - (void)_adSheetConnectionLost;
-- (id)init;
+- (id)initForAdRecipient:(id)arg1;
 - (void)dealloc;
 - (id)description;
 

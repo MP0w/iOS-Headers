@@ -8,14 +8,16 @@
 
 @interface WAKClipView : WAKView
 {
+    WAKView *_documentView;
+    BOOL _copiesOnScroll;
 }
 
-- (void)setDocumentView:(id)arg1;
-- (id)documentView;
-- (BOOL)copiesOnScroll;
-- (void)setCopiesOnScroll:(BOOL)arg1;
+@property(nonatomic) BOOL copiesOnScroll; // @synthesize copiesOnScroll=_copiesOnScroll;
+@property(readonly, nonatomic) WAKView *documentView; // @synthesize documentView=_documentView;
 - (struct CGRect)documentVisibleRect;
-- (void)drawRect:(struct CGRect)arg1;
+- (void)_setDocumentView:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

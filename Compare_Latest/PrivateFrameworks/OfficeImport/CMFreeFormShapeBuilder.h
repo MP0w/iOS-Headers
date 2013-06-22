@@ -14,12 +14,13 @@
     struct CGSize _space;
 }
 
-- (void)dealloc;
-- (void)setPath:(id)arg1;
-- (void)setSpace:(struct CGSize)arg1;
-- (struct CGAffineTransform)affineTransform;
-- (struct CGPath *)createShapeWithTransform:(struct CGAffineTransform)arg1;
+- (id).cxx_construct;
 - (struct CGPoint)_renderPathElement:(id)arg1 withTransform:(struct CGAffineTransform)arg2 inPath:(struct CGPath *)arg3;
+- (struct CGPath *)copyShapeWithTransform:(struct CGAffineTransform)arg1;
+- (struct CGAffineTransform)affineTransform;
+- (void)setSpace:(struct CGSize)arg1;
+- (void)setPath:(id)arg1;
+- (void)dealloc;
 
 @end
 

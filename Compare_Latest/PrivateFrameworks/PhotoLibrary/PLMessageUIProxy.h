@@ -10,10 +10,14 @@
 {
 }
 
++ (id)newABUnknownPersonViewControllerWithEmailAddress:(id)arg1;
++ (Class)MFSearchShadowViewClass;
++ (Class)MFRecipientTableViewCellClass;
++ (Class)MFContactsSearchResultsModelClass;
++ (Class)MFContactsSearchManagerClass;
++ (Class)MFComposeRecipientClass;
++ (Class)_MFComposeRecipientViewClass;
 + (BOOL)canSendMail;
-+ (id)newMailCompositionContext;
-+ (Class)MailCompositionContextClass;
-+ (id)newComposeViewControllerWithComposition:(id)arg1;
 + (id)newComposeViewController;
 + (Class)MFMailComposeViewControllerClass;
 

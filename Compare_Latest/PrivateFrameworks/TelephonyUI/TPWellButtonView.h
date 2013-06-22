@@ -14,9 +14,9 @@
     TPWell *_well;
 }
 
-- (id)initWithTitle:(id)arg1 icon:(id)arg2 color:(int)arg3 frame:(struct CGRect)arg4;
-- (void)dealloc;
 @property(retain, nonatomic) TPButton *button; // @synthesize button=_button;
+- (void)dealloc;
+- (id)initWithTitle:(id)arg1 icon:(id)arg2 color:(int)arg3 frame:(struct CGRect)arg4;
 
 @end
 

@@ -11,6 +11,7 @@
 }
 
 + (struct CGRect)constrainFrameToScreen:(struct CGRect)arg1;
+- (void)becomeKeyWindow;
 
 @end
 

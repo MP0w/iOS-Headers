@@ -22,6 +22,8 @@
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (void)dealloc;
 - (id)init;
+- (id)assetsFromOffset:(unsigned int)arg1 count:(unsigned int)arg2;
+- (unsigned int)getPTPdInfo:(id *)arg1 count:(unsigned int)arg2 fetchOffset:(unsigned int)arg3;
 
 @end
 

@@ -6,15 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class NSDate, NSMutableDictionary;
 
 @interface MarcoLogServer : NSObject
 {
     NSMutableDictionary *_sessions;
+    NSDate *_lastActivity;
+    BOOL _pendingInactivityTimer;
     BOOL _automationRunning;
 }
 
 + (id)sharedInstance;
+- (void)localPreviewEvent:(id)arg1 level:(int)arg2 category:(id)arg3 sender:(id)arg4 pid:(int)arg5;
+- (void)localPreviewLog:(id)arg1 level:(int)arg2 category:(id)arg3 sender:(id)arg4 pid:(int)arg5;
 - (void)registrationEvent:(id)arg1 level:(int)arg2 category:(id)arg3 sender:(id)arg4 pid:(int)arg5;
 - (void)registrationLog:(id)arg1 level:(int)arg2 category:(id)arg3 sender:(id)arg4 pid:(int)arg5;
 - (void)event:(id)arg1 level:(int)arg2 category:(id)arg3 sender:(id)arg4 pid:(int)arg5;
@@ -44,6 +48,7 @@
 - (void)endAllSessions;
 - (void)_sessionBecameInactive:(id)arg1;
 - (void)_setInactivityTimer;
+- (void)_noteActivity;
 - (void)_clearInactivityTimer;
 - (void)_serverBecameInactive;
 - (void)dealloc;

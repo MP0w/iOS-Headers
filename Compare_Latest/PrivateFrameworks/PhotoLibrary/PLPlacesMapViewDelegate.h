@@ -20,6 +20,7 @@
     unsigned int _activeSplits;
     PLAnnotationPen *_pendingAdds;
     CDStruct_feeb6407 _previousRegion;
+    float _previousZoomLevel;
     id <PlacesMapViewDelegateDetailsDelegate> _detailsDelegate;
 }
 
@@ -33,7 +34,6 @@
 - (void)mapView:(id)arg1 annotationView:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
 - (id)_borderedPosterImageFromImage:(id)arg1 withSize:(struct CGSize)arg2;
 - (id)mapView:(id)arg1 viewForAnnotation:(id)arg2;
-- (BOOL)_didMapViewChangeZoomLevel:(id)arg1;
 - (void)mapView:(id)arg1 regionDidChangeAnimated:(BOOL)arg2;
 - (void)mapViewWillStartLoadingMap:(id)arg1;
 - (void)updateMapView:(id)arg1 WithAddedAssets:(id)arg2 deletedAssets:(id)arg3 updatedAssets:(id)arg4;
@@ -41,6 +41,9 @@
 - (void)setDetailsDelegate:(id)arg1;
 - (void)dealloc;
 - (id)initWithPlaces:(id)arg1;
+- (BOOL)_displaysAlbumPosterOnLeft;
+- (BOOL)_displayMoreDetailsButton;
+- (id)_createAnnotationViewWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

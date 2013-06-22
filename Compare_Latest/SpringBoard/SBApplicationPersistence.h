@@ -6,29 +6,29 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface SBApplicationPersistence : NSObject
 {
     NSMutableDictionary *_state;
     BOOL _dirty;
-    struct dispatch_queue_s *_stateQueue;
-    struct dispatch_queue_s *_writeQueue;
+    NSObject<OS_dispatch_queue> *_stateQueue;
+    NSObject<OS_dispatch_queue> *_writeQueue;
 }
 
-+ (id)sharedInstance;
-+ (id)_statePath;
 + (void)migrateSystemLocalNotifications;
-- (id)init;
-- (id)valueForKey:(id)arg1 bundleOrDisplayIdentifier:(id)arg2 ofType:(Class)arg3;
-- (void)setValue:(id)arg1 forKey:(id)arg2 bundleOrDisplayIdentifier:(id)arg3;
-- (id)archivedObjectForKey:(id)arg1 bundleOrDisplayIdentifier:(id)arg2 ofType:(Class)arg3;
-- (void)setArchivedObject:(id)arg1 forKey:(id)arg2 bundleOrDisplayIdentifier:(id)arg3;
-- (id)allBundleOrDisplayIdentifiersWithState;
-- (void)purgeKeysForBundleAndDisplayIdentifiersOtherThan:(id)arg1;
-- (void)flushSynchronously;
-- (void)_flushSynchronously;
++ (id)_statePath;
++ (id)sharedInstance;
 - (void)_markDirty;
+- (void)_flushSynchronously;
+- (void)flushSynchronously;
+- (void)purgeKeysForBundleAndDisplayIdentifiersOtherThan:(id)arg1;
+- (id)allBundleOrDisplayIdentifiersWithState;
+- (void)setArchivedObject:(id)arg1 forKey:(id)arg2 bundleOrDisplayIdentifier:(id)arg3;
+- (id)archivedObjectForKey:(id)arg1 bundleOrDisplayIdentifier:(id)arg2 ofType:(Class)arg3;
+- (void)setValue:(id)arg1 forKey:(id)arg2 bundleOrDisplayIdentifier:(id)arg3;
+- (id)valueForKey:(id)arg1 bundleOrDisplayIdentifier:(id)arg2 ofType:(Class)arg3;
+- (id)init;
 
 @end
 

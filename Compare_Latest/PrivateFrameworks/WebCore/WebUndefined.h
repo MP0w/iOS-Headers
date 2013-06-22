@@ -13,17 +13,17 @@
 {
 }
 
-+ (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)undefined;
-- (id)description;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)retain;
-- (oneway void)release;
-- (unsigned int)retainCount;
-- (id)autorelease;
++ (id)allocWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+- (id)autorelease;
+- (unsigned int)retainCount;
+- (oneway void)release;
+- (id)retain;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)description;
 
 @end
 

@@ -15,17 +15,17 @@
 }
 
 + (id)indexSet;
-- (void)dealloc;
-- (void)_incrementStorageIfNecessaryForCount:(unsigned int)arg1;
-- (void)_garbageCollectStorageIfNecessary;
-- (void)addIndex:(unsigned long long)arg1;
-- (void)addIndexes:(id)arg1;
-- (void)removeIndex:(unsigned long long)arg1;
-- (BOOL)containsIndex:(unsigned long long)arg1;
-- (unsigned int)count;
-- (unsigned long long)firstIndex;
-- (unsigned long long)indexGreaterThanIndex:(unsigned long long)arg1;
 - (id)description;
+- (unsigned long long)indexGreaterThanIndex:(unsigned long long)arg1;
+- (unsigned long long)firstIndex;
+- (unsigned int)count;
+- (BOOL)containsIndex:(unsigned long long)arg1;
+- (void)removeIndex:(unsigned long long)arg1;
+- (void)addIndexes:(id)arg1;
+- (void)addIndex:(unsigned long long)arg1;
+- (void)_garbageCollectStorageIfNecessary;
+- (void)_incrementStorageIfNecessaryForCount:(unsigned int)arg1;
+- (void)dealloc;
 
 @end
 

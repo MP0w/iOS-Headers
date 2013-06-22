@@ -17,20 +17,20 @@
     int mType;
 }
 
-- (id)init;
-- (void)dealloc;
-- (int)timeNodeDataListCount;
-- (id)timeNodeDataAtIndex:(int)arg1;
-- (id)addTimeNodeData;
-- (id)timeNodeDataList;
-- (double)autoAdvanceTime;
-- (void)setAutoAdvanceTime:(double)arg1;
-- (BOOL)isReversedParagraphOrder;
-- (void)setIsReversedParagraphOrder:(BOOL)arg1;
-- (int)buildLevel;
-- (void)setBuildLevel:(int)arg1;
-- (int)type;
 - (void)setType:(int)arg1;
+- (int)type;
+- (void)setBuildLevel:(int)arg1;
+- (int)buildLevel;
+- (void)setIsReversedParagraphOrder:(BOOL)arg1;
+- (BOOL)isReversedParagraphOrder;
+- (void)setAutoAdvanceTime:(double)arg1;
+- (double)autoAdvanceTime;
+- (id)timeNodeDataList;
+- (id)addTimeNodeData;
+- (id)timeNodeDataAtIndex:(int)arg1;
+- (int)timeNodeDataListCount;
+- (void)dealloc;
+- (id)init;
 
 @end
 

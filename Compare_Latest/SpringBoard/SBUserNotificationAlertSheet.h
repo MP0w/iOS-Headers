@@ -13,11 +13,11 @@
     UIImage *_alertImage;
 }
 
-- (void)dismissWithClickedButtonIndex:(int)arg1 animated:(BOOL)arg2;
-- (void)layout;
-- (void)dealloc;
-- (id)_maskedAlertImage;
 @property(retain, nonatomic) UIImage *alertImage; // @synthesize alertImage=_alertImage;
+- (id)_maskedAlertImage;
+- (void)dealloc;
+- (void)layout;
+- (void)dismissWithClickedButtonIndex:(int)arg1 animated:(BOOL)arg2;
 
 @end
 

@@ -11,10 +11,10 @@
     struct __CFDictionary *_dictionary;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)setObject:(id)arg1 forCStringKey:(char *)arg2;
 - (id)getObjectForCStringKey:(char *)arg1;
+- (void)setObject:(id)arg1 forCStringKey:(char *)arg2;
+- (void)dealloc;
+- (id)init;
 
 @end
 

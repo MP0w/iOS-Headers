@@ -17,34 +17,38 @@
     void *_priv;
 }
 
-+ (id)lightWithType:(id)arg1;
 + (id)defaultValueForKey:(id)arg1;
-- (id)init;
-- (id)initWithType:(id)arg1;
-@property(copy) NSString *type;
-@property(copy) NSString *name;
-@property(getter=isEnabled) BOOL enabled;
-@property float intensity;
-@property float ambientIntensity;
-@property float diffuseIntensity;
-@property float specularIntensity;
-@property struct CGColor *color;
-@property struct CAPoint3D direction;
-@property struct CAPoint3D position;
-@property float falloffDistance;
-@property float falloff;
-@property float coneAngle;
-@property float coneEdgeSoftness;
-- (void)dealloc;
-- (struct Object *)CA_copyRenderValue;
-- (id)valueForKey:(id)arg1;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)valueForKeyPath:(id)arg1;
-- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)shouldArchiveValueForKey:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
++ (id)lightWithType:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (BOOL)shouldArchiveValueForKey:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
+- (id)valueForKeyPath:(id)arg1;
+- (void)setValue:(id)arg1 forKey:(id)arg2;
+- (id)valueForKey:(id)arg1;
+- (struct Object *)CA_copyRenderValue;
+- (void)dealloc;
+@property(copy) NSString *imageBlendMode;
+@property float imageNormalAngle;
+@property float imageRotation;
+@property(retain) id image;
+@property float coneEdgeSoftness;
+@property float coneAngle;
+@property float falloff;
+@property float falloffDistance;
+@property struct CAPoint3D position;
+@property struct CAPoint3D direction;
+@property struct CGColor *color;
+@property float specularIntensity;
+@property float diffuseIntensity;
+@property float ambientIntensity;
+@property float intensity;
+@property(getter=isEnabled) BOOL enabled;
+@property(copy) NSString *name;
+@property(copy) NSString *type;
+- (id)initWithType:(id)arg1;
+- (id)init;
 
 @end
 

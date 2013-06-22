@@ -12,14 +12,14 @@
 {
 }
 
-+ (id)defaultValueForKey:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-- (void)scrollToPoint:(struct CGPoint)arg1;
-- (void)scrollToRect:(struct CGRect)arg1;
-- (void)_scrollPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
-- (void)_scrollRect:(struct CGRect)arg1 fromLayer:(id)arg2;
-- (struct CGRect)_visibleRectOfLayer:(id)arg1;
++ (id)defaultValueForKey:(id)arg1;
 @property(copy) NSString *scrollMode;
+- (struct CGRect)_visibleRectOfLayer:(id)arg1;
+- (void)_scrollRect:(struct CGRect)arg1 fromLayer:(id)arg2;
+- (void)_scrollPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
+- (void)scrollToRect:(struct CGRect)arg1;
+- (void)scrollToPoint:(struct CGPoint)arg1;
 
 @end
 

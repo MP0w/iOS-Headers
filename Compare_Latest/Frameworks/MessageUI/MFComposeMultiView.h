@@ -17,16 +17,16 @@
     BOOL _imageSizeShown;
 }
 
-- (void)dealloc;
-- (id)accountLabel;
-- (struct CGRect)_initialLabelFrame;
-- (id)imageSizeLabel;
-- (id)placeholderImageSizeLabel;
-- (id)imageSizeHeaderLabelView;
-- (void)setAccountDescription:(id)arg1;
-- (void)setImageSizeDescription:(id)arg1;
-- (void)setShowsImageSize:(BOOL)arg1;
 - (void)layoutSubviews;
+- (void)setShowsImageSize:(BOOL)arg1;
+- (void)setImageSizeDescription:(id)arg1;
+- (void)setAccountDescription:(id)arg1;
+- (id)imageSizeHeaderLabelView;
+- (id)placeholderImageSizeLabel;
+- (id)imageSizeLabel;
+- (struct CGRect)_initialLabelFrame;
+- (id)accountLabel;
+- (void)dealloc;
 
 @end
 

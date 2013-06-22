@@ -13,6 +13,7 @@
 @interface FTProvisionMessage : FTMessage <NSCopying>
 {
     NSString *_service;
+    NSDictionary *_linkInfo;
     NSString *_realm;
     NSData *_csr;
     NSDictionary *_authenticationInfo;
@@ -31,6 +32,7 @@
 @property(copy) NSDictionary *authenticationInfo; // @synthesize authenticationInfo=_authenticationInfo;
 @property(copy) NSData *csr; // @synthesize csr=_csr;
 @property(copy) NSString *realm; // @synthesize realm=_realm;
+@property(copy) NSDictionary *linkInfo; // @synthesize linkInfo=_linkInfo;
 @property(copy) NSString *service; // @synthesize service=_service;
 - (void)handleResponseDictionary:(id)arg1;
 - (id)additionalMessageHeaders;

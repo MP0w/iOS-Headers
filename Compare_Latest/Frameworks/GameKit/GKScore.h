@@ -7,19 +7,28 @@
 #import "NSObject.h"
 
 #import "NSCoding-Protocol.h"
+#import "NSCopying-Protocol.h"
 
-@class GKScoreInternal, NSDate, NSString;
+@class GKGame, GKScoreInternal, NSDate, NSString;
 
-@interface GKScore : NSObject <NSCoding>
+@interface GKScore : NSObject <NSCopying, NSCoding>
 {
     GKScoreInternal *_internal;
     BOOL _shouldSetDefaultLeaderboard;
+    GKGame *_game;
+    BOOL _valueSet;
 }
 
++ (void)reportScores:(id)arg1 withCompletionHandler:(id)arg2;
++ (BOOL)instancesRespondToSelector:(SEL)arg1;
+@property BOOL valueSet; // @synthesize valueSet=_valueSet;
 @property(nonatomic) BOOL shouldSetDefaultLeaderboard; // @synthesize shouldSetDefaultLeaderboard=_shouldSetDefaultLeaderboard;
 @property(retain, nonatomic) GKScoreInternal *internal; // @synthesize internal=_internal;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (id)description;
 - (void)reportScoreWithCompletionHandler:(id)arg1;
+@property(nonatomic) GKGame *game; // @synthesize game=_game;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
@@ -27,18 +36,30 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithCategory:(id)arg1;
+@property(nonatomic) long long value; // @dynamic value;
 - (id)init;
 - (id)initWithInternalRepresentation:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+- (void)issueChallengeToPlayers:(id)arg1 message:(id)arg2;
+- (void)issueChallengeForGame:(id)arg1 toPlayers:(id)arg2 message:(id)arg3;
+- (void)_gkSetSharingInfo:(id)arg1;
+- (id)_gkSharingInfo;
+- (id)activityViewControllerSubject:(id)arg1;
+- (int)activityViewController:(id)arg1 attachmentULRTypeForActivityType:(id)arg2;
+- (id)activityViewController:(id)arg1 thumbnailForActivityType:(id)arg2;
+- (id)activityViewController:(id)arg1 itemsForActivityType:(id)arg2;
+- (id)activityViewControllerPlaceholderItems:(id)arg1;
+- (BOOL)canBeShared;
 
 // Remaining properties
 @property(retain, nonatomic) NSString *category; // @dynamic category;
 @property(nonatomic) unsigned long long context; // @dynamic context;
 @property(readonly, nonatomic) NSDate *date; // @dynamic date;
 @property(retain, nonatomic) NSString *formattedValue; // @dynamic formattedValue;
+@property(retain, nonatomic) NSString *groupIdentifier; // @dynamic groupIdentifier;
 @property(retain, nonatomic) NSString *playerID; // @dynamic playerID;
 @property(nonatomic) int rank; // @dynamic rank;
-@property(nonatomic) long long value; // @dynamic value;
 
 @end
 

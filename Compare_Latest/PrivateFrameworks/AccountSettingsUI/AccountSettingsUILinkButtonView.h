@@ -6,11 +6,11 @@
 
 #import "UIView.h"
 
-#import "PreferencesTableCustomView-Protocol.h"
+#import "PSHeaderFooterView-Protocol.h"
 
 @class AccountSettingsUILinkButton, NSString, NSURL, UIFont, UIImageView;
 
-@interface AccountSettingsUILinkButtonView : UIView <PreferencesTableCustomView>
+@interface AccountSettingsUILinkButtonView : UIView <PSHeaderFooterView>
 {
     AccountSettingsUILinkButton *_linkButton;
     NSURL *_helpURL;
@@ -22,16 +22,16 @@
     BOOL _showArrow;
 }
 
-- (id)initWithSpecifier:(id)arg1;
-- (void)dealloc;
-- (void)_goToAccountURL;
-- (void)layoutSubviews;
-- (float)preferredHeightForWidth:(float)arg1;
 @property(nonatomic) BOOL showArrow; // @synthesize showArrow=_showArrow;
 @property(nonatomic) BOOL underline; // @synthesize underline=_underline;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_helpURL;
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(retain, nonatomic) NSString *text; // @synthesize text=_text;
+- (float)preferredHeightForWidth:(float)arg1;
+- (void)layoutSubviews;
+- (void)_goToAccountURL;
+- (void)dealloc;
+- (id)initWithSpecifier:(id)arg1;
 
 @end
 

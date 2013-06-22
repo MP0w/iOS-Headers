@@ -19,17 +19,17 @@
     BOOL _isCount;
 }
 
-- (id)initWithEntity:(id)arg1 alias:(id)arg2 fetchColumns:(id)arg3 inScope:(id)arg4;
-- (id)initForCorrelationTarget:(id)arg1 alias:(id)arg2 fetchColumns:(id)arg3 inScope:(id)arg4;
-- (void)dealloc;
-- (BOOL)isSelectTargetScoped;
-- (BOOL)onlyFetchesAggregates;
-- (void)setUseDistinct:(BOOL)arg1;
-- (void)setColumnAlias:(id)arg1;
-- (void)setFetchColumns:(id)arg1;
-- (void)setFetchEntity:(id)arg1;
-- (void)setIsCount:(BOOL)arg1;
 - (id)generateSQLStringInContext:(id)arg1;
+- (void)setIsCount:(BOOL)arg1;
+- (void)setFetchEntity:(id)arg1;
+- (void)setFetchColumns:(id)arg1;
+- (void)setColumnAlias:(id)arg1;
+- (void)setUseDistinct:(BOOL)arg1;
+- (BOOL)onlyFetchesAggregates;
+- (BOOL)isSelectTargetScoped;
+- (void)dealloc;
+- (id)initForCorrelationTarget:(id)arg1 alias:(id)arg2 fetchColumns:(id)arg3 inScope:(id)arg4;
+- (id)initWithEntity:(id)arg1 alias:(id)arg2 fetchColumns:(id)arg3 inScope:(id)arg4;
 
 @end
 

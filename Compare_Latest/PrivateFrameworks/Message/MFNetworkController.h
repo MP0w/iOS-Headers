@@ -20,35 +20,39 @@
     struct __CFRunLoopSource *_store_source;
     BOOL _dns;
     struct __CTServerConnection *_telephony;
-    struct __CFMachPort *_port;
-    struct __CFRunLoopSource *_port_source;
     NSMutableSet *_calls;
-    int _interface;
+    long _interface;
+    struct __SCPreferences *_wiFiPreferences;
+    BOOL _hasCellDataCapability;
+    BOOL _hasWiFiCapability;
+    BOOL _isWiFiEnabled;
+    BOOL _isRoamingAllowed;
     BOOL _data;
 }
 
-+ (id)sharedInstance;
 + (id)networkAssertionWithIdentifier:(id)arg1;
-- (id)init;
-- (void)_setUpTelephony_nts;
-- (void)_tearDownTelephony_nts;
-- (void)dealloc;
-- (void)invalidate;
-- (BOOL)_isNetworkUp_nts;
-- (BOOL)isNetworkUp;
-- (BOOL)isFatPipe;
-- (BOOL)isOnWWAN;
-- (BOOL)inAirplaneMode;
-- (BOOL)inCallWithNoData;
-- (void)_setFlags:(unsigned int)arg1 forReachability:(struct __SCNetworkReachability *)arg2;
-- (void)_checkKeys:(id)arg1 forStore:(struct __SCDynamicStore *)arg2;
-- (void)_setDataStatus_nts:(id)arg1;
-- (void)_handleNotification:(id)arg1 info:(id)arg2 forConnection:(struct __CTServerConnection *)arg3;
-- (void)_handleDeath_nts;
-- (void)_handleDeath:(struct __CFMachPort *)arg1;
-- (id)_networkAssertionWithIdentifier:(id)arg1;
-- (id)addNetworkObserverBlock:(id)arg1 queue:(void)arg2;
++ (id)sharedInstance;
 - (void)removeNetworkObserver:(id)arg1;
+- (id)addNetworkObserverBlock:(id)arg1 queue:(void)arg2;
+- (id)_networkAssertionWithIdentifier:(id)arg1;
+- (void)_handleWiFiNotification:(unsigned int)arg1;
+- (void)_handleNotification:(id)arg1 info:(id)arg2 forConnection:(struct __CTServerConnection *)arg3;
+- (void)_setDataStatus_nts:(id)arg1;
+- (void)_checkKeys:(id)arg1 forStore:(struct __SCDynamicStore *)arg2;
+- (void)_setFlags:(unsigned int)arg1 forReachability:(struct __SCNetworkReachability *)arg2;
+- (BOOL)inAirplaneMode;
+- (BOOL)isOnWWAN;
+- (BOOL)isFatPipe;
+- (BOOL)isNetworkUp;
+- (BOOL)_isNetworkUp_nts;
+- (BOOL)isDataAvailable;
+- (int)dataStatus;
+- (void)invalidate;
+- (void)dealloc;
+- (void)_tearDownTelephony_nts;
+- (void)_setUpTelephony_nts;
+- (CDStruct_dff5684f)_pollDataAndCallStatus_nts;
+- (id)init;
 
 @end
 

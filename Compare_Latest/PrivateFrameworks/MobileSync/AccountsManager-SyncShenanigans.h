@@ -7,7 +7,7 @@
 #import "AccountsManager.h"
 
 @interface AccountsManager (SyncShenanigans)
-- (id)legacyAccounts;
 - (void)setLegacyAccounts:(id)arg1 withPasswords:(id)arg2;
+- (id)legacyAccounts;
 @end
 

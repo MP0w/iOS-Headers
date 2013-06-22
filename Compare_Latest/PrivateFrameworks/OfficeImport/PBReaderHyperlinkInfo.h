@@ -15,10 +15,10 @@
     NSString *mScreenTip;
 }
 
-- (void)dealloc;
 @property(retain, nonatomic) NSString *screenTip; // @synthesize screenTip=mScreenTip;
 @property(retain, nonatomic) NSString *hyperlink2; // @synthesize hyperlink2=mHyperlink2;
 @property(retain, nonatomic) NSString *hyperlink1; // @synthesize hyperlink1=mHyperlink1;
+- (void)dealloc;
 
 @end
 

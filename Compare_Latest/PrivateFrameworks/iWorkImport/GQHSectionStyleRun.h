@@ -14,6 +14,7 @@
     CDStruct_dff5684f mPageRange;
 }
 
+- (id).cxx_construct;
 - (void)dealloc;
 
 @end

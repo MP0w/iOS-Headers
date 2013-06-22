@@ -18,13 +18,13 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (id)legend;
-- (id)model;
-- (id)style;
-- (id)graphicStyle;
-- (long)type;
 - (void)setLegend:(id)arg1;
+- (long)type;
+- (id)graphicStyle;
+- (id)style;
+- (id)model;
+- (id)legend;
+- (void)dealloc;
 
 @end
 

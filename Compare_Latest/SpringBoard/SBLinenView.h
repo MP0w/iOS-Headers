@@ -14,24 +14,22 @@
     NSMutableArray *_strips;
 }
 
-+ (void)setupCache;
-+ (void)removeCacheFiles;
-+ (id)_folderSwitcherLinenPath;
-+ (id)_allFolderSwitcherLinenPaths:(BOOL)arg1;
-+ (struct CGRect)_scaledRectForIndex:(unsigned int)arg1 ofImage:(id)arg2;
-+ (void)_generateLinenStripsIfNeeded;
-+ (float)naturalWidth;
-+ (id)squareImageForBounds:(struct CGRect)arg1;
-+ (id)_imageForIndex:(unsigned int)arg1;
-+ (id)_imageViewForIndex:(unsigned int)arg1;
 + (float)_vOffsetOfTopForType:(int)arg1;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)_layoutForBounds:(struct CGRect)arg1;
-- (void)layoutSubviews;
++ (struct CGRect)_scaledRectForIndex:(unsigned int)arg1 ofImage:(id)arg2;
++ (id)_imageKeyForIndex:(unsigned int)arg1;
++ (id)_cachedImageForIndex:(unsigned int)arg1;
++ (unsigned int)_maximumNumberOfStrips;
++ (void)_generateStripsIfNecessary;
++ (id)squareImageForBounds:(struct CGRect)arg1;
++ (float)naturalWidth;
++ (void)load;
 @property(nonatomic) int type; // @synthesize type=_type;
 - (float)_vOffsetOfTop;
+- (void)layoutSubviews;
+- (void)_layoutForBounds:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

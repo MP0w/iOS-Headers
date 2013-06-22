@@ -22,6 +22,7 @@
     SEL _themeSelectionImageSelector;
     SEL _themeDividerImageSelector;
     SEL _themeFontSelector;
+    SEL _secondaryFontSelector;
     SEL _themeSelectedTextColorSelector;
     SEL _themeNormalTextColorSelector;
     SEL _themeSecondaryTextColorSelector;
@@ -38,8 +39,10 @@
     NSArray *_processedLabels;
     UIImageView *_backgroundView;
     UIImageView *_foregroundView;
+    float _maxWidth;
 }
 
+@property(nonatomic) float maxWidth; // @synthesize maxWidth=_maxWidth;
 @property(retain, nonatomic) UIImageView *foregroundView; // @synthesize foregroundView=_foregroundView;
 @property(retain, nonatomic) UIImageView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) NSArray *processedLabels; // @synthesize processedLabels=_processedLabels;
@@ -56,6 +59,7 @@
 @property(nonatomic) SEL themeSecondaryTextColorSelector; // @synthesize themeSecondaryTextColorSelector=_themeSecondaryTextColorSelector;
 @property(nonatomic) SEL themeNormalTextColorSelector; // @synthesize themeNormalTextColorSelector=_themeNormalTextColorSelector;
 @property(nonatomic) SEL themeSelectedTextColorSelector; // @synthesize themeSelectedTextColorSelector=_themeSelectedTextColorSelector;
+@property(nonatomic) SEL themeSecondaryFontSelector; // @synthesize themeSecondaryFontSelector=_secondaryFontSelector;
 @property(nonatomic) SEL themeFontSelector; // @synthesize themeFontSelector=_themeFontSelector;
 @property(nonatomic) SEL themeDividerImageSelector; // @synthesize themeDividerImageSelector=_themeDividerImageSelector;
 @property(nonatomic) SEL themeSelectionImageSelector; // @synthesize themeSelectionImageSelector=_themeSelectionImageSelector;
@@ -72,6 +76,7 @@
 - (void)setNeedsLayout;
 - (void)enumerateSegmentContentRectsUsingBlock:(id)arg1;
 - (void)layoutSubviews;
+@property(readonly, nonatomic) struct CGRect segmentBounds;
 - (id)largeRibbonBackgroundImageForRect:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;

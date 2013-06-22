@@ -18,6 +18,7 @@
 + (void)_appWillDeactivate;
 + (void)_appWillActivate;
 + (void)_synchronizeStoresForced:(BOOL)arg1;
++ (id)additionalStoreWithIdentifier:(id)arg1;
 + (id)defaultStore;
 - (void)setBool:(BOOL)arg1 forKey:(id)arg2;
 - (BOOL)boolForKey:(id)arg1;
@@ -43,7 +44,7 @@
 - (void)_sourceDidChange:(id)arg1;
 - (BOOL)synchronize;
 - (BOOL)_synchronizeForced:(BOOL)arg1;
-- (BOOL)_synchronizeForced:(BOOL)arg1 notificationQueue:(struct dispatch_queue_s *)arg2;
+- (BOOL)_synchronizeForced:(BOOL)arg1 notificationQueue:(id)arg2;
 - (void)_scheduleRemoteSynchronization;
 - (id)dictionaryRepresentation;
 - (void)registerDefaultValues:(id)arg1;
@@ -52,6 +53,7 @@
 - (void)_adjustTimerForAutosync;
 - (void)_adjustTimer:(id)arg1;
 - (void)_syncConcurrently;
+- (void)_syncConcurrentlyForced:(BOOL)arg1;
 - (id)objectForKey:(id)arg1;
 - (void)_rethrowException:(id)arg1;
 - (BOOL)_postDidChangeNotificationExternalChanges:(id)arg1 sourceChangeCount:(int)arg2;
@@ -64,6 +66,10 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithBundleIdentifier:(id)arg1;
+- (id)initWithBundleIdentifier:(id)arg1 storeIdentifier:(id)arg2;
+- (id)initWithBundleIdentifier:(id)arg1 storeIdentifier:(id)arg2 additionalStore:(BOOL)arg3;
+- (void)_useSourceSyncWithBlock:(id)arg1;
+- (void)_useSourceAsyncWithBlock:(id)arg1;
 - (void)_pleaseSynchronize:(id)arg1;
 
 @end

@@ -17,22 +17,22 @@
     BOOL _requirePasscode;
 }
 
-- (Class)frontAlertSheetClass;
-- (Class)backAlertSheetClass;
-- (Class)alertSheetClass;
-- (id)newFrontAlertSheet;
-- (id)newBackAlertSheet;
-- (id)frontAlertSheet;
-- (id)backAlertSheet;
-- (id)alertSheet;
-- (void)dealloc;
-- (void)cleanPreviousConfiguration;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)configureFront:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)configureBack:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)flip;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)flip;
+- (void)configureBack:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)configureFront:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)cleanPreviousConfiguration;
+- (void)dealloc;
+- (id)alertSheet;
+- (id)backAlertSheet;
+- (id)frontAlertSheet;
+- (id)newBackAlertSheet;
+- (id)newFrontAlertSheet;
+- (Class)alertSheetClass;
+- (Class)backAlertSheetClass;
+- (Class)frontAlertSheetClass;
 
 @end
 

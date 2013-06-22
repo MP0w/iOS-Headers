@@ -16,9 +16,10 @@
 
 - (void)_playbackModeDidChange;
 - (void)_layoutVolumeSlider:(id)arg1;
+- (void)unregisterForPlayerNotifications;
+- (void)registerForPlayerNotifications;
 - (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(BOOL)arg3;
 - (id)newVolumeSlider;
-- (void)setVisibleParts:(unsigned int)arg1 animated:(BOOL)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)drawRect:(struct CGRect)arg1;

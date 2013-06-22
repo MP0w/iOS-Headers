@@ -10,9 +10,9 @@
 {
 }
 
-- (BOOL)cancelTouchTracking;
-- (BOOL)_scrollsToMakeFirstResponderVisible;
 - (void)setContentOffset:(struct CGPoint)arg1;
+- (BOOL)_scrollsToMakeFirstResponderVisible;
+- (BOOL)cancelTouchTracking;
 
 @end
 

@@ -8,7 +8,7 @@
 
 @protocol ML3SqliteDatabaseSubclass <NSObject>
 + (BOOL)migrateFromVersion:(int)arg1 outUserVersion:(int *)arg2 usingHandle:(struct sqlite3 *)arg3;
-+ (int)userVersionCurrent;
++ (int)currentUserVersion;
 + (id)allSchemaSQL;
 + (id)databasePath;
 
@@ -16,7 +16,5 @@
 + (void)registerFunctionsOnHandle:(struct sqlite3 *)arg1;
 + (void)limitCacheSize:(struct sqlite3 *)arg1;
 + (BOOL)attachAuxiliaryDatabases:(struct sqlite3 *)arg1;
-- (void)reconnectBackgroundDatabaseContext;
-- (void)reconnectMainDatabaseContext;
 @end
 

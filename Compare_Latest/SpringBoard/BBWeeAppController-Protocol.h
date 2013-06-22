@@ -10,20 +10,25 @@
 - (id)view;
 
 @optional
-- (float)viewHeight;
-- (void)viewWillAppear;
-- (void)viewDidAppear;
+@property(nonatomic) id <BBWeeAppControllerHost> host;
 - (void)viewWillDisappear;
-- (void)viewDidDisappear;
-- (void)willRotateToInterfaceOrientation:(int)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)loadPlaceholderView;
-- (void)loadFullView;
-- (void)unloadView;
-- (void)clearShapshotImage;
-- (void)loadView;
-- (id)launchURL;
+- (void)viewDidAppear;
+- (void)setPresentationView:(id)arg1;
+- (float)presentationHeight;
+- (void)unloadPresentationController;
+- (id)presentationControllerForMode:(int)arg1;
 - (id)launchURLForTapLocation:(struct CGPoint)arg1;
+- (id)launchURL;
+- (void)loadView;
+- (void)clearShapshotImage;
+- (void)unloadView;
+- (void)loadFullView;
+- (void)loadPlaceholderView;
+- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1;
+- (void)willRotateToInterfaceOrientation:(int)arg1;
+- (void)viewDidDisappear;
+- (void)viewWillAppear;
+- (float)viewHeight;
 @end
 

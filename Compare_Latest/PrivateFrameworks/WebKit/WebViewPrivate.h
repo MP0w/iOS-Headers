@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, NSString, NSTimer, NSURL, WAKWindow, WebEvent, WebFixedPositionContent, WebInspector, WebNodeHighlight, WebPreferences, WebVideoFullscreenController;
+@class NSDictionary, NSMutableSet, NSString, NSURL, WAKWindow, WebFixedPositionContent, WebIndicateLayer, WebInspector, WebNodeHighlight, WebPreferences, WebVideoFullscreenController;
 
 @interface WebViewPrivate : NSObject
 {
@@ -29,6 +29,10 @@
     WebInspector *inspector;
     WebNodeHighlight *currentNodeHighlight;
     BOOL allowsRemoteInspection;
+    NSString *hostApplicationBundleId;
+    NSString *hostApplicationName;
+    NSDictionary *remoteInspectorUserInfo;
+    WebIndicateLayer *indicateLayer;
     BOOL allowsUndo;
     float zoomMultiplier;
     BOOL zoomsTextOnly;
@@ -53,7 +57,6 @@
     BOOL tabKeyCyclesThroughElementsChanged;
     BOOL becomingFirstResponder;
     BOOL becomingFirstResponderFromOutside;
-    BOOL hoverFeedbackSuspended;
     BOOL usesPageCache;
     BOOL catchesDelegateExceptions;
     BOOL cssAnimationsSuspended;
@@ -73,37 +76,34 @@
     struct CGSize fixedLayoutSize;
     BOOL mainViewIsScrollingOrZooming;
     int didDrawTiles;
-    struct HashMap<long unsigned int, WTF::RetainPtr<objc_object*>, WTF::IntHash<long unsigned int>, WTF::HashTraits<long unsigned int>, WTF::HashTraits<WTF::RetainPtr<objc_object*>>> identifierMap;
+    struct Mutex pendingFixedPositionLayoutRectMutex;
+    struct CGRect pendingFixedPositionLayoutRect;
+    struct HashMap<unsigned long, WTF::RetainPtr<id>, WTF::IntHash<unsigned long>, WTF::HashTraits<unsigned long>, WTF::HashTraits<WTF::RetainPtr<id>>> identifierMap;
     BOOL _keyboardUIModeAccessed;
     int _keyboardUIMode;
     BOOL shouldUpdateWhileOffscreen;
-    BOOL usesDocumentViews;
     BOOL includesFlattenedCompositingLayersWhenDrawingToBitmap;
     BOOL needsOneShotDrawingSynchronization;
     BOOL postsAcceleratedCompositingNotifications;
-    struct __CFRunLoopObserver *layerSyncRunLoopObserver;
+    struct OwnPtr<LayerFlushController> layerFlushController;
     struct CGSize lastLayoutSize;
-    BOOL ignoringMouseDraggedEvents;
-    WebEvent *mouseDownEvent;
-    BOOL handlingMouseDownEvent;
-    WebEvent *keyDownEvent;
-    NSTimer *autoscrollTimer;
-    WebEvent *autoscrollTriggerEvent;
     WebVideoFullscreenController *fullscreenController;
     id <WebGeolocationProvider> _geolocationProvider;
     id <WebDeviceOrientationProvider> m_deviceOrientationProvider;
+    id <WebNotificationProvider> _notificationProvider;
     struct RefPtr<WebCore::HistoryItem> _globalHistoryItem;
     BOOL interactiveFormValidationEnabled;
     int validationMessageTimerMagnification;
+    float customDeviceScaleFactor;
     WebFixedPositionContent *_fixedPositionContent;
 }
 
 + (void)initialize;
-- (id)init;
-- (void)dealloc;
-- (void)finalize;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
 
 @end
 

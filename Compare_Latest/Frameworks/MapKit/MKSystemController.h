@@ -6,35 +6,28 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray;
-
 @interface MKSystemController : NSObject
 {
-    NSMutableArray *_backgroundTasks;
 }
 
 + (id)sharedInstance;
-- (void)popBackgroundTask;
-- (void)pushBackgroundTaskWithHandler:(id)arg1;
+- (BOOL)shouldRateLimitSearchCompletions;
+- (BOOL)supportsNavigation;
+- (BOOL)supports3DImagery;
+- (BOOL)supports3DMaps;
+- (BOOL)isInternalInstall;
+- (BOOL)_featureFreedomEnabled;
 - (int)deviceTileSize;
 - (int)deviceTileScale;
-- (void)removeReachabilityObserver:(id)arg1;
-- (void)addReachabilityObserver:(id)arg1 selector:(SEL)arg2 forHostname:(id)arg3;
-- (BOOL)isMultitaskingSupported;
 - (int)userInterfaceIdiom;
-- (BOOL)hasMultitouchDeviceInstalled;
-- (BOOL)hasTelephonyCapability;
-- (BOOL)isRunningOniPad;
 - (BOOL)isLiveScrollCapable;
 - (BOOL)isSensitiveUIEnabled;
 - (BOOL)isHiDPI;
 - (struct CGSize)screenSize;
 - (float)screenScale;
 - (BOOL)isWifiEnabled;
-- (void)dealloc;
 - (unsigned int)retainCount;
 - (oneway void)release;
-- (id)init;
 
 @end
 

@@ -16,19 +16,19 @@
     float mBottom;
 }
 
-- (id)init;
-- (id)initWithLeft:(float)arg1 top:(float)arg2 right:(float)arg3 bottom:(float)arg4;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (float)left;
-- (void)setLeft:(float)arg1;
-- (float)top;
-- (void)setTop:(float)arg1;
-- (float)right;
-- (void)setRight:(float)arg1;
-- (float)bottom;
-- (void)setBottom:(float)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setBottom:(float)arg1;
+- (float)bottom;
+- (void)setRight:(float)arg1;
+- (float)right;
+- (void)setTop:(float)arg1;
+- (float)top;
+- (void)setLeft:(float)arg1;
+- (float)left;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithLeft:(float)arg1 top:(float)arg2 right:(float)arg3 bottom:(float)arg4;
+- (id)init;
 
 @end
 

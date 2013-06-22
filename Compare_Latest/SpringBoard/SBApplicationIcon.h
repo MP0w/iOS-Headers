@@ -14,29 +14,30 @@
     unsigned int _appIsBeingCleaned:1;
 }
 
-- (id)initWithApplication:(id)arg1;
-- (void)dealloc;
-- (id)application;
-- (id)__loadIconImage:(id)arg1 format:(int)arg2 scale:(float)arg3;
-- (void)generateIconImageInBackground:(id)arg1;
-- (void)generateIconImageInBackgroundForFormat:(int)arg1 complete:(id)arg2;
-- (BOOL)canGenerateGhostlyImageInBackground;
-- (id)generateIconImage:(int)arg1;
-- (id)displayName;
-- (id)leafIdentifier;
-- (BOOL)canEllipsizeLabel;
-- (id)tags;
-- (id)automationID;
-- (BOOL)launchEnabled;
-- (void)_setAppIsBeingCleanedFlag;
-- (void)_terminationAssertionDidChange;
-- (void)launch;
-- (void)launchFromViewSwitcher;
-- (void)setBadge:(id)arg1;
-- (void)_setBadge:(id)arg1;
-- (id)folderTitleOptions;
-- (id)folderFallbackTitle;
 - (id)applicationBundleID;
+- (id)folderFallbackTitle;
+- (id)folderTitleOptions;
+- (void)setBadge:(id)arg1;
+- (void)launchFromViewSwitcher;
+- (void)launch;
+- (void)_terminationAssertionDidChange;
+- (void)_setAppIsBeingCleanedFlag;
+- (BOOL)launchEnabled;
+- (id)automationID;
+- (id)tags;
+- (BOOL)canEllipsizeLabel;
+- (id)displayName;
+- (id)generateIconImage:(int)arg1;
+- (BOOL)canGenerateImageInBackgroundForFormat:(int)arg1;
+- (void)generateIconImageInBackground:(id)arg1;
+- (id)blockForGeneratingIconImageInBackgroundWithFormat:(SEL)arg1;
+- (id)_blockForGeneratingIconImageInBackgroundWithFormat:(SEL)arg1 complete:(int)arg2;
+- (id)__loadIconImage:(id)arg1 format:(int)arg2 scale:(float)arg3;
+- (void)completeUninstall;
+- (id)application;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithApplication:(id)arg1;
 
 @end
 

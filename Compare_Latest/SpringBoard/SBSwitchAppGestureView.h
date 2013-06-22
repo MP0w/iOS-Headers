@@ -31,27 +31,6 @@
     id m_completion;
 }
 
-- (id)initWithInterfaceOrientation:(int)arg1 startingApp:(id)arg2 leftwardApp:(id)arg3 rightwardApp:(id)arg4;
-- (void)dealloc;
-- (void)transformGestureViewContainer:(id)arg1;
-- (id)viewForApp:(id)arg1;
-- (void)beginPaging;
-- (void)updatePaging:(float)arg1;
-- (void)finishForwardToEndWithPercentage:(float)arg1 completion:(id)arg2;
-- (void)finishBackwardToStartWithCompletion:(id)arg1;
-- (float)contentOffsetForApp:(id)arg1;
-- (float)percentageForApp:(id)arg1;
-- (float)scaleForPercentage:(float)arg1;
-- (float)opacityForPercentage:(float)arg1;
-- (void)moveToApp:(id)arg1;
-- (void)moveToApp:(id)arg1 animated:(BOOL)arg2;
-- (void)moveToContentOffset:(float)arg1 percentage:(float)arg2 animated:(BOOL)arg3;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (void)stretchTransformerAnimationDidStop:(BOOL)arg1;
-- (BOOL)isPagingUnderflowPercentage:(float)arg1;
-- (BOOL)isPagingOverflowPercentage:(float)arg1;
-@property(readonly, nonatomic) BOOL pagingLeftward;
-@property(readonly, nonatomic) BOOL pagingRightward;
 @property(copy, nonatomic) id completion; // @synthesize completion=m_completion;
 @property(nonatomic) BOOL overflowing; // @synthesize overflowing=m_overflowing;
 @property(nonatomic) BOOL underflowing; // @synthesize underflowing=m_underflowing;
@@ -70,6 +49,27 @@
 @property(retain, nonatomic) SBApplication *endingApp; // @synthesize endingApp=m_endingApp;
 @property(retain, nonatomic) SBApplication *startingApp; // @synthesize startingApp=m_startingApp;
 @property(nonatomic) int orientation; // @synthesize orientation=m_orientation;
+@property(readonly, nonatomic) BOOL pagingRightward;
+@property(readonly, nonatomic) BOOL pagingLeftward;
+- (BOOL)isPagingOverflowPercentage:(float)arg1;
+- (BOOL)isPagingUnderflowPercentage:(float)arg1;
+- (void)stretchTransformerAnimationDidStop:(BOOL)arg1;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)moveToContentOffset:(float)arg1 percentage:(float)arg2 animated:(BOOL)arg3;
+- (void)moveToApp:(id)arg1 animated:(BOOL)arg2;
+- (void)moveToApp:(id)arg1;
+- (float)opacityForPercentage:(float)arg1;
+- (float)scaleForPercentage:(float)arg1;
+- (float)percentageForApp:(id)arg1;
+- (float)contentOffsetForApp:(id)arg1;
+- (void)finishBackwardToStartWithCompletion:(id)arg1;
+- (void)finishForwardToEndWithPercentage:(float)arg1 completion:(id)arg2;
+- (void)updatePaging:(float)arg1;
+- (void)beginPaging;
+- (id)viewForApp:(id)arg1;
+- (void)transformGestureViewContainer:(id)arg1;
+- (void)dealloc;
+- (id)initWithInterfaceOrientation:(int)arg1 startingApp:(id)arg2 leftwardApp:(id)arg3 rightwardApp:(id)arg4;
 
 @end
 

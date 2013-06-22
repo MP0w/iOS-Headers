@@ -15,11 +15,11 @@
     SBApplicationIcon *_icon;
 }
 
-- (id)initWithIcon:(id)arg1;
-- (void)dealloc;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (BOOL)shouldShowInLockScreen;
 - (BOOL)dismissOnLock;
+- (BOOL)shouldShowInLockScreen;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)dealloc;
+- (id)initWithIcon:(id)arg1;
 
 @end
 

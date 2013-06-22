@@ -8,18 +8,12 @@
 
 #import "MKAnnotation-Protocol.h"
 
-@class NSString;
-
 @interface MKTeleportingUserLocation : NSObject <MKAnnotation>
 {
     CDStruct_2c43369c _coordinate;
 }
 
 @property(nonatomic) CDStruct_c3b9c2ee coordinate; // @synthesize coordinate=_coordinate;
-
-// Remaining properties
-@property(readonly, nonatomic) NSString *subtitle;
-@property(readonly, nonatomic) NSString *title;
 
 @end
 

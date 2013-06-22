@@ -14,12 +14,12 @@
     float mSpace;
 }
 
-- (id)initWithDash:(float)arg1 space:(float)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (float)dash;
-- (float)space;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (float)space;
+- (float)dash;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithDash:(float)arg1 space:(float)arg2;
 
 @end
 

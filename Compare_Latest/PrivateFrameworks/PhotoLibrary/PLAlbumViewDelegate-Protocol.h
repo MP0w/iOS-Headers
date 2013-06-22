@@ -10,9 +10,9 @@
 
 @optional
 - (BOOL)albumViewShouldShowPhotoCount:(id)arg1;
-- (void)albumViewPreheatImageData:(id)arg1 forImagesInRange:(struct _NSRange)arg2;
-- (void)albumView:(id)arg1 didTapPhotoAtIndex:(unsigned int)arg2;
+- (void)albumView:(id)arg1 preheatImageDataAtIndexPath:(id)arg2 windowSize:(unsigned int)arg3 downDirection:(BOOL)arg4;
+- (void)albumView:(id)arg1 didTapPhotoAtIndexPath:(id)arg2;
 - (void)albumViewSelectionDidChange:(id)arg1 added:(id)arg2 removed:(id)arg3;
-- (BOOL)albumView:(id)arg1 canSelectPhotoAtIndex:(unsigned int)arg2;
+- (BOOL)albumView:(id)arg1 canSelectPhotoAtIndexPath:(id)arg2;
 @end
 

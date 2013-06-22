@@ -7,7 +7,7 @@
 #import "ABTabOrderDelegate-Protocol.h"
 
 @protocol ABResponderDelegate <ABTabOrderDelegate>
-- (void)entryFieldBeginAttemptBecomeFirstResponder:(id)arg1;
 - (void)entryFieldEndAttemptBecomeFirstResponder:(id)arg1;
+- (void)entryFieldBeginAttemptBecomeFirstResponder:(id)arg1;
 @end
 

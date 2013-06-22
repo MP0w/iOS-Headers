@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)removeAllObjects;
 - (void)getObjects:(id *)arg1 andKeys:(id *)arg2;
 - (void)removeObjectForKey:(id)arg1;
@@ -29,6 +30,7 @@
 - (id)retain;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (void)setObservationInfo:(void *)arg1;
 
 @end
 

@@ -17,15 +17,15 @@
 }
 
 + (struct CGRect)canonicalBounds;
-- (void)dealloc;
-- (void)setOrientedBounds:(id)arg1;
-- (void)setShapeType:(int)arg1;
-- (void)setFileFormat:(int)arg1;
-- (void)setAdjustValues:(id)arg1;
-- (struct CGAffineTransform)affineTransform;
-- (BOOL)isOffice12;
+- (struct CGPath *)copyShapeWithTransform:(struct CGAffineTransform)arg1;
 - (float)maxAdjustedValue;
-- (struct CGPath *)createShapeWithTransform:(struct CGAffineTransform)arg1;
+- (BOOL)isOffice12;
+- (struct CGAffineTransform)affineTransform;
+- (void)setAdjustValues:(id)arg1;
+- (void)setFileFormat:(int)arg1;
+- (void)setShapeType:(int)arg1;
+- (void)setOrientedBounds:(id)arg1;
+- (void)dealloc;
 
 @end
 

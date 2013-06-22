@@ -11,6 +11,10 @@
 }
 
 + (id)buildSubtree:(unsigned int)arg1 formula:(id)arg2;
++ (_Bool)isTokenAttrASum:(unsigned short)arg1;
++ (_Bool)isTokenNoOp:(unsigned int)arg1 formula:(id)arg2;
++ (unsigned int)childCountForToken:(unsigned int)arg1 formula:(id)arg2;
++ (id)buildSubtreeAtIndex:(unsigned int *)arg1 formula:(id)arg2;
 
 @end
 

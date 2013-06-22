@@ -9,13 +9,12 @@
 #import "NSCoding-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 #import "UITextInput-Protocol.h"
-#import "UITextSelectingContainer-Protocol.h"
 
-@class NSDictionary, NSString, UIButton, UIColor, UIFont, UIImage, UIImageView, UILabel, UIPopoverController, UIResponder<UITextSelection>, UITextFieldAtomBackgroundView, UITextFieldBackgroundView, UITextFieldBorderView, UITextFieldLabel, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSelectionView, UIView, UIView<UITextSelectingContent>, UIViewController;
+@class NSArray, NSAttributedString, NSDictionary, NSString, UIButton, UIColor, UIFont, UIImage, UIImageView, UILabel, UITextFieldAtomBackgroundView, UITextFieldBackgroundView, UITextFieldBorderView, UITextFieldLabel, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UIView, _UIBaselineLayoutStrut, _UITextServiceSession;
 
-@interface UITextField : UIControl <UITextSelectingContainer, UIPopoverControllerDelegate, UITextInput, NSCoding>
+@interface UITextField : UIControl <UIPopoverControllerDelegate, UITextInput, NSCoding>
 {
-    NSString *_text;
+    NSAttributedString *_text;
     UIColor *_textColor;
     int _borderStyle;
     float _minimumFontSize;
@@ -38,10 +37,8 @@
     struct _NSRange _selectionRange;
     int _scrollXOffset;
     int _scrollYOffset;
-    int _suffixWidth;
     float _progress;
     NSString *_style;
-    double _mouseDownTime;
     UIButton *_clearButton;
     struct CGSize _clearButtonOffset;
     struct CGSize _leftViewOffset;
@@ -57,12 +54,9 @@
     UILabel *_label;
     float _labelOffset;
     UITextInteractionAssistant *_interactionAssistant;
-    UITextSelectionView *_selectionView;
     UIView *_inputView;
     UIView *_inputAccessoryView;
     UITextFieldAtomBackgroundView *_atomBackgroundView;
-    UIPopoverController *_definitionPopoverController;
-    UIViewController *_definitionModalViewController;
     UIColor *_shadowColor;
     struct CGSize _shadowOffset;
     float _shadowBlur;
@@ -86,7 +80,19 @@
         unsigned int explicitAlignment:1;
         unsigned int implementsCustomDrawing:1;
         unsigned int needsClearing:1;
+        unsigned int suppressContentChangedNotification:1;
+        unsigned int allowsEditingTextAttributes:1;
+        unsigned int usesAttributedText:1;
+        unsigned int backgroundViewState:2;
+        unsigned int clearsOnInsertion:1;
     } _textFieldFlags;
+    _UITextServiceSession *_definitionSession;
+    _UITextServiceSession *_learnSession;
+    BOOL _deferringBecomeFirstResponder;
+    BOOL _avoidBecomeFirstResponder;
+    BOOL _setSelectionRangeAfterFieldEditorIsAttached;
+    NSArray *_baselineLayoutConstraints;
+    _UIBaselineLayoutStrut *_baselineLayoutLabel;
 }
 
 @property(retain) UIView *inputView; // @synthesize inputView=_inputView;
@@ -100,8 +106,10 @@
 @property(nonatomic) id <UITextFieldDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) float minimumFontSize; // @synthesize minimumFontSize=_minimumFontSize;
 @property(nonatomic) int borderStyle; // @synthesize borderStyle=_borderStyle;
-- (id)rectsForRange:(id)arg1;
-@property(nonatomic) int selectionGranularity;
+@property(retain, nonatomic, setter=_setBaselineLayoutLabel:) _UIBaselineLayoutStrut *_baselineLayoutLabel; // @synthesize _baselineLayoutLabel;
+@property(copy, nonatomic, setter=_setBaselineLayoutConstraints:) NSArray *_baselineLayoutConstraints; // @synthesize _baselineLayoutConstraints;
+- (void)setSelectionGranularity:(int)arg1;
+- (int)selectionGranularity;
 - (id)_findWebViewWordBoundaryFromPosition:(id)arg1;
 @property(nonatomic) int selectionAffinity;
 - (id)characterRangeAtPoint:(struct CGPoint)arg1;
@@ -137,16 +145,22 @@
 - (void)insertDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
 - (void)insertText:(id)arg1;
 - (void)deleteBackward;
+- (id)_proxyTextInput;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (BOOL)inPopover;
 - (void)_promptForReplace:(id)arg1;
 - (void)replace:(id)arg1;
+- (void)_showTextStyleOptions:(id)arg1;
+- (void)toggleUnderline:(id)arg1;
+- (void)toggleItalics:(id)arg1;
+- (void)toggleBoldface:(id)arg1;
 - (void)makeTextWritingDirectionLeftToRight:(id)arg1;
 - (void)makeTextWritingDirectionRightToLeft:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)select:(id)arg1;
 - (void)paste:(id)arg1;
-- (id)supportedPasteboardTypes;
-- (void)popoverControllerDidDismissPopover:(id)arg1;
+- (void)_addShortcut:(id)arg1;
+- (void)_selectionMayChange:(id)arg1;
 - (BOOL)_isDisplayingReferenceLibraryViewController;
 - (void)_define:(id)arg1;
 - (void)copy:(id)arg1;
@@ -155,24 +169,19 @@
 - (struct CGPoint)constrainedPoint:(struct CGPoint)arg1;
 - (unsigned int)offsetInMarkedTextForSelection:(id)arg1;
 - (struct CGRect)closestCaretRectInMarkedTextRangeForPoint:(struct CGPoint)arg1;
+- (id)selectedAttributedText;
 - (id)selectedText;
 - (id)selectionRectsForRange:(id)arg1;
-- (struct CGRect)selectionClipRect;
-@property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant;
-@property(readonly, nonatomic) UITextSelectionView *selectionView;
-- (BOOL)caretBlinks;
-- (void)setCaretBlinks:(BOOL)arg1;
-- (BOOL)selectionVisible;
-- (void)setSelectionVisible:(BOOL)arg1;
+- (struct CGRect)_selectionClipRect;
+- (id)interactionAssistant;
+- (id)selectionView;
 - (void)cancelAutoscroll;
 - (void)startAutoscroll:(struct CGPoint)arg1;
 - (BOOL)hasSelection;
 - (id)_fieldEditor;
 - (void)endSelectionChange;
 - (void)beginSelectionChange;
-@property(readonly, nonatomic) UIResponder<UITextSelection> *textDocument;
-@property(readonly, nonatomic, getter=isEditable) BOOL editable;
-@property(readonly, nonatomic) UIView<UITextSelectingContent> *content;
+- (BOOL)isEditable;
 - (id)undoManager;
 - (int)atomStyle;
 - (void)setAtomStyle:(int)arg1;
@@ -202,6 +211,7 @@
 - (void)_clearSelectionUI;
 - (void)selectAll;
 - (void)setEnabled:(BOOL)arg1;
+- (void)_setEnabled:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setInactiveHasDimAppearance:(BOOL)arg1;
 - (void)setTextFont:(id)arg1;
 - (float)paddingRight;
@@ -238,6 +248,7 @@
 - (BOOL)keyboardInputShouldDelete:(id)arg1;
 - (BOOL)keyboardInput:(id)arg1 shouldReplaceTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 - (BOOL)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(BOOL)arg3;
+- (void)_applicationResuming:(id)arg1;
 - (void)willDetachFieldEditor:(id)arg1;
 - (void)attachFieldEditor:(id)arg1;
 - (void)willAttachFieldEditor:(id)arg1;
@@ -248,6 +259,7 @@
 - (void)drawTextInRect:(struct CGRect)arg1;
 - (struct CGRect)rightViewRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)leftViewRectForBounds:(struct CGRect)arg1;
+- (struct CGRect)_baselineLeftViewRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)clearButtonRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)editingRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)placeholderRectForBounds:(struct CGRect)arg1;
@@ -257,18 +269,26 @@
 @property(readonly, nonatomic, getter=isEditing) BOOL editing;
 - (id)backgroundColor;
 - (void)setBackgroundColor:(id)arg1;
+@property(copy, nonatomic) NSDictionary *typingAttributes;
+@property(nonatomic) BOOL allowsEditingTextAttributes;
 @property(nonatomic) BOOL adjustsFontSizeToFitWidth;
 - (void)setClearsPlaceholderOnBeginEditing:(BOOL)arg1;
 - (BOOL)clearsPlaceholderOnBeginEditing;
 @property(nonatomic) BOOL clearsOnBeginEditing;
 - (void)_setPrefix:(id)arg1;
 - (void)_setSuffix:(id)arg1 withColor:(id)arg2;
+@property(copy, nonatomic) NSAttributedString *attributedPlaceholder;
 @property(copy, nonatomic) NSString *placeholder;
+- (void)createPlaceholderIfNecessary;
+- (void)finishedSettingPlaceholder;
 - (id)createTextLabelWithTextColor:(id)arg1;
+- (void)_createBaselineLayoutLabelIfNecessary;
 - (id)createPlaceholderLabelWithFont:(id)arg1 andTextAlignment:(int)arg2;
 - (void)setContentVerticalAlignment:(int)arg1;
 @property(nonatomic) int textAlignment;
 @property(retain, nonatomic) UIFont *font;
+- (void)disableClearsOnInsertion;
+@property(nonatomic) BOOL clearsOnInsertion;
 - (float)shadowBlur;
 - (void)setShadowBlur:(float)arg1;
 - (struct CGSize)shadowOffset;
@@ -277,9 +297,15 @@
 - (void)setShadowColor:(id)arg1;
 @property(retain, nonatomic) UIColor *textColor;
 - (void)_updateTextColor;
+@property(copy, nonatomic) NSAttributedString *attributedText;
+- (void)_setAttributedText:(id)arg1 onFieldEditorAndSetCaretSelectionAfterText:(BOOL)arg2;
+- (void)_transferTextFieldPropertiesFromText:(id)arg1;
+- (void)_transferAttribute:(id)arg1 fromString:(id)arg2 andSetPropertyWith:(SEL)arg3 usingValueClass:(Class)arg4;
 @property(copy, nonatomic) NSString *text;
+- (void)finishedSettingTextOrAttributedText;
 - (id)searchText;
 - (BOOL)_hasContent;
+- (id)_attributedText;
 - (id)_text;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry; // @dynamic secureTextEntry;
 - (void)_updateTextLabel;
@@ -303,13 +329,16 @@
 - (id)actualFont;
 - (float)actualMinimumFontSize;
 - (struct CGRect)adjustedCaretRectForCaretRect:(struct CGRect)arg1;
+- (void)_updateRTLStateForText:(id)arg1 updateAlignment:(BOOL)arg2;
 - (void)_setImplicitAlignment;
 - (void)_clearBackgroundViews;
-- (void)_updateBackgroundViews;
+- (void)_updateBackgroundViewsAnimated:(BOOL)arg1;
 - (BOOL)_shouldEndEditing;
 - (void)layoutSubviews;
 - (struct CGRect)_prefixFrame;
 - (struct CGRect)_suffixFrame;
+- (void)updateConstraints;
+- (void)_setUpBaselineLayoutConstraints;
 - (struct CGRect)_frameForLabel:(id)arg1 inTextRect:(struct CGRect)arg2;
 - (void)_updateLabel;
 - (struct CGRect)_textRectExcludingButtonsForBounds:(struct CGRect)arg1;
@@ -323,6 +352,8 @@
 - (BOOL)_showsClearButtonWhenNonEmpty:(BOOL)arg1;
 - (void)_updateAtomBackground;
 - (BOOL)_showsAtomBackground;
+- (BOOL)_partsShouldBeMini;
+- (BOOL)_heightShouldBeMini;
 - (struct CGRect)_atomBackgroundViewFrame;
 - (void)_updateAutosizeStyleIfNeeded;
 - (void)_updateButtons;
@@ -332,24 +363,31 @@
 - (void)_endedEditing;
 - (id)_style;
 - (id)_createCSSStyleDeclarationForWebView:(id)arg1;
-- (float)_marginTopForText:(id)arg1;
-- (struct CGSize)_fontMetrics:(id)arg1;
+- (float)_marginTop;
 - (id)_copyFont:(id)arg1 newSize:(float)arg2 maxSize:(float)arg3;
 - (void)setFont:(id)arg1 fullFontSize:(float)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)_resignFirstResponder;
 - (void)_windowBecameKey;
 - (BOOL)resignFirstResponder;
+- (void)_removeShortcutController;
 - (void)_removeDefinitionController;
 - (void)_becomeFirstResponder;
+- (void)_updatePlaceholderPosition;
+- (int)_currentTextAlignment;
+- (void)__resumeBecomeFirstResponder;
 - (void)_becomeFirstResponderAndMakeVisible;
 - (BOOL)_requiresKeyboardResetOnReload;
 - (id)_keyboardResponder;
 - (BOOL)canResignFirstResponder;
 - (BOOL)canBecomeFirstResponder;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (id)viewForBaselineLayout;
 - (struct CGSize)_textSize;
+- (struct CGSize)_textSizeUsingFullFontSize:(BOOL)arg1;
 - (void)setAnimating:(BOOL)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
@@ -362,6 +400,12 @@
 - (void)_populateArchivedSubviews:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)_invalidateBaselineLayoutConstraints;
+- (id)_scriptingInfo;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+- (BOOL)isAccessibilityElementByDefault;
 
 // Remaining properties
 @property(nonatomic) int autocapitalizationType; // @dynamic autocapitalizationType;

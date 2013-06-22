@@ -14,12 +14,13 @@
     BOOL mRelative;
 }
 
-- (id)initWithControlPoint1:(struct OADAdjustPoint)arg1 controlPoint2:(struct OADAdjustPoint)arg2 toPoint:(struct OADAdjustPoint)arg3;
-- (struct OADAdjustPoint)controlPoint1;
-- (struct OADAdjustPoint)controlPoint2;
-- (struct OADAdjustPoint)toPoint;
-- (BOOL)relative;
+- (id).cxx_construct;
 - (void)setRelative:(BOOL)arg1;
+- (BOOL)relative;
+- (struct OADAdjustPoint)toPoint;
+- (struct OADAdjustPoint)controlPoint2;
+- (struct OADAdjustPoint)controlPoint1;
+- (id)initWithControlPoint1:(struct OADAdjustPoint)arg1 controlPoint2:(struct OADAdjustPoint)arg2 toPoint:(struct OADAdjustPoint)arg3;
 
 @end
 

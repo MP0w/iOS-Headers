@@ -18,6 +18,8 @@
 - (id)_asset;
 - (id)mediaType;
 @property(copy, nonatomic) AVAudioMix *audioMix;
+- (void)_setAudioTapProcessor:(struct opaqueMTAudioProcessingTap *)arg1 forTrack:(id)arg2;
+- (struct opaqueMTAudioProcessingTap *)_audioTapProcessorForTrack:(id)arg1;
 - (void)_setAudioVolumeCurve:(id)arg1 forTrack:(id)arg2;
 - (id)_audioVolumeCurveForTrack:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *audioSettings;

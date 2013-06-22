@@ -5,9 +5,9 @@
  */
 
 @protocol CMMapperRoot
-- (id)blipAtIndex:(unsigned int)arg1;
-- (id)archiver;
-- (id)documentTitle;
 - (struct CGSize)pageSizeForDevice;
+- (id)documentTitle;
+- (id)archiver;
+- (id)blipAtIndex:(unsigned int)arg1;
 @end
 

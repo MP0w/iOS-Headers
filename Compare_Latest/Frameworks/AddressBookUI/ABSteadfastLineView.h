@@ -11,9 +11,9 @@
     BOOL disappearsOnHighlight;
 }
 
-- (void)setBackgroundColor:(id)arg1;
-- (void)forceSetBackgroundColor:(id)arg1;
 @property(nonatomic) BOOL disappearsOnHighlight; // @synthesize disappearsOnHighlight;
+- (void)forceSetBackgroundColor:(id)arg1;
+- (void)setBackgroundColor:(id)arg1;
 
 @end
 

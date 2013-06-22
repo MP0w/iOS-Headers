@@ -6,10 +6,12 @@
 
 #import "NSObject.h"
 
-@class CALayer, UIPDFPageView;
+@class CALayer, UIPDFDocument, UIPDFPageView;
 
 @interface UIPDFPageContentDelegate : NSObject
 {
+    UIPDFDocument *_document;
+    unsigned int _pageIndex;
     UIPDFPageView *_view;
     struct CGRect _bounds;
     struct CGAffineTransform _transform;
@@ -18,20 +20,28 @@
     CALayer *_owner;
     struct CGRect _box;
     unsigned int _pageRotation;
+    int _lock;
+    unsigned int _threadCount;
+    BOOL _isCancelled;
 }
 
-- (void)dealloc;
-- (void)computeTransform;
-- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
-- (void)drawSelectionLayerBlockMode:(id)arg1 inContext:(struct CGContext *)arg2;
-- (void)addRect:(struct CGRect)arg1 toPath:(struct CGPath *)arg2 transform:(struct CGAffineTransform *)arg3 view:(id)arg4 owner:(id)arg5;
-- (void)drawSelectionLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 @property(readonly) struct CGAffineTransform transform; // @synthesize transform=_transform;
-@property UIPDFPageView *view; // @synthesize view=_view;
+@property unsigned int pageIndex; // @synthesize pageIndex=_pageIndex;
+@property(retain) UIPDFDocument *document; // @synthesize document=_document;
 @property struct CGColor *highlightColor; // @synthesize highlightColor=_highlightColor;
 @property unsigned int pageRotation; // @synthesize pageRotation=_pageRotation;
 @property struct CGRect box; // @synthesize box=_box;
 @property CALayer *owner; // @synthesize owner=_owner;
+- (void)drawSelectionLayer:(id)arg1 inContext:(struct CGContext *)arg2;
+- (BOOL)pageHasSelection;
+- (void)addRect:(struct CGRect)arg1 toPath:(struct CGPath *)arg2 transform:(struct CGAffineTransform *)arg3 view:(id)arg4 owner:(id)arg5;
+- (void)drawSelectionLayerBlockMode:(id)arg1 inContext:(struct CGContext *)arg2;
+- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
+@property BOOL isCancelled; // @dynamic isCancelled;
+@property UIPDFPageView *view; // @dynamic view;
+- (void)computeTransform;
+- (void)dealloc;
+- (id)init;
 
 @end
 

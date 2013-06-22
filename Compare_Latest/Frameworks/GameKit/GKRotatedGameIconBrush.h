@@ -17,8 +17,10 @@
     UIImage *_maskImage;
     UIImage *_overlayImage;
     BOOL _horizontalFlip;
+    float _iconScale;
 }
 
+@property(nonatomic) float iconScale; // @synthesize iconScale=_iconScale;
 @property(nonatomic) BOOL horizontalFlip; // @synthesize horizontalFlip=_horizontalFlip;
 @property(retain, nonatomic) UIImage *overlayImage; // @synthesize overlayImage=_overlayImage;
 @property(retain, nonatomic) UIImage *maskImage; // @synthesize maskImage=_maskImage;

@@ -14,10 +14,10 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (id)initWithFormatString:(struct __CFString *)arg1;
-- (void)dealloc;
-- (struct __CFString *)formatString;
 - (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
+- (struct __CFString *)formatString;
+- (void)dealloc;
+- (id)initWithFormatString:(struct __CFString *)arg1;
 
 @end
 

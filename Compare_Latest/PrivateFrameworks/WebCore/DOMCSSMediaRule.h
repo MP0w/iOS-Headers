@@ -12,11 +12,11 @@
 {
 }
 
-@property(readonly, retain) DOMMediaList *media;
-@property(readonly, retain) DOMCSSRuleList *cssRules;
-- (unsigned int)insertRule:(id)arg1 index:(unsigned int)arg2;
-- (unsigned int)insertRule:(id)arg1:(unsigned int)arg2;
 - (void)deleteRule:(unsigned int)arg1;
+- (unsigned int)insertRule:(id)arg1:(unsigned int)arg2;
+- (unsigned int)insertRule:(id)arg1 index:(unsigned int)arg2;
+@property(readonly) DOMCSSRuleList *cssRules;
+@property(readonly) DOMMediaList *media;
 
 @end
 

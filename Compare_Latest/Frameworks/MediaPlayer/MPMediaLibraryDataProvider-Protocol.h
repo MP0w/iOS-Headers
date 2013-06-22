@@ -11,14 +11,18 @@
 @protocol MPMediaLibraryDataProvider <NSObject>
 @property(readonly, nonatomic) NSString *uniqueIdentifier;
 @property(readonly, nonatomic) NSString *name;
+- (void)loadQueryCriteria:(id)arg1 countOfCollectionsWithCompletionBlock:(id)arg2;
+- (void)loadQueryCriteria:(id)arg1 countOfItemsWithCompletionBlock:(id)arg2;
+- (void)loadQueryCriteria:(id)arg1 hasCollectionsWithCompletionBlock:(id)arg2;
+- (void)loadQueryCriteria:(id)arg1 hasItemsWithCompletionBlock:(id)arg2;
+- (id)collectionResultSetForQueryCriteria:(id)arg1;
+- (id)itemResultSetForQueryCriteria:(id)arg1;
 - (void)loadBestTimedArtworkImageDataForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 atPlaybackTime:(double)arg3 completionBlock:(id)arg4;
 - (void)loadBestArtworkImageDataForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
-- (void)loadProperties:(id)arg1 ofCollectionWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
+- (void)loadProperties:(id)arg1 ofCollectionWithIdentifier:(long long)arg2 groupingType:(int)arg3 completionBlock:(id)arg4;
 - (void)loadProperties:(id)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
 - (void)loadValueForAggregateFunction:(id)arg1 onCollectionsForProperty:(id)arg2 queryCriteria:(id)arg3 completionBlock:(id)arg4;
 - (void)loadValueForAggregateFunction:(id)arg1 onItemsForProperty:(id)arg2 queryCriteria:(id)arg3 completionBlock:(id)arg4;
-- (void)loadCollectionsUsingFetchRequest:(id)arg1;
-- (void)loadItemsUsingFetchRequest:(id)arg1;
 
 @optional
 @property(readonly, nonatomic) NSString *syncValidity;
@@ -29,7 +33,5 @@
 - (void)connectWithAuthenticationData:(id)arg1 completionBlock:(id)arg2 progressHandler:(void)arg3;
 - (void)enumerateCollectionIdentifiersForQueryCriteria:(id)arg1 cancelBlock:(id)arg2 usingBlock:(void)arg3;
 - (void)enumerateItemIdentifiersForQueryCriteria:(id)arg1 cancelBlock:(id)arg2 usingBlock:(void)arg3;
-- (void)loadQueryCriteria:(id)arg1 hasCollectionsWithCompletionBlock:(id)arg2;
-- (void)loadQueryCriteria:(id)arg1 hasItemsWithCompletionBlock:(id)arg2;
 @end
 

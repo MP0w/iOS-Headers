@@ -9,6 +9,7 @@
 @protocol PLVideoViewDelegate <NSObject>
 
 @optional
+- (BOOL)videoViewCanManageStatusBar:(id)arg1;
 - (id)videoViewSelectedAirTunesService:(id)arg1;
 - (BOOL)videoViewCanCreateMetadata:(id)arg1;
 - (BOOL)videoViewShouldRespondToPlayOverlayTap:(id)arg1;

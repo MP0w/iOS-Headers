@@ -6,18 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSTimer, UIAlertView;
+#import "AFDictationDelegate-Protocol.h"
 
-@interface UIDictationController : NSObject
+@class AFDictationConnection, AFDictationOptions, AFPreferences, NSArray, NSTimer, UIAlertView;
+
+@interface UIDictationController : NSObject <AFDictationDelegate>
 {
+    AFDictationConnection *_connection;
+    AFDictationOptions *_options;
+    AFPreferences *_preferences;
     NSArray *_availableLanguages;
     NSTimer *_recordingLimitTimer;
     void *_callCenterFrameworkFileHandle;
     id _callCenter;
     void *_facetimeCallFrameworkFileHandle;
     id _facetimeCallManager;
-    BOOL _disabledDueToTelephonyActivity;
+    BOOL _wasDisabledDueToTelephonyActivity;
     UIAlertView *_dictationAvailableSoonAlert;
+    BOOL _connectionWasAlreadyAliveForStatisticsLogging;
     BOOL dictationStartedFromGesture;
 }
 
@@ -25,10 +31,12 @@
 + (id)prunedDictationResultForSingleLineEditor:(id)arg1;
 + (id)bestInterpretationForDictationResult:(id)arg1;
 + (id)serializedDictationPhrases:(id)arg1;
-+ (id)serializedDictationPhrases:(id)arg1 fromKeyboard:(BOOL)arg2;
-+ (id)serializedInterpretationFromTokens:(id)arg1;
++ (id)serializedDictationPhrases:(id)arg1 fromKeyboard:(BOOL)arg2 transform:(struct __CFString *)arg3;
++ (id)interpretation:(id)arg1 forPhraseIndex:(unsigned int)arg2 isShiftLocked:(BOOL)arg3 autocapitalizationType:(int)arg4;
++ (id)serializedInterpretationFromTokens:(id)arg1 transform:(struct __CFString *)arg2;
 + (void)networkReachableCallback;
 + (void)applicationDidChangeStatusBarFrame;
++ (void)siriPreferencesChanged;
 + (void)applicationWillResignActive;
 + (void)applicationDidBecomeActive;
 + (void)keyboardDidUpdateOnScreenStatus;
@@ -39,12 +47,16 @@
 + (void)enableGestureHandlerIfNecessary;
 + (void)disableGestureHandler;
 + (void)logCorrectionStatistics;
++ (BOOL)dictationIsFunctional;
 + (BOOL)fetchCurrentInputModeSupportsDictation;
++ (id)serializedDictationPhrasesFromTokenMatrix:(id)arg1 fromKeyboard:(BOOL)arg2 transform:(struct __CFString *)arg3;
 + (id)inputModeNameForDictation;
 + (BOOL)isRunning;
-+ (void)preheatIfNecessary;
 + (id)sharedInstance;
 + (id)activeInstance;
++ (BOOL)setupForOpeningConnections;
++ (BOOL)setupForPhraseSerialization;
++ (BOOL)openAssistantFrameworkIfNecessary;
 @property(nonatomic) BOOL dictationStartedFromGesture; // @synthesize dictationStartedFromGesture;
 - (void)dictationConnection:(id)arg1 speechRecognitionDidFail:(id)arg2;
 - (void)dictationConnection:(id)arg1 speechRecordingDidFail:(id)arg2;
@@ -52,20 +64,32 @@
 - (void)dictationConnectionSpeechRecordingDidEnd:(id)arg1;
 - (void)dictationConnectionSpeechRecordingDidBegin:(id)arg1;
 - (void)dictationConnectionSpeechRecordingWillBegin:(id)arg1;
-- (void)dictationConnection:(id)arg1 didRecognizeSpeechPhrases:(id)arg2 correctionIdentifier:(id)arg3;
+- (void)dictationConnection:(id)arg1 didRecognizePhrases:(id)arg2 correctionIdentifier:(id)arg3;
+- (void)dictationConnection:(id)arg1 didRecognizePhrases:(id)arg2 languageModel:(id)arg3 correctionIdentifier:(id)arg4;
 - (id)dictationPhraseArrayFromDictationResult:(id)arg1;
 - (void)stopDictation;
 - (void)cancelDictation;
+- (void)startDictationForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
+- (void)startDictationFromLayout;
 - (void)startDictation;
-- (BOOL)disabledDueToTelephonyActivity;
+- (void)startDictationForReason:(int)arg1;
+- (void)setupForDictationStart;
+- (BOOL)wasDisabledDueToTelephonyActivity;
 - (BOOL)dictationEnabled;
+- (id)connectionForStatisticsLogging;
+- (void)releaseConnectionAfterStatisticsLogging;
+- (void)releaseConnectionAfterDictationRequest;
+- (void)releaseConnection;
+- (id)connection;
 - (void)startRecordingLimitTimer;
 - (void)cancelRecordingLimitTimer;
 - (void)dealloc;
 - (int)state;
 - (void)errorAnimationDidFinish;
 - (void)setState:(int)arg1;
-- (void)startConnection;
+- (void)startConnectionForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
+- (void)startConnectionForReason:(int)arg1;
+- (void)setupConnectionOptions;
 - (id)selectedTextForInputDelegate:(id)arg1;
 - (id)postfixTextForInputDelegate:(id)arg1;
 - (id)prefixTextForInputDelegate:(id)arg1;
@@ -79,7 +103,8 @@
 - (void)proximityStateChanged:(id)arg1;
 - (void)disableAutorotation;
 - (void)reenableAutorotation;
-- (id)_connection;
+- (void)delayedTelephonyCheckingSetup;
+- (BOOL)disabledDueToTelephonyActivity;
 - (id)init;
 
 @end

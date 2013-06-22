@@ -14,7 +14,7 @@
     NSString *_hostName;
     unsigned short _hostPort;
     NSString *_hostGUID;
-    unsigned int _hostMaxConnections;
+    unsigned long _hostMaxConnections;
     int _hostSecuritylevel;
     NSString *_serviceType;
     NSDictionary *_txtRecordsDict;
@@ -25,8 +25,6 @@
     int _clientsSpinLock;
 }
 
-- (void)dealloc;
-- (void)finalize;
 @property id delegate; // @synthesize delegate=_delegate;
 @property int clientsSpinLock; // @synthesize clientsSpinLock=_clientsSpinLock;
 @property(retain) NSMutableArray *clients; // @synthesize clients=_clients;
@@ -34,11 +32,13 @@
 @property(retain) NSDictionary *txtRecordsDict; // @synthesize txtRecordsDict=_txtRecordsDict;
 @property(retain) NSString *serviceType; // @synthesize serviceType=_serviceType;
 @property int hostSecurityLevel; // @synthesize hostSecurityLevel=_hostSecuritylevel;
-@property unsigned int hostMaxConnections; // @synthesize hostMaxConnections=_hostMaxConnections;
+@property unsigned long hostMaxConnections; // @synthesize hostMaxConnections=_hostMaxConnections;
 @property(retain) NSString *hostGUID; // @synthesize hostGUID=_hostGUID;
 @property unsigned short hostPort; // @synthesize hostPort=_hostPort;
 @property(retain) NSString *hostName; // @synthesize hostName=_hostName;
 @property struct __CFSocket *hostSocket; // @synthesize hostSocket=_hostSocket;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

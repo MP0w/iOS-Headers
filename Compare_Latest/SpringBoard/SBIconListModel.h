@@ -6,50 +6,61 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, SBFolder;
+#import "SBIconIndexMutableListObserver-Protocol.h"
+#import "SBIconIndexNode-Protocol.h"
 
-@interface SBIconListModel : NSObject
+@class NSHashTable, SBFolder, SBIconIndexMutableList;
+
+@interface SBIconListModel : NSObject <SBIconIndexNode, SBIconIndexMutableListObserver>
 {
-    NSMutableArray *_icons;
+    SBIconIndexMutableList *_icons;
+    NSHashTable *_nodeObservers;
     BOOL _iconStateIsDirty;
     SBFolder *_folder;
 }
 
-+ (Class)viewClass;
 + (unsigned int)maxIcons;
-- (id)initWithFolder:(id)arg1;
-- (void)dealloc;
-- (id)folder;
-- (id)icons;
-- (id)iconAtIndex:(unsigned int)arg1;
-- (unsigned int)indexForIcon:(id)arg1;
-- (unsigned int)indexForLeafIconWithIdentifier:(id)arg1;
-- (BOOL)containsIcon:(id)arg1;
-- (BOOL)containsLeafIconWithIdentifier:(id)arg1;
-- (BOOL)allowsAddingIcon:(id)arg1;
-- (void)notifyAdded:(id)arg1;
-- (BOOL)addIcon:(id)arg1;
-- (BOOL)addIcon:(id)arg1 asDirty:(BOOL)arg2;
-- (id)placeIcon:(id)arg1 atIndex:(unsigned int *)arg2;
-- (id)placeIcon:(id)arg1 atIndex:(unsigned int *)arg2 notify:(BOOL)arg3;
-- (id)insertIcon:(id)arg1 atIndex:(unsigned int *)arg2;
-- (void)removeIconAtIndex:(unsigned int)arg1;
-- (void)removeIcon:(id)arg1;
-- (unsigned int)firstFreeSlotIndex;
-- (unsigned int)firstFreeSlotIndexForType:(int)arg1;
-- (BOOL)isEmpty;
-- (BOOL)isFull;
-- (BOOL)needsCompacting;
-- (void)compactIcons;
-- (id)iconsOfClass:(Class)arg1;
-- (id)indexPathForEntity:(id)arg1;
-- (id)indexPathForFirstFreeSlot;
-- (BOOL)isIconStateDirty;
-- (void)markIconStateClean;
-- (BOOL)resetWithRepresentation:(id)arg1 leafIdentifiersAdded:(id)arg2;
-- (id)representation;
-- (BOOL)matchesRepresentation:(id)arg1;
++ (Class)viewClass;
+- (void)list:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
+- (void)list:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
+- (id)nodeDescriptionWithPrefix:(id)arg1;
+- (void)removeNodeObserver:(id)arg1;
+- (void)addNodeObserver:(id)arg1;
+- (id)nodesAlongIndexPath:(id)arg1 consumedIndexes:(unsigned int)arg2;
+- (id)indexPathsForContainedNodeIdentifier:(id)arg1 prefixPath:(id)arg2;
+- (id)containedNodeIdentifiers;
+- (BOOL)containsNodeIdentifier:(id)arg1;
+- (id)nodeIdentifier;
 - (id)description;
+- (BOOL)matchesRepresentation:(id)arg1;
+- (id)representation;
+- (BOOL)resetWithRepresentation:(id)arg1 model:(id)arg2 leafIdentifiersAdded:(id)arg3;
+- (void)markIconStateClean;
+- (BOOL)isIconStateDirty;
+- (id)iconsOfClass:(Class)arg1;
+- (unsigned int)compactIcons;
+- (BOOL)needsCompacting;
+- (BOOL)isFull;
+- (BOOL)isEmpty;
+- (unsigned int)firstFreeSlotIndexForType:(int)arg1;
+- (unsigned int)firstFreeSlotIndex;
+- (void)removeIcon:(id)arg1;
+- (void)removeIconAtIndex:(unsigned int)arg1;
+- (id)insertIcon:(id)arg1 atIndex:(unsigned int *)arg2;
+- (id)placeIcon:(id)arg1 atIndex:(unsigned int *)arg2;
+- (BOOL)addIcon:(id)arg1 asDirty:(BOOL)arg2;
+- (BOOL)addIcon:(id)arg1;
+- (BOOL)allowsAddingIcon:(id)arg1;
+- (BOOL)containsLeafIconWithIdentifier:(id)arg1;
+- (BOOL)containsIcon:(id)arg1;
+- (unsigned int)indexForLeafIconWithIdentifier:(id)arg1;
+- (unsigned int)indexForIcon:(id)arg1;
+- (id)iconAtIndex:(unsigned int)arg1;
+- (id)icons;
+- (unsigned int)numberOfIcons;
+- (id)folder;
+- (void)dealloc;
+- (id)initWithFolder:(id)arg1;
 
 @end
 

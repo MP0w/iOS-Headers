@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSString;
+@class NSString, NSURL;
 
 @interface EKPersistentParticipant : EKPersistentObject <NSCopying>
 {
@@ -16,9 +16,11 @@
 
 + (id)defaultPropertiesToLoad;
 - (id)owner;
-@property(copy, nonatomic) NSString *externalID;
+@property(copy, nonatomic) NSURL *address;
+@property(copy, nonatomic) NSString *lastName;
+@property(copy, nonatomic) NSString *firstName;
 @property(copy, nonatomic) NSString *emailAddress;
-@property(copy, nonatomic) NSString *name;
+@property(copy, nonatomic) NSString *displayName;
 @property(readonly, nonatomic) NSString *UUID;
 - (unsigned int)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;

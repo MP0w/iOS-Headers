@@ -14,13 +14,13 @@
     CoreDAVLeafItem *_commonName;
 }
 
-- (id)init;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
 @property(retain) CoreDAVLeafItem *commonName; // @synthesize commonName=_commonName;
 @property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
+- (id)copyParseRules;
+- (id)description;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (id)init;
 
 @end
 

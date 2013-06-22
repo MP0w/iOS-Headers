@@ -10,7 +10,6 @@
 {
 }
 
-- (void)drawInRect:(struct CGRect)arg1 withContext:(struct CGContext *)arg2 input:(id)arg3;
 - (id)init;
 
 @end

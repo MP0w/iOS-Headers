@@ -11,13 +11,13 @@
 }
 
 + (Class)layerClass;
-- (id)_shapeLayer;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
-- (struct CGPath *)_copyCurrentPath;
-- (void)_updateCurrentPath;
-- (void)setColor:(id)arg1;
 - (void)layoutSubviews;
+- (void)setColor:(id)arg1;
+- (void)_updateCurrentPath;
+- (struct CGPath *)_copyCurrentPath;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)_shapeLayer;
 
 @end
 

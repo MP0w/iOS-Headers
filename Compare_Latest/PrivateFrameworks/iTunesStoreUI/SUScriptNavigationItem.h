@@ -10,48 +10,40 @@
 
 @interface SUScriptNavigationItem : SUScriptObject
 {
-    id _scriptLeftItem;
-    id _scriptLeftMostItem;
-    id _scriptRightItem;
 }
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 + (id)_rootScriptObjectForObject:(id)arg1;
 + (void)_disconnectNavigationItem:(id)arg1 scriptObject:(id)arg2;
 + (void)disconnectNavigationItem:(id)arg1 forScriptObject:(id)arg2;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-- (void)_setScriptRightItem:(id)arg1;
-- (void)_setScriptLeftMostItem:(id)arg1;
-- (void)_setScriptLeftItem:(id)arg1;
 - (id)_copyScriptObjectForButtonItem:(id)arg1;
 - (id)_copyScriptButtonForButtonItem:(id)arg1;
-- (void)_setTitle:(id)arg1;
-- (void)_setRightItem:(id)arg1 animated:(BOOL)arg2;
-- (void)_setPrompt:(id)arg1;
-- (void)_setLeftItem:(id)arg1 animated:(BOOL)arg2;
-- (void)_setHidesBackButton:(BOOL)arg1 animated:(BOOL)arg2;
-- (BOOL)_hidesBackButton;
-- (id)_copyTitle;
-- (id)_copyRightItem;
-- (id)_copyPrompt;
-- (id)_copyLeftItem;
+- (void)setRightItems:(id)arg1 animated:(BOOL)arg2;
 - (void)setRightItem:(id)arg1 animated:(BOOL)arg2;
 - (void)setLeftMostItem:(id)arg1 animated:(BOOL)arg2;
+- (void)setLeftItems:(id)arg1 animated:(BOOL)arg2;
 - (void)setLeftItem:(id)arg1 animated:(BOOL)arg2;
+@property(retain) id titleView;
 @property(retain) NSString *title;
+- (void)setRightItems:(id)arg1;
 @property(retain) id <SUScriptNavigationItem> rightItem;
 @property(retain) NSString *prompt;
 @property(retain) id <SUScriptNavigationItem> leftMostItem;
+@property id leftItemsSupplementBackButton;
+- (void)setLeftItems:(id)arg1;
 @property(retain) id <SUScriptNavigationItem> leftItem;
 - (void)setHidesBackButton:(BOOL)arg1 animated:(BOOL)arg2;
 @property id hidesBackButton;
+@property(copy) NSString *backButtonTitle;
+- (id)rightItems;
+- (id)leftItems;
 - (id)_className;
 - (void)tearDownUserInterface;
 @property(readonly, nonatomic) UINavigationItem *nativeNavigationItem;
-- (void)dealloc;
 - (id)initWithNativeNavigationItem:(id)arg1;
 - (id)init;
 

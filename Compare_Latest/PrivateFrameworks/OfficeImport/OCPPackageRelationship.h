@@ -16,11 +16,13 @@
     NSURL *mTargetLocation;
 }
 
-- (void)dealloc;
-- (id)identifier;
-- (id)type;
-- (int)targetMode;
 - (id)targetLocation;
+- (int)targetMode;
+- (id)type;
+- (id)identifier;
+- (void)dealloc;
+- (id)initWithXmlElement:(struct _xmlNode *)arg1 baseLocation:(id)arg2;
+- (void)readFromElement:(struct _xmlNode *)arg1 baseLocation:(id)arg2;
 
 @end
 

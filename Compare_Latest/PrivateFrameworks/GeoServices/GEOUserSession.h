@@ -6,19 +6,18 @@
 
 #import "NSObject.h"
 
-@class GEOSessionID;
-
 @interface GEOUserSession : NSObject
 {
     double _lastSessionCreationTime;
-    GEOSessionID *_sessionID;
+    CDStruct_612aec5b _sessionID;
+    CDStruct_612aec5b _probeID;
 }
 
 + (id)sharedInstance;
-@property(readonly) GEOSessionID *sessionID;
-- (void)_updateSessionIDIfNeeded;
-- (void)dealloc;
+@property(readonly) CDStruct_612aec5b probeID; // @synthesize probeID=_probeID;
+@property(readonly) CDStruct_612aec5b sessionID;
 - (id)init;
+- (void)_updateWithNewUUIDForSessionID:(CDStruct_612aec5b *)arg1;
 
 @end
 

@@ -14,17 +14,21 @@
     BOOL _allowsImport;
     BOOL _allowsEditing;
     BOOL _allowsSubitems;
+    BOOL _actionsDisabled;
     EKEventStore *_eventStore;
     EKEventViewController *_currentImport;
     UIViewController *_contentViewController;
     id <EKICSPreviewControllerDelegate> _previewDelegate;
     BOOL _importing;
+    BOOL _hasCustomCancelButton;
+    int _cancelButtonType;
     BOOL _allowsToDos;
     BOOL _allowsInvalidProperties;
 }
 
 @property(nonatomic) BOOL allowsInvalidProperties; // @synthesize allowsInvalidProperties=_allowsInvalidProperties;
 @property(nonatomic) BOOL allowsToDos; // @synthesize allowsToDos=_allowsToDos;
+@property(nonatomic) BOOL actionsDisabled; // @synthesize actionsDisabled=_actionsDisabled;
 @property(nonatomic) BOOL allowsSubitems; // @synthesize allowsSubitems=_allowsSubitems;
 @property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(nonatomic) BOOL allowsImport; // @synthesize allowsImport=_allowsImport;
@@ -38,6 +42,10 @@
 - (void)presentCalendarChooserForController:(id)arg1;
 - (void)icsPreviewListControllerDidRequestImportAll:(id)arg1;
 - (void)icsPreviewListController:(id)arg1 didSelectEvent:(id)arg2;
+- (void)removeCancelButton;
+- (void)setCancelButtonWithTarget:(id)arg1 action:(SEL)arg2;
+- (void)_updateCancelButton;
+- (void)_createCancelButtonWithType:(int)arg1 target:(id)arg2 action:(SEL)arg3;
 - (id)popoverContentController;
 - (id)viewController;
 - (id)detailViewForEvent:(id)arg1 eventInRealStore:(BOOL)arg2;

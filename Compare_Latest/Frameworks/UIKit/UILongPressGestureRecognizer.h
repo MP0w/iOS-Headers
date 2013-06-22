@@ -12,7 +12,7 @@
 {
     NSArray *_touches;
     NSMutableSet *_activeTouches;
-    int _numberOfTouchesRequired;
+    unsigned int _numberOfTouchesRequired;
     double _minimumPressDuration;
     float _allowableMovement;
     struct CGPoint _startPointScreen;
@@ -27,7 +27,7 @@
 
 @property(nonatomic) float allowableMovement; // @synthesize allowableMovement=_allowableMovement;
 @property(nonatomic) double delay; // @synthesize delay=_minimumPressDuration;
-@property(nonatomic) int numberOfTouchesRequired; // @synthesize numberOfTouchesRequired=_numberOfTouchesRequired;
+@property(nonatomic) unsigned int numberOfTouchesRequired; // @synthesize numberOfTouchesRequired=_numberOfTouchesRequired;
 @property(readonly, nonatomic) NSArray *touches; // @synthesize touches=_touches;
 - (BOOL)canPreventGestureRecognizer:(id)arg1;
 - (struct CGPoint)locationOfTouch:(unsigned int)arg1 inView:(id)arg2;
@@ -53,11 +53,12 @@
 - (void)setTouches:(id)arg1;
 @property(nonatomic) BOOL cancelPastAllowableMovement;
 @property(nonatomic) double minimumPressDuration;
-@property(nonatomic) int numberOfTapsRequired;
+@property(nonatomic) unsigned int numberOfTapsRequired;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
+- (void)invalidate;
 
 @end
 

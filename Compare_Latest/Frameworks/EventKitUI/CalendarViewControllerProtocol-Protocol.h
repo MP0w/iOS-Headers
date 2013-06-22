@@ -17,6 +17,11 @@
 @optional
 + (unsigned int)maxDaysToCache;
 + (unsigned int)desiredDaysOfPadding;
+- (void)keyboardWillHide;
+- (void)keyboardWillShowWithFrame:(struct CGRect)arg1;
+- (void)endDraggingOccurrence;
+- (BOOL)isDraggingOccurrence;
+- (void)applicationWillResignActive;
 - (void)applicationDidBecomeActive;
 - (void)scrollToNow:(BOOL)arg1;
 - (void)restoreAfterRotation;

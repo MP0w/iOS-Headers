@@ -13,8 +13,8 @@
     UILabel *_titleLabel;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
 - (void)setFailureCount:(int)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

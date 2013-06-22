@@ -12,10 +12,10 @@
 {
 }
 
-@property BOOL disabled;
-@property(copy) NSString *media;
+@property(readonly) DOMStyleSheet *sheet;
 @property(copy) NSString *type;
-@property(readonly, retain) DOMStyleSheet *sheet;
+@property(copy) NSString *media;
+@property BOOL disabled;
 
 @end
 

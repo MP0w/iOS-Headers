@@ -13,7 +13,7 @@
 }
 
 + (void)initialize;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_webThreadValueForProtocolKey:(id)arg1;
@@ -21,11 +21,9 @@
 - (void)_setProtocol:(id)arg1;
 - (id)_copyProtocol;
 @property BOOL shouldShowInOverlay;
-- (void)setProtocolVersion:(id)arg1;
 @property(retain) SUScriptURLRequest *overlayBackgroundURLRequest;
 @property BOOL excludeFromNavigationHistory;
 @property(retain) NSString *copyright;
-- (void)setClientIdentifier:(id)arg1;
 @property(retain) NSArray *allowedOrientations;
 @property(readonly) NSString *protocolVersion;
 @property(readonly) NSString *clientIdentifier;

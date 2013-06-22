@@ -6,21 +6,23 @@
 
 #import "UIImageView.h"
 
+@class UIView;
+
 @interface SBDownloadingProgressBar : UIImageView
 {
-    UIImageView *_clipView;
+    UIView *_clipView;
     UIImageView *_fillView;
     float _progress;
 }
 
 + (float)defaultHeight;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (id)trackImage;
-- (id)fillImage;
-- (void)setProgress:(float)arg1;
-- (float)progress;
 - (void)updateFill;
+- (float)progress;
+- (void)setProgress:(float)arg1;
+- (id)fillImage;
+- (id)trackImage;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

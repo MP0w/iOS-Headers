@@ -15,11 +15,11 @@
     UIImage *_image;
 }
 
-- (id)init;
-- (void)dealloc;
 @property(retain) UIImage *image; // @synthesize image=_image;
 @property struct CGSize size; // @synthesize size=_size;
 @property int index; // @synthesize index=_index;
+- (void)dealloc;
+- (id)init;
 
 @end
 

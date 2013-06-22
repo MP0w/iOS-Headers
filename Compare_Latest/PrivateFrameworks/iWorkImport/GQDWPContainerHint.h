@@ -17,14 +17,16 @@
     struct CGRect mFrame;
 }
 
-- (id)initWithPageIndex:(long)arg1 cIndex:(long)arg2 sIndex:(long)arg3 lIndex:(long)arg4 anchorLocation:(long)arg5 frame:(struct CGRect)arg6;
-- (long)pageIndex;
-- (long)cIndex;
-- (long)sIndex;
-- (long)lIndex;
-- (long)anchorLocation;
-- (double)attachmentPosition;
+- (id).cxx_construct;
 - (struct CGRect)frame;
+- (double)attachmentPosition;
+- (long)anchorLocation;
+- (long)lIndex;
+- (long)sIndex;
+- (long)cIndex;
+- (long)pageIndex;
+- (id)initWithPageIndex:(long)arg1 cIndex:(long)arg2 sIndex:(long)arg3 lIndex:(long)arg4 anchorLocation:(long)arg5 frame:(struct CGRect)arg6;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

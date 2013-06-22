@@ -16,17 +16,17 @@
     NSString *mPath;
 }
 
-- (id)initWithPath:(id)arg1;
-- (void)dealloc;
-- (id)path;
-- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
-- (long long)offset;
-- (BOOL)canSeek;
-- (void)seekToOffset:(long long)arg1 whence:(int)arg2;
-- (BOOL)canCreateInputStream;
-- (id)inputStream;
-- (void)close;
 - (id)closeLocalStream;
+- (void)close;
+- (id)inputStream;
+- (BOOL)canCreateInputStream;
+- (void)seekToOffset:(long long)arg1 whence:(int)arg2;
+- (BOOL)canSeek;
+- (long long)offset;
+- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
+- (id)path;
+- (void)dealloc;
+- (id)initWithPath:(id)arg1;
 
 @end
 

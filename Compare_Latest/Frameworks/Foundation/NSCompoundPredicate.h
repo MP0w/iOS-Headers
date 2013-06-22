@@ -36,6 +36,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithType:(unsigned int)arg1 subpredicates:(id)arg2;
+- (id)generateMetadataDescription;
 
 @end
 

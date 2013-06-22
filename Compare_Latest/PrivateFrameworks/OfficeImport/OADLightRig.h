@@ -17,17 +17,17 @@
     int mDirection;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)rotation;
-- (void)setRotation:(id)arg1;
-- (int)type;
-- (void)setType:(int)arg1;
-- (int)direction;
-- (void)setDirection:(int)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setDirection:(int)arg1;
+- (int)direction;
+- (void)setType:(int)arg1;
+- (int)type;
+- (void)setRotation:(id)arg1;
+- (id)rotation;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

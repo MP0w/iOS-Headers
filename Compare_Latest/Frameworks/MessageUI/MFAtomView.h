@@ -16,22 +16,22 @@
     float _scalingFactor;
 }
 
-+ (float)defaultHeight;
-+ (float)horizontalPadding;
 + (BOOL)showActivityIndicatorForStyle:(int)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
-- (void)dealloc;
-@property(readonly, nonatomic) MFAtomBackgroundView *backgroundView;
-@property(copy, nonatomic) NSString *title;
-@property(nonatomic) int style;
-@property(nonatomic) BOOL selected;
-- (void)_setupActivityIndicator;
-- (float)preferredWidth;
-- (void)showBackground:(BOOL)arg1;
-- (void)layoutSubviews;
-- (float)_leftInset;
-- (float)_rightInset;
++ (float)horizontalPadding;
++ (float)defaultHeight;
 - (void)setScalingFactor:(float)arg1;
+- (float)_rightInset;
+- (float)_leftInset;
+- (void)layoutSubviews;
+- (void)showBackground:(BOOL)arg1;
+- (float)preferredWidth;
+- (void)_setupActivityIndicator;
+@property(nonatomic) BOOL selected;
+@property(nonatomic) int style;
+@property(copy, nonatomic) NSString *title;
+@property(readonly, nonatomic) MFAtomBackgroundView *backgroundView;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 
 @end
 

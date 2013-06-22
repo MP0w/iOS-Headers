@@ -11,8 +11,8 @@
 }
 
 - (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
+- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 
 @end

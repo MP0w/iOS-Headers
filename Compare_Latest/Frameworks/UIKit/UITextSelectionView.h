@@ -6,11 +6,11 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSTimer, UITextRangeView, UITextSelection, UIView<UITextSelectingContainer>;
+@class NSArray, NSTimer, UITextInteractionAssistant, UITextRangeView, UITextSelection;
 
 @interface UITextSelectionView : UIView
 {
-    UIView<UITextSelectingContainer> *m_view;
+    UITextInteractionAssistant *m_interactionAssistant;
     UITextSelection *m_selection;
     NSTimer *m_caretTimer;
     UIView *m_caretView;
@@ -29,7 +29,7 @@
 }
 
 @property(retain, nonatomic) NSArray *replacements; // @synthesize replacements=m_replacements;
-@property(readonly, nonatomic) UIView<UITextSelectingContainer> *view; // @synthesize view=m_view;
+@property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant; // @synthesize interactionAssistant=m_interactionAssistant;
 - (struct CGRect)clippedTargetRect:(struct CGRect)arg1;
 - (id)scrollView;
 - (void)updateSelectionWithDocumentPoint:(struct CGPoint)arg1;
@@ -93,11 +93,13 @@
 - (void)selectionDidScroll:(id)arg1;
 - (void)selectionWillScroll:(id)arg1;
 - (void)viewAnimate:(id)arg1;
+- (void)windowDidResignOrBecomeKey;
 - (void)deactivate;
 - (void)activate;
 - (void)detach;
 - (void)dealloc;
-- (id)initWithView:(id)arg1;
+- (void)invalidate;
+- (id)initWithInteractionAssistant:(id)arg1;
 
 @end
 

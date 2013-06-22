@@ -14,23 +14,23 @@
     NSString *_installedOnDeviceID;
 }
 
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-@property(readonly) BOOL isSigned;
-- (id)stubDictionary;
-- (struct __SecCertificate *)copyCertificate;
-- (struct __SecIdentity *)copyIdentityFromKeychain;
-@property(readonly) BOOL isRoot;
-@property(readonly) BOOL isIdentity;
-- (id)title;
-- (id)subtitle1Label;
-- (id)subtitle1Description;
-- (id)subtitle2Label;
-- (id)subtitle2Description;
+@property(copy, nonatomic) NSString *installedOnDeviceID; // @synthesize installedOnDeviceID=_installedOnDeviceID;
+@property(retain, nonatomic) NSData *certificatePersistentID; // @synthesize certificatePersistentID=_certificatePersistentID;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSDate *expiry;
 - (id)description;
-@property(readonly) NSDate *expiry;
-@property(copy) NSString *installedOnDeviceID; // @synthesize installedOnDeviceID=_installedOnDeviceID;
-@property(retain) NSData *certificatePersistentID; // @synthesize certificatePersistentID=_certificatePersistentID;
+- (id)subtitle2Description;
+- (id)subtitle2Label;
+- (id)subtitle1Description;
+- (id)subtitle1Label;
+- (id)title;
+@property(readonly, nonatomic) BOOL isIdentity;
+@property(readonly, nonatomic) BOOL isRoot;
+- (struct __SecIdentity *)copyIdentityFromKeychain;
+- (struct __SecCertificate *)copyCertificate;
+- (id)stubDictionary;
+@property(readonly, nonatomic) BOOL isSigned;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

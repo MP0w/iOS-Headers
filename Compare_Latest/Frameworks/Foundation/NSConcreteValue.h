@@ -12,6 +12,7 @@
     void *typeInfo;
 }
 
++ (BOOL)supportsSecureCoding;
 + (void)initialize;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
-@class NSString, UIView, UIWebView, UIWindow;
+@class NSString, UIView, UIWebView, UIWindow, _UIDictionaryDownloadViewController;
 
 @interface UIReferenceLibraryViewController : UIViewController
 {
@@ -20,6 +20,8 @@
     NSString *_definitionHTML;
     id _dismissCompletionHandler;
     UIWindow *_rotationDecider;
+    _UIDictionaryDownloadViewController *_downloadViewController;
+    BOOL _downloadableDictionaryAvailable;
 }
 
 + (id)_noDefinitionLabel;
@@ -29,7 +31,8 @@
 + (id)_viewControllerForReferenceWithString:(id)arg1 options:(unsigned int)arg2;
 + (id)_popoverControllerForReferenceLibraryWithString:(id)arg1;
 + (BOOL)dictionaryHasDefinitionForTerm:(id)arg1;
-+ (void)initialize;
+@property(nonatomic) BOOL downloadableDictionaryAvailable; // @synthesize downloadableDictionaryAvailable=_downloadableDictionaryAvailable;
+@property(retain, nonatomic) _UIDictionaryDownloadViewController *downloadViewController; // @synthesize downloadViewController=_downloadViewController;
 @property(retain, nonatomic, setter=_setRotationDecider:) UIWindow *_rotationDecider; // @synthesize _rotationDecider;
 @property(copy, nonatomic) id dismissCompletionHandler; // @synthesize dismissCompletionHandler=_dismissCompletionHandler;
 @property(retain, nonatomic) NSString *definitionHTML; // @synthesize definitionHTML=_definitionHTML;
@@ -40,16 +43,21 @@
 - (void)_didResignContentViewControllerOfPopover:(id)arg1;
 - (void)_willBecomeContentViewControllerOfPopover:(id)arg1;
 - (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
 - (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)_setPopoverController:(id)arg1;
 - (void)_repositionSubviews;
 - (void)viewDidLoad;
-- (void)definitionService:(id)arg1 hasNewHTML:(id)arg2;
+- (void)downloadActionsAreComplete:(id)arg1;
+- (void)_userChoseToDownload:(id)arg1;
+- (void)showDownloadInterface;
 @property(readonly, nonatomic) UIView *definitionContainerView; // @synthesize definitionContainerView=_definitionContainerView;
 - (void)_dismissModalReferenceView:(id)arg1;
 @property(readonly, nonatomic) UIView *modalHeaderView; // @synthesize modalHeaderView=_modalHeaderView;
 - (void)dealloc;
 - (id)initWithTerm:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

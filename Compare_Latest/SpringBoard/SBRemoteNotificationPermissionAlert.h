@@ -11,14 +11,14 @@
 @interface SBRemoteNotificationPermissionAlert : SBAlertItem
 {
     SBApplication *_app;
-    int _types;
+    unsigned int _types;
 }
 
-- (id)initWithApplication:(id)arg1 notificationTypes:(int)arg2;
-- (void)dealloc;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 - (BOOL)shouldShowInLockScreen;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)dealloc;
+- (id)initWithApplication:(id)arg1 notificationTypes:(unsigned int)arg2;
 
 @end
 

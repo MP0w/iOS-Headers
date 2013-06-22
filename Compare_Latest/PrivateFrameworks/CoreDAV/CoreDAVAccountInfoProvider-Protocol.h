@@ -40,6 +40,7 @@
 - (BOOL)handleAuthenticateAgainstProtectionSpace:(id)arg1;
 - (BOOL)handleTrustChallenge:(id)arg1 withConnection:(id)arg2;
 - (BOOL)handleTrustChallenge:(id)arg1;
+- (id)oauthToken;
 - (id)additionalHeaderValues;
 @end
 

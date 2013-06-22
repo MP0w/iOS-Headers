@@ -11,11 +11,16 @@
     int fPriority;
     struct CLConnectionClient *fLocationdConnection;
     id fGestureHandler;
-    struct dispatch_source_s *fTimer;
+    struct dispatch_source_s *fWatchDogTimer;
+    struct dispatch_queue_s *fPrivateQueue;
 }
 
+- (void)stopGestureUpdatesPrivate;
+- (void)startGestureUpdatesWithHandlerPrivate:(id)arg1;
+- (void)stopWatchdogCheckinsPrivate;
+- (void)startWatchdogCheckinsPrivate;
 - (void)dealloc;
-- (id)init;
+- (id)initWithPriority:(int)arg1;
 
 @end
 

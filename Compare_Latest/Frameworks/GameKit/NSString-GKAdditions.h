@@ -9,11 +9,21 @@
 @interface NSString (GKAdditions)
 + (id)stringForScoreAndPercentileWithRank:(float)arg1 totalScores:(float)arg2 formattedScore:(id)arg3;
 + (id)stringForRankAndPercentileWithRank:(float)arg1 totalScores:(float)arg2;
++ (id)stringForParanthenticalPercentileRankingWithRank:(float)arg1 totalScores:(float)arg2;
 + (id)stringForPercentileRankingWithRank:(float)arg1 totalScores:(float)arg2;
 + (id)stringForPercentileWithRank:(float)arg1 totalScores:(float)arg2 asPercentile:(BOOL)arg3 isTop:(char *)arg4;
 + (id)_gkUUIDString;
+- (id)_gkStringByEscapingHTMLEntities;
+- (id)_gkStringByUnescapingFromURLQuery;
+- (id)_gkFallbackURLStrings;
+- (void)_gkSetFallbackURLStrings:(id)arg1;
 - (id)stringByAddingPercentEscapesIncludingReservedCharacters;
 - (id)_gkLocaleSensitiveUppercaseString;
-- (id)_gkQuotedString;
+- (id)_gkStringByQuotingWithFormat:(id)arg1;
+- (id)_gkTruncationSymbolWithFormat:(id)arg1;
+- (id)_gkStringByAddingBidiEmbeddingMarkers;
+- (BOOL)_gkIsMixedDirection;
+- (BOOL)_gkIsNaturallyRTL;
+- (void)processUTF16CharactersForBidi:(id)arg1;
 @end
 

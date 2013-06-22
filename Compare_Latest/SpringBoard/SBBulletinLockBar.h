@@ -10,23 +10,21 @@
 {
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 knobImage:(id)arg2;
-- (void)dealloc;
-- (float)defaultWellWidth;
-- (id)wellImageName;
-- (BOOL)allowsTouchTrackingBeyondVerticalThreshold;
-- (BOOL)usesBackgroundImage;
-- (BOOL)_shouldStopLabelAnimationForGrab;
-- (float)knobTrackInsetLeft;
-- (float)knobTrackInsetRight;
-- (void)_adjustLabelOrigin;
-- (float)_calcKnobYOffset;
-- (void)knobDragged:(float)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)showKnob;
-- (void)hideKnob;
-- (void)setAlpha:(float)arg1;
 - (void)setWellWidth:(float)arg1;
+- (void)setAlpha:(float)arg1;
+- (void)hideKnob;
+- (void)showKnob;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (float)_calcKnobYOffset;
+- (void)_adjustLabelOrigin;
+- (float)knobTrackInsetRight;
+- (BOOL)_shouldStopLabelAnimationForGrab;
+- (BOOL)usesBackgroundImage;
+- (BOOL)allowsTouchTrackingBeyondVerticalThreshold;
+- (id)wellImageName;
+- (float)defaultWellWidth;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 knobImage:(id)arg2;
 
 @end
 

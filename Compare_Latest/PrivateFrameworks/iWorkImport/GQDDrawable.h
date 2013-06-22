@@ -17,24 +17,25 @@
     char *mUid;
     GQDBezierPath *mWrapPath;
     GQDAffineGeometry *mWrapGeometry;
-    set_e74177a8 *mInnerWrapPoints;
+    set_ac3beeb4 *mInnerWrapPoints;
     BOOL mHasPagesOrder;
     long mPagesOrder;
 }
 
-- (void)dealloc;
-- (id)geometry;
-- (struct __CFURL *)url;
-- (struct __CFString *)urlString;
-- (const char *)uid;
-- (int)collectWrapPointsForState:(id)arg1 graphicStyle:(id)arg2;
-- (void)addWrapPoint:(id)arg1;
-- (const set_e74177a8 *)wrapPoints;
-- (vector_8a2ced25 *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
-- (void)clearWrapPoints;
-- (struct CGPath *)createBezierPath;
-- (BOOL)hasPagesOrder;
 - (int)pagesOrder;
+- (BOOL)hasPagesOrder;
+- (struct CGPath *)createBezierPath;
+- (void)clearWrapPoints;
+- (vector_8a2ced25 *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
+- (const set_ac3beeb4 *)wrapPoints;
+- (void)addWrapPoint:(id)arg1;
+- (int)collectWrapPointsForState:(id)arg1 graphicStyle:(id)arg2;
+- (const char *)uid;
+- (struct __CFString *)urlString;
+- (struct __CFURL *)url;
+- (id)geometry;
+- (void)dealloc;
+- (void)collectWrapPoints:(id)arg1 forPath:(struct CGPath *)arg2 context:(struct FindLinesContext *)arg3;
 
 @end
 

@@ -14,7 +14,7 @@
 {
     id <MailComposeDeliveryControllerDelegate> _delegate;
     MFOutgoingMessageDelivery *_delivery;
-    OutgoingMessage *_message;
+    OutgoingMessage *_draftMessage;
     NSString *_sendingAddress;
     MailboxUid *_draftMailbox;
     NSString *_draftMessageID;
@@ -22,18 +22,24 @@
     id <NSCoding> _autosaveIdentifier;
     MFError *_error;
     int _composeType;
-    BOOL _shouldSave;
 }
 
-- (id)initWithDelivery:(id)arg1 outgoingMessage:(id)arg2 sendingAddress:(id)arg3 draftMessageID:(id)arg4 draftMailbox:(id)arg5 originalMessage:(id)arg6 composeType:(int)arg7 shouldSave:(BOOL)arg8;
-- (void)dealloc;
-- (BOOL)deliverMessage;
-- (id)error;
-- (void)_removeDraft;
-- (void)_setCodePointTranslationEnabled:(BOOL)arg1;
-- (void)setPercentDone:(double)arg1;
-- (void)notifyUserDeliverySucceeded:(id)arg1;
+@property(retain, nonatomic) MailboxUid *draftMailbox; // @synthesize draftMailbox=_draftMailbox;
+@property(copy, nonatomic) NSString *draftMessageID; // @synthesize draftMessageID=_draftMessageID;
+@property(nonatomic) int composeType; // @synthesize composeType=_composeType;
+@property(retain, nonatomic) MailMessage *originalMessage; // @synthesize originalMessage=_originalMessage;
+@property(copy, nonatomic) NSString *sendingAddress; // @synthesize sendingAddress=_sendingAddress;
 @property(nonatomic) id <MailComposeDeliveryControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)notifyUserDeliverySucceeded:(id)arg1;
+- (void)setPercentDone:(double)arg1;
+- (void)_setCodePointTranslationEnabled:(BOOL)arg1;
+- (void)_removeDraft;
+- (id)error;
+- (BOOL)deliverMessage;
+- (void)dealloc;
+- (id)_initWithDelivery:(id)arg1 draftMessage:(id)arg2;
+- (id)initWithDraftMessage:(id)arg1;
+- (id)initWithDelivery:(id)arg1;
 
 @end
 

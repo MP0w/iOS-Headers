@@ -6,25 +6,28 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
+
 @interface SSXPCConnection : NSObject
 {
-    struct _xpc_connection_s *_connection;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_xpc_object> *_connection;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     id _disconnectBlock;
-    struct dispatch_queue_s *_replyQueue;
+    NSObject<OS_dispatch_queue> *_replyQueue;
     id _messageBlock;
 }
 
 - (void)_reloadEventHandler;
-- (void)setReplyQueue:(struct dispatch_queue_s *)arg1;
+- (void)setReplyQueue:(id)arg1;
 @property(copy) id messageBlock;
 @property(copy) id disconnectBlock;
-- (void)sendMessage:(void *)arg1 withReply:(id)arg2;
-- (void)sendMessage:(void *)arg1;
-- (struct dispatch_queue_s *)copyReplyQueue;
-- (struct _xpc_endpoint_s *)createXPCEndpoint;
+- (void)sendSynchronousMessage:(id)arg1 withReply:(id)arg2;
+- (void)sendMessage:(id)arg1 withReply:(id)arg2;
+- (void)sendMessage:(id)arg1;
+- (id)copyReplyQueue;
+- (id)createXPCEndpoint;
 - (void)dealloc;
-- (id)initWithXPCConnection:(struct _xpc_connection_s *)arg1;
+- (id)initWithXPCConnection:(id)arg1;
 - (id)initWithServiceName:(id)arg1;
 - (id)init;
 - (id)_initSSXPCConnection;

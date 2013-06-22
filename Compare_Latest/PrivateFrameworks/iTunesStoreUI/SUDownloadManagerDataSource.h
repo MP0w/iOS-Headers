@@ -13,22 +13,15 @@
     SUDownloadManager *_downloadManager;
 }
 
-- (id)_newPreorderAccessoryButton;
-- (id)_headerViewWithTitle:(id)arg1 subtitle:(id)arg2;
-- (id)_headerViewForPreordersSection;
-- (id)_headerViewForDownloadsSection;
+- (int)tableViewStyle;
 - (void)reloadData;
-- (void)reloadCellContexts;
 - (int)numberOfSections;
 - (int)numberOfRowsInSection:(int)arg1;
-- (id)headerViewForSection:(int)arg1;
 - (BOOL)deleteIndexPath:(id)arg1;
 - (void)configureCell:(id)arg1 forIndexPath:(id)arg2;
+- (id)cellForIndexPath:(id)arg1;
 - (BOOL)canSelectIndexPath:(id)arg1;
 - (BOOL)canDeleteIndexPath:(id)arg1;
-- (id)preorderForIndexPath:(id)arg1;
-- (BOOL)isPreordersSection:(int)arg1;
-- (BOOL)isDownloadsSection:(int)arg1;
 @property(readonly, nonatomic) SUDownloadManager *downloadManager;
 - (id)downloadForIndexPath:(id)arg1;
 - (void)dealloc;

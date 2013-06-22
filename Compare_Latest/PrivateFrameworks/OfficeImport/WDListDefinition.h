@@ -18,20 +18,21 @@
     WDStyle *mListStyleLink;
 }
 
-- (int)type;
-- (void)setType:(int)arg1;
-- (int)levelCount;
-- (id)levelAt:(int)arg1;
-- (id)addLevel;
-- (id)listStyle;
-- (void)setListStyle:(id)arg1;
-- (id)listStyleLink;
-- (void)setListStyleLink:(id)arg1;
-- (int)listId;
-- (void)setListId:(int)arg1;
-- (id)document;
-- (id)initWithDocument:(id)arg1;
 - (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithDocument:(id)arg1;
+- (id)document;
+- (void)setListId:(int)arg1;
+- (int)listId;
+- (void)setListStyleLink:(id)arg1;
+- (id)listStyleLink;
+- (void)setListStyle:(id)arg1;
+- (id)listStyle;
+- (id)addLevel;
+- (id)levelAt:(int)arg1;
+- (int)levelCount;
+- (void)setType:(int)arg1;
+- (int)type;
 
 @end
 

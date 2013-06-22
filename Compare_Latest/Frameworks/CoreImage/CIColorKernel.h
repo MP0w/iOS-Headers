@@ -11,7 +11,7 @@
 }
 
 + (id)kernelWithOptions:(id)arg1;
-- (id)applyWithArguments:(id)arg1 extent:(struct CGRect)arg2;
+- (id)applyWithExtent:(struct CGRect)arg1 andArguments:(id)arg2;
 - (id)initWithOptions:(id)arg1;
 
 @end

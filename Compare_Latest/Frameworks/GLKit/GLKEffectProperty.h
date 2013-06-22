@@ -16,14 +16,14 @@
     char *_vshSource;
     char *_fshSource;
     unsigned long long _dirtyUniforms;
-    GLKEffect *_effect;
     unsigned char _masksInitialized;
+    GLKEffect *_effect;
 }
 
 + (void)logSetMasksWithLabel:(id)arg1 obj:(id)arg2 typeStr:(id)arg3;
 + (void)setStaticMasksWithVshRoot:(id)arg1 fshRoot:(id)arg2;
-@property(nonatomic) unsigned char masksInitialized; // @synthesize masksInitialized=_masksInitialized;
 @property(nonatomic) GLKEffect *effect; // @synthesize effect=_effect;
+@property(nonatomic) unsigned char masksInitialized; // @synthesize masksInitialized=_masksInitialized;
 @property(nonatomic) unsigned long long dirtyUniforms; // @synthesize dirtyUniforms=_dirtyUniforms;
 @property(nonatomic) char *fshSource; // @synthesize fshSource=_fshSource;
 @property(nonatomic) char *vshSource; // @synthesize vshSource=_vshSource;
@@ -36,7 +36,8 @@
 - (void)bind;
 - (void)initializeMasks;
 - (void)setMasks;
-- (_Bool)includeShaderTextForRootNode:(id)arg1;
+- (_Bool)includeFshShaderTextForRootNode:(id)arg1;
+- (_Bool)includeVshShaderTextForRootNode:(id)arg1;
 - (void)setShaderBindings;
 - (void)setFSHSource:(char *)arg1;
 - (void)setVSHSource:(char *)arg1;

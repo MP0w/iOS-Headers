@@ -14,10 +14,7 @@
     ISURLCacheConfiguration *_configuration;
 }
 
-+ (id)persistentIdentifierFromPropertyList:(id)arg1;
 + (id)cacheDirectoryPath;
-- (BOOL)_urlStringMatchesURLPatterns:(id)arg1;
-- (BOOL)_urlStringMatchesFileExtensions:(id)arg1;
 - (void)storeCachedResponse:(id)arg1 forRequest:(id)arg2;
 - (void)saveMemoryCacheToDisk;
 - (void)removeCachedResponseForRequest:(id)arg1;
@@ -30,8 +27,6 @@
 - (id)cachedResponseForRequest:(id)arg1;
 - (void)reloadWithCacheConfiguration:(id)arg1;
 @property(readonly) NSString *persistentIdentifier;
-- (BOOL)isUsableByClientWithIdentifier:(id)arg1;
-- (BOOL)criteriaMatchesRequest:(id)arg1;
 - (void)dealloc;
 - (id)initWithCacheConfiguration:(id)arg1;
 - (id)init;

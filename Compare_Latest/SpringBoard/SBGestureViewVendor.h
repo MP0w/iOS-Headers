@@ -14,13 +14,13 @@
 }
 
 + (id)sharedInstance;
-- (id)viewForApp:(id)arg1 gestureType:(int)arg2 includeStatusBar:(BOOL)arg3;
-- (id)viewForApp:(id)arg1 gestureType:(int)arg2 includeStatusBar:(BOOL)arg3 decodeImage:(BOOL)arg4;
-- (void)clearCacheForApp:(id)arg1 reason:(id)arg2;
-- (void)clearCacheForReason:(id)arg1;
-- (id)init;
+- (void)maskViewIfNeeded:(id)arg1 gestureType:(unsigned int)arg2 viewType:(int)arg3 contextHostViewRequester:(id)arg4 app:(id)arg5;
 - (void)dealloc;
-- (void)maskViewIfNeeded:(id)arg1 gestureType:(int)arg2 viewType:(int)arg3 contextHostViewRequester:(id)arg4 app:(id)arg5;
+- (id)init;
+- (void)clearCacheForReason:(id)arg1;
+- (void)clearCacheForApp:(id)arg1 reason:(id)arg2;
+- (id)viewForApp:(id)arg1 gestureType:(unsigned int)arg2 includeStatusBar:(BOOL)arg3 decodeImage:(BOOL)arg4;
+- (id)viewForApp:(id)arg1 gestureType:(unsigned int)arg2 includeStatusBar:(BOOL)arg3;
 
 @end
 

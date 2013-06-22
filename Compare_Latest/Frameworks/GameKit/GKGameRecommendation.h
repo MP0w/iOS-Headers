@@ -18,6 +18,8 @@
 + (void)markGameRecommendationsDisplayed:(id)arg1 complete:(id)arg2;
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
 @property(retain, nonatomic) GKGameRecommendationInternal *internal; // @synthesize internal=_internal;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;

@@ -15,11 +15,11 @@
     NSString *_folderID;
 }
 
-- (id)initWithMailbox:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (BOOL)performWithAccount:(id)arg1 offlineCache:(id)arg2;
 - (id)description;
+- (BOOL)performWithAccount:(id)arg1 offlineCache:(id)arg2;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithMailbox:(id)arg1;
 
 @end
 

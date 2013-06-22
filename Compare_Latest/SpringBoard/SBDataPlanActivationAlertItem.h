@@ -12,10 +12,10 @@
     BOOL _promptToDisable;
 }
 
-- (id)initWithAccountURL:(id)arg1 newAccount:(BOOL)arg2 promptToDisable:(BOOL)arg3;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 @property(nonatomic, getter=isNewAccount) BOOL newAccount; // @synthesize newAccount=_newAccount;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (id)initWithAccountURL:(id)arg1 newAccount:(BOOL)arg2 promptToDisable:(BOOL)arg3;
 
 @end
 

@@ -37,10 +37,14 @@
 
 @property(retain, nonatomic) PLCameraImporter *importer; // @synthesize importer=_importer;
 - (void)albumViewSelectionDidChange:(id)arg1 added:(id)arg2 removed:(id)arg3;
-- (id)albumView:(id)arg1 textBadgeForPhotoAtIndex:(unsigned int)arg2;
+- (id)albumView:(id)arg1 badgeImageForPhotoAtIndexPath:(id)arg2;
+- (id)albumView:(id)arg1 textBadgeForPhotoAtIndexPath:(id)arg2;
+- (id)footerAccessoryViewForAlbumView:(id)arg1;
+- (id)footerSubtitleForAlbumView:(id)arg1;
+- (BOOL)footerSubtitleAllowsEmail:(id)arg1;
 - (void)albumView:(id)arg1 imageCount:(unsigned int *)arg2 videoCount:(unsigned int *)arg3 otherCount:(unsigned int *)arg4 pendingCount:(unsigned int *)arg5 importOperation:(int *)arg6;
-- (id)albumView:(id)arg1 imageDataForPhotoAtIndex:(unsigned int)arg2 imageWidth:(int *)arg3 imageHeight:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
-- (unsigned int)numberOfPhotosForAlbumView:(id)arg1;
+- (id)albumView:(id)arg1 imageDataForPhotoAtIndexPath:(id)arg2 imageWidth:(int *)arg3 imageHeight:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
+- (unsigned int)albumView:(id)arg1 numberOfPhotosInSection:(unsigned int)arg2;
 - (void)importer:(id)arg1 didCompleteRemovalOfItems:(id)arg2;
 - (void)importer:(id)arg1 didCompleteImportForItems:(id)arg2;
 - (void)importer:(id)arg1 didImportItem:(id)arg2 error:(id)arg3;
@@ -67,7 +71,6 @@
 - (void)dealloc;
 - (void)viewWillAppear:(BOOL)arg1;
 - (id)contentScrollView;
-- (void)viewDidUnload;
 - (void)didReceiveMemoryWarning;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;

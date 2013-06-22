@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)isBodyZone;
 - (void)accept:(id)arg1;
+- (BOOL)isBodyZone;
 
 @end
 

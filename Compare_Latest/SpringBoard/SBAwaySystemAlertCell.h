@@ -15,19 +15,22 @@
     BOOL _horizontalButtonLayout;
 }
 
-+ (float)rowHeightForTitle:(id)arg1 message:(id)arg2 rowWidth:(float)arg3 buttonLabels:(id)arg4;
-+ (id)_buttonBackgroundImage;
-+ (float)_buttonWidthForText:(id)arg1;
-+ (id)_buttonFont;
-+ (float)_buttonHorizontalInset;
 + (float)_buttonVerticalInset;
-- (void)dealloc;
-- (void)_forwardButtonPressToHandler:(id)arg1;
-- (void)_createContentView;
-- (void)setButtonLabels:(id)arg1 handler:(id)arg2 isAlarm:(BOOL)arg3;
-- (struct CGRect)_cellContentViewFrame;
-- (float)_getMaxButtonWidth;
++ (float)_buttonHorizontalInset;
++ (id)_buttonFont;
++ (float)_buttonWidthForText:(id)arg1;
++ (id)_buttonPressedImage;
++ (id)_buttonBackgroundImage;
++ (id)_alarmButtonPressedImage;
++ (id)_alarmButtonBackgroundImage;
++ (float)rowHeightForTitle:(id)arg1 message:(id)arg2 rowWidth:(float)arg3 buttonLabels:(id)arg4;
 - (void)layoutSubviews;
+- (float)_getMaxButtonWidth;
+- (struct CGRect)_cellContentViewFrame;
+- (void)setButtonLabels:(id)arg1 handler:(id)arg2 isAlarm:(BOOL)arg3;
+- (void)_createContentView;
+- (void)_forwardButtonPressToHandler:(id)arg1;
+- (void)dealloc;
 
 @end
 

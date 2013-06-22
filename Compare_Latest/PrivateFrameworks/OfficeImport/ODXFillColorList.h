@@ -10,9 +10,9 @@
 {
 }
 
-+ (id)hueDirectionMap;
-+ (id)colorApplicationMethodMap;
 + (void)readNode:(struct _xmlNode *)arg1 list:(id)arg2;
++ (id)colorApplicationMethodMap;
++ (id)hueDirectionMap;
 
 @end
 

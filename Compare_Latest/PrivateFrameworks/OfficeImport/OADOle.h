@@ -14,7 +14,7 @@
     NSString *mCLSID;
     NSString *mAnsiUserType;
     NSString *mAnsiClipboardFormatName;
-    unsigned int mWinClipboardFormat;
+    unsigned long mWinClipboardFormat;
     NSString *mMacClipboardFormat;
     NSString *mAnsiProgID;
     NSString *mUnicodeUserType;
@@ -23,32 +23,32 @@
     id mObject;
 }
 
-+ (BOOL)isProgIDSupported:(id)arg1;
 + (BOOL)isCLSIDSupported:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (BOOL)iconic;
-- (void)setIconic:(BOOL)arg1;
-- (id)CLSID;
-- (void)setCLSID:(id)arg1;
-- (id)ansiUserType;
-- (void)setAnsiUserType:(id)arg1;
-- (id)ansiClipboardFormatName;
-- (void)setAnsiClipboardFormatName:(id)arg1;
-- (unsigned long)winClipboardFormat;
-- (void)setWinClipboardFormat:(unsigned long)arg1;
-- (id)macClipboardFormat;
-- (void)setMacClipboardFormat:(id)arg1;
-- (id)ansiProgID;
-- (void)setAnsiProgID:(id)arg1;
-- (id)unicodeUserType;
-- (void)setUnicodeUserType:(id)arg1;
-- (id)unicodeClipboardFormatName;
-- (void)setUnicodeClipboardFormatName:(id)arg1;
-- (id)unicodeProgID;
-- (void)setUnicodeProgID:(id)arg1;
-- (id)object;
++ (BOOL)isProgIDSupported:(id)arg1;
 - (void)setObject:(id)arg1;
+- (id)object;
+- (void)setUnicodeProgID:(id)arg1;
+- (id)unicodeProgID;
+- (void)setUnicodeClipboardFormatName:(id)arg1;
+- (id)unicodeClipboardFormatName;
+- (void)setUnicodeUserType:(id)arg1;
+- (id)unicodeUserType;
+- (void)setAnsiProgID:(id)arg1;
+- (id)ansiProgID;
+- (void)setMacClipboardFormat:(id)arg1;
+- (id)macClipboardFormat;
+- (void)setWinClipboardFormat:(unsigned long)arg1;
+- (unsigned long)winClipboardFormat;
+- (void)setAnsiClipboardFormatName:(id)arg1;
+- (id)ansiClipboardFormatName;
+- (void)setAnsiUserType:(id)arg1;
+- (id)ansiUserType;
+- (void)setCLSID:(id)arg1;
+- (id)CLSID;
+- (void)setIconic:(BOOL)arg1;
+- (BOOL)iconic;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -13,13 +13,16 @@
     NSDictionary *_attributes;
 }
 
-- (void)populatePostbackDictionary:(id)arg1;
-- (void)dealloc;
-- (id)imageAttributeAndScale:(float *)arg1;
-- (void)imageLoaded:(id)arg1;
-- (BOOL)loadImage;
-- (void)setImage:(id)arg1;
 @property(retain, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
+- (void)setImageAlignment:(int)arg1;
+- (void)setImageSize:(struct CGSize)arg1;
+- (void)setImage:(id)arg1;
+- (BOOL)loadImage;
+- (void)imageLoaded:(id)arg1;
+- (int)_horizontalAlignmentForString:(id)arg1;
+- (id)imageAttributeAndScale:(float *)arg1;
+- (void)dealloc;
+- (void)populatePostbackDictionary:(id)arg1;
 
 @end
 

@@ -21,22 +21,22 @@
 }
 
 + (id)expressionForFetch:(id)arg1 context:(id)arg2 countOnly:(BOOL)arg3;
-- (id)initForFetch:(id)arg1 context:(id)arg2 countOnly:(BOOL)arg3;
-- (void)dealloc;
-- (id)requestExpression;
-- (id)contextExpression;
-- (BOOL)isCountOnlyRequest;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
-- (id)predicateFormat;
-- (id)description;
-- (unsigned int)expressionType;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
+- (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)expressionType;
+- (id)description;
+- (id)predicateFormat;
+- (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (BOOL)isCountOnlyRequest;
+- (id)contextExpression;
+- (id)requestExpression;
+- (void)dealloc;
+- (id)initForFetch:(id)arg1 context:(id)arg2 countOnly:(BOOL)arg3;
 
 @end
 

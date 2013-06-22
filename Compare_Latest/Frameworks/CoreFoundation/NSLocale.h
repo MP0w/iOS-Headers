@@ -4,15 +4,16 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSLocale : NSObject <NSCopying, NSCoding>
+@interface NSLocale : NSObject <NSCopying, NSSecureCoding>
 {
 }
 
++ (id)internetServicesRegion;
 + (unsigned int)lineDirectionForLanguage:(id)arg1;
 + (unsigned int)characterDirectionForLanguage:(id)arg1;
 + (unsigned int)windowsLocaleCodeFromLocaleIdentifier:(id)arg1;
@@ -30,6 +31,7 @@
 + (id)localeWithLocaleIdentifier:(id)arg1;
 + (id)currentLocale;
 + (id)systemLocale;
++ (BOOL)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (id)_prefs;
 - (id)_copyDisplayNameForKey:(id)arg1 value:(id)arg2;

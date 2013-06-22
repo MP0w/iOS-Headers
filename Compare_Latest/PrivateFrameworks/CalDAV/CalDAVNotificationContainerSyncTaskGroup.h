@@ -6,14 +6,19 @@
 
 #import "CoreDAVContainerSyncTaskGroup.h"
 
+@class NSSet;
+
 @interface CalDAVNotificationContainerSyncTaskGroup : CoreDAVContainerSyncTaskGroup
 {
+    NSSet *_notificationTypeNamesToFetch;
 }
 
-- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 accountInfoProvider:(id)arg4 taskManager:(id)arg5;
-- (id)copyGetTaskWithURL:(id)arg1;
-- (BOOL)shouldFetchResourceWithEtag:(id)arg1 propertiesToValues:(id)arg2;
+@property(retain) NSSet *notificationTypeNamesToFetch; // @synthesize notificationTypeNamesToFetch=_notificationTypeNamesToFetch;
 - (id)copyAdditionalResourcePropertiesToFetch;
+- (BOOL)shouldFetchResourceWithEtag:(id)arg1 propertiesToValues:(id)arg2;
+- (id)copyGetTaskWithURL:(id)arg1;
+- (void)dealloc;
+- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 accountInfoProvider:(id)arg4 taskManager:(id)arg5;
 
 @end
 

@@ -16,8 +16,9 @@
     AVVideoCompositionInternal *_videoComposition;
 }
 
-+ (id)videoCompositionForAsset:(id)arg1 videoGravity:(id)arg2;
-+ (id)videoCompositionForAsset:(id)arg1;
++ (void)initialize;
++ (id)videoCompositionWithPropertiesOfAsset:(id)arg1 videoGravity:(id)arg2;
++ (id)videoCompositionWithPropertiesOfAsset:(id)arg1;
 - (BOOL)isValidForAsset:(id)arg1 timeRange:(CDStruct_e83c9415)arg2 validationDelegate:(id)arg3;
 - (BOOL)_isValidReturningExceptionReason:(id *)arg1;
 - (id)_serializableInstructions;

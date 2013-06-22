@@ -18,25 +18,25 @@
 }
 
 + (struct _xmlNs *)appNamespace;
-- (id)init;
-- (void)dealloc;
-- (Class)classForName:(const char *)arg1;
-- (BOOL)addObject:(id)arg1 withOwnedXmlUid:(const char *)arg2;
-- (id)uuid;
-- (const char *)addIdentifiedObject:(id)arg1 fromCurrentNode:(struct _xmlTextReader *)arg2;
-- (id)objectWithXmlUid:(const char *)arg1;
-- (void)forgetAboutObject:(id)arg1 withXmlUid:(const char *)arg2;
-- (BOOL)includeStyleWithIdentifier:(const char *)arg1 parentIdentifier:(const char *)arg2 uid:(const char *)arg3;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 fileExists:(char *)arg3;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
-- (id)colorForMissingAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
-- (struct __CFURL *)appBundleResourcesUrl;
-- (void)initializeAppBundleResourcesUrl;
-- (void)loadAppBundleResourceToColorMap;
-- (BOOL)readDocumentVersion:(struct _xmlTextReader *)arg1;
-- (BOOL)readDocumentVersion:(struct _xmlTextReader *)arg1 isTooNew:(char *)arg2;
-- (unsigned int)documentReleaseVersion;
 - (BOOL)appBundleCanProcessCurrentDocVersion;
+- (unsigned int)documentReleaseVersion;
+- (BOOL)readDocumentVersion:(struct _xmlTextReader *)arg1 isTooNew:(char *)arg2;
+- (BOOL)readDocumentVersion:(struct _xmlTextReader *)arg1;
+- (void)loadAppBundleResourceToColorMap;
+- (void)initializeAppBundleResourcesUrl;
+- (struct __CFURL *)appBundleResourcesUrl;
+- (id)colorForMissingAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2 fileExists:(char *)arg3;
+- (BOOL)includeStyleWithIdentifier:(const char *)arg1 parentIdentifier:(const char *)arg2 uid:(const char *)arg3;
+- (void)forgetAboutObject:(id)arg1 withXmlUid:(const char *)arg2;
+- (id)objectWithXmlUid:(const char *)arg1;
+- (const char *)addIdentifiedObject:(id)arg1 fromCurrentNode:(struct _xmlTextReader *)arg2;
+- (id)uuid;
+- (BOOL)addObject:(id)arg1 withOwnedXmlUid:(const char *)arg2;
+- (Class)classForName:(const char *)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

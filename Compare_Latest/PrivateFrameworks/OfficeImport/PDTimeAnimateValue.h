@@ -14,12 +14,12 @@
     double mPercentTime;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)timeValue;
-- (void)setTimeValue:(id)arg1;
-- (double)percentTime;
 - (void)setPercentTime:(double)arg1;
+- (double)percentTime;
+- (void)setTimeValue:(id)arg1;
+- (id)timeValue;
+- (void)dealloc;
+- (id)init;
 
 @end
 

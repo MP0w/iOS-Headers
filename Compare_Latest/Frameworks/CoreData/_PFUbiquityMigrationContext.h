@@ -15,11 +15,11 @@
     PFUbiquityStoreSaveSnapshot *_destinationStoreSaveSnapshot;
 }
 
-- (id)sourceGlobalObjectIDFromCompressedID:(id)arg1;
-- (void)dealloc;
 @property(retain, nonatomic) PFUbiquityStoreSaveSnapshot *destinationStoreSaveSnapshot; // @synthesize destinationStoreSaveSnapshot=_destinationStoreSaveSnapshot;
 @property(retain, nonatomic) PFUbiquityStoreSaveSnapshot *sourceStoreSaveSnapshot; // @synthesize sourceStoreSaveSnapshot=_sourceStoreSaveSnapshot;
 @property(retain, nonatomic) PFUbiquityTransactionLog *transactionLog; // @synthesize transactionLog=_transactionLog;
+- (void)dealloc;
+- (id)sourceGlobalObjectIDFromCompressedID:(id)arg1;
 
 @end
 

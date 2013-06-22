@@ -10,12 +10,15 @@
 
 @interface GEOSupportedTileSetsDownload : PBCodable
 {
-    GEOSupportedTileSets *_tileSets;
     GEODownloadMetadata *_metadata;
+    GEOSupportedTileSets *_tileSets;
 }
 
 @property(retain, nonatomic) GEODownloadMetadata *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) GEOSupportedTileSets *tileSets; // @synthesize tileSets=_tileSets;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

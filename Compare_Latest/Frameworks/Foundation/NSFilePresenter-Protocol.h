@@ -13,6 +13,7 @@
 @property(readonly) NSURL *presentedItemURL;
 
 @optional
+@property(readonly) NSURL *primaryPresentedItemURL;
 - (void)presentedSubitemAtURL:(id)arg1 didResolveConflictVersion:(id)arg2;
 - (void)presentedSubitemAtURL:(id)arg1 didLoseVersion:(id)arg2;
 - (void)presentedSubitemAtURL:(id)arg1 didGainVersion:(id)arg2;

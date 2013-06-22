@@ -21,6 +21,7 @@
 + (id)recurrenceRuleWithType:(int)arg1 interval:(unsigned int)arg2 end:(id)arg3;
 @property(retain, nonatomic) EKRecurrenceEnd *cachedEnd; // @synthesize cachedEnd=_cachedEnd;
 - (id)stringValueAsDateOnly:(BOOL)arg1 isFloating:(BOOL)arg2;
+- (BOOL)mayOccurAfterDate:(id)arg1;
 - (BOOL)dirtyStateMayAffectExceptionDates;
 - (void)reset;
 - (void)setSetPositions:(id)arg1;

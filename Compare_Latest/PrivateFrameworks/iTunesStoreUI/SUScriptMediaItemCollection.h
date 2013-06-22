@@ -16,16 +16,11 @@
 }
 
 + (void)initialize;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (void)_beginWatchingLibraryIfNecessary;
 - (void)_libraryChangedNotification:(id)arg1;
-- (void)_setItems:(id)arg1;
-- (int)_mainThreadCount;
-- (id)_copyRepresentativeItem;
-- (id)_copyMediaTypes;
-- (id)_copyItems;
 @property(readonly) SUScriptMediaItem *representativeItem;
 @property(readonly) NSArray *mediaTypes;
 @property(readonly) NSArray *items;

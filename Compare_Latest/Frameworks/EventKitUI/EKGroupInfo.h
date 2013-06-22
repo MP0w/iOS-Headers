@@ -13,8 +13,13 @@
     EKSource *_source;
     NSMutableArray *_calendars;
     BOOL _selected;
+    BOOL _showSelectAllButton;
+    int _customGroupType;
+    NSString *_customTitle;
+    NSString *_customTitleAtBeginningOfSentence;
 }
 
+@property(nonatomic) BOOL showSelectAllButton; // @synthesize showSelectAllButton=_showSelectAllButton;
 @property(nonatomic) BOOL selected; // @synthesize selected=_selected;
 - (id)description;
 @property(readonly, nonatomic) int sortOrder;
@@ -31,11 +36,13 @@
 @property(readonly, nonatomic) int numCalendars;
 @property(readonly, nonatomic) NSArray *calendarInfos;
 @property(readonly, nonatomic) NSString *typeTitle;
+- (void)setCustomTitle:(id)arg1 forBeginningOfSentence:(id)arg2;
 - (id)titleForBeginningOfSentence:(BOOL)arg1;
 @property(readonly, nonatomic) NSString *title;
 @property(retain, nonatomic) EKSource *source;
 - (void)removeCalendar:(id)arg1;
 - (void)insertCalendarInfo:(id)arg1;
+- (id)initWithCustomGroupType:(int)arg1;
 - (id)initWithSource:(id)arg1;
 - (void)dealloc;
 - (id)init;

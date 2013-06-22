@@ -7,28 +7,28 @@
 #import "DOMNode.h"
 
 @interface DOMNode (MailExtras)
-@property(readonly) BOOL mf_isBody;
-- (BOOL)mf_containsRichText;
-- (int)mf_quoteLevelDelta;
-- (BOOL)mf_isQuoteOrWithinQuote;
-- (id)mf_commonAncestorWithNode:(id)arg1;
-- (void)recursivelyRemoveMailAttributes;
-- (void)_fixParagraphsAndQuotesFromMicrosoftNodesToRemove:(id)arg1;
-- (void)mf_fixParagraphsAndQuotesFromMicrosoft;
-- (id)mf_traverseNextNodeStayingWithin:(id)arg1;
-- (id)mf_traverseNextSiblingStayingWithin:(id)arg1;
-- (id)mf_traversePreviousNode;
-- (id)mf_nextSiblingOrAunt;
-- (id)mf_appendBlockPlaceholder;
-- (id)mf_containingBlockQuote;
-- (BOOL)mf_containsOnlySelectionMarkers;
-- (id)mf_highestContainingBlockQuote;
-- (id)mf_firstDescendantBlockQuote;
-- (BOOL)mf_isAtBeginningOfContainerNode:(id)arg1;
-- (id)mf_topmostContainingNodeWithNameInArray:(id)arg1;
-- (BOOL)mf_isDescendantOfNode:(id)arg1;
-- (id)mf_findElementWithTag:(id)arg1 className:(id)arg2 andIdName:(id)arg3;
-- (id)mf_blockNodeAncestor;
 - (BOOL)mf_isAtEndOfContainerNode:(id)arg1;
+- (id)mf_blockNodeAncestor;
+- (id)mf_findElementWithTag:(id)arg1 className:(id)arg2 andIdName:(id)arg3;
+- (BOOL)mf_isDescendantOfNode:(id)arg1;
+- (id)mf_topmostContainingNodeWithNameInArray:(id)arg1;
+- (BOOL)mf_isAtBeginningOfContainerNode:(id)arg1;
+- (id)mf_firstDescendantBlockQuote;
+- (id)mf_highestContainingBlockQuote;
+- (BOOL)mf_containsOnlySelectionMarkers;
+- (id)mf_containingBlockQuote;
+- (id)mf_appendBlockPlaceholder;
+- (id)mf_nextSiblingOrAunt;
+- (id)mf_traversePreviousNode;
+- (id)mf_traverseNextSiblingStayingWithin:(id)arg1;
+- (id)mf_traverseNextNodeStayingWithin:(id)arg1;
+- (void)mf_fixParagraphsAndQuotesFromMicrosoft;
+- (void)_fixParagraphsAndQuotesFromMicrosoftNodesToRemove:(id)arg1;
+- (void)recursivelyRemoveMailAttributes;
+- (id)mf_commonAncestorWithNode:(id)arg1;
+- (BOOL)mf_isQuoteOrWithinQuote;
+- (int)mf_quoteLevelDelta;
+- (BOOL)mf_containsRichText;
+@property(readonly) BOOL mf_isBody;
 @end
 

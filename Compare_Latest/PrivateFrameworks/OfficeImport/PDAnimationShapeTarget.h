@@ -13,12 +13,12 @@
     OADDrawable *mDrawable;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)drawable;
-- (void)setDrawable:(id)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setDrawable:(id)arg1;
+- (id)drawable;
+- (void)dealloc;
+- (id)init;
 
 @end
 

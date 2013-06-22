@@ -16,6 +16,7 @@
     NSMutableArray *_importedEvents;
     NSMutableArray *_unimportedEvents;
     unsigned int _options;
+    BOOL _actionsDisabled;
 }
 
 - (id)importAllIntoCalendar:(id)arg1;
@@ -23,6 +24,7 @@
 @property(readonly, nonatomic) NSArray *allEvents;
 @property(readonly, nonatomic) NSArray *unimportedEvents;
 @property(readonly, nonatomic) NSArray *importedEvents;
+@property(readonly, nonatomic) BOOL actionsDisabled;
 @property(readonly, nonatomic) int unimportedEventCount;
 @property(readonly, nonatomic) int importedEventCount;
 @property(readonly, nonatomic) int totalEventCount;

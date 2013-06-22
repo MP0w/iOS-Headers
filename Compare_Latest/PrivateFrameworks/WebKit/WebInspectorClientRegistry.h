@@ -9,20 +9,20 @@
 @interface WebInspectorClientRegistry : NSObject
 {
     unsigned int _nextAvailablePageId;
-    struct HashMap<unsigned int, WebInspectorClient*, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WebInspectorClient*>> _pageClientMap;
+    struct HashMap<unsigned int, WebInspectorClient *, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WebInspectorClient *>> _pageClientMap;
     id <WebInspectorClientRegistryDelegate> _delegate;
 }
 
 + (id)sharedRegistry;
-- (id)init;
-- (unsigned int)_getNextAvailablePageId;
-- (void)registerClient:(struct WebInspectorClient *)arg1;
-- (void)unregisterClient:(struct WebInspectorClient *)arg1;
-- (struct WebInspectorClient *)clientForPageId:(unsigned int)arg1;
-- (id)inspectableWebViews;
+@property(nonatomic) id <WebInspectorClientRegistryDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(nonatomic) id <WebInspectorClientRegistryDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)inspectableWebViews;
+- (struct WebInspectorClient *)clientForPageId:(unsigned int)arg1;
+- (void)unregisterClient:(struct WebInspectorClient *)arg1;
+- (void)registerClient:(struct WebInspectorClient *)arg1;
+- (unsigned int)_getNextAvailablePageId;
+- (id)init;
 
 @end
 

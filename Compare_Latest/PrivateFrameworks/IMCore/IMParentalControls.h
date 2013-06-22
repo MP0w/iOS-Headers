@@ -35,8 +35,6 @@
 - (BOOL)disableService:(id)arg1;
 @property(readonly, nonatomic) BOOL forceChatLogging;
 @property(readonly, nonatomic) BOOL disableAV;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 - (void)_managedPrefsNotification:(id)arg1;
 - (void)_updateParentalSettings;
 - (id)_serviceWithName:(id)arg1;

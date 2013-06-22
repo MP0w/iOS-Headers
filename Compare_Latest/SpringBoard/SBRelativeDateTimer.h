@@ -18,19 +18,22 @@
     int _currValue;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)_fireForEvent:(id)arg1;
-- (void)_fireForLocaleEvent:(id)arg1;
-- (void)setDelegate:(id)arg1;
-- (void)setDate:(id)arg1;
-- (id)date;
-- (double)nextFireInterval;
-- (void)fireAndSchedule;
-- (void)invalidate;
-- (id)_timeDifferenceFromDate:(id)arg1;
-- (void)_fireAndUpdateTimerIfNecessary;
++ (void)invalidateTimer:(id)arg1;
++ (void)addTimerToMainRunLoop:(id)arg1;
++ (void)initialize;
 - (double)_nextFireInterval:(id)arg1 resolution:(int)arg2 comparedToNow:(int)arg3;
+- (void)_fireAndUpdateTimerIfNecessary;
+- (id)_timeDifferenceFromDate:(id)arg1;
+- (void)invalidate;
+- (void)fireAndSchedule;
+- (double)nextFireInterval;
+- (id)date;
+- (void)setDate:(id)arg1;
+- (void)setDelegate:(id)arg1;
+- (void)_fireForLocaleEvent:(id)arg1;
+- (void)_fireForEvent:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

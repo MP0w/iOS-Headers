@@ -9,6 +9,7 @@
 @protocol AVCaptureVideoDataOutputSampleBufferDelegate <NSObject>
 
 @optional
+- (void)captureOutput:(id)arg1 didDropSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 - (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 @end
 

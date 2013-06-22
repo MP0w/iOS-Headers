@@ -13,7 +13,7 @@
 
 @interface TLVibrationPickerViewController : UITableViewController <TLVibrationPickerTableViewCellDelegate, TLVibrationRecorderViewControllerDelegate>
 {
-    unsigned int _vibrationType;
+    int _alertType;
     BOOL _showsDefault;
     BOOL _showsUserGenerated;
     BOOL _showsNone;
@@ -21,8 +21,6 @@
     BOOL _showsEditButtonAtRightSideOfCurrentNavigationController;
     BOOL _allowsDeletingCurrentSystemVibration;
     NSString *_noneString;
-    BOOL _useVerboseSectionTitles;
-    unsigned int _numberOfPrecedingSections;
     NSIndexPath *_selectedVibrationIndexPath;
     BOOL _canEnterEditingMode;
     BOOL _vibrating;
@@ -38,8 +36,6 @@
     NSArray *_sortedUserGeneratedVibrationIdentifiers;
 }
 
-@property(nonatomic, setter=_setUseVerboseSectionTitles:) BOOL _useVerboseSectionTitles; // @synthesize _useVerboseSectionTitles;
-@property(nonatomic, setter=_setNumberOfPrecedingSections:) unsigned int _numberOfPrecedingSections; // @synthesize _numberOfPrecedingSections;
 @property(nonatomic) BOOL allowsDeletingCurrentSystemVibration; // @synthesize allowsDeletingCurrentSystemVibration=_allowsDeletingCurrentSystemVibration;
 @property(nonatomic) BOOL showsEditButtonAtRightSideOfCurrentNavigationController; // @synthesize showsEditButtonAtRightSideOfCurrentNavigationController=_showsEditButtonAtRightSideOfCurrentNavigationController;
 @property(nonatomic) BOOL showsNothingSelected; // @synthesize showsNothingSelected=_showsNothingSelected;
@@ -60,7 +56,6 @@
 - (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
-- (int)_nonAdjustedNumberOfSectionsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 @property(readonly, nonatomic) int _sectionForNoneGroup;
 @property(readonly, nonatomic) int _sectionForUserGeneratedGroup;
@@ -72,6 +67,7 @@
 - (void)_updateSelectionStyleForCell:(id)arg1 indexPath:(id)arg2;
 - (void)_updateEditButtonItemWithAnimation:(BOOL)arg1;
 - (void)_updateEditButtonItem;
+- (id)_navigationItem;
 - (void)_processSelectionOfVibrationWithIdentifier:(id)arg1;
 - (id)_indexPathForVibrationWithIdentifier:(id)arg1;
 - (id)_identifierOfVibrationAtIndexPath:(id)arg1;
@@ -89,10 +85,10 @@
 @property(retain, nonatomic) NSString *selectedVibrationIdentifier;
 @property(readonly, nonatomic) float contentHeight;
 @property(nonatomic) BOOL canEnterEditingMode; // @synthesize canEnterEditingMode=_canEnterEditingMode;
-@property(retain, nonatomic, setter=setAVController:) id avController;
 - (void)dealloc;
-- (id)initWithVibrationType:(unsigned int)arg1 avController:(id)arg2 showsDefault:(BOOL)arg3 showsUserGenerated:(BOOL)arg4 showsNone:(BOOL)arg5;
+- (id)initWithAlertType:(int)arg1 showsDefault:(BOOL)arg2 showsUserGenerated:(BOOL)arg3 showsNone:(BOOL)arg4;
 - (id)initWithStyle:(int)arg1;
+- (id)initWithVibrationType:(int)arg1 avController:(id)arg2 showsDefault:(BOOL)arg3 showsUserGenerated:(BOOL)arg4 showsNone:(BOOL)arg5;
 
 @end
 

@@ -5,8 +5,8 @@
  */
 
 @protocol SPDaemonQueryDelegate
-- (void)searchDaemonQuery:(id)arg1 addedResults:(id)arg2;
-- (void)searchDaemonQuery:(id)arg1 encounteredError:(id)arg2;
 - (void)searchDaemonQueryCompleted:(id)arg1;
+- (void)searchDaemonQuery:(id)arg1 encounteredError:(id)arg2;
+- (void)searchDaemonQuery:(id)arg1 addedResults:(id)arg2;
 @end
 

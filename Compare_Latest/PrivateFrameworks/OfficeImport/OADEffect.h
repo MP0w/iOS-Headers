@@ -13,12 +13,12 @@
     int mType;
 }
 
-- (id)initWithType:(int)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)type;
-- (void)setStyleColor:(id)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setStyleColor:(id)arg1;
+- (int)type;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithType:(int)arg1;
 
 @end
 

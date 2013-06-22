@@ -11,24 +11,25 @@
     BOOL _hideIcon;
 }
 
-+ (float)_contentWidthForRowWidth:(float)arg1 leaveRoomForIcon:(BOOL)arg2;
-+ (float)_rowHeightForContentHeight:(float)arg1;
-+ (float)rowHeightForSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 rowWidth:(float)arg4;
-+ (float)rowHeightForSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 attachmentText:(id)arg4 imageSize:(struct CGSize)arg5 rowWidth:(float)arg6;
-+ (float)_cellIconLeftPadding;
-+ (float)_cellContentLeftPadding;
-+ (float)_cellContentRightPadding;
-+ (float)_cellContentTopPadding;
 + (float)_cellContentExtraPadding;
-- (void)_createContentView;
-- (BOOL)_hasBackgroundColor;
-- (void)setAttachmentImage:(id)arg1;
-- (void)setUnlockActionContext:(id)arg1;
-- (id)_lockBar;
-- (BOOL)_drawsSeparator;
-- (struct CGRect)_contentRect;
-- (struct CGRect)_cellContentViewFrame;
++ (float)_cellContentTopPadding;
++ (float)_cellContentRightPadding;
++ (float)_cellContentLeftPadding;
++ (float)_cellIconLeftPadding;
++ (float)rowHeightForSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 attachmentText:(id)arg4 imageSize:(struct CGSize)arg5 rowWidth:(float)arg6;
++ (float)rowHeightForSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 rowWidth:(float)arg4;
++ (float)_rowHeightForContentHeight:(float)arg1;
++ (float)_contentWidthForRowWidth:(float)arg1 leaveRoomForIcon:(BOOL)arg2;
+- (BOOL)_createsLockBarEarly;
 - (void)layoutSubviews;
+- (struct CGRect)_cellContentViewFrame;
+- (struct CGRect)_contentRect;
+- (BOOL)_drawsSeparator;
+- (id)_lockBar;
+- (void)setUnlockActionContext:(id)arg1;
+- (void)setAttachmentImage:(id)arg1;
+- (BOOL)_hasBackgroundColor;
+- (void)_createContentView;
 
 @end
 

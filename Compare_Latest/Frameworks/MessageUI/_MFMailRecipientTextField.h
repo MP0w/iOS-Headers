@@ -4,15 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UITextField.h"
+#import <MessageUI/MFComposeTextField.h>
 
-@interface _MFMailRecipientTextField : UITextField
+@interface _MFMailRecipientTextField : MFComposeTextField
 {
 }
 
-- (id)_previousKeyResponder;
-- (id)customOverlayContainer;
 - (void)_handleKeyEvent:(struct __GSEvent *)arg1;
+- (id)customOverlayContainer;
+- (id)_previousKeyResponder;
 
 @end
 

@@ -6,33 +6,43 @@
 
 #import "NSObject-Protocol.h"
 
+@class NSIndexSet, NSString;
+
 @protocol GKTableSection <NSObject>
+- (CDStruct_70ce6416)currentMetricsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 prepareContents:(id)arg2 forCell:(id)arg3 atIndexPath:(id)arg4;
 - (id)tableView:(id)arg1 reuseIdentifierForRow:(int)arg2;
-- (int)sectionRowCountInTableView:(id)arg1;
+- (int)rowCountInTableView:(id)arg1;
 
 @optional
-@property(nonatomic, getter=isLoading) BOOL loading;
+@property(retain, nonatomic) NSIndexSet *indexesOfRowsWithLoadedData;
+@property(retain, nonatomic) NSString *abbreviatedTitle;
+@property(retain, nonatomic) NSString *secondaryTitle;
+@property(retain, nonatomic) NSString *title;
+- (void)tableView:(id)arg1 refreshCellAtIndexPath:(id)arg2;
+- (void)forceReloadInTableView:(id)arg1;
+- (void)didRefresh;
+- (void)willRefresh;
+- (void)tableView:(id)arg1 willDrawCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (void)refreshDataWithCompletionHandlerAndError:(id)arg1;
+- (id)tableView:(id)arg1 objectForIndexPath:(id)arg2;
+- (BOOL)tableView:(id)arg1 loadAdditionalDataForSection:(int)arg2 rows:(id)arg3 thenUpdateView:(id)arg4;
+- (int)dataPageSizeForRowsInTableView:(id)arg1;
 - (void)filterWithSearchText:(id)arg1;
 - (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
 - (id)swipeDeleteConfirmTitleInTableView:(id)arg1;
 - (void)tableView:(id)arg1 didSwipeToDeleteRow:(id)arg2;
 - (void)tableView:(id)arg1 didSelectIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectIndexPath:(id)arg2;
-- (id)sectionFooterViewInTableView:(id)arg1;
-- (float)sectionFooterHeightInTableView:(id)arg1;
-- (id)sectionHeaderViewInTableView:(id)arg1;
-- (float)sectionHeaderHeightInTableView:(id)arg1;
-- (id)alternateSectionHeaderTitleInTableView:(id)arg1;
-- (id)sectionHeaderTitleSecondaryTextInTableView:(id)arg1;
-- (id)sectionHeaderTitleInTableView:(id)arg1;
-- (void)tableView:(id)arg1 willDrawCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)viewForSectionFooterInTableView:(id)arg1;
+- (id)viewForSectionHeaderInTableView:(id)arg1;
+- (id)alternateTitleForHeaderInTableView:(id)arg1;
+- (id)secondaryTitleForHeaderInTableView:(id)arg1;
+- (id)titleForHeaderInTableView:(id)arg1;
+- (float)heightForFooterInTableView:(id)arg1;
+- (float)heightForHeaderInTableView:(id)arg1;
 - (int)tableView:(id)arg1 numberOfColumnsForRow:(int)arg2;
-- (void)tableView:(id)arg1 refreshCellAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 prepareExpensiveContentAtIndexPaths:(id)arg2 withCompletionHandler:(id)arg3;
-- (void)refreshDataWithCompletionHandlerAndError:(id)arg1;
-- (id)tableView:(id)arg1 objectForIndexPath:(id)arg2;
 @end
 

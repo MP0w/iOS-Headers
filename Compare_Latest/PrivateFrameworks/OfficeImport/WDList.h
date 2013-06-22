@@ -16,17 +16,17 @@
     WDListDefinition *mListDefinition;
 }
 
-- (void)dealloc;
-- (id)document;
-- (id)listDefinition;
-- (int)levelOverrideCount;
-- (id)levelOverrideAt:(int)arg1;
-- (id)addLevelOverride;
-- (id)levelOverrides;
-- (int)index;
-- (void)setIndex:(int)arg1;
-- (int)listId;
 - (id)initWithDocument:(id)arg1 listDefinition:(id)arg2;
+- (int)listId;
+- (void)setIndex:(int)arg1;
+- (int)index;
+- (id)levelOverrides;
+- (id)addLevelOverride;
+- (id)levelOverrideAt:(int)arg1;
+- (int)levelOverrideCount;
+- (id)listDefinition;
+- (id)document;
+- (void)dealloc;
 
 @end
 

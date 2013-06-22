@@ -6,31 +6,32 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSURL;
+@class NSArray, NSData, NSDictionary, NSURL;
 
 @interface AVAudioPlayer : NSObject
 {
     void *_impl;
 }
 
+@property(copy, nonatomic) NSArray *channelAssignments;
 - (float)averagePowerForChannel:(unsigned int)arg1;
 - (float)peakPowerForChannel:(unsigned int)arg1;
 - (void)updateMeters;
-@property(getter=isMeteringEnabled) BOOL meteringEnabled; // @dynamic meteringEnabled;
-@property int numberOfLoops; // @dynamic numberOfLoops;
-@property double currentTime; // @dynamic currentTime;
-@property(readonly) double deviceCurrentTime; // @dynamic deviceCurrentTime;
-@property(readonly) unsigned int numberOfChannels; // @dynamic numberOfChannels;
-@property float pan; // @dynamic pan;
-@property float rate; // @dynamic rate;
-@property BOOL enableRate; // @dynamic enableRate;
-@property float volume; // @dynamic volume;
+@property(getter=isMeteringEnabled) BOOL meteringEnabled;
+@property int numberOfLoops;
+@property double currentTime;
+@property(readonly) double deviceCurrentTime;
+@property(readonly) unsigned int numberOfChannels;
+@property float pan;
+@property float rate;
+@property BOOL enableRate;
+@property float volume;
 @property(readonly) double duration;
-@property(readonly) NSDictionary *settings; // @dynamic settings;
-@property id <AVAudioPlayerDelegate> delegate; // @dynamic delegate;
-@property(readonly) NSData *data; // @dynamic data;
-@property(readonly) NSURL *url; // @dynamic url;
-@property(readonly, getter=isPlaying) BOOL playing; // @dynamic playing;
+@property(readonly) NSDictionary *settings;
+@property id <AVAudioPlayerDelegate> delegate;
+@property(readonly) NSData *data;
+@property(readonly) NSURL *url;
+@property(readonly, getter=isPlaying) BOOL playing;
 - (void)stop;
 - (void)pause;
 - (BOOL)playAtTime:(double)arg1;
@@ -41,6 +42,13 @@
 - (void)dealloc;
 - (void)finalize;
 - (void)privCommonCleanup;
+- (void)endInterruption;
+- (void)endInterruptionWithFlags:(id)arg1;
+- (void)beginInterruption;
+- (void)decodeError:(id)arg1;
+- (void)finishedPlaying:(id)arg1;
+- (id)baseInit;
+- (struct AudioPlayerImpl *)impl;
 
 @end
 

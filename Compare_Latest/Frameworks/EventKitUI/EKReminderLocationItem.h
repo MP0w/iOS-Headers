@@ -6,21 +6,23 @@
 
 #import "NSObject.h"
 
-@class EKLocation, NSDictionary, NSString;
+@class EKStructuredLocation, NSDictionary;
 
 @interface EKReminderLocationItem : NSObject
 {
-    NSString *_label;
-    EKLocation *_location;
+    EKStructuredLocation *_location;
     NSDictionary *_addressDictionary;
     BOOL _isLocationBeingDetermined;
+    int _type;
 }
 
+@property(nonatomic) int type; // @synthesize type=_type;
 @property(nonatomic) BOOL isLocationBeingDetermined; // @synthesize isLocationBeingDetermined=_isLocationBeingDetermined;
 @property(retain, nonatomic) NSDictionary *addressDictionary; // @synthesize addressDictionary=_addressDictionary;
-@property(retain, nonatomic) EKLocation *location; // @synthesize location=_location;
-@property(retain, nonatomic) NSString *label; // @synthesize label=_label;
+@property(retain, nonatomic) EKStructuredLocation *location; // @synthesize location=_location;
+- (void)reset;
 - (id)stringForSubtitle;
+- (id)label;
 - (id)description;
 - (void)dealloc;
 

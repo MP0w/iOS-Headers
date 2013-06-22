@@ -14,13 +14,13 @@
     int mType;
 }
 
-- (void)dealloc;
-- (id)properties;
-- (void)clearProperties;
-- (int)runType;
-- (int)characterType;
-- (void)setCharacterType:(int)arg1;
 - (id)initWithParagraph:(id)arg1;
+- (void)setCharacterType:(int)arg1;
+- (int)characterType;
+- (int)runType;
+- (void)clearProperties;
+- (id)properties;
+- (void)dealloc;
 
 @end
 

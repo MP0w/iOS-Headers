@@ -7,7 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (GKRecipientListStrings)
-- (id)gk_commaSeparatedRecipientListWithWidth:(float)arg1 forFont:(id)arg2 usingSelector:(SEL)arg3;
-- (id)gk_commaSeparatedRecipientListWithWidth:(float)arg1 forFont:(id)arg2;
+- (id)_gkCommaSeparatedRecipientListWithWidth:(float)arg1 forFont:(id)arg2 usingSelector:(SEL)arg3;
+- (id)_gkCommaSeparatedRecipientListWithWidth:(float)arg1 forFont:(id)arg2;
 @end
 

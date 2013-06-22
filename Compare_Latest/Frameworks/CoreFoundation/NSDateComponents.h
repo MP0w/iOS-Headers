@@ -4,18 +4,20 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSDateComponents : NSObject <NSCopying, NSCoding>
+@interface NSDateComponents : NSObject <NSCopying, NSSecureCoding>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (id)date;
+- (void)setLeapMonth:(BOOL)arg1;
 - (void)setYearForWeekOfYear:(int)arg1;
 - (void)setWeekOfMonth:(int)arg1;
 - (void)setWeekOfYear:(int)arg1;
@@ -33,6 +35,7 @@
 - (void)setEra:(int)arg1;
 - (void)setTimeZone:(id)arg1;
 - (void)setCalendar:(id)arg1;
+- (BOOL)isLeapMonth;
 - (int)yearForWeekOfYear;
 - (int)weekOfMonth;
 - (int)weekOfYear;

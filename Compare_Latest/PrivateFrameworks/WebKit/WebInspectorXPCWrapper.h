@@ -6,29 +6,29 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<OS_xpc_object>, NSString;
 
 @interface WebInspectorXPCWrapper : NSObject
 {
     id <WebInspectorXPCWrapperDelegate> _delegate;
     NSString *_tag;
-    struct _xpc_connection_s *_connection;
-    void *_currentMessage;
+    NSObject<OS_xpc_object> *_connection;
+    NSObject<OS_xpc_object> *_currentMessage;
 }
 
-- (id)initWithConnection:(struct _xpc_connection_s *)arg1;
-- (void)close;
-- (void)dealloc;
-- (id)_deserializeMessage:(void *)arg1;
-- (void)_handleEvent:(void *)arg1;
-- (void)sendMessage:(id)arg1 userInfo:(id)arg2;
-- (void)sendMessage:(id)arg1 userInfo:(id)arg2 replyHandler:(id)arg3;
-- (void)barrierWithCompletionHandler:(id)arg1;
-@property(readonly, nonatomic) BOOL available;
-@property(nonatomic) void *currentMessage; // @synthesize currentMessage=_currentMessage;
-@property(nonatomic) struct _xpc_connection_s *connection; // @synthesize connection=_connection;
+@property(nonatomic) NSObject<OS_xpc_object> *currentMessage; // @synthesize currentMessage=_currentMessage;
+@property(nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 @property(copy, nonatomic) NSString *tag; // @synthesize tag=_tag;
 @property(nonatomic) id <WebInspectorXPCWrapperDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) BOOL available;
+- (void)barrierWithCompletionHandler:(id)arg1;
+- (void)sendMessage:(id)arg1 userInfo:(id)arg2 replyHandler:(id)arg3;
+- (void)sendMessage:(id)arg1 userInfo:(id)arg2;
+- (void)_handleEvent:(id)arg1;
+- (id)_deserializeMessage:(id)arg1;
+- (void)dealloc;
+- (void)close;
+- (id)initWithConnection:(id)arg1;
 
 @end
 

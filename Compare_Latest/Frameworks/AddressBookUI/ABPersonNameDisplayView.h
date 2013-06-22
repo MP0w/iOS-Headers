@@ -29,33 +29,44 @@
     UIView *_customMessageView;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-@property(retain, nonatomic) ABNamePropertyGroup *namePropertyGroup; // @synthesize namePropertyGroup=_namePropertyGroup;
-@property(copy, nonatomic) NSString *headline; // @synthesize headline=_customHeadline;
-@property(copy, nonatomic) NSString *tagLine; // @synthesize tagLine=_customTagLine;
-@property(copy, nonatomic) NSString *message; // @synthesize message=_customMessage;
-@property(retain, nonatomic) UIFont *messageFont; // @synthesize messageFont=_messageFont;
-@property(retain, nonatomic) UIFont *messageDetailFont; // @synthesize messageDetailFont=_messageDetailFont;
-@property(copy, nonatomic) NSString *messageDetail; // @synthesize messageDetail=_customMessageDetail;
 @property(retain, nonatomic) UIView *customMessageView; // @synthesize customMessageView=_customMessageView;
-- (void)initializeHeadlineAndTaglineIfNeeded;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setFrame:(struct CGRect)arg1;
-- (struct CGSize)multilineLabel:(id)arg1 sizeThatFits:(struct CGSize)arg2;
-- (void)layoutSubviews;
-- (void)reloadNameDataAnimated:(BOOL)arg1;
-- (void)_adjustLabelTextColorForPasteboardSelection:(BOOL)arg1;
-- (BOOL)abShouldShowMenu;
-- (void)abMenuControllerWillShow:(id)arg1;
-- (void)abMenuControllerWillHide;
-- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
-- (void)copy:(id)arg1;
+@property(retain, nonatomic) UIFont *messageDetailFont; // @synthesize messageDetailFont=_messageDetailFont;
+@property(retain, nonatomic) UIFont *messageFont; // @synthesize messageFont=_messageFont;
+@property(copy, nonatomic) NSString *messageDetail; // @synthesize messageDetail=_customMessageDetail;
+@property(copy, nonatomic) NSString *message; // @synthesize message=_customMessage;
 @property(retain, nonatomic) ABStyleProvider *styleProvider; // @synthesize styleProvider=_styleProvider;
+@property(copy, nonatomic) NSString *tagLine; // @synthesize tagLine=_customTagLine;
+@property(copy, nonatomic) NSString *headline; // @synthesize headline=_customHeadline;
 @property(nonatomic) BOOL alignOnBottom; // @synthesize alignOnBottom=_alignOnBottom;
 @property(nonatomic) float minimumHeight; // @synthesize minimumHeight=_minimumHeight;
 @property(copy, nonatomic) NSString *primaryPropertyFormattingCountryCode; // @synthesize primaryPropertyFormattingCountryCode=_primaryPropertyFormattingCountryCode;
 @property(nonatomic) int primaryProperty; // @synthesize primaryProperty=_primaryProperty;
+@property(retain, nonatomic) ABNamePropertyGroup *namePropertyGroup; // @synthesize namePropertyGroup=_namePropertyGroup;
+- (float)_heightForLabelsForWidth:(float)arg1;
+- (void)_setSubviewsHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_setLabel:(id)arg1 highlighted:(BOOL)arg2 animated:(BOOL)arg3;
+- (void)_setFont:(id)arg1 isDetail:(BOOL)arg2;
+- (void)_setMessageText:(id)arg1 isDetail:(BOOL)arg2;
+- (id)_newLabelWithFont:(id)arg1 numberOfLines:(unsigned int)arg2;
+- (id)_copyTagLine;
+- (void)_appendString:(id)arg1 withFormatKey:(id)arg2 toTagLine:(id)arg3;
+- (void)_updateTagLineText;
+- (void)_updateHeadlineText;
+- (id)_copyPrimaryValue;
+- (void)copy:(id)arg1;
+- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (void)abMenuControllerWillHide;
+- (void)abMenuControllerWillShow:(id)arg1;
+- (BOOL)abShouldShowMenu;
+- (void)_adjustLabelTextColorForPasteboardSelection:(BOOL)arg1;
+- (void)reloadNameDataAnimated:(BOOL)arg1;
+- (void)layoutSubviews;
+- (struct CGSize)multilineLabel:(id)arg1 sizeThatFits:(struct CGSize)arg2;
+- (void)setFrame:(struct CGRect)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)initializeHeadlineAndTaglineIfNeeded;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

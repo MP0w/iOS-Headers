@@ -11,24 +11,28 @@
 @interface SBBluetoothController : NSObject
 {
     NSMutableArray *_devices;
+    BOOL _tetheringConnected;
 }
 
 + (id)sharedInstance;
-- (void)dealloc;
-- (id)firstBTDeviceToReportBatteryLevel;
-- (BOOL)canReportBatteryLevel;
-- (int)batteryLevel;
-- (void)noteDevicesChanged;
-- (void)startWatchingForDevices;
-- (void)stopWatchingForDevices;
-- (void)iapDeviceChanged:(id)arg1;
-- (void)addDeviceNotification:(id)arg1;
-- (void)removeDeviceNotification:(id)arg1;
-- (void)connectionChanged:(id)arg1;
-- (void)batteryChanged:(id)arg1;
-- (void)updateBattery;
-- (id)deviceForAudioRoute:(id)arg1;
+- (void)bluetoothDeviceEndedVoiceControl:(id)arg1;
+- (void)bluetoothDeviceInitiatedVoiceControl:(id)arg1;
 - (BOOL)tetheringConnected;
+- (id)deviceForAudioRoute:(id)arg1;
+- (void)updateBattery;
+- (void)batteryChanged:(id)arg1;
+- (void)connectionChanged:(id)arg1;
+- (void)updateTetheringConnected;
+- (void)removeDeviceNotification:(id)arg1;
+- (void)addDeviceNotification:(id)arg1;
+- (void)iapDeviceChanged:(id)arg1;
+- (void)stopWatchingForDevices;
+- (void)startWatchingForDevices;
+- (void)noteDevicesChanged;
+- (int)batteryLevel;
+- (BOOL)canReportBatteryLevel;
+- (id)firstBTDeviceToReportBatteryLevel;
+- (void)dealloc;
 
 @end
 

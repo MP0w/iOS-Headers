@@ -12,11 +12,11 @@
     int mPosition;
 }
 
-- (int)align;
-- (void)setAlign:(int)arg1;
-- (int)position;
-- (void)setPosition:(int)arg1;
 - (unsigned int)hash;
+- (void)setPosition:(int)arg1;
+- (int)position;
+- (void)setAlign:(int)arg1;
+- (int)align;
 
 @end
 

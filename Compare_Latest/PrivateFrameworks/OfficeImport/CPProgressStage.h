@@ -18,15 +18,15 @@
     CPProgressContext *m_context;
 }
 
-- (id)initRootStageInContext:(id)arg1;
-- (id)initWithSteps:(double)arg1 takingSteps:(double)arg2 name:(id)arg3 inContext:(id)arg4;
-- (id)initBranchWithSteps:(double)arg1 takingSteps:(double)arg2 name:(id)arg3 inContext:(id)arg4;
-- (void)dealloc;
-- (void)advanceProgress:(double)arg1;
-- (void)setProgress:(double)arg1;
-- (void)end;
-- (id)parentStage;
 - (double)currentPosition;
+- (id)parentStage;
+- (void)end;
+- (void)setProgress:(double)arg1;
+- (void)advanceProgress:(double)arg1;
+- (void)dealloc;
+- (id)initBranchWithSteps:(double)arg1 takingSteps:(double)arg2 name:(id)arg3 inContext:(id)arg4;
+- (id)initWithSteps:(double)arg1 takingSteps:(double)arg2 name:(id)arg3 inContext:(id)arg4;
+- (id)initRootStageInContext:(id)arg1;
 
 @end
 

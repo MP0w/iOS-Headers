@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSCoding-Protocol.h"
+
 @class NSDictionary, NSURL;
 
-@interface DDAction : NSObject
+@interface DDAction : NSObject <NSCoding>
 {
     struct __DDResult *_result;
     struct __DDResult *_coalescedResult;
@@ -25,15 +27,21 @@
 + (id)actionWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 @property BOOL isDefaultAction; // @synthesize isDefaultAction=_isDefaultAction;
 @property id delegate; // @synthesize delegate=_delegate;
+- (id)context;
 - (struct __CFArray *)associatedResults;
 - (struct __DDResult *)coalescedResult;
+- (struct __DDResult *)result;
+- (id)url;
 - (id)localizedName;
 - (void)_copyURL:(id)arg1;
 - (void)_copyURL:(id)arg1 andString:(id)arg2;
 - (void)perform;
 - (int)interactionType;
+- (void)prepareViewControllerForActionController:(id)arg1;
 - (id)viewController;
 - (void)dealloc;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)initWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 
 @end

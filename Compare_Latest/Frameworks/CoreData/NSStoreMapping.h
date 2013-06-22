@@ -13,13 +13,13 @@
     NSString *_externalName;
 }
 
-- (id)initWithExternalName:(id)arg1;
-- (void)dealloc;
-- (id)externalName;
-- (void)setExternalName:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
 - (void)copyValuesForReadOnlyFetch:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)setExternalName:(id)arg1;
+- (id)externalName;
+- (void)dealloc;
+- (id)initWithExternalName:(id)arg1;
 
 @end
 

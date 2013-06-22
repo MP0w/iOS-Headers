@@ -12,8 +12,8 @@
 {
 }
 
-@property BOOL compact;
 @property(copy) NSString *type;
+@property BOOL compact;
 
 @end
 

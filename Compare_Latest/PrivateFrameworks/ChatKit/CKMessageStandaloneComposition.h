@@ -6,26 +6,27 @@
 
 #import <ChatKit/CKMessageComposition.h>
 
-@class NSArray, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @interface CKMessageStandaloneComposition : CKMessageComposition
 {
     NSString *_textString;
     NSString *_markupString;
     NSString *_subject;
-    NSArray *_resources;
+    NSDictionary *_resources;
     NSArray *_messageParts;
-    BOOL _isTextOnly;
 }
 
-- (void)_clearMessageParts;
-@property(copy, nonatomic) NSString *markupString; // @synthesize markupString=_markupString;
-@property(copy, nonatomic) NSString *textString; // @synthesize textString=_textString;
-@property(retain, nonatomic) NSArray *resources; // @synthesize resources=_resources;
-- (id)messageParts;
+- (id)resources;
+- (void)setSubject:(id)arg1;
+- (id)subject;
+- (id)markupString;
 - (void)dealloc;
-@property(nonatomic) BOOL isTextOnly; // @synthesize isTextOnly=_isTextOnly;
-@property(copy, nonatomic) NSString *subject; // @synthesize subject=_subject;
+- (id)messageParts;
+- (id)textString;
+- (void)setResources:(id)arg1;
+- (void)setMarkupString:(id)arg1;
+- (void)_clearDerivedValues;
 
 @end
 

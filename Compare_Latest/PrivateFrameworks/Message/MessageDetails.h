@@ -13,8 +13,8 @@
     MessageLibrary *library;
     unsigned int libraryID;
     unsigned long long messageFlags;
-    unsigned int uid;
-    unsigned int encoding;
+    unsigned long uid;
+    unsigned long encoding;
     BOOL isInvalid;
     int mailboxID;
     long long conversationHash;
@@ -23,22 +23,22 @@
     NSString *externalID;
 }
 
-- (void)dealloc;
-- (id)description;
-- (unsigned long)uid;
-- (id)init;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)remoteID;
-- (unsigned int)libraryID;
-- (unsigned int)mailboxID;
-- (unsigned long long)messageFlags;
-- (id)messageID;
-- (id)mailbox;
-- (double)dateReceivedAsTimeIntervalSince1970;
-- (double)dateSentAsTimeIntervalSince1970;
-- (id)copyMessageInfo;
 - (id)externalID;
+- (id)copyMessageInfo;
+- (double)dateSentAsTimeIntervalSince1970;
+- (double)dateReceivedAsTimeIntervalSince1970;
+- (id)mailbox;
+- (id)messageID;
+- (unsigned long long)messageFlags;
+- (unsigned int)mailboxID;
+- (unsigned int)libraryID;
+- (id)remoteID;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)init;
+- (unsigned long)uid;
+- (id)description;
+- (void)dealloc;
 
 @end
 

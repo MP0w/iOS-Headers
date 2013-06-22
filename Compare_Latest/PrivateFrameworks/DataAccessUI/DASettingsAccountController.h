@@ -56,6 +56,7 @@
 - (void)showProgress;
 - (BOOL)isRunningFromMobileMailApp;
 - (void)_saveAccountDismissWhenDone:(BOOL)arg1;
+- (void)_finishSaveAccountDismissWhenDone:(BOOL)arg1;
 - (void)_doPostSaveActions;
 - (void)_deleteAccount;
 - (void)_dismissAndUpdateParent;

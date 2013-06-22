@@ -21,15 +21,15 @@
     UILabel *_label;
 }
 
-+ (float)shelfHeight;
-+ (float)shelfEdgeHeight;
-+ (float)shelfItemBaselineOffset;
-+ (id)reuseIdentifier;
 + (id)shelf;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
-- (void)dealloc;
-- (unsigned int)shelfIndex;
++ (id)reuseIdentifier;
++ (float)shelfItemBaselineOffset;
++ (float)shelfEdgeHeight;
++ (float)shelfHeight;
 - (void)configureForOrientation:(int)arg1 shelfIndex:(unsigned int)arg2;
+- (unsigned int)shelfIndex;
+- (void)dealloc;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

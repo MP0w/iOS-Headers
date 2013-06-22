@@ -11,29 +11,29 @@
     id _bonjourServiceProperties;
 }
 
-- (id)initWithHostPort:(unsigned long)arg1 hostName:(id)arg2 hostGUID:(id)arg3 bonjourServiceType:(id)arg4 bonjourTXTRecords:(id)arg5;
-- (id)delegate;
-- (void)setDelegate:(id)arg1;
-- (void)dealloc;
-- (BOOL)startService;
-- (BOOL)createAndPublishNetService;
-- (struct __CFNetService *)publishedService;
-- (void)releaseNetService;
-- (void)dispatchConnectionFromSocket:(int)arg1 withAddress:(struct __CFData *)arg2;
-- (BOOL)createSocket;
-- (void)releaseSocket;
-- (int)createPTPDIPInstanceWithAddress:(struct __CFData *)arg1 fileDescriptor:(int)arg2;
-- (id)clientForPID:(unsigned long)arg1;
-- (id)clientForAddress:(struct __CFData *)arg1;
-- (int)messagePTPDIPInstance:(id)arg1 withSocket:(int)arg2;
-- (int)destroyPTPDIPInstance:(id)arg1;
-- (void)addClient:(id)arg1;
-- (void)removeClient:(id)arg1;
-- (int)numClients;
-- (void)clientTerminated:(id)arg1;
-- (void)handleNetServiceError:(CDStruct_1ef3fb1f *)arg1;
-- (void)unlockDeviceForClient:(id)arg1;
 - (void)disconnectClient:(id)arg1;
+- (void)unlockDeviceForClient:(id)arg1;
+- (void)handleNetServiceError:(CDStruct_1ef3fb1f *)arg1;
+- (void)clientTerminated:(id)arg1;
+- (int)numClients;
+- (void)removeClient:(id)arg1;
+- (void)addClient:(id)arg1;
+- (int)destroyPTPDIPInstance:(id)arg1;
+- (int)messagePTPDIPInstance:(id)arg1 withSocket:(int)arg2;
+- (id)clientForAddress:(struct __CFData *)arg1;
+- (id)clientForPID:(unsigned long)arg1;
+- (int)createPTPDIPInstanceWithAddress:(struct __CFData *)arg1 fileDescriptor:(int)arg2;
+- (void)releaseSocket;
+- (BOOL)createSocket;
+- (void)dispatchConnectionFromSocket:(int)arg1 withAddress:(struct __CFData *)arg2;
+- (void)releaseNetService;
+- (struct __CFNetService *)publishedService;
+- (BOOL)createAndPublishNetService;
+- (BOOL)startService;
+- (void)dealloc;
+- (void)setDelegate:(id)arg1;
+- (id)delegate;
+- (id)initWithHostPort:(unsigned long)arg1 hostName:(id)arg2 hostGUID:(id)arg3 bonjourServiceType:(id)arg4 bonjourTXTRecords:(id)arg5;
 
 @end
 

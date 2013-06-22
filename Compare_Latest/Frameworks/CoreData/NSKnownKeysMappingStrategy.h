@@ -13,17 +13,17 @@
 {
 }
 
-+ (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
-- (id)initForKeys:(const id *)arg1 count:(unsigned int)arg2;
-- (id)initForKeys:(id)arg1;
-- (unsigned int)indexForKey:(id)arg1;
-- (unsigned int)fastIndexForKnownKey:(id)arg1;
-- (const id *)keys;
-- (unsigned int)length;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
++ (id)allocWithZone:(struct _NSZone *)arg1;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (unsigned int)length;
+- (id *)keys;
+- (unsigned int)fastIndexForKnownKey:(id)arg1;
+- (unsigned int)indexForKey:(id)arg1;
+- (id)initForKeys:(id)arg1;
+- (id)initForKeys:(id *)arg1 count:(unsigned int)arg2;
 
 @end
 

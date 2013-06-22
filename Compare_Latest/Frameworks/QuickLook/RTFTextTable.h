@@ -15,19 +15,19 @@
     void *_tableSecondary;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)_takeValuesFromTextBlock:(id)arg1;
-- (void)setNumberOfColumns:(unsigned int)arg1;
-- (unsigned int)numberOfColumns;
-- (BOOL)collapsesBorders;
-- (void)setCollapsesBorders:(BOOL)arg1;
-- (BOOL)hidesEmptyCells;
-- (void)setHidesEmptyCells:(BOOL)arg1;
-- (unsigned int)layoutAlgorithm;
-- (void)setLayoutAlgorithm:(unsigned int)arg1;
-- (unsigned int)_tableFlags;
 - (void)_setTableFlags:(unsigned int)arg1;
+- (unsigned int)_tableFlags;
+- (void)setLayoutAlgorithm:(unsigned int)arg1;
+- (unsigned int)layoutAlgorithm;
+- (void)setHidesEmptyCells:(BOOL)arg1;
+- (BOOL)hidesEmptyCells;
+- (void)setCollapsesBorders:(BOOL)arg1;
+- (BOOL)collapsesBorders;
+- (unsigned int)numberOfColumns;
+- (void)setNumberOfColumns:(unsigned int)arg1;
+- (void)_takeValuesFromTextBlock:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

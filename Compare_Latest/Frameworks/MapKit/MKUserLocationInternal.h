@@ -20,9 +20,11 @@
     int source;
     double timestamp;
     BOOL updating;
+    double course;
     id <MKAnnotation> annotation;
 }
 
+@property(nonatomic) double course; // @synthesize course;
 @property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title;
 @property(nonatomic) double timestamp; // @synthesize timestamp;

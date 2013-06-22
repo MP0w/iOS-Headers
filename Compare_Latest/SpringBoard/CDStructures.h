@@ -49,14 +49,6 @@ struct CGSize {
     float height;
 };
 
-struct SBProcessTimes {
-    double execTime;
-    double beginUserCPUElapsedTime;
-    double beginSystemCPUElapsedTime;
-    double beginIdleCPUElapsedTime;
-    double beginApplicationCPUElapsedTime;
-};
-
 struct UIEdgeInsets {
     float _field1;
     float _field2;
@@ -65,13 +57,8 @@ struct UIEdgeInsets {
 };
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
-};
-
-struct _opaque_pthread_mutex_t {
-    long __sig;
-    char __opaque[40];
+    unsigned int location;
+    unsigned int length;
 };
 
 struct _opaque_pthread_t {
@@ -80,7 +67,49 @@ struct _opaque_pthread_t {
     char _field3[596];
 };
 
+struct vImage_Buffer {
+    void *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+};
+
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned long _field1;
+    id *_field2;
+    unsigned long *_field3;
+    unsigned long _field4[5];
+} CDStruct_11f37819;
+
+typedef struct {
+    char itemIsEnabled[24];
+    char timeString[64];
+    int gsmSignalStrengthRaw;
+    int gsmSignalStrengthBars;
+    char serviceString[100];
+    char serviceCrossfadeString[100];
+    char serviceImages[2][100];
+    char operatorDirectory[1024];
+    unsigned int serviceContentType;
+    int wifiSignalStrengthRaw;
+    int wifiSignalStrengthBars;
+    unsigned int dataNetworkType;
+    int batteryCapacity;
+    unsigned int batteryState;
+    char batteryDetailString[150];
+    int bluetoothBatteryCapacity;
+    int thermalColor;
+    unsigned int thermalSunlightMode:1;
+    unsigned int slowActivity:1;
+    unsigned int syncActivity:1;
+    char activityDisplayId[256];
+    unsigned int bluetoothConnected:1;
+    unsigned int displayRawGSMSignal:1;
+    unsigned int displayRawWifiSignal:1;
+    unsigned int locationIconType:1;
+} CDStruct_24dca785;
 
 typedef struct {
     unsigned int _field1[8];
@@ -103,9 +132,44 @@ typedef struct {
 } CDStruct_812d5f7b;
 
 typedef struct {
+    int startStyle;
+    int startOrientation;
+    int endStyle;
+    int endOrientation;
+    int transitionType;
+    char zoomOther;
+} CDStruct_5d575efc;
+
+typedef struct {
     int _field1;
     int _field2;
 } CDStruct_1ef3fb1f;
+
+typedef struct {
+    char _field1[24];
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :2;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    CDStruct_24dca785 _field2;
+} CDStruct_968775f8;
 
 typedef struct {
     int type;

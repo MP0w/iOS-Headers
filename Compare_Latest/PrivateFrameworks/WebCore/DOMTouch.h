@@ -10,16 +10,16 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, retain) id <DOMEventTarget> target;
-@property(readonly) unsigned int identifier;
-@property(readonly) int clientX;
-@property(readonly) int clientY;
-@property(readonly) int pageX;
-@property(readonly) int pageY;
-@property(readonly) int screenX;
 @property(readonly) int screenY;
+@property(readonly) int screenX;
+@property(readonly) int pageY;
+@property(readonly) int pageX;
+@property(readonly) int clientY;
+@property(readonly) int clientX;
+@property(readonly) unsigned int identifier;
+@property(readonly) id <DOMEventTarget> target;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

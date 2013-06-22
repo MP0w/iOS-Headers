@@ -19,17 +19,17 @@
     NSMutableArray *matchingRemoteIDs;
 }
 
-- (id)initWithMaximumSize:(unsigned int)arg1 latency:(double)arg2;
-- (BOOL)waitUntilDoneBeforeDate:(id)arg1;
-- (void)waitUntilDone;
-- (void)resetDoneCondition;
-- (BOOL)handleItems:(id)arg1;
-- (void)searchQuery:(id)arg1 returnedResults:(id)arg2;
-- (void)searchQuery:(id)arg1 finishedWithError:(id)arg2;
-- (void)searchQuery:(id)arg1 returnedTotalCount:(id)arg2;
-- (void)dealloc;
-@property(readonly, retain, nonatomic) NSArray *matchingRemoteIDs; // @synthesize matchingRemoteIDs;
+@property(readonly, nonatomic) NSArray *matchingRemoteIDs; // @synthesize matchingRemoteIDs;
 @property(retain, nonatomic) NSDate *latestDateToAdd; // @synthesize latestDateToAdd;
+- (void)dealloc;
+- (void)searchQuery:(id)arg1 returnedTotalCount:(id)arg2;
+- (void)searchQuery:(id)arg1 finishedWithError:(id)arg2;
+- (void)searchQuery:(id)arg1 returnedResults:(id)arg2;
+- (BOOL)handleItems:(id)arg1;
+- (void)resetDoneCondition;
+- (void)waitUntilDone;
+- (BOOL)waitUntilDoneBeforeDate:(id)arg1;
+- (id)initWithMaximumSize:(unsigned int)arg1 latency:(double)arg2;
 
 @end
 

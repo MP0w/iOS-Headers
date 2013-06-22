@@ -19,18 +19,19 @@
     id <ABStyleProvider> _styleProvider;
 }
 
-- (void)dealloc;
-@property(readonly, nonatomic) NSArray *records;
-- (void)addRecords:(id)arg1;
-- (void)removeAllRecords;
-@property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)scrollViewWillBeginDragging:(id)arg1;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
+@property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 @property(nonatomic) id <ABMembersDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)scrollViewWillBeginDragging:(id)arg1;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)removeAllRecords;
+- (void)addRecords:(id)arg1;
+- (unsigned int)count;
+@property(readonly, nonatomic) NSArray *records;
+- (void)dealloc;
 
 @end
 

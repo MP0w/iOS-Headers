@@ -19,18 +19,18 @@
 }
 
 + (id)dataValueProperties;
-- (id)init;
-- (id)shallowCopyWithIndex:(int)arg1;
-- (void)dealloc;
-- (unsigned int)key;
-- (id)dataLabel;
-- (void)setDataLabel:(id)arg1;
-- (unsigned int)dataValueIndex;
-- (void)setDataValueIndex:(unsigned int)arg1;
-- (id)graphicProperties;
-- (void)setGraphicProperties:(id)arg1;
-- (id)marker;
 - (void)setMarker:(id)arg1;
+- (id)marker;
+- (void)setGraphicProperties:(id)arg1;
+- (id)graphicProperties;
+- (void)setDataValueIndex:(unsigned int)arg1;
+- (unsigned int)dataValueIndex;
+- (void)setDataLabel:(id)arg1;
+- (id)dataLabel;
+- (int)key;
+- (void)dealloc;
+- (id)shallowCopyWithIndex:(int)arg1;
+- (id)init;
 
 @end
 

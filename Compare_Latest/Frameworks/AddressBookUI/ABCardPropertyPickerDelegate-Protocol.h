@@ -7,7 +7,7 @@
 #import "ABStyleProviding-Protocol.h"
 
 @protocol ABCardPropertyPickerDelegate <ABStyleProviding>
-- (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2;
 - (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2 withDefaultValue:(id)arg3;
+- (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2;
 @end
 

@@ -15,14 +15,14 @@
     OADGraphicProperties *mGraphicProperties;
 }
 
-- (id)init;
-- (void)dealloc;
-- (int)style;
-- (void)setStyle:(int)arg1;
-- (id)graphicProperties;
-- (void)setGraphicProperties:(id)arg1;
-- (unsigned int)size;
 - (void)setSize:(unsigned int)arg1;
+- (unsigned int)size;
+- (void)setGraphicProperties:(id)arg1;
+- (id)graphicProperties;
+- (void)setStyle:(int)arg1;
+- (int)style;
+- (void)dealloc;
+- (id)init;
 
 @end
 

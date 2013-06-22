@@ -8,8 +8,6 @@
 
 #import "CPDisposable-Protocol.h"
 
-@class CPGraphicObject;
-
 @interface CPTableCell : CPChunk <CPDisposable>
 {
     struct CGRect cellBounds;
@@ -19,30 +17,30 @@
         struct CGRect _field1;
         struct CGColor *_field2;
         unsigned int _field3;
-        CPGraphicObject **_field4;
+        id *_field4;
     } *borders;
     struct CGColor *backgroundColor;
     unsigned int backgroundGraphicCount;
-    CPGraphicObject **backgroundGraphics;
+    id *backgroundGraphics;
 }
 
-- (id)initWithBounds:(struct CGRect)arg1;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-- (struct CGColor *)backgroundColor;
-- (void)setBackgroundGraphics:(id)arg1;
-- (id)backgroundGraphicAtIndex:(unsigned int)arg1;
-- (void)setBorder:(int)arg1 bounds:(struct CGRect)arg2 graphics:(id)arg3;
-- (struct CGRect)boundsOfBorder:(int)arg1;
-- (struct CGColor *)colorOfBorder:(int)arg1;
-- (unsigned int)graphicCountOfBorder:(int)arg1;
-- (id)graphicObjectOfBorder:(int)arg1 atIndex:(unsigned int)arg2;
-- (int)compareCellOrdinal:(id)arg1;
 @property(readonly, nonatomic) unsigned int backgroundGraphicCount; // @synthesize backgroundGraphicCount;
 @property(nonatomic) CDStruct_dff5684f columnSpan; // @synthesize columnSpan;
 @property(nonatomic) CDStruct_dff5684f rowSpan; // @synthesize rowSpan;
 @property(readonly, nonatomic) struct CGRect cellBounds; // @synthesize cellBounds;
+- (int)compareCellOrdinal:(id)arg1;
+- (id)graphicObjectOfBorder:(int)arg1 atIndex:(unsigned int)arg2;
+- (unsigned int)graphicCountOfBorder:(int)arg1;
+- (struct CGColor *)colorOfBorder:(int)arg1;
+- (struct CGRect)boundsOfBorder:(int)arg1;
+- (void)setBorder:(int)arg1 bounds:(struct CGRect)arg2 graphics:(id)arg3;
+- (id)backgroundGraphicAtIndex:(unsigned int)arg1;
+- (void)setBackgroundGraphics:(id)arg1;
+- (struct CGColor *)backgroundColor;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)initWithBounds:(struct CGRect)arg1;
 
 @end
 

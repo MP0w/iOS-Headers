@@ -11,6 +11,9 @@
 }
 
 + (void)readFrom:(struct _xmlNode *)arg1 dataValuePropertiesCollection:(id)arg2 state:(id)arg3;
++ (Class)chdDataValuePropertiesClassWithState:(id)arg1;
++ (int)chdDataLabelPositionFromXmlDataLabelElement:(struct _xmlNode *)arg1;
++ (id)chdDataLabelFromXmlDataLabelElement:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end
 

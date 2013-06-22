@@ -11,6 +11,8 @@
 @interface GKPlayerEmailInternal : GKInternalRepresentation
 {
     NSString *_address;
+    NSString *_addressSHA1;
+    NSString *_addressPrefix;
     BOOL _primary;
     BOOL _verified;
 }
@@ -18,7 +20,11 @@
 + (id)codedPropertyKeys;
 @property(nonatomic, getter=isVerified) BOOL verified; // @synthesize verified=_verified;
 @property(nonatomic, getter=isPrimary) BOOL primary; // @synthesize primary=_primary;
+@property(retain, nonatomic) NSString *addressPrefix; // @synthesize addressPrefix=_addressPrefix;
+@property(retain, nonatomic) NSString *addressSHA1; // @synthesize addressSHA1=_addressSHA1;
 @property(retain, nonatomic) NSString *address; // @synthesize address=_address;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

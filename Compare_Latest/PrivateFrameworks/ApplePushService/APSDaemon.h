@@ -8,39 +8,57 @@
 
 #import "APSCourierDelegate-Protocol.h"
 
-@class NSMutableDictionary, NSTimer;
+@class NSDate, NSMutableDictionary, NSObject<OS_dispatch_source>, NSObject<OS_xpc_object>, NSTimer;
 
 @interface APSDaemon : NSObject <APSCourierDelegate>
 {
-    NSMutableDictionary *_domainsToCouriers;
-    struct __CFRunLoopSource *_daemonMigSource;
+    NSMutableDictionary *_environmentsToCouriers;
     NSTimer *_courierConnectTimer;
     void *_courierConnectTimerPowerAssertion;
     NSTimer *_inactivityTerminationTimer;
-    struct dispatch_source_s *_sigTERMSource;
-    struct dispatch_source_s *_sigUSR1Source;
+    NSObject<OS_dispatch_source> *_sigTERMSource;
+    NSObject<OS_dispatch_source> *_sigUSR1Source;
     unsigned int _pmRootDomainConnect;
     unsigned int _pmNotifier;
     struct IONotificationPort *_pmNotificationPort;
     struct __CFRunLoopSource *_pmRunLoopSource;
+    int _isConnectedToken;
+    int _systemReadyToken;
+    BOOL _systemReady;
+    NSDate *_lastClientConnection;
+    BOOL _hasEnabledCouriers;
+    BOOL _systemIsShuttingDown;
+    NSObject<OS_xpc_object> *_connection;
 }
 
 + (void)setLaunchdLaunchSemaphoreEnabled:(BOOL)arg1;
-- (id)init;
-- (void)dealloc;
-- (id)_connectionsDebuggingState;
-- (void)_registerForPowerMonitoring;
-- (void)_startCourierConnectionTimer;
-- (void)_connectCouriersTimerFired:(id)arg1;
-- (void)_startInactivityTerminationTimerIfNecessary;
-- (void)_clearInactivityTerminationTimer;
-- (void)_inactivityTerminationTimerFired:(id)arg1;
-- (void)_loadConnections;
-- (id)courierForDomain:(id)arg1;
-- (void)courierHasNoConnections:(id)arg1;
-- (BOOL)createConnectionServerForEnvironment:(id)arg1 connectionPortName:(id)arg2 connectionPort:(unsigned int)arg3 connectionServerPort:(unsigned int *)arg4 clientPid:(int)arg5;
-- (double)keepAliveIntervalForEnvironment:(id)arg1;
 - (void)_powerChangedMessageType:(unsigned int)arg1 notificationID:(void *)arg2;
+- (double)keepAliveIntervalForEnvironment:(id)arg1;
+- (id)getConnectionServerForEnvironment:(id)arg1 connectionPortName:(id)arg2 peerConnection:(id)arg3;
+- (void)courierHasNoConnections:(id)arg1;
+- (void)courierConnectionStatusChanged:(id)arg1;
+- (void)requestCourierConnections;
+- (id)courierForEnvironmentName:(id)arg1;
+- (id)courierForEnvironment:(id)arg1;
+- (void)_setCourier:(id)arg1 forEnvironment:(id)arg2;
+- (void)_removeCourierForEnvironment:(id)arg1;
+- (void)_loadConnections;
+- (void)_inactivityTerminationTimerFired:(id)arg1;
+- (void)_clearInactivityTerminationTimer;
+- (void)_startInactivityTerminationTimerIfNecessary;
+- (void)_enableAllCouriers;
+- (void)_connectCouriersTimerFired:(id)arg1;
+- (void)_clearCourierConnectTimerAndPowerAssertion;
+- (void)_updateCourierConnectTimerAndPowerAssertion;
+- (void)receivedClientConnection;
+- (void)updateSafeToSendFilterForce:(BOOL)arg1;
+- (BOOL)_systemIsReady;
+- (void)_setupNotifyToken;
+- (void)_receivedShutdownNotification;
+- (void)_registerForPowerMonitoring;
+- (id)_connectionsDebuggingState;
+- (void)dealloc;
+- (id)init;
 
 @end
 

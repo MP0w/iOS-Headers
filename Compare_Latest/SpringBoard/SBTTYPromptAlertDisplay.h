@@ -10,13 +10,13 @@
 {
 }
 
-+ (id)newTopBarForInstance:(id)arg1;
-+ (id)newBottomBarForInstance:(id)arg1;
-- (id)initWithSize:(struct CGSize)arg1;
-- (void)_makeCall;
-- (void)_chooseVoiceMode:(id)arg1;
-- (void)_chooseTTYMode:(id)arg1;
++ (id)bottomBarForInstance:(id)arg1;
++ (id)topBarForInstance:(id)arg1;
 - (void)_ignore:(id)arg1;
+- (void)_chooseTTYMode:(id)arg1;
+- (void)_chooseVoiceMode:(id)arg1;
+- (void)_makeCall;
+- (id)initWithSize:(struct CGSize)arg1;
 
 @end
 

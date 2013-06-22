@@ -15,13 +15,13 @@
     id _result;
 }
 
++ (id)unauthenticatedResponse;
 + (id)responseWithError:(id)arg1;
 + (id)response;
 + (id)codedPropertyKeys;
 @property(retain, nonatomic) id result; // @synthesize result=_result;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) double timeToLive; // @synthesize timeToLive=_timeToLive;
-- (id)description;
 - (void)dealloc;
 
 @end

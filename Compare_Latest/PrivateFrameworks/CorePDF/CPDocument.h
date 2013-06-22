@@ -13,9 +13,9 @@
     NSMutableArray *pages;
 }
 
-- (id)init;
-- (void)dealloc;
 - (void)addPage:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

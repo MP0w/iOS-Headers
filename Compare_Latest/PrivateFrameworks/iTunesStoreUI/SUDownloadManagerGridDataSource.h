@@ -10,11 +10,8 @@
 {
 }
 
-- (id)_preorderCellForIndexPath:(id)arg1;
-- (id)_downloadCellForIndexPath:(id)arg1;
 - (void)reloadCellContexts;
 - (void)configureCell:(id)arg1 forIndexPath:(id)arg2;
-- (id)cellForIndexPath:(id)arg1;
 
 @end
 

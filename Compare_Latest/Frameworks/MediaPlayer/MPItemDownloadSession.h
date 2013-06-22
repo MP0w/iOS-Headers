@@ -22,7 +22,7 @@
 @property(retain, nonatomic) NSError *sessionError; // @synthesize sessionError=_sessionError;
 @property(nonatomic) float percentComplete; // @synthesize percentComplete=_percentComplete;
 @property(retain, nonatomic) SSDownloadHandlerSession *downloadSession; // @synthesize downloadSession=_downloadSession;
-@property(nonatomic) AVAsset *AVAsset; // @synthesize AVAsset=_asset;
+@property(nonatomic) __weak AVAsset *AVAsset; // @synthesize AVAsset=_asset;
 - (id)description;
 - (void)snapshotProgressForItem:(id)arg1;
 - (void)reloadNetworkConstraints;

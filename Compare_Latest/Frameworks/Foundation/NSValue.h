@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSValue : NSObject <NSCopying, NSCoding>
+@interface NSValue : NSObject <NSCopying, NSSecureCoding>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)valueWithRange:(struct _NSRange)arg1;
 + (id)valueWithRect:(struct CGRect)arg1;
 + (id)valueWithSize:(struct CGSize)arg1;
@@ -41,6 +42,8 @@
 - (const char *)objCType;
 - (void)getValue:(void *)arg1;
 - (id)init;
+- (BOOL)isNSValue__;
+- (id)replacementObjectForPortCoder:(id)arg1;
 
 @end
 

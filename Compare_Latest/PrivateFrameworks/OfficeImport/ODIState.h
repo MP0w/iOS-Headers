@@ -23,27 +23,28 @@
     OADDrawingTheme *mDrawingTheme;
 }
 
-- (id)initWithDiagram:(id)arg1 group:(id)arg2 drawingTheme:(id)arg3;
-- (void)dealloc;
-- (id)diagram;
-- (id)diagramOrientedBounds;
-- (struct CGRect)logicalBounds;
-- (void)setLogicalBounds:(struct CGRect)arg1 maintainAspectRatio:(BOOL)arg2;
-- (float)scale;
-- (void)setLogicalBounds:(struct CGRect)arg1;
-- (id)group;
-- (void)setGroup:(id)arg1;
-- (id)presentationNameForPointType:(int)arg1;
-- (void)setPresentationName:(id)arg1 forPointType:(int)arg2;
-- (id)defaultStyleLabelNameForPointType:(int)arg1;
-- (void)setDefaultStyleLabelName:(id)arg1 forPointType:(int)arg2;
-- (int)pointCount;
-- (void)setPointCount:(int)arg1;
-- (int)pointIndex;
-- (void)setPointIndex:(int)arg1;
-- (id)textStyle;
-- (void)setTextStyle:(id)arg1;
+- (id).cxx_construct;
 - (id)drawingTheme;
+- (void)setTextStyle:(id)arg1;
+- (id)textStyle;
+- (void)setPointIndex:(int)arg1;
+- (int)pointIndex;
+- (void)setPointCount:(int)arg1;
+- (int)pointCount;
+- (void)setDefaultStyleLabelName:(id)arg1 forPointType:(int)arg2;
+- (id)defaultStyleLabelNameForPointType:(int)arg1;
+- (void)setPresentationName:(id)arg1 forPointType:(int)arg2;
+- (id)presentationNameForPointType:(int)arg1;
+- (void)setGroup:(id)arg1;
+- (id)group;
+- (void)setLogicalBounds:(struct CGRect)arg1;
+- (float)scale;
+- (void)setLogicalBounds:(struct CGRect)arg1 maintainAspectRatio:(BOOL)arg2;
+- (struct CGRect)logicalBounds;
+- (id)diagramOrientedBounds;
+- (id)diagram;
+- (void)dealloc;
+- (id)initWithDiagram:(id)arg1 group:(id)arg2 drawingTheme:(id)arg3;
 
 @end
 

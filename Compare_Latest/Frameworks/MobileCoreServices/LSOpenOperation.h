@@ -6,7 +6,7 @@
 
 #import "NSOperation.h"
 
-@class NSString, NSURL;
+@class NSDictionary, NSString, NSURL;
 
 @interface LSOpenOperation : NSOperation
 {
@@ -16,18 +16,20 @@
     NSString *_applicationIdentifier;
     NSString *_documentIdentifier;
     id _userInfoPList;
+    NSDictionary *_options;
     id _delegate;
     int _result;
 }
 
-- (id)initForOpeningResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 userInfo:(id)arg4 delegate:(id)arg5;
-- (void)dealloc;
-- (void)main;
-- (void)completeOperation;
-- (BOOL)isConcurrent;
-- (BOOL)isExecuting;
-- (BOOL)isFinished;
 - (void)start;
+- (BOOL)didSucceed;
+- (BOOL)isFinished;
+- (BOOL)isExecuting;
+- (BOOL)isConcurrent;
+- (void)completeOperation;
+- (void)main;
+- (void)dealloc;
+- (id)initForOpeningResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 userInfo:(id)arg4 options:(id)arg5 delegate:(id)arg6;
 
 @end
 

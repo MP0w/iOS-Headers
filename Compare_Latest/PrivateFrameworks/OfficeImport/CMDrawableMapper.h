@@ -25,26 +25,27 @@
     OADOrientedBounds *mOrientedBounds;
 }
 
-- (void)dealloc;
-- (id)initWithParent:(id)arg1;
-- (id)initWithOadDrawable:(id)arg1 parent:(id)arg2;
-- (struct CGRect)box;
-- (BOOL)isCropped;
-- (struct CGRect)uncroppedBox;
-- (float)rotation;
-- (void)setRotation:(float)arg1;
-- (void)setBoundingBox;
-- (void)setWithOadImage:(id)arg1;
-- (id)saveResourceAndReturnPath:(id)arg1 withType:(int)arg2;
-- (id)blipAtIndex:(unsigned int)arg1;
-- (void)mapImageBinaryData;
-- (void)mapBounds;
-- (void)calculateUncroppedBox:(id)arg1;
-- (void)mapShapeGraphicsAt:(id)arg1 withState:(id)arg2;
-- (void)mapDrawingContext:(id)arg1 at:(id)arg2 relative:(BOOL)arg3 withState:(id)arg4;
-- (struct CGRect)shapeTextBoxRect;
-- (void)mapTextBoxAt:(id)arg1 withState:(id)arg2;
+- (id).cxx_construct;
 - (id)convertMetafileToPdf;
+- (void)mapTextBoxAt:(id)arg1 withState:(id)arg2;
+- (struct CGRect)shapeTextBoxRect;
+- (void)mapDrawingContext:(id)arg1 at:(id)arg2 relative:(BOOL)arg3 withState:(id)arg4;
+- (void)mapShapeGraphicsAt:(id)arg1 withState:(id)arg2;
+- (void)calculateUncroppedBox:(id)arg1;
+- (void)mapBounds;
+- (void)mapImageBinaryData;
+- (id)blipAtIndex:(unsigned int)arg1;
+- (id)saveResourceAndReturnPath:(id)arg1 withType:(int)arg2;
+- (void)setWithOadImage:(id)arg1;
+- (void)setBoundingBox;
+- (void)setRotation:(float)arg1;
+- (float)rotation;
+- (struct CGRect)uncroppedBox;
+- (BOOL)isCropped;
+- (struct CGRect)box;
+- (id)initWithOadDrawable:(id)arg1 parent:(id)arg2;
+- (id)initWithParent:(id)arg1;
+- (void)dealloc;
 
 @end
 

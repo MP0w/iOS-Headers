@@ -25,6 +25,7 @@
 - (struct OpaqueFigFormatReader *)_formatReader;
 - (id)_assetInspector;
 - (struct OpaqueFigMutableComposition *)_mutableComposition;
+- (id)description;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;

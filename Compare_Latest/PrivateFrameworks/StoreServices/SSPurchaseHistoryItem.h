@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSMutableDictionary;
 
-@interface SSPurchaseHistoryItem : NSObject <SSCoding, NSCopying>
+@interface SSPurchaseHistoryItem : NSObject <SSXPCCoding, NSCopying>
 {
     NSMutableDictionary *_properties;
 }
@@ -19,10 +19,8 @@
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)description;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)valueForProperty:(id)arg1;
 - (void)setValue:(id)arg1 forProperty:(id)arg2;

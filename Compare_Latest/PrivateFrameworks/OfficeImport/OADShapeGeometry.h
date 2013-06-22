@@ -14,14 +14,14 @@
     NSMutableDictionary *mAdjustValues;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)isEscher;
-- (void)setIsEscher:(BOOL)arg1;
-- (void)setAdjustValue:(long)arg1 atIndex:(unsigned int)arg2;
-- (long)adjustValueAtIndex:(unsigned int)arg1;
 - (BOOL)hasAdjustValueAtIndex:(unsigned int)arg1;
+- (long)adjustValueAtIndex:(unsigned int)arg1;
+- (void)setAdjustValue:(long)arg1 atIndex:(unsigned int)arg2;
+- (void)setIsEscher:(BOOL)arg1;
+- (BOOL)isEscher;
 - (id)adjustValues;
+- (void)dealloc;
+- (id)init;
 
 @end
 

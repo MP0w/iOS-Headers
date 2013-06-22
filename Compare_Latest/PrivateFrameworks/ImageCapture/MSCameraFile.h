@@ -13,28 +13,28 @@
     void *_msCameraFileProperties;
 }
 
-- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3 fsSN:(unsigned long long)arg4 fsCreationTime:(struct timespec)arg5 fsModificationTime:(struct timespec)arg6 fsSize:(long long)arg7 fsFlags:(unsigned int)arg8;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly) unsigned long long fsSN;
-@property(readonly) struct timespec fsCreationTime;
-@property(readonly) struct timespec fsModificationTime;
-@property(readonly) long long fsSize;
-@property unsigned int type;
-@property(copy) NSString *exifCreationDateTime;
-@property(copy) NSString *exifModificationDateTime;
-@property int thmSize;
-@property int thmOffset;
-@property int thmWidth;
-@property int thmHeight;
-@property int imgWidth;
-@property int imgHeight;
-@property int bitsPerPixel;
-@property BOOL updatedBasicMetadata;
-- (long)writeDataToFile:(int)arg1 fromOffset:(long long)arg2 ofLength:(long long *)arg3;
-- (id)thumbData;
-- (id)metadataDict;
 - (void)updateBasicMetadata;
+- (id)metadataDict;
+- (id)thumbData;
+- (long)writeDataToFile:(int)arg1 fromOffset:(long long)arg2 ofLength:(long long *)arg3;
+@property BOOL updatedBasicMetadata;
+@property int bitsPerPixel;
+@property int imgHeight;
+@property int imgWidth;
+@property int thmHeight;
+@property int thmWidth;
+@property int thmOffset;
+@property int thmSize;
+@property(copy) NSString *exifModificationDateTime;
+@property(copy) NSString *exifCreationDateTime;
+@property unsigned int type;
+@property(readonly) long long fsSize;
+@property(readonly) struct timespec fsModificationTime;
+@property(readonly) struct timespec fsCreationTime;
+@property(readonly) unsigned long long fsSN;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3 fsSN:(unsigned long long)arg4 fsCreationTime:(struct timespec)arg5 fsModificationTime:(struct timespec)arg6 fsSize:(long long)arg7 fsFlags:(unsigned int)arg8;
 
 @end
 

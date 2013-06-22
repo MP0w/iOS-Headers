@@ -6,39 +6,42 @@
 
 #import <ChatKit/CKTranscriptCell.h>
 
-@class CKBalloonView, UIButton;
+#import "CKBalloonViewActionDelegate-Protocol.h"
 
-@interface CKMessageCell : CKTranscriptCell
+@class CKBalloonView, UIButton, UIImageView;
+
+@interface CKMessageCell : CKTranscriptCell <CKBalloonViewActionDelegate>
 {
     CKBalloonView *_balloonView;
+    UIImageView *_contactImageView;
     UIButton *_failedButton;
     float _topPadding;
     float _bottomPadding;
     id _replacementMessageBubbleData;
 }
 
-+ (id)_exclamationGlyphImage;
-+ (id)_failImage;
 + (id)_failPressedImage;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
-- (void)dealloc;
-- (void)layoutSubviews;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (id)_multiselectBackgroundColor;
-- (void)addBalloonView:(id)arg1;
-- (void)setFailed:(BOOL)arg1;
-- (void)setContactImage:(id)arg1;
-- (void)setTopPadding:(float)arg1 bottomPadding:(float)arg2;
-- (void)_failPressed:(id)arg1;
-- (struct CGRect)failedButtonFrame;
-- (void)_resetBalloonFrame;
-- (void)prepareForReuse;
-- (void)__performTargetAction:(SEL)arg1;
-- (void)balloonViewDidTapBalloon:(id)arg1;
-- (BOOL)balloonViewShouldShowSendAsSMSAction:(id)arg1;
-- (void)balloonViewDidTapSendAsSMS:(id)arg1;
++ (id)_failImage;
++ (id)_exclamationGlyphImage;
 @property(retain, nonatomic) id replacementMessageBubbleData; // @synthesize replacementMessageBubbleData=_replacementMessageBubbleData;
 @property(readonly, nonatomic) CKBalloonView *balloonView; // @synthesize balloonView=_balloonView;
+- (void)balloonViewDidTapSendAsSMS:(id)arg1;
+- (id)balloonViewSendAsSMSText:(id)arg1;
+- (void)balloonViewDidTapBalloon:(id)arg1;
+- (void)__performTargetAction:(SEL)arg1;
+- (void)_resetBalloonFrame;
+- (struct CGRect)failedButtonFrame;
+- (void)_failPressed:(id)arg1;
+- (void)prepareForReuseForEditing;
+- (void)setTopPadding:(float)arg1 bottomPadding:(float)arg2;
+- (void)setContactImage:(id)arg1;
+- (void)setFailed:(BOOL)arg1;
+- (void)addBalloonView:(id)arg1;
+- (id)_multiselectBackgroundColor;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

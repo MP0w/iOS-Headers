@@ -12,13 +12,13 @@
 {
 }
 
-+ (int)beginPresentation:(id)arg1 state:(id)arg2;
-+ (int)endPresentation:(id)arg1 state:(id)arg2;
-+ (int)handleSlideSize:(id)arg1 state:(id)arg2;
-+ (int)handleThemeStylesheet:(id)arg1 state:(id)arg2;
-+ (int)beginSlide:(id)arg1 state:(id)arg2;
-+ (int)endSlide:(id)arg1 state:(id)arg2;
 + (Class)enterSlideDrawables:(id)arg1 state:(id)arg2;
++ (int)endSlide:(id)arg1 state:(id)arg2;
++ (int)beginSlide:(id)arg1 state:(id)arg2;
++ (int)handleThemeStylesheet:(id)arg1 state:(id)arg2;
++ (int)handleSlideSize:(id)arg1 state:(id)arg2;
++ (int)endPresentation:(id)arg1 state:(id)arg2;
++ (int)beginPresentation:(id)arg1 state:(id)arg2;
 
 @end
 

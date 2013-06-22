@@ -9,9 +9,9 @@
 @protocol SUNetworkObserver <NSObject>
 
 @optional
-- (void)networkChangedFromNetworkType:(int)arg1 toNetworkType:(int)arg2;
-- (void)cellularRoamingStatusChanged:(BOOL)arg1;
-- (void)carrierBundleChanged;
 - (void)operatorBundleChanged;
+- (void)carrierBundleChanged;
+- (void)cellularRoamingStatusChanged:(BOOL)arg1;
+- (void)networkChangedFromNetworkType:(int)arg1 toNetworkType:(int)arg2;
 @end
 

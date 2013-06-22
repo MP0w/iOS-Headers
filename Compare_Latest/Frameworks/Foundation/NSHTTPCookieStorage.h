@@ -27,6 +27,11 @@
 - (id)cookies;
 - (id)init;
 - (void)dealloc;
+- (id)_initWithSharedStorage;
+- (void)_readAcceptCookiesPreference;
+- (void)_saveCookies;
+- (struct OpaqueCFHTTPCookieStorage *)_cookieStorage;
+- (void)_setPrivateBrowsingEnabled:(BOOL)arg1;
 
 @end
 

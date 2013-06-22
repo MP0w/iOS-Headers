@@ -13,13 +13,13 @@
     NSMutableSet *_changedProperties;
 }
 
-- (id)init;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (void)addChangedProperty:(id)arg1;
-- (id)copyParseRules;
 @property(retain) NSMutableSet *changedProperties; // @synthesize changedProperties=_changedProperties;
+- (id)copyParseRules;
+- (void)addChangedProperty:(id)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (id)init;
 
 @end
 

@@ -27,7 +27,7 @@
     id <UIMovieScrubberDelegate> _delegate;
     struct CGRect _trackRect;
     float _hitOffset;
-    float _zoomDelay;
+    double _zoomDelay;
     BOOL _showTimeViews;
     BOOL _editable;
     double _value;
@@ -76,14 +76,14 @@
 @property(nonatomic) double minimumTrimLength; // @synthesize minimumTrimLength=_minTrimmedLength;
 @property(nonatomic) double maximumTrimLength; // @synthesize maximumTrimLength=_maxTrimmedLength;
 @property(nonatomic) BOOL showTimeViews; // @synthesize showTimeViews=_showTimeViews;
-@property(nonatomic) float zoomDelay; // @synthesize zoomDelay=_zoomDelay;
+@property(nonatomic) double zoomDelay; // @synthesize zoomDelay=_zoomDelay;
 - (void)movieScrubberTrackViewDidFinishRequestingThumbnails:(id)arg1;
 - (void)movieScrubberTrackViewWillBeginRequestingThumbnails:(id)arg1;
 - (void)movieScrubberTrackViewDidCollapse:(id)arg1;
 - (void)movieScrubberTrackViewDidExpand:(id)arg1;
 - (void)movieScrubberTrackView:(id)arg1 clampedSizeWidthDelta:(float)arg2 actualSizeWidthDelta:(float)arg3 originXDelta:(float)arg4 minimumVisibleValue:(float)arg5 maximumVisibleValue:(float)arg6;
-- (float)movieScrubberTrackViewZoomAnimationDelay:(id)arg1;
-- (float)movieScrubberTrackViewZoomAnimationDuration:(id)arg1;
+- (double)movieScrubberTrackViewZoomAnimationDelay:(id)arg1;
+- (double)movieScrubberTrackViewZoomAnimationDuration:(id)arg1;
 - (float)movieScrubberTrackViewThumbnailAspectRatio:(id)arg1;
 - (void)setThumbnailImage:(struct CGImage *)arg1 forTimestamp:(id)arg2;
 - (void)movieScrubberTrackView:(id)arg1 requestThumbnailImageForTimestamp:(id)arg2;
@@ -133,7 +133,7 @@
 - (struct CGRect)_editingRect;
 - (struct CGRect)trackRect;
 - (void)_computeTrackRectForBounds:(struct CGRect)arg1;
-- (void)setZoomAnimationDuration:(float)arg1;
+- (void)setZoomAnimationDuration:(double)arg1;
 @property(nonatomic, getter=isEditing) BOOL editing;
 - (void)_trimAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)animateCancelEdit;

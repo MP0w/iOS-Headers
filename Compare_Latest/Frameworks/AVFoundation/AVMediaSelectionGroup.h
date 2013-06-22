@@ -17,14 +17,19 @@
 
 + (id)mediaSelectionOptionsFromArray:(id)arg1 withoutMediaCharacteristics:(id)arg2;
 + (id)mediaSelectionOptionsFromArray:(id)arg1 withMediaCharacteristics:(id)arg2;
++ (id)mediaSelectionOptionsFromArray:(id)arg1 filteredAndSortedAccordingToPreferredLanguages:(id)arg2;
 + (id)mediaSelectionOptionsFromArray:(id)arg1 withLocale:(id)arg2;
 + (id)playableMediaSelectionOptionsFromArray:(id)arg1;
 + (id)mediaSelectionGroupWithAsset:(id)arg1 dictionary:(id)arg2;
-+ (id)mediaSelectionGroupWithAsset:(id)arg1 trackID:(int)arg2;
-+ (id)mediaSelectionGroupWithAsset:(id)arg1 alternateTrackIDs:(id)arg2;
 - (id)mediaSelectionOptionWithPropertyList:(id)arg1;
+- (id)_optionWithID:(id)arg1 displaysNonForcedSubtitles:(BOOL)arg2;
+- (id)_defaultOption;
 - (BOOL)_isKeyValueGroup;
 - (BOOL)_isAlternateTrackGroup;
+- (BOOL)_matchesGroupID:(id)arg1 mediaType:(id)arg2;
+- (id)_mediaType;
+- (id)_groupID;
+- (id)dictionary;
 @property(readonly, nonatomic) BOOL allowsEmptySelection;
 @property(readonly, nonatomic) NSArray *options;
 - (id)asset;

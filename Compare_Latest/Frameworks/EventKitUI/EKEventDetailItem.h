@@ -17,9 +17,11 @@
     id <EKEventDetailItemDelegate> _delegate;
     UIViewController<EKEditItemViewControllerProtocol> *_viewController;
     BOOL _allowsEditing;
+    BOOL _shouldIndent;
     int _cellPosition;
 }
 
+@property(nonatomic) BOOL shouldIndent; // @synthesize shouldIndent=_shouldIndent;
 @property(nonatomic) int cellPosition; // @synthesize cellPosition=_cellPosition;
 @property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(nonatomic) id <EKEventDetailItemDelegate> delegate; // @synthesize delegate=_delegate;

@@ -19,11 +19,13 @@
     NSDateComponents *_startDate;
     NSDateComponents *_endDate;
     unsigned int _daysToDisplay;
+    NSArray *_dayStarts;
     int _orientation;
     float _verticalTopMargin;
     float _minimumHeight;
     float _occurrenceHRightInset;
     float _fixedDayWidth;
+    float _customLeftMarginWidth;
     struct CGRect _contentFrame;
     EKPadAllDayViewContents *_contentView;
     UIScrollView *_scroller;
@@ -49,6 +51,8 @@
     unsigned int _dimsNonSelectedItems:1;
     unsigned int _leftMarginIncludesTimeView:1;
     unsigned int _showsHalfOfScrolledEvents:1;
+    BOOL _lazyAddsOccurrenceViews;
+    struct CGRect _latestVisibleRect;
     id <EKPadAllDayViewDelegate> _delegate;
     int _shouldAbbreviateDayNames;
     BOOL _usesSmallText;
@@ -57,6 +61,8 @@
 }
 
 + (float)occurrenceHeight;
+@property(nonatomic) BOOL lazyAddsOccurrenceViews; // @synthesize lazyAddsOccurrenceViews=_lazyAddsOccurrenceViews;
+@property(nonatomic) float customLeftMarginWidth; // @synthesize customLeftMarginWidth=_customLeftMarginWidth;
 @property(nonatomic) int maxOccurrencesWithoutScroller; // @synthesize maxOccurrencesWithoutScroller=_maxOccurrencesWithoutScroller;
 @property(retain, nonatomic) EKEvent *dimmedOccurrence; // @synthesize dimmedOccurrence=_dimmedOccurrence;
 @property(copy, nonatomic) NSDateComponents *startDate; // @synthesize startDate=_startDate;
@@ -107,6 +113,7 @@
 - (void)scrollToEvent:(id)arg1 animating:(BOOL)arg2;
 - (id)occurrenceViewForOccurrence:(id)arg1;
 - (id)occurrenceVisibleRect:(id)arg1;
+- (void)rectBecameVisible:(struct CGRect)arg1;
 - (id)selectedOccurrenceView;
 - (void)setOccurrenceHRightInset:(float)arg1;
 - (void)setOutlineStyle:(int)arg1;
@@ -115,6 +122,7 @@
 - (void)setDrawsLeftBorder:(BOOL)arg1;
 - (void)setShowsDayTitles:(BOOL)arg1;
 @property(copy, nonatomic) NSTimeZone *timeZone;
+- (void)_computeDayStartsAndEndDate;
 - (float)bottomInset;
 - (void)setOrientation:(int)arg1;
 - (void)_loadFadersIfNeeded;

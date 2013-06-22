@@ -14,18 +14,18 @@
     char mySet[32];
 }
 
-+ (id)asciiWhitespaceSet;
-+ (id)ASCIIByteSet;
-+ (id)nonASCIIByteSet;
 + (id)suspiciousCodepage1252ByteSet;
-- (BOOL)byteIsMember:(BOOL)arg1;
-- (id)invertedSet;
-- (id)initWithRange:(struct _NSRange)arg1;
-- (id)initWithCString:(const char *)arg1;
-- (id)initWithBytes:(const void *)arg1 length:(unsigned int)arg2;
-- (id)_initWithSet:(const char *)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
++ (id)nonASCIIByteSet;
++ (id)ASCIIByteSet;
++ (id)asciiWhitespaceSet;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_initWithSet:(const char *)arg1;
+- (id)initWithBytes:(const void *)arg1 length:(unsigned int)arg2;
+- (id)initWithCString:(const char *)arg1;
+- (id)initWithRange:(struct _NSRange)arg1;
+- (id)invertedSet;
+- (BOOL)byteIsMember:(BOOL)arg1;
 
 @end
 

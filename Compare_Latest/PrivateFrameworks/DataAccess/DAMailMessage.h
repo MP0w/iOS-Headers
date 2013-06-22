@@ -26,6 +26,7 @@
 - (id)conversationIndex;
 - (id)conversationId;
 - (id)threadTopic;
+- (BOOL)meetingRequestIsActionable;
 - (id)meetingRequestMetaData;
 - (id)meetingRequestUUID;
 - (id)attachments;

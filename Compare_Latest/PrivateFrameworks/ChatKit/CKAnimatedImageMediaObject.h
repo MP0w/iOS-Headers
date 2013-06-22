@@ -4,19 +4,17 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <ChatKit/CKFixedImageMediaObject.h>
+#import <ChatKit/CKCompressibleImageMediaObject.h>
 
-@interface CKAnimatedImageMediaObject : CKFixedImageMediaObject
+@interface CKAnimatedImageMediaObject : CKCompressibleImageMediaObject
 {
 }
 
 + (id)mimeTypesToFileExtensions;
-- (BOOL)shouldGeneratePreviewInBackground;
-- (id)newPreview:(int)arg1 highlight:(BOOL)arg2;
-- (Class)balloonPreviewClassWithPreviewData:(id)arg1;
-- (float)balloonHeightWithPreviewData:(id)arg1;
-- (void)configureBalloon:(id)arg1 withPreviewData:(id)arg2;
-- (BOOL)_imageHasAnimation;
+- (BOOL)saveExtendedPreview:(id)arg1 toPath:(id)arg2 forOrientation:(int)arg3;
+- (id)extendedPreviewForOrientation:(int)arg1 highlight:(BOOL)arg2;
+- (id)savedExtendedPreviewFromPath:(id)arg1 forOrientation:(int)arg2;
+- (BOOL)wantsExtendedPreview;
 
 @end
 

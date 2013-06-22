@@ -18,21 +18,22 @@
     BOOL separator;
 }
 
-+ (id)nameForLayer:(struct RenderLayer *)arg1;
 + (id)compositingInfoForLayer:(struct RenderLayer *)arg1;
-- (id)initWithRenderLayer:(struct RenderLayer *)arg1;
-- (id)initWithName:(id)arg1;
-- (id)initWithWebFrame:(id)arg1;
-- (void)dealloc;
-- (void)buildDescendantLayers:(struct RenderLayer *)arg1;
-- (id)children;
-- (id)name;
-- (id)positionString;
-- (id)widthString;
-- (id)heightString;
-- (id)compositingInfo;
-- (BOOL)isComposited;
++ (id)nameForLayer:(struct RenderLayer *)arg1;
+- (id).cxx_construct;
 - (BOOL)isSeparator;
+- (BOOL)isComposited;
+- (id)compositingInfo;
+- (id)heightString;
+- (id)widthString;
+- (id)positionString;
+- (id)name;
+- (id)children;
+- (void)buildDescendantLayers:(struct RenderLayer *)arg1;
+- (void)dealloc;
+- (id)initWithWebFrame:(id)arg1;
+- (id)initWithName:(id)arg1;
+- (id)initWithRenderLayer:(struct RenderLayer *)arg1;
 
 @end
 

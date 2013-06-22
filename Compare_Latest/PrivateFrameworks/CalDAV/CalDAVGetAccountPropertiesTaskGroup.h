@@ -6,7 +6,7 @@
 
 #import "CoreDAVGetAccountPropertiesTaskGroup.h"
 
-@class CalDAVServerVersion, NSSet, NSString, NSURL;
+@class CalDAVServerVersion, NSSet, NSURL;
 
 @interface CalDAVGetAccountPropertiesTaskGroup : CoreDAVGetAccountPropertiesTaskGroup
 {
@@ -19,20 +19,10 @@
     NSURL *_notificationURL;
     NSURL *_delegatePrincipalURL;
     NSURL *_updatedPrincipalURL;
-    NSString *_allowedCalendarComponentSet;
     CalDAVServerVersion *_serverVersion;
 }
 
-- (void)dealloc;
-- (id)description;
-- (id)_copyAccountPropertiesPropFindElements;
-- (void)startTaskGroup;
-- (id)homeSet;
-- (void)_setPropertiesFromParsedResponses:(id)arg1;
-- (BOOL)forceOptionsRequest;
-- (void)processPrincipalHeaders:(id)arg1;
 @property(readonly) NSURL *updatedPrincipalURL; // @synthesize updatedPrincipalURL=_updatedPrincipalURL;
-@property(readonly) NSString *allowedCalendarComponentSet; // @synthesize allowedCalendarComponentSet=_allowedCalendarComponentSet;
 @property(readonly) CalDAVServerVersion *serverVersion; // @synthesize serverVersion=_serverVersion;
 @property(readonly) NSSet *originalUserAddresses; // @synthesize originalUserAddresses=_originalUserAddresses;
 @property(readonly) NSSet *userAddresses; // @synthesize userAddresses=_userAddresses;
@@ -42,6 +32,14 @@
 @property(readonly) NSURL *inboxURL; // @synthesize inboxURL=_inboxURL;
 @property(retain) NSURL *delegatePrincipalURL; // @synthesize delegatePrincipalURL=_delegatePrincipalURL;
 @property(readonly) NSSet *calendarHomes; // @synthesize calendarHomes=_calendarHomes;
+- (void)processPrincipalHeaders:(id)arg1;
+- (BOOL)forceOptionsRequest;
+- (void)_setPropertiesFromParsedResponses:(id)arg1;
+- (id)homeSet;
+- (void)startTaskGroup;
+- (id)_copyAccountPropertiesPropFindElements;
+- (id)description;
+- (void)dealloc;
 
 @end
 

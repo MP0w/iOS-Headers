@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class SBShowcaseViewController, SBSlidingViewHighlight, UIControl, UIView, UIWindow;
+@class SBSlidingViewHighlight, UIControl, UIView, UIWindow;
 
 @interface SBShowcaseController : NSObject
 {
@@ -24,39 +24,53 @@
     SBSlidingViewHighlight *_separator;
     float _revealAmount;
     int _orientation;
-    SBShowcaseViewController *_showcaseViewController;
+    BOOL _isAnimating;
+    int _pendingRevealMode;
+    id <SBShowcaseControllerOwner> _owner;
+    id <SBShowcaseViewControllerProtocol> _showcaseViewController;
 }
 
 + (float)fullRevealAmount;
-- (id)init;
-- (void)dealloc;
-@property(retain, nonatomic) SBShowcaseViewController *showcase; // @synthesize showcase=_showcaseViewController;
-@property(retain, nonatomic) UIView *hostView; // @synthesize hostView=_hostView;
+@property(nonatomic, getter=isAnimating) BOOL animating; // @synthesize animating=_isAnimating;
 @property(nonatomic) float revealAmount; // @synthesize revealAmount=_revealAmount;
-- (struct CGRect)showcaseViewFrame;
-- (float)bottomBarHeight;
-- (void)setHidden:(BOOL)arg1;
-- (void)setAlpha:(float)arg1;
-@property(nonatomic) int revealMode;
-- (void)_updateShowcase;
-- (struct CGRect)_visibleShowcaseBounds;
-- (float)_separatorAlphaForRevealAmount:(float)arg1;
-- (void)willAppear;
-- (void)didAppear;
-- (void)willDisappear;
-- (void)didDisappear;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
+@property(readonly, nonatomic) UIWindow *window; // @synthesize window=_showcaseWindow;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
 @property(retain, nonatomic) UIView *hidingView; // @synthesize hidingView=_hidingView;
-- (struct CGAffineTransform)_rootTransform;
-- (struct CGRect)_contentFrame;
-- (struct CGRect)_portraitAdjustedFrameForFrame:(struct CGRect)arg1;
-- (struct CGRect)_adjustedContentFrameForFrame:(struct CGRect)arg1;
-- (struct CGRect)_hostViewFrame;
-- (float)_showcaseRevealedAmount;
-@property(readonly, nonatomic) UIWindow *window; // @synthesize window=_showcaseWindow;
+@property(retain, nonatomic) UIView *hostView; // @synthesize hostView=_hostView;
 @property(readonly, nonatomic) UIControl *blockingView; // @synthesize blockingView=_blockingView;
+@property(retain, nonatomic) id <SBShowcaseViewControllerProtocol> showcase; // @synthesize showcase=_showcaseViewController;
+@property(nonatomic) id <SBShowcaseControllerOwner> owner; // @synthesize owner=_owner;
+- (BOOL)transferOwnershipToOwner:(id)arg1;
+- (void)noteRevealModeWillChange:(int)arg1;
+- (void)dismissWithFadeOfDuration:(double)arg1;
+- (void)dismissWithAnimation:(BOOL)arg1;
+- (void)updateRevealMode:(int)arg1 withBlock:(id)arg2;
+- (float)_showcaseRevealedAmount;
+- (struct CGRect)_hostViewFrame;
+- (struct CGRect)_adjustedContentFrameForFrame:(struct CGRect)arg1;
+- (struct CGRect)_portraitAdjustedFrameForFrame:(struct CGRect)arg1;
+- (struct CGRect)_contentFrame;
+- (struct CGAffineTransform)_rootTransform;
+- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1;
+- (void)willRotateToInterfaceOrientation:(int)arg1;
+- (void)didDisappear;
+- (void)willDisappear;
+- (void)didAppear;
+- (void)willAppear;
+- (float)_separatorAlphaForRevealAmount:(float)arg1;
+- (struct CGRect)_visibleShowcaseBounds;
+- (void)_updateShowcase;
+@property(nonatomic) int revealMode;
+- (void)_updateShowcaseWindowLevel;
+- (float)_showcaseWindowLevel;
+- (void)setAlpha:(float)arg1;
+- (void)setHidden:(BOOL)arg1;
+- (float)revealAmountForMode:(int)arg1;
+- (float)bottomBarHeight;
+- (struct CGRect)showcaseViewFrame;
+- (void)dealloc;
+- (id)init;
 
 @end
 

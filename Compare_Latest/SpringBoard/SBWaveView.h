@@ -22,22 +22,22 @@
     BOOL _animating;
 }
 
-- (void)setFrame:(struct CGRect)arg1;
-- (void)setColor:(id)arg1;
-- (void)setPhaseWidth:(float)arg1;
-- (void)setPhaseShift:(float)arg1;
-- (float)_phaseShift;
-- (float)_currentAmplitude;
-- (void)_setAmplitude:(float)arg1 animated:(BOOL)arg2;
-- (void)setMinAmplitude:(float)arg1;
-- (void)setMaxAmplitude:(float)arg1;
-- (void)setPhaseAnimationDuration:(double)arg1;
-- (void)setLevel:(float)arg1 animated:(BOOL)arg2;
-- (void)setLevelDamping:(float)arg1;
-- (float)_amplitudeForLevel:(float)arg1;
-- (void)beginAnimating;
-- (void)stopAnimating;
 - (void)_finishedAnimating;
+- (void)stopAnimating;
+- (void)beginAnimating;
+- (float)_amplitudeForLevel:(float)arg1;
+- (void)setLevelDamping:(float)arg1;
+- (void)setLevel:(float)arg1 animated:(BOOL)arg2;
+- (void)setPhaseAnimationDuration:(double)arg1;
+- (void)setMaxAmplitude:(float)arg1;
+- (void)setMinAmplitude:(float)arg1;
+- (void)_setAmplitude:(float)arg1 animated:(BOOL)arg2;
+- (float)_currentAmplitude;
+- (float)_phaseShift;
+- (void)setPhaseShift:(float)arg1;
+- (void)setPhaseWidth:(float)arg1;
+- (void)setColor:(id)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 
 @end
 

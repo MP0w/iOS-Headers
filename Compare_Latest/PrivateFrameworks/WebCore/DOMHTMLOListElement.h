@@ -12,9 +12,11 @@
 {
 }
 
-@property BOOL compact;
-@property int start;
 @property(copy) NSString *type;
+- (void)setReversed:(BOOL)arg1;
+- (BOOL)reversed;
+@property int start;
+@property BOOL compact;
 
 @end
 

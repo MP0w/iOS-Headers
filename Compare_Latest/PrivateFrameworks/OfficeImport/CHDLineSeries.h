@@ -16,12 +16,12 @@
     _Bool mSmooth;
 }
 
-- (id)initWithChart:(id)arg1;
-- (void)dealloc;
-- (id)marker;
-- (void)setMarker:(id)arg1;
-- (_Bool)isSmooth;
 - (void)setSmooth:(_Bool)arg1;
+- (_Bool)isSmooth;
+- (void)setMarker:(id)arg1;
+- (id)marker;
+- (void)dealloc;
+- (id)initWithChart:(id)arg1;
 
 @end
 

@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface UIFont : NSObject
+@interface UIFont : NSObject <NSCopying>
 {
 }
 
++ (id)classFallbacksForKeyedArchiver;
 + (float)systemFontSize;
 + (float)smallSystemFontSize;
 + (float)buttonFontSize;
@@ -29,6 +32,7 @@
 + (id)fontWithName:(id)arg1 size:(float)arg2;
 + (id)fontWithName:(id)arg1 size:(float)arg2 traits:(int)arg3;
 + (id)__newDummy;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (id)markupDescription;
 - (id)familyNameForCSSFontFamilyValue;
@@ -48,6 +52,7 @@
 - (Class)classForCoder;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)_fontScaledByScaleFactor:(float)arg1;
 - (id)initWithMarkupDescription:(id)arg1;
 - (id)initWithFamilyName:(id)arg1 traits:(int)arg2 size:(float)arg3;
 - (id)initWithName:(id)arg1 size:(float)arg2;

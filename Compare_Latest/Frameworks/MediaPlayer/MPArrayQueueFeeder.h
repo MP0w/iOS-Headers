@@ -16,9 +16,8 @@
 @property(readonly, nonatomic) NSArray *items;
 - (id)playbackInfoAtIndex:(unsigned int)arg1;
 - (id)pathAtIndex:(unsigned int)arg1;
-- (unsigned int)numberOfPaths;
+- (unsigned int)itemCount;
 - (id)copyRawItemAtIndex:(unsigned int)arg1;
-- (double)bookmarkTimeForIndex:(unsigned int)arg1;
 - (void)dealloc;
 - (id)initWithItems:(id)arg1;
 

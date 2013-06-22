@@ -7,9 +7,9 @@
 #import "WAKView.h"
 
 @interface WAKView (WebExtras)
-- (id)_web_superviewOfClass:(Class)arg1;
-- (id)_web_parentWebFrameView;
-- (BOOL)_web_firstResponderIsSelfOrDescendantView;
 - (struct CGRect)_web_convertRect:(struct CGRect)arg1 toView:(id)arg2;
+- (BOOL)_web_firstResponderIsSelfOrDescendantView;
+- (id)_web_parentWebFrameView;
+- (id)_web_superviewOfClass:(Class)arg1;
 @end
 

@@ -6,25 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSMutableSet, SUScriptObject, WebScriptObject;
+@class NSLock, SUScriptObject, WebScriptObject;
 
 @interface SUScriptFunction : NSObject
 {
-    NSMutableSet *_delegates;
     WebScriptObject *_function;
     NSLock *_lock;
     SUScriptObject *_thisObject;
 }
 
-- (void)_sendResult:(id)arg1 toDelegate:(id)arg2;
 - (id)_copyAdjustedArgumentsForArguments:(id)arg1;
-- (void)_callFunction:(id)arg1 withArguments:(id)arg2 delegate:(id)arg3;
 - (void)unlock;
-@property SUScriptObject *thisObject;
+@property __weak SUScriptObject *thisObject;
 @property(retain) WebScriptObject *scriptObject;
 - (void)lock;
 - (id)callSynchronouslyWithArguments:(id)arg1;
-- (BOOL)callWithArguments:(id)arg1 delegate:(id)arg2 didFinishSelector:(SEL)arg3;
+- (BOOL)callWithArguments:(id)arg1 completionBlock:(id)arg2;
 - (BOOL)callWithArguments:(id)arg1;
 - (void)dealloc;
 - (id)initWithScriptObject:(id)arg1;

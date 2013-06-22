@@ -12,11 +12,14 @@
 {
     NSArray *_viewAnimations;
     int _animationCount;
+    id _completionHandler;
 }
 
+@property(readonly, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) int animationCount; // @synthesize animationCount=_animationCount;
 @property(retain, nonatomic) NSArray *viewAnimations; // @synthesize viewAnimations=_viewAnimations;
 - (void)dealloc;
+- (id)initWithCompletionHandler:(id)arg1;
 
 @end
 

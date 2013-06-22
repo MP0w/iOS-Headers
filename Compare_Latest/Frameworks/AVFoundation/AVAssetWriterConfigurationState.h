@@ -17,8 +17,10 @@
     NSArray *_metadataItems;
     int _movieTimeScale;
     NSArray *_inputs;
+    NSArray *_inputGroups;
 }
 
+@property(copy, nonatomic) NSArray *inputGroups; // @synthesize inputGroups=_inputGroups;
 @property(copy, nonatomic) NSArray *inputs; // @synthesize inputs=_inputs;
 @property(nonatomic) int movieTimeScale; // @synthesize movieTimeScale=_movieTimeScale;
 @property(copy, nonatomic) NSArray *metadataItems; // @synthesize metadataItems=_metadataItems;

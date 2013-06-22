@@ -8,15 +8,17 @@
 
 #import "SSXPCCoding-Protocol.h"
 
-@class NSDictionary, NSMutableDictionary, SSXPCConnection;
+@class NSArray, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, SSXPCConnection;
 
 @interface SSEntity : NSObject <SSXPCCoding>
 {
     SSXPCConnection *_connection;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSMutableDictionary *_localExternalValues;
     NSMutableDictionary *_localValues;
     long long _pid;
+    NSArray *_dirtyLocalExternalProperties;
+    NSArray *_dirtyLocalProperties;
 }
 
 + (long long)_setValuesMessage;
@@ -24,14 +26,17 @@
 + (long long)_getValueMessage;
 + (long long)_getExternalValuesMessage;
 + (long long)_existsMessage;
-- (void *)copyXPCEncoding;
-- (void)_getValues:(id *)arg1 forProperties:(id *)arg2 count:(unsigned int)arg3 message:(long long)arg4;
+- (id)copyXPCEncoding;
+- (void)_getValues:(id *)arg1 forProperties:(const id *)arg2 count:(unsigned int)arg3 message:(long long)arg4;
+- (void)__addCachedPropertyValues:(id)arg1;
+- (void)__addCachedExternalValues:(id)arg1;
 @property(copy, getter=_localValues, setter=_setLocalValues:) NSDictionary *_localValues;
 @property(copy, getter=_localExternalValues, setter=_setLocalExternalValues:) NSDictionary *_localExternalValues;
+- (void)_setDirtyCachedProperties:(id)arg1;
+- (void)_setDirtyCachedExternalProperties:(id)arg1;
 - (void)_resetLocalIVars;
 @property(readonly) long long _persistentIdentifier;
 @property(readonly, getter=_isManaged) BOOL _managed;
-- (id)_clientValueForProperty:(id)arg1 databaseValue:(id)arg2;
 - (void)_becomeManagedOnConnection:(id)arg1;
 - (void)_addCachedPropertyValues:(id)arg1;
 - (void)_addCachedExternalValues:(id)arg1;
@@ -40,13 +45,13 @@
 - (id)description;
 - (id)valueForExternalProperty:(id)arg1;
 - (BOOL)setExternalValuesWithDictionary:(id)arg1;
-- (void)resetCachedProperties:(id *)arg1 count:(unsigned int)arg2;
-- (void)resetCachedExternalProperties:(id *)arg1 count:(unsigned int)arg2;
-- (void)getValues:(id *)arg1 forExternalProperties:(id *)arg2 count:(unsigned int)arg3;
+- (void)resetCachedProperties:(const id *)arg1 count:(unsigned int)arg2;
+- (void)resetCachedExternalProperties:(const id *)arg1 count:(unsigned int)arg2;
+- (void)getValues:(id *)arg1 forExternalProperties:(const id *)arg2 count:(unsigned int)arg3;
 - (id)valueForProperty:(id)arg1;
 - (BOOL)setValuesWithDictionary:(id)arg1;
 - (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
-- (void)getValues:(id *)arg1 forProperties:(id *)arg2 count:(unsigned int)arg3;
+- (void)getValues:(id *)arg1 forProperties:(const id *)arg2 count:(unsigned int)arg3;
 @property(readonly) BOOL exists;
 - (void)dealloc;
 - (id)_initWithPersistentIdentifier:(long long)arg1;

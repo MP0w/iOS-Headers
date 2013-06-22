@@ -10,9 +10,9 @@
 {
 }
 
-@property int width;
-@property int height;
 - (id)toDataURL:(id)arg1;
+@property int height;
+@property int width;
 
 @end
 

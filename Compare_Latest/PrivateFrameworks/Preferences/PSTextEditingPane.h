@@ -9,24 +9,24 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class PreferencesTextTableCell, UITableView, UITextField;
+@class PSTextEditingCell, UITableView, UITextField;
 
 @interface PSTextEditingPane : PSEditingPane <UITableViewDelegate, UITableViewDataSource>
 {
     UITableView *_table;
-    PreferencesTextTableCell *_cell;
+    PSTextEditingCell *_cell;
     UITextField *_textField;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)layoutSubviews;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (BOOL)becomeFirstResponder;
-- (void)setPreferenceValue:(id)arg1;
-- (id)preferenceValue;
 - (void)setPreferenceSpecifier:(id)arg1;
+- (id)preferenceValue;
+- (void)setPreferenceValue:(id)arg1;
+- (BOOL)becomeFirstResponder;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

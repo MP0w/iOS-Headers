@@ -6,29 +6,31 @@
 
 #import "NSObject.h"
 
-@class NSData;
+@class NSData, NSString, UIImage;
 
 @interface CKImageData : NSObject
 {
     struct CGImageSource *_imageSource;
+    unsigned int _count;
+    int _orientation;
     NSData *_data;
 }
 
-- (id)initWithData:(id)arg1;
++ (id)MIMETypeForData:(id)arg1;
+@property(retain, nonatomic) NSData *data; // @synthesize data=_data;
+- (id)_thumbnailFitToSize:(struct CGSize)arg1 atIndex:(unsigned int)arg2;
+@property(readonly, nonatomic) unsigned int count; // @dynamic count;
+@property(readonly, nonatomic) int orientation; // @dynamic orientation;
+@property(readonly, nonatomic) struct CGSize pxSize; // @dynamic pxSize;
+@property(readonly, nonatomic) struct CGSize ptSize; // @dynamic ptSize;
+@property(readonly, nonatomic) NSString *UTIType; // @dynamic UTIType;
+@property(readonly, nonatomic) NSString *MIMEType; // @dynamic MIMEType;
+- (id)durationsWithMaxCount:(unsigned int)arg1;
+- (id)thumbnailsFitToSize:(struct CGSize)arg1 maxCount:(unsigned int)arg2;
+- (id)thumbnailFitToSize:(struct CGSize)arg1;
+@property(readonly, nonatomic) UIImage *image; // @dynamic image;
 - (void)dealloc;
-- (id)image;
-- (id)imageWithMaxLength:(int)arg1;
-- (id)jpegDataWithMaxLength:(int)arg1 compression:(float)arg2;
-- (id)pngDataWithMaxLength:(int)arg1;
-- (id)mimeType;
-- (id)imageType;
-- (int)imageCount;
-- (struct CGSize)size;
-- (int)imageOrientation;
-- (struct CGImageSource *)_imageSource;
-- (id)_newImageWithMaxLength:(int)arg1 transformOrientation:(BOOL)arg2;
-- (struct CGImage *)_newCGImageWithMaxLength:(int)arg1 transformOrientation:(BOOL)arg2;
-@property(readonly, nonatomic) NSData *data; // @synthesize data=_data;
+- (id)initWithData:(id)arg1;
 
 @end
 

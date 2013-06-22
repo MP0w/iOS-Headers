@@ -38,6 +38,7 @@
 - (void)applyMinimumEndDateToPicker;
 @property CDStruct_b0fa4487 repeatEndDate;
 - (void)updatePicker;
+- (id)_endDateStringForCurrentShorteningStatus;
 - (id)_stringForEndDate;
 - (void)_localeChanged;
 - (void)viewDidUnload;

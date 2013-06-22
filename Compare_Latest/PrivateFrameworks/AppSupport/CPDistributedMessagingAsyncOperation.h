@@ -24,11 +24,11 @@
     NSError *_error;
 }
 
-- (id)initWithCenter:(id)arg1 messageName:(id)arg2 userInfoData:(id)arg3 oolKey:(id)arg4 oolData:(id)arg5 target:(id)arg6 selector:(SEL)arg7 context:(void *)arg8 makeServer:(BOOL)arg9;
-- (void)dealloc;
-- (void)_releaseSendingData;
-- (void)main;
 - (void)_performCallout;
+- (void)main;
+- (void)_releaseSendingData;
+- (void)dealloc;
+- (id)initWithCenter:(id)arg1 messageName:(id)arg2 userInfoData:(id)arg3 oolKey:(id)arg4 oolData:(id)arg5 target:(id)arg6 selector:(SEL)arg7 context:(void *)arg8 makeServer:(BOOL)arg9;
 
 @end
 

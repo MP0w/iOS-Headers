@@ -11,6 +11,7 @@
 }
 
 + (id)chdAxisFromXmlAxisElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (int)chdLabelAlignFromXmlLabelAlignElement:(struct _xmlNode *)arg1;
 
 @end
 

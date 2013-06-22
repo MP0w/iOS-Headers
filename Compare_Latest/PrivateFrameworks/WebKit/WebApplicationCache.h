@@ -10,15 +10,15 @@
 {
 }
 
-+ (void)initializeWithBundleIdentifier:(id)arg1;
-+ (long long)maximumSize;
-+ (void)setMaximumSize:(long long)arg1;
-+ (long long)defaultOriginQuota;
-+ (void)setDefaultOriginQuota:(long long)arg1;
-+ (long long)diskUsageForOrigin:(id)arg1;
-+ (void)deleteAllApplicationCaches;
-+ (void)deleteCacheForOrigin:(id)arg1;
 + (id)originsWithCache;
++ (void)deleteCacheForOrigin:(id)arg1;
++ (void)deleteAllApplicationCaches;
++ (long long)diskUsageForOrigin:(id)arg1;
++ (void)setDefaultOriginQuota:(long long)arg1;
++ (long long)defaultOriginQuota;
++ (void)setMaximumSize:(long long)arg1;
++ (long long)maximumSize;
++ (void)initializeWithBundleIdentifier:(id)arg1;
 
 @end
 

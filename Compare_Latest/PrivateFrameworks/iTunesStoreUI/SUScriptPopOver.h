@@ -15,7 +15,7 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (void)_showAsModalViewController;
@@ -26,20 +26,26 @@
 - (BOOL)_isViewControllerVisible;
 - (id)_nativeViewController;
 - (id)_activeViewController;
-- (void)_showFromNavigationItem:(id)arg1;
-- (void)_showFromDOMElement:(id)arg1;
 - (void)_dismissAnimated:(BOOL)arg1;
 - (void)_viewControllerDidDismiss:(id)arg1;
 - (void)_overlayWillShowNotification:(id)arg1;
+@property(readonly) int backgroundStyleShare;
+@property(readonly) int backgroundStyleDefault;
+@property(readonly) int backgroundStyleCream;
+@property(readonly) int backgroundStyleClear;
+@property(readonly) int backgroundStyleBlack;
 @property(retain) SUScriptViewController *viewController;
 @property float contentWidth;
 @property float contentHeight;
+@property int backgroundStyle;
+@property(readonly) SUScriptViewController *presentingViewController;
 - (id)_className;
 - (BOOL)showFromNavigationItem:(id)arg1;
 - (BOOL)showFromElement:(id)arg1;
 - (void)setContentWidth:(float)arg1 height:(float)arg2 animated:(BOOL)arg3;
 - (void)dismissAnimated:(id)arg1;
 - (void)tearDownUserInterface;
+- (BOOL)isVisible;
 @property(retain, nonatomic) UIPopoverController *nativePopoverController;
 - (void)dealloc;
 - (id)init;

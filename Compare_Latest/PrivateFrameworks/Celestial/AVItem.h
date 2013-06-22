@@ -40,6 +40,8 @@
 - (id)initWithPath:(id)arg1 error:(id *)arg2;
 - (id)init;
 - (id)initWithError:(id *)arg1;
+- (id)errorLog;
+- (id)accessLog;
 
 @end
 

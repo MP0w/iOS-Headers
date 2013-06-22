@@ -17,12 +17,13 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (id)layoutFrame;
-- (BOOL)isBlank;
-- (BOOL)isRectangularAndAxisAlignedToAngle:(float)arg1;
-- (id)path;
 - (struct CGPath *)createBezierPath;
+- (id)path;
+- (BOOL)isRectangularAndAxisAlignedToAngle:(float)arg1;
+- (BOOL)isBlank;
+- (id)layoutFrame;
+- (void)dealloc;
+- (id)initWithGraphic:(id)arg1 path:(id)arg2 geometry:(id)arg3;
 
 @end
 

@@ -28,9 +28,9 @@
 - (BOOL)editItemViewControllerCommit:(id)arg1;
 - (BOOL)validateRecurrenceType:(id)arg1;
 - (BOOL)editItemViewControllerCommit:(id)arg1 notify:(BOOL)arg2;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
-- (int)numberOfSubitems;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
+- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
+- (int)numberOfSubitemsInSubsection:(int)arg1;
 - (void)refreshFromCalendarItemAndStore;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 - (void)dealloc;

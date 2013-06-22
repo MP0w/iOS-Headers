@@ -12,20 +12,20 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, retain) DOMNode *root;
-@property(readonly) unsigned int whatToShow;
-@property(readonly, retain) id <DOMNodeFilter> filter;
-@property(readonly) BOOL expandEntityReferences;
-@property(retain) DOMNode *currentNode;
-- (id)parentNode;
-- (id)firstChild;
-- (id)lastChild;
-- (id)previousSibling;
-- (id)nextSibling;
-- (id)previousNode;
 - (id)nextNode;
+- (id)previousNode;
+- (id)nextSibling;
+- (id)previousSibling;
+- (id)lastChild;
+- (id)firstChild;
+- (id)parentNode;
+@property(retain) DOMNode *currentNode;
+@property(readonly) BOOL expandEntityReferences;
+@property(readonly) id <DOMNodeFilter> filter;
+@property(readonly) unsigned int whatToShow;
+@property(readonly) DOMNode *root;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

@@ -31,8 +31,8 @@
 - (void)notifyOnMainThread:(id)arg1;
 - (void)notifyFailureOnMainThread:(id)arg1;
 - (void)notifySuccessOnMainThread:(id)arg1;
-- (void)queueImportFilesAtDirectoryPath:(id)arg1 baseName:(id)arg2 sidecarFileInfo:(id)arg3 intoEvent:(struct NSObject *)arg4 progress:(CDStruct_32410e63 *)arg5 importSessionIdentifier:(id)arg6;
-- (void)queueImportFileAtPath:(id)arg1 intoEvent:(struct NSObject *)arg2 progress:(CDStruct_32410e63 *)arg3 importSessionIdentifier:(id)arg4;
+- (void)queueImportFilesAtDirectoryPath:(id)arg1 baseName:(id)arg2 sidecarFileInfo:(id)arg3 intoEvent:(struct NSObject *)arg4 progress:(id)arg5 importSessionIdentifier:(id)arg6;
+- (void)queueImportFileAtPath:(id)arg1 intoEvent:(struct NSObject *)arg2 progress:(id)arg3 importSessionIdentifier:(id)arg4;
 @property(readonly, nonatomic) PLManagedObjectContext *managedObjectContext;
 - (void)dealloc;
 - (id)init;

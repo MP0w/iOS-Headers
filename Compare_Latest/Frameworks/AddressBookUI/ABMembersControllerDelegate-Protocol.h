@@ -7,16 +7,16 @@
 #import "NSObject-Protocol.h"
 
 @protocol ABMembersControllerDelegate <NSObject>
-- (void)showInsertEditorForPerson:(void *)arg1 animate:(BOOL)arg2;
-- (BOOL)showCardForPerson:(void *)arg1 animate:(BOOL)arg2;
-- (BOOL)showCardForPerson:(void *)arg1 withMemberCell:(id)arg2 animate:(BOOL)arg3;
-- (void)personWasSelected:(void *)arg1;
-- (int)behavior;
-- (BOOL)membersController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
-- (void)membersControllerWillStartSearching:(id)arg1;
-- (void)membersControllerWillEndSearching:(id)arg1;
-- (void)membersController:(id)arg1 needsTitleUpdate:(id)arg2;
-- (void)membersController:(id)arg1 needsTitleViewUpdate:(id)arg2;
 - (id)model;
+- (void)membersControllerDidEndServerSearch:(id)arg1;
+- (void)membersControllerWillEndSearching:(id)arg1;
+- (void)membersControllerWillStartSearching:(id)arg1;
+- (BOOL)membersController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;
+- (int)behavior;
+- (void)personWasSelected:(void *)arg1;
+- (BOOL)showCardForPerson:(void *)arg1 withMemberCell:(id)arg2 animate:(BOOL)arg3;
+- (BOOL)showCardForPerson:(void *)arg1 animate:(BOOL)arg2;
+- (BOOL)allowsShowingPersonsCards;
+- (void)showInsertEditorForPerson:(void *)arg1 animate:(BOOL)arg2;
 @end
 

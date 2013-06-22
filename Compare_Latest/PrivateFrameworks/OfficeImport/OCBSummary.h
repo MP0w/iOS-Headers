@@ -10,6 +10,7 @@
 {
 }
 
++ (void)writeSummary:(id)arg1 writer:(struct OcWriter *)arg2;
 + (void)readSummary:(id)arg1 reader:(struct OcReader *)arg2;
 
 @end

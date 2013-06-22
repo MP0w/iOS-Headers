@@ -12,19 +12,19 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, copy) NSString *name;
-@property(readonly) double duration;
-@property double elapsedTime;
-@property(readonly) double delay;
-@property(readonly) int iterationCount;
-@property(readonly) BOOL paused;
-@property(readonly) BOOL ended;
-@property(readonly) unsigned short direction;
-@property(readonly) unsigned short fillMode;
-- (void)play;
 - (void)pause;
+- (void)play;
+@property(readonly) unsigned short fillMode;
+@property(readonly) unsigned short direction;
+@property(readonly) BOOL ended;
+@property(readonly) BOOL paused;
+@property(readonly) int iterationCount;
+@property(readonly) double delay;
+@property double elapsedTime;
+@property(readonly) double duration;
+@property(readonly) NSString *name;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

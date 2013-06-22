@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSArray, SSXPCConnection;
+@class NSArray, NSObject<OS_dispatch_queue>, SSXPCConnection;
 
 @interface SSDownloadHandler : NSObject
 {
     SSXPCConnection *_controlConnection;
     id <SSDownloadHandlerDelegate> _delegate;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSArray *_downloadPhasesToIgnore;
     long long _handlerID;
     SSXPCConnection *_observerConnection;
@@ -20,14 +21,14 @@
     BOOL _sessionsShouldBlockOtherDownloads;
 }
 
-- (void)_setValue:(void *)arg1 forProperty:(const char *)arg2;
-- (BOOL)_sendSessionPauseWithMessage:(void *)arg1;
-- (BOOL)_sendSessionHandleWithMessage:(void *)arg1;
-- (BOOL)_sendSessionCancelWithMessage:(void *)arg1;
+- (void)_setValue:(id)arg1 forProperty:(const char *)arg2;
+- (BOOL)_sendSessionPauseWithMessage:(id)arg1;
+- (BOOL)_sendSessionHandleWithMessage:(id)arg1;
+- (BOOL)_sendSessionCancelWithMessage:(id)arg1;
 - (void)_sendDisconnectMessage;
-- (BOOL)_sendAuthenticationSessionWithMessage:(void *)arg1;
-- (id)_newSessionWithMessage:(void *)arg1;
-- (void)_handleMessage:(void *)arg1 fromServerConnection:(struct _xpc_connection_s *)arg2;
+- (BOOL)_sendAuthenticationSessionWithMessage:(id)arg1;
+- (id)_newSessionWithMessage:(id)arg1;
+- (void)_handleMessage:(id)arg1 fromServerConnection:(id)arg2;
 - (id)_controlConnection;
 - (void)_connectToDaemon;
 - (id)description;

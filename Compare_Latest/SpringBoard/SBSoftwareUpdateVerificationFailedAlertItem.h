@@ -10,13 +10,13 @@
 {
 }
 
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (BOOL)reappearsAfterLock;
-- (BOOL)undimsScreen;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)allowMenuButtonDismissal;
 - (BOOL)dismissOnLock;
+- (BOOL)allowMenuButtonDismissal;
+- (BOOL)shouldShowInLockScreen;
+- (BOOL)undimsScreen;
+- (BOOL)reappearsAfterLock;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 
 @end
 

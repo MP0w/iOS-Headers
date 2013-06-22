@@ -15,16 +15,16 @@
     char *mOutBuffer;
 }
 
-- (id)initWithOutputStream:(id)arg1;
-- (void)dealloc;
-- (id)closeLocalStream;
-- (void)close;
-- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
-- (BOOL)canSeek;
-- (void)seekToOffset:(long long)arg1 whence:(int)arg2;
-- (long long)offset;
-- (BOOL)canCreateInputStream;
 - (id)inputStream;
+- (BOOL)canCreateInputStream;
+- (long long)offset;
+- (void)seekToOffset:(long long)arg1 whence:(int)arg2;
+- (BOOL)canSeek;
+- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
+- (void)close;
+- (id)closeLocalStream;
+- (void)dealloc;
+- (id)initWithOutputStream:(id)arg1;
 
 @end
 

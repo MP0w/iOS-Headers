@@ -17,19 +17,19 @@
     unsigned int _layoutSubviewsActive:1;
 }
 
-- (unsigned int)_convertedPartsMask:(unsigned int)arg1;
+- (unsigned long long)_convertedPartsMask:(unsigned long long)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)setVideoViewController:(id)arg1;
-- (void)setDisabledParts:(unsigned int)arg1;
-- (void)setVisibleParts:(unsigned int)arg1 animate:(BOOL)arg2;
-- (void)setDesiredParts:(unsigned int)arg1 animate:(BOOL)arg2;
+- (void)setDisabledParts:(unsigned long long)arg1;
+- (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+- (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (void)setItem:(id)arg1;
 - (void)setAllowsWirelessPlayback:(BOOL)arg1;
 - (BOOL)allowsWirelessPlayback;
 - (void)detailSliderTrackingDidCancel:(id)arg1;
 - (void)detailSliderTrackingDidEnd:(id)arg1;
 - (void)detailSliderTrackingDidBegin:(id)arg1;
-- (void)crossedURLTimeMarker:(id)arg1;
+- (void)crossedTimeMakerWithEvent:(id)arg1;
 - (void)_configureLinkButtonForCurrentItemTime;
 - (int)nowPlayingItemQueueInfoButton:(id)arg1 willDisplayInfoType:(int)arg2;
 - (void)setFrame:(struct CGRect)arg1;

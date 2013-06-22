@@ -10,6 +10,10 @@
 {
 }
 
++ (void)setParagraphProperties:(id)arg1 paragraphProperties:(struct WrdParagraphProperties *)arg2 for:(id)arg3;
++ (void)writeCharacterProperties:(id)arg1 to:(id)arg2;
++ (void)writeParagraphProperties:(id)arg1 to:(id)arg2;
++ (void)writeText:(id)arg1 to:(id)arg2;
 + (void)readFrom:(id)arg1 textRun:(struct WrdTextRun *)arg2 with:(struct WrdTableProperties *)arg3 tracked:(struct WrdTableProperties *)arg4 row:(id)arg5 index:(int)arg6 cell:(id)arg7;
 
 @end

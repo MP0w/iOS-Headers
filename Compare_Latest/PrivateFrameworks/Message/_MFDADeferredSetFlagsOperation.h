@@ -17,12 +17,12 @@
     NSString *_messageID;
 }
 
-- (id)initWithSetFlagsRequest:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
-- (BOOL)performWithAccount:(id)arg1 offlineCache:(id)arg2;
 - (id)description;
+- (BOOL)performWithAccount:(id)arg1 offlineCache:(id)arg2;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithSetFlagsRequest:(id)arg1;
 
 @end
 

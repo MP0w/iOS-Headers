@@ -12,7 +12,6 @@
 
 @interface UIAccessibilityElement : NSObject <UIAccessibilityIdentification>
 {
-    id _storage;
 }
 
 - (id)initWithAccessibilityContainer:(id)arg1;

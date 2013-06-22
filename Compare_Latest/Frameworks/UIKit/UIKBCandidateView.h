@@ -7,10 +7,11 @@
 #import <UIKit/UIKBKeyView.h>
 
 #import "UIKeyboardCandidateList-Protocol.h"
+#import "UIKeyboardCandidateScrollViewControllerDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, UIColor, UIKeyboardCandidateScrollViewController;
+@class NSArray, NSMutableArray, UIColor, UIImage, UIKeyboardCandidate, UIKeyboardCandidateScrollViewController, UIKeyboardCandidateSortControl, UIView;
 
-@interface UIKBCandidateView : UIKBKeyView <UIKeyboardCandidateList>
+@interface UIKBCandidateView : UIKBKeyView <UIKeyboardCandidateList, UIKeyboardCandidateScrollViewControllerDelegate>
 {
     NSArray *m_candidates;
     NSMutableArray *m_buttons;
@@ -25,12 +26,37 @@
     int m_candidateCount;
     struct CGRect m_symbolRect;
     UIColor *m_textColor;
-    struct CGColor *m_highlightColor;
+    UIColor *m_highlightColor;
     BOOL m_respondsToSelect;
     BOOL m_respondsToAccept;
+    UIView *_clippingView;
+    UIView *_topBorder;
+    UIImage *m_highlightImage;
+    BOOL m_handwritingDictationEnabled_iPhone;
+    UIKeyboardCandidate *dictationCandidate;
+    UIKeyboardCandidateSortControl *m_scrollViewSortControl;
+    UIKeyboardCandidate *m_dictationCandidate;
+    unsigned int _selectedSortIndex;
 }
 
+@property(nonatomic) unsigned int selectedSortIndex; // @synthesize selectedSortIndex=_selectedSortIndex;
+@property(retain, nonatomic) UIKeyboardCandidate *dictationCandidate; // @synthesize dictationCandidate=m_dictationCandidate;
+@property(retain, nonatomic) UIColor *highlightColor; // @synthesize highlightColor=m_highlightColor;
+@property(retain, nonatomic) UIKeyboardCandidateSortControl *scrollViewSortControl; // @synthesize scrollViewSortControl=m_scrollViewSortControl;
+@property(retain, nonatomic) UIKeyboardCandidateScrollViewController *scrollViewController; // @synthesize scrollViewController=m_scrollViewController;
 - (id).cxx_construct;
+- (void)updateAppearanceForDictationButton:(id)arg1;
+- (void)refreshForDictationAvailablityDidChange;
+- (id)indexTitlesForGroupTitles:(id)arg1;
+- (id)groupedCandidatesForUnsortedCandidates:(id)arg1;
+- (id)groupedCandidatesFromCandidates:(id)arg1 forSortIndex:(unsigned int)arg2;
+- (id)sortingMethodTitles;
+- (void)sortSelectionBarAction:(id)arg1;
+- (void)clearScrollViewController;
+- (void)clearButtons;
+- (void)updateScrollViewController;
+- (void)jumpToCompositions;
+- (void)selectCandidate:(id)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)configureKeyboard:(id)arg1;
 - (unsigned int)count;
@@ -43,6 +69,7 @@
 - (void)showPageAtIndex:(unsigned int)arg1;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
+- (void)showCandidate:(id)arg1;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)layout;
@@ -50,6 +77,7 @@
 - (void)nextCandidatesAction;
 - (id)candidateList;
 - (void)updateForKeyboard:(id)arg1 key:(id)arg2;
+- (void)addSubview:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 keyboard:(id)arg2 key:(id)arg3 state:(int)arg4;
 

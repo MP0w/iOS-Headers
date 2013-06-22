@@ -10,9 +10,11 @@
 {
 }
 
++ (Class)_moreListControllerClass;
 - (BOOL)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
-- (id)navigationBar;
+- (void)viewWillAppear:(BOOL)arg1;
 - (id)copyScriptViewController;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

@@ -14,6 +14,8 @@
 + (float)minimumWidthForString:(id)arg1;
 @property(nonatomic) float idealWidth; // @synthesize idealWidth=_idealWidth;
 - (id)_backgroundForState:(unsigned int)arg1 usesBackgroundForNormalState:(char *)arg2;
+- (void)updateLetterpressStyle;
+- (struct UIEdgeInsets)_gkPopoverPresentationInsets;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

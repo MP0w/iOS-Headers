@@ -6,22 +6,22 @@
 
 #import "UIView.h"
 
-@class UIButton, UISlider;
+@class SBAppSwitcherVolumeSlider, UIButton;
 
 @interface SBAirPlayBarView : UIView
 {
     UIView *_speakerIcon;
     UIButton *_airPlayButton;
-    UISlider *_volumeSlider;
+    SBAppSwitcherVolumeSlider *_volumeSlider;
     BOOL _airPlayEnabled;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)layoutSubviews;
-@property(nonatomic, getter=isAirPlayEnabled) BOOL airPlayEnabled;
-- (void)setAirPlayEnabled:(BOOL)arg1 animated:(BOOL)arg2;
 @property(readonly, nonatomic) UIButton *airPlayButton; // @synthesize airPlayButton=_airPlayButton;
-@property(readonly, nonatomic) UISlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
+@property(readonly, nonatomic) SBAppSwitcherVolumeSlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
+- (void)setAirPlayEnabled:(BOOL)arg1 animated:(BOOL)arg2;
+@property(nonatomic, getter=isAirPlayEnabled) BOOL airPlayEnabled;
+- (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

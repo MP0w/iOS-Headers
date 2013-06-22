@@ -10,8 +10,8 @@
 {
 }
 
-- (void)dealloc;
 - (void)finalize;
+- (void)dealloc;
 
 @end
 

@@ -7,6 +7,7 @@
 #import "DOMHTMLImageElement.h"
 
 @interface DOMHTMLImageElement (UIWebInteraction)
+- (BOOL)alwaysAttemptToShowTapHighlight;
 - (BOOL)showsTapHighlight;
 @end
 

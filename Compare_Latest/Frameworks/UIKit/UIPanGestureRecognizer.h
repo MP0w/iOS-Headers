@@ -24,6 +24,8 @@
     unsigned int _failsPastMaxTouches:1;
     unsigned int _canPanHorizontally:1;
     unsigned int _canPanVertically:1;
+    unsigned int _ignoresStationaryTouches:1;
+    NSMutableArray *_movingTouches;
 }
 
 @property(readonly, getter=_previousVelocitySample) UIPanGestureVelocitySample *_previousVelocitySample; // @synthesize _previousVelocitySample;
@@ -35,8 +37,10 @@
 - (struct CGPoint)locationInView:(id)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)_handleEndedTouches:(id)arg1 withFinalStateAdjustments:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (BOOL)_updateMovingTouchesArraySavingOldArray:(id *)arg1;
 - (void)_removeHysteresisFromTranslation;
 - (BOOL)_shouldTryToBeginWithEvent:(id)arg1;
 - (BOOL)_willScrollY;
@@ -56,6 +60,8 @@
 - (void)_setCanPanHorizontally:(BOOL)arg1;
 - (BOOL)_canPanVertically;
 - (BOOL)_canPanHorizontally;
+- (BOOL)_ignoresStationaryTouches;
+- (void)_setIgnoresStationaryTouches:(BOOL)arg1;
 - (float)_hysteresis;
 - (void)_setHysteresis:(float)arg1;
 - (int)_lastTouchCount;

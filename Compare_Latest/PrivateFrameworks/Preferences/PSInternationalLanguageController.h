@@ -10,14 +10,14 @@
 {
 }
 
-- (id)init;
-- (void)_removeBlackFrame;
-- (void)cancelButtonTapped;
-- (void)doneButtonTapped;
-- (void)updateNavigationItem;
-- (void)viewWillAppear:(BOOL)arg1;
-- (id)specifiers;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)specifiers;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)updateNavigationItem;
+- (void)doneButtonTapped;
+- (void)cancelButtonTapped;
+- (void)_removeBlackFrame;
+- (id)init;
 
 @end
 

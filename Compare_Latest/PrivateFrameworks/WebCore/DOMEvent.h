@@ -12,24 +12,24 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, copy) NSString *type;
-@property(readonly, retain) id <DOMEventTarget> target;
-@property(readonly, retain) id <DOMEventTarget> currentTarget;
-@property(readonly) unsigned short eventPhase;
-@property(readonly) BOOL bubbles;
-@property(readonly) BOOL cancelable;
-@property(readonly) unsigned long long timeStamp;
-- (BOOL)defaultPrevented;
-@property(readonly, retain) id <DOMEventTarget> srcElement;
-@property BOOL returnValue;
-@property BOOL cancelBubble;
-- (void)stopPropagation;
-- (void)preventDefault;
-- (void)initEvent:(id)arg1 canBubbleArg:(BOOL)arg2 cancelableArg:(BOOL)arg3;
-- (void)initEvent:(id)arg1:(BOOL)arg2:(BOOL)arg3;
 - (void)stopImmediatePropagation;
+- (void)initEvent:(id)arg1:(BOOL)arg2:(BOOL)arg3;
+- (void)initEvent:(id)arg1 canBubbleArg:(BOOL)arg2 cancelableArg:(BOOL)arg3;
+- (void)preventDefault;
+- (void)stopPropagation;
+@property BOOL cancelBubble;
+@property BOOL returnValue;
+@property(readonly) id <DOMEventTarget> srcElement;
+- (BOOL)defaultPrevented;
+@property(readonly) unsigned long long timeStamp;
+@property(readonly) BOOL cancelable;
+@property(readonly) BOOL bubbles;
+@property(readonly) unsigned short eventPhase;
+@property(readonly) id <DOMEventTarget> currentTarget;
+@property(readonly) id <DOMEventTarget> target;
+@property(readonly) NSString *type;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

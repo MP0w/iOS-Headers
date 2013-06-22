@@ -11,8 +11,8 @@
     float mWidth;
 }
 
-- (float)width;
 - (void)setWidth:(float)arg1;
+- (float)width;
 
 @end
 

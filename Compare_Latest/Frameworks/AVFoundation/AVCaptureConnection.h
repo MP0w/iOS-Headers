@@ -6,28 +6,25 @@
 
 #import "NSObject.h"
 
-@class AVCaptureConnectionInternal, AVCaptureOutput, NSArray;
+@class AVCaptureConnectionInternal, AVCaptureOutput, AVCaptureVideoPreviewLayer, NSArray;
 
 @interface AVCaptureConnection : NSObject
 {
     AVCaptureConnectionInternal *_internal;
 }
 
++ (id)connectionWithInputPort:(id)arg1 videoPreviewLayer:(id)arg2;
 + (id)connectionWithInputPorts:(id)arg1 output:(id)arg2;
++ (void)initialize;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (BOOL)sourcesFromFrontFacingCamera;
-- (void)setVideoMotionFilterOverlapRatios:(struct CGSize)arg1;
-- (struct CGSize)videoMotionFilterOverlapRatios;
-- (BOOL)isVideoMotionFilterOverlapRatiosSupported;
-- (void)setVideoFirstAndLastFramesUncropped:(BOOL)arg1;
-- (BOOL)videoFirstAndLastFramesUncropped;
-- (BOOL)isVideoFirstAndLastFramesUncroppedSupported;
+- (id)sourceDevice;
 - (void)setVideoRetainedBufferCountHint:(int)arg1;
 - (int)videoRetainedBufferCountHint;
 - (BOOL)isVideoRetainedBufferCountHintSupported;
-- (void)setVideoCropRect:(struct CGRect)arg1;
-- (struct CGRect)videoCropRect;
-- (BOOL)isVideoCropRectSupported;
+@property(nonatomic) BOOL enablesVideoStabilizationWhenAvailable;
+@property(readonly, nonatomic, getter=isVideoStabilizationEnabled) BOOL videoStabilizationEnabled;
+@property(readonly, nonatomic, getter=isVideoStabilizationSupported) BOOL supportsVideoStabilization;
 @property(nonatomic) float videoScaleAndCropFactor;
 @property(readonly, nonatomic) float videoMaxScaleAndCropFactor;
 - (BOOL)videoMaxFrameDurationIsSet;
@@ -40,6 +37,8 @@
 @property(readonly, nonatomic, getter=isVideoMinFrameDurationSupported) BOOL supportsVideoMinFrameDuration;
 @property(nonatomic) int videoOrientation;
 @property(readonly, nonatomic, getter=isVideoOrientationSupported) BOOL supportsVideoOrientation;
+@property(nonatomic) BOOL automaticallyAdjustsVideoMirroring;
+- (void)_setVideoMirrored:(BOOL)arg1;
 @property(nonatomic, getter=isVideoMirrored) BOOL videoMirrored;
 @property(readonly, nonatomic, getter=isVideoMirroringSupported) BOOL supportsVideoMirroring;
 - (void)updateAudioChannelsArray;
@@ -52,13 +51,18 @@
 - (void)setActive:(BOOL)arg1;
 @property(readonly, nonatomic, getter=isActive) BOOL active;
 @property(readonly, nonatomic) NSArray *inputPorts;
+@property(readonly, nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @property(readonly, nonatomic) AVCaptureOutput *output;
 - (void)invalidate;
 - (void)removeInputPort:(id)arg1;
 - (void)addInputPort:(id)arg1;
+- (id)session;
 - (void)inputPortFormatDescriptionChanged:(id)arg1;
+- (id)description;
 - (void)dealloc;
+- (id)initWithInputPort:(id)arg1 videoPreviewLayer:(id)arg2;
 - (id)initWithInputPorts:(id)arg1 output:(id)arg2;
+- (void)initCommonStorage;
 
 @end
 

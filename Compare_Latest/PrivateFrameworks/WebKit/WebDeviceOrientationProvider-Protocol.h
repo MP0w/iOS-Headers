@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebDeviceOrientationProvider <NSObject>
-- (void)startUpdating;
-- (void)stopUpdating;
 - (id)lastOrientation;
+- (void)stopUpdating;
+- (void)startUpdating;
 @end
 

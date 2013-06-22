@@ -14,12 +14,12 @@
 }
 
 + (id)sharedInstance;
-- (void)dealloc;
-- (BOOL)isCompassCalibrationHUDVisible;
-- (void)showHUD;
-- (void)removeHUD;
-- (void)clientRequestedCompassHUD:(unsigned int)arg1;
 - (void)_clientInvalidated:(struct __CFMachPort *)arg1;
+- (void)clientRequestedCompassHUD:(unsigned int)arg1;
+- (void)removeHUD;
+- (void)showHUD;
+- (BOOL)isCompassCalibrationHUDVisible;
+- (void)dealloc;
 
 @end
 

@@ -6,74 +6,53 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSString, NSTimer;
+@class NSMutableDictionary, NSMutableSet, NSString, NSTimer;
 
 @interface ADSession : NSObject
 {
-    NSMutableArray *_pendingRequests;
+    NSMutableDictionary *_recipientsByAdType;
+    NSMutableDictionary *_bannerControllersByAdType;
+    NSMutableDictionary *_bannerControllers;
+    NSMutableSet *_pendingOpenControllers;
+    double _lastControllerCreationTime;
+    NSMutableSet *_reassignmentScheduledAdTypes;
     id _remoteSession;
     NSString *_serverURL;
-    NSMutableDictionary *_bannerControllers;
     BOOL _isInBackground;
-    NSTimer *_visibilityTimer;
-    double _visibilitySlowCheckTime;
     BOOL _creatingControllers;
     unsigned int _recentlyCreatedControllers;
-    NSMutableDictionary *_profilingSessions;
+    NSTimer *_visibilityTimer;
+    double _visibilitySlowCheckTime;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedInstance;
-@property(retain, nonatomic) NSMutableDictionary *profilingSessions; // @synthesize profilingSessions=_profilingSessions;
-@property(nonatomic) unsigned int recentlyCreatedControllers; // @synthesize recentlyCreatedControllers=_recentlyCreatedControllers;
-@property(nonatomic) BOOL creatingControllers; // @synthesize creatingControllers=_creatingControllers;
 @property(nonatomic) double visibilitySlowCheckTime; // @synthesize visibilitySlowCheckTime=_visibilitySlowCheckTime;
 @property(retain, nonatomic) NSTimer *visibilityTimer; // @synthesize visibilityTimer=_visibilityTimer;
+@property(nonatomic) unsigned int recentlyCreatedControllers; // @synthesize recentlyCreatedControllers=_recentlyCreatedControllers;
+@property(nonatomic) BOOL creatingControllers; // @synthesize creatingControllers=_creatingControllers;
 @property(nonatomic) BOOL isInBackground; // @synthesize isInBackground=_isInBackground;
-@property(retain, nonatomic) NSMutableDictionary *bannerControllers; // @synthesize bannerControllers=_bannerControllers;
 @property(retain, nonatomic) NSString *serverURL; // @synthesize serverURL=_serverURL;
 @property(retain, nonatomic) id remoteSession; // @synthesize remoteSession=_remoteSession;
-@property(retain, nonatomic) NSMutableArray *pendingRequests; // @synthesize pendingRequests=_pendingRequests;
 - (id)autorelease;
 - (oneway void)release;
 - (unsigned int)retainCount;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)requestAdSheetReportStatusBarVisibility;
-- (void)endProfilingAdSheet:(id)arg1 withResultHandler:(id)arg2;
-- (void)beginProfilingAdSheet:(id)arg1;
-- (void)removeAllDefaultsOverrides;
-- (void)setRawDefaultsValue:(void *)arg1 forKey:(struct __CFString *)arg2;
-- (void)setDefaultsValue:(id)arg1 forKey:(id)arg2 type:(id)arg3;
-- (void)regainPrivileges;
-- (void)dropPrivileges;
-- (void)resetServerAccessCoordinator;
-- (void)requestAdSheetTerminate;
-- (void)requestAdSheetClearWebArchiveCache;
-- (void)requestAdSheetClearAdCache;
-- (void)requestAdSheetClearURLCache;
-- (void)_appDidEnterBackground;
-- (void)_appDidResignActive;
+- (void)_appWillResignActive;
 - (void)_appDidBecomeActive;
-- (void)_appWillEnterForeground;
-- (void)resumeVisibilityCheck;
-- (void)suspendVisibilityCheck;
-- (void)checkVisibility:(id)arg1;
 - (void)forwardShakeEventToAdSheet;
 - (void)_orientationChanged;
-- (unsigned int)pendingControllerCount;
-- (unsigned int)bannerControllerCount;
-- (void)requestAdSheetLogClientState;
-- (void)requestAdSheetAbort:(id)arg1;
-- (void)requestAdSheetClearLocationPermissionCache;
-- (void)resetBannerCreationThrottle;
-- (void)bannerControllerDidClose:(id)arg1;
-- (void)_remote_profilingEnded:(id)arg1;
 - (void)_handleAdSheetMessage:(id)arg1 userInfo:(id)arg2;
-- (id)_createBannerController;
-- (void)_considerCreatingBannerControllers;
-- (void)bannerControllerForRecipient:(id)arg1;
-- (void)resetAdSheetThrottle;
+- (void)bannerControllerDidClose:(id)arg1;
+- (void)bannerControllerDidOpen:(id)arg1;
+- (BOOL)_createBannerControllerForRecipient:(id)arg1;
+- (id)_unassignedBannerControllerForAdType:(id)arg1;
+- (void)_reassignAllBannerControllers;
+- (void)_reassignBannerControllersForAdType:(id)arg1 pool:(id)arg2;
+- (void)adRecipientPriorityChanged:(id)arg1;
+- (void)unregisterAdRecipient:(id)arg1;
+- (void)registerAdRecipient:(id)arg1;
 - (void)_adSheetConnectionLost;
 - (void)_adSheetConnectionBootstrapped;
 - (id)init;

@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSData, NSDictionary, NSString, NSURL;
 
-@interface SSURLConnectionResponse : NSObject <SSCoding>
+@interface SSURLConnectionResponse : NSObject <SSXPCCoding>
 {
     NSDictionary *_allHeaderFields;
     NSData *_body;
@@ -28,12 +28,10 @@
 @property(readonly, nonatomic) NSString *MIMEType; // @synthesize MIMEType=_mimeType;
 @property(readonly, nonatomic) long long expectedContentLength; // @synthesize expectedContentLength=_expectedContentLength;
 @property(readonly, nonatomic) NSData *bodyData; // @synthesize bodyData=_body;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (int)statusCode;
 - (id)allHeaderFields;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
 - (void)dealloc;
 - (id)initWithURLResponse:(id)arg1 bodyData:(id)arg2;
 

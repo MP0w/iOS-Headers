@@ -10,17 +10,17 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly) BOOL valueMissing;
-@property(readonly) BOOL typeMismatch;
-@property(readonly) BOOL patternMismatch;
-@property(readonly) BOOL tooLong;
-@property(readonly) BOOL rangeUnderflow;
-@property(readonly) BOOL rangeOverflow;
-@property(readonly) BOOL stepMismatch;
-@property(readonly) BOOL customError;
 @property(readonly) BOOL valid;
+@property(readonly) BOOL customError;
+@property(readonly) BOOL stepMismatch;
+@property(readonly) BOOL rangeOverflow;
+@property(readonly) BOOL rangeUnderflow;
+@property(readonly) BOOL tooLong;
+@property(readonly) BOOL patternMismatch;
+@property(readonly) BOOL typeMismatch;
+@property(readonly) BOOL valueMissing;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

@@ -13,13 +13,6 @@
     SSRequest *_request;
 }
 
-- (void)_endObservingNotifications;
-- (void)_beginObservingNotifications;
-- (void)_timer:(id)arg1;
-- (void)_delayedStopRequest;
-- (void)_delayedStartRequest;
-- (void)_requestStateChangedNotification:(id)arg1;
-- (void)stopRunLoop;
 - (void)run;
 - (void)cancel;
 @property(readonly) SSRequest *request;

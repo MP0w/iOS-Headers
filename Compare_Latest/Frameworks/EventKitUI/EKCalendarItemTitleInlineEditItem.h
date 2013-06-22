@@ -8,30 +8,28 @@
 
 #import "UITextFieldDelegate-Protocol.h"
 
-@class UIResponder, UITableViewCell;
+@class UITableViewCell;
 
 @interface EKCalendarItemTitleInlineEditItem : EKCalendarItemEditItem <UITextFieldDelegate>
 {
     UITableViewCell *_titleCell;
     UITableViewCell *_locationCell;
-    UIResponder *_selectedTextField;
     unsigned int _showsLocation:1;
 }
 
-@property(retain, nonatomic) UIResponder *selectedResponder; // @synthesize selectedResponder=_selectedTextField;
+- (BOOL)textFieldShouldReturn:(id)arg1;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
 - (id)_makeCell:(int)arg1;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2;
-- (int)numberOfSubitems;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
+- (int)numberOfSubitemsInSubsection:(int)arg1;
 - (void)reset;
-- (id)selectedTextField;
 - (BOOL)isInline;
 - (void)dealloc;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
+- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
 - (id)init;
 - (id)initWithLocation:(BOOL)arg1;
 

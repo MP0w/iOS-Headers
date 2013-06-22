@@ -11,14 +11,14 @@
     unsigned int mDefaultWorkbookStyleIndex;
 }
 
-- (id)init;
-- (unsigned int)addObject:(id)arg1;
-- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
-- (void)removeAllObjects;
-- (id)defaultWorkbookStyle;
-- (unsigned int)defaultWorkbookStyleIndex;
 - (void)setDefaultWorkbookStyleIndex:(unsigned int)arg1;
+- (unsigned int)defaultWorkbookStyleIndex;
+- (id)defaultWorkbookStyle;
+- (void)removeAllObjects;
+- (void)removeObjectAtIndex:(unsigned int)arg1;
+- (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
+- (unsigned int)addObject:(id)arg1;
+- (id)init;
 
 @end
 

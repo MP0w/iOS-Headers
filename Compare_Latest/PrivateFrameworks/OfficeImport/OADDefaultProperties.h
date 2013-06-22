@@ -15,15 +15,15 @@
     OADTextListStyle *mTextListStyle;
 }
 
-- (id)init;
-- (id)initWithDefaults;
-- (void)dealloc;
-- (void)setShapeProperties:(id)arg1;
-- (id)shapeProperties;
-- (void)setTextBodyProperties:(id)arg1;
-- (id)textBodyProperties;
-- (void)setTextListStyle:(id)arg1;
 - (id)textListStyle;
+- (void)setTextListStyle:(id)arg1;
+- (id)textBodyProperties;
+- (void)setTextBodyProperties:(id)arg1;
+- (id)shapeProperties;
+- (void)setShapeProperties:(id)arg1;
+- (void)dealloc;
+- (id)initWithDefaults;
+- (id)init;
 
 @end
 

@@ -13,8 +13,8 @@
     GQDSStyle *mGraphicStyle;
 }
 
-- (void)dealloc;
 - (id)graphicStyle;
+- (void)dealloc;
 
 @end
 

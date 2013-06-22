@@ -12,16 +12,12 @@
 {
 }
 
-- (void)reloadFromModelIncludingRows:(BOOL)arg1;
-@property(readonly) NSString *placeholder;
-- (void)reloadDisplayText;
-@property(readonly) NSString *username;
-@property(readonly) NSString *service;
-- (id)displayUsername:(id)arg1;
-- (id)editingUsername:(id)arg1;
-- (BOOL)textFieldShouldBeginEditing:(id)arg1;
-- (void)textFieldTextDidChange:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
+- (void)textFieldTextDidChange:(id)arg1;
+@property(readonly) NSString *service;
+@property(readonly) NSString *username;
+@property(readonly) NSString *placeholder;
+- (void)reloadFromModelIncludingRows:(BOOL)arg1;
 
 @end
 

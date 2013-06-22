@@ -23,6 +23,7 @@
 - (id)_snapshotValueForProperty:(id)arg1;
 - (id)description;
 - (id)filteredIndexesForFilter:(id)arg1;
+- (id)indexMapStateForDerivedObject:(id)arg1;
 - (BOOL)hasSnapshotValueForProperty:(id)arg1;
 - (id)snapshotValueForProperty:(id)arg1;
 - (id)initWithManagedObject:(id)arg1 properties:(id)arg2 toOneRelationships:(id)arg3 indexMaps:(struct __CFDictionary *)arg4 useCommitedValues:(BOOL)arg5;

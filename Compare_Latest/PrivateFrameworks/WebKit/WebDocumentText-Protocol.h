@@ -7,10 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebDocumentText <NSObject>
-- (BOOL)supportsTextEncoding;
-- (id)string;
-- (id)selectedString;
-- (void)selectAll;
 - (void)deselectAll;
+- (void)selectAll;
+- (id)selectedString;
+- (id)string;
+- (BOOL)supportsTextEncoding;
 @end
 

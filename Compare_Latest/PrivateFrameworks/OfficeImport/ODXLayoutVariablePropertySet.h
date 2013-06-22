@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)directionMap;
 + (void)readNode:(struct _xmlNode *)arg1 toSet:(id)arg2;
++ (id)directionMap;
 
 @end
 

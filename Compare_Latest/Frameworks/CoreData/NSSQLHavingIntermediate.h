@@ -13,10 +13,10 @@
     NSSQLWhereIntermediate *_whereClause;
 }
 
-- (id)initWithPredicate:(id)arg1 inScope:(id)arg2 inContext:(id)arg3;
-- (void)dealloc;
-- (BOOL)isHavingScoped;
 - (id)generateSQLStringInContext:(id)arg1;
+- (BOOL)isHavingScoped;
+- (void)dealloc;
+- (id)initWithPredicate:(id)arg1 inScope:(id)arg2 inContext:(id)arg3;
 
 @end
 

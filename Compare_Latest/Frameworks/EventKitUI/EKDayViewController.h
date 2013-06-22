@@ -45,16 +45,20 @@
     BOOL _allowsSelection;
     BOOL _initialLoad;
     BOOL _instigatedDateChange;
+    BOOL _shouldAutoscrollOnNextActivation;
+    BOOL _viewAppeared;
     id <EKDayViewControllerDelegate> _delegate;
     id <EKDayViewControllerDataSource> _dataSource;
 }
 
 + (id)_createGutterDayViewWithDayView:(id)arg1;
+@property(nonatomic) BOOL shouldAutoscrollOnNextActivation; // @synthesize shouldAutoscrollOnNextActivation=_shouldAutoscrollOnNextActivation;
 @property(copy, nonatomic) NSCalendar *calendar; // @synthesize calendar=_calendar;
 @property(copy, nonatomic) NSDateComponents *pendingPreviousDate; // @synthesize pendingPreviousDate=_pendingPreviousDate;
 @property(copy, nonatomic) NSDateComponents *pendingNextDate; // @synthesize pendingNextDate=_pendingNextDate;
 @property(nonatomic) id <EKDayViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) id <EKDayViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)applicationWillResignActive;
 - (void)applicationDidBecomeActive;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)scrollViewWillBeginDragging:(id)arg1;
@@ -93,6 +97,7 @@
 - (void)_localeChanged;
 - (id)dayView:(id)arg1 eventsForStartDate:(id)arg2 endDate:(id)arg3;
 - (id)_occurrencesForDayView:(id)arg1;
+- (void)significantTimeChangeOccurred;
 - (void)reloadDataBetweenStart:(id)arg1 end:(id)arg2;
 - (void)reloadData;
 - (id)_eventsForDay:(id)arg1;
@@ -103,6 +108,7 @@
 - (void)bringEventToFront:(id)arg1;
 - (void)scrollEventsIntoViewAnimated:(BOOL)arg1;
 - (void)scrollEventIntoView:(id)arg1 animated:(BOOL)arg2;
+- (void)scrollToSecond:(unsigned int)arg1;
 - (void)scrollToNow:(BOOL)arg1;
 - (void)setTimeZone:(id)arg1;
 @property(copy, nonatomic) NSDateComponents *displayDate;
@@ -119,6 +125,7 @@
 @property(nonatomic) BOOL allowsDaySwitching;
 @property(nonatomic) BOOL showsBanner;
 - (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)_delayedScrollDayViewAfterAppearence;

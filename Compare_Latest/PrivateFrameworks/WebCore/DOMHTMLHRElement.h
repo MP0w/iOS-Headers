@@ -12,10 +12,10 @@
 {
 }
 
-@property(copy) NSString *align;
-@property BOOL noShade;
-@property(copy) NSString *size;
 @property(copy) NSString *width;
+@property(copy) NSString *size;
+@property BOOL noShade;
+@property(copy) NSString *align;
 
 @end
 

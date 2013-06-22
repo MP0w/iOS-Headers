@@ -20,11 +20,17 @@
 + (id)filterNamesInCategory:(id)arg1;
 + (id)filterWithName:(id)arg1 keysAndValues:(id)arg2;
 + (id)filterWithName:(id)arg1;
++ (id)_filterFromProperties:(id)arg1;
++ (id)_filterArrayFromProperties:(id)arg1;
++ (id)_filterArrayFromProperties:(id)arg1 inputImageExtent:(struct CGRect)arg2;
++ (id)_propertyArrayFromFilters:(id)arg1 inputImageExtent:(struct CGRect)arg2;
++ (id)filterArrayFromSerializedXMP:(id)arg1 inputImageExtent:(struct CGRect)arg2 error:(id *)arg3;
++ (id)serializedXMPFromFilters:(id)arg1 inputImageExtent:(struct CGRect)arg2;
++ (id)customAttributes;
 - (id)description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_copyFilterWithZone:(struct _NSZone *)arg1;
-- (void)_copyAttributesTo:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)setDefaults;
@@ -34,9 +40,14 @@
 - (id)inputKeys;
 - (void)dealloc;
 - (id)name;
+- (id)valueForUndefinedKey:(id)arg1;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (unsigned int)hash;
-- (BOOL)_isIdentity;
 - (BOOL)isEqual:(id)arg1;
+- (id)_initFromProperties:(id)arg1;
+- (id)_outputProperties;
+- (BOOL)_isIdentity;
+- (id)_filterClassDescription;
 
 @end
 

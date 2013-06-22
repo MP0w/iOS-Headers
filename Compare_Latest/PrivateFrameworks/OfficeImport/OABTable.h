@@ -10,6 +10,7 @@
 {
 }
 
++ (void)writeTable:(id)arg1 toParentContainer:(id)arg2 state:(id)arg3;
 + (id)readTable:(id)arg1 state:(id)arg2;
 
 @end

@@ -6,29 +6,35 @@
 
 #import <AddressBook/ABPredicate.h>
 
-@class NSObject;
+@class NSArray, NSObject;
 
 @interface ABValuePredicate : ABPredicate
 {
     int _property;
-    int _comparison;
+    long _comparison;
     id <NSObject> _value;
+    NSArray *_orderedKeys;
     BOOL _dictionaryValue;
 }
 
 + (id)stringForComparison:(id)arg1 withComparision:(long)arg2;
-- (id)init;
-- (void)dealloc;
 @property(copy, nonatomic) NSObject *value; // @synthesize value=_value;
-- (BOOL)isValid;
-- (id)querySelectProperties;
-- (id)queryJoinsInCompound:(BOOL)arg1;
-- (id)queryWhereString;
-- (id)stringForComparison:(id)arg1;
-- (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
-- (id)predicateFormat;
-@property(nonatomic) int comparison; // @synthesize comparison=_comparison;
+@property(nonatomic) long comparison; // @synthesize comparison=_comparison;
 @property(nonatomic) int property; // @synthesize property=_property;
+- (id)predicateFormat;
+- (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
+- (id)_ftsAllQueryStrings;
+- (id)_ftsTokenizedTermStringForString:(id)arg1;
+- (id)_ftsTermStringForString:(id)arg1;
+- (id)stringForComparison:(id)arg1;
+- (id)queryWhereString;
+- (BOOL)_supportsFTSSearch;
+- (BOOL)_shouldConsultIndexForKey:(id)arg1;
+- (id)queryJoinsInCompound:(BOOL)arg1;
+- (id)querySelectProperties;
+- (BOOL)isValid;
+- (void)dealloc;
+- (id)init;
 
 @end
 

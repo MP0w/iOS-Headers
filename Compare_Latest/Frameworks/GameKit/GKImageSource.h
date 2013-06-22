@@ -6,42 +6,49 @@
 
 #import "NSObject.h"
 
+#import "NSCacheDelegate-Protocol.h"
+
 @class GKImageBrush, NSCache, NSString, UIImage;
 
-@interface GKImageSource : NSObject
+@interface GKImageSource : NSObject <NSCacheDelegate>
 {
     NSCache *_cache;
     NSString *_name;
     GKImageBrush *_imageBrush;
     UIImage *_defaultImage;
+    UIImage *_renderedDefaultImage;
     BOOL _shouldRenderDefaultImageWithBrush;
-    BOOL _didRenderDefaultImageWithBrush;
 }
 
 + (id)cacheDirectoryForImageID:(id)arg1;
 + (void)clearCache;
 + (id)sharedCache;
-@property(nonatomic) BOOL didRenderDefaultImageWithBrush; // @synthesize didRenderDefaultImageWithBrush=_didRenderDefaultImageWithBrush;
++ (id)syncQueue;
 @property(nonatomic) BOOL shouldRenderDefaultImageWithBrush; // @synthesize shouldRenderDefaultImageWithBrush=_shouldRenderDefaultImageWithBrush;
+@property(retain, nonatomic) UIImage *renderedDefaultImage; // @synthesize renderedDefaultImage=_renderedDefaultImage;
 @property(retain, nonatomic) UIImage *defaultImage; // @synthesize defaultImage=_defaultImage;
 @property(readonly, nonatomic) GKImageBrush *imageBrush; // @synthesize imageBrush=_imageBrush;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) NSCache *cache; // @synthesize cache=_cache;
-- (void)clearCachedImageForIdentifier:(id)arg1 imageBrush:(id)arg2;
-- (void)setImage:(id)arg1 forIdentifier:(id)arg2 imageBrush:(id)arg3 withCompletionHandler:(id)arg4;
-- (void)setImage:(id)arg1 forIdentifier:(id)arg2 withCompletionHandler:(id)arg3;
-- (id)imageForIdentifier:(id)arg1 imageBrush:(id)arg2 withCompletionHandler:(id)arg3;
-- (void)loadImageForIdentifier:(id)arg1 imageBrush:(id)arg2 withCompletionHandler:(id)arg3;
-- (id)imageForIdentifier:(id)arg1 withCompletionHandler:(id)arg2;
-- (id)cachedImageForIdentifier:(id)arg1 imageBrush:(id)arg2;
-- (BOOL)imageNeedsRefresh:(id)arg1 imageBrush:(id)arg2;
-- (id)defaultImageWithImageBrush:(id)arg1;
-- (id)renderedImageWithImage:(id)arg1 imageBrush:(id)arg2;
-- (id)renderedImageWithImage:(id)arg1 imageBrush:(id)arg2 returnContext:(id *)arg3;
-- (void)loadRawImageForImageID:(id)arg1 withCompletionHandler:(id)arg2;
+- (void)clearCachedImageForIdentifier:(id)arg1;
+- (id)processAndCacheImage:(id)arg1 forIdentifier:(id)arg2;
+- (id)processAndCacheImage:(id)arg1 forKey:(id)arg2;
+- (id)renderedTestImage;
+- (BOOL)shouldUseTestImage;
+- (id)cachedImageForIdentifier:(id)arg1;
+- (id)cachedImageForKey:(id)arg1;
+- (id)fastCachedOrDefaultImageForIdentifier:(id)arg1;
+- (id)fastCachedOrDefaultImageForForKey:(id)arg1;
+- (id)fastCachedImageForIdentifier:(id)arg1;
+- (id)fastCachedImageForKey:(id)arg1;
+- (void)validateFileSystemCache;
 - (unsigned int)cacheCostForImage:(id)arg1;
-- (id)fileNameWithIdentifierForImageBrush:(id)arg1;
+- (id)renderedImageWithImage:(id)arg1;
+- (id)renderedImageWithImage:(id)arg1 returnContext:(id *)arg2;
+- (id)renderedImageWithImage:(id)arg1 defaultSize:(struct CGSize)arg2 returnContext:(id *)arg3;
 - (void)didReceiveCacheInvalidation:(id)arg1;
+- (id)keyForImageIdentifier:(id)arg1;
+- (id)subsourceWithBrush:(id)arg1;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 imageBrush:(id)arg2;
 

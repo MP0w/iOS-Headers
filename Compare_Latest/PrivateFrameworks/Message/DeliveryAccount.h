@@ -10,40 +10,42 @@
 {
 }
 
-+ (id)basicAccountProperties;
-+ (id)supportedDataclasses;
-+ (void)_postDeliveryAccountsHaveChanged;
-+ (void)reloadDeliveryAccounts;
-+ (id)deliveryAccounts;
-+ (void)setDeliveryAccounts:(id)arg1;
-+ (void)addDeliveryAccount:(id)arg1;
-+ (void)removeDeliveryAccount:(id)arg1;
-+ (void)saveAccountInfoToDefaults;
-+ (id)accountWithUniqueId:(id)arg1;
-+ (id)accountWithIdentifier:(id)arg1;
-+ (id)existingAccountWithHostname:(id)arg1 username:(id)arg2;
-+ (id)accountWithHostname:(id)arg1 username:(id)arg2;
-+ (id)accountWithHostname:(id)arg1 username:(id)arg2 lookForExistingAccounts:(BOOL)arg3;
-+ (id)carrierDeliveryAccount;
 + (id)newDefaultInstance;
-- (Class)deliveryClass;
-- (id)newDeliveryWithMessage:(id)arg1;
-- (id)newDeliveryWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
-- (id)newDeliveryWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4;
-- (id)identifier;
-- (BOOL)shouldUseAuthentication;
-- (void)setShouldUseAuthentication:(BOOL)arg1;
-- (void)setUsername:(id)arg1;
-- (unsigned long long)maximumMessageBytes;
-- (void)setMaximumMessageBytes:(unsigned long long)arg1;
-- (id)mailAccountIfAvailable;
-- (BOOL)hasNoReferences;
-- (id)displayHostname;
-- (BOOL)canBeFallbackAccount;
-- (BOOL)hasEnoughInformationForEasySetup;
-- (BOOL)supportsSoftBankCodePoints;
-- (BOOL)supportsOutboxCopy;
++ (id)carrierDeliveryAccount;
++ (id)accountWithHostname:(id)arg1 username:(id)arg2 lookForExistingAccounts:(BOOL)arg3;
++ (id)accountWithHostname:(id)arg1 username:(id)arg2;
++ (id)existingAccountWithHostname:(id)arg1 username:(id)arg2;
++ (id)existingAccountWithIdentifier:(id)arg1;
++ (id)accountWithIdentifier:(id)arg1;
++ (id)accountWithUniqueId:(id)arg1;
++ (void)saveAccountInfoToDefaults;
++ (void)removeDeliveryAccount:(id)arg1;
++ (void)addDeliveryAccount:(id)arg1;
++ (void)setDeliveryAccounts:(id)arg1;
++ (id)deliveryAccounts;
++ (id)existingAccountForUniqueID:(id)arg1;
++ (void)reloadDeliveryAccounts;
++ (void)_postDeliveryAccountsHaveChanged;
++ (id)supportedDataclasses;
++ (id)basicAccountProperties;
 - (BOOL)shouldUseSaveSentForAccount:(id)arg1;
+- (BOOL)supportsOutboxCopy;
+- (BOOL)supportsSoftBankCodePoints;
+- (BOOL)hasEnoughInformationForEasySetup;
+- (BOOL)canBeFallbackAccount;
+- (id)displayHostname;
+- (BOOL)hasNoReferences;
+- (id)mailAccountIfAvailable;
+- (void)setMaximumMessageBytes:(unsigned long long)arg1;
+- (unsigned long long)maximumMessageBytes;
+- (void)setUsername:(id)arg1;
+- (void)setShouldUseAuthentication:(BOOL)arg1;
+- (BOOL)shouldUseAuthentication;
+- (id)identifier;
+- (id)newDeliveryWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4 charsets:(id)arg5;
+- (id)newDeliveryWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
+- (id)newDeliveryWithMessage:(id)arg1;
+- (Class)deliveryClass;
 
 @end
 

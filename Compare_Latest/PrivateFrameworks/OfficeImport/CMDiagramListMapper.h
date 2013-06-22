@@ -11,11 +11,14 @@
     float mMaxLineCount;
 }
 
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
-- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)setDefaultFonSize;
 - (float)setFonSizeForChildNode:(id)arg1 atIndex:(unsigned int)arg2 level:(int)arg3;
+- (void)setDefaultFonSize;
+- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (struct CGSize)textSize;
+- (void)mapListItemAt:(id)arg1 index:(int)arg2 withState:(id)arg3;
+- (id)suggestedBoundsForHListItemWithIndex:(int)arg1;
 
 @end
 

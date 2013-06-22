@@ -16,14 +16,14 @@
     int _serverFD;
 }
 
-- (void)dealloc;
-- (void)finalize;
 @property int serverFD; // @synthesize serverFD=_serverFD;
 @property int remoteAddress; // @synthesize remoteAddress=_remoteAddress;
 @property struct __CFMessagePort *remotePort; // @synthesize remotePort=_remotePort;
 @property struct __CFFileDescriptor *fdref; // @synthesize fdref=_fdref;
 @property(getter=didRegister) BOOL registered; // @synthesize registered=_registered;
 @property int pid; // @synthesize pid=_pid;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

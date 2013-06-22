@@ -15,19 +15,19 @@
     NSString *_encoding;
 }
 
-- (id)initWithRootElement:(id)arg1;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)setVersion:(id)arg1;
-- (void)setRootElement:(id)arg1;
-- (id)rootElement;
-- (void)setCharacterEncoding:(id)arg1;
-- (id)description;
-- (id)copyMutableXMLString;
-- (id)XMLString;
-- (id)openingTagString;
-- (id)contentString;
 - (id)closingTagString;
+- (id)contentString;
+- (id)openingTagString;
+- (id)XMLString;
+- (id)copyMutableXMLString;
+- (id)description;
+- (void)setCharacterEncoding:(id)arg1;
+- (id)rootElement;
+- (void)setRootElement:(id)arg1;
+- (void)setVersion:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithRootElement:(id)arg1;
 
 @end
 

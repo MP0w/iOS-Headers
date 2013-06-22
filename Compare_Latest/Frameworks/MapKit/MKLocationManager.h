@@ -6,34 +6,30 @@
 
 #import "NSObject.h"
 
-#import "CLLocationManagerDelegateInternal-Protocol.h"
-#import "PBRequesterDelegate-Protocol.h"
-#import "RadiosPreferencesDelegate-Protocol.h"
+#import "MKLocationProviderDelegate-Protocol.h"
 
-@class CLHeading, CLLocation, CLLocationManager, GEOLocation, GEOLocationShiftFunctionRequest, GEOLocationShiftFunctionResponse, MKTripRecorder, NSBundle, NSHashTable, NSMutableArray, NSString, NSTimer, RadiosPreferences;
+@class CLHeading, CLLocation, GEOLocation, GEOLocationShiftFunctionRequest, GEOLocationShiftFunctionResponse, NSBundle, NSHashTable, NSTimer;
 
-@interface MKLocationManager : NSObject <CLLocationManagerDelegateInternal, PBRequesterDelegate, RadiosPreferencesDelegate>
+@interface MKLocationManager : NSObject <MKLocationProviderDelegate>
 {
-    CLLocationManager *_clLocationManager;
+    id <MKLocationProvider> _locationProvider;
     NSHashTable *_locationObservers;
+    NSHashTable *_locationListeners;
     NSHashTable *_headingObservers;
     CLLocation *_lastLocation;
     double _lastLocationUpdateTime;
     BOOL _isLastLocationStale;
+    BOOL _lastLocationPushed;
     BOOL _trackingLocation;
     BOOL _trackingHeading;
-    BOOL _shouldThrottleHeading;
-    NSString *_tripPath;
-    NSMutableArray *_tripPaths;
-    MKTripRecorder *_recorder;
-    double _expectedTimeTillNextUpdate;
-    double _calculatingLocationStartTime;
-    double _userLocationCacheDuration;
+    id <MKLocationRecorder> _locationRecorder;
     double _applicationResumeTime;
     double _applicationSuspendTime;
     double _headingUpdateTime;
     double _locationAccuracyUpdateTime;
-    id _locationCorrecter;
+    BOOL _isTrafficHarvestingEnabledValid;
+    BOOL _isTrafficHarvestingEnabled;
+    BOOL _allowUpdateCoalescing;
     NSTimer *_coalesceTimer;
     double _lastLocationReportTime;
     BOOL _hasCheckedChinaShiftEnabled;
@@ -45,48 +41,55 @@
     int _shiftProvider;
     CLHeading *_throttledHeading;
     CLHeading *_heading;
-    RadiosPreferences *_radiosPreferences;
     int _wiFiStatus;
     int _staleWiFiStatus;
     id _networkActivity;
-    NSBundle *_effectiveBundle;
-    int _authorizationStatus;
     BOOL _enabled;
-    BOOL _corrected;
     BOOL _useCourseForHeading;
-    BOOL _locationServicesPreferencesDialogEnabled;
+    BOOL _logStartStopLocationUpdates;
+    int _consecutiveOutOfCourseCount;
+    double _navCourse;
+    double _lastKnownNavCourse;
+    id _locationCorrector;
+    BOOL _continuedAfterBecomingInactive;
+    BOOL _continuesWhileInactive;
 }
 
 + (id)sharedLocationManager;
++ (void)setConsidersWiFiInAirplaneMode:(BOOL)arg1;
+@property(nonatomic) BOOL logStartStopLocationUpdates; // @synthesize logStartStopLocationUpdates=_logStartStopLocationUpdates;
+@property(nonatomic) BOOL allowUpdateCoalescing; // @synthesize allowUpdateCoalescing=_allowUpdateCoalescing;
+@property(readonly, nonatomic, getter=wasLastLocationPushed) BOOL lastLocationPushed; // @synthesize lastLocationPushed=_lastLocationPushed;
+@property(copy, nonatomic) id locationCorrector; // @synthesize locationCorrector=_locationCorrector;
+@property(readonly, nonatomic) double navigationCourse; // @synthesize navigationCourse=_navCourse;
+@property(nonatomic) BOOL continuesWhileInactive; // @synthesize continuesWhileInactive=_continuesWhileInactive;
 @property(nonatomic) BOOL useCourseForHeading; // @synthesize useCourseForHeading=_useCourseForHeading;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
-@property(nonatomic, getter=isCorrected) BOOL corrected; // @synthesize corrected=_corrected;
-@property(copy, nonatomic) id locationCorrecter; // @synthesize locationCorrecter=_locationCorrecter;
+@property(retain, nonatomic) id <MKLocationRecorder> locationRecorder; // @synthesize locationRecorder=_locationRecorder;
 @property(retain, nonatomic) GEOLocationShiftFunctionRequest *shiftRequest; // @synthesize shiftRequest=_shiftRequest;
 @property(retain, nonatomic) CLLocation *delayedLocationToShift; // @synthesize delayedLocationToShift=_delayedLocationToShift;
 @property(retain, nonatomic) GEOLocationShiftFunctionResponse *shiftFunction; // @synthesize shiftFunction=_shiftFunction;
 @property(nonatomic) BOOL chinaShiftEnabled; // @synthesize chinaShiftEnabled=_chinaShiftEnabled;
 @property(retain, nonatomic) CLHeading *throttledHeading; // @synthesize throttledHeading=_throttledHeading;
 @property(readonly, nonatomic) CLHeading *heading; // @synthesize heading=_heading;
-@property(nonatomic) BOOL shouldThrottleHeading; // @synthesize shouldThrottleHeading=_shouldThrottleHeading;
 @property(copy, nonatomic) id networkActivity; // @synthesize networkActivity=_networkActivity;
-@property(retain, nonatomic) NSMutableArray *tripPaths; // @synthesize tripPaths=_tripPaths;
-@property(retain, nonatomic) NSString *tripPath; // @synthesize tripPath=_tripPath;
-@property(nonatomic) double userLocationCacheDuration; // @synthesize userLocationCacheDuration=_userLocationCacheDuration;
 @property(readonly, nonatomic) BOOL isLastLocationStale; // @synthesize isLastLocationStale=_isLastLocationStale;
-@property(nonatomic) double expectedTimeTillNextUpdate; // @synthesize expectedTimeTillNextUpdate=_expectedTimeTillNextUpdate;
 - (void)stopHeadingUpdateWithObserver:(id)arg1;
 - (void)startHeadingUpdateWithObserver:(id)arg1;
 - (void)_setTrackingHeading:(BOOL)arg1;
+- (id)singleLocationUpdateWithHandler:(id)arg1;
 - (void)stopLocationUpdateWithObserver:(id)arg1;
 - (void)startLocationUpdateWithObserver:(id)arg1;
 - (void)listenForLocationUpdates:(id)arg1;
-- (void)tripPlayerDidEnd:(id)arg1;
-- (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
+- (void)locationProviderDidResumeLocationUpdates:(id)arg1;
+- (void)locationProviderDidPauseLocationUpdates:(id)arg1;
+- (BOOL)locationProviderShouldPauseLocationUpdates:(id)arg1;
+- (void)locationProviderDidChangeAuthorizationStatus:(id)arg1;
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(id)arg1;
-- (void)locationManager:(id)arg1 didUpdateHeading:(id)arg2;
-- (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
-- (void)locationManager:(id)arg1 didUpdateToLocation:(id)arg2 fromLocation:(id)arg3;
+- (void)locationProvider:(id)arg1 didUpdateHeading:(id)arg2;
+- (void)locationProvider:(id)arg1 didReceiveError:(id)arg2;
+- (void)locationProvider:(id)arg1 didUpdateLocation:(id)arg2;
+- (void)pushLocation:(id)arg1;
 - (id)_applyChinaLocationShift:(id)arg1;
 - (void)requestShiftFunctionForLocation:(id)arg1 wrap:(BOOL)arg2;
 - (void)dismissHeadingCalibrationDisplay;
@@ -98,23 +101,14 @@
 - (BOOL)shouldStartCoalescingLocation:(id)arg1;
 - (BOOL)shouldCoalesceUpdates;
 - (void)setCoalesceTimer:(id)arg1;
-- (void)writeCoreLocationLog;
-- (BOOL)displayCoreLocationStats;
-@property(readonly, nonatomic, getter=isRecordingTrip) BOOL recordingTrip;
-@property(readonly, nonatomic, getter=isPlayingTrip) BOOL playingTrip;
-- (void)unloadRecording;
-- (void)loadRecordings:(id)arg1;
-- (void)loadRecording:(id)arg1;
-- (void)writeRecordingToPath:(id)arg1;
-- (void)writeRecording;
-- (void)stopRecording;
-- (void)startRecording;
 @property(readonly, nonatomic) double expectedGpsUpdateInterval;
+@property(nonatomic) int activityType;
+@property(nonatomic) double distanceFilter;
 @property(nonatomic) double desiredAccuracy;
 - (BOOL)isLocationServicesPossiblyAvailable:(id *)arg1;
 - (void)_setTrackingLocation:(BOOL)arg1;
+- (void)_syncLocationProviderWithTracking;
 - (void)reset;
-- (void)repostLastKnownLocation;
 - (void)_reportHeadingFailureWithError:(id)arg1;
 - (void)_reportHeadingSuccess;
 - (void)_reportLocationReset;
@@ -123,39 +117,40 @@
 - (void)_reportLocationStatus:(SEL)arg1;
 - (void)_countryProvidersDidChange:(id)arg1;
 - (void)applicationDidEnterBackground:(id)arg1;
+- (void)_suspend;
 - (void)applicationWillResignActive:(id)arg1;
 - (void)applicationDidBecomeActive:(id)arg1;
 - (BOOL)_isTimeToResetOnResume;
 @property(readonly, nonatomic) BOOL hasLocation;
 - (void)setHeading:(id)arg1;
 @property(nonatomic) int headingOrientation;
+@property(readonly, nonatomic) GEOLocation *courseCorrectedLocation;
 @property(readonly, nonatomic) GEOLocation *gridSnappedCurrentLocation;
 @property(readonly, nonatomic) GEOLocation *currentLocation;
 @property(readonly, nonatomic) double headingUpdateTimeInterval;
 - (void)setLastLocation:(id)arg1;
 @property(readonly, nonatomic) CLLocation *lastLocation;
 @property(readonly, nonatomic) int lastLocationSource;
-- (void)setClLocationManager:(id)arg1;
-- (id)clLocationManager;
-- (void)_createCLLocationManager;
+@property(retain, nonatomic) id <MKLocationProvider> locationProvider;
 @property(retain, nonatomic) NSBundle *effectiveBundle;
 @property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) BOOL locationServicesPreferencesDialogEnabled;
 - (void)wiFiStatusChanged:(id)arg1;
 - (void)_updateWifiEnabled;
-- (void)airplaneModeChanged;
-- (id)_radiosPreferences;
+- (void)_airplaneModeChanged;
+- (void)_refreshAirplaneMode;
 @property(readonly, nonatomic) BOOL isAirplaneModeBlockingLocation;
 @property(readonly, nonatomic) BOOL isHeadingServicesAvailable;
+@property(readonly, nonatomic) BOOL isTrafficHarvestingEnabled;
 @property(readonly, nonatomic) BOOL isLocationServicesPossiblyAvailable;
 @property(readonly, nonatomic) BOOL isLocationServicesAvailable;
 @property(readonly, nonatomic) BOOL isLocationServicesRestricted;
 @property(readonly, nonatomic) BOOL isLocationServicesDenied;
 @property(readonly, nonatomic) BOOL isLocationServicesApproved;
-- (int)_authorizationStatus;
-- (void)_updateAuthorizationStatus;
 @property(readonly, nonatomic) BOOL isWiFiEnabled;
 @property(readonly, nonatomic) BOOL isLocationServicesEnabled;
+- (void)dealloc;
 - (id)init;
+- (void)_useCoreLocationProvider;
 
 @end
 

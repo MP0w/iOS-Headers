@@ -8,14 +8,32 @@
 
 #import "ML3SqliteDatabaseSubclass-Protocol.h"
 
+@class NSString;
+
 @interface ML3UbiquitousDatabase : ML3SqliteDatabase <ML3SqliteDatabaseSubclass>
 {
+    BOOL _needsToPurgeOldEntries;
+    BOOL _isInTransaction;
 }
 
 + (BOOL)migrateFromVersion:(int)arg1 outUserVersion:(int *)arg2 usingHandle:(struct sqlite3 *)arg3;
 + (id)allSchemaSQL;
 + (id)databasePath;
-+ (int)userVersionCurrent;
++ (int)currentUserVersion;
+- (void)dumpUbiquitousMetadata;
+- (void)resetUbiquitousMetadata;
+- (void)applyUbiqiutousBookmarkMetadataToTrack:(id)arg1;
+- (void)removeUbiquitousBookmarkMetadataForTrack:(id)arg1;
+- (void)insertUbiquitousBookmarkMetadataWithValuesFromTrack:(id)arg1;
+- (void)insertUbiquitousBookmarkMetadataWithMetadataIdentifier:(id)arg1 propertyValues:(id)arg2 timestamp:(double)arg3;
+- (void)purgeOldEntriesIfNecessary;
+- (void)didCommitInDatabaseContext:(id)arg1;
+- (void)performTransactionWithBlock:(id)arg1;
+- (void)_updateUbiquitousBookmarkMetadataWithMetadataIdentifier:(id)arg1 propertyValues:(id)arg2 timestamp:(double)arg3;
+@property(copy, nonatomic) NSString *ubiquitousBookmarkDomainVersionAnchorToken;
+@property(nonatomic) unsigned long long ubiquitousBookmarkEntityRevisionAnchor;
+- (BOOL)_setValue:(id)arg1 forDatabaseProperty:(id)arg2;
+- (id)_valueForDatabaseProperty:(id)arg1;
 
 @end
 

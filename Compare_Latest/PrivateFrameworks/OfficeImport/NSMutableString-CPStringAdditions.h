@@ -7,11 +7,11 @@
 #import "NSMutableString.h"
 
 @interface NSMutableString (CPStringAdditions)
-- (BOOL)replaceSubstr:(id)arg1 with:(id)arg2;
-- (BOOL)replaceSubstr:(id)arg1 with:(id)arg2 range:(struct _NSRange)arg3;
-- (void)replaceAllSubstr:(id)arg1 with:(id)arg2;
-- (void)replaceAllSubstr:(id)arg1 with:(id)arg2 escStr:(id)arg3;
-- (void)replaceAllSubstr:(id)arg1 with:(id)arg2 range:(struct _NSRange)arg3;
 - (void)replaceAllSubstr:(id)arg1 with:(id)arg2 escStr:(id)arg3 range:(struct _NSRange)arg4;
+- (void)replaceAllSubstr:(id)arg1 with:(id)arg2 range:(struct _NSRange)arg3;
+- (void)replaceAllSubstr:(id)arg1 with:(id)arg2 escStr:(id)arg3;
+- (void)replaceAllSubstr:(id)arg1 with:(id)arg2;
+- (BOOL)replaceSubstr:(id)arg1 with:(id)arg2 range:(struct _NSRange)arg3;
+- (BOOL)replaceSubstr:(id)arg1 with:(id)arg2;
 @end
 

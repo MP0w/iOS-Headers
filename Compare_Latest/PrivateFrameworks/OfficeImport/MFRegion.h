@@ -12,11 +12,11 @@
 {
 }
 
-- (int)selectInto:(id)arg1;
-- (int)setClip:(id)arg1:(int)arg2;
-- (int)fill:(id)arg1:(id)arg2;
-- (int)frame:(id)arg1:(id)arg2;
 - (int)invert:(id)arg1;
+- (int)frame:(id)arg1:(id)arg2;
+- (int)fill:(id)arg1:(id)arg2;
+- (int)setClip:(id)arg1:(int)arg2;
+- (int)selectInto:(id)arg1;
 
 @end
 

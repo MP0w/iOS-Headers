@@ -20,14 +20,17 @@ struct CalDatabase {
     struct __CFDictionary *_field6;
     struct _opaque_pthread_mutex_t _field7;
     _Bool _field8;
-    _Bool _field9;
+    unsigned int _field9;
     unsigned int _field10;
-    unsigned int _field11;
+    struct __CFArray *_field11;
     struct __CFString *_field12;
     int _field13;
     int _field14;
     struct __CFString *_field15;
     int _field16;
+    id _field17;
+    void _field18;
+    struct _opaque_pthread_mutex_t _field19;
 };
 
 struct CalEventIdsSearchContext {
@@ -163,6 +166,7 @@ typedef struct {
     unsigned int eventAvalabilityLimited:1;
     unsigned int requiresMSFormattedUID:1;
     unsigned int shouldCancelDeletedEvents:1;
+    unsigned int shouldDeclineDeletedInvitations:1;
     unsigned int supportsStructuredLocations:1;
     unsigned int supportsReminderActions:1;
     unsigned int supportsReminderLocations:1;
@@ -172,7 +176,10 @@ typedef struct {
     unsigned int allowsEvents:1;
     unsigned int supportsURLField:1;
     unsigned int supportsAllDayDueDates:1;
-} CDStruct_2a8fb7a3;
+    unsigned int supportsSharedCalendars:1;
+    unsigned int isFacebook:1;
+    unsigned int recurrenceSeriesMustIncludeMoreThanFirstOccurrence:1;
+} CDStruct_d63385cc;
 
 typedef struct {
     int year;

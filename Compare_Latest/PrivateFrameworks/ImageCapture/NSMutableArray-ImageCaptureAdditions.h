@@ -7,7 +7,7 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (ImageCaptureAdditions)
-- (void)addItemsMatchingType:(id)arg1 fromFolder:(id)arg2;
 - (void)addItemsMatchingExtensions:(id)arg1 orTypes:(id)arg2 fromFolder:(id)arg3;
+- (void)addItemsMatchingType:(id)arg1 fromFolder:(id)arg2;
 @end
 

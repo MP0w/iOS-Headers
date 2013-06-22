@@ -13,12 +13,12 @@
     NSString *_name;
 }
 
-- (id)init;
-- (id)initWithName:(id)arg1;
-- (void)use;
-- (id)retain;
-- (oneway void)release;
 - (void)dealloc;
+- (oneway void)release;
+- (id)retain;
+- (void)use;
+- (id)initWithName:(id)arg1;
+- (id)init;
 
 @end
 

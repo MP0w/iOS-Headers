@@ -10,9 +10,9 @@
 {
 }
 
-+ (unsigned short)typeWithShape:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (id)managerWithShape:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)readFromShape:(struct _xmlNode *)arg1 inNamespace:(id)arg2 state:(id)arg3;
++ (id)managerWithShape:(struct _xmlNode *)arg1 state:(id)arg2;
++ (unsigned short)typeWithShape:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end
 

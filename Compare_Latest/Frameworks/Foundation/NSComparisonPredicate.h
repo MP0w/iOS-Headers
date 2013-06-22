@@ -47,6 +47,7 @@
 - (id)keyPathExpressionForString:(id)arg1;
 - (id)initWithLeftExpression:(id)arg1 rightExpression:(id)arg2 customSelector:(SEL)arg3;
 - (id)initWithLeftExpression:(id)arg1 rightExpression:(id)arg2 modifier:(unsigned int)arg3 type:(unsigned int)arg4 options:(unsigned int)arg5;
+- (id)generateMetadataDescription;
 
 @end
 

@@ -14,19 +14,19 @@
     NSSQLRelationship *_inverse;
 }
 
-- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (id)initForReadOnlyFetchWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (void)dealloc;
-- (id)relationshipDescription;
-- (id)foreignKey;
-- (id)sourceEntity;
-- (id)destinationEntity;
-- (id)correlationTableName;
-- (void)_setForeignOrderKey:(id)arg1;
-- (id)inverseRelationship;
-- (void)_setInverseRelationship:(id)arg1;
-- (BOOL)isOrdered;
 - (void)copyValuesForReadOnlyFetch:(id)arg1;
+- (BOOL)isOrdered;
+- (void)_setInverseRelationship:(id)arg1;
+- (id)inverseRelationship;
+- (void)_setForeignOrderKey:(id)arg1;
+- (id)correlationTableName;
+- (id)destinationEntity;
+- (id)sourceEntity;
+- (id)foreignKey;
+- (id)relationshipDescription;
+- (void)dealloc;
+- (id)initForReadOnlyFetchWithEntity:(id)arg1 propertyDescription:(id)arg2;
+- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
 
 @end
 

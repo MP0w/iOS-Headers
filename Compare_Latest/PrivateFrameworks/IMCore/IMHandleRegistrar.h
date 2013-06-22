@@ -12,6 +12,9 @@
 }
 
 + (id)sharedInstance;
+- (void)_clearChatSiblingsForGUID:(id)arg1;
+- (id)_existingChatSiblingsForHandle:(id)arg1;
+- (id)_chatSiblingsForHandle:(id)arg1;
 - (void)_clearAccountSiblingsForGUID:(id)arg1;
 - (id)_existingAccountSiblingsForHandle:(id)arg1;
 - (id)_accountSiblingsForHandle:(id)arg1;
@@ -36,8 +39,6 @@
 @property(nonatomic) int nameStyle;
 - (void)dealloc;
 - (id)init;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 - (void)_addressBookChanged;
 
 @end

@@ -11,20 +11,20 @@
     unsigned int _talkLevel;
 }
 
-+ (id)systemVersionDescription;
-+ (void)saveLowBatteryLogWithCapacity:(int)arg1 voltage:(int)arg2;
-+ (void)initialize;
-+ (unsigned int)_thresholdForLevel:(unsigned int)arg1;
-+ (BOOL)_shouldIgnoreChangeToBatteryLevel:(unsigned int)arg1;
 + (void)setBatteryLevel:(unsigned int)arg1;
-- (id)init;
-- (id)initWithLevel:(unsigned int)arg1;
-- (void)willPresentAlertView:(id)arg1;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)shouldShowInEmergencyCall;
++ (BOOL)_shouldIgnoreChangeToBatteryLevel:(unsigned int)arg1;
++ (unsigned int)_thresholdForLevel:(unsigned int)arg1;
++ (void)initialize;
++ (void)saveLowBatteryLogWithCapacity:(int)arg1 voltage:(int)arg2;
++ (id)systemVersionDescription;
 - (BOOL)undimsScreen;
+- (BOOL)shouldShowInEmergencyCall;
+- (BOOL)shouldShowInLockScreen;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)willPresentAlertView:(id)arg1;
+- (id)initWithLevel:(unsigned int)arg1;
+- (id)init;
 
 @end
 

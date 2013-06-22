@@ -6,18 +6,18 @@
 
 #import "UIView.h"
 
-@class SBWallpaperClipView;
+@class SBWallpaperView;
 
 @interface SBWallpaperNotchView : UIView
 {
+    SBWallpaperView *_wallpaperView;
     CDStruct_d18cc6b1 _notchInfo;
-    SBWallpaperClipView *_clipView;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 wallpaperView:(id)arg2 notchInfo:(CDStruct_d18cc6b1)arg3;
-- (void)dealloc;
-- (void)setNotchInfo:(CDStruct_d18cc6b1)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)setNotchInfo:(CDStruct_d18cc6b1)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 wallpaperView:(id)arg2 notchInfo:(CDStruct_d18cc6b1)arg3;
 
 @end
 

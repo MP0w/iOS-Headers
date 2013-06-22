@@ -15,21 +15,23 @@
     NSString *_body;
 }
 
-+ (void)_setupAccountMonitor;
-+ (BOOL)_canSendText;
-+ (void)_updateServiceAvailability;
-+ (void)_serviceAvailabilityChanged:(id)arg1;
-+ (void)_startListeningForAvailabilityNotifications;
-+ (BOOL)canSendText;
 + (void)initialize;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)setModalPresentationStyle:(int)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)smsComposeControllerCancelled:(id)arg1;
-- (void)smsComposeControllerSendStarted:(id)arg1;
++ (BOOL)canSendText;
++ (void)_startListeningForAvailabilityNotifications;
++ (void)_serviceAvailabilityChanged:(id)arg1;
++ (void)_updateServiceAvailability;
++ (BOOL)_canSendText;
++ (void)_setupAccountMonitor;
 @property(copy, nonatomic) NSString *body; // @synthesize body=_body;
 @property(copy, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(nonatomic) id <MFMessageComposeViewControllerDelegate> messageComposeDelegate; // @synthesize messageComposeDelegate=_messageComposeDelegate;
+- (void)smsComposeControllerSendStarted:(id)arg1;
+- (void)smsComposeControllerCancelled:(id)arg1;
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)setModalPresentationStyle:(int)arg1;
+- (void)dealloc;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

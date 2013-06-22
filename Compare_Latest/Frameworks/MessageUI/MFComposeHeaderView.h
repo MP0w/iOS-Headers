@@ -15,23 +15,26 @@
     MFHeaderLabelView *_labelView;
     id _delegate;
     UIView *_separator;
+    BOOL _drawsLetterpress;
 }
 
 + (float)defaultHeight;
-- (struct CGColor *)labelColor;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)setNavTitle:(id)arg1;
-- (id)navTitle;
-- (void)setLabel:(id)arg1;
-- (void)setLabelHighlighted:(BOOL)arg1;
-- (float)maxLabelX;
-- (BOOL)_canBecomeFirstResponder;
-- (void)handleTouchesEnded;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)setDelegate:(id)arg1;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)layoutSubviews;
+@property(nonatomic) BOOL drawsLetterpress; // @synthesize drawsLetterpress=_drawsLetterpress;
 - (void)dealloc;
+- (void)layoutSubviews;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setDelegate:(id)arg1;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)handleTouchesEnded;
+- (BOOL)_canBecomeFirstResponder;
+- (float)maxLabelX;
+- (void)setLabelHighlighted:(BOOL)arg1;
+- (void)setLabel:(id)arg1;
+- (id)navTitle;
+- (void)setNavTitle:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (struct CGColor *)labelColor;
+- (id)_automationID;
 
 @end
 

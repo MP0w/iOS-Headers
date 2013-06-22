@@ -27,30 +27,32 @@
     NSString *_serverIPAddress;
 }
 
-+ (void)setCachedServerCount:(unsigned int)arg1 forDomain:(id)arg2 ttl:(unsigned int)arg3;
 + (unsigned int)cachedServerCountForDomain:(id)arg1;
-- (id)initWithEnvironment:(id)arg1 clientIdentity:(struct __SecIdentity *)arg2;
-- (void)dealloc;
-@property(nonatomic) BOOL forceWWANInterface; // @synthesize forceWWANInterface=_forceWWANInterface;
-- (void)setUseAltneratePort:(BOOL)arg1;
-- (id)_domain;
-- (void)open;
-- (void)_queryRecordReply:(const void *)arg1 length:(unsigned short)arg2 ttl:(unsigned int)arg3 errorCode:(int)arg4;
-- (void)_closeQuery;
-- (void)close;
-- (void)_connectToServerWithCount:(unsigned int)arg1;
-- (int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
-- (void)writeDataInBackground:(id)arg1;
-- (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
-- (BOOL)hasErrorStatus;
-- (id)_copyIPAddressStringForNativeSocket:(id)arg1;
-- (void)_hasBytesAvailable;
-- (void)_hasSpaceAvailable;
-- (id)tcpInfoDescription;
++ (void)setCachedServerCount:(unsigned int)arg1 forDomain:(id)arg2 ttl:(unsigned int)arg3;
 @property(nonatomic) BOOL useAlternatePort; // @synthesize useAlternatePort=_useAlternatePort;
+@property(nonatomic) BOOL forceWWANInterface; // @synthesize forceWWANInterface=_forceWWANInterface;
 @property(readonly, nonatomic) NSString *serverIPAddress; // @synthesize serverIPAddress=_serverIPAddress;
 @property(readonly, nonatomic) NSString *serverHostname; // @synthesize serverHostname=_serverHostname;
 @property(nonatomic) id <APSTCPStreamDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)tcpInfoDescription;
+- (void)_hasSpaceAvailable;
+- (void)_hasBytesAvailable;
+- (id)_copyIPAddressStringForNativeSocket:(id)arg1;
+- (BOOL)hasErrorStatus;
+- (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
+- (void)writeDataInBackground:(id)arg1;
+- (int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
+- (void)_connectToServerWithConfiguration:(id)arg1;
+- (void)_connectToServerWithCount:(unsigned int)arg1;
+- (void)_connectToServerWithPeerName:(id)arg1;
+- (void)close;
+- (void)_closeQuery;
+- (void)_queryRecordReply:(const void *)arg1 length:(unsigned short)arg2 ttl:(unsigned int)arg3 errorCode:(int)arg4;
+- (void)_openWithTXTLookup;
+- (void)open;
+- (id)_domain;
+- (void)dealloc;
+- (id)initWithEnvironment:(id)arg1 clientIdentity:(struct __SecIdentity *)arg2;
 
 @end
 

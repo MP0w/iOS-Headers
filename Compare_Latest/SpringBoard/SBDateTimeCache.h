@@ -20,23 +20,23 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (double)today;
-- (double)tomorrow;
-- (double)yesterday;
-- (double)prevWeek;
-- (double)nextWeek;
-- (BOOL)isToday:(double)arg1;
-- (BOOL)_isToday:(double)arg1;
-- (BOOL)isTomorrow:(double)arg1;
-- (BOOL)isYesterday:(double)arg1;
-- (BOOL)isWithinPrevWeek:(double)arg1;
-- (BOOL)isWithinPrevWeek:(double)arg1 includeToday:(BOOL)arg2;
-- (BOOL)isWithinNextWeek:(double)arg1;
-- (void)_resetAndConfigureIfNecessary;
-- (void)_resetAndConfigure;
 - (id)description;
+- (void)_resetAndConfigure;
+- (void)_resetAndConfigureIfNecessary;
+- (BOOL)isWithinNextWeek:(double)arg1;
+- (BOOL)isWithinPrevWeek:(double)arg1 includeToday:(BOOL)arg2;
+- (BOOL)isWithinPrevWeek:(double)arg1;
+- (BOOL)isYesterday:(double)arg1;
+- (BOOL)isTomorrow:(double)arg1;
+- (BOOL)_isToday:(double)arg1;
+- (BOOL)isToday:(double)arg1;
+- (double)nextWeek;
+- (double)prevWeek;
+- (double)yesterday;
+- (double)tomorrow;
+- (double)today;
+- (void)dealloc;
+- (id)init;
 
 @end
 

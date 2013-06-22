@@ -18,10 +18,13 @@
     UIImageView *_dotView;
     EKStrikethroughLabel *_titleView;
     UIView<CalendarLabelTextMetrics> *_locationView;
+    BOOL _dataDetectedInLocation;
     CalendarCustomTimeView *_customTimeView;
     float _lastLayoutWidth;
     float _lastMaxY;
     BOOL _isBirthday;
+    BOOL _isFacebook;
+    BOOL _needsReply;
 }
 
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
@@ -33,10 +36,8 @@
 - (id)_locationView;
 - (id)_titleView;
 - (id)_editButton;
-- (BOOL)setEvent:(id)arg1 color:(id)arg2;
-- (id)textColorForCalendarColor:(id)arg1;
+- (void)setEvent:(id)arg1 color:(id)arg2;
 - (void)dealloc;
-- (id)initWithEvent:(id)arg1 color:(id)arg2 style:(int)arg3 opaque:(BOOL)arg4;
 - (id)initWithEvent:(id)arg1 color:(id)arg2 style:(int)arg3;
 
 @end

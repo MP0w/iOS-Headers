@@ -6,20 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface SSDistributedNotificationCenterObserver : NSObject
 {
     id _block;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSString *_name;
 }
 
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-@property(readonly, nonatomic) struct dispatch_queue_s *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(readonly, nonatomic) id block; // @synthesize block=_block;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 queue:(struct dispatch_queue_s *)arg2 block:(id)arg3;
+- (id)initWithName:(id)arg1 queue:(id)arg2 block:(id)arg3;
 
 @end
 

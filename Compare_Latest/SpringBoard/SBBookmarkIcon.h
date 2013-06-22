@@ -13,17 +13,17 @@
     UIWebClip *_webClip;
 }
 
-- (id)initWithWebClip:(id)arg1;
-- (void)dealloc;
-- (BOOL)allowsUninstall;
-- (id)generateIconImage:(int)arg1;
-- (id)displayName;
-- (id)leafIdentifier;
-- (void)launch;
-- (void)completeUninstall;
-- (id)webClip;
-- (id)folderTitleOptions;
+@property(retain, nonatomic) UIWebClip *webClip; // @synthesize webClip=_webClip;
 - (id)folderFallbackTitle;
+- (id)folderTitleOptions;
+- (void)completeUninstall;
+- (void)launch;
+- (id)displayName;
+- (id)generateIconImage:(int)arg1;
+- (BOOL)allowsUninstall;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithWebClip:(id)arg1;
 
 @end
 

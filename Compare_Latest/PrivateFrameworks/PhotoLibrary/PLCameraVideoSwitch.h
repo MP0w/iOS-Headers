@@ -6,17 +6,17 @@
 
 #import "UIControl.h"
 
+#import "PLCameraButtonBarSubviewProtocol-Protocol.h"
+
 @class UIImage, UIImageView;
 
-@interface PLCameraVideoSwitch : UIControl
+@interface PLCameraVideoSwitch : UIControl <PLCameraButtonBarSubviewProtocol>
 {
     UIImageView *_wellImageView;
     UIImageView *_handleImageView;
     UIImageView *_cameraImageView;
     UIImageView *_videoImageView;
-    UIImageView *_backgroundImageView;
     int _buttonBarStyle;
-    UIImage *_backgroundImage;
     UIImage *_wellImage;
     UIImage *_handleImage;
     UIImage *_handleDownImage;
@@ -24,6 +24,9 @@
     UIImage *_cameraLandscapeImage;
     UIImage *_videoImage;
     UIImage *_videoLandscapeImage;
+    float _trackOriginY;
+    struct CGPoint _handleOffOrigin;
+    struct CGPoint _handleOnOrigin;
     struct CGRect _hitRect;
     int _orientation;
     BOOL _watchingOrientationChanges;
@@ -40,7 +43,11 @@
 - (void)_stopWatchingDeviceOrientationChanges;
 - (void)_startWatchingDeviceOrientationChanges;
 - (void)_animateImageView:(id)arg1 toTransform:(struct CGAffineTransform)arg2 withImage:(id)arg3 animated:(BOOL)arg4;
+- (struct CGAffineTransform)_rotationAndTranslationTransformForDeviceOrientation:(int)arg1;
 - (struct CGAffineTransform)_rotationTransformForDeviceOrientation:(int)arg1;
+- (struct CGAffineTransform)_transformForVideoImageForDeviceOrientation:(int)arg1;
+- (struct CGAffineTransform)_transformForCameraImageForDeviceOrientation:(int)arg1;
+- (struct CGAffineTransform)_transformWithTranslationOffset:(struct CGSize)arg1 deviceOrientation:(int)arg2;
 - (void)_setOn:(BOOL)arg1 animationDuration:(float)arg2;
 - (void)setOn:(BOOL)arg1 animated:(BOOL)arg2;
 @property(nonatomic, getter=isOn) BOOL on;
@@ -50,9 +57,11 @@
 - (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
+- (void)buttonBar:(id)arg1 didChangeMode:(int)arg2;
 - (void)setLockEnabled:(BOOL)arg1;
 - (void)setEnabled:(BOOL)arg1;
 - (void)_updateEnabledness;
+- (void)_loadTallImageResourcesForButtonBarMode:(int)arg1;
 - (void)_loadTrackingResources;
 - (void)_loadLandscapeResources;
 - (void)_loadInitialResources;

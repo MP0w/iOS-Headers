@@ -6,11 +6,14 @@
 
 #import "NSObject.h"
 
-@class CPLRUDictionary, ML3NondurableWriteSet;
+#import "MLSQLiteConnectionSQLiteDelegate-Protocol.h"
 
-@interface ML3MusicLibrary_SQLiteDatabaseContext : NSObject
+@class CPLRUDictionary, ML3MusicLibrary, ML3NondurableWriteSet, MLSQLiteConnection, MLSQLiteConnectionQueue;
+
+@interface ML3MusicLibrary_SQLiteDatabaseContext : NSObject <MLSQLiteConnectionSQLiteDelegate>
 {
-    struct sqlite3 *_db;
+    ML3MusicLibrary *_library;
+    MLSQLiteConnection *_connection;
     const void *_iTunesExtensions;
     struct iPhoneSortKeyBuilder *_sortKeyBuilder;
     CPLRUDictionary *_statementCache;
@@ -19,21 +22,25 @@
     unsigned int _writeStatementCount;
     unsigned int _transactionHasChanges:1;
     unsigned int _transactionHasNonContentsChanges:1;
+    unsigned int _transactionHasInvisiblePropertyChanges:1;
     unsigned int _transactionHasDisplayValuesChanges:1;
+    MLSQLiteConnectionQueue *_connectionQueue;
 }
 
 @property(nonatomic) int transactionKind; // @synthesize transactionKind=_transactionKind;
 @property(retain, nonatomic) ML3NondurableWriteSet *nondurableWriteSet; // @synthesize nondurableWriteSet=_nondurableWriteSet;
 @property(readonly, nonatomic) struct iPhoneSortKeyBuilder *sortKeyBuilder; // @synthesize sortKeyBuilder=_sortKeyBuilder;
-@property(readonly, nonatomic) struct sqlite3 *db;
-- (id)copyStatementForSQL:(id)arg1 cache:(BOOL)arg2;
-- (BOOL)executeSQL:(id)arg1;
-- (BOOL)executeSQL:(id)arg1 waitIfBusy:(BOOL)arg2;
+@property(readonly, nonatomic) MLSQLiteConnectionQueue *connectionQueue; // @synthesize connectionQueue=_connectionQueue;
+@property(readonly, nonatomic) MLSQLiteConnection *connection; // @synthesize connection=_connection;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL transactionHasDisplayValuesChanges;
+@property(nonatomic) BOOL transactionHasInvisiblePropertyChanges;
 @property(nonatomic) BOOL transactionHasNonContentsChanges;
 @property(nonatomic) BOOL transactionHasChanges;
+- (void)connection:(id)arg1 willCloseDBHandle:(struct sqlite3 *)arg2;
+- (void)connection:(id)arg1 didOpenDBHandle:(struct sqlite3 *)arg2;
 - (void)dealloc;
-- (id)initWithDB:(struct sqlite3 *)arg1;
+- (id)initWithLibrary:(id)arg1 connectionQueue:(id)arg2;
 
 @end
 

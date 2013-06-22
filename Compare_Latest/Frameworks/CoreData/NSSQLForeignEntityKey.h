@@ -13,13 +13,13 @@
     NSSQLForeignKey *_foreignKey;
 }
 
-- (id)initWithEntity:(id)arg1 foreignKey:(id)arg2;
-- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (id)initForReadOnlyFetchingOfEntity:(id)arg1 toOneRelationship:(id)arg2;
-- (id)toOneRelationship;
-- (id)foreignKey;
-- (void)dealloc;
 - (void)setFKForReadOnlyFetch:(id)arg1;
+- (void)dealloc;
+- (id)foreignKey;
+- (id)toOneRelationship;
+- (id)initForReadOnlyFetchingOfEntity:(id)arg1 toOneRelationship:(id)arg2;
+- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
+- (id)initWithEntity:(id)arg1 foreignKey:(id)arg2;
 
 @end
 

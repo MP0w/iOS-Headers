@@ -15,11 +15,13 @@
     NSObject *_delegate;
 }
 
-- (id)init;
-- (void)dealloc;
-@property NSObject *delegate; // @synthesize delegate=_delegate;
-- (void)lockDelegateLock;
 - (void)unlockDelegateLock;
+- (void)lockDelegateLock;
+@property NSObject *delegate;
+- (id)retainedDelegate;
+- (void)cancel;
+- (void)dealloc;
+- (id)init;
 
 @end
 

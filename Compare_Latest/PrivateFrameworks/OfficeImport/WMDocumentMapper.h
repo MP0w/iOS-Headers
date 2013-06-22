@@ -17,19 +17,25 @@
     NSString *mFileName;
 }
 
-- (id)initWithWDom:(id)arg1 archiver:(id)arg2;
-- (void)dealloc;
-- (id)blipAtIndex:(unsigned int)arg1;
-- (int)defaultTabWidth;
-- (void)setFileName:(id)arg1;
-- (id)fileName;
-- (void)mapDefaultCssStylesAt:(id)arg1;
-- (void)mapWithState:(id)arg1;
-- (id)archiver;
-- (id)styleMatrix;
-- (id)documentTitle;
-- (struct CGSize)pageSizeForDevice;
 - (struct CGSize)contentSizeForDevice;
+- (struct CGSize)pageSizeForDevice;
+- (id)documentTitle;
+- (id)styleMatrix;
+- (id)archiver;
+- (void)mapWithState:(id)arg1;
+- (void)mapDefaultCssStylesAt:(id)arg1;
+- (id)fileName;
+- (void)setFileName:(id)arg1;
+- (int)defaultTabWidth;
+- (id)blipAtIndex:(unsigned int)arg1;
+- (void)dealloc;
+- (id)initWithWDom:(id)arg1 archiver:(id)arg2;
+- (float)bottomMargin;
+- (float)headerMargin;
+- (float)topMargin;
+- (float)rightMargin;
+- (float)leftMargin;
+- (BOOL)hasSessionBreakAtIndex:(unsigned int)arg1;
 
 @end
 

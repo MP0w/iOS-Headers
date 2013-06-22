@@ -13,12 +13,14 @@
     struct CGSize mSize;
 }
 
-- (BOOL)isRectangular;
-- (BOOL)isRect;
-- (double)scalar;
-- (int)type;
-- (struct CGSize)size;
+- (id).cxx_construct;
 - (struct CGPath *)createBezierPath;
+- (struct CGSize)size;
+- (int)type;
+- (double)scalar;
+- (BOOL)isRect;
+- (BOOL)isRectangular;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

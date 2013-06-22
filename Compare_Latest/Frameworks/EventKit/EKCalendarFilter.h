@@ -47,7 +47,7 @@
 - (BOOL)isFilteringAll;
 - (BOOL)_isFilteringAllWhileLocked;
 - (BOOL)isShowingAll;
-- (void)_databaseWillChange:(id)arg1;
+- (void)_databaseChanged;
 - (void)dealloc;
 - (id)initWithDatabase:(struct CalDatabase *)arg1 entityType:(int)arg2 calendarUIDs:(id)arg3;
 - (id)initWithDatabase:(struct CalDatabase *)arg1 filteringCalendars:(id)arg2;

@@ -14,11 +14,11 @@
     UILabel *_label;
 }
 
-- (id)initWithImage:(id)arg1 text:(id)arg2 textColor:(id)arg3;
-- (void)dealloc;
-@property(copy, nonatomic) NSString *text;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+@property(copy, nonatomic) NSString *text;
+- (void)dealloc;
+- (id)initWithImage:(id)arg1 text:(id)arg2 textColor:(id)arg3;
 
 @end
 

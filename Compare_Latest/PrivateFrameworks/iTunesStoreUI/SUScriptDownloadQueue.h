@@ -9,35 +9,33 @@
 #import "SSDownloadManagerObserver-Protocol.h"
 #import "SSPreorderManagerObserver-Protocol.h"
 
-@class NSArray, NSString, SSDownloadManager, SSPreorderManager;
+@class NSArray, NSString, SSPreorderManager, SUClientInterface, SUDownloadManager;
 
 @interface SUScriptDownloadQueue : SUScriptObject <SSDownloadManagerObserver, SSPreorderManagerObserver>
 {
-    NSArray *_downloads;
-    SSDownloadManager *_downloadManager;
+    SUClientInterface *_clientInterface;
+    SUDownloadManager *_downloadManager;
     SSPreorderManager *_preorderManager;
     NSString *_queueType;
 }
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (void)finalizeForWebScript;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-- (void)_ntsTearDownQueues;
-- (void)_ntsResetDownloads;
-- (void)_handleDownloadsChanged;
-- (id)_copyScriptDownloads;
-- (void)_checkQueues;
+- (void)_tearDownQueues;
+- (void)_setupManagersWithClientInterface:(id)arg1 queueType:(id)arg2;
 - (void)preorderManagerPreordersDidChange:(id)arg1;
 - (void)downloadManagerDownloadsDidChange:(id)arg1;
+- (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
 @property(readonly) NSString *queueType;
 @property(readonly) NSArray *downloads;
 - (id)_className;
 - (void)checkQueue;
 - (void)dealloc;
-- (id)initWithQueueType:(id)arg1;
+- (id)initWithQueueType:(id)arg1 clientInterface:(id)arg2;
 
 @end
 

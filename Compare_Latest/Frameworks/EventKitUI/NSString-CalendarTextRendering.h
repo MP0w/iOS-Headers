@@ -9,6 +9,7 @@
 @interface NSString (CalendarTextRendering)
 - (void)drawUsingMetrics:(id)arg1 inRect:(struct CGRect)arg2 usingFont:(struct __GSFont *)arg3 ellipsisStyle:(int)arg4 firstLineX:(float)arg5 strikethrough:(BOOL)arg6;
 - (void)drawUsingMetrics:(id)arg1 inRect:(struct CGRect)arg2 usingFont:(struct __GSFont *)arg3 ellipsisStyle:(int)arg4 firstLineX:(float)arg5;
+- (id)stringMetricsForDrawingInRect:(struct CGRect)arg1 usingFont:(struct __GSFont *)arg2 ellipsisStyle:(int)arg3 flowingFromX:(float)arg4 lastLineEnd:(struct CGPoint *)arg5 startOnSecondLineIfPossible:(BOOL)arg6 withTopRightCornerInset:(struct CGSize)arg7;
 - (id)stringMetricsForDrawingInRect:(struct CGRect)arg1 usingFont:(struct __GSFont *)arg2 ellipsisStyle:(int)arg3 flowingFromX:(float)arg4 lastLineEnd:(struct CGPoint *)arg5 startOnSecondLineIfPossible:(BOOL)arg6;
 @end
 

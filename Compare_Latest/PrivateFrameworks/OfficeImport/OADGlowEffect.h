@@ -14,15 +14,15 @@
     float mRadius;
 }
 
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)color;
-- (void)setColor:(id)arg1;
-- (float)radius;
-- (void)setRadius:(float)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setRadius:(float)arg1;
+- (float)radius;
+- (void)setColor:(id)arg1;
+- (id)color;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

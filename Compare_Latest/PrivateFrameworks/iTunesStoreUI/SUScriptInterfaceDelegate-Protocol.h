@@ -7,10 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol SUScriptInterfaceDelegate <NSObject>
-- (void)scriptInterface:(id)arg1 receivedEventOfType:(int)arg2 userInfo:(id)arg3;
-- (void)scriptInterface:(id)arg1 parsedPropertyList:(id)arg2 ofType:(int)arg3;
-- (void)scriptInterface:(id)arg1 animatePurchaseForIdentifier:(id)arg2;
+
+@optional
+- (id)performanceMetricsForScriptInterface:(id)arg1;
 - (id)parentViewControllerForScriptInterface:(id)arg1;
-- (struct OpaqueJSContext *)javaScriptContextForScriptInterface:(id)arg1;
+- (id)DOMElementForScriptInterface:(id)arg1 element:(id)arg2;
 @end
 

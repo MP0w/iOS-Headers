@@ -33,7 +33,9 @@
 - (void)preauthorizeFileTransferFromOtherPerson:(id)arg1 account:(id)arg2 filename:(id)arg3 saveToPath:(id)arg4;
 - (BOOL)isFileTransfer:(id)arg1 preauthorizedWithDictionary:(id)arg2;
 - (void)clearFinishedTransfers;
+@property(readonly, nonatomic) NSArray *orderedTransfersGUIDs;
 @property(readonly, nonatomic) NSArray *orderedTransfers;
+@property(readonly, nonatomic) NSArray *activeTransferGUIDs;
 @property(readonly, nonatomic) NSArray *activeTransfers;
 @property(readonly, nonatomic) NSDictionary *transfers;
 - (id)transfersForAccount:(id)arg1;
@@ -45,6 +47,7 @@
 - (void)sendTransfer:(id)arg1;
 - (id)transferForGUID:(id)arg1 includeRemoved:(BOOL)arg2;
 - (id)transferForGUID:(id)arg1;
+- (id)chatForTransfer:(id)arg1;
 - (void)assignTransfer:(id)arg1 toHandle:(id)arg2;
 - (void)assignTransfer:(id)arg1 toMessage:(id)arg2 account:(id)arg3;
 - (id)guidForNewOutgoingTransferWithLocalURL:(id)arg1;

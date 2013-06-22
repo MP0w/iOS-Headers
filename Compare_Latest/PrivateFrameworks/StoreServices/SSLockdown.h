@@ -28,7 +28,6 @@
 - (struct __CFString *)copyDeviceGUID;
 - (id)copyAccountDictionaryForDomain:(struct __CFString *)arg1;
 @property(readonly) long long totalDiskCapacity;
-@property(readonly) long long availableDiskSpace;
 - (void)dealloc;
 - (id)init;
 

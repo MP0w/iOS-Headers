@@ -6,22 +6,25 @@
 
 #import "SBIconView.h"
 
+#import "SBDownloadingIconObserver-Protocol.h"
+
 @class SBDownloadingIcon, SBDownloadingProgressBar;
 
-@interface SBDownloadingIconView : SBIconView
+@interface SBDownloadingIconView : SBIconView <SBDownloadingIconObserver>
 {
     SBDownloadingProgressBar *_progressView;
 }
 
-- (id)initWithDefaultSize;
-- (void)dealloc;
-@property(readonly, retain) SBDownloadingIcon *downloadingIcon;
-- (void)setDownloadingIcon:(id)arg1;
-- (void)setIcon:(id)arg1;
-- (void)setDisplayedIconImage:(id)arg1;
-- (void)_updateProgressBar;
-- (void)setGhostly:(BOOL)arg1 requester:(int)arg2;
++ (Class)_labelImageParametersClassForIcon:(id)arg1 location:(int)arg2;
 - (void)iconAccessoriesDidUpdate:(id)arg1;
+- (void)downloadingIconStatusDidChange:(id)arg1;
+- (void)setGhostly:(BOOL)arg1 requester:(int)arg2;
+- (void)_updateProgressBar;
+- (void)setDisplayedIconImage:(id)arg1;
+- (void)setIcon:(id)arg1;
+@property(retain, nonatomic) SBDownloadingIcon *downloadingIcon;
+- (void)dealloc;
+- (id)initWithDefaultSize;
 
 @end
 

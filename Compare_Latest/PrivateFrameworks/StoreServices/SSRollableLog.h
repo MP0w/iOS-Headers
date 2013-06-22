@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSFileHandle, SSLogFileOptions;
+@class NSFileHandle, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, SSLogFileOptions;
 
 @interface SSRollableLog : NSObject
 {
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     double _lastFileStatTime;
     NSFileHandle *_fileHandle;
-    struct dispatch_source_s *_fileObserverSource;
+    NSObject<OS_dispatch_source> *_fileObserverSource;
     SSLogFileOptions *_options;
 }
 

@@ -8,48 +8,54 @@
 
 #import "WebCoreFrameScrollView-Protocol.h"
 
+@class WAKClipView;
+
 @interface WAKScrollView : WAKView <WebCoreFrameScrollView>
 {
     WAKView *_documentView;
+    WAKClipView *_contentView;
     id _delegate;
     struct CGPoint _scrollOrigin;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)setHasVerticalScroller:(BOOL)arg1;
-- (BOOL)hasVerticalScroller;
-- (void)setHasHorizontalScroller:(BOOL)arg1;
-- (BOOL)hasHorizontalScroller;
-- (void)setDelegate:(id)arg1;
-- (id)delegate;
-- (struct CGRect)documentVisibleRect;
-- (void)setDocumentView:(id)arg1;
-- (id)documentView;
-- (void)setContentView:(id)arg1;
-- (id)contentView;
-- (void)setDrawsBackground:(BOOL)arg1;
-- (BOOL)drawsBackground;
-- (void)setLineScroll:(float)arg1;
-- (float)verticalLineScroll;
-- (float)horizontalLineScroll;
-- (void)reflectScrolledClipView:(id)arg1;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)setHorizontalScrollingMode:(int)arg1;
-- (void)setVerticalScrollingMode:(int)arg1;
-- (void)setScrollingMode:(int)arg1;
-- (int)horizontalScrollingMode;
-- (int)verticalScrollingMode;
-- (void)setScrollingModes:(int)arg1 vertical:(int)arg2 andLock:(BOOL)arg3;
-- (void)scrollingModes:(int *)arg1 vertical:(int *)arg2;
-- (void)setScrollBarsSuppressed:(BOOL)arg1 repaintOnUnsuppress:(BOOL)arg2;
-- (void)setScrollOrigin:(struct CGPoint)arg1 updatePositionAtAll:(BOOL)arg2 immediately:(BOOL)arg3;
-- (struct CGPoint)scrollOrigin;
-- (void)scrollWheel:(id)arg1;
-- (struct CGRect)actualDocumentVisibleRect;
-- (void)setActualScrollPosition:(struct CGPoint)arg1;
-- (id)description;
+- (id).cxx_construct;
+- (void)_adjustScrollers;
 - (BOOL)inProgrammaticScroll;
+- (id)description;
+- (void)setActualScrollPosition:(struct CGPoint)arg1;
+- (struct CGRect)actualDocumentVisibleRect;
+- (void)scrollWheel:(id)arg1;
+- (void)scrollPoint:(struct CGPoint)arg1;
+- (struct CGPoint)scrollOrigin;
+- (void)setScrollOrigin:(struct CGPoint)arg1 updatePositionAtAll:(BOOL)arg2 immediately:(BOOL)arg3;
+- (void)setScrollBarsSuppressed:(BOOL)arg1 repaintOnUnsuppress:(BOOL)arg2;
+- (void)scrollingModes:(int *)arg1 vertical:(int *)arg2;
+- (void)setScrollingModes:(int)arg1 vertical:(int)arg2 andLock:(BOOL)arg3;
+- (int)verticalScrollingMode;
+- (int)horizontalScrollingMode;
+- (void)setScrollingMode:(int)arg1;
+- (void)setVerticalScrollingMode:(int)arg1;
+- (void)setHorizontalScrollingMode:(int)arg1;
+- (void)drawRect:(struct CGRect)arg1;
+- (void)reflectScrolledClipView:(id)arg1;
+- (float)horizontalLineScroll;
+- (float)verticalLineScroll;
+- (void)setLineScroll:(float)arg1;
+- (BOOL)drawsBackground;
+- (void)setDrawsBackground:(BOOL)arg1;
+- (id)contentView;
+- (id)documentView;
+- (void)setDocumentView:(id)arg1;
+- (struct CGRect)documentVisibleRect;
+- (id)delegate;
+- (void)setDelegate:(id)arg1;
+- (BOOL)hasHorizontalScroller;
+- (void)setHasHorizontalScroller:(BOOL)arg1;
+- (BOOL)hasVerticalScroller;
+- (void)setHasVerticalScroller:(BOOL)arg1;
+- (BOOL)_selfHandleEvent:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

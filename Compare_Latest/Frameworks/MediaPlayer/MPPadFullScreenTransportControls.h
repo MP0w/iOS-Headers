@@ -13,9 +13,9 @@
 - (void)_itemTypeAvailableNotification:(id)arg1;
 - (void)layoutSubviews;
 - (void)setItem:(id)arg1;
-- (void)setDisabledParts:(unsigned int)arg1;
-- (void)setVisibleParts:(unsigned int)arg1 animated:(BOOL)arg2;
-- (id)buttonImageForPart:(unsigned int)arg1;
+- (void)setDisabledParts:(unsigned long long)arg1;
+- (void)setVisibleParts:(unsigned long long)arg1 animated:(BOOL)arg2;
+- (id)buttonImageForPart:(unsigned long long)arg1;
 - (id)newVolumeSlider;
 - (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(BOOL)arg3;
 - (void)dealloc;

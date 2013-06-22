@@ -14,14 +14,14 @@
     double mValue;
 }
 
-- (int)type;
-- (void)setType:(int)arg1;
-- (BOOL)isBackwards;
-- (void)setIsBackwards:(BOOL)arg1;
-- (BOOL)isValuePercentage;
-- (void)setIsValuePercentage:(BOOL)arg1;
-- (double)value;
 - (void)setValue:(double)arg1;
+- (double)value;
+- (void)setIsValuePercentage:(BOOL)arg1;
+- (BOOL)isValuePercentage;
+- (void)setIsBackwards:(BOOL)arg1;
+- (BOOL)isBackwards;
+- (void)setType:(int)arg1;
+- (int)type;
 
 @end
 

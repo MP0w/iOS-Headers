@@ -49,6 +49,11 @@
 - (int)decodeIntForKey:(id)arg1;
 - (BOOL)decodeBoolForKey:(id)arg1;
 - (id)_decodeArrayOfObjectsForKey:(id)arg1;
+- (void)setRequiresSecureCoding:(BOOL)arg1;
+- (BOOL)requiresSecureCoding;
+- (id)allowedClasses;
+- (id)decodeObjectOfClasses:(id)arg1 forKey:(id)arg2;
+- (id)decodeObjectOfClass:(Class)arg1 forKey:(id)arg2;
 - (id)decodeObjectForKey:(id)arg1;
 - (BOOL)containsValueForKey:(id)arg1;
 - (void)_replaceObject:(id)arg1 withObject:(id)arg2;
@@ -56,7 +61,8 @@
 - (void)_temporaryMapReplaceObject:(id)arg1 withObject:(id)arg2;
 - (void)finishDecoding;
 - (void)setAllowedClasses:(id)arg1;
-- (id)allowedClasses;
+- (void)_setAllowedClassNames:(id)arg1;
+- (id)_allowedClassNames;
 - (Class)classForClassName:(id)arg1;
 - (void)setClass:(Class)arg1 forClassName:(id)arg2;
 - (id)delegate;

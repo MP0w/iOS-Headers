@@ -9,7 +9,7 @@
 @protocol MFSecureMIMECompositionManagerDelegate <NSObject>
 
 @optional
-- (void)secureMIMECompositionManager:(id)arg1 signingStatusDidChange:(int)arg2 context:(id)arg3;
 - (void)secureMIMECompositionManager:(id)arg1 encryptionStatusDidChange:(int)arg2 context:(id)arg3;
+- (void)secureMIMECompositionManager:(id)arg1 signingStatusDidChange:(int)arg2 context:(id)arg3;
 @end
 

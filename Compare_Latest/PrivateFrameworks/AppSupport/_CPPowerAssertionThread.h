@@ -14,9 +14,9 @@
     NSDate *_earliest;
 }
 
-- (void)main;
-- (void)addAssertion:(id)arg1;
 - (void)didTimeOut:(id)arg1;
+- (void)addAssertion:(id)arg1;
+- (void)main;
 
 @end
 

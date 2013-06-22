@@ -16,7 +16,6 @@
 }
 
 - (struct NSObject *)_albumForStack:(id)arg1;
-- (void)stackView:(id)arg1 invalidateCachedImagesForIndex:(int)arg2;
 - (id)stackView:(id)arg1 collapsedIndexesForCount:(unsigned int)arg2;
 - (void)stackView:(id)arg1 saveStackedImage:(id)arg2 options:(id)arg3;
 - (id)stackedImageForStackView:(id)arg1 options:(id *)arg2;

@@ -18,13 +18,14 @@
     NSString *_serialNumber;
     NSString *_firmwareRevision;
     NSString *_hardwareRevision;
+    NSString *_macAddress;
     NSString *_preferredApp;
     int _classType;
     NSDictionary *_audioPorts;
     unsigned int _capabilities;
+    BOOL _notPresentInIAPAccessoriesArray;
     NSMutableArray *_sessionsList;
     NSArray *_eqNames;
-    unsigned int _eqItems;
     int _iPodOutOptionsMask;
     struct __CFAccessory *_cfAccessory;
     void *_cfAccessoryPortPropertyCallback;
@@ -42,10 +43,12 @@
 @property(nonatomic) int iPodOutOptionsMask; // @synthesize iPodOutOptionsMask=_iPodOutOptionsMask;
 @property(nonatomic) unsigned int eqIndex; // @synthesize eqIndex=_eqIndex;
 @property(retain, nonatomic) NSArray *eqNames; // @synthesize eqNames=_eqNames;
+@property(nonatomic) BOOL notPresentInIAPAccessoriesArray; // @synthesize notPresentInIAPAccessoriesArray=_notPresentInIAPAccessoriesArray;
 @property(nonatomic) unsigned int capabilities; // @synthesize capabilities=_capabilities;
 @property(retain, nonatomic) NSDictionary *audioPorts; // @synthesize audioPorts=_audioPorts;
 @property(nonatomic) int classType; // @synthesize classType=_classType;
 @property(copy, nonatomic) NSString *preferredApp; // @synthesize preferredApp=_preferredApp;
+@property(copy, nonatomic) NSString *macAddress; // @synthesize macAddress=_macAddress;
 @property(copy, nonatomic) NSString *hardwareRevision; // @synthesize hardwareRevision=_hardwareRevision;
 @property(copy, nonatomic) NSString *firmwareRevision; // @synthesize firmwareRevision=_firmwareRevision;
 @property(copy, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;

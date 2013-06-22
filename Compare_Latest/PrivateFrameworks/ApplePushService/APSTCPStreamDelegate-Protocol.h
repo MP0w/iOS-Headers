@@ -7,13 +7,14 @@
 #import "NSObject-Protocol.h"
 
 @protocol APSTCPStreamDelegate <NSObject>
-- (unsigned int)tcpStream:(id)arg1 dataReceived:(id)arg2;
-- (void)tcpStreamEndEncountered:(id)arg1;
 - (void)tcpStream:(id)arg1 errorOccured:(id)arg2;
+- (void)tcpStreamEndEncountered:(id)arg1;
+- (unsigned int)tcpStream:(id)arg1 dataReceived:(id)arg2;
 
 @optional
-- (void)tcpStream:(id)arg1 hasDeterminedServerHostname:(id)arg2;
-- (void)tcpStreamHasConnected:(id)arg1;
 - (BOOL)tcpStreamHasSpaceAvailable:(id)arg1;
+- (void)tcpStreamHasConnected:(id)arg1;
+- (void)tcpStream:(id)arg1 hasDeterminedServerHostname:(id)arg2;
+- (void)tcpStream:(id)arg1 receivedServerBag:(id)arg2;
 @end
 

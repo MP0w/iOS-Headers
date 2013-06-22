@@ -7,8 +7,8 @@
 #import "NSData.h"
 
 @interface NSData (ManagedConfiguration)
-+ (id)MCDataWithHexString:(id)arg1;
 + (id)MCDataWithCFData:(struct __CFData *)arg1;
++ (id)MCDataWithHexString:(id)arg1;
 - (id)MCHexString;
 @end
 

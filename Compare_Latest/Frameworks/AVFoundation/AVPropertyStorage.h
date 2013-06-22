@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AVPropertyStorage : NSObject
 {
-    struct dispatch_queue_s *_storageAccessWorkQueue;
+    NSObject<OS_dispatch_queue> *_storageAccessWorkQueue;
     NSMutableDictionary *_propertyStorage;
 }
 

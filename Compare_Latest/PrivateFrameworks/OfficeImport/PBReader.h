@@ -9,13 +9,16 @@
 @interface PBReader : OCBReader
 {
     struct PptObjectFactory *mPptObjectFactory;
+    const void *mBuffer;
 }
 
-+ (id)readerWithPptReader:(struct PptBinaryReader *)arg1 pptObjectFactory:(struct PptObjectFactory *)arg2;
-+ (id)readFromFileName:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4 delegate:(id)arg5;
-+ (id)readFromData:(id)arg1 cancel:(id)arg2 tracing:(id)arg3 asThumbnail:(BOOL)arg4 delegate:(id)arg5;
-- (id)initWithPptReader:(struct PptBinaryReader *)arg1 pptObjectFactory:(struct PptObjectFactory *)arg2;
+- (struct OCCBinaryStreamer *)allocBinaryStreamerWithCryptoKey:(struct OCCCryptoKey *)arg1 baseOutputFilenameInUTF8:(const char *)arg2;
+- (struct OCCEncryptionInfoReader *)encryptionInfoReader;
+@property(readonly, nonatomic) struct PptBinaryReader *pptReader;
+- (id)read;
+- (BOOL)start;
 - (void)dealloc;
+- (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
 
 @end
 

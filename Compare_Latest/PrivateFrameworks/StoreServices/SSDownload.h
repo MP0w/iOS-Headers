@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding-Protocol.h"
 
-@class NSArray, NSMutableDictionary, NSNumber, SSDownloadMetadata, SSDownloadStatus, SSNetworkConstraints, SSXPCConnection;
+@class NSArray, NSMutableDictionary, NSNumber, SSDownloadMetadata, SSDownloadPolicy, SSDownloadStatus, SSXPCConnection;
 
 @interface SSDownload : SSEntity <SSXPCCoding>
 {
@@ -26,7 +26,7 @@
 + (long long)_existsMessage;
 - (id)_thumbnailImageURL;
 - (void)_legacyLoadArtworkData;
-- (id)_errorWithXPCReply:(void *)arg1;
+- (id)_errorWithXPCReply:(id)arg1;
 - (id)_errorWithData:(id)arg1;
 - (void)_applyPhase:(id)arg1 toStatus:(id)arg2;
 @property(readonly, getter=_XPCConnection) SSXPCConnection *_XPCConnection;
@@ -39,13 +39,14 @@
 @property(readonly, nonatomic, getter=isExternal) BOOL external;
 - (void)handleWithDownloadHandler:(id)arg1 completionBlock:(id)arg2;
 @property(readonly, nonatomic) id downloadIdentifier;
-- (void *)copyXPCEncoding;
+- (id)copyXPCEncoding;
 - (id)initWithDownloadMetadata:(id)arg1;
 - (void)_resetLocalIVars;
 - (void)_addCachedPropertyValues:(id)arg1;
 - (void)_addCachedExternalValues:(id)arg1;
 - (void)setValuesWithStoreDownloadMetadata:(id)arg1;
-@property(copy) SSNetworkConstraints *networkConstraints;
+- (void)setNetworkConstraints:(id)arg1;
+@property(copy) SSDownloadPolicy *downloadPolicy;
 - (void)setDownloadHandler:(id)arg1 completionBlock:(id)arg2;
 - (void)resume;
 - (BOOL)removeAsset:(id)arg1;
@@ -53,18 +54,20 @@
 @property(readonly) long long persistentIdentifier;
 - (double)percentComplete;
 - (void)pause;
+- (id)networkConstraints;
 - (void)loadThumbnailImageDataWithCompletionBlock:(id)arg1;
 - (BOOL)isEligibleForRestore:(id *)arg1;
 @property(readonly, getter=isCancelable) BOOL cancelable;
 - (id)failureError;
 - (double)estimatedSecondsRemaining;
+@property(readonly) long long downloadSizeLimit;
 - (id)downloadPhaseIdentifier;
 - (long long)bytesTotal;
 - (long long)bytesDownloaded;
 - (id)assetsForType:(id)arg1;
 - (BOOL)addAsset:(id)arg1 forType:(id)arg2;
 - (void)dealloc;
-- (id)_initWithLocalPropertyValues:(void *)arg1;
+- (id)_initWithLocalPropertyValues:(id)arg1;
 - (id)initWithPersistentIdentifier:(long long)arg1;
 
 @end

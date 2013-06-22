@@ -4,27 +4,29 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <GameKit/GKTableViewController.h>
+#import <GameKit/GKTableViewControllerV2.h>
 
-@class GKGame, GKLeaderboardCategory, GKLeaderboardViewController, GKLeaderboardViewControllerPrivate, GKPlayer, NSArray, NSString;
+@class GKCategoryListSection, GKCategoryListSectionDataSource, GKGame, GKLeaderboardCategory, GKLeaderboardViewController, GKPlayer, NSString;
 
-@interface GKLeaderboardCategoryViewController : GKTableViewController
+@interface GKLeaderboardCategoryViewController : GKTableViewControllerV2
 {
     GKGame *_game;
     GKPlayer *_player;
     BOOL _hasAggregate;
-    NSArray *_categories;
     GKLeaderboardCategory *_aggregateCategory;
     GKLeaderboardViewController *_publicLeaderboard;
-    GKLeaderboardViewControllerPrivate *_privateLeaderboard;
     id <GKLeaderboardViewControllerDelegate> _leaderboardDelegate;
     GKLeaderboardViewController *_controllerForDelegate;
     BOOL _isInPopover;
     id <GKLeaderboardCategoryPopoverDelegate> _delegate;
     NSString *_selectedCategoryID;
     int _navbarStyle;
+    GKCategoryListSection *_categorySection;
+    GKCategoryListSectionDataSource *_categoryDataSource;
 }
 
+@property(retain, nonatomic) GKCategoryListSectionDataSource *categoryDataSource; // @synthesize categoryDataSource=_categoryDataSource;
+@property(retain, nonatomic) GKCategoryListSection *categorySection; // @synthesize categorySection=_categorySection;
 @property(nonatomic) int navbarStyle; // @synthesize navbarStyle=_navbarStyle;
 @property(copy, nonatomic) NSString *selectedCategoryID; // @synthesize selectedCategoryID=_selectedCategoryID;
 @property(nonatomic) id <GKLeaderboardCategoryPopoverDelegate> delegate; // @synthesize delegate=_delegate;
@@ -33,25 +35,17 @@
 @property(nonatomic) id <GKLeaderboardViewControllerDelegate> leaderboardDelegate; // @synthesize leaderboardDelegate=_leaderboardDelegate;
 @property(nonatomic) GKLeaderboardViewController *publicLeaderboard; // @synthesize publicLeaderboard=_publicLeaderboard;
 @property(retain, nonatomic) GKLeaderboardCategory *aggregateCategory; // @synthesize aggregateCategory=_aggregateCategory;
-@property(retain, nonatomic) NSArray *categories; // @synthesize categories=_categories;
 @property(nonatomic) BOOL hasAggregate; // @synthesize hasAggregate=_hasAggregate;
 @property(retain, nonatomic) GKPlayer *player; // @synthesize player=_player;
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
+- (void)didSelectCategory:(id)arg1;
 - (void)playTapped;
 - (void)updateNavbarButtons;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)tokenImageCategory:(id)arg1 withCompletionHandler:(id)arg2;
-- (void)configureCellContents:(id)arg1 category:(id)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)_gkResetContents;
 - (void)_gkUpdateContentsWithCompletionHandlerAndError:(id)arg1;
-- (void)updateSelection;
+- (void)_gkResetContents;
 - (void)viewDidLoad;
-@property(readonly, nonatomic) GKLeaderboardViewControllerPrivate *privateLeaderboard; // @synthesize privateLeaderboard=_privateLeaderboard;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)updateSelection;
 - (void)donePressed:(id)arg1;
 - (void)dealloc;
 - (id)initWithGame:(id)arg1 player:(id)arg2;

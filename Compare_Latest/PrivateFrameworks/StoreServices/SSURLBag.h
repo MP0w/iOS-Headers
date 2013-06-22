@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableArray, SSURLBagContext, SSXPCConnection;
+@class NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, SSURLBagContext, SSXPCConnection;
 
 @interface SSURLBag : NSObject
 {
     SSXPCConnection *_connection;
     SSURLBagContext *_context;
     NSDictionary *_dictionary;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     double _expirationTime;
     NSMutableArray *_pendingLookups;
 }
@@ -28,6 +28,7 @@
 @property(readonly) SSURLBagContext *URLBagContext;
 - (void)loadValueForKey:(id)arg1 completionBlock:(id)arg2;
 - (void)invalidate;
+- (void)getTrustForURL:(id)arg1 completionBlock:(id)arg2;
 - (void)dealloc;
 - (id)initWithURLBagContext:(id)arg1;
 - (id)init;

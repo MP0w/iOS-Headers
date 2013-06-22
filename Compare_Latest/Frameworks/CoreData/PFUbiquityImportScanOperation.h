@@ -6,7 +6,7 @@
 
 #import <CoreData/PFUbiquityImportOperation.h>
 
-@class NSObject<PFUbiquityImportScanOperationDelegate>, NSSet, NSString, PFUbiquityLocation;
+@class NSError, NSMutableDictionary, NSObject<PFUbiquityImportScanOperationDelegate>, NSSet, NSString, PFUbiquityLocation, PFUbiquitySwitchboardEntry;
 
 @interface PFUbiquityImportScanOperation : PFUbiquityImportOperation
 {
@@ -15,20 +15,28 @@
     NSSet *_activeStoreNames;
     BOOL _includeLocalPeerLogs;
     BOOL _isFirstImport;
+    BOOL _success;
+    NSError *_scanError;
+    PFUbiquitySwitchboardEntry *_entry;
+    NSMutableDictionary *_receiptFileCache;
 }
 
-- (id)init;
-- (id)initWithLocalPeerID:(id)arg1 ubiquityRootLocation:(id)arg2 activeStoreNames:(id)arg3 includingLocalPeerLogs:(BOOL)arg4;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-@property NSObject<PFUbiquityImportScanOperationDelegate> *delegate;
-- (void)main;
-- (BOOL)batchDownloadTransactionLogsAtLocations:(id)arg1 error:(id *)arg2;
++ (void)initialize;
+@property(readonly, nonatomic) NSError *scanError; // @synthesize scanError=_scanError;
+@property(readonly, nonatomic) BOOL success; // @synthesize success=_success;
 @property(nonatomic) BOOL isFirstImport; // @synthesize isFirstImport=_isFirstImport;
 @property(readonly, nonatomic) BOOL includeLocalPeerLogs; // @synthesize includeLocalPeerLogs=_includeLocalPeerLogs;
 @property(readonly, nonatomic) NSSet *activeStoreNames; // @synthesize activeStoreNames=_activeStoreNames;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) PFUbiquityLocation *rootLocationToScan; // @synthesize rootLocationToScan=_rootLocationToScan;
+- (BOOL)batchDownloadTransactionLogsAtLocations:(id)arg1 error:(id *)arg2;
+- (void)main;
+- (id)retainedDelegate;
+@property NSObject<PFUbiquityImportScanOperationDelegate> *delegate;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)initWithLocalPeerID:(id)arg1 ubiquityRootLocation:(id)arg2 activeStoreNames:(id)arg3 includingLocalPeerLogs:(BOOL)arg4;
+- (id)init;
 
 @end
 

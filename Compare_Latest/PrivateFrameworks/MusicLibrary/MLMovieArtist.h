@@ -15,13 +15,13 @@
     NSMutableDictionary *_dictionary;
 }
 
+- (void).cxx_destruct;
 - (void)_setValueCopy:(id)arg1 forKey:(id)arg2;
 - (void)_setValue:(id)arg1 forKey:(id)arg2;
 - (id)copyMovieArtistDictionary;
 @property(copy, nonatomic) NSNumber *ITunesStoreIdentifier;
 @property(copy, nonatomic) NSString *artistName;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithMovieArtistDictionary:(id)arg1;
 - (id)init;
 

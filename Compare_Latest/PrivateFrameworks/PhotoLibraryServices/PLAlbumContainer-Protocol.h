@@ -11,8 +11,13 @@
 @protocol PLAlbumContainer <NSObject>
 @property(readonly, nonatomic) NSString *_typeDescription;
 @property(readonly, nonatomic) NSString *_prettyDescription;
+@property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 @property(readonly, nonatomic) int filter;
+@property(readonly, nonatomic) id albumsSortingComparator;
 - (id)photoLibrary;
+- (void)updateAlbumsOrderIfNeeded;
+- (BOOL)needsReordering;
+- (void)setNeedsReordering;
 - (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;
 - (BOOL)canEditAlbums;
 - (int)albumListType;

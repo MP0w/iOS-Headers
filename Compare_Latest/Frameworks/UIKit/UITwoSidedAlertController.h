@@ -23,6 +23,7 @@
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)flip;
 - (void)dismiss;
+- (void)didPresentAlertView:(id)arg1;
 - (void)show;
 - (id)createBackAlert;
 - (id)createFrontAlert;

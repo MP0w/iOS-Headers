@@ -10,6 +10,8 @@
 {
 }
 
++ (Class)MFMessageComposeViewControllerClass;
++ (Class)MFMailComposeViewControllerClass;
 + (Class)MFContactsSearchResultsModelClass;
 + (Class)MFContactsSearchManagerClass;
 + (Class)SearchShadowViewClass;

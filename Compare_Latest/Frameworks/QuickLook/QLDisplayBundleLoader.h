@@ -14,11 +14,12 @@
 }
 
 + (id)sharedLoader;
-- (void)_lookForDisplayBundles;
-- (id)init;
-- (Class)loadDisplayBundle:(id)arg1;
+- (id)copyDisplayBundleWithPreviewItem:(id)arg1 displayBundleIdentifier:(id)arg2;
 - (Class)displayBundleClassForDocumentType:(id)arg1;
-- (id)copyDisplayBundleWithPreviewItem:(id)arg1 owner:(id)arg2;
+- (Class)loadDisplayBundle:(id)arg1;
+- (void)dealloc;
+- (id)init;
+- (void)_lookForDisplayBundles;
 
 @end
 

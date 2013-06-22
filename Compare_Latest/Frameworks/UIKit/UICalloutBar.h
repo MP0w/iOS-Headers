@@ -46,6 +46,7 @@
     BOOL m_ignoreFade;
 }
 
++ (void)fadeSharedCalloutBarIfNeededForView:(id)arg1 window:(id)arg2;
 + (void)hideSharedCalloutBar;
 + (void)fadeSharedCalloutBar;
 + (BOOL)sharedCalloutBarIsVisible;

@@ -15,13 +15,12 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (void)_removeScriptFunction:(id)arg1;
 - (int)_deviceCapabilityForString:(id)arg1;
 - (void)_addScriptFunction:(id)arg1;
-- (void)_showDialogForCapabilities:(id)arg1 mismatches:(id)arg2;
 - (void)_autoDownloadKindsChangedNotification:(id)arg1;
 @property(readonly) NSString *UTIText;
 @property(readonly) NSString *UTIMovie;
@@ -38,6 +37,8 @@
 @property(readonly) NSString *restrictionITunesAllowed;
 @property(readonly) NSString *restrictionCellularHDUploadsAllowed;
 @property(readonly) NSString *restrictionCameraAllowed;
+@property(readonly) NSString *restrictionBookStoreEroticaAllowed;
+@property(readonly) NSString *restrictionBookStoreAllowed;
 @property(readonly) NSString *restrictionAppRemovalAllowed;
 @property(readonly) NSString *restrictionAppInstallationAllowed;
 @property(readonly) NSString *restrictionAllowVoiceDialing;
@@ -85,6 +86,8 @@
 @property(readonly) int hardwareTypeIPadJ2a;
 @property(readonly) int hardwareTypeIPadJ2;
 @property(readonly) int hardwareTypeIPadJ1;
+@property(readonly) int hardwareTypeAppleTVK66;
+@property(readonly) int hardwareTypeAppleTVJ33;
 @property(readonly) NSString *capabilityNameWiFi;
 @property(readonly) NSString *capabilityNamePodcasts;
 @property(readonly) NSString *capabilityNameHDVideo720p;
@@ -95,6 +98,7 @@
 @property(readonly) NSNumber *mainScreenScale;
 @property(readonly) int hardwareType;
 @property(readonly) NSNumber *diskSpaceAvailable;
+@property(readonly) unsigned long deviceTypeIdentifier;
 - (id)_className;
 @property(readonly) NSArray *automaticDownloadMediaTypes;
 @property(readonly) int activeNetworkType;

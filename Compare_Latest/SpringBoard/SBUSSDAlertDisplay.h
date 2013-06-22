@@ -4,13 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBAlertDisplay.h"
+#import "SBAlertView.h"
 
 #import "UITextFieldDelegate-Protocol.h"
 
 @class SBTextDisplayView, TPBottomSingleButtonBar, UIActivityIndicatorView, UIScrollView, UITextField, UITransitionView, UIView;
 
-@interface SBUSSDAlertDisplay : SBAlertDisplay <UITextFieldDelegate>
+@interface SBUSSDAlertDisplay : SBAlertView <UITextFieldDelegate>
 {
     TPBottomSingleButtonBar *_responseBar;
     UIView *_notifyView;
@@ -24,23 +24,23 @@
     BOOL _allowsResponse;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)_notifyView;
-- (id)_replyView;
-- (void)dealloc;
-- (void)displayString:(id)arg1 centerVertically:(BOOL)arg2;
-- (void)alertDisplayWillBecomeVisible;
-- (void)alertDisplayBecameVisible;
-- (void)_setupResponseBar;
-- (void)alertStringAvailable:(id)arg1;
-- (BOOL)allowsResponse;
-- (void)setAllowsResponse:(BOOL)arg1;
-- (BOOL)textField:(id)arg1 shouldInsertText:(id)arg2 replacingRange:(struct _NSRange)arg3;
-- (void)_updateCharsRemaining;
-- (void)_textChanged:(id)arg1;
-- (void)_replyClicked;
-- (void)_okayClicked;
 - (void)_cancelClicked;
+- (void)_okayClicked;
+- (void)_replyClicked;
+- (void)_textChanged:(id)arg1;
+- (void)_updateCharsRemaining;
+- (BOOL)textField:(id)arg1 shouldInsertText:(id)arg2 replacingRange:(struct _NSRange)arg3;
+- (void)setAllowsResponse:(BOOL)arg1;
+- (BOOL)allowsResponse;
+- (void)alertStringAvailable:(id)arg1;
+- (void)_setupResponseBar;
+- (void)alertDisplayBecameVisible;
+- (void)alertDisplayWillBecomeVisible;
+- (void)displayString:(id)arg1 centerVertically:(BOOL)arg2;
+- (void)dealloc;
+- (id)_replyView;
+- (id)_notifyView;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

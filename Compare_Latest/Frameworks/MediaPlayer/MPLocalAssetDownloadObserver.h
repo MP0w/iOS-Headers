@@ -10,7 +10,6 @@
 
 @interface MPLocalAssetDownloadObserver : MPMediaDownloadObserver
 {
-    long long _itemPersistentID;
     NSTimer *_progressTimer;
 }
 

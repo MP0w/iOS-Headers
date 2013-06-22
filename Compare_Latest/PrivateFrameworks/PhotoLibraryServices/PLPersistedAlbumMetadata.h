@@ -14,12 +14,15 @@
     NSString *_uuid;
     NSNumber *_kind;
     NSMutableOrderedSet *_assetUUIDs;
+    BOOL _allowsOverwite;
     PLManagedAlbum *_managedAlbum;
     NSURL *_metadataURL;
 }
 
++ (BOOL)isValidPath:(id)arg1;
 @property(retain, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
 @property(retain, nonatomic) PLManagedAlbum *managedAlbum; // @synthesize managedAlbum=_managedAlbum;
+@property(nonatomic) BOOL allowsOverwite; // @synthesize allowsOverwite=_allowsOverwite;
 @property(retain, nonatomic) NSMutableOrderedSet *assetUUIDs; // @synthesize assetUUIDs=_assetUUIDs;
 @property(retain, nonatomic) NSNumber *kind; // @synthesize kind=_kind;
 @property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
@@ -31,6 +34,7 @@
 - (id)albumFromDataInManagedObjectContext:(id)arg1;
 - (void)removePersistedAlbumData;
 - (void)persistAlbumData;
+- (id)initWithTitle:(id)arg1 uuid:(id)arg2 kind:(id)arg3 assetUUIDs:(id)arg4;
 - (id)initWithPersistedDataAtPath:(id)arg1;
 - (id)initWithPLGenericAlbum:(id)arg1;
 - (void)dealloc;

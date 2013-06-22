@@ -7,7 +7,7 @@
 #import "NSData.h"
 
 @interface NSData (CompressionAdditions)
-- (id)_FTGzippedData;
+- (id)_FTCopyGzippedData;
 - (id)_FTOptionallyDecompressData;
 - (id)_FTDecompressData;
 - (id)_FTStringFromBaseData;

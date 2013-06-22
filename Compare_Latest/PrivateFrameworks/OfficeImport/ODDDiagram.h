@@ -15,13 +15,13 @@
     ODDStyleDefinition *mStyleDefinition;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)setParentTextListStyle:(id)arg1;
-- (id)documentPoint;
-- (void)setDocumentPoint:(id)arg1;
-- (id)colorTransform;
 - (id)styleDefinition;
+- (id)colorTransform;
+- (void)setDocumentPoint:(id)arg1;
+- (id)documentPoint;
+- (void)setParentTextListStyle:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

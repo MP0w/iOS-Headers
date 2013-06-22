@@ -10,8 +10,8 @@
 {
 }
 
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 
 @end
 

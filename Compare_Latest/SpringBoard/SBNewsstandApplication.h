@@ -10,21 +10,22 @@
 {
     BOOL _isMagazineApp;
     BOOL _iconIsBoundOnRight;
+    unsigned int _supportsNewsstandContentBackgroundMode:1;
+    unsigned int _allowedContentNotificationsPerDay;
     unsigned char _newsstandWakes;
     unsigned int _lastPostedState;
 }
 
-- (id)initWithBundleIdentifier:(id)arg1 webClip:(id)arg2 path:(id)arg3 bundle:(id)arg4 infoDictionary:(id)arg5 isSystemApplication:(BOOL)arg6 signerIdentity:(id)arg7 provisioningProfileValidated:(BOOL)arg8;
-- (BOOL)isNewsstandApplication;
-- (Class)iconClass;
-- (void)activate;
-- (void)_sendApplicationStateChangedNotification:(unsigned int)arg1;
-- (void)process:(id)arg1 didAddAssertion:(id)arg2;
-- (void)resumeForContentAvailable;
-- (BOOL)isFakeApp;
-- (BOOL)hasReachedWakeQuota;
 @property(readonly, nonatomic) BOOL iconIsBoundOnRight; // @synthesize iconIsBoundOnRight=_iconIsBoundOnRight;
 @property(readonly, nonatomic) BOOL isMagazineApp; // @synthesize isMagazineApp=_isMagazineApp;
+- (BOOL)isNewsstandApplication;
+- (BOOL)shouldThrottleContentNotificationOnDate:(id)arg1 withLastCount:(unsigned int *)arg2 onDay:(int *)arg3;
+- (BOOL)isFakeApp;
+- (void)resumeForContentAvailable;
+- (void)setApplicationState:(unsigned int)arg1;
+- (void)activate;
+- (Class)iconClass;
+- (id)initWithBundleIdentifier:(id)arg1 webClip:(id)arg2 path:(id)arg3 bundle:(id)arg4 infoDictionary:(id)arg5 isSystemApplication:(BOOL)arg6 signerIdentity:(id)arg7 provisioningProfileValidated:(BOOL)arg8;
 
 @end
 

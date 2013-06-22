@@ -8,10 +8,11 @@
 
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class MFGobblerGestureRecognizer, MFMailComposeView, NSMutableArray, NSMutableDictionary, NSTimer, UIGestureRecognizer, UIView;
+@class MFGobblerGestureRecognizer, NSMutableArray, NSMutableDictionary, NSTimer, UIGestureRecognizer, UIView, UIWindow;
 
 @interface MFDragManager : NSObject <UIGestureRecognizerDelegate>
 {
+    NSMutableArray *_dragContextValues;
     NSMutableArray *_dragDestinations;
     NSMutableArray *_dragSources;
     NSMutableDictionary *_gestureRecognizersForSource;
@@ -20,8 +21,8 @@
     UIView *_draggedItemView;
     id <MFDragDestination> _currentDestination;
     UIGestureRecognizer *_currentGestureBeingProcessed;
+    UIWindow *_dragWindow;
     MFGobblerGestureRecognizer *_gobblerGestureRecognizer;
-    MFMailComposeView *_currentlyDisplayedComposeView;
     NSTimer *_scrollTimer;
     struct CGPoint _offsetCenterOfDraggedView;
     struct CGPoint _previousGestureLocation;
@@ -31,23 +32,23 @@
     BOOL _scrollingForDrag;
 }
 
-+ (void)initialize;
-+ (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)addDragDestination:(id)arg1;
-- (void)removeDragDestination:(id)arg1;
-- (void)addDragSource:(id)arg1;
-- (void)removeDragSource:(id)arg1;
-- (void)_cleanUpAfterDragCompleted;
-- (void)_processGestureUpdate;
-- (void)cancelCurrentDragOperation;
-- (void)_handleLongPress:(id)arg1;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
-- (BOOL)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
 - (void)_scrollViewIfNecessary;
-@property MFMailComposeView *currentlyDisplayedComposeView; // @synthesize currentlyDisplayedComposeView=_currentlyDisplayedComposeView;
+- (BOOL)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (void)_handleLongPress:(id)arg1;
+- (void)enumerateDragContextsUsingBlock:(id)arg1;
+- (void)cancelCurrentDragOperation;
+- (void)_processGestureUpdate;
+- (void)_cleanUpAfterDragCompleted;
+- (void)removeDragSource:(id)arg1;
+- (void)addDragSource:(id)arg1;
+- (void)removeDragDestination:(id)arg1;
+- (void)addDragDestination:(id)arg1;
+- (void)removeDragContext:(id)arg1;
+- (void)addDragContext:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

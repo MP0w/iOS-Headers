@@ -11,6 +11,7 @@
 }
 
 + (id)chdTrendlineFromXmlTrendlineElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (int)chdTrendlineTypeFromXmlTrendlineTypeElement:(struct _xmlNode *)arg1;
 
 @end
 

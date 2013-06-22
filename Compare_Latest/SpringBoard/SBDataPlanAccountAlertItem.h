@@ -13,13 +13,13 @@
     NSURL *_accountURL;
 }
 
-+ (id)laterButtonTitle;
 + (id)nowButtonTitle;
-- (id)initWithAccountURL:(id)arg1;
-- (void)dealloc;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
++ (id)laterButtonTitle;
 @property(copy, nonatomic) NSURL *accountURL; // @synthesize accountURL=_accountURL;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)dealloc;
+- (id)initWithAccountURL:(id)arg1;
 
 @end
 

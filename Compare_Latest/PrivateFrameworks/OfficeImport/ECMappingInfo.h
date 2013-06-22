@@ -14,11 +14,11 @@
 }
 
 + (id)mappingInfoWithSheetName:(id)arg1;
-- (id)initWithSheetName:(id)arg1;
-- (void)dealloc;
-@property(readonly, nonatomic) int rowOffset;
-@property(readonly, nonatomic) int columnOffset;
 @property(readonly, nonatomic) NSString *sheetName; // @synthesize sheetName=mSheetName;
+@property(readonly, nonatomic) int columnOffset;
+@property(readonly, nonatomic) int rowOffset;
+- (void)dealloc;
+- (id)initWithSheetName:(id)arg1;
 
 @end
 

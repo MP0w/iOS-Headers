@@ -16,9 +16,9 @@
 - (BOOL)configureForCalendarConstraints:(id)arg1;
 - (void)_updateDefaultAlarm;
 - (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
-- (int)numberOfSubitems;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
+- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
+- (int)numberOfSubitemsInSubsection:(int)arg1;
 - (void)setCalendarItem:(id)arg1 store:(id)arg2;
 - (id)init;
 

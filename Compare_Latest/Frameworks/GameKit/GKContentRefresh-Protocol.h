@@ -7,6 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol GKContentRefresh <NSObject>
+- (BOOL)_gkShouldRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
+- (void)_gkRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
 - (void)_gkResetContents;
 - (void)_gkUpdateContentsWithCompletionHandlerAndError:(id)arg1;
 

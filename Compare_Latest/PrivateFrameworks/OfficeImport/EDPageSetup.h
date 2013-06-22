@@ -25,33 +25,33 @@
 }
 
 + (id)pageSetup;
-- (id)init;
-- (int)orientation;
-- (void)setOrientation:(int)arg1;
-- (int)order;
-- (void)setOrder:(int)arg1;
-- (_Bool)customFirstPageNumber;
-- (void)setCustomFirstPageNumber:(_Bool)arg1;
-- (unsigned int)firstPageNumber;
-- (void)setFirstPageNumber:(unsigned int)arg1;
-- (unsigned int)fitToHeight;
-- (void)setFitToHeight:(unsigned int)arg1;
-- (unsigned int)fitToWidth;
-- (void)setFitToWidth:(unsigned int)arg1;
-- (unsigned int)scale;
-- (void)setScale:(unsigned int)arg1;
-- (float)leftMargin;
-- (void)setLeftMargin:(float)arg1;
-- (float)rightMargin;
-- (void)setRightMargin:(float)arg1;
-- (float)topMargin;
-- (void)setTopMargin:(float)arg1;
-- (float)bottomMargin;
-- (void)setBottomMargin:(float)arg1;
-- (float)headerMargin;
-- (void)setHeaderMargin:(float)arg1;
-- (float)footerMargin;
 - (void)setFooterMargin:(float)arg1;
+- (float)footerMargin;
+- (void)setHeaderMargin:(float)arg1;
+- (float)headerMargin;
+- (void)setBottomMargin:(float)arg1;
+- (float)bottomMargin;
+- (void)setTopMargin:(float)arg1;
+- (float)topMargin;
+- (void)setRightMargin:(float)arg1;
+- (float)rightMargin;
+- (void)setLeftMargin:(float)arg1;
+- (float)leftMargin;
+- (void)setScale:(unsigned int)arg1;
+- (unsigned int)scale;
+- (void)setFitToWidth:(unsigned int)arg1;
+- (unsigned int)fitToWidth;
+- (void)setFitToHeight:(unsigned int)arg1;
+- (unsigned int)fitToHeight;
+- (void)setFirstPageNumber:(unsigned int)arg1;
+- (unsigned int)firstPageNumber;
+- (void)setCustomFirstPageNumber:(_Bool)arg1;
+- (_Bool)customFirstPageNumber;
+- (void)setOrder:(int)arg1;
+- (int)order;
+- (void)setOrientation:(int)arg1;
+- (int)orientation;
+- (id)init;
 
 @end
 

@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class AVCallbackRegistry, NSMutableDictionary;
+@class AVCallbackRegistry, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AVCMNotificationDispatcher : NSObject
 {
     struct opaqueCMNotificationCenter *_cmNotificationCenter;
     AVCallbackRegistry *_callbackRegistry;
     NSMutableDictionary *_listenerObjectsPassedToFig;
-    struct dispatch_queue_s *_listenerObjectsQueue;
+    NSObject<OS_dispatch_queue> *_listenerObjectsQueue;
 }
 
 + (id)notificationDispatcherForCMNotificationCenter:(struct opaqueCMNotificationCenter *)arg1;

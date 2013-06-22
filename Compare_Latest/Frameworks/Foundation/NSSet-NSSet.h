@@ -7,6 +7,7 @@
 #import "NSSet.h"
 
 @interface NSSet (NSSet)
++ (BOOL)supportsSecureCoding;
 - (Class)classForCoder;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

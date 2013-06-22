@@ -25,6 +25,7 @@
 - (BOOL)startUsingDevice:(id *)arg1;
 - (BOOL)isConnected;
 - (BOOL)isInUseByAnotherApplication;
+- (id)formats;
 - (BOOL)hasMediaType:(id)arg1;
 - (id)localizedName;
 - (id)modelID;

@@ -14,11 +14,11 @@
     PBPresentationReaderState *mLegacyPresentationState;
 }
 
-- (void)dealloc;
-- (id)legacyTextGlobals;
-- (void)setLegacyTextGlobals:(id)arg1;
-- (id)legacyPresentationState;
 - (void)setLegacyPresentationState:(id)arg1;
+- (id)legacyPresentationState;
+- (void)setLegacyTextGlobals:(id)arg1;
+- (id)legacyTextGlobals;
+- (void)dealloc;
 
 @end
 

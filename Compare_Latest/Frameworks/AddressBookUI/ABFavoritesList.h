@@ -13,25 +13,25 @@
     ABFavoritesListManager *_favoritesListManager;
 }
 
-+ (id)sharedInstance;
 + (id)sharedInstanceWithAddressBook:(void *)arg1;
-- (id)initWithAddressBook:(void *)arg1;
-- (void)dealloc;
-- (void)_applicationWillSuspend:(id)arg1;
-- (id)entries;
-- (BOOL)isFull;
-- (id)entriesForPerson:(void *)arg1;
-- (void)addEntry:(id)arg1;
-- (void)removeEntryAtIndex:(int)arg1;
-- (void)moveEntryAtIndex:(int)arg1 toIndex:(int)arg2;
-- (void)save;
-- (void)recacheIdentitiesSoon;
-- (BOOL)containsEntryWithIdentifier:(int)arg1 forPerson:(void *)arg2;
-- (BOOL)containsEntryWithType:(int)arg1 forPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (id)entryWithIdentifier:(int)arg1 forPerson:(void *)arg2;
-- (id)entryWithType:(int)arg1 forPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)addEntryForPerson:(void *)arg1 property:(int)arg2 withIdentifier:(int)arg3;
++ (id)sharedInstance;
 - (BOOL)entryIsDuplicateAndThusRemoved:(id)arg1 oldUid:(int)arg2;
+- (BOOL)addEntryForPerson:(void *)arg1 property:(int)arg2 withIdentifier:(int)arg3;
+- (id)entryWithType:(int)arg1 forPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (id)entryWithIdentifier:(int)arg1 forPerson:(void *)arg2;
+- (BOOL)containsEntryWithType:(int)arg1 forPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (BOOL)containsEntryWithIdentifier:(int)arg1 forPerson:(void *)arg2;
+- (void)recacheIdentitiesSoon;
+- (void)save;
+- (void)moveEntryAtIndex:(int)arg1 toIndex:(int)arg2;
+- (void)removeEntryAtIndex:(int)arg1;
+- (void)addEntry:(id)arg1;
+- (id)entriesForPerson:(void *)arg1;
+- (BOOL)isFull;
+- (id)entries;
+- (void)_applicationWillSuspend:(id)arg1;
+- (void)dealloc;
+- (id)initWithAddressBook:(void *)arg1;
 
 @end
 

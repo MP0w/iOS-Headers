@@ -13,8 +13,8 @@
     NSURL *mUrl;
 }
 
-- (void)dealloc;
 @property(retain) NSURL *url; // @synthesize url=mUrl;
+- (void)dealloc;
 
 @end
 

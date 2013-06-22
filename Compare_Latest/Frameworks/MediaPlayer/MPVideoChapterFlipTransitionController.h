@@ -13,11 +13,15 @@
     UINavigationBar *_navigationBar;
     UINavigationItem *_originalNavigationItem;
     UITextLabel *_chapterGuideTitleLabel;
-    unsigned int _shouldPlayAfterFlip:1;
+    BOOL _shouldPlayAfterFlip;
+    BOOL _tvOutEnabled;
 }
 
+@property(nonatomic) BOOL TVOutEnabled; // @synthesize TVOutEnabled=_tvOutEnabled;
+@property(nonatomic) BOOL playAfterFlip; // @synthesize playAfterFlip=_shouldPlayAfterFlip;
 @property(retain, nonatomic) UINavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
 - (void)_showChapterGuideNavigationViews;
+- (void)_restoreOriginalNavigationViewsDidStop:(id)arg1;
 - (void)_restoreOriginalNavigationViews:(BOOL)arg1;
 - (int)_interfaceOrientation;
 - (void)_hideNavigationAndStatusBars;
@@ -25,7 +29,6 @@
 - (id)_chapterGuideTitleLabel;
 - (void)_hideNavigationBarAnimationDidFinish:(id)arg1;
 - (void)_done:(id)arg1;
-@property(nonatomic) BOOL playAfterFlip;
 - (void)performTransition:(unsigned int)arg1;
 - (void)dealloc;
 

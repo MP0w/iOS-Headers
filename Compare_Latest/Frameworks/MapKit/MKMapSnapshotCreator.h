@@ -22,7 +22,6 @@
 @property(retain, nonatomic) MKMapSnapshotRequest *servingRequest; // @synthesize servingRequest=_servingRequest;
 - (void)createSnapShotWithCoordinate:(CDStruct_c3b9c2ee)arg1 zoomLevel:(unsigned int)arg2 size:(struct CGSize)arg3 handler:(id)arg4;
 - (void)flushRequestQueue;
-- (void)didDisplaySnapShotWithCoordinate:(CDStruct_c3b9c2ee)arg1 zoomLevel:(unsigned int)arg2 size:(struct CGSize)arg3;
 - (id)recreateCurrentSnapshotWithRequester:(id)arg1 context:(id)arg2;
 - (void)createSnapShotWithCoordinate:(CDStruct_c3b9c2ee)arg1 zoomLevel:(unsigned int)arg2 size:(struct CGSize)arg3 requester:(id)arg4 context:(id)arg5;
 - (void)_respondWithSnapshot;

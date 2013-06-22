@@ -27,11 +27,12 @@
     unsigned int m_bufferOffset;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)setString:(id)arg1 withSearchRange:(struct _NSRange)arg2;
-- (struct _NSRange)advanceToNextToken;
+- (id)allTokensForString:(id)arg1;
 - (struct _NSRange)rangeOfCurrentToken;
+- (struct _NSRange)advanceToNextToken;
+- (void)setString:(id)arg1 withSearchRange:(struct _NSRange)arg2;
+- (void)dealloc;
+- (id)init;
 
 @end
 

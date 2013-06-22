@@ -6,7 +6,7 @@
 
 #import "UITableView.h"
 
-@class NSArray, UIImage, UIView;
+@class GKTableViewControllerV2, NSArray, NSDictionary, NSOrderedSet, UIImage, UIView;
 
 @interface GKTableView : UITableView
 {
@@ -25,8 +25,18 @@
     struct CGPoint _lastTouchStartedAt;
     unsigned int _loadingSequenceNumber;
     BOOL _shouldOverrideTableFooterGroupPadding;
+    NSOrderedSet *_displayedSections;
+    BOOL _disableOffsetAndBoundsHacks;
+    BOOL _shouldUseWideMarginsForLandscapeContentOnWidescreenDevice;
+    unsigned int _contentOffsetLockCount;
+    NSDictionary *_displayedSectionMetrics;
 }
 
+@property(retain, nonatomic) NSDictionary *displayedSectionMetrics; // @synthesize displayedSectionMetrics=_displayedSectionMetrics;
+@property(nonatomic) unsigned int contentOffsetLockCount; // @synthesize contentOffsetLockCount=_contentOffsetLockCount;
+@property(nonatomic) BOOL shouldUseWideMarginsForLandscapeContentOnWidescreenDevice; // @synthesize shouldUseWideMarginsForLandscapeContentOnWidescreenDevice=_shouldUseWideMarginsForLandscapeContentOnWidescreenDevice;
+@property(nonatomic) BOOL disableOffsetAndBoundsHacks; // @synthesize disableOffsetAndBoundsHacks=_disableOffsetAndBoundsHacks;
+@property(retain, nonatomic) NSOrderedSet *displayedSections; // @synthesize displayedSections=_displayedSections;
 @property(nonatomic) BOOL shouldOverrideTableFooterGroupPadding; // @synthesize shouldOverrideTableFooterGroupPadding=_shouldOverrideTableFooterGroupPadding;
 @property(readonly, nonatomic) unsigned int loadingSequenceNumber; // @synthesize loadingSequenceNumber=_loadingSequenceNumber;
 @property(readonly, nonatomic) struct CGPoint lastTouchStartedAt; // @synthesize lastTouchStartedAt=_lastTouchStartedAt;
@@ -42,14 +52,15 @@
 @property(nonatomic) float shadowInset; // @synthesize shadowInset=_shadowInset;
 @property(nonatomic) BOOL shouldPlaceShadowBelowTableHeader; // @synthesize shouldPlaceShadowBelowTableHeader=_shouldPlaceShadowBelowTableHeader;
 @property(retain, nonatomic) UIView *topShadowView; // @synthesize topShadowView=_topShadowView;
-- (void)reloadData;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)deleteRowsAtIndexPaths:(id)arg1 withRowAnimation:(int)arg2 updateHeader:(BOOL)arg3;
+- (void)insertRowsAtIndexPaths:(id)arg1 withRowAnimation:(int)arg2 updateHeader:(BOOL)arg3;
+- (id)indexPathForNextSelectedRow;
 - (BOOL)canBecomeFirstResponder;
 - (void)setBounds:(struct CGRect)arg1;
-- (BOOL)usesVariableMargins;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)updateBackground;
+- (void)limitContentOffsetToHeightThatPinsHeader;
+- (BOOL)headerIsPinned;
 - (void)layoutSubviews;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)updateShadowViews;
@@ -62,6 +73,33 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
+- (void)reloadData;
+- (void)restoreContentOffset:(struct CGPoint)arg1 isRotating:(BOOL)arg2;
+- (void)unlockContentOffset;
+- (void)lockContentOffset;
+- (float)_pinnedHeaderContentOffsetThreshold;
+- (BOOL)_tableIsLandscape;
+- (BOOL)_kludgeTableIsWidescreen;
+- (void)updateHeightForTableHeaderViewHiding;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (BOOL)usesVariableMargins;
+- (void)_flashTableView:(id)arg1;
+- (void)resetDisplayedSections;
+- (id)validateDisplayedSections;
+- (id)validateDisplayedSectionsWithSections:(id)arg1;
+- (void)_setDisplayedSections:(id)arg1;
+- (void)endUpdates;
+- (void)beginUpdates;
+- (void)scrollToTopWithPinnedHeaderAnimated:(BOOL)arg1;
+@property(readonly, nonatomic) GKTableViewControllerV2 *_controller;
+- (id)loadingCapCell;
+- (id)showAllCapCell;
+- (id)showMoreCapCell;
+- (id)sectionHeaderCapCellWithTitle:(id)arg1;
+- (id)capCellWithReuseIdentifier:(id)arg1 title:(id)arg2 labelStyle:(int)arg3;
+- (id)_gkDescriptionWithChildren:(int)arg1;
+- (id)_gkDescription;
 
 @end
 

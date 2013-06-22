@@ -4,29 +4,25 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
-
-#import "NSCoding-Protocol.h"
+#import <CoreData/PFUbiquitySafeSaveFile.h>
 
 @class PFUbiquityKnowledgeVector, PFUbiquityLocation;
 
-@interface PFUbiquityPeerReceipt : NSObject <NSCoding>
+@interface PFUbiquityPeerReceipt : PFUbiquitySafeSaveFile
 {
     PFUbiquityKnowledgeVector *_kv;
-    PFUbiquityLocation *_receiptFileLocation;
 }
 
-- (id)init;
-- (id)initWithPeerID:(id)arg1 storeName:(id)arg2 modelVersionHash:(id)arg3 andUbiquityRootLocation:(id)arg4;
-- (id)initWithKnowledgeVector:(id)arg1 forPeerID:(id)arg2 storeName:(id)arg3 modelVersionHash:(id)arg4 andUbiquityRootLocation:(id)arg5;
-- (id)initWithReceiptFileLocation:(id)arg1;
-- (void)dealloc;
-- (id)description;
-- (BOOL)existsInCloud;
-- (BOOL)loadReceiptFile:(id *)arg1;
-- (BOOL)writeReceiptToFile:(id *)arg1;
 @property(readonly, nonatomic) PFUbiquityKnowledgeVector *kv; // @synthesize kv=_kv;
-@property(readonly, nonatomic) PFUbiquityLocation *receiptFileLocation; // @synthesize receiptFileLocation=_receiptFileLocation;
+- (BOOL)writeFileToLocation:(id)arg1 error:(id *)arg2;
+- (BOOL)loadFileFromLocation:(id)arg1 error:(id *)arg2;
+- (id)description;
+@property(readonly, nonatomic) PFUbiquityLocation *receiptFileLocation;
+- (void)dealloc;
+- (id)initWithLocalPeerID:(id)arg1 andReceiptFileLocation:(id)arg2;
+- (id)initWithLocalPeerID:(id)arg1 andKnowledgeVector:(id)arg2 forPeerID:(id)arg3 storeName:(id)arg4 modelVersionHash:(id)arg5 andUbiquityRootLocation:(id)arg6;
+- (id)initWithLocalPeerID:(id)arg1 receiptPeerID:(id)arg2 storeName:(id)arg3 modelVersionHash:(id)arg4 andUbiquityRootLocation:(id)arg5;
+- (id)init;
 
 @end
 

@@ -7,7 +7,7 @@
 #import "NSError.h"
 
 @interface NSError (GEOXPCUtil)
-+ (id)_geo_errorFromXPCData:(void *)arg1;
-- (void *)_geo_newXPCData;
++ (id)_geo_errorFromXPCData:(id)arg1;
+- (id)_geo_newXPCData;
 @end
 

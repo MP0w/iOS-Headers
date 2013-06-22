@@ -9,11 +9,13 @@
 @protocol NSFileAccessArbiter <NSObject>
 - (void)tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didVersionChangeOfKind:(id)arg2 toItemAtURL:(id)arg3 withClientID:(id)arg4 name:(id)arg5;
+- (void)writerWithPurposeID:(id)arg1 didReconnectItemAtURL:(id)arg2;
+- (void)writerWithPurposeID:(id)arg1 didDisconnectItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didMoveItemAtURL:(id)arg2 toURL:(id)arg3;
 - (void)cancelAccessClaimForID:(id)arg1;
 - (void)revokeSubarbitrationClaimForID:(id)arg1;
-- (void)grantSubarbitrationClaim:(id)arg1 withServer:(struct _xpc_connection_s *)arg2;
+- (void)grantSubarbitrationClaim:(id)arg1 withServer:(id)arg2;
 - (void)revokeAccessClaimForID:(id)arg1;
-- (struct dispatch_semaphore_s *)grantAccessClaim:(id)arg1 synchronouslyIfPossible:(BOOL)arg2;
+- (id)grantAccessClaim:(id)arg1 synchronouslyIfPossible:(BOOL)arg2;
 @end
 

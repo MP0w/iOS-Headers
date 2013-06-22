@@ -27,17 +27,19 @@
     float mSlideOriginY;
 }
 
-- (id)initWithPDPresentation:(id)arg1 archiver:(id)arg2;
-- (void)dealloc;
-- (id)archiver;
-- (id)blipAtIndex:(unsigned int)arg1;
-- (id)documentTitle;
-- (struct CGSize)pageSizeForDevice;
-- (struct CGSize)slideSize;
-- (void)startMappingWithState:(id)arg1;
-- (void)_pushEmptySlideWithMessage:(id)arg1;
-- (void)mapElement:(id)arg1 atIndex:(unsigned int)arg2 withState:(id)arg3 isLastElement:(BOOL)arg4;
 - (void)finishMappingWithState:(id)arg1;
+- (void)mapElement:(id)arg1 atIndex:(unsigned int)arg2 withState:(id)arg3 isLastElement:(BOOL)arg4;
+- (void)_pushEmptySlideWithMessage:(id)arg1;
+- (void)startMappingWithState:(id)arg1;
+- (struct CGSize)slideSize;
+- (struct CGSize)pageSizeForDevice;
+- (id)documentTitle;
+- (id)blipAtIndex:(unsigned int)arg1;
+- (id)archiver;
+- (void)dealloc;
+- (id)initWithPDPresentation:(id)arg1 archiver:(id)arg2;
+- (void)setHtmlDocumentSizeInArchiver;
+- (void)mapDefaultCssStylesAt:(id)arg1;
 
 @end
 

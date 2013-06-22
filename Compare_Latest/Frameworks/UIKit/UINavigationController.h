@@ -40,12 +40,17 @@
         unsigned int avoidMovingNavBarOffscreenBeforeUnhiding:1;
         unsigned int searchBarHidNavBar:1;
         unsigned int useSystemPopoverBarAppearance:1;
+        unsigned int isCustomTransition:1;
     } _navigationControllerFlags;
     Class _toolbarClass;
+    float _customNavigationTransitionDuration;
+    BOOL _interactiveTransition;
 }
 
 @property(retain, nonatomic) UIViewController *disappearingViewController; // @synthesize disappearingViewController=_disappearingViewController;
+@property(nonatomic, getter=isInteractiveTransition) BOOL interactiveTransition; // @synthesize interactiveTransition=_interactiveTransition;
 @property(nonatomic) id <UINavigationControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) float customNavigationTransitionDuration; // @synthesize customNavigationTransitionDuration=_customNavigationTransitionDuration;
 @property(nonatomic, setter=_setToolbarClass:) Class _toolbarClass; // @synthesize _toolbarClass;
 - (id)moreListTableCell;
 - (id)moreListSelectedImage;
@@ -84,6 +89,7 @@
 - (id)rotatingFooterView;
 - (id)rotatingHeaderView;
 - (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
+- (BOOL)_shouldSynthesizeSupportedOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (BOOL)_doesTopViewControllerSupportInterfaceOrientation:(int)arg1;
 - (BOOL)_allowsAutorotation;
@@ -97,6 +103,10 @@
 - (id)popViewControllerWithAnimationTransition:(int)arg1 duration:(double)arg2 curve:(int)arg3;
 - (id)_popViewControllerWithTransition:(int)arg1 allowPoppingLast:(BOOL)arg2;
 - (void)_popViewControllerAndUpdateInterfaceOrientationAnimated:(BOOL)arg1;
+- (float)_customNavigationTransitionDuration;
+- (BOOL)_isInteractiveCustomNavigationTransition;
+- (BOOL)_willPerformCustomNavigationTransitionForPush;
+- (BOOL)_willPerformCustomNavigationTransitionForPop;
 - (BOOL)_shouldPopFromLandscapeToPortraitOrientation;
 - (id)_snapshotView;
 - (void)_tabBarControllerDidFinishShowingTabBar:(id)arg1;
@@ -112,10 +122,15 @@
 - (void)_clearLastOperation;
 - (int)_deferredTransition;
 - (void)_startDeferredTransitionIfNeeded;
+- (void)_startDeferredTransitionIfNeeded:(id)arg1;
 - (void)_startTransition:(int)arg1 fromViewController:(id)arg2 toViewController:(id)arg3;
+- (void)_updateScrollViewFromViewController:(id)arg1 toViewController:(id)arg2;
 - (int)_navigationTransitionForUITransition:(int)arg1;
 - (void)_layoutViewController:(id)arg1;
 - (void)_computeAndApplyScrollContentInsetDeltaForViewController:(id)arg1;
+- (void)_applyScrollContentInsetDelta:(struct UIEdgeInsets)arg1 forViewController:(id)arg2;
+- (struct UIEdgeInsets)_expectedContentInsetDeltaForViewController:(id)arg1;
+- (float)_scrollViewTopContentInsetForViewController:(id)arg1;
 - (float)_scrollViewBottomContentInset;
 - (void)_layoutTopViewController;
 - (struct CGRect)_frameForViewController:(id)arg1;
@@ -132,13 +147,17 @@
 - (int)lastOperation;
 @property(nonatomic) BOOL needsDeferredTransition;
 - (void)setNeedsDeferredTransition;
+- (BOOL)isCustomTransition;
 - (double)navigationTransitionView:(id)arg1 durationForTransition:(int)arg2;
+- (void)navigationTransitionView:(id)arg1 didCancelTransition:(int)arg2 fromView:(id)arg3 toView:(id)arg4 wrapperView:(id)arg5;
 - (void)navigationTransitionView:(id)arg1 didEndTransition:(int)arg2 fromView:(id)arg3 toView:(id)arg4;
 - (void)navigationTransitionView:(id)arg1 didStartTransition:(int)arg2;
 - (BOOL)_isTransitioning;
 - (void)didShowViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)willShowViewController:(id)arg1 animated:(BOOL)arg2;
 - (id)defaultFirstResponder;
+- (id)segueForUnwindingToViewController:(id)arg1 fromViewController:(id)arg2 identifier:(id)arg3;
+- (id)viewControllerForUnwindSegueAction:(SEL)arg1 fromViewController:(id)arg2 withSender:(id)arg3;
 - (BOOL)_reallyWantsFullScreenLayout;
 - (void)_updateToolbarItemsFromViewController:(id)arg1 animated:(BOOL)arg2;
 - (BOOL)editing;
@@ -147,6 +166,7 @@
 - (void)purgeMemoryForReason:(int)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
+- (id)_viewControllerForDisappearCallback;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewDidMoveToWindow:(id)arg1 shouldAppearOrDisappear:(BOOL)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
@@ -179,6 +199,12 @@
 @property(readonly, nonatomic) UINavigationBar *navigationBar;
 - (void)setNavigationBarClass:(Class)arg1;
 - (Class)navigationBarClass;
+- (void)_startCustomTransitionFromViewController:(id)arg1 toViewController:(id)arg2 transitionController:(id)arg3;
+- (void)_cancelInteractiveTransition:(float)arg1;
+- (void)_finishInteractiveTransition:(float)arg1;
+- (void)_updateInteractiveTransition:(float)arg1;
+- (void)_setContentInset:(struct UIEdgeInsets)arg1;
+- (void)_setClipsToBounds:(BOOL)arg1;
 @property(readonly, nonatomic) UINavigationTransitionView *navigationTransitionView;
 - (void)_setViewControllers:(id)arg1 transition:(int)arg2;
 - (id)_navigationItems;
@@ -199,6 +225,10 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithNavigationBarClass:(Class)arg1 toolbarClass:(Class)arg2;
 - (id)initWithRootViewController:(id)arg1;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
+@property BOOL isExpanded;
+@property(retain) UIViewController *detailViewController;
 
 @end
 

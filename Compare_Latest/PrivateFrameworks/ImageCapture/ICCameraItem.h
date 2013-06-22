@@ -13,32 +13,32 @@
     void *_itemProperties;
 }
 
-- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
-- (void)dealloc;
-- (void)finalize;
-- (id)valueForUndefinedKey:(id)arg1;
-@property(readonly) ICCameraDevice *device;
-@property(readonly) ICCameraFolder *parentFolder;
-@property(readonly) NSString *name;
-@property(getter=isLocked) BOOL locked;
-@property(readonly) NSString *UTI;
-- (void)setUTI:(id)arg1;
-@property(readonly) NSDate *creationDate;
-- (void)setCreationDate:(id)arg1;
-@property(readonly) NSDate *modificationDate;
-- (void)setModificationDate:(id)arg1;
-@property(readonly) BOOL hasThumbnail;
-@property(readonly) struct CGImage *thumbnail;
-@property(readonly) BOOL hasMetadata;
-@property(readonly) NSDictionary *metadata;
-- (void)requestThumbnail;
-- (void)requestMetadata;
-- (void)flushThumbnailCache;
-- (void)flushMetadataCache;
-@property(readonly) NSMutableDictionary *userData;
-- (void)appendToPath:(id)arg1;
-@property(readonly) NSString *fileSystemPath;
 - (id)description;
+@property(readonly) NSString *fileSystemPath;
+- (void)appendToPath:(id)arg1;
+@property(readonly) NSMutableDictionary *userData;
+- (void)flushMetadataCache;
+- (void)flushThumbnailCache;
+- (void)requestMetadata;
+- (void)requestThumbnail;
+@property(readonly) NSDictionary *metadata;
+@property(readonly) BOOL hasMetadata;
+@property(readonly) struct CGImage *thumbnail;
+@property(readonly) BOOL hasThumbnail;
+- (void)setModificationDate:(id)arg1;
+@property(readonly) NSDate *modificationDate;
+- (void)setCreationDate:(id)arg1;
+@property(readonly) NSDate *creationDate;
+- (void)setUTI:(id)arg1;
+@property(readonly) NSString *UTI;
+@property(getter=isLocked) BOOL locked;
+@property(readonly) NSString *name;
+@property(readonly) ICCameraFolder *parentFolder;
+@property(readonly) ICCameraDevice *device;
+- (id)valueForUndefinedKey:(id)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
 
 @end
 

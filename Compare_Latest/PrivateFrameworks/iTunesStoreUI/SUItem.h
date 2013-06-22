@@ -42,6 +42,7 @@
     NSArray *_storeOffers;
     NSDictionary *_tellAFriendDictionary;
     NSString *_title;
+    NSDictionary *_tweetDictionary;
     NSString *_unmodifiedTitle;
     NSNumber *_versionIdentifier;
     NSArray *_versionOrdering;
@@ -92,6 +93,8 @@
 - (int)_linkTargetForTargetString:(id)arg1 typeString:(id)arg2;
 @property(readonly, nonatomic) NSString *itemTypeString;
 - (id)valueForProperty:(id)arg1;
+@property(readonly, nonatomic) NSURL *tweetURL;
+@property(readonly, nonatomic) NSString *tweetInitialText;
 @property(readonly, nonatomic) NSString *tellAFriendSubject;
 @property(readonly, nonatomic) NSURL *tellAFriendBodyURL;
 @property(readonly, nonatomic) NSString *tellAFriendBodyMIMEType;

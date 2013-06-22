@@ -6,11 +6,11 @@
 
 #import <StoreServices/SSRequest.h>
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSArray, NSNumber;
 
-@interface SSRentalCheckoutRequest : SSRequest <SSCoding>
+@interface SSRentalCheckoutRequest : SSRequest <SSXPCCoding>
 {
     NSNumber *_accountIdentifier;
     long long _downloadIdentifier;
@@ -18,16 +18,13 @@
     NSArray *_sinfs;
 }
 
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)startWithCompletionBlock:(id)arg1;
 @property(readonly) NSArray *sinfs;
 @property(readonly) NSNumber *rentalKeyIdentifier;
 @property(readonly) long long downloadIdentifier;
 @property(readonly) NSNumber *accountIdentifier;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
 - (void)dealloc;
 - (id)initWithSinfs:(id)arg1;
 - (id)initWithDownloadIdentifier:(long long)arg1;

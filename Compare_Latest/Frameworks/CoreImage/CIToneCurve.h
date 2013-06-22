@@ -32,9 +32,10 @@
 - (id)outputImage;
 - (BOOL)_isIdentity;
 - (id)_kernel16;
-- (id)_kernel8;
 - (void)setDefaults;
 - (void)dealloc;
+- (id)_initFromProperties:(id)arg1;
+- (id)_outputProperties;
 
 @end
 

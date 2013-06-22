@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
 @interface NSCache : NSObject
 {
@@ -13,6 +13,9 @@
     void *_reserved;
 }
 
+- (id)allObjects;
+- (void)setEvictsObjectsWhenApplicationEntersBackground:(BOOL)arg1;
+- (BOOL)evictsObjectsWhenApplicationEntersBackground;
 - (void)setEvictsObjectsWithDiscardedContent:(BOOL)arg1;
 - (BOOL)evictsObjectsWithDiscardedContent;
 - (unsigned int)countLimit;

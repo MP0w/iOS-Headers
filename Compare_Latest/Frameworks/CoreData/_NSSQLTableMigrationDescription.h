@@ -25,25 +25,25 @@
     NSNumber *_hasTransformedTableSchema;
 }
 
-- (id)initWithRootEntity:(id)arg1 migrationType:(int)arg2;
-- (void)dealloc;
-- (void)addEntityMigrationDescription:(id)arg1;
-- (BOOL)_hasTransformedTableSchema;
-- (void)appendStatementsToPrepareForMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
-- (void)appendStatementsToPerformMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
-- (void)appendStatementsToCompleteMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
-- (id)createInsertStatementForEntityMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
-- (id)createFEKUpdateStatementsForEntityMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
-- (id)createUpdateStatementForEntityMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
-- (id)newCopyAndInsertStatementForToOne:(id)arg1 toManyToMany:(id)arg2 fromTableName:(id)arg3 invertColumns:(BOOL)arg4 migrationContext:(struct _NSSQLMigrationContext)arg5;
-- (id)_retainedRemovedSubEntitiesOfEntity:(id)arg1;
-- (id)_removedManyToManys;
-- (id)_addedManyToManys;
-- (id)_transformedManyToManys;
-- (id)_tempNameForTableName:(id)arg1;
-- (id)_sourceRootEntity;
 @property(readonly) NSSQLEntity *rootEntity; // @synthesize rootEntity=_rootEntity;
 @property(readonly) int migrationType; // @synthesize migrationType=_migrationType;
+- (id)_sourceRootEntity;
+- (id)_tempNameForTableName:(id)arg1;
+- (id)_transformedManyToManys;
+- (id)_addedManyToManys;
+- (id)_removedManyToManys;
+- (id)_retainedRemovedSubEntitiesOfEntity:(id)arg1;
+- (id)newCopyAndInsertStatementForToOne:(id)arg1 toManyToMany:(id)arg2 fromTableName:(id)arg3 invertColumns:(BOOL)arg4 migrationContext:(struct _NSSQLMigrationContext)arg5;
+- (id)createUpdateStatementForEntityMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (id)createFEKUpdateStatementsForEntityMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (id)createInsertStatementForEntityMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (void)appendStatementsToCompleteMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (void)appendStatementsToPerformMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (void)appendStatementsToPrepareForMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (BOOL)_hasTransformedTableSchema;
+- (void)addEntityMigrationDescription:(id)arg1;
+- (void)dealloc;
+- (id)initWithRootEntity:(id)arg1 migrationType:(int)arg2;
 
 @end
 

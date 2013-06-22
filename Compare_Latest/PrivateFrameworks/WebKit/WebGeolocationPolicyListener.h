@@ -6,19 +6,23 @@
 
 #import "NSObject.h"
 
-#import <WebKit/WebGeolocationPolicyListener-Protocol.h>
+#import "WebAllowDenyPolicyListener-Protocol.h"
 
-@interface WebGeolocationPolicyListener : NSObject <WebGeolocationPolicyListener>
+@interface WebGeolocationPolicyListener : NSObject <WebAllowDenyPolicyListener>
 {
     struct RefPtr<WebCore::Geolocation> _geolocation;
+    id _denyCallback;
 }
 
-- (id)initWithGeolocation:(struct Geolocation *)arg1;
-- (void)allow;
-- (void)deny;
-- (BOOL)shouldClearCache;
+@property(copy, nonatomic) id denyCallback; // @synthesize denyCallback=_denyCallback;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (BOOL)shouldClearCache;
+- (void)denyOnlyThisRequest;
+- (void)deny;
+- (void)allow;
+- (id)initWithGeolocation:(struct Geolocation *)arg1;
+- (void)dealloc;
 
 @end
 

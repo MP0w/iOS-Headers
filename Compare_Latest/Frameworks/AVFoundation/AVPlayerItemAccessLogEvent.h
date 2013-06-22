@@ -29,6 +29,7 @@
 @property(readonly, nonatomic) NSString *URI;
 @property(readonly, nonatomic) NSDate *playbackStartDate;
 @property(readonly, nonatomic) int numberOfSegmentsDownloaded;
+@property(readonly, nonatomic) int numberOfMediaRequests;
 - (void)dealloc;
 - (void)finalize;
 - (id)copyWithZone:(struct _NSZone *)arg1;

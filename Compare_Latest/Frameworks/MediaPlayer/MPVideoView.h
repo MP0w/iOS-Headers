@@ -6,27 +6,22 @@
 
 #import "UIView.h"
 
-@class CALayer, MPAVController, MPMovieSnapshotController, MPVideoBufferLayerContainer, NSString;
+@class MPAVController, MPMovieSnapshotController, NSString;
 
 @interface MPVideoView : UIView
 {
     MPAVController *_player;
-    UIView *_videoBufferContainerView;
-    MPVideoBufferLayerContainer *_videoBufferContainerLayer;
-    CALayer *_videoBufferLayer;
     MPMovieSnapshotController *_snapshotController;
     NSString *_moviePath;
     NSString *_movieSubtitle;
     NSString *_movieTitle;
     NSString *_videoID;
-    unsigned int _scaleMode;
     double _startTime;
     double _stopTime;
-    unsigned int _effectiveScaleMode;
-    unsigned int _disableFudgingScaleToFullScreen:1;
-    unsigned int _requiresIntegralScreenFrame:1;
+    unsigned int _scaleMode;
 }
 
++ (Class)layerClass;
 @property(copy, nonatomic) NSString *videoID; // @synthesize videoID=_videoID;
 @property(nonatomic) double stopTime; // @synthesize stopTime=_stopTime;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
@@ -34,33 +29,13 @@
 @property(nonatomic) MPAVController *player; // @synthesize player=_player;
 @property(retain, nonatomic) NSString *movieTitle; // @synthesize movieTitle=_movieTitle;
 @property(retain, nonatomic) NSString *movieSubtitle; // @synthesize movieSubtitle=_movieSubtitle;
-@property(nonatomic) unsigned int effectiveScaleMode; // @synthesize effectiveScaleMode=_effectiveScaleMode;
-- (void)setNeedsDisplayInRect:(struct CGRect)arg1;
-- (void)setNeedsDisplay;
-- (void)setFrame:(struct CGRect)arg1;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (id)viewWithTag:(int)arg1;
-- (void)insertSubview:(id)arg1 below:(id)arg2;
-- (void)bringSubviewToFront:(id)arg1;
-- (void)addSubview:(id)arg1;
-- (void)exchangeSubviewAtIndex:(int)arg1 withSubviewAtIndex:(int)arg2;
-- (void)insertSubview:(id)arg1 atIndex:(int)arg2;
-- (void)_AddVideoBufferLayerToViewHierarchyAndHideIfNecessary;
-- (void)_layoutVideoLayers:(BOOL)arg1;
-- (void)_layoutSublayers;
-- (BOOL)_sizeDifferenceFromFullScreenIsLessThan:(struct CGSize)arg1 allowingZero:(BOOL)arg2 withTransform:(struct CGAffineTransform)arg3;
-- (BOOL)_allowFudgingScaleToFullScreen;
-- (BOOL)_isCloseToFullScreenWithTransform:(struct CGAffineTransform)arg1;
-- (BOOL)_isExactlyFullScreenWithTransform:(struct CGAffineTransform)arg1;
 - (void)scheduleThumbnailWithSize:(struct CGSize)arg1 orientation:(int)arg2 time:(float)arg3 delegate:(id)arg4;
 - (void)cancelSnapshots;
-- (void)_validityChangedNotification:(id)arg1;
-- (void)_sizeDidChangedNotification:(id)arg1;
 - (void)_playbackStateChangedNotification:(id)arg1;
-- (void)_itemWillChangeNotification:(id)arg1;
 - (void)_bufferingStateChangedNotification:(id)arg1;
+@property(readonly, nonatomic) struct CGRect movieContentFrame;
 @property(readonly, nonatomic) struct CGRect movieFrame;
-@property(nonatomic) BOOL requiresIntegralScreenFrame;
+@property(readonly, nonatomic) unsigned int effectiveScaleMode;
 - (void)toggleScaleMode:(BOOL)arg1;
 - (void)setScaleMode:(unsigned int)arg1 animated:(BOOL)arg2;
 - (void)setScaleMode:(unsigned int)arg1 duration:(float)arg2;
@@ -68,7 +43,6 @@
 - (void)playFromBeginning;
 - (void)playWhenLikelyToKeepUp;
 - (void)setMovieWithPath:(id)arg1;
-- (void)prepareToDisplayVideo;
 - (void)prepareAVControllerQueue;
 - (id)moviePath;
 @property(readonly, nonatomic) BOOL canChangeScaleMode;

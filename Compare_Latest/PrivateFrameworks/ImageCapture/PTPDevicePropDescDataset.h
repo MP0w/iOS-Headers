@@ -26,36 +26,36 @@
     BOOL _readOnlyObject;
 }
 
-- (id)init;
-- (void)setContent:(id)arg1;
-- (id)initWithData:(id)arg1;
-- (id)initWithMutableData:(id)arg1;
-- (void)dealloc;
-- (void)updateContent;
-- (id)content;
-- (id)description;
-- (unsigned short)devicePropertyCode;
-- (void)setDevicePropertyCode:(unsigned short)arg1;
-- (unsigned short)dataTypeCode;
-- (void)setDataTypeCode:(unsigned short)arg1;
-- (unsigned char)readWriteAttribute;
-- (void)setReadWriteAttribute:(unsigned char)arg1;
-- (id)factoryDefaultValue;
-- (void)setFactoryDefaultValue:(id)arg1;
-- (id)currentValue;
-- (void)setCurrentValue:(id)arg1;
-- (unsigned char)formFlag;
-- (void)setFormFlag:(unsigned char)arg1;
-- (id)minimumValue;
-- (void)setMinimumValue:(id)arg1;
-- (id)maximumValue;
-- (void)setMaximumValue:(id)arg1;
-- (id)stepSize;
-- (void)setStepSize:(id)arg1;
-- (unsigned short)numberOfValues;
-- (void)setNumberOfValues:(unsigned short)arg1;
-- (id)supportedValues;
 - (void)setSupportedValues:(id)arg1;
+- (id)supportedValues;
+- (void)setNumberOfValues:(unsigned short)arg1;
+- (unsigned short)numberOfValues;
+- (void)setStepSize:(id)arg1;
+- (id)stepSize;
+- (void)setMaximumValue:(id)arg1;
+- (id)maximumValue;
+- (void)setMinimumValue:(id)arg1;
+- (id)minimumValue;
+- (void)setFormFlag:(unsigned char)arg1;
+- (unsigned char)formFlag;
+- (void)setCurrentValue:(id)arg1;
+- (id)currentValue;
+- (void)setFactoryDefaultValue:(id)arg1;
+- (id)factoryDefaultValue;
+- (void)setReadWriteAttribute:(unsigned char)arg1;
+- (unsigned char)readWriteAttribute;
+- (void)setDataTypeCode:(unsigned short)arg1;
+- (unsigned short)dataTypeCode;
+- (void)setDevicePropertyCode:(unsigned short)arg1;
+- (unsigned short)devicePropertyCode;
+- (id)description;
+- (id)content;
+- (void)updateContent;
+- (void)dealloc;
+- (id)initWithMutableData:(id)arg1;
+- (id)initWithData:(id)arg1;
+- (void)setContent:(id)arg1;
+- (id)init;
 
 @end
 

@@ -6,22 +6,20 @@
 
 #import <StoreServices/SSRequest.h>
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSArray;
 
-@interface SSPersonalizeOffersRequest : SSRequest <SSCoding>
+@interface SSPersonalizeOffersRequest : SSRequest <SSXPCCoding>
 {
     NSArray *_items;
 }
 
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void)_sendResponseToDelegate:(id)arg1;
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (void)startWithCompletionBlock:(id)arg1;
+- (BOOL)start;
+- (void)startWithPersonalizedResponseBlock:(id)arg1;
 @property(readonly, nonatomic) NSArray *items;
 - (void)dealloc;
 - (id)initWithItems:(id)arg1;

@@ -7,51 +7,68 @@
 #import <GameKit/GKTableViewControllerV2.h>
 
 #import "GKTurnBasedInviteViewControllerDelegate-Protocol.h"
+#import "GKTurnBasedMatchDetailViewControllerDelegate-Protocol.h"
 
-@class GKMatchRequest, GKTurnBasedMatchesDataSource, GKTurnBasedMatchmakerViewController;
+@class GKMatchRequest, GKTurnBasedInviteViewController, GKTurnBasedMatchesDataSource, GKTurnBasedMatchmakerViewController, NSObject<GKTurnBasedMatchmakerViewControllerDelegate>;
 
-@interface GKTurnBasedMatchesViewController : GKTableViewControllerV2 <GKTurnBasedInviteViewControllerDelegate>
+@interface GKTurnBasedMatchesViewController : GKTableViewControllerV2 <GKTurnBasedInviteViewControllerDelegate, GKTurnBasedMatchDetailViewControllerDelegate>
 {
-    id <GKTurnBasedMatchmakerViewControllerDelegate> _delegate;
+    NSObject<GKTurnBasedMatchmakerViewControllerDelegate> *_delegateWeak;
     GKTurnBasedMatchmakerViewController *_matchmakerViewController;
     GKTurnBasedMatchesDataSource *_matchesDataSource;
+    GKTurnBasedInviteViewController *_inviteController;
     BOOL _showExistingMatches;
-    struct UIEdgeInsets _formSheetInsets;
     GKMatchRequest *_matchRequest;
     BOOL _showingExistingMatches;
     int _maxMatchesSeen;
+    BOOL _authenticateViewControllerVisible;
+    BOOL _suppressUpdateContents;
 }
 
+@property(nonatomic) BOOL suppressUpdateContents; // @synthesize suppressUpdateContents=_suppressUpdateContents;
+@property(nonatomic) BOOL authenticateViewControllerVisible; // @synthesize authenticateViewControllerVisible=_authenticateViewControllerVisible;
 @property(nonatomic) int maxMatchesSeen; // @synthesize maxMatchesSeen=_maxMatchesSeen;
 @property(nonatomic) BOOL showingExistingMatches; // @synthesize showingExistingMatches=_showingExistingMatches;
 @property(retain, nonatomic) GKMatchRequest *matchRequest; // @synthesize matchRequest=_matchRequest;
-@property(nonatomic) struct UIEdgeInsets formSheetInsets; // @synthesize formSheetInsets=_formSheetInsets;
 @property(nonatomic) BOOL showExistingMatches; // @synthesize showExistingMatches=_showExistingMatches;
+@property(retain, nonatomic) GKTurnBasedInviteViewController *inviteController; // @synthesize inviteController=_inviteController;
 @property(retain, nonatomic) GKTurnBasedMatchesDataSource *matchesDataSource; // @synthesize matchesDataSource=_matchesDataSource;
 @property(nonatomic) GKTurnBasedMatchmakerViewController *matchmakerViewController; // @synthesize matchmakerViewController=_matchmakerViewController;
-@property(nonatomic) id <GKTurnBasedMatchmakerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)tableView:(id)arg1 didDeleteMatch:(id)arg2 withIndexPath:(id)arg3 fromSection:(id)arg4;
+- (void)updateHeaderView;
+- (void)updateHeaderViewForTableView:(id)arg1 isLandscape:(BOOL)arg2;
+- (id)prepareHeaderView;
+- (void)viewDidLoad;
+- (void)finishWithMatchID:(id)arg1;
+- (void)tableView:(id)arg1 didDeleteMatch:(id)arg2;
 - (void)didSelectMatch:(id)arg1;
-- (void)showInvitationAlertForMatch:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)addPressed;
+- (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)_gkResetContents;
 - (void)_gkUpdateContentsWithCompletionHandlerAndError:(id)arg1;
+- (BOOL)_gkShouldRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (id)title;
 - (void)receivedTurnBasedNotification:(id)arg1;
 - (void)authenticatedStatusChanged:(id)arg1;
-- (void)viewDidUnload;
 - (void)loadView;
+- (void)turnBasedMatchDetailViewControllerDidRemoveMatch:(id)arg1;
+- (void)turnBasedMatchDetailViewControllerDidQuitMatch:(id)arg1;
+- (void)turnBasedMatchDetailViewControllerDidChooseMatch:(id)arg1;
+- (void)turnBasedMatchDetailViewControllerDidDeclineInvitation:(id)arg1;
+- (void)turnBasedMatchDetailViewControllerDidAcceptInvitation:(id)arg1;
+- (void)showDetailControllerForMatch:(id)arg1 style:(int)arg2;
 - (void)turnBasedInviteViewController:(id)arg1 didFailWithError:(id)arg2;
-- (void)turnBasedInviteViewController:(id)arg1 didCreateSession:(id)arg2;
+- (void)turnBasedInviteViewController:(id)arg1 didCreateMatchID:(id)arg2;
 - (void)turnBasedInviteViewControllerWasCancelled:(id)arg1;
 - (void)showInviteControllerAnimated:(BOOL)arg1;
+- (void)navigationPopToSelfAndSuppressUpdateContents;
 - (void)cancelButtonPressed;
 - (void)prepareDataSource;
 - (id)description;
+@property(nonatomic) NSObject<GKTurnBasedMatchmakerViewControllerDelegate> *delegate; // @synthesize delegate=_delegateWeak;
+- (BOOL)usesCrossfade;
 - (void)dealloc;
 - (id)initWithMatchRequest:(id)arg1;
 

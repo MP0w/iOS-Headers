@@ -6,20 +6,22 @@
 
 #import "SBAlertItem.h"
 
-@class NSURL;
+@class NSString, NSURL, SBApplication;
 
 @interface SBVideoPermissionAlertItem : SBAlertItem
 {
     NSURL *_url;
+    SBApplication *_appHandlingURL;
+    NSString *_sender;
 }
 
-- (id)initWithURL:(id)arg1;
-- (void)dealloc;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)dismissOnLock;
 - (BOOL)allowMenuButtonDismissal;
+- (BOOL)dismissOnLock;
+- (BOOL)shouldShowInLockScreen;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)dealloc;
+- (id)initWithURL:(id)arg1 applicationHandlingURL:(id)arg2 sender:(id)arg3;
 
 @end
 

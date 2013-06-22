@@ -8,7 +8,7 @@
 
 @interface NSObject (MPTimeMakerHelper)
 - (void)unregisterForTimeMarkerNotifications;
-- (void)registerForTimeMarkerNotificationsIfNecessary;
+- (void)registerForTimeMarkerNotificationsIfNecessaryForPlayer:(id)arg1;
 - (void)__crossedTimeMarkerNotification:(id)arg1;
 @end
 

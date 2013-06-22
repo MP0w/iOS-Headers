@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (OCStringAdditions)
-+ (id)mapString:(id)arg1;
 + (_Bool)skipString:(id)arg1;
++ (id)mapString:(id)arg1;
 @end
 

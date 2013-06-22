@@ -18,6 +18,7 @@
 }
 
 + (id)recurrenceRuleFromICSString:(id)arg1;
++ (id)recurrenceRuleFromICSCString:(const char *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
@@ -41,6 +42,11 @@
 - (id)parameterValueForName:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrequency:(int)arg1;
+- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
+- (void)setupProperty:(id)arg1 withString:(id)arg2;
+- (void)cleanUpForStartDate:(id)arg1;
+- (void)setupProperty:(id)arg1 withArray:(id)arg2;
+- (id)occurrencesForStartDate:(id)arg1 fromDate:(id)arg2 toDate:(id)arg3 inTimeZone:(id)arg4;
 
 @end
 

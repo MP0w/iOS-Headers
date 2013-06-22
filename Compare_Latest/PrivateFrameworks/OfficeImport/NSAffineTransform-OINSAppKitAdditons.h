@@ -7,7 +7,7 @@
 #import "NSAffineTransform.h"
 
 @interface NSAffineTransform (OINSAppKitAdditons)
-- (id)transformBezierPath:(id)arg1;
 - (void)concatInContext:(struct CGContext *)arg1;
+- (id)transformBezierPath:(id)arg1;
 @end
 

@@ -6,36 +6,47 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSOperationQueue, TIWordSearchOperationGetCandidates;
+@class NSOperationQueue, TIMecabraWrapper, TIWordSearchOperationGetCandidates;
 
 @interface TIWordSearch : NSObject
 {
-    NSMutableArray *_candidates;
+    TIMecabraWrapper *_mecabraWrapper;
     NSOperationQueue *_operationQueue;
     TIWordSearchOperationGetCandidates *_operation;
     BOOL _autoCorrects;
     BOOL _shouldLearnAcceptedCandidate;
 }
 
-- (void)clearLearningDictionary;
-- (id)initTIWordSearch;
-- (void)dealloc;
-- (id)getCandidates:(id)arg1;
-- (void)performAccept:(id)arg1 isPartial:(BOOL)arg2;
-- (void)lastAcceptedCandidateCorrected;
-- (unsigned int)getCandidateReadingLength:(id)arg1;
-- (void)cancel;
-- (BOOL)isCancelled;
-- (void)resetPreviousWord;
-- (void)performOperationAsync:(id)arg1;
-- (void)_getCandidatesOnThread:(id)arg1;
-- (void)acceptCandidate:(id)arg1 isPartial:(BOOL)arg2;
-- (void)cancelLastAcceptedCandidate;
-- (void)completeOperationsInQueue;
-- (id)createGeometryModelDataFromZephyr:(struct TIInputManagerZephyr *)arg1;
-- (float)getLoglikelihoodFromZephyr:(struct TIInputManagerZephyr *)arg1 keys:(unsigned short *)arg2 length:(int)arg3 touch_index:(int)arg4 totalCount:(int)arg5;
 @property BOOL shouldLearnAcceptedCandidate; // @synthesize shouldLearnAcceptedCandidate=_shouldLearnAcceptedCandidate;
 @property BOOL autoCorrects; // @synthesize autoCorrects=_autoCorrects;
+@property(retain) TIWordSearchOperationGetCandidates *operation; // @synthesize operation=_operation;
+- (void)updateUserWordEntries;
+- (float)getLoglikelihoodFromZephyr:(struct TIInputManagerZephyr *)arg1 keys:(unsigned short *)arg2 length:(int)arg3 touch_index:(int)arg4 totalCount:(int)arg5;
+- (id)geometryModelDataFromZephyr:(struct TIInputManagerZephyr *)arg1;
+- (void)jettisonMecabraInstance;
+- (void)saveLearningDictionary;
+- (void)completeOperationsInQueue;
+- (void)lastAcceptedCandidateCorrected;
+- (void)performOperationAsync:(id)arg1;
+- (void)resetPreviousWord;
+- (BOOL)isCancelled;
+- (void)cancel;
+- (void)performAccept:(id)arg1 isPartial:(BOOL)arg2;
+- (id)facemarkCandiates;
+- (id)cachedCandidatesForOperation:(id)arg1;
+- (id)candidatesForOperation:(id)arg1;
+- (void)springBoardDidResignNotification:(id)arg1;
+- (void)dealloc;
+- (id)initTIWordSearch;
+@property(readonly) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
+- (unsigned long)mecabraCreationOptions;
+- (struct __CFURL *)createMecabraLearningDictionaryDirectory;
+- (int)mecabraInputMethodType;
+@property(readonly) struct __Mecabra *mecabra;
+@property(readonly) TIMecabraWrapper *mecabraWrapper; // @synthesize mecabraWrapper=_mecabraWrapper;
+- (void)clearLearningDictionary;
+- (void)updateMecabraState;
+- (void)clearCache;
 
 @end
 

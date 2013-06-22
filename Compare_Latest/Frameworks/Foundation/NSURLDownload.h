@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSURLAuthenticationChallengeSender-Protocol.h"
+
 @class NSURLDownloadInternal;
 
-@interface NSURLDownload : NSObject
+@interface NSURLDownload : NSObject <NSURLAuthenticationChallengeSender>
 {
     NSURLDownloadInternal *_internal;
 }
@@ -57,6 +59,10 @@
 - (id)_initWithLoadingConnection:(id)arg1 request:(id)arg2 response:(id)arg3 delegate:(id)arg4 proxy:(id)arg5;
 - (id)initWithRequest:(id)arg1 delegate:(id)arg2;
 - (id)init;
+- (void)cancelAuthenticationChallenge:(id)arg1;
+- (void)continueWithoutCredentialForAuthenticationChallenge:(id)arg1;
+- (void)useCredential:(id)arg1 forAuthenticationChallenge:(id)arg2;
+- (void)cleanupChallenges;
 
 @end
 

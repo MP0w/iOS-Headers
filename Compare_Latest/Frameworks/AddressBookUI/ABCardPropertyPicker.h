@@ -20,20 +20,20 @@
     id _delegate;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 policies:(id)arg2;
-- (void)dealloc;
-- (void)setBackgroundColor:(id)arg1;
-- (BOOL)propertyIsAllowed:(int)arg1;
-- (void)setProperties:(struct __CFArray *)arg1;
-- (void)setDelegate:(id)arg1;
-- (void)deselectAllRowsWithAnimation:(BOOL)arg1;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)styleProvider;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)styleProvider;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (int)numberOfSectionsInTableView:(id)arg1;
+- (void)deselectAllRowsWithAnimation:(BOOL)arg1;
+- (void)setDelegate:(id)arg1;
+- (void)setProperties:(struct __CFArray *)arg1;
+- (BOOL)propertyIsAllowed:(int)arg1;
+- (void)setBackgroundColor:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 policies:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

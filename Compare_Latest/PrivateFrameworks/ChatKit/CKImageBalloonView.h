@@ -6,27 +6,20 @@
 
 #import <ChatKit/CKBalloonView.h>
 
-@class UIImage;
-
 @interface CKImageBalloonView : CKBalloonView
 {
-    UIImage *_img;
-    UIImage *_balloonImage;
+    id _highlightedImageBlock;
 }
 
-+ (struct CGPoint)entryFieldBalloonOffset;
 + (float)entryFieldBalloonAdditionalHeight;
-+ (BOOL)usesColoredBalloon;
++ (struct CGPoint)entryFieldBalloonOffset;
++ (struct UIEdgeInsets)contentInsetsForBalloonOrientation:(int)arg1;
++ (BOOL)fixedWidth;
+@property(copy, nonatomic) id highlightedImageBlock; // @synthesize highlightedImageBlock=_highlightedImageBlock;
+- (void)prepareForReuse;
+- (void)setHighlighted:(BOOL)arg1;
 - (void)dealloc;
-- (void)setImage:(id)arg1;
-- (float)heightForWidth:(float)arg1;
-- (float)tightenedWidth;
-- (void)tighten;
-- (id)balloonImage;
-- (void)drawRect:(struct CGRect)arg1;
-- (BOOL)shouldManuallyDrawBackground;
-- (void)copyToPasteboard;
-- (float)_receiptSpace;
+- (id)description;
 
 @end
 

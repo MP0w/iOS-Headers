@@ -15,18 +15,16 @@
 {
     MPPadFullScreenVideoOverlay *_fullscreenVideoOverlay;
     MPAudioVideoRoutingPopoverController *_routePopoverController;
-    unsigned int _firstVideoFrameDisplayed:1;
 }
 
 - (void)_rotationAnimationFinished:(id)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
-- (void)firstVideoFrameDisplayedNotification:(id)arg1;
 - (void)overlayDidDismissAlternateTracksPopover:(id)arg1;
 - (void)overlayTappedScaleModeButton:(id)arg1;
 - (void)overlayTappedBackButton:(id)arg1;
 - (void)_hideOverlayAnimationFinished:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (BOOL)transportControls:(id)arg1 tappedButtonPart:(unsigned int)arg2;
+- (BOOL)transportControls:(id)arg1 tappedButtonPart:(unsigned long long)arg2;
 - (void)videoView_itemTypeAvailableNotification:(id)arg1;
 - (void)hideOverlayAnimated:(BOOL)arg1;
 - (void)showOverlayAnimated:(BOOL)arg1;
@@ -37,16 +35,19 @@
 - (void)setScaleMode:(unsigned int)arg1 animated:(BOOL)arg2;
 - (void)setItem:(id)arg1;
 - (BOOL)controlsOverlayVisible;
-- (void)setDisabledParts:(unsigned int)arg1;
-- (void)setVisibleParts:(unsigned int)arg1 animate:(BOOL)arg2;
-- (void)setDesiredParts:(unsigned int)arg1 animate:(BOOL)arg2;
+- (void)setDisabledParts:(unsigned long long)arg1;
+- (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+- (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (void)swipableView:(id)arg1 tappedWithCount:(unsigned int)arg2 atLocation:(struct CGPoint)arg3;
 - (void)setPlayer:(id)arg1;
+- (void)didChangeToInterfaceOrientation:(int)arg1;
 - (void)willChangeToInterfaceOrientation:(int)arg1;
 - (void)stopTicking;
 - (void)startTicking;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)loadView;
+- (void)unregisterForPlayerNotifications;
+- (void)registerForPlayerNotifications;
 - (void)dealloc;
 - (id)init;
 

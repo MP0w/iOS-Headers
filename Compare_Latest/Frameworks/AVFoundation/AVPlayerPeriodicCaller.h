@@ -8,21 +8,22 @@
 
 @interface AVPlayerPeriodicCaller : AVPlayerTimelyCaller
 {
-    CDStruct_1b6d18a9 _interval;
+    CDStruct_1b6d18a9 _intervalRequested;
+    CDStruct_1b6d18a9 _lastIntervalUsed;
+    CDStruct_1b6d18a9 _lastFireTime;
+    CDStruct_1b6d18a9 _lastStopTime;
+    unsigned int _sequenceNum;
     id _block;
-    struct OpaqueFigPlaybackItem *_figPlaybackItem;
+    CDStruct_1b6d18a9 _currentTime;
+    CDStruct_1b6d18a9 _currentHostTime;
 }
 
-- (void)_stopObservingPlaybackItemNotifications;
-- (void)itemTimeJumped;
-- (void)_resetTimerForPlayerNewRate:(float)arg1;
-- (void)_startObservingPlaybackItemNotificationsForCurrentItem;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)invalidate;
-- (void)_stopRespondingToPlayerStateChanges;
-- (void)finalize;
+- (void)_handleTimeDiscontinuity;
+- (void)_resetNextFireTime;
+- (void)_effectiveRateChanged;
+- (void)_cacheTimebaseTimeAndHostTime;
 - (void)dealloc;
-- (id)initWithPlayer:(id)arg1 interval:(CDStruct_1b6d18a9)arg2 queue:(struct dispatch_queue_s *)arg3 block:(id)arg4;
+- (id)initWithPlayer:(id)arg1 interval:(CDStruct_1b6d18a9)arg2 queue:(id)arg3 block:(id)arg4;
 
 @end
 

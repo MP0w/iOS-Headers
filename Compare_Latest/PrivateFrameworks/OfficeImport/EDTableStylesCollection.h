@@ -14,14 +14,14 @@
     NSString *mDefaultPivotStyleName;
 }
 
-- (void)dealloc;
-- (id)defaultTableStyle;
-- (id)defaultPivotStyle;
-- (id)objectWithName:(id)arg1;
-- (id)defaultTableStyleName;
-- (void)setDefaultTableStyleName:(id)arg1;
-- (id)defaultPivotStyleName;
 - (void)setDefaultPivotStyleName:(id)arg1;
+- (id)defaultPivotStyleName;
+- (void)setDefaultTableStyleName:(id)arg1;
+- (id)defaultTableStyleName;
+- (id)objectWithName:(id)arg1;
+- (id)defaultPivotStyle;
+- (id)defaultTableStyle;
+- (void)dealloc;
 
 @end
 

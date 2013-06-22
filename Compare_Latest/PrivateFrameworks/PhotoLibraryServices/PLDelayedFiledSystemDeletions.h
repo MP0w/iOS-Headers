@@ -13,11 +13,11 @@
     NSMutableArray *_deletionInfos;
 }
 
-+ (id)deletionsFromChangeHubEvent:(void *)arg1;
-+ (void)appendDescriptionForEvent:(void *)arg1 toComponents:(id)arg2;
++ (id)deletionsFromChangeHubEvent:(id)arg1;
++ (void)appendDescriptionForEvent:(id)arg1 toComponents:(id)arg2;
 - (id)initWithFilesystemDeletionInfos:(id)arg1;
 - (void)deleteAllRemainingFilesAndThumbnails;
-- (void)appendToXPCMessage:(void *)arg1;
+- (void)appendToXPCMessage:(id)arg1;
 - (void)addFilesystemDeletionInfo:(id)arg1;
 - (void)dealloc;
 - (id)debugDescription;

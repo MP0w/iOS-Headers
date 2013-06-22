@@ -13,8 +13,8 @@
     GQDSStyle *mCharStyle;
 }
 
-- (void)dealloc;
 - (id)characterStyle;
+- (void)dealloc;
 
 @end
 

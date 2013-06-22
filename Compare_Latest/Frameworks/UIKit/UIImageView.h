@@ -11,8 +11,11 @@
 @interface UIImageView : UIView
 {
     id _storage;
+    UIImage *_decompressingImage;
+    UIImage *_decompressingHighlightedImage;
 }
 
+- (void)layoutSubviews;
 - (void)setBackgroundColor:(id)arg1;
 @property(nonatomic) int animationRepeatCount;
 @property(nonatomic) double animationDuration;
@@ -22,7 +25,9 @@
 @property(copy, nonatomic) NSArray *highlightedAnimationImages;
 @property(copy, nonatomic) NSArray *animationImages;
 - (void)drawRect:(struct CGRect)arg1;
+- (struct UIEdgeInsets)alignmentRectInsets;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)_setViewGeometry:(struct CGRect)arg1 forMetric:(int)arg2;
@@ -35,6 +40,25 @@
 - (id)initWithImage:(id)arg1 highlightedImage:(id)arg2;
 - (id)initWithImage:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)_updateState;
+- (BOOL)_setImageViewContents:(id)arg1;
+- (BOOL)_canDrawContent;
+- (BOOL)_shouldDrawImage:(id)arg1;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (void)setAnimating:(BOOL)arg1;
+- (struct CGImage *)imageRef;
+- (void)setCGImageRef:(struct CGImage *)arg1;
+@property(nonatomic) int drawMode; // @dynamic drawMode;
+- (BOOL)useBlockyMagnificationInClassic;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+- (unsigned long long)defaultAccessibilityTraits;
+- (BOOL)isAccessibilityElementByDefault;
+- (id)_cachedPretiledImageForImage:(id)arg1;
+- (void)_clearPretiledImageCacheForImage:(id)arg1;
+- (void)_updatePretiledImageCacheForImage:(id)arg1;
+- (BOOL)_recomputePretilingState;
 
 // Remaining properties
 @property(nonatomic, getter=isUserInteractionEnabled) BOOL userInteractionEnabled; // @dynamic userInteractionEnabled;

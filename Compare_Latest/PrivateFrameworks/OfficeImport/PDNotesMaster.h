@@ -15,23 +15,23 @@
     OADTextListStyle *mNotesTextStyle;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)parentSlideBase;
-- (id)theme;
-- (id)colorScheme;
-- (id)fontScheme;
-- (id)colorMap;
-- (id)styleMatrix;
-- (id)notesTextStyle;
-- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2;
-- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2;
-- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3;
-- (id)parentTextStyleForTables;
-- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2;
-- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2;
-- (void)doneWithContent;
 - (id)drawingTheme;
+- (void)doneWithContent;
+- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)parentTextStyleForTables;
+- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(BOOL)arg4;
+- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2;
+- (id)notesTextStyle;
+- (id)styleMatrix;
+- (id)colorMap;
+- (id)fontScheme;
+- (id)colorScheme;
+- (id)theme;
+- (id)parentSlideBase;
+- (void)dealloc;
+- (id)init;
 
 @end
 

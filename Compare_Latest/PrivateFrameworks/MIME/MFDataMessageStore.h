@@ -14,19 +14,19 @@
     Class _messageClass;
 }
 
-- (id)initWithData:(id)arg1;
-- (void)dealloc;
-- (id)storePath;
-- (void)writeUpdatedMessageDataToDisk;
-- (void)setMessageClass:(Class)arg1;
-- (id)message;
-- (id)account;
-- (id)headerDataForMessage:(id)arg1 downloadIfNecessary:(BOOL)arg2;
-- (id)bodyDataForMessage:(id)arg1 isComplete:(char *)arg2 isPartial:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
-- (id)_cachedBodyForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (id)_cachedHeadersForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (id)_cachedBodyDataForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
 - (id)mailboxUid;
+- (id)_cachedBodyDataForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
+- (id)_cachedHeadersForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
+- (id)_cachedBodyForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
+- (id)bodyDataForMessage:(id)arg1 isComplete:(char *)arg2 isPartial:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
+- (id)headerDataForMessage:(id)arg1 downloadIfNecessary:(BOOL)arg2;
+- (id)account;
+- (id)message;
+- (void)setMessageClass:(Class)arg1;
+- (void)writeUpdatedMessageDataToDisk;
+- (id)storePath;
+- (void)dealloc;
+- (id)initWithData:(id)arg1;
 
 @end
 

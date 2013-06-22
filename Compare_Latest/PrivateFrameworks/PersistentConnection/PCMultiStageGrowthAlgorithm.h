@@ -25,25 +25,25 @@
     NSString *_algorithmName;
 }
 
-+ (void)_loadDefaults;
 + (void)_loadDefaultValue:(double *)arg1 forKey:(struct __CFString *)arg2;
-- (id)initWithKeepAliveInterval:(double)arg1 loggingIdentifier:(id)arg2 algorithmName:(id)arg3;
-- (void)dealloc;
++ (void)_loadDefaults;
+@property(readonly, nonatomic) NSString *loggingIdentifier; // @synthesize loggingIdentifier=_loggingIdentifier;
 @property(nonatomic) double maximumKeepAliveInterval; // @synthesize maximumKeepAliveInterval=_maximumKeepAliveInterval;
 @property(nonatomic) double minimumKeepAliveInterval; // @synthesize minimumKeepAliveInterval=_minimumKeepAliveInterval;
-- (void)_setCurrentKeepAliveInterval:(double)arg1;
-- (void)_resetAlgorithmToInterval:(double)arg1;
-- (void)processNextAction:(int)arg1;
-- (void)_processInitialGrowthAction:(int)arg1;
-- (void)_processBackoffAction:(int)arg1;
-- (void)_processSteadyStateAction:(int)arg1;
-- (void)_processRefinedGrowthAction:(int)arg1;
-- (double)_steadyStateTimeout;
-- (id)description;
-- (id)_stringForAction:(int)arg1;
-- (id)_stringForStage:(int)arg1;
-@property(readonly, nonatomic) NSString *loggingIdentifier; // @synthesize loggingIdentifier=_loggingIdentifier;
 @property(readonly, nonatomic) double currentKeepAliveInterval; // @synthesize currentKeepAliveInterval=_currentKeepAliveInterval;
+- (id)_stringForStage:(int)arg1;
+- (id)_stringForAction:(int)arg1;
+- (id)description;
+- (double)_steadyStateTimeout;
+- (void)_processRefinedGrowthAction:(int)arg1;
+- (void)_processSteadyStateAction:(int)arg1;
+- (void)_processBackoffAction:(int)arg1;
+- (void)_processInitialGrowthAction:(int)arg1;
+- (void)processNextAction:(int)arg1;
+- (void)_resetAlgorithmToInterval:(double)arg1;
+- (void)_setCurrentKeepAliveInterval:(double)arg1;
+- (void)dealloc;
+- (id)initWithKeepAliveInterval:(double)arg1 loggingIdentifier:(id)arg2 algorithmName:(id)arg3;
 
 @end
 

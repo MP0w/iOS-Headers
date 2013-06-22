@@ -9,32 +9,59 @@
 #import "PLAlbumChangeObserver-Protocol.h"
 #import "PLAlbumViewDataSource-Protocol.h"
 #import "PLAlbumViewDelegate-Protocol.h"
+#import "PLDismissableViewController-Protocol.h"
+#import "PLPhotosPickerSessionDelegate-Protocol.h"
 
-@class NSObject<PLAssetContainer>, PLAlbumView, PLEmptyAlbumView;
+@class NSDate, NSObject<PLAssetContainer>, PLAlbumSectionsManager, PLAlbumView, PLEmptyAlbumView, PLPhotosPickerSession, UISegmentedControl;
 
-@interface PLAlbumViewController : UIViewController <PLAlbumViewDataSource, PLAlbumViewDelegate, PLAlbumChangeObserver>
+@interface PLAlbumViewController : UIViewController <PLPhotosPickerSessionDelegate, PLAlbumViewDataSource, PLAlbumViewDelegate, PLAlbumChangeObserver, PLDismissableViewController>
 {
     struct NSObject *_album;
+    PLAlbumSectionsManager *_sectionsManager;
     PLEmptyAlbumView *_emptyAlbumView;
     int _currentFilter;
+    PLPhotosPickerSession *_activePhotosPickerSession;
+    UISegmentedControl *_recentsFilterControl;
+    NSDate *_firstRecentBatchDate;
     BOOL _shouldReloadWhenBecomingVisible;
+    BOOL _allowDividingAssetsInSections;
+    BOOL _divideAssetsInSections;
+    BOOL _shouldShowEmptyAlbumView;
     id viewDidAppearCompletion;
 }
 
+@property(nonatomic) BOOL shouldShowEmptyAlbumView; // @synthesize shouldShowEmptyAlbumView=_shouldShowEmptyAlbumView;
+@property(nonatomic) BOOL allowDividingAssetsInSections; // @synthesize allowDividingAssetsInSections=_allowDividingAssetsInSections;
 @property(nonatomic) int currentFilter; // @synthesize currentFilter=_currentFilter;
 @property(copy, nonatomic) id viewDidAppearCompletion; // @synthesize viewDidAppearCompletion;
-- (void)albumViewPreheatImageData:(id)arg1 forImagesInRange:(struct _NSRange)arg2;
-- (id)albumView:(id)arg1 textBadgeForPhotoAtIndex:(unsigned int)arg2;
+- (BOOL)prepareForDismissingAnimated:(BOOL)arg1;
+- (BOOL)photosPickerSessionShouldFinishWithCurrentSelection:(id)arg1;
+- (void)albumView:(id)arg1 preheatImageDataAtIndexPath:(id)arg2 windowSize:(unsigned int)arg3 downDirection:(BOOL)arg4;
+- (void)albumView:(id)arg1 getUnreadStartMarkerCount:(unsigned int *)arg2 showsProgress:(char *)arg3;
+- (id)albumView:(id)arg1 badgeImageForPhotoAtIndexPath:(id)arg2;
+- (id)albumView:(id)arg1 textBadgeForPhotoAtIndexPath:(id)arg2;
+- (id)footerAccessoryViewForAlbumView:(id)arg1;
+- (id)footerSubtitleForAlbumView:(id)arg1;
+- (BOOL)footerSubtitleAllowsEmail:(id)arg1;
 - (void)albumView:(id)arg1 imageCount:(unsigned int *)arg2 videoCount:(unsigned int *)arg3 otherCount:(unsigned int *)arg4 pendingCount:(unsigned int *)arg5 importOperation:(int *)arg6;
-- (id)albumView:(id)arg1 imageDataForPhotoAtIndex:(unsigned int)arg2 imageWidth:(int *)arg3 imageHeight:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
-- (unsigned int)numberOfPhotosForAlbumView:(id)arg1;
+- (id)albumView:(id)arg1 imageDataForPhotoAtIndexPath:(id)arg2 imageWidth:(int *)arg3 imageHeight:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
+- (id)albumView:(id)arg1 titleForHeaderInSection:(int)arg2;
+- (unsigned int)albumView:(id)arg1 numberOfPhotosInSection:(unsigned int)arg2;
+- (unsigned int)numberOfSectionsInAlbumView:(id)arg1;
+- (void)_updateRecentsFilterControl;
+- (void)updateUnreadMarkerAnimated:(BOOL)arg1;
 - (void)albumDidChange:(id)arg1;
 - (void)libraryDidChange:(id)arg1;
+- (void)_recentsFilterChanged:(id)arg1;
 - (void)beginAddPhotosSession:(id)arg1;
+- (id)selectedPhotos;
 - (unsigned int)filteredCount;
 - (id)filteredItems;
+- (id)_parametersForFilter:(int)arg1 forAlbum:(struct NSObject *)arg2;
 @property(readonly, nonatomic) PLAlbumView *albumView;
 - (id)contentScrollView;
+- (void)_scrollToInitialPosition;
+- (void)_updateDivideInSections;
 @property(nonatomic, getter=isShowingEmptyAlbumView) BOOL showingEmptyAlbumView;
 @property(readonly, nonatomic) NSObject<PLAssetContainer> *album;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
@@ -43,10 +70,10 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)reloadData;
-- (void)invalidateFilteredItems;
 - (void)dealloc;
 - (id)initWithAlbum:(struct NSObject *)arg1;
 - (id)init;
+- (void)setAlbum:(struct NSObject *)arg1;
 
 @end
 

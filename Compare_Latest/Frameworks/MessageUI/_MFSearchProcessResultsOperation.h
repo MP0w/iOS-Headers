@@ -14,8 +14,8 @@
 }
 
 + (id)operationWithResultsOfType:(int)arg1 completion:(id)arg2 consumer:(void)arg3;
-- (void)dealloc;
 - (void)main;
+- (void)dealloc;
 
 @end
 

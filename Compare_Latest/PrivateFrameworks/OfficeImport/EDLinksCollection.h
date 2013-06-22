@@ -14,21 +14,21 @@
     NSMutableArray *mReferences;
 }
 
-- (id)init;
-- (void)dealloc;
-- (unsigned int)linksCount;
-- (id)linkAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfFirstLinkWithType:(int)arg1;
-- (unsigned int)addLink:(id)arg1;
-- (unsigned int)linkIndexCreateIfNeededWithType:(int)arg1;
-- (unsigned int)referencesCount;
-- (id)referenceAtIndex:(unsigned int)arg1;
-- (unsigned int)indexOfReference:(id)arg1;
-- (unsigned int)addReference:(id)arg1;
-- (_Bool)convertLinkReferenceIndex:(unsigned int)arg1 firstSheetIndex:(unsigned int *)arg2 lastSheetIndex:(unsigned int *)arg3;
-- (unsigned int)addOrEquivalentInternalLinkReferenceWithFirstSheetIndex:(unsigned int)arg1 lastSheetIndex:(unsigned int)arg2;
-- (unsigned int)addOrEquivalentLinkReferenceOfType:(int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
 - (void)addOrEquivalentExternalAddInName:(id)arg1 linkReferenceIndex:(unsigned int *)arg2 nameIndex:(unsigned int *)arg3;
+- (unsigned int)addOrEquivalentLinkReferenceOfType:(int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
+- (unsigned int)addOrEquivalentInternalLinkReferenceWithFirstSheetIndex:(unsigned int)arg1 lastSheetIndex:(unsigned int)arg2;
+- (_Bool)convertLinkReferenceIndex:(unsigned int)arg1 firstSheetIndex:(unsigned int *)arg2 lastSheetIndex:(unsigned int *)arg3;
+- (unsigned int)addReference:(id)arg1;
+- (unsigned int)indexOfReference:(id)arg1;
+- (id)referenceAtIndex:(unsigned int)arg1;
+- (unsigned int)referencesCount;
+- (unsigned int)linkIndexCreateIfNeededWithType:(int)arg1;
+- (unsigned int)addLink:(id)arg1;
+- (unsigned int)indexOfFirstLinkWithType:(int)arg1;
+- (id)linkAtIndex:(unsigned int)arg1;
+- (unsigned int)linksCount;
+- (void)dealloc;
+- (id)init;
 
 @end
 

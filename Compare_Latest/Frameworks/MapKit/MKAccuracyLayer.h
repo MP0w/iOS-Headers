@@ -16,6 +16,7 @@
 + (id)defaultValueForKey:(id)arg1;
 @property(readonly, nonatomic) float accuracy; // @synthesize accuracy=_accuracy;
 - (void)setAccuracy:(float)arg1;
+- (void)_setAccuracy:(float)arg1 force:(BOOL)arg2;
 - (BOOL)sizeToFitAccuracy:(float)arg1 animated:(BOOL)arg2;
 - (BOOL)isAccuracyBounded:(float)arg1;
 - (BOOL)isAccuracyMaxBounded:(float)arg1;

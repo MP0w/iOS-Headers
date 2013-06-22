@@ -14,10 +14,10 @@
     id _obj;
 }
 
-- (void)dealloc;
-- (int)compare:(id)arg1;
 @property(retain, nonatomic) id obj; // @synthesize obj=_obj;
 @property(retain, nonatomic) NSDate *fireDate; // @synthesize fireDate=_fireDate;
+- (int)compare:(id)arg1;
+- (void)dealloc;
 
 @end
 

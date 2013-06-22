@@ -21,36 +21,38 @@
     CDStruct_65f4098e mTrackedProperties;
 }
 
-- (id)init;
-- (id)initWithDocument:(id)arg1;
-- (void)dealloc;
-- (id)tableProperties;
-- (id)characterProperties;
-- (int)resolveMode;
-- (void)setResolveMode:(int)arg1;
-- (void)addProperties:(id)arg1;
-- (short)widthBefore;
-- (void)setWidthBefore:(short)arg1;
-- (BOOL)isWidthBeforeOverridden;
-- (int)widthBeforeType;
-- (void)setWidthBeforeType:(int)arg1;
-- (BOOL)isWidthBeforeTypeOverridden;
-- (short)widthAfter;
-- (void)setWidthAfter:(short)arg1;
-- (BOOL)isWidthAfterOverridden;
-- (int)widthAfterType;
-- (void)setWidthAfterType:(int)arg1;
-- (BOOL)isWidthAfterTypeOverridden;
-- (long)height;
-- (void)setHeight:(long)arg1;
-- (BOOL)isHeightOverridden;
-- (int)heightType;
-- (void)setHeightType:(int)arg1;
-- (BOOL)isHeightTypeOverridden;
-- (BOOL)header;
-- (void)setHeader:(BOOL)arg1;
-- (BOOL)isHeaderOverridden;
+- (id).cxx_construct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)isHeaderOverridden;
+- (void)setHeader:(BOOL)arg1;
+- (BOOL)header;
+- (BOOL)isHeightTypeOverridden;
+- (void)setHeightType:(int)arg1;
+- (int)heightType;
+- (BOOL)isHeightOverridden;
+- (void)setHeight:(long)arg1;
+- (long)height;
+- (BOOL)isWidthAfterTypeOverridden;
+- (void)setWidthAfterType:(int)arg1;
+- (int)widthAfterType;
+- (BOOL)isWidthAfterOverridden;
+- (void)setWidthAfter:(short)arg1;
+- (short)widthAfter;
+- (BOOL)isWidthBeforeTypeOverridden;
+- (void)setWidthBeforeType:(int)arg1;
+- (int)widthBeforeType;
+- (BOOL)isWidthBeforeOverridden;
+- (void)setWidthBefore:(short)arg1;
+- (short)widthBefore;
+- (void)addProperties:(id)arg1;
+- (void)setResolveMode:(int)arg1;
+- (int)resolveMode;
+- (id)characterProperties;
+- (id)tableProperties;
+- (void)dealloc;
+- (id)initWithDocument:(id)arg1;
+- (id)init;
+- (void)addPropertiesValues:(CDStruct_65f4098e *)arg1 to:(CDStruct_65f4098e *)arg2;
 
 @end
 

@@ -29,7 +29,8 @@
 + (id)existingConfigManagerForPersonID:(id)arg1;
 + (id)configManagerForPersonID:(id)arg1;
 @property(nonatomic) MSMediaStreamDaemon *daemon; // @synthesize daemon=_daemon;
-@property(readonly) NSString *personID; // @synthesize personID=_personID;
+@property(readonly, nonatomic) NSString *personID; // @synthesize personID=_personID;
+- (void).cxx_destruct;
 - (void)serverSideConfigProtocol:(id)arg1 didReceiveAuthenticationError:(id)arg2;
 - (void)serverSideConfigProtocol:(id)arg1 didFinishWithConfiguration:(id)arg2 error:(id)arg3;
 - (void)abort;

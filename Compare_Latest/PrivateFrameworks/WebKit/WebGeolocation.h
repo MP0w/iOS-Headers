@@ -13,9 +13,9 @@
     WebGeolocationPrivate *_private;
 }
 
-- (BOOL)shouldClearCache;
-- (void)setIsAllowed:(BOOL)arg1;
 - (void)dealloc;
+- (void)setIsAllowed:(BOOL)arg1;
+- (id)_initWithWebCoreGeolocation:(struct Geolocation *)arg1;
 
 @end
 

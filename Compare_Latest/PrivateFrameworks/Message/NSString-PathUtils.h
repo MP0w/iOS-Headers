@@ -7,9 +7,9 @@
 #import "NSString.h"
 
 @interface NSString (PathUtils)
-- (BOOL)mf_makeDirectoryWithMode:(int)arg1;
-- (BOOL)mf_isSubdirectoryOfPath:(id)arg1;
-- (id)mf_stringByReallyAbbreviatingWithTildeInPath;
 - (id)mf_betterStringByResolvingSymlinksInPath;
+- (id)mf_stringByReallyAbbreviatingWithTildeInPath;
+- (BOOL)mf_isSubdirectoryOfPath:(id)arg1;
+- (BOOL)mf_makeDirectoryWithMode:(int)arg1;
 @end
 

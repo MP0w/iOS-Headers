@@ -6,40 +6,45 @@
 
 #import "NSObject.h"
 
+#import "SBIconIndexNodeObserver-Protocol.h"
 #import "SBIconObserver-Protocol.h"
-#import "SBIconViewLocker-Protocol.h"
+#import "SBIconViewObserver-Protocol.h"
 
-@class NSMapTable;
+@class NSMapTable, SBIconModel;
 
-@interface SBIconViewMap : NSObject <SBIconViewLocker, SBIconObserver>
+@interface SBIconViewMap : NSObject <SBIconObserver, SBIconIndexNodeObserver, SBIconViewObserver>
 {
+    SBIconModel *_model;
     NSMapTable *_iconViewsForIcons;
-    id <SBIconViewDelegate> _iconViewdelegate;
+    id <SBIconViewMapDelegate> _delegate;
+    id <SBIconViewDelegate> _viewDelegate;
     NSMapTable *_recycledIconViewsByType;
     NSMapTable *_labels;
     NSMapTable *_badges;
 }
 
++ (id)switcherMap;
 + (id)homescreenMap;
-+ (Class)iconViewClassForIcon:(id)arg1 location:(int)arg2;
-- (id)init;
-- (void)dealloc;
-- (id)mappedIconViewForIcon:(id)arg1;
-- (id)_iconViewForIcon:(id)arg1;
-- (id)iconViewForIcon:(id)arg1;
-- (void)_addIconView:(id)arg1 forIcon:(id)arg2;
-- (void)purgeIconFromMap:(id)arg1;
-- (void)_recycleIconView:(id)arg1;
-- (void)recycleViewForIcon:(id)arg1;
-- (void)recycleAndPurgeAll;
-- (id)releaseIconLabelForIcon:(id)arg1;
-- (void)captureIconLabel:(id)arg1 forIcon:(id)arg2;
-- (void)purgeRecycledIconViewsForClass:(Class)arg1;
-- (void)_modelListAddedIcon:(id)arg1;
-- (void)_modelRemovedIcon:(id)arg1;
-- (void)_modelReloadedIcons;
-- (void)_modelReloadedState;
+@property(nonatomic) id <SBIconViewDelegate> viewDelegate; // @synthesize viewDelegate=_viewDelegate;
+- (void)iconViewDidChangeLocation:(id)arg1;
+- (void)node:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
+- (void)node:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
 - (void)iconAccessoriesDidUpdate:(id)arg1;
+- (void)_modelReloadedState;
+- (void)_modelReloadedIcons;
+- (void)_modelRemovedIcon:(id)arg1;
+- (void)purgeRecycledIconViewsForClass:(Class)arg1;
+- (void)recycleAndPurgeAll;
+- (void)recycleViewForIcon:(id)arg1;
+- (void)_recycleIconView:(id)arg1;
+- (void)purgeIconFromMap:(id)arg1;
+- (void)_addIconView:(id)arg1 forIcon:(id)arg2;
+- (id)iconViewForIcon:(id)arg1;
+- (id)_iconViewForIcon:(id)arg1;
+- (id)mappedIconViewForIcon:(id)arg1;
+- (id)iconModel;
+- (void)dealloc;
+- (id)initWithIconModel:(id)arg1 delegate:(id)arg2;
 
 @end
 

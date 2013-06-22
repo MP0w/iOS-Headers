@@ -8,33 +8,33 @@
 
 @interface ABCapabilitiesManager : NSObject
 {
-    BOOL _isRingtoneStoreAvailable;
+    BOOL _isListeningToFTCServiceAvailability;
 }
 
-+ (id)defaultCapabilitiesManager;
 + (void)_setDefaultCapabilitiesManager:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (BOOL)isSensitiveUIAllowed;
-- (BOOL)hasTelephonyCapability;
-- (BOOL)hasCellularTelephonyCapability;
-- (BOOL)hasCellularDataCapability;
-- (BOOL)hasSMSCapability;
-- (BOOL)hasVibratorCapability;
-- (BOOL)areCustomVibrationsEnabled;
-- (BOOL)hasCameraCapability;
-- (BOOL)isEmailConfigured;
-- (BOOL)isMMSConfigured;
-- (BOOL)isMadridConfigured;
-- (BOOL)isConferencingAvailable;
-- (BOOL)isConferencingEverGonnaBeAvailable;
-- (BOOL)hasPreviouslyConferencedWithID:(id)arg1;
-- (id)conferenceURLForPhoneNumber:(id)arg1;
-- (id)conferenceURLForDestinationID:(id)arg1;
-- (BOOL)hasAdditionalTextTones;
-- (void)_checkRingtoneStoreAvailability;
-@property(nonatomic) BOOL isRingtoneStoreAvailable; // @synthesize isRingtoneStoreAvailable=_isRingtoneStoreAvailable;
++ (id)defaultCapabilitiesManager;
+- (BOOL)isWeiboServiceAvailable;
 - (BOOL)isTwitterServiceAvailable;
+- (BOOL)hasAdditionalTextTones;
+- (void)_startListeningToFTCServiceAvailabilityIfNecessary;
+- (void)removeFTCServiceAvailabilityListener:(id)arg1;
+- (void)addFTCServiceAvailabilityListener:(id)arg1 selector:(SEL)arg2;
+- (id)conferenceURLForDestinationID:(id)arg1;
+- (id)conferenceURLForPhoneNumber:(id)arg1;
+- (BOOL)hasPreviouslyConferencedWithID:(id)arg1;
+- (BOOL)isConferencingEverGonnaBeAvailable;
+- (BOOL)isConferencingAvailable;
+- (BOOL)isMadridConfigured;
+- (BOOL)isMMSConfigured;
+- (BOOL)isEmailConfigured;
+- (BOOL)hasCameraCapability;
+- (BOOL)hasVibratorCapability;
+- (BOOL)hasSMSCapability;
+- (BOOL)hasCellularDataCapability;
+- (BOOL)hasCellularTelephonyCapability;
+- (BOOL)hasTelephonyCapability;
+- (BOOL)isSensitiveUIAllowed;
+- (void)dealloc;
 
 @end
 

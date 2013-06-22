@@ -16,11 +16,11 @@
     } bits;
 }
 
-- (id)initWithBytes:(char *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)initWithBytes:(char *)arg1;
 
 @end
 

@@ -24,6 +24,12 @@
 + (id)imageURLForStatus:(unsigned int)arg1;
 + (id)imageNameForStatus:(unsigned int)arg1;
 + (void)forgetStatusImageAppearance;
++ (id)smsService;
++ (id)iMessageService;
++ (id)facetimeService;
++ (id)jabberService;
++ (id)subnetService;
++ (id)aimService;
 - (id)myScreenNames;
 - (id)screenNamesForPerson:(id)arg1;
 - (id)peopleWithScreenName:(id)arg1;
@@ -40,6 +46,9 @@
 - (void)login;
 - (BOOL)isEnabled;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)infoForDisplayedPeople;
+- (id)infoForAllPeople;
+- (id)infoForPerson:(id)arg1;
 
 @end
 

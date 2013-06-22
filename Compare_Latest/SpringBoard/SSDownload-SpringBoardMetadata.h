@@ -7,10 +7,10 @@
 #import "SSDownload.h"
 
 @interface SSDownload (SpringBoardMetadata)
-- (id)cachedSoftwareType;
-- (id)cachedBundleIdentifier;
-- (id)cachedApplicationIdentifier;
-- (BOOL)cachedArtworkIsPrerendered;
 - (id)cachedTitle;
+- (BOOL)cachedArtworkIsPrerendered;
+- (id)cachedApplicationIdentifier;
+- (id)cachedBundleIdentifier;
+- (id)cachedSoftwareType;
 @end
 

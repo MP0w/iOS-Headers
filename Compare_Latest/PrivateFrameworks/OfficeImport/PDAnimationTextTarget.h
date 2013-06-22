@@ -12,13 +12,14 @@
     struct _NSRange mRange;
 }
 
-- (id)init;
-- (int)type;
-- (void)setType:(int)arg1;
-- (struct _NSRange)range;
-- (void)setRange:(struct _NSRange)arg1;
-- (unsigned int)hash;
+- (id).cxx_construct;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setRange:(struct _NSRange)arg1;
+- (struct _NSRange)range;
+- (void)setType:(int)arg1;
+- (int)type;
+- (id)init;
 
 @end
 

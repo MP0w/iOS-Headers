@@ -6,7 +6,7 @@
 
 #import <GameKit/GKResponse.h>
 
-@class GKGameInternal, NSDictionary, NSString;
+@class GKGameInternal, GKPlayerInternal, NSString;
 
 @interface GKAuthenticateResponse : GKResponse
 {
@@ -14,23 +14,25 @@
     NSString *_playerID;
     NSString *_authToken;
     GKGameInternal *_game;
-    NSDictionary *_alertDictionary;
     BOOL _sandboxed;
     BOOL _loginDisabled;
     BOOL _shouldUsePipelining;
     unsigned int _maxPlayersP2P;
     unsigned int _maxPlayersHosted;
     unsigned int _maxPlayersTurnBased;
+    unsigned int _maxGameStateSizeTurnBased;
+    GKPlayerInternal *_localPlayer;
 }
 
 + (id)codedPropertyKeys;
+@property(retain, nonatomic) GKPlayerInternal *localPlayer; // @synthesize localPlayer=_localPlayer;
+@property(nonatomic) unsigned int maxGameStateSizeTurnBased; // @synthesize maxGameStateSizeTurnBased=_maxGameStateSizeTurnBased;
 @property(nonatomic) unsigned int maxPlayersTurnBased; // @synthesize maxPlayersTurnBased=_maxPlayersTurnBased;
 @property(nonatomic) unsigned int maxPlayersHosted; // @synthesize maxPlayersHosted=_maxPlayersHosted;
 @property(nonatomic) unsigned int maxPlayersP2P; // @synthesize maxPlayersP2P=_maxPlayersP2P;
 @property(nonatomic) BOOL shouldUsePipelining; // @synthesize shouldUsePipelining=_shouldUsePipelining;
 @property(nonatomic) BOOL loginDisabled; // @synthesize loginDisabled=_loginDisabled;
 @property(nonatomic) BOOL sandboxed; // @synthesize sandboxed=_sandboxed;
-@property(retain, nonatomic) NSDictionary *alertDictionary; // @synthesize alertDictionary=_alertDictionary;
 @property(retain, nonatomic) GKGameInternal *game; // @synthesize game=_game;
 @property(retain, nonatomic) NSString *authToken; // @synthesize authToken=_authToken;
 @property(retain, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;

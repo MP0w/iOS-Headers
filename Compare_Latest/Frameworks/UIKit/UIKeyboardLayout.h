@@ -15,13 +15,11 @@
     NSMutableArray *_uncommittedTouches;
     UITouch *_activeTouch;
     UITouch *_shiftKeyTouch;
-    UITouch *_swipeTouch;
     int _orientation;
     int m_orientation;
 }
 
 @property int orientation; // @synthesize orientation=m_orientation;
-@property(retain, nonatomic) UITouch *swipeTouch; // @synthesize swipeTouch=_swipeTouch;
 @property(retain, nonatomic) UITouch *shiftKeyTouch; // @synthesize shiftKeyTouch=_shiftKeyTouch;
 @property(retain, nonatomic) UITouch *activeTouch; // @synthesize activeTouch=_activeTouch;
 - (id)simulateTouchForCharacter:(id)arg1 errorVector:(struct CGPoint)arg2 shouldTypeVariants:(BOOL)arg3 baseKeyForVariants:(BOOL)arg4;
@@ -32,6 +30,7 @@
 - (id)baseKeyForString:(id)arg1;
 - (SEL)handlerForNotification:(id)arg1;
 - (struct CGRect)frameForKeylayoutName:(id)arg1;
+- (struct CGSize)dragGestureSize;
 - (float)flickDistance;
 - (float)hitBuffer;
 - (void)phraseBoundaryDidChange;
@@ -58,10 +57,10 @@
 - (void)setLabel:(id)arg1 forKey:(id)arg2;
 - (BOOL)hasCandidateKeys;
 - (id)candidateList;
+- (BOOL)performSpaceAction;
 - (BOOL)performReturnAction;
 - (void)didClearInput;
 - (void)longPressAction;
-- (BOOL)shiftKeyRequiresImmediateUpdate;
 - (BOOL)doesKeyCharging;
 - (BOOL)isShiftKeyPlaneChooser;
 - (BOOL)isShiftKeyBeingHeld;
@@ -70,9 +69,8 @@
 - (BOOL)ignoresShiftState;
 - (BOOL)usesAutoShift;
 - (void)updateLocalizedKeys:(BOOL)arg1;
-- (void)updateReturnKey;
 - (void)deactivateActiveKeys;
-- (void)clearUnusedObjects;
+- (void)clearUnusedObjects:(BOOL)arg1;
 - (void)showKeyboardType:(int)arg1 withAppearance:(int)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

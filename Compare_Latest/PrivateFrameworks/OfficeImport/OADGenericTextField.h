@@ -13,9 +13,9 @@
     NSString *mType;
 }
 
-- (void)dealloc;
-- (id)type;
 - (void)setType:(id)arg1;
+- (id)type;
+- (void)dealloc;
 
 @end
 

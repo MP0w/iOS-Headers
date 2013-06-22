@@ -14,7 +14,7 @@
 - (void)handleNotificationDictionary:(id)arg1;
 - (void)handleRegistrationSuccessWithToken:(id)arg1;
 - (void)handleRegistrationFailureWithError:(id)arg1;
-@property(readonly, nonatomic) int enabledNotificationTypes;
+@property(readonly, nonatomic) unsigned int enabledNotificationTypes;
 - (id)init;
 
 @end

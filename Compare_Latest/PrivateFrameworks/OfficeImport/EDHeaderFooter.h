@@ -15,11 +15,11 @@
 }
 
 + (id)headerFooter;
-- (void)dealloc;
-- (id)headerString;
-- (void)setHeaderString:(id)arg1;
-- (id)footerString;
 - (void)setFooterString:(id)arg1;
+- (id)footerString;
+- (void)setHeaderString:(id)arg1;
+- (id)headerString;
+- (void)dealloc;
 
 @end
 

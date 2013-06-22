@@ -4,23 +4,23 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <CoreMediaStream/MSDaemon.h>
 
-@interface MSMediaStreamDaemon : NSObject
+@class NSCountedSet;
+
+@interface MSMediaStreamDaemon : MSDaemon
 {
     id <MSMediaStreamDaemonDelegate> _delegate;
-    int _busyCount;
-    int _UIBusyCount;
+    NSCountedSet *_retainedObjects;
 }
 
 @property(nonatomic) id <MSMediaStreamDaemonDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)didExceedPublishQuotaForPersonID:(id)arg1 retryDate:(id)arg2;
 - (void)didReceiveAuthenticationSuccessForPersonID:(id)arg1;
 - (void)didReceiveAuthenticationFailureForPersonID:(id)arg1;
 - (void)showInvitationFailureAlertForPersonID:(id)arg1 failures:(id)arg2;
 - (void)didReceiveNewShareState:(id)arg1 oldShareState:(id)arg2 forPersonID:(id)arg3;
-- (void)releasePowerAssertion;
-- (void)retainPowerAssertion;
 - (void)stop;
 - (void)start;
 - (void)deleteAssetCollections:(id)arg1 forPersonID:(id)arg2;
@@ -57,15 +57,13 @@
 - (id)_boundSharingManagerForPersonID:(id)arg1;
 - (id)_boundSubscriberForPersonID:(id)arg1;
 - (id)_boundPublisherForPersonID:(id)arg1;
+- (void)didUnidle;
+- (void)didIdle;
 - (BOOL)isInRetryState;
 - (BOOL)personIDHasOutstandingPublications:(id)arg1;
 - (BOOL)hasOutstandingActivity;
 - (id)nextActivityDate;
-- (void)releaseUIBusy;
-- (void)retainUIBusy;
-- (BOOL)isBusy;
-- (void)releaseBusy;
-- (void)retainBusy;
+- (id)init;
 
 @end
 

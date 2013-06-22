@@ -10,14 +10,14 @@
 {
 }
 
-+ (id)colorPropertyCache;
-+ (id)lengthPropertyCache;
-+ (id)borderStyleCache;
-+ (id)borderWidthCache;
-+ (id)cssStylesheetCache;
-+ (id)drawableElementCache;
-+ (void)initGlobalCache;
 + (void)releaseGlobalCache;
++ (void)initGlobalCache;
++ (id)drawableElementCache;
++ (id)cssStylesheetCache;
++ (id)borderWidthCache;
++ (id)borderStyleCache;
++ (id)lengthPropertyCache;
++ (id)colorPropertyCache;
 
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
++ (void)write:(id)arg1 listLevel:(id)arg2 format:(struct WrdListLevelFormat *)arg3;
 + (void)readFrom:(id)arg1 listLevel:(id)arg2 format:(struct WrdListLevelFormat *)arg3 document:(id)arg4;
 
 @end

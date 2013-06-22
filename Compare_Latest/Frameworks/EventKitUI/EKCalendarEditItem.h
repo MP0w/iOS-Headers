@@ -18,13 +18,17 @@
 
 @property(retain, nonatomic) id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property id <EKCalendarEditItemDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)applyStyleProviderToCell:(id)arg1;
 - (BOOL)becomeFirstResponder;
 - (BOOL)saveStateToCalendar:(id)arg1;
 - (void)calendarEditor:(id)arg1 didSelectSubitem:(int)arg2;
 - (id)cellForSubitemAtIndex:(int)arg1;
 - (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
+- (float)footerHeightForSection;
+- (id)footerViewForSection;
 - (id)headerTitle;
 - (int)numberOfSubitems;
+- (BOOL)configureWithCalendar:(id)arg1;
 - (void)reset;
 - (void)setCalendar:(id)arg1 store:(id)arg2;
 - (void)dealloc;

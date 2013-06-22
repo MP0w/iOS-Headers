@@ -14,10 +14,10 @@
     EDStyle *edStyle;
 }
 
-- (id)initWithDoubleValue:(double)arg1 style:(id)arg2 parent:(id)arg3;
-- (id)formatValueAsNumber;
-- (id)insertRedSpanIfNegativeAt:(id)arg1;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id)insertRedSpanIfNegativeAt:(id)arg1;
+- (id)formatValueAsNumber;
+- (id)initWithDoubleValue:(double)arg1 style:(id)arg2 parent:(id)arg3;
 
 @end
 

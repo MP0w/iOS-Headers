@@ -7,7 +7,7 @@
 #import "NSAffineTransform.h"
 
 @interface NSAffineTransform (CAAnimatableValue)
-- (id)CA_addValue:(id)arg1 multipliedBy:(int)arg2;
 - (id)CA_interpolateValue:(id)arg1 byFraction:(float)arg2;
+- (id)CA_addValue:(id)arg1 multipliedBy:(int)arg2;
 @end
 

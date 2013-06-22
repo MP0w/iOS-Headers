@@ -26,25 +26,25 @@
     struct CGPoint _initialSelectionPointOnPage;
 }
 
-- (id)init;
-- (void)dealloc;
-- (struct CGRect)selectionBoundsInEffectsSpace;
-- (void)setSelection:(id)arg1;
-- (void)remove;
-- (BOOL)hitTest:(struct CGPoint)arg1 fixedPoint:(struct CGPoint *)arg2 preceeds:(char *)arg3;
-- (struct CGPoint)selectedPointFor:(struct CGPoint)arg1;
-- (struct CGPoint)viewOffset;
-- (void)layout;
-- (void)setSelectedGrabber:(unsigned int)arg1;
-- (struct CGRect)adjustRect:(struct CGRect)arg1 toPoint:(struct CGPoint)arg2;
-- (void)setSelectedGrabberPosition:(struct CGRect)arg1;
-- (void)track:(struct CGPoint)arg1;
-- (void)endTracking;
-- (struct CGRect)selectionRectangle;
-@property(readonly, nonatomic) struct CGPoint currentSelectionPointOnPage;
-- (void)hide;
 @property(readonly, nonatomic) struct CGPoint initialSelectionPointOnPage; // @synthesize initialSelectionPointOnPage=_initialSelectionPointOnPage;
 @property(nonatomic) UIPDFPageView *pageView; // @synthesize pageView=_pageView;
+- (void)hide;
+@property(readonly, nonatomic) struct CGPoint currentSelectionPointOnPage;
+- (struct CGRect)selectionRectangle;
+- (void)endTracking;
+- (void)track:(struct CGPoint)arg1;
+- (void)setSelectedGrabberPosition:(struct CGRect)arg1;
+- (struct CGRect)adjustRect:(struct CGRect)arg1 toPoint:(struct CGPoint)arg2;
+- (void)setSelectedGrabber:(unsigned int)arg1;
+- (void)layout;
+- (struct CGPoint)viewOffset;
+- (struct CGPoint)selectedPointFor:(struct CGPoint)arg1;
+- (BOOL)hitTest:(struct CGPoint)arg1 fixedPoint:(struct CGPoint *)arg2 preceeds:(char *)arg3;
+- (void)remove;
+- (void)setSelection:(id)arg1;
+- (struct CGRect)selectionBoundsInEffectsSpace;
+- (void)dealloc;
+- (id)init;
 
 @end
 

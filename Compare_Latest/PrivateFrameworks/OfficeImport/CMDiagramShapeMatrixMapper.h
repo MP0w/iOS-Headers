@@ -18,10 +18,14 @@
     BOOL mIsLinear;
 }
 
-- (id)initWithOddDiagram:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 identifier:(id)arg4 parent:(id)arg5;
-- (struct CGRect)circumscribedBounds;
-- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
+- (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
+- (struct CGRect)circumscribedBounds;
+- (id)initWithOddDiagram:(id)arg1 drawingContext:(id)arg2 orientedBounds:(id)arg3 identifier:(id)arg4 parent:(id)arg5;
+- (double)gapRatio;
+- (struct CGSize)gapSize;
+- (int)columnCount;
+- (void)setColumnsAndRowsCount;
 
 @end
 

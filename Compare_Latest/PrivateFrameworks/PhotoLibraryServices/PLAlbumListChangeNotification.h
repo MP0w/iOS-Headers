@@ -13,11 +13,13 @@
     NSDictionary *_userInfo;
 }
 
++ (id)notificationWithAlbumList:(id)arg1 snapshot:(id)arg2 changedAlbums:(id)arg3;
 @property(readonly, nonatomic) NSObject<PLAlbumContainer> *albumList;
 - (id)description;
 - (id)userInfo;
 - (id)name;
 - (void)dealloc;
+- (id)_contentRelationshipName;
 
 @end
 

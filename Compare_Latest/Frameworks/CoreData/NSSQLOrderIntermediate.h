@@ -13,11 +13,11 @@
     NSArray *_sortDescriptors;
 }
 
-- (id)initWithSortDescriptors:(id)arg1 inScope:(id)arg2;
-- (void)dealloc;
-- (id)_generateSQLForOrderedManyToManyInverse:(id)arg1 inContext:(id)arg2;
-- (id)_generateSQLForOrderedToManyInverse:(id)arg1 inContext:(id)arg2;
 - (id)generateSQLStringInContext:(id)arg1;
+- (id)_generateSQLForOrderedToManyInverse:(id)arg1 inContext:(id)arg2;
+- (id)_generateSQLForOrderedManyToManyInverse:(id)arg1 inContext:(id)arg2;
+- (void)dealloc;
+- (id)initWithSortDescriptors:(id)arg1 inScope:(id)arg2;
 
 @end
 

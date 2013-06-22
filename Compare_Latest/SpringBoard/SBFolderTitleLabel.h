@@ -11,8 +11,8 @@
 }
 
 + (float)labelFontSize;
-- (void)drawRect:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)drawRect:(struct CGRect)arg1;
 
 @end
 

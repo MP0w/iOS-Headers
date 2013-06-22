@@ -12,30 +12,30 @@
 {
 }
 
-@property(readonly, retain) DOMHTMLFormElement *form;
-@property(copy) NSString *code;
-@property(copy) NSString *align;
-@property(copy) NSString *archive;
-@property(copy) NSString *border;
-@property(copy) NSString *codeBase;
-@property(copy) NSString *codeType;
-@property(copy) NSString *data;
-@property BOOL declare;
-@property(copy) NSString *height;
-@property int hspace;
-@property(copy) NSString *name;
-@property(copy) NSString *standby;
-@property(copy) NSString *type;
-@property(copy) NSString *useMap;
-@property int vspace;
-@property(copy) NSString *width;
-- (BOOL)willValidate;
-- (id)validity;
-- (id)validationMessage;
-@property(readonly, retain) DOMDocument *contentDocument;
-@property(readonly, copy) NSURL *absoluteImageURL;
-- (BOOL)checkValidity;
 - (void)setCustomValidity:(id)arg1;
+- (BOOL)checkValidity;
+@property(readonly) NSURL *absoluteImageURL;
+@property(readonly) DOMDocument *contentDocument;
+- (id)validationMessage;
+- (id)validity;
+- (BOOL)willValidate;
+@property(copy) NSString *width;
+@property int vspace;
+@property(copy) NSString *useMap;
+@property(copy) NSString *type;
+@property(copy) NSString *standby;
+@property(copy) NSString *name;
+@property int hspace;
+@property(copy) NSString *height;
+@property BOOL declare;
+@property(copy) NSString *data;
+@property(copy) NSString *codeType;
+@property(copy) NSString *codeBase;
+@property(copy) NSString *border;
+@property(copy) NSString *archive;
+@property(copy) NSString *align;
+@property(copy) NSString *code;
+@property(readonly) DOMHTMLFormElement *form;
 
 @end
 

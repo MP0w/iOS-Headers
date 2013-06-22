@@ -10,10 +10,10 @@
 {
 }
 
-- (unsigned int)addObject:(id)arg1;
-- (unsigned int)addObject:(id)arg1 overrideDuplicate:(_Bool)arg2;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
+- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (unsigned int)addObject:(id)arg1 overrideDuplicate:(_Bool)arg2;
+- (unsigned int)addObject:(id)arg1;
 
 @end
 

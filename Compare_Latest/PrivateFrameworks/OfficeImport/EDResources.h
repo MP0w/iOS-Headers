@@ -26,22 +26,24 @@
     EDTableStylesCollection *mTableStyles;
 }
 
-- (id)initWithStringOptimization:(_Bool)arg1;
-- (void)dealloc;
-- (id)strings;
-- (id)contentFormats;
-- (id)fonts;
-- (id)alignmentInfos;
-- (id)styles;
-- (id)colors;
-- (id)themes;
-- (id)names;
-- (id)links;
-- (id)borders;
-- (id)border;
-- (id)fills;
-- (id)differentialStyles;
 - (id)tableStyles;
+- (id)differentialStyles;
+- (id)fills;
+- (id)border;
+- (id)borders;
+- (id)links;
+- (id)names;
+- (id)themes;
+- (id)colors;
+- (id)styles;
+- (id)alignmentInfos;
+- (id)fonts;
+- (id)contentFormats;
+- (id)strings;
+- (void)dealloc;
+- (id)initWithStringOptimization:(_Bool)arg1;
+- (void)setThemes:(id)arg1;
+- (void)setColors:(id)arg1;
 
 @end
 

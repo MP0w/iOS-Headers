@@ -11,11 +11,11 @@
     int _status;
 }
 
-- (id)init;
-- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (int)status;
-- (void)activate;
 - (void)deactivate;
+- (void)activate;
+- (int)status;
+- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
+- (id)init;
 
 @end
 

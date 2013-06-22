@@ -20,8 +20,9 @@
 @property(nonatomic) BOOL shouldShowLoadingView; // @synthesize shouldShowLoadingView=_shouldShowLoadingView;
 @property(copy, nonatomic) SUGradient *defaultBackgroundGradient; // @synthesize defaultBackgroundGradient=_defaultBackgroundGradient;
 @property(copy, nonatomic) SUGradient *backgroundGradient; // @synthesize backgroundGradient=_backgroundGradient;
-- (id)_newURLBagBackgroundGradient;
+- (void)_reloadLoadingView;
 - (void)_reloadBackgroundGradient;
+- (id)_newURLBagBackgroundGradient;
 - (void)_bagDidLoadNotification:(id)arg1;
 - (void)setLoading:(BOOL)arg1;
 - (void)parentViewControllerHierarchyDidChange;

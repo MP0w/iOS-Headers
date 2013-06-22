@@ -15,14 +15,20 @@
     _Bool mIsChart;
 }
 
-- (id)initWithEshObject:(struct EshObject *)arg1;
-- (id)initWithType:(unsigned short)arg1;
-- (id)initFromReader:(struct OcReader *)arg1 type:(unsigned short)arg2 version:(unsigned short)arg3;
-- (void)dealloc;
-- (struct EshObject *)eshObject;
-- (id)parent;
-- (_Bool)isChart;
 - (void)setChart:(_Bool)arg1;
+- (_Bool)isChart;
+- (void)writeToWriter:(struct OcWriter *)arg1;
+- (id)parent;
+- (struct EshObject *)eshObject;
+- (void)dealloc;
+- (id)initFromReader:(struct OcReader *)arg1 type:(unsigned short)arg2 version:(unsigned short)arg3;
+- (id)initWithType:(unsigned short)arg1;
+- (id)initWithEshObject:(struct EshObject *)arg1;
+- (id)ebInitWithType:(unsigned short)arg1 version:(unsigned short)arg2 state:(id)arg3;
+- (long)shapeID;
+- (struct EshGroup *)eshGroup;
+- (struct EshShape *)eshShape;
+- (id)pbInitWithType:(unsigned short)arg1 version:(unsigned short)arg2 state:(id)arg3;
 
 @end
 

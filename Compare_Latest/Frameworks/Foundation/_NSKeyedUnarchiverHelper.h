@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, NSMutableArray;
 
 @interface _NSKeyedUnarchiverHelper : NSObject
 {
     NSArray *_white;
     unsigned int _lastRef;
+    NSMutableArray *_allowedClasses;
 }
 
-- (BOOL)classAllowed:(Class)arg1;
-- (void)setAllowedClasses:(id)arg1;
-- (id)allowedClasses;
+- (BOOL)classNameAllowed:(Class)arg1;
+- (void)setAllowedClassNames:(id)arg1;
+- (id)allowedClassNames;
 - (void)dealloc;
+- (id)init;
 
 @end
 

@@ -15,13 +15,13 @@
 }
 
 + (id)defaultStyle;
-- (void)dealloc;
-- (id)textStyle;
-- (void)setTextStyle:(id)arg1;
-- (id)cellStyle;
-- (void)setCellStyle:(id)arg1;
-- (id)shallowCopy;
 - (void)applyOverridesFrom:(id)arg1;
+- (id)shallowCopy;
+- (void)setCellStyle:(id)arg1;
+- (id)cellStyle;
+- (void)setTextStyle:(id)arg1;
+- (id)textStyle;
+- (void)dealloc;
 
 @end
 

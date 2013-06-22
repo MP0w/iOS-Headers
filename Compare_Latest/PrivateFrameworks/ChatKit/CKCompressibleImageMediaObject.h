@@ -6,31 +6,20 @@
 
 #import <ChatKit/CKMediaObject.h>
 
-@class CKImageData;
+#import "CKPreviewableAttachment-Protocol.h"
 
-@interface CKCompressibleImageMediaObject : CKMediaObject
+@interface CKCompressibleImageMediaObject : CKMediaObject <CKPreviewableAttachment>
 {
-    CKImageData *_imageData;
 }
 
-+ (id)mimeTypesToFileExtensions;
-+ (id)previewDataMIMEType;
 + (struct CGSize)transcodeMaxSize;
-- (void)dealloc;
-- (int)mediaType;
++ (id)mimeTypesToFileExtensions;
 - (id)imageData;
-- (BOOL)shouldTranscodeForMMS;
-- (Class)balloonPreviewClassWithPreviewData:(id)arg1;
-- (float)balloonHeightWithPreviewData:(id)arg1;
-- (void)configureBalloon:(id)arg1 withPreviewData:(id)arg2;
-- (id)_newTranscodedMediaObjectWithMaxByteLength:(int)arg1 forceJPEG:(BOOL)arg2;
-- (id)_newTranscodedMediaObjectWithMaxByteLength:(int)arg1;
-- (id)newTranscodingForMMSWithMaxByteLength:(int)arg1;
-- (BOOL)shouldGeneratePreviewInBackground;
-- (id)newPreview:(int)arg1 highlight:(BOOL)arg2;
+- (BOOL)savePreview:(id)arg1 toPath:(id)arg2 forOrientation:(int)arg3;
+- (id)savedPreviewFromPath:(id)arg1 forOrientation:(int)arg2;
+- (id)previewForOrientation:(int)arg1 highlight:(BOOL)arg2;
 - (void)copyToPasteboard:(id)arg1;
-- (id)_orientationStringForImageOrientation:(int)arg1;
-- (void)logMediaDiagnotics;
+- (int)mediaType;
 
 @end
 

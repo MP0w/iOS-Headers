@@ -17,24 +17,24 @@
     UIColor *_actualTextColor;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)_setActualText:(id)arg1;
-- (void)_setActualTextColor:(id)arg1;
-@property(copy, nonatomic) NSString *placeholder;
-@property(retain, nonatomic) UIColor *textColor;
-@property(nonatomic) UIColor *highlightedTextColor;
-@property(nonatomic) UIColor *shadowColor;
-@property(nonatomic) struct CGSize shadowOffset;
-@property(nonatomic) UIFont *font;
-@property(copy, nonatomic) NSString *text;
-- (id)label;
-- (float)labelLeftEdgeInset;
-- (void)sizeToFit;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (struct CGRect)_labelFrameForBounds:(struct CGRect)arg1;
-- (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
+- (void)setFrame:(struct CGRect)arg1;
+- (struct CGRect)_labelFrameForBounds:(struct CGRect)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)sizeToFit;
+- (float)labelLeftEdgeInset;
+- (id)label;
+@property(copy, nonatomic) NSString *text;
+@property(nonatomic) UIFont *font;
+@property(nonatomic) struct CGSize shadowOffset;
+@property(nonatomic) UIColor *shadowColor;
+@property(nonatomic) UIColor *highlightedTextColor;
+@property(retain, nonatomic) UIColor *textColor;
+@property(copy, nonatomic) NSString *placeholder;
+- (void)_setActualTextColor:(id)arg1;
+- (void)_setActualText:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

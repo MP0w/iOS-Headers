@@ -18,17 +18,18 @@
     _Bool mContainsVolumeStockType;
 }
 
-- (id)initWithChart:(id)arg1;
-- (void)dealloc;
-- (id)chartTypes;
-- (id)axes;
-- (_Bool)hasSecondaryAxis;
-- (_Bool)hasSecondaryYAxisDeleted;
-- (void)markSecondaryAxes;
-- (id)graphicProperties;
-- (void)setGraphicProperties:(id)arg1;
-- (_Bool)containsVolumeStockType;
 - (void)setContainsVolumeStockType:(_Bool)arg1;
+- (_Bool)containsVolumeStockType;
+- (void)setGraphicProperties:(id)arg1;
+- (id)graphicProperties;
+- (void)markSecondaryAxes;
+- (_Bool)hasSecondaryYAxisDeleted;
+- (_Bool)hasSecondaryAxis;
+- (id)axes;
+- (id)chartTypes;
+- (void)dealloc;
+- (id)initWithChart:(id)arg1;
+- (_Bool)isCategoryAxesReversed:(_Bool)arg1;
 
 @end
 

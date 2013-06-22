@@ -9,8 +9,8 @@
 @protocol MFMailPopoverManagerDelegate <NSObject>
 
 @optional
-- (BOOL)popoverControllerShouldDismissPopover:(id)arg1;
-- (void)popoverControllerDidDismissPopover:(id)arg1 isUserAction:(BOOL)arg2;
 - (BOOL)popoverControllerSupportsRotation:(id)arg1;
+- (void)popoverControllerDidDismissPopover:(id)arg1 isUserAction:(BOOL)arg2;
+- (BOOL)popoverControllerShouldDismissPopover:(id)arg1;
 @end
 

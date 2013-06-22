@@ -65,7 +65,7 @@
 - (void)serializeSet:(id)arg1;
 - (void)serializeDictionary:(id)arg1;
 - (void)serializeArray:(id)arg1;
-- (id)replacementObjectForObject:(id)arg1;
+- (id)replacementObjectForObject:(id)arg1 forKey:(id)arg2;
 - (BOOL)shouldUniqueObjectByValue:(id)arg1;
 - (BOOL)object:(id)arg1 encodesAsMemberAndWithCoderOfClass:(Class)arg2;
 - (BOOL)object:(id)arg1 encodesWithCoderFromClass:(Class)arg2;

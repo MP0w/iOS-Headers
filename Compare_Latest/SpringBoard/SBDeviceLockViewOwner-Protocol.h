@@ -9,12 +9,12 @@
 @protocol SBDeviceLockViewOwner <NSObject>
 
 @optional
-- (void)setShowingDeviceLock:(BOOL)arg1;
-- (void)setShowingDeviceLock:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)deviceUnlockSucceeded;
-- (void)deviceUnlockFailed;
-- (BOOL)isDisplayingErrorStatus;
-- (BOOL)shouldUseTransparentStatusBar;
 - (void)animateToEmergencyCall;
+- (BOOL)shouldUseTransparentStatusBar;
+- (BOOL)isDisplayingErrorStatus;
+- (void)deviceUnlockFailed;
+- (void)deviceUnlockSucceeded;
+- (void)setShowingDeviceLock:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setShowingDeviceLock:(BOOL)arg1;
 @end
 

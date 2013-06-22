@@ -25,9 +25,12 @@
     GLKEffectPropertyTexGen *_texGenS;
     GLKEffectPropertyTexGen *_texGenT;
     GLKEffectPropertyTexGen *_texGenR;
+    struct GLKBigInt_s _allFshMasks;
 }
 
++ (void)clearAllTexturingMasks:(struct GLKBigInt_s *)arg1 fshMask:(struct GLKBigInt_s *)arg2;
 + (void)setStaticMasksWithVshRoot:(id)arg1 fshRoot:(id)arg2;
+@property(readonly, nonatomic) struct GLKBigInt_s allFshMasks; // @synthesize allFshMasks=_allFshMasks;
 @property(readonly, nonatomic) NSMutableArray *texGenArray; // @synthesize texGenArray=_texGenArray;
 @property(nonatomic) int unitCubeLoc; // @synthesize unitCubeLoc=_unitCubeLoc;
 @property(nonatomic) int unit2dLoc; // @synthesize unit2dLoc=_unit2dLoc;
@@ -41,12 +44,6 @@
 @property(nonatomic) unsigned char enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) int target; // @synthesize target=_target;
 - (void)dealloc;
-- (char **)fshMaskStr;
-- (char **)vshMaskStr;
-- (unsigned int)fshMaskCt;
-- (unsigned int)vshMaskCt;
-- (struct GLKBigInt_s *)fshMasks;
-- (struct GLKBigInt_s *)vshMasks;
 - (void)bind;
 - (id)description;
 @property(readonly, nonatomic) unsigned char useTexCoordAttribMask;
@@ -54,10 +51,8 @@
 @property(readonly, nonatomic) unsigned char vPositionEyeMask;
 @property(readonly, nonatomic) unsigned char normalizedNormalsMask;
 - (void)initializeMasks;
-- (_Bool)includeShaderTextForRootNode:(id)arg1;
-- (void)texGenMask;
-- (void)reflectionMapMask;
-- (void)setMasks;
+- (_Bool)includeFshShaderTextForRootNode:(id)arg1;
+- (_Bool)includeVshShaderTextForRootNode:(id)arg1;
 - (void)setShaderBindings;
 @property(readonly, nonatomic) GLKEffectPropertyTexGen *texGenR; // @synthesize texGenR=_texGenR;
 @property(readonly, nonatomic) GLKEffectPropertyTexGen *texGenT; // @synthesize texGenT=_texGenT;

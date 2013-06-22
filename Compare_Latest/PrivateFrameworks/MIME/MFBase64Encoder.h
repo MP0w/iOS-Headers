@@ -8,21 +8,21 @@
 
 @interface MFBase64Encoder : MFBaseFilterDataConsumer
 {
-    char *_table;
-    unsigned int _left;
+    const char *_table;
+    unsigned long _left;
     unsigned char _leftovers[3];
-    unsigned int _line;
-    unsigned int _lineBreak;
+    unsigned long _line;
+    unsigned long _lineBreak;
     BOOL _padChar;
 }
 
-- (id)initWithConsumers:(id)arg1;
-- (int)appendData:(id)arg1;
-- (void)done;
-@property(nonatomic) BOOL allowSlash;
-- (void)setStandardLineBreak;
 @property(nonatomic) BOOL padChar; // @synthesize padChar=_padChar;
-@property(nonatomic) unsigned int lineBreak; // @synthesize lineBreak=_lineBreak;
+@property(nonatomic) unsigned long lineBreak; // @synthesize lineBreak=_lineBreak;
+- (void)setStandardLineBreak;
+@property(nonatomic) BOOL allowSlash;
+- (void)done;
+- (int)appendData:(id)arg1;
+- (id)initWithConsumers:(id)arg1;
 
 @end
 

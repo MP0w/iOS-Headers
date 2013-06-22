@@ -15,10 +15,18 @@
     int _visualStyle;
     NSString *_layoutName;
     id _geometryCacheKey;
-    struct CGRect _splitLeft;
-    struct CGRect _splitRight;
+    struct CGRect _splitLeftRect;
+    struct CGRect _splitLeftCacheRect;
+    struct CGRect _splitRightRect;
+    struct CGRect _splitRightCacheRect;
+    int _topCorners;
+    UIView *_splitLeft;
+    UIView *_splitRight;
+    BOOL _isSplit;
+    BOOL _centerFilled;
 }
 
+@property(readonly, nonatomic) float cachedWidth;
 @property(readonly, nonatomic) BOOL cacheDeferable;
 - (void)displayLayer:(id)arg1;
 - (id)cacheKey;

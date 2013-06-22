@@ -15,21 +15,21 @@
 }
 
 + (id)subcommandWithName:(id)arg1;
-- (id)initWithName:(id)arg1;
-- (void)dealloc;
-- (void)addOptions;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (int)compare:(id)arg1;
-- (id)subcommandName;
-- (id)optionArray;
-- (id)formattedHelpHeader;
-- (id)formattedHelpFooter;
-- (void)addOption:(id)arg1 argument:(id)arg2 target:(id)arg3 action:(SEL)arg4 argumentDescription:(id)arg5 required:(BOOL)arg6;
-- (int)run;
-- (void)stop;
-- (void)showHelp;
 - (id)description;
+- (void)showHelp;
+- (void)stop;
+- (int)run;
+- (void)addOption:(id)arg1 argument:(id)arg2 target:(id)arg3 action:(SEL)arg4 argumentDescription:(id)arg5 required:(BOOL)arg6;
+- (id)formattedHelpFooter;
+- (id)formattedHelpHeader;
+- (id)optionArray;
+- (id)subcommandName;
+- (int)compare:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)addOptions;
+- (void)dealloc;
+- (id)initWithName:(id)arg1;
 
 @end
 

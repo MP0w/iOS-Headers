@@ -6,48 +6,29 @@
 
 #import <EventKitUI/OccurrenceCacheDataSource.h>
 
-#import "CalSearchDataSink-Protocol.h"
+@class EKOccurrenceCacheSearch, NSMutableArray;
 
-@class CalSearch, NSMutableArray;
-
-@interface OccurrenceCacheSearchDataSource : OccurrenceCacheDataSource <CalSearchDataSink>
+@interface OccurrenceCacheSearchDataSource : OccurrenceCacheDataSource
 {
-    CalSearch *_calSearch;
-    BOOL _searching;
-    BOOL _resetting;
-    struct _opaque_pthread_mutex_t _dataSourceLock;
-    struct dispatch_queue_s *_searchQueue;
-    struct dispatch_group_s *_searchQueueGroup;
-    struct _opaque_pthread_mutex_t _resultsLock;
-    NSMutableArray *_results;
+    EKOccurrenceCacheSearch *_search;
+    NSMutableArray *_processingCachedDays;
+    struct _opaque_pthread_mutex_t {
+        long __sig;
+        char __opaque[40];
+    } _resultsLock;
 }
 
-- (void)restartSearchWithTerm:(id)arg1;
+- (id)_cachedDays;
 - (void)stopSearching;
-- (void)startSearching;
-- (void)calSearchComplete:(id)arg1;
-- (void)calSearch:(id)arg1 showResultsStartingOnDate:(double)arg2;
-- (void)calSearch:(id)arg1 foundOccurrences:(struct __CFArray *)arg2 cachedDays:(struct __CFArray *)arg3 cachedDaysIndexes:(struct __CFArray *)arg4;
-- (void)dumpInfo;
-- (void)_clearResults;
-- (void)_processResults;
-- (void)_addResult:(id)arg1;
-- (int)totalOccurrencesCount;
-- (int)dayCountBeforeDay:(double)arg1;
-- (int)countOfOccurrencesOnDay:(double)arg1;
-- (void)loadOccurrencesForRange:(CDStruct_1ef3fb1f)arg1;
-- (int)cachedOccurrenceCountOnOrAfterDate:(double)arg1;
-- (int)cachedOccurrenceCount;
-- (int)cachedDayCount;
+- (void)searchWithTerm:(id)arg1;
+- (void)_setCachedDaysAndNotify:(id)arg1 withDateToScrollTo:(id)arg2;
+- (int)countOfOccurrencesAtDayIndex:(int)arg1;
+- (void)invalidateCachedOccurrences;
 - (BOOL)supportsFakeTodaySection;
 - (BOOL)supportsInvitations;
-- (void)setCachedDayRange:(struct _NSRange)arg1;
-- (void)invalidateCachedDays;
-- (void)invalidateCachedDayIndexes;
-- (void)invalidateCachedOccurrences;
 - (void)dealloc;
-- (void)releaseResources;
-- (id)initWithDatabase:(struct CalDatabase *)arg1 filter:(struct CalFilter *)arg2;
+- (void)invalidate;
+- (id)initWithEventStore:(id)arg1 calendars:(id)arg2;
 
 @end
 

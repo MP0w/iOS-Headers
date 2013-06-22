@@ -11,6 +11,7 @@
 }
 
 + (struct CGSize)unscaledArtworkSizeForFormatID:(unsigned int)arg1;
++ (id)allArtworkFormatSizes;
 + (unsigned int)currentScreenFormatIDFrom1XFormatID:(unsigned int)arg1;
 + (id)noArtPlaceholderImageForMediaType:(int)arg1 withFormat:(unsigned int)arg2;
 + (id)scaleImage:(id)arg1 withFormat:(unsigned int)arg2;
@@ -19,15 +20,20 @@
 + (id)padNoArtPlaceholderAudioBookImageForSize:(struct CGSize)arg1;
 + (id)padNoArtPlaceholderPodcastImageForSize:(struct CGSize)arg1;
 + (id)padNoArtPlaceholderMusicImageForSize:(struct CGSize)arg1;
-+ (id)noArtPlaceholderImageForMediaType:(int)arg1;
++ (id)noArtMusicPlaceholderImageForMediaType:(int)arg1 size:(struct CGSize)arg2;
 + (id)noArtPlaceholderImageForMediaType:(int)arg1 size:(struct CGSize)arg2;
++ (id)noArtPlaceholderImageForMediaType:(int)arg1;
 + (id)scaledNoArtPlaceholderVideoImageWithFormat:(unsigned int)arg1;
 + (id)noArtPlaceholderVideoImage;
 + (id)scaledNoArtPlaceholderAudioBookImageWithFormat:(unsigned int)arg1;
++ (id)noArtMusicPlaceholderAudioBookImage;
 + (id)noArtPlaceholderAudioBookImage;
 + (id)scaledNoArtPlaceholderPodcastImageWithFormat:(unsigned int)arg1;
++ (id)noArtMusicPlaceholderPodcastImage;
 + (id)noArtPlaceholderPodcastImage;
 + (id)scaledNoArtPlaceholderMusicImageWithFormat:(unsigned int)arg1;
++ (id)noArtMusicPlaceholderMusicImageForSize:(struct CGSize)arg1;
++ (id)noArtPlaceholderMusicImageForSize:(struct CGSize)arg1;
 + (id)noArtPlaceholderMusicImage;
 - (BOOL)isPlaceholder:(id)arg1;
 

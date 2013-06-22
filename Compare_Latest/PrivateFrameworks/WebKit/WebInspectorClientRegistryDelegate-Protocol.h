@@ -5,7 +5,7 @@
  */
 
 @protocol WebInspectorClientRegistryDelegate
-- (void)didRegisterClient:(struct WebInspectorClient *)arg1;
 - (void)didUnregisterClient:(struct WebInspectorClient *)arg1;
+- (void)didRegisterClient:(struct WebInspectorClient *)arg1;
 @end
 

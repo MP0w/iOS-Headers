@@ -6,24 +6,25 @@
 
 #import "NSObject.h"
 
-@class ISSQLiteDatabase, NSURL;
+@class ISSQLiteDatabase, NSObject<OS_dispatch_queue>, NSURL;
 
 @interface ISCookieStorage : NSObject
 {
     ISSQLiteDatabase *_db;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     void *_processAssertion;
     int _processAssertionCount;
     NSURL *_storageLocation;
+    BOOL _usesTaskCompletionAssertions;
 }
 
 + (id)sharedInstance;
++ (BOOL)_setupCookieDatabase:(id)arg1;
++ (void)_setUsesTaskCompletionAssertions:(BOOL)arg1;
 + (id)sharedStorage;
 - (void)synchronizeCookies;
-- (BOOL)_setupCookieDatabase:(id)arg1;
 - (void)_endProcessAssertion;
-- (struct __CFSet *)_copyPrivateCookiesForURL:(id)arg1 userIdentifier:(id)arg2;
-- (id)_cookieForSelectStatement:(struct sqlite3_stmt *)arg1;
+- (id)_copyPrivateCookiesForURL:(id)arg1 userIdentifier:(id)arg2;
 - (id)_columnNameForCookieProperty:(id)arg1;
 - (BOOL)_bindStatement:(struct sqlite3_stmt *)arg1 withValues:(id)arg2;
 - (void)_bindInsertStatement:(struct sqlite3_stmt *)arg1 forCookie:(id)arg2 userIdentifier:(id)arg3;

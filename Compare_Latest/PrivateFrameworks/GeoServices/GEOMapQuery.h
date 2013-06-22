@@ -6,74 +6,80 @@
 
 #import "PBCodable.h"
 
-@class GEOLocation, GEOMapRegion, GEOPlaceSearchRequest, GEOSessionID, NSString;
+@class GEOLocation, GEOMapRegion, GEOPlaceSearchRequest, NSString;
 
 @interface GEOMapQuery : PBCodable
 {
-    NSString *_query;
-    BOOL _hasRequestType;
-    int _requestType;
-    BOOL _hasMapCenterX;
-    int _mapCenterX;
-    BOOL _hasMapCenterY;
-    int _mapCenterY;
-    BOOL _hasMapSpanX;
-    int _mapSpanX;
-    BOOL _hasMapSpanY;
-    int _mapSpanY;
-    BOOL _hasZoomlevel;
-    int _zoomlevel;
-    BOOL _hasClientImgFmt;
+    CDStruct_612aec5b _sessionID;
     int _clientImgFmt;
-    BOOL _hasTilesizeX;
-    int _tilesizeX;
-    BOOL _hasTilesizeY;
-    int _tilesizeY;
-    BOOL _hasClientImgMaxWidth;
-    int _clientImgMaxWidth;
-    BOOL _hasClientImgMaxHeight;
     int _clientImgMaxHeight;
+    int _clientImgMaxWidth;
+    int _mapCenterX;
+    int _mapCenterY;
     GEOMapRegion *_mapRegion;
-    GEOLocation *_userLocation;
-    GEOSessionID *_sessionID;
+    int _mapSpanX;
+    int _mapSpanY;
     GEOPlaceSearchRequest *_placeSearchRequest;
+    NSString *_query;
+    int _requestType;
+    int _tilesizeX;
+    int _tilesizeY;
+    GEOLocation *_userLocation;
+    int _zoomlevel;
+    struct {
+        unsigned int sessionID:1;
+        unsigned int clientImgFmt:1;
+        unsigned int clientImgMaxHeight:1;
+        unsigned int clientImgMaxWidth:1;
+        unsigned int mapCenterX:1;
+        unsigned int mapCenterY:1;
+        unsigned int mapSpanX:1;
+        unsigned int mapSpanY:1;
+        unsigned int requestType:1;
+        unsigned int tilesizeX:1;
+        unsigned int tilesizeY:1;
+        unsigned int zoomlevel:1;
+    } _has;
 }
 
 @property(retain, nonatomic) GEOPlaceSearchRequest *placeSearchRequest; // @synthesize placeSearchRequest=_placeSearchRequest;
-@property(retain, nonatomic) GEOSessionID *sessionID; // @synthesize sessionID=_sessionID;
+@property(nonatomic) CDStruct_612aec5b sessionID; // @synthesize sessionID=_sessionID;
 @property(retain, nonatomic) GEOLocation *userLocation; // @synthesize userLocation=_userLocation;
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(nonatomic) int clientImgMaxHeight; // @synthesize clientImgMaxHeight=_clientImgMaxHeight;
-@property(nonatomic) BOOL hasClientImgMaxHeight; // @synthesize hasClientImgMaxHeight=_hasClientImgMaxHeight;
 @property(nonatomic) int clientImgMaxWidth; // @synthesize clientImgMaxWidth=_clientImgMaxWidth;
-@property(nonatomic) BOOL hasClientImgMaxWidth; // @synthesize hasClientImgMaxWidth=_hasClientImgMaxWidth;
 @property(nonatomic) int tilesizeY; // @synthesize tilesizeY=_tilesizeY;
-@property(nonatomic) BOOL hasTilesizeY; // @synthesize hasTilesizeY=_hasTilesizeY;
 @property(nonatomic) int tilesizeX; // @synthesize tilesizeX=_tilesizeX;
-@property(nonatomic) BOOL hasTilesizeX; // @synthesize hasTilesizeX=_hasTilesizeX;
 @property(nonatomic) int clientImgFmt; // @synthesize clientImgFmt=_clientImgFmt;
-@property(nonatomic) BOOL hasClientImgFmt; // @synthesize hasClientImgFmt=_hasClientImgFmt;
 @property(nonatomic) int zoomlevel; // @synthesize zoomlevel=_zoomlevel;
-@property(nonatomic) BOOL hasZoomlevel; // @synthesize hasZoomlevel=_hasZoomlevel;
 @property(nonatomic) int mapSpanY; // @synthesize mapSpanY=_mapSpanY;
-@property(nonatomic) BOOL hasMapSpanY; // @synthesize hasMapSpanY=_hasMapSpanY;
 @property(nonatomic) int mapSpanX; // @synthesize mapSpanX=_mapSpanX;
-@property(nonatomic) BOOL hasMapSpanX; // @synthesize hasMapSpanX=_hasMapSpanX;
 @property(nonatomic) int mapCenterY; // @synthesize mapCenterY=_mapCenterY;
-@property(nonatomic) BOOL hasMapCenterY; // @synthesize hasMapCenterY=_hasMapCenterY;
 @property(nonatomic) int mapCenterX; // @synthesize mapCenterX=_mapCenterX;
-@property(nonatomic) BOOL hasMapCenterX; // @synthesize hasMapCenterX=_hasMapCenterX;
 @property(nonatomic) int requestType; // @synthesize requestType=_requestType;
-@property(nonatomic) BOOL hasRequestType; // @synthesize hasRequestType=_hasRequestType;
 @property(retain, nonatomic) NSString *query; // @synthesize query=_query;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) BOOL hasPlaceSearchRequest;
-@property(readonly, nonatomic) BOOL hasSessionID;
+@property(nonatomic) BOOL hasSessionID;
 @property(readonly, nonatomic) BOOL hasUserLocation;
 @property(readonly, nonatomic) BOOL hasMapRegion;
+@property(nonatomic) BOOL hasClientImgMaxHeight;
+@property(nonatomic) BOOL hasClientImgMaxWidth;
+@property(nonatomic) BOOL hasTilesizeY;
+@property(nonatomic) BOOL hasTilesizeX;
+@property(nonatomic) BOOL hasClientImgFmt;
+@property(nonatomic) BOOL hasZoomlevel;
+@property(nonatomic) BOOL hasMapSpanY;
+@property(nonatomic) BOOL hasMapSpanX;
+@property(nonatomic) BOOL hasMapCenterY;
+@property(nonatomic) BOOL hasMapCenterX;
+@property(nonatomic) BOOL hasRequestType;
 @property(readonly, nonatomic) BOOL hasQuery;
 - (void)dealloc;
 

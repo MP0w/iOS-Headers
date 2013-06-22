@@ -14,14 +14,14 @@
     NSMutableData *_unixData;
 }
 
-- (void)appendRawData:(id)arg1;
-- (void)setRawData:(id)arg1;
-- (id)rawData;
-- (unsigned int)rawDataLength;
-- (id)dataWithUnixLineEndings;
-- (id)copyDataWithUnixLineEndings;
-- (void)dealloc;
 - (void)purgeCaches;
+- (void)dealloc;
+- (id)copyDataWithUnixLineEndings;
+- (id)dataWithUnixLineEndings;
+- (unsigned int)rawDataLength;
+- (id)rawData;
+- (void)setRawData:(id)arg1;
+- (void)appendRawData:(id)arg1;
 
 @end
 

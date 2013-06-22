@@ -19,17 +19,26 @@
 }
 
 + (BOOL)isZipArchiveAtPath:(id)arg1;
-- (id)initWithPath:(id)arg1 collapseCommonRootDirectory:(BOOL)arg2;
-- (id)initWithData:(id)arg1 collapseCommonRootDirectory:(BOOL)arg2;
-- (void)dealloc;
-- (id)entryWithName:(id)arg1;
-- (id)entryWithName:(id)arg1 dataLength:(long long)arg2;
-- (id)allEntryNames;
-- (BOOL)isEncrypted;
-- (id)passphraseVerifier;
-- (id)passphraseHint;
-- (id)encryptedDocumentUuid;
+- (BOOL)decompressAtPath:(id)arg1;
 - (void)setCryptoKey:(id)arg1;
+- (id)encryptedDocumentUuid;
+- (id)passphraseHint;
+- (id)passphraseVerifier;
+- (BOOL)isEncrypted;
+- (id)allEntryNames;
+- (id)entryWithName:(id)arg1 dataLength:(long long)arg2;
+- (id)entryWithName:(id)arg1;
+- (void)dealloc;
+- (id)initWithData:(id)arg1 collapseCommonRootDirectory:(BOOL)arg2;
+- (id)initWithPath:(id)arg1 collapseCommonRootDirectory:(BOOL)arg2;
+- (void)readExtraFieldFromBuffer:(const char *)arg1 size:(unsigned long)arg2 entry:(id)arg3;
+- (id)readFilenameFromBuffer:(const char *)arg1 size:(unsigned long)arg2;
+- (struct SFUZipEndOfCentralDirectory)readZip64EndOfCentralDirectoryFromInputStream:(id)arg1 offset:(long long)arg2;
+- (struct SFUZipEndOfCentralDirectory)readZip64EndOfCentralDirectoryFromInputStream:(id)arg1 eocdOffset:(long long)arg2;
+- (const char *)searchForEndOfCentralDirectoryFromInputStream:(id)arg1 offset:(long long *)arg2;
+- (struct SFUZipEndOfCentralDirectory)readEndOfCentralDirectoryFromInputStream:(id)arg1;
+- (void)collapseCommonRootDirectory;
+- (void)readEntries;
 
 @end
 

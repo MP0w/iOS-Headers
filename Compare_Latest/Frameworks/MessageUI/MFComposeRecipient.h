@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "MFDraggableItem-Protocol.h"
+#import "NSCopying-Protocol.h"
 
 @class NSString;
 
-@interface MFComposeRecipient : NSObject <MFDraggableItem>
+@interface MFComposeRecipient : NSObject <NSCopying, MFDraggableItem>
 {
     void *_record;
     int _recordID;
@@ -21,31 +22,35 @@
     NSString *_countryCode;
 }
 
-+ (id)recipientWithRecord:(void *)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4;
-+ (id)recipientWithRecord:(void *)arg1 property:(int)arg2 identifier:(int)arg3;
 + (id)recipientWithProperty:(int)arg1 address:(id)arg2;
-- (id)initWithRecord:(void *)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4 address:(id)arg5;
-- (int)property;
-- (void *)record;
-- (int)recordID;
-- (void)setRecord:(void *)arg1 recordID:(int)arg2 identifier:(int)arg3;
-- (id)address;
-- (id)commentedAddress;
-- (id)label;
-- (id)unlocalizedLabel;
-- (int)identifier;
-- (void)setIdentifier:(int)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)compositeName;
-- (id)displayString;
-- (id)uncommentedAddress;
-- (id)_unformattedAddress;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (void)dealloc;
-- (id)supportedDragTypes;
-- (id)objectForDragType:(id)arg1;
++ (id)recipientWithRecord:(void *)arg1 property:(int)arg2 identifier:(int)arg3;
++ (id)recipientWithRecord:(void *)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4;
++ (id)mf_recipientWithGALResult:(id)arg1;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
+@property(readonly, nonatomic, getter=isRemovableFromSearchResults) BOOL removableFromSearchResults;
+- (id)objectForDragType:(id)arg1;
+- (id)supportedDragTypes;
+- (void)dealloc;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)_unformattedAddress;
+- (id)uncommentedAddress;
+- (id)placeholderName;
+- (id)displayString;
+- (id)compositeName;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setIdentifier:(int)arg1;
+- (int)identifier;
+- (id)unlocalizedLabel;
+- (id)label;
+- (id)commentedAddress;
+- (id)address;
+- (id)normalizedAddress;
+- (void)setRecord:(void *)arg1 recordID:(int)arg2 identifier:(int)arg3;
+- (int)recordID;
+- (void *)record;
+- (int)property;
+- (id)initWithRecord:(void *)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4 address:(id)arg5;
 
 @end
 

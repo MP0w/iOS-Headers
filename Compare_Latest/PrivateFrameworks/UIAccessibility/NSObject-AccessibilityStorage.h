@@ -7,6 +7,14 @@
 #import "NSObject.h"
 
 @interface NSObject (AccessibilityStorage)
+- (BOOL)accessibilityPerformAction:(int)arg1 withValue:(id)arg2;
+- (BOOL)_accessibilityHandleMagicTap;
+- (void)_accessibilityRemoveActionBlockForKey:(unsigned long)arg1;
+- (void)_accessibilityRemoveAllActionBlocks;
+- (void)_accessibilityActionBlock:(id *)arg1 andValue:(void)arg2 forKey:(id *)arg3;
+- (BOOL)_accessibilityHasActionBlockForKey:(unsigned long)arg1;
+- (BOOL)_accessibilityInternalHandleStartStopToggle;
+- (void)_accessibilitySetActionBlock:(id)arg1 withValue:(void)arg2 forKey:(id)arg3;
 - (void)_accessibilityRemoveValueForKey:(id)arg1;
 - (void)_accessibilitySetUnsignedIntegerValue:(unsigned int)arg1 forKey:(id)arg2;
 - (void)_accessibilitySetIntegerValue:(int)arg1 forKey:(id)arg2;

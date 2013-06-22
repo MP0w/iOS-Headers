@@ -13,12 +13,12 @@
     OADCharacterProperties *mProperties;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)isEmpty;
-- (id)properties;
-- (void)setProperties:(id)arg1;
 - (void)removeUnnecessaryOverrides;
+- (void)setProperties:(id)arg1;
+- (id)properties;
+- (BOOL)isEmpty;
+- (void)dealloc;
+- (id)init;
 
 @end
 

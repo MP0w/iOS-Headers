@@ -16,13 +16,13 @@
 }
 
 + (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3;
-- (void)bind;
-- (id)initWithName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3;
-- (void)dealloc;
-- (id)iconStyleDomain;
 @property(readonly, nonatomic) NSString *MIMEType; // @synthesize MIMEType=_MIMEType;
 @property(readonly, nonatomic) NSString *typeIdentifier; // @synthesize typeIdentifier=_typeIdentifier;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+- (id)iconStyleDomain;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3;
+- (void)bind;
 
 @end
 

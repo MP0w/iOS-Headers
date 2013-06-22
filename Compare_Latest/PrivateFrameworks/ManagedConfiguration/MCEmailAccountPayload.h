@@ -30,18 +30,9 @@
     NSString *_outgoingMailServerUsername;
 }
 
-+ (id)typeStrings;
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
 + (id)profileNameFromAccountTag:(id)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (id)stubDictionary;
-- (id)description;
-- (id)title;
-- (id)subtitle1Label;
-- (id)subtitle1Description;
-- (id)subtitle2Label;
-- (id)subtitle2Description;
++ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)typeStrings;
 @property(readonly, nonatomic) NSString *outgoingMailServerUsername; // @synthesize outgoingMailServerUsername=_outgoingMailServerUsername;
 @property(readonly, nonatomic) BOOL outgoingMailServerUseSSL; // @synthesize outgoingMailServerUseSSL=_outgoingMailServerUseSSL;
 @property(readonly, nonatomic) NSNumber *outgoingMailServerPortNumber; // @synthesize outgoingMailServerPortNumber=_outgoingMailServerPortNumber;
@@ -60,6 +51,15 @@
 @property(readonly, nonatomic) NSString *emailAccountType; // @synthesize emailAccountType=_emailAccountType;
 @property(readonly, nonatomic) NSString *emailAccountName; // @synthesize emailAccountName=_emailAccountName;
 @property(readonly, nonatomic) NSString *emailAccountDescription; // @synthesize emailAccountDescription=_emailAccountDescription;
+- (void).cxx_destruct;
+- (id)subtitle2Description;
+- (id)subtitle2Label;
+- (id)subtitle1Description;
+- (id)subtitle1Label;
+- (id)title;
+- (id)description;
+- (id)stubDictionary;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

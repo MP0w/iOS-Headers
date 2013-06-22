@@ -15,13 +15,13 @@
 }
 
 + (struct CGRect)defaultFrame;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)layoutSubviews;
-- (void)setStatus:(id)arg1;
-- (float)progressValue;
-- (void)setProgressValue:(float)arg1;
 - (void)_stopAnimating;
+- (void)setProgressValue:(float)arg1;
+- (float)progressValue;
+- (void)setStatus:(id)arg1;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

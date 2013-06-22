@@ -15,26 +15,29 @@
     } _voiceControlFlags;
 }
 
-+ (id)pendingOrActiveAlert;
-+ (void)registerForAlerts;
-+ (void)unregisterForAlerts;
-+ (BOOL)shouldEnterVoiceControl;
++ (void)setNextRecognitionAudioInputPaths:(id)arg1;
++ (void)bluetoothDeviceTerminatedVoiceControl:(id)arg1;
++ (void)bluetoothDeviceRequestedVoiceControl:(id)arg1;
 + (BOOL)resetVoiceControlIfNecessary:(BOOL)arg1;
-- (void)_resign;
-- (void)_makeActive;
-- (void)_prime;
-- (void)_setRoutingAttributesForWiredHeadset:(BOOL)arg1;
-- (id)init;
-- (id)initFromWiredHeadsetButton;
-- (id)initFromMenuButton;
-- (void)activateWhenReady;
-- (void)cancelIfNotActivated;
-- (void)cancel;
-- (void)dealloc;
-- (void)handleHeadsetButtonUpFromActivation:(BOOL)arg1;
-- (BOOL)handleMenuButtonTap;
-- (double)autoDimTime;
++ (BOOL)shouldEnterVoiceControl;
++ (void)unregisterForAlerts;
++ (void)registerForAlerts;
++ (id)pendingOrActiveAlert;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
+- (double)autoDimTime;
+- (BOOL)handleMenuButtonTap;
+- (void)handleHeadsetButtonUpFromActivation:(BOOL)arg1;
+- (void)dealloc;
+- (void)cancel;
+- (void)cancelIfNotActivated;
+- (void)activateWhenReady;
+- (id)initFromMenuButton;
+- (id)initFromWiredHeadsetButton;
+- (id)init;
+- (void)_setRoutingAttributesForWiredHeadset:(BOOL)arg1;
+- (void)_prime;
+- (void)_makeActive;
+- (void)_resign;
 
 @end
 

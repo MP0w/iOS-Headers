@@ -13,11 +13,11 @@
 }
 
 + (id)currentDevice;
-- (BOOL)_mediaDiskIsEncrypted;
-- (id)init;
+@property(readonly, nonatomic) BOOL supportsFileLevelEncryption; // @synthesize supportsFileLevelEncryption=_supportsFileLevelEncryption;
+@property(readonly, nonatomic) BOOL supportsBlockLevelEncryption; // @synthesize supportsBlockLevelEncryption=_supportsBlockLevelEncryption;
 - (BOOL)validateCapabilitiesRequiredByRestrictions:(id)arg1 localizedIncompatibilityMessage:(id)arg2 outError:(id *)arg3;
-@property(readonly) BOOL supportsFileLevelEncryption; // @synthesize supportsFileLevelEncryption=_supportsFileLevelEncryption;
-@property(readonly) BOOL supportsBlockLevelEncryption; // @synthesize supportsBlockLevelEncryption=_supportsBlockLevelEncryption;
+- (id)init;
+- (BOOL)_mediaDiskIsEncrypted;
 
 @end
 

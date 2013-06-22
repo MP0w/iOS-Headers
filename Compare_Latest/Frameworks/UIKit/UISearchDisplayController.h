@@ -38,6 +38,8 @@
         unsigned int isRotatingWithPopover:1;
         unsigned int cancelButtonManagementDisabled:1;
         unsigned int allowDisablingNavigationBarHiding:1;
+        unsigned int showsResultsForEmptyField:1;
+        unsigned int adjustsSearchBarContentInsetForIndexBar:1;
     } _searchDisplayControllerFlags;
 }
 
@@ -51,6 +53,10 @@
 @property(nonatomic, getter=_isCancelButtonManagementDisabled, setter=_setCancelButtonManagementDisabled:) BOOL cancelButtonManagementDisabled;
 - (void)_clearViewController;
 @property(nonatomic) BOOL dimTableViewOnEmptySearchString;
+- (BOOL)_adjustsSearchBarContentInsetForIndexBar;
+- (void)_setAdjustsSearchBarContentInsetForIndexBar:(BOOL)arg1;
+- (BOOL)_showsResultsForEmptyField;
+- (void)_setShowsResultsForEmptyField:(BOOL)arg1;
 - (BOOL)_allowDisablingNavigationBarHiding;
 - (void)_setAllowDisablingNavigationBarHiding:(BOOL)arg1;
 @property(nonatomic, getter=isNavigationBarHidingEnabled) BOOL navigationBarHidingEnabled;
@@ -92,6 +98,7 @@
 - (void)_popoverKeyboardDidShow:(id)arg1;
 - (BOOL)_isSearchBarInBar;
 @property(readonly, nonatomic) BOOL hidNavigationBar;
+- (id)_topShadowView;
 - (id)_containingTableView;
 - (id)_containingViewOfClass:(Class)arg1;
 - (void)setSearchContentsController:(id)arg1;

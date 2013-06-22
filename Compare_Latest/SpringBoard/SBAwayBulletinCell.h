@@ -6,35 +6,38 @@
 
 #import "SBAwayListItemCell.h"
 
-@class SBAwayListUnlockActionContext, SBBulletinLockBar;
+@class SBAwayListActionContext, SBBulletinLockBar;
 
 @interface SBAwayBulletinCell : SBAwayListItemCell
 {
     SBBulletinLockBar *_lockBar;
-    SBAwayListUnlockActionContext *_actionContext;
+    SBAwayListActionContext *_actionContext;
     BOOL _disableUnlockSound;
 }
 
-+ (float)rowHeightForSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 rowWidth:(float)arg4;
 + (float)rowHeightForSubtitle:(id)arg1 imageHeight:(float)arg2;
-- (void)_createContentView;
-- (void)dealloc;
-- (void)setMaxMessageLines:(unsigned int)arg1;
-- (void)setSubtitle:(id)arg1;
-- (void)setStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(BOOL)arg4 formatStyle:(int)arg5;
-- (void)setAttachmentImage:(id)arg1;
-- (void)setAttachmentText:(id)arg1;
-- (void)layoutSubviews;
-- (void)setUnlockActionContext:(id)arg1;
-- (void)setDisableUnlockSound:(BOOL)arg1;
-- (void)resetLockBar;
-- (void)lockBarUnlocked:(id)arg1;
-- (void)lockBarStartedTracking:(id)arg1;
-- (void)lockBarStoppedTracking:(id)arg1;
-- (void)lockBarSlidBackToOrigin:(id)arg1;
-- (void)_lockBarSlidBackToOrigin:(id)arg1 withDuration:(double)arg2;
++ (float)rowHeightForSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 rowWidth:(float)arg4;
+@property(readonly, nonatomic) SBAwayListActionContext *actionContext; // @synthesize actionContext=_actionContext;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-@property(readonly, nonatomic) SBAwayListUnlockActionContext *actionContext; // @synthesize actionContext=_actionContext;
+- (void)_lockBarSlidBackToOrigin:(id)arg1 withDuration:(double)arg2;
+- (void)lockBarSlidBackToOrigin:(id)arg1;
+- (void)lockBarStoppedTracking:(id)arg1;
+- (void)lockBarStartedTracking:(id)arg1;
+- (void)lockBarUnlocked:(id)arg1;
+- (void)resetLockBar;
+- (void)setDisableUnlockSound:(BOOL)arg1;
+- (void)setUnlockActionContext:(id)arg1;
+- (void)_createLockBar;
+- (BOOL)_createsLockBarEarly;
+- (void)layoutSubviews;
+- (void)setVIP:(BOOL)arg1;
+- (void)setAttachmentText:(id)arg1;
+- (void)setAttachmentImage:(id)arg1;
+- (void)setStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(BOOL)arg4 formatStyle:(int)arg5;
+- (void)setSubtitle:(id)arg1;
+- (void)setMaxMessageLines:(unsigned int)arg1;
+- (void)dealloc;
+- (void)_createContentView;
 
 @end
 

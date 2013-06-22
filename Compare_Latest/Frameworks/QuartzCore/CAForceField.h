@@ -21,23 +21,23 @@
     void *_priv;
 }
 
-+ (id)forceField;
 + (id)defaultValueForKey:(id)arg1;
-- (id)init;
-@property(copy) NSString *name;
-@property(getter=isEnabled) BOOL enabled;
-@property(retain) CALayer *layer;
-@property(retain) CAValueFunction *function;
-- (void)dealloc;
-- (struct Object *)CA_copyRenderValue;
-- (id)valueForKey:(id)arg1;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)valueForKeyPath:(id)arg1;
-- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (void)encodeWithCoder:(id)arg1;
++ (id)forceField;
 - (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
+- (id)valueForKeyPath:(id)arg1;
+- (void)setValue:(id)arg1 forKey:(id)arg2;
+- (id)valueForKey:(id)arg1;
+- (struct Object *)CA_copyRenderValue;
+- (void)dealloc;
+@property(retain) CAValueFunction *function;
+@property(retain) CALayer *layer;
+@property(getter=isEnabled) BOOL enabled;
+@property(copy) NSString *name;
+- (id)init;
 
 @end
 

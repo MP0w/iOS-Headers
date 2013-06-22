@@ -13,14 +13,17 @@
     NSMutableArray *mChildren;
 }
 
-- (id)initWithEshObject:(struct EshObject *)arg1;
-- (id)init;
-- (id)initFromReader:(struct OcReader *)arg1;
-- (void)dealloc;
-- (struct EshRoot *)eshRoot;
-- (unsigned int)childCount;
-- (id)childAt:(unsigned int)arg1;
+- (void)writeToWriter:(struct OcWriter *)arg1;
 - (void)addChild:(id)arg1;
+- (id)childAt:(unsigned int)arg1;
+- (unsigned int)childCount;
+- (struct EshRoot *)eshRoot;
+- (void)dealloc;
+- (id)initFromReader:(struct OcReader *)arg1;
+- (id)init;
+- (id)initWithEshObject:(struct EshObject *)arg1;
+- (id)pbReferenceWithID:(unsigned long)arg1;
+- (id)initWithPbState:(id)arg1;
 
 @end
 

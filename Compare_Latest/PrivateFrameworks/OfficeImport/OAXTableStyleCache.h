@@ -14,13 +14,13 @@
     NSMutableDictionary *mCache;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)defaultStyleId;
-- (void)setDefaultStyleId:(id)arg1;
-- (void)setStyleNode:(struct _xmlNode *)arg1 forId:(id)arg2;
-- (struct _xmlNode *)styleNodeForId:(id)arg1;
 - (struct _xmlNode *)defaultStyleNode;
+- (struct _xmlNode *)styleNodeForId:(id)arg1;
+- (void)setStyleNode:(struct _xmlNode *)arg1 forId:(id)arg2;
+- (void)setDefaultStyleId:(id)arg1;
+- (id)defaultStyleId;
+- (void)dealloc;
+- (id)init;
 
 @end
 

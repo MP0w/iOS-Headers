@@ -7,8 +7,8 @@
 #import "MFRequestQueueResponseConsumer-Protocol.h"
 
 @protocol MFDASyncActionsConsumer <MFRequestQueueResponseConsumer>
-- (void)drainMailbox;
-- (void)receiveSyncActions:(id)arg1;
 - (void)commitSyncActions;
+- (void)receiveSyncActions:(id)arg1;
+- (void)drainMailbox;
 @end
 

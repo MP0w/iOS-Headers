@@ -6,13 +6,18 @@
 
 #import "UIView.h"
 
-@class NSString, PLCameraButton, PLCropOverlayBottomBarButton, UIButton, UIImage, UIImageView, UILabel;
+#import "PLCameraButtonBarProtocol-Protocol.h"
 
-@interface PLCropOverlayBottomBar : UIView
+@class NSString, PLCameraButton, PLCameraToggleButton, PLCropOverlayBottomBarButton, UIButton, UIImage, UIImageView, UILabel;
+
+@interface PLCropOverlayBottomBar : UIView <PLCameraButtonBarProtocol>
 {
     UIImage *_backgroundImage;
+    int _buttonBarStyle;
+    int _buttonBarMode;
     UIImageView *_takePhotoView;
     PLCameraButton *_shutterButton;
+    PLCameraToggleButton *_toggleButton;
     PLCropOverlayBottomBarButton *_cancelButton;
     UIView *_modeSwitch;
     UIButton *_playPauseButton;
@@ -26,15 +31,24 @@
     id _delegate;
     unsigned int _takingPhotoView:1;
     unsigned int _wasEnabled:1;
+    unsigned int _slideBottomBarVertically:1;
+    unsigned int _isBackgroundVisible:1;
 }
 
+@property(nonatomic) int buttonBarMode; // @synthesize buttonBarMode=_buttonBarMode;
+@property(nonatomic) int buttonBarStyle; // @synthesize buttonBarStyle=_buttonBarStyle;
+- (void)setButtonBarMode:(int)arg1 animationDuration:(double)arg2;
+- (void)_setVisibility:(BOOL)arg1;
+- (BOOL)isBackgroundVisible;
 - (void)_slideAnimationComplete:(id)arg1;
 - (void)didCaptureVideo;
 - (void)didCapturePhoto;
 - (void)_didCapture;
 - (void)doneButtonClicked:(id)arg1;
+- (void)toggleButtonClicked:(id)arg1;
 - (void)editCancelButtonClicked:(id)arg1;
-- (void)_animateViewOriginDeltaX:(float)arg1;
+- (void)_animateEditViewUp:(BOOL)arg1;
+- (void)_animateEditViewLeft:(BOOL)arg1;
 - (void)cancelButtonClicked:(id)arg1;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
@@ -45,6 +59,7 @@
 - (void)setTitle:(id)arg1;
 - (id)modeSwitch;
 - (void)setModeSwitch:(id)arg1;
+- (id)toggleButton;
 - (id)shutterButton;
 - (void)setEnabled:(BOOL)arg1;
 - (void)setTakePhoto:(BOOL)arg1;
@@ -59,7 +74,7 @@
 - (void)_createTakePhotoView;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 buttonBarStyle:(int)arg2;
 
 @end
 

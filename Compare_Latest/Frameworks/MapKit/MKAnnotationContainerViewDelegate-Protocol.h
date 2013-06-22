@@ -13,6 +13,11 @@
 - (void)annotationContainer:(id)arg1 didAddAnnotationViews:(id)arg2;
 - (id)annotationContainer:(id)arg1 viewForAnnotation:(id)arg2;
 - (struct CGRect)annotationContainerVisibleRect:(id)arg1;
+- (struct CGPoint)convertCoordinate:(CDStruct_c3b9c2ee)arg1 toPointToView:(id)arg2;
+- (CDStruct_c3b9c2ee)convertPoint:(struct CGPoint)arg1 toCoordinateFromView:(id)arg2;
+- (struct CADoubleRect)_convertMapRect:(CDStruct_02837cd9)arg1 toDoubleRectToView:(id)arg2;
+- (struct CADoublePoint)_convertCoordinate:(CDStruct_c3b9c2ee)arg1 toDoublePointToView:(id)arg2;
+- (float)_zoomScale;
 - (struct CGRect)visibleRectInView:(id)arg1;
 - (struct CGRect)visibleCenteringRectInView:(id)arg1;
 - (void)annotationContainerDidDropPins:(id)arg1;
@@ -24,7 +29,6 @@
 - (void)annotationContainer:(id)arg1 annotationView:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
 - (BOOL)annotationContainerIsUserLocationChangeDone:(id)arg1;
 - (BOOL)annotationContainerIsRotated:(id)arg1;
-- (BOOL)annotationContainerEffectsVisible:(id)arg1;
 - (BOOL)annotationContainerEffectsEnabled:(id)arg1;
 @end
 

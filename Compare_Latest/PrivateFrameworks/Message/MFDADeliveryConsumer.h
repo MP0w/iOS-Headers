@@ -16,10 +16,10 @@
     MFError *_error;
 }
 
-- (void)messageSentWithContext:(void *)arg1;
-- (void)actionFailed:(int)arg1 forTask:(id)arg2 error:(id)arg3;
-- (void)dealloc;
 @property(retain, nonatomic) MFError *error; // @synthesize error=_error;
+- (void)dealloc;
+- (void)actionFailed:(int)arg1 forTask:(id)arg2 error:(id)arg3;
+- (void)messageSentWithContext:(void *)arg1;
 
 @end
 

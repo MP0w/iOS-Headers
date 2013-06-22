@@ -20,17 +20,20 @@
     id _output;
     ISOperation *_parentOperation;
     NSURL *_redirectURL;
+    int _errorHandlerResponseType;
 }
 
 + (id)provider;
 @property(retain) NSURL *redirectURL; // @synthesize redirectURL=_redirectURL;
 @property ISOperation *parentOperation; // @synthesize parentOperation=_parentOperation;
 @property(retain) id output; // @synthesize output=_output;
+@property int errorHandlerResponseType; // @synthesize errorHandlerResponseType=_errorHandlerResponseType;
 @property(retain) NSString *contentType; // @synthesize contentType=_contentType;
 @property long long contentLength; // @synthesize contentLength=_contentLength;
 @property(retain) SSURLBagContext *bagContext; // @synthesize bagContext=_bagContext;
 @property(retain) NSNumber *authenticatedAccountDSID; // @synthesize authenticatedAccountDSID=_authenticatedAccountDSID;
 @property(retain) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
+- (BOOL)runAuthorizationDialog:(id)arg1 error:(id *)arg2;
 - (void)setup;
 - (BOOL)parseData:(id)arg1 returningError:(id *)arg2;
 - (long long)streamedBytes;

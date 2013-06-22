@@ -6,14 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDate, NSError, NSString, SKPayment;
+@class NSArray, NSData, NSDate, NSError, NSString, SKPayment;
 
 @interface SKPaymentTransaction : NSObject
 {
     id _internal;
 }
 
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
 - (id)_transactionIdentifier;
+- (void)_setTransactionState:(int)arg1;
+- (void)_setTransactionReceipt:(id)arg1;
+- (void)_setTransactionIdentifier:(id)arg1;
+- (void)_setTransactionDate:(id)arg1;
+- (void)_setTemporaryIdentifier:(id)arg1;
+- (void)_setOriginalTransaction:(id)arg1;
+- (void)_setError:(id)arg1;
+- (void)_setDownloads:(id)arg1;
 - (BOOL)mergeWithTransaction:(id)arg1;
 - (id)matchingIdentifier;
 - (BOOL)canMergeWithTransaction:(id)arg1;
@@ -24,9 +34,9 @@
 @property(readonly, nonatomic) SKPayment *payment;
 @property(readonly, nonatomic) SKPaymentTransaction *originalTransaction;
 @property(readonly, nonatomic) NSError *error;
+@property(readonly, nonatomic) NSArray *downloads;
 - (void)dealloc;
 - (id)initWithPayment:(id)arg1;
-- (id)initWithDictionary:(id)arg1;
 - (id)init;
 
 @end

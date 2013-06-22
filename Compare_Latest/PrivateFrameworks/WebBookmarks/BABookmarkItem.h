@@ -14,10 +14,11 @@
     WebBookmark *_bookmark;
 }
 
-- (id)initWithBookmarkCollection:(id)arg1 bookmark:(id)arg2;
-- (void)dealloc;
 @property(retain, nonatomic) WebBookmark *bookmark; // @synthesize bookmark=_bookmark;
 @property(readonly, nonatomic) WebBookmarkCollection *collection; // @synthesize collection=_collection;
+- (void)dealloc;
+- (id)description;
+- (id)initWithBookmarkCollection:(id)arg1 bookmark:(id)arg2;
 
 @end
 

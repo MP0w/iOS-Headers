@@ -13,7 +13,6 @@
     int _state;
     BOOL _settingUpActivationState;
     BOOL _isBricked;
-    BOOL _isInternalInstall;
     BOOL _isDeveloperDevice;
     BOOL _hasShownMismatchedSIM;
     SBDismissOnlyAlertItem *_activatingAlertItem;
@@ -21,25 +20,24 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (BOOL)_hasEverRegistered;
-- (void)_setHasEverRegistered:(BOOL)arg1;
-- (BOOL)_isRegisteredToNetwork;
-- (void)_setCurrentAlertItem:(id)arg1;
-- (BOOL)_shouldShowTelephonyAlerts;
-- (void)_postAlertsIfNeeded;
-- (void)_resetActivationState;
-- (void)_activationFailed;
-- (void)_developerDeviceStateChanged;
-- (void)_serviceAvailabilityChanged:(id)arg1;
-- (void)_setupActivationState;
-- (BOOL)brickedDevice;
-- (BOOL)isInternalInstall;
-- (BOOL)isDeveloperDevice;
-- (int)lockdownState;
-- (id)uniqueDeviceIdentifier;
-- (void)dealloc;
 - (id)valueForDomain:(id)arg1 key:(id)arg2;
+- (void)dealloc;
+- (id)uniqueDeviceIdentifier;
+- (int)lockdownState;
+- (BOOL)isDeveloperDevice;
+- (BOOL)brickedDevice;
+- (void)_setupActivationState;
+- (void)_serviceAvailabilityChanged:(id)arg1;
+- (void)_developerDeviceStateChanged;
+- (void)_activationFailed;
+- (void)_resetActivationState;
+- (void)_postAlertsIfNeeded;
+- (BOOL)_shouldShowTelephonyAlerts;
+- (void)_setCurrentAlertItem:(id)arg1;
+- (BOOL)_isRegisteredToNetwork;
+- (void)_setHasEverRegistered:(BOOL)arg1;
+- (BOOL)_hasEverRegistered;
+- (id)init;
 
 @end
 

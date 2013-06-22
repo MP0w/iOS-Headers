@@ -8,11 +8,11 @@
 
 @interface CLLocationInternal : NSObject
 {
-    CDStruct_e0333575 fLocation;
+    CDStruct_c3f64973 fLocation;
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithClientLocation:(CDStruct_e0333575)arg1;
+- (id)initWithClientLocation:(CDStruct_c3f64973)arg1;
 
 @end
 

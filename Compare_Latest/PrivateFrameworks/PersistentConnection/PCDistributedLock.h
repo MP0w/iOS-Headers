@@ -16,13 +16,13 @@
     int _fd;
 }
 
-- (id)initWithPath:(id)arg1;
-- (id)initWithName:(id)arg1;
-- (void)dealloc;
-- (BOOL)_lockBlocking:(BOOL)arg1;
-- (BOOL)tryLock;
-- (void)lock;
 - (void)unlock;
+- (void)lock;
+- (BOOL)tryLock;
+- (BOOL)_lockBlocking:(BOOL)arg1;
+- (void)dealloc;
+- (id)initWithName:(id)arg1;
+- (id)initWithPath:(id)arg1;
 
 @end
 

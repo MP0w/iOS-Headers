@@ -31,6 +31,7 @@
 - (void)dealloc;
 - (void)_updatePKPaper:(id)arg1;
 - (id)_initWithPrintKitPaper:(id)arg1;
+- (struct CGRect)printRect;
 
 @end
 

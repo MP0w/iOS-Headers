@@ -7,7 +7,7 @@
 #import "DOMHTMLInputElement.h"
 
 @interface DOMHTMLInputElement (VisiblePositionExtensions)
-- (id)startPosition;
 - (id)endPosition;
+- (id)startPosition;
 @end
 

@@ -23,6 +23,7 @@
 - (void)_ensureAllDependenciesOfKeyAreLoaded:(id)arg1;
 @property(readonly, nonatomic, getter=_isStreaming) BOOL streaming;
 @property(readonly, nonatomic) BOOL hasProtectedContent;
+@property(readonly, nonatomic) unsigned long long downloadToken;
 @property(readonly, nonatomic) NSURL *downloadDestinationURL;
 @property(readonly, nonatomic) NSURL *resolvedURL;
 @property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;

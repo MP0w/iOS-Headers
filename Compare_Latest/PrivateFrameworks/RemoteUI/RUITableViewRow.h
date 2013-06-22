@@ -29,34 +29,34 @@
     float _cachedHeight;
 }
 
-+ (id)_monthAndDayFormatter;
 + (void)resetLocale;
-- (void)setDelegate:(id)arg1;
-@property(nonatomic) BOOL rowInvalid; // @synthesize rowInvalid=_rowInvalid;
-- (Class)tableCellClass;
-- (int)tableCellStyle;
-- (id)_dateFormatter;
-- (void)setImage:(id)arg1;
-- (id)tableCell;
-- (BOOL)supportsAutomaticSelection;
-- (void)populatePostbackDictionary:(id)arg1;
-- (id)selectOptions;
-- (void)dealloc;
-- (void)_datePickerChanged:(id)arg1;
-- (float)rowHeightWithMax:(float)arg1 tableView:(id)arg2 indexPath:(id)arg3;
-- (void)clearCachedHeight;
-- (void)_activate;
-- (void)pickerView:(id)arg1 didSelectRow:(int)arg2 inComponent:(int)arg3;
-- (id)pickerView:(id)arg1 titleForRow:(int)arg2 forComponent:(int)arg3;
-- (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
-- (int)numberOfComponentsInPickerView:(id)arg1;
-- (BOOL)textFieldShouldReturn:(id)arg1;
++ (id)_monthAndDayFormatter;
 @property(retain, nonatomic) NSDate *dateMax; // @synthesize dateMax=_dateMax;
 @property(retain, nonatomic) NSDate *dateMin; // @synthesize dateMin=_dateMin;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(readonly, nonatomic) int selectedRow; // @synthesize selectedRow=_selectedRow;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSDictionary *deleteAction; // @synthesize deleteAction=_deleteAction;
+@property(nonatomic) BOOL rowInvalid; // @synthesize rowInvalid=_rowInvalid;
+- (BOOL)textFieldShouldReturn:(id)arg1;
+- (int)numberOfComponentsInPickerView:(id)arg1;
+- (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
+- (id)pickerView:(id)arg1 titleForRow:(int)arg2 forComponent:(int)arg3;
+- (void)pickerView:(id)arg1 didSelectRow:(int)arg2 inComponent:(int)arg3;
+- (void)_activate;
+- (void)clearCachedHeight;
+- (float)rowHeightWithMax:(float)arg1 peggedHeight:(float)arg2 tableView:(id)arg3 indexPath:(id)arg4;
+- (void)_datePickerChanged:(id)arg1;
+- (void)dealloc;
+- (id)selectOptions;
+- (void)populatePostbackDictionary:(id)arg1;
+- (BOOL)supportsAutomaticSelection;
+- (id)tableCell;
+- (void)setImage:(id)arg1;
+- (id)_dateFormatter;
+- (int)tableCellStyle;
+- (Class)tableCellClass;
+- (void)setDelegate:(id)arg1;
 
 @end
 

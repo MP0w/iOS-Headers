@@ -22,6 +22,7 @@
 }
 
 @property(nonatomic) id <MSPublishStorageProtocolDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_putItemsFailure;
 - (void)_requestCompleted;
 - (void)_putItemDone:(unsigned long long)arg1 error:(id)arg2;

@@ -15,16 +15,16 @@
 }
 
 + (void)addFontEntry:(id)arg1 script:(id)arg2 typeface:(id)arg3;
-- (id)init;
-- (void)dealloc;
-- (BOOL)isFontSchemeRef:(id)arg1;
-- (id)fontForFontSchemeRef:(id)arg1;
-- (unsigned int)majorFontCount;
-- (id)majorTypefaceForScript:(id)arg1;
-- (id)majorFont;
-- (unsigned int)minorFontCount;
-- (id)minorTypefaceForScript:(id)arg1;
 - (id)minorFont;
+- (id)minorTypefaceForScript:(id)arg1;
+- (unsigned int)minorFontCount;
+- (id)majorFont;
+- (id)majorTypefaceForScript:(id)arg1;
+- (unsigned int)majorFontCount;
+- (id)fontForFontSchemeRef:(id)arg1;
+- (BOOL)isFontSchemeRef:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -18,26 +18,26 @@
     NSAttributeDescription *_attributeDescription;
 }
 
-- (id)initWithValue:(id)arg1 sqlType:(unsigned int)arg2 attributeDescription:(id)arg3;
-- (id)initWithInt64:(long long)arg1 sqlType:(unsigned int)arg2;
-- (id)initWithUnsignedInt:(unsigned int)arg1 sqlType:(unsigned int)arg2;
-- (id)retain;
-- (oneway void)release;
-- (unsigned int)retainCount;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
-- (void)dealloc;
-- (long long)int64;
-- (void)setInt64:(long long)arg1;
-- (unsigned int)unsignedInt;
-- (void)setUnsignedInt:(unsigned int)arg1;
-- (void)setValue:(id)arg1;
-- (id)value;
-- (unsigned int)sqlType;
-- (unsigned int)index;
-- (void)setIndex:(unsigned int)arg1;
-- (BOOL)hasObjectValue;
 - (id)attributeDescription;
+- (BOOL)hasObjectValue;
+- (void)setIndex:(unsigned int)arg1;
+- (unsigned int)index;
+- (unsigned int)sqlType;
+- (id)value;
+- (void)setValue:(id)arg1;
+- (void)setUnsignedInt:(unsigned int)arg1;
+- (unsigned int)unsignedInt;
+- (void)setInt64:(long long)arg1;
+- (long long)int64;
+- (void)dealloc;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
+- (unsigned int)retainCount;
+- (oneway void)release;
+- (id)retain;
+- (id)initWithUnsignedInt:(unsigned int)arg1 sqlType:(unsigned int)arg2;
+- (id)initWithInt64:(long long)arg1 sqlType:(unsigned int)arg2;
+- (id)initWithValue:(id)arg1 sqlType:(unsigned int)arg2 attributeDescription:(id)arg3;
 
 @end
 

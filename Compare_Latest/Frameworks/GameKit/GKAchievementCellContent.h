@@ -6,17 +6,29 @@
 
 #import <GameKit/GKMultilineCellContentView.h>
 
+@class UIImage;
+
 @interface GKAchievementCellContent : GKMultilineCellContentView
 {
     BOOL _highlighted;
     BOOL _offsetImage;
+    UIImage *_highlightedImage;
+    BOOL _largeIcons;
 }
 
+@property(readonly, nonatomic) BOOL largeIcons; // @synthesize largeIcons=_largeIcons;
+@property(retain, nonatomic) UIImage *highlightedImage; // @synthesize highlightedImage=_highlightedImage;
 @property(nonatomic) BOOL offsetImage; // @synthesize offsetImage=_offsetImage;
 @property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
 - (void)drawLineIndex:(unsigned int)arg1 inRect:(struct CGRect *)arg2 highlighted:(BOOL)arg3;
+- (void)adjustLineRects:(struct CGRect *)arg1 forLines:(id)arg2 inTextRect:(struct CGRect)arg3;
+- (struct UIEdgeInsets)_gkPopoverPresentationInsets;
+- (struct CGRect)_gkPopoverPresentationRect;
+- (id)image;
 - (void)setTheme:(id)arg1;
-- (id)init;
+- (void)prepareForReuse;
+- (void)dealloc;
+- (id)initWithLargeIcons:(BOOL)arg1;
 
 @end
 

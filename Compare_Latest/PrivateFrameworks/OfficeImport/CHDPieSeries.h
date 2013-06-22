@@ -11,10 +11,10 @@
     int mExplosion;
 }
 
-- (id)init;
-- (id)shallowCopy;
-- (int)explosion;
 - (void)setExplosion:(int)arg1;
+- (int)explosion;
+- (id)shallowCopy;
+- (id)init;
 
 @end
 

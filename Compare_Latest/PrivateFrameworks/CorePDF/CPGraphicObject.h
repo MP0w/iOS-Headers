@@ -12,10 +12,6 @@
 {
     unsigned int clipIndex;
     struct CGRect renderedBounds;
-    int wrapType;
-    float margin;
-    float baselineOffset;
-    BOOL canContainText;
     BOOL isInZoneBorder;
     int zoneGraphicType;
     CPTextLine *anchoringTextLine;
@@ -23,31 +19,24 @@
     CPChunk<CPGraphicUser> *user;
 }
 
-- (id)init;
-- (struct CGRect)renderedBounds;
-- (void)setWrapType:(int)arg1;
-- (unsigned short)unicode;
-- (int)wrapType;
-- (void)setMargin:(float)arg1;
-- (float)margin;
-- (void)setBaselineOffset:(float)arg1;
-- (float)baselineOffset;
-- (BOOL)isNarrow;
-- (BOOL)canBeContainer;
-- (BOOL)isVisible;
-- (BOOL)isIndivisible;
-- (BOOL)canContainText;
-- (void)setCanContainText:(BOOL)arg1;
-- (BOOL)isInZoneBorder;
-- (void)setIsInZoneBorder:(BOOL)arg1;
-- (int)zoneGraphicType;
-- (void)setZoneGraphicType:(int)arg1;
-- (void)setAnchoringTextLine:(id)arg1;
-- (id)anchoringTextLine;
-- (void)setUser:(id)arg1;
-- (id)user;
 @property(retain, nonatomic) CPParagraph *anchoringParagraph; // @synthesize anchoringParagraph;
 @property(nonatomic) unsigned int clipIndex; // @synthesize clipIndex;
+- (id)user;
+- (void)setUser:(id)arg1;
+- (id)anchoringTextLine;
+- (void)setAnchoringTextLine:(id)arg1;
+- (void)setZoneGraphicType:(int)arg1;
+- (int)zoneGraphicType;
+- (void)setIsInZoneBorder:(BOOL)arg1;
+- (BOOL)isInZoneBorder;
+- (BOOL)isIndivisible;
+- (BOOL)isVisible;
+- (BOOL)canBeContainer;
+- (BOOL)isNarrow;
+- (unsigned short)unicode;
+- (struct CGRect)renderedBounds;
+- (void)dealloc;
+- (id)init;
 
 @end
 

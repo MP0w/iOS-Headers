@@ -7,14 +7,14 @@
 #import "NSObject-Protocol.h"
 
 @protocol GKVoiceChatClient <NSObject>
-- (void)voiceChatService:(id)arg1 sendData:(id)arg2 toParticipantID:(id)arg3;
 - (id)participantID;
+- (void)voiceChatService:(id)arg1 sendData:(id)arg2 toParticipantID:(id)arg3;
 
 @optional
-- (void)voiceChatService:(id)arg1 sendRealTimeData:(id)arg2 toParticipantID:(id)arg3;
-- (void)voiceChatService:(id)arg1 didStartWithParticipantID:(id)arg2;
-- (void)voiceChatService:(id)arg1 didNotStartWithParticipantID:(id)arg2 error:(id)arg3;
-- (void)voiceChatService:(id)arg1 didStopWithParticipantID:(id)arg2 error:(id)arg3;
 - (void)voiceChatService:(id)arg1 didReceiveInvitationFromParticipantID:(id)arg2 callID:(int)arg3;
+- (void)voiceChatService:(id)arg1 didStopWithParticipantID:(id)arg2 error:(id)arg3;
+- (void)voiceChatService:(id)arg1 didNotStartWithParticipantID:(id)arg2 error:(id)arg3;
+- (void)voiceChatService:(id)arg1 didStartWithParticipantID:(id)arg2;
+- (void)voiceChatService:(id)arg1 sendRealTimeData:(id)arg2 toParticipantID:(id)arg3;
 @end
 

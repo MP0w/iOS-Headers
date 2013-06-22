@@ -19,25 +19,28 @@
     _Bool mDoNotModify;
 }
 
-+ (id)string;
-+ (id)edStringWithString:(id)arg1;
 + (id)edStringWithString:(id)arg1 runs:(id)arg2;
-- (id)init;
-- (id)initWithString:(id)arg1;
-- (id)initWithString:(id)arg1 runs:(id)arg2;
-- (void)dealloc;
-- (BOOL)isEqualToString:(id)arg1;
-- (BOOL)isEqualToEDString:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)string;
-- (void)setString:(id)arg1;
-- (id)phoneticInfo;
-- (void)setPhoneticInfo:(id)arg1;
-- (id)runs;
-- (void)setRuns:(id)arg1;
++ (id)edStringWithString:(id)arg1;
++ (id)string;
 - (void)setDoNotModify:(_Bool)arg1;
+- (void)setRuns:(id)arg1;
+- (id)runs;
+- (void)setPhoneticInfo:(id)arg1;
+- (id)phoneticInfo;
+- (void)setString:(id)arg1;
+- (id)string;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToEDString:(id)arg1;
+- (BOOL)isEqualToString:(id)arg1;
+- (void)dealloc;
+- (id)initWithString:(id)arg1 runs:(id)arg2;
+- (id)initWithString:(id)arg1;
+- (id)init;
+- (_Bool)isEmpty;
+- (id)firstRunFont;
+- (_Bool)areThereRuns;
 
 @end
 

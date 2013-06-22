@@ -19,14 +19,11 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_nativeDialog;
 - (void)_logSheetWarnings;
-- (void)_showFromDOMElement:(id)arg1;
-- (void)_show;
-- (void)_dismiss;
 @property(retain) NSString *title;
 @property(retain) id textFields;
 @property(retain) NSNumber *cancelButtonIndex;

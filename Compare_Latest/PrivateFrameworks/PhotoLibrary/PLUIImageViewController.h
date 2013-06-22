@@ -39,6 +39,7 @@
 - (BOOL)photoTileViewControllerAllowsEditing:(id)arg1;
 - (void)photoTileViewControllerDidEndGesture:(id)arg1;
 - (void)photoTileViewControllerWillBeginGesture:(id)arg1;
+- (void)photoTileViewControllerDoubleTap:(id)arg1;
 - (void)photoTileViewControllerSingleTap:(id)arg1;
 - (void)photoTileViewControllerRequestsFullSizeImage:(id)arg1;
 - (void)photoTileViewControllerCancelImageRequests:(id)arg1;

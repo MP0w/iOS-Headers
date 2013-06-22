@@ -58,6 +58,7 @@
 - (id)init;
 - (id)initWithCFHTTPCookie:(struct OpaqueCFHTTPCookie *)arg1;
 - (id)initWithProperties:(id)arg1;
+- (id)replacementObjectForPortCoder:(id)arg1;
 
 @end
 

@@ -19,14 +19,14 @@
     float _rateOfMaximumMovementDecay;
     unsigned int _numberOfTouchesRequired;
     NSMutableArray *_touches;
-    int _direction;
+    unsigned int _direction;
     struct CGPoint _startLocation;
     struct CGPoint *_startLocations;
     double _startTime;
     unsigned int _failed:1;
 }
 
-@property(nonatomic) int direction; // @synthesize direction=_direction;
+@property(nonatomic) unsigned int direction; // @synthesize direction=_direction;
 @property(nonatomic) unsigned int numberOfTouchesRequired; // @synthesize numberOfTouchesRequired=_numberOfTouchesRequired;
 @property(nonatomic) float rateOfMaximumMovementDecay; // @synthesize rateOfMaximumMovementDecay=_rateOfMaximumMovementDecay;
 @property(nonatomic) float rateOfMinimumMovementDecay; // @synthesize rateOfMinimumMovementDecay=_rateOfMinimumMovementDecay;

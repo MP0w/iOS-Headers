@@ -19,7 +19,7 @@
 - (void)_beginObservingAVRemaker:(id)arg1;
 - (void)_updateProgress:(id)arg1;
 - (void)_remakerNotification:(id)arg1;
-- (void)stopRunLoop;
+- (BOOL)stopRunLoop;
 - (void)run;
 - (void)cancel;
 @property(readonly) SUAVRemakerOutput *remakerOutput;

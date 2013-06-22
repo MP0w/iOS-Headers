@@ -20,6 +20,8 @@
     BOOL _isEV0Image;
     BOOL _chromaNoiseReductionEnabled;
     BOOL _suspendsVideoProcessing;
+    float _jpegQuality;
+    BOOL _jpegQualitySpecified;
 }
 
 + (id)request;
@@ -31,6 +33,8 @@
 @property(copy) id sbufCompletionBlock; // @synthesize sbufCompletionBlock=_sbufCompletionBlock;
 @property int stillImageOrientation; // @synthesize stillImageOrientation=_stillImageOrientation;
 @property(getter=isStillImageMirrored) BOOL stillImageMirrored; // @synthesize stillImageMirrored=_stillImageMirrored;
+@property BOOL jpegQualitySpecified; // @synthesize jpegQualitySpecified=_jpegQualitySpecified;
+@property float jpegQuality; // @synthesize jpegQuality=_jpegQuality;
 @property unsigned long imageDataFormatType; // @synthesize imageDataFormatType=_imageDataFormatType;
 @property struct CGSize previewImageSize; // @synthesize previewImageSize=_previewImageSize;
 - (void)dealloc;

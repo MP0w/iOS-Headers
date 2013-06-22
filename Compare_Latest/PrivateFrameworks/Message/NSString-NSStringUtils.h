@@ -7,17 +7,19 @@
 #import "NSString.h"
 
 @interface NSString (NSStringUtils)
-+ (id)mf_UUID;
-+ (id)mf_messageIDStringWithDomainHint:(id)arg1;
-+ (id)mf_stringRepresentationForBytes:(long long)arg1;
 + (id)mf_stringWithAttachmentCharacter;
-- (id)mf_stringByLocalizingReOrFwdPrefix;
-- (unsigned int)mf_subjectPrefixLength;
-- (id)mf_fileSystemString;
-- (id)mf_stringWithNoExtraSpaces;
-- (id)mf_uniqueFilenameWithRespectToFilenames:(id)arg1;
-- (id)mf_componentsSeparatedByPattern:(id)arg1;
-- (id)mf_stringByEscapingForXML;
++ (id)mf_stringRepresentationForBytes:(long long)arg1;
++ (id)mf_messageIDStringWithDomainHint:(id)arg1;
++ (id)mf_UUID;
+- (id)mf_stringByReplacingPercentEscapesUsingEncoding:(unsigned int)arg1;
+- (id)mf_stringByAddingPercentEscapesUsingEncoding:(unsigned int)arg1;
 - (id)mf_stringByEscapingHTMLCodes;
+- (id)mf_stringByEscapingForXML;
+- (id)mf_componentsSeparatedByPattern:(id)arg1;
+- (id)mf_uniqueFilenameWithRespectToFilenames:(id)arg1;
+- (id)mf_stringWithNoExtraSpaces;
+- (id)mf_fileSystemString;
+- (unsigned int)mf_subjectPrefixLength;
+- (id)mf_stringByLocalizingReOrFwdPrefix;
 @end
 

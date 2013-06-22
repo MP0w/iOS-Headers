@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class CoreDAVRequestLogger, NSData, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableDictionary, NSURL, NSURLConnection, NSURLRequest;
+#import "CoreDAVSubmittable-Protocol.h"
 
-@interface CoreDAVTask : NSObject
+@class CoreDAVErrorItem, CoreDAVRequestLogger, NSData, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableDictionary, NSURL, NSURLConnection, NSURLRequest;
+
+@interface CoreDAVTask : NSObject <CoreDAVSubmittable>
 {
     id <CoreDAVTaskManager> _taskManager;
     id <CoreDAVAccountInfoProvider> _accountInfoProvider;
@@ -49,8 +51,10 @@
     NSDictionary *_requestProperties;
     NSData *_fakeResponseData;
     BOOL _haveParsedFakeResponseData;
+    CoreDAVErrorItem *_forbiddenErrorItem;
 }
 
++ (id)stringFromDepth:(int)arg1;
 + (unsigned int)uniqueQueryID;
 @property(retain) NSDictionary *requestProperties; // @synthesize requestProperties=_requestProperties;
 @property(nonatomic) BOOL allowAutomaticRedirects; // @synthesize allowAutomaticRedirects=_allowAutomaticRedirects;
@@ -71,6 +75,8 @@
 - (void)reportStatusWithError:(id)arg1;
 - (int)numDownloadedElements;
 - (void)reset;
+- (void)submitWithTaskManager:(id)arg1;
+- (void)finishEarlyWithError:(id)arg1;
 - (void)startModal;
 @property(readonly) NSDictionary *responseHeaders;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
@@ -107,7 +113,6 @@
 - (id)requestBodyStream;
 - (BOOL)_includeGeneralHeaders;
 - (id)httpMethod;
-- (id)appleClientInfoString;
 - (id)description;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1;

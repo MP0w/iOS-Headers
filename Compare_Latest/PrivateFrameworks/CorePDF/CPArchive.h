@@ -20,14 +20,14 @@
     NSData *webArchiveData;
 }
 
-- (id)init;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-- (void)addSelection:(struct CGPDFSelection *)arg1;
-- (id)plainText;
-- (id)html;
 - (id)webArchiveData;
+- (id)html;
+- (id)plainText;
+- (void)addSelection:(struct CGPDFSelection *)arg1;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)init;
 
 @end
 

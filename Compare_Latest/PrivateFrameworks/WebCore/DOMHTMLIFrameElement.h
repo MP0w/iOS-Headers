@@ -12,20 +12,23 @@
 {
 }
 
-@property(copy) NSString *align;
-@property(copy) NSString *frameBorder;
-@property(copy) NSString *height;
-@property(copy) NSString *longDesc;
-@property(copy) NSString *marginHeight;
-@property(copy) NSString *marginWidth;
-@property(copy) NSString *name;
-- (id)sandbox;
-- (void)setSandbox:(id)arg1;
-@property(copy) NSString *scrolling;
-@property(copy) NSString *src;
+@property(readonly) DOMAbstractView *contentWindow;
+@property(readonly) DOMDocument *contentDocument;
 @property(copy) NSString *width;
-@property(readonly, retain) DOMDocument *contentDocument;
-@property(readonly, retain) DOMAbstractView *contentWindow;
+- (void)setSrcdoc:(id)arg1;
+- (id)srcdoc;
+@property(copy) NSString *src;
+@property(copy) NSString *scrolling;
+- (void)setSandbox:(id)arg1;
+- (id)sandbox;
+@property(copy) NSString *name;
+@property(copy) NSString *marginWidth;
+@property(copy) NSString *marginHeight;
+@property(copy) NSString *longDesc;
+@property(copy) NSString *height;
+@property(copy) NSString *frameBorder;
+@property(copy) NSString *align;
+- (int)structuralComplexityContribution;
 
 @end
 

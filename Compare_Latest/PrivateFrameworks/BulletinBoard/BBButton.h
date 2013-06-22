@@ -18,11 +18,17 @@
 }
 
 + (id)buttonWithTitle:(id)arg1 action:(id)arg2;
++ (id)_possiblyCachedButtonForInitializedButton:(id)arg1;
++ (void)_removeButtonFromCache:(id)arg1;
++ (void)_addButtonToCache:(id)arg1;
 @property(retain, nonatomic) BBAction *action; // @synthesize action=_action;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)description;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

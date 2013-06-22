@@ -34,6 +34,8 @@
 - (id)init;
 - (const void *)bytes;
 - (unsigned int)length;
+- (unsigned int)writeFile:(id)arg1;
+- (unsigned int)writeFd:(int)arg1;
 
 @end
 

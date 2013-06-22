@@ -12,8 +12,8 @@
 {
 }
 
-@property(copy) NSString *type;
 @property int value;
+@property(copy) NSString *type;
 
 @end
 

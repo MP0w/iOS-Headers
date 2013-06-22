@@ -13,18 +13,26 @@
     AVCaptureOutputInternal *_outputInternal;
 }
 
++ (void)initialize;
 - (void)bumpChangeSeed;
 - (int)changeSeed;
 - (id)liveConnections;
 - (id)firstEnabledConnectionForMediaType:(id)arg1;
 - (id)notReadyError;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (void)handleEnabledChangedForConnection:(id)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (void)didStopForSession:(id)arg1 error:(id)arg2;
 - (void)didStartForSession:(id)arg1;
 - (void)removeConnection:(id)arg1;
 - (id)addConnection:(id)arg1 error:(id *)arg2;
+- (BOOL)appliesMirroringWithPhysicalFlipForConnection:(id)arg1;
+- (BOOL)appliesOrientationWithPhysicalRotationForConnection:(id)arg1;
+- (struct CGSize)outputSizeForCaptureOptions:(id)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)updateMetadataTransformForCaptureOptions:(id)arg1;
+- (id)transformedMetadataObjectForMetadataObject:(id)arg1 connection:(id)arg2;
+- (id)_inputForConnection:(id)arg1;
 - (id)connectionWithMediaType:(id)arg1;
 @property(readonly, nonatomic) NSArray *connections;
 - (BOOL)canAddConnectionForMediaType:(id)arg1;

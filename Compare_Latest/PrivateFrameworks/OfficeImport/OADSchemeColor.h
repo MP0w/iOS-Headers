@@ -12,11 +12,11 @@
 }
 
 + (id)schemeColorWithIndex:(int)arg1;
-- (id)initWithSchemeColorIndex:(int)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)schemeColorIndex;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (int)schemeColorIndex;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithSchemeColorIndex:(int)arg1;
 
 @end
 

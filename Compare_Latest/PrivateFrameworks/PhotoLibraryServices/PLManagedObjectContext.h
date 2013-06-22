@@ -6,25 +6,29 @@
 
 #import "NSManagedObjectContext.h"
 
-@class PLDelayedFiledSystemDeletions, PLMergePolicy, PLPhotoLibrary;
+@class NSObject<OS_xpc_object>, PLDelayedFiledSystemDeletions, PLMergePolicy, PLPhotoLibrary;
 
 @interface PLManagedObjectContext : NSManagedObjectContext
 {
     BOOL _hasMetadataChanges;
     BOOL _isConnectedToChangeHub;
     BOOL _mergingChanges;
+    BOOL _savingDuringMerge;
+    BOOL _isInitializingSingletons;
+    BOOL _isBackingALAssetsLibrary;
     PLMergePolicy *_mergePolicy;
     PLDelayedFiledSystemDeletions *_delayedDeletions;
     PLPhotoLibrary *_photoLibrary;
     id <PLManagedObjectContextPTPNotificationDelegate> _ptpNotificationDelegate;
-    void *changeHubConnection;
+    NSObject<OS_xpc_object> *changeHubConnection;
+    BOOL _regenerateVideoThumbnails;
 }
 
++ (BOOL)assetsLibraryLoggingEnabled;
++ (void)handleUnknownMergeEvent;
 + (void)mergeChangesFromRemoteContextSave:(id)arg1 intoAllContextsNotIdenticalTo:(id)arg2;
 + (void)mergeIntoAllContextsChangesFromRemoteContextSave:(id)arg1;
 + (id)allContextsNotIdenticalTo:(void *)arg1;
-+ (void)withDispatchGroup:(struct dispatch_group_s *)arg1 enumerateAllContexts:(id)arg2;
-+ (void)asyncEnumerateAllContextsWithBlock:(id)arg1;
 + (id)sharedPersistentStoreCoordinator;
 + (id)managedObjectModel;
 + (id)oldAuxDatabasePath;
@@ -39,20 +43,27 @@
 + (BOOL)databaseIsMissing;
 + (void)moveOldStoreAside;
 + (BOOL)moveStoreFromURL:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
++ (BOOL)canMergeRemoteChanges;
 + (BOOL)useModelMigratorToCreateDatabase;
 + (id)readOnlyContext;
 + (id)contextForDatabaseCreation;
 + (id)contextForPhotoLibrary:(id)arg1;
+@property(nonatomic) BOOL isInitializingSingletons; // @synthesize isInitializingSingletons=_isInitializingSingletons;
+@property(nonatomic) BOOL regenerateVideoThumbnails; // @synthesize regenerateVideoThumbnails=_regenerateVideoThumbnails;
+@property(nonatomic) BOOL isBackingALAssetsLibrary; // @synthesize isBackingALAssetsLibrary=_isBackingALAssetsLibrary;
 @property(nonatomic) id <PLManagedObjectContextPTPNotificationDelegate> ptpNotificationDelegate; // @synthesize ptpNotificationDelegate=_ptpNotificationDelegate;
 @property(nonatomic) BOOL hasMetadataChanges; // @synthesize hasMetadataChanges=_hasMetadataChanges;
 @property(retain, nonatomic) PLDelayedFiledSystemDeletions *delayedDeletions; // @synthesize delayedDeletions=_delayedDeletions;
+@property(readonly, nonatomic) BOOL savingDuringMerge; // @synthesize savingDuringMerge=_savingDuringMerge;
 @property(readonly, nonatomic) BOOL mergingChanges; // @synthesize mergingChanges=_mergingChanges;
-@property(nonatomic) void *changeHubConnection; // @synthesize changeHubConnection;
+@property(nonatomic) NSObject<OS_xpc_object> *changeHubConnection; // @synthesize changeHubConnection;
 - (void)_contextObjectsDidChange:(id)arg1;
 - (void)tearDownLocalChangeNotifications;
 - (void)setupLocalChangeNotifications;
 - (void)_informPTPDelegateAboutChangesFromNotification:(id)arg1;
 - (void)_mergeChangesFromDidSaveDictionary:(id)arg1 usingObjectIDs:(BOOL)arg2;
+- (void)_notifyALAssetsLibraryWithChanges:(id)arg1 usingObjectIDs:(BOOL)arg2;
+- (BOOL)_tooManyAssetChangesToHandle:(unsigned int)arg1;
 - (void)registerFilesystemDeletionInfo:(id)arg1;
 - (void)disconnectFromChangeHub;
 - (void)connectToChangeHub;
@@ -62,10 +73,10 @@
 - (unsigned int)countForFetchRequest:(id)arg1 error:(id *)arg2;
 - (id)executeFetchRequest:(id)arg1 error:(id *)arg2;
 - (id)existingObjectWithID:(id)arg1 error:(id *)arg2;
-- (void)withDispatchGroup:(struct dispatch_group_s *)arg1 performBlock:(id)arg2;
+- (BOOL)isReadOnly;
+- (void)withDispatchGroup:(id)arg1 performBlock:(id)arg2;
 - (void)setGlobalValue:(id)arg1 forKey:(id)arg2;
 - (id)globalValueForKey:(id)arg1;
-@property(nonatomic) BOOL regenerateVideoThumbnails;
 - (int)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
 @property(readonly, nonatomic) BOOL isUserInterfaceContext;
 @property(nonatomic) PLPhotoLibrary *photoLibrary;

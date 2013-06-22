@@ -15,17 +15,17 @@
     int mBoundsTrack;
 }
 
-- (id)init;
-- (int)type;
-- (void)setType:(int)arg1;
-- (int)orientation;
-- (void)setOrientation:(int)arg1;
-- (int)size;
-- (void)setSize:(int)arg1;
-- (int)index;
-- (void)setIndex:(int)arg1;
-- (int)boundsTrack;
 - (void)setBoundsTrack:(int)arg1;
+- (int)boundsTrack;
+- (void)setIndex:(int)arg1;
+- (int)index;
+- (void)setSize:(int)arg1;
+- (int)size;
+- (void)setOrientation:(int)arg1;
+- (int)orientation;
+- (void)setType:(int)arg1;
+- (int)type;
+- (id)init;
 
 @end
 

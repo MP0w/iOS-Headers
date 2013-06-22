@@ -12,26 +12,30 @@
 {
 }
 
-@property(copy) NSString *name;
-@property(copy) NSString *align;
-@property(copy) NSString *alt;
-@property(copy) NSString *border;
-@property int height;
-@property int hspace;
-@property BOOL isMap;
-@property(copy) NSString *longDesc;
-@property(copy) NSString *src;
-@property(copy) NSString *useMap;
-@property int vspace;
-@property int width;
-@property(readonly) BOOL complete;
-@property(copy) NSString *lowsrc;
-@property(readonly) int naturalHeight;
-@property(readonly) int naturalWidth;
-@property(readonly) int x;
+@property(readonly) NSURL *absoluteImageURL;
+@property(readonly) NSString *altDisplayString;
 @property(readonly) int y;
-@property(readonly, copy) NSString *altDisplayString;
-@property(readonly, copy) NSURL *absoluteImageURL;
+@property(readonly) int x;
+@property(readonly) int naturalWidth;
+@property(readonly) int naturalHeight;
+@property(copy) NSString *lowsrc;
+@property(readonly) BOOL complete;
+@property int width;
+@property int vspace;
+@property(copy) NSString *useMap;
+@property(copy) NSString *src;
+@property(copy) NSString *longDesc;
+@property BOOL isMap;
+@property int hspace;
+@property int height;
+- (void)setCrossOrigin:(id)arg1;
+- (id)crossOrigin;
+@property(copy) NSString *border;
+@property(copy) NSString *alt;
+@property(copy) NSString *align;
+@property(copy) NSString *name;
+- (id)mimeType;
+- (id)dataRepresentation:(BOOL)arg1;
 
 @end
 

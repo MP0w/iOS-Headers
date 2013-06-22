@@ -14,12 +14,12 @@
     int mTransition;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)filter;
-- (void)setFilter:(id)arg1;
-- (int)transition;
 - (void)setTransition:(int)arg1;
+- (int)transition;
+- (void)setFilter:(id)arg1;
+- (id)filter;
+- (void)dealloc;
+- (id)init;
 
 @end
 

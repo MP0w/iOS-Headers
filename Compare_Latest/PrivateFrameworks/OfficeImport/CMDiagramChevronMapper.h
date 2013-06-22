@@ -11,11 +11,11 @@
     BOOL mHChevron;
 }
 
-- (void)setIsHChevron:(BOOL)arg1;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
-- (id)_suggestedBoundsForNodeAtIndex:(unsigned int)arg1;
 - (struct CGSize)sizeForNode:(id)arg1 atIndex:(unsigned int)arg2;
+- (id)_suggestedBoundsForNodeAtIndex:(unsigned int)arg1;
+- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (void)setIsHChevron:(BOOL)arg1;
 
 @end
 

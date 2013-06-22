@@ -13,6 +13,7 @@
     NSArray *_brushList;
 }
 
++ (id)brushListWithBrushes:(id)arg1;
 @property(retain, nonatomic) NSArray *brushList; // @synthesize brushList=_brushList;
 - (void)drawInRect:(struct CGRect)arg1 withContext:(struct CGContext *)arg2 input:(id)arg3;
 - (void)dealloc;

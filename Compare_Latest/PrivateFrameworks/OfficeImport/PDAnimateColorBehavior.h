@@ -17,16 +17,16 @@
     int mDirection;
 }
 
-- (id)by;
-- (void)setBy:(id)arg1;
-- (id)from;
-- (void)setFrom:(id)arg1;
-- (id)to;
-- (void)setTo:(id)arg1;
-- (int)colorSpace;
-- (void)setColorSpace:(int)arg1;
-- (int)direction;
 - (void)setDirection:(int)arg1;
+- (int)direction;
+- (void)setColorSpace:(int)arg1;
+- (int)colorSpace;
+- (void)setTo:(id)arg1;
+- (id)to;
+- (void)setFrom:(id)arg1;
+- (id)from;
+- (void)setBy:(id)arg1;
+- (id)by;
 
 @end
 

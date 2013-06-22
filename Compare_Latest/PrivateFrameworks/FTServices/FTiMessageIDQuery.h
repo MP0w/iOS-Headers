@@ -26,7 +26,9 @@
 - (id)messageBody;
 - (id)requiredKeys;
 - (id)bagKey;
+- (BOOL)wantsBodySignature;
 - (BOOL)wantsHTTPGet;
+- (BOOL)wantsManagedRetries;
 - (id)additionalQueryStringParameters;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;

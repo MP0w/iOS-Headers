@@ -18,21 +18,38 @@
     NSArray *keyboardInputModes;
     NSArray *enabledInputModes;
     NSArray *normalizedInputModes;
+    NSArray *defaultKeyboardInputModes;
+    NSArray *defaultInputModes;
+    NSArray *defaultNormalizedInputModes;
+    id <UIKeyboardInputModeControllerDelegate> _delegate;
 }
 
 + (id)sharedInputModeController;
+@property(nonatomic) id <UIKeyboardInputModeControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain) NSArray *defaultNormalizedInputModes; // @synthesize defaultNormalizedInputModes;
+@property(retain) NSArray *defaultInputModes; // @synthesize defaultInputModes;
+@property(retain) NSArray *defaultKeyboardInputModes; // @synthesize defaultKeyboardInputModes;
 @property(retain) NSArray *normalizedInputModes; // @synthesize normalizedInputModes;
 @property(retain) NSArray *enabledInputModes; // @synthesize enabledInputModes;
 @property(retain) NSArray *keyboardInputModes; // @synthesize keyboardInputModes;
 @property(retain) NSString *currentLanguage; // @synthesize currentLanguage;
 @property(retain) NSString *currentLocale; // @synthesize currentLocale;
+- (void)startConnectionForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
+- (void)startDictationConnectionForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
 - (id)defaultEnabledInputModesForCurrentLocale:(BOOL)arg1;
 - (void)clearCachedValues;
+- (void)updateCurrentInputMode:(id)arg1;
 @property(retain) UIKeyboardInputMode *currentInputMode;
 @property(readonly, nonatomic) BOOL containsDictationSupportedInputMode;
 - (id)activeInputModes;
 - (id)inputModeWithIdentifier:(id)arg1;
 - (void)dealloc;
+@property(readonly) NSArray *enabledInputModeLanguages;
+@property(readonly) NSArray *normalizedEnabledInputModeIdentifiers;
+@property(readonly) NSArray *enabledInputModeIdentifiers;
+- (id)enabledInputModeIdentifiers:(BOOL)arg1;
+@property(readonly) NSArray *inputModesWithoutHardwareSupport;
+@property(readonly) NSArray *supportedInputModeIdentifiers;
 
 @end
 

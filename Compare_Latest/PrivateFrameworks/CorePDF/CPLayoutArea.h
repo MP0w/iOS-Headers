@@ -11,22 +11,22 @@
     BOOL isFirstLayout;
 }
 
-- (id)init;
-- (void)accept:(id)arg1;
-- (BOOL)isSimilarTo:(id)arg1;
-- (BOOL)isFirstLayout;
-- (void)setIsFirstLayout:(BOOL)arg1;
-- (void)addColumnBreaks;
-- (BOOL)isBoxRegion;
-- (BOOL)isGraphicalRegion;
-- (BOOL)isRowRegion;
-- (void)setIsImageRegion:(BOOL)arg1;
-- (BOOL)isImageRegion;
-- (BOOL)isShapeRegion;
-- (struct CGRect)layoutAreaBounds;
-- (float)selectionBottom;
-- (id)properties;
 - (id)description;
+- (id)properties;
+- (float)selectionBottom;
+- (struct CGRect)layoutAreaBounds;
+- (BOOL)isShapeRegion;
+- (BOOL)isImageRegion;
+- (void)setIsImageRegion:(BOOL)arg1;
+- (BOOL)isRowRegion;
+- (BOOL)isGraphicalRegion;
+- (BOOL)isBoxRegion;
+- (void)addColumnBreaks;
+- (void)setIsFirstLayout:(BOOL)arg1;
+- (BOOL)isFirstLayout;
+- (BOOL)isSimilarTo:(id)arg1;
+- (void)accept:(id)arg1;
+- (id)init;
 
 @end
 

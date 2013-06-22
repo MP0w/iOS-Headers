@@ -7,6 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (DerivedArray)
+- (id)mf_objectsPassingTest:(id)arg1;
 - (id)mf_indicesOfStringsWithPrefix:(id)arg1;
 @end
 

@@ -15,12 +15,12 @@
     NSMutableArray *mObjects;
 }
 
-- (id)initWithWorkbook:(id)arg1;
-- (void)dealloc;
-- (_Bool)isObjectSupported:(id)arg1;
-- (void)markObjectForPostProcessing:(id)arg1;
-- (void)applyProcessorWithSheet:(id)arg1;
 - (void)applyProcessorToObject:(id)arg1 sheet:(id)arg2;
+- (void)applyProcessorWithSheet:(id)arg1;
+- (void)markObjectForPostProcessing:(id)arg1;
+- (_Bool)isObjectSupported:(id)arg1;
+- (void)dealloc;
+- (id)initWithWorkbook:(id)arg1;
 
 @end
 

@@ -10,12 +10,29 @@
 {
     unsigned long _activeEffectsCount;
     BOOL _inDealloc;
+    BOOL _nonServiceHosted;
+    float _defaultWindowLevel;
+    struct CGPoint _hostedWindowOffset;
 }
 
++ (void)lowerTextEffectsWindowsForHideNotificationCenter;
++ (void)raiseTextEffectsWindowsForShowNotificationCenter;
 + (void)_releaseSharedInstances;
 + (id)sharedTextEffectsWindowAboveStatusBar;
++ (id)sharedTextEffectsWindow:(BOOL)arg1;
 + (id)sharedTextEffectsWindow;
++ (id)preferredTextEffectsWindowAboveStatusBar;
++ (id)preferredTextEffectsWindow;
+@property(nonatomic) struct CGPoint hostedWindowOffset; // @synthesize hostedWindowOffset=_hostedWindowOffset;
+@property(nonatomic) float defaultWindowLevel; // @synthesize defaultWindowLevel=_defaultWindowLevel;
+@property(nonatomic) BOOL nonServiceHosted; // @synthesize nonServiceHosted=_nonServiceHosted;
+- (BOOL)_isTextEffectsWindow;
+- (BOOL)_affectsTintView;
 - (BOOL)isInternalWindow;
+- (BOOL)_usesWindowServerHitTesting;
+- (id)_showServiceForText:(id)arg1 type:(int)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
+- (BOOL)_canShowTextServices;
+- (int)interfaceOrientation;
 - (void)matchDeviceOrientation;
 - (void)updateSubviewOrdering;
 - (void)resetTransform;
@@ -27,7 +44,24 @@
 - (void)didAddSubview:(id)arg1;
 - (void)_didRemoveSubview:(id)arg1;
 - (void)delayHideWindow;
+- (void)handleStatusBarChangeFromHeight:(float)arg1 toHeight:(float)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 fromView:(id)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 toView:(id)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 fromWindow:(id)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 toWindow:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromView:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toView:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromWindow:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toWindow:(id)arg2;
+- (struct CGPoint)_adjustPointForHostedDisplay:(struct CGPoint)arg1 hasTarget:(BOOL)arg2 inset:(BOOL)arg3;
+- (struct CGPoint)magnifierScreenPointForPoint:(struct CGPoint)arg1 targetWindow:(id)arg2;
+- (struct CGPoint)classicWindowPointForPoint:(struct CGPoint)arg1;
+@property(readonly, nonatomic) struct CGRect hostedFrame;
+- (void)_updateTransformLayerForClassicPresentation;
 - (BOOL)_disableViewScaling;
+- (void)setKeepContextInBackground:(BOOL)arg1;
+- (BOOL)_isWindowServerHostingManaged;
+@property(readonly) unsigned int contextID;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

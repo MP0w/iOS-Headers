@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol CHDMarkerOwner <NSObject>
-- (id)marker;
 - (void)setMarker:(id)arg1;
+- (id)marker;
 @end
 

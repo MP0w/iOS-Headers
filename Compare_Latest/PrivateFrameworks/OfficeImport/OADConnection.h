@@ -12,10 +12,10 @@
     int mLocationIndex;
 }
 
-- (long)drawableId;
-- (void)setDrawableId:(long)arg1;
-- (int)locationIndex;
 - (void)setLocationIndex:(int)arg1;
+- (int)locationIndex;
+- (void)setDrawableId:(long)arg1;
+- (long)drawableId;
 
 @end
 

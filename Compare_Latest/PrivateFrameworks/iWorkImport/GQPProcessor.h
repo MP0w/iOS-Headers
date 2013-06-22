@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GQSDocument, GQZArchive;
+@class GQSDocument, GQZArchive, SFUCryptoKey, SFUZipInflateInputStream;
 
 @interface GQPProcessor : NSObject
 {
@@ -23,8 +23,11 @@
         unsigned long _field9;
     } *mParserInputBuffer;
     GQZArchive *mArchive;
-    stack_ae67258b *mStateStack;
-    stack_9d3510eb *mActionStack;
+    SFUCryptoKey *mCryptoKey;
+    unsigned long long mTotalBytesToConsume;
+    SFUZipInflateInputStream *mInputStream;
+    stack_b6de2217 *mStateStack;
+    stack_52c9a520 *mActionStack;
     GQSDocument *mDocumentState;
     struct __QLPreviewRequest *mOutputPreviewRequest;
     struct __CFBundle *mBundle;
@@ -33,23 +36,28 @@
     unsigned char mIsProgressive;
 }
 
++ (struct _xmlTextReader *)createXmlReaderWithPath:(id)arg1 indexFileName:(id)arg2 cryptoKey:(id)arg3;
++ (struct _xmlTextReader *)createXmlReaderWithZipArchive:(id)arg1 indexFileName:(id)arg2 cryptoKey:(id)arg3 indexEntry:(id *)arg4 zipInputStream:(id *)arg5;
 + (void)initialize;
-- (id)initWithPath:(id)arg1 indexFileName:(id)arg2 previewRequest:(struct __QLPreviewRequest *)arg3;
-- (id)initWithZipArchive:(id)arg1 indexFileName:(id)arg2 previewRequest:(struct __QLPreviewRequest *)arg3;
-- (void)dealloc;
-- (void)pushInitialState;
-- (id)archive;
-- (struct __CFBundle *)bundle;
-- (void)setBundle:(struct __CFBundle *)arg1;
-- (BOOL)go;
-- (stack_ae67258b *)stateStack;
-- (stack_9d3510eb *)actionStack;
-- (id)documentState;
-- (struct CGSize)thumbnailSize;
-- (void)setThumbnailSize:(struct CGSize)arg1;
-- (void)setProgressiveMode:(unsigned char)arg1;
-- (BOOL)isWrongFormat;
+- (id).cxx_construct;
 - (void)setWrongFormat:(BOOL)arg1;
+- (BOOL)isWrongFormat;
+- (void)setProgressiveMode:(unsigned char)arg1;
+- (void)setThumbnailSize:(struct CGSize)arg1;
+- (struct CGSize)thumbnailSize;
+- (id)cryptoKey;
+- (id)documentState;
+- (stack_52c9a520 *)actionStack;
+- (stack_b6de2217 *)stateStack;
+- (BOOL)go;
+- (void)setBundle:(struct __CFBundle *)arg1;
+- (struct __CFBundle *)bundle;
+- (id)archive;
+- (void)pushInitialState;
+- (void)dealloc;
+- (id)initWithZipArchive:(id)arg1 indexFileName:(id)arg2 previewRequest:(struct __QLPreviewRequest *)arg3 cryptoKey:(id)arg4;
+- (id)initWithZipArchive:(id)arg1 indexFileName:(id)arg2 previewRequest:(struct __QLPreviewRequest *)arg3;
+- (id)initWithPath:(id)arg1 indexFileName:(id)arg2 previewRequest:(struct __QLPreviewRequest *)arg3 cryptoKey:(id)arg4;
 
 @end
 

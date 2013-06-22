@@ -14,8 +14,8 @@
 }
 
 + (id)prototypes;
-- (void)dealloc;
 @property(retain, nonatomic) NSRegularExpression *regularExpression; // @synthesize regularExpression=_regularExpression;
+- (void)dealloc;
 
 @end
 

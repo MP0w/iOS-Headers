@@ -23,33 +23,33 @@
     BOOL _subbedOutTable;
 }
 
-- (void)dealloc;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (id)_selectedImage;
-- (id)_unselectedImage;
-- (id)_activeImage;
-- (id)_muteImage;
-- (id)_tableHeaderImage;
-- (id)_tableFooterImage;
-- (struct CGRect)_frameForNumButtons:(int)arg1;
-- (struct CGRect)_frameForTable;
-- (id)_muteButtonForFrame:(struct CGRect)arg1;
-- (void)_setupButtons;
-- (void)_takedownButtons;
-- (void)buttonPressed:(id)arg1;
-- (void)muteButtonPressed:(id)arg1;
-- (void)suboutTable;
-- (void)showTable;
-- (void)_setupTable;
-- (void)_takedownTable;
-- (void)_setupSurroundingTableViews;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)setActiveRow:(int)arg1;
-- (void)reloadData;
-- (void)selectRow:(int)arg1;
 - (void)setDelegate:(id)arg1;
+- (void)selectRow:(int)arg1;
+- (void)reloadData;
+- (void)setActiveRow:(int)arg1;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (void)_setupSurroundingTableViews;
+- (void)_takedownTable;
+- (void)_setupTable;
+- (void)showTable;
+- (void)suboutTable;
+- (void)muteButtonPressed:(id)arg1;
+- (void)buttonPressed:(id)arg1;
+- (void)_takedownButtons;
+- (void)_setupButtons;
+- (id)_muteButtonForFrame:(struct CGRect)arg1;
+- (struct CGRect)_frameForTable;
+- (struct CGRect)_frameForNumButtons:(int)arg1;
+- (id)_tableFooterImage;
+- (id)_tableHeaderImage;
+- (id)_muteImage;
+- (id)_activeImage;
+- (id)_unselectedImage;
+- (id)_selectedImage;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)dealloc;
 
 @end
 

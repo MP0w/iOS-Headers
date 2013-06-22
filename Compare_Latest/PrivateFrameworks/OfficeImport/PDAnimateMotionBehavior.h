@@ -21,22 +21,23 @@
     struct CGPoint mRotationCenter;
 }
 
-- (void)dealloc;
-- (BOOL)hasPath;
-- (id)path;
-- (void)setPath:(id)arg1;
-- (BOOL)hasAngle;
-- (double)angle;
-- (void)setAngle:(double)arg1;
-- (BOOL)hasPointType;
-- (int)pointType;
-- (void)setPointType:(int)arg1;
-- (BOOL)hasOriginType;
-- (int)originType;
-- (void)setOriginType:(int)arg1;
-- (BOOL)hasRotationCenter;
-- (struct CGPoint)rotationCenter;
+- (id).cxx_construct;
 - (void)setRotationCenter:(struct CGPoint)arg1;
+- (struct CGPoint)rotationCenter;
+- (BOOL)hasRotationCenter;
+- (void)setOriginType:(int)arg1;
+- (int)originType;
+- (BOOL)hasOriginType;
+- (void)setPointType:(int)arg1;
+- (int)pointType;
+- (BOOL)hasPointType;
+- (void)setAngle:(double)arg1;
+- (double)angle;
+- (BOOL)hasAngle;
+- (void)setPath:(id)arg1;
+- (id)path;
+- (BOOL)hasPath;
+- (void)dealloc;
 
 @end
 

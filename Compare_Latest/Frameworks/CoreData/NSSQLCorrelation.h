@@ -17,14 +17,14 @@
     unsigned int _invfok;
 }
 
-- (id)initWithManyToMany:(id)arg1 fk:(long long)arg2 invfk:(long long)arg3 fok:(unsigned int)arg4 invfok:(unsigned int)arg5;
-- (void)dealloc;
-- (id)manyToMany;
-- (id)description;
-- (long long)fk;
-- (long long)invfk;
-- (unsigned int)fok;
 - (unsigned int)invfok;
+- (unsigned int)fok;
+- (long long)invfk;
+- (long long)fk;
+- (id)description;
+- (id)manyToMany;
+- (void)dealloc;
+- (id)initWithManyToMany:(id)arg1 fk:(long long)arg2 invfk:(long long)arg3 fok:(unsigned int)arg4 invfok:(unsigned int)arg5;
 
 @end
 

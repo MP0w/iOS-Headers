@@ -14,6 +14,7 @@
     NSManagedObjectID *_assetID;
 }
 
++ (id)notification;
 @property(readonly, nonatomic) NSManagedObjectID *assetID;
 @property(readonly, nonatomic) UIImage *image;
 - (id)description;
@@ -22,6 +23,7 @@
 - (id)name;
 - (void)dealloc;
 - (id)init;
+- (id)_init;
 
 @end
 

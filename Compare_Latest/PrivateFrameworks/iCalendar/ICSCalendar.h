@@ -6,7 +6,7 @@
 
 #import <iCalendar/ICSComponent.h>
 
-@class ICSColor, ICSDuration, NSMutableDictionary, NSMutableSet, NSString;
+@class ICSColor, ICSDuration, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface ICSCalendar : ICSComponent
 {
@@ -14,6 +14,7 @@
     NSMutableDictionary *_masters;
     NSMutableDictionary *_occurrences;
     NSMutableDictionary *_timezones;
+    NSMutableArray *_parsingErrors;
 }
 
 + (id)ICSStringFromCalendarServerAccess:(int)arg1;
@@ -23,6 +24,9 @@
 + (id)defaultProdid;
 + (void)setDefaultProdid:(id)arg1;
 + (id)name;
++ (id)calendarWithKnownTimeZones;
+- (id)parsingErrors;
+- (void)addParsingError:(id)arg1;
 - (id)timeZoneForKey:(id)arg1;
 - (void)addComponent:(id)arg1;
 - (void)setComponents:(id)arg1;
@@ -50,6 +54,10 @@
 @property(retain) NSString *calscale;
 - (void)dealloc;
 - (id)init;
+- (id)_init;
+- (void)fixEntities;
+- (void)fixComponent;
+- (void)fixPropertiesInheritance;
 
 // Remaining properties
 @property BOOL x_apple_ignore_on_restore; // @dynamic x_apple_ignore_on_restore;

@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
 @interface NSMethodSignature : NSObject
 {
@@ -22,6 +22,9 @@
 - (unsigned int)frameLength;
 - (const char *)getArgumentTypeAtIndex:(unsigned int)arg1;
 - (unsigned int)numberOfArguments;
+- (id)_protocolsForObjectAtArgumentIndex:(int)arg1;
+- (Class)_classForObjectAtArgumentIndex:(int)arg1;
+- (id)_signatureForBlockAtArgumentIndex:(int)arg1;
 - (id)_typeString;
 - (struct NSMethodFrameArgInfo *)_argInfo:(int)arg1;
 - (CDStruct_52991635 *)_frameDescriptor;

@@ -13,8 +13,8 @@
     GQDDrawable *mDrawable;
 }
 
-- (void)dealloc;
 - (id)drawable;
+- (void)dealloc;
 
 @end
 

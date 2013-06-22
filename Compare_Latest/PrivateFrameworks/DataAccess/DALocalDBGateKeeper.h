@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableSet;
+@class NSMutableArray, NSMutableSet, NSString;
 
 @interface DALocalDBGateKeeper : NSObject
 {
@@ -26,6 +26,7 @@
     id <DADataclassLockWatcher> _bookmarksLockHolder;
     NSMutableArray *_bookmarksWaiters;
     NSMutableSet *_waiterIDsExpectingBookmarksLock;
+    NSString *_unitTestHackRunLoopMode;
 }
 
 + (id)sharedGateKeeper;
@@ -33,6 +34,7 @@
 - (id)stateString;
 - (void)relinquishLocksForWaiter:(id)arg1 dataclasses:(int)arg2 moreComing:(BOOL)arg3;
 - (void)unregisterWaiterForDataclassLocks:(id)arg1;
+- (void)registerPreemptiveWaiter:(id)arg1 forDataclassLocks:(int)arg2 completionHandler:(id)arg3;
 - (void)registerWaiter:(id)arg1 forDataclassLocks:(int)arg2 completionHandler:(id)arg3;
 
 @end

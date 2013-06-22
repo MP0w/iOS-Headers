@@ -10,7 +10,6 @@
 {
 }
 
-- (void)_transformWBMPData;
 - (id)initWithData:(id)arg1;
 
 @end

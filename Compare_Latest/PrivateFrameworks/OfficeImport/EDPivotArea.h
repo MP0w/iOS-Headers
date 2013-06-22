@@ -19,19 +19,19 @@
 }
 
 + (id)pivotArea;
-- (id)init;
-- (void)dealloc;
-- (_Bool)grandRow;
-- (void)setGrandRow:(_Bool)arg1;
-- (_Bool)grandCol;
-- (void)setGrandCol:(_Bool)arg1;
-- (_Bool)outline;
-- (void)setOutline:(_Bool)arg1;
-- (int)type;
-- (void)setType:(int)arg1;
-- (id)offset;
-- (void)setOffset:(id)arg1;
 - (id)references;
+- (void)setOffset:(id)arg1;
+- (id)offset;
+- (void)setType:(int)arg1;
+- (int)type;
+- (void)setOutline:(_Bool)arg1;
+- (_Bool)outline;
+- (void)setGrandCol:(_Bool)arg1;
+- (_Bool)grandCol;
+- (void)setGrandRow:(_Bool)arg1;
+- (_Bool)grandRow;
+- (void)dealloc;
+- (id)init;
 
 @end
 

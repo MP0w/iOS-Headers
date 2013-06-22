@@ -13,14 +13,14 @@
     NSString *_urlString;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (id)initWithURLString:(id)arg1 profile:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)title;
-- (id)subtitle1Label;
++ (id)typeStrings;
+- (void).cxx_destruct;
 - (id)subtitle1Description;
+- (id)subtitle1Label;
+- (id)title;
+- (id)description;
+- (id)initWithURLString:(id)arg1 profile:(id)arg2;
 
 @end
 

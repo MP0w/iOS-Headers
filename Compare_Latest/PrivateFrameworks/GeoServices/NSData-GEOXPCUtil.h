@@ -7,6 +7,6 @@
 #import "NSData.h"
 
 @interface NSData (GEOXPCUtil)
-- (void *)_geo_newXPCData;
+- (id)_geo_newXPCData;
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
++ (void)write:(id)arg1 to:(struct WrdTableProperties *)arg2;
 + (void)readFrom:(struct WrdTableProperties *)arg1 properties:(id)arg2;
 
 @end

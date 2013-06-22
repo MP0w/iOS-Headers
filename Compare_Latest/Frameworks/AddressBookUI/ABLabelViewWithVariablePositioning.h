@@ -16,18 +16,18 @@
     float _horizontalPadding;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)setLabelFont:(id)arg1;
-- (void)setLabelText:(id)arg1;
-- (void)setLabelTextColor:(id)arg1;
-- (void)setLabelShadowColor:(id)arg1;
-- (void)setLabelShadowOffset:(struct CGSize)arg1;
-@property(nonatomic) float topPadding; // @synthesize topPadding=_topPadding;
-@property(nonatomic) float bottomPadding; // @synthesize bottomPadding=_bottomPadding;
 @property(nonatomic) float horizontalPadding; // @synthesize horizontalPadding=_horizontalPadding;
+@property(nonatomic) float bottomPadding; // @synthesize bottomPadding=_bottomPadding;
+@property(nonatomic) float topPadding; // @synthesize topPadding=_topPadding;
 - (void)layoutSubviews;
+- (void)setLabelShadowOffset:(struct CGSize)arg1;
+- (void)setLabelShadowColor:(id)arg1;
+- (void)setLabelTextColor:(id)arg1;
+- (void)setLabelText:(id)arg1;
+- (void)setLabelFont:(id)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -11,10 +11,10 @@
     int _index;
 }
 
-- (void)_audioSelectionButtonTitleRect:(struct CGRect *)arg1 imageRect:(struct CGRect *)arg2 forContentRect:(struct CGRect)arg3;
-- (struct CGRect)titleRectForContentRect:(struct CGRect)arg1;
-- (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;
 @property(nonatomic) int index; // @synthesize index=_index;
+- (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;
+- (struct CGRect)titleRectForContentRect:(struct CGRect)arg1;
+- (void)_audioSelectionButtonTitleRect:(struct CGRect *)arg1 imageRect:(struct CGRect *)arg2 forContentRect:(struct CGRect)arg3;
 
 @end
 

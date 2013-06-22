@@ -12,8 +12,10 @@
     BOOL _useDefaultModalTransitionStyle;
     int _modalPresentationStyle;
     int _modalTransitionStyle;
+    BOOL _animates;
 }
 
+@property(nonatomic) BOOL animates; // @synthesize animates=_animates;
 @property(nonatomic) int modalTransitionStyle; // @synthesize modalTransitionStyle=_modalTransitionStyle;
 @property(nonatomic) int modalPresentationStyle; // @synthesize modalPresentationStyle=_modalPresentationStyle;
 @property(nonatomic) BOOL useDefaultModalTransitionStyle; // @synthesize useDefaultModalTransitionStyle=_useDefaultModalTransitionStyle;

@@ -19,21 +19,21 @@
     unsigned int _editing:1;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-@property(copy, nonatomic) NSString *signedLabelText;
-@property(copy, nonatomic) NSString *secureLabelText;
-@property(copy, nonatomic) NSString *warningLabelText;
-@property(copy, nonatomic) NSString *explanationText;
 @property(copy, nonatomic) NSArray *buttons; // @synthesize buttons=_buttons;
-@property(nonatomic) BOOL editing;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-- (void)_setText:(id)arg1 forLabel:(id)arg2;
-- (void)_insert:(BOOL)arg1 subview:(id)arg2;
-- (id)_signedLabel;
-- (id)_secureLabel;
 - (id)_warningLabel;
+- (id)_secureLabel;
+- (id)_signedLabel;
+- (void)_insert:(BOOL)arg1 subview:(id)arg2;
+- (void)_setText:(id)arg1 forLabel:(id)arg2;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+@property(nonatomic) BOOL editing;
+@property(copy, nonatomic) NSString *explanationText;
+@property(copy, nonatomic) NSString *warningLabelText;
+@property(copy, nonatomic) NSString *secureLabelText;
+@property(copy, nonatomic) NSString *signedLabelText;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -8,14 +8,10 @@
 
 @interface GEOSearchRequest : GEOPlaceSearchRequest
 {
-    int _type;
-    int _zoomLevel;
     unsigned short _provider;
 }
 
 @property(nonatomic) unsigned short provider; // @synthesize provider=_provider;
-@property(nonatomic) int zoomLevel; // @synthesize zoomLevel=_zoomLevel;
-@property(nonatomic) int type; // @synthesize type=_type;
 - (Class)responseClass;
 - (id)init;
 

@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)initialize;
 + (void)readNode:(struct _xmlNode *)arg1 toAlgorithm:(id)arg2;
++ (id)typeMap;
 
 @end
 

@@ -6,26 +6,37 @@
 
 #import "UITableView.h"
 
+#import "SBBulletinFadeOverlayOwner-Protocol.h"
 #import "SBBulletinHeaderViewDelegate-Protocol.h"
 
-@class NSMutableSet, SBBulletinLinenSegmentView, UIImageView, UIView;
+@class NSMutableSet, SBBulletinLinenFadeView;
 
-@interface SBBulletinTableView : UITableView <SBBulletinHeaderViewDelegate>
+@interface SBBulletinTableView : UITableView <SBBulletinHeaderViewDelegate, SBBulletinFadeOverlayOwner>
 {
     NSMutableSet *_visibleSectionHeaders;
-    UIView *_fadeContainer;
-    SBBulletinLinenSegmentView *_fadeSegment;
-    UIImageView *_fadeOverlayMask;
+    SBBulletinLinenFadeView *_fadeContainer;
+    BOOL _suppressUpdates;
+    BOOL _hasReloadedOnce;
+    unsigned int _animatingUpdateCount;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 linenView:(id)arg2;
-- (void)dealloc;
-- (id)visibleSectionHeaders;
-- (void)setRasterizesFadeOverlay:(BOOL)arg1;
-- (void)setLinenGradientAlpha:(float)arg1;
-- (void)layoutSubviews;
-- (void)headerViewWillAppear:(id)arg1;
+@property(nonatomic) BOOL suppressUpdates; // @synthesize suppressUpdates=_suppressUpdates;
 - (void)headerViewWillDisappear:(id)arg1;
+- (void)headerViewWillAppear:(id)arg1;
+- (BOOL)hasReloadedOnce;
+- (void)reloadData;
+- (void)endUpdates;
+- (void)beginUpdates;
+- (void)_decrementAnimatingCount;
+- (void)_incrementAnimatingCount;
+- (BOOL)isAnimatingUpdates;
+- (void)layoutSubviews;
+- (void)_orderHeierarchyAndAdjustLinenViewBackingAsNecessary;
+- (void)setLinenGradientAlpha:(float)arg1;
+- (void)setRasterizesFadeOverlay:(BOOL)arg1;
+- (id)visibleSectionHeaders;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 linenView:(id)arg2;
 
 @end
 

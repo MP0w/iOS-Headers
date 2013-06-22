@@ -10,7 +10,7 @@
 {
     id <MKOverlay> _overlay;
     CDStruct_02837cd9 _boundingMapRect;
-    struct CGAffineTransform _mapTransform;
+    float _mapZoomScale;
     id _geometryDelegate;
     id _canDrawCache;
     double _lastTile;
@@ -57,8 +57,8 @@
 - (void)_scheduleVisibleRectChanged;
 - (void)_visibleRectChanged;
 - (void)_setZoomScale:(float)arg1;
-- (void)setMapTransform:(struct CGAffineTransform)arg1;
-- (struct CGAffineTransform)mapTransform;
+- (void)setMapZoomScale:(float)arg1;
+- (float)mapZoomScale;
 - (void)_cancelScheduledScaleTimer;
 - (void)setNeedsDisplayInMapRect:(CDStruct_02837cd9)arg1 zoomScale:(float)arg2;
 - (void)setNeedsDisplayInMapRect:(CDStruct_02837cd9)arg1;

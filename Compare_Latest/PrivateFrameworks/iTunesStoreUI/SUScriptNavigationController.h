@@ -15,22 +15,16 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_navigationController;
 - (id)_filteredViewControllers;
 - (id)_copyNativeViewControllersFromScriptViewControllers:(id)arg1;
 - (void)_setViewControllers:(id)arg1 animated:(BOOL)arg2;
-- (void)_setNavigationBarHidden:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_pushViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)_popViewControllerAnimated:(BOOL)arg1;
 - (void)_popToRootViewControllerAnimated:(BOOL)arg1;
-- (BOOL)_isNavigationBarHidden;
-- (void)_initWithRootScriptViewController:(id)arg1;
-- (id)_copyViewControllers;
-- (id)_copyTopViewController;
-- (id)_copyNavigationBar;
 @property(retain) id viewControllers;
 @property(readonly) SUScriptViewController *topViewController;
 @property(copy) id toolbarHidden;
@@ -49,7 +43,7 @@
 - (void)didPerformBatchedInvocations;
 - (id)newNativeViewController;
 - (void)dealloc;
-- (id)initWithRootScriptViewController:(id)arg1;
+- (id)initWithRootScriptViewController:(id)arg1 clientInterface:(id)arg2;
 
 @end
 

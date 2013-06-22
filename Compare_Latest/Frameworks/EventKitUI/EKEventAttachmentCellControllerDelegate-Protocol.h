@@ -8,6 +8,5 @@
 
 @protocol EKEventAttachmentCellControllerDelegate <NSObject>
 - (id)owningEventForAttachmentCellController:(id)arg1;
-- (id)parentViewControllerForAttachmentCellController:(id)arg1;
 @end
 

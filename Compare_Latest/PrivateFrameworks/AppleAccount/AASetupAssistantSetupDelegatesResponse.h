@@ -12,6 +12,7 @@
 {
 }
 
+@property(readonly, nonatomic) NSString *dsid;
 - (id)responseParametersForServiceIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *responseParameters;
 @property(readonly, nonatomic) NSString *statusMessage;

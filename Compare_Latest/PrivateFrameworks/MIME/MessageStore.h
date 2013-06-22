@@ -29,38 +29,38 @@
     } _caches;
 }
 
-+ (Class)headersClass;
++ (void)setDefaultMessageHeadersClass:(Class)arg1;
 + (Class)classForMimePart;
-- (void)dealloc;
-- (void)_flushAllMessageData;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)headerDataForMessage:(id)arg1 downloadIfNecessary:(BOOL)arg2;
-- (id)headersForMessage:(id)arg1 fetchIfNotAvailable:(BOOL)arg2;
-- (id)_setOrGetBody:(id)arg1 forMessage:(id)arg2 updateFlags:(BOOL)arg3;
-- (id)_fetchBodyForMessage:(id)arg1 updateFlags:(BOOL)arg2;
-- (id)_fetchBodyForMessage:(id)arg1;
-- (id)bodyForMessage:(id)arg1 fetchIfNotAvailable:(BOOL)arg2 updateFlags:(BOOL)arg3;
-- (id)fullBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
-- (id)uniquedString:(id)arg1;
-- (id)dataForMimePart:(id)arg1 inRange:(struct _NSRange)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4 didDownload:(char *)arg5;
-- (id)decryptedTopLevelPartForPart:(id)arg1;
-- (id)defaultAlternativeForPart:(id)arg1;
-- (id)bestAlternativeForPart:(id)arg1;
-- (id)_cachedHeaderDataForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (id)_cachedBodyDataForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (id)_cachedBodyForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (id)_cachedHeadersForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (id)_cachedBodyDataContainerForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
-- (void)_flushAllCachesLocking:(BOOL)arg1;
-- (void)_flushAllCaches;
-- (id)_fetchBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 downloadIfNecessary:(BOOL)arg3 partial:(char *)arg4;
-- (id)bodyDataForMessage:(id)arg1 isComplete:(char *)arg2 isPartial:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
-- (BOOL)hasCompleteDataForMimePart:(id)arg1;
-- (void)setNumberOfAttachments:(unsigned int)arg1 isSigned:(BOOL)arg2 isEncrypted:(BOOL)arg3 forMessage:(id)arg4;
-- (BOOL)wantsLineEndingConversionForMIMEPart:(id)arg1;
-- (void)setMessageClass:(Class)arg1;
-- (id)additionalHeadersForReplyOfMessage:(id)arg1;
++ (Class)headersClass;
 - (id)additionalHeadersForForwardOfMessage:(id)arg1;
+- (id)additionalHeadersForReplyOfMessage:(id)arg1;
+- (void)setMessageClass:(Class)arg1;
+- (BOOL)wantsLineEndingConversionForMIMEPart:(id)arg1;
+- (void)setNumberOfAttachments:(unsigned int)arg1 isSigned:(BOOL)arg2 isEncrypted:(BOOL)arg3 forMessage:(id)arg4;
+- (BOOL)hasCompleteDataForMimePart:(id)arg1;
+- (id)bodyDataForMessage:(id)arg1 isComplete:(char *)arg2 isPartial:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
+- (id)_fetchBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 downloadIfNecessary:(BOOL)arg3 partial:(char *)arg4;
+- (void)_flushAllCaches;
+- (void)_flushAllCachesLocking:(BOOL)arg1;
+- (id)_cachedBodyDataContainerForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
+- (id)_cachedHeadersForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
+- (id)_cachedBodyForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
+- (id)_cachedBodyDataForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
+- (id)_cachedHeaderDataForMessage:(id)arg1 valueIfNotPresent:(id)arg2;
+- (id)bestAlternativeForPart:(id)arg1;
+- (id)defaultAlternativeForPart:(id)arg1;
+- (id)decryptedTopLevelPartForPart:(id)arg1;
+- (id)dataForMimePart:(id)arg1 inRange:(struct _NSRange)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4 didDownload:(char *)arg5;
+- (id)uniquedString:(id)arg1;
+- (id)fullBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 isComplete:(char *)arg3 downloadIfNecessary:(BOOL)arg4;
+- (id)bodyForMessage:(id)arg1 fetchIfNotAvailable:(BOOL)arg2 updateFlags:(BOOL)arg3;
+- (id)_bodyForMessage:(id)arg1 fetchIfNotAvailable:(BOOL)arg2 updateFlags:(BOOL)arg3;
+- (id)_setOrGetBody:(id)arg1 forMessage:(id)arg2 updateFlags:(BOOL)arg3;
+- (id)headersForMessage:(id)arg1 fetchIfNotAvailable:(BOOL)arg2;
+- (id)headerDataForMessage:(id)arg1 downloadIfNecessary:(BOOL)arg2;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)_flushAllMessageData;
+- (void)dealloc;
 
 @end
 

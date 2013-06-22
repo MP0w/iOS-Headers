@@ -7,7 +7,7 @@
 #import "DOMNode.h"
 
 @interface DOMNode (WebDOMNodeOperationsPendingPublic)
-- (id)markupString;
 - (struct CGRect)_renderRect:(_Bool *)arg1;
+- (id)markupString;
 @end
 

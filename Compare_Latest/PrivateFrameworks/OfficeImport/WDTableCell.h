@@ -17,16 +17,17 @@
     BOOL mUseTrackedProperties;
 }
 
-- (id)initWithRow:(id)arg1 at:(int)arg2;
-- (void)dealloc;
-- (BOOL)useTrackedProperties;
-- (void)setUseTrackedProperties:(BOOL)arg1;
-- (int)index;
-- (int)compareIndex:(id)arg1;
-- (id)row;
-- (id)properties;
-- (void)clearProperties;
 - (id)text;
+- (void)clearProperties;
+- (id)properties;
+- (id)row;
+- (int)compareIndex:(id)arg1;
+- (int)index;
+- (void)setUseTrackedProperties:(BOOL)arg1;
+- (BOOL)useTrackedProperties;
+- (void)dealloc;
+- (id)initWithRow:(id)arg1 at:(int)arg2;
+- (double)cellWidth;
 
 @end
 

@@ -6,25 +6,36 @@
 
 #import "NSObject.h"
 
-@class AVPlayer, AVWeakReference;
+@class AVPlayer, AVWeakReference, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
 
 @interface AVPlayerTimelyCaller : NSObject
 {
+    NSObject<OS_dispatch_queue> *_timerQueue;
     AVWeakReference *_weakReference;
     AVPlayer *_player;
-    struct dispatch_queue_s *_timerQueue;
-    struct dispatch_source_s *_timerSource;
-    BOOL _isTimerSourceRunning;
+    NSObject<OS_dispatch_source> *_timerSource;
+    BOOL _isInvalidated;
     BOOL _timerQueueIsPlayerStateDispatchQueue;
+    struct OpaqueCMTimebase *_timebase;
+    double _lastRate;
+    double _currentRate;
 }
 
 @property(readonly, nonatomic, getter=_weakReference) AVWeakReference *weakReference; // @synthesize weakReference=_weakReference;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_timebaseDidChange:(id)arg1;
 - (id)player;
-- (void)itemTimeJumped;
+- (void)_effectiveRateChanged;
+- (void)_handleTimeDiscontinuity;
+- (void)_resetNextFireTime;
 - (void)invalidate;
+- (void)_startObservingTimebaseNotificationsForCurrentItem;
+- (void)_stopRespondingToPlayerStateChanges;
+- (void)_stopObservingTimebaseNotifications;
+- (long)_removeCurrentTimebaseFromTimerSource;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithPlayer:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
+- (id)initWithPlayer:(id)arg1 queue:(id)arg2;
 
 @end
 

@@ -10,8 +10,8 @@
 {
 }
 
-- (id)init;
 - (id)connectorProperties;
+- (id)init;
 
 @end
 

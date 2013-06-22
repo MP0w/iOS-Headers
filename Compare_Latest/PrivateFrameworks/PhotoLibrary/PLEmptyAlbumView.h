@@ -25,6 +25,7 @@
     BOOL _filterInUse;
     int _currentOrientation;
     struct UIEdgeInsets _edgeInsets;
+    BOOL _isSharedPhotoStreamList;
 }
 
 @property(retain, nonatomic) NSObject<PLAssetContainer> *album; // @synthesize album=_album;
@@ -42,6 +43,7 @@
 - (id)_emptyRollImageForAlbum:(struct NSObject *)arg1 interfaceOrientation:(int)arg2;
 - (void)_sizeLabelToFitView:(id)arg1;
 - (void)layoutSubviews;
+- (void)setIsSharedPhotoStreamList:(BOOL)arg1;
 - (void)setIsCameraAlbum:(BOOL)arg1;
 - (void)setPortraitImage:(id)arg1 landscapeImage:(id)arg2;
 - (void)setImage:(id)arg1;

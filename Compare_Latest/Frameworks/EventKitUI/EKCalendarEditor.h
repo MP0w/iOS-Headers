@@ -8,30 +8,39 @@
 
 #import "EKCalendarEditItemDelegate-Protocol.h"
 
-@class EKCalendar, EKEventStore, EKSource, NSArray, UITableView;
+@class EKCalendar, EKCalendarShareesEditItem, EKEventStore, EKSource, NSArray, UITableView;
 
 @interface EKCalendarEditor : UIViewController <EKCalendarEditItemDelegate>
 {
     UITableView *_tableView;
     NSArray *_editItems;
+    EKCalendarShareesEditItem *_shareesEditItem;
     EKCalendar *_calendar;
     EKSource *_source;
     EKEventStore *_eventStore;
-    int _allowedEntityTypes;
+    unsigned int _entityType;
     id <EKCalendarEditorDelegate> _delegate;
     id <EKStyleProvider> _styleProvider;
+    BOOL _isNewCalendar;
 }
 
+@property(nonatomic) BOOL isNewCalendar; // @synthesize isNewCalendar=_isNewCalendar;
 @property(retain, nonatomic) id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(nonatomic) id <EKCalendarEditorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) EKCalendar *calendar; // @synthesize calendar=_calendar;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
+- (id)tableView;
+- (id)owningNavigationController;
+- (int)sectionForCalendarEditItem:(id)arg1;
 - (void)calendarItemStartedEditing:(id)arg1;
 - (void)_deleteClicked:(id)arg1;
 - (void)_deleteCalendar;
@@ -41,16 +50,18 @@
 - (id)_editItems;
 - (void)setupForCalendar;
 - (struct CGSize)contentSizeForViewInPopover;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;
 - (BOOL)_shouldShowDeleteButton;
-- (void)calendarChanged:(id)arg1;
+- (void)_eventStoreChanged:(id)arg1;
+- (void)_localeChanged;
 @property(retain, nonatomic) EKEventStore *eventStore;
 - (void)dealloc;
-- (id)initWithSource:(id)arg1 eventStore:(id)arg2 allowedEntityTypes:(int)arg3;
-- (id)initWithCalendar:(id)arg1 eventStore:(id)arg2 allowedEntityTypes:(int)arg3;
+- (id)initWithSource:(id)arg1 eventStore:(id)arg2 entityType:(unsigned int)arg3;
+- (id)initWithCalendar:(id)arg1 eventStore:(id)arg2 entityType:(unsigned int)arg3;
 
 @end
 

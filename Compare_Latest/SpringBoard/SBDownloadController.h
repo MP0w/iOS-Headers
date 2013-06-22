@@ -8,34 +8,42 @@
 
 #import "SSDownloadQueueObserver-Protocol.h"
 
-@class NSMutableArray, NSMutableSet, SSDownloadQueue;
+@class NSMutableArray, NSMutableDictionary, NSMutableSet, SSDownloadQueue;
 
 @interface SBDownloadController : NSObject <SSDownloadQueueObserver>
 {
     SSDownloadQueue *_downloadQueue;
     NSMutableSet *_pendingDownloadRemovals;
-    NSMutableSet *_pendingDownloadIconsToSwapForApplicationIcons;
     NSMutableArray *_downloads;
     unsigned int _downloadLoadCount;
+    NSMutableDictionary *_bundleIDDownloadMap;
+    BOOL _hasDownloadedStoreDownload;
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)_finishDownload:(id)arg1;
-- (void)_downloadsEnded;
-- (void)_delayedDownloadQueueChange;
-- (void)downloadQueue:(id)arg1 changedWithRemovals:(id)arg2;
-- (void)_processDownloadQueueChangedWithPendingRemovals;
-- (void)downloadQueue:(id)arg1 downloadStatusChangedAtIndex:(int)arg2;
-- (void)downloadQueueNetworkUsageChanged:(id)arg1;
-- (void)_showDownloadQueueError;
-- (void)downloadQueueError:(id)arg1;
-- (BOOL)checkQueue;
-- (id)currentDownloads;
-- (void)cancelDownload:(id)arg1;
-- (BOOL)moveDownloadToFrontOfQueue:(id)arg1;
+- (void)downloadingIconStatusDidChange:(id)arg1;
+- (id)bundleIdentifiersBeingDownloaded:(id)arg1;
 - (BOOL)bundledIdentifierIsBeingDownloaded:(id)arg1;
+- (BOOL)moveDownloadToFrontOfQueue:(id)arg1;
+- (void)cancelDownload:(id)arg1;
+- (id)currentDownloads;
+- (BOOL)checkQueue;
+- (void)downloadQueueError:(id)arg1;
+- (void)_showDownloadQueueError;
+- (void)downloadQueueNetworkUsageChanged:(id)arg1;
+- (void)downloadQueue:(id)arg1 downloadStatusChangedAtIndex:(int)arg2;
+- (void)_processDownloadQueueChangedWithPendingRemovals;
+- (void)downloadQueue:(id)arg1 changedWithRemovals:(id)arg2;
+- (id)downloadWithBundleIdentifier:(id)arg1;
+- (void)_delayedDownloadQueueChange;
+- (void)_downloadsEnded;
+- (void)_downloadingIconWasRemoved:(id)arg1;
+- (void)_finishDownloadInStore:(id)arg1;
+- (void)_finishDownloadInLocalState:(id)arg1;
+- (void)_finishDownload:(id)arg1;
+- (BOOL)hasDownloadedStoreDownload;
+- (void)dealloc;
+- (id)init;
 
 @end
 

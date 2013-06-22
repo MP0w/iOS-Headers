@@ -8,7 +8,7 @@
 
 #import "ABStyleProviding-Protocol.h"
 
-@class NSString, UIButton;
+@class NSString, UIButton, UIView;
 
 @interface ABPersonTableAction : NSObject <ABStyleProviding>
 {
@@ -27,25 +27,13 @@
     int _grouping;
     int _ordering;
     UIButton *_button;
+    UIButton *_FMFButton;
+    UIView *_customContentView;
     id <ABPersonTableActionDelegate> _delegate;
 }
 
-- (id)initWithTitle:(id)arg1 shortTitle:(id)arg2 detailText:(id)arg3 style:(int)arg4 target:(id)arg5 selector:(SEL)arg6 property:(int)arg7;
-- (id)initWithTitle:(id)arg1 style:(int)arg2 target:(id)arg3 selector:(SEL)arg4;
-- (id)initWithTitle:(id)arg1 shortTitle:(id)arg2 target:(id)arg3 selector:(SEL)arg4 property:(int)arg5;
-- (id)initWithTitle:(id)arg1 detailText:(id)arg2 style:(int)arg3 target:(id)arg4 selector:(SEL)arg5;
-- (void)dealloc;
+@property(retain, nonatomic) UIView *actionContentView; // @synthesize actionContentView=_customContentView;
 @property(nonatomic) struct __CFArray *properties; // @synthesize properties=_properties;
-- (int)compareOrderingToAction:(id)arg1;
-- (void)modifyDetailText:(id)arg1;
-@property(nonatomic) BOOL displaysShortTitle; // @synthesize displaysShortTitle=_displaysShortTitle;
-@property(nonatomic) BOOL indicatesFaceTimeHistory; // @synthesize indicatesFaceTimeHistory=_indicatesFaceTimeHistory;
-@property(readonly, nonatomic) UIButton *button;
-- (void)performWithSender:(id)arg1 person:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (void)buttonClicked:(id)arg1;
-- (void)prepareButton:(id)arg1 forValueAtIndex:(int)arg2 inPropertyGroup:(id)arg3;
-- (id)styleProvider;
-- (id)description;
 @property(nonatomic) int ordering; // @synthesize ordering=_ordering;
 @property(nonatomic) int grouping; // @synthesize grouping=_grouping;
 @property(readonly, nonatomic) UIButton *existingButton; // @synthesize existingButton=_button;
@@ -54,11 +42,27 @@
 @property(readonly, nonatomic) id target; // @synthesize target=_target;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
 @property(readonly, nonatomic) NSString *detailText; // @synthesize detailText=_detailText;
+@property(nonatomic) BOOL displaysShortTitle; // @synthesize displaysShortTitle=_displaysShortTitle;
 @property(readonly, nonatomic) NSString *shortTitle; // @synthesize shortTitle=_shortTitle;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) BOOL allowDifferentiationSheet; // @synthesize allowDifferentiationSheet=_allowDifferentiationSheet;
 @property(copy, nonatomic) NSString *differentiationSheetTitle; // @synthesize differentiationSheetTitle=_differentiationSheetTitle;
+@property(nonatomic) BOOL indicatesFaceTimeHistory; // @synthesize indicatesFaceTimeHistory=_indicatesFaceTimeHistory;
 @property(nonatomic) id <ABPersonTableActionDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)description;
+- (id)styleProvider;
+- (void)prepareButton:(id)arg1 forValueAtIndex:(int)arg2 inPropertyGroup:(id)arg3;
+- (void)buttonClicked:(id)arg1;
+- (void)performWithSender:(id)arg1 person:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (void)setFMFActionButton:(id)arg1;
+@property(readonly, nonatomic) UIButton *button;
+- (void)modifyDetailText:(id)arg1;
+- (int)compareOrderingToAction:(id)arg1;
+- (void)dealloc;
+- (id)initWithTitle:(id)arg1 detailText:(id)arg2 style:(int)arg3 target:(id)arg4 selector:(SEL)arg5;
+- (id)initWithTitle:(id)arg1 shortTitle:(id)arg2 target:(id)arg3 selector:(SEL)arg4 property:(int)arg5;
+- (id)initWithTitle:(id)arg1 style:(int)arg2 target:(id)arg3 selector:(SEL)arg4;
+- (id)initWithTitle:(id)arg1 shortTitle:(id)arg2 detailText:(id)arg3 style:(int)arg4 target:(id)arg5 selector:(SEL)arg6 property:(int)arg7;
 
 @end
 

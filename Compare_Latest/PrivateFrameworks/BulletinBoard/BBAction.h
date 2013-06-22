@@ -6,27 +6,29 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
-#import "NSCopying-Protocol.h"
+@class NSDictionary, NSString, NSURL;
 
-@class NSString, NSURL;
-
-@interface BBAction : NSObject <NSCopying, NSCoding>
+@interface BBAction : NSObject
 {
     id _internalBlock;
     BOOL _hasCallblock;
     BOOL _canBypassPinLock;
     NSURL *_launchURL;
     NSString *_launchBundleID;
-    int replyType;
+    int _replyType;
+    NSString *_activatePluginName;
+    NSDictionary *_activatePluginContext;
 }
 
++ (id)actionWithActivatePluginName:(id)arg1 activationContext:(id)arg2;
 + (id)actionWithTextReplyCallblock:(id)arg1;
 + (id)actionWithLaunchBundleID:(id)arg1 callblock:(id)arg2;
 + (id)actionWithLaunchURL:(id)arg1 callblock:(id)arg2;
 + (id)actionWithCallblock:(id)arg1;
+@property(copy, nonatomic) NSDictionary *activatePluginContext; // @synthesize activatePluginContext=_activatePluginContext;
+@property(copy, nonatomic) NSString *activatePluginName; // @synthesize activatePluginName=_activatePluginName;
 @property(nonatomic) BOOL canBypassPinLock; // @synthesize canBypassPinLock=_canBypassPinLock;
-@property(nonatomic) int replyType; // @synthesize replyType;
+@property(nonatomic) int replyType; // @synthesize replyType=_replyType;
 @property(copy, nonatomic) NSString *launchBundleID; // @synthesize launchBundleID=_launchBundleID;
 @property(retain, nonatomic) NSURL *launchURL; // @synthesize launchURL=_launchURL;
 @property(nonatomic) BOOL hasCallblock; // @synthesize hasCallblock=_hasCallblock;
@@ -35,6 +37,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)partialDescription;
 - (void)deliverResponse:(id)arg1;
 - (id)bundleID;
@@ -45,6 +49,7 @@
 - (BOOL)hasLaunchInfo;
 - (void)dealloc;
 - (id)_initWithInternalCallblock:(id)arg1 replyType:(void)arg2;
+- (id)initWithActivatePluginName:(id)arg1 activationContext:(id)arg2;
 - (id)initWithTextReplyCallblock:(id)arg1;
 - (id)initWithCallblock:(id)arg1;
 

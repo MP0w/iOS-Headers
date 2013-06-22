@@ -14,11 +14,16 @@
 }
 
 @property(retain, nonatomic) GKTurnBasedMatchesViewController *privateViewController; // @synthesize privateViewController=_privateViewController;
+- (unsigned int)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 @property(nonatomic) BOOL showExistingMatches; // @dynamic showExistingMatches;
 @property(nonatomic) id <GKTurnBasedMatchmakerViewControllerDelegate> turnBasedMatchmakerDelegate; // @dynamic turnBasedMatchmakerDelegate;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)__viewControllerWillBePresented:(BOOL)arg1;
+- (void)loadView;
 - (void)dealloc;
+- (id)init;
 - (id)initWithMatchRequest:(id)arg1;
 
 @end

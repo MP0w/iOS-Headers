@@ -12,23 +12,25 @@
 {
     BBBulletin *_bulletin;
     NSArray *_buttons;
+    NSArray *_bulletinButtonIndices;
     BOOL _playedSound;
     SBBulletinModalAlert *_superseded;
 }
 
-- (id)initWithBulletin:(id)arg1;
-- (id)initWithBulletin:(id)arg1 supersededAlert:(id)arg2;
-- (void)dealloc;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)dismiss:(int)arg1;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)willPresentAlertView:(id)arg1;
-- (void)didPresentAlertView:(id)arg1;
-- (void)willDeactivateForReason:(int)arg1;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)dismissOnLock;
-- (BOOL)allowMenuButtonDismissal;
+@property(retain, nonatomic) NSArray *bulletinButtonIndices; // @synthesize bulletinButtonIndices=_bulletinButtonIndices;
 @property(retain, nonatomic) NSArray *buttons; // @synthesize buttons=_buttons;
+- (BOOL)allowMenuButtonDismissal;
+- (BOOL)dismissOnLock;
+- (BOOL)shouldShowInLockScreen;
+- (void)willDeactivateForReason:(int)arg1;
+- (void)didPresentAlertView:(id)arg1;
+- (void)willPresentAlertView:(id)arg1;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)dismiss:(int)arg1;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)dealloc;
+- (id)initWithBulletin:(id)arg1 supersededAlert:(id)arg2;
+- (id)initWithBulletin:(id)arg1;
 
 @end
 

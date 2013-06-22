@@ -31,6 +31,7 @@
 - (BOOL)getBuffer:(char **)arg1 length:(unsigned int *)arg2;
 - (BOOL)hasBytesAvailable;
 - (int)read:(char *)arg1 maxLength:(unsigned int)arg2;
+- (id)streamError;
 - (unsigned int)streamStatus;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;

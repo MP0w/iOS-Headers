@@ -8,7 +8,7 @@
 
 #import "UIStatusBarServerClient-Protocol.h"
 
-@class NSString, UILabel, UIStatusBarBackgroundView, UIStatusBarForegroundView, UIStatusBarServer, UIStatusBarWindow;
+@class NSMutableArray, NSString, UIColor, UILabel, UIStatusBarBackgroundView, UIStatusBarForegroundView, UIStatusBarServer, UIStatusBarStyleAnimationParameters, UIStatusBarWindow;
 
 @interface UIStatusBar : UIScrollsToTopInitiatorView <UIStatusBarServerClient>
 {
@@ -20,7 +20,8 @@
     UIStatusBarForegroundView *_foregroundView;
     UILabel *_doubleHeightLabel;
     NSString *_currentDoubleHeightText;
-    CDStruct_074cde39 _currentRawData;
+    CDStruct_24dca785 _currentRawData;
+    NSMutableArray *_interruptedAnimationCompositeViews;
     UIStatusBarBackgroundView *_newStyleBackgroundView;
     UIStatusBarForegroundView *_newStyleForegroundView;
     UIStatusBar *_slidingStatusBar;
@@ -29,18 +30,31 @@
     int _style;
     int _orientation;
     BOOL _hidden;
+    BOOL _suppressesHiddenSideEffects;
+    BOOL _foreground;
+    BOOL _registered;
     BOOL _styleRequestedWhileHidden;
     BOOL _waitingOnCallbackAfterChangingStyleOverridesLocally;
     BOOL _suppressGlow;
     float _translucentBackgroundAlpha;
-    BOOL _showOnlyTime;
+    BOOL _showOnlyCenterItems;
+    CDStruct_3d5224b0 *_localDataOverrides;
+    UIColor *_tintColor;
+    UIColor *_lastUsedTintColor;
+    UIStatusBarStyleAnimationParameters *_nextTintTransition;
 }
 
++ (void)setSuppressUpdateAnimations:(BOOL)arg1;
++ (void)setTintOverrideEnabled:(BOOL)arg1 withColor:(id)arg2;
 + (int)lowBatteryLevel;
-+ (CDStruct_074cde39)dataForRequestedData:(CDStruct_074cde39)arg1 overrides:(CDStruct_4a2025ae)arg2;
++ (void)getData:(CDStruct_24dca785 *)arg1 forRequestedData:(const CDStruct_24dca785 *)arg2 withOverrides:(const CDStruct_3d5224b0 *)arg3;
++ (id)navBarTintColorFromStatusBarTintColor:(id)arg1;
++ (id)statusBarTintColorForNavBarTintColor:(id)arg1;
++ (id)defaultBlueTintColor;
 + (int)cornerStyleForRequestedStyle:(int)arg1 effectiveStyle:(int)arg2 alignment:(int)arg3;
++ (int)cornerStyleMatchingStyle:(int)arg1;
 + (int)defaultStyleForRequestedStyle:(int)arg1 styleOverrides:(int)arg2;
-+ (int)defaultStatusBarStyle;
++ (int)defaultStatusBarStyleWithTint:(BOOL)arg1;
 + (float)heightForStyle:(int)arg1 orientation:(int)arg2;
 + (struct CGRect)frameForStyle:(int)arg1 orientation:(int)arg2;
 + (struct CGRect)_frameForStyle:(int)arg1 orientation:(int)arg2 inWindowOfSize:(struct CGSize)arg3;
@@ -51,23 +65,31 @@
 - (id)_currentComposedData;
 - (float)_hiddenAlphaForHideAnimationParameters:(id)arg1;
 - (struct CGAffineTransform)_hiddenTransformForHideAnimationParameters:(id)arg1;
+- (void)crossfadeTime:(BOOL)arg1 duration:(double)arg2;
 - (void)statusBarServer:(id)arg1 didReceiveDoubleHeightStatusString:(id)arg2 forStyle:(int)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveGlowAnimationState:(BOOL)arg2 forStyle:(int)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveStyleOverrides:(int)arg2;
-- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(CDStruct_074cde39 *)arg2 withActions:(int)arg3;
+- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(CDStruct_24dca785 *)arg2 withActions:(int)arg3;
 - (void)_willEnterForeground:(id)arg1;
 - (void)_didEnterBackground:(id)arg1;
+- (void)_evaluateServerRegistration;
+- (void)didMoveToSuperview;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (BOOL)_shouldSeekHigherPriorityTouchTarget;
 - (BOOL)_touchShouldProduceReturnEvent;
 - (float)_foregroundAlphaForStatusBarStyle:(int)arg1;
 - (int)_foregroundStyleForStatusBarStyle:(int)arg1;
+- (void)setSuppressesHiddenSideEffects:(BOOL)arg1;
 - (BOOL)isHidden;
 - (void)setHidden:(BOOL)arg1;
 - (void)setHidden:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_hideAnimationDidStop;
 - (void)setHidden:(BOOL)arg1 animationParameters:(id)arg2;
 - (void)setOrientation:(int)arg1;
+- (void)layoutSubviews;
+- (void)setTintColor:(id)arg1 withDuration:(double)arg2;
+- (void)setTintColor:(id)arg1;
+- (id)activeTintColor;
 - (void)_swapToNewForegroundView;
 - (void)_swapToNewBackgroundView;
 - (void)_crossfadeToNewForegroundViewWithAlpha:(float)arg1;
@@ -77,7 +99,8 @@
 - (void)_setFrameForStyle:(int)arg1;
 - (void)_finishedSettingStyleWithOldHeight:(float)arg1 newHeight:(float)arg2 animation:(int)arg3;
 - (void)_setStyle:(int)arg1 animation:(int)arg2;
-- (void)_prepareToSetStyle:(int)arg1 animation:(int)arg2;
+- (id)_prepareToSetStyle:(int)arg1 animation:(int)arg2;
+- (id)_prepareInterruptedAnimationCompositeViewIncludingForeground:(BOOL)arg1;
 - (struct CGAffineTransform)_slideTransform;
 - (id)currentDoubleHeightLabelText;
 - (void)_adjustDoubleHeightTextVisibility;
@@ -92,13 +115,16 @@
 - (struct CGRect)frameForOrientation:(int)arg1;
 - (float)currentHeight;
 - (struct CGRect)currentFrame;
-- (void)setShowsOnlyTime:(BOOL)arg1;
+- (void)setLocalDataOverrides:(CDStruct_3d5224b0 *)arg1;
+- (void)setShowsOnlyCenterItems:(BOOL)arg1;
 - (void)setBackgroundAlpha:(float)arg1;
 - (void)setSuppressesGlow:(BOOL)arg1;
+- (void)forgetEitherSideHistory;
 - (void)noteStyleOverridesChangedLocally;
 - (void)forceUpdateStyleOverrides:(BOOL)arg1;
 - (void)forceUpdateGlowAnimation;
 - (void)forceUpdateDoubleHeightStatus;
+- (void)forceUpdateToData:(const CDStruct_24dca785 *)arg1 animated:(BOOL)arg2;
 - (void)forceUpdateData:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

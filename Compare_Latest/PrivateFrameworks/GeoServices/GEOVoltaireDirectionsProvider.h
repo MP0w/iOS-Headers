@@ -15,7 +15,7 @@
     GEORequester *_requester;
 }
 
-+ (id)providerHostname;
++ (void)setUsePersistentConnection:(BOOL)arg1;
 + (unsigned short)providerID;
 + (void)resetProviderURL;
 + (id)providerURL;

@@ -11,10 +11,10 @@
     float mPercent;
 }
 
-- (id)initWithPercent:(float)arg1;
-- (float)percent;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (float)percent;
+- (id)initWithPercent:(float)arg1;
 
 @end
 

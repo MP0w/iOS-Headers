@@ -21,6 +21,8 @@
 @property(retain, nonatomic) NSString *message; // @synthesize message=_message;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(retain, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (void)dealloc;
 
 @end

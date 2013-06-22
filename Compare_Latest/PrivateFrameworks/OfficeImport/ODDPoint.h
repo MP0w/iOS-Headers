@@ -16,14 +16,15 @@
     OADTextBody *mText;
 }
 
-- (id)init;
-- (void)dealloc;
-- (int)type;
-- (void)setType:(int)arg1;
-- (id)propertySet;
-- (id)shapeProperties;
-- (id)text;
++ (void)addConnectionToPoint:(id)arg1 order:(unsigned long)arg2 array:(id *)arg3;
 - (void)setText:(id)arg1;
+- (id)text;
+- (id)shapeProperties;
+- (id)propertySet;
+- (void)setType:(int)arg1;
+- (int)type;
+- (void)dealloc;
+- (id)init;
 
 @end
 

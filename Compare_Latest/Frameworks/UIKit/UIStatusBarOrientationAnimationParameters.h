@@ -9,10 +9,8 @@
 @interface UIStatusBarOrientationAnimationParameters : UIStatusBarAnimationParameters
 {
     int _orientationAnimation;
-    BOOL _notifySpringBoardAndFence;
 }
 
-@property(nonatomic) BOOL notifySpringBoardAndFence; // @synthesize notifySpringBoardAndFence=_notifySpringBoardAndFence;
 @property(nonatomic) int orientationAnimation; // @synthesize orientationAnimation=_orientationAnimation;
 - (id)initWithDefaultParameters;
 

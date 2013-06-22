@@ -7,8 +7,8 @@
 @protocol OIProgressiveReaderDelegate
 
 @optional
-- (void)readerDidStartDocument:(id)arg1 withElementCount:(int)arg2;
-- (void)readerDidReadElement:(id)arg1 atIndex:(unsigned int)arg2 inDocument:(id)arg3 isLastElement:(BOOL)arg4;
 - (void)readerDidEndDocument:(id)arg1;
+- (void)readerDidReadElement:(id)arg1 atIndex:(unsigned int)arg2 inDocument:(id)arg3 isLastElement:(BOOL)arg4;
+- (void)readerDidStartDocument:(id)arg1 withElementCount:(int)arg2;
 @end
 

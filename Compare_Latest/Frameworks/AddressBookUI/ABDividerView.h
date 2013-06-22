@@ -18,15 +18,15 @@
     BOOL _disappearsOnHighlight;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)setHighlighted:(BOOL)arg1;
-@property(retain, nonatomic) UIColor *defaultColor; // @synthesize defaultColor=_defaultColor;
-@property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
 @property(nonatomic) BOOL disappearsOnHighlight; // @synthesize disappearsOnHighlight=_disappearsOnHighlight;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
+@property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
+@property(retain, nonatomic) UIColor *defaultColor; // @synthesize defaultColor=_defaultColor;
 @property(nonatomic, getter=isVertical) BOOL vertical; // @synthesize vertical=_isVertical;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)setHighlighted:(BOOL)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

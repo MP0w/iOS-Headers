@@ -6,32 +6,37 @@
 
 #import "UIBarButtonItem.h"
 
-@class MKMapView, UIActivityIndicatorView, UIImageView, UINavigationBar, UIToolbar, UIView;
+@class MKMapView, UIActivityIndicatorView, UIImage, UIImageView, UINavigationBar, UIToolbar, UIView;
 
 @interface MKUserTrackingBarButtonItem : UIBarButtonItem
 {
-    MKMapView *_mapView;
+    id <MKUserTrackingView> _userTrackingView;
     UIActivityIndicatorView *_progressIndicator;
     UIImageView *_imageView;
     int _state;
     UIToolbar *_toolbar;
     UINavigationBar *_navigationBar;
     UIView *_associatedView;
+    BOOL _silverStyle;
+    UIImage *_trackingEmptyImage;
+    UIImage *_trackingNoneImage;
+    UIImage *_trackingFollowImage;
+    UIImage *_trackingFollowWithHeadingImage;
 }
 
-+ (int)_activityIndicatorStyle;
 + (Class)_activityIndicatorClass;
-+ (id)_trackingFollowWithHeadingImage;
-+ (id)_trackingFollowImage;
-+ (id)_trackingNoneImage;
-+ (id)_trackingEmpty;
+@property(retain, nonatomic) UIImage *_trackingFollowWithHeadingImage; // @synthesize _trackingFollowWithHeadingImage;
+@property(retain, nonatomic) UIImage *_trackingFollowImage; // @synthesize _trackingFollowImage;
+@property(retain, nonatomic) UIImage *_trackingNoneImage; // @synthesize _trackingNoneImage;
+@property(retain, nonatomic) UIImage *_trackingEmptyImage; // @synthesize _trackingEmptyImage;
+@property(nonatomic) BOOL _silverStyle; // @synthesize _silverStyle;
 @property(retain, nonatomic) UIView *_associatedView; // @synthesize _associatedView;
 @property(retain, nonatomic) UINavigationBar *_navigationBar; // @synthesize _navigationBar;
 @property(retain, nonatomic) UIToolbar *_toolbar; // @synthesize _toolbar;
 @property(nonatomic) int _state; // @synthesize _state;
 @property(retain, nonatomic) UIImageView *_imageView; // @synthesize _imageView;
 @property(retain, nonatomic) UIActivityIndicatorView *_progressIndicator; // @synthesize _progressIndicator;
-@property(retain, nonatomic) MKMapView *mapView; // @synthesize mapView=_mapView;
+@property(retain, nonatomic, setter=_setUserTrackingView:) id <MKUserTrackingView> _userTrackingView; // @synthesize _userTrackingView;
 - (void)_goToNextMode:(id)arg1;
 - (void)_updateState;
 - (void)setState:(int)arg1;
@@ -44,13 +49,19 @@
 - (id)_expandAnimation;
 - (id)_shrinkAnimation;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (id)createView;
 - (id)createViewForNavigationItem:(id)arg1;
 - (id)createViewForToolbar:(id)arg1;
 - (void)setEnabled:(BOOL)arg1;
+@property(retain, nonatomic) MKMapView *mapView;
 - (void)_repositionViews;
 - (BOOL)_isInMiniBar;
+- (int)_activityIndicatorStyle;
 - (void)dealloc;
+- (id)initWithWorldView:(id)arg1;
+- (id)initWithWorldView:(id)arg1 forceSilverStyle:(BOOL)arg2;
 - (id)initWithMapView:(id)arg1;
+- (id)_initWithUserTrackingView:(id)arg1 forceSilverStyle:(BOOL)arg2;
 
 @end
 

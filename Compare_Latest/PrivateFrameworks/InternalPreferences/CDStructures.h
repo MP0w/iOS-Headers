@@ -27,7 +27,7 @@ struct _NSRange {
 };
 
 struct __sbuf {
-    char *_base;
-    int _size;
+    char *_field1;
+    int _field2;
 };
 

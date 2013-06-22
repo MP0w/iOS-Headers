@@ -10,6 +10,6 @@
 @protocol SUScriptTextFieldDelegate <UISearchBarDelegate, UITextFieldDelegate>
 
 @optional
-- (void)scriptDidChangeTextForTextField:(id)arg1;
+- (void)scriptDidChangeTextForField:(id)arg1;
 @end
 

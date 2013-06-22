@@ -8,7 +8,7 @@
 
 #import "UIActionSheetDelegate-Protocol.h"
 
-@class DDActionController, NSOperationQueue;
+@class DDActionController, NSObject<OS_dispatch_queue>, NSOperationQueue;
 
 @interface DDDetectionController : NSObject <UIActionSheetDelegate>
 {
@@ -16,7 +16,7 @@
     NSOperationQueue *_urlScannerQueue;
     struct __CFDictionary *_frameToOperationTable;
     struct __CFSet *_ignoreUIKitNotificationsFrames;
-    struct dispatch_queue_s *_protectQueue;
+    NSObject<OS_dispatch_queue> *_protectQueue;
     struct __CFDictionary *_frameToResultsTable;
     struct __CFDictionary *_frameToContextesTable;
     DDActionController *_actionController;

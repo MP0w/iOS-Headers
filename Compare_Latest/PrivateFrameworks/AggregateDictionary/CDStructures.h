@@ -4,13 +4,19 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#pragma mark Typedef'd Structures
+#pragma mark Named Structures
 
-typedef struct {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
-    int _field5;
-} CDStruct_f79156c4;
+struct Database {
+    struct sqlite3 *_field1;
+    struct sqlite3_stmt *_field2;
+    struct sqlite3_stmt *_field3;
+    struct sqlite3_stmt *_field4;
+    struct sqlite3_stmt *_field5;
+    struct sqlite3_stmt *_field6;
+    struct sqlite3_stmt *_field7;
+};
+
+struct sqlite3;
+
+struct sqlite3_stmt;
 

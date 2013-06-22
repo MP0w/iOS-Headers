@@ -15,12 +15,13 @@
     NSString *mName;
 }
 
-- (id)initWithType:(int)arg1 arg0:(struct OADFormulaArg)arg2 arg1:(struct OADFormulaArg)arg3 arg2:(struct OADFormulaArg)arg4;
-- (int)type;
-- (struct OADFormulaArg)argAtIndex:(unsigned int)arg1;
-- (void)dealloc;
-- (id)name;
+- (id).cxx_construct;
 - (void)setName:(id)arg1;
+- (id)name;
+- (void)dealloc;
+- (struct OADFormulaArg)argAtIndex:(unsigned int)arg1;
+- (int)type;
+- (id)initWithType:(int)arg1 arg0:(struct OADFormulaArg)arg2 arg1:(struct OADFormulaArg)arg3 arg2:(struct OADFormulaArg)arg4;
 
 @end
 

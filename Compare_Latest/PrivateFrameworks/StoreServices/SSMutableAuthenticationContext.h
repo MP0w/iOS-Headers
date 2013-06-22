@@ -8,10 +8,11 @@
 
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSArray, NSDictionary, NSNumber, NSString;
 
-@interface SSMutableAuthenticationContext : SSAuthenticationContext <NSCopying, NSMutableCopying>
+@interface SSMutableAuthenticationContext : SSAuthenticationContext <SSXPCCoding, NSCopying, NSMutableCopying>
 {
 }
 
@@ -22,13 +23,17 @@
 - (void)setValue:(id)arg1 forHTTPHeaderField:(id)arg2;
 @property(copy, nonatomic) NSArray *userAgentComponents; // @dynamic userAgentComponents;
 @property(copy, nonatomic) NSDictionary *signupRequestParameters; // @dynamic signupRequestParameters;
+@property(nonatomic) BOOL shouldSuppressDialogs; // @dynamic shouldSuppressDialogs;
 @property(nonatomic) BOOL shouldIgnoreProtocol; // @dynamic shouldIgnoreProtocol;
 @property(nonatomic) BOOL shouldFollowAccountButtons; // @dynamic shouldFollowAccountButtons;
 @property(retain, nonatomic) NSNumber *requiredUniqueIdentifier; // @dynamic requiredUniqueIdentifier;
 @property(copy, nonatomic) NSDictionary *requestParameters; // @dynamic requestParameters;
 @property(nonatomic) int promptStyle; // @dynamic promptStyle;
 @property(copy, nonatomic) NSString *preferredITunesStoreClient; // @dynamic preferredITunesStoreClient;
+@property(copy, nonatomic) NSString *initialPassword; // @dynamic initialPassword;
+@property(nonatomic) BOOL canSetActiveAccount; // @dynamic canSetActiveAccount;
 @property(nonatomic) BOOL canCreateNewAccount; // @dynamic canCreateNewAccount;
+@property(nonatomic) BOOL allowsRetry; // @dynamic allowsRetry;
 @property int accountScope; // @dynamic accountScope;
 @property(nonatomic, getter=isAccountNameEditable) BOOL accountNameEditable; // @dynamic accountNameEditable;
 @property(copy, nonatomic) NSString *accountName; // @dynamic accountName;

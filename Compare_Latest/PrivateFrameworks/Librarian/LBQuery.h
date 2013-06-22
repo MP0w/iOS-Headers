@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSPredicate, NSString, NSThread;
+@class NSArray, NSMetadataQuery, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSPredicate, NSThread;
 
 @interface LBQuery : NSObject
 {
-    NSString *_query;
+    NSMetadataQuery *_query;
     unsigned int _accumulatedItemCount;
     NSMutableArray *_changes;
     NSMutableDictionary *_toBeRemoved;
@@ -41,18 +41,21 @@
     unsigned long _scopeOptions;
     void *_sort_fn;
     void *_sort_context;
-    struct dispatch_queue_s *_notificationQueue;
+    NSObject<OS_dispatch_queue> *_notificationQueue;
     struct __LBItemUpdateObserver *_observer;
     NSThread *_executeThread;
-    struct dispatch_source_s *_notifyTimer;
-    unsigned long long _notifyInterval;
-    long long _disableCount;
+    _Bool _pendingNote;
+    unsigned long _notifyInterval;
+    int _disableCount;
     NSMutableDictionary *_created;
     NSPredicate *_predicate;
+    struct _opaque_pthread_mutex_t {
+        long __sig;
+        char __opaque[40];
+    } _stateLock;
 }
 
 - (void)postNote:(struct __CFString *)arg1;
-- (void)_postNote:(struct __CFString *)arg1;
 - (void)processUpdates;
 - (void)_processUpdates;
 - (void)_processChanges;
@@ -79,11 +82,16 @@
 - (unsigned char)executeWithOptions:(unsigned long)arg1;
 - (void)_runQuery;
 - (void)startObserver;
+- (void)_updateQueryResultForURL:(id)arg1 info:(id)arg2 updateType:(int)arg3;
 - (void)updateQueryResultForURL:(id)arg1 info:(id)arg2 updateType:(int)arg3;
+- (void)performBlock:(id)arg1;
+- (void)runBlock:(id)arg1;
+- (void)__updateQueryResultForURL:(id)arg1 info:(id)arg2 updateType:(int)arg3;
 - (void)addChangeToURL:(id)arg1 withInfo:(id)arg2;
-- (void)addCreatedURL:(id)arg1 withInfo:(id)arg2 makeLive:(_Bool)arg3;
+- (void)addCreatedURL:(id)arg1 withInfo:(id)arg2;
 - (void)deleteURL:(id)arg1;
 - (void)addItemWithURL:(id)arg1 usingInfo:(id)arg2;
+- (void)_sendNote;
 - (void)sendNote;
 - (void)stop;
 - (void)_stop;
@@ -93,7 +101,7 @@
 - (void)_disableUpdates;
 - (id)valuesOfAttribute:(id)arg1;
 - (void)dealloc;
-- (id)initWithQuery:(id)arg1 values:(id)arg2 sortingAttributes:(id)arg3 items:(struct __CFArray *)arg4;
+- (id)initWithQuery:(id)arg1 values:(id)arg2 sortingAttributes:(id)arg3 items:(id)arg4;
 
 @end
 

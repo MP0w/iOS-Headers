@@ -51,8 +51,8 @@
 - (void)unzoom;
 - (void)_setOverlayViewIsZoomed:(BOOL)arg1 minValue:(float)arg2 maxValue:(float)arg3;
 - (BOOL)zoomAtPoint:(struct CGPoint)arg1;
-- (float)zoomAnimationDuration;
-- (void)setZoomAnimationDuration:(float)arg1;
+- (double)zoomAnimationDuration;
+- (void)setZoomAnimationDuration:(double)arg1;
 - (void)layoutSubviews;
 - (void)reloadData;
 - (void)_reallyReloadData;

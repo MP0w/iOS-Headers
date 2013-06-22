@@ -18,23 +18,23 @@
     id <ABPropertyEditingTableViewCellDelegate> _delegate;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 reuseIdentifier:(id)arg2 property:(int)arg3 delegate:(id)arg4;
-- (id)initWithFrame:(struct CGRect)arg1 reuseIdentifier:(id)arg2;
-- (void)dealloc;
-@property(nonatomic) int property; // @dynamic property;
-@property(nonatomic) BOOL usesLargeFont; // @dynamic usesLargeFont;
-@property(copy, nonatomic) NSString *placeholder; // @synthesize placeholder=_placeholder;
-- (void)textFieldValueDidChange:(id)arg1;
-@property(copy, nonatomic) NSString *value; // @dynamic value;
-- (void)_resizeAndCenterTextField;
-- (void)layoutSubviews;
-- (id)styleProvider;
-- (BOOL)canBecomeFirstResponder;
-- (BOOL)becomeFirstResponder;
-- (BOOL)canResignFirstResponder;
-- (BOOL)resignFirstResponder;
-- (BOOL)isFirstResponder;
 @property(nonatomic) id <ABPropertyEditingTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
+- (BOOL)isFirstResponder;
+- (BOOL)resignFirstResponder;
+- (BOOL)canResignFirstResponder;
+- (BOOL)becomeFirstResponder;
+- (BOOL)canBecomeFirstResponder;
+- (id)styleProvider;
+- (void)layoutSubviews;
+- (void)_resizeAndCenterTextField;
+@property(copy, nonatomic) NSString *value; // @dynamic value;
+- (void)textFieldValueDidChange:(id)arg1;
+@property(copy, nonatomic) NSString *placeholder; // @synthesize placeholder=_placeholder;
+@property(nonatomic) BOOL usesLargeFont; // @dynamic usesLargeFont;
+@property(nonatomic) int property; // @dynamic property;
+- (void)dealloc;
+- (id)initWithReuseIdentifier:(id)arg1;
+- (id)initWithReuseIdentifier:(id)arg1 property:(int)arg2 delegate:(id)arg3;
 
 @end
 

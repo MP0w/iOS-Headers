@@ -18,6 +18,7 @@
     CoreDAVItemWithNoChildren *_unauthenticated;
 }
 
++ (id)copyParseRules;
 @property(retain) CoreDAVItemWithNoChildren *unauthenticated; // @synthesize unauthenticated=_unauthenticated;
 @property(retain) CoreDAVItemWithNoChildren *collection; // @synthesize collection=_collection;
 @property(retain) CoreDAVItemWithNoChildren *principal; // @synthesize principal=_principal;
@@ -27,7 +28,6 @@
 - (BOOL)isTypeWithNameSpace:(id)arg1 andName:(id)arg2;
 @property(readonly) NSSet *stringSet;
 - (void)write:(id)arg1;
-- (id)copyParseRules;
 - (id)description;
 - (void)dealloc;
 - (id)init;

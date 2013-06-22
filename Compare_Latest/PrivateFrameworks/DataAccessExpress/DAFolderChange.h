@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSString;
 
-@interface DAFolderChange : NSObject <NSCoding>
+@interface DAFolderChange : NSObject <NSSecureCoding>
 {
     int _changeType;
     NSString *_folderId;
@@ -22,6 +22,7 @@
     id <DAFolderChangeConsumer> _consumer;
 }
 
++ (BOOL)supportsSecureCoding;
 @property BOOL renameOnCollision; // @synthesize renameOnCollision=_renameOnCollision;
 @property unsigned int taskId; // @synthesize taskId=_taskId;
 @property id <DAFolderChangeConsumer> consumer; // @synthesize consumer=_consumer;

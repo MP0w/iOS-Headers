@@ -11,10 +11,10 @@
     BOOL _success;
 }
 
-- (BOOL)success;
-- (BOOL)usePopupStyle;
-- (BOOL)popupStyleIsModal;
 - (BOOL)canBeShownFromSuspendedState;
+- (BOOL)popupStyleIsModal;
+- (BOOL)usePopupStyle;
+- (BOOL)success;
 
 @end
 

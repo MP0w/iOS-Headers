@@ -10,12 +10,15 @@
 {
     int _maxAlarms;
     int _maxRecurrences;
-    CDStruct_2a8fb7a3 _flags;
+    CDStruct_d63385cc _flags;
 }
 
-@property(nonatomic) CDStruct_2a8fb7a3 flags; // @synthesize flags=_flags;
+@property(nonatomic) CDStruct_d63385cc flags; // @synthesize flags=_flags;
 @property(nonatomic) int maxRecurrencesAllowed; // @synthesize maxRecurrencesAllowed=_maxRecurrences;
 @property(nonatomic) int maxAlarmsAllowed; // @synthesize maxAlarmsAllowed=_maxAlarms;
+@property(nonatomic) BOOL recurrenceSeriesMustIncludeMoreThanFirstOccurrence;
+@property(nonatomic) BOOL isFacebook;
+@property(nonatomic) BOOL supportsSharedCalendars;
 @property(nonatomic) BOOL supportsAllDayDueDates;
 @property(nonatomic) BOOL supportsURLField;
 @property(nonatomic) BOOL allowsEvents;
@@ -25,6 +28,7 @@
 @property(nonatomic) BOOL supportsReminderLocations;
 @property(nonatomic) BOOL supportsReminderActions;
 @property(nonatomic) BOOL supportsStructuredLocations;
+@property(nonatomic) BOOL shouldDeclineDeletedInvitations;
 @property(nonatomic) BOOL shouldCancelDeletedEvents;
 @property(nonatomic) BOOL requiresMSFormattedUID;
 @property(nonatomic) BOOL eventAvalabilityLimited;

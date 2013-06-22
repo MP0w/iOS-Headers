@@ -6,22 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSMachPort;
+@class CUTWeakReference, NSMachPort;
 
 @interface PCDarwinNotificationRunLoopSource : NSObject
 {
-    id _target;
+    CUTWeakReference *_target;
     SEL _selector;
     NSMachPort *_port;
     int _notifyToken;
 }
 
-- (id)initWithDarwinNotificationName:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
-- (void)dealloc;
-- (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
-- (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
-- (void)invalidate;
 - (void)handleMachMessage:(void *)arg1;
+- (void)invalidate;
+- (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
+- (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
+- (void)dealloc;
+- (id)initWithDarwinNotificationName:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
 
 @end
 

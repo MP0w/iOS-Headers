@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)readFontScheme:(struct _xmlNode *)arg1 toFontScheme:(id)arg2;
 + (void)readFontSchemeEntries:(struct _xmlNode *)arg1 font:(id)arg2;
++ (void)readFontScheme:(struct _xmlNode *)arg1 toFontScheme:(id)arg2;
 
 @end
 

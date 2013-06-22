@@ -16,6 +16,7 @@
 }
 
 @property(readonly, nonatomic) long error; // @synthesize error=_error;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)signatureForData:(id)arg1;
 - (void)establishSession;

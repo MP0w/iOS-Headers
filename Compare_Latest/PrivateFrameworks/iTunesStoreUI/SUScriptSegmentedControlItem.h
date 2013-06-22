@@ -19,16 +19,13 @@
 }
 
 + (void)initialize;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 @property(readonly, nonatomic) UIImage *image; // @synthesize image=_image;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
+- (void)_setImage:(id)arg1;
 - (id)_segmentedControl;
 - (void)_reloadUserInterface;
-- (void)_setTitle:(id)arg1;
-- (void)_setImageFromURL:(id)arg1;
-- (void)_setImage:(id)arg1;
-- (id)_copyTitle;
 @property(retain) id userInfo;
 @property(retain) NSString *title;
 @property(retain) NSString *imageURL;

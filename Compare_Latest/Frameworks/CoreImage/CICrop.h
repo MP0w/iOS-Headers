@@ -19,6 +19,8 @@
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (void)setDefaults;
+- (id)_initFromProperties:(id)arg1;
+- (id)_outputProperties;
 
 @end
 

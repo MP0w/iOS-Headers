@@ -13,7 +13,9 @@
     double _duration;
 }
 
++ (id)generateDurationFromICSString:(id)arg1;
 + (id)durationFromICSString:(id)arg1;
++ (id)durationFromRFC2445UTF8String:(const char *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)ICSStringWithOptions:(unsigned int)arg1;
@@ -25,6 +27,7 @@
 - (int)weeks;
 - (double)timeInterval;
 - (id)initWithWeeks:(int)arg1 days:(int)arg2 hours:(int)arg3 minutes:(int)arg4 seconds:(int)arg5;
+- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
 
 @end
 

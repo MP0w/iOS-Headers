@@ -14,11 +14,13 @@
     int mResourceType;
 }
 
-- (void)dealloc;
-- (struct CGSize)size;
-- (struct __CFURL *)absoluteUrlForState:(id)arg1;
-- (int)resourceType;
+- (id).cxx_construct;
 - (struct __CFString *)relativePath;
+- (int)resourceType;
+- (struct __CFURL *)absoluteUrlForState:(id)arg1;
+- (struct CGSize)size;
+- (void)dealloc;
+- (int)readDataAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

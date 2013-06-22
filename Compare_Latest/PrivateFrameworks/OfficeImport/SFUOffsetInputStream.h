@@ -14,17 +14,17 @@
     long long mInitialOffset;
 }
 
-- (id)initWithInputStream:(id)arg1;
-- (id)initWithInputStream:(id)arg1 initialOffset:(long long)arg2;
-- (void)dealloc;
-- (long long)offset;
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
-- (BOOL)canSeek;
-- (void)seekToOffset:(long long)arg1;
-- (void)disableSystemCaching;
-- (void)enableSystemCaching;
-- (void)close;
 - (id)closeLocalStream;
+- (void)close;
+- (void)enableSystemCaching;
+- (void)disableSystemCaching;
+- (void)seekToOffset:(long long)arg1;
+- (BOOL)canSeek;
+- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
+- (long long)offset;
+- (void)dealloc;
+- (id)initWithInputStream:(id)arg1 initialOffset:(long long)arg2;
+- (id)initWithInputStream:(id)arg1;
 
 @end
 

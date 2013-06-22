@@ -15,20 +15,29 @@
     EDColorReference *mForeColorReference;
 }
 
-+ (id)patternFillWithType:(int)arg1 resources:(id)arg2;
-+ (id)patternFillWithType:(int)arg1 foreColor:(id)arg2 resources:(id)arg3;
 + (id)patternFillWithType:(int)arg1 foreColor:(id)arg2 backColor:(id)arg3 resources:(id)arg4;
-- (id)initWithResources:(id)arg1;
-- (id)initWithType:(int)arg1 foreColor:(id)arg2 backColor:(id)arg3 resources:(id)arg4;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToPatternFill:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (_Bool)isEmpty;
-- (int)type;
-- (id)foreColor;
++ (id)patternFillWithType:(int)arg1 foreColor:(id)arg2 resources:(id)arg3;
++ (id)patternFillWithType:(int)arg1 resources:(id)arg2;
++ (id)patternFillWithType:(int)arg1 foreColorReference:(id)arg2 backColorReference:(id)arg3 resources:(id)arg4;
 - (id)backColor;
+- (id)foreColor;
+- (int)type;
+- (_Bool)isEmpty;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToPatternFill:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithType:(int)arg1 foreColor:(id)arg2 backColor:(id)arg3 resources:(id)arg4;
+- (id)initWithResources:(id)arg1;
+- (void)setForeColorReference:(id)arg1;
+- (void)setBackColorReference:(id)arg1;
+- (void)setBackColor:(id)arg1;
+- (void)setForeColor:(id)arg1;
+- (void)setType:(int)arg1;
+- (id)backColorReference;
+- (id)foreColorReference;
+- (id)initWithType:(int)arg1 foreColorReference:(id)arg2 backColorReference:(id)arg3 resources:(id)arg4;
 
 @end
 

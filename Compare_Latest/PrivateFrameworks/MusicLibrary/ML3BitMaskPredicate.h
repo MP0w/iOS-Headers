@@ -15,13 +15,12 @@
 + (id)predicateWithProperty:(id)arg1 mask:(long long)arg2 value:(long long)arg3;
 @property(nonatomic) long long value; // @synthesize value=_value;
 @property(nonatomic) long long mask; // @synthesize mask=_mask;
-- (void)bindToSqlite3Statement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
+- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithProperty:(id)arg1 mask:(long long)arg2 value:(long long)arg3;
 
 @end

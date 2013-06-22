@@ -20,14 +20,14 @@
     BOOL _askedUserAboutDocumentsWithPendingUpdates;
 }
 
-- (id)initWithIcon:(id)arg1;
-- (void)dealloc;
-- (id)icon;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)_checkDocumentsInCloudStateIfNeeded;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (BOOL)shouldShowInLockScreen;
 - (BOOL)dismissOnLock;
+- (BOOL)shouldShowInLockScreen;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)_checkDocumentsInCloudStateIfNeeded;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (id)icon;
+- (void)dealloc;
+- (id)initWithIcon:(id)arg1;
 
 @end
 

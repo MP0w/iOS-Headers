@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)_keyComponentForNotchInfoRect:(struct CGRect)arg1;
 + (id)_squareImageForNotchInfo:(CDStruct_d18cc6b1)arg1 orientation:(int)arg2;
++ (id)_keyComponentForNotchInfoRect:(struct CGRect)arg1;
 
 @end
 

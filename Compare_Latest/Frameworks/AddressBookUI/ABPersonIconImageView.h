@@ -18,35 +18,33 @@
     id _styleHelper;
 }
 
-+ (struct CGSize)optimalIconSize;
-+ (id)newImageViewWithIconSize:(struct CGSize)arg1 imageType:(int)arg2;
-+ (id)rightBorderOverlayImageOfSize:(struct CGSize)arg1;
-+ (id)leftRightBorderOverlayImageOfSize:(struct CGSize)arg1;
-+ (id)genericBlankPlaceholderImageOfSize:(struct CGSize)arg1;
-+ (id)_placeholderPersonImageForType:(int)arg1 size:(struct CGSize)arg2;
-+ (id)_placeholderCompanyImageForType:(int)arg1 size:(struct CGSize)arg2;
 + (BOOL)_cardPlaceholderImageShouldApplyMaskAndOverlayForType:(int)arg1;
-- (id)init;
-- (id)personImageView;
-- (id)initWithIconSize:(struct CGSize)arg1 imageType:(int)arg2;
-- (void)dealloc;
-- (void)setNeedsReload;
-- (void)setNeedsRecompositing;
-- (void)_updateImages;
++ (id)_placeholderCompanyImageForType:(int)arg1 size:(struct CGSize)arg2;
++ (id)_placeholderPersonImageForType:(int)arg1 size:(struct CGSize)arg2;
++ (id)genericBlankPlaceholderImageOfSize:(struct CGSize)arg1;
++ (id)leftRightBorderOverlayImageOfSize:(struct CGSize)arg1;
++ (id)rightBorderOverlayImageOfSize:(struct CGSize)arg1;
++ (id)newImageViewWithIconSize:(struct CGSize)arg1 imageType:(int)arg2;
++ (struct CGSize)optimalIconSize;
+@property(readonly, nonatomic) int imageType; // @synthesize imageType=_imageType;
+- (BOOL)hasImageToDisplay;
+@property(nonatomic) BOOL shouldPickBestImage;
+- (void *)displayedPerson;
+- (void)setDisplayedPerson:(void *)arg1;
+- (id)_placeholderCompanyImage;
+- (id)_placeholderPersonImage;
+- (BOOL)_cardPlaceholderImageShouldApplyMaskAndOverlay;
 @property(retain, nonatomic) UIImage *maskImage; // @synthesize maskImage=_maskImage;
 @property(retain, nonatomic) UIImage *overlayImage; // @synthesize overlayImage=_overlayImage;
-- (id)_maskImageOrNSNull;
 - (id)_overlayImageOrNSNull;
-- (BOOL)_cardPlaceholderImageShouldApplyMaskAndOverlay;
-- (id)_placeholderPersonImage;
-- (id)_placeholderCompanyImage;
-- (void)setDisplayedPerson:(void *)arg1;
-- (void *)displayedPerson;
-@property(nonatomic) BOOL shouldPickBestImage;
-- (void)setBackgroundLoadingQueue:(id)arg1 addressBook:(void *)arg2 cache:(id)arg3;
-- (void)setBackgroundLoadingQueue:(id)arg1 addressBook:(void *)arg2;
-- (BOOL)hasImageToDisplay;
-@property(readonly, nonatomic) int imageType; // @synthesize imageType=_imageType;
+- (id)_maskImageOrNSNull;
+- (void)_updateImages;
+- (void)setNeedsRecompositing;
+- (void)setNeedsReload;
+- (void)dealloc;
+- (id)initWithIconSize:(struct CGSize)arg1 imageType:(int)arg2;
+- (id)personImageView;
+- (id)init;
 
 @end
 

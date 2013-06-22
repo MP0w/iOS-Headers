@@ -6,37 +6,54 @@
 
 #import "PBCodable.h"
 
-@class NSMutableArray;
+@class NSData, NSMutableArray;
 
 @interface GEODirectionsResponse : PBCodable
 {
-    int _status;
-    NSMutableArray *_routes;
-    NSMutableArray *_locationResponses;
-    BOOL _hasLocalDistanceUnits;
+    NSData *_directionsResponseID;
+    int _instructionSignFillColor;
     int _localDistanceUnits;
-    NSMutableArray *_transitAgents;
+    NSMutableArray *_placeSearchResponses;
+    NSMutableArray *_routes;
+    int _status;
+    BOOL _isNavigable;
+    BOOL _routeDeviatesFromOriginal;
+    struct {
+        unsigned int instructionSignFillColor:1;
+        unsigned int localDistanceUnits:1;
+        unsigned int isNavigable:1;
+        unsigned int routeDeviatesFromOriginal:1;
+    } _has;
 }
 
-@property(retain, nonatomic) NSMutableArray *transitAgents; // @synthesize transitAgents=_transitAgents;
+@property(retain, nonatomic) NSData *directionsResponseID; // @synthesize directionsResponseID=_directionsResponseID;
 @property(nonatomic) int localDistanceUnits; // @synthesize localDistanceUnits=_localDistanceUnits;
-@property(nonatomic) BOOL hasLocalDistanceUnits; // @synthesize hasLocalDistanceUnits=_hasLocalDistanceUnits;
-@property(retain, nonatomic) NSMutableArray *locationResponses; // @synthesize locationResponses=_locationResponses;
+@property(retain, nonatomic) NSMutableArray *placeSearchResponses; // @synthesize placeSearchResponses=_placeSearchResponses;
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)transitAgentAtIndex:(unsigned int)arg1;
-- (unsigned int)transitAgentsCount;
-- (void)addTransitAgent:(id)arg1;
-- (id)locationResponseAtIndex:(unsigned int)arg1;
-- (unsigned int)locationResponsesCount;
-- (void)addLocationResponse:(id)arg1;
+@property(nonatomic) BOOL hasInstructionSignFillColor;
+@property(nonatomic) int instructionSignFillColor; // @synthesize instructionSignFillColor=_instructionSignFillColor;
+@property(nonatomic) BOOL hasIsNavigable;
+@property(nonatomic) BOOL isNavigable; // @synthesize isNavigable=_isNavigable;
+@property(readonly, nonatomic) BOOL hasDirectionsResponseID;
+@property(nonatomic) BOOL hasRouteDeviatesFromOriginal;
+@property(nonatomic) BOOL routeDeviatesFromOriginal; // @synthesize routeDeviatesFromOriginal=_routeDeviatesFromOriginal;
+@property(nonatomic) BOOL hasLocalDistanceUnits;
+- (id)placeSearchResponseAtIndex:(unsigned int)arg1;
+- (unsigned int)placeSearchResponsesCount;
+- (void)addPlaceSearchResponse:(id)arg1;
+- (void)clearPlaceSearchResponses;
 - (id)routeAtIndex:(unsigned int)arg1;
 - (unsigned int)routesCount;
 - (void)addRoute:(id)arg1;
+- (void)clearRoutes;
 - (void)dealloc;
 
 @end

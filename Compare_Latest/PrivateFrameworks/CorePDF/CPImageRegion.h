@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)isImageRegion;
 - (void)accept:(id)arg1;
+- (BOOL)isImageRegion;
 
 @end
 

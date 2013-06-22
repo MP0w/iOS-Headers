@@ -11,20 +11,22 @@
     struct CHDDataPoint mDataPoint;
 }
 
-+ (id)dataValue;
 + (id)dataValueWithIndex:(int)arg1 value:(struct EDValue *)arg2;
-- (id)init;
-- (id)initWithIndex:(int)arg1 value:(struct EDValue *)arg2;
-- (int)index;
-- (void)setIndex:(int)arg1;
-- (struct EDValue *)value;
-- (void)setValue:(struct EDValue *)arg1;
-- (struct CHDDataPoint *)dataPoint;
-- (void)setDataPoint:(struct CHDDataPoint *)arg1;
-- (id)contentFormatWithResources:(id)arg1;
-- (void)setContentFormatWithResources:(id)arg1 resources:(id)arg2;
++ (id)dataValue;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)setContentFormatWithResources:(id)arg1 resources:(id)arg2;
+- (id)contentFormatWithResources:(id)arg1;
+- (void)setDataPoint:(struct CHDDataPoint *)arg1;
+- (struct CHDDataPoint *)dataPoint;
+- (void)setValue:(struct EDValue *)arg1;
+- (struct EDValue *)value;
+- (void)setIndex:(int)arg1;
+- (int)index;
+- (id)initWithIndex:(int)arg1 value:(struct EDValue *)arg2;
+- (id)init;
+- (void)setContentFormatId:(unsigned int)arg1;
+- (unsigned int)contentFormatId;
 
 @end
 

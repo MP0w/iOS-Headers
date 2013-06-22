@@ -38,11 +38,11 @@
     long long mSize;
 }
 
-- (id)initWithPath:(id)arg1;
-- (void)dealloc;
-- (const char *)dataAtOffset:(long long)arg1 size:(unsigned long)arg2 end:(long long)arg3 readSize:(unsigned int *)arg4;
-- (void)readFromOffset:(long long)arg1 size:(unsigned long)arg2 buffer:(char *)arg3;
 - (long long)size;
+- (void)readFromOffset:(long long)arg1 size:(unsigned long)arg2 buffer:(char *)arg3;
+- (const char *)dataAtOffset:(long long)arg1 size:(unsigned long)arg2 end:(long long)arg3 readSize:(unsigned int *)arg4;
+- (void)dealloc;
+- (id)initWithPath:(id)arg1;
 
 @end
 

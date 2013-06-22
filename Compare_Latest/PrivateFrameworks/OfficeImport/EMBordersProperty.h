@@ -8,31 +8,43 @@
 
 #import "NSCopying-Protocol.h"
 
-@class EDBorders, NSColorStub;
+@class EDBorders, TSUColor;
 
 @interface EMBordersProperty : CMProperty <NSCopying>
 {
     EDBorders *edValue;
-    NSColorStub *mBorderColor;
-    NSColorStub *mBorderTopColor;
-    NSColorStub *mBorderLeftColor;
-    NSColorStub *mBorderBottomColor;
-    NSColorStub *mBorderRightColor;
+    TSUColor *mBorderColor;
+    TSUColor *mBorderTopColor;
+    TSUColor *mBorderLeftColor;
+    TSUColor *mBorderBottomColor;
+    TSUColor *mBorderRightColor;
     int mBorderStyle[5];
     int mBorderWidth[5];
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithOADStroke:(id)arg1;
-- (id)initWithEDBorders:(id)arg1;
-- (id)borderColor;
-- (int *)borderStyles;
-- (int *)borderWidths;
-- (BOOL)isNoneAtLocation:(int)arg1;
-- (void)setNoneAtLocation:(int)arg1;
-- (id)cssStringForName:(id)arg1;
 - (id)cssString;
+- (id)cssStringForName:(id)arg1;
+- (void)setNoneAtLocation:(int)arg1;
+- (BOOL)isNoneAtLocation:(int)arg1;
+- (int *)borderWidths;
+- (int *)borderStyles;
+- (id)borderColor;
+- (id)initWithEDBorders:(id)arg1;
+- (id)initWithOADStroke:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (id)widthHashNumber;
+- (id)styleHashNumber;
+- (BOOL)hasSameColorsAs:(id)arg1;
+- (BOOL)hasSameWidthsAs:(id)arg1;
+- (BOOL)hasSameStylesAs:(id)arg1;
+- (id)colorString;
+- (id)widthString;
+- (id)styleString;
+- (id)stringFromColor:(id)arg1;
+- (id)stringFromWidthEnum:(int)arg1;
+- (id)stringFromStyleEnum:(int)arg1;
+- (void)setBorderStyleAndWidth:(int)arg1 location:(unsigned int)arg2;
 
 @end
 

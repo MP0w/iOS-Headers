@@ -10,11 +10,11 @@
 {
 }
 
-- (id)initWithApplication:(id)arg1;
-- (void)dealloc;
-- (void)localeChanged;
+- (BOOL)canGenerateImageInBackgroundForFormat:(int)arg1;
 - (id)generateIconImage:(int)arg1;
-- (BOOL)canGenerateGhostlyImageInBackground;
+- (void)localeChanged;
+- (void)dealloc;
+- (id)initWithApplication:(id)arg1;
 
 @end
 

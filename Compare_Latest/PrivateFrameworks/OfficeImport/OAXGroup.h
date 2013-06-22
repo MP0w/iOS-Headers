@@ -11,6 +11,8 @@
 }
 
 + (id)readFromXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 drawingState:(id)arg3;
++ (void)applyGroupFill:(id)arg1 toChildrenOfGroup:(id)arg2;
++ (void)readPropertiesFromXmlNode:(struct _xmlNode *)arg1 properties:(id)arg2 drawingState:(id)arg3;
 
 @end
 

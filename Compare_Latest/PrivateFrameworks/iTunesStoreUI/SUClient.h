@@ -6,61 +6,57 @@
 
 #import "NSObject.h"
 
-@class ISURLOperationPool, NSLock, NSMutableArray, NSString, SUImageCache, SUScriptExecutionContext, SUViewControllerFactory;
+@class ISURLOperationPool, NSLock, NSString, SUClientInterface, SUImageCache, SUScriptExecutionContext;
 
 @interface SUClient : NSObject
 {
     struct __CFArray *_assetTypes;
-    NSString *_clientIdentifier;
+    SUClientInterface *_clientInterface;
     id <SUClientDelegate> _delegate;
-    NSMutableArray *_downloadManagers;
+    BOOL _dontSaveNavigationPath;
     SUImageCache *_imageCache;
     ISURLOperationPool *_imagePool;
     NSLock *_lock;
     SUScriptExecutionContext *_scriptExecutionContext;
-    NSString *_searchHintsURLBagKey;
-    NSString *_searchURLBagKey;
-    SUViewControllerFactory *_viewControllerFactory;
-    BOOL _dontSaveNavigationPath;
 }
 
 + (id)viewControllerFactory;
 + (id)imagePool;
 + (id)sharedClient;
 + (void)setSharedClient:(id)arg1;
-@property(nonatomic) BOOL dontSaveNavigationPath; // @synthesize dontSaveNavigationPath=_dontSaveNavigationPath;
-@property(retain, nonatomic) SUViewControllerFactory *viewControllerFactory; // @synthesize viewControllerFactory=_viewControllerFactory;
-@property(retain, nonatomic) NSString *searchURLBagKey; // @synthesize searchURLBagKey=_searchURLBagKey;
-@property(retain, nonatomic) NSString *searchHintsURLBagKey; // @synthesize searchHintsURLBagKey=_searchHintsURLBagKey;
 @property(retain, nonatomic) ISURLOperationPool *imagePool; // @synthesize imagePool=_imagePool;
 @property(retain, nonatomic) SUImageCache *imageCache; // @synthesize imageCache=_imageCache;
+@property(nonatomic) BOOL dontSaveNavigationPath; // @synthesize dontSaveNavigationPath=_dontSaveNavigationPath;
 @property(nonatomic) id <SUClientDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 - (void)_reloadScriptExecutionContext;
 - (void)_purgeCaches;
 - (BOOL)_presentModalViewController:(id)arg1 animated:(BOOL)arg2;
-- (id)_ntsQueueSessionWithQueue:(id)arg1 fromArray:(id)arg2;
-- (id)_ntsQueueSessionWithDownloadKinds:(id)arg1 fromArray:(id)arg2;
-- (void)_ntsEndQueueSession:(id)arg1 fromArray:(id)arg2;
 - (id)_newComposeReviewViewControllerForButtonAction:(id)arg1;
 - (id)_newAccountViewControllerForButtonAction:(id)arg1;
 - (void)_memoryWarningNotification:(id)arg1;
 - (void)_bagDidLoadNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
+- (id)viewControllerFactory;
+- (void)setViewControllerFactory:(id)arg1;
+@property(retain, nonatomic) NSString *searchURLBagKey;
+@property(retain, nonatomic) NSString *searchHintsURLBagKey;
+- (void)setQueueSessionManager:(id)arg1;
+- (void)setClientIdentifier:(id)arg1;
 - (void)setAssetTypes:(struct __CFArray *)arg1;
 - (BOOL)sendActionForDialog:(id)arg1 button:(id)arg2;
 @property(readonly, nonatomic) SUScriptExecutionContext *scriptExecutionContext; // @synthesize scriptExecutionContext=_scriptExecutionContext;
+- (id)queueSessionManager;
+- (BOOL)openURL:(id)arg1 inClientApplication:(id)arg2;
 - (BOOL)openInternalURL:(id)arg1;
 - (BOOL)openExternalURL:(id)arg1;
-- (BOOL)openURL:(id)arg1 inClientApplication:(id)arg2;
 - (BOOL)enterAccountFlowWithViewController:(id)arg1 animated:(BOOL)arg2;
-- (void)endDownloadManagerSessionForManager:(id)arg1;
 - (BOOL)dismissTopViewControllerAnimated:(BOOL)arg1;
 - (BOOL)composeReviewWithViewController:(id)arg1 animated:(BOOL)arg2;
-- (id)beginDownloadManagerSessionWithDownloadKinds:(id)arg1;
-- (id)beginDownloadManagerSessionForDownloadKind:(id)arg1;
+- (id)clientIdentifier;
+@property(readonly) SUClientInterface *clientInterface;
 - (struct __CFArray *)assetTypes;
 - (void)dealloc;
+- (id)initWithClientInterface:(id)arg1;
 - (id)init;
 
 @end

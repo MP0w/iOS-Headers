@@ -7,7 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (CALIDExtensions)
-- (id)stringByEncodingSlashes;
 - (id)stringByDecodingSlashes;
+- (id)stringByEncodingSlashes;
 @end
 

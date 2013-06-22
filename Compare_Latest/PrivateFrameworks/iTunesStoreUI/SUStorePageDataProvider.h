@@ -6,16 +6,18 @@
 
 #import "ISDataProvider.h"
 
-@class ISPropertyListProvider;
+@class ISPropertyListProvider, SUClientInterface;
 
 @interface SUStorePageDataProvider : ISDataProvider
 {
+    SUClientInterface *_clientInterface;
     int _outputType;
     ISPropertyListProvider *_propertyListDataProvider;
 }
 
 @property(copy) ISPropertyListProvider *propertyListDataProvider; // @synthesize propertyListDataProvider=_propertyListDataProvider;
 @property int outputType; // @synthesize outputType=_outputType;
+@property(retain) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 - (void)_loadPersonalizedStoreOffersForPage:(id)arg1;
 - (BOOL)parseData:(id)arg1 returningError:(id *)arg2;
 - (void)dealloc;

@@ -13,12 +13,12 @@
     NSString *mName;
 }
 
-+ (id)automaticFill;
-+ (id)automaticStroke;
 + (id)automaticEffects;
-- (id)initWithName:(id)arg1;
-- (void)dealloc;
++ (id)automaticStroke;
++ (id)automaticFill;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithName:(id)arg1;
 
 @end
 

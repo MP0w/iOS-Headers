@@ -10,8 +10,8 @@
 {
 }
 
-- (id)init;
 - (BOOL)displaysLabel;
+- (id)init;
 
 @end
 

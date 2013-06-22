@@ -9,18 +9,23 @@
 #import "NSCopying-Protocol.h"
 #import "NSFastEnumeration-Protocol.h"
 
+@class GEOTileKeyMap;
+
 @interface GEOTileKeyList : NSObject <NSFastEnumeration, NSCopying>
 {
     void *_head;
     void *_tail;
-    void *_hash;
+    GEOTileKeyMap *_map;
     unsigned int _count;
     unsigned int _maxCount;
 }
 
++ (id)listFromXPCData:(id)arg1;
+- (BOOL)intersectsList:(id)arg1;
 - (BOOL)removeKey:(const struct _GEOTileKey *)arg1;
 - (void)removeKeysMatchingPredicate:(id)arg1;
 - (void)sort:(id)arg1;
+- (id)sublistWithRange:(struct _NSRange)arg1;
 - (id)listWithout:(id)arg1;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (unsigned int)count;
@@ -32,9 +37,11 @@
 - (struct _GEOTileKey *)firstKey;
 - (id)description;
 - (void)dealloc;
+- (id)copyWithMaxCapacity:(unsigned int)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithMaxCapacity:(unsigned int)arg1;
 - (id)init;
+- (id)newXPCData;
 
 @end
 

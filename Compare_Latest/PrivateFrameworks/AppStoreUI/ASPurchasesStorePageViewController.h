@@ -8,27 +8,35 @@
 
 #import "SSSoftwareUpdatesRequestDelegate-Protocol.h"
 
-@class ISOperation, SSSoftwareUpdatesRequest;
+@class ISOperation, NSObject<OS_dispatch_source>, SSSoftwareUpdatesRequest;
 
 @interface ASPurchasesStorePageViewController : SUStorePageViewController <SSSoftwareUpdatesRequestDelegate>
 {
     SSSoftwareUpdatesRequest *_backgroundRequest;
     ISOperation *_constructRequestOperation;
+    NSObject<OS_dispatch_source> *_enterForegroundTimer;
+    BOOL _invalidateOnNextBackground;
 }
 
 - (BOOL)_URLRequestPropertiesAreForSoftwareUpdates:(id)arg1;
 - (void)_startBackgroundRequest;
+- (BOOL)_sectionIncludesSoftwareUpdates:(id)arg1;
+- (void)_reloadForBackgroundNotification;
+- (void)_reloadBadgeFromApplicationBadge;
 - (BOOL)_isPageSectionSoftwareUpdates:(id)arg1;
-- (BOOL)_includesSoftwareUpdates;
 - (void)_enqueueRealFetchOperationWithRequestProperties:(id)arg1;
 - (void)_constructSoftwareUpdatesRequestWithProperties:(id)arg1;
+- (void)_cancelEnterForegroundTimer;
 - (void)_cancelBackgroundRequest;
+- (void)_tabConfigurationChanged:(id)arg1;
+- (void)_tabBarControllerDidLoad:(id)arg1;
+- (void)_softwareLibraryDidChange:(id)arg1;
 - (void)updateQueueRequest:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)operationFinished:(id)arg1;
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)shouldExcludeFromNavigationHistory;
-- (BOOL)shouldDisplaySectionsInNavigationBar:(id)arg1;
+- (BOOL)_shouldDisplaySegmentedControlInNavigationBar:(id)arg1;
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
 - (void)loadView;
 - (void)enqueueFetchOperationForPageSection:(id)arg1;
@@ -36,6 +44,7 @@
 - (void)cancelOperations;
 - (BOOL)canBeResolved;
 - (void)applicationWillEnterForeground;
+- (void)applicationDidEnterBackground;
 - (void)dealloc;
 - (id)initWithSection:(id)arg1;
 

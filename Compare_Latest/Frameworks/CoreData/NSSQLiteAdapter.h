@@ -13,16 +13,16 @@
     NSString *_dbpath;
 }
 
-- (id)initWithSQLCore:(id)arg1;
-- (void)dealloc;
-- (id)createConnection;
-- (id)pathnameForDatabase;
-- (id)typeStringForSQLType:(unsigned int)arg1;
-- (id)typeStringForColumn:(id)arg1;
-- (id)type;
-- (Class)statementClass;
-- (id)sqliteVersion;
 - (BOOL)supportsCorrelatedSubqueries;
+- (id)sqliteVersion;
+- (Class)statementClass;
+- (id)type;
+- (id)typeStringForColumn:(id)arg1;
+- (id)typeStringForSQLType:(unsigned int)arg1;
+- (id)pathnameForDatabase;
+- (id)createConnection;
+- (void)dealloc;
+- (id)initWithSQLCore:(id)arg1;
 
 @end
 

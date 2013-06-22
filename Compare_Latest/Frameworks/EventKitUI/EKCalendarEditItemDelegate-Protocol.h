@@ -7,6 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol EKCalendarEditItemDelegate <NSObject>
+- (id)tableView;
+- (id)owningNavigationController;
+- (int)sectionForCalendarEditItem:(id)arg1;
 - (void)calendarItemStartedEditing:(id)arg1;
 @end
 

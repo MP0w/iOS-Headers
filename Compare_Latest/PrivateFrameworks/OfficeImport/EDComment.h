@@ -13,12 +13,12 @@
     int mColumnIndex;
 }
 
-- (_Bool)isVisible;
-- (void)setVisible:(_Bool)arg1;
-- (int)rowIndex;
-- (void)setRowIndex:(int)arg1;
-- (int)columnIndex;
 - (void)setColumnIndex:(int)arg1;
+- (int)columnIndex;
+- (void)setRowIndex:(int)arg1;
+- (int)rowIndex;
+- (void)setVisible:(_Bool)arg1;
+- (_Bool)isVisible;
 
 @end
 

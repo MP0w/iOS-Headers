@@ -14,10 +14,11 @@
     struct CGPoint _points[3];
 }
 
-- (id)initWithCGPathElement:(const struct CGPathElement *)arg1;
-- (void)addToCGPath:(struct CGPath *)arg1;
-- (void)encodeWithCoder:(id)arg1;
+- (id).cxx_construct;
 - (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (void)addToCGPath:(struct CGPath *)arg1;
+- (id)initWithCGPathElement:(const struct CGPathElement *)arg1;
 
 @end
 

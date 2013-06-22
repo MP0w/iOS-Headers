@@ -6,21 +6,24 @@
 
 #import "SBIconView.h"
 
+@class SBDownloadingProgressBar;
+
 @interface SBNewsstandItemIconViewBase : SBIconView
 {
+    SBDownloadingProgressBar *_progressBar;
 }
 
-+ (BOOL)allowsRecycling;
-+ (id)createBadgeLabelImageAndGetTextCenterPoint:(struct CGPoint *)arg1;
-+ (float)_badgeLabelFontSize;
-+ (struct CGPoint)badgeLabelCenterPoint;
-+ (BOOL)_hasBadgeLabel;
++ (Class)_labelImageParametersClassForIcon:(id)arg1 location:(int)arg2;
+- (void)downloadingIconStatusDidChange:(id)arg1;
+- (void)_adjustProgressBarFrame;
+- (void)iconAccessoriesDidUpdate:(id)arg1;
+- (void)_updateProgressBar;
+- (void)_removeProgressBar;
+- (void)_updateLabelVisibility;
+- (struct UIEdgeInsets)_viewInsetsForAccessoryType:(int)arg1;
+- (id)_iconBoundsForAccessory:(struct CGRect *)arg1;
 - (void)iconImageDidUpdate:(id)arg1;
-- (struct CGRect)_adjustProspectiveBadgeFrame:(struct CGRect)arg1 fromView:(id)arg2 toView:(id)arg3;
-- (void)_updateBadgePosition;
-- (id)_superviewForBadge;
-- (float)_badgeHorizontalPadding;
-- (float)_badgeVerticalPadding;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

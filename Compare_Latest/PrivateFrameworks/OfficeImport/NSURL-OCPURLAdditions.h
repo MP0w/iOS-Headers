@@ -8,7 +8,7 @@
 
 @interface NSURL (OCPURLAdditions)
 + (id)URLWithPackagePart:(id)arg1;
-- (id)initWithPackagePart:(id)arg1;
 - (BOOL)isInternalToPackage;
+- (id)initWithPackagePart:(id)arg1;
 @end
 

@@ -25,6 +25,14 @@ struct GlyphStackEntry {
     unsigned char _field5;
 };
 
+struct TCFRef<const __CFArray *> {
+    struct __CFArray *fRef;
+};
+
+struct TCFRef<const __CFSet *> {
+    struct __CFSet *fRef;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {

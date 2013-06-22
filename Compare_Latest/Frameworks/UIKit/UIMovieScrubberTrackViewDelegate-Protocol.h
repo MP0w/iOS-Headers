@@ -9,8 +9,8 @@
 @protocol UIMovieScrubberTrackViewDelegate <NSObject>
 
 @optional
-- (float)movieScrubberTrackViewZoomAnimationDelay:(id)arg1;
-- (float)movieScrubberTrackViewZoomAnimationDuration:(id)arg1;
+- (double)movieScrubberTrackViewZoomAnimationDelay:(id)arg1;
+- (double)movieScrubberTrackViewZoomAnimationDuration:(id)arg1;
 - (void)movieScrubberTrackViewDidFinishRequestingThumbnails:(id)arg1;
 - (void)movieScrubberTrackViewWillBeginRequestingThumbnails:(id)arg1;
 - (void)movieScrubberTrackViewDidCollapse:(id)arg1;

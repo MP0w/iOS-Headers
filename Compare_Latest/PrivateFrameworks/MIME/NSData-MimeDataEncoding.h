@@ -7,14 +7,14 @@
 #import "NSData.h"
 
 @interface NSData (MimeDataEncoding)
-- (id)mf_decodeQuotedPrintableForText:(BOOL)arg1;
-- (id)mf_decodeUuencoded;
-- (id)mf_decodeBase64;
-- (id)mf_decodeBase64InRange:(struct _NSRange *)arg1;
-- (id)mf_decodeModifiedBase64;
-- (id)mf_encodeBase64WithoutLineBreaks;
-- (id)mf_encodeBase64;
-- (id)mf_encodeModifiedBase64;
 - (id)mf_encodeBase64HeaderData;
+- (id)mf_encodeModifiedBase64;
+- (id)mf_encodeBase64;
+- (id)mf_encodeBase64WithoutLineBreaks;
+- (id)mf_decodeModifiedBase64;
+- (id)mf_decodeBase64InRange:(struct _NSRange *)arg1;
+- (id)mf_decodeBase64;
+- (id)mf_decodeUuencoded;
+- (id)mf_decodeQuotedPrintableForText:(BOOL)arg1;
 @end
 

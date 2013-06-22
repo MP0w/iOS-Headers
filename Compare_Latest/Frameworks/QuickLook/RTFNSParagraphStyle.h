@@ -21,16 +21,16 @@
     int _baseWritingDirection;
 }
 
-- (id)init;
-- (id)_initWithParagraphStyle:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (unsigned int)alignment;
-- (float)headIndent;
-- (float)tailIndent;
-- (float)firstLineHeadIndent;
 - (int)baseWritingDirection;
+- (float)firstLineHeadIndent;
+- (float)tailIndent;
+- (float)headIndent;
+- (unsigned int)alignment;
+- (void)dealloc;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_initWithParagraphStyle:(id)arg1;
+- (id)init;
 
 @end
 

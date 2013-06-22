@@ -11,10 +11,10 @@
     char *mContent;
 }
 
-- (id)initWithContent:(const char *)arg1;
-- (void)dealloc;
-- (const char *)content;
 - (BOOL)isBlank;
+- (const char *)content;
+- (void)dealloc;
+- (id)initWithContent:(const char *)arg1;
 
 @end
 

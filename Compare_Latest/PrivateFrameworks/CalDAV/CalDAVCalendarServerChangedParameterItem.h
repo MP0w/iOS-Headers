@@ -11,12 +11,14 @@
 @interface CalDAVCalendarServerChangedParameterItem : CoreDAVItemWithNoChildren
 {
     NSString *_nameAttribute;
+    NSString *_typeAttribute;
 }
 
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (void)parserFoundAttributes:(id)arg1;
+@property(retain) NSString *typeAttribute; // @synthesize typeAttribute=_typeAttribute;
 @property(retain) NSString *nameAttribute; // @synthesize nameAttribute=_nameAttribute;
+- (void)parserFoundAttributes:(id)arg1;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
 
 @end
 

@@ -13,18 +13,18 @@
     id opaqueSession;
 }
 
-- (id)initWithGKSession:(id)arg1 sessionName:(id)arg2;
-- (void)dealloc;
-- (void)startSession;
-- (void)stopSession;
-- (void)setMute:(BOOL)arg1 forPeer:(id)arg2;
-- (float)outputMeterForPeer:(id)arg1;
-@property id <GKVoiceChatSessionDelegate> delegate;
-@property(readonly) NSString *sessionName;
-@property(readonly) NSArray *peerList;
-@property(getter=isActiveSession) BOOL activeSession;
-@property(readonly) float inputMeter;
 @property float sessionVolume;
+@property(readonly) float inputMeter;
+@property(getter=isActiveSession) BOOL activeSession;
+@property(readonly) NSArray *peerList;
+@property(readonly) NSString *sessionName;
+@property id <GKVoiceChatSessionDelegate> delegate;
+- (float)outputMeterForPeer:(id)arg1;
+- (void)setMute:(BOOL)arg1 forPeer:(id)arg2;
+- (void)stopSession;
+- (void)startSession;
+- (void)dealloc;
+- (id)initWithGKSession:(id)arg1 sessionName:(id)arg2;
 
 @end
 

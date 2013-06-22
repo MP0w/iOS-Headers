@@ -10,10 +10,12 @@
 {
 }
 
-- (id)retain;
-- (void)release;
-- (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
+- (BOOL)_isDeallocating;
+- (Class)classForCoder;
+- (Class)classForArchiver;
+- (void)release;
+- (id)retain;
 
 @end
 

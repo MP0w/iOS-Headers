@@ -11,11 +11,11 @@
     int mType;
 }
 
-- (int)type;
-- (void)setType:(int)arg1;
-- (id)oa12EquivalentCustomGeometry;
-- (id)escherEquivalentCustomGeometry;
 - (id)equivalentCustomGeometry;
+- (id)escherEquivalentCustomGeometry;
+- (id)oa12EquivalentCustomGeometry;
+- (void)setType:(int)arg1;
+- (int)type;
 
 @end
 

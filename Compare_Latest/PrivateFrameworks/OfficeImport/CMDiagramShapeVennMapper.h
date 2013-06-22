@@ -10,10 +10,10 @@
 {
 }
 
-- (struct CGRect)circumscribedBounds;
-- (struct CGRect)nodeBoundsWithIndex:(unsigned int)arg1;
-- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
 - (struct CGSize)textSizeForShapeSize:(struct CGSize)arg1;
+- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
+- (struct CGRect)nodeBoundsWithIndex:(unsigned int)arg1;
+- (struct CGRect)circumscribedBounds;
 
 @end
 

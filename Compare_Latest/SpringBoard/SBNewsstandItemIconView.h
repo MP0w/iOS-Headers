@@ -6,44 +6,31 @@
 
 #import "SBNewsstandItemIconViewBase.h"
 
-@class SBDownloadingProgressBar, UILabel, UIView;
+@class UILabel, UIView;
 
 @interface SBNewsstandItemIconView : SBNewsstandItemIconViewBase
 {
     UIView *_iconTransformView;
-    SBDownloadingProgressBar *_progressBar;
     UILabel *_indexLabel;
     unsigned int _newsstandIndex;
 }
 
++ (struct CGSize)_maxLabelSize;
 + (struct CGSize)defaultIconSize;
-+ (BOOL)allowsRecycling;
-+ (id)createBadgeLabelImageAndGetTextCenterPoint:(struct CGPoint *)arg1;
-+ (float)_badgeLabelFontSize;
-+ (struct CGPoint)badgeLabelCenterPoint;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithDefaultSize;
-- (void)dealloc;
-- (void)prepareForRecycling;
-- (void)positionCloseBoxOfType:(int)arg1;
-- (id)createShadowImageView;
-- (void)applyIconImageTransform:(struct CATransform3D)arg1 duration:(float)arg2 delay:(float)arg3;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)positionIconImageView;
-- (void)setIsGrabbed:(BOOL)arg1;
-- (Class)_labelClass;
-- (void)positionLabel;
-- (struct CGRect)defaultFrameForProgressBar;
-- (void)_updateLabelVisibility;
-- (void)_removeProgressBar;
-- (void)_updateProgressBar;
-- (void)iconAccessoriesDidUpdate:(id)arg1;
-- (id)_superviewForBadge;
-- (id)_overriddenBadgeTextForText:(id)arg1;
-- (float)_badgeHorizontalPadding;
-- (float)_badgeVerticalPadding;
-- (struct CGRect)_adjustProspectiveBadgeFrame:(struct CGRect)arg1 fromView:(id)arg2 toView:(id)arg3;
 - (void)setNewsstandIndex:(unsigned int)arg1;
+- (void)positionLabel;
+- (void)setIsGrabbed:(BOOL)arg1;
+- (struct CGRect)_frameForAccessoryView;
+- (void)positionIconImageView;
+- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)applyIconImageTransform:(struct CATransform3D)arg1 duration:(float)arg2 delay:(float)arg3;
+- (id)createShadowImageView;
+- (void)positionCloseBoxOfType:(int)arg1;
+- (void)prepareForRecycling;
+- (struct CGRect)defaultFrameForProgressBar;
+- (void)dealloc;
+- (id)initWithDefaultSize;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

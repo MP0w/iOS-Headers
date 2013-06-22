@@ -10,13 +10,13 @@
 {
 }
 
-+ (float)nodeRadiusWithState:(id)arg1;
-+ (struct CGSize)nodeSizeWithState:(id)arg1;
-+ (struct CGRect)mapGSpaceWithState:(id)arg1;
-+ (void)mapNode:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
-+ (void)mapTransition:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
-+ (BOOL)map1NodeWithState:(id)arg1;
 + (BOOL)map2NodeWithState:(id)arg1;
++ (BOOL)map1NodeWithState:(id)arg1;
++ (void)mapTransition:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
++ (void)mapNode:(id)arg1 index:(unsigned int)arg2 state:(id)arg3;
++ (struct CGRect)mapGSpaceWithState:(id)arg1;
++ (struct CGSize)nodeSizeWithState:(id)arg1;
++ (float)nodeRadiusWithState:(id)arg1;
 
 @end
 

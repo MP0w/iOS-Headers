@@ -7,7 +7,7 @@
 #import "DOMRange.h"
 
 @interface DOMRange (WebDOMRangeOperations)
-- (id)webArchive;
 - (id)markupString;
+- (id)webArchive;
 @end
 

@@ -12,11 +12,11 @@
     _Bool mStockType;
 }
 
-- (id)initWithChart:(id)arg1;
-- (_Bool)showMarker;
-- (void)setShowMarker:(_Bool)arg1;
-- (_Bool)isStockType;
 - (void)setStockType:(_Bool)arg1;
+- (_Bool)isStockType;
+- (void)setShowMarker:(_Bool)arg1;
+- (_Bool)showMarker;
+- (id)initWithChart:(id)arg1;
 
 @end
 

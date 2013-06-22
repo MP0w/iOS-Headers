@@ -11,14 +11,14 @@
     int wdValue;
 }
 
-- (id)initWithCMTogglePropertyValue:(int)arg1;
-- (int)value;
-- (int)compareValue:(id)arg1;
-- (void)resolveWithBaseProperty:(id)arg1;
-- (id)mapBold;
-- (id)mapItalic;
-- (id)mapStrikeTrough;
 - (id)cssStringForName:(id)arg1;
+- (id)mapStrikeTrough;
+- (id)mapItalic;
+- (id)mapBold;
+- (void)resolveWithBaseProperty:(id)arg1;
+- (int)compareValue:(id)arg1;
+- (int)value;
+- (id)initWithCMTogglePropertyValue:(int)arg1;
 
 @end
 

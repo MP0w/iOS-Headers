@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class BBBulletin, NSDate, NSMutableArray, NSString, UIImage;
+@class BBBulletin, BBObserver, NSDate, NSMutableArray, NSString, UIImage;
 
 @interface SBAwayBulletinListItem : NSObject
 {
     NSMutableArray *_bulletins;
     int _personID;
     NSString *_contactInfo;
+    BBObserver *_observer;
     BBBulletin *_activeBulletin;
     NSDate *_sortDate;
     NSDate *_displayDate;
@@ -20,28 +21,29 @@
     UIImage *_listItemImage;
 }
 
-- (id)initWithBulletin:(id)arg1;
-- (void)dealloc;
-- (id)bulletinWithID:(id)arg1;
-- (void)_update;
-- (void)addBulletin:(id)arg1;
-- (void)removeBulletin:(id)arg1;
-- (void)modifyBulletin:(id)arg1;
-- (BOOL)containsBulletinWithID:(id)arg1;
-- (id)sortDate;
-- (id)bulletins;
-- (id)activeBulletin;
-- (id)message;
-- (id)title;
-- (id)date;
-- (id)subtitle;
-- (unsigned int)maxMessageLines;
-- (id)description;
-- (id)iconImage;
-- (id)attachmentImageForKey:(id)arg1;
-- (id)attachmentText;
-- (BOOL)hasSamePersonAsBulletin:(id)arg1;
+- (BOOL)isVIP;
 - (BOOL)canCoalesceWithBulletin:(id)arg1;
+- (BOOL)hasSamePersonAsBulletin:(id)arg1;
+- (id)attachmentText;
+- (id)attachmentImageForKey:(id)arg1;
+- (id)iconImage;
+- (id)description;
+- (unsigned int)maxMessageLines;
+- (id)subtitle;
+- (id)date;
+- (id)title;
+- (id)message;
+- (id)activeBulletin;
+- (id)bulletins;
+- (id)sortDate;
+- (BOOL)containsBulletinWithID:(id)arg1;
+- (void)modifyBulletin:(id)arg1;
+- (void)removeBulletin:(id)arg1;
+- (void)addBulletin:(id)arg1;
+- (void)_update;
+- (id)bulletinWithID:(id)arg1;
+- (void)dealloc;
+- (id)initWithBulletin:(id)arg1 andObserver:(id)arg2;
 
 @end
 

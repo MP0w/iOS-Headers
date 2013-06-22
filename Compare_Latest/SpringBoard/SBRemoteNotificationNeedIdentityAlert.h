@@ -13,11 +13,11 @@
     SBApplication *_app;
 }
 
-- (id)initWithApplication:(id)arg1;
-- (void)dealloc;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (BOOL)dismissOnLock;
 - (BOOL)dismissOnModalDisplayActivation;
+- (BOOL)dismissOnLock;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)dealloc;
+- (id)initWithApplication:(id)arg1;
 
 @end
 

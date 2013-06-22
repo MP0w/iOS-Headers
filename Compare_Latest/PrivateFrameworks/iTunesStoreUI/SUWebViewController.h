@@ -6,65 +6,59 @@
 
 #import <iTunesStoreUI/SUViewController.h>
 
-#import <iTunesStoreUI/SUWebViewDelegate-Protocol.h>
+#import "SUWebViewDelegate-Protocol.h"
+#import "SUWebViewManagerDelegate-Protocol.h"
 
-@class NSURL, SSAuthenticationContext, SUDelayedNavigationItem, SUItem, SUObjectPool, SUStorePageProtocol, SUStructuredPage, SUTableViewController, SUWebView;
+@class ISURLRequestPerformance, NSURL, SSAuthenticationContext, SSMutableAuthenticationContext, SUDelayedNavigationItem, SUObjectPool, SUStorePageProtocol, SUWebView, SUWebViewManager;
 
-@interface SUWebViewController : SUViewController <SUWebViewDelegate>
+@interface SUWebViewController : SUViewController <SUWebViewManagerDelegate, SUWebViewDelegate>
 {
-    SSAuthenticationContext *_authenticationContext;
+    SUWebView *_webView;
+    SSMutableAuthenticationContext *_authenticationContext;
     SUDelayedNavigationItem *_delayedNavigationItem;
     BOOL _hasEverAppeared;
     int _lastKnownOrientation;
     SUObjectPool *_objectPool;
-    SUItem *_rootItem;
+    ISURLRequestPerformance *_performanceMetrics;
     int _scheduledOrientation;
     SUStorePageProtocol *_storePageProtocol;
     int _style;
-    SUStructuredPage *_trackList;
-    SUTableViewController *_trackListController;
     NSURL *_url;
     BOOL _viewIsReady;
-    SUWebView *_webView;
+    SUWebViewManager *_webViewManager;
 }
 
 @property(nonatomic) BOOL viewIsReady; // @synthesize viewIsReady=_viewIsReady;
 @property(nonatomic) int style; // @synthesize style=_style;
+@property(retain, nonatomic, getter=_performanceMetrics, setter=_setPerformanceMetrics:) ISURLRequestPerformance *_performanceMetrics; // @synthesize _performanceMetrics;
 @property(copy, nonatomic) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
-- (void)_updateTrackListRootItem;
-- (void)_setTrackListController:(id)arg1;
 - (void)_setLastKnownOrientation:(int)arg1;
 - (void)_sendOrientationWillChangeToInterfaceOrientation:(int)arg1;
-- (void)_selectTrackListItemWithIdentifier:(id)arg1;
 - (void)_removePlaceholderBackgroundView;
 - (void)_reloadUI;
 - (void)_reloadPlaceholderBackgroundView;
 - (void)_reloadObjectPool;
 - (id)_placeholderBackgroundView;
-- (void)_handleTrackList:(id)arg1;
-- (void)_handleRootObject:(id)arg1;
-- (void)_handleProtocol:(id)arg1;
+- (id)_defaultBackgroundColor;
 - (void)_applyScriptProperties:(id)arg1;
 - (void)_applySavedScrollOffsetIfPossible;
 - (void)_addPlaceholderBackgroundView;
-- (void)operationFinished:(id)arg1;
-- (void)webViewDidStartLoad:(id)arg1;
-- (void)webViewDidFinishLoad:(id)arg1;
-- (void)webView:(id)arg1 willInjectScriptObject:(id)arg2;
-- (void)webView:(id)arg1 receivedEventOfType:(int)arg2 userInfo:(id)arg3;
-- (void)webView:(id)arg1 performPurchaseAnimationWithView:(id)arg2;
-- (void)webView:(id)arg1 foundPropertyList:(id)arg2 ofType:(int)arg3;
-- (void)webView:(id)arg1 documentViewDidSetFrame:(struct CGRect)arg2;
-- (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
-- (BOOL)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
-- (void)webView:(id)arg1 decidePolicyForMIMEType:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
-- (id)parentViewControllerForWebView:(id)arg1;
+- (void)webViewManager:(id)arg1 webDocumentViewDidSetFrame:(struct CGRect)arg2;
+- (void)webViewManagerDidStartLoad:(id)arg1;
+- (void)webViewManagerDidFinishLoad:(id)arg1;
+- (void)webViewManager:(id)arg1 willInjectScriptInterface:(id)arg2;
+- (void)webViewManager:(id)arg1 didRejectInvalidRequest:(id)arg2;
+- (void)webViewManager:(id)arg1 didFailLoadWithError:(id)arg2;
+- (void)webViewManager:(id)arg1 didReceiveTitle:(id)arg2;
+- (id)viewControllerForWebViewManager:(id)arg1;
+- (id)newScriptInterfaceForWebViewManager:(id)arg1;
 - (id)newRotationController;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)storePageProtocolDidChange;
+- (void)storePageCleanupBeforeTearDown;
 - (id)storePageProtocol;
 - (void)setStorePageProtocol:(id)arg1;
 - (void)setScriptProperties:(id)arg1;
@@ -85,8 +79,7 @@
 - (void)applicationWillEnterForeground;
 - (void)applicationDidEnterBackground;
 @property(readonly, nonatomic) SUWebView *webView;
-- (id)newViewControllerForTrackList:(id)arg1;
-- (id)newDataProviderToProcessProtocol;
+- (id)newScriptInterface;
 - (void)dealloc;
 
 @end

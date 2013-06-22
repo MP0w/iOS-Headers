@@ -15,11 +15,11 @@
 }
 
 + (id)defaultProperties;
-- (id)initWithDefaults;
-- (id)init;
-- (void)dealloc;
-- (id)from;
 - (id)to;
+- (id)from;
+- (void)dealloc;
+- (id)init;
+- (id)initWithDefaults;
 
 @end
 

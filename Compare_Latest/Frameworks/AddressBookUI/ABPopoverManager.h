@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
+#import "UIActionSheetDelegate-Protocol.h"
+#import "UIPopoverControllerDelegate-Protocol.h"
+
 @class UIActionSheet, UIBarButtonItem, UIPopoverController, UIResponder, UIView, UIWindow;
 
-@interface ABPopoverManager : NSObject
+@interface ABPopoverManager : NSObject <UIPopoverControllerDelegate, UIActionSheetDelegate>
 {
     UIView *_autorotateView;
     UIResponder *_autorotateResponder;
@@ -21,43 +24,22 @@
     BOOL _rotating;
 }
 
-+ (id)managerForPresenter:(id)arg1;
-+ (void)removeManagerForPresenter:(id)arg1;
-+ (BOOL)resignFirstResponderIfNeeded;
-+ (void)actionSheet:(id)arg1 showFromRect:(struct CGRect)arg2 inView:(id)arg3 direction:(unsigned int)arg4 animated:(BOOL)arg5;
-+ (void)actionSheet:(id)arg1 showFromRect:(struct CGRect)arg2 inView:(id)arg3 animated:(BOOL)arg4;
-+ (void)actionSheet:(id)arg1 showFromBarButtonItem:(id)arg2 animated:(BOOL)arg3;
-+ (void)actionSheet:(id)arg1 showFromRect:(struct CGRect)arg2 inView:(id)arg3 animated:(BOOL)arg4 direction:(unsigned int)arg5 autorotate:(BOOL)arg6;
-+ (void)actionSheet:(id)arg1 showFromView:(id)arg2 animated:(BOOL)arg3 direction:(unsigned int)arg4 autorotate:(BOOL)arg5;
-+ (void)actionSheet:(id)arg1 showFromView:(id)arg2 animated:(BOOL)arg3 autorotate:(BOOL)arg4;
-+ (void)actionSheet:(id)arg1 showFromBarButtonItem:(id)arg2 animated:(BOOL)arg3 autorotate:(BOOL)arg4;
-+ (void)actionSheet:(id)arg1 dismissWithClickedButtonIndex:(int)arg2 animated:(BOOL)arg3;
-+ (void)dismissPopoverForActionSheet:(id)arg1;
-+ (void)popoverController:(id)arg1 presentPopoverFromRect:(struct CGRect)arg2 inView:(id)arg3 permittedArrowDirections:(unsigned int)arg4 animated:(BOOL)arg5;
-+ (void)popoverController:(id)arg1 presentPopoverFromView:(id)arg2 permittedArrowDirections:(unsigned int)arg3 animated:(BOOL)arg4 representDelegate:(id)arg5;
-+ (void)popoverController:(id)arg1 dismissPopoverAnimated:(BOOL)arg2;
 + (void)stopAutorotatePresenter:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (void)keyboardDidShow:(id)arg1;
-- (void)keyboardDidHide:(id)arg1;
-- (void)windowWillRotate:(id)arg1;
-- (void)windowDidRotate:(id)arg1;
-- (void)startObservingRotationOfWindow:(id)arg1;
-- (void)stopObservingRotation;
-@property(readonly, nonatomic) UIWindow *observedWindow;
-- (id)delegateOwner;
-- (BOOL)autorotates;
-- (void)startAutorotatePopoverController:(id)arg1 showFromView:(id)arg2 permittedArrowDirections:(unsigned int)arg3 representDelegate:(id)arg4;
-- (void)revertDelegate;
-- (void)stopAutorotate;
-- (void)startAutorotateActionSheet:(id)arg1 fromView:(id)arg2;
-- (void)startAutorotateActionSheet:(id)arg1 fromBarButtonItem:(id)arg2;
-- (BOOL)respondsToSelector:(SEL)arg1;
-- (id)methodSignatureForSelector:(SEL)arg1;
-- (void)forwardInvocation:(id)arg1;
-- (void)popoverControllerDidDismissPopover:(id)arg1;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
++ (void)popoverController:(id)arg1 dismissPopoverAnimated:(BOOL)arg2;
++ (void)popoverController:(id)arg1 presentPopoverFromView:(id)arg2 permittedArrowDirections:(unsigned int)arg3 animated:(BOOL)arg4 representDelegate:(id)arg5;
++ (void)popoverController:(id)arg1 presentPopoverFromRect:(struct CGRect)arg2 inView:(id)arg3 permittedArrowDirections:(unsigned int)arg4 animated:(BOOL)arg5;
++ (void)dismissPopoverForActionSheet:(id)arg1;
++ (void)actionSheet:(id)arg1 dismissWithClickedButtonIndex:(int)arg2 animated:(BOOL)arg3;
++ (void)actionSheet:(id)arg1 showFromBarButtonItem:(id)arg2 animated:(BOOL)arg3 autorotate:(BOOL)arg4;
++ (void)actionSheet:(id)arg1 showFromView:(id)arg2 animated:(BOOL)arg3 autorotate:(BOOL)arg4;
++ (void)actionSheet:(id)arg1 showFromView:(id)arg2 animated:(BOOL)arg3 direction:(unsigned int)arg4 autorotate:(BOOL)arg5;
++ (void)actionSheet:(id)arg1 showFromRect:(struct CGRect)arg2 inView:(id)arg3 animated:(BOOL)arg4 direction:(unsigned int)arg5 autorotate:(BOOL)arg6;
++ (void)actionSheet:(id)arg1 showFromBarButtonItem:(id)arg2 animated:(BOOL)arg3;
++ (void)actionSheet:(id)arg1 showFromRect:(struct CGRect)arg2 inView:(id)arg3 animated:(BOOL)arg4;
++ (void)actionSheet:(id)arg1 showFromRect:(struct CGRect)arg2 inView:(id)arg3 direction:(unsigned int)arg4 animated:(BOOL)arg5;
++ (BOOL)resignFirstResponderIfNeeded;
++ (void)removeManagerForPresenter:(id)arg1;
++ (id)managerForPresenter:(id)arg1;
 @property(retain, nonatomic) id <ABPopoverRepresentDelegate> representDelegate; // @synthesize representDelegate=_representDelegate;
 @property(retain, nonatomic) id realDelegate; // @synthesize realDelegate=_realDelegate;
 @property(retain, nonatomic) UIActionSheet *autorotateActionSheet; // @synthesize autorotateActionSheet=_autorotateActionSheet;
@@ -66,6 +48,27 @@
 @property(retain, nonatomic) UIBarButtonItem *autorotateBarButtonItem; // @synthesize autorotateBarButtonItem=_autorotateBarButtonItem;
 @property(retain, nonatomic) UIResponder *autorotateResponder; // @synthesize autorotateResponder=_autorotateResponder;
 @property(retain, nonatomic) UIView *autorotateView; // @synthesize autorotateView=_autorotateView;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)popoverControllerDidDismissPopover:(id)arg1;
+- (void)forwardInvocation:(id)arg1;
+- (id)methodSignatureForSelector:(SEL)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
+- (void)startAutorotateActionSheet:(id)arg1 fromBarButtonItem:(id)arg2;
+- (void)startAutorotateActionSheet:(id)arg1 fromView:(id)arg2;
+- (void)stopAutorotate;
+- (void)revertDelegate;
+- (void)startAutorotatePopoverController:(id)arg1 showFromView:(id)arg2 permittedArrowDirections:(unsigned int)arg3 representDelegate:(id)arg4;
+- (BOOL)autorotates;
+- (id)delegateOwner;
+@property(readonly, nonatomic) UIWindow *observedWindow;
+- (void)stopObservingRotation;
+- (void)startObservingRotationOfWindow:(id)arg1;
+- (void)windowDidRotate:(id)arg1;
+- (void)windowWillRotate:(id)arg1;
+- (void)keyboardDidHide:(id)arg1;
+- (void)keyboardDidShow:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

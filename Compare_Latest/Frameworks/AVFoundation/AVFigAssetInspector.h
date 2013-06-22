@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVAssetInspector.h>
 
-@class NSArray, NSURL;
+@class NSArray, NSData, NSURL;
 
 @interface AVFigAssetInspector : AVAssetInspector
 {
@@ -16,7 +16,9 @@
     BOOL hasSaveRestriction;
 }
 
+@property(readonly, nonatomic) NSData *SHA1Digest;
 @property(readonly, nonatomic) BOOL hasProtectedContent;
+@property(readonly, nonatomic) unsigned long long downloadToken;
 @property(readonly, nonatomic) NSURL *resolvedURL;
 @property(readonly, nonatomic) NSURL *URL;
 @property(readonly, nonatomic) NSArray *chapterGroupInfo;

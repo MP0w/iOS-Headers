@@ -13,17 +13,17 @@
     CPMessageEntry *m_entry;
 }
 
-+ (void)initialize;
-+ (id)exceptionWithMessage:(struct CPTaggedMessageStructure *)arg1;
-+ (id)exceptionWithUntaggedMessage:(id)arg1;
-+ (void)raise:(struct CPTaggedMessageStructure *)arg1;
-+ (void)raiseUntaggedMessage:(id)arg1;
 + (id)nsError:(id)arg1 domain:(id)arg2;
-- (id)initWithMessage:(struct CPTaggedMessageStructure *)arg1;
-- (id)initWithUntaggedMessage:(id)arg1;
-- (void)dealloc;
-- (id)getEntry;
++ (void)raiseUntaggedMessage:(id)arg1;
++ (void)raise:(struct CPTaggedMessageStructure *)arg1;
++ (id)exceptionWithUntaggedMessage:(id)arg1;
++ (id)exceptionWithMessage:(struct CPTaggedMessageStructure *)arg1;
++ (void)initialize;
 - (id)description;
+- (id)getEntry;
+- (void)dealloc;
+- (id)initWithUntaggedMessage:(id)arg1;
+- (id)initWithMessage:(struct CPTaggedMessageStructure *)arg1;
 
 @end
 

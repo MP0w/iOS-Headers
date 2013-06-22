@@ -16,6 +16,7 @@
     BOOL _didFirstTileLayout;
     BOOL _layoutTilesInMainThread;
     BOOL _tilingModeIsLocked;
+    BOOL _allowsPaintingAndScriptsWhilePanning;
 }
 
 - (id)wakWindow;
@@ -47,6 +48,8 @@
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (void)_didScroll;
 - (void)setNeedsLayout;
+- (void)setAllowsPaintingAndScriptsWhilePanning:(BOOL)arg1;
+- (BOOL)allowsPaintingAndScriptsWhilePanning;
 - (void)unlockTilingMode;
 - (void)lockTilingMode;
 - (int)tilingArea;
@@ -55,7 +58,6 @@
 - (void)updateTilingMode;
 - (void)willMoveToWindow:(id)arg1;
 - (void)_screenChanged:(id)arg1;
-- (void)_updateForScreen:(id)arg1;
 - (void)layoutSubviews;
 - (void)layoutTilesNowForRect:(struct CGRect)arg1;
 - (void)layoutTilesNowOnWebThread;
@@ -65,6 +67,7 @@
 - (struct WKWindow *)wkWindow;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)_updateForScreen:(id)arg1;
 
 @end
 

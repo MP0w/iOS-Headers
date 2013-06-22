@@ -13,13 +13,13 @@
     double mBy;
 }
 
-- (id)init;
-- (double)to;
-- (void)setTo:(double)arg1;
-- (double)from;
-- (void)setFrom:(double)arg1;
-- (double)by;
 - (void)setBy:(double)arg1;
+- (double)by;
+- (void)setFrom:(double)arg1;
+- (double)from;
+- (void)setTo:(double)arg1;
+- (double)to;
+- (id)init;
 
 @end
 

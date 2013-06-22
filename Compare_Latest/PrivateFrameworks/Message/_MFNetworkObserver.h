@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>;
+
 @interface _MFNetworkObserver : NSObject
 {
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
     id _block;
 }
 
-- (id)initWithBlock:(id)arg1 queue:(void)arg2;
-- (void)dealloc;
 - (void)execute;
+- (void)dealloc;
+- (id)initWithBlock:(id)arg1 queue:(void)arg2;
 
 @end
 

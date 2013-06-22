@@ -12,13 +12,13 @@
 }
 
 + (void)initialize;
-- (void)dealloc;
-- (void)finalize;
-- (id)initWithSharedBuffer:(struct SharedBuffer *)arg1;
-- (unsigned int)length;
-- (const void *)bytes;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (const void *)bytes;
+- (unsigned int)length;
+- (id)initWithSharedBuffer:(struct SharedBuffer *)arg1;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

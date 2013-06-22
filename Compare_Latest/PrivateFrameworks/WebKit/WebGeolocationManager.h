@@ -14,10 +14,8 @@
 }
 
 + (id)sharedGeolocationManager;
-- (id)init;
-- (void)suspend;
 - (void)resume;
-- (void)dealloc;
+- (void)suspend;
 
 @end
 

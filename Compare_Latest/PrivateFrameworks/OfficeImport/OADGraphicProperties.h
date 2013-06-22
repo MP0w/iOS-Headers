@@ -22,30 +22,30 @@
     unsigned int mIsBehindText:1;
 }
 
-- (id)initWithDefaults;
-- (void)dealloc;
-- (void)setParent:(id)arg1;
-- (id)fill;
-- (void)setFill:(id)arg1;
-- (BOOL)hasFill;
-- (id)effects;
-- (void)setEffects:(id)arg1;
-- (BOOL)hasEffects;
-- (id)scene3D;
-- (void)setScene3D:(id)arg1;
-- (BOOL)hasScene3D;
-- (id)shape3D;
-- (void)setShape3D:(id)arg1;
-- (BOOL)hasShape3D;
-- (id)stroke;
-- (void)setStroke:(id)arg1;
-- (BOOL)hasStroke;
-- (BOOL)isBehindText;
-- (void)setIsBehindText:(BOOL)arg1;
-- (BOOL)hasIsBehindText;
-- (void)removeUnnecessaryOverrides;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)removeUnnecessaryOverrides;
+- (BOOL)hasIsBehindText;
+- (void)setIsBehindText:(BOOL)arg1;
+- (BOOL)isBehindText;
+- (BOOL)hasStroke;
+- (void)setStroke:(id)arg1;
+- (id)stroke;
+- (BOOL)hasShape3D;
+- (void)setShape3D:(id)arg1;
+- (id)shape3D;
+- (BOOL)hasScene3D;
+- (void)setScene3D:(id)arg1;
+- (id)scene3D;
+- (BOOL)hasEffects;
+- (void)setEffects:(id)arg1;
+- (id)effects;
+- (BOOL)hasFill;
+- (void)setFill:(id)arg1;
+- (id)fill;
+- (void)setParent:(id)arg1;
+- (void)dealloc;
+- (id)initWithDefaults;
 
 @end
 

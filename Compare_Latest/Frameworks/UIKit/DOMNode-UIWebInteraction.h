@@ -12,6 +12,7 @@
 - (id)absoluteQuadsAtPoint:(struct CGPoint)arg1;
 - (BOOL)touchCalloutEnabled;
 - (id)tapHighlightColor;
+- (BOOL)alwaysAttemptToShowTapHighlight;
 - (BOOL)showsTapHighlight;
 @end
 

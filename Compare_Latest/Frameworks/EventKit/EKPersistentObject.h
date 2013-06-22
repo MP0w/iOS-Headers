@@ -24,6 +24,8 @@
 @property(retain, nonatomic) NSMutableDictionary *committedProperties; // @synthesize committedProperties=_committedProperties;
 - (id)dump;
 - (void)_loadDefaultPropertiesIfNeeded;
+- (void)_takeValuesForDefaultProperties:(id)arg1;
+- (void)takeValues:(id)arg1 forProperties:(id)arg2;
 - (id)_loadChildIdentifiersForKey:(id)arg1;
 - (BOOL)_loadRelationForKey:(id)arg1 value:(id *)arg2;
 - (void)primitiveSetDataValue:(id)arg1 forKey:(id)arg2;
@@ -62,6 +64,7 @@
 - (void)_addReference:(id)arg1 forKey:(id)arg2;
 - (void)_releaseLoadedProperties;
 - (void)_setProperty:(id)arg1 forKey:(id)arg2;
+- (void)_fastpathSetProperty:(id)arg1 forKey:(id)arg2 isRelation:(BOOL)arg3;
 - (id)_propertyForKey:(id)arg1;
 - (BOOL)_shouldRetainPropertyForKey:(id)arg1;
 - (id)_relationForKey:(id)arg1;
@@ -95,7 +98,6 @@
 @property(readonly, nonatomic) EKEventStore *eventStore;
 - (int)entityType;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
 - (void)dealloc;
 - (id)init;
 - (id)initCommon;

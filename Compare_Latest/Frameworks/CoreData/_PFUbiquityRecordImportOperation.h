@@ -8,51 +8,40 @@
 
 #import "NSManagedObjectContextFaultingDelegate-Protocol.h"
 
-@class NSDictionary, NSManagedObjectContext, NSMutableDictionary, NSMutableSet, NSObject<_PFUbiquityRecordImportOperationDelegate>, NSPersistentStoreCoordinator, NSString, PFUbiquityImportContext, PFUbiquityTransactionLog;
+@class NSError, NSManagedObjectContext, NSMutableDictionary, NSMutableSet, NSObject<_PFUbiquityRecordImportOperationDelegate>, NSPersistentStore, NSPersistentStoreCoordinator, NSString, PFUbiquityImportContext, PFUbiquityKnowledgeVector, PFUbiquitySwitchboardEntry, PFUbiquityTransactionLog;
 
 @interface _PFUbiquityRecordImportOperation : PFUbiquityImportOperation <NSManagedObjectContextFaultingDelegate>
 {
     NSManagedObjectContext *_moc;
     NSPersistentStoreCoordinator *_psc;
+    NSPersistentStore *_store;
     PFUbiquityTransactionLog *_transactionLog;
+    PFUbiquitySwitchboardEntry *_entry;
     NSString *_localPeerID;
     NSMutableSet *_insertedObjectIDs;
     NSMutableSet *_updatedObjectIDs;
     NSMutableSet *_deletedObjectIDs;
-    NSDictionary *_logScore;
+    PFUbiquityKnowledgeVector *_logScore;
     NSMutableDictionary *_resolvedConflicts;
     BOOL _lockedExistingCoord;
-    NSDictionary *_initialStoreKnowledgeVector;
-    NSDictionary *_newUbiquityKnowledgeVector;
+    PFUbiquityKnowledgeVector *_initialStoreKnowledgeVector;
+    PFUbiquityKnowledgeVector *_updatedStoreKnowledgeVector;
     PFUbiquityImportContext *_importContext;
+    BOOL _success;
     BOOL _transactionDidRollback;
     int _inMemorySequenceNumber;
+    NSError *_operationError;
 }
 
-- (id)initWithTransactionLog:(id)arg1;
-- (id)initWithTransactionLog:(id)arg1 withLocalPeerID:(id)arg2;
-- (void)dealloc;
-- (id)copy;
-@property NSObject<_PFUbiquityRecordImportOperationDelegate> *delegate;
-- (void)notifyDelegateOfError:(id)arg1;
-- (BOOL)applyChangesFromStoreSaveSnapshot:(id)arg1 withImportContext:(id)arg2 withError:(id *)arg3;
-- (void)main;
-- (BOOL)processObjects:(id)arg1 withState:(int)arg2 andImportContext:(id)arg3 outError:(id *)arg4;
-- (BOOL)fillManagedObject:(id)arg1 fromUbiquityDictionary:(id)arg2 missingObjects:(id)arg3 importContext:(id)arg4 withError:(id *)arg5;
-- (void)addManagedObject:(id)arg1 missingObjectWithID:(id)arg2 atKey:(id)arg3 toMissingObjects:(id)arg4;
-- (id)checkPSCForStoreIdentifiedByImportContext:(id)arg1;
-- (void)initializePersistentStoreCoordinatorForImportContext:(id)arg1;
-- (id)newPersistentStoreCoordinatorForImportContext:(id)arg1;
-- (void)respondToStoreTransactionStateChangeNotification:(id)arg1;
-- (id)description;
-- (int)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
-- (void)coordinatorWillRemoveStore:(id)arg1;
+@property(readonly, nonatomic) NSError *operationError; // @synthesize operationError=_operationError;
+@property(readonly, nonatomic) BOOL success; // @synthesize success=_success;
+@property(readonly) NSPersistentStore *store; // @synthesize store=_store;
 @property(readonly, nonatomic) BOOL transactionDidRollBack; // @synthesize transactionDidRollBack=_transactionDidRollback;
-@property(readonly, nonatomic) NSDictionary *newUbiquityKnowledgeVector; // @synthesize newUbiquityKnowledgeVector=_newUbiquityKnowledgeVector;
+@property(readonly, nonatomic) PFUbiquityKnowledgeVector *updatedStoreKnowledgeVector; // @synthesize updatedStoreKnowledgeVector=_updatedStoreKnowledgeVector;
 @property(readonly, nonatomic) PFUbiquityImportContext *importContext; // @synthesize importContext=_importContext;
-@property(readonly) NSDictionary *initialStoreKnowledgeVector; // @synthesize initialStoreKnowledgeVector=_initialStoreKnowledgeVector;
+@property(readonly) PFUbiquityKnowledgeVector *initialStoreKnowledgeVector; // @synthesize initialStoreKnowledgeVector=_initialStoreKnowledgeVector;
 @property BOOL lockedExistingCoord; // @synthesize lockedExistingCoord=_lockedExistingCoord;
-@property(retain, nonatomic) NSDictionary *logScore; // @synthesize logScore=_logScore;
+@property(retain, nonatomic) PFUbiquityKnowledgeVector *logScore; // @synthesize logScore=_logScore;
 @property(readonly, nonatomic) NSMutableDictionary *resolvedConflicts; // @synthesize resolvedConflicts=_resolvedConflicts;
 @property(readonly, nonatomic) NSMutableSet *deletedObjectIDs; // @synthesize deletedObjectIDs=_deletedObjectIDs;
 @property(readonly, nonatomic) NSMutableSet *updatedObjectIDs; // @synthesize updatedObjectIDs=_updatedObjectIDs;
@@ -61,6 +50,22 @@
 @property(readonly, nonatomic) PFUbiquityTransactionLog *transactionLog; // @synthesize transactionLog=_transactionLog;
 @property(readonly) NSPersistentStoreCoordinator *psc; // @synthesize psc=_psc;
 @property(readonly) NSManagedObjectContext *moc; // @synthesize moc=_moc;
+- (void)coordinatorWillRemoveStore:(id)arg1;
+- (int)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
+- (id)description;
+- (void)respondToStoreTransactionStateChangeNotification:(id)arg1;
+- (BOOL)fillManagedObject:(id)arg1 withGlobalID:(id)arg2 fromUbiquityDictionary:(id)arg3 missingObjects:(id)arg4 importContext:(id)arg5 withError:(id *)arg6;
+- (BOOL)processObjects:(id)arg1 withState:(int)arg2 andImportContext:(id)arg3 outError:(id *)arg4;
+- (void)main;
+- (BOOL)applyChangesFromStoreSaveSnapshot:(id)arg1 withImportContext:(id)arg2 withError:(id *)arg3;
+- (void)notifyDelegateOfError:(id)arg1;
+- (id)retainedDelegate;
+@property NSObject<_PFUbiquityRecordImportOperationDelegate> *delegate;
+- (id)copy;
+- (void)dealloc;
+- (id)initWithTransactionLog:(id)arg1 withLocalPeerID:(id)arg2;
+- (id)initWithTransactionLog:(id)arg1;
+- (id)init;
 
 @end
 

@@ -15,14 +15,14 @@
     NSMutableSet *_failedResponseItems;
 }
 
-- (void)dealloc;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (id)copyParseRules;
-- (void)addNewTopLevelItem:(id)arg1;
-- (id)description;
 @property(retain) NSMutableSet *failedResponseItems; // @synthesize failedResponseItems=_failedResponseItems;
 @property(retain) NSMutableSet *successfulICS; // @synthesize successfulICS=_successfulICS;
 @property(retain) NSMutableSet *responses; // @synthesize responses=_responses;
+- (id)description;
+- (void)addNewTopLevelItem:(id)arg1;
+- (id)copyParseRules;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (void)dealloc;
 
 @end
 

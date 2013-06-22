@@ -20,19 +20,19 @@
     CPTracing *mTracing;
 }
 
-- (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
-- (void)dealloc;
-- (struct XlLinkTable *)xlLinkTable;
-- (struct XlNameTable *)xlNameTable;
-- (ChVector_be6372b9 *)sheetNames;
-- (struct XlFormulaProcessor *)xlFormulaProcessor;
-- (id)workbook;
-- (void)setWorkbook:(id)arg1;
-- (id)resources;
-- (void)setResources:(id)arg1;
-- (BOOL)isCancelled;
-- (id)tracing;
 @property(readonly, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
+- (id)tracing;
+- (BOOL)isCancelled;
+- (void)setResources:(id)arg1;
+- (id)resources;
+- (void)setWorkbook:(id)arg1;
+- (id)workbook;
+- (struct XlFormulaProcessor *)xlFormulaProcessor;
+- (ChVector_be6372b9 *)sheetNames;
+- (struct XlNameTable *)xlNameTable;
+- (struct XlLinkTable *)xlLinkTable;
+- (void)dealloc;
+- (id)initWithCancelDelegate:(id)arg1 tracing:(id)arg2;
 
 @end
 

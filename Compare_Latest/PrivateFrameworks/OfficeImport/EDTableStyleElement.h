@@ -20,17 +20,17 @@
 }
 
 + (id)tableStyleElementWithResources:(id)arg1;
-- (id)initWithResources:(id)arg1;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)key;
-- (int)type;
-- (void)setType:(int)arg1;
-- (unsigned int)bandSize;
-- (void)setBandSize:(unsigned int)arg1;
-- (id)differentialStyle;
-- (void)setDifferentialStyle:(id)arg1;
 - (void)setDifferentialStyleWithIndex:(unsigned int)arg1;
+- (void)setDifferentialStyle:(id)arg1;
+- (id)differentialStyle;
+- (void)setBandSize:(unsigned int)arg1;
+- (unsigned int)bandSize;
+- (void)setType:(int)arg1;
+- (int)type;
+- (int)key;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithResources:(id)arg1;
 
 @end
 

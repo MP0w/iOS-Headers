@@ -11,8 +11,9 @@
     GQDTCell *mResultCell;
 }
 
-- (void)dealloc;
 - (id)resultCell;
+- (void)dealloc;
+- (void)setResultCell:(id)arg1;
 
 @end
 

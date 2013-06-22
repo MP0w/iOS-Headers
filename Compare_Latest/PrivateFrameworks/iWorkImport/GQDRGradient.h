@@ -19,13 +19,15 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (struct __CFArray *)stops;
-- (int)type;
-- (float)opacity;
-- (float)angle;
-- (struct CGPoint)start;
+- (id).cxx_construct;
 - (struct CGPoint)end;
+- (struct CGPoint)start;
+- (float)angle;
+- (float)opacity;
+- (int)type;
+- (struct __CFArray *)stops;
+- (void)dealloc;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

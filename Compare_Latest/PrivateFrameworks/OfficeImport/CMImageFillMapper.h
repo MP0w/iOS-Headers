@@ -14,13 +14,16 @@
     OADOrientedBounds *mBounds;
 }
 
-- (id)initWithOadFill:(id)arg1 bounds:(id)arg2 parent:(id)arg3;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (id)mapImageFill:(id)arg1 withState:(id)arg2;
-- (void)mapImageFillAt:(id)arg1 toStyle:(id)arg2 withState:(id)arg3;
-- (void)mapNonImageFillAt:(id)arg1 toStyle:(id)arg2 withState:(id)arg3;
-- (struct CGRect)uncroppedBox;
 - (BOOL)isCropped;
+- (struct CGRect)uncroppedBox;
+- (void)mapNonImageFillAt:(id)arg1 toStyle:(id)arg2 withState:(id)arg3;
+- (void)mapImageFillAt:(id)arg1 toStyle:(id)arg2 withState:(id)arg3;
+- (id)mapImageFill:(id)arg1 withState:(id)arg2;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id)initWithOadFill:(id)arg1 bounds:(id)arg2 parent:(id)arg3;
+- (id)convertMetafileToPdf:(id)arg1 state:(id)arg2;
+- (id)blipAtIndex:(unsigned int)arg1;
+- (id)mainSubBlip;
 
 @end
 

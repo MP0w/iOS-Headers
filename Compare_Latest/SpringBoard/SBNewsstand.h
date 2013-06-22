@@ -10,30 +10,25 @@
 {
 }
 
-+ (void)initialize;
-+ (void)_buildCacheDirectory;
-+ (id)cachePath;
-+ (void)setupCache;
-+ (void)removeCacheFiles;
-+ (void)removeLocalizedCacheFiles;
-+ (void)openNewsstandAppStore;
-+ (void)_loadDefaults;
-+ (void)_updateStoreAvailability;
-+ (void)_checkStoreSupport;
-+ (void)noteCapabilitiesDidChange;
-+ (void)reloadDefaults;
-+ (void)_availableStoreItemKindsDidChange:(id)arg1;
-+ (void)_iconVisibilityDidChange:(id)arg1;
-+ (BOOL)newsstandEnabled;
-+ (BOOL)newsstandStoreIsAvailable;
-+ (BOOL)_newsstandStoreIsRestricted;
-+ (BOOL)_newsstandStoreIsSupported;
-+ (BOOL)disableIconSkew;
-+ (BOOL)alwaysShowIconLabels;
-+ (BOOL)addManyIcons;
-+ (id)bundleIDToReplicate;
-+ (BOOL)debugRotation;
 + (BOOL)addFakeApps;
++ (BOOL)debugRotation;
++ (id)bundleIDToReplicate;
++ (BOOL)addManyIcons;
++ (BOOL)alwaysShowIconLabels;
++ (BOOL)disableIconSkew;
++ (BOOL)_newsstandStoreIsSupported;
++ (BOOL)_newsstandStoreIsRestricted;
++ (BOOL)newsstandStoreIsAvailable;
++ (BOOL)newsstandEnabled;
++ (void)_iconVisibilityDidChange:(id)arg1;
++ (void)_availableStoreItemKindsDidChange:(id)arg1;
++ (void)reloadDefaults;
++ (void)noteCapabilitiesDidChange;
++ (void)_checkStoreSupport;
++ (void)_updateStoreAvailability;
++ (void)_loadDefaults;
++ (void)openNewsstandAppStore;
++ (void)initialize;
 
 @end
 

@@ -12,11 +12,11 @@
     float mLineSpacingReductionPercent;
 }
 
-- (id)initWithFontScalePercent:(float)arg1 lineSpacingReductionPercent:(float)arg2;
-- (float)fontScalePercent;
-- (float)lineSpacingReductionPercent;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (float)lineSpacingReductionPercent;
+- (float)fontScalePercent;
+- (id)initWithFontScalePercent:(float)arg1 lineSpacingReductionPercent:(float)arg2;
 
 @end
 

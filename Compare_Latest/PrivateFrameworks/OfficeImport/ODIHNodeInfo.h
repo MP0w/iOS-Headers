@@ -17,22 +17,23 @@
     struct ODIHRangeVector *mXRanges;
 }
 
-- (id)init;
-- (void)dealloc;
-- (struct ODIHRange)xRange;
-- (void)setXRange:(struct ODIHRange)arg1;
-- (int)treeDepth;
-- (void)setTreeDepth:(int)arg1;
-- (int)row;
-- (void)setRow:(int)arg1;
-- (BOOL)connectToVerticalSide;
-- (void)setConnectToVerticalSide:(BOOL)arg1;
-- (int)extraRowsBetweenParentAndSelf;
-- (void)setExtraRowsBetweenParentAndSelf:(int)arg1;
-- (float)xOffsetRelativeToParent;
-- (void)setXOffsetRelativeToParent:(float)arg1;
-- (void)addToXOffsetRelativeToParent:(float)arg1;
+- (id).cxx_construct;
 - (struct ODIHRangeVector *)xRanges;
+- (void)addToXOffsetRelativeToParent:(float)arg1;
+- (void)setXOffsetRelativeToParent:(float)arg1;
+- (float)xOffsetRelativeToParent;
+- (void)setExtraRowsBetweenParentAndSelf:(int)arg1;
+- (int)extraRowsBetweenParentAndSelf;
+- (void)setConnectToVerticalSide:(BOOL)arg1;
+- (BOOL)connectToVerticalSide;
+- (void)setRow:(int)arg1;
+- (int)row;
+- (void)setTreeDepth:(int)arg1;
+- (int)treeDepth;
+- (void)setXRange:(struct ODIHRange)arg1;
+- (struct ODIHRange)xRange;
+- (void)dealloc;
+- (id)init;
 
 @end
 

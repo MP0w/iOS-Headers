@@ -15,10 +15,10 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
-- (float)fraction;
 - (id)color;
+- (float)fraction;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
+- (void)dealloc;
 
 @end
 

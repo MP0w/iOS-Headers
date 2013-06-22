@@ -12,7 +12,7 @@
 
 @interface UIImagePickerController : UINavigationController <NSCoding>
 {
-    unsigned int _sourceType;
+    int _sourceType;
     id _image;
     struct CGRect _cropRect;
     NSArray *_mediaTypes;
@@ -26,13 +26,13 @@
     } _imagePickerFlags;
 }
 
-+ (BOOL)isFlashAvailableForCameraDevice:(unsigned int)arg1;
-+ (id)availableCaptureModesForCameraDevice:(unsigned int)arg1;
-+ (BOOL)isCameraDeviceAvailable:(unsigned int)arg1;
-+ (id)availableMediaTypesForSourceType:(unsigned int)arg1;
++ (BOOL)isFlashAvailableForCameraDevice:(int)arg1;
++ (id)availableCaptureModesForCameraDevice:(int)arg1;
++ (BOOL)isCameraDeviceAvailable:(int)arg1;
++ (id)availableMediaTypesForSourceType:(int)arg1;
 + (BOOL)_reviewCapturedItems;
-+ (BOOL)_isMediaTypeAvailable:(id)arg1 forSource:(unsigned int)arg2;
-+ (BOOL)isSourceTypeAvailable:(unsigned int)arg1;
++ (BOOL)_isMediaTypeAvailable:(id)arg1 forSource:(int)arg2;
++ (BOOL)isSourceTypeAvailable:(int)arg1;
 - (void)_imagePickerDidCompleteWithInfoArray:(id)arg1;
 - (void)_imagePickerDidCompleteWithInfo:(id)arg1;
 - (void)_imagePickerDidCancel;
@@ -42,6 +42,8 @@
 - (void)_setupControllersForCurrentSourceType;
 - (id)_createInitialController;
 - (void)_removeAllChildren;
+- (unsigned int)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
 - (BOOL)_didRevertStatusBar;
 - (void)viewDidDisappear:(BOOL)arg1;
@@ -49,9 +51,9 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewWillUnload;
 @property(nonatomic) int cameraFlashMode;
-@property(nonatomic) unsigned int cameraCaptureMode;
-- (BOOL)_isCameraCaptureModeValid:(unsigned int)arg1;
-@property(nonatomic) unsigned int cameraDevice;
+@property(nonatomic) int cameraCaptureMode;
+- (BOOL)_isCameraCaptureModeValid:(int)arg1;
+@property(nonatomic) int cameraDevice;
 - (void)stopVideoCapture;
 - (BOOL)startVideoCapture;
 - (void)takePicture;
@@ -69,14 +71,14 @@
 - (void)_setProperties:(id)arg1;
 - (BOOL)_allowsImageEditing;
 - (void)_setAllowsImageEditing:(BOOL)arg1;
-@property(nonatomic) unsigned int videoQuality;
+@property(nonatomic) int videoQuality;
 @property(nonatomic) double videoMaximumDuration;
 @property(nonatomic) BOOL allowsEditing;
 @property(nonatomic) BOOL allowsImageEditing;
 - (void)_setAllowsMultipleSelection:(BOOL)arg1;
 - (BOOL)_allowsMultipleSelection;
 @property(copy, nonatomic) NSArray *mediaTypes;
-@property(nonatomic) unsigned int sourceType;
+@property(nonatomic) int sourceType;
 - (void)_updateCameraCaptureMode;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedChildViewControllers:(id)arg1;

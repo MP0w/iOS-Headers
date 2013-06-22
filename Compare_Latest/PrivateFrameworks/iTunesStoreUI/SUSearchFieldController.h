@@ -12,14 +12,15 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class ISStoreURLOperation, NSArray, SUScriptTextFieldDelegate, SUSearchDisplayController, SUSearchFieldConfiguration, UISearchBar, UIViewController;
+@class ISStoreURLOperation, NSArray, SUClientInterface, SUScriptTextFieldDelegate, SUSearchDisplayController, SUSearchFieldConfiguration, UIControl, UISearchBar;
 
 @interface SUSearchFieldController : NSObject <ISStoreURLOperationDelegate, SUScriptTextFieldDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 {
+    SUClientInterface *_clientInterface;
     NSArray *_completions;
     ISStoreURLOperation *_completionsOperation;
     SUSearchFieldConfiguration *_configuration;
-    UIViewController *_dimmerViewController;
+    UIControl *_dimmerView;
     UISearchBar *_searchBar;
     SUSearchDisplayController *_searchController;
     int _searchFieldStyle;
@@ -32,6 +33,7 @@
 - (id)_targetViewController;
 - (void)_showDimmerView;
 - (void)_saveSearchTermToDefaults:(id)arg1;
+- (void)_resizeSearchBarForOrientation:(int)arg1;
 - (void)_reloadSearchBar;
 - (void)_reloadCompletionsForSearchString:(id)arg1;
 - (id)_newTransientViewController;
@@ -56,14 +58,18 @@
 - (BOOL)searchBarShouldEndEditing:(id)arg1;
 - (BOOL)searchBarShouldBeginEditing:(id)arg1;
 - (void)searchBarSearchButtonClicked:(id)arg1;
-- (void)scriptDidChangeTextForTextField:(id)arg1;
+- (void)searchBar:(id)arg1 textDidChange:(id)arg2;
+- (void)scriptDidChangeTextForField:(id)arg1;
 - (void)operationDidFinish:(id)arg1;
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
+- (void)willRotateToInterfaceOrientation:(int)arg1;
 @property(readonly, nonatomic) UISearchBar *searchBar;
+- (id)newRequestPropertiesWithSearchTerm:(id)arg1;
 @property(readonly, nonatomic, getter=isActive) BOOL active;
 - (void)handleSearchURL:(id)arg1;
 - (void)dealloc;
+- (id)initWithContentsController:(id)arg1 clientInterface:(id)arg2;
 - (id)initWithContentsController:(id)arg1;
 - (id)init;
 

@@ -10,14 +10,17 @@
 
 @interface GEOSource : PBCodable
 {
-    NSString *_sourceName;
     NSString *_sourceId;
+    NSString *_sourceName;
     NSString *_sourceVersion;
 }
 
 @property(retain, nonatomic) NSString *sourceVersion; // @synthesize sourceVersion=_sourceVersion;
 @property(retain, nonatomic) NSString *sourceId; // @synthesize sourceId=_sourceId;
 @property(retain, nonatomic) NSString *sourceName; // @synthesize sourceName=_sourceName;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

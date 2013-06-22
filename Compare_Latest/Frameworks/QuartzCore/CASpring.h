@@ -28,30 +28,31 @@
     void *_priv;
 }
 
-+ (id)spring;
 + (id)defaultValueForKey:(id)arg1;
-- (id)init;
-@property(copy) NSString *name;
-@property(getter=isEnabled) BOOL enabled;
-@property(retain) CALayer *layerA;
-@property(retain) CALayer *layerB;
-@property struct CGPoint attachmentPointA;
-@property struct CGPoint attachmentPointB;
-@property float stiffness;
-@property float damping;
-@property float restLength;
-@property(retain) CAValueFunction *function;
-@property id delegate;
-- (void)dealloc;
-- (struct Object *)CA_copyRenderValue;
-- (id)valueForKey:(id)arg1;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)valueForKeyPath:(id)arg1;
-- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (void)encodeWithCoder:(id)arg1;
++ (id)spring;
+- (id).cxx_construct;
 - (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
+- (id)valueForKeyPath:(id)arg1;
+- (void)setValue:(id)arg1 forKey:(id)arg2;
+- (id)valueForKey:(id)arg1;
+- (struct Object *)CA_copyRenderValue;
+- (void)dealloc;
+@property id delegate;
+@property(retain) CAValueFunction *function;
+@property float restLength;
+@property float damping;
+@property float stiffness;
+@property struct CGPoint attachmentPointB;
+@property struct CGPoint attachmentPointA;
+@property(retain) CALayer *layerB;
+@property(retain) CALayer *layerA;
+@property(getter=isEnabled) BOOL enabled;
+@property(copy) NSString *name;
+- (id)init;
 
 @end
 

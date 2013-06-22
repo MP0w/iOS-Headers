@@ -10,29 +10,26 @@
 
 @interface GEOPlace : PBCodable
 {
-    BOOL _hasUID;
-    long long _uID;
-    BOOL _hasVersion;
-    int _version;
-    BOOL _hasType;
-    int _type;
-    NSString *_name;
-    GEOMapRegion *_mapRegion;
-    GEOAddress *_address;
-    NSString *_phoneticName;
-    GEOAddress *_phoneticAddress;
-    GEOLatLng *_center;
-    NSMutableArray *_business;
-    BOOL _hasAddressGeocodeAccuracy;
-    int _addressGeocodeAccuracy;
-    BOOL _hasGeoId;
     long long _geoId;
+    long long _uID;
+    GEOAddress *_address;
+    int _addressGeocodeAccuracy;
+    NSMutableArray *_business;
+    GEOLatLng *_center;
+    NSMutableArray *_entryPoints;
+    GEOMapRegion *_mapRegion;
+    NSString *_name;
+    GEOAddress *_phoneticAddress;
+    NSString *_phoneticName;
+    int _type;
+    int _version;
+    BOOL _isDisputed;
+    CDStruct_22b2dcc1 _has;
 }
 
 @property(nonatomic) long long geoId; // @synthesize geoId=_geoId;
-@property(nonatomic) BOOL hasGeoId; // @synthesize hasGeoId=_hasGeoId;
+@property(retain, nonatomic) NSMutableArray *entryPoints; // @synthesize entryPoints=_entryPoints;
 @property(nonatomic) int addressGeocodeAccuracy; // @synthesize addressGeocodeAccuracy=_addressGeocodeAccuracy;
-@property(nonatomic) BOOL hasAddressGeocodeAccuracy; // @synthesize hasAddressGeocodeAccuracy=_hasAddressGeocodeAccuracy;
 @property(retain, nonatomic) NSMutableArray *business; // @synthesize business=_business;
 @property(retain, nonatomic) GEOLatLng *center; // @synthesize center=_center;
 @property(retain, nonatomic) GEOAddress *phoneticAddress; // @synthesize phoneticAddress=_phoneticAddress;
@@ -41,25 +38,38 @@
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) int type; // @synthesize type=_type;
-@property(nonatomic) BOOL hasType; // @synthesize hasType=_hasType;
 @property(nonatomic) int version; // @synthesize version=_version;
-@property(nonatomic) BOOL hasVersion; // @synthesize hasVersion=_hasVersion;
 @property(nonatomic) long long uID; // @synthesize uID=_uID;
-@property(nonatomic) BOOL hasUID; // @synthesize hasUID=_hasUID;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasGeoId;
+@property(nonatomic) BOOL hasIsDisputed;
+@property(nonatomic) BOOL isDisputed; // @synthesize isDisputed=_isDisputed;
+- (id)entryPointAtIndex:(unsigned int)arg1;
+- (unsigned int)entryPointsCount;
+- (void)addEntryPoint:(id)arg1;
+- (void)clearEntryPoints;
+@property(nonatomic) BOOL hasAddressGeocodeAccuracy;
 - (id)businessAtIndex:(unsigned int)arg1;
 - (unsigned int)businessCount;
 - (void)addBusiness:(id)arg1;
+- (void)clearBusiness;
 @property(readonly, nonatomic) BOOL hasCenter;
 @property(readonly, nonatomic) BOOL hasPhoneticAddress;
 @property(readonly, nonatomic) BOOL hasPhoneticName;
 @property(readonly, nonatomic) BOOL hasAddress;
 @property(readonly, nonatomic) BOOL hasMapRegion;
 @property(readonly, nonatomic) BOOL hasName;
+@property(nonatomic) BOOL hasType;
+@property(nonatomic) BOOL hasVersion;
+@property(nonatomic) BOOL hasUID;
 - (void)dealloc;
+- (id)addressDictionary;
 
 @end
 

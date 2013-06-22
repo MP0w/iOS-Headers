@@ -17,15 +17,15 @@
 }
 
 + (id)pivotConditionalFormat;
-- (id)init;
-- (void)dealloc;
-- (unsigned int)priority;
-- (void)setPriority:(unsigned int)arg1;
-- (int)type;
-- (void)setType:(int)arg1;
-- (int)scope;
-- (void)setScope:(int)arg1;
 - (id)pivotAreas;
+- (void)setScope:(int)arg1;
+- (int)scope;
+- (void)setType:(int)arg1;
+- (int)type;
+- (void)setPriority:(unsigned int)arg1;
+- (unsigned int)priority;
+- (void)dealloc;
+- (id)init;
 
 @end
 

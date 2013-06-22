@@ -35,6 +35,7 @@
 - (id)userAgent;
 - (void)dealloc;
 - (id)init;
+- (void)_initPlatform;
 
 @end
 

@@ -7,9 +7,14 @@
 #import "NSObject-Protocol.h"
 
 @protocol GEOTileServerProxy <NSObject>
+- (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
+- (void)endPreloadSession;
+- (void)beginPreloadSessionOfSize:(unsigned long long)arg1;
+- (void)shrinkDiskCacheToSize:(unsigned long long)arg1 finished:(id)arg2;
 - (void)flushPendingWrites;
 - (void)openCacheConnection;
 - (void)closeCacheConnection;
+- (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)dataForKey:(struct _GEOTileKey *)arg1 asyncHandler:(id)arg2;
 - (id)dataForKey:(struct _GEOTileKey *)arg1;
 - (void)cancelLoad:(id)arg1;

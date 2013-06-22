@@ -6,23 +6,22 @@
 
 #import "NSObject.h"
 
-@class IMAVCamera, NSArray, NSMutableArray;
+@class IMAVCamera, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface IMAVCameraController : NSObject
 {
     NSMutableArray *_cameras;
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) IMAVCamera *currentCamera;
 - (void)_loadSavedCamera;
 - (void)_rebuildCameraList;
+- (id)cameraWithDeviceID:(unsigned int)arg1;
 @property(readonly, nonatomic) NSArray *cameras;
 - (void)dealloc;
 - (id)init;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

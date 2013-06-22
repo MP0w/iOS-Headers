@@ -18,7 +18,6 @@
 }
 
 @property(nonatomic) int autorotationState; // @synthesize autorotationState=_autorotationState;
-- (void)setInhibitOverlay:(BOOL)arg1;
 - (BOOL)inhibitOverlay;
 - (void)_reallyRemoveOverlay;
 - (void)_rotationAnimationFinished:(id)arg1;
@@ -26,9 +25,10 @@
 - (id)swipableView:(id)arg1 overrideHitTest:(struct CGPoint)arg2 withEvent:(id)arg3;
 - (void)overlayTappedScaleModeButton:(id)arg1;
 - (void)overlayTappedBackButton:(id)arg1;
-- (BOOL)transportControls:(id)arg1 tappedButtonPart:(unsigned int)arg2;
+- (BOOL)transportControls:(id)arg1 tappedButtonPart:(unsigned long long)arg2;
+- (void)setInhibitOverlay:(BOOL)arg1;
 - (void)videoView_itemTypeAvailableNotification:(id)arg1;
-- (void)playbackStateDidChangeNotification:(id)arg1;
+- (void)videoView_playbackStateChangedNotification:(id)arg1;
 - (void)hideOverlayAnimated:(BOOL)arg1;
 - (void)showOverlayAnimated:(BOOL)arg1;
 - (id)videoOverlayViewIfLoaded;
@@ -41,9 +41,9 @@
 - (void)showChaptersController;
 - (id)createChapterFlipTransition;
 - (void)setTVOutEnabled:(BOOL)arg1;
-- (void)setDisabledParts:(unsigned int)arg1;
-- (void)setVisibleParts:(unsigned int)arg1 animate:(BOOL)arg2;
-- (void)setDesiredParts:(unsigned int)arg1 animate:(BOOL)arg2;
+- (void)setDisabledParts:(unsigned long long)arg1;
+- (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+- (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (void)setItem:(id)arg1;
 - (void)removeChildViewController:(id)arg1;
 - (void)noteIgnoredChangeTypes:(unsigned int)arg1;

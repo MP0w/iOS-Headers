@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (UIAccessibilityPrivate)
++ (BOOL)__accessibilityGuidedAccessStateEnabled;
 - (void)_accessibilityFinalize;
 - (void)accessibilitySetIdentification:(id)arg1;
 @end

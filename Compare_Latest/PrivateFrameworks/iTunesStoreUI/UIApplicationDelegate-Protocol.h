@@ -12,6 +12,12 @@
 
 @optional
 @property(retain, nonatomic) UIWindow *window;
+- (void)application:(id)arg1 didDecodeRestorableStateWithCoder:(id)arg2;
+- (void)application:(id)arg1 willEncodeRestorableStateWithCoder:(id)arg2;
+- (BOOL)application:(id)arg1 shouldRestoreApplicationState:(id)arg2;
+- (BOOL)application:(id)arg1 shouldSaveApplicationState:(id)arg2;
+- (id)application:(id)arg1 viewControllerWithRestorationIdentifierPath:(id)arg2 coder:(id)arg3;
+- (unsigned int)application:(id)arg1 supportedInterfaceOrientationsForWindow:(id)arg2;
 - (void)applicationProtectedDataDidBecomeAvailable:(id)arg1;
 - (void)applicationProtectedDataWillBecomeUnavailable:(id)arg1;
 - (void)applicationWillEnterForeground:(id)arg1;
@@ -32,6 +38,7 @@
 - (void)applicationWillResignActive:(id)arg1;
 - (void)applicationDidBecomeActive:(id)arg1;
 - (BOOL)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2;
+- (BOOL)application:(id)arg1 willFinishLaunchingWithOptions:(id)arg2;
 - (void)applicationDidFinishLaunching:(id)arg1;
 @end
 

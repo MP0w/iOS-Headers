@@ -7,12 +7,13 @@
 #import <EventKitUI/EKEditItemViewController.h>
 
 #import "EKEventAttachmentCellControllerDelegate-Protocol.h"
+#import "UIDocumentInteractionControllerDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
 @class NSArray, UITableView;
 
-@interface EKEventAttachmentEditViewController : EKEditItemViewController <UITableViewDataSource, UITableViewDelegate, EKEventAttachmentCellControllerDelegate>
+@interface EKEventAttachmentEditViewController : EKEditItemViewController <UITableViewDataSource, UITableViewDelegate, EKEventAttachmentCellControllerDelegate, UIDocumentInteractionControllerDelegate>
 {
     UITableView *_table;
     NSArray *_cellControllers;
@@ -20,8 +21,9 @@
 }
 
 @property(nonatomic) id <EKEventAttachmentEditViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)documentInteractionControllerWillEndPreview:(id)arg1;
+- (id)documentInteractionControllerViewControllerForPreview:(id)arg1;
 - (id)owningEventForAttachmentCellController:(id)arg1;
-- (id)parentViewControllerForAttachmentCellController:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

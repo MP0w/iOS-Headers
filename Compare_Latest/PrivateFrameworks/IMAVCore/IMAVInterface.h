@@ -11,19 +11,20 @@
 @interface IMAVInterface : NSObject
 {
     id _delegate;
-    BOOL _keepCameraRunning;
 }
 
 + (id)alloc;
 + (id)sharedInstance;
-@property(nonatomic) BOOL shouldKeepCameraRunning; // @synthesize shouldKeepCameraRunning=_keepCameraRunning;
 @property id delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) BOOL _previewStarted;
 @property(retain, nonatomic, setter=_setCurrentCamera:) IMAVCamera *_currentCamera;
 @property(retain, nonatomic, setter=_setCurrentMicrophone:) IMAVMicrophone *_currentMicrophone;
-- (int)_checkNetworkForChat:(id)arg1;
+- (int)_runPingTestForChat:(id)arg1;
+- (int)_checkNetworkForChat:(id)arg1 requiresWifi:(BOOL)arg2;
+- (BOOL)_submitEndCallMetric:(id)arg1 forChat:(id)arg2;
 - (BOOL)_submitLoggingInformation:(id)arg1 forChat:(id)arg2;
 - (void)avChat:(id)arg1 setLocalLandscapeAspectRatio:(struct CGSize)arg2 localPortraitAspectRatio:(struct CGSize)arg3;
+@property(nonatomic) BOOL shouldKeepCameraRunning;
 - (void)persistentProperty:(id)arg1 changedTo:(id)arg2 from:(id)arg3;
 @property(readonly, nonatomic) id _controller;
 @property(readonly, nonatomic) id controller;
@@ -32,10 +33,13 @@
 - (void)handleRelayInitate:(id)arg1 fromParticipant:(id)arg2;
 @property(readonly, nonatomic) BOOL supportsRelay;
 @property(nonatomic) unsigned int maxBitrate;
+- (void)setRemoteVideoLayersFromChat:(id)arg1 toChat:(id)arg2;
 @property(nonatomic) void *localVideoBackLayer;
-@property(nonatomic) void *remoteVideoBackLayer;
 @property(nonatomic) void *localVideoLayer;
-@property(nonatomic) void *remoteVideoLayer;
+- (void)setRemoteVideoBackLayer:(void *)arg1 forChat:(id)arg2;
+- (void *)remoteVideoBackLayerForChat:(id)arg1;
+- (void)setRemoteVideoLayer:(void *)arg1 forChat:(id)arg2;
+- (void *)remoteVideoLayerForChat:(id)arg1;
 @property(readonly, nonatomic) BOOL supportsLayers;
 - (id)avChat:(id)arg1 IPAndPortDataWithCallerIP:(id)arg2 callerSIPPort:(unsigned int)arg3 shouldFindExternalIP:(BOOL)arg4;
 - (id)avChat:(id)arg1 IPAndPortDataWithCallerIPAndPortData:(id)arg2 shouldFindExternalIP:(BOOL)arg3;
@@ -44,7 +48,7 @@
 - (id)natTypeForAVChat:(id)arg1;
 - (id)getNatIPFromICEData:(id)arg1;
 - (void)avChat:(id)arg1 setUserName:(id)arg2;
-- (id)avChat:(id)arg1 localICEDataForHandle:(id)arg2 usingRelay:(BOOL)arg3;
+- (id)avChat:(id)arg1 localICEDataForHandleID:(id)arg2 service:(id)arg3 usingRelay:(BOOL)arg4 supportsARDMuxing:(BOOL)arg5;
 - (void)avChat:(id)arg1 prepareConnectionWithRemoteConnectionData:(id)arg2 localConnectionData:(id)arg3;
 - (unsigned int)avChat:(id)arg1 enableAudioReflector:(BOOL)arg2;
 - (void)avChat:(id)arg1 enableSoftwareMicrophone:(BOOL)arg2;
@@ -78,19 +82,16 @@
 - (float)audioVolumeForAVChat:(id)arg1;
 @property(nonatomic) unsigned int cameraOrientation;
 - (unsigned int)cameraOrientationForAVChat:(id)arg1;
-- (void)avChat:(id)arg1 setCameraOrientation:(unsigned int)arg2;
+- (BOOL)avChat:(id)arg1 setCameraOrientation:(unsigned int)arg2;
 @property(nonatomic) unsigned int cameraType;
 - (unsigned int)cameraTypeForAVChat:(id)arg1;
-- (void)avChat:(id)arg1 setCameraType:(unsigned int)arg2;
+- (BOOL)avChat:(id)arg1 setCameraType:(unsigned int)arg2;
+@property(readonly, nonatomic) BOOL systemSupportsBackFacingCamera;
+@property(readonly, nonatomic) BOOL systemSupportsFrontFacingCamera;
 @property(readonly, nonatomic) BOOL systemCanRecordVideo;
 @property(readonly, nonatomic) BOOL systemCanRecordAudio;
 - (BOOL)allowsVideoForAVChat:(id)arg1;
 - (void)avChat:(id)arg1 setAllowsVideo:(BOOL)arg2;
-- (BOOL)systemCanSendFullHD;
-- (BOOL)systemCanReceiveHighRes;
-- (BOOL)systemCanSendHighRes;
-- (BOOL)systemCanReceiveWidescreen;
-- (BOOL)systemCanSendWidescreen;
 @property(readonly, nonatomic) BOOL systemCanHostMultiwayAudio;
 @property(readonly, nonatomic) BOOL systemCanHostMultiwayVideo;
 @property(readonly, nonatomic) BOOL systemCanAudioChat;
@@ -104,13 +105,10 @@
 - (void)_notifyAboutPotentialCallForChat:(id)arg1;
 - (void)_conferenceEnded:(id)arg1;
 - (void)_conferenceWillStart:(id)arg1;
-- (void)invalidateAVInterface;
 - (void)cleanupAVInterface;
 - (void)initAVInterface;
 - (void)_avChatDealloc:(id)arg1;
 - (void)dealloc;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

@@ -23,7 +23,6 @@
     float _quadraticAttenuation;
     GLKEffectPropertyTransform *_transform;
     union _GLKVector4 _positionEye;
-    union _GLKVector4 _white;
     union _GLKVector3 _normalizedSpotDirectionEye;
     float _spotCutoffDegrees;
     unsigned long long *_effectDirtyUniforms;
@@ -43,12 +42,13 @@
     int _lightIndex;
     int _lightingType;
     unsigned char _firstLight;
-    unsigned char _useConstantColor;
+    struct GLKBigInt_s _allVshMasks;
+    struct GLKBigInt_s _allFshMasks;
 }
 
 + (void)setStaticMasksWithVshRoot:(id)arg1 fshRoot:(id)arg2;
-+ (id)effectPropertyWithAttrib:(int)arg1;
-@property(nonatomic) unsigned char useConstantColor; // @synthesize useConstantColor=_useConstantColor;
+@property(readonly, nonatomic) struct GLKBigInt_s allFshMasks; // @synthesize allFshMasks=_allFshMasks;
+@property(readonly, nonatomic) struct GLKBigInt_s allVshMasks; // @synthesize allVshMasks=_allVshMasks;
 @property(nonatomic) unsigned char firstLight; // @synthesize firstLight=_firstLight;
 @property(nonatomic) int lightingType; // @synthesize lightingType=_lightingType;
 @property(nonatomic) int lightIndex; // @synthesize lightIndex=_lightIndex;
@@ -73,7 +73,6 @@
 @property(nonatomic) float spotCutoffDegrees; // @synthesize spotCutoffDegrees=_spotCutoffDegrees;
 @property(nonatomic) float spotExponent; // @synthesize spotExponent=_spotExponent;
 @property(nonatomic) union _GLKVector3 normalizedSpotDirectionEye; // @synthesize normalizedSpotDirectionEye=_normalizedSpotDirectionEye;
-@property(nonatomic) union _GLKVector4 white; // @synthesize white=_white;
 @property(nonatomic) union _GLKVector3 spotDirection; // @synthesize spotDirection=_spotDirection;
 @property(nonatomic) union _GLKVector4 specularColor; // @synthesize specularColor=_specularColor;
 @property(nonatomic) union _GLKVector4 diffuseColor; // @synthesize diffuseColor=_diffuseColor;
@@ -82,29 +81,19 @@
 @property(nonatomic) union _GLKVector4 position; // @synthesize position=_position;
 @property(nonatomic) unsigned char enabled; // @synthesize enabled=_enabled;
 - (void)dealloc;
-- (char **)fshMaskStr;
-- (char **)vshMaskStr;
-- (unsigned int)fshMaskCt;
-- (unsigned int)vshMaskCt;
-- (struct GLKBigInt_s *)fshMasks;
-- (struct GLKBigInt_s *)vshMasks;
+- (id)description;
 - (void)bind;
-- (void)attenuateMask;
 @property(readonly, nonatomic) unsigned char isAttenuated;
-- (void)spotMask;
 @property(readonly, nonatomic) unsigned char isSpot;
-- (void)enabledMask;
-- (void)directionalLightMask;
-- (void)positionalLightMask;
-- (_Bool)includeShaderTextForRootNode:(id)arg1;
-- (void)setMasks;
+- (_Bool)includeFshShaderTextForRootNode:(id)arg1;
+- (_Bool)includeVshShaderTextForRootNode:(id)arg1;
 @property(nonatomic) float spotCutoff; // @synthesize spotCutoff=_spotCutoff;
 - (void)setNormalize:(unsigned char)arg1;
 - (void)setShaderBindings;
 - (void)initializeMasks;
 - (void)setGLDefaults;
 - (void)dirtyAllUniforms;
-- (id)initWithTransform:(id)arg1 lightingType:(int)arg2 firstLight:(unsigned char)arg3 useConstantColor:(unsigned char)arg4;
+- (id)initWithTransform:(id)arg1 lightingType:(int)arg2 firstLight:(unsigned char)arg3;
 
 @end
 

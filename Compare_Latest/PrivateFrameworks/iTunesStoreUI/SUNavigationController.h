@@ -8,27 +8,29 @@
 
 #import <iTunesStoreUI/SUScriptNativeObject-Protocol.h>
 
-@class SUSection;
+@class SUClientInterface, SUSection;
 
 @interface SUNavigationController : UINavigationController <SUScriptNativeObject>
 {
     BOOL _canBeWeakScriptReference;
+    SUClientInterface *_clientInterface;
     BOOL _loading;
     SUSection *_section;
 }
 
 @property(retain, nonatomic) SUSection *section; // @synthesize section=_section;
 @property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
+@property(retain, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 - (void)_loadingDidChangeNotification:(id)arg1;
 - (BOOL)clearsWeakScriptReferences;
-- (id)_sectionForViewController:(id)arg1;
 - (BOOL)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
+- (id)_sectionForViewController:(id)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)setViewControllers:(id)arg1;
 - (void)setParentViewController:(id)arg1;
 - (void)restoreArchivableContext:(id)arg1;
 - (void)removeChildViewController:(id)arg1;
-- (id)navigationBar;
 - (id)moreListSelectedImage;
 - (id)moreListImage;
 - (id)description;
@@ -39,6 +41,7 @@
 - (id)initWithSection:(id)arg1 rootViewController:(id)arg2;
 - (id)initWithSection:(id)arg1;
 - (id)initWithRootViewController:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

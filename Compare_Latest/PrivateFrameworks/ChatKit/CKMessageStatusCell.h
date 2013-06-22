@@ -15,14 +15,14 @@
     float _outsideMargin;
 }
 
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
-- (void)dealloc;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setText:(id)arg1;
-- (void)setTimestamp:(id)arg1;
-- (void)setColor:(id)arg1;
+- (void)layoutSubviews;
 @property float outsideMargin;
-- (void)_repositionSubviews;
+- (void)setColor:(id)arg1;
+- (void)setTimestamp:(id)arg1;
+- (void)setText:(id)arg1;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)dealloc;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

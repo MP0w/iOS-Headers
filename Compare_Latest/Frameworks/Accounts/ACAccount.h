@@ -23,16 +23,20 @@
     NSMutableDictionary *_dataclassProperties;
     BOOL _accountAccessAvailable;
     BOOL _authenticated;
+    BOOL _active;
+    BOOL _supportsAuthentication;
     NSURL *_objectID;
     NSDate *_date;
     ACAccount *_parentAccount;
-    NSURL *_parentAccountObjectID;
+    BOOL _haveCheckedForParentAccount;
+    NSString *_parentAccountIdentifier;
     NSArray *_childAccounts;
     NSMutableSet *_enabledDataclasses;
     NSMutableSet *_provisionedDataclasses;
 }
 
 + (id)_createNewAccountUID;
+- (void).cxx_destruct;
 - (void)reload;
 - (void)setDate:(id)arg1;
 @property(readonly, nonatomic) NSDate *date;
@@ -43,14 +47,20 @@
 @property(readonly, nonatomic) NSDictionary *dataclassProperties;
 - (BOOL)isProvisionedForDataclass:(struct NSString *)arg1;
 - (void)setEnabled:(BOOL)arg1 forDataclass:(struct NSString *)arg2;
+- (BOOL)isEnabledToSyncDataclass:(struct NSString *)arg1;
+- (id)enabledAndSyncableDataclasses;
 - (BOOL)isEnabledForDataclass:(struct NSString *)arg1;
 @property(retain, nonatomic) NSMutableSet *enabledDataclasses;
+- (id)_enabledDataclassesShouldFaultEmptySet:(BOOL)arg1;
 @property(retain, nonatomic) NSSet *provisionedDataclasses;
 @property(readonly, nonatomic) NSArray *childAccounts;
+@property(readonly, nonatomic) ACAccount *displayAccount;
 @property(retain, nonatomic) ACAccount *parentAccount;
-@property(readonly, nonatomic) NSURL *parentAccountObjectID;
+@property(readonly, nonatomic) NSString *parentAccountIdentifier;
 @property(retain, nonatomic) ACAccountType *accountType;
-- (void)setAccountStore:(id)arg1;
+@property(nonatomic) __weak ACAccountStore *accountStore;
+@property(nonatomic) BOOL supportsAuthentication;
+@property(nonatomic) BOOL active;
 @property(nonatomic) BOOL authenticated;
 - (void)setAccountProperty:(id)arg1 forKey:(id)arg2;
 - (id)accountPropertyForKey:(id)arg1;
@@ -63,6 +73,7 @@
 @property(copy, nonatomic) NSString *username;
 - (void)setIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSString *identifier;
+- (void)credentialsChanged:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;

@@ -16,14 +16,14 @@
 }
 
 + (id)pivotPageField;
-- (id)init;
-- (void)dealloc;
-- (unsigned int)fieldId;
-- (void)setFieldId:(unsigned int)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
-- (id)cap;
 - (void)setCap:(id)arg1;
+- (id)cap;
+- (void)setName:(id)arg1;
+- (id)name;
+- (void)setFieldId:(unsigned int)arg1;
+- (unsigned int)fieldId;
+- (void)dealloc;
+- (id)init;
 
 @end
 

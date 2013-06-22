@@ -10,20 +10,19 @@
 #import "PLIndexMapperDataSource-Protocol.h"
 #import "PLIndexMappingCache-Protocol.h"
 
-@class NSIndexSet, NSMutableIndexSet, NSMutableOrderedSet, NSPredicate, NSString, PLIndexMapper, PLManagedAlbumList, PLPhotoLibrary;
+@class NSMutableIndexSet, NSMutableOrderedSet, NSPredicate, NSString, PLIndexMapper, PLManagedAlbumList, PLPhotoLibrary;
 
 @interface PLFilteredAlbumList : NSObject <PLAlbumContainer, PLIndexMapperDataSource, PLIndexMappingCache>
 {
     PLIndexMapper *_indexMapper;
     NSMutableIndexSet *_filteredIndexes;
+    NSMutableOrderedSet *_weak_albums;
     PLManagedAlbumList *backingAlbumList;
     int filter;
     NSPredicate *predicate;
-    NSMutableOrderedSet *_albums;
 }
 
 + (id)filteredAlbumList:(id)arg1 filter:(int)arg2;
-@property(retain, nonatomic) NSMutableOrderedSet *_albums; // @synthesize _albums;
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate;
 @property(nonatomic) int filter; // @synthesize filter;
 @property(retain, nonatomic) PLManagedAlbumList *backingAlbumList; // @synthesize backingAlbumList;
@@ -38,11 +37,14 @@
 - (id)objectInFilteredAlbumsAtIndex:(unsigned int)arg1;
 - (unsigned int)indexInFilteredAlbumsOfObject:(id)arg1;
 - (unsigned int)countOfFilteredAlbums;
-- (void)mappedDataSourceChanged:(id)arg1;
+@property(retain, nonatomic) NSMutableOrderedSet *_albums;
+- (Class)derivedChangeNotificationClass;
+- (BOOL)mappedDataSourceChanged:(id)arg1 remoteNotificationData:(id)arg2;
 - (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
-@property(readonly, nonatomic) NSIndexSet *filteredIndexes;
+- (id)cachedIndexMapState;
+- (id)filteredIndexes;
 @property(readonly, nonatomic) PLIndexMapper *indexMapper;
+@property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 - (void)_invalidateFilteredIndexes;
 @property(readonly, nonatomic) NSString *_prettyDescription;
 @property(readonly, nonatomic) NSString *_typeDescription;
@@ -53,6 +55,10 @@
 @property(readonly, nonatomic) PLPhotoLibrary *photoLibrary;
 - (BOOL)hasAtLeastOneAlbum;
 @property(readonly, nonatomic) NSMutableOrderedSet *albums;
+- (void)updateAlbumsOrderIfNeeded;
+- (BOOL)needsReordering;
+- (void)setNeedsReordering;
+@property(readonly, nonatomic) id albumsSortingComparator;
 - (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;
 @property(readonly, nonatomic) BOOL canEditAlbums;
 @property(readonly, nonatomic) int albumListType;

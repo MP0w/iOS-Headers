@@ -21,14 +21,15 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (BOOL)floatingWrapEnabled;
-- (BOOL)inlineWrapEnabled;
-- (float)margin;
-- (float)alphaThreshold;
-- (int)wrapStyle;
-- (int)wrapDirection;
-- (int)floatingWrapType;
 - (int)attachmentWrapType;
+- (int)floatingWrapType;
+- (int)wrapDirection;
+- (int)wrapStyle;
+- (float)alphaThreshold;
+- (float)margin;
+- (BOOL)inlineWrapEnabled;
+- (BOOL)floatingWrapEnabled;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

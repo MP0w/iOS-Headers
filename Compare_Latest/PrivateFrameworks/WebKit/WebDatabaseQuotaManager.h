@@ -15,11 +15,11 @@
     WebSecurityOrigin *_origin;
 }
 
-- (id)initWithOrigin:(id)arg1;
-- (id)origin;
-- (unsigned long long)usage;
-- (unsigned long long)quota;
 - (void)setQuota:(unsigned long long)arg1;
+- (unsigned long long)quota;
+- (unsigned long long)usage;
+- (id)origin;
+- (id)initWithOrigin:(id)arg1;
 
 @end
 

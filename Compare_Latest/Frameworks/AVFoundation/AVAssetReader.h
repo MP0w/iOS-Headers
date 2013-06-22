@@ -13,6 +13,7 @@
     AVAssetReaderInternal *_priv;
 }
 
++ (id)_errorForOSStatus:(long)arg1;
 + (id)assetReaderWithAsset:(id)arg1 error:(id *)arg2;
 + (void)initialize;
 @property(readonly, nonatomic, getter=_figAssetReader) struct OpaqueFigAssetReader *figAssetReader;

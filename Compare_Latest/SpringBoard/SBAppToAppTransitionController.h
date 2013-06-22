@@ -4,21 +4,32 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import "SBUIAnimationController.h"
 
-@class SBAppToAppTransitionView, UIWindow;
+#import "SBUIFullscreenAnimationViewDelegate-Protocol.h"
 
-@interface SBAppToAppTransitionController : NSObject
+@class SBAppToAppTransitionView;
+
+@interface SBAppToAppTransitionController : SBUIAnimationController <SBUIFullscreenAnimationViewDelegate>
 {
-    UIWindow *_transitionWindow;
     SBAppToAppTransitionView *_transitionView;
+    BOOL _requiresHostView;
+    BOOL _dismissBanner;
 }
 
-- (id)init;
++ (id)_transitionWindow;
+@property(retain, nonatomic) SBAppToAppTransitionView *transitionView; // @synthesize transitionView=_transitionView;
+- (void)appTransitionViewAnimationDidStop:(id)arg1;
+- (void)appTransitionView:(id)arg1 animationWillStartWithDuration:(double)arg2 afterDelay:(double)arg3;
+- (void)_cleanupAnimation;
+- (void)_cancelAnimation;
+- (void)_startAnimation;
+- (void)_prepareAnimation;
+- (void)_setHidden:(BOOL)arg1;
+- (id)_animationProgressDependency;
+- (BOOL)_animationShouldStart;
 - (void)dealloc;
-- (void)beginTransition;
-- (void)endTransition;
-@property(readonly, nonatomic) SBAppToAppTransitionView *transitionView; // @synthesize transitionView=_transitionView;
+- (id)initWithActivatingApp:(id)arg1 deactivatingApp:(id)arg2;
 
 @end
 

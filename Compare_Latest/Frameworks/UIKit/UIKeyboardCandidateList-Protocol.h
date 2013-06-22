@@ -18,16 +18,21 @@
 - (void)showPageAtIndex:(unsigned int)arg1;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
+- (void)showCandidate:(id)arg1;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)layout;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
 
 @optional
+- (void)candidatesDidChange;
+- (BOOL)hasPreviousPage;
+- (BOOL)hasNextPage;
 - (BOOL)handleTabKeyWithShift:(BOOL)arg1;
 - (BOOL)handleNumberKey:(unsigned int)arg1;
 - (void)setCompletionContext:(id)arg1;
 - (void)showCaret:(BOOL)arg1 gradually:(BOOL)arg2;
+- (void)setInlineText:(id)arg1;
 - (void)setCandidates:(id)arg1 type:(int)arg2 inlineText:(id)arg3 inlineRect:(struct CGRect)arg4 maxX:(float)arg5 layout:(BOOL)arg6;
 @end
 

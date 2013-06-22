@@ -13,15 +13,15 @@
     NSMutableSet *_comps;
 }
 
-- (id)copyParseRules;
-- (id)init;
-- (void)dealloc;
-- (id)componentsAsString;
-- (id)description;
-- (void)addComp:(id)arg1;
-- (id)childrenToWrite;
-@property(readonly) NSSet *compNames;
 @property(retain) NSMutableSet *comps; // @synthesize comps=_comps;
+@property(readonly) NSSet *compNames;
+- (id)childrenToWrite;
+- (void)addComp:(id)arg1;
+- (id)description;
+- (id)componentsAsString;
+- (void)dealloc;
+- (id)init;
+- (id)copyParseRules;
 
 @end
 

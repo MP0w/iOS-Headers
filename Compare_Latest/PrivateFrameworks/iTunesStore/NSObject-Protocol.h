@@ -5,7 +5,6 @@
  */
 
 @protocol NSObject
-- (id)debugDescription;
 - (id)description;
 - (unsigned int)retainCount;
 - (id)autorelease;
@@ -25,5 +24,8 @@
 - (Class)superclass;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+
+@optional
+- (id)debugDescription;
 @end
 

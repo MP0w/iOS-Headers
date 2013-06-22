@@ -35,6 +35,14 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithCoder:(id)arg1;
+- (void)_setupContentViewIfNecessary;
+- (void)_turnAllPagesNonAnimated;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)_startCurlAnimation;
+- (void)_setupCurlFilters;
+- (void)_turnSinglePageAnimated;
+- (void)_positionPage:(id)arg1 isLeft:(BOOL)arg2;
+- (void)_setNewPage:(id)arg1 isLeft:(BOOL)arg2;
 
 @end
 

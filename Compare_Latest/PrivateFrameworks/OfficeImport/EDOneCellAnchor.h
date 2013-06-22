@@ -13,13 +13,13 @@
     BOOL mIsRelative;
 }
 
-- (struct EDCellAnchorMarker)from;
-- (void)setFrom:(struct EDCellAnchorMarker)arg1;
-- (struct CGSize)size;
-- (void)setSize:(struct CGSize)arg1;
-- (BOOL)isRelative;
-- (void)setRelative:(BOOL)arg1;
 - (id).cxx_construct;
+- (void)setRelative:(BOOL)arg1;
+- (BOOL)isRelative;
+- (void)setSize:(struct CGSize)arg1;
+- (struct CGSize)size;
+- (void)setFrom:(struct EDCellAnchorMarker)arg1;
+- (struct EDCellAnchorMarker)from;
 
 @end
 

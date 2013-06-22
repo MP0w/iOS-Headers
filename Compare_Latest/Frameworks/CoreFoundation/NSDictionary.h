@@ -4,25 +4,28 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 #import "NSFastEnumeration-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSDictionary : NSObject <NSCopying, NSMutableCopying, NSCoding, NSFastEnumeration>
+@interface NSDictionary : NSObject <NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)dictionaryWithDictionary:(id)arg1;
 + (id)dictionaryWithDictionary:(id)arg1 copyItems:(BOOL)arg2;
++ (id)newDictionaryWithObjects:(const id *)arg1 forKeys:(const id *)arg2 count:(unsigned int)arg3;
 + (id)dictionaryWithObjects:(id)arg1 forKeys:(id)arg2;
 + (id)dictionaryWithObjectsAndKeys:(id)arg1;
 + (id)dictionary;
 + (id)dictionaryWithObject:(id)arg1 forKey:(id)arg2;
 + (id)dictionaryWithObjects:(const id *)arg1 forKeys:(const id *)arg2 count:(unsigned int)arg3;
 + (id)allocWithZone:(struct _NSZone *)arg1;
++ (id)sharedKeySetForKeys:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
@@ -39,6 +42,7 @@
 - (BOOL)__getValue:(id *)arg1 forKey:(id)arg2;
 - (void)__apply:(void *)arg1 context:(void *)arg2;
 - (id)objectsForKeys:(id)arg1 notFoundMarker:(id)arg2;
+- (id)objectForKeyedSubscript:(id)arg1;
 - (id)objectEnumerator;
 - (id)keysSortedByValueUsingSelector:(SEL)arg1;
 - (id)keysSortedByValueUsingComparator:(id)arg1;

@@ -43,6 +43,8 @@
 - (void)retainWireCount;
 - (oneway void)release;
 - (void)dealloc;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
 - (unsigned int)retainCount;
 - (id)retain;
 - (void)_releaseWireCount:(unsigned int)arg1;

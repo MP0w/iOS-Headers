@@ -13,10 +13,12 @@
     struct FileChooser *_chooser;
 }
 
-- (id)initWithChooser:(PassRefPtr_2f7011b9)arg1;
-- (void)cancel;
-- (void)chooseFilename:(id)arg1;
+- (void)chooseFilenames:(id)arg1 displayString:(id)arg2 iconImage:(struct CGImage *)arg3;
+- (void)chooseFilename:(id)arg1 displayString:(id)arg2 iconImage:(struct CGImage *)arg3;
 - (void)chooseFilenames:(id)arg1;
+- (void)chooseFilename:(id)arg1;
+- (void)cancel;
+- (id)initWithChooser:(PassRefPtr_2f7011b9)arg1;
 
 @end
 

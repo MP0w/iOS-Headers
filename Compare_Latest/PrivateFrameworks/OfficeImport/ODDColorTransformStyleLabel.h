@@ -18,20 +18,20 @@
     ODDFillColorList *mTextEffectColors;
 }
 
-- (void)dealloc;
-- (id)fillColors;
-- (void)setFillColors:(id)arg1;
-- (id)lineColors;
-- (void)setLineColors:(id)arg1;
-- (id)effectColors;
-- (void)setEffectColors:(id)arg1;
-- (id)textLineColors;
-- (void)setTextLineColors:(id)arg1;
-- (id)textFillColors;
-- (void)setTextFillColors:(id)arg1;
-- (id)textEffectColors;
-- (void)setTextEffectColors:(id)arg1;
 - (void)applyToShapeStyle:(id)arg1 index:(unsigned int)arg2 count:(unsigned int)arg3 state:(id)arg4;
+- (void)setTextEffectColors:(id)arg1;
+- (id)textEffectColors;
+- (void)setTextFillColors:(id)arg1;
+- (id)textFillColors;
+- (void)setTextLineColors:(id)arg1;
+- (id)textLineColors;
+- (void)setEffectColors:(id)arg1;
+- (id)effectColors;
+- (void)setLineColors:(id)arg1;
+- (id)lineColors;
+- (void)setFillColors:(id)arg1;
+- (id)fillColors;
+- (void)dealloc;
 
 @end
 

@@ -13,6 +13,7 @@
 @interface MSAssetCollection : NSObject <NSCoding>
 {
     NSString *_assetCollectionID;
+    NSString *_ctag;
     MSAsset *_masterAsset;
     NSArray *_derivedAssets;
     NSString *_fileName;
@@ -24,14 +25,15 @@
 @property(nonatomic) BOOL wasDeleted; // @synthesize wasDeleted=_wasDeleted;
 @property(retain, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(retain, nonatomic) MSAsset *masterAsset; // @synthesize masterAsset=_masterAsset;
+@property(retain, nonatomic) NSString *ctag; // @synthesize ctag=_ctag;
 @property(retain, nonatomic) NSString *assetCollectionID; // @synthesize assetCollectionID=_assetCollectionID;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
 @property(retain, nonatomic) NSArray *derivedAssets;
 @property(readonly, nonatomic) NSData *masterAssetHash;
-- (void)dealloc;
 - (id)initWithMasterAsset:(id)arg1 fileName:(id)arg2 derivedAssets:(id)arg3;
 
 @end

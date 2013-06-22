@@ -16,6 +16,7 @@
 @property(nonatomic) int curve; // @synthesize curve=_curve;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
+- (id)initWithEmptyParameters;
 - (id)initWithDefaultParameters;
 - (id)init;
 

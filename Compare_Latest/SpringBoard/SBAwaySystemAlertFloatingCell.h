@@ -10,28 +10,28 @@
 {
 }
 
-+ (float)_rowHeightForContentHeight:(float)arg1;
-+ (float)rowHeightForTitle:(id)arg1 message:(id)arg2 rowWidth:(float)arg3 buttonLabels:(id)arg4;
-+ (id)_alarmButtonBackgroundImage;
-+ (id)_buttonBackgroundImage;
-+ (id)_cancelButtonBackgroundImage;
-+ (id)_buttonFont;
-+ (float)_buttonHorizontalInset;
-+ (float)_buttonVerticalInset;
-+ (float)_cellContentLeftPadding;
-+ (float)_cellContentRightPadding;
-+ (float)_cellContentTopPadding;
 + (float)_cellContentExtraPadding;
-- (void)_createContentView;
-- (BOOL)_hasBackgroundColor;
-- (void)setIconImage:(id)arg1;
-- (void)setButtonLabels:(id)arg1 handler:(id)arg2 isAlarm:(BOOL)arg3;
-- (BOOL)_drawsSeparator;
-- (struct CGRect)_contentRect;
-- (struct CGRect)_cellContentViewFrame;
-- (void)_getButtonWidth:(float *)arg1 inset:(float *)arg2;
-- (void)_clearButtonHandler;
++ (float)_cellContentTopPadding;
++ (float)_cellContentRightPadding;
++ (float)_cellContentLeftPadding;
++ (float)_buttonVerticalInset;
++ (float)_buttonHorizontalInset;
++ (id)_buttonFont;
++ (id)_cancelButtonBackgroundImage;
++ (id)_buttonBackgroundImage;
++ (id)_alarmButtonBackgroundImage;
++ (float)rowHeightForTitle:(id)arg1 message:(id)arg2 rowWidth:(float)arg3 buttonLabels:(id)arg4;
++ (float)_rowHeightForContentHeight:(float)arg1;
 - (void)layoutSubviews;
+- (void)_clearButtonHandler;
+- (void)_getButtonWidth:(float *)arg1 inset:(float *)arg2;
+- (struct CGRect)_cellContentViewFrame;
+- (struct CGRect)_contentRect;
+- (BOOL)_drawsSeparator;
+- (void)setButtonLabels:(id)arg1 handler:(id)arg2 isAlarm:(BOOL)arg3;
+- (void)setIconImage:(id)arg1;
+- (BOOL)_hasBackgroundColor;
+- (void)_createContentView;
 
 @end
 

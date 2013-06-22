@@ -10,8 +10,8 @@
 {
 }
 
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)drawTextInRect:(struct CGRect)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 
 @end
 

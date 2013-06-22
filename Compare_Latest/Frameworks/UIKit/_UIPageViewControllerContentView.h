@@ -6,15 +6,25 @@
 
 #import <UIKit/UIView.h>
 
-@class UIPageViewController;
+@class UIPageControl, UIPageViewController, _UIQueuingScrollView;
 
 @interface _UIPageViewControllerContentView : UIView
 {
     UIPageViewController *_pageViewController;
+    _UIQueuingScrollView *_scrollView;
+    UIPageControl *_pageControl;
 }
 
-@property(nonatomic, setter=_setPageViewController:) UIPageViewController *_pageViewController; // @synthesize _pageViewController;
+@property(readonly, nonatomic) UIPageControl *pageControl; // @synthesize pageControl=_pageControl;
+@property(readonly, nonatomic) _UIQueuingScrollView *scrollView; // @synthesize scrollView=_scrollView;
+- (void)layoutSubviews;
+- (void)_setupPageControl:(id)arg1;
+- (struct CGRect)_scrollViewFrame;
+- (float)_pageSpacing;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)setBounds:(struct CGRect)arg1;
+- (void)invalidatePageViewController;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 andPageViewController:(id)arg2;
 
 @end

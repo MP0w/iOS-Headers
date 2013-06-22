@@ -24,16 +24,32 @@ struct CLConnectionClient {
     struct map<std::basic_string<char>, void (^)(CLConnectionMessage *), std::less<std::basic_string<char>>, std::allocator<std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>>> _field13;
     id _field14;
     void _field15;
+    id _field16;
+    void _field17;
 };
 
 struct CLMotionActivity {
     int type;
     int confidence;
+    int mountedState;
+    int mountedConfidence;
+    float tilt;
 };
 
 struct CLNameValuePair {
     void **_field1;
     struct __CFDictionary *_field2;
+};
+
+struct Dispatcher {
+    void **_field1;
+};
+
+struct Sample {
+    double timestamp;
+    struct {
+        int type;
+    } orientation;
 };
 
 struct _Alloc_hider {
@@ -108,7 +124,10 @@ typedef struct {
     CDStruct_03942939 _field3;
     CDStruct_03942939 _field4;
     int _field5;
-} CDStruct_2e6f786d;
+    _Bool _field6;
+    _Bool _field7;
+    _Bool _field8;
+} CDStruct_7fb6ae47;
 
 typedef struct {
     CDStruct_31142d93 _field1;

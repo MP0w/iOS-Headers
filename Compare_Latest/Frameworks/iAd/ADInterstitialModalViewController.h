@@ -7,21 +7,16 @@
 #import "UIViewController.h"
 
 #import "ADInterstitialViewDelegate-Protocol.h"
-#import "ADStatusBarController-Protocol.h"
 
-@class ADHostWindowController, ADInterstitialView;
+@class ADInterstitialView;
 
-@interface ADInterstitialModalViewController : UIViewController <ADInterstitialViewDelegate, ADStatusBarController>
+@interface ADInterstitialModalViewController : UIViewController <ADInterstitialViewDelegate>
 {
     ADInterstitialView *_interstitialView;
-    id <ADInterstitialViewDelegate> _interstitialDelegate;
     BOOL _hasAppeared;
-    ADHostWindowController *_owner;
 }
 
-@property(nonatomic) ADHostWindowController *owner; // @synthesize owner=_owner;
 @property(nonatomic) BOOL hasAppeared; // @synthesize hasAppeared=_hasAppeared;
-@property(nonatomic) id <ADInterstitialViewDelegate> interstitialDelegate; // @synthesize interstitialDelegate=_interstitialDelegate;
 @property(retain, nonatomic) ADInterstitialView *interstitialView; // @synthesize interstitialView=_interstitialView;
 - (void)interstitialViewActionDidFinish:(id)arg1;
 - (BOOL)interstitialViewActionShouldBegin:(id)arg1 willLeaveApplication:(BOOL)arg2;
@@ -32,7 +27,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewDidLoad;
-- (void)loadView;
 - (void)dealloc;
 
 @end

@@ -6,42 +6,37 @@
 
 #import <GameKit/GKLeaderboard.h>
 
-@class GKGame, GKPlayer, GKScore, NSArray, NSError, NSMutableArray;
+@class GKGame, GKPlayer, GKScore, NSArray, NSError, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface GKSparseLeaderboard : GKLeaderboard
 {
     GKGame *_game;
     GKPlayer *_player;
     struct _NSRange _totalRange;
-    struct _NSRange _availableRange;
     struct _NSRange _displayedRange;
-    NSArray *_availableScores;
     NSArray *_showcasedScores;
     unsigned int _maxLoaded;
     struct _NSRange _currentRange;
+    NSMutableArray *_allScores;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_loadQueue;
     GKScore *_comparePlayerScore;
     NSError *_error;
-    struct _NSRange _oldRange;
-    NSMutableArray *_oldScores;
+    BOOL _loaded;
 }
 
-+ (id)unionOldScoreArray:(id)arg1 withScoreArray:(id)arg2;
-+ (struct _NSRange)rangeForScoreArray:(id)arg1;
-@property(retain, nonatomic) NSMutableArray *oldScores; // @synthesize oldScores=_oldScores;
-@property(nonatomic) struct _NSRange oldRange; // @synthesize oldRange=_oldRange;
+@property(readonly, nonatomic) BOOL loaded; // @synthesize loaded=_loaded;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *loadQueue; // @synthesize loadQueue=_loadQueue;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) GKScore *comparePlayerScore; // @synthesize comparePlayerScore=_comparePlayerScore;
 @property(nonatomic) struct _NSRange displayedRange; // @synthesize displayedRange=_displayedRange;
-@property(readonly, nonatomic) struct _NSRange availableRange; // @synthesize availableRange=_availableRange;
 @property(readonly, nonatomic) struct _NSRange totalRange; // @synthesize totalRange=_totalRange;
 @property(retain, nonatomic) GKPlayer *player; // @synthesize player=_player;
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
 - (id)scoresForPlayerIDs:(id)arg1;
 - (id)scoreForPlayerID:(id)arg1;
 - (unsigned int)indexOfScoreForPlayerID:(id)arg1;
-- (void)purgeOldScores;
-- (void)loadScoresInRange:(struct _NSRange)arg1 withCompletionHandler:(id)arg2;
-- (void)swapScores;
+- (void)loadScoresForGame:(id)arg1 withCompletionHandler:(id)arg2;
 @property(readonly, nonatomic) BOOL showcasedScoresAdjacent;
 - (id)showcasedScoreAtShowcaseIndex:(unsigned int)arg1;
 - (struct _NSRange)rangeToLoadForRank:(unsigned int)arg1;
@@ -51,7 +46,8 @@
 @property(readonly, nonatomic) BOOL displayComparePlayer;
 @property(readonly, nonatomic) BOOL moreScoresAvailable;
 @property(readonly, nonatomic) BOOL displayLocalPlayer;
-@property(retain, nonatomic) NSArray *availableScores;
+- (void)addScores:(id)arg1;
+- (id)placeholderScoresForRankRange:(struct _NSRange)arg1 withPlaceholderPlayerID:(id)arg2;
 - (id)description;
 - (void)dealloc;
 - (id)initWithGame:(id)arg1;

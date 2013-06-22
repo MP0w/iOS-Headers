@@ -16,20 +16,20 @@
     TSUPointerKeyDictionary *mMaxWorksheetReferences;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)isEqualToEDName:(id)arg1;
-- (BOOL)isEqualToString:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)nameString;
-- (void)setNameString:(id)arg1;
-- (id)formula;
-- (void)setFormula:(id)arg1 workbook:(id)arg2;
-- (void)setCleanedFormula:(id)arg1;
-- (unsigned int)sheetIndex;
-- (void)setSheetIndex:(unsigned int)arg1;
 - (id)maxWorksheetReferences;
+- (void)setSheetIndex:(unsigned int)arg1;
+- (unsigned int)sheetIndex;
+- (void)setCleanedFormula:(id)arg1;
+- (void)setFormula:(id)arg1 workbook:(id)arg2;
+- (id)formula;
+- (void)setNameString:(id)arg1;
+- (id)nameString;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToString:(id)arg1;
+- (BOOL)isEqualToEDName:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

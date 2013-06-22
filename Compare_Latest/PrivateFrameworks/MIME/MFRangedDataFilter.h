@@ -12,10 +12,10 @@
     unsigned int _consumedLength;
 }
 
-+ (id)rangedFilterWithConsumers:(id)arg1 range:(struct _NSRange)arg2;
 + (id)rangedFilterWithConsumer:(id)arg1 range:(struct _NSRange)arg2;
-- (int)appendData:(id)arg1;
++ (id)rangedFilterWithConsumers:(id)arg1 range:(struct _NSRange)arg2;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
+- (int)appendData:(id)arg1;
 
 @end
 

@@ -11,12 +11,12 @@
     float rotationAngle;
 }
 
-- (id)init;
-- (void)accept:(id)arg1;
-- (void)setRotationAngle:(float)arg1;
-- (float)rotationAngle;
-- (struct CGRect)bounds;
 - (struct CGRect)renderedBounds;
+- (struct CGRect)bounds;
+- (float)rotationAngle;
+- (void)setRotationAngle:(float)arg1;
+- (void)accept:(id)arg1;
+- (id)init;
 
 @end
 

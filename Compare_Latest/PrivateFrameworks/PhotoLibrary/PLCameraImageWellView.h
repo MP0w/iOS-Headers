@@ -6,21 +6,22 @@
 
 #import "UIView.h"
 
-@class CAShapeLayer, UIImage, UIImageView;
+#import "PLCameraButtonBarSubviewProtocol-Protocol.h"
 
-@interface PLCameraImageWellView : UIView
+@class UIImage, UIImageView;
+
+@interface PLCameraImageWellView : UIView <PLCameraButtonBarSubviewProtocol>
 {
     UIImage *_thumbnailImage;
     int _buttonBarStyle;
-    UIImageView *_containerImageView;
+    UIImageView *_backgroundImageView;
+    UIView *_containerView;
     UIImageView *_thumbnailImageView;
     UIView *_thumbnailOverlayView;
-    CAShapeLayer *_thumbnailMaskLayer;
     BOOL _watchingOrientationChanges;
     int _deviceOrientation;
 }
 
-+ (float)imageWellCornerRadius;
 - (void)setButtonOrientation:(int)arg1 animated:(BOOL)arg2;
 - (void)_deviceOrientationChanged:(id)arg1;
 - (void)_stopWatchingDeviceOrientationChanges;
@@ -35,8 +36,8 @@
 - (struct CGRect)thumbnailFrame;
 - (void)addMaskedSubview:(id)arg1;
 - (void)beginContentFadeOutWithDuration:(float)arg1;
+- (void)buttonBar:(id)arg1 didChangeMode:(int)arg2;
 - (void)setThumbnailImage:(id)arg1;
-- (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setEnabled:(BOOL)arg1;
 - (void)dealloc;

@@ -36,6 +36,7 @@
 - (void)_scheduleProgressUpdate;
 - (void)_updateProgress;
 - (unsigned int)streamStatus;
+- (id)streamError;
 - (void)close;
 - (void)open;
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;

@@ -8,7 +8,7 @@
 
 @protocol GKTurnBasedInviteViewControllerDelegate <NSObject>
 - (void)turnBasedInviteViewController:(id)arg1 didFailWithError:(id)arg2;
-- (void)turnBasedInviteViewController:(id)arg1 didCreateSession:(id)arg2;
+- (void)turnBasedInviteViewController:(id)arg1 didCreateMatchID:(id)arg2;
 - (void)turnBasedInviteViewControllerWasCancelled:(id)arg1;
 @end
 

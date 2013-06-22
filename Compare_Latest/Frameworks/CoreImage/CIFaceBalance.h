@@ -27,6 +27,8 @@
 - (BOOL)_isIdentity;
 - (id)_kernel;
 - (void)setDefaults;
+- (id)_initFromProperties:(id)arg1;
+- (id)_outputProperties;
 
 @end
 

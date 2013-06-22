@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSArray, NSData, NSString;
 
-@interface DAContactSearchResultElement : NSObject <NSCoding>
+@interface DAContactSearchResultElement : NSObject <NSSecureCoding>
 {
     NSString *_displayName;
     NSString *_firstName;
@@ -49,6 +49,7 @@
     NSString *_identifierOnServer;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(retain) NSString *identifierOnServer; // @synthesize identifierOnServer=_identifierOnServer;
 @property(copy) NSString *workFaxPhone; // @synthesize workFaxPhone=_workFaxPhone;
 @property(copy) NSString *mainPhone; // @synthesize mainPhone=_mainPhone;

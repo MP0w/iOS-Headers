@@ -6,28 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSNumber, UIImage, _UIBarButtonItemAppearanceStorage;
+@class NSDictionary, NSMutableDictionary, NSNumber, UIImage, _UIBarButtonItemAppearanceStorage;
 
 @interface _UINavigationBarAppearanceStorage : NSObject
 {
-    UIImage *backgroundImage;
-    UIImage *miniBackgroundImage;
+    NSMutableDictionary *backgroundImagesForBarMetrics;
     NSDictionary *textAttributes;
     NSNumber *titleVerticalAdjustment;
     NSNumber *miniTitleVerticalAdjustment;
+    UIImage *shadowImage;
+    BOOL hidesShadow;
     BOOL reversesShadowOffset;
     _UIBarButtonItemAppearanceStorage *buttonAppearanceStorage;
+    BOOL _deferShadowToSearchBar;
 }
 
+@property(nonatomic) BOOL deferShadowToSearchBar; // @synthesize deferShadowToSearchBar=_deferShadowToSearchBar;
+@property(retain, nonatomic) UIImage *shadowImage; // @synthesize shadowImage;
 @property(nonatomic) BOOL reversesShadowOffset; // @synthesize reversesShadowOffset;
 @property(retain, nonatomic) NSNumber *miniTitleVerticalAdjustment; // @synthesize miniTitleVerticalAdjustment;
 @property(retain, nonatomic) NSNumber *titleVerticalAdjustment; // @synthesize titleVerticalAdjustment;
 @property(copy, nonatomic) NSDictionary *textAttributes; // @synthesize textAttributes;
-@property(retain, nonatomic) UIImage *miniBackgroundImage; // @synthesize miniBackgroundImage;
-@property(retain, nonatomic) UIImage *backgroundImage; // @synthesize backgroundImage;
+@property(nonatomic) BOOL hidesShadow; // @synthesize hidesShadow;
 - (void)dealloc;
 @property(readonly, nonatomic) _UIBarButtonItemAppearanceStorage *barButtonAppearanceStorage;
 @property(readonly, nonatomic) _UIBarButtonItemAppearanceStorage *_barButtonAppearanceStorage;
+- (id)backgroundImageForBarMetrics:(int)arg1;
+- (void)setBackgroundImage:(id)arg1 forBarMetrics:(int)arg2;
+@property(readonly, nonatomic) UIImage *miniPromptBackgroundImage;
+@property(readonly, nonatomic) UIImage *promptBackgroundImage;
+@property(readonly, nonatomic) UIImage *miniBackgroundImage;
+@property(readonly, nonatomic) UIImage *backgroundImage;
 
 @end
 

@@ -13,15 +13,15 @@
     id _privateData;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)finalize;
-@property id <ICDeviceBrowserDelegate> delegate;
-@property(readonly, getter=isBrowsing) BOOL browsing;
-- (int)start;
-- (void)stop;
-@property(readonly) NSArray *devices;
 - (id)internalDevices;
+@property(readonly) NSArray *devices;
+- (void)stop;
+- (int)start;
+@property(readonly, getter=isBrowsing) BOOL browsing;
+@property id <ICDeviceBrowserDelegate> delegate;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
 
 @end
 

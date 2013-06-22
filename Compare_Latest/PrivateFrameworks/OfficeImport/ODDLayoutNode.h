@@ -13,9 +13,9 @@
     ODDLayoutVariablePropertySet *mVariableList;
 }
 
-- (void)dealloc;
-- (id)variableList;
 - (void)setVariableList:(id)arg1;
+- (id)variableList;
+- (void)dealloc;
 
 @end
 

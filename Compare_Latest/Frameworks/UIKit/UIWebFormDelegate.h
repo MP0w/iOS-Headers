@@ -8,13 +8,13 @@
 
 #import "WebFormDelegate-Protocol.h"
 
-@class NSMutableDictionary, UIWebFormCompletionController;
+@class UIWebFormCompletionController, _UIWebFormDelegateEditedFormsMap;
 
 @interface UIWebFormDelegate : NSObject <WebFormDelegate>
 {
     UIWebFormCompletionController *_completionController;
     id <UIBrowserDocumentController> _controller;
-    NSMutableDictionary *_editedForms;
+    _UIWebFormDelegateEditedFormsMap *_editedForms;
 }
 
 - (void)autoFillWithElementValue;
@@ -34,6 +34,9 @@
 - (void)textDidChangeInTextArea:(id)arg1 inFrame:(id)arg2;
 - (void)frame:(id)arg1 sourceFrame:(id)arg2 willSubmitForm:(id)arg3 withValues:(id)arg4 submissionListener:(id)arg5;
 - (void)dealloc;
+- (void)_clearEditedFormsInFrame:(id)arg1;
+- (BOOL)_shouldIgnoreFormTextChangesInFrame:(id)arg1;
+- (void)_didEditFormElement:(id)arg1 inFrame:(id)arg2;
 
 @end
 

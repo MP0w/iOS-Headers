@@ -6,26 +6,24 @@
 
 #import "NSObject.h"
 
-@class OADBlipCollection, OCDSummary;
+@class OADBlipCollection, OCDReader, OCDSummary;
 
 @interface OCDDocument : NSObject
 {
-    id <OCDReader> mReader;
+    OCDReader *mReader;
     id <OCDWriter> mWriter;
     OCDSummary *mSummary;
     OADBlipCollection *mBlips;
 }
 
-- (id)init;
-- (void)dealloc;
-- (_Bool)isFromBinaryFile;
-- (id)reader;
-- (void)setReader:(id)arg1;
+@property(readonly, nonatomic) OADBlipCollection *blips; // @synthesize blips=mBlips;
+@property(readonly, nonatomic) OCDSummary *summary; // @synthesize summary=mSummary;
+@property(retain, nonatomic) id <OCDWriter> writer; // @synthesize writer=mWriter;
+@property(retain, nonatomic) OCDReader *reader; // @synthesize reader=mReader;
 - (_Bool)isToBinaryFile;
-- (id)writer;
-- (void)setWriter:(id)arg1;
-- (id)summary;
-- (id)blips;
+- (_Bool)isFromBinaryFile;
+- (void)dealloc;
+- (id)init;
 
 @end
 

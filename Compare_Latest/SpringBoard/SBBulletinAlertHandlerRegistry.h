@@ -15,10 +15,10 @@
     NSMutableDictionary *_handlersBySectionID;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)alertHandlersForSection:(id)arg1;
 - (void)addAlertHandler:(id)arg1 forSection:(id)arg2;
+- (id)alertHandlersForSection:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -15,17 +15,17 @@
     NSSQLCorrelation *_correlation;
 }
 
-- (id)initWithAdapterOperator:(unsigned int)arg1 row:(id)arg2;
-- (id)initWithAdapterOperator:(unsigned int)arg1 correlation:(id)arg2;
-- (void)dealloc;
-- (unsigned int)adapterOperator;
-- (void)setAdapterOperator:(unsigned int)arg1;
-- (id)entity;
-- (id)correlation;
-- (id)row;
-- (int)compareAdapterOperation:(id)arg1;
-- (id)_opString;
 - (id)description;
+- (id)_opString;
+- (int)compareAdapterOperation:(id)arg1;
+- (id)row;
+- (id)correlation;
+- (id)entity;
+- (void)setAdapterOperator:(unsigned int)arg1;
+- (unsigned int)adapterOperator;
+- (void)dealloc;
+- (id)initWithAdapterOperator:(unsigned int)arg1 correlation:(id)arg2;
+- (id)initWithAdapterOperator:(unsigned int)arg1 row:(id)arg2;
 
 @end
 

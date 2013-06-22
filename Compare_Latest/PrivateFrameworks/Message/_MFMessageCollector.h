@@ -16,12 +16,12 @@
     NSMutableArray *messages;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)messages;
-- (id)copyMessages;
-- (void)newMessagesAvailable:(id)arg1;
 - (BOOL)shouldCancel;
+- (void)newMessagesAvailable:(id)arg1;
+- (id)copyMessages;
+- (id)messages;
+- (void)dealloc;
+- (id)init;
 
 @end
 

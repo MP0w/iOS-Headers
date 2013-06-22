@@ -15,10 +15,10 @@
     unsigned int mRowIndex;
 }
 
-- (id)initWithOadTable:(id)arg1 rowIndex:(unsigned int)arg2 parent:(id)arg3;
-- (float)height;
-- (unsigned int)cellCount;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
+- (unsigned int)cellCount;
+- (float)height;
+- (id)initWithOadTable:(id)arg1 rowIndex:(unsigned int)arg2 parent:(id)arg3;
 
 @end
 

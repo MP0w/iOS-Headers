@@ -15,12 +15,12 @@
 }
 
 + (id)exceptionWithName:(id)arg1 code:(long)arg2 reason:(id)arg3 userInfo:(id)arg4;
-- (id)initWithName:(id)arg1 code:(long)arg2 reason:(id)arg3 userInfo:(id)arg4;
-- (id)initWithName:(id)arg1 reason:(id)arg2 userInfo:(id)arg3;
-- (void)dealloc;
-- (void)_setDomain:(id)arg1;
-- (long)code;
 - (id)domain;
+- (long)code;
+- (void)_setDomain:(id)arg1;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 reason:(id)arg2 userInfo:(id)arg3;
+- (id)initWithName:(id)arg1 code:(long)arg2 reason:(id)arg3 userInfo:(id)arg4;
 
 @end
 

@@ -13,8 +13,11 @@
     NSString *_identifier;
     id _sourceViewController;
     id _destinationViewController;
+    id _performHandler;
 }
 
++ (id)segueWithIdentifier:(id)arg1 source:(id)arg2 destination:(id)arg3 performHandler:(id)arg4;
+@property(copy, nonatomic) id performHandler; // @synthesize performHandler=_performHandler;
 @property(readonly, nonatomic) id destinationViewController; // @synthesize destinationViewController=_destinationViewController;
 @property(readonly, nonatomic) id sourceViewController; // @synthesize sourceViewController=_sourceViewController;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;

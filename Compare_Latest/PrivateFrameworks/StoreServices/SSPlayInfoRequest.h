@@ -6,26 +6,23 @@
 
 #import <StoreServices/SSRequest.h>
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class SSPlayInfoRequestContext, SSPlayInfoResponse;
 
-@interface SSPlayInfoRequest : SSRequest <SSCoding>
+@interface SSPlayInfoRequest : SSRequest <SSXPCCoding>
 {
     SSPlayInfoRequestContext *_context;
     SSPlayInfoResponse *_response;
 }
 
-- (void)_sendResponseToDelegate:(id)arg1;
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
-- (id)handleFailureResponse:(id)arg1;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
-@property(readonly, nonatomic) SSPlayInfoResponse *playInfoResponse;
-@property(readonly, nonatomic) SSPlayInfoRequestContext *playInfoContext;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)startWithCompletionBlock:(id)arg1;
+- (BOOL)start;
+- (void)startWithPlayInfoResponseBlock:(id)arg1;
+@property(readonly) SSPlayInfoResponse *playInfoResponse;
+@property(readonly) SSPlayInfoRequestContext *playInfoContext;
 - (void)dealloc;
 - (id)initWithPlayInfoContext:(id)arg1;
 - (id)init;

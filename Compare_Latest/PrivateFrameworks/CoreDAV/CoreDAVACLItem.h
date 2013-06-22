@@ -13,11 +13,11 @@
     NSMutableSet *_accessControlEntities;
 }
 
++ (id)copyParseRules;
 @property(retain) NSMutableSet *accessControlEntities; // @synthesize accessControlEntities=_accessControlEntities;
 - (id)liveACEs;
 - (id)notGrantedSubsetOfACEs:(id)arg1;
 - (void)addACE:(id)arg1;
-- (id)copyParseRules;
 - (id)description;
 - (void)dealloc;
 - (id)init;

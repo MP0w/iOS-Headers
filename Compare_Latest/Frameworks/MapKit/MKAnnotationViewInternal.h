@@ -29,7 +29,6 @@
         unsigned int isHighlighted:1;
         unsigned int canDisplayDisclosureInCallout:1;
         unsigned int canDisplayPlacemarkInCallout:1;
-        unsigned int canDisplayStreetViewInCallout:1;
         unsigned int draggable:1;
     } flags;
 }

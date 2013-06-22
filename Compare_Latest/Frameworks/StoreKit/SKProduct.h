@@ -6,21 +6,33 @@
 
 #import "NSObject.h"
 
-@class NSDecimalNumber, NSLocale, NSString;
+@class NSArray, NSDecimalNumber, NSLocale, NSString;
 
 @interface SKProduct : NSObject
 {
     id _internal;
 }
 
-- (void)setLocale:(id)arg1;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (void)_setProductIdentifier:(id)arg1;
+- (void)_setPriceLocale:(id)arg1;
+- (void)_setPrice:(id)arg1;
+- (void)_setLocalizedTitle:(id)arg1;
+- (void)_setLocalizedDescription:(id)arg1;
+@property(copy, nonatomic, getter=_localeIdentifier, setter=_setLocaleIdentifier:) NSString *_localeIdentifier;
+- (void)_setDownloadable:(BOOL)arg1;
+- (void)_setDownloadContentLengths:(id)arg1;
+- (void)_setContentVersion:(id)arg1;
 @property(readonly, nonatomic) NSString *productIdentifier;
 @property(readonly, nonatomic) NSLocale *priceLocale;
 @property(readonly, nonatomic) NSDecimalNumber *price;
 @property(readonly, nonatomic) NSString *localizedTitle;
 @property(readonly, nonatomic) NSString *localizedDescription;
+@property(readonly, nonatomic, getter=isDownloadable) BOOL downloadable;
+@property(readonly, nonatomic) NSString *downloadContentVersion;
+@property(readonly, nonatomic) NSArray *downloadContentLengths;
 - (void)dealloc;
-- (id)initWithDictionary:(id)arg1;
 - (id)init;
 
 @end

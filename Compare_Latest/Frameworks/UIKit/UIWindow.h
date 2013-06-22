@@ -6,9 +6,11 @@
 
 #import <UIKit/UIView.h>
 
-@class CALayer, NSMutableArray, NSMutableSet, NSUndoManager, UIColor, UIResponder, UIScreen, UIViewController;
+#import "NSISEngineDelegate-Protocol.h"
 
-@interface UIWindow : UIView
+@class CALayer, NSArray, NSISEngine, NSMutableArray, NSMutableSet, NSUndoManager, UIColor, UIResponder, UIScreen, UIViewController;
+
+@interface UIWindow : UIView <NSISEngineDelegate>
 {
     id _delegate;
     float _windowLevel;
@@ -28,6 +30,8 @@
     UIViewController *_rootViewController;
     UIColor *_savedBackgroundColor;
     NSMutableSet *_subtreeMonitoringViews;
+    NSMutableSet *_tintViews;
+    id _currentTintView;
     struct {
         unsigned int delegateWillRotate:1;
         unsigned int delegateDidRotate:1;
@@ -41,7 +45,6 @@
         unsigned int dontBecomeKeyOnOrderFront:1;
         unsigned int output:1;
         unsigned int inGesture:1;
-        unsigned int cancelScroller:1;
         unsigned int bitsPerComponent:4;
         unsigned int autorotates:1;
         unsigned int isRotating:1;
@@ -57,34 +60,63 @@
         unsigned int ignoreSetHidden:1;
         unsigned int forceVisibleOnInit:1;
         unsigned int settingFirstResponder:1;
+        unsigned int legacyOrientationChecks:1;
+        unsigned int windowResizedToFullScreen:1;
     } _windowFlags;
     id _windowController;
+    NSArray *_windowInternalConstraints;
+    NSArray *_rootViewConstraints;
+    NSISEngine *_layoutEngine;
+    id _deferredLaunchBlock;
+    BOOL __usesLegacySupportedOrientationChecks;
 }
 
 + (id)_findWithDisplayPoint:(struct CGPoint)arg1;
 + (id)allWindowsIncludingInternalWindows:(BOOL)arg1 onlyVisibleWindows:(BOOL)arg2;
 + (id)_hitTestToPoint:(struct CGPoint)arg1 pathIndex:(int)arg2 forEvent:(id)arg3;
++ (id)_topVisibleWindowPassingTest:(id)arg1;
 + (void *)createScreenIOSurface;
 + (void *)createIOSurfaceWithContextIds:(const unsigned int *)arg1 count:(unsigned int)arg2 frame:(struct CGRect)arg3 usePurpleGfx:(BOOL)arg4 outTransform:(struct CGAffineTransform *)arg5;
 + (void *)createIOSurfaceWithContextIds:(const unsigned int *)arg1 count:(unsigned int)arg2 frame:(struct CGRect)arg3 outTransform:(struct CGAffineTransform *)arg4;
 + (void *)createIOSurfaceWithContextIds:(const unsigned int *)arg1 count:(unsigned int)arg2 frame:(struct CGRect)arg3;
 + (void *)createIOSurfaceWithContextId:(unsigned int)arg1 frame:(struct CGRect)arg2;
++ (void)_noteStatusBarHeightChanged:(float)arg1 oldHeight:(float)arg2 forAutolayoutRootViewsOnly:(BOOL)arg3;
 + (void)_noteStatusBarHeightChanged:(float)arg1 oldHeight:(float)arg2;
++ (void)_removeWindowFromStack:(id)arg1;
++ (void)_popKeyWindow:(id)arg1;
 + (void)_popKeyWindow;
++ (void)__popKeyWindow:(id)arg1 findNewKeyWindowIfStackEmpty:(BOOL)arg2;
 + (void)_pushKeyWindow:(id)arg1;
 + (void)_setKeyWindowStackEnabled:(BOOL)arg1;
 + (unsigned int)_keyWindowStackSize;
 + (void)_clearKeyWindowStack;
 + (void)_synchronizeDrawingAcrossProcessesOverPort:(unsigned int)arg1;
++ (void)_synchronizeDrawingAcrossProcessesOverPort:(unsigned int)arg1 withPreCommitHandler:(id)arg2;
++ (unsigned int)_synchronizeDrawingAcrossProcessesWithPreCommitHandler:(id)arg1;
 + (unsigned int)_synchronizeDrawingAcrossProcesses;
 + (void)_synchronizeDrawing;
++ (void)_executeDeferredLaunchBlocks;
 + (void)_prepareWindowsForAppResume;
 + (void)_prepareWindowsForAppSuspend;
 + (void)setAllWindowsKeepContextInBackground:(BOOL)arg1;
 + (Class)layerClass;
 + (id)keyWindow;
 + (struct CGRect)constrainFrameToScreen:(struct CGRect)arg1;
+@property(readonly, nonatomic) BOOL _usesLegacySupportedOrientationChecks; // @synthesize _usesLegacySupportedOrientationChecks=__usesLegacySupportedOrientationChecks;
+@property(copy, nonatomic, setter=_setDeferredLaunchBlock:) id _deferredLaunchBlock; // @synthesize _deferredLaunchBlock;
+@property(retain, nonatomic, setter=_setLayoutEngine:) NSISEngine *_layoutEngine; // @synthesize _layoutEngine;
+@property(copy, nonatomic, setter=_setRootViewConstraints:) NSArray *_rootViewConstraints; // @synthesize _rootViewConstraints;
+@property(copy, nonatomic, setter=_setWindowInternalConstraints:) NSArray *_windowInternalConstraints; // @synthesize _windowInternalConstraints;
 @property(retain, nonatomic) UIViewController *rootViewController; // @synthesize rootViewController=_rootViewController;
+- (void)_resizeWindowToFullScreenIfNecessary;
+- (void)_removeTintView:(id)arg1;
+- (void)_addTintView:(id)arg1;
+- (void)_updateCurrentTintView;
+- (void)_updateCurrentTintViewForPotentialTintView:(id)arg1;
+- (void)_tintViewDidChangeAppearance:(id)arg1;
+- (void)_updateAppTintView;
+- (id)_currentTintView;
+- (void)_writeLayerTreeToPath:(id)arg1;
 - (id)_subtreeMonitorsForView:(id)arg1;
 - (void)_unregisterViewForSubtreeMonitoring:(id)arg1;
 - (void)_registerViewForSubtreeMonitoring:(id)arg1;
@@ -95,8 +127,11 @@
 - (BOOL)resizesToFullScreen;
 - (id)_touchData;
 - (struct CGPoint)_transformDisplayToWindowCoordinates:(struct CGPoint)arg1;
+- (BOOL)_affectsTintView;
+- (BOOL)_includeInDefaultImageSnapshot;
 - (BOOL)isInternalWindow;
-- (void)_setCancelScroller:(BOOL)arg1;
+- (BOOL)_isHostedInAnotherProcess;
+- (BOOL)_usesWindowServerHitTesting;
 - (BOOL)_isWindowServerHostingManaged;
 - (void *)createIOSurface;
 - (void *)createIOSurfaceWithFrame:(struct CGRect)arg1;
@@ -108,6 +143,7 @@
 - (void)redo:(id)arg1;
 - (void)undo:(id)arg1;
 - (id)undoManager;
+- (BOOL)_needsShakesWhenInactive;
 - (BOOL)_becomeFirstResponderWhenPossible;
 - (id)defaultFirstResponder;
 - (id)_firstResponder;
@@ -117,6 +153,7 @@
 - (void)_setFirstResponder:(id)arg1;
 - (void)_unregisterScrollToTopView:(id)arg1;
 - (void)_registerScrollToTopView:(id)arg1;
+- (id)_registeredScrollToTopViews;
 - (void)_unregisterSwipeView:(id)arg1;
 - (void)_registerSwipeView:(id)arg1;
 - (void)_unregisterChargedView:(id)arg1;
@@ -125,7 +162,9 @@
 - (void)makeKeyAndVisible;
 - (void)resignKeyWindow;
 - (void)becomeKeyWindow;
+- (void)_makeKeyWindowIgnoringOldKeyWindow:(BOOL)arg1;
 - (void)makeKeyWindow;
+- (void)_resignKeyWindowStatus;
 @property(readonly, nonatomic, getter=isKeyWindow) BOOL keyWindow;
 @property(nonatomic) float windowLevel;
 @property(retain, nonatomic) UIScreen *screen;
@@ -136,11 +175,13 @@
 - (void)handleStatusBarChangeFromHeight:(float)arg1 toHeight:(float)arg2;
 - (void)synchronizeDrawingWithID:(int)arg1 count:(unsigned int)arg2;
 - (void)synchronizeDrawingWithID:(int)arg1;
+- (int)_windowInterfaceOrientation;
 - (int)interfaceOrientation;
 - (BOOL)isUsingOnePartRotationAnimation;
 - (BOOL)isRotating;
 - (BOOL)autorotates;
 - (void)_finishedFullRotation:(id)arg1 finished:(id)arg2 context:(id)arg3;
+- (void)_finishedFullRotation:(id)arg1 finished:(id)arg2 context:(id)arg3 skipNotification:(BOOL)arg4;
 - (void)_finishedFirstHalfRotation:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)_setRotatableClient:(id)arg1 toOrientation:(int)arg2 updateStatusBar:(BOOL)arg3 duration:(double)arg4 force:(BOOL)arg5 isRotating:(BOOL)arg6;
 - (void)_setRotatableClient:(id)arg1 toOrientation:(int)arg2 updateStatusBar:(BOOL)arg3 duration:(double)arg4 force:(BOOL)arg5;
@@ -149,7 +190,6 @@
 - (void)_updateStatusBarToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)_updateStatusBarToInterfaceOrientation:(int)arg1 duration:(double)arg2 fenceID:(int)arg3 animation:(int)arg4;
 - (void)_forceTwoPartRotationAnimation:(BOOL)arg1;
-- (int)_degreesToRotateFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
 - (void)_setRotatableViewOrientation:(int)arg1 duration:(double)arg2;
 - (void)setAutorotates:(BOOL)arg1 forceUpdateInterfaceOrientation:(BOOL)arg2;
 - (void)setAutorotates:(BOOL)arg1;
@@ -166,14 +206,19 @@
 - (void)_handleStatusBarOrientationChange:(id)arg1;
 - (BOOL)_isAnyWindowRotating;
 - (BOOL)_shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)_supportedInterfaceOrientationsForRootViewController;
+- (BOOL)_legacyShouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)_clearPendingKeyboardChanges;
 - (void)_removeRotationViewController:(id)arg1;
 - (void)_addRotationViewController:(id)arg1;
+- (id)__clientsForRotationCallbacks;
 - (id)_clientsForRotation;
 - (id)_rotationViewControllers;
 - (void)_slideFooterFromOrientation:(int)arg1 toOrientation:(int)arg2 startSnapshot:(id)arg3 endSnapshot:(id)arg4 duration:(double)arg5;
 - (void)_positionHeaderView:(id)arg1 andFooterView:(id)arg2 outsideContentViewForInterfaceOrientation:(int)arg3;
 - (void)_slideHeaderView:(id)arg1 andFooterView:(id)arg2 offScreen:(BOOL)arg3 forInterfaceOrientation:(int)arg4;
+- (BOOL)_canPromoteFromKeyWindowStack;
+- (BOOL)_canBecomeKeyWindow;
 - (void)setBecomeKeyOnOrderFront:(BOOL)arg1;
 - (float)level;
 - (void)setLevel:(float)arg1;
@@ -194,7 +239,7 @@
 - (void)sendEvent:(id)arg1;
 - (void)_sendTouchesForEvent:(id)arg1;
 - (void)_sendGesturesForEvent:(id)arg1;
-- (void)_scrollToTopViewsUnderScreenPointIfNecessary:(struct CGPoint)arg1;
+- (void)_scrollToTopViewsUnderScreenPointIfNecessary:(struct CGPoint)arg1 resultHandler:(id)arg2;
 - (BOOL)_isScrollingEnabledForView:(id)arg1;
 - (id)_targetForStolenStatusBarTouchesAtPoint:(struct CGPoint)arg1 withEvent:(id)arg2 excludingWindow:(id)arg3;
 - (struct CGPoint)warpPoint:(struct CGPoint)arg1;
@@ -206,17 +251,20 @@
 - (void)setHidden:(BOOL)arg1;
 - (void)_setHidden:(BOOL)arg1 forced:(BOOL)arg2;
 - (void)addRootViewControllerViewIfPossible;
+- (id)_rootViewConstraintsUpdateIfNecessaryForView:(id)arg1;
+- (void)_updateRootViewConstraintsForInterfaceOrientationAndStatusBarHeight;
 - (unsigned int)_contextId;
 - (BOOL)_disableViewScaling;
 - (BOOL)_disableGroupOpacity;
 - (BOOL)_ignoresHitTest;
 - (void)_setLayerHidden:(BOOL)arg1;
+- (void)_orderContextToFront;
 - (BOOL)_hasContext;
 - (void)_destroyContext;
 - (void)_createContext;
 - (void)_updateTransformLayer;
+- (void)_transformLayerShouldMaskToBounds:(BOOL)arg1;
 - (void)_updateTransformLayerForClassicPresentation;
-- (BOOL)_isClassicControllerWindow;
 - (void)_tagAsSpringboardPresentationWindow;
 - (id)representation;
 - (void)setContentView:(id)arg1;
@@ -227,6 +275,41 @@
 - (id)initWithContentRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonInit;
+- (id)_window;
+- (float)_classicOffset;
+- (void)matchDeviceOrientation;
+- (void)setupForOrientation:(int)arg1;
+- (BOOL)_isTextEffectsWindow;
+- (void)_matchDeviceBounds;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+- (void)updateConstraintsIfNeeded;
+- (void)layoutSublayersOfLayer:(id)arg1;
+- (id)_redundantConstraints;
+- (id)_uiib_candidateRedundantConstraints;
+- (id)_uiib_layoutEngineCreatingIfNecessary;
+- (void)_rebuildLayoutFromScratch;
+- (id)_layoutEngineConsultingOverride;
+- (id)_layoutEngineIfAvailableConsultingOverride;
+- (id)_layoutEngineCreateIfNecessaryConsultingOverride;
+- (id)_layoutEngineIfAvailable;
+- (id)_layoutEngineCreateIfNecessary;
+- (void)_initializeLayoutEngine;
+- (void)_constraints_subviewWillChangeSuperview:(id)arg1;
+- (void)_updateConstraintsAtWindowLevelIfNeeded;
+- (void)setCenter:(struct CGPoint)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)setBounds:(struct CGRect)arg1;
+- (void)_windowInternalConstraints_centerDidChange;
+- (void)_windowInternalConstraints_sizeDidChange;
+- (unsigned int)_expectedWindowInternalConstraintsCount;
+- (void)_invalidateWindowInternalConstraints;
+- (id)_centerExpressionInContainer:(id)arg1 vertical:(BOOL)arg2;
+- (BOOL)_isLoweringAnchoringConstraints;
+- (void)_setIsLoweringAnchoringConstraints:(BOOL)arg1;
+- (void)updateConstraints;
+- (void)engine:(id)arg1 willBreakConstraint:(id)arg2 dueToMutuallyExclusiveConstraints:(id)arg3;
+- (id)engine:(id)arg1 markerForConstraintToBreakAmongConstraints:(id)arg2;
+- (void)constraintsDidChangeInEngine:(id)arg1;
 
 @end
 

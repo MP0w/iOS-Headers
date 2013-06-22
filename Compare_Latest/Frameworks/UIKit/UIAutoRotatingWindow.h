@@ -9,6 +9,7 @@
 @interface UIAutoRotatingWindow : UIWindow
 {
     int _interfaceOrientation;
+    BOOL _unknownOrientation;
 }
 
 + (id)sharedPopoverHostingWindow;

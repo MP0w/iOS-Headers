@@ -25,6 +25,7 @@
 - (unsigned int)hash;
 - (void)finalize;
 - (void)dealloc;
+- (BOOL)clearProperties:(unsigned int)arg1;
 - (BOOL)setAccessControlList:(struct _acl *)arg1;
 - (BOOL)copyAccessControlList:(struct _acl **)arg1;
 - (BOOL)setGroupUUID:(unsigned char [16])arg1;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+@class NSArray, NSString, NSURL, UIColor, UIImage;
 
 @interface UIPasteboard : NSObject
 {
@@ -17,10 +17,13 @@
 + (id)pasteboardWithUniqueName;
 + (id)pasteboardWithName:(id)arg1 create:(BOOL)arg2;
 + (id)generalPasteboard;
++ (id)_printPasteboard;
++ (id)_findPasteboard;
 @property(copy, nonatomic) NSArray *items;
 @property(readonly, nonatomic) int numberOfItems;
 @property(readonly, nonatomic) int changeCount;
 @property(nonatomic, getter=isPersistent) BOOL persistent;
+- (void)_addItems:(id)arg1 oldPasteboardTypes:(id)arg2;
 - (void)addItems:(id)arg1;
 - (id)dataForPasteboardType:(id)arg1 inItemSet:(id)arg2;
 - (id)valuesForPasteboardType:(id)arg1 inItemSet:(id)arg2;
@@ -36,6 +39,16 @@
 @property(readonly, nonatomic) NSString *name;
 - (void)dealloc;
 - (id)init;
+@property(copy, nonatomic) NSArray *colors;
+@property(copy, nonatomic) UIColor *color;
+@property(copy, nonatomic) NSArray *images;
+@property(copy, nonatomic) UIImage *image;
+@property(copy, nonatomic) NSArray *URLs;
+@property(copy, nonatomic) NSURL *URL;
+@property(copy, nonatomic) NSArray *strings;
+@property(copy, nonatomic) NSString *string;
+- (void)_pasteboardChanged:(id)arg1;
+- (id)_initWithName:(id)arg1 system:(BOOL)arg2 create:(BOOL)arg3;
 
 @end
 

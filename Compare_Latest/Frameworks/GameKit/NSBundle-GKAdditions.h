@@ -7,15 +7,10 @@
 #import "NSBundle.h"
 
 @interface NSBundle (GKAdditions)
-- (id)_gkPurchaseDate;
-- (id)_gkExternalVersion;
-- (id)_gkAdamID;
-- (BOOL)_gkIsGameCenterEverEnabled;
-- (BOOL)_gkIsGameCenterEnabled;
 - (id)_gkLocalizedName;
-- (id)_gkItemName;
 - (id)_gkBundleVersion;
-- (id)_gkiTunesMetadata;
+- (id)_gkPathForChallengeSound;
 - (id)_gkPathForInviteSound;
+- (id)_gkPathForSoundWithName:(id)arg1;
 @end
 

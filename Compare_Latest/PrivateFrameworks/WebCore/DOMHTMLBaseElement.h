@@ -12,8 +12,8 @@
 {
 }
 
-@property(copy) NSString *href;
 @property(copy) NSString *target;
+@property(copy) NSString *href;
 
 @end
 

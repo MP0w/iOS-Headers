@@ -15,26 +15,26 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (struct __CFDictionary *)_callManagementDictionary;
-- (BOOL)_booleanValueForKey:(struct __CFString *)arg1;
-- (int)_intValueForKey:(struct __CFString *)arg1;
-- (BOOL)isSwappable;
-- (BOOL)isMergeable;
-- (BOOL)isHoldAllowed;
-- (BOOL)isAddCallAllowed;
-- (BOOL)isAmbiguous;
-- (int)ambiguityState;
-- (BOOL)_isAmbiguousMultiPartyCall;
-- (BOOL)_isAmbiguousCallList;
-- (int)maxMultiPartyCallCount;
-- (int)maxSupportedCallCount;
-- (BOOL)isHardPauseAvailable;
-- (BOOL)isEndAndAnswerAllowed;
-- (int)cellTelephonyType;
-- (void)_invalidateCachedState;
 - (id)description;
+- (void)_invalidateCachedState;
+- (int)cellTelephonyType;
+- (BOOL)isEndAndAnswerAllowed;
+- (BOOL)isHardPauseAvailable;
+- (int)maxSupportedCallCount;
+- (int)maxMultiPartyCallCount;
+- (BOOL)_isAmbiguousCallList;
+- (BOOL)_isAmbiguousMultiPartyCall;
+- (int)ambiguityState;
+- (BOOL)isAmbiguous;
+- (BOOL)isAddCallAllowed;
+- (BOOL)isHoldAllowed;
+- (BOOL)isMergeable;
+- (BOOL)isSwappable;
+- (int)_intValueForKey:(struct __CFString *)arg1;
+- (BOOL)_booleanValueForKey:(struct __CFString *)arg1;
+- (struct __CFDictionary *)_callManagementDictionary;
+- (void)dealloc;
+- (id)init;
 
 @end
 

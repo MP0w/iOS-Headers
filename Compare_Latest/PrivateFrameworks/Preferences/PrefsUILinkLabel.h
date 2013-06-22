@@ -17,18 +17,18 @@
     NSURL *_URL;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) id target; // @synthesize target=_target;
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
-- (void)openURL:(id)arg1;
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
-- (void)tappedLink:(id)arg1;
 - (id)color:(id)arg1 byMultiplyingSubComponentsBy:(float)arg2;
+- (void)tappedLink:(id)arg1;
+- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)openURL:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

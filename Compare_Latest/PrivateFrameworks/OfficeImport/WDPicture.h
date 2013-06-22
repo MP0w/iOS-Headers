@@ -10,9 +10,9 @@
 {
 }
 
-- (void)dealloc;
-- (int)runType;
 - (BOOL)hasContent;
+- (int)runType;
+- (void)dealloc;
 
 @end
 

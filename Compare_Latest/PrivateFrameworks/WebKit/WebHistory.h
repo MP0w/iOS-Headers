@@ -13,24 +13,33 @@
     WebHistoryPrivate *_historyPrivate;
 }
 
-+ (id)optionalSharedHistory;
 + (void)setOptionalSharedHistory:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (void)_sendNotification:(id)arg1 entries:(id)arg2;
-- (void)removeItems:(id)arg1;
-- (void)removeAllItems;
-- (void)addItems:(id)arg1;
-- (id)orderedLastVisitedDays;
-- (id)orderedItemsLastVisitedOnDay:(id)arg1;
-- (BOOL)containsURL:(id)arg1;
-- (id)itemForURL:(id)arg1;
-- (BOOL)loadFromURL:(id)arg1 error:(id *)arg2;
-- (BOOL)saveToURL:(id)arg1 error:(id *)arg2;
-- (void)setHistoryItemLimit:(int)arg1;
-- (int)historyItemLimit;
-- (void)setHistoryAgeInDaysLimit:(int)arg1;
++ (id)optionalSharedHistory;
++ (void)_removeAllVisitedLinks;
++ (void)_setVisitedLinkTrackingEnabled:(BOOL)arg1;
 - (int)historyAgeInDaysLimit;
+- (void)setHistoryAgeInDaysLimit:(int)arg1;
+- (int)historyItemLimit;
+- (void)setHistoryItemLimit:(int)arg1;
+- (BOOL)saveToURL:(id)arg1 error:(id *)arg2;
+- (BOOL)loadFromURL:(id)arg1 error:(id *)arg2;
+- (id)itemForURL:(id)arg1;
+- (BOOL)containsURL:(id)arg1;
+- (id)orderedItemsLastVisitedOnDay:(id)arg1;
+- (id)orderedLastVisitedDays;
+- (void)addItems:(id)arg1;
+- (void)removeAllItems;
+- (void)removeItems:(id)arg1;
+- (void)_sendNotification:(id)arg1 entries:(id)arg2;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
+- (void)timeZoneChanged:(id)arg1;
+- (id)_data;
+- (id)allItems;
+- (id)_itemForURLString:(id)arg1;
+- (void)_addVisitedLinksToPageGroup:(struct PageGroup *)arg1;
+- (void)_visitedURL:(id)arg1 withTitle:(id)arg2 method:(id)arg3 wasFailure:(BOOL)arg4 increaseVisitCount:(BOOL)arg5;
 
 @end
 

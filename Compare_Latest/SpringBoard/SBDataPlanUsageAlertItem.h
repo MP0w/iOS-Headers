@@ -13,10 +13,10 @@
     NSNumber *_remainingPortion;
 }
 
-- (id)initWithAccountURL:(id)arg1 usage:(id)arg2;
-- (void)dealloc;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 @property(retain, nonatomic) NSNumber *remainingPortion; // @synthesize remainingPortion=_remainingPortion;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)dealloc;
+- (id)initWithAccountURL:(id)arg1 usage:(id)arg2;
 
 @end
 

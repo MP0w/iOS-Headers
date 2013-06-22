@@ -8,12 +8,12 @@
 
 #import "CLLocationManagerDelegate-Protocol.h"
 
-@class CLLocationManager, NSDate, NSDateFormatter, NSTimer, PCPersistentTimer;
+@class CLLocationManager, NSDate, NSDateFormatter, NSObject<OS_dispatch_queue>, NSTimer, PCPersistentTimer;
 
 @interface _EKAlarmEngine : NSObject <CLLocationManagerDelegate>
 {
     int _lastDBSequence;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSDate *_nextFireDate;
     double _lastCheckpoint;
     PCPersistentTimer *_timer;

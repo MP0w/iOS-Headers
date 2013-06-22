@@ -11,6 +11,12 @@
 }
 
 + (id)readEffectsFromXmlNode:(struct _xmlNode *)arg1 packagePart:(id)arg2 drawingState:(id)arg3;
++ (id)presetShadowTypeEnumMap;
++ (void)readGlow:(id)arg1 fromXmlNode:(struct _xmlNode *)arg2;
++ (void)readReflection:(id)arg1 fromXmlNode:(struct _xmlNode *)arg2;
++ (void)readPresetShadow:(id)arg1 fromXmlNode:(struct _xmlNode *)arg2;
++ (void)readOuterShadow:(id)arg1 fromXmlNode:(struct _xmlNode *)arg2;
++ (void)readShadow:(id)arg1 fromXmlNode:(struct _xmlNode *)arg2;
 
 @end
 

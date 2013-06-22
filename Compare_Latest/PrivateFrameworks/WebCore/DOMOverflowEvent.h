@@ -10,10 +10,10 @@
 {
 }
 
-@property(readonly) unsigned short orient;
-@property(readonly) BOOL horizontalOverflow;
-@property(readonly) BOOL verticalOverflow;
 - (void)initOverflowEvent:(unsigned short)arg1 horizontalOverflow:(BOOL)arg2 verticalOverflow:(BOOL)arg3;
+@property(readonly) BOOL verticalOverflow;
+@property(readonly) BOOL horizontalOverflow;
+@property(readonly) unsigned short orient;
 
 @end
 

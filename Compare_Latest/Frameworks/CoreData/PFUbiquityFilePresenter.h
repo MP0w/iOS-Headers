@@ -8,23 +8,35 @@
 
 #import "NSFilePresenter-Protocol.h"
 
-@class NSOperationQueue, NSString, NSURL;
+@class NSMutableDictionary, NSOperationQueue, NSString, NSURL, PFUbiquityLocation;
 
 @interface PFUbiquityFilePresenter : NSObject <NSFilePresenter>
 {
-    NSString *_ubiquityRootPath;
+    PFUbiquityLocation *_ubiquityRootLocation;
+    NSString *_localPeerID;
     NSURL *_presentedItemURL;
+    unsigned long long _lastFSEventIdentifier;
+    NSMutableDictionary *_delegates;
 }
 
-+ (void)initialize;
 + (id)sharedPrivateOperationQueue;
-- (id)initWithUbiquityRootPath:(id)arg1;
-- (void)dealloc;
-@property(readonly) NSURL *presentedItemURL;
-@property(readonly) NSOperationQueue *presentedItemOperationQueue;
-- (void)relinquishPresentedItemToReader:(id)arg1;
++ (void)initialize;
+@property(readonly) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
+@property(readonly) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
+- (unsigned long long)lastPresentedItemEventIdentifier;
+- (void)setLastPresentedItemEventIdentifier:(unsigned long long)arg1;
+- (void)presentedSubitemDidChangeAtURL:(id)arg1;
 - (void)relinquishPresentedItemToWriter:(id)arg1;
-@property(readonly) NSString *ubiquityRootPath; // @synthesize ubiquityRootPath=_ubiquityRootPath;
+- (void)relinquishPresentedItemToReader:(id)arg1;
+@property(readonly) NSOperationQueue *presentedItemOperationQueue;
+@property(readonly) NSURL *presentedItemURL;
+- (id)description;
+- (void)dealloc;
+- (id)initWithUbiquityRootLocation:(id)arg1 andLocalPeerID:(id)arg2;
+- (id)init;
+
+// Remaining properties
+@property(readonly) NSURL *primaryPresentedItemURL;
 
 @end
 

@@ -15,6 +15,8 @@
     NSString *_guid;
     IMAccount *_account;
     NSString *_id;
+    NSString *_uncanonicalID;
+    NSString *_countryCode;
     NSDictionary *_otherServiceIDs;
     NSDate *_idleSince;
     NSDate *_feedUpdatedDate;
@@ -27,7 +29,6 @@
     NSString *_abLastName;
     NSString *_abFullName;
     NSString *_abNickname;
-    NSArray *_abEmails;
     NSString *_displayID;
     NSString *_firstName;
     NSString *_lastName;
@@ -66,6 +67,7 @@
     BOOL _beingTornDown;
     BOOL _willUpdateIdleTime;
     BOOL _hasCheckedCardMap;
+    BOOL _isRegistered;
     int _priority;
     int _addressBookIdentifier;
     int _notificationQueueCount;
@@ -82,7 +84,6 @@
 + (void)setNotificationsEnabled:(BOOL)arg1;
 @property(readonly, nonatomic) int addressBookIdentifier; // @synthesize addressBookIdentifier=_addressBookIdentifier;
 @property(retain, nonatomic) NSURL *statusMessageAsURL; // @synthesize statusMessageAsURL=_statusMessageURL;
-@property(nonatomic) int IDStatus; // @synthesize IDStatus=_IDStatus;
 @property(readonly, nonatomic) BOOL isBot; // @synthesize isBot=_isBot;
 @property(readonly, nonatomic) BOOL isMobile; // @synthesize isMobile=_isMobile;
 @property(retain, nonatomic) NSDictionary *otherServiceIDs; // @synthesize otherServiceIDs=_otherServiceIDs;
@@ -100,6 +101,8 @@
 @property(readonly, nonatomic) NSDictionary *presenceProperties; // @synthesize presenceProperties=_presenceProps;
 @property(readonly, nonatomic) NSDictionary *extraProperties; // @synthesize extraProperties=_extraProps;
 @property(readonly, nonatomic) NSURL *statusURL; // @synthesize statusURL=_statusURL;
+@property(setter=_setIsRegisteredWithRegistrar:) BOOL _isRegisteredWithRegistrar; // @synthesize _isRegisteredWithRegistrar=_isRegistered;
+@property(retain, nonatomic) NSString *originalID; // @synthesize originalID=_uncanonicalID;
 - (void)sendNotificationABPersonChanged;
 - (id)description;
 - (void)setCustomPictureData:(id)arg1 key:(id)arg2;
@@ -121,11 +124,14 @@
 - (void)setCapabilities:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long capabilities;
 - (id)_bestChatSibling;
+- (id)_chatSiblingsArray;
 - (id)_chatSiblings;
 - (BOOL)_isChatSiblingOf:(id)arg1;
 - (BOOL)isSiblingOf:(id)arg1;
 - (BOOL)isAccountSiblingOf:(id)arg1;
 @property(readonly, nonatomic) NSSet *siblings;
+- (id)chatSiblingsArray;
+- (id)existingChatSiblingsArray;
 @property(readonly, nonatomic) NSArray *accountSiblingsArray;
 @property(readonly, nonatomic) NSArray *existingAccountSiblingsArray;
 @property(readonly, nonatomic) NSArray *siblingsArray;
@@ -152,6 +158,7 @@
 - (void)setStatusURLFromString:(id)arg1;
 - (void)setFeedUpdatedDate:(id)arg1;
 - (void)setIdleSince:(id)arg1;
+@property(nonatomic) int IDStatus; // @synthesize IDStatus=_IDStatus;
 - (void)requestIDStatus;
 @property(readonly, nonatomic) double idleTime;
 @property(readonly, nonatomic) NSString *nameOfStatus;
@@ -171,12 +178,10 @@
 @property(readonly, nonatomic) NSString *resource;
 @property(readonly, nonatomic) NSString *accountTypeName;
 - (unsigned int)sortOrderInGroup:(id)arg1;
-- (void)setBlocked:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL isBlocked;
+@property(nonatomic, setter=setBlocked:) BOOL isBlocked;
 @property(readonly, nonatomic) BOOL isVisiblyBlocked;
 - (BOOL)_isMyIDInList:(id)arg1;
 - (void)propertiesChanged:(id)arg1;
-- (void)_persistentPropertiesChanged:(id)arg1;
 - (void)_setExtraProperties:(id)arg1;
 - (void)setPresenceProperties:(id)arg1;
 @property(readonly, nonatomic) id bestSibling;
@@ -258,14 +263,27 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)_setOriginalID:(id)arg1;
+- (void)_setCountryCode:(id)arg1;
+- (void)_setOriginalID:(id)arg1 updateSiblings:(BOOL)arg2;
+@property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
+- (void)_setOriginalID:(id)arg1 countryCode:(id)arg2 updateSiblings:(BOOL)arg3;
+- (id)_handleInfo;
 - (void)dealloc;
 - (void)finalize;
 - (oneway void)release;
 - (id)initWithAccount:(id)arg1 ID:(id)arg2;
 - (id)initWithAccount:(id)arg1 ID:(id)arg2 alreadyCanonical:(BOOL)arg3;
 - (id)init;
-- (void)_registerForIMPerson;
-- (void)_unregisterFromIMPerson;
+- (void)_registerForIMPersonPictureChanges;
+- (void)_unregisterFromIMPersonPictureChanges;
+- (void)releaseNotificationQueue;
+- (void)beginNotificationQueue;
+- (BOOL)shouldQueueNotifications;
+- (id)publicAPIPropertiesDictionary;
+- (void)_sendRemoteLogDumpRequest;
+- (void)_sendRemoteLogDumpRequest:(id)arg1;
+- (id)imHandleRegistrarGUID;
 
 @end
 

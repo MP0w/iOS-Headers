@@ -13,25 +13,25 @@
     struct EshShape *mShape;
 }
 
-- (id)initWithShape:(struct EshShape *)arg1 masterShape:(struct EshShape *)arg2;
-- (id)initWithShape:(struct EshShape *)arg1;
-- (BOOL)isFillOK;
-- (BOOL)isStrokeOK;
-- (BOOL)isShadowOK;
-- (BOOL)isFilled;
-- (BOOL)isStroked;
-- (BOOL)isShadowed;
-- (BOOL)isTextPath;
-- (id)textPathUnicodeString;
-- (int)textPathTextAlignment;
-- (long)textPathFontSize;
-- (id)textPathFontFamily;
-- (BOOL)textPathBold;
-- (BOOL)textPathItalic;
-- (BOOL)textPathUnderline;
-- (BOOL)textPathSmallcaps;
-- (BOOL)textPathStrikethrough;
 - (BOOL)hidden;
+- (BOOL)textPathStrikethrough;
+- (BOOL)textPathSmallcaps;
+- (BOOL)textPathUnderline;
+- (BOOL)textPathItalic;
+- (BOOL)textPathBold;
+- (id)textPathFontFamily;
+- (long)textPathFontSize;
+- (int)textPathTextAlignment;
+- (id)textPathUnicodeString;
+- (BOOL)isTextPath;
+- (BOOL)isShadowed;
+- (BOOL)isStroked;
+- (BOOL)isFilled;
+- (BOOL)isShadowOK;
+- (BOOL)isStrokeOK;
+- (BOOL)isFillOK;
+- (id)initWithShape:(struct EshShape *)arg1;
+- (id)initWithShape:(struct EshShape *)arg1 masterShape:(struct EshShape *)arg2;
 
 @end
 

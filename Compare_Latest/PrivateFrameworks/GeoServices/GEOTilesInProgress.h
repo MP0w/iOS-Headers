@@ -13,6 +13,12 @@
     GEOTileKeyList *_list;
     unsigned long long _clientHandle;
     GEOPeer *_peer;
+    unsigned int _diskHits;
+    unsigned int _diskBytes;
+    double _diskStart;
+    unsigned int _networkHits;
+    unsigned int _networkBytes;
+    double _networkStart;
     BOOL _networkBegan;
 }
 
@@ -20,6 +26,7 @@
 @property(retain, nonatomic) GEOPeer *peer; // @synthesize peer=_peer;
 @property(nonatomic) unsigned long long clientHandle; // @synthesize clientHandle=_clientHandle;
 @property(retain, nonatomic) GEOTileKeyList *list; // @synthesize list=_list;
+- (id)statistics;
 - (void)dealloc;
 
 @end

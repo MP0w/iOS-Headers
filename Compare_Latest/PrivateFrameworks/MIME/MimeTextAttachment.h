@@ -10,11 +10,12 @@
 {
 }
 
-- (id)initWithMimePart:(id)arg1;
-- (id)_displayedMimePart;
-- (void)download;
-- (BOOL)hasBeenDownloaded;
+- (id)persistentUniqueIdentifier;
 - (unsigned int)approximateSize;
+- (BOOL)hasBeenDownloaded;
+- (void)download;
+- (id)_displayedMimePart;
+- (id)initWithMimePart:(id)arg1;
 
 @end
 

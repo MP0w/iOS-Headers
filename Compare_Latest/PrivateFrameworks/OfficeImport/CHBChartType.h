@@ -11,6 +11,7 @@
 }
 
 + (id)readWithState:(id)arg1;
++ (Class)chdChartTypeClassWithPlot:(struct XlChartPlot *)arg1;
 
 @end
 

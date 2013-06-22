@@ -6,7 +6,7 @@
 
 #import <EventKit/EKPersistentObject.h>
 
-@class EKPersistentSource, NSString;
+@class EKPersistentSource, NSSet, NSString, NSURL;
 
 @interface EKPersistentCalendar : EKPersistentObject
 {
@@ -16,11 +16,35 @@
 + (id)relations;
 + (id)defaultPropertiesToLoad;
 - (BOOL)validate:(id *)arg1;
-@property(nonatomic) int allowedEntityTypes;
+@property(copy, nonatomic) NSString *ownerIdentityLastName;
+@property(copy, nonatomic) NSString *ownerIdentityFirstName;
+@property(copy, nonatomic) NSURL *ownerIdentityAddress;
+@property(copy, nonatomic) NSString *ownerIdentityEmail;
+@property(copy, nonatomic) NSString *ownerIdentityDisplayName;
+@property(copy, nonatomic) NSString *selfIdentityLastName;
+@property(copy, nonatomic) NSString *selfIdentityFirstName;
+@property(copy, nonatomic) NSURL *selfIdentityAddress;
+@property(copy, nonatomic) NSString *selfIdentityEmail;
+@property(copy, nonatomic) NSString *selfIdentityDisplayName;
+@property(nonatomic) unsigned int allowedEntityTypes;
+@property(nonatomic) unsigned int invitationStatus;
 @property(retain, nonatomic) EKPersistentSource *source;
-@property(copy, nonatomic) NSString *sharedOwnerAddress;
+- (void)removeSharee:(id)arg1;
+- (void)addSharee:(id)arg1;
+@property(copy, nonatomic) NSSet *sharees;
+@property(nonatomic, getter=isPublished) BOOL published;
+- (void)setIsPublished:(BOOL)arg1;
+@property(copy, nonatomic) NSString *publishedURL;
+@property(nonatomic) int sharingInvitationResponse;
+@property(copy, nonatomic) NSURL *sharedOwnerAddress;
 @property(copy, nonatomic) NSString *sharedOwnerName;
 @property(nonatomic) int sharingStatus;
+@property(readonly, nonatomic) BOOL isDefaultCalendarForSource;
+@property(nonatomic) BOOL isFacebookBirthdayCalendar;
+@property(nonatomic) BOOL schedulingProhibited;
+@property(nonatomic) BOOL canBeShared;
+@property(nonatomic) BOOL canBePublished;
+@property(nonatomic, getter=isSharingInvitation) BOOL sharingInvitation;
 @property(nonatomic, getter=isImmutable) BOOL immutable;
 @property(nonatomic, getter=isHidden) BOOL hidden;
 @property(nonatomic, getter=isSubscribed) BOOL subscribed;

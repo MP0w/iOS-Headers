@@ -18,19 +18,20 @@
     float _progress;
 }
 
-+ (int)numberOfProgressIndicatorSteps;
 + (float)progressIndicatorStep;
-- (id)initWithHUDViewLevel:(int)arg1;
-- (void)dealloc;
-- (BOOL)displaysLabel;
-- (void)layoutSubviews;
-@property(retain, nonatomic) NSString *title;
-@property(retain, nonatomic) NSString *subtitle;
-@property(retain, nonatomic) UIImage *image;
-@property(nonatomic) BOOL showsProgress; // @synthesize showsProgress=_showsProgress;
++ (int)numberOfProgressIndicatorSteps;
 @property(nonatomic) float progress; // @synthesize progress=_progress;
-- (void)drawRect:(struct CGRect)arg1;
+@property(nonatomic) BOOL showsProgress; // @synthesize showsProgress=_showsProgress;
 @property(nonatomic) int level; // @synthesize level=_level;
+- (void)drawRect:(struct CGRect)arg1;
+- (void)drawBlockForValue:(float)arg1 point:(struct CGPoint)arg2;
+@property(retain, nonatomic) UIImage *image;
+@property(retain, nonatomic) NSString *subtitle;
+@property(retain, nonatomic) NSString *title;
+- (void)layoutSubviews;
+- (BOOL)displaysLabel;
+- (void)dealloc;
+- (id)initWithHUDViewLevel:(int)arg1;
 
 @end
 

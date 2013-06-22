@@ -121,6 +121,10 @@
 - (id)init;
 - (void)setAVItemClass:(Class)arg1;
 - (id)initWithError:(id *)arg1;
+- (id)vibrationPattern;
+- (void)setVibrationPattern:(id)arg1;
+- (void)setVibrationEnabled:(BOOL)arg1;
+- (BOOL)vibrationEnabled;
 
 @end
 

@@ -11,6 +11,7 @@
     struct _NSZone *zoneForInstance;
 }
 
++ (BOOL)supportsSecureCoding;
 - (void)getValue:(void *)arg1;
 - (const char *)objCType;
 - (id)initWithCoder:(id)arg1;

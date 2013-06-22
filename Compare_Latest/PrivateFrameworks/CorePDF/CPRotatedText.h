@@ -13,10 +13,10 @@
     NSMutableArray *zones;
 }
 
-- (void)dealloc;
-- (void)makeRotationZonesIn:(id)arg1;
-- (id)rotationZones;
 - (void)addRotationZonesTo:(id)arg1;
+- (id)rotationZones;
+- (void)makeRotationZonesIn:(id)arg1;
+- (void)dealloc;
 
 @end
 

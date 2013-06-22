@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)edReferenceFromXlRef:(const struct XlRef *)arg1;
 + (struct XlRef *)xlRefFromEDReference:(id)arg1;
++ (id)edReferenceFromXlRef:(const struct XlRef *)arg1;
 
 @end
 

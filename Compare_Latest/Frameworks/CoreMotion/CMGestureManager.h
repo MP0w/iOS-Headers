@@ -13,12 +13,10 @@
 
 + (void)setGestureServiceEnabled:(BOOL)arg1;
 + (BOOL)isGestureServiceEnabled;
-@property(copy) id gestureHandler; // @dynamic gestureHandler;
+@property(copy) id gestureHandler;
 - (void)dealloc;
 - (id)initWithPriority:(int)arg1;
 - (id)init;
-- (void)stopWatchdogCheckins;
-- (void)startWatchdogCheckins;
 
 @end
 

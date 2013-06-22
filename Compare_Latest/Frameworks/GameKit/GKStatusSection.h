@@ -4,37 +4,36 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <GameKit/GKFlexibleSpaceSection.h>
 
-#import <GameKit/GKTableSection-Protocol.h>
+@class NSError, NSMapTable, NSString;
 
-@class GKBackgroundView, NSError, NSString;
-
-@interface GKStatusSection : NSObject <GKTableSection>
+@interface GKStatusSection : GKFlexibleSpaceSection
 {
     BOOL _loading;
     NSString *_status;
     NSString *_info;
     NSError *_error;
     float _statusHeight;
-    GKBackgroundView *_currentStatusView;
+    NSMapTable *_statusViews;
 }
 
-@property(retain, nonatomic) GKBackgroundView *currentStatusView; // @synthesize currentStatusView=_currentStatusView;
+@property(retain, nonatomic) NSMapTable *statusViews; // @synthesize statusViews=_statusViews;
 @property(nonatomic) float statusHeight; // @synthesize statusHeight=_statusHeight;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSString *info; // @synthesize info=_info;
 @property(retain, nonatomic) NSString *status; // @synthesize status=_status;
 @property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
+- (CDStruct_70ce6416)currentMetricsInTableView:(id)arg1;
+- (void)updateDisplayState;
 - (id)tableView:(id)arg1 prepareContents:(id)arg2 forCell:(id)arg3 atIndexPath:(id)arg4;
-- (float)sectionFooterHeightInTableView:(id)arg1;
-- (float)sectionHeaderHeightInTableView:(id)arg1;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (id)sectionHeaderViewInTableView:(id)arg1;
+- (id)viewForSectionHeaderInTableView:(id)arg1;
 - (id)tableView:(id)arg1 reuseIdentifierForRow:(int)arg2;
 - (int)tableView:(id)arg1 numberOfColumnsForRow:(int)arg2;
-- (int)sectionRowCountInTableView:(id)arg1;
-- (id)makeStatusView;
+- (int)rowCountInTableView:(id)arg1;
+- (id)statusViewForTableView:(id)arg1;
+- (void)applyStatusToView:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

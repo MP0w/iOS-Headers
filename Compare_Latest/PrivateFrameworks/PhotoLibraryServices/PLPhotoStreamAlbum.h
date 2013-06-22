@@ -21,7 +21,6 @@
 - (BOOL)isOwnPhotoStreamAlbum;
 - (void)enforceImageLimitIfNecessary;
 - (BOOL)shouldDeleteWhenEmpty;
-- (id)title;
 @property(retain, nonatomic) NSString *personID;
 - (void)awakeFromInsert;
 

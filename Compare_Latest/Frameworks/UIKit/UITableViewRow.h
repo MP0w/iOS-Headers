@@ -20,7 +20,8 @@
 + (id)row;
 @property(retain, nonatomic) UITableViewCell *cell; // @synthesize cell=_cell;
 @property(nonatomic) float height; // @synthesize height=_height;
-@property(nonatomic) int indentationLevel; // @synthesize indentationLevel=_indentationLevel;
+- (int)indentationLevel;
+- (void)setIndentationLevel:(int)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

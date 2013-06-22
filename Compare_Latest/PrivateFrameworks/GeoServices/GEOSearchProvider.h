@@ -11,11 +11,10 @@
     id _error;
 }
 
-+ (id)hostname;
 + (unsigned short)provider;
 @property(copy, nonatomic) id error; // @synthesize error=_error;
 - (void)cancel;
-- (void)search:(id)arg1 finished:(id)arg2 spellingSuggestion:(void)arg3 refinement:(id)arg4 error:(void)arg5;
+- (void)search:(id)arg1 timeout:(int)arg2 useBackgroundConnection:(BOOL)arg3 finished:(id)arg4 spellingSuggestion:(void)arg5 refinement:(id)arg6 error:(void)arg7 isCompletions:(id)arg8;
 - (void)dealloc;
 
 @end

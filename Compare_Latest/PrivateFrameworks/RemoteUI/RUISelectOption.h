@@ -14,9 +14,9 @@
     NSString *value;
 }
 
-- (void)dealloc;
 @property(retain, nonatomic) NSString *value; // @synthesize value;
 @property(retain, nonatomic) NSString *label; // @synthesize label;
+- (void)dealloc;
 
 @end
 

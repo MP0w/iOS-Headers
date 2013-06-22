@@ -6,17 +6,22 @@
 
 #import <UIKit/UITableView.h>
 
-@class UISearchDisplayController;
+@class UISearchDisplayController, UIView;
 
 @interface UISearchResultsTableView : UITableView
 {
     UISearchDisplayController *_controller;
+    float _offsetForNoResultsMessage;
+    UIView *_topShadowView;
 }
 
 @property(nonatomic) UISearchDisplayController *controller; // @synthesize controller=_controller;
+@property(retain, nonatomic, getter=_topShadowView, setter=_setTopShadowView:) UIView *_topShadowView;
 - (float)_offsetForNoResultsMessage;
+- (void)_setOffsetForNoResultsMessage:(float)arg1;
 - (void)_numberOfRowsDidChange;
 - (void)setContentOffset:(struct CGPoint)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 
 @end
 

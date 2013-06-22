@@ -20,6 +20,8 @@
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (id)init;
 - (id)initWithInternalRepresentation:(id)arg1 game:(id)arg2;

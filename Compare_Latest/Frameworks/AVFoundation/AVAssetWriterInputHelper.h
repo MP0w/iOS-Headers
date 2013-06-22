@@ -16,6 +16,8 @@
 
 @property(retain) AVWeakReference *weakReferenceToAssetWriterInput; // @synthesize weakReferenceToAssetWriterInput=_weakReferenceToAssetWriterInput;
 @property(readonly, nonatomic) AVAssetWriterInputConfigurationState *configurationState; // @synthesize configurationState=_configurationState;
+- (void)addTrackAssociationWithTrackOfInput:(id)arg1 type:(id)arg2;
+- (BOOL)canAddTrackAssociationWithTrackOfInput:(id)arg1 type:(id)arg2;
 @property(readonly, nonatomic) struct __CVPixelBufferPool *pixelBufferPool;
 @property(copy, nonatomic) NSDictionary *sourcePixelBufferAttributes;
 - (void)markAsFinished;
@@ -23,15 +25,22 @@
 - (void)prepareToEndSession;
 - (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
 - (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
-- (void)requestMediaDataWhenReadyOnQueue:(struct dispatch_queue_s *)arg1 usingBlock:(id)arg2;
+- (void)requestMediaDataWhenReadyOnQueue:(id)arg1 usingBlock:(id)arg2;
+@property(readonly, nonatomic) NSDictionary *trackReferences;
+@property(nonatomic) short alternateGroupID;
+@property(nonatomic) BOOL marksOutputTrackAsEnabled;
+@property(copy, nonatomic) NSString *extendedLanguageTag;
+@property(copy, nonatomic) NSString *languageCode;
+@property(nonatomic) struct CGSize naturalSize;
 @property(nonatomic) BOOL expectsMediaDataInRealTime;
 @property(readonly, nonatomic, getter=isReadyForMoreMediaData) BOOL readyForMoreMediaData;
 @property(nonatomic) int mediaTimeScale;
 @property(copy, nonatomic) NSArray *metadata;
 @property(nonatomic) struct CGAffineTransform transform;
-@property(retain, nonatomic) struct opaqueCMFormatDescription *sampleBufferFormatHint;
+@property(readonly, nonatomic) struct opaqueCMFormatDescription *sourceFormatHint;
 @property(readonly, nonatomic) AVOutputSettings *outputSettings;
 @property(readonly, nonatomic) NSString *mediaType;
+@property(readonly, nonatomic) int trackID;
 - (void)transitionAssetWriterAndAllInputsToFailedStatusWithError:(id)arg1;
 - (void)transitionToTerminalStatus:(int)arg1;
 @property(readonly, nonatomic) int status;

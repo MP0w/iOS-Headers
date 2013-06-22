@@ -10,8 +10,9 @@
 {
 }
 
-- (id)cardCellBackgroundColor;
-- (int)cardActionButtonType;
+- (id)cardActionConferenceIcon;
+- (id)personActionColor;
+- (id)cardLabelTextColor;
 
 @end
 

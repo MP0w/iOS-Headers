@@ -17,10 +17,13 @@
     NSMutableDictionary *_userManifest;
     MSBackoffManager *_streamsBackoffManager;
     MSBackoffManager *_MMCSBackoffManager;
+    BOOL _hasDeactivated;
 }
 
+@property(nonatomic) BOOL hasDeactivated; // @synthesize hasDeactivated=_hasDeactivated;
 @property(readonly, nonatomic) NSString *personID; // @synthesize personID=_personID;
 @property(retain, nonatomic) NSMutableDictionary *_userManifest; // @synthesize _userManifest;
+- (void).cxx_destruct;
 - (void)protocol:(id)arg1 didReceiveRetryAfterDate:(id)arg2;
 - (void)_forget;
 - (void)_abort;

@@ -13,16 +13,16 @@
     WDText *mText;
 }
 
-- (int)blockType;
-- (id)text;
-- (id)document;
-- (int)textType;
-- (id)init;
-- (id)initWithText:(id)arg1;
-- (id)runIterator;
-- (id)newRunIterator;
-- (BOOL)isEmpty;
 - (void)clearProperties;
+- (BOOL)isEmpty;
+- (id)newRunIterator;
+- (id)runIterator;
+- (id)initWithText:(id)arg1;
+- (id)init;
+- (int)textType;
+- (id)document;
+- (id)text;
+- (int)blockType;
 
 @end
 

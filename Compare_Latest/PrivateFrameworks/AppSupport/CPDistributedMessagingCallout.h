@@ -14,11 +14,11 @@
     BOOL _returnsVoidIsValid;
 }
 
-- (id)initWithTarget:(id)arg1 selector:(SEL)arg2;
-- (void)dealloc;
 @property(readonly, nonatomic) BOOL returnsVoid; // @synthesize returnsVoid=_returnsVoid;
 @property(readonly, nonatomic) SEL selector; // @synthesize selector=_selector;
-@property(readonly, retain, nonatomic) id target; // @synthesize target=_target;
+@property(readonly, nonatomic) id target; // @synthesize target=_target;
+- (void)dealloc;
+- (id)initWithTarget:(id)arg1 selector:(SEL)arg2;
 
 @end
 

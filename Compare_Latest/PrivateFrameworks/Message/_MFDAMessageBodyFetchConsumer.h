@@ -19,14 +19,14 @@
     NSData *_data;
 }
 
-- (BOOL)wantsData;
-- (void)handleResponse:(id)arg1 error:(id)arg2;
-@property(readonly, nonatomic) BOOL succeeded; // @synthesize succeeded=_succeeded;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
-- (id)streamingContentConsumer;
-- (void)dealloc;
 @property(retain, nonatomic) MFError *error; // @synthesize error=_error;
 @property(retain, nonatomic) id <MFDAStreamingContentConsumer> streamConsumer; // @synthesize streamConsumer=_streamConsumer;
+- (void)dealloc;
+- (id)streamingContentConsumer;
+@property(readonly, nonatomic) BOOL succeeded; // @synthesize succeeded=_succeeded;
+- (void)handleResponse:(id)arg1 error:(id)arg2;
+- (BOOL)wantsData;
 
 @end
 

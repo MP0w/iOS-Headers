@@ -7,7 +7,8 @@
 #import "NSString.h"
 
 @interface NSString (MKAdditions)
-+ (id)_mapkit_localizedDistanceStringWithMeters:(int)arg1 inMetric:(BOOL)arg2 includeTrip:(BOOL)arg3;
++ (id)_mapkit_voiceOverLocalizedDistanceStringWithMeters:(unsigned int)arg1 inMetric:(BOOL)arg2 displaysYardsForShortDistances:(BOOL)arg3 includeTrip:(BOOL)arg4;
++ (id)_mapkit_localizedDistanceStringWithMeters:(unsigned int)arg1 inMetric:(BOOL)arg2 displaysYardsForShortDistances:(BOOL)arg3 includeTrip:(BOOL)arg4;
 + (id)_mapkit_formattedStringForFloat:(float)arg1;
 + (id)_mapkit_formattedStringForInt:(int)arg1;
 @end

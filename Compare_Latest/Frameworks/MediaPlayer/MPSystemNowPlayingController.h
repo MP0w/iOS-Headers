@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
-@class MPAVController;
+@class MPAVController, NSObject<OS_dispatch_queue>;
 
 @interface MPSystemNowPlayingController : NSObject
 {
     BOOL _hasSeenAnyItem;
     MPAVController *_player;
-    struct dispatch_queue_s *_serialQueue;
+    NSObject<OS_dispatch_queue> *_serialQueue;
+    NSObject<OS_dispatch_queue> *_statusBarQueue;
 }
 
 @property(nonatomic) MPAVController *player; // @synthesize player=_player;
+- (id)_progressInfoForItem:(id)arg1;
 - (int)_MRShuffleModeForMPShuffleType:(unsigned int)arg1;
 - (int)_MRRepeatModeForMPRepeatType:(unsigned int)arg1;
 - (unsigned int)_chapterIndexForItem:(id)arg1 atTime:(double)arg2;

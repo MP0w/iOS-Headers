@@ -13,6 +13,7 @@
 + (float)landscapeHeight;
 + (float)portraitHeight;
 + (struct CGSize)dictationLayoutSize;
+- (void)didRotate;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)showKeyboardType:(int)arg1 withAppearance:(int)arg2;

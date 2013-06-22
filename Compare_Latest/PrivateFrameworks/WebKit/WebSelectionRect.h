@@ -18,14 +18,13 @@
     BOOL m_containsStart;
     BOOL m_containsEnd;
     BOOL m_isInFixedPosition;
+    BOOL m_isHorizontal;
 }
 
-+ (id)selectionRect;
-+ (struct CGRect)startEdge:(id)arg1;
 + (struct CGRect)endEdge:(id)arg1;
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)description;
++ (struct CGRect)startEdge:(id)arg1;
++ (id)selectionRect;
+@property(nonatomic) BOOL isHorizontal; // @synthesize isHorizontal=m_isHorizontal;
 @property(nonatomic) BOOL isInFixedPosition; // @synthesize isInFixedPosition=m_isInFixedPosition;
 @property(nonatomic) BOOL containsEnd; // @synthesize containsEnd=m_containsEnd;
 @property(nonatomic) BOOL containsStart; // @synthesize containsStart=m_containsStart;
@@ -34,6 +33,9 @@
 @property(nonatomic) BOOL isLineBreak; // @synthesize isLineBreak=m_isLineBreak;
 @property(nonatomic) int writingDirection; // @synthesize writingDirection=m_writingDirection;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=m_rect;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

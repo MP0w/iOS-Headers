@@ -12,24 +12,27 @@
 {
 }
 
-@property(readonly, retain) DOMHTMLCollection *elements;
+- (BOOL)checkValidity;
+- (void)reset;
+- (void)submit;
+- (void)setAutocapitalize:(id)arg1;
+- (id)autocapitalize;
+- (void)setAutocorrect:(BOOL)arg1;
+- (BOOL)autocorrect;
 @property(readonly) int length;
-@property(copy) NSString *name;
-- (BOOL)noValidate;
+@property(readonly) DOMHTMLCollection *elements;
+@property(copy) NSString *target;
 - (void)setNoValidate:(BOOL)arg1;
-@property(copy) NSString *acceptCharset;
-@property(copy) NSString *action;
+- (BOOL)noValidate;
+@property(copy) NSString *name;
+@property(copy) NSString *method;
 @property(copy) NSString *encoding;
 @property(copy) NSString *enctype;
-@property(copy) NSString *method;
-@property(copy) NSString *target;
-- (BOOL)autocorrect;
-- (void)setAutocorrect:(BOOL)arg1;
-- (id)autocapitalize;
-- (void)setAutocapitalize:(id)arg1;
-- (void)submit;
-- (void)reset;
-- (BOOL)checkValidity;
+- (void)setAutocomplete:(id)arg1;
+- (id)autocomplete;
+@property(copy) NSString *action;
+@property(copy) NSString *acceptCharset;
+- (int)structuralComplexityContribution;
 
 @end
 

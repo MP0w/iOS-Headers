@@ -7,9 +7,9 @@
 #import "NSData.h"
 
 @interface NSData (WebNSDataExtras)
-- (BOOL)_web_isCaseInsensitiveEqualToCString:(const char *)arg1;
-- (id)_webkit_parseRFC822HeaderFields;
-- (BOOL)_web_startsWithBlankLine;
 - (int)_web_locationAfterFirstBlankLine;
+- (BOOL)_web_startsWithBlankLine;
+- (id)_webkit_parseRFC822HeaderFields;
+- (BOOL)_web_isCaseInsensitiveEqualToCString:(const char *)arg1;
 @end
 

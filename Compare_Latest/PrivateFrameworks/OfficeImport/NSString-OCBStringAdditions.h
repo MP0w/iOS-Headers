@@ -7,14 +7,14 @@
 #import "NSString.h"
 
 @interface NSString (OCBStringAdditions)
-+ (id)stringWithCsString:(const struct CsString *)arg1;
 + (id)stringWithOcText:(const struct OcText *)arg1;
-- (id)initWithCsString:(const struct CsString *)arg1;
-- (id)initWithOcText:(const struct OcText *)arg1;
-- (id)dataUsingWordEncoding:(int)arg1;
-- (void)copyToCsString:(struct CsString *)arg1;
-- (void)copyToOcText:(struct OcText *)arg1;
-- (void)copyToOcText:(struct OcText *)arg1 encoding:(int)arg2;
++ (id)stringWithCsString:(const struct CsString *)arg1;
 - (int)languageTypeAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (void)copyToOcText:(struct OcText *)arg1 encoding:(int)arg2;
+- (void)copyToOcText:(struct OcText *)arg1;
+- (void)copyToCsString:(struct CsString *)arg1;
+- (id)dataUsingWordEncoding:(int)arg1;
+- (id)initWithOcText:(const struct OcText *)arg1;
+- (id)initWithCsString:(const struct CsString *)arg1;
 @end
 

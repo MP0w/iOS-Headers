@@ -27,7 +27,7 @@
 @property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent; // @synthesize shouldMatchDataInCacheByURLWithoutQueryComponent=_shouldMatchDataInCacheByURLWithoutQueryComponent;
 @property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly; // @synthesize shouldMatchDataInCacheByURLPathComponentOnly=_shouldMatchDataInCacheByURLPathComponentOnly;
 @property(readonly, nonatomic) AVAssetCache *assetCache; // @synthesize assetCache=_assetCache;
-@property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+- (id)URL;
 - (BOOL)_isStreaming;
 - (BOOL)hasProtectedContent;
 - (BOOL)isComposable;

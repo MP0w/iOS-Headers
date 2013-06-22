@@ -44,6 +44,7 @@
 - (void)invalidate;
 - (void)_notifyDelegateAboutError:(id)arg1 forMessage:(id)arg2;
 - (void)_updateWiFiAssertions;
+- (void)_powerLogEvent:(id)arg1 dictionary:(id)arg2;
 - (id)_apsMessageForMessage:(id)arg1 body:(id)arg2;
 - (id)_apsMessageBodyForMessage:(id)arg1;
 - (void)_updateTopics;
@@ -51,7 +52,6 @@
 - (void)_messageNeedsRetry:(id)arg1;
 - (void)_messageCompletelyTimedOut:(id)arg1;
 - (void)_messageSendTimedOut:(id)arg1;
-- (void)_messageACKTimedOut:(id)arg1;
 - (void)_sendMessage:(id)arg1 ftMessage:(id)arg2;
 - (void)_noteMessageSent:(id)arg1 ftMessage:(id)arg2 body:(id)arg3;
 - (void)_noteMessageACKd:(id)arg1 ftMessage:(id)arg2;
@@ -63,6 +63,7 @@
 - (id)_bodyForMessage:(id)arg1;
 - (int)_retryCountForMessage:(id)arg1;
 - (id)_currentTimers;
+- (id)allMessages;
 - (id)_currentMessages;
 - (id)_currentAPSMessages;
 - (BOOL)_isBusyWithMessage:(id)arg1;
@@ -72,8 +73,6 @@
 - (void)_invalidateTimerForMessageID:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

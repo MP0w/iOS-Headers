@@ -15,9 +15,9 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (id)chart;
 - (id)graphicStyle;
+- (id)chart;
+- (void)dealloc;
 
 @end
 

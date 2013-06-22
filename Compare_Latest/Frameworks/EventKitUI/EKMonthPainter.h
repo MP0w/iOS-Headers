@@ -31,7 +31,9 @@
 @property struct CGRect headerFrame; // @synthesize headerFrame=_headerFrame;
 @property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)drawHeaderLine:(float)arg1;
 - (void)drawDayAreaWithRect:(struct CGRect)arg1;
+- (void)drawGridlines;
 - (float)weekRowHeight;
 - (float)weekRowWidth;
 - (struct CGRect)dayAreaFrame;

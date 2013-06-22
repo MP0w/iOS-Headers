@@ -10,6 +10,7 @@
 
 @interface UITouch : NSObject
 {
+    float _movementMagnitudeSquared;
     double _timestamp;
     int _phase;
     int _savedPhase;
@@ -35,6 +36,7 @@
     BOOL _eaten;
 }
 
++ (id)_createTouchesWithGSEvent:(struct __GSEvent *)arg1 phase:(int)arg2 view:(id)arg3;
 @property(nonatomic, getter=_isEaten, setter=_setEaten:) BOOL _eaten; // @synthesize _eaten;
 @property(nonatomic, setter=_setPathMajorRadius:) float _pathMajorRadius; // @synthesize _pathMajorRadius;
 @property(nonatomic, setter=_setPathIdentity:) unsigned char _pathIdentity; // @synthesize _pathIdentity;
@@ -45,16 +47,36 @@
 @property(readonly, nonatomic) NSArray *gestureRecognizers;
 @property(readonly, nonatomic) UIView *view;
 @property(readonly, nonatomic) UIWindow *window;
-- (BOOL)sentTouchesEnded;
-- (void)setSentTouchesEnded:(BOOL)arg1;
+@property(nonatomic) BOOL sentTouchesEnded;
 - (BOOL)isDelayed;
 - (void)setIsDelayed:(BOOL)arg1;
-- (BOOL)isTap;
+@property(nonatomic) BOOL isTap;
 @property(readonly, nonatomic) unsigned int tapCount;
 - (int)info;
 @property(readonly, nonatomic) int phase;
 @property(readonly, nonatomic) double timestamp;
 - (void)dealloc;
+- (BOOL)_isStationaryRelativeToTouches:(id)arg1;
+- (void)_updateMovementMagnitudeForLocation:(struct CGPoint)arg1;
+@property(retain, nonatomic) UIView *warpedIntoView;
+- (id)_forwardingRecord;
+- (BOOL)_wantsForwardingFromResponder:(id)arg1 toNextResponder:(id)arg2 withEvent:(id)arg3;
+- (int)_compareIndex:(id)arg1;
+- (struct CGPoint)_previousLocationInWindow:(id)arg1;
+- (struct CGPoint)_locationInWindow:(id)arg1;
+- (void)_popPhase;
+- (void)_pushPhase:(int)arg1;
+- (void)_clearGestureRecognizers;
+- (id)_gestureRecognizers;
+- (void)_removeGestureRecognizer:(id)arg1;
+- (void)_addGestureRecognizer:(id)arg1;
+- (id)description;
+- (id)_phaseDescription;
+- (void)_setLocationInWindow:(struct CGPoint)arg1 resetPrevious:(BOOL)arg2;
+@property(retain, nonatomic) UIView *gestureView;
+- (BOOL)_isFirstTouchForView;
+- (void)_setIsFirstTouchForView:(BOOL)arg1;
+- (float)_distanceFrom:(id)arg1 inView:(id)arg2;
 
 @end
 

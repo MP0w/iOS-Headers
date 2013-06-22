@@ -10,9 +10,10 @@
 {
 }
 
-+ (id)readFromArchive:(id)arg1 asThumbnail:(BOOL)arg2 delegate:(id)arg3;
-+ (id)readFromData:(id)arg1 asThumbnail:(BOOL)arg2 delegate:(id)arg3;
-+ (id)readFromPackage:(id)arg1 fileName:(id)arg2 reader:(id)arg3 cancel:(id)arg4 asThumbnail:(BOOL)arg5 delegate:(id)arg6;
++ (id)readFromPackage:(id)arg1 fileName:(id)arg2 reader:(id)arg3 cancel:(id)arg4 isThumbnail:(BOOL)arg5 delegate:(id)arg6;
++ (void)readSlideIndicesWithPresentationPart:(id)arg1 presentationState:(id)arg2;
++ (void)readPresentationProperties:(id)arg1 to:(id)arg2;
++ (struct CGSize)readSizeFromChildOfElement:(struct _xmlNode *)arg1 childName:(const char *)arg2;
 
 @end
 

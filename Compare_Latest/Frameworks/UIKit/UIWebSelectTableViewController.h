@@ -14,7 +14,9 @@
 {
     DOMHTMLSelectElement *_selectionNode;
     NSArray *_cachedItems;
+    NSArray *_groupsAndOptions;
     unsigned int _singleSelectionIndex;
+    unsigned int _singleSelectionSection;
     BOOL _allowsMultipleSelection;
     float _fontSize;
     float _maximumTextWidth;
@@ -23,21 +25,24 @@
 }
 
 @property(nonatomic) UIWebSelectPopover *_popover; // @synthesize _popover;
-@property(nonatomic) unsigned int _singleSelectionIndex; // @synthesize _singleSelectionIndex;
 @property(retain, nonatomic) NSArray *_cachedItems; // @synthesize _cachedItems;
+@property(retain, nonatomic) NSArray *_groupsAndOptions; // @synthesize _groupsAndOptions;
 @property(retain, nonatomic) DOMHTMLSelectElement *_selectionNode; // @synthesize _selectionNode;
 - (void)deleteBackward;
 - (void)insertText:(id)arg1;
 - (BOOL)hasText;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)_optionsForSection:(int)arg1;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (float)heightForItems;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithDOMHTMLSelectNode:(id)arg1 cachedItems:(id)arg2 singleSelectionIndex:(unsigned int)arg3 multipleSelection:(BOOL)arg4;
-- (BOOL)_hasItems;
+- (void)_setupGroupsAndOptions;
+- (BOOL)_isEmpty;
 
 // Remaining properties
 @property(nonatomic) int autocapitalizationType;

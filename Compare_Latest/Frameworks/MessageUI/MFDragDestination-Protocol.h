@@ -7,12 +7,12 @@
 #import "NSObject-Protocol.h"
 
 @protocol MFDragDestination <NSObject>
-- (void)dragEntered:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (void)dragUpdated:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (void)dragExited:(id)arg1;
-- (void)dropItem:(id)arg1;
-- (id)viewForDrop;
-- (struct CGRect)dropRect;
 - (id)supportedDropTypes:(id)arg1;
+- (struct CGRect)dropRect;
+- (id)viewForDrop;
+- (void)dropItem:(id)arg1;
+- (void)dragExited:(id)arg1;
+- (void)dragUpdated:(id)arg1 atPoint:(struct CGPoint)arg2;
+- (void)dragEntered:(id)arg1 atPoint:(struct CGPoint)arg2;
 @end
 

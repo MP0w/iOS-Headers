@@ -7,7 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (WebNSArrayExtras)
-- (id)_webkit_numberAtIndex:(unsigned int)arg1;
 - (id)_webkit_stringAtIndex:(unsigned int)arg1;
+- (id)_webkit_numberAtIndex:(unsigned int)arg1;
 @end
 

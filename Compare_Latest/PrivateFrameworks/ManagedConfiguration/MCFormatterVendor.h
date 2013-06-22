@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSNumberFormatter;
+@class NSNumberFormatter, NSObject<OS_dispatch_queue>;
 
 @interface MCFormatterVendor : NSObject
 {
     NSNumberFormatter *_numberFormatter;
-    struct dispatch_queue_s *_syncQueue;
+    NSObject<OS_dispatch_queue> *_syncQueue;
 }
 
 + (id)sharedInstance;
-- (id)numberFormatter;
-- (void)_localeDidChange:(id)arg1;
-- (id)init;
+- (void).cxx_destruct;
 - (void)dealloc;
+- (id)init;
+- (void)_localeDidChange:(id)arg1;
+- (id)numberFormatter;
 
 @end
 

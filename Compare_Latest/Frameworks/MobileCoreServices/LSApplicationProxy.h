@@ -6,34 +6,56 @@
 
 #import <MobileCoreServices/LSResourceProxy.h>
 
-@class NSArray, NSString;
+@class NSArray, NSDictionary, NSString, NSURL, NSUUID;
 
 @interface LSApplicationProxy : LSResourceProxy
 {
     unsigned int _flags;
+    unsigned int _bundleFlags;
     NSArray *_privateDocumentIconNames;
     LSApplicationProxy *_privateDocumentTypeOwner;
+    NSURL *_bundleURL;
+    NSString *_vendorID;
+    NSString *_bundleVersion;
+    NSString *_shortVersionString;
+    NSString *_applicationType;
+    NSString *_signerIdentity;
+    NSDictionary *_entitlements;
+    NSDictionary *_environmentVariables;
+    NSArray *_directionsModes;
 }
 
-+ (id)applicationProxyForIdentifier:(id)arg1;
 + (id)applicationProxyForIdentifier:(id)arg1 roleIdentifier:(id)arg2;
-- (id)_initWithApplicationIdentifier:(id)arg1 name:(id)arg2 containerURL:(id)arg3 resourcesDirectoryURL:(id)arg4 iconsDictionary:(id)arg5 iconFileNames:(id)arg6 iconIsPrerendered:(BOOL)arg7;
-- (void)dealloc;
-@property(readonly, nonatomic) NSString *applicationIdentifier;
-@property(readonly, nonatomic) NSString *roleIdentifier;
-- (id)containerURL;
-- (id)resourcesDirectoryURL;
-- (id)privateDocumentIconNames;
-- (void)setPrivateDocumentIconNames:(id)arg1;
-- (BOOL)privateDocumentIconAllowOverride;
-- (void)setPrivateDocumentIconAllowOverride:(BOOL)arg1;
-- (id)privateDocumentTypeOwner;
-- (void)setPrivateDocumentTypeOwner:(id)arg1;
-- (id)localizedName;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)description;
++ (id)applicationProxyForIdentifier:(id)arg1;
 - (id)iconStyleDomain;
+- (id)description;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)localizedName;
+- (void)setPrivateDocumentTypeOwner:(id)arg1;
+- (id)privateDocumentTypeOwner;
+- (void)setPrivateDocumentIconAllowOverride:(BOOL)arg1;
+- (BOOL)privateDocumentIconAllowOverride;
+- (void)setPrivateDocumentIconNames:(id)arg1;
+- (id)privateDocumentIconNames;
+- (id)resourcesDirectoryURL;
+@property(readonly, nonatomic) NSUUID *deviceIdentifierForVendor;
+@property(readonly, nonatomic) NSArray *directionsModes;
+@property(readonly, nonatomic) NSDictionary *environmentVariables; // @synthesize environmentVariables=_environmentVariables;
+@property(readonly, nonatomic) NSDictionary *entitlements; // @synthesize entitlements=_entitlements;
+@property(readonly, nonatomic) BOOL profileValidated;
+@property(readonly, nonatomic) NSString *signerIdentity; // @synthesize signerIdentity=_signerIdentity;
+@property(readonly, nonatomic) NSString *applicationType; // @synthesize applicationType=_applicationType;
+@property(readonly, nonatomic) NSString *shortVersionString;
+@property(readonly, nonatomic) NSString *bundleVersion;
+@property(readonly, nonatomic) NSString *vendorID;
+@property(readonly, nonatomic) NSURL *containerURL;
+@property(readonly, nonatomic) NSURL *bundleURL;
+@property(readonly, nonatomic) NSString *roleIdentifier;
+@property(readonly, nonatomic) NSString *applicationIdentifier;
+- (void)dealloc;
+- (id)_initWithApplicationIdentifier:(id)arg1 name:(id)arg2 containerURL:(id)arg3 resourcesDirectoryURL:(id)arg4 iconsDictionary:(id)arg5 iconFileNames:(id)arg6 iconIsPrerendered:(BOOL)arg7;
+- (id)_plistValueForKey:(id)arg1;
 
 @end
 

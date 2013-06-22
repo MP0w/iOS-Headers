@@ -9,20 +9,20 @@
 @protocol SBIconViewDelegate <NSObject>
 
 @optional
-- (BOOL)iconAllowJitter:(id)arg1;
-- (BOOL)iconPositionIsEditable:(id)arg1;
-- (void)iconHandleLongPress:(id)arg1;
-- (void)iconTouchBegan:(id)arg1;
-- (void)icon:(id)arg1 touchMovedWithEvent:(id)arg2;
-- (void)icon:(id)arg1 touchEnded:(BOOL)arg2;
-- (BOOL)iconShouldAllowTap:(id)arg1;
-- (void)iconTapped:(id)arg1;
-- (BOOL)icon:(id)arg1 canReceiveGrabbedIcon:(id)arg2;
-- (void)icon:(id)arg1 closeFolderAnimated:(BOOL)arg2;
-- (void)icon:(id)arg1 openFolder:(id)arg2 animated:(BOOL)arg3;
-- (int)closeBoxTypeForIcon:(id)arg1;
-- (void)iconCloseBoxTapped:(id)arg1;
-- (BOOL)iconShouldPrepareGhostlyImage:(id)arg1;
 - (BOOL)iconViewDisplaysBadges:(id)arg1;
+- (BOOL)iconShouldPrepareGhostlyImage:(id)arg1;
+- (void)iconCloseBoxTapped:(id)arg1;
+- (int)closeBoxTypeForIcon:(id)arg1;
+- (void)icon:(id)arg1 openFolder:(id)arg2 animated:(BOOL)arg3;
+- (void)icon:(id)arg1 closeFolderAnimated:(BOOL)arg2;
+- (BOOL)icon:(id)arg1 canReceiveGrabbedIcon:(id)arg2;
+- (void)iconTapped:(id)arg1;
+- (BOOL)iconShouldAllowTap:(id)arg1;
+- (void)icon:(id)arg1 touchEnded:(BOOL)arg2;
+- (void)icon:(id)arg1 touchMovedWithEvent:(id)arg2;
+- (void)iconTouchBegan:(id)arg1;
+- (void)iconHandleLongPress:(id)arg1;
+- (BOOL)iconPositionIsEditable:(id)arg1;
+- (BOOL)iconAllowJitter:(id)arg1;
 @end
 

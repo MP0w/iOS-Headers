@@ -22,6 +22,7 @@
 - (void)_operatorBundleChanged;
 - (void)_carrierBundleChanged;
 - (BOOL)_isCurrentlyRoaming;
+- (BOOL)isCellularDataRoamingEnabled;
 - (void)setCellularRoaming:(BOOL)arg1;
 - (int)_networkTypeFromCurrentCellularData;
 - (int)_networkTypeFromFlags:(unsigned int)arg1;

@@ -11,8 +11,8 @@
     int mType;
 }
 
-- (int)type;
 - (void)setType:(int)arg1;
+- (int)type;
 
 @end
 

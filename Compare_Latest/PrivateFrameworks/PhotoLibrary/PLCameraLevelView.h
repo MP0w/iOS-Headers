@@ -6,15 +6,16 @@
 
 #import "UIView.h"
 
+@class CAGradientLayer;
+
 @interface PLCameraLevelView : UIView
 {
-    struct CGColor *_shadowColor;
+    UIView *_lineView;
+    CAGradientLayer *_topGlowLayer;
+    CAGradientLayer *_bottomGlowLayer;
 }
 
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)setShadowColor:(struct CGColor *)arg1;
-- (struct CGColor *)shadowColor;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

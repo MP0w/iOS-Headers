@@ -15,17 +15,17 @@
     NSString *_dbCountry;
 }
 
-- (void)dealloc;
-- (BOOL)isValid;
-- (id)predicateFormat;
-- (id)queryJoinsInCompound:(BOOL)arg1;
-- (id)queryWhereString;
-- (BOOL)hasCallback;
-- (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
-- (void)evaluateCallbackWithSqliteContext:(struct sqlite3_context *)arg1 predicateContext:(void *)arg2 values:(struct Mem **)arg3 count:(int)arg4;
-@property(readonly, nonatomic) NSString *dbCountry; // @synthesize dbCountry=_dbCountry;
 @property(copy, nonatomic) NSString *country; // @synthesize country=_country;
 @property(copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
+@property(readonly, nonatomic) NSString *dbCountry; // @synthesize dbCountry=_dbCountry;
+- (void)evaluateCallbackWithSqliteContext:(struct sqlite3_context *)arg1 predicateContext:(void *)arg2 values:(struct Mem **)arg3 count:(int)arg4;
+- (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
+- (BOOL)hasCallback;
+- (id)queryWhereString;
+- (id)queryJoinsInCompound:(BOOL)arg1;
+- (id)predicateFormat;
+- (BOOL)isValid;
+- (void)dealloc;
 
 @end
 

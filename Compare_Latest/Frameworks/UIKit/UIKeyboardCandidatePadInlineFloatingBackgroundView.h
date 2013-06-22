@@ -10,8 +10,10 @@
 {
     float _rowHeight;
     unsigned int _highlightedRowIndex;
+    float _contentHeight;
 }
 
+@property(nonatomic) float contentHeight; // @synthesize contentHeight=_contentHeight;
 @property(nonatomic) unsigned int highlightedRowIndex; // @synthesize highlightedRowIndex=_highlightedRowIndex;
 @property(nonatomic) float rowHeight; // @synthesize rowHeight=_rowHeight;
 - (void)drawRect:(struct CGRect)arg1;

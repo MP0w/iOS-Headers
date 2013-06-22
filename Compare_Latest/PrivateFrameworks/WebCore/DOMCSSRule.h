@@ -12,12 +12,12 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly) unsigned short type;
+@property(readonly) DOMCSSRule *parentRule;
+@property(readonly) DOMCSSStyleSheet *parentStyleSheet;
 @property(copy) NSString *cssText;
-@property(readonly, retain) DOMCSSStyleSheet *parentStyleSheet;
-@property(readonly, retain) DOMCSSRule *parentRule;
+@property(readonly) unsigned short type;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

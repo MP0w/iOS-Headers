@@ -21,6 +21,8 @@
 - (void)cameraControllerPanoramaDidStopProcessing:(id)arg1;
 - (void)cameraControllerPanoramaWillStartProcessing:(id)arg1;
 - (void)cameraControllerWillStopPanoramaCapture:(id)arg1;
+- (void)cameraControllerDidStartPanoramaCapture:(id)arg1;
+- (void)cameraController:(id)arg1 didReceivePanoramaIssue:(int)arg2;
 - (void)cameraController:(id)arg1 didUpdatePanoramaPreview:(id)arg2;
 - (void)cameraController:(id)arg1 didChangeCaptureAbility:(BOOL)arg2;
 - (void)cameraController:(id)arg1 capturedPhoto:(id)arg2 error:(id)arg3;

@@ -22,36 +22,33 @@
     BOOL _subscribedStripAttachments;
     ICSDuration *_subscribedRefreshRate;
     NSURL *_publishURL;
+    NSURL *_prePublishURL;
     BOOL _isScheduleTransparent;
     NSTimeZone *_timeZone;
     BOOL _canBePublished;
+    BOOL _canBeShared;
     NSURL *_source;
     NSSet *_freeBusySet;
     NSURL *_scheduleDefaultCalendarURL;
+    NSString *_defaultTimedAlarms;
+    NSString *_defaultAllDayAlarms;
+    NSSet *_sharees;
+    NSString *_supportedCalendarComponentSets;
 }
 
 + (id)copyPropertyMappingsForParser;
-- (void)dealloc;
-- (id)description;
-- (void)applyParsedProperties:(id)arg1;
-- (void)_setTimeZoneFromProperties:(id)arg1 onCalendar:(id)arg2;
-- (BOOL)_isComponentSupportedForString:(id)arg1;
-@property(readonly) BOOL isCalendar;
-@property(readonly) BOOL isScheduleInbox;
-@property(readonly) BOOL isScheduleOutbox;
-@property(readonly) BOOL isNotification;
-@property(readonly) BOOL isSubscribed;
-@property(readonly) BOOL isSharedOwner;
-@property(readonly) BOOL isShared;
-@property(readonly) BOOL isEventContainer;
-@property(readonly) BOOL isTaskContainer;
-@property(readonly) BOOL supportsFreebusy;
+@property(retain) NSString *supportedCalendarComponentSets; // @synthesize supportedCalendarComponentSets=_supportedCalendarComponentSets;
+@property(retain) NSSet *sharees; // @synthesize sharees=_sharees;
+@property(retain) NSString *defaultAllDayAlarms; // @synthesize defaultAllDayAlarms=_defaultAllDayAlarms;
+@property(retain) NSString *defaultTimedAlarms; // @synthesize defaultTimedAlarms=_defaultTimedAlarms;
 @property(retain) NSURL *scheduleDefaultCalendarURL; // @synthesize scheduleDefaultCalendarURL=_scheduleDefaultCalendarURL;
 @property(retain) NSSet *freeBusySet; // @synthesize freeBusySet=_freeBusySet;
 @property(retain) NSURL *source; // @synthesize source=_source;
+@property BOOL canBeShared; // @synthesize canBeShared=_canBeShared;
 @property BOOL canBePublished; // @synthesize canBePublished=_canBePublished;
 @property(retain) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
 @property BOOL isScheduleTransparent; // @synthesize isScheduleTransparent=_isScheduleTransparent;
+@property(retain) NSURL *prePublishURL; // @synthesize prePublishURL=_prePublishURL;
 @property(retain) NSURL *publishURL; // @synthesize publishURL=_publishURL;
 @property(retain) ICSDuration *subscribedRefreshRate; // @synthesize subscribedRefreshRate=_subscribedRefreshRate;
 @property BOOL subscribedStripAttachments; // @synthesize subscribedStripAttachments=_subscribedStripAttachments;
@@ -64,6 +61,23 @@
 @property(retain) NSString *calendarColor; // @synthesize calendarColor=_calendarColor;
 @property(retain) NSString *ctag; // @synthesize ctag=_ctag;
 @property(retain) NSString *calendarDescription; // @synthesize calendarDescription=_calendarDescription;
+@property(readonly) BOOL supportsFreebusy;
+@property(readonly) BOOL isPollContainer;
+@property(readonly) BOOL isJournalContainer;
+@property(readonly) BOOL isTaskContainer;
+@property(readonly) BOOL isEventContainer;
+@property(readonly) BOOL isShared;
+@property(readonly) BOOL isSharedOwner;
+@property(readonly) BOOL isSubscribed;
+@property(readonly) BOOL isNotification;
+@property(readonly) BOOL isScheduleOutbox;
+@property(readonly) BOOL isScheduleInbox;
+@property(readonly) BOOL isCalendar;
+- (BOOL)_isComponentSupportedForString:(id)arg1;
+- (void)_setTimeZoneFromProperties:(id)arg1 onCalendar:(id)arg2;
+- (void)applyParsedProperties:(id)arg1;
+- (id)description;
+- (void)dealloc;
 
 @end
 

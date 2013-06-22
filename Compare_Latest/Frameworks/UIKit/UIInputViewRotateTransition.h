@@ -12,7 +12,6 @@
 
 - (BOOL)shouldCompleteOnSuspend;
 - (BOOL)fadeAccessoryView;
-- (BOOL)canAnimate;
 - (void)postNotificationsForTransitionEnd;
 - (void)postNotificationsForTransitionStart;
 - (BOOL)subsumesTransition:(id)arg1;

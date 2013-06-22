@@ -20,9 +20,11 @@
     int m_orientation;
 }
 
++ (BOOL)splitKeyboardEnabled;
++ (BOOL)isInHardwareKeyboardMode;
 + (struct CGSize)keyboardSizeForInterfaceOrientation:(int)arg1;
 + (struct CGSize)sizeForInterfaceOrientation:(int)arg1;
-+ (struct CGSize)defaultSizeForOrientation:(int)arg1;
++ (BOOL)shouldMinimizeForHardwareKeyboard;
 + (BOOL)respondsToProxGesture;
 + (BOOL)isOnScreen;
 + (struct CGRect)onscreenFrameForTextInputTraits:(id)arg1;
@@ -34,6 +36,7 @@
 + (void)_clearActiveKeyboard;
 + (id)activeKeyboard;
 - (void)resizeForKeyplaneSize:(struct CGSize)arg1;
+@property(nonatomic) BOOL showsCandidatesInline;
 - (BOOL)canDismiss;
 - (void)implBoundsHeightChangeDone:(float)arg1 suppressNotification:(BOOL)arg2;
 - (void)prepareForImplBoundsHeightChange:(float)arg1 suppressNotification:(BOOL)arg2;
@@ -42,13 +45,15 @@
 @property(nonatomic, getter=isMinimized) BOOL minimized;
 - (void)maximize;
 - (void)minimize;
+- (id)targetWindow;
+- (void)setCorrectionLearningAllowed:(BOOL)arg1;
 - (struct UIPeripheralAnimationGeometry)geometryForMinimize:(BOOL)arg1;
 - (void)syncMinimizedStateToHardwareKeyboardAttachedState;
+- (BOOL)shouldSaveMinimizationState;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (int)textEffectsVisibilityLevel;
 - (void)displayLayer:(id)arg1;
 - (void)setNeedsDisplay;
@@ -65,16 +70,17 @@
 - (id)defaultTextInputTraits;
 - (void)setReturnKeyEnabled:(BOOL)arg1;
 - (BOOL)returnKeyEnabled;
-- (void)setCaretVisible:(BOOL)arg1;
-- (void)setCaretBlinks:(BOOL)arg1;
+@property(nonatomic) BOOL caretVisible;
+@property(nonatomic) BOOL caretBlinks;
+- (BOOL)hasAutocorrectPrompt;
 - (void)acceptAutocorrection;
 - (void)removeAutocorrectPrompt;
 - (void)geometryChangeDone:(BOOL)arg1;
 - (void)prepareForGeometryChange;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (int)interfaceOrientation;
-- (int)orientation;
 - (void)updateLayout;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
@@ -82,6 +88,27 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)autoAdjustOrientationForSize:(struct CGSize)arg1;
 - (void)autoAdjustOrientation;
+- (void)manualKeyboardWasOrderedOut;
+- (void)manualKeyboardWillBeOrderedOut;
+- (void)manualKeyboardWasOrderedIn;
+- (void)manualKeyboardWillBeOrderedIn;
+- (int)_positionInCandidateList:(id)arg1;
+- (BOOL)_hasCandidates;
+- (void)_clearCurrentInputManager;
+- (void)_acceptCurrentCandidate;
+- (id)_getAutocorrection;
+- (void)_setAutocorrects:(BOOL)arg1;
+- (void)_setInputMode:(id)arg1;
+- (id)_typeCharacter:(id)arg1 withError:(struct CGPoint)arg2 shouldTypeVariants:(BOOL)arg3 baseKeyForVariants:(BOOL)arg4;
+- (id)_touchPoint:(struct CGPoint)arg1;
+- (void)_changeToKeyplane:(id)arg1;
+- (id)_keyplaneNamed:(id)arg1;
+- (id)_keyplaneForKey:(id)arg1;
+- (id)_baseKeyForRepresentedString:(id)arg1;
+- (id)_getLocalizedInputMode;
+- (id)_getCurrentKeyboardName;
+- (id)_getCurrentKeyplaneName;
+- (BOOL)_isAutomaticKeyboard;
 
 @end
 

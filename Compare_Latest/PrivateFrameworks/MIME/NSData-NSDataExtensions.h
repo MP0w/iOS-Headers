@@ -7,7 +7,7 @@
 #import "NSData.h"
 
 @interface NSData (NSDataExtensions)
-- (id)mf_subdataWithRange:(struct _NSRange)arg1;
 - (BOOL)mf_immutable;
+- (id)mf_subdataWithRange:(struct _NSRange)arg1;
 @end
 

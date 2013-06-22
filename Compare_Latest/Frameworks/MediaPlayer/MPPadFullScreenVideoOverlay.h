@@ -33,12 +33,14 @@
 
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)_scheduleHidePopoverTimer;
-- (unsigned int)_convertedPartsMask:(unsigned int)arg1;
+- (unsigned long long)_convertedPartsMask:(unsigned long long)arg1;
 - (void)_hideScrubInstructions;
 - (void)_showScrubInstructions;
 - (void)_reconfigureNavigationBarAnimated:(BOOL)arg1;
 - (void)_initSubviews;
 - (id)_navBarBackgroundImageForProgressControl:(BOOL)arg1 tallStyle:(BOOL)arg2;
+- (void)_applicationWillResignActive:(id)arg1;
+- (void)_isAirPlayVideoActiveDidChangeNotification:(id)arg1;
 - (void)_videoViewScaleModeDidChangeNotification:(id)arg1;
 - (void)_itemDurationAvailableNotification:(id)arg1;
 - (void)hideAlternateTracks;
@@ -51,17 +53,17 @@
 - (void)detailSliderTrackingDidEnd:(id)arg1;
 - (void)detailSliderTrackingDidBegin:(id)arg1;
 - (id)navigationBar;
-- (void)setDisabledParts:(unsigned int)arg1;
-- (unsigned int)disabledParts;
-- (void)setVisibleParts:(unsigned int)arg1 animate:(BOOL)arg2;
-- (void)setDesiredParts:(unsigned int)arg1 animate:(BOOL)arg2;
+- (void)setDisabledParts:(unsigned long long)arg1;
+- (unsigned long long)disabledParts;
+- (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+- (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (void)setInterfaceOrientation:(int)arg1;
 - (void)setPlayer:(id)arg1;
 - (void)setVideoViewController:(id)arg1;
 - (void)setItem:(id)arg1;
 - (void)setAllowsWirelessPlayback:(BOOL)arg1;
 - (BOOL)allowsWirelessPlayback;
-- (void)crossedURLTimeMarker:(id)arg1;
+- (void)crossedTimeMakerWithEvent:(id)arg1;
 - (void)_configureLinkButtonForCurrentItemTime;
 - (int)nowPlayingItemQueueInfoButton:(id)arg1 willDisplayInfoType:(int)arg2;
 - (void)setAlpha:(float)arg1;

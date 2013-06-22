@@ -23,6 +23,8 @@
 - (id)components;
 - (id)initWithYear:(int)arg1 month:(int)arg2 day:(int)arg3 hour:(int)arg4 minute:(int)arg5 second:(int)arg6;
 - (id)initWithYear:(int)arg1 month:(int)arg2 day:(int)arg3;
+- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
+- (int)dateType;
 
 @end
 

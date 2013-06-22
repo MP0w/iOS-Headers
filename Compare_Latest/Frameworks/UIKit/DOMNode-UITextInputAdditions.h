@@ -10,14 +10,14 @@
 #import "UIKeyboardInput-Protocol.h"
 #import "UITextInputTokenizer-Protocol.h"
 
-@class NSDictionary, UIColor, UIImage, UIResponder<UITextSelection>, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSelectionView, UIView, UIView<UITextSelectingContent>;
+@class NSDictionary, UIColor, UIImage, UITextInteractionAssistant, UITextPosition, UITextRange, UIView;
 
 @interface DOMNode (UITextInputAdditions) <UIKeyboardInput, UIKeyInput, UITextInputTokenizer>
-@property(readonly, nonatomic) UIResponder<UITextSelection> *textDocument;
+- (id)textDocument;
 @property(nonatomic) int selectionAffinity;
 - (BOOL)editing;
 - (BOOL)editable;
-- (id)rectsForRange:(id)arg1;
+- (id)selectionRectsForRange:(id)arg1;
 - (void)setBaseWritingDirection:(int)arg1 forRange:(id)arg2;
 - (int)baseWritingDirectionForPosition:(id)arg1 inDirection:(int)arg2;
 - (id)characterRangeByExtendingPosition:(id)arg1 inDirection:(int)arg2;
@@ -46,7 +46,9 @@
 - (void)moveRight;
 - (struct CGRect)_lastRectForRange:(id)arg1;
 - (struct CGRect)firstRectForRange:(id)arg1;
+- (void)replaceRangeWithTextWithoutClosingTyping:(id)arg1 replacementText:(id)arg2;
 - (void)replaceRange:(id)arg1 withText:(id)arg2;
+- (void)replaceRange:(id)arg1 withText:(id)arg2 closeTyping:(BOOL)arg3;
 - (id)rangeOfEnclosingWord:(id)arg1;
 - (id)textRangeFromPosition:(id)arg1 toPosition:(id)arg2;
 - (id)textInRange:(id)arg1;
@@ -55,19 +57,14 @@
 @property(copy) UITextRange *selectedTextRange;
 - (void)setSelectedTextRange:(id)arg1 withAffinityDownstream:(BOOL)arg2;
 - (id)_textSelectingContainer;
-- (void)detachSelectionView;
-- (void)detachInteractionAssistant;
 - (void)setBecomesEditableWithGestures:(BOOL)arg1;
 - (BOOL)becomesEditableWithGestures;
-@property(readonly, nonatomic, getter=isEditing) BOOL editing;
-@property(readonly, nonatomic, getter=isEditable) BOOL editable;
-@property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant;
-@property(readonly, nonatomic) UIView<UITextSelectingContent> *content;
-- (struct CGRect)selectionClipRect;
+- (BOOL)isEditing;
+- (BOOL)isEditable;
+- (id)content;
 - (void)updateSelection;
-@property(readonly, nonatomic) UITextSelectionView *selectionView;
-- (void)endSelectionChange;
-- (void)beginSelectionChange;
+- (id)selectionView;
+@property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant;
 - (BOOL)isAutoFillMode;
 - (void)acceptedAutoFillWord:(id)arg1;
 - (struct CGPoint)constrainedPoint:(struct CGPoint)arg1;
@@ -111,7 +108,6 @@
 - (id)textColorForCaretSelection;
 - (id)fontForCaretSelection;
 - (unsigned short)characterAfterCaretSelection;
-- (void)replaceRangeWithTextWithoutClosingTyping:(id)arg1 replacementText:(id)arg2;
 - (void)replaceCurrentWordWithText:(id)arg1;
 - (void)replaceRangeWithText:(struct _NSRange)arg1 replacementText:(id)arg2;
 - (id)markedText;
@@ -131,6 +127,8 @@
 - (void)insertText:(id)arg1;
 - (void)deleteBackward;
 @property(nonatomic) struct __CFCharacterSet *textTrimmingSet;
+- (void)endSelectionChange;
+- (void)beginSelectionChange;
 - (void)handleKeyWebEvent:(id)arg1;
 - (BOOL)requiresKeyEvents;
 - (id)delegate;
@@ -146,6 +144,7 @@
 @property(nonatomic) BOOL acceptsSplitKeyboard;
 @property(nonatomic) int autocapitalizationType;
 @property(nonatomic) int autocorrectionType;
+@property(nonatomic) BOOL deferBecomingResponder;
 @property(nonatomic) BOOL displaySecureTextUsingPlainText;
 @property(nonatomic) int emptyContentReturnKeyType;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
@@ -156,7 +155,6 @@
 @property(nonatomic) int keyboardType;
 @property(nonatomic) BOOL learnsCorrections;
 @property(nonatomic) BOOL returnKeyGoesToNextResponder;
-@property(nonatomic, getter=isRichText) BOOL richText;
 @property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
 @property(retain, nonatomic) UIColor *selectionBarColor;
 @property(retain, nonatomic) UIImage *selectionDragDotImage;
@@ -167,5 +165,6 @@
 @property(nonatomic) BOOL suppressReturnKeyStyling;
 @property(readonly, nonatomic) UIView *textInputView;
 @property(nonatomic) int textSelectionBehavior;
+@property(nonatomic) BOOL useInterfaceLanguageForLocalization;
 @end
 

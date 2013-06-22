@@ -25,6 +25,11 @@ struct _img {
     unsigned char _field6;
 };
 
+struct _opaque_pthread_mutex_t {
+    long __sig;
+    char __opaque[40];
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {

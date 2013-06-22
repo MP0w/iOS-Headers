@@ -15,17 +15,17 @@
     BOOL _includeNonAccountBundles;
 }
 
-- (void)_addBundleWithName:(id)arg1 commonSpecifierMode:(int)arg2 accountTypes:(id)arg3;
-- (id)initWithParentController:(id)arg1 includeNonAccountBundles:(BOOL)arg2;
-- (void)dealloc;
-@property(readonly) NSArray *plugins;
-- (id)pluginsForAccountTypes:(id)arg1;
-- (id)orderedPluginsForAdd;
-- (id)_pluginsWithCommonSpecifierMode:(int)arg1;
-- (id)pluginsWithEagerlyLoadedCommonSpecifiers;
-- (id)pluginsWithLazilyLoadedCommonSpecifiers;
-- (id)pluginsWithCommonsSpecifiers;
 - (void)invalidatePluginParentController;
+- (id)pluginsWithCommonsSpecifiers;
+- (id)pluginsWithLazilyLoadedCommonSpecifiers;
+- (id)pluginsWithEagerlyLoadedCommonSpecifiers;
+- (id)_pluginsWithCommonSpecifierMode:(int)arg1;
+- (id)orderedPluginsForAdd;
+- (id)pluginsForAccountTypes:(id)arg1;
+@property(readonly) NSArray *plugins;
+- (void)dealloc;
+- (id)initWithParentController:(id)arg1 includeNonAccountBundles:(BOOL)arg2;
+- (void)_addBundleWithName:(id)arg1 commonSpecifierMode:(int)arg2 accountTypes:(id)arg3;
 
 @end
 

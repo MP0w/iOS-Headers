@@ -18,15 +18,15 @@
 }
 
 + (id)joinWithSourceAttributeName:(id)arg1 destinationAttributeName:(id)arg2;
-- (id)initWithSourceAttributeName:(id)arg1 destinationAttributeName:(id)arg2;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)sourceAttributeName;
-- (id)destinationAttributeName;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)destinationAttributeName;
+- (id)sourceAttributeName;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)initWithSourceAttributeName:(id)arg1 destinationAttributeName:(id)arg2;
 
 @end
 

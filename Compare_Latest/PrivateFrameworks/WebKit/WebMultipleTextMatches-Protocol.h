@@ -7,10 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol WebMultipleTextMatches <NSObject>
-- (void)setMarkedTextMatchesAreHighlighted:(BOOL)arg1;
-- (BOOL)markedTextMatchesAreHighlighted;
-- (unsigned int)countMatchesForText:(id)arg1 inDOMRange:(id)arg2 options:(unsigned int)arg3 limit:(unsigned int)arg4 markMatches:(BOOL)arg5;
-- (void)unmarkAllTextMatches;
 - (id)rectsForTextMatches;
+- (void)unmarkAllTextMatches;
+- (unsigned int)countMatchesForText:(id)arg1 inDOMRange:(id)arg2 options:(unsigned int)arg3 limit:(unsigned int)arg4 markMatches:(BOOL)arg5;
+- (BOOL)markedTextMatchesAreHighlighted;
+- (void)setMarkedTextMatchesAreHighlighted:(BOOL)arg1;
 @end
 

@@ -12,7 +12,6 @@
 {
     id <EKStyleProvider> _styleProvider;
     id <EKReminderEditorDelegate> _reminderEditorDelegate;
-    BOOL _locationsAllowed;
 }
 
 @property(nonatomic) id <EKReminderEditorDelegate> reminderEditorDelegate; // @synthesize reminderEditorDelegate=_reminderEditorDelegate;
@@ -20,6 +19,11 @@
 - (BOOL)_canDetachSingleOccurrence;
 - (void)_revertEvent;
 - (void)_copyEventForPossibleRevert;
+- (void)editItemTextChanged:(id)arg1;
+- (void)editItem:(id)arg1 didEndDatePickingAnimated:(BOOL)arg2;
+- (void)editItem:(id)arg1 willBeginDatePickingWithDate:(id)arg2 action:(SEL)arg3 animated:(BOOL)arg4 forSubitem:(int)arg5 inSubsection:(int)arg6;
+- (BOOL)shouldDisplayEditItem:(id)arg1 withVisibility:(int)arg2;
+- (unsigned int)entityType;
 - (id)notificationNamesForLocaleChange;
 - (id)defaultAlertTitle;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
@@ -28,10 +32,11 @@
 - (void)customizeActionSheet:(id)arg1;
 - (id)defaultTitleForCalendarItem;
 - (id)preferredTitle;
-- (void)editItemDidCommit:(id)arg1;
+- (void)editItem:(id)arg1 didCommitFromDetailViewController:(BOOL)arg2;
 - (id)_viewForSheet;
 - (void)setupDeleteButton;
 - (id)_nameForDeleteButton;
+- (BOOL)saveCalendarItemWithSpan:(int)arg1 error:(id *)arg2;
 - (void)prepareEditItems;
 - (id)_editItems;
 - (void)loadView;

@@ -10,9 +10,9 @@
 {
 }
 
-+ (void)registerForAlerts;
-+ (void)test;
 + (void)_serviceAvailabilityChanged:(id)arg1;
++ (void)test;
++ (void)registerForAlerts;
 
 @end
 

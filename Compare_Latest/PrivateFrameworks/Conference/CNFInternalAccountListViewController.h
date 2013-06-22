@@ -14,20 +14,20 @@
     FTRegConnectionHandler *_connectionHandler;
 }
 
-- (id)initWithServiceType:(int)arg1;
-- (void)dealloc;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (id)specifiers;
-- (BOOL)canBeShownFromSuspendedState;
-- (id)accountNameForSpecifier:(id)arg1;
-- (void)accountTappedWithSpecifier:(id)arg1;
-- (void)_startListeningForNotifications;
-- (void)_stopListeningForNotifications;
-- (void)_handleDaemonDisconnected:(id)arg1;
-- (void)_handleDaemonConnected:(id)arg1;
-- (void)_handleAccountNotification:(id)arg1;
 @property(retain, nonatomic) IMServiceImpl *service; // @synthesize service=_service;
+- (void)_handleAccountNotification:(id)arg1;
+- (void)_handleDaemonConnected:(id)arg1;
+- (void)_handleDaemonDisconnected:(id)arg1;
+- (void)_stopListeningForNotifications;
+- (void)_startListeningForNotifications;
+- (void)accountTappedWithSpecifier:(id)arg1;
+- (id)accountNameForSpecifier:(id)arg1;
+- (BOOL)canBeShownFromSuspendedState;
+- (id)specifiers;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)dealloc;
+- (id)initWithServiceType:(int)arg1;
 
 @end
 

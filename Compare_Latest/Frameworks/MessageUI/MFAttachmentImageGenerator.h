@@ -16,9 +16,9 @@
 }
 
 + (id)pngDataForAttachment:(id)arg1 dimensions:(struct CGSize *)arg2;
-- (id)initWithAttachment:(id)arg1;
-- (void)dealloc;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)dealloc;
+- (id)initWithAttachment:(id)arg1;
 
 @end
 

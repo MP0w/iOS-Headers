@@ -10,6 +10,7 @@
 
 @interface EKCalendarItem : EKObject
 {
+    int _actionsDisabledCachedValue;
 }
 
 - (void)moveToCalendar:(id)arg1;
@@ -22,9 +23,34 @@
 - (BOOL)canMoveToCalendar:(id)arg1 fromCalendar:(id)arg2 error:(id *)arg3;
 - (id)attachments;
 - (id)_attachmentsRelation;
+- (void)setSharedItemModifiedTimeZone:(id)arg1;
+- (id)sharedItemModifiedTimeZone;
+- (void)setSharedItemModifiedDate:(id)arg1;
+- (id)sharedItemModifiedDate;
+- (void)setSharedItemModifiedByLastName:(id)arg1;
+- (id)sharedItemModifiedByLastName;
+- (void)setSharedItemModifiedByFirstName:(id)arg1;
+- (id)sharedItemModifiedByFirstName;
+- (void)setSharedItemModifiedByEmailAddress:(id)arg1;
+- (id)sharedItemModifiedByEmailAddress;
+- (void)setSharedItemModifiedByDisplayName:(id)arg1;
+- (id)sharedItemModifiedByDisplayName;
+- (void)setSharedItemCreatedTimeZone:(id)arg1;
+- (id)sharedItemCreatedTimeZone;
+- (void)setSharedItemCreatedDate:(id)arg1;
+- (id)sharedItemCreatedDate;
+- (void)setSharedItemCreatedByLastName:(id)arg1;
+- (id)sharedItemCreatedByLastName;
+- (void)setSharedItemCreatedByFirstName:(id)arg1;
+- (id)sharedItemCreatedByFirstName;
+- (void)setSharedItemCreatedByAddress:(id)arg1;
+- (id)sharedItemCreatedByEmailAddress;
+- (void)setSharedItemCreatedByDisplayName:(id)arg1;
+- (id)sharedItemCreatedByDisplayName;
 - (void)setOrganizer:(id)arg1;
 - (id)organizer;
 - (id)_organizerRelation;
+- (int)selfParticipantStatus;
 - (id)selfAttendee;
 - (void)removeAttendee:(id)arg1;
 - (void)addAttendee:(id)arg1;
@@ -43,16 +69,21 @@
 @property(copy, nonatomic) NSArray *alarms;
 @property(readonly, nonatomic) BOOL hasAlarms;
 - (id)_alarmsRelation;
+- (BOOL)actionsDisabled;
 - (BOOL)allowsAttendeeModifications;
 - (BOOL)allowsAlarmModifications;
 - (BOOL)allowsRecurrenceModifications;
 - (BOOL)allowsCalendarModifications;
+- (BOOL)isOrganizedBySharedCalendarOwner;
 - (BOOL)isExternallyOrganizedInvitation;
 - (BOOL)isSelfOrganizedInvitation;
 - (BOOL)isSelfOrganized;
 - (BOOL)isFloating;
 - (BOOL)isEditable;
 - (BOOL)requiresDetach;
+- (id)externalURI;
+- (void)setDefaultAlarmRemoved:(BOOL)arg1;
+- (BOOL)isDefaultAlarmRemoved;
 @property(copy, nonatomic) NSTimeZone *timeZone;
 @property(retain, nonatomic) EKCalendar *calendar;
 @property(copy, nonatomic) NSURL *URL;
@@ -62,6 +93,7 @@
 - (int)priority;
 - (void)setAllDay:(BOOL)arg1;
 - (BOOL)isAllDay;
+- (void)setCreationDate:(id)arg1;
 @property(readonly, nonatomic) NSDate *creationDate;
 - (void)setLastModifiedDate:(id)arg1;
 @property(readonly, nonatomic) NSDate *lastModifiedDate;
@@ -73,6 +105,8 @@
 @property(readonly, nonatomic) BOOL hasNotes;
 @property(copy, nonatomic) NSString *notes;
 @property(readonly, nonatomic) NSString *UUID;
+@property(readonly, nonatomic) NSString *calendarItemExternalIdentifier;
+@property(readonly, nonatomic) NSString *calendarItemIdentifier;
 - (id)_persistentItem;
 - (id)description;
 - (id)lazyLoadRelationForKey:(id)arg1;

@@ -6,15 +6,13 @@
 
 #import <AppSupport/InvocationTrampoline.h>
 
-@class NSInvocation;
-
 @interface CapturedInvocationTrampoline : InvocationTrampoline
 {
-    NSInvocation **_outInvocation;
+    id *_outInvocation;
 }
 
-- (id)initWithTarget:(id)arg1 outInvocation:(id *)arg2;
 - (void)forwardInvocation:(id)arg1;
+- (id)initWithTarget:(id)arg1 outInvocation:(id *)arg2;
 
 @end
 

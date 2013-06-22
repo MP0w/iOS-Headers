@@ -14,17 +14,17 @@
 }
 
 + (id)linkReferenceWithLinkIndex:(unsigned int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
-- (id)init;
-- (id)initWithLinkIndex:(unsigned int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
-- (unsigned int)firstSheetIndex;
-- (void)setFirstSheetIndex:(unsigned int)arg1;
-- (unsigned int)lastSheetIndex;
-- (void)setLastSheetIndex:(unsigned int)arg1;
-- (unsigned int)linkIndex;
-- (void)setLinkIndex:(unsigned int)arg1;
-- (BOOL)isEqualToLinkReference:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToLinkReference:(id)arg1;
+- (void)setLinkIndex:(unsigned int)arg1;
+- (unsigned int)linkIndex;
+- (void)setLastSheetIndex:(unsigned int)arg1;
+- (unsigned int)lastSheetIndex;
+- (void)setFirstSheetIndex:(unsigned int)arg1;
+- (unsigned int)firstSheetIndex;
+- (id)initWithLinkIndex:(unsigned int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
+- (id)init;
 
 @end
 

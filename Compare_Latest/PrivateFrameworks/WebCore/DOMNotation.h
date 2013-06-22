@@ -12,8 +12,8 @@
 {
 }
 
-@property(readonly, copy) NSString *publicId;
-@property(readonly, copy) NSString *systemId;
+@property(readonly) NSString *systemId;
+@property(readonly) NSString *publicId;
 
 @end
 

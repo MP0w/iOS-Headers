@@ -9,23 +9,27 @@
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
-@class NSArray, NSData, NSDictionary, NSInputStream, NSString, NSURL;
+@class NSArray, NSData, NSDictionary, NSInputStream, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
-@interface SSURLRequestProperties : NSObject <SSCoding, NSCoding, NSCopying, NSMutableCopying>
+@interface SSURLRequestProperties : NSObject <SSXPCCoding, NSCoding, NSCopying, NSMutableCopying>
 {
     int _allowedRetryCount;
     unsigned int _cachePolicy;
     NSString *_clientIdentifier;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     long long _expectedContentLength;
     NSData *_httpBody;
     NSInputStream *_httpBodyStream;
     NSDictionary *_httpHeaders;
     NSString *_httpMethod;
     BOOL _isITunesStoreRequest;
+    unsigned int _networkServiceType;
     NSDictionary *_requestParameters;
+    BOOL _requiresExtendedValidationCertificates;
+    BOOL _shouldDecodeResponse;
+    BOOL _shouldDisableCellularFallback;
     BOOL _shouldProcessProtocol;
     double _timeoutInterval;
     NSString *_urlBagKey;
@@ -38,6 +42,9 @@
 @property(readonly) NSArray *URLs;
 @property(readonly) id URLBagURLBlock;
 @property(readonly) int URLBagType;
+@property(readonly) BOOL shouldDisableCellularFallback;
+@property(readonly) BOOL shouldDecodeResponse;
+@property(readonly) BOOL requiresExtendedValidationCertificates;
 @property(readonly) NSInputStream *HTTPBodyStream;
 - (id)copyURLRequest;
 @property(readonly) BOOL canBeResolved;
@@ -49,6 +56,7 @@
 @property(readonly) double timeoutInterval;
 @property(readonly) BOOL shouldProcessProtocol;
 @property(readonly) NSDictionary *requestParameters;
+@property(readonly) unsigned int networkServiceType;
 @property(readonly, getter=isITunesStoreRequest) BOOL ITunesStoreRequest;
 @property(readonly) NSString *HTTPMethod;
 @property(readonly) NSDictionary *HTTPHeaders;
@@ -57,10 +65,8 @@
 @property(readonly) NSString *clientIdentifier;
 @property(readonly) unsigned int cachePolicy;
 @property(readonly) int allowedRetryCount;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;

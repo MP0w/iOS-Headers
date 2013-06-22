@@ -26,6 +26,7 @@
     } _UCContext;
 }
 
+- (void).cxx_destruct;
 - (void)_coreProtocolDidFinishUCResults:(id)arg1 error:(id)arg2;
 - (void)_coreProtocolDidFailAuthenticationError:(id)arg1;
 - (void)_coreProtocolDidFinishResponse:(id)arg1 error:(id)arg2;

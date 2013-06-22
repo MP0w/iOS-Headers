@@ -6,11 +6,10 @@
 
 #import <GameKit/GKSectionArrayDataSource.h>
 
-@class GKGameDetailHeaderSection, GKTurnBasedMatchesSection, NSMutableArray, NSMutableDictionary;
+@class GKTurnBasedMatchesSection, NSMutableArray, NSMutableDictionary;
 
 @interface GKTurnBasedMatchesDataSource : GKSectionArrayDataSource
 {
-    GKGameDetailHeaderSection *_headerSection;
     GKTurnBasedMatchesSection *_invitationSection;
     GKTurnBasedMatchesSection *_yourTurnSection;
     GKTurnBasedMatchesSection *_otherTurnSection;
@@ -25,7 +24,6 @@
 @property(retain, nonatomic) GKTurnBasedMatchesSection *otherTurnSection; // @synthesize otherTurnSection=_otherTurnSection;
 @property(retain, nonatomic) GKTurnBasedMatchesSection *yourTurnSection; // @synthesize yourTurnSection=_yourTurnSection;
 @property(retain, nonatomic) GKTurnBasedMatchesSection *invitationSection; // @synthesize invitationSection=_invitationSection;
-@property(retain, nonatomic) GKGameDetailHeaderSection *headerSection; // @synthesize headerSection=_headerSection;
 - (void)tableView:(id)arg1 updateStatusViewAfterLoading:(id)arg2 withError:(id)arg3;
 - (void)tableView:(id)arg1 updateStatusViewBeforeLoading:(id)arg2;
 - (void)refreshDataWithCompletionHandlerAndError:(id)arg1;
@@ -36,7 +34,7 @@
 @property(readonly, nonatomic) int loadedMatchCount; // @dynamic loadedMatchCount;
 - (id)description;
 - (void)dealloc;
-- (id)init;
+- (id)initWithController:(id)arg1;
 
 @end
 

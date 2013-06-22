@@ -19,10 +19,10 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (id)imageBinary;
-- (id)cropGeometry;
 - (id)maskPath;
+- (id)cropGeometry;
+- (id)imageBinary;
+- (void)dealloc;
 
 @end
 

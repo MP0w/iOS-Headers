@@ -36,24 +36,26 @@
     BOOL returnKeyGoesToNextResponder;
     BOOL acceptsFloatingKeyboard;
     BOOL acceptsSplitKeyboard;
-    BOOL richText;
     BOOL displaySecureTextUsingPlainText;
     BOOL learnsCorrections;
     int emptyContentReturnKeyType;
     int shortcutConversionType;
     BOOL suppressReturnKeyStyling;
     BOOL forceEnableDictation;
+    BOOL useInterfaceLanguageForLocalization;
+    BOOL deferBecomingResponder;
 }
 
 + (BOOL)keyboardTypeRequiresASCIICapable:(int)arg1;
 + (id)traitsByAdoptingTraits:(id)arg1;
 + (id)defaultTextInputTraits;
+@property(nonatomic) BOOL deferBecomingResponder; // @synthesize deferBecomingResponder;
+@property(nonatomic) BOOL useInterfaceLanguageForLocalization; // @synthesize useInterfaceLanguageForLocalization;
 @property(nonatomic) BOOL forceEnableDictation; // @synthesize forceEnableDictation;
 @property(nonatomic) BOOL suppressReturnKeyStyling; // @synthesize suppressReturnKeyStyling;
 @property(nonatomic) int shortcutConversionType; // @synthesize shortcutConversionType;
 @property(nonatomic) BOOL learnsCorrections; // @synthesize learnsCorrections;
 @property(nonatomic) BOOL displaySecureTextUsingPlainText; // @synthesize displaySecureTextUsingPlainText;
-@property(nonatomic, getter=isRichText) BOOL richText; // @synthesize richText;
 @property(nonatomic) BOOL acceptsSplitKeyboard; // @synthesize acceptsSplitKeyboard;
 @property(nonatomic) BOOL acceptsFloatingKeyboard; // @synthesize acceptsFloatingKeyboard;
 @property(nonatomic) BOOL returnKeyGoesToNextResponder; // @synthesize returnKeyGoesToNextResponder;

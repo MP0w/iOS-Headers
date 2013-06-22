@@ -6,21 +6,25 @@
 
 #import "UITableViewCell.h"
 
-@class MFComposeRecipient, MFRecipientTableViewCellView;
+@class MFComposeRecipient, MFRecipientTableViewCellView, UIImageView;
 
 @interface MFRecipientTableViewCell : UITableViewCell
 {
     MFRecipientTableViewCellView *_recipientView;
     MFComposeRecipient *_recipient;
+    UIImageView *_cellImageView;
 }
 
-+ (id)identifier;
-+ (id)cellForRecipient:(id)arg1;
 + (float)height;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
-- (id)recipient;
-- (void)setRecipient:(id)arg1;
++ (id)cellForRecipient:(id)arg1;
++ (id)identifier;
 - (void)dealloc;
+- (void)setCellImage:(id)arg1 highlightedImage:(id)arg2;
+- (void)setRecipient:(id)arg1;
+- (id)recipient;
+- (void)layoutSubviews;
+- (struct CGRect)frameForRecipientView;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

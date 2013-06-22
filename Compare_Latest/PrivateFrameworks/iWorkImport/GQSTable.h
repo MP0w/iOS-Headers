@@ -19,22 +19,22 @@
     BOOL mIsCounting;
 }
 
-- (id)initWithStreaming:(BOOL)arg1 table:(id)arg2;
-- (void)dealloc;
-- (id)currentOverlapCell;
-- (void)setCurrentOverlapCell:(id)arg1;
-- (id)lastCellRead;
-- (void)setLastCellRead:(id)arg1;
-- (BOOL)isStreaming;
-- (id)table;
-- (BOOL)alwaysPutReadCellsInArray;
-- (void)setAlwaysPutReadCellsInArray:(BOOL)arg1;
-- (long)row;
-- (long)column;
-- (void)skipCells:(long)arg1;
-- (void)incrementCellPosition;
-- (void)setIsCountingCount:(BOOL)arg1;
 - (BOOL)isCounting;
+- (void)setIsCountingCount:(BOOL)arg1;
+- (void)incrementCellPosition;
+- (void)skipCells:(long)arg1;
+- (long)column;
+- (long)row;
+- (void)setAlwaysPutReadCellsInArray:(BOOL)arg1;
+- (BOOL)alwaysPutReadCellsInArray;
+- (id)table;
+- (BOOL)isStreaming;
+- (void)setLastCellRead:(id)arg1;
+- (id)lastCellRead;
+- (void)setCurrentOverlapCell:(id)arg1;
+- (id)currentOverlapCell;
+- (void)dealloc;
+- (id)initWithStreaming:(BOOL)arg1 table:(id)arg2;
 
 @end
 

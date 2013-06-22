@@ -14,15 +14,15 @@
     NSString *_initiatorFriendlyName;
 }
 
-- (id)initWithInitiatorGUID:(char *)arg1 initiatorFriendlyName:(id)arg2;
-- (id)initWithTCPBuffer:(void *)arg1;
-- (void)dealloc;
-- (id)contentForTCP;
-- (id)description;
-- (const char *)initiatorGUID;
-- (void)setInitiatorGUID:(char *)arg1;
-- (id)initiatorFriendlyName;
 - (void)setInitiatorFriendlyName:(id)arg1;
+- (id)initiatorFriendlyName;
+- (void)setInitiatorGUID:(char *)arg1;
+- (const char *)initiatorGUID;
+- (id)description;
+- (id)contentForTCP;
+- (void)dealloc;
+- (id)initWithTCPBuffer:(void *)arg1;
+- (id)initWithInitiatorGUID:(char *)arg1 initiatorFriendlyName:(id)arg2;
 
 @end
 

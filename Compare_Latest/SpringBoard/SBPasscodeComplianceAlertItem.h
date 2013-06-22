@@ -16,11 +16,11 @@
     NSString *_cancelButtonTitle;
 }
 
-- (id)initWithTitle:(id)arg1 message:(id)arg2 continueButtonTitle:(id)arg3 cancelButtonTitle:(id)arg4;
-- (void)dealloc;
-- (BOOL)shouldShowInLockScreen;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (BOOL)shouldShowInLockScreen;
+- (void)dealloc;
+- (id)initWithTitle:(id)arg1 message:(id)arg2 continueButtonTitle:(id)arg3 cancelButtonTitle:(id)arg4;
 
 @end
 

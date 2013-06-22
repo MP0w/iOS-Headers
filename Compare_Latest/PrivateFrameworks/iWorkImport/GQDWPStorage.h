@@ -15,9 +15,9 @@
     struct __CFArray *mAttachments;
 }
 
-- (void)dealloc;
-- (id)stylesheet;
 - (struct __CFArray *)attachments;
+- (id)stylesheet;
+- (void)dealloc;
 
 @end
 

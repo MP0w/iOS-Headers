@@ -37,33 +37,12 @@ struct UIEdgeInsets {
     float right;
 };
 
-struct _CKSpotlightSearchResult {
-    id _field1;
-    int _field2;
-    int _field3;
-    id _field4;
-    id _field5;
-};
-
-struct _CKSpotlightSearchResultList {
-    unsigned int length;
-    unsigned int capacity;
-    struct _CKSpotlightSearchResult *array;
-};
-
 struct _NSRange {
     unsigned int _field1;
     unsigned int _field2;
 };
 
 #pragma mark Typedef'd Structures
-
-typedef struct {
-    unsigned long _field1;
-    id *_field2;
-    unsigned long *_field3;
-    unsigned long _field4[5];
-} CDStruct_11f37819;
 
 typedef struct {
     char _field1;
@@ -75,16 +54,11 @@ typedef struct {
 } CDStruct_af7d35ee;
 
 typedef struct {
-    int _field1;
-    int _field2;
-} CDStruct_1ef3fb1f;
-
-typedef struct {
     struct __CFRuntimeBase {
-        unsigned int _cfisa;
-        unsigned char _cfinfo[4];
+        unsigned int _field1;
+        unsigned char _field2[4];
     } _field1;
     int _field2;
-    int _field3;
-} CDStruct_9d69e73c;
+    long long _field3;
+} CDStruct_cb19c43e;
 

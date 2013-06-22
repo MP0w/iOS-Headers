@@ -16,14 +16,14 @@
     id <ABStyleProvider> _styleProvider;
 }
 
-- (id)initWithImage:(id)arg1;
-- (void)dealloc;
-- (void)setLabel:(id)arg1;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
-- (void)setClippingImage:(id)arg1;
-- (BOOL)_canDrawContent;
-- (void)drawRect:(struct CGRect)arg1;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
+- (void)drawRect:(struct CGRect)arg1;
+- (BOOL)_canDrawContent;
+- (void)setClippingImage:(id)arg1;
+- (void)setLabel:(id)arg1;
+- (void)dealloc;
+- (id)initWithImage:(id)arg1;
 
 @end
 

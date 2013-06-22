@@ -13,11 +13,11 @@
     NSMutableArray *mColumns;
 }
 
-- (id)init;
-- (void)dealloc;
-- (unsigned int)columnCount;
-- (id)columnAtIndex:(unsigned int)arg1;
 - (id)addColumn;
+- (id)columnAtIndex:(unsigned int)arg1;
+- (unsigned int)columnCount;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -26,12 +26,6 @@
     BOOL _hasOverriddenOrientation;
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property struct CGImage *thumbnail; // @dynamic thumbnail;
-@property struct CGImage *originalThumbnail; // @dynamic originalThumbnail;
-@property BOOL fetchingThumbnail;
-@property BOOL fetchingMetadata;
 @property BOOL hasOverriddenOrientation; // @synthesize hasOverriddenOrientation=_hasOverriddenOrientation;
 @property unsigned int orientation; // @synthesize orientation=_orientation;
 @property(retain) NSMutableDictionary *metadata_hidden; // @synthesize metadata_hidden=_metadata_hidden;
@@ -40,6 +34,12 @@
 @property BOOL hasMetadata; // @synthesize hasMetadata=_hasMetadata;
 @property BOOL hasThumbnail; // @synthesize hasThumbnail=_hasThumbnail;
 @property long long fileSize; // @synthesize fileSize=_fileSize;
+@property BOOL fetchingMetadata;
+@property BOOL fetchingThumbnail;
+@property struct CGImage *originalThumbnail; // @dynamic originalThumbnail;
+@property struct CGImage *thumbnail; // @dynamic thumbnail;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

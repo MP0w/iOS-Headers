@@ -12,8 +12,8 @@
 {
 }
 
-@property(copy) NSString *cols;
 @property(copy) NSString *rows;
+@property(copy) NSString *cols;
 
 @end
 

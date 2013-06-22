@@ -10,7 +10,7 @@
 
 @interface RTF_CMProgressiveArchiveManager : RTF_CMArchiveManager
 {
-    void *mClient;
+    const void *mClient;
     CDStruct_4e53fc95 *mCallBacks;
     NSMutableDictionary *mDataCache;
     NSMutableDictionary *mStyleCache;
@@ -19,18 +19,18 @@
     NSMutableString *mHtmlLogString;
 }
 
-- (id)initWithClient:(const void *)arg1 andCallBacks:(CDStruct_4e53fc95 *)arg2;
-- (void)dealloc;
-- (BOOL)isProgressive;
-- (id)newResourceWithName:(id)arg1;
-- (void)pushData:(id)arg1 toPath:(id)arg2;
-- (void)pushText:(id)arg1 toPath:(id)arg2;
-- (void)commitDataAtPath:(id)arg1;
-- (void)closeResourceAtPath:(id)arg1;
-- (id)addCssStyle:(id)arg1;
-- (void)addCssStyle:(id)arg1 withName:(id)arg2;
-- (void)pushCssToPath:(id)arg1;
 - (id)cssStylesheetString;
+- (void)pushCssToPath:(id)arg1;
+- (void)addCssStyle:(id)arg1 withName:(id)arg2;
+- (id)addCssStyle:(id)arg1;
+- (void)closeResourceAtPath:(id)arg1;
+- (void)commitDataAtPath:(id)arg1;
+- (void)pushText:(id)arg1 toPath:(id)arg2;
+- (void)pushData:(id)arg1 toPath:(id)arg2;
+- (id)newResourceWithName:(id)arg1;
+- (BOOL)isProgressive;
+- (void)dealloc;
+- (id)initWithClient:(const void *)arg1 andCallBacks:(CDStruct_4e53fc95 *)arg2;
 
 @end
 

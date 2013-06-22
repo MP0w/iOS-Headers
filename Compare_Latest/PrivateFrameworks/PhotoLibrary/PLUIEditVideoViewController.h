@@ -19,8 +19,10 @@
     id _delegate;
     Class _viewClass;
     unsigned int _canCreateMetadata;
+    BOOL _parentInPopoverException;
 }
 
+@property(nonatomic) BOOL parentInPopoverException; // @synthesize parentInPopoverException=_parentInPopoverException;
 - (void)videoViewPlaybackDidFail:(id)arg1;
 - (BOOL)videoViewCanCreateMetadata:(id)arg1;
 - (float)videoViewScrubberYOrigin:(id)arg1 forOrientation:(int)arg2;
@@ -30,6 +32,7 @@
 - (void)_cancelTrim:(id)arg1;
 - (void)videoRemakerDidEndRemaking:(id)arg1 temporaryPath:(id)arg2;
 - (void)didChooseVideoAtPath:(id)arg1 options:(id)arg2;
+- (void)loadView;
 - (void)setViewClass:(Class)arg1;
 - (Class)_viewClass;
 - (id)uiipc_imagePickerController;

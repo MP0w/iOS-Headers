@@ -18,10 +18,13 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (void)dealloc;
-- (int)technique;
-- (id)color;
 - (id)imageBinary;
+- (id)color;
+- (int)technique;
+- (void)dealloc;
+- (void)setColor:(id)arg1;
+- (void)invalidateFilteredImage;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

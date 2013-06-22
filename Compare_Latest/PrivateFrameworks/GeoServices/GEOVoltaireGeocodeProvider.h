@@ -8,15 +8,17 @@
 
 #import "PBRequesterDelegate-Protocol.h"
 
-@class PBRequester;
+@class GEORequester;
 
 @interface GEOVoltaireGeocodeProvider : GEOGeocodeProvider <PBRequesterDelegate>
 {
-    PBRequester *_requester;
+    GEORequester *_requester;
+    BOOL _isForwardGeocodeRequest;
 }
 
 + (id)reverseGeocoderURL;
 + (id)forwardGeocoderURL;
++ (void)setUsePersistentConnection:(BOOL)arg1;
 + (id)providerName;
 + (unsigned short)provider;
 - (void)cancel;

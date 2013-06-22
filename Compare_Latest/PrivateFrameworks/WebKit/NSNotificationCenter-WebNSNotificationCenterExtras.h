@@ -8,8 +8,8 @@
 
 @interface NSNotificationCenter (WebNSNotificationCenterExtras)
 + (void)_postNotificationName:(id)arg1;
-- (void)postNotificationOnMainThreadWithName:(id)arg1 object:(id)arg2;
-- (void)postNotificationOnMainThreadWithName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
 - (void)postNotificationOnMainThreadWithName:(id)arg1 object:(id)arg2 userInfo:(id)arg3 waitUntilDone:(BOOL)arg4;
+- (void)postNotificationOnMainThreadWithName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
+- (void)postNotificationOnMainThreadWithName:(id)arg1 object:(id)arg2;
 @end
 

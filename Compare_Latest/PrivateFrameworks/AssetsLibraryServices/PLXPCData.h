@@ -6,9 +6,11 @@
 
 #import "NSData.h"
 
+@class NSObject<OS_xpc_object>;
+
 @interface PLXPCData : NSData
 {
-    void *_data;
+    NSObject<OS_xpc_object> *_data;
 }
 
 - (unsigned int)length;
@@ -17,7 +19,7 @@
 - (const void *)bytes;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)initWithXPCData:(void *)arg1;
+- (id)initWithXPCData:(id)arg1;
 
 @end
 

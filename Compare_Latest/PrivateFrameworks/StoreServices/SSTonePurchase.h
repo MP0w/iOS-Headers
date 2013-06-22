@@ -8,11 +8,11 @@
 
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSArray, NSNumber, NSString;
 
-@interface SSTonePurchase : SSPurchase <SSCoding, NSCoding, NSCopying>
+@interface SSTonePurchase : SSPurchase <SSXPCCoding, NSCoding, NSCopying>
 {
     NSArray *_allowedToneStyles;
     NSNumber *_assigneeIdentifier;
@@ -21,18 +21,16 @@
     BOOL _shouldMakeDefaultTextTone;
 }
 
-@property(nonatomic) BOOL shouldMakeDefaultTextTone; // @synthesize shouldMakeDefaultTextTone=_shouldMakeDefaultTextTone;
-@property(nonatomic) BOOL shouldMakeDefaultRingtone; // @synthesize shouldMakeDefaultRingtone=_shouldMakeDefaultRingtone;
-@property(copy, nonatomic) NSString *assigneeToneStyle; // @synthesize assigneeToneStyle=_assigneeToneStyle;
-@property(retain, nonatomic) NSNumber *assigneeIdentifier; // @synthesize assigneeIdentifier=_assigneeIdentifier;
-@property(copy, nonatomic) NSArray *allowedToneStyles; // @synthesize allowedToneStyles=_allowedToneStyles;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property BOOL shouldMakeDefaultTextTone;
+@property BOOL shouldMakeDefaultRingtone;
+@property(copy) NSString *assigneeToneStyle;
+@property(retain) NSNumber *assigneeIdentifier;
+@property(copy) NSArray *allowedToneStyles;
 - (void)dealloc;
 - (id)initWithItem:(id)arg1 offer:(id)arg2;
 

@@ -17,13 +17,13 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (id)initWithCoreArchive:(PassRefPtr_d33dc2c2)arg1;
-- (struct LegacyWebArchive *)coreArchive;
-- (void)setCoreArchive:(PassRefPtr_d33dc2c2)arg1;
-- (void)dealloc;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)dealloc;
+- (void)setCoreArchive:(PassRefPtr_d33dc2c2)arg1;
+- (struct LegacyWebArchive *)coreArchive;
+- (id)initWithCoreArchive:(PassRefPtr_d33dc2c2)arg1;
+- (id)init;
 
 @end
 

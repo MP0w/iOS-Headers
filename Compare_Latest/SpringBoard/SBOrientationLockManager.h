@@ -15,23 +15,23 @@
 }
 
 + (id)sharedInstance;
-- (void)restoreStateFromPrefs;
-- (id)init;
-- (void)dealloc;
-- (void)lock;
-- (void)lock:(int)arg1;
-- (void)unlock;
-- (BOOL)isLocked;
-- (int)userLockOrientation;
-- (void)setLockOverrideEnabled:(BOOL)arg1 forReason:(id)arg2;
-- (void)enableLockOverrideForReason:(id)arg1 suggestOrientation:(int)arg2;
-- (void)enableLockOverrideForReason:(id)arg1 forceOrientation:(int)arg2;
-- (BOOL)lockOverrideEnabled;
-- (void)updateLockOverrideForCurrentDeviceOrientation;
-- (void)_updateLockStateWithChanges:(id)arg1;
-- (void)_updateLockStateWithOrientation:(int)arg1 changes:(id)arg2;
-- (void)_updateLockStateWithOrientation:(int)arg1 forceUpdateHID:(BOOL)arg2 changes:(id)arg3;
 - (BOOL)_effectivelyLocked;
+- (void)_updateLockStateWithOrientation:(int)arg1 forceUpdateHID:(BOOL)arg2 changes:(id)arg3;
+- (void)_updateLockStateWithOrientation:(int)arg1 changes:(id)arg2;
+- (void)_updateLockStateWithChanges:(id)arg1;
+- (void)updateLockOverrideForCurrentDeviceOrientation;
+- (BOOL)lockOverrideEnabled;
+- (void)enableLockOverrideForReason:(id)arg1 forceOrientation:(int)arg2;
+- (void)enableLockOverrideForReason:(id)arg1 suggestOrientation:(int)arg2;
+- (void)setLockOverrideEnabled:(BOOL)arg1 forReason:(id)arg2;
+- (int)userLockOrientation;
+- (BOOL)isLocked;
+- (void)unlock;
+- (void)lock:(int)arg1;
+- (void)lock;
+- (void)dealloc;
+- (id)init;
+- (void)restoreStateFromPrefs;
 
 @end
 

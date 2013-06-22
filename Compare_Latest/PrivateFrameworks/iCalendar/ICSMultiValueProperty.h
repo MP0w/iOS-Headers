@@ -16,6 +16,8 @@
 - (id)value;
 - (BOOL)isMultiValued;
 - (id)initWithValue:(id)arg1 type:(unsigned int)arg2;
+- (void)_ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
+- (void)_setParsedValues:(id)arg1 type:(unsigned int)arg2;
 
 @end
 

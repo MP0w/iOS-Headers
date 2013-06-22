@@ -11,5 +11,8 @@
 @protocol CoreDAVResponseBodyParser <NSObject>
 @property(readonly) NSError *parserError;
 - (BOOL)processData:(id)arg1 forTask:(id)arg2;
+
+@optional
++ (BOOL)canHandleContentType:(id)arg1;
 @end
 

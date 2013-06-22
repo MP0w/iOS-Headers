@@ -10,6 +10,7 @@
 {
 }
 
++ (struct XlChartPlotAxis *)writeXlAxisFrom:(id)arg1;
 + (id)readFrom:(struct XlChartPlotAxis *)arg1 state:(id)arg2;
 
 @end

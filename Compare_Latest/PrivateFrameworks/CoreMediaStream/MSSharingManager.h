@@ -36,7 +36,8 @@
 + (id)sharingManagerForPersonID:(id)arg1;
 @property(nonatomic) MSMediaStreamDaemon *daemon; // @synthesize daemon=_daemon;
 @property(nonatomic) id <MSSharingManagerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly) NSString *personID; // @synthesize personID=_personID;
+@property(readonly, nonatomic) NSString *personID; // @synthesize personID=_personID;
+- (void).cxx_destruct;
 - (void)sharingProtocol:(id)arg1 didFailToSendInvitations:(id)arg2;
 - (void)sharingProtocol:(id)arg1 didReceiveAuthenticationError:(id)arg2;
 - (void)sharingProtocol:(id)arg1 didCompleteTransactionWithError:(id)arg2;

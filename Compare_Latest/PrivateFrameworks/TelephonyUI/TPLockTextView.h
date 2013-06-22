@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSString, NSTimer, UIFont;
+@class NSString, NSTimer, UIFont, UIImage;
 
 @interface TPLockTextView : UIView
 {
@@ -17,21 +17,22 @@
     double _maskStartTime;
     UIFont *_labelFont;
     float _deltaFromDefaultTrackWidth;
+    UIImage *_maskImage;
     float _fps;
-    BOOL _hasReverseShine;
 }
 
-- (void)dealloc;
-- (void)_cacheLabel:(id)arg1 size:(struct CGSize)arg2;
-- (id)initWithLabel:(id)arg1 fontSize:(float)arg2 trackWidthDelta:(float)arg3;
-- (id)label;
-- (void)startAnimation;
-- (void)stopAnimation;
-- (void)setFPS:(float)arg1;
-- (BOOL)isAnimating;
-- (void)setHasReverseShine:(BOOL)arg1;
-- (void)drawRect:(struct CGRect)arg1;
+@property(readonly) float deltaFromDefaultTrackWidth; // @synthesize deltaFromDefaultTrackWidth=_deltaFromDefaultTrackWidth;
 - (void)movedFromWindow:(id)arg1;
+- (void)drawRect:(struct CGRect)arg1;
+- (BOOL)isAnimating;
+- (float)fps;
+- (void)setFPS:(float)arg1;
+- (void)stopAnimation;
+- (void)startAnimation;
+- (id)label;
+- (id)initWithLabel:(id)arg1 fontSize:(float)arg2 trackWidthDelta:(float)arg3;
+- (void)_cacheLabel:(id)arg1 size:(struct CGSize)arg2;
+- (void)dealloc;
 
 @end
 

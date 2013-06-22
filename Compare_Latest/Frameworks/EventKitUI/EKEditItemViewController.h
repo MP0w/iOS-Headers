@@ -15,13 +15,16 @@
     BOOL _modal;
     id <EKStyleProvider> _styleProvider;
     id <EKEditItemViewControllerDelegate> _editDelegate;
+    int _subsection;
     BOOL _showsDoneButton;
 }
 
 @property(nonatomic) BOOL showsDoneButton; // @synthesize showsDoneButton=_showsDoneButton;
 @property(nonatomic) BOOL modal; // @synthesize modal=_modal;
 @property(nonatomic) id <EKEditItemViewControllerDelegate> editDelegate; // @synthesize editDelegate=_editDelegate;
+@property(nonatomic) int subsection; // @synthesize subsection=_subsection;
 @property(nonatomic) int subitem; // @synthesize subitem=_subitem;
+- (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (float)marginForTableView:(id)arg1;
 - (void)setCell:(id)arg1 checked:(BOOL)arg2;

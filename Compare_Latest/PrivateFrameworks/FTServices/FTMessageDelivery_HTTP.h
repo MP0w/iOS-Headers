@@ -8,24 +8,18 @@
 
 #import "FTMessageQueueDelegate-Protocol.h"
 
-@class NSMutableData, NSURLConnection;
+@class IMRemoteURLConnection;
 
 @interface FTMessageDelivery_HTTP : FTMessageDelivery <FTMessageQueueDelegate>
 {
-    NSURLConnection *_currentURLConnection;
-    NSMutableData *_currentResponseData;
-    int _currentStatusCode;
+    IMRemoteURLConnection *_remoteConnection;
 }
 
 - (void)_serverBagLoaded:(id)arg1;
 - (BOOL)sendMessage:(id)arg1;
 - (void)cancelMessage:(id)arg1;
 - (void)queue:(id)arg1 hitTimeoutForMessage:(id)arg2;
-- (void)connection:(id)arg1 didReceiveData:(id)arg2;
-- (void)connectionDidFinishLoading:(id)arg1;
-- (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (BOOL)_tryRetryMessageWithTimeInterval:(double)arg1;
-- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (BOOL)busy;
 - (void)_cleanupURLConnection;
 - (void)_dequeueIfNeeded;

@@ -19,6 +19,8 @@
 + (id)absolutePathToCachedStackedImagesDirectory;
 + (id)absolutePathToCachesDirectory;
 + (id)sharedInstance;
++ (id)_pathToBakedCachedStackedImageWithKey:(id)arg1;
++ (id)_bakedStackedImageFilenameForWithKey:(id)arg1;
 - (BOOL)KVOChange:(id)arg1 affectsStackedImageForAlbum:(struct NSObject *)arg2;
 - (void)removeEntryForKey:(id)arg1;
 - (void)invalidateEntryForKey:(id)arg1;
@@ -29,6 +31,7 @@
 - (id)stackedImageWithKey:(id)arg1 options:(id *)arg2;
 - (void)dealloc;
 - (id)init;
+- (BOOL)_createBaseDirectoryForStackedImagesCache;
 
 @end
 

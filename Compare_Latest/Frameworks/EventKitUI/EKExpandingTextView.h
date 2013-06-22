@@ -16,8 +16,6 @@
     BOOL _allowEnclosingViewScroll;
 }
 
-@property(nonatomic) BOOL allowEnclosingScrollView; // @synthesize allowEnclosingScrollView=_allowEnclosingViewScroll;
-- (BOOL)shouldScrollEnclosingScrollView;
 - (void)setContentSize:(struct CGSize)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)setBackgroundColor:(id)arg1;

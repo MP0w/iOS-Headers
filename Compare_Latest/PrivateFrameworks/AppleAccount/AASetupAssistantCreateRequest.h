@@ -6,20 +6,21 @@
 
 #import <AppleAccount/AARequest.h>
 
-@class AASigningSession, NSDictionary;
+@class AAAccount, AASigningSession, NSDictionary;
 
 @interface AASetupAssistantCreateRequest : AARequest
 {
     NSDictionary *appleIDParameters;
     AASigningSession *signingSession;
+    AAAccount *_account;
 }
 
 + (Class)responseClass;
+- (void).cxx_destruct;
 - (id)urlRequest;
 - (id)urlString;
 - (id)bodyDictionary;
-- (void)dealloc;
-- (id)initWithAppleIDParameters:(id)arg1 signingSession:(id)arg2;
+- (id)initWithAccount:(id)arg1 withAppleIDParameters:(id)arg2 signingSession:(id)arg3;
 
 @end
 

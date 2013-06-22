@@ -10,14 +10,13 @@
 {
 }
 
-+ (id)createXhtmlDocument;
-+ (id)xhtmlStringWithXmlDoc:(id)arg1;
-+ (id)createFilteredString:(id)arg1;
-+ (void)filterString:(id)arg1;
++ (id)copyHeadElementWithTitle:(id)arg1;
++ (id)copyHeadElementWithTitle:(id)arg1 deviceWidth:(int)arg2;
++ (id)copyHeadElementForDeviceWidth:(int)arg1;
 + (id)xhtmlStringWithXmlData:(id)arg1;
-+ (id)createHeadElementForDeviceWidth:(int)arg1;
-+ (id)createHeadElementWithTitle:(id)arg1 deviceWidth:(int)arg2;
-+ (id)createHeadElementWithTitle:(id)arg1;
++ (void)filterString:(id)arg1;
++ (id)copyFilteredString:(id)arg1;
++ (id)copyXhtmlDocument;
 
 @end
 

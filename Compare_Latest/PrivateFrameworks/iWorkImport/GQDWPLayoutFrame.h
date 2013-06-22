@@ -16,11 +16,13 @@
     unsigned int mTextScale;
 }
 
-- (void)dealloc;
-- (id)layoutStyle;
-- (id)storage;
-- (unsigned int)textScale;
 - (BOOL)isBlank;
+- (unsigned int)textScale;
+- (id)storage;
+- (id)layoutStyle;
+- (void)dealloc;
+- (void)resolveStyleRef;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

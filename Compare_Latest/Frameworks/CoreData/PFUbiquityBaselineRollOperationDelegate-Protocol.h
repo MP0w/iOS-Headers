@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PFUbiquityBaselineRollOperationDelegate <NSObject>
+- (void)baselineRollOperationWasUnableToLockPersistentStore:(id)arg1;
 - (void)baselineRollOperationEncounteredAnInconsistentBaselineState:(id)arg1;
 @end
 

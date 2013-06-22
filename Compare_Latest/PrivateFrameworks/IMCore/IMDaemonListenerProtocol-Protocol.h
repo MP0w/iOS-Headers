@@ -7,14 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol IMDaemonListenerProtocol <NSObject>
+- (void)databaseNoLongerFull;
+- (void)databaseFull;
 - (void)databaseUpdated:(id)arg1;
 - (void)databaseUpdated;
-- (void)setAVManagerRequested:(BOOL)arg1 URLToShare:(id)arg2;
-- (void)videoStill:(id)arg1 providedForPerson:(id)arg2 result:(unsigned int)arg3 responseID:(id)arg4;
-- (void)currentAVChatInfoProvided:(id)arg1 result:(unsigned int)arg2 responseID:(id)arg3;
-- (void)videoStillForPersonRequested:(id)arg1 withTransactionID:(unsigned int)arg2;
-- (void)audioReflectorRequested:(BOOL)arg1 transactionID:(unsigned int)arg2;
-- (void)currentAVChatInfoRequestedWithTransactionID:(unsigned int)arg1;
 - (void)account:(id)arg1 relay:(id)arg2 handleCancel:(id)arg3 fromPerson:(id)arg4;
 - (void)account:(id)arg1 relay:(id)arg2 handleUpdate:(id)arg3 fromPerson:(id)arg4;
 - (void)account:(id)arg1 relay:(id)arg2 handleInitate:(id)arg3 fromPerson:(id)arg4;
@@ -24,6 +20,7 @@
 - (void)property:(id)arg1 changedTo:(id)arg2 from:(id)arg3;
 - (void)showForgotPasswordNotificationForAccount:(id)arg1;
 - (void)showInvalidCertNotificationForAccount:(id)arg1;
+- (void)account:(id)arg1 conference:(id)arg2 invitationSentSuccessfully:(BOOL)arg3;
 - (void)account:(id)arg1 conference:(id)arg2 peerID:(id)arg3 propertiesUpdated:(id)arg4;
 - (void)account:(id)arg1 conference:(id)arg2 peerIDChangedFromID:(id)arg3 toID:(id)arg4;
 - (void)account:(id)arg1 conference:(id)arg2 changedToNewConferenceID:(id)arg3;
@@ -41,21 +38,22 @@
 - (void)fileTransfer:(id)arg1 updatedWithProperties:(id)arg2;
 - (void)fileTransfer:(id)arg1 createdWithProperties:(id)arg2;
 - (void)standaloneFileTransferRegistered:(id)arg1;
-- (void)historicalMessageGUIDsDeleted:(id)arg1 queryID:(id)arg2;
-- (void)historyQuery:(id)arg1 chatID:(id)arg2 finishedWithResult:(id)arg3;
+- (void)historicalMessageGUIDsDeleted:(id)arg1 chatGUIDs:(id)arg2 queryID:(id)arg3;
+- (void)historyQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4;
+- (void)messageQuery:(id)arg1 finishedWithResult:(id)arg2 chatGUIDs:(id)arg3;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 member:(id)arg5 statusChanged:(int)arg6;
-- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 statusChanged:(int)arg5;
+- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 statusChanged:(int)arg5 handleInfo:(id)arg6;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 error:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messagesUpdated:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 notifySentMessage:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messageUpdated:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messageReceived:(id)arg5;
-- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messageCancelled:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messageSent:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 updateProperties:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 invitationReceived:(id)arg5;
 - (void)leftChat:(id)arg1;
 - (void)chat:(id)arg1 propertiesUpdated:(id)arg2;
+- (void)chat:(id)arg1 updated:(id)arg2;
 - (void)account:(id)arg1 buddyInfo:(id)arg2 commandDelivered:(id)arg3 properties:(id)arg4;
 - (void)account:(id)arg1 buddyInfo:(id)arg2 commandReceived:(id)arg3 properties:(id)arg4;
 - (void)account:(id)arg1 buddyInfo:(id)arg2 dataReceived:(id)arg3;
@@ -72,7 +70,7 @@
 - (void)accountAdded:(id)arg1 defaults:(id)arg2 service:(id)arg3;
 - (void)account:(id)arg1 capabilitiesChanged:(unsigned long long)arg2;
 - (void)account:(id)arg1 defaultsChanged:(id)arg2;
-- (void)account:(id)arg1 loginStatusChanged:(unsigned int)arg2 message:(id)arg3 reason:(unsigned int)arg4 properties:(id)arg5;
+- (void)account:(id)arg1 loginStatusChanged:(unsigned int)arg2 message:(id)arg3 reason:(int)arg4 properties:(id)arg5;
 - (void)account:(id)arg1 defaults:(id)arg2 blockList:(id)arg3 allowList:(id)arg4 blockingMode:(unsigned int)arg5 blockIdleStatus:(BOOL)arg6 status:(id)arg7 capabilities:(unsigned long long)arg8 serviceLoginStatus:(unsigned int)arg9 loginStatusMessage:(id)arg10;
 - (void)activeAccountsChanged:(id)arg1 forService:(id)arg2;
 - (void)defaultsChanged:(id)arg1 forService:(id)arg2;

@@ -13,14 +13,14 @@
     NSMutableDictionary *_names;
 }
 
-+ (id)defaultMappingGenerator;
 + (void)invalidate;
-- (id)init;
-- (void)dealloc;
-- (id)uniqueNameWithBase:(id)arg1;
-- (id)newUniqueNameWithBase:(unsigned short *)arg1 withLength:(unsigned int)arg2;
-- (id)newGeneratedPropertyName:(id)arg1;
++ (id)defaultMappingGenerator;
 - (id)generateTableName:(id)arg1;
+- (id)newGeneratedPropertyName:(id)arg1;
+- (id)newUniqueNameWithBase:(unsigned short *)arg1 withLength:(unsigned int)arg2;
+- (id)uniqueNameWithBase:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

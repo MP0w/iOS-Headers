@@ -8,6 +8,12 @@
 
 @interface NSString (UIKBExtras)
 + (id)stringWithUnichar:(unsigned long)arg1;
++ (struct USet *)_ideographSet;
++ (struct USet *)_japaneseLetterSet;
++ (struct USet *)_nonHiraganaKatakanaOrBopomofoSet;
++ (struct USet *)_nonHiraganaOrKatakanaSet;
++ (struct USet *)_nonIdeographicCharacterSet;
++ (struct USet *)_characterSetWithPattern:(id)arg1;
 + (id)_stringWithUnichar:(unsigned long)arg1;
 - (unsigned int)editDistanceFrom:(id)arg1;
 - (BOOL)containsSubstring:(id)arg1;
@@ -30,6 +36,20 @@
 - (id)stringByTrimmingCharactersInCFCharacterSet:(struct __CFCharacterSet *)arg1;
 - (unsigned int)_editDistanceFrom:(id)arg1;
 - (BOOL)_containsSubstring:(id)arg1;
+- (id)_stringByApplyingTransform:(id)arg1;
+- (id)_stringByTranscribingFromLanguage:(id)arg1 usingTokenizer:(struct __CFStringTokenizer *)arg2;
+- (id)_stringByTranscribingFromLanguage:(id)arg1;
+- (id)_stringByConvertingFromHalfWidthToFullWidth;
+- (BOOL)_containsEmoji;
+- (BOOL)_containsHiraganaKatakanaOrBopomofo;
+- (BOOL)_containsHiraganaOrKatakana;
+- (BOOL)_containsIdeographicCharacters;
+- (unsigned int)_graphemeCount;
+- (id)_firstGrapheme;
+- (BOOL)_isJapanesePhrase;
+- (BOOL)_isOnlyIdeographs;
+- (BOOL)_isIdeographicGlyphs;
+- (BOOL)_containsCJScripts;
 - (BOOL)_isNaturallyRTL;
 - (BOOL)_looksLikeURL;
 - (BOOL)_looksLikeNumberInput;
@@ -47,5 +67,7 @@
 - (id)_stringByReplacingCharactersInSet:(struct __CFCharacterSet *)arg1 withCharacter:(unsigned long)arg2;
 - (id)_stringByTrimmingLastCharacter;
 - (id)_stringByTrimmingCharactersInCFCharacterSet:(struct __CFCharacterSet *)arg1;
+- (BOOL)_contentsExclusivelyInCharacterSet:(struct USet *)arg1;
+- (unsigned short)_firstChar;
 @end
 

@@ -14,9 +14,9 @@
     int mCurrentTextType;
 }
 
-- (id)initWithClient:(Class)arg1;
 @property(nonatomic) int currentTextType; // @synthesize currentTextType=mCurrentTextType;
 @property(nonatomic) WBReader *reader; // @synthesize reader=mReader;
+- (id)initWithClient:(Class)arg1;
 
 @end
 

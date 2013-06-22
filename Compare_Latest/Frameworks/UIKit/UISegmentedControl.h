@@ -8,7 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
-@class NSMutableArray, UIColor, UIView;
+@class NSMutableArray, UIColor, UISegment, UIView;
 
 @interface UISegmentedControl : UIControl <NSCoding>
 {
@@ -39,13 +39,17 @@
         unsigned int transparentBackground:1;
         unsigned int useProportionalWidthSegments:1;
         unsigned int translucentBackground:1;
+        unsigned int appearanceNeedsUpdate:1;
     } _segmentedControlFlags;
 }
 
 + (float)defaultHeightForStyle:(int)arg1;
 + (float)defaultHeightForStyle:(int)arg1 size:(int)arg2;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (float)defaultHeight;
 @property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
+- (void)_setBadgeValue:(id)arg1 forSegmentAtIndex:(unsigned int)arg2;
+- (id)_badgeValueForSegmentAtIndex:(unsigned int)arg1;
 - (struct UIOffset)contentPositionAdjustmentForSegmentType:(int)arg1 barMetrics:(int)arg2;
 - (void)setContentPositionAdjustment:(struct UIOffset)arg1 forSegmentType:(int)arg2 barMetrics:(int)arg3;
 - (float)_backgroundVerticalPositionAdjustmentForBarMetrics:(int)arg1;
@@ -61,6 +65,7 @@
 - (void)_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
 - (id)_optionsBackgroundImage;
 - (void)_setOptionsBackgroundImage:(id)arg1;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (void)setAlpha:(float)arg1;
 - (void)setEnabled:(BOOL)arg1;
 - (void)_setEnabled:(BOOL)arg1 forcePropagateToSegments:(BOOL)arg2;
@@ -76,7 +81,14 @@
 - (void)highlightSegment:(int)arg1;
 - (BOOL)shouldTrack;
 - (void)layoutSubviews;
+- (struct UIEdgeInsets)alignmentRectInsets;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (id)viewForBaselineLayout;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (struct CGRect)bounds;
+- (void)setBounds:(struct CGRect)arg1;
+- (struct CGRect)frame;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)sizeToFit;
 - (void)_setSelectedSegmentIndex:(int)arg1 notify:(BOOL)arg2;
@@ -91,10 +103,13 @@
 - (void)setWidth:(float)arg1 forSegmentAtIndex:(unsigned int)arg2;
 - (id)imageForSegmentAtIndex:(unsigned int)arg1;
 - (void)setImage:(id)arg1 forSegmentAtIndex:(unsigned int)arg2;
+- (id)_attributedTitleForSegmentAtIndex:(unsigned int)arg1;
+- (void)_setAttributedTitle:(id)arg1 forSegmentAtIndex:(unsigned int)arg2;
 - (id)titleForSegmentAtIndex:(unsigned int)arg1;
 - (void)setTitle:(id)arg1 forSegmentAtIndex:(unsigned int)arg2;
 - (void)removeAllSegments;
 - (void)removeSegmentAtIndex:(unsigned int)arg1 animated:(BOOL)arg2;
+- (void)_insertSegmentWithAttributedTitle:(id)arg1 atIndex:(unsigned int)arg2 animated:(BOOL)arg3;
 - (void)insertSegmentWithImage:(id)arg1 atIndex:(unsigned int)arg2 animated:(BOOL)arg3;
 - (void)insertSegmentWithTitle:(id)arg1 atIndex:(unsigned int)arg2 animated:(BOOL)arg3;
 - (BOOL)transparentBackground;
@@ -108,11 +123,15 @@
 - (void)setSegmentControlStyle:(int)arg1;
 - (int)segmentControlStyle;
 - (void)setControlSize:(int)arg1;
+- (void)_setControlSize:(int)arg1 andInvalidate:(BOOL)arg2;
 - (int)controlSize;
 @property(nonatomic) int segmentedControlStyle; // @dynamic segmentedControlStyle;
 - (void)_setAppearanceIsTiled:(BOOL)arg1 leftCapWidth:(unsigned int)arg2 rightCapWidth:(unsigned int)arg3;
 - (void)_setSegmentedControlAppearance:(CDStruct_a542d031 *)arg1;
+- (void)_setNeedsAppearanceUpdate;
 - (void)_resetForAppearanceChange;
+- (void)_setOptionsShadowHidden:(BOOL)arg1;
+- (BOOL)_optionsShadowHidden;
 - (void)_updateOptionsBackground;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (void)dealloc;
@@ -124,6 +143,40 @@
 - (void)_commonSegmentedControlInit;
 - (void)updateForMiniBarState:(BOOL)arg1;
 @property(nonatomic) BOOL apportionsSegmentWidthsByContent;
+@property(retain, nonatomic) UISegment *removedSegment;
+- (void)_updateDividerImageForSegmentAtIndex:(unsigned int)arg1;
+- (void)_removeSegmentAnimationFinished:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+- (void)_clearSelectedSegment;
+- (void)_insertSegment:(int)arg1 withInfo:(id)arg2 animated:(BOOL)arg3;
+- (id)_createSegmentAtIndex:(int)arg1 position:(unsigned int)arg2 withInfo:(id)arg3;
+- (BOOL)_isInTranslucentToolbar;
+- (BOOL)_isInMiniBar;
+- (float)_barHeight;
+- (id)infoViewForSegment:(int)arg1;
+- (int)selectedSegment;
+- (void)setSelectedSegment:(int)arg1;
+- (BOOL)isEnabledForSegment:(unsigned int)arg1;
+- (void)setEnabled:(BOOL)arg1 forSegment:(unsigned int)arg2;
+- (struct CGSize)contentOffsetForSegment:(unsigned int)arg1;
+- (void)setContentOffset:(struct CGSize)arg1 forSegment:(unsigned int)arg2;
+- (float)widthForSegment:(unsigned int)arg1;
+- (void)setWidth:(float)arg1 forSegment:(unsigned int)arg2;
+- (id)imageForSegment:(unsigned int)arg1;
+- (void)setImage:(id)arg1 forSegment:(unsigned int)arg2;
+- (id)titleForSegment:(unsigned int)arg1;
+- (void)setTitle:(id)arg1 forSegment:(unsigned int)arg2;
+- (void)removeSegment:(unsigned int)arg1 animated:(BOOL)arg2;
+- (void)insertSegment:(unsigned int)arg1 withImage:(id)arg2 animated:(BOOL)arg3;
+- (void)insertSegment:(unsigned int)arg1 withTitle:(id)arg2 animated:(BOOL)arg3;
+- (void)addSegmentWithTitle:(id)arg1;
+- (void)selectSegment:(int)arg1;
+- (void)setImagePadding:(struct CGSize)arg1 forSegment:(unsigned int)arg2;
+- (void)setAlwaysNotifiesDelegateOfSegmentClicks:(BOOL)arg1;
+- (void)setMomentaryClick:(BOOL)arg1;
+- (void)setShowsDisclosure:(BOOL)arg1;
+- (void)setDelegate:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 withStyle:(int)arg2 withItems:(id)arg3;
+- (id)scriptingInfoWithChildren;
 
 @end
 

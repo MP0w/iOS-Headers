@@ -55,6 +55,7 @@
     BOOL _dragChangedKey;
     BOOL _touchDownInMoreKey;
     BOOL _touchDownInShiftKey;
+    BOOL _touchDownInDeleteKey;
     BOOL _wasShifted;
     BOOL _dragDismissStarted;
     BOOL _swipeDetected;
@@ -141,6 +142,7 @@
 - (void)touchCancelled:(id)arg1;
 - (void)touchUp:(id)arg1;
 - (void)refreshGhostKeyState;
+- (BOOL)performSpaceAction;
 - (BOOL)performReturnAction;
 - (void)touchDragged:(id)arg1;
 - (void)touchDownWithKey:(id)arg1 atPoint:(struct CGPoint)arg2;
@@ -162,6 +164,7 @@
 - (id)activationIndicatorView;
 - (BOOL)shouldShowIndicator;
 - (void)showPopupVariantsForKey:(id)arg1;
+- (id)_keyplaneVariantsKeyForString:(id)arg1;
 - (void)longPressAction;
 - (BOOL)isLongPressedKey:(id)arg1;
 - (BOOL)doesKeyCharging;
@@ -200,12 +203,6 @@
 - (int)stateForKey:(id)arg1;
 - (void)refreshForDictationAvailablityDidChange;
 - (void)updateMoreAndInternationalKeys;
-- (id)mergableKeyplaneSwitchKeyForRendering:(int)arg1;
-- (void)updateDictationKeyOnNumberPads;
-- (id)shapesForControlKeyShapes:(id)arg1 split:(BOOL)arg2;
-- (id)shapesForControlKeyShapes:(id)arg1 split:(BOOL)arg2 alternateCJMerge:(BOOL)arg3;
-- (id)spaceKey;
-- (id)findLeftMoreKey;
 - (int)stateForKeyplaneSwitchKey:(id)arg1;
 - (int)displayTypeHintForShiftKey;
 - (int)displayTypeHintForMoreKey;
@@ -214,7 +211,6 @@
 - (void)updateTransitionWithFlags:(int)arg1;
 - (BOOL)canReuseKeyplaneView;
 - (BOOL)shouldShowDictationKey;
-- (void)updateKeyplaneViewMask;
 - (void)updateBackgroundIfNeeded;
 - (BOOL)backgroundNeedsRedraw;
 - (BOOL)handwritingPlane;
@@ -234,6 +230,7 @@
 - (void)refreshForRivenPreferences;
 - (struct CGRect)frameForKeylayoutName:(id)arg1;
 - (struct CGRect)frameForKeylayoutName:(id)arg1 onKeyplaneName:(id)arg2;
+- (struct CGSize)dragGestureSize;
 - (id)splitNameForKeyplane:(id)arg1;
 - (id)splitNameForKeyplaneName:(id)arg1;
 - (id)defaultNameForKeyplaneName:(id)arg1;
@@ -242,10 +239,31 @@
 - (SEL)handlerForNotification:(id)arg1;
 - (void)flushKeyCache:(id)arg1;
 - (void)removeFromSuperview;
-- (void)clearUnusedObjects;
+- (void)clearUnusedObjects:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 @property(readonly, nonatomic, getter=isRotating) BOOL rotating;
+- (void)setKeyForTouchInfo:(id)arg1 key:(id)arg2;
+- (id)popupKeyViews;
+- (struct CGRect)frameForLastKeyWithRepresentedString:(id)arg1;
+- (struct CGRect)frameForKeyWithRepresentedString:(id)arg1;
+- (id)keyWithRepresentedString:(id)arg1;
+- (void)resizeForKeyplaneSize:(struct CGSize)arg1;
+- (void)activateCompositeKey:(id)arg1 direction:(int)arg2 flickString:(id)arg3 popupInfo:(id)arg4;
+- (void)showPopupView:(int)arg1 withKey:(id)arg2 popupInfo:(id)arg3 force:(BOOL)arg4;
+- (void)setKeyboardDim:(BOOL)arg1;
+- (void)setKeyboardDim:(BOOL)arg1 amount:(float)arg2 withDuration:(float)arg3;
+- (void)handleDismissFlickView:(id)arg1;
+- (void)handlePopupView:(id)arg1;
+- (id)overlayCharacterImageForKey:(id)arg1 direction:(int)arg2 rect:(struct CGRect)arg3 flickString:(id)arg4 popupInfo:(id)arg5;
+- (id)getFlickCompositeImageForKey:(id)arg1 direction:(int)arg2 rect:(struct CGRect)arg3;
+- (id)getPopupBackgroundImageForKey:(id)arg1 direction:(int)arg2 popupInfo:(id)arg3 rect:(struct CGRect)arg4;
+- (id)compositeImageForKey:(id)arg1;
+- (void)setCompositeImage:(id)arg1 forKey:(id)arg2;
+- (void)showFlickView:(int)arg1 withKey:(id)arg2 flickString:(id)arg3;
+- (void)handleFlick:(id)arg1;
+- (id)flickStringForInputKey:(id)arg1 direction:(int)arg2;
+- (id)flickPopupStringForKey:(id)arg1 withString:(id)arg2;
 
 @end
 

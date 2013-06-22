@@ -16,11 +16,11 @@
 }
 
 + (id)resultFromResponseItem:(id)arg1;
-- (id)description;
-- (void)dealloc;
 @property(retain) NSURL *principalURL; // @synthesize principalURL=_principalURL;
 @property(retain) NSSet *addresses; // @synthesize addresses=_addresses;
 @property(retain) NSString *displayName; // @synthesize displayName=_displayName;
+- (void)dealloc;
+- (id)description;
 
 @end
 

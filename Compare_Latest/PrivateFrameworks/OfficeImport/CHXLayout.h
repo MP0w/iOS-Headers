@@ -11,6 +11,7 @@
 }
 
 + (void)readFrom:(struct _xmlNode *)arg1 graphicProperties:(id)arg2 state:(id)arg3;
++ (struct CGRect)boundsRectFromXmlManualLayoutElement:(struct _xmlNode *)arg1;
 
 @end
 

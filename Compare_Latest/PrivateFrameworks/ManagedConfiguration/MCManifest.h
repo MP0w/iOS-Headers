@@ -6,28 +6,29 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MCManifest : NSObject
 {
     NSString *_path;
     NSMutableDictionary *_manifest;
-    struct dispatch_queue_s *_syncQueue;
+    NSObject<OS_dispatch_queue> *_syncQueue;
 }
 
-+ (void)_setManifestPath:(id)arg1;
-+ (id)sharedManifest;
 + (id)installedProfileWithIdentifier:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (id)_manifest;
-- (id)manifest;
-- (void)_setManifest:(id)arg1;
-- (id)identifiersOfProfilesWithFilterFlags:(int)arg1;
-- (id)allInstalledProfileIdentifiers;
-- (void)addIdentifierToManifest:(id)arg1 flag:(int)arg2;
-- (void)removeIdentifierFromManifest:(id)arg1;
++ (id)sharedManifest;
++ (void)_setManifestPath:(id)arg1;
+- (void).cxx_destruct;
 - (void)invalidateCache;
+- (void)removeIdentifierFromManifest:(id)arg1;
+- (void)addIdentifierToManifest:(id)arg1 flag:(int)arg2;
+- (id)allInstalledProfileIdentifiers;
+- (id)identifiersOfProfilesWithFilterFlags:(int)arg1;
+- (void)_setManifest:(id)arg1;
+- (id)manifest;
+- (id)_manifest;
+- (void)dealloc;
+- (id)init;
 
 @end
 

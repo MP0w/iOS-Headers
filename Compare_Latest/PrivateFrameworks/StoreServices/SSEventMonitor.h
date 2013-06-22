@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class SSXPCConnection;
+@class NSObject<OS_dispatch_queue>, SSXPCConnection;
 
 @interface SSEventMonitor : NSObject
 {
     id <SSEventMonitorDelegate> _delegate;
-    struct dispatch_queue_s *_delegateQueue;
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     SSXPCConnection *_eventConnection;
 }
 
-- (void)_handleMessage:(void *)arg1 fromServerConnection:(struct _xpc_connection_s *)arg2;
+- (void)_handleMessage:(id)arg1 fromServerConnection:(id)arg2;
 - (void)_connectEventConnection;
 @property id <SSEventMonitorDelegate> delegate;
 - (void)dealloc;

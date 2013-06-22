@@ -14,11 +14,11 @@
     UIColor *_strokeColor;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)dealloc;
 @property(retain, nonatomic) UIColor *fillColor; // @synthesize fillColor=_fillColor;
 @property(retain, nonatomic) UIColor *strokeColor; // @synthesize strokeColor=_strokeColor;
+- (void)dealloc;
+- (void)drawRect:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -16,13 +16,13 @@
     BOOL _wantsToBeLast;
 }
 
-- (id)initWithSpecifier:(id)arg1 dataclasses:(id)arg2 otherDataclassHeader:(id)arg3;
-- (id)initWithSpecifier:(id)arg1 dataclasses:(id)arg2;
-- (void)dealloc;
 @property BOOL wantsToBeLast; // @synthesize wantsToBeLast=_wantsToBeLast;
 @property(retain) NSString *otherDataclassHeader; // @synthesize otherDataclassHeader=_otherDataclassHeader;
 @property(retain) NSArray *dataclasses; // @synthesize dataclasses=_dataclasses;
 @property(retain) PSSpecifier *specifier; // @synthesize specifier=_specifier;
+- (void)dealloc;
+- (id)initWithSpecifier:(id)arg1 dataclasses:(id)arg2;
+- (id)initWithSpecifier:(id)arg1 dataclasses:(id)arg2 otherDataclassHeader:(id)arg3;
 
 @end
 

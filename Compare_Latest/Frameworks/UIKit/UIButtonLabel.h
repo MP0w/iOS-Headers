@@ -11,8 +11,13 @@
     BOOL _reverseShadow;
 }
 
+- (struct CGSize)intrinsicContentSize;
 - (void)setReverseShadow:(BOOL)arg1;
 - (struct CGSize)shadowOffset;
+- (void)setTextAlignment:(int)arg1;
+- (void)setAdjustsFontSizeToFitWidth:(BOOL)arg1;
+- (void)setMinimumScaleFactor:(float)arg1;
+- (void)_setMinimumFontSize:(float)arg1;
 - (void)setShadowOffset:(struct CGSize)arg1;
 - (void)setLineBreakMode:(int)arg1;
 - (void)setFont:(id)arg1;

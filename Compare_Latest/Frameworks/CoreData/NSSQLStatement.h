@@ -17,23 +17,23 @@
     NSSQLEntity *_fakeEntityForFetch;
 }
 
-- (id)initWithEntity:(id)arg1 sqlString:(id)arg2;
-- (id)description;
-- (id)initWithEntity:(id)arg1;
-- (void)clearCaches;
-- (void)dealloc;
-- (id)entity;
-- (id)sqlString;
-- (void)setSQLString:(id)arg1;
-- (id)bindVariables;
-- (unsigned int)addBindVariable:(id)arg1;
-- (void)setBindVariables:(id)arg1;
-- (void)removeAllBindVariables;
-- (BOOL)isImpossibleCondition;
-- (void)setImpossibleCondition:(BOOL)arg1;
-- (id)fakeEntityForFetch;
-- (void)cacheFakeEntityForFetch:(id)arg1;
 - (BOOL)isReadOnly;
+- (void)cacheFakeEntityForFetch:(id)arg1;
+- (id)fakeEntityForFetch;
+- (void)setImpossibleCondition:(BOOL)arg1;
+- (BOOL)isImpossibleCondition;
+- (void)removeAllBindVariables;
+- (void)setBindVariables:(id)arg1;
+- (unsigned int)addBindVariable:(id)arg1;
+- (id)bindVariables;
+- (void)setSQLString:(id)arg1;
+- (id)sqlString;
+- (id)entity;
+- (void)dealloc;
+- (void)clearCaches;
+- (id)initWithEntity:(id)arg1;
+- (id)description;
+- (id)initWithEntity:(id)arg1 sqlString:(id)arg2;
 
 @end
 

@@ -12,30 +12,31 @@
 {
 }
 
-@property(readonly, retain) DOMHTMLFormElement *form;
-- (id)formAction;
-- (void)setFormAction:(id)arg1;
-- (id)formEnctype;
-- (void)setFormEnctype:(id)arg1;
-- (id)formMethod;
-- (void)setFormMethod:(id)arg1;
-- (BOOL)formNoValidate;
-- (void)setFormNoValidate:(BOOL)arg1;
-- (id)formTarget;
-- (void)setFormTarget:(id)arg1;
-- (id)validity;
+- (void)click;
+- (void)setCustomValidity:(id)arg1;
+- (BOOL)checkValidity;
 @property(copy) NSString *accessKey;
+- (id)labels;
+- (id)validationMessage;
+- (id)validity;
+@property(readonly) BOOL willValidate;
+@property(copy) NSString *value;
+@property(readonly) NSString *type;
+@property(copy) NSString *name;
+- (void)setFormTarget:(id)arg1;
+- (id)formTarget;
+- (void)setFormNoValidate:(BOOL)arg1;
+- (BOOL)formNoValidate;
+- (void)setFormMethod:(id)arg1;
+- (id)formMethod;
+- (void)setFormEnctype:(id)arg1;
+- (id)formEnctype;
+- (void)setFormAction:(id)arg1;
+- (id)formAction;
+@property(readonly) DOMHTMLFormElement *form;
 @property BOOL disabled;
 @property BOOL autofocus;
-@property(copy) NSString *name;
-@property(readonly, copy) NSString *type;
-@property(copy) NSString *value;
-@property(readonly) BOOL willValidate;
-- (id)validationMessage;
-- (id)labels;
-- (BOOL)checkValidity;
-- (void)setCustomValidity:(id)arg1;
-- (void)click;
+- (int)structuralComplexityContribution;
 
 @end
 

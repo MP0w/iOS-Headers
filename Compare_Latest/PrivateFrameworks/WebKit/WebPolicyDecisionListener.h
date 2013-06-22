@@ -15,13 +15,13 @@
     WebPolicyDecisionListenerPrivate *_private;
 }
 
-- (id)_initWithTarget:(id)arg1 action:(SEL)arg2;
-- (void)dealloc;
-- (void)_usePolicy:(int)arg1;
-- (void)_invalidate;
-- (void)use;
-- (void)ignore;
 - (void)download;
+- (void)ignore;
+- (void)use;
+- (void)_invalidate;
+- (void)_usePolicy:(int)arg1;
+- (void)dealloc;
+- (id)_initWithTarget:(id)arg1 action:(SEL)arg2;
 
 @end
 

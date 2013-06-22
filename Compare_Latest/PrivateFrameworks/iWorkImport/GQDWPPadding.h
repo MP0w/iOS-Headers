@@ -17,10 +17,11 @@
 }
 
 + (const struct StateSpec *)stateForReading;
-- (float)top;
-- (float)left;
-- (float)bottom;
 - (float)right;
+- (float)bottom;
+- (float)left;
+- (float)top;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

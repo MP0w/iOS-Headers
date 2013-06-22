@@ -9,7 +9,7 @@
 @protocol CNFAudioDeviceControllerProtocol <NSObject>
 
 @optional
-- (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
 - (void)audioDeviceControllerMediaServerDied:(id)arg1;
+- (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
 @end
 

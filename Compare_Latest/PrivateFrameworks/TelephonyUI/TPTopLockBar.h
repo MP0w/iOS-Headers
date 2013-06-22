@@ -10,9 +10,8 @@
 {
 }
 
-+ (float)defaultLabelFontSize;
 + (float)defaultHeightForOrientation:(int)arg1;
-- (float)knobTrackInsetLeft;
++ (float)defaultLabelFontSize;
 
 @end
 

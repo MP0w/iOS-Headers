@@ -18,11 +18,11 @@
 
 + (id)keyPathsForValuesAffectingTimeRange;
 + (id)mediaTypesForMediaCharacteristics;
-+ (id)mediaCharacteristicsForMediaTypes;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)_pairedForcedOnlySubtitlesTrack;
-- (id)_associatedSubtitleTrack;
+- (id)_mostCloselyAssociatedTrackAmongTracks:(id)arg1;
+- (id)_followingTrackAmongTracks:(id)arg1;
 - (id)_fallbackTrack;
 - (id)_allReferencedTracksWithReferenceType:(id)arg1;
 - (id)_firstReferencedTrackWithReferenceType:(id)arg1;
@@ -37,6 +37,7 @@
 - (float)preferredVolume;
 - (int)layer;
 - (struct CGAffineTransform)preferredTransform;
+- (struct CGSize)dimensions;
 - (struct CGSize)naturalSize;
 - (id)locale;
 - (id)extendedLanguageTag;
@@ -45,13 +46,9 @@
 - (int)naturalTimeScale;
 - (CDStruct_e83c9415)timeRange;
 - (id)mediaCharacteristics;
+- (BOOL)hasMediaCharacteristics:(id)arg1;
 - (BOOL)hasMediaCharacteristic:(id)arg1;
-- (BOOL)_containsMixedSubtitles;
-- (BOOL)_containsOnlyForcedSubtitles;
 - (BOOL)_subtitleFormatDescriptionMatchesTextDisplayFlags:(unsigned int)arg1 flagsMask:(unsigned int)arg2;
-- (BOOL)_isMainProgramContent;
-- (BOOL)_isAuxiliaryContent;
-- (id)_taggedCharacteristics;
 - (long long)totalSampleDataLength;
 - (BOOL)isSelfContained;
 - (BOOL)isEnabled;
@@ -72,6 +69,7 @@
 - (id)_initWithAsset:(id)arg1 trackID:(int)arg2;
 - (id)init;
 - (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
+- (BOOL)_hasMultipleNonEmptyEdits;
 
 @end
 

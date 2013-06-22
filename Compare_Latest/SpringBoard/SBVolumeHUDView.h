@@ -10,14 +10,20 @@
 {
     int _mode;
     BOOL _headphonesPresent;
+    float _euVolumeLimit;
 }
 
-- (void)_updateImage;
-- (void)_updateLabels;
-- (id)init;
-@property(nonatomic) int mode; // @synthesize mode=_mode;
++ (BOOL)wouldShowAtLeastAYellowBlockForVolume:(float)arg1 euVolumeLimit:(float)arg2;
++ (float)volumeStepDownForCurrentVolume:(float)arg1 euVolumeLimit:(float)arg2;
++ (float)volumeStepUpForCurrentVolume:(float)arg1 euVolumeLimit:(float)arg2;
+@property(nonatomic) float EUVolumeLimit; // @synthesize EUVolumeLimit=_euVolumeLimit;
 @property(nonatomic) BOOL headphonesPresent; // @synthesize headphonesPresent=_headphonesPresent;
+@property(nonatomic) int mode; // @synthesize mode=_mode;
+- (void)drawBlockForValue:(float)arg1 point:(struct CGPoint)arg2;
 - (void)setProgress:(float)arg1;
+- (id)init;
+- (void)_updateLabels;
+- (void)_updateImage;
 
 @end
 

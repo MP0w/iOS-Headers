@@ -14,14 +14,14 @@
     OADFill *mFill;
 }
 
-- (id)init;
-- (void)dealloc;
-- (int)blendMode;
-- (void)setBlendMode:(int)arg1;
-- (id)fill;
-- (void)setFill:(id)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setFill:(id)arg1;
+- (id)fill;
+- (void)setBlendMode:(int)arg1;
+- (int)blendMode;
+- (void)dealloc;
+- (id)init;
 
 @end
 

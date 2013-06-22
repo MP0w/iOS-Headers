@@ -12,11 +12,11 @@
 {
 }
 
-@property(copy) NSString *name;
-@property(readonly, retain) DOMCSSRuleList *cssRules;
-- (void)insertRule:(id)arg1;
-- (void)deleteRule:(id)arg1;
 - (id)findRule:(id)arg1;
+- (void)deleteRule:(id)arg1;
+- (void)insertRule:(id)arg1;
+@property(readonly) DOMCSSRuleList *cssRules;
+@property(copy) NSString *name;
 
 @end
 

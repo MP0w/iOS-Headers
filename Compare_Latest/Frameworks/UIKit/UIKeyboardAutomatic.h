@@ -10,8 +10,10 @@
 {
     BOOL showsCandidateBar;
     BOOL showsCandidateInline;
+    BOOL caretBlinks;
 }
 
+@property(nonatomic) BOOL caretBlinks; // @synthesize caretBlinks;
 @property(nonatomic) BOOL showsCandidateInline; // @synthesize showsCandidateInline;
 @property(nonatomic) BOOL showsCandidateBar; // @synthesize showsCandidateBar;
 - (void)activate;

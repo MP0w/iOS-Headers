@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)readFrom:(struct WrdBorder *)arg1 to:(id)arg2;
 + (void)write:(id)arg1 to:(struct WrdBorder *)arg2;
++ (void)readFrom:(struct WrdBorder *)arg1 to:(id)arg2;
 
 @end
 

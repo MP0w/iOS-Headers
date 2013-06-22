@@ -6,12 +6,16 @@
 
 #import <PhotoLibraryServices/_PLManagedAsset.h>
 
-@class CLLocation, NSArray, NSData, NSDate, NSDictionary, NSMutableOrderedSet, NSMutableSet, NSNumber, NSSet, NSString, NSURL, UIImage;
+#import "UIActivityItemSource-Protocol.h"
 
-@interface PLManagedAsset : _PLManagedAsset
+@class CLLocation, NSArray, NSData, NSDate, NSDictionary, NSMutableOrderedSet, NSMutableSet, NSNumber, NSOrderedSet, NSSet, NSString, NSURL, UIImage;
+
+@interface PLManagedAsset : _PLManagedAsset <UIActivityItemSource>
 {
     BOOL _didPrepareForDeletion;
-    UIImage *inflightImage;
+    BOOL _isRegisteredForChanges;
+    UIImage *inflightImageInMemory;
+    NSString *inflightImagePath;
     UIImage *inflightIndexSheetImage;
     NSDictionary *inflightMetadata;
 }
@@ -24,20 +28,24 @@
 + (int)wildcatCachedStackImageFormat;
 + (int)wildcatStackFormat;
 + (int)wildcatPhotoScrubberFormat;
++ (int)formatForThumbnailGeneration;
 + (int)wildcatIndexSheetFormat;
 + (int)landscapeScrubberThumbnailFormat;
 + (int)portraitScrubberThumbnailFormat;
 + (int)indexSheetFormat;
 + (int)posterThumbnailFormat;
++ (int)largestThumbnailFormat;
 + (int)thumbnailFormat;
 + (int)fullSizeImageFormat;
 + (id)preferredFileExtensionForType:(id)arg1;
-+ (id)pathForMetadataWithExtension:(id)arg1 forMediaInMainDirectory:(id)arg2 withFilename:(id)arg3;
++ (id)URLForMetadataWithExtension:(id)arg1 forMediaInMainDirectory:(id)arg2 withFilename:(id)arg3;
 + (id)abbreviatedMetadataDirectoryForDirectory:(id)arg1;
++ (int)assetTypeFromUniformTypeIdentifier:(id)arg1;
++ (id)uniformTypeIdentifierFromPathExtension:(id)arg1 assetType:(int)arg2;
 + (id)keyPathsForValuesAffectingIsJPEG;
 + (id)keyPathsForValuesAffectingMimeType;
 + (id)keyPathsForValuesAffectingUtiType;
-+ (id)bestCreationDateForAssestAtURL:(id)arg1;
++ (id)bestCreationDateForAssetAtURL:(id)arg1 modificationDate:(id *)arg2;
 + (id)keyPathsForValuesAffectingIsAudio;
 + (id)keyPathsForValuesAffectingIsPhoto;
 + (id)keyPathsForValuesAffectingIsVideo;
@@ -58,13 +66,25 @@
 + (id)assetsWithKind:(int)arg1 inManagedObjectContext:(id)arg2;
 + (unsigned int)countUsedAssetsWithKind:(int)arg1 inManagedObjectContext:(id)arg2;
 + (unsigned int)countAssetsWithKind:(int)arg1 inManagedObjectContext:(id)arg2;
++ (id)_insertAssetIntoPhotoLibrary:(id)arg1 mainFileURL:(id)arg2 savedAssetType:(int)arg3 replacementUUID:(id)arg4 imageMetadata:(id)arg5 imageUTI:(id)arg6 imageSource:(struct CGImageSource **)arg7 imageData:(id *)arg8;
 + (id)insertAssetIntoPhotoLibrary:(id)arg1 mainFileURL:(id)arg2 savedAssetType:(int)arg3 replacementUUID:(id)arg4 imageSource:(struct CGImageSource **)arg5 imageData:(id *)arg6;
++ (id)insertAssetIntoPhotoLibrary:(id)arg1 mainFileURL:(id)arg2 savedAssetType:(int)arg3 replacementUUID:(id)arg4 imageMetadata:(id)arg5 imageUTI:(id)arg6;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (id)assetWithObjectID:(id)arg1 inLibrary:(id)arg2;
++ (id)assetsWithUUIDs:(id)arg1 inLibrary:(id)arg2;
 + (id)assetWithUUID:(id)arg1 inLibrary:(id)arg2;
++ (void)markAssetAsRecentlyUsed:(id)arg1;
++ (id)persistedRecentlyUsedGUIDS;
++ (id)recentlyUsedGUIDsPath;
++ (id)sortedCloudSharedAssetsWithDerivativesInLibrary:(id)arg1;
++ (id)cloudSharedAssetsWithGUIDs:(id)arg1 inLibrary:(id)arg2;
++ (id)allCloudSharedAssetsInLibrary:(id)arg1;
 @property(retain, nonatomic) NSDictionary *inflightMetadata; // @synthesize inflightMetadata;
 @property(retain, nonatomic) UIImage *inflightIndexSheetImage; // @synthesize inflightIndexSheetImage;
-@property(retain, nonatomic) UIImage *inflightImage; // @synthesize inflightImage;
+@property(retain, nonatomic) NSString *inflightImagePath; // @synthesize inflightImagePath;
+@property(retain, nonatomic) UIImage *inflightImageInMemory; // @synthesize inflightImageInMemory;
+- (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
+- (id)activityViewControllerPlaceholderItem:(id)arg1;
 - (id)shortenedFilePath;
 - (BOOL)isInRegion:(CDStruct_90e2a262)arg1;
 @property(readonly, nonatomic) NSURL *assetURL;
@@ -74,6 +94,7 @@
 - (id)previewFrameImageFromDatabase;
 @property(readonly, nonatomic) UIImage *wallpaperFullScreenImage;
 @property(readonly, nonatomic) NSString *textBadgeString;
+- (id)pasteBoardRepresentation;
 - (void)copyToPasteboard;
 - (id)largestAvailableDataRepresentationAndType:(id *)arg1;
 - (id)newLowResolutionFullScreenImage;
@@ -101,9 +122,8 @@
 @property(readonly, nonatomic) NSString *pathForPrebakedWildcatThumbnailsFile;
 @property(readonly, nonatomic) NSString *pathForPrebakedThumbnail;
 @property(readonly, nonatomic) NSURL *fileURLForThumbnailFile;
-- (id)fileULRForMetadataWithExtension:(id)arg1;
+- (id)fileURLForMetadataWithExtension:(id)arg1;
 - (id)pathForMetadataWithExtension:(id)arg1;
-@property(readonly, nonatomic) NSURL *fileURLForMetadataDirectory;
 @property(readonly, nonatomic) NSString *pathForMetadataDirectory;
 @property(readonly, nonatomic) NSString *fileExtension;
 - (void)addExtension:(id)arg1;
@@ -118,6 +138,7 @@
 @property(readonly, nonatomic) NSString *pathForImageFile;
 @property(readonly, nonatomic) NSURL *mainFileURL;
 - (BOOL)isSavedPhotosAsset;
+- (BOOL)couldBeStoredInDCIM;
 - (void)updateAssetKindFromUniformTypeIdentifier;
 - (void)setUniformTypeIdentifierFromPathExtension:(id)arg1 assetKind:(int)arg2;
 - (void)setUniformTypeIdentifierFromPathExtension:(id)arg1;
@@ -125,6 +146,7 @@
 @property(readonly, nonatomic) NSString *mimeType;
 @property(copy, nonatomic) NSString *utiType;
 @property(readonly, nonatomic) NSArray *sortedSidecarFiles;
+- (BOOL)canPerformSharingActions;
 - (BOOL)canPerformEditOperation:(int)arg1;
 @property(readonly, nonatomic) BOOL allowsWallpaperEditing;
 - (BOOL)isEditable;
@@ -132,6 +154,8 @@
 @property(readonly, nonatomic) BOOL isPhoto;
 @property(readonly, nonatomic) BOOL isHDVideo;
 @property(readonly, nonatomic) BOOL isVideo;
+@property(readonly, nonatomic) id <PLCloudSharedContainer> cloudShareAlbum;
+@property(readonly, nonatomic) BOOL isCloudSharedAsset;
 @property(readonly, nonatomic) BOOL supportsDistributedPhotoStreamDeletion;
 @property(readonly, nonatomic) BOOL isPhotoStreamPhoto;
 @property(readonly, nonatomic) NSDate *date;
@@ -151,6 +175,7 @@
 - (void)setThumbnailDataFromImageProperties:(id)arg1;
 - (void)setLocationFromImageProperties:(id)arg1;
 - (id)pictureTransferProtocolInformationWithAlbumsObjectIDs:(id)arg1;
+- (BOOL)setAttributesFromMainFileURL:(id)arg1 savedAssetType:(int)arg2 imageMetadata:(id)arg3 imageUTI:(id)arg4 imageSource:(struct CGImageSource **)arg5 imageData:(id *)arg6;
 - (BOOL)setAttributesFromMainFileURL:(id)arg1 savedAssetType:(int)arg2 imageSource:(struct CGImageSource **)arg3 imageData:(id *)arg4;
 @property short embeddedThumbnailHeightValue;
 @property(retain, nonatomic) NSNumber *embeddedThumbnailHeight;
@@ -176,6 +201,7 @@
 - (void)registerForChanges;
 - (BOOL)_isValidUTI:(id)arg1 forService:(id)arg2;
 - (BOOL)_isSavedAssetTypeValueValid:(int)arg1;
+@property(readonly, nonatomic) UIImage *inflightImage;
 @property(nonatomic) BOOL isInFlight;
 - (BOOL)hasGPS;
 @property(retain, nonatomic) PLManagedAsset *originalAsset;
@@ -197,10 +223,34 @@
 - (void)awakeFromFetch;
 - (void)awakeFromInsert;
 - (void)dealloc;
+@property(nonatomic) BOOL userCloudSharedLiked;
+- (void)userReadAllCloudSharedComments;
+- (void)userDeleteCloudSharedComment:(id)arg1;
+- (id)userAddCloudSharedCommentWithText:(id)arg1;
+- (int)cloudCommentsStatusForOwnedAsset:(BOOL)arg1;
+- (void)deleteComment:(id)arg1;
+- (void)addComment:(id)arg1;
+@property(readonly, nonatomic) unsigned int totalCommentsCount;
+@property BOOL cloudHasCommentsConversationBoolValue;
+@property BOOL cloudHasCommentsByMeBoolValue;
+@property BOOL cloudHasUnseenCommentsBoolValue;
+@property(nonatomic) int cloudPlaceholderKindValue;
 
 // Remaining properties
 @property(readonly, nonatomic) NSMutableOrderedSet *adjustments; // @dynamic adjustments;
+@property(retain, nonatomic) NSString *cloudAssetGUID; // @dynamic cloudAssetGUID;
+@property(retain, nonatomic) NSString *cloudAssetKind; // @dynamic cloudAssetKind;
+@property(retain, nonatomic) NSString *cloudBatchID; // @dynamic cloudBatchID;
+@property(retain, nonatomic) NSDate *cloudBatchPublishDate; // @dynamic cloudBatchPublishDate;
+@property(retain, nonatomic) NSString *cloudCollectionGUID; // @dynamic cloudCollectionGUID;
+@property(retain, nonatomic) NSOrderedSet *cloudComments; // @dynamic cloudComments;
+@property(retain, nonatomic) NSNumber *cloudHasCommentsByMe; // @dynamic cloudHasCommentsByMe;
+@property(retain, nonatomic) NSNumber *cloudHasCommentsConversation; // @dynamic cloudHasCommentsConversation;
+@property(retain, nonatomic) NSNumber *cloudHasUnseenComments; // @dynamic cloudHasUnseenComments;
+@property(retain, nonatomic) NSDate *cloudLastViewedCommentDate; // @dynamic cloudLastViewedCommentDate;
+@property(retain, nonatomic) NSDictionary *cloudMetadata; // @dynamic cloudMetadata;
 @property(retain, nonatomic) NSMutableSet *faces; // @dynamic faces;
+@property(retain, nonatomic) NSOrderedSet *likeComments; // @dynamic likeComments;
 
 @end
 

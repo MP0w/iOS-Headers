@@ -7,26 +7,12 @@
 #import "NSURL.h"
 
 @interface NSURL (CNFAdditions)
-+ (id)_faceTimeURLWithDestinationID:(id)arg1 countryCode:(id)arg2 prompt:(BOOL)arg3 accept:(BOOL)arg4;
-+ (id)faceTimeURLWithDestinationID:(id)arg1;
-+ (id)faceTimeURLWithDestinationID:(id)arg1 countryCode:(id)arg2;
-+ (id)faceTimeURLWithIMHandle:(id)arg1;
-+ (id)_applyFaceTimeScheme:(id)arg1 toFaceTimeURL:(id)arg2;
-+ (id)faceTimeURLWithURL:(id)arg1;
-+ (id)faceTimeAcceptURLWithURL:(id)arg1;
-+ (id)faceTimeAcceptURLWithURL:(id)arg1 conferenceID:(id)arg2;
-- (id)faceTimeDestinationAccount;
-- (BOOL)_isPhoneNumberID:(id)arg1;
-- (id)formattedFaceTimeDestinationAccount;
-- (id)callBackPhoneNumber;
-- (id)callBackString;
-- (id)faceTimeDestinationDisplayNameAndImage:(id *)arg1;
-- (id)faceTimeDestinationDisplayNameAndImage:(id *)arg1 fullscreenImage:(id *)arg2;
 - (BOOL)isFaceTimeUpgradeURLForDestinationID:(id)arg1;
-- (BOOL)isValidFaceTimeURL;
-- (BOOL)isFaceTimePromptURL;
-- (BOOL)isFaceTimeAcceptURL;
-- (id)lockScreenURL;
-- (BOOL)isLockScreenURL;
+- (id)faceTimeDestinationDisplayNameAndImage:(id *)arg1 fullscreenImage:(id *)arg2;
+- (id)faceTimeDestinationDisplayNameAndImage:(id *)arg1;
+- (id)callBackString;
+- (id)callBackPhoneNumber;
+- (id)formattedFaceTimeDestinationAccount;
+- (BOOL)_isPhoneNumberID:(id)arg1;
 @end
 

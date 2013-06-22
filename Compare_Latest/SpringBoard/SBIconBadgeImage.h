@@ -4,20 +4,18 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIImage.h"
+#import "SBIconAccessoryImage.h"
 
-@class NSString;
-
-@interface SBIconBadgeImage : UIImage
+@interface SBIconBadgeImage : SBIconAccessoryImage
 {
-    NSString *_text;
-    int _checkoutCount;
 }
 
-- (id)initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 orientation:(int)arg3 text:(id)arg4;
++ (id)creationBlockForText:(SEL)arg1;
++ (float)_badgeLabelVerticalOffset;
+- (struct CGRect)accessoryFrameForIconBounds:(struct CGRect)arg1;
+- (id)countedMapKey;
 - (void)dealloc;
-@property int checkoutCount; // @synthesize checkoutCount=_checkoutCount;
-@property(readonly, copy) NSString *text; // @synthesize text=_text;
+- (id)initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 orientation:(int)arg3 text:(id)arg4;
 
 @end
 

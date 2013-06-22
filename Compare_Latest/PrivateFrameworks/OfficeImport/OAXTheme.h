@@ -11,6 +11,8 @@
 }
 
 + (void)readFromPackagePart:(id)arg1 toTheme:(id)arg2 state:(id)arg3;
++ (void)readDefaultProperties:(struct _xmlNode *)arg1 defaultProperties:(id)arg2 drawingState:(id)arg3;
++ (void)readObjectDefaults:(struct _xmlNode *)arg1 theme:(id)arg2 packagePart:(id)arg3 state:(id)arg4;
 
 @end
 

@@ -12,8 +12,8 @@
 {
 }
 
+@property(readonly) DOMCSSStyleDeclaration *style;
 @property(copy) NSString *selectorText;
-@property(readonly, retain) DOMCSSStyleDeclaration *style;
 
 @end
 

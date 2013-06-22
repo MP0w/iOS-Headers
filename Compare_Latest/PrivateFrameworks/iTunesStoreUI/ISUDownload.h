@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSNumber, NSString, NSURL, SSDownload;
+@class NSNumber, NSObject<OS_dispatch_queue>, NSString, NSURL, SSDownload;
 
 @interface ISUDownload : NSObject
 {
     SSDownload *_download;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
 }
 
 + (void)initialize;

@@ -7,29 +7,29 @@
 #import <OfficeImport/OABFillPropertiesManager-Protocol.h>
 
 @protocol OABBasePropertiesManager <OABFillPropertiesManager>
-- (int)strokeFillType;
-- (unsigned long)strokeFillBlipID;
-- (id)strokeFillBlipName;
-- (long)strokeFgAlpha;
-- (long)strokeWidth;
-- (long)strokeMiterLimit;
-- (int)strokeCompoundType;
-- (int)strokePresetDash;
-- (const EshTablePropVal_0be01c99 *)strokeCustomDash;
-- (int)strokeCapStyle;
-- (int)strokeJoinStyle;
-- (int)strokeStartArrowType;
-- (int)strokeStartArrowWidth;
-- (int)strokeStartArrowLength;
-- (int)strokeEndArrowType;
-- (int)strokeEndArrowWidth;
-- (int)strokeEndArrowLength;
-- (BOOL)isShadowed;
-- (int)shadowType;
-- (struct EshColor)shadowColor;
-- (long)shadowAlpha;
-- (long)shadowOffsetX;
-- (long)shadowOffsetY;
 - (long)shadowSoftness;
+- (long)shadowOffsetY;
+- (long)shadowOffsetX;
+- (long)shadowAlpha;
+- (struct EshColor)shadowColor;
+- (int)shadowType;
+- (BOOL)isShadowed;
+- (int)strokeEndArrowLength;
+- (int)strokeEndArrowWidth;
+- (int)strokeEndArrowType;
+- (int)strokeStartArrowLength;
+- (int)strokeStartArrowWidth;
+- (int)strokeStartArrowType;
+- (int)strokeJoinStyle;
+- (int)strokeCapStyle;
+- (const struct EshTablePropVal<long> *)strokeCustomDash;
+- (int)strokePresetDash;
+- (int)strokeCompoundType;
+- (long)strokeMiterLimit;
+- (long)strokeWidth;
+- (long)strokeFgAlpha;
+- (id)strokeFillBlipName;
+- (unsigned long)strokeFillBlipID;
+- (int)strokeFillType;
 @end
 

@@ -6,31 +6,39 @@
 
 #import "NSObject.h"
 
-@class GKPlayer, NSData, NSDictionary, NSString;
+@class GKInviteInternal, GKPlayer, NSData, NSString;
 
 @interface GKInvite : NSObject
 {
-    NSString *_inviteID;
-    NSData *_sessionToken;
-    NSDictionary *_inviteDictionary;
-    NSString *_message;
-    NSString *_inviter;
-    BOOL _hosted;
+    GKInviteInternal *_internal;
     BOOL _cancelled;
     GKPlayer *_invitingPlayer;
 }
 
-+ (id)inviteWithDictionary:(id)arg1;
-@property(retain, nonatomic) GKPlayer *invitingPlayer; // @synthesize invitingPlayer=_invitingPlayer;
++ (BOOL)instancesRespondToSelector:(SEL)arg1;
+@property(readonly, nonatomic) GKPlayer *invitingPlayer; // @synthesize invitingPlayer=_invitingPlayer;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
-@property(nonatomic, getter=isHosted) BOOL hosted; // @synthesize hosted=_hosted;
-@property(retain, nonatomic) NSString *inviter; // @synthesize inviter=_inviter;
-@property(retain, nonatomic) NSString *message; // @synthesize message=_message;
-@property(retain, nonatomic) NSDictionary *inviteDictionary; // @synthesize inviteDictionary=_inviteDictionary;
-@property(retain, nonatomic) NSData *sessionToken; // @synthesize sessionToken=_sessionToken;
-@property(retain, nonatomic) NSString *inviteID; // @synthesize inviteID=_inviteID;
+@property(retain, nonatomic) GKInviteInternal *internal; // @synthesize internal=_internal;
 - (id)description;
+@property(readonly, nonatomic, getter=isHosted) BOOL hosted; // @dynamic hosted;
+@property(readonly, nonatomic) NSString *inviter; // @dynamic inviter;
 - (void)dealloc;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
+- (id)valueForUndefinedKey:(id)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
+- (id)forwardingTargetForSelector:(SEL)arg1;
+- (id)initWithInternalRepresentation:(id)arg1;
+- (id)init;
+
+// Remaining properties
+@property(readonly, nonatomic) NSString *inviteID; // @dynamic inviteID;
+@property(readonly, nonatomic) BOOL isNearby; // @dynamic isNearby;
+@property(readonly, nonatomic) NSString *message; // @dynamic message;
+@property(readonly, nonatomic) unsigned int playerAttributes; // @dynamic playerAttributes;
+@property(readonly, nonatomic) unsigned int playerGroup; // @dynamic playerGroup;
+@property(readonly, nonatomic) NSData *sessionToken; // @dynamic sessionToken;
 
 @end
 

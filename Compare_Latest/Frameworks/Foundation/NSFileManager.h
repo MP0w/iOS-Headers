@@ -11,6 +11,9 @@
 }
 
 + (id)defaultManager;
+- (void)_registerForUbiquityAccountChangeNotifications;
+- (id)ubiquityIdentityToken;
+- (BOOL)_processHasUbiquityContainerEntitlement;
 - (id)URLForPublishingUbiquitousItemAtURL:(id)arg1 expirationDate:(id *)arg2 error:(id *)arg3;
 - (id)URLForUbiquityContainerIdentifier:(id)arg1;
 - (BOOL)evictUbiquitousItemAtURL:(id)arg1 error:(id *)arg2;
@@ -30,6 +33,7 @@
 - (BOOL)createDirectoryAtURL:(id)arg1 withIntermediateDirectories:(BOOL)arg2 attributes:(id)arg3 error:(id *)arg4;
 - (BOOL)createDirectoryAtPath:(id)arg1 withIntermediateDirectories:(BOOL)arg2 attributes:(id)arg3 error:(id *)arg4;
 - (BOOL)setAttributes:(id)arg1 ofItemAtPath:(id)arg2 error:(id *)arg3;
+- (BOOL)trashItemAtURL:(id)arg1 resultingItemURL:(id *)arg2 error:(id *)arg3;
 - (BOOL)removeItemAtURL:(id)arg1 error:(id *)arg2;
 - (BOOL)removeItemAtPath:(id)arg1 error:(id *)arg2;
 - (BOOL)filesystemItemRemoveOperation:(id)arg1 shouldProceedAfterError:(id)arg2 removingItemAtPath:(id)arg3;
@@ -84,11 +88,29 @@
 - (BOOL)directoryCanBeCreatedAtPath:(id)arg1;
 - (id)_displayPathForPath:(id)arg1;
 - (id)URLForDirectory:(unsigned int)arg1 inDomain:(unsigned int)arg2 appropriateForURL:(id)arg3 create:(BOOL)arg4 error:(id *)arg5;
+- (id)_URLForTrashingItemAtURL:(id)arg1 create:(BOOL)arg2 error:(id *)arg3;
 - (id)_URLForReplacingItemAtURL:(id)arg1 error:(id *)arg2;
 - (id)URLsForDirectory:(unsigned int)arg1 inDomains:(unsigned int)arg2;
 - (id)contentsOfDirectoryAtURL:(id)arg1 includingPropertiesForKeys:(id)arg2 options:(unsigned int)arg3 error:(id *)arg4;
 - (id)enumeratorAtURL:(id)arg1 includingPropertiesForKeys:(id)arg2 options:(unsigned int)arg3 errorHandler:(id)arg4;
 - (id)mountedVolumeURLsIncludingResourceValuesForKeys:(id)arg1 options:(unsigned int)arg2;
+- (id)_info;
+- (id)_web_pathWithUniqueFilenameForPath:(id)arg1;
+- (id)_web_visibleItemsInDirectoryAtPath:(id)arg1;
+- (void)_web_backgroundRemoveLeftoverFiles:(id)arg1;
+- (BOOL)_web_removeFileOnlyAtPath:(id)arg1;
+- (void)_web_backgroundRemoveFileAtPath:(id)arg1;
+- (void)_performRemoveFileAtPath:(id)arg1;
+- (BOOL)_web_createFileAtPath:(id)arg1 contents:(id)arg2 attributes:(id)arg3;
+- (BOOL)_web_changeFinderAttributes:(id)arg1 forFileAtPath:(id)arg2;
+- (BOOL)_web_createFileAtPathWithIntermediateDirectories:(id)arg1 contents:(id)arg2 attributes:(id)arg3 directoryAttributes:(id)arg4;
+- (BOOL)_web_createDirectoryAtPathWithIntermediateDirectories:(id)arg1 attributes:(id)arg2;
+- (BOOL)_web_changeFileAttributes_nowarn:(id)arg1 atPath:(id)arg2;
+- (void)_web_noteFileChangedAtPath_nowarn:(id)arg1;
+- (BOOL)_web_createIntermediateDirectoriesForPath_nowarn:(id)arg1 attributes:(id)arg2;
+- (id)_web_startupVolumeName_nowarn;
+- (id)_web_carbonPathForPath_nowarn:(id)arg1;
+- (BOOL)_web_fileExistsAtPath_nowarn:(id)arg1 isDirectory:(char *)arg2 traverseLink:(BOOL)arg3;
 
 @end
 

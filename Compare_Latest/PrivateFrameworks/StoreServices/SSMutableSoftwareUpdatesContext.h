@@ -6,12 +6,16 @@
 
 #import <StoreServices/SSSoftwareUpdatesContext.h>
 
+#import "SSXPCCoding-Protocol.h"
+
 @class NSArray, NSString;
 
-@interface SSMutableSoftwareUpdatesContext : SSSoftwareUpdatesContext
+@interface SSMutableSoftwareUpdatesContext : SSSoftwareUpdatesContext <SSXPCCoding>
 {
 }
 
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 @property(copy, nonatomic) NSArray *softwareTypes; // @dynamic softwareTypes;
 @property(nonatomic, getter=isForced) BOOL forced; // @dynamic forced;
 @property(copy, nonatomic) NSString *clientIdentifierHeader; // @dynamic clientIdentifierHeader;

@@ -16,11 +16,12 @@
 + (id)foreignPropertyForProperty:(id)arg1 entityClass:(Class)arg2;
 + (id)allProperties;
 + (id)predisambiguatedProperties;
-+ (id)joinClauseForProperty:(id)arg1;
++ (id)joinClausesForProperty:(id)arg1;
 + (id)defaultOrderingProperties;
 + (int)revisionTrackingCode;
 + (id)databaseTable;
 + (void)initialize;
+- (void)updateRepresentativeItem:(id)arg1 inLibrary:(id)arg2 withArtworkCacheID:(id)arg3;
 - (void)updateTrackValues:(id)arg1;
 
 @end

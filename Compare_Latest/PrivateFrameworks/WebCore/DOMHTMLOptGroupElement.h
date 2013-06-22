@@ -12,8 +12,8 @@
 {
 }
 
-@property BOOL disabled;
 @property(copy) NSString *label;
+@property BOOL disabled;
 
 @end
 

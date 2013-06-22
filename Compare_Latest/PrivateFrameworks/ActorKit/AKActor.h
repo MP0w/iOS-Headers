@@ -15,13 +15,13 @@
     AKMailbox *_mailbox;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)send;
-- (id)mailbox;
-- (id)deferredReply;
-- (id)startMigrantDispatchQueue;
 - (id)startThreadDispatchQueue;
+- (id)startMigrantDispatchQueue;
+- (id)deferredReply;
+- (id)mailbox;
+- (id)send;
+- (void)dealloc;
+- (id)init;
 
 @end
 

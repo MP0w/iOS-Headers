@@ -15,9 +15,11 @@
     UIViewController *_originalRootViewController;
 }
 
++ (Class)_moreListControllerClass;
 @property(nonatomic) BOOL moreViewControllersChanged;
 @property(nonatomic) BOOL allowsCustomizing;
 @property(retain, nonatomic) NSArray *moreViewControllers;
+- (void)_redisplayMoreTableView;
 - (void)didShowViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)pushViewController:(id)arg1 animated:(BOOL)arg2;
 @property(nonatomic) UIViewController *displayedViewController;

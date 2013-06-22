@@ -6,15 +6,20 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface ML3SqliteDatabaseContext : NSObject
 {
     struct sqlite3 **_dbStack;
     unsigned int _dbStackCurrentIndex;
     struct __CFDictionary *_statementCache;
     BOOL _isInTransaction;
+    NSString *_path;
+    BOOL _enableWrites;
 }
 
 @property(nonatomic) BOOL isInTransaction; // @synthesize isInTransaction=_isInTransaction;
+- (void).cxx_destruct;
 - (void)popDB;
 - (void)pushDB:(struct sqlite3 *)arg1;
 @property(readonly, nonatomic) struct sqlite3 *db;

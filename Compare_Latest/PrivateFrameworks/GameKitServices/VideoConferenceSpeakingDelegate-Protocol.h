@@ -5,7 +5,7 @@
  */
 
 @protocol VideoConferenceSpeakingDelegate
-- (void)didStartSpeaking:(id)arg1;
 - (void)didStopSpeaking:(id)arg1;
+- (void)didStartSpeaking:(id)arg1;
 @end
 

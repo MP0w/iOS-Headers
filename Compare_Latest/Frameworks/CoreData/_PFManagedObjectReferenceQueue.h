@@ -19,22 +19,22 @@
     struct __CFRunLoopObserver *_rlObserver;
 }
 
-- (id)initForContext:(id)arg1;
-- (id)retain;
-- (void)release;
-- (unsigned int)retainCount;
-- (BOOL)_tryRetain;
-- (BOOL)_isDeallocating;
-- (void)_unregisterRunloopObservers;
-- (void)dealloc;
-- (void)finalize;
-- (void)_contextDidDealloc;
-- (int)_queueCount;
-- (void)_processReferenceQueue:(BOOL)arg1;
-- (BOOL)_GC_queueForDealloc:(id)arg1;
-- (BOOL)_signal;
-- (BOOL)_queueForDealloc:(id)arg1;
 - (BOOL)_queueBatchForDealloc:(struct __CFArray *)arg1;
+- (BOOL)_queueForDealloc:(id)arg1;
+- (BOOL)_signal;
+- (BOOL)_GC_queueForDealloc:(id)arg1;
+- (void)_processReferenceQueue:(BOOL)arg1;
+- (int)_queueCount;
+- (void)_contextDidDealloc;
+- (void)finalize;
+- (void)dealloc;
+- (void)_unregisterRunloopObservers;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
+- (unsigned int)retainCount;
+- (void)release;
+- (id)retain;
+- (id)initForContext:(id)arg1;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @protocol MSSharingManager <NSObject>
 @property(retain, nonatomic) NSArray *shares;
-@property(readonly) NSString *personID;
+@property(readonly, nonatomic) NSString *personID;
 @property(nonatomic) id <MSSharingManagerDelegate> delegate;
 - (void)removeShare:(id)arg1;
 - (void)modifyShare:(id)arg1;

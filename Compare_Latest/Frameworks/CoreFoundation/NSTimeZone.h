@@ -4,15 +4,16 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSTimeZone : NSObject <NSCopying, NSCoding>
+@interface NSTimeZone : NSObject <NSCopying, NSSecureCoding>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)timeZoneForSecondsFromGMT:(int)arg1;
 + (id)timeZoneWithAbbreviation:(id)arg1;
 + (id)timeZoneWithName:(id)arg1;

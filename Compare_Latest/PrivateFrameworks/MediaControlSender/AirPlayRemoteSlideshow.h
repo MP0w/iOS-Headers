@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class MediaControlClient;
+@class MediaControlClient, NSObject<OS_dispatch_queue>;
 
 @interface AirPlayRemoteSlideshow : NSObject
 {
-    struct dispatch_queue_s *_internalQueue;
+    NSObject<OS_dispatch_queue> *_internalQueue;
     MediaControlClient *_client;
     id <AirPlayRemoteSlideshowDelegate> _delegate;
-    struct dispatch_queue_s *_userQueue;
+    NSObject<OS_dispatch_queue> *_userQueue;
     BOOL _started;
     double _startTime;
 }
@@ -26,7 +26,7 @@
 - (void)_configureEventHandler;
 - (void)setPassword:(id)arg1;
 - (void)setHost:(id)arg1;
-- (void)setDispatchQueue:(struct dispatch_queue_s *)arg1;
+- (void)setDispatchQueue:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -17,10 +17,8 @@
 
 @property(readonly) SSURLBagContext *context; // @synthesize context=_context;
 - (void)_writeURLBagToDiskCache:(id)arg1;
+- (void)_postBagDidLoadNotificationWithURLBag:(id)arg1;
 - (void)_loadURLBagFromURL:(id)arg1;
-- (id)_diskCachePath;
-- (struct __CFString *)_diskCacheExpirationTimeKey;
-- (id)_copyURLBagFromDiskCache;
 - (id)_copySandboxBootstrapURLs;
 - (id)_copyProductionBootstrapURLs;
 - (id)_copyBootstrapURLs;
@@ -28,7 +26,6 @@
 - (void)operation:(id)arg1 willSendRequest:(id)arg2;
 - (BOOL)operation:(id)arg1 shouldSetStoreFrontID:(id)arg2;
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
-- (void)_loadConfigurationFromURLBag:(id)arg1;
 - (id)uniqueKey;
 - (void)run;
 - (void)dealloc;

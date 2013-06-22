@@ -22,25 +22,25 @@
     NSString *mFooter;
 }
 
-- (void)dealloc;
-- (BOOL)hasDateTime;
-- (void)setHasDateTime:(BOOL)arg1;
-- (BOOL)hasNowDateTime;
-- (void)setHasNowDateTime:(BOOL)arg1;
-- (BOOL)hasUserDateTime;
-- (void)setHasUserDateTime:(BOOL)arg1;
-- (BOOL)hasSlideNumber;
-- (void)setHasSlideNumber:(BOOL)arg1;
-- (BOOL)hasHeader;
-- (void)setHasHeader:(BOOL)arg1;
-- (BOOL)hasFooter;
-- (void)setHasFooter:(BOOL)arg1;
-- (id)userDateTime;
-- (void)setUserDateTime:(id)arg1;
-- (id)header;
-- (void)setHeader:(id)arg1;
-- (id)footer;
 - (void)setFooter:(id)arg1;
+- (id)footer;
+- (void)setHeader:(id)arg1;
+- (id)header;
+- (void)setUserDateTime:(id)arg1;
+- (id)userDateTime;
+- (void)setHasFooter:(BOOL)arg1;
+- (BOOL)hasFooter;
+- (void)setHasHeader:(BOOL)arg1;
+- (BOOL)hasHeader;
+- (void)setHasSlideNumber:(BOOL)arg1;
+- (BOOL)hasSlideNumber;
+- (void)setHasUserDateTime:(BOOL)arg1;
+- (BOOL)hasUserDateTime;
+- (void)setHasNowDateTime:(BOOL)arg1;
+- (BOOL)hasNowDateTime;
+- (void)setHasDateTime:(BOOL)arg1;
+- (BOOL)hasDateTime;
+- (void)dealloc;
 
 @end
 

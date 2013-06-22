@@ -4,16 +4,16 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UITableHeaderFooterView.h"
+#import "UITableViewHeaderFooterView.h"
 
-@interface ABSectionListHeaderView : UITableHeaderFooterView
+@interface ABSectionListHeaderView : UITableViewHeaderFooterView
 {
     id <ABStyleProvider> _styleProvider;
 }
 
-- (void)dealloc;
-- (void)_updateBackgroundImage;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
+- (void)_updateBackgroundImage;
+- (void)dealloc;
 
 @end
 

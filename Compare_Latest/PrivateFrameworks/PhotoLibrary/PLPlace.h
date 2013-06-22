@@ -20,18 +20,18 @@
     unsigned int numberOfVideos;
     NSSet *assetsSet;
     NSDictionary *slideshowSettings;
-    CDStruct_feeb6407 region;
     NSString *_uuid;
     NSMutableOrderedSet *_assets;
     CDStruct_feeb6407 originalRegion;
     CDStruct_feeb6407 destinationRegion;
+    CDStruct_feeb6407 _region;
 }
 
-@property(nonatomic) CDStruct_feeb6407 destinationRegion; // @synthesize destinationRegion;
-@property(nonatomic) CDStruct_feeb6407 originalRegion; // @synthesize originalRegion;
+@property(nonatomic) CDStruct_90e2a262 region; // @synthesize region=_region;
+@property(nonatomic) CDStruct_90e2a262 destinationRegion; // @synthesize destinationRegion;
+@property(nonatomic) CDStruct_90e2a262 originalRegion; // @synthesize originalRegion;
 @property(retain, nonatomic) NSMutableOrderedSet *_assets; // @synthesize _assets;
 @property(copy, nonatomic) NSString *_uuid; // @synthesize _uuid;
-@property(nonatomic) CDStruct_feeb6407 region; // @synthesize region;
 @property(retain, nonatomic) NSDictionary *slideshowSettings; // @synthesize slideshowSettings;
 @property(retain, nonatomic) NSSet *assetsSet; // @synthesize assetsSet;
 @property(nonatomic) unsigned int numberOfVideos; // @synthesize numberOfVideos;
@@ -51,10 +51,16 @@
 - (void)addPhoto:(id)arg1;
 - (void)batchFetchAssets:(id)arg1;
 - (id)displayableIndexesForCount:(unsigned int)arg1;
+- (id)titleForSectionStartingAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) id sectioningComparator;
+@property(readonly, nonatomic) id sortingComparator;
 @property(readonly, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
 - (BOOL)canPerformEditOperation:(int)arg1;
+@property(readonly, nonatomic) BOOL canShowComments;
+@property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
@@ -63,14 +69,17 @@
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
 @property(readonly, nonatomic) NSString *localizedTitle;
 @property(readonly, nonatomic) NSString *name;
-- (void)updateStackedImage;
+- (void)updateStackedImageShouldNotifyImmediately:(BOOL)arg1;
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
 @property(nonatomic) unsigned int pendingItemsType;
 @property(nonatomic) unsigned int pendingItemsCount;
+@property(nonatomic) BOOL hasUnseenContentBoolValue;
 @property(readonly, nonatomic) unsigned int videosCount;
 @property(readonly, nonatomic) unsigned int photosCount;
 @property(readonly, nonatomic) BOOL isEmpty;
 @property(readonly, nonatomic) unsigned int count;
+@property(readonly, nonatomic) unsigned int assetsCount;
+@property(readonly, nonatomic) unsigned int approximateCount;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
 - (void)setAssets:(id)arg1;
 @property(readonly, nonatomic) NSOrderedSet *assets;
@@ -79,7 +88,10 @@
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *uuid;
 - (void)dealloc;
-- (id)initWithRegion:(CDStruct_feeb6407)arg1;
+- (id)initWithRegion:(CDStruct_90e2a262)arg1;
+- (void)_updatePlaceToPlace:(id)arg1;
+- (id)_newAnnotationWith2DLocation:(CDStruct_c3b9c2ee)arg1 title:(id)arg2 subtitle:(id)arg3;
+- (void)_setRegion:(CDStruct_90e2a262)arg1;
 
 @end
 

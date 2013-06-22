@@ -6,67 +6,62 @@
 
 #import "PBRequest.h"
 
-@class GEOLocation, GEOMapRegion, NSMutableArray;
+@class GEOLocation, GEOMapRegion, GEORouteAttributes, NSData, NSMutableArray;
 
 @interface GEODirectionsRequest : PBRequest
 {
-    int _type;
-    NSMutableArray *_placeSearchs;
-    BOOL _hasTimestampType;
-    int _timestampType;
-    BOOL _hasTimestamp;
-    double _timestamp;
-    BOOL _hasPreference;
-    int _preference;
-    BOOL _hasIncludePhonetics;
-    BOOL _includePhonetics;
-    BOOL _hasIncludeNavigationInfo;
-    BOOL _includeNavigationInfo;
-    BOOL _hasMaxRouteCount;
-    int _maxRouteCount;
-    GEOLocation *_currentUserLocation;
     GEOMapRegion *_currentMapRegion;
-    BOOL _hasIncludeRoutePoints;
-    BOOL _includeRoutePoints;
-    BOOL _hasIncludeRouteSegments;
-    BOOL _includeRouteSegments;
-    BOOL _hasPageOffset;
-    int _pageOffset;
+    GEOLocation *_currentUserLocation;
+    int _departureTime;
+    unsigned int _maxRouteCount;
+    NSData *_originalRouteID;
+    NSData *_originalRouteZilchPoints;
+    GEORouteAttributes *_routeAttributes;
+    NSMutableArray *_serviceTags;
+    unsigned int _timeSinceLastRerouteRequest;
+    NSMutableArray *_waypoints;
+    struct {
+        unsigned int departureTime:1;
+        unsigned int maxRouteCount:1;
+        unsigned int timeSinceLastRerouteRequest:1;
+    } _has;
 }
 
-@property(nonatomic) int pageOffset; // @synthesize pageOffset=_pageOffset;
-@property(nonatomic) BOOL hasPageOffset; // @synthesize hasPageOffset=_hasPageOffset;
-@property(nonatomic) BOOL includeRouteSegments; // @synthesize includeRouteSegments=_includeRouteSegments;
-@property(nonatomic) BOOL hasIncludeRouteSegments; // @synthesize hasIncludeRouteSegments=_hasIncludeRouteSegments;
-@property(nonatomic) BOOL includeRoutePoints; // @synthesize includeRoutePoints=_includeRoutePoints;
-@property(nonatomic) BOOL hasIncludeRoutePoints; // @synthesize hasIncludeRoutePoints=_hasIncludeRoutePoints;
+@property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(nonatomic) int departureTime; // @synthesize departureTime=_departureTime;
+@property(retain, nonatomic) NSData *originalRouteZilchPoints; // @synthesize originalRouteZilchPoints=_originalRouteZilchPoints;
+@property(retain, nonatomic) NSData *originalRouteID; // @synthesize originalRouteID=_originalRouteID;
 @property(retain, nonatomic) GEOMapRegion *currentMapRegion; // @synthesize currentMapRegion=_currentMapRegion;
 @property(retain, nonatomic) GEOLocation *currentUserLocation; // @synthesize currentUserLocation=_currentUserLocation;
-@property(nonatomic) BOOL hasMaxRouteCount; // @synthesize hasMaxRouteCount=_hasMaxRouteCount;
-@property(nonatomic) BOOL includeNavigationInfo; // @synthesize includeNavigationInfo=_includeNavigationInfo;
-@property(nonatomic) BOOL hasIncludeNavigationInfo; // @synthesize hasIncludeNavigationInfo=_hasIncludeNavigationInfo;
-@property(nonatomic) BOOL includePhonetics; // @synthesize includePhonetics=_includePhonetics;
-@property(nonatomic) BOOL hasIncludePhonetics; // @synthesize hasIncludePhonetics=_hasIncludePhonetics;
-@property(nonatomic) int preference; // @synthesize preference=_preference;
-@property(nonatomic) BOOL hasPreference; // @synthesize hasPreference=_hasPreference;
-@property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-@property(nonatomic) BOOL hasTimestamp; // @synthesize hasTimestamp=_hasTimestamp;
-@property(nonatomic) int timestampType; // @synthesize timestampType=_timestampType;
-@property(nonatomic) BOOL hasTimestampType; // @synthesize hasTimestampType=_hasTimestampType;
-@property(retain, nonatomic) NSMutableArray *placeSearchs; // @synthesize placeSearchs=_placeSearchs;
-@property(nonatomic) int type; // @synthesize type=_type;
+@property(retain, nonatomic) NSMutableArray *waypoints; // @synthesize waypoints=_waypoints;
+@property(retain, nonatomic) GEORouteAttributes *routeAttributes; // @synthesize routeAttributes=_routeAttributes;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)serviceTagAtIndex:(unsigned int)arg1;
+- (unsigned int)serviceTagsCount;
+- (void)addServiceTag:(id)arg1;
+- (void)clearServiceTags;
+@property(nonatomic) BOOL hasDepartureTime;
+@property(nonatomic) BOOL hasTimeSinceLastRerouteRequest;
+@property(nonatomic) unsigned int timeSinceLastRerouteRequest; // @synthesize timeSinceLastRerouteRequest=_timeSinceLastRerouteRequest;
+@property(readonly, nonatomic) BOOL hasOriginalRouteZilchPoints;
+@property(readonly, nonatomic) BOOL hasOriginalRouteID;
 @property(readonly, nonatomic) BOOL hasCurrentMapRegion;
 @property(readonly, nonatomic) BOOL hasCurrentUserLocation;
-@property(nonatomic) int maxRouteCount; // @synthesize maxRouteCount=_maxRouteCount;
-- (id)placeSearchAtIndex:(unsigned int)arg1;
-- (unsigned int)placeSearchsCount;
-- (void)addPlaceSearch:(id)arg1;
+@property(nonatomic) BOOL hasMaxRouteCount;
+@property(nonatomic) unsigned int maxRouteCount; // @synthesize maxRouteCount=_maxRouteCount;
+- (id)waypointAtIndex:(unsigned int)arg1;
+- (unsigned int)waypointsCount;
+- (void)addWaypoint:(id)arg1;
+- (void)clearWaypoints;
+@property(readonly, nonatomic) BOOL hasRouteAttributes;
 - (void)dealloc;
 
 @end

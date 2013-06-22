@@ -10,11 +10,11 @@
 {
 }
 
-- (id)actionForKey:(id)arg1;
-- (void)setNeedsDisplay;
-- (void)setNeedsDisplayInRect:(struct CGRect)arg1;
-- (void)display;
 - (void)drawInContext:(struct CGContext *)arg1;
+- (void)display;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1;
+- (void)setNeedsDisplay;
+- (id)actionForKey:(id)arg1;
 
 @end
 

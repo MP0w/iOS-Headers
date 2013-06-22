@@ -7,11 +7,11 @@
 #import <UIKit/UIScrollView.h>
 
 #import "UITextInput-Protocol.h"
-#import "UITextSelectingContainer-Protocol.h"
+#import "UITextLinkInteraction-Protocol.h"
 
-@class DOMHTMLElement, NSDictionary, NSString, UIColor, UIDelayedAction, UIFont, UIResponder<UITextSelection>, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSelectionView, UIView, UIView<UITextSelectingContent>, UIWebDocumentView, WebFrame;
+@class DOMHTMLElement, NSAttributedString, NSDictionary, NSString, UIColor, UIDelayedAction, UIFont, UITextInteractionAssistant, UITextPosition, UITextRange, UIView, UIWebDocumentView, WebFrame;
 
-@interface UITextView : UIScrollView <UITextSelectingContainer, UITextInput>
+@interface UITextView : UIScrollView <UITextLinkInteraction, UITextInput>
 {
     WebFrame *m_frame;
     DOMHTMLElement *m_body;
@@ -26,7 +26,6 @@
     BOOL m_hasExplicitTextAlignment;
     BOOL m_hasExplicitLineHeight;
     UITextInteractionAssistant *m_interactionAssistant;
-    UITextSelectionView *m_selectionView;
     UIWebDocumentView *m_webView;
     UIFont *m_font;
     UIColor *m_textColor;
@@ -35,13 +34,17 @@
     UIView *m_inputAccessoryView;
     float m_lineHeight;
     BOOL m_skipScrollContainingView;
+    BOOL m_allowsEditingTextAttributes;
+    BOOL m_usesAttributedText;
+    BOOL m_clearsOnInsertion;
 }
 
-+ (id)bestInterpretationForMarsVoltas:(id)arg1;
-+ (id)bestInterpretationForDictationResult:(id)arg1;
++ (id)excludedElementsForHTML;
++ (id)_bestInterpretationForDictationResult:(id)arg1;
 @property(retain) UIView *inputView; // @synthesize inputView=m_inputView;
-- (id)rectsForRange:(id)arg1;
-@property(nonatomic) int selectionGranularity;
+- (id)selectionRectsForRange:(id)arg1;
+- (void)setSelectionGranularity:(int)arg1;
+- (int)selectionGranularity;
 - (id)_findWebViewWordBoundaryFromPosition:(id)arg1;
 @property(nonatomic) int selectionAffinity;
 - (id)characterRangeAtPoint:(struct CGPoint)arg1;
@@ -76,6 +79,7 @@
 - (void)insertDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
 - (void)insertText:(id)arg1;
 - (void)deleteBackward;
+- (id)_proxyTextInput;
 - (void)scrollToMakeCaretVisible:(BOOL)arg1;
 - (void)setScrollerIndicatorSubrect:(struct CGRect)arg1;
 - (void)setAllowsFourWayRubberBanding:(BOOL)arg1;
@@ -104,6 +108,7 @@
 - (void)updateInteractionWithLinkAtPoint:(struct CGPoint)arg1;
 - (void)startInteractionWithLinkAtPoint:(struct CGPoint)arg1;
 - (void)tapLinkAtPoint:(struct CGPoint)arg1;
+- (unsigned int)_allowedLinkTypes;
 - (BOOL)mightHaveLinks;
 @property(nonatomic) unsigned int dataDetectorTypes;
 - (void)resetDataDetectorsResultsWithWebLock;
@@ -123,7 +128,6 @@
 - (BOOL)becomesEditableWithGestures;
 - (BOOL)_requiresKeyboardWhenFirstResponder;
 @property(nonatomic, getter=isEditing) BOOL editing; // @synthesize editing=m_editing;
-@property(readonly, nonatomic) UIResponder<UITextSelection> *textDocument;
 @property(nonatomic, getter=isEditable) BOOL editable;
 @property(nonatomic) struct _NSRange selectedRange;
 @property(nonatomic) int textAlignment;
@@ -131,7 +135,10 @@
 - (BOOL)hasText;
 @property(retain, nonatomic) UIColor *textColor;
 @property(retain, nonatomic) UIFont *font;
-- (void)setRichText:(BOOL)arg1;
+@property(copy, nonatomic) NSAttributedString *attributedText;
+- (void)_transferTextViewPropertiesFromText:(id)arg1;
+- (void)_transferAttribute:(id)arg1 fromString:(id)arg2 andSetPropertyWith:(SEL)arg3 usingValueClass:(Class)arg4;
+@property(nonatomic) BOOL allowsEditingTextAttributes;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
@@ -143,7 +150,10 @@
 - (void)setSelectionToEnd;
 - (void)setSelectionToStart;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)setCenter:(struct CGPoint)arg1;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)_updateForNewSize:(struct CGSize)arg1 withOldSize:(struct CGSize)arg2;
 - (void)performBecomeEditableTasks;
 - (void)webViewDidChange:(id)arg1;
 - (BOOL)shouldScrollEnclosingScrollView;
@@ -153,9 +163,10 @@
 - (id)undoManager;
 - (id)undoManagerForWebView:(id)arg1;
 - (void)_showTextStyleOptions:(id)arg1;
-- (void)_underline:(id)arg1;
-- (void)_italicize:(id)arg1;
-- (void)_bold:(id)arg1;
+- (void)toggleUnderline:(id)arg1;
+- (void)toggleItalics:(id)arg1;
+- (void)toggleBoldface:(id)arg1;
+- (void)_addShortcut:(id)arg1;
 - (void)_define:(id)arg1;
 - (void)_promptForReplace:(id)arg1;
 - (void)selectAll:(id)arg1;
@@ -169,19 +180,19 @@
 - (void)makeTextWritingDirectionRightToLeft:(id)arg1;
 - (void)selectAll;
 - (id)selectedText;
-- (struct CGRect)selectionClipRect;
-@property(readonly, nonatomic) UITextInteractionAssistant *interactionAssistant;
-@property(readonly, nonatomic) UITextSelectionView *selectionView;
+- (id)interactionAssistant;
+- (id)selectionView;
 - (void)updateSelection;
 - (void)endSelectionChange;
 - (void)beginSelectionChange;
-@property(readonly, nonatomic) UIView<UITextSelectingContent> *content;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGImage *)newSnapshotWithRect:(struct CGRect)arg1;
 - (struct CGImage *)createSnapshotWithRect:(struct CGRect)arg1;
-- (void)setMarsVoltas:(id)arg1 withCorrectionIdentifier:(id)arg2;
-- (void)setDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
+@property(copy, nonatomic) NSDictionary *typingAttributes;
+- (void)disableClearsOnInsertion;
+@property(nonatomic) BOOL clearsOnInsertion;
+- (void)_setDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
 - (struct CGPoint)constrainedPoint:(struct CGPoint)arg1;
 - (void)ensureSelection;
 - (BOOL)isFirstResponder;
@@ -199,8 +210,6 @@
 - (void)keyboardDidShow:(id)arg1;
 - (void)delayedUpdateForKeyboardDidShow;
 - (void)registerForEditingDelegateNotification:(id)arg1 selector:(SEL)arg2;
-- (void)detachInteractionAssistant;
-- (void)detachSelectionView;
 - (void)removeFromSuperview;
 - (void)dealloc;
 - (void)_dealloc;
@@ -212,6 +221,12 @@
 - (id)initWithFrame:(struct CGRect)arg1 font:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 webView:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)_automationValue;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
+- (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+- (BOOL)isAccessibilityElementByDefault;
+- (Class)_printFormatterClass;
 
 // Remaining properties
 @property(nonatomic) int autocapitalizationType; // @dynamic autocapitalizationType;

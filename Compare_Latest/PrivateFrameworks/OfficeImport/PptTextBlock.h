@@ -19,21 +19,24 @@
     struct PptTextRulerAtom *mTextRuler;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)readTextBlock:(id)arg1;
-- (void)writeTextBlock:(id)arg1;
-- (int)textType;
-- (unsigned long)textIndex;
-- (id)text;
-- (id)metaCharacterFields;
-- (id)hyperlinks;
-- (id)bookmarks;
-- (struct PptTextRulerAtom *)textRuler;
-- (int)paragraphRunCount;
-- (struct PptParaRun *)paragraphRunAtIndex:(int)arg1;
-- (int)characterRunCount;
 - (struct PptCharRun *)characterRunAtIndex:(int)arg1;
+- (int)characterRunCount;
+- (struct PptParaRun *)paragraphRunAtIndex:(int)arg1;
+- (int)paragraphRunCount;
+- (struct PptTextRulerAtom *)textRuler;
+- (id)bookmarks;
+- (id)hyperlinks;
+- (id)metaCharacterFields;
+- (id)text;
+- (unsigned long)textIndex;
+- (int)textType;
+- (void)writeTextBlock:(id)arg1;
+- (void)readTextBlock:(id)arg1;
+- (void)dealloc;
+- (id)init;
+- (void)readMetaCharacterFieldsBookmarksAndHyperlinks:(id)arg1;
+- (void)readStyles:(id)arg1;
+- (void)readString:(id)arg1;
 
 @end
 

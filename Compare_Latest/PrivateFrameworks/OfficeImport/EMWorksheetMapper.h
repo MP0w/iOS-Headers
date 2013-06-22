@@ -21,25 +21,32 @@
     ECColumnWidthConvertor *mColumnWidthConvertor;
 }
 
-- (id)initWithEDWorksheet:(id)arg1 parent:(id)arg2;
-- (void)_initWithState:(id)arg1;
-- (void)dealloc;
-- (BOOL)isVisible;
-- (double *)columnGrid;
-- (int)columnCount;
-- (double *)rowGrid;
-- (int)maxRowNumber;
-- (double)defaultRowHeight;
-- (double)xlColumnWidthToPoints:(double)arg1;
-- (double)defaultColumnWidth;
-- (int)width;
-- (int)height;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (id)columnWidthConvertor;
-- (int)preprocessWidthWithState:(id)arg1;
-- (int)preprocessHeightWithState:(id)arg1;
-- (struct CGSize)preprocessDrawableSizeWithState:(id)arg1;
 - (struct CGSize)preprocessSizeWithState:(id)arg1;
+- (struct CGSize)preprocessDrawableSizeWithState:(id)arg1;
+- (int)preprocessHeightWithState:(id)arg1;
+- (int)preprocessWidthWithState:(id)arg1;
+- (id)columnWidthConvertor;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (int)height;
+- (int)width;
+- (double)defaultColumnWidth;
+- (double)xlColumnWidthToPoints:(double)arg1;
+- (double)defaultRowHeight;
+- (int)maxRowNumber;
+- (double *)rowGrid;
+- (int)columnCount;
+- (double *)columnGrid;
+- (BOOL)isVisible;
+- (void)dealloc;
+- (void)_initWithState:(id)arg1;
+- (id)initWithEDWorksheet:(id)arg1 parent:(id)arg2;
+- (void)mapTableStyleAt:(id)arg1 withState:(id)arg2;
+- (void)mapTableAt:(id)arg1 withState:(id)arg2;
+- (void)mapDrawablesAt:(id)arg1 withState:(id)arg2;
+- (void)mapGridAt:(id)arg1;
+- (void)mapColumnInfosAt:(id)arg1 withState:(id)arg2;
+- (void)countRowsAndColumnsWithState:(id)arg1;
+- (void)setRowGrid;
 
 @end
 

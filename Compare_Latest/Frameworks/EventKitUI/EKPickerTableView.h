@@ -23,13 +23,16 @@
 - (id)inputView;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (float)heightWithDatePickerAndTableHeight:(float)arg1;
 - (void)setShowsDatePicker:(BOOL)arg1 animated:(BOOL)arg2;
 - (BOOL)canBecomeFirstResponder;
 @property(nonatomic) BOOL usesBlackDatePicker;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 tableViewController:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_updateTableContentInsetForKeyboard:(id)arg1;
 - (struct CGRect)_frameForDatePicker;
+- (float)_heightForDatePicker;
 - (void)_updateTableContentInset;
 
 @end

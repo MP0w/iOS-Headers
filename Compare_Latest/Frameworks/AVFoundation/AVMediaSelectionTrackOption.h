@@ -6,16 +6,17 @@
 
 #import <AVFoundation/AVMediaSelectionOption.h>
 
-@class AVAssetTrack, AVWeakReference;
+@class AVAssetTrack, AVWeakReference, NSDictionary;
 
 @interface AVMediaSelectionTrackOption : AVMediaSelectionOption
 {
+    id _groupID;
     AVAssetTrack *_track;
+    NSDictionary *_dictionary;
     AVWeakReference *_weakReferenceToGroup;
     BOOL _displaysNonForcedSubtitles;
 }
 
-- (id)propertyList;
 - (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
@@ -28,13 +29,13 @@
 - (int)trackID;
 - (BOOL)displaysNonForcedSubtitles;
 - (id)track;
-- (id)_ancillaryDescription;
+- (id)_groupID;
 - (id)group;
+- (id)dictionary;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
-- (id)initWithAssetTrack:(id)arg1 group:(id)arg2;
-- (id)initWithAssetTrack:(id)arg1 group:(id)arg2 displaysNonForcedSubtitles:(BOOL)arg3;
+- (id)initWithAsset:(id)arg1 group:(id)arg2 dictionary:(id)arg3;
 
 @end
 

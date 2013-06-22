@@ -12,9 +12,12 @@
 {
     BOOL _titleDidChange;
     BOOL _keyAssetDidChange;
+    BOOL _invitationRecordsDidChange;
     NSDictionary *_userInfo;
 }
 
++ (id)notificationWithAlbum:(id)arg1 snapshot:(id)arg2 changedAssets:(id)arg3;
+@property(readonly, nonatomic) BOOL invitationRecordsDidChange;
 @property(readonly, nonatomic) BOOL keyAssetDidChange;
 @property(readonly, nonatomic) BOOL titleDidChange;
 @property(readonly, nonatomic) PLGenericAlbum *album;
@@ -22,6 +25,9 @@
 - (id)userInfo;
 - (id)name;
 - (void)dealloc;
+- (void)_calculateDiffs;
+- (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
+- (id)_contentRelationshipName;
 
 @end
 

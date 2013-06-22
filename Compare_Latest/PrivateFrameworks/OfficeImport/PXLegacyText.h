@@ -10,9 +10,9 @@
 {
 }
 
-+ (struct PptTextMasterStyleAtom *)textMasterStyleOfType:(int)arg1 state:(id)arg2;
-+ (void)readLegacyTextGlobalsFromData:(id)arg1 state:(id)arg2;
 + (void)readLegacyTextFromData:(id)arg1 toShape:(id)arg2 state:(id)arg3;
++ (void)readLegacyTextGlobalsFromData:(id)arg1 state:(id)arg2;
++ (struct PptTextMasterStyleAtom *)textMasterStyleOfType:(int)arg1 state:(id)arg2;
 
 @end
 

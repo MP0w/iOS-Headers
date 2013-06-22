@@ -14,7 +14,7 @@
 {
     NSArray *_allowedOrientations;
     NSString *_copyright;
-    NSString *_expectedClientIdentifier;
+    NSArray *_expectedClientIdentifiers;
     NSNumber *_focusedItemIdentifier;
     NSArray *_navigationButtons;
     NSArray *_navigationHistoryItems;
@@ -35,7 +35,7 @@
 @property(retain, nonatomic) NSArray *navigationHistoryItems; // @synthesize navigationHistoryItems=_navigationHistoryItems;
 @property(copy, nonatomic) NSArray *navigationButtons; // @synthesize navigationButtons=_navigationButtons;
 @property(retain, nonatomic) NSNumber *focusedItemIdentifier; // @synthesize focusedItemIdentifier=_focusedItemIdentifier;
-@property(retain, nonatomic) NSString *expectedClientIdentifier; // @synthesize expectedClientIdentifier=_expectedClientIdentifier;
+@property(copy, nonatomic) NSArray *expectedClientIdentifiers; // @synthesize expectedClientIdentifiers=_expectedClientIdentifiers;
 @property(retain, nonatomic) NSString *copyright; // @synthesize copyright=_copyright;
 @property(retain, nonatomic) NSArray *allowedOrientations; // @synthesize allowedOrientations=_allowedOrientations;
 - (id)_newNavigationMenusFromArray:(id)arg1;

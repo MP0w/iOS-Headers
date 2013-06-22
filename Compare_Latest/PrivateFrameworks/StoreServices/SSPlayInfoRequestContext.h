@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSArray, NSData, NSString;
 
-@interface SSPlayInfoRequestContext : NSObject <SSCoding, NSCopying>
+@interface SSPlayInfoRequestContext : NSObject <SSXPCCoding, NSCopying>
 {
     NSString *_playerGUID;
     NSData *_sic;
@@ -21,10 +21,8 @@
 @property(copy, nonatomic) NSArray *sinfs; // @synthesize sinfs=_sinfs;
 @property(copy, nonatomic) NSData *SICData; // @synthesize SICData=_sic;
 @property(copy, nonatomic) NSString *playerGUID; // @synthesize playerGUID=_playerGUID;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

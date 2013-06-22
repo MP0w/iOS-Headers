@@ -6,30 +6,35 @@
 
 #import "NSObject.h"
 
+#import "PLCloudSharedContainer-Protocol.h"
 #import "PLIndexMapperDataSource-Protocol.h"
 #import "PLIndexMappingCache-Protocol.h"
 #import "PLUserEditableAssetContainer-Protocol.h"
 
-@class NSDictionary, NSIndexSet, NSMutableIndexSet, NSMutableOrderedSet, NSNumber, NSObject<PLAssetContainer>, NSOrderedSet, NSPredicate, NSString, NSURL, PLIndexMapper, PLManagedAsset, UIImage;
+@class NSArray, NSDate, NSDictionary, NSIndexSet, NSMutableIndexSet, NSMutableOrderedSet, NSNumber, NSObject<PLAssetContainer>, NSOrderedSet, NSPredicate, NSString, NSURL, PLIndexMapper, PLManagedAsset, UIImage;
 
-@interface PLFilteredAlbum : NSObject <PLUserEditableAssetContainer, PLIndexMapperDataSource, PLIndexMappingCache>
+@interface PLFilteredAlbum : NSObject <PLUserEditableAssetContainer, PLCloudSharedContainer, PLIndexMapperDataSource, PLIndexMappingCache>
 {
     PLIndexMapper *_indexMapper;
     NSMutableIndexSet *_filteredIndexes;
     BOOL _backingAlbumSupportsEdits;
+    BOOL _backingAlbumSupportsCloudShared;
     NSMutableOrderedSet *_weak_assets;
-    NSObject<PLAssetContainer> *_backingAlbum;
+    struct NSObject *_backingAlbum;
     int filter;
     NSPredicate *predicate;
     BOOL isObservingContextChanges;
+    NSArray *_filterParameters;
 }
 
-+ (id)_filteredIndexesInManagedAlbum:(id)arg1 predicate:(id)arg2;
 + (id)filteredIndexesInAlbum:(struct NSObject *)arg1 predicate:(id)arg2;
-+ (id)predicateForAlbumFilter:(int)arg1;
++ (id)descriptionForAlbumFilter:(int)arg1 parameters:(id)arg2;
++ (id)predicateForAlbumFilter:(int)arg1 parameters:(id)arg2;
 + (struct NSObject *)unfilteredAlbum:(struct NSObject *)arg1;
 + (struct NSObject *)filteredAlbum:(struct NSObject *)arg1 intersectFilter:(int)arg2;
++ (struct NSObject *)filteredAlbum:(struct NSObject *)arg1 filter:(int)arg2 parameters:(id)arg3;
 + (struct NSObject *)filteredAlbum:(struct NSObject *)arg1 filter:(int)arg2;
+@property(readonly, nonatomic) NSArray *filterParameters; // @synthesize filterParameters=_filterParameters;
 @property(nonatomic) BOOL isObservingContextChanges; // @synthesize isObservingContextChanges;
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate;
 @property(nonatomic) int filter; // @synthesize filter;
@@ -46,24 +51,56 @@
 - (id)objectInFilteredAssetsAtIndex:(unsigned int)arg1;
 - (unsigned int)indexInFilteredAssetsOfObject:(id)arg1;
 - (unsigned int)countOfFilteredAssets;
-- (void)mappedDataSourceChanged:(id)arg1;
+- (Class)derivedChangeNotificationClass;
+- (BOOL)mappedDataSourceChanged:(id)arg1 remoteNotificationData:(id)arg2;
 - (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
+- (id)currentStateForChange;
 @property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
 @property(readonly, nonatomic) NSIndexSet *filteredIndexes;
 @property(readonly, nonatomic) PLIndexMapper *indexMapper;
-- (id)initWithBackingAlbum:(struct NSObject *)arg1 filter:(int)arg2;
-- (void)updateStackedImage;
+- (id)initWithBackingAlbum:(struct NSObject *)arg1 filter:(int)arg2 parameters:(id)arg3;
+- (void)updateStackedImageShouldNotifyImmediately:(BOOL)arg1;
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
 @property(nonatomic) unsigned int pendingItemsType;
 @property(nonatomic) unsigned int pendingItemsCount;
 - (void)backingContextDidChange:(id)arg1;
+- (void)userDeleteSubscriberRecord:(id)arg1;
+- (void)getUnseenStartMarkerIndex:(unsigned int *)arg1 count:(unsigned int *)arg2 showsProgress:(char *)arg3;
+- (void)updateCloudLastInterestingChangeDateWithDate:(id)arg1;
+- (id)cloudOwnerDisplayNameIncludingEmail:(BOOL)arg1 allowsEmail:(BOOL)arg2;
+@property(readonly, nonatomic) NSOrderedSet *cloudAlbumSubscriberRecords;
+@property(readonly, nonatomic) NSDate *cloudFirstRecentBatchDate;
+@property(readonly, nonatomic) NSString *localizedSharedWithLabel;
+- (id)localizedSharedByLabelAllowsEmail:(BOOL)arg1;
+@property(readonly) int cloudRelationshipStateLocalValue;
+@property(readonly) int cloudRelationshipStateValue;
+@property(retain, nonatomic) NSDate *cloudLastInterestingChangeDate;
+@property(retain, nonatomic) NSNumber *cloudPublicURLEnabledLocal;
+@property(retain, nonatomic) NSNumber *cloudPublicURLEnabled;
+@property unsigned int unseenAssetsCountIntegerValue;
+@property(retain, nonatomic) NSNumber *unseenAssetsCount;
+@property(retain, nonatomic) NSOrderedSet *invitationRecords;
+@property(retain, nonatomic) NSString *cloudPersonID;
+@property(retain, nonatomic) NSString *publicURL;
+@property(retain, nonatomic) NSString *cloudOwnerEmail;
+@property(retain, nonatomic) NSString *cloudOwnerLastName;
+@property(retain, nonatomic) NSString *cloudOwnerFirstName;
+@property(retain, nonatomic) NSDictionary *cloudMetadata;
+@property(retain, nonatomic) NSString *cloudGUID;
+- (id)_cloudSharedBackingAlbum;
 - (void)batchFetchAssets:(id)arg1;
 - (id)displayableIndexesForCount:(unsigned int)arg1;
+- (id)titleForSectionStartingAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) id sectioningComparator;
+@property(readonly, nonatomic) id sortingComparator;
 @property(readonly, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
 - (BOOL)canPerformEditOperation:(int)arg1;
+@property(readonly, nonatomic) BOOL canShowComments;
+@property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
@@ -74,7 +111,10 @@
 @property(readonly, nonatomic) unsigned int videosCount;
 @property(readonly, nonatomic) unsigned int photosCount;
 @property(readonly, nonatomic) BOOL isEmpty;
+@property(nonatomic) BOOL hasUnseenContentBoolValue;
 @property(readonly, nonatomic) unsigned int count;
+@property(readonly, nonatomic) unsigned int assetsCount;
+@property(readonly, nonatomic) unsigned int approximateCount;
 @property(readonly, nonatomic) NSMutableOrderedSet *userEditableAssets;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
 @property(readonly, nonatomic) NSOrderedSet *assets;
@@ -83,6 +123,7 @@
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *uuid;
 @property(nonatomic) NSMutableOrderedSet *_assets;
+- (id)description;
 - (void)dealloc;
 
 @end

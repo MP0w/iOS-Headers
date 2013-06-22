@@ -23,27 +23,27 @@
 }
 
 + (id)pivotField;
-- (id)init;
-- (void)dealloc;
-- (_Bool)compact;
-- (void)setCompact:(_Bool)arg1;
-- (_Bool)dataField;
-- (void)setDataField:(_Bool)arg1;
-- (_Bool)showDefaultSubTotal;
-- (void)setShowDefaultSubTotal:(_Bool)arg1;
-- (_Bool)insertBlankRow;
-- (void)setInsertBlankRow:(_Bool)arg1;
-- (_Bool)outlineItems;
-- (void)setOutlineItems:(_Bool)arg1;
-- (_Bool)showAllItems;
-- (void)setShowAllItems:(_Bool)arg1;
-- (_Bool)subtotalTop;
-- (void)setSubtotalTop:(_Bool)arg1;
-- (unsigned int)numFmtId;
-- (void)setNumFmtId:(unsigned int)arg1;
-- (int)axis;
-- (void)setAxis:(int)arg1;
 - (id)pivotFieldItems;
+- (void)setAxis:(int)arg1;
+- (int)axis;
+- (void)setNumFmtId:(unsigned int)arg1;
+- (unsigned int)numFmtId;
+- (void)setSubtotalTop:(_Bool)arg1;
+- (_Bool)subtotalTop;
+- (void)setShowAllItems:(_Bool)arg1;
+- (_Bool)showAllItems;
+- (void)setOutlineItems:(_Bool)arg1;
+- (_Bool)outlineItems;
+- (void)setInsertBlankRow:(_Bool)arg1;
+- (_Bool)insertBlankRow;
+- (void)setShowDefaultSubTotal:(_Bool)arg1;
+- (_Bool)showDefaultSubTotal;
+- (void)setDataField:(_Bool)arg1;
+- (_Bool)dataField;
+- (void)setCompact:(_Bool)arg1;
+- (_Bool)compact;
+- (void)dealloc;
+- (id)init;
 
 @end
 

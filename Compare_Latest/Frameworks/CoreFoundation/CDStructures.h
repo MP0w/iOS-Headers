@@ -10,7 +10,7 @@ struct Block_byref {
     void *_field1;
     struct Block_byref *_field2;
     int _field3;
-    int _field4;
+    unsigned int _field4;
     void *_field5;
     void *_field6;
 };
@@ -55,9 +55,21 @@ struct _NSRange {
     unsigned int _field2;
 };
 
+struct edge {
+    unsigned int _field1;
+    unsigned int _field2[2];
+    unsigned int _field3;
+};
+
 struct timespec {
     int tv_sec;
     long tv_nsec;
+};
+
+struct vertex {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int *_field3;
 };
 
 #pragma mark Typedef'd Structures

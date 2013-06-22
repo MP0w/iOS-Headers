@@ -14,16 +14,16 @@
     int mEditAs;
 }
 
-- (id)init;
-- (struct EDCellAnchorMarker)from;
-- (void)setFrom:(struct EDCellAnchorMarker)arg1;
-- (struct EDCellAnchorMarker)to;
-- (void)setTo:(struct EDCellAnchorMarker)arg1;
-- (BOOL)isRelative;
-- (void)setRelative:(BOOL)arg1;
-- (int)editAs;
-- (void)setEditAs:(int)arg1;
 - (id).cxx_construct;
+- (void)setEditAs:(int)arg1;
+- (int)editAs;
+- (void)setRelative:(BOOL)arg1;
+- (BOOL)isRelative;
+- (void)setTo:(struct EDCellAnchorMarker)arg1;
+- (struct EDCellAnchorMarker)to;
+- (void)setFrom:(struct EDCellAnchorMarker)arg1;
+- (struct EDCellAnchorMarker)from;
+- (id)init;
 
 @end
 

@@ -7,14 +7,13 @@
 #import "NSObject-Protocol.h"
 
 @protocol GKTableViewCellContents <NSObject>
-- (void)setTheme:(id)arg1;
-- (id)theme;
 - (void)prepareForReuse;
 
 @optional
 + (float)defaultRowHeight;
 @property(nonatomic) struct CGRect confirmationButtonRect;
-- (void)refreshExpensiveContent;
 - (float)preferredHeightForOrientation:(int)arg1;
+- (void)setTheme:(id)arg1;
+- (id)theme;
 @end
 

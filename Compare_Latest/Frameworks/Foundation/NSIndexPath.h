@@ -17,7 +17,7 @@
     void *_reserved;
 }
 
-+ (id)indexPathWithIndexes:(unsigned int *)arg1 length:(unsigned int)arg2;
++ (id)indexPathWithIndexes:(const unsigned int *)arg1 length:(unsigned int)arg2;
 + (id)indexPathWithIndex:(unsigned int)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (int)compare:(id)arg1;
@@ -32,7 +32,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithIndexes:(unsigned int *)arg1 length:(unsigned int)arg2;
+- (id)initWithIndexes:(const unsigned int *)arg1 length:(unsigned int)arg2;
 - (id)initWithIndex:(unsigned int)arg1;
 - (id)init;
 

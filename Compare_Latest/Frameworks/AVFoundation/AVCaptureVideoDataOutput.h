@@ -6,29 +6,34 @@
 
 #import <AVFoundation/AVCaptureOutput.h>
 
-@class AVCaptureVideoDataOutputInternal, NSArray, NSDictionary;
+@class AVCaptureVideoDataOutputInternal, NSArray, NSDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AVCaptureVideoDataOutput : AVCaptureOutput
 {
     AVCaptureVideoDataOutputInternal *_internal;
 }
 
++ (id)supportedVideoSettingsKeys;
 + (void)initialize;
 - (void)_AVCaptureVideoDataOutput_VideoDataBecameReady;
+- (BOOL)appliesMirroringWithPhysicalFlipForConnection:(id)arg1;
+- (BOOL)appliesOrientationWithPhysicalRotationForConnection:(id)arg1;
+- (struct CGSize)outputSizeForCaptureOptions:(id)arg1;
 - (void)didStartForSession:(id)arg1;
 - (void)didStopForSession:(id)arg1 error:(id)arg2;
 - (void)handleEnabledChangedForConnection:(id)arg1;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (id)addConnection:(id)arg1 error:(id *)arg2;
 - (id)connectionMediaTypes;
 @property(nonatomic) BOOL alwaysDiscardsLateVideoFrames;
 @property(nonatomic) CDStruct_1b6d18a9 minFrameDuration;
 @property(copy, nonatomic) NSDictionary *videoSettings;
+- (id)vettedVideoSettingsForSettingsDictionary:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableVideoCodecTypes;
 @property(readonly, nonatomic) NSArray *availableVideoCVPixelFormatTypes;
-@property(readonly, nonatomic) struct dispatch_queue_s *sampleBufferCallbackQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sampleBufferCallbackQueue;
 @property(readonly, nonatomic) id <AVCaptureVideoDataOutputSampleBufferDelegate> sampleBufferDelegate;
-- (void)setSampleBufferDelegate:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
+- (void)setSampleBufferDelegate:(id)arg1 queue:(id)arg2;
 - (void)setSession:(id)arg1;
 - (BOOL)isTheOnlyDataOutput;
 - (void)dealloc;

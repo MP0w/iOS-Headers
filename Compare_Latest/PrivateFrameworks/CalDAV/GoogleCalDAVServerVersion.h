@@ -10,8 +10,9 @@
 {
 }
 
-- (id)init;
+- (id)supportedCalendarComponentSets;
 - (id)type;
+- (id)init;
 
 @end
 

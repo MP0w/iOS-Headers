@@ -10,8 +10,8 @@
 {
 }
 
-- (id)_generateSQLForPredicate:(id)arg1 inContext:(id)arg2;
 - (id)generateSQLStringInContext:(id)arg1;
+- (id)_generateSQLForPredicate:(id)arg1 inContext:(id)arg2;
 
 @end
 

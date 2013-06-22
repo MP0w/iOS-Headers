@@ -6,10 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSDecimalNumber, NSLocale, NSString;
+@class NSArray, NSDecimalNumber, NSLocale, NSString;
 
 @interface SKProductInternal : NSObject
 {
+    NSString *_contentVersion;
+    BOOL _downloadable;
+    NSArray *_downloadContentLengths;
+    NSString *_localeIdentifier;
     NSString *_localizedDescription;
     NSString *_localizedTitle;
     NSDecimalNumber *_price;

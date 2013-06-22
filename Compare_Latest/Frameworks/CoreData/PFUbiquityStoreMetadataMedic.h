@@ -6,39 +6,27 @@
 
 #import "NSObject.h"
 
-#import "PFUbiquityImportScanOperationDelegate-Protocol.h"
+@class NSPersistentStore, NSSQLiteConnection, NSString, PFUbiquityLocation;
 
-@class NSArray, NSError, NSPersistentStore, NSSQLiteConnection, NSString, PFUbiquityLocation;
-
-@interface PFUbiquityStoreMetadataMedic : NSObject <PFUbiquityImportScanOperationDelegate>
+@interface PFUbiquityStoreMetadataMedic : NSObject
 {
     NSString *_localPeerID;
     PFUbiquityLocation *_ubiquityRootLocation;
     NSString *_storeName;
     NSPersistentStore *_store;
     NSSQLiteConnection *_connection;
-    NSArray *_scanTransactionLogLocations;
-    NSError *_scanOperationError;
-    BOOL _scanOperationSuccess;
 }
 
-- (id)initWithStore:(id)arg1 andLocalPeerID:(id)arg2;
-- (void)dealloc;
-- (BOOL)recoverMetadataWithError:(id *)arg1;
-- (BOOL)recoverPeerRangesWithStack:(id)arg1 error:(id *)arg2;
-- (BOOL)recoverPeerStatesWithImportContext:(id)arg1 error:(id *)arg2;
-- (BOOL)recoverTransactionLogMetadataWithImportContext:(id)arg1 error:(id *)arg2;
-- (void)scanOperationFinished:(id)arg1 withDiscoveredLogLocation:(id)arg2;
-- (void)scanOperation:(id)arg1 failedWithError:(id)arg2;
-- (void)scanOperation:(id)arg1 discoveredPeerStoreVersionLocations:(id)arg2;
-@property(nonatomic) BOOL scanOperationSuccess; // @synthesize scanOperationSuccess=_scanOperationSuccess;
-@property(retain, nonatomic) NSError *scanOperationError; // @synthesize scanOperationError=_scanOperationError;
-@property(retain, nonatomic) NSArray *scanTransactionLogLocations; // @synthesize scanTransactionLogLocations=_scanTransactionLogLocations;
 @property(readonly, nonatomic) NSSQLiteConnection *connection; // @synthesize connection=_connection;
 @property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
 @property(readonly, nonatomic) NSPersistentStore *store; // @synthesize store=_store;
 @property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
+- (BOOL)cacheMetadataForTransactionLog:(id)arg1 withImportContext:(id)arg2 error:(id *)arg3;
+- (BOOL)recoverTransactionLogMetadataWithImportContext:(id)arg1 error:(id *)arg2;
+- (BOOL)recoverMetadataWithError:(id *)arg1;
+- (void)dealloc;
+- (id)initWithStore:(id)arg1 andLocalPeerID:(id)arg2;
 
 @end
 

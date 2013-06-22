@@ -14,14 +14,14 @@
     struct _CFURLAuthChallenge *m_cfChallenge;
 }
 
-- (id)initWithAuthenticationClient:(struct AuthenticationClient *)arg1;
-- (struct AuthenticationClient *)client;
-- (void)detachClient;
-- (void)useCredential:(id)arg1 forAuthenticationChallenge:(id)arg2;
-- (void)continueWithoutCredentialForAuthenticationChallenge:(id)arg1;
-- (void)cancelAuthenticationChallenge:(id)arg1;
-- (void)setCFChallenge:(struct _CFURLAuthChallenge *)arg1;
 - (struct _CFURLAuthChallenge *)cfChallenge;
+- (void)setCFChallenge:(struct _CFURLAuthChallenge *)arg1;
+- (void)cancelAuthenticationChallenge:(id)arg1;
+- (void)continueWithoutCredentialForAuthenticationChallenge:(id)arg1;
+- (void)useCredential:(id)arg1 forAuthenticationChallenge:(id)arg2;
+- (void)detachClient;
+- (struct AuthenticationClient *)client;
+- (id)initWithAuthenticationClient:(struct AuthenticationClient *)arg1;
 
 @end
 

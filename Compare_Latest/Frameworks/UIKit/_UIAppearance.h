@@ -6,28 +6,38 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary;
+@class NSArray, NSMapTable, NSMutableArray, NSMutableDictionary;
 
 @interface _UIAppearance : NSObject
 {
     Class _CustomizableClass;
+    NSArray *_containerList;
     NSMutableArray *_appearanceInvocations;
+    NSMapTable *_invocationSources;
     NSMutableDictionary *_resettableInvocations;
 }
 
 + (void)_setInvalidatesViewsOnAppearanceChange:(BOOL)arg1;
 + (BOOL)_hasCustomizationsForClass:(Class)arg1;
 + (id)_appearanceForClass:(Class)arg1 withContainerList:(id)arg2;
-+ (void)_applyInvocationsTo:(id)arg1;
-+ (void)_applyInvocationsTo:(id)arg1 matchingSelector:(SEL)arg2;
++ (void)_applyInvocationsTo:(id)arg1 window:(id)arg2;
++ (void)_applyInvocationsTo:(id)arg1 window:(id)arg2 matchingSelector:(SEL)arg3;
 + (id)_rootAppearancesNode;
-@property(retain, nonatomic, setter=_setResettableInvocations:) NSMutableDictionary *_resettableInvocations; // @synthesize _resettableInvocations;
++ (id)_recordersExcludingSource:(id)arg1 withWindow:(id)arg2;
++ (id)_pendingRecordInvocationsForSource:(id)arg1;
++ (id)_recorderForSource:(id)arg1;
++ (id)_windowsForSource:(id)arg1;
++ (void)_removeWindow:(id)arg1 forSource:(id)arg2;
++ (void)_addWindow:(id)arg1 forSource:(id)arg2;
++ (void)_setCurrentAppearanceSource:(id)arg1;
++ (id)_currentAppearanceSource;
 @property(readonly, nonatomic) Class _CustomizableClass; // @synthesize _CustomizableClass;
+@property(retain, nonatomic, setter=_setResettableInvocations:) NSMutableDictionary *_resettableInvocations; // @synthesize _resettableInvocations;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)dealloc;
-- (void)updateResettableSelectorsWithInvocation:(id)arg1 removeSelector:(BOOL)arg2;
 - (id)_appearanceInvocations;
+- (void)updateResettableSelectorsWithInvocation:(id)arg1 removeSelector:(BOOL)arg2;
 - (id)_resettableInvocationsCreateIfNecessary;
 
 @end

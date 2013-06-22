@@ -7,10 +7,9 @@
 #import "MFComposeRecipient.h"
 
 @interface MFComposeRecipient (Additions)
-- (BOOL)isEmail;
-- (BOOL)isPhone;
-- (int)property;
-- (struct __CFPhoneNumber *)copyPhoneNumber;
 - (id)rawAddress;
+- (struct __CFPhoneNumber *)copyPhoneNumber;
+- (BOOL)isPhone;
+- (BOOL)isEmail;
 @end
 

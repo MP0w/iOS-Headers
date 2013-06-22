@@ -10,11 +10,11 @@
 {
 }
 
-+ (unsigned int)iconColumnsForInterfaceOrientation:(int)arg1;
 + (unsigned int)iconRowsForInterfaceOrientation:(int)arg1;
-- (float)topIconInset;
-- (float)bottomIconInset;
++ (unsigned int)iconColumnsForInterfaceOrientation:(int)arg1;
 - (struct CGRect)nineIconRectForScrollPosition:(int)arg1;
+- (float)bottomIconInset;
+- (float)topIconInset;
 
 @end
 

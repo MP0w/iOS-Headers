@@ -28,6 +28,7 @@
 @property(retain, nonatomic) NSArray *_cachedItems; // @synthesize _cachedItems;
 @property(retain, nonatomic) DOMHTMLSelectElement *_selectionNode; // @synthesize _selectionNode;
 - (void)pickerView:(id)arg1 row:(int)arg2 column:(int)arg3 checked:(BOOL)arg4;
+- (int)_itemIndexForRowIndex:(int)arg1;
 - (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
 - (int)numberOfComponentsInPickerView:(id)arg1;
 - (id)pickerView:(id)arg1 viewForRow:(int)arg2 forComponent:(int)arg3 reusingView:(id)arg4;

@@ -18,23 +18,23 @@
 }
 
 + (void)initialize;
-- (id)initWithObjectID:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (id)objectID;
-- (id)key;
-- (id)entity;
-- (id)configurationName;
-- (id)destinationsForRelationship:(id)arg1;
-- (void)setDestinations:(id)arg1 forRelationship:(id)arg2;
-- (id)_relatedNodes;
-- (void)_setMap:(id)arg1;
-- (unsigned int)_versionNumber;
-- (void)_setVersionNumber:(unsigned int)arg1;
-- (const id *)knownKeyValuesPointer;
 - (id)_snapshot_;
+- (const id *)knownKeyValuesPointer;
+- (void)_setVersionNumber:(unsigned int)arg1;
+- (unsigned int)_versionNumber;
+- (void)_setMap:(id)arg1;
+- (id)_relatedNodes;
+- (void)setDestinations:(id)arg1 forRelationship:(id)arg2;
+- (id)destinationsForRelationship:(id)arg1;
+- (id)configurationName;
+- (id)entity;
+- (id)key;
+- (id)objectID;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithObjectID:(id)arg1;
 
 @end
 

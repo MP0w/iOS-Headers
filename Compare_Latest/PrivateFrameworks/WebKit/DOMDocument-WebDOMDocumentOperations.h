@@ -7,7 +7,7 @@
 #import "DOMDocument.h"
 
 @interface DOMDocument (WebDOMDocumentOperations)
-- (id)webFrame;
 - (id)URLWithAttributeString:(id)arg1;
+- (id)webFrame;
 @end
 

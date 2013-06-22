@@ -10,8 +10,8 @@
 {
 }
 
-- (id)axesAtPosition:(int)arg1;
 - (void)adjustAxesPositionForHorizontalChart;
+- (id)axesAtPosition:(int)arg1;
 
 @end
 

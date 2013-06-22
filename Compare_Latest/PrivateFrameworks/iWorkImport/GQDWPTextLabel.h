@@ -13,11 +13,11 @@
     int mFirst;
 }
 
-- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
-- (void)dealloc;
-- (struct __CFString *)format;
-- (int)labelType;
 - (int)first;
+- (int)labelType;
+- (struct __CFString *)format;
+- (void)dealloc;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1;
 
 @end
 

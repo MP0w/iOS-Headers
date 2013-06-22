@@ -16,15 +16,15 @@
     BOOL _serialAppend;
 }
 
-+ (id)filterWithConsumers:(id)arg1;
 + (id)filterWithConsumer:(id)arg1;
-- (id)initWithConsumers:(id)arg1;
-- (id)initWithConsumer:(id)arg1;
-- (int)appendData:(id)arg1;
-- (void)done;
-- (void)dealloc;
++ (id)filterWithConsumers:(id)arg1;
 @property(readonly, nonatomic) NSArray *consumers; // @synthesize consumers=_consumers;
 @property(nonatomic, getter=isSerialAppend) BOOL serialAppend; // @synthesize serialAppend=_serialAppend;
+- (void)dealloc;
+- (void)done;
+- (int)appendData:(id)arg1;
+- (id)initWithConsumer:(id)arg1;
+- (id)initWithConsumers:(id)arg1;
 
 @end
 

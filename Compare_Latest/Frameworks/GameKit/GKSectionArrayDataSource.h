@@ -6,33 +6,89 @@
 
 #import "NSObject.h"
 
-#import "GKTableViewControllerDataSource-Protocol.h"
+#import "GKTableSectionLoadingStatus-Protocol.h"
 
-@class GKStatusSection, NSArray, NSDate, NSSet;
+@class GKStatusSection, GKTableViewControllerV2, NSError, NSOrderedSet;
 
-@interface GKSectionArrayDataSource : NSObject <GKTableViewControllerDataSource>
+@interface GKSectionArrayDataSource : NSObject <GKTableSectionLoadingStatus>
 {
-    NSArray *_contentSections;
-    NSArray *_headerSections;
-    NSArray *_footerSections;
-    NSSet *_visibleSections;
-    NSDate *_expirationDate;
+    NSOrderedSet *_contentSections;
+    NSOrderedSet *_headerSections;
+    NSOrderedSet *_footerSections;
+    NSOrderedSet *_visibleSections;
     GKStatusSection *_statusSection;
+    NSOrderedSet *_paddedStatusSections;
+    int _numberOfSectionsBelowTheFold;
+    GKTableViewControllerV2 *_KEEP_YOUR_FILTHY_HANDS_OFF_THIS_EVIL_IVAR_OR_YOU_WILL_MAKE_SIMON_CRY_controller;
+    BOOL _didPrepareSections;
+    int _updateCount;
+    NSOrderedSet *_sections;
+    BOOL _loaded;
+    BOOL _loading;
+    NSError *_loadError;
+    BOOL _needsRedisplay;
+    int _refreshDataGeneration;
+    struct CGPoint _previousContentOffset;
 }
 
++ (id)sectionArrayDataSourceWithSection:(id)arg1 inParentMultiDataSource:(id)arg2;
++ (id)sectionArrayDataSourceWithSection:(id)arg1 inController:(id)arg2;
+@property(nonatomic) struct CGPoint previousContentOffset; // @synthesize previousContentOffset=_previousContentOffset;
+@property(nonatomic) int refreshDataGeneration; // @synthesize refreshDataGeneration=_refreshDataGeneration;
+@property(nonatomic) BOOL needsRedisplay; // @synthesize needsRedisplay=_needsRedisplay;
+@property(retain, nonatomic) NSError *loadError; // @synthesize loadError=_loadError;
+@property(nonatomic) BOOL loading; // @synthesize loading=_loading;
+@property(nonatomic) BOOL loaded; // @synthesize loaded=_loaded;
+@property(retain, nonatomic) NSOrderedSet *sections; // @synthesize sections=_sections;
+@property(nonatomic) int updateCount; // @synthesize updateCount=_updateCount;
+@property(nonatomic) BOOL didPrepareSections; // @synthesize didPrepareSections=_didPrepareSections;
+@property(nonatomic) int numberOfSectionsBelowTheFold; // @synthesize numberOfSectionsBelowTheFold=_numberOfSectionsBelowTheFold;
+@property(retain, nonatomic) NSOrderedSet *paddedStatusSections; // @synthesize paddedStatusSections=_paddedStatusSections;
 @property(retain, nonatomic) GKStatusSection *statusSection; // @synthesize statusSection=_statusSection;
-@property(retain, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
-@property(retain, nonatomic) NSSet *visibleSections; // @synthesize visibleSections=_visibleSections;
-@property(retain, nonatomic) NSArray *footerSections; // @synthesize footerSections=_footerSections;
-@property(retain, nonatomic) NSArray *headerSections; // @synthesize headerSections=_headerSections;
-@property(retain, nonatomic) NSArray *contentSections; // @synthesize contentSections=_contentSections;
-- (BOOL)isExpired;
-- (void)tableView:(id)arg1 prepareExpensiveContentAtIndexPaths:(id)arg2 withCompletionHandler:(id)arg3;
+@property(retain, nonatomic) NSOrderedSet *visibleSections; // @synthesize visibleSections=_visibleSections;
+@property(retain, nonatomic) NSOrderedSet *footerSections; // @synthesize footerSections=_footerSections;
+@property(retain, nonatomic) NSOrderedSet *headerSections; // @synthesize headerSections=_headerSections;
+@property(retain, nonatomic) NSOrderedSet *contentSections; // @synthesize contentSections=_contentSections;
+- (void)updateFlexibleSpaceHeightsInTableView:(id)arg1;
+- (BOOL)allowsUpdatesForDataSource:(id)arg1;
+- (void)tableView:(id)arg1 loadAdditionalDataForIndexPaths:(id)arg2 thenUpdateView:(id)arg3;
+- (id)tableView:(id)arg1 itemsToLoadAdditionalDataAtIndexPaths:(id)arg2;
+- (id)tableView:(id)arg1 paginateSection:(id)arg2 indexPaths:(id)arg3;
+- (BOOL)_offsetPaginationRowSetsByHeaderRowCount;
 - (void)refreshDataWithCompletionHandlerAndError:(id)arg1;
 - (id)tableView:(id)arg1 sectionAtIndex:(int)arg2;
-@property(readonly, nonatomic) NSArray *sections;
+- (id)refreshableSections;
+@property(readonly, nonatomic) NSOrderedSet *belowTheFoldSections;
+@property(readonly, nonatomic) NSOrderedSet *flexibleSpaceSections;
+- (id)tableView:(id)arg1 contentViewForItem:(id)arg2;
+- (void)removeItems:(id)arg1 fromSection:(id)arg2;
+- (id)selectNextItemInTableView:(id)arg1;
+- (id)tableView:(id)arg1 itemAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 indexPathForItem:(id)arg2;
+- (id)tableView:(id)arg1 indexesOfSections:(id)arg2;
+- (int)tableView:(id)arg1 indexOfSection:(id)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
+- (void)resetSections;
+- (void)reloadSections:(id)arg1 action:(id)arg2;
+- (void)didReloadSections:(id)arg1;
+- (void)willReloadSections:(id)arg1;
+- (void)endSectionUpdates;
+- (void)beginSectionUpdates;
+- (void)didUpdateSections:(id)arg1;
+- (void)willUpdateSections:(id)arg1;
+- (void)stopLoading;
+- (void)startLoading;
+- (void)prepareSections;
 - (void)dealloc;
+@property(nonatomic, setter=_setController:) GKTableViewControllerV2 *_controller; // @synthesize _controller=_KEEP_YOUR_FILTHY_HANDS_OFF_THIS_EVIL_IVAR_OR_YOU_WILL_MAKE_SIMON_CRY_controller;
+- (id)initWithParentMultiDataSource:(id)arg1;
+- (id)initWithController:(id)arg1;
+- (id)init;
+- (id)_gkDescriptionWithChildren:(int)arg1;
+- (id)_gkDescription;
+
+// Remaining properties
+@property(nonatomic) BOOL hasContent;
 
 @end
 

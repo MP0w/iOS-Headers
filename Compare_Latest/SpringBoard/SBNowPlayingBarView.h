@@ -21,22 +21,22 @@
     SBIconView *_nowPlayingIconView;
 }
 
-@property(nonatomic) int toggleType;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)layoutSubviews;
-- (void)_layoutForiPhone;
-- (void)_layoutForiPad;
-- (void)_updateToggleButton;
-@property(readonly, nonatomic) UIButton *airPlayButton;
-@property(nonatomic) BOOL marqueeRunning;
 @property(retain, nonatomic) SBIconView *nowPlayingIconView; // @synthesize nowPlayingIconView=_nowPlayingIconView;
-- (void)showAudioRoutesPickerButton:(BOOL)arg1;
-- (void)showVolume:(BOOL)arg1;
 @property(readonly, nonatomic) SBNowPlayingBarMediaControlsView *mediaView; // @synthesize mediaView=_mediaView;
 @property(readonly, nonatomic) UISlider *volumeSlider; // @synthesize volumeSlider=_volumeSlider;
 @property(readonly, nonatomic) UISlider *brightnessSlider; // @synthesize brightnessSlider=_brightnessSlider;
 @property(readonly, nonatomic) UIButton *toggleButton; // @synthesize toggleButton=_toggleButton;
+- (void)showVolume:(BOOL)arg1;
+- (void)showAudioRoutesPickerButton:(BOOL)arg1;
+@property(nonatomic) BOOL marqueeRunning;
+@property(readonly, nonatomic) UIButton *airPlayButton;
+- (void)_updateToggleButton;
+- (void)_layoutForiPad;
+- (void)_layoutForiPhone;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
+@property(nonatomic) int toggleType;
 
 @end
 

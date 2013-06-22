@@ -6,11 +6,10 @@
 
 #import "UIView.h"
 
-@class SBNoResultsView, SBRoundedCornersView, UILabel, UISearchBar, UITableView;
+@class NSMutableArray, SBNoResultsView, UILabel, UISearchBar, UITableView;
 
 @interface SBSearchView : UIView
 {
-    SBRoundedCornersView *_roundedCornersView;
     UISearchBar *_searchBar;
     UITableView *_tableView;
     UILabel *_noResultsLabel;
@@ -20,43 +19,63 @@
     BOOL _isKeyboardAnimatingRotation;
     BOOL _hidesEmptyTableFooter;
     BOOL _translatedKbForScatter;
+    BOOL _deferredFirstResponder;
+    BOOL _observingForKeyboardOnScreen;
+    BOOL _observingForKeyboardOffScreen;
+    BOOL _removeView;
+    NSMutableArray *_keyboardCompletionBlocks;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 withContent:(id)arg2 onWallpaper:(id)arg3;
-- (void)dealloc;
-- (void)didMoveToWindow;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)scrollViewIsScrollingHorizontally;
-- (void)setShowsNoResultsView:(BOOL)arg1;
-- (void)layoutCornerView;
-- (void)setHidesEmptyTableFooter:(BOOL)arg1;
-- (float)_footerHeight;
-- (void)layoutFooterView;
-- (void)_layoutNoResultsView;
-- (Class)tableViewClass;
-- (Class)searchBarClass;
-- (id)_keyboard;
-- (BOOL)isKeyboardMinimized;
-- (BOOL)isKeyboardVisible;
-- (void)setShowsKeyboard:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)keyboardDidShow:(id)arg1;
-- (void)setShowingNoResultsText:(BOOL)arg1;
-- (void)_setDistantContentViewTransform;
-- (void)_resetContentViewTransform;
-- (void)_resetKeyboardTransformForScatter;
-- (void)cleanupKeyboardForScatterIfNecessary;
-- (void)scatter:(BOOL)arg1 startTime:(double)arg2;
-- (void)unscatter:(BOOL)arg1 startTime:(double)arg2;
-- (void)unscatterAnimationDidStop;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-@property(readonly, nonatomic) UIView *roundedCornersView; // @synthesize roundedCornersView=_roundedCornersView;
 @property(retain, nonatomic) UIView *rootView; // @synthesize rootView=_rootView;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(readonly, nonatomic) UISearchBar *searchBar; // @synthesize searchBar=_searchBar;
+- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)unscatterAnimationDidStop;
+- (void)unscatter:(BOOL)arg1 delay:(double)arg2;
+- (void)scatter:(BOOL)arg1 delay:(double)arg2;
+- (void)cleanupKeyboardForScatterIfNecessary;
+- (void)_resetKeyboardTransformForScatter;
+- (void)_resetContentViewTransform;
+- (void)_setDistantContentViewTransform;
+- (void)setShowingNoResultsText:(BOOL)arg1;
+- (void)keyboardDidShow:(id)arg1;
+- (void)keyboardDidHide:(id)arg1;
+- (void)finishBecomingFirstResponderIfNecessary;
+- (void)setShowsKeyboard:(BOOL)arg1 animated:(BOOL)arg2 shouldDeferResponderStatus:(BOOL)arg3 completionBlock:(id)arg4;
+- (void)setShowsKeyboard:(BOOL)arg1 animated:(BOOL)arg2 shouldDeferResponderStatus:(BOOL)arg3;
+- (void)setShowsKeyboardAnimated:(BOOL)arg1 completionBlock:(id)arg2;
+- (void)setShowsKeyboard:(BOOL)arg1 animated:(BOOL)arg2;
+- (BOOL)isKeyboardVisible;
+- (void)__searchFieldDidResignFirstResponder;
+- (void)_stopObservingForKeyboardOnScreen;
+- (void)_startObservingForKeyboardOnScreen;
+- (void)_stopObservingForKeyboardOffScreen;
+- (void)_startObservingForKeyboardOffScreen;
+- (void)__becomeFirstResponder;
+- (BOOL)__isFirstResponder;
+- (BOOL)isKeyboardMinimized;
+- (id)_keyboard;
+- (Class)searchBarClass;
+- (Class)tableViewClass;
+- (void)_layoutNoResultsView;
+- (void)layoutFooterView;
+- (float)_footerHeight;
+- (void)setHidesEmptyTableFooter:(BOOL)arg1;
+- (void)layoutCornerView;
+- (void)_resetLastCellInTableView;
+- (void)setShowsNoResultsView:(BOOL)arg1;
+- (void)scrollViewIsScrollingHorizontally;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)didMoveToWindow;
+- (void)dealloc;
+- (void)hideAllSubviewsOfTableView;
+- (id)initWithFrame:(struct CGRect)arg1 withContent:(id)arg2 onWallpaper:(id)arg3;
+- (void)removeTableView;
+- (void)addTableView;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

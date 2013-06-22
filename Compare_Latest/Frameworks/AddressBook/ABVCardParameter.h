@@ -17,20 +17,20 @@
     BOOL _primary;
 }
 
-- (id)initWithName:(id)arg1;
-- (void)dealloc;
-- (void)finalize;
-- (void)setValue:(id)arg1;
-- (void)addType:(id)arg1;
-- (void)addTypes:(id)arg1;
-- (id)types;
-- (id)name;
-- (void)setGrouping:(id)arg1;
-- (id)grouping;
-- (id)value;
-- (BOOL)isPrimary;
-- (void)setIsPrimary:(BOOL)arg1;
 - (id)description;
+- (void)setIsPrimary:(BOOL)arg1;
+- (BOOL)isPrimary;
+- (id)value;
+- (id)grouping;
+- (void)setGrouping:(id)arg1;
+- (id)name;
+- (id)types;
+- (void)addTypes:(id)arg1;
+- (void)addType:(id)arg1;
+- (void)setValue:(id)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithName:(id)arg1;
 
 @end
 

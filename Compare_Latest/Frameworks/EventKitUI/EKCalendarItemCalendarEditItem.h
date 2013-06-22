@@ -8,18 +8,18 @@
 
 @interface EKCalendarItemCalendarEditItem : EKCalendarItemEditItem
 {
-    int _entityType;
+    unsigned int _entityType;
 }
 
 - (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
+- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
 - (BOOL)_shouldShowSourceForCalendar:(id)arg1;
 - (BOOL)requiresReconfigurationOnCommit;
 - (BOOL)shouldAppearWithVisibility:(int)arg1;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 - (id)init;
-- (id)initWithEntityType:(int)arg1;
+- (id)initWithEntityType:(unsigned int)arg1;
 
 @end
 

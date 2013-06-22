@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
-@class AVCaptureSession, CALayer, NSMutableArray, NSString;
+@class AVCaptureConnection, AVCaptureSession, CALayer, NSString;
 
 @interface AVCaptureVideoPreviewLayerInternal : NSObject
 {
     AVCaptureSession *session;
-    NSMutableArray *connections;
+    AVCaptureConnection *connection;
     CALayer *sublayer;
+    struct CGSize sensorSize;
+    NSString *sensorToPreviewVTScalingMode;
     struct CGSize previewSize;
     float previewRotationDegrees;
     NSString *gravity;
@@ -24,6 +26,9 @@
     BOOL visible;
     BOOL isPaused;
     BOOL chromaNoiseReductionEnabled;
+    int changeSeed;
+    struct CGAffineTransform captureDeviceTransform;
+    float rollAdjustment;
 }
 
 @end

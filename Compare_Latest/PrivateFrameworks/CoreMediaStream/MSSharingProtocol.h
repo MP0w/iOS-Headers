@@ -37,8 +37,9 @@
 + (id)_shareFromShareDict:(id)arg1;
 + (id)_dictShareStateFromShareState:(int)arg1;
 + (int)_shareStateFromShareDictShareState:(id)arg1;
-@property(readonly) NSString *personID; // @synthesize personID=_personID;
+@property(readonly, nonatomic) NSString *personID; // @synthesize personID=_personID;
 @property(nonatomic) id <MSSharingProtocolDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)abort;
 - (void)_didFindServerSideConfigurationVersion:(id)arg1;
 - (void)_didFailAuthenticationWithError:(id)arg1;

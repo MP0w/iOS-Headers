@@ -15,15 +15,15 @@
     CalDAVCalendarServerChangesItem *_changes;
 }
 
-- (id)init;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
-@property(readonly) BOOL isMaster;
 @property(retain) CalDAVCalendarServerChangesItem *changes; // @synthesize changes=_changes;
 @property(retain) CoreDAVLeafItem *recurrenceID; // @synthesize recurrenceID=_recurrenceID;
 @property(retain) CoreDAVItemWithNoChildren *master; // @synthesize master=_master;
+@property(readonly) BOOL isMaster;
+- (id)copyParseRules;
+- (id)description;
+- (void)dealloc;
+- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
+- (id)init;
 
 @end
 

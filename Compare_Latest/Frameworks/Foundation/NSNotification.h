@@ -28,6 +28,7 @@
 - (id)userInfo;
 - (id)object;
 - (id)name;
+- (id)replacementObjectForPortCoder:(id)arg1;
 
 @end
 

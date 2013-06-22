@@ -31,6 +31,8 @@
 - (int)rowID;
 - (int)entityType;
 - (id)entityName;
+- (id)dictionaryRepresentation;
+- (id)initWithDictionaryRepresentation:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithEntityType:(int)arg1 rowID:(int)arg2 temporary:(BOOL)arg3;

@@ -16,12 +16,12 @@
     int m_directions;
     double m_repeatInterval;
     NSTimer *m_timer;
-    int m_count;
+    unsigned int m_count;
     BOOL m_active;
 }
 
 @property(nonatomic) BOOL active; // @synthesize active=m_active;
-@property(nonatomic) int count; // @synthesize count=m_count;
+@property(nonatomic) unsigned int count; // @synthesize count=m_count;
 @property(nonatomic) double repeatInterval; // @synthesize repeatInterval=m_repeatInterval;
 @property(nonatomic) int directions; // @synthesize directions=m_directions;
 @property(nonatomic) struct CGPoint point; // @synthesize point=m_point;

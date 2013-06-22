@@ -33,6 +33,8 @@
 - (BOOL)sendBeforeTime:(double)arg1 streamData:(void *)arg2 components:(id)arg3 from:(id)arg4 msgid:(unsigned int)arg5;
 - (struct __CFSocket *)_sendingSocketForPort:(id)arg1 beforeTime:(double)arg2;
 - (id)description;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
 - (unsigned int)retainCount;
 - (oneway void)release;
 - (id)retain;

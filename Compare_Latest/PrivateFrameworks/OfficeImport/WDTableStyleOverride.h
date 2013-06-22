@@ -25,31 +25,31 @@
     unsigned int mTableCellStylePropertiesOverridden:1;
 }
 
-- (id)initWithDocument:(id)arg1;
-- (void)dealloc;
-- (id)style;
-- (void)setStyle:(id)arg1;
-- (int)part;
-- (void)setPart:(int)arg1;
-- (id)paragraphProperties;
-- (id)mutableParagraphProperties;
-- (BOOL)isParagraphPropertiesOverridden;
-- (void)setParagraphPropertiesOverridden:(BOOL)arg1;
-- (id)characterProperties;
-- (id)mutableCharacterProperties;
-- (BOOL)isCharacterPropertiesOverridden;
-- (void)setCharacterPropertiesOverridden:(BOOL)arg1;
-- (id)tableProperties;
-- (BOOL)isTablePropertiesOverridden;
-- (id)tableRowProperties;
-- (id)mutableTableRowProperties;
-- (BOOL)isTableRowPropertiesOverridden;
-- (void)setTableRowPropertiesOverridden:(BOOL)arg1;
-- (id)tableCellStyleProperties;
-- (id)mutableTableCellStyleProperties;
-- (BOOL)isTableCellStylePropertiesOverridden;
-- (void)setTableCellStylePropertiesOverridden:(BOOL)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)setTableCellStylePropertiesOverridden:(BOOL)arg1;
+- (BOOL)isTableCellStylePropertiesOverridden;
+- (id)mutableTableCellStyleProperties;
+- (id)tableCellStyleProperties;
+- (void)setTableRowPropertiesOverridden:(BOOL)arg1;
+- (BOOL)isTableRowPropertiesOverridden;
+- (id)mutableTableRowProperties;
+- (id)tableRowProperties;
+- (BOOL)isTablePropertiesOverridden;
+- (id)tableProperties;
+- (void)setCharacterPropertiesOverridden:(BOOL)arg1;
+- (BOOL)isCharacterPropertiesOverridden;
+- (id)mutableCharacterProperties;
+- (id)characterProperties;
+- (void)setParagraphPropertiesOverridden:(BOOL)arg1;
+- (BOOL)isParagraphPropertiesOverridden;
+- (id)mutableParagraphProperties;
+- (id)paragraphProperties;
+- (void)setPart:(int)arg1;
+- (int)part;
+- (void)setStyle:(id)arg1;
+- (id)style;
+- (void)dealloc;
+- (id)initWithDocument:(id)arg1;
 
 @end
 

@@ -6,9 +6,11 @@
 
 #import <PhotoLibraryServices/PLAlbumListChangeNotification.h>
 
+#import "PLIndexMapperDataSource-Protocol.h"
+
 @class NSIndexSet, PLFilteredAlbumList, PLIndexMapper;
 
-@interface PLFilteredAlbumListChangeNotification : PLAlbumListChangeNotification
+@interface PLFilteredAlbumListChangeNotification : PLAlbumListChangeNotification <PLIndexMapperDataSource>
 {
     PLFilteredAlbumList *_albumList;
     NSIndexSet *_oldFilteredIndexes;
@@ -17,7 +19,7 @@
     PLAlbumListChangeNotification *_backingNotification;
 }
 
-+ (id)notificationForFilteredAlbumList:(id)arg1 fromAlbumListChangeNotification:(id)arg2;
++ (id)notificationForDerivedObject:(id)arg1 priorChangeState:(id)arg2 forBackingObjectNotification:(id)arg3;
 - (id)_changedObjects;
 - (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;
 - (id)_diffDescription;
@@ -29,6 +31,10 @@
 - (void)dealloc;
 - (id)initWithFilteredAlbumList:(id)arg1 albumListChangeNotification:(id)arg2;
 - (id)init;
+- (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
+@property(copy, nonatomic) NSIndexSet *filteredIndexes;
+@property(readonly, nonatomic) PLIndexMapper *indexMapper;
+@property(readonly, nonatomic) NSIndexSet *updatedFilteredIndexes;
 
 @end
 

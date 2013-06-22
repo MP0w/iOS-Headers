@@ -13,8 +13,8 @@
     EBReaderState *mReaderState;
 }
 
-- (id)initWithReaderState:(id)arg1;
 - (id)readerState;
+- (id)initWithReaderState:(id)arg1;
 
 @end
 

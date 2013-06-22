@@ -10,8 +10,9 @@
 {
 }
 
-+ (id)edStringFromXlString:(const struct XlString *)arg1 edResources:(id)arg2;
++ (struct XlString *)xlStringWithIndex:(unsigned int)arg1;
 + (struct XlString *)xlStringFromEDString:(id)arg1 state:(id)arg2;
++ (id)edStringFromXlString:(const struct XlString *)arg1 edResources:(id)arg2;
 
 @end
 

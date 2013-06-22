@@ -9,7 +9,7 @@
 #import <UIKit/UITableViewDataSource-Protocol.h>
 #import "UITableViewDelegate-Protocol.h"
 
-@class UITableView;
+@class UIRefreshControl, UITableView, UITableViewDataSource;
 
 @interface UITableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
@@ -18,6 +18,8 @@
     id _staticDataSource;
     struct {
         unsigned int clearsSelectionOnViewWillAppear:1;
+        unsigned int insetsApplied:1;
+        unsigned int adjustingInsets:1;
     } _tableViewControllerFlags;
 }
 
@@ -36,6 +38,7 @@
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (void)_adjustTableForKeyboardInfo:(id)arg1;
+@property(retain, nonatomic) UIRefreshControl *refreshControl;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
@@ -50,6 +53,7 @@
 - (id)initWithStyle:(int)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
+@property(retain, nonatomic, getter=_staticDataSource, setter=_setStaticDataSource:) UITableViewDataSource *staticDataSource;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAssetInspectorLoader, NSArray, NSString, NSURL;
+@class AVAssetInspectorLoader, AVAssetResourceLoader, NSArray, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface AVURLAssetInternal : NSObject
 {
@@ -15,7 +15,9 @@
     NSArray *tracks;
     NSArray *chapterGroupInfo;
     NSString *anchorChapterType;
-    id <AVURLAssetFailedURLRequestHandling> failedURLRequestDelegate;
+    AVAssetResourceLoader *resourceLoader;
+    long makeOneResourceLoaderOnly;
+    NSObject<OS_dispatch_queue> *tracksAccessQueue;
 }
 
 @end

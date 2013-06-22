@@ -10,10 +10,10 @@
 {
 }
 
-+ (id)edSheetWithState:(id)arg1;
-+ (_Bool)readDistinctSheetElementsFrom:(struct _xmlTextReader *)arg1 state:(id)arg2;
-+ (void)readOtherSheetComponentsWithState:(id)arg1;
 + (void)readTables:(id)arg1;
++ (void)readOtherSheetComponentsWithState:(id)arg1;
++ (_Bool)readDistinctSheetElementsFrom:(struct _xmlTextReader *)arg1 state:(id)arg2;
++ (id)edSheetWithState:(id)arg1;
 
 @end
 

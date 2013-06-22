@@ -6,14 +6,15 @@
 
 #import "PBRequest.h"
 
-@class GEOPixelPoint;
-
 @interface GEOLocationShiftRequest : PBRequest
 {
-    GEOPixelPoint *_pixel;
+    CDStruct_bddcf505 _pixel;
 }
 
-@property(retain, nonatomic) GEOPixelPoint *pixel; // @synthesize pixel=_pixel;
+@property(nonatomic) CDStruct_bddcf505 pixel; // @synthesize pixel=_pixel;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;

@@ -6,12 +6,12 @@
 
 #import "UIView.h"
 
-@class NSString, TPLCDTextViewScrollingView, UIColor, UIFrameAnimation;
+@class NSString, TPLCDTextViewScrollingView, UIColor, UIFont, UIFrameAnimation;
 
 @interface TPLCDTextView : UIView
 {
     NSString *_text;
-    struct __GSFont *_font;
+    UIFont *_font;
     UIColor *_shadowColor;
     UIColor *_textColor;
     TPLCDTextViewScrollingView *_scrollingView;
@@ -28,32 +28,34 @@
 }
 
 + (float)defaultMinimumFontSize;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (struct CGRect)textRect;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)setCenterText:(BOOL)arg1;
-- (void)setLeftTruncatesText:(BOOL)arg1;
-- (void)setFont:(struct __GSFont *)arg1;
-- (void)setMinimumFontSize:(float)arg1;
-- (void)setText:(id)arg1;
-- (id)text;
-- (struct CGSize)sizeToFit;
-- (void)_drawTextInRect:(struct CGRect)arg1 verticallyOffset:(BOOL)arg2;
-- (void)setTextColor:(id)arg1;
-- (void)setShadowColor:(id)arg1;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)_tearDownAnimation;
-- (void)_scheduleStartScrolling;
-- (void)_setupForAnimationIfNecessary;
-- (void)setAnimatesIfTruncated:(BOOL)arg1;
-- (void)_startScrolling;
-- (void)startAnimating;
-- (void)_finishedScrolling;
-- (void)stopAnimating;
-- (BOOL)animates;
-- (void)resetAnimation;
 - (void)setDelegate:(id)arg1;
+- (void)resetAnimation;
+- (BOOL)animates;
+- (void)stopAnimating;
+- (void)_finishedScrolling;
+- (void)startAnimating;
+- (void)_startScrolling;
+- (void)setAnimatesIfTruncated:(BOOL)arg1;
+- (void)_setupForAnimationIfNecessary;
+- (void)_scheduleStartScrolling;
+- (void)_tearDownAnimation;
+- (void)drawRect:(struct CGRect)arg1;
+- (void)setShadowColor:(id)arg1;
+- (void)setTextColor:(id)arg1;
+- (void)_drawTextInRect:(struct CGRect)arg1 verticallyOffset:(BOOL)arg2;
+- (struct CGSize)sizeToFit;
+- (id)text;
+- (void)setText:(id)arg1;
+- (void)setMinimumFontSize:(float)arg1;
+- (void)setFont:(struct __GSFont *)arg1;
+- (void)setLCDTextFont:(id)arg1;
+- (void)setLeftTruncatesText:(BOOL)arg1;
+- (void)setCenterText:(BOOL)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (struct CGRect)textRect;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)_automationID;
 
 @end
 

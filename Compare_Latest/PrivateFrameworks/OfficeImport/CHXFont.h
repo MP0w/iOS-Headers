@@ -10,11 +10,11 @@
 {
 }
 
-+ (id)edFontFromXmlTextPropertiesElement:(struct _xmlNode *)arg1 state:(id)arg2;
-+ (id)edFontWithOadTextBody:(id)arg1 state:(id)arg2;
-+ (id)edFontWithOadCharacterProperties:(id)arg1 state:(id)arg2;
-+ (id)edRunCollectionFromXmlTextPropertiesElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)defaultEdRunCollectionForTitle:(id)arg1 state:(id)arg2;
++ (id)edRunCollectionFromXmlTextPropertiesElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (id)edFontWithOadCharacterProperties:(id)arg1 state:(id)arg2;
++ (id)edFontWithOadTextBody:(id)arg1 state:(id)arg2;
++ (id)edFontFromXmlTextPropertiesElement:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end
 

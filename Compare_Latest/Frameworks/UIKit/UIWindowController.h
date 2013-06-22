@@ -37,7 +37,7 @@
 - (void)transitionView:(id)arg1 startCustomTransitionWithDuration:(double)arg2;
 - (struct CGPoint)_adjustOrigin:(struct CGPoint)arg1 givenOtherOrigin:(struct CGPoint)arg2 forTransition:(int)arg3;
 - (double)durationForTransition:(int)arg1;
-- (void)transitionViewDidComplete:(id)arg1 fromView:(id)arg2 toView:(id)arg3;
+- (void)transitionViewDidComplete:(id)arg1 fromView:(id)arg2 toView:(id)arg3 removeFromView:(BOOL)arg4;
 - (void)transitionViewDidStart:(id)arg1;
 - (void)transition:(int)arg1 fromViewController:(id)arg2 toViewController:(id)arg3 target:(id)arg4 didEndSelector:(SEL)arg5;
 - (void)_transplantView:(id)arg1 toSuperview:(id)arg2 atIndex:(unsigned int)arg3;

@@ -7,7 +7,7 @@
 #import "NSDate.h"
 
 @interface NSDate (Goodies)
-- (id)mf_descriptionForMimeHeaders;
 - (id)mf_replyPrefixForSender:(id)arg1 withSpacer:(BOOL)arg2;
+- (id)mf_descriptionForMimeHeaders;
 @end
 

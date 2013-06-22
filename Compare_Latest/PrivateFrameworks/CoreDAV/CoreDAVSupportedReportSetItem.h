@@ -13,9 +13,9 @@
     NSMutableSet *_supportedReports;
 }
 
++ (id)copyParseRules;
 @property(retain) NSMutableSet *supportedReports; // @synthesize supportedReports=_supportedReports;
 - (void)addSupportedReport:(id)arg1;
-- (id)copyParseRules;
 - (id)description;
 - (void)dealloc;
 - (id)init;

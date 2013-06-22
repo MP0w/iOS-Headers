@@ -6,36 +6,13 @@
 
 #import <GeoServices/GEODirectionsRequest.h>
 
-@class NSMutableArray, NSString;
-
 @interface GEODirectionsRouteRequest : GEODirectionsRequest
 {
     unsigned short _providerID;
-    unsigned int _transitIconSize;
-    int _mapZoomLevel;
-    unsigned int _maxRoutes;
-    int _timezoneOffset;
-    int _cachedIconVersion;
-    NSMutableArray *_cachedIconIDs;
-    NSString *_startPlaceToken;
-    NSString *_endPlaceToken;
-    NSMutableArray *_viaWaypoints;
 }
 
-@property(readonly, nonatomic) NSMutableArray *viaWaypoints; // @synthesize viaWaypoints=_viaWaypoints;
-@property(retain, nonatomic) NSString *endPlaceToken; // @synthesize endPlaceToken=_endPlaceToken;
-@property(retain, nonatomic) NSString *startPlaceToken; // @synthesize startPlaceToken=_startPlaceToken;
-@property(retain, nonatomic) NSMutableArray *cachedIconIDs; // @synthesize cachedIconIDs=_cachedIconIDs;
-@property(nonatomic) int cachedIconVersion; // @synthesize cachedIconVersion=_cachedIconVersion;
-@property(nonatomic) int timezoneOffset; // @synthesize timezoneOffset=_timezoneOffset;
-@property(nonatomic) unsigned int maxRoutes; // @synthesize maxRoutes=_maxRoutes;
-@property(nonatomic) int mapZoomLevel; // @synthesize mapZoomLevel=_mapZoomLevel;
-@property(nonatomic) unsigned int transitIconSize; // @synthesize transitIconSize=_transitIconSize;
 @property(nonatomic) unsigned short providerID; // @synthesize providerID=_providerID;
-- (void)addViaWaypoint:(id)arg1;
 - (Class)responseClass;
-- (void)dealloc;
-- (id)init;
 
 @end
 

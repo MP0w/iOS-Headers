@@ -10,13 +10,13 @@
 {
 }
 
-+ (id)defaultProperties;
 + (id)nullFill;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithDefaults;
-- (void)setStyleColor:(id)arg1;
-- (unsigned int)hash;
++ (id)defaultProperties;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setStyleColor:(id)arg1;
+- (id)initWithDefaults;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

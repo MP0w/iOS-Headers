@@ -12,6 +12,7 @@
     BOOL mFloatsLeft;
 }
 
+- (id).cxx_construct;
 - (id)initWithSize:(struct CGSize)arg1 floatsLeft:(BOOL)arg2;
 
 @end

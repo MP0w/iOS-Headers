@@ -6,31 +6,45 @@
 
 #import <iTunesStoreUI/SUScriptObject.h>
 
+@class NSNumber;
+
 @interface SUScriptApplication : SUScriptObject
 {
 }
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
-- (void)_loadNativeObject;
-- (void)_setIconBadgeNumber:(int)arg1;
-- (id)_copyIconBadgeNumber;
-- (struct CGSize)_applicationFrame;
+@property(readonly) int statusBarStyleBlackTranslucent;
+@property(readonly) int statusBarStyleBlackOpaque;
+@property(readonly) int statusBarStyleDefault;
+@property(readonly) int statusBarAnimationSlide;
+@property(readonly) int statusBarAnimationNone;
+@property(readonly) int statusBarAnimationFade;
+@property(readonly) NSNumber *exitStoreReasonPurchase;
+@property(readonly) NSNumber *exitStoreReasonOther;
+@property(readonly) NSNumber *exitStoreReasonGotoMainStore;
+@property(readonly) NSNumber *exitStoreReasonFatalError;
+@property(readonly) NSNumber *exitStoreReasonDownloadComplete;
+@property(readonly) NSNumber *exitStoreReasonButton;
 @property(readonly, getter=wasLaunchedFromLibrary) id launchedFromLibrary;
+@property int statusBarStyle;
+@property id statusBarHidden;
 @property(retain) id iconBadgeNumber;
 @property(readonly) id screenWidth;
 @property(readonly) id screenHeight;
 @property(readonly, getter=isRunningInStoreDemoMode) id runningInStoreDemoMode;
 @property(readonly, getter=isDelayingTerminate) id delayingTerminate;
 - (void)showNewsstand;
+- (void)setStatusBarStyle:(int)arg1 animated:(BOOL)arg2;
+- (void)setStatusBarHidden:(BOOL)arg1 withAnimation:(int)arg2;
+- (void)scrollIconToVisible:(id)arg1 shouldSuspend:(BOOL)arg2;
 - (void)returnToLibrary;
-- (void)exitStore;
+- (void)exitStoreWithReason:(id)arg1;
 - (void)endDelayingTerminate;
 - (void)beginDelayingTerminate;
-- (id)init;
 
 @end
 

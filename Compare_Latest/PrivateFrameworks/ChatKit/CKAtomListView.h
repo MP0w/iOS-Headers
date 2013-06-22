@@ -23,21 +23,21 @@
     int _style;
 }
 
-- (id)initWithLabel:(id)arg1 totalWidth:(float)arg2 addresses:(id)arg3 arePhoneNumbers:(id)arg4 style:(int)arg5;
-- (void)dealloc;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)layoutSubviews;
-- (void)_updateInactiveModeText;
-- (void)_updateAlphasAnimating:(BOOL)arg1;
-- (void)_updateHeight;
-- (id)_newButtonWithTitle:(id)arg1;
-- (void)_buttonTouchUpEvent:(id)arg1;
-- (void)setDelegate:(id)arg1;
-- (void)setAddressAtomTarget:(id)arg1 action:(SEL)arg2;
-- (BOOL)isExpanded;
-- (void)setExpanded:(BOOL)arg1 animate:(BOOL)arg2;
-- (struct CGSize)contentSize;
 - (void)displayStringsDidChangeForLabelledAtomList:(id)arg1;
+- (struct CGSize)contentSize;
+- (void)setExpanded:(BOOL)arg1 animate:(BOOL)arg2;
+- (BOOL)isExpanded;
+- (void)setAddressAtomTarget:(id)arg1 action:(SEL)arg2;
+- (void)setDelegate:(id)arg1;
+- (void)_buttonTouchUpEvent:(id)arg1;
+- (id)_newButtonWithTitle:(id)arg1;
+- (void)_updateHeight;
+- (void)_updateAlphasAnimating:(BOOL)arg1;
+- (void)_updateInactiveModeText;
+- (void)layoutSubviews;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)dealloc;
+- (id)initWithLabel:(id)arg1 totalWidth:(float)arg2 addresses:(id)arg3 arePhoneNumbers:(id)arg4 style:(int)arg5;
 
 @end
 

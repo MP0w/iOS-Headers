@@ -19,23 +19,23 @@
 }
 
 + (id)centerNamed:(id)arg1;
-- (id)_initWithServerName:(id)arg1;
-- (void)dealloc;
-- (id)name;
-- (void)_createReceiveSourceForRunLoop:(struct __CFRunLoop *)arg1;
-- (void)_checkIn;
-- (void)_checkOutAndRemoveSource;
-- (void)_notificationServerWasRestarted;
-- (void)startDeliveringNotificationsToMainThread;
-- (void)startDeliveringNotificationsToRunLoop:(struct __CFRunLoop *)arg1;
-- (void)stopDeliveringNotifications;
-- (void)deliverNotification:(id)arg1 userInfo:(id)arg2;
-- (void)runServerOnCurrentThread;
-- (void)runServer;
-- (void)postNotificationName:(id)arg1;
-- (void)postNotificationName:(id)arg1 userInfo:(id)arg2;
-- (BOOL)postNotificationName:(id)arg1 userInfo:(id)arg2 toBundleIdentifier:(id)arg3;
 - (void)_receivedCheckIn:(unsigned int)arg1 auditToken:(CDStruct_6ad76789 *)arg2;
+- (BOOL)postNotificationName:(id)arg1 userInfo:(id)arg2 toBundleIdentifier:(id)arg3;
+- (void)postNotificationName:(id)arg1 userInfo:(id)arg2;
+- (void)postNotificationName:(id)arg1;
+- (void)runServer;
+- (void)runServerOnCurrentThread;
+- (void)deliverNotification:(id)arg1 userInfo:(id)arg2;
+- (void)stopDeliveringNotifications;
+- (void)startDeliveringNotificationsToRunLoop:(struct __CFRunLoop *)arg1;
+- (void)startDeliveringNotificationsToMainThread;
+- (void)_notificationServerWasRestarted;
+- (void)_checkOutAndRemoveSource;
+- (void)_checkIn;
+- (void)_createReceiveSourceForRunLoop:(struct __CFRunLoop *)arg1;
+- (id)name;
+- (void)dealloc;
+- (id)_initWithServerName:(id)arg1;
 
 @end
 

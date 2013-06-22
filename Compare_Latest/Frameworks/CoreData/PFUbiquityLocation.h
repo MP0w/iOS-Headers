@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSArray, NSString;
 
-@interface PFUbiquityLocation : NSObject
+@interface PFUbiquityLocation : NSObject <NSCopying>
 {
     PFUbiquityLocation *_ubiquityRootLocation;
     NSString *_ubiquityRootLocationPath;
@@ -21,66 +23,44 @@
     unsigned int _hash;
 }
 
-+ (id)createUbiquityLocationForRootPath:(id)arg1;
-+ (id)createUbiquityLocationForRootURL:(id)arg1;
-+ (id)createUbiquityLocationForURL:(id)arg1 withUbiquityRootLocation:(id)arg2;
-+ (id)createUbiquityLocationForURL:(id)arg1 withUbiquityRootURL:(id)arg2;
-+ (id)createUbiquityLocationForURL:(id)arg1 withUbiquityRootPath:(id)arg2;
-+ (id)createUbiquityLocationForSubpath:(id)arg1 ofUbiquityRootPath:(id)arg2;
-+ (id)createUbiquityLocationForSubpath:(id)arg1 ofPath:(id)arg2 withUbiquityRootPath:(id)arg3;
-+ (id)createUbiquityLocationForPath:(id)arg1 withUbiquityRootPath:(id)arg2;
-+ (id)createVersionHashStringForModel:(id)arg1;
-+ (id)createMetadataRootLocationForUbiquityRootLocation:(id)arg1;
-+ (id)createMetadataStoreLocationForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
-+ (id)createMetadataPeerLocationForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
-+ (id)createMetadataPeerStoreLocationForLocalPeerID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3;
-+ (id)createMetadataUUIDLocationForLocalPeerID:(id)arg1 storeName:(id)arg2 UUID:(id)arg3 andUbiquityRootLocation:(id)arg4;
-+ (id)createBaselineLocation:(int)arg1 forStoreName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
-+ (id)createBaselineStagingLocation:(int)arg1 forStoreName:(id)arg2 modelVersionHash:(id)arg3 andFilename:(id)arg4 withUbiquityRootLocation:(id)arg5;
-+ (id)createCurrentBaselineLocation:(int)arg1 forStoreName:(id)arg2 andModelVersionHash:(id)arg3 forFileNamed:(id)arg4 withUbiquityRootLocation:(id)arg5;
-+ (id)createTransactionLogLocationFromTemporaryOrStagingLogLocation:(id)arg1;
-+ (id)createTemporaryTransactionLogLocationFromTransactionLogLocation:(id)arg1;
-+ (id)createStagingTransactionLogLocationFromTransactionLogLocation:(id)arg1;
-+ (id)createTransactionLogLocationForPeerID:(id)arg1 storeName:(id)arg2 modelVersionHash:(id)arg3 logFilename:(id)arg4 andUbiquityRootLocation:(id)arg5;
-+ (id)createStagingPeerStoreVersionLocationForExportingPeerID:(id)arg1 storeName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
-+ (id)createPeerRootLocationForPeerID:(id)arg1 withUbiquityRootLocation:(id)arg2;
-+ (id)createPeerStoreLocationForPeerID:(id)arg1 andStoreName:(id)arg2 withUbiquityRootLocation:(id)arg3;
-+ (id)createPeerStoreVersionLocationForPeerID:(id)arg1 storeName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
-+ (id)createUbiquityExternalDataReferenceFileLocationForUUID:(id)arg1 andStore:(id)arg2;
-+ (id)createUbiquityExternalDataReferenceFileLocationForUUID:(id)arg1 andLog:(id)arg2;
-+ (id)createUbiquityExternalDataReferenceFileLocationForUUID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3;
-+ (id)createUbiquityPeerReceiptFileLocationForPeerWithID:(id)arg1 storeName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
-+ (id)createMapOfLocationsForOldManagedObjectModel:(id)arg1 andNewManagedObjectModel:(id)arg2 inUbiquityPeerStoreLocation:(id)arg3;
-+ (id)pathByTruncatingBeforeLibraryMobileDocuments:(id)arg1;
-+ (BOOL)isUbiquityLocationPath:(id)arg1 equalToPath:(id)arg2;
++ (void)setLocationSentinel:(id)arg1;
++ (id)locationSentinel;
 + (id)createArrayOfSubLocationsAtLocation:(id)arg1 error:(id *)arg2;
-- (id)init;
-- (id)initWithUbiquityRootPath:(id)arg1;
-- (id)initWithUbiquityRootURL:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)description;
-@property(readonly, nonatomic) BOOL usesStagingLogDirectory;
-@property(readonly, nonatomic) BOOL usesTemporaryLogDirectory;
-@property(readonly, nonatomic) BOOL usesCurrentBaselineDirectory;
-@property(readonly, nonatomic) BOOL usesBaselineStagingDirectory;
-@property(readonly, nonatomic) BOOL usesBaselineDirectory;
-- (BOOL)fileExistsAtLocation;
-- (id)createFullPath;
-- (id)createFullURL;
-- (void)setUbiquityLocationType:(int)arg1;
-- (void)setExportingPeerID:(id)arg1;
-- (void)setStoreName:(id)arg1;
-- (void)setModelVersionHash:(id)arg1;
-- (void)setFilename:(id)arg1;
-- (void)setOtherPathComponents:(id)arg1;
-- (void)setUbiquityRootLocationPath:(id)arg1;
-- (void)setUbiquityRootLocation:(id)arg1;
-- (void)setHash:(unsigned int)arg1;
-- (void)updateHash;
-@property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootLocation;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToURL:(id)arg1;
++ (BOOL)isUbiquityLocationPath:(id)arg1 equalToPath:(id)arg2;
++ (id)pathByTruncatingBeforeLibraryMobileDocuments:(id)arg1;
++ (id)createMapOfLocationsForOldManagedObjectModel:(id)arg1 andNewManagedObjectModel:(id)arg2 inUbiquityPeerStoreLocation:(id)arg3;
++ (id)createUbiquityPeerReceiptSafeSaveLocationFromReceiptFileLocation:(id)arg1;
++ (id)createUbiquityPeerReceiptFileLocationForPeerWithID:(id)arg1 storeName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
++ (id)createUbiquityExternalDataReferenceFileLocationForUUID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3;
++ (id)createUbiquityExternalDataReferenceFileLocationForUUID:(id)arg1 andLog:(id)arg2;
++ (id)createUbiquityExternalDataReferenceFileLocationForUUID:(id)arg1 andStore:(id)arg2;
++ (id)createPeerStoreVersionLocationForPeerID:(id)arg1 storeName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
++ (id)createPeerStoreLocationForPeerID:(id)arg1 andStoreName:(id)arg2 withUbiquityRootLocation:(id)arg3;
++ (id)createPeerRootLocationForPeerID:(id)arg1 withUbiquityRootLocation:(id)arg2;
++ (id)createStagingPeerStoreVersionLocationForExportingPeerID:(id)arg1 storeName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
++ (id)createTransactionLogLocationForPeerID:(id)arg1 storeName:(id)arg2 modelVersionHash:(id)arg3 logFilename:(id)arg4 andUbiquityRootLocation:(id)arg5;
++ (id)createStagingTransactionLogLocationFromTransactionLogLocation:(id)arg1;
++ (id)createTemporaryTransactionLogLocationFromTransactionLogLocation:(id)arg1;
++ (id)createTransactionLogLocationFromTemporaryOrStagingLogLocation:(id)arg1;
++ (id)createCurrentBaselineLocation:(int)arg1 forStoreName:(id)arg2 andModelVersionHash:(id)arg3 forFileNamed:(id)arg4 withUbiquityRootLocation:(id)arg5;
++ (id)createBaselineStagingLocation:(int)arg1 forStoreName:(id)arg2 modelVersionHash:(id)arg3 andFilename:(id)arg4 withUbiquityRootLocation:(id)arg5;
++ (id)createBaselineLocation:(int)arg1 forStoreName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
++ (id)createPeerBaselineFileLocationForLocalPeerID:(id)arg1 andBaselineFileLocation:(id)arg2;
++ (id)createMetadataUUIDLocationForLocalPeerID:(id)arg1 storeName:(id)arg2 UUID:(id)arg3 andUbiquityRootLocation:(id)arg4;
++ (id)createMetadataPeerStoreLocationForLocalPeerID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3;
++ (id)createMetadataPeerLocationForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
++ (id)createMetadataStoreLocationForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
++ (id)createMetadataRootLocationForUbiquityRootLocation:(id)arg1;
++ (id)createVersionHashStringForModel:(id)arg1;
++ (id)createUbiquityLocationForPath:(id)arg1 withUbiquityRootPath:(id)arg2;
++ (id)createUbiquityLocationForSubpath:(id)arg1 ofPath:(id)arg2 withUbiquityRootPath:(id)arg3;
++ (id)createUbiquityLocationForSubpath:(id)arg1 ofUbiquityRootPath:(id)arg2;
++ (id)createUbiquityLocationForURL:(id)arg1 withUbiquityRootPath:(id)arg2;
++ (id)createUbiquityLocationForURL:(id)arg1 withUbiquityRootURL:(id)arg2;
++ (id)createUbiquityLocationForURL:(id)arg1 withUbiquityRootLocation:(id)arg2;
++ (id)createUbiquityLocationForRootURL:(id)arg1;
++ (id)createUbiquityLocationForRootPath:(id)arg1;
++ (void)initialize;
 @property(readonly, nonatomic) NSArray *otherPathComponents; // @synthesize otherPathComponents=_otherPathComponents;
 @property(readonly, nonatomic) unsigned int hash; // @synthesize hash=_hash;
 @property(readonly, nonatomic) NSString *filename; // @synthesize filename=_filename;
@@ -89,6 +69,34 @@
 @property(readonly, nonatomic) NSString *exportingPeerID; // @synthesize exportingPeerID=_exportingPeerID;
 @property(readonly, nonatomic) int ubiquityLocationType; // @synthesize ubiquityLocationType=_ubiquityLocationType;
 @property(readonly, nonatomic) NSString *ubiquityRootLocationPath; // @synthesize ubiquityRootLocationPath=_ubiquityRootLocationPath;
+- (BOOL)isEqualToURL:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootLocation;
+- (void)updateHash;
+- (void)setHash:(unsigned int)arg1;
+- (void)setUbiquityRootLocation:(id)arg1;
+- (void)setUbiquityRootLocationPath:(id)arg1;
+- (void)setOtherPathComponents:(id)arg1;
+- (void)setFilename:(id)arg1;
+- (void)setModelVersionHash:(id)arg1;
+- (void)setStoreName:(id)arg1;
+- (void)setExportingPeerID:(id)arg1;
+- (void)setUbiquityLocationType:(int)arg1;
+- (id)createFullURL;
+- (id)createFullPath;
+- (BOOL)fileExistsAtLocationWithLocalPeerID:(id)arg1;
+- (BOOL)fileExistsAtLocation;
+@property(readonly, nonatomic) BOOL usesBaselineDirectory;
+@property(readonly, nonatomic) BOOL usesBaselineStagingDirectory;
+@property(readonly, nonatomic) BOOL usesCurrentBaselineDirectory;
+@property(readonly, nonatomic) BOOL usesTemporaryLogDirectory;
+@property(readonly, nonatomic) BOOL usesStagingLogDirectory;
+- (id)description;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithUbiquityRootURL:(id)arg1;
+- (id)initWithUbiquityRootPath:(id)arg1;
+- (id)init;
 
 @end
 

@@ -5,8 +5,8 @@
  */
 
 @protocol _PFUbiquityRecordImportOperationDelegate
-- (void)operationDidFinish:(id)arg1;
-- (void)operation:(id)arg1 failedWithError:(id)arg2;
 - (void)operationWasInterruptedDuringImport:(id)arg1;
+- (void)operation:(id)arg1 failedWithError:(id)arg2;
+- (void)operationDidFinish:(id)arg1;
 @end
 

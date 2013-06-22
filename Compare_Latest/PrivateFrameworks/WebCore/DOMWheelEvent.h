@@ -10,23 +10,24 @@
 {
 }
 
-@property(readonly) int screenX;
-@property(readonly) int screenY;
-@property(readonly) int clientX;
-@property(readonly) int clientY;
-@property(readonly) BOOL ctrlKey;
-@property(readonly) BOOL shiftKey;
-@property(readonly) BOOL altKey;
-@property(readonly) BOOL metaKey;
-@property(readonly) int wheelDelta;
-@property(readonly) int wheelDeltaX;
-@property(readonly) int wheelDeltaY;
-@property(readonly) int offsetX;
-@property(readonly) int offsetY;
-@property(readonly) int x;
-@property(readonly) int y;
-@property(readonly) BOOL isHorizontal;
 - (void)initWheelEvent:(int)arg1 wheelDeltaY:(int)arg2 view:(id)arg3 screenX:(int)arg4 screenY:(int)arg5 clientX:(int)arg6 clientY:(int)arg7 ctrlKey:(BOOL)arg8 altKey:(BOOL)arg9 shiftKey:(BOOL)arg10 metaKey:(BOOL)arg11;
+@property(readonly) BOOL isHorizontal;
+- (BOOL)webkitDirectionInvertedFromDevice;
+@property(readonly) int y;
+@property(readonly) int x;
+@property(readonly) int offsetY;
+@property(readonly) int offsetX;
+@property(readonly) int wheelDeltaY;
+@property(readonly) int wheelDeltaX;
+@property(readonly) int wheelDelta;
+@property(readonly) BOOL metaKey;
+@property(readonly) BOOL altKey;
+@property(readonly) BOOL shiftKey;
+@property(readonly) BOOL ctrlKey;
+@property(readonly) int clientY;
+@property(readonly) int clientX;
+@property(readonly) int screenY;
+@property(readonly) int screenX;
 
 @end
 

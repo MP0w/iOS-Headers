@@ -11,6 +11,8 @@
 }
 
 + (BOOL)mapIdentifier:(id)arg1 state:(id)arg2;
++ (void)mapWithState:(id)arg1 outward:(BOOL)arg2;
++ (unsigned int)nodeCountWithState:(id)arg1;
 
 @end
 

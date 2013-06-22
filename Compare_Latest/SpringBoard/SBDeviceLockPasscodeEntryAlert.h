@@ -11,9 +11,8 @@
 }
 
 + (id)sharedInstance;
-- (void)deactivate;
-- (int)statusBarStyle;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
+- (int)statusBarStyle;
 
 @end
 

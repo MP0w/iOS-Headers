@@ -15,19 +15,19 @@
     OADMovie *mMovie;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)initWithBlipRef:(id)arg1;
-- (id)imageProperties;
-- (id)geometry;
-- (void)setGeometry:(id)arg1;
-- (id)ole;
-- (void)setOle:(id)arg1;
-- (id)movie;
-- (void)setMovie:(id)arg1;
-- (void)setParentTextListStyle:(id)arg1;
-- (id)createImageFill;
 - (void)createPictureFramePresetGeometry;
+- (id)createImageFill;
+- (void)setParentTextListStyle:(id)arg1;
+- (void)setMovie:(id)arg1;
+- (id)movie;
+- (void)setOle:(id)arg1;
+- (id)ole;
+- (void)setGeometry:(id)arg1;
+- (id)geometry;
+- (id)imageProperties;
+- (id)initWithBlipRef:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

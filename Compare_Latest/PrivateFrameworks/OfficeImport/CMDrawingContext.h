@@ -22,34 +22,35 @@
     struct CGImage *_fillImage;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)_createCGContext;
-- (void)_closeContext;
-- (struct CGContext *)_cgContext;
-- (void)setMapper:(id)arg1;
-- (id)mapper;
-- (struct CGRect)frame;
-- (struct CGRect)pdfFrame;
-- (id)createPDF;
-- (float)currentScaleFactor;
-- (struct CGAffineTransform)currentTransform;
-- (void)addTransform:(id)arg1;
-- (void)restoreLastTransform;
-- (void)setStrokeColor:(struct CGColor *)arg1;
-- (void)setFillColor:(struct CGColor *)arg1;
-- (void)setFillImage:(struct CGImage *)arg1;
-- (void)setLineWidth:(float)arg1;
-- (void)setLineDash:(id)arg1;
-- (void)addDebugPath:(struct CGPath *)arg1;
-- (void)addPath:(struct CGPath *)arg1;
-- (struct CGRect)_transformRect:(struct CGRect)arg1 withTransform:(id)arg2;
-- (struct CGRect)transformRectToPage:(struct CGRect)arg1;
-- (struct CGRect)transformRectToGroup:(struct CGRect)arg1;
-- (void)_playbackActions;
-- (void)_applyTransform:(id)arg1;
-- (void)_addTransform:(id)arg1;
+- (id).cxx_construct;
 - (void)_restoreLastTransform;
+- (void)_addTransform:(id)arg1;
+- (void)_applyTransform:(id)arg1;
+- (void)_playbackActions;
+- (struct CGRect)transformRectToGroup:(struct CGRect)arg1;
+- (struct CGRect)transformRectToPage:(struct CGRect)arg1;
+- (struct CGRect)_transformRect:(struct CGRect)arg1 withTransform:(id)arg2;
+- (void)addPath:(struct CGPath *)arg1;
+- (void)addDebugPath:(struct CGPath *)arg1;
+- (void)setLineDash:(id)arg1;
+- (void)setLineWidth:(float)arg1;
+- (void)setFillImage:(struct CGImage *)arg1;
+- (void)setFillColor:(struct CGColor *)arg1;
+- (void)setStrokeColor:(struct CGColor *)arg1;
+- (void)restoreLastTransform;
+- (void)addTransform:(id)arg1;
+- (struct CGAffineTransform)currentTransform;
+- (float)currentScaleFactor;
+- (id)copyPDF;
+- (struct CGRect)pdfFrame;
+- (struct CGRect)frame;
+- (id)mapper;
+- (void)setMapper:(id)arg1;
+- (struct CGContext *)_cgContext;
+- (void)_closeContext;
+- (void)_copyCGContext;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

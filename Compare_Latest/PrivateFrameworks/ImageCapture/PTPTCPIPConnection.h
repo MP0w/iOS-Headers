@@ -24,17 +24,17 @@
     unsigned int _bytesSent;
 }
 
-- (id)initWithNativeSocket:(int)arg1 transport:(id)arg2;
-- (id)initWithSocketToHost:(id)arg1 port:(unsigned long)arg2 transport:(id)arg3;
-- (void)dealloc;
-- (BOOL)open;
-- (void)close;
-- (BOOL)writeData:(id)arg1;
-- (void)handleHasBytesAvailable;
-- (void)handleCanAcceptBytes;
-- (void)handleEndEncountered;
-- (void)handleErrorOccurred:(CDStruct_1ef3fb1f)arg1;
 - (void)inactivityTimerCallBack:(id)arg1;
+- (void)handleErrorOccurred:(CDStruct_1ef3fb1f)arg1;
+- (void)handleEndEncountered;
+- (void)handleCanAcceptBytes;
+- (void)handleHasBytesAvailable;
+- (BOOL)writeData:(id)arg1;
+- (void)close;
+- (BOOL)open;
+- (void)dealloc;
+- (id)initWithSocketToHost:(id)arg1 port:(unsigned long)arg2 transport:(id)arg3;
+- (id)initWithNativeSocket:(int)arg1 transport:(id)arg2;
 
 @end
 

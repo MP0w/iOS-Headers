@@ -8,7 +8,7 @@
 
 #import "MCProfileConnectionObserver-Protocol.h"
 
-@class AVWeakReference, NSDictionary;
+@class AVWeakReference, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
 
 @interface AVCaptureFigVideoDevice : AVCaptureDevice <MCProfileConnectionObserver>
 {
@@ -29,21 +29,28 @@
     BOOL _adjustingWB;
     BOOL _automaticallyAdjustsImageControlMode;
     int _imageControlMode;
+    int _pendingImageControlMode;
     int _flashMode;
     BOOL _flashActive;
     BOOL _flashAvailable;
     int _torchMode;
+    BOOL _torchActive;
     float _torchLevel;
     BOOL _torchAvailable;
+    NSObject<OS_dispatch_queue> *_torchAppsSerialQueue;
+    NSObject<OS_dispatch_source> *_torchAppsKillTimer;
+    struct OpaqueCMBaseObject *_recorderForTorchApps;
     BOOL _isConnected;
+    BOOL _subjectMonitoringEnabled;
+    BOOL _faceDetectionDrivenImageProcessingEnabled;
     struct CGRect _faceRectangle;
     int _faceRectangleAngle;
     BOOL _faceDetectionMetadataEnabled;
-    struct dispatch_queue_s *_torchAppsSerialQueue;
-    struct dispatch_source_s *_torchAppsKillTimer;
-    struct OpaqueCMBaseObject *_recorderForTorchApps;
+    BOOL _automaticallyEnablesLowLightBoostWhenAvailable;
+    BOOL _lowLightBoostEnabled;
     float _saturation;
     float _contrast;
+    NSMutableArray *_formats;
     AVWeakReference *_weakReference;
 }
 
@@ -52,6 +59,11 @@
 + (void)initialize;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (BOOL)doesHandleNotification:(id)arg1;
+- (void)setAutomaticallyEnablesLowLightBoostWhenAvailable:(BOOL)arg1;
+- (BOOL)automaticallyEnablesLowLightBoostWhenAvailable;
+- (BOOL)isLowLightBoostEnabled;
+- (BOOL)isLowLightBoostSupported;
+- (BOOL)isHDRSupported;
 - (void)_restoreColorProperties;
 - (void)setContrast:(float)arg1;
 - (BOOL)_setContrast:(float)arg1;
@@ -61,7 +73,8 @@
 - (float)saturation;
 - (BOOL)_setFloatValue:(float)arg1 forRecorderProperty:(struct __CFString *)arg2;
 - (float)_floatValueForRecorderProperty:(struct __CFString *)arg1;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (void)_applyOverridesToCaptureOptions:(id)arg1;
+- (BOOL)_faceDetectionDebugMetadataReportingEnabled;
 - (BOOL)isFaceDetectionDebugMetadataReportingEnabled;
 - (BOOL)_setFaceDetectionDebugMetadataReportingEnabled:(BOOL)arg1;
 - (void)setFaceDetectionDebugMetadataReportingEnabled:(BOOL)arg1;
@@ -70,6 +83,8 @@
 - (BOOL)_faceDetectionDrivenImageProcessingEnabled;
 - (void)setFaceDetectionDrivenImageProcessingEnabled:(BOOL)arg1;
 - (BOOL)_setFaceDetectionDrivenImageProcessingEnabled:(BOOL)arg1;
+- (BOOL)isFaceDetectionDrivenImageProcessingEnabled;
+- (BOOL)isFaceDetectionDuringVideoPreviewSupported;
 - (BOOL)isFaceDetectionSupported;
 - (void)_updateImageControlMode;
 - (void)setImageControlMode:(int)arg1;
@@ -81,18 +96,22 @@
 - (BOOL)_subjectAreaChangeMonitoringEnabled;
 - (void)setSubjectAreaChangeMonitoringEnabled:(BOOL)arg1;
 - (BOOL)_setSubjectAreaChangeMonitoringEnabled:(BOOL)arg1;
+- (BOOL)isSubjectAreaChangeMonitoringEnabled;
 - (void)_teardownFigRecorderForTorchApps;
 - (struct OpaqueCMBaseObject *)_createFigRecorderForTorchApps;
 - (void)_updateFlashAndTorchAvailability;
+- (BOOL)setTorchModeOnWithLevel:(float)arg1 error:(id *)arg2;
 - (void)setTorchMode:(int)arg1;
 - (int)torchMode;
-- (BOOL)_setTorchMode:(int)arg1;
+- (long)_setTorchMode:(int)arg1 withLevel:(float)arg2;
 - (void)_teardownTorchAppsKillTimer;
-- (struct dispatch_source_s *)_createTorchAppsKillTimer;
+- (id)_createTorchAppsKillTimer;
 - (int)_torchMode;
 - (BOOL)isTorchAvailable;
 - (BOOL)isTorchModeSupported:(int)arg1;
 - (float)torchLevel;
+- (void)_setTorchActive:(BOOL)arg1;
+- (BOOL)isTorchActive;
 - (BOOL)hasTorch;
 - (void)setFlashMode:(int)arg1;
 - (BOOL)isFlashAvailable;
@@ -141,15 +160,17 @@
 - (BOOL)_setFocusWithMode:(int)arg1 pointOfInterest:(id)arg2;
 - (BOOL)isFocusModeSupported:(int)arg1;
 - (int)position;
-- (void)setSession:(id)arg1;
+- (void)finishPendingAdjustmentsKVO;
 - (void)_sessionDidStart;
 - (void)_sessionWillStart;
+- (void)setActiveInput:(id)arg1;
 - (void)_applyPendingPropertiesToRecorder;
 - (id)devicePropertiesDictionary;
 - (void)stopUsingDevice;
 - (BOOL)startUsingDevice:(id *)arg1;
 - (BOOL)isConnected;
 - (BOOL)isInUseByAnotherApplication;
+- (id)formats;
 - (BOOL)supportsAVCaptureSessionPreset:(id)arg1;
 - (BOOL)hasMediaType:(id)arg1;
 - (id)localizedName;

@@ -14,25 +14,28 @@
     unsigned int _chatState;
 }
 
-+ (id)sharedInstance;
 + (void)initialize;
-- (id)init;
-@property(readonly) CNFConferenceController *conferenceController;
-- (BOOL)videoConferenceInvitationExists;
-- (BOOL)activeFaceTimeCallExists;
-- (BOOL)inConference;
-- (BOOL)canStartConference;
-- (void)dealloc;
-- (void)_handleInvitation:(id)arg1;
-- (void)_conferenceStateChanged:(id)arg1;
-- (void)endConference;
-- (id)currentCallRemoteUserId;
-- (id)currentCallStatusDisplayString;
-- (void)_conferenceAvailabilityChanged:(id)arg1;
-- (void)_conferenceCapabilityChanged:(id)arg1;
-- (void)updateStatusBar;
-- (void)_updateStatusBar;
++ (id)sharedInstance;
 @property(readonly) unsigned int chatState; // @synthesize chatState=_chatState;
+- (void)_faceTimeAppActivationStateChanged:(id)arg1;
+- (void)_updateStatusBar;
+- (void)updateStatusBar;
+- (void)_faceTimeCapabilityChanged:(id)arg1;
+- (void)_faceTimeAvailabilityChanged:(id)arg1;
+- (id)currentCallStatusDisplayString;
+- (id)currentCallRemoteUserId;
+- (void)endFaceTime;
+- (void)_faceTimeStateChanged:(id)arg1;
+- (void)_handleInvitation:(id)arg1;
+- (void)dealloc;
+- (BOOL)canStartFaceTime;
+- (BOOL)inFaceTime;
+- (BOOL)activeFaceTimeCallExists;
+- (BOOL)faceTimeInvitationExists;
+- (BOOL)faceTimeIsAvailable;
+- (id)_faceTimeApp;
+@property(readonly) CNFConferenceController *conferenceController;
+- (id)init;
 
 @end
 

@@ -5,18 +5,18 @@
  */
 
 @protocol CKConversationSearcherDelegate
+- (void)searcher:(id)arg1 userDidSelectChatGUID:(id)arg2 messageGUID:(id)arg3;
+- (id)searcher:(id)arg1 conversationForChatGUID:(id)arg2;
 - (id)searcherContentsController:(id)arg1;
-- (id)searcher:(id)arg1 conversationForGroupID:(id)arg2;
-- (void)searcher:(id)arg1 userDidSelectConversationGroupID:(id)arg2 messageRowID:(int)arg3 partRowID:(int)arg4;
 
 @optional
-- (void)searcherWillBeginSearch:(id)arg1;
-- (void)searcherDidBeginSearch:(id)arg1;
-- (void)searcherWillEndSearch:(id)arg1;
-- (void)searcherDidEndSearch:(id)arg1;
-- (void)searcher:(id)arg1 willShowSearchResultsTableView:(id)arg2;
-- (void)searcher:(id)arg1 didShowSearchResultsTableView:(id)arg2;
-- (void)searcher:(id)arg1 willHideSearchResultsTableView:(id)arg2;
 - (void)searcher:(id)arg1 didHideSearchResultsTableView:(id)arg2;
+- (void)searcher:(id)arg1 willHideSearchResultsTableView:(id)arg2;
+- (void)searcher:(id)arg1 didShowSearchResultsTableView:(id)arg2;
+- (void)searcher:(id)arg1 willShowSearchResultsTableView:(id)arg2;
+- (void)searcherDidEndSearch:(id)arg1;
+- (void)searcherWillEndSearch:(id)arg1;
+- (void)searcherDidBeginSearch:(id)arg1;
+- (void)searcherWillBeginSearch:(id)arg1;
 @end
 

@@ -12,23 +12,26 @@
 {
     NSString *_sessionID;
     NSDate *_lastTurnDate;
+    NSDate *_timeoutDate;
     NSString *_playerID;
     NSString *_invitedBy;
     NSString *_inviteMessage;
     NSString *_status;
     int _matchOutcome;
-    int _order;
+    int _slot;
 }
 
 + (id)codedPropertyKeys;
-@property(nonatomic) int order; // @synthesize order=_order;
+@property(nonatomic) int slot; // @synthesize slot=_slot;
 @property(nonatomic) int matchOutcome; // @synthesize matchOutcome=_matchOutcome;
 @property(retain, nonatomic) NSString *status; // @synthesize status=_status;
 @property(retain, nonatomic) NSString *inviteMessage; // @synthesize inviteMessage=_inviteMessage;
 @property(retain, nonatomic) NSString *invitedBy; // @synthesize invitedBy=_invitedBy;
 @property(retain, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
+@property(retain, nonatomic) NSDate *timeoutDate; // @synthesize timeoutDate=_timeoutDate;
 @property(retain, nonatomic) NSDate *lastTurnDate; // @synthesize lastTurnDate=_lastTurnDate;
 @property(retain, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
+- (id)serverRepresentation;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)dealloc;

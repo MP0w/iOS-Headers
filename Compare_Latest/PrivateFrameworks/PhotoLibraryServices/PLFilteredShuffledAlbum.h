@@ -21,6 +21,7 @@
 - (void)dealloc;
 - (id)initWithBackingAlbum:(struct NSObject *)arg1 filter:(int)arg2 startingAsset:(id)arg3;
 - (struct NSObject *)unshuffledAlbum;
+- (void)createShuffledIndexesMaps;
 
 @end
 

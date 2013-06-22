@@ -18,6 +18,7 @@
 - (id)initWithCString:(const char *)arg1 encoding:(unsigned int)arg2;
 - (id)initWithCharactersNoCopy:(unsigned short *)arg1 length:(unsigned int)arg2 freeWhenDone:(BOOL)arg3;
 - (id)initWithBytesNoCopy:(void *)arg1 length:(unsigned int)arg2 encoding:(unsigned int)arg3 freeWhenDone:(BOOL)arg4;
+- (id)initWithUTF8String:(const char *)arg1;
 - (id)initWithBytes:(const void *)arg1 length:(unsigned int)arg2 encoding:(unsigned int)arg3;
 - (id)initWithString:(id)arg1;
 - (id)initWithCapacity:(unsigned int)arg1;

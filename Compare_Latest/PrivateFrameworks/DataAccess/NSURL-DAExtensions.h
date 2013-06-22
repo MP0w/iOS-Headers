@@ -17,6 +17,7 @@
 - (id)urlBySettingPort:(id)arg1;
 - (id)urlBySettingHost:(id)arg1;
 - (id)urlBySettingScheme:(id)arg1;
+- (id)urlByRemovingUsername;
 - (id)urlBySettingUsername:(id)arg1;
 - (id)urlBySettingPath:(id)arg1 keepUsername:(BOOL)arg2;
 - (id)urlBySettingPort:(id)arg1 keepUsername:(BOOL)arg2;

@@ -10,6 +10,7 @@
 {
 }
 
++ (struct XlChart3D *)xlChart3DFrom:(id)arg1;
 + (id)readFrom:(const struct XlChart3D *)arg1;
 
 @end

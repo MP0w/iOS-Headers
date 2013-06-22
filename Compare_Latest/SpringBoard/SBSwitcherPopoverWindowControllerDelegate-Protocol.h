@@ -9,7 +9,7 @@
 @protocol SBSwitcherPopoverWindowControllerDelegate <NSObject>
 
 @optional
-- (void)switcherPopoverController:(id)arg1 willRotateToOrientation:(int)arg2 duration:(double)arg3;
 - (void)switcherPopoverController:(id)arg1 didRotateFromInterfaceOrientation:(int)arg2;
+- (void)switcherPopoverController:(id)arg1 willRotateToOrientation:(int)arg2 duration:(double)arg3;
 @end
 

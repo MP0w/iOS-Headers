@@ -4,45 +4,108 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <GameKit/GKTableViewController.h>
+#import <GameKit/GKViewController.h>
 
+#import "GKTableViewControllerDelegate-Protocol.h"
 #import "UIGestureRecognizerDelegate-Protocol.h"
+#import "UIPopoverControllerDelegate-Protocol.h"
+#import "UITableViewDataSource-Protocol.h"
+#import "UITableViewDelegate-Protocol.h"
 
-@class GKInviteButton, GKMultiColumnTableViewCell, UIView, UIView<GKTableViewCellContents>;
+@class GKInviteButton, GKMultiColumnTableViewCell, GKSectionArrayDataSource, GKTableView, NSArray, NSIndexPath, NSObject<OS_dispatch_source>, UIImageView, UIPopoverController, UIView, UIView<GKTableViewCellContents>;
 
-@interface GKTableViewControllerV2 : GKTableViewController <UIGestureRecognizerDelegate>
+@interface GKTableViewControllerV2 : GKViewController <UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, GKTableViewControllerDelegate, UIPopoverControllerDelegate>
 {
     double _selectGestureStartTime;
     BOOL _isStoreDemoModeEnabled;
+    unsigned int _pendingReload:1;
+    unsigned int _pendingAnimation:1;
+    int _loadDataReentryCount;
+    int _tableViewStyle;
+    BOOL _shouldDelayTableReloadForDeselectAnimation;
+    BOOL _clearsSelectionOnViewWillAppear;
+    GKTableView *_tableView;
+    GKTableView *_portraitTableView;
+    GKTableView *_landscapeTableView;
+    UIView *_overlayTouchView;
+    UIImageView *_bottomShadowView;
+    BOOL _isInFormSheet;
+    struct CGPoint _portraitContentOffset;
+    struct CGPoint _landscapeContentOffset;
     float _columnSeparatorWidth;
     GKMultiColumnTableViewCell *_selectedCell;
     unsigned int _selectedColumn;
     BOOL _scrollDisabledForConfirmation;
-    id <GKTableViewControllerDataSource> _sectionDataSource;
-    id <GKTableViewControllerDataSource> _retainedSectionDataSource;
+    GKSectionArrayDataSource *_sectionDataSource;
     UIView<GKTableViewCellContents> *_editingContentView;
+    NSIndexPath *_detailPopoverIndexPath;
+    UIPopoverController *_detailPopoverController;
     GKInviteButton *_confirmationButton;
     UIView *_confirmationClipView;
+    int _sectionTransitionCount;
+    int _lastKnownOrientation;
+    struct UIEdgeInsets _tableInsets;
+    NSArray *_indexPathsOfCellsToRefresh;
+    NSObject<OS_dispatch_source> *_refreshCellTimer;
+    id _detailPopoverItem;
+    BOOL _didSuspendRefreshCellTimer;
 }
 
++ (id)_gkAllDescriptionsWithTableViewCells;
+@property(nonatomic) BOOL didSuspendRefreshCellTimer; // @synthesize didSuspendRefreshCellTimer=_didSuspendRefreshCellTimer;
+@property(retain, nonatomic) id detailPopoverItem; // @synthesize detailPopoverItem=_detailPopoverItem;
+@property(nonatomic) NSObject<OS_dispatch_source> *refreshCellTimer; // @synthesize refreshCellTimer=_refreshCellTimer;
+@property(retain, nonatomic) NSArray *indexPathsOfCellsToRefresh; // @synthesize indexPathsOfCellsToRefresh=_indexPathsOfCellsToRefresh;
+@property(nonatomic) struct UIEdgeInsets tableInsets; // @synthesize tableInsets=_tableInsets;
+@property(nonatomic) int lastKnownOrientation; // @synthesize lastKnownOrientation=_lastKnownOrientation;
+@property(nonatomic) int sectionTransitionCount; // @synthesize sectionTransitionCount=_sectionTransitionCount;
 @property(retain, nonatomic) UIView *confirmationClipView; // @synthesize confirmationClipView=_confirmationClipView;
 @property(retain, nonatomic) GKInviteButton *confirmationButton; // @synthesize confirmationButton=_confirmationButton;
+@property(retain, nonatomic) UIPopoverController *detailPopoverController; // @synthesize detailPopoverController=_detailPopoverController;
+@property(retain, nonatomic) NSIndexPath *detailPopoverIndexPath; // @synthesize detailPopoverIndexPath=_detailPopoverIndexPath;
 @property(retain, nonatomic) UIView<GKTableViewCellContents> *editingContentView; // @synthesize editingContentView=_editingContentView;
-@property(retain, nonatomic) id <GKTableViewControllerDataSource> retainedSectionDataSource; // @synthesize retainedSectionDataSource=_retainedSectionDataSource;
-@property(nonatomic) id <GKTableViewControllerDataSource> sectionDataSource; // @synthesize sectionDataSource=_sectionDataSource;
+@property(retain, nonatomic) GKSectionArrayDataSource *sectionDataSource; // @synthesize sectionDataSource=_sectionDataSource;
 @property(nonatomic) BOOL scrollDisabledForConfirmation; // @synthesize scrollDisabledForConfirmation=_scrollDisabledForConfirmation;
 @property(nonatomic) unsigned int selectedColumn; // @synthesize selectedColumn=_selectedColumn;
 @property(retain, nonatomic) GKMultiColumnTableViewCell *selectedCell; // @synthesize selectedCell=_selectedCell;
 @property(nonatomic) float columnSeparatorWidth; // @synthesize columnSeparatorWidth=_columnSeparatorWidth;
+@property(nonatomic) struct CGPoint landscapeContentOffset; // @synthesize landscapeContentOffset=_landscapeContentOffset;
+@property(nonatomic) struct CGPoint portraitContentOffset; // @synthesize portraitContentOffset=_portraitContentOffset;
+@property(nonatomic) BOOL isInFormSheet; // @synthesize isInFormSheet=_isInFormSheet;
+@property(retain, nonatomic) UIImageView *bottomShadowView; // @synthesize bottomShadowView=_bottomShadowView;
+@property(retain, nonatomic) UIView *overlayTouchView; // @synthesize overlayTouchView=_overlayTouchView;
+@property(retain, nonatomic) GKTableView *landscapeTableView; // @synthesize landscapeTableView=_landscapeTableView;
+@property(retain, nonatomic) GKTableView *portraitTableView; // @synthesize portraitTableView=_portraitTableView;
+@property(retain, nonatomic) GKTableView *tableView; // @synthesize tableView=_tableView;
+@property(nonatomic) BOOL clearsSelectionOnViewWillAppear; // @synthesize clearsSelectionOnViewWillAppear=_clearsSelectionOnViewWillAppear;
+@property(nonatomic) BOOL shouldDelayTableReloadForDeselectAnimation; // @synthesize shouldDelayTableReloadForDeselectAnimation=_shouldDelayTableReloadForDeselectAnimation;
+@property(readonly, nonatomic) int tableViewStyle; // @synthesize tableViewStyle=_tableViewStyle;
+- (void)removeTouchCaptureOverlayView;
+- (id)addTouchCaptureOverlayViewWithTarget:(id)arg1 action:(SEL)arg2;
+- (void)didUpdateSectionsInDataSource:(id)arg1;
+- (void)willUpdateSectionsInDataSource:(id)arg1;
+- (void)dataSource:(id)arg1 didReloadSections:(id)arg2;
+- (void)dataSource:(id)arg1 willReloadSections:(id)arg2;
+- (void)updateFlexibleSpacesIfNeeded;
+- (BOOL)_sectionUpdateNeededForDataSource:(id)arg1;
+- (id)_indexesOfDirtySections;
+- (BOOL)_numberOfRowsIsValidForSections:(id)arg1;
+- (BOOL)_numberOfRowsIsValidForSection:(id)arg1;
+- (BOOL)_numberOfRowsIsValidForSectionAtIndex:(int)arg1;
+- (BOOL)_numberOfSectionsIsValid;
 - (void)handleHorizontalSwipeGesture:(id)arg1;
 - (void)deleteConfirmationWasTouched:(id)arg1;
 - (id)swipeConfirmationButtonForView:(id)arg1 withTitle:(id)arg2;
 - (void)cancelSwipeToDeleteConfirmation;
+- (void)cancelSwipeToDeleteConfirmationAnimated:(BOOL)arg1;
 - (id)tableView:(id)arg1 indexPathWithColumnForCell:(id)arg2 withIndexPath:(id)arg3 atPoint:(struct CGPoint)arg4;
 - (id)tableView:(id)arg1 indexPathWithColumnForCell:(id)arg2 withIndexPath:(id)arg3 atPoint:(struct CGPoint)arg4 extendEdgeColumnsToInfinity:(BOOL)arg5;
 - (void)tableView:(id)arg1 refreshCellAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 prepareContentViewsForCell:(id)arg2 atIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 didEndEditingRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willBeginEditingRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
@@ -53,23 +116,66 @@
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
+- (void)representDetailPopoverControllerIfNeeded;
+- (void)dismissDetailPopoverControllerForRotation;
+- (id)adjustedPopoverPresentationViewForIndexPath:(id)arg1;
+- (void)nudgeContentSizeOfParentPopover:(struct CGSize)arg1;
+- (void)popoverControllerDidDismissPopover:(id)arg1;
+- (void)dismissPopoverAnimated:(BOOL)arg1 release:(BOOL)arg2;
+- (void)dismissPopoverAnimated:(BOOL)arg1;
+- (void)presentPopover:(id)arg1 fromView:(id)arg2 animated:(BOOL)arg3;
+- (void)presentViewController:(id)arg1 inPopoverFromView:(id)arg2 animated:(BOOL)arg3;
+- (void)presentViewController:(id)arg1 inPopoverFromIndexPath:(id)arg2 animated:(BOOL)arg3;
+- (void)presentViewController:(id)arg1 inPopoverFromItem:(id)arg2 animated:(BOOL)arg3;
+- (void)updateTableInsetsForKeyboardHeight:(float)arg1;
+- (struct CGRect)rectToKeepVisibleAboveKeyboardWithinView:(id)arg1;
+- (void)keyboardWillHideShow:(id)arg1;
+- (BOOL)shouldAdjustInsetsForKeyboard;
 - (void)didShowMoreRowsForTableView:(id)arg1 section:(int)arg2;
-- (void)prepareExpensiveVisibleContents;
+- (void)loadAdditionalDataForVisibleContents;
+- (void)loadAdditionalDataForIndexPaths:(id)arg1;
+- (void)_handleLoadDataNotifierForIndexPaths:(id)arg1 expectedRefreshGeneration:(unsigned int)arg2;
+- (id)indexPathsByStrippingColumn:(id)arg1;
 - (id)visibleContentViews;
 - (id)visibleContentViewsForTableView:(id)arg1;
+- (void)forceReloadOfSection:(id)arg1;
 - (id)contentsAtIndexPaths:(id)arg1 inTableView:(id)arg2;
+- (id)indexPathForItem:(id)arg1 inTableView:(id)arg2;
+- (void)scrollViewDidEndDecelerating:(id)arg1;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
 - (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)selectColumnInCell:(id)arg1;
 - (void)loadingDidCompleteWithContext:(unsigned long long)arg1 error:(id)arg2;
 - (unsigned long long)loadingWillBegin;
 - (void)_gkResetContents;
+- (void)refreshDataWithCompletionHandlerAndError:(id)arg1;
 - (void)_gkUpdateContentsWithCompletionHandlerAndError:(id)arg1;
 - (void)prepareDataSource;
+- (void)setStatusViewVisible:(BOOL)arg1;
+- (void)viewDidLayoutSubviews;
+- (id)rootNavigationItem;
+- (id)searchTitle;
 - (void)reloadView;
+- (BOOL)usesCrossfade;
 - (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)localeDidChangeNotification:(id)arg1;
+- (void)loadView;
+- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)setupViewsWithOrientation:(int)arg1;
+- (void)animateViewsToOrientation:(int)arg1;
+- (void)updateBottomShadowFrame;
+- (void)updateTableViewFrame:(id)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1;
 - (id)init;
+- (id)initWithStyle:(int)arg1;
+- (id)_gkDescriptionWithChildren:(int)arg1;
+- (id)_descriptionWithChildren:(int)arg1;
+- (id)_description;
 
 @end
 

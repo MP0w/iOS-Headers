@@ -5,20 +5,23 @@
  */
 
 @protocol MFComposeTypeFactoryDelegate
-- (id)bodyField;
-- (void)setToRecipients:(id)arg1;
-- (id)toRecipients;
-- (void)setCcRecipients:(id)arg1;
-- (id)ccRecipients;
-- (void)setBccRecipients:(id)arg1;
-- (id)bccRecipients;
-- (void)setSubject:(id)arg1;
-- (id)subject;
-- (void)setSavedHeaders:(id)arg1;
-- (id)savedHeaders;
-- (void)setSendingEmailAddress:(id)arg1 addIfNotPresent:(BOOL)arg2;
-- (id)sendingEmailAddress;
-- (id)addInlinedElementToStore:(id)arg1 onlyIfNecessary:(BOOL)arg2;
+- (BOOL)hasAnyHiddenTrailingEmptyQuote;
 - (id)attachmentStore;
+- (id)addInlinedElementToStore:(id)arg1 onlyIfNecessary:(BOOL)arg2;
+- (id)sendingAccountProxy;
+- (id)sendingEmailAddress;
+- (void)setSendingEmailAddress:(id)arg1 addIfNotPresent:(BOOL)arg2;
+- (id)savedHeaders;
+- (void)setSavedHeaders:(id)arg1;
+- (id)subject;
+- (void)setSubject:(id)arg1;
+- (id)bccRecipients;
+- (void)setBccRecipients:(id)arg1;
+- (id)ccRecipients;
+- (void)setCcRecipients:(id)arg1;
+- (id)toRecipients;
+- (void)setToRecipients:(id)arg1;
+- (id)bodyField;
+- (id)accountProxyGenerator;
 @end
 

@@ -6,26 +6,41 @@
 
 #import "NSObject.h"
 
-@class APSConnection, NSData;
+@class APSConnection, NSData, NSObject<OS_dispatch_semaphore>;
 
 @interface AADeviceInfo : NSObject
 {
     APSConnection *_apsConnection;
     BOOL _tokenDone;
     NSData *_token;
-    struct dispatch_semaphore_s *_tokenSema;
+    NSObject<OS_dispatch_semaphore> *_tokenSema;
 }
 
 + (id)productVersion;
++ (id)userAgentHeader;
 + (id)clientInfoHeader;
++ (id)appleIDClientIdentifier;
 + (id)apnsToken;
 + (id)serialNumber;
 + (id)osVersion;
 + (id)udid;
 + (id)signatureWithDictionary:(id)arg1;
 + (id)infoDictionary;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
+- (id)appleIDClientIdentifier;
+- (id)deviceClass;
+- (id)apnsToken;
+- (id)regionCode;
+- (id)buildVersion;
+- (id)osName;
+- (id)productType;
+- (id)productVersion;
+- (id)wifiMacAddress;
+- (id)serialNumber;
+- (id)udid;
+- (id)osVersion;
+- (id)deviceInfoDictionary;
 
 @end
 

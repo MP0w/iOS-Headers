@@ -7,13 +7,13 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (MCUtilities)
-- (id)MCMutableDeepCopyWithZone:(struct _NSZone *)arg1;
-- (id)MCMutableDeepCopy;
-- (id)MCDeepCopyWithZone:(struct _NSZone *)arg1;
-- (id)MCDeepCopy;
-- (id)MCRetainRequiredObjectKey:(id)arg1 type:(Class)arg2 errorDomain:(id)arg3 missingDataCode:(int)arg4 missingDataErrorString:(id)arg5 invalidDataCode:(int)arg6 invalidDataErrorString:(id)arg7 outError:(id *)arg8;
-- (id)MCRetainOptionalObjectKey:(id)arg1 type:(Class)arg2 errorDomain:(id)arg3 invalidDataCode:(int)arg4 invalidDataErrorString:(id)arg5 outError:(id *)arg6;
-- (id)MCRetainRequiredNonZeroLengthStringKey:(id)arg1 errorDomain:(id)arg2 missingDataCode:(int)arg3 missingDataErrorString:(id)arg4 invalidDataCode:(int)arg5 invalidDataErrorString:(id)arg6 outError:(id *)arg7;
 - (id)MCRetainOptionalNonZeroLengthStringKey:(id)arg1 errorDomain:(id)arg2 invalidDataCode:(int)arg3 invalidDataErrorString:(id)arg4 outError:(id *)arg5;
+- (id)MCRetainRequiredNonZeroLengthStringKey:(id)arg1 errorDomain:(id)arg2 missingDataCode:(int)arg3 missingDataErrorString:(id)arg4 invalidDataCode:(int)arg5 invalidDataErrorString:(id)arg6 outError:(id *)arg7;
+- (id)MCRetainOptionalObjectKey:(id)arg1 type:(Class)arg2 errorDomain:(id)arg3 invalidDataCode:(int)arg4 invalidDataErrorString:(id)arg5 outError:(id *)arg6;
+- (id)MCRetainRequiredObjectKey:(id)arg1 type:(Class)arg2 errorDomain:(id)arg3 missingDataCode:(int)arg4 missingDataErrorString:(id)arg5 invalidDataCode:(int)arg6 invalidDataErrorString:(id)arg7 outError:(id *)arg8;
+- (id)MCDeepCopy;
+- (id)MCDeepCopyWithZone:(struct _NSZone *)arg1;
+- (id)MCMutableDeepCopy;
+- (id)MCMutableDeepCopyWithZone:(struct _NSZone *)arg1;
 @end
 

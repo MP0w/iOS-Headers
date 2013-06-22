@@ -11,28 +11,29 @@
     struct Context *_impl;
 }
 
-- (id)initWithOptions:(id)arg1 localContext:(_Bool)arg2;
-- (id)initRemoteWithOptions:(id)arg1;
-- (void)invalidate;
-- (void)dealloc;
-- (unsigned int)contextId;
-- (struct CGColorSpace *)colorSpace;
-- (void)setColorSpace:(struct CGColorSpace *)arg1;
-- (id)layer;
-- (void)setLayer:(id)arg1;
-- (void)orderAbove:(unsigned int)arg1;
-- (void)orderBelow:(unsigned int)arg1;
-- (void)setLevel:(float)arg1;
-- (float)level;
-- (id)options;
-- (BOOL)valid;
-- (unsigned int)createFencePort;
-- (void)setFencePort:(unsigned int)arg1;
-- (void)setFence:(unsigned int)arg1 count:(unsigned int)arg2;
-- (unsigned int)createSlot;
-- (void)deleteSlot:(unsigned int)arg1;
-- (void)setObject:(id)arg1 forSlot:(unsigned int)arg2;
 - (struct Context *)renderContext;
+- (void)setObject:(id)arg1 forSlot:(unsigned int)arg2;
+- (void)deleteSlot:(unsigned int)arg1;
+- (unsigned int)createSlot;
+- (void)setFence:(unsigned int)arg1 count:(unsigned int)arg2;
+- (void)setFencePort:(unsigned int)arg1 commitHandler:(id)arg2;
+- (void)setFencePort:(unsigned int)arg1;
+- (unsigned int)createFencePort;
+- (BOOL)valid;
+- (id)options;
+- (float)level;
+- (void)setLevel:(float)arg1;
+- (void)orderBelow:(unsigned int)arg1;
+- (void)orderAbove:(unsigned int)arg1;
+- (void)setLayer:(id)arg1;
+- (id)layer;
+- (void)setColorSpace:(struct CGColorSpace *)arg1;
+- (struct CGColorSpace *)colorSpace;
+- (unsigned int)contextId;
+- (void)dealloc;
+- (void)invalidate;
+- (id)initRemoteWithOptions:(id)arg1;
+- (id)initWithOptions:(id)arg1 localContext:(_Bool)arg2;
 
 @end
 

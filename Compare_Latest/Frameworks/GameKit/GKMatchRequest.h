@@ -6,29 +6,44 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class GKMatchRequestInternal, NSArray, NSString;
 
 @interface GKMatchRequest : NSObject
 {
-    unsigned int _minPlayers;
-    unsigned int _maxPlayers;
-    unsigned int _playerGroup;
-    unsigned int _playerAttributes;
-    BOOL _attributesSet;
-    NSArray *_playersToInvite;
+    id _inviteeResponseHandler;
+    GKMatchRequestInternal *_internal;
+    unsigned int _defaultNumberOfPlayers;
 }
 
-@property(retain, nonatomic) NSArray *playersToInvite; // @synthesize playersToInvite=_playersToInvite;
-@property(nonatomic) BOOL attributesSet; // @synthesize attributesSet=_attributesSet;
-@property(nonatomic) unsigned int playerAttributes; // @synthesize playerAttributes=_playerAttributes;
-@property(nonatomic) unsigned int playerGroup; // @synthesize playerGroup=_playerGroup;
-@property(nonatomic) unsigned int maxPlayers; // @synthesize maxPlayers=_maxPlayers;
-@property(nonatomic) unsigned int minPlayers; // @synthesize minPlayers=_minPlayers;
++ (unsigned int)maxPlayersAllowedForMatchOfType:(unsigned int)arg1;
++ (BOOL)instancesRespondToSelector:(SEL)arg1;
+@property(nonatomic) unsigned int defaultNumberOfPlayers; // @synthesize defaultNumberOfPlayers=_defaultNumberOfPlayers;
+@property(retain, nonatomic) GKMatchRequestInternal *internal; // @synthesize internal=_internal;
+@property(copy, nonatomic) id inviteeResponseHandler; // @synthesize inviteeResponseHandler=_inviteeResponseHandler;
+- (void)removeLocalPlayerFromPlayersToInvite;
 - (BOOL)isTurnBasedValid;
 - (BOOL)isValidForHosted:(BOOL)arg1;
+- (BOOL)isValidWithMax:(unsigned int)arg1;
+- (BOOL)defaultNumberOfPlayersIsValid;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)description;
 - (void)dealloc;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
+- (id)valueForUndefinedKey:(id)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
+- (id)forwardingTargetForSelector:(SEL)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)initWithInternalRepresentation:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(copy, nonatomic) NSString *inviteMessage; // @dynamic inviteMessage;
+@property(nonatomic) unsigned int maxPlayers; // @dynamic maxPlayers;
+@property(nonatomic) unsigned int minPlayers; // @dynamic minPlayers;
+@property(nonatomic) unsigned int playerAttributes; // @dynamic playerAttributes;
+@property(nonatomic) unsigned int playerGroup; // @dynamic playerGroup;
+@property(retain, nonatomic) NSArray *playersToInvite; // @dynamic playersToInvite;
 
 @end
 

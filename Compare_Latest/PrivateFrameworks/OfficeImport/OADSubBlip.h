@@ -13,24 +13,25 @@
     int mType;
     NSData *mData;
     struct CGSize mSizeInPoints;
-    int mSizeInBytes;
+    long mSizeInBytes;
     struct CGRect mFrame;
 }
 
-- (id)initWithData:(id)arg1 type:(int)arg2;
-- (void)dealloc;
-- (id)data;
-- (void)setData:(id)arg1;
-- (int)type;
-- (struct CGSize)sizeInPoints;
-- (void)setSizeInPoints:(struct CGSize)arg1;
-- (long)sizeInBytes;
-- (void)setSizeInBytes:(long)arg1;
-- (struct CGRect)frame;
-- (void)setFrame:(struct CGRect)arg1;
-- (_Bool)isLoaded;
-- (unsigned int)hash;
+- (id).cxx_construct;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (_Bool)isLoaded;
+- (void)setFrame:(struct CGRect)arg1;
+- (struct CGRect)frame;
+- (void)setSizeInBytes:(long)arg1;
+- (long)sizeInBytes;
+- (void)setSizeInPoints:(struct CGSize)arg1;
+- (struct CGSize)sizeInPoints;
+- (int)type;
+- (void)setData:(id)arg1;
+- (id)data;
+- (void)dealloc;
+- (id)initWithData:(id)arg1 type:(int)arg2;
 
 @end
 

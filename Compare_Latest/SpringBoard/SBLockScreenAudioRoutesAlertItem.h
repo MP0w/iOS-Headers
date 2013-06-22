@@ -10,15 +10,15 @@
 {
 }
 
-- (Class)alertSheetClass;
-- (id)alertSheet;
-- (BOOL)allowMenuButtonDismissal;
-- (void)willRelockForButtonPress:(BOOL)arg1;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)togglesMediaControls;
-- (BOOL)allowAutoUnlock;
-- (void)performUnlockAction;
 - (void)audioRoutingPicker:(id)arg1 didSelectRouteAtIndex:(int)arg2;
+- (void)performUnlockAction;
+- (BOOL)allowAutoUnlock;
+- (BOOL)togglesMediaControls;
+- (BOOL)shouldShowInLockScreen;
+- (void)willRelockForButtonPress:(BOOL)arg1;
+- (BOOL)allowMenuButtonDismissal;
+- (id)alertSheet;
+- (Class)alertSheetClass;
 
 @end
 

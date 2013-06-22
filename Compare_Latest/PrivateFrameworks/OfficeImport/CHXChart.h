@@ -11,6 +11,9 @@
 }
 
 + (id)readFromState:(id)arg1;
++ (int)chdDisplayBlanksAsEnumFromXmlElement:(struct _xmlNode *)arg1;
++ (void)readDefaultTextPropertiesFromXmlNode:(struct _xmlNode *)arg1 chart:(id)arg2 state:(id)arg3;
++ (void)readChartFromXmlNode:(struct _xmlNode *)arg1 chart:(id)arg2 state:(id)arg3;
 
 @end
 

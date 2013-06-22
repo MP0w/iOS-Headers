@@ -8,10 +8,11 @@
 
 #import "GKSearchableSectionDataSource-Protocol.h"
 
-@class GKGame, GKGameDetailHeaderSection, GKLeaderboardControlSection, GKLeaderboardSection, GKPlayer, NSArray, NSDate, NSPredicate, NSString;
+@class GKGame, GKGameDetailHeaderSection, GKLeaderboardControlSection, GKLeaderboardSection, GKPlayer, GKThreadsafeDictionary, NSArray, NSOrderedSet, NSPredicate, NSString;
 
 @interface GKLeaderboardDataSource : GKSectionArrayDataSource <GKSearchableSectionDataSource>
 {
+    long _playerDictionaryOnce;
     GKLeaderboardSection *_globalSection;
     GKLeaderboardSection *_friendSection;
     GKLeaderboardControlSection *_controlSection;
@@ -20,24 +21,20 @@
     GKGame *_game;
     GKGameDetailHeaderSection *_gameDetailHeaderSection;
     int _timeScope;
-    BOOL _allowsFriendSelection;
-    BOOL _showRatingControl;
-    BOOL _loaded;
-    NSArray *_items;
-    NSArray *_visibleItems;
-    NSArray *_searchableSections;
+    NSOrderedSet *_items;
+    NSOrderedSet *_visibleItems;
+    NSOrderedSet *_searchableSections;
     NSArray *_sortDescriptors;
     NSPredicate *_filterPredicate;
+    GKThreadsafeDictionary *_playerDictionary;
 }
 
+@property(retain, nonatomic) GKThreadsafeDictionary *playerDictionary; // @synthesize playerDictionary=_playerDictionary;
 @property(retain, nonatomic) NSPredicate *filterPredicate; // @synthesize filterPredicate=_filterPredicate;
 @property(retain, nonatomic) NSArray *sortDescriptors; // @synthesize sortDescriptors=_sortDescriptors;
-@property(retain, nonatomic) NSArray *searchableSections; // @synthesize searchableSections=_searchableSections;
-@property(retain, nonatomic) NSArray *visibleItems; // @synthesize visibleItems=_visibleItems;
-@property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
-@property(nonatomic) BOOL loaded; // @synthesize loaded=_loaded;
-@property(nonatomic) BOOL showRatingControl; // @synthesize showRatingControl=_showRatingControl;
-@property(nonatomic) BOOL allowsFriendSelection; // @synthesize allowsFriendSelection=_allowsFriendSelection;
+@property(retain, nonatomic) NSOrderedSet *searchableSections; // @synthesize searchableSections=_searchableSections;
+@property(retain, nonatomic) NSOrderedSet *visibleItems; // @synthesize visibleItems=_visibleItems;
+@property(retain, nonatomic) NSOrderedSet *items; // @synthesize items=_items;
 @property(nonatomic) int timeScope; // @synthesize timeScope=_timeScope;
 @property(retain, nonatomic) GKGameDetailHeaderSection *gameDetailHeaderSection; // @synthesize gameDetailHeaderSection=_gameDetailHeaderSection;
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
@@ -46,20 +43,21 @@
 @property(retain, nonatomic) GKLeaderboardControlSection *controlSection; // @synthesize controlSection=_controlSection;
 @property(retain, nonatomic) GKLeaderboardSection *friendSection; // @synthesize friendSection=_friendSection;
 @property(retain, nonatomic) GKLeaderboardSection *globalSection; // @synthesize globalSection=_globalSection;
+- (id)playerForScore:(id)arg1;
+- (id)scoreForLocalPlayer;
 - (void)purgeCachedData;
-- (void)refreshDataWithCompletionHandlerAndError:(id)arg1;
 - (void)tableView:(id)arg1 updateStatusViewAfterLoading:(id)arg2 withError:(id)arg3;
+- (void)tableView:(id)arg1 updateStatusViewBeforeLoading:(id)arg2;
+- (void)refreshDataWithCompletionHandlerAndError:(id)arg1;
+- (BOOL)_offsetPaginationRowSetsByHeaderRowCount;
+- (BOOL)_hasAnyScoresInTableView:(id)arg1;
 - (void)tableView:(id)arg1 updateStatusForLeaderboard:(id)arg2;
-- (void)setLoadingState:(int)arg1;
 - (void)setLeaderboardDelegate:(id)arg1;
 @property(nonatomic) BOOL showControlSection;
 - (void)prepareSections;
+- (void)setContentSections:(id)arg1;
 - (Class)sectionClass;
 - (void)dealloc;
-- (id)init;
-
-// Remaining properties
-@property(retain, nonatomic) NSDate *expirationDate;
 
 @end
 

@@ -23,6 +23,7 @@
 - (id)allItems;
 - (unsigned int)count;
 - (void)foreach:(id)arg1;
+- (id)itemsPassingRectTest:(id)arg1 coordinateTest:(void)arg2;
 - (id)itemsInMapRect:(CDStruct_02837cd9)arg1;
 - (BOOL)contains:(id)arg1;
 - (BOOL)remove:(id)arg1;

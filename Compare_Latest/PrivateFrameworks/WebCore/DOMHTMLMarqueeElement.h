@@ -10,30 +10,30 @@
 {
 }
 
-- (id)behavior;
-- (void)setBehavior:(id)arg1;
-- (id)bgColor;
-- (void)setBgColor:(id)arg1;
-- (id)direction;
-- (void)setDirection:(id)arg1;
-- (id)height;
-- (void)setHeight:(id)arg1;
-- (unsigned int)hspace;
-- (void)setHspace:(unsigned int)arg1;
-- (int)loop;
-- (void)setLoop:(int)arg1;
-- (int)scrollAmount;
-- (void)setScrollAmount:(int)arg1;
-- (int)scrollDelay;
-- (void)setScrollDelay:(int)arg1;
-- (BOOL)trueSpeed;
-- (void)setTrueSpeed:(BOOL)arg1;
-- (unsigned int)vspace;
-- (void)setVspace:(unsigned int)arg1;
-- (id)width;
-- (void)setWidth:(id)arg1;
-- (void)start;
 - (void)stop;
+- (void)start;
+- (void)setWidth:(id)arg1;
+- (id)width;
+- (void)setVspace:(unsigned int)arg1;
+- (unsigned int)vspace;
+- (void)setTrueSpeed:(BOOL)arg1;
+- (BOOL)trueSpeed;
+- (void)setScrollDelay:(int)arg1;
+- (int)scrollDelay;
+- (void)setScrollAmount:(int)arg1;
+- (int)scrollAmount;
+- (void)setLoop:(int)arg1;
+- (int)loop;
+- (void)setHspace:(unsigned int)arg1;
+- (unsigned int)hspace;
+- (void)setHeight:(id)arg1;
+- (id)height;
+- (void)setDirection:(id)arg1;
+- (id)direction;
+- (void)setBgColor:(id)arg1;
+- (id)bgColor;
+- (void)setBehavior:(id)arg1;
+- (id)behavior;
 
 @end
 

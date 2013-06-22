@@ -15,18 +15,10 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 - (id)_viewController;
-- (void)_setTitle:(id)arg1;
-- (void)_setSelectedIndex:(int)arg1;
-- (void)_setItems:(id)arg1;
-- (void)_setAction:(id)arg1;
-- (int)_selectedIndex;
-- (id)_copyTitle;
-- (id)_copyItems;
-- (id)_copyAction;
 @property(retain) NSString *title;
 @property(retain) NSNumber *selectedIndex;
 @property(retain) id items;

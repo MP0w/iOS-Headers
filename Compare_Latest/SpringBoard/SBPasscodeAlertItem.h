@@ -18,16 +18,16 @@
     BOOL _hasEmergencyCall;
 }
 
-- (id)initWithPasscodeMode:(int)arg1 unlockScreenType:(int)arg2;
-- (void)dealloc;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)returnKeyPressed:(id)arg1;
-- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
-- (BOOL)shouldShowInLockScreen;
-- (void)dismiss:(int)arg1;
-- (void)_setErrorString:(id)arg1;
 - (void)didEndCall;
+- (void)_setErrorString:(id)arg1;
+- (void)dismiss:(int)arg1;
+- (BOOL)shouldShowInLockScreen;
+- (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
+- (void)returnKeyPressed:(id)arg1;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)dealloc;
+- (id)initWithPasscodeMode:(int)arg1 unlockScreenType:(int)arg2;
 
 @end
 

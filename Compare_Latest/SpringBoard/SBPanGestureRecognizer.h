@@ -14,11 +14,11 @@
     BOOL _recognizesVerticalPanning;
 }
 
-- (id)init;
-- (id)initForHorizontalPanning;
-- (id)initForVerticalPanning;
-- (float)computeIncrementalGestureMotion:(struct __SBGestureContext *)arg1;
 - (void)updateForBeganOrMovedTouches:(struct __SBGestureContext *)arg1;
+- (float)computeIncrementalGestureMotion:(struct __SBGestureContext *)arg1;
+- (id)initForVerticalPanning;
+- (id)initForHorizontalPanning;
+- (id)init;
 
 @end
 

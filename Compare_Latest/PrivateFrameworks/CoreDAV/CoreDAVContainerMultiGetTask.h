@@ -6,9 +6,11 @@
 
 #import <CoreDAV/CoreDAVTask.h>
 
-@class NSSet, NSString;
+#import "CoreDAVContainerMultiGetSubmittable-Protocol.h"
 
-@interface CoreDAVContainerMultiGetTask : CoreDAVTask
+@class NSError, NSSet, NSString;
+
+@interface CoreDAVContainerMultiGetTask : CoreDAVTask <CoreDAVContainerMultiGetSubmittable>
 {
     NSSet *_urls;
     NSString *_appSpecificNamespace;
@@ -23,7 +25,7 @@
 }
 
 @property(readonly, nonatomic) NSSet *missingURLs; // @synthesize missingURLs=_missingURLs;
-@property(readonly) NSSet *parsedContents; // @synthesize parsedContents=_parsedContents;
+@property(readonly, nonatomic) NSSet *parsedContents; // @synthesize parsedContents=_parsedContents;
 @property(nonatomic) BOOL shouldIgnoreResponseErrors; // @synthesize shouldIgnoreResponseErrors=_shouldIgnoreResponseErrors;
 @property(retain) NSSet *additionalPropElements; // @synthesize additionalPropElements=_additionalPropElements;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
@@ -34,6 +36,13 @@
 - (void)setAdditionalProperties:(id)arg1 onDataItem:(id)arg2;
 - (id)copyAdditionalPropElements;
 - (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 appSpecificDataItemClass:(Class)arg3;
+
+// Remaining properties
+@property(nonatomic) id <CoreDAVAccountInfoProvider> accountInfoProvider;
+@property(copy, nonatomic) id completionBlock;
+@property(readonly, nonatomic) NSError *error;
+@property(nonatomic) id <CoreDAVTaskManager> taskManager;
+@property double timeoutInterval;
 
 @end
 

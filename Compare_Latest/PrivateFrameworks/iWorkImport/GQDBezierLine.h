@@ -13,5 +13,7 @@
     BOOL isOutsideToLeft;
 }
 
+- (id).cxx_construct;
+
 @end
 

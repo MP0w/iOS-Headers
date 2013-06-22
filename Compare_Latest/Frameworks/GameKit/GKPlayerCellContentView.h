@@ -16,20 +16,21 @@
     BOOL _shouldShowPhoto;
 }
 
++ (void)loadPhotoOfSize:(int)arg1 forPlayer:(id)arg2 completionHandler:(id)arg3;
++ (id)cachedPhotoOfSize:(int)arg1 forPlayer:(id)arg2;
++ (id)imageSourceForPhotoSize:(int)arg1;
 + (id)playerContentView;
 @property(nonatomic) BOOL shouldShowPhoto; // @synthesize shouldShowPhoto=_shouldShowPhoto;
 @property(nonatomic) BOOL showAlias; // @synthesize showAlias=_showAlias;
 @property(nonatomic) int photoSize; // @synthesize photoSize=_photoSize;
 @property(retain, nonatomic) GKPlayer *player; // @synthesize player=_player;
 - (void)prepareForReuse;
-- (void)refreshExpensiveContent;
-- (void)updatePhotoFromCache;
 - (void)updateLines;
 - (void)layoutSubviews;
 - (id)lastPlayedGameStringForDate:(id)arg1 withGame:(id)arg2;
-- (id)imageSourceForPhotoSize:(int)arg1;
 - (void)dealloc;
 - (id)initWithNumberOfLines:(unsigned int)arg1;
+- (struct CGRect)_gkPopoverPresentationRect;
 
 @end
 

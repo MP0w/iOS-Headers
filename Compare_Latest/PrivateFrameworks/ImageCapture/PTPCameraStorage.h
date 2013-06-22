@@ -14,12 +14,12 @@
     NSMutableArray *_tempArrayOfAllObjectHandlesToBeIgnored;
 }
 
-- (id)initWithStorageID:(unsigned long)arg1 device:(id)arg2;
-- (void)dealloc;
-- (void)refreshInfo;
-- (void)prime;
-- (id)tempArrayOfAllObjectHandles;
 - (id)tempArrayOfAllObjectHandlesToBeIgnored;
+- (id)tempArrayOfAllObjectHandles;
+- (void)prime;
+- (void)refreshInfo;
+- (void)dealloc;
+- (id)initWithStorageID:(unsigned long)arg1 device:(id)arg2;
 
 @end
 

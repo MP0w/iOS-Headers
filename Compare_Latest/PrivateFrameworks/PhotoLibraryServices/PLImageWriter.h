@@ -8,7 +8,7 @@
 
 #import "PLPhotoBakedThumbnailsDelegate-Protocol.h"
 
-@class NSCountedSet, NSMutableArray, NSRecursiveLock;
+@class NSCountedSet, NSMutableArray, NSRecursiveLock, PLXPCTransaction;
 
 @interface PLImageWriter : NSObject <PLPhotoBakedThumbnailsDelegate>
 {
@@ -18,9 +18,11 @@
     NSMutableArray *_lowPriorityJobs;
     NSCountedSet *_unfinishedLowPriorityJobs;
     NSRecursiveLock *_jobsLock;
+    int _unfinishedJobCount;
     int _jobQueueAvailabilityToken;
     BOOL _writerThreadRunning;
     BOOL _databaseIsCorrupt;
+    PLXPCTransaction *_transaction;
 }
 
 + (void)decorateThumbnailInRect:(struct CGRect)arg1 size:(struct CGSize)arg2 duration:(id)arg3 inContext:(struct CGContext *)arg4 format:(int)arg5;
@@ -35,15 +37,26 @@
 - (void)_processVideoJob:(id)arg1;
 - (void)decorateThumbnail:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)_decorateThumbnail:(id)arg1;
+- (void)_processDaemonJob:(id)arg1;
+- (void)_processCrashRecoveryJob:(id)arg1;
 - (void)_processIngestedSyncedAssetJob:(id)arg1;
 - (void)_processSavePhotoStreamImageToCameraRollJob:(id)arg1;
 - (void)_processReenqueueAssetUUIDsToPhotoStreamJob:(id)arg1;
+- (void)_enablePhotoStreamJob:(id)arg1;
 - (void)_processDeletePhotoStreamAssetsWithUUIDs:(id)arg1;
 - (void)_processDeletePhotoStreamDataJob:(id)arg1;
+- (void)_processAutodeleteEmptyAlbumJob:(id)arg1;
 - (void)_processImportImageJob:(id)arg1;
 - (void)_processImageJob:(id)arg1;
+- (BOOL)saveImageJobToDisk:(id)arg1;
+- (id)uuidFromIncomingFilename:(id)arg1;
+- (id)uniqueIncomingPathForAssetWithUUID:(id)arg1 andExtension:(id)arg2 isPhotoStream:(BOOL)arg3;
+- (id)incomingDirectoryPath;
+- (id)incomingDirectoryPathForPhotoStream;
 - (void)_removeTransientKeys:(id)arg1;
-- (id)cameraAssetPathForNewAssetWithType:(int)arg1;
+- (id)pathForNewAssetPathAtAlbumDirectoryPath:(id)arg1 assetType:(unsigned int)arg2 extension:(id)arg3;
+- (id)cameraAssetPathForNewAssetWithExtension:(id)arg1;
+- (id)cameraAssetExtensionForType:(int)arg1;
 - (BOOL)enqueueJob:(id)arg1;
 - (void)_decrementJobCount:(id)arg1;
 - (void)_incrementJobCount:(id)arg1;

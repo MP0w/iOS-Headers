@@ -4,22 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "CoreDAVItem.h"
+#import <CalDAV/CalDAVItemWithRecurrenceChildren.h>
 
-@class NSMutableSet;
-
-@interface CalDAVCalendarServerUpdateItem : CoreDAVItem
+@interface CalDAVCalendarServerUpdateItem : CalDAVItemWithRecurrenceChildren
 {
-    NSMutableSet *_recurrences;
 }
 
 - (id)init;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)copyParseRules;
-- (void)addRecurrence:(id)arg1;
-@property(retain) NSMutableSet *recurrences; // @synthesize recurrences=_recurrences;
 
 @end
 

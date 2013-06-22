@@ -7,15 +7,16 @@
 #import "NSObject.h"
 
 #import "NSCopying-Protocol.h"
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class NSLock, NSNumber, NSString;
 
-@interface SSAccount : NSObject <SSCoding, NSCopying>
+@interface SSAccount : NSObject <SSXPCCoding, NSCopying>
 {
     int _accountKind;
     NSString *_accountName;
     int _accountScope;
+    int _accountSource;
     BOOL _active;
     BOOL _activeLockerAccount;
     int _availableServiceTypes;
@@ -28,6 +29,7 @@
     NSNumber *_uniqueIdentifier;
 }
 
+- (void)_sendBlockingXPCMessage:(id)arg1;
 - (void)setLockdownDictionary:(id)arg1;
 @property(retain) NSNumber *uniqueIdentifier;
 @property(copy) NSString *storeFrontIdentifier;
@@ -39,6 +41,7 @@
 @property(copy) NSString *creditsString;
 @property(getter=isActiveLockerAccount) BOOL activeLockerAccount;
 @property(getter=isActive) BOOL active;
+@property int accountSource;
 @property int accountScope;
 @property(copy) NSString *accountName;
 @property int accountKind;
@@ -52,10 +55,8 @@
 - (void)getDownloadKindsEligibleForContentRestoreWithBlock:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
 - (void)dealloc;
 - (id)init;
 

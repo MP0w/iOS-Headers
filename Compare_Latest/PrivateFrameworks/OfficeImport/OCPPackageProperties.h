@@ -16,11 +16,13 @@
     NSString *mTitle;
 }
 
-- (void)dealloc;
-- (id)creator;
-- (id)description;
-- (id)keywords;
 - (id)title;
+- (id)keywords;
+- (id)description;
+- (id)creator;
+- (void)dealloc;
+- (id)initWithXml:(struct _xmlDoc *)arg1;
+- (void)readFromXml:(struct _xmlDoc *)arg1;
 
 @end
 

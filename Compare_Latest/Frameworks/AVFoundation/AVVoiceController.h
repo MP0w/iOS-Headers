@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @interface AVVoiceController : NSObject
 {
@@ -44,11 +44,32 @@
 - (BOOL)playAlertSoundForType:(int)arg1;
 - (BOOL)setAlertSoundFromURL:(id)arg1 forType:(int)arg2;
 - (BOOL)prepareRecordWithSettings:(id)arg1 error:(id *)arg2;
-@property int hardwareConfiguration;
+- (BOOL)setCurrentContext:(id)arg1 error:(id *)arg2;
 - (void)releaseAudioSession;
 - (void)dealloc;
 - (void)finalize;
-- (id)initWithHardwareConfig:(int)arg1 error:(id *)arg2;
+- (id)initWithContext:(id)arg1 error:(id *)arg2;
+- (void)endPlaybackInterruption;
+- (void)beginPlaybackInterruption;
+- (void)endRecordInterruption;
+- (void)beginRecordInterruption;
+- (void)decodeError;
+- (void)finishedPlaying;
+- (void)playbackBufferReceived:(struct MyAudioQueueBuffer *)arg1;
+- (void)beganPlaying;
+- (void)encodeError;
+- (void)endpointDetected;
+- (void)interspeechPointDetected;
+- (void)startpointDetected;
+- (void)finishedRecording;
+- (void)recordBufferReceived:(struct MyAudioQueueBuffer *)arg1;
+- (void)beganRecording;
+- (void)hardwareConfigChanged;
+- (struct ControllerImpl *)impl;
+@property(getter=isStopOnBargeInEnabled) BOOL stopOnBargeInEnabled;
+@property(getter=isBargeInDetectEnabled) BOOL bargeInDetectEnabled;
+@property(readonly) unsigned long long lastRecordStartTime;
+@property(readonly) NSString *recordRoute;
 
 @end
 

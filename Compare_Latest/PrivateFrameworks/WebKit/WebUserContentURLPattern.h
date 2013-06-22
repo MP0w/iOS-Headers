@@ -13,13 +13,13 @@
     WebUserContentURLPatternPrivate *_private;
 }
 
-- (id)initWithPatternString:(id)arg1;
-- (void)dealloc;
-- (BOOL)isValid;
-- (id)scheme;
-- (id)host;
-- (BOOL)matchesSubdomains;
 - (BOOL)matchesURL:(id)arg1;
+- (BOOL)matchesSubdomains;
+- (id)host;
+- (id)scheme;
+- (BOOL)isValid;
+- (void)dealloc;
+- (id)initWithPatternString:(id)arg1;
 
 @end
 

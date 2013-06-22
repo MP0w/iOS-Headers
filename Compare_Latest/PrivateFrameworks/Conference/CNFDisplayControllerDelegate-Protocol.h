@@ -10,16 +10,16 @@
 - (void)conferenceDisplayController:(id)arg1 endCallWithReason:(unsigned int)arg2;
 
 @optional
-- (BOOL)isOutgoingInvitation;
-- (BOOL)isInPhoneCall;
-- (id)originationURL;
-- (void)conferenceDisplayController:(id)arg1 cancelCallFailureRecoveryWithReason:(unsigned int)arg2;
-- (void)conferenceDisplayController:(id)arg1 retryVideoConferenceInvitationWithReason:(unsigned int)arg2;
-- (void)conferenceDisplayController:(id)arg1 muteConferenceWithReason:(unsigned int)arg2;
-- (void)conferenceDisplayController:(id)arg1 cameraToggleWithReason:(unsigned int)arg2;
-- (BOOL)auxiliaryAudioRoutesAvailable;
-- (void)conferenceDisplayController:(id)arg1 didFinishAnimatingCallEndWithReason:(unsigned int)arg2;
-- (void)conferenceDisplayController:(id)arg1 endWithReason:(unsigned int)arg2;
 - (void)conferenceDisplayControllerEndedWhileSuspending:(id)arg1;
+- (void)conferenceDisplayController:(id)arg1 endWithReason:(unsigned int)arg2;
+- (void)conferenceDisplayController:(id)arg1 didFinishAnimatingCallEndWithReason:(unsigned int)arg2;
+- (BOOL)auxiliaryAudioRoutesAvailable;
+- (void)conferenceDisplayController:(id)arg1 cameraToggleWithReason:(unsigned int)arg2;
+- (void)conferenceDisplayController:(id)arg1 muteConferenceWithReason:(unsigned int)arg2;
+- (void)conferenceDisplayController:(id)arg1 retryVideoConferenceInvitationWithReason:(unsigned int)arg2;
+- (void)conferenceDisplayController:(id)arg1 cancelCallFailureRecoveryWithReason:(unsigned int)arg2;
+- (id)originationURL;
+- (BOOL)isInPhoneCall;
+- (BOOL)isOutgoingInvitation;
 @end
 

@@ -12,6 +12,9 @@
 }
 
 + (id)numberWithLong:(long)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (Class)classForCoder;
 - (long)longValue;
 - (void)getValue:(void *)arg1;
 - (const char *)objCType;

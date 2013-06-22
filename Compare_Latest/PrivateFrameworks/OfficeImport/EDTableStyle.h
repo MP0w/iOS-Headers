@@ -17,12 +17,12 @@
 }
 
 + (id)tableStyle;
-- (id)init;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
 - (id)tableStyleElements;
+- (void)setName:(id)arg1;
+- (id)name;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

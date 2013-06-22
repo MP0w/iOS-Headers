@@ -13,8 +13,11 @@
 + (void)sizeAlertWindowForCurrentOrientation;
 + (void)createAlertWindowIfNeeded:(BOOL)arg1 deferDisplay:(BOOL)arg2;
 + (void)createAlertWindowIfNeeded:(BOOL)arg1;
-+ (void)tellSpringboardHidingAlert:(id)arg1 animated:(BOOL)arg2;
-+ (void)tellSpringboardShowingAlert:(id)arg1 animated:(BOOL)arg2;
++ (void)alertPopoutCompleted;
++ (void)tellSpringboardHidingAlert:(id)arg1 animated:(BOOL)arg2 forSpringBoardAlertTransition:(BOOL)arg3;
++ (void)tellSpringboardShowingAlert:(id)arg1 animated:(BOOL)arg2 forSpringBoardAlertTransition:(BOOL)arg3;
++ (void)showDimmingViewAnimated:(BOOL)arg1;
++ (void)hideDimmingViewAnimated:(BOOL)arg1;
 + (BOOL)stackContainsAlert:(id)arg1;
 + (void)removeFromStack:(id)arg1;
 + (void)addToStack:(id)arg1 dontDimBackground:(BOOL)arg2;
@@ -32,10 +35,11 @@
 + (BOOL)cancelAlertsAnimated:(BOOL)arg1;
 + (BOOL)cancelTopMostAlertAnimated:(BOOL)arg1;
 + (BOOL)hideTopMostAlertAnimated:(BOOL)arg1;
-+ (void)showTopmostMiniAlert;
++ (void)showTopmostMiniAlertWithSynchronizationPort:(unsigned int)arg1;
 + (void)hideAlertsForTermination;
-+ (void)hideTopmostMiniAlert:(int)arg1;
++ (void)hideTopmostMiniAlert;
 + (void)initialize;
+- (void)_didHideDimmingView:(id)arg1 finished:(id)arg2;
 
 @end
 

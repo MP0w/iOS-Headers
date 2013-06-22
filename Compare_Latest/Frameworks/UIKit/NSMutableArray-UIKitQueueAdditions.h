@@ -7,8 +7,8 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (UIKitQueueAdditions)
-- (id)uiPeek;
-- (id)uiDequeue;
-- (void)uiEnqueue:(id)arg1;
+- (id)_ui_peek;
+- (id)_ui_dequeue;
+- (void)_ui_enqueue:(id)arg1;
 @end
 

@@ -12,15 +12,15 @@
 }
 
 + (id)referenceWithSheetIndex:(int)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
-- (id)init;
-- (id)initWithSheetIndex:(int)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
-- (BOOL)isEqualToTableReference:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (_Bool)isSheedIndexValid;
-- (int)sheetIndex;
-- (_Bool)fullyAdjacentToReference:(id)arg1;
 - (void)unionWithReference:(id)arg1;
+- (_Bool)fullyAdjacentToReference:(id)arg1;
+- (int)sheetIndex;
+- (_Bool)isSheedIndexValid;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToTableReference:(id)arg1;
+- (id)initWithSheetIndex:(int)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
+- (id)init;
 
 @end
 

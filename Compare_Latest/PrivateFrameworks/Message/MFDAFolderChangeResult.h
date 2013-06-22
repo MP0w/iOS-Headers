@@ -16,13 +16,14 @@
     int _statusCode;
 }
 
-- (id)initWithStatusCode:(int)arg1 error:(id)arg2 folderID:(id)arg3 folderName:(id)arg4;
-- (void)dealloc;
-- (BOOL)wasSuccessful;
 @property(readonly) NSString *folderName; // @synthesize folderName=_folderName;
 @property(readonly) NSString *folderID; // @synthesize folderID=_folderID;
 @property(readonly) NSError *error; // @synthesize error=_error;
 @property(readonly) int statusCode; // @synthesize statusCode=_statusCode;
+- (id)description;
+- (BOOL)wasSuccessful;
+- (void)dealloc;
+- (id)initWithStatusCode:(int)arg1 error:(id)arg2 folderID:(id)arg3 folderName:(id)arg4;
 
 @end
 

@@ -22,9 +22,13 @@
     BOOL _tentative;
     NSURL *_entityID;
     int _proximity;
+    NSString *_externalID;
+    BOOL _acknowledged;
 }
 
-+ (id)alertInfoWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(BOOL)arg6 tentative:(BOOL)arg7 entityID:(id)arg8 action:(id)arg9 proximity:(int)arg10;
++ (id)alertInfoWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(BOOL)arg6 tentative:(BOOL)arg7 entityID:(id)arg8 action:(id)arg9 proximity:(int)arg10 externalID:(id)arg11 acknowledged:(BOOL)arg12;
+@property(readonly, nonatomic) BOOL acknowledged; // @synthesize acknowledged=_acknowledged;
+@property(readonly, nonatomic) NSString *externalID; // @synthesize externalID=_externalID;
 @property(readonly, nonatomic) int proximity; // @synthesize proximity=_proximity;
 @property(readonly, nonatomic) NSURL *entityID; // @synthesize entityID=_entityID;
 @property(readonly, nonatomic) BOOL tentative; // @synthesize tentative=_tentative;
@@ -40,7 +44,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(BOOL)arg6 tentative:(BOOL)arg7 entityID:(id)arg8 action:(id)arg9 proximity:(int)arg10;
+- (id)initWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(BOOL)arg6 tentative:(BOOL)arg7 entityID:(id)arg8 action:(id)arg9 proximity:(int)arg10 externalID:(id)arg11 acknowledged:(BOOL)arg12;
 
 @end
 

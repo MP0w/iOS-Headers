@@ -11,7 +11,7 @@
 @interface CILightTunnel : CIFilter
 {
     CIImage *inputImage;
-    CIVector *inputPoint;
+    CIVector *inputCenter;
     NSNumber *inputRotation;
     NSNumber *inputRadius;
 }
@@ -19,7 +19,7 @@
 + (id)customAttributes;
 @property(copy, nonatomic) NSNumber *inputRadius; // @synthesize inputRadius;
 @property(copy, nonatomic) NSNumber *inputRotation; // @synthesize inputRotation;
-@property(copy, nonatomic) CIVector *inputPoint; // @synthesize inputPoint;
+@property(copy, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (void)setDefaults;

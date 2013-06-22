@@ -14,10 +14,23 @@
 }
 
 + (void)initialize;
-+ (id)webScriptNameForKey:(const char *)arg1;
++ (id)webScriptNameForSelector:(SEL)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 @property(readonly) NSString *softwareTypeNewsstand;
+@property(readonly) int launchResultSyncing;
+@property(readonly) int launchResultSuccess;
+@property(readonly) int launchResultSpringBoardUnavailable;
+@property(readonly) int launchResultSecurityPolicy;
+@property(readonly) int launchResultLockedOut;
+@property(readonly) int launchResultLocked;
+@property(readonly) int launchResultLaunchOrSuspendInProgress;
+@property(readonly) int launchResultInvalidArgument;
+@property(readonly) int launchResultApplicationNotFound;
+@property(readonly) int launchResultApplicationDisabled;
+@property(readonly) NSString *environmentSandbox;
+@property(readonly) NSString *environmentProduction;
 @property(readonly) NSNumber *versionID;
 @property(readonly) NSString *storeFrontID;
 @property(readonly) NSString *softwareType;
@@ -28,6 +41,8 @@
 @property(readonly) NSString *bundleVersion;
 @property(readonly) NSString *bundleID;
 @property(readonly) NSNumber *adamID;
+- (int)launchWithURL:(id)arg1 options:(id)arg2 suspended:(id)arg3;
+- (void)checkInAppPurchaseQueueWithAccountID:(id)arg1 environment:(id)arg2;
 - (void)dealloc;
 - (id)initWithApplication:(id)arg1;
 

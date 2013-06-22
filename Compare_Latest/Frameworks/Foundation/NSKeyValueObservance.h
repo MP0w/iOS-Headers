@@ -26,6 +26,8 @@
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (void)dealloc;
+- (BOOL)_isDeallocating;
+- (BOOL)_tryRetain;
 - (unsigned int)retainCount;
 - (oneway void)release;
 - (id)retain;

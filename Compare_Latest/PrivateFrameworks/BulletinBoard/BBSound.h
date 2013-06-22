@@ -16,12 +16,15 @@
     int _soundType;
     unsigned long _systemSoundID;
     unsigned int _soundBehavior;
+    NSString *_audioCategory;
     NSString *_ringtoneName;
     BOOL _repeats;
     NSDictionary *_vibrationPattern;
 }
 
++ (id)_possiblyCachedAlertSoundForInitializedSound:(id)arg1;
 + (id)alertSoundWithSystemSoundID:(unsigned long)arg1;
+@property(copy, nonatomic) NSString *audioCategory; // @synthesize audioCategory=_audioCategory;
 @property(nonatomic) unsigned int soundBehavior; // @synthesize soundBehavior=_soundBehavior;
 @property(nonatomic, getter=isRepeating) BOOL repeats; // @synthesize repeats=_repeats;
 @property(retain, nonatomic) NSString *ringtoneName; // @synthesize ringtoneName=_ringtoneName;
@@ -32,8 +35,11 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)_isUniquableAlertSound;
 - (void)dealloc;
+- (id)initWithRingtone:(id)arg1 vibrationPattern:(id)arg2 repeats:(BOOL)arg3 audioCategory:(id)arg4;
 - (id)initWithRingtone:(id)arg1 vibrationPattern:(id)arg2 repeats:(BOOL)arg3;
+- (id)initWithSystemSoundID:(unsigned long)arg1 behavior:(unsigned int)arg2 vibrationPattern:(id)arg3;
 - (id)initWithSystemSoundID:(unsigned long)arg1 behavior:(unsigned int)arg2;
 
 @end

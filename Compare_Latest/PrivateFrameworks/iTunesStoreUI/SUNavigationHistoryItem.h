@@ -18,7 +18,6 @@
 
 @property(readonly, nonatomic) SSURLRequestProperties *URLRequestProperties; // @synthesize URLRequestProperties=_urlRequestProperties;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
-- (id)newViewControllerInSection:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;

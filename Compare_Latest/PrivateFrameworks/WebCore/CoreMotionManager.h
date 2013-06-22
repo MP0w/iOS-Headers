@@ -12,29 +12,29 @@
 {
     CMMotionManager *m_motionManager;
     CLLocationManager *m_locationManager;
-    struct HashSet<WebCore::DeviceMotionClientIPhone*, WTF::PtrHash<WebCore::DeviceMotionClientIPhone*>, WTF::HashTraits<WebCore::DeviceMotionClientIPhone*>> m_deviceMotionClients;
-    struct HashSet<WebCore::DeviceOrientationClientIPhone*, WTF::PtrHash<WebCore::DeviceOrientationClientIPhone*>, WTF::HashTraits<WebCore::DeviceOrientationClientIPhone*>> m_deviceOrientationClients;
+    struct HashSet<WebCore::DeviceMotionClientIOS *, WTF::PtrHash<WebCore::DeviceMotionClientIOS *>, WTF::HashTraits<WebCore::DeviceMotionClientIOS *>> m_deviceMotionClients;
+    struct HashSet<WebCore::DeviceOrientationClientIOS *, WTF::PtrHash<WebCore::DeviceOrientationClientIOS *>, WTF::HashTraits<WebCore::DeviceOrientationClientIOS *>> m_deviceOrientationClients;
     NSTimer *m_updateTimer;
     BOOL m_gyroAvailable;
     BOOL m_headingAvailable;
 }
 
 + (id)sharedManager;
-- (id)init;
-- (void)dealloc;
-- (void)addMotionClient:(struct DeviceMotionClientIPhone *)arg1;
-- (void)removeMotionClient:(struct DeviceMotionClientIPhone *)arg1;
-- (void)addOrientationClient:(struct DeviceOrientationClientIPhone *)arg1;
-- (void)removeOrientationClient:(struct DeviceOrientationClientIPhone *)arg1;
-- (BOOL)gyroAvailable;
-- (BOOL)headingAvailable;
-- (void)initializeOnMainThread;
-- (void)checkClientStatus;
-- (void)update;
-- (void)sendAccelerometerData:(id)arg1;
-- (void)sendMotionData:(id)arg1 withHeading:(id)arg2;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)sendMotionData:(id)arg1 withHeading:(id)arg2;
+- (void)sendAccelerometerData:(id)arg1;
+- (void)update;
+- (void)checkClientStatus;
+- (void)initializeOnMainThread;
+- (BOOL)headingAvailable;
+- (BOOL)gyroAvailable;
+- (void)removeOrientationClient:(struct DeviceOrientationClientIOS *)arg1;
+- (void)addOrientationClient:(struct DeviceOrientationClientIOS *)arg1;
+- (void)removeMotionClient:(struct DeviceMotionClientIOS *)arg1;
+- (void)addMotionClient:(struct DeviceMotionClientIOS *)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

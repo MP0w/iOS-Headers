@@ -7,7 +7,7 @@
 #import "NSMutableArray.h"
 
 @interface NSMutableArray (SortedArrayExtensions)
-- (unsigned int)mf_insertObject:(id)arg1 usingSortFunction:(void *)arg2 context:(void *)arg3 allowDuplicates:(BOOL)arg4;
 - (unsigned int)mf_removeObject:(id)arg1 usingSortFunction:(void *)arg2 context:(void *)arg3;
+- (unsigned int)mf_insertObject:(id)arg1 usingSortFunction:(void *)arg2 context:(void *)arg3 allowDuplicates:(BOOL)arg4;
 @end
 

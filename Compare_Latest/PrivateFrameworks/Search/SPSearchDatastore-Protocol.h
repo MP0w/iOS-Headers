@@ -12,7 +12,8 @@
 - (void)performQuery:(id)arg1 withResultsPipe:(id)arg2;
 
 @optional
-- (void *)copyResultForIdentifier:(id)arg1 domain:(unsigned int)arg2;
+- (id)resultForIdentifier:(id)arg1 domain:(unsigned int)arg2;
 - (id)categoryForDomain:(unsigned int)arg1;
+- (BOOL)wantsEveryResultInItsOwnSection;
 @end
 

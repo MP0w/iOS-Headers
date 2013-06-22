@@ -6,20 +6,20 @@
 
 #import <ChatKit/CKDBMessage.h>
 
-@class IMAccount, IMChat, IMPerson;
+@class NSString;
 
 @interface CKIMDBMessage : CKDBMessage
 {
-    IMPerson *_person;
+    int _personID;
+    NSString *_personName;
 }
 
-- (id)initWithRecordID:(int)arg1;
-- (void)dealloc;
-- (void)resetIMPerson;
-@property(readonly, retain, nonatomic) IMAccount *account; // @dynamic account;
-@property(readonly, retain, nonatomic) IMChat *chat; // @dynamic chat;
+@property(nonatomic) int personID; // @synthesize personID=_personID;
+@property(retain, nonatomic) NSString *personName; // @synthesize personName=_personName;
 - (void)markAsRead;
-@property(retain, nonatomic) IMPerson *person; // @synthesize person=_person;
+- (void)resetIMPerson;
+- (void)dealloc;
+- (id)initWithRecordID:(int)arg1;
 
 @end
 

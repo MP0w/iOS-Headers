@@ -29,6 +29,7 @@
 @property unsigned int maxConcurrentMessages; // @synthesize maxConcurrentMessages=_maxConcurrentMessages;
 @property(copy) NSString *userAgent; // @synthesize userAgent=_userAgent;
 @property(copy) NSNumber *protocolVersion; // @synthesize protocolVersion=_protocolVersion;
+- (void)_signMessage:(id)arg1 useDataSignatures:(BOOL)arg2 body:(id)arg3 queryString:(id)arg4 intoDictionary:(id)arg5;
 @property(readonly) int maxMessageSize;
 - (void)_setRetryTimer:(double)arg1;
 - (void)_clearRetryTimer;
@@ -39,6 +40,7 @@
 - (id)_queue;
 @property(readonly) BOOL hasQueuedItems;
 @property(readonly) BOOL busy;
+@property(readonly) NSArray *allMessages;
 @property(readonly) FTMessage *currentMessage;
 @property(readonly) NSArray *queuedMessages;
 - (BOOL)_sendMessageAsynchronously:(id)arg1 error:(id *)arg2;

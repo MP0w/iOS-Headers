@@ -6,9 +6,11 @@
 
 #import <UIKit/UIView.h>
 
+#import "UIKBCacheableView-Protocol.h"
+
 @class NSString, UIKeyboardCandidate;
 
-@interface UIKeyboardCandidateBarCell : UIView
+@interface UIKeyboardCandidateBarCell : UIView <UIKBCacheableView>
 {
     UIKeyboardCandidate *m_candidate;
     NSString *m_candidateText;
@@ -21,13 +23,16 @@
 
 + (id)fontForCandidateText:(id)arg1;
 @property(readonly, nonatomic) struct CGSize stringSize; // @synthesize stringSize=m_textSize;
-- (id).cxx_construct;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
+@property(readonly, nonatomic) float cachedWidth;
+@property(readonly, nonatomic) BOOL cacheDeferable;
+- (void)displayLayer:(id)arg1;
+- (BOOL)shouldCache;
+- (id)cacheKey;
 @property(nonatomic) BOOL highlighted;
 - (void)dealloc;
 - (id)initWithCandidate:(id)arg1 tag:(int)arg2 target:(id)arg3 action:(SEL)arg4;

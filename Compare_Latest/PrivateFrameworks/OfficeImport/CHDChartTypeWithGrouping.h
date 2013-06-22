@@ -11,11 +11,11 @@
     int mGrouping;
 }
 
-- (id)initWithChart:(id)arg1;
-- (int)grouping;
-- (void)setGrouping:(int)arg1;
-- (_Bool)isGroupingStacked;
 - (id)chdGroupingString;
+- (_Bool)isGroupingStacked;
+- (void)setGrouping:(int)arg1;
+- (int)grouping;
+- (id)initWithChart:(id)arg1;
 
 @end
 

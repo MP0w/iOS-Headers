@@ -12,7 +12,9 @@
 
 + (id)sharedMessageCenter;
 - (BOOL)getCharacterCount:(int *)arg1 andMessageSplitThreshold:(int *)arg2 forSmsText:(id)arg3;
+- (BOOL)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3 withMoreToFollow:(BOOL)arg4 withID:(unsigned int)arg5;
 - (BOOL)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3 withMoreToFollow:(BOOL)arg4;
+- (BOOL)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3 withID:(unsigned int)arg4;
 - (BOOL)sendSMSWithText:(id)arg1 serviceCenter:(id)arg2 toAddress:(id)arg3;
 - (BOOL)isMmsConfigured;
 - (BOOL)isMmsEnabled;
@@ -26,14 +28,16 @@
 - (void)acknowledgeOutgoingMessageWithId:(unsigned int)arg1;
 - (void)acknowledgeIncomingMessageWithId:(unsigned int)arg1;
 - (id)allIncomingMessages;
+- (void)addMessageOfType:(int)arg1 toArray:(id)arg2 withIdsFromArray:(id)arg3;
 - (int)incomingMessageCount;
-- (id)incomingMessageWithId:(unsigned int)arg1 telephonyCenter:(struct __CTTelephonyCenter *)arg2 isDeferred:(BOOL)arg3;
+- (id)incomingMessageWithId:(unsigned int)arg1 isDeferred:(BOOL)arg2;
 - (CDStruct_1ef3fb1f)send:(id)arg1 withMoreToFollow:(BOOL)arg2;
 - (CDStruct_1ef3fb1f)send:(id)arg1;
 - (CDStruct_1ef3fb1f)sendMMS:(id)arg1;
 - (void)sendMessageAsSmsToShortCodeRecipients:(id)arg1 andReplaceData:(id *)arg2;
 - (CDStruct_1ef3fb1f)sendMMSFromData:(id)arg1 messageId:(unsigned int)arg2;
 - (CDStruct_1ef3fb1f)sendSMS:(id)arg1 withMoreToFollow:(BOOL)arg2;
+- (void)dealloc;
 - (id)init;
 
 @end

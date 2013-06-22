@@ -11,8 +11,8 @@
     int mDirection;
 }
 
-- (int)direction;
 - (void)setDirection:(int)arg1;
+- (int)direction;
 
 @end
 

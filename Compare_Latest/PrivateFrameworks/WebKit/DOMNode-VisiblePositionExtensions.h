@@ -7,8 +7,8 @@
 #import "DOMNode.h"
 
 @interface DOMNode (VisiblePositionExtensions)
-- (id)rangeOfContents;
-- (id)startPosition;
 - (id)endPosition;
+- (id)startPosition;
+- (id)rangeOfContents;
 @end
 

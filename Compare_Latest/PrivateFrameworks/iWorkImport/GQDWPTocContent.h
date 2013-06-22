@@ -11,8 +11,8 @@
     struct __CFArray *mChildren;
 }
 
-- (void)dealloc;
 - (struct __CFArray *)children;
+- (void)dealloc;
 
 @end
 

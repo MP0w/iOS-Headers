@@ -11,10 +11,10 @@
     int mPresetTextWarpType;
 }
 
-- (int)presetTextWarpType;
-- (void)setPresetTextWarpType:(int)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setPresetTextWarpType:(int)arg1;
+- (int)presetTextWarpType;
 
 @end
 

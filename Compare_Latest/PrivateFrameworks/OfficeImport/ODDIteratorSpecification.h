@@ -13,10 +13,10 @@
     NSMutableArray *mAttributesList;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)attributesList;
 - (void)addAttributes:(id)arg1;
+- (id)attributesList;
+- (void)dealloc;
+- (id)init;
 
 @end
 

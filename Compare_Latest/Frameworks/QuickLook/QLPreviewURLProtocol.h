@@ -10,26 +10,26 @@
 {
 }
 
-+ (void)initialize;
-+ (id)newUniqueURLWithName:(id)arg1;
-+ (id)newURLWithContentID:(id)arg1 baseURL:(id)arg2;
-+ (void)registerPreview:(id)arg1;
-+ (void)registerURL:(id)arg1 mimeType:(id)arg2 textEncoding:(id)arg3;
-+ (id)_errorForAbort;
-+ (id)_errorForCancel;
-+ (id)_errorForNoPreview;
-+ (void)_unregisterURL:(id)arg1;
-+ (void)unregisterURLs:(id)arg1 andPreview:(id)arg2;
-+ (void)appendData:(id)arg1 forURL:(id)arg2 lastChunk:(BOOL)arg3;
-+ (void)setError:(id)arg1 forURL:(id)arg2;
-+ (id)errorForURL:(id)arg1;
-+ (void)startLoadingProtocol:(id)arg1;
-+ (void)stopLoadingProtocol:(id)arg1;
-+ (BOOL)canInitWithRequest:(id)arg1;
-+ (id)canonicalRequestForRequest:(id)arg1;
 + (id)mimeTypeForAttachmentURL:(id)arg1;
-- (void)startLoading;
++ (id)canonicalRequestForRequest:(id)arg1;
++ (BOOL)canInitWithRequest:(id)arg1;
++ (void)stopLoadingProtocol:(id)arg1;
++ (void)startLoadingProtocol:(id)arg1;
++ (id)errorForURL:(id)arg1;
++ (void)setError:(id)arg1 forURL:(id)arg2;
++ (void)appendData:(id)arg1 forURL:(id)arg2 lastChunk:(BOOL)arg3;
++ (void)unregisterURLs:(id)arg1 andPreview:(id)arg2;
++ (void)_unregisterURL:(id)arg1;
++ (id)_errorForNoPreview;
++ (id)_errorForCancel;
++ (id)_errorForAbort;
++ (void)registerURL:(id)arg1 mimeType:(id)arg2 textEncoding:(id)arg3;
++ (void)registerPreview:(id)arg1;
++ (id)newURLWithContentID:(id)arg1 baseURL:(id)arg2;
++ (id)newUniqueURLWithName:(id)arg1;
++ (void)initialize;
 - (void)stopLoading;
+- (void)startLoading;
 
 @end
 

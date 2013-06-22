@@ -13,21 +13,21 @@
     WDListLevel *mListLevel;
     WDDocument *mDocument;
     unsigned char mLevel;
-    int mStartNumber;
+    long mStartNumber;
     BOOL mStartNumberOverridden;
 }
 
-- (id)initWithDocument:(id)arg1;
-- (void)dealloc;
-- (id)document;
-- (unsigned char)level;
-- (void)setLevel:(unsigned char)arg1;
-- (long)startNumber;
-- (void)setStartNumber:(long)arg1;
-- (BOOL)isStartNumberOverridden;
-- (id)listLevel;
-- (id)mutableListLevel;
 - (BOOL)isListLevelOverridden;
+- (id)mutableListLevel;
+- (id)listLevel;
+- (BOOL)isStartNumberOverridden;
+- (void)setStartNumber:(long)arg1;
+- (long)startNumber;
+- (void)setLevel:(unsigned char)arg1;
+- (unsigned char)level;
+- (id)document;
+- (void)dealloc;
+- (id)initWithDocument:(id)arg1;
 
 @end
 

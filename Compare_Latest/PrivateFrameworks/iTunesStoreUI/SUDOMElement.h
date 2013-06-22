@@ -6,18 +6,23 @@
 
 #import "NSObject.h"
 
-@class DOMElement, SUWebView, UIImage;
+@class DOMElement, NSString, UIImage, UIWebView;
 
 @interface SUDOMElement : NSObject
 {
     DOMElement *_element;
     UIImage *_image;
-    SUWebView *_webView;
+    UIWebView *_webView;
 }
 
-@property(retain, nonatomic) SUWebView *webView; // @synthesize webView=_webView;
++ (struct CGRect)frameForDOMElement:(id)arg1;
+@property(retain, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
 @property(readonly, nonatomic) DOMElement *element; // @synthesize element=_element;
+- (struct CGRect)_frame;
 - (void)setProperty:(id)arg1 value:(id)arg2;
+- (id)newLabelForElementWithText:(id)arg1;
+- (id)newImageView;
+@property(readonly, nonatomic) NSString *innerText;
 @property(readonly, nonatomic) UIImage *imageRepresentation;
 @property(readonly, nonatomic) struct CGRect frame;
 - (void)dealloc;

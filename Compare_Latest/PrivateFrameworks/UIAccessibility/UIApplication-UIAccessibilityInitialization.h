@@ -7,6 +7,7 @@
 #import "UIApplication.h"
 
 @interface UIApplication (UIAccessibilityInitialization)
-- (BOOL)_accessibilityIsSystemWideServer;
+- (BOOL)_accessibilitySystemAppServerIsReady;
+- (BOOL)_accessibilityIsSystemAppServer;
 @end
 

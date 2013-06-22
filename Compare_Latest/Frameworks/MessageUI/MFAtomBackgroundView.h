@@ -13,11 +13,11 @@
     float _scalingFactor;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
-- (void)drawRect:(struct CGRect)arg1;
+@property(nonatomic) float scalingFactor; // @synthesize scalingFactor=_scalingFactor;
 @property(nonatomic) BOOL selected; // @synthesize selected=_selected;
 @property(nonatomic) int style; // @synthesize style=_style;
-@property(nonatomic) float scalingFactor; // @synthesize scalingFactor=_scalingFactor;
+- (void)drawRect:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 
 @end
 

@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-#import "PLCachedFilesManagerPlugin-Protocol.h"
 #import "PLPhotoBakedThumbnailsDelegate-Protocol.h"
 
 @class NSLock, NSMutableDictionary, PLPhotoLibrary;
 
-@interface PLBakedVideoFilesCacheCreator : NSObject <PLPhotoBakedThumbnailsDelegate, PLCachedFilesManagerPlugin>
+@interface PLBakedVideoFilesCacheCreator : NSObject <PLPhotoBakedThumbnailsDelegate>
 {
     BOOL _cancelPostProcessing;
     NSLock *_cancellationLock;

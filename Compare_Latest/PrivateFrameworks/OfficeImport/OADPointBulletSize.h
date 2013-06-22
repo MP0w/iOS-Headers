@@ -11,10 +11,10 @@
     int mPoints;
 }
 
-- (id)initWithPoints:(int)arg1;
-- (int)points;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (int)points;
+- (id)initWithPoints:(int)arg1;
 
 @end
 

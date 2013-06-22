@@ -10,38 +10,42 @@
 
 @interface MPDetailSlider : UISlider
 {
-    unsigned int _allowsDetailScrubbing:1;
+    UILabel *_currentTimeInverseLabel;
+    UILabel *_currentTimeLabel;
+    BOOL _allowsScrubbing;
+    BOOL _allowsDetailScrubbing;
+    BOOL _autoscrubActive;
+    NSTimer *_autoscrubTimer;
+    double _availableDuration;
+    struct CGPoint _beginLocationInView;
+    BOOL _canCommit;
+    double _currentTime;
     id _delegate;
     float _detailScrubbingVerticalRange;
+    BOOL _didBeginTracking;
     UIImageView *_downloadingTrackOverlay;
-    UIImageView *_thumbImageView;
-    UIImageView *_glowDetailScrubImageView;
-    unsigned int _isTracking:1;
-    unsigned int _didBeginTracking:1;
-    unsigned int _needsCommit:1;
-    unsigned int _canCommit:1;
-    struct CGPoint _beginLocationInView;
-    struct CGPoint _previousLocationInView;
-    struct CGPoint _lastCommittedLocationInView;
-    double _currentTime;
     double _duration;
-    double _availableDuration;
+    BOOL _durationAllowsDetailScrubbing;
+    UIImageView *_glowDetailScrubImageView;
+    BOOL _isTracking;
+    struct CGPoint _lastCommittedLocationInView;
     float _minScale;
-    unsigned int _durationAllowsDetailScrubbing:1;
-    UILabel *_currentTimeLabel;
-    UILabel *_currentTimeInverseLabel;
-    float _trackInset;
+    float _minTimeLabelWidth;
     float _maxTrackWidth;
+    BOOL _needsCommit;
+    struct CGPoint _previousLocationInView;
+    int _scrubValue;
+    int _style;
     struct UIEdgeInsets _timeLabelInsets;
     int _timeLabelStyle;
-    int _scrubValue;
-    unsigned int _autoscrubActive:1;
-    NSTimer *_autoscrubTimer;
-    int _style;
+    UIImageView *_thumbImageView;
+    float _trackInset;
 }
 
 + (Class)labelClass;
 + (float)defaultHeight;
+@property(nonatomic) BOOL allowsScrubbing; // @synthesize allowsScrubbing=_allowsScrubbing;
+@property(nonatomic) float minTimeLabelWidth; // @synthesize minTimeLabelWidth=_minTimeLabelWidth;
 @property(nonatomic) int timeLabelStyle; // @synthesize timeLabelStyle=_timeLabelStyle;
 @property(nonatomic) struct UIEdgeInsets timeLabelInsets; // @synthesize timeLabelInsets=_timeLabelInsets;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
@@ -67,10 +71,10 @@
 - (struct CGSize)timeLabelShadowOffsetForStyle:(int)arg1;
 - (id)timeLabelShadowColorForStyle:(int)arg1;
 - (id)timeLabelFontForStyle:(int)arg1;
-@property(readonly, nonatomic) NSString *localizedScrubSpeedText;
-- (void)cancelTracking;
-@property(readonly, nonatomic) BOOL detailScrubbingAvailableForCurrentDuration;
 @property(nonatomic) BOOL allowsDetailScrubbing;
+@property(readonly, nonatomic) NSString *localizedScrubSpeedText;
+@property(readonly, nonatomic) BOOL detailScrubbingAvailableForCurrentDuration;
+- (void)cancelTracking;
 - (BOOL)isTracking;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;

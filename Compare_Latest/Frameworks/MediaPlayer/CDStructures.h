@@ -4,18 +4,9 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@class AVPlayerItemAccessLog, AVPlayerItemAccessLogEvent, AVPlayerItemErrorLog, AVPlayerItemErrorLogEvent, CADisplayLink, MPMediaItem, MPMediaLibrary, MPMediaQueryCriteria, NSArray, NSCache, NSDictionary, NSHashTable, NSString, UIImage;
+@class AVPlayerItemAccessLog, AVPlayerItemAccessLogEvent, AVPlayerItemErrorLog, AVPlayerItemErrorLogEvent, MPMediaItem, MPMediaLibrary, MPMediaQuery, MPMediaQueryCriteria, NSArray, NSString, UIImage;
 
 #pragma mark Named Structures
-
-struct CGAffineTransform {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-    float _field6;
-};
 
 struct CGPoint {
     float x;
@@ -39,6 +30,7 @@ struct MLArtworkFormatSpec {
     unsigned int _field4;
     int _field5;
     int _field6;
+    char _field7;
 };
 
 struct MLArtworkInstanceInfo {
@@ -52,56 +44,10 @@ struct MPMediaItemArtworkInternal {
 
 struct MPMediaItemCollectionInternal {
     NSArray *_items;
+    MPMediaQuery *_itemsQuery;
     unsigned int _itemsCount;
     MPMediaItem *_representativeItem;
     int _containedMediaTypes;
-};
-
-struct MPMediaLibraryInternal {
-    id _libraryDataProvider;
-    int _libraryChangeObservers;
-    struct dispatch_queue_s *_entityCacheQueue;
-    NSCache *_itemsForCriteriaCache;
-    NSCache *_collectionsForCriteriaCache;
-    NSHashTable *_connectionAssertions;
-    char _disconnectAfterReleasingAssertions;
-    float _connectionProgress;
-    CADisplayLink *_connectionProgressDisplayLink;
-    double _connectionProgressStartTime;
-    int _removalReason;
-    unsigned int _filteringDisabled:1;
-    unsigned int _determinedHasMedia:1;
-    unsigned int _hasMedia:1;
-    unsigned int _determinedHasSongs:1;
-    unsigned int _hasSongs:1;
-    unsigned int _determinedHasGeniusMixes:1;
-    unsigned int _hasGeniusMixes:1;
-    unsigned int _determinedHasPlaylists:1;
-    unsigned int _hasPlaylists:1;
-    unsigned int _determinedHasComposers:1;
-    unsigned int _hasComposers:1;
-    unsigned int _determinedHasPodcasts:1;
-    unsigned int _hasPodcasts:1;
-    unsigned int _determinedHasAudiobooks:1;
-    unsigned int _hasAudiobooks:1;
-    char _hasVideos;
-    char _determinedHasVideos;
-    char _hasMusicVideos;
-    char _determinedHasMusicVideos;
-    char _hasAudibleAudioBooks;
-    char _determinedHasAudibleAudioBooks;
-    char _hasMovies;
-    char _determinedHasMovies;
-    char _hasCompilations;
-    char _determinedHasCompilations;
-    char _hasITunesU;
-    char _determinedHasITunesU;
-    char _hasMovieRentals;
-    char _determinedHasMovieRentals;
-    char _hasTVShows;
-    char _determinedHasTVShows;
-    char _hasVideoPodcasts;
-    char _determinedHasVideoPodcasts;
 };
 
 struct MPMediaPropertyPredicateInternal {
@@ -134,10 +80,6 @@ struct MPMovieErrorLogInternal {
     AVPlayerItemErrorLog *errorLog;
 };
 
-struct MPNowPlayingInfoCenterInternal {
-    NSDictionary *nowPlayingInfo;
-};
-
 struct UIEdgeInsets {
     float top;
     float left;
@@ -149,8 +91,6 @@ struct _NSRange {
     unsigned int location;
     unsigned int length;
 };
-
-struct dispatch_queue_s;
 
 #pragma mark Typedef'd Structures
 
@@ -164,4 +104,26 @@ typedef struct {
     unsigned int flags;
     long long epoch;
 } CDStruct_1b6d18a9;
+
+typedef struct {
+    int _field1;
+    id _field2;
+    float _field3;
+    int _field4;
+    int _field5;
+    struct UIEdgeInsets _field6;
+    struct UIEdgeInsets _field7;
+    id _field8;
+    id _field9;
+    struct {
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+        float _field5;
+        float _field6;
+        float _field7;
+        float _field8;
+    } _field10;
+} CDStruct_1d16deb2;
 

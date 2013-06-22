@@ -8,11 +8,12 @@
 
 #import "ISOperationDelegate-Protocol.h"
 
-@class NSMutableArray, SUMediaPlayerItem, UIView;
+@class NSMutableArray, SUClientInterface, SUMediaPlayerItem, UIView;
 
 @interface SUMediaPlayerViewController : MPMoviePlayerViewController <ISOperationDelegate>
 {
     UIView *_backgroundContainerView;
+    SUClientInterface *_clientInterface;
     SUMediaPlayerItem *_mediaItem;
     NSMutableArray *_operations;
     int _playerState;
@@ -23,6 +24,7 @@
 + (void)sendPlaybackPingRequestsForMediaPlayerItem:(id)arg1;
 + (void)sendDownloadPingRequestsForMediaPlayerItem:(id)arg1;
 @property(readonly, nonatomic) SUMediaPlayerItem *mediaPlayerItem; // @synthesize mediaPlayerItem=_mediaItem;
+@property(retain, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 - (void)_showBackgroundImage:(id)arg1;
 - (void)_setIsActivePlayer:(BOOL)arg1;
 - (void)_prepareMediaItem;
@@ -40,8 +42,8 @@
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)purgeMemoryForReason:(int)arg1;
 - (void)loadView;
+- (void)didReceiveMemoryWarning;
 - (id)copyScriptViewController;
 - (void)dealloc;
 - (id)initWithMediaPlayerItem:(id)arg1;

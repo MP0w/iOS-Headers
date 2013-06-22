@@ -25,10 +25,8 @@
     NSData *thumbnailImage;
 }
 
-+ (id)currentJob;
 + (id)jobs;
-- (int)cancel;
-- (int)update;
++ (id)currentJob;
 @property(retain, nonatomic) NSData *thumbnailImage; // @synthesize thumbnailImage;
 @property(retain, nonatomic) NSDate *timeAtProcessing; // @synthesize timeAtProcessing;
 @property(retain, nonatomic) NSDate *timeAtCreation; // @synthesize timeAtCreation;
@@ -42,6 +40,8 @@
 @property(nonatomic) int mediaSheets; // @synthesize mediaSheets;
 @property(nonatomic) int mediaProgress; // @synthesize mediaProgress;
 @property(nonatomic) int number; // @synthesize number;
+- (int)update;
+- (int)cancel;
 
 @end
 

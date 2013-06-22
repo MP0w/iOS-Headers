@@ -8,13 +8,10 @@
 
 @interface NSString (NSStringExtras)
 + (id)newUUID;
-- (id)stringBySubstitutingHTMLEntitiesForAmpersandAndAngleBrackets;
-- (BOOL)isSyndicationScheme;
-- (BOOL)isSyndicationURLString;
-- (BOOL)isFeedURLString;
-- (BOOL)isConfigProfileMIMEType;
-- (int)compareDomain:(id)arg1;
-- (id)canonicalQueryValue;
 - (id)stringByStrippingEmojiCharacters;
+- (id)canonicalQueryValue;
+- (int)compareDomain:(id)arg1;
+- (BOOL)isConfigProfileMIMEType;
+- (id)stringBySubstitutingHTMLEntitiesForAmpersandAndAngleBrackets;
 @end
 

@@ -21,14 +21,13 @@
 @property(readonly, nonatomic) BOOL networkReachable;
 @property(readonly, nonatomic) BOOL networkActive;
 @property(readonly, nonatomic) BOOL networkEnabled;
+@property(readonly, nonatomic) BOOL dataActiveAndReachable;
 @property(readonly, nonatomic) BOOL willSearchForNetwork;
 @property(readonly, nonatomic) BOOL wiFiActiveAndReachable;
 @property(readonly, nonatomic) BOOL validNetworkReachable;
 @property(readonly, nonatomic) BOOL validNetworkActive;
 @property(readonly, nonatomic) BOOL validNetworkEnabled;
 @property(readonly, nonatomic) BOOL allowAnyNetwork;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
 
 @end
 

@@ -14,18 +14,18 @@
     OADTextBody *mTextBody;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)setGeometry:(id)arg1;
-- (id)geometry;
-- (int)type;
-- (id)shapeProperties;
-- (id)textBody;
-- (void)setTextBody:(id)arg1;
-- (void)setParentTextListStyle:(id)arg1;
-- (void)flattenProperties;
-- (void)removeUnnecessaryOverrides;
 - (void)createPresetGeometryWithShapeType:(int)arg1;
+- (void)removeUnnecessaryOverrides;
+- (void)flattenProperties;
+- (void)setParentTextListStyle:(id)arg1;
+- (void)setTextBody:(id)arg1;
+- (id)textBody;
+- (id)shapeProperties;
+- (int)type;
+- (id)geometry;
+- (void)setGeometry:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

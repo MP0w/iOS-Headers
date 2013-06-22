@@ -18,22 +18,22 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)beginMonitoring;
-- (void)endMonitoring;
-- (void)gotLowBatteryWarning;
-- (void)_appSyncStateChanged;
-- (void)_setAppSyncState:(BOOL)arg1;
-- (void)_updateIconsForStateChange;
-@property(readonly, nonatomic) BOOL isRestoringFromICloud;
-- (void)_iCloudStatusChanged;
-- (void)_beginObservingICloudRestoreStatus;
-- (void)_endObservingICloudRestoreStatus;
 @property(readonly, nonatomic) BOOL isWirelessSyncing; // @synthesize isWirelessSyncing=_isWirelessSyncing;
 @property(readonly, nonatomic) BOOL isAutoSyncing; // @synthesize isAutoSyncing=_isAutoSyncing;
 @property(readonly, nonatomic) BOOL isSyncing; // @synthesize isSyncing=_isSyncing;
 @property(readonly, nonatomic) BOOL isAppSyncing; // @synthesize isAppSyncing=_isAppSyncing;
+- (void)_endObservingICloudRestoreStatus;
+- (void)_beginObservingICloudRestoreStatus;
+- (void)_iCloudStatusChanged;
+@property(readonly, nonatomic) BOOL isRestoringFromICloud;
+- (void)_updateIconsForStateChange;
+- (void)_setAppSyncState:(BOOL)arg1;
+- (void)_appSyncStateChanged;
+- (void)gotLowBatteryWarning;
+- (void)endMonitoring;
+- (void)beginMonitoring;
+- (void)dealloc;
+- (id)init;
 
 @end
 

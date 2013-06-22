@@ -4,37 +4,26 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <ApplePushService/APSMessage.h>
 
-@class NSDictionary, NSMutableDictionary, NSString;
-
-@interface APSOutgoingMessage : NSObject
+@interface APSOutgoingMessage : APSMessage
 {
-    NSMutableDictionary *_objects;
 }
 
-- (id)initWithTopic:(id)arg1 userInfo:(id)arg2;
-- (id)initWithData:(id)arg1;
-- (void)dealloc;
-- (unsigned int)messageID;
-- (void)setMessageID:(unsigned int)arg1;
-- (id)timestamp;
-- (void)setTimestamp:(id)arg1;
-@property(retain, nonatomic) NSString *topic;
-@property(retain, nonatomic) NSDictionary *userInfo;
-@property(nonatomic) unsigned int timeout;
-@property(nonatomic, getter=isCritical) BOOL critical;
-- (BOOL)wasSent;
-- (void)setSent:(BOOL)arg1;
-- (BOOL)wasCancelled;
-- (void)setCancelled:(BOOL)arg1;
-- (BOOL)hasTimedOut;
-- (void)setTimedOut:(BOOL)arg1;
+@property(nonatomic) unsigned int payloadLength;
 @property(nonatomic) int payloadFormat;
-@property(nonatomic) unsigned int identifier;
-- (id)data;
-- (id)objectForKey:(id)arg1;
-- (void)setObject:(id)arg1 forKey:(id)arg2;
+- (void)setTimedOut:(BOOL)arg1;
+- (BOOL)hasTimedOut;
+- (void)setCancelled:(BOOL)arg1;
+- (BOOL)wasCancelled;
+- (void)setSent:(BOOL)arg1;
+- (BOOL)wasSent;
+@property(nonatomic, getter=isCritical) BOOL critical;
+@property(nonatomic) unsigned int timeout;
+- (void)setTimestamp:(id)arg1;
+- (id)timestamp;
+- (void)setMessageID:(unsigned int)arg1;
+- (unsigned int)messageID;
 
 @end
 

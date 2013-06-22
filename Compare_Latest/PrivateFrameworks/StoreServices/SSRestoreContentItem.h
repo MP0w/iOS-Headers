@@ -12,11 +12,13 @@
 {
     NSNumber *_accountID;
     NSString *_appleID;
+    NSString *_bundleID;
     NSNumber *_cloudMatchStatus;
     BOOL _isRestore;
     NSMutableDictionary *_properties;
 }
 
+@property(copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 - (void)_setValue:(id)arg1 forProperty:(id)arg2;
 - (id)_restoreKeyForDownloadProperty:(id)arg1;
 - (id)_restoreKeyForAssetProperty:(id)arg1;
@@ -29,6 +31,7 @@
 @property(copy, nonatomic) NSString *storeAccountAppleID;
 - (void)setValue:(id)arg1 forDownloadProperty:(id)arg2;
 - (void)setValue:(id)arg1 forAssetProperty:(id)arg2;
+@property(copy, nonatomic) NSString *podcastEpisodeGUID;
 @property(nonatomic, getter=isDRMFree) BOOL DRMFree;
 @property(copy, nonatomic) NSString *downloadKind;
 @property(retain, nonatomic) NSNumber *cloudMatchStatus;

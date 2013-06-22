@@ -18,35 +18,37 @@
     NSInvocation *_pendingDeactivationInvocation;
 }
 
-- (id)init;
-- (void)requestActivationAnimated:(BOOL)arg1 animateCurrentDisplayOut:(BOOL)arg2 withDelay:(BOOL)arg3;
-- (void)requestDeactivationAnimated:(BOOL)arg1 animateOldDisplayInWithStyle:(int)arg2;
-- (BOOL)isSlidingViewController;
-- (BOOL)allowSuspension;
-- (BOOL)displaysAboveStatusBar;
-- (void)viewWillAnimateOut;
-- (void)viewDidLoad;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)animateViewOut;
-- (void)finishedAnimatingIn;
-- (void)finishedAnimatingOut;
-- (void)didReceiveMemoryWarning;
-- (void)viewDidUnload;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)viewIsReadyToBeRemoved;
-- (BOOL)hasTranslucentBackground;
-- (BOOL)handleLockButtonPressed;
-- (BOOL)handleVolumeUpButtonPressed;
-- (BOOL)handleVolumeDownButtonPressed;
-- (BOOL)handleMenuButtonTap;
-- (BOOL)handleHeadsetButtonPressed:(BOOL)arg1;
-- (void)didFinishLaunchingFrontmost;
-- (void)setPendingDeactivationInvocation:(id)arg1;
-- (id)pendingDeactivationInvocation;
 @property(retain, nonatomic) NSString *activationContext; // @synthesize activationContext=_activationContext;
 @property(retain, nonatomic) NSNumber *animationStartTime; // @synthesize animationStartTime=_animationStartTime;
 @property(nonatomic) BOOL shouldAnimateIn; // @synthesize shouldAnimateIn=_shouldAnimateIn;
+- (id)pendingDeactivationInvocation;
+- (void)setPendingDeactivationInvocation:(id)arg1;
+- (void)didFinishLaunchingFrontmost;
+- (void)handleAutoLock;
+- (BOOL)handleHeadsetButtonPressed:(BOOL)arg1;
+- (BOOL)handleMenuButtonTap;
+- (BOOL)handleVolumeDownButtonPressed;
+- (BOOL)handleVolumeUpButtonPressed;
+- (BOOL)handleLockButtonPressed;
+- (BOOL)allowStackingOfAlert:(id)arg1;
+- (BOOL)hasTranslucentBackground;
+- (BOOL)viewIsReadyToBeRemoved;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (void)viewDidUnload;
+- (void)didReceiveMemoryWarning;
+- (void)finishedAnimatingOut;
+- (void)finishedAnimatingIn;
+- (void)animateViewOut;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)viewDidLoad;
+- (void)viewWillAnimateOut;
+- (BOOL)displaysAboveStatusBar;
+- (BOOL)allowSuspension;
+- (BOOL)isSlidingViewController;
+- (void)requestDeactivationAnimated:(BOOL)arg1 animateOldDisplayInWithStyle:(int)arg2;
+- (void)requestActivationAnimated:(BOOL)arg1 animateCurrentDisplayOut:(BOOL)arg2 withDelay:(BOOL)arg3;
+- (id)init;
 
 @end
 

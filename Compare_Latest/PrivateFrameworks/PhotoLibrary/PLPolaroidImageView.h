@@ -27,7 +27,7 @@
 - (void)setPosterImage:(id)arg1 regionOfInterest:(struct CGRect)arg2;
 @property(retain, nonatomic) UIImage *posterImage;
 - (void)setTransitionProgress:(float)arg1;
-- (void)setBorderVisible:(BOOL)arg1;
+- (void)setBorderAndAccessoriesVisible:(BOOL)arg1;
 - (float)_tunedProgress;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

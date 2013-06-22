@@ -18,11 +18,11 @@
     NSArray *_stack;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)data;
-- (int)appendData:(id)arg1;
 - (void)done;
+- (int)appendData:(id)arg1;
+- (id)data;
+- (void)dealloc;
+- (id)init;
 
 @end
 

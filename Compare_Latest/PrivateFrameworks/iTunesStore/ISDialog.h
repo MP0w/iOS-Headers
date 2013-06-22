@@ -16,6 +16,7 @@
     NSArray *_buttons;
     int _defaultButtonIndex;
     NSString *_displayCountKey;
+    BOOL _dismissOnHomeButton;
     BOOL _dismissOnLock;
     BOOL _expectsResponse;
     BOOL _groupsTextFields;
@@ -32,6 +33,7 @@
     NSString *_title;
     int _unlockActionButtonIndex;
     NSMutableDictionary *_userInfo;
+    struct __CFDictionary *_userNotificationValues;
 }
 
 + (int)displayCountForKey:(id)arg1;
@@ -48,6 +50,7 @@
 @property BOOL groupsTextFields; // @synthesize groupsTextFields=_groupsTextFields;
 @property BOOL expectsResponse; // @synthesize expectsResponse=_expectsResponse;
 @property BOOL dismissOnLock; // @synthesize dismissOnLock=_dismissOnLock;
+@property BOOL dismissOnHomeButton; // @synthesize dismissOnHomeButton=_dismissOnHomeButton;
 @property int defaultButtonIndex; // @synthesize defaultButtonIndex=_defaultButtonIndex;
 @property(retain) NSArray *buttons; // @synthesize buttons=_buttons;
 @property BOOL authorizationIsForced; // @synthesize authorizationIsForced=_authorizationIsForced;
@@ -55,12 +58,14 @@
 @property BOOL allowDuplicates; // @synthesize allowDuplicates=_allowDuplicates;
 - (int)_kindForString:(id)arg1;
 - (id)valueForUserInfoKey:(id)arg1;
+- (void)setValue:(void *)arg1 forCFUserNotificationKey:(struct __CFString *)arg2;
 - (void)setValue:(id)arg1 forUserInfoKey:(id)arg2;
 @property int maximumDisplayCount;
 @property(copy) NSString *displayCountKey;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, getter=isDisplayable) BOOL displayable;
 - (void)incrementDisplayCount;
+- (void *)copyValueForCFUserNotificationKey:(struct __CFString *)arg1;
 - (id)copyUserNotification;
 - (void)dealloc;
 - (id)initWithTitle:(id)arg1 message:(id)arg2;
@@ -68,6 +73,7 @@
 - (id)initWithError:(id)arg1;
 - (id)initWithDialogDictionary:(id)arg1;
 - (id)init;
+- (id)initWithAuthenticationChallege:(id)arg1;
 
 @end
 

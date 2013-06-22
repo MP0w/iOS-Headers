@@ -6,61 +6,59 @@
 
 #import "NSObject.h"
 
-@class CKAggregateConversation, NSMutableArray, NSMutableDictionary;
+@class CKConversation, FTCConnectionHandler, NSMutableArray;
 
 @interface CKConversationList : NSObject
 {
-    NSMutableArray *_conversations;
-    CKAggregateConversation *_pendingConversation;
-    BOOL _fullyLoaded;
+    NSMutableArray *_trackedConversations;
+    CKConversation *_pendingConversation;
+    FTCConnectionHandler *_connectionHandler;
     BOOL _loadingConversations;
-    BOOL _needsIncomingConversations;
-    NSMutableDictionary *_recipientHashToConversations;
+    BOOL _loadedConversations;
 }
 
 + (id)sharedConversationList;
-- (id)init;
-- (void)dealloc;
-- (id)_recipientForMessage:(id)arg1;
-- (id)_newConversationForMessage:(id)arg1 groupID:(id)arg2 recipientAddresses:(id)arg3 service:(id)arg4 aggregateConversation:(id *)arg5 updatesDisabled:(BOOL)arg6;
-- (id)_newConversationForMessage:(id)arg1 groupID:(id)arg2 service:(id)arg3 aggregateConversation:(id *)arg4 updatesDisabled:(BOOL)arg5;
-- (id)_conversationForMessage:(id)arg1 groupID:(id)arg2 create:(BOOL)arg3 service:(id)arg4 aggregateConversation:(id *)arg5;
-- (id)_conversationForRecipients:(id)arg1 create:(BOOL)arg2 service:(id)arg3 aggregateConversation:(id *)arg4;
-- (id)aggregateConversationForRecipients:(id)arg1 create:(BOOL)arg2 service:(id)arg3;
-- (id)conversationForRecipients:(id)arg1 create:(BOOL)arg2 service:(id)arg3;
-- (id)conversationForGroupID:(id)arg1 service:(id)arg2;
-- (id)conversationForGroupID:(id)arg1 create:(BOOL)arg2 service:(id)arg3;
-- (id)existingConversationForGroupID:(id)arg1;
-- (id)existingAggregateConversationForGroupID:(id)arg1;
-- (id)conversationForMessage:(id)arg1 create:(BOOL)arg2 service:(id)arg3;
-- (id)recipientsByService:(id)arg1;
-- (id)aggregateConversationsForRecipients:(id)arg1 create:(BOOL)arg2;
-- (id)aggregateConversationForRecipients:(id)arg1 create:(BOOL)arg2;
-- (id)existingConversationForAddresses:(id)arg1;
-- (id)existingAggregateConversationForAddresses:(id)arg1;
-- (void)resetCaches;
-- (id)activeConversations;
-- (BOOL)containsConversation:(id)arg1;
-- (BOOL)hasActiveConversations;
-- (id)loadedConversations;
-- (void)reloadStaleConversations;
-- (void)reloadConversations;
-- (id)conversations;
-- (void)resort;
-- (void)_postConversationListChangedNotification;
-- (void)addConversation:(id)arg1;
-- (void)_addRecipientHash:(id)arg1;
-- (void)unpendConversation;
-- (void)applyPendingConversation;
-- (id)pendingConversation;
-- (int)unreadCount;
-- (int)unreadConversationCount;
-- (void)deleteConversationAtIndex:(int)arg1;
-- (void)removeConversation:(id)arg1;
-- (void)_abChanged:(id)arg1;
-- (id)pendingConversationCreatingIfNecessary;
-@property(readonly, nonatomic) BOOL needsIncomingConversations; // @synthesize needsIncomingConversations=_needsIncomingConversations;
+@property(readonly, nonatomic) FTCConnectionHandler *connectionHandler; // @synthesize connectionHandler=_connectionHandler;
 @property(readonly, nonatomic) BOOL loadingConversations; // @synthesize loadingConversations=_loadingConversations;
+- (void)_handleMemoryWarning:(id)arg1;
+- (id)_chatIdentifierForEntities:(id)arg1 createIfNecessary:(BOOL)arg2;
+- (id)pendingConversationCreatingIfNecessary;
+- (void)_abChanged:(id)arg1;
+- (void)deleteConversationAtIndex:(int)arg1;
+- (int)unreadFilteredConversationCount;
+- (int)unreadConversationCount;
+- (int)_unreadConversationCount:(BOOL)arg1;
+- (int)unreadCount;
+- (id)pendingConversation;
+- (void)unpendConversation;
+- (void)beginTrackingConversation:(id)arg1 forChat:(id)arg2;
+- (void)_postConversationListChangedNotification;
+- (void)resort;
+- (id)conversations;
+- (BOOL)reloadStaleConversations;
+- (BOOL)hasActiveConversations;
+- (id)activeConversations;
+@property(readonly, nonatomic) CKConversation *firstUnreadFilteredConversation;
+@property(readonly, nonatomic) CKConversation *firstUnreadConversation;
+- (id)_firstUnreadConversationWithFiltering:(BOOL)arg1;
+- (BOOL)_shouldFilterForParticipants:(id)arg1;
+- (void)resetCaches;
+- (id)conversationForExistingChatWithAddresses:(id)arg1;
+- (id)conversationForRecipients:(id)arg1 create:(BOOL)arg2;
+- (id)conversationForHandles:(id)arg1 create:(BOOL)arg2;
+- (id)_copyEntitiesForAddressStrings:(id)arg1;
+- (void)_handleRegistryWillUnregisterChatNotification:(id)arg1;
+- (void)_handleRegistryDidRegisterChatNotification:(id)arg1;
+- (void)_handleRegistryDidLoadChatNotification:(id)arg1;
+- (void)_beginTrackingAllExistingChatsIfNeeded;
+- (void)stopTrackingConversation:(id)arg1;
+- (id)conversationForExistingChatWithGUID:(id)arg1;
+- (id)conversationForExistingChatWithGroupID:(id)arg1;
+- (id)_conversationForChat:(id)arg1;
+- (id)_beginTrackingConversationWithChat:(id)arg1;
+- (id)_alreadyTrackedConversationForChat:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

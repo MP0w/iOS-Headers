@@ -14,9 +14,9 @@
     EDSheet *_currentSheet;
 }
 
-- (void)dealloc;
 @property EDSheet *currentSheet; // @synthesize currentSheet=_currentSheet;
 @property(retain) EDWorkbook *workbook; // @synthesize workbook=_workbook;
+- (void)dealloc;
 
 @end
 

@@ -11,10 +11,10 @@
     int mShapeType;
 }
 
-- (id)init;
-- (id)shallowCopy;
-- (int)shapeType;
 - (void)setShapeType:(int)arg1;
+- (int)shapeType;
+- (id)shallowCopy;
+- (id)init;
 
 @end
 

@@ -14,16 +14,16 @@
     OADColor *mToColor;
 }
 
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)fromColor;
-- (void)setFromColor:(id)arg1;
-- (id)toColor;
-- (void)setToColor:(id)arg1;
-- (void)setStyleColor:(id)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setStyleColor:(id)arg1;
+- (void)setToColor:(id)arg1;
+- (id)toColor;
+- (void)setFromColor:(id)arg1;
+- (id)fromColor;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

@@ -19,6 +19,6 @@
 - (void)renderSnapshotInContext:(struct CGContext *)arg1;
 - (void)setTextBadgeString:(id)arg1;
 - (void)setSize:(struct CGSize)arg1 angle:(float)arg2;
-- (void)expandWithAnimation:(BOOL)arg1;
+- (void)expandWithAnimation:(BOOL)arg1 completion:(id)arg2;
 @end
 

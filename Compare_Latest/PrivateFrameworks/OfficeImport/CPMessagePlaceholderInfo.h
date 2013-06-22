@@ -12,11 +12,11 @@
     BOOL mInUse;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)key;
-- (BOOL)isInUse;
 - (void)setInUse:(BOOL)arg1;
+- (BOOL)isInUse;
+- (id)key;
+- (void)dealloc;
+- (id)init;
 
 @end
 

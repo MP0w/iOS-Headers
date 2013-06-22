@@ -13,8 +13,9 @@
     WebGeolocationPositionInternal *_internal;
 }
 
-- (id)initWithTimestamp:(double)arg1 latitude:(double)arg2 longitude:(double)arg3 accuracy:(double)arg4;
 - (void)dealloc;
+- (id)initWithGeolocationPosition:(PassRefPtr_1f71bc30)arg1;
+- (id)initWithTimestamp:(double)arg1 latitude:(double)arg2 longitude:(double)arg3 accuracy:(double)arg4;
 
 @end
 

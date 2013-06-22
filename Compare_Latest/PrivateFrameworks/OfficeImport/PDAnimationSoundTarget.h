@@ -13,8 +13,8 @@
     NSString *mSoundFile;
 }
 
-- (id)init;
 - (void)dealloc;
+- (id)init;
 
 @end
 

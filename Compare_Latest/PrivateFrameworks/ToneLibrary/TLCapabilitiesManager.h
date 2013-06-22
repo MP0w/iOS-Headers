@@ -18,10 +18,8 @@
 @property(nonatomic) BOOL isRingtoneStoreAvailable; // @synthesize isRingtoneStoreAvailable=_isRingtoneStoreAvailable;
 - (void)_checkRingtoneStoreAvailability;
 - (BOOL)hasAdditionalTextTones;
-- (BOOL)areCustomVibrationsAllowed;
 - (BOOL)hasVibratorCapability;
 - (BOOL)hasTelephonyCapability;
-- (BOOL)isSensitiveUIAllowed;
 - (void)dealloc;
 - (id)init;
 

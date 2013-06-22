@@ -10,7 +10,9 @@
 {
 }
 
++ (void)writeText:(id)arg1 to:(id)arg2;
 + (void)readFrom:(id)arg1 text:(id)arg2 textRun:(struct WrdTextRun *)arg3;
++ (void)readBlocksFrom:(id)arg1 textRun:(struct WrdTextRun *)arg2 to:(id)arg3;
 
 @end
 

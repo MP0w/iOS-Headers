@@ -12,27 +12,27 @@
 {
 }
 
-+ (id)defaultValueForKey:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-- (void)didChangeValueForKey:(id)arg1;
-- (id)implicitAnimationForKeyPath:(id)arg1;
-- (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
-- (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
-@property(copy) NSArray *emitterCells;
-@property float birthRate;
-@property float lifetime;
-@property(copy) NSString *emitterShape;
-@property(copy) NSString *emitterMode;
-@property struct CGPoint emitterPosition;
-@property float emitterZPosition;
-@property struct CGSize emitterSize;
-@property float emitterDepth;
-@property float velocity;
-@property float scale;
-@property float spin;
-@property(copy) NSString *renderMode;
-@property BOOL preservesDepth;
++ (id)defaultValueForKey:(id)arg1;
 @property unsigned int seed;
+@property BOOL preservesDepth;
+@property(copy) NSString *renderMode;
+@property float spin;
+@property float scale;
+@property float velocity;
+@property float emitterDepth;
+@property struct CGSize emitterSize;
+@property float emitterZPosition;
+@property struct CGPoint emitterPosition;
+@property(copy) NSString *emitterMode;
+@property(copy) NSString *emitterShape;
+@property float lifetime;
+@property float birthRate;
+@property(copy) NSArray *emitterCells;
+- (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
+- (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
+- (id)implicitAnimationForKeyPath:(id)arg1;
+- (void)didChangeValueForKey:(id)arg1;
 
 @end
 

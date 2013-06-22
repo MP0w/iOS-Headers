@@ -17,15 +17,15 @@
     BOOL _usesAlternateButtonWidth;
 }
 
-- (id)initAsRed:(BOOL)arg1;
-- (void)dealloc;
-- (void)setEnabled:(BOOL)arg1;
-- (struct CGPoint)_offsetForMiniBarState:(BOOL)arg1;
-- (void)updateForMiniBarState:(BOOL)arg1;
-- (void)setTitle:(id)arg1;
-- (void)sizeToFit;
-- (void)layoutSubviews;
 @property(nonatomic) BOOL usesAlternateButtonWidth; // @synthesize usesAlternateButtonWidth=_usesAlternateButtonWidth;
+- (void)layoutSubviews;
+- (void)sizeToFit;
+- (void)setTitle:(id)arg1;
+- (void)updateForMiniBarState:(BOOL)arg1;
+- (struct CGPoint)_offsetForMiniBarState:(BOOL)arg1;
+- (void)setEnabled:(BOOL)arg1;
+- (void)dealloc;
+- (id)initAsRed:(BOOL)arg1;
 
 @end
 

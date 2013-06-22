@@ -7,8 +7,9 @@
 #import "DOMNode.h"
 
 @interface DOMNode (WebDOMNodeOperationsPrivate)
-- (BOOL)isHorizontalWritingMode;
-- (void)hidePlaceholder;
 - (void)showPlaceholderIfNecessary;
+- (void)hidePlaceholder;
+- (BOOL)isHorizontalWritingMode;
+- (id)webArchiveByFilteringSubframes:(id)arg1;
 @end
 

@@ -17,36 +17,37 @@
     NSString *_currentAudioRoute;
 }
 
-- (void)dealloc;
-- (void)setAVController:(id)arg1;
-- (void)invalidateAVController;
-- (void)setDelegate:(id)arg1;
-- (BOOL)auxiliaryAudioRoutesAvailable;
-- (BOOL)routeOtherThanHandsetIsAvailable;
-- (BOOL)routeOtherThanHandsetAndSpeakerIsAvailable;
-- (int)numberOfAudioRoutes;
-- (BOOL)pickSpeakerRoute;
-- (BOOL)pickHandsetRoute;
-- (BOOL)pickRouteWithUID:(id)arg1;
-- (void)restorePickedRoute;
-- (void)clearCachedRoutes;
-- (BOOL)speakerRouteIsPicked;
-- (BOOL)receiverRouteIsPicked;
-- (BOOL)audioCategoryIsTTY;
-- (id)routeNameAtIndex:(unsigned int)arg1 isPicked:(char *)arg2;
-- (void)pickRouteAtIndex:(unsigned int)arg1;
-- (BOOL)isAirPlayMirroring;
-- (id)_pickedRoute;
-- (id)_pickableRoutes;
-- (BOOL)_pickRoute:(id)arg1;
-- (BOOL)_routeIsSpeaker:(id)arg1;
-- (BOOL)_routeIsHandset:(id)arg1;
-- (BOOL)_routeIsReceiver:(id)arg1;
-- (BOOL)_routeIsAirTunes:(id)arg1;
-- (void)_mediaServerDied;
-- (void)_pickableRoutesChanged;
-- (void)_registerForAVControllerNotifications;
 @property(retain, nonatomic) NSString *currentAudioRoute; // @synthesize currentAudioRoute=_currentAudioRoute;
+- (void)_registerForAVControllerNotifications;
+- (void)_pickableRoutesChanged;
+- (void)_mediaServerDied;
+- (BOOL)_routeIsAirTunes:(id)arg1;
+- (BOOL)_routeIsReceiver:(id)arg1;
+- (BOOL)_routeIsHandset:(id)arg1;
+- (BOOL)_routeIsSpeaker:(id)arg1;
+- (BOOL)_pickRoute:(id)arg1;
+- (id)_pickableRoutes;
+- (id)_pickedRoute;
+- (BOOL)isUsingBlueToothLEA;
+- (BOOL)isAirPlayMirroring;
+- (void)pickRouteAtIndex:(unsigned int)arg1;
+- (id)routeNameAtIndex:(unsigned int)arg1 isPicked:(char *)arg2;
+- (BOOL)audioCategoryIsTTY;
+- (BOOL)receiverRouteIsPicked;
+- (BOOL)speakerRouteIsPicked;
+- (void)clearCachedRoutes;
+- (void)restorePickedRoute;
+- (BOOL)pickRouteWithUID:(id)arg1;
+- (BOOL)pickHandsetRoute;
+- (BOOL)pickSpeakerRoute;
+- (int)numberOfAudioRoutes;
+- (BOOL)routeOtherThanHandsetAndSpeakerIsAvailable;
+- (BOOL)routeOtherThanHandsetIsAvailable;
+- (BOOL)auxiliaryAudioRoutesAvailable;
+- (void)setDelegate:(id)arg1;
+- (void)invalidateAVController;
+- (void)setAVController:(id)arg1;
+- (void)dealloc;
 
 @end
 

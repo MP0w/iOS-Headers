@@ -9,8 +9,8 @@
 @protocol UIGestureRecognizerDelegate <NSObject>
 
 @optional
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
-- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 @end
 

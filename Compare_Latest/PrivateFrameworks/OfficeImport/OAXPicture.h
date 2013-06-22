@@ -11,6 +11,7 @@
 }
 
 + (id)readFromXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 drawingState:(id)arg3;
++ (void)readNonVisualPropertiesFromXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 toDrawable:(id)arg3 drawingState:(id)arg4;
 
 @end
 

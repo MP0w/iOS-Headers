@@ -10,6 +10,7 @@
 #import "GKURLHandling-Protocol.h"
 
 @interface UITabBarController (GKAdditions) <GKContentRefresh, GKURLHandling>
+- (void)_gkRefreshContentsForDataType:(unsigned int)arg1 userInfo:(id)arg2;
 - (void)_gkHandleURLPathComponents:(id)arg1 query:(id)arg2;
 - (void)_gkForceNextContentUpdate;
 - (void)_gkUpdateContentsWithCompletionHandlerAndError:(id)arg1;

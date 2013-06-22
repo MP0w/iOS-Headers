@@ -11,10 +11,10 @@
 }
 
 + (unsigned int)rowsForPropertyGroup:(id)arg1 info:(id)arg2;
-- (id)pickerView;
-- (void)reloadFromModel;
-- (void)reloadFromModelIncludingRows:(BOOL)arg1;
 - (void)textFieldTextDidChange:(id)arg1;
+- (void)reloadFromModelIncludingRows:(BOOL)arg1;
+- (void)reloadFromModel;
+- (id)pickerView;
 
 @end
 

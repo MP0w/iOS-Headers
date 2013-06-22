@@ -13,10 +13,10 @@
     WDPicture *wdPicture;
 }
 
-- (id)initWithWDPicture:(id)arg1 parent:(id)arg2;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)mapBounds;
 - (void)setBoundingBox;
+- (void)mapBounds;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id)initWithWDPicture:(id)arg1 parent:(id)arg2;
 
 @end
 

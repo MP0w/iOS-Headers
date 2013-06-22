@@ -14,9 +14,9 @@
     NSString *mName;
 }
 
-- (void)dealloc;
 @property(retain) NSString *name; // @synthesize name=mName;
 @property(retain) NSData *data; // @synthesize data=mData;
+- (void)dealloc;
 
 @end
 

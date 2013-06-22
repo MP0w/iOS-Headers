@@ -15,12 +15,12 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (void)dealloc;
-- (id)timeListNodeList;
-- (id)addTimeListNodeList;
-- (id)buildMap;
 - (void)setBuildMap:(id)arg1;
+- (id)buildMap;
+- (id)addTimeListNodeList;
+- (id)timeListNodeList;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -10,8 +10,8 @@
 #import "UITableViewDelegate-Protocol.h"
 
 @protocol SBBulletinListViewDelegate <NSObject, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
-- (void)handleTap:(id)arg1;
-- (void)handlePan:(id)arg1;
 - (void)handleEatenTouch:(id)arg1;
+- (void)handlePan:(id)arg1;
+- (void)handleTap:(id)arg1;
 @end
 

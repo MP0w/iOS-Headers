@@ -16,7 +16,7 @@
 - (id)pauseButtonImage;
 - (id)playButtonImage;
 - (id)newVolumeSlider;
-- (id)buttonImageForPart:(unsigned int)arg1;
+- (id)buttonImageForPart:(unsigned long long)arg1;
 - (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(BOOL)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 

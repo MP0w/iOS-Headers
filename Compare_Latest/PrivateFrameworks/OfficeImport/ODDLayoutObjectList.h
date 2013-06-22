@@ -13,10 +13,10 @@
     NSMutableArray *mChildren;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)children;
 - (void)addChild:(id)arg1;
+- (id)children;
+- (void)dealloc;
+- (id)init;
 
 @end
 

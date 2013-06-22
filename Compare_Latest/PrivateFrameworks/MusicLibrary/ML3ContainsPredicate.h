@@ -6,22 +6,21 @@
 
 #import <MusicLibrary/ML3PropertyPredicate.h>
 
-@class NSArray;
-
 @interface ML3ContainsPredicate : ML3PropertyPredicate
 {
-    NSArray *_values;
+    id _values;
 }
 
++ (id)predicateWithProperty:(id)arg1 valueSet:(id)arg2;
 + (id)predicateWithProperty:(id)arg1 values:(id)arg2;
-@property(copy, nonatomic) NSArray *values; // @synthesize values=_values;
-- (void)bindToSqlite3Statement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
+@property(copy, nonatomic) id values; // @synthesize values=_values;
+- (void).cxx_destruct;
+- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithProperty:(id)arg1 values:(id)arg2;
 
 @end

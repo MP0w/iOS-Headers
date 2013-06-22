@@ -7,17 +7,17 @@
 #import "NSObject-Protocol.h"
 
 @protocol EFHelper <NSObject>
-- (unsigned int)resolveName:(id)arg1;
-- (unsigned int)resolveSheet:(id)arg1;
-- (unsigned int)resolveFirstSheet:(id)arg1 lastSheet:(id)arg2;
-- (unsigned int)resolveFile:(id)arg1;
-- (id)resolveTable:(id)arg1;
-- (unsigned int)resolveTableToSheetId:(id)arg1;
-- (unsigned int)resolveTableColumn:(id)arg1 columnName:(id)arg2;
-- (BOOL)isCurrentSheet:(id)arg1;
-- (int)resolveFunctionName:(id)arg1;
-- (_Bool)isThereContentOutsideOfLassoBoundsForRowMin:(unsigned int)arg1 rowMax:(unsigned int)arg2 columnMin:(unsigned int)arg3 columnMax:(unsigned int)arg4;
-- (int)rowNumber;
 - (int)columnNumber;
+- (int)rowNumber;
+- (_Bool)isThereContentOutsideOfLassoBoundsForRowMin:(unsigned int)arg1 rowMax:(unsigned int)arg2 columnMin:(unsigned int)arg3 columnMax:(unsigned int)arg4;
+- (int)resolveFunctionName:(id)arg1;
+- (BOOL)isCurrentSheet:(id)arg1;
+- (unsigned int)resolveTableColumn:(id)arg1 columnName:(id)arg2;
+- (unsigned int)resolveTableToSheetId:(id)arg1;
+- (id)resolveTable:(id)arg1;
+- (unsigned int)resolveFile:(id)arg1;
+- (unsigned int)resolveFirstSheet:(id)arg1 lastSheet:(id)arg2;
+- (unsigned int)resolveSheet:(id)arg1;
+- (unsigned int)resolveName:(id)arg1;
 @end
 

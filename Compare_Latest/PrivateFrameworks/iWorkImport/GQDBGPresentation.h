@@ -14,18 +14,20 @@
     struct __CFDictionary *mOldAssetNameMap;
 }
 
-+ (void)initialize;
-+ (struct _xmlNs *)appNamespace;
 + (id)parseNumberOutOfBasename:(id)arg1 returningNumber:(int *)arg2;
-- (id)init;
-- (void)dealloc;
-- (struct __CFArray *)themes;
-- (void)addTheme:(id)arg1;
-- (struct CGSize)slideSize;
-- (void)loadAppBundleResourceToColorMap;
-- (id)colorForMissingAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
-- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
++ (struct _xmlNs *)appNamespace;
++ (void)initialize;
+- (id).cxx_construct;
 - (void)initializeAppBundleResourcesUrl;
+- (struct __CFURL *)createUrlToAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
+- (id)colorForMissingAppBundleResource:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
+- (void)loadAppBundleResourceToColorMap;
+- (struct CGSize)slideSize;
+- (void)addTheme:(id)arg1;
+- (struct __CFArray *)themes;
+- (void)dealloc;
+- (id)init;
+- (struct __CFString *)createUpgradedAppBundleResourcePath:(struct __CFString *)arg1 processorBundle:(struct __CFBundle *)arg2;
 
 @end
 

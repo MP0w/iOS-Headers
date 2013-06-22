@@ -11,8 +11,8 @@
 }
 
 + (id)sharedManager;
-- (void)dealloc;
 - (void)runAuthThreadWithContext:(id)arg1;
+- (void)dealloc;
 
 @end
 

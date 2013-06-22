@@ -14,17 +14,18 @@
     _Bool mBarOfPieType;
 }
 
-- (id)initWithChart:(id)arg1;
-- (int)firstSliceAngle;
-- (void)setFirstSliceAngle:(int)arg1;
-- (_Bool)isDoughnutType;
-- (void)setDoughnutType:(_Bool)arg1;
-- (_Bool)isPieOfPieType;
-- (void)setPieOfPieType:(_Bool)arg1;
-- (_Bool)isBarOfPieType;
-- (void)setBarOfPieType:(_Bool)arg1;
-- (int)defaultLabelPosition;
+- (_Bool)hasExplosion;
 - (id)contentFormat;
+- (int)defaultLabelPosition;
+- (void)setBarOfPieType:(_Bool)arg1;
+- (_Bool)isBarOfPieType;
+- (void)setPieOfPieType:(_Bool)arg1;
+- (_Bool)isPieOfPieType;
+- (void)setDoughnutType:(_Bool)arg1;
+- (_Bool)isDoughnutType;
+- (void)setFirstSliceAngle:(int)arg1;
+- (int)firstSliceAngle;
+- (id)initWithChart:(id)arg1;
 
 @end
 

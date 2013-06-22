@@ -6,63 +6,70 @@
 
 #import <CoreBluetooth/CBPeripheral.h>
 
-#import "CBPairingAlertDelegate-Protocol.h"
+@class CBConcreteCentralManager, NSMutableDictionary, NSNumber;
 
-@class CBConcreteCentralManager, CBPairingAlert, NSMutableDictionary, NSNumber;
-
-@interface CBConcretePeripheral : CBPeripheral <CBPairingAlertDelegate>
+@interface CBConcretePeripheral : CBPeripheral
 {
     CBConcreteCentralManager *_centralManager;
     NSNumber *_handle;
+    BOOL _isUserVisible;
+    BOOL _isUserRetained;
+    BOOL _isConnecting;
     NSMutableDictionary *_attributes;
-    CBPairingAlert *_pairingAlert;
 }
 
-- (id)initWithCentralManager:(id)arg1 UUID:(struct __CFUUID *)arg2 handle:(id)arg3;
-- (id)retain;
-- (oneway void)release;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (void)sendMsg:(int)arg1 args:(id)arg2;
-- (id)attributeForHandle:(id)arg1;
-- (void)setAttribute:(id)arg1 forHandle:(id)arg2;
-- (void)handleDisconnection;
-- (void)setOrphan;
-- (void)pairingAlert:(id)arg1 acceptedPairing:(BOOL)arg2 ofType:(id)arg3 withPasskey:(id)arg4;
-- (void)readRSSI;
-- (void)discoverServices:(id)arg1;
-- (void)discoverIncludedServices:(id)arg1 forService:(id)arg2;
-- (void)discoverCharacteristics:(id)arg1 forService:(id)arg2;
-- (void)readValueForCharacteristic:(id)arg1;
-- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 type:(int)arg3;
-- (void)reliablyWriteValues:(id)arg1 forCharacteristics:(id)arg2;
-- (void)setBroadcastValue:(BOOL)arg1 forCharacteristic:(id)arg2;
-- (void)setNotifyValue:(BOOL)arg1 forCharacteristic:(id)arg2;
-- (void)setIndicateValue:(BOOL)arg1 forCharacteristic:(id)arg2;
-- (void)discoverDescriptorsForCharacteristic:(id)arg1;
-- (void)readValueForDescriptor:(id)arg1;
-- (void)writeValue:(id)arg1 forDescriptor:(id)arg2;
-- (void)pair;
-- (void)acceptPairing:(BOOL)arg1 ofType:(id)arg2 withPasskey:(id)arg3;
-- (void)handleRSSIUpdated:(id)arg1;
-- (void)handleWritesExecuted:(id)arg1;
-- (void)handleServicesDiscovered:(id)arg1;
-- (void)handlePairingRequested:(id)arg1;
-- (void)handlePairingCompleted:(id)arg1;
-- (void)handleAttributeEvent:(id)arg1 args:(id)arg2 attributeSelector:(SEL)arg3 delegateSelector:(SEL)arg4;
-- (void)handleServiceEvent:(id)arg1 serviceSelector:(SEL)arg2 delegateSelector:(SEL)arg3;
-- (void)handleCharacteristicEvent:(id)arg1 characteristicSelector:(SEL)arg2 delegateSelector:(SEL)arg3;
-- (void)handleDescriptorEvent:(id)arg1 descriptorSelector:(SEL)arg2 delegateSelector:(SEL)arg3;
-- (void)handleServiceIncludedServicesDiscovered:(id)arg1;
-- (void)handleServiceCharacteristicsDiscovered:(id)arg1;
-- (void)handleCharacteristicValueUpdated:(id)arg1;
-- (void)handleCharacteristicValueWritten:(id)arg1;
-- (void)handleCharacteristicValueBroadcasted:(id)arg1;
-- (void)handleCharacteristicValueNotifying:(id)arg1;
-- (void)handleCharacteristicDescriptorsDiscovered:(id)arg1;
-- (void)handleDescriptorValueUpdated:(id)arg1;
-- (void)handleDescriptorValueWritten:(id)arg1;
+@property(nonatomic) BOOL isConnecting; // @synthesize isConnecting=_isConnecting;
+@property(nonatomic) BOOL isUserRetained; // @synthesize isUserRetained=_isUserRetained;
+@property(nonatomic) BOOL isUserVisible; // @synthesize isUserVisible=_isUserVisible;
 @property(readonly, nonatomic) NSNumber *handle; // @synthesize handle=_handle;
+- (void)handleDescriptorValueWritten:(id)arg1;
+- (void)handleDescriptorValueUpdated:(id)arg1;
+- (void)handleCharacteristicDescriptorsDiscovered:(id)arg1;
+- (void)handleCharacteristicValueNotifying:(id)arg1;
+- (void)handleCharacteristicValueBroadcasted:(id)arg1;
+- (void)handleCharacteristicValueWritten:(id)arg1;
+- (void)handleCharacteristicValueUpdated:(id)arg1;
+- (void)handleServiceCharacteristicsDiscovered:(id)arg1;
+- (void)handleServiceIncludedServicesDiscovered:(id)arg1;
+- (void)handleDescriptorEvent:(id)arg1 descriptorSelector:(SEL)arg2 delegateSelector:(SEL)arg3;
+- (void)handleCharacteristicEvent:(id)arg1 characteristicSelector:(SEL)arg2 delegateSelector:(SEL)arg3;
+- (void)handleServiceEvent:(id)arg1 serviceSelector:(SEL)arg2 delegateSelector:(SEL)arg3;
+- (void)handleAttributeEvent:(id)arg1 args:(id)arg2 attributeSelector:(SEL)arg3 delegateSelector:(SEL)arg4;
+- (void)handlePairingCompleted:(id)arg1;
+- (void)handlePairingRequested:(id)arg1;
+- (void)handleServicesDiscovered:(id)arg1;
+- (void)handleWritesExecuted:(id)arg1;
+- (void)handleRSSIUpdated:(id)arg1;
+- (void)handleServicesChanged:(id)arg1;
+- (void)handleNameUpdated:(id)arg1;
+- (void)acceptPairing:(BOOL)arg1 ofType:(id)arg2 withPasskey:(id)arg3;
+- (void)pair;
+- (void)writeValue:(id)arg1 forDescriptor:(id)arg2;
+- (void)readValueForDescriptor:(id)arg1;
+- (void)discoverDescriptorsForCharacteristic:(id)arg1;
+- (void)setIndicateValue:(BOOL)arg1 forCharacteristic:(id)arg2;
+- (void)setNotifyValue:(BOOL)arg1 forCharacteristic:(id)arg2;
+- (void)setBroadcastValue:(BOOL)arg1 forCharacteristic:(id)arg2;
+- (void)reliablyWriteValues:(id)arg1 forCharacteristics:(id)arg2;
+- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 type:(int)arg3;
+- (void)readValueForCharacteristic:(id)arg1;
+- (void)discoverCharacteristics:(id)arg1 forService:(id)arg2;
+- (void)discoverIncludedServices:(id)arg1 forService:(id)arg2;
+- (void)discoverServices:(id)arg1;
+- (void)readRSSI;
+- (void)setUUID:(struct __CFUUID *)arg1;
+- (void)setOrphan;
+- (void)handleDisconnection;
+- (void)handleConnection:(BOOL)arg1;
+- (void)invalidateAllAttributes;
+- (void)setAttribute:(id)arg1 forHandle:(id)arg2;
+- (id)attributeForHandle:(id)arg1;
+- (void)sendMsg:(int)arg1 args:(id)arg2;
+- (id)description;
+- (void)dealloc;
+- (oneway void)release;
+- (id)retain;
+- (id)initWithCentralManager:(id)arg1 handle:(id)arg2;
 
 @end
 

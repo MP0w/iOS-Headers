@@ -8,22 +8,22 @@
 
 #import "SSRequestDelegate-Protocol.h"
 
-@class NSMutableArray, NSSet, NSString, SSRequest;
+@class NSObject<OS_dispatch_queue>, NSSet, NSString, SSKeyValueStore, SSURLBag;
 
 @interface SSDevice : NSObject <SSRequestDelegate>
 {
     int _deviceType;
-    struct dispatch_queue_s *_dispatchQueue;
-    NSMutableArray *_loadStoreFrontHandlers;
-    SSRequest *_loadStoreFrontRequest;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    SSKeyValueStore *_keyValueStore;
     NSString *_localStoreFrontIdentifier;
     BOOL _localStoreFrontIsTransient;
     id _mediaLibraryIdentifier;
     NSString *_productType;
     NSString *_productVersion;
-    NSMutableArray *_simpleRequests;
     id _softwareLibraryIdentifier;
     NSString *_synchedStoreFrontIdentifier;
+    SSURLBag *_urlBag;
+    NSString *_userAgent;
 }
 
 + (void)setPromptWithIdentifier:(id)arg1 needsDisplay:(BOOL)arg2;
@@ -32,30 +32,35 @@
 + (BOOL)promptNeedsDisplay:(id)arg1;
 + (id)copyCachedAvailableItemKinds;
 + (id)currentDevice;
+- (void)_updateBatteryLevelFromService:(unsigned int)arg1;
 - (void)_updateAutomaticDownloadKinds:(id)arg1 withValue:(id)arg2 completionBlock:(id)arg3;
-- (void)_trackSimpleRequest:(id)arg1;
 - (BOOL)_setStoreFrontIdentifier:(id)arg1 isTransient:(BOOL)arg2;
-- (void)_setLocalStoreFrontIdentifier:(id)arg1 isTransient:(BOOL)arg2;
-- (void)_reloadStoreFrontIdentifier;
+- (void)_reloadPluggedInState;
 - (void)_reloadAfterStoreFrontChange;
+- (id)_productVersion;
 - (void)_postStoreFrontDidChangeNotification;
 - (BOOL)_is1080pCapable;
 - (BOOL)_is720pCapable;
 - (void)_invalidateSoftwareCUID;
-- (void)_finishRequestWithError:(id)arg1;
+- (BOOL)_getDeviceType:(unsigned int *)arg1 error:(id *)arg2;
+- (int)_deviceTypeForUnknownIPod:(id)arg1;
+- (int)_deviceTypeForUnknownIPhone:(id)arg1;
+- (int)_deviceTypeForUnknownIPad:(id)arg1;
+- (int)_deviceTypeForUnknownAppleTV:(id)arg1;
+- (int)_deviceTypeForProductType:(id)arg1;
 - (int)_deviceType;
+- (int)_deviceClass;
 - (id)_copyProductType;
+- (id)_copyKeyValueStoreValueForDomain:(id)arg1 key:(id)arg2;
 - (id)_copyGSCapabilityValueForKey:(struct __CFString *)arg1;
-- (void)_cleanupSimpleRequest:(id)arg1;
-- (void)setStoreFrontIdentifierWithInfo:(id)arg1;
+- (void)_cacheKeyValueStoreValues;
 - (void)resetStoreFrontForSignOut;
-- (void)requestDidFinish:(id)arg1;
-- (void)request:(id)arg1 didFailWithError:(id)arg2;
-@property(readonly) NSString *userAgentDeviceIdentifier;
 - (void)unionAutomaticDownloadKinds:(id)arg1 withCompletionBlock:(id)arg2;
 - (void)synchronizeAutomaticDownloadKinds;
 @property(readonly) NSString *synchedStoreFrontIdentifier;
 - (BOOL)supportsDeviceCapability:(int)arg1;
+- (void)stopPowerMonitoring;
+- (void)startPowerMonitoring;
 - (void)setStoreFrontIdentifier:(id)arg1 isTransient:(BOOL)arg2;
 @property(copy) NSString *softwareLibraryIdentifier;
 @property(copy) NSString *mediaLibraryIdentifier;
@@ -64,12 +69,19 @@
 @property(readonly) NSString *productVersion;
 @property(readonly) NSString *productType;
 - (void)minusAutomaticDownloadKinds:(id)arg1 withCompletionBlock:(id)arg2;
+- (void)enableAllAutomaticDownloadKindsWithCompletionBlock:(id)arg1;
 @property(readonly, getter=isStoreFrontIdentifierTransient) BOOL storeFrontIdentifierTransient;
+@property(readonly, getter=isPluggedIn) BOOL pluggedIn;
 @property(readonly) int deviceType;
+@property(readonly) double batteryLevel;
+@property(readonly) unsigned long deviceTypeIdentifier;
+@property(readonly) NSString *userAgent;
 @property(readonly) NSString *storeFrontIdentifier;
 - (void)showPromptWithIdentifier:(id)arg1 completionHandler:(id)arg2;
 - (void)setStoreFrontWithResponseHeaders:(id)arg1;
+- (void)setCellularNetworkingAllowed:(BOOL)arg1;
 - (void)loadStoreFrontWithCompletionHandler:(id)arg1;
+- (void)getCellularNetworkingAllowedWithBlock:(id)arg1;
 - (void)getAvailableItemKindsWithBlock:(id)arg1;
 - (id)copyStoreFrontRequestHeaders;
 @property(readonly) NSSet *automaticDownloadKinds;

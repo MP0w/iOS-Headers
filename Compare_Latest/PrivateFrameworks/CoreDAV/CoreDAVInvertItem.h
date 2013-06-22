@@ -13,8 +13,8 @@
     CoreDAVPrincipalItem *_principal;
 }
 
++ (id)copyParseRules;
 @property(retain) CoreDAVPrincipalItem *principal; // @synthesize principal=_principal;
-- (id)copyParseRules;
 - (id)description;
 - (void)write:(id)arg1;
 - (void)dealloc;

@@ -10,14 +10,14 @@
 - (id)initWithParentController:(id)arg1;
 
 @optional
-- (id)accounts;
-- (id)accountAddTypes;
-- (id)displayName;
-- (id)commonSpecifiersWithOptions:(id)arg1;
-- (id)footerTextForGroupSpecifier;
-- (id)collectionDisplayName;
-- (id)collectionNavigationTitle;
-- (id)localizedDetailsForAccount:(id)arg1;
 - (void)invalidateParentController;
+- (id)localizedDetailsForAccount:(id)arg1;
+- (id)collectionNavigationTitle;
+- (id)collectionDisplayName;
+- (id)footerTextForGroupSpecifier;
+- (id)commonSpecifiersWithOptions:(id)arg1;
+- (id)displayName;
+- (id)accountAddTypes;
+- (id)accounts;
 @end
 

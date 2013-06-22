@@ -6,24 +6,21 @@
 
 #import <StoreServices/SSRequest.h>
 
-#import "SSCoding-Protocol.h"
+#import "SSXPCCoding-Protocol.h"
 
 @class SSAuthenticationContext;
 
-@interface SSAuthenticateRequest : SSRequest <SSCoding>
+@interface SSAuthenticateRequest : SSRequest <SSXPCCoding>
 {
     SSAuthenticationContext *_authenticationContext;
 }
 
-@property(readonly, nonatomic) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
-- (void)_sendResponseToDelegate:(id)arg1;
-- (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
-- (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
-- (id)handleFailureResponse:(id)arg1;
-- (id)initWithXPCEncoding:(void *)arg1;
-- (id)initWithPropertyListEncoding:(id)arg1;
-- (void *)copyXPCEncoding;
-- (id)copyPropertyListEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+- (id)copyXPCEncoding;
+- (void)startWithCompletionBlock:(id)arg1;
+- (BOOL)start;
+- (void)startWithAuthenticateResponseBlock:(id)arg1;
+@property(readonly) SSAuthenticationContext *authenticationContext;
 - (void)dealloc;
 - (id)initWithAuthenticationContext:(id)arg1;
 - (id)initWithAccount:(id)arg1;

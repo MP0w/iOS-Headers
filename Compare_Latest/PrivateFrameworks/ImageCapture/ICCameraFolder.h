@@ -11,26 +11,32 @@
 @interface ICCameraFolder : ICCameraItem
 {
     void *_folderProperties;
+    int _filesLock;
+    int _foldersLock;
 }
 
-- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
-- (void)dealloc;
-- (void)finalize;
-- (id)description;
-- (void)addFile:(id)arg1;
-- (void)addFolder:(id)arg1;
-- (void)deleteItem:(id)arg1;
-- (void)deleteFile:(id)arg1;
-- (void)deleteFolder:(id)arg1;
-@property(readonly) NSArray *contents;
-- (id)valueForUndefinedKey:(id)arg1;
-- (id)files;
-- (id)folders;
-- (BOOL)hasThumbnail;
-- (struct CGImage *)thumbnail;
-- (id)metadata;
-- (void)requestThumbnail;
 - (void)requestMetadata;
+- (void)requestThumbnail;
+- (id)metadata;
+- (struct CGImage *)thumbnail;
+- (BOOL)hasThumbnail;
+- (id)folders;
+- (id)files;
+- (id)valueForUndefinedKey:(id)arg1;
+@property(readonly) NSArray *contents;
+- (void)deleteFolder:(id)arg1;
+- (void)deleteFile:(id)arg1;
+- (void)deleteItem:(id)arg1;
+- (void)addFolder:(id)arg1;
+- (void)addFile:(id)arg1;
+- (id)description;
+- (void)unlockFolders;
+- (void)lockFolders;
+- (void)unlockFiles;
+- (void)lockFiles;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
 
 @end
 

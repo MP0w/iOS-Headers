@@ -14,31 +14,32 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (void)dealloc;
-- (void)finalize;
-- (void)_close;
-- (void)addItem:(id)arg1;
-- (void)removeItem:(id)arg1;
-- (id)dictionaryRepresentation;
-- (void)setToMatchDictionaryRepresentation:(id)arg1;
-- (BOOL)containsItem:(id)arg1;
-- (void)goBack;
-- (void)goForward;
-- (void)goToItem:(id)arg1;
-- (id)backItem;
-- (id)currentItem;
-- (id)forwardItem;
-- (id)backListWithLimit:(int)arg1;
-- (id)forwardListWithLimit:(int)arg1;
-- (int)capacity;
-- (void)setCapacity:(int)arg1;
-- (id)description;
-- (void)setPageCacheSize:(unsigned int)arg1;
-- (unsigned int)pageCacheSize;
-- (int)backListCount;
-- (int)forwardListCount;
 - (id)itemAtIndex:(int)arg1;
+- (int)forwardListCount;
+- (int)backListCount;
+- (unsigned int)pageCacheSize;
+- (void)setPageCacheSize:(unsigned int)arg1;
+- (id)description;
+- (void)setCapacity:(int)arg1;
+- (int)capacity;
+- (id)forwardListWithLimit:(int)arg1;
+- (id)backListWithLimit:(int)arg1;
+- (id)forwardItem;
+- (id)currentItem;
+- (id)backItem;
+- (void)goToItem:(id)arg1;
+- (void)goForward;
+- (void)goBack;
+- (BOOL)containsItem:(id)arg1;
+- (void)setToMatchDictionaryRepresentation:(id)arg1;
+- (id)dictionaryRepresentation;
+- (void)removeItem:(id)arg1;
+- (void)addItem:(id)arg1;
+- (void)_close;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
+- (id)initWithBackForwardList:(PassRefPtr_a2d75529)arg1;
 
 @end
 

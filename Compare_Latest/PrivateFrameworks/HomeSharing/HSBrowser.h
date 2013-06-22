@@ -8,24 +8,28 @@
 
 #import "NSNetServiceDelegate-Protocol.h"
 
-@class NSArray, NSString;
+@class NSArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface HSBrowser : NSObject <NSNetServiceDelegate>
 {
-    NSArray *_availableLibraries;
-    NSString *_homeSharingGroupID;
-    struct _DNSServiceRef_t *_dnsService;
     id _addLibraryHandler;
+    NSArray *_availableLibraries;
+    struct _DNSServiceRef_t *_dnsService;
+    NSObject<OS_dispatch_queue> *_dnsServiceQueue;
+    NSString *_homeSharingGroupID;
+    BOOL _isBrowsing;
     id _removeLibraryHandler;
 }
 
 @property(copy, nonatomic) NSString *homeSharingGroupID; // @synthesize homeSharingGroupID=_homeSharingGroupID;
+- (void)_startWithCurrentRetryCount:(unsigned int)arg1 maximumRetryCount:(unsigned int)arg2 addLibraryHandler:(id)arg3 removeLibraryHandler:(void)arg4;
 - (void)_didRemoveService:(id)arg1 moreComing:(BOOL)arg2;
 - (void)_didFindService:(id)arg1 moreComing:(BOOL)arg2;
 @property(readonly, nonatomic) NSArray *availableLibraries;
 - (void)stop;
 - (void)startWithAddLibraryHandler:(id)arg1 removeLibraryHandler:(void)arg2;
 - (void)dealloc;
+- (id)init;
 
 @end
 

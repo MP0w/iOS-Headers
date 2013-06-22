@@ -14,10 +14,10 @@
     NSString *_folderID;
 }
 
-- (id)initWithAccount:(id)arg1 folderID:(id)arg2;
-- (id)filterRequests:(id)arg1 consumers:(id)arg2 newConsumers:(id *)arg3;
-- (void)processRequests:(id)arg1 consumers:(id)arg2;
 - (void)dealloc;
+- (void)processRequests:(id)arg1 consumers:(id)arg2;
+- (id)filterRequests:(id)arg1 consumers:(id)arg2 newConsumers:(id *)arg3;
+- (id)initWithAccount:(id)arg1 folderID:(id)arg2;
 
 @end
 

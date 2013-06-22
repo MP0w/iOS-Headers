@@ -6,31 +6,40 @@
 
 #import "SBAlert.h"
 
+#import "SBPowerDownViewDelegate-Protocol.h"
+
 @class SBPowerDownView;
 
-@interface SBPowerDownController : SBAlert
+@interface SBPowerDownController : SBAlert <SBPowerDownViewDelegate>
 {
     int _count;
     id _delegate;
     SBPowerDownView *_powerDownView;
     BOOL _isFront;
+    id _orderOutCompletion;
 }
 
 + (id)sharedInstance;
-- (void)dealloc;
-- (double)autoLockTime;
-- (BOOL)isOrderedFront;
-- (void)orderFront;
-- (void)orderOut;
-- (id)powerDownViewWithSize:(struct CGSize)arg1;
-- (void)activate;
-- (void)_restoreIconListIfNecessary;
-- (void)deactivate;
-- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (void)alertDisplayWillBecomeVisible;
-- (void)setDelegate:(id)arg1;
-- (void)powerDown;
+@property(copy, nonatomic) id orderOutCompletion; // @synthesize orderOutCompletion=_orderOutCompletion;
+- (void)powerDownViewAnimateOutCompleted:(id)arg1;
+- (void)powerDownViewRequestPowerDown:(id)arg1;
+- (void)powerDownViewRequestCancel:(id)arg1;
 - (void)cancel;
+- (void)powerDown;
+- (void)setDelegate:(id)arg1;
+- (void)alertDisplayWillBecomeVisible;
+- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
+- (void)lockedOnTop;
+- (void)deactivate;
+- (void)_restoreIconListIfNecessary;
+- (void)activate;
+- (id)powerDownViewWithSize:(struct CGSize)arg1;
+- (void)orderOutWithCompletion:(id)arg1;
+- (void)orderFront;
+- (BOOL)isOrderedFront;
+- (double)autoLockTime;
+- (void)dealloc;
+- (id)init;
 
 @end
 

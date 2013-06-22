@@ -6,29 +6,34 @@
 
 #import "NSObject.h"
 
+@class NSData;
+
 @interface SFUDataRepresentation : NSObject
 {
     BOOL mHasHash;
     unsigned int mHash;
+    BOOL mHasSha1Hash;
+    NSData *mSha1Hash;
 }
 
-- (BOOL)isReadable;
-- (long long)dataLength;
-- (long long)encodedLength;
-- (BOOL)isEncrypted;
-- (id)inputStream;
-- (id)bufferedInputStream;
-- (id)bufferedInputStreamWithBufferSize:(unsigned long)arg1;
-- (BOOL)hasSameLocationAs:(id)arg1;
-- (struct _xmlDoc *)xmlDocument;
-- (struct _xmlTextReader *)xmlReader;
-- (struct _xmlTextReader *)xmlReaderForGzippedData;
-- (struct _xmlTextReader *)xmlReaderForGzippedDataWithInputStream:(id *)arg1;
-- (struct CGDataProvider *)cgDataProvider;
-- (unsigned long)readIntoData:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
 - (int)compare:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (id)sha1Hash;
+- (unsigned int)hash;
+- (unsigned long)readIntoData:(id)arg1;
+- (struct CGDataProvider *)cgDataProvider;
+- (struct _xmlTextReader *)xmlReaderForGzippedDataWithInputStream:(id *)arg1;
+- (struct _xmlTextReader *)xmlReaderForGzippedData;
+- (struct _xmlTextReader *)xmlReader;
+- (struct _xmlDoc *)xmlDocument;
+- (BOOL)hasSameLocationAs:(id)arg1;
+- (id)bufferedInputStreamWithBufferSize:(unsigned long)arg1;
+- (id)bufferedInputStream;
+- (id)inputStream;
+- (BOOL)isEncrypted;
+- (long long)encodedLength;
+- (long long)dataLength;
+- (BOOL)isReadable;
 
 @end
 

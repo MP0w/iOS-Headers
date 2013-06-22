@@ -12,22 +12,33 @@
 {
     WebView *_inspectedWebView;
     struct WebInspectorFrontendClient *_frontendClient;
-    struct WebInspectorClient *_inspectorClient;
+    struct WebInspectorClient {
+        void **;
+        void **;
+        id;
+        struct RetainPtr<WebNodeHighlighter>;
+        struct Page *;
+        struct RetainPtr<WebInspectorWindowController> {
+            struct WebInspectorWindowController *;
+        };
+        int;
+        id;
+        struct WebInspectorFrontendClient *;
+    } *_inspectorClient;
     BOOL _destroyingInspectorView;
     WebView *_webView;
     NSString *_title;
 }
 
-- (id)init;
-- (id)initWithInspectedWebView:(id)arg1;
-- (void)dealloc;
-- (void)setFrontendClient:(struct WebInspectorFrontendClient *)arg1;
-- (void)setInspectorClient:(struct WebInspectorClient *)arg1;
-- (struct WebInspectorClient *)inspectorClient;
-- (void)destroyInspectorView:(_Bool)arg1;
-- (void)showWindow:(id)arg1;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) WebView *webView; // @synthesize webView=_webView;
+- (void)destroyInspectorView:(_Bool)arg1;
+- (WebInspectorClient_b612fe75 *)inspectorClient;
+- (void)setInspectorClient:(WebInspectorClient_b612fe75 *)arg1;
+- (void)setFrontendClient:(struct WebInspectorFrontendClient *)arg1;
+- (void)dealloc;
+- (id)initWithInspectedWebView:(id)arg1;
+- (id)init;
 
 @end
 

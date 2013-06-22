@@ -6,21 +6,22 @@
 
 #import "NSObject.h"
 
-@class CPDistributedMessagingCenter, NSMutableDictionary;
+@class CPDistributedMessagingCenter, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface MSConnection : NSObject
 {
     CPDistributedMessagingCenter *_center;
     CPDistributedMessagingCenter *_noWakeCenter;
     NSMutableDictionary *_serverSideConfig;
-    struct dispatch_queue_s *_serverSideConfigQueue;
+    NSObject<OS_dispatch_queue> *_serverSideConfigQueue;
     int _serverSideConfigNotificationToken;
     NSMutableDictionary *_shareState;
-    struct dispatch_queue_s *_shareStateQueue;
+    NSObject<OS_dispatch_queue> *_shareStateQueue;
     int _shareStateNotificationToken;
 }
 
 + (id)sharedConnection;
+- (void).cxx_destruct;
 - (id)_machErrorWithUnderlyingError:(id)arg1;
 - (BOOL)isBusy;
 - (void)resume:(id)arg1;

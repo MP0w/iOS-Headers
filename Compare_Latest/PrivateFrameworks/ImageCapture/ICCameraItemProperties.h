@@ -20,8 +20,6 @@
     NSMutableDictionary *_userData;
 }
 
-- (void)dealloc;
-- (void)finalize;
 @property(retain) NSMutableDictionary *userData; // @synthesize userData=_userData;
 @property BOOL locked; // @synthesize locked=_locked;
 @property(retain) NSDate *modificationDate; // @synthesize modificationDate=_modificationDate;
@@ -30,6 +28,8 @@
 @property(retain) NSString *name; // @synthesize name=_name;
 @property ICCameraFolder *parentFolder; // @synthesize parentFolder=_parentFolder;
 @property ICCameraDevice *device; // @synthesize device=_device;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

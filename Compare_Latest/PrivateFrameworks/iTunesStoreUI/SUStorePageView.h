@@ -10,8 +10,10 @@
 {
     UIView *_contentView;
     UIView *_headerView;
+    UIView *_previewOverlayView;
 }
 
+@property(retain, nonatomic) UIView *previewOverlayView; // @synthesize previewOverlayView=_previewOverlayView;
 @property(retain, nonatomic) UIView *headerView; // @synthesize headerView=_headerView;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 - (void)layoutSubviews;

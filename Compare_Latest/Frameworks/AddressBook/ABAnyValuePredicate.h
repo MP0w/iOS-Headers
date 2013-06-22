@@ -11,13 +11,13 @@
     int _property;
 }
 
-- (id)init;
-- (BOOL)isValid;
-- (id)queryJoinsInCompound:(BOOL)arg1;
-- (id)queryGroupByProperties;
-- (id)queryWhereString;
-- (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
 @property(nonatomic) int property; // @synthesize property=_property;
+- (void)ab_bindStatement:(struct CPSqliteStatement *)arg1 withBindingOffset:(int *)arg2 predicateIdentifier:(int)arg3;
+- (id)queryWhereString;
+- (id)queryGroupByProperties;
+- (id)queryJoinsInCompound:(BOOL)arg1;
+- (BOOL)isValid;
+- (id)init;
 
 @end
 

@@ -18,6 +18,7 @@
     NSURL *_baseURL;
 }
 
++ (BOOL)canHandleContentType:(id)arg1;
 @property(retain) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 @property(retain) NSSet *parseHints; // @synthesize parseHints=_parseHints;
 @property(retain) CoreDAVXMLElementGenerator *rootErrorGenerator; // @synthesize rootErrorGenerator=_rootErrorGenerator;

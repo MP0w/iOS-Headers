@@ -10,11 +10,11 @@
 {
 }
 
-+ (struct _xmlDoc *)vmlDocumentFromPart:(id)arg1;
-+ (id)readDrawableFromNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 state:(id)arg3;
-+ (id)readDrawablesFromParent:(struct _xmlNode *)arg1 inNamespace:(id)arg2 state:(id)arg3;
-+ (void)readFromDrawable:(struct _xmlNode *)arg1 toDrawable:(id)arg2 state:(id)arg3;
 + (struct CGRect)readCoordBounds:(struct _xmlNode *)arg1;
++ (void)readFromDrawable:(struct _xmlNode *)arg1 toDrawable:(id)arg2 state:(id)arg3;
++ (id)readDrawablesFromParent:(struct _xmlNode *)arg1 inNamespace:(id)arg2 state:(id)arg3;
++ (id)readDrawableFromNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 state:(id)arg3;
++ (struct _xmlDoc *)vmlDocumentFromPart:(id)arg1;
 
 @end
 

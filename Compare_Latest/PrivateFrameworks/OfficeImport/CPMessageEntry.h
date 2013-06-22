@@ -19,22 +19,22 @@
 }
 
 + (void)initialize;
-- (id)initWithTag:(int)arg1 affectedObject:(id)arg2 text:(id)arg3 parameters:(char *)arg4;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (int)getMessageTag;
-- (id)getMessageText;
-- (int)getParameterCount;
-- (id)getParameter:(unsigned int)arg1;
-- (id)affectedObjects;
-- (int)getCount;
-- (int)timeStampCompare:(id)arg1;
-- (void)logWithCat:(id)arg1;
-- (id)description;
-- (void)mergeEntries:(id)arg1;
-- (void)addAffectedObject:(id)arg1;
 @property(nonatomic) int timeStamp; // @synthesize timeStamp=m_timeStamp;
+- (void)addAffectedObject:(id)arg1;
+- (void)mergeEntries:(id)arg1;
+- (id)description;
+- (void)logWithCat:(id)arg1;
+- (int)timeStampCompare:(id)arg1;
+- (int)getCount;
+- (id)affectedObjects;
+- (id)getParameter:(unsigned int)arg1;
+- (int)getParameterCount;
+- (id)getMessageText;
+- (int)getMessageTag;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)initWithTag:(int)arg1 affectedObject:(id)arg2 text:(id)arg3 parameters:(char *)arg4;
 
 @end
 

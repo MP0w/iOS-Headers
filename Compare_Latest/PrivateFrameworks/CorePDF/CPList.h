@@ -20,20 +20,20 @@
     struct __CFArray *items;
 }
 
-- (id)init;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-- (unsigned int)itemCount;
-- (id)itemAtIndex:(unsigned int)arg1;
-- (void)addItem:(id)arg1;
-- (BOOL)containsParagraph:(id)arg1;
-- (BOOL)isMultilevel;
 @property(retain, nonatomic) CPListItem *parentItem; // @synthesize parentItem;
 @property(nonatomic) unsigned int ordinalSuffixLength; // @synthesize ordinalSuffixLength;
 @property(nonatomic) unsigned int ordinalPrefixLength; // @synthesize ordinalPrefixLength;
 @property(nonatomic) int type; // @synthesize type;
 @property(nonatomic) struct CGRect spacer; // @synthesize spacer;
+- (BOOL)isMultilevel;
+- (BOOL)containsParagraph:(id)arg1;
+- (void)addItem:(id)arg1;
+- (id)itemAtIndex:(unsigned int)arg1;
+- (unsigned int)itemCount;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)init;
 
 @end
 

@@ -16,11 +16,12 @@
     NSSet *_supportedMailClasses;
 }
 
-- (id)init;
-- (void)dealloc;
-- (int)fixBasicAccountIfNeeded:(id)arg1 loggingMessage:(id)arg2;
-- (void)accountsHaveBeenSaved:(BOOL)arg1;
 - (id)supportedAccountTypes;
+- (void)accountsHaveBeenSaved:(BOOL)arg1;
+- (int)fixBasicAccountIfNeeded:(id)arg1 loggingMessage:(id)arg2;
+- (void)dealloc;
+- (id)init;
+- (BOOL)_cleanupAccountClass:(id)arg1;
 
 @end
 

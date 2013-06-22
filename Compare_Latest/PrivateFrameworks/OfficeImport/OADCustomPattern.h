@@ -15,14 +15,14 @@
 }
 
 + (id)defaultProperties;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)initWithDefaults;
-- (id)blipRef;
-- (void)setBlipRef:(id)arg1;
-- (BOOL)isBlipRefOverridden;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isBlipRefOverridden;
+- (void)setBlipRef:(id)arg1;
+- (id)blipRef;
+- (id)initWithDefaults;
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

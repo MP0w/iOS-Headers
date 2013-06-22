@@ -11,16 +11,16 @@
     struct WebFixedPositionContentData *_private;
 }
 
-- (id)initWithWebView:(id)arg1;
-- (void)dealloc;
-- (void)scrollOrZoomChanged:(struct CGRect)arg1;
-- (void)didFinishScrollingOrZooming;
-- (void)addOrUpdateLayer:(id)arg1 sizing:(unsigned int)arg2 bounds:(struct CGRect)arg3 alignmentOffset:(struct CGSize)arg4 insideLayerSync:(BOOL)arg5;
-- (void)removeLayer:(id)arg1 insideLayerSync:(BOOL)arg2;
-- (void)removeAllLayers;
-- (BOOL)hasFixedPositionLayers;
-- (void)lockLayers;
 - (void)unlockLayers;
+- (void)lockLayers;
+- (BOOL)hasFixedPositionLayers;
+- (void)removeAllLayers;
+- (void)removeLayer:(id)arg1 insideLayerSync:(BOOL)arg2;
+- (void)addOrUpdateLayer:(id)arg1 sizing:(unsigned int)arg2 bounds:(struct CGRect)arg3 alignmentOffset:(struct CGSize)arg4 insideLayerSync:(BOOL)arg5;
+- (void)didFinishScrollingOrZooming;
+- (void)scrollOrZoomChanged:(struct CGRect)arg1;
+- (void)dealloc;
+- (id)initWithWebView:(id)arg1;
 
 @end
 

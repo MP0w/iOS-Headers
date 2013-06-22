@@ -12,18 +12,25 @@
 {
     RUIParser *_parser;
     NSURL *_url;
+    BOOL _allowNonSecureHTTP;
 }
 
-- (void)cancel;
-- (void)loadXMLUIWithURL:(id)arg1;
-- (void)loadXMLUIWithRequest:(id)arg1;
-- (void)loadXMLUIWithData:(id)arg1 baseURL:(id)arg2;
-- (id)URL;
-- (void)parseData:(id)arg1;
-- (void)_finishLoad;
-- (void)didParseData;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+@property(nonatomic) BOOL allowNonSecureHTTP; // @synthesize allowNonSecureHTTP=_allowNonSecureHTTP;
 - (void)failWithError:(id)arg1;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)webViewFinishedLoading;
+- (void)didParseData;
+- (BOOL)anyWebViewLoading;
+- (void)allWebViewsFinishedLoading;
+- (void)_finishLoad;
+- (void)parseData:(id)arg1;
+- (id)URL;
+- (void)loadXMLUIWithData:(id)arg1 baseURL:(id)arg2;
+- (void)loadXMLUIWithRequest:(id)arg1;
+- (void)loadXMLUIWithURL:(id)arg1;
+- (void)loadRequest:(id)arg1;
+- (void)cancel;
+- (void)dealloc;
 
 @end
 

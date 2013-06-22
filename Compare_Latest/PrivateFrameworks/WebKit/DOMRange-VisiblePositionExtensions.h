@@ -8,8 +8,8 @@
 
 @interface DOMRange (VisiblePositionExtensions)
 + (id)rangeForFirstPosition:(id)arg1 second:(id)arg2;
-- (id)startPosition;
-- (id)endPosition;
 - (id)enclosingWordRange;
+- (id)endPosition;
+- (id)startPosition;
 @end
 

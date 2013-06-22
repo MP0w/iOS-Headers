@@ -10,12 +10,12 @@
 {
 }
 
-- (id)generateIconImage:(int)arg1;
-- (id)displayName;
-- (id)leafIdentifier;
-- (BOOL)shouldEllipsizeLabel;
-- (id)applicationBundleID;
 - (BOOL)delaysUnhighlightWhenTapped;
+- (id)applicationBundleID;
+- (BOOL)shouldEllipsizeLabel;
+- (id)leafIdentifier;
+- (id)displayName;
+- (id)generateIconImage:(int)arg1;
 
 @end
 

@@ -18,6 +18,7 @@
 @property(nonatomic) BOOL dontDismiss; // @synthesize dontDismiss=_dontDismiss;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+- (void)dealloc;
 - (id)initWithTitle:(id)arg1 action:(SEL)arg2;
 
 @end

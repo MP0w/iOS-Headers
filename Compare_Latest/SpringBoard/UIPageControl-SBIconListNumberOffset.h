@@ -7,7 +7,7 @@
 #import "UIPageControl.h"
 
 @interface UIPageControl (SBIconListNumberOffset)
-- (void)setCurrentPageWithIconListNumber:(int)arg1;
 - (void)setNumberOfPagesWithIconListCount:(int)arg1;
+- (void)setCurrentPageWithIconListNumber:(int)arg1;
 @end
 

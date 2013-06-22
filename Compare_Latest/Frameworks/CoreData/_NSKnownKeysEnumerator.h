@@ -9,17 +9,17 @@
 @interface _NSKnownKeysEnumerator : NSEnumerator
 {
     id _target;
-    id *_list;
-    id *_referenceItems;
+    const id *_list;
+    const id *_referenceItems;
     struct _NSRange _range;
     unsigned long _index;
     unsigned long _flags;
 }
 
-- (id)initWithArray:(const id *)arg1 forTarget:(id)arg2 withReferenceValues:(const id *)arg3 andRange:(struct _NSRange)arg4 andCopyItems:(BOOL)arg5;
-- (void)_invalidate;
-- (void)dealloc;
 - (id)nextObject;
+- (void)dealloc;
+- (void)_invalidate;
+- (id)initWithArray:(const id *)arg1 forTarget:(id)arg2 withReferenceValues:(const id *)arg3 andRange:(struct _NSRange)arg4 andCopyItems:(BOOL)arg5;
 
 @end
 

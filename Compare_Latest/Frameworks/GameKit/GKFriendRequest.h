@@ -16,6 +16,8 @@
 
 @property(nonatomic) int status; // @synthesize status=_status;
 @property(retain, nonatomic) GKFriendRequestInternal *internal; // @synthesize internal=_internal;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (id)description;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
@@ -23,6 +25,7 @@
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (void)dealloc;
 - (id)init;
+- (id)initWithPendingFriendRequest:(id)arg1;
 - (id)initWithInternalRepresentation:(id)arg1;
 
 // Remaining properties

@@ -6,16 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray;
+#import "EABluetoothAccessoryPickerDelegate-Protocol.h"
 
-@interface EAAccessoryManager : NSObject
+@class EABluetoothAccessoryPicker, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSTimer;
+
+@interface EAAccessoryManager : NSObject <EABluetoothAccessoryPickerDelegate>
 {
     NSMutableArray *_connectedAccessories;
+    NSMutableArray *_sequesteredAccessories;
+    NSString *_selectedBluetoothAddress;
+    EABluetoothAccessoryPicker *_picker;
+    id _pickerCompletion;
+    BOOL _sequesterNewAccessories;
+    NSTimer *_pickerTimer;
+    NSObject<OS_dispatch_queue> *_connectionQueue;
 }
 
 + (BOOL)isLoggingEnabled;
 + (void)registerCapabilities:(unsigned int)arg1;
 + (id)sharedAccessoryManager;
+- (void)devicePicker:(id)arg1 didSelectAddress:(id)arg2 errorCode:(int)arg3;
+- (void)pointOfInterestSelection:(id)arg1;
 - (void)setAreLocationAccessoriesEnabled:(BOOL)arg1;
 - (BOOL)areLocationAccessoriesEnabled;
 - (void)accessibilitySystemPropertyRequest:(id)arg1;
@@ -29,8 +40,11 @@
 - (BOOL)shouldAllowInternalProtocols;
 - (id)_connectedAccessories;
 - (BOOL)appDeclaresProtocol:(id)arg1;
+- (void)wakeAccessoryWithToken:(id)arg1;
 - (void)endSession:(unsigned int)arg1 forConnectionID:(unsigned int)arg2;
 - (void)openCompleteForSession:(unsigned int)arg1 connectionID:(unsigned int)arg2;
+- (void)_handleAccessoryNotificationTimeout:(id)arg1;
+- (void)_integrateSequesteredAccessories;
 - (void)_gpsTimeRequested:(id)arg1;
 - (void)_nmeaFilteringSupportChanged:(id)arg1;
 - (void)_ephemerisURLAvailable:(id)arg1;
@@ -41,6 +55,7 @@
 - (void)_externalAccessoryDisconnected:(id)arg1;
 - (void)_externalAccessoryUpdated:(id)arg1;
 - (void)_externalAccessoryConnected:(id)arg1;
+- (void)_removeAllAccessoriesFromArray:(id)arg1 notifyClients:(BOOL)arg2;
 - (void)_externalAccessoryReconnected:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_cleanUpForTaskSuspend;
@@ -50,6 +65,7 @@
 - (void)unregisterForLocalNotifications;
 - (void)registerForLocalNotifications;
 @property(readonly, nonatomic) NSArray *connectedAccessories;
+- (void)showBluetoothAccessoryPickerWithNameFilter:(id)arg1 completion:(id)arg2;
 - (void)dealloc;
 - (id)_initFromSingletonCreationMethod;
 - (id)init;

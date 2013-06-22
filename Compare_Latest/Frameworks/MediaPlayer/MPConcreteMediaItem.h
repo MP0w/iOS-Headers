@@ -6,28 +6,38 @@
 
 #import <MediaPlayer/MPMediaItem.h>
 
-@class MPMediaLibrary, NSArray, NSNumber;
+#import "NSCoding-Protocol.h"
+#import "NSCopying-Protocol.h"
 
-@interface MPConcreteMediaItem : MPMediaItem
+@class MPMediaLibrary, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+
+@interface MPConcreteMediaItem : MPMediaItem <NSCoding, NSCopying>
 {
     MPMediaLibrary *_library;
     unsigned long long _persistentID;
-    NSArray *_chapters;
-    NSNumber *_mediaType;
+    NSMutableDictionary *_properties;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
+    BOOL _cachesProperties;
 }
 
++ (void)persistentID:(unsigned long long)arg1 didChange:(BOOL)arg2;
++ (id)concreteMediaItemWithPersistentID:(unsigned long long)arg1 library:(id)arg2;
++ (id)concreteMediaItemWithPersistentID:(unsigned long long)arg1;
+- (void)updateLastUsedDateToCurrentDate;
 - (BOOL)incrementPlayCountForStopTime:(double)arg1;
 - (void)incrementPlayCountForPlayingToEnd;
 - (void)clearBookmarkTime;
 - (void)incrementSkipCount;
-- (void)noteWasPlayedToTime:(double)arg1 skipped:(char *)arg2;
+- (void)noteWasPlayedToTime:(double)arg1 skipped:(BOOL)arg2;
+- (BOOL)didSkipWithPlayedToTime:(double)arg1;
 - (double)nominalHasBeenPlayedThreshold;
 - (void)markNominalAmountHasBeenPlayed;
 - (void)reallyIncrementPlayCount;
 - (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
 - (void)setValue:(id)arg1 forProperty:(id)arg2;
+- (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
-- (id)_nonBatchableValueForProperty:(id)arg1 isBatchable:(char *)arg2;
+- (id)_nonBatchableOrCachedValueForProperty:(id)arg1 needsFetch:(char *)arg2;
 - (unsigned long long)persistentID;
 - (id)mediaLibrary;
 - (BOOL)existsInLibrary;
@@ -35,8 +45,11 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
+- (void)invalidate;
+- (void)delete;
 - (void)dealloc;
-- (id)initWithPersistentID:(unsigned long long)arg1 valuesForProperties:(id)arg2 library:(id)arg3;
+- (id)_initWithPersistentID:(unsigned long long)arg1 library:(id)arg2 cachesProperties:(BOOL)arg3;
+- (id)initWithPersistentID:(unsigned long long)arg1 library:(id)arg2;
 - (id)initWithPersistentID:(unsigned long long)arg1;
 - (id)init;
 

@@ -14,17 +14,18 @@
     NSDictionary *_versionInfoDictionary;
 }
 
-- (id)initWithPath:(id)arg1;
-- (void)dealloc;
-- (id)bundle;
-- (id)versionInfoDictionary;
-- (id)versionHashInfo;
-- (id)currentVersion;
-- (id)modelVersions;
-- (id)urlForModelVersionWithName:(id)arg1;
-- (id)currentVersionURL;
-- (id)optimizedVersionURL;
 - (id)_modelForVersionHashes:(id)arg1;
+- (id)_modelForVersionHashes:(id)arg1 inStyle:(unsigned int)arg2;
+- (id)optimizedVersionURL;
+- (id)currentVersionURL;
+- (id)urlForModelVersionWithName:(id)arg1;
+- (id)modelVersions;
+- (id)currentVersion;
+- (id)versionHashInfo;
+- (id)versionInfoDictionary;
+- (id)bundle;
+- (void)dealloc;
+- (id)initWithPath:(id)arg1;
 
 @end
 

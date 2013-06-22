@@ -18,21 +18,22 @@
     NSIndexPath *_selectedIndexPath;
 }
 
++ (id)defaultService;
 + (id)defaultServices;
-- (id)init;
-- (void)dealloc;
-@property(readonly, nonatomic) NSString *selectServiceTitle;
-@property(readonly, nonatomic) NSString *addCustomServiceTitle;
-@property(readonly, nonatomic) NSString *addCustomServiceButtonLabel;
-@property(readonly, nonatomic) NSString *addCustomServicePlaceholder;
 @property(copy, nonatomic) NSString *selectedService; // @synthesize selectedService=_selectedService;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)simpleTextInputViewController:(id)arg1 didCompleteWithValue:(id)arg2;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (int)numberOfSectionsInTableView:(id)arg1;
+@property(readonly, nonatomic) NSString *addCustomServicePlaceholder;
+@property(readonly, nonatomic) NSString *addCustomServiceButtonLabel;
+@property(readonly, nonatomic) NSString *addCustomServiceTitle;
+@property(readonly, nonatomic) NSString *selectServiceTitle;
+- (void)dealloc;
+- (id)init;
 
 @end
 

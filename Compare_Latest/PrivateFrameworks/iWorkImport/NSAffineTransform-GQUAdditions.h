@@ -7,15 +7,15 @@
 #import "NSAffineTransform.h"
 
 @interface NSAffineTransform (GQUAdditions)
-- (id)description;
-- (BOOL)differsFrom:(id)arg1;
-- (BOOL)differOnlyByTranslation:(id)arg1;
-- (void)transformRect:(struct CGRect)arg1 upperLeft:(struct CGPoint *)arg2 lowerLeft:(struct CGPoint *)arg3 lowerRight:(struct CGPoint *)arg4 upperRight:(struct CGPoint *)arg5;
-- (struct CGRect)boundsOfTransformedRect:(struct CGRect)arg1;
-- (void)shearXBy:(float)arg1 yBy:(float)arg2;
-- (BOOL)isAxisAligned;
-- (float)angle;
-- (id)initWithCGAffineTransform:(struct CGAffineTransform)arg1;
 - (struct CGAffineTransform)cgAffineTransform;
+- (id)initWithCGAffineTransform:(struct CGAffineTransform)arg1;
+- (float)angle;
+- (BOOL)isAxisAligned;
+- (void)shearXBy:(float)arg1 yBy:(float)arg2;
+- (struct CGRect)boundsOfTransformedRect:(struct CGRect)arg1;
+- (void)transformRect:(struct CGRect)arg1 upperLeft:(struct CGPoint *)arg2 lowerLeft:(struct CGPoint *)arg3 lowerRight:(struct CGPoint *)arg4 upperRight:(struct CGPoint *)arg5;
+- (BOOL)differOnlyByTranslation:(id)arg1;
+- (BOOL)differsFrom:(id)arg1;
+- (id)description;
 @end
 

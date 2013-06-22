@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol UIKBCacheableView <NSObject>
+@property(readonly, nonatomic) float cachedWidth;
 @property(readonly, nonatomic) BOOL cacheDeferable;
 @end
 

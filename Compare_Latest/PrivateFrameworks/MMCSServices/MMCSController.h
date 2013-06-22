@@ -19,6 +19,7 @@
 @property(readonly) BOOL isActive;
 - (id)_options;
 - (void)dealloc;
+- (void)_checkWiFiAssertion;
 
 @end
 

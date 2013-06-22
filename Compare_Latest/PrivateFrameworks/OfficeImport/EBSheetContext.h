@@ -16,9 +16,9 @@
     unsigned int mSheetIndex;
 }
 
-- (id)initWithSheetIndex:(unsigned int)arg1 state:(id)arg2;
-- (void)dealloc;
 - (_Bool)loadDelayedNode:(id)arg1;
+- (void)dealloc;
+- (id)initWithSheetIndex:(unsigned int)arg1 state:(id)arg2;
 
 @end
 

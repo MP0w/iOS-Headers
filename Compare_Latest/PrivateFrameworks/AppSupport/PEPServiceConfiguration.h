@@ -16,12 +16,12 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)_postNotification;
-- (void)_updateDefaults:(id)arg1;
-- (BOOL)registerNetworkDefaultsForAppID:(id)arg1;
 - (BOOL)registerNetworkDefaultsForAppIDs:(id)arg1 forceUpdate:(BOOL)arg2;
+- (BOOL)registerNetworkDefaultsForAppID:(id)arg1;
+- (void)_updateDefaults:(id)arg1;
+- (void)_postNotification;
+- (void)dealloc;
+- (id)init;
 
 @end
 

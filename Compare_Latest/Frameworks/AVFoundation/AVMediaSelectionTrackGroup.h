@@ -6,27 +6,28 @@
 
 #import <AVFoundation/AVMediaSelectionGroup.h>
 
-@class AVAsset, NSArray;
+@class AVAsset, AVMediaSelectionOption, NSArray, NSDictionary;
 
 @interface AVMediaSelectionTrackGroup : AVMediaSelectionGroup
 {
     AVAsset *_asset;
+    NSDictionary *_dictionary;
     NSArray *_trackIDs;
     NSArray *_options;
-    BOOL _allowsEmptySelection;
+    AVMediaSelectionOption *_defaultOption;
 }
 
-- (id)mediaSelectionOptionWithPropertyList:(id)arg1;
-- (id)_optionForTrackID:(int)arg1 displaysNonForcedSubtitles:(BOOL)arg2;
+- (id)_defaultOption;
 - (BOOL)_isAlternateTrackGroup;
-- (BOOL)allowsEmptySelection;
+- (id)dictionary;
 - (id)asset;
+- (id)tracks;
 - (id)trackIDs;
 - (id)options;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
-- (id)initWithAsset:(id)arg1 alternateTrackIDs:(id)arg2;
+- (id)initWithAsset:(id)arg1 dictionary:(id)arg2;
 
 @end
 

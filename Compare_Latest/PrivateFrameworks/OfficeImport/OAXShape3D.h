@@ -10,10 +10,10 @@
 {
 }
 
-+ (id)bevelTypeEnumMap;
-+ (id)materialEnumMap;
-+ (id)readBevelFromXmlNode:(struct _xmlNode *)arg1;
 + (id)readShape3DFromXmlNode:(struct _xmlNode *)arg1 packagePart:(id)arg2;
++ (id)readBevelFromXmlNode:(struct _xmlNode *)arg1;
++ (id)materialEnumMap;
++ (id)bevelTypeEnumMap;
 
 @end
 

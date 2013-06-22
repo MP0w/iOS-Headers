@@ -6,7 +6,9 @@
 
 #import "NSObject.h"
 
-@interface NSFileHandle : NSObject
+#import "NSSecureCoding-Protocol.h"
+
+@interface NSFileHandle : NSObject <NSSecureCoding>
 {
 }
 
@@ -16,6 +18,7 @@
 + (id)fileHandleForUpdatingAtPath:(id)arg1;
 + (id)fileHandleForWritingAtPath:(id)arg1;
 + (id)fileHandleForReadingAtPath:(id)arg1;
++ (BOOL)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)fileHandleWithNullDevice;
 + (id)fileHandleWithStandardError;
@@ -39,6 +42,9 @@
 - (id)availableData;
 - (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
 - (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (Class)classForCoder;
 
 @end
 

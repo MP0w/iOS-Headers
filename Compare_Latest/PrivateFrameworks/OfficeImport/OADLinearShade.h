@@ -15,16 +15,16 @@
 }
 
 + (id)defaultProperties;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithDefaults;
-- (float)angle;
-- (void)setAngle:(float)arg1;
-- (BOOL)isAngleOverridden;
-- (BOOL)scaled;
-- (void)setScaled:(BOOL)arg1;
-- (BOOL)isScaledOverridden;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (BOOL)isScaledOverridden;
+- (void)setScaled:(BOOL)arg1;
+- (BOOL)scaled;
+- (BOOL)isAngleOverridden;
+- (void)setAngle:(float)arg1;
+- (float)angle;
+- (id)initWithDefaults;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

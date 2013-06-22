@@ -14,25 +14,17 @@
     NSString *_transcodePath;
 }
 
-+ (id)mimeTypesAllowedForMMS;
 + (id)mimeTypesToFileExtensions;
-- (void)dealloc;
-- (BOOL)shouldTranscodeForMMS;
-- (int)mediaType;
-- (unsigned long long)sizeInBytes;
-- (id)optionsForMedia;
-- (id)_transcodeOptions;
-- (void)prepareForTranscode;
-- (id)transcodePath;
-- (id)transcodedFilename;
-- (id)transcodeMimeType;
-- (id)transcodedPathExtension;
-- (double)transcodeStartTime;
-- (double)transcodeEndTime;
-- (double)transcodeDuration;
 - (id)effectiveExportedFilename;
-- (id)previewTitle;
-- (id)filenameForMedia;
+- (double)transcodeDuration;
+- (double)transcodeEndTime;
+- (double)transcodeStartTime;
+- (id)transcodeMimeType;
+- (id)transcodedFilename;
+- (void)prepareForTranscode;
+- (id)_transcodeOptions;
+- (int)mediaType;
+- (void)dealloc;
 
 @end
 

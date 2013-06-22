@@ -6,19 +6,26 @@
 
 #import <RemoteUI/RUIElement.h>
 
+#import "UIWebViewDelegate-Protocol.h"
+
 @class NSString, NSURL, UIWebView;
 
-@interface RUIWebView : RUIElement
+@interface RUIWebView : RUIElement <UIWebViewDelegate>
 {
     UIWebView *_webView;
     NSString *_html;
     NSURL *_baseURL;
+    id _delegate;
 }
 
-- (id)webView;
-@property(copy, nonatomic) NSString *html; // @synthesize html=_html;
-- (void)dealloc;
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
+@property(copy, nonatomic) NSString *html; // @synthesize html=_html;
+- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
+- (void)dealloc;
+- (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
+- (void)webViewDidFinishLoad:(id)arg1;
+- (id)webView;
+- (void)setDelegate:(id)arg1;
 
 @end
 

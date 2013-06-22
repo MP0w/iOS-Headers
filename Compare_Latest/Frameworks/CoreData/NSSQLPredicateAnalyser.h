@@ -19,15 +19,15 @@
     NSMutableArray *_subqueries;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)visitPredicate:(id)arg1;
-- (void)visitPredicateExpression:(id)arg1;
-- (void)visitPredicateOperator:(id)arg1;
-- (id)keypaths;
-- (id)allModifierPredicates;
-- (id)subqueries;
 - (id)setExpressions;
+- (id)subqueries;
+- (id)allModifierPredicates;
+- (id)keypaths;
+- (void)visitPredicateOperator:(id)arg1;
+- (void)visitPredicateExpression:(id)arg1;
+- (void)visitPredicate:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

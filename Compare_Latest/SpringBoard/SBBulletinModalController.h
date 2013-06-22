@@ -22,19 +22,21 @@
     NSMapTable *_alertsByBulletinID;
 }
 
-+ (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
-+ (id)sharedInstance;
 + (id)sharedInstanceIfExists;
-- (id)init;
-- (void)_dequeuePendedEventsIfPossible;
-- (BOOL)_enqueueEventBlock:(id)arg1;
-- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
-- (void)observer:(id)arg1 modifyBulletin:(id)arg2;
-- (void)observer:(id)arg1 removeBulletin:(id)arg2;
-- (void)observer:(id)arg1 purgeReferencesToBulletinID:(id)arg2;
-- (void)bulletinWindowStoppedBeingBusy;
-- (BOOL)bindBulletin:(id)arg1 forRegistry:(id)arg2;
++ (id)sharedInstance;
++ (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
 - (void)handleEvent:(int)arg1 withBulletin:(id)arg2 forRegistry:(id)arg3;
+- (BOOL)bindBulletin:(id)arg1 forRegistry:(id)arg2;
+- (void)bulletinWindowStoppedBeingBusy;
+- (void)observer:(id)arg1 purgeReferencesToBulletinID:(id)arg2;
+- (void)observer:(id)arg1 removeBulletin:(id)arg2;
+- (void)observer:(id)arg1 modifyBulletin:(id)arg2;
+- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
+- (BOOL)_enqueueEventBlock:(id)arg1;
+- (void)_dequeuePendedEventsIfPossible;
+- (void)_configureBBObserver;
+- (id)init;
+- (void)destroyingAlert:(id)arg1 withBulletinID:(id)arg2;
 
 @end
 

@@ -16,7 +16,6 @@
 - (id)everythingFailedErrorForError:(id)arg1;
 - (void *)errorEqualCallback;
 - (id)copyFilteredItemsFromItems:(id)arg1;
-- (id)init;
 
 @end
 

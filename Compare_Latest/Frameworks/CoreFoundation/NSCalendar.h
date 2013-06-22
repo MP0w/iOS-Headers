@@ -4,16 +4,17 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreFoundation/NSObject.h>
+#import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSCalendar : NSObject <NSCopying, NSCoding>
+@interface NSCalendar : NSObject <NSCopying, NSSecureCoding>
 {
 }
 
 + (id)currentCalendar;
++ (BOOL)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;
 - (unsigned char)_diffComponents:(double)arg1:(double)arg2:(unsigned long)arg3:(const char *)arg4:(char *)arg5;

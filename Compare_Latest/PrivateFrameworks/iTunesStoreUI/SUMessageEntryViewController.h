@@ -23,7 +23,7 @@
 
 @property(copy, nonatomic) NSArray *imagePickerMediaTypes; // @synthesize imagePickerMediaTypes=_imagePickerMediaTypes;
 @property(nonatomic) id <SUMessageEntryViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_showImagePickerForSourceType:(unsigned int)arg1;
+- (void)_showImagePickerForSourceType:(int)arg1;
 - (void)_reloadMessageEntryView;
 - (void)_promptForSourceType;
 - (id)_messageEntryView;

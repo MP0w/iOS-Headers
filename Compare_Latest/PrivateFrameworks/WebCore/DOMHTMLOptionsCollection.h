@@ -10,14 +10,14 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property int selectedIndex;
-@property unsigned int length;
-- (void)add:(id)arg1 index:(unsigned int)arg2;
-- (void)remove:(unsigned int)arg1;
-- (id)item:(unsigned int)arg1;
 - (id)namedItem:(id)arg1;
+- (id)item:(unsigned int)arg1;
+- (void)remove:(unsigned int)arg1;
+- (void)add:(id)arg1 index:(unsigned int)arg2;
+@property unsigned int length;
+@property int selectedIndex;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

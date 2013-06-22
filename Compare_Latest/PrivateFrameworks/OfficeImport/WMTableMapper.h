@@ -17,12 +17,14 @@
 }
 
 + (BOOL)isTableDeleted:(id)arg1;
-- (id)initWithWDTable:(id)arg1 parent:(id)arg2;
-- (void)dealloc;
-- (id)insideBorders;
-- (id)columnInfo;
-- (void)setInsideBorders:(id)arg1;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
+- (void)setInsideBorders:(id)arg1;
+- (id)columnInfo;
+- (id)insideBorders;
+- (void)dealloc;
+- (id)initWithWDTable:(id)arg1 parent:(id)arg2;
+- (id)copyStopArrayForRow:(unsigned int)arg1;
+- (id)copyColumnInfo;
 
 @end
 

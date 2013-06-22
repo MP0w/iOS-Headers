@@ -15,11 +15,11 @@
     CHDAnchor *mAnchor;
 }
 
-- (void)dealloc;
-- (id)anchor;
-- (void)setAnchor:(id)arg1;
-- (BOOL)hasBounds;
 - (struct CGRect)bounds;
+- (BOOL)hasBounds;
+- (void)setAnchor:(id)arg1;
+- (id)anchor;
+- (void)dealloc;
 
 @end
 

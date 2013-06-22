@@ -15,12 +15,12 @@
     NSMutableDictionary *mNextVmlShapeIdToTextBoxMap;
 }
 
-- (id)initWithWXState:(id)arg1;
-- (void)dealloc;
-- (id)wxState;
-- (id)currentParagraph;
-- (void)setCurrentParagraph:(id)arg1;
 - (id)nextVmlShapeIdToTextBoxMap;
+- (void)setCurrentParagraph:(id)arg1;
+- (id)currentParagraph;
+- (id)wxState;
+- (void)dealloc;
+- (id)initWithWXState:(id)arg1;
 
 @end
 

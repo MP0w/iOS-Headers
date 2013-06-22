@@ -28,33 +28,33 @@
 }
 
 + (float)defaultWidth;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)_cancelAllOperations;
-- (void)dealloc;
-- (void)didReceiveMemoryWarning;
-@property BOOL runOnMainThread;
-- (void)_removeThumbviews;
-- (void)reloadThumbnails;
-- (void)selectPageNumber:(int)arg1;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)_notifyScrubingStarted;
-- (void)_notifyPageChanged;
-- (void)_notifyScrubingEnded;
-- (void)_handleSwipAtLocation:(struct CGPoint)arg1;
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
-- (void)setFrame:(struct CGRect)arg1;
-- (struct CGRect)_thumbnailFrameForPageAtIndex:(int)arg1;
-- (void)_showPageLabel;
-- (void)_hidePageLabel;
-- (void)layoutSubviews;
-- (void)_updateSelectedThumbnailView;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)drawRect:(struct CGRect)arg1;
 @property id delegate; // @synthesize delegate=_delegate;
 @property id <QLScrubViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
+- (void)drawRect:(struct CGRect)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_updateSelectedThumbnailView;
+- (void)layoutSubviews;
+- (void)_hidePageLabel;
+- (void)_showPageLabel;
+- (struct CGRect)_thumbnailFrameForPageAtIndex:(int)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)_handleSwipAtLocation:(struct CGPoint)arg1;
+- (void)_notifyScrubingEnded;
+- (void)_notifyPageChanged;
+- (void)_notifyScrubingStarted;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)selectPageNumber:(int)arg1;
+- (void)reloadThumbnails;
+- (void)_removeThumbviews;
+@property BOOL runOnMainThread;
+- (void)didReceiveMemoryWarning;
+- (void)dealloc;
+- (void)_cancelAllOperations;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

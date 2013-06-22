@@ -11,6 +11,12 @@
 }
 
 + (id)chdAxisFromXmlAxisElement:(struct _xmlNode *)arg1 state:(id)arg2;
++ (int)chdCrossesFromXmlAxisElement:(struct _xmlNode *)arg1;
++ (int)chdTickLabelPositionFromXmlTickLabelPositionElement:(struct _xmlNode *)arg1;
++ (int)chdTickMarkFromXmlTickMarkElement:(struct _xmlNode *)arg1;
++ (int)chdAxisPositionFromXmlAxisElement:(struct _xmlNode *)arg1;
++ (void)readScalingFromXmlScalingElement:(struct _xmlNode *)arg1 axis:(id)arg2 state:(id)arg3;
++ (Class)chxAxisClassWithXmlAxisElement:(struct _xmlNode *)arg1;
 
 @end
 

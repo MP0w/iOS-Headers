@@ -8,7 +8,7 @@
 
 #import "ICSWriting-Protocol.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary;
+@class ICSDate, ICSDuration, ICSStructuredLocation, ICSTrigger, ICSUserAddress, NSArray, NSMutableArray, NSMutableDictionary, NSString, NSURL;
 
 @interface ICSComponent : NSObject <ICSWriting>
 {
@@ -17,10 +17,10 @@
 }
 
 + (id)name;
-+ (id)newUID;
 + (id)makeUID;
 + (int)statusFromString:(id)arg1;
 + (id)stringFromStatus:(int)arg1;
++ (id)inheritanceKeywords;
 @property(retain) NSArray *components; // @synthesize components=_components;
 - (id)ICSStringWithOptions:(unsigned int)arg1;
 - (void)ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
@@ -32,6 +32,59 @@
 - (BOOL)validate:(id *)arg1;
 - (id)debugDescription;
 - (id)init;
+- (id)properties;
+- (void)addProperty:(id)arg1 withValue:(id)arg2;
+- (void)setPropertyValue:(id)arg1 type:(int)arg2 forName:(id)arg3;
+- (void)setPropertyValue:(id)arg1 forName:(id)arg2;
+- (void)removeComponent:(id)arg1;
+- (void)addComponent:(id)arg1;
+@property(retain) NSArray *conferences;
+@property(retain) NSString *x_apple_serverFilename;
+@property(retain) NSString *x_apple_scheduletag;
+@property(retain) NSString *x_apple_etag;
+@property(retain) ICSStructuredLocation *x_apple_structured_location;
+@property BOOL x_apple_ignore_on_restore;
+@property BOOL x_apple_ews_needsserverconfirmation;
+@property(retain) NSString *x_apple_ews_permission;
+@property(retain) NSString *x_apple_ews_itemid;
+@property(retain) NSString *x_apple_ews_changekey;
+@property(retain) NSString *x_apple_dropbox;
+@property int x_calendarserver_access;
+@property unsigned int priority;
+@property(retain) NSURL *url;
+@property(retain) NSString *uid;
+@property(retain) ICSTrigger *trigger;
+@property(retain) NSString *summary;
+@property int status;
+@property unsigned int sequence;
+@property(retain) NSArray *rrule;
+@property(retain) ICSDate *recurrence_id;
+@property(retain) NSArray *rdate;
+@property(retain) ICSUserAddress *organizer;
+@property(retain) NSString *location;
+@property(retain) ICSDate *last_modified;
+@property(retain) NSArray *exrule;
+@property(retain) NSArray *exdate;
+@property(retain) ICSDuration *duration;
+@property(retain) ICSDate *dtend;
+@property(readonly) BOOL isAllDay;
+@property(retain) ICSDate *dtstart;
+@property(retain) ICSDate *dtstamp;
+@property(retain) NSString *description;
+@property(retain) ICSDate *created;
+@property int classification;
+@property(retain) NSArray *attendee;
+@property(retain) NSArray *attach;
+- (id)allProperties;
+- (void)fixComponent;
+- (void)fixExceptionDates;
+- (void)fixExceptionRules;
+- (void)fixRecurrenceDates;
+- (void)fixRecurrenceRules;
+- (void)fixAttachments;
+- (void)fixAttendees;
+- (void)fixAlarms;
+- (void)fixPropertiesInheritance:(id)arg1;
 
 @end
 

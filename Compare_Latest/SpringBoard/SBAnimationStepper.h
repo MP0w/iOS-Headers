@@ -21,17 +21,17 @@
     float m_finishBackwardPercentage;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)stepAnimationsInView:(id)arg1 animatingSubviews:(id)arg2 duration:(double)arg3;
 @property(nonatomic) float percentage; // @synthesize percentage=m_percentage;
-- (void)finishForwardToEnd;
-- (void)finishBackwardToStart;
-- (void)updateFinishBackwardToStart:(id)arg1;
 @property(nonatomic) double duration; // @synthesize duration=m_duration;
 @property(copy, nonatomic) NSArray *animatingSubviews; // @synthesize animatingSubviews=m_animatingSubviews;
 @property(retain, nonatomic) UIView *view; // @synthesize view=m_view;
 @property(nonatomic) id delegate; // @synthesize delegate=m_delegate;
+- (void)updateFinishBackwardToStart:(id)arg1;
+- (void)finishBackwardToStart;
+- (void)finishForwardToEnd;
+- (void)stepAnimationsInView:(id)arg1 animatingSubviews:(id)arg2 duration:(double)arg3;
+- (void)dealloc;
+- (id)init;
 
 @end
 

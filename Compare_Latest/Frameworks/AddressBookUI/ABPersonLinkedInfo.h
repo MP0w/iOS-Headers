@@ -16,14 +16,14 @@
     BOOL _unified;
 }
 
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (void)dealloc;
-- (id)description;
 @property(getter=isUnified) BOOL unified; // @synthesize unified=_unified;
 @property void *person; // @synthesize person=_person;
 @property(retain) NSString *name; // @synthesize name=_name;
 @property(retain) NSString *type; // @synthesize type=_type;
+- (id)description;
+- (void)dealloc;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 
 @end
 

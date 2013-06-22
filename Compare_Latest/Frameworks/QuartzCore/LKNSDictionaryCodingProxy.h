@@ -13,11 +13,11 @@
     NSDictionary *_dict;
 }
 
-- (id)initWithObject:(id)arg1;
-- (id)decodedObject;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)decodedObject;
+- (id)initWithObject:(id)arg1;
 
 @end
 

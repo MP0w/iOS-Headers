@@ -21,25 +21,25 @@
     BOOL mDoAddToHistory;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)targetLocation;
-- (void)setTargetLocation:(id)arg1;
-- (int)targetMode;
-- (void)setTargetMode:(int)arg1;
-- (id)targetFrame;
-- (void)setTargetFrame:(id)arg1;
-- (id)action;
-- (void)setAction:(id)arg1;
-- (id)tooltip;
-- (void)setTooltip:(id)arg1;
-- (id)invalidUrl;
-- (void)setInvalidUrl:(id)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
 @property(nonatomic) BOOL doAddToHistory; // @synthesize doAddToHistory=mDoAddToHistory;
 @property(nonatomic) BOOL isVisited; // @synthesize isVisited=mIsVisited;
 @property(nonatomic) BOOL doEndSound; // @synthesize doEndSound=mDoEndSound;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (void)setInvalidUrl:(id)arg1;
+- (id)invalidUrl;
+- (void)setTooltip:(id)arg1;
+- (id)tooltip;
+- (void)setAction:(id)arg1;
+- (id)action;
+- (void)setTargetFrame:(id)arg1;
+- (id)targetFrame;
+- (void)setTargetMode:(int)arg1;
+- (int)targetMode;
+- (void)setTargetLocation:(id)arg1;
+- (id)targetLocation;
+- (void)dealloc;
+- (id)init;
 
 @end
 

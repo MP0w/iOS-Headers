@@ -7,12 +7,12 @@
 #import "NSObject-Protocol.h"
 
 @protocol MFDragSource <NSObject>
-- (id)dragInitiatedAtPoint:(struct CGPoint)arg1;
-- (struct CGRect)frameForDraggedItem:(id)arg1;
-- (id)viewForDraggedItem:(id)arg1 atScale:(float)arg2;
-- (void)dragStartedWithItem:(id)arg1;
-- (void)animatePlaceholderForDragFailure:(id)arg1;
-- (void)dragCompletedForItem:(id)arg1 success:(BOOL)arg2;
 - (id)viewForDragSource;
+- (void)dragCompletedForItem:(id)arg1 success:(BOOL)arg2;
+- (void)animatePlaceholderForDragFailure:(id)arg1;
+- (void)dragStartedWithItem:(id)arg1;
+- (id)viewForDraggedItem:(id)arg1 atScale:(float)arg2;
+- (struct CGRect)frameForDraggedItem:(id)arg1;
+- (id)dragInitiatedAtPoint:(struct CGPoint)arg1;
 @end
 

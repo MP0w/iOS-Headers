@@ -12,6 +12,8 @@
 {
 }
 
++ (id)allPeersInManagedObjectContext:(id)arg1;
++ (id)peerForPeerID:(id)arg1 inManagedObjectContext:(id)arg2 createIfMissing:(BOOL)arg3;
 
 // Remaining properties
 @property(retain, nonatomic) NSSet *localPeerStates; // @dynamic localPeerStates;
@@ -20,5 +22,6 @@
 @property(retain, nonatomic) NSSet *primaryKeyRanges; // @dynamic primaryKeyRanges;
 @property(retain, nonatomic) NSSet *remoteStates; // @dynamic remoteStates;
 @property(retain, nonatomic) NSSet *transactionEntries; // @dynamic transactionEntries;
+
 @end
 

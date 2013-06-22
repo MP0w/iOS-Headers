@@ -10,9 +10,9 @@
 {
 }
 
-+ (_Bool)edAreaReferenceFromXmlReference:(id)arg1 areaReference:(struct EDAreaReference *)arg2;
-+ (id)edReferenceFromXmlReference:(id)arg1;
 + (id)edDiscontinousReferencesFromXmlRanges:(id)arg1;
++ (id)edReferenceFromXmlReference:(id)arg1;
++ (_Bool)edAreaReferenceFromXmlReference:(id)arg1 areaReference:(struct EDAreaReference *)arg2;
 
 @end
 

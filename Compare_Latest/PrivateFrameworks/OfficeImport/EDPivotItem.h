@@ -16,13 +16,13 @@
 }
 
 + (id)pivotItem;
-- (id)init;
-- (void)dealloc;
-- (unsigned int)repeatedItemCounts;
-- (void)setRepeatedItemCounts:(unsigned int)arg1;
-- (int)type;
-- (void)setType:(int)arg1;
 - (id)itemIndexes;
+- (void)setType:(int)arg1;
+- (int)type;
+- (void)setRepeatedItemCounts:(unsigned int)arg1;
+- (unsigned int)repeatedItemCounts;
+- (void)dealloc;
+- (id)init;
 
 @end
 

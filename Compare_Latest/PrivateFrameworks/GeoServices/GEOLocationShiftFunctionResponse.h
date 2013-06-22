@@ -13,11 +13,11 @@
     double _creationTime;
 }
 
-@property(nonatomic) CDStruct_2c43369c originalCoordinate; // @synthesize originalCoordinate=_originalCoordinate;
-- (BOOL)needsNewFunctionForCoordinate:(CDStruct_2c43369c)arg1;
-- (BOOL)wantsNewFunctionForCoordinate:(CDStruct_2c43369c)arg1;
-- (CDStruct_2c43369c)shiftedCoordinateForCoordinate:(CDStruct_2c43369c)arg1 accuracy:(double *)arg2;
-- (id)initWithLocationShiftResponse:(id)arg1 originalCoordinate:(CDStruct_2c43369c)arg2;
+@property(nonatomic) CDStruct_c3b9c2ee originalCoordinate; // @synthesize originalCoordinate=_originalCoordinate;
+- (BOOL)needsNewFunctionForCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (BOOL)wantsNewFunctionForCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (CDStruct_c3b9c2ee)shiftedCoordinateForCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double *)arg2;
+- (id)initWithLocationShiftResponse:(id)arg1 originalCoordinate:(CDStruct_c3b9c2ee)arg2;
 
 @end
 

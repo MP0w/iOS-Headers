@@ -11,6 +11,7 @@
 }
 
 + (id)readColorTransformsFromXmlNode:(struct _xmlNode *)arg1;
++ (id)colorTransformTypeEnumMap;
 
 @end
 

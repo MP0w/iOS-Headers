@@ -11,10 +11,10 @@
     BOOL _animatingAlpha;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)_actuallySetAlpha:(float)arg1;
-- (void)setAlpha:(float)arg1;
 - (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (void)setAlpha:(float)arg1;
+- (void)_actuallySetAlpha:(float)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

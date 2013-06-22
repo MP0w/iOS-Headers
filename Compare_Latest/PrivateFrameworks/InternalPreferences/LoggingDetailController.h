@@ -10,10 +10,10 @@
 {
 }
 
-- (id)init;
-- (void)_saveChanges;
-- (void)viewWillAppear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)_saveChanges;
+- (id)init;
 
 @end
 

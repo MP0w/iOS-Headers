@@ -25,7 +25,7 @@
 + (void)setUsesEffectiveBundleIdentifier:(BOOL)arg1;
 + (BOOL)usesEffectiveBundleIdentifier;
 - (void)_albumsChanged:(id)arg1;
-- (void)locationManager:(id)arg1 didUpdateToLocation:(id)arg2 fromLocation:(id)arg3;
+- (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 - (void)_updatePendingAssets;
 - (void)addLocationToMediaWithAssetURLWhenAvailable:(id)arg1 deviceOrientation:(int)arg2 cameraWasRearFacing:(BOOL)arg3;
 - (BOOL)_addLocationToAsset:(id)arg1;

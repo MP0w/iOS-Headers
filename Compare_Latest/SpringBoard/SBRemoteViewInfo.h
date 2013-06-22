@@ -17,12 +17,12 @@
     struct CGSize _viewSize;
 }
 
-- (void)dealloc;
 @property(nonatomic) struct CGSize viewSize; // @synthesize viewSize=_viewSize;
 @property(retain, nonatomic) SBApplication *application; // @synthesize application=_application;
 @property(retain, nonatomic) SBProxyRemoteView *proxyRemoteView; // @synthesize proxyRemoteView=_proxyRemoteView;
 @property(nonatomic) unsigned int contextID; // @synthesize contextID=_contextID;
 @property(retain, nonatomic) NSString *remoteViewIdentifier; // @synthesize remoteViewIdentifier=_remoteViewIdentifier;
+- (void)dealloc;
 
 @end
 

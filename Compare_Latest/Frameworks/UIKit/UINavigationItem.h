@@ -8,7 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
-@class NSArray, NSString, UIBarButtonItem, UIImageView, UINavigationBar, UIView;
+@class NSArray, NSMutableDictionary, NSString, UIBarButtonItem, UIImageView, UINavigationBar, UIView;
 
 @interface UINavigationItem : NSObject <NSCoding>
 {
@@ -35,6 +35,7 @@
     NSArray *_rightItemSpaceList;
     unsigned int _leftFlexibleSpaceCount;
     unsigned int _rightFlexibleSpaceCount;
+    NSMutableDictionary *_backgroundImages;
 }
 
 + (id)defaultFont;
@@ -44,6 +45,10 @@
 @property(copy, nonatomic, setter=_setLeftItemSpaceList:) NSArray *_leftItemSpaceList; // @synthesize _leftItemSpaceList;
 @property(nonatomic, setter=_setIndependentBarStyle:) int _independentBarStyle; // @synthesize _independentBarStyle;
 @property(nonatomic, getter=_isBarStyleIndependent, setter=_setBarStyleIndependent:) BOOL _barStyleIndependent; // @synthesize _barStyleIndependent;
+- (id)_independentShadowImage;
+- (id)_independentBackgroundImageForBarMetrics:(int)arg1;
+- (void)_setIndependentBackgroundImage:(id)arg1 shadowImage:(id)arg2 forBarMetrics:(int)arg3;
+@property(readonly, nonatomic) NSMutableDictionary *_backgroundImages; // @synthesize _backgroundImages;
 @property(nonatomic) BOOL leftItemsSupplementBackButton;
 - (id)_automationID;
 - (void)setCustomRightItem:(id)arg1 animated:(BOOL)arg2;
@@ -72,13 +77,18 @@
 - (id)customRightView;
 - (void)_setCustomRightView:(id)arg1;
 - (id)_customRightView;
+- (id)_customRightViewCreating:(BOOL)arg1;
 - (id)_customRightViews;
+- (id)_customRightViewsCreating:(BOOL)arg1;
 - (void)setCustomLeftView:(id)arg1 animated:(BOOL)arg2;
 - (void)setCustomLeftView:(id)arg1;
 - (id)customLeftView;
 - (void)_setCustomLeftView:(id)arg1;
+- (void)_setCustomLeftRightView:(id)arg1 left:(BOOL)arg2;
 - (id)_customLeftView;
+- (id)_customLeftViewCreating:(BOOL)arg1;
 - (id)_customLeftViews;
+- (id)_customLeftViewsCreating:(BOOL)arg1;
 - (void)setRightBarButtonItem:(id)arg1 animated:(BOOL)arg2;
 @property(retain, nonatomic) UIBarButtonItem *rightBarButtonItem;
 - (void)_setRightBarButtonItem:(id)arg1;
@@ -103,8 +113,7 @@
 @property(retain, nonatomic) UIView *titleView; // @synthesize titleView=_titleView;
 - (id)backButtonView;
 - (id)existingBackButtonView;
-- (void)_replaceCustomRightViewAtIndex:(unsigned int)arg1 withView:(id)arg2;
-- (void)_replaceCustomLeftViewAtIndex:(unsigned int)arg1 withView:(id)arg2;
+- (void)_replaceCustomLeftRightViewAtIndex:(unsigned int)arg1 withView:(id)arg2 left:(BOOL)arg3;
 - (void)_removeBackButtonView;
 - (void)_removeTitleAndButtonViews;
 - (id)context;
@@ -131,6 +140,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithTitle:(id)arg1;
+- (void)_setBackButtonPressed:(BOOL)arg1;
 
 @end
 

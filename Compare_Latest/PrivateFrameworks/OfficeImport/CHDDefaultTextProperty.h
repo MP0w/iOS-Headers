@@ -24,25 +24,27 @@
 }
 
 + (id)defaultTextPropertyWithResources:(id)arg1;
-- (id)initWithResources:(id)arg1;
-- (void)dealloc;
-- (int)defaultTextType;
-- (void)setDefaultTextType:(int)arg1;
-- (id)runs;
-- (void)setRuns:(id)arg1;
-- (id)contentFormat;
-- (void)setContentFormat:(id)arg1;
-- (unsigned int)key;
-- (int)labelPosition;
-- (void)setLabelPosition:(int)arg1;
-- (_Bool)isShowCategoryLabel;
-- (void)setIsShowCategoryLabel:(_Bool)arg1;
-- (_Bool)isShowValueLabel;
-- (void)setIsShowValueLabel:(_Bool)arg1;
-- (_Bool)isShowPercentageLabel;
-- (void)setIsShowPercentageLabel:(_Bool)arg1;
-- (_Bool)isShowSeriesLabel;
 - (void)setIsShowSeriesLabel:(_Bool)arg1;
+- (_Bool)isShowSeriesLabel;
+- (void)setIsShowPercentageLabel:(_Bool)arg1;
+- (_Bool)isShowPercentageLabel;
+- (void)setIsShowValueLabel:(_Bool)arg1;
+- (_Bool)isShowValueLabel;
+- (void)setIsShowCategoryLabel:(_Bool)arg1;
+- (_Bool)isShowCategoryLabel;
+- (void)setLabelPosition:(int)arg1;
+- (int)labelPosition;
+- (int)key;
+- (void)setContentFormat:(id)arg1;
+- (id)contentFormat;
+- (void)setRuns:(id)arg1;
+- (id)runs;
+- (void)setDefaultTextType:(int)arg1;
+- (int)defaultTextType;
+- (void)dealloc;
+- (id)initWithResources:(id)arg1;
+- (void)setContentFormatId:(unsigned int)arg1;
+- (unsigned int)contentFormatId;
 
 @end
 

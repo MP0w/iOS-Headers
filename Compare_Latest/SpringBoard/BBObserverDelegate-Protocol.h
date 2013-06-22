@@ -9,19 +9,20 @@
 @protocol BBObserverDelegate <NSObject>
 
 @optional
-- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
-- (void)observer:(id)arg1 modifyBulletin:(id)arg2;
-- (void)observer:(id)arg1 removeBulletin:(id)arg2;
-- (void)observer:(id)arg1 updateSectionOrderRule:(unsigned int)arg2;
-- (void)observer:(id)arg1 updateSectionOrder:(id)arg2;
-- (void)observer:(id)arg1 updateSectionInfo:(id)arg2;
-- (void)observer:(id)arg1 noteSectionParametersChanged:(id)arg2;
-- (void)observer:(id)arg1 purgeReferencesToBulletinID:(id)arg2;
-- (BOOL)observerShouldFetchAttachmentImageBeforeBulletinDelivery:(id)arg1;
-- (BOOL)observerShouldFetchAttachmentSizeBeforeBulletinDelivery:(id)arg1;
-- (id)observer:(id)arg1 thumbnailSizeConstraintsForAttachmentType:(int)arg2;
-- (id)observer:(id)arg1 multipleThumbnailSizeConstraintsForAttachmentType:(int)arg2;
-- (id)observer:(id)arg1 composedAttachmentImageForType:(int)arg2 thumbnailData:(id)arg3 key:(id)arg4;
 - (struct CGSize)observer:(id)arg1 composedAttachmentSizeForType:(int)arg2 thumbnailWidth:(float)arg3 height:(float)arg4 key:(id)arg5;
+- (id)observer:(id)arg1 composedAttachmentImageForType:(int)arg2 thumbnailData:(id)arg3 key:(id)arg4;
+- (id)observer:(id)arg1 multipleThumbnailSizeConstraintsForAttachmentType:(int)arg2;
+- (id)observer:(id)arg1 thumbnailSizeConstraintsForAttachmentType:(int)arg2;
+- (BOOL)observerShouldFetchAttachmentSizeBeforeBulletinDelivery:(id)arg1;
+- (BOOL)observerShouldFetchAttachmentImageBeforeBulletinDelivery:(id)arg1;
+- (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned int)arg2;
+- (void)observer:(id)arg1 purgeReferencesToBulletinID:(id)arg2;
+- (void)observer:(id)arg1 noteSectionParametersChanged:(id)arg2;
+- (void)observer:(id)arg1 updateSectionInfo:(id)arg2;
+- (void)observer:(id)arg1 updateSectionOrder:(id)arg2;
+- (void)observer:(id)arg1 updateSectionOrderRule:(unsigned int)arg2;
+- (void)observer:(id)arg1 removeBulletin:(id)arg2;
+- (void)observer:(id)arg1 modifyBulletin:(id)arg2;
+- (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
 @end
 

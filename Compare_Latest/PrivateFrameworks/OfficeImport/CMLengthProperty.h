@@ -13,14 +13,14 @@
 }
 
 + (id)cssStringValue:(double)arg1 unit:(int)arg2;
-- (id)initWithNumber:(double)arg1;
-- (id)initWithNumber:(double)arg1 unit:(int)arg2;
-- (double)value;
-- (int)intValue;
-- (int)unitType;
-- (int)compareValue:(id)arg1;
-- (id)cssStringForName:(id)arg1;
 - (id)cssString;
+- (id)cssStringForName:(id)arg1;
+- (int)compareValue:(id)arg1;
+- (int)unitType;
+- (int)intValue;
+- (double)value;
+- (id)initWithNumber:(double)arg1 unit:(int)arg2;
+- (id)initWithNumber:(double)arg1;
 
 @end
 

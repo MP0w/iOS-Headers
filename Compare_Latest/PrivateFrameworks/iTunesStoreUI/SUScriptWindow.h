@@ -11,6 +11,7 @@
 @interface SUScriptWindow : SUScriptObject
 {
     SUScriptViewController *_backViewController;
+    BOOL _canSwipeToDismiss;
     SUScriptWindowContext *_context;
     SUScriptViewController *_frontViewController;
     id _height;
@@ -23,8 +24,7 @@
 
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
-+ (id)webScriptNameForKey:(const char *)arg1;
-+ (void)_dismissWindowsAnimated:(BOOL)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 + (void)dismissWindowsWithOptions:(id)arg1;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
@@ -33,25 +33,7 @@
 - (id)_newOverlayTransitionWithOptions:(id)arg1;
 - (id)_copySafeTransitionOptionsFromOptions:(id)arg1;
 - (id)_backgroundViewController:(BOOL)arg1;
-- (void)_show:(id)arg1;
-- (void)_setWidth:(float)arg1;
-- (void)_setShouldDismissFunction:(id)arg1;
-- (void)_setShadowRadius:(float)arg1;
-- (void)_setShadowOpacity:(float)arg1;
-- (void)_setMaskFunction:(id)arg1;
-- (void)_setHeight:(float)arg1;
-- (void)_setFrontViewController:(id)arg1;
-- (void)_setBackViewController:(id)arg1;
-- (void)_reloadVisibility;
 - (struct CGSize)_overlaySize;
-- (float)_mainThreadShadowRadius;
-- (float)_mainThreadShadowOpacity;
-- (void)_flip:(id)arg1;
-- (void)_dismiss:(id)arg1;
-- (id)_copyWindowParentViewController;
-- (id)_copyShouldDismissFunction;
-- (id)_copyFrontViewController;
-- (id)_copyBackViewController;
 - (void)_overlayDidShowNotification:(id)arg1;
 - (void)_overlayDidFlipNotification:(id)arg1;
 - (void)_overlayDidDismissNotification:(id)arg1;
@@ -64,6 +46,7 @@
 @property(retain) SUScriptViewController *frontViewController;
 @property(retain) WebScriptObject *maskFunction;
 @property(retain) NSNumber *height;
+@property(copy) id canSwipeToDismiss;
 @property(retain) SUScriptViewController *backViewController;
 - (id)_className;
 - (void)show:(id)arg1;

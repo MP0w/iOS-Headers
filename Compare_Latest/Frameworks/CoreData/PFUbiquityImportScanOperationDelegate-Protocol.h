@@ -7,8 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol PFUbiquityImportScanOperationDelegate <NSObject>
-- (void)scanOperationFinished:(id)arg1 withDiscoveredLogLocation:(id)arg2;
-- (void)scanOperation:(id)arg1 discoveredPeerStoreVersionLocations:(id)arg2;
 - (void)scanOperation:(id)arg1 failedWithError:(id)arg2;
+- (BOOL)scanOperationFinished:(id)arg1 withDiscoveredLogLocation:(id)arg2 error:(id *)arg3;
 @end
 

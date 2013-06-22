@@ -4,41 +4,63 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <MessageUI/MFMailCompositionContext.h>
+#import "NSObject.h"
 
-@class MFMessageViewingContext, MailMessage;
+@class MFGenericAttachmentStore, MFMessageViewingContext, MailMessage, NSArray, NSString;
 
-@interface _MFMailCompositionContext : MFMailCompositionContext
+@interface _MFMailCompositionContext : NSObject
 {
+    NSString *_sendingAddress;
+    NSString *_subject;
+    NSArray *_toRecipients;
+    NSArray *_ccRecipients;
+    NSArray *_bccRecipients;
+    NSString *_messageBody;
+    MFGenericAttachmentStore *_attachments;
     int _composeType;
     id _autosaveIdentifier;
     MailMessage *_originalMessage;
     id _originalContent;
     MFMessageViewingContext *_loadingContext;
-    struct {
-        unsigned int loadRest:1;
-        unsigned int includeAttachments:1;
-    } _mailComposeFlags;
+    BOOL _loadRest;
+    BOOL _includeAttachments;
+    BOOL _showKeyboardImmediately;
+    BOOL _showContentImmediately;
+    BOOL _prefersFirstLineSelection;
 }
 
-- (id)initWithComposeType:(int)arg1;
-- (id)initWithComposeType:(int)arg1 originalMessage:(id)arg2;
-- (id)initWithURL:(id)arg1 composeType:(int)arg2 originalMessage:(id)arg3;
-- (id)initRecoveredAutosavedMessageWithIdentifier:(id)arg1;
-- (id)initReplyToMessage:(id)arg1;
-- (id)initReplyAllToMessage:(id)arg1;
-- (id)initForwardOfMessage:(id)arg1;
-- (id)initDraftRestoreOfMessage:(id)arg1;
-- (id)initDraftRestoreOfRFC822Data:(id)arg1;
-- (id)initOutboxRestoreOfMessage:(id)arg1;
-- (void)dealloc;
-@property(retain, nonatomic) MFMessageViewingContext *loadingContext; // @synthesize loadingContext=_loadingContext;
-@property(retain, nonatomic) id originalContent; // @synthesize originalContent=_originalContent;
-@property(nonatomic) BOOL loadRest;
-@property(nonatomic) BOOL includeAttachments;
-@property(readonly, retain, nonatomic) MailMessage *originalMessage; // @synthesize originalMessage=_originalMessage;
+@property(nonatomic) BOOL prefersFirstLineSelection; // @synthesize prefersFirstLineSelection=_prefersFirstLineSelection;
+@property(readonly, nonatomic) MailMessage *originalMessage; // @synthesize originalMessage=_originalMessage;
 @property(readonly, nonatomic) id autosaveIdentifier; // @synthesize autosaveIdentifier=_autosaveIdentifier;
 @property(readonly, nonatomic) int composeType; // @synthesize composeType=_composeType;
+@property(retain, nonatomic) MFMessageViewingContext *loadingContext; // @synthesize loadingContext=_loadingContext;
+@property(retain, nonatomic) id originalContent; // @synthesize originalContent=_originalContent;
+@property(nonatomic) BOOL showContentImmediately; // @synthesize showContentImmediately=_showContentImmediately;
+@property(nonatomic) BOOL showKeyboardImmediately; // @synthesize showKeyboardImmediately=_showKeyboardImmediately;
+@property(nonatomic) BOOL includeAttachments; // @synthesize includeAttachments=_includeAttachments;
+@property(nonatomic) BOOL loadRest; // @synthesize loadRest=_loadRest;
+@property(readonly, nonatomic) MFGenericAttachmentStore *attachments; // @synthesize attachments=_attachments;
+@property(copy, nonatomic) NSArray *bccRecipients; // @synthesize bccRecipients=_bccRecipients;
+@property(copy, nonatomic) NSArray *ccRecipients; // @synthesize ccRecipients=_ccRecipients;
+@property(copy, nonatomic) NSArray *toRecipients; // @synthesize toRecipients=_toRecipients;
+@property(copy, nonatomic) NSString *subject; // @synthesize subject=_subject;
+@property(copy, nonatomic) NSString *sendingAddress; // @synthesize sendingAddress=_sendingAddress;
+- (id)addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
+- (void)setMessageBody:(id)arg1 isHTML:(BOOL)arg2;
+- (id)messageBody;
+- (void)dealloc;
+- (id)initOutboxRestoreOfMessage:(id)arg1;
+- (id)initSendAgainDraftOfMessage:(id)arg1;
+- (id)initDraftRestoreOfMessage:(id)arg1;
+- (id)initForwardOfMessage:(id)arg1;
+- (id)initReplyAllToMessage:(id)arg1;
+- (id)initReplyToMessage:(id)arg1;
+- (id)initRecoveredAutosavedMessageWithIdentifier:(id)arg1;
+- (id)initWithURL:(id)arg1 composeType:(int)arg2 originalMessage:(id)arg3;
+- (id)initWithComposeType:(int)arg1 originalMessage:(id)arg2;
+- (id)initWithComposeType:(int)arg1;
+- (id)initWithURL:(id)arg1;
+- (id)init;
 
 @end
 

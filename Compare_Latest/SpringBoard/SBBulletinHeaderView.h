@@ -6,29 +6,37 @@
 
 #import "SBBulletinLinenSegmentView.h"
 
+#import "SBBulletinClearButtonDelegate-Protocol.h"
+
 @class NSString, SBBulletinBlurredShadowLabel, SBBulletinClearButton, UIView;
 
-@interface SBBulletinHeaderView : SBBulletinLinenSegmentView
+@interface SBBulletinHeaderView : SBBulletinLinenSegmentView <SBBulletinClearButtonDelegate>
 {
     UIView *_translucentOverlay;
     UIView *_iconView;
     SBBulletinBlurredShadowLabel *_sectionLabel;
+    SBBulletinBlurredShadowLabel *_sectionAltLabel;
     SBBulletinClearButton *_clearButton;
     id <SBBulletinHeaderViewDelegate> _delegate;
     NSString *_sectionID;
 }
 
 + (float)headerHeight;
-- (id)initWithFrame:(struct CGRect)arg1 linenView:(id)arg2;
-@property(retain, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
-- (void)dealloc;
-- (void)setShowsClearButton:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)layoutSubviews;
-- (void)willMoveToWindow:(id)arg1;
-- (id)_sectionNameForSectionID:(id)arg1;
-- (id)_newIconViewForSectionID:(id)arg1;
 @property(readonly, nonatomic) SBBulletinClearButton *clearButton; // @synthesize clearButton=_clearButton;
+@property(readonly, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
 @property(nonatomic) id <SBBulletinHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)willMoveToWindow:(id)arg1;
+- (void)layoutSubviews;
+- (void)_dateOrLocaleChanged:(id)arg1;
+- (struct CGRect)_positionAltLabel;
+- (BOOL)_configureAltTextInAvailableWidth:(float)arg1;
+- (BOOL)_showingAltLabel;
+- (void)setShowsClearButton:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)clearButton:(id)arg1 willTransitionWithDuration:(double)arg2;
+- (void)clearButtonWasPressed:(id)arg1;
+- (void)dealloc;
+- (void)configureWithSection:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 linenView:(id)arg2;
 
 @end
 

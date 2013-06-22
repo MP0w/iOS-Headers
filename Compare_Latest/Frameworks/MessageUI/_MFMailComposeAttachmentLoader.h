@@ -15,9 +15,9 @@
     BOOL _isDraft;
 }
 
-- (id)initWithMessage:(id)arg1 content:(id)arg2 isDraft:(BOOL)arg3;
-- (void)dealloc;
 - (void)loadAttachments;
+- (void)dealloc;
+- (id)initWithMessage:(id)arg1 content:(id)arg2 isDraft:(BOOL)arg3;
 
 @end
 

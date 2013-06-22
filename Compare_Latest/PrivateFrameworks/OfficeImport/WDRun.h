@@ -13,13 +13,13 @@
     WDParagraph *mParagraph;
 }
 
-- (int)runType;
-- (id)paragraph;
-- (id)init;
-- (id)initWithParagraph:(id)arg1;
-- (void)dealloc;
-- (BOOL)isEmpty;
 - (void)clearProperties;
+- (BOOL)isEmpty;
+- (void)dealloc;
+- (id)initWithParagraph:(id)arg1;
+- (id)init;
+- (id)paragraph;
+- (int)runType;
 
 @end
 

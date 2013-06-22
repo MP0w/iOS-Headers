@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSString, SUDescriptor, SUDownload, SUDownloadInterfaceReport;
+#import "NSKeyedUnarchiverDelegate-Protocol.h"
 
-@interface SUState : NSObject
+@class NSDate, NSString, SUDescriptor, SUDownload;
+
+@interface SUState : NSObject <NSKeyedUnarchiverDelegate>
 {
     SUDownload *_lastDownload;
     SUDescriptor *_lastScannedDescriptor;
-    SUDownloadInterfaceReport *_downloadInterfaceReport;
     NSDate *_lastScannedDescriptorTime;
     NSDate *_scheduledManualDownloadWifiPeriodEndTime;
     NSDate *_scheduledAutodownloadWifiPeriodEndTime;
@@ -37,7 +38,7 @@
 @property(retain, nonatomic) NSDate *lastScannedDescriptorTime; // @synthesize lastScannedDescriptorTime=_lastScannedDescriptorTime;
 @property(copy, nonatomic) SUDescriptor *lastScannedDescriptor; // @synthesize lastScannedDescriptor=_lastScannedDescriptor;
 @property(copy, nonatomic) SUDownload *lastDownload; // @synthesize lastDownload=_lastDownload;
-@property(retain, nonatomic) SUDownloadInterfaceReport *downloadInterfaceReport; // @synthesize downloadInterfaceReport=_downloadInterfaceReport;
+- (Class)unarchiver:(id)arg1 cannotDecodeObjectOfClassName:(id)arg2 originalClasses:(id)arg3;
 - (id)description;
 - (void)save;
 - (void)load;

@@ -12,26 +12,26 @@
 {
 }
 
-+ (id)defaultValueForKey:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
-- (void)didChangeValueForKey:(id)arg1;
-- (id)implicitAnimationForKeyPath:(id)arg1;
-- (void)_renderForegroundInContext:(struct CGContext *)arg1;
-- (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
-- (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
-- (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;
-@property struct CGPath *path;
-@property struct CGColor *fillColor;
-@property(copy) NSString *fillRule;
-@property struct CGColor *strokeColor;
-@property float strokeStart;
-@property float strokeEnd;
-@property float lineWidth;
-@property float miterLimit;
-@property(copy) NSString *lineJoin;
-@property(copy) NSString *lineCap;
-@property(copy) NSArray *lineDashPattern;
++ (id)defaultValueForKey:(id)arg1;
 @property float lineDashPhase;
+@property(copy) NSArray *lineDashPattern;
+@property(copy) NSString *lineCap;
+@property(copy) NSString *lineJoin;
+@property float miterLimit;
+@property float lineWidth;
+@property float strokeEnd;
+@property float strokeStart;
+@property struct CGColor *strokeColor;
+@property(copy) NSString *fillRule;
+@property struct CGColor *fillColor;
+@property struct CGPath *path;
+- (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;
+- (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
+- (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
+- (void)_renderForegroundInContext:(struct CGContext *)arg1;
+- (id)implicitAnimationForKeyPath:(id)arg1;
+- (void)didChangeValueForKey:(id)arg1;
 
 @end
 

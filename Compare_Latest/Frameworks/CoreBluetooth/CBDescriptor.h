@@ -17,7 +17,7 @@
 
 @property(retain) id value; // @synthesize value=_value;
 @property(readonly, nonatomic) CBUUID *UUID; // @synthesize UUID=_UUID;
-@property(readonly, nonatomic) CBCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
+@property(nonatomic) CBCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
 
 @end
 

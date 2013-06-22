@@ -13,29 +13,37 @@
     struct EDAreaReference mAreaReference;
 }
 
-+ (id)reference;
-+ (id)referenceWithFirstRow:(int)arg1 lastRow:(int)arg2 firstColumn:(int)arg3 lastColumn:(int)arg4;
 + (id)referenceWithAreaReference:(struct EDAreaReference *)arg1;
-- (id)init;
-- (id)initWithFirstRow:(int)arg1 lastRow:(int)arg2 firstColumn:(int)arg3 lastColumn:(int)arg4;
-- (id)initWithAreaReference:(struct EDAreaReference *)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqualToReference:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (struct EDAreaReference)areaReference;
-- (int)firstRow;
-- (int)firstColumn;
-- (int)lastRow;
-- (int)lastColumn;
-- (_Bool)containsRow:(int)arg1 column:(int)arg2;
-- (_Bool)isCellReference;
-- (_Bool)isRowReference;
-- (_Bool)isColumnReference;
-- (_Bool)isValidCellReference;
-- (_Bool)isValidAreaReference;
-- (unsigned int)countOfCellsBeingReferenced;
++ (id)referenceWithFirstRow:(int)arg1 lastRow:(int)arg2 firstColumn:(int)arg3 lastColumn:(int)arg4;
++ (id)reference;
+- (id).cxx_construct;
 - (_Bool)fullyAdjacentToReference:(id)arg1;
+- (unsigned int)countOfCellsBeingReferenced;
+- (_Bool)isValidAreaReference;
+- (_Bool)isValidCellReference;
+- (_Bool)isColumnReference;
+- (_Bool)isRowReference;
+- (_Bool)isCellReference;
+- (_Bool)containsRow:(int)arg1 column:(int)arg2;
+- (int)lastColumn;
+- (int)lastRow;
+- (int)firstColumn;
+- (int)firstRow;
+- (struct EDAreaReference)areaReference;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToReference:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithAreaReference:(struct EDAreaReference *)arg1;
+- (id)initWithFirstRow:(int)arg1 lastRow:(int)arg2 firstColumn:(int)arg3 lastColumn:(int)arg4;
+- (id)init;
+- (void)unionWithRow:(int)arg1 column:(int)arg2;
+- (void)unionWithFirstRow:(int)arg1 lastRow:(int)arg2 firstColumn:(int)arg3 lastColumn:(int)arg4;
+- (void)unionWithReference:(id)arg1;
+- (void)setLastColumn:(int)arg1;
+- (void)setLastRow:(int)arg1;
+- (void)setFirstColumn:(int)arg1;
+- (void)setFirstRow:(int)arg1;
 
 @end
 

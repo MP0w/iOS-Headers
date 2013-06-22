@@ -6,17 +6,36 @@
 
 #import "MFComposeRecipient.h"
 
+@class IMHandle;
+
 @interface CKIMComposeRecipient : MFComposeRecipient
 {
+    IMHandle *_handle;
 }
 
-+ (int)_recipientABProperty;
-- (id)_unformattedAddress;
+@property(readonly, nonatomic) IMHandle *handle; // @synthesize handle=_handle;
+- (void)setIdentifier:(int)arg1;
+- (void)setRecord:(void *)arg1 recordID:(int)arg2 identifier:(int)arg3;
+- (BOOL)isRemovableFromSearchResults;
+- (id)objectForDragType:(id)arg1;
+- (id)supportedDragTypes;
+- (void)dealloc;
+- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)address;
-- (id)displayString;
 - (id)uncommentedAddress;
-- (id)description;
+- (id)displayString;
+- (id)compositeName;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)unlocalizedLabel;
+- (id)label;
+- (int)identifier;
+- (id)commentedAddress;
+- (id)address;
+- (int)recordID;
+- (void *)record;
+- (int)property;
+- (id)initWithRecord:(void *)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4 address:(id)arg5;
+- (id)initWithHandle:(id)arg1;
 
 @end
 

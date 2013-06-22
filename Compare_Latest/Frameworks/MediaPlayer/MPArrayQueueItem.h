@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class MPAVItem, NSString, SSDownload;
+@class MPAVItem, NSString;
 
 @interface MPArrayQueueItem : NSObject
 {
     MPAVItem *_item;
-    SSDownload *_download;
     NSString *_path;
     double _startTime;
     double _stopTime;
@@ -23,7 +22,6 @@
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
 @property(copy, nonatomic) NSString *path; // @synthesize path=_path;
 @property(readonly, nonatomic) MPAVItem *item; // @synthesize item=_item;
-@property(retain, nonatomic) SSDownload *download; // @synthesize download=_download;
 - (void)dealloc;
 - (id)initWithMPAVItem:(id)arg1;
 - (id)init;

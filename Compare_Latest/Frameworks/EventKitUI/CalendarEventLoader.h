@@ -6,62 +6,59 @@
 
 #import "NSObject.h"
 
-@class EKEventStore, NSArray, NSMutableSet, NSPredicate;
+@class EKEventStore, NSArray, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSSet;
 
 @interface CalendarEventLoader : NSObject
 {
     EKEventStore *_store;
-    struct CalFilter *_filter;
-    NSPredicate *_predicate;
     id <CalendarEventLoaderDelegate> _delegate;
-    NSArray *_occurrences;
-    NSArray *_selectedDateOccurrences;
+    NSObject<OS_dispatch_queue> *_occurrencesLock;
+    NSArray *_loadedOccurrences;
     NSMutableSet *_occurrencesAwaitingRefresh;
     NSMutableSet *_occurrencesAwaitingDeletion;
-    struct dispatch_queue_s *_queue;
-    struct dispatch_queue_s *_lock;
-    struct dispatch_group_s *_group;
-    int _seed;
-    int _backgroundSeed;
-    NSArray *_backgroundResults;
-    unsigned int _paddingMonthsToLoad;
-    BOOL _loadsBlocked;
-    BOOL _processingReload;
-    NSPredicate *_backgroundPredicate;
-    id _backgroundRequest;
-    double _selectedDate;
-    CDStruct_b0fa4487 _selectedDateGr;
-    CDStruct_b0fa4487 _selectedDateTimeGr;
-    double _start;
-    double _end;
-    CDStruct_b0fa4487 _startGr;
-    CDStruct_b0fa4487 _endGr;
+    NSSet *_selectedCalendars;
+    unsigned int _daysOfPadding;
+    unsigned int _maxDaysToCache;
+    unsigned int _componentForExpandingRequests;
+    unsigned int _componentForExpandingPadding;
+    double _preferredReloadStart;
+    double _preferredReloadEnd;
+    NSObject<OS_dispatch_group> *_loadGroup;
+    NSObject<OS_dispatch_queue> *_loadQueue;
+    int _cancelSeed;
+    double _loadedStart;
+    double _loadedEnd;
+    BOOL _loadedOccurrencesAreStale;
+    double _currentlyLoadingStart;
+    double _currentlyLoadingEnd;
+    double _lastRequestedStart;
+    double _lastRequestedEnd;
 }
 
 @property(nonatomic) id <CalendarEventLoaderDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)waitForBackgroundLoad;
-- (BOOL)_backgroundLoadCompleted:(id)arg1;
-- (void)cancelBackgroundLoad;
-- (void)_beginBackgroundLoadForPredicate:(id)arg1;
-- (id)occurrencesForDay:(CDStruct_b0fa4487)arg1 waitForLoad:(BOOL)arg2;
-- (id)occurrencesForStartDate:(id)arg1 endDate:(id)arg2 waitForLoad:(BOOL)arg3;
+- (void)_getLoadStart:(double *)arg1 end:(double *)arg2 fromLoadedStart:(double)arg3 loadedEnd:(double)arg4 currentlyLoadingStart:(double)arg5 currentlyLoadingEnd:(double)arg6;
+- (void)_getStart:(double)arg1 end:(double)arg2 paddedByDays:(int)arg3 inTimeZone:(id)arg4 resultStart:(double *)arg5 resultEnd:(double *)arg6;
+- (void)_getStart:(double)arg1 end:(double)arg2 expandedToComponents:(unsigned int)arg3 withResultStart:(double *)arg4 resultEnd:(double *)arg5;
+- (void)_pruneLoadedOccurrences;
+- (void)_reload;
+- (void)cancelAllLoads;
+- (void)_enqueueLoadForRangeStart:(double)arg1 end:(double)arg2;
+- (id)_uniqueEventsFromArray:(id)arg1;
+- (void)_loadIfNeededBetweenStart:(double)arg1 end:(double)arg2 loadPaddingNow:(BOOL)arg3;
+- (void)loadIfNeeded;
+- (id)occurrencesForStartDate:(id)arg1 endDate:(id)arg2 preSorted:(BOOL)arg3 waitForLoad:(BOOL)arg4;
+- (void)waitForBackgroundLoad;
+- (void)_eventStoreChanged:(id)arg1;
+- (void)timeZoneChanged;
+- (BOOL)loadIsComplete;
+- (void)setSelectedCalendars:(id)arg1;
+- (void)setPreferredReloadStartDate:(id)arg1 endDate:(id)arg2;
+- (void)setComponentForExpandingPadding:(unsigned int)arg1;
+- (void)setComponentForExpandingRequests:(unsigned int)arg1;
+- (void)setCacheLimit:(unsigned int)arg1;
+- (void)setPadding:(unsigned int)arg1;
 - (void)addOccurrenceAwaitingDeletion:(id)arg1;
 - (void)addOccurrenceAwaitingRefresh:(id)arg1;
-- (void)_notifyDelegateThatOccurrencesDidUpdate;
-- (void)_reload:(BOOL)arg1;
-- (void)_clearOccurrences;
-- (void)timeZoneChanged;
-- (CDStruct_b0fa4487)selectedDate;
-- (void)setSelectedDate:(CDStruct_b0fa4487)arg1 loadMethod:(int)arg2;
-- (void)_setDisplayedDateRange:(CDStruct_b0fa4487)arg1 end:(CDStruct_b0fa4487)arg2 loadMethod:(int)arg3;
-- (void)_reloadOccurrences;
-- (id)selectedDateOccurrences:(BOOL)arg1;
-- (id)selectedDateOccurrences:(BOOL)arg1 loadIsComplete:(char *)arg2;
-- (void)_eventStoreChanged:(id)arg1;
-- (void)_updatePredicate;
-@property(retain, nonatomic) struct CalFilter *filter;
-@property(nonatomic) unsigned int paddingMonthsToLoad;
-@property(nonatomic) BOOL loadsBlocked;
 - (void)dealloc;
 - (id)initWithEventStore:(id)arg1;
 

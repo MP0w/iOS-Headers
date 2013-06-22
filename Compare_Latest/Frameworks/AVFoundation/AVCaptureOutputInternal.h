@@ -13,6 +13,9 @@
     AVCaptureSession *session;
     NSMutableArray *connections;
     int changeSeed;
+    struct CGAffineTransform metadataTransform;
+    float rollAdjustment;
+    BOOL physicallyMirrorsVideo;
 }
 
 - (void)dealloc;

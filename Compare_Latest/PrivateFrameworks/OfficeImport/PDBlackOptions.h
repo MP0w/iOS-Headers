@@ -11,8 +11,8 @@
     BOOL mIsThroughBlack;
 }
 
-- (BOOL)isThroughBlack;
 - (void)setIsThroughBlack:(BOOL)arg1;
+- (BOOL)isThroughBlack;
 
 @end
 

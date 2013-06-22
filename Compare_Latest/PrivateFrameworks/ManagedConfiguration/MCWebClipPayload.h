@@ -18,23 +18,23 @@
     BOOL _fullScreen;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (id)stubDictionary;
-- (id)description;
-- (void)dealloc;
-- (id)title;
-- (id)subtitle1Label;
-- (id)subtitle1Description;
-- (id)subtitle2Label;
++ (id)typeStrings;
+@property(readonly, nonatomic) BOOL fullScreen; // @synthesize fullScreen=_fullScreen;
+@property(readonly, nonatomic) BOOL precomposed; // @synthesize precomposed=_precomposed;
+@property(readonly, nonatomic) BOOL isRemovable; // @synthesize isRemovable=_isRemovable;
+@property(readonly, nonatomic) NSData *iconData; // @synthesize iconData=_iconData;
+@property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
+@property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+- (void).cxx_destruct;
 - (id)subtitle2Description;
-@property(readonly) BOOL fullScreen; // @synthesize fullScreen=_fullScreen;
-@property(readonly) BOOL precomposed; // @synthesize precomposed=_precomposed;
-@property(readonly) BOOL isRemovable; // @synthesize isRemovable=_isRemovable;
-@property(readonly) NSData *iconData; // @synthesize iconData=_iconData;
-@property(readonly) NSString *label; // @synthesize label=_label;
-@property(readonly) NSURL *URL; // @synthesize URL=_URL;
+- (id)subtitle2Label;
+- (id)subtitle1Description;
+- (id)subtitle1Label;
+- (id)title;
+- (id)description;
+- (id)stubDictionary;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 
 @end
 

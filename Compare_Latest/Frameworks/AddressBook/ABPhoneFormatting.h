@@ -10,9 +10,9 @@
 {
 }
 
-+ (id)abDefaultCountryCode;
-+ (id)abCopyPhoneNumberFromString:(id)arg1;
 + (id)abNormalizedPhoneNumberFromString:(id)arg1;
++ (id)abCopyPhoneNumberFromString:(id)arg1;
++ (id)abDefaultCountryCode;
 
 @end
 

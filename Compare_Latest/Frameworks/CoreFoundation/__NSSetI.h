@@ -8,16 +8,18 @@
 
 @interface __NSSetI : NSSet
 {
-    unsigned int _used;
+    unsigned int _used:26;
+    unsigned int _szidx:6;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-+ (id)__new:(const id *)arg1:(unsigned int)arg2;
++ (id)__new:(const id *)arg1:(unsigned int)arg2:(BOOL)arg3;
 - (void)finalize;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (void)getObjects:(id *)arg1 count:(unsigned int)arg2;
 - (id)objectEnumerator;
 - (id)member:(id)arg1;
 - (unsigned int)count;

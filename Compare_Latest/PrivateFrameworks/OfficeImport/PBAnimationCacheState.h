@@ -14,9 +14,9 @@
     NSMutableSet *mExitDrawables;
 }
 
-- (id)init;
-- (void)dealloc;
 - (BOOL)isValid:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

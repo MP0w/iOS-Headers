@@ -13,10 +13,10 @@
     UIImage *_tileImage;
 }
 
-- (id)initWithImage:(id)arg1;
-- (void)dealloc;
-@property(retain, nonatomic) UIImage *image;
 @property(retain, nonatomic) UIImage *_tileImage; // @synthesize _tileImage;
+@property(retain, nonatomic) UIImage *image;
+- (void)dealloc;
+- (id)initWithImage:(id)arg1;
 
 @end
 

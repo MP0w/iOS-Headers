@@ -17,19 +17,19 @@
     UIView *_contentLayer;
 }
 
-- (id)initWithContentControllerDelegate:(id)arg1 addressBook:(void *)arg2;
-- (id)init;
-- (void)dealloc;
-@property(nonatomic) void *addressBook;
-- (id)contentControllerDelegate;
-- (void)setContentControllerDelegate:(id)arg1;
-- (id)contentView;
-- (void)cleanUpContentLayer;
-- (BOOL)contentViewIsVisible;
-- (void)displayScrollerIndicators;
-- (void)back:(BOOL)arg1 save:(BOOL)arg2;
-- (void)reload;
 - (void)preloadController;
+- (void)reload;
+- (void)back:(BOOL)arg1 save:(BOOL)arg2;
+- (void)displayScrollerIndicators;
+- (BOOL)contentViewIsVisible;
+- (void)cleanUpContentLayer;
+- (id)contentView;
+- (void)setContentControllerDelegate:(id)arg1;
+- (id)contentControllerDelegate;
+@property(nonatomic) void *addressBook;
+- (void)dealloc;
+- (id)init;
+- (id)initWithContentControllerDelegate:(id)arg1 addressBook:(void *)arg2;
 
 @end
 

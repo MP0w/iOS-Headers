@@ -12,12 +12,13 @@
 {
 }
 
-@property(copy) NSString *aLink;
-@property(copy) NSString *background;
-@property(copy) NSString *bgColor;
-@property(copy) NSString *link;
-@property(copy) NSString *text;
 @property(copy) NSString *vLink;
+@property(copy) NSString *text;
+@property(copy) NSString *link;
+@property(copy) NSString *bgColor;
+@property(copy) NSString *background;
+@property(copy) NSString *aLink;
+- (int)structuralComplexityContribution;
 
 @end
 

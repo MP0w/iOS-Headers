@@ -14,17 +14,17 @@
     NSString *_path;
 }
 
-- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3 type:(unsigned int)arg4 storageID:(unsigned long)arg5 objectHandle:(unsigned long)arg6;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly) unsigned int type;
-@property(readonly) unsigned int storageID;
-@property(readonly) unsigned int objHandle;
-@property(copy) id info;
-- (long)writeDataToFile:(int)arg1 fromOffset:(long long)arg2 ofLength:(long long *)arg3;
-- (id)thumbData;
-- (id)metadataDict;
 @property(retain) NSString *path; // @synthesize path=_path;
+- (id)metadataDict;
+- (id)thumbData;
+- (long)writeDataToFile:(int)arg1 fromOffset:(long long)arg2 ofLength:(long long *)arg3;
+@property(copy) id info;
+@property(readonly) unsigned long objHandle;
+@property(readonly) unsigned long storageID;
+@property(readonly) unsigned int type;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3 type:(unsigned int)arg4 storageID:(unsigned long)arg5 objectHandle:(unsigned long)arg6;
 
 @end
 

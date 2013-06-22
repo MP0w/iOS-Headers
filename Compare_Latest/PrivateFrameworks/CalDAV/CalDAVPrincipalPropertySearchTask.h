@@ -17,14 +17,14 @@
 }
 
 + (id)_propertiesToFindForServerSupportSet:(id)arg1;
-- (void)dealloc;
-- (id)initWithSearchStrings:(id)arg1 searchTypes:(id)arg2 serverSupportSet:(id)arg3 atURL:(id)arg4;
-- (id)extraAttributes;
-- (id)searchItems;
 @property(nonatomic) void *searchContext; // @synthesize searchContext=_searchContext;
 @property(retain) CalDAVPrincipalSearchPropertySet *serverSupportSet; // @synthesize serverSupportSet=_serverSupportSet;
 @property(retain) NSSet *searchStrings; // @synthesize searchStrings=_searchStrings;
 @property(retain) NSSet *searchTypes; // @synthesize searchTypes=_searchTypes;
+- (id)searchItems;
+- (id)extraAttributes;
+- (id)initWithSearchStrings:(id)arg1 searchTypes:(id)arg2 serverSupportSet:(id)arg3 atURL:(id)arg4;
+- (void)dealloc;
 
 @end
 

@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol APSCourierDelegate <NSObject>
+- (void)courierConnectionStatusChanged:(id)arg1;
 - (void)courierHasNoConnections:(id)arg1;
 @end
 

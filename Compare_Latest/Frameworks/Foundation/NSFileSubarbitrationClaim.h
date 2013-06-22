@@ -40,7 +40,7 @@
 - (id)messageSender;
 - (void)setMessageSender:(id)arg1;
 - (void)dealloc;
-- (id)initWithClient:(struct _xpc_connection_s *)arg1 messageParameters:(id)arg2 replySender:(id)arg3;
+- (id)initWithClient:(id)arg1 messageParameters:(id)arg2 replySender:(id)arg3;
 - (id)initWithReadingURLs:(id)arg1 options:(unsigned int)arg2 writingURLs:(id)arg3 options:(unsigned int)arg4 claimer:(id)arg5;
 
 @end

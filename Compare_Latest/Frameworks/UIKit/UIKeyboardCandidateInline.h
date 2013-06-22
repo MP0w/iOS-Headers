@@ -9,32 +9,33 @@
 #import "UIKeyboardCandidateList-Protocol.h"
 #import "UIKeyboardCandidateListDelegate-Protocol.h"
 
-@class NSArray, NSString, UIKeyboardCandidateExtended, UIView<UIKeyboardCandidateList>;
+@class NSArray, NSString, UIKeyboardCandidateView<UIKeyboardCandidateViewInline>, UIView<UIKeyboardCandidateList>;
 
 @interface UIKeyboardCandidateInline : NSObject <UIKeyboardCandidateList, UIKeyboardCandidateListDelegate>
 {
-    id <UIKeyboardCandidateListDelegate> _candidateListDelegate;
-    NSArray *_candidates;
-    NSString *_inlineText;
+    NSArray *m_candidates;
+    NSString *m_inlineText;
+    struct CGRect m_inlineRect;
+    UIView<UIKeyboardCandidateList> *m_inlineView;
+    UIKeyboardCandidateView<UIKeyboardCandidateViewInline> *m_extendedView;
+    struct {
+        unsigned int isExtended;
+    } _inlineFlags;
     int _promptTextType;
-    struct CGRect _inlineRect;
-    UIKeyboardCandidateExtended *_extendedCandidatesView;
-    BOOL _showingExtendedCandidatesView;
+    id <UIKeyboardCandidateListDelegate> _candidateListDelegate;
 }
 
-+ (void)releaseSharedInstance;
 + (id)sharedInstance;
-@property(nonatomic) BOOL showingExtendedCandidatesView; // @synthesize showingExtendedCandidatesView=_showingExtendedCandidatesView;
-@property(retain, nonatomic) UIKeyboardCandidateExtended *extendedCandidatesView; // @synthesize extendedCandidatesView=_extendedCandidatesView;
-@property(nonatomic) struct CGRect inlineRect; // @synthesize inlineRect=_inlineRect;
-@property(nonatomic) int promptTextType; // @synthesize promptTextType=_promptTextType;
-@property(copy, nonatomic) NSString *inlineText; // @synthesize inlineText=_inlineText;
-@property(copy, nonatomic) NSArray *candidates; // @synthesize candidates=_candidates;
 @property(nonatomic) id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
+@property(nonatomic) int promptTextType; // @synthesize promptTextType=_promptTextType;
+@property(nonatomic) struct CGRect inlineRect; // @synthesize inlineRect=m_inlineRect;
+@property(retain, nonatomic) NSString *inlineText; // @synthesize inlineText=m_inlineText;
+@property(retain, nonatomic) NSArray *candidates; // @synthesize candidates=m_candidates;
 - (void)candidateListShouldBeDismissed:(id)arg1;
 - (void)candidateListSelectionDidChange:(id)arg1;
 - (void)candidateListAcceptCandidate:(id)arg1;
 - (void)setCompletionContext:(id)arg1;
+- (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
 - (void)setCandidates:(id)arg1 type:(int)arg2 inlineText:(id)arg3 inlineRect:(struct CGRect)arg4 maxX:(float)arg5 layout:(BOOL)arg6;
 - (void)configureKeyboard:(id)arg1;
 - (unsigned int)count;
@@ -48,17 +49,18 @@
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
+- (void)showCandidate:(id)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)layout;
-- (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
-- (BOOL)needsWebDocumentViewEventsDirectly;
 - (void)animateInlineCandidate;
-- (void)hideExtendedCandidatesView;
-- (void)showExtendedCandidatesView;
+- (BOOL)needsWebDocumentViewEventsDirectly;
+- (void)candidatesDidChange;
+- (void)setInlineViewExtended:(BOOL)arg1;
+- (id)activeCandidateList;
 - (void)dealloc;
-
-// Remaining properties
-@property(readonly, nonatomic) UIView<UIKeyboardCandidateList> *inlineView; // @dynamic inlineView;
+- (id)init;
+- (BOOL)isReducedWidth;
+- (id)_inlineView;
 
 @end
 

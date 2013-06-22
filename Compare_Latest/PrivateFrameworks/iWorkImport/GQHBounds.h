@@ -10,11 +10,11 @@
 {
 }
 
-+ (void)setTransformOriginToZeroInStyle:(id)arg1;
-+ (void)mapSize:(struct CGSize)arg1 angle:(float)arg2 srcGraphicStyle:(id)arg3 style:(id)arg4 state:(id)arg5;
-+ (void)mapSize:(struct CGSize)arg1 angle:(float)arg2 flipX:(BOOL)arg3 flipY:(BOOL)arg4 srcGraphicStyle:(id)arg5 style:(id)arg6 state:(id)arg7;
-+ (void)mapPosition:(struct CGPoint)arg1 srcGraphicStyle:(id)arg2 style:(id)arg3 state:(id)arg4;
 + (void)mapBounds:(struct CGRect)arg1 angle:(float)arg2 srcGraphicStyle:(id)arg3 style:(id)arg4 state:(id)arg5;
++ (void)mapPosition:(struct CGPoint)arg1 srcGraphicStyle:(id)arg2 style:(id)arg3 state:(id)arg4;
++ (void)mapSize:(struct CGSize)arg1 angle:(float)arg2 flipX:(BOOL)arg3 flipY:(BOOL)arg4 srcGraphicStyle:(id)arg5 style:(id)arg6 state:(id)arg7;
++ (void)mapSize:(struct CGSize)arg1 angle:(float)arg2 srcGraphicStyle:(id)arg3 style:(id)arg4 state:(id)arg5;
++ (void)setTransformOriginToZeroInStyle:(id)arg1;
 
 @end
 

@@ -12,10 +12,10 @@
 }
 
 + (id)objectWithRenderObject:(struct Object *)arg1;
-- (id)initWithRenderObject:(struct Object *)arg1;
-- (struct Object *)object;
-- (struct Object *)CA_copyRenderValue;
 - (void)dealloc;
+- (struct Object *)CA_copyRenderValue;
+- (struct Object *)object;
+- (id)initWithRenderObject:(struct Object *)arg1;
 
 @end
 

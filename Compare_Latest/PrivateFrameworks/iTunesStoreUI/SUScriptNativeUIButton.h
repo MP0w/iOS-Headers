@@ -12,10 +12,16 @@
 
 + (id)objectWithDefaultButtonForScriptButton:(id)arg1;
 - (void)setupNativeObject;
+- (void)disconnectButtonAction;
 - (void)destroyNativeObject;
+- (void)connectButtonAction;
 - (id)title;
+- (int)tag;
 - (void)setTitle:(id)arg1;
+- (void)setTag:(int)arg1;
+- (void)setImageInsets:(struct UIEdgeInsets)arg1;
 - (void)setImage:(id)arg1;
+- (struct UIEdgeInsets)imageInsets;
 - (id)image;
 
 @end

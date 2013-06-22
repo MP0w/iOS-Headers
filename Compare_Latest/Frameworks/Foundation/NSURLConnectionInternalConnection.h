@@ -12,6 +12,7 @@
 
 @interface NSURLConnectionInternalConnection : NSURLConnectionInternal <NSURLConnectionRequired>
 {
+    int _cfConnLock;
     struct _CFURLConnection *_cfConn;
     struct _CFURLAuthChallenge *_currCFChallenge;
     NSURLAuthenticationChallenge *_currNSChallenge;
@@ -36,9 +37,13 @@
 - (void)start;
 - (void)invokeForDelegate:(id)arg1;
 - (void)_invalidate;
-- (struct _CFURLConnection *)_CFURLConnection;
+- (void)_setDelegateQueue:(id)arg1;
 - (void)dealloc;
+- (struct _CFURLConnection *)_retainCFURLConnection;
+- (struct _CFURLConnection *)_atomic_CFURLConnection;
+- (struct _CFURLConnection *)_CFURLConnection;
 - (id)initWithInfo:(const struct InternalInit *)arg1;
+- (void)sendCFChallenge:(struct _CFURLAuthChallenge *)arg1 toSelector:(SEL)arg2;
 
 @end
 

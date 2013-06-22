@@ -5,9 +5,9 @@
  */
 
 @protocol WebPluginManualLoader
-- (void)pluginView:(id)arg1 receivedResponse:(id)arg2;
-- (void)pluginView:(id)arg1 receivedData:(id)arg2;
-- (void)pluginView:(id)arg1 receivedError:(id)arg2;
 - (void)pluginViewFinishedLoading:(id)arg1;
+- (void)pluginView:(id)arg1 receivedError:(id)arg2;
+- (void)pluginView:(id)arg1 receivedData:(id)arg2;
+- (void)pluginView:(id)arg1 receivedResponse:(id)arg2;
 @end
 

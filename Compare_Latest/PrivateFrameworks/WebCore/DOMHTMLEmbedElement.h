@@ -12,12 +12,12 @@
 {
 }
 
-@property(copy) NSString *align;
-@property int height;
-@property(copy) NSString *name;
-@property(copy) NSString *src;
-@property(copy) NSString *type;
 @property int width;
+@property(copy) NSString *type;
+@property(copy) NSString *src;
+@property(copy) NSString *name;
+@property int height;
+@property(copy) NSString *align;
 
 @end
 

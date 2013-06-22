@@ -8,14 +8,16 @@
 
 #import <StoreServices/SSAccountStore-Protocol.h>
 
-@class NSArray, NSLock, SSAccount, SSDistributedNotificationCenter;
+@class NSArray, NSObject<OS_dispatch_queue>, SSAccount, SSDistributedNotificationCenter, SSKeyValueStore;
 
 @interface SSAccountStore : NSObject <SSAccountStore>
 {
     NSArray *_accounts;
     BOOL _accountsValid;
-    NSLock *_lock;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    SSKeyValueStore *_keyValueStore;
     SSDistributedNotificationCenter *_notificationCenter;
+    NSObject<OS_dispatch_queue> *_notificationQueue;
     id _observer;
 }
 
@@ -27,16 +29,18 @@
 + (id)existingDefaultStore;
 + (double)tokenExpirationInterval;
 + (id)defaultStore;
-- (void)_signOutWithUserInfo:(id)arg1;
+- (void)_signOutWithAccountIDs:(id)arg1;
 - (void)_setAccounts:(id)arg1;
-- (void)_postAccountStoreChanged;
+- (void)_sendMessage:(id)arg1 withAccountsBlock:(id)arg2;
 - (BOOL)_reloadAccountsIfNeeded;
+- (void)_postAccountStoreChanged;
 - (void)_invalidateAccounts;
-- (id)_addAccount:(id)arg1 withMessageParameters:(id)arg2;
+- (id)_addAccount:(id)arg1 asActiveAccount:(BOOL)arg2 activeLockerAccount:(BOOL)arg3;
 - (id)_accountWithUniqueIdentifier:(id)arg1;
 - (void)signOutAllAccounts;
 - (void)signOutAccount:(id)arg1;
-- (void)setDistributedNotificationCenter:(id)arg1;
+@property(retain) SSDistributedNotificationCenter *distributedNotificationCenter;
+- (void)setDefaultAccountName:(id)arg1 completionBlock:(id)arg2;
 - (id)setActiveLockerAccount:(id)arg1;
 - (id)setActiveAccount:(id)arg1;
 - (void)setAccountCredits:(id)arg1 forAccountWithUniqueIdentifier:(id)arg2;
@@ -44,7 +48,8 @@
 - (void)resetExpiration;
 - (void)reloadAccounts;
 - (BOOL)isExpiredForTokenType:(int)arg1;
-- (id)distributedNotificationCenter;
+@property(readonly, getter=isAuthenticationActive) BOOL authenticationActive;
+- (void)getDefaultAccountNameUsingBlock:(id)arg1;
 - (id)addAccount:(id)arg1;
 - (id)accountWithUniqueIdentifier:(id)arg1 reloadIfNecessary:(BOOL)arg2;
 @property(readonly, getter=isExpired) BOOL expired;

@@ -16,12 +16,6 @@
 @property(nonatomic) unsigned char enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) union _GLKVector4 color; // @synthesize color=_color;
 - (void)dealloc;
-- (char **)fshMaskStr;
-- (char **)vshMaskStr;
-- (unsigned int)fshMaskCt;
-- (unsigned int)vshMaskCt;
-- (struct GLKBigInt_s *)fshMasks;
-- (struct GLKBigInt_s *)vshMasks;
 - (id)description;
 - (void)bind;
 - (void)setShaderBindings;

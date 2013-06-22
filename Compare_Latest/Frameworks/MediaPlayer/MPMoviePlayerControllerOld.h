@@ -39,7 +39,7 @@
 - (void)_pausePlaybackForNotification:(id)arg1;
 - (void)_preloadingComplete;
 - (void)_updateForCurrentMovieControlMode;
-- (unsigned int)_visiblePartsForMovieControlMode;
+- (unsigned long long)_visiblePartsForMovieControlMode;
 - (id)_localizedDescriptionForErrorCode:(int)arg1;
 - (void)_playbackFailedWithError:(id)arg1;
 - (void)_playerFadeOutAnimationDidEnd:(id)arg1 finished:(id)arg2;

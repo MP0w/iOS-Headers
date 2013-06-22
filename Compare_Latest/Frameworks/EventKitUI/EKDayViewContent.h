@@ -21,10 +21,11 @@
     unsigned int _loadingOccurrences:1;
     unsigned int _allowsOccurrenceSelection:1;
     unsigned int _putSelectionOnTop:1;
-    unsigned int _showsGrid:1;
     unsigned int _darkensSelection:1;
     unsigned int _eventsFillGrid:1;
     unsigned int _dimsNonSelectedItems:1;
+    BOOL _lazyAddsOccurrenceViews;
+    struct CGRect _latestVisibleRect;
     EKEvent *_selectedEvent;
     EKEvent *_dimmedOccurrence;
     id <EKDayViewContentDelegate> _delegate;
@@ -39,6 +40,7 @@
 }
 
 @property(retain, nonatomic) EKEvent *dimmedOccurrence; // @synthesize dimmedOccurrence=_dimmedOccurrence;
+@property(nonatomic) BOOL lazyAddsOccurrenceViews; // @synthesize lazyAddsOccurrenceViews=_lazyAddsOccurrenceViews;
 @property(nonatomic) BOOL usesSmallText; // @synthesize usesSmallText=_usesSmallText;
 @property(nonatomic) BOOL darkensWeekends; // @synthesize darkensWeekends=_darkensWeekends;
 @property(nonatomic) id <EKDayViewContentDelegate> delegate; // @synthesize delegate=_delegate;
@@ -49,6 +51,7 @@
 - (BOOL)eventsIntersectRect:(struct CGRect)arg1;
 - (void)_layoutContentItems:(id)arg1 dayStart:(id)arg2 dayEnd:(id)arg3 xPosition:(float)arg4 width:(float)arg5;
 - (void)setOccurrences:(id)arg1;
+- (id)lastDisplayedSecond;
 - (id)_dayStarts;
 @property(readonly, nonatomic) double firstEventSecond;
 - (struct _NSRange)_dayRangeForEvent:(id)arg1;
@@ -61,17 +64,15 @@
 - (struct CGPoint)pointForDate:(double)arg1;
 - (void)setViewsDimmed:(BOOL)arg1 forEvent:(id)arg2;
 - (id)grid;
-- (void)_selectedOccurrenceChanged:(id)arg1;
 - (void)dayOccurrenceViewClicked:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (void)dayOccurrenceViewStartTouch:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)dayOccurrenceViewDragExited:(id)arg1;
 - (id)occurrenceViews;
+- (void)rectBecameVisible:(struct CGRect)arg1;
 - (void)setStartDateWithDateComponents:(id)arg1;
 @property(copy, nonatomic) NSTimeZone *timeZone;
 - (void)_computeDayStartsAndEnds;
 - (void)setHoursToPadTop:(int)arg1;
 @property(nonatomic) float fixedDayWidth;
-@property(nonatomic) BOOL showsGrid;
 @property(nonatomic) BOOL showsLeftBorder;
 @property(nonatomic) BOOL eventsFillGrid;
 @property(nonatomic) BOOL allowsOccurrenceSelection;

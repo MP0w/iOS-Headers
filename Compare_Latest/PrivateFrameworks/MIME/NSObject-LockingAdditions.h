@@ -8,20 +8,20 @@
 
 @interface NSObject (LockingAdditions)
 + (void)mf_clearLocks;
-- (id)_mf_lockOrderingForType:(int)arg1;
-- (void)_mf_dumpLockCallStacks:(unsigned int)arg1 ordering:(id)arg2;
-- (void)_mf_checkToAllowOrderingWithLock:(id)arg1;
-- (void)_mf_checkToAllowStrictProgressionWithLock:(id)arg1;
-- (void)_mf_checkToAllowExclusiveLocksWithLock:(id)arg1;
-- (void)_mf_checkToAllowLock:(id)arg1;
-- (void)mf_lock;
-- (BOOL)mf_tryLock;
-- (void)mf_lockWithPriority;
-- (BOOL)mf_tryLockWithPriority;
-- (void)mf_unlock;
-- (BOOL)_mf_ntsIsLocked;
-- (id)mf_strictLockOrdering;
-- (id)mf_lockOrdering;
 - (id)mf_exclusiveLocks;
+- (id)mf_lockOrdering;
+- (id)mf_strictLockOrdering;
+- (BOOL)_mf_ntsIsLocked;
+- (void)mf_unlock;
+- (BOOL)mf_tryLockWithPriority;
+- (void)mf_lockWithPriority;
+- (BOOL)mf_tryLock;
+- (void)mf_lock;
+- (void)_mf_checkToAllowLock:(id)arg1;
+- (void)_mf_checkToAllowExclusiveLocksWithLock:(id)arg1;
+- (void)_mf_checkToAllowStrictProgressionWithLock:(id)arg1;
+- (void)_mf_checkToAllowOrderingWithLock:(id)arg1;
+- (void)_mf_dumpLockCallStacks:(unsigned int)arg1 ordering:(id)arg2;
+- (id)_mf_lockOrderingForType:(int)arg1;
 @end
 

@@ -11,9 +11,9 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
 - (void)_launchIPodIfNecessary;
+- (void)dealloc;
+- (id)init;
 
 @end
 

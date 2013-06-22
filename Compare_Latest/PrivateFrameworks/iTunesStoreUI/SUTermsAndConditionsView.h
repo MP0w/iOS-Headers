@@ -6,21 +6,24 @@
 
 #import "UIView.h"
 
-@class SULinkControl, SUSubtitledButton, UIAlertView;
+@class SUClientInterface, SULinkControl, SUSubtitledButton, UIAlertView;
 
 @interface SUTermsAndConditionsView : UIView
 {
     UIAlertView *_accountButtonAlert;
     SUSubtitledButton *_button;
+    SUClientInterface *_clientInterface;
     BOOL _hideAccountButton;
     float _rightMargin;
     int _style;
     SULinkControl *_termsAndConditionsControl;
+    SUClientInterface *clientInterface;
 }
 
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(nonatomic) float rightMargin; // @synthesize rightMargin=_rightMargin;
 @property(nonatomic) BOOL hideAccountButton; // @synthesize hideAccountButton=_hideAccountButton;
+@property(retain, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface;
 - (void)_updateButton;
 - (id)_termsAndConditionsControl;
 - (int)_linkStyleForStyle:(int)arg1;

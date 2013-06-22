@@ -7,9 +7,9 @@
 #import "MessageTextAttachment.h"
 
 @interface MessageTextAttachment (MailInlineTextAttachmentExtras)
-- (void)setImageScalingFlags:(unsigned int)arg1;
-- (unsigned int)imageScalingFlags;
-- (void)scaleImageToFit:(int)arg1;
 - (BOOL)isCalendarFile;
+- (void)scaleImageToFit:(unsigned int)arg1;
+- (unsigned int)imageScalingFlags;
+- (void)setImageScalingFlags:(unsigned int)arg1;
 @end
 

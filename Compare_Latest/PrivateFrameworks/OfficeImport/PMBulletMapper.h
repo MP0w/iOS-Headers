@@ -16,9 +16,13 @@
 }
 
 + (id)stringForIndex:(int)arg1 withFormat:(int)arg2;
-- (id)initWithOadProperties:(id)arg1 fontSize:(int)arg2 parent:(id)arg3;
-- (void)dealloc;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
+- (void)dealloc;
+- (id)initWithOadProperties:(id)arg1 fontSize:(int)arg2 parent:(id)arg3;
+- (id)makeBulletWithListState:(id)arg1;
+- (void)mapBulletColorWithState:(id)arg1;
+- (id)bulletFontName;
+- (int)bulletSize;
 
 @end
 

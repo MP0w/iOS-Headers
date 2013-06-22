@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ESDContainer, ESDObject, ESDRoot, NSMutableArray, NSMutableDictionary, OADTheme, PBOfficeArtReaderState, PBOutlineBulletDictionary, PBSlideState, PDPresentation, PDSlideBase, SFUNoCopyDictionary;
+@class ESDContainer, ESDObject, ESDRoot, NSMutableArray, NSMutableDictionary, OADTheme, PBOfficeArtReaderState, PBOutlineBulletDictionary, PBSlideState, PDPresentation, PDSlideBase, TSUNoCopyDictionary;
 
 @interface PBPresentationReaderState : NSObject
 {
@@ -15,9 +15,9 @@
     ESDRoot *mDocumentRoot;
     ESDContainer *mSrcSlideListHolder;
     ChVector_fe49fc78 *mCurrentSlideTextBlockStartIndexVector;
-    unsigned int mSrcSlideId;
+    unsigned long mSrcSlideId;
     NSMutableArray *mSlideIndexes;
-    SFUNoCopyDictionary *mSlideMasterToMasterStyles;
+    TSUNoCopyDictionary *mSlideMasterToMasterStyles;
     struct __CFDictionary *mHyperlinkMap;
     PBOfficeArtReaderState *mOfficeArtState;
     NSMutableArray *mFontEntities;
@@ -38,54 +38,54 @@
     NSMutableDictionary *mTargetShapeToSourceTextBoxContainerHolderMap;
 }
 
-- (id)initWithReader:(struct PptBinaryReader *)arg1 tgtPresentation:(id)arg2;
-- (void)dealloc;
-- (struct PptBinaryReader *)reader;
-- (id)documentRoot;
-- (void)setDocumentRoot:(id)arg1;
-- (id)tgtPresentation;
-- (int)numberOfSlideIndexes;
-- (void)addSlideIndex:(int)arg1;
-- (int)getSlideIndexAt:(int)arg1;
-- (id)slideIndexesRef;
-- (id)officeArtState;
-- (unsigned int)fontEntityCount;
-- (void)addFontEntity:(id)arg1 charSet:(int)arg2 type:(int)arg3 family:(int)arg4;
-- (id)fontEntityAtIndex:(unsigned int)arg1;
-- (id)baseTextListStyle;
-- (void)setDefaultTheme:(id)arg1;
-- (id)defaultTheme;
-- (id)tgtSlide;
-- (void)setTgtSlide:(id)arg1;
-- (unsigned int)textLength;
-- (void)setTextLength:(unsigned int)arg1;
-- (BOOL)hasCharacterPropertyBulletIndex;
-- (void)setHasCharacterPropertyBulletIndex:(BOOL)arg1;
-- (unsigned int)bulletIndex;
-- (void)setBulletIndex:(unsigned int)arg1;
-- (void)setPlaceholderBulletStyles:(id)arg1;
-- (void)setPlaceholderMacCharStyles:(id)arg1;
-- (id)currentBulletStyle;
-- (id)currentMacCharStyle;
-- (void)setCurrentTextType:(int)arg1 placeholderIndex:(unsigned long)arg2;
-- (void)setCurrentBulletStyle:(id)arg1 macCharStyle:(id)arg2;
-- (void)setMasterStyles:(id)arg1 slideMaster:(id)arg2;
-- (id)masterStyles:(id)arg1;
-- (id)slideState;
-- (void)resetSlideState;
-- (BOOL)hasCurrentSourceMasterStyleInfoVector;
-- (void)setCurrentSourceMasterStyleInfoVector:(ChVector_b45fc7a7 *)arg1;
-- (struct PBReaderMasterStyleInfo *)docSourceMasterStyleInfoOfType:(int)arg1;
-- (struct PBReaderMasterStyleInfo *)currentSourceMasterStyleInfoOfType:(int)arg1;
-- (ChVector_fe49fc78 *)currentSlideTextBlockStartIndexVector;
-- (void)setSourceSlideId:(unsigned long)arg1;
-- (BOOL)isCancelled;
-- (id)hyperlinkInfoWithId:(unsigned long)arg1 createIfAbsent:(BOOL)arg2;
-- (id)sourceTextBoxContainerHolderForTargetShape:(id)arg1;
-- (void)setSourceTextBoxContainerHolder:(id)arg1 forTargetShape:(id)arg2;
 @property BOOL hasSlideNumberPlaceholder; // @synthesize hasSlideNumberPlaceholder=mHasSlideNumberPlaceholder;
 @property(retain, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancel;
 @property ESDContainer *sourceSlideListHolder; // @synthesize sourceSlideListHolder=mSrcSlideListHolder;
+- (void)setSourceTextBoxContainerHolder:(id)arg1 forTargetShape:(id)arg2;
+- (id)sourceTextBoxContainerHolderForTargetShape:(id)arg1;
+- (id)hyperlinkInfoWithId:(unsigned long)arg1 createIfAbsent:(BOOL)arg2;
+- (BOOL)isCancelled;
+- (void)setSourceSlideId:(unsigned long)arg1;
+- (ChVector_fe49fc78 *)currentSlideTextBlockStartIndexVector;
+- (struct PBReaderMasterStyleInfo *)currentSourceMasterStyleInfoOfType:(int)arg1;
+- (struct PBReaderMasterStyleInfo *)docSourceMasterStyleInfoOfType:(int)arg1;
+- (void)setCurrentSourceMasterStyleInfoVector:(ChVector_b45fc7a7 *)arg1;
+- (BOOL)hasCurrentSourceMasterStyleInfoVector;
+- (void)resetSlideState;
+- (id)slideState;
+- (id)masterStyles:(id)arg1;
+- (void)setMasterStyles:(id)arg1 slideMaster:(id)arg2;
+- (void)setCurrentBulletStyle:(id)arg1 macCharStyle:(id)arg2;
+- (void)setCurrentTextType:(int)arg1 placeholderIndex:(unsigned long)arg2;
+- (id)currentMacCharStyle;
+- (id)currentBulletStyle;
+- (void)setPlaceholderMacCharStyles:(id)arg1;
+- (void)setPlaceholderBulletStyles:(id)arg1;
+- (void)setBulletIndex:(unsigned int)arg1;
+- (unsigned int)bulletIndex;
+- (void)setHasCharacterPropertyBulletIndex:(BOOL)arg1;
+- (BOOL)hasCharacterPropertyBulletIndex;
+- (void)setTextLength:(unsigned int)arg1;
+- (unsigned int)textLength;
+- (void)setTgtSlide:(id)arg1;
+- (id)tgtSlide;
+- (id)defaultTheme;
+- (void)setDefaultTheme:(id)arg1;
+- (id)baseTextListStyle;
+- (id)fontEntityAtIndex:(unsigned int)arg1;
+- (void)addFontEntity:(id)arg1 charSet:(int)arg2 type:(int)arg3 family:(int)arg4;
+- (unsigned int)fontEntityCount;
+- (id)officeArtState;
+- (id)slideIndexesRef;
+- (int)getSlideIndexAt:(int)arg1;
+- (void)addSlideIndex:(int)arg1;
+- (int)numberOfSlideIndexes;
+- (id)tgtPresentation;
+- (void)setDocumentRoot:(id)arg1;
+- (id)documentRoot;
+- (struct PptBinaryReader *)reader;
+- (void)dealloc;
+- (id)initWithReader:(struct PptBinaryReader *)arg1 tgtPresentation:(id)arg2;
 
 @end
 

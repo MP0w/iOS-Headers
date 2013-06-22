@@ -10,12 +10,12 @@
 {
 }
 
-+ (float)readRealCoordinate:(struct _xmlNode *)arg1;
-+ (struct CGPoint)readRealPoint:(struct _xmlNode *)arg1;
-+ (id)readDrawable:(struct _xmlNode *)arg1 anchor:(id)arg2 drawingState:(id)arg3;
-+ (id)readRelativeSizeAnchor:(struct _xmlNode *)arg1 drawingState:(id)arg2;
-+ (id)readAbsoluteSizeAnchor:(struct _xmlNode *)arg1 drawingState:(id)arg2;
 + (void)readFromCharSpaceNode:(struct _xmlNode *)arg1 state:(id)arg2;
++ (id)readAbsoluteSizeAnchor:(struct _xmlNode *)arg1 drawingState:(id)arg2;
++ (id)readRelativeSizeAnchor:(struct _xmlNode *)arg1 drawingState:(id)arg2;
++ (id)readDrawable:(struct _xmlNode *)arg1 anchor:(id)arg2 drawingState:(id)arg3;
++ (struct CGPoint)readRealPoint:(struct _xmlNode *)arg1;
++ (float)readRealCoordinate:(struct _xmlNode *)arg1;
 
 @end
 

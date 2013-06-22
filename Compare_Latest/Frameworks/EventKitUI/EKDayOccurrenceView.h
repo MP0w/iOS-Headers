@@ -23,20 +23,20 @@
     UIView *_startResizeHandle;
     UIView *_endResizeHandle;
     id _delegate;
+    unsigned int _needsReply:1;
     unsigned int _tentative:1;
     unsigned int _allDay:1;
     unsigned int _darkensSelection:1;
     unsigned int _dimmed:1;
     unsigned int _touchKeptInsideOccurrence:1;
     unsigned int _drawsResizeHandles:1;
-    unsigned int _maskedResizeHandles:1;
     BOOL _usesSmallText;
     BOOL _borderless;
     BOOL _dragging;
 }
 
-+ (id)_cachedImageForBackgroundColor:(id)arg1 foregroundColor:(id)arg2;
-+ (id)_imageForBackgroundColor:(id)arg1 foregroundColor:(id)arg2;
++ (id)_cachedImageForBackgroundColor:(id)arg1 foregroundColor:(id)arg2 dimmed:(BOOL)arg3;
++ (id)_imageForBackgroundColor:(id)arg1 foregroundColor:(id)arg2 dimmed:(BOOL)arg3;
 + (struct CGRect)contentStretchRectForFrame:(struct CGRect)arg1;
 + (float)bottomShadowMargin;
 + (float)minimumHeightForOrientation:(int)arg1;
@@ -60,21 +60,23 @@
 - (void)layoutSubviews;
 - (struct CGRect)_computeContentRect;
 @property(nonatomic) BOOL drawsResizeHandles;
-@property(nonatomic) BOOL maskedResizeHandles;
 - (id)_newResizeHandleView;
 - (void)animateToFrame:(struct CGRect)arg1 isAllDay:(BOOL)arg2 beginFromCurrentState:(BOOL)arg3 whenFinished:(id)arg4;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_updateResizeHandleLocations;
 - (void)setVisibleHeight:(float)arg1;
+- (void)setHidden:(BOOL)arg1;
 - (void)didMoveToSuperview;
 - (void)removeFromSuperview;
 - (id)_textColor;
 - (void)setBorderless:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setSelected:(BOOL)arg1;
 @property(copy, nonatomic) UIColor *color;
+@property(nonatomic, getter=isFacebook) BOOL facebook;
 @property(nonatomic, getter=isBirthday) BOOL birthday;
 @property(nonatomic, getter=isAllDay) BOOL allDay;
 @property(nonatomic, getter=isCancelled) BOOL cancelled;
+@property(nonatomic) BOOL needsReply;
 @property(nonatomic, getter=isTentative) BOOL tentative;
 - (void)_possiblyRemoveOverlay;
 - (void)_addOverlayIfNeeded;

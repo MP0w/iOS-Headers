@@ -35,7 +35,7 @@
 + (BOOL)isDaemon;
 + (void)setIsDaemon:(BOOL)arg1;
 + (BOOL)isRestoringFromCloud;
-+ (struct dispatch_queue_s *)taskQueue;
++ (id)taskQueue;
 
 @end
 

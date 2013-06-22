@@ -10,10 +10,17 @@
 {
 }
 
-+ (id)readBlipFromBse:(id)arg1;
-+ (id)readBlipFromEshBlip:(struct EshBlip *)arg1;
-+ (struct EshBlip *)writeBlip:(id)arg1;
 + (void)writeBlip:(id)arg1 toBlipStoreEntry:(struct EshBSE *)arg2;
++ (struct EshBlip *)writeBlip:(id)arg1;
++ (id)readBlipFromEshBlip:(struct EshBlip *)arg1;
++ (id)readBlipFromBse:(id)arg1;
++ (void)writeEmptyBlipStoreEntry:(struct EshBSE *)arg1;
++ (id)compressMetafileData:(id)arg1 info:(struct EshMetafileBlipInfo *)arg2;
++ (void)setMetafileBoundsFromPictData:(id)arg1 info:(struct EshMetafileBlipInfo *)arg2;
++ (int)blipTypeForBlipSignature:(int)arg1;
++ (id)delayedSubBlipWithMetafileInfo:(const struct EshMetafileBlipInfo *)arg1;
++ (id)subBlipWithMetafileInfo:(const struct EshMetafileBlipInfo *)arg1;
++ (id)dibFileContentsWithDibBlipData:(const struct OcBinaryData *)arg1;
 
 @end
 

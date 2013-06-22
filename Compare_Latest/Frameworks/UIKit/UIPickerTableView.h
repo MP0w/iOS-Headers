@@ -8,13 +8,14 @@
 
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSMutableSet;
+@class NSMutableIndexSet;
 
 @interface UIPickerTableView : UITableView <UITableViewDelegate>
 {
     struct CGRect _selectionBarRect;
     int _selectionBarRow;
-    NSMutableSet *_checkedRows;
+    NSMutableIndexSet *_checkedRows;
+    float _lastClickedOffset;
     struct {
         unsigned int allowsMultipleSelection:1;
         unsigned int scrollingDirection:2;
@@ -34,18 +35,19 @@
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
 - (void)_scrollingFinished;
+- (struct CGPoint)contentOffsetForRowAtIndexPath:(id)arg1;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(struct CGPoint *)arg3;
 - (BOOL)_beginTrackingWithEvent:(id)arg1;
 - (BOOL)isRowChecked:(int)arg1;
 @property(nonatomic) int selectionBarRow; // @synthesize selectionBarRow=_selectionBarRow;
 - (void)_setSelectionBarRow:(int)arg1;
 - (void)_playClickIfNecessary;
 - (id)_pickerView;
-- (void)_scrollViewAnimationEnded;
+- (void)_scrollViewAnimationEnded:(id)arg1 finished:(BOOL)arg2;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)_updateContentInsets;
 - (void)_rectChangedWithNewSize:(struct CGSize)arg1 oldSize:(struct CGSize)arg2;
 - (BOOL)didSelectDisabled:(BOOL)arg1;
-- (BOOL)scrollCenterCellToSelectionBar;
 - (BOOL)selectRow:(int)arg1 animated:(BOOL)arg2 notify:(BOOL)arg3;
 - (id)_checkedRows;
 - (BOOL)_scrollRowAtIndexPathToSelectionBar:(id)arg1 animated:(BOOL)arg2;

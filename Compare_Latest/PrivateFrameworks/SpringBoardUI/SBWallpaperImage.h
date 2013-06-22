@@ -14,14 +14,14 @@
     NSData *_data;
 }
 
-+ (void)clearCachedWallpaper;
-+ (id)cachedWallpaperDataForVariant:(int)arg1;
 + (void)preheatWallpaperDataForVariant:(int)arg1;
-- (id)initWithVariant:(int)arg1;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
++ (id)cachedWallpaperDataForVariant:(int)arg1;
++ (void)clearCachedWallpaper;
 @property(readonly, nonatomic) NSData *data; // @synthesize data=_data;
 @property(readonly, nonatomic) int variant; // @synthesize variant=_variant;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)initWithVariant:(int)arg1;
 
 @end
 

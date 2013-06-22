@@ -11,6 +11,7 @@
 @interface GKLeaderboardCategoryInternal : GKInternalRepresentation
 {
     NSString *_categoryID;
+    NSString *_groupID;
     NSString *_localizedTitle;
     unsigned int _overallRank;
     unsigned int _overallRankCount;
@@ -26,7 +27,10 @@
 @property(nonatomic) unsigned int overallRankCount; // @synthesize overallRankCount=_overallRankCount;
 @property(nonatomic) unsigned int overallRank; // @synthesize overallRank=_overallRank;
 @property(retain, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
+@property(retain, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
 @property(retain, nonatomic) NSString *categoryID; // @synthesize categoryID=_categoryID;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 
 @end

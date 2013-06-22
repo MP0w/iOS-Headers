@@ -14,23 +14,23 @@
     id <ABStyleProvider> _styleProvider;
 }
 
-- (id)initWithModel:(id)arg1;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)setAddressBook:(void *)arg1;
-- (void)dealloc;
-- (BOOL)_allowsAutorotation;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
-- (void)setParentViewController:(id)arg1;
-- (struct CGSize)contentSize;
-- (id)peoplePickerNavigationController;
-- (int)behavior;
-- (void)updateNavigationButtons;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(retain, nonatomic) ABModel *model; // @synthesize model=_model;
+- (void)updateNavigationButtons;
+- (int)behavior;
+- (id)peoplePickerNavigationController;
+- (struct CGSize)contentSize;
+- (void)setParentViewController:(id)arg1;
+- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
+- (BOOL)_allowsAutorotation;
+- (void)dealloc;
+- (void)setAddressBook:(void *)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)initWithModel:(id)arg1;
 
 @end
 

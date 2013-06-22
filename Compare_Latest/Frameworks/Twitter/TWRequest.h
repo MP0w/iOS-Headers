@@ -6,45 +6,22 @@
 
 #import "NSObject.h"
 
-@class ACAccount, NSDictionary, NSMutableArray, NSMutableDictionary, NSURL, OACredential;
+@class ACAccount, NSDictionary, NSURL, SLTwitterRequest;
 
 @interface TWRequest : NSObject
 {
-    ACAccount *_account;
-    OACredential *_credential;
-    int _callingPID;
-    NSURL *_url;
-    NSMutableDictionary *_parameters;
-    int _requestMethod;
-    NSMutableArray *_multiParts;
+    SLTwitterRequest *_request;
 }
 
-+ (BOOL)shouldRetryAfterCount:(int)arg1 delay:(float *)arg2;
-@property(readonly, nonatomic) NSDictionary *parameters; // @synthesize parameters=_parameters;
-@property(readonly, nonatomic) int requestMethod; // @synthesize requestMethod=_requestMethod;
-@property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
-@property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
-- (void)performJSONRequestWithHandler:(id)arg1;
-- (void)performJSONRequestWithHandler:(id)arg1 retryCount:(void)arg2;
-- (int)callingPID;
-- (void)setCallingPID:(int)arg1;
 - (void)performRequestWithHandler:(id)arg1;
-- (id)multiPartBodyData;
-- (id)_urlEncodedString:(id)arg1;
-- (id)_parameterString;
-- (void)addMultiPartData:(id)arg1 withName:(id)arg2 type:(id)arg3;
 - (id)signedURLRequest;
-- (void)setParameter:(id)arg1 forKey:(id)arg2;
-- (id)commandName;
-- (BOOL)requiresAuthorization;
-- (id)credential;
-- (void)setCredential:(id)arg1;
-- (void)setRequestMethod:(int)arg1;
+- (void)addMultiPartData:(id)arg1 withName:(id)arg2 type:(id)arg3;
+@property(retain, nonatomic) ACAccount *account;
+@property(readonly, nonatomic) NSDictionary *parameters;
+@property(readonly, nonatomic) NSURL *URL;
+@property(readonly, nonatomic) int requestMethod;
 - (void)dealloc;
-- (id)initWithCredential:(id)arg1 URL:(id)arg2;
-- (id)initWithURL:(id)arg1;
 - (id)initWithURL:(id)arg1 parameters:(id)arg2 requestMethod:(int)arg3;
-- (void)sharedPrivateInit;
 
 @end
 

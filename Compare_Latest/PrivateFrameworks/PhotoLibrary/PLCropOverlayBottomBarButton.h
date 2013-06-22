@@ -6,12 +6,22 @@
 
 #import "UIButton.h"
 
-@interface PLCropOverlayBottomBarButton : UIButton
+#import "PLCameraButtonBarSubviewProtocol-Protocol.h"
+
+@interface PLCropOverlayBottomBarButton : UIButton <PLCameraButtonBarSubviewProtocol>
 {
+    int _buttonBarStyle;
+    int _buttonBarMode;
+    BOOL _isDoneButton;
 }
 
+@property(readonly, nonatomic) BOOL isDoneButton; // @synthesize isDoneButton=_isDoneButton;
+- (void)buttonBar:(id)arg1 didChangeMode:(int)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (id)initWithTitle:(id)arg1 isDoneButton:(BOOL)arg2;
+- (void)layoutSubviews;
+- (id)initWithTitle:(id)arg1 buttonBarStyle:(int)arg2 isDoneButton:(BOOL)arg3;
+- (id)initWithTitle:(id)arg1 buttonBarStyle:(int)arg2 buttonBarMode:(int)arg3 isDoneButton:(BOOL)arg4;
+- (void)_configureForButtonBarStyle:(int)arg1 buttonBarMode:(int)arg2;
 
 @end
 

@@ -17,10 +17,11 @@
 
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) NSDictionary *responseDictionary; // @synthesize responseDictionary=_responseDictionary;
-- (void)dealloc;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *protocolVersion;
+- (id)initWithHTTPResponse:(id)arg1 data:(id)arg2 bodyIsPlist:(BOOL)arg3;
 - (id)initWithHTTPResponse:(id)arg1 data:(id)arg2;
-- (void)_parseResponse:(id)arg1;
+- (void)_parsePlistResponse:(id)arg1;
 
 @end
 

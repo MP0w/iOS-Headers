@@ -16,12 +16,12 @@
     NSString *_text;
 }
 
+@property(readonly, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void)layoutSubviews;
 - (void)setLoading:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)_loadingString;
 
 @end
 

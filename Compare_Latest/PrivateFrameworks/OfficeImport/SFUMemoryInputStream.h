@@ -13,24 +13,24 @@
 @interface SFUMemoryInputStream : NSObject <SFUBufferedInputStream>
 {
     NSData *mData;
-    char *mStart;
-    char *mCurrent;
-    char *mEnd;
+    const char *mStart;
+    const char *mCurrent;
+    const char *mEnd;
 }
 
-- (id)initWithData:(id)arg1;
-- (id)initWithData:(id)arg1 offset:(unsigned long)arg2 length:(unsigned long)arg3;
-- (void)dealloc;
-- (long long)offset;
-- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
-- (BOOL)canSeek;
-- (void)seekToOffset:(long long)arg1;
-- (unsigned long)readToOwnBuffer:(const char **)arg1 size:(unsigned long)arg2;
-- (BOOL)seekWithinBufferToOffset:(long long)arg1;
-- (void)disableSystemCaching;
-- (void)enableSystemCaching;
-- (void)close;
 - (id)closeLocalStream;
+- (void)close;
+- (void)enableSystemCaching;
+- (void)disableSystemCaching;
+- (BOOL)seekWithinBufferToOffset:(long long)arg1;
+- (unsigned long)readToOwnBuffer:(const char **)arg1 size:(unsigned long)arg2;
+- (void)seekToOffset:(long long)arg1;
+- (BOOL)canSeek;
+- (unsigned long)readToBuffer:(char *)arg1 size:(unsigned long)arg2;
+- (long long)offset;
+- (void)dealloc;
+- (id)initWithData:(id)arg1 offset:(unsigned long)arg2 length:(unsigned long)arg3;
+- (id)initWithData:(id)arg1;
 
 @end
 

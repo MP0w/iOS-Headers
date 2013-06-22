@@ -12,14 +12,14 @@
     id _constantValue;
 }
 
-- (id)initWithConstantValue:(id)arg1 ofType:(unsigned int)arg2 inScope:(id)arg3;
-- (id)initWithConstantValue:(id)arg1 inScope:(id)arg2;
-- (void)dealloc;
-- (BOOL)_addBindVarForConstId:(id)arg1 ofType:(unsigned int)arg2 inContext:(id)arg3;
-- (id)propertyAtEndOfKeyPathExpression:(id)arg1;
-- (unsigned int)sqlTypeForProperty:(id)arg1;
-- (BOOL)_addBindVarForConstVal1:(id)arg1 inContext:(id)arg2;
 - (id)generateSQLStringInContext:(id)arg1;
+- (BOOL)_addBindVarForConstVal1:(id)arg1 inContext:(id)arg2;
+- (unsigned int)sqlTypeForProperty:(id)arg1;
+- (id)propertyAtEndOfKeyPathExpression:(id)arg1;
+- (BOOL)_addBindVarForConstId:(id)arg1 ofType:(unsigned int)arg2 inContext:(id)arg3;
+- (void)dealloc;
+- (id)initWithConstantValue:(id)arg1 inScope:(id)arg2;
+- (id)initWithConstantValue:(id)arg1 ofType:(unsigned int)arg2 inScope:(id)arg3;
 
 @end
 

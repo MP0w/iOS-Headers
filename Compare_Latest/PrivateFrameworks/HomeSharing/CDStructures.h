@@ -22,9 +22,9 @@ struct hostent {
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned int _field1;
-    void *_field2;
-    unsigned int _field3;
-    int _field4;
-} CDStruct_af21f5be;
+    unsigned int propertyCode;
+    void *bytes;
+    unsigned int encodedLength;
+    int valueType;
+} CDStruct_30baf813;
 

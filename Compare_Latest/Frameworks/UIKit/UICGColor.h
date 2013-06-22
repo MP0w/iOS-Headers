@@ -11,6 +11,7 @@
     struct CGColor *cachedColor;
 }
 
+- (BOOL)_getWhite:(float *)arg1 alpha:(float *)arg2;
 - (BOOL)isPatternColor;
 - (float)alphaComponent;
 - (struct CGColor *)CGColor;
@@ -22,6 +23,7 @@
 - (void)setFill;
 - (void)set;
 - (id)colorWithAlphaComponent:(float)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithCGColor:(struct CGColor *)arg1;
 

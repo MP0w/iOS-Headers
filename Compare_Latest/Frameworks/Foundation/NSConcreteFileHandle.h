@@ -6,13 +6,15 @@
 
 #import <Foundation/NSFileHandle.h>
 
+@class NSObject<OS_dispatch_data>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
+
 @interface NSConcreteFileHandle : NSFileHandle
 {
     int _fd;
     void *_nativeHandle;
-    struct dispatch_data_s *_anchor;
+    NSObject<OS_dispatch_data> *_anchor;
     unsigned short _flags;
-    struct dispatch_source_s *_dsrc;
+    NSObject<OS_dispatch_source> *_dsrc;
     char _padding[2];
     struct __CFRunLoopSource *_source;
     struct __CFRunLoop *_rl;
@@ -22,14 +24,14 @@
     void *_resultBytes;
     unsigned long _resultLength;
     int _resultSocket;
-    struct dispatch_queue_s *_fhLock;
+    NSObject<OS_dispatch_queue> *_fhLock;
     long long _weakRefCount;
     id _readabilityHandler;
     id _writeabilityHandler;
-    struct dispatch_source_s *_readMonitoringSource;
-    struct dispatch_source_s *_writeMonitoringSource;
-    struct dispatch_queue_s *_readMonitoringQueue;
-    struct dispatch_queue_s *_writeMonitoringQueue;
+    NSObject<OS_dispatch_source> *_readMonitoringSource;
+    NSObject<OS_dispatch_source> *_writeMonitoringSource;
+    NSObject<OS_dispatch_queue> *_readMonitoringQueue;
+    NSObject<OS_dispatch_queue> *_writeMonitoringQueue;
 }
 
 - (void)setWriteabilityHandler:(id)arg1;
@@ -38,7 +40,7 @@
 - (void)setReadabilityHandler:(id)arg1;
 - (void)clearReadabilityHandler;
 - (id)readabilityHandler;
-- (struct dispatch_source_s *)_monitor:(const struct dispatch_source_type_s *)arg1 source:(struct dispatch_source_s *)arg2 onQueue:(struct dispatch_queue_s *)arg3;
+- (id)_monitor:(const struct dispatch_source_type_s *)arg1 source:(id)arg2 onQueue:(id)arg3;
 - (void)waitForDataInBackgroundAndNotify;
 - (void)waitForDataInBackgroundAndNotifyForModes:(id)arg1;
 - (void)acceptConnectionInBackgroundAndNotify;
@@ -69,6 +71,7 @@
 - (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
 - (id)initWithFileDescriptor:(int)arg1;
 - (id)initWithFileDescriptor:(int)arg1 closeOnDealloc:(BOOL)arg2;
+- (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (int)fileDescriptor;
 - (void)lockedRelease;

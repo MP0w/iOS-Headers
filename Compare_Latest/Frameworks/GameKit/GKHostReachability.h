@@ -14,7 +14,7 @@
     NSError *_error;
 }
 
-+ (id)reachabilityWithHostName:(id)arg1;
++ (id)_gkReachabilityWithHostName:(id)arg1;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSString *hostName; // @synthesize hostName=_hostName;
 - (void)dealloc;

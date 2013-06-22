@@ -13,10 +13,10 @@
     UILabel *_noResultsLabel;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)layoutSubviews;
 - (void)setShowsText:(BOOL)arg1;
+- (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

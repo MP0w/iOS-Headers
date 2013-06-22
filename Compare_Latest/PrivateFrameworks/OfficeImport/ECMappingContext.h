@@ -17,14 +17,15 @@
 }
 
 + (id)mappingContext;
-- (id)init;
-- (void)dealloc;
-- (ChVector_be6372b9 *)mappedSheetNames;
-- (unsigned int)mappedSheetIndexForSheetIndex:(unsigned int)arg1;
-- (unsigned int)mappedSheetIndexForSheetName:(id)arg1;
-- (id)mappingInfoForObject:(id)arg1;
-- (unsigned int)mappingInfoCount;
 - (id)mappingInfoAtIndex:(unsigned int)arg1;
+- (unsigned int)mappingInfoCount;
+- (id)mappingInfoForObject:(id)arg1;
+- (unsigned int)mappedSheetIndexForSheetName:(id)arg1;
+- (unsigned int)mappedSheetIndexForSheetIndex:(unsigned int)arg1;
+- (ChVector_be6372b9 *)mappedSheetNames;
+- (void)dealloc;
+- (id)init;
+- (void)associateMappingInfo:(id)arg1 withSheetName:(id)arg2 andSheetIndex:(unsigned int)arg3 andObject:(id)arg4;
 
 @end
 

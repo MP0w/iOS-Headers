@@ -8,23 +8,28 @@
 
 @interface GEOTrafficSegment : PBCodable
 {
-    int _vertexOffset;
-    int _vertexCount;
-    BOOL _hasSpeed;
     int _speed;
-    BOOL _hasWidth;
+    int _vertexCount;
+    int _vertexOffset;
     int _width;
+    struct {
+        unsigned int speed:1;
+        unsigned int width:1;
+    } _has;
 }
 
 @property(nonatomic) int width; // @synthesize width=_width;
-@property(nonatomic) BOOL hasWidth; // @synthesize hasWidth=_hasWidth;
-@property(nonatomic) BOOL hasSpeed; // @synthesize hasSpeed=_hasSpeed;
 @property(nonatomic) int vertexCount; // @synthesize vertexCount=_vertexCount;
 @property(nonatomic) int vertexOffset; // @synthesize vertexOffset=_vertexOffset;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasWidth;
+@property(nonatomic) BOOL hasSpeed;
 @property(nonatomic) int speed; // @synthesize speed=_speed;
 - (void)dealloc;
 

@@ -24,31 +24,31 @@
 }
 
 + (id)trendline;
-- (id)init;
-- (void)dealloc;
-- (_Bool)isDisplayEquation;
-- (void)setDisplayEquation:(_Bool)arg1;
-- (_Bool)isDisplayRSquaredValue;
-- (void)setDisplayRSquaredValue:(_Bool)arg1;
-- (double)backward;
-- (void)setBackward:(double)arg1;
-- (double)forward;
-- (void)setForward:(double)arg1;
-- (double)interceptYAxis;
-- (void)setInterceptYAxis:(double)arg1;
-- (int)polynomialOrder;
-- (void)setPolynomialOrder:(int)arg1;
-- (int)movingAveragePeriod;
-- (void)setMovingAveragePeriod:(int)arg1;
-- (int)type;
-- (void)setType:(int)arg1;
-- (id)label;
-- (void)setLabel:(id)arg1;
-- (id)graphicProperties;
-- (void)setGraphicProperties:(id)arg1;
-- (id)name;
-- (void)setName:(id)arg1;
 - (id)defaultNameWithSeriesName:(id)arg1;
+- (void)setName:(id)arg1;
+- (id)name;
+- (void)setGraphicProperties:(id)arg1;
+- (id)graphicProperties;
+- (void)setLabel:(id)arg1;
+- (id)label;
+- (void)setType:(int)arg1;
+- (int)type;
+- (void)setMovingAveragePeriod:(int)arg1;
+- (int)movingAveragePeriod;
+- (void)setPolynomialOrder:(int)arg1;
+- (int)polynomialOrder;
+- (void)setInterceptYAxis:(double)arg1;
+- (double)interceptYAxis;
+- (void)setForward:(double)arg1;
+- (double)forward;
+- (void)setBackward:(double)arg1;
+- (double)backward;
+- (void)setDisplayRSquaredValue:(_Bool)arg1;
+- (_Bool)isDisplayRSquaredValue;
+- (void)setDisplayEquation:(_Bool)arg1;
+- (_Bool)isDisplayEquation;
+- (void)dealloc;
+- (id)init;
 
 @end
 

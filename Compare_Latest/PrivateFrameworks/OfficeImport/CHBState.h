@@ -23,33 +23,33 @@
     _Bool mHasSecondaryMixedLine;
 }
 
-- (id)init;
-- (void)dealloc;
-- (id)chart;
-- (void)setChart:(id)arg1;
-- (id)workbook;
-- (id)resources;
-- (struct XlChartDataSeries *)xlChartDataSeriesAtIndex:(int)arg1;
-- (void)setXlCurrentSeriesIndex:(int)arg1;
-- (struct XlChartDataSeries *)xlCurrentChartDataSeries;
-- (int)xlCurrentChartDataSeriesIndex;
-- (int)xlSeriesCount;
-- (void)readAndCacheXlChartDataSeries;
-- (void)deleteXlChartDataSeriesCollection;
-- (id)autoStyling;
-- (_Bool)hasPrimaryMixedArea;
-- (void)setHasPrimaryMixedArea:(_Bool)arg1;
-- (_Bool)hasPrimaryMixedColumn;
-- (void)setHasPrimaryMixedColumn:(_Bool)arg1;
-- (_Bool)hasPrimaryMixedLine;
-- (void)setHasPrimaryMixedLine:(_Bool)arg1;
-- (_Bool)hasSecondaryMixedArea;
-- (void)setHasSecondaryMixedArea:(_Bool)arg1;
-- (_Bool)hasSecondaryMixedColumn;
-- (void)setHasSecondaryMixedColumn:(_Bool)arg1;
-- (_Bool)hasSecondaryMixedLine;
-- (void)setHasSecondaryMixedLine:(_Bool)arg1;
 - (unsigned int)chartGroupIndexForType:(int)arg1 isForPrimary:(_Bool)arg2;
+- (void)setHasSecondaryMixedLine:(_Bool)arg1;
+- (_Bool)hasSecondaryMixedLine;
+- (void)setHasSecondaryMixedColumn:(_Bool)arg1;
+- (_Bool)hasSecondaryMixedColumn;
+- (void)setHasSecondaryMixedArea:(_Bool)arg1;
+- (_Bool)hasSecondaryMixedArea;
+- (void)setHasPrimaryMixedLine:(_Bool)arg1;
+- (_Bool)hasPrimaryMixedLine;
+- (void)setHasPrimaryMixedColumn:(_Bool)arg1;
+- (_Bool)hasPrimaryMixedColumn;
+- (void)setHasPrimaryMixedArea:(_Bool)arg1;
+- (_Bool)hasPrimaryMixedArea;
+- (id)autoStyling;
+- (void)deleteXlChartDataSeriesCollection;
+- (void)readAndCacheXlChartDataSeries;
+- (int)xlSeriesCount;
+- (int)xlCurrentChartDataSeriesIndex;
+- (struct XlChartDataSeries *)xlCurrentChartDataSeries;
+- (void)setXlCurrentSeriesIndex:(int)arg1;
+- (struct XlChartDataSeries *)xlChartDataSeriesAtIndex:(int)arg1;
+- (id)resources;
+- (id)workbook;
+- (void)setChart:(id)arg1;
+- (id)chart;
+- (void)dealloc;
+- (id)init;
 
 @end
 

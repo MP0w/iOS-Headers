@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)startUserNotificationCenter;
 + (void)_userNotificationDone:(id)arg1;
++ (void)startUserNotificationCenter;
 
 @end
 

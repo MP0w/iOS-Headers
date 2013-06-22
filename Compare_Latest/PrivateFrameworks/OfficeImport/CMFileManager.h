@@ -10,12 +10,12 @@
 {
 }
 
-+ (id)getTmpDirectory;
-+ (id)uniqueFileName:(id)arg1;
-+ (int)getFileTypeFromPath:(id)arg1;
-+ (int)getFileTypeFromUTI:(id)arg1;
-+ (id)canonicalUrlPrefix:(id)arg1;
 + (id)getUrlProtocol:(id)arg1;
++ (id)canonicalUrlPrefix:(id)arg1;
++ (int)getFileTypeFromUTI:(id)arg1;
++ (int)getFileTypeFromPath:(id)arg1;
++ (id)uniqueFileName:(id)arg1;
++ (id)getTmpDirectory;
 
 @end
 

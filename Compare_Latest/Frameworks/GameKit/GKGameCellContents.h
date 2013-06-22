@@ -21,8 +21,6 @@
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
 @property(retain, nonatomic) GKGameRecord *localDetails; // @synthesize localDetails=_localDetails;
 @property(retain, nonatomic) GKGameRecord *details; // @synthesize details=_details;
-- (void)refreshExpensiveContent;
-- (void)updateIconFromCache;
 - (id)textForLine:(int)arg1;
 - (void)updateLines;
 - (id)leaderboardStringWithGameRecord:(id)arg1 localGameRecord:(id)arg2;
@@ -30,6 +28,7 @@
 - (void)configureLines;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
+- (void)_setGame:(id)arg1;
 - (void)dealloc;
 - (id)initWithTheme:(id)arg1;
 

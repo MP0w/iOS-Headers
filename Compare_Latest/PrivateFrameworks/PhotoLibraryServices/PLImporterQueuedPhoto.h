@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<PLAssetContainer>, NSString;
+@class NSArray, NSObject<PLAssetContainer>, NSString, PLProgressStack;
 
 @interface PLImporterQueuedPhoto : NSObject
 {
@@ -14,13 +14,13 @@
     NSString *baseName;
     NSArray *sidecarFileInfo;
     struct NSObject *event;
-    CDStruct_32410e63 *progressStack;
+    PLProgressStack *progressStack;
     NSString *importIdentifier;
 }
 
-+ (id)queuedPhotoWithDirectoryPath:(id)arg1 baseName:(id)arg2 sidecarFileInfo:(id)arg3 event:(struct NSObject *)arg4 progress:(CDStruct_32410e63 *)arg5 importSessionIdentifier:(id)arg6;
++ (id)queuedPhotoWithDirectoryPath:(id)arg1 baseName:(id)arg2 sidecarFileInfo:(id)arg3 event:(struct NSObject *)arg4 progress:(id)arg5 importSessionIdentifier:(id)arg6;
 @property(copy, nonatomic) NSString *importIdentifier; // @synthesize importIdentifier;
-@property(nonatomic) CDStruct_32410e63 *progressStack; // @synthesize progressStack;
+@property(retain, nonatomic) PLProgressStack *progressStack; // @synthesize progressStack;
 @property(retain, nonatomic) NSObject<PLAssetContainer> *event; // @synthesize event;
 @property(copy, nonatomic) NSArray *sidecarFileInfo; // @synthesize sidecarFileInfo;
 @property(copy, nonatomic) NSString *baseName; // @synthesize baseName;

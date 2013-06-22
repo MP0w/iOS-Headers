@@ -14,11 +14,11 @@
     BOOL mIsQuit;
 }
 
-- (id)init;
-- (void)cancel;
-- (BOOL)isCancelled;
-- (void)quit;
 - (BOOL)isQuit;
+- (void)quit;
+- (BOOL)isCancelled;
+- (void)cancel;
+- (id)init;
 
 @end
 

@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)chdChartTypeFromXmlChartTypeElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (void)readFrom:(struct _xmlNode *)arg1 chartType:(id)arg2 state:(id)arg3;
++ (id)chdChartTypeFromXmlChartTypeElement:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end
 

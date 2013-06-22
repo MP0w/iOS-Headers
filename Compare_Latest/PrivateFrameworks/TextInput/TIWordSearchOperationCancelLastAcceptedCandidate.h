@@ -6,14 +6,18 @@
 
 #import <TextInput/TIWordSearchOperation.h>
 
+@class TIMecabraWrapper;
+
 @interface TIWordSearchOperationCancelLastAcceptedCandidate : TIWordSearchOperation
 {
+    TIMecabraWrapper *_mecabraWrapper;
 }
 
-- (id)initWithTIWordSearchObj:(id)arg1;
-- (void)dealloc;
-- (void)cancel;
+@property(retain, nonatomic) TIMecabraWrapper *mecabraWrapper; // @synthesize mecabraWrapper=_mecabraWrapper;
 - (void)perform;
+- (void)cancel;
+- (void)dealloc;
+- (id)initWithWordSearch:(id)arg1;
 
 @end
 

@@ -13,15 +13,15 @@
     SUDescriptor *_descriptor;
 }
 
-- (id)initWithDescriptor:(id)arg1;
-- (void)dealloc;
-- (id)updateName;
-- (void)activateSoftwareUpdateSettingsDisplay;
-- (void)activateDisplayWithURL:(id)arg1;
-- (BOOL)forcesModalAlertAppearance;
-- (BOOL)shouldShowInLockScreen;
-- (BOOL)dismissOnLock;
 @property(readonly, nonatomic) SUDescriptor *descriptor; // @synthesize descriptor=_descriptor;
+- (BOOL)dismissOnLock;
+- (BOOL)shouldShowInLockScreen;
+- (BOOL)forcesModalAlertAppearance;
+- (void)activateDisplayWithURL:(id)arg1;
+- (void)activateSoftwareUpdateSettingsDisplay;
+- (id)updateName;
+- (void)dealloc;
+- (id)initWithDescriptor:(id)arg1;
 
 @end
 

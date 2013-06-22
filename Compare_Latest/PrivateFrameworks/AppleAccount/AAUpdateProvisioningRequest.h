@@ -15,10 +15,10 @@
 
 + (Class)responseClass;
 @property(retain, nonatomic) AAAccount *account; // @synthesize account=_account;
+- (void).cxx_destruct;
 - (id)urlRequest;
 - (id)urlString;
 - (id)urlCredential;
-- (void)dealloc;
 - (id)initWithURLString:(id)arg1 account:(id)arg2;
 - (id)initWithAccount:(id)arg1;
 

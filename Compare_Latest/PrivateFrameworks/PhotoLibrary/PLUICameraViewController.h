@@ -25,10 +25,10 @@
 - (BOOL)_startVideoCapture;
 - (void)_setCameraFlashMode:(int)arg1;
 - (int)_cameraFlashMode;
-- (void)_setCameraCaptureMode:(unsigned int)arg1;
-- (unsigned int)_cameraCaptureMode;
-- (void)_setCameraDevice:(unsigned int)arg1;
-- (unsigned int)_cameraDevice;
+- (void)_setCameraCaptureMode:(int)arg1;
+- (int)_cameraCaptureMode;
+- (void)_setCameraDevice:(int)arg1;
+- (int)_cameraDevice;
 - (void)_takePicture;
 - (void)_setCameraViewTransform:(struct CGAffineTransform)arg1;
 - (struct CGAffineTransform)_cameraViewTransform;

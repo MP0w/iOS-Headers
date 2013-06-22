@@ -10,5 +10,8 @@
 {
 }
 
+- (BOOL)_includeInDefaultImageSnapshot;
+- (BOOL)_affectsTintView;
+
 @end
 

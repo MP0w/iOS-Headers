@@ -13,6 +13,7 @@
     NSDictionary *_icloud;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSNumber *primaryEmailVerified;
 @property(readonly, nonatomic) NSString *primaryEmail;
 @property(readonly, nonatomic) NSString *lastName;
@@ -21,7 +22,6 @@
 @property(readonly, nonatomic) NSString *appleID;
 @property(readonly, nonatomic) NSDictionary *dataclassProperties;
 @property(readonly, nonatomic) NSArray *provisionedDataclasses;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithHTTPResponse:(id)arg1 data:(id)arg2;
 

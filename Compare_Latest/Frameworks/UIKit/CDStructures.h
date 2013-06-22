@@ -4,13 +4,32 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@class NSString, UIImage, UIView;
+@class NSArray, NSString, NSTimer, UIImage, UIView, UIWebPDFView, XPCMachSendRight, _UIViewServiceInterface, _UIViewServiceXPCProxy;
 
 #pragma mark Named Structures
 
 struct CADoublePoint {
     double x;
     double y;
+};
+
+struct CATransform3D {
+    float m11;
+    float m12;
+    float m13;
+    float m14;
+    float m21;
+    float m22;
+    float m23;
+    float m24;
+    float m31;
+    float m32;
+    float m33;
+    float m34;
+    float m41;
+    float m42;
+    float m43;
+    float m44;
 };
 
 struct CGAffineTransform {
@@ -124,6 +143,12 @@ struct UIPeripheralAnimationGeometry {
     float targetFrameHeightDelta;
 };
 
+struct UISharedArtworkFileHeader {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3[0];
+};
+
 struct UIStringIDTableBucket {
     id _field1;
     unsigned int _field2;
@@ -143,19 +168,9 @@ struct WKView;
 struct WKWindow {
     struct _WKObject _field1;
     id _field2;
-    struct CGRect _field3;
+    struct WKView *_field3;
     struct WKView *_field4;
     struct WKView *_field5;
-    struct WKView *_field6;
-    struct CGSize _field7;
-    struct CGSize _field8;
-    float _field9;
-    unsigned int :1;
-};
-
-struct _IndexPair {
-    int first;
-    int last;
 };
 
 struct _NSRange {
@@ -182,17 +197,11 @@ struct _WKObject {
 typedef struct {
     id _field1;
     id _field2;
-    id _field3;
-    id _field4;
-} CDStruct_89ddc8e1;
-
-typedef struct {
-    id _field1;
-    id _field2;
     char _field3;
     char _field4;
     unsigned long long _field5;
-} CDStruct_ab713c7a;
+    int _field6;
+} CDStruct_59875e80;
 
 typedef struct {
     id _field1;
@@ -204,18 +213,29 @@ typedef struct {
 } CDStruct_982099be;
 
 typedef struct {
+    UIWebPDFView *view;
+    NSTimer *timer;
+} CDStruct_d58a15aa;
+
+typedef struct {
     id _field1;
     unsigned int _field2;
 } CDStruct_421913e2;
 
 typedef struct {
-    char itemIsEnabled[23];
+    id _field1;
+    int _field2;
+    int _field3;
+} CDStruct_04eade4e;
+
+typedef struct {
+    char itemIsEnabled[24];
     char timeString[64];
     int gsmSignalStrengthRaw;
     int gsmSignalStrengthBars;
     char serviceString[100];
     char serviceCrossfadeString[100];
-    char serviceImages[3][100];
+    char serviceImages[2][100];
     char operatorDirectory[1024];
     unsigned int serviceContentType;
     int wifiSignalStrengthRaw;
@@ -223,7 +243,7 @@ typedef struct {
     unsigned int dataNetworkType;
     int batteryCapacity;
     unsigned int batteryState;
-    char notChargingString[150];
+    char batteryDetailString[150];
     int bluetoothBatteryCapacity;
     int thermalColor;
     unsigned int thermalSunlightMode:1;
@@ -234,7 +254,7 @@ typedef struct {
     unsigned int displayRawGSMSignal:1;
     unsigned int displayRawWifiSignal:1;
     unsigned int locationIconType:1;
-} CDStruct_074cde39;
+} CDStruct_24dca785;
 
 typedef struct {
     char animateContentRotation;
@@ -246,24 +266,12 @@ typedef struct {
 } CDStruct_19ba41f1;
 
 typedef struct {
-    double width;
-    double height;
-} CDStruct_8caa76fc;
-
-typedef struct {
     float _field1;
     float _field2;
     float _field3;
     float _field4;
     float _field5;
 } CDStruct_0be28830;
-
-typedef struct {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-} CDStruct_818bb265;
 
 typedef struct {
     float _field1;
@@ -324,12 +332,12 @@ typedef struct {
 } CDStruct_ee93799b;
 
 typedef struct {
-    char overrideItemIsEnabled[23];
+    char overrideItemIsEnabled[24];
     unsigned int overrideTimeString:1;
     unsigned int overrideGsmSignalStrengthRaw:1;
     unsigned int overrideGsmSignalStrengthBars:1;
     unsigned int overrideServiceString:1;
-    unsigned int overrideServiceImages:3;
+    unsigned int overrideServiceImages:2;
     unsigned int overrideOperatorDirectory:1;
     unsigned int overrideServiceContentType:1;
     unsigned int overrideWifiSignalStrengthRaw:1;
@@ -338,6 +346,7 @@ typedef struct {
     unsigned int disallowsCellularDataNetworkTypes:1;
     unsigned int overrideBatteryCapacity:1;
     unsigned int overrideBatteryState:1;
+    unsigned int overrideBatteryDetailString:1;
     unsigned int overrideBluetoothBatteryCapacity:1;
     unsigned int overrideThermalColor:1;
     unsigned int overrideSlowActivity:1;
@@ -345,8 +354,8 @@ typedef struct {
     unsigned int overrideBluetoothConnected:1;
     unsigned int overrideDisplayRawGSMSignal:1;
     unsigned int overrideDisplayRawWifiSignal:1;
-    CDStruct_074cde39 values;
-} CDStruct_4a2025ae;
+    CDStruct_24dca785 values;
+} CDStruct_3d5224b0;
 
 typedef struct {
     CDStruct_d5a6e384 _field1[4];
@@ -358,6 +367,22 @@ typedef struct {
 } CDStruct_9b4cf30b;
 
 typedef struct {
+    _UIViewServiceInterface *interface;
+    _UIViewServiceXPCProxy *viewControllerOperatorProxy;
+    _UIViewServiceXPCProxy *serviceViewControllerProxy;
+    _UIViewServiceXPCProxy *textEffectsOperatorProxy;
+    unsigned int hostedWindowContextID;
+    NSArray *serviceViewControllerSupportedInterfaceOrientations;
+    XPCMachSendRight *serviceAccessibilityServerPortWrapper;
+    struct CGAffineTransform serviceRootLayerTransform;
+    struct CGRect serviceRootLayerFrame;
+    struct CGAffineTransform textEffectsRootLayerTransform;
+    struct CGRect textEffectsRootLayerFrame;
+    unsigned int textEffectsWindowContextID;
+    unsigned int textEffectsWindowAboveStatusBarContextID;
+} CDStruct_5a8e6190;
+
+typedef struct {
     id _field1;
     float _field2;
     float _field3;
@@ -367,30 +392,6 @@ typedef struct {
     CDStruct_8f44d8bf _field7;
     char _field8;
 } CDStruct_a542d031;
-
-typedef struct {
-    int _field1;
-    unsigned short _field2;
-    unsigned short _field3;
-    float _field4;
-    float _field5;
-    float _field6;
-    float _field7;
-    float _field8;
-    float _field9;
-    unsigned char _field10;
-    unsigned char _field11;
-    unsigned char _field12;
-    struct {
-        unsigned char _field1;
-        unsigned char _field2;
-        unsigned char _field3;
-        float _field4;
-        float _field5;
-        struct CGPoint _field6;
-        void *_field7;
-    } _field13[0];
-} CDStruct_e23bb383;
 
 typedef struct {
     struct CGRect left;

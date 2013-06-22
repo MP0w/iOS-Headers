@@ -10,8 +10,8 @@
 {
 }
 
-- (id)userAction;
 - (void)setupButtonIndexesForActions:(id)arg1;
+- (id)userAction;
 
 @end
 

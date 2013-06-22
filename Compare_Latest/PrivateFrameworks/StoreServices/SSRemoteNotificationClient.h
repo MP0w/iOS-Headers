@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>;
+
 @interface SSRemoteNotificationClient : NSObject
 {
-    struct dispatch_queue_s *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
     int _notifyToken;
 }
 

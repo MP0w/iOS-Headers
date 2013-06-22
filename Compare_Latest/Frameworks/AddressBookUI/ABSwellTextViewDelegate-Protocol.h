@@ -7,11 +7,11 @@
 #import "NSObject-Protocol.h"
 
 @protocol ABSwellTextViewDelegate <NSObject>
-- (BOOL)swellTextViewShouldBeginEditing:(id)arg1;
-- (BOOL)swellTextViewShouldEndEditing:(id)arg1;
-- (void)swellTextViewDidBeginEditing:(id)arg1;
-- (void)swellTextViewDidEndEditing:(id)arg1;
-- (void)swellTextViewTextDidChange:(id)arg1;
 - (void)swellTextView:(id)arg1 didChangeSize:(struct CGSize)arg2;
+- (void)swellTextViewTextDidChange:(id)arg1;
+- (void)swellTextViewDidEndEditing:(id)arg1;
+- (void)swellTextViewDidBeginEditing:(id)arg1;
+- (BOOL)swellTextViewShouldEndEditing:(id)arg1;
+- (BOOL)swellTextViewShouldBeginEditing:(id)arg1;
 @end
 

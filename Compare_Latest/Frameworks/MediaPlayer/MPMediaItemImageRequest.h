@@ -6,7 +6,7 @@
 
 #import <MediaPlayer/MPImageCacheRequest.h>
 
-@class MPMediaItem, NSString;
+@class MPMediaItem, NSString, UIImage;
 
 @interface MPMediaItemImageRequest : MPImageCacheRequest
 {
@@ -33,6 +33,8 @@
 - (void)composeUniqueKey;
 - (id)uniqueKey;
 - (id)copyRawImageReturningError:(id *)arg1;
+- (BOOL)canRequestSynchronously;
+@property(readonly, nonatomic) UIImage *unscaledPlaceholderImage;
 - (id)placeholderImage;
 - (void)dealloc;
 - (void)setRetrievalTimeForPlaybackTime:(double)arg1;

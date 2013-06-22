@@ -20,6 +20,7 @@
     CoreDAVLeafItem *_xmppURI;
 }
 
++ (id)copyParseRules;
 @property(retain) CoreDAVLeafItem *xmppURI; // @synthesize xmppURI=_xmppURI;
 @property(retain) CoreDAVLeafItem *xmppServer; // @synthesize xmppServer=_xmppServer;
 @property(retain) CoreDAVLeafItem *refreshInterval; // @synthesize refreshInterval=_refreshInterval;
@@ -28,7 +29,6 @@
 @property(retain) CoreDAVItemWithHrefChildItem *subscriptionURL; // @synthesize subscriptionURL=_subscriptionURL;
 @property(retain) CoreDAVLeafItem *courierServer; // @synthesize courierServer=_courierServer;
 @property(retain) CoreDAVLeafItem *apsBundleID; // @synthesize apsBundleID=_apsBundleID;
-- (id)copyParseRules;
 - (id)description;
 - (void)dealloc;
 - (id)init;

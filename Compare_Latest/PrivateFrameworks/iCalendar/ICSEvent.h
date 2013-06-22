@@ -13,6 +13,7 @@
 }
 
 + (id)name;
+- (BOOL)isDefaultAlarmDeleted;
 @property int x_apple_ews_busystatus;
 @property BOOL x_wr_rsvpneeded; // @dynamic x_wr_rsvpneeded;
 @property BOOL x_wr_itipstatusml; // @dynamic x_wr_itipstatusml;
@@ -24,6 +25,7 @@
 @property(retain) NSArray *x_calendarserver_attendee_comment;
 @property int transp;
 - (BOOL)validate:(id *)arg1;
+- (void)fixComponent;
 
 // Remaining properties
 @property(retain) NSArray *attach; // @dynamic attach;

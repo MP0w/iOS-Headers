@@ -4,19 +4,19 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "CATiledLayer.h"
+#import "CALayer.h"
 
 @class WebNodeHighlightView, WebView;
 
-@interface HighlightLayer : CATiledLayer
+@interface HighlightLayer : CALayer
 {
     WebNodeHighlightView *_view;
     WebView *_webView;
 }
 
-- (id)initWithHighlightView:(id)arg1 webView:(id)arg2;
 - (id)actionForKey:(id)arg1;
-- (void)drawInContext:(struct CGContext *)arg1;
+- (void)layoutSublayers;
+- (id)initWithHighlightView:(id)arg1 webView:(id)arg2;
 
 @end
 

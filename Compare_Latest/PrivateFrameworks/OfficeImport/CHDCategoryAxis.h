@@ -14,16 +14,16 @@
     int mLabelFrequency;
 }
 
-- (id)initWithResources:(id)arg1;
-- (_Bool)isAutomatic;
-- (void)setAutomatic:(_Bool)arg1;
-- (_Bool)isNoMultipleLabellevel;
-- (void)setNoMultipleLevelLabel:(_Bool)arg1;
-- (int)labelAlignment;
-- (void)setLabelAlignment:(int)arg1;
-- (void)adjustAxisPositionForHorizontalChart;
-- (int)labelFrequency;
 - (void)setLabelFrequency:(int)arg1;
+- (int)labelFrequency;
+- (void)adjustAxisPositionForHorizontalChart;
+- (void)setLabelAlignment:(int)arg1;
+- (int)labelAlignment;
+- (void)setNoMultipleLevelLabel:(_Bool)arg1;
+- (_Bool)isNoMultipleLabellevel;
+- (void)setAutomatic:(_Bool)arg1;
+- (_Bool)isAutomatic;
+- (id)initWithResources:(id)arg1;
 
 @end
 

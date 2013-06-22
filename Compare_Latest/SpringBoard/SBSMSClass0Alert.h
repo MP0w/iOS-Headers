@@ -10,14 +10,14 @@
 {
 }
 
-+ (void)registerForAlerts;
-+ (BOOL)shouldPlayMessageReceived;
-+ (void)playMessageReceived;
 + (void)defaultAlertTonePrefChanged;
-- (void)_unregisterForNotifications;
-- (void)_registerForNotifications;
-- (id)initWithString:(id)arg1;
++ (void)playMessageReceived;
++ (BOOL)shouldPlayMessageReceived;
++ (void)registerForAlerts;
 - (void)deactivate;
+- (id)_initWithString:(id)arg1;
+- (void)_registerForNotifications;
+- (void)_unregisterForNotifications;
 
 @end
 

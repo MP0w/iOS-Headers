@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<OS_dispatch_source>, NSString;
 
 @interface EKWatchdog : NSObject
 {
     double _timeout;
     NSString *_identifier;
-    struct dispatch_source_s *_timer;
+    NSObject<OS_dispatch_source> *_timer;
 }
 
 + (void)executeWithTimeout:(double)arg1 identifier:(id)arg2 block:(id)arg3;

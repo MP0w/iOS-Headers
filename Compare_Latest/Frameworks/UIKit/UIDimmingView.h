@@ -27,6 +27,7 @@
 @property(nonatomic) BOOL ignoresTouches; // @synthesize ignoresTouches=_ignoresTouches;
 @property(retain, nonatomic) NSArray *passthroughViews; // @synthesize passthroughViews=_passthroughViews;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+- (void)_simulateTap;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;

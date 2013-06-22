@@ -7,33 +7,42 @@
 #import <AppStoreUI/ASStructuredPageViewController.h>
 
 #import "ISURLOperationDelegate-Protocol.h"
+#import "UIActionSheetDelegate-Protocol.h"
 
-@class ASApplicationPageView, ASScreenshotsViewController;
+@class ASApplicationPageView, ASScreenshotsViewController, UIActionSheet;
 
-@interface ASSoftwarePageViewController : ASStructuredPageViewController <ISURLOperationDelegate>
+@interface ASSoftwarePageViewController : ASStructuredPageViewController <UIActionSheetDelegate, ISURLOperationDelegate>
 {
     ASApplicationPageView *_pageView;
     ASScreenshotsViewController *_screenshotsController;
+    UIActionSheet *_shareDisambiguationSheet;
 }
 
 - (void)_updatePageView;
 - (id)_tellAFriendSubject;
 - (id)_tellAFriendBody;
+- (void)_showTweetSheet;
 - (void)_showTellAFriendMailCompose;
+- (void)_showShareDisambiguationSheet;
 - (void)_reloadAfterRestrictionsChanged;
 - (void)_pushStorePageWithURL:(id)arg1;
 - (id)_newContentRatingOperationForContentRating:(id)arg1;
 - (id)_newApplicationIconOperationForItemImage:(id)arg1;
 - (id)_itemArtworkImage;
+- (void)_destroyShareDisambiguationSheet;
 - (void)_delayedClearSelection;
 - (id)_contentRatingImageURL;
 - (id)_contentRatingImage;
 - (BOOL)_canDisplayPage:(id)arg1 error:(id *)arg2;
+- (void)_cancelShareDisambiguationSheet;
 - (id)_applicationIconURL;
 - (id)_applicationIcon;
 - (id)_activeItem;
 - (void)_restrictionsChangedNotification:(id)arg1;
-- (void)tellAFriendButtonWasTapped:(id)arg1;
+- (void)scrollViewDidEndScrollingAnimation:(id)arg1;
+- (void)actionSheetCancel:(id)arg1;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)shareButtonWasTapped:(id)arg1;
 - (void)reportAProblemButtonWasTapped:(id)arg1;
 - (void)moreInfoCellWasTapped:(id)arg1;
 - (void)cellWasTapped:(id)arg1 forUserAgreement:(id)arg2;

@@ -7,6 +7,15 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (GKAdditions)
++ (id)_gkDictionaryWithServerData:(id)arg1 error:(out id *)arg2;
++ (id)_gkDictionaryWithXMLPlistData:(id)arg1;
++ (id)_gkDictionaryWithFormEncodedString:(id)arg1;
+- (id)_gkPlistXMLData;
+- (id)_gkSubDictionaryWithKeys:(id)arg1;
+- (id)_gkDictionaryByRemovingObjectForKey:(id)arg1;
+- (id)_gkDictionaryByRemovingObjectsForKeys:(id)arg1;
+- (id)_gkImageUrlWithFallbacksForSize:(int)arg1;
 - (id)_gkImageUrlForSize:(int)arg1;
+- (id)_gkImageUrlForSize:(int)arg1 foundSize:(out unsigned int *)arg2;
 @end
 

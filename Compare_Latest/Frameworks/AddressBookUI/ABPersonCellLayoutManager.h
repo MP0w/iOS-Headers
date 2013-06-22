@@ -12,20 +12,20 @@
     id <ABStyleProvider> _styleProvider;
 }
 
-- (void)dealloc;
-- (id)cellAsMultiCell:(id)arg1;
-- (float)deleteConfirmationWidth;
-- (float)accessoryViewInsetForBounds:(struct CGRect)arg1;
-- (float)widthForCellContentViewInTableView:(id)arg1 whenEditing:(BOOL)arg2 isShowingDeleteConfirmation:(BOOL)arg3 accessoryViewBounds:(struct CGRect)arg4;
-- (struct CGRect)backgroundStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
-- (struct CGRect)backgroundEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
-- (struct CGRect)contentStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
-- (struct CGRect)contentEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
-- (struct CGRect)deleteConfirmationRectForCell:(id)arg1;
-- (void)cell:(id)arg1 willTransitionToState:(unsigned int)arg2;
-- (void)cell:(id)arg1 didTransitionToState:(unsigned int)arg2;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(nonatomic) id <ABPersonCellLayoutManagerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)cell:(id)arg1 didTransitionToState:(unsigned int)arg2;
+- (void)cell:(id)arg1 willTransitionToState:(unsigned int)arg2;
+- (struct CGRect)deleteConfirmationRectForCell:(id)arg1;
+- (struct CGRect)contentEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
+- (struct CGRect)contentStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
+- (struct CGRect)backgroundEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
+- (struct CGRect)backgroundStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
+- (float)widthForCellContentViewInTableView:(id)arg1 whenEditing:(BOOL)arg2 isShowingDeleteConfirmation:(BOOL)arg3 accessoryViewBounds:(struct CGRect)arg4;
+- (float)accessoryViewInsetForBounds:(struct CGRect)arg1;
+- (float)deleteConfirmationWidth;
+- (id)cellAsMultiCell:(id)arg1;
+- (void)dealloc;
 
 @end
 

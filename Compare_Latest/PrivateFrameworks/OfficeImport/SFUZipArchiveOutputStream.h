@@ -27,26 +27,33 @@
 }
 
 + (unsigned long)approximateBytesForEntryHeaderWithName:(id)arg1;
-- (id)initWithOutputStream:(id)arg1 cryptoKey:(id)arg2 passphraseHint:(id)arg3;
-- (id)initWithPath:(id)arg1;
-- (id)initWithPath:(id)arg1 cryptoKey:(id)arg2 passphraseHint:(id)arg3;
-- (void)dealloc;
-- (void)beginEntryWithName:(id)arg1 isCompressed:(BOOL)arg2 uncompressedSize:(unsigned long long)arg3;
-- (void)beginUnknownSizeEntryWithName:(id)arg1 isCompressed:(BOOL)arg2;
-- (id)beginUncompressedUnknownSizeEntryWithName:(id)arg1;
-- (void)setCrc32ForCurrentEntry:(unsigned int)arg1;
-- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
-- (BOOL)canRemoveEntryWithName:(id)arg1;
-- (void)removeEntryWithName:(id)arg1;
-- (void)setEncryptedDocumentUuid:(id)arg1;
-- (void)close;
-- (void)moveToPath:(id)arg1;
-- (id)entryNames;
-- (id)entriesAtPath:(id)arg1;
-- (void)flush;
-- (unsigned long long)freeBytes;
-- (void)reset;
 - (unsigned int)crc32ForEntry:(id)arg1;
+- (void)reset;
+- (unsigned long long)freeBytes;
+- (void)flush;
+- (id)entriesAtPath:(id)arg1;
+- (id)entryNames;
+- (void)moveToPath:(id)arg1;
+- (void)close;
+- (void)setEncryptedDocumentUuid:(id)arg1;
+- (void)removeEntryWithName:(id)arg1;
+- (BOOL)canRemoveEntryWithName:(id)arg1;
+- (void)writeBuffer:(const char *)arg1 size:(unsigned long)arg2;
+- (void)setCrc32ForCurrentEntry:(unsigned int)arg1;
+- (id)beginUncompressedUnknownSizeEntryWithName:(id)arg1;
+- (void)beginUnknownSizeEntryWithName:(id)arg1 isCompressed:(BOOL)arg2;
+- (void)beginEntryWithName:(id)arg1 isCompressed:(BOOL)arg2 uncompressedSize:(unsigned long long)arg3;
+- (void)dealloc;
+- (id)initWithPath:(id)arg1 cryptoKey:(id)arg2 passphraseHint:(id)arg3;
+- (id)initWithPath:(id)arg1;
+- (id)initWithOutputStream:(id)arg1 cryptoKey:(id)arg2 passphraseHint:(id)arg3;
+- (void)writeZip64EndOfCentralDirectoryLocatorWithOffset:(long long)arg1;
+- (void)writeZip64EndOfCentralDirectoryWithOffset:(long long)arg1;
+- (void)writeEndOfCentralDirectoryWithOffset:(long long)arg1;
+- (void)writeCentralFileHeaderUsingEntry:(id)arg1 isFirstEntry:(BOOL)arg2;
+- (unsigned int)writeLocalFileHeaderForEntry:(id)arg1;
+- (void)coalesceAndTruncateFreeSpace;
+- (void)finishEntry;
 
 @end
 

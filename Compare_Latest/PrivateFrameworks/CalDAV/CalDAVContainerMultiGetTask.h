@@ -12,12 +12,12 @@
     BOOL _getScheduleChanges;
 }
 
-- (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 getScheduleTags:(BOOL)arg3 getScheduleChanges:(BOOL)arg4 appSpecificCalendarItemClass:(Class)arg5;
-- (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 getScheduleTags:(BOOL)arg3 getScheduleChanges:(BOOL)arg4;
-- (id)copyAdditionalPropElements;
-- (void)setAdditionalProperties:(id)arg1 onDataItem:(id)arg2;
 @property BOOL getScheduleChanges; // @synthesize getScheduleChanges=_getScheduleChanges;
 @property BOOL getScheduleTags; // @synthesize getScheduleTags=_getScheduleTags;
+- (void)setAdditionalProperties:(id)arg1 onDataItem:(id)arg2;
+- (id)copyAdditionalPropElements;
+- (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 getScheduleTags:(BOOL)arg3 getScheduleChanges:(BOOL)arg4;
+- (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 getScheduleTags:(BOOL)arg3 getScheduleChanges:(BOOL)arg4 appSpecificCalendarItemClass:(Class)arg5;
 
 @end
 

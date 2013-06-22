@@ -13,12 +13,12 @@
     NSSQLToOne *_toOne;
 }
 
-- (id)initWithEntity:(id)arg1 toOneRelationship:(id)arg2;
-- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (id)initForReadOnlyFetchingOfEntity:(id)arg1 toOneRelationship:(id)arg2;
-- (id)toOneRelationship;
-- (void)dealloc;
 - (void)copyValuesForReadOnlyFetch:(id)arg1;
+- (void)dealloc;
+- (id)toOneRelationship;
+- (id)initForReadOnlyFetchingOfEntity:(id)arg1 toOneRelationship:(id)arg2;
+- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
+- (id)initWithEntity:(id)arg1 toOneRelationship:(id)arg2;
 
 @end
 

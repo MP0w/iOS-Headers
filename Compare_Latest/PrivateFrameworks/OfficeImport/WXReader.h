@@ -10,8 +10,7 @@
 {
 }
 
-+ (id)readFromFileName:(id)arg1 cancel:(id)arg2 tracing:(id)arg3;
-+ (id)readFromData:(id)arg1 cancel:(id)arg2 tracing:(id)arg3;
+- (id)read;
 
 @end
 

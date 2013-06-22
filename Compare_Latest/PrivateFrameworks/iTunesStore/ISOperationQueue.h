@@ -14,11 +14,13 @@
 }
 
 + (id)mainQueue;
-+ (BOOL)isActive;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setSuspended:(BOOL)arg1;
 - (void)setMaxConcurrentOperationCount:(int)arg1;
+@property BOOL adjustsMaxConcurrentOperationCount;
 - (id)operations;
 - (int)maxConcurrentOperationCount;
+- (int)operationCount;
 - (void)cancelAllOperations;
 - (void)addOperations:(id)arg1 waitUntilFinished:(BOOL)arg2;
 - (void)addOperation:(id)arg1;

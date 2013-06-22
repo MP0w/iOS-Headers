@@ -6,56 +6,60 @@
 
 #import "NSObject.h"
 
-@class APSConnectionNotificationQueue, NSData, NSSet, NSString;
+@class NSData, NSObject<OS_xpc_object>, NSOperationQueue, NSSet, NSString;
 
 @interface APSConnectionServer : NSObject
 {
     id <APSConnectionServerDelegate> _delegate;
     NSString *_environmentName;
     NSData *_publicToken;
-    unsigned int _connectionServerPort;
-    struct __CFRunLoopSource *_serverMigSource;
+    unsigned int _connectionMachPort;
     NSString *_connectionPortName;
-    unsigned int _connectionPort;
-    struct __CFMachPort *_connectionCFPort;
     NSSet *_enabledTopics;
     NSSet *_ignoredTopics;
-    APSConnectionNotificationQueue *_notificationQueue;
     unsigned int _messageSize;
     BOOL _enableCriticalReliability;
     BOOL _enableStatusChangeNotifications;
     int _clientPID;
+    NSObject<OS_xpc_object> *_connection;
+    NSOperationQueue *_queue;
 }
 
-+ (id)serverEnvironmentNames;
 + (id)serversWithEnvironmentName:(id)arg1 delegate:(id)arg2;
-- (id)initWithDelegate:(id)arg1 environmentName:(id)arg2 connectionPortName:(id)arg3 connectionPort:(unsigned int)arg4 clientPid:(int)arg5;
-- (void)dealloc;
-- (void)close;
-- (id)debugDescription;
-- (void)_connectionPortInvalidated;
-- (id)connectionPortName;
-- (unsigned int)connectionServerPort;
-- (unsigned int)connectionPort;
-- (void)handleConnectionStatusChanged:(BOOL)arg1;
-- (void)handleReceivedMessageTopic:(id)arg1 userInfo:(id)arg2;
-- (void)handleResult:(id)arg1 forSendingOutgoingMessageWithID:(unsigned int)arg2;
-- (void)_handleMessageDequeued;
-- (void)_handleSendOutgoingMessage:(id)arg1;
-- (void)_handleCancelOutgoingMessageWithID:(unsigned int)arg1;
-- (void)_handleFakeMessage:(id)arg1;
-- (void)notifyOfPublicTokenUpdate;
-@property(retain, nonatomic) NSSet *enabledTopics; // @synthesize enabledTopics=_enabledTopics;
-@property(retain, nonatomic) NSSet *ignoredTopics; // @synthesize ignoredTopics=_ignoredTopics;
-- (void)saveAndUpdateDelegate;
-- (BOOL)hasIdentity;
-- (BOOL)isConnected;
-@property(nonatomic) BOOL enableCriticalReliability; // @synthesize enableCriticalReliability=_enableCriticalReliability;
++ (id)serverEnvironmentNames;
+@property(readonly, nonatomic) NSString *environmentName; // @synthesize environmentName=_environmentName;
+@property(nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 @property(nonatomic) BOOL enableStatusChangeNotifications; // @synthesize enableStatusChangeNotifications=_enableStatusChangeNotifications;
-- (void)_savePersistentConnectionTopics;
+@property(nonatomic) BOOL enableCriticalReliability; // @synthesize enableCriticalReliability=_enableCriticalReliability;
 @property(nonatomic) unsigned int messageSize; // @synthesize messageSize=_messageSize;
 @property(retain, nonatomic) NSData *publicToken; // @synthesize publicToken=_publicToken;
+@property(retain, nonatomic) NSSet *ignoredTopics; // @synthesize ignoredTopics=_ignoredTopics;
+@property(retain, nonatomic) NSSet *enabledTopics; // @synthesize enabledTopics=_enabledTopics;
 @property(nonatomic) id <APSConnectionServerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_savePersistentConnectionTopics;
+@property(readonly, nonatomic) BOOL isConnected; // @dynamic isConnected;
+@property(readonly, nonatomic) BOOL hasIdentity; // @dynamic hasIdentity;
+- (void)saveAndUpdateDelegate;
+- (void)handleFakeMessage:(id)arg1;
+- (void)handleCancelOutgoingMessageWithID:(unsigned int)arg1;
+- (void)handleSendOutgoingMessage:(id)arg1;
+- (void)handleResult:(id)arg1 forSendingOutgoingMessageWithID:(unsigned int)arg2;
+- (void)handleReceivedMessage:(id)arg1;
+- (void)_initiateConnectionIfNecessary;
+- (void)handleConnectionStatusChanged:(BOOL)arg1;
+- (id)connectionPortName;
+- (void)connectionInvalidated;
+- (void)_suspendQueue;
+- (void)_resumeQueue;
+- (void)connectionHandshakeDidComplete;
+- (id)debugDescription;
+- (id)processNameWithLabels:(BOOL)arg1;
+@property(readonly, nonatomic) NSString *processName;
+- (void)close;
+- (void)_lookUpMachPort;
+- (void)dealloc;
+- (id)initWithDelegate:(id)arg1 environmentName:(id)arg2 connectionPortName:(id)arg3 connection:(id)arg4;
+- (void)_enqueueXPCMessage:(id)arg1 wakingClient:(void)arg2;
 
 @end
 

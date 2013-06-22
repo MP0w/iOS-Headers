@@ -37,6 +37,7 @@
 - (void)_UIAppearance_setTintColor:(id)arg1;
 - (void)_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
 - (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
+- (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 style:(int)arg3 barMetrics:(int)arg4;
 - (void)dealloc;
 - (id)_defaultFont;
 - (id)_scriptingInfo;
@@ -49,7 +50,10 @@
 - (id)image;
 - (id)title;
 - (void)drawRect:(struct CGRect)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_drawBackground;
+- (struct UIEdgeInsets)alignmentRectInsets;
+- (id)_currentCustomBackgroundNeedsDarkening:(char *)arg1;
 - (struct CGSize)_currentTextShadowOffsetForBarStyle:(int)arg1;
 - (id)_currentTextShadowColorForBarStyle:(int)arg1;
 - (id)_currentTextColorForBarStyle:(int)arg1;

@@ -16,7 +16,7 @@
 + (id)playerLayerWithPlayer:(id)arg1;
 - (struct CGRect)_minRectToFitVideoAndSubtitlesInBounds:(struct CGRect)arg1;
 - (struct CGRect)_videoRectForBounds:(struct CGRect)arg1;
-- (struct CGRect)_videoRect;
+- (struct CGRect)videoRect;
 - (void)setOverscanSubtitleSupportEnabled:(BOOL)arg1;
 - (BOOL)isOverscanSubtitleSupportEnabled;
 - (float)_pctOfSubtitleLayerHeight;
@@ -25,13 +25,16 @@
 - (void)_setSubtitleDisplayEnabled:(BOOL)arg1;
 - (BOOL)_subtitleDisplayEnabled;
 - (void)_setItem:(id)arg1 readyForDisplay:(BOOL)arg2;
-@property(readonly, nonatomic, getter=isReadyForDisplay) BOOL readyForDisplay; // @dynamic readyForDisplay;
+@property(readonly, nonatomic, getter=isReadyForDisplay) BOOL readyForDisplay;
 @property(copy) NSString *videoGravity;
 - (void)layerDidBecomeVisible:(BOOL)arg1;
 @property(retain, nonatomic) AVPlayer *player;
+- (void)_subtitlesDidChange:(id)arg1;
+- (void)_updateSubtitles:(id)arg1 forceRender:(BOOL)arg2;
+- (void)_updateSubtitleLayerForPlayerLayerBounds:(struct CGRect)arg1 presentationSize:(struct CGSize)arg2 playLayerTransform:(struct CATransform3D)arg3 forceRender:(BOOL)arg4;
+- (void)_calculateSubtitleLayerBounds:(struct CGRect)arg1 presentationSize:(struct CGSize)arg2 playLayerTransform:(struct CATransform3D)arg3 shouldUpdateCachedSubtitleSample:(BOOL)arg4 outBound:(struct CGRect *)arg5;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_setHasPlayerToObserve:(int)arg1 andShouldObserveIt:(int)arg2;
-- (void)_updateSubtitleLayerForPlayerLayerBounds:(struct CGRect)arg1 presentationSize:(struct CGSize)arg2 playLayerTransform:(struct CATransform3D)arg3;
 - (void)_updatePresentationSize:(struct CGSize)arg1;
 - (struct CGSize)_getAVPlayerCurrentItemPresentationSizeKeyFromPlayer:(id)arg1;
 - (void)_disconnectContentLayerFromPlayer;

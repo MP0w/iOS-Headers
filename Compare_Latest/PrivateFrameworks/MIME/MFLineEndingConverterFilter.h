@@ -11,8 +11,8 @@
     BOOL _lastCR;
 }
 
-- (int)appendData:(id)arg1;
 - (void)done;
+- (int)appendData:(id)arg1;
 
 @end
 

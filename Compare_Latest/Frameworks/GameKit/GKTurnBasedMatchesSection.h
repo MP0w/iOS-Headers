@@ -16,29 +16,33 @@
     NSString *_sectionTitle;
     NSString *_deleteConfirmTitle;
     NSMutableDictionary *_players;
-    int _sectionStyle;
+    unsigned int _sectionStyle;
 }
 
-@property(nonatomic) int sectionStyle; // @synthesize sectionStyle=_sectionStyle;
+@property(nonatomic) unsigned int sectionStyle; // @synthesize sectionStyle=_sectionStyle;
 @property(retain, nonatomic) NSMutableDictionary *players; // @synthesize players=_players;
 @property(retain, nonatomic) NSString *deleteConfirmTitle; // @synthesize deleteConfirmTitle=_deleteConfirmTitle;
 @property(retain, nonatomic) NSString *sectionTitle; // @synthesize sectionTitle=_sectionTitle;
 @property(retain, nonatomic) NSMutableArray *matches; // @synthesize matches=_matches;
+- (CDStruct_70ce6416)currentMetricsInTableView:(id)arg1;
+- (id)tableView:(id)arg1 sectionIndex:(int)arg2 indexPathForItem:(id)arg3;
 - (void)tableView:(id)arg1 didSwipeToDeleteRow:(id)arg2;
 - (void)tableView:(id)arg1 didSelectIndexPath:(id)arg2;
+- (void)showDetail:(id)arg1;
+- (void)tableView:(id)arg1 showDetailForMatch:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 prepareContents:(id)arg2 forCell:(id)arg3 atIndexPath:(id)arg4;
+- (BOOL)tableView:(id)arg1 loadAdditionalDataForSection:(int)arg2 rows:(id)arg3 thenUpdateView:(id)arg4;
+- (id)playerForMatch:(id)arg1 sectionStyle:(unsigned int)arg2;
 - (id)tableView:(id)arg1 reuseIdentifierForRow:(int)arg2;
-- (int)sectionRowCountInTableView:(id)arg1;
+- (int)rowCountInTableView:(id)arg1;
 - (id)swipeDeleteConfirmTitleInTableView:(id)arg1;
-- (float)sectionHeaderHeightInTableView:(id)arg1;
-- (id)sectionHeaderTitleInTableView:(id)arg1;
+- (float)heightForHeaderInTableView:(id)arg1;
+- (id)titleForHeaderInTableView:(id)arg1;
 - (id)description;
+- (id)sectionStyleString;
 - (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(nonatomic, getter=isLoading) BOOL loading;
 
 @end
 

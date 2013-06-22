@@ -6,24 +6,37 @@
 
 #import "UIButton.h"
 
+@class UIActivityIndicatorView;
+
 @interface GKButton : UIButton
 {
     int _buttonKind;
     BOOL _onHeaderBackground;
     int _buttonAppearance;
     BOOL _shouldUseSmallFont;
+    BOOL _shouldUseMediumFont;
+    UIActivityIndicatorView *_progressIndicator;
 }
 
++ (float)heightForButtonKind:(int)arg1;
+@property(retain, nonatomic) UIActivityIndicatorView *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
+@property(nonatomic) BOOL shouldUseMediumFont; // @synthesize shouldUseMediumFont=_shouldUseMediumFont;
 @property(nonatomic) BOOL shouldUseSmallFont; // @synthesize shouldUseSmallFont=_shouldUseSmallFont;
 @property(nonatomic) int buttonAppearance; // @synthesize buttonAppearance=_buttonAppearance;
 @property(nonatomic) BOOL onHeaderBackground; // @synthesize onHeaderBackground=_onHeaderBackground;
 @property(nonatomic) int buttonKind; // @synthesize buttonKind=_buttonKind;
+- (id)_gkLetterpressStyleForState:(unsigned int)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithTheme:(id)arg1 buttonKind:(int)arg2;
 - (id)initWithTheme:(id)arg1 buttonKind:(int)arg2 headerBackground:(BOOL)arg3;
+- (void)layoutSubviews;
 - (void)updateButtonAppearance;
 - (id)initWithTheme:(id)arg1;
 - (int)buttonType;
+@property(nonatomic, getter=isLoadingIndicatorVisible) BOOL loadingIndicatorVisible;
+- (void)stopLoadingIndicator;
+- (void)startLoadingIndicator;
+- (void)dealloc;
 
 @end
 

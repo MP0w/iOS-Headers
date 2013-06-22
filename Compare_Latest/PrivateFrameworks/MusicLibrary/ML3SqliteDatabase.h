@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
-@class ML3SqliteDatabaseContext, NSString;
+@class ML3SqliteDatabaseContext, MLSQLiteConnectionQueue, NSString;
 
 @interface ML3SqliteDatabase : NSObject
 {
+    NSString *_identifier;
     ML3SqliteDatabaseContext *_mainDatabaseContext;
     ML3SqliteDatabaseContext *_backgroundDatabaseContext;
-    struct dispatch_queue_s *_backgroundQueue;
+    MLSQLiteConnectionQueue *_backgroundConnectionQueue;
+    NSString *_backgroundQueueIdentifier;
     NSString *_path;
     BOOL _enableWrites;
 }
@@ -23,7 +25,7 @@
 + (BOOL)userVersionMatchesSystemUsingHandle:(struct sqlite3 *)arg1;
 + (int)userVersionUsingHandle:(struct sqlite3 *)arg1;
 + (BOOL)buildDatabaseTablesUsingHandle:(struct sqlite3 *)arg1 usingTransaction:(BOOL)arg2;
-+ (int)userVersionCurrent;
++ (int)currentUserVersion;
 + (id)systemCurrentLanguage;
 + (id)allSchemaSQL;
 + (BOOL)executeSQL:(id)arg1 usingHandle:(struct sqlite3 *)arg2;
@@ -37,6 +39,7 @@
 + (BOOL)attachAuxiliaryDatabases:(struct sqlite3 *)arg1;
 + (id)databasePath;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
+- (void).cxx_destruct;
 - (BOOL)coerceValidDatabase;
 - (BOOL)deleteAndRecreateDatabaseUsingHandle:(struct sqlite3 **)arg1;
 - (BOOL)buildDatabaseTables;
@@ -47,10 +50,13 @@
 - (void)prepareStatementForSQL:(id)arg1 usingBlock:(id)arg2;
 - (void)accessDatabaseUsingBlock:(id)arg1;
 - (void)accessDatabaseContextUsingBlock:(id)arg1;
-- (void)reconnectToDatabase;
+- (void)reconnectToDatabaseWithCompletionHandler:(id)arg1;
+- (void)_enumerateDatabaseContextsUsingBlock:(id)arg1;
+- (void)_accessDatabaseContextUsingBlock:(id)arg1;
 - (void)reconnectBackgroundDatabaseContext;
 - (void)reconnectMainDatabaseContext;
-- (id)backgroundQueue_backgroundDatabaseContext;
+- (id)_onMainQueueDatabaseContext;
+- (id)_onBackgroundQueueDatabaseContext;
 - (id)newDatabaseContext;
 - (BOOL)executeSQL:(id)arg1;
 - (BOOL)requiresPostProcessing;
@@ -60,7 +66,8 @@
 - (BOOL)canWriteToDatabase;
 - (void)_debugLoggingOptionsDidChangeNotification:(id)arg1;
 - (void)dealloc;
-- (id)initWithPath:(id)arg1 enableWrites:(BOOL)arg2;
+- (id)description;
+- (id)initWithIdentifier:(id)arg1 path:(id)arg2 backgroundConnectionQueue:(id)arg3 enableWrites:(BOOL)arg4;
 
 @end
 

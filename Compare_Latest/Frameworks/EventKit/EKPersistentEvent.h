@@ -31,14 +31,15 @@
 - (void)setActions:(id)arg1;
 - (id)actions;
 - (BOOL)_hasExternalIDOrDeliverySource;
-- (BOOL)_hasValidEventAction;
+- (BOOL)hasValidEventAction;
 - (id)committedStartDate;
 @property(copy, nonatomic) NSDate *originalStartDate;
 - (id)organizer;
 @property(copy, nonatomic) NSString *responseComment;
 @property(nonatomic) unsigned int privacyLevel;
 @property(nonatomic) int availability;
-@property(nonatomic) unsigned int readStatus;
+@property(readonly, nonatomic) unsigned int invitationChangedProperties;
+@property(nonatomic) unsigned int invitationStatus;
 - (BOOL)responseMustApplyToAll;
 - (int)birthdayId;
 @property(readonly, nonatomic) int pendingParticipationStatus;

@@ -13,12 +13,15 @@
     PLGenericAlbum *_album;
 }
 
++ (id)notificationWithAlbum:(id)arg1;
 - (id)userInfo;
 - (id)name;
 - (id)object;
 @property(readonly, nonatomic) PLGenericAlbum *album;
 - (id)description;
 - (void)dealloc;
+- (id)_initWithAlbum:(id)arg1;
+- (id)_init;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVCaptureOutput.h>
 
-@class AVCaptureAudioDataOutputInternal;
+@class AVCaptureAudioDataOutputInternal, NSObject<OS_dispatch_queue>;
 
 @interface AVCaptureAudioDataOutput : AVCaptureOutput
 {
@@ -18,11 +18,11 @@
 - (void)didStartForSession:(id)arg1;
 - (void)didStopForSession:(id)arg1 error:(id)arg2;
 - (void)handleEnabledChangedForConnection:(id)arg1;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (id)connectionMediaTypes;
-@property(readonly, nonatomic) struct dispatch_queue_s *sampleBufferCallbackQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sampleBufferCallbackQueue;
 @property(readonly, nonatomic) id <AVCaptureAudioDataOutputSampleBufferDelegate> sampleBufferDelegate;
-- (void)setSampleBufferDelegate:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
+- (void)setSampleBufferDelegate:(id)arg1 queue:(id)arg2;
 - (void)setSession:(id)arg1;
 - (BOOL)isTheOnlyDataOutput;
 - (void)dealloc;

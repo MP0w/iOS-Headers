@@ -6,18 +6,21 @@
 
 #import "UIView.h"
 
-@class NSString, UIImage;
+@class NSString, UIColor, UIImage;
 
 @interface EKEventOccurrenceListItem : UIView
 {
     NSString *_title;
     NSString *_location;
     NSString *_timeString;
+    UIColor *_dotColor;
     UIImage *_dot;
     unsigned int _designator:2;
     unsigned int _isAllDay:1;
     unsigned int _isBirthday:1;
+    unsigned int _isFacebook:1;
     unsigned int _tentative:1;
+    unsigned int _needsReply:1;
     unsigned int _cancelled:1;
     unsigned int _isEndDate:1;
     unsigned int _indentsWithoutDot:1;
@@ -35,15 +38,20 @@
 - (BOOL)isAllDay;
 - (unsigned int)designator;
 - (void)drawRect:(struct CGRect)arg1;
+- (id)outlineImageWithColor:(id)arg1;
+- (id)_dot;
 - (id)_selectedBackgroundImage;
-@property(nonatomic, getter=isHighlighted) BOOL highlighted;
+- (void)setHighlighted:(BOOL)arg1;
+- (BOOL)isHighlighted;
 - (void)setShowsColors:(BOOL)arg1;
 - (void)setIndentsForMissingDot:(BOOL)arg1;
 - (void)setDotColor:(id)arg1;
 - (void)setCancelled:(BOOL)arg1;
+- (void)setNeedsReply:(BOOL)arg1;
 - (void)setTentative:(BOOL)arg1;
 - (void)setIsEndDate:(BOOL)arg1;
-- (void)setStartDate:(double)arg1;
+- (void)setDisplayDate:(CDStruct_b0fa4487)arg1;
+- (void)setIsFacebook:(BOOL)arg1;
 - (void)setIsBirthday:(BOOL)arg1;
 - (void)setIsAllDay:(BOOL)arg1;
 - (void)setLocation:(id)arg1;
@@ -54,7 +62,7 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithEvent:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 title:(id)arg2 location:(id)arg3 startDate:(double)arg4 allDay:(BOOL)arg5 tentative:(BOOL)arg6;
+- (id)initWithFrame:(struct CGRect)arg1 title:(id)arg2 location:(id)arg3 startDate:(CDStruct_b0fa4487)arg4 allDay:(BOOL)arg5 tentative:(BOOL)arg6;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

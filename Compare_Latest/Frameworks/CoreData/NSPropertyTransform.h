@@ -16,17 +16,17 @@
     BOOL _replaceMissingValueOnly;
 }
 
-- (id)initWithPropertyName:(id)arg1 valueExpression:(id)arg2;
-- (void)dealloc;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (id)description;
 @property BOOL replaceMissingValueOnly; // @synthesize replaceMissingValueOnly=_replaceMissingValueOnly;
 @property(retain, nonatomic) NSPropertyTransform *prerequisiteTransform; // @synthesize prerequisiteTransform=_prerequisiteTransform;
 @property(retain, nonatomic) NSExpression *valueExpression; // @synthesize valueExpression=_valueExpression;
 @property(retain, nonatomic) NSString *propertyName; // @synthesize propertyName=_propertyName;
+- (id)description;
+- (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (void)dealloc;
+- (id)initWithPropertyName:(id)arg1 valueExpression:(id)arg2;
 
 @end
 

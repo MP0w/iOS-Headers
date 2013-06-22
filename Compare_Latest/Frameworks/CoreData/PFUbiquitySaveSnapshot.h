@@ -12,20 +12,22 @@
 {
     NSDate *_transactionDate;
     NSString *_modelVersionHash;
+    NSString *_exportingPeerID;
     NSString *_localPeerID;
     NSMutableDictionary *_storeNameToStoreSaveSnapshots;
 }
 
-- (id)initWithTransactionLog:(id)arg1;
-- (id)initWithSaveNotification:(id)arg1 withLocalPeerID:(id)arg2;
-- (void)dealloc;
-- (id)description;
-- (id)storeSaveSnapshotForStoreName:(id)arg1;
-- (id)storeSaveSnapshotForStore:(id)arg1;
-@property(readonly, nonatomic) NSArray *storeNames;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
+@property(readonly, nonatomic) NSString *exportingPeerID; // @synthesize exportingPeerID=_exportingPeerID;
 @property(readonly, nonatomic) NSString *modelVersionHash; // @synthesize modelVersionHash=_modelVersionHash;
-@property(retain, nonatomic) NSDate *transacationDate; // @synthesize transacationDate=_transactionDate;
+@property(retain, nonatomic) NSDate *transactionDate; // @synthesize transactionDate=_transactionDate;
+@property(readonly, nonatomic) NSArray *storeNames;
+- (id)storeSaveSnapshotForStore:(id)arg1;
+- (id)storeSaveSnapshotForStoreName:(id)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)initWithSaveNotification:(id)arg1 withLocalPeerID:(id)arg2;
+- (id)initWithTransactionLog:(id)arg1;
 
 @end
 

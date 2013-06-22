@@ -18,6 +18,7 @@
 
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+- (void)dealloc;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 
 @end

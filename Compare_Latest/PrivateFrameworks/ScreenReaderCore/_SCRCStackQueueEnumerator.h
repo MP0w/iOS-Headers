@@ -11,8 +11,8 @@
     struct _SCRCStackNode *_currentListMemeber;
 }
 
-- (id)initWithListMember:(struct _SCRCStackNode *)arg1;
 - (id)nextObject;
+- (id)initWithListMember:(struct _SCRCStackNode *)arg1;
 
 @end
 

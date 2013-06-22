@@ -18,17 +18,17 @@
     id <ABResponderDelegate> _responderDelegate;
 }
 
-- (void)dealloc;
-@property(nonatomic, setter=abSetHighlighted:) BOOL abIsHighlighted; // @synthesize abIsHighlighted=_isHighlighted;
-- (void)setTextColor:(id)arg1;
 @property(nonatomic) BOOL showsClearButtonWhenEmpty; // @synthesize showsClearButtonWhenEmpty=_showsClearButtonWhenEmpty;
-- (BOOL)_showsClearButtonWhenEmpty;
-- (BOOL)becomeFirstResponder;
-- (id)_nextKeyResponder;
-- (id)_previousKeyResponder;
 @property(nonatomic) id <ABResponderDelegate> responderDelegate; // @synthesize responderDelegate=_responderDelegate;
 @property(retain, nonatomic, setter=abSetHighlightedTextColor:) UIColor *abHighlightedTextColor; // @synthesize abHighlightedTextColor=_highlightedTextColor;
 @property(nonatomic, setter=abSetHighlightingEnabled:) BOOL abIsHighlightingEnabled; // @synthesize abIsHighlightingEnabled=_isHighlightingEnabled;
+@property(nonatomic, setter=abSetHighlighted:) BOOL abIsHighlighted; // @synthesize abIsHighlighted=_isHighlighted;
+- (id)_previousKeyResponder;
+- (id)_nextKeyResponder;
+- (BOOL)becomeFirstResponder;
+- (BOOL)_showsClearButtonWhenEmpty;
+- (void)setTextColor:(id)arg1;
+- (void)dealloc;
 
 @end
 

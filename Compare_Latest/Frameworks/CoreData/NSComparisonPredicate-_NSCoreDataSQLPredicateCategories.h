@@ -7,7 +7,7 @@
 #import "NSComparisonPredicate.h"
 
 @interface NSComparisonPredicate (_NSCoreDataSQLPredicateCategories)
-- (BOOL)_isForeignObjectExpression:(id)arg1 givenContext:(id)arg2;
 - (id)minimalFormInContext:(id)arg1;
+- (BOOL)_isForeignObjectExpression:(id)arg1 givenContext:(id)arg2;
 @end
 

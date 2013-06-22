@@ -6,13 +6,17 @@
 
 #import "NSObject.h"
 
+#import "UIActionSheetDelegate-Protocol.h"
 #import "UIDocumentPasswordViewDelegate-Protocol.h"
 #import "UIWebPDFViewDelegate-Protocol.h"
 #import "UIWebPDFViewPrivateDelegate-Protocol.h"
+#import "_UIRotatingActionSheetDelegate-Protocol.h"
+#import "_UIWebDoubleTapDelegate-Protocol.h"
+#import "_UIWebRotationDelegate-Protocol.h"
 
-@class NSObject<UIWebPDFViewHandlerDelegate>, UIColor, UIDocumentPasswordView, UIHighlightView, UIView, UIWebPDFLabelView, UIWebPDFSearchController, UIWebPDFView, WebPDFNSNumberFormatter;
+@class NSArray, NSDictionary, NSObject<UIWebPDFViewHandlerDelegate>, UIAlertView, UIColor, UIDocumentPasswordView, UIHighlightView, UIView, UIWebPDFLabelView, UIWebPDFSearchController, UIWebPDFView, WebPDFNSNumberFormatter, _UIRotatingActionSheet;
 
-@interface UIWebPDFViewHandler : NSObject <UIWebPDFViewPrivateDelegate, UIDocumentPasswordViewDelegate, UIWebPDFViewDelegate>
+@interface UIWebPDFViewHandler : NSObject <UIWebPDFViewPrivateDelegate, UIDocumentPasswordViewDelegate, UIActionSheetDelegate, _UIRotatingActionSheetDelegate, UIWebPDFViewDelegate, _UIWebDoubleTapDelegate, _UIWebRotationDelegate>
 {
     UIWebPDFView *_pdfView;
     BOOL _scalesPageToFit;
@@ -30,6 +34,12 @@
     BOOL _hidePageViewsUntilReadyToRender;
     WebPDFNSNumberFormatter *_labelViewFormatter;
     struct _PDFHistoryItem _pendingHistoryItemRestore;
+    _UIRotatingActionSheet *_linkActionSheet;
+    NSDictionary *_linkActionInfo;
+    NSArray *_linkActions;
+    struct CGRect _rectOfInterest;
+    BOOL _rectOfInterestConsidersHeight;
+    UIAlertView *_currentAlert;
 }
 
 @property(nonatomic) BOOL hideActivityIndicatorForUnRenderedContent; // @synthesize hideActivityIndicatorForUnRenderedContent=_hideActivityIndicatorForUnRenderedContent;
@@ -38,9 +48,28 @@
 @property(nonatomic) NSObject<UIWebPDFViewHandlerDelegate> *pdfHandlerDelegate; // @synthesize pdfHandlerDelegate=_pdfHandlerDelegate;
 @property(nonatomic) BOOL scalesPageToFit; // @synthesize scalesPageToFit=_scalesPageToFit;
 @property(nonatomic) BOOL showPageLabels; // @synthesize showPageLabels=_showPageLabels;
+- (void)rotateEnclosingScrollViewToFrame:(struct CGRect)arg1;
+- (unsigned int)_verticalEdgeForContentOffsetInScrollView:(id)arg1;
+- (float)_pinValueForVerticalEdge:(unsigned int)arg1 inScrollView:(id)arg2;
+- (BOOL)considerHeightOfRectOfInterestForRotation;
+- (struct CGRect)activeRectForRectOfInterest:(struct CGRect)arg1;
+- (float)heightToKeepVisible;
+- (float)minimumVerticalContentOffset;
+- (struct CGRect)rectOfInterestForRotation;
+- (void)updateBoundariesOfScrollView:(id)arg1 withScales:(CDStruct_869f9c67)arg2;
+- (BOOL)considerHeightForDoubleTap;
+- (CDStruct_869f9c67)doubleTapScalesForSize:(struct CGSize)arg1;
+- (struct CGRect)rectOfInterestForPoint:(struct CGPoint)arg1;
+- (float)minimumScaleForSize:(struct CGSize)arg1;
+- (struct CGRect)visibleContentRect;
+- (float)currentDocumentScale;
+- (float)zoomedDocumentScale;
+- (id)contentView;
+- (id)enclosingScrollView;
 - (void)restoreStateFromHistoryItem:(id)arg1 forWebView:(id)arg2;
 - (void)restoreStateFromPendingHistoryItem;
 - (void)saveStateToHistoryItem:(id)arg1 forWebView:(id)arg2;
+- (CDStruct_869f9c67)scalesForContainerSize:(struct CGSize)arg1;
 - (void)revealSearchResult:(id)arg1 andZoomIn:(BOOL)arg2;
 - (void)_resultRects:(id)arg1 andResultViews:(id)arg2 forSearchResult:(id)arg3 inViewCoordinates:(id)arg4;
 - (void)handleScrollToAnchor:(id)arg1;
@@ -54,12 +83,11 @@
 - (void)removeViewFromSuperview;
 @property(readonly, nonatomic) UIView *frontView;
 @property(readonly, nonatomic) UIWebPDFView *pdfView;
-- (void)ensureCorrectPagesAreInstalled;
+- (void)ensureCorrectPagesAreInstalled:(BOOL)arg1;
 - (void)didScroll:(id)arg1;
 - (id)passwordForPDFView:(id)arg1;
-- (void)pdfView:(id)arg1 willClickAnnotation:(struct CGPDFDictionary *)arg2 inRect:(struct CGRect)arg3;
-- (void)shouldResetZoom:(id)arg1;
-- (void)pdfView:(id)arg1 shouldZoomToRect:(struct CGRect)arg2;
+- (void)resetZoom:(id)arg1;
+- (void)pdfView:(id)arg1 zoomToRect:(struct CGRect)arg2 forPoint:(struct CGPoint)arg3 considerHeight:(BOOL)arg4;
 - (void)didDetermineDocumentBounds:(id)arg1;
 - (void)_postdidDetermineDocumentBounds;
 - (void)_showPasswordEntryViewForFile:(id)arg1;
@@ -69,13 +97,24 @@
 - (void)_adjustContentOffsetForKeyboardIfNeeded;
 - (void)userDidEnterPassword:(id)arg1 forPasswordView:(id)arg2;
 - (void)_showPasswordErrorAlert;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (id)createPageLabel;
 - (void)clearPageLabel;
-- (BOOL)_handleAnnotationClick:(struct CGPDFDictionary *)arg1;
-- (BOOL)_handleLinkActionClick:(struct CGPDFDictionary *)arg1;
-- (BOOL)_handleURIActionClick:(struct CGPDFDictionary *)arg1 uriKey:(const char *)arg2;
-- (BOOL)_handleDestinationActionClick:(struct CGPDFDictionary *)arg1 destinationKey:(const char *)arg2;
-- (void)_notifyDelegateOfLinkClick:(id)arg1;
+- (struct CGRect)presentationRectInHostViewForSheet:(id)arg1;
+- (struct CGRect)initialPresentationRectInHostViewForSheet:(id)arg1;
+- (id)hostViewForSheet:(id)arg1;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)handleLongPressOnLink:(id)arg1 atPoint:(struct CGPoint)arg2 inRect:(struct CGRect)arg3 contentRect:(struct CGRect)arg4;
+- (void)_showLinkSheet:(id)arg1;
+- (id)_actionsForInteractionInfo:(id)arg1;
+- (id)_actionForType:(int)arg1;
+- (void)clearActionSheet;
+- (void)handleLinkClick:(id)arg1 inRect:(struct CGRect)arg2;
+- (void)_notifyDelegateDidClickLink:(id)arg1;
+- (void)_notifyDelegateWillClickLink:(id)arg1;
+- (void)_completeLinkClick:(id)arg1;
+- (id)_absoluteUrlRelativeToDocumentURL:(id)arg1;
 - (void)scrollToPageNumber:(int)arg1 animate:(BOOL)arg2;
 - (void)highlightRect:(struct CGRect)arg1;
 - (id)createLinkHighlight;

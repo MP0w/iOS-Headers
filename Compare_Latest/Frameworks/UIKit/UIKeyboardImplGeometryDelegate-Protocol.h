@@ -8,6 +8,7 @@
 @property(nonatomic, getter=isMinimized) BOOL minimized;
 - (BOOL)isActive;
 - (BOOL)canDismiss;
+- (BOOL)shouldSaveMinimizationState;
 - (void)implBoundsHeightChangeDone:(float)arg1 suppressNotification:(BOOL)arg2;
 - (void)prepareForImplBoundsHeightChange:(float)arg1 suppressNotification:(BOOL)arg2;
 @end

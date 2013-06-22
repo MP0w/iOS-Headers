@@ -6,26 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class AVMediaSelectionOption, NSString;
 
 @interface MPAlternateTrack : NSObject
 {
-    int _trackID;
-    NSString *_languageCode;
     NSString *_name;
+    AVMediaSelectionOption *_option;
+    BOOL _isSDH;
 }
 
 + (id)threeCharCodesForEncodedISO639_2_T:(id)arg1;
 + (id)copyOffTrack;
+@property(nonatomic) BOOL isSDH; // @synthesize isSDH=_isSDH;
+@property(readonly, nonatomic) AVMediaSelectionOption *option; // @synthesize option=_option;
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (id)description;
-- (int)trackID;
-- (void)setName:(id)arg1;
-- (id)name;
-- (id)languageCode;
-- (id)humanReadableLanguage;
+- (id)_humanReadableLanguage;
 - (int)compare:(id)arg1;
+@property(readonly, nonatomic) NSString *displayName;
 - (void)dealloc;
-- (id)initWithTrackID:(id)arg1 languageCode:(id)arg2 name:(id)arg3;
+- (id)initWithName:(id)arg1 option:(id)arg2;
 
 @end
 

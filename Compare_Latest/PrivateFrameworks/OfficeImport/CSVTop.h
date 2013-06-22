@@ -10,10 +10,10 @@
 {
 }
 
-+ (struct CGSize)_improveSize:(struct CGSize)arg1;
-+ (void)fillHTMLArchiveForCSVString:(id)arg1 fileName:(id)arg2 archiver:(id)arg3;
-+ (void)fillHTMLArchiveForCSVFile:(id)arg1 archiver:(id)arg2;
 + (void)fillHTMLArchiveForCSVData:(id)arg1 fileName:(id)arg2 archiver:(id)arg3;
++ (void)fillHTMLArchiveForCSVFile:(id)arg1 archiver:(id)arg2;
++ (void)fillHTMLArchiveForCSVString:(id)arg1 fileName:(id)arg2 archiver:(id)arg3;
++ (struct CGSize)_improveSize:(struct CGSize)arg1;
 
 @end
 

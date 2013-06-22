@@ -37,7 +37,7 @@
 - (void)recordABMatch:(id)arg1 fieldName:(id)arg2;
 - (int)autoFillPhoneOrZipStartingAtControl:(id)arg1 match:(id)arg2;
 - (void)autoFillAddressStartingAtControl:(id)arg1 match:(id)arg2;
-- (BOOL)autoFill;
+- (void)autoFill;
 - (BOOL)hasAutoFilled;
 - (int)_reflectAutoFillMatch:(id)arg1 inControls:(id)arg2 currIndex:(int)arg3 fieldName:(id)arg4;
 - (int)_reflectMultiFieldMatch:(id)arg1 inControls:(id)arg2 currIndex:(unsigned int)arg3 fieldName:(id)arg4 isPhoneNumber:(BOOL)arg5;

@@ -10,11 +10,11 @@
 {
 }
 
-- (void)dealloc;
-- (int)_getURIBytes:(char *)arg1 length:(int)arg2;
-- (id)_retainedURIString;
-- (long long)_referenceData64;
 - (id)initWithPK64:(long long)arg1;
+- (long long)_referenceData64;
+- (id)_retainedURIString;
+- (int)_getURIBytes:(char *)arg1 length:(int)arg2;
+- (void)dealloc;
 
 @end
 

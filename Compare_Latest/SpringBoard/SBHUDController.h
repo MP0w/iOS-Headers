@@ -14,20 +14,22 @@
     UIView *_hudContentView;
     SBHUDView *_hudView;
     int _orientation;
+    BOOL _hudVisibleOrFading;
 }
 
 + (id)sharedHUDController;
-- (void)dealloc;
-- (void)_recenterHUDView;
-- (void)reorientHUDIfNeeded:(BOOL)arg1;
-- (void)_createUI;
-- (void)_tearDown;
-- (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
-- (void)_orderWindowOut:(id)arg1;
-- (void)presentHUDView:(id)arg1;
-- (void)presentHUDView:(id)arg1 autoDismissWithDelay:(double)arg2;
-- (id)visibleHUDView;
 - (void)hideHUDView;
+- (id)visibleOrFadingHUDView;
+- (id)visibleHUDView;
+- (void)presentHUDView:(id)arg1 autoDismissWithDelay:(double)arg2;
+- (void)presentHUDView:(id)arg1;
+- (void)_orderWindowOut:(id)arg1;
+- (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+- (void)_tearDown;
+- (void)_createUI;
+- (void)reorientHUDIfNeeded:(BOOL)arg1;
+- (void)_recenterHUDView;
+- (void)dealloc;
 
 @end
 

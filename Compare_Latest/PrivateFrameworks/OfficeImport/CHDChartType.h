@@ -17,25 +17,27 @@
     _Bool mVaryColors;
 }
 
-+ (id)chartTypeWithChart:(id)arg1;
 + (_Bool)is3DType;
-- (id)initWithChart:(id)arg1;
-- (void)dealloc;
-- (id)chart;
-- (id)axisIds;
-- (_Bool)isPlotedOnSecondaryAxis;
-- (id)axes;
-- (id)axisForClass:(Class)arg1;
-- (id)seriesCollection;
-- (void)setSeriesCollection:(id)arg1;
-- (id)defaultDataLabel;
-- (void)setDefaultDataLabel:(id)arg1;
-- (id)contentFormat;
-- (_Bool)isVaryColors;
-- (void)setVaryColors:(_Bool)arg1;
-- (_Bool)isHorizontal;
-- (int)defaultLabelPosition;
++ (id)chartTypeWithChart:(id)arg1;
 - (id)defaultTitleWithResources:(id)arg1;
+- (int)defaultLabelPosition;
+- (_Bool)isHorizontal;
+- (void)setVaryColors:(_Bool)arg1;
+- (_Bool)isVaryColors;
+- (id)contentFormat;
+- (void)setDefaultDataLabel:(id)arg1;
+- (id)defaultDataLabel;
+- (void)setSeriesCollection:(id)arg1;
+- (unsigned int)categoryCount;
+- (unsigned int)seriesCount;
+- (id)seriesCollection;
+- (id)axisForClass:(Class)arg1;
+- (id)axes;
+- (_Bool)isPlotedOnSecondaryAxis;
+- (id)axisIds;
+- (id)chart;
+- (void)dealloc;
+- (id)initWithChart:(id)arg1;
 
 @end
 

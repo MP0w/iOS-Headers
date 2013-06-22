@@ -14,6 +14,10 @@
 {
 }
 
++ (id)weakToWeakObjectsMapTable;
++ (id)strongToWeakObjectsMapTable;
++ (id)weakToStrongObjectsMapTable;
++ (id)strongToStrongObjectsMapTable;
 + (id)mapTableWithWeakToWeakObjects;
 + (id)mapTableWithStrongToWeakObjects;
 + (id)mapTableWithWeakToStrongObjects;

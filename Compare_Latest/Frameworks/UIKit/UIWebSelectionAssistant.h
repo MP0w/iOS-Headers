@@ -27,8 +27,8 @@
 - (void)resignedFirstResponder;
 - (void)didEndScrollingOverflow;
 - (void)willStartScrollingOverflow;
-- (void)didEndScrollingPage;
-- (void)willStartScrollingPage;
+- (void)didEndScrollingOrZoomingPage;
+- (void)willStartScrollingOrZoomingPage;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2 fromView:(id)arg3;
 - (void)scaleChanged;
 - (void)tap:(id)arg1;

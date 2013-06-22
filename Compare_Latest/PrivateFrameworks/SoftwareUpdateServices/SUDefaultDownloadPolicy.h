@@ -28,10 +28,12 @@
 - (BOOL)isDownloadableForCurrentNetworkConditions:(int *)arg1 cellularFeesApply:(char *)arg2 powerRequired:(char *)arg3;
 - (BOOL)isDownloadableForCurrentNetworkConditions:(int *)arg1 cellularFeesApply:(char *)arg2;
 - (BOOL)isDownloadFreeForCellular;
+- (BOOL)isDownloadAllowableForCellularRoaming;
 - (BOOL)isDownloadAllowableForWiFi;
 - (BOOL)isDownloadable;
 - (BOOL)isPowerRequired;
 - (BOOL)hasEnoughDiskSpace;
+- (BOOL)isSamePolicy:(id)arg1;
 - (BOOL)_isCellularCapable;
 - (id)_stringForBool:(BOOL)arg1;
 - (id)description;

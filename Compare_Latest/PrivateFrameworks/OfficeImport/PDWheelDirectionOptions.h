@@ -11,8 +11,8 @@
     int mSpokes;
 }
 
-- (int)spokes;
 - (void)setSpokes:(int)arg1;
+- (int)spokes;
 
 @end
 

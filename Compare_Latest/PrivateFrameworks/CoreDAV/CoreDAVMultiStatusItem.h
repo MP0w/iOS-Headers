@@ -14,11 +14,11 @@
     CoreDAVLeafItem *_responseDescription;
 }
 
++ (id)copyParseRules;
 @property(retain) CoreDAVLeafItem *responseDescription; // @synthesize responseDescription=_responseDescription;
 @property(retain) NSMutableArray *orderedResponses; // @synthesize orderedResponses=_orderedResponses;
 @property(readonly) NSSet *responses;
 - (void)addResponse:(id)arg1;
-- (id)copyParseRules;
 - (id)description;
 - (void)dealloc;
 - (id)init;

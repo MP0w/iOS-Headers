@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "RadiosPreferencesDelegate-Protocol.h"
+@class NSString, SBSIMLockAlertItem, SBSIMLockEntryAlert;
 
-@class NSString, RadiosPreferences, SBSIMLockAlertItem, SBSIMLockEntryAlert;
-
-@interface SBSIMLockManager : NSObject <RadiosPreferencesDelegate>
+@interface SBSIMLockManager : NSObject
 {
     BOOL _isInitialUpdate;
     BOOL _isBrickedDevice;
@@ -18,39 +16,39 @@
     SBSIMLockAlertItem *_currentAlert;
     SBSIMLockEntryAlert *_lockEntryAlert;
     NSString *_languageCode;
-    RadiosPreferences *_radiosPrefs;
     BOOL _hasHadSIMWhileNotBricked;
     BOOL _wasActivated;
     BOOL _neededUIM;
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (BOOL)_hopelesslyPUKLocked;
-- (int)_CTToSBSIMStatus:(struct __CFString *)arg1;
-- (int)_statusFromCT;
-- (void)lockEntryAlertDismissed:(id)arg1;
-- (void)alertItemDismissed:(id)arg1;
-- (BOOL)_shouldSuppressAlert;
-- (void)_displayLaunched:(id)arg1;
-- (void)repopAlert;
-- (void)attemptUnlock;
-- (void)_updateToStatus:(int)arg1;
-- (void)_tryToUpdateStatus;
-- (void)airplaneModeChanged;
-- (void)_handlePromptForUnlock;
-- (void)_tearDownAlertAndUpdateStatus;
-- (void)_updateSIMStatus:(struct __CFString *)arg1 withOptions:(struct __CFDictionary *)arg2;
-- (int)pinLockAttemptsRemaining;
-- (int)pukLockAttemptsRemaining;
-- (void)_initialUpdate;
-- (void)_activationDidChange;
-- (void)_telephonyDidRestart;
-- (void)_postponementDidChange;
-- (void)registerForAlerts;
-- (int)status;
 - (id)languageCode;
+- (int)status;
+- (void)registerForAlerts;
+- (void)_postponementDidChange;
+- (void)_telephonyDidRestart;
+- (void)_activationDidChange;
+- (void)_initialUpdate;
+- (void)_externalSIMStatusChanged:(id)arg1;
+- (int)pukLockAttemptsRemaining;
+- (int)pinLockAttemptsRemaining;
+- (void)_updateSIMStatus:(struct __CFString *)arg1 withOptions:(struct __CFDictionary *)arg2;
+- (void)_tearDownAlertAndUpdateStatus;
+- (void)_handlePromptForUnlock;
+- (void)airplaneModeChanged;
+- (void)_tryToUpdateStatus;
+- (void)_updateToStatus:(int)arg1;
+- (void)attemptUnlock;
+- (void)repopAlert;
+- (void)_setupAppActivationStateDidChange:(id)arg1;
+- (BOOL)_shouldSuppressAlert;
+- (void)alertItemDismissed:(id)arg1;
+- (void)lockEntryAlertDismissed:(id)arg1;
+- (int)_statusFromCT;
+- (int)_CTToSBSIMStatus:(struct __CFString *)arg1;
+- (BOOL)_hopelesslyPUKLocked;
+- (void)dealloc;
+- (id)init;
 
 @end
 

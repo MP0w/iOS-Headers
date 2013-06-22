@@ -7,23 +7,22 @@
 #import "NSString.h"
 
 @interface NSString (WebNSURLExtras)
-- (BOOL)_web_isUserVisibleURL;
-- (BOOL)_webkit_isJavaScriptURL;
-- (BOOL)_webkit_isFileURL;
-- (id)_webkit_stringByReplacingValidPercentEscapes;
-- (id)_webkit_scriptIfJavaScriptURL;
-- (BOOL)_webkit_isFTPDirectoryURL;
-- (id)_web_mapHostNameWithRange:(struct _NSRange)arg1 encode:(BOOL)arg2 makeString:(BOOL)arg3;
-- (BOOL)_web_hostNameNeedsDecodingWithRange:(struct _NSRange)arg1;
-- (BOOL)_web_hostNameNeedsEncodingWithRange:(struct _NSRange)arg1;
-- (id)_web_decodeHostNameWithRange:(struct _NSRange)arg1;
-- (id)_web_encodeHostNameWithRange:(struct _NSRange)arg1;
-- (id)_web_decodeHostName;
-- (id)_web_encodeHostName;
-- (struct _NSRange)_webkit_rangeOfURLScheme;
-- (BOOL)_webkit_looksLikeAbsoluteURL;
-- (id)_webkit_URLFragment;
-- (id)_webkit_unescapedQueryValue;
 - (id)_webkit_queryKeysAndValues;
+- (id)_webkit_unescapedQueryValue;
+- (id)_webkit_URLFragment;
+- (BOOL)_webkit_looksLikeAbsoluteURL;
+- (struct _NSRange)_webkit_rangeOfURLScheme;
+- (id)_web_encodeHostName;
+- (id)_web_decodeHostName;
+- (id)_web_encodeHostNameWithRange:(struct _NSRange)arg1;
+- (id)_web_decodeHostNameWithRange:(struct _NSRange)arg1;
+- (BOOL)_web_hostNameNeedsEncodingWithRange:(struct _NSRange)arg1;
+- (BOOL)_web_hostNameNeedsDecodingWithRange:(struct _NSRange)arg1;
+- (BOOL)_webkit_isFTPDirectoryURL;
+- (id)_webkit_scriptIfJavaScriptURL;
+- (id)_webkit_stringByReplacingValidPercentEscapes;
+- (BOOL)_webkit_isFileURL;
+- (BOOL)_webkit_isJavaScriptURL;
+- (BOOL)_web_isUserVisibleURL;
 @end
 

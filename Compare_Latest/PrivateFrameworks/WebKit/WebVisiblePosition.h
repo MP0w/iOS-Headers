@@ -11,31 +11,35 @@
     struct WebObjectInternal *_internal;
 }
 
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (int)compare:(id)arg1;
-- (int)distanceFromPosition:(id)arg1;
-- (id)description;
-- (int)textDirection;
-- (BOOL)directionIsDownstream:(int)arg1;
-- (id)positionByMovingInDirection:(int)arg1 amount:(unsigned long)arg2 withAffinityDownstream:(BOOL)arg3;
-- (id)positionByMovingInDirection:(int)arg1 amount:(unsigned long)arg2;
-- (BOOL)atBoundaryOfGranularity:(int)arg1 inDirection:(int)arg2;
-- (id)nextCharacterBoundaryInDirection:(int)arg1;
-- (id)nextWordBoundaryInDirection:(int)arg1;
-- (id)nextSentenceBoundaryInDirection:(int)arg1;
-- (id)nextLineBoundaryInDirection:(int)arg1;
-- (id)nextParagraphBoundaryInDirection:(int)arg1;
-- (id)nextDocumentBoundaryInDirection:(int)arg1;
-- (id)positionOfNextBoundaryOfGranularity:(int)arg1 inDirection:(int)arg2;
-- (BOOL)withinTextUnitOfGranularity:(int)arg1 inDirectionIfAtBoundary:(int)arg2;
-- (id)enclosingTextUnitOfGranularity:(int)arg1 inDirectionIfAtBoundary:(int)arg2;
-- (id)positionAtStartOrEndOfWord;
-- (BOOL)isEditable;
-- (BOOL)requiresContextForWordBoundary;
-- (BOOL)atAlphaNumericBoundaryInDirection:(int)arg1;
-- (id)enclosingRangeWithDictationPhraseAlternatives:(id *)arg1;
++ (id)_wrapVisiblePositionIfValid:(struct VisiblePosition)arg1;
++ (id)_wrapVisiblePosition:(struct VisiblePosition)arg1;
 @property(nonatomic) int affinity;
+- (id)enclosingRangeWithCorrectionIndicator;
+- (id)enclosingRangeWithDictationPhraseAlternatives:(id *)arg1;
+- (BOOL)atAlphaNumericBoundaryInDirection:(int)arg1;
+- (BOOL)requiresContextForWordBoundary;
+- (BOOL)isEditable;
+- (id)positionAtStartOrEndOfWord;
+- (id)enclosingTextUnitOfGranularity:(int)arg1 inDirectionIfAtBoundary:(int)arg2;
+- (BOOL)withinTextUnitOfGranularity:(int)arg1 inDirectionIfAtBoundary:(int)arg2;
+- (id)positionOfNextBoundaryOfGranularity:(int)arg1 inDirection:(int)arg2;
+- (id)nextDocumentBoundaryInDirection:(int)arg1;
+- (id)nextParagraphBoundaryInDirection:(int)arg1;
+- (id)nextLineBoundaryInDirection:(int)arg1;
+- (id)nextSentenceBoundaryInDirection:(int)arg1;
+- (id)nextWordBoundaryInDirection:(int)arg1;
+- (id)nextCharacterBoundaryInDirection:(int)arg1;
+- (BOOL)atBoundaryOfGranularity:(int)arg1 inDirection:(int)arg2;
+- (id)positionByMovingInDirection:(int)arg1 amount:(unsigned long)arg2;
+- (id)positionByMovingInDirection:(int)arg1 amount:(unsigned long)arg2 withAffinityDownstream:(BOOL)arg3;
+- (BOOL)directionIsDownstream:(int)arg1;
+- (int)textDirection;
+- (id)description;
+- (int)distanceFromPosition:(id)arg1;
+- (int)compare:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (struct VisiblePosition)_visiblePosition;
 
 @end
 

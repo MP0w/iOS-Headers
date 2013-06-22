@@ -15,12 +15,16 @@
     WMParagraphStyle *mStyle;
 }
 
-- (id)initWithWDParagraph:(id)arg1 parent:(id)arg2 isInTextFrame:(BOOL)arg3;
-- (void)dealloc;
-- (BOOL)isListItem;
-- (void)destyleEmptyParagraph;
-- (void)mapListStyleAt:(id)arg1 state:(id)arg2;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
+- (void)mapListStyleAt:(id)arg1 state:(id)arg2;
+- (void)destyleEmptyParagraph;
+- (BOOL)isListItem;
+- (void)dealloc;
+- (id)initWithWDParagraph:(id)arg1 parent:(id)arg2 isInTextFrame:(BOOL)arg3;
+- (void)mapBulletAt:(id)arg1 forLevel:(id)arg2 forIndex:(int)arg3 listState:(id)arg4 isOutline:(BOOL)arg5;
+- (id)bulletLabelAtLevel:(id)arg1 forIndex:(int)arg2 bulletFormat:(int)arg3 listState:(id)arg4;
+- (id)labelStringWithGap:(id)arg1;
+- (_Bool)checkListId:(int)arg1 level:(int)arg2;
 
 @end
 

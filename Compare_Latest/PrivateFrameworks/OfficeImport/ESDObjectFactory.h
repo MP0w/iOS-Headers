@@ -10,12 +10,12 @@
 {
 }
 
-+ (struct EshObject *)createObjectWithType:(unsigned short)arg1;
-+ (struct EshObject *)createObjectWithType:(unsigned short)arg1 version:(unsigned short)arg2;
-+ (void)initialize;
-+ (void)replaceHostEshFactoryWith:(struct EshObjectFactory *)arg1;
-+ (void)restoreHostEshFactory;
 + (void)setEshFactory:(struct EshObjectFactory *)arg1;
++ (void)restoreHostEshFactory;
++ (void)replaceHostEshFactoryWith:(struct EshObjectFactory *)arg1;
++ (void)initialize;
++ (struct EshObject *)createObjectWithType:(unsigned short)arg1 version:(unsigned short)arg2;
++ (struct EshObject *)createObjectWithType:(unsigned short)arg1;
 
 @end
 

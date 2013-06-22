@@ -13,7 +13,6 @@
 - (void)layoutSubviews;
 - (float)labelWidthForBounds:(struct CGRect)arg1;
 - (id)initWithHTMLOptGroupNode:(id)arg1;
-- (BOOL)_isSelectable;
 
 @end
 

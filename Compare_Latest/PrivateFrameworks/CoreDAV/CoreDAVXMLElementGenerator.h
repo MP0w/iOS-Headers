@@ -49,7 +49,6 @@
 - (BOOL)isExpectedNameSpace:(id)arg1 andElementName:(id)arg2;
 - (void)notifyElement:(id)arg1 ofAttributesFound:(id)arg2;
 - (BOOL)tracksRootElement;
-- (id)description;
 - (void)dealloc;
 - (id)initWithParser:(id)arg1 parentGenerator:(id)arg2 parentElementSetter:(SEL)arg3 element:(id)arg4;
 - (id)initWithParser:(id)arg1 baseURL:(id)arg2 rootElementNameSpace:(id)arg3 elementName:(id)arg4 parseClass:(Class)arg5;

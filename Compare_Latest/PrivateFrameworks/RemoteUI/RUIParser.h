@@ -8,7 +8,7 @@
 
 #import "NSXMLParserDelegate-Protocol.h"
 
-@class NSMutableArray, NSXMLParser, RUIObjectModel;
+@class NSMutableArray, NSURL, NSXMLParser, RUIObjectModel;
 
 @interface RUIParser : NSObject <NSXMLParserDelegate>
 {
@@ -17,21 +17,24 @@
     NSMutableArray *_pages;
     int _actionSignal;
     int _parserState;
+    NSURL *_baseURL;
 }
 
-- (id)initWithXML:(id)arg1;
-- (void)dealloc;
-- (id)uiObjectModel;
-- (int)actionSignal;
-- (id)_createNewPage;
-- (void)_newRowWithAttributeDict:(id)arg1;
-- (id)_lastPageCreateIfNeeded;
-- (id)_lastRow;
-- (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
-- (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
-- (void)parser:(id)arg1 foundCDATA:(id)arg2;
-- (void)parser:(id)arg1 parseErrorOccurred:(id)arg2;
+@property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 - (void)parser:(id)arg1 validationErrorOccurred:(id)arg2;
+- (void)parser:(id)arg1 parseErrorOccurred:(id)arg2;
+- (void)parser:(id)arg1 foundCDATA:(id)arg2;
+- (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
+- (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
+- (id)_lastRow;
+- (id)_lastPageCreateIfNeeded;
+- (void)_newRowWithAttributeDict:(id)arg1;
+- (id)_createNewPage;
+- (int)actionSignal;
+- (id)uiObjectModel;
+- (void)dealloc;
+- (id)initWithXML:(id)arg1;
+- (id)initWithXML:(id)arg1 baseURL:(id)arg2;
 
 @end
 

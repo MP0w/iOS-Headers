@@ -9,6 +9,8 @@
 @interface PLExpandableView : UIView
 {
     id <PLExpandableViewDelegate> _delegate;
+    id _collapsingCompletionHandler;
+    id _expansionCompletionHandler;
     struct CGRect _contractedFrame;
     struct CGRect _expandedFrame;
     struct CGPoint _leftTouchLocation;
@@ -47,7 +49,7 @@
 - (BOOL)_canPinch;
 - (BOOL)isTracking;
 - (float)expansionFraction;
-- (void)_setExpansionFraction:(float)arg1;
+- (void)setExpansionFraction:(float)arg1;
 - (int)previousState;
 - (int)state;
 @property(nonatomic) BOOL allowsExpansion;
@@ -55,8 +57,8 @@
 @property(nonatomic) struct CGRect contractedFrame;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
-- (void)expandWithAnimation:(BOOL)arg1;
-- (void)collapseWithAnimation:(BOOL)arg1;
+- (void)expandWithAnimation:(BOOL)arg1 completion:(id)arg2;
+- (void)collapseWithAnimation:(BOOL)arg1 completion:(id)arg2;
 - (float)completeTrackingPinch:(id)arg1 toState:(int)arg2 duration:(double)arg3;
 - (float)continueTrackingPinch:(id)arg1;
 - (void)beginTrackingPinch:(id)arg1;
@@ -74,7 +76,7 @@
 - (void)willMoveToWindow:(id)arg1;
 - (void)stateDidChangeFrom:(int)arg1;
 - (void)stateWillChangeTo:(int)arg1;
-- (void)_setState:(int)arg1 withDuration:(double)arg2;
+- (void)setState:(int)arg1 withDuration:(double)arg2;
 - (void)_transitionFromCompleteContract:(int)arg1 withDuration:(double)arg2;
 - (void)_transitionFromCancelContract:(int)arg1 withDuration:(double)arg2;
 - (void)_transitionFromContracting:(int)arg1 withDuration:(double)arg2;
@@ -94,6 +96,7 @@
 - (void)_notifyWillBeginExpanding;
 - (void)_notifyDidCompleteCollapsing;
 - (void)_setAutorotationDisabled:(BOOL)arg1;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

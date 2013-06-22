@@ -24,6 +24,9 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willDeselectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 didUnhighlightRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 didHighlightRowAtIndexPath:(id)arg2;
+- (BOOL)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 accessoryTypeForRowWithIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
@@ -31,6 +34,11 @@
 - (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 didEndDisplayingFooterView:(id)arg2 forSection:(int)arg3;
+- (void)tableView:(id)arg1 didEndDisplayingHeaderView:(id)arg2 forSection:(int)arg3;
+- (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 willDisplayFooterView:(id)arg2 forSection:(int)arg3;
+- (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(int)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 @end
 

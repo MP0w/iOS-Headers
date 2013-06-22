@@ -6,17 +6,25 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface GKImageKey : NSObject
 {
+    NSString *_filePath;
+    NSString *_cacheKey;
     struct CGSize _size;
-    int _sectionLocation;
+    NSString *_imageID;
+    NSString *_basename;
 }
 
-+ (id)imageKeyWithSectionLocation:(int)arg1;
-+ (id)imageKeyWithSectionLocation:(int)arg1 size:(struct CGSize)arg2;
-- (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
++ (id)keyForImageIdentifier:(id)arg1 withImageSource:(id)arg2;
++ (id)fileNameWithIdentifierInImageSource:(id)arg1;
+@property(retain, nonatomic) NSString *basename; // @synthesize basename=_basename;
+@property(retain, nonatomic) NSString *imageID; // @synthesize imageID=_imageID;
+@property(nonatomic) struct CGSize size; // @synthesize size=_size;
+@property(readonly, nonatomic) NSString *cacheKey;
+@property(readonly, nonatomic) NSString *filePath;
+- (void)dealloc;
 
 @end
 

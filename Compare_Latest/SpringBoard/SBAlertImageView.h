@@ -14,9 +14,9 @@
     UILabel *_labelView;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1 errorString:(id)arg2;
-- (void)dealloc;
 - (void)layoutSubviews;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 errorString:(id)arg2;
 
 @end
 

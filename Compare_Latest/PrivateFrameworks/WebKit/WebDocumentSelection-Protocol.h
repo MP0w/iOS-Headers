@@ -7,10 +7,10 @@
 #import "WebDocumentText-Protocol.h"
 
 @protocol WebDocumentSelection <WebDocumentText>
-- (id)selectionTextRects;
-- (struct CGRect)selectionRect;
-- (struct CGImage *)selectionImageForcingBlackText:(BOOL)arg1;
-- (struct CGRect)selectionImageRect;
 - (id)selectionView;
+- (struct CGRect)selectionImageRect;
+- (struct CGImage *)selectionImageForcingBlackText:(BOOL)arg1;
+- (struct CGRect)selectionRect;
+- (id)selectionTextRects;
 @end
 

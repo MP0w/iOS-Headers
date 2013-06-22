@@ -8,19 +8,26 @@
 
 #import "EKExpandingTextViewDelegate-Protocol.h"
 
-@class EKExpandingTextCell;
+@class EKReminderInlineEditItemCell;
 
 @interface EKReminderInlineEditItem : EKReminderEditItem <EKExpandingTextViewDelegate>
 {
-    EKExpandingTextCell *_cell;
+    EKReminderInlineEditItemCell *_cell;
+    BOOL _isListeningToHeightChanges;
 }
 
 - (void)textViewDidChangeContentHeight:(id)arg1;
 - (void)textViewDidChange:(id)arg1;
 - (void)textViewDidEndEditing:(id)arg1;
 - (void)textViewDidBeginEditing:(id)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2;
+- (id)textFromReminder;
+- (int)cellStyle;
+- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
+- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
+- (id)newCell;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
+- (void)_applyStylesFromStyleProviderToTextView:(id)arg1;
+- (BOOL)shouldPinKeyboard;
 - (BOOL)isInline;
 - (void)dealloc;
 - (id)init;

@@ -6,27 +6,32 @@
 
 #import "NSObject.h"
 
+#import "SBShowcaseViewControllerProtocol-Protocol.h"
+
 @class SBShowcaseController;
 
-@interface SBShowcaseViewController : NSObject
+@interface SBShowcaseViewController : NSObject <SBShowcaseViewControllerProtocol>
 {
     SBShowcaseController *_showcase;
     int _revealMode;
 }
 
-- (id)view;
-- (void)viewWillAppear;
-- (void)viewDidAppear;
-- (void)viewWillDisappear;
-- (void)viewDidDisappear;
-- (void)viewWillRotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidRotateFromInterfaceOrientation:(int)arg1;
-- (float)bottomBarHeight;
-- (BOOL)expectsFaceContact;
-- (BOOL)shouldShowLockStatusBarTime;
-- (BOOL)shouldShowLockStatusBarIcon;
 @property(nonatomic) int revealMode; // @synthesize revealMode=_revealMode;
 @property(nonatomic) SBShowcaseController *showcase; // @synthesize showcase=_showcase;
+- (BOOL)activateIgnoringTouches;
+- (BOOL)shouldShowLockStatusBarTime;
+- (BOOL)expectsFaceContact;
+- (void)revealModeWillChange:(int)arg1;
+- (float)revealAmountForMode:(int)arg1;
+- (float)bottomBarHeight;
+- (void)viewDidRotateFromInterfaceOrientation:(int)arg1;
+- (void)viewWillAnimateRotationToInterfaceOrientation:(int)arg1;
+- (void)viewWillRotateToInterfaceOrientation:(int)arg1;
+- (void)viewDidDisappear;
+- (void)viewWillDisappear;
+- (void)viewDidAppear;
+- (void)viewWillAppear;
+- (id)view;
 
 @end
 

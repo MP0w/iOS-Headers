@@ -16,7 +16,7 @@
     NSOrderedSet *_newSet;
 }
 
-+ (id)notificationForShuffledAlbum:(id)arg1 fromAlbumChangeNotification:(id)arg2;
++ (id)notificationForDerivedObject:(id)arg1 priorChangeState:(id)arg2 forBackingObjectNotification:(id)arg3;
 - (void)_calculateDiffs;
 - (id)_changedObjects;
 - (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;

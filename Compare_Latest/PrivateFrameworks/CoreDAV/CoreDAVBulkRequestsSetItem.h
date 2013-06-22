@@ -14,10 +14,10 @@
     CoreDAVBulkRequestsItem *_simpleItem;
 }
 
++ (id)copyParseRules;
 @property(retain) CoreDAVBulkRequestsItem *simpleItem; // @synthesize simpleItem=_simpleItem;
 @property(retain) CoreDAVBulkRequestsItem *crudItem; // @synthesize crudItem=_crudItem;
 @property(readonly) NSDictionary *dictRepresentation;
-- (id)copyParseRules;
 - (id)description;
 - (void)dealloc;
 - (id)init;

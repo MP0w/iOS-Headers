@@ -10,12 +10,14 @@
 
 @interface SUCompletionItem : NSObject
 {
+    NSString *_alternateTitle;
     NSString *_title;
     NSURL *_url;
 }
 
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) NSString *alternateTitle; // @synthesize alternateTitle=_alternateTitle;
 - (void)dealloc;
 - (id)initWithPropertyList:(id)arg1;
 - (id)init;

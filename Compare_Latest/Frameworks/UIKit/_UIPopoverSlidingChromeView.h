@@ -10,20 +10,19 @@
 {
 }
 
-+ (id)_shadowPathForRect:(struct CGRect)arg1 arrowDirection:(unsigned int)arg2;
-+ (struct CGSize)_shadowOffset;
-+ (float)_shadowRadius;
-+ (float)_shadowOpacity;
-+ (struct UIEdgeInsets)_shadowInsets;
 + (struct UIEdgeInsets)contentViewInsets;
 + (float)cornerRadius;
 + (float)arrowBase;
 + (float)arrowHeight;
-- (void)layoutSubviews;
 - (void)setArrowDirection:(unsigned int)arg1;
 - (unsigned int)arrowDirection;
 - (void)setArrowOffset:(float)arg1;
 - (float)arrowOffset;
+- (id)_shadowPathForRect:(struct CGRect)arg1 arrowDirection:(unsigned int)arg2;
+- (struct CGSize)_shadowOffset;
+- (float)_shadowRadius;
+- (float)_shadowOpacity;
+- (struct UIEdgeInsets)_shadowInsets;
 
 @end
 

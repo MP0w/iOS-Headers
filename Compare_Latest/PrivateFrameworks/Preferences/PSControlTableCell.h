@@ -6,32 +6,22 @@
 
 #import <Preferences/PSTableCell.h>
 
-@class NSArray, NSDictionary, UIActivityIndicatorView, UIControl, UIView;
+@class UIControl;
 
 @interface PSControlTableCell : PSTableCell
 {
     UIControl *_control;
-    UIActivityIndicatorView *_activityIndicator;
-    NSArray *_values;
-    NSDictionary *_titleDict;
-    UIView *_disabledView;
 }
 
-- (void)refreshCellContentsWithSpecifier:(id)arg1;
-- (BOOL)canReload;
-- (void)setCellEnabled:(BOOL)arg1;
-- (void)setValues:(id)arg1 titleDictionary:(id)arg2;
-- (void)setBackgroundView:(id)arg1;
-- (id)titleLabel;
-- (id)valueLabel;
-- (void)dealloc;
-- (id)control;
-- (BOOL)loading;
-- (void)setLoading:(BOOL)arg1;
-- (void)setControl:(id)arg1;
 - (void)controlChanged:(id)arg1;
-- (void)setValue:(id)arg1;
-- (void)layoutSubviews;
+- (id)controlValue;
+@property(retain, nonatomic) UIControl *control;
+- (void)dealloc;
+- (id)valueLabel;
+- (BOOL)canReload;
+- (id)newControl;
+- (void)refreshCellContentsWithSpecifier:(id)arg1;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end
 

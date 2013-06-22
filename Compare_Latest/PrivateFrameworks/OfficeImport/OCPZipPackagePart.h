@@ -13,12 +13,12 @@
     SFUZipEntry *mEntry;
 }
 
-- (id)initWithArchive:(id)arg1 location:(id)arg2 package:(id)arg3;
-- (void)dealloc;
-- (id)data;
-- (void)copyToFile:(id)arg1;
-- (struct _xmlDoc *)xmlDocument;
 - (struct _xmlTextReader *)xmlReader;
+- (struct _xmlDoc *)xmlDocument;
+- (void)copyToFile:(id)arg1;
+- (id)data;
+- (void)dealloc;
+- (id)initWithArchive:(id)arg1 location:(id)arg2 package:(id)arg3;
 
 @end
 

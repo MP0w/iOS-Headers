@@ -16,12 +16,12 @@
     int mFamily;
 }
 
-- (id)initWithName:(id)arg1 charSet:(int)arg2 type:(int)arg3 family:(int)arg4;
-- (void)dealloc;
-- (id)faceName;
-- (int)charSet;
-- (int)type;
 - (int)family;
+- (int)type;
+- (int)charSet;
+- (id)faceName;
+- (void)dealloc;
+- (id)initWithName:(id)arg1 charSet:(int)arg2 type:(int)arg3 family:(int)arg4;
 
 @end
 

@@ -6,17 +6,19 @@
 
 #import <iTunesStoreUI/SUViewController.h>
 
-@class NSString, UIImage;
+@class NSBundle, NSString, UIImage;
 
 @interface SULockoutViewController : SUViewController
 {
     UIImage *_image;
+    NSBundle *_localizationBundle;
     NSString *_messageBody;
     NSString *_messageTitle;
 }
 
 @property(retain, nonatomic) NSString *messageTitle; // @synthesize messageTitle=_messageTitle;
 @property(retain, nonatomic) NSString *messageBody; // @synthesize messageBody=_messageBody;
+@property(retain, nonatomic) NSBundle *localizationBundle; // @synthesize localizationBundle=_localizationBundle;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void)loadView;
 - (id)copyArchivableContext;

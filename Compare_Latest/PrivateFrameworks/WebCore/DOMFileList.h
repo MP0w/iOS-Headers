@@ -10,10 +10,10 @@
 {
 }
 
-- (void)dealloc;
-- (void)finalize;
-@property(readonly) unsigned int length;
 - (id)item:(unsigned int)arg1;
+@property(readonly) unsigned int length;
+- (void)finalize;
+- (void)dealloc;
 
 @end
 

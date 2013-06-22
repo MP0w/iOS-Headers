@@ -15,11 +15,8 @@
     NSOperationQueue *_requesterQueue;
 }
 
-+ (void)showMobileMeOfferIfNecessary;
 + (id)sharedManager;
-- (void)downloadMobileMeOffer;
-- (void)presentMobileMeOfferWithTitle:(id)arg1 message:(id)arg2;
-- (void)_delayNextCheckByFourToFiveDays;
+- (void).cxx_destruct;
 - (void)saveAllAccounts;
 - (void)updateAccount:(id)arg1;
 - (void)removeAccount:(id)arg1;
@@ -31,7 +28,6 @@
 - (id)accountsEnabledForDataclass:(id)arg1;
 @property(readonly) AAAccount *primaryAccount;
 @property(readonly) NSArray *accounts;
-- (void)dealloc;
 
 @end
 

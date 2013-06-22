@@ -4,38 +4,32 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIView.h"
+#import "SBUIFullscreenAnimationView.h"
 
-@class CALayer, CATransformLayer, SBApplication;
+@class CALayer, CATransformLayer, SBApplication, UIView;
 
-@interface SBAppToAppTransitionView : UIView
+@interface SBAppToAppTransitionView : SBUIFullscreenAnimationView
 {
-    id _delegate;
     SBApplication *_toApplication;
     CATransformLayer *_transformLayer;
     CALayer *_startLayer;
     CALayer *_stopLayer;
     UIView *_fromView;
     UIView *_toView;
-    BOOL _animating;
-    BOOL _workspaceIsReadyForAnimationCleanup;
     int _orientation;
 }
 
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)dealloc;
-- (void)setFromView:(id)arg1;
-- (void)setToView:(id)arg1;
-- (void)beginTransition;
-- (void)endTransition;
-- (void)noteWorkspaceIsReadyForAnimationCleanupWithActivatingApp:(id)arg1;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (id)_rotationValueFunction;
-- (float)_rotationRadians;
-- (void)_transitionBegun:(double)arg1;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
 @property(retain, nonatomic) SBApplication *toApp; // @synthesize toApp=_toApplication;
-@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+- (float)_rotationRadians;
+- (id)_rotationValueFunction;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)endTransition;
+- (void)beginTransition;
+- (void)setToView:(id)arg1;
+- (void)setFromView:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

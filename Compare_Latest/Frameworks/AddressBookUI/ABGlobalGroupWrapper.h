@@ -8,17 +8,12 @@
 
 @interface ABGlobalGroupWrapper : ABGroupWrapper
 {
-    BOOL _showLinkedPeople;
 }
 
-+ (id)newGlobalGroupWrapperWithAddressBook:(void *)arg1 showLinkedPeople:(BOOL)arg2;
 + (id)newGlobalGroupWrapperWithAddressBook:(void *)arg1;
-- (BOOL)isGlobalWrapper;
-@property(nonatomic) BOOL showLinkedPeople; // @synthesize showLinkedPeople=_showLinkedPeople;
-- (id)name;
 - (BOOL)isEqual:(id)arg1;
-- (BOOL)isEditable;
-- (id)description;
+- (id)name;
+- (BOOL)isGlobalWrapper;
 
 @end
 

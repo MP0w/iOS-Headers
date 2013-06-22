@@ -18,19 +18,19 @@
     void *_person;
 }
 
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)dealloc;
-- (void)loadView;
-- (id)propertyPicker;
-- (float)ab_heightToFitForViewInPopoverView;
-@property(nonatomic) struct __CFArray *properties;
-@property(nonatomic) void *addressBook;
-@property(nonatomic) void *person;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2;
-- (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2 withDefaultValue:(id)arg3;
 @property(retain, nonatomic) NSArray *policies; // @synthesize policies=_policies;
+- (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2 withDefaultValue:(id)arg3;
+- (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+@property(nonatomic) void *person;
+@property(nonatomic) void *addressBook;
+@property(nonatomic) struct __CFArray *properties;
+- (float)ab_heightToFitForViewInPopoverView;
+- (id)propertyPicker;
+- (void)loadView;
+- (void)dealloc;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

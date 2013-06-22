@@ -5,15 +5,15 @@
  */
 
 @protocol ABPersonLinkingUIDelegate
-- (BOOL)manuallyLinkPerson:(void *)arg1;
-- (BOOL)manuallyUnlinkCardAtRow:(int)arg1;
-- (BOOL)canUnlinkCardAtRow:(int)arg1;
-- (id)personNameForCardAtRow:(int)arg1;
-- (id)sourceNameForCardAtRow:(int)arg1;
-- (int)numberOfLinkedCardRows;
-- (BOOL)shouldAllowLinkingAnotherContact;
-- (BOOL)shouldAllowLinkingPersonWithRecordID:(int)arg1;
-- (id)newPersonViewControllerForLinkedCardAtRow:(int)arg1;
 - (id)newPeoplePickerForLinking;
+- (id)newPersonViewControllerForLinkedCardAtRow:(int)arg1;
+- (BOOL)shouldAllowLinkingPersonWithRecordID:(int)arg1;
+- (BOOL)shouldAllowLinkingAnotherContact;
+- (int)numberOfLinkedCardRows;
+- (id)sourceNameForCardAtRow:(int)arg1;
+- (id)personNameForCardAtRow:(int)arg1;
+- (BOOL)canUnlinkCardAtRow:(int)arg1;
+- (BOOL)manuallyUnlinkCardAtRow:(int)arg1;
+- (BOOL)manuallyLinkPerson:(void *)arg1;
 @end
 

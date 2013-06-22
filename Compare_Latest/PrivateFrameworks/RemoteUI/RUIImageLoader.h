@@ -31,21 +31,21 @@
 }
 
 + (id)sharedImageLoader;
-- (id)init;
-- (BOOL)isLoadingImages;
-- (struct CGImage *)imageForURL:(id)arg1 loadIfAbsent:(BOOL)arg2;
-- (id)notificationCenter;
-- (void)_mainThread_postLoadingStatusChanged;
-- (void)_postLoadingStatusChanged;
-- (void)_loadingStatusChanged;
-- (void)_startLoader;
-- (BOOL)_locked_URLIsLoading:(id)arg1;
-- (void)_locked_loadImageForURL:(id)arg1;
-- (void)_loadImageURL:(id)arg1;
-- (void)_setImageData:(id)arg1 forURL:(id)arg2 cacheLocked:(BOOL)arg3;
-- (void)_postImageLoadedNotification:(id)arg1;
-- (void)_locked_imageLoadStarted:(id)arg1;
 - (void)_imageLoadFinished:(id)arg1;
+- (void)_locked_imageLoadStarted:(id)arg1;
+- (void)_postImageLoadedNotification:(id)arg1;
+- (void)_setImageData:(id)arg1 forURL:(id)arg2 cacheLocked:(BOOL)arg3;
+- (void)_loadImageURL:(id)arg1;
+- (void)_locked_loadImageForURL:(id)arg1;
+- (BOOL)_locked_URLIsLoading:(id)arg1;
+- (void)_startLoader;
+- (void)_loadingStatusChanged;
+- (void)_postLoadingStatusChanged;
+- (void)_mainThread_postLoadingStatusChanged;
+- (id)notificationCenter;
+- (struct CGImage *)imageForURL:(id)arg1 loadIfAbsent:(BOOL)arg2;
+- (BOOL)isLoadingImages;
+- (id)init;
 
 @end
 

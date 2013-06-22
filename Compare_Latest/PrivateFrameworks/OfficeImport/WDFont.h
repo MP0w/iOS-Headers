@@ -19,22 +19,22 @@
     int mPitch;
 }
 
-- (id)name;
-- (void)setName:(id)arg1;
-- (id)secondName;
-- (void)setSecondName:(id)arg1;
-- (int)fontFamily;
-- (void)setFontFamily:(int)arg1;
-- (int)characterSet;
-- (void)setCharacterSet:(int)arg1;
-- (int)pitch;
-- (void)setPitch:(int)arg1;
-- (id)init;
-- (id)initWithName:(id)arg1;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithName:(id)arg1;
+- (id)init;
+- (void)setPitch:(int)arg1;
+- (int)pitch;
+- (void)setCharacterSet:(int)arg1;
+- (int)characterSet;
+- (void)setFontFamily:(int)arg1;
+- (int)fontFamily;
+- (void)setSecondName:(id)arg1;
+- (id)secondName;
+- (void)setName:(id)arg1;
+- (id)name;
 
 @end
 

@@ -10,12 +10,12 @@
 {
 }
 
-- (id)fill;
-- (id)stroke;
-- (void)mapAt:(id)arg1 withState:(id)arg2;
-- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
-- (id)_suggestedBoundsForNodeAtIndex:(int)arg1;
 - (struct CGSize)sizeForNode:(id)arg1;
+- (id)_suggestedBoundsForNodeAtIndex:(int)arg1;
+- (void)mapChildrenAt:(id)arg1 withState:(id)arg2;
+- (void)mapAt:(id)arg1 withState:(id)arg2;
+- (id)stroke;
+- (id)fill;
 
 @end
 

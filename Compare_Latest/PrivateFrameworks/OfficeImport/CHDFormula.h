@@ -14,18 +14,19 @@
     EDWorkbook *mWorkbook;
 }
 
-+ (id)formulaWithReference:(id)arg1;
 + (id)formulaWithReferences:(id)arg1;
-- (id)initWithWorkbook:(id)arg1;
-- (id)initWithReference:(id)arg1;
-- (id)initWithReferences:(id)arg1;
-- (void)dealloc;
-- (void)setWorkbook:(id)arg1;
-- (id)references;
-- (void)setReferences:(id)arg1;
-- (unsigned int)countOfCellsBeingReferenced;
-- (void)prepareTokens;
++ (id)formulaWithReference:(id)arg1;
 - (_Bool)isConstantStringFormula;
+- (void)prepareTokens;
+- (unsigned int)countOfCellsBeingReferenced;
+- (void)setReferences:(id)arg1;
+- (id)references;
+- (void)setWorkbook:(id)arg1;
+- (void)dealloc;
+- (id)initWithReferences:(id)arg1;
+- (id)initWithReference:(id)arg1;
+- (id)initWithWorkbook:(id)arg1;
+- (id)referencesFromFormula;
 
 @end
 

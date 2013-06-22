@@ -11,8 +11,8 @@
     CoreDAVItem *_supported;
 }
 
++ (id)copyParseRules;
 @property(retain) CoreDAVItem *supported; // @synthesize supported=_supported;
-- (id)copyParseRules;
 - (id)description;
 - (void)dealloc;
 - (id)init;

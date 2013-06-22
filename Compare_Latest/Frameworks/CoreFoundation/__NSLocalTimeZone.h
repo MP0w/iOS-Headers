@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)replacementObjectForPortCoder:(id)arg1;
 - (Class)classForCoder;
 - (void)encodeWithCoder:(id)arg1;

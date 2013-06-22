@@ -22,6 +22,10 @@
 - (void)dealloc;
 - (struct FaceCoreAPI *)api;
 - (id)initWithContext:(id)arg1 options:(id)arg2;
+- (id)featuresFromFaceVector:(vector_c8aae6e9 *)arg1 ctm:(struct CGAffineTransform)arg2;
+- (BOOL)createFaceCoreImage:(struct image *)arg1 fromCIImage:(id)arg2;
+- (id)adjustedImageFromImage:(id)arg1 orientation:(int)arg2 inverseCTM:(struct CGAffineTransform *)arg3;
+- (struct CGAffineTransform)ctmForImageWithBounds:(struct CGRect)arg1 orientation:(int)arg2;
 
 @end
 

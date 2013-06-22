@@ -15,9 +15,13 @@
 - (BOOL)remove:(id *)arg1;
 - (BOOL)commit:(id *)arg1;
 - (id)description;
+- (int)displayOrderForNewCalendar;
 - (id)constraints;
+- (id)readWriteCalendarsForEntityType:(unsigned int)arg1;
+- (id)calendarsForEntityType:(unsigned int)arg1;
 - (id)allCalendars;
 @property(readonly, nonatomic) NSSet *calendars;
+- (BOOL)isFacebookSource;
 - (BOOL)isEnabled;
 - (id)externalID;
 @property(readonly, nonatomic) NSString *sourceIdentifier;

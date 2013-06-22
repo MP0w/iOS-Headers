@@ -7,9 +7,9 @@
 #import "NSString.h"
 
 @interface NSString (NSStringAppKitStubAdditions)
-- (double)oi_sizeWithFontName:(id)arg1 size:(int)arg2;
-- (double)oi_sizeWithFontName:(id)arg1 size:(int)arg2 bold:(_Bool)arg3 italic:(_Bool)arg4;
-- (double)oi_realSizeWithFontName:(id)arg1 size:(int)arg2 bold:(_Bool)arg3 italic:(_Bool)arg4;
 - (struct _NSRange)oi_rangeOfCharactersFromSet:(id)arg1 index:(int)arg2;
+- (double)oi_realSizeWithFontName:(id)arg1 size:(int)arg2 bold:(_Bool)arg3 italic:(_Bool)arg4;
+- (double)oi_sizeWithFontName:(id)arg1 size:(int)arg2 bold:(_Bool)arg3 italic:(_Bool)arg4;
+- (double)oi_sizeWithFontName:(id)arg1 size:(int)arg2;
 @end
 

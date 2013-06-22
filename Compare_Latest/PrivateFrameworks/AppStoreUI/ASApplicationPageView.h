@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class ASApplicationPageCell, ASApplicationPageHeaderView, ASApplicationPageInfoListingView, ASScreenshotsViewController, NSMutableArray, SUGradientButton, SUItem, SUReviewsButton, UIColor, UIImage, UILabel;
+@class ASApplicationPageCell, ASApplicationPageHeaderView, ASApplicationPageInfoListingView, ASScreenshotsViewController, NSMutableArray, SUClientInterface, SUGradientButton, SUItem, SUReviewsButton, UIColor, UIImage, UILabel;
 
 @interface ASApplicationPageView : UIView
 {
@@ -26,17 +26,19 @@
     ASScreenshotsViewController *_screenshotsController;
     SUReviewsButton *_reviewsButton;
     SUGradientButton *_reportAProblemButton;
-    SUGradientButton *_tellAFriendButton;
+    SUGradientButton *_shareButton;
     ASApplicationPageInfoListingView *_infoListingView;
     NSMutableArray *_userAgreementCells;
+    SUClientInterface *_clientInterface;
 }
 
 @property(retain, nonatomic) UIImage *contentRatingImage; // @synthesize contentRatingImage=_contentRatingImage;
+@property(retain, nonatomic) SUClientInterface *clientInterface; // @synthesize clientInterface=_clientInterface;
 @property(retain, nonatomic) UIColor *bottomBorderColor; // @synthesize bottomBorderColor=_bottomBorderColor;
 @property(retain, nonatomic) UIImage *applicationImage; // @synthesize applicationImage=_applicationImage;
 - (BOOL)_shouldShowNewsstandWhatsNew;
 - (void)_reloadUserAgreementCells;
-- (void)_reloadTellAFriendButton;
+- (void)_reloadShareButton;
 - (void)_reloadScreenshotView;
 - (void)_reloadReviewsButton;
 - (void)_reloadReportAProblemButton;
@@ -50,7 +52,7 @@
 - (id)_newGradientButtonWithTitle:(id)arg1 action:(SEL)arg2;
 - (id)_newCellForLicenseLink:(id)arg1 withFrame:(struct CGRect)arg2;
 - (void)_userAgreementAction:(id)arg1;
-- (void)_tellAFriendAction:(id)arg1;
+- (void)_shareAction:(id)arg1;
 - (void)_reviewsAction:(id)arg1;
 - (void)_reportAProblemAction:(id)arg1;
 - (void)_moreInfoCellAction:(id)arg1;

@@ -22,7 +22,7 @@
     } _screenFlags;
     BOOL _wantsSoftwareDimming;
     UISoftwareDimmingWindow *_softwareDimmingWindow;
-    int _ignoreBacklightLevelDidChangeNotificationsCount;
+    int _lastNotifiedBacklightLevel;
 }
 
 + (struct CGRect)convertRect:(struct CGRect)arg1 fromView:(id)arg2;
@@ -37,7 +37,7 @@
 + (id)mainScreen;
 + (void)_videoOutSettingsChanged;
 + (void)initialize;
-@property(nonatomic, setter=_setIgnoreBacklightLevelDidChangeNotificationsCount:) int _ignoreBacklightLevelDidChangeNotificationsCount; // @synthesize _ignoreBacklightLevelDidChangeNotificationsCount;
+@property(nonatomic, setter=_setLastNotifiedBacklightLevel:) int _lastNotifiedBacklightLevel; // @synthesize _lastNotifiedBacklightLevel;
 @property(retain, nonatomic, setter=_setSoftwareDimmingWindow:) UISoftwareDimmingWindow *_softwareDimmingWindow; // @synthesize _softwareDimmingWindow;
 @property(nonatomic) BOOL wantsSoftwareDimming; // @synthesize wantsSoftwareDimming=_wantsSoftwareDimming;
 @property(readonly, nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
@@ -47,11 +47,9 @@
 - (void)_endObservingBacklightLevelNotifications;
 - (void)_beginObservingBacklightLevelNotifications;
 - (void)_postBrightnessDidChangeNotificationIfAppropriate;
-- (BOOL)_shouldRepostBacklightLevelChangedNotification;
-- (void)_decrementIgnoreBacklightLevelDidChangeNotificationsCount;
-- (void)_incrementIgnoreBacklightLevelDidChangeNotificationsCount;
 - (float)rawBrightnessForBacklightLevel:(float)arg1;
 - (id)_lazySoftwareDimmingWindow;
+- (float)_pointsPerInch;
 - (void)_setScale:(float)arg1;
 - (float)_scale;
 @property(readonly, nonatomic) float scale; // @synthesize scale=_scale;
@@ -59,6 +57,7 @@
 - (void)_prepareForWindow;
 - (BOOL)_hasStatusBar;
 - (BOOL)_isMainScreen;
+- (BOOL)_isExternal;
 - (id)_name;
 @property(nonatomic) int overscanCompensation;
 @property(readonly, nonatomic) NSArray *availableModes;

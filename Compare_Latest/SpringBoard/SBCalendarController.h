@@ -11,11 +11,11 @@
 }
 
 + (id)sharedInstance;
-- (id)init;
-- (void)dealloc;
-- (void)_finishInitialization;
-- (void)_checkForTimeZoneIfNecessary;
 - (void)_significantTimeChange;
+- (void)_checkForTimeZoneIfNecessary;
+- (void)_finishInitialization;
+- (void)dealloc;
+- (id)init;
 
 @end
 

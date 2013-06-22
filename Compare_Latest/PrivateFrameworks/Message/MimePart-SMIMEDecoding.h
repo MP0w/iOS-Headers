@@ -7,10 +7,7 @@
 #import "MimePart.h"
 
 @interface MimePart (SMIMEDecoding)
-- (id)decodeMultipartSigned;
 - (id)decodeApplicationPkcs7_mime;
-- (void)_setSMIMEError:(id)arg1;
-- (void)_setSigners:(id)arg1;
-- (BOOL)_needsSignatureVerification:(id *)arg1;
+- (id)decodeMultipartSigned;
 @end
 

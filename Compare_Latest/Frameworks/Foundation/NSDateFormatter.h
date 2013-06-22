@@ -20,6 +20,8 @@
 + (void)initialize;
 + (void)setDefaultFormatterBehavior:(unsigned int)arg1;
 + (unsigned int)defaultFormatterBehavior;
+- (void)_setUsesCharacterDirection:(BOOL)arg1;
+- (BOOL)_usesCharacterDirection;
 - (void)setDoesRelativeDateFormatting:(BOOL)arg1;
 - (BOOL)doesRelativeDateFormatting;
 - (void)setGregorianStartDate:(id)arg1;
@@ -102,6 +104,8 @@
 - (void)_reset;
 - (id)init;
 - (void)_regenerateFormatter;
+- (void)_regenerateFormatterIfAbsent;
+- (void)_clearFormatter;
 
 @end
 

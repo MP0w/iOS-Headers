@@ -13,10 +13,11 @@
     BOOL mHidden;
 }
 
-- (void)dealloc;
-- (struct __CFString *)name;
-- (BOOL)isRanged;
 - (BOOL)isHidden;
+- (BOOL)isRanged;
+- (struct __CFString *)name;
+- (void)dealloc;
+- (int)readAttributesFromReader:(struct _xmlTextReader *)arg1 processor:(id)arg2;
 
 @end
 

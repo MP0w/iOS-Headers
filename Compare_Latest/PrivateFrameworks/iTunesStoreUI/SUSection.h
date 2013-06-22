@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableDictionary, NSString, NSURL, SUPageSectionGroup, SUSearchFieldConfiguration, UIImage;
+@class NSArray, NSMutableDictionary, NSString, NSURL, SUClientInterface, SUGradient, SUPageSectionGroup, SUSearchFieldConfiguration, UIColor, UIImage;
 
 @interface SUSection : NSObject
 {
+    SUClientInterface *_clientInterface;
     NSMutableDictionary *_dictionary;
     UIImage *_image;
-    BOOL _isLocationSection;
     UIImage *_moreListImage;
     SUSearchFieldConfiguration *_searchFieldConfiguration;
+    NSMutableDictionary *_sectionButtonImages;
     UIImage *_selectedImage;
     UIImage *_selectedMoreListImage;
 }
@@ -23,27 +24,38 @@
 @property(retain, nonatomic) UIImage *selectedImage; // @synthesize selectedImage=_selectedImage;
 @property(retain, nonatomic) SUSearchFieldConfiguration *searchFieldConfiguration; // @synthesize searchFieldConfiguration=_searchFieldConfiguration;
 @property(retain, nonatomic) UIImage *moreListImage; // @synthesize moreListImage=_moreListImage;
-@property(nonatomic, getter=isLocationSection) BOOL locationSection; // @synthesize locationSection=_isLocationSection;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (int)_typeForString:(id)arg1;
+- (id)_sectionButtonsForKey:(id)arg1;
 - (int)_minimumNetworkTypeFromDictionary:(id)arg1;
 - (id)_imageBaseName;
+- (id)_colorForKey:(id)arg1;
 - (id)valueForProperty:(id)arg1;
 @property(readonly, nonatomic) NSString *urlBagKey;
 @property(readonly, nonatomic) NSURL *url;
 @property(readonly, nonatomic) int type;
 @property(readonly, nonatomic) NSString *title;
+- (void)setSectionButtonImage:(id)arg1 forTag:(int)arg2;
+@property(readonly, nonatomic) NSArray *rightSectionButtons;
 @property(readonly, nonatomic) NSString *partnerHeader;
 @property(readonly, nonatomic) SUPageSectionGroup *pageSectionGroup;
 @property(readonly, nonatomic) int minimumNetworkType;
+@property(readonly, nonatomic) UIColor *loadingTextShadowColor;
+@property(readonly, nonatomic) UIColor *loadingTextColor;
+@property(readonly, nonatomic) UIColor *loadingIndicatorColor;
 - (BOOL)loadFromDictionary:(id)arg1 searchField:(id)arg2;
+@property(readonly, nonatomic) NSArray *leftSectionButtons;
 @property(readonly, nonatomic) NSArray *itemImages;
 @property(readonly, nonatomic, getter=isUsingLocalArtwork) BOOL usingLocalArtwork;
 @property(readonly, nonatomic, getter=isTransient) BOOL transient;
 @property(readonly, nonatomic, getter=isDefaultSection) BOOL defaultSection;
+- (id)imageForSectionButtonWithTag:(int)arg1;
 @property(readonly, nonatomic) NSString *identifier;
+@property(readonly, nonatomic) int defaultPNGStyle;
+@property(readonly, nonatomic) SUGradient *backgroundGradient;
 - (id)description;
 - (void)dealloc;
+- (id)initWithClientInterface:(id)arg1;
 
 @end
 

@@ -6,20 +6,30 @@
 
 #import "NSObject.h"
 
-@class WebInspectorServerConnection;
+@class WebInspectorServerWebViewConnection;
 
 @interface WebInspectorRemoteChannel : NSObject
 {
-    WebInspectorServerConnection *_remote;
-    struct WebInspectorClient *_local;
+    WebInspectorServerWebViewConnection *_remote;
+    struct WebInspectorClient {
+        void **;
+        void **;
+        id;
+        struct RetainPtr<WebNodeHighlighter>;
+        struct Page *;
+        RetainPtr_d5c43307;
+        int;
+        id;
+        struct WebInspectorFrontendClient *;
+    } *_local;
 }
 
 + (id)createChannelForPageId:(unsigned int)arg1 connection:(id)arg2;
-- (id)initWithRemote:(id)arg1 local:(struct WebInspectorClient *)arg2;
-- (void)closeFromLocalSide;
-- (void)closeFromRemoteSide;
-- (void)sendMessageToFrontend:(id)arg1;
 - (void)sendMessageToBackend:(id)arg1;
+- (void)sendMessageToFrontend:(id)arg1;
+- (void)closeFromRemoteSide;
+- (void)closeFromLocalSide;
+- (id)initWithRemote:(id)arg1 local:(struct WebInspectorClient *)arg2;
 
 @end
 

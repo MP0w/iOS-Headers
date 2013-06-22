@@ -6,13 +6,14 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class NSString, UILabel;
+@class NSAttributedString, NSString, UILabel;
 
 @interface UIPickerTableViewTitledCell : UITableViewCell
 {
     UILabel *_titleLabel;
 }
 
+@property(retain, nonatomic) NSAttributedString *attributedTitle;
 @property(retain, nonatomic) NSString *title;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 

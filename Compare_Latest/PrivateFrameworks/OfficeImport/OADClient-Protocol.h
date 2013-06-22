@@ -7,7 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol OADClient <NSObject>
-- (BOOL)hasBounds;
 - (struct CGRect)bounds;
+- (BOOL)hasBounds;
 @end
 

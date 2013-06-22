@@ -8,11 +8,11 @@
 
 @interface UIImage (ABPersonImageSharing)
 + (id)sharedImageNamed:(id)arg1 size:(struct CGSize)arg2 drawUsingBlock:(id)arg3;
-- (void)setCacheNameKey:(id)arg1;
-- (id)cacheNameKey;
-- (void)setCacheSizeKey:(id)arg1;
-- (id)cacheSizeKey;
-- (void)removeFromCache;
 - (void)abpis_swizzleClass;
+- (void)removeFromCache;
+- (id)cacheSizeKey;
+- (void)setCacheSizeKey:(id)arg1;
+- (id)cacheNameKey;
+- (void)setCacheNameKey:(id)arg1;
 @end
 

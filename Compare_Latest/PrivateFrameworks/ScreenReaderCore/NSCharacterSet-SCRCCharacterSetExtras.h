@@ -7,7 +7,7 @@
 #import "NSCharacterSet.h"
 
 @interface NSCharacterSet (SCRCCharacterSetExtras)
-+ (id)whitespaceNewlineAndSpecialCharacterSet;
 + (id)wordBreakCharacterSet;
++ (id)whitespaceNewlineAndSpecialCharacterSet;
 @end
 

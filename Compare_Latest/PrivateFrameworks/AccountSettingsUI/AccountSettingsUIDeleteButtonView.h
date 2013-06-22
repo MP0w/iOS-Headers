@@ -6,21 +6,21 @@
 
 #import "UIView.h"
 
-#import "PreferencesTableCustomView-Protocol.h"
+#import "PSHeaderFooterView-Protocol.h"
 
 @class UIButton;
 
-@interface AccountSettingsUIDeleteButtonView : UIView <PreferencesTableCustomView>
+@interface AccountSettingsUIDeleteButtonView : UIView <PSHeaderFooterView>
 {
     UIButton *_deleteButton;
 }
 
 + (id)newDeleteButtonSpecifier;
-- (id)initWithSpecifier:(id)arg1;
-- (float)preferredHeightForWidth:(float)arg1;
-- (void)layoutSubviews;
-- (id)deleteButton;
 - (void)setFrame:(struct CGRect)arg1;
+- (id)deleteButton;
+- (void)layoutSubviews;
+- (float)preferredHeightForWidth:(float)arg1;
+- (id)initWithSpecifier:(id)arg1;
 
 @end
 

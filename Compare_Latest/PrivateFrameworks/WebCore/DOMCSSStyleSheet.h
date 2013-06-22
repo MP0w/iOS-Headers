@@ -12,14 +12,14 @@
 {
 }
 
-@property(readonly, retain) DOMCSSRule *ownerRule;
-@property(readonly, retain) DOMCSSRuleList *cssRules;
-@property(readonly, retain) DOMCSSRuleList *rules;
-- (unsigned int)insertRule:(id)arg1 index:(unsigned int)arg2;
-- (unsigned int)insertRule:(id)arg1:(unsigned int)arg2;
-- (void)deleteRule:(unsigned int)arg1;
-- (int)addRule:(id)arg1 style:(id)arg2 index:(unsigned int)arg3;
 - (void)removeRule:(unsigned int)arg1;
+- (int)addRule:(id)arg1 style:(id)arg2 index:(unsigned int)arg3;
+- (void)deleteRule:(unsigned int)arg1;
+- (unsigned int)insertRule:(id)arg1:(unsigned int)arg2;
+- (unsigned int)insertRule:(id)arg1 index:(unsigned int)arg2;
+@property(readonly) DOMCSSRuleList *rules;
+@property(readonly) DOMCSSRuleList *cssRules;
+@property(readonly) DOMCSSRule *ownerRule;
 
 @end
 

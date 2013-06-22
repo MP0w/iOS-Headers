@@ -13,11 +13,31 @@
     NSMutableArray *_accounts;
     NSMutableDictionary *_accountMap;
     BOOL _isReadOnly;
+    BOOL _cachesEnabled;
+    NSMutableDictionary *_serviceToActiveAccountsMap;
+    NSMutableDictionary *_serviceToAccountsMap;
+    NSMutableDictionary *_serviceToConnectedAccountsMap;
+    NSMutableDictionary *_serviceToOperationalAccountsMap;
 }
 
 + (id)bestAccountFromAccounts:(id)arg1;
 + (id)sharedInstance;
 @property(readonly, nonatomic) NSArray *accounts; // @synthesize accounts=_accounts;
+- (void)_disableCache;
+- (void)_enableCache;
+- (id)jabberAccount;
+- (id)aimAccount;
+- (id)mostLoggedInAccount;
+- (id)bestAccountWithCapability:(unsigned long long)arg1;
+- (id)bestConnectedAccountForService:(id)arg1;
+- (id)bestActiveAccountForService:(id)arg1;
+- (id)bestOperationalAccountForService:(id)arg1;
+- (id)bestAccountForService:(id)arg1;
+- (id)bestConnectedAccountForService:(id)arg1 withLogin:(id)arg2;
+- (id)bestActiveAccountForService:(id)arg1 withLogin:(id)arg2;
+- (id)bestOperationalAccountForService:(id)arg1 withLogin:(id)arg2;
+- (id)bestAccountForService:(id)arg1 withLogin:(id)arg2;
+- (id)bestAccountForService:(id)arg1 login:(id)arg2 guid:(id)arg3;
 @property(readonly, nonatomic) id bestAccountForStatus;
 - (BOOL)canActivateAccounts:(id)arg1;
 - (BOOL)canActivateAccount:(id)arg1;
@@ -37,9 +57,9 @@
 - (BOOL)deactivateAccounts:(id)arg1 withDisable:(BOOL)arg2;
 - (BOOL)deleteAccount:(id)arg1 locally:(BOOL)arg2;
 - (BOOL)deleteAccount:(id)arg1;
+- (BOOL)addAccount:(id)arg1 locally:(BOOL)arg2;
 - (BOOL)addAccount:(id)arg1 atIndex:(int)arg2 locally:(BOOL)arg3;
 - (BOOL)addAccount:(id)arg1 atIndex:(int)arg2;
-- (BOOL)addAccount:(id)arg1 locally:(BOOL)arg2;
 - (BOOL)addAccount:(id)arg1;
 - (void)_activeAccountChanged:(id)arg1;
 - (void)setReadOnly:(BOOL)arg1;
@@ -47,10 +67,13 @@
 - (BOOL)accountActive:(id)arg1;
 - (BOOL)canDeleteAccount:(id)arg1;
 - (id)connectedAccountsWithCapability:(unsigned long long)arg1;
+- (id)operationalAccountsWithCapability:(unsigned long long)arg1;
 - (id)accountsWithCapability:(unsigned long long)arg1;
 - (id)connectedAccountsForService:(id)arg1;
+- (id)operationalAccountsForService:(id)arg1;
 - (id)activeAccountsForService:(id)arg1;
 - (id)accountsForService:(id)arg1;
+@property(readonly, nonatomic) NSArray *operationalAccounts;
 @property(readonly, nonatomic) NSArray *connectedAccounts;
 @property(readonly, nonatomic) NSArray *activeAccounts;
 @property(readonly, nonatomic) NSMutableArray *_accounts;
@@ -60,8 +83,9 @@
 - (void)dealloc;
 - (id)init;
 - (void)autoLogin;
-- (BOOL)retainWeakReference;
-- (BOOL)allowsWeakReference;
+- (id)_bestOperationalAccountForSendingForService:(id)arg1;
+- (id)__iCloudSystemAccountForService:(id)arg1;
+- (id)_serviceAgentConnectedAccounts;
 
 @end
 

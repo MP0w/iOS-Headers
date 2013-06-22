@@ -4,29 +4,31 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBAlertDisplay.h"
+#import "SBAlertView.h"
 
 @class UIView;
 
-@interface SBUIFullscreenAlertViewAdapter : SBAlertDisplay
+@interface SBUIFullscreenAlertViewAdapter : SBAlertView
 {
+    BOOL _revealedContentBeneathForDismiss;
     UIView *_alertView;
 }
 
-- (id)_alertAdapter;
-- (id)initWithFrame:(struct CGRect)arg1 andContentView:(id)arg2;
-- (void)dealloc;
-- (BOOL)isReadyToBeRemovedFromView;
-- (BOOL)displaysAboveStatusBar;
-- (void)alertDisplayWillBecomeVisible;
-- (BOOL)shouldAnimateIconsIn;
-- (void)viewAnimatedOut;
-- (void)dismiss;
-- (void)setShouldAnimateIn:(BOOL)arg1;
-- (void)alertWindowResizedFromContentFrame:(struct CGRect)arg1 toContentFrame:(struct CGRect)arg2;
-- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)alertWindowResizedFromContentFrame:(struct CGRect)arg1 toContentFrame:(struct CGRect)arg2;
+- (void)setShouldAnimateIn:(BOOL)arg1;
+- (void)dismiss;
+- (void)updateSpringBoardInPreparationForTransparentDismiss;
+- (void)viewAnimatedOut;
+- (BOOL)shouldAnimateIconsIn;
+- (void)alertDisplayWillBecomeVisible;
+- (BOOL)displaysAboveStatusBar;
+- (BOOL)isReadyToBeRemovedFromView;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 andContentView:(id)arg2;
+- (id)_alertAdapter;
 
 @end
 

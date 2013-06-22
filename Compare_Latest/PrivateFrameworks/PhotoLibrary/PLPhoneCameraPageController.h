@@ -6,13 +6,15 @@
 
 #import <PhotoLibrary/PLCameraPageController.h>
 
+#import "PLPhotoBrowserControllerDelegate-Protocol.h"
 #import "UINavigationControllerDelegate-Protocol.h"
 
-@interface PLPhoneCameraPageController : PLCameraPageController <UINavigationControllerDelegate>
+@interface PLPhoneCameraPageController : PLCameraPageController <UINavigationControllerDelegate, PLPhotoBrowserControllerDelegate>
 {
 }
 
 - (id)_doneButtonItem;
+- (void)navigationController:(id)arg1 didShowViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)dismissCameraAlbumAnimated:(BOOL)arg1 forSuspension:(BOOL)arg2;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
@@ -20,8 +22,10 @@
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)_transformViewToPortrait:(id)arg1 fromOrientation:(int)arg2;
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
+- (id)_pagingPhotoBrowser;
 - (void)prepareAlbumNavigationControllerForReuse:(id)arg1;
 - (id)newAlbumNavigationController;
+- (void)dealloc;
 
 @end
 

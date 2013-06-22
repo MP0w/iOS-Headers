@@ -11,9 +11,9 @@
 }
 
 + (id)identifier;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
-- (void)layoutSubviews;
 - (void)updateFontSize;
+- (void)layoutSubviews;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

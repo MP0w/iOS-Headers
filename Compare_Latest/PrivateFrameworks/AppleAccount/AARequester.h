@@ -23,9 +23,10 @@
     BOOL _isCanceled;
 }
 
-@property(nonatomic, getter=isCanceled) BOOL canceled; // @synthesize canceled=_isCanceled;
-@property(nonatomic, getter=isFinished) BOOL finished; // @synthesize finished=_isFinished;
+@property(getter=isCanceled) BOOL canceled; // @synthesize canceled=_isCanceled;
+@property(getter=isFinished) BOOL finished; // @synthesize finished=_isFinished;
 @property(nonatomic, getter=isExecuting) BOOL executing; // @synthesize executing=_isExecuting;
+- (void).cxx_destruct;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
@@ -35,7 +36,6 @@
 - (void)_callHandler;
 - (void)start;
 - (void)cancel;
-- (void)dealloc;
 - (id)initWithRequest:(id)arg1 handler:(id)arg2;
 
 @end

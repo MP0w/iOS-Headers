@@ -17,33 +17,33 @@
     BOOL _isAttemptingFirstResponder;
 }
 
-+ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6 includeRows:(BOOL)arg7;
-+ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6;
-+ (struct CGRect)zerothHorizontalDividerFrameForValueViewRect:(struct CGRect)arg1;
 + (unsigned int)rowsForPropertyGroup:(id)arg1 info:(id)arg2;
-- (void)dealloc;
-- (id)entryFieldForRow:(unsigned int)arg1;
-- (id)keyboardSettingsForKey:(id)arg1;
-- (void)reloadIncludingRows:(BOOL)arg1;
-- (void)reload;
-- (void)reloadFromModelIncludingRows:(BOOL)arg1;
-- (void)reloadFromModel;
-- (void)updateSubviewsForNewStateAnimated:(BOOL)arg1;
-- (void)entryFieldDidEndEditing:(id)arg1;
-- (BOOL)tabToNextResponder:(BOOL)arg1 fromView:(id)arg2;
-- (struct CGRect)rectForView:(id)arg1;
-- (struct CGRect)backgroundRectForView:(id)arg1;
-- (id)viewForFirstResponder;
-- (id)hitTestForTouches:(id)arg1 withEvent:(id)arg2;
-- (void)entryFieldBeginAttemptBecomeFirstResponder:(id)arg1;
-- (void)entryFieldEndAttemptBecomeFirstResponder:(id)arg1;
-- (void)textFieldTextDidChange:(id)arg1;
-- (BOOL)textFieldShouldBeginEditing:(id)arg1;
-- (BOOL)textFieldShouldEndEditing:(id)arg1;
-- (void)textFieldDidEndEditing:(id)arg1;
-- (void)textFieldDidBeginEditing:(id)arg1;
-- (BOOL)textFieldShouldReturn:(id)arg1;
++ (struct CGRect)zerothHorizontalDividerFrameForValueViewRect:(struct CGRect)arg1;
++ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6;
++ (struct CGSize)layoutSubviewsForView:(id)arg1 usingSize:(struct CGSize)arg2 propertyGroup:(id)arg3 info:(id)arg4 styleProvider:(id)arg5 whenEditing:(BOOL)arg6 includeRows:(BOOL)arg7;
 - (void)setAbCellStyle:(int)arg1;
+- (BOOL)textFieldShouldReturn:(id)arg1;
+- (void)textFieldDidBeginEditing:(id)arg1;
+- (void)textFieldDidEndEditing:(id)arg1;
+- (BOOL)textFieldShouldEndEditing:(id)arg1;
+- (BOOL)textFieldShouldBeginEditing:(id)arg1;
+- (void)textFieldTextDidChange:(id)arg1;
+- (void)entryFieldEndAttemptBecomeFirstResponder:(id)arg1;
+- (void)entryFieldBeginAttemptBecomeFirstResponder:(id)arg1;
+- (id)hitTestForTouches:(id)arg1 withEvent:(id)arg2;
+- (id)viewForFirstResponder;
+- (struct CGRect)backgroundRectForView:(id)arg1;
+- (struct CGRect)rectForView:(id)arg1;
+- (BOOL)tabToNextResponder:(BOOL)arg1 fromView:(id)arg2;
+- (void)entryFieldDidEndEditing:(id)arg1;
+- (void)updateSubviewsForNewStateAnimated:(BOOL)arg1;
+- (void)reloadFromModel;
+- (void)reloadFromModelIncludingRows:(BOOL)arg1;
+- (void)reload;
+- (void)reloadIncludingRows:(BOOL)arg1;
+- (id)keyboardSettingsForKey:(id)arg1;
+- (id)entryFieldForRow:(unsigned int)arg1;
+- (void)dealloc;
 
 @end
 

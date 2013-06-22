@@ -13,6 +13,7 @@
     BOOL _hidden;
     NSString *_text;
     NSAttributedString *_attributedText;
+    NSAttributedString *_highlightedAttributedText;
     UIFont *_font;
     float _minFontSize;
     UIColor *_color;
@@ -25,8 +26,10 @@
     UIColor *_shadowColor;
     UIColor *_highlightedShadowColor;
     struct CGSize _shadowOffset;
+    unsigned int _maxLines;
 }
 
+@property(nonatomic) unsigned int maxLines; // @synthesize maxLines=_maxLines;
 @property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
 @property(retain, nonatomic) UIColor *highlightedShadowColor; // @synthesize highlightedShadowColor=_highlightedShadowColor;
 @property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor=_shadowColor;
@@ -39,10 +42,14 @@
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 @property(nonatomic) float minFontSize; // @synthesize minFontSize=_minFontSize;
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
+@property(retain, nonatomic) NSAttributedString *highlightedAttributedText; // @synthesize highlightedAttributedText=_highlightedAttributedText;
 @property(retain, nonatomic) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
 @property(retain, nonatomic) NSString *text; // @synthesize text=_text;
 @property(nonatomic) BOOL hidden; // @synthesize hidden=_hidden;
+- (struct CGSize)drawInRect:(struct CGRect)arg1 highlighted:(BOOL)arg2 actualFontSize:(float *)arg3;
 - (struct CGSize)drawInRect:(struct CGRect)arg1 highlighted:(BOOL)arg2;
+- (struct CGSize)sizeForWidth:(float)arg1 maxLineCount:(unsigned int)arg2 actualFontSize:(float *)arg3;
+- (struct CGSize)sizeForWidth:(float)arg1 maxLineCount:(unsigned int)arg2;
 - (id)description;
 - (void)dealloc;
 - (id)initWithTheme:(id)arg1;

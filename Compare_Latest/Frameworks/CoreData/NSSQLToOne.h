@@ -17,21 +17,21 @@
     BOOL _isVirtual;
 }
 
-- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2 virtualForToMany:(id)arg3;
-- (id)initForReadOnlyFetchWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (id)initWithEntity:(id)arg1 inverseToMany:(id)arg2;
-- (void)dealloc;
-- (id)foreignKey;
-- (id)foreignEntityKey;
-- (void)_setForeignOrderKey:(id)arg1;
-- (id)foreignOrderKey;
-- (id)columnName;
-- (id)description;
-- (BOOL)isVirtual;
-- (unsigned int)slot;
-- (BOOL)isOptional;
 - (void)copyValuesForReadOnlyFetch:(id)arg1;
+- (BOOL)isOptional;
+- (unsigned int)slot;
+- (BOOL)isVirtual;
+- (id)description;
+- (id)columnName;
+- (id)foreignOrderKey;
+- (void)_setForeignOrderKey:(id)arg1;
+- (id)foreignEntityKey;
+- (id)foreignKey;
+- (void)dealloc;
+- (id)initWithEntity:(id)arg1 inverseToMany:(id)arg2;
+- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
+- (id)initForReadOnlyFetchWithEntity:(id)arg1 propertyDescription:(id)arg2;
+- (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2 virtualForToMany:(id)arg3;
 
 @end
 

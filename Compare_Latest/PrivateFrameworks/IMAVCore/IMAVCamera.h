@@ -16,7 +16,7 @@
 - (id)description;
 - (void)dealloc;
 @property(readonly, nonatomic) NSString *uniqueID;
-- (id)_FTCamera;
+- (id)_AVCamera;
 @property(readonly, nonatomic) BOOL isShutterOpen;
 @property(readonly, nonatomic) BOOL isSuspended;
 @property(readonly, nonatomic) BOOL hasShutter;
@@ -24,7 +24,7 @@
 @property(readonly, nonatomic) int cameraStyle;
 @property(readonly, nonatomic) NSString *name;
 - (id)init;
-- (id)_initWithFTCamera:(id)arg1;
+- (id)_initWithAVCamera:(id)arg1;
 
 @end
 

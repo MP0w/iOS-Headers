@@ -5,8 +5,8 @@
  */
 
 @protocol MFComposeBodyFieldDelegate
-- (void)composeBodyFieldFrameChanged:(id)arg1;
-- (void)composeBodyFieldDidDraw:(id)arg1;
 - (void)composeBodyFieldDidFirstVisuallyNonEmptyLayout:(id)arg1;
+- (void)composeBodyFieldDidDraw:(id)arg1;
+- (void)composeBodyFieldFrameChanged:(id)arg1;
 @end
 

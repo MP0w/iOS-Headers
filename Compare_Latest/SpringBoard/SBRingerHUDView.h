@@ -11,9 +11,9 @@
     BOOL _silent;
 }
 
-- (void)_updateSilentImage;
-- (id)init;
 @property(nonatomic, getter=isSilent) BOOL silent; // @synthesize silent=_silent;
+- (id)init;
+- (void)_updateSilentImage;
 
 @end
 

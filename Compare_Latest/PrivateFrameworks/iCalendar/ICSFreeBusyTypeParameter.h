@@ -11,6 +11,7 @@
 }
 
 + (id)freeBusyTypeParameterFromCode:(int)arg1;
++ (id)freeBusyTypeParameterFromICSString:(id)arg1;
 
 @end
 

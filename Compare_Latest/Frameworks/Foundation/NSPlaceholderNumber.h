@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithBool:(BOOL)arg1;
 - (id)initWithDouble:(double)arg1;

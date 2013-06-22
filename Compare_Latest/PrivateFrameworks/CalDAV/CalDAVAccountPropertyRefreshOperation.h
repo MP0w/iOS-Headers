@@ -11,9 +11,9 @@
     BOOL _fetchPrincipalSearchProperties;
 }
 
-- (void)refreshProperties;
-- (void)getAccountPropertiesTask:(id)arg1 completedWithError:(id)arg2;
 @property BOOL fetchPrincipalSearchProperties; // @synthesize fetchPrincipalSearchProperties=_fetchPrincipalSearchProperties;
+- (void)getAccountPropertiesTask:(id)arg1 completedWithError:(id)arg2;
+- (void)refreshProperties;
 
 // Remaining properties
 @property(nonatomic) id <CalDAVAccountPropertyRefreshDelegate> delegate; // @dynamic delegate;

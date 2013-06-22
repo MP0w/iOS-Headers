@@ -12,9 +12,10 @@
     struct OADAdjustPoint mToPoint;
 }
 
-- (id)initWithControlPoint:(struct OADAdjustPoint)arg1 toPoint:(struct OADAdjustPoint)arg2;
-- (struct OADAdjustPoint)controlPoint;
+- (id).cxx_construct;
 - (struct OADAdjustPoint)toPoint;
+- (struct OADAdjustPoint)controlPoint;
+- (id)initWithControlPoint:(struct OADAdjustPoint)arg1 toPoint:(struct OADAdjustPoint)arg2;
 
 @end
 

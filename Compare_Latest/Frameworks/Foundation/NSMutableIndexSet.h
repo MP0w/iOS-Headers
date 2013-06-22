@@ -22,7 +22,7 @@
 - (void)_mergeOverlappingRangesStartingAtIndex:(unsigned int)arg1;
 - (void)removeIndexesFromIndexSet:(id)arg1;
 - (void)removeIndexes:(id)arg1;
-- (void)addIndexes:(unsigned int *)arg1 count:(unsigned int)arg2;
+- (void)addIndexes:(const unsigned int *)arg1 count:(unsigned int)arg2;
 - (void)addIndexesFromIndexSet:(id)arg1;
 - (void)addIndexes:(id)arg1;
 - (void)_replaceRangeInArrayAtIndex:(unsigned int)arg1 withRange:(struct _NSRange)arg2;

@@ -17,6 +17,7 @@
     NSString *_htmlBody;
     PlainTextDocument *_plainTextAlternative;
     NSArray *_otherHTMLAndAttachments;
+    NSArray *_charsets;
     id <MFDeliveryDelegate> _delegate;
     MailAccount *_archiveAccount;
     DeliveryAccount *_deliveryAccount;
@@ -24,25 +25,25 @@
     MFMailDelivery *_currentDeliveryObject;
 }
 
-+ (id)newWithMessage:(id)arg1;
++ (id)newWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4 charsets:(id)arg5;
 + (id)newWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
-+ (id)newWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4;
-- (id)initWithMessage:(id)arg1;
-- (id)initWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
-- (id)initWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4;
-- (void)dealloc;
-- (id)_currentDeliveryObject;
++ (id)newWithMessage:(id)arg1;
 @property(retain, nonatomic) NSDictionary *compositionSpecification; // @synthesize compositionSpecification=_compositionSpecification;
-- (id)originalHeaders;
-- (int)_deliverSynchronouslyWithCurrentSettings:(BOOL)arg1;
-- (int)deliverSynchronously;
-- (int)deliveryStatus;
-- (id)message;
-- (id)_deliveryAccountForInitializers;
-- (id)account;
-- (void)setDelegate:(id)arg1;
-- (void)setArchiveAccount:(id)arg1;
 - (void)setAccount:(id)arg1;
+- (void)setArchiveAccount:(id)arg1;
+- (void)setDelegate:(id)arg1;
+- (id)account;
+- (id)_deliveryAccountForInitializers;
+- (id)message;
+- (int)deliveryStatus;
+- (int)deliverSynchronously;
+- (int)_deliverSynchronouslyWithCurrentSettings:(BOOL)arg1;
+- (id)originalHeaders;
+- (id)_currentDeliveryObject;
+- (void)dealloc;
+- (id)initWithHeaders:(id)arg1 HTML:(id)arg2 plainTextAlternative:(id)arg3 other:(id)arg4 charsets:(id)arg5;
+- (id)initWithHeaders:(id)arg1 mixedContent:(id)arg2 textPartsAreHTML:(BOOL)arg3;
+- (id)initWithMessage:(id)arg1;
 
 @end
 

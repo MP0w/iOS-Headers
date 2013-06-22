@@ -14,10 +14,10 @@
     CoreDAVItem *_accessLevel;
 }
 
-@property(readonly, retain) CoreDAVItem *accessLevel; // @synthesize accessLevel=_accessLevel;
-@property(readonly, retain) CoreDAVItem *summary; // @synthesize summary=_summary;
-@property(readonly, retain) CoreDAVItem *commonName; // @synthesize commonName=_commonName;
-@property(readonly, retain) CoreDAVItem *href; // @synthesize href=_href;
+@property(readonly) CoreDAVItem *accessLevel; // @synthesize accessLevel=_accessLevel;
+@property(readonly) CoreDAVItem *summary; // @synthesize summary=_summary;
+@property(readonly) CoreDAVItem *commonName; // @synthesize commonName=_commonName;
+@property(readonly) CoreDAVItem *href; // @synthesize href=_href;
 
 @end
 

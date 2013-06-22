@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class IMConnectionMonitor, NSData, NSDate, NSDictionary, NSMutableData, NSMutableURLRequest, NSNumber, NSString, NSURL, NSURLConnection, NSURLResponse;
+@class IMConnectionMonitor, IMRemoteURLConnection, NSData, NSDate, NSDictionary, NSMutableURLRequest, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface FTServerBag : NSObject
 {
@@ -16,10 +16,9 @@
     NSDictionary *_bag;
     NSDictionary *_cachedBag;
     NSMutableURLRequest *_urlRequest;
-    NSMutableData *_currentResponseData;
-    NSURLResponse *_currentResponse;
-    NSURLConnection *_currentURLConnection;
-    struct dispatch_queue_s *_bagQueue;
+    IMRemoteURLConnection *_remoteURLConnection;
+    NSObject<OS_dispatch_queue> *_bagQueue;
+    NSString *_cachedURLString;
     int _trustStatus;
     NSData *_certData;
     NSString *_cachedHash;
@@ -41,10 +40,9 @@
 @property(retain) NSString *_cachedHash; // @synthesize _cachedHash;
 @property(retain) NSData *_certData; // @synthesize _certData;
 @property(setter=_setTrustStatus:) int _trustStatus; // @synthesize _trustStatus;
-@property struct dispatch_queue_s *_bagQueue; // @synthesize _bagQueue;
-@property NSURLConnection *_currentURLConnection; // @synthesize _currentURLConnection;
-@property(retain) NSURLResponse *_currentResponse; // @synthesize _currentResponse;
-@property(retain) NSMutableData *_currentResponseData; // @synthesize _currentResponseData;
+@property(retain, setter=_setCachedURLString:) NSString *_cachedURLString; // @synthesize _cachedURLString;
+@property NSObject<OS_dispatch_queue> *_bagQueue; // @synthesize _bagQueue;
+@property IMRemoteURLConnection *_remoteURLConnection; // @synthesize _remoteURLConnection;
 @property(retain) NSMutableURLRequest *_urlRequest; // @synthesize _urlRequest;
 @property(retain, setter=_setCachedBag:) NSDictionary *_cachedBag; // @synthesize _cachedBag;
 @property(retain, setter=_setBag:) NSDictionary *_bag; // @synthesize _bag;
@@ -53,17 +51,13 @@
 @property(retain) IMConnectionMonitor *_connectionMonitor; // @synthesize _connectionMonitor;
 - (void)connectionMonitorDidUpdate:(id)arg1;
 @property(readonly) BOOL isServerAvailable;
-- (void)connection:(id)arg1 didReceiveData:(id)arg2;
-- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
-- (void)connectionDidFinishLoading:(id)arg1;
-- (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (id)urlWithKey:(id)arg1;
 - (id)objectForKey:(id)arg1;
 @property(readonly) BOOL isLoaded;
 @property(readonly) BOOL isLoading;
-- (void)reloadBag;
+- (void)forceBagLoad;
 - (void)startBagLoad;
-- (void)_startBagLoad;
+- (void)_startBagLoad:(BOOL)arg1;
 - (void)_cancelCurrentLoad;
 - (void)_processBagResultData:(id)arg1 response:(id)arg2 inBackground:(BOOL)arg3;
 - (BOOL)_loadFromSignedDictionary:(id)arg1 returningError:(id *)arg2;
@@ -72,6 +66,8 @@
 - (BOOL)_loadFromDictionary:(id)arg1 returningError:(id *)arg2;
 - (void)dealloc;
 - (id)_initWithURL:(id)arg1 apsEnvironmentName:(id)arg2 allowSelfSignedCertificates:(BOOL)arg3 allowUnsignedBags:(BOOL)arg4;
+- (void)_generateURLRequest;
+- (void)_bagExternallyReloaded;
 - (void)_saveToCache;
 - (void)_saveCacheToPrefs;
 - (void)__saveCacheToPrefs;

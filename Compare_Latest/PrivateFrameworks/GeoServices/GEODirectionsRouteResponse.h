@@ -6,28 +6,15 @@
 
 #import <GeoServices/GEODirectionsResponse.h>
 
-@class NSMutableArray;
-
 @interface GEODirectionsRouteResponse : GEODirectionsResponse
 {
-    int _type;
-    int _requestTimestampType;
-    double _requestTimestamp;
-    int _requestTimezoneOffset;
-    int _iconVersion;
-    NSMutableArray *_icons;
 }
 
-@property(retain, nonatomic) NSMutableArray *icons; // @synthesize icons=_icons;
-@property(nonatomic) int iconVersion; // @synthesize iconVersion=_iconVersion;
-@property(nonatomic) int requestTimezoneOffset; // @synthesize requestTimezoneOffset=_requestTimezoneOffset;
-@property(nonatomic) double requestTimestamp; // @synthesize requestTimestamp=_requestTimestamp;
-@property(nonatomic) int requestTimestampType; // @synthesize requestTimestampType=_requestTimestampType;
-@property(nonatomic) int type; // @synthesize type=_type;
+- (void)writeTo:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionaryRepresentation:(id)arg1;
-- (void)dealloc;
 
 @end
 

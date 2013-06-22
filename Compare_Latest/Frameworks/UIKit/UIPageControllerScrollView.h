@@ -15,7 +15,7 @@
 
 @property(nonatomic) UIPageController *pageController; // @synthesize pageController=_pageController;
 - (int)_abuttedPagingEdges;
-- (void)_scrollViewAnimationEnded;
+- (void)_scrollViewAnimationEnded:(id)arg1 finished:(BOOL)arg2;
 - (void)_scrollViewDidEndDecelerating;
 - (void)_scrollViewDidEndDraggingWithDeceleration:(BOOL)arg1;
 - (void)_scrollViewWillBeginDragging;

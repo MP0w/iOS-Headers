@@ -22,7 +22,6 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
-- (void)viewDidUnload;
 - (void)loadView;
 - (void)dealloc;
 - (id)init;

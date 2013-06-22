@@ -12,6 +12,7 @@
 }
 
 + (id)sharedObject;
+- (void)updateState;
 - (int)state;
 - (void)dealloc;
 - (id)init;

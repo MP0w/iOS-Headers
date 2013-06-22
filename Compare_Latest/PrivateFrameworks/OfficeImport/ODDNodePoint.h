@@ -16,15 +16,15 @@
     ODDTransitionPoint *mSiblingTransition;
 }
 
-- (void)dealloc;
-- (void)setType:(int)arg1;
-- (id)parent;
-- (id)children;
-- (void)addChild:(id)arg1 order:(unsigned long)arg2;
-- (id)parentTransition;
-- (void)setParentTransition:(id)arg1;
-- (id)siblingTransition;
 - (void)setSiblingTransition:(id)arg1;
+- (id)siblingTransition;
+- (void)setParentTransition:(id)arg1;
+- (id)parentTransition;
+- (void)addChild:(id)arg1 order:(unsigned long)arg2;
+- (id)children;
+- (id)parent;
+- (void)setType:(int)arg1;
+- (void)dealloc;
 
 @end
 

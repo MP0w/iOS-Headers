@@ -8,7 +8,7 @@
 
 #import "CPDisposable-Protocol.h"
 
-@class CPTextLine, CPZone, NSMutableArray;
+@class CPZone, NSMutableArray;
 
 @interface CPSpacerFinder : NSObject <CPDisposable>
 {
@@ -25,7 +25,7 @@
     NSMutableArray *spacers;
     unsigned int segmentationCount;
     struct {
-        CPTextLine *_field1;
+        id _field1;
         unsigned int _field2;
         CDStruct_183601bc *_field3;
     } *segmentations;
@@ -44,10 +44,10 @@
         unsigned int _field12;
         unsigned int _field13;
         unsigned int _field14;
-        CDStruct_dcd939b8 _field15;
-        CDStruct_dcd939b8 _field16;
-        CDStruct_dcd939b8 _field17;
-        CDStruct_dcd939b8 _field18;
+        CDStruct_b2fbf00d _field15;
+        CDStruct_b2fbf00d _field16;
+        CDStruct_b2fbf00d _field17;
+        CDStruct_b2fbf00d _field18;
         float _field19;
         float _field20;
         char _field21;
@@ -56,17 +56,17 @@
     } *qualityEntries;
 }
 
-- (id)initWithContentZone:(id)arg1;
-- (void)dispose;
-- (void)finalize;
-- (void)dealloc;
-- (void)initializeSegmentations;
-- (void)initializeJunctions;
-- (void)findSpacers;
-- (void)assessQuality;
-- (void)determineValidity;
-- (void)splitTextLines;
 - (id)spacers;
+- (void)splitTextLines;
+- (void)determineValidity;
+- (void)assessQuality;
+- (void)findSpacers;
+- (void)initializeJunctions;
+- (void)initializeSegmentations;
+- (void)dealloc;
+- (void)finalize;
+- (void)dispose;
+- (id)initWithContentZone:(id)arg1;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @interface PTPHostUSBTransport : PTPTransport
 {
-    unsigned int _locationID;
+    unsigned long _locationID;
     unsigned short _vendorID;
     unsigned short _productID;
     NSString *_usbSerialNumberString;
@@ -18,9 +18,9 @@
     unsigned char _bulkPipeIn;
     unsigned char _bulkPipeOut;
     unsigned char _interruptPipeIn;
-    unsigned int _readBufferSize;
-    unsigned int _writeBufferSize;
-    unsigned int _eventDataBufferSize;
+    unsigned long _readBufferSize;
+    unsigned long _writeBufferSize;
+    unsigned long _eventDataBufferSize;
     char *_readBuffer;
     char *_writeBuffer;
     char *_eventDataBuffer;
@@ -32,36 +32,37 @@
     BOOL _connected;
 }
 
-- (id)initWithLocationID:(unsigned long)arg1 delegate:(id)arg2;
-- (void)dealloc;
-- (unsigned long)locationID;
-- (unsigned short)vendorID;
-- (unsigned short)productID;
-- (id)usbSerialNumberString;
-- (BOOL)startInitiator;
-- (void)stop;
-- (BOOL)connected;
-- (void)setConnected:(BOOL)arg1;
-- (id)description;
-- (BOOL)sendCancel:(id)arg1;
-- (id)sendRequest:(id)arg1 receiveData:(id)arg2 timeout:(unsigned long)arg3;
-- (id)sendRequest:(id)arg1 sendData:(id)arg2 timeout:(unsigned long)arg3;
-- (void)sendDataPackets:(id)arg1;
-- (void)sendData:(id)arg1;
-- (BOOL)sendEvent:(id)arg1;
-- (void)cancelTransaction:(id)arg1;
-- (unsigned short)deviceStatus;
-- (unsigned short)cancelRequest:(id)arg1;
-- (void)deviceReset;
-- (BOOL)writeBulkData:(id)arg1;
-- (int)readBulkDataWithTimeout:(unsigned long)arg1;
-- (int)readInterruptData;
-- (void)dumpData:(void *)arg1 length:(int)arg2 comment:(id)arg3;
-- (BOOL)handleBulkData:(unsigned long)arg1 result:(int)arg2;
-- (void)handleInterruptData:(unsigned long)arg1;
-- (void)clearPipeStall:(unsigned char)arg1;
-- (void)clearBulkInPipeStall;
+- (int)waitForCallbackThreadConditionSignalWithTimeout:(long)arg1;
 - (void)abortPendingIO;
+- (void)clearBulkInPipeStall;
+- (void)clearPipeStall:(unsigned char)arg1;
+- (void)handleInterruptData:(unsigned long)arg1;
+- (BOOL)handleBulkData:(unsigned long)arg1 result:(int)arg2;
+- (void)dumpData:(void *)arg1 length:(int)arg2 comment:(id)arg3;
+- (int)readInterruptData;
+- (int)readBulkDataWithTimeout:(unsigned long)arg1;
+- (BOOL)writeBulkData:(id)arg1;
+- (void)deviceReset;
+- (unsigned short)cancelRequest:(id)arg1;
+- (unsigned short)deviceStatus;
+- (void)cancelTransaction:(id)arg1;
+- (BOOL)sendEvent:(id)arg1;
+- (void)sendData:(id)arg1;
+- (void)sendDataPackets:(id)arg1;
+- (id)sendRequest:(id)arg1 sendData:(id)arg2 timeout:(unsigned long)arg3;
+- (id)sendRequest:(id)arg1 receiveData:(id)arg2 timeout:(unsigned long)arg3;
+- (BOOL)sendCancel:(id)arg1;
+- (id)description;
+- (void)setConnected:(BOOL)arg1;
+- (BOOL)connected;
+- (void)stop;
+- (BOOL)startInitiator;
+- (id)usbSerialNumberString;
+- (unsigned short)productID;
+- (unsigned short)vendorID;
+- (unsigned long)locationID;
+- (void)dealloc;
+- (id)initWithLocationID:(unsigned long)arg1 delegate:(id)arg2;
 
 @end
 

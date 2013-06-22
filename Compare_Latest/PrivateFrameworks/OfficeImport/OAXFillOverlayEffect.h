@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)blendModeEnumMap;
 + (id)readFromXmlNode:(struct _xmlNode *)arg1 packagePart:(id)arg2 drawingState:(id)arg3;
++ (id)blendModeEnumMap;
 
 @end
 

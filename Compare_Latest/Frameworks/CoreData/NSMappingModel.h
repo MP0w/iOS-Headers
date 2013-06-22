@@ -21,20 +21,33 @@
     } _modelMappingFlags;
 }
 
-+ (void)initialize;
-+ (id)mappingModelFromBundles:(id)arg1 forSourceModel:(id)arg2 destinationModel:(id)arg3;
 + (id)inferredMappingModelForSourceModel:(id)arg1 destinationModel:(id)arg2 error:(id *)arg3;
-- (id)init;
-- (id)initWithContentsOfURL:(id)arg1;
-- (void)dealloc;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (id)description;
-- (id)entityMappings;
-- (void)setEntityMappings:(id)arg1;
++ (id)mappingModelFromBundles:(id)arg1 forSourceModel:(id)arg2 destinationModel:(id)arg3;
++ (id)_mappingModelFromPaths:(id)arg1 forSourceHashes:(id)arg2 destinationHashes:(id)arg3;
++ (void)initialize;
++ (BOOL)_isInferredMappingModel:(id)arg1;
++ (id)_modelPathsFromBundles:(id)arg1;
++ (void)setMigrationDebugLevel:(int)arg1;
++ (int)migrationDebugLevel;
 - (id)entityMappingsByName;
+- (void)setEntityMappings:(id)arg1;
+- (id)entityMappings;
+- (id)description;
+- (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (void)dealloc;
+- (id)initWithContentsOfURL:(id)arg1;
+- (id)init;
+- (id)_destinationEntityVersionHashesByName;
+- (id)_sourceEntityVersionHashesByName;
+- (void)_throwIfNotEditable;
+- (void)_setIsEditable:(BOOL)arg1;
+- (void)_createCachesAndOptimizeState;
+- (BOOL)isEditable;
+- (void)_addEntityMapping:(id)arg1;
+- (id)_initWithEntityMappings:(id)arg1;
 
 @end
 

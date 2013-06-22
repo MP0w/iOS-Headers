@@ -11,8 +11,8 @@
     BOOL mIsArrow;
 }
 
-- (void)setIsArrow:(BOOL)arg1;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
+- (void)setIsArrow:(BOOL)arg1;
 
 @end
 

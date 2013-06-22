@@ -26,7 +26,7 @@
 - (void)clearAllVibrationComponents;
 - (void)vibrationComponentDidEnd;
 - (void)vibrationComponentDidStart;
-@property(nonatomic) unsigned int roundedCornersCompensationDelayMode;
+@property(nonatomic) int roundedCornersCompensationDelayMode;
 @property(nonatomic) double currentTimeInterval;
 @property(nonatomic, getter=isRightButtonEnabled) BOOL rightButtonEnabled;
 @property(nonatomic, getter=isLeftButtonEnabled) BOOL leftButtonEnabled;

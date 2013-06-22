@@ -6,7 +6,7 @@
 
 #import "CALayer.h"
 
-@class AVCaptureSession, AVCaptureVideoPreviewLayerInternal, NSString;
+@class AVCaptureConnection, AVCaptureSession, AVCaptureVideoPreviewLayerInternal, NSString;
 
 @interface AVCaptureVideoPreviewLayer : CALayer
 {
@@ -15,6 +15,16 @@
 
 + (id)layerWithSession:(id)arg1;
 + (void)initialize;
+- (void)_updateCaptureDeviceTransform;
+- (id)transformedMetadataObjectForMetadataObject:(id)arg1;
+- (id)_input;
+- (struct CGRect)rectForMetadataObject:(id)arg1;
+- (struct CGRect)rectForCaptureDeviceFaceRect:(struct CGRect)arg1;
+- (struct CGPoint)pointForCaptureDevicePointOfInterest:(struct CGPoint)arg1;
+- (struct CGPoint)captureDevicePointOfInterestForPoint:(struct CGPoint)arg1;
+- (id)liveConnections;
+- (void)bumpChangeSeed;
+- (int)changeSeed;
 - (id)notReadyError;
 - (BOOL)canAddConnectionForMediaType:(id)arg1;
 - (void)removeConnection:(id)arg1;
@@ -22,7 +32,7 @@
 - (id)connectionMediaTypes;
 - (id)connections;
 - (id)activeConnections;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (void)didStopForSession:(id)arg1 error:(id)arg2;
 - (void)didStartForSession:(id)arg1;
 - (void)setHidden:(BOOL)arg1;
@@ -33,16 +43,21 @@
 - (void)setPaused:(BOOL)arg1;
 - (BOOL)isPaused;
 @property(nonatomic, getter=isMirrored) BOOL mirrored;
+- (BOOL)_isMirrored;
 @property(nonatomic) BOOL automaticallyAdjustsMirroring;
+- (BOOL)_automaticallyAdjustsMirroring;
 @property(readonly, nonatomic, getter=isMirroringSupported) BOOL mirroringSupported;
 @property(nonatomic) int orientation;
+- (int)_orientation;
 @property(readonly, nonatomic, getter=isOrientationSupported) BOOL orientationSupported;
 @property(copy) NSString *videoGravity;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)handleEnabledChangedForConnection:(id)arg1;
 - (id)subLayer;
 - (void)layoutSublayers;
 - (void)setBounds:(struct CGRect)arg1;
 @property(retain, nonatomic) AVCaptureSession *session;
+@property(readonly, nonatomic) AVCaptureConnection *connection;
 - (void)dealloc;
 - (id)initWithLayer:(id)arg1;
 - (float)previewRotationDegrees;

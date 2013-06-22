@@ -13,20 +13,20 @@
     NSMutableDictionary *_restrictions;
 }
 
-+ (id)typeStrings;
 + (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
-- (id)_invalidFieldErrorWithFieldName:(id)arg1;
-- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
-- (void)dealloc;
-- (id)stubDictionary;
-- (id)description;
-- (id)_restrictedFeatureStrings;
-- (id)_enforcedFeatureStrings;
-- (id)_defaultMediaSettings;
-- (id)subtitle1Description;
-- (void)_insertRestrictedBoolForKey:(id)arg1 value:(id)arg2 preferenc:(BOOL)arg3;
++ (id)typeStrings;
+@property(readonly, nonatomic) NSDictionary *restrictions; // @synthesize restrictions=_restrictions;
+- (void).cxx_destruct;
 - (id)installationWarnings;
-@property(readonly) NSDictionary *restrictions; // @synthesize restrictions=_restrictions;
+- (void)_insertRestrictedBoolForKey:(id)arg1 value:(id)arg2 preferenc:(BOOL)arg3;
+- (id)subtitle1Description;
+- (id)_defaultMediaSettings;
+- (id)_enforcedFeatureStrings;
+- (id)_restrictedFeatureStrings;
+- (id)description;
+- (id)stubDictionary;
+- (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
+- (id)_invalidFieldErrorWithFieldName:(id)arg1;
 
 @end
 

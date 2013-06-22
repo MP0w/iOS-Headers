@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, SKPaymentQueueClient;
 
 @interface SKPaymentQueue : NSObject
 {
@@ -15,36 +15,46 @@
 
 + (BOOL)canMakePayments;
 + (id)defaultQueue;
-- (void)_unregisterForNotifications;
+- (void)_updatePaymentsForMessage:(id)arg1;
+- (void)_updateDownloadsForMessage:(id)arg1;
+- (void)_setTransactionsWithReply:(id)arg1;
+- (void)_sendCommand:(long long)arg1 forDownloads:(id)arg2;
+- (void)_removePaymentsForMessage:(id)arg1;
 - (void)_removeLocalTransaction:(id)arg1;
-- (void)_registerForNotificationsIfNeeded;
-- (void)_registerForNotifications;
-- (void)_processUpdates:(id)arg1 trimUnmatched:(BOOL)arg2;
+- (void)_refreshPaymentsWithPolicy:(int)arg1;
+- (void)_processUpdates:(id)arg1 trimUnmatched:(BOOL)arg2 sendUpdatedDownloads:(BOOL)arg3;
 - (void)_notifyObserversRestoreTransactionsFinished;
 - (void)_notifyObserversRestoreTransactionsFailedWithError:(id)arg1;
 - (void)_notifyObserversAboutRemovals:(id)arg1;
-- (void)_notifyObserversAboutChanges:(id)arg1;
-- (id)_copyTransactionsFromNotification:(id)arg1;
+- (void)_notifyObserversAboutDownloadChanges:(id)arg1;
+- (void)_notifyObserversAboutChanges:(id)arg1 sendUpdatedDownloads:(BOOL)arg2;
+- (void)_handleMessage:(id)arg1 connection:(id)arg2;
+- (void)_handleConnectionDisconnect;
+- (void)_finishRefreshPayments;
+- (void)_establishConnectionIfNeeded;
+- (void)_establishConnection;
+- (id)_copyTransactionsFromXPCArray:(id)arg1;
 - (id)_copyRemovalsFromUnmergedIndexSet:(id)arg1;
-- (void)_addLocalTransactionForPayment:(id)arg1;
-- (void)_transactionUpdatedNotification:(id)arg1;
-- (void)_transactionsRemovedNotification:(id)arg1;
-- (void)_transactionsRefreshedNotification:(id)arg1;
-- (void)_transactionsAddedNotification:(id)arg1;
-- (void)_restoreTransactionsFinishedNotification:(id)arg1;
-- (void)_restoreTransactionsFailedNotification:(id)arg1;
-- (void)_mainThreadDaemonExited:(id)arg1;
+- (id)_copyDownloadIDsForDownloads:(id)arg1;
+- (void)_completeRestoreWithMessage:(id)arg1;
+- (id)_applyDownloadChangeset:(id)arg1;
 - (void)_daemonLaunchedNotification;
-- (void)_daemonExited:(id)arg1;
-- (void)_applicationBecameActiveNotification:(id)arg1;
+- (void)_applicationWillEnterForegroundNotification:(id)arg1;
+@property(readonly, nonatomic) SKPaymentQueueClient *paymentQueueClient;
+- (id)initWithPaymentQueueClient:(id)arg1;
 @property(readonly, nonatomic) NSArray *transactions;
+- (void)startDownloads:(id)arg1;
+- (void)resumeDownloads:(id)arg1;
 - (void)restoreCompletedTransactions;
 - (void)removeTransactionObserver:(id)arg1;
+- (void)pauseDownloads:(id)arg1;
 - (void)finishTransaction:(id)arg1;
+- (void)cancelDownloads:(id)arg1;
 - (void)addTransactionObserver:(id)arg1;
 - (void)addPayment:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (id)_initSKPaymentQueue;
 
 @end
 

@@ -6,12 +6,14 @@
 
 #import <BulletinBoard/BBBulletin.h>
 
-@class BBAction, BBContent, BBSound, NSArray, NSDate, NSString, NSTimeZone;
+@class BBAction, BBContent, BBSound, NSArray, NSDate, NSSet, NSString, NSTimeZone;
 
 @interface BBBulletinRequest : BBBulletin
 {
+    unsigned int _expirationEvents;
 }
 
+@property(nonatomic) unsigned int expirationEvents; // @synthesize expirationEvents=_expirationEvents;
 @property(nonatomic) BOOL tentative;
 @property(nonatomic) BOOL showsUnreadIndicator;
 - (void)generateBulletinID;
@@ -25,11 +27,17 @@
 - (void)addAttachmentOfType:(int)arg1;
 @property(nonatomic) int primaryAttachmentType; // @dynamic primaryAttachmentType;
 - (void)setContextValue:(id)arg1 forKey:(id)arg2;
+- (void)generateNewBulletinID;
+- (id)publisherMatchID;
+- (BOOL)hasContentModificationsRelativeTo:(id)arg1;
 
 // Remaining properties
 @property(nonatomic) int accessoryStyle; // @dynamic accessoryStyle;
 @property(copy, nonatomic) BBAction *acknowledgeAction; // @dynamic acknowledgeAction;
 @property(nonatomic) int addressBookRecordID; // @dynamic addressBookRecordID;
+@property(copy, nonatomic) NSSet *alertSuppressionContexts; // @dynamic alertSuppressionContexts;
+@property(copy, nonatomic) BBAction *alternateAction; // @dynamic alternateAction;
+@property(copy, nonatomic) NSString *bulletinID; // @dynamic bulletinID;
 @property(copy, nonatomic) NSArray *buttons; // @dynamic buttons;
 @property(nonatomic) BOOL clearable; // @dynamic clearable;
 @property(retain, nonatomic) NSDate *date; // @dynamic date;
@@ -45,11 +53,11 @@
 @property(copy, nonatomic) NSString *publisherBulletinID; // @dynamic publisherBulletinID;
 @property(retain, nonatomic) NSDate *recencyDate; // @dynamic recencyDate;
 @property(copy, nonatomic) NSString *recordID; // @dynamic recordID;
-@property(copy, nonatomic) BBAction *replyAction; // @dynamic replyAction;
 @property(copy, nonatomic) NSString *section; // @dynamic section;
 @property(copy, nonatomic) NSString *sectionID; // @dynamic sectionID;
 @property(nonatomic) int sectionSubtype; // @dynamic sectionSubtype;
 @property(retain, nonatomic) BBSound *sound; // @dynamic sound;
+@property(copy, nonatomic) NSSet *subsectionIDs; // @dynamic subsectionIDs;
 @property(copy, nonatomic) NSString *subtitle; // @dynamic subtitle;
 @property(retain, nonatomic) NSTimeZone *timeZone; // @dynamic timeZone;
 @property(copy, nonatomic) NSString *title; // @dynamic title;

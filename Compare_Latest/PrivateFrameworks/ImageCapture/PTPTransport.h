@@ -17,14 +17,15 @@
     BOOL _timedOut;
     BOOL _responseReceived;
     PTPOperationResponsePacket *_response;
-    BOOL _callbackThreadIsRunning;
     struct _opaque_pthread_t {
         long _field1;
         struct __darwin_pthread_handler_rec *_field2;
         char _field3[596];
     } *_callbackThread;
-    struct _opaque_pthread_mutex_t _callbackThreadMutex;
-    struct _opaque_pthread_mutex_t _callbackThreadRunMutex;
+    struct _opaque_pthread_mutex_t {
+        long __sig;
+        char __opaque[40];
+    } _callbackThreadMutex;
     struct _opaque_pthread_cond_t {
         long __sig;
         char __opaque[24];
@@ -36,47 +37,47 @@
     BOOL _headerBufferFound;
     BOOL _delegateNeedsResponse;
     BOOL _busy;
-    unsigned int _canceledTransactionID;
+    unsigned long _canceledTransactionID;
     PTPWrappedBytes *_dataForTransaction;
     unsigned long long _excessReceivedDataSize;
+    unsigned long _totalBytesFilled;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)cleanupCallbackThread;
-- (void *)callbackThreadFunction;
-- (BOOL)isCallbackThreadRunning;
-- (struct __CFRunLoop *)callbackThreadRunLoop;
-- (int)lockCallbackThreadMutex;
-- (int)unlockCallbackThreadMutex;
-- (int)signalCallbackThreadCondition;
-- (int)waitForCallbackThreadConditionSignalWithTimeout:(long)arg1;
-- (id)response;
-- (void)setResponse:(id)arg1;
-- (void)setDelegate:(id)arg1;
-- (BOOL)responseReceived;
-- (void)setResponseReceived:(BOOL)arg1;
-- (unsigned short)type;
-- (int)connectionStatus;
-- (BOOL)startCallbackThread;
-- (void)endCallbackThread;
-- (BOOL)startResponder;
-- (BOOL)startInitiator;
-- (void)stop;
-- (int)role;
-- (BOOL)connected;
-- (BOOL)timedOut;
-- (void)setTimedOut:(BOOL)arg1;
-- (id)sendRequest:(id)arg1 receiveData:(id)arg2 timeout:(unsigned long)arg3;
-- (id)sendRequest:(id)arg1 sendData:(id)arg2 timeout:(unsigned long)arg3;
-- (void)sendData:(id)arg1;
-- (BOOL)sendResponse:(id)arg1;
-- (BOOL)sendEvent:(id)arg1;
-- (void)abortPendingIO;
-- (void)cancelTransaction:(id)arg1;
-- (unsigned short)deviceStatus;
-- (void)deviceReset;
 - (unsigned long long)excessReceivedDataSize;
+- (void)deviceReset;
+- (unsigned short)deviceStatus;
+- (void)cancelTransaction:(id)arg1;
+- (void)abortPendingIO;
+- (BOOL)sendEvent:(id)arg1;
+- (BOOL)sendResponse:(id)arg1;
+- (void)sendData:(id)arg1;
+- (id)sendRequest:(id)arg1 sendData:(id)arg2 timeout:(unsigned long)arg3;
+- (id)sendRequest:(id)arg1 receiveData:(id)arg2 timeout:(unsigned long)arg3;
+- (void)setTimedOut:(BOOL)arg1;
+- (BOOL)timedOut;
+- (BOOL)connected;
+- (int)role;
+- (void)stop;
+- (BOOL)startInitiator;
+- (BOOL)startResponder;
+- (void)endCallbackThread;
+- (BOOL)startCallbackThread;
+- (int)connectionStatus;
+- (unsigned short)type;
+- (void)setResponseReceived:(BOOL)arg1;
+- (BOOL)responseReceived;
+- (void)setDelegate:(id)arg1;
+- (void)setResponse:(id)arg1;
+- (id)response;
+- (int)waitForCallbackThreadConditionSignalWithTimeout:(long)arg1;
+- (int)signalCallbackThreadCondition;
+- (int)unlockCallbackThreadMutex;
+- (int)lockCallbackThreadMutex;
+- (struct __CFRunLoop *)callbackThreadRunLoop;
+- (void *)callbackThreadFunction;
+- (void)cleanupCallbackThread;
+- (void)dealloc;
+- (id)init;
 
 @end
 

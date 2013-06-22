@@ -28,28 +28,6 @@
     struct CGPoint _centroidPoint;
 }
 
-- (id)init;
-@property(readonly, nonatomic) float skippedCumulativePercentage;
-@property(readonly, nonatomic) float cumulativePercentage;
-@property(readonly, nonatomic) float cumulativeMotion;
-@property(readonly, nonatomic) float incrementalMotion;
-- (void)reset;
-- (void)skipCumulativeMotion;
-- (float)computeNonlinearSpeedGain:(float)arg1;
-- (float)computeHandSizeCompensationGain:(float)arg1;
-- (void)computeGestureMotion:(struct __SBGestureContext *)arg1;
-- (float)computeIncrementalGestureMotion:(struct __SBGestureContext *)arg1;
-- (void)computeHasSignificantMotionIfNeeded:(struct __SBGestureContext *)arg1;
-- (void)computeCentroidPoint:(struct __SBGestureContext *)arg1;
-- (float)projectMotionForInterval:(double)arg1;
-- (int)completionTypeProjectingMomentumForInterval:(double)arg1;
-- (void)updateForBeganOrMovedTouches:(struct __SBGestureContext *)arg1;
-- (void)updateForEndedOrCancelledTouches:(struct __SBGestureContext *)arg1;
-- (void)updateActiveTouches:(struct __SBGestureContext *)arg1;
-- (void)touchesBegan:(struct __SBGestureContext *)arg1;
-- (void)touchesMoved:(struct __SBGestureContext *)arg1;
-- (void)touchesEnded:(struct __SBGestureContext *)arg1;
-- (void)touchesCancelled:(struct __SBGestureContext *)arg1;
 @property(readonly, nonatomic) struct CGPoint centroidPoint; // @synthesize centroidPoint=_centroidPoint;
 @property(readonly, nonatomic) struct CGPoint movementVelocityInPointsPerSecond; // @synthesize movementVelocityInPointsPerSecond=_movementVelocityInPointsPerSecond;
 @property(nonatomic) int requiredDirectionality; // @synthesize requiredDirectionality=_requiredDirectionality;
@@ -58,6 +36,28 @@
 @property(nonatomic) float animationDistance; // @synthesize animationDistance=_animationDistance;
 @property(nonatomic) unsigned int minTouches; // @synthesize minTouches=m_minTouches;
 @property(readonly, nonatomic) int degreeOfFreedom; // @synthesize degreeOfFreedom=m_degreeOfFreedom;
+- (void)touchesCancelled:(struct __SBGestureContext *)arg1;
+- (void)touchesEnded:(struct __SBGestureContext *)arg1;
+- (void)touchesMoved:(struct __SBGestureContext *)arg1;
+- (void)touchesBegan:(struct __SBGestureContext *)arg1;
+- (void)updateActiveTouches:(struct __SBGestureContext *)arg1;
+- (void)updateForEndedOrCancelledTouches:(struct __SBGestureContext *)arg1;
+- (void)updateForBeganOrMovedTouches:(struct __SBGestureContext *)arg1;
+- (int)completionTypeProjectingMomentumForInterval:(double)arg1;
+- (float)projectMotionForInterval:(double)arg1;
+- (void)computeCentroidPoint:(struct __SBGestureContext *)arg1;
+- (void)computeHasSignificantMotionIfNeeded:(struct __SBGestureContext *)arg1;
+- (float)computeIncrementalGestureMotion:(struct __SBGestureContext *)arg1;
+- (void)computeGestureMotion:(struct __SBGestureContext *)arg1;
+- (float)computeHandSizeCompensationGain:(float)arg1;
+- (float)computeNonlinearSpeedGain:(float)arg1;
+- (void)skipCumulativeMotion;
+- (void)reset;
+@property(readonly, nonatomic) float incrementalMotion;
+@property(readonly, nonatomic) float cumulativeMotion;
+@property(readonly, nonatomic) float cumulativePercentage;
+@property(readonly, nonatomic) float skippedCumulativePercentage;
+- (id)init;
 
 @end
 

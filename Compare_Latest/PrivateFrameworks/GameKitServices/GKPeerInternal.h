@@ -8,7 +8,7 @@
 
 #import "GKTableCleanupWhenRemoved-Protocol.h"
 
-@class GKSessionInternal, NSData, NSString;
+@class GKSessionInternal, NSString;
 
 @interface GKPeerInternal : NSObject <GKTableCleanupWhenRemoved>
 {
@@ -20,7 +20,7 @@
     int _serviceCount;
     struct _DNSServiceRef_t *_resolveService;
     struct _DNSServiceRef_t *_txtRecordService;
-    NSData **_addrList;
+    id *_addrList;
     unsigned int *_interfaceList;
     unsigned int _servicePort;
     struct _DNSServiceRef_t **_lookupServiceList;
@@ -32,20 +32,6 @@
 }
 
 + (void)freeLookupList:(struct _DNSServiceRef_t **)arg1 andAddrList:(id *)arg2 andInterfaceList:(unsigned int *)arg3 count:(int)arg4;
-- (id)initWithPID:(unsigned int)arg1 displayName:(id)arg2 serviceName:(id)arg3;
-- (void)dealloc;
-@property int serviceCount; // @synthesize serviceCount=_serviceCount;
-- (BOOL)tryDetruncateDisplayName:(id)arg1;
-- (void)addLookup:(struct _DNSServiceRef_t *)arg1;
-- (void)removeAndReturnLookupList:(struct _DNSServiceRef_t ***)arg1 andAddrList:(id **)arg2 andInterfaceList:(unsigned int **)arg3 count:(int *)arg4;
-- (BOOL)containsLookupService:(struct _DNSServiceRef_t *)arg1;
-- (void)setAddr:(const struct sockaddr_in *)arg1 interface:(unsigned int)arg2 forLookupService:(struct _DNSServiceRef_t *)arg3;
-- (void)copyLookupList:(struct _DNSServiceRef_t ***)arg1 count:(int *)arg2;
-- (int)usableAddrs;
-- (void)stopResolving;
-- (void)clearResolving;
-- (void)stopTXTRecordMonitoring;
-- (void)cleanupForGKTable:(id)arg1;
 @property BOOL needsToTimeout; // @synthesize needsToTimeout=_needsToTimeout;
 @property double connectTimeout; // @synthesize connectTimeout=_connectTimeout;
 @property(retain, nonatomic) GKSessionInternal *session; // @synthesize session=_session;
@@ -57,6 +43,20 @@
 @property(readonly) unsigned int pid; // @synthesize pid=_pid;
 @property(readonly) NSString *displayName; // @synthesize displayName=_displayName;
 @property(readonly) NSString *serviceName; // @synthesize serviceName=_serviceName;
+- (void)cleanupForGKTable:(id)arg1;
+- (void)stopTXTRecordMonitoring;
+- (void)clearResolving;
+- (void)stopResolving;
+- (int)usableAddrs;
+- (void)copyLookupList:(struct _DNSServiceRef_t ***)arg1 count:(int *)arg2;
+- (void)setAddr:(const struct sockaddr_in *)arg1 interface:(unsigned int)arg2 forLookupService:(struct _DNSServiceRef_t *)arg3;
+- (BOOL)containsLookupService:(struct _DNSServiceRef_t *)arg1;
+- (void)removeAndReturnLookupList:(struct _DNSServiceRef_t ***)arg1 andAddrList:(id **)arg2 andInterfaceList:(unsigned int **)arg3 count:(int *)arg4;
+- (void)addLookup:(struct _DNSServiceRef_t *)arg1;
+- (BOOL)tryDetruncateDisplayName:(id)arg1;
+@property int serviceCount; // @synthesize serviceCount=_serviceCount;
+- (void)dealloc;
+- (id)initWithPID:(unsigned int)arg1 displayName:(id)arg2 serviceName:(id)arg3;
 
 @end
 

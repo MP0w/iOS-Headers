@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
 
 @interface EKDaemonConnection : NSObject
 {
@@ -15,17 +15,18 @@
     unsigned int _serverPort;
     unsigned int _machPort;
     unsigned int _connectionPort;
+    NSObject<OS_dispatch_queue> *_connectionLock;
     id _delegate;
     NSMutableDictionary *_replyHandlers;
     unsigned int _nextID;
-    struct dispatch_source_s *_replySource;
-    struct dispatch_queue_s *_replyHandlerLock;
+    NSObject<OS_dispatch_source> *_replySource;
+    NSObject<OS_dispatch_queue> *_replyHandlerLock;
     BOOL _registeredForStartNote;
 }
 
 @property id delegate; // @synthesize delegate=_delegate;
 - (void)_finishAllRepliesOnServerDeath;
-- (void)_processReplyWithID:(unsigned int)arg1 data:(id)arg2;
+- (void)_processReplyWithID:(unsigned int)arg1 data:(id)arg2 finished:(BOOL)arg3;
 - (void)removeReplyHandler:(id)arg1;
 - (id)addReplyHandler:(id)arg1;
 - (void)_daemonRestarted;

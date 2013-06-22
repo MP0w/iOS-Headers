@@ -11,6 +11,8 @@
 }
 
 + (id)readFrom:(const struct XlChartSeriesFormat *)arg1 state:(id)arg2;
++ (int)xlMarkerStyleFromCHDMarkerType:(int)arg1;
++ (int)chdMarkerStyleFromXlMarkerType:(int)arg1;
 
 @end
 

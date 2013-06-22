@@ -6,14 +6,12 @@
 
 #import "UINavigationController.h"
 
-#import "GKComposeControllerDelegate-Protocol.h"
+@class GKComposeHostedViewController, NSNumber, NSString;
 
-@class GKComposeController, NSNumber, NSString;
-
-@interface GKFriendRequestComposeViewController : UINavigationController <GKComposeControllerDelegate>
+@interface GKFriendRequestComposeViewController : UINavigationController
 {
-    id <GKFriendRequestComposeViewControllerDelegate> _composeViewDelegate;
-    GKComposeController *_composeController;
+    id <GKFriendRequestComposeViewControllerDelegate> _composeViewDelegateWeak;
+    GKComposeHostedViewController *_composeController;
     NSString *_message;
     unsigned int _recipientCount;
 }
@@ -21,26 +19,25 @@
 + (unsigned int)maxNumberOfRecipients;
 @property(nonatomic) unsigned int recipientCount; // @synthesize recipientCount=_recipientCount;
 @property(retain, nonatomic) NSString *message; // @synthesize message=_message;
-@property(retain, nonatomic) GKComposeController *composeController; // @synthesize composeController=_composeController;
-@property(nonatomic) id <GKFriendRequestComposeViewControllerDelegate> composeViewDelegate; // @synthesize composeViewDelegate=_composeViewDelegate;
-- (void)composeControllerAppeared:(id)arg1;
-- (void)composeControllerSendStarted:(id)arg1;
-- (void)composeControllerCancelled:(id)arg1;
+@property(retain, nonatomic) GKComposeHostedViewController *composeController; // @synthesize composeController=_composeController;
 - (void)sendFinishedMessageToDelegateCancelled:(BOOL)arg1;
-- (void)addRecipientsWithAliases:(id)arg1;
 - (void)addRecipientsWithEmailAddresses:(id)arg1;
-- (void)addRecipientsNonPlayerIDCommon:(id)arg1;
 - (void)addRecipientsWithPlayerIDs:(id)arg1;
 - (void)prepareForNewRecipients:(id)arg1;
+@property(nonatomic) id <GKFriendRequestComposeViewControllerDelegate> composeViewDelegate; // @synthesize composeViewDelegate=_composeViewDelegateWeak;
+- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (BOOL)shouldAutomaticallyForwardRotationMethods;
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
-- (void)alertView:(id)arg1 willDismissWithButtonIndex:(int)arg2;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)__viewControllerWillBePresented:(BOOL)arg1;
 - (void)viewDidLoad;
-- (void)didReceiveMemoryWarning;
-- (void)dealloc;
 @property(retain, nonatomic) NSNumber *rid;
+- (BOOL)navigationBarHidden;
+- (void)dealloc;
 - (id)init;
 
 @end

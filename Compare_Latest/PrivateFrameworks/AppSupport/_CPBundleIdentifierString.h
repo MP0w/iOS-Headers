@@ -13,13 +13,13 @@
     BOOL _isProcessName;
 }
 
-- (id)_initWithExecutablePath:(id)arg1;
-- (void)dealloc;
-- (void)_loadBundleIdentifierOrProcessName;
-- (BOOL)_isProcessName;
-- (unsigned int)length;
-- (unsigned short)characterAtIndex:(unsigned int)arg1;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;
+- (unsigned short)characterAtIndex:(unsigned int)arg1;
+- (unsigned int)length;
+- (BOOL)_isProcessName;
+- (void)_loadBundleIdentifierOrProcessName;
+- (void)dealloc;
+- (id)_initWithExecutablePath:(id)arg1;
 
 @end
 

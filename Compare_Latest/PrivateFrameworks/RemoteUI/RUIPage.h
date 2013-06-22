@@ -6,9 +6,11 @@
 
 #import "UIViewController.h"
 
+#import "UIWebViewDelegate-Protocol.h"
+
 @class NSArray, NSDictionary, NSString, RUITableView, RUIWebView, UIBarButtonItem, UIToolbar, UIView;
 
-@interface RUIPage : UIViewController
+@interface RUIPage : UIViewController <UIWebViewDelegate>
 {
     NSString *_pageID;
     UIView *_containerView;
@@ -31,50 +33,52 @@
     id _delegate;
 }
 
-- (id)init;
-- (id)description;
-- (void)_updateNavItemTitle;
-@property(copy, nonatomic) NSString *navTitle; // @synthesize navTitle=_navTitle;
-@property(copy, nonatomic) NSString *loadingTitle; // @synthesize loadingTitle=_loadingTitle;
 @property(nonatomic) BOOL hidesBackButton; // @synthesize hidesBackButton=_hidesBackButton;
-- (void)setHasToolbar;
-- (id)_barButtonItemForDict:(id)arg1 action:(SEL)arg2;
-@property(readonly, nonatomic) NSArray *buttons;
-- (void)setButton:(id)arg1 enabled:(BOOL)arg2;
-@property(retain, nonatomic) NSDictionary *rightNavigationBarButton; // @synthesize rightNavigationBarButton=_rightNavigationBarButton;
-@property(retain, nonatomic) NSDictionary *leftNavigationBarButton; // @synthesize leftNavigationBarButton=_leftNavigationBarButton;
-- (void)_updateToolbar;
-@property(retain, nonatomic) NSDictionary *rightToolbarButton; // @synthesize rightToolbarButton=_rightToolbarButton;
-@property(retain, nonatomic) NSDictionary *leftToolbarButton; // @synthesize leftToolbarButton=_leftToolbarButton;
-- (void)_barButtonPressed:(id)arg1 isRight:(BOOL)arg2 isNavbar:(BOOL)arg3;
-- (void)_rightNavigationBarButtonPressed:(id)arg1;
-- (void)_leftNavigationBarButtonPressed:(id)arg1;
-- (void)_rightToolbarButtonPressed:(id)arg1;
-- (void)_leftToolbarButtonPressed:(id)arg1;
-- (float)_getKeyboardIntersectionHeight;
-- (void)_setContentInset:(float)arg1;
-- (void)_keyboardWillShow:(id)arg1;
-- (void)_keyboardWillHide:(id)arg1;
-@property(readonly, nonatomic) RUITableView *tableViewOM;
-- (BOOL)hasTableView;
-@property(readonly, nonatomic) RUIWebView *webViewOM;
-- (void)setDelegate:(id)arg1;
-- (void)populatePostbackDictionary:(id)arg1;
-- (void)dealloc;
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidLayoutSubviews;
-- (id)contentScrollView;
 @property(readonly, nonatomic) UIToolbar *toolbar; // @synthesize toolbar=_toolbar;
 @property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) UIBarButtonItem *leftToolbarItem; // @synthesize leftToolbarItem=_leftToolbarItem;
 @property(retain, nonatomic) UIBarButtonItem *rightToolbarItem; // @synthesize rightToolbarItem=_rightToolbarItem;
+@property(retain, nonatomic) NSDictionary *leftToolbarButton; // @synthesize leftToolbarButton=_leftToolbarButton;
+@property(retain, nonatomic) NSDictionary *rightToolbarButton; // @synthesize rightToolbarButton=_rightToolbarButton;
+@property(retain, nonatomic) NSDictionary *leftNavigationBarButton; // @synthesize leftNavigationBarButton=_leftNavigationBarButton;
+@property(retain, nonatomic) NSDictionary *rightNavigationBarButton; // @synthesize rightNavigationBarButton=_rightNavigationBarButton;
+@property(copy, nonatomic) NSString *loadingTitle; // @synthesize loadingTitle=_loadingTitle;
+@property(copy, nonatomic) NSString *navTitle; // @synthesize navTitle=_navTitle;
 @property(retain, nonatomic) NSString *validationFunction; // @synthesize validationFunction=_validationFunction;
 @property(copy, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
+- (id)contentScrollView;
+- (void)viewDidLayoutSubviews;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)viewDidDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidLoad;
+- (void)dealloc;
+- (void)populatePostbackDictionary:(id)arg1;
+- (id)delegate;
+- (void)setDelegate:(id)arg1;
+- (BOOL)hasWebView;
+@property(readonly, nonatomic) RUIWebView *webViewOM;
+- (BOOL)hasTableView;
+@property(readonly, nonatomic) RUITableView *tableViewOM;
+- (void)_keyboardWillHide:(id)arg1;
+- (void)_keyboardWillShow:(id)arg1;
+- (void)_setContentInset:(float)arg1;
+- (float)_getKeyboardIntersectionHeight;
+- (void)_leftToolbarButtonPressed:(id)arg1;
+- (void)_rightToolbarButtonPressed:(id)arg1;
+- (void)_leftNavigationBarButtonPressed:(id)arg1;
+- (void)_rightNavigationBarButtonPressed:(id)arg1;
+- (void)_barButtonPressed:(id)arg1 isRight:(BOOL)arg2 isNavbar:(BOOL)arg3;
+- (void)_updateToolbar;
+- (void)setButton:(id)arg1 enabled:(BOOL)arg2;
+@property(readonly, nonatomic) NSArray *buttons;
+- (id)_barButtonItemForDict:(id)arg1 action:(SEL)arg2;
+- (void)setHasToolbar;
+- (void)_updateNavItemTitle;
+- (id)description;
+- (id)init;
 
 @end
 

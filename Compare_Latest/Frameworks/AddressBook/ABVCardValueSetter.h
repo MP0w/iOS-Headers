@@ -10,14 +10,14 @@
 {
 }
 
-- (BOOL)propertyIsValidForPerson:(unsigned int)arg1;
-- (BOOL)setValue:(void *)arg1 forProperty:(unsigned int)arg2;
-- (void *)valueForProperty:(unsigned int)arg1;
-- (BOOL)setImageData:(id)arg1 cropRectX:(int)arg2 cropRectY:(int)arg3 cropRectWidth:(int)arg4 cropRectHeight:(int)arg5;
-- (BOOL)setImageData:(id)arg1;
-- (id)imageData;
-- (id)fullName;
 - (void)setValueInTemporaryCache:(id)arg1 forProperty:(unsigned int)arg2;
+- (id)fullName;
+- (id)imageData;
+- (BOOL)setImageData:(id)arg1;
+- (BOOL)setImageData:(id)arg1 cropRectX:(int)arg2 cropRectY:(int)arg3 cropRectWidth:(int)arg4 cropRectHeight:(int)arg5;
+- (void *)valueForProperty:(unsigned int)arg1;
+- (BOOL)setValue:(void *)arg1 forProperty:(unsigned int)arg2;
+- (BOOL)propertyIsValidForPerson:(unsigned int)arg1;
 
 @end
 

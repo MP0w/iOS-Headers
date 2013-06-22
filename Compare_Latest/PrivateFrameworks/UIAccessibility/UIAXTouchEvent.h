@@ -11,6 +11,10 @@
 }
 
 + (void)_initializeSafeCategory;
+- (BOOL)_accessibilityHitTestsAnyElement;
+- (void)_setAccessibilityHitTestsAnyElement:(BOOL)arg1;
+- (void)_setAccessibilityHitTestStartsAtElement:(id)arg1;
+- (id)_accessibilityHitTestStartsAtElement;
 
 @end
 

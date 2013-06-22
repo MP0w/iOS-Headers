@@ -6,67 +6,102 @@
 
 #import "NSObject.h"
 
+#import "SBIconIndexNode-Protocol.h"
+
 @class NSHashTable, UIImage;
 
-@interface SBIcon : NSObject
+@interface SBIcon : NSObject <SBIconIndexNode>
 {
     NSHashTable *_observers;
     id _badgeNumberOrString;
-    unsigned int _isRevealable:1;
     unsigned int _uninstalled:1;
     UIImage *_cachedIconImages[12];
-    id <SBIconDelegate> _delegate;
 }
 
-- (void)addObserver:(id)arg1;
-- (void)removeObserver:(id)arg1;
-- (BOOL)hasObserver:(id)arg1;
-@property(readonly, nonatomic) BOOL shouldWarmUp;
-- (int)iconFormatForLocation:(int)arg1;
-- (id)iconOverlayImageForLocation:(int)arg1;
-- (id)init;
-- (void)dealloc;
-- (id)representation;
-- (BOOL)matchesRepresentation:(id)arg1;
-- (void)localeChanged;
-- (void)setIsRevealable:(BOOL)arg1;
-- (BOOL)isRevealable;
-- (id)displayName;
-- (BOOL)canEllipsizeLabel;
-- (int)localizedCompareDisplayNames:(id)arg1;
-- (BOOL)matchesEntity:(id)arg1;
-- (id)tags;
-- (BOOL)launchEnabled;
-- (id)generateIconImage:(int)arg1;
-- (BOOL)shouldCacheImageForFormat:(int)arg1;
-- (id)getStandardIconImageForLocation:(int)arg1;
-- (id)getIconImage:(int)arg1;
-- (id)getGenericIconImage:(int)arg1;
-- (void)purgeCachedImages;
-- (void)reloadIconImage;
-- (void)reloadIconImagePurgingImageCache:(BOOL)arg1;
-- (int)badgeValue;
-- (id)badgeNumberOrString;
-- (void)noteBadgeDidChange;
-- (void)setBadge:(id)arg1;
-- (id)automationID;
-- (void)launch;
-- (void)launchFromViewSwitcher;
-- (BOOL)allowsUninstall;
-- (void)completeUninstall;
-- (void)setUninstalled;
-- (BOOL)isUninstalled;
-- (id)uninstallAlertTitle;
-- (id)uninstallAlertTitleForAppWithDocumentsInCloud;
-- (id)uninstallAlertTitleForAppWithDocumentUpdatesPending;
-- (id)uninstallAlertBody;
-- (id)uninstallAlertBodyForAppWithDocumentsInCloud;
-- (id)uninstallAlertBodyForAppWithDocumentUpdatesPending;
-- (id)uninstallAlertConfirmTitle;
-- (id)uninstallAlertCancelTitle;
-- (id)folderTitleOptions;
++ (id)memoryMappedIconImageOfSize:(struct CGSize)arg1 scale:(float)arg2 withDrawing:(id)arg3;
++ (id)memoryMappedIconImageForIconImage:(id)arg1;
++ (id)_memoryMappedIconImageOfSize:(struct CGSize)arg1 scale:(float)arg2 withDrawing:(id)arg3 fallbackImage:(void)arg4;
 - (id)folderFallbackTitle;
-@property(nonatomic) id <SBIconDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)folderTitleOptions;
+- (id)uninstallAlertCancelTitle;
+- (id)uninstallAlertConfirmTitle;
+- (id)uninstallAlertBodyForAppWithDocumentUpdatesPending;
+- (id)uninstallAlertBodyForAppWithDocumentsInCloud;
+- (id)uninstallAlertBody;
+- (id)uninstallAlertTitleForAppWithDocumentUpdatesPending;
+- (id)uninstallAlertTitleForAppWithDocumentsInCloud;
+- (id)uninstallAlertTitle;
+- (BOOL)isUninstalled;
+- (void)setUninstalled;
+- (void)completeUninstall;
+- (BOOL)allowsUninstall;
+- (void)launchFromViewSwitcher;
+- (void)launch;
+- (id)automationID;
+- (void)setBadge:(id)arg1;
+- (void)noteBadgeDidChange;
+- (int)accessoryTypeForLocation:(int)arg1;
+- (id)badgeTextForLocation:(int)arg1;
+- (id)badgeNumberOrString;
+- (int)badgeValue;
+- (void)reloadIconImagePurgingImageCache:(BOOL)arg1;
+- (void)reloadIconImage;
+- (void)purgeCachedImages;
+- (id)gridCellImage;
+- (id)getGenericIconImage:(int)arg1;
+- (id)getIconImage:(int)arg1;
+- (id)getStandardIconImageForLocation:(int)arg1;
+- (BOOL)shouldCacheImageForFormat:(int)arg1;
+- (id)generateIconImage:(int)arg1;
+- (BOOL)launchEnabled;
+- (id)tags;
+- (BOOL)matchesEntity:(id)arg1;
+- (int)localizedCompareDisplayNames:(id)arg1;
+- (BOOL)canEllipsizeLabel;
+- (id)displayName;
+- (void)localeChanged;
+- (BOOL)matchesRepresentation:(id)arg1;
+- (id)representation;
+- (void)dealloc;
+- (id)init;
+- (id)iconOverlayImageForLocation:(int)arg1;
+- (int)iconFormatForLocation:(int)arg1;
+@property(readonly, nonatomic) BOOL shouldWarmUp;
+- (BOOL)hasCachedImageForLocation:(int)arg1;
+- (id)nodeDescriptionWithPrefix:(id)arg1;
+- (void)removeNodeObserver:(id)arg1;
+- (void)addNodeObserver:(id)arg1;
+- (id)nodesAlongIndexPath:(id)arg1 consumedIndexes:(unsigned int)arg2;
+- (id)indexPathsForContainedNodeIdentifier:(id)arg1 prefixPath:(id)arg2;
+- (id)containedNodeIdentifiers;
+- (BOOL)containsNodeIdentifier:(id)arg1;
+- (id)nodeIdentifier;
+- (BOOL)hasObserver:(id)arg1;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
+- (id)application;
+- (BOOL)isApplicationIcon;
+- (BOOL)isBookmarkIcon;
+- (id)download;
+- (BOOL)isDownloadingIcon;
+- (BOOL)isUserInstalledApplicationIcon;
+- (BOOL)isWebApplicationIcon;
+- (id)folder;
+- (BOOL)isFolderIcon;
+- (id)applicationBundleID;
+- (id)webClip;
+- (id)leafIdentifier;
+- (BOOL)isLeafIcon;
+- (BOOL)isPrintStatusIcon;
+- (void)_notifyLaunchEnabledDidChange;
+- (void)_notifyAccessoriesDidUpdate;
+- (void)_notifyImageDidUpdate;
+- (BOOL)iconAppearsInNewsstand;
+- (BOOL)isNewsstandApplicationIcon;
+- (BOOL)isNewsstandIcon;
+- (BOOL)isEmptyPlaceholder;
+- (BOOL)isGrabbedIconPlaceholder;
+- (BOOL)isPlaceholder;
 
 @end
 
