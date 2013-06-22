@@ -1,4 +1,4 @@
-iOS7-Headers
+iOS-Headers
 ============
 
-iOS 7 beta 1 Headers 
+iOS 5/6/7/X Headers of All Frameworks (private and not) + SpringBoard
