@@ -10,16 +10,16 @@
 
 @interface GKSimpleComposeController : GKBaseComposeController
 {
-    id _doneHandler;
     NSString *_defaultMessage;
-    NSArray *_players;
     GKComposeHeaderField *_toField;
+    NSArray *_players;
+    id _doneHandler;
 }
 
-@property(retain, nonatomic) GKComposeHeaderField *toField; // @synthesize toField=_toField;
-@property(retain, nonatomic) NSArray *players; // @synthesize players=_players;
-@property(retain, nonatomic) NSString *defaultMessage; // @synthesize defaultMessage=_defaultMessage;
 @property(copy, nonatomic) id doneHandler; // @synthesize doneHandler=_doneHandler;
+@property(retain, nonatomic) NSArray *players; // @synthesize players=_players;
+@property(retain, nonatomic) GKComposeHeaderField *toField; // @synthesize toField=_toField;
+@property(retain, nonatomic) NSString *defaultMessage; // @synthesize defaultMessage=_defaultMessage;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)handleDoneButton;
 - (void)pushOntoNavigationController:(id)arg1 withDoneHandler:(id)arg2;

@@ -7,8 +7,8 @@
 #import "NSValue.h"
 
 @interface NSValue (MKAdditions)
-- (CDStruct_02837cd9)MKMapRectValue;
-- (id)_mapkit_initWithMKMapRect:(CDStruct_02837cd9)arg1;
+- (CDStruct_90e2a262)MKMapRectValue;
+- (id)_mapkit_initWithMKMapRect:(CDStruct_90e2a262)arg1;
 - (CDStruct_0c7fa811)_mapkit_zoomRegionValue;
 - (id)_mapkit_initWithZoomRegion:(CDStruct_0c7fa811)arg1;
 - (id)_mapkit_initWithCGRect:(struct CGRect)arg1;

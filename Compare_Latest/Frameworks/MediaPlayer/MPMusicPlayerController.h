@@ -36,6 +36,7 @@
 - (void)_serverDied:(id)arg1;
 - (void)_setUseApplicationSpecificQueue:(BOOL)arg1;
 - (BOOL)serverIsAlive;
+- (BOOL)skipInDirection:(int)arg1 error:(id *)arg2;
 - (void)setQueueWithGeniusMixPlaylist:(id)arg1;
 - (void)setQueueWithQuery:(id)arg1 firstItem:(id)arg2;
 - (void)setCurrentChapterIndex:(unsigned int)arg1;

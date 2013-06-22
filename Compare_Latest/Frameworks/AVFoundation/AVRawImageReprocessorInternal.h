@@ -10,7 +10,7 @@
 
 @interface AVRawImageReprocessorInternal : NSObject
 {
-    struct OpaqueCMBaseObject *reprocessor;
+    struct OpaqueFigRawImageReprocessor *reprocessor;
     NSMutableArray *reprocessHandlers;
 }
 

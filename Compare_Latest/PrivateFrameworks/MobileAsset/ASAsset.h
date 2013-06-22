@@ -20,8 +20,8 @@
 }
 
 @property(readonly, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
-@property(copy, nonatomic) id progressHandler; // @synthesize progressHandler=_progressHandler;
 @property(retain, nonatomic) NSDictionary *downloadOptions; // @synthesize downloadOptions=_downloadOptions;
+@property(copy, nonatomic) id progressHandler; // @synthesize progressHandler=_progressHandler;
 - (id)_getLocalAttribute:(id)arg1;
 - (struct __MobileAsset *)mobileAsset;
 - (BOOL)purgeAndReturnError:(id *)arg1;

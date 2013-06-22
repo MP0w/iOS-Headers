@@ -7,6 +7,6 @@
 #import "UIColor.h"
 
 @interface UIColor (PassesAdditions)
-+ (id)colorWithWLColor:(id)arg1;
++ (id)colorWithPKColor:(id)arg1;
 @end
 

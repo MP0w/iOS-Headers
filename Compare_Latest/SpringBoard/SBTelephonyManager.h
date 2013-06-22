@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "RadiosPreferencesDelegate-Protocol.h"
-
 @class NSString, NSTimer, RadiosPreferences, SBAlertItem;
 
-@interface SBTelephonyManager : NSObject <RadiosPreferencesDelegate>
+@interface SBTelephonyManager : NSObject
 {
     NSString *_cachedCTRegistrationStatus;
     BOOL _emergencyCallsOnly;
@@ -42,6 +40,8 @@
     int _wantsToHideDataIndicators;
     int _modemDataConnectionType;
     BOOL _modemDataConnectionTypeIsKnown;
+    BOOL _fallingBackToCellular;
+    struct tcp_connection_fallback_watch_s *_cellularFallbackWatcher;
 }
 
 + (id)sharedTelephonyManagerCreatingIfNecessary:(BOOL)arg1;

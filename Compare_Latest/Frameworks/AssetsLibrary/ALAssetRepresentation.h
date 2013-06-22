@@ -11,8 +11,10 @@
 @interface ALAssetRepresentation : NSObject
 {
     id _internal;
+    BOOL _ignoreRead;
 }
 
+@property BOOL ignoreRead; // @synthesize ignoreRead=_ignoreRead;
 @property(retain, nonatomic) ALAssetRepresentationPrivate *internal; // @synthesize internal=_internal;
 - (id)filename;
 - (float)scale;

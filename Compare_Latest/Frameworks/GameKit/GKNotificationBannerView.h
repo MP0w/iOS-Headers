@@ -19,6 +19,7 @@
     UILabel *_messageLabel;
     double _duration;
     id _completionHandler;
+    id _touchHandler;
 }
 
 + (void)decrementCount;
@@ -26,6 +27,7 @@
 + (id)semaphore;
 + (id)queue;
 + (id)bannerWindow;
+@property(copy, nonatomic) id touchHandler; // @synthesize touchHandler=_touchHandler;
 @property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
@@ -36,6 +38,8 @@
 - (void)_layoutForOrientation:(int)arg1 animated:(BOOL)arg2;
 - (void)_hide;
 - (void)_show;
+- (void)_wasTouched:(id)arg1;
+- (void)showWithTouchHandler:(id)arg1;
 - (void)showWithCompletionHandler:(id)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;

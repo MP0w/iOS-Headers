@@ -32,6 +32,7 @@
 @property(readonly, nonatomic) int naturalTimeScale;
 @property(readonly, nonatomic) struct CGSize naturalSize;
 @property(readonly, nonatomic) struct CGAffineTransform preferredTransform;
+@property(readonly, nonatomic) float preferredSoundCheckVolumeNormalization;
 @property(readonly, nonatomic) float preferredVolume;
 @property(readonly, nonatomic) float preferredRate;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 duration;

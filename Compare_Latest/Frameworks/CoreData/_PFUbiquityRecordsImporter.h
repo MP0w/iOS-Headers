@@ -35,14 +35,13 @@
     NSMutableDictionary *_pendingNotificationUserInfo;
     BOOL _allowBaselineRoll;
     unsigned int _pendingImportOperationsCount;
-    NSSet *_failedPendingTransactionLogLocations;
 }
 
 + (void)afterDelay:(double)arg1 executeBlockOnRootQueue:(id)arg2;
 + (void)executeBlockOnRootQueue:(id)arg1;
 + (BOOL)canProcessContentsOfUbiquityRootPath:(id)arg1;
 + (void)initialize;
-@property(readonly) NSSet *failedPendingTransactionLogLocations; // @synthesize failedPendingTransactionLogLocations=_failedPendingTransactionLogLocations;
+@property(readonly) NSSet *failedPendingTransactionLogLocations; // @synthesize failedPendingTransactionLogLocations=_failedPendingTransactionLogs;
 @property(readonly) NSSet *pendingTransactionLogLocations; // @synthesize pendingTransactionLogLocations=_pendingTransactionLogLocations;
 @property BOOL allowBaselineRoll; // @synthesize allowBaselineRoll=_allowBaselineRoll;
 @property BOOL importOnlyActiveStores; // @synthesize importOnlyActiveStores=_importOnlyActiveStores;
@@ -76,10 +75,12 @@
 - (void)postImportNotificationForStoreName:(id)arg1 andLocalPeerID:(id)arg2 withUserInfo:(id)arg3;
 - (BOOL)shouldThrottleNotificationsWithOperation:(id)arg1;
 - (void)ubiquityIdentityChanged:(id)arg1;
+- (void)checkStoresAndContainer;
 - (void)_applicationResumed:(id)arg1;
 - (void)recoverFailedLogs;
 - (void)schedulePendingLogs;
 - (void)filePresenter:(id)arg1 wasNotifiedOfTransactionLogLocation:(id)arg2;
+- (void)cancelAllOperationsForStoreName:(id)arg1;
 - (void)stopMonitor;
 - (BOOL)startMonitor:(id *)arg1;
 - (id)createDictionaryOfStoreNameToLocations:(id)arg1;

@@ -145,6 +145,7 @@
 - (void)didDrawView;
 @property(readonly, nonatomic) VKConsoleView *consoleView; // @synthesize consoleView=_consoleView;
 @property(nonatomic) struct UIEdgeInsets edgeInsets;
+- (BOOL)writeVisibleTrafficTilesToDirectory:(id)arg1 error:(id *)arg2;
 - (id)detailedDescription;
 - (void)dealloc;
 - (void)didMoveToWindow;

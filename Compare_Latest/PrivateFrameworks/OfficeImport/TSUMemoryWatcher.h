@@ -13,8 +13,6 @@
     TSUFlushingManager *_flushingManager;
     BOOL _going;
     BOOL _stop;
-    int _warningRsizeMb;
-    int _urgentRsizeMb;
 }
 
 - (void)_simulateMemoryWarning:(id)arg1;

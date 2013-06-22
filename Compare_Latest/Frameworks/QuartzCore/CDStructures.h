@@ -537,21 +537,25 @@ struct Weak<id> {
 };
 
 struct _CAEAGLNativeWindow {
-    struct _EAGLWindowObject _field1;
-    struct CAEAGLBuffer *_field2;
-    struct Atomic _field3;
-    struct Atomic _field4;
-    struct SpinLock _field5;
-    struct _CAImageQueue *_field6;
-    id _field7;
-    struct x_list_struct *_field8;
-    unsigned int _field9;
-    struct CAEAGLBuffer *_field10;
-    struct CAEAGLBuffer *_field11;
-    unsigned int _field12;
+    struct _EAGLNativeWindowObject _field1;
+    void *_field2;
+    void *_field3;
+    void *_field4;
+    void *_field5;
+    struct x_list_struct *_field6;
+    struct Atomic _field7;
+    struct Atomic _field8;
+    struct SpinLock _field9;
+    struct _CAImageQueue *_field10;
+    id _field11;
+    struct x_list_struct *_field12;
     unsigned int _field13;
-    unsigned int _field14;
+    struct CAEAGLBuffer *_field14;
     struct CAEAGLBuffer *_field15;
+    unsigned int _field16;
+    unsigned int _field17;
+    unsigned int _field18;
+    struct CAEAGLBuffer *_field19;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -589,10 +593,14 @@ struct _CAStateControllerData {
     id _field4;
 };
 
-struct _EAGLWindowObject {
-    void *_field1;
+struct _EAGLNativeWindowObject {
+    int _field1;
     void *_field2;
     void *_field3;
+    void *_field4;
+    void *_field5;
+    void *_field6;
+    void *_field7;
 };
 
 struct _NSRange {

@@ -54,6 +54,7 @@
 - (void)sortSelectionBarAction:(id)arg1;
 - (void)clearScrollViewController;
 - (void)clearButtons;
+- (void)updateScrollViewControllerWithVisualStyle:(int)arg1;
 - (void)updateScrollViewController;
 - (void)jumpToCompositions;
 - (void)selectCandidate:(id)arg1;

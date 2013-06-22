@@ -60,6 +60,7 @@
 - (void)_connectionComplete:(id)arg1;
 - (id)_mimeTypeForExtension:(id)arg1;
 - (BOOL)_listenOnPort:(unsigned short)arg1;
+- (void)_cleanupListenSocket;
 @property(readonly, nonatomic) NSString *urlString;
 - (id)init;
 - (id)initWithPort:(unsigned short)arg1 documentRoot:(id)arg2;

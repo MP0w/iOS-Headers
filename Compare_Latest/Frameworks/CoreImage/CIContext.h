@@ -28,6 +28,10 @@
 - (struct CGImage *)createCGImage:(id)arg1 fromRect:(struct CGRect)arg2 format:(int)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (struct CGImage *)createCGImage:(id)arg1 fromRect:(struct CGRect)arg2 format:(int)arg3;
 - (struct CGImage *)createCGImage:(id)arg1 fromRect:(struct CGRect)arg2;
+- (void)render:(id)arg1 toIOSurface:(struct __IOSurface *)arg2 bounds:(struct CGRect)arg3 colorSpace:(struct CGColorSpace *)arg4;
+- (struct __IOSurface *)createIOSurface:(id)arg1 fromRect:(struct CGRect)arg2;
+- (struct __IOSurface *)createIOSurface:(id)arg1;
+- (void)render:(id)arg1 toTexture:(unsigned int)arg2 bounds:(struct CGRect)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (void)drawImage:(id)arg1 inRect:(struct CGRect)arg2 fromRect:(struct CGRect)arg3;
 - (void)drawImage:(id)arg1 atPoint:(struct CGPoint)arg2 fromRect:(struct CGRect)arg3;
 - (void)_insertEventMarker:(const char *)arg1;

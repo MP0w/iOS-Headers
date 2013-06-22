@@ -15,17 +15,20 @@
     BOOL _isBackgroundRequest;
     NSArray *_purchases;
     BOOL _shouldValidatePurchases;
+    BOOL _createsDownloads;
     BOOL _needsAuthentication;
 }
 
 @property(nonatomic) BOOL shouldValidatePurchases; // @synthesize shouldValidatePurchases=_shouldValidatePurchases;
 @property(nonatomic) BOOL needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;
+@property(nonatomic) BOOL createsDownloads; // @synthesize createsDownloads=_createsDownloads;
 @property(nonatomic, getter=isBackgroundRequest) BOOL backgroundRequest; // @synthesize backgroundRequest=_isBackgroundRequest;
 - (id)_purchaseForUniqueIdentifier:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)startWithCompletionBlock:(id)arg1;
 - (BOOL)start;
+- (void)startWithPurchaseResponseBlock:(id)arg1 completionBlock:(void)arg2;
 - (void)startWithPurchaseBlock:(id)arg1 completionBlock:(void)arg2;
 @property(readonly) NSArray *purchases;
 - (void)dealloc;

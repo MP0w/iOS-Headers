@@ -27,6 +27,7 @@
 @property(copy, nonatomic) NSString *appleID; // @synthesize appleID=_appleID;
 - (void).cxx_destruct;
 - (id)_signingSession;
+- (void)shouldPresentUpgradeFlowWithCompletion:(id)arg1;
 - (void)upgradeiCloudTermsIfNecessaryWithHandler:(id)arg1;
 - (void)fetchDelegateTokensWithAccountParameters:(id)arg1 delegateHints:(id)arg2 handler:(id)arg3;
 - (void)setupDelegateAccountsWithParameters:(id)arg1 handler:(id)arg2;

@@ -32,7 +32,7 @@
 @property(readonly, nonatomic) BOOL moveAfterSave; // @synthesize moveAfterSave=_moveAfterSave;
 @property(readonly, nonatomic) BOOL safeSaveSuccess; // @synthesize safeSaveSuccess=_safeSaveSuccess;
 @property(readonly, nonatomic) NSError *safeSaveError; // @synthesize safeSaveError=_safeSaveError;
-@property(readonly, nonatomic) PFUbiquityLocation *currentLocation; // @synthesize currentLocation=_currentLocation;
+@property(retain, nonatomic) PFUbiquityLocation *currentLocation; // @synthesize currentLocation=_currentLocation;
 @property(readonly, nonatomic) PFUbiquityLocation *safeSaveLocation; // @synthesize safeSaveLocation=_safeSaveLocation;
 @property(readonly, nonatomic) PFUbiquityLocation *permanentLocation; // @synthesize permanentLocation=_permanentLocation;
 - (void)setDownloadSuccess:(BOOL)arg1;
@@ -56,7 +56,6 @@
 - (BOOL)writeFile:(id *)arg1;
 - (BOOL)loadFile:(id *)arg1;
 - (BOOL)downloadLatestVersion:(BOOL)arg1 error:(id *)arg2;
-- (void)setCurrentLocation:(id)arg1;
 @property(readonly, nonatomic) BOOL existsInCloud;
 @property(readonly, nonatomic) BOOL existsAtSafeSaveLocation;
 @property(readonly, nonatomic) BOOL existsAtPermanentLocation;

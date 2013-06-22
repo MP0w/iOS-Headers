@@ -55,6 +55,7 @@
 - (id)folderContainingIndexPath:(id)arg1 relativeIndexPath:(id *)arg2;
 - (id)iconAtIndexPath:(id)arg1;
 - (id)indexPathForIconWithIdentifier:(id)arg1;
+- (id)indexPathForIcon:(id)arg1 includingPlaceholders:(BOOL)arg2;
 - (id)indexPathForIcon:(id)arg1;
 - (id)indexPathForNodeIdentifier:(id)arg1;
 - (id)listContainingLeafIconWithIdentifier:(id)arg1;

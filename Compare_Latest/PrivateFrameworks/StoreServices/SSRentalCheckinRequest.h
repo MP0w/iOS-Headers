@@ -16,6 +16,7 @@
 
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
+- (void)startWithConnectionResponseBlock:(id)arg1;
 - (void)startWithCompletionBlock:(id)arg1;
 @property(readonly) NSNumber *rentalKeyIdentifier;
 @property(readonly) NSNumber *accountIdentifier;

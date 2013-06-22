@@ -13,7 +13,7 @@
 
 @interface GKTurnBasedInviteViewController : GKMultiplayerViewController <UIActionSheetDelegate, GKFriendPickerViewControllerDelegate>
 {
-    id <GKTurnBasedInviteViewControllerDelegate> _delegate;
+    id <GKTurnBasedInviteViewControllerDelegate> _delegateWeak;
     BOOL _showCancelButton;
     NSMutableDictionary *_inviteMessageDictionary;
     NSError *_creationError;
@@ -22,7 +22,6 @@
 @property(retain, nonatomic) NSError *creationError; // @synthesize creationError=_creationError;
 @property(retain, nonatomic) NSMutableDictionary *inviteMessageDictionary; // @synthesize inviteMessageDictionary=_inviteMessageDictionary;
 @property(nonatomic) BOOL showCancelButton; // @synthesize showCancelButton=_showCancelButton;
-@property(nonatomic) id <GKTurnBasedInviteViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)friendPickerViewController:(id)arg1 didFinishWithPlayers:(id)arg2 inviteMessage:(id)arg3;
 - (void)finishWithError:(id)arg1;
 - (void)cancel;
@@ -32,6 +31,7 @@
 - (void)playNow;
 - (void)finishWithMatch:(id)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
+@property(nonatomic) id <GKTurnBasedInviteViewControllerDelegate> delegate; // @synthesize delegate=_delegateWeak;
 - (void)dealloc;
 
 @end

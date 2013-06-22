@@ -7,7 +7,10 @@
 #import "UINavigationItem.h"
 
 @interface UINavigationItem (SUAdditions)
+- (void)setTitleView:(id)arg1 animated:(BOOL)arg2;
 - (void)resetAllValues;
 - (void)mergeValuesFromItem:(id)arg1;
+- (void)fadeOutTitleView;
+- (void)fadeInTitleView;
 @end
 

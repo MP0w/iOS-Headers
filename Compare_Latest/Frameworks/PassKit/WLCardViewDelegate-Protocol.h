@@ -9,13 +9,14 @@
 @protocol WLCardViewDelegate <NSObject>
 
 @optional
-- (BOOL)cardViewBackGrowsCentered:(id)arg1;
-- (void)cardViewDidFlip:(id)arg1;
-- (BOOL)cardViewShouldFlip:(id)arg1;
-- (void)cardView:(id)arg1 flipButtonPressedForCard:(id)arg2;
-- (void)cardView:(id)arg1 deleteButtonPressedForCard:(id)arg2;
-- (void)cardViewTapped:(id)arg1;
-- (void)cardViewTouchesCancelled:(id)arg1;
-- (void)cardViewTouchesBegan:(id)arg1;
+- (BOOL)passViewBackGrowsCentered:(id)arg1;
+- (void)passViewDidFlip:(id)arg1 animated:(BOOL)arg2;
+- (BOOL)passViewShouldFlip:(id)arg1;
+- (void)passView:(id)arg1 flipButtonPressedForPass:(id)arg2;
+- (BOOL)passView:(id)arg1 deleteButtonEnabledForPass:(id)arg2;
+- (void)passView:(id)arg1 deleteButtonPressedForPass:(id)arg2;
+- (void)passViewTapped:(id)arg1;
+- (void)passViewTouchesCancelled:(id)arg1;
+- (void)passViewTouchesBegan:(id)arg1;
 @end
 

@@ -18,6 +18,7 @@
     float _valueWidth;
 }
 
+- (id)description;
 - (void)accessibilityDecrement;
 - (void)accessibilityIncrement;
 - (BOOL)isAccessibilityElement;

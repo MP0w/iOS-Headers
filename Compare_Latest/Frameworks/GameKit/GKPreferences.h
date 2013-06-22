@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSDictionary, NSString;
 
 @interface GKPreferences : NSObject
 {
@@ -26,6 +26,7 @@
 @property(nonatomic) unsigned int maxDefaultPlayersHosted; // @synthesize maxDefaultPlayersHosted=_maxDefaultPlayersHosted;
 @property(nonatomic) unsigned int maxDefaultPlayersP2P; // @synthesize maxDefaultPlayersP2P=_maxDefaultPlayersP2P;
 @property(nonatomic) BOOL HTTPShouldUsePipelining; // @synthesize HTTPShouldUsePipelining=_HTTPShouldUsePipelining;
+@property(retain, nonatomic) NSDictionary *nearbyMultiplayerOverride;
 @property(nonatomic) BOOL shouldAddPlayerInfoToAddressBook;
 @property(readonly, nonatomic) BOOL shouldDisallowInvitesFromStrangers;
 @property(nonatomic) BOOL shouldLinkPlayerToFacebook;

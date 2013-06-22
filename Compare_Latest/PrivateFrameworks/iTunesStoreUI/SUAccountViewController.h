@@ -6,19 +6,30 @@
 
 #import <iTunesStoreUI/SUStorePageViewController.h>
 
+@class NSString, SUMescalSession;
+
 @interface SUAccountViewController : SUStorePageViewController
 {
     BOOL _failed;
     int _style;
+    SUMescalSession *_mescalSession;
+    int _mescalState;
+    NSString *_primingSignature;
 }
 
++ (id)_latestAccountViewController;
 @property(nonatomic) int style; // @synthesize style=_style;
+@property(readonly, nonatomic, getter=_mescalSession) SUMescalSession *_mescalSession; // @synthesize _mescalSession;
+- (void)_mescalDidOpenWithSession:(id)arg1 error:(id)arg2;
 - (id)_bagKeyForStyle:(int)arg1;
 - (id)_authenticationQueryParametersForStyle:(int)arg1;
+- (void)_closeMescalSession;
 - (void)viewDidDisappear:(BOOL)arg1;
-- (void)handleFailureWithError:(id)arg1;
 - (id)newViewControllerForPage:(id)arg1 ofType:(int)arg2 returningError:(id *)arg3;
 - (id)newFetchOperation;
+- (void)handleFailureWithError:(id)arg1;
+- (void)enqueueFetchOperation;
+- (void)dealloc;
 - (id)init;
 
 @end

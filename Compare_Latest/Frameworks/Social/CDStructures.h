@@ -17,7 +17,34 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    float width;
+    float height;
 };
+
+struct UIEdgeInsets {
+    float top;
+    float left;
+    float bottom;
+    float right;
+};
+
+struct _NSRange {
+    unsigned int location;
+    unsigned int length;
+};
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    int version;
+    void *info;
+    void *retain;
+    void *release;
+    void *copyDescription;
+} CDStruct_304912e7;
+
+typedef struct {
+    int _field1;
+    int _field2;
+} CDStruct_1ef3fb1f;
 

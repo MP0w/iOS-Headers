@@ -17,10 +17,10 @@
 + (BOOL)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;
-- (unsigned char)_diffComponents:(double)arg1:(double)arg2:(unsigned long)arg3:(const char *)arg4:(char *)arg5;
-- (unsigned char)_addComponents:(double *)arg1:(unsigned long)arg2:(const char *)arg3:(char *)arg4;
-- (unsigned char)_decomposeAbsoluteTime:(double)arg1:(const char *)arg2:(char *)arg3;
-- (unsigned char)_composeAbsoluteTime:(double *)arg1:(const char *)arg2:(char *)arg3;
+- (unsigned char)_diffComponents:(double)arg1:(double)arg2:(unsigned long)arg3:(const char *)arg4:(void *)arg5;
+- (unsigned char)_addComponents:(double *)arg1:(unsigned long)arg2:(const char *)arg3:(void *)arg4;
+- (unsigned char)_decomposeAbsoluteTime:(double)arg1:(const char *)arg2:(void *)arg3;
+- (unsigned char)_composeAbsoluteTime:(double *)arg1:(const char *)arg2:(void *)arg3;
 - (unsigned char)_rangeOfUnit:(unsigned int)arg1 startTime:(double *)arg2 interval:(double *)arg3 forAT:(double)arg4;
 - (long)_ordinalityOfUnit:(unsigned int)arg1 inUnit:(unsigned int)arg2 forAT:(double)arg3;
 - (CDStruct_1ef3fb1f)_rangeOfUnit:(unsigned int)arg1 inUnit:(unsigned int)arg2 forAT:(double)arg3;

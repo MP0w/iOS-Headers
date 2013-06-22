@@ -44,6 +44,7 @@
 @property(retain) NSURL *primaryAssetURL;
 @property unsigned long long preOrderIdentifier;
 @property(copy) NSString *preferredAssetFlavor;
+@property(copy) NSString *pageProgressionDirection;
 - (void)setMD5HashStrings:(id)arg1 numberOfBytesToHash:(id)arg2;
 @property int keyStyle;
 @property(retain) NSString *fileExtension;

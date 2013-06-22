@@ -16,6 +16,10 @@
     ML3MusicLibrary_SQLiteDatabaseContext *_backgroundDatabaseContext;
     MLSQLiteConnection *_inMemoryDatabaseConnection;
     NSObject<OS_dispatch_queue> *_atomicityQueue;
+    NSMutableArray *_artworkConversionCompletionHandlers;
+    NSString *_artworkConverterPIDNotifyName;
+    int _artworkConverterPIDToken;
+    BOOL _isConvertingArtwork;
     ML3UbiquitousDatabase *_ubiquitousDatabase;
     ML3SqliteDatabase *_geniusDatabase;
     NSCountedSet *_notifyNamesToIgnore;
@@ -46,6 +50,7 @@
     BOOL _keepPresignedValidyAfterVerification;
 }
 
++ (BOOL)hasArtworkConversionManifestTasksRemainingUsingConnection:(id)arg1;
 + (unsigned int)numberOfArtworkStyles;
 + (unsigned int)readableArtworkFormatIDForArtworkFormatID:(unsigned int)arg1;
 + (struct MLArtworkFormatSpec)artworkFormatSpecForArtworkFormatID:(unsigned int)arg1;
@@ -69,13 +74,16 @@
 + (id)mainDatabasePath;
 + (BOOL)updateTrackIntegrityOnConnection:(id)arg1;
 + (id)sharedLibrary;
++ (void)disableAutomaticDatabaseValidation;
++ (BOOL)automaticDatabaseArtworkConversionEnabled;
++ (void)disableAutomaticDatabaseArtworkConversion;
 + (void)setImportationEnabled:(BOOL)arg1;
 + (BOOL)importationEnabled;
 + (void)initialize;
 + (void)beginDatabaseMigrationIfNecessary;
 + (BOOL)updateSortMapOnConnection:(id)arg1;
 + (BOOL)_inTransactionUpdateSearchMapOnConnection:(id)arg1;
-+ (BOOL)_inTransactionUpdateSortMapOnConnection:(id)arg1;
++ (BOOL)_inTransactionUpdateSortMapOnConnection:(id)arg1 forceUpdateOriginals:(BOOL)arg2;
 + (BOOL)createIndexesUsingConnection:(id)arg1;
 + (BOOL)dropIndexesUsingConnection:(id)arg1;
 + (BOOL)dropIndexesUsingConnection:(id)arg1 tableNames:(const char *)arg2;
@@ -87,6 +95,7 @@
 + (BOOL)buildDatabaseTablesUsingConnection:(id)arg1;
 + (id)indexSchemaSQL;
 + (id)itemIndexSchemaSQL;
++ (id)allTables;
 + (id)allSchemaSQL;
 + (id)itemSchemaSQL;
 + (id)sortMapSchemaSQL;
@@ -110,13 +119,20 @@
 - (id)appleIDForDSID:(unsigned long long)arg1;
 - (BOOL)setAppleID:(id)arg1 forDSID:(unsigned long long)arg2;
 - (void)_accessAccountCacheDBForSQL:(id)arg1 usingBlock:(id)arg2;
-- (void)migrateAlbumListJPEGToBGRA;
-- (void)migrateAlbumGridBGRA1xToJPEG1x;
-- (void)_migrateArtworkFrom:(unsigned int)arg1 to:(unsigned int)arg2;
-- (BOOL)migrateLegacyArtworkFromArtworkBlobFilePath:(id)arg1;
+- (void)convertAlbumListJPEGToBGRAWithNotificationInterval:(double)arg1;
+- (void)convertAlbumGridBGRA1xToJPEG1xWithNotificationInterval:(double)arg1;
+- (void)beginAutoConvertingArtworkFormats;
+- (void)beginConvertingArtworkFormatsWithCompletionHandler:(id)arg1;
+- (void)convertArtworkFormatsInBackground:(BOOL)arg1 completionHandler:(id)arg2;
+- (void)_noteUnnecessaryConversionForDeviceTypeFromArtworkFormat:(unsigned int)arg1 toArtworkFormat:(unsigned int)arg2;
+- (void)_convertArtworkInManifsetFromArtworkFormat:(unsigned int)arg1 toArtworkFormat:(unsigned int)arg2 notificationInterval:(double)arg3;
+- (BOOL)__convertArtworkCacheID:(id)arg1 fromArtworkFormat:(unsigned int)arg2 toArtworkFormat:(unsigned int)arg3 sourceOptions:(id)arg4 colorSpace:(struct CGColorSpace *)arg5;
+- (BOOL)convertLegacyArtworkFromArtworkBlobFilePath:(id)arg1;
 - (BOOL)compactArtwork;
 - (BOOL)deleteArtworkForCacheID:(id)arg1 formatID:(unsigned int)arg2;
+- (BOOL)deleteArtworkForCacheID:(id)arg1 formatID:(unsigned int)arg2 deleteAllFromConversionTable:(BOOL)arg3;
 - (BOOL)deleteArtworkForCacheID:(id)arg1;
+- (void)deleteFromArtworkConversionForCacheID:(id)arg1 fromFormatID:(unsigned int)arg2 toFormatID:(unsigned int)arg3;
 - (BOOL)deleteAllArtwork;
 - (BOOL)insertArtworkWithImageData:(id)arg1 forCacheID:(id)arg2;
 - (BOOL)writeToDatabaseArtworkForCacheID:(id)arg1 length:(unsigned long)arg2 formatID:(unsigned int)arg3 imageSubRect:(struct CGRect)arg4;
@@ -194,6 +210,7 @@
 - (BOOL)populateStaticItemsOfDynamicContainers;
 - (BOOL)executeSQL:(id)arg1;
 @property(readonly) BOOL requiresPostProcessing;
+@property(readonly) BOOL requiresArtworkConversionPostProcessing;
 - (id)newDatabaseConnection;
 - (void)dealloc;
 - (id)geniusDatabase;
@@ -212,6 +229,8 @@
 - (void)_accessDatabaseContextUsingBlock:(id)arg1;
 - (void)_onMainQueuePerformDatabaseContextBlock:(id)arg1;
 - (void)_onBackgroundQueuePerformDatabaseContextBlock:(id)arg1;
+- (void)_atomicClearIsConvertingArtwork;
+- (BOOL)_atomicTestAndSetIsConvertingArtworkWithCompletionHandler:(id)arg1;
 - (void)statementWithSQLPrefix:(id)arg1 inPersistentIDs:(const long long *)arg2 count:(unsigned int)arg3 usingBlock:(id)arg4;
 - (id)nondurableWriteSetForWriting;
 - (id)nondurableWriteSetForReading;
@@ -223,6 +242,7 @@
 - (id)albumArtistForEffectiveAlbumArtistName:(id)arg1;
 - (void)updateOrderingLanguagesForCurrentLanguage;
 - (BOOL)updateActivePlaylistNamesForCurrentLanguage;
+- (BOOL)handleArtworkConversion;
 - (BOOL)handlePrepareDatabase;
 - (BOOL)populateArtworkCacheWithArtworkData:(id)arg1 trackValues:(id)arg2;
 - (BOOL)resetAllContents;

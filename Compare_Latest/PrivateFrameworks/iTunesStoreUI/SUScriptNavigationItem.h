@@ -22,6 +22,7 @@
 - (id)attributeKeys;
 - (id)_copyScriptObjectForButtonItem:(id)arg1;
 - (id)_copyScriptButtonForButtonItem:(id)arg1;
+- (void)setTitleView:(id)arg1 animated:(BOOL)arg2;
 - (void)setRightItems:(id)arg1 animated:(BOOL)arg2;
 - (void)setRightItem:(id)arg1 animated:(BOOL)arg2;
 - (void)setLeftMostItem:(id)arg1 animated:(BOOL)arg2;

@@ -15,7 +15,7 @@
 + (id)sharedAssetsSaver;
 - (void)saveSyncedAssets:(id)arg1 completionBlock:(id)arg2;
 - (void)importFilesWithMasterPath:(id)arg1 sidecarFileInfo:(id)arg2 intoEventWithName:(id)arg3 importSessionIdentifier:(id)arg4 isPhotoStreamsPublishCandidate:(BOOL)arg5;
-- (void)saveImageAtPathToCameraRoll:(id)arg1;
+- (void)copyAssetToCameraRoll:(id)arg1;
 - (void)reenqueueAssetUUIDsForPhotoStreamPublication:(id)arg1;
 - (void)deletePhotoStreamAssetsWithUUIDs:(id)arg1 streamID:(id)arg2;
 - (void)deletePhotoStreamDataForStreamID:(id)arg1;

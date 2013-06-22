@@ -44,6 +44,7 @@
 - (unsigned int)_addChapterMetadataItem:(id)arg1 timeRange:(CDStruct_e83c9415)arg2 toChapters:(id)arg3 fromIndex:(unsigned int)arg4;
 - (id)availableChapterLocales;
 - (id)_chapterGroupInfo;
+- (BOOL)_shouldOptimizeAccessForLinearMoviePlayback;
 - (id)SHA1Digest;
 - (unsigned long long)downloadToken;
 - (id)downloadDestinationURL;

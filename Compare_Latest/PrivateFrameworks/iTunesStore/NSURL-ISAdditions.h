@@ -16,6 +16,7 @@
 - (id)schemeSwizzledURL;
 - (BOOL)isSafeExternalURL;
 - (id)urlBySettingQueryStringDictionary:(id)arg1;
+- (id)URLByAppendingQueryParameter:(id)arg1 value:(id)arg2;
 - (id)copyQueryStringDictionaryWithUnescapedValues:(BOOL)arg1;
 @end
 

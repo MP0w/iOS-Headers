@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableSet;
+@class NSMutableArray, NSMutableSet, NSRecursiveLock;
 
 @interface AXEventTapManager : NSObject
 {
@@ -16,6 +16,7 @@
     BOOL _isEnumeratingEventTaps;
     BOOL _shouldReorderEventTaps;
     id _installationCallback;
+    NSRecursiveLock *_eventTapLock;
 }
 
 + (id)sharedManager;

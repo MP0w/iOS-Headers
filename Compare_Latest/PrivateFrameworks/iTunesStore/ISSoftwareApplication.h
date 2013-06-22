@@ -20,6 +20,7 @@
     NSString *_containerPath;
     SSItemContentRating *_contentRating;
     NSNumber *_itemIdentifier;
+    NSString *_itemName;
     BOOL _profileValidated;
     NSString *_softwareType;
     NSNumber *_storeFrontIdentifier;
@@ -33,6 +34,7 @@
 @property(retain, nonatomic) NSNumber *storeFrontIdentifier; // @synthesize storeFrontIdentifier=_storeFrontIdentifier;
 @property(copy, nonatomic) NSString *softwareType; // @synthesize softwareType=_softwareType;
 @property(nonatomic, getter=isProfileValidated) BOOL profileValidated; // @synthesize profileValidated=_profileValidated;
+@property(copy, nonatomic) NSString *itemName; // @synthesize itemName=_itemName;
 @property(retain, nonatomic) NSNumber *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 @property(copy, nonatomic) SSItemContentRating *contentRating; // @synthesize contentRating=_contentRating;
 @property(copy, nonatomic) NSString *containerPath; // @synthesize containerPath=_containerPath;

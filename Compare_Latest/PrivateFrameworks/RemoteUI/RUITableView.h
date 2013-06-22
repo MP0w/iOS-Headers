@@ -10,7 +10,7 @@
 #import "UITableViewDelegate-Protocol.h"
 #import "UIWebViewDelegate-Protocol.h"
 
-@class NSMutableArray, RUITableViewRow, UIDatePicker, UIPickerView, UITableView;
+@class NSMutableArray, RUIObjectModel, RUITableViewRow, UIDatePicker, UIPickerView, UITableView;
 
 @interface RUITableView : RUIElement <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 {
@@ -22,13 +22,14 @@
     BOOL _showDatePicker;
     RUITableViewRow *_defaultFirstResponderRow;
     BOOL _viewShrunk;
-    id _delegate;
+    RUIObjectModel *_objectModel;
     BOOL _registeredForNotifications;
     float _lastLayoutWidth;
     float _fullscreenCellHeight;
     float _customMargin;
 }
 
+@property(nonatomic) RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
 @property(retain, nonatomic) RUITableViewRow *defaultFirstResponderRow; // @synthesize defaultFirstResponderRow=_defaultFirstResponderRow;
 @property(readonly, nonatomic) NSMutableArray *sections; // @synthesize sections=_sections;
 - (void)rowIsFirstResponder:(id)arg1;
@@ -71,7 +72,6 @@
 - (id)objectModelRowForIndexPath:(id)arg1;
 - (void)populatePostbackDictionary:(id)arg1;
 - (void)setCustomMargin:(float)arg1;
-- (void)setDelegate:(id)arg1;
 - (void)setAttributes:(id)arg1;
 - (id)tableView;
 - (void)dealloc;

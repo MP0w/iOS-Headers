@@ -10,19 +10,20 @@
 
 @interface PLActivityViewController : UIActivityViewController
 {
+    UIViewController *_referenceViewController;
+    NSArray *_photosActivities;
+    int _mode;
     id <PLActivityViewControllerDelegate> _delegate;
     int _idiom;
-    UIViewController *_referenceViewController;
-    int _mode;
-    NSArray *_photosActivities;
 }
 
++ (void)trackUserActivity:(id)arg1 forAssets:(id)arg2;
 + (id)applicationActivitiesForMode:(int)arg1 interfaceIdiom:(int)arg2;
-@property(retain, nonatomic) NSArray *photosActivities; // @synthesize photosActivities=_photosActivities;
-@property(nonatomic) int mode; // @synthesize mode=_mode;
-@property(retain, nonatomic) UIViewController *referenceViewController; // @synthesize referenceViewController=_referenceViewController;
 @property(nonatomic) int idiom; // @synthesize idiom=_idiom;
 @property(nonatomic) id <PLActivityViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) int mode; // @synthesize mode=_mode;
+@property(retain, nonatomic) NSArray *photosActivities; // @synthesize photosActivities=_photosActivities;
+@property(retain, nonatomic) UIViewController *referenceViewController; // @synthesize referenceViewController=_referenceViewController;
 - (void)_cleanupWithSuccess:(BOOL)arg1;
 - (BOOL)_shouldShowSystemActivity:(id)arg1;
 - (void)_performActivity:(id)arg1;

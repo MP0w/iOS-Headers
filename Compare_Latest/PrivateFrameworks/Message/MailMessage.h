@@ -19,7 +19,6 @@
 + (unsigned int)displayablePriorityForPriority:(int)arg1;
 + (unsigned int)validatePriority:(int)arg1;
 + (Class)dataMessageStoreToUse;
-+ (id)replyPrefixWithSpacer:(BOOL)arg1;
 + (id)forwardedMessagePrefixWithSpacer:(BOOL)arg1;
 - (void)dealloc;
 - (id)externalConversationID;

@@ -12,20 +12,20 @@
 
 @interface GKBaseComposeController : GKViewController <UITextViewDelegate>
 {
-    UIView *_intendedFirstResponder;
-    GKComposeMessageField *_messageField;
     NSArray *_composeHeaderFields;
     GKScrollView *_backgroundView;
-    GKComposeHeaderFieldBackgroundView *_bounceRevealTopView;
     struct CGRect _lastKnownKeyboardFrame;
+    GKComposeHeaderFieldBackgroundView *_bounceRevealTopView;
+    GKComposeMessageField *_messageField;
+    UIView *_intendedFirstResponder;
 }
 
-@property(nonatomic) struct CGRect lastKnownKeyboardFrame; // @synthesize lastKnownKeyboardFrame=_lastKnownKeyboardFrame;
+@property(nonatomic) UIView *intendedFirstResponder; // @synthesize intendedFirstResponder=_intendedFirstResponder;
+@property(retain, nonatomic) GKComposeMessageField *messageField; // @synthesize messageField=_messageField;
 @property(retain, nonatomic) GKComposeHeaderFieldBackgroundView *bounceRevealTopView; // @synthesize bounceRevealTopView=_bounceRevealTopView;
+@property(nonatomic) struct CGRect lastKnownKeyboardFrame; // @synthesize lastKnownKeyboardFrame=_lastKnownKeyboardFrame;
 @property(retain, nonatomic) GKScrollView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) NSArray *composeHeaderFields; // @synthesize composeHeaderFields=_composeHeaderFields;
-@property(retain, nonatomic) GKComposeMessageField *messageField; // @synthesize messageField=_messageField;
-@property(nonatomic) UIView *intendedFirstResponder; // @synthesize intendedFirstResponder=_intendedFirstResponder;
 - (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 - (void)layoutFieldsAnimated:(BOOL)arg1;
 - (void)layoutMessageViewAnimated:(BOOL)arg1;

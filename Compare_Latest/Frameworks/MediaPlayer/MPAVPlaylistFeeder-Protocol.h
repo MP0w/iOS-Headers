@@ -12,6 +12,7 @@
 @property(readonly, nonatomic) unsigned int initialPlaybackQueueDepth;
 - (BOOL)shouldReloadForChangeFromNetworkType:(int)arg1 toNetworkType:(int)arg2;
 - (id)itemForIndex:(unsigned int)arg1;
+- (BOOL)hasItemForIndex:(unsigned int)arg1;
 - (void)assumeOwnershipOfItems:(id)arg1;
 @end
 

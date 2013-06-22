@@ -28,7 +28,6 @@
 - (int)networkUsageTypeForAppWithDisplayID:(id)arg1;
 - (BOOL)homeScreenIsDisplayingWallpaper;
 - (id)createWallpaperView:(int)arg1;
-- (BOOL)canUserLaunchIcon;
 - (void)setIdleText:(id)arg1;
 - (void)setBadgeNumberOrString:(id)arg1 forApplicationWithID:(id)arg2;
 - (void)notifyOnNextUserEvent;
@@ -63,6 +62,8 @@
 - (BOOL)deviceIsPasscodeLockedRemotely;
 - (BOOL)deviceIsPasscodeLocked;
 - (BOOL)deviceIsLocked;
+- (BOOL)canUserLaunchIcon;
+- (BOOL)alertIsActive;
 - (BOOL)springBoardIsActive;
 - (BOOL)applicationInstalledForDisplayID:(id)arg1;
 - (id)topSuspendedEventsOnlyDisplayID;

@@ -11,6 +11,7 @@
 @interface MKMapItem : NSObject
 {
     NSString *_businessID;
+    NSString *_localSearchProviderID;
     NSString *_yelpID;
     NSArray *_attributions;
     BOOL isCurrentLocation;
@@ -42,6 +43,7 @@
 @property(copy, nonatomic) NSNumber *numberOfReviews; // @synthesize numberOfReviews;
 @property(copy, nonatomic) NSString *placeID; // @synthesize placeID;
 @property(copy, nonatomic) NSString *yelpID; // @synthesize yelpID=_yelpID;
+@property(copy, nonatomic) NSString *localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
 @property(copy, nonatomic) NSString *businessID; // @synthesize businessID=_businessID;
 @property(retain, nonatomic) NSURL *url; // @synthesize url;
 @property(copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber;

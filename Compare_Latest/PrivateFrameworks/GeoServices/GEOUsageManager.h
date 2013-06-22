@@ -25,7 +25,7 @@
 - (void)_sendUsageToServer;
 - (void)_applicationActivating;
 - (void)_applicationDeactivating;
-- (void)captureSearchFeedbackCollection:(id)arg1;
+- (void)captureMapsUsageFeedbackCollection:(id)arg1;
 - (void)captureTransitAppLaunchFeedbackCollection:(id)arg1;
 - (void)captureDirectionsFeedbackCollection:(id)arg1;
 - (void)captureUsageDataForTiles:(id)arg1;

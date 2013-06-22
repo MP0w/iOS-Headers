@@ -178,7 +178,6 @@
 - (void)_teardownVideoLayers;
 - (void)_setupVideoLayers;
 - (void)_ensureVideoLayersExist;
-- (id)_tintImage:(id)arg1 withColor:(id)arg2;
 - (void)changeToFullConferenceDisplayAnimated:(BOOL)arg1;
 - (BOOL)shouldBeInFullConferenceDisplay;
 - (BOOL)isShowingFullConferenceDisplay;
@@ -256,6 +255,7 @@
 - (id)audioRouteImage;
 - (id)muteImage;
 - (BOOL)useTwoButtonHUD;
+- (BOOL)supportsBackFacingCamera;
 - (void)dealloc;
 - (id)init;
 - (id)initWithDelegate:(id)arg1;

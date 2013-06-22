@@ -6,17 +6,18 @@
 
 #import "PBCodable.h"
 
-@class NSMutableArray, VKPGenericShieldStyleInfo;
+@class NSMutableArray, NSString, VKPGenericShieldStyleInfo;
 
 @interface VKPShield : PBCodable
 {
-    CDStruct_56d48c16 _identifiers;
     VKPGenericShieldStyleInfo *_genericShieldStyleInfo;
+    NSString *_identifier;
     NSMutableArray *_variants;
 }
 
 @property(retain, nonatomic) VKPGenericShieldStyleInfo *genericShieldStyleInfo; // @synthesize genericShieldStyleInfo=_genericShieldStyleInfo;
 @property(retain, nonatomic) NSMutableArray *variants; // @synthesize variants=_variants;
+@property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
@@ -29,12 +30,6 @@
 - (unsigned int)variantsCount;
 - (void)addVariants:(id)arg1;
 - (void)clearVariants;
-- (void)setIdentifiers:(int *)arg1 count:(unsigned int)arg2;
-- (int)identifierAtIndex:(unsigned int)arg1;
-- (void)addIdentifier:(int)arg1;
-- (void)clearIdentifiers;
-@property(readonly, nonatomic) int *identifiers;
-@property(readonly, nonatomic) unsigned int identifiersCount;
 - (void)dealloc;
 
 @end

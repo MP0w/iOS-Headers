@@ -37,9 +37,9 @@
 - (void)swapViewsWithOverlay:(id)arg1 andOverlay:(id)arg2;
 - (void)_addInternalOverlay:(id)arg1 withView:(id)arg2;
 - (void)addAndRemoveOverlayViews;
-- (id)_considerAddingOverlayView:(id)arg1 inAddRect:(CDStruct_02837cd9)arg2;
+- (id)_considerAddingOverlayView:(id)arg1 inAddRect:(CDStruct_90e2a262)arg2;
 - (void)_configureAndAddView:(id)arg1 forOverlay:(id)arg2;
-- (CDStruct_02837cd9)_mapRectWithFractionOfVisible:(double)arg1;
+- (CDStruct_90e2a262)_mapRectWithFractionOfVisible:(double)arg1;
 - (int)_viewIndexForOverlayView:(id)arg1;
 - (void)setDrawingEnabled:(BOOL)arg1;
 - (void)setLevelCrossFade:(BOOL)arg1;

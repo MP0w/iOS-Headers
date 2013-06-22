@@ -10,36 +10,36 @@
 
 @interface GKFacebookLikeButton : UIView
 {
-    float _paddingBetweenButtonAndLabel;
-    UIButton *_button;
-    UILabel *_labelView;
-    UIActivityIndicatorView *_spinner;
+    BOOL _liked;
+    BOOL _connectionError;
+    GKUITheme *_theme;
+    unsigned int _numberOfFriendLikes;
+    unsigned int _numberOfLikes;
+    struct CGSize _cachedButtonSize;
+    GKOpenGraphNode *_openGraphNode;
     UIImageView *_logoImageView;
     int _numberOfLines;
-    GKUITheme *_theme;
-    GKOpenGraphNode *_openGraphNode;
+    UIActivityIndicatorView *_spinner;
+    float _paddingBetweenButtonAndLabel;
+    UILabel *_labelView;
+    UIButton *_button;
     int _loading;
-    unsigned int _numberOfLikes;
-    BOOL _connectionError;
-    BOOL _liked;
-    struct CGSize _cachedButtonSize;
-    unsigned int _numberOfFriendLikes;
 }
 
-@property(nonatomic) unsigned int numberOfFriendLikes; // @synthesize numberOfFriendLikes=_numberOfFriendLikes;
-@property(nonatomic) struct CGSize cachedButtonSize; // @synthesize cachedButtonSize=_cachedButtonSize;
-@property(nonatomic) BOOL liked; // @synthesize liked=_liked;
-@property(nonatomic) BOOL connectionError; // @synthesize connectionError=_connectionError;
-@property(nonatomic) unsigned int numberOfLikes; // @synthesize numberOfLikes=_numberOfLikes;
 @property(nonatomic) int loading; // @synthesize loading=_loading;
-@property(retain, nonatomic) GKOpenGraphNode *openGraphNode; // @synthesize openGraphNode=_openGraphNode;
-@property(retain, nonatomic) GKUITheme *theme; // @synthesize theme=_theme;
+@property(retain, nonatomic) UIButton *button; // @synthesize button=_button;
+@property(retain, nonatomic) UILabel *labelView; // @synthesize labelView=_labelView;
+@property(nonatomic) float paddingBetweenButtonAndLabel; // @synthesize paddingBetweenButtonAndLabel=_paddingBetweenButtonAndLabel;
+@property(retain, nonatomic) UIActivityIndicatorView *spinner; // @synthesize spinner=_spinner;
 @property(nonatomic) int numberOfLines; // @synthesize numberOfLines=_numberOfLines;
 @property(retain, nonatomic) UIImageView *logoImageView; // @synthesize logoImageView=_logoImageView;
-@property(retain, nonatomic) UIActivityIndicatorView *spinner; // @synthesize spinner=_spinner;
-@property(retain, nonatomic) UILabel *labelView; // @synthesize labelView=_labelView;
-@property(retain, nonatomic) UIButton *button; // @synthesize button=_button;
-@property(nonatomic) float paddingBetweenButtonAndLabel; // @synthesize paddingBetweenButtonAndLabel=_paddingBetweenButtonAndLabel;
+@property(retain, nonatomic) GKOpenGraphNode *openGraphNode; // @synthesize openGraphNode=_openGraphNode;
+@property(nonatomic) struct CGSize cachedButtonSize; // @synthesize cachedButtonSize=_cachedButtonSize;
+@property(nonatomic) unsigned int numberOfLikes; // @synthesize numberOfLikes=_numberOfLikes;
+@property(nonatomic) unsigned int numberOfFriendLikes; // @synthesize numberOfFriendLikes=_numberOfFriendLikes;
+@property(retain, nonatomic) GKUITheme *theme; // @synthesize theme=_theme;
+@property(nonatomic) BOOL connectionError; // @synthesize connectionError=_connectionError;
+@property(nonatomic) BOOL liked; // @synthesize liked=_liked;
 - (void)buttonPressed:(id)arg1;
 - (void)sendLikeRequest;
 - (void)sendDislikeRequest;

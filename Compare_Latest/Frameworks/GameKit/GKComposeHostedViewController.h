@@ -10,16 +10,16 @@
 
 @interface GKComposeHostedViewController : GKHostedViewController
 {
-    NSMutableArray *_playerIDsToAddAsRecipients;
-    NSMutableArray *_emailsToAddAsRecipients;
     GKUITheme *_theme;
+    NSMutableArray *_emailsToAddAsRecipients;
     NSNumber *_rid;
+    NSMutableArray *_playerIDsToAddAsRecipients;
 }
 
-@property(retain, nonatomic) NSNumber *rid; // @synthesize rid=_rid;
-@property(retain, nonatomic) GKUITheme *theme; // @synthesize theme=_theme;
-@property(retain, nonatomic) NSMutableArray *emailsToAddAsRecipients; // @synthesize emailsToAddAsRecipients=_emailsToAddAsRecipients;
 @property(retain, nonatomic) NSMutableArray *playerIDsToAddAsRecipients; // @synthesize playerIDsToAddAsRecipients=_playerIDsToAddAsRecipients;
+@property(retain, nonatomic) NSNumber *rid; // @synthesize rid=_rid;
+@property(retain, nonatomic) NSMutableArray *emailsToAddAsRecipients; // @synthesize emailsToAddAsRecipients=_emailsToAddAsRecipients;
+@property(retain, nonatomic) GKUITheme *theme; // @synthesize theme=_theme;
 - (id)_presentingViewController;
 @property(copy, nonatomic) NSString *defaultMessage;
 - (void)addRecipientsWithEmailAddresses:(id)arg1;

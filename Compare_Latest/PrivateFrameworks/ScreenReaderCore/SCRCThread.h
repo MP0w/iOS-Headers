@@ -27,7 +27,7 @@
 + (void)postStopNotification;
 + (void)invalidateForKey:(id)arg1;
 + (double)lastStartTimeForKey:(id)arg1;
-+ (double)_performSelector:(SEL)arg1 withThreadKey:(id)arg2 onTarget:(id)arg3 waitTime:(double)arg4 cancelMask:(unsigned long)arg5 count:(unsigned long)arg6 firstObject:(id)arg7 moreObjects:(char *)arg8;
++ (double)_performSelector:(SEL)arg1 withThreadKey:(id)arg2 onTarget:(id)arg3 waitTime:(double)arg4 cancelMask:(unsigned long)arg5 count:(unsigned long)arg6 firstObject:(id)arg7 moreObjects:(void *)arg8;
 + (int)activeThreadCount;
 + (id)activity;
 + (void)initialize;
@@ -39,7 +39,7 @@
 - (void)setIsInvalid:(BOOL)arg1;
 - (double)performSelector:(SEL)arg1 onTarget:(id)arg2 cancelMask:(unsigned long)arg3 count:(unsigned long)arg4 objects:(id)arg5;
 - (double)performSelector:(SEL)arg1 onTarget:(id)arg2 count:(unsigned long)arg3 objects:(id)arg4;
-- (double)_performSelector:(SEL)arg1 onTarget:(id)arg2 cancelMask:(unsigned long)arg3 count:(unsigned long)arg4 firstObject:(id)arg5 moreObjects:(char *)arg6;
+- (double)_performSelector:(SEL)arg1 onTarget:(id)arg2 cancelMask:(unsigned long)arg3 count:(unsigned long)arg4 firstObject:(id)arg5 moreObjects:(void *)arg6;
 - (void)dealloc;
 - (void)_runThread:(id)arg1;
 - (void)_setKey:(id)arg1;

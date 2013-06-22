@@ -27,18 +27,18 @@
     BOOL _loading;
     NSError *_loadError;
     BOOL _needsRedisplay;
-    NSIndexSet *_indexesOfRowsWithLoadedData;
-    NSString *_iconURLStringKeyValuePath;
     int _loadDataReentryCount;
     NSSet *_itemsLoadingPurgeableData;
+    NSString *_iconURLStringKeyValuePath;
     GKNetworkImageSource *_iconSource;
+    NSIndexSet *_indexesOfRowsWithLoadedData;
 }
 
+@property(retain, nonatomic) NSIndexSet *indexesOfRowsWithLoadedData; // @synthesize indexesOfRowsWithLoadedData=_indexesOfRowsWithLoadedData;
 @property(retain, nonatomic) GKNetworkImageSource *iconSource; // @synthesize iconSource=_iconSource;
+@property(retain, nonatomic) NSString *iconURLStringKeyValuePath; // @synthesize iconURLStringKeyValuePath=_iconURLStringKeyValuePath;
 @property(retain, nonatomic) NSSet *itemsLoadingPurgeableData; // @synthesize itemsLoadingPurgeableData=_itemsLoadingPurgeableData;
 @property(nonatomic) int loadDataReentryCount; // @synthesize loadDataReentryCount=_loadDataReentryCount;
-@property(retain, nonatomic) NSString *iconURLStringKeyValuePath; // @synthesize iconURLStringKeyValuePath=_iconURLStringKeyValuePath;
-@property(retain, nonatomic) NSIndexSet *indexesOfRowsWithLoadedData; // @synthesize indexesOfRowsWithLoadedData=_indexesOfRowsWithLoadedData;
 @property(nonatomic) BOOL needsRedisplay; // @synthesize needsRedisplay=_needsRedisplay;
 @property(retain, nonatomic) NSError *loadError; // @synthesize loadError=_loadError;
 @property(nonatomic) BOOL loading; // @synthesize loading=_loading;

@@ -13,15 +13,22 @@
     ADAdRecipientRecord *_recipient;
     BOOL _reattemptPresentStoryboard;
     int _oldOrientation;
-    int _supportedOrientations;
+    UIViewController *_modalRemoteViewController;
     _UIRemoteViewController *_remoteViewController;
-    UIViewController *_modalViewController;
+    BOOL _modalPresentationInProgress;
+    id _storyboardDismissalHandler;
+    int _supportedOrientations;
+    BOOL _storyboardDismissalRequested;
 }
 
-@property(retain, nonatomic) UIViewController *modalViewController; // @synthesize modalViewController=_modalViewController;
-@property(retain, nonatomic) _UIRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
+@property(nonatomic) BOOL storyboardDismissalRequested; // @synthesize storyboardDismissalRequested=_storyboardDismissalRequested;
 @property(nonatomic) int supportedOrientations; // @synthesize supportedOrientations=_supportedOrientations;
+@property(copy, nonatomic) id storyboardDismissalHandler; // @synthesize storyboardDismissalHandler=_storyboardDismissalHandler;
+@property(nonatomic) BOOL modalPresentationInProgress; // @synthesize modalPresentationInProgress=_modalPresentationInProgress;
+@property(retain, nonatomic) _UIRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
+@property(retain, nonatomic) UIViewController *modalRemoteViewController; // @synthesize modalRemoteViewController=_modalRemoteViewController;
 - (void)storyboardDismissedLocalViewController;
+- (void)_restoreStatusBar;
 - (void)setStatusBarVisible:(BOOL)arg1;
 - (void)dismissModalAnimated:(BOOL)arg1;
 - (void)requestAndPresentModalAnimated:(BOOL)arg1;

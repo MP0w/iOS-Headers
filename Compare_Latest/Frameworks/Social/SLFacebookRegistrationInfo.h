@@ -10,22 +10,22 @@
 
 @interface SLFacebookRegistrationInfo : NSObject
 {
-    NSString *_lastName;
-    NSString *_gender;
     NSString *_email;
-    NSDate *_birthday;
-    NSNumber *_phone;
+    NSString *_lastName;
     NSString *_firstName;
+    NSString *_gender;
     NSString *_password;
+    NSNumber *_phone;
+    NSDate *_birthday;
 }
 
-@property(retain, nonatomic) NSString *password; // @synthesize password=_password;
-@property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
-@property(retain, nonatomic) NSNumber *phone; // @synthesize phone=_phone;
 @property(retain, nonatomic) NSDate *birthday; // @synthesize birthday=_birthday;
-@property(retain, nonatomic) NSString *email; // @synthesize email=_email;
+@property(retain, nonatomic) NSNumber *phone; // @synthesize phone=_phone;
+@property(retain, nonatomic) NSString *password; // @synthesize password=_password;
 @property(retain, nonatomic) NSString *gender; // @synthesize gender=_gender;
+@property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 @property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
+@property(retain, nonatomic) NSString *email; // @synthesize email=_email;
 - (void).cxx_destruct;
 - (id)debugDescription;
 - (BOOL)hasAllRequiredValues;

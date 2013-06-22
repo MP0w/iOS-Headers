@@ -34,6 +34,7 @@
 - (id)_newScriptInterface;
 - (void)_presentViewController:(id)arg1 fromViewController:(id)arg2 withTransition:(int)arg3;
 - (void)_presentDialog:(id)arg1;
+- (void)_mediaPlayerViewControllerWillDismiss:(id)arg1 animated:(BOOL)arg2;
 - (void)_hidePreviewOverlayAnimated:(BOOL)arg1;
 - (void)_exitStoreWithReason:(int)arg1;
 - (void)_dismissViewControllerFromViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;

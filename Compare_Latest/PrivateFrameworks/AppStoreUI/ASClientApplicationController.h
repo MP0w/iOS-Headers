@@ -16,6 +16,7 @@
     ISOperation *_geniusStatisticsOperation;
     int _libraryURLType;
     NSObject<OS_dispatch_source> *_reloadFromServerTimer;
+    NSObject<OS_dispatch_source> *_startDownloadManagerTimer;
     BOOL _usingNetwork;
 }
 
@@ -24,6 +25,7 @@
 - (void)_showAccessoryLookupForURL:(id)arg1;
 - (void)_setUsingNetwork:(BOOL)arg1;
 - (void)_reloadDownloadManagerFromServer;
+- (void)_cancelStartDownloadManagerTimer;
 - (void)_cancelReloadFromServerTimer;
 - (void)_cancelGeniusStatisticsOperation;
 - (BOOL)_cancelDownloadingIconOnHomeScreenWithDisplayID:(id)arg1;

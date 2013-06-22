@@ -35,6 +35,7 @@
 - (void)dealloc;
 - (id)hostSideViewControllerClassName;
 - (id)serviceSideViewControllerClassName;
+- (id)init;
 
 @end
 

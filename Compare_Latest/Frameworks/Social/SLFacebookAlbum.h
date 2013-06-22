@@ -12,22 +12,22 @@
 
 @interface SLFacebookAlbum : NSObject <NSCoding>
 {
-    NSString *_identifier;
-    BOOL _isDefaultAlbum;
-    BOOL _canUpload;
-    int _count;
-    NSString *_coverPhotoIdentifier;
     NSString *_name;
+    NSString *_coverPhotoIdentifier;
+    NSString *_identifier;
+    BOOL _canUpload;
+    BOOL _isDefaultAlbum;
+    int _count;
 }
 
 + (id)albumsWithAlbumDataDictionaries:(id)arg1;
 + (id)albumWithDataDictionary:(id)arg1;
-@property(retain) NSString *name; // @synthesize name=_name;
-@property(retain) NSString *coverPhotoIdentifier; // @synthesize coverPhotoIdentifier=_coverPhotoIdentifier;
 @property int count; // @synthesize count=_count;
-@property BOOL canUpload; // @synthesize canUpload=_canUpload;
 @property BOOL isDefaultAlbum; // @synthesize isDefaultAlbum=_isDefaultAlbum;
+@property BOOL canUpload; // @synthesize canUpload=_canUpload;
 @property(retain) NSString *identifier; // @synthesize identifier=_identifier;
+@property(retain) NSString *coverPhotoIdentifier; // @synthesize coverPhotoIdentifier=_coverPhotoIdentifier;
+@property(retain) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

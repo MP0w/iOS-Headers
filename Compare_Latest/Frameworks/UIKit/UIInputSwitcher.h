@@ -11,7 +11,6 @@
 @interface UIInputSwitcher : NSObject
 {
     UIDelayedAction *m_switcherDelay;
-    UIDelayedAction *m_hideSwitcherDelay;
     int m_state;
     UIInputSwitcherView *m_switcherView;
     NSString *_newMode;

@@ -11,17 +11,17 @@
 @interface PLCloudSharedAssetSaveJob : PLCloudSharingJob
 {
     BOOL _replacingOriginalWithDerivative;
-    NSString *_cloudAlbumGUID;
     NSString *_currentFilePath;
-    MSASAssetCollection *_currentCloudAssetCollection;
-    NSString *_currentCloudAssetGUID;
-    NSArray *_cloudAssetCollections;
-    NSDictionary *_currentCloudAssetMetadata;
-    NSString *_cloudPersonID;
-    int _jobType;
     NSArray *_cloudAssetGUIDsToDelete;
+    int _jobType;
+    NSString *_cloudPersonID;
     NSDictionary *_mstreamdInfoDictionary;
+    NSString *_currentCloudAssetGUID;
     BOOL _isCreatingPlaceHolder;
+    NSString *_cloudAlbumGUID;
+    NSDictionary *_currentCloudAssetMetadata;
+    NSArray *_cloudAssetCollections;
+    MSASAssetCollection *_currentCloudAssetCollection;
 }
 
 + (id)placeholderImageProperties;
@@ -32,17 +32,17 @@
 + (void)deleteCloudSharedAssetsWithCloudGUIDs:(id)arg1 info:(id)arg2;
 + (void)saveCloudSharedAssetAtPath:(id)arg1 forAssetCollection:(id)arg2 albumGUID:(id)arg3 assetMetadata:(id)arg4 personID:(id)arg5 info:(id)arg6;
 + (void)processMetadataForAssetCollections:(id)arg1 inAlbum:(id)arg2 personID:(id)arg3 info:(id)arg4;
-@property(nonatomic) BOOL isCreatingPlaceHolder; // @synthesize isCreatingPlaceHolder=_isCreatingPlaceHolder;
-@property(retain, nonatomic) NSDictionary *mstreamdInfoDictionary; // @synthesize mstreamdInfoDictionary=_mstreamdInfoDictionary;
-@property(retain, nonatomic) NSArray *cloudAssetGUIDsToDelete; // @synthesize cloudAssetGUIDsToDelete=_cloudAssetGUIDsToDelete;
-@property(nonatomic) int jobType; // @synthesize jobType=_jobType;
-@property(retain, nonatomic) NSString *cloudPersonID; // @synthesize cloudPersonID=_cloudPersonID;
-@property(retain, nonatomic) NSDictionary *currentCloudAssetMetadata; // @synthesize currentCloudAssetMetadata=_currentCloudAssetMetadata;
-@property(retain, nonatomic) NSArray *cloudAssetCollections; // @synthesize cloudAssetCollections=_cloudAssetCollections;
-@property(retain, nonatomic) NSString *currentCloudAssetGUID; // @synthesize currentCloudAssetGUID=_currentCloudAssetGUID;
 @property(retain, nonatomic) MSASAssetCollection *currentCloudAssetCollection; // @synthesize currentCloudAssetCollection=_currentCloudAssetCollection;
-@property(retain, nonatomic) NSString *currentFilePath; // @synthesize currentFilePath=_currentFilePath;
+@property(retain, nonatomic) NSArray *cloudAssetCollections; // @synthesize cloudAssetCollections=_cloudAssetCollections;
+@property(retain, nonatomic) NSDictionary *currentCloudAssetMetadata; // @synthesize currentCloudAssetMetadata=_currentCloudAssetMetadata;
 @property(retain, nonatomic) NSString *cloudAlbumGUID; // @synthesize cloudAlbumGUID=_cloudAlbumGUID;
+@property(nonatomic) BOOL isCreatingPlaceHolder; // @synthesize isCreatingPlaceHolder=_isCreatingPlaceHolder;
+@property(retain, nonatomic) NSString *currentCloudAssetGUID; // @synthesize currentCloudAssetGUID=_currentCloudAssetGUID;
+@property(retain, nonatomic) NSDictionary *mstreamdInfoDictionary; // @synthesize mstreamdInfoDictionary=_mstreamdInfoDictionary;
+@property(retain, nonatomic) NSString *cloudPersonID; // @synthesize cloudPersonID=_cloudPersonID;
+@property(nonatomic) int jobType; // @synthesize jobType=_jobType;
+@property(retain, nonatomic) NSArray *cloudAssetGUIDsToDelete; // @synthesize cloudAssetGUIDsToDelete=_cloudAssetGUIDsToDelete;
+@property(retain, nonatomic) NSString *currentFilePath; // @synthesize currentFilePath=_currentFilePath;
 - (unsigned int)_insertionIndexForAsset:(id)arg1 inAlbum:(id)arg2;
 - (void)executeDaemonOperationReplaceRecentlyUploadedOriginalJobType;
 - (void)executeDaemonOperationDeleteAssetJobType;

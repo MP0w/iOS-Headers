@@ -34,7 +34,6 @@
 - (void)_cfLowercase:(const void *)arg1;
 - (void)_cfAppendCString:(const char *)arg1 length:(int)arg2;
 - (void)appendCharacters:(const unsigned short *)arg1 length:(unsigned int)arg2;
-- (id)replacementObjectForPortCoder:(id)arg1;
 - (unsigned int)_replaceOccurrencesOfRegularExpressionPattern:(id)arg1 withTemplate:(id)arg2 options:(unsigned int)arg3 range:(struct _NSRange)arg4;
 
 @end

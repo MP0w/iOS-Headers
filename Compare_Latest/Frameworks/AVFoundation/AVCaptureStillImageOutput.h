@@ -13,9 +13,9 @@
     AVCaptureStillImageOutputInternal *_internal;
 }
 
-+ (id)jpegStillImageNSDataRepresentationForBGRASurface:(void *)arg1 size:(unsigned long)arg2;
-+ (struct CGImage *)cgImageForBGRASurface:(void *)arg1 size:(unsigned long)arg2;
-+ (id)jpegStillImageNSDataRepresentationForSurface:(void *)arg1 size:(unsigned long)arg2 metadata:(id)arg3;
++ (id)jpegStillImageNSDataRepresentationForBGRASurface:(struct __IOSurface *)arg1 size:(unsigned long)arg2;
++ (struct CGImage *)cgImageForBGRASurface:(struct __IOSurface *)arg1 size:(unsigned long)arg2;
++ (id)jpegStillImageNSDataRepresentationForSurface:(struct __IOSurface *)arg1 size:(unsigned long)arg2 metadata:(id)arg3;
 + (id)jpegStillImageNSDataRepresentation:(struct opaqueCMSampleBuffer *)arg1;
 + (void)initialize;
 - (void)_updateStillImageDataSizeForCaptureOptions:(id)arg1;

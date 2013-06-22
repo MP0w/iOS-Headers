@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class EKPersistentLocation, NSData, NSDate, NSString, NSTimeZone;
+@class EKPersistentLocation, NSData, NSDate, NSSet, NSString, NSTimeZone;
 
 @interface EKPersistentAlarm : EKPersistentObject <NSCopying>
 {
@@ -19,6 +19,8 @@
 - (BOOL)validate:(id *)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(copy, nonatomic) NSSet *snoozedAlarms;
+@property(retain, nonatomic) EKPersistentAlarm *originalAlarm;
 @property(nonatomic, getter=isDefaultAlarm) BOOL defaultAlarm;
 @property(copy, nonatomic) NSDate *acknowledgedDate;
 @property(copy, nonatomic) EKPersistentLocation *location;

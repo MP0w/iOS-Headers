@@ -6,22 +6,37 @@
 
 #import "NSObject.h"
 
-@class HSCloudClient;
+@class HSCloudClient, NSObject<OS_dispatch_queue>;
 
 @interface MPCloudController : NSObject
 {
-    BOOL _isCloudEnabled;
-    BOOL _isUpdateInProgress;
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    BOOL _canShowCloudDownloadButtons;
     HSCloudClient *_cloudClient;
+    BOOL _isCloudEnabled;
+    BOOL _isCellularDataActive;
+    BOOL _isShowingAllMusic;
+    BOOL _isUpdateInProgress;
+    BOOL _isWiFiEnabled;
+    BOOL _isObservingDataStatusChanges;
+    BOOL _isObservingWiFiChanges;
+    int _preferencesChangedNotifyToken;
+    BOOL _preferencesChangedNotifyTokenIsValid;
     BOOL _isInitialImport;
 }
 
-+ (void)setCanObserveWiFiChanges:(BOOL)arg1;
++ (BOOL)shouldProhibitActionsForCurrentNetworkConditions;
++ (void)migrateCellularDataPreferencesIfNeeded;
 + (BOOL)isCellularDataRestricted;
-+ (BOOL)canObserveWiFiChanges;
++ (BOOL)isMediaApplication;
 + (id)sharedCloudController;
 @property(readonly, nonatomic) BOOL isCloudEnabled; // @synthesize isCloudEnabled=_isCloudEnabled;
+- (void)_onQueue_updateCanShowCloudDownloadButtonsWithNotification:(BOOL)arg1;
 - (void)_initializeUpdateInProgressState;
+- (void)_handleTelephonyNotificationWithName:(id)arg1 userInfo:(id)arg2;
+- (BOOL)_currentIsShowingAllMusic;
+- (void)_wifiEnabledDidChangeNotification:(id)arg1;
+- (void)_cellularNetworkAllowedDidChangeNotification:(id)arg1;
 - (void)updatePlaylistWithSagaID:(unsigned long long)arg1 itemSagaIDs:(id)arg2 completionHandler:(id)arg3;
 - (void)setItemProperties:(id)arg1 forSagaID:(unsigned long long)arg2;
 - (void)resignActive;
@@ -34,6 +49,7 @@
 - (void)incrementItemProperty:(id)arg1 forSagaID:(unsigned long long)arg2;
 @property(readonly, nonatomic) BOOL hasCloudLockerAccount;
 @property(readonly, nonatomic) BOOL canShowCloudTracks;
+@property(readonly, nonatomic) BOOL canShowCloudDownloadButtons;
 - (void)becomeActive;
 - (void)addGeniusPlaylistWithName:(id)arg1 seedItemSagaIDs:(id)arg2 itemSagaIDs:(id)arg3 completionHandler:(id)arg4;
 - (void)addPlaylistWithName:(id)arg1 completionHandler:(id)arg2;

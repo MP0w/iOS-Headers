@@ -28,6 +28,7 @@
 @property(readonly, nonatomic) NSDictionary *translatedGlobalIDs; // @synthesize translatedGlobalIDs=_translatedGlobalIDs;
 @property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
+- (id)createMapOfManagedObjectIDsForGlobalIDs:(id)arg1 error:(id *)arg2;
 - (id)createMapOfManagedObjectIDsForStoreSaveSnapshot:(id)arg1 error:(id *)arg2;
 - (id)createGlobalObjectIDForManagedObjectID:(id)arg1;
 - (unsigned int)localPrimaryKeyForOwningPeerID:(id)arg1 andEntityName:(id)arg2 withPrimaryKey:(unsigned int)arg3;

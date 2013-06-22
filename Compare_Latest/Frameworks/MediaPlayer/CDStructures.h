@@ -80,6 +80,11 @@ struct MPMovieErrorLogInternal {
     AVPlayerItemErrorLog *errorLog;
 };
 
+struct StackItem {
+    void *_field1;
+    struct StackItem *_field2;
+};
+
 struct UIEdgeInsets {
     float top;
     float left;

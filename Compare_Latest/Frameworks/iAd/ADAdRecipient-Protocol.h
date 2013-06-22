@@ -7,6 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol ADAdRecipient <NSObject>
+@property(nonatomic) BOOL policyEngineManaged;
+- (void)storyboardViewControllerDidPresent;
 - (void)serverStoryboardDidTransitionOut;
 - (void)serverBannerViewDidFailToReceiveAdWithError:(id)arg1;
 - (void)serverBannerViewDidLoad;

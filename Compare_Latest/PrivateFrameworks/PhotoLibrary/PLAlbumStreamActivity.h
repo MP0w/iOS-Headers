@@ -16,14 +16,14 @@
     PLModalDimmingViewController *_modalDimmingViewController;
     PLCloudSharedCreateAlbumViewController *_createAlbumViewController;
     UIViewController *_referenceViewController;
-    BOOL _destinationAlbumWasCreated;
     id <PLAlbumStreamActivityDelegate> _delegate;
     NSObject<PLUserEditableAssetContainer> *_destinationStreamingAlbum;
+    BOOL _destinationAlbumWasCreated;
 }
 
+@property(readonly) BOOL destinationAlbumWasCreated; // @synthesize destinationAlbumWasCreated=_destinationAlbumWasCreated;
 @property(retain, nonatomic) NSObject<PLUserEditableAssetContainer> *destinationStreamingAlbum; // @synthesize destinationStreamingAlbum=_destinationStreamingAlbum;
 @property(nonatomic) id <PLAlbumStreamActivityDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly) BOOL destinationAlbumWasCreated; // @synthesize destinationAlbumWasCreated=_destinationAlbumWasCreated;
 @property(nonatomic) UIViewController *referenceViewController; // @synthesize referenceViewController=_referenceViewController;
 - (BOOL)albumPickerController:(id)arg1 shouldEnableAlbum:(id)arg2;
 - (void)albumStreamingCreateViewController:(id)arg1 didSucceed:(BOOL)arg2;

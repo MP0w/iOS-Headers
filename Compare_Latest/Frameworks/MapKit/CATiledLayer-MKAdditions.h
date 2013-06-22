@@ -9,8 +9,8 @@
 @interface CATiledLayer (MKAdditions)
 + (id)displayUncollectableOptions;
 + (id)displayDisableFadeOptions;
-- (void)displayInMapRect:(CDStruct_02837cd9)arg1 levelOfDetail:(int)arg2 options:(id)arg3;
-- (void)setNeedsDisplayInMapRect:(CDStruct_02837cd9)arg1 levelOfDetail:(int)arg2 options:(id)arg3;
-- (void)setNeedsDisplayInMapRect:(CDStruct_02837cd9)arg1 levelOfDetail:(int)arg2;
+- (void)displayInMapRect:(CDStruct_90e2a262)arg1 levelOfDetail:(int)arg2 options:(id)arg3;
+- (void)setNeedsDisplayInMapRect:(CDStruct_90e2a262)arg1 levelOfDetail:(int)arg2 options:(id)arg3;
+- (void)setNeedsDisplayInMapRect:(CDStruct_90e2a262)arg1 levelOfDetail:(int)arg2;
 @end
 

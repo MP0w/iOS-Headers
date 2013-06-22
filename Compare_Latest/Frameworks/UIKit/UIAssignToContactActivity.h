@@ -14,16 +14,16 @@
 
 @interface UIAssignToContactActivity : UIActivity <ABPeoplePickerNavigationControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
-    UIImagePickerController *_imagePickerController;
     UIImage *_image;
-    void *_person;
     ABPeoplePickerNavigationController *_peoplePicker;
+    UIImagePickerController *_imagePickerController;
+    void *_person;
 }
 
-@property(retain, nonatomic) ABPeoplePickerNavigationController *peoplePicker; // @synthesize peoplePicker=_peoplePicker;
 @property(nonatomic) void *person; // @synthesize person=_person;
-@property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) UIImagePickerController *imagePickerController; // @synthesize imagePickerController=_imagePickerController;
+@property(retain, nonatomic) ABPeoplePickerNavigationController *peoplePicker; // @synthesize peoplePicker=_peoplePicker;
+@property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void)imagePickerControllerDidCancel:(id)arg1;
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
 - (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;

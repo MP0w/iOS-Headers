@@ -46,6 +46,7 @@
 - (int)_showcaseRevealModeForPluginRevealMode:(int)arg1;
 - (void)revealModeWillChange:(int)arg1;
 - (void)_dismissUIPlugin:(id)arg1 animated:(BOOL)arg2;
+- (void)dismissPluginForEvent:(int)arg1;
 - (BOOL)pluginSuppressesNotifications;
 - (BOOL)pluginWantsScreenDimInterval:(double *)arg1;
 - (BOOL)pluginWantsInterfaceOrientation:(int *)arg1;

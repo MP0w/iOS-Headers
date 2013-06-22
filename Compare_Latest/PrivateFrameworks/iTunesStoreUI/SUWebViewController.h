@@ -9,7 +9,7 @@
 #import "SUWebViewDelegate-Protocol.h"
 #import "SUWebViewManagerDelegate-Protocol.h"
 
-@class ISURLRequestPerformance, NSURL, SSAuthenticationContext, SSMutableAuthenticationContext, SUDelayedNavigationItem, SUObjectPool, SUStorePageProtocol, SUWebView, SUWebViewManager;
+@class ISURLRequestPerformance, NSURL, SSAuthenticationContext, SSMutableAuthenticationContext, SUDelayedNavigationItem, SUMescalSession, SUObjectPool, SUStorePageProtocol, SUWebView, SUWebViewManager;
 
 @interface SUWebViewController : SUViewController <SUWebViewManagerDelegate, SUWebViewDelegate>
 {
@@ -18,6 +18,8 @@
     SUDelayedNavigationItem *_delayedNavigationItem;
     BOOL _hasEverAppeared;
     int _lastKnownOrientation;
+    id _loadBlock;
+    SUMescalSession *_mescalSession;
     SUObjectPool *_objectPool;
     ISURLRequestPerformance *_performanceMetrics;
     int _scheduledOrientation;
@@ -31,6 +33,7 @@
 @property(nonatomic) BOOL viewIsReady; // @synthesize viewIsReady=_viewIsReady;
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic, getter=_performanceMetrics, setter=_setPerformanceMetrics:) ISURLRequestPerformance *_performanceMetrics; // @synthesize _performanceMetrics;
+@property(retain, nonatomic, getter=_mescalSession, setter=_setMescalSession:) SUMescalSession *_mescalSession; // @synthesize _mescalSession;
 @property(copy, nonatomic) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
 - (void)_setLastKnownOrientation:(int)arg1;
 - (void)_sendOrientationWillChangeToInterfaceOrientation:(int)arg1;
@@ -38,16 +41,23 @@
 - (void)_reloadUI;
 - (void)_reloadPlaceholderBackgroundView;
 - (void)_reloadObjectPool;
+- (void)_prepareToLoadURL:(id)arg1;
 - (id)_placeholderBackgroundView;
+- (id)_newURLRequestWithOperation:(id)arg1 bagContext:(id)arg2;
+- (void)_loadURLRequest:(id)arg1;
+- (void)_getURLRequestForOperation:(id)arg1 block:(id)arg2;
+- (void)_finishLoadWithResult:(BOOL)arg1 error:(id)arg2;
 - (id)_defaultBackgroundColor;
 - (void)_applyScriptProperties:(id)arg1;
 - (void)_applySavedScrollOffsetIfPossible;
 - (void)_addPlaceholderBackgroundView;
+- (void)_loadWithURLOperation:(id)arg1 completionBlock:(id)arg2;
 - (void)webViewManager:(id)arg1 webDocumentViewDidSetFrame:(struct CGRect)arg2;
 - (void)webViewManagerDidStartLoad:(id)arg1;
 - (void)webViewManagerDidFinishLoad:(id)arg1;
 - (void)webViewManager:(id)arg1 willInjectScriptInterface:(id)arg2;
 - (void)webViewManager:(id)arg1 didRejectInvalidRequest:(id)arg2;
+- (void)webViewManager:(id)arg1 didReceivePrimaryResponse:(id)arg2;
 - (void)webViewManager:(id)arg1 didFailLoadWithError:(id)arg2;
 - (void)webViewManager:(id)arg1 didReceiveTitle:(id)arg2;
 - (id)viewControllerForWebViewManager:(id)arg1;

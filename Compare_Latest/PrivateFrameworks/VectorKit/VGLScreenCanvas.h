@@ -13,8 +13,8 @@
 @interface VGLScreenCanvas : UIView <VGLCanvas>
 {
     VGLContext *_targetContext;
-    int _canvasWidth;
-    int _canvasHeight;
+    unsigned int _canvasWidth;
+    unsigned int _canvasHeight;
     BOOL _useDepthBuffer;
     BOOL _useStencilBuffer;
     BOOL _useMultisampling;

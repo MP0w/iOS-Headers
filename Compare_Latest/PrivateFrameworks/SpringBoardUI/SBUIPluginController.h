@@ -19,6 +19,7 @@
 @property id <SBUIPluginControllerHost> host; // @synthesize host=_host;
 - (void)noteInterruption;
 - (BOOL)handledWiredMicButtonTap;
+- (void)handleBluetoothDismissal;
 - (BOOL)handledMenuButtonTap;
 - (BOOL)handledMenuButtonDownEvent;
 - (BOOL)handledPasscodeUnlockWithCompletion:(id)arg1;

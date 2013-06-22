@@ -9,7 +9,7 @@
 #import "SBShowcaseControllerOwner-Protocol.h"
 #import "UIWindowDelegate-Protocol.h"
 
-@class MPAudioDeviceController, NSArray, NSMutableArray, NSMutableDictionary, SBAnimationStepper, SBApplication, SBDismissOnlyAlertItem, SBShowcaseController, SBSwitchAppGestureView, SBUIRootView, SBWallpaper, SBWallpaperView, SBWorkspaceEventQueueLockAssertion, UIStatusBar, UIStatusBarCorners, UIView, UIWindow;
+@class NSArray, NSMutableArray, NSMutableDictionary, SBAnimationStepper, SBApplication, SBDismissOnlyAlertItem, SBShowcaseController, SBSwitchAppGestureView, SBUIRootView, SBWallpaper, SBWallpaperView, SBWorkspaceEventQueueLockAssertion, UIStatusBar, UIStatusBarCorners, UIView, UIWindow;
 
 @interface SBUIController : NSObject <UIWindowDelegate, SBShowcaseControllerOwner>
 {
@@ -66,7 +66,6 @@
     BOOL _keyboardNeedsShowcaseTranslation;
     BOOL _unprocessedKeyboardOrientationChangeForShowcase;
     BOOL _showNotificationsGestureIsShowingTab;
-    MPAudioDeviceController *_tempAudioDeviceController;
 }
 
 + (id)sharedInstanceIfExists;
@@ -263,9 +262,7 @@
 - (void)scatterIconListAndBar:(BOOL)arg1 fade:(BOOL)arg2 animateWallpaper:(BOOL)arg3;
 - (void)scatterIconListAndBar:(BOOL)arg1;
 - (void)_deviceLockStateChanged:(id)arg1;
-- (void)_airPlayPasswordAlertWillDisappear:(id)arg1;
 - (void)_airPlayPasswordAlertWillAppear:(id)arg1;
-- (void)_clearTempAudioDeviceController;
 - (void)_releaseTransitionOrientationLock;
 - (void)_releaseSystemGestureOrientationLock;
 - (void)releaseSwitcherOrientationLockUnlessPrintViewIsShowing;

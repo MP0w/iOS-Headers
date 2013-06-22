@@ -16,6 +16,9 @@
 
 @property(nonatomic) id <MSMediaStreamDaemonDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (BOOL)mayDownloadPersonID:(id)arg1;
+- (void)didReceivePushNotificationForPersonID:(id)arg1;
+- (void)didReceiveGlobalResetSyncForPersonID:(id)arg1;
 - (void)didExceedPublishQuotaForPersonID:(id)arg1 retryDate:(id)arg2;
 - (void)didReceiveAuthenticationSuccessForPersonID:(id)arg1;
 - (void)didReceiveAuthenticationFailureForPersonID:(id)arg1;

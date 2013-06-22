@@ -397,7 +397,6 @@
 @property(nonatomic) BOOL viewTraversalMark;
 @property(nonatomic) BOOL skipsSubviewEnumeration;
 - (void *)_createImageFromRect:(struct CGRect)arg1 padding:(struct UIEdgeInsets)arg2;
-- (struct CARenderServerBuffer *)_createRenderServerBufferFromRect:(struct CGRect)arg1 padding:(struct UIEdgeInsets)arg2;
 - (void)_renderSnapshotWithRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
 - (void)_setContentsTransform:(struct CGAffineTransform)arg1;
 - (void)_setContentImage:(id)arg1;

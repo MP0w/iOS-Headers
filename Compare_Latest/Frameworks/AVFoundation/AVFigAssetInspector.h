@@ -39,6 +39,7 @@
 - (int)naturalTimeScale;
 - (struct CGSize)naturalSize;
 - (struct CGAffineTransform)preferredTransform;
+- (float)preferredSoundCheckVolumeNormalization;
 - (float)preferredVolume;
 - (float)preferredRate;
 - (CDStruct_1b6d18a9)duration;

@@ -10,15 +10,15 @@
 
 @interface GKInvite : NSObject
 {
+    GKPlayer *_invitingPlayer;
     GKInviteInternal *_internal;
     BOOL _cancelled;
-    GKPlayer *_invitingPlayer;
 }
 
 + (BOOL)instancesRespondToSelector:(SEL)arg1;
-@property(readonly, nonatomic) GKPlayer *invitingPlayer; // @synthesize invitingPlayer=_invitingPlayer;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) GKInviteInternal *internal; // @synthesize internal=_internal;
+@property(readonly, nonatomic) GKPlayer *invitingPlayer; // @synthesize invitingPlayer=_invitingPlayer;
 - (id)description;
 @property(readonly, nonatomic, getter=isHosted) BOOL hosted; // @dynamic hosted;
 @property(readonly, nonatomic) NSString *inviter; // @dynamic inviter;

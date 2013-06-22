@@ -42,9 +42,11 @@
     unsigned int _useMediaDetailSlider:1;
     unsigned int _detailScrubbing:1;
     unsigned int _needsUpdateButtonVisibility:1;
+    unsigned long long _disabledParts;
 }
 
 + (unsigned int)defaultVisibleParts;
+@property(nonatomic) unsigned long long disabledParts; // @synthesize disabledParts=_disabledParts;
 @property(nonatomic) unsigned long long visibleParts; // @synthesize visibleParts=_visibleParts;
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;

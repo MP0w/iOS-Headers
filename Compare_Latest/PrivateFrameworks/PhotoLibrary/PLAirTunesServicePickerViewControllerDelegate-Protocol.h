@@ -5,6 +5,7 @@
  */
 
 @protocol PLAirTunesServicePickerViewControllerDelegate
+- (void)airTunesServicePickerViewControllerDidSelectDebugOption:(id)arg1;
 - (void)airTunesServicePickerViewController:(id)arg1 didSelectService:(id)arg2;
 @end
 

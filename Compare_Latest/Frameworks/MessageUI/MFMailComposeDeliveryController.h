@@ -24,11 +24,11 @@
     int _composeType;
 }
 
-@property(retain, nonatomic) MailboxUid *draftMailbox; // @synthesize draftMailbox=_draftMailbox;
-@property(copy, nonatomic) NSString *draftMessageID; // @synthesize draftMessageID=_draftMessageID;
 @property(nonatomic) int composeType; // @synthesize composeType=_composeType;
-@property(retain, nonatomic) MailMessage *originalMessage; // @synthesize originalMessage=_originalMessage;
+@property(retain, nonatomic) MailboxUid *draftMailbox; // @synthesize draftMailbox=_draftMailbox;
 @property(copy, nonatomic) NSString *sendingAddress; // @synthesize sendingAddress=_sendingAddress;
+@property(copy, nonatomic) NSString *draftMessageID; // @synthesize draftMessageID=_draftMessageID;
+@property(retain, nonatomic) MailMessage *originalMessage; // @synthesize originalMessage=_originalMessage;
 @property(nonatomic) id <MailComposeDeliveryControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)notifyUserDeliverySucceeded:(id)arg1;
 - (void)setPercentDone:(double)arg1;

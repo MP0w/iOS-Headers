@@ -14,6 +14,23 @@ struct _EAGLContextPrivate {
     struct __GLIContextRec *_field5;
     struct __GLIFunctionDispatchRec _field6;
     struct __GLIFunctionDispatchRec _field7;
+    id _field8;
+    id _field9;
+    char _field10;
+    char _field11;
+    unsigned char _field12;
+    unsigned char _field13;
+    struct __CFArray *_field14;
+    unsigned int *_field15;
+    unsigned int _field16;
+    unsigned long long _field17;
+    unsigned long long _field18;
+    unsigned long long _field19;
+    unsigned long long _field20;
+    unsigned long long _field21;
+    unsigned long long _field22;
+    unsigned long long _field23;
+    struct __IOAccelShared *_field24;
 };
 
 struct _EAGLSharegroupPrivate {

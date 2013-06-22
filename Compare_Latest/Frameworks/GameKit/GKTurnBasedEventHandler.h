@@ -17,11 +17,9 @@
 + (id)sharedTurnBasedEventHandler;
 @property(nonatomic) BOOL didBecomeActive; // @synthesize didBecomeActive=_didBecomeActive;
 - (void)lookForEvent;
-- (void)callTurnEventForMatch:(id)arg1;
-- (void)applicationDidEnterBackgroundNotification:(id)arg1;
+- (void)callTurnEventForMatch:(id)arg1 userTapped:(BOOL)arg2;
 @property(nonatomic) NSObject<GKTurnBasedEventHandlerDelegate> *delegate; // @synthesize delegate=_delegateWeak;
 - (void)dealloc;
-- (id)init;
 
 @end
 

@@ -194,7 +194,7 @@
 - (BOOL)isAnimatingForUnscatter;
 - (void)finishedUnscatteringSearchView;
 - (void)finishedUnscatteringIconList:(id)arg1;
-- (void)_finishedUnscattering;
+- (void)_finishedUnscatteringWithIconScroll:(BOOL)arg1;
 - (void)unscatterWithDuration:(double)arg1 delay:(double)arg2 fade:(BOOL)arg3;
 - (void)unscatterWithDuration:(double)arg1 delay:(double)arg2;
 - (void)scatterWithDuration:(double)arg1 delay:(double)arg2 fade:(BOOL)arg3;

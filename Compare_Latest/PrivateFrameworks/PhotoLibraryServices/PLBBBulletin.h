@@ -27,21 +27,21 @@
     NSString *_commentText;
     int _commentCount;
     BOOL _commentIsCaption;
+    NSDate *_expirationDate;
+    NSString *_albumUUID;
+    NSDate *_date;
     unsigned int _recordID;
     unsigned int _replacedBulletinRecordID;
-    NSString *_albumUUID;
-    NSDate *_expirationDate;
-    NSDate *_date;
 }
 
-@property(readonly) NSDate *date; // @synthesize date=_date;
-@property(readonly) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(readonly) NSString *senderEmailAddress; // @synthesize senderEmailAddress=_senderEmailAddress;
-@property(readonly) int bulletinType; // @synthesize bulletinType=_bulletinType;
 @property(readonly) NSString *mainAssetUUID; // @synthesize mainAssetUUID=_mainAssetUUID;
-@property(readonly) NSString *albumUUID; // @synthesize albumUUID=_albumUUID;
 @property unsigned int replacedBulletinRecordID; // @synthesize replacedBulletinRecordID=_replacedBulletinRecordID;
 @property unsigned int recordID; // @synthesize recordID=_recordID;
+@property(readonly) NSDate *date; // @synthesize date=_date;
+@property(readonly) int bulletinType; // @synthesize bulletinType=_bulletinType;
+@property(readonly) NSString *albumUUID; // @synthesize albumUUID=_albumUUID;
+@property(readonly) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 - (id)_localizedCountFormatter;
 - (BOOL)assetWithUUID:(id)arg1 didChangePlaceholderKindTo:(int)arg2 fromOldKind:(int)arg3;
 - (BOOL)isCommentPiggyBackedOnPhotosAddedBulletin;
@@ -64,7 +64,7 @@
 - (id)initWithLikeAdded:(id)arg1;
 - (id)initWithCommentAdded:(id)arg1;
 - (id)_initWithPhotosAddedBulletin:(id)arg1 mergedWithBulletin:(id)arg2;
-- (id)initWithAssetAdded:(id)arg1 atIndex:(unsigned int)arg2 toAlbum:(id)arg3;
+- (id)initWithAssetAdded:(id)arg1 atIndex:(unsigned int)arg2 toAlbum:(id)arg3 misc:(id)arg4;
 - (id)initWithInvitationRecordStatusChanged:(id)arg1;
 - (id)initWithInvitationAlbum:(id)arg1;
 - (id)_initWithType:(int)arg1;

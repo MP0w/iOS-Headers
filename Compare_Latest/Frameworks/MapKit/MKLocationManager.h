@@ -51,6 +51,9 @@
     double _navCourse;
     double _lastKnownNavCourse;
     id _locationCorrector;
+    struct __SCPreferences *_airplaneModePrefs;
+    BOOL _airplaneModeEnabledIsValid;
+    BOOL _airplaneModeEnabled;
     BOOL _continuedAfterBecomingInactive;
     BOOL _continuesWhileInactive;
 }
@@ -141,6 +144,7 @@
 @property(readonly, nonatomic) BOOL isAirplaneModeBlockingLocation;
 @property(readonly, nonatomic) BOOL isHeadingServicesAvailable;
 @property(readonly, nonatomic) BOOL isTrafficHarvestingEnabled;
+- (BOOL)_canHarvestTrafficWithBundle:(id)arg1;
 @property(readonly, nonatomic) BOOL isLocationServicesPossiblyAvailable;
 @property(readonly, nonatomic) BOOL isLocationServicesAvailable;
 @property(readonly, nonatomic) BOOL isLocationServicesRestricted;

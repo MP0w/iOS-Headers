@@ -13,6 +13,7 @@
 @interface _GEOTileDownloadOp : NSObject <NSURLConnectionDelegate>
 {
     NSURL *_url;
+    BOOL _requireWiFi;
     NSMutableData *_data;
     NSURLConnection *_conn;
     struct _GEOTileKey _key;
@@ -29,6 +30,7 @@
     _GEOTileDownloadOp *localizationTile;
 }
 
+@property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(nonatomic) GEOSimpleTileRequester *delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) BOOL finished; // @synthesize finished=_finished;
 @property(readonly, nonatomic) unsigned int contentLength; // @synthesize contentLength=_contentLength;

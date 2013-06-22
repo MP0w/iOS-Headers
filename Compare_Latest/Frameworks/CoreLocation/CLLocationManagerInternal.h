@@ -15,7 +15,7 @@
     double fDistanceFilter;
     double fDesiredAccuracy;
     BOOL fUpdatingLocation;
-    CDStruct_c3f64973 fLocation;
+    CDStruct_4185d922 fLocation;
     NSString *fLocationEventType;
     BOOL fCapabilitiesValid;
     struct {

@@ -20,6 +20,8 @@
 - (BOOL)MSASPersonIDIsAllowedToDownloadAssets:(id)arg1;
 - (BOOL)MSASIsAllowedToUploadAssets;
 - (BOOL)MSASIsAllowedToTransferMetadata;
+- (id)MMCSUploadSocketOptionsForPersonID:(id)arg1;
+- (id)MMCSDownloadSocketOptionsForPersonID:(id)arg1;
 - (BOOL)deviceHasEnoughDiskSpaceRemainingToOperate;
 - (id)baseSharingURLForPersonID:(id)arg1;
 - (void)logLevel:(int)arg1 personID:(id)arg2 albumGUID:(id)arg3 format:(id)arg4;

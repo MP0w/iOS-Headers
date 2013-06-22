@@ -16,8 +16,6 @@
 + (id)portWithMachPort:(unsigned int)arg1;
 + (id)port;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (void)removeConnection:(id)arg1 fromRunLoop:(id)arg2 forMode:(id)arg3;
-- (void)addConnection:(id)arg1 toRunLoop:(id)arg2 forMode:(id)arg3;
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
 - (BOOL)sendBeforeDate:(id)arg1 msgid:(unsigned int)arg2 components:(id)arg3 from:(id)arg4 reserved:(unsigned int)arg5;

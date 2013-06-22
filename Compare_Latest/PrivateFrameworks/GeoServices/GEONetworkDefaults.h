@@ -6,18 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSString;
+@class NSDictionary, NSLock, NSMutableArray, NSString;
 
 @interface GEONetworkDefaults : NSObject
 {
     NSMutableArray *_completionHandlers;
     BOOL _isRegistering;
+    NSDictionary *_networkDefaults;
+    NSLock *_networkDefaultsLock;
     NSString *_cacheFilePath;
 }
 
 + (id)sharedNetworkDefaults;
 - (void)registerNetworkDefaults:(id)arg1;
+- (id)valueForKey:(id)arg1;
 - (BOOL)needsUpdate;
+- (void)refreshNetworkDefaults;
 - (void)dealloc;
 - (id)init;
 - (void)_registrationComplete;

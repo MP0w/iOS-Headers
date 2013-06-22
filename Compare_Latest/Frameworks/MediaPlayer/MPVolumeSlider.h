@@ -40,12 +40,13 @@
 - (void)_commitVolumeChange;
 - (void)_updateVolumeFromAVController;
 - (float)_volumeFromAVController;
+- (BOOL)_isPlayerInValidState;
 - (void)_EUVolumeLimitEnforcedDidChange:(id)arg1;
 - (void)_EUVolumeLimitDidChange:(id)arg1;
 - (void)_volumeDidChange:(id)arg1;
 - (void)_systemVolumeDidChange:(id)arg1;
 - (void)_systemMuteDidChange:(id)arg1;
-- (void)_isAirPlayVideoActiveDidChangeNotification:(id)arg1;
+- (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;

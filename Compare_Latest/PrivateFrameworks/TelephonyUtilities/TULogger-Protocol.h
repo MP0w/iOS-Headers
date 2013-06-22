@@ -8,7 +8,7 @@
 - (BOOL)shouldLogWithLevel:(int)arg1 topic:(id)arg2;
 - (BOOL)shouldLog;
 - (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 text:(id)arg4;
-- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 format:(id)arg4 args:(char *)arg5;
+- (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 format:(id)arg4 args:(void *)arg5;
 - (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 format:(id)arg4;
 - (id)identifier;
 @end

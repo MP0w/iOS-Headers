@@ -26,14 +26,11 @@ typedef struct {
 } CDStruct_2c43369c;
 
 typedef struct {
-    int padding1;
     int suitability;
     CDStruct_2c43369c coordinate;
     double horizontalAccuracy;
     double altitude;
     double verticalAccuracy;
-    double padding2;
-    double padding3;
     double speed;
     double speedAccuracy;
     double course;
@@ -44,7 +41,7 @@ typedef struct {
     int type;
     CDStruct_2c43369c rawCoordinate;
     double rawCourse;
-} CDStruct_c3f64973;
+} CDStruct_4185d922;
 
 typedef struct {
     CDStruct_2c43369c center;

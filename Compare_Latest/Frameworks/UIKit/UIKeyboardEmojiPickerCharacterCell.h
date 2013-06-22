@@ -17,8 +17,8 @@
 }
 
 + (struct __CFDictionary *)emojiFontAttributes;
-@property(retain) UIView *pressIndicator; // @synthesize pressIndicator=_pressIndicator;
 @property UIKeyboardEmojiInputController *inputController; // @synthesize inputController=_inputController;
+@property(retain) UIView *pressIndicator; // @synthesize pressIndicator=_pressIndicator;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;

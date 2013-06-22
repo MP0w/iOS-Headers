@@ -37,12 +37,14 @@
 - (void)_dispatchDidDismissViewController;
 - (void)_dispatchWillPresentViewControllerWithCompletionHandler:(id)arg1;
 - (void)_decidePolicyForEncodedRequest:(id)arg1 inMainFrame:(BOOL)arg2 navigationType:(id)arg3 replyHandler:(id)arg4;
+- (void)_webContentSizeWithReplyHandler:(id)arg1;
 - (void)configureWithSettings:(id)arg1;
 - (void)loadView;
 - (void)stopLoading;
 - (void)reload;
 - (void)goForward;
 - (void)goBack;
+- (void)loadHTMLString:(id)arg1 baseURL:(id)arg2;
 - (void)loadRequest:(id)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)_setURLString:(id)arg1;

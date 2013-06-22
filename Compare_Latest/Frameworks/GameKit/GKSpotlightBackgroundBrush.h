@@ -8,14 +8,14 @@
 
 @interface GKSpotlightBackgroundBrush : GKAbstractGradientBrush
 {
-    float _spotlightScale;
     struct CGPoint _spotlightCenter;
+    float _spotlightScale;
 }
 
 + (id)largeSpotlightBackgroundBrush;
 + (id)spotlightBackgroundBrush;
-@property(nonatomic) struct CGPoint spotlightCenter; // @synthesize spotlightCenter=_spotlightCenter;
 @property(nonatomic) float spotlightScale; // @synthesize spotlightScale=_spotlightScale;
+@property(nonatomic) struct CGPoint spotlightCenter; // @synthesize spotlightCenter=_spotlightCenter;
 - (void)drawInRect:(struct CGRect)arg1 withContext:(struct CGContext *)arg2 input:(id)arg3;
 - (id)init;
 

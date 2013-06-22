@@ -20,7 +20,6 @@
 @property(nonatomic) id <MKWorldGestureControllerDelegate> worldDelegate; // @synthesize worldDelegate=_worldDelegate;
 @property(readonly, nonatomic) MKTiltGestureRecognizer *tiltGestureRecognizer; // @synthesize tiltGestureRecognizer=_tiltGestureRecognizer;
 @property(readonly, nonatomic) UIRotationGestureRecognizer *rotationGestureRecognizer; // @synthesize rotationGestureRecognizer=_rotationGestureRecognizer;
-- (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (void)handleTilt:(id)arg1;

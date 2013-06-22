@@ -12,7 +12,6 @@
 }
 
 @property(nonatomic) BOOL shouldLaunchMobileMail; // @synthesize shouldLaunchMobileMail=_shouldLaunch;
-- (BOOL)_shouldSimulate;
 - (id)_handleMessageSendFailure:(id)arg1 message:(id)arg2 messageIndex:(long long)arg3 context:(inout id *)arg4;
 - (id)_createServiceOnQueue:(id)arg1;
 - (id)init;

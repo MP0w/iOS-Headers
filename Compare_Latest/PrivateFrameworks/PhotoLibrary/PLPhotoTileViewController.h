@@ -10,7 +10,7 @@
 #import "UIGestureRecognizerDelegate-Protocol.h"
 #import "UIScrollViewDelegate-Protocol.h"
 
-@class PLCommentsViewController, PLExpandableImageView, PLImageScrollView, PLManagedAsset, PLPhotoTilePlaceholderView, PLVideoView, UIGestureRecognizer, UIImage, UIImageView;
+@class NSObject<OS_dispatch_source>, PLCommentsViewController, PLExpandableImageView, PLImageScrollView, PLManagedAsset, PLPhotoTilePlaceholderView, PLVideoView, UIGestureRecognizer, UIImage, UIImageView;
 
 @interface PLPhotoTileViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, PLCommentsViewControllerDelegate>
 {
@@ -53,6 +53,10 @@
     BOOL _forceNativeScreenScale;
     BOOL _centerContentVertically;
     id _didEndZoomingBlock;
+    NSObject<OS_dispatch_source> *_dispatchTimer;
+    double _dispatchStartTime;
+    double _dispatchTimeElapsed;
+    BOOL _hasNotedZoom;
     unsigned int _imageIsThumbnail:1;
     unsigned int _isTVOut:1;
     unsigned int _zooming:1;
@@ -108,6 +112,8 @@
 - (void)_requestFullSizeImage;
 - (void)_handleSingleTap:(id)arg1;
 - (void)ensureFullSizeImageLoaded;
+- (void)applicationDidBecomeActive:(id)arg1;
+- (void)applicationWillResignActive:(id)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)contentViewFrameChanged;
@@ -185,6 +191,7 @@
 - (void)_setPhoto:(id)arg1;
 - (BOOL)tileIsOnScreen;
 - (void)dealloc;
+- (void)_teardownDispatchTimer;
 - (id)initWithPhoto:(id)arg1 thumbnailImage:(id)arg2 size:(struct CGSize)arg3;
 - (id)initForPageController;
 - (id)initWithPhoto:(id)arg1 image:(id)arg2 frame:(struct CGRect)arg3 isThumbnail:(BOOL)arg4 imageOrientation:(int)arg5 allowZoomToFill:(BOOL)arg6 mode:(int)arg7;

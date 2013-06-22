@@ -28,6 +28,10 @@
     struct __CFDate *_nextRetryWakeDate;
     struct __CFDate *_nextTrashCompactionWakeDate;
     int _retryIntervalIndex;
+    unsigned int _pmNotifier;
+    struct IONotificationPort *_pmNotifierPort;
+    unsigned int _pmRootPort;
+    struct __CFRunLoopSource *_pmRunLoopSource;
     id _carrierParameters;
     Class _notificationInterpreter;
     struct {
@@ -90,6 +94,7 @@
 - (int)maximumRecordedNameDuration;
 - (int)maximumGreetingDuration;
 - (void)cancelPasswordRequest;
+- (void)handlePasswordNotificationResponse:(struct __CFUserNotification *)arg1 flags:(unsigned long)arg2;
 - (void)displayPasswordRequestIfNecessary;
 - (void)handlePasswordRequestCancellation;
 - (id)provisionalPassword;

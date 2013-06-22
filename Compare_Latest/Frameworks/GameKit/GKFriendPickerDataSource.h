@@ -21,7 +21,7 @@
     NSDictionary *_friendsDict;
     NSDictionary *_nonFriendsDict;
     NSDictionary *_ranksDict;
-    NSMutableDictionary *_inviteStatusDict;
+    NSMutableDictionary *_cellStatusDict;
     NSOrderedSet *_recentPlayerIDs;
     NSOrderedSet *_playedPlayerIDs;
     NSSet *_uninvitableFriends;
@@ -33,20 +33,20 @@
     GKAchievementDescription *_achievementDescription;
     GKReachability *_reachability;
     BOOL _reachable;
-    NSOrderedSet *_haveEarnedPlayers;
-    NSString *_leaderboardID;
-    NSString *_achievementID;
-    NSOrderedSet *_haveEarnedPlayerIDs;
     GKGame *_game;
     unsigned int _context;
+    NSOrderedSet *_haveEarnedPlayerIDs;
+    NSString *_leaderboardID;
+    NSString *_achievementID;
+    NSOrderedSet *_haveEarnedPlayers;
 }
 
-@property(nonatomic) unsigned int context; // @synthesize context=_context;
-@property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
-@property(retain, nonatomic) NSOrderedSet *haveEarnedPlayerIDs; // @synthesize haveEarnedPlayerIDs=_haveEarnedPlayerIDs;
+@property(retain, nonatomic) NSOrderedSet *haveEarnedPlayers; // @synthesize haveEarnedPlayers=_haveEarnedPlayers;
 @property(retain, nonatomic) NSString *achievementID; // @synthesize achievementID=_achievementID;
 @property(retain, nonatomic) NSString *leaderboardID; // @synthesize leaderboardID=_leaderboardID;
-@property(retain, nonatomic) NSOrderedSet *haveEarnedPlayers; // @synthesize haveEarnedPlayers=_haveEarnedPlayers;
+@property(retain, nonatomic) NSOrderedSet *haveEarnedPlayerIDs; // @synthesize haveEarnedPlayerIDs=_haveEarnedPlayerIDs;
+@property(nonatomic) unsigned int context; // @synthesize context=_context;
+@property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
 @property(nonatomic) BOOL reachable; // @synthesize reachable=_reachable;
 @property(retain, nonatomic) GKReachability *reachability; // @synthesize reachability=_reachability;
 @property(retain, nonatomic) GKAchievementDescription *achievementDescription; // @synthesize achievementDescription=_achievementDescription;
@@ -58,7 +58,7 @@
 @property(retain, nonatomic) NSSet *uninvitableFriends; // @synthesize uninvitableFriends=_uninvitableFriends;
 @property(retain, nonatomic) NSOrderedSet *playedPlayerIDs; // @synthesize playedPlayerIDs=_playedPlayerIDs;
 @property(retain, nonatomic) NSOrderedSet *recentPlayerIDs; // @synthesize recentPlayerIDs=_recentPlayerIDs;
-@property(retain, nonatomic) NSMutableDictionary *inviteStatusDict; // @synthesize inviteStatusDict=_inviteStatusDict;
+@property(retain, nonatomic) NSMutableDictionary *cellStatusDict; // @synthesize cellStatusDict=_cellStatusDict;
 @property(retain, nonatomic) NSDictionary *ranksDict; // @synthesize ranksDict=_ranksDict;
 @property(retain, nonatomic) NSDictionary *nonFriendsDict; // @synthesize nonFriendsDict=_nonFriendsDict;
 @property(retain, nonatomic) NSDictionary *friendsDict; // @synthesize friendsDict=_friendsDict;

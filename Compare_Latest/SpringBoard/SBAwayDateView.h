@@ -32,6 +32,7 @@
 - (BOOL)isShowingControls;
 - (void)dismissMediaControlsOverlaysAnimated:(BOOL)arg1;
 - (void)setIsShowingControls:(BOOL)arg1;
+- (void)_tearDownMediaControlsView;
 - (id)controlsView;
 - (void)didMoveToSuperview;
 - (void)setVisible:(BOOL)arg1;

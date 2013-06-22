@@ -47,6 +47,7 @@
 - (void)stopTicking;
 - (void)startTicking;
 - (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+@property(nonatomic) BOOL navigationBarHidden;
 - (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 @property(nonatomic) BOOL allowsWirelessPlayback;
 - (void)_itemDurationDidChangeNotification:(id)arg1;

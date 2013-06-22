@@ -25,6 +25,7 @@
     MFError *_smtpServerValidationError;
     NSArray *_incomingServerAuthSchemes;
     NSArray *_smtpServerAuthSchemes;
+    id _completionBlock;
 }
 
 - (id)error;
@@ -41,7 +42,9 @@
 - (id)_ispAccountInfo;
 - (void)cancelValidation;
 - (id)account;
+- (void)validateAccountWithoutFallbacks:(id)arg1 withCompletion:(id)arg2;
 - (void)validateAccountWithoutFallbacks:(id)arg1;
+- (void)validateAccount:(id)arg1 useSSL:(BOOL)arg2 withCompletion:(id)arg3;
 - (void)validateAccount:(id)arg1 useSSL:(BOOL)arg2;
 - (void)setDelegate:(id)arg1;
 - (void)dealloc;

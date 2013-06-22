@@ -10,15 +10,18 @@
 {
     int _uColor;
     int _uScale;
+    int _uOneMinusScale;
     int _uAlpha;
     struct _VGLColor _color;
     float _scale;
+    CDStruct_f2e236b6 _oneMinusScale;
     CDStruct_03942939 _cameraPositionInTileSpace;
     int _uCameraPositionInTileSpace;
     int _uTextureSampler;
     int _textureSampler;
 }
 
++ (id)realisticProgram;
 + (id)program;
 @property(nonatomic) int textureSampler; // @synthesize textureSampler=_textureSampler;
 @property(nonatomic) CDStruct_03942939 cameraPositionInTileSpace; // @synthesize cameraPositionInTileSpace=_cameraPositionInTileSpace;

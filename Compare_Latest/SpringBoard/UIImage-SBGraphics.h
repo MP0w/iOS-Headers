@@ -7,8 +7,8 @@
 #import "UIImage.h"
 
 @interface UIImage (SBGraphics)
-+ (id)sbg_imageFromContextWithSize:(struct CGSize)arg1 scale:(float)arg2 type:(int)arg3 data:(id)arg4 drawing:(id)arg5 encapsulation:(void)arg6;
-+ (id)sbg_imageFromContextWithSize:(struct CGSize)arg1 scale:(float)arg2 type:(int)arg3 data:(id)arg4 drawing:(id)arg5;
++ (id)sbg_imageFromContextWithSize:(struct CGSize)arg1 scale:(float)arg2 type:(int)arg3 pool:(id)arg4 drawing:(id)arg5 encapsulation:(void)arg6;
++ (id)sbg_imageFromContextWithSize:(struct CGSize)arg1 scale:(float)arg2 type:(int)arg3 pool:(id)arg4 drawing:(id)arg5;
 + (unsigned long)sbg_bytesNeededForSize:(struct CGSize)arg1 scale:(float)arg2 withContextType:(int)arg3;
 @end
 

@@ -90,8 +90,6 @@
 - (id)self;
 - (Class)superclass;
 - (Class)class;
-- (BOOL)_conformsToProtocolNamed:(const char *)arg1;
-- (struct objc_method_description *)methodDescriptionForSelector:(SEL)arg1;
 
 @end
 

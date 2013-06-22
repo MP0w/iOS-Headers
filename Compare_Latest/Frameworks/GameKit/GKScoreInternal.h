@@ -18,10 +18,12 @@
     NSDate *_date;
     unsigned long long _context;
     NSString *_groupCategory;
+    BOOL _valueSet;
 }
 
 + (id)codedPropertyKeys;
 + (BOOL)supportsSecureCoding;
+@property(nonatomic) BOOL valueSet; // @synthesize valueSet=_valueSet;
 @property(retain, nonatomic) NSString *groupCategory; // @synthesize groupCategory=_groupCategory;
 @property(nonatomic) unsigned long long context; // @synthesize context=_context;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;

@@ -20,7 +20,7 @@
 
 + (id)memoryMappedIconImageOfSize:(struct CGSize)arg1 scale:(float)arg2 withDrawing:(id)arg3;
 + (id)memoryMappedIconImageForIconImage:(id)arg1;
-+ (id)_memoryMappedIconImageOfSize:(struct CGSize)arg1 scale:(float)arg2 withDrawing:(id)arg3 fallbackImage:(void)arg4;
++ (id)_iconImageOfSize:(struct CGSize)arg1 scale:(float)arg2 failGracefully:(BOOL)arg3 drawing:(id)arg4;
 - (id)folderFallbackTitle;
 - (id)folderTitleOptions;
 - (id)uninstallAlertCancelTitle;

@@ -6,11 +6,11 @@
 
 #import <SAObjects/AceObject.h>
 
-#import "SAAceSerializable-Protocol.h"
+#import "SABackgroundContextObject-Protocol.h"
 
 @class NSString;
 
-@interface SANavStatus : AceObject <SAAceSerializable>
+@interface SANavStatus : AceObject <SABackgroundContextObject>
 {
 }
 

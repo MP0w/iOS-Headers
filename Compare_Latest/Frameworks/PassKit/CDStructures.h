@@ -21,17 +21,22 @@ struct CGSize {
     float height;
 };
 
-struct WLEdgeInsets {
+struct PKEdgeInsets {
     float top;
     float left;
     float bottom;
     float right;
 };
 
-#pragma mark Typedef'd Structures
+struct UIEdgeInsets {
+    float top;
+    float left;
+    float bottom;
+    float right;
+};
 
-typedef struct {
+struct _NSRange {
     unsigned int _field1;
-    double _field2;
-} CDStruct_e4886f83;
+    unsigned int _field2;
+};
 

@@ -10,7 +10,7 @@
 
 @interface GEOStep : PBCodable
 {
-    CDStruct_9d6db704 *_laneGuidances;
+    CDStruct_bf9e66ee *_laneGuidances;
     unsigned int _laneGuidancesCount;
     unsigned int _laneGuidancesSpace;
     CDStruct_e02beb0c *_junctionElements;
@@ -84,11 +84,11 @@
 @property(readonly, nonatomic) unsigned int junctionElementsCount;
 @property(nonatomic) BOOL hasJunctionType;
 @property(nonatomic) int junctionType; // @synthesize junctionType=_junctionType;
-- (void)setLaneGuidances:(CDStruct_9d6db704 *)arg1 count:(unsigned int)arg2;
-- (CDStruct_9d6db704)laneGuidanceAtIndex:(unsigned int)arg1;
-- (void)addLaneGuidance:(CDStruct_9d6db704)arg1;
+- (void)setLaneGuidances:(CDStruct_bf9e66ee *)arg1 count:(unsigned int)arg2;
+- (CDStruct_bf9e66ee)laneGuidanceAtIndex:(unsigned int)arg1;
+- (void)addLaneGuidance:(CDStruct_bf9e66ee)arg1;
 - (void)clearLaneGuidances;
-@property(readonly, nonatomic) CDStruct_9d6db704 *laneGuidances;
+@property(readonly, nonatomic) CDStruct_bf9e66ee *laneGuidances;
 @property(readonly, nonatomic) unsigned int laneGuidancesCount;
 - (id)maneuverNameAtIndex:(unsigned int)arg1;
 - (unsigned int)maneuverNamesCount;

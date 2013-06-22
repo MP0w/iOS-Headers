@@ -25,11 +25,11 @@
     BOOL _showResendInviteOption;
 }
 
-@property(readonly, nonatomic) PLCloudSharedAlbum *album; // @synthesize album=_album;
-@property(readonly, nonatomic) PLCloudSharedAlbumInvitationRecord *subscriberRecord; // @synthesize subscriberRecord=_subscriberRecord;
 @property(nonatomic) BOOL showResendInviteOption; // @synthesize showResendInviteOption=_showResendInviteOption;
 @property(nonatomic) id <PLSubscriberViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIImage *subscriberImage; // @synthesize subscriberImage=_subscriberImage;
+@property(readonly, nonatomic) PLCloudSharedAlbumInvitationRecord *subscriberRecord; // @synthesize subscriberRecord=_subscriberRecord;
+@property(readonly, nonatomic) PLCloudSharedAlbum *album; // @synthesize album=_album;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;

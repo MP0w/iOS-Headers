@@ -10,6 +10,7 @@
 
 @interface _UIDecompressionInfo : NSObject
 {
+    unsigned long jpegDecodeRequestID;
     NSObject<OS_dispatch_semaphore> *syncSemaphore;
     NSObject<OS_dispatch_semaphore> *metadataSemaphore;
     NSData *imageData;

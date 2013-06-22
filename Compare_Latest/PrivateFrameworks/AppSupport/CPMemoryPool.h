@@ -13,15 +13,13 @@
     struct _opaque_pthread_mutex_t _lock;
     NSMutableArray *_files;
     char *_label;
-    unsigned long _slotSize;
-    BOOL _swappable;
+    unsigned long _slotLength;
 }
 
-@property(readonly, nonatomic) unsigned long slotSize; // @synthesize slotSize=_slotSize;
+@property(readonly, nonatomic) unsigned long slotLength; // @synthesize slotLength=_slotLength;
 - (void)dealloc;
-- (void)sync;
-- (id)nextSlot;
-- (id)initWithLabel:(const char *)arg1 slotSize:(unsigned long)arg2 swappable:(BOOL)arg3;
+- (id)nextSlotWithBytes:(const void *)arg1 length:(unsigned long)arg2;
+- (id)initWithLabel:(const char *)arg1 slotLength:(unsigned long)arg2;
 
 @end
 

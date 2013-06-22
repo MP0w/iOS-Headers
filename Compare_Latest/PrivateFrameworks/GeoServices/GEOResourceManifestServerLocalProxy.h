@@ -65,11 +65,11 @@
 - (oneway void)setActiveTileGroupIdentifier:(id)arg1;
 - (void)_cleanupConnection;
 - (void)_cancelConnection;
-- (void)_forceChangeActiveTileGroup:(id)arg1;
+- (void)_forceChangeActiveTileGroup:(id)arg1 flushTileCache:(BOOL)arg2;
 - (void)_tileGroupTimerFired:(id)arg1;
 - (void)_scheduleTileGroupUpdateTimerWithTimeInterval:(double)arg1;
 - (void)_considerChangingActiveTileGroup;
-- (void)_changeActiveTileGroup:(id)arg1;
+- (void)_changeActiveTileGroup:(id)arg1 flushTileCache:(BOOL)arg2;
 - (void)_loadFromDisk;
 - (oneway void)startServer:(id)arg1;
 - (id)authToken;

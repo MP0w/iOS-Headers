@@ -10,5 +10,8 @@
 {
 }
 
++ (void)initPowerlog;
++ (void)initVPNUtilities;
+
 @end
 

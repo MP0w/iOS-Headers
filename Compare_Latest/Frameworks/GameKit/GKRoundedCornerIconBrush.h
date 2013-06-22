@@ -8,18 +8,18 @@
 
 @interface GKRoundedCornerIconBrush : GKImageBrush
 {
-    float _shadowBlur;
-    struct CGSize _outputSize;
-    float _cornerRadiusProportion;
-    float _rotation;
     struct CGSize _shadowOffset;
+    float _rotation;
+    float _cornerRadiusProportion;
+    struct CGSize _outputSize;
+    float _shadowBlur;
 }
 
-@property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
-@property(nonatomic) float rotation; // @synthesize rotation=_rotation;
-@property(nonatomic) float cornerRadiusProportion; // @synthesize cornerRadiusProportion=_cornerRadiusProportion;
-@property(nonatomic) struct CGSize outputSize; // @synthesize outputSize=_outputSize;
 @property(nonatomic) float shadowBlur; // @synthesize shadowBlur=_shadowBlur;
+@property(nonatomic) struct CGSize outputSize; // @synthesize outputSize=_outputSize;
+@property(nonatomic) float cornerRadiusProportion; // @synthesize cornerRadiusProportion=_cornerRadiusProportion;
+@property(nonatomic) float rotation; // @synthesize rotation=_rotation;
+@property(nonatomic) struct CGSize shadowOffset; // @synthesize shadowOffset=_shadowOffset;
 - (float)scaleForInput:(id)arg1;
 - (struct CGSize)sizeForInput:(id)arg1;
 - (id)clippingPathForRect:(struct CGRect)arg1;

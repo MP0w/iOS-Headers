@@ -500,6 +500,10 @@
 - (void)_runWithURL:(id)arg1 payload:(id)arg2 launchOrientation:(int)arg3 statusBarStyle:(int)arg4 statusBarHidden:(BOOL)arg5;
 - (BOOL)_applicationLaunchesIntoPortrait;
 - (void)_reportAppLaunchFinished;
+- (void)_startHangTracer;
+- (void)_stopHangTracer;
+- (void)_createHangTracerTimerWithDuration:(double)arg1;
+- (id)_getHangTracerConnection;
 - (void)_run;
 - (void)_queuePostFlushAnimation:(id)arg1;
 - (void)_addAfterCACommitBlockForViewController:(id)arg1;

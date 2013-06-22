@@ -17,6 +17,7 @@
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 @property(copy, nonatomic) NSNumber *placeId;
 @property(retain, nonatomic) SALocation *location;
+@property(copy, nonatomic) NSNumber *localSearchProviderId;
 @property(copy, nonatomic) NSString *label;
 @property(copy, nonatomic) NSNumber *distanceInMiles;
 @property(retain, nonatomic) SADistance *distance;

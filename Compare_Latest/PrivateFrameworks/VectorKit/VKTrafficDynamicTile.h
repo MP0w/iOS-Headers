@@ -15,6 +15,7 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (BOOL)writeDataToDirectory:(id)arg1 error:(id *)arg2;
 - (const struct Incident *)incidentAtIndex:(unsigned int)arg1;
 - (int)flowForRoadId:(long long)arg1 buffer:(const struct Flow **)arg2 maxSize:(int)arg3;
 - (void)dealloc;

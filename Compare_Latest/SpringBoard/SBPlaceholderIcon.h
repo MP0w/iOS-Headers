@@ -17,6 +17,7 @@
 + (id)grabbedIconPlaceholder;
 + (id)placeholderForIcon:(id)arg1;
 + (id)placeholderNodeIdentifierForIcon:(id)arg1;
+- (BOOL)isPlaceholderForIcon:(id)arg1;
 - (BOOL)isEmptyPlaceholder;
 - (BOOL)isGrabbedIconPlaceholder;
 - (BOOL)isPlaceholder;

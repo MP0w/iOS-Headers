@@ -30,7 +30,6 @@
     NSObject<OS_dispatch_queue> *syncLayersQ;
     NSMutableArray *syncLayers;
     NSArray *timedMetadata;
-    CDStruct_1b6d18a9 initialDuration;
     CDStruct_1b6d18a9 initialTime;
     CDStruct_1b6d18a9 initialToleranceBefore;
     CDStruct_1b6d18a9 initialToleranceAfter;

@@ -34,10 +34,12 @@
     NSDictionary *_validationPlist;
     unsigned int _referenceRestrictions;
     NSURL *_URL;
+    BOOL _shouldOptimizeAccessForLinearMoviePlayback;
 }
 
 + (id)_figAssetTrackPropertiesForKeys;
 + (id)_figAssetPropertiesForKeys;
+- (BOOL)_shouldOptimizeAccessForLinearMoviePlayback;
 @property(readonly, nonatomic) NSDictionary *validationPlist; // @synthesize validationPlist=_validationPlist;
 - (id)downloadDestinationURL;
 - (BOOL)shouldMatchDataInCacheByURLWithoutQueryComponent;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSTimer;
+@class MPAudioDeviceController, NSDictionary, NSTimer;
 
 @interface SBMediaController : NSObject
 {
@@ -24,6 +24,7 @@
     BOOL _screenSharingSetsStatusBarOverride;
     NSTimer *_screenSharingStatusBarOverrideTimer;
     NSTimer *_videoOutStatusBarOverrideTimer;
+    MPAudioDeviceController *_audioDeviceController;
 }
 
 + (BOOL)applicationCanBeConsideredNowPlaying:(id)arg1;
@@ -42,6 +43,14 @@
 - (void)_serverConnectionDied:(id)arg1;
 - (void)_unregisterForNotifications;
 - (void)_registerForNotifications;
+- (void)_airPlayPasswordAlertWillDisappear;
+- (void)_airPlayPasswordAlertWillAppear;
+- (BOOL)routeOtherThanHandsetIsAvailable;
+- (BOOL)volumeControlIsAvailable;
+- (BOOL)handsetRouteIsSelected;
+- (void)requestAirPlayRouteDiscovery:(BOOL)arg1;
+- (void)audioDeviceControllerMediaServerDied:(id)arg1;
+- (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
 - (void)handleVolumeEvent:(struct __GSEvent *)arg1;
 - (void)cancelVolumeEvent;
 - (void)decreaseVolume;
@@ -73,11 +82,18 @@
 @property BOOL suppressHUD;
 - (id)mediaControlsDestinationApp;
 - (id)nowPlayingApplication;
+- (BOOL)trackIsBeingPlayedByMusicApp;
+- (void)setCurrentTrackTime:(float)arg1;
+- (double)trackElapsedTime;
+- (double)trackDuration;
+- (int)shuffleMode;
+- (int)repeatMode;
 - (id)nowPlayingAlbum;
 - (id)nowPlayingTitle;
 - (id)nowPlayingArtist;
 - (BOOL)trackSupports15SecondFF;
 - (BOOL)trackSupports15SecondRewind;
+- (unsigned long long)trackUniqueIdentifier;
 - (BOOL)isTVOut;
 - (BOOL)isMovie;
 - (BOOL)isPlaying;

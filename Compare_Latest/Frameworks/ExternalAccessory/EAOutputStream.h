@@ -6,7 +6,7 @@
 
 #import "NSOutputStream.h"
 
-@class EAAccessory, EASession, NSCondition, NSThread;
+@class EAAccessory, EASession, NSRecursiveLock;
 
 @interface EAOutputStream : NSOutputStream
 {
@@ -14,6 +14,9 @@
     int _sock;
     EAAccessory *_accessory;
     EASession *_session;
+    NSRecursiveLock *_statusLock;
+    NSRecursiveLock *_runloopLock;
+    struct __CFSocket *_cfSocket;
     BOOL _isOpenCompletedEventSent;
     BOOL _hasSpaceAvailableEventSent;
     BOOL _hasSpaceAvailable;
@@ -21,14 +24,12 @@
     unsigned int _streamStatus;
     struct __CFRunLoop *_runLoop;
     struct __CFRunLoopSource *_runLoopSource;
-    NSThread *_writeAvailableThread;
-    BOOL _isWriteAvailableThreadCancelled;
-    NSCondition *_writeAvailableThreadRunCondition;
+    struct __CFRunLoopSource *_socketRunLoopSource;
 }
 
-- (void)_writeAvailableThread;
 - (void)_scheduleCallback;
 - (void)_streamEventTrigger;
+- (void)_streamWriteable;
 - (void)_performAtEndOfStreamValidation;
 - (void)_accessoryDidDisconnect:(id)arg1;
 - (void)endStream;

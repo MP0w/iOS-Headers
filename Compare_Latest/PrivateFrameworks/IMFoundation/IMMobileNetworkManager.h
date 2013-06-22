@@ -14,16 +14,32 @@
     NSMutableSet *_disableFastDormancyTokens;
     NSMutableSet *_wiFiAutoAssociationTokens;
     NSMutableSet *_cellAutoAssociationTokens;
+    void *_serverConnection;
+    void *_suspendDormancyAssertion;
+    void *_wifiManager;
+    struct __SCPreferences *_prefs;
+    struct __CTServerConnection *_ctServerConnection;
+    BOOL _cachedAirplaneMode;
+    void *_cellAssertion;
+    BOOL _isCachedAirplaneModeValid;
+    int _applySkipCount;
     BOOL _registered;
     BOOL _shouldBringUpDataContext;
     BOOL _dataContextActive;
-    void *__suspendDormancyAssertion;
 }
 
-@property(nonatomic) void *_suspendDormancyAssertion; // @synthesize _suspendDormancyAssertion=__suspendDormancyAssertion;
 @property(nonatomic) BOOL dataContextActive; // @synthesize dataContextActive=_dataContextActive;
 @property(nonatomic) BOOL shouldBringUpDataContext; // @synthesize shouldBringUpDataContext=_shouldBringUpDataContext;
 @property(nonatomic) BOOL registered; // @synthesize registered=_registered;
+@property(nonatomic) int _applySkipCount; // @synthesize _applySkipCount;
+@property(nonatomic) BOOL _isCachedAirplaneModeValid; // @synthesize _isCachedAirplaneModeValid;
+@property(nonatomic) void *_cellAssertion; // @synthesize _cellAssertion;
+@property(nonatomic) BOOL _cachedAirplaneMode; // @synthesize _cachedAirplaneMode;
+@property(nonatomic) struct __CTServerConnection *_ctServerConnection; // @synthesize _ctServerConnection;
+@property(nonatomic) struct __SCPreferences *_prefs; // @synthesize _prefs;
+@property(nonatomic) void *wifiManager; // @synthesize wifiManager=_wifiManager;
+@property(nonatomic) void *_suspendDormancyAssertion; // @synthesize _suspendDormancyAssertion;
+@property(nonatomic) void *_serverConnection; // @synthesize _serverConnection;
 @property(retain, nonatomic) NSMutableSet *cellularAutoAssociationTokens; // @synthesize cellularAutoAssociationTokens=_cellAutoAssociationTokens;
 @property(retain, nonatomic) NSMutableSet *wiFiAutoAssociationTokens; // @synthesize wiFiAutoAssociationTokens=_wiFiAutoAssociationTokens;
 @property(retain, nonatomic) NSMutableSet *disableFastDormancyTokens; // @synthesize disableFastDormancyTokens=_disableFastDormancyTokens;
@@ -69,6 +85,7 @@
 - (void)refresh;
 @property(readonly, nonatomic) BOOL isAirplaneModeEnabled;
 - (void *)_getValueForKey:(id)arg1;
+- (void)_notifyTarget:(unsigned int)arg1;
 - (void)_initializeSCPrefs:(id)arg1;
 - (void)_synchronize;
 - (void)dealloc;

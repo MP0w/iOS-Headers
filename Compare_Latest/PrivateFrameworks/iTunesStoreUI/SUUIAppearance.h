@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSDictionary, NSMutableDictionary, SUControlAppearance, SUTabBarAppearance;
+@class NSDictionary, NSMutableDictionary, SUControlAppearance, SUTabBarAppearance, SUToolbarAppearance;
 
 @interface SUUIAppearance : NSObject <NSCopying>
 {
@@ -22,6 +22,7 @@
     NSMutableDictionary *_navigationButtonAppearance;
     NSMutableDictionary *_segmentedControlAppearance;
     SUTabBarAppearance *_tabBarAppearance;
+    SUToolbarAppearance *_toolbarAppearance;
 }
 
 + (id)_defaultTabBarAppearance;
@@ -31,6 +32,7 @@
 + (id)_defaultButtonAppearance;
 + (id)_defaultBackButtonAppearance;
 + (id)defaultAppearance;
+@property(copy, nonatomic) SUToolbarAppearance *toolbarAppearance; // @synthesize toolbarAppearance=_toolbarAppearance;
 @property(copy, nonatomic) SUTabBarAppearance *tabBarAppearance; // @synthesize tabBarAppearance=_tabBarAppearance;
 @property(copy, nonatomic) NSDictionary *navigationBarTitleTextAttributes; // @synthesize navigationBarTitleTextAttributes=_navigationBarTitleTextAttributes;
 @property(copy, nonatomic) SUControlAppearance *forwardButtonAppearance; // @synthesize forwardButtonAppearance=_forwardButtonAppearance;
@@ -40,6 +42,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_copySegmentedControlKeyWithStyle:(int)arg1 tintStyle:(int)arg2;
 - (void)_styleBackBarButtonItem:(id)arg1;
+- (void)styleToolbar:(id)arg1;
 - (void)styleTabBarItem:(id)arg1;
 - (void)styleSegmentedControl:(id)arg1 tintStyle:(int)arg2;
 - (void)styleNavigationBar:(id)arg1;

@@ -6,11 +6,20 @@
 
 #import "NSObject.h"
 
+@class NSData;
+
 @interface MFHardwareJPEGScaler : NSObject
 {
+    struct __IOSurface *_ioSurfaceRef;
+    NSData *_imageData;
+    struct __CFDictionary *_imageProperties;
+    BOOL _canHardwareScaleImage;
 }
 
 - (BOOL)scaleImageToFitLargestDimension:(id)arg1 dataConsumer:(id)arg2;
+- (BOOL)_decodeImageToIOSurface;
+- (BOOL)_isJPEGImage:(struct CGImageSource *)arg1;
+- (void)dealloc;
 - (id)initWithImageData:(id)arg1 imageSource:(struct CGImageSource *)arg2;
 
 @end

@@ -12,9 +12,11 @@
 {
 }
 
+@property(nonatomic) long long requestReason;
 @property(copy, nonatomic) NSString *userAgent;
 @property(copy, nonatomic) NSDictionary *urlBag;
 @property(copy, nonatomic) NSDictionary *cookieHeaders;
+@property(copy, nonatomic) NSString *purchaseClientIdentifier;
 @property(copy, nonatomic) NSString *buildIdentifier;
 @property(copy, nonatomic) NSURL *baseURL;
 @property(retain, nonatomic) SSAccount *account;

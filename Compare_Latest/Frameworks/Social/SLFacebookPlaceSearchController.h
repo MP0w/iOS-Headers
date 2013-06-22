@@ -18,14 +18,14 @@
     NSString *_searchString;
     int _retryCount;
     NSLock *_retryLock;
-    UISearchDisplayController *_searchDisplayController;
     NSArray *_searchResults;
+    UISearchDisplayController *_searchDisplayController;
     SLFacebookPlaceManager *_placeManager;
 }
 
 @property(retain) SLFacebookPlaceManager *placeManager; // @synthesize placeManager=_placeManager;
-@property(retain) NSArray *searchResults; // @synthesize searchResults=_searchResults;
 @property(retain) UISearchDisplayController *searchDisplayController; // @synthesize searchDisplayController=_searchDisplayController;
+@property(retain) NSArray *searchResults; // @synthesize searchResults=_searchResults;
 - (void).cxx_destruct;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;

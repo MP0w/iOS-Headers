@@ -4,19 +4,19 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "WLCardImages.h"
+#import <PassKit/PKPassImages.h>
 
-@class WLImage;
+@class PKImage;
 
-@interface WLCardPreviewImages : WLCardImages
+@interface WLCardPreviewImages : PKPassImages
 {
-    WLImage *_iconImage;
+    PKImage *_iconImage;
 }
 
 + (int)imageSet;
 + (int)currentVersion;
 + (id)archiveName;
-@property(retain, nonatomic) WLImage *iconImage; // @synthesize iconImage=_iconImage;
+@property(retain, nonatomic) PKImage *iconImage; // @synthesize iconImage=_iconImage;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)preheatImages;

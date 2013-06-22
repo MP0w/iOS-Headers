@@ -7,10 +7,10 @@
 #import "MKAnnotation-Protocol.h"
 
 @protocol MKOverlay <MKAnnotation>
-@property(readonly, nonatomic) CDStruct_02837cd9 boundingMapRect;
+@property(readonly, nonatomic) CDStruct_90e2a262 boundingMapRect;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 
 @optional
-- (BOOL)intersectsMapRect:(CDStruct_02837cd9)arg1;
+- (BOOL)intersectsMapRect:(CDStruct_90e2a262)arg1;
 @end
 

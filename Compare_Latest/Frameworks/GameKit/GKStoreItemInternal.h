@@ -10,23 +10,23 @@
 
 @interface GKStoreItemInternal : GKInternalRepresentation
 {
+    NSString *_artistName;
+    float _averageUserRating;
+    NSNumber *_adamID;
+    unsigned int _numberOfUserRatings;
+    NSString *_priceDisplay;
     NSDate *_expirationDate;
     NSURL *_viewItemURL;
-    NSString *_priceDisplay;
-    float _averageUserRating;
-    unsigned int _numberOfUserRatings;
-    NSString *_artistName;
-    NSNumber *_adamID;
 }
 
 + (id)codedPropertyKeys;
-@property(retain, nonatomic) NSNumber *adamID; // @synthesize adamID=_adamID;
-@property(retain, nonatomic) NSString *artistName; // @synthesize artistName=_artistName;
-@property(nonatomic) unsigned int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
-@property(nonatomic) float averageUserRating; // @synthesize averageUserRating=_averageUserRating;
-@property(retain, nonatomic) NSString *priceDisplay; // @synthesize priceDisplay=_priceDisplay;
 @property(retain, nonatomic) NSURL *viewItemURL; // @synthesize viewItemURL=_viewItemURL;
 @property(retain, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
+@property(retain, nonatomic) NSString *priceDisplay; // @synthesize priceDisplay=_priceDisplay;
+@property(nonatomic) unsigned int numberOfUserRatings; // @synthesize numberOfUserRatings=_numberOfUserRatings;
+@property(retain, nonatomic) NSNumber *adamID; // @synthesize adamID=_adamID;
+@property(nonatomic) float averageUserRating; // @synthesize averageUserRating=_averageUserRating;
+@property(retain, nonatomic) NSString *artistName; // @synthesize artistName=_artistName;
 - (BOOL)isValid;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

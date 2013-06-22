@@ -518,8 +518,8 @@ struct HashMap<WTF::RefPtr<WebCore::ResourceLoader>, WTF::RefPtr<WebCore::Substi
     struct HashTable<WTF::RefPtr<WebCore::ResourceLoader>, std::__1::pair<WTF::RefPtr<WebCore::ResourceLoader>, WTF::RefPtr<WebCore::SubstituteResource>>, WTF::PairFirstExtractor<std::__1::pair<WTF::RefPtr<WebCore::ResourceLoader>, WTF::RefPtr<WebCore::SubstituteResource>>>, WTF::PtrHash<WTF::RefPtr<WebCore::ResourceLoader>>, WTF::PairHashTraits<WTF::HashTraits<WTF::RefPtr<WebCore::ResourceLoader>>, WTF::HashTraits<WTF::RefPtr<WebCore::SubstituteResource>>>, WTF::HashTraits<WTF::RefPtr<WebCore::ResourceLoader>>> _field1;
 };
 
-struct HashMap<WTF::RetainPtr<CALayer>, LayerInfo, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<LayerInfo>> {
-    struct HashTable<WTF::RetainPtr<CALayer>, std::__1::pair<WTF::RetainPtr<CALayer>, LayerInfo>, WTF::PairFirstExtractor<std::__1::pair<WTF::RetainPtr<CALayer>, LayerInfo>>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashMapValueTraits<WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<LayerInfo>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>> _field1;
+struct HashMap<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>> {
+    struct HashTable<WTF::RetainPtr<CALayer>, std::__1::pair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>>, WTF::PairFirstExtractor<std::__1::pair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashMapValueTraits<WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>> _field1;
 };
 
 struct HashMap<WTF::RetainPtr<WebView>, WTF::RetainPtr<id<WebGeolocationProviderInitializationListener>>, WTF::PtrHash<WTF::RetainPtr<WebView>>, WTF::HashTraits<WTF::RetainPtr<WebView>>, WTF::HashTraits<WTF::RetainPtr<id<WebGeolocationProviderInitializationListener>>>> {
@@ -690,8 +690,8 @@ struct HashTable<WTF::RefPtr<WebCore::ResourceLoader>, std::__1::pair<WTF::RefPt
     int _field5;
 };
 
-struct HashTable<WTF::RetainPtr<CALayer>, std::__1::pair<WTF::RetainPtr<CALayer>, LayerInfo>, WTF::PairFirstExtractor<std::__1::pair<WTF::RetainPtr<CALayer>, LayerInfo>>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashMapValueTraits<WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<LayerInfo>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>> {
-    struct pair<WTF::RetainPtr<CALayer>, LayerInfo> *_field1;
+struct HashTable<WTF::RetainPtr<CALayer>, std::__1::pair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>>, WTF::PairFirstExtractor<std::__1::pair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashMapValueTraits<WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>> {
+    struct pair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>> *_field1;
     int _field2;
     int _field3;
     int _field4;
@@ -1339,6 +1339,10 @@ struct Pagination {
     _Bool _field2;
     unsigned int _field3;
     unsigned int _field4;
+};
+
+struct PassOwnPtr<WebCore::ViewportConstraints> {
+    struct ViewportConstraints *_field1;
 };
 
 struct PassRefPtr<WebCore::ArchiveResource> {
@@ -2203,6 +2207,8 @@ struct ViewportArguments {
     float _field7;
 };
 
+struct ViewportConstraints;
+
 struct VisiblePosition {
     struct Position _field1;
     int _field2;
@@ -2234,7 +2240,7 @@ struct WebDocumentLoaderMac;
 
 struct WebFixedPositionContentData {
     id _field1;
-    struct HashMap<WTF::RetainPtr<CALayer>, LayerInfo, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<LayerInfo>> _field2;
+    struct HashMap<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>, WTF::PtrHash<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::RetainPtr<CALayer>>, WTF::HashTraits<WTF::OwnPtr<WebCore::ViewportConstraints>>> _field2;
 };
 
 struct WebFrameLoadDelegateImplementationCache {
@@ -2401,7 +2407,7 @@ struct pair<WTF::RefPtr<WebCore::Geolocation::GeoNotifier>, int>;
 
 struct pair<WTF::RefPtr<WebCore::ResourceLoader>, WTF::RefPtr<WebCore::SubstituteResource>>;
 
-struct pair<WTF::RetainPtr<CALayer>, LayerInfo>;
+struct pair<WTF::RetainPtr<CALayer>, WTF::OwnPtr<WebCore::ViewportConstraints>>;
 
 struct pair<WTF::RetainPtr<WebView>, WTF::RetainPtr<id<WebGeolocationProviderInitializationListener>>>;
 
@@ -2471,6 +2477,10 @@ typedef struct HashMap<WTF::RetainPtr<WebView>, WTF::RetainPtr<id<WebGeolocation
 typedef struct HashSet<WebView *, WTF::PtrHash<WebView *>, WTF::HashTraits<WebView *>> {
     struct HashTable<WebView *, WebView *, WTF::IdentityExtractor, WTF::PtrHash<WebView *>, WTF::HashTraits<WebView *>, WTF::HashTraits<WebView *>> m_impl;
 } HashSet_2803207d;
+
+typedef struct PassOwnPtr<WebCore::ViewportConstraints> {
+    struct ViewportConstraints *_field1;
+} PassOwnPtr_d5ec95f2;
 
 typedef struct PassRefPtr<WebCore::ArchiveResource> {
     struct ArchiveResource *_field1;

@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSManagedObjectID, NSNumber, NSString, PFUbiquityGlobalObjectID, PFUbiquityKnowledgeVector, PFUbiquityLocation;
+@class NSDate, NSNumber, NSString, PFUbiquityGlobalObjectID, PFUbiquityKnowledgeVector, PFUbiquityLocation;
 
 @interface PFUbiquityTransactionEntryLight : NSObject
 {
-    NSManagedObjectID *_localID;
     PFUbiquityGlobalObjectID *_globalID;
     int _transactionType;
     NSString *_actingPeerID;
@@ -29,10 +28,9 @@
 @property(retain, nonatomic) NSString *actingPeerID; // @synthesize actingPeerID=_actingPeerID;
 @property(nonatomic) int transactionType; // @synthesize transactionType=_transactionType;
 @property(retain, nonatomic) PFUbiquityGlobalObjectID *globalID; // @synthesize globalID=_globalID;
-@property(retain, nonatomic) NSManagedObjectID *localID; // @synthesize localID=_localID;
 - (id)description;
 - (void)dealloc;
-- (id)initWithTransactionEntry:(id)arg1;
+- (id)initWithTransactionEntry:(id)arg1 andGlobalIDCache:(id)arg2;
 - (id)init;
 
 @end

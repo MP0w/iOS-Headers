@@ -6,7 +6,7 @@
 
 #import <iTunesStoreUI/SUScriptObject.h>
 
-@class NSArray, NSMutableDictionary, NSNumber, NSString, SSAuthenticationContext, SUClientInterface, SUScriptAccount, SUScriptAccountManager, SUScriptAppleAccountStore, SUScriptApplication, SUScriptDevice, SUScriptKeyValueStore, SUScriptMediaLibrary, SUScriptNavigationBar, SUScriptNotificationObserver, SUScriptOperationDelegate, SUScriptPreviewOverlay, SUScriptProtocol, SUScriptPurchaseManager, SUScriptSectionsController, SUScriptViewController, SUScriptWindow, SUScriptWindowContext, SUWebImagePool, WebFrame;
+@class NSArray, NSMutableDictionary, NSNumber, NSString, SSAuthenticationContext, SUClientInterface, SUScriptAccount, SUScriptAccountManager, SUScriptAppleAccountStore, SUScriptApplication, SUScriptDevice, SUScriptFairPlayContext, SUScriptKeyValueStore, SUScriptMediaLibrary, SUScriptNavigationBar, SUScriptNotificationObserver, SUScriptOperationDelegate, SUScriptPreviewOverlay, SUScriptProtocol, SUScriptPurchaseManager, SUScriptSectionsController, SUScriptViewController, SUScriptWindow, SUScriptWindowContext, SUWebImagePool, WebFrame;
 
 @interface SUScriptInterface : SUScriptObject
 {
@@ -71,6 +71,7 @@
 - (id)_className;
 @property(readonly) SUScriptKeyValueStore *applicationLocalStorage;
 @property(readonly) id applicationAccessibilityEnabled;
+- (void)accessibilityPostScreenChange;
 - (void)accessibilityPostLayoutChange;
 - (void)_accessibilityPostLayoutChange;
 - (void)signOutPrimaryAccount;
@@ -219,6 +220,7 @@
 - (id)makeLookupRequest;
 - (id)makeFacebookSessionWithAccount:(id)arg1;
 - (id)makeCalloutView;
+@property(readonly) SUScriptFairPlayContext *accountCreationSecureContext;
 
 @end
 

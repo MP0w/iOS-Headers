@@ -28,6 +28,8 @@
 @property(nonatomic, getter=isSandboxed) BOOL sandboxed; // @synthesize sandboxed=_sandboxed;
 @property(retain, nonatomic) GKStoreItemInternal *storeItem; // @synthesize storeItem=_storeItem;
 @property(retain) GKGameInternal *internal; // @synthesize internal=_internal;
+@property(readonly, nonatomic) BOOL nearbyMultiplayerEnabled;
+@property(retain, nonatomic) NSNumber *nearbyMultiplayerOverride; // @dynamic nearbyMultiplayerOverride;
 - (BOOL)isStoreItemUnexpired;
 - (void)getFriendPlayersForAchievement:(id)arg1 handler:(id)arg2;
 - (void)getFriendPlayersForLeaderboard:(id)arg1 handler:(id)arg2;

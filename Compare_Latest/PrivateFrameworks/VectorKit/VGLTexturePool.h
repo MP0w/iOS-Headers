@@ -19,6 +19,7 @@
 - (id).cxx_construct;
 - (id)checkoutTexture;
 - (void)dealloc;
+- (void)purge;
 - (id)initWithCapacity:(int)arg1 textureSize:(struct CGSize)arg2 scale:(int)arg3 context:(id)arg4;
 
 @end

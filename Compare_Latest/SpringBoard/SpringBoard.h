@@ -281,7 +281,6 @@
 - (void)goToSpotlight:(BOOL)arg1;
 - (BOOL)isMenuDoubleTapAllowed;
 - (void)setAppDisabledNowPlayingHUD:(BOOL)arg1 bundleIdentifier:(id)arg2;
-- (BOOL)canShowNowPlayingControls;
 - (BOOL)canShowLockScreenCameraGrabber;
 - (BOOL)lockScreenCameraSupported;
 - (BOOL)canShowLockScreenHUDControls;

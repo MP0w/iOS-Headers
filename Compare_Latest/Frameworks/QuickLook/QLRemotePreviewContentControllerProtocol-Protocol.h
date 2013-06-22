@@ -7,11 +7,11 @@
 #import "QLPreviewContentControllerProtocol-Protocol.h"
 
 @protocol QLRemotePreviewContentControllerProtocol <QLPreviewContentControllerProtocol>
-- (void)_setHostedFullScreenFrame:(id)arg1;
 - (void)_getPDFPageAtIndex:(int)arg1 size:(id)arg2 handler:(id)arg3;
 - (void)_prepareForDrawingPages:(id)arg1;
 - (void)_getNumberOfPagesForSize:(id)arg1 withHandler:(id)arg2;
 - (void)_getPDFPreviewDataWithHandler:(id)arg1;
+- (void)_willAnimateRotationTo:(int)arg1;
 - (void)_setContentFrame:(id)arg1;
 - (void)_setPreviewItems:(id)arg1;
 - (void)_setNumberOfPreviewItems:(int)arg1;

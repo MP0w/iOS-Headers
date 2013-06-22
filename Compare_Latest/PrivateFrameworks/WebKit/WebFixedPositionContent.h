@@ -16,7 +16,7 @@
 - (BOOL)hasFixedPositionLayers;
 - (void)removeAllLayers;
 - (void)removeLayer:(id)arg1 insideLayerSync:(BOOL)arg2;
-- (void)addOrUpdateLayer:(id)arg1 sizing:(unsigned int)arg2 bounds:(struct CGRect)arg3 alignmentOffset:(struct CGSize)arg4 insideLayerSync:(BOOL)arg5;
+- (void)addOrUpdateLayer:(id)arg1 viewportConstraints:(PassOwnPtr_d5ec95f2)arg2 insideLayerSync:(BOOL)arg3;
 - (void)didFinishScrollingOrZooming;
 - (void)scrollOrZoomChanged:(struct CGRect)arg1;
 - (void)dealloc;

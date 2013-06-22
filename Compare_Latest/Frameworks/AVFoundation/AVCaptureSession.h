@@ -94,7 +94,7 @@
 - (void)beginConfiguration;
 @property(copy, nonatomic) NSString *sessionPreset;
 - (BOOL)canSetSessionPreset:(id)arg1;
-- (struct OpaqueCMBaseObject *)recorder;
+- (struct OpaqueFigRecorder *)recorder;
 - (void)dealloc;
 - (void)_teardownFigRecorder;
 - (id)init;

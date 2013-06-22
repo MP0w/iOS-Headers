@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSObject<OS_dispatch_semaphore>, NSString, PFUbiquityBaseline, PFUbiquityGlobalObjectIDCache, PFUbiquityLocation, PFUbiquityPeerRangeCache, PFUbiquityPeerReceipt, PFUbiquityTransactionHistoryCache, PFUbiquityTransactionLogCache;
+@class NSLock, NSObject<OS_dispatch_semaphore>, NSString, PFUbiquityBaseline, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector, PFUbiquityLocation, PFUbiquityPeerRangeCache, PFUbiquityPeerReceipt, PFUbiquityTransactionHistoryCache, PFUbiquityTransactionLogCache;
 
 @interface PFUbiquitySwitchboardCacheWrapper : NSObject
 {
@@ -16,6 +16,7 @@
     PFUbiquityPeerRangeCache *_peerRangeCache;
     PFUbiquityTransactionLogCache *_transactionLogCache;
     PFUbiquityTransactionHistoryCache *_transactionHistoryCache;
+    PFUbiquityKnowledgeVector *_kv;
     PFUbiquityPeerReceipt *_peerReceipt;
     BOOL _pendingReceiptWrite;
     NSLock *_receiptFileLock;
@@ -31,6 +32,7 @@
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
 @property(readonly, nonatomic) BOOL pendingBaselineMove; // @synthesize pendingBaselineMove=_pendingBaselineMove;
+@property(retain) PFUbiquityKnowledgeVector *kv; // @synthesize kv=_kv;
 @property(readonly, nonatomic) PFUbiquityPeerReceipt *peerReceipt; // @synthesize peerReceipt=_peerReceipt;
 @property(readonly, nonatomic) PFUbiquityTransactionHistoryCache *transactionHistoryCache; // @synthesize transactionHistoryCache=_transactionHistoryCache;
 @property(readonly, nonatomic) PFUbiquityTransactionLogCache *transactionLogCache; // @synthesize transactionLogCache=_transactionLogCache;

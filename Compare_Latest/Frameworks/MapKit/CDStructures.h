@@ -104,14 +104,6 @@ typedef struct {
     char _field6;
 } CDStruct_dc034332;
 
-typedef struct {
-    struct {
-        double x;
-        double y;
-    } origin;
-    CDStruct_8caa76fc size;
-} CDStruct_02837cd9;
-
 // Ambiguous groups
 typedef struct {
     double _field1;
@@ -127,4 +119,31 @@ typedef struct {
     double width;
     double height;
 } CDStruct_8caa76fc;
+
+typedef struct {
+    struct {
+        double _field1;
+        double _field2;
+    } _field1;
+    struct {
+        double _field1;
+        double _field2;
+    } _field2;
+} CDStruct_90e2a262;
+
+typedef struct {
+    CDStruct_2c43369c center;
+    struct {
+        double latitudeDelta;
+        double longitudeDelta;
+    } span;
+} CDStruct_feeb6407;
+
+typedef struct {
+    struct {
+        double x;
+        double y;
+    } origin;
+    CDStruct_8caa76fc size;
+} CDStruct_02837cd9;
 

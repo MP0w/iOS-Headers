@@ -16,10 +16,10 @@
 }
 
 - (void)invalidateCache;
-- (void)invalidateCacheInMapRect:(CDStruct_02837cd9)arg1 atLOD:(unsigned int)arg2;
-- (void)invalidateCacheInMapRect:(CDStruct_02837cd9)arg1;
-- (int)canDrawInMapRect:(CDStruct_02837cd9)arg1 atScale:(float)arg2;
-- (void)setCanDraw:(int)arg1 forMapRect:(CDStruct_02837cd9)arg2 atScale:(float)arg3;
+- (void)invalidateCacheInMapRect:(CDStruct_90e2a262)arg1 atLOD:(unsigned int)arg2;
+- (void)invalidateCacheInMapRect:(CDStruct_90e2a262)arg1;
+- (int)canDrawInMapRect:(CDStruct_90e2a262)arg1 atScale:(float)arg2;
+- (void)setCanDraw:(int)arg1 forMapRect:(CDStruct_90e2a262)arg2 atScale:(float)arg3;
 - (void)dealloc;
 - (id)init;
 

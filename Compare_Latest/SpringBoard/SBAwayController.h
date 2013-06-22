@@ -160,7 +160,6 @@
 - (void)emergencyCallWasDisplayed;
 - (void)makeEmergencyCall;
 - (void)handleRequestedAlbumArt:(id)arg1;
-- (void)_iapExtendedModeChanged:(id)arg1;
 - (void)_nowPlayingStateChanged:(id)arg1;
 - (void)_nowPlayingAppChanged:(id)arg1;
 - (void)updateAwayViewNowPlayingInfo;

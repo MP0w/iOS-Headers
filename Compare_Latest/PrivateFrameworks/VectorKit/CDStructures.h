@@ -1406,7 +1406,8 @@ typedef struct {
     int _field20;
     char _field21;
     char _field22;
-} CDStruct_125c20f7;
+    char _field23;
+} CDStruct_daf29242;
 
 typedef struct {
     float _field1;

@@ -14,6 +14,7 @@
 - (void)httpServer:(id)arg1 dataForRequest:(id)arg2 resolvedPath:(id)arg3 handler:(id)arg4;
 - (id)httpServer:(id)arg1 rewritePath:(id)arg2;
 - (BOOL)httpServer:(id)arg1 shouldAllowRequest:(id)arg2 withAuthorization:(id)arg3;
+- (void)httpServerListenSocketFailed:(id)arg1;
 - (void)httpServer:(id)arg1 logMessage:(id)arg2;
 - (void)httpServer:(id)arg1 connection:(id)arg2 blockedSandboxViolation:(id)arg3;
 - (void)httpServer:(id)arg1 connection:(id)arg2 droppedResponseToRequestBeforeClosing:(id)arg3;

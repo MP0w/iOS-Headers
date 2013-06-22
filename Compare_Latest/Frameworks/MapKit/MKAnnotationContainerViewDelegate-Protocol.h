@@ -15,7 +15,7 @@
 - (struct CGRect)annotationContainerVisibleRect:(id)arg1;
 - (struct CGPoint)convertCoordinate:(CDStruct_c3b9c2ee)arg1 toPointToView:(id)arg2;
 - (CDStruct_c3b9c2ee)convertPoint:(struct CGPoint)arg1 toCoordinateFromView:(id)arg2;
-- (struct CADoubleRect)_convertMapRect:(CDStruct_02837cd9)arg1 toDoubleRectToView:(id)arg2;
+- (struct CADoubleRect)_convertMapRect:(CDStruct_90e2a262)arg1 toDoubleRectToView:(id)arg2;
 - (struct CADoublePoint)_convertCoordinate:(CDStruct_c3b9c2ee)arg1 toDoublePointToView:(id)arg2;
 - (float)_zoomScale;
 - (struct CGRect)visibleRectInView:(id)arg1;

@@ -15,7 +15,7 @@
 }
 
 - (void)forEachAnnotation:(id)arg1;
-- (CDStruct_02837cd9)_mapRectWithFraction:(double)arg1 ofVisible:(CDStruct_02837cd9)arg2;
+- (CDStruct_90e2a262)_mapRectWithFraction:(double)arg1 ofVisible:(CDStruct_90e2a262)arg2;
 - (void)annotationViewsDidChangeZIndex:(id)arg1;
 - (void)annotationViewDidChangeZIndex:(id)arg1;
 - (unsigned int)indexForAnnotationView:(id)arg1;
@@ -28,7 +28,7 @@
 - (void)selectAnnotation:(id)arg1 animated:(BOOL)arg2 avoid:(struct CGRect)arg3;
 - (id)dequeueReusableAnnotationViewWithIdentifier:(id)arg1;
 - (id)viewForAnnotation:(id)arg1;
-- (id)annotationsInMapRect:(CDStruct_02837cd9)arg1;
+- (id)annotationsInMapRect:(CDStruct_90e2a262)arg1;
 @property(readonly, nonatomic) NSArray *annotations;
 - (void)_removeAnnotationView:(id)arg1 updateCollections:(BOOL)arg2;
 - (void)_removeAnnotationView:(id)arg1;
@@ -40,11 +40,11 @@
 - (BOOL)showAddedAnnotationsAnimated:(BOOL)arg1;
 - (void)addSubview:(id)arg1;
 - (void)_addViewsForAnnotations:(id)arg1 animated:(BOOL)arg2;
-- (void)_displayAnnotationsInMapRect:(CDStruct_02837cd9)arg1 includePending:(BOOL)arg2 animated:(BOOL)arg3 removeOffscreenAnnotations:(BOOL)arg4;
+- (void)_displayAnnotationsInMapRect:(CDStruct_90e2a262)arg1 includePending:(BOOL)arg2 animated:(BOOL)arg3 removeOffscreenAnnotations:(BOOL)arg4;
 - (void)_refreshDisplayedAnnotations;
-- (void)showAnnotationsInMapRect:(CDStruct_02837cd9)arg1;
-- (CDStruct_02837cd9)_displayRect;
-- (void)setVisibleMapRect:(CDStruct_02837cd9)arg1;
+- (void)showAnnotationsInMapRect:(CDStruct_90e2a262)arg1;
+- (CDStruct_90e2a262)_displayRect;
+- (void)setVisibleMapRect:(CDStruct_90e2a262)arg1;
 - (id)addViewForManagedAnnotation:(id)arg1 notifyDelegate:(BOOL)arg2;
 - (void)addManagedAnnotation:(id)arg1;
 - (void)addAnnotations:(id)arg1;

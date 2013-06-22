@@ -36,6 +36,7 @@
 - (id)stringByTrimmingCharactersInCFCharacterSet:(struct __CFCharacterSet *)arg1;
 - (unsigned int)_editDistanceFrom:(id)arg1;
 - (BOOL)_containsSubstring:(id)arg1;
+- (id)_stringByTransliteratingToZhuyin;
 - (id)_stringByApplyingTransform:(id)arg1;
 - (id)_stringByTranscribingFromLanguage:(id)arg1 usingTokenizer:(struct __CFStringTokenizer *)arg2;
 - (id)_stringByTranscribingFromLanguage:(id)arg1;

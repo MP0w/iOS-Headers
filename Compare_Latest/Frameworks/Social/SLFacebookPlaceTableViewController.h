@@ -24,12 +24,12 @@
     SLFacebookPlaceSearchController *_placeSearchController;
     BOOL _searchPresented;
     SLFacebookPlaceManager *_placeManager;
-    ACAccount *_account;
     id <SLFacebookPlaceViewControllerDelegate> _selectionDelegate;
+    ACAccount *_account;
 }
 
-@property __weak id <SLFacebookPlaceViewControllerDelegate> selectionDelegate; // @synthesize selectionDelegate=_selectionDelegate;
 @property(retain) ACAccount *account; // @synthesize account=_account;
+@property __weak id <SLFacebookPlaceViewControllerDelegate> selectionDelegate; // @synthesize selectionDelegate=_selectionDelegate;
 @property(retain) SLFacebookPlaceManager *placeManager; // @synthesize placeManager=_placeManager;
 - (void).cxx_destruct;
 - (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;

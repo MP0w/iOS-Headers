@@ -12,6 +12,7 @@
     long long _businessID;
     double _timestamp;
     int _feedbackType;
+    int _localSearchProviderID;
     int _numberOfResults;
     int _positionInResults;
     int _sequenceNumber;
@@ -20,12 +21,14 @@
         unsigned int businessID:1;
         unsigned int timestamp:1;
         unsigned int feedbackType:1;
+        unsigned int localSearchProviderID:1;
         unsigned int numberOfResults:1;
         unsigned int positionInResults:1;
         unsigned int sequenceNumber:1;
     } _has;
 }
 
+@property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
 @property(nonatomic) int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(nonatomic) int positionInResults; // @synthesize positionInResults=_positionInResults;
 @property(nonatomic) int numberOfResults; // @synthesize numberOfResults=_numberOfResults;
@@ -42,6 +45,7 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasLocalSearchProviderID;
 @property(nonatomic) BOOL hasSequenceNumber;
 @property(nonatomic) BOOL hasPositionInResults;
 @property(nonatomic) BOOL hasNumberOfResults;

@@ -12,7 +12,7 @@
 - (id)defaultActionBlock;
 - (id)actionBlockForButton:(SEL)arg1 withOrigin:(id)arg2;
 - (id)defaultActionBlockWithOrigin:(SEL)arg1;
-- (id)defaultActionBlockWithOrigin:(SEL)arg1 canBypassPinLock:(int)arg2 requiresUnlock:(char *)arg3 suitabilityFilter:(char *)arg4;
+- (id)defaultActionBlockWithOrigin:(SEL)arg1 canBypassPinLock:(int)arg2 requiresUnlock:(char *)arg3 shouldDeactivateAwayController:(char *)arg4 suitabilityFilter:(char *)arg5;
 - (void)killSound;
 - (BOOL)playSound;
 @end

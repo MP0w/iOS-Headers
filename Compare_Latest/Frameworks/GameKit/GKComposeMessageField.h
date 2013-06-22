@@ -10,14 +10,14 @@
 
 @interface GKComposeMessageField : UIView
 {
-    GKTextView *_textView;
-    GKCellBackgroundView *_outlineView;
     UIImageView *_backgroundView;
+    GKCellBackgroundView *_outlineView;
+    GKTextView *_textView;
 }
 
-@property(retain, nonatomic) UIImageView *backgroundView; // @synthesize backgroundView=_backgroundView;
-@property(retain, nonatomic) GKCellBackgroundView *outlineView; // @synthesize outlineView=_outlineView;
 @property(retain, nonatomic) GKTextView *textView; // @synthesize textView=_textView;
+@property(retain, nonatomic) GKCellBackgroundView *outlineView; // @synthesize outlineView=_outlineView;
+@property(retain, nonatomic) UIImageView *backgroundView; // @synthesize backgroundView=_backgroundView;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

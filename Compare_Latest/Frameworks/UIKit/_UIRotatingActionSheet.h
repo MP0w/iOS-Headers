@@ -14,8 +14,8 @@
     BOOL _isRotating;
 }
 
-@property(nonatomic) id <_UIRotatingActionSheetDelegate> rotatingSheetDelegate; // @synthesize rotatingSheetDelegate=_rotatingSheetDelegate;
 @property(nonatomic) unsigned int arrowDirections; // @synthesize arrowDirections=_arrowDirections;
+@property(nonatomic) id <_UIRotatingActionSheetDelegate> rotatingSheetDelegate; // @synthesize rotatingSheetDelegate=_rotatingSheetDelegate;
 - (void)didRotate;
 - (void)_updateSheetPositionAfterRotation;
 - (void)willRotate;

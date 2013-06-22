@@ -33,6 +33,8 @@
 @property(retain) NSNumber *authenticatedDSID; // @synthesize authenticatedDSID=_authenticatedDSID;
 - (id)_urlFromURLBagForRequestProperties:(id)arg1 inBagContext:(id)arg2;
 - (void)_runURLOperation;
+- (id)_resolvedURLInBagContext:(id)arg1 URLBag:(id *)arg2;
+- (id)_resolvedURL;
 - (BOOL)_isErrorTokenError:(id)arg1;
 - (id)_copyURLBagContext;
 - (BOOL)_canSendTokenToURL:(id)arg1;

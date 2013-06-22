@@ -44,6 +44,7 @@
 - (void)updateAudioChannelsArray;
 - (float)getPeakAudioLevelForChannel:(id)arg1;
 - (float)getAvgAudioLevelForChannel:(id)arg1;
+- (void)updateAudioLevelsArray;
 @property(readonly, nonatomic) NSArray *audioChannels;
 - (id)mediaType;
 - (BOOL)isLive;

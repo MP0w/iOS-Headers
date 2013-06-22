@@ -37,7 +37,7 @@
 @property BOOL allowSelfSignedCertificates; // @synthesize allowSelfSignedCertificates=_allowSelfSignedCertificates;
 @property(retain) NSNumber *_cacheTime; // @synthesize _cacheTime;
 @property(retain) NSDate *_loadDate; // @synthesize _loadDate;
-@property(retain) NSString *_cachedHash; // @synthesize _cachedHash;
+@property(retain, setter=_setCachedHash:) NSString *_cachedHash; // @synthesize _cachedHash;
 @property(retain) NSData *_certData; // @synthesize _certData;
 @property(setter=_setTrustStatus:) int _trustStatus; // @synthesize _trustStatus;
 @property(retain, setter=_setCachedURLString:) NSString *_cachedURLString; // @synthesize _cachedURLString;
@@ -53,6 +53,7 @@
 @property(readonly) BOOL isServerAvailable;
 - (id)urlWithKey:(id)arg1;
 - (id)objectForKey:(id)arg1;
+@property(readonly) BOOL isInDebilitatedMode;
 @property(readonly) BOOL isLoaded;
 @property(readonly) BOOL isLoading;
 - (void)forceBagLoad;

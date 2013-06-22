@@ -34,8 +34,6 @@
     const void *representedObject;
     CDStruct_6a83575d representedObjectCallbacks;
     long representedObjectProtection;
-    NSMutableDictionary *dumpFileHandles;
-    BOOL dumpToDisk;
     BOOL htmlErrorDisabled;
 }
 
@@ -58,7 +56,6 @@
 @property(retain, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
-- (void)_dumpData:(id)arg1 withURL:(id)arg2 lastChunk:(BOOL)arg3;
 - (id)mimeTypeForAttachmentURL:(id)arg1;
 - (unsigned long)cfEncodingForAttachmentURL:(id)arg1;
 @property(readonly, nonatomic) NSSet *attachmentURLs;

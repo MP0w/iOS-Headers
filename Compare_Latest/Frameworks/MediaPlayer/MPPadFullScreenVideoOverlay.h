@@ -29,6 +29,7 @@
     UILabel *_loadingMovieLabel;
     UIActivityIndicatorView *_loadingMovieIndicator;
     unsigned int _layoutSubviewsActive:1;
+    unsigned int _navigationBarHidden:1;
 }
 
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
@@ -40,7 +41,7 @@
 - (void)_initSubviews;
 - (id)_navBarBackgroundImageForProgressControl:(BOOL)arg1 tallStyle:(BOOL)arg2;
 - (void)_applicationWillResignActive:(id)arg1;
-- (void)_isAirPlayVideoActiveDidChangeNotification:(id)arg1;
+- (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_videoViewScaleModeDidChangeNotification:(id)arg1;
 - (void)_itemDurationAvailableNotification:(id)arg1;
 - (void)hideAlternateTracks;
@@ -56,12 +57,14 @@
 - (void)setDisabledParts:(unsigned long long)arg1;
 - (unsigned long long)disabledParts;
 - (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+- (void)setNavigationBarHidden:(BOOL)arg1;
 - (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (void)setInterfaceOrientation:(int)arg1;
 - (void)setPlayer:(id)arg1;
 - (void)setVideoViewController:(id)arg1;
 - (void)setItem:(id)arg1;
 - (void)setAllowsWirelessPlayback:(BOOL)arg1;
+- (BOOL)navigationBarHidden;
 - (BOOL)allowsWirelessPlayback;
 - (void)crossedTimeMakerWithEvent:(id)arg1;
 - (void)_configureLinkButtonForCurrentItemTime;

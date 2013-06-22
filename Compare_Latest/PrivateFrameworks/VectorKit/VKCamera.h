@@ -10,7 +10,7 @@
 
 @interface VKCamera : NSObject
 {
-    id <VKCameraDelegate> delegate;
+    id <VKCameraDelegate> _delegate;
     CDStruct_31142d93 _position;
     CDStruct_aa5aacbc _orientation;
     float _aspectRatio;
@@ -44,7 +44,6 @@
     double _screenHeightOfGroundAndFarClipPlaneIntersection;
     BOOL _allowDatelineWraparound;
     double _canonicalPitch;
-    id <VKCameraDelegate> _delegate;
 }
 
 @property(nonatomic) double canonicalPitch; // @synthesize canonicalPitch=_canonicalPitch;

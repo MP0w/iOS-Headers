@@ -34,9 +34,9 @@
     BOOL _needsSyncUpdate;
 }
 
+@property(retain, nonatomic) NSDictionary *extraAttributes; // @synthesize extraAttributes=_extraAttributes;
 @property(retain, nonatomic) NSDictionary *localAttributes; // @synthesize localAttributes=_localAttributes;
 @property(nonatomic) BOOL needsSyncUpdate; // @synthesize needsSyncUpdate=_needsSyncUpdate;
-@property(retain, nonatomic) NSDictionary *extraAttributes; // @synthesize extraAttributes=_extraAttributes;
 @property(readonly, nonatomic, getter=isInserted) BOOL inserted; // @synthesize inserted=_inserted;
 @property(readonly, nonatomic, getter=isFolder) BOOL folder; // @synthesize folder=_folder;
 @property(readonly, nonatomic, getter=isHidden) BOOL hidden; // @synthesize hidden=_hidden;
@@ -69,6 +69,7 @@
 - (unsigned int)_orderIndex;
 - (void)_markSpecial:(unsigned int)arg1;
 - (id)_initWithSqliteRow:(struct sqlite3_stmt *)arg1;
+@property(nonatomic) int databaseWriteTestValue;
 - (void)cleanupRedundantPreviewText;
 @property(retain, nonatomic) NSString *localPreviewText;
 @property(retain, nonatomic) NSDictionary *nextPageURLs;

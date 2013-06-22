@@ -10,12 +10,12 @@
 
 @interface GKAbstractGradientBrush : GKImageBrush
 {
-    GKGradient *_gradient;
     int _blendMode;
+    GKGradient *_gradient;
 }
 
-@property(nonatomic) int blendMode; // @synthesize blendMode=_blendMode;
 @property(retain, nonatomic) GKGradient *gradient; // @synthesize gradient=_gradient;
+@property(nonatomic) int blendMode; // @synthesize blendMode=_blendMode;
 - (void)dealloc;
 
 @end

@@ -10,6 +10,7 @@
 @property(nonatomic) id <MPVideoOverlayDelegate> delegate;
 @property(readonly, nonatomic) UINavigationBar *navigationBar;
 @property(retain, nonatomic) MPAVController *player;
+@property(nonatomic) BOOL navigationBarHidden;
 @property(nonatomic) unsigned long long disabledParts;
 @property(nonatomic) unsigned long long visibleParts;
 @property(nonatomic) unsigned long long desiredParts;

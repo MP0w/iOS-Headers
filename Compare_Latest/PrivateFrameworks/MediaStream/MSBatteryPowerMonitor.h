@@ -8,12 +8,23 @@
 
 @interface MSBatteryPowerMonitor : NSObject
 {
-    BOOL _isExternalPowerConnected;
+    struct __CFRunLoopSource *_batteryRunLoopSource;
+    struct IONotificationPort *_batteryIONotifyPort;
+    unsigned int _batteryNotificationRef;
+    double _currentLevel;
+    BOOL _isExteralPowerConnected;
 }
 
 + (id)defaultMonitor;
-@property(readonly, nonatomic) BOOL isExternalPowerConnected; // @synthesize isExternalPowerConnected=_isExternalPowerConnected;
+- (void)setExternalPowerConnected:(BOOL)arg1;
+@property(nonatomic) BOOL isExternalPowerConnected; // @synthesize isExternalPowerConnected=_isExteralPowerConnected;
+@property(nonatomic) double currentLevel; // @synthesize currentLevel=_currentLevel;
 - (double)batteryPercentRemaining;
+- (void)updateBatteryConnectedStateWithBatteryEntry:(unsigned int)arg1;
+- (BOOL)_updateBatteryConnectedStateWithBatteryEntry:(unsigned int)arg1;
+- (void)updateBatteryLevelWithBatteryEntry:(unsigned int)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

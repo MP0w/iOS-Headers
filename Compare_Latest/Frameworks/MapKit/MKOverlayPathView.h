@@ -22,7 +22,7 @@
 }
 
 - (void)dealloc;
-- (void)drawMapRect:(CDStruct_02837cd9)arg1 zoomScale:(float)arg2 inContext:(struct CGContext *)arg3;
+- (void)drawMapRect:(CDStruct_90e2a262)arg1 zoomScale:(float)arg2 inContext:(struct CGContext *)arg3;
 - (void)fillPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2;
 - (void)strokePath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2;
 - (void)applyFillPropertiesToContext:(struct CGContext *)arg1 atZoomScale:(float)arg2;

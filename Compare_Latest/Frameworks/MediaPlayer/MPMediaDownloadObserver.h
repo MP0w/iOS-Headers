@@ -20,8 +20,7 @@
 
 + (id)sharedITunesStoreDownloadManager;
 + (id)newObserverForMediaItem:(id)arg1;
-+ (id)newObserverForDownloadIdentifier:(id)arg1 downloadStatus:(int)arg2 itemPersistentID:(long long)arg3;
-+ (id)newObserverForDownloadIdentifier:(id)arg1 downloadStatus:(int)arg2 downloadPersistentID:(long long)arg3;
++ (id)newObserverForMediaItemPersistentID:(unsigned long long)arg1 downloadStatus:(int)arg2 storeID:(long long)arg3;
 @property(readonly, nonatomic) long long persistentID; // @synthesize persistentID=_pid;
 - (void)invalidate;
 - (void)_onQueue_invalidate;

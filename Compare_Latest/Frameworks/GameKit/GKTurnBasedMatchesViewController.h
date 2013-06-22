@@ -21,12 +21,12 @@
     GKMatchRequest *_matchRequest;
     BOOL _showingExistingMatches;
     int _maxMatchesSeen;
-    BOOL _authenticateViewControllerVisible;
     BOOL _suppressUpdateContents;
+    BOOL _authenticateViewControllerVisible;
 }
 
-@property(nonatomic) BOOL suppressUpdateContents; // @synthesize suppressUpdateContents=_suppressUpdateContents;
 @property(nonatomic) BOOL authenticateViewControllerVisible; // @synthesize authenticateViewControllerVisible=_authenticateViewControllerVisible;
+@property(nonatomic) BOOL suppressUpdateContents; // @synthesize suppressUpdateContents=_suppressUpdateContents;
 @property(nonatomic) int maxMatchesSeen; // @synthesize maxMatchesSeen=_maxMatchesSeen;
 @property(nonatomic) BOOL showingExistingMatches; // @synthesize showingExistingMatches=_showingExistingMatches;
 @property(retain, nonatomic) GKMatchRequest *matchRequest; // @synthesize matchRequest=_matchRequest;

@@ -16,14 +16,14 @@
     double _interval;
     NSLock *_lock;
     BOOL _orientationEventsEnabled;
-    int _orientationEventsToken;
+    int _orientationCheckToken;
+    int _orientationNotificationsToken;
     NSThread *_orientationEventsThread;
     float _xThreshold;
     float _yThreshold;
     float _zThreshold;
 }
 
-@property(nonatomic) id <BKSAccelerometerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_orientationDidChange;
 - (id)_orientationEventsThread;
 - (int)currentDeviceOrientation;
@@ -38,6 +38,7 @@
 @property(nonatomic) BOOL accelerometerEventsEnabled;
 - (void)dealloc;
 - (id)init;
+@property(nonatomic) id <BKSAccelerometerDelegate> delegate;
 
 @end
 

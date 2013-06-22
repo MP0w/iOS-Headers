@@ -16,7 +16,10 @@
     NSOperationQueue *fDeviceOrientationQueue;
     struct dispatch_semaphore_s *fDeviceOrientationSemaphore;
     BOOL fDidSignalSemaphore;
-    struct Sample fLatestDeviceOrientationSample;
+    struct Sample {
+        double timestamp;
+        CDStruct_bdecc0cd orientation;
+    } fLatestDeviceOrientationSample;
 }
 
 - (id).cxx_construct;

@@ -11,7 +11,9 @@
 }
 
 + (int)_directBTStatus;
++ (void)_btPowerStateChanged:(id)arg1;
 + (int)_determineBluetoothStatus;
++ (Class)_bluetoothManagerClass;
 + (void)initialize;
 + (void)turnBluetoothOn;
 + (void)cleanup;

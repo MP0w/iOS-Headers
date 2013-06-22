@@ -42,6 +42,7 @@
 - (void)openURL:(id)arg1 animateIn:(BOOL)arg2 scale:(float)arg3 start:(double)arg4 duration:(float)arg5 animateOut:(BOOL)arg6;
 - (BOOL)openURL:(id)arg1 allowUnlock:(BOOL)arg2 animated:(BOOL)arg3;
 - (BOOL)canUserLaunchIcon;
+- (BOOL)alertIsActive;
 - (BOOL)springBoardIsActive;
 - (id)createWallpaperView:(int)arg1;
 - (BOOL)homeScreenIsDisplayingWallpaper;

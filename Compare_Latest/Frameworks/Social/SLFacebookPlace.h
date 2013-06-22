@@ -12,23 +12,23 @@
 
 @interface SLFacebookPlace : NSObject <NSCoding>
 {
-    double _distance;
-    double _longitude;
-    NSString *_identifier;
-    double _latitude;
-    NSString *_category;
-    NSURL *_pictureURL;
     NSString *_name;
+    NSURL *_pictureURL;
+    NSString *_identifier;
+    double _longitude;
+    double _distance;
+    NSString *_category;
+    double _latitude;
 }
 
 + (id)placeWithResponseDictionary:(id)arg1;
-@property(retain) NSString *name; // @synthesize name=_name;
-@property(retain) NSURL *pictureURL; // @synthesize pictureURL=_pictureURL;
-@property(retain) NSString *category; // @synthesize category=_category;
 @property double latitude; // @synthesize latitude=_latitude;
-@property(retain) NSString *identifier; // @synthesize identifier=_identifier;
-@property double longitude; // @synthesize longitude=_longitude;
+@property(retain) NSString *category; // @synthesize category=_category;
 @property double distance; // @synthesize distance=_distance;
+@property double longitude; // @synthesize longitude=_longitude;
+@property(retain) NSString *identifier; // @synthesize identifier=_identifier;
+@property(retain) NSURL *pictureURL; // @synthesize pictureURL=_pictureURL;
+@property(retain) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

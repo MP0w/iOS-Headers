@@ -43,11 +43,11 @@
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)_allowsDirectEncoding;
 - (Class)classForCoder;
-- (id)initWithFormat:(id)arg1 locale:(id)arg2 arguments:(char *)arg3;
+- (id)initWithFormat:(id)arg1 locale:(id)arg2 arguments:(void *)arg3;
 - (id)initWithBytesNoCopy:(void *)arg1 length:(unsigned int)arg2 encoding:(unsigned int)arg3 freeWhenDone:(BOOL)arg4;
 - (id)initWithCStringNoCopy:(char *)arg1 length:(unsigned int)arg2 freeWhenDone:(BOOL)arg3;
 - (id)initWithCharactersNoCopy:(unsigned short *)arg1 length:(unsigned int)arg2 freeWhenDone:(BOOL)arg3;
-- (id)initWithFormat:(id)arg1 arguments:(char *)arg2;
+- (id)initWithFormat:(id)arg1 arguments:(void *)arg2;
 - (id)initWithFormat:(id)arg1 locale:(id)arg2;
 - (id)initWithFormat:(id)arg1;
 - (id)initWithData:(id)arg1 usedEncoding:(unsigned int *)arg2;
@@ -144,6 +144,7 @@
 - (const unsigned short *)_fastCharacterContents;
 - (unsigned short)characterAtIndex:(unsigned int)arg1;
 - (unsigned int)length;
+- (id)__escapeString5991;
 - (BOOL)_getCString:(char *)arg1 maxLength:(unsigned int)arg2 encoding:(unsigned long)arg3;
 - (unsigned long)_fastestEncodingInCFStringEncoding;
 - (unsigned long)_smallestEncodingInCFStringEncoding;
@@ -230,16 +231,13 @@
 - (id)_web_parseAsKeyValuePairHandleQuotes_nowarn:(BOOL)arg1;
 - (id)_web_parseAsKeyValuePair_nowarn;
 - (id)_web_splitAtNonDateCommas_nowarn;
-- (BOOL)_getBytesAsData:(id *)arg1 maxLength:(unsigned int)arg2 usedLength:(unsigned int *)arg3 encoding:(unsigned int)arg4 options:(unsigned int)arg5 range:(struct _NSRange)arg6 remainingRange:(struct _NSRange *)arg7;
-- (id)_getCharactersAsStringInRange:(struct _NSRange)arg1;
 - (void)_flushRegularExpressionCaches;
 - (id)_stringByReplacingOccurrencesOfRegularExpressionPattern:(id)arg1 withTemplate:(id)arg2 options:(unsigned int)arg3 range:(struct _NSRange)arg4;
 - (struct _NSRange)_rangeOfRegularExpressionPattern:(id)arg1 options:(unsigned int)arg2 range:(struct _NSRange)arg3 locale:(id)arg4;
 - (struct _NSRange)significantText;
-- (id)replacementObjectForPortCoder:(id)arg1;
-- (id)__escapeString5991;
 - (void)enumerateLinguisticTagsInRange:(struct _NSRange)arg1 scheme:(id)arg2 options:(unsigned int)arg3 orthography:(id)arg4 usingBlock:(id)arg5;
 - (id)linguisticTagsInRange:(struct _NSRange)arg1 scheme:(id)arg2 options:(unsigned int)arg3 orthography:(id)arg4 tokenRanges:(id *)arg5;
+- (id)replacementObjectForPortCoder:(id)arg1;
 
 @end
 

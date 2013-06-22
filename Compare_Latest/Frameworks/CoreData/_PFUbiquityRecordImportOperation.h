@@ -29,16 +29,18 @@
     PFUbiquityImportContext *_importContext;
     BOOL _success;
     BOOL _transactionDidRollback;
+    BOOL _wroteKV;
     int _inMemorySequenceNumber;
     NSError *_operationError;
 }
 
+@property(readonly, nonatomic) BOOL wroteKV; // @synthesize wroteKV=_wroteKV;
 @property(readonly, nonatomic) NSError *operationError; // @synthesize operationError=_operationError;
 @property(readonly, nonatomic) BOOL success; // @synthesize success=_success;
 @property(readonly) NSPersistentStore *store; // @synthesize store=_store;
 @property(readonly, nonatomic) BOOL transactionDidRollBack; // @synthesize transactionDidRollBack=_transactionDidRollback;
-@property(readonly, nonatomic) PFUbiquityKnowledgeVector *updatedStoreKnowledgeVector; // @synthesize updatedStoreKnowledgeVector=_updatedStoreKnowledgeVector;
-@property(readonly, nonatomic) PFUbiquityImportContext *importContext; // @synthesize importContext=_importContext;
+@property(retain, nonatomic) PFUbiquityKnowledgeVector *updatedStoreKnowledgeVector; // @synthesize updatedStoreKnowledgeVector=_updatedStoreKnowledgeVector;
+@property(retain, nonatomic) PFUbiquityImportContext *importContext; // @synthesize importContext=_importContext;
 @property(readonly) PFUbiquityKnowledgeVector *initialStoreKnowledgeVector; // @synthesize initialStoreKnowledgeVector=_initialStoreKnowledgeVector;
 @property BOOL lockedExistingCoord; // @synthesize lockedExistingCoord=_lockedExistingCoord;
 @property(retain, nonatomic) PFUbiquityKnowledgeVector *logScore; // @synthesize logScore=_logScore;

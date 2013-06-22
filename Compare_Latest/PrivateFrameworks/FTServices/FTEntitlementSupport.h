@@ -10,9 +10,12 @@
 
 @interface FTEntitlementSupport : NSObject
 {
+    struct __CTServerConnection *_ctServerConnection;
+    struct __CFString *_entitlementStatus;
 }
 
 + (id)sharedInstance;
+- (void)_handleCTServiceRequestName:(struct __CFString *)arg1 userInfo:(struct __CFDictionary *)arg2 contextInfo:(void *)arg3;
 - (BOOL)_disconnectCTServerConnection;
 - (BOOL)_reconnectCTServerConnectionIfNecessary;
 - (BOOL)_setupCTServerConnection;

@@ -10,17 +10,17 @@
 
 @interface PLPublishCloudSharedAssetsJob : PLCloudSharingJob
 {
-    NSArray *_originalAssetUUIDs;
-    BOOL _isNewAlbum;
-    NSString *_publishAlbumCloudGUID;
     NSString *_batchCommentText;
+    NSArray *_originalAssetUUIDs;
+    NSString *_publishAlbumCloudGUID;
+    BOOL _isNewAlbum;
 }
 
 + (void)publishBatchOfOriginalAssets:(id)arg1 toSharedAlbum:(id)arg2 isNewAlbum:(BOOL)arg3 batchCommentText:(id)arg4;
-@property(retain, nonatomic) NSString *batchCommentText; // @synthesize batchCommentText=_batchCommentText;
-@property(retain, nonatomic) NSString *publishAlbumCloudGUID; // @synthesize publishAlbumCloudGUID=_publishAlbumCloudGUID;
 @property(nonatomic) BOOL isNewAlbum; // @synthesize isNewAlbum=_isNewAlbum;
+@property(retain, nonatomic) NSString *publishAlbumCloudGUID; // @synthesize publishAlbumCloudGUID=_publishAlbumCloudGUID;
 @property(retain, nonatomic) NSArray *originalAssetUUIDs; // @synthesize originalAssetUUIDs=_originalAssetUUIDs;
+@property(retain, nonatomic) NSString *batchCommentText; // @synthesize batchCommentText=_batchCommentText;
 - (void)executeDaemonOperation;
 - (void)runDaemonSide;
 - (BOOL)shouldArchiveXPCToDisk;

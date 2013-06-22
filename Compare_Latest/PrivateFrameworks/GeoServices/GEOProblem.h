@@ -22,6 +22,7 @@
     NSString *_correctedLabelTitle;
     GEOPlace *_correctedPlace;
     GEOLatLng *_correctedPosition;
+    NSMutableArray *_directionsProblems;
     NSData *_directionsResponseID;
     GEOMapRegion *_featureRegion;
     NSString *_httpInfo;
@@ -32,19 +33,28 @@
     int _pinType;
     GEOPlaceSearchRequest *_placeSearchRequest;
     GEOPlaceSearchResponse *_placeSearchResponse;
+    NSString *_preferredSearchDisplayLocation;
+    unsigned int _preferredSearchResultIndex;
+    unsigned int _problematicSearchResultIndex;
     GEOMapRegion *_region;
     NSString *_syslog;
     NSString *_tileStateLog;
-    NSData *_viewportImage;
+    NSMutableArray *_viewportImages;
     NSData *_viewportInfo;
     NSMutableArray *_visibleTileSets;
     struct {
         unsigned int sessionID:1;
         unsigned int mapZoomLevel:1;
         unsigned int pinType:1;
+        unsigned int preferredSearchResultIndex:1;
+        unsigned int problematicSearchResultIndex:1;
     } _has;
 }
 
+@property(retain, nonatomic) NSString *preferredSearchDisplayLocation; // @synthesize preferredSearchDisplayLocation=_preferredSearchDisplayLocation;
+@property(nonatomic) unsigned int preferredSearchResultIndex; // @synthesize preferredSearchResultIndex=_preferredSearchResultIndex;
+@property(nonatomic) unsigned int problematicSearchResultIndex; // @synthesize problematicSearchResultIndex=_problematicSearchResultIndex;
+@property(retain, nonatomic) NSMutableArray *directionsProblems; // @synthesize directionsProblems=_directionsProblems;
 @property(retain, nonatomic) GEOMapRegion *featureRegion; // @synthesize featureRegion=_featureRegion;
 @property(retain, nonatomic) NSString *correctedLabelTitle; // @synthesize correctedLabelTitle=_correctedLabelTitle;
 @property(retain, nonatomic) NSString *incorrectLabelTitle; // @synthesize incorrectLabelTitle=_incorrectLabelTitle;
@@ -58,7 +68,7 @@
 @property(retain, nonatomic) NSMutableArray *correctedFields; // @synthesize correctedFields=_correctedFields;
 @property(retain, nonatomic) GEOLatLng *pinDrop; // @synthesize pinDrop=_pinDrop;
 @property(retain, nonatomic) NSData *viewportInfo; // @synthesize viewportInfo=_viewportInfo;
-@property(retain, nonatomic) NSData *viewportImage; // @synthesize viewportImage=_viewportImage;
+@property(retain, nonatomic) NSMutableArray *viewportImages; // @synthesize viewportImages=_viewportImages;
 @property(retain, nonatomic) NSMutableArray *visibleTileSets; // @synthesize visibleTileSets=_visibleTileSets;
 @property(nonatomic) float mapZoomLevel; // @synthesize mapZoomLevel=_mapZoomLevel;
 @property(retain, nonatomic) GEOMapRegion *region; // @synthesize region=_region;
@@ -74,6 +84,13 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasPreferredSearchDisplayLocation;
+@property(nonatomic) BOOL hasPreferredSearchResultIndex;
+@property(nonatomic) BOOL hasProblematicSearchResultIndex;
+- (id)directionsProblemsAtIndex:(unsigned int)arg1;
+- (unsigned int)directionsProblemsCount;
+- (void)addDirectionsProblems:(id)arg1;
+- (void)clearDirectionsProblems;
 - (void)setFeatureHandles:(CDStruct_3f74b7eb *)arg1 count:(unsigned int)arg2;
 - (CDStruct_3f74b7eb)featureHandleAtIndex:(unsigned int)arg1;
 - (void)addFeatureHandle:(CDStruct_3f74b7eb)arg1;
@@ -108,7 +125,10 @@
 @property(readonly, nonatomic) unsigned int pinProblemTypesCount;
 @property(readonly, nonatomic) BOOL hasPinDrop;
 @property(readonly, nonatomic) BOOL hasViewportInfo;
-@property(readonly, nonatomic) BOOL hasViewportImage;
+- (id)viewportImagesAtIndex:(unsigned int)arg1;
+- (unsigned int)viewportImagesCount;
+- (void)addViewportImages:(id)arg1;
+- (void)clearViewportImages;
 - (id)visibleTileSetAtIndex:(unsigned int)arg1;
 - (unsigned int)visibleTileSetsCount;
 - (void)addVisibleTileSet:(id)arg1;

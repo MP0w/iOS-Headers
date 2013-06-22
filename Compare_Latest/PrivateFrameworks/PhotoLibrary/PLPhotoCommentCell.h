@@ -22,6 +22,7 @@
 + (float)heightForComment:(id)arg1 forWidth:(float)arg2 forInterfaceOrientation:(int)arg3;
 + (float)heightForCommentText:(id)arg1 bylineText:(id)arg2 forWidth:(float)arg3 forInterfaceOrientation:(int)arg4;
 + (Class)layerClass;
++ (id)_synthesizedAttributedString:(id)arg1 withWordWrapping:(BOOL)arg2;
 @property(copy, nonatomic) PLCloudSharedComment *comment; // @synthesize comment=_comment;
 @property(readonly, nonatomic) UIView *styledSeparatorView; // @synthesize styledSeparatorView=_styledSeparatorView;
 @property(readonly, nonatomic) UILabel *commentBylineLabel; // @synthesize commentBylineLabel=_commentBylineLabel;

@@ -10,28 +10,28 @@
 
 @interface GKChallengeInternal : GKInternalRepresentation
 {
+    NSString *_issuingPlayerID;
+    NSOrderedSet *_compatibleBundleIDs;
     NSString *_receivingPlayerID;
     int _state;
-    NSDate *_issueDate;
-    NSDate *_completionDate;
     NSString *_message;
-    NSOrderedSet *_compatibleBundleIDs;
+    NSDate *_issueDate;
     NSString *_bundleID;
+    NSDate *_completionDate;
     NSString *_challengeID;
-    NSString *_issuingPlayerID;
 }
 
 + (id)internalRepresentation;
 + (id)codedPropertyKeys;
-@property(retain, nonatomic) NSString *issuingPlayerID; // @synthesize issuingPlayerID=_issuingPlayerID;
 @property(retain, nonatomic) NSString *challengeID; // @synthesize challengeID=_challengeID;
-@property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
-@property(retain, nonatomic) NSOrderedSet *compatibleBundleIDs; // @synthesize compatibleBundleIDs=_compatibleBundleIDs;
-@property(retain, nonatomic) NSString *message; // @synthesize message=_message;
 @property(retain, nonatomic) NSDate *completionDate; // @synthesize completionDate=_completionDate;
+@property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(retain, nonatomic) NSDate *issueDate; // @synthesize issueDate=_issueDate;
+@property(retain, nonatomic) NSString *message; // @synthesize message=_message;
 @property(nonatomic) int state; // @synthesize state=_state;
 @property(retain, nonatomic) NSString *receivingPlayerID; // @synthesize receivingPlayerID=_receivingPlayerID;
+@property(retain, nonatomic) NSOrderedSet *compatibleBundleIDs; // @synthesize compatibleBundleIDs=_compatibleBundleIDs;
+@property(retain, nonatomic) NSString *issuingPlayerID; // @synthesize issuingPlayerID=_issuingPlayerID;
 - (id)findLocalGameBundleID;
 - (id)issueRepresentationToPlayerID:(id)arg1;
 - (id)serverRepresentation;

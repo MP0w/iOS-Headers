@@ -34,8 +34,8 @@
 
 + (id)_shadowImage;
 + (id)_backgroundImage;
-@property(nonatomic) float horizontalInsetMargin; // @synthesize horizontalInsetMargin=_horizontalInsetMargin;
 @property(nonatomic) float vertialInsetMargin; // @synthesize vertialInsetMargin=_vertialInsetMargin;
+@property(nonatomic) float horizontalInsetMargin; // @synthesize horizontalInsetMargin=_horizontalInsetMargin;
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 - (int)displayedImageIndex;
 - (void)setDisplayedImageIndex:(int)arg1;

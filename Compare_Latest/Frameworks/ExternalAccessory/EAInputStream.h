@@ -6,7 +6,7 @@
 
 #import "NSInputStream.h"
 
-@class EAAccessory, EASession, NSCondition, NSMutableData, NSThread;
+@class EAAccessory, EASession, NSCondition, NSMutableData, NSRecursiveLock, NSThread;
 
 @interface EAInputStream : NSInputStream
 {
@@ -14,9 +14,10 @@
     EAAccessory *_accessory;
     EASession *_session;
     int _sock;
-    char *_inputFromAccBuffer;
     NSMutableData *_inputFromAccData;
     NSCondition *_inputFromAccCondition;
+    NSRecursiveLock *_statusLock;
+    NSRecursiveLock *_runloopLock;
     NSThread *_inputFromAccThread;
     BOOL _isOpenCompletedEventSent;
     BOOL _hasNewBytesAvailable;

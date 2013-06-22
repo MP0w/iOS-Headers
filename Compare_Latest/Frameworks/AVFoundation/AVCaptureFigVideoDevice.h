@@ -39,7 +39,7 @@
     BOOL _torchAvailable;
     NSObject<OS_dispatch_queue> *_torchAppsSerialQueue;
     NSObject<OS_dispatch_source> *_torchAppsKillTimer;
-    struct OpaqueCMBaseObject *_recorderForTorchApps;
+    struct OpaqueFigRecorder *_recorderForTorchApps;
     BOOL _isConnected;
     BOOL _subjectMonitoringEnabled;
     BOOL _faceDetectionDrivenImageProcessingEnabled;
@@ -98,7 +98,7 @@
 - (BOOL)_setSubjectAreaChangeMonitoringEnabled:(BOOL)arg1;
 - (BOOL)isSubjectAreaChangeMonitoringEnabled;
 - (void)_teardownFigRecorderForTorchApps;
-- (struct OpaqueCMBaseObject *)_createFigRecorderForTorchApps;
+- (struct OpaqueFigRecorder *)_createFigRecorderForTorchApps;
 - (void)_updateFlashAndTorchAvailability;
 - (BOOL)setTorchModeOnWithLevel:(float)arg1 error:(id *)arg2;
 - (void)setTorchMode:(int)arg1;

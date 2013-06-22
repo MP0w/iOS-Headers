@@ -41,9 +41,6 @@
 
 + (void)deleteCacheWithName:(id)arg1;
 + (void)initialize;
-+ (void)_set__PF__SkipSimulatorAsserts:(BOOL)arg1;
-+ (void)_set__PF_LINKEDAFTERWILDCAT:(BOOL)arg1;
-+ (void)_set__PF_LINKEDAFTERNORTHSTAR:(BOOL)arg1;
 + (unsigned int)_insertIndexForObject:(id)arg1 inArray:(id)arg2 lowIdx:(unsigned int)arg3 highIdx:(unsigned int)arg4 sortDescriptors:(id)arg5;
 + (id)_CoreDataSectionCachesPath;
 @property(nonatomic) id <NSFetchedResultsControllerDelegate> delegate; // @synthesize delegate=_delegate;

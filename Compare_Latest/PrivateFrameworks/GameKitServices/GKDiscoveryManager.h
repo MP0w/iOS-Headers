@@ -20,6 +20,7 @@
     NSObject<OS_dispatch_queue> *_peersQueue;
 }
 
++ (id)parseDeviceIDFromServiceName:(id)arg1;
 @property(copy, nonatomic) NSString *deviceID; // @synthesize deviceID=_deviceID;
 @property(copy, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
 @property(retain, nonatomic) GKDiscoveryBonjour *bonjour; // @synthesize bonjour=_bonjour;

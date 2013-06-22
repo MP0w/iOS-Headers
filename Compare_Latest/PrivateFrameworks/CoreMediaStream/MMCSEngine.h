@@ -37,14 +37,14 @@
     BOOL _autoGenerateItemID;
     BOOL _isMetricsGatheringEnabled;
     NSThread *_workThread;
-    NSTimer *_threadKeepAliveTimer;
     BOOL _isDone;
+    NSTimer *_threadKeepAliveTimer;
 }
 
 + (id)logStringForPutItemState:(int)arg1;
 + (id)logStringForGetItemState:(int)arg1;
-@property(nonatomic) BOOL isDone; // @synthesize isDone=_isDone;
 @property(retain, nonatomic) NSTimer *threadKeepAliveTimer; // @synthesize threadKeepAliveTimer=_threadKeepAliveTimer;
+@property(nonatomic) BOOL isDone; // @synthesize isDone=_isDone;
 @property(retain, nonatomic) NSThread *workThread; // @synthesize workThread=_workThread;
 @property(nonatomic) BOOL isMetricsGatheringEnabled; // @synthesize isMetricsGatheringEnabled=_isMetricsGatheringEnabled;
 @property(nonatomic) BOOL autoGenerateItemID; // @synthesize autoGenerateItemID=_autoGenerateItemID;

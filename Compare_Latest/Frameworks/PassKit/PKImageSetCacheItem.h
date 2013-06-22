@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, WLCardImages;
+@class NSMutableSet, PKPassImages;
 
 @interface PKImageSetCacheItem : NSObject
 {
-    WLCardImages *_images;
+    PKPassImages *_images;
     NSMutableSet *_cardUniqueIDs;
 }
 
 @property(retain, nonatomic) NSMutableSet *cardUniqueIDs; // @synthesize cardUniqueIDs=_cardUniqueIDs;
-@property(retain, nonatomic) WLCardImages *images; // @synthesize images=_images;
+@property(retain, nonatomic) PKPassImages *images; // @synthesize images=_images;
 - (void)dealloc;
 - (id)initWithImages:(id)arg1 cardUniqueID:(id)arg2;
 

@@ -16,6 +16,7 @@
 
 + (id)sharedAssetDownloadController;
 - (id)_urlConnectionRequestForMediaItem:(id)arg1;
+- (void)_stopDownloadsBasedOnCurrentNetworkIfNeeded;
 - (void)_resumedPausedDownloadSessionsForCompletedMediaItemID:(unsigned long long)arg1;
 - (void)_removeNotificationObserversForDownloadSession:(id)arg1;
 - (id)_newAVAssetForPurchaseResponseDictionary:(id)arg1 mediaItem:(id)arg2 preferredAssetFlavor:(id)arg3;
@@ -28,6 +29,8 @@
 - (void)prioritizeDownloadSessionForMediaItem:(id)arg1;
 - (BOOL)mediaItemHasDownloadSession:(id)arg1;
 - (id)assetForMediaItem:(id)arg1;
+- (void)_networkTypeChangedNotification:(id)arg1;
+- (void)_matchCellularDataRestrictedDidChangeNotification:(id)arg1;
 - (void)_downloadSucceededNotification:(id)arg1;
 - (void)_downloadFileSizeAvailableNotification:(id)arg1;
 - (void)_downloadFailedNotification:(id)arg1;

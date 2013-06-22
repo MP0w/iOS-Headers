@@ -13,16 +13,16 @@
     UIImageView *_backgroundView;
     UILabel *_labelView;
     UIActivityIndicatorView *_indicatorView;
-    int _interfaceIdiom;
+    float _maxWidth;
     unsigned int _unreadItemsCount;
     BOOL _showsLoadingIndicator;
-    float _maxWidth;
+    int _interfaceIdiom;
 }
 
-@property(nonatomic) float maxWidth; // @synthesize maxWidth=_maxWidth;
+@property(readonly) int interfaceIdiom; // @synthesize interfaceIdiom=_interfaceIdiom;
 @property(nonatomic) BOOL showsLoadingIndicator; // @synthesize showsLoadingIndicator=_showsLoadingIndicator;
 @property(nonatomic) unsigned int unreadItemsCount; // @synthesize unreadItemsCount=_unreadItemsCount;
-@property(readonly) int interfaceIdiom; // @synthesize interfaceIdiom=_interfaceIdiom;
+@property(nonatomic) float maxWidth; // @synthesize maxWidth=_maxWidth;
 - (void)_layoutSubviews;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

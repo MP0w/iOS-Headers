@@ -20,7 +20,7 @@
 - (id).cxx_construct;
 - (BOOL)isDrawingRenderableIcon;
 - (id)renderableIcon;
-- (void)updateWithLabelContext:(struct LabelContext *)arg1 labelStyle:(CDStruct_125c20f7 *)arg2 atMercatorPoint:(CDStruct_31142d93)arg3;
+- (void)updateWithLabelContext:(struct LabelContext *)arg1 labelStyle:(CDStruct_daf29242 *)arg2 atMercatorPoint:(CDStruct_31142d93)arg3;
 - (id)iconName;
 - (void)updateCollisionObject:(struct CollisionObject *)arg1;
 - (BOOL)isPOI;

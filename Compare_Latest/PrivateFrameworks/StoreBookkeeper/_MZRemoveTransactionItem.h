@@ -10,12 +10,12 @@
 
 @interface _MZRemoveTransactionItem : NSObject
 {
-    NSString *_version;
     NSString *_key;
+    NSString *_version;
 }
 
-@property(copy, nonatomic) NSString *key; // @synthesize key=_key;
 @property(copy, nonatomic) NSString *version; // @synthesize version=_version;
+@property(copy, nonatomic) NSString *key; // @synthesize key=_key;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)description;

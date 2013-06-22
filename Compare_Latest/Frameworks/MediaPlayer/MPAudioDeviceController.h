@@ -50,6 +50,7 @@
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 @property(nonatomic) BOOL routeDiscoveryEnabled;
 - (void)determinePickableRoutesWithCompletionHandler:(id)arg1;
+- (void)logCurrentRoutes;
 - (int)indexOfPickedRoute;
 - (BOOL)pickRouteAtIndex:(unsigned int)arg1 withPassword:(id)arg2;
 - (BOOL)pickRouteAtIndex:(unsigned int)arg1;

@@ -35,8 +35,8 @@
 
 @property(copy, nonatomic) NSString *albumName; // @synthesize albumName=_albumName;
 @property(retain, nonatomic) PLCloudSharedAlbum *album; // @synthesize album=_album;
-@property(retain, nonatomic) NSArray *albumRecipients; // @synthesize albumRecipients=_albumRecipients;
 @property(nonatomic) BOOL inMultiStepActivity; // @synthesize inMultiStepActivity=_inMultiStepActivity;
+@property(retain, nonatomic) NSArray *albumRecipients; // @synthesize albumRecipients=_albumRecipients;
 @property(nonatomic) BOOL wantsPublicWebsite; // @synthesize wantsPublicWebsite=_wantsPublicWebsite;
 @property(nonatomic) id <PLCloudSharedCreateAlbumViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)composeRecipientViewControllerRecipientContainerViewDidResize:(id)arg1 fromFrame:(struct CGRect)arg2 toFrame:(struct CGRect)arg3;

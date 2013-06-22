@@ -17,6 +17,8 @@
 }
 
 + (void)initialize;
+@property(readonly, nonatomic, getter=_shouldOptimizeAccessForLinearMoviePlayback) BOOL shouldOptimizeAccessForLinearMoviePlayback;
+- (void)_serverHasDied;
 @property(readonly, nonatomic) unsigned int referenceRestrictions;
 - (id)_mapFigErrorCodeToNSError:(long)arg1;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 keysForCollectionKeys:(id)arg2 completionHandler:(id)arg3;

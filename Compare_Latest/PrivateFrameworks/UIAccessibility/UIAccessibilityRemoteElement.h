@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSMutableSet, NSString;
 
 @interface UIAccessibilityRemoteElement : NSObject
 {
@@ -15,6 +15,7 @@
     unsigned int _contextId;
     BOOL _onClientSide;
     id _remoteChildrenDelegate;
+    NSMutableSet *_allChildren;
 }
 
 + (BOOL)registerRemoteElement:(id)arg1;

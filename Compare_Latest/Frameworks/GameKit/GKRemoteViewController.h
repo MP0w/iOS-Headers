@@ -17,13 +17,13 @@
     GKGame *_game;
     BOOL _didSetRemoteGame;
     NSMutableDictionary *_dirtyProperties;
-    id _blockToPerformAfterViewDidAppear;
     BOOL _viewDidAppear;
+    id _blockToPerformAfterViewDidAppear;
 }
 
 + (BOOL)shouldPropagateAppearanceCustomizations;
-@property(nonatomic) BOOL viewDidAppear; // @synthesize viewDidAppear=_viewDidAppear;
 @property(copy, nonatomic) id blockToPerformAfterViewDidAppear; // @synthesize blockToPerformAfterViewDidAppear=_blockToPerformAfterViewDidAppear;
+@property(nonatomic) BOOL viewDidAppear; // @synthesize viewDidAppear=_viewDidAppear;
 @property(retain, nonatomic) NSMutableDictionary *dirtyProperties; // @synthesize dirtyProperties=_dirtyProperties;
 @property(nonatomic) BOOL didSetRemoteGame; // @synthesize didSetRemoteGame=_didSetRemoteGame;
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;

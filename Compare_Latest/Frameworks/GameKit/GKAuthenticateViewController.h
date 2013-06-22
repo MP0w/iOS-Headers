@@ -21,14 +21,14 @@
     BOOL _shouldShowActiveViewController;
     BOOL _disablesSignIn;
     UITextField *_activeTextField;
-    int _alertTag;
     GKGame *_game;
+    int _alertTag;
     float _bottomContentInsetBeforeKeyboard;
 }
 
 @property float bottomContentInsetBeforeKeyboard; // @synthesize bottomContentInsetBeforeKeyboard=_bottomContentInsetBeforeKeyboard;
-@property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
 @property(nonatomic) int alertTag; // @synthesize alertTag=_alertTag;
+@property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
 @property(nonatomic) UITextField *activeTextField; // @synthesize activeTextField=_activeTextField;
 @property(nonatomic) BOOL disablesSignIn; // @synthesize disablesSignIn=_disablesSignIn;
 @property(nonatomic) BOOL shouldShowActiveViewController; // @synthesize shouldShowActiveViewController=_shouldShowActiveViewController;

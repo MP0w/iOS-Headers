@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "GKSessionDelegate-Protocol.h"
+#import "GKSessionPrivateDelegate-Protocol.h"
 
 @class GKConnection, GKSession, NSArray, NSData, NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
 
-@interface GKMatch : NSObject <GKSessionDelegate>
+@interface GKMatch : NSObject <GKSessionDelegate, GKSessionPrivateDelegate>
 {
     id <GKMatchDelegate> _delegateWeak;
     GKSession *_session;
@@ -29,10 +30,12 @@
     NSDictionary *_networkStatistics;
     NSMutableDictionary *_hostScores;
     BOOL _needHostScore;
+    BOOL _hostScoreForQuery;
     id _chooseHostCompletion;
 }
 
 @property(copy, nonatomic) id chooseHostCompletion; // @synthesize chooseHostCompletion=_chooseHostCompletion;
+@property(nonatomic) BOOL hostScoreForQuery; // @synthesize hostScoreForQuery=_hostScoreForQuery;
 @property(nonatomic) BOOL needHostScore; // @synthesize needHostScore=_needHostScore;
 @property(retain, nonatomic) NSMutableDictionary *hostScores; // @synthesize hostScores=_hostScores;
 @property(retain, nonatomic) NSDictionary *networkStatistics; // @synthesize networkStatistics=_networkStatistics;
@@ -71,10 +74,13 @@
 - (void)session:(id)arg1 didFailWithError:(id)arg2;
 - (void)session:(id)arg1 connectionWithPeerFailed:(id)arg2 withError:(id)arg3;
 - (void)session:(id)arg1 peer:(id)arg2 didChangeState:(int)arg3;
-- (void)chooseBestHostPlayerWithCompletionHandler:(id)arg1;
-- (void)calculateAndSendHostScore;
-- (void)selectHostIfAllScored;
+- (void)sendHostScoreAsQuery:(BOOL)arg1;
+- (void)calculateHostScore;
+- (BOOL)selectHostIfRequestedAndAllScored;
+- (BOOL)haveAllHostScores;
 - (void)addHostScore:(int)arg1 forPlayer:(id)arg2;
+- (void)receivedChooseHostData:(id)arg1 fromPlayer:(id)arg2;
+- (void)chooseBestHostPlayerWithCompletionHandler:(id)arg1;
 - (void)rematchWithCompletionHandler:(id)arg1;
 - (void)conditionallyRelaunchPlayer:(id)arg1;
 - (void)conditionallyReinvitePlayer:(id)arg1 sessionToken:(id)arg2;

@@ -64,7 +64,7 @@
 - (void)noteDidReceiveLike:(id)arg1 mstreamdInfo:(id)arg2;
 - (void)noteDidReceiveComment:(id)arg1 mstreamdInfo:(id)arg2;
 - (void)noteDidChangePlaceholderKindForAsset:(id)arg1 fromOldKind:(int)arg2 forSharedAlbum:(id)arg3 mstreamdInfo:(id)arg4;
-- (void)noteDidReceiveAsset:(id)arg1 atIndex:(unsigned int)arg2 forSharedAlbum:(id)arg3 mstreamdInfo:(id)arg4;
+- (void)noteDidReceiveAsset:(id)arg1 atIndex:(unsigned int)arg2 forSharedAlbum:(id)arg3 mstreamdInfo:(id)arg4 misc:(id)arg5;
 - (void)noteInvitationRecordStatusChanged:(id)arg1 fromOldState:(int)arg2 mstreamdInfo:(id)arg3;
 - (void)noteDidDeleteSharedAssetsWithUUIDs:(id)arg1;
 - (void)noteDidDeleteSharedAlbum:(id)arg1;

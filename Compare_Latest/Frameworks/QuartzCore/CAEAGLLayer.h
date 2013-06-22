@@ -22,7 +22,7 @@
 - (void)_display;
 - (void)layerDidBecomeVisible:(BOOL)arg1;
 - (void)dealloc;
-@property(readonly) struct _EAGLWindowObject *nativeWindow;
+@property(readonly) struct _EAGLNativeWindowObject *nativeWindow;
 - (void)didChangeValueForKey:(id)arg1;
 - (BOOL)shouldArchiveValueForKey:(id)arg1;
 @property(getter=isAsynchronous) BOOL asynchronous;

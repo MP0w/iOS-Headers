@@ -12,8 +12,8 @@
 {
     EAGLContext *context;
     CAEAGLLayer *_layer;
-    int backingWidth;
-    int backingHeight;
+    int _backingWidth;
+    int _backingHeight;
     struct ViewerImp *_viewer;
     struct CameraManager _cameraManager;
     struct TestManager _testManager;
@@ -34,6 +34,8 @@
 
 @property(readonly) unsigned int systemIcon; // @synthesize systemIcon=_systemIcon;
 @property(readonly) double fps; // @synthesize fps=_fps;
+@property(readonly) int backingHeight; // @synthesize backingHeight=_backingHeight;
+@property(readonly) int backingWidth; // @synthesize backingWidth=_backingWidth;
 @property(nonatomic) BOOL alwaysDraws; // @synthesize alwaysDraws=_alwaysDraws;
 @property(copy, nonatomic) id launchCallback; // @synthesize launchCallback=_launchCallback;
 @property(copy, nonatomic) id sceneDidLoadCallback; // @synthesize sceneDidLoadCallback=_sceneDidLoadCallback;

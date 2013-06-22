@@ -17,6 +17,7 @@
     NSSet *_guidSchemes;
     NSDictionary *_headerPatterns;
     double _invalidationTime;
+    BOOL _loadedFromDiskCache;
 }
 
 + (id)_copyFallbackContextForContext:(id)arg1;
@@ -35,8 +36,9 @@
 + (id)_urlBagForContext:(id)arg1;
 + (void)setURLBag:(id)arg1 forContext:(id)arg2;
 + (void)_setURLBag:(id)arg1 forContext:(id)arg2;
-+ (void)_observeStoreFrontChanges;
++ (void)_observeExternalChanges;
 + (void)invalidateAllBags;
+@property(nonatomic) BOOL loadedFromDiskCache; // @synthesize loadedFromDiskCache=_loadedFromDiskCache;
 @property(nonatomic) double invalidationTime; // @synthesize invalidationTime=_invalidationTime;
 - (void)_writeURLResolutionCacheFile;
 - (void)_writeNetworkConstraintsCacheFile;

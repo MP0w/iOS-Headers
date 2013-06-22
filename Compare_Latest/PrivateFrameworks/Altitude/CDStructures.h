@@ -27,8 +27,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    float width;
+    float height;
 };
 
 struct CameraManager {
@@ -430,4 +430,11 @@ struct vector<karo::Node *, std::__1::allocator<karo::Node *>> {
         struct Node **_field1;
     } _field3;
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    void *opaque1;
+    long opaque2;
+} CDStruct_632c0709;
 

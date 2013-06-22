@@ -12,7 +12,6 @@
 {
     CBConcreteCentralManager *_centralManager;
     NSNumber *_handle;
-    BOOL _isUserVisible;
     BOOL _isUserRetained;
     BOOL _isConnecting;
     NSMutableDictionary *_attributes;
@@ -20,7 +19,6 @@
 
 @property(nonatomic) BOOL isConnecting; // @synthesize isConnecting=_isConnecting;
 @property(nonatomic) BOOL isUserRetained; // @synthesize isUserRetained=_isUserRetained;
-@property(nonatomic) BOOL isUserVisible; // @synthesize isUserVisible=_isUserVisible;
 @property(readonly, nonatomic) NSNumber *handle; // @synthesize handle=_handle;
 - (void)handleDescriptorValueWritten:(id)arg1;
 - (void)handleDescriptorValueUpdated:(id)arg1;

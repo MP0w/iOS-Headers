@@ -32,7 +32,7 @@
 - (void)tileRequester:(id)arg1 receivedError:(id)arg2;
 - (void)tileRequester:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 forKey:(struct _GEOTileKey)arg5 userInfo:(id)arg6;
 - (void)cancelLoad:(id)arg1;
-- (void)loadTiles:(id)arg1 checkDisk:(BOOL)arg2 allowNetworking:(BOOL)arg3 bundleIdentifier:(id)arg4 bundleVersion:(id)arg5;
+- (void)loadTiles:(id)arg1 checkDisk:(BOOL)arg2 allowNetworking:(BOOL)arg3 requireWiFi:(BOOL)arg4 bundleIdentifier:(id)arg5 bundleVersion:(id)arg6;
 - (id)_contextForNetworkList:(id)arg1;
 - (id)_contextForFullList:(id)arg1;
 - (void)flushPendingWrites;
@@ -40,6 +40,7 @@
 - (void)closeCacheConnection;
 - (void)setDelegate:(id)arg1;
 - (void)registerProvider:(Class)arg1;
+- (void)_updateExpiringTilesets;
 - (void)_registerBuiltInProviders;
 - (void)dealloc;
 - (id)initWithCacheLocation:(id)arg1;

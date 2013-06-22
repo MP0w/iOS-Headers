@@ -30,12 +30,12 @@
     unsigned int _numberOfColumns;
     id <UIScrollViewDelegate> _scrollViewDelegate;
     int _visualStyle;
-    NSString *_inlineText;
     NSArray *_sortedCandidates;
+    NSString *_inlineText;
 }
 
-@property(retain, nonatomic) NSArray *sortedCandidates; // @synthesize sortedCandidates=_sortedCandidates;
 @property(retain, nonatomic) NSString *inlineText; // @synthesize inlineText=_inlineText;
+@property(retain, nonatomic) NSArray *sortedCandidates; // @synthesize sortedCandidates=_sortedCandidates;
 @property(nonatomic) int visualStyle; // @synthesize visualStyle=_visualStyle;
 @property(nonatomic) id <UIScrollViewDelegate> scrollViewDelegate; // @synthesize scrollViewDelegate=_scrollViewDelegate;
 @property(nonatomic) unsigned int numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;

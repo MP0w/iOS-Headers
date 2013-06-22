@@ -10,14 +10,14 @@
 
 @interface GKMultiplayerBackgroundView : UICollectionReusableView
 {
-    GKCurvedCapBackgroundBrush *_backgroundBrush;
     UIImageView *_imageView;
+    GKCurvedCapBackgroundBrush *_backgroundBrush;
     struct CGSize _cachedImageSize;
 }
 
 @property(nonatomic) struct CGSize cachedImageSize; // @synthesize cachedImageSize=_cachedImageSize;
-@property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) GKCurvedCapBackgroundBrush *backgroundBrush; // @synthesize backgroundBrush=_backgroundBrush;
+@property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

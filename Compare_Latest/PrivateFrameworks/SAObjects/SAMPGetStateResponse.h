@@ -17,6 +17,7 @@
 + (id)getStateResponseWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getStateResponse;
 @property(nonatomic) int state;
+@property(copy, nonatomic) NSString *source;
 @property(copy, nonatomic) NSNumber *listeningToMusicApplication;
 @property(retain, nonatomic) SAMPMediaItem *listeningToItem;
 - (id)encodedClassName;

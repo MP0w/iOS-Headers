@@ -13,7 +13,7 @@
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withString:(id)arg2;
 - (unsigned short)characterAtIndex:(unsigned int)arg1;
 - (unsigned int)length;
-- (id)initWithFormat:(id)arg1 locale:(id)arg2 arguments:(char *)arg3;
+- (id)initWithFormat:(id)arg1 locale:(id)arg2 arguments:(void *)arg3;
 - (id)initWithCStringNoCopy:(char *)arg1 length:(unsigned int)arg2 freeWhenDone:(BOOL)arg3;
 - (id)initWithCString:(const char *)arg1 encoding:(unsigned int)arg2;
 - (id)initWithCharactersNoCopy:(unsigned short *)arg1 length:(unsigned int)arg2 freeWhenDone:(BOOL)arg3;

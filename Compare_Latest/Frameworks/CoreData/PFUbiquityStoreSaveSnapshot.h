@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNumber, NSString;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNumber, NSString, PFUbiquityKnowledgeVector;
 
 @interface PFUbiquityStoreSaveSnapshot : NSObject
 {
@@ -30,8 +30,10 @@
     NSDictionary *_storeOptions;
     NSMutableArray *_filesInsertedInTransaction;
     NSArray *_filesDeletedInTransaction;
+    PFUbiquityKnowledgeVector *_storeKV;
 }
 
+@property(retain, nonatomic) PFUbiquityKnowledgeVector *storeKV; // @synthesize storeKV=_storeKV;
 @property(retain, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) NSDictionary *globalObjectIDToPermanentManagedObjectID; // @synthesize globalObjectIDToPermanentManagedObjectID=_globalObjectIDToPermanentManagedObjectID;
 @property(readonly, nonatomic) NSDictionary *globalObjectIDToIndex; // @synthesize globalObjectIDToIndex=_globalObjectIDToIndex;

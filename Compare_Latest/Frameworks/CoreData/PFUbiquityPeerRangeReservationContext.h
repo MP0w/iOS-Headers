@@ -30,7 +30,7 @@
 - (void)prepareForRangeReservationWithRangeStart:(id)arg1 andGlobalID:(id)arg2 andEntityName:(id)arg3;
 - (BOOL)createNewPeerRangesWithCache:(id)arg1 Error:(id *)arg2;
 - (void)dealloc;
-- (id)initWithPersistentStore:(id)arg1 andStoreSaveSnapshot:(id)arg2;
+- (id)initWithPersistentStore:(id)arg1 andGlobalObjectIDs:(id)arg2;
 - (id)init;
 
 @end

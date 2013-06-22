@@ -18,8 +18,10 @@
     double _synchronizationTime;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     NSObject<OS_dispatch_queue> *_internalQueue;
+    int _pid;
 }
 
+@property(readonly, nonatomic) int pid; // @synthesize pid=_pid;
 @property(nonatomic) NSObject<OS_dispatch_queue> *internalQueue; // @synthesize internalQueue=_internalQueue;
 @property(nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(nonatomic) double synchronizationTime; // @synthesize synchronizationTime=_synchronizationTime;

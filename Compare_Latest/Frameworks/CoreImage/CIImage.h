@@ -33,6 +33,8 @@
 + (id)imageWithBitmapData:(id)arg1 bytesPerRow:(unsigned long)arg2 size:(struct CGSize)arg3 format:(int)arg4 options:(id)arg5;
 + (id)imageWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 + (id)imageWithCGImage:(struct CGImage *)arg1;
++ (id)imageWithIOSurface:(struct __IOSurface *)arg1 options:(id)arg2;
++ (id)imageWithIOSurface:(struct __IOSurface *)arg1;
 - (struct CGRect)regionOfInterestForImage:(id)arg1 inRect:(struct CGRect)arg2;
 - (void *)_internalRepresentation;
 - (id)_initWithInternalRepresentation:(void *)arg1;
@@ -72,6 +74,8 @@
 - (id)initWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 - (id)_initWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 - (id)initWithCGImage:(struct CGImage *)arg1;
+- (id)initWithIOSurface:(struct __IOSurface *)arg1 options:(id)arg2;
+- (id)initWithIOSurface:(struct __IOSurface *)arg1;
 - (id)autoRedEyeFilterWithFeatures:(id)arg1 options:(id)arg2;
 - (id)autoRedEyeFilterWithFeatures:(id)arg1 imageProperties:(id)arg2 options:(id)arg3;
 - (id)_autoRedEyeFilterWithFeatures:(id)arg1 imageProperties:(id)arg2 context:(id)arg3 options:(id)arg4;

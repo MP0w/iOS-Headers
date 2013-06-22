@@ -319,19 +319,6 @@ typedef struct {
 } CDStruct_8f44d8bf;
 
 typedef struct {
-    id _field1;
-    unsigned int _field2;
-    char _field3;
-    union {
-        float _field1;
-        double _field2;
-        unsigned long long _field3;
-        void *_field4;
-    } _field4;
-    unsigned int _field5;
-} CDStruct_ee93799b;
-
-typedef struct {
     char overrideItemIsEnabled[24];
     unsigned int overrideTimeString:1;
     unsigned int overrideGsmSignalStrengthRaw:1;

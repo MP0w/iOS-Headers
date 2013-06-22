@@ -6,8 +6,13 @@
 
 #import "NSObject.h"
 
+@class CTCallCenter, NSMutableDictionary;
+
 @interface IMAVTelephonyManager : NSObject
 {
+    CTCallCenter *_callCenter;
+    struct __CTServerConnection *_ctServerConnection;
+    NSMutableDictionary *_currentCallDictionary;
     BOOL _isDesignatedServiceProvider;
     struct __CFMachPort *_ctServerMachPort;
     struct __CFUUID *_ctToken;
@@ -28,12 +33,21 @@
 - (BOOL)_isOnCallToID:(id)arg1;
 - (void)_disconnectCSCallWithID:(id)arg1;
 @property(readonly, nonatomic) unsigned int callState;
+- (void)_setCurrentCallStatus:(int)arg1 forChat:(id)arg2;
+- (void)_handleCTServiceRequestName:(struct __CFString *)arg1 userInfo:(struct __CFDictionary *)arg2 contextInfo:(void *)arg3;
+- (void)_hangUpCall:(struct __CTCall *)arg1;
+- (void)_answerCall:(struct __CTCall *)arg1;
+- (void)_dialRequested:(struct __CFDictionary *)arg1;
+- (void)_setCallRef:(struct __CTCall *)arg1 forChat:(id)arg2;
+- (struct __CTCall *)_callRefForChat:(id)arg1;
 - (BOOL)_disconnectCTServerConnection;
 - (BOOL)_reconnectCTServerConnectionIfNecessary;
 - (BOOL)_setupCTServerConnection;
 - (void)_cleanupMachInfo;
 - (BOOL)_unregisterCTRequestService;
 - (BOOL)_registerCTRequestService;
+- (void)_handleCallEvent:(id)arg1;
+- (void)__handleCallEvent:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -43,7 +43,7 @@
 @property(readonly, nonatomic) BOOL isDownloading;
 @property(readonly, nonatomic) BOOL isCloudMix;
 @property(readonly, nonatomic) float downloadProgress;
-- (void)downloadMixWithCompletionHandler:(id)arg1;
+- (void)downloadMixWithPermissionHandler:(id)arg1 completionHandler:(void)arg2;
 - (BOOL)canPlayUsingNetworkType:(int)arg1;
 - (void)cancelDownload;
 - (id)copyWithZone:(struct _NSZone *)arg1;

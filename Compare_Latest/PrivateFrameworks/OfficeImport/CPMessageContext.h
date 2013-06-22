@@ -36,7 +36,7 @@
 + (void)reportWarning:(struct CPTaggedMessageStructure *)arg1;
 + (void)reportObject:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2;
 + (id)currentObjectOrPlaceholder;
-+ (void)reportObjectOrPlaceholder:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2 parameters:(char *)arg3;
++ (void)reportObjectOrPlaceholder:(id)arg1 withWarning:(struct CPTaggedMessageStructure *)arg2 parameters:(void *)arg3;
 + (void)initialize;
 - (void)dealloc;
 - (id)init;

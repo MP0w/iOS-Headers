@@ -17,6 +17,7 @@
 + (id)assetReaderWithAsset:(id)arg1 error:(id *)arg2;
 + (void)initialize;
 @property(readonly, nonatomic, getter=_figAssetReader) struct OpaqueFigAssetReader *figAssetReader;
+- (void)_handleServerDiedNotification;
 - (void)cancelReading;
 - (BOOL)startReading;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

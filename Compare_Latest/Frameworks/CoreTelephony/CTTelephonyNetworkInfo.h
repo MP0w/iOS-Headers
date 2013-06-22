@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class CTCarrier;
+@class CTCarrier, CTRadioAccessTechnology;
 
 @interface CTTelephonyNetworkInfo : NSObject
 {
     void *_internal;
     CTCarrier *_subscriberCellularProvider;
     id _subscriberCellularProviderDidUpdateNotifier;
+    CTRadioAccessTechnology *_radioAccessTechnology;
 }
 
+@property(retain, nonatomic) CTRadioAccessTechnology *radioAccessTechnology; // @synthesize radioAccessTechnology=_radioAccessTechnology;
 @property(retain) CTCarrier *subscriberCellularProvider; // @synthesize subscriberCellularProvider=_subscriberCellularProvider;
 - (void)postUpdatesIfNecessary;
 - (void)handleNotificationFromConnection:(void *)arg1 ofType:(id)arg2 withInfo:(id)arg3;

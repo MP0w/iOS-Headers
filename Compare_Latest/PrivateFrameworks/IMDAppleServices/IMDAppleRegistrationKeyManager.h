@@ -10,6 +10,7 @@
 
 @interface IMDAppleRegistrationKeyManager : NSObject
 {
+    struct _SecMPFullIdentity *_identity;
     struct __SecKey *_privateKey;
     struct __SecKey *_publicKey;
     NSString *_signature;
@@ -29,6 +30,8 @@
 - (struct __SecKey *)identityPublicKey;
 - (struct __SecKey *)identityPrivateKey;
 - (void)purgeMessageProtectionIdentity;
+- (id)publicMessageProtectionData;
+- (struct _SecMPFullIdentity *)copyMessageProtectionIdentity;
 - (id)generateCSRForUserID:(id)arg1;
 - (void)dealloc;
 - (id)init;

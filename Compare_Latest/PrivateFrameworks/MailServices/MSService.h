@@ -22,7 +22,6 @@
 - (id)_generateUnitTestReplyForMethod:(id)arg1 arg:(id)arg2 error:(id *)arg3;
 - (BOOL)_unitTestsAreEnabled;
 - (void)_simulateServicesMethod:(id)arg1 arguments:(id)arg2 callback:(id)arg3;
-- (BOOL)_shouldSimulate;
 - (void)_callServicesMethod:(id)arg1 arguments:(id)arg2 callback:(id)arg3;
 - (id)_handleMessageSendFailure:(id)arg1 message:(id)arg2 messageIndex:(long long)arg3 context:(inout id *)arg4;
 - (id)_createMessageForService:(id)arg1 arguments:(id)arg2;

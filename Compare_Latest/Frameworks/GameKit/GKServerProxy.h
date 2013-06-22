@@ -115,6 +115,7 @@
 - (void)addEmail:(id)arg1 handler:(id)arg2;
 - (void)setStatus:(id)arg1 handler:(id)arg2;
 - (void)getProfilesForPlayerIDs:(id)arg1 pieces:(unsigned int)arg2 handler:(id)arg3;
+- (void)setNearbyMultiplayerOverride:(id)arg1;
 - (void)nearbyInviteWasCancelled:(id)arg1;
 - (void)presentNearbyInvite:(id)arg1;
 - (void)updateCacheWithNearbyProfileDictionary:(id)arg1;

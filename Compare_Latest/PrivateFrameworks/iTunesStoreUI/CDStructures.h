@@ -40,6 +40,11 @@ struct CGSize {
     float height;
 };
 
+struct FairPlayHWInfo_ {
+    unsigned int IDLength;
+    unsigned char ID[20];
+};
+
 struct SUGradientPoint {
     struct CGPoint point;
     float radius;

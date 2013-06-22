@@ -33,7 +33,6 @@
     UIColor *_backstopColor;
     UIActivityIndicatorView *_loadingIndicator;
     MPTVOutWindow *_tvOutWindow;
-    int _extendedModeNotifyToken;
     unsigned int _backgroundTaskId;
     int _artworkImageStyle;
     UIImage *_posterImage;
@@ -105,7 +104,7 @@
 - (void)videoView_playbackStateChangedNotification:(id)arg1;
 - (void)_exitPlayerForPlaybackError;
 - (void)_videoView_playbackErrorNotification:(id)arg1;
-- (void)_videoView_isAirPlayVideoActiveDidChangeNotification:(id)arg1;
+- (void)_videoView_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_videoView_effectiveScaleModeChangedNotification:(id)arg1;
 - (void)_videoView_batteryStateDidChangeNotification:(id)arg1;
 - (void)_videoView_availableRoutesDidChangeNotification:(id)arg1;

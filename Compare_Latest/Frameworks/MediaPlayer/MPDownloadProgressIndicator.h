@@ -40,6 +40,7 @@
 - (void)updateFromObserver:(id)arg1 animated:(BOOL)arg2;
 - (void)updateFromObserver:(id)arg1;
 - (void)setValue:(float)arg1 animated:(BOOL)arg2;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setHidden:(BOOL)arg1;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;

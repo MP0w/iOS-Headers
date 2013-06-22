@@ -22,6 +22,7 @@
         } validFields;
     } catInfo;
     NSDictionary *extendedAttrs;
+    int fileProtectionClass;
 }
 
 + (id)attributesWithStat:(struct stat *)arg1;

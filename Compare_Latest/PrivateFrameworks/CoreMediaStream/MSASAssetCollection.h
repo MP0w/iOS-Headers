@@ -22,11 +22,21 @@
     NSDictionary *_metadata;
     long long _photoNumber;
     BOOL _hasComments;
+    BOOL _isMine;
+    NSString *_fullName;
+    NSString *_firstName;
+    NSString *_lastName;
+    NSString *_email;
 }
 
 + (BOOL)supportsSecureCoding;
 + (id)assetCollectionWithAssetCollection:(id)arg1;
 + (id)MSASPAssetCollectionFromProtocolDictionary:(id)arg1;
+@property(retain, nonatomic) NSString *email; // @synthesize email=_email;
+@property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
+@property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
+@property(retain, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
+@property(nonatomic) BOOL isMine; // @synthesize isMine=_isMine;
 @property(nonatomic) BOOL hasComments; // @synthesize hasComments=_hasComments;
 @property(nonatomic) long long photoNumber; // @synthesize photoNumber=_photoNumber;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;

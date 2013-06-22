@@ -16,7 +16,7 @@
 + (void)_appendString:(id)arg1 toFileNamed:(id)arg2;
 + (id)logFileDirectory;
 + (void)logKeepAliveInterval:(double)arg1 forServiceIdentifier:(id)arg2;
-+ (void)logAtLevel:(int)arg1 delegate:(id)arg2 format:(id)arg3 arguments:(char *)arg4;
++ (void)logAtLevel:(int)arg1 delegate:(id)arg2 format:(id)arg3 arguments:(void *)arg4;
 + (id)_formatBlock;
 + (void)logAtLevel:(int)arg1 delegate:(id)arg2 format:(id)arg3;
 + (BOOL)loggingEnabledForLevel:(int)arg1;

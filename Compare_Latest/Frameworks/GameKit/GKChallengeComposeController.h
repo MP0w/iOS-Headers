@@ -10,12 +10,12 @@
 
 @interface GKChallengeComposeController : GKSimpleComposeController
 {
-    GKComposeHeaderField *_challengeField;
     NSString *_challengeDescription;
+    GKComposeHeaderField *_challengeField;
 }
 
-@property(retain, nonatomic) NSString *challengeDescription; // @synthesize challengeDescription=_challengeDescription;
 @property(retain, nonatomic) GKComposeHeaderField *challengeField; // @synthesize challengeField=_challengeField;
+@property(retain, nonatomic) NSString *challengeDescription; // @synthesize challengeDescription=_challengeDescription;
 - (void)cancel;
 - (void)loadView;
 - (void)viewWillAppear:(BOOL)arg1;

@@ -94,11 +94,12 @@ struct AVItemPrivate {
     char _field18;
     id _field19;
     id _field20;
-    struct OpaqueFigThread *_field21;
-    struct OpaqueCMByteStream *_field22;
-    int _field23;
-    id _field24;
+    struct OpaqueMD5CheckProgress *_field21;
+    struct OpaqueFigThread *_field22;
+    struct OpaqueCMByteStream *_field23;
+    int _field24;
     id _field25;
+    id _field26;
 };
 
 struct AVRecorderPrivate {
@@ -201,6 +202,8 @@ struct OpaqueFigThread;
 
 struct OpaqueFigVisualContext;
 
+struct OpaqueMD5CheckProgress;
+
 struct SMPTETime {
     short _field1;
     short _field2;
@@ -218,7 +221,32 @@ struct _NSRange {
     unsigned int _field2;
 };
 
+struct _opaque_pthread_mutex_t {
+    long __sig;
+    char __opaque[40];
+};
+
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    double w;
+    double x;
+    double y;
+    double z;
+} CDStruct_bf7dff04;
+
+typedef struct {
+    double timestamp;
+    float x;
+    float y;
+    float z;
+} CDStruct_f31118bd;
+
+typedef struct {
+    float x;
+    float y;
+    float z;
+} CDStruct_03942939;
 
 typedef struct {
     long long value;
@@ -226,4 +254,15 @@ typedef struct {
     unsigned int flags;
     long long epoch;
 } CDStruct_1b6d18a9;
+
+typedef struct {
+    CDStruct_bf7dff04 _field1;
+    CDStruct_03942939 _field2;
+    CDStruct_03942939 _field3;
+    CDStruct_03942939 _field4;
+    int _field5;
+    _Bool _field6;
+    _Bool _field7;
+    _Bool _field8;
+} CDStruct_7fb6ae47;
 

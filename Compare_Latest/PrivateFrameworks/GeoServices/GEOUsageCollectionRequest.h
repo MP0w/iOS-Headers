@@ -11,11 +11,13 @@
 @interface GEOUsageCollectionRequest : PBRequest
 {
     NSMutableArray *_directionsFeedbackCollections;
+    NSMutableArray *_mapsUsageFeedbackCollections;
     NSMutableArray *_placeSearchFeedbackCollections;
     NSMutableArray *_transitAppLaunchFeedbackCollections;
     NSMutableArray *_usageCollections;
 }
 
+@property(retain, nonatomic) NSMutableArray *mapsUsageFeedbackCollections; // @synthesize mapsUsageFeedbackCollections=_mapsUsageFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *transitAppLaunchFeedbackCollections; // @synthesize transitAppLaunchFeedbackCollections=_transitAppLaunchFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *placeSearchFeedbackCollections; // @synthesize placeSearchFeedbackCollections=_placeSearchFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *directionsFeedbackCollections; // @synthesize directionsFeedbackCollections=_directionsFeedbackCollections;
@@ -29,6 +31,10 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)mapsUsageFeedbackCollectionAtIndex:(unsigned int)arg1;
+- (unsigned int)mapsUsageFeedbackCollectionsCount;
+- (void)addMapsUsageFeedbackCollection:(id)arg1;
+- (void)clearMapsUsageFeedbackCollections;
 - (id)transitAppLaunchFeedbackCollectionAtIndex:(unsigned int)arg1;
 - (unsigned int)transitAppLaunchFeedbackCollectionsCount;
 - (void)addTransitAppLaunchFeedbackCollection:(id)arg1;

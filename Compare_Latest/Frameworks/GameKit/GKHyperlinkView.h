@@ -11,12 +11,12 @@
 @interface GKHyperlinkView : UIControl
 {
     NSString *_linkTitle;
-    NSURL *_linkURL;
     UILabel *_titleLabel;
+    NSURL *_linkURL;
 }
 
-@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) NSURL *linkURL; // @synthesize linkURL=_linkURL;
+@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) NSString *linkTitle; // @synthesize linkTitle=_linkTitle;
 - (void)layoutSubviews;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;

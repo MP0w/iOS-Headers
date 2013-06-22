@@ -34,6 +34,7 @@
 @property(nonatomic) BOOL defaultsToNoQualifiedAds; // @synthesize defaultsToNoQualifiedAds=_defaultsToNoQualifiedAds;
 @property(copy, nonatomic) NSString *publicURLRoot; // @synthesize publicURLRoot=_publicURLRoot;
 @property(nonatomic) id <ADEmbeddedAdServerDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)defaultDisplayPolicy;
 - (id)adDataForAdBundleAtPath:(id)arg1 creative:(id)arg2 allowWebArchive:(BOOL)arg3;
 - (id)_adDataForPath:(id)arg1 creative:(id)arg2 error:(id *)arg3;
 - (id)_webArchiveFilenameForDirectory:(id)arg1 withBaseURL:(id)arg2;
@@ -41,6 +42,8 @@
 - (id)_webResourcesInDirectory:(id)arg1 baseURL:(id)arg2;
 - (id)_webResourceForPath:(id)arg1 url:(id)arg2;
 - (id)_handleManifestRequest:(id)arg1 message:(id)arg2;
+- (id)_handleMescalSignSAPSetupRequest:(id)arg1 message:(id)arg2;
+- (id)_handleMescalSignSAPSetupCertificateRequest:(id)arg1 message:(id)arg2;
 - (id)_handleOptOutRequest:(id)arg1 message:(id)arg2;
 - (id)_handleRewardsCodeResultRequest:(id)arg1 message:(id)arg2;
 - (id)_handleRewardRequest:(id)arg1 message:(id)arg2;
@@ -68,6 +71,7 @@
 - (void)httpServer:(id)arg1 closedConnection:(id)arg2 withError:(id)arg3;
 - (void)httpServer:(id)arg1 closedConnection:(id)arg2;
 - (void)httpServer:(id)arg1 receivedConnection:(id)arg2;
+- (void)httpServerListenSocketFailed:(id)arg1;
 - (id)_mimeTypeForExtension:(id)arg1;
 @property(nonatomic) BOOL pipeliningEnabled;
 @property(readonly, nonatomic) unsigned long long totalBytesWritten;

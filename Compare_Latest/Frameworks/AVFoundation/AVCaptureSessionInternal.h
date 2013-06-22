@@ -17,7 +17,7 @@
     NSMutableDictionary *figRecorderOptions;
     AVCaptureFigAudioDevice *audioDevice;
     AVCaptureFigVideoDevice *videoDevice;
-    struct OpaqueCMBaseObject *recorder;
+    struct OpaqueFigRecorder *recorder;
     NSMutableArray *inputs;
     NSMutableArray *outputs;
     NSMutableArray *connections;

@@ -14,13 +14,16 @@
     unsigned long long _businessID;
     long long _placeID;
     NSMutableArray *_actionCaptures;
+    int _localSearchProviderID;
     struct {
         unsigned int sessionID:1;
         unsigned int businessID:1;
         unsigned int placeID:1;
+        unsigned int localSearchProviderID:1;
     } _has;
 }
 
+@property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
 @property(retain, nonatomic) NSMutableArray *actionCaptures; // @synthesize actionCaptures=_actionCaptures;
 @property(nonatomic) long long placeID; // @synthesize placeID=_placeID;
 @property(nonatomic) unsigned long long businessID; // @synthesize businessID=_businessID;
@@ -32,6 +35,7 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasLocalSearchProviderID;
 - (id)actionCaptureAtIndex:(unsigned int)arg1;
 - (unsigned int)actionCapturesCount;
 - (void)addActionCapture:(id)arg1;

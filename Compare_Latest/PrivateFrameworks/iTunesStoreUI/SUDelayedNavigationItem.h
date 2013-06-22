@@ -26,6 +26,7 @@
 - (void)_prepareButtonItemForDisplay:(id)arg1;
 - (id)titleView;
 - (id)title;
+- (void)setTitleView:(id)arg1 animated:(BOOL)arg2;
 - (void)setTitleView:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (void)setRightBarButtonItems:(id)arg1 animated:(BOOL)arg2;

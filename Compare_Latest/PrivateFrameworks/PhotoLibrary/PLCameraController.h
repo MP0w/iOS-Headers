@@ -24,8 +24,8 @@
     AVCaptureStillImageOutput *_avCaptureOutputPhoto;
     AVCaptureMovieFileOutput *_avCaptureOutputVideo;
     AVCaptureVideoDataOutput *_avCaptureOutputPanorama;
-    id _panoramaProcessor;
-    id _panoramaImageQueue;
+    struct OpaqueFigSampleBufferProcessor *_panoramaProcessor;
+    struct _CAImageQueue *_panoramaImageQueue;
     struct CGSize _panoramaPreviewSize;
     float _panoramaPreviewScale;
     NSObject<OS_dispatch_queue> *_avCaptureSessionDispatchQueue;
@@ -67,6 +67,7 @@
         unsigned int supportsPanorama:1;
         unsigned int supportsVideoStillCapture:1;
         unsigned int hasFlash:1;
+        unsigned int hasBackCamera:1;
         unsigned int hasFrontCamera:1;
         unsigned int deferStartVideoCapture:1;
         unsigned int inCall:1;
@@ -199,6 +200,17 @@
 - (void)focusAtAdjustedPoint:(struct CGPoint)arg1;
 - (BOOL)canFocusAtPoint;
 - (BOOL)isFocusAllowed;
+- (void)_panoShouldEnd;
+- (void)_cleanupPanorama;
+- (void)_panoramaDidReceiveErrorNotificationString:(struct __CFString *)arg1;
+- (void)_panoramaDidReceiveWarningNotificationString:(struct __CFString *)arg1;
+- (void)_panoramaDidReceiveIssueWithPanoramaString:(struct __CFString *)arg1;
+- (void)_panoramaDidReceiveStatusNotificationString:(struct __CFString *)arg1;
+- (void)setPanoramaCaptureDirection:(int)arg1;
+- (void)captureOutput:(id)arg1 didDropSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
+- (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
+- (void)_processSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
+- (void)panoramaProcessorOutputCallbackWithStatus:(long)arg1 buffer:(struct opaqueCMSampleBuffer *)arg2;
 - (void)_panoramaDidStop;
 - (void)stopPanoramaCapture;
 - (void)startPanoramaCapture;
@@ -276,6 +288,7 @@
 - (void)_inputPortFormatDescriptionDidChange:(id)arg1;
 @property(nonatomic) BOOL convertSampleBufferToJPEG;
 @property(nonatomic) int cameraDevice;
+- (BOOL)hasRearCamera;
 - (BOOL)hasFrontCamera;
 - (void)_setDefaultPrewarmDate:(id)arg1;
 @property(nonatomic) int cameraMode;

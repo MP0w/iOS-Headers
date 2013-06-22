@@ -25,17 +25,17 @@
     UIImageView *_imageView;
     UIActivityIndicatorView *_loadingSpinner;
     float currentInfoTextWidth;
-    NSString *_status;
     int _displayStateGeneration;
     unsigned int _displayState;
     struct UIEdgeInsets _additionalContentInsets;
+    NSString *_status;
 }
 
 + (float)defaultRowHeight;
+@property(retain, nonatomic) NSString *status; // @synthesize status=_status;
 @property(nonatomic) struct UIEdgeInsets additionalContentInsets; // @synthesize additionalContentInsets=_additionalContentInsets;
 @property(nonatomic) unsigned int displayState; // @synthesize displayState=_displayState;
 @property(nonatomic) int displayStateGeneration; // @synthesize displayStateGeneration=_displayStateGeneration;
-@property(retain, nonatomic) NSString *status; // @synthesize status=_status;
 @property(nonatomic) float currentInfoTextWidth; // @synthesize currentInfoTextWidth;
 @property(retain, nonatomic) UIActivityIndicatorView *loadingSpinner; // @synthesize loadingSpinner=_loadingSpinner;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;

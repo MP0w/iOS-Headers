@@ -12,14 +12,14 @@
 {
     BOOL _isCanceled;
     NSOperationQueue *photoQueue;
+    ACAccount *_account;
     id <SLFacebookAlbumManagerDelegate> _delegate;
     SLFacebookAlbum *_selectedAlbum;
-    ACAccount *_account;
 }
 
-@property(retain) ACAccount *account; // @synthesize account=_account;
 @property(retain) SLFacebookAlbum *selectedAlbum; // @synthesize selectedAlbum=_selectedAlbum;
 @property __weak id <SLFacebookAlbumManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain) ACAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
 - (void)loadCoverImageForAlbum:(id)arg1;
 - (void)performAlbumRequestWithBatchRequests:(id)arg1 handler:(id)arg2;

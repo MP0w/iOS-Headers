@@ -56,6 +56,7 @@
 - (BOOL)alwaysHidesSystemVolumeHUD;
 - (BOOL)showsVolumeSliderWhenNoVolumeControlAvailable;
 - (id)highlightedButtonImageForPart:(unsigned long long)arg1;
+- (id)disabledButtonImageForPart:(unsigned long long)arg1;
 - (id)buttonImageForPart:(unsigned long long)arg1;
 - (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(BOOL)arg3;
 - (id)newVolumeSlider;
@@ -69,8 +70,7 @@
 - (void)_playbackStateChangedNotification:(id)arg1;
 - (void)_itemChangedNotification:(id)arg1;
 - (void)_timeMarkersAvailableNotification:(id)arg1;
-- (void)_isLikedDidChangeNotification:(id)arg1;
-- (void)_isAirPlayVideoActiveDidChangeNotification:(id)arg1;
+- (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_availableRoutesChangedNotification:(id)arg1;
 - (void)_alternateTypesChangedNotification:(id)arg1;
 @property(readonly, nonatomic) NSString *playPauseButtonImage;

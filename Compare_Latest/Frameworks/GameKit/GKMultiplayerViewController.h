@@ -36,20 +36,20 @@
     struct CGSize _statusSize;
     BOOL _setupNotifications;
     UIAlertView *_alert;
-    GKButton *_playNowButton;
-    NSString *_infoText;
     GKButton *_inviteButton;
+    NSString *_infoText;
+    GKButton *_playNowButton;
     struct UIEdgeInsets _infoInsets;
-    float _infoWidth;
     UILabel *_infoLabel;
+    float _infoWidth;
 }
 
-@property(retain, nonatomic) UILabel *infoLabel; // @synthesize infoLabel=_infoLabel;
 @property(nonatomic) float infoWidth; // @synthesize infoWidth=_infoWidth;
+@property(retain, nonatomic) UILabel *infoLabel; // @synthesize infoLabel=_infoLabel;
 @property(nonatomic) struct UIEdgeInsets infoInsets; // @synthesize infoInsets=_infoInsets;
-@property(retain, nonatomic) GKButton *inviteButton; // @synthesize inviteButton=_inviteButton;
-@property(nonatomic) NSString *infoText; // @synthesize infoText=_infoText;
 @property(retain, nonatomic) GKButton *playNowButton; // @synthesize playNowButton=_playNowButton;
+@property(nonatomic) NSString *infoText; // @synthesize infoText=_infoText;
+@property(retain, nonatomic) GKButton *inviteButton; // @synthesize inviteButton=_inviteButton;
 @property(nonatomic) UIAlertView *alert; // @synthesize alert=_alert;
 @property(nonatomic) BOOL setupNotifications; // @synthesize setupNotifications=_setupNotifications;
 @property(nonatomic) struct CGSize statusSize; // @synthesize statusSize=_statusSize;
@@ -92,6 +92,7 @@
 - (void)loadView;
 - (void)updateUI;
 - (void)updateUIAndReload:(BOOL)arg1;
+- (void)nearbyMultiplayerSwitchChanged:(id)arg1;
 - (void)friendPickerViewController:(id)arg1 didFinishWithPlayers:(id)arg2 inviteMessage:(id)arg3;
 - (void)showFriendPicker;
 - (BOOL)supportsNearbyPlayers;
@@ -113,6 +114,7 @@
 - (id)localParticipant;
 @property(readonly, nonatomic) GKCollectionView *gkCollectionView;
 - (void)updateButtonState;
+- (BOOL)shouldShowNearbySwitch;
 - (BOOL)shouldShowInfoLabel;
 @property(readonly, nonatomic) GKMultiplayerCollectionViewLayout *gkCollectionViewLayout;
 - (void)dealloc;

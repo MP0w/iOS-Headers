@@ -33,7 +33,7 @@
 - (id)splitAboutView:(id)arg1;
 - (void)willRemoveSubview:(id)arg1;
 - (void)didAddSubview:(id)arg1;
-- (void)_setNeedsDisplayForSubview:(CDStruct_02837cd9)arg1;
+- (void)_setNeedsDisplayForSubview:(CDStruct_90e2a262)arg1;
 @property(nonatomic) BOOL drawingEnabled;
 @property(nonatomic) BOOL levelCrossFade;
 - (void)dealloc;

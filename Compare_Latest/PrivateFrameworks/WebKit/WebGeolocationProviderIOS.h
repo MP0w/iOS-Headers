@@ -13,31 +13,31 @@
 
 @interface WebGeolocationProviderIOS : NSObject <WebGeolocationProvider, GeolocationUpdateListener>
 {
+    NSTimer *_sendLastPositionAsynchronouslyTimer;
+    BOOL _isSuspended;
+    WebGeolocationPosition *_lastPosition;
+    BOOL _enableHighAccuracy;
+    HashSet_2803207d _trackedWebViews;
+    GeolocationCoreLocationDelegate *_geolocationCoreLocationDelegate;
+    HashSet_2803207d _registeredWebViews;
+    HashSet_2803207d _pendingInitialPositionWebView;
     HashSet_2803207d _warmUpWebViews;
     HashMap_842a3805 _webViewsWaitingForCoreLocationStart;
     BOOL _shouldResetOnResume;
-    BOOL _isSuspended;
-    NSTimer *_sendLastPositionAsynchronouslyTimer;
-    HashSet_2803207d _trackedWebViews;
-    GeolocationCoreLocationDelegate *_geolocationCoreLocationDelegate;
-    WebGeolocationPosition *_lastPosition;
-    HashSet_2803207d _registeredWebViews;
-    HashSet_2803207d _pendingInitialPositionWebView;
-    BOOL _enableHighAccuracy;
 }
 
 + (id)sharedGeolocationProvider;
-@property(nonatomic) BOOL enableHighAccuracy; // @synthesize enableHighAccuracy=_enableHighAccuracy;
-@property(readonly, nonatomic) HashSet_2803207d pendingInitialPositionWebView; // @synthesize pendingInitialPositionWebView=_pendingInitialPositionWebView;
-@property(readonly, nonatomic) HashSet_2803207d registeredWebViews; // @synthesize registeredWebViews=_registeredWebViews;
-@property(retain, nonatomic) WebGeolocationPosition *lastPosition; // @synthesize lastPosition=_lastPosition;
-@property(retain, nonatomic) GeolocationCoreLocationDelegate *geolocationCoreLocationDelegate; // @synthesize geolocationCoreLocationDelegate=_geolocationCoreLocationDelegate;
-@property(readonly, nonatomic) HashSet_2803207d trackedWebViews; // @synthesize trackedWebViews=_trackedWebViews;
-@property(retain, nonatomic) NSTimer *sendLastPositionAsynchronouslyTimer; // @synthesize sendLastPositionAsynchronouslyTimer=_sendLastPositionAsynchronouslyTimer;
-@property(nonatomic) BOOL isSuspended; // @synthesize isSuspended=_isSuspended;
 @property(nonatomic) BOOL shouldResetOnResume; // @synthesize shouldResetOnResume=_shouldResetOnResume;
 @property(readonly, nonatomic) HashMap_842a3805 webViewsWaitingForCoreLocationStart; // @synthesize webViewsWaitingForCoreLocationStart=_webViewsWaitingForCoreLocationStart;
 @property(readonly, nonatomic) HashSet_2803207d warmUpWebViews; // @synthesize warmUpWebViews=_warmUpWebViews;
+@property(readonly, nonatomic) HashSet_2803207d pendingInitialPositionWebView; // @synthesize pendingInitialPositionWebView=_pendingInitialPositionWebView;
+@property(readonly, nonatomic) HashSet_2803207d registeredWebViews; // @synthesize registeredWebViews=_registeredWebViews;
+@property(retain, nonatomic) GeolocationCoreLocationDelegate *geolocationCoreLocationDelegate; // @synthesize geolocationCoreLocationDelegate=_geolocationCoreLocationDelegate;
+@property(readonly, nonatomic) HashSet_2803207d trackedWebViews; // @synthesize trackedWebViews=_trackedWebViews;
+@property(nonatomic) BOOL enableHighAccuracy; // @synthesize enableHighAccuracy=_enableHighAccuracy;
+@property(retain, nonatomic) WebGeolocationPosition *lastPosition; // @synthesize lastPosition=_lastPosition;
+@property(nonatomic) BOOL isSuspended; // @synthesize isSuspended=_isSuspended;
+@property(retain, nonatomic) NSTimer *sendLastPositionAsynchronouslyTimer; // @synthesize sendLastPositionAsynchronouslyTimer=_sendLastPositionAsynchronouslyTimer;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)resetGeolocation;

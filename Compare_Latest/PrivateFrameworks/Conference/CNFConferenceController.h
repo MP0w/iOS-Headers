@@ -17,8 +17,6 @@
     int _type;
     IMAVChat *_activeAVChat;
     NSMutableArray *_avChatList;
-    BOOL _isMute;
-    BOOL _isPaused;
 }
 
 + (struct __CFPhoneNumber *)newPhoneNumberRefForDestinationId:(id)arg1 useNetworkCountryCode:(BOOL)arg2;

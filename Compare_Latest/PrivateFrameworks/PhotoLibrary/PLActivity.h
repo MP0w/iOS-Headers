@@ -11,16 +11,16 @@
 @interface PLActivity : UIActivity
 {
     int _mode;
-    int _status;
-    NSArray *_assetsToShare;
-    int _interfaceIdiom;
     BOOL _needsActivityViewControllerDismissed;
+    int _interfaceIdiom;
+    NSArray *_assetsToShare;
+    int _status;
 }
 
-@property(nonatomic) BOOL needsActivityViewControllerDismissed; // @synthesize needsActivityViewControllerDismissed=_needsActivityViewControllerDismissed;
-@property(nonatomic) int interfaceIdiom; // @synthesize interfaceIdiom=_interfaceIdiom;
-@property(retain, nonatomic) NSArray *assetsToShare; // @synthesize assetsToShare=_assetsToShare;
 @property(nonatomic) int status; // @synthesize status=_status;
+@property(retain, nonatomic) NSArray *assetsToShare; // @synthesize assetsToShare=_assetsToShare;
+@property(nonatomic) int interfaceIdiom; // @synthesize interfaceIdiom=_interfaceIdiom;
+@property(nonatomic) BOOL needsActivityViewControllerDismissed; // @synthesize needsActivityViewControllerDismissed=_needsActivityViewControllerDismissed;
 @property(nonatomic) int mode; // @synthesize mode=_mode;
 - (BOOL)canPerformWithActivityItems:(id)arg1;
 - (BOOL)_canPerformWithSuppliedActivityItems:(id)arg1;

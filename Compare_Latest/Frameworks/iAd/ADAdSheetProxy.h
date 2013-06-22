@@ -12,21 +12,19 @@
 
 @interface ADAdSheetProxy : NSObject <ADXPCConnectionDelegate>
 {
+    unsigned int _adSheetBootstrapAttempts;
+    ADXPCConnection *_adSheetConnection;
     int _bootstrapState;
     double _lastTermination;
-    ADXPCConnection *_adSheetConnection;
+    int _classicUnavailableToken;
 }
 
-+ (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedInstance;
-@property(retain, nonatomic) ADXPCConnection *adSheetConnection; // @synthesize adSheetConnection=_adSheetConnection;
+@property(nonatomic) int classicUnavailableToken; // @synthesize classicUnavailableToken=_classicUnavailableToken;
 @property(nonatomic) double lastTermination; // @synthesize lastTermination=_lastTermination;
 @property(nonatomic) int bootstrapState; // @synthesize bootstrapState=_bootstrapState;
-- (id)autorelease;
-- (oneway void)release;
-- (unsigned int)retainCount;
-- (id)retain;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+@property(retain, nonatomic) ADXPCConnection *adSheetConnection; // @synthesize adSheetConnection=_adSheetConnection;
+@property(nonatomic) unsigned int adSheetBootstrapAttempts; // @synthesize adSheetBootstrapAttempts=_adSheetBootstrapAttempts;
 - (void)xpcConnection:(id)arg1 receivedMessage:(id)arg2 userInfo:(id)arg3;
 - (void)xpcConnectionFailed:(id)arg1;
 - (void)_bootstrap;

@@ -26,7 +26,7 @@
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDeviceMotion:(CDStruct_7fb6ae47)arg1 andTimestamp:(double)arg2;
+- (id)initWithDeviceMotion:(CDStruct_04e8b4cd)arg1 andTimestamp:(double)arg2;
 
 @end
 

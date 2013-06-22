@@ -17,6 +17,11 @@
 - (void)_endObservingNotifications;
 - (void)_dispatchEvent:(id)arg1 forName:(id)arg2;
 - (void)_beginObservingNotifications;
+- (void)_accessibilityPerformEscape;
+- (void)_accessibilityPerformScrollRight;
+- (void)_accessibilityPerformScrollLeft;
+- (void)_accessibilityPerformScrollDown;
+- (void)_accessibilityPerformScrollUp;
 - (void)_softwareMapChangedNotification:(id)arg1;
 - (void)_restrictionsChangedNotification:(id)arg1;
 - (void)_networkTypeChangedNotification:(id)arg1;

@@ -10,12 +10,12 @@
 
 @interface SLFacebookPostPrivacyCategory : NSObject
 {
-    NSArray *_audiencePrivacySettings;
     NSString *_name;
+    NSArray *_audiencePrivacySettings;
 }
 
-@property(retain) NSString *name; // @synthesize name=_name;
 @property(retain) NSArray *audiencePrivacySettings; // @synthesize audiencePrivacySettings=_audiencePrivacySettings;
+@property(retain) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 
 @end

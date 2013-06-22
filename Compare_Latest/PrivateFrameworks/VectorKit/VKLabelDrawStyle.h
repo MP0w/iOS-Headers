@@ -43,6 +43,7 @@
     struct VKProfileSparseRamp<VKLabelTextVisibility> textVisibility;
     struct VKProfileSparseRamp<signed char> onlyShowIfTappable;
     struct VKProfileSparseRamp<signed char> yieldsToOnscreenLabels;
+    struct VKProfileSparseRamp<signed char> showShieldTextAsLabel;
     unsigned char dedupeRank;
     struct VKProfileSparseRamp<float> spacingSmall;
     struct VKProfileSparseRamp<float> spacingMedium;
@@ -72,15 +73,16 @@
 - (void).cxx_destruct;
 - (BOOL)areShieldsEverVisible;
 - (BOOL)visibleAtMaxZoom:(float)arg1;
+- (BOOL)showShieldTextAsLabelAtZoom:(float)arg1;
 - (BOOL)arrowVisibleAtZoom:(float)arg1;
 - (double)minimumRoadArrowSpacingForZoom:(int)arg1;
 - (double)minimumRoadLabelSpacingForZoom:(int)arg1 scaleFactor:(int)arg2;
 - (double)mapWidthInEmsForZoom:(int)arg1 scaleFactor:(int)arg2;
 - (void)getLabelTextGlyphStyle:(CDStruct_ddfd0e57 *)arg1 atZoom:(int)arg2 scaleFactor:(int)arg3;
-- (void)getLabelStyle:(CDStruct_125c20f7 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
-- (void)getRoadSignStyle:(CDStruct_125c20f7 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
-- (void)getNavShieldStyle:(CDStruct_125c20f7 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
-- (void)getShieldStyle:(CDStruct_125c20f7 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
+- (void)getLabelStyle:(CDStruct_daf29242 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
+- (void)getRoadSignStyle:(CDStruct_daf29242 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
+- (void)getNavShieldStyle:(CDStruct_daf29242 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
+- (void)getShieldStyle:(CDStruct_daf29242 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
 - (unsigned char)dedupeRank;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
 - (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2;

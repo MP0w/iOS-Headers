@@ -11,15 +11,15 @@
 @interface ASAssetQuery : NSObject
 {
     NSArray *_results;
+    NSString *_assetType;
     BOOL _queriesLocalAssetInformationOnly;
     NSPredicate *_predicate;
-    NSString *_assetType;
 }
 
 + (id)queryPredicateForProperties:(id)arg1;
-@property(copy, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
 @property(nonatomic) BOOL queriesLocalAssetInformationOnly; // @synthesize queriesLocalAssetInformationOnly=_queriesLocalAssetInformationOnly;
+@property(copy, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
 @property(retain, nonatomic) NSArray *results; // @synthesize results=_results;
 - (void)stopQuery;
 - (void)startQuery:(id)arg1;

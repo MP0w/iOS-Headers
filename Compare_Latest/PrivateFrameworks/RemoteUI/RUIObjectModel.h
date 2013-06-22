@@ -6,9 +6,13 @@
 
 #import "NSObject.h"
 
+#import "RUIPageDelegate-Protocol.h"
+#import "RUITableViewDelegate-Protocol.h"
+#import "UIWebViewDelegate-Protocol.h"
+
 @class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSTimer, NSURL, RUIPage, UIAlertView;
 
-@interface RUIObjectModel : NSObject
+@interface RUIObjectModel : NSObject <UIWebViewDelegate, RUITableViewDelegate, RUIPageDelegate>
 {
     NSString *_name;
     NSURL *_sourceURL;
@@ -85,6 +89,7 @@
 - (id)postbackData;
 - (BOOL)goBack;
 - (void)back:(id)arg1;
+- (void)_displaySupplementalPage:(id)arg1;
 - (id)newNavigationControllerForPresentation;
 - (void)presentInParentViewController:(id)arg1 animated:(BOOL)arg2;
 - (id)_firstPageForPresentation;

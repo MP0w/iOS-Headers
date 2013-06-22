@@ -6,7 +6,7 @@
 
 #import <SAObjects/SAAceView.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface SAUIHtmlView : SAAceView
 {
@@ -15,6 +15,8 @@
 + (id)htmlViewWithDictionary:(id)arg1 context:(id)arg2;
 + (id)htmlView;
 @property(copy, nonatomic) NSString *html;
+@property(copy, nonatomic) NSString *descriptionText;
+@property(copy, nonatomic) NSArray *commands;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

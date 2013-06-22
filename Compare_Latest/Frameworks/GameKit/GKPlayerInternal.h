@@ -34,14 +34,16 @@
     NSDictionary *_photos;
     NSArray *_friends;
     BOOL _allowMultiplayerInvites;
-    NSString *_facebookUserID;
+    BOOL _allowNearbyMultiplayer;
     NSString *_twitterUserID;
+    NSString *_facebookUserID;
 }
 
 + (id)fullNameWithFirstName:(id)arg1 lastName:(id)arg2;
 + (id)codedPropertyKeys;
-@property(retain, nonatomic) NSString *twitterUserID; // @synthesize twitterUserID=_twitterUserID;
 @property(retain, nonatomic) NSString *facebookUserID; // @synthesize facebookUserID=_facebookUserID;
+@property(retain, nonatomic) NSString *twitterUserID; // @synthesize twitterUserID=_twitterUserID;
+@property(nonatomic) BOOL allowNearbyMultiplayer; // @synthesize allowNearbyMultiplayer=_allowNearbyMultiplayer;
 @property(nonatomic) BOOL allowMultiplayerInvites; // @synthesize allowMultiplayerInvites=_allowMultiplayerInvites;
 @property(retain, nonatomic) NSArray *friends; // @synthesize friends=_friends;
 @property(retain, nonatomic) NSDictionary *photos; // @synthesize photos=_photos;

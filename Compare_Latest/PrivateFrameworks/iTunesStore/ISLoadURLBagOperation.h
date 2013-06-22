@@ -8,15 +8,17 @@
 
 #import "ISStoreURLOperationDelegate-Protocol.h"
 
-@class SSURLBagContext;
+@class ISURLBag, SSURLBagContext;
 
 @interface ISLoadURLBagOperation : ISOperation <ISStoreURLOperationDelegate>
 {
     SSURLBagContext *_context;
+    ISURLBag *_outputBag;
 }
 
 @property(readonly) SSURLBagContext *context; // @synthesize context=_context;
 - (void)_writeURLBagToDiskCache:(id)arg1;
+- (void)_setOutputURLBag:(id)arg1;
 - (void)_postBagDidLoadNotificationWithURLBag:(id)arg1;
 - (void)_loadURLBagFromURL:(id)arg1;
 - (id)_copySandboxBootstrapURLs;
@@ -28,6 +30,7 @@
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
 - (id)uniqueKey;
 - (void)run;
+@property(readonly) ISURLBag *URLBag;
 - (void)dealloc;
 - (id)initWithBagContext:(id)arg1;
 - (id)init;

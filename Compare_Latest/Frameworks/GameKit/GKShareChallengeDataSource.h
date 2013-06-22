@@ -10,25 +10,25 @@
 
 @interface GKShareChallengeDataSource : GKSectionArrayDataSource
 {
-    GKShareChallengeFooterTextSection *_footerTextSection;
-    SEL _addFriendButtonAction;
-    GKShareChallengeButtonSection *_buttonSection;
-    SEL _shareButtonAction;
     GKTableSection *_mainSection;
     SEL _challengeButtonAction;
-    BOOL _shouldShowAddFriendButton;
+    SEL _shareButtonAction;
+    GKShareChallengeButtonSection *_buttonSection;
+    GKShareChallengeFooterTextSection *_footerTextSection;
+    SEL _addFriendButtonAction;
     BOOL _shouldShowShareButton;
+    BOOL _shouldShowAddFriendButton;
 }
 
 + (float)buttonSectionTopMargin;
-@property(nonatomic) BOOL shouldShowShareButton; // @synthesize shouldShowShareButton=_shouldShowShareButton;
 @property(nonatomic) BOOL shouldShowAddFriendButton; // @synthesize shouldShowAddFriendButton=_shouldShowAddFriendButton;
-@property(nonatomic) SEL challengeButtonAction; // @synthesize challengeButtonAction=_challengeButtonAction;
-@property(retain, nonatomic) GKTableSection *mainSection; // @synthesize mainSection=_mainSection;
-@property(nonatomic) SEL shareButtonAction; // @synthesize shareButtonAction=_shareButtonAction;
-@property(retain, nonatomic) GKShareChallengeButtonSection *buttonSection; // @synthesize buttonSection=_buttonSection;
+@property(nonatomic) BOOL shouldShowShareButton; // @synthesize shouldShowShareButton=_shouldShowShareButton;
 @property(nonatomic) SEL addFriendButtonAction; // @synthesize addFriendButtonAction=_addFriendButtonAction;
 @property(retain, nonatomic) GKShareChallengeFooterTextSection *footerTextSection; // @synthesize footerTextSection=_footerTextSection;
+@property(retain, nonatomic) GKShareChallengeButtonSection *buttonSection; // @synthesize buttonSection=_buttonSection;
+@property(nonatomic) SEL shareButtonAction; // @synthesize shareButtonAction=_shareButtonAction;
+@property(nonatomic) SEL challengeButtonAction; // @synthesize challengeButtonAction=_challengeButtonAction;
+@property(retain, nonatomic) GKTableSection *mainSection; // @synthesize mainSection=_mainSection;
 - (void)prepareSections;
 - (id)prepareFooterTextSection;
 - (id)prepareButtonSection;

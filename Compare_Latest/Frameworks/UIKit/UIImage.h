@@ -108,6 +108,10 @@
 - (void)_decompressionComplete;
 - (id)_stretchableImageWithCapInsets:(struct UIEdgeInsets)arg1;
 - (BOOL)writeToCPBitmapFile:(id)arg1 flags:(int)arg2;
+- (struct __IOSurface *)ioSurface;
+- (id)initWithIOSurface:(struct __IOSurface *)arg1;
+- (id)_initWithIOSurface:(struct __IOSurface *)arg1 imageOrientation:(int)arg2;
+- (id)_initWithIOSurface:(struct __IOSurface *)arg1 scale:(float)arg2 orientation:(int)arg3;
 - (id)initWithCGImage:(struct CGImage *)arg1 imageOrientation:(int)arg2;
 - (id)_initWithData:(id)arg1 scale:(float)arg2;
 - (id)_initWithData:(id)arg1 preserveScale:(BOOL)arg2;

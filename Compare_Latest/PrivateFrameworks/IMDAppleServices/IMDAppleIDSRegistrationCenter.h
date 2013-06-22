@@ -8,7 +8,7 @@
 
 #import "IMSystemMonitorListener-Protocol.h"
 
-@class FTMessageDelivery, FTPushHandler, NSMutableArray;
+@class FTMessageDelivery, FTPushHandler, NSDate, NSMutableArray, NSNumber;
 
 @interface IMDAppleIDSRegistrationCenter : NSObject <IMSystemMonitorListener>
 {
@@ -21,6 +21,13 @@
     NSMutableArray *_currentRecoveries;
     NSMutableArray *_handlers;
     BOOL _pendingDequeue;
+    BOOL _shouldUseAbsinthe;
+    BOOL _isBuildingContext;
+    struct NACContextOpaque_ *_validationContext;
+    BOOL _validationContextDisabled;
+    NSDate *_validateContextDate;
+    NSNumber *_validateContextTTL;
+    NSMutableArray *_validationContextQueue;
     FTMessageDelivery *_httpMessageDelivery;
     FTPushHandler *_pushHandler;
 }

@@ -11,14 +11,14 @@
 @interface GKAchievementDataSource : GKSectionArrayDataSource
 {
     GKAchievementSection *_achievementSection;
-    GKGameRecord *_gameRecord;
     NSOrderedSet *_achievements;
+    GKGameRecord *_gameRecord;
 }
 
 + (id)sectionArrayDataSourceWithSection:(id)arg1 inParentMultiDataSource:(id)arg2;
 + (id)sectionArrayDataSourceWithSection:(id)arg1 inController:(id)arg2;
-@property(readonly, nonatomic) NSOrderedSet *achievements; // @synthesize achievements=_achievements;
 @property(readonly, nonatomic) GKGameRecord *gameRecord; // @synthesize gameRecord=_gameRecord;
+@property(readonly, nonatomic) NSOrderedSet *achievements; // @synthesize achievements=_achievements;
 @property(retain, nonatomic) GKAchievementSection *achievementSection; // @synthesize achievementSection=_achievementSection;
 - (void)tableView:(id)arg1 updateStatusViewAfterLoading:(id)arg2 withError:(id)arg3;
 - (void)tableView:(id)arg1 updateStatusViewBeforeLoading:(id)arg2;

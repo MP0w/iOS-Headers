@@ -23,7 +23,7 @@
 + (Class)multiDownloaderClass;
 + (Class)simpleRequesterClass;
 + (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
-+ (CDStruct_e4886f83 *)expiringTilesets;
++ (CDStruct_e4886f83 *)newExpiringTilesets;
 + (unsigned int)expiringTilesetsCount;
 + (unsigned char)tileProviderIdentifier;
 - (void)tileRequesterFinished:(id)arg1;

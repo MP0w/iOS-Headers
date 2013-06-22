@@ -45,13 +45,13 @@
         unsigned int reserved:27;
     } _alcFlags;
     UIImage *_listHeaderImage;
-    id _listHeaderActionHandler;
     NSString *_listHeaderLabel;
+    id _listHeaderActionHandler;
 }
 
+@property(copy, nonatomic) id listHeaderActionHandler; // @synthesize listHeaderActionHandler=_listHeaderActionHandler;
 @property(nonatomic) id <PLAbstractLibraryViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSString *listHeaderLabel; // @synthesize listHeaderLabel=_listHeaderLabel;
-@property(copy, nonatomic) id listHeaderActionHandler; // @synthesize listHeaderActionHandler=_listHeaderActionHandler;
 @property(retain, nonatomic) UIImage *listHeaderImage; // @synthesize listHeaderImage=_listHeaderImage;
 @property(retain, nonatomic) PLPhotosPickerSession *currentPickerSession; // @synthesize currentPickerSession=_currentPickerSession;
 @property(retain, nonatomic) UIBarButtonItem *customRightButton; // @synthesize customRightButton=_customRightButton;

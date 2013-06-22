@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable-Protocol.h"
 
-@class NSURL;
+@class NSData, NSURL;
 
 @interface SAUIImageResource : AceObject <SAAceSerializable>
 {
@@ -20,6 +20,7 @@
 @property(copy, nonatomic) NSURL *resourceUrl;
 @property(nonatomic) double pointWidth;
 @property(nonatomic) double pointHeight;
+@property(copy, nonatomic) NSData *imageData;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

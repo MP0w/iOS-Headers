@@ -40,13 +40,13 @@
 
 + (id)realisticProgram;
 + (id)program;
-@property(nonatomic) int trafficTextureSampler; // @synthesize trafficTextureSampler=_trafficTextureSampler;
-@property(nonatomic) float splitLength; // @synthesize splitLength=_splitLength;
-@property(nonatomic) struct _VGLColor primaryColor; // @synthesize primaryColor=_primaryColor;
 @property(nonatomic) float routeTextureMappingScaler; // @synthesize routeTextureMappingScaler=_routeTextureMappingScaler;
 @property(nonatomic) float textureCoordinateAdjustmentFactor; // @synthesize textureCoordinateAdjustmentFactor=_textureCoordinateAdjustmentFactor;
 @property(nonatomic) float trafficTextureMappingCap; // @synthesize trafficTextureMappingCap=_trafficTextureMappingCap;
 @property(nonatomic) float trafficWidthScaler; // @synthesize trafficWidthScaler=_trafficWidthScaler;
+@property(nonatomic) int trafficTextureSampler; // @synthesize trafficTextureSampler=_trafficTextureSampler;
+@property(nonatomic) float splitLength; // @synthesize splitLength=_splitLength;
+@property(nonatomic) struct _VGLColor primaryColor; // @synthesize primaryColor=_primaryColor;
 @property(nonatomic) struct _VGLColor travelledColor; // @synthesize travelledColor=_travelledColor;
 @property(nonatomic) float strokeWidthScale; // @synthesize strokeWidthScale=_strokeWidthScale;
 @property(nonatomic) struct _VGLColor strokeColor; // @synthesize strokeColor=_strokeColor;

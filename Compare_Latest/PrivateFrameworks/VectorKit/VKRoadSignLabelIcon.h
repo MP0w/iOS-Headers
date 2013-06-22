@@ -21,7 +21,7 @@
 - (CDStruct_818bb265)boundsAtPixel:(CDStruct_6e3f967a)arg1;
 - (CDStruct_6e3f967a)offsetPixelForPixel:(CDStruct_6e3f967a)arg1;
 - (id)renderableIcon;
-- (void)updateWithLabelContext:(struct LabelContext *)arg1 labelStyle:(CDStruct_125c20f7 *)arg2 atMercatorPoint:(CDStruct_31142d93)arg3;
+- (void)updateWithLabelContext:(struct LabelContext *)arg1 labelStyle:(CDStruct_daf29242 *)arg2 atMercatorPoint:(CDStruct_31142d93)arg3;
 - (id)_signImageWithOrientation:(int)arg1;
 - (void)dealloc;
 - (id)initWithString:(id)arg1 onRoute:(BOOL)arg2;

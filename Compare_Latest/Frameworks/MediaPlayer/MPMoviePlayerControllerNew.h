@@ -106,6 +106,7 @@
 - (BOOL)_shouldContinuePlaybackInBackground;
 - (void)_setVideoViewControllerOverlayStyle;
 - (void)_setShouldEnforceHDCP:(BOOL)arg1;
+- (void)_setNavigationBarHidden:(BOOL)arg1;
 - (void)_setMovieTitle:(id)arg1;
 - (void)_setMovieSubtitle:(id)arg1;
 - (void)_setMovieMediaTypesOverride:(int)arg1;
@@ -121,6 +122,7 @@
 - (id)_movieTitle;
 - (id)_movieSubtitle;
 - (BOOL)_isTVOutEnabled;
+- (BOOL)_isNavigationBarHidden;
 - (BOOL)_isReadyForDisplay;
 - (id)_HTTPHeaderFields;
 - (BOOL)disallowsAMRAudio;
@@ -151,7 +153,7 @@
 - (void)_itemPlaybackDidEndNotification:(id)arg1;
 - (void)_itemReadyToPlayNotification:(id)arg1;
 - (void)_itemDidChangeNotification:(id)arg1;
-- (void)_isAirPlayVideoActiveDidChangeNotification:(id)arg1;
+- (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_firstVideoFrameDisplayedNotification:(id)arg1;
 - (void)videoControllerDidHideOverlay:(id)arg1;
 - (void)videoController:(id)arg1 willHideOverlayWithDuration:(double)arg2;

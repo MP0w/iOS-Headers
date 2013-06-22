@@ -6,8 +6,13 @@
 
 #import "NSObject.h"
 
+@class APSConnection, NSTimer;
+
 @interface FTNetworkSupport : NSObject
 {
+    Class _APSConnectionClass;
+    APSConnection *_apsConnection;
+    NSTimer *_reliabilityAttemptTimer;
     BOOL _enableCriticalReliability;
     BOOL _criticalReliabilityEnabledState;
 }
@@ -18,6 +23,7 @@
 - (void)_reallySetCriticalReliability:(BOOL)arg1;
 - (void)_setReliabilityTimeoutInterval;
 - (void)_clearReliabilityTimeoutInterval;
+- (void)_createAPSConnectionIfNeeded;
 @property(readonly, nonatomic) BOOL networkReachable;
 @property(readonly, nonatomic) BOOL networkActive;
 @property(readonly, nonatomic) BOOL networkEnabled;

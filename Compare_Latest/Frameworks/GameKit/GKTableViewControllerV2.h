@@ -44,19 +44,19 @@
     UIView *_confirmationClipView;
     int _sectionTransitionCount;
     int _lastKnownOrientation;
-    struct UIEdgeInsets _tableInsets;
-    NSArray *_indexPathsOfCellsToRefresh;
-    NSObject<OS_dispatch_source> *_refreshCellTimer;
-    id _detailPopoverItem;
     BOOL _didSuspendRefreshCellTimer;
+    NSObject<OS_dispatch_source> *_refreshCellTimer;
+    struct UIEdgeInsets _tableInsets;
+    id _detailPopoverItem;
+    NSArray *_indexPathsOfCellsToRefresh;
 }
 
 + (id)_gkAllDescriptionsWithTableViewCells;
-@property(nonatomic) BOOL didSuspendRefreshCellTimer; // @synthesize didSuspendRefreshCellTimer=_didSuspendRefreshCellTimer;
-@property(retain, nonatomic) id detailPopoverItem; // @synthesize detailPopoverItem=_detailPopoverItem;
-@property(nonatomic) NSObject<OS_dispatch_source> *refreshCellTimer; // @synthesize refreshCellTimer=_refreshCellTimer;
 @property(retain, nonatomic) NSArray *indexPathsOfCellsToRefresh; // @synthesize indexPathsOfCellsToRefresh=_indexPathsOfCellsToRefresh;
+@property(retain, nonatomic) id detailPopoverItem; // @synthesize detailPopoverItem=_detailPopoverItem;
 @property(nonatomic) struct UIEdgeInsets tableInsets; // @synthesize tableInsets=_tableInsets;
+@property(nonatomic) NSObject<OS_dispatch_source> *refreshCellTimer; // @synthesize refreshCellTimer=_refreshCellTimer;
+@property(nonatomic) BOOL didSuspendRefreshCellTimer; // @synthesize didSuspendRefreshCellTimer=_didSuspendRefreshCellTimer;
 @property(nonatomic) int lastKnownOrientation; // @synthesize lastKnownOrientation=_lastKnownOrientation;
 @property(nonatomic) int sectionTransitionCount; // @synthesize sectionTransitionCount=_sectionTransitionCount;
 @property(retain, nonatomic) UIView *confirmationClipView; // @synthesize confirmationClipView=_confirmationClipView;

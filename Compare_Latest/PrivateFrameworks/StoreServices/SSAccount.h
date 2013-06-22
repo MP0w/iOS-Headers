@@ -31,6 +31,8 @@
 
 - (void)_sendBlockingXPCMessage:(id)arg1;
 - (void)setLockdownDictionary:(id)arg1;
+- (BOOL)mergeValuesFromAccount:(id)arg1;
+- (id)copyLockdownRepresentation;
 @property(retain) NSNumber *uniqueIdentifier;
 @property(copy) NSString *storeFrontIdentifier;
 @property(getter=isSocialEnabled) BOOL socialEnabled;
@@ -58,6 +60,7 @@
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
 - (void)dealloc;
+- (id)initDemoAccount;
 - (id)init;
 
 @end

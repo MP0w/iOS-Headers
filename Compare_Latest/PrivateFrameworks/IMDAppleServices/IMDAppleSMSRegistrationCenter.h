@@ -15,6 +15,7 @@
 {
     FTPushHandler *_pushHandler;
     int _status;
+    struct __CTServerConnection *_ctServer;
     NSMutableArray *_handlers;
     NSMutableArray *_registrations;
     unsigned int _numberOfSMSSent;
@@ -61,15 +62,19 @@
 - (void)_lockdownStateChanged:(id)arg1;
 - (void)_unregisterForCarrierNotifications;
 - (void)_registerForCarrierNotifications;
+- (void)carrierSettingsChanged:(id)arg1;
 - (BOOL)_deviceCanRegisterPresently;
 - (void)_daemonShuttingDown:(id)arg1;
 @property(readonly, nonatomic) BOOL carrierSupportsShortCode;
+- (struct __CTServerConnection *)ctServer;
 - (void)_startupCoreTelephony;
+- (void)_handleSMSAddressAvailable;
 - (void)_unregisterForCoreTelephonyNotifications;
 - (void)_registerForCoreTelephonyNotifications;
 - (void)_unregisterForCommCenterReadyNotifications;
 - (void)_registerForCommCenterReadyNotifications;
 - (void)_registerForDeviceCenterNotifications;
+- (void)_commCenterAlive;
 - (void)dealloc;
 - (id)init;
 - (BOOL)_failIfRegistrationIsNotSupported;

@@ -48,9 +48,9 @@
 + (id)readOnlyContext;
 + (id)contextForDatabaseCreation;
 + (id)contextForPhotoLibrary:(id)arg1;
-@property(nonatomic) BOOL isInitializingSingletons; // @synthesize isInitializingSingletons=_isInitializingSingletons;
-@property(nonatomic) BOOL regenerateVideoThumbnails; // @synthesize regenerateVideoThumbnails=_regenerateVideoThumbnails;
 @property(nonatomic) BOOL isBackingALAssetsLibrary; // @synthesize isBackingALAssetsLibrary=_isBackingALAssetsLibrary;
+@property(nonatomic) BOOL regenerateVideoThumbnails; // @synthesize regenerateVideoThumbnails=_regenerateVideoThumbnails;
+@property(nonatomic) BOOL isInitializingSingletons; // @synthesize isInitializingSingletons=_isInitializingSingletons;
 @property(nonatomic) id <PLManagedObjectContextPTPNotificationDelegate> ptpNotificationDelegate; // @synthesize ptpNotificationDelegate=_ptpNotificationDelegate;
 @property(nonatomic) BOOL hasMetadataChanges; // @synthesize hasMetadataChanges=_hasMetadataChanges;
 @property(retain, nonatomic) PLDelayedFiledSystemDeletions *delayedDeletions; // @synthesize delayedDeletions=_delayedDeletions;

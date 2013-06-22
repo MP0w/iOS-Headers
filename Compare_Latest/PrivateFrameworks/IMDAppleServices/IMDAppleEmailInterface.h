@@ -19,9 +19,15 @@
 + (id)sharedInstance;
 - (void)removeListener:(id)arg1;
 - (void)addListener:(id)arg1;
+- (void)search:(id)arg1 didFinishWithError:(id)arg2;
+- (BOOL)search:(id)arg1 didFindResults:(id)arg2;
 - (BOOL)cancelMonitoringForEmail:(id)arg1 registrationInfo:(id)arg2;
 - (BOOL)startMonitoringForEmail:(id)arg1 registrationInfo:(id)arg2;
 - (void)_startSearchingForRegistrationEmail:(id)arg1 registrationInfo:(id)arg2 attempt:(int)arg3;
+- (int)_searchAttemptForSearch:(id)arg1;
+- (id)_emailForSearch:(id)arg1;
+- (id)_registrationInfoIDForSearch:(id)arg1;
+- (id)_vettingIDForSearch:(id)arg1;
 - (void)_cancelAllSearches;
 - (void)_cancelSearchesForEmail:(id)arg1;
 - (id)_existingSearchForEmail:(id)arg1;

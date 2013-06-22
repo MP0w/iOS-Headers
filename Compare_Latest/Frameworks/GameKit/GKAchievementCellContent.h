@@ -12,12 +12,12 @@
 {
     BOOL _highlighted;
     BOOL _offsetImage;
-    UIImage *_highlightedImage;
     BOOL _largeIcons;
+    UIImage *_highlightedImage;
 }
 
-@property(readonly, nonatomic) BOOL largeIcons; // @synthesize largeIcons=_largeIcons;
 @property(retain, nonatomic) UIImage *highlightedImage; // @synthesize highlightedImage=_highlightedImage;
+@property(readonly, nonatomic) BOOL largeIcons; // @synthesize largeIcons=_largeIcons;
 @property(nonatomic) BOOL offsetImage; // @synthesize offsetImage=_offsetImage;
 @property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
 - (void)drawLineIndex:(unsigned int)arg1 inRect:(struct CGRect *)arg2 highlighted:(BOOL)arg3;

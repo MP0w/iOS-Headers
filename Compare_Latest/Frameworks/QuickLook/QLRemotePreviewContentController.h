@@ -28,7 +28,6 @@
 @property id <QLPreviewContentDelegate> delegate; // @synthesize delegate=_delegate;
 @property id <QLPreviewContentDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property QLPreviewController *previewController; // @synthesize previewController=_previewController;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)_didExitFullScreen;
 - (void)_willEnterFullScreenWithContext:(id)arg1;
 - (void)_setAVState:(id)arg1 forPreviewItem:(id)arg2;
@@ -69,6 +68,7 @@
 - (void)setCurrentPreviewItemIndex:(int)arg1;
 @property int previewMode;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
+- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;

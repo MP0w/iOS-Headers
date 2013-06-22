@@ -30,12 +30,14 @@
     unsigned int _totalNumberOfPhotos;
     NSString *_uRL;
     int _version;
+    BOOL _canBeCorrectedByBusinessOwner;
     BOOL _isClosed;
     BOOL _isUnverified;
     struct {
         unsigned int uID:1;
         unsigned int totalNumberOfPhotos:1;
         unsigned int version:1;
+        unsigned int canBeCorrectedByBusinessOwner:1;
         unsigned int isClosed:1;
         unsigned int isUnverified:1;
     } _has;
@@ -43,6 +45,7 @@
 
 @property(retain, nonatomic) NSMutableArray *starRatings; // @synthesize starRatings=_starRatings;
 @property(retain, nonatomic) NSMutableArray *sources; // @synthesize sources=_sources;
+@property(nonatomic) BOOL canBeCorrectedByBusinessOwner; // @synthesize canBeCorrectedByBusinessOwner=_canBeCorrectedByBusinessOwner;
 @property(retain, nonatomic) NSMutableArray *attributions; // @synthesize attributions=_attributions;
 @property(retain, nonatomic) NSMutableArray *localizedCategories; // @synthesize localizedCategories=_localizedCategories;
 @property(nonatomic) unsigned int totalNumberOfPhotos; // @synthesize totalNumberOfPhotos=_totalNumberOfPhotos;
@@ -78,6 +81,7 @@
 - (unsigned int)sourcesCount;
 - (void)addSource:(id)arg1;
 - (void)clearSources;
+@property(nonatomic) BOOL hasCanBeCorrectedByBusinessOwner;
 - (id)attributionAtIndex:(unsigned int)arg1;
 - (unsigned int)attributionsCount;
 - (void)addAttribution:(id)arg1;

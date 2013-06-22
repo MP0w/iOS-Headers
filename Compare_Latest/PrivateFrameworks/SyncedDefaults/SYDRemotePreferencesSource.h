@@ -30,6 +30,7 @@
 + (void)initialize;
 + (void)noteAccountChanges:(id)arg1;
 + (void)resetAllApplicationsWithCompletionHandler:(id)arg1;
+- (id)serverSideDebugDescription;
 - (void)updateConfiguration;
 - (void)unregisterForSynchronizedDefaults;
 - (void)registerForSynchronizedDefaults;

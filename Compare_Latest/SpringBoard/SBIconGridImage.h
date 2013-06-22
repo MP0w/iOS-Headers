@@ -11,7 +11,6 @@
     unsigned int _numberOfCells;
 }
 
-+ (id)_gridImageMemoryPool;
 + (struct CGSize)sizeForNumberOfRows:(unsigned int)arg1;
 + (struct CGRect)rectAtIndex:(unsigned int)arg1 forImage:(id)arg2 maxCount:(unsigned int)arg3;
 + (struct CGSize)cellSpacing;

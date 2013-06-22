@@ -13,6 +13,7 @@
 + (id)defaultWorkspace;
 - (id)deviceIdentifierForVendor;
 - (id)deviceIdentifierForAdvertising;
+- (void)clearAdvertisingIdentifier;
 - (BOOL)invalidateIconCache:(id)arg1;
 - (BOOL)unregisterApplication:(id)arg1;
 - (BOOL)registerApplication:(id)arg1;

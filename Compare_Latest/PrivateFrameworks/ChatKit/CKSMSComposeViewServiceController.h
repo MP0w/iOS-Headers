@@ -16,12 +16,12 @@
     BOOL _supportsAttachments;
     BOOL _supportsMessageInspection;
     BOOL _forceMMS;
-    XPCProxy<CKSMSComposeRemoteViewControllerDelegate> *_viewServiceXPCProxy;
     CKModalTranscriptController *_modalTranscriptController;
+    XPCProxy<CKSMSComposeRemoteViewControllerDelegate> *_viewServiceXPCProxy;
 }
 
-@property(retain, nonatomic) CKModalTranscriptController *modalTranscriptController; // @synthesize modalTranscriptController=_modalTranscriptController;
 @property(retain, nonatomic) XPCProxy<CKSMSComposeRemoteViewControllerDelegate> *viewServiceXPCProxy; // @synthesize viewServiceXPCProxy=_viewServiceXPCProxy;
+@property(retain, nonatomic) CKModalTranscriptController *modalTranscriptController; // @synthesize modalTranscriptController=_modalTranscriptController;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)willAppearInRemoteViewController:(id)arg1;
 - (BOOL)supportsMessageInspection;

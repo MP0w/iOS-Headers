@@ -27,6 +27,8 @@
 - (id)description;
 - (BOOL)rebase;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)originalAlarm;
+- (id)_originalAlarmRelation;
 - (void)setDefaultAlarm:(BOOL)arg1;
 - (BOOL)isDefaultAlarm;
 - (id)ownerUUID;

@@ -15,8 +15,10 @@
     BOOL _ambiguous;
     NSString *_generalLanguageID;
     AXDialectMap *_userPreferredDialect;
+    NSArray *_alternateLanguageIDs;
 }
 
+@property(retain, nonatomic) NSArray *alternateLanguageIDs; // @synthesize alternateLanguageIDs=_alternateLanguageIDs;
 @property(nonatomic) AXDialectMap *userPreferredDialect; // @synthesize userPreferredDialect=_userPreferredDialect;
 @property(copy, nonatomic) NSString *generalLanguageID; // @synthesize generalLanguageID=_generalLanguageID;
 @property(nonatomic, getter=isAmbiguous) BOOL ambiguous; // @synthesize ambiguous=_ambiguous;
@@ -28,7 +30,7 @@
 - (id)basicDescription;
 - (id)description;
 - (void)dealloc;
-- (id)initWithLanguageID:(id)arg1 isWestern:(BOOL)arg2 isAmbiguous:(BOOL)arg3 dialects:(id)arg4;
+- (id)initWithLanguageID:(id)arg1 isWestern:(BOOL)arg2 isAmbiguous:(BOOL)arg3 dialects:(id)arg4 alternateLanguageIDs:(id)arg5;
 
 @end
 

@@ -46,6 +46,7 @@
     BOOL _addLocalPeerToStoreKnowledgeVector;
 }
 
++ (void)removeUbiquityMetadataFromStore:(id)arg1;
 + (BOOL)ubiquityMetadataTablesPresentInStore:(id)arg1;
 + (BOOL)doBasicSanityCheckForUbiquityRootURL:(id)arg1 withError:(id *)arg2;
 + (id)createDefaultLocalPeerID;

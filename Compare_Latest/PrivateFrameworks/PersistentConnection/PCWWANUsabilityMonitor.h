@@ -23,6 +23,7 @@
     double _trackedTimeInterval;
     NSString *_interfaceName;
     PCInterfaceUsabilityMonitor *_interfaceMonitor;
+    struct __CTServerConnection *_telephonyServer;
     long _wwanContextID;
     struct dispatch_queue_s *_ctServerQueue;
 }
@@ -42,6 +43,7 @@
 - (void)setThresholdOffTransitionCount:(unsigned int)arg1;
 - (void)setTrackUsability:(BOOL)arg1;
 - (void)_forwardConfigurationOnIvarQueue;
+- (void)_handleTelephonyNotificationWithName:(struct __CFString *)arg1 userInfo:(struct __CFDictionary *)arg2;
 - (void)_adjustInterfaceNameForWWANContextID:(long)arg1;
 - (void)_setupWWANMonitor;
 - (void)dealloc;

@@ -18,6 +18,7 @@
 
 @property(copy, nonatomic) NSString *alternativeText; // @synthesize alternativeText=_alternativeText;
 @property(readonly, nonatomic) NSArray *usageTrackingTypes;
+@property(readonly, nonatomic, getter=isEmojiCandidate) BOOL emojiCandidate;
 @property(readonly, nonatomic, getter=isExtensionCandidate) BOOL extensionCandidate;
 @property(readonly, nonatomic) BOOL isAutocorrection;
 @property(readonly, nonatomic) BOOL isForShortcutConversion;

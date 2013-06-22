@@ -57,7 +57,7 @@
 - (id)_stringForEvent:(int)arg1;
 - (id)_stringForAction:(int)arg1;
 - (id)_stringForStyle:(int)arg1;
-- (void)logAtLevel:(int)arg1 format:(id)arg2 arguments:(char *)arg3;
+- (void)logAtLevel:(int)arg1 format:(id)arg2 arguments:(void *)arg3;
 - (void)logAtLevel:(int)arg1 format:(id)arg2;
 - (void)log:(id)arg1;
 - (double)_getCachedWWANKeepAliveInterval;

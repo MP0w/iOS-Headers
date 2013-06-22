@@ -15,7 +15,6 @@
 }
 
 + (BOOL)sendBeforeTime:(double)arg1 streamData:(id)arg2 components:(id)arg3 to:(id)arg4 from:(id)arg5 msgid:(unsigned int)arg6 reserved:(unsigned int)arg7;
-+ (void)parseMachMessage:(void *)arg1 localPort:(id *)arg2 remotePort:(id *)arg3 msgid:(unsigned int *)arg4 components:(id *)arg5;
 + (void)_fixNSMachPortLeak;
 + (id)portWithMachPort:(unsigned int)arg1 options:(unsigned int)arg2;
 + (id)portWithMachPort:(unsigned int)arg1;
@@ -26,8 +25,6 @@
 - (id)init;
 - (id)initWithMachPort:(unsigned int)arg1;
 - (id)initWithMachPort:(unsigned int)arg1 options:(unsigned int)arg2;
-- (void)handlePortMessage:(id)arg1;
-- (void)addConnection:(id)arg1 toRunLoop:(id)arg2 forMode:(id)arg3;
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
 - (BOOL)sendBeforeDate:(id)arg1 msgid:(unsigned int)arg2 components:(id)arg3 from:(id)arg4 reserved:(unsigned int)arg5;

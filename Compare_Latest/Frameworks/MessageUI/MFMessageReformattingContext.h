@@ -21,12 +21,12 @@
     BOOL _floatsNeedUpdate;
     BOOL _metricsNeedUpdate;
     BOOL _documentContainsAnyWebKitTransform;
-    DOMRange *_firstTextRange;
     float _minimumRescalingFactor;
+    DOMRange *_firstTextRange;
 }
 
-@property(nonatomic) float minimumRescalingFactor; // @synthesize minimumRescalingFactor=_minimumRescalingFactor;
 @property(retain, nonatomic) DOMRange *firstTextRange; // @synthesize firstTextRange=_firstTextRange;
+@property(nonatomic) float minimumRescalingFactor; // @synthesize minimumRescalingFactor=_minimumRescalingFactor;
 @property(readonly, nonatomic) BOOL didChangeDocument;
 - (void)_rollBackChange:(id)arg1;
 - (void)rollBackLastChangeForElement:(id)arg1;

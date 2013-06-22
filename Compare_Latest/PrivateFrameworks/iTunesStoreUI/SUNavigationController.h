@@ -28,6 +28,8 @@
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)setViewControllers:(id)arg1;
+- (void)setToolbarHidden:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setToolbarHidden:(BOOL)arg1;
 - (void)setParentViewController:(id)arg1;
 - (void)restoreArchivableContext:(id)arg1;
 - (void)removeChildViewController:(id)arg1;

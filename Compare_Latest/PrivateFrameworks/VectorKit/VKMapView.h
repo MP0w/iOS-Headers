@@ -26,7 +26,8 @@
 - (void)puckAnimator:(id)arg1 updatedTargetPosition:(CDStruct_31142d93)arg2;
 - (void)puckAnimatorDidStop:(id)arg1;
 - (void)puckAnimator:(id)arg1 updatedPosition:(CDStruct_9a8617ed *)arg2;
-- (void)setRendersInBackground:(BOOL)arg1;
+- (id)snapshotImage;
+@property(nonatomic) BOOL rendersInBackground;
 - (void)goToTileX:(int)arg1 Y:(int)arg2 Z:(int)arg3 tileSize:(int)arg4;
 - (BOOL)realisticLandDisabled;
 - (BOOL)realisticRoadsDisabled;
@@ -184,6 +185,7 @@
 @property(readonly, nonatomic) double maximumZoomLevel;
 @property(readonly, nonatomic) double minimumZoomLevel;
 @property(nonatomic, getter=isGesturing) BOOL gesturing;
+- (BOOL)writeVisibleTrafficTilesToDirectory:(id)arg1 error:(id *)arg2;
 - (id)detailedDescription;
 - (void)debugHighlightLabelAtPoint:(struct CGPoint)arg1;
 @property(readonly, nonatomic) BOOL enableDebugLabelHighlighting;

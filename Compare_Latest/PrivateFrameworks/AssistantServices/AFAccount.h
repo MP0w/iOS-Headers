@@ -10,30 +10,30 @@
 
 @interface AFAccount : NSObject
 {
-    NSString *_speechIdentifier;
-    NSString *_hostname;
-    NSString *_assistantIdentifier;
-    NSString *_predefinedServer;
     NSString *_label;
-    NSString *_aceHost;
     NSString *_identifier;
-    NSString *_group;
-    BOOL _isActive;
     NSDictionary *_lastSyncDates;
+    NSString *_speechIdentifier;
+    NSString *_assistantIdentifier;
+    NSString *_aceHost;
+    BOOL _isActive;
     NSString *_localeIdentifier;
+    NSString *_group;
+    NSString *_hostname;
+    NSString *_predefinedServer;
 }
 
-@property(copy, nonatomic) NSString *localeIdentifier; // @synthesize localeIdentifier=_localeIdentifier;
-@property(copy, nonatomic) NSDictionary *lastSyncDates; // @synthesize lastSyncDates=_lastSyncDates;
-@property(readonly, nonatomic) BOOL isActive; // @synthesize isActive=_isActive;
-@property(copy, nonatomic) NSString *group; // @synthesize group=_group;
-@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(copy, nonatomic) NSString *aceHost; // @synthesize aceHost=_aceHost;
-@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) NSString *predefinedServer; // @synthesize predefinedServer=_predefinedServer;
-@property(copy, nonatomic) NSString *assistantIdentifier; // @synthesize assistantIdentifier=_assistantIdentifier;
 @property(copy, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
+@property(copy, nonatomic) NSString *group; // @synthesize group=_group;
+@property(copy, nonatomic) NSString *localeIdentifier; // @synthesize localeIdentifier=_localeIdentifier;
+@property(readonly, nonatomic) BOOL isActive; // @synthesize isActive=_isActive;
+@property(copy, nonatomic) NSString *aceHost; // @synthesize aceHost=_aceHost;
+@property(copy, nonatomic) NSString *assistantIdentifier; // @synthesize assistantIdentifier=_assistantIdentifier;
 @property(copy, nonatomic) NSString *speechIdentifier; // @synthesize speechIdentifier=_speechIdentifier;
+@property(copy, nonatomic) NSDictionary *lastSyncDates; // @synthesize lastSyncDates=_lastSyncDates;
+@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 - (void).cxx_destruct;
 - (id)messageDictionary;
 - (id)initWithMessageDictionary:(id)arg1;

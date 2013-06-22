@@ -16,6 +16,7 @@
     NSString *_bulletinID;
     float _fontsize;
     BOOL _requiresUnlock;
+    BOOL _deactivateAwayController;
     BOOL _launchActionCanBypassPinLock;
     BOOL _hasCustomUnlockLabel;
     BOOL _canBypassPinLock;
@@ -26,6 +27,7 @@
 + (id)actionContextForBulletin:(id)arg1 pluginActionsAllowed:(BOOL)arg2;
 @property(nonatomic) BOOL hasCustomUnlockLabel; // @synthesize hasCustomUnlockLabel=_hasCustomUnlockLabel;
 @property(nonatomic) BOOL requiresUnlock; // @synthesize requiresUnlock=_requiresUnlock;
+@property(nonatomic) BOOL deactivateAwayController; // @synthesize deactivateAwayController=_deactivateAwayController;
 @property(nonatomic) BOOL canBypassPinLock; // @synthesize canBypassPinLock=_canBypassPinLock;
 - (float)lockLabelFontSize;
 - (id)bulletinID;

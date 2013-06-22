@@ -122,6 +122,7 @@
 - (void)stopScenicAnimation;
 - (void)performScenicAnimationForLocation:(CDStruct_c3b9c2ee)arg1 animationType:(int)arg2;
 - (void)prepareScenicAnimationForLocation:(CDStruct_c3b9c2ee)arg1 animationType:(int)arg2 completion:(id)arg3;
+- (id)snapshotImage;
 - (void)stopPlaceCardAnimation;
 - (void)startPlaceCardAnimationAtCoordinate:(CDStruct_c3b9c2ee)arg1 andDistance:(double)arg2;
 @property(readonly, nonatomic) BOOL canShowAnimationForPlaceCard;
@@ -135,8 +136,8 @@
 @property(readonly, nonatomic, getter=isPitched) BOOL pitched;
 - (void)exit3DMode;
 - (void)enter3DMode;
-- (CDStruct_02837cd9)mapRectThatFits:(CDStruct_02837cd9)arg1 edgePadding:(struct UIEdgeInsets)arg2;
-- (void)goToCoordinateRegion:(CDStruct_02837cd9)arg1 animationType:(int)arg2;
+- (CDStruct_90e2a262)mapRectThatFits:(CDStruct_90e2a262)arg1 edgePadding:(struct UIEdgeInsets)arg2;
+- (void)goToCoordinateRegion:(CDStruct_90e2a262)arg1 animationType:(int)arg2;
 - (void)goToCenterCoordinate:(CDStruct_c3b9c2ee)arg1 zoomLevel:(float)arg2 animationType:(int)arg3;
 - (void)_goToMapRegion:(id)arg1 animationType:(int)arg2;
 - (id)_mapRegionWithCenterCoordinate:(CDStruct_c3b9c2ee)arg1 zoomScale:(float)arg2;
@@ -179,9 +180,9 @@
 - (void)gestureControllerDidStopRotatingDecelerating:(id)arg1;
 - (void)gestureControllerDidStopRotating:(id)arg1 willDecelerate:(BOOL)arg2;
 - (void)gestureControllerWillStartRotating:(id)arg1;
-- (void)gestureControllerDidStopZoomingDecelerating:(id)arg1;
-- (void)gestureControllerDidStopZooming:(id)arg1 willDecelerate:(BOOL)arg2;
-- (void)gestureControllerWillStartZooming:(id)arg1;
+- (void)gestureControllerDidStopZoomingDecelerating:(id)arg1 direction:(int)arg2;
+- (void)gestureControllerDidStopZooming:(id)arg1 direction:(int)arg2 willDecelerate:(BOOL)arg3;
+- (void)gestureControllerWillStartZooming:(id)arg1 animated:(BOOL)arg2;
 - (void)gestureControllerDidStopPanningDecelerating:(id)arg1;
 - (void)gestureControllerDidStopPanning:(id)arg1 willDecelerate:(BOOL)arg2;
 - (void)gestureControllerWillStartPanning:(id)arg1;
@@ -211,6 +212,7 @@
 - (void)_updateAllowsRotation;
 @property(readonly, nonatomic) BOOL allowsRotation;
 @property(readonly, nonatomic) UITapGestureRecognizer *nonselectingTapGestureRecognizer;
+- (BOOL)writeVisibleTrafficTilesToDirectory:(id)arg1 error:(id *)arg2;
 - (id)detailedDescription;
 - (id)mapAttributionWithStringAttributes:(id)arg1;
 @property(readonly, nonatomic) NSArray *visibleTileSets;
@@ -221,6 +223,7 @@
 @property(nonatomic) BOOL shouldSplitRouteLine;
 - (void)_updateAttribution;
 @property(nonatomic) id <MKWorldViewDelegate> delegate;
+@property(nonatomic) double longPressDuration; // @dynamic longPressDuration;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 gestureRecognizerHostView:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;

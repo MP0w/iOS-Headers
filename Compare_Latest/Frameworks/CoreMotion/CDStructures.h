@@ -45,13 +45,6 @@ struct Dispatcher {
     void **_field1;
 };
 
-struct Sample {
-    double timestamp;
-    struct {
-        int type;
-    } orientation;
-};
-
 struct _Alloc_hider {
     char *_field1;
 };
@@ -85,6 +78,15 @@ struct map<std::basic_string<char>, void (^)(CLConnectionMessage *), std::less<s
     struct _Rb_tree<std::basic_string<char>, std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>, std::_Select1st<std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>>, std::less<std::basic_string<char>>, std::allocator<std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>>> _field1;
 };
 
+#if 0
+// Names with conflicting types:
+typedef struct {
+    double _field1;
+    CDStruct_03942939 _field2;
+} Sample_7d9206a1;
+
+#endif
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -98,6 +100,17 @@ typedef struct {
     double _field8;
     double _field9;
 } CDStruct_afa449f9;
+
+typedef struct {
+    double x;
+    double y;
+    double z;
+    double magnitude;
+    double horizontal;
+    double declination;
+    double inclination;
+    double timestamp;
+} CDStruct_3e502cbb;
 
 typedef struct {
     double w;
@@ -119,15 +132,19 @@ typedef struct {
 } CDStruct_03942939;
 
 typedef struct {
-    CDStruct_bf7dff04 _field1;
-    CDStruct_03942939 _field2;
-    CDStruct_03942939 _field3;
-    CDStruct_03942939 _field4;
-    int _field5;
-    _Bool _field6;
-    _Bool _field7;
-    _Bool _field8;
-} CDStruct_7fb6ae47;
+    int type;
+} CDStruct_bdecc0cd;
+
+typedef struct {
+    CDStruct_bf7dff04 quaternion;
+    CDStruct_03942939 userAcceleration;
+    CDStruct_03942939 rotationRate;
+    CDStruct_03942939 magneticField;
+    int magneticFieldCalibrationLevel;
+    _Bool doingYawCorrection;
+    _Bool doingBiasEstimation;
+    _Bool isInitialized;
+} CDStruct_04e8b4cd;
 
 typedef struct {
     CDStruct_31142d93 _field1;

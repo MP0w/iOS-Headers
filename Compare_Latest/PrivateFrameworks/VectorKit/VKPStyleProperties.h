@@ -131,6 +131,7 @@
     BOOL _layerShadowsVisible;
     BOOL _onlyShowIfTappable;
     BOOL _shieldVisible;
+    BOOL _showShieldTextAsLabel;
     BOOL _simpleLine;
     BOOL _strokeColorInterpolate;
     BOOL _trafficVisible;
@@ -243,6 +244,7 @@
         unsigned int layerShadowsVisible:1;
         unsigned int onlyShowIfTappable:1;
         unsigned int shieldVisible:1;
+        unsigned int showShieldTextAsLabel:1;
         unsigned int simpleLine:1;
         unsigned int strokeColorInterpolate:1;
         unsigned int trafficVisible:1;
@@ -272,6 +274,7 @@
 @property(nonatomic) float labelHeightSmallCurveLimit; // @synthesize labelHeightSmallCurveLimit=_labelHeightSmallCurveLimit;
 @property(nonatomic) int labelHeightSmallCurve; // @synthesize labelHeightSmallCurve=_labelHeightSmallCurve;
 @property(nonatomic) float labelHeightSmall; // @synthesize labelHeightSmall=_labelHeightSmall;
+@property(nonatomic) BOOL showShieldTextAsLabel; // @synthesize showShieldTextAsLabel=_showShieldTextAsLabel;
 @property(nonatomic) float genericShieldDropShadowSize; // @synthesize genericShieldDropShadowSize=_genericShieldDropShadowSize;
 @property(nonatomic) unsigned int genericShieldHaloColor; // @synthesize genericShieldHaloColor=_genericShieldHaloColor;
 @property(nonatomic) float genericShieldHaloSize; // @synthesize genericShieldHaloSize=_genericShieldHaloSize;
@@ -358,6 +361,7 @@
 @property(nonatomic) BOOL hasLabelHeightSmallCurveLimit;
 @property(nonatomic) BOOL hasLabelHeightSmallCurve;
 @property(nonatomic) BOOL hasLabelHeightSmall;
+@property(nonatomic) BOOL hasShowShieldTextAsLabel;
 @property(nonatomic) BOOL hasGenericShieldDropShadowColor;
 @property(nonatomic) unsigned int genericShieldDropShadowColor; // @synthesize genericShieldDropShadowColor=_genericShieldDropShadowColor;
 @property(nonatomic) BOOL hasGenericShieldDropShadowSize;

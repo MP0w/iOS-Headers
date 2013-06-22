@@ -22,6 +22,7 @@
     MPTransportControls *_transportControls;
     MPNowPlayingItemQueueInfoButton *_itemQueueInfoButton;
     MPCenteringNavigationBar *_navigationBar;
+    BOOL _navigationBarHidden;
     UIImageView *_navigationBarBackground;
     UIImageView *_navigationBarShadow;
     UINavigationItem *_navigationItem;
@@ -45,6 +46,7 @@
 @property(readonly, nonatomic) MPTransportControls *transportControls; // @synthesize transportControls=_transportControls;
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
 @property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
+@property(nonatomic) BOOL navigationBarHidden; // @synthesize navigationBarHidden=_navigationBarHidden;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
 @property(nonatomic) unsigned long long disabledParts; // @synthesize disabledParts=_disabledParts;
 @property(nonatomic) unsigned long long desiredParts; // @synthesize desiredParts=_desiredParts;
@@ -68,7 +70,7 @@
 - (void)detailSliderTrackingDidEnd:(id)arg1;
 - (void)detailSliderTrackingDidBegin:(id)arg1;
 - (void)_videoViewScaleModeDidChangeNotification:(id)arg1;
-- (void)_isAirPlayVideoActiveDidChangeNotification:(id)arg1;
+- (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_playbackStateDidChangeNotification:(id)arg1;
 - (void)_bufferingStateDidChange:(id)arg1;
 - (void)_statusBarHeightChanged:(id)arg1;

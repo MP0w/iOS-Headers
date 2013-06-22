@@ -8,26 +8,34 @@
 
 #import "SSDownloadManagerObserver-Protocol.h"
 
-@class MPMediaEntity, NSObject<OS_dispatch_queue>, SSPurchase, SSPurchaseRequest;
+@class NSDictionary, NSObject<OS_dispatch_queue>, NSString, SSPurchase, SSPurchaseRequest;
 
 @interface MPPurchasableMediaDownloadPurchaseOperation : NSOperation <SSDownloadManagerObserver>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     SSPurchase *_purchase;
     SSPurchaseRequest *_purchaseRequest;
-    MPMediaEntity *_mediaEntity;
+    BOOL _backgroundRequest;
+    BOOL _shouldPurgeIfNeeded;
+    NSDictionary *_purchaseValuesForDownloadProperties;
     id <MPPurchasableMediaDownloadPurchaseOperationDelegate> _delegate;
-    int _purchaseReason;
+    int _options;
+    NSString *_buyParameters;
+    int _purchaseType;
 }
 
-@property(readonly, nonatomic) int purchaseReason; // @synthesize purchaseReason=_purchaseReason;
+@property(readonly, nonatomic) int purchaseType; // @synthesize purchaseType=_purchaseType;
+@property(readonly, nonatomic) NSString *buyParameters; // @synthesize buyParameters=_buyParameters;
+@property(readonly, nonatomic) int options; // @synthesize options=_options;
 @property(readonly, nonatomic) id <MPPurchasableMediaDownloadPurchaseOperationDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) MPMediaEntity *mediaEntity; // @synthesize mediaEntity=_mediaEntity;
+@property(readonly, nonatomic) NSDictionary *purchaseValuesForDownloadProperties; // @synthesize purchaseValuesForDownloadProperties=_purchaseValuesForDownloadProperties;
 - (void)cancel;
 - (void)main;
+@property(nonatomic) BOOL shouldPurgeIfNeeded; // @synthesize shouldPurgeIfNeeded=_shouldPurgeIfNeeded;
+@property(nonatomic, getter=isBackgroundRequest) BOOL backgroundRequest; // @synthesize backgroundRequest=_backgroundRequest;
 @property(readonly, nonatomic) SSPurchase *purchase;
 - (void)dealloc;
-- (id)initWithMediaEntity:(id)arg1 purchaseReason:(int)arg2 delegate:(id)arg3;
+- (id)initWithPurchaseType:(int)arg1 options:(int)arg2 buyParameters:(id)arg3 purchaseValuesForDownloadProperties:(id)arg4 delegate:(id)arg5;
 
 @end
 

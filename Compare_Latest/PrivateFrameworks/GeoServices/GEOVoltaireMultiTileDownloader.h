@@ -27,8 +27,10 @@
     GEOTileKeyMap *_baseTilesWaitingForLocalized;
     GEOTileKeyMap *_localizedTilesWaitingForBase;
     NSString *_postString;
+    BOOL _requireWiFi;
 }
 
+@property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(nonatomic) BOOL useStatusCodes; // @synthesize useStatusCodes=_useStatusCodes;
 @property(readonly, nonatomic) NSURL *requestURL; // @synthesize requestURL=_requestURL;
 @property(retain, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;

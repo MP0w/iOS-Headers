@@ -20,9 +20,11 @@
     VGLTexturePool *_pool;
     VKTileProvider *_tileProvider;
     struct _VGLColor _backgroundColor;
+    unsigned int _rasterizingScaleFactor;
     VKMapModel *_mapModel;
 }
 
+@property(nonatomic) unsigned int rasterizingScaleFactor; // @synthesize rasterizingScaleFactor=_rasterizingScaleFactor;
 @property(nonatomic) struct _VGLColor backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) VKTileProvider *tileProvider; // @synthesize tileProvider=_tileProvider;
 @property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
@@ -31,6 +33,7 @@
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)rasterizeKey:(const struct VKTileKey *)arg1 scene:(id)arg2;
 - (void)addSubmodel:(id)arg1;
+- (void)flushTextureCache;
 - (void)dealloc;
 - (id)init;
 @property(readonly, nonatomic) const struct VKTileKey *keyToRasterize;

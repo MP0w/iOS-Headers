@@ -14,7 +14,7 @@
 - (unsigned int)length;
 - (id)initWithBytes:(const void *)arg1 length:(unsigned int)arg2 encoding:(unsigned int)arg3;
 - (id)initWithData:(id)arg1 encoding:(unsigned int)arg2;
-- (id)initWithFormat:(id)arg1 locale:(id)arg2 arguments:(char *)arg3;
+- (id)initWithFormat:(id)arg1 locale:(id)arg2 arguments:(void *)arg3;
 - (id)initWithString:(id)arg1;
 - (id)initWithCString:(const char *)arg1;
 - (id)initWithCString:(const char *)arg1 length:(unsigned int)arg2;

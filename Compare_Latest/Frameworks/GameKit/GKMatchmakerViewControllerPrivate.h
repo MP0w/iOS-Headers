@@ -24,14 +24,14 @@
     BOOL _loadingExistingPlayers;
     int _automatchActivity;
     AVAudioPlayer *_audioPlayer;
-    GKMatch *_foundMatch;
     BOOL _hadInviteFailure;
+    GKMatch *_foundMatch;
     NSArray *_foundPlayerIDs;
 }
 
 @property(retain, nonatomic) NSArray *foundPlayerIDs; // @synthesize foundPlayerIDs=_foundPlayerIDs;
-@property(nonatomic) BOOL hadInviteFailure; // @synthesize hadInviteFailure=_hadInviteFailure;
 @property(retain, nonatomic) GKMatch *foundMatch; // @synthesize foundMatch=_foundMatch;
+@property(nonatomic) BOOL hadInviteFailure; // @synthesize hadInviteFailure=_hadInviteFailure;
 @property(retain, nonatomic) AVAudioPlayer *audioPlayer; // @synthesize audioPlayer=_audioPlayer;
 @property(nonatomic) int automatchActivity; // @synthesize automatchActivity=_automatchActivity;
 @property(nonatomic) BOOL loadingExistingPlayers; // @synthesize loadingExistingPlayers=_loadingExistingPlayers;
@@ -76,6 +76,7 @@
 - (void)acceptInvite;
 - (void)failedToAcceptInviteWithError:(id)arg1;
 - (void)setHostedPlayer:(id)arg1 connected:(BOOL)arg2;
+- (BOOL)shouldShowNearbySwitch;
 - (BOOL)supportsNearbyPlayers;
 - (void)setHosted:(BOOL)arg1;
 - (void)participantDisconnected:(id)arg1;

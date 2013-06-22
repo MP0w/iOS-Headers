@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol GKServerProtocol <NSObject>
+- (oneway void)setNearbyMultiplayerOverride:(id)arg1;
 - (oneway void)nearbyInviteWasCancelled:(id)arg1;
 - (oneway void)presentNearbyInvite:(id)arg1;
 - (oneway void)updateCacheWithNearbyProfileDictionary:(id)arg1;

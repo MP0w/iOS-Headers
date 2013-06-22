@@ -105,6 +105,7 @@
 - (id)_accessibilityScrollParent;
 - (void)_accessibilityAnnouncementComplete:(id)arg1;
 - (int)accessibilityCompareGeometry:(id)arg1;
+- (struct CGRect)_accessibilityConvertFrameForRemoteView:(struct CGRect)arg1 orientation:(int)arg2;
 - (struct CGRect)_accessibilityCompareFrameForScrollParent:(id)arg1 frame:(struct CGRect)arg2;
 - (BOOL)_accessibilityOnlyComparesByXAxis;
 - (float)_accessibilityAllowedGeometryOverlap;
@@ -241,7 +242,7 @@
 - (BOOL)_accessibilityServesAsFirstResponder;
 - (struct _NSRange)_accessibilitySelectedTextRange;
 - (void)_accessibilitySetSelectedTextRange:(struct _NSRange)arg1;
-- (void)_accessibilityScrollToFrame:(struct CGRect)arg1 forView:(id)arg2;
+- (BOOL)_accessibilityScrollToFrame:(struct CGRect)arg1 forView:(id)arg2;
 - (BOOL)accessibilityRequired;
 - (void)_accessibilityLoadAccessibilityInformation;
 - (void)accessibilityDecrement;

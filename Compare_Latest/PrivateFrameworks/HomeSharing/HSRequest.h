@@ -16,9 +16,11 @@
     NSDictionary *_arguments;
     struct __CFHTTPMessage *_message;
     int _method;
+    BOOL _excludeSessionIDFromURL;
 }
 
 + (id)request;
+@property(nonatomic) BOOL excludeSessionIDFromURL; // @synthesize excludeSessionIDFromURL=_excludeSessionIDFromURL;
 @property(nonatomic) int method; // @synthesize method=_method;
 @property(copy, nonatomic) NSData *bodyData; // @synthesize bodyData=_bodyData;
 @property(readonly, nonatomic) NSString *action; // @synthesize action=_action;

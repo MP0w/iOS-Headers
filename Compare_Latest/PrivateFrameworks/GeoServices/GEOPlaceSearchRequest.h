@@ -18,8 +18,11 @@
     } _businessIDs;
     CDStruct_56d48c16 _includeAdditionalPlaceTypes;
     CDStruct_815f15fd _placeIDs;
+    double _distanceTraveled;
     long long _geoId;
     unsigned long long _intersectingGeoId;
+    double _timeSinceMapEnteredForeground;
+    double _timeSinceMapViewportChanged;
     double _timestamp;
     GEOAddress *_address;
     GEOBusinessOptions *_businessOptions;
@@ -58,12 +61,17 @@
     BOOL _includeStatusCodeInfo;
     BOOL _includeSuggestionsOnly;
     BOOL _includeUnmatchedStrings;
+    BOOL _isFromAPI;
     BOOL _isStrictMapRegion;
     BOOL _structuredSearch;
+    BOOL _suppressResultsRequiringAttribution;
     struct {
         unsigned int sessionGUID:1;
+        unsigned int distanceTraveled:1;
         unsigned int geoId:1;
         unsigned int intersectingGeoId:1;
+        unsigned int timeSinceMapEnteredForeground:1;
+        unsigned int timeSinceMapViewportChanged:1;
         unsigned int timestamp:1;
         unsigned int businessSortOrder:1;
         unsigned int localSearchProviderID:1;
@@ -84,8 +92,10 @@
         unsigned int includeStatusCodeInfo:1;
         unsigned int includeSuggestionsOnly:1;
         unsigned int includeUnmatchedStrings:1;
+        unsigned int isFromAPI:1;
         unsigned int isStrictMapRegion:1;
         unsigned int structuredSearch:1;
+        unsigned int suppressResultsRequiringAttribution:1;
     } _has;
 }
 
@@ -103,6 +113,11 @@
 @property(nonatomic) BOOL excludeAddressInResults; // @synthesize excludeAddressInResults=_excludeAddressInResults;
 @property(nonatomic) BOOL includeQuads; // @synthesize includeQuads=_includeQuads;
 @property(nonatomic) long long geoId; // @synthesize geoId=_geoId;
+@property(nonatomic) double distanceTraveled; // @synthesize distanceTraveled=_distanceTraveled;
+@property(nonatomic) double timeSinceMapViewportChanged; // @synthesize timeSinceMapViewportChanged=_timeSinceMapViewportChanged;
+@property(nonatomic) double timeSinceMapEnteredForeground; // @synthesize timeSinceMapEnteredForeground=_timeSinceMapEnteredForeground;
+@property(nonatomic) BOOL isFromAPI; // @synthesize isFromAPI=_isFromAPI;
+@property(nonatomic) BOOL suppressResultsRequiringAttribution; // @synthesize suppressResultsRequiringAttribution=_suppressResultsRequiringAttribution;
 @property(nonatomic) int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(retain, nonatomic) NSString *phoneticLocaleIdentifier; // @synthesize phoneticLocaleIdentifier=_phoneticLocaleIdentifier;
 @property(retain, nonatomic) NSString *inputLanguage; // @synthesize inputLanguage=_inputLanguage;
@@ -160,6 +175,11 @@
 @property(nonatomic) BOOL hasExcludeAddressInResults;
 @property(nonatomic) BOOL hasIncludeQuads;
 @property(nonatomic) BOOL hasGeoId;
+@property(nonatomic) BOOL hasDistanceTraveled;
+@property(nonatomic) BOOL hasTimeSinceMapViewportChanged;
+@property(nonatomic) BOOL hasTimeSinceMapEnteredForeground;
+@property(nonatomic) BOOL hasIsFromAPI;
+@property(nonatomic) BOOL hasSuppressResultsRequiringAttribution;
 @property(nonatomic) BOOL hasSequenceNumber;
 @property(readonly, nonatomic) BOOL hasPhoneticLocaleIdentifier;
 @property(readonly, nonatomic) BOOL hasInputLanguage;

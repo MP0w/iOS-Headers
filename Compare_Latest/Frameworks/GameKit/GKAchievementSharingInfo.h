@@ -13,18 +13,18 @@
 @interface GKAchievementSharingInfo : NSObject <NSCoding>
 {
     GKPlayer *_player;
-    GKAchievement *_achievement;
     UIImage *_badgeImage;
-    UIImage *_iconImage;
-    GKAchievementDescription *_achievementDescription;
     GKGame *_game;
+    GKAchievementDescription *_achievementDescription;
+    UIImage *_iconImage;
+    GKAchievement *_achievement;
 }
 
-@property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
-@property(retain, nonatomic) GKAchievementDescription *achievementDescription; // @synthesize achievementDescription=_achievementDescription;
-@property(retain, nonatomic) UIImage *iconImage; // @synthesize iconImage=_iconImage;
-@property(retain, nonatomic) UIImage *badgeImage; // @synthesize badgeImage=_badgeImage;
 @property(retain, nonatomic) GKAchievement *achievement; // @synthesize achievement=_achievement;
+@property(retain, nonatomic) UIImage *iconImage; // @synthesize iconImage=_iconImage;
+@property(retain, nonatomic) GKAchievementDescription *achievementDescription; // @synthesize achievementDescription=_achievementDescription;
+@property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
+@property(retain, nonatomic) UIImage *badgeImage; // @synthesize badgeImage=_badgeImage;
 @property(retain, nonatomic) GKPlayer *player; // @synthesize player=_player;
 - (id)subjectForEmailActivity;
 - (id)thumbnailForActivityType:(id)arg1;

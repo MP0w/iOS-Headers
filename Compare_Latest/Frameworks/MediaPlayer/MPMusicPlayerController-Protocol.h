@@ -19,6 +19,7 @@
 - (id)currentChapterIndex;
 - (void)skipToPreviousChapter;
 - (void)skipToNextChapter;
+- (id)skipInDirection:(id)arg1;
 - (void)skipToBeginningOrPreviousItem;
 - (void)skipToPreviousItem;
 - (void)skipToBeginning;

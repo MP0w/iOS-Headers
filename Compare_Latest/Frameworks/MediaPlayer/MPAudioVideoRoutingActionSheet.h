@@ -19,9 +19,12 @@
     id _completionHandler;
     UIViewController *_viewControllerForActionSheet;
     UIWindow *_windowForActionSheet;
+    BOOL _shouldPauseAfterDismissing;
     NSArray *_displayedRoutes;
 }
 
+- (void)_debugButtonAction:(id)arg1;
+- (BOOL)_shouldShowDebugButton;
 - (id)_availableRoutes;
 - (BOOL)_isDeviceVideoRoute:(id)arg1;
 - (void)showInPopoverFromRect:(struct CGRect)arg1 inView:(id)arg2 backgroundStyle:(int)arg3 animated:(BOOL)arg4 completionHandler:(id)arg5;

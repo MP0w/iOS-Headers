@@ -83,8 +83,8 @@
 - (id)initWithIndex:(unsigned int)arg1;
 - (id)init;
 - (id)_init;
-- (id)replacementObjectForPortCoder:(id)arg1;
 - (unsigned int)_indexAtIndex:(unsigned int)arg1;
+- (id)replacementObjectForPortCoder:(id)arg1;
 
 @end
 

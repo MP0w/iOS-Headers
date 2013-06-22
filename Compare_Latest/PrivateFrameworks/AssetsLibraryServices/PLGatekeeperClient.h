@@ -36,6 +36,7 @@
 - (void)recalculateCachedAlbumCounts;
 - (void)notifyAboutTerminationDueToUncaughtException:(id)arg1;
 - (void)dataMigrationWillFinish;
+- (void)repairPotentialModelCorruption;
 - (void)cleanupModelAfteriTunesRestore;
 - (unsigned int)secondsNeededToCleanupModelAfteriTunesRestore;
 - (void)writeDataInBackground:(id)arg1 toFileURL:(id)arg2;
@@ -57,7 +58,7 @@
 - (id)imageDataFromAssetURL:(id)arg1 format:(int)arg2;
 - (void)requestImageFromAssetURL:(id)arg1 format:(int)arg2 handler:(id)arg3;
 - (id)fileURLForNewAssetWithType:(unsigned int)arg1 extension:(id)arg2;
-- (void)saveAssetWithJobDictionary:(id)arg1 handler:(id)arg2 imageSurface:(void)arg3 previewImageSurface:(void *)arg4;
+- (void)saveAssetWithJobDictionary:(id)arg1 handler:(id)arg2 imageSurface:(void)arg3 previewImageSurface:(struct __IOSurface *)arg4;
 - (id)fileURLForAssetURL:(id)arg1 withAdjustments:(BOOL)arg2;
 - (int)fileDescriptorForAssetURL:(id)arg1;
 - (void)requestAccessWithHandler:(id)arg1;

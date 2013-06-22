@@ -114,6 +114,7 @@
 - (void)_timeDidJumpNotification:(id)arg1;
 - (void)_itemDurationAvailableNotification:(id)arg1;
 - (void)_itemReadyToPlayNotification:(id)arg1;
+- (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_rateDidChangeNotification:(id)arg1;
 - (void)_deviceOrientationChanged:(id)arg1;
 - (void)_tvOutCapabilityChanged:(id)arg1;

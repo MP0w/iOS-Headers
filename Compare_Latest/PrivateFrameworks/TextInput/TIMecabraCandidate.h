@@ -16,6 +16,7 @@
 }
 
 - (BOOL)isForShortcutConversion;
+- (BOOL)isEmojiCandidate;
 - (BOOL)isExtensionCandidate;
 @property(readonly, nonatomic) NSString *displayReading;
 - (void *)mecabraCandidate;

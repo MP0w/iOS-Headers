@@ -24,6 +24,12 @@
     NSString *_synchedStoreFrontIdentifier;
     SSURLBag *_urlBag;
     NSString *_userAgent;
+    double _batteryLevel;
+    unsigned int _batteryMonitorNotification;
+    struct IONotificationPort *_batteryMonitorPort;
+    BOOL _pluggedIn;
+    int _pluggedInToken;
+    int _powerMonitorCount;
 }
 
 + (void)setPromptWithIdentifier:(id)arg1 needsDisplay:(BOOL)arg2;

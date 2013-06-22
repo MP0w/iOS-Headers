@@ -11,8 +11,8 @@
 @interface PLUserActivityDaemonJob : PLDaemonJob
 {
     NSArray *_assetUUIDs;
-    NSString *_albumUUID;
     int _actionType;
+    NSString *_albumUUID;
 }
 
 + (void)userDidLeavePhotosApplication;
@@ -23,8 +23,8 @@
 + (void)userDidNavigateAwayFromSharedAlbum:(id)arg1;
 + (void)userDidNavigateIntoImagePickerSharedAlbum:(id)arg1;
 + (void)userDidNavigateIntoSharedAlbum:(id)arg1;
-@property int actionType; // @synthesize actionType=_actionType;
 @property(copy, nonatomic) NSString *albumUUID; // @synthesize albumUUID=_albumUUID;
+@property int actionType; // @synthesize actionType=_actionType;
 @property(retain, nonatomic) NSArray *assetUUIDs; // @synthesize assetUUIDs=_assetUUIDs;
 - (void)runDaemonSide;
 - (void)run;

@@ -22,19 +22,19 @@
     BOOL _needsReflow;
     BOOL _needsReload;
     id <ABPersonImageDataDelegate> _imageDataDelegate;
-    BOOL _allowsEditing;
-    BOOL _shouldPickBestImage;
     BOOL _multiplePhotoBackdropEnabled;
+    BOOL _shouldPickBestImage;
     id <ABStyleProvider> _styleProvider;
+    BOOL _allowsEditing;
 }
 
 + (struct CGSize)sizeForOptimalPerformance;
 + (id)newImageWithName:(id)arg1;
-@property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
-@property(nonatomic) BOOL scalesContentToFit; // @synthesize scalesContentToFit=_scalesContentToFit;
-@property(nonatomic) BOOL multiplePhotoBackdropEnabled; // @synthesize multiplePhotoBackdropEnabled=_multiplePhotoBackdropEnabled;
-@property(nonatomic) BOOL shouldPickBestImage; // @synthesize shouldPickBestImage=_shouldPickBestImage;
 @property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
+@property(nonatomic) BOOL scalesContentToFit; // @synthesize scalesContentToFit=_scalesContentToFit;
+@property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
+@property(nonatomic) BOOL shouldPickBestImage; // @synthesize shouldPickBestImage=_shouldPickBestImage;
+@property(nonatomic) BOOL multiplePhotoBackdropEnabled; // @synthesize multiplePhotoBackdropEnabled=_multiplePhotoBackdropEnabled;
 @property(nonatomic) id <ABPersonImageDataDelegate> imageDataDelegate; // @synthesize imageDataDelegate=_imageDataDelegate;
 - (void)paste:(id)arg1;
 - (void)copy:(id)arg1;

@@ -47,6 +47,7 @@
 + (void)__INode_Changed_AllThatIsLeftToUsIsHonor__;
 + (void)initialize;
 + (void)_setDebugFlags:(int)arg1;
+- (void)dropUbiquityTables;
 - (id)ubiquityTableValueForKey:(id)arg1;
 - (id)ubiquityTableKeysAndValues;
 - (void)setUbiquityTableValue:(id)arg1 forKey:(id)arg2;

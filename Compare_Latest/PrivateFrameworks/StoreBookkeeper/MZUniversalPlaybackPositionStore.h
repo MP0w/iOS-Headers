@@ -19,24 +19,24 @@
     id _prefsObserver;
     double _autorefreshRate;
     double _bagSpecifiedPollingInterval;
-    id <MZUniversalPlaybackPositionDataSource> _dataSource;
-    MZAsynchronousTask *_synchronizeTask;
-    NSTimer *_timer;
     BOOL _hasLocalChangesToSync;
+    MZAsynchronousTask *_synchronizeTask;
     MZAsynchronousTask *_bagLookupTask;
+    id <MZUniversalPlaybackPositionDataSource> _dataSource;
     MZUniversalPlaybackPositionSyncHandler *_syncHandler;
     NSDate *_dateToFireNextTimer;
+    NSTimer *_timer;
 }
 
 + (id)keyValueStoreItemIdentifierForItem:(id)arg1;
-@property(retain, nonatomic) NSDate *dateToFireNextTimer; // @synthesize dateToFireNextTimer=_dateToFireNextTimer;
-@property(nonatomic) unsigned int automaticSynchronizeOptions; // @synthesize automaticSynchronizeOptions=_automaticSynchronizeOptions;
-@property(retain, nonatomic) MZUniversalPlaybackPositionSyncHandler *syncHandler; // @synthesize syncHandler=_syncHandler;
-@property(retain, nonatomic) MZAsynchronousTask *bagLookupTask; // @synthesize bagLookupTask=_bagLookupTask;
-@property(nonatomic) BOOL hasLocalChangesToSync; // @synthesize hasLocalChangesToSync=_hasLocalChangesToSync;
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
-@property(retain, nonatomic) MZAsynchronousTask *synchronizeTask; // @synthesize synchronizeTask=_synchronizeTask;
+@property(retain, nonatomic) NSDate *dateToFireNextTimer; // @synthesize dateToFireNextTimer=_dateToFireNextTimer;
+@property(retain, nonatomic) MZUniversalPlaybackPositionSyncHandler *syncHandler; // @synthesize syncHandler=_syncHandler;
 @property(nonatomic) id <MZUniversalPlaybackPositionDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(retain, nonatomic) MZAsynchronousTask *bagLookupTask; // @synthesize bagLookupTask=_bagLookupTask;
+@property(nonatomic) unsigned int automaticSynchronizeOptions; // @synthesize automaticSynchronizeOptions=_automaticSynchronizeOptions;
+@property(retain, nonatomic) MZAsynchronousTask *synchronizeTask; // @synthesize synchronizeTask=_synchronizeTask;
+@property(nonatomic) BOOL hasLocalChangesToSync; // @synthesize hasLocalChangesToSync=_hasLocalChangesToSync;
 - (void)_onQueueResumeTimer;
 - (BOOL)_timerIsStopped;
 - (void)_onQueueSuspendTimer;

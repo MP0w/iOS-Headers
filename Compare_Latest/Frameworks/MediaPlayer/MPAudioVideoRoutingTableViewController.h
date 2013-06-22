@@ -26,11 +26,13 @@
 + (id)routesPreferringMirroring;
 @property(readonly, nonatomic) MPAudioDeviceController *audioDeviceController; // @synthesize audioDeviceController=_audioDeviceController;
 - (BOOL)_wirelessDisplayCapableRouteIsPicked;
+- (BOOL)_shouldShowDebugButton;
 - (id)_pickedRoute;
 - (id)_effectivePickedRouteReturningActualPickedRouteType:(int *)arg1;
 - (id)_displayedRoutes;
 - (id)_availableRoutes;
 - (void)_mirroringSwitchValueDidChange:(id)arg1;
+- (void)_debugButtonAction:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

@@ -16,12 +16,10 @@
     GKScoreInternal *_internal;
     BOOL _shouldSetDefaultLeaderboard;
     GKGame *_game;
-    BOOL _valueSet;
 }
 
 + (void)reportScores:(id)arg1 withCompletionHandler:(id)arg2;
 + (BOOL)instancesRespondToSelector:(SEL)arg1;
-@property BOOL valueSet; // @synthesize valueSet=_valueSet;
 @property(nonatomic) BOOL shouldSetDefaultLeaderboard; // @synthesize shouldSetDefaultLeaderboard=_shouldSetDefaultLeaderboard;
 @property(retain, nonatomic) GKScoreInternal *internal; // @synthesize internal=_internal;
 - (BOOL)isEqual:(id)arg1;
@@ -36,7 +34,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithCategory:(id)arg1;
-@property(nonatomic) long long value; // @dynamic value;
 - (id)init;
 - (id)initWithInternalRepresentation:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -60,6 +57,8 @@
 @property(retain, nonatomic) NSString *groupIdentifier; // @dynamic groupIdentifier;
 @property(retain, nonatomic) NSString *playerID; // @dynamic playerID;
 @property(nonatomic) int rank; // @dynamic rank;
+@property(nonatomic) long long value; // @dynamic value;
+@property BOOL valueSet; // @dynamic valueSet;
 
 @end
 

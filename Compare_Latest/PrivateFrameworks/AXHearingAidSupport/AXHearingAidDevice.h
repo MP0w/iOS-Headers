@@ -23,6 +23,7 @@
     long initialLoadToken;
     AXTimer *_leftInvalidationTimer;
     AXTimer *_rightInvalidationTimer;
+    AXTimer *_propertyWriteTimer;
     BOOL _didLoseLeftPeripheral;
     BOOL _didLoseRightPeripheral;
     NSString *leftUUID;
@@ -30,6 +31,10 @@
     NSString *name;
     NSString *manufacturer;
     NSString *model;
+    NSString *leftFirmwareVersion;
+    NSString *rightFirmwareVersion;
+    NSString *leftHardwareVersion;
+    NSString *rightHardwareVersion;
     float rightBatteryLevel;
     float leftBatteryLevel;
     NSArray *rightPrograms;
@@ -47,11 +52,15 @@
     NSMutableDictionary *rightPropertiesLoadCount;
     NSString *leftPeripheralUUID;
     NSString *rightPeripheralUUID;
+    int leftWriteRequestProperties;
+    int rightWriteRequestProperties;
     struct CGImage *_devicePhoto;
 }
 
 + (id)characteristicsUUIDs;
 @property(nonatomic) struct CGImage *devicePhoto; // @synthesize devicePhoto=_devicePhoto;
+@property(nonatomic) int rightWriteRequestProperties; // @synthesize rightWriteRequestProperties;
+@property(nonatomic) int leftWriteRequestProperties; // @synthesize leftWriteRequestProperties;
 @property(retain, nonatomic) NSString *rightPeripheralUUID; // @synthesize rightPeripheralUUID;
 @property(retain, nonatomic) NSString *leftPeripheralUUID; // @synthesize leftPeripheralUUID;
 @property(retain, nonatomic) NSMutableDictionary *rightPropertiesLoadCount; // @synthesize rightPropertiesLoadCount;
@@ -76,6 +85,10 @@
 @property(copy, nonatomic) NSArray *rightPrograms; // @synthesize rightPrograms;
 @property(nonatomic) float leftBatteryLevel; // @synthesize leftBatteryLevel;
 @property(nonatomic) float rightBatteryLevel; // @synthesize rightBatteryLevel;
+@property(retain, nonatomic) NSString *rightHardwareVersion; // @synthesize rightHardwareVersion;
+@property(retain, nonatomic) NSString *leftHardwareVersion; // @synthesize leftHardwareVersion;
+@property(retain, nonatomic) NSString *rightFirmwareVersion; // @synthesize rightFirmwareVersion;
+@property(retain, nonatomic) NSString *leftFirmwareVersion; // @synthesize leftFirmwareVersion;
 @property(retain, nonatomic) NSString *model; // @synthesize model;
 @property(retain, nonatomic) NSString *manufacturer; // @synthesize manufacturer;
 @property(retain, nonatomic) NSString *name; // @synthesize name;
@@ -87,6 +100,7 @@
 - (BOOL)addPeripheral:(id)arg1;
 - (id)description;
 - (void)peripheral:(id)arg1 didWriteValueForCharacteristic:(id)arg2 error:(id)arg3;
+- (void)logCharacteristic:(id)arg1 andPeripheral:(id)arg2;
 - (void)peripheralDidInvalidateServices:(id)arg1;
 - (void)peripheral:(id)arg1 didUpdateCharacteristic:(id)arg2;
 - (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 error:(id)arg3;
@@ -102,6 +116,9 @@
 - (void)selectProgram:(id)arg1;
 - (void)writeInt:(unsigned char)arg1 toPeripheral:(id)arg2 forProperty:(int)arg3;
 - (void)writeVolume:(float)arg1 toPeripheral:(id)arg2 forProperty:(int)arg3;
+- (void)delayWriteProperty:(int)arg1 forPeripheral:(id)arg2;
+- (unsigned char)volumeValueForProperty:(int)arg1 andPeripheral:(id)arg2;
+- (void)_sendDelayedWrites;
 - (void)loadFailedProperties;
 - (void)loadRequiredProperties;
 - (void)loadBasicProperties;

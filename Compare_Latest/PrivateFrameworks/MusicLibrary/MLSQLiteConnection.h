@@ -75,6 +75,7 @@
 - (id)_beginImmediateStatement;
 - (id)_beginStatement;
 - (id)description;
+@property(readonly, nonatomic) NSString *path;
 - (id)_initWithFlags:(int)arg1 path:(id)arg2;
 - (void)statementWithSQLPrefix:(id)arg1 inPersistentIDs:(const long long *)arg2 count:(unsigned int)arg3 usingBlock:(id)arg4;
 

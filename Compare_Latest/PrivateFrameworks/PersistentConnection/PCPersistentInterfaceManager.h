@@ -90,6 +90,8 @@
 - (BOOL)_wwanLinkQualityBelowThresholdAndWoWAvailableLocked;
 - (void)_clearInCallWWANOverrideTimerLocked;
 - (void)_inCallWWANOverrideTimerFired;
+- (void)_serverCallbackLocked:(id)arg1 info:(id)arg2;
+- (void)_serverCallback:(id)arg1 info:(id)arg2;
 - (void)handleMachMessage:(void *)arg1;
 - (void)interfaceReachabilityChanged:(id)arg1;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;

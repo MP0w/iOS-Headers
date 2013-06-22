@@ -15,7 +15,7 @@
     MPAudioDeviceController *_audioDeviceController;
     AVPlayerItem *_currentItem;
     CDStruct_1b6d18a9 _currentTime;
-    BOOL _isAirPlayVideoActive;
+    BOOL _isExternalPlaybackActive;
     BOOL _pausedForPlaybackQueueTransaction;
     NSDictionary *_pickedRouteDescription;
     id _playbackQueueCommitHandler;
@@ -48,11 +48,11 @@
 - (BOOL)_CALayerDestinationIsTVOut;
 @property(readonly, nonatomic) BOOL outputObscuredDueToInsufficientExternalProtection;
 @property(readonly, nonatomic) AVAudioSessionMediaPlayerOnly *playerAVAudioSession;
-@property(nonatomic) BOOL usesAirPlayVideoWhileAirPlayScreenIsActive;
+@property(nonatomic) BOOL usesExternalPlaybackWhileExternalScreenIsActive;
 @property(readonly, nonatomic) int status;
 @property(nonatomic) float rate;
 @property(copy, nonatomic, setter=_setDisplaysUsedForPlayback:) NSArray *_displaysUsedForPlayback;
-@property(nonatomic) BOOL allowsAirPlayVideo;
+@property(nonatomic) BOOL allowsExternalPlayback;
 @property(nonatomic) int actionAtItemEnd;
 - (void)seekToTime:(CDStruct_1b6d18a9)arg1 toleranceBefore:(CDStruct_1b6d18a9)arg2 toleranceAfter:(CDStruct_1b6d18a9)arg3;
 - (void)seekToTime:(CDStruct_1b6d18a9)arg1;
@@ -65,10 +65,11 @@
 - (void)play;
 - (void)pause;
 @property(readonly, nonatomic) NSArray *items;
-@property(readonly, nonatomic, getter=isAirPlayVideoActive) BOOL airPlayVideoActive;
+@property(readonly, nonatomic, getter=isExternalPlaybackActive) BOOL externalPlaybackActive;
 - (void)insertItem:(id)arg1 afterItem:(id)arg2;
 @property(readonly, nonatomic) int _externalProtectionStatus;
 @property(readonly, nonatomic) NSError *error;
+@property(readonly, nonatomic) int externalPlaybackType;
 - (CDStruct_1b6d18a9)currentTime;
 @property(readonly, nonatomic) AVPlayerItem *currentItem;
 - (void)commitPlaybackQueueTransaction;

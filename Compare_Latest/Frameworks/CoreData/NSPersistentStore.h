@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableDictionary, NSPersistentStoreCoordinator, NSString, NSURL;
+@class NSDictionary, NSPersistentStoreCoordinator, NSString, NSURL;
 
 @interface NSPersistentStore : NSObject
 {
@@ -14,7 +14,7 @@
     NSString *_configurationName;
     NSURL *_url;
     NSDictionary *_options;
-    NSMutableDictionary *_oidFactories;
+    id *_oidFactories;
     id _defaultFaultHandler;
     struct _objectStoreFlags {
         unsigned int isReadOnly:1;
@@ -57,6 +57,7 @@
 - (void)finalize;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithPersistentStoreCoordinator:(id)arg1 configurationName:(id)arg2 URL:(id)arg3 options:(id)arg4;
+- (id)_storeInfoForEntityDescription:(id)arg1;
 - (void)_didLoadMetadata;
 - (void)_setMetadataDirty:(BOOL)arg1;
 - (BOOL)_isMetadataDirty;

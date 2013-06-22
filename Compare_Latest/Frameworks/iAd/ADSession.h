@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSMutableSet, NSString, NSTimer;
+@class NSMutableDictionary, NSMutableSet, NSString;
 
 @interface ADSession : NSObject
 {
@@ -16,22 +16,13 @@
     NSMutableSet *_pendingOpenControllers;
     double _lastControllerCreationTime;
     NSMutableSet *_reassignmentScheduledAdTypes;
+    BOOL _applicationCanReceiveBackgroundAds;
     id _remoteSession;
     NSString *_serverURL;
-    BOOL _isInBackground;
-    BOOL _creatingControllers;
-    unsigned int _recentlyCreatedControllers;
-    NSTimer *_visibilityTimer;
-    double _visibilitySlowCheckTime;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedInstance;
-@property(nonatomic) double visibilitySlowCheckTime; // @synthesize visibilitySlowCheckTime=_visibilitySlowCheckTime;
-@property(retain, nonatomic) NSTimer *visibilityTimer; // @synthesize visibilityTimer=_visibilityTimer;
-@property(nonatomic) unsigned int recentlyCreatedControllers; // @synthesize recentlyCreatedControllers=_recentlyCreatedControllers;
-@property(nonatomic) BOOL creatingControllers; // @synthesize creatingControllers=_creatingControllers;
-@property(nonatomic) BOOL isInBackground; // @synthesize isInBackground=_isInBackground;
 @property(retain, nonatomic) NSString *serverURL; // @synthesize serverURL=_serverURL;
 @property(retain, nonatomic) id remoteSession; // @synthesize remoteSession=_remoteSession;
 - (id)autorelease;
@@ -39,6 +30,7 @@
 - (unsigned int)retainCount;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)applicationStateAllowsAds;
 - (void)_appWillResignActive;
 - (void)_appDidBecomeActive;
 - (void)forwardShakeEventToAdSheet;

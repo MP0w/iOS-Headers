@@ -27,21 +27,21 @@
     double _lastShadowAlphaTime;
     float _transitionProgress;
     BOOL _edgeAntialiasingEnabled;
+    float _accessoryViewsAlpha;
     float _placeholderScale;
     BOOL _showsPlaceholder;
-    float _accessoryViewsAlpha;
 }
 
 + (id)textBadgeForString:(id)arg1 photoSize:(struct CGSize)arg2;
 + (struct CGSize)badgeOffset;
 + (BOOL)shouldDrawShadows;
 + (void)initialize;
-@property(retain, nonatomic) UIView *bottomRightAccessoryView; // @synthesize bottomRightAccessoryView=_bottomRightAccessoryView;
-@property(nonatomic) float accessoryViewsAlpha; // @synthesize accessoryViewsAlpha=_accessoryViewsAlpha;
+@property(retain, nonatomic) UIView *leftAccessoryView; // @synthesize leftAccessoryView=_leftAccessoryView;
+@property(nonatomic) struct CGSize leftAccessoryViewOffset; // @synthesize leftAccessoryViewOffset=_leftAccessoryViewOffset;
 @property(readonly, nonatomic) BOOL showsPlaceholder; // @synthesize showsPlaceholder=_showsPlaceholder;
 @property(nonatomic) float placeholderScale; // @synthesize placeholderScale=_placeholderScale;
-@property(nonatomic) struct CGSize leftAccessoryViewOffset; // @synthesize leftAccessoryViewOffset=_leftAccessoryViewOffset;
-@property(retain, nonatomic) UIView *leftAccessoryView; // @synthesize leftAccessoryView=_leftAccessoryView;
+@property(retain, nonatomic) UIView *bottomRightAccessoryView; // @synthesize bottomRightAccessoryView=_bottomRightAccessoryView;
+@property(nonatomic) float accessoryViewsAlpha; // @synthesize accessoryViewsAlpha=_accessoryViewsAlpha;
 @property(nonatomic) float transitionProgress; // @synthesize transitionProgress=_transitionProgress;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) PLVideoView *videoView;

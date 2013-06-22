@@ -19,6 +19,7 @@
 
 @property float constant; // @synthesize constant=_constant;
 - (void)scaleBy:(float)arg1;
+- (void)scalePrescaledVariablesBy:(double)arg1;
 - (id)allVariables;
 - (void)enumerateVariables:(id)arg1;
 - (void)enumerateVariablesAndCoefficients:(id)arg1;

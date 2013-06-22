@@ -7,7 +7,7 @@
 #import "UIImage.h"
 
 @interface UIImage (PassesAdditions)
-+ (id)imageWithWLImage:(id)arg1;
++ (id)imageWithPKImage:(id)arg1;
 - (id)wlImageByRecoloringWithColor:(id)arg1;
 - (id)wlResizableImageByTilingCenterPixel;
 @end

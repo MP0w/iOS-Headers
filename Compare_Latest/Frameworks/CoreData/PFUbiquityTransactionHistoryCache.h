@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString, PFUbiquityLocation;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector, PFUbiquityLocation;
 
 @interface PFUbiquityTransactionHistoryCache : NSObject
 {
@@ -16,15 +16,23 @@
     NSMutableDictionary *_globalIDToHistoryArray;
     NSRecursiveLock *_peerIDToHistoryArrayLock;
     NSMutableArray *_entriesToWrite;
+    PFUbiquityKnowledgeVector *_cacheKV;
+    PFUbiquityGlobalObjectIDCache *_globalIDCache;
 }
 
+@property(retain, nonatomic) PFUbiquityGlobalObjectIDCache *globalIDCache; // @synthesize globalIDCache=_globalIDCache;
+@property(readonly, nonatomic) PFUbiquityKnowledgeVector *cacheKV; // @synthesize cacheKV=_cacheKV;
+@property(readonly, nonatomic) NSArray *cachedGlobalIDs;
 - (id)cachedTransactionHistoryForGlobalID:(id)arg1;
 - (BOOL)purgeCacheAndWritePendingEntries:(BOOL)arg1 error:(id *)arg2;
 - (BOOL)writePendingEntries:(id *)arg1;
-- (BOOL)addTransactionEntries:(id)arg1 error:(id *)arg2;
+- (BOOL)addTransactionEntryLights:(id)arg1 error:(id *)arg2;
+- (BOOL)addTransactionEntriesFromExporter:(id)arg1 error:(id *)arg2;
 - (BOOL)addTransactionEntryLight:(id)arg1 needsWrite:(BOOL)arg2 error:(id *)arg3;
 - (BOOL)addTransactionEntry:(id)arg1 error:(id *)arg2;
 - (BOOL)cacheTransactionHistory:(id *)arg1;
+- (id)describeCachesVerbose;
+- (id)describeCaches;
 - (id)description;
 - (void)dealloc;
 - (id)initWithLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;

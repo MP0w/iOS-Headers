@@ -15,20 +15,20 @@
     BOOL _visibilityCheckScheduled;
     double _lastSlowCheck;
     BOOL _requireVisibilityPropagation;
+    BOOL _waitingOnFirstLoad;
+    BOOL _visible;
     int _adType;
     double _creationTime;
     ADBannerController *_controller;
     BOOL _shouldAttemptControllerCreation;
-    BOOL _waitingOnFirstLoad;
-    BOOL _visible;
 }
 
-@property(nonatomic) BOOL visible; // @synthesize visible=_visible;
-@property(readonly, nonatomic) BOOL waitingOnFirstLoad; // @synthesize waitingOnFirstLoad=_waitingOnFirstLoad;
 @property(nonatomic) BOOL shouldAttemptControllerCreation; // @synthesize shouldAttemptControllerCreation=_shouldAttemptControllerCreation;
 @property(retain, nonatomic) ADBannerController *controller; // @synthesize controller=_controller;
 @property(nonatomic) double creationTime; // @synthesize creationTime=_creationTime;
 @property(readonly, nonatomic) int adType; // @synthesize adType=_adType;
+@property(nonatomic) BOOL visible; // @synthesize visible=_visible;
+@property(readonly, nonatomic) BOOL waitingOnFirstLoad; // @synthesize waitingOnFirstLoad=_waitingOnFirstLoad;
 - (id)modalViewController;
 - (void)serverInterstitialViewExpiredAndWasUnloaded:(id)arg1;
 - (void)serverStoryboardDidTransitionOut:(id)arg1;

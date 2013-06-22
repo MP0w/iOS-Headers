@@ -26,16 +26,16 @@
     unsigned int _loadingSequenceNumber;
     BOOL _shouldOverrideTableFooterGroupPadding;
     NSOrderedSet *_displayedSections;
-    BOOL _disableOffsetAndBoundsHacks;
     BOOL _shouldUseWideMarginsForLandscapeContentOnWidescreenDevice;
+    BOOL _disableOffsetAndBoundsHacks;
     unsigned int _contentOffsetLockCount;
     NSDictionary *_displayedSectionMetrics;
 }
 
 @property(retain, nonatomic) NSDictionary *displayedSectionMetrics; // @synthesize displayedSectionMetrics=_displayedSectionMetrics;
 @property(nonatomic) unsigned int contentOffsetLockCount; // @synthesize contentOffsetLockCount=_contentOffsetLockCount;
-@property(nonatomic) BOOL shouldUseWideMarginsForLandscapeContentOnWidescreenDevice; // @synthesize shouldUseWideMarginsForLandscapeContentOnWidescreenDevice=_shouldUseWideMarginsForLandscapeContentOnWidescreenDevice;
 @property(nonatomic) BOOL disableOffsetAndBoundsHacks; // @synthesize disableOffsetAndBoundsHacks=_disableOffsetAndBoundsHacks;
+@property(nonatomic) BOOL shouldUseWideMarginsForLandscapeContentOnWidescreenDevice; // @synthesize shouldUseWideMarginsForLandscapeContentOnWidescreenDevice=_shouldUseWideMarginsForLandscapeContentOnWidescreenDevice;
 @property(retain, nonatomic) NSOrderedSet *displayedSections; // @synthesize displayedSections=_displayedSections;
 @property(nonatomic) BOOL shouldOverrideTableFooterGroupPadding; // @synthesize shouldOverrideTableFooterGroupPadding=_shouldOverrideTableFooterGroupPadding;
 @property(readonly, nonatomic) unsigned int loadingSequenceNumber; // @synthesize loadingSequenceNumber=_loadingSequenceNumber;
@@ -91,6 +91,7 @@
 - (void)_setDisplayedSections:(id)arg1;
 - (void)endUpdates;
 - (void)beginUpdates;
+- (void)setDataSource:(id)arg1;
 - (void)scrollToTopWithPinnedHeaderAnimated:(BOOL)arg1;
 @property(readonly, nonatomic) GKTableViewControllerV2 *_controller;
 - (id)loadingCapCell;

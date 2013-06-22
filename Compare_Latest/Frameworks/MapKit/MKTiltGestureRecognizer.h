@@ -6,12 +6,24 @@
 
 #import "UIPanGestureRecognizer.h"
 
+@class UITouch;
+
 @interface MKTiltGestureRecognizer : UIPanGestureRecognizer
 {
+    UITouch *_touch1;
+    UITouch *_touch2;
+    struct CGPoint _initialTouch1Point;
+    struct CGPoint _initialTouch2Point;
+    float _initialDistance;
 }
 
+- (void)reset;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (float)_distanceFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
 - (id)_activeTouchesForEvent:(id)arg1;
+- (void)dealloc;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 
 @end

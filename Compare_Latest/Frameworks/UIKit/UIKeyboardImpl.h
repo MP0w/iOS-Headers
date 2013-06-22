@@ -296,7 +296,9 @@
 - (void)candidateListSelectionDidChange:(id)arg1;
 - (void)candidateListAcceptCandidate:(id)arg1;
 - (void)showNextCandidates;
+- (BOOL)hasUpToDateCandidates;
 - (void)acceptCurrentCandidateIfSelected;
+- (BOOL)userSelectedCurrentCandidate;
 - (void)acceptCurrentCandidate;
 - (void)acceptCandidate:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)removeAutocorrection;

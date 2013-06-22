@@ -12,12 +12,12 @@
 {
     NSMutableArray *_sectionRanges;
     BOOL _sectionRangesAreDirty;
-    struct NSObject *_album;
     id _sectioningComparator;
+    struct NSObject *_album;
 }
 
-@property(copy, nonatomic) id sectioningComparator; // @synthesize sectioningComparator=_sectioningComparator;
 @property(retain, nonatomic) NSObject<PLAssetContainer> *album; // @synthesize album=_album;
+@property(copy, nonatomic) id sectioningComparator; // @synthesize sectioningComparator=_sectioningComparator;
 - (void)setNeedsReload;
 - (void)processAlbumDidChangeNotification:(id)arg1 withHandler:(id)arg2;
 - (void)_reloadSections;

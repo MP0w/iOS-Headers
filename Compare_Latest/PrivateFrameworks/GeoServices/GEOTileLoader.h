@@ -39,12 +39,12 @@
 - (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)_preempt:(id)arg1;
 - (void)cancelRequest:(id)arg1;
-- (void)preloadTiles:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4;
+- (void)preloadTiles:(id)arg1 requireWiFi:(BOOL)arg2 progress:(id)arg3 finished:(void)arg4 error:(id)arg5;
 - (void)loadTiles:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4;
 - (void)loadTilesFromCache:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4;
 - (void)loadTilesFromCacheAndNetwork:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4;
 - (void)loadTilesFromCacheAndNetwork:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4 skipNetwork:(void)arg5;
-- (void)_loadTilesFromServer:(id)arg1 checkDisk:(BOOL)arg2 allowNetworking:(BOOL)arg3;
+- (void)_loadTilesFromServer:(id)arg1 checkDisk:(BOOL)arg2 allowNetworking:(BOOL)arg3 requireWiFi:(BOOL)arg4;
 - (id)_pendingLoadForNetworkLoadList:(id)arg1 acquireLock:(BOOL)arg2;
 - (id)_pendingLoadForOriginalList:(id)arg1 acquireLock:(BOOL)arg2;
 - (void)_activeTileGroupChanged:(id)arg1;

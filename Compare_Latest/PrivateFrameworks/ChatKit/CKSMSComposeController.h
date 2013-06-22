@@ -18,16 +18,16 @@
     _UIAsyncInvocation *_cancellationInvocation;
     UINavigationController *_clientNavigationController;
     BOOL _safeToAdd;
-    CKSMSComposeQueuingRemoteViewControllerProxy *_remoteViewControllerProxy;
     CKSMSComposeRemoteViewController *_remoteViewController;
+    CKSMSComposeQueuingRemoteViewControllerProxy *_remoteViewControllerProxy;
 }
 
 + (BOOL)canSendPhotos:(int)arg1 videos:(int)arg2 audioClips:(int)arg3;
 + (double)maxTrimDurationForVideo;
 + (double)maxTrimDurationForAudio;
 + (BOOL)acceptsMIMEType:(id)arg1;
-@property(retain, nonatomic) CKSMSComposeRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 @property(retain, nonatomic) CKSMSComposeQueuingRemoteViewControllerProxy *remoteViewControllerProxy; // @synthesize remoteViewControllerProxy=_remoteViewControllerProxy;
+@property(retain, nonatomic) CKSMSComposeRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 - (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;

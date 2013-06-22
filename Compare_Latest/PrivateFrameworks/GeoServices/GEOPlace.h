@@ -17,6 +17,7 @@
     NSMutableArray *_business;
     GEOLatLng *_center;
     NSMutableArray *_entryPoints;
+    int _localSearchProviderID;
     GEOMapRegion *_mapRegion;
     NSString *_name;
     GEOAddress *_phoneticAddress;
@@ -24,10 +25,19 @@
     int _type;
     int _version;
     BOOL _isDisputed;
-    CDStruct_22b2dcc1 _has;
+    struct {
+        unsigned int geoId:1;
+        unsigned int uID:1;
+        unsigned int addressGeocodeAccuracy:1;
+        unsigned int localSearchProviderID:1;
+        unsigned int type:1;
+        unsigned int version:1;
+        unsigned int isDisputed:1;
+    } _has;
 }
 
 @property(nonatomic) long long geoId; // @synthesize geoId=_geoId;
+@property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
 @property(retain, nonatomic) NSMutableArray *entryPoints; // @synthesize entryPoints=_entryPoints;
 @property(nonatomic) int addressGeocodeAccuracy; // @synthesize addressGeocodeAccuracy=_addressGeocodeAccuracy;
 @property(retain, nonatomic) NSMutableArray *business; // @synthesize business=_business;
@@ -48,6 +58,7 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(nonatomic) BOOL hasGeoId;
+@property(nonatomic) BOOL hasLocalSearchProviderID;
 @property(nonatomic) BOOL hasIsDisputed;
 @property(nonatomic) BOOL isDisputed; // @synthesize isDisputed=_isDisputed;
 - (id)entryPointAtIndex:(unsigned int)arg1;

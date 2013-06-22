@@ -41,6 +41,7 @@
     BOOL _lastLoadDidFail;
     id _loadBlock;
     ISURLRequestPerformance *_performanceMetrics;
+    BOOL _useWebViewFastPath;
 }
 
 @property(nonatomic) BOOL canMoveToOverlay; // @synthesize canMoveToOverlay=_canMoveToOverlay;
@@ -68,6 +69,7 @@
 - (void)_setActiveChildViewController:(id)arg1 shouldTearDown:(BOOL)arg2;
 - (BOOL)_sectionIsNetworkConstrained;
 - (void)_repositionForChildViewController:(id)arg1;
+- (void)_renderStorePage:(id)arg1 withType:(int)arg2 viewController:(id)arg3 block:(id)arg4;
 - (BOOL)_reloadWithURLRequestProperties:(id)arg1 preserveSectionControl:(BOOL)arg2;
 - (void)_reloadSectionsControlWithGroup:(id)arg1;
 - (void)_reloadSectionButtons;
@@ -177,6 +179,7 @@
 - (id)newFetchOperation;
 - (void)enqueueFetchOperationForPageSection:(id)arg1;
 - (void)enqueueFetchOperation;
+- (void)_finishWebViewLoadWithResult:(BOOL)arg1 error:(id)arg2;
 - (BOOL)decidePolicyForWebNavigationAction:(id)arg1 request:(id)arg2 decisionListener:(id)arg3;
 @property(readonly, nonatomic) BOOL canBeResolved;
 - (void)dealloc;

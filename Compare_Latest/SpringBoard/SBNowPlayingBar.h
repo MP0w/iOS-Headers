@@ -10,7 +10,7 @@
 #import "SBSwitcherPopoverWindowControllerDelegate-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 
-@class MPAudioDeviceController, MPAudioVideoRoutingActionSheet, MPAudioVideoRoutingPopoverController, SBAirPlayBarView, SBAppSwitcherVolumeSlider, SBApplication, SBNowPlayingBarView, UIButton, UIViewController;
+@class MPAudioVideoRoutingActionSheet, MPAudioVideoRoutingPopoverController, SBAirPlayBarView, SBAppSwitcherVolumeSlider, SBApplication, SBNowPlayingBarView, UIButton, UIViewController;
 
 @interface SBNowPlayingBar : NSObject <SBIconViewDelegate, UIPopoverControllerDelegate, SBSwitcherPopoverWindowControllerDelegate>
 {
@@ -22,7 +22,6 @@
     UIButton *_airPlayButton;
     SBApplication *_nowPlayingApp;
     int _scanDirection;
-    MPAudioDeviceController *_audioDeviceController;
     MPAudioVideoRoutingPopoverController *_audioRoutingPopoverController;
     BOOL _audioRoutingPopoverVisible;
     BOOL _showPopoverWhenRotationComplete;
@@ -33,8 +32,7 @@
 - (void)switcherPopoverController:(id)arg1 didRotateFromInterfaceOrientation:(int)arg2;
 - (void)switcherPopoverController:(id)arg1 willRotateToOrientation:(int)arg2 duration:(double)arg3;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (void)audioDeviceControllerMediaServerDied:(id)arg1;
-- (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
+- (void)audioRoutesChanged:(id)arg1;
 - (void)backlightLevelChanged;
 - (void)iconTouchBegan:(id)arg1;
 - (BOOL)iconShouldAllowTap:(id)arg1;

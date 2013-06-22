@@ -8,7 +8,7 @@
 
 #import "SUOverlayBackgroundDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSString, SUClientInterface, SUPreviewOverlayViewController, UIImage, UIViewController;
+@class NSArray, NSMutableArray, NSString, SUClientInterface, SUPreviewOverlayViewController, SUViewController, UIImage, UIViewController;
 
 @interface SUTabBarController : UITabBarController <SUOverlayBackgroundDelegate>
 {
@@ -21,6 +21,9 @@
     BOOL _ignoreTabReselection;
     UIImage *_moreListSelectedImage;
     UIImage *_moreListUnselectedImage;
+    SUViewController *_preloadedViewController;
+    NSString *_preloadedViewControllerIdentifier;
+    NSString *_preloadedViewControllerKey;
     SUPreviewOverlayViewController *_previewOverlayViewController;
 }
 
@@ -100,6 +103,7 @@
 - (void)reloadSectionVisibilityAnimated:(BOOL)arg1;
 - (void)pushTransientViewController:(id)arg1 onSectionWithIdentifier:(id)arg2;
 - (BOOL)loadFromDefaults;
+- (BOOL)loadFromDefaultsAndSetSections:(id)arg1;
 - (void)dealloc;
 - (id)initWithClientInterface:(id)arg1;
 - (id)init;

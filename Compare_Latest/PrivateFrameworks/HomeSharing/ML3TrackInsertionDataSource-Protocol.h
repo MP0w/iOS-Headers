@@ -7,6 +7,16 @@
 #import "NSObject-Protocol.h"
 
 @protocol ML3TrackInsertionDataSource <NSObject>
+- (long long)currentTrackPurchaseHistoryID;
+- (BOOL)currentTrackHasChapterData;
+- (int)currentTrackKeyID2;
+- (BOOL)currentTrackHasVideo;
+- (id)currentTrackDataURL;
+- (int)currentTrackDataKind;
+- (id)currentTrackFormat;
+- (int)currentTrackCodecSubtype;
+- (int)currentTrackCodecType;
+- (int)currentTrackJaliscoToken;
 - (double)currentTrackDateLastUsed;
 - (double)currentTrackRentalStartDate;
 - (double)currentTrackRentalPlaybackStartDate;
@@ -15,13 +25,14 @@
 - (int)currentTrackIsDownloading;
 - (BOOL)currentTrackIsAudibleAudioBook;
 - (BOOL)currentTrackIsITunesU;
-- (BOOL)currentTrackIsHD;
+- (int)currentTrackVideoQuality;
 - (BOOL)currentTrackIsHidden;
 - (BOOL)currentTrackChosenByAutoFill;
 - (BOOL)currentTrackIsTemporaryCloudDownload;
 - (BOOL)currentTrackIsOTAPurchased;
 - (BOOL)currentTrackIsDemoRental;
 - (BOOL)currentTrackIsRental;
+- (BOOL)currentTrackIsAlarm;
 - (double)currentTrackRelativeVolume;
 - (BOOL)currentTrackHasBeenPlayed;
 - (BOOL)currentTrackRememberBookmarkTime;
@@ -110,6 +121,8 @@
 - (long long)currentTrackGeniusChecksum;
 - (long long)currentTrackGlobalID;
 - (long long)currentTrackPersistentID;
+- (void)getCurrentTrackDataURL:(struct sqlite3_context *)arg1;
+- (void)getCurrentTrackFormat:(struct sqlite3_context *)arg1;
 - (void)getCurrentTrackIntegrity:(struct sqlite3_context *)arg1;
 - (void)getCurrentTrackDownloadIdentifier:(struct sqlite3_context *)arg1;
 - (void)getCurrentTrackChapterData:(struct sqlite3_context *)arg1;

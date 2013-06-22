@@ -22,8 +22,8 @@
 - (Class)publisherPluginClass;
 - (id)pathMediaStreamDir;
 - (id)fullNameFromFirstName:(id)arg1 lastName:(id)arg2;
-- (void)logFile:(const char *)arg1 func:(const char *)arg2 line:(int)arg3 facility:(int)arg4 level:(int)arg5 format:(id)arg6 args:(char *)arg7;
-- (void)logFacility:(int)arg1 level:(int)arg2 format:(id)arg3 args:(char *)arg4;
+- (void)logFile:(const char *)arg1 func:(const char *)arg2 line:(int)arg3 facility:(int)arg4 level:(int)arg5 format:(id)arg6 args:(void *)arg7;
+- (void)logFacility:(int)arg1 level:(int)arg2 format:(id)arg3 args:(void *)arg4;
 - (BOOL)shouldLogAtLevel:(int)arg1;
 
 @optional

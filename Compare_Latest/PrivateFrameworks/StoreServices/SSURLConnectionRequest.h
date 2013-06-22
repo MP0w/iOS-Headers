@@ -13,6 +13,7 @@
 @interface SSURLConnectionRequest : SSRequest <SSXPCCoding>
 {
     SSURLRequestProperties *_requestProperties;
+    BOOL _shouldMescalSign;
 }
 
 - (id)initWithXPCEncoding:(id)arg1;
@@ -21,6 +22,7 @@
 - (BOOL)start;
 @property(readonly) NSURLRequest *URLRequest;
 - (void)startWithConnectionResponseBlock:(id)arg1;
+@property BOOL shouldMescalSign;
 @property(readonly) SSURLRequestProperties *requestProperties;
 - (void)dealloc;
 - (id)initWithURLRequest:(id)arg1;

@@ -25,8 +25,8 @@
     BOOL _loaded;
 }
 
-@property(readonly, nonatomic) BOOL loaded; // @synthesize loaded=_loaded;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *loadQueue; // @synthesize loadQueue=_loadQueue;
+@property(readonly, nonatomic) BOOL loaded; // @synthesize loaded=_loaded;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) GKScore *comparePlayerScore; // @synthesize comparePlayerScore=_comparePlayerScore;
 @property(nonatomic) struct _NSRange displayedRange; // @synthesize displayedRange=_displayedRange;

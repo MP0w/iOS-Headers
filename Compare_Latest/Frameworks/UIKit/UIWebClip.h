@@ -29,8 +29,6 @@
     UIImage *startupImage;
     UIImage *startupLandscapeImage;
     id delegate;
-    NSString *dashcodePortName;
-    NSString *dashcodeFrameworkPath;
     NSMutableData *_customIconData;
     NSURLConnection *_iconConnection;
     NSMutableData *_customStartupImageData;
@@ -56,8 +54,6 @@
 + (id)webClips;
 + (id)webClipWithURL:(id)arg1;
 + (id)webClipWithIdentifier:(id)arg1;
-@property(retain) NSString *dashcodeFrameworkPath; // @synthesize dashcodeFrameworkPath;
-@property(retain) NSString *dashcodePortName; // @synthesize dashcodePortName;
 @property id delegate; // @synthesize delegate;
 @property(retain, nonatomic) UIImage *startupLandscapeImage; // @synthesize startupLandscapeImage;
 @property(retain, nonatomic) UIImage *startupImage; // @synthesize startupImage;

@@ -14,14 +14,14 @@
     UILabel *_infoLabel;
     NSNumberFormatter *_countFormatter;
     unsigned int _totalCount;
-    int _progressType;
-    int _style;
     unsigned int _currentCount;
+    int _style;
+    int _progressType;
 }
 
-@property(readonly, nonatomic) unsigned int currentCount; // @synthesize currentCount=_currentCount;
-@property(readonly, nonatomic) int style; // @synthesize style=_style;
 @property(readonly, nonatomic) int progressType; // @synthesize progressType=_progressType;
+@property(readonly, nonatomic) int style; // @synthesize style=_style;
+@property(readonly, nonatomic) unsigned int currentCount; // @synthesize currentCount=_currentCount;
 @property(readonly, nonatomic) unsigned int totalCount; // @synthesize totalCount=_totalCount;
 - (id)_progressDescription;
 - (void)layoutSubviews;

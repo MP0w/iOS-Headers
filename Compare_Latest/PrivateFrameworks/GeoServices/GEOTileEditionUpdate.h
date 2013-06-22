@@ -9,8 +9,10 @@
 @interface GEOTileEditionUpdate : NSObject
 {
     struct vector<EditionEntry, std::__1::allocator<EditionEntry>> _entries;
+    BOOL _flushEverything;
 }
 
+@property(nonatomic) BOOL flushEverything; // @synthesize flushEverything=_flushEverything;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)tileset:(unsigned int *)arg1 edition:(unsigned int *)arg2 provider:(unsigned int *)arg3 atIndex:(unsigned int)arg4;

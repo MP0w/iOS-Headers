@@ -32,9 +32,9 @@
 + (struct CGRect)frameOfPhotoThumbnailAtIndex:(unsigned int)arg1 cellBounds:(struct CGRect)arg2 cellPhotoSize:(struct CGSize)arg3 thumbnailSize:(struct CGSize)arg4 thumbnailOffset:(struct CGPoint)arg5;
 + (struct CGRect)frameOfCellPhotoAtIndex:(unsigned int)arg1 cellBounds:(struct CGRect)arg2 cellPhotoSize:(struct CGSize)arg3;
 + (unsigned int)cellPhotoIndexAtPoint:(struct CGPoint)arg1 cellBounds:(struct CGRect)arg2 cellPhotoSize:(struct CGSize)arg3;
-@property(nonatomic) unsigned int unreadStartMarkerIndex; // @synthesize unreadStartMarkerIndex=_unreadStartMarkerIndex;
 @property(nonatomic) unsigned int unreadStartMarkerCount; // @synthesize unreadStartMarkerCount=_unreadStartMarkerCount;
 @property(nonatomic) BOOL unreadStartMarkerShowsProgress; // @synthesize unreadStartMarkerShowsProgress=_unreadStartMarkerShowsProgress;
+@property(nonatomic) unsigned int unreadStartMarkerIndex; // @synthesize unreadStartMarkerIndex=_unreadStartMarkerIndex;
 @property(nonatomic) BOOL usesViewBasedPhotoCells; // @synthesize usesViewBasedPhotoCells=_usesViewBasedPhotoCells;
 @property(nonatomic) unsigned int cellPhotoCount; // @synthesize cellPhotoCount=_cellPhotoCount;
 @property(nonatomic) struct CGPoint cellPhotoThumbnailOffset; // @synthesize cellPhotoThumbnailOffset=_cellPhotoThumbnailOffset;

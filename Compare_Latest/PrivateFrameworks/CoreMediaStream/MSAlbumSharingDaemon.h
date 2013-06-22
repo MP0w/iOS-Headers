@@ -16,14 +16,14 @@
     MSASDaemonModel *_daemonModel;
     int _busyCount;
     BOOL _isRetryingOutstandingActivities;
-    NSMutableDictionary *_nextUpdateDateByPersonID;
-    NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_mapQueue;
+    NSObject<OS_dispatch_queue> *_workQueue;
+    NSMutableDictionary *_nextUpdateDateByPersonID;
 }
 
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *mapQueue; // @synthesize mapQueue=_mapQueue;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) NSMutableDictionary *nextUpdateDateByPersonID; // @synthesize nextUpdateDateByPersonID=_nextUpdateDateByPersonID;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *mapQueue; // @synthesize mapQueue=_mapQueue;
 @property(nonatomic) BOOL isRetryingOutstandingActivities; // @synthesize isRetryingOutstandingActivities=_isRetryingOutstandingActivities;
 @property(nonatomic) int busyCount; // @synthesize busyCount=_busyCount;
 @property(retain, nonatomic) MSASDaemonModel *daemonModel; // @synthesize daemonModel=_daemonModel;

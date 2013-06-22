@@ -12,12 +12,12 @@
 {
     MPMediaQuery *_localItemsQuery;
     MPStoreOfferMediaItemCollection *_offeredCollection;
-    MPStoreOfferMediaItemCollection *_mergedCollection;
     int _preferredStoreOfferVariant;
+    MPStoreOfferMediaItemCollection *_mergedCollection;
 }
 
-@property(readonly, nonatomic) int preferredStoreOfferVariant; // @synthesize preferredStoreOfferVariant=_preferredStoreOfferVariant;
 @property(readonly, nonatomic) MPStoreOfferMediaItemCollection *mergedCollection; // @synthesize mergedCollection=_mergedCollection;
+@property(readonly, nonatomic) int preferredStoreOfferVariant; // @synthesize preferredStoreOfferVariant=_preferredStoreOfferVariant;
 @property(readonly, nonatomic) MPStoreOfferMediaItemCollection *offeredCollection; // @synthesize offeredCollection=_offeredCollection;
 - (void)dealloc;
 @property(readonly, nonatomic) NSArray *localItems;

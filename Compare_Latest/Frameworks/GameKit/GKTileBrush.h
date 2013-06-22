@@ -10,17 +10,17 @@
 
 @interface GKTileBrush : GKImageBrush
 {
-    int _tileRowCountY;
-    int _tileRowCountX;
     struct CGSize _tileSize;
+    int _tileRowCountX;
+    int _tileRowCountY;
     GKBrush *_brushToTile;
 }
 
 + (id)brushWithBrush:(id)arg1;
 @property(retain, nonatomic) GKBrush *brushToTile; // @synthesize brushToTile=_brushToTile;
-@property(nonatomic) struct CGSize tileSize; // @synthesize tileSize=_tileSize;
-@property(nonatomic) int tileRowCountX; // @synthesize tileRowCountX=_tileRowCountX;
 @property(nonatomic) int tileRowCountY; // @synthesize tileRowCountY=_tileRowCountY;
+@property(nonatomic) int tileRowCountX; // @synthesize tileRowCountX=_tileRowCountX;
+@property(nonatomic) struct CGSize tileSize; // @synthesize tileSize=_tileSize;
 - (void)drawInRect:(struct CGRect)arg1 withContext:(struct CGContext *)arg2 input:(id)arg3;
 - (void)dealloc;
 

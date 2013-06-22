@@ -23,12 +23,12 @@
     BOOL _remoteInstantiationFinished;
     BOOL _blockRemoteImages;
     QLRemotePrintPageHelper *_printPageHelper;
+    int _clientInterfaceOrientation;
     _UIHostedWindow *_hostedWindow;
 }
 
 - (id)clientProcessAlertViewForPreviewContentController:(id)arg1;
 - (void)previewContentControllerDidExitFullScreen:(id)arg1;
-- (void)_setHostedFullScreenFrame:(id)arg1;
 - (void)previewContentController:(id)arg1 willEnterFullScreenWithHostedWindow:(id)arg2;
 - (void)previewContentController:(id)arg1 setAVState:(id)arg2 forPreviewItem:(id)arg3;
 - (void)previewContentController:(id)arg1 receivedTapOnURL:(id)arg2;
@@ -57,6 +57,8 @@
 - (void)forceResignFirstResponder;
 - (void)enterBackground;
 - (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
+- (void)_willAnimateRotationTo:(int)arg1;
+- (void)_updateHostedWindowFrame;
 - (void)_setContentFrame:(id)arg1;
 - (void)setContentFrame:(struct CGRect)arg1;
 - (void)refreshCurrentPreviewItem;

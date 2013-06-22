@@ -13,10 +13,10 @@
 @interface HSDAAPML3TrackDataSource : NSObject <ML3TrackInsertionDataSource>
 {
     CDStruct_30baf813 _parsedValues[256];
-    int _parsedValuesPropertyIndex[83];
+    int _parsedValuesPropertyIndex[105];
     NSData *_itemsResponseData;
     NSArray *_rawItems;
-    unsigned int _idx;
+    int _idx;
 }
 
 - (void)getCurrentTrackIntegrity:(struct sqlite3_context *)arg1;
@@ -30,11 +30,9 @@
 - (void)getCurrentTrackStoreURL:(struct sqlite3_context *)arg1;
 - (void)getCurrentTrackStoreFlavor:(struct sqlite3_context *)arg1;
 - (void)getCurrentTrackStoreLinkID:(struct sqlite3_context *)arg1;
-- (void)getCurrentTrackStoreArtworkURL:(struct sqlite3_context *)arg1;
 - (int)currentTrackSubtitleTrackIndex;
 - (int)currentTrackSubtitleTrackID;
 - (int)currentTrackSubtitleLanguage;
-- (long long)currentTrackStoreXID;
 - (long long)currentTrackStoreStoreKind;
 - (long long)currentTrackStoreRedownloadedStatus;
 - (long long)currentTrackStoreMatchedStatus;
@@ -46,19 +44,23 @@
 - (double)currentTrackRelativeVolume;
 - (BOOL)currentTrackIsTemporaryCloudDownload;
 - (BOOL)currentTrackIsOTAPurchased;
-- (BOOL)currentTrackIsHidden;
 - (BOOL)currentTrackIsDemoRental;
 - (BOOL)currentTrackIsAudibleAudioBook;
+- (BOOL)currentTrackIsAlarm;
 - (BOOL)currentTrackHasSubtitles;
 - (BOOL)currentTrackHasAlternateAudio;
 - (BOOL)currentTrackChosenByAutoFill;
 - (void)getCurrentTrackCollectionDescription:(struct sqlite3_context *)arg1;
+- (BOOL)currentTrackIsHidden;
+- (long long)currentTrackStoreXID;
 - (double)currentTrackDateLastUsed;
 - (BOOL)currentTrackHasBeenPlayed;
 - (void)getCurrentTrackLyrics:(struct sqlite3_context *)arg1;
 - (id)currentTrackFilePath;
 - (void)getCurrentTrackArtworkCacheID:(struct sqlite3_context *)arg1;
 - (id)currentTrackArtworkCacheID;
+- (void)getCurrentTrackFormat:(struct sqlite3_context *)arg1;
+- (void)getCurrentTrackDataURL:(struct sqlite3_context *)arg1;
 - (void)getCurrentTrackTitle:(struct sqlite3_context *)arg1;
 - (void)getCurrentTrackSortTitle:(struct sqlite3_context *)arg1;
 - (void)getCurrentTrackNetworkName:(struct sqlite3_context *)arg1;
@@ -86,6 +88,8 @@
 - (void)getCurrentTrackRedownloadActionParameters:(struct sqlite3_context *)arg1;
 - (id)currentTrackKind;
 - (id)currentTrackGenre;
+- (id)currentTrackFormat;
+- (id)currentTrackDataURL;
 - (id)currentTrackComposer;
 - (id)currentTrackComment;
 - (id)currentTrackCategory;
@@ -94,6 +98,7 @@
 - (id)currentTrackAlbum;
 - (id)currentTrackSeasonNumber;
 - (int)currentTrackYear;
+- (int)currentTrackVideoQuality;
 - (int)currentTrackUserAlbumRating;
 - (int)currentTrackUserRating;
 - (int)currentTrackTrackNumber;
@@ -106,11 +111,16 @@
 - (int)currentTrackSampleRate;
 - (int)currentTrackPlayCountUser;
 - (int)currentTrackPlayCountRecent;
+- (int)currentTrackKeyID2;
+- (int)currentTrackJaliscoToken;
 - (int)currentTrackIsDownloading;
 - (int)currentTrackDiscNumber;
 - (int)currentTrackDiscCount;
 - (BOOL)currentTrackIsUserDisabled;
+- (int)currentTrackDataKind;
 - (int)currentTrackContentRating;
+- (int)currentTrackCodecSubtype;
+- (int)currentTrackCodecType;
 - (int)currentTrackBitRate;
 - (double)currentTrackStoreDatePurchased;
 - (double)currentTrackRentalStartDate;
@@ -124,6 +134,7 @@
 - (long long)currentTrackVolumeNormalization;
 - (long long)currentTrackTotalSize;
 - (long long)currentTrackStoreStorefrontID;
+- (long long)currentTrackPurchaseHistoryID;
 - (long long)currentTrackStoreSagaID;
 - (long long)currentTrackStorePlaylistID;
 - (long long)currentTrackStoreKeyVersions;
@@ -134,6 +145,7 @@
 - (long long)currentTrackStoreComposerID;
 - (long long)currentTrackStoreArtistID;
 - (long long)currentTrackStoreAccountID;
+- (void)getCurrentTrackStoreArtworkURL:(struct sqlite3_context *)arg1;
 - (long long)currentTrackRentalPlaybackDuration;
 - (long long)currentTrackRentalDuration;
 - (long long)currentTrackRatingLevel;
@@ -148,8 +160,9 @@
 - (BOOL)currentTrackIsRental;
 - (BOOL)currentTrackIsPodcast;
 - (BOOL)currentTrackIsITunesU;
-- (BOOL)currentTrackIsHD;
 - (BOOL)currentTrackIsCompilation;
+- (BOOL)currentTrackHasVideo;
+- (BOOL)currentTrackHasChapterData;
 - (BOOL)currentTrackExcludeFromShuffle;
 - (void)seekToStart;
 - (BOOL)hasNextTrack;

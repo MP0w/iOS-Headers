@@ -60,6 +60,7 @@
 - (void)_checkAllowsBlockingDurationCall;
 - (void)setupPlaybackInfo;
 - (void)setupEQPresetWithDefaultPreset:(int)arg1;
+- (void)_clearAsset;
 - (id)blockForDirectAVControllerNotificationReferencingItem:(SEL)arg1;
 - (void)_updateSoundCheckVolumeNormalizationForPlayerItem;
 - (void)_loadAssetProperties;

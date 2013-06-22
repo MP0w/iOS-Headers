@@ -42,7 +42,7 @@
 - (void)_layoutForiPad;
 - (void)_layoutForiPhone;
 - (void)layoutSubviews;
-- (void)updateImages:(BOOL)arg1 enabled:(BOOL)arg2 currentTrackSupportsSkip:(BOOL)arg3;
+- (void)updateImages:(BOOL)arg1 enabled:(BOOL)arg2;
 @property(readonly, nonatomic) UIButton *fifteenSecondFFButton;
 @property(readonly, nonatomic) UIButton *fifteenSecondRewindButton;
 - (void)dealloc;

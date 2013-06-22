@@ -10,6 +10,7 @@
 
 @interface SLAbsintheSigningSession : NSObject
 {
+    struct NACContextOpaque_ *_context;
     NSString *_certURL;
     NSString *_sessionURL;
 }

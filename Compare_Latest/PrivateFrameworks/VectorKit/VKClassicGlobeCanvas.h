@@ -50,8 +50,6 @@
     double _animationZoom;
     BOOL _initialized;
     VKWorld *_world;
-    BOOL _worldNeedsLayout;
-    BOOL _worldNeedsDisplay;
     BOOL _canShowFlyover;
     struct shared_ptr<bool> _isDead;
 }
@@ -128,6 +126,8 @@
 - (void)selectLabelMarker:(id)arg1 animated:(BOOL)arg2 avoid:(struct CGRect)arg3;
 - (id)labelMarkerForSelectionAtPoint:(struct CGPoint)arg1 pointLabelsOnly:(BOOL)arg2;
 - (id)annotationMarkerForSelectionAtPoint:(struct CGPoint)arg1 avoidCurrent:(BOOL)arg2;
+- (void)mapView:(id)arg1 willDrawInContext:(struct CGContext *)arg2;
+- (void)mapView:(id)arg1 didResizeToWidth:(unsigned int)arg2 height:(unsigned int)arg3;
 - (void)mapView:(id)arg1 canShowFlyoverDidChange:(BOOL)arg2;
 - (void)mapViewDidFinishLoadingTiles:(id)arg1;
 - (void)mapViewDidStartLoadingTiles:(id)arg1;
@@ -196,6 +196,7 @@
 @property(readonly, nonatomic, getter=isPitched) BOOL pitched;
 - (void)exit3DMode;
 - (void)enter3DMode;
+- (BOOL)writeVisibleTrafficTilesToDirectory:(id)arg1 error:(id *)arg2;
 - (id)detailedDescription;
 - (void)_activeTileGroupChanged:(id)arg1;
 - (void)dealloc;

@@ -140,7 +140,7 @@
 
 // Remaining properties
 @property(retain, nonatomic) NSString *accountName; // @dynamic accountName;
-@property(nonatomic) BOOL allowMultiplayerInvites; // @dynamic allowMultiplayerInvites;
+@property(readonly, nonatomic) BOOL allowNearbyMultiplayer; // @dynamic allowNearbyMultiplayer;
 @property(readonly, nonatomic, getter=isFindable) BOOL findable; // @dynamic findable;
 @property(retain, nonatomic) NSString *firstName; // @dynamic firstName;
 @property(retain, nonatomic) NSString *lastName; // @dynamic lastName;

@@ -21,6 +21,9 @@
 - (BOOL)shouldLogAtLevel:(int)arg1;
 
 @optional
+- (id)MMCSUploadSocketOptionsForPersonID:(id)arg1;
+- (id)MMCSDownloadSocketOptionsForPersonID:(id)arg1;
+- (id)metadataSocketOptionsForPersonID:(id)arg1;
 - (BOOL)deviceHasEnoughDiskSpaceRemainingToOperate;
 - (BOOL)shouldDownloadEarliestPhotosFirst;
 - (int)MMCSConcurrentConnectionsCount;

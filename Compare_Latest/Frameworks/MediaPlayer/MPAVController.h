@@ -103,6 +103,7 @@
     NSDate *_itemDidChangeDate;
     unsigned int _stallBackgroundTaskIdentifier;
     MPAVDestinationBrowser *_destinationBrowser;
+    BOOL _shouldSkipToNextTrackOnResumeFromInterruption;
 }
 
 + (id)_playerKeysToObserve;
@@ -112,6 +113,7 @@
 + (BOOL)isNetworkSupportedPath:(id)arg1;
 + (id)sharedInstance;
 + (void)initialize;
+@property(nonatomic) BOOL shouldSkipToNextTrackOnResumeFromInterruption; // @synthesize shouldSkipToNextTrackOnResumeFromInterruption=_shouldSkipToNextTrackOnResumeFromInterruption;
 @property(nonatomic) unsigned int state; // @synthesize state=_state;
 @property(nonatomic) BOOL shouldEnforceHDCP; // @synthesize shouldEnforceHDCP=_shouldEnforceHDCP;
 @property(nonatomic) double nextFadeOutDuration; // @synthesize nextFadeOutDuration=_nextFadeOutDuration;
@@ -123,6 +125,7 @@
 @property(nonatomic) unsigned int displayOverridePlaybackState; // @synthesize displayOverridePlaybackState=_displayOverridePlaybackState;
 @property(readonly, nonatomic) MPAVDestinationBrowser *destinationBrowser; // @synthesize destinationBrowser=_destinationBrowser;
 @property(retain, nonatomic) NSString *audioSessionModeOverride; // @synthesize audioSessionModeOverride=_audioSessionModeOverride;
+- (void)_pausePlaybackIfNecessaryIgnoringVideoLayerAttachment:(BOOL)arg1;
 - (void)_pausePlaybackIfNecessary;
 - (BOOL)_canPlayItem:(id)arg1;
 - (BOOL)_itemIsRestricted:(id)arg1;
@@ -167,7 +170,7 @@
 - (id)embeddedDataTimesForItem:(id)arg1;
 - (void)_prepareToPlayItem:(id)arg1;
 - (unsigned int)_playbackIndexForDelta:(int)arg1 fromIndex:(unsigned int)arg2 ignoreElapsedTime:(BOOL)arg3;
-- (BOOL)_isDownloadingCloudOrTiltItem:(id)arg1;
+- (BOOL)_isDownloadingCloudOrOtherItem:(id)arg1;
 - (BOOL)_isDownloadingCloudItem:(id)arg1;
 - (BOOL)_isCloudItem:(id)arg1;
 - (void)_endSeekAndChangeRate:(BOOL)arg1;
@@ -221,7 +224,7 @@
 - (BOOL)_isChangingQueueContents;
 - (void)_itemTimeMarkersAvailableNotification:(id)arg1;
 - (void)_itemAssetIsLoadedNotification:(id)arg1;
-- (void)_isAirPlayVideoActiveDidChange:(id)arg1;
+- (void)_isExternalPlaybackActiveDidChange:(id)arg1;
 - (void)_firstVideoFrameDisplayed:(id)arg1;
 - (void)_postMPAVControllerItemReadyToPlayNotificationWithItem:(id)arg1;
 - (void)_postMPAVControllerSizeDidChangeNotificationWithItem:(id)arg1;
@@ -241,7 +244,6 @@
 @property(readonly, nonatomic) double durationOfCurrentItemIfAvailable;
 - (void)_setVideoViewClass:(Class)arg1;
 @property(readonly, nonatomic) BOOL showPlaybackStateOverlaysOnTVOut;
-@property(readonly, nonatomic) BOOL isInExtendedMode;
 - (BOOL)shouldHaveNoActionAtEndForState:(unsigned int)arg1;
 @property(nonatomic) BOOL videoFrameDisplayOnResumeDisabled;
 - (void)finalizeBookkeepingNow;
@@ -263,13 +265,14 @@
 - (void)feederChangedContents:(id)arg1;
 - (void)switchToFeeder:(id)arg1 mode:(int)arg2 index:(unsigned int)arg3 play:(BOOL)arg4;
 - (void)_switchToFeeder:(id)arg1 mode:(int)arg2 index:(unsigned int)arg3 play:(BOOL)arg4 configureFeederBlock:(id)arg5;
-- (void)_setFeeder:(id)arg1;
+@property(readonly, nonatomic) int externalPlaybackType;
 - (void)ensureHasAVPlaylistManager;
 - (void)endUsingVideoLayer;
 @property(nonatomic) BOOL disallowsAMRAudio;
 @property(readonly, nonatomic) BOOL currentItemIsRental;
 - (void)beginUsingVideoLayer;
 - (void)contentInvalidatedWithCurrentItemMovedToIndex:(unsigned int)arg1;
+- (void)contentInvalidated;
 - (void)contentsDidChangeByRemovingRange:(struct _NSRange)arg1;
 @property(readonly, nonatomic) MPQueuePlayer *avPlayer;
 - (void)applyShuffleSettings;
@@ -303,14 +306,14 @@
 @property(readonly, nonatomic, getter=isShuffled) BOOL shuffled;
 - (BOOL)shouldDisplayAsPlaying;
 @property(readonly, nonatomic, getter=isPlaying) BOOL playing;
-@property(readonly, nonatomic) BOOL isAirPlayVideoActive;
+@property(readonly, nonatomic) BOOL isExternalPlaybackActive;
 - (unsigned int)_seeklessStateForState:(unsigned int)arg1;
 - (BOOL)_showsPlayingWhenInState:(unsigned int)arg1;
 @property(readonly, nonatomic) MPAVItem *currentItem;
 @property(readonly, nonatomic) unsigned int bufferingState; // @synthesize bufferingState=_bufferingState;
 @property(nonatomic) BOOL autoPlayWhenLikelyToKeepUp;
 - (void)setClient:(id)arg1 wantsToAllowAirPlayVideo:(BOOL)arg2;
-- (BOOL)allowsAirPlayVideo;
+- (BOOL)allowsExternalPlayback;
 @property(readonly, nonatomic) unsigned int activeShuffleType;
 @property(readonly, nonatomic) unsigned int activeRepeatType;
 - (BOOL)isTickTimerEnabled;
@@ -332,6 +335,8 @@
 - (BOOL)isSeekingOrScrubbing;
 - (BOOL)fadeOutForQuit;
 - (void)endSeek;
+- (BOOL)changePlaybackIndexBy:(int)arg1 deltaType:(int)arg2 ignoreElapsedTime:(BOOL)arg3 allowSkippingAds:(BOOL)arg4 error:(id *)arg5;
+- (void)changePlaybackIndexBy:(int)arg1 deltaType:(int)arg2 ignoreElapsedTime:(BOOL)arg3 allowSkippingAds:(BOOL)arg4;
 - (void)changePlaybackIndexBy:(int)arg1 deltaType:(int)arg2 ignoreElapsedTime:(BOOL)arg3;
 - (void)changePlaybackIndexBy:(int)arg1 deltaType:(int)arg2;
 - (void)changePlaybackIndexBy:(int)arg1;

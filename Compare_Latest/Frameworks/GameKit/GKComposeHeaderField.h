@@ -10,24 +10,24 @@
 
 @interface GKComposeHeaderField : UIImageView
 {
-    UILabel *_valueLabel;
+    float _baselineNudge;
+    GKComposeHeaderFieldBackgroundView *_backgroundView;
+    float _verticalMargin;
     UILabel *_nameLabel;
+    UILabel *_valueLabel;
+    unsigned int _maxLineCount;
     struct UIEdgeInsets _contentInsets;
     SEL _actionWhenTouched;
-    unsigned int _maxLineCount;
-    float _baselineNudge;
-    float _verticalMargin;
-    GKComposeHeaderFieldBackgroundView *_backgroundView;
 }
 
-@property(retain, nonatomic) GKComposeHeaderFieldBackgroundView *backgroundView; // @synthesize backgroundView=_backgroundView;
-@property(nonatomic) float verticalMargin; // @synthesize verticalMargin=_verticalMargin;
-@property(nonatomic) float baselineNudge; // @synthesize baselineNudge=_baselineNudge;
-@property(nonatomic) unsigned int maxLineCount; // @synthesize maxLineCount=_maxLineCount;
 @property(nonatomic) SEL actionWhenTouched; // @synthesize actionWhenTouched=_actionWhenTouched;
 @property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
-@property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
+@property(nonatomic) unsigned int maxLineCount; // @synthesize maxLineCount=_maxLineCount;
 @property(retain, nonatomic) UILabel *valueLabel; // @synthesize valueLabel=_valueLabel;
+@property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
+@property(nonatomic) float verticalMargin; // @synthesize verticalMargin=_verticalMargin;
+@property(retain, nonatomic) GKComposeHeaderFieldBackgroundView *backgroundView; // @synthesize backgroundView=_backgroundView;
+@property(nonatomic) float baselineNudge; // @synthesize baselineNudge=_baselineNudge;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (BOOL)canBecomeFirstResponder;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

@@ -27,9 +27,9 @@
     int _highlightedValueProperty;
 }
 
-@property(nonatomic) int highlightedValueProperty; // @synthesize highlightedValueProperty=_highlightedValueProperty;
-@property(nonatomic) void *highlightedValuePerson; // @synthesize highlightedValuePerson=_highlightedValuePerson;
 @property(nonatomic) int highlightedValueIdentifier; // @synthesize highlightedValueIdentifier=_highlightedValueIdentifier;
+@property(nonatomic) void *highlightedValuePerson; // @synthesize highlightedValuePerson=_highlightedValuePerson;
+@property(nonatomic) int highlightedValueProperty; // @synthesize highlightedValueProperty=_highlightedValueProperty;
 @property(nonatomic) id <ABFMFActionButtonsDelegate> FMFActionButtonsDelegate; // @synthesize FMFActionButtonsDelegate=_FMFActionButtonsDelegate;
 @property(nonatomic) BOOL actionShouldPickHighlightedValue; // @synthesize actionShouldPickHighlightedValue=_actionShouldPickHighlightedValue;
 @property(readonly, nonatomic) ABPersonTableActionDataSource *actionDataSource; // @synthesize actionDataSource=_actionDataSource;

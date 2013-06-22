@@ -11,17 +11,7 @@
 @interface CTSubscriber : NSObject
 {
     void *_internal;
-    struct __CTServerConnection {
-        struct __CFRuntimeBase {
-            unsigned int _field1;
-            unsigned char _field2[4];
-        } _field1;
-        struct dispatch_queue_s *_field2;
-        struct CTServerState *_field3;
-        unsigned char _field4;
-        unsigned int _field5;
-        struct _xpc_connection_s *_field6;
-    } *_server;
+    struct __CTServerConnection *_server;
 }
 
 - (BOOL)refreshCarrierToken;

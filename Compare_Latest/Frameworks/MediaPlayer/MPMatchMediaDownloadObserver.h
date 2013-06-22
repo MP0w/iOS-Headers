@@ -23,7 +23,7 @@
 - (double)downloadProgress;
 - (void)_onQueue_invalidate;
 - (void)dealloc;
-- (id)initWithMediaItemPersistentIdentifier:(long long)arg1;
+- (id)initWithStoreID:(long long)arg1 mediaItemPersistentID:(unsigned long long)arg2;
 
 @end
 

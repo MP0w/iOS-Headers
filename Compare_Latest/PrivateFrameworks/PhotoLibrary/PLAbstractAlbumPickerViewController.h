@@ -13,26 +13,26 @@
 
 @interface PLAbstractAlbumPickerViewController : UIViewController <PLAbstractLibraryViewControllerDelegate, PLAlbumListChangeObserver>
 {
-    NSString *_pickerTitle;
     NSString *_albumCreationLabel;
-    NSOrderedSet *_assetsToAdd;
-    PLLibraryBannerView *_bannerView;
-    PLAbstractLibraryViewController *_libraryViewController;
-    int _libraryContentMode;
-    UIViewController *_contentViewController;
     id <PLAbstractAlbumPickerViewControllerDelegate> _delegate;
+    NSString *_pickerTitle;
+    UIViewController *_contentViewController;
+    int _libraryContentMode;
     id _completionHandler;
+    NSOrderedSet *_assetsToAdd;
+    PLAbstractLibraryViewController *_libraryViewController;
+    PLLibraryBannerView *_bannerView;
 }
 
-@property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
-@property(nonatomic) id <PLAbstractAlbumPickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) UIViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
-@property(readonly, nonatomic) int libraryContentMode; // @synthesize libraryContentMode=_libraryContentMode;
-@property(retain, nonatomic) PLAbstractLibraryViewController *libraryViewController; // @synthesize libraryViewController=_libraryViewController;
 @property(retain, nonatomic) PLLibraryBannerView *bannerView; // @synthesize bannerView=_bannerView;
+@property(retain, nonatomic) PLAbstractLibraryViewController *libraryViewController; // @synthesize libraryViewController=_libraryViewController;
 @property(retain, nonatomic) NSOrderedSet *assetsToAdd; // @synthesize assetsToAdd=_assetsToAdd;
-@property(copy, nonatomic) NSString *albumCreationLabel; // @synthesize albumCreationLabel=_albumCreationLabel;
+@property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
+@property(readonly, nonatomic) int libraryContentMode; // @synthesize libraryContentMode=_libraryContentMode;
+@property(retain, nonatomic) UIViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
 @property(copy, nonatomic) NSString *pickerTitle; // @synthesize pickerTitle=_pickerTitle;
+@property(nonatomic) id <PLAbstractAlbumPickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(copy, nonatomic) NSString *albumCreationLabel; // @synthesize albumCreationLabel=_albumCreationLabel;
 - (int)bannerViewStyle;
 - (int)albumListFilter;
 - (id)preparedLibraryViewController;

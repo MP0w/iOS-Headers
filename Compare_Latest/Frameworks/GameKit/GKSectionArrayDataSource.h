@@ -27,14 +27,14 @@
     BOOL _loading;
     NSError *_loadError;
     BOOL _needsRedisplay;
-    int _refreshDataGeneration;
     struct CGPoint _previousContentOffset;
+    int _refreshDataGeneration;
 }
 
 + (id)sectionArrayDataSourceWithSection:(id)arg1 inParentMultiDataSource:(id)arg2;
 + (id)sectionArrayDataSourceWithSection:(id)arg1 inController:(id)arg2;
-@property(nonatomic) struct CGPoint previousContentOffset; // @synthesize previousContentOffset=_previousContentOffset;
 @property(nonatomic) int refreshDataGeneration; // @synthesize refreshDataGeneration=_refreshDataGeneration;
+@property(nonatomic) struct CGPoint previousContentOffset; // @synthesize previousContentOffset=_previousContentOffset;
 @property(nonatomic) BOOL needsRedisplay; // @synthesize needsRedisplay=_needsRedisplay;
 @property(retain, nonatomic) NSError *loadError; // @synthesize loadError=_loadError;
 @property(nonatomic) BOOL loading; // @synthesize loading=_loading;

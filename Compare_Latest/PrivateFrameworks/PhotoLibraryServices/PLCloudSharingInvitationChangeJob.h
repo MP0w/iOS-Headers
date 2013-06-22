@@ -11,22 +11,22 @@
 @interface PLCloudSharingInvitationChangeJob : PLCloudSharingJob
 {
     NSString *_albumGUID;
-    NSDictionary *_mstreamdInfoDictionary;
-    int _jobType;
-    NSString *_resendInvitationGUID;
-    int _relationshipChangeType;
     NSArray *_MSASSharingRelationships;
+    int _relationshipChangeType;
+    NSDictionary *_mstreamdInfoDictionary;
+    NSString *_resendInvitationGUID;
+    int _jobType;
 }
 
 + (void)resendPendingInvitationWithGUID:(id)arg1 albumGUID:(id)arg2;
 + (void)sendServerPendingInvitationsForAlbumWithGUID:(id)arg1;
 + (void)saveServerStateLocallyForSharingInvitationRelationships:(id)arg1 changeType:(int)arg2 info:(id)arg3;
 + (void)saveServerStateLocallyForSharingACLRelationships:(id)arg1 changeType:(int)arg2 info:(id)arg3;
-@property(retain, nonatomic) NSArray *MSASSharingRelationships; // @synthesize MSASSharingRelationships=_MSASSharingRelationships;
-@property(nonatomic) int relationshipChangeType; // @synthesize relationshipChangeType=_relationshipChangeType;
-@property(retain, nonatomic) NSString *resendInvitationGUID; // @synthesize resendInvitationGUID=_resendInvitationGUID;
 @property(nonatomic) int jobType; // @synthesize jobType=_jobType;
+@property(retain, nonatomic) NSString *resendInvitationGUID; // @synthesize resendInvitationGUID=_resendInvitationGUID;
 @property(retain, nonatomic) NSDictionary *mstreamdInfoDictionary; // @synthesize mstreamdInfoDictionary=_mstreamdInfoDictionary;
+@property(nonatomic) int relationshipChangeType; // @synthesize relationshipChangeType=_relationshipChangeType;
+@property(retain, nonatomic) NSArray *MSASSharingRelationships; // @synthesize MSASSharingRelationships=_MSASSharingRelationships;
 @property(retain, nonatomic) NSString *albumGUID; // @synthesize albumGUID=_albumGUID;
 - (void)executeSendServerPendingInvitationsForAlbumWithGUID;
 - (void)executeSaveServerStateLocallyForSharingACLRelationships;

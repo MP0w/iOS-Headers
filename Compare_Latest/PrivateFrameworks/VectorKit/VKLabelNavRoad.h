@@ -64,6 +64,8 @@
 @property(readonly, nonatomic) BOOL suppressRoadSignIfShieldPresent;
 @property(readonly, nonatomic) BOOL isAwayFromRoute; // @synthesize isAwayFromRoute=_isAwayFromRoute;
 - (id)description;
+- (void)clearRoadSign;
+- (const char *)cstrName;
 - (void)dealloc;
 - (id)initWithRoadEdge:(const CDStruct_b4689c16 *)arg1 navJunctionA:(id)arg2 routeOffset:(CDStruct_3f2a7a20)arg3 tile:(id)arg4;
 

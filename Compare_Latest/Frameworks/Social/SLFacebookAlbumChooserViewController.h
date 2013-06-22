@@ -13,16 +13,16 @@
 @interface SLFacebookAlbumChooserViewController : UITableViewController <SLFacebookAlbumManagerDelegate>
 {
     NSCache *_coverImageCache;
-    SLFacebookAlbumManager *_albumManager;
-    NSArray *_albums;
-    UIButton *_flipBackButton;
     id <SLFacebookAlbumChooserViewControllerDelegate> _delegate;
+    UIButton *_flipBackButton;
+    NSArray *_albums;
+    SLFacebookAlbumManager *_albumManager;
 }
 
-@property __weak id <SLFacebookAlbumChooserViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain) UIButton *flipBackButton; // @synthesize flipBackButton=_flipBackButton;
-@property(retain) NSArray *albums; // @synthesize albums=_albums;
 @property(retain) SLFacebookAlbumManager *albumManager; // @synthesize albumManager=_albumManager;
+@property(retain) NSArray *albums; // @synthesize albums=_albums;
+@property(retain) UIButton *flipBackButton; // @synthesize flipBackButton=_flipBackButton;
+@property __weak id <SLFacebookAlbumChooserViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;

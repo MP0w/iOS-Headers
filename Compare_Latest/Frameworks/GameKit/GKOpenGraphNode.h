@@ -11,16 +11,16 @@
 @interface GKOpenGraphNode : NSObject
 {
     NSURL *_url;
-    NSError *_error;
     unsigned int _numberOfFriendLikes;
+    NSError *_error;
     unsigned int _numberOfLikes;
     BOOL _liked;
 }
 
 @property(nonatomic) BOOL liked; // @synthesize liked=_liked;
 @property(nonatomic) unsigned int numberOfLikes; // @synthesize numberOfLikes=_numberOfLikes;
-@property(nonatomic) unsigned int numberOfFriendLikes; // @synthesize numberOfFriendLikes=_numberOfFriendLikes;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
+@property(nonatomic) unsigned int numberOfFriendLikes; // @synthesize numberOfFriendLikes=_numberOfFriendLikes;
 @property(readonly) NSURL *url; // @synthesize url=_url;
 - (void)sendDislikeEventWithCompletionHandler:(id)arg1;
 - (void)sendLikeEventWithCompletionHandler:(id)arg1;

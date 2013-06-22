@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MPMediaItem, MPPurchasableMediaDownloadManager, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSOperation, NSString;
+@class MPPurchasableMediaDownloadManager, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSOperation, NSString;
 
 @interface MPPurchasableMediaDownload : NSObject
 {
@@ -20,41 +20,36 @@
     MPPurchasableMediaDownloadManager *_manager;
     NSMutableArray *_observers;
     NSOperation *_operation;
-    int _purchaseReason;
     long long _bytesDownloaded;
     double _downloadPercentComplete;
-    MPMediaItem *_mediaItem;
-    BOOL _purchased;
+    unsigned long long _libraryItemIdentifier;
     BOOL _restoreDownload;
+    long long _storeItemIdentifier;
 }
 
-@property(readonly, nonatomic) int purchaseReason; // @synthesize purchaseReason=_purchaseReason;
 - (void)_notifyDidPurchaseWithPurchase:(id)arg1;
 - (void)_notifyDidProgressWithPercentComplete:(double)arg1;
 - (void)_notifyDidFinishWithError:(id)arg1;
 - (void)_notifyDidCancel;
+- (void)setStoreItemIdentifier:(long long)arg1;
 - (void)setRestoreDownload:(BOOL)arg1;
-- (void)setPurchased:(BOOL)arg1;
-- (void)setOperation:(id)arg1;
-- (id)operation;
-- (void)setMediaItem:(id)arg1;
-@property(readonly, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
 - (void)setManager:(id)arg1;
 - (id)manager;
+- (void)setLibraryItemIdentifier:(unsigned long long)arg1;
 - (void)setFinished:(BOOL)arg1;
 - (void)setFailureError:(id)arg1;
 - (void)setDownloadPercentComplete:(double)arg1;
 - (void)setDownloadPhaseIdentifier:(id)arg1;
 - (void)setDownloadIdentifier:(unsigned long long)arg1;
-- (unsigned long long)downloadIdentifier;
+@property(readonly, nonatomic) long long downloadIdentifier;
 - (void)setCancelled:(BOOL)arg1;
 - (void)setBytesDownloaded:(long long)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)cancel;
 - (void)addObserver:(id)arg1;
+@property(readonly, nonatomic) long long storeItemIdentifier; // @synthesize storeItemIdentifier=_storeItemIdentifier;
+@property(readonly, nonatomic) unsigned long long libraryItemIdentifier; // @synthesize libraryItemIdentifier=_libraryItemIdentifier;
 @property(readonly, nonatomic, getter=isRestoreDownload) BOOL restoreDownload; // @synthesize restoreDownload=_restoreDownload;
-@property(nonatomic) int purchasePriority; // @dynamic purchasePriority;
-@property(readonly, nonatomic, getter=isPurchased) BOOL purchased; // @synthesize purchased=_purchased;
 @property(readonly, nonatomic, getter=isPaused) BOOL paused; // @dynamic paused;
 @property(readonly, nonatomic, getter=isFinished) BOOL finished;
 @property(readonly, nonatomic, getter=isCancelled) BOOL cancelled;
@@ -64,7 +59,7 @@
 @property(readonly, nonatomic) long long bytesDownloaded; // @synthesize bytesDownloaded=_bytesDownloaded;
 - (id)description;
 - (void)dealloc;
-- (id)initWithMediaItem:(id)arg1 purchaseReason:(int)arg2 manager:(id)arg3;
+- (id)initWithManager:(id)arg1;
 - (id)init;
 
 @end

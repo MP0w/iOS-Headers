@@ -13,8 +13,13 @@
     NSString *_correctedValue;
     NSString *_displayName;
     NSString *_objectName;
+    BOOL _isMarkedIncorrect;
+    struct {
+        unsigned int isMarkedIncorrect:1;
+    } _has;
 }
 
+@property(nonatomic) BOOL isMarkedIncorrect; // @synthesize isMarkedIncorrect=_isMarkedIncorrect;
 @property(retain, nonatomic) NSString *correctedValue; // @synthesize correctedValue=_correctedValue;
 @property(retain, nonatomic) NSString *objectName; // @synthesize objectName=_objectName;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
@@ -25,6 +30,7 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasIsMarkedIncorrect;
 @property(readonly, nonatomic) BOOL hasCorrectedValue;
 @property(readonly, nonatomic) BOOL hasObjectName;
 - (void)dealloc;

@@ -11,32 +11,34 @@
 @interface ADBannerController : NSObject
 {
     BOOL _closeInProgress;
-    ADAdRecipientRecord *_recipient;
-    BOOL _isOpen;
-    BOOL _bannerWillLeaveApplication;
-    NSString *_identifier;
-    double _createdAt;
     id _remoteSession;
-    id _remoteBannerController;
+    BOOL _isOpen;
+    NSString *_identifier;
     ADLocalViewController *_localViewController;
+    BOOL _bannerWillLeaveApplication;
     int _supportedOrientations;
     int _adType;
     unsigned int _remoteWindowContextId;
+    id _remoteBannerController;
+    double _createdAt;
+    NSString *_lastAdvertisingSection;
+    ADAdRecipientRecord *_recipient;
     int _adState;
 }
 
 @property(readonly, nonatomic) int adState; // @synthesize adState=_adState;
+@property(nonatomic) ADAdRecipientRecord *recipient; // @synthesize recipient=_recipient;
+@property(copy, nonatomic) NSString *lastAdvertisingSection; // @synthesize lastAdvertisingSection=_lastAdvertisingSection;
+@property double createdAt; // @synthesize createdAt=_createdAt;
+@property(retain, nonatomic) id remoteBannerController; // @synthesize remoteBannerController=_remoteBannerController;
 @property(readonly, nonatomic) unsigned int remoteWindowContextId; // @synthesize remoteWindowContextId=_remoteWindowContextId;
 @property(readonly, nonatomic) int adType; // @synthesize adType=_adType;
 @property(nonatomic) int supportedOrientations; // @synthesize supportedOrientations=_supportedOrientations;
-@property(retain, nonatomic) ADLocalViewController *localViewController; // @synthesize localViewController=_localViewController;
-@property(retain, nonatomic) id remoteBannerController; // @synthesize remoteBannerController=_remoteBannerController;
-@property(retain, nonatomic) id remoteSession; // @synthesize remoteSession=_remoteSession;
-@property double createdAt; // @synthesize createdAt=_createdAt;
-@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) BOOL bannerWillLeaveApplication; // @synthesize bannerWillLeaveApplication=_bannerWillLeaveApplication;
+@property(retain, nonatomic) ADLocalViewController *localViewController; // @synthesize localViewController=_localViewController;
+@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) BOOL isOpen; // @synthesize isOpen=_isOpen;
-@property(nonatomic) ADAdRecipientRecord *recipient; // @synthesize recipient=_recipient;
+@property(retain, nonatomic) id remoteSession; // @synthesize remoteSession=_remoteSession;
 - (void)_remote_dismissModalViewController:(id)arg1;
 - (void)_remote_presentModalViewController:(id)arg1;
 - (void)_remote_storyboardDismissedLocalViewController:(id)arg1;
@@ -59,6 +61,7 @@
 - (void)interstitialPresentedInView:(BOOL)arg1;
 - (void)interstitialWasRemovedFromSuperview:(id)arg1;
 - (void)updateAdViewProperties:(id)arg1;
+- (void)storyboardPresentationFailed;
 - (void)handleBannerVisibilityHeartbeatNotification:(id)arg1;
 - (void)reportVisibility:(int)arg1;
 - (void)cancelBannerViewAction;

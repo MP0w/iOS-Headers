@@ -47,6 +47,7 @@
     UIView<MPVideoOverlay> *_videoOverlayView;
     unsigned long long _visibleParts;
     int _audioOverlayStyle;
+    BOOL _navigationBarHidden;
     NSString *_playbackErrorDescription;
     int _videoOverlayStyle;
     UIAlertView *_alertSheet;
@@ -57,7 +58,6 @@
     UINavigationController *_chaptersContainerController;
     MPVideoContainerView *_containerView;
     UITapGestureRecognizer *_doubleTapGestureRecognizer;
-    int _extendedModeNotifyToken;
     MPInlineVideoFullscreenViewController *_fullscreenViewController;
     BOOL _fullscreenViewSizeIsExternallyManaged;
     UIWindow *_fullscreenWindow;
@@ -89,6 +89,7 @@
 @property(readonly, nonatomic) int savedStatusBarStyle; // @synthesize savedStatusBarStyle=_savedStatusBarStyle;
 @property(readonly, nonatomic) BOOL savedIsStatusBarHidden; // @synthesize savedIsStatusBarHidden=_savedIsStatusBarHidden;
 @property(copy, nonatomic) NSString *playbackErrorDescription; // @synthesize playbackErrorDescription=_playbackErrorDescription;
+@property(nonatomic) BOOL navigationBarHidden; // @synthesize navigationBarHidden=_navigationBarHidden;
 @property(nonatomic) int videoOverlayStyle; // @synthesize videoOverlayStyle=_videoOverlayStyle;
 - (unsigned long long)visibleParts;
 - (BOOL)TVOutEnabled;
@@ -181,7 +182,7 @@
 - (void)_playbackStateChanged:(id)arg1;
 - (void)_playbackError:(id)arg1;
 - (void)_itemTypeAvailable:(id)arg1;
-- (void)_isAirPlayVideoActiveDidChange:(id)arg1;
+- (void)_isExternalPlaybackActiveDidChange:(id)arg1;
 - (void)_effectiveScaleModeDidChange:(id)arg1;
 - (void)_firstVideoFrameDisplayed:(id)arg1;
 - (void)_durationAvailable:(id)arg1;

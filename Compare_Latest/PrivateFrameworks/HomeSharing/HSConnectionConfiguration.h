@@ -18,13 +18,17 @@
     NSDictionary *_urlBag;
     NSURL *_baseURL;
     NSString *_buildIdentifier;
+    NSString *_purchaseClientIdentifier;
     NSDictionary *_cookieHeaders;
     NSString *_userAgent;
+    long long _requestReason;
 }
 
+@property(readonly, nonatomic) long long requestReason; // @synthesize requestReason=_requestReason;
 @property(readonly, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
 @property(readonly, nonatomic) NSDictionary *urlBag; // @synthesize urlBag=_urlBag;
 @property(readonly, nonatomic) NSDictionary *cookieHeaders; // @synthesize cookieHeaders=_cookieHeaders;
+@property(readonly, nonatomic) NSString *purchaseClientIdentifier; // @synthesize purchaseClientIdentifier=_purchaseClientIdentifier;
 @property(readonly, nonatomic) NSString *buildIdentifier; // @synthesize buildIdentifier=_buildIdentifier;
 @property(readonly, nonatomic) SSAccount *account; // @synthesize account=_account;
 @property(readonly, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;

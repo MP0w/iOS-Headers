@@ -16,16 +16,16 @@
     NSMutableArray *_imageAssetURLs;
     NSString *_maskedApplicationID;
     NSURL *_link;
+    SLFacebookPostPrivacySetting *_privacySetting;
+    SLFacebookAlbum *_album;
     NSString *_text;
     SLFacebookPlace *_place;
-    SLFacebookAlbum *_album;
-    SLFacebookPostPrivacySetting *_privacySetting;
 }
 
-@property(retain) SLFacebookPostPrivacySetting *privacySetting; // @synthesize privacySetting=_privacySetting;
-@property(retain) SLFacebookAlbum *album; // @synthesize album=_album;
 @property(retain) SLFacebookPlace *place; // @synthesize place=_place;
 @property(retain) NSString *text; // @synthesize text=_text;
+@property(retain) SLFacebookAlbum *album; // @synthesize album=_album;
+@property(retain) SLFacebookPostPrivacySetting *privacySetting; // @synthesize privacySetting=_privacySetting;
 @property(retain) NSURL *link; // @synthesize link=_link;
 - (void).cxx_destruct;
 - (id)copy;

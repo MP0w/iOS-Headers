@@ -10,18 +10,18 @@
 
 @interface GKScoreSharingInfo : NSObject
 {
-    GKGame *_game;
-    UIImage *_badgeImage;
     UIImage *_iconImage;
     GKPlayer *_player;
+    GKGame *_game;
+    UIImage *_badgeImage;
     GKLeaderboardCategory *_leaderboardCategory;
 }
 
 @property(retain, nonatomic) GKLeaderboardCategory *leaderboardCategory; // @synthesize leaderboardCategory=_leaderboardCategory;
-@property(retain, nonatomic) GKPlayer *player; // @synthesize player=_player;
-@property(retain, nonatomic) UIImage *iconImage; // @synthesize iconImage=_iconImage;
 @property(retain, nonatomic) UIImage *badgeImage; // @synthesize badgeImage=_badgeImage;
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
+@property(retain, nonatomic) GKPlayer *player; // @synthesize player=_player;
+@property(retain, nonatomic) UIImage *iconImage; // @synthesize iconImage=_iconImage;
 - (id)subjectForEmailActivity;
 - (id)itemsForActivityType:(id)arg1;
 - (id)thumbnailForActivityType:(id)arg1;

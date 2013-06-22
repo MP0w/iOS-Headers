@@ -21,12 +21,12 @@
     NSTimer *_timeoutTimer;
     NSArray *_selectedAliases;
     BOOL _finishOnAuthenticated;
-    BOOL _hasSetAliases;
     IMAccount *_account;
+    BOOL _hasSetAliases;
 }
 
-@property(retain, nonatomic) IMAccount *account; // @synthesize account=_account;
 @property(nonatomic) BOOL hasSetAliases; // @synthesize hasSetAliases=_hasSetAliases;
+@property(retain, nonatomic) IMAccount *account; // @synthesize account=_account;
 @property(nonatomic) BOOL finishOnAuthenticated; // @synthesize finishOnAuthenticated=_finishOnAuthenticated;
 @property(copy, nonatomic) NSArray *selectedAliases; // @synthesize selectedAliases=_selectedAliases;
 @property(retain, nonatomic) NSTimer *timeoutTimer; // @synthesize timeoutTimer=_timeoutTimer;

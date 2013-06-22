@@ -15,7 +15,7 @@
 
 + (void)initialize;
 - (void)handlePhotoReady:(id)arg1;
-- (void)reprocessRawImageSurface:(void *)arg1 andMetadata:(id)arg2 withOutputSettings:(id)arg3 completionHandler:(id)arg4;
+- (void)reprocessRawImageSurface:(struct __IOSurface *)arg1 andMetadata:(id)arg2 withOutputSettings:(id)arg3 completionHandler:(id)arg4;
 - (void)dealloc;
 - (id)init;
 

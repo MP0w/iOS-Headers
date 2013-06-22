@@ -9,12 +9,12 @@
 #import "NSCopying-Protocol.h"
 #import "NSSecureCoding-Protocol.h"
 
-@class NSArray, NSData, NSDate, NSSet, NSString, NSURL, UIImage, WLBarcode, WLCardContent, WLCardDisplayProfile, WLCardImages, WLImage;
+@class NSArray, NSData, NSDate, NSSet, NSString, NSURL, PKBarcode, PKImage, PKPassContent, PKPassDisplayProfile, PKPassImages, UIImage;
 
 @interface PKPass : NSObject <NSCopying, NSSecureCoding>
 {
-    WLCardContent *_content;
-    WLCardImages *_images[4];
+    PKPassContent *_content;
+    PKPassImages *_images[4];
     NSString *_uniqueID;
     NSString *_passTypeIdentifier;
     NSString *_teamID;
@@ -26,23 +26,25 @@
     NSSet *_locations;
     NSURL *_webServiceURL;
     NSString *_authenticationToken;
-    WLCardDisplayProfile *_displayProfile;
+    PKPassDisplayProfile *_displayProfile;
     NSData *_manifestHash;
     int _settings;
     NSDate *_ingestedDate;
     NSDate *_modifiedDate;
+    BOOL _revoked;
     BOOL _isPreIngested;
-    WLImage *_partialFrontFaceImagePlaceholder;
+    PKImage *_partialFrontFaceImagePlaceholder;
 }
 
 + (BOOL)supportsSecureCoding;
-@property(readonly, nonatomic) WLImage *partialFrontFaceImagePlaceholder; // @synthesize partialFrontFaceImagePlaceholder=_partialFrontFaceImagePlaceholder;
+@property(readonly, nonatomic) PKImage *partialFrontFaceImagePlaceholder; // @synthesize partialFrontFaceImagePlaceholder=_partialFrontFaceImagePlaceholder;
 @property(nonatomic) BOOL isPreIngested; // @synthesize isPreIngested=_isPreIngested;
+@property(nonatomic, getter=isRevoked) BOOL revoked; // @synthesize revoked=_revoked;
 @property(retain, nonatomic) NSDate *modifiedDate; // @synthesize modifiedDate=_modifiedDate;
 @property(retain, nonatomic) NSDate *ingestedDate; // @synthesize ingestedDate=_ingestedDate;
 @property(nonatomic) int settings; // @synthesize settings=_settings;
 @property(retain, nonatomic) NSData *manifestHash; // @synthesize manifestHash=_manifestHash;
-@property(copy, nonatomic) WLCardDisplayProfile *displayProfile; // @synthesize displayProfile=_displayProfile;
+@property(copy, nonatomic) PKPassDisplayProfile *displayProfile; // @synthesize displayProfile=_displayProfile;
 @property(copy, nonatomic) NSString *authenticationToken; // @synthesize authenticationToken=_authenticationToken;
 @property(copy, nonatomic) NSURL *webServiceURL; // @synthesize webServiceURL=_webServiceURL;
 @property(copy, nonatomic) NSSet *locations; // @synthesize locations=_locations;
@@ -54,8 +56,6 @@
 @property(copy, nonatomic) NSString *teamID; // @synthesize teamID=_teamID;
 @property(copy, nonatomic) NSString *passTypeIdentifier; // @synthesize passTypeIdentifier=_passTypeIdentifier;
 @property(copy, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
-- (id)initWithBundleArchiveData:(id)arg1;
-- (id)initWithBundleArchiveURL:(id)arg1;
 - (id)initWithData:(id)arg1 error:(id *)arg2;
 - (id)_imageSetLoadingIfNecessary:(int)arg1;
 - (id)_contentLoadingIfNecessary;
@@ -67,25 +67,26 @@
 - (id)allImageSetsLoadingIfNecessary;
 - (BOOL)imageSetIsLoaded:(int)arg1;
 - (void)loadImageSetSync:(int)arg1 preheat:(BOOL)arg2;
+- (void)flushFormattedFieldValues;
 - (void)flushCachedImageSets;
 - (void)loadImageSetAsync:(int)arg1 preheat:(BOOL)arg2 withCompletion:(id)arg3;
 - (BOOL)contentIsLoaded;
 - (void)loadContentSync;
 - (void)loadContentAsyncWithCompletion:(id)arg1;
-@property(readonly, nonatomic) WLImage *backFaceImage;
+@property(readonly, nonatomic) PKImage *backFaceImage;
 @property(readonly, nonatomic) struct CGRect stripRect;
 @property(readonly, nonatomic) struct CGRect thumbnailRect;
 @property(readonly, nonatomic) struct CGRect logoRect;
-@property(readonly, nonatomic) WLImage *partialFrontFaceImage;
-@property(readonly, nonatomic) WLImage *frontFaceImage;
-@property(readonly, nonatomic) WLImage *iconImage;
+@property(readonly, nonatomic) PKImage *partialFrontFaceImage;
+@property(readonly, nonatomic) PKImage *frontFaceImage;
+@property(readonly, nonatomic) PKImage *iconImage;
 @property(readonly, nonatomic) NSArray *storeIdentifiers;
 @property(readonly, nonatomic) NSArray *backFieldBuckets;
 @property(readonly, nonatomic) NSArray *frontFieldBuckets;
 @property(readonly, nonatomic) int transitType;
 @property(readonly, nonatomic) NSString *logoText;
-@property(readonly, nonatomic) WLImage *footerImage;
-@property(readonly, nonatomic) WLBarcode *barcode;
+@property(readonly, nonatomic) PKImage *footerImage;
+@property(readonly, nonatomic) PKBarcode *barcode;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -101,11 +102,8 @@
 @property(copy, nonatomic) NSString *name;
 @property(copy, nonatomic) NSString *institution;
 @property(copy, nonatomic) NSURL *pushURL;
-@property(copy, nonatomic) NSString *identifier;
-@property(copy, nonatomic) NSString *bundleID;
 @property(copy, nonatomic) NSDate *activationDate;
-
-// Remaining properties
+- (id)mailAttachmentIcon;
 @property(readonly, nonatomic) UIImage *icon; // @dynamic icon;
 
 @end

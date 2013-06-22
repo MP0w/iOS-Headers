@@ -30,7 +30,6 @@
 - (void)updatePeerStatesToMatchKnowledgeVector:(id)arg1;
 - (id)peerStateForPeerID:(id)arg1;
 - (id)createPeerRangesForBaselineWithLocalPeerID:(id)arg1;
-- (id)createKnowledgeVectorForBaseline;
 - (void)loadFromBaselineMetadata:(id)arg1 withLocalPeerID:(id)arg2;
 - (void)updateWithStore:(id)arg1;
 - (id)initWithUbiquityName:(id)arg1 andUbiquityRootLocation:(id)arg2 insertIntoManagedObjectContext:(id)arg3;

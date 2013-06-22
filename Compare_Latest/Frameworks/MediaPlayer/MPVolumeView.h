@@ -32,8 +32,10 @@
     int _style;
     MPVolumeSlider *_volumeSlider;
     BOOL _volumeSliderShrinksFromBothEnds;
+    unsigned int _routePopoverPermittedArrowDirections;
 }
 
+@property(nonatomic) unsigned int routePopoverPermittedArrowDirections; // @synthesize routePopoverPermittedArrowDirections=_routePopoverPermittedArrowDirections;
 - (void)_setShowsVolumeSlider:(BOOL)arg1;
 - (void)_setShowsRouteButton:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_getDefaultVolumeSliderFrame:(struct CGRect *)arg1 routeButtonFrame:(struct CGRect *)arg2 forBounds:(struct CGRect)arg3;

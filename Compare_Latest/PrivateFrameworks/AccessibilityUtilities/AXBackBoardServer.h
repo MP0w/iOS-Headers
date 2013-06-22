@@ -16,6 +16,7 @@
 }
 
 + (id)server;
+- (void)setHearingAidControlIsVisible:(BOOL)arg1;
 - (void)removeEventListener:(struct NSString *)arg1;
 - (void)registerEventListener:(id)arg1 withIdentifierCallback:(void)arg2;
 - (void)setVoiceOverItemChooserVisible:(BOOL)arg1;

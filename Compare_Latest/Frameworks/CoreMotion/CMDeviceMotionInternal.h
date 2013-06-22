@@ -25,8 +25,8 @@
 - (id).cxx_construct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithDeviceMotion:(CDStruct_7fb6ae47)arg1;
-- (void)setDeviceMotion:(CDStruct_7fb6ae47)arg1;
+- (id)initWithDeviceMotion:(CDStruct_04e8b4cd)arg1;
+- (void)setDeviceMotion:(CDStruct_04e8b4cd)arg1;
 
 @end
 

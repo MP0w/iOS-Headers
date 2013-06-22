@@ -12,7 +12,7 @@
 
 @class NSArray, NSMutableArray, VKCamera, VKLayoutContext, VKScene, VKWorld;
 
-@interface VKScreenCanvas : VGLScreenCanvas <VKCameraDelegate, VKWorldDelegate, VKCameraControllerCanvasDelegate>
+@interface VKScreenCanvas : VGLScreenCanvas <VKWorldDelegate, VKCameraControllerCanvasDelegate, VKCameraDelegate>
 {
     VKWorld *_world;
     VKCamera *_camera;
@@ -55,6 +55,7 @@
 - (void)layoutSubviews;
 - (void)updateCameraForFrameResize;
 - (void)didDrawView;
+- (void)takeSnapshotIfNeeded;
 - (void)onTimerFired:(double)arg1;
 @property(nonatomic) BOOL debugEnableMultisampling; // @dynamic debugEnableMultisampling;
 - (void)setNeedsDisplay;

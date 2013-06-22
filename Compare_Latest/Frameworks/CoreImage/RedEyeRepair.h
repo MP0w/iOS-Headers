@@ -137,6 +137,7 @@
 - (id)initWithFrameExternalBuffer:(CDStruct_06a00c9d *)arg1;
 - (id)initWithDeskView:(id)arg1 andFrame:(CDStruct_06a00c9d *)arg2;
 - (void)initializeNonDebugVariables;
+- (id)initWithIOSurface:(struct __IOSurface *)arg1 format:(int)arg2 colorSpace:(struct CGColorSpace *)arg3 cameraModel:(id)arg4;
 - (void)repairExternalBuffer;
 - (struct CGImage *)createRepairedImage;
 - (id)initWithCGImage:(struct CGImage *)arg1 cameraModel:(id)arg2;

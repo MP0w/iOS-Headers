@@ -93,6 +93,7 @@
 - (void)setMapRegion:(id)arg1 pitch:(double)arg2 yaw:(double)arg3 animated:(BOOL)arg4;
 - (void)setMapRegion:(id)arg1 animated:(BOOL)arg2;
 - (void)dismissExpandedCallout;
+- (BOOL)writeVisibleTrafficTilesToDirectory:(id)arg1 error:(id *)arg2;
 - (id)detailedDescription;
 - (void)exit3DMode;
 - (void)enter3DMode;

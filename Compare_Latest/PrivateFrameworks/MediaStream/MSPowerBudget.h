@@ -49,7 +49,9 @@
 - (void)workQueueCommitPersistedValues;
 - (void)setIsFileTransferAllowed:(BOOL)arg1;
 - (void)workQueueSetIsFileTransferAllowed:(BOOL)arg1;
-- (BOOL)isFileTransferAllowed;
+@property(readonly, nonatomic) BOOL hasActiveTimers;
+@property(readonly, nonatomic, getter=hasForegroundFocus) BOOL foregroundFocus;
+@property(readonly, nonatomic, getter=isFileTransferAllowed) BOOL fileTransferAllowed;
 - (void)workQueueRecomputeFileTransferAllowed;
 - (double)workQueueMaxActiveTimeAfterLossOfForeground;
 @property(nonatomic) double maxActiveTimeAfterLossOfForeground; // @synthesize maxActiveTimeAfterLossOfForeground=_maxActiveTimeAfterLossOfForeground;

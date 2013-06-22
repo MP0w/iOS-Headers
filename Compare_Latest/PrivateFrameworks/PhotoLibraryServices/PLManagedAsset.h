@@ -21,6 +21,8 @@
 }
 
 + (id)_allAssetUUIDsInManagedObjectContext:(id)arg1;
++ (id)uuidFromAssetURL:(id)arg1;
++ (id)uuidFromAssetURL:(id)arg1 fileExtension:(id *)arg2 sidecarIndex:(id *)arg3;
 + (id)fileURLFromAssetURL:(id)arg1 photoLibrary:(id)arg2;
 + (id)photoFromAssetURL:(id)arg1 photoLibrary:(id)arg2 sidecar:(id *)arg3;
 + (id)photoFromAssetURL:(id)arg1 photoLibrary:(id)arg2;

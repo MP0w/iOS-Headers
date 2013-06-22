@@ -24,6 +24,7 @@
 - (BOOL)isExportable;
 - (BOOL)isPlayable;
 - (BOOL)hasProtectedContent;
+- (void)_serverHasDied;
 - (id)compatibleTrackForCompositionTrack:(id)arg1;
 - (id)tracksWithMediaCharacteristics:(id)arg1;
 - (id)tracksWithMediaCharacteristic:(id)arg1;
@@ -50,6 +51,7 @@
 - (int)naturalTimeScale;
 @property(readonly, nonatomic) struct CGSize naturalSize;
 @property(readonly, nonatomic) struct CGAffineTransform preferredTransform;
+- (float)preferredSoundCheckVolumeNormalization;
 @property(readonly, nonatomic) float preferredVolume;
 @property(readonly, nonatomic) float preferredRate;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 duration;

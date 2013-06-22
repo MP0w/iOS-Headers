@@ -84,7 +84,7 @@
 - (void)setUbiquityLocationType:(int)arg1;
 - (id)createFullURL;
 - (id)createFullPath;
-- (BOOL)fileExistsAtLocationWithLocalPeerID:(id)arg1;
+- (BOOL)fileExistsAtLocationWithLocalPeerID:(id)arg1 error:(id *)arg2;
 - (BOOL)fileExistsAtLocation;
 @property(readonly, nonatomic) BOOL usesBaselineDirectory;
 @property(readonly, nonatomic) BOOL usesBaselineStagingDirectory;

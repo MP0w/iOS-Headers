@@ -32,6 +32,7 @@
 - (void)goDisconnected;
 - (void)goConnectedWithLocalSocketAddress:(id)arg1 remoteSocketAddress:(id)arg2;
 - (void)_setup;
+- (void)_networkManagedUpdated:(id)arg1;
 - (void)systemDidWake;
 - (void)systemWillSleep;
 - (void)reachabilityDidChange:(id)arg1;

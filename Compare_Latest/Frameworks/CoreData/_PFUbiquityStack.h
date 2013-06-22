@@ -30,6 +30,7 @@
 - (id)importStateForStoreName:(id)arg1 andPeerID:(id)arg2;
 - (id)peerForPeerID:(id)arg1 createIfMissing:(BOOL)arg2;
 - (id)allPeers;
+- (id)createMetadataStoreKnowledgeVector:(id *)arg1;
 - (BOOL)purgeMetadataForStoreMetadata:(id)arg1 withError:(id *)arg2;
 - (BOOL)purgeAndInitializeMetadataStoreFileWithError:(id *)arg1;
 - (id)description;

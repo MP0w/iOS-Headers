@@ -18,7 +18,6 @@
     NSMutableArray *_clientPorts;
     NSMutableDictionary *_clientPortsForPIDs;
     NSMutableDictionary *_clientStateForPIDs;
-    int _extendedModeNotifyToken;
     MPVideoViewController *_videoViewController;
     unsigned int _queuePrepared:1;
 }
@@ -31,7 +30,6 @@
 - (void)_prepareQueueIfNecessary;
 - (void)_setQueueWithQuery:(id)arg1;
 - (void)_setQueuePrepared:(BOOL)arg1;
-- (id)_avControllerForClientPID:(int)arg1 ignoreExtendedMode:(BOOL)arg2;
 - (id)_avControllerForClientPID:(int)arg1;
 - (id)_avController;
 - (BOOL)_currentClientPIDHasPermissionToPlay;
@@ -58,6 +56,7 @@
 - (id)currentChapterIndex;
 - (void)skipToPreviousChapter;
 - (void)skipToNextChapter;
+- (id)skipInDirection:(id)arg1;
 - (id)isNowPlayingItemFromGeniusMix;
 - (id)unshuffledIndexOfNowPlayingItem;
 - (id)indexOfNowPlayingItem;

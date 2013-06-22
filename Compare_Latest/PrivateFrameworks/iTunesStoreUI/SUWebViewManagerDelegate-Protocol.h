@@ -14,6 +14,7 @@
 - (void)webViewManagerDidFinishLoad:(id)arg1;
 - (void)webViewManager:(id)arg1 didFailLoadWithError:(id)arg2;
 - (void)webViewManager:(id)arg1 willInjectScriptInterface:(id)arg2;
+- (void)webViewManager:(id)arg1 didReceivePrimaryResponse:(id)arg2;
 - (void)webViewManager:(id)arg1 didRejectInvalidRequest:(id)arg2;
 - (void)webViewManager:(id)arg1 didReceiveTitle:(id)arg2;
 - (id)viewControllerForWebViewManager:(id)arg1;

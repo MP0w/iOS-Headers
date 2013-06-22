@@ -20,14 +20,14 @@
     NSError *_error;
     id _expirationHandler;
     id _finishedHandler;
-    NSMutableArray *_completions;
     NSString *_debugDescription;
+    NSMutableArray *_completions;
     MZTaskAssertion *_taskAssertion;
 }
 
 @property(retain, nonatomic) MZTaskAssertion *taskAssertion; // @synthesize taskAssertion=_taskAssertion;
-@property(copy, nonatomic) NSString *debugDescription; // @synthesize debugDescription=_debugDescription;
 @property(retain, nonatomic) NSMutableArray *completions; // @synthesize completions=_completions;
+@property(copy, nonatomic) NSString *debugDescription; // @synthesize debugDescription=_debugDescription;
 - (void)invokeTaskCompletionBlocksWithBlock:(id)arg1;
 - (void)addTaskCompletionBlock:(id)arg1;
 - (void)invalidate;

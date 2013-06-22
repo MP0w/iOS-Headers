@@ -29,6 +29,7 @@
     BOOL _presentedInView;
     NSString *_authenticationUserName;
     NSString *_identifier;
+    BOOL _policyEngineManaged;
     NSString *_section;
     BOOL _dimmed;
 }
@@ -36,6 +37,7 @@
 + (void)setSkipLoadedExceptionCheck:(BOOL)arg1;
 @property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
 @property(copy, nonatomic) NSString *section; // @synthesize section=_section;
+@property(nonatomic) BOOL policyEngineManaged; // @synthesize policyEngineManaged=_policyEngineManaged;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
 @property(nonatomic) BOOL presentedInView; // @synthesize presentedInView=_presentedInView;
@@ -52,6 +54,7 @@
 @property(nonatomic, getter=isLoaded) BOOL loaded; // @synthesize loaded=_loaded;
 @property(nonatomic) UIViewController<ADInterstitialViewDelegate> *modalViewController; // @synthesize modalViewController=_modalViewController;
 @property(nonatomic) ADInterstitialAd<ADInterstitialViewDelegate> *interstitialAd; // @synthesize interstitialAd=_interstitialAd;
+- (void)storyboardViewControllerDidPresent;
 - (void)serverInterstitialViewExpiredAndWasUnloaded;
 - (void)serverStoryboardDidTransitionOut;
 - (void)serverBannerViewDidFailToReceiveAdWithError:(id)arg1;

@@ -18,14 +18,14 @@
     unsigned int _otherCount;
     unsigned int _pendingCount;
     int _importOperation;
-    NSString *_subtitle;
     int _style;
     UIView *_accessoryView;
+    NSString *_subtitle;
 }
 
+@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
-@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 - (void)setImageCount:(unsigned int)arg1 videoCount:(unsigned int)arg2 otherCount:(unsigned int)arg3 pendingCount:(unsigned int)arg4 importOperation:(int)arg5;
 - (void)layoutSubviews;
 - (void)_updateSubviews;

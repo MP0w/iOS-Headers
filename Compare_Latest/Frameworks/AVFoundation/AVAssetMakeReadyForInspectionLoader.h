@@ -28,6 +28,7 @@
 @property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly; // @synthesize shouldMatchDataInCacheByURLPathComponentOnly=_shouldMatchDataInCacheByURLPathComponentOnly;
 @property(readonly, nonatomic) AVAssetCache *assetCache; // @synthesize assetCache=_assetCache;
 - (id)URL;
+- (void)_serverHasDied;
 - (BOOL)_isStreaming;
 - (BOOL)hasProtectedContent;
 - (BOOL)isComposable;

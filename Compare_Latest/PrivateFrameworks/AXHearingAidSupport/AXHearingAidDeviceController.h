@@ -40,7 +40,7 @@
 @property(retain, nonatomic) NSMutableArray *availableSearchBlocks; // @synthesize availableSearchBlocks=_availableSearchBlocks;
 @property(retain, nonatomic) NSMutableArray *centralRequestBlocks; // @synthesize centralRequestBlocks;
 @property(retain, nonatomic) NSMutableArray *connectedDevices; // @synthesize connectedDevices;
-@property(retain, nonatomic) NSMutableArray *loadedDevices; // @synthesize loadedDevices;
+@property(retain) NSMutableArray *loadedDevices; // @synthesize loadedDevices;
 @property(retain, nonatomic) NSMutableArray *availablePeripherals; // @synthesize availablePeripherals;
 - (void)pairedHearingAidsDidChange;
 - (void)centralManager:(id)arg1 didDisconnectPeripheral:(id)arg2 error:(id)arg3;
@@ -52,9 +52,12 @@
 - (void)centralManagerDidUpdateState:(id)arg1;
 - (void)sendRequestToCentralManager:(id)arg1;
 - (id)modelNumberUUID;
+- (id)firmwareVersionUUID;
+- (id)hardwareVersionUUID;
 - (id)manufacturerUUID;
 - (id)disUUID;
 - (id)leaHearingAidUUID;
+- (BOOL)isScanning;
 - (void)deviceDidFinishLoading:(id)arg1;
 - (void)device:(id)arg1 didSubsumeSlave:(id)arg2;
 - (void)deviceDidUpdateProperty:(id)arg1;

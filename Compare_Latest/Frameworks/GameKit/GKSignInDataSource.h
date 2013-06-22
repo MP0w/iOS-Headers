@@ -12,16 +12,16 @@
 {
     GKTextField *_usernameField;
     GKTextField *_passwordField;
-    GKGame *_game;
     GKSignInHeaderSection *_signInHeaderSection;
-    GKSignInInputSection *_signInInputSection;
+    GKGame *_game;
     GKSignInButtonSection *_signInButtonSection;
+    GKSignInInputSection *_signInInputSection;
 }
 
-@property(retain, nonatomic) GKSignInButtonSection *signInButtonSection; // @synthesize signInButtonSection=_signInButtonSection;
 @property(retain, nonatomic) GKSignInInputSection *signInInputSection; // @synthesize signInInputSection=_signInInputSection;
-@property(retain, nonatomic) GKSignInHeaderSection *signInHeaderSection; // @synthesize signInHeaderSection=_signInHeaderSection;
+@property(retain, nonatomic) GKSignInButtonSection *signInButtonSection; // @synthesize signInButtonSection=_signInButtonSection;
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
+@property(retain, nonatomic) GKSignInHeaderSection *signInHeaderSection; // @synthesize signInHeaderSection=_signInHeaderSection;
 @property(retain, nonatomic) GKTextField *passwordField; // @synthesize passwordField=_passwordField;
 @property(retain, nonatomic) GKTextField *usernameField; // @synthesize usernameField=_usernameField;
 - (id)tableView:(id)arg1 sectionAtIndex:(int)arg2;

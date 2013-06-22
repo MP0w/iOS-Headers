@@ -5,6 +5,8 @@
  */
 
 @protocol AltMapDelegate
+- (void)mapView:(id)arg1 willDrawInContext:(struct CGContext *)arg2;
+- (void)mapView:(id)arg1 didResizeToWidth:(unsigned int)arg2 height:(unsigned int)arg3;
 - (void)mapView:(id)arg1 canShowFlyoverDidChange:(BOOL)arg2;
 - (void)mapViewDidFinishLoadingTiles:(id)arg1;
 - (void)mapViewDidStartLoadingTiles:(id)arg1;

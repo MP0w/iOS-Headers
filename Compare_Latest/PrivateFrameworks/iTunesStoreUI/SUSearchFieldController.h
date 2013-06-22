@@ -54,6 +54,7 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (void)searchBarWillRemoveFromSuperview:(id)arg1;
 - (void)searchBarTextDidEndEditing:(id)arg1;
 - (BOOL)searchBarShouldEndEditing:(id)arg1;
 - (BOOL)searchBarShouldBeginEditing:(id)arg1;

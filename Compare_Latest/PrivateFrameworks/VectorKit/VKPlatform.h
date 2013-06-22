@@ -24,6 +24,7 @@
 @property(readonly, nonatomic) BOOL canMakeSharingThumbnails;
 @property(readonly, nonatomic) BOOL canMakeHighResolutionSnapshots;
 @property(readonly, nonatomic) BOOL shouldUseTrafficAlphaHack;
+- (BOOL)supportsHiResRTT;
 @property(readonly, nonatomic) unsigned int tileMaximumLimit;
 @property(readonly, nonatomic) unsigned int tileReserveLimit;
 @property(readonly, nonatomic) BOOL roadsWithSimpleLineMeshesAvailable;

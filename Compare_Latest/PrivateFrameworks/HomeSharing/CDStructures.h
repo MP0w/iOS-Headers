@@ -11,6 +11,11 @@ struct CGSize {
     float _field2;
 };
 
+struct FairPlayHWInfo_ {
+    unsigned int _field1;
+    unsigned char _field2[20];
+};
+
 struct hostent {
     char *_field1;
     char **_field2;

@@ -40,18 +40,18 @@
     BOOL _hasShutDown;
     NSDictionary *_metadataBackoffManagerParameters;
     NSDictionary *_MMCSBackoffManagerParameters;
+    NSObject<OS_dispatch_queue> *_serverSideConfigQueue;
     NSObject<OS_dispatch_queue> *_eventQueue;
     NSObject<OS_dispatch_queue> *_memberQueue;
-    NSObject<OS_dispatch_queue> *_workQueue;
     id _postCommandCompletionBlock;
-    NSObject<OS_dispatch_queue> *_serverSideConfigQueue;
+    NSObject<OS_dispatch_queue> *_workQueue;
 }
 
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *serverSideConfigQueue; // @synthesize serverSideConfigQueue=_serverSideConfigQueue;
-@property(copy, nonatomic) id postCommandCompletionBlock; // @synthesize postCommandCompletionBlock=_postCommandCompletionBlock;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(copy, nonatomic) id postCommandCompletionBlock; // @synthesize postCommandCompletionBlock=_postCommandCompletionBlock;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *memberQueue; // @synthesize memberQueue=_memberQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *eventQueue; // @synthesize eventQueue=_eventQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *serverSideConfigQueue; // @synthesize serverSideConfigQueue=_serverSideConfigQueue;
 @property(retain, nonatomic) NSDictionary *MMCSBackoffManagerParameters; // @synthesize MMCSBackoffManagerParameters=_MMCSBackoffManagerParameters;
 @property(retain, nonatomic) NSDictionary *metadataBackoffManagerParameters; // @synthesize metadataBackoffManagerParameters=_metadataBackoffManagerParameters;
 @property(nonatomic) BOOL hasShutDown; // @synthesize hasShutDown=_hasShutDown;

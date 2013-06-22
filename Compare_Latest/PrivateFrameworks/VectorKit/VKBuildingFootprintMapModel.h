@@ -35,6 +35,7 @@
 @property(readonly, nonatomic) VKMercatorTerrainHeightCache *heightCache; // @synthesize heightCache=_heightCache;
 @property(nonatomic) int vectorType; // @synthesize vectorType=_vectorType;
 - (id).cxx_construct;
+- (void)preloadRealisticResourcesWithContext:(id)arg1;
 - (void)setBuildingMode:(int)arg1 animated:(BOOL)arg2;
 - (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;

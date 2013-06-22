@@ -14,9 +14,9 @@
     struct CGRect _backgroundImageRect;
 }
 
+@property(readonly, nonatomic) int currentPosition; // @synthesize currentPosition=_currentPosition;
 @property(nonatomic) int commentCount; // @synthesize commentCount=_commentCount;
 @property(nonatomic) int currentMode; // @synthesize currentMode=_currentMode;
-@property(readonly, nonatomic) int currentPosition; // @synthesize currentPosition=_currentPosition;
 - (id)_commentCountFormatter;
 - (id)_imageForMode:(int)arg1;
 - (void)_updateButton;

@@ -18,7 +18,7 @@
 - (void)dataForKey:(struct _GEOTileKey *)arg1 asyncHandler:(id)arg2;
 - (id)dataForKey:(struct _GEOTileKey *)arg1;
 - (void)cancelLoad:(id)arg1;
-- (void)loadTiles:(id)arg1 checkDisk:(BOOL)arg2 allowNetworking:(BOOL)arg3 bundleIdentifier:(id)arg4 bundleVersion:(id)arg5;
+- (void)loadTiles:(id)arg1 checkDisk:(BOOL)arg2 allowNetworking:(BOOL)arg3 requireWiFi:(BOOL)arg4 bundleIdentifier:(id)arg5 bundleVersion:(id)arg6;
 - (void)setDelegate:(id)arg1;
 @end
 

@@ -13,20 +13,20 @@
     NSMutableArray *_uploadQueue;
     NSMutableArray *_failedUploads;
     SLDFacebookImageAssetDataProvider *_imageAssetDataProvider;
+    id <SLDFacebookPostUploadDelegate><NSObject> _delegate;
     id _postCompletion;
     BOOL _suppressAlerts;
-    ACAccount *_account;
     SLFacebookPost *_post;
+    ACAccount *_account;
     NSString *_sourceAppIdentifier;
-    id <SLDFacebookPostUploadDelegate><NSObject> _delegate;
 }
 
-@property(retain) id <SLDFacebookPostUploadDelegate><NSObject> delegate; // @synthesize delegate=_delegate;
 @property(retain) NSString *sourceAppIdentifier; // @synthesize sourceAppIdentifier=_sourceAppIdentifier;
-@property(retain) SLFacebookPost *post; // @synthesize post=_post;
 @property(retain) ACAccount *account; // @synthesize account=_account;
+@property(retain) SLFacebookPost *post; // @synthesize post=_post;
 @property BOOL suppressAlerts; // @synthesize suppressAlerts=_suppressAlerts;
 @property(copy) id postCompletion; // @synthesize postCompletion=_postCompletion;
+@property(retain) id <SLDFacebookPostUploadDelegate><NSObject> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_handleRetry;
 - (void)_directUserToCheckpointURL:(id)arg1;

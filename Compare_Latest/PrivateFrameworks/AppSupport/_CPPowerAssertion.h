@@ -10,6 +10,7 @@
 
 @interface _CPPowerAssertion : NSObject
 {
+    unsigned int _assertion;
     double _timeout;
     NSString *_identifier;
     NSArray *_stack;

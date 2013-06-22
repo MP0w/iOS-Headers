@@ -10,16 +10,16 @@
 
 @interface GKCurvedCapBackgroundBrush : GKBrush
 {
-    float _additionalOffsetToCurveJoint;
     GKBackgroundBrush *_fillBackgroundBrush;
+    float _additionalOffsetToCurveJoint;
     BOOL _drawBottomCurve;
 }
 
 + (id)curvedCapBackgroundBrushWithHeaderBackground;
 + (id)curvedCapBackgroundBrushWithHeaderBackgroundForPad;
 @property(nonatomic) BOOL drawBottomCurve; // @synthesize drawBottomCurve=_drawBottomCurve;
-@property(retain, nonatomic) GKBackgroundBrush *fillBackgroundBrush; // @synthesize fillBackgroundBrush=_fillBackgroundBrush;
 @property(nonatomic) float additionalOffsetToCurveJoint; // @synthesize additionalOffsetToCurveJoint=_additionalOffsetToCurveJoint;
+@property(retain, nonatomic) GKBackgroundBrush *fillBackgroundBrush; // @synthesize fillBackgroundBrush=_fillBackgroundBrush;
 - (void)drawInRect:(struct CGRect)arg1 withContext:(struct CGContext *)arg2 input:(id)arg3;
 - (struct CGPath *)newBorderPathWithRect:(struct CGRect)arg1 radius:(float)arg2 capOffset:(float)arg3 capExtra:(float)arg4;
 - (void)addFancyCurveToPath:(struct CGPath *)arg1 fromBegin:(struct CGPoint)arg2 toEnd:(struct CGPoint)arg3 capExtra:(float)arg4 curveUpward:(BOOL)arg5;

@@ -22,8 +22,8 @@
 + (id)offeringWithCollectionResponseDictionary:(id)arg1 localItemsQuery:(id)arg2;
 + (int)defaultOfferVariant;
 + (void)setDefaultOfferVariant:(int)arg1;
-@property(retain, nonatomic) MPStoreCollectionCompletionOffering *purchaseableCollectionOffering; // @synthesize purchaseableCollectionOffering=_purchaseableCollectionOffering;
 @property(readonly, nonatomic) MPStoreLinkCompletionOffering *linkOffering; // @synthesize linkOffering=_linkOffering;
+@property(retain, nonatomic) MPStoreCollectionCompletionOffering *purchaseableCollectionOffering; // @synthesize purchaseableCollectionOffering=_purchaseableCollectionOffering;
 @property(nonatomic) int preferredStoreOfferVariant;
 - (id)_getPurchaseableCollectionOffering;
 - (id)copyByInvalidatingCalculatedContent;

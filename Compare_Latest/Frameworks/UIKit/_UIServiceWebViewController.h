@@ -27,6 +27,7 @@
 - (void)goForward;
 - (void)goBack;
 - (void)loadUserTypedAddress:(id)arg1;
+- (void)loadHTMLString:(id)arg1 baseURL:(id)arg2;
 - (void)loadEncodedRequest:(id)arg1;
 - (void)browserLoadingControllerDidUpdateURLString:(id)arg1;
 - (void)browserLoadingControllerDidUpdateTitle:(id)arg1;
@@ -37,6 +38,7 @@
 - (void)dealloc;
 - (void)loadView;
 - (id)_makeAlertView;
+- (void)_webContentSizeWithReplyHandler:(id)arg1;
 - (void)configureWithEncodedSettings:(id)arg1;
 - (void)_remotelyDispatchDidDismissViewController;
 - (void)_remotelyDispatchWillPresentViewControllerWithCompletionHandler:(id)arg1;

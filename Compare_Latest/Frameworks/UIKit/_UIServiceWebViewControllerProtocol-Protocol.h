@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol _UIServiceWebViewControllerProtocol <NSObject>
+- (void)_webContentSizeWithReplyHandler:(id)arg1;
 - (void)configureWithEncodedSettings:(id)arg1;
 - (void)setShouldDecidePolicyRemotely:(BOOL)arg1;
 - (void)stopLoading;
@@ -14,6 +15,7 @@
 - (void)goForward;
 - (void)goBack;
 - (void)loadUserTypedAddress:(id)arg1;
+- (void)loadHTMLString:(id)arg1 baseURL:(id)arg2;
 - (void)loadEncodedRequest:(id)arg1;
 @end
 

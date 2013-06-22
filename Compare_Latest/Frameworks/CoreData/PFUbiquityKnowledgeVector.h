@@ -26,6 +26,7 @@
 - (id)createStoreKnowledgeVectorDictionary;
 - (BOOL)conflictsWithKnowledgeVector:(id)arg1;
 - (BOOL)canMergeWithKnowledgeVector:(id)arg1;
+- (id)newKnowledgeVectorByIncrementingPeerWithID:(id)arg1;
 - (id)newKnowledgeVectorByDecrementingPeerWithID:(id)arg1;
 - (id)createAncestorVectorForConflictingVector:(id)arg1;
 - (id)newKnowledgeVectorBySubtractingVector:(id)arg1;
@@ -48,8 +49,8 @@
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
+- (id)initWithKnowledgeVectorDictionary:(id)arg1 andStoreKnowledgeVectorDictionary:(id)arg2;
 - (id)initFromCopy:(id)arg1 storeKVDict:(id)arg2 sum:(id)arg3 hash:(unsigned int)arg4;
-- (id)initWithPeerStatesFromStoreMetadata:(id)arg1;
 - (id)initWithStoreKnowledgeVectorDictionary:(id)arg1;
 - (id)initWithKnowledgeVectorDictionary:(id)arg1;
 - (id)initWithKnowledgeVectorString:(id)arg1;

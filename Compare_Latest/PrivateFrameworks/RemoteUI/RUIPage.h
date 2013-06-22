@@ -8,7 +8,7 @@
 
 #import "UIWebViewDelegate-Protocol.h"
 
-@class NSArray, NSDictionary, NSString, RUITableView, RUIWebView, UIBarButtonItem, UIToolbar, UIView;
+@class NSArray, NSDictionary, NSMutableArray, NSString, RUIObjectModel, RUITableView, RUIWebView, UIBarButtonItem, UIToolbar, UIView;
 
 @interface RUIPage : UIViewController <UIWebViewDelegate>
 {
@@ -30,9 +30,14 @@
     UIBarButtonItem *_rightToolbarItem;
     UIBarButtonItem *_middleFlexSpace;
     UIBarButtonItem *_leftFlexSpace;
-    id _delegate;
+    RUIObjectModel *_objectModel;
+    RUIPage *_parentPage;
+    NSMutableArray *_childPages;
 }
 
+@property(readonly, nonatomic) RUIPage *parentPage; // @synthesize parentPage=_parentPage;
+@property(nonatomic) RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
+@property(readonly, nonatomic) NSArray *childPages; // @synthesize childPages=_childPages;
 @property(nonatomic) BOOL hidesBackButton; // @synthesize hidesBackButton=_hidesBackButton;
 @property(readonly, nonatomic) UIToolbar *toolbar; // @synthesize toolbar=_toolbar;
 @property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
@@ -56,12 +61,14 @@
 - (void)viewDidLoad;
 - (void)dealloc;
 - (void)populatePostbackDictionary:(id)arg1;
-- (id)delegate;
-- (void)setDelegate:(id)arg1;
 - (BOOL)hasWebView;
 @property(readonly, nonatomic) RUIWebView *webViewOM;
 - (BOOL)hasTableView;
 @property(readonly, nonatomic) RUITableView *tableViewOM;
+- (void)_updateParentPage;
+- (void)_updateWithCompletedChild:(id)arg1;
+- (void)_addChildPage:(id)arg1;
+- (void)_setParentPage:(id)arg1;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
 - (void)_setContentInset:(float)arg1;

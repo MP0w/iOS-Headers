@@ -17,6 +17,7 @@
     id _delegate;
     UITableView *_table;
     PLAirTunesService *_selectedService;
+    BOOL _showDebugOption;
 }
 
 @property(nonatomic) id <PLAirTunesServicePickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -29,7 +30,7 @@
 - (struct CGSize)contentSizeForViewInPopoverView;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)loadView;
-- (id)initWithAvailableAirTunesServices:(id)arg1 previouslySelectedService:(id)arg2;
+- (id)initWithAvailableAirTunesServices:(id)arg1 previouslySelectedService:(id)arg2 showDebugOption:(BOOL)arg3;
 - (void)dealloc;
 
 @end

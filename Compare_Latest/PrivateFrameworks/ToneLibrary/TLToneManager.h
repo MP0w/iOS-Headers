@@ -113,6 +113,7 @@
 - (id)initWithChangeNotifications:(BOOL)arg1;
 - (id)init;
 - (void)removeNewMailToneForAccount:(id)arg1;
+- (unsigned long)currentPhotoStreamPostToneSoundID;
 - (unsigned long)currentFacebookPostToneSoundID;
 - (unsigned long)currentSentTweetToneSoundID;
 - (unsigned long)currentNewReminderAlertToneSoundID;
@@ -122,6 +123,7 @@
 - (unsigned long)currentNewMailToneSoundIDForAccount:(id)arg1;
 - (unsigned long)currentNewMailToneSoundID;
 - (id)currentIdentifierForContext:(int)arg1;
+- (id)currentPhotoStreamPostToneIdentifier;
 - (id)currentFacebookPostToneIdentifier;
 - (id)currentSentTweetToneIdentifier;
 - (id)currentReminderAlertToneIdentifier;
@@ -132,6 +134,7 @@
 - (id)newMailPreferenceKeyForAccount:(id)arg1;
 - (id)currentNewMailToneIdentifier;
 - (id)defaultIdentifierForContext:(int)arg1;
+- (id)defaultPhotoStreamPostToneIdentifier;
 - (id)defaultFacebookPostToneIdentifier;
 - (id)defaultSentTweetToneIdentifier;
 - (id)defaultReminderAlertToneIdentifier;

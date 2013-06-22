@@ -198,6 +198,7 @@
 - (void)didEndNavigation;
 - (void)didBeginTransitionToNavigation;
 - (void)preloadNavigationSceneResourcesWithContext:(id)arg1;
+- (BOOL)writeVisibleTrafficTilesToDirectory:(id)arg1 error:(id *)arg2;
 - (id)detailedDescription;
 - (void)forceMapType:(int)arg1;
 - (void)configureTileSources;

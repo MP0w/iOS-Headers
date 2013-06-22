@@ -25,6 +25,7 @@
     ADTapGestureRecognizer *_gestureRecognizer;
     NSString *_authenticationUserName;
     NSString *_identifier;
+    BOOL _policyEngineManaged;
     BOOL _createdForIBInternal;
     BOOL _hasFailedHitTest;
     BOOL _dimmed;
@@ -35,6 +36,7 @@
 @property(nonatomic) BOOL dimmed; // @synthesize dimmed=_dimmed;
 @property(nonatomic) BOOL hasFailedHitTest; // @synthesize hasFailedHitTest=_hasFailedHitTest;
 @property(readonly, nonatomic) BOOL createdForIBInternal; // @synthesize createdForIBInternal=_createdForIBInternal;
+@property(nonatomic) BOOL policyEngineManaged; // @synthesize policyEngineManaged=_policyEngineManaged;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
 @property(retain, nonatomic) ADTapGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
@@ -53,6 +55,7 @@
 - (id)requiredContentSizeIdentifiers;
 - (void)setRequiredContentSizeIdentifiers:(id)arg1;
 @property(nonatomic) id <ADBannerViewDelegate> delegate; // @synthesize delegate=_weakDelegate;
+- (void)storyboardViewControllerDidPresent;
 - (void)serverStoryboardDidTransitionOut;
 - (void)serverBannerViewDidFailToReceiveAdWithError:(id)arg1;
 - (void)serverBannerViewDidLoad;

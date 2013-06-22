@@ -22,6 +22,7 @@
     BOOL _usesCachedBagsOnly;
 }
 
++ (id)diskCacheDirectoryPath;
 + (id)contextWithBagType:(int)arg1;
 @property(nonatomic) BOOL usesCachedBagsOnly; // @synthesize usesCachedBagsOnly=_usesCachedBagsOnly;
 @property(retain, nonatomic) NSNumber *userIdentifier; // @synthesize userIdentifier=_userIdentifier;

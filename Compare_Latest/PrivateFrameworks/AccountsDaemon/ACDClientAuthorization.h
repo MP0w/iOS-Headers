@@ -10,16 +10,16 @@
 
 @interface ACDClientAuthorization : NSObject
 {
-    NSSet *_grantedPermissions;
-    BOOL _isGranted;
     ACDClient *_client;
     NSDictionary *_options;
+    BOOL _isGranted;
+    NSSet *_grantedPermissions;
 }
 
+@property(retain, nonatomic) NSSet *grantedPermissions; // @synthesize grantedPermissions=_grantedPermissions;
+@property(nonatomic) BOOL isGranted; // @synthesize isGranted=_isGranted;
 @property(retain, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(retain, nonatomic) ACDClient *client; // @synthesize client=_client;
-@property(nonatomic) BOOL isGranted; // @synthesize isGranted=_isGranted;
-@property(retain, nonatomic) NSSet *grantedPermissions; // @synthesize grantedPermissions=_grantedPermissions;
 - (void).cxx_destruct;
 - (id)initForClient:(id)arg1;
 

@@ -96,6 +96,7 @@
 - (void)unregisterAccount;
 - (void)registerAccount;
 - (BOOL)_migrateRegistrationIfNeeded;
+- (void)_retryRegister;
 - (void)authenticateAccount;
 - (void)logoutServiceSession;
 - (void)loginServiceSession;

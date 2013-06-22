@@ -16,12 +16,14 @@
     NSThread *_thread;
     NSString *_bundleIdentifier;
     NSString *_bundleVersion;
+    BOOL _requireWiFi;
 }
 
 + (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
-+ (CDStruct_e4886f83 *)expiringTilesets;
++ (CDStruct_e4886f83 *)newExpiringTilesets;
 + (unsigned int)expiringTilesetsCount;
 + (unsigned char)tileProviderIdentifier;
+@property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(retain, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(retain, nonatomic) id context; // @synthesize context=_context;

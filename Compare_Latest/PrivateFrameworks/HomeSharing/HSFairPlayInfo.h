@@ -6,20 +6,23 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+@class NSMutableSet, NSString;
 
 @interface HSFairPlayInfo : NSObject
 {
     BOOL _hasValidMescalSession;
     void *_hwInfo;
-    NSArray *_requestsToSign;
+    NSMutableSet *_requestsToSign;
+    void *_session;
 }
 
 - (id)_hexStringForData:(id)arg1;
+- (BOOL)_getHardwareInfo:(struct FairPlayHWInfo_ *)arg1;
 - (BOOL)shouldSignRequestAction:(id)arg1;
 - (id)signatureForData:(id)arg1;
 - (id)processSignedResponseData:(id)arg1 withSignature:(id)arg2;
 - (BOOL)setupMescalWithURL:(id)arg1 certificateURL:(id)arg2 requestsToSign:(id)arg3 userAgent:(id)arg4;
+- (void)_addRequestsToSign:(id)arg1;
 - (void)endMescalSession;
 - (id)securityInfoForURL:(id)arg1;
 - (void)endSecuritySession;

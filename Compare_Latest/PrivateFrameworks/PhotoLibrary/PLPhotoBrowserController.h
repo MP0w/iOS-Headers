@@ -28,11 +28,11 @@
 #import "UIScrollViewDelegate-Protocol.h"
 #import "UIToolbarDelegate-Protocol.h"
 
-@class NSArray, NSMutableDictionary, NSMutableSet, NSNumberFormatter, NSObject<PLAssetContainer>, NSOrderedSet, NSString, NSTimer, PLActivityViewController, PLAirPlayBackgroundView, PLAirTunesService, PLAirTunesServiceBrowser, PLCommentsButton, PLCropOverlay, PLEditPhotoController, PLLibraryImageDataProvider, PLManagedAsset, PLPhotoScrubber, PLPhotoTileViewController, PLPictureFramePlugin, PLProgressView, PLPublishingAgent, PLSlideshowSettingsViewController, PLVideoRemaker, PLVideoView, UIActionSheet, UIAlertView, UIBarButtonItem, UIImage, UIImageView, UILongPressGestureRecognizer, UINavigationBar, UINavigationController, UIPageController, UIPopoverController, UIProgressHUD, UIScrollView, UIToolbar, UITransitionView, UIView, UIWindow;
+@class AirPlayDiagnosticsPopoverController, NSArray, NSMutableDictionary, NSMutableSet, NSNumberFormatter, NSObject<PLAssetContainer>, NSOrderedSet, NSString, NSTimer, PLActivityViewController, PLAirPlayBackgroundView, PLAirTunesService, PLAirTunesServiceBrowser, PLCommentsButton, PLCropOverlay, PLEditPhotoController, PLLibraryImageDataProvider, PLManagedAsset, PLPhotoScrubber, PLPhotoTileViewController, PLPictureFramePlugin, PLProgressView, PLPublishingAgent, PLSlideshowSettingsViewController, PLVideoRemaker, PLVideoView, UIActionSheet, UIAlertView, UIBarButtonItem, UIImage, UIImageView, UILongPressGestureRecognizer, UINavigationBar, UINavigationController, UIPageController, UIPopoverController, UIProgressHUD, UIScrollView, UIToolbar, UITransitionView, UIView, UIWindow;
 
 @interface PLPhotoBrowserController : UIViewController <ABPeoplePickerNavigationControllerDelegate, PLAlbumChangeObserver, PLAirTunesServicePhotoBrowsingDataSource, PLPublishingActivityDelegate, PLActivityViewControllerDelegate, UIPageControllerDelegate, PLPhotoTileViewControllerDelegate, PLVideoViewDelegate, UIScrollViewDelegate, UIToolbarDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, UIActionSheetDelegate, PhotoScrubberDataSource, UIPopoverControllerDelegate, PLUIEditImageViewControllerDelegate, PLSlideshowSettingsViewControllerDelegate, PLSlideshowPluginDelegate, PLAirTunesServicePickerViewControllerDelegate, AirPlayRemoteSlideshowDelegate, PLDismissableViewController>
 {
-    id <PLPhotoBrowserControllerDelegate> _delegate;
+    id <PLPhotoBrowserControllerDelegate> __delegate;
     struct NSObject *_album;
     NSMutableDictionary *_tileCache;
     UIPageController *_pageController;
@@ -182,13 +182,13 @@
     BOOL _commentsTableWasVisible;
     id _activityTarget;
     SEL _activityAction;
+    AirPlayDiagnosticsPopoverController *_airplayDiagnosticsPopoverController;
     BOOL shouldShowOverlaysWhenViewAppears;
     BOOL shouldShowOverlaysWhenViewDisappears;
 }
 
 + (void)setPageControllerScrollViewClass:(Class)arg1;
 @property(nonatomic) BOOL isCameraApp; // @synthesize isCameraApp=_isCameraApp;
-@property(nonatomic) id <PLPhotoBrowserControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) BOOL shouldShowOverlaysWhenViewDisappears; // @synthesize shouldShowOverlaysWhenViewDisappears;
 @property(nonatomic) BOOL shouldShowOverlaysWhenViewAppears; // @synthesize shouldShowOverlaysWhenViewAppears;
 @property(readonly, nonatomic) NSOrderedSet *assets;
@@ -221,6 +221,7 @@
 - (void)_airTunesSlideShowTimerFired;
 - (id)_nextAirTunesSlideshowPhoto;
 - (void)showFullScreenPhotoEditTools;
+- (void)airTunesServicePickerViewControllerDidSelectDebugOption:(id)arg1;
 - (void)airTunesServicePickerViewController:(id)arg1 didSelectService:(id)arg2;
 @property(readonly, nonatomic) BOOL showsAirTunesOption;
 - (void)_airTunesServiceDidDisconnect:(id)arg1;
@@ -230,7 +231,7 @@
 - (void)_setSelectedAirTunesService:(id)arg1;
 - (void)_endAirTunesPicker;
 - (void)_dismissAirtunesServicePickerPopover;
-- (void)_displayAirTunesPopoverRelativeToView:(id)arg1;
+- (void)_displayAirTunesPopover:(id)arg1 relativeToView:(id)arg2;
 - (void)showAirTunesPicker:(id)arg1;
 - (void)_airTunesServicesDidChange:(id)arg1;
 - (int)airTunesMode;
@@ -241,6 +242,10 @@
 - (void)removeAirTunesButton;
 - (void)addAirTunesButton;
 - (void)setSearchForAirTunesService:(BOOL)arg1;
+- (void)_airplayDebugOptionWasClicked:(id)arg1;
+- (void)_dismissAirplayDiagnosticsPopover;
+- (BOOL)_shouldShowDebugAirplayOption;
+- (id)airplayDiagnosticsPopoverController;
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
 - (void)_longPressRecognized:(id)arg1;
 @property(nonatomic) BOOL canShowCopyCallout;
@@ -594,6 +599,7 @@
 - (void)_updateFilteredImagesAndShuffle:(BOOL)arg1;
 @property(retain, nonatomic) UIScrollView *pageControllerScrollView;
 - (Class)_pageControllerScrollViewClass;
+@property(nonatomic) id <PLPhotoBrowserControllerDelegate> delegate;
 - (void)dealloc;
 - (id)initWithImageDataProvider:(id)arg1;
 

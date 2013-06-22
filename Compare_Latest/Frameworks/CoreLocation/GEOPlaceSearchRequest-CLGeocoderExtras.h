@@ -7,7 +7,7 @@
 #import "GEOPlaceSearchRequest.h"
 
 @interface GEOPlaceSearchRequest (CLGeocoderExtras)
-- (void)_setCLClientLocation:(const CDStruct_c3f64973 *)arg1;
+- (void)_setCLClientLocation:(const CDStruct_4185d922 *)arg1;
 - (void)_applyDeviceLocation;
 @end
 

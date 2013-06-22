@@ -11,7 +11,7 @@
 @interface GKFriendPickerListSection : GKTableSection
 {
     NSDictionary *_ranks;
-    NSMutableDictionary *_inviteStatusDict;
+    NSMutableDictionary *_cellStatusDict;
     int _maxPlayers;
     int _numSelected;
     unsigned int _scope;
@@ -24,7 +24,7 @@
 @property(nonatomic) unsigned int scope; // @synthesize scope=_scope;
 @property(nonatomic) int numSelected; // @synthesize numSelected=_numSelected;
 @property(nonatomic) int maxPlayers; // @synthesize maxPlayers=_maxPlayers;
-@property(retain, nonatomic) NSMutableDictionary *inviteStatusDict; // @synthesize inviteStatusDict=_inviteStatusDict;
+@property(retain, nonatomic) NSMutableDictionary *cellStatusDict; // @synthesize cellStatusDict=_cellStatusDict;
 @property(retain, nonatomic) NSDictionary *ranks; // @synthesize ranks=_ranks;
 - (id)titleForHeaderInTableView:(id)arg1;
 - (int)tableView:(id)arg1 indexOfItemForPlayerID:(id)arg2;

@@ -35,6 +35,7 @@
 + (BOOL)restartingAfterRestoreFromBackup;
 + (long long)secondsNeededToCleanupModelAfteriTunesRestore;
 + (void)recalculateCachedCounts;
++ (void)repairPotentialModelCorruption;
 + (void)cleanupModelAfterRestoreFromiTunes;
 + (void)recreateThumbnailTablesIfNecessary;
 + (void)loadFileSystemDataIntoDatabase;
@@ -55,6 +56,7 @@
 - (void)dontImportFileSystemDataIntoDatabase;
 - (void)recreateThumbnailTablesIfNecessary;
 - (void)recalculateCachedCountsWithSemaphore:(id)arg1;
+- (void)repairPotentialModelCorruption;
 - (void)cleanupModelAfterRestoreFromiTunes;
 - (long long)secondsNeededToCleanupModelAfteriTunesRestore;
 - (void)loadFileSystemDataIntoDatabase;

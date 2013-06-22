@@ -95,6 +95,7 @@
 - (void)_registerForCoreTelephonyNotifications;
 - (void)_carrierChanged;
 - (void)_operatorChanged;
+- (void)_commCenterAlive;
 - (void)_unregisterForCommCenterReadyNotifications;
 - (void)_registerForCommCenterReadyNotifications;
 - (void)_updateCapabilities;
@@ -103,6 +104,8 @@
 - (void)_registerForCarrierNotifications;
 - (void)_unregisterForCapabilityNotifications;
 - (void)_registerForCapabilityNotifications;
+- (void)profileConnectionDidReceiveRestrictionChangedNotification:(id)arg1 userInfo:(id)arg2;
+- (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)_updateManagedConfigurationSettings;
 - (void)_unregisterForManagedConfigurationNotifications;
 - (void)_registerForManagedConfigurationNotifications;

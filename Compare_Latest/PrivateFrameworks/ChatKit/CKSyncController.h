@@ -14,8 +14,12 @@
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic, getter=isRestoring) BOOL restoring; // @synthesize restoring=_restoring;
+@property(nonatomic, getter=isRestoring) BOOL restoring; // @synthesize restoring=_restoring;
+- (void)postAttachmentRestored;
+- (void)attachmentRestored;
+- (void)updateRestoreState;
 - (void)prioritizeAttachmentAtPath:(id)arg1;
+- (id)init;
 
 @end
 

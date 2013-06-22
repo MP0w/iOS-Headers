@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) NSArray *incidents; // @synthesize incidents=_incidents;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (BOOL)writeDataToDirectory:(id)arg1 error:(id *)arg2;
 - (void)buildTrafficMeshWithRoadData:(id)arg1;
 - (void)buildIncidentsForDynamic:(id)arg1;
 - (void)buildTrafficMeshWithRoadData:(id)arg1 dynamicTile:(id)arg2 ribbonMaker:(struct VKRibbonMakerData_t *)arg3 trafficAccum:(struct TrafficAccum *)arg4 styleSession:(id)arg5;
