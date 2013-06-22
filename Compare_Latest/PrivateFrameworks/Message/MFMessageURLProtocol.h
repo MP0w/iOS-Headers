@@ -6,15 +6,16 @@
 
 #import "NSURLProtocol.h"
 
-@class MessageTextAttachment, MonitoredInvocation, NSThread, NSURL;
+@class MFMessageTextAttachment, MFMonitoredInvocation, NSMutableArray, NSThread, NSURL;
 
 @interface MFMessageURLProtocol : NSURLProtocol
 {
     NSURL *_url;
-    MessageTextAttachment *_attachment;
-    MonitoredInvocation *_invocation;
+    MFMessageTextAttachment *_attachment;
+    MFMonitoredInvocation *_invocation;
     NSThread *_loader;
     BOOL _stopped;
+    NSMutableArray *_attachments;
 }
 
 + (BOOL)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;

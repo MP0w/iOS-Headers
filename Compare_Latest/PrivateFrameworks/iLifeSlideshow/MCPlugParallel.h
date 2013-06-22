@@ -11,12 +11,12 @@
 @interface MCPlugParallel : MCPlug
 {
     void *mGeometry;
-    NSString *mIDInSupercontainer;
-    MCContainerParallelizer *mSupercontainer;
-    double mTimeIn;
     short mZIndex;
     short mAudioPriority;
+    NSString *mIDInSupercontainer;
+    MCContainerParallelizer *mSupercontainer;
     float mOpacity;
+    double mTimeIn;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;

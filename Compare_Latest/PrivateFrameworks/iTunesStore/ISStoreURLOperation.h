@@ -14,13 +14,14 @@
     BOOL _canSendGUIDParameter;
     BOOL _needsAuthentication;
     BOOL _needsURLBag;
+    BOOL _performsMachineDataActions;
     BOOL _shouldSendXTokenHeader;
     BOOL _urlKnownToBeTrusted;
     BOOL _useUserSpecificURLBag;
 }
 
 + (id)_restrictionsHeaderValue;
-+ (void)_addITunesStoreHeadersToRequest:(id)arg1 withBagContext:(id)arg2 accountIdentifier:(id)arg3;
++ (void)_addITunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 accountIdentifier:(id)arg3;
 + (id)propertyListOperationWithURLBagKey:(id)arg1;
 + (id)pingOperationWithUrl:(id)arg1;
 + (id)itemPingOperationWithIdentifier:(unsigned long long)arg1 urlBagKey:(id)arg2;
@@ -31,7 +32,6 @@
 @property BOOL needsURLBag; // @synthesize needsURLBag=_needsURLBag;
 @property BOOL needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;
 @property(retain) NSNumber *authenticatedDSID; // @synthesize authenticatedDSID=_authenticatedDSID;
-- (id)_urlFromURLBagForRequestProperties:(id)arg1 inBagContext:(id)arg2;
 - (void)_runURLOperation;
 - (id)_resolvedURLInBagContext:(id)arg1 URLBag:(id *)arg2;
 - (id)_resolvedURL;
@@ -50,6 +50,7 @@
 - (id)_copyAuthenticationContext;
 - (id)authenticatedAccountDSID;
 @property BOOL shouldSendXTokenHeader;
+@property BOOL performsMachineDataActions;
 @property BOOL canSendGUIDParameter;
 - (void)dealloc;
 - (id)init;

@@ -7,7 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBUIPluginControllerHost <NSObject>
-- (void)uiPlugin:(id)arg1 ignoresKeyboardAvoidance:(BOOL)arg2;
 - (void)uiPlugin:(id)arg1 forceUpdateToInterfaceOrientation:(int)arg2 animated:(BOOL)arg3;
 - (void)uiPluginUserEventOccurred:(id)arg1;
 - (BOOL)uiPlugin:(id)arg1 launchApplicationWithBundleID:(id)arg2 openURL:(id)arg3;
@@ -17,7 +16,6 @@
 - (BOOL)uiPluginExpectsFaceContact:(id)arg1;
 - (void)uiPlugin:(id)arg1 isNowRunning:(BOOL)arg2;
 - (void)uiPluginWantsDismissal:(id)arg1 withAnimation:(BOOL)arg2;
-- (void)uiPluginWantsSizeUpdate:(id)arg1 revealMode:(int)arg2 withBlock:(id)arg3;
-- (BOOL)uiPluginWantsActivation:(id)arg1 forEvent:(int)arg2 revealMode:(int)arg3 completion:(id)arg4;
+- (BOOL)uiPluginWantsActivation:(id)arg1 forEvent:(int)arg2 completion:(id)arg3;
 @end
 

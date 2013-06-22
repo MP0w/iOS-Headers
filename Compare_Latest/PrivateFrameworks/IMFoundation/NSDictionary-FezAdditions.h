@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (FezAdditions)
++ (id)dictionaryWithKeyArray:(id)arg1 defaultValue:(id)arg2;
 + (id)dictionaryWithArchiveData:(id)arg1;
 + (id)dictionaryWithArchiveData:(id)arg1 allowedClasses:(id)arg2;
 + (id)dictionaryWithPlistData:(id)arg1;

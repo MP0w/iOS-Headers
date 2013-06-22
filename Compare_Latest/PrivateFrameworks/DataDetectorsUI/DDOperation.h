@@ -6,15 +6,13 @@
 
 #import "NSOperation.h"
 
-@class DOMNode, NSArray, NSDictionary, WebFrame;
+#import "NSCopying-Protocol.h"
 
-@interface DDOperation : NSOperation
+@class NSArray, NSDictionary;
+
+@interface DDOperation : NSOperation <NSCopying>
 {
-    WebFrame *_frame;
-    DOMNode *_startNode;
-    int _startOffset;
-    DOMNode *_endNode;
-    int _endOffset;
+    id _container;
     BOOL _needContinuation;
     int _generationNumber;
     unsigned int _types;
@@ -23,12 +21,13 @@
     BOOL _isCurrentlyUsingTheScanner;
     BOOL _isDiscarded;
     int _tryCount;
-    int _needsLayoutTryCount;
+    int _containerNotReadyTryCount;
     NSDictionary *_context;
 }
 
 + (BOOL)_needsFullScannerForDetectionTypes:(unsigned int)arg1;
 + (struct __DDScanner *)_sharedScannerForTypes:(unsigned int)arg1;
++ (id)urlificationBlockForTypes:(SEL)arg1;
 @property(retain, nonatomic) NSDictionary *context; // @synthesize context=_context;
 @property BOOL isDiscarded; // @synthesize isDiscarded=_isDiscarded;
 @property(nonatomic) unsigned int detectionTypes; // @synthesize detectionTypes=_types;
@@ -36,21 +35,29 @@
 @property int generationNumber; // @synthesize generationNumber=_generationNumber;
 @property(retain, nonatomic) NSArray *results; // @synthesize results=_results;
 @property BOOL needContinuation; // @synthesize needContinuation=_needContinuation;
-@property int endOffset; // @synthesize endOffset=_endOffset;
-@property(retain, nonatomic) DOMNode *endNode; // @synthesize endNode=_endNode;
-@property int startOffset; // @synthesize startOffset=_startOffset;
-@property(retain, nonatomic) DOMNode *startNode; // @synthesize startNode=_startNode;
-@property(retain, nonatomic) WebFrame *frame; // @synthesize frame=_frame;
-- (BOOL)_needsFullScanner;
+@property(retain, nonatomic) id container; // @synthesize container=_container;
+- (void)dispatchScanQueryCreationWithCompletionBlock:(id)arg1;
+- (id)newOperationForContinuation;
+- (id)newOperationForStartingOver;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)needsToStartOver;
+- (BOOL)containerIsReady;
+- (BOOL)needsFullScanner;
 - (void)_setScanQuery:(struct __DDScanQuery *)arg1;
 - (void)cleanup;
 - (void)cancel;
 - (void)main;
+- (void)dispatchContainerModificationBlock:(id)arg1;
 - (void)dealloc;
-- (id)init;
+- (id)initWithContainer:(id)arg1;
 - (struct __DDScanQuery *)scanQuery;
-- (BOOL)_doURLificationOnDocument;
-- (void)_createScanQueryOnWebThreadStartAfterRange:(id)arg1;
+- (BOOL)doURLificationOnDocument;
+- (int)_createScanQuery;
+- (struct __DDScanQuery *)_createScanQueryForBackend;
+- (void)_updateGenerationNumber;
+- (BOOL)_rangeValidForContainer;
+- (BOOL)_containerReadyForDetection;
+- (void)_applyContainerRestrictionsToTypes;
 
 @end
 

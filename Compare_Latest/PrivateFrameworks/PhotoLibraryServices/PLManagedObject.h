@@ -12,7 +12,6 @@
 {
 }
 
-+ (id)shortObjectIDURIFromURI:(id)arg1;
 @property(readonly, nonatomic) NSString *pl_shortDescription;
 @property(readonly, nonatomic) NSString *shortObjectIDURI;
 @property(readonly, nonatomic) BOOL isRegisteredWithUserInterfaceContext;

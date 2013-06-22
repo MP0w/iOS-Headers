@@ -6,18 +6,28 @@
 
 #import <PassKit/PKPassFaceView.h>
 
-@class PKLinkedAppView, UIAlertView, UIButton, UILabel, UIRefreshControl, UISwitch;
+#import "UITableViewDataSource-Protocol.h"
+#import "UITableViewDelegate-Protocol.h"
 
-@interface PKPassBackFaceView : PKPassFaceView
+@class NSArray, NSMutableDictionary, NSTimer, PKLinkedAppView, PKSettingTableCell, UIAlertView, UIButton, UILabel, UIRefreshControl, UITableView;
+
+@interface PKPassBackFaceView : PKPassFaceView <UITableViewDataSource, UITableViewDelegate>
 {
-    UISwitch *_showInLockScreenSwitch;
-    UISwitch *_automaticUpdatesSwitch;
     UIRefreshControl *_refreshControl;
     BOOL _tall;
     UILabel *_updateDateLabel;
     UIButton *_doneButton;
     PKLinkedAppView *_linkedApp;
     UIAlertView *_storeDemoRefuseDeleteAlert;
+    UITableView *_bodyTable;
+    PKSettingTableCell *_automaticUpdates;
+    PKSettingTableCell *_showInLockScreen;
+    NSArray *_rowCountBySection;
+    unsigned int _settingsSection;
+    unsigned int _linkedAppSection;
+    unsigned int _fieldsSection;
+    NSMutableDictionary *_fieldCellsByIndexPath;
+    NSTimer *_refreshTimeoutTimer;
     BOOL _showsDelete;
     BOOL _showsLinkedApp;
     BOOL _showsSettings;
@@ -25,7 +35,7 @@
 }
 
 @property(retain, nonatomic) UIAlertView *storeDemoRefuseDeleteAlert; // @synthesize storeDemoRefuseDeleteAlert=_storeDemoRefuseDeleteAlert;
-@property(readonly, nonatomic) PKLinkedAppView *linkedApp; // @synthesize linkedApp=_linkedApp;
+@property(nonatomic) PKLinkedAppView *linkedApp; // @synthesize linkedApp=_linkedApp;
 @property(nonatomic) BOOL showsLinks; // @synthesize showsLinks=_showsLinks;
 @property(nonatomic) BOOL showsSettings; // @synthesize showsSettings=_showsSettings;
 @property(nonatomic) BOOL showsLinkedApp; // @synthesize showsLinkedApp=_showsLinkedApp;
@@ -40,15 +50,28 @@
 - (BOOL)showBackgroundMatte;
 - (BOOL)showUpdateDateLabel;
 - (BOOL)deleteEnabled;
+- (void)willMoveToSuperview:(id)arg1;
 - (void)_doneButtonPressed:(id)arg1;
 - (id)_relevantBuckets;
 - (void)createBodyInvariantViews;
-- (id)formattedUpdateDate:(id)arg1;
+- (id)_formattedUpdateDate:(id)arg1;
+- (id)_updateLabelAttributedStringWithString:(id)arg1;
 - (void)setupRefreshControl:(id)arg1;
 - (BOOL)shouldAllowRefresh;
+- (void)_refreshTimeoutFired;
 - (void)refreshControlValueChanged:(id)arg1;
-- (void)makeInfoBlockWithTitle:(id)arg1 info:(id)arg2 isFirst:(BOOL)arg3 superview:(id)arg4 yOffset:(float *)arg5 contentInsets:(struct UIEdgeInsets)arg6;
-- (id)makeSettingsBlockWithTitle:(id)arg1 info:(id)arg2 action:(SEL)arg3 settingSwitch:(id *)arg4;
+- (id)_fieldForIndexPath:(id)arg1;
+- (id)_fieldCellForIndexPath:(id)arg1;
+- (id)_settingsCellForRow:(unsigned int)arg1;
+- (BOOL)_settingsAvailable;
+- (BOOL)_linkedAppAvailable;
+- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
+- (float)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
+- (int)numberOfSectionsInTableView:(id)arg1;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (struct CGSize)contentSize;
 - (BOOL)isFrontFace;
 - (void)dealloc;

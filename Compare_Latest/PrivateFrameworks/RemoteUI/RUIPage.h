@@ -8,7 +8,7 @@
 
 #import "UIWebViewDelegate-Protocol.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSString, RUIObjectModel, RUITableView, RUIWebView, UIBarButtonItem, UIToolbar, UIView;
+@class NSArray, NSDictionary, NSMutableArray, NSString, RUIObjectModel, RUIPasscodeView, RUISpinnerView, RUITableView, RUIWebView, UIBarButtonItem, UIToolbar, UIView;
 
 @interface RUIPage : UIViewController <UIWebViewDelegate>
 {
@@ -16,8 +16,10 @@
     UIView *_containerView;
     RUITableView *_tableViewOM;
     RUIWebView *_webViewOM;
+    RUIPasscodeView *_passcodeViewOM;
+    RUISpinnerView *_spinnerViewOM;
     NSString *_validationFunction;
-    BOOL _isLoading;
+    BOOL _loading;
     NSString *_navTitle;
     NSString *_loadingTitle;
     NSDictionary *_rightNavigationBarButton;
@@ -33,11 +35,18 @@
     RUIObjectModel *_objectModel;
     RUIPage *_parentPage;
     NSMutableArray *_childPages;
+    int _loadingIndicatorStyle;
+    NSDictionary *_middleToolbarButton;
+    UIBarButtonItem *_middleToolbarItem;
 }
 
 @property(readonly, nonatomic) RUIPage *parentPage; // @synthesize parentPage=_parentPage;
-@property(nonatomic) RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
 @property(readonly, nonatomic) NSArray *childPages; // @synthesize childPages=_childPages;
+@property(nonatomic) RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
+@property(retain, nonatomic) UIBarButtonItem *middleToolbarItem; // @synthesize middleToolbarItem=_middleToolbarItem;
+@property(retain, nonatomic) NSDictionary *middleToolbarButton; // @synthesize middleToolbarButton=_middleToolbarButton;
+@property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
+@property(nonatomic) int loadingIndicatorStyle; // @synthesize loadingIndicatorStyle=_loadingIndicatorStyle;
 @property(nonatomic) BOOL hidesBackButton; // @synthesize hidesBackButton=_hidesBackButton;
 @property(readonly, nonatomic) UIToolbar *toolbar; // @synthesize toolbar=_toolbar;
 @property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
@@ -53,7 +62,7 @@
 @property(copy, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
 - (id)contentScrollView;
 - (void)viewDidLayoutSubviews;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
@@ -61,6 +70,8 @@
 - (void)viewDidLoad;
 - (void)dealloc;
 - (void)populatePostbackDictionary:(id)arg1;
+@property(readonly, nonatomic) RUISpinnerView *spinnerViewOM;
+@property(readonly, nonatomic) RUIPasscodeView *passcodeViewOM;
 - (BOOL)hasWebView;
 @property(readonly, nonatomic) RUIWebView *webViewOM;
 - (BOOL)hasTableView;
@@ -71,19 +82,22 @@
 - (void)_setParentPage:(id)arg1;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
+@property(readonly, nonatomic) NSArray *accessoryViews;
 - (void)_setContentInset:(float)arg1;
 - (float)_getKeyboardIntersectionHeight;
+- (void)_middleToolbarButtonPressed:(id)arg1;
 - (void)_leftToolbarButtonPressed:(id)arg1;
 - (void)_rightToolbarButtonPressed:(id)arg1;
 - (void)_leftNavigationBarButtonPressed:(id)arg1;
 - (void)_rightNavigationBarButtonPressed:(id)arg1;
 - (void)_barButtonPressed:(id)arg1 isRight:(BOOL)arg2 isNavbar:(BOOL)arg3;
 - (void)_updateToolbar;
+- (id)flexibleSpace;
 - (void)setButton:(id)arg1 enabled:(BOOL)arg2;
 @property(readonly, nonatomic) NSArray *buttons;
 - (id)_barButtonItemForDict:(id)arg1 action:(SEL)arg2;
 - (void)setHasToolbar;
-- (void)_updateNavItemTitle;
+- (void)_updateLoadingUI;
 - (id)description;
 - (id)init;
 

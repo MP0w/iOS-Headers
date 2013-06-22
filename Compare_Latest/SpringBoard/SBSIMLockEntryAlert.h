@@ -14,6 +14,8 @@
 - (void)deactivate;
 - (void)activate;
 - (int)status;
+- (id)lockEntryView;
+- (BOOL)hasTranslucentBackground;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
 - (id)init;
 

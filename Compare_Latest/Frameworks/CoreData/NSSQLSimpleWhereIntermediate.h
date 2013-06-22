@@ -18,6 +18,8 @@
 - (id)generateSQLStringInContext:(id)arg1;
 - (id)_generateSQLBetweenStringInContext:(id)arg1;
 - (id)_generateSQLContainmentStringInContext:(id)arg1;
+- (id)_generateSQLForConstKeyArray:(id)arg1 targetEntity:(id)arg2 inContext:(id)arg3;
+- (id)_entityDestinationIfKeyOfSomeSort:(id)arg1;
 - (id)_generateSQLForConst:(id)arg1 inAttribute:(id)arg2 expression:(id)arg3 inContext:(id)arg4;
 - (id)_generateSQLForConst:(id)arg1 inToMany:(id)arg2 inContext:(id)arg3;
 - (id)_generateSQLForConst:(id)arg1 inManyToMany:(id)arg2 expression:(id)arg3 inContext:(id)arg4;

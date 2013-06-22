@@ -16,16 +16,16 @@
     UIColor *embossShadowColor;
     float embossSize;
     UIColor *innerShadowColor;
-    struct CGPoint innerShadowOffset;
     float innerShadowBlur;
     int innerShadowBlendMode;
     UIColor *outerShadowColor;
-    struct CGPoint outerShadowOffset;
     float outerShadowBlur;
     int outerShadowBlendMode;
     UIColor *topGradientColor;
     UIColor *bottomGradientColor;
     float innerOpacity;
+    struct CGPoint innerShadowOffset;
+    struct CGPoint outerShadowOffset;
 }
 
 + (id)old2xLetterpressStyle;

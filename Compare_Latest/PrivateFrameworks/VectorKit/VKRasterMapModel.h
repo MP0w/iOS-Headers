@@ -8,25 +8,31 @@
 
 #import "VKMapLayer-Protocol.h"
 
-@class NSMutableArray, VGLRenderState;
+@class NSMutableArray, VGLRenderState, VGLTexture;
 
 @interface VKRasterMapModel : VKMapTileModel <VKMapLayer>
 {
-    VGLRenderState *_renderState;
     NSMutableArray *_sortedTiles;
     unsigned int _mapLayer;
     BOOL _rasterViewer;
+    VGLRenderState *_renderState;
+    VGLTexture *_clutTexture;
+    BOOL _showingNoDataPlaceholders;
 }
 
 + (BOOL)reloadOnStylesheetChange;
+@property(readonly, getter=isShowingNoDataPlaceholders) BOOL showingNoDataPlaceholders; // @synthesize showingNoDataPlaceholders=_showingNoDataPlaceholders;
 @property(nonatomic) BOOL rasterViewer; // @synthesize rasterViewer=_rasterViewer;
 @property(nonatomic) unsigned int mapLayerPosition; // @synthesize mapLayerPosition=_mapLayer;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
-- (BOOL)isShowingNoDataPlaceholders;
+- (id)_clutTextureForLevelOfDetail:(unsigned int)arg1 scale:(float)arg2;
+- (void)stylesheetDidChange;
+- (id)stylesheet;
 - (void)reset;
 - (void)dealloc;
 - (id)init;
+- (unsigned int)supportedRenderPasses;
 
 @end
 

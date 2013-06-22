@@ -200,6 +200,8 @@
 - (id)standardizedURLPath;
 - (id)stringByReplacingPercentEscapesUsingEncoding:(unsigned int)arg1;
 - (id)stringByAddingPercentEscapesUsingEncoding:(unsigned int)arg1;
+- (id)stringByRemovingPercentEncoding;
+- (id)stringByAddingPercentEncodingWithAllowedCharacters:(id)arg1;
 - (CDStruct_5fe7aead)decimalValue;
 - (id)_web_HTTPStyleLanguageCodeWithoutRegion;
 - (id)_web_HTTPStyleLanguageCode;

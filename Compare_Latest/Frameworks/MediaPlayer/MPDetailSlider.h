@@ -6,40 +6,37 @@
 
 #import "UISlider.h"
 
-@class NSString, NSTimer, UIImageView, UILabel;
+#import "MPDetailScrubControllerDelegate-Protocol.h"
+#import "MPDetailedScrubbing-Protocol.h"
 
-@interface MPDetailSlider : UISlider
+@class MPDetailScrubController, NSString, NSTimer, UIImageView, UILabel, UIView;
+
+@interface MPDetailSlider : UISlider <MPDetailedScrubbing, MPDetailScrubControllerDelegate>
 {
     UILabel *_currentTimeInverseLabel;
     UILabel *_currentTimeLabel;
+    MPDetailScrubController *_scrubController;
     BOOL _allowsScrubbing;
-    BOOL _allowsDetailScrubbing;
     BOOL _autoscrubActive;
     NSTimer *_autoscrubTimer;
     double _availableDuration;
-    struct CGPoint _beginLocationInView;
     BOOL _canCommit;
     double _currentTime;
     id _delegate;
-    float _detailScrubbingVerticalRange;
-    BOOL _didBeginTracking;
     UIImageView *_downloadingTrackOverlay;
     double _duration;
-    BOOL _durationAllowsDetailScrubbing;
     UIImageView *_glowDetailScrubImageView;
     BOOL _isTracking;
-    struct CGPoint _lastCommittedLocationInView;
-    float _minScale;
     float _minTimeLabelWidth;
     float _maxTrackWidth;
-    BOOL _needsCommit;
     struct CGPoint _previousLocationInView;
-    int _scrubValue;
     int _style;
     struct UIEdgeInsets _timeLabelInsets;
     int _timeLabelStyle;
     UIImageView *_thumbImageView;
     float _trackInset;
+    UIView *_trackKnockoutView;
+    float _detailScrubbingVerticalRange;
 }
 
 + (Class)labelClass;
@@ -50,22 +47,21 @@
 @property(nonatomic) struct UIEdgeInsets timeLabelInsets; // @synthesize timeLabelInsets=_timeLabelInsets;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) float detailScrubbingVerticalRange; // @synthesize detailScrubbingVerticalRange=_detailScrubbingVerticalRange;
-@property(nonatomic) id <MPDetailSliderDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MPDetailSliderDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) double availableDuration; // @synthesize availableDuration=_availableDuration;
+- (void).cxx_destruct;
 - (void)_updateForAvailableDuraton;
 - (void)_commitValue;
 - (void)_resetScrubInfo;
-- (struct CGRect)_thumbHitFrame;
 - (id)_stringForInverseCurrentTime:(double)arg1;
 - (id)_stringForCurrentTime:(double)arg1;
 - (id)_stringForTime:(double)arg1;
 - (void)_updateTimeDisplayForTime:(double)arg1 force:(BOOL)arg2;
 - (void)_updateTimeDisplayForTime:(double)arg1;
-- (float)_scaleForIdealValueForVerticalPosition:(float)arg1;
-- (float)_scaleForVerticalPosition:(float)arg1;
-- (void)_adjustMinScale;
 - (void)_updateTrackInset;
 - (void)_setupControlsForStyle;
+- (id)_colorSliceImageWithColor:(id)arg1 height:(float)arg2;
+- (id)_modernThumbImageWithColor:(id)arg1 height:(float)arg2 includeShadow:(BOOL)arg3;
 - (float)timeLabelVerticalOffsetForStyle:(int)arg1;
 - (id)timeLabelTextColorForStyle:(int)arg1;
 - (struct CGSize)timeLabelShadowOffsetForStyle:(int)arg1;
@@ -73,20 +69,27 @@
 - (id)timeLabelFontForStyle:(int)arg1;
 @property(nonatomic) BOOL allowsDetailScrubbing;
 @property(readonly, nonatomic) NSString *localizedScrubSpeedText;
-@property(readonly, nonatomic) BOOL detailScrubbingAvailableForCurrentDuration;
 - (void)cancelTracking;
+@property(readonly, nonatomic) BOOL detailScrubbingAvailableForCurrentDuration;
 - (BOOL)isTracking;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (void)_autoscrubTick:(id)arg1;
 - (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (void)_setValueWhileTracking:(float)arg1 animated:(BOOL)arg2;
+- (void)detailScrubController:(id)arg1 didChangeValue:(float)arg2;
+- (void)detailScrubController:(id)arg1 didChangeScrubSpeed:(int)arg2;
+- (struct CGRect)thumbViewRect;
+- (struct CGRect)thumbHitRect;
+- (void)_setValueWhileTracking:(float)arg1 duration:(double)arg2;
+- (void)setValue:(float)arg1 duration:(double)arg2;
 - (void)setValue:(float)arg1 animated:(BOOL)arg2;
+- (void)_setUseLookNeue:(BOOL)arg1;
 - (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (id)currentThumbImage;
 - (id)createThumbView;
+- (void)tintColorDidChange;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;

@@ -6,13 +6,13 @@
 
 #import "UIView.h"
 
-@class NSString, NSTimer, SBAwayMediaControlsView, TPLCDTextView, UILabel;
+@class NSString, NSTimer, SBAwayMediaControlsView, TPLegacyLCDTextView, UILabel;
 
 @interface SBAwayDateView : UIView
 {
     NSTimer *_dateTimer;
-    TPLCDTextView *_timeLabel;
-    TPLCDTextView *_dateAndTetheringLabel;
+    TPLegacyLCDTextView *_timeLabel;
+    TPLegacyLCDTextView *_dateAndTetheringLabel;
     NSString *_title;
     NSString *_artist;
     NSString *_album;
@@ -42,12 +42,11 @@
 @property(retain, nonatomic) NSString *title;
 - (void)updateClock;
 - (void)updateClockFormat;
-- (void)_createFormattersIfNecessary;
 - (void)update;
 - (void)resizeAndPositionNowPlayingLabels;
 - (id)newNowPlayingLabelWithFont:(id)arg1 color:(id)arg2;
 - (id)labelWithFontSize:(float)arg1 origin:(struct CGPoint)arg2;
-- (id)labelWithFontSize:(float)arg1 origin:(struct CGPoint)arg2 fontName:(const char *)arg3;
+- (id)labelWithFontSize:(float)arg1 origin:(struct CGPoint)arg2 fontName:(id)arg3;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

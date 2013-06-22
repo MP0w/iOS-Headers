@@ -38,11 +38,14 @@
     unsigned long mDataWidth;
     unsigned long mDataHeight;
     unsigned char mOrientation;
+    NSString *mLabel;
     NSMutableDictionary *mUserData;
     struct __CVBuffer *mCVTexture;
     unsigned long mFlags;
 }
 
+@property(copy, nonatomic) NSString *label; // @synthesize label=mLabel;
+@property(readonly) int retainByUserCount; // @synthesize retainByUserCount=mRetainByUserCount;
 @property(nonatomic) int clampMode; // @synthesize clampMode=mClampMode;
 @property(nonatomic) double renderTime; // @synthesize renderTime=mRenderTime;
 @property(nonatomic) double sourceTimeStamp; // @synthesize sourceTimeStamp=mSourceTimeStamp;
@@ -74,6 +77,7 @@
 @property(readonly, nonatomic) float aspectRatio;
 @property(readonly) NSMutableDictionary *userData;
 @property(readonly) NSString *imageBufferKey;
+@property(nonatomic) BOOL scaleWasFixedForTargetAspectRatio;
 @property(nonatomic) BOOL hasKenBurns;
 @property(nonatomic) BOOL preservesAspectRatio;
 @property(nonatomic) BOOL mipmapFiltersNearest;

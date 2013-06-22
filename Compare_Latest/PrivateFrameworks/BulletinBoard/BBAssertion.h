@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class BBZeroingWeakReference, NSString;
 
 @interface BBAssertion : NSObject
 {
-    id <BBAssertionDelegate> _delegate;
+    BBZeroingWeakReference *_delegate;
     NSString *_identifier;
     unsigned int _transactionID;
 }

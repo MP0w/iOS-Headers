@@ -11,12 +11,12 @@
 @interface StockGraphImageSet : NSObject
 {
     UIImage *_lineGraphImage;
-    UIImage *_plainLineImage;
+    UIImage *_highlightOverlayImage;
     UIImage *_volumeGraphImage;
 }
 
 @property(retain, nonatomic) UIImage *volumeGraphImage; // @synthesize volumeGraphImage=_volumeGraphImage;
-@property(retain, nonatomic) UIImage *plainLineImage; // @synthesize plainLineImage=_plainLineImage;
+@property(retain, nonatomic) UIImage *highlightOverlayImage; // @synthesize highlightOverlayImage=_highlightOverlayImage;
 @property(retain, nonatomic) UIImage *lineGraphImage; // @synthesize lineGraphImage=_lineGraphImage;
 - (void).cxx_destruct;
 

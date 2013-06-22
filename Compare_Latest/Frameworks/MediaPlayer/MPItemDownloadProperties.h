@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) BOOL downloadExists; // @synthesize downloadExists=_downloadExists;
 @property(readonly, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(readonly, nonatomic) long long assetFileSize; // @synthesize assetFileSize=_assetFileSize;
+- (void).cxx_destruct;
 - (void)_reloadNetworkConstraints;
 - (id)newAVAssetOptionsWithDownloadStyle:(int)arg1;
 - (void)acquireDownloadTokenWithCompletionHandler:(id)arg1;
@@ -41,7 +42,7 @@
 - (id)description;
 - (void)dealloc;
 - (id)initWithMediaItem:(id)arg1;
-- (id)initWithDownloadIdentifier:(id)arg1;
+- (id)initWithDownloadIdentifier:(long long)arg1;
 - (id)initWithDownload:(id)arg1;
 
 @end

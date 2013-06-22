@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class Account, AuthScheme, Connection;
+@class MFAccount, MFAuthScheme, MFConnection;
 
 @interface MFSASLAuthenticator : NSObject
 {
-    Connection *_connection;
-    AuthScheme *_authScheme;
-    Account *_account;
+    MFConnection *_connection;
+    MFAuthScheme *_authScheme;
+    MFAccount *_account;
     int _authenticationState;
 }
 

@@ -13,6 +13,7 @@
 + (id)sharedNoteResurrectionMergePolicy;
 - (BOOL)resolveConflicts:(id)arg1 error:(id *)arg2;
 - (id)snapshotFromRecord:(id)arg1;
+- (BOOL)accountExists:(id)arg1;
 - (id)localStoreForNote:(id)arg1;
 
 @end

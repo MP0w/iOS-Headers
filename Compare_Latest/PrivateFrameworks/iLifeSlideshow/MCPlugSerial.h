@@ -13,8 +13,8 @@
     NSMutableDictionary *mTransitionAttributes;
     unsigned int mIndex;
     NSString *mTransitionID;
-    double mTransitionDuration;
     MCContainerSerializer *mSupercontainer;
+    double mTransitionDuration;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;

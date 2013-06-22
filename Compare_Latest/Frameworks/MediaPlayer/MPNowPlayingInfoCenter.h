@@ -16,6 +16,7 @@
 }
 
 + (id)defaultCenter;
+- (void).cxx_destruct;
 @property(copy) NSDictionary *nowPlayingInfo;
 - (void)_pushNowPlayingInfoAndRetry:(BOOL)arg1;
 - (id)init;

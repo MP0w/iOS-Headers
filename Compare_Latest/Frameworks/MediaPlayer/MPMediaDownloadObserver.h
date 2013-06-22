@@ -15,13 +15,18 @@
     BOOL _hasPendingProgressHandlerExecution;
     BOOL _invalidated;
     long long _pid;
-    int _retainCount;
 }
 
 + (id)sharedITunesStoreDownloadManager;
++ (id)newObserverForRadioTrack:(id)arg1;
++ (id)newObserverForMediaCollection:(id)arg1;
 + (id)newObserverForMediaItem:(id)arg1;
-+ (id)newObserverForMediaItemPersistentID:(unsigned long long)arg1 downloadStatus:(int)arg2 storeID:(long long)arg3;
++ (id)newObserverForMediaItemPersistentID:(unsigned long long)arg1 isPendingSync:(BOOL)arg2 storeID:(long long)arg3;
 @property(readonly, nonatomic) long long persistentID; // @synthesize persistentID=_pid;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) double rawDownloadTotal;
+@property(readonly, nonatomic) double rawDownloadProgress;
+@property(readonly, nonatomic, getter=isPurchasing) BOOL purchasing;
 - (void)invalidate;
 - (void)_onQueue_invalidate;
 @property(copy) id progressHandler;
@@ -33,11 +38,6 @@
 - (void)_onQueue_setShouldFireProgressHandler;
 - (void)dealloc;
 - (id)init;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
-- (oneway void)release;
-- (id)retain;
 
 @end
 

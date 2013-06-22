@@ -14,7 +14,7 @@
     UIActivityIndicatorView *_spinner;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)removeFromSuperview;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

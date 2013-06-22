@@ -12,19 +12,12 @@
 
 @interface SBIconAccessoryImage : UIImage <SBCountedMapValue>
 {
-    NSString *_text;
+    NSString *_countedMapKey;
 }
 
-+ (void)checkinAccessoryImage:(id)arg1;
-+ (id)checkoutAccessoryImageForIcon:(id)arg1 location:(int)arg2;
-+ (Class)_imageClassForIcon:(id)arg1 location:(int)arg2;
-+ (id)_accessoryImageCountedMap;
-+ (id)textForCountedMapKey:(id)arg1;
-+ (id)countedMapKeyForText:(id)arg1;
-+ (id)creationBlockForText:(SEL)arg1;
-@property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
-- (struct CGRect)accessoryFrameForIconBounds:(struct CGRect)arg1;
-@property(readonly, nonatomic) id <NSCopying> countedMapKey;
+@property(copy, nonatomic) NSString *countedMapKey; // @synthesize countedMapKey=_countedMapKey;
+- (void)dealloc;
+- (id)initWithImage:(id)arg1;
 
 @end
 

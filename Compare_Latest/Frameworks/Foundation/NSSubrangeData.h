@@ -20,7 +20,6 @@
 - (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
 - (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
 - (void)getBytes:(void *)arg1;
-- (BOOL)_bytesAreVM;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (const void *)bytes;
 - (unsigned int)length;

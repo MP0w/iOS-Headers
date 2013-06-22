@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSFetchRequest, NSManagedObjectContext, NSSQLCore, NSSQLEntity, NSSQLModel, NSSQLRowCache, NSSQLStatement;
+@class NSFetchRequest, NSManagedObjectContext, NSPersistentStore, NSSQLEntity, NSSQLModel, NSSQLRowCache, NSSQLStatement;
 
 @interface _PFFetchPlanHeader : NSObject
 {
     NSFetchRequest *fetch_request;
     NSSQLStatement *cached_sql_statement;
     unsigned int requested_batch_size;
-    NSSQLCore *sql_core;
+    NSPersistentStore *sql_core;
     NSSQLModel *sql_model;
     NSSQLEntity *statement_entity;
     NSManagedObjectContext *current_context;
@@ -23,7 +23,8 @@
         unsigned int principal_entity_has_subentities:1;
         unsigned int fetch_only_primary_keys:1;
         unsigned int fetch_results_style:3;
-        unsigned int _reserved:27;
+        unsigned int use_clean_memory:1;
+        unsigned int _reserved:26;
     } flags;
 }
 

@@ -7,39 +7,35 @@
 #import <AirPortAssistant/StepByStepUIViewController.h>
 
 #import "TableViewManagerDelegate-Protocol.h"
-#import "UIPickerViewDataSource-Protocol.h"
-#import "UIPickerViewDelegate-Protocol.h"
 
-@class AnimatedPickerView, NSArray, NSDictionary, NSString, PoppablePickerViewController, RecommendationActionController, UIPopoverController;
+@class NSArray, NSDictionary, NSString, RecommendationActionController, UIPopoverController;
 
-@interface StepByStepUIViewController_DevicePicker : StepByStepUIViewController <UIPickerViewDataSource, UIPickerViewDelegate, TableViewManagerDelegate>
+@interface StepByStepUIViewController_DevicePicker : StepByStepUIViewController <TableViewManagerDelegate>
 {
     NSDictionary *_selectedDevice;
     NSDictionary *_sourceNetwork;
     NSDictionary *_sourceBase;
     NSDictionary *_targetBase;
     UIPopoverController *_popover;
-    PoppablePickerViewController *_poppablePickerViewController;
-    AnimatedPickerView *_networkPickerView;
     NSArray *sortedDevices;
     NSString *connectionMedium;
     RecommendationActionController *actionController;
     BOOL _showSingleBaseTopo;
+    BOOL showFullList;
 }
 
 @property(retain, nonatomic) RecommendationActionController *actionController; // @synthesize actionController;
 @property(nonatomic) NSString *connectionMedium; // @synthesize connectionMedium;
 @property(retain, nonatomic) NSArray *sortedDevices; // @synthesize sortedDevices;
+- (id)pickerContent;
 - (BOOL)showMoreOptions;
 - (void)updateSelections;
 - (void)setupPickerTable;
 - (void)touchInCellAtIndexPath:(id)arg1;
-- (id)pickerView:(id)arg1 titleForRow:(int)arg2 forComponent:(int)arg3;
-- (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
-- (int)numberOfComponentsInPickerView:(id)arg1;
 - (id)valueForItemOfType:(id)arg1 atTypeIndex:(unsigned int)arg2 inCellWithTag:(int)arg3;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

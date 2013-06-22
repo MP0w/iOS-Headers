@@ -21,6 +21,9 @@
 + (void)clearSharedPreferences;
 + (id)sharedPreferences;
 - (void).cxx_destruct;
+- (id)signedRequestForURL:(id)arg1 parameters:(id)arg2;
+- (id)stocksYQLBaseURL;
+- (id)stocksYQLEnvParameter;
 - (id)serviceDebuggingPath;
 - (BOOL)serviceDebugging;
 - (id)logoBacksideImage;

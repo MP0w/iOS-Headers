@@ -6,22 +6,47 @@
 
 #import <VectorKit/VKMapCameraController.h>
 
-#import "VKAnnotationTrackingCameraControllerDelegate-Protocol.h"
+#import "VKCameraControllerDelegate-Protocol.h"
 
-@class AltMapView, VKGlobeAnnotationTrackingCameraController, VKGlobeViewWrapper;
+@class VKAnimation, VKGlobeAnnotationTrackingCameraController;
 
-@interface VKGlobeCameraController : VKMapCameraController <VKAnnotationTrackingCameraControllerDelegate>
+@interface VKGlobeCameraController : VKMapCameraController <VKCameraControllerDelegate>
 {
-    AltMapView *_altMapView;
-    VKGlobeViewWrapper *_globe;
+    struct GlobeView *_globeView;
     VKGlobeAnnotationTrackingCameraController *_globeAnnotationTrackingCameraController;
-    double _oldTranslation;
+    id <VKMotionProvider> _motionProvider;
+    BOOL _motionActive;
+    VKAnimation *_wiggleAnimation;
+    VKAnimation *_positionAnimation;
+    VKAnimation *_motionAnimation;
+    VKAnimation *_decelerationAnimation;
+    VKAnimation *_regionAnimation;
+    struct CameraManager _cameraManager;
+    double _currentDoublePanPitch;
 }
 
-@property(retain, nonatomic) AltMapView *altMapView; // @synthesize altMapView=_altMapView;
-@property(retain, nonatomic) VKGlobeViewWrapper *globe; // @synthesize globe=_globe;
-- (void)annotationTrackingCameraControllerDidChangeCameraState:(id)arg1;
-- (id)annotationTrackingCameraController:(id)arg1 presentationForAnnotation:(id)arg2;
+@property(nonatomic) struct GlobeView *globeView; // @synthesize globeView=_globeView;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (id)cameraController:(id)arg1 presentationForAnnotation:(id)arg2;
+- (void)cameraController:(id)arg1 didBecomePitched:(BOOL)arg2;
+- (void)cameraController:(id)arg1 canEnter3DModeDidChange:(BOOL)arg2;
+- (void)cameraControllerDidChangeCameraState:(id)arg1;
+- (void)cameraControllerDidStopRegionAnimation:(id)arg1 completed:(BOOL)arg2;
+- (void)cameraControllerWillStartRegionAnimation:(id)arg1;
+- (void)cameraController:(id)arg1 requestsDisplayRate:(int)arg2;
+- (void)runAnimation:(id)arg1;
+- (void)animateToMapRegion:(id)arg1 pitch:(double)arg2 yaw:(double)arg3 duration:(double)arg4 completion:(id)arg5;
+- (double)durationToAnimateToMapRegion:(id)arg1;
+- (void)setMapRegion:(id)arg1 pitch:(double)arg2 yaw:(double)arg3 animated:(BOOL)arg4 completion:(id)arg5;
+- (double)zoomForMapRegion:(id)arg1;
+- (id)mapRegionOfInterest;
+- (id)mapRegion;
+- (void)setYaw:(double)arg1 animated:(BOOL)arg2;
+- (double)presentationYaw;
+- (double)yaw;
+- (double)pitch;
+- (void)updateCameraManager;
 - (BOOL)isAnimatingToTrackAnnotation;
 - (void)didAnimateInAnnotationMarkers:(id)arg1;
 - (void)willAnimateInAnnotationMarkers:(id)arg1;
@@ -30,11 +55,29 @@
 - (void)stopTrackingAnnotation;
 - (void)startTrackingAnnotation:(id)arg1 trackHeading:(BOOL)arg2 animated:(BOOL)arg3;
 - (void)setGesturing:(BOOL)arg1;
+- (void)_performMotionAnimation;
+- (void)_animateToStartPosition;
+- (void)stopMotion;
+- (void)startWithMotionProvider:(id)arg1;
+- (void)_stopAnimations;
+@property(readonly, nonatomic, getter=isMotionActive) BOOL motionActive;
+- (BOOL)isFullyPitched;
+- (BOOL)isPitched;
 - (BOOL)canEnter3DMode;
 - (void)exit3DMode;
 - (void)enter3DMode;
-- (void)snapMapIfNecessary:(const CDStruct_31142d93 *)arg1 animated:(BOOL)arg2;
+- (void)stopGlobeAnimations;
+- (void)stopPlaceCardAnimation;
+- (void)showPlaceCardAnimationAtCoordinate:(CDStruct_c3b9c2ee)arg1 andDistance:(double)arg2;
+- (void)stopSearchResultAnimation;
+- (void)_rotateAroundTargetWithDuration:(double)arg1 rotations:(double)arg2;
+- (void)showSearchResultAnimationAtCoordinate:(CDStruct_c3b9c2ee)arg1 withZoom:(double)arg2;
+- (void)moveTo:(CDStruct_c3b9c2ee)arg1 zoom:(double)arg2 rotation:(double)arg3 tilt:(double)arg4 duration:(double)arg5 timingCurve:(id)arg6 completion:(void)arg7;
+- (void)panWithOffset:(struct CGPoint)arg1 relativeToScreenPoint:(struct CGPoint)arg2 animated:(BOOL)arg3 duration:(double)arg4 completionHandler:(id)arg5;
 - (void)tapZoom:(struct CGPoint)arg1 levels:(double)arg2 completionHandler:(id)arg3;
+- (void)tiltTo:(double)arg1 animated:(BOOL)arg2 exaggerate:(BOOL)arg3;
+- (void)rotateTo:(double)arg1 animated:(BOOL)arg2;
+- (void)snapMapIfNecessary:(const struct VKPoint *)arg1 animated:(BOOL)arg2;
 - (void)stopPinching:(struct CGPoint)arg1;
 - (void)pinch:(struct CGPoint)arg1 oldFactor:(double)arg2 newFactor:(double)arg3;
 - (void)startPinching:(struct CGPoint)arg1;
@@ -50,11 +93,10 @@
 - (struct Vector2i)_cursorFromScreenPoint:(struct CGPoint)arg1;
 - (struct CGPoint)_centerScreenPoint;
 - (void)updateGlobeFromCamera;
-- (void)resetHeightModel;
 - (int)maximumNormalizedZoomLevel;
 - (int)minimumNormalizedZoomLevel;
 - (int)tileSize;
-- (void)setEdgeInsets:(struct UIEdgeInsets)arg1;
+- (void)setEdgeInsets:(struct VKEdgeInsets)arg1;
 - (void)setTrackingAutoSelectsZoomScale:(BOOL)arg1;
 @property(readonly, nonatomic) double pitchThreshold;
 - (BOOL)restoreViewportFromInfo:(id)arg1;

@@ -13,9 +13,7 @@
     AVMetadataFaceObjectInternal *_internal;
 }
 
-+ (id)derivedFaceObjectFromFaceObject:(id)arg1 withBounds:(struct CGRect)arg2 yaw:(float)arg3 roll:(float)arg4;
 + (id)faceObjectWithFigEmbeddedCaptureDeviceFaceDictionary:(id)arg1 input:(id)arg2;
-- (id)originalFaceObject;
 @property(readonly) float yawAngle;
 @property(readonly) BOOL hasYawAngle;
 @property(readonly) float rollAngle;
@@ -23,7 +21,7 @@
 @property(readonly) int faceID;
 - (id)description;
 - (void)dealloc;
-- (id)initDerivedFaceObjectFromFaceObject:(id)arg1 withBounds:(struct CGRect)arg2 yaw:(float)arg3 roll:(float)arg4;
+- (id)initDerivedMetadataObjectFromMetadataObject:(id)arg1 withTransform:(struct CGAffineTransform)arg2 isVideoMirrored:(BOOL)arg3 rollAdjustment:(float)arg4;
 - (id)initWithFigEmbeddedCaptureDeviceFaceDictionary:(id)arg1 input:(id)arg2;
 
 @end

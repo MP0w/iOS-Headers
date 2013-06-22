@@ -6,14 +6,16 @@
 
 #import <OfficeImport/MFPath.h>
 
+@class TSDBezierPath;
+
 @interface MFPhonePath : MFPath
 {
-    struct CGPath *m_path;
+    TSDBezierPath *m_path;
     int m_state;
 }
 
-- (void)appendBezierPath:(struct CGPath *)arg1 dc:(id)arg2;
-- (struct CGPath *)getBezierPath;
+- (void)appendBezierPath:(id)arg1 dc:(id)arg2;
+- (id)getBezierPath;
 - (int)fill:(id)arg1;
 - (int)stroke:(id)arg1;
 - (int)widen:(id)arg1;
@@ -27,7 +29,7 @@
 - (int)state;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithPath:(struct CGPath *)arg1 state:(int)arg2;
+- (id)initWithPath:(id)arg1 state:(int)arg2;
 - (id)init;
 
 @end

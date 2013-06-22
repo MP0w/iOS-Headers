@@ -28,7 +28,7 @@
 }
 
 @property(retain, nonatomic, setter=_setStatusBarTintColor:) UIColor *_statusBarTintColor; // @synthesize _statusBarTintColor;
-@property(retain, nonatomic) UIImageView *shadowView; // @synthesize shadowView=_shadowView;
+@property(retain, nonatomic) UIView *shadowView; // @synthesize shadowView=_shadowView;
 @property(retain, nonatomic) UIColor *edgePaddingColor; // @synthesize edgePaddingColor=_edgePaddingColor;
 @property(nonatomic, getter=_contentOffset, setter=_setContentOffset:) struct CGPoint contentOffset; // @synthesize contentOffset=_contentOffset;
 @property(readonly, nonatomic, getter=_contentSize) struct CGSize contentSize; // @synthesize contentSize=_contentSize;

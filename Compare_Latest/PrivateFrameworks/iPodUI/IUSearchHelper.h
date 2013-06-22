@@ -22,12 +22,16 @@
     IUSearchResultListViewController *_searchResultListViewController;
     IUTableViewController *_tableViewController;
     BOOL _searchBarHidesAlone;
+    BOOL _searchBarHiddenOrHiding;
+    BOOL _searchBarHidden;
 }
 
+@property(nonatomic, getter=isSearchBarHidden) BOOL searchBarHidden; // @synthesize searchBarHidden=_searchBarHidden;
 @property(readonly, nonatomic) IUSearchResultListViewController *searchResultListViewController; // @synthesize searchResultListViewController=_searchResultListViewController;
 @property(readonly, nonatomic) UISearchDisplayController *searchDisplayController; // @synthesize searchDisplayController=_searchDisplayController;
 @property(nonatomic) BOOL searchBarHidesAlone; // @synthesize searchBarHidesAlone=_searchBarHidesAlone;
-@property(nonatomic) id <IUSearchHelperDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <IUSearchHelperDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_searchDataSourceNoResultsChangedNotification:(id)arg1;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
 - (void)searchResultListViewController:(id)arg1 didSelectContext:(id)arg2;
@@ -41,6 +45,7 @@
 - (void)searchDisplayController:(id)arg1 didLoadSearchResultsTableView:(id)arg2;
 - (void)searchDisplayControllerWillEndSearch:(id)arg1;
 - (void)searchDisplayControllerWillBeginSearch:(id)arg1;
+- (void)setSearchBarHidden:(BOOL)arg1 animated:(BOOL)arg2;
 @property(readonly, nonatomic) float heightForTableHeaderViewHiding;
 @property(copy, nonatomic) NSString *searchString;
 - (void)dealloc;

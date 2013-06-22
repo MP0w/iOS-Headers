@@ -13,21 +13,23 @@
 @interface MRAudioPlayer : NSObject <MRAudioPlayer>
 {
     NSArray *_audioItems;
+    BOOL _shouldBePlaying;
+    BOOL _isMuted;
     AVPlayer *_avPlayer;
+    float _volume;
+    float _duckLevel;
+    int _priority;
+    float _currentVolume;
     double _duration;
     double _parentDuration;
     double _localTime;
-    float _volume;
     double _fadeInDuration;
     double _fadeOutDuration;
-    float _duckLevel;
     double _duckInDuration;
     double _duckOutDuration;
-    int _priority;
-    float _currentVolume;
-    BOOL _shouldBePlaying;
 }
 
+@property(nonatomic) BOOL isMuted; // @synthesize isMuted=_isMuted;
 @property(nonatomic) BOOL shouldBePlaying; // @synthesize shouldBePlaying=_shouldBePlaying;
 @property(readonly) float currentVolume; // @synthesize currentVolume=_currentVolume;
 @property(nonatomic) int priority; // @synthesize priority=_priority;

@@ -17,7 +17,7 @@
 
 + (id)retainingKeyWithObject:(id)arg1;
 + (BOOL)clearVars;
-+ (CDStruct_76c99235 *)poolInfo;
++ (CDStruct_7b508128 *)poolInfo;
 @property(readonly) NSObject *object; // @synthesize object=_object;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

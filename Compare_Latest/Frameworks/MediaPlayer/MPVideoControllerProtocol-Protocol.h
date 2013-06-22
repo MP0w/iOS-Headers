@@ -9,6 +9,7 @@
 @class MPVideoView, UIColor, UIImage, UIView, UIView<MPVideoOverlay>, _UIHostedWindow;
 
 @protocol MPVideoControllerProtocol <MPControllerProtocol>
+@property(nonatomic) BOOL autoPlayWhenLikelyToKeepUp;
 @property(nonatomic) unsigned long long visibleParts;
 @property(readonly, nonatomic) MPVideoView *videoView;
 @property(readonly, nonatomic) UIView<MPVideoOverlay> *videoOverlayView;
@@ -32,7 +33,6 @@
 @property(readonly, nonatomic) BOOL canChangeScaleMode;
 @property(nonatomic) BOOL canAnimateControlsOverlay;
 @property(retain, nonatomic) UIColor *backstopColor;
-@property(readonly, nonatomic) struct CGRect backgroundViewSnapshotFrame;
 @property(readonly, nonatomic) UIView *backgroundView;
 @property(nonatomic) BOOL attemptAutoPlayWhenControlsHidden;
 @property(nonatomic) int artworkImageStyle;
@@ -50,6 +50,7 @@
 - (void)setControlsNeedLayout;
 - (void)setClosedCaptions:(id)arg1;
 - (void)prepareToDisplayVideo;
+- (void)exitFullscreen;
 - (void)displayVideoView;
 - (BOOL)canHideOverlay:(BOOL)arg1;
 @end

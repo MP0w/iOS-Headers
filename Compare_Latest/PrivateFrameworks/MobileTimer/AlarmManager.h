@@ -14,8 +14,8 @@
     int _defaultSoundType;
     BOOL _dirty;
     NSMutableArray *_alarms;
-    NSMutableArray *logMessageList;
     BOOL invalidAlarmsDetected;
+    NSMutableArray *logMessageList;
     NSDate *lastModified;
 }
 

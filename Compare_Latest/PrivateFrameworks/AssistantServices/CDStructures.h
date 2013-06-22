@@ -10,11 +10,12 @@ typedef struct {
     unsigned short _field1[64];
     struct __CFString *_field2;
     unsigned short *_field3;
+    char *_field4;
     struct {
         int _field1;
         int _field2;
-    } _field4;
-    int _field5;
+    } _field5;
     int _field6;
-} CDStruct_df6741a8;
+    int _field7;
+} CDStruct_64adce64;
 

@@ -11,9 +11,9 @@
     id <EKPadAllDayViewContentsDelegate> _delegate;
 }
 
-@property id <EKPadAllDayViewContentsDelegate> delegate; // @synthesize delegate=_delegate;
+@property __weak id <EKPadAllDayViewContentsDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)dealloc;
 
 @end
 

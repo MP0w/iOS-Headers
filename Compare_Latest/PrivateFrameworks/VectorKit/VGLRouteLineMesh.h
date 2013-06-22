@@ -6,22 +6,35 @@
 
 #import <VectorKit/VGLMesh.h>
 
-@class VGLTexture;
+@class VGLCenterLineMeshVendor, VGLRouteLineArrowMesh, VGLTexture;
 
 @interface VGLRouteLineMesh : VGLMesh
 {
     int _z;
     VGLTexture *_texture;
-    BOOL _trafficSpeed;
-    float _totalArchLength;
     float _splitLocation;
+    struct vector<VGLArrowMeshInfo, vk_allocator<VGLArrowMeshInfo>> _arrowInfos;
+    VGLCenterLineMeshVendor *_slowTrafficMeshVendor;
+    VGLCenterLineMeshVendor *_mediumTrafficMeshVendor;
+    VGLRouteLineArrowMesh *_arrowMesh;
+    struct vector<routelineTrafficSegment, vk_allocator<routelineTrafficSegment>> _trafficSegments;
 }
 
+@property(readonly, nonatomic) VGLCenterLineMeshVendor *mediumTrafficMeshVendor; // @synthesize mediumTrafficMeshVendor=_mediumTrafficMeshVendor;
+@property(readonly, nonatomic) VGLCenterLineMeshVendor *slowTrafficMeshVendor; // @synthesize slowTrafficMeshVendor=_slowTrafficMeshVendor;
 @property(nonatomic) float splitLocation; // @synthesize splitLocation=_splitLocation;
-@property(nonatomic) float totalArchLength; // @synthesize totalArchLength=_totalArchLength;
-@property(nonatomic) BOOL trafficSpeed; // @synthesize trafficSpeed=_trafficSpeed;
 @property(retain, nonatomic) VGLTexture *texture; // @synthesize texture=_texture;
 @property(nonatomic) int z; // @synthesize z=_z;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)pushArrowRangeStart:(int)arg1 startOffset:(float)arg2 end:(int)arg3 endOffset:(float)arg4 maneuverIndex:(int)arg5;
+- (void)pushDebugArrowRangeStart:(int)arg1 startOffset:(float)arg2 end:(int)arg3 endOffset:(float)arg4 maneuverIndex:(int)arg5;
+- (void)buildArrowWithArrowInfo:(const CDStruct_8471daaf *)arg1;
+- (void)buildArrowMeshWithCurrentManeuver:(int)arg1;
+- (void)addArrowMeshInfo:(CDStruct_8471daaf)arg1;
+- (void)freeze;
+- (void)pushTrafficSpeed:(BOOL)arg1;
+- (void)drawArrows:(id)arg1;
 - (void)drawTrianglesWithContext:(id)arg1 offset:(int)arg2 count:(int)arg3;
 - (void)drawTrianglesWithContext:(id)arg1;
 - (void)dealloc;

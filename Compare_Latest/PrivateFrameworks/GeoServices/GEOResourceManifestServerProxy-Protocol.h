@@ -8,15 +8,13 @@
 
 @protocol GEOResourceManifestServerProxy <NSObject>
 - (void)getResourceManifestWithHandler:(id)arg1;
-- (oneway void)refreshActiveTileGroup;
 - (oneway void)forceUpdate;
 - (oneway void)resetActiveTileGroup;
 - (oneway void)setActiveTileGroupIdentifier:(id)arg1;
 - (id)authToken;
-- (oneway void)cancelRegionalResourcesLoadForKeys:(id)arg1;
-- (oneway void)loadRegionalResourcesForKeys:(id)arg1 allowNetwork:(BOOL)arg2;
 - (void)closeConnection;
 - (void)openConnection;
 - (oneway void)startServer:(id)arg1;
+- (id)serverQueue;
 @end
 

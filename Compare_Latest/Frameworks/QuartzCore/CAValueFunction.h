@@ -16,7 +16,10 @@
     void *_impl;
 }
 
++ (void)CAMLParserEndElement:(id)arg1 content:(id)arg2;
++ (void)CAMLParserStartElement:(id)arg1;
 + (id)functionWithName:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (struct Object *)CA_copyRenderValue;

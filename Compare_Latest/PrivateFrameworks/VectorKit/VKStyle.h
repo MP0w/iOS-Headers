@@ -6,54 +6,77 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSData, NSString, VKBuildingDrawStyle, VKGenericShieldDrawStyle, VKLabelDrawStyle, VKLineDrawStyle, VKPGlobalProperties, VKPStyleContents, VKPolygonDrawStyle;
+@class NSArray, NSData, NSString, VKBuildingDrawStyle, VKGenericShieldDrawStyle, VKGridDrawStyle, VKLabelDrawStyle, VKLineDrawStyle, VKPGlobalProperties, VKPStyleContents, VKPinDrawStyle, VKPolygonDrawStyle, VKPuckDrawStyle, VKRoadDrawStyle, VKRouteDrawStyle, VKSkyDrawStyle, VKStylesheet, VKTrafficDrawStyle, VKVegetationDrawStyle;
 
 @interface VKStyle : NSObject
 {
-    NSData *_contentsData;
+    CDStruct_62f4b0a5 *_attributes;
+    unsigned int _attributesCount;
     VKPStyleContents *_contents;
-    VKPGlobalProperties *_globalProperties;
-    NSArray *_inheritance;
-    NSString *_name;
     unsigned int _stylesPopulated;
-    CDStruct_47a47fda *_roadDrawStyle;
-    CDStruct_556bdc76 *_slowTrafficStyle;
-    CDStruct_556bdc76 *_mediumTrafficStyle;
+    VKRoadDrawStyle *_roadDrawStyle;
+    VKTrafficDrawStyle *_trafficDrawStyle;
     VKLabelDrawStyle *_labelStyle;
     VKPolygonDrawStyle *_polygonStyle;
     VKLineDrawStyle *_lineStyle;
     VKBuildingDrawStyle *_buildingStyle;
     VKGenericShieldDrawStyle *_genericShieldStyle;
-    struct {
-        unsigned int _field1;
-        int _field2;
-        int *_field3;
-        unsigned int _field4;
-    } *_attributes;
-    unsigned int _attributesCount;
+    VKSkyDrawStyle *_skyStyle;
+    VKGridDrawStyle *_gridStyle;
+    VKRouteDrawStyle *_routeStyle;
+    VKVegetationDrawStyle *_vegetationStyle;
+    VKPinDrawStyle *_pinStyle;
+    VKPuckDrawStyle *_puckStyle;
+    VKStyle *_variant;
+    VKStylesheet *_stylesheet;
+    unsigned int _mapDisplayStyles;
+    struct _opaque_pthread_mutex_t _lock;
+    NSData *_contentsData;
+    VKPGlobalProperties *_globalProperties;
+    NSArray *_inheritance;
+    NSString *_name;
     unsigned int *_inheritanceIndices;
     unsigned int _inheritanceIndexCount;
-    struct _opaque_pthread_mutex_t _lock;
 }
 
+@property(nonatomic) VKStylesheet *stylesheet; // @synthesize stylesheet=_stylesheet;
+@property(retain, nonatomic) VKStyle *variant; // @synthesize variant=_variant;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (id).cxx_construct;
-- (unsigned int)scoreForAttributes:(id)arg1 vectorType:(int)arg2;
+- (unsigned int)scoreForStyleAttributes:(CDStruct_62f4b0a5 *)arg1 count:(int)arg2;
+- (unsigned int)scoreForAttributes:(id)arg1 vectorType:(int)arg2 mapDisplayStyle:(int)arg3 iconTappable:(BOOL)arg4 locale:(id)arg5 targetDisplay:(int)arg6;
 - (BOOL)isDrawStyleVisibleAtLOD:(unsigned int)arg1;
 - (struct _VGLColor)basicRoadColor;
-- (const CDStruct_556bdc76 *)slowTrafficStyle;
-- (const CDStruct_556bdc76 *)mediumTrafficStyle;
-- (const CDStruct_47a47fda *)roadStyle;
+- (id)puckStyle;
+- (id)pinStyle;
+- (id)vegetationStyle;
+- (id)routeStyle;
+- (id)trafficStyle;
+- (id)roadStyle;
+- (id)gridDrawStyle;
+- (id)skyDrawStyle;
 - (id)genericShieldStyle;
 - (id)buildingStyle;
 - (id)lineStyle;
 - (id)polygonStyle;
 - (id)labelStyle;
-- (id)name;
 - (void)dealloc;
 - (void)applyStyle:(id)arg1 to:(id)arg2 inheritance:(id)arg3 zoom:(float)arg4;
 - (void)_populateStyles:(unsigned int)arg1;
+- (void)_setupPropertiesForStyleMask:(unsigned int)arg1;
+- (id)description;
+- (unsigned int)hash;
 - (id)contents;
-- (id)initWithStyle:(id)arg1 inheritance:(id)arg2 globals:(id)arg3;
+- (BOOL)isForMapDisplayStyle:(int)arg1 exclusively:(BOOL)arg2;
+- (CDStruct_62f4b0a5 *)attributes;
+- (unsigned int)attributesCount;
+- (unsigned int *)inheritanceIndices;
+- (unsigned int)inheritsCount;
+- (id)globals;
+- (id)inheritance;
+- (id)contentsData;
+@property(readonly, nonatomic) float blendingFactor;
+- (id)initWithStyle:(id)arg1 inheritance:(id)arg2 globals:(id)arg3 stylesheet:(id)arg4;
 
 @end
 

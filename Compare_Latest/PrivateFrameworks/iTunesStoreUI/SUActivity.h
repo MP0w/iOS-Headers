@@ -24,7 +24,6 @@
 - (id)activityViewController;
 - (id)activityType;
 - (id)activityTitle;
-- (id)_activityImage;
 - (id)activityImage;
 - (void)setActivityViewController:(id)arg1;
 - (void)setActivityType:(id)arg1;

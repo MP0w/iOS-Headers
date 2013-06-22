@@ -16,6 +16,7 @@
 }
 
 + (id)allSources;
++ (id)_setOfAllSources;
 - (void)removeAttachmentForURL:(id)arg1;
 - (BOOL)setAttachment:(id)arg1 forURL:(id)arg2;
 - (id)attachmentForURL:(id)arg1 includeRemoved:(BOOL)arg2;

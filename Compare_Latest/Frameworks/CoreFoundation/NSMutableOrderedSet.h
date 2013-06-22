@@ -34,6 +34,9 @@
 - (void)replaceObjectsInRange:(struct _NSRange)arg1 withObjects:(const id *)arg2 count:(unsigned int)arg3;
 - (void)replaceObject:(id)arg1;
 - (void)replaceObject:(id)arg1 inRange:(struct _NSRange)arg2;
+- (void)removeObjectsPassingTest:(id)arg1;
+- (void)removeObjectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
+- (void)removeObjectsAtIndexes:(id)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
 - (void)removeObjectsInSet:(id)arg1;
 - (void)removeObjectsInRange:(struct _NSRange)arg1 inSet:(id)arg2;
 - (void)removeObjectsInOrderedSet:(id)arg1;

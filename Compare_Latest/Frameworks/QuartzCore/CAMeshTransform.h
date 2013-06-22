@@ -19,11 +19,14 @@
     long _subdivisionSteps;
 }
 
++ (void)CAMLParserEndElement:(id)arg1 content:(id)arg2;
++ (void)CAMLParserStartElement:(id)arg1;
 + (id)meshTransformWithVertexCount:(unsigned long)arg1 vertices:(const struct CAMeshVertex *)arg2 faceCount:(unsigned long)arg3 faces:(const struct CAMeshFace *)arg4 depthNormalization:(id)arg5;
 - (id)meshTransformForLayer:(id)arg1;
 - (float)CA_distanceToValue:(id)arg1;
 - (id)CA_interpolateValues:(id)arg1:(id)arg2:(id)arg3 interpolator:(const struct ValueInterpolator *)arg4;
 - (id)CA_interpolateValue:(id)arg1 byFraction:(float)arg2;
+- (void)encodeWithCAMLWriter:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)_subdivideToDepth:(int)arg1;

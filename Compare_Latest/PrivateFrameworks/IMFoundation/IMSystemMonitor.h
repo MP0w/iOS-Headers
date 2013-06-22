@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSMutableArray, NSString, NSTimer;
+@class NSDate, NSMutableArray, NSString;
 
 @interface IMSystemMonitor : NSObject
 {
@@ -17,28 +17,29 @@
     BOOL _screenLocked;
     BOOL _screensaverActive;
     BOOL _watchesSystemLockState;
-    int _dataProtectionState;
     BOOL _underFirstLock;
     BOOL _active;
     BOOL _backingUp;
     BOOL _switchedOut;
-    NSMutableArray *_listeners;
-    NSDate *_idleStart;
-    NSTimer *_timer;
     BOOL _screenLit;
-    NSDate *_dateScreenLightLastChanged;
-    NSDate *_dateSystemLockLastChanged;
     BOOL _systemLocked;
-    NSString *_userID;
-    double _delayTime;
     BOOL _idleOverride;
-    NSMutableArray *_earlyListeners;
     BOOL _usesPowerNotifications;
     BOOL _usesSystemIdleState;
     BOOL _inBackground;
+    int _dataProtectionState;
+    NSMutableArray *_listeners;
+    NSDate *_idleStart;
+    NSDate *_dateScreenLightLastChanged;
+    NSDate *_dateSystemLockLastChanged;
+    NSString *_userID;
+    NSMutableArray *_earlyListeners;
+    int _userIdleToken;
+    double _delayTime;
 }
 
 + (id)sharedInstance;
+@property(nonatomic) int userIdleToken; // @synthesize userIdleToken=_userIdleToken;
 @property(readonly, nonatomic) BOOL isInBackground; // @synthesize isInBackground=_inBackground;
 @property(nonatomic) BOOL usesSystemIdleState; // @synthesize usesSystemIdleState=_usesSystemIdleState;
 @property(nonatomic) BOOL usesPowerNotifications; // @synthesize usesPowerNotifications=_usesPowerNotifications;
@@ -50,7 +51,6 @@
 @property(readonly, nonatomic) NSDate *dateSystemLockLastChanged; // @synthesize dateSystemLockLastChanged=_dateSystemLockLastChanged;
 @property(readonly, nonatomic) NSDate *dateScreenLightLastChanged; // @synthesize dateScreenLightLastChanged=_dateScreenLightLastChanged;
 @property(readonly, nonatomic) BOOL isScreenLit; // @synthesize isScreenLit=_screenLit;
-@property(retain, nonatomic) NSTimer *_timer; // @synthesize _timer;
 @property(retain, nonatomic) NSDate *_idleStart; // @synthesize _idleStart;
 @property(retain, nonatomic) NSMutableArray *_listeners; // @synthesize _listeners;
 @property(nonatomic) BOOL isFastUserSwitched; // @synthesize isFastUserSwitched=_switchedOut;
@@ -86,6 +86,7 @@
 @property(readonly, nonatomic) BOOL isSystemIdle;
 - (void)_overrideAndDisableIdleTimer:(BOOL)arg1;
 - (void)_setIdleState:(BOOL)arg1;
+- (void)_updateIdleState;
 - (void)_setSystemLockState:(BOOL)arg1;
 - (void)_setSystemScreenState:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL isUnderFirstDataProtectionLock;

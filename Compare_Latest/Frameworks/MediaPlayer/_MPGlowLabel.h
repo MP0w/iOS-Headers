@@ -16,8 +16,8 @@
 
 @property(nonatomic) float glowRadius; // @synthesize glowRadius=_glowRadius;
 @property(retain, nonatomic) UIColor *glowColor; // @synthesize glowColor=_glowColor;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)dealloc;
 
 @end
 

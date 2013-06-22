@@ -10,6 +10,8 @@ struct ANGLEWebKitBridge {
     _Bool _field1;
     void *_field2;
     void *_field3;
+    int _field4;
+    int _field5;
     struct {
         int _field1;
         int _field2;
@@ -22,75 +24,74 @@ struct ANGLEWebKitBridge {
         int _field9;
         int _field10;
         int _field11;
-    } _field4;
+        int _field12;
+        int _field13;
+        void *_field14;
+        int _field15;
+    } _field6;
 };
+
+struct AXComputedObjectAttributeCache;
 
 struct AXObjectCache {
     struct Document *_field1;
     struct HashMap<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WTF::RefPtr<WebCore::AccessibilityObject>>> _field2;
     struct HashMap<WebCore::RenderObject *, unsigned int, WTF::PtrHash<WebCore::RenderObject *>, WTF::HashTraits<WebCore::RenderObject *>, WTF::HashTraits<unsigned int>> _field3;
     struct HashMap<WebCore::Widget *, unsigned int, WTF::PtrHash<WebCore::Widget *>, WTF::HashTraits<WebCore::Widget *>, WTF::HashTraits<unsigned int>> _field4;
-    struct HashSet<WebCore::Node *, WTF::PtrHash<WebCore::Node *>, WTF::HashTraits<WebCore::Node *>> _field5;
-    struct HashSet<unsigned int, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>> _field6;
-    struct Timer<WebCore::AXObjectCache> _field7;
-    struct Vector<std::__1::pair<WTF::RefPtr<WebCore::AccessibilityObject>, WebCore::AXObjectCache::AXNotification>, 0> _field8;
-};
-
-struct AccessibilityObject {
-    void **_field1;
-    int _field2;
-    unsigned int _field3;
-    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0> _field4;
-    _Bool _field5;
-    int _field6;
-    struct RetainPtr<WebAccessibilityObjectWrapper> _field7;
+    struct HashMap<WebCore::Node *, unsigned int, WTF::PtrHash<WebCore::Node *>, WTF::HashTraits<WebCore::Node *>, WTF::HashTraits<unsigned int>> _field5;
+    struct HashSet<WebCore::Node *, WTF::PtrHash<WebCore::Node *>, WTF::HashTraits<WebCore::Node *>> _field6;
+    struct OwnPtr<WebCore::AXComputedObjectAttributeCache> _field7;
+    struct HashSet<unsigned int, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>> _field8;
+    struct Timer<WebCore::AXObjectCache> _field9;
+    struct Vector<std::__1::pair<WTF::RefPtr<WebCore::AccessibilityObject>, WebCore::AXObjectCache::AXNotification>, 0, WTF::CrashOnOverflow> _field10;
 };
 
 struct AccessibilityTable {
     void **_field1;
-    int _field2;
+    unsigned int _field2;
     unsigned int _field3;
-    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0> _field4;
+    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow> _field4;
     _Bool _field5;
     int _field6;
-    struct RetainPtr<WebAccessibilityObjectWrapper> _field7;
-    struct RenderObject *_field8;
+    int _field7;
+    struct RetainPtr<WebAccessibilityObjectWrapper> {
+        struct WebAccessibilityObjectWrapper *_field1;
+    } _field8;
     int _field9;
     _Bool _field10;
     int _field11;
-    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0> _field12;
-    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0> _field13;
-    struct RefPtr<WebCore::AccessibilityObject> _field14;
-    _Bool _field15;
+    struct Node *_field12;
+    struct RenderObject *_field13;
+    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow> _field14;
+    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow> _field15;
+    struct RefPtr<WebCore::AccessibilityObject> _field16;
+    _Bool _field17;
 };
 
 struct AccessibilityTableCell {
     void **_field1;
-    int _field2;
+    unsigned int _field2;
     unsigned int _field3;
-    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0> _field4;
+    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow> _field4;
     _Bool _field5;
     int _field6;
-    struct RetainPtr<WebAccessibilityObjectWrapper> _field7;
-    struct RenderObject *_field8;
+    int _field7;
+    struct RetainPtr<WebAccessibilityObjectWrapper> {
+        struct WebAccessibilityObjectWrapper *_field1;
+    } _field8;
     int _field9;
     _Bool _field10;
     int _field11;
-    int _field12;
+    struct Node *_field12;
+    struct RenderObject *_field13;
+    int _field14;
 };
 
 struct AlignedBuffer<64, 4> {
     char buffer[64];
 };
 
-struct AlternativeTextController;
-
-struct AnimationController {
-    struct OwnPtr<WebCore::AnimationControllerPrivate> _field1;
-    int _field2;
-};
-
-struct AnimationControllerPrivate;
+struct AnimationController;
 
 struct AtomicString {
     struct String _field1;
@@ -106,16 +107,34 @@ struct Attributes {
     _Bool _field7;
     _Bool _field8;
     _Bool _field9;
+    struct KURL _field10;
 };
+
+struct AudioSession {
+    struct OwnPtr<WebCore::AudioSessionPrivate> _field1;
+    struct HashSet<WebCore::AudioSessionListener *, WTF::PtrHash<WebCore::AudioSessionListener *>, WTF::HashTraits<WebCore::AudioSessionListener *>> _field2;
+};
+
+struct AudioSessionListener;
+
+struct AudioSessionPrivate;
 
 struct AuthenticationClient {
     void **_field1;
 };
 
+struct Butterfly;
+
 struct CALayer {
     Class _field1;
     struct _CALayerIvars _field2;
 };
+
+struct CGColor;
+
+struct CGImage;
+
+struct CGPath;
 
 struct CGPoint {
     float x;
@@ -132,22 +151,18 @@ struct CGSize {
     float height;
 };
 
-struct ClassInfo;
-
 struct Color {
     unsigned int _field1;
     _Bool _field2;
 };
 
-struct CompositeEditCommand;
-
-struct CompositionUnderline;
-
 struct ContainerNode;
 
-struct DOMWindow;
-
-struct DeleteButtonController;
+struct Deque<WebCore::TileController::TileCohortInfo, 0> {
+    unsigned int _field1;
+    unsigned int _field2;
+    struct VectorBuffer<WebCore::TileController::TileCohortInfo, 0> _field3;
+};
 
 struct DeviceMotionClientIOS {
     void **_field1;
@@ -161,20 +176,20 @@ struct DeviceMotionController;
 
 struct DeviceMotionData;
 
-struct DeviceOrientation;
-
 struct DeviceOrientationClientIOS {
     void **_field1;
     id _field2;
     struct DeviceOrientationController *_field3;
-    struct RefPtr<WebCore::DeviceOrientation> _field4;
+    struct RefPtr<WebCore::DeviceOrientationData> _field4;
     _Bool _field5;
 };
 
 struct DeviceOrientationController;
 
+struct DeviceOrientationData;
+
 struct DisplayRefreshMonitor {
-    int _field1;
+    unsigned int _field1;
     double _field2;
     _Bool _field3;
     _Bool _field4;
@@ -192,108 +207,32 @@ struct Document;
 
 struct DocumentLoader;
 
-struct EditingStyle;
-
-struct Editor {
-    struct Frame *_field1;
-    struct OwnPtr<WebCore::DeleteButtonController> _field2;
-    struct RefPtr<WebCore::CompositeEditCommand> _field3;
-    struct RefPtr<WebCore::Node> _field4;
-    struct RefPtr<WebCore::Text> _field5;
-    unsigned int _field6;
-    unsigned int _field7;
-    struct Vector<WebCore::CompositionUnderline, 0> _field8;
-    _Bool _field9;
-    _Bool _field10;
-    _Bool _field11;
-    struct OwnPtr<WebCore::KillRing> _field12;
-    struct OwnPtr<WebCore::SpellChecker> _field13;
-    struct OwnPtr<WebCore::AlternativeTextController> _field14;
-    struct VisibleSelection _field15;
-    _Bool _field16;
-    int _field17;
-};
+struct Editor;
 
 struct Element {
     void **_field1;
     struct Weak<WebCore::JSDOMWrapper> _field2;
-    void **_field3;
-    struct ContainerNode *_field4;
-    int _field5;
-    unsigned int _field6;
-    struct Document *_field7;
+    int _field3;
+    unsigned int _field4;
+    struct ContainerNode *_field5;
+    struct TreeScope *_field6;
+    struct Node *_field7;
     struct Node *_field8;
-    struct Node *_field9;
-    struct RenderObject *_field10;
+    union DataUnion _field9;
+    struct Node *_field10;
     struct Node *_field11;
-    struct Node *_field12;
-    struct QualifiedName _field13;
-    struct OwnPtr<WebCore::ElementAttributeData> _field14;
+    struct QualifiedName _field12;
+    struct RefPtr<WebCore::ElementData> _field13;
 };
 
-struct ElementAttributeData;
+struct ElementData;
 
-struct Event;
-
-struct EventHandler {
-    struct Frame *_field1;
-    _Bool _field2;
-    _Bool _field3;
-    struct RefPtr<WebCore::Node> _field4;
-    _Bool _field5;
-    _Bool _field6;
-    int _field7;
-    struct IntPoint _field8;
-    _Bool _field9;
-    _Bool _field10;
-    _Bool _field11;
-    struct Timer<WebCore::EventHandler> _field12;
-    struct Timer<WebCore::EventHandler> _field13;
-    struct RenderObject *_field14;
-    _Bool _field15;
-    _Bool _field16;
-    _Bool _field17;
-    struct Timer<WebCore::EventHandler> _field18;
-    _Bool _field19;
-    struct RefPtr<WebCore::SVGElementInstance> _field20;
-    struct RefPtr<WebCore::SVGElementInstance> _field21;
-    struct RenderLayer *_field22;
-    struct RefPtr<WebCore::Node> _field23;
-    _Bool _field24;
-    struct RefPtr<WebCore::Node> _field25;
-    struct RefPtr<WebCore::Node> _field26;
-    struct RefPtr<WebCore::Frame> _field27;
-    struct RefPtr<WebCore::Scrollbar> _field28;
-    int _field29;
-    struct RefPtr<WebCore::Node> _field30;
-    float _field31;
-    float _field32;
-    float _field33;
-    float _field34;
-    unsigned int _field35;
-    struct Vector<WTF::RefPtr<WebCore::Touch>, 0> _field36;
-    struct HashSet<WTF::RefPtr<WebCore::EventTarget>, WTF::PtrHash<WTF::RefPtr<WebCore::EventTarget>>, WTF::HashTraits<WTF::RefPtr<WebCore::EventTarget>>> _field37;
-    struct RefPtr<WebCore::Frame> _field38;
-    struct RefPtr<WebCore::HTMLFrameSetElement> _field39;
-    struct IntSize _field40;
-    struct IntPoint _field41;
-    struct IntPoint _field42;
-    double _field43;
-    struct PlatformMouseEvent _field44;
-    _Bool _field45;
-    struct RefPtr<WebCore::Node> _field46;
-    _Bool _field47;
-    struct RefPtr<WebCore::Node> _field48;
-    id _field49;
-    _Bool _field50;
-    double _field51;
-    int _field52;
-};
+struct EventHandler;
 
 struct Extensions3DOpenGL;
 
 struct FilterOperations {
-    struct Vector<WTF::RefPtr<WebCore::FilterOperation>, 0> _field1;
+    struct Vector<WTF::RefPtr<WebCore::FilterOperation>, 0, WTF::CrashOnOverflow> _field1;
 };
 
 struct FloatPoint {
@@ -314,6 +253,11 @@ struct FloatQuad {
     struct FloatPoint _field4;
 };
 
+struct FloatRect {
+    struct FloatPoint _field1;
+    struct FloatSize _field2;
+};
+
 struct FloatSize {
     float _field1;
     float _field2;
@@ -326,6 +270,7 @@ struct Font {
     float _field4;
     _Bool _field5;
     _Bool _field6;
+    unsigned int _field7;
 };
 
 struct FontDescription {
@@ -351,7 +296,7 @@ struct FontDescription {
     unsigned int :2;
     unsigned int :2;
     unsigned int :1;
-    int _field5;
+    unsigned int :7;
 };
 
 struct FontFallbackList;
@@ -363,93 +308,83 @@ struct FontFamily {
 
 struct FontFeatureSettings;
 
-struct FormData;
-
-struct FormState;
-
 struct Frame {
-    int _field1;
+    unsigned int _field1;
     struct HashSet<WebCore::FrameDestructionObserver *, WTF::PtrHash<WebCore::FrameDestructionObserver *>, WTF::HashTraits<WebCore::FrameDestructionObserver *>> _field2;
     struct Page *_field3;
     struct FrameTree _field4;
     struct FrameLoader _field5;
     struct NavigationScheduler _field6;
-    struct RefPtr<WebCore::DOMWindow> _field7;
-    struct HTMLFrameOwnerElement *_field8;
-    struct RefPtr<WebCore::FrameView> _field9;
-    struct RefPtr<WebCore::Document> _field10;
-    struct ScriptController _field11;
-    struct Editor _field12;
-    struct FrameSelection _field13;
-    struct EventHandler _field14;
-    struct AnimationController _field15;
-    struct Timer<WebCore::Frame> _field16;
-    float _field17;
-    struct IntPoint _field18;
-    struct ViewportArguments _field19;
-    _Bool _field20;
+    struct HTMLFrameOwnerElement *_field7;
+    struct RefPtr<WebCore::FrameView> _field8;
+    struct RefPtr<WebCore::Document> _field9;
+    struct OwnPtr<WebCore::ScriptController> _field10;
+    struct OwnPtr<WebCore::Editor> _field11;
+    struct OwnPtr<WebCore::FrameSelection> _field12;
+    struct OwnPtr<WebCore::EventHandler> _field13;
+    struct OwnPtr<WebCore::AnimationController> _field14;
+    struct Timer<WebCore::Frame> _field15;
+    float _field16;
+    struct IntPoint _field17;
+    struct ViewportArguments _field18;
+    _Bool _field19;
+    struct VisibleSelection _field20;
     struct VisibleSelection _field21;
-    struct VisibleSelection _field22;
+    float _field22;
     float _field23;
-    unsigned int _field24;
-    unsigned int _field25;
-    unsigned int _field26;
-    double _field27;
-    double _field28;
-    float _field29;
-    float _field30;
-    int _field31;
-    _Bool _field32;
-    _Bool _field33;
-    _Bool _field34;
-    int _field35;
-    _Bool _field36;
-    int _field37;
+    float _field24;
+    int _field25;
+    _Bool _field26;
+    int _field27;
+    float _field28;
+    _Bool _field29;
+    int _field30;
 };
 
 struct FrameDestructionObserver;
 
 struct FrameLoader {
-    void **_field1;
-    struct Frame *_field2;
-    struct FrameLoaderClient *_field3;
-    struct PolicyChecker _field4;
-    struct HistoryController _field5;
-    struct ResourceLoadNotifier _field6;
-    struct SubframeLoader _field7;
-    struct FrameLoaderStateMachine _field8;
-    struct IconController _field9;
-    int _field10;
+    struct Frame *_field1;
+    struct FrameLoaderClient *_field2;
+    struct OwnPtr<WebCore::PolicyChecker> _field3;
+    struct OwnPtr<WebCore::HistoryController> _field4;
+    struct ResourceLoadNotifier _field5;
+    struct SubframeLoader _field6;
+    struct FrameLoaderStateMachine _field7;
+    struct OwnPtr<WebCore::IconController> _field8;
+    struct MixedContentChecker _field9;
+    struct OwnPtr<WebCore::FrameLoader::FrameProgressTracker> _field10;
     int _field11;
-    struct RefPtr<WebCore::DocumentLoader> _field12;
+    int _field12;
     struct RefPtr<WebCore::DocumentLoader> _field13;
     struct RefPtr<WebCore::DocumentLoader> _field14;
-    _Bool _field15;
+    struct RefPtr<WebCore::DocumentLoader> _field15;
     _Bool _field16;
     _Bool _field17;
     _Bool _field18;
-    struct String _field19;
-    _Bool _field20;
+    _Bool _field19;
+    struct String _field20;
     _Bool _field21;
     _Bool _field22;
-    int _field23;
-    _Bool _field24;
-    struct RefPtr<WebCore::SerializedScriptValue> _field25;
-    _Bool _field26;
-    struct KURL _field27;
-    struct Timer<WebCore::FrameLoader> _field28;
-    _Bool _field29;
+    _Bool _field23;
+    int _field24;
+    _Bool _field25;
+    struct RefPtr<WebCore::SerializedScriptValue> _field26;
+    _Bool _field27;
+    struct KURL _field28;
+    struct Timer<WebCore::FrameLoader> _field29;
     _Bool _field30;
-    struct Frame *_field31;
-    struct HashSet<WebCore::Frame *, WTF::PtrHash<WebCore::Frame *>, WTF::HashTraits<WebCore::Frame *>> _field32;
-    _Bool _field33;
+    _Bool _field31;
+    struct Frame *_field32;
+    struct HashSet<WebCore::Frame *, WTF::PtrHash<WebCore::Frame *>, WTF::HashTraits<WebCore::Frame *>> _field33;
     _Bool _field34;
     _Bool _field35;
-    int _field36;
-    struct RefPtr<WebCore::FrameNetworkingContext> _field37;
-    struct KURL _field38;
-    struct RefPtr<WebCore::HistoryItem> _field39;
-    _Bool _field40;
+    _Bool _field36;
+    int _field37;
+    struct RefPtr<WebCore::FrameNetworkingContext> _field38;
+    struct KURL _field39;
+    struct RefPtr<WebCore::HistoryItem> _field40;
+    _Bool _field41;
 };
 
 struct FrameLoaderClient;
@@ -460,29 +395,9 @@ struct FrameLoaderStateMachine {
 
 struct FrameNetworkingContext;
 
-struct FrameSelection {
-    struct IntRect _field1;
-    _Bool _field2;
-    int _field3;
-    struct Frame *_field4;
-    int _field5;
-    struct VisibleSelection _field6;
-    struct VisiblePosition _field7;
-    int _field8;
-    struct RefPtr<WebCore::EditingStyle> _field9;
-    struct Timer<WebCore::FrameSelection> _field10;
-    struct IntRect _field11;
-    struct IntRect _field12;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    struct Color _field13;
-    int _field14;
-    int _field15;
-};
+struct FrameProgressTracker;
+
+struct FrameSelection;
 
 struct FrameTree {
     struct Frame *_field1;
@@ -499,7 +414,7 @@ struct FrameTree {
 struct FrameView;
 
 struct GraphicsContext3D {
-    int _field1;
+    unsigned int _field1;
     int _field2;
     int _field3;
     id _field4;
@@ -508,24 +423,31 @@ struct GraphicsContext3D {
     struct ANGLEWebKitBridge _field7;
     struct OwnPtr<WebCore::Extensions3DOpenGL> _field8;
     struct Attributes _field9;
-    struct Vector<WTF::Vector<float, 0>, 0> _field10;
-    unsigned int _field11;
+    int _field10;
+    struct Vector<WTF::Vector<float, 0, WTF::CrashOnOverflow>, 0, WTF::CrashOnOverflow> _field11;
     unsigned int _field12;
     unsigned int _field13;
     unsigned int _field14;
-    _Bool _field15;
+    unsigned int _field15;
     unsigned int _field16;
     unsigned int _field17;
-    unsigned int _field18;
+    _Bool _field18;
     unsigned int _field19;
-    unsigned int _field20;
+    struct GraphicsContext3DState _field20;
     unsigned int _field21;
     unsigned int _field22;
-    struct ListHashSet<unsigned int, 256, WTF::IntHash<unsigned int>> _field23;
-    struct OwnPtr<WebCore::GraphicsContext3DPrivate> _field24;
+    unsigned int _field23;
+    struct ListHashSet<unsigned int, 256, WTF::IntHash<unsigned int>> _field24;
+    struct OwnPtr<WebCore::GraphicsContext3DPrivate> _field25;
 };
 
 struct GraphicsContext3DPrivate;
+
+struct GraphicsContext3DState {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+};
 
 struct GraphicsLayer {
     void **_field1;
@@ -553,74 +475,71 @@ struct GraphicsLayer {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
+    unsigned int :1;
     unsigned int _field15;
     int _field16;
-    struct Vector<WebCore::GraphicsLayer *, 0> _field17;
+    struct Vector<WebCore::GraphicsLayer *, 0, WTF::CrashOnOverflow> _field17;
     struct GraphicsLayer *_field18;
     struct GraphicsLayer *_field19;
     struct GraphicsLayer *_field20;
     struct GraphicsLayer *_field21;
     struct FloatPoint _field22;
     struct IntRect _field23;
-    int _field24;
+    struct IntPoint _field24;
+    struct IntSize _field25;
+    int _field26;
 };
 
 struct GraphicsLayerClient;
 
 struct HTMLFrameOwnerElement;
 
-struct HTMLFrameSetElement;
-
-struct HTTPHeaderMap {
-    struct HashTable<WTF::AtomicString, std::__1::pair<WTF::AtomicString, WTF::String>, WTF::PairFirstExtractor<std::__1::pair<WTF::AtomicString, WTF::String>>, WTF::CaseFoldingHash, WTF::HashMapValueTraits<WTF::HashTraits<WTF::AtomicString>, WTF::HashTraits<WTF::String>>, WTF::HashTraits<WTF::AtomicString>> _field1;
-};
-
 struct HashCountedSet<JSC::JSObject *, WTF::PtrHash<JSC::JSObject *>, WTF::HashTraits<JSC::JSObject *>> {
     struct HashMap<JSC::JSObject *, unsigned int, WTF::PtrHash<JSC::JSObject *>, WTF::HashTraits<JSC::JSObject *>, WTF::HashTraits<unsigned int>> _field1;
 };
 
 struct HashMap<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>, WTF::PtrHash<JSC::Bindings::RuntimeObject *>, WTF::HashTraits<JSC::Bindings::RuntimeObject *>, WTF::HashTraits<JSC::Weak<JSC::Bindings::RuntimeObject>>> {
-    struct HashTable<JSC::Bindings::RuntimeObject *, std::__1::pair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>>, WTF::PairFirstExtractor<std::__1::pair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>>>, WTF::PtrHash<JSC::Bindings::RuntimeObject *>, WTF::HashMapValueTraits<WTF::HashTraits<JSC::Bindings::RuntimeObject *>, WTF::HashTraits<JSC::Weak<JSC::Bindings::RuntimeObject>>>, WTF::HashTraits<JSC::Bindings::RuntimeObject *>> _field1;
+    struct HashTable<JSC::Bindings::RuntimeObject *, WTF::KeyValuePair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>>>, WTF::PtrHash<JSC::Bindings::RuntimeObject *>, WTF::HashMapValueTraits<WTF::HashTraits<JSC::Bindings::RuntimeObject *>, WTF::HashTraits<JSC::Weak<JSC::Bindings::RuntimeObject>>>, WTF::HashTraits<JSC::Bindings::RuntimeObject *>> _field1;
 };
 
 struct HashMap<JSC::JSObject *, unsigned int, WTF::PtrHash<JSC::JSObject *>, WTF::HashTraits<JSC::JSObject *>, WTF::HashTraits<unsigned int>> {
-    struct HashTable<JSC::JSObject *, std::__1::pair<JSC::JSObject *, unsigned int>, WTF::PairFirstExtractor<std::__1::pair<JSC::JSObject *, unsigned int>>, WTF::PtrHash<JSC::JSObject *>, WTF::HashMapValueTraits<WTF::HashTraits<JSC::JSObject *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<JSC::JSObject *>> _field1;
-};
-
-struct HashMap<WTF::RefPtr<WebCore::DOMWrapperWorld>, JSC::Strong<WebCore::JSDOMWindowShell>, WTF::PtrHash<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<JSC::Strong<WebCore::JSDOMWindowShell>>> {
-    struct HashTable<WTF::RefPtr<WebCore::DOMWrapperWorld>, std::__1::pair<WTF::RefPtr<WebCore::DOMWrapperWorld>, JSC::Strong<WebCore::JSDOMWindowShell>>, WTF::PairFirstExtractor<std::__1::pair<WTF::RefPtr<WebCore::DOMWrapperWorld>, JSC::Strong<WebCore::JSDOMWindowShell>>>, WTF::PtrHash<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::PairHashTraits<WTF::HashTraits<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<JSC::Strong<WebCore::JSDOMWindowShell>>>, WTF::HashTraits<WTF::RefPtr<WebCore::DOMWrapperWorld>>> _field1;
+    struct HashTable<JSC::JSObject *, WTF::KeyValuePair<JSC::JSObject *, unsigned int>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<JSC::JSObject *, unsigned int>>, WTF::PtrHash<JSC::JSObject *>, WTF::HashMapValueTraits<WTF::HashTraits<JSC::JSObject *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<JSC::JSObject *>> _field1;
 };
 
 struct HashMap<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>, WTF::IntPointHash, WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WTF::RefPtr<WebCore::TileGridTile>>> {
-    struct HashTable<WebCore::IntPoint, std::__1::pair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>>, WTF::PairFirstExtractor<std::__1::pair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>>>, WTF::IntPointHash, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WTF::RefPtr<WebCore::TileGridTile>>>, WTF::HashTraits<WebCore::IntPoint>> _field1;
+    struct HashTable<WebCore::IntPoint, WTF::KeyValuePair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>>>, WTF::IntPointHash, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WTF::RefPtr<WebCore::TileGridTile>>>, WTF::HashTraits<WebCore::IntPoint>> _field1;
+};
+
+struct HashMap<WebCore::IntPoint, WebCore::TileController::TileInfo, WTF::IntPointHash, WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WebCore::TileController::TileInfo>> {
+    struct HashTable<WebCore::IntPoint, WTF::KeyValuePair<WebCore::IntPoint, WebCore::TileController::TileInfo>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WebCore::IntPoint, WebCore::TileController::TileInfo>>, WTF::IntPointHash, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WebCore::TileController::TileInfo>>, WTF::HashTraits<WebCore::IntPoint>> _field1;
+};
+
+struct HashMap<WebCore::Node *, unsigned int, WTF::PtrHash<WebCore::Node *>, WTF::HashTraits<WebCore::Node *>, WTF::HashTraits<unsigned int>> {
+    struct HashTable<WebCore::Node *, WTF::KeyValuePair<WebCore::Node *, unsigned int>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WebCore::Node *, unsigned int>>, WTF::PtrHash<WebCore::Node *>, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::Node *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<WebCore::Node *>> _field1;
 };
 
 struct HashMap<WebCore::RenderObject *, unsigned int, WTF::PtrHash<WebCore::RenderObject *>, WTF::HashTraits<WebCore::RenderObject *>, WTF::HashTraits<unsigned int>> {
-    struct HashTable<WebCore::RenderObject *, std::__1::pair<WebCore::RenderObject *, unsigned int>, WTF::PairFirstExtractor<std::__1::pair<WebCore::RenderObject *, unsigned int>>, WTF::PtrHash<WebCore::RenderObject *>, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::RenderObject *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<WebCore::RenderObject *>> _field1;
+    struct HashTable<WebCore::RenderObject *, WTF::KeyValuePair<WebCore::RenderObject *, unsigned int>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WebCore::RenderObject *, unsigned int>>, WTF::PtrHash<WebCore::RenderObject *>, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::RenderObject *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<WebCore::RenderObject *>> _field1;
 };
 
 struct HashMap<WebCore::Widget *, unsigned int, WTF::PtrHash<WebCore::Widget *>, WTF::HashTraits<WebCore::Widget *>, WTF::HashTraits<unsigned int>> {
-    struct HashTable<WebCore::Widget *, std::__1::pair<WebCore::Widget *, unsigned int>, WTF::PairFirstExtractor<std::__1::pair<WebCore::Widget *, unsigned int>>, WTF::PtrHash<WebCore::Widget *>, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::Widget *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<WebCore::Widget *>> _field1;
+    struct HashTable<WebCore::Widget *, WTF::KeyValuePair<WebCore::Widget *, unsigned int>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WebCore::Widget *, unsigned int>>, WTF::PtrHash<WebCore::Widget *>, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::Widget *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<WebCore::Widget *>> _field1;
 };
 
 struct HashMap<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WTF::RefPtr<WebCore::AccessibilityObject>>> {
-    struct HashTable<unsigned int, std::__1::pair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>, WTF::PairFirstExtractor<std::__1::pair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>>, WTF::IntHash<unsigned int>, WTF::HashMapValueTraits<WTF::HashTraits<unsigned int>, WTF::HashTraits<WTF::RefPtr<WebCore::AccessibilityObject>>>, WTF::HashTraits<unsigned int>> _field1;
+    struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>>, WTF::IntHash<unsigned int>, WTF::HashMapValueTraits<WTF::HashTraits<unsigned int>, WTF::HashTraits<WTF::RefPtr<WebCore::AccessibilityObject>>>, WTF::HashTraits<unsigned int>> _field1;
 };
 
 struct HashMap<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry, WTF::IntHash<unsigned int>, WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ShaderSourceEntry>> {
-    struct HashTable<unsigned int, std::__1::pair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>, WTF::PairFirstExtractor<std::__1::pair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>>, WTF::IntHash<unsigned int>, WTF::HashMapValueTraits<WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ShaderSourceEntry>>, WTF::HashTraits<unsigned int>> _field1;
-};
-
-struct HashMap<void *, WTF::RefPtr<JSC::Bindings::RootObject>, WTF::PtrHash<void *>, WTF::HashTraits<void *>, WTF::HashTraits<WTF::RefPtr<JSC::Bindings::RootObject>>> {
-    struct HashTable<void *, std::__1::pair<void *, WTF::RefPtr<JSC::Bindings::RootObject>>, WTF::PairFirstExtractor<std::__1::pair<void *, WTF::RefPtr<JSC::Bindings::RootObject>>>, WTF::PtrHash<void *>, WTF::HashMapValueTraits<WTF::HashTraits<void *>, WTF::HashTraits<WTF::RefPtr<JSC::Bindings::RootObject>>>, WTF::HashTraits<void *>> _field1;
+    struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>>, WTF::IntHash<unsigned int>, WTF::HashMapValueTraits<WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ShaderSourceEntry>>, WTF::HashTraits<unsigned int>> _field1;
 };
 
 struct HashSet<JSC::Bindings::RootObject::InvalidationCallback *, WTF::PtrHash<JSC::Bindings::RootObject::InvalidationCallback *>, WTF::HashTraits<JSC::Bindings::RootObject::InvalidationCallback *>> {
     struct HashTable<JSC::Bindings::RootObject::InvalidationCallback *, JSC::Bindings::RootObject::InvalidationCallback *, WTF::IdentityExtractor, WTF::PtrHash<JSC::Bindings::RootObject::InvalidationCallback *>, WTF::HashTraits<JSC::Bindings::RootObject::InvalidationCallback *>, WTF::HashTraits<JSC::Bindings::RootObject::InvalidationCallback *>> _field1;
 };
 
-struct HashSet<WTF::RefPtr<WebCore::EventTarget>, WTF::PtrHash<WTF::RefPtr<WebCore::EventTarget>>, WTF::HashTraits<WTF::RefPtr<WebCore::EventTarget>>> {
-    struct HashTable<WTF::RefPtr<WebCore::EventTarget>, WTF::RefPtr<WebCore::EventTarget>, WTF::IdentityExtractor, WTF::PtrHash<WTF::RefPtr<WebCore::EventTarget>>, WTF::HashTraits<WTF::RefPtr<WebCore::EventTarget>>, WTF::HashTraits<WTF::RefPtr<WebCore::EventTarget>>> _field1;
+struct HashSet<WebCore::AudioSessionListener *, WTF::PtrHash<WebCore::AudioSessionListener *>, WTF::HashTraits<WebCore::AudioSessionListener *>> {
+    struct HashTable<WebCore::AudioSessionListener *, WebCore::AudioSessionListener *, WTF::IdentityExtractor, WTF::PtrHash<WebCore::AudioSessionListener *>, WTF::HashTraits<WebCore::AudioSessionListener *>, WTF::HashTraits<WebCore::AudioSessionListener *>> _field1;
 };
 
 struct HashSet<WebCore::DeviceMotionClientIOS *, WTF::PtrHash<WebCore::DeviceMotionClientIOS *>, WTF::HashTraits<WebCore::DeviceMotionClientIOS *>> {
@@ -659,24 +578,16 @@ struct HashTable<JSC::Bindings::RootObject::InvalidationCallback *, JSC::Binding
     int _field5;
 };
 
-struct HashTable<JSC::Bindings::RuntimeObject *, std::__1::pair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>>, WTF::PairFirstExtractor<std::__1::pair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>>>, WTF::PtrHash<JSC::Bindings::RuntimeObject *>, WTF::HashMapValueTraits<WTF::HashTraits<JSC::Bindings::RuntimeObject *>, WTF::HashTraits<JSC::Weak<JSC::Bindings::RuntimeObject>>>, WTF::HashTraits<JSC::Bindings::RuntimeObject *>> {
-    struct pair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>> *_field1;
+struct HashTable<JSC::Bindings::RuntimeObject *, WTF::KeyValuePair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>>>, WTF::PtrHash<JSC::Bindings::RuntimeObject *>, WTF::HashMapValueTraits<WTF::HashTraits<JSC::Bindings::RuntimeObject *>, WTF::HashTraits<JSC::Weak<JSC::Bindings::RuntimeObject>>>, WTF::HashTraits<JSC::Bindings::RuntimeObject *>> {
+    struct KeyValuePair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>> *_field1;
     int _field2;
     int _field3;
     int _field4;
     int _field5;
 };
 
-struct HashTable<JSC::JSObject *, std::__1::pair<JSC::JSObject *, unsigned int>, WTF::PairFirstExtractor<std::__1::pair<JSC::JSObject *, unsigned int>>, WTF::PtrHash<JSC::JSObject *>, WTF::HashMapValueTraits<WTF::HashTraits<JSC::JSObject *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<JSC::JSObject *>> {
-    struct pair<JSC::JSObject *, unsigned int> *_field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    int _field5;
-};
-
-struct HashTable<WTF::AtomicString, std::__1::pair<WTF::AtomicString, WTF::String>, WTF::PairFirstExtractor<std::__1::pair<WTF::AtomicString, WTF::String>>, WTF::CaseFoldingHash, WTF::HashMapValueTraits<WTF::HashTraits<WTF::AtomicString>, WTF::HashTraits<WTF::String>>, WTF::HashTraits<WTF::AtomicString>> {
-    struct pair<WTF::AtomicString, WTF::String> *_field1;
+struct HashTable<JSC::JSObject *, WTF::KeyValuePair<JSC::JSObject *, unsigned int>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<JSC::JSObject *, unsigned int>>, WTF::PtrHash<JSC::JSObject *>, WTF::HashMapValueTraits<WTF::HashTraits<JSC::JSObject *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<JSC::JSObject *>> {
+    struct KeyValuePair<JSC::JSObject *, unsigned int> *_field1;
     int _field2;
     int _field3;
     int _field4;
@@ -691,16 +602,8 @@ struct HashTable<WTF::ListHashSetNode<unsigned int, 256>*, WTF::ListHashSetNode<
     int _field5;
 };
 
-struct HashTable<WTF::RefPtr<WebCore::DOMWrapperWorld>, std::__1::pair<WTF::RefPtr<WebCore::DOMWrapperWorld>, JSC::Strong<WebCore::JSDOMWindowShell>>, WTF::PairFirstExtractor<std::__1::pair<WTF::RefPtr<WebCore::DOMWrapperWorld>, JSC::Strong<WebCore::JSDOMWindowShell>>>, WTF::PtrHash<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::PairHashTraits<WTF::HashTraits<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<JSC::Strong<WebCore::JSDOMWindowShell>>>, WTF::HashTraits<WTF::RefPtr<WebCore::DOMWrapperWorld>>> {
-    struct pair<WTF::RefPtr<WebCore::DOMWrapperWorld>, JSC::Strong<WebCore::JSDOMWindowShell>> *_field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    int _field5;
-};
-
-struct HashTable<WTF::RefPtr<WebCore::EventTarget>, WTF::RefPtr<WebCore::EventTarget>, WTF::IdentityExtractor, WTF::PtrHash<WTF::RefPtr<WebCore::EventTarget>>, WTF::HashTraits<WTF::RefPtr<WebCore::EventTarget>>, WTF::HashTraits<WTF::RefPtr<WebCore::EventTarget>>> {
-    struct RefPtr<WebCore::EventTarget> *_field1;
+struct HashTable<WebCore::AudioSessionListener *, WebCore::AudioSessionListener *, WTF::IdentityExtractor, WTF::PtrHash<WebCore::AudioSessionListener *>, WTF::HashTraits<WebCore::AudioSessionListener *>, WTF::HashTraits<WebCore::AudioSessionListener *>> {
+    struct AudioSessionListener **_field1;
     int _field2;
     int _field3;
     int _field4;
@@ -747,8 +650,24 @@ struct HashTable<WebCore::FrameDestructionObserver *, WebCore::FrameDestructionO
     int _field5;
 };
 
-struct HashTable<WebCore::IntPoint, std::__1::pair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>>, WTF::PairFirstExtractor<std::__1::pair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>>>, WTF::IntPointHash, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WTF::RefPtr<WebCore::TileGridTile>>>, WTF::HashTraits<WebCore::IntPoint>> {
-    struct pair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>> *_field1;
+struct HashTable<WebCore::IntPoint, WTF::KeyValuePair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>>>, WTF::IntPointHash, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WTF::RefPtr<WebCore::TileGridTile>>>, WTF::HashTraits<WebCore::IntPoint>> {
+    struct KeyValuePair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>> *_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+    int _field5;
+};
+
+struct HashTable<WebCore::IntPoint, WTF::KeyValuePair<WebCore::IntPoint, WebCore::TileController::TileInfo>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WebCore::IntPoint, WebCore::TileController::TileInfo>>, WTF::IntPointHash, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WebCore::TileController::TileInfo>>, WTF::HashTraits<WebCore::IntPoint>> {
+    struct KeyValuePair<WebCore::IntPoint, WebCore::TileController::TileInfo> *_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+    int _field5;
+};
+
+struct HashTable<WebCore::Node *, WTF::KeyValuePair<WebCore::Node *, unsigned int>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WebCore::Node *, unsigned int>>, WTF::PtrHash<WebCore::Node *>, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::Node *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<WebCore::Node *>> {
+    struct KeyValuePair<WebCore::Node *, unsigned int> *_field1;
     int _field2;
     int _field3;
     int _field4;
@@ -763,32 +682,32 @@ struct HashTable<WebCore::Node *, WebCore::Node *, WTF::IdentityExtractor, WTF::
     int _field5;
 };
 
-struct HashTable<WebCore::RenderObject *, std::__1::pair<WebCore::RenderObject *, unsigned int>, WTF::PairFirstExtractor<std::__1::pair<WebCore::RenderObject *, unsigned int>>, WTF::PtrHash<WebCore::RenderObject *>, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::RenderObject *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<WebCore::RenderObject *>> {
-    struct pair<WebCore::RenderObject *, unsigned int> *_field1;
+struct HashTable<WebCore::RenderObject *, WTF::KeyValuePair<WebCore::RenderObject *, unsigned int>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WebCore::RenderObject *, unsigned int>>, WTF::PtrHash<WebCore::RenderObject *>, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::RenderObject *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<WebCore::RenderObject *>> {
+    struct KeyValuePair<WebCore::RenderObject *, unsigned int> *_field1;
     int _field2;
     int _field3;
     int _field4;
     int _field5;
 };
 
-struct HashTable<WebCore::Widget *, std::__1::pair<WebCore::Widget *, unsigned int>, WTF::PairFirstExtractor<std::__1::pair<WebCore::Widget *, unsigned int>>, WTF::PtrHash<WebCore::Widget *>, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::Widget *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<WebCore::Widget *>> {
-    struct pair<WebCore::Widget *, unsigned int> *_field1;
+struct HashTable<WebCore::Widget *, WTF::KeyValuePair<WebCore::Widget *, unsigned int>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WebCore::Widget *, unsigned int>>, WTF::PtrHash<WebCore::Widget *>, WTF::HashMapValueTraits<WTF::HashTraits<WebCore::Widget *>, WTF::HashTraits<unsigned int>>, WTF::HashTraits<WebCore::Widget *>> {
+    struct KeyValuePair<WebCore::Widget *, unsigned int> *_field1;
     int _field2;
     int _field3;
     int _field4;
     int _field5;
 };
 
-struct HashTable<unsigned int, std::__1::pair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>, WTF::PairFirstExtractor<std::__1::pair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>>, WTF::IntHash<unsigned int>, WTF::HashMapValueTraits<WTF::HashTraits<unsigned int>, WTF::HashTraits<WTF::RefPtr<WebCore::AccessibilityObject>>>, WTF::HashTraits<unsigned int>> {
-    struct pair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>> *_field1;
+struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>>, WTF::IntHash<unsigned int>, WTF::HashMapValueTraits<WTF::HashTraits<unsigned int>, WTF::HashTraits<WTF::RefPtr<WebCore::AccessibilityObject>>>, WTF::HashTraits<unsigned int>> {
+    struct KeyValuePair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>> *_field1;
     int _field2;
     int _field3;
     int _field4;
     int _field5;
 };
 
-struct HashTable<unsigned int, std::__1::pair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>, WTF::PairFirstExtractor<std::__1::pair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>>, WTF::IntHash<unsigned int>, WTF::HashMapValueTraits<WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ShaderSourceEntry>>, WTF::HashTraits<unsigned int>> {
-    struct pair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry> *_field1;
+struct HashTable<unsigned int, WTF::KeyValuePair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>>, WTF::IntHash<unsigned int>, WTF::HashMapValueTraits<WTF::HashTraits<unsigned int>, WTF::HashTraits<WebCore::GraphicsContext3D::ShaderSourceEntry>>, WTF::HashTraits<unsigned int>> {
+    struct KeyValuePair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry> *_field1;
     int _field2;
     int _field3;
     int _field4;
@@ -803,34 +722,13 @@ struct HashTable<unsigned int, unsigned int, WTF::IdentityExtractor, WTF::IntHas
     int _field5;
 };
 
-struct HashTable<void *, std::__1::pair<void *, WTF::RefPtr<JSC::Bindings::RootObject>>, WTF::PairFirstExtractor<std::__1::pair<void *, WTF::RefPtr<JSC::Bindings::RootObject>>>, WTF::PtrHash<void *>, WTF::HashMapValueTraits<WTF::HashTraits<void *>, WTF::HashTraits<WTF::RefPtr<JSC::Bindings::RootObject>>>, WTF::HashTraits<void *>> {
-    struct pair<void *, WTF::RefPtr<JSC::Bindings::RootObject>> *_field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    int _field5;
-};
-
-struct HistoryController {
-    struct Frame *_field1;
-    struct RefPtr<WebCore::HistoryItem> _field2;
-    struct RefPtr<WebCore::HistoryItem> _field3;
-    struct RefPtr<WebCore::HistoryItem> _field4;
-    _Bool _field5;
-    _Bool _field6;
-    struct RefPtr<WebCore::HistoryItem> _field7;
-    int _field8;
-};
+struct HistoryController;
 
 struct HistoryItem;
 
-struct IconController {
-    struct Frame *_field1;
-    struct OwnPtr<WebCore::IconLoader> _field2;
-    _Bool _field3;
-};
+struct IconController;
 
-struct IconLoader;
+struct InbandTextTrackPrivateAVFIOS;
 
 struct IntPoint {
     int _field1;
@@ -852,10 +750,8 @@ struct InvalidationCallback;
 struct JSCell;
 
 struct JSObject {
-    struct ClassInfo *_field1;
-    struct WriteBarrier<JSC::Structure> _field2;
-    struct StorageBarrier _field3;
-    struct WriteBarrier<JSC::Structure> _field4;
+    struct WriteBarrier<JSC::Structure> _field1;
+    struct Butterfly *_field2;
 };
 
 struct JSValue {
@@ -878,7 +774,23 @@ struct KURL {
     int _field11;
 };
 
-struct KillRing;
+struct KeyValuePair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>>;
+
+struct KeyValuePair<JSC::JSObject *, unsigned int>;
+
+struct KeyValuePair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>>;
+
+struct KeyValuePair<WebCore::IntPoint, WebCore::TileController::TileInfo>;
+
+struct KeyValuePair<WebCore::Node *, unsigned int>;
+
+struct KeyValuePair<WebCore::RenderObject *, unsigned int>;
+
+struct KeyValuePair<WebCore::Widget *, unsigned int>;
+
+struct KeyValuePair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>;
+
+struct KeyValuePair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>;
 
 struct ListHashSet<unsigned int, 256, WTF::IntHash<unsigned int>> {
     struct HashTable<WTF::ListHashSetNode<unsigned int, 256>*, WTF::ListHashSetNode<unsigned int, 256>*, WTF::IdentityExtractor, WTF::ListHashSetNodeHashFunctions<WTF::IntHash<unsigned int>>, WTF::HashTraits<WTF::ListHashSetNode<unsigned int, 256>*>, WTF::HashTraits<WTF::ListHashSetNode<unsigned int, 256>*>> _field1;
@@ -899,22 +811,31 @@ struct MediaPlayer;
 
 struct MediaPlayerPrivateIOS {
     void **_field1;
-    struct MediaPlayer *_field2;
-    struct RetainPtr<NSObject> _field3;
-    struct RetainPtr<WebCoreMediaPlayerNotificationHelper> _field4;
-    struct RetainPtr<NSMutableDictionary> _field5;
-    int _field6;
+    void **_field2;
+    struct MediaPlayer *_field3;
+    struct RetainPtr<NSObject> _field4;
+    struct RetainPtr<WebCoreMediaPlayerNotificationHelper> _field5;
+    struct RetainPtr<NSMutableDictionary> _field6;
     int _field7;
     int _field8;
-    int _field9;
-    float _field10;
-    int _field11;
+    struct InbandTextTrackPrivateAVFIOS *_field9;
+    struct Vector<WTF::RefPtr<WebCore::InbandTextTrackPrivateAVFIOS>, 0, WTF::CrashOnOverflow> _field10;
+    struct RefPtr<WebCore::MediaPlayerPrivateIOS::PlatformTextTrackMenuInterfaceIOS> _field11;
+    int _field12;
+    int _field13;
+    unsigned int _field14;
+    float _field15;
+    int _field16;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
+};
+
+struct MixedContentChecker {
+    struct Frame *_field1;
 };
 
 struct Mutex {
@@ -932,17 +853,6 @@ struct NSObject {
     Class _field1;
 };
 
-struct NSURLRequest {
-    Class _field1;
-    id _field2;
-};
-
-struct NavigationAction {
-    struct ResourceRequest _field1;
-    int _field2;
-    struct RefPtr<WebCore::Event> _field3;
-};
-
 struct NavigationScheduler {
     struct Frame *_field1;
     struct Timer<WebCore::NavigationScheduler> _field2;
@@ -951,44 +861,62 @@ struct NavigationScheduler {
 
 struct Node;
 
+struct NodeRareDataBase;
+
 struct OwnPtr<WTF::ListHashSetNodeAllocator<unsigned int, 256>> {
     struct ListHashSetNodeAllocator<unsigned int, 256> *_field1;
 };
 
-struct OwnPtr<WTF::Vector<WTF::RefPtr<WebCore::PlatformCALayer>, 0>> {
-    struct Vector<WTF::RefPtr<WebCore::PlatformCALayer>, 0> *_field1;
+struct OwnPtr<WTF::Vector<WTF::RefPtr<WebCore::PlatformCALayer>, 0, WTF::CrashOnOverflow>> {
+    struct Vector<WTF::RefPtr<WebCore::PlatformCALayer>, 0, WTF::CrashOnOverflow> *_field1;
 };
 
-struct OwnPtr<WebCore::AlternativeTextController> {
-    struct AlternativeTextController *_field1;
+struct OwnPtr<WebCore::AXComputedObjectAttributeCache> {
+    struct AXComputedObjectAttributeCache *_field1;
 };
 
-struct OwnPtr<WebCore::AnimationControllerPrivate> {
-    struct AnimationControllerPrivate *_field1;
+struct OwnPtr<WebCore::AnimationController> {
+    struct AnimationController *_field1;
 };
 
-struct OwnPtr<WebCore::DeleteButtonController> {
-    struct DeleteButtonController *_field1;
+struct OwnPtr<WebCore::AudioSessionPrivate> {
+    struct AudioSessionPrivate *_field1;
 };
 
-struct OwnPtr<WebCore::ElementAttributeData> {
-    struct ElementAttributeData *_field1;
+struct OwnPtr<WebCore::Editor> {
+    struct Editor *_field1;
+};
+
+struct OwnPtr<WebCore::EventHandler> {
+    struct EventHandler *_field1;
 };
 
 struct OwnPtr<WebCore::Extensions3DOpenGL> {
     struct Extensions3DOpenGL *_field1;
 };
 
+struct OwnPtr<WebCore::FrameLoader::FrameProgressTracker> {
+    struct FrameProgressTracker *_field1;
+};
+
+struct OwnPtr<WebCore::FrameSelection> {
+    struct FrameSelection *_field1;
+};
+
 struct OwnPtr<WebCore::GraphicsContext3DPrivate> {
     struct GraphicsContext3DPrivate *_field1;
 };
 
-struct OwnPtr<WebCore::IconLoader> {
-    struct IconLoader *_field1;
+struct OwnPtr<WebCore::HistoryController> {
+    struct HistoryController *_field1;
 };
 
-struct OwnPtr<WebCore::KillRing> {
-    struct KillRing *_field1;
+struct OwnPtr<WebCore::IconController> {
+    struct IconController *_field1;
+};
+
+struct OwnPtr<WebCore::PolicyChecker> {
+    struct PolicyChecker *_field1;
 };
 
 struct OwnPtr<WebCore::PurgeableBuffer> {
@@ -1007,8 +935,12 @@ struct OwnPtr<WebCore::ScheduledNavigation> {
     struct ScheduledNavigation *_field1;
 };
 
-struct OwnPtr<WebCore::SpellChecker> {
-    struct SpellChecker *_field1;
+struct OwnPtr<WebCore::ScriptController> {
+    struct ScriptController *_field1;
+};
+
+struct OwnPtr<WebCore::TileController> {
+    struct TileController *m_ptr;
 };
 
 struct OwnPtr<WebCore::TileGrid> {
@@ -1025,46 +957,24 @@ struct PassRefPtr<WebCore::Range> {
     struct Range *_field1;
 };
 
+struct Path {
+    struct CGPath *_field1;
+};
+
 struct PlatformCALayer {
-    int _field1;
+    unsigned int _field1;
     struct PlatformCALayerClient *_field2;
     int _field3;
-    struct OwnPtr<WTF::Vector<WTF::RefPtr<WebCore::PlatformCALayer>, 0>> _field4;
+    struct OwnPtr<WTF::Vector<WTF::RefPtr<WebCore::PlatformCALayer>, 0, WTF::CrashOnOverflow>> _field4;
     struct RetainPtr<CALayer> _field5;
     struct RetainPtr<NSObject> _field6;
 };
 
 struct PlatformCALayerClient;
 
-struct PlatformMouseEvent {
-    unsigned int _field1;
-    unsigned int _field2;
-    double _field3;
-    struct IntPoint _field4;
-    struct IntPoint _field5;
-    int _field6;
-    int _field7;
-    unsigned int _field8;
-};
+struct PlatformTextTrackMenuInterfaceIOS;
 
-struct PolicyCallback {
-    struct ResourceRequest _field1;
-    struct RefPtr<WebCore::FormState> _field2;
-    struct String _field3;
-    struct NavigationAction _field4;
-    void *_field5;
-    void *_field6;
-    void *_field7;
-    void *_field8;
-};
-
-struct PolicyChecker {
-    struct Frame *_field1;
-    _Bool _field2;
-    _Bool _field3;
-    int _field4;
-    struct PolicyCallback _field5;
-};
+struct PolicyChecker;
 
 struct Position {
     struct RefPtr<WebCore::Node> _field1;
@@ -1084,7 +994,7 @@ struct QualifiedNameImpl;
 struct QuickLookHandle;
 
 struct Range {
-    int _field1;
+    unsigned int _field1;
     struct RefPtr<WebCore::Document> _field2;
     struct RangeBoundaryPoint _field3;
     struct RangeBoundaryPoint _field4;
@@ -1096,10 +1006,6 @@ struct RangeBoundaryPoint {
     struct RefPtr<WebCore::Node> _field3;
 };
 
-struct RefPtr<JSC::Bindings::RootObject> {
-    struct RootObject *_field1;
-};
-
 struct RefPtr<WTF::StringImpl> {
     struct StringImpl *_field1;
 };
@@ -1108,20 +1014,12 @@ struct RefPtr<WebCore::AccessibilityObject> {
     struct AccessibilityObject *_field1;
 };
 
-struct RefPtr<WebCore::CompositeEditCommand> {
-    struct CompositeEditCommand *_field1;
-};
-
-struct RefPtr<WebCore::DOMWindow> {
-    struct DOMWindow *_field1;
-};
-
 struct RefPtr<WebCore::DeviceMotionData> {
     struct DeviceMotionData *_field1;
 };
 
-struct RefPtr<WebCore::DeviceOrientation> {
-    struct DeviceOrientation *_field1;
+struct RefPtr<WebCore::DeviceOrientationData> {
+    struct DeviceOrientationData *_field1;
 };
 
 struct RefPtr<WebCore::Document> {
@@ -1132,15 +1030,9 @@ struct RefPtr<WebCore::DocumentLoader> {
     struct DocumentLoader *_field1;
 };
 
-struct RefPtr<WebCore::EditingStyle> {
-    struct EditingStyle *_field1;
+struct RefPtr<WebCore::ElementData> {
+    struct ElementData *_field1;
 };
-
-struct RefPtr<WebCore::Event> {
-    struct Event *_field1;
-};
-
-struct RefPtr<WebCore::EventTarget>;
 
 struct RefPtr<WebCore::FilterOperation>;
 
@@ -1150,14 +1042,6 @@ struct RefPtr<WebCore::FontFallbackList> {
 
 struct RefPtr<WebCore::FontFeatureSettings> {
     struct FontFeatureSettings *_field1;
-};
-
-struct RefPtr<WebCore::FormData> {
-    struct FormData *_field1;
-};
-
-struct RefPtr<WebCore::FormState> {
-    struct FormState *_field1;
 };
 
 struct RefPtr<WebCore::Frame> {
@@ -1172,24 +1056,18 @@ struct RefPtr<WebCore::FrameView> {
     struct FrameView *_field1;
 };
 
-struct RefPtr<WebCore::HTMLFrameSetElement> {
-    struct HTMLFrameSetElement *_field1;
-};
-
 struct RefPtr<WebCore::HistoryItem> {
     struct HistoryItem *_field1;
 };
 
+struct RefPtr<WebCore::InbandTextTrackPrivateAVFIOS>;
+
+struct RefPtr<WebCore::MediaPlayerPrivateIOS::PlatformTextTrackMenuInterfaceIOS> {
+    struct PlatformTextTrackMenuInterfaceIOS *_field1;
+};
+
 struct RefPtr<WebCore::Node> {
     struct Node *_field1;
-};
-
-struct RefPtr<WebCore::SVGElementInstance> {
-    struct SVGElementInstance *_field1;
-};
-
-struct RefPtr<WebCore::Scrollbar> {
-    struct Scrollbar *_field1;
 };
 
 struct RefPtr<WebCore::SerializedScriptValue> {
@@ -1200,19 +1078,11 @@ struct RefPtr<WebCore::SharedBuffer> {
     struct SharedBuffer *m_ptr;
 };
 
-struct RefPtr<WebCore::Text> {
-    struct Text *_field1;
-};
-
-struct RefPtr<WebCore::Touch>;
-
-struct RenderLayer;
-
 struct RenderObject;
 
 struct ResourceHandle {
     void **_field1;
-    int _field2;
+    unsigned int _field2;
     struct OwnPtr<WebCore::ResourceHandleInternal> _field3;
     struct OwnPtr<WebCore::QuickLookHandle> _field4;
 };
@@ -1223,29 +1093,16 @@ struct ResourceLoadNotifier {
     struct Frame *_field1;
 };
 
-struct ResourceRequest {
-    struct KURL _field1;
-    int _field2;
-    double _field3;
-    struct KURL _field4;
-    struct String _field5;
-    struct HTTPHeaderMap _field6;
-    struct Vector<WTF::String, 0> _field7;
-    struct RefPtr<WebCore::FormData> _field8;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    unsigned int :1;
-    int _field9;
-    _Bool _field10;
-    struct RetainPtr<const _CFURLRequest *> _field11;
-    struct RetainPtr<NSURLRequest> _field12;
-};
-
 struct RetainPtr<CALayer> {
     struct CALayer *_field1;
+};
+
+struct RetainPtr<CGColor *> {
+    struct CGColor *_field1;
+};
+
+struct RetainPtr<CGImage *> {
+    struct CGImage *_field1;
 };
 
 struct RetainPtr<NSMutableDictionary> {
@@ -1256,28 +1113,16 @@ struct RetainPtr<NSObject> {
     struct NSObject *_field1;
 };
 
-struct RetainPtr<NSURLRequest> {
-    struct NSURLRequest *_field1;
-};
-
 struct RetainPtr<TileCacheTombstone> {
     struct TileCacheTombstone *_field1;
-};
-
-struct RetainPtr<WebAccessibilityObjectWrapper> {
-    struct WebAccessibilityObjectWrapper *_field1;
 };
 
 struct RetainPtr<WebCoreMediaPlayerNotificationHelper> {
     struct WebCoreMediaPlayerNotificationHelper *_field1;
 };
 
-struct RetainPtr<WebScriptObject> {
-    struct WebScriptObject *_field1;
-};
-
-struct RetainPtr<const _CFURLRequest *> {
-    struct _CFURLRequest *_field1;
+struct RetainPtr<WebCoreTextTrackRepresentationIOSHelper> {
+    struct WebCoreTextTrackRepresentationIOSHelper *_field1;
 };
 
 struct RetainPtr<const __CFData *> {
@@ -1288,7 +1133,7 @@ struct RetainPtr<const __CTFontDescriptor *>;
 
 struct RootObject {
     void **_field1;
-    int _field2;
+    unsigned int _field2;
     _Bool _field3;
     void *_field4;
     struct Strong<JSC::JSGlobalObject> _field5;
@@ -1297,33 +1142,20 @@ struct RootObject {
     struct HashSet<JSC::Bindings::RootObject::InvalidationCallback *, WTF::PtrHash<JSC::Bindings::RootObject::InvalidationCallback *>, WTF::HashTraits<JSC::Bindings::RootObject::InvalidationCallback *>> _field8;
 };
 
-struct SVGElementInstance;
-
 struct ScheduledNavigation;
 
-struct ScriptController {
-    struct HashMap<WTF::RefPtr<WebCore::DOMWrapperWorld>, JSC::Strong<WebCore::JSDOMWindowShell>, WTF::PtrHash<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<WTF::RefPtr<WebCore::DOMWrapperWorld>>, WTF::HashTraits<JSC::Strong<WebCore::JSDOMWindowShell>>> _field1;
-    struct Frame *_field2;
-    struct String *_field3;
-    _Bool _field4;
-    struct RefPtr<JSC::Bindings::RootObject> _field5;
-    struct RefPtr<JSC::Bindings::RootObject> _field6;
-    struct HashMap<void *, WTF::RefPtr<JSC::Bindings::RootObject>, WTF::PtrHash<void *>, WTF::HashTraits<void *>, WTF::HashTraits<WTF::RefPtr<JSC::Bindings::RootObject>>> _field7;
-    struct RetainPtr<WebScriptObject> _field8;
-};
-
-struct Scrollbar;
+struct ScriptController;
 
 struct SerializedScriptValue;
 
 struct SharedBuffer {
-    int _field1;
+    unsigned int _field1;
     unsigned int _field2;
-    struct Vector<char, 0> _field3;
-    struct Vector<char *, 0> _field4;
+    struct Vector<char, 0, WTF::CrashOnOverflow> _field3;
+    struct Vector<char *, 0, WTF::CrashOnOverflow> _field4;
     _Bool _field5;
     struct OwnPtr<WebCore::PurgeableBuffer> _field6;
-    struct Vector<WTF::RetainPtr<const __CFData *>, 0> _field7;
+    struct Vector<WTF::RetainPtr<const __CFData *>, 0, WTF::CrashOnOverflow> _field7;
     _Bool _field8;
     unsigned int _field9;
     void *_field10;
@@ -1332,12 +1164,6 @@ struct SharedBuffer {
 };
 
 struct SharedFontFamily;
-
-struct SpellChecker;
-
-struct StorageBarrier {
-    struct WriteBarrierBase<JSC::Unknown> *_field1;
-};
 
 struct String {
     struct RefPtr<WTF::StringImpl> _field1;
@@ -1354,8 +1180,6 @@ struct SubframeLoader {
     struct Frame *_field2;
 };
 
-struct Text;
-
 struct TextMarkerData {
     unsigned int axID;
     struct Node *node;
@@ -1363,32 +1187,45 @@ struct TextMarkerData {
     int affinity;
 };
 
+struct TextTrackRepresentationClient;
+
+struct TextTrackRepresentationIOS {
+    void **_field1;
+    struct TextTrackRepresentationClient *_field2;
+    struct RetainPtr<CALayer> _field3;
+    struct RetainPtr<WebCoreTextTrackRepresentationIOSHelper> _field4;
+};
+
 struct TileCache {
     id _field1;
-    _Bool _field2;
+    struct RetainPtr<CGImage *> _field2;
     _Bool _field3;
     _Bool _field4;
-    struct RetainPtr<TileCacheTombstone> _field5;
-    int _field6;
+    _Bool _field5;
+    struct RetainPtr<TileCacheTombstone> _field6;
     int _field7;
-    struct IntSize _field8;
-    _Bool _field9;
+    int _field8;
+    struct IntSize _field9;
     _Bool _field10;
     _Bool _field11;
     _Bool _field12;
     _Bool _field13;
-    struct OwnPtr<WebCore::TileGrid> _field14;
+    _Bool _field14;
     struct OwnPtr<WebCore::TileGrid> _field15;
-    struct Timer<WebCore::TileCache> _field16;
-    struct Vector<WebCore::IntRect, 0> _field17;
-    float _field18;
+    struct OwnPtr<WebCore::TileGrid> _field16;
+    struct Timer<WebCore::TileCache> _field17;
+    struct Vector<WebCore::IntRect, 0, WTF::CrashOnOverflow> _field18;
     float _field19;
     float _field20;
-    struct Mutex _field21;
+    float _field21;
     struct Mutex _field22;
+    struct Mutex _field23;
+    struct Mutex _field24;
 };
 
 struct TileCacheTombstone;
+
+struct TileCohortInfo;
 
 struct TileGrid {
     struct TileCache *_field1;
@@ -1400,205 +1237,157 @@ struct TileGrid {
     struct IntRect _field7;
 };
 
+struct TiledBacking {
+    void **_field1;
+};
+
 struct Timer<WebCore::AXObjectCache> {
     void **_field1;
     double _field2;
     double _field3;
-    int _field4;
-    unsigned int _field5;
-    struct AXObjectCache *_field6;
-};
-
-struct Timer<WebCore::EventHandler> {
-    void **_field1;
-    double _field2;
-    double _field3;
-    int _field4;
-    unsigned int _field5;
-    struct EventHandler *_field6;
+    double _field4;
+    int _field5;
+    unsigned int _field6;
+    struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow> *_field7;
+    struct AXObjectCache *_field8;
 };
 
 struct Timer<WebCore::Frame> {
     void **_field1;
     double _field2;
     double _field3;
-    int _field4;
-    unsigned int _field5;
-    struct Frame *_field6;
+    double _field4;
+    int _field5;
+    unsigned int _field6;
+    struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow> *_field7;
+    struct Frame *_field8;
 };
 
 struct Timer<WebCore::FrameLoader> {
     void **_field1;
     double _field2;
     double _field3;
-    int _field4;
-    unsigned int _field5;
-    struct FrameLoader *_field6;
-};
-
-struct Timer<WebCore::FrameSelection> {
-    void **_field1;
-    double _field2;
-    double _field3;
-    int _field4;
-    unsigned int _field5;
-    struct FrameSelection *_field6;
+    double _field4;
+    int _field5;
+    unsigned int _field6;
+    struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow> *_field7;
+    struct FrameLoader *_field8;
 };
 
 struct Timer<WebCore::NavigationScheduler> {
     void **_field1;
     double _field2;
     double _field3;
-    int _field4;
-    unsigned int _field5;
-    struct NavigationScheduler *_field6;
+    double _field4;
+    int _field5;
+    unsigned int _field6;
+    struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow> *_field7;
+    struct NavigationScheduler *_field8;
 };
 
 struct Timer<WebCore::TileCache> {
     void **_field1;
     double _field2;
     double _field3;
-    int _field4;
-    unsigned int _field5;
-    struct TileCache *_field6;
+    double _field4;
+    int _field5;
+    unsigned int _field6;
+    struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow> *_field7;
+    struct TileCache *_field8;
+};
+
+struct Timer<WebCore::TileController> {
+    void **_field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    int _field5;
+    unsigned int _field6;
+    struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow> *_field7;
+    struct TileController *_field8;
 };
 
 struct TransformationMatrix {
     double _field1[4][4];
 };
 
-struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<WTF::RefPtr<WebCore::AccessibilityObject>, 0> _field2;
-};
+struct TreeScope;
 
-struct Vector<WTF::RefPtr<WebCore::FilterOperation>, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<WTF::RefPtr<WebCore::FilterOperation>, 0> _field2;
-};
-
-struct Vector<WTF::RefPtr<WebCore::PlatformCALayer>, 0>;
-
-struct Vector<WTF::RefPtr<WebCore::Touch>, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<WTF::RefPtr<WebCore::Touch>, 0> _field2;
-};
-
-struct Vector<WTF::RetainPtr<const __CFData *>, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<WTF::RetainPtr<const __CFData *>, 0> _field2;
-};
-
-struct Vector<WTF::RetainPtr<const __CTFontDescriptor *>, 16> {
-    unsigned int m_size;
-    struct VectorBuffer<WTF::RetainPtr<const __CTFontDescriptor *>, 16> m_buffer;
-};
-
-struct Vector<WTF::String, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<WTF::String, 0> _field2;
-};
-
-struct Vector<WTF::Vector<float, 0>, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<WTF::Vector<float, 0>, 0> _field2;
-};
-
-struct Vector<WebCore::CompositionUnderline, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<WebCore::CompositionUnderline, 0> _field2;
-};
-
-struct Vector<WebCore::GraphicsLayer *, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<WebCore::GraphicsLayer *, 0> _field2;
-};
-
-struct Vector<WebCore::IntRect, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<WebCore::IntRect, 0> _field2;
-};
-
-struct Vector<char *, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<char *, 0> _field2;
-};
-
-struct Vector<char, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<char, 0> _field2;
-};
-
-struct Vector<float, 0>;
-
-struct Vector<std::__1::pair<WTF::RefPtr<WebCore::AccessibilityObject>, WebCore::AXObjectCache::AXNotification>, 0> {
-    unsigned int _field1;
-    struct VectorBuffer<std::__1::pair<WTF::RefPtr<WebCore::AccessibilityObject>, WebCore::AXObjectCache::AXNotification>, 0> _field2;
-};
-
-struct VectorBuffer<WTF::RefPtr<WebCore::AccessibilityObject>, 0> {
+struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow> {
     struct RefPtr<WebCore::AccessibilityObject> *_field1;
     unsigned int _field2;
+    unsigned int _field3;
 };
 
-struct VectorBuffer<WTF::RefPtr<WebCore::FilterOperation>, 0> {
+struct Vector<WTF::RefPtr<WebCore::FilterOperation>, 0, WTF::CrashOnOverflow> {
     struct RefPtr<WebCore::FilterOperation> *_field1;
     unsigned int _field2;
+    unsigned int _field3;
 };
 
-struct VectorBuffer<WTF::RefPtr<WebCore::Touch>, 0> {
-    struct RefPtr<WebCore::Touch> *_field1;
+struct Vector<WTF::RefPtr<WebCore::InbandTextTrackPrivateAVFIOS>, 0, WTF::CrashOnOverflow> {
+    struct RefPtr<WebCore::InbandTextTrackPrivateAVFIOS> *_field1;
     unsigned int _field2;
+    unsigned int _field3;
 };
 
-struct VectorBuffer<WTF::RetainPtr<const __CFData *>, 0> {
+struct Vector<WTF::RefPtr<WebCore::PlatformCALayer>, 0, WTF::CrashOnOverflow>;
+
+struct Vector<WTF::RetainPtr<const __CFData *>, 0, WTF::CrashOnOverflow> {
     struct RetainPtr<const __CFData *> *_field1;
     unsigned int _field2;
+    unsigned int _field3;
 };
 
-struct VectorBuffer<WTF::RetainPtr<const __CTFontDescriptor *>, 16> {
+struct Vector<WTF::RetainPtr<const __CTFontDescriptor *>, 16, WTF::CrashOnOverflow> {
     struct RetainPtr<const __CTFontDescriptor *> *m_buffer;
     unsigned int m_capacity;
     struct AlignedBuffer<64, 4> m_inlineBuffer;
+    unsigned int m_size;
 };
 
-struct VectorBuffer<WTF::String, 0> {
-    struct String *_field1;
+struct Vector<WTF::Vector<float, 0, WTF::CrashOnOverflow>, 0, WTF::CrashOnOverflow> {
+    struct Vector<float, 0, WTF::CrashOnOverflow> *_field1;
     unsigned int _field2;
+    unsigned int _field3;
 };
 
-struct VectorBuffer<WTF::Vector<float, 0>, 0> {
-    struct Vector<float, 0> *_field1;
-    unsigned int _field2;
-};
-
-struct VectorBuffer<WebCore::CompositionUnderline, 0> {
-    struct CompositionUnderline *_field1;
-    unsigned int _field2;
-};
-
-struct VectorBuffer<WebCore::GraphicsLayer *, 0> {
+struct Vector<WebCore::GraphicsLayer *, 0, WTF::CrashOnOverflow> {
     struct GraphicsLayer **_field1;
     unsigned int _field2;
+    unsigned int _field3;
 };
 
-struct VectorBuffer<WebCore::IntRect, 0> {
+struct Vector<WebCore::IntRect, 0, WTF::CrashOnOverflow> {
     struct IntRect *_field1;
     unsigned int _field2;
+    unsigned int _field3;
 };
 
-struct VectorBuffer<char *, 0> {
+struct Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow>;
+
+struct Vector<char *, 0, WTF::CrashOnOverflow> {
     char **_field1;
     unsigned int _field2;
+    unsigned int _field3;
 };
 
-struct VectorBuffer<char, 0> {
+struct Vector<char, 0, WTF::CrashOnOverflow> {
     char *_field1;
     unsigned int _field2;
+    unsigned int _field3;
 };
 
-struct VectorBuffer<std::__1::pair<WTF::RefPtr<WebCore::AccessibilityObject>, WebCore::AXObjectCache::AXNotification>, 0> {
+struct Vector<float, 0, WTF::CrashOnOverflow>;
+
+struct Vector<std::__1::pair<WTF::RefPtr<WebCore::AccessibilityObject>, WebCore::AXObjectCache::AXNotification>, 0, WTF::CrashOnOverflow> {
     struct pair<WTF::RefPtr<WebCore::AccessibilityObject>, WebCore::AXObjectCache::AXNotification> *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+};
+
+struct VectorBuffer<WebCore::TileController::TileCohortInfo, 0> {
+    struct TileCohortInfo *_field1;
     unsigned int _field2;
 };
 
@@ -1610,6 +1399,11 @@ struct ViewportArguments {
     float _field5;
     float _field6;
     float _field7;
+    float _field8;
+    float _field9;
+    float _field10;
+    float _field11;
+    float _field12;
 };
 
 struct VisiblePosition {
@@ -1631,7 +1425,7 @@ struct VisibleSelection {
 struct WKView {
     struct _WKObject _field1;
     struct _WKViewContext *_field2;
-    struct WKWindow *_field3;
+    id _field3;
     struct WKView *_field4;
     struct __CFArray *_field5;
     struct CGPoint _field6;
@@ -1639,14 +1433,6 @@ struct WKView {
     unsigned int _field8;
     float _field9;
     void *_field10;
-};
-
-struct WKWindow {
-    struct _WKObject _field1;
-    id _field2;
-    struct WKView *_field3;
-    struct WKView *_field4;
-    struct WKView *_field5;
 };
 
 struct Weak<WebCore::JSDOMWrapper> {
@@ -1668,13 +1454,21 @@ struct WebCoreMediaPlayerNotificationHelper {
     char _field3;
 };
 
-struct WebScriptObject;
+struct WebCoreTextTrackRepresentationIOSHelper {
+    Class _field1;
+    struct TextTrackRepresentationIOS *_field2;
+};
+
+struct WebTiledScrollingIndicatorLayer {
+    Class _field1;
+    struct _CALayerIvars _field2;
+    struct TileController *_field3;
+    id _field4;
+};
 
 struct WriteBarrier<JSC::Structure> {
     struct JSCell *_field1;
 };
-
-struct WriteBarrierBase<JSC::Unknown>;
 
 struct _CALayerIvars {
     int _field1;
@@ -1682,8 +1476,6 @@ struct _CALayerIvars {
     void *_field3;
     void *_field4[8];
 };
-
-struct _CFURLRequest;
 
 struct _NSRange {
     unsigned int _field1;
@@ -1713,27 +1505,117 @@ struct _WKViewContext {
     void *invalidateGStateCallback;
 };
 
-struct pair<JSC::Bindings::RuntimeObject *, JSC::Weak<JSC::Bindings::RuntimeObject>>;
-
-struct pair<JSC::JSObject *, unsigned int>;
-
-struct pair<WTF::AtomicString, WTF::String>;
-
 struct pair<WTF::RefPtr<WebCore::AccessibilityObject>, WebCore::AXObjectCache::AXNotification>;
 
-struct pair<WTF::RefPtr<WebCore::DOMWrapperWorld>, JSC::Strong<WebCore::JSDOMWindowShell>>;
+#if 0
+// Names with conflicting types:
+typedef struct ?<WebAccessibilityObjectWrapper> {
+    struct WebAccessibilityObjectWrapper *_field1;
+} RetainPtr_0f0c9752;
 
-struct pair<WebCore::IntPoint, WTF::RefPtr<WebCore::TileGridTile>>;
+typedef struct ?<WebTiledScrollingIndicatorLayer> {
+    struct WebTiledScrollingIndicatorLayer *_field1;
+} RetainPtr_6fe3f9f2;
 
-struct pair<WebCore::RenderObject *, unsigned int>;
+typedef struct ?<WebAccessibilityObjectWrapper> {
+    struct WebAccessibilityObjectWrapper *_field1;
+} RetainPtr_b66cd963;
 
-struct pair<WebCore::Widget *, unsigned int>;
+typedef struct ?<WebTiledScrollingIndicatorLayer> {
+    struct WebTiledScrollingIndicatorLayer *_field1;
+} RetainPtr_11121e71;
 
-struct pair<unsigned int, WTF::RefPtr<WebCore::AccessibilityObject>>;
+typedef struct {
+    void **_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow> _field4;
+    _Bool _field5;
+    int _field6;
+    int _field7;
+    struct RetainPtr<WebAccessibilityObjectWrapper> {
+        struct WebAccessibilityObjectWrapper *_field1;
+    } _field8;
+} AccessibilityObject_acca7b3e;
 
-struct pair<unsigned int, WebCore::GraphicsContext3D::ShaderSourceEntry>;
+typedef struct {
+    void **_field1;
+    id _field2;
+    struct RetainPtr<CALayer> _field3;
+    struct RetainPtr<WebTiledScrollingIndicatorLayer> {
+        struct WebTiledScrollingIndicatorLayer *_field1;
+    } _field4;
+    struct IntSize _field5;
+    struct FloatRect _field6;
+    struct FloatRect _field7;
+    struct FloatRect _field8;
+    struct IntRect _field9;
+    struct HashMap<WebCore::IntPoint, WebCore::TileController::TileInfo, WTF::IntPointHash, WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WebCore::TileController::TileInfo>> _field10;
+    struct Timer<WebCore::TileController> _field11;
+    struct Timer<WebCore::TileController> _field12;
+    struct Deque<WebCore::TileController::TileCohortInfo, 0> _field13;
+    struct IntRect _field14;
+    float _field15;
+    float _field16;
+    unsigned int _field17;
+    _Bool _field18;
+    _Bool _field19;
+    _Bool _field20;
+    _Bool _field21;
+    _Bool _field22;
+    _Bool _field23;
+    _Bool _field24;
+    struct RetainPtr<CGColor *> _field25;
+    float _field26;
+    int _field27;
+} TileController_fc2949d0;
 
-struct pair<void *, WTF::RefPtr<JSC::Bindings::RootObject>>;
+typedef struct {
+    void **_field1;
+    id _field2;
+    struct RetainPtr<CALayer> _field3;
+    struct RetainPtr<WebTiledScrollingIndicatorLayer> {
+        struct WebTiledScrollingIndicatorLayer *_field1;
+    } _field4;
+    struct IntSize _field5;
+    struct FloatRect _field6;
+    struct FloatRect _field7;
+    struct FloatRect _field8;
+    struct IntRect _field9;
+    struct HashMap<WebCore::IntPoint, WebCore::TileController::TileInfo, WTF::IntPointHash, WTF::HashTraits<WebCore::IntPoint>, WTF::HashTraits<WebCore::TileController::TileInfo>> _field10;
+    struct Timer<WebCore::TileController> _field11;
+    struct Timer<WebCore::TileController> _field12;
+    struct Deque<WebCore::TileController::TileCohortInfo, 0> _field13;
+    struct IntRect _field14;
+    float _field15;
+    float _field16;
+    unsigned int _field17;
+    _Bool _field18;
+    _Bool _field19;
+    _Bool _field20;
+    _Bool _field21;
+    _Bool _field22;
+    _Bool _field23;
+    _Bool _field24;
+    struct RetainPtr<CGColor *> _field25;
+    float _field26;
+    int _field27;
+} TileController_b19e9b86;
+
+typedef struct {
+    void **_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    struct Vector<WTF::RefPtr<WebCore::AccessibilityObject>, 0, WTF::CrashOnOverflow> _field4;
+    _Bool _field5;
+    int _field6;
+    int _field7;
+    struct RetainPtr<WebAccessibilityObjectWrapper> {
+        struct WebAccessibilityObjectWrapper *_field1;
+    } _field8;
+} AccessibilityObject_241984a0;
+
+#endif
 
 #pragma mark Typedef'd Structures
 
@@ -1747,6 +1629,11 @@ typedef struct PassRefPtr<WebCore::Range> {
 } PassRefPtr_d7fc6f43;
 
 #pragma mark Named Unions
+
+union DataUnion {
+    struct RenderObject *_field1;
+    struct NodeRareDataBase *_field2;
+};
 
 union EncodedValueDescriptor {
     long long _field1;

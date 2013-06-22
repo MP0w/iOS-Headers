@@ -13,12 +13,13 @@
     _UIWebViewController *_webViewController;
 }
 
++ (id)exportedInterface;
++ (id)serviceViewControllerInterface;
 @property(nonatomic) _UIWebViewController *webViewController; // @synthesize webViewController=_webViewController;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 
 @end
 

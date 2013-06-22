@@ -4,25 +4,30 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBUIAnimationController.h"
+#import "SBUIMainScreenAnimationController.h"
 
-#import "SBUIFullscreenAnimationViewDelegate-Protocol.h"
+@class UIView;
 
-@class SBAppToAppTransitionView;
-
-@interface SBAppToAppTransitionController : SBUIAnimationController <SBUIFullscreenAnimationViewDelegate>
+@interface SBAppToAppTransitionController : SBUIMainScreenAnimationController
 {
-    SBAppToAppTransitionView *_transitionView;
+    UIView *_transitionView;
+    UIView *_transformContainer;
+    UIView *_fromAppContextHostView;
+    UIView *_fromView;
+    UIView *_toView;
+    int _fromOrientation;
+    BOOL _fromNC;
+    BOOL _fromCC;
+    BOOL _fromAssistant;
     BOOL _requiresHostView;
-    BOOL _dismissBanner;
 }
 
-+ (id)_transitionWindow;
-@property(retain, nonatomic) SBAppToAppTransitionView *transitionView; // @synthesize transitionView=_transitionView;
-- (void)appTransitionViewAnimationDidStop:(id)arg1;
-- (void)appTransitionView:(id)arg1 animationWillStartWithDuration:(double)arg2 afterDelay:(double)arg3;
+- (void)_rotateViewIfNecessary:(id)arg1 inverted:(BOOL)arg2;
+- (void)_kickOffAnimation;
+- (void)_setToView:(id)arg1;
+- (void)_setFromView:(id)arg1;
+- (int)_springBoardOrientationDuringAppLaunch;
 - (void)_cleanupAnimation;
-- (void)_cancelAnimation;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
 - (void)_setHidden:(BOOL)arg1;
@@ -30,6 +35,7 @@
 - (BOOL)_animationShouldStart;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 deactivatingApp:(id)arg2;
+- (id)_getTransitionWindow;
 
 @end
 

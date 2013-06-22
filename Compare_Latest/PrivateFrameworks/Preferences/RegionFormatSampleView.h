@@ -14,6 +14,7 @@
 {
     UILabel *_labels[4];
     float _sized;
+    float _labelTopPadding[4];
 }
 
 - (id)_accessibilityLabels;

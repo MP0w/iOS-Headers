@@ -18,20 +18,22 @@
     struct CGRect _cropRect;
 }
 
+- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)_cacheIDAtPlaybackTime:(double)arg1;
+- (id)_imageDataForSize:(struct CGSize)arg1 playbackTime:(double)arg2;
+- (id)_imageForSize:(struct CGSize)arg1 artworkCacheID:(id)arg2 playbackTime:(double)arg3 scaleToSize:(BOOL)arg4;
+- (id)_imageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3 scaleToSize:(struct CGSize)arg4;
 - (struct CGRect)imageCropRect;
 - (struct CGRect)bounds;
-- (id)coverFlowImageWithSize:(struct CGSize)arg1;
-- (id)imageDataWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
-- (id)imageWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)albumImageDataWithSize:(struct CGSize)arg1;
 - (id)albumImageWithSize:(struct CGSize)arg1;
-- (id)albumImageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3;
-- (id)albumImageWithFormat:(int)arg1 artworkCacheID:(id)arg2;
-- (id)albumImageWithFormat:(int)arg1;
+- (id)imageDataWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
+- (id)imageWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
+- (id)imageWithSize:(struct CGSize)arg1 artworkCacheID:(id)arg2;
+- (id)imageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3;
 - (BOOL)hasArtworkAvailable;
-- (void)dealloc;
 - (id)_initWithItem:(id)arg1;
 
 @end

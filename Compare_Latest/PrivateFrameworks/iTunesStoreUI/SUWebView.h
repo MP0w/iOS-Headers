@@ -6,12 +6,15 @@
 
 #import "UIWebView.h"
 
-@class NSString, UIColor;
+@class NSString, UIColor, UIView;
 
 @interface SUWebView : UIWebView
 {
+    BOOL _isPinned;
     UIColor *_originalBackgroundColor;
     BOOL _originalShowsBackgroundShadow;
+    float _pinnedHeaderInsetAdjustment;
+    UIView *_pinnedHeaderView;
     unsigned int _scrollingDisabled:1;
     BOOL _showsTopBackgroundShadow;
     int _synchronousLayoutCount;
@@ -23,6 +26,7 @@
 - (void)view:(id)arg1 didSetFrame:(struct CGRect)arg2 oldFrame:(struct CGRect)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)_setRichTextReaderViewportSettings;
+- (void)_setPinnedHeaderView:(id)arg1 withTopInsetAdjustment:(float)arg2;
 @property(readonly, nonatomic) id windowScriptObject;
 @property(readonly, nonatomic) NSString *title;
 @property(nonatomic, getter=isScrollingEnabled) BOOL scrollingEnabled;

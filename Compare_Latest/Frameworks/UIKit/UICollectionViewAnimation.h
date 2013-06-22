@@ -17,6 +17,7 @@
     int _viewType;
     NSMutableArray *_completionHandlers;
     NSMutableArray *_startupHandlers;
+    id _animationBlock;
     struct {
         unsigned int animateFromCurrentPosition:1;
         unsigned int deleteAterAnimation:1;
@@ -37,8 +38,9 @@
 @property(nonatomic) BOOL rasterizeAfterAnimation;
 @property(readonly, nonatomic) BOOL deleteAfterAnimation;
 @property(readonly, nonatomic) BOOL animateFromCurrentPosition;
+- (id)description;
 - (void)dealloc;
-- (id)initWithView:(id)arg1 viewType:(int)arg2 finalLayoutAttributes:(id)arg3 startFraction:(float)arg4 endFraction:(float)arg5 animateFromCurrentPostion:(BOOL)arg6 deleteAfterAnimation:(BOOL)arg7;
+- (id)initWithView:(id)arg1 viewType:(int)arg2 finalLayoutAttributes:(id)arg3 startFraction:(float)arg4 endFraction:(float)arg5 animateFromCurrentPostion:(BOOL)arg6 deleteAfterAnimation:(BOOL)arg7 customAnimations:(id)arg8;
 
 @end
 

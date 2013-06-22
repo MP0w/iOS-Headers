@@ -13,7 +13,6 @@
 }
 
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-+ (void)initialize;
 - (id)__;
 - (void)start;
 - (void)main;
@@ -37,11 +36,6 @@
 - (BOOL)isCancelled;
 - (void)finalize;
 - (void)dealloc;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
-- (oneway void)release;
-- (id)retain;
 - (id)init;
 - (void)setObservationInfo:(void *)arg1;
 - (void *)observationInfo;

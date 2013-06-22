@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class NSArray, NSString;
+
 @interface NSNetService : NSObject
 {
     id _netService;
@@ -33,17 +35,20 @@
 - (void)stop;
 - (void)publish;
 - (void)publishWithOptions:(unsigned int)arg1;
-- (int)port;
-- (id)addresses;
-- (id)hostName;
-- (id)name;
-- (id)type;
-- (id)domain;
+- (void)publishWithServer:(unsigned int)arg1;
+- (id)normalizedType;
+- (void)_internal_publishWithOptions:(unsigned int)arg1;
+@property(readonly) int port;
+@property(readonly) NSArray *addresses;
+@property(readonly) NSString *hostName;
+@property(readonly) NSString *name;
+@property(readonly) NSString *type;
+@property(readonly) NSString *domain;
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)_scheduleInDefaultRunLoopForMode:(id)arg1;
-- (void)setDelegate:(id)arg1;
-- (id)delegate;
+@property BOOL includesPeerToPeer;
+@property id <NSNetServiceDelegate> delegate;
 - (id)initWithDomain:(id)arg1 type:(id)arg2 name:(id)arg3;
 - (id)initWithDomain:(id)arg1 type:(id)arg2 name:(id)arg3 port:(int)arg4;
 - (id)initWithCFNetService:(struct __CFNetService *)arg1;

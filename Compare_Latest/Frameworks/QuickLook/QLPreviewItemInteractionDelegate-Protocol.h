@@ -18,7 +18,9 @@
 - (void)previewItemWillLoad:(id)arg1;
 - (void)previewItem:(id)arg1 willHideOverlayWithDuration:(double)arg2;
 - (void)previewItem:(id)arg1 willShowOverlayWithDuration:(double)arg2;
+- (void)showContentsWasTappedForPreviewItem:(id)arg1;
 - (void)overlayWasInteractedWithOnPreviewItem:(id)arg1;
+- (void)viewDidUpdateForPreviewItem:(id)arg1;
 - (void)viewWasTappedOnPreviewItem:(id)arg1;
 @end
 

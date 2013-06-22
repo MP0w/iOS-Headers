@@ -15,13 +15,13 @@
     HTSHTTPServer *_server;
     NSMutableDictionary *_authTokens;
     struct __FSEventStream *_stream;
+    BOOL _defaultsToNoQualifiedAds;
+    BOOL _alwaysRegenerateWebArchives;
     id <ADEmbeddedAdServerDelegate> _delegate;
     NSString *_publicURLRoot;
-    BOOL _defaultsToNoQualifiedAds;
     NSDictionary *_defaultAdData;
     NSString *_adPath;
     NSArray *_adManifests;
-    BOOL _alwaysRegenerateWebArchives;
 }
 
 + (id)manifestForAdAtURL:(id)arg1;
@@ -42,6 +42,9 @@
 - (id)_webResourcesInDirectory:(id)arg1 baseURL:(id)arg2;
 - (id)_webResourceForPath:(id)arg1 url:(id)arg2;
 - (id)_handleManifestRequest:(id)arg1 message:(id)arg2;
+- (id)_handleLogAggregateMetricsRequest:(id)arg1 message:(id)arg2;
+- (id)_handleLogTileImpressionEventRequest:(id)arg1 message:(id)arg2;
+- (id)_handleListeningPresenceEventsRequest:(id)arg1 message:(id)arg2;
 - (id)_handleMescalSignSAPSetupRequest:(id)arg1 message:(id)arg2;
 - (id)_handleMescalSignSAPSetupCertificateRequest:(id)arg1 message:(id)arg2;
 - (id)_handleOptOutRequest:(id)arg1 message:(id)arg2;

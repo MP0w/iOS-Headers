@@ -20,6 +20,7 @@
 @property(readonly) NSString *sessionName;
 @property id <GKVoiceChatSessionDelegate> delegate;
 - (float)outputMeterForPeer:(id)arg1;
+- (BOOL)getMuteStateForPeer:(id)arg1;
 - (void)setMute:(BOOL)arg1 forPeer:(id)arg2;
 - (void)stopSession;
 - (void)startSession;

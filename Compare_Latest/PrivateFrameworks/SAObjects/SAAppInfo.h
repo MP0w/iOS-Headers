@@ -6,7 +6,7 @@
 
 #import <SAObjects/SADomainObject.h>
 
-@class NSArray, NSDictionary, NSString;
+@class NSArray, NSDictionary, NSString, SASiriSupport, SAStarkSupport;
 
 @interface SAAppInfo : SADomainObject
 {
@@ -17,11 +17,14 @@
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 @property(copy, nonatomic) NSArray *supportedSchemes;
 @property(copy, nonatomic) NSArray *supportedCommands;
+@property(retain, nonatomic) SAStarkSupport *starkSupport;
 @property(copy, nonatomic) NSDictionary *spotlightNameMap;
 @property(copy, nonatomic) NSString *spotlightName;
+@property(retain, nonatomic) SASiriSupport *siriSupport;
 @property(copy, nonatomic) NSString *providerName;
 @property(copy, nonatomic) NSDictionary *displayAppNameMap;
 @property(copy, nonatomic) NSString *displayAppName;
+@property(copy, nonatomic) NSString *authToken;
 @property(copy, nonatomic) NSString *appVersion;
 @property(copy, nonatomic) NSDictionary *appNameMap;
 @property(copy, nonatomic) NSString *appName;

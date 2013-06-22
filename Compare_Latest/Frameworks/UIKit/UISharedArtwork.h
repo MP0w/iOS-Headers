@@ -10,11 +10,11 @@
 
 @interface UISharedArtwork : NSObject
 {
+    NSMutableDictionary *_images;
     struct _opaque_pthread_mutex_t {
         long __sig;
         char __opaque[40];
     } _lock;
-    NSMutableDictionary *_images;
     id *_files;
     int _preferredScale;
     int _preferredDevice;

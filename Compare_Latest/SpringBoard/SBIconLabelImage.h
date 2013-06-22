@@ -21,11 +21,12 @@
 + (id)_drawLabelImageForParameters:(id)arg1;
 + (id)_labelImageCountedMap;
 + (void)drawImageInRect:(struct CGRect)arg1 fromParameters:(id)arg2;
-+ (struct CGRect)rectIncludingShadow:(BOOL)arg1 fromParameters:(id)arg2 constrainedToRect:(struct CGRect)arg3;
-+ (struct CGRect)_rectIncludingShadow:(BOOL)arg1 withDrawing:(BOOL)arg2 inRect:(struct CGRect)arg3 fromParameters:(id)arg4;
++ (struct CGRect)rectFromParameters:(id)arg1 constrainedToRect:(struct CGRect)arg2;
++ (struct CGRect)_rectWithDrawing:(BOOL)arg1 inRect:(struct CGRect)arg2 fromParameters:(id)arg3;
 @property(readonly, nonatomic) struct CGPoint maxSizeOffset; // @synthesize maxSizeOffset=_maxSizeOffset;
 @property(readonly, nonatomic) SBIconLabelImageParameters *parameters; // @synthesize parameters=_parameters;
-@property(readonly, nonatomic) id <NSCopying> countedMapKey;
+- (id)description;
+- (id)countedMapKey;
 - (void)dealloc;
 - (id)initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 orientation:(int)arg3;
 - (id)_initWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 orientation:(int)arg3 parameters:(id)arg4 maxSizeOffset:(struct CGPoint)arg5;

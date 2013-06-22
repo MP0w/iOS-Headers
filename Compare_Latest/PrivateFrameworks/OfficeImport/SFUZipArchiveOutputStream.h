@@ -51,7 +51,7 @@
 - (void)writeZip64EndOfCentralDirectoryWithOffset:(long long)arg1;
 - (void)writeEndOfCentralDirectoryWithOffset:(long long)arg1;
 - (void)writeCentralFileHeaderUsingEntry:(id)arg1 isFirstEntry:(BOOL)arg2;
-- (unsigned int)writeLocalFileHeaderForEntry:(id)arg1;
+- (unsigned long)writeLocalFileHeaderForEntry:(id)arg1;
 - (void)coalesceAndTruncateFreeSpace;
 - (void)finishEntry;
 

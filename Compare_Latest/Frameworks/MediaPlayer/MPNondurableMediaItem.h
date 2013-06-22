@@ -20,15 +20,13 @@
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 - (id)valueForProperty:(id)arg1;
 - (id)valuesForProperties:(id)arg1;
-- (void)clearBookmarkTime;
-- (void)updateLastUsedDateToCurrentDate;
+- (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id)arg1;
 - (BOOL)incrementPlayCountForStopTime:(double)arg1;
 - (void)incrementPlayCountForPlayingToEnd;
 - (void)incrementSkipCount;
 - (void)noteWasPlayedToTime:(double)arg1 skipped:(BOOL)arg2;
 - (void)markNominalAmountHasBeenPlayed;
 - (BOOL)didSkipWithPlayedToTime:(double)arg1;
-- (void)dealloc;
 - (BOOL)existsInLibrary;
 - (unsigned long long)persistentID;
 - (id)initWithPersistentID:(unsigned long long)arg1;

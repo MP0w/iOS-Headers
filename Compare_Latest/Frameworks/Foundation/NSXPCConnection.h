@@ -13,9 +13,10 @@
 @interface NSXPCConnection : NSObject <NSXPCProxyCreating>
 {
     void *_xconnection;
-    NSObject<OS_dispatch_queue> *_internalQueue;
+    id _incomingReplyInfo;
     NSObject<OS_dispatch_queue> *_userQueue;
-    unsigned long long _state;
+    unsigned int _state;
+    unsigned int _state2;
     id _interruptionHandler;
     id _invalidationHandler;
     id _exportInfo;
@@ -27,8 +28,8 @@
     NSXPCInterface *_remoteObjectInterface;
     NSString *_serviceName;
     NSXPCListenerEndpoint *_endpoint;
-    id _reserved2;
-    id _reserved3;
+    void *_eCache;
+    void *_dCache;
 }
 
 + (void)endTransaction;
@@ -40,14 +41,17 @@
 @property(readonly) unsigned int effectiveUserIdentifier;
 @property(readonly) int processIdentifier;
 @property(readonly) int auditSessionIdentifier;
-- (void)_removeProxy:(unsigned long long)arg1;
-- (void)_addProxy:(unsigned long long)arg1;
+- (void)_removeImportedProxy:(unsigned long long)arg1;
+- (void)_addImportedProxy:(unsigned long long)arg1;
 - (id)remoteObjectProxyWithTimeout:(double)arg1 errorHandler:(id)arg2;
+- (id)remoteObjectProxyWithUserInfo:(id)arg1 errorHandler:(id)arg2;
 - (id)remoteObjectProxyWithErrorHandler:(id)arg1;
 - (id)remoteObjectProxy;
 @property(retain) NSXPCInterface *exportedInterface;
 @property(retain) id exportedObject;
 - (id)debugDescription;
+- (id)_queue;
+- (void)_setQueue:(id)arg1;
 - (id)replacementObjectForEncoder:(id)arg1 object:(id)arg2;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
@@ -61,10 +65,13 @@
 @property(readonly) NSString *serviceName;
 @property(copy) id invalidationHandler;
 @property(copy) id interruptionHandler;
+- (void)_sendInvocation:(id)arg1 proxyNumber:(unsigned long long)arg2 remoteInterface:(id)arg3 withErrorHandler:(id)arg4 timeout:(void)arg5 userInfo:(double)arg6;
 - (void)_sendInvocation:(id)arg1 proxyNumber:(unsigned long long)arg2 remoteInterface:(id)arg3 withErrorHandler:(id)arg4 timeout:(void)arg5;
 - (void)_sendInvocation:(id)arg1 proxyNumber:(unsigned long long)arg2 remoteInterface:(id)arg3 withErrorHandler:(id)arg4;
 - (void)_sendInvocation:(id)arg1 proxyNumber:(unsigned long long)arg2 remoteInterface:(id)arg3;
 - (void)_sendDesistForProxyNumber:(unsigned long long)arg1;
+- (void)addBarrierBlock:(id)arg1;
+- (void)_invalidate:(BOOL)arg1;
 - (void)invalidate;
 - (void)stop;
 - (void)start;
@@ -77,7 +84,8 @@
 - (id)initWithMachServiceName:(id)arg1;
 - (id)initWithMachServiceName:(id)arg1 options:(unsigned int)arg2;
 - (id)initWithServiceName:(id)arg1;
-- (id)_initWithPeerConnection:(id)arg1 name:(id)arg2;
+- (id)initWithServiceName:(id)arg1 options:(unsigned int)arg2;
+- (id)_initWithPeerConnection:(id)arg1 name:(id)arg2 options:(unsigned int)arg3;
 - (id)init;
 - (void)_decodeAndInvokeMessageWithData:(id)arg1;
 - (void)_decodeAndInvokeReplyBlockWithData:(id)arg1;

@@ -43,6 +43,8 @@
 - (void)_updateAccelerometerEnabled;
 - (void)_willSuspend;
 - (void)_willResume;
+- (void)_sendEventToResponder:(id)arg1;
+- (id)_windows;
 - (id)description;
 - (void)_setSubtype:(int)arg1;
 - (int)subtype;

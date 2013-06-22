@@ -8,16 +8,18 @@
 
 #import "NSCopying-Protocol.h"
 
-@class MSASAlbum;
+@class MSASAlbum, NSString;
 
 @interface MSASPersonModelItem : NSObject <NSCopying>
 {
     int _errorCount;
     MSASAlbum *_album;
+    NSString *_albumGUID;
     id <NSObject> _object;
 }
 
 @property(retain, nonatomic) id <NSObject> object; // @synthesize object=_object;
+@property(retain, nonatomic) NSString *albumGUID; // @synthesize albumGUID=_albumGUID;
 @property(retain, nonatomic) MSASAlbum *album; // @synthesize album=_album;
 @property(nonatomic) int errorCount; // @synthesize errorCount=_errorCount;
 - (void).cxx_destruct;

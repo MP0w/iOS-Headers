@@ -29,6 +29,7 @@
 + (id)alloc;
 + (Class)classForEntity:(id)arg1;
 + (void)initialize;
+- (id)_snapshot_;
 - (id)objectID;
 - (id)entity;
 - (void)setValue:(id)arg1 forKey:(id)arg2;

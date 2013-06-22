@@ -14,12 +14,14 @@
 }
 
 + (BOOL)supportsSecureCoding;
+- (void)_setEndpoint:(id)arg1;
 - (id)_endpoint;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)_initWithConnection:(id)arg1;
+- (id)init;
 
 @end
 

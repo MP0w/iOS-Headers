@@ -22,7 +22,7 @@
 - (id).cxx_construct;
 - (void)createPhoneBrush;
 - (id)color;
-- (void)fillPath:(struct CGPath *)arg1 evenOddRule:(BOOL)arg2;
+- (void)fillPath:(id)arg1;
 - (void)setWrapMode:(int)arg1;
 - (void)setColorBlend:(id)arg1;
 - (void)setBlend:(id)arg1;

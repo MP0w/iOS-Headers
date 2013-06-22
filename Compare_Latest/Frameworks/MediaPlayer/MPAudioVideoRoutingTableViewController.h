@@ -25,8 +25,8 @@
 
 + (id)routesPreferringMirroring;
 @property(readonly, nonatomic) MPAudioDeviceController *audioDeviceController; // @synthesize audioDeviceController=_audioDeviceController;
+- (void).cxx_destruct;
 - (BOOL)_wirelessDisplayCapableRouteIsPicked;
-- (BOOL)_shouldShowDebugButton;
 - (id)_pickedRoute;
 - (id)_effectivePickedRouteReturningActualPickedRouteType:(int *)arg1;
 - (id)_displayedRoutes;

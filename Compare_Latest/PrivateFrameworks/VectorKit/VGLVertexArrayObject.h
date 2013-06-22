@@ -8,13 +8,13 @@
 
 #import "NSCoding-Protocol.h"
 
-@class EAGLContext;
+@class VGLContext, VGLResource;
 
 @interface VGLVertexArrayObject : NSObject <NSCoding>
 {
-    unsigned int _VAO;
-    unsigned int _VBO;
-    unsigned int _EBO[2];
+    VGLResource *_vao;
+    VGLResource *_vbo;
+    VGLResource *_ebo[2];
     int _stride;
     CDStruct_77932685 *_attributes;
     int _vertexCount;
@@ -27,9 +27,10 @@
     unsigned int _vertexUsage:2;
     unsigned int _indexUsage:2;
     unsigned int _attributeCount:8;
-    EAGLContext *_context;
+    VGLContext *_context;
     struct vector<unsigned char, vk_allocator<unsigned char>> _vertices;
     struct vector<unsigned short, vk_allocator<unsigned short>> _indices[2];
+    unsigned int _VAO;
 }
 
 @property(nonatomic) unsigned int indexBufferMode; // @synthesize indexBufferMode=_indexBufferMode;
@@ -37,6 +38,9 @@
 @property(readonly, nonatomic) unsigned int VAO; // @synthesize VAO=_VAO;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (BOOL)mergeMesh:(id)arg1;
+- (void)verticesMuted;
+- (void *)mutableVertices;
 - (void)checkIndexList:(int)arg1 offset:(int)arg2;
 - (void)bindWithContext:(id)arg1;
 - (void)freezeIndices;
@@ -45,6 +49,7 @@
 - (void)appendIndices:(const unsigned short *)arg1 count:(int)arg2 forIndexMode:(unsigned int)arg3;
 - (void)appendIndices:(const unsigned short *)arg1 count:(int)arg2;
 - (void)appendVertices:(const void *)arg1 count:(int)arg2;
+- (BOOL)canReserveVertices:(int)arg1;
 - (unsigned short *)reserveIndices:(int)arg1 forIndexMode:(unsigned int)arg2;
 - (unsigned short *)reserveIndices:(int)arg1;
 - (void *)reserveVertices:(int)arg1;

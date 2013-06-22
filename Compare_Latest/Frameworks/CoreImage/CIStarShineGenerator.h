@@ -21,14 +21,14 @@
 }
 
 + (id)customAttributes;
-@property(retain) NSNumber *inputCrossOpacity; // @synthesize inputCrossOpacity;
-@property(retain) NSNumber *inputCrossWidth; // @synthesize inputCrossWidth;
-@property(retain) NSNumber *inputCrossScale; // @synthesize inputCrossScale;
-@property(retain) NSNumber *inputCrossAngle; // @synthesize inputCrossAngle;
-@property(retain) NSNumber *inputEpsilon; // @synthesize inputEpsilon;
-@property(retain) NSNumber *inputRadius; // @synthesize inputRadius;
-@property(retain) CIColor *inputColor; // @synthesize inputColor;
-@property(retain) CIVector *inputCenter; // @synthesize inputCenter;
+@property(retain, nonatomic) NSNumber *inputCrossOpacity; // @synthesize inputCrossOpacity;
+@property(retain, nonatomic) NSNumber *inputCrossWidth; // @synthesize inputCrossWidth;
+@property(retain, nonatomic) NSNumber *inputCrossScale; // @synthesize inputCrossScale;
+@property(retain, nonatomic) NSNumber *inputCrossAngle; // @synthesize inputCrossAngle;
+@property(retain, nonatomic) NSNumber *inputEpsilon; // @synthesize inputEpsilon;
+@property(retain, nonatomic) NSNumber *inputRadius; // @synthesize inputRadius;
+@property(retain, nonatomic) CIColor *inputColor; // @synthesize inputColor;
+@property(retain, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
 - (id)outputImage;
 - (id)_kernel;
 - (void)setDefaults;

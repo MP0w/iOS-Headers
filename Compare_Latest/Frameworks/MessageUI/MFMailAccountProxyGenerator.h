@@ -15,9 +15,10 @@
 }
 
 - (id)allAccountProxies;
-- (id)activeAccountProxies;
+- (id)activeAccountProxiesOriginatingBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
+- (id)accountProxyContainingEmailAddress:(id)arg1 includingInactive:(BOOL)arg2 originatingBundleID:(id)arg3 sourceAccountManagement:(int)arg4;
 - (id)accountProxyContainingEmailAddress:(id)arg1 includingInactive:(BOOL)arg2;
-- (id)defaultMailAccountProxyForDelivery;
+- (id)defaultMailAccountProxyForDeliveryOriginatingBundleID:(id)arg1 sourceAccountManagement:(int)arg2;
 - (void)dealloc;
 - (id)initWithAllowsRestrictedAccounts:(BOOL)arg1;
 - (id)init;

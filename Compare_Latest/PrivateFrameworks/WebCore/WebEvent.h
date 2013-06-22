@@ -30,8 +30,10 @@
     BOOL _isGesture;
     float _gestureScale;
     float _gestureRotation;
+    BOOL _wasHandled;
 }
 
+@property(nonatomic) BOOL wasHandled; // @synthesize wasHandled=_wasHandled;
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 - (id).cxx_construct;

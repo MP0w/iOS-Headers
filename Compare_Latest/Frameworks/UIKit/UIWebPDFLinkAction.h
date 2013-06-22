@@ -15,7 +15,7 @@
     id handler;
 }
 
-@property(nonatomic) id handler; // @synthesize handler;
+@property(copy, nonatomic) id handler; // @synthesize handler;
 @property(nonatomic) int type; // @synthesize type;
 @property(copy, nonatomic) NSString *title; // @synthesize title;
 - (void)dealloc;

@@ -9,13 +9,13 @@
 @interface UIActivityItemImageRep : NSObject
 {
     id _asset;
-    id _dataProvider;
     id _thumbnailProvider;
+    id _dataProvider;
 }
 
 + (id)activityItemImageRepWithAsset:(id)arg1 thumbnailProvider:(id)arg2 dataProvider:(void)arg3;
-@property(copy, nonatomic) id thumbnailProvider; // @synthesize thumbnailProvider=_thumbnailProvider;
 @property(copy, nonatomic) id dataProvider; // @synthesize dataProvider=_dataProvider;
+@property(copy, nonatomic) id thumbnailProvider; // @synthesize thumbnailProvider=_thumbnailProvider;
 @property(retain, nonatomic) id asset; // @synthesize asset=_asset;
 - (id)data;
 - (id)thumbnail;

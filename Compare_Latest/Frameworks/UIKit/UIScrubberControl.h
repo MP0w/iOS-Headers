@@ -51,9 +51,6 @@
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (void)endTrackingAt:(struct CGPoint)arg1 previous:(struct CGPoint)arg2 withEvent:(struct __GSEvent *)arg3;
-- (BOOL)continueTrackingAt:(struct CGPoint)arg1 previous:(struct CGPoint)arg2 withEvent:(struct __GSEvent *)arg3;
-- (BOOL)beginTrackingAt:(struct CGPoint)arg1 withEvent:(struct __GSEvent *)arg2;
 - (void)_sendDelegateDidEnterScrubbingState:(BOOL)arg1;
 - (void)setScrubbingRequiresMomentaryDelay:(BOOL)arg1;
 - (void)setShowDuration:(BOOL)arg1;

@@ -6,10 +6,30 @@
 
 #import "UIView.h"
 
+@class UIImageView, UILabel;
+
 @interface PLAlbumPhotoCellView : UIView
 {
+    BOOL _isSelected;
+    BOOL _shouldHideSelectionUI;
+    UIImageView *_imageBadgeView;
+    UILabel *_textBadgeView;
+    UIView *_highlightView;
+    int _selectionStyle;
 }
 
+@property(nonatomic) int selectionStyle; // @synthesize selectionStyle=_selectionStyle;
+@property(retain, nonatomic) UIView *highlightView; // @synthesize highlightView=_highlightView;
+@property(retain, nonatomic) UILabel *textBadgeView; // @synthesize textBadgeView=_textBadgeView;
+@property(retain, nonatomic) UIImageView *imageBadgeView; // @synthesize imageBadgeView=_imageBadgeView;
+- (void)dealloc;
+- (void)_updateHighlightsAndBadges;
+@property(nonatomic) BOOL shouldHideSelectionUI; // @synthesize shouldHideSelectionUI=_shouldHideSelectionUI;
+@property(nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
+- (void)setTextBadge:(id)arg1;
+- (void)setImageBadge:(id)arg1;
+- (id)_selectionColor;
+- (id)_selectionImage;
 - (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end

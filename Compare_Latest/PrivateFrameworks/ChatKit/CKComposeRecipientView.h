@@ -4,11 +4,14 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "_MFComposeRecipientView.h"
+#import "MFComposeRecipientView.h"
 
-@class IMService, NSMutableDictionary, UIActionSheet;
+#import "ABPeoplePickerNavigationControllerDelegate-Protocol.h"
+#import "CKOverlayViewProtocol-Protocol.h"
 
-@interface CKComposeRecipientView : _MFComposeRecipientView
+@class IMService, NSMutableDictionary, UIActionSheet, UIResponder;
+
+@interface CKComposeRecipientView : MFComposeRecipientView <CKOverlayViewProtocol, ABPeoplePickerNavigationControllerDelegate>
 {
     IMService *_preferredService;
     id _sendBlock;
@@ -16,20 +19,25 @@
     BOOL _atomizedForAutoSend;
     BOOL _resolvedForAutoSend;
     BOOL _canSend;
-    int _serviceError;
+    BOOL _serviceError;
     BOOL _alreadyShowedAlertForTooManyRecipientsError;
     NSMutableDictionary *_recipientAvailabilityTimeoutTimers;
     UIActionSheet *_actionSheet;
+    BOOL _forceMMS;
+    UIResponder *_nextResponder;
 }
 
++ (float)shadowHeight;
++ (float)separatorHeight;
+@property(nonatomic) UIResponder *nextResponder; // @synthesize nextResponder=_nextResponder;
+@property(nonatomic) BOOL forceMMS; // @synthesize forceMMS=_forceMMS;
 @property(retain, nonatomic) UIActionSheet *actionSheet; // @synthesize actionSheet=_actionSheet;
-@property(nonatomic) int serviceError; // @synthesize serviceError=_serviceError;
+@property(nonatomic) BOOL serviceError; // @synthesize serviceError=_serviceError;
 @property(nonatomic) BOOL canSend; // @synthesize canSend=_canSend;
 @property(retain, nonatomic) IMService *preferredService; // @synthesize preferredService=_preferredService;
+- (float)heightWithoutSeparator;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)_showErrorAlertForTooManyRecipientsUponSend;
 - (void)showErrorAlertForTooManyRecipientsUponSendIfNecessary;
-- (void)_showErrorAlertForTooManyRecipientsUponAdd;
 - (void)_showOneTimeErrorAlertForTooManyRecipientsUponAddIfNecessary;
 - (id)_recipientCausingTooManyRecipientsError;
 - (BOOL)canInsertMoreRecipients;
@@ -43,32 +51,39 @@
 - (void)startAvailabilityTimeoutTimerForRecipient:(id)arg1;
 - (void)_showActionSheetForAtom:(id)arg1 animated:(BOOL)arg2;
 - (void)_refreshActionSheet;
-- (int)iMessageAvailabilityForRecipient:(id)arg1;
+- (BOOL)iMessageAvailabilityForRecipient:(id)arg1;
 - (void)_checkAvailabilityOfAlternateAddressesForMFComposeRecipient:(id)arg1;
 - (id)_alternateAddressesForMFComposeRecipient:(id)arg1 onlyIMessageAble:(BOOL)arg2;
 - (BOOL)hasPendingAtoms;
 - (BOOL)hasFailedAtoms;
-- (BOOL)_hasAddressWithAvailability:(int)arg1;
+- (BOOL)_hasAddressWithAvailability:(BOOL)arg1;
 - (BOOL)finishedComposingRecipients;
 - (void)handlePreferredServiceChangedNotification:(id)arg1;
+- (BOOL)shouldShowCardForPerson:(void *)arg1;
+- (void)_dismissPicker:(id)arg1;
+- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
 - (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (void)addRecipient:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
+- (void)_hideAddButton;
+- (void)addRecipient:(id)arg1 atIndex:(unsigned int)arg2 animate:(BOOL)arg3;
 - (void)addRecipient:(id)arg1;
 - (BOOL)_serviceErrorIsForTooManyRecipients;
-- (void)_addRecipient:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)_addRecipient:(id)arg1;
-- (void)removeAddresses;
-- (void)removeAddressAtIndex:(int)arg1;
+- (void)removeRecipients;
 - (void)removeRecipient:(id)arg1;
 - (BOOL)_addable;
-- (int)atomStyleForRecipient:(id)arg1;
+- (unsigned int)atomPresentationOptionsForRecipient:(id)arg1;
 - (void)_reallyAutoSendIfReady;
+- (void)_setTextColorForPreferredSerivce:(id)arg1;
 - (void)_autoSendIfReady;
+- (void)textFieldDidBecomeFirstResponder:(id)arg1;
 - (void)textFieldDidResignFirstResponder:(id)arg1;
 - (void)atomizeAndInvokeBlock:(id)arg1;
+- (void)_reflowAnimated:(BOOL)arg1;
 - (void)reflow;
+- (void)updatePreferredServiceForRecipients:(id)arg1;
 - (void)selectComposeRecipientAtom:(id)arg1;
 - (id)customOverlayContainer;
+- (void)windowDidResignKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

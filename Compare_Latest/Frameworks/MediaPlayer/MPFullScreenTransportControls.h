@@ -14,6 +14,7 @@
     float _requiredFrameSizeWidth;
 }
 
+- (void).cxx_destruct;
 - (void)_playbackModeDidChange;
 - (void)_layoutVolumeSlider:(id)arg1;
 - (void)unregisterForPlayerNotifications;

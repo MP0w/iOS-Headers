@@ -55,13 +55,6 @@ struct AVControllerPrivate {
     char _field46;
 };
 
-struct AVExternalAudioPrivate {
-    char _field1;
-    struct OpaqueFigPlayer *_field2;
-    id _field3;
-    char _field4;
-};
-
 struct AVFileValidatorPrivate {
     id _field1;
     id _field2;
@@ -120,7 +113,7 @@ struct AVRemakerPrivate {
 };
 
 struct AVSubtitleLayerUsingWebKitPrivate {
-    struct __GSFont *_field1;
+    struct __CTFont *_field1;
     struct __CFAttributedString *_field2;
 };
 

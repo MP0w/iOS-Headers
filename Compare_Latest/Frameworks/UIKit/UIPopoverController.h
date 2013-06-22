@@ -7,18 +7,19 @@
 #import "NSObject.h"
 
 #import "UIAppearanceContainer-Protocol.h"
-#import "UIDimmingViewDelegate-Protocol.h"
 #import "UIGestureRecognizerDelegatePrivate-Protocol.h"
+#import "_UIDimmingBackdropViewDelegate-Protocol.h"
 
-@class NSArray, UIBarButtonItem, UIDimmingView, UIPanGestureRecognizer, UIView, UIViewController, _UIPopoverLayoutInfo, _UIPopoverView;
+@class NSArray, UIBarButtonItem, UIDimmingView, UIPanGestureRecognizer, UIView, UIViewController, _UIDimmingBackdropView, _UIPopoverLayoutInfo, _UIPopoverView;
 
-@interface UIPopoverController : NSObject <UIDimmingViewDelegate, UIGestureRecognizerDelegatePrivate, UIAppearanceContainer>
+@interface UIPopoverController : NSObject <UIGestureRecognizerDelegatePrivate, _UIDimmingBackdropViewDelegate, UIAppearanceContainer>
 {
     id _delegate;
     UIViewController *_contentViewController;
     UIViewController *_splitParentController;
     _UIPopoverView *_popoverView;
     UIDimmingView *_dimmingView;
+    _UIDimmingBackdropView *_dimmingBackdropView;
     UIView *_layoutConstraintView;
     struct CGRect _targetRectInEmbeddingView;
     UIBarButtonItem *_targetBarButtonItem;
@@ -50,19 +51,21 @@
     struct {
         unsigned int isPresentingModalViewController:1;
         unsigned int isPresentingActionSheet:1;
-        unsigned int dimsWhenModal:1;
         unsigned int wasIgnoringDimmingViewTouchesBeforeScrolling:1;
         unsigned int isInTextEffectsWindow:1;
         unsigned int isEmbeddingInView:1;
         unsigned int embeddedPresentationBounces:1;
+        unsigned int isModernPopover:1;
+        unsigned int usesCircleKnockout:1;
     } _popoverControllerFlags;
     BOOL _allowResizePastTargetRect;
     BOOL _dismissesOnRotation;
-    struct UIEdgeInsets _popoverLayoutMargins;
     BOOL _showsTargetRect;
     BOOL _showsOrientationMarker;
     BOOL _showsPresentationArea;
     BOOL _retainsSelfWhilePresented;
+    unsigned int _popoverArrowDirection;
+    struct UIEdgeInsets _popoverLayoutMargins;
 }
 
 + (BOOL)_forceAttemptsToAvoidKeyboard;
@@ -70,6 +73,7 @@
 + (Class)_popoverViewClass;
 + (BOOL)_showTargetRectPref;
 + (BOOL)_popoversDisabled;
+@property(nonatomic) unsigned int popoverArrowDirection; // @synthesize popoverArrowDirection=_popoverArrowDirection;
 @property(nonatomic, getter=_presentationEdge, setter=_setPresentationEdge:) int presentationEdge; // @synthesize presentationEdge=_presentationEdge;
 @property(nonatomic, getter=_presentingView, setter=_setPresentingView:) UIView *presentingView; // @synthesize presentingView=_presentingView;
 @property(retain, nonatomic) _UIPopoverLayoutInfo *preferredLayoutInfo; // @synthesize preferredLayoutInfo=_preferredLayoutInfo;
@@ -82,10 +86,10 @@
 @property(nonatomic) BOOL dismissesOnRotation; // @synthesize dismissesOnRotation=_dismissesOnRotation;
 @property(nonatomic) BOOL allowResizePastTargetRect; // @synthesize allowResizePastTargetRect=_allowResizePastTargetRect;
 @property(retain, nonatomic) UIDimmingView *dimmingView; // @synthesize dimmingView=_dimmingView;
-@property(nonatomic) unsigned int popoverArrowDirection; // @synthesize popoverArrowDirection=_currentArrowDirection;
 @property(nonatomic) id <UIPopoverControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_modalAnimation:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+- (void)_modalAnimation:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)_modalTransition:(int)arg1 fromViewController:(id)arg2 toViewController:(id)arg3 target:(id)arg4 didEndSelector:(SEL)arg5;
+- (id)_dimmingBackdropView;
 - (id)_dimmingView;
 - (BOOL)_embedsInView;
 - (id)_managingSplitViewController;
@@ -124,12 +128,12 @@
 - (BOOL)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
 - (BOOL)_gestureRecognizerShouldBegin:(id)arg1;
 - (id)_gestureRecognizerForPresentationFromEdge:(int)arg1;
-- (void)dimmingViewWasTapped:(id)arg1;
+- (void)dimmingBackdropViewWasTapped:(id)arg1;
 - (void)_dismissPopoverAnimated:(BOOL)arg1 stateOnly:(BOOL)arg2 notifyDelegate:(BOOL)arg3;
 - (void)_postludeForDismissal;
 - (id)_completionBlockForDismissalWhenNotifyingDelegate:(SEL)arg1;
-- (void)_beginMapsTransitionToNewViewController:(id)arg1 arrowDirections:(unsigned int)arg2 slideDuration:(float)arg3 expandDuration:(float)arg4;
-- (void)_beginMapsTransitionToNewViewController:(id)arg1 newTargetRect:(struct CGRect)arg2 inView:(id)arg3 arrowDirections:(unsigned int)arg4 slideDuration:(float)arg5 expandDuration:(float)arg6;
+- (void)_beginMapsTransitionToNewViewController:(id)arg1 arrowDirections:(unsigned int)arg2 slideDuration:(double)arg3 expandDuration:(double)arg4;
+- (void)_beginMapsTransitionToNewViewController:(id)arg1 newTargetRect:(struct CGRect)arg2 inView:(id)arg3 arrowDirections:(unsigned int)arg4 slideDuration:(double)arg5 expandDuration:(double)arg6;
 - (void)_setContentViewController:(id)arg1 backgroundStyle:(int)arg2 animated:(BOOL)arg3;
 - (int)_popoverBackgroundStyle;
 - (void)_setPopoverBackgroundStyle:(int)arg1;
@@ -146,10 +150,14 @@
 - (void)_setSplitParentController:(id)arg1;
 - (void)_setPopoverView:(id)arg1;
 - (id)popoverView;
-- (void)_setPopoverViewAlpha:(float)arg1;
+- (BOOL)_usePointyPopovers;
 - (void)dismissPopoverAnimated:(BOOL)arg1;
+- (void)presentPopoverFromBarButtonItem:(id)arg1;
+- (void)presentPopoverFromRect:(struct CGRect)arg1 inView:(id)arg2 preferredPresentationDirections:(unsigned int)arg3;
+- (BOOL)_isModernPopover;
 - (void)presentPopoverFromBarButtonItem:(id)arg1 permittedArrowDirections:(unsigned int)arg2 animated:(BOOL)arg3;
 - (void)presentPopoverFromRect:(struct CGRect)arg1 inView:(id)arg2 permittedArrowDirections:(unsigned int)arg3 animated:(BOOL)arg4;
+- (void)_commonPresentPopoverFromRect:(struct CGRect)arg1 inView:(id)arg2 preferredPresentationDirections:(unsigned int)arg3 animated:(BOOL)arg4;
 - (BOOL)_shimPresentSlidingPopoverAnimated:(BOOL)arg1;
 - (struct CGPoint)_centerPointForScale:(float)arg1 frame:(struct CGRect)arg2 anchor:(struct CGPoint)arg3;
 - (void)_presentPopoverFromRect:(struct CGRect)arg1 embeddedInView:(id)arg2 usingViewForLayoutConstraints:(id)arg3 permittedArrowDirections:(unsigned int)arg4;
@@ -162,7 +170,7 @@
 - (void)_setPresentationState:(int)arg1;
 - (int)_presentationState;
 - (Class)_defaultChromeViewClass;
-- (Class)_popoverLayoutInfoClass;
+- (Class)_popoverLayoutInfoForChromeClass:(Class)arg1;
 - (BOOL)_popoverBackgroundViewWantsDefaultContentAppearance;
 @property(copy, nonatomic) NSArray *passthroughViews;
 @property(readonly, nonatomic, getter=isPopoverVisible) BOOL popoverVisible;

@@ -17,6 +17,7 @@
     NSArray *_interestedBundleIDs;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_messageHandlingQueue;
+    NSObject<OS_xpc_object> *_serverEndpoint;
 }
 
 - (void)queue_connectionWasInvalidated;
@@ -29,9 +30,11 @@
 - (void)queue_setInterestedStates:(unsigned int)arg1;
 - (void)queue_setInterestedBundleIDs:(id)arg1;
 - (void)queue_setHandler:(id)arg1;
+- (void)_setEndpoint:(id)arg1;
+- (id)_connection;
 - (void)invalidate;
 - (id)bundleInfoValueForKey:(id)arg1 PID:(int)arg2;
-- (BOOL)isNewsstandAppWakeQuotaReached:(id)arg1;
+- (BOOL)isApplicationBeingDebugged:(id)arg1;
 - (unsigned int)mostElevatedApplicationStateForPID:(int)arg1;
 - (unsigned int)applicationStateForApplication:(id)arg1;
 - (void)applicationInfoForPID:(int)arg1 completion:(id)arg2;
@@ -43,6 +46,7 @@
 @property(copy, nonatomic) NSArray *interestedBundleIDs; // @dynamic interestedBundleIDs;
 @property(copy, nonatomic) id handler; // @dynamic handler;
 - (void)dealloc;
+- (id)initWithEndpoint:(id)arg1 bundleIDs:(id)arg2 states:(unsigned int)arg3;
 - (id)initWithBundleIDs:(id)arg1 states:(unsigned int)arg2;
 - (id)init;
 

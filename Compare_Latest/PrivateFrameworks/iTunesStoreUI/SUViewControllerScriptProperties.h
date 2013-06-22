@@ -32,8 +32,10 @@
     BOOL _showsVerticalScrollIndicator;
     BOOL _showsBackgroundShadow;
     UIColor *_topExtensionColor;
+    BOOL _usesBlurredBackground;
 }
 
+@property(nonatomic) BOOL usesBlurredBackground; // @synthesize usesBlurredBackground=_usesBlurredBackground;
 @property(retain, nonatomic) UIColor *topExtensionColor; // @synthesize topExtensionColor=_topExtensionColor;
 @property(nonatomic) BOOL showsBackgroundShadow; // @synthesize showsBackgroundShadow=_showsBackgroundShadow;
 @property(nonatomic) BOOL showsVerticalScrollIndicator; // @synthesize showsVerticalScrollIndicator=_showsVerticalScrollIndicator;

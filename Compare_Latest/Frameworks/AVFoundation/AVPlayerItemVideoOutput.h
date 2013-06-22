@@ -30,8 +30,6 @@
 - (void)setDelegate:(id)arg1 queue:(id)arg2;
 - (void)_detachFromPlayerItem;
 - (void)_attachToPlayerItem:(id)arg1;
-- (CDStruct_1b6d18a9)itemTimeForMachAbsoluteTime:(long long)arg1;
-- (CDStruct_1b6d18a9)itemTimeForHostTime:(double)arg1;
 - (void)dealloc;
 - (void)finalize;
 - (id)initWithPixelBufferAttributes:(id)arg1;

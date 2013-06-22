@@ -33,6 +33,8 @@
 @property(nonatomic) int orientation; // @synthesize orientation=_interfaceOrientation;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_pushTransitionEnded:(id)arg1;
 - (void)_popTransitionEnded:(id)arg1;
 - (BOOL)_canReloadView;
@@ -42,7 +44,6 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)setView:(id)arg1;
-@property(nonatomic) id delegate;
 - (void)clearWeakReferencesToObject:(id)arg1;
 - (void)setOrientation:(int)arg1 animate:(BOOL)arg2;
 @property(nonatomic, getter=idleTimerDisabled, setter=setIdleTimerDisabled:) BOOL idleTimerDisabled;

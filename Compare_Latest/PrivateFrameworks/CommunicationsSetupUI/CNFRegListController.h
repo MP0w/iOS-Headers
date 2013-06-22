@@ -37,7 +37,7 @@
 - (void)_updateExistingLabelForSpecifier:(id)arg1 header:(BOOL)arg2;
 - (id)_existingLabelForSection:(int)arg1 header:(BOOL)arg2;
 - (id)_existingLabelForSpecifier:(id)arg1 header:(BOOL)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)loadView;
 @property(readonly, nonatomic) int currentAppearanceStyle; // @dynamic currentAppearanceStyle;
 - (void)_setFieldsEnabled:(BOOL)arg1 animated:(BOOL)arg2;

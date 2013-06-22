@@ -6,31 +6,30 @@
 
 #import "UIView.h"
 
-@class PKDiffView, PKPassField, PKPassFieldTemplate, UILabel;
+@class PKDiffView, PKPassField, UILabel;
 
 @interface PKPassFieldView : UIView
 {
+    struct CGSize _cachedLabelSize;
+    struct CGSize _cachedValueSize;
+    BOOL _needsCachedSizeUpdate;
     PKPassField *_field;
-    PKPassFieldTemplate *_fieldTemplate;
     PKDiffView *_diffView;
     UILabel *_labelLabel;
     UILabel *_valueLabel;
 }
 
-+ (id)newViewForField:(id)arg1 fieldTemplate:(id)arg2;
+@property(nonatomic) BOOL needsCachedSizeUpdate; // @synthesize needsCachedSizeUpdate=_needsCachedSizeUpdate;
 @property(readonly, nonatomic) UILabel *valueLabel; // @synthesize valueLabel=_valueLabel;
 @property(readonly, nonatomic) UILabel *labelLabel; // @synthesize labelLabel=_labelLabel;
 @property(retain, nonatomic) PKDiffView *diffView; // @synthesize diffView=_diffView;
-@property(retain, nonatomic) PKPassFieldTemplate *fieldTemplate; // @synthesize fieldTemplate=_fieldTemplate;
 @property(retain, nonatomic) PKPassField *field; // @synthesize field=_field;
+- (void)_computeIntrinsicSizes;
 - (void)presentDiff:(id)arg1 inView:(id)arg2 completion:(id)arg3;
-- (BOOL)fitsInSize:(struct CGSize)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-- (void)setColorProfile:(id)arg1 background:(int)arg2;
-- (id)_valueAttributedString;
-- (id)_labelAttributedString;
-- (id)_textAttributesWithTextColor:(id)arg1 alignment:(int)arg2 lineBreakMode:(int)arg3;
+- (struct CGSize)intrinsicContentSize;
+@property(readonly, nonatomic) float minimumWidth;
+- (void)setValueAttributedText:(id)arg1;
+- (void)setLabelAttributedText:(id)arg1;
 - (void)dealloc;
 - (id)initWithField:(id)arg1 fieldTemplate:(id)arg2;
 

@@ -14,7 +14,9 @@
 }
 
 + (void)_startWatchingInstallationNotifications;
++ (id)_newSoftwareUpdateDictionaryForApplication:(id)arg1;
 + (void)startObservingNotifications;
++ (id)copySoftwareUpdatesPropertyListWithApplications:(id)arg1 updatesContext:(id)arg2;
 + (id)applicationForBundleIdentifier:(id)arg1 applicationType:(struct __CFString *)arg2;
 + (id)applicationForBundleIdentifier:(id)arg1;
 + (void)setCurrentMap:(id)arg1;
@@ -23,7 +25,6 @@
 + (BOOL)currentMapIsValid;
 + (id)currentMap;
 + (BOOL)haveApplicationsOfType:(struct __CFString *)arg1;
-- (id)_newSoftwareUpdateDictionaryForApplication:(id)arg1;
 - (void)_loadFromMobileInstallation;
 - (id)copySoftwareUpdatesPropertyListWithUpdatesContext:(id)arg1;
 - (id)copySoftwareUpdatesPropertyList;

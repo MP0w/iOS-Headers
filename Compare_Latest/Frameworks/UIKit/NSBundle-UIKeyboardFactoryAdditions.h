@@ -9,7 +9,6 @@
 @interface NSBundle (UIKeyboardFactoryAdditions)
 + (id)_rivenFactory;
 + (id)_rivenBundle;
-+ (id)_textInputFactory;
 + (id)_typologyBundle;
 @end
 

@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class CLLocation, CLPlacemarkInternal, CLRegion, NSArray, NSDictionary, NSString;
 
-@interface CLPlacemark : NSObject <NSCopying, NSCoding>
+@interface CLPlacemark : NSObject <NSCopying, NSSecureCoding>
 {
     CLPlacemarkInternal *_internal;
 }
 
++ (id)placemarkWithPlace:(id)arg1;
++ (BOOL)supportsSecureCoding;
 - (id)description;
 @property(readonly, nonatomic) NSString *ocean;
 @property(readonly, nonatomic) NSString *inlandWater;

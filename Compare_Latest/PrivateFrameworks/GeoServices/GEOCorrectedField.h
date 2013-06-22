@@ -14,9 +14,7 @@
     NSString *_displayName;
     NSString *_objectName;
     BOOL _isMarkedIncorrect;
-    struct {
-        unsigned int isMarkedIncorrect:1;
-    } _has;
+    CDStruct_9e8b5140 _has;
 }
 
 @property(nonatomic) BOOL isMarkedIncorrect; // @synthesize isMarkedIncorrect=_isMarkedIncorrect;

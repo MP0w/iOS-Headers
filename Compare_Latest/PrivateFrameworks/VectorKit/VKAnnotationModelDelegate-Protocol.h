@@ -7,8 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol VKAnnotationModelDelegate <NSObject>
+- (void)annotationModel:(id)arg1 didFinishAddingAnnotationMarkers:(id)arg2;
 - (void)annotationModel:(id)arg1 didAnimateInAnnotationMarkers:(id)arg2;
 - (void)annotationModel:(id)arg1 willAnimateInAnnotationMarkers:(id)arg2;
-- (void)annotationModel:(id)arg1 annotationMarker:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
 @end
 

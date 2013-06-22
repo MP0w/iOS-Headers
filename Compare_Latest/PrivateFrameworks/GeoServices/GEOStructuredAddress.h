@@ -93,6 +93,7 @@
 @property(readonly, nonatomic) BOOL hasCountryCode;
 @property(readonly, nonatomic) BOOL hasCountry;
 - (void)dealloc;
+- (id)initWithAddressDictionary:(id)arg1;
 
 @end
 

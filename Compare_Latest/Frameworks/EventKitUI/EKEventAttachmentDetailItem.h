@@ -7,24 +7,22 @@
 #import <EventKitUI/EKEventDetailItem.h>
 
 #import "EKEventAttachmentCellControllerDelegate-Protocol.h"
-#import "UIDocumentInteractionControllerDelegate-Protocol.h"
 
 @class NSArray;
 
-@interface EKEventAttachmentDetailItem : EKEventDetailItem <EKEventAttachmentCellControllerDelegate, UIDocumentInteractionControllerDelegate>
+@interface EKEventAttachmentDetailItem : EKEventDetailItem <EKEventAttachmentCellControllerDelegate>
 {
     NSArray *_cellControllers;
 }
 
-- (void)documentInteractionControllerWillEndPreview:(id)arg1;
-- (id)documentInteractionControllerViewControllerForPreview:(id)arg1;
+- (void).cxx_destruct;
 - (id)owningEventForAttachmentCellController:(id)arg1;
-- (id)_parentViewControllerForAttachmentCellController;
-- (void)eventViewController:(id)arg1 didSelectSubitem:(int)arg2;
-- (int)numberOfSubitems;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
+- (id)parentViewControllerForAttachmentCellController:(id)arg1;
+- (void)eventViewController:(id)arg1 didSelectSubitem:(unsigned int)arg2;
+- (unsigned int)numberOfSubitems;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (BOOL)hasDetailViewControllerAtIndex:(unsigned int)arg1;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
 - (void)dealloc;
 - (void)reset;

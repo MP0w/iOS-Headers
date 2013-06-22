@@ -47,6 +47,7 @@
 @property(nonatomic) NSAttributedString *placeholderText; // @synthesize placeholderText=_placeholderText;
 - (void)trimWhitespace;
 - (id)_truncateTextToFitInSize:(struct CGSize)arg1 fromCenter:(BOOL)arg2 outSize:(struct CGSize *)arg3;
+- (void)updateLineSpacing;
 - (void)squeezeWidthForLineCount:(int)arg1;
 - (struct CGSize)_shadowSizeOffsetForString:(id)arg1;
 - (struct CGSize)shadowOffset;
@@ -69,6 +70,7 @@
 - (int)countOfWords;
 - (struct CGRect)_textClipRectForString:(id)arg1;
 - (void)_drawInContext:(struct CGContext *)arg1 withAttributedString:(id)arg2 withSize:(struct CGSize)arg3 andScale:(float)arg4;
+- (float)_strikethroughThinkness:(int)arg1 baselineOffset:(float)arg2 lineRect:(struct CGRect)arg3;
 - (struct CGContext *)_retainedContextFromAttributedString:(id)arg1 withSize:(struct CGSize)arg2;
 - (struct CGRect)_tightFrameOfLineAtIndex:(int)arg1 inString:(id)arg2 withSize:(struct CGSize)arg3;
 - (struct CGRect)tightFrameOfLineAtIndex:(int)arg1;

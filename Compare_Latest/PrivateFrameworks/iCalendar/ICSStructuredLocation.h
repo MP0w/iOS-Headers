@@ -12,6 +12,11 @@
 {
 }
 
+@property(retain) NSString *routing;
+@property(retain) NSString *address;
+@property(retain) NSString *displayName;
+@property(retain) NSString *abURLString;
+@property double radius;
 @property(retain) NSString *loctype;
 @property(retain) NSString *title;
 @property(retain) NSString *fmtype;

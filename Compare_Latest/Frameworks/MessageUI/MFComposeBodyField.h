@@ -47,7 +47,7 @@
 - (void)didUndoOrRedo:(id)arg1;
 - (void)insertPhotoOrVideoWithInfoDictionary:(id)arg1;
 - (void)changeQuoteLevel:(int)arg1;
-- (void)updateQuoteLevelMenu;
+- (void)menuDidHide;
 - (void)saveSelectionForUndo;
 - (void)setSelectionStart:(id)arg1 offset:(int)arg2 end:(id)arg3 offset:(int)arg4 affinity:(int)arg5;
 - (void)splitUpBlockQuotesOverlappingEndOfRange:(id)arg1;
@@ -76,7 +76,6 @@
 - (void)_nts_AddDOMNode:(id)arg1 quote:(BOOL)arg2 baseURL:(id)arg3 emptyFirst:(BOOL)arg4 prepended:(BOOL)arg5;
 - (void)setMarkupString:(id)arg1;
 - (void)setLoading:(BOOL)arg1;
-- (BOOL)endEditing:(BOOL)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setPinHeight:(float)arg1;
 - (void)webView:(id)arg1 didFirstVisuallyNonEmptyLayoutInFrame:(id)arg2;
@@ -101,6 +100,7 @@
 - (void)scaleImagesToScale:(unsigned int)arg1 withAttachmentStore:(id)arg2;
 - (void)replaceImagesIfNecessary;
 - (void)replaceImages;
+- (void)reloadUserStyleSheet;
 - (void)setLayoutInterval:(int)arg1;
 - (void)setSelectedRange:(struct _NSRange)arg1;
 - (struct _NSRange)selectedRange;

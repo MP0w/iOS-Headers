@@ -21,8 +21,8 @@
     NSArray *_setPositions;
 }
 
-- (id)_parseIndexList:(CDStruct_df6741a8 *)arg1 range:(CDStruct_1ef3fb1f)arg2;
-- (id)_parseDaysOfWeek:(CDStruct_df6741a8 *)arg1 range:(CDStruct_1ef3fb1f)arg2;
+- (id)_parseIndexList:(CDStruct_64adce64 *)arg1 range:(CDStruct_1ef3fb1f)arg2;
+- (id)_parseDaysOfWeek:(CDStruct_64adce64 *)arg1 range:(CDStruct_1ef3fb1f)arg2;
 - (void)_appendIndexList:(id)arg1 toSpecifier:(id)arg2 propertyKey:(unsigned short)arg3;
 - (void)_appendDaysOfTheWeek:(id)arg1 toSpecifier:(id)arg2;
 - (void)_parseSpecifierIfNeeded;

@@ -6,7 +6,7 @@
 
 #import <MediaPlayer/MPPlaybackControlsView.h>
 
-@class MPInlineAudioTransportControls, NSString, UIImageView, UILabel, UIView;
+@class MPInlineAudioTransportControls, NSString, UILabel, UIView;
 
 @interface MPInlineAudioOverlay : MPPlaybackControlsView
 {
@@ -17,21 +17,12 @@
     UILabel *_streamingLabel;
     NSString *_playbackErrorDescription;
     UILabel *_playbackErrorDescriptionLabel;
-    UIImageView *_leftImageView;
-    UIImageView *_trackImageView;
-    UIImageView *_leftStretchImageView;
-    UIImageView *_rightStretchImageView;
-    UIImageView *_rightImageView;
-    UIImageView *_largeLeftImageView;
-    UIImageView *_largeMiddleLeftImageView;
-    UIImageView *_largeTrackImageView;
-    UIImageView *_largeMiddleRightImageView;
-    UIImageView *_largeRightImageView;
 }
 
-@property(nonatomic) id <MPVideoControllerProtocol> videoViewController; // @synthesize videoViewController=_videoViewController;
+@property(nonatomic) __weak id <MPVideoControllerProtocol> videoViewController; // @synthesize videoViewController=_videoViewController;
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(copy, nonatomic) NSString *playbackErrorDescription; // @synthesize playbackErrorDescription=_playbackErrorDescription;
+- (void).cxx_destruct;
 - (struct CGRect)_frameInBackgroundViewForDescriptionLabel:(id)arg1;
 - (id)_newDescriptionLabel;
 - (void)_updateVisiblePartsForAvailableRoutes;

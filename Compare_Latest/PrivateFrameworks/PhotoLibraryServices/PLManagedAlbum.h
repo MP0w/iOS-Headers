@@ -6,11 +6,11 @@
 
 #import <PhotoLibraryServices/_PLManagedAlbum.h>
 
-#import "PLUserEditableAssetContainer-Protocol.h"
+#import "PLUserEditableAlbumProtocol-Protocol.h"
 
-@class NSDictionary, NSMutableOrderedSet, NSNumber, NSOrderedSet, NSString, NSURL, PLManagedAsset, UIImage;
+@class NSArray, NSDate, NSDictionary, NSMutableOrderedSet, NSNumber, NSOrderedSet, NSString, NSURL, PLManagedAsset, UIImage;
 
-@interface PLManagedAlbum : _PLManagedAlbum <PLUserEditableAssetContainer>
+@interface PLManagedAlbum : _PLManagedAlbum <PLUserEditableAlbumProtocol>
 {
     BOOL _resolvingConflicts;
     BOOL stackedImageNeedsUpdate;
@@ -43,8 +43,10 @@
 @property(readonly, nonatomic) unsigned int videosCount;
 @property(readonly, nonatomic) unsigned int photosCount;
 - (unsigned int)_cachedCountForMigration;
+@property(readonly, nonatomic) BOOL isEmpty;
 @property(readonly, nonatomic) unsigned int assetsCount;
 @property(readonly, nonatomic) unsigned int approximateCount;
+- (unsigned int)_albumStandInCount;
 - (void)unregisterForChanges;
 - (void)registerForChanges;
 - (id)_keysToBeObserved;
@@ -68,29 +70,36 @@
 
 // Remaining properties
 @property(readonly, nonatomic) NSOrderedSet *assets; // @dynamic assets;
+@property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL canShowComments;
-@property(readonly, nonatomic) unsigned int count;
+@property(readonly, nonatomic) NSDate *endDate;
 @property(readonly, nonatomic) NSURL *groupURL;
 @property(nonatomic) BOOL hasUnseenContentBoolValue;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
-@property(readonly, nonatomic) BOOL isEmpty;
 @property(readonly, nonatomic) BOOL isLibrary;
+@property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isPanoramasAlbum;
+@property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
+@property(readonly, nonatomic) BOOL isStandInAlbum;
+@property(readonly, nonatomic) BOOL isWallpaperAlbum;
 @property(retain, nonatomic) PLManagedAsset *keyAsset;
 @property(readonly, nonatomic) NSNumber *kind;
 @property(readonly, nonatomic) int kindValue;
+@property(readonly, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) NSString *localizedTitle;
 @property(readonly, nonatomic) NSString *name;
-@property(nonatomic) unsigned int pendingItemsCount;
-@property(nonatomic) unsigned int pendingItemsType;
+@property(nonatomic) int pendingItemsCount;
+@property(nonatomic) int pendingItemsType;
 @property(readonly, nonatomic) UIImage *posterImage;
 @property(readonly, nonatomic) id sectioningComparator;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
 @property(readonly, nonatomic) id sortingComparator;
+@property(readonly, nonatomic) NSDate *startDate;
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *uuid;
 

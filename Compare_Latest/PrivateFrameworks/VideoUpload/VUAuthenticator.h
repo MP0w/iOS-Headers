@@ -18,8 +18,8 @@
 }
 
 + (id)sharedAuthenticator;
-@property(readonly, nonatomic) int authenticatorState; // @synthesize authenticatorState=_authenticatorState;
 @property(readonly, nonatomic) NSString *account; // @synthesize account=_account;
+@property(readonly, nonatomic) int authenticatorState; // @synthesize authenticatorState=_authenticatorState;
 - (void)_notifyFailure;
 - (void)_notifyStateChange;
 - (void)request:(id)arg1 didFailWithError:(id)arg2;

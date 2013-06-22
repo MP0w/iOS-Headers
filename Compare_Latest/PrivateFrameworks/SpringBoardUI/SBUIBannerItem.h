@@ -6,19 +6,25 @@
 
 #import "NSObject.h"
 
-@interface SBUIBannerItem : NSObject
+#import "SBUIQuietModePlayability-Protocol.h"
+
+@interface SBUIBannerItem : NSObject <SBUIQuietModePlayability>
 {
-    id <SBUIBannerSource> _source;
 }
 
-@property(retain, nonatomic) id <SBUIBannerSource> source; // @synthesize source=_source;
+- (BOOL)overridesQuietMode;
+- (BOOL)isCritical;
+- (BOOL)inertWhenLocked;
+- (id)subActionWithIndex:(SEL)arg1;
+- (id)subActionLabels;
+- (id)pullDownNotification;
+- (BOOL)canShowWhileLocked;
 - (BOOL)canShowInAssistant;
 - (id)sortDate;
 - (id)sound;
 - (id)action;
 - (BOOL)isSticky;
 - (unsigned int)priority;
-- (void)dealloc;
 
 @end
 

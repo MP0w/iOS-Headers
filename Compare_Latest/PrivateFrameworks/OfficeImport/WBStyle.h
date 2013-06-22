@@ -10,8 +10,6 @@
 {
 }
 
-+ (void)prepareForWriting:(id)arg1 style:(id)arg2 to:(struct WrdStyle *)arg3;
-+ (void)write:(id)arg1 style:(id)arg2 wrdStyle:(struct WrdStyle *)arg3;
 + (void)readFrom:(id)arg1 wrdStyle:(struct WrdStyle *)arg2 style:(id)arg3;
 + (void)readTableProperties:(id)arg1 style:(id)arg2 from:(struct WrdStyle *)arg3;
 

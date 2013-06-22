@@ -15,11 +15,11 @@
 
 + (Class)tableViewCellClass;
 + (id)tableViewBackgroundColor;
+- (void).cxx_destruct;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (void)setTableView:(id)arg1;
 - (void)reloadData;
-- (void)dealloc;
 - (id)init;
 
 @end

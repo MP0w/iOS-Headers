@@ -8,7 +8,7 @@
 
 #import "UIActionSheetDelegate-Protocol.h"
 
-@class NSArray, NSString, PLWallpaperNavigationItem, UIActionSheet;
+@class NSArray, NSString, PLWallpaperNavigationItem, UIActionSheet, UIViewController;
 
 @interface PLWallpaperImageViewController : PLUIEditImageViewController <UIActionSheetDelegate>
 {
@@ -19,10 +19,12 @@
     NSString *_wallpaperTitle;
     UIActionSheet *_wallpaperOptionsSheet;
     unsigned int _didSetImageMode:1;
+    UIViewController *__magicWallpaperViewController;
 }
 
 + (void)setWallpaperFromArgs:(id)arg1;
 + (id)argsForSavingWallpaperFromTile:(id)arg1 mode:(int)arg2;
+@property(retain, nonatomic, setter=_setMagicWallpaperViewController:) UIViewController *_magicWallpaperViewController; // @synthesize _magicWallpaperViewController=__magicWallpaperViewController;
 @property(copy, nonatomic) NSString *wallpaperTitle; // @synthesize wallpaperTitle=_wallpaperTitle;
 @property(nonatomic) BOOL saveWallpaperData; // @synthesize saveWallpaperData=_saveWallpaperData;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
@@ -53,6 +55,7 @@
 - (void)dealloc;
 - (id)navigationItem;
 - (int)cropOverlayMode;
+- (id)initWithMagicWallpaperViewController:(id)arg1;
 - (id)initWithUIImage:(id)arg1;
 - (id)init;
 

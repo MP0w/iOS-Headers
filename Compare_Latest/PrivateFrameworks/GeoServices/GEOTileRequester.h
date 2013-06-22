@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GEOTileKeyList, NSString, NSThread;
+@class GEOTileKeyList, NSData, NSString, NSThread;
 
 @interface GEOTileRequester : NSObject
 {
@@ -16,6 +16,7 @@
     NSThread *_thread;
     NSString *_bundleIdentifier;
     NSString *_bundleVersion;
+    NSData *_auditToken;
     BOOL _requireWiFi;
 }
 
@@ -24,6 +25,7 @@
 + (unsigned int)expiringTilesetsCount;
 + (unsigned char)tileProviderIdentifier;
 @property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
+@property(retain, nonatomic) NSData *auditToken; // @synthesize auditToken=_auditToken;
 @property(retain, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(retain, nonatomic) id context; // @synthesize context=_context;

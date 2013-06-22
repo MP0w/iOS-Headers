@@ -59,12 +59,12 @@
 - (void)willMoveToWindow:(id)arg1;
 - (void)_screenChanged:(id)arg1;
 - (void)layoutSubviews;
+- (void)drawImageIntoTiles:(struct CGImage *)arg1;
 - (void)layoutTilesNowForRect:(struct CGRect)arg1;
 - (void)layoutTilesNowOnWebThread;
 - (void)layoutTilesNow;
 - (struct CGRect)visibleRect;
 - (void)setWAKWindow:(id)arg1;
-- (struct WKWindow *)wkWindow;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_updateForScreen:(id)arg1;

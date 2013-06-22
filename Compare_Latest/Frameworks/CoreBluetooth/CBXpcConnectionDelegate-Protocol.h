@@ -5,7 +5,8 @@
  */
 
 @protocol CBXpcConnectionDelegate
-- (void)xpcConnection:(id)arg1 didReceiveMessage:(int)arg2 arguments:(id)arg3;
+- (void)xpcConnection:(id)arg1 didReceiveMsg:(int)arg2 args:(id)arg3;
+- (void)xpcConnectionIsInvalid:(id)arg1;
 - (void)xpcConnectionDidReset:(id)arg1;
 @end
 

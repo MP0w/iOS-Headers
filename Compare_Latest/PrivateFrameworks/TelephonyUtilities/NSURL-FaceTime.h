@@ -7,17 +7,22 @@
 #import "NSURL.h"
 
 @interface NSURL (FaceTime)
++ (id)faceTimeURLWithURL:(id)arg1;
 + (id)faceTimeAcceptURLWithURL:(id)arg1 conferenceID:(id)arg2;
 + (id)faceTimeAcceptURLWithURL:(id)arg1;
 + (id)faceTimePromptURLWithURL:(id)arg1;
-+ (id)faceTimeURLWithURL:(id)arg1;
 + (id)_applyFaceTimeScheme:(id)arg1 toFaceTimeURL:(id)arg2;
++ (id)faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2 audioOnly:(BOOL)arg3;
 + (id)faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2;
 + (id)faceTimeURLWithDestinationID:(id)arg1;
-+ (id)_faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2;
++ (id)_faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2 audioOnly:(BOOL)arg3;
+- (BOOL)isValidFaceTimeURL;
+- (BOOL)isUpgradeURL;
+- (BOOL)isFaceTimeAudioAcceptURL;
+- (BOOL)isFaceTimeAudioPromptURL;
+- (BOOL)isFaceTimeAudioURL;
 - (BOOL)isFaceTimeAcceptURL;
 - (BOOL)isFaceTimePromptURL;
-- (BOOL)isValidFaceTimeURL;
 - (BOOL)isFaceTimeURL;
 - (BOOL)_isPhoneNumberID:(id)arg1;
 - (id)faceTimeDestinationAccount;

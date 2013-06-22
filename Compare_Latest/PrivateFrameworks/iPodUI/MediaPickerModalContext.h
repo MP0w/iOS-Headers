@@ -12,7 +12,7 @@
 {
     NSString *_prompt;
     NSMutableArray *_pickedTracks;
-    int _mediaTypes;
+    unsigned int _mediaTypes;
     IUiPodTabBarController *_tabBarController;
     NSMutableSet *_pickedDataSourceActionRowSet;
     NSMutableSet *_pickedPersistentIDSet;
@@ -21,18 +21,20 @@
     unsigned int _wantsNavigationButtons:1;
 }
 
+- (void).cxx_destruct;
 - (void)_cancelAction:(id)arg1;
 - (void)_doneAction:(id)arg1;
 - (void)_addTracksForActionRowAtIndex:(unsigned int)arg1 dataSource:(id)arg2;
 - (void)_addTrackAtIndex:(unsigned int)arg1 dataSource:(id)arg2;
 - (void)_addTracks:(id)arg1 ignoringPickedEntities:(BOOL)arg2;
-- (id)_availableIdentifiersForMediaTypes:(int)arg1;
+- (id)_availableIdentifiersForMediaTypes:(unsigned int)arg1;
 - (id)copyQueryForQuery:(id)arg1;
 - (void)dismissWithSuccess:(BOOL)arg1;
 - (void)handleSelectionForIndex:(unsigned int)arg1 dataSource:(id)arg2;
 - (BOOL)canHandleSelectionForIndex:(unsigned int)arg1 dataSource:(id)arg2;
 - (void)configureNavigationItem:(id)arg1;
 - (BOOL)hideIndexBar;
+- (BOOL)disallowChangingQueryPredicates;
 - (void)configureCell:(id)arg1 forIndex:(unsigned int)arg2 dataSource:(id)arg3;
 - (id)viewController;
 - (void)orderOut;
@@ -41,10 +43,10 @@
 @property(nonatomic) BOOL showsCloudItems;
 @property(nonatomic) BOOL allowsPickingMultipleItems;
 - (void)dealloc;
-- (id)initWithMediaTypes:(int)arg1;
+- (id)initWithMediaTypes:(unsigned int)arg1;
 
 // Remaining properties
-@property(nonatomic) id <IUModalContextDelegate><MediaPickerModalContextDelegate> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <IUModalContextDelegate><MediaPickerModalContextDelegate> delegate; // @dynamic delegate;
 
 @end
 

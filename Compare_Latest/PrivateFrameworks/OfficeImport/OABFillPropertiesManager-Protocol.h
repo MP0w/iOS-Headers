@@ -8,16 +8,16 @@
 
 @protocol OABFillPropertiesManager <OABColorPropertiesManager>
 - (id)fillBlipName;
-- (unsigned long)fillBlipID;
+- (unsigned int)fillBlipID;
 - (const struct EshTablePropVal<EshGradientStop> *)fillGradientColors;
-- (long)fillFocusBottom;
-- (long)fillFocusRight;
-- (long)fillFocusTop;
-- (long)fillFocusLeft;
+- (int)fillFocusBottom;
+- (int)fillFocusRight;
+- (int)fillFocusTop;
+- (int)fillFocusLeft;
 - (long)fillFocus;
-- (long)fillAngle;
-- (long)fillBgAlpha;
-- (long)fillFgAlpha;
+- (int)fillAngle;
+- (int)fillBgAlpha;
+- (int)fillFgAlpha;
 - (int)fillType;
 @end
 

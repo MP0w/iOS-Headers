@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableDictionary, NSPersistentStore, NSString, PFUbiquityLocation;
+@class NSDictionary, NSMutableDictionary, NSPersistentStore, NSString;
 
 @interface PFUbiquityPeerRangeCache : NSObject
 {
@@ -15,7 +15,6 @@
     NSMutableDictionary *_translatedGlobalIDs;
     NSString *_localPeerID;
     NSString *_storeName;
-    PFUbiquityLocation *_ubiquityRootLocation;
     NSPersistentStore *_privateStore;
     BOOL _cachedStorePeerRanges;
 }
@@ -24,11 +23,10 @@
 + (int)integerFromPrimaryKeyString:(id)arg1;
 + (void)initialize;
 @property(readonly, nonatomic) NSPersistentStore *privateStore; // @synthesize privateStore=_privateStore;
-@property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
 @property(readonly, nonatomic) NSDictionary *translatedGlobalIDs; // @synthesize translatedGlobalIDs=_translatedGlobalIDs;
 @property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
-- (id)createMapOfManagedObjectIDsForGlobalIDs:(id)arg1 error:(id *)arg2;
+- (id)createMapOfManagedObjectIDsForGlobalIDs:(id)arg1 count:(int)arg2 error:(id *)arg3;
 - (id)createMapOfManagedObjectIDsForStoreSaveSnapshot:(id)arg1 error:(id *)arg2;
 - (id)createGlobalObjectIDForManagedObjectID:(id)arg1;
 - (unsigned int)localPrimaryKeyForOwningPeerID:(id)arg1 andEntityName:(id)arg2 withPrimaryKey:(unsigned int)arg3;
@@ -37,8 +35,11 @@
 - (BOOL)cacheSQLCorePeerRange:(id)arg1 error:(id *)arg2;
 - (BOOL)refreshPeerRangeCache:(id *)arg1;
 - (BOOL)cachePeerRanges:(id *)arg1;
+- (id)describeCachesVerbose;
+- (id)describeCaches;
+- (id)description;
 - (void)dealloc;
-- (id)initWithPrivateStore:(id)arg1 storeName:(id)arg2 ubiquityRootLocation:(id)arg3 andLocalPeerID:(id)arg4;
+- (id)initWithPrivateStore:(id)arg1 storeName:(id)arg2 andLocalPeerID:(id)arg3;
 
 @end
 

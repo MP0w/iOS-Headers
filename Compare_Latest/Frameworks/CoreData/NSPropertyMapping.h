@@ -11,7 +11,7 @@
 @interface NSPropertyMapping : NSObject
 {
     void *_reserved;
-    void *_reserved1;
+    NSArray *_transformValidations;
     NSArray *_propertyTransforms;
     NSString *_name;
     NSExpression *_valueExpression;
@@ -36,6 +36,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (id)_transformValidations;
+- (void)_setTransformValidations:(id)arg1;
 - (id)_propertyTransforms;
 - (void)_setPropertyTransforms:(id)arg1;
 - (void)_throwIfNotEditable;

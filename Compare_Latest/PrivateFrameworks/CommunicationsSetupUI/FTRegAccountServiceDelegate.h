@@ -8,7 +8,7 @@
 
 #import "AASetupAssistantDelegateService-Protocol.h"
 
-@class CNFRegController, FTCConnectionHandler, FTRegAppleIDSetupOperation, NSDictionary;
+@class CNFRegController, FTRegAppleIDSetupOperation, NSDictionary;
 
 @interface FTRegAccountServiceDelegate : NSObject <AASetupAssistantDelegateService>
 {
@@ -16,7 +16,6 @@
     FTRegAppleIDSetupOperation *_setupOperation;
     NSDictionary *_responseDictionary;
     id _completionHandler;
-    FTCConnectionHandler *_connectionHandler;
 }
 
 @property(retain, nonatomic) FTRegAppleIDSetupOperation *setupOperation; // @synthesize setupOperation=_setupOperation;
@@ -25,6 +24,7 @@
 @property(retain, nonatomic) CNFRegController *regController; // @synthesize regController=_regController;
 - (BOOL)serviceIsAvailable;
 - (id)displayName;
+- (id)name;
 - (int)serviceType;
 - (void)setupOperationFailed;
 - (void)completeSetupWithResponseParameters:(id)arg1 handler:(id)arg2;

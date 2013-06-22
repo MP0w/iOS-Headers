@@ -12,10 +12,12 @@
 {
     EBReaderState *mReaderState;
     EDSheet *mEDSheet;
-    struct __CFDictionary *mSharedFormulas;
+    struct map<int, unsigned int, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, unsigned int>>> mSharedFormulas;
     unsigned int mChartIndex;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)reportWorksheetWarning:(struct CPTaggedMessageStructure *)arg1;
 - (unsigned int)nextChartIndex;
 - (void)setSharedFormulaIndex:(unsigned int)arg1 forRowCol:(int)arg2;

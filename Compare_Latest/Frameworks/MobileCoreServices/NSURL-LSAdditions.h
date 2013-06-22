@@ -7,6 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (LSAdditions)
+- (id)fmipURL;
 - (id)photosURL;
 - (id)facebookURL;
 - (id)iTunesStoreURL;
@@ -14,5 +15,6 @@
 - (id)youTubeURL;
 - (id)fmfURL;
 - (id)mapsURL;
+- (BOOL)conformsToOverridePatternWithKey:(id)arg1;
 @end
 

@@ -10,7 +10,7 @@
 #import "UITableViewDelegate-Protocol.h"
 #import "UIWebViewDelegate-Protocol.h"
 
-@class NSMutableArray, RUIObjectModel, RUITableViewRow, UIDatePicker, UIPickerView, UITableView;
+@class NSDictionary, NSMutableArray, RUIObjectModel, RUITableViewRow, UIDatePicker, UIPickerView, UITableView;
 
 @interface RUITableView : RUIElement <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 {
@@ -27,18 +27,25 @@
     float _lastLayoutWidth;
     float _fullscreenCellHeight;
     float _customMargin;
+    NSDictionary *_headerViewAttributes;
+    NSDictionary *_footerViewAttributes;
 }
 
+@property(retain, nonatomic) NSDictionary *footerViewAttributes; // @synthesize footerViewAttributes=_footerViewAttributes;
+@property(retain, nonatomic) NSDictionary *headerViewAttributes; // @synthesize headerViewAttributes=_headerViewAttributes;
 @property(nonatomic) RUIObjectModel *objectModel; // @synthesize objectModel=_objectModel;
 @property(retain, nonatomic) RUITableViewRow *defaultFirstResponderRow; // @synthesize defaultFirstResponderRow=_defaultFirstResponderRow;
 @property(readonly, nonatomic) NSMutableArray *sections; // @synthesize sections=_sections;
+- (id)textFieldRow:(id)arg1 changeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)rowIsFirstResponder:(id)arg1;
 - (void)rowDidChange:(id)arg1;
 - (void)rowDidEndEditing:(id)arg1;
+- (id)sourceURL;
 - (id)sourceURLForRUITableViewRow;
 - (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
 - (void)_textChanged:(id)arg1;
 - (void)textFieldStartedEditing:(id)arg1;
+- (id)sourceURLForRUITableViewSection;
 - (void)sectionActivatedButton:(id)arg1 attributes:(id)arg2;
 - (void)sectionActivatedLink:(id)arg1 attributes:(id)arg2;
 - (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;

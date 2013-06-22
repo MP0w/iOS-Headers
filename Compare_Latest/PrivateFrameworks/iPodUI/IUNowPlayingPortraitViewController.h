@@ -6,24 +6,24 @@
 
 #import "MPViewController.h"
 
-#import "IUCoverFlowTransitionViewController-Protocol.h"
+#import "AFContextProvider-Protocol.h"
 #import "MPVideoTransferViewController-Protocol.h"
 #import "UIActionSheetDelegate-Protocol.h"
 
-@class IUFlipperButton, IUPortraitTransportControls, MPImageCache, MPImageCacheRequest, UIBarButtonItem, UINavigationBar, UINavigationButton, UITransitionView, UIView;
+@class IUFlipperButton, IUPortraitTransportControls, MPImageCache, MPImageCacheRequest, MPRadioAVItem, RUTrackActionSheet, UIBarButtonItem, UINavigationBar, UINavigationButton, UITransitionView, UIView;
 
-@interface IUNowPlayingPortraitViewController : MPViewController <UIActionSheetDelegate, IUCoverFlowTransitionViewController, MPVideoTransferViewController>
+@interface IUNowPlayingPortraitViewController : MPViewController <AFContextProvider, UIActionSheetDelegate, MPVideoTransferViewController>
 {
+    RUTrackActionSheet *_actionSheet;
     UIView *_albumHighlight;
     UIBarButtonItem *_backBarButtonItem;
     BOOL _didZoom;
     UIBarButtonItem *_doneBarButtonItem;
-    float _filteredAlbumHighlightX;
-    float _filteredNavigationBarHighlightX;
     UIView *_flipContainerView;
     IUFlipperButton *_flipperButton;
     MPImageCache *_flipperImageCache;
     MPImageCacheRequest *_flipperImageRequest;
+    MPRadioAVItem *_likeOrBanItem;
     MPViewController *_mainController;
     UINavigationBar *_navigationBar;
     UIView *_navigationBarHighlight;
@@ -40,12 +40,14 @@
 
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(nonatomic) BOOL showFlipperHint; // @synthesize showFlipperHint=_showFlipperHint;
+- (void).cxx_destruct;
 - (BOOL)isStatusBarHidden;
 - (int)statusBarStyle;
 - (id)_viewControllerForChangeFromItem:(id)arg1 toItem:(id)arg2 withAvailableController:(id)arg3;
 - (Class)_viewControllerClassForItem:(id)arg1;
 - (void)_updateViewControllerForChangeFromItem:(id)arg1 toItem:(id)arg2 animate:(BOOL)arg3;
 - (void)_updateNavigationBarForItem:(id)arg1 animate:(BOOL)arg2;
+- (void)_updateCountdownView;
 - (void)_slideToController:(id)arg1 transition:(int)arg2;
 - (void)_setFlipperButtonImageWithItem:(id)arg1 time:(double)arg2;
 - (void)_reloadForChangeFromItem:(id)arg1 toItem:(id)arg2;
@@ -56,13 +58,18 @@
 - (void)_flip;
 - (void)_exitNowPlaying;
 - (id)_doneBarButtonItem;
+- (id)_countdownView;
 - (id)_backBarButtonItem;
+- (id)_radioTrackDownloadView;
 - (void)_mediaLibraryDidChangeNotification:(id)arg1;
 - (void)_itemReadyToPlayNotification:(id)arg1;
+- (void)_itemDurationAvailableNotification:(id)arg1;
 - (void)_didDisplayVideoNotification:(id)arg1;
 - (void)_scaleModeButtonAction:(id)arg1;
 - (void)_flipperButtonAction:(id)arg1;
 - (void)_backAction:(id)arg1;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (BOOL)transportControls:(id)arg1 tappedButtonPart:(unsigned long long)arg2;
 - (BOOL)transportControls:(id)arg1 releasedHeldButtonPart:(unsigned long long)arg2;
 - (BOOL)transportControls:(id)arg1 heldButtonPart:(unsigned long long)arg2;
@@ -76,14 +83,8 @@
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (id)videoView;
 - (void)displayVideoView;
-- (void)coverFlowWillTransitionOut:(BOOL)arg1;
-- (void)coverFlowWillTransitionIn:(BOOL)arg1;
-- (void)coverFlowIsTransitioningOut:(BOOL)arg1;
-- (void)coverFlowIsTransitioningIn:(BOOL)arg1;
-- (void)coverFlowDidTransitionOut:(BOOL)arg1;
-- (void)coverFlowDidTransitionIn:(BOOL)arg1;
-- (id)coverFlowControllerInitialTransitionImage:(id)arg1;
-- (id)coverViewFlipView;
+- (id)getCurrentContext;
+- (BOOL)allowContextProvider:(id)arg1;
 @property(nonatomic, getter=isTVOutEnabled) BOOL TVOutEnabled;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;

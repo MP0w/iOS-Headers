@@ -19,7 +19,7 @@
     float outputMeterLevel;
     float inputMeterLevel;
     BOOL microphoneMuted;
-    int curCallID;
+    unsigned long curCallID;
     int state;
     GKVoiceChatDictionary *incomingCallDict;
     GKVoiceChatDictionary *outgoingCallDict;
@@ -42,8 +42,8 @@
 @property GKVoiceChatService *wrapperService; // @synthesize wrapperService;
 @property int state; // @synthesize state;
 @property(nonatomic) id client; // @synthesize client;
-- (id)remoteDisplayNameForCallID:(int)arg1;
-- (id)localDisplayNameForCallID:(int)arg1;
+- (id)remoteDisplayNameForCallID:(unsigned long)arg1;
+- (id)localDisplayNameForCallID:(unsigned long)arg1;
 @property(readonly) double remoteBitrate;
 @property(readonly) double remoteFramerate;
 @property(readonly) double localBitrate;
@@ -51,8 +51,8 @@
 @property(nonatomic) void *remoteVideoLayer;
 @property(nonatomic) void *localVideoLayer;
 - (void)vcArg:(id)arg1 sendRealTimeData:(id)arg2 toParticipantID:(id)arg3;
-- (void)videoConference:(id)arg1 didStopWithCallID:(int)arg2 error:(id)arg3;
-- (void)videoConference:(id)arg1 didStartSession:(BOOL)arg2 withCallID:(int)arg3 error:(id)arg4;
+- (void)videoConference:(id)arg1 didStopWithCallID:(unsigned long)arg2 error:(id)arg3;
+- (void)videoConference:(id)arg1 didStartSession:(BOOL)arg2 withCallID:(unsigned long)arg3 error:(id)arg4;
 - (void)forceNoICE:(BOOL)arg1;
 @property(getter=isFocus) BOOL focus; // @synthesize focus;
 @property int chatMode; // @synthesize chatMode;
@@ -64,9 +64,9 @@
 @property(getter=isOutputMeteringEnabled) BOOL outputMeteringEnabled; // @synthesize outputMeteringEnabled;
 - (void)getNSError:(id *)arg1 code:(int)arg2 description:(id)arg3 reason:(id)arg4;
 - (void)getNSError:(id *)arg1 code:(int)arg2 description:(id)arg3 hResult:(long)arg4;
-- (int)startICEConnectionCheck:(id)arg1 isCaller:(BOOL)arg2 withCallID:(int)arg3;
+- (int)startICEConnectionCheck:(id)arg1 isCaller:(BOOL)arg2 withCallID:(unsigned long)arg3;
 - (int)startICEConnectionCheck:(id)arg1 isCaller:(BOOL)arg2;
-- (id)createInvite:(id *)arg1 toParticipant:(id)arg2 callID:(int *)arg3;
+- (id)createInvite:(id *)arg1 toParticipant:(id)arg2 callID:(unsigned int *)arg3;
 - (id)createReplyUsingDictionary:(id)arg1 replyCode:(unsigned int)arg2 error:(id *)arg3;
 - (BOOL)inviteIsValid:(id)arg1;
 - (void)receivedData:(id)arg1 fromParticipantID:(id)arg2;
@@ -78,8 +78,8 @@
 - (void)informClientVoiceChatDidStartMainSelector:(id)arg1;
 - (void)informClientVoiceChatDidStart:(id)arg1;
 - (void)informClientOfInviteFromParticipant:(id)arg1;
-- (void)denyCallID:(int)arg1;
-- (BOOL)acceptCallID:(int)arg1 error:(id *)arg2;
+- (void)denyCallID:(unsigned long)arg1;
+- (BOOL)acceptCallID:(unsigned long)arg1 error:(id *)arg2;
 - (void)stopVoiceChatWithParticipantID:(id)arg1;
 - (void)stopVoiceChatProc:(id)arg1;
 - (BOOL)startVoiceChatWithParticipantID:(id)arg1 error:(id *)arg2;

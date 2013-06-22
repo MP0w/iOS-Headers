@@ -9,7 +9,7 @@
 #import "CDXClientDelegate-Protocol.h"
 #import "CDXClientSessionDelegate-Protocol.h"
 
-@class CDXClient, NSData, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_source>, NSString;
+@class CDXClient, NSData, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_source>, NSString, RTCReporting, TimingCollection;
 
 @interface GKConnectionInternal : GKConnection <CDXClientDelegate, CDXClientSessionDelegate>
 {
@@ -50,10 +50,15 @@
     NSObject<OS_dispatch_source> *_localGamingCDXListenSource;
     NSMutableDictionary *_localGamingSocketToPIDMap;
     NSMutableDictionary *_localGamingSocketToConnectionDataMap;
+    NSMutableSet *_pidsPreparedForConnection;
+    RTCReporting *_reportingAgent;
+    TimingCollection *_perfTimers;
 }
 
 @property(retain) NSMutableDictionary *cdxSessions; // @synthesize cdxSessions=_cdxSessions;
 @property(retain, nonatomic) CDXClient *cdxClient; // @synthesize cdxClient=_cdxClient;
+- (void)setReportingAgent:(id)arg1;
+- (id)reportingAgent;
 @property(retain) NSMutableDictionary *pidToConnectTimeoutSource; // @synthesize pidToConnectTimeoutSource=_pidToConnectTimeoutSource;
 - (id)getLocalConnectionDataForLocalGaming;
 - (BOOL)startListeningForLocalGamingCDX;
@@ -67,7 +72,7 @@
 - (void)initiateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(BOOL)arg4;
 - (void)internalInitiateRelayWithParticipant:(id)arg1 withConnectionData:(id)arg2 withRelayInfo:(id)arg3 didInitiate:(BOOL)arg4;
 - (void)doRelayCheckForRemotePeerID:(id)arg1;
-- (id)createRelayUpdateDictionaryForParticipant:(id)arg1 didInitiate:(BOOL)arg2;
+- (id)newRelayUpdateDictionaryForParticipant:(id)arg1 didInitiate:(BOOL)arg2;
 - (id)createInitiateRelayDictionaryForParticipant:(id)arg1 remotePeerID:(id)arg2;
 - (void)setParticipantID:(id)arg1 forPeerID:(id)arg2;
 - (BOOL)convertPeerID:(id)arg1 toParticipantID:(id *)arg2;

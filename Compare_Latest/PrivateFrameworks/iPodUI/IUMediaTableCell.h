@@ -6,9 +6,11 @@
 
 #import "UITableViewCell.h"
 
+#import "MPStoreDownloadManagerObserver-Protocol.h"
+
 @class IUMediaTableCellContentView, IUTableCellConfiguration, MPDownloadProgressIndicator, MPMediaDownloadObserver, UIButton;
 
-@interface IUMediaTableCell : UITableViewCell
+@interface IUMediaTableCell : UITableViewCell <MPStoreDownloadManagerObserver>
 {
     UIButton *_downloadButton;
     MPMediaDownloadObserver *_downloadObserver;
@@ -17,19 +19,21 @@
     UIButton *_purchaseActionButton;
     int _visibleSelectionStyle;
     UIButton *_otgPlusButton;
-    int _mediaDisclosureStyle;
     BOOL _canShowPurchasableMediaSubviews;
+    int _mediaDisclosureStyle;
     int _mediaEditingDisclosureStyle;
     id _mediaCellTarget;
     SEL _mediaCellAccessoryAction;
 }
 
 @property(nonatomic) SEL mediaCellAccessoryAction; // @synthesize mediaCellAccessoryAction=_mediaCellAccessoryAction;
-@property(nonatomic) id mediaCellTarget; // @synthesize mediaCellTarget=_mediaCellTarget;
+@property(nonatomic) __weak id mediaCellTarget; // @synthesize mediaCellTarget=_mediaCellTarget;
 @property(nonatomic) int mediaEditingDisclosureStyle; // @synthesize mediaEditingDisclosureStyle=_mediaEditingDisclosureStyle;
-@property(nonatomic) BOOL canShowPurchasableMediaSubviews; // @synthesize canShowPurchasableMediaSubviews=_canShowPurchasableMediaSubviews;
 @property(nonatomic) int mediaDisclosureStyle; // @synthesize mediaDisclosureStyle=_mediaDisclosureStyle;
+@property(nonatomic) BOOL canShowPurchasableMediaSubviews; // @synthesize canShowPurchasableMediaSubviews=_canShowPurchasableMediaSubviews;
+- (void).cxx_destruct;
 - (void)_updatePurchasableMediaSubviewsWithReload:(BOOL)arg1;
+- (void)_updateIfNeededWithChangedDownloads:(id)arg1;
 - (id)_otgPlusButton;
 - (void)_drawBackgroundInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
 - (id)_contentString;
@@ -50,7 +54,8 @@
 - (void)setConfigurationNeedsDisplay;
 @property(retain, nonatomic) IUTableCellConfiguration *configuration;
 - (void)_canShowCloudDownloadButtonsDidChangeNotification:(id)arg1;
-- (void)_purchasableMediaDidChangeNotification:(id)arg1;
+- (void)downloadManager:(id)arg1 downloadDidFinish:(id)arg2;
+- (void)downloadManager:(id)arg1 didAddDownloads:(id)arg2 removeDownloads:(id)arg3;
 - (void)_updateHighlightColors;
 - (void)setShowingDeleteConfirmation:(BOOL)arg1;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;

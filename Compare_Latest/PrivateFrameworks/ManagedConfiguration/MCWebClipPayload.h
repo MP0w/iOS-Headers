@@ -16,10 +16,13 @@
     BOOL _isRemovable;
     BOOL _precomposed;
     BOOL _fullScreen;
+    NSString *_savedIdentifier;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
+@property(retain, nonatomic) NSString *savedIdentifier; // @synthesize savedIdentifier=_savedIdentifier;
 @property(readonly, nonatomic) BOOL fullScreen; // @synthesize fullScreen=_fullScreen;
 @property(readonly, nonatomic) BOOL precomposed; // @synthesize precomposed=_precomposed;
 @property(readonly, nonatomic) BOOL isRemovable; // @synthesize isRemovable=_isRemovable;

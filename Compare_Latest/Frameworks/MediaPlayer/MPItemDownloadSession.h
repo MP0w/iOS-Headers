@@ -23,12 +23,12 @@
 @property(nonatomic) float percentComplete; // @synthesize percentComplete=_percentComplete;
 @property(retain, nonatomic) SSDownloadHandlerSession *downloadSession; // @synthesize downloadSession=_downloadSession;
 @property(nonatomic) __weak AVAsset *AVAsset; // @synthesize AVAsset=_asset;
+- (void).cxx_destruct;
 - (id)description;
 - (void)snapshotProgressForItem:(id)arg1;
 - (void)reloadNetworkConstraints;
 - (BOOL)isNetworkConstrainedForNetworkType:(int)arg1;
 @property(readonly, nonatomic) MPItemDownloadProperties *downloadProperties;
-- (void)dealloc;
 - (id)initWithItemDownloadProperties:(id)arg1;
 
 @end

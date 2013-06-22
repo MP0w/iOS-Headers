@@ -13,6 +13,7 @@
     MFMessageComposeViewController *_messageComposeViewController;
 }
 
++ (int)activityCategory;
 @property(retain, nonatomic) MFMessageComposeViewController *messageComposeViewController; // @synthesize messageComposeViewController=_messageComposeViewController;
 - (void)_cleanup;
 - (void)messageComposeViewController:(id)arg1 didFinishWithResult:(int)arg2;

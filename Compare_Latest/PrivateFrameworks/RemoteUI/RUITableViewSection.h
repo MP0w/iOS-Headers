@@ -6,7 +6,7 @@
 
 #import <RemoteUI/RUIElement.h>
 
-@class NSMutableArray, UIView<RemoteUITableFooter>, UIView<RemoteUITableHeader>;
+@class NSArray, NSMutableArray, RUITableViewRow, UIView<RemoteUITableFooter>, UIView<RemoteUITableHeader>;
 
 @interface RUITableViewSection : RUIElement
 {
@@ -14,13 +14,19 @@
     UIView<RemoteUITableHeader> *_header;
     UIView<RemoteUITableFooter> *_footer;
     id _delegate;
+    int _disclosureLimit;
+    RUITableViewRow *_showAllRow;
     UIView<RemoteUITableFooter> *_footerView;
+    float _headerHeight;
+    float _footerHeight;
 }
 
+@property(nonatomic) float footerHeight; // @synthesize footerHeight=_footerHeight;
+@property(nonatomic) float headerHeight; // @synthesize headerHeight=_headerHeight;
 @property(retain, nonatomic) UIView<RemoteUITableFooter> *footerView; // @synthesize footerView=_footerView;
 @property(retain, nonatomic) UIView<RemoteUITableHeader> *headerView; // @synthesize headerView=_header;
-@property(readonly, nonatomic) NSMutableArray *rows; // @synthesize rows=_rows;
 - (void)dealloc;
+- (id)sourceURL;
 - (void)populatePostbackDictionary:(id)arg1;
 - (BOOL)hasCustomFooter;
 - (BOOL)hasCustomHeader;
@@ -30,7 +36,13 @@
 - (void)remoteUILinkFooterActivatedLink:(id)arg1;
 - (Class)_customFooterClass;
 - (Class)_customHeaderClass;
+- (void)setAttributes:(id)arg1;
 - (void)setDelegate:(id)arg1;
+- (void)didTapShowAllRowWithTable:(id)arg1;
+@property(readonly, nonatomic) NSArray *rows; // @synthesize rows=_rows;
+- (void)removeRowAtIndex:(unsigned int)arg1;
+- (void)addRow:(id)arg1;
+- (void)insertRow:(id)arg1 atIndex:(unsigned int)arg2;
 - (id)init;
 
 @end

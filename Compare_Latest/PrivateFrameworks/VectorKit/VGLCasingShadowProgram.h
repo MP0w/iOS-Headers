@@ -12,9 +12,10 @@
     int _uRamp;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) float ramp; // @synthesize ramp=_ramp;
-- (id)init;
+- (void)setup;
 
 @end
 

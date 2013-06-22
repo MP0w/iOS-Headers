@@ -15,12 +15,14 @@
     UITableViewCell *_cell;
 }
 
+- (void).cxx_destruct;
+- (void)textFieldDidEndEditing:(id)arg1;
+- (BOOL)textFieldShouldBeginEditing:(id)arg1;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (BOOL)becomeFirstResponder;
 - (BOOL)saveStateToCalendar:(id)arg1;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (void)reset;
-- (void)dealloc;
 
 @end
 

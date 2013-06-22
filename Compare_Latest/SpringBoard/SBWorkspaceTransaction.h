@@ -10,22 +10,23 @@
 
 @interface SBWorkspaceTransaction : NSObject
 {
+    BOOL _didCommit;
     id <SBWorkspaceTransactionDelegate> _delegate;
     int _milestones;
     BKSWorkspace *_workspace;
     SBAlertManager *_alertManager;
-    BOOL _didCommit;
     BOOL _completed;
     BOOL _interrupted;
     NSDate *_startTime;
     NSMutableArray *_keepAliveReasons;
 }
 
+@property(readonly, nonatomic) int milestones; // @synthesize milestones=_milestones;
 @property(readonly, nonatomic) SBAlertManager *alertManager; // @synthesize alertManager=_alertManager;
 @property(readonly, nonatomic) BKSWorkspace *workspace; // @synthesize workspace=_workspace;
 @property(nonatomic) id <SBWorkspaceTransactionDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)selfAlertDidDeactivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)selfAlertWillDeactivate:(id)arg1 overAlerts:(id)arg2;
+- (BOOL)selfAlertDidDeactivate:(id)arg1;
+- (BOOL)selfAlertWillDeactivate:(id)arg1;
 - (BOOL)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
 - (BOOL)selfAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
 - (BOOL)selfApplicationExited:(id)arg1;
@@ -46,8 +47,8 @@
 - (BOOL)_shouldBeWatchdogged:(id *)arg1;
 - (double)_watchdogInterval;
 - (BOOL)_enableWatchdog;
-- (BOOL)alertDidDeactivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)alertWillDeactivate:(id)arg1 overAlerts:(id)arg2;
+- (BOOL)alertDidDeactivate:(id)arg1;
+- (BOOL)alertWillDeactivate:(id)arg1;
 - (BOOL)alertDidActivate:(id)arg1 overAlerts:(id)arg2;
 - (BOOL)alertWillActivate:(id)arg1 overAlerts:(id)arg2;
 - (BOOL)applicationExited:(id)arg1;
@@ -80,7 +81,7 @@
 - (void)interruptWithReason:(int)arg1;
 - (void)interrupt;
 - (BOOL)canBeInterrupted;
-- (BOOL)completed;
+- (BOOL)hasCompleted;
 - (void)commit;
 - (id)description;
 - (void)dealloc;

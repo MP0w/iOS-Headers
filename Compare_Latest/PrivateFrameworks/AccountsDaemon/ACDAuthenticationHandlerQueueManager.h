@@ -19,9 +19,9 @@
 - (id)popPromptHandlerForAccountID:(SEL)arg1;
 - (void)pushPromptHandler:(id)arg1 forAccountID:(void)arg2;
 - (BOOL)hasPromptQueueForAccountID:(id)arg1;
-- (id)popRenewalHandlerForAccountID:(SEL)arg1;
-- (void)pushRenewalHandler:(id)arg1 forAccountID:(void)arg2;
-- (BOOL)hasRenewalQueueForAccountID:(id)arg1;
+- (id)popRenewalHandlerForRenewalID:(SEL)arg1;
+- (void)pushRenewalHandler:(id)arg1 forRenewalID:(void)arg2;
+- (BOOL)hasRenewalQueueForRenewalID:(id)arg1;
 - (id)popVerificationHandlerForAccountID:(SEL)arg1;
 - (void)pushVerificationHandler:(id)arg1 forAccountID:(void)arg2;
 - (BOOL)hasVerificationQueueForAccountID:(id)arg1;

@@ -174,6 +174,11 @@ struct PrimitiveBuffer {
     int _field8;
 };
 
+struct _NSRange {
+    unsigned int _field1;
+    unsigned int _field2;
+};
+
 struct __CFDictionary;
 
 #pragma mark Typedef'd Structures

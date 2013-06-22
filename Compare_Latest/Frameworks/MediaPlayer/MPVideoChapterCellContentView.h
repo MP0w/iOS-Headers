@@ -26,6 +26,7 @@
 @property(retain, nonatomic) MPTimeMarker *timeMarker; // @synthesize timeMarker=_timeMarker;
 @property(nonatomic) float timeColumnWidth; // @synthesize timeColumnWidth=_timeColumnWidth;
 @property(nonatomic) unsigned int index; // @synthesize index=_index;
+- (void).cxx_destruct;
 - (void)setArtworkImageRequest:(id)arg1 artworkLoadCompletionHandler:(id)arg2;
 @property(nonatomic) BOOL showThumbnailColumn;
 @property(nonatomic, getter=isSelected) BOOL selected;

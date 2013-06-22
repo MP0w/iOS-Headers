@@ -22,7 +22,9 @@
 - (BOOL)_togglePlaybackWouldPlayMusicSoundController;
 - (void)_switchToPlaylistContextForSpecifier:(id)arg1;
 - (BOOL)_setupMusicSoundController;
+- (id)_radioItemWithID:(long long)arg1;
 - (void)_endHandlingSimpleRemoteEvent;
+- (void)_updateWishListForItem:(id)arg1 withAction:(int)arg2;
 - (void)handleSimpleRemoteAction:(int)arg1 withContext:(int)arg2 trackID:(long long)arg3;
 - (void)handleFastForwardEventWithSeconds:(double)arg1;
 - (void)handleRewindEventWithSeconds:(double)arg1;

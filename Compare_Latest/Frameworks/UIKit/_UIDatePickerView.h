@@ -9,13 +9,24 @@
 #import "UIPickerViewDataSource-Protocol.h"
 #import "UIPickerViewDelegate-Protocol.h"
 
-@class NSCalendar, NSDate, NSDateComponents, NSLocale, NSTimeZone, UIDatePicker, UILabel, _UIDatePickerMode;
+@class NSCalendar, NSDate, NSDateComponents, NSLocale, NSTimeZone, UIDatePicker, UIFont, UILabel, _UIDatePickerMode;
 
 @interface _UIDatePickerView : UIPickerView <UIPickerViewDelegate, UIPickerViewDataSource>
 {
+    int _loadingDate;
+    NSDate *_userSuppliedDate;
+    NSDate *_userSuppliedMinimumDate;
+    NSDate *_userSuppliedMaximumDate;
+    NSLocale *_compositeLocale;
+    NSLocale *_userProvidedLocale;
+    NSCalendar *_userProvidedCalendar;
+    NSDate *_minimumDate;
+    NSDate *_maximumDate;
+    NSDateComponents *_lastSelectedDateComponents;
+    BOOL _allowsZeroTimeInterval;
     _UIDatePickerMode *_mode;
     NSTimeZone *_timeZone;
-    double _countDownDuration;
+    double _timeInterval;
     UILabel *_hourLabel;
     UILabel *_minuteLabel;
     UIDatePicker *_datePickerDelegate;
@@ -27,27 +38,15 @@
         unsigned int highlightsToday:1;
         unsigned int usesBlackChrome:1;
     } _datePickerFlags;
-    int _loadingDate;
-    NSDate *_userSuppliedDate;
-    NSDate *_userSuppliedMinimumDate;
-    NSDate *_userSuppliedMaximumDate;
-    NSLocale *_compositeLocale;
-    NSLocale *_userProvidedLocale;
-    NSCalendar *_userProvidedCalendar;
-    NSDate *_minimumDate;
-    NSDate *_maximumDate;
-    NSDateComponents *_lastSelectedDateComponents;
-    BOOL _allowsZeroCountdownDuration;
 }
 
-@property(nonatomic, getter=_allowsZeroCountdownDuration, setter=_setAllowsZeroCountdownDuration:) BOOL allowsZeroCountdownDuration; // @synthesize allowsZeroCountdownDuration=_allowsZeroCountdownDuration;
 @property(nonatomic) id delegateOfDatePicker; // @synthesize delegateOfDatePicker=_delegateOfDatePicker;
+@property(retain, nonatomic) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
 @property(copy, nonatomic) NSDate *maximumDate; // @synthesize maximumDate=_userSuppliedMaximumDate;
 @property(copy, nonatomic) NSDate *minimumDate; // @synthesize minimumDate=_userSuppliedMinimumDate;
-@property(retain, nonatomic) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
-- (id)_selectedTextForCalendarUnit:(unsigned int)arg1;
-- (int)_selectionBarRowInComponent:(int)arg1;
 - (id)_viewForSelectedRowInComponent:(int)arg1;
+@property(nonatomic, getter=_allowsZeroTimeInterval, setter=_setAllowsZeroTimeInterval:) BOOL allowsZeroTimeInterval;
+@property(nonatomic, getter=_allowsZeroCountDownDuration, setter=_setAllowsZeroCountDownDuration:) BOOL allowsZeroCountDownDuration;
 @property(nonatomic, getter=_usesBlackChrome, setter=_setUsesBlackChrome:) BOOL usesBlackChrome;
 - (void)_setHidesLabels:(BOOL)arg1;
 - (void)_resetSelectionOfTables;
@@ -57,25 +56,19 @@
 - (id)pickerView:(id)arg1 viewForRow:(int)arg2 forComponent:(int)arg3 reusingView:(id)arg4;
 - (float)pickerView:(id)arg1 widthForComponent:(int)arg2;
 - (float)pickerView:(id)arg1 rowHeightForComponent:(int)arg2;
-- (float)contentWidth;
-@property(nonatomic) double countDownDuration;
-@property(copy, nonatomic) NSDateComponents *dateComponents;
-@property(nonatomic) BOOL highlightsToday;
+@property(readonly, nonatomic) float contentWidth; // @dynamic contentWidth;
+@property(nonatomic) double timeInterval;
 - (void)_updateEnabledCellsIncludingWMDCells:(BOOL)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)pickerView:(id)arg1 didSelectRow:(int)arg2 inComponent:(int)arg3;
-- (BOOL)_updateDateOrTime;
 - (void)_fadeLabelForCalendarUnit:(unsigned int)arg1 toText:(id)arg2 animated:(BOOL)arg3;
 - (id)_makeNewAccessoryLabel;
 - (void)_positionLabel:(id)arg1 forCalendarUnit:(unsigned int)arg2 relativeTo:(id)arg3 order:(int)arg4;
-- (void)_setLabel:(id)arg1 forCalendarUnit:(unsigned int)arg2;
+- (void)_setLabel:(id)arg1 forCalendarUnit:(unsigned int)arg2 animated:(BOOL)arg3;
 - (id)_labelForCalendarUnit:(unsigned int)arg1 createIfNecessary:(BOOL)arg2;
 - (void)_updateLabels:(BOOL)arg1;
-- (id)_hoursStringForHour:(int)arg1;
-- (id)_minutesStringForHour:(int)arg1 minutes:(int)arg2;
 - (BOOL)_updatedLastSelectedComponentsByValidatingSelectedDateWithLastManipulatedComponent:(int)arg1;
 - (id)_componentsSelectedAfterEnforcingValidityOfComponents:(id)arg1 withLastManipulatedComponent:(int)arg2;
-- (id)_lastSelectedDateComponents;
 - (int)_selectedMinuteForColumn:(int)arg1;
 - (int)_selectedHourForColumn:(int)arg1;
 - (void)setDelegate:(id)arg1;
@@ -83,35 +76,46 @@
 - (void)_loadDate:(id)arg1 animated:(BOOL)arg2;
 - (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
 - (void)pickerTableView:(id)arg1 didChangeSelectionBarRowFrom:(int)arg2 to:(int)arg3;
-- (int)_amPmValue;
-@property(nonatomic) BOOL staggerTimeIntervals;
 @property(nonatomic) int minuteInterval;
 @property(nonatomic) int datePickerMode;
 - (void)_setMode:(id)arg1;
+@property(readonly, nonatomic, getter=_isTimeIntervalMode) BOOL isTimeIntervalMode; // @dynamic isTimeIntervalMode;
 - (int)numberOfComponentsInPickerView:(id)arg1;
-- (id)_hrMinFont;
 @property(copy, nonatomic) NSDate *date;
-- (int)second;
-- (int)minute;
-- (int)hour;
 - (void)_setDate:(id)arg1 animated:(BOOL)arg2 forced:(BOOL)arg3;
 - (void)setDate:(id)arg1 animated:(BOOL)arg2;
-- (BOOL)_hasCustomLocale;
-- (id)locale;
+@property(readonly, nonatomic, getter=_hasCustomLocale) BOOL hasCustomLocale; // @dynamic hasCustomLocale;
 @property(retain, nonatomic) NSLocale *userProvidedLocale;
-@property(readonly, nonatomic, getter=_hasCustomCalendar) BOOL hasCustomCalendar;
-- (id)calendar;
+@property(readonly, nonatomic, getter=_hasCustomCalendar) BOOL hasCustomCalendar; // @dynamic hasCustomCalendar;
 @property(copy, nonatomic) NSCalendar *userProvidedCalendar;
 - (BOOL)_isCurrentCalendar:(id)arg1;
 - (void)_rebuildCompositeLocale;
 - (BOOL)_showingDate;
 - (void)_doneLoadingDateOrTime;
+- (id)_orientationImageSuffix;
 - (id)pickerImageNamePrefix;
 - (float)_tableRowHeight;
 - (void)_datePickerReset:(id)arg1;
 - (void)_todayChanged:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (int)second;
+- (int)minute;
+- (int)hour;
+@property(copy, nonatomic) NSDateComponents *dateComponents; // @dynamic dateComponents;
+@property(nonatomic) BOOL staggerTimeIntervals; // @dynamic staggerTimeIntervals;
+@property(readonly, nonatomic, getter=_hrMinFont) UIFont *hrMinFont; // @dynamic hrMinFont;
+- (id)_hoursStringForHour:(int)arg1;
+- (id)_minutesStringForHour:(int)arg1 minutes:(int)arg2;
+- (int)_selectionBarRowInComponent:(int)arg1;
+- (BOOL)_updateDateOrTime;
+@property(readonly, nonatomic, getter=_amPmValue) int amPmValue; // @dynamic amPmValue;
+@property(readonly, nonatomic, getter=_lastSelectedDateComponents) NSDateComponents *lastSelectedDateComponents; // @dynamic lastSelectedDateComponents;
+- (id)_labelTextForCalendarUnit:(unsigned int)arg1;
+- (id)_selectedTextForCalendarUnit:(unsigned int)arg1;
+@property(readonly, nonatomic) NSLocale *locale; // @dynamic locale;
+@property(readonly, nonatomic) NSCalendar *calendar; // @dynamic calendar;
+@property(nonatomic) BOOL highlightsToday; // @dynamic highlightsToday;
 
 @end
 

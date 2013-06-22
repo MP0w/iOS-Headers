@@ -32,7 +32,7 @@
 - (BOOL)hasContentModificationsRelativeTo:(id)arg1;
 
 // Remaining properties
-@property(nonatomic) int accessoryStyle; // @dynamic accessoryStyle;
+@property(nonatomic) unsigned int accessoryStyle; // @dynamic accessoryStyle;
 @property(copy, nonatomic) BBAction *acknowledgeAction; // @dynamic acknowledgeAction;
 @property(nonatomic) int addressBookRecordID; // @dynamic addressBookRecordID;
 @property(copy, nonatomic) NSSet *alertSuppressionContexts; // @dynamic alertSuppressionContexts;
@@ -44,10 +44,12 @@
 @property(nonatomic) int dateFormatStyle; // @dynamic dateFormatStyle;
 @property(nonatomic) BOOL dateIsAllDay; // @dynamic dateIsAllDay;
 @property(copy, nonatomic) BBAction *defaultAction; // @dynamic defaultAction;
+@property(copy, nonatomic) NSString *dismissalID; // @dynamic dismissalID;
 @property(retain, nonatomic) NSDate *endDate; // @dynamic endDate;
 @property(retain, nonatomic) NSDate *expirationDate; // @dynamic expirationDate;
 @property(copy, nonatomic) BBAction *expireAction; // @dynamic expireAction;
 @property(nonatomic) BOOL expiresOnPublisherDeath; // @dynamic expiresOnPublisherDeath;
+@property(nonatomic) BOOL hasEventDate; // @dynamic hasEventDate;
 @property(copy, nonatomic) NSString *message; // @dynamic message;
 @property(retain, nonatomic) BBContent *modalAlertContent; // @dynamic modalAlertContent;
 @property(copy, nonatomic) NSString *publisherBulletinID; // @dynamic publisherBulletinID;
@@ -56,11 +58,15 @@
 @property(copy, nonatomic) NSString *section; // @dynamic section;
 @property(copy, nonatomic) NSString *sectionID; // @dynamic sectionID;
 @property(nonatomic) int sectionSubtype; // @dynamic sectionSubtype;
+@property(copy, nonatomic) BBAction *snoozeAction; // @dynamic snoozeAction;
 @property(retain, nonatomic) BBSound *sound; // @dynamic sound;
+@property(retain, nonatomic) BBContent *starkBannerContent; // @dynamic starkBannerContent;
 @property(copy, nonatomic) NSSet *subsectionIDs; // @dynamic subsectionIDs;
 @property(copy, nonatomic) NSString *subtitle; // @dynamic subtitle;
 @property(retain, nonatomic) NSTimeZone *timeZone; // @dynamic timeZone;
 @property(copy, nonatomic) NSString *title; // @dynamic title;
+@property(nonatomic) BOOL usesExternalSync; // @dynamic usesExternalSync;
+@property(nonatomic) BOOL wantsFullscreenPresentation; // @dynamic wantsFullscreenPresentation;
 
 @end
 

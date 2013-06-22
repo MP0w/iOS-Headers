@@ -7,7 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol ALAssetsLibraryAsset <NSObject>
-- (void)libraryWillDisappear;
 - (void)libraryDidChange;
 @end
 

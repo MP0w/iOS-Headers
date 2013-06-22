@@ -80,7 +80,6 @@
 @property(readonly, nonatomic) BOOL isConnecting;
 - (BOOL)_acquiringDaemonConnection;
 - (void)_addressBookChanged:(id)arg1;
-- (void)setPresenceValue:(id)arg1 forKey:(id)arg2 forAccount:(id)arg3;
 - (void)setMyStatus:(unsigned int)arg1 message:(id)arg2 forAccount:(id)arg3;
 - (void)setMyStatus:(unsigned int)arg1 message:(id)arg2;
 - (void)setMyProfile:(id)arg1;

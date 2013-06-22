@@ -4,19 +4,18 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#pragma mark Named Structures
+#pragma mark Typedef'd Structures
 
-struct XPCProxy {
-    Class _field1;
-    id _field2;
-    id _field3;
-    id _field4;
-    Class _field5;
-    id _field6;
-    id _field7;
-    void _field8;
-    char _field9;
-    char _field10;
-    id _field11;
-};
+typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    int _field6;
+} CDStruct_c91b0553;
+
+typedef struct {
+    unsigned int val[8];
+} CDStruct_4c969caf;
 

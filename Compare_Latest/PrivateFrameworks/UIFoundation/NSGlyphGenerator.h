@@ -11,6 +11,7 @@
 }
 
 + (id)sharedGlyphGenerator;
++ (void)initialize;
 - (void)generateGlyphsForGlyphStorage:(id)arg1 desiredNumberOfCharacters:(unsigned int)arg2 glyphIndex:(unsigned int *)arg3 characterIndex:(unsigned int *)arg4;
 
 @end

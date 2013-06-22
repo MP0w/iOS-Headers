@@ -11,9 +11,12 @@
 @interface IUiPodMoreNavigationController : UIMoreNavigationController
 {
     UITabBarItem *_tabBarItem;
+    unsigned int _style;
 }
 
 + (Class)_moreListControllerClass;
+@property(nonatomic) unsigned int style; // @synthesize style=_style;
+- (void).cxx_destruct;
 - (id)tabBarItem;
 - (int)statusBarStyle;
 - (void)pushViewController:(id)arg1 animated:(BOOL)arg2;

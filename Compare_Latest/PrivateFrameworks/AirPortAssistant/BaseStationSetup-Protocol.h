@@ -6,5 +6,6 @@
 
 @protocol BaseStationSetup
 - (long)setupWithTargetBaseStation:(id)arg1 andSettings:(id)arg2;
+- (long)setupWithTargetNetwork:(id)arg1;
 @end
 

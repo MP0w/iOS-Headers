@@ -10,12 +10,12 @@
 
 @interface MPMediaTypeManager : NSObject
 {
-    int _mediaType;
+    BOOL _installed;
+    unsigned int _mediaType;
     NSString *_bundleID;
     NSString *_supportsMediaKey;
     NSString *_defaultsKey;
     NSString *_alertLocalizationKey;
-    BOOL _installed;
     UIAlertView *_activeAlert;
 }
 
@@ -25,9 +25,9 @@
 @property(readonly, nonatomic) NSString *defaultsKey; // @synthesize defaultsKey=_defaultsKey;
 @property(readonly, nonatomic) NSString *supportsMediaKey; // @synthesize supportsMediaKey=_supportsMediaKey;
 @property(readonly, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
-@property(readonly, nonatomic) int mediaType; // @synthesize mediaType=_mediaType;
-- (void)dealloc;
-- (id)initWithMediaType:(int)arg1 bundleID:(id)arg2 supportsMediaKey:(id)arg3 defaultsKey:(id)arg4 alertLocalizationKey:(id)arg5;
+@property(readonly, nonatomic) unsigned int mediaType; // @synthesize mediaType=_mediaType;
+- (void).cxx_destruct;
+- (id)initWithMediaType:(unsigned int)arg1 bundleID:(id)arg2 supportsMediaKey:(id)arg3 defaultsKey:(id)arg4 alertLocalizationKey:(id)arg5;
 
 @end
 

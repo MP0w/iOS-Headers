@@ -16,11 +16,12 @@
     float _halfAlphaSlope;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) float halfAlphaSlope; // @synthesize halfAlphaSlope=_halfAlphaSlope;
 @property(nonatomic) float alphaSlope; // @synthesize alphaSlope=_alphaSlope;
 @property(nonatomic) float halfWidth; // @synthesize halfWidth=_halfWidth;
-- (id)init;
+- (void)setup;
 
 @end
 

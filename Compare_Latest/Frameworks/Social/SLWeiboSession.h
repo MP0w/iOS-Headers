@@ -6,36 +6,32 @@
 
 #import "NSObject.h"
 
-#import "XPCProxyTarget-Protocol.h"
+#import "SLMicroBlogSheetDelegate-Protocol.h"
+#import "SLWeiboClientSessionProtocol-Protocol.h"
 
-@class NSCache, NSLock, NSMutableArray, SLWeiboDaemonConnectionInfo;
+@class NSCache, SLRemoteSessionProxy<SLWeiboRemoteSessionProtocol>;
 
-@interface SLWeiboSession : NSObject <XPCProxyTarget>
+@interface SLWeiboSession : NSObject <SLWeiboClientSessionProtocol, SLMicroBlogSheetDelegate>
 {
-    SLWeiboDaemonConnectionInfo *_daemonConnectionInfo;
-    id _locationInformationChangedBlock;
-    id _connectionResetBlock;
+    SLRemoteSessionProxy<SLWeiboRemoteSessionProtocol> *_remoteSession;
     NSCache *_profileImageCache;
-    NSLock *_inFlightSessionRemoteCallInfosLock;
-    NSMutableArray *_inFlightSessionRemoteCallInfos;
+    id _connectionResetBlock;
+    id _locationInformationChangedBlock;
 }
 
-@property(copy, nonatomic) id connectionResetBlock; // @synthesize connectionResetBlock=_connectionResetBlock;
++ (id)_remoteInterface;
 @property(copy, nonatomic) id locationInformationChangedBlock; // @synthesize locationInformationChangedBlock=_locationInformationChangedBlock;
+@property(copy, nonatomic) id connectionResetBlock; // @synthesize connectionResetBlock=_connectionResetBlock;
 - (void).cxx_destruct;
-- (void)_didCompleteRemoteCall:(id)arg1;
-- (void)_issueRemoteCall:(id)arg1;
-- (id)_newRemoteCall;
-- (void)_noteWeibodSessionProxyInterrupted;
-- (void)_buildWeibodSession;
-- (id)_daemonSessionProxy;
+- (BOOL)countMediaAttachmentsTowardCharacterCount;
+- (id)serviceAccountTypeIdentifier;
 - (void)acceptLocationUpdate:(id)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)getPermaLinkFromLastStatusUpdate:(id)arg1;
-- (void)showWeiboSettingsIfNeeded;
+- (void)showSettingsIfNeeded;
 - (void)sendStatus:(id)arg1 completion:(id)arg2;
 - (void)setGeotagAccountSetting:(BOOL)arg1;
 - (void)fetchGeotagStatus:(id)arg1;
+- (void)overrideLocationWithLatitude:(float)arg1 longitude:(float)arg2 name:(id)arg3;
 - (void)setOverrideGeotagInfo:(id)arg1;
 - (void)setGeotagStatus:(int)arg1;
 - (void)fetchRelationshipWithScreenName:(id)arg1 completion:(id)arg2;
@@ -43,12 +39,13 @@
 - (void)fetchCurrentUrlLimits:(id)arg1;
 - (void)recordsMatchingPrefixString:(id)arg1 completion:(id)arg2;
 - (void)fetchProfileImageDataForScreenName:(id)arg1 completion:(id)arg2;
+- (id)cachedProfileImageDataForScreenName:(id)arg1;
 - (void)fetchRecordForScreenName:(id)arg1 completion:(id)arg2;
+- (void)ensureUserRecordStore;
 - (void)fetchSessionInfo:(id)arg1;
 - (void)setActiveAccountIdentifier:(id)arg1;
 - (void)setClientInfo:(id)arg1;
-- (void)tearDownWeibodSession;
-- (void)dealloc;
+- (void)tearDownConnectionToRemoteSession;
 - (id)init;
 
 @end

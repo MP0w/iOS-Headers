@@ -43,6 +43,7 @@
 - (void)deleteTransfer:(id)arg1;
 - (void)removeTransfer:(id)arg1;
 - (void)stopTransfer:(id)arg1;
+- (void)acceptTransfer:(id)arg1;
 - (void)acceptTransfer:(id)arg1 withPath:(id)arg2 autoRename:(BOOL)arg3 overwrite:(BOOL)arg4;
 - (void)sendTransfer:(id)arg1;
 - (id)transferForGUID:(id)arg1 includeRemoved:(BOOL)arg2;

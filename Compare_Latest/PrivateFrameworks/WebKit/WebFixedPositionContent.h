@@ -11,12 +11,9 @@
     struct WebFixedPositionContentData *_private;
 }
 
-- (void)unlockLayers;
-- (void)lockLayers;
+- (float)minimumOffsetFromFixedPositionLayersToAnchorEdge:(int)arg1 ofRect:(struct CGRect)arg2 inLayer:(id)arg3;
 - (BOOL)hasFixedPositionLayers;
-- (void)removeAllLayers;
-- (void)removeLayer:(id)arg1 insideLayerSync:(BOOL)arg2;
-- (void)addOrUpdateLayer:(id)arg1 viewportConstraints:(PassOwnPtr_d5ec95f2)arg2 insideLayerSync:(BOOL)arg3;
+- (void)setLayers:(HashMap_84a2442e *)arg1;
 - (void)didFinishScrollingOrZooming;
 - (void)scrollOrZoomChanged:(struct CGRect)arg1;
 - (void)dealloc;

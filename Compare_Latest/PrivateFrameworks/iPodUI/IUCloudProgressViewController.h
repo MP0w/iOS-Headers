@@ -15,6 +15,7 @@
     UIProgressView *_cloudProgressView;
 }
 
+- (void).cxx_destruct;
 - (void)_updateInProgressDidChangeNotification:(id)arg1;
 - (void)_updateProgressTimerDidFire:(id)arg1;
 - (void)viewWillLayoutSubviews;

@@ -11,11 +11,11 @@
     _Bool mAutomatic;
     _Bool mNoMultipleLevelLabel;
     int mLabelAlignment;
-    int mLabelFrequency;
+    long mLabelFrequency;
 }
 
-- (void)setLabelFrequency:(int)arg1;
-- (int)labelFrequency;
+- (void)setLabelFrequency:(long)arg1;
+- (long)labelFrequency;
 - (void)adjustAxisPositionForHorizontalChart;
 - (void)setLabelAlignment:(int)arg1;
 - (int)labelAlignment;

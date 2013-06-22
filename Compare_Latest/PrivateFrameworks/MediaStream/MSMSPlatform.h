@@ -12,9 +12,9 @@
 
 @interface MSMSPlatform : NSObject <MSPlatform>
 {
+    BOOL _isPerfLoggingEnabled;
     NSData *_developmentPushToken;
     NSData *_productionPushToken;
-    BOOL _isPerfLoggingEnabled;
 }
 
 + (id)thePlatform;
@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (id)theDaemon;
 - (id)fullNameFromFirstName:(id)arg1 lastName:(id)arg2;
+- (BOOL)shouldEnableNewFeatures;
 - (id)pushTokenForPersonID:(id)arg1;
 - (BOOL)personIDUsesProductionPushEnvironment:(id)arg1;
 - (id)baseURLForPersonID:(id)arg1;

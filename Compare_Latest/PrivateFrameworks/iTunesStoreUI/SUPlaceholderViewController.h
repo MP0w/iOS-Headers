@@ -6,7 +6,7 @@
 
 #import <iTunesStoreUI/SUViewController.h>
 
-@class SUGradient, SULoadingView;
+@class SUGradient, SUGradientView, SULoadingView;
 
 @interface SUPlaceholderViewController : SUViewController
 {
@@ -14,6 +14,7 @@
     SUGradient *_defaultBackgroundGradient;
     BOOL _hideLoadingView;
     SULoadingView *_loadingView;
+    SUGradientView *_gradientView;
     BOOL _shouldShowLoadingView;
 }
 
@@ -23,10 +24,14 @@
 - (void)_reloadLoadingView;
 - (void)_reloadBackgroundGradient;
 - (id)_newURLBagBackgroundGradient;
+- (id)_copyActiveGradient;
 - (void)_bagDidLoadNotification:(id)arg1;
+- (void)setScriptProperties:(id)arg1;
 - (void)setLoading:(BOOL)arg1;
 - (void)parentViewControllerHierarchyDidChange;
 - (void)loadView;
+- (int)ITunesStoreUIBarStyle;
+- (id)copyDefaultScriptProperties;
 - (id)copyArchivableContext;
 @property(readonly, nonatomic) SULoadingView *loadingView;
 - (void)dealloc;

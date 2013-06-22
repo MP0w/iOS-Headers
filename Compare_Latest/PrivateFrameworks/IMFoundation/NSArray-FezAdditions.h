@@ -10,6 +10,7 @@
 - (id)__imArrayByApplyingBlock:(id)arg1 filter:(void)arg2;
 - (id)__imArrayByApplyingBlock:(id)arg1;
 - (id)__imArrayByFilteringWithBlock:(id)arg1;
+- (void)__imForEach:(id)arg1;
 - (BOOL)containsObject:(id)arg1 matchingComparison:(SEL)arg2;
 - (int)indexOfObject:(id)arg1 matchingComparison:(SEL)arg2;
 - (BOOL)containsObjectIdenticalTo:(id)arg1;

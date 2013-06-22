@@ -10,15 +10,17 @@
 
 @interface UIDatePickerContentView : UIView
 {
-    UILabel *_titleLabel;
-    float _titleLabelMaxX;
-    int _alignment;
     struct {
         unsigned int isAmPm:1;
     } _datePickerContentViewFlags;
+    BOOL _isModern;
+    UILabel *_titleLabel;
+    float _titleLabelMaxX;
+    int _titleAlignment;
 }
 
-@property(nonatomic) int titleAlignment; // @synthesize titleAlignment=_alignment;
+@property(nonatomic) BOOL isModern; // @synthesize isModern=_isModern;
+@property(nonatomic) int titleAlignment; // @synthesize titleAlignment=_titleAlignment;
 @property(nonatomic) float titleLabelMaxX; // @synthesize titleLabelMaxX=_titleLabelMaxX;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)layoutSubviews;

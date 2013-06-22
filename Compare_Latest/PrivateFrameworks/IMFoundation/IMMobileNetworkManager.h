@@ -10,6 +10,11 @@
 
 @interface IMMobileNetworkManager : IMNetworkManager
 {
+    BOOL _cachedAirplaneMode;
+    BOOL _isCachedAirplaneModeValid;
+    BOOL _registered;
+    BOOL _shouldBringUpDataContext;
+    BOOL _dataContextActive;
     NSRecursiveLock *_lock;
     NSMutableSet *_disableFastDormancyTokens;
     NSMutableSet *_wiFiAutoAssociationTokens;
@@ -19,13 +24,8 @@
     void *_wifiManager;
     struct __SCPreferences *_prefs;
     struct __CTServerConnection *_ctServerConnection;
-    BOOL _cachedAirplaneMode;
     void *_cellAssertion;
-    BOOL _isCachedAirplaneModeValid;
     int _applySkipCount;
-    BOOL _registered;
-    BOOL _shouldBringUpDataContext;
-    BOOL _dataContextActive;
 }
 
 @property(nonatomic) BOOL dataContextActive; // @synthesize dataContextActive=_dataContextActive;
@@ -51,6 +51,8 @@
 @property(readonly, nonatomic) BOOL has2GDataConnection;
 @property(readonly, nonatomic) BOOL dataConnectionExists;
 @property(readonly, nonatomic) BOOL inValidSIMState;
+- (void)showSIMUnlock;
+@property(readonly, nonatomic) BOOL isSIMLocked;
 - (void)_makeDataConnectionAvailable:(BOOL)arg1;
 - (BOOL)_isDataConnectionAvailable;
 - (void)_releaseCTServerConnection;
@@ -63,6 +65,7 @@
 - (void)removeWiFiAutoAssociationClientToken:(id)arg1;
 - (void)addWiFiAutoAssociationClientToken:(id)arg1;
 @property(readonly, nonatomic) BOOL autoAssociateWiFi;
+@property(readonly, nonatomic) BOOL isWiFiCaptive;
 @property(readonly, nonatomic) BOOL isWiFiEnabled;
 @property(readonly, nonatomic) BOOL isWiFiAssociated;
 @property(readonly, nonatomic) NSNumber *wiFiScaledRate;

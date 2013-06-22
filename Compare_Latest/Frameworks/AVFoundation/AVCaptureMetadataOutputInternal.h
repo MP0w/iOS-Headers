@@ -13,6 +13,7 @@
     id <AVCaptureMetadataOutputObjectsDelegate> delegate;
     NSObject<OS_dispatch_queue> *clientQueue;
     NSArray *metadataObjectTypes;
+    struct CGRect rectOfInterest;
 }
 
 - (void)dealloc;

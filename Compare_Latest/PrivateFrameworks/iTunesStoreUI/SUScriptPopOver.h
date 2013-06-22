@@ -6,7 +6,7 @@
 
 #import <iTunesStoreUI/SUScriptObject.h>
 
-@class SUScriptViewController, UIPopoverController;
+@class SUScriptViewController, UIPopoverController, UIViewController;
 
 @interface SUScriptPopOver : SUScriptObject
 {
@@ -25,7 +25,6 @@
 - (id)_popOverController;
 - (BOOL)_isViewControllerVisible;
 - (id)_nativeViewController;
-- (id)_activeViewController;
 - (void)_dismissAnimated:(BOOL)arg1;
 - (void)_viewControllerDidDismiss:(id)arg1;
 - (void)_overlayWillShowNotification:(id)arg1;
@@ -47,6 +46,7 @@
 - (void)tearDownUserInterface;
 - (BOOL)isVisible;
 @property(retain, nonatomic) UIPopoverController *nativePopoverController;
+@property(readonly) UIViewController *activeViewController;
 - (void)dealloc;
 - (id)init;
 

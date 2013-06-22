@@ -17,7 +17,8 @@
     UIWindow *_window;
 }
 
-@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (id)_animatePopWithTransition:(int)arg1;
 - (void)_popAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (id)popViewControllerWithTransition:(int)arg1;

@@ -50,8 +50,9 @@
 - (unsigned int)hash;
 - (void)removeUnnecessaryOverrides;
 - (void)overrideWithProperties:(id)arg1;
-@property(nonatomic) int bulletCharSet;
-@property(nonatomic) BOOL hasBulletCharSet;
+- (void)setBulletCharSet:(int)arg1;
+- (int)bulletCharSet;
+- (BOOL)hasBulletCharSet;
 - (void)setBulletProperties:(id)arg1;
 - (id)bulletProperties;
 - (BOOL)hasBulletProperties;

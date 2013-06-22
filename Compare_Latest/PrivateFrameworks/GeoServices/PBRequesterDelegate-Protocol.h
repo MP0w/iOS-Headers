@@ -9,6 +9,7 @@
 @protocol PBRequesterDelegate <NSObject>
 
 @optional
+- (void)requesterWillSendRequestForEstablishedConnection:(id)arg1;
 - (void)requester:(id)arg1 didFailWithError:(id)arg2;
 - (void)requesterDidCancel:(id)arg1;
 - (void)requesterDidFinish:(id)arg1;

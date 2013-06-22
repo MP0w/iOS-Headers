@@ -60,7 +60,6 @@
 @property(readonly) GKConnection *connection; // @synthesize connection=_connection;
 @property(readonly) int sessionMode; // @synthesize sessionMode=_mode;
 @property(readonly) NSString *sessionID; // @synthesize sessionID;
-@property(nonatomic) id dataReceiveHandler; // @synthesize dataReceiveHandler=_dataReceiveHandler;
 @property(nonatomic) unsigned int port; // @synthesize port=_port;
 @property(nonatomic) struct OpaqueAGPSession *agpSessionRef; // @synthesize agpSessionRef;
 @property(nonatomic) struct OpaqueGCKSession *sessionRef; // @synthesize sessionRef;
@@ -98,6 +97,7 @@
 - (void)connectToPeer:(id)arg1 withTimeout:(double)arg2;
 - (void)timeoutConnectToPeer:(id)arg1;
 - (void)setDataReceiveHandler:(id)arg1 withContext:(void *)arg2;
+@property(readonly, nonatomic) id dataReceiveHandler;
 - (void)setDOOBReceiveHandler:(id)arg1 withContext:(void *)arg2 inBand:(unsigned int)arg3;
 - (void)receiveDOOB:(id)arg1 fromPeer:(id)arg2 inSession:(id)arg3 context:(void *)arg4;
 - (BOOL)sendDataToAllPeers:(id)arg1 withDataMode:(int)arg2 error:(id *)arg3;

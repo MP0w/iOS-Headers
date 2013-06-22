@@ -17,6 +17,7 @@
 + (id)iCloudServiceAccount;
 + (BOOL)photoStreamsEnabled;
 + (id)sharedPhotoStreamsHelper;
+- (void)enumerateMasterHashesForAssets:(id)arg1 withBlock:(id)arg2;
 - (void)initiateDeletionOfPhotoStreamAssets:(id)arg1;
 - (void)resume_mstreamd:(id)arg1;
 - (id)pause_mstreamd;
@@ -36,7 +37,6 @@
 - (int)_serverIntegerLimitForKey:(id)arg1 debugDefaultKey:(id)arg2;
 - (BOOL)shouldUploadVideos;
 - (BOOL)shouldPublishScreenShots;
-- (id)_photoStreamAlbumNameWithFirstName:(id)arg1 lastName:(id)arg2 email:(id)arg3;
 - (void)pollForNewSubscriptionContentOncePerAppForegroundSession;
 - (void)pollForNewSubscriptionContent;
 - (BOOL)enqueueAssetForPSPublishing:(id)arg1 assetHash:(id)arg2 fullPath:(id)arg3 fileSize:(id)arg4 type:(id)arg5 reenqueueCount:(id)arg6;
@@ -50,6 +50,7 @@
 - (id)psHashForData:(id)arg1;
 - (id)photoStreamsPublishStreamID;
 - (void)_appDidEnterBackground:(id)arg1;
+- (void)_acaccountConfigChanged;
 - (void)clearCachedAccountState;
 - (void)dealloc;
 - (id)init;

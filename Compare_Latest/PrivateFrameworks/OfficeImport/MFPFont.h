@@ -12,15 +12,15 @@
 {
     float mSize;
     int mUnit;
-    unsigned long mFlags;
+    unsigned int mFlags;
     NSString *mName;
 }
 
 - (struct __CTFont *)createCTFontWithGraphics:(id)arg1;
 - (void)setName:(id)arg1;
 - (id)name;
-- (void)setFlags:(unsigned long)arg1;
-- (unsigned long)flags;
+- (void)setFlags:(unsigned int)arg1;
+- (unsigned int)flags;
 - (void)setUnit:(int)arg1;
 - (int)unit;
 - (void)setSize:(float)arg1;

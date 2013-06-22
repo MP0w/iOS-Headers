@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
-@class NSString, NSURL;
+@class NSString;
 
-@interface SANoteCreate : SABaseClientBoundCommand
+@interface SANoteCreate : SADomainCommand
 {
 }
 
@@ -16,7 +16,6 @@
 + (id)create;
 - (BOOL)requiresResponse;
 @property(copy, nonatomic) NSString *contents;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -13,7 +13,7 @@
 }
 
 @property(nonatomic) float alpha; // @synthesize alpha=_alpha;
-- (id)initWithVertName:(id)arg1 fragName:(id)arg2;
+- (void)setup;
 
 @end
 

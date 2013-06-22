@@ -10,19 +10,19 @@
 
 @interface FTRegAppleIDSetupOperation : NSObject
 {
+    BOOL _finished;
+    BOOL _cancelled;
+    BOOL _timedOut;
+    BOOL _finishOnAuthenticated;
+    BOOL _hasSetAliases;
     int _type;
     CNFRegController *_regController;
     NSDictionary *_setupDict;
-    BOOL _finished;
     id _handler;
     NSError *_error;
-    BOOL _cancelled;
-    BOOL _timedOut;
     NSTimer *_timeoutTimer;
     NSArray *_selectedAliases;
-    BOOL _finishOnAuthenticated;
     IMAccount *_account;
-    BOOL _hasSetAliases;
 }
 
 @property(nonatomic) BOOL hasSetAliases; // @synthesize hasSetAliases=_hasSetAliases;

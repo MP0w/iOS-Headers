@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "IDSIDQueryControllerDelegate-Protocol.h"
+
 @class NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSProtocolChecker, NSString;
 
-@interface IMDaemonListener : NSObject
+@interface IMDaemonListener : NSObject <IDSIDQueryControllerDelegate>
 {
     NSMutableDictionary *_properties;
     NSMutableDictionary *_persistentProperties;
@@ -74,7 +76,6 @@
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 invitationReceived:(id)arg5;
 - (void)account:(id)arg1 buddyInfo:(id)arg2 commandDelivered:(id)arg3 properties:(id)arg4;
 - (void)account:(id)arg1 buddyInfo:(id)arg2 commandReceived:(id)arg3 properties:(id)arg4;
-- (void)account:(id)arg1 buddyInfo:(id)arg2 dataReceived:(id)arg3;
 - (void)account:(id)arg1 buddyProperties:(id)arg2 buddyPictures:(id)arg3;
 - (void)account:(id)arg1 buddyPictureChanged:(id)arg2 imageData:(id)arg3 imageHash:(id)arg4;
 - (void)account:(id)arg1 buddyPropertiesChanged:(id)arg2;
@@ -96,6 +97,7 @@
 @property(readonly, nonatomic) unsigned int myStatus;
 - (void)_processMyStatusChanged;
 - (void)_reallyProcessMyStatusChanged;
+- (void)receivedIDStatusCache:(id)arg1;
 - (id)serviceWithName:(id)arg1;
 @property(readonly, nonatomic) NSArray *allServices;
 - (void)removeHandler:(id)arg1;

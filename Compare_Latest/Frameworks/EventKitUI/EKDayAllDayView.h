@@ -16,20 +16,19 @@
     BOOL _allDayLabelHighlighted;
     UIScrollView *_scroller;
     float _occurrenceInset;
-    id <EKDayAllDayViewDelegate> _delegate;
     BOOL _allowSelection;
     BOOL _showSelection;
-    BOOL _dimsNonSelectedItems;
-    int _maxVisibleItems;
     EKEvent *_selectedEvent;
-    EKEvent *_dimmedOccurrence;
     BOOL _usesSmallText;
-    UIView *_splitterView;
+    id <EKDayAllDayViewDelegate> _delegate;
+    int _maxVisibleRows;
+    EKEvent *_dimmedOccurrence;
 }
 
 @property(retain, nonatomic) EKEvent *dimmedOccurrence; // @synthesize dimmedOccurrence=_dimmedOccurrence;
-@property(nonatomic) id <EKDayAllDayViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) int maxVisibleItems; // @synthesize maxVisibleItems=_maxVisibleItems;
+@property(nonatomic) int maxVisibleRows; // @synthesize maxVisibleRows=_maxVisibleRows;
+@property(nonatomic) __weak id <EKDayAllDayViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (BOOL)isAllDayLabelHighlighted;
 - (void)setAllDayLabelHighlighted:(BOOL)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
@@ -44,7 +43,6 @@
 - (void)removeAllOccurrenceViews;
 - (void)setOrientation:(int)arg1;
 - (void)setOccurrenceInset:(float)arg1 labelInset:(float)arg2;
-@property(nonatomic) BOOL dimsNonSelectedItems;
 - (void)selectEvent:(id)arg1;
 - (id)selectedEvent;
 - (BOOL)containsEvent:(id)arg1;
@@ -52,7 +50,6 @@
 - (float)nextAvailableOccurrenceViewYOrigin;
 - (id)occurrenceViewForEvent:(id)arg1;
 - (float)firstEventYOffset;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class GEOGeocodeRequest;
+@class GEOGeocodeRequest, NSObject<OS_dispatch_queue>;
 
 @interface CLGeocoderInternal : NSObject
 {
     id _geocodeCompletionHandler;
     GEOGeocodeRequest *_request;
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 @end

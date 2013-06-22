@@ -21,17 +21,17 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputOpacity; // @synthesize inputOpacity;
-@property(copy, nonatomic) NSNumber *inputWidth; // @synthesize inputWidth;
-@property(copy, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
-@property(copy, nonatomic) NSNumber *inputTime; // @synthesize inputTime;
-@property(copy, nonatomic) CIColor *inputColor; // @synthesize inputColor;
-@property(copy, nonatomic) CIVector *inputExtent; // @synthesize inputExtent;
+@property(retain, nonatomic) NSNumber *inputOpacity; // @synthesize inputOpacity;
+@property(retain, nonatomic) NSNumber *inputWidth; // @synthesize inputWidth;
+@property(retain, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
+@property(retain, nonatomic) NSNumber *inputTime; // @synthesize inputTime;
+@property(retain, nonatomic) CIColor *inputColor; // @synthesize inputColor;
+@property(retain, nonatomic) CIVector *inputExtent; // @synthesize inputExtent;
 @property(retain, nonatomic) CIImage *inputTargetImage; // @synthesize inputTargetImage;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (void)setDefaults;
 - (id)_kernel;
+- (void)setDefaults;
 
 @end
 

@@ -24,6 +24,7 @@
     int vBreaks;
     int supportsHBreaks;
     int supportsVBreaks;
+    int supportsAllBreaks;
     int allBreaks;
     BOOL hasBreak;
     NSArray *maxAspectRatios;

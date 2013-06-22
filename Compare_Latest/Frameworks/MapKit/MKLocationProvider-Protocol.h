@@ -6,20 +6,25 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSBundle;
+@class NSBundle, NSString;
 
 @protocol MKLocationProvider <NSObject>
+@property(readonly, nonatomic, getter=isMonitoringRegionsAvailable) BOOL monitoringRegionsAvailable;
 @property(readonly, nonatomic) BOOL usesCLMapCorrection;
 @property(nonatomic) int activityType;
+@property(readonly, nonatomic) BOOL airplaneModeBlocksLocation;
 @property(readonly, nonatomic) int authorizationStatus;
 @property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(nonatomic) int headingOrientation;
 @property(nonatomic) double distanceFilter;
 @property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) BOOL locationServicesPreferencesDialogEnabled;
 @property(nonatomic) double desiredAccuracy;
+@property(copy, nonatomic) NSString *effectiveBundleIdentifier;
 @property(retain, nonatomic) NSBundle *effectiveBundle;
 @property(nonatomic) id <MKLocationProviderDelegate> delegate;
 - (void)dismissHeadingCalibrationDisplay;
+- (void)stopMonitoringRegion:(id)arg1;
+- (void)startMonitoringRegion:(id)arg1;
 - (void)stopUpdatingHeading;
 - (void)startUpdatingHeading;
 - (void)stopUpdatingLocation;

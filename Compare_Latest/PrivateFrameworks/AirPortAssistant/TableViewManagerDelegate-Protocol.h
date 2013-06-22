@@ -7,10 +7,12 @@
 @protocol TableViewManagerDelegate
 
 @optional
+- (BOOL)isRepresentedObject:(id)arg1 identicalToRepresentedObject:(id)arg2;
 - (BOOL)shouldIndentWhileEditingRowAtIndexPath:(id)arg1;
 - (void)commitEditingStyle:(int)arg1 forRowAtIndexPath:(id)arg2;
 - (id)valueForItemOfType:(id)arg1 atTypeIndex:(unsigned int)arg2 inCellAtIndexPath:(id)arg3;
 - (id)valueForItemOfType:(id)arg1 atTypeIndex:(unsigned int)arg2 inCellWithTag:(int)arg3;
+- (void)selectedDateChangedInCellAtIndexPath:(id)arg1 forDatePickerIndex:(unsigned int)arg2 withDate:(id)arg3;
 - (void)buttonTouchedInCellAtIndexPath:(id)arg1 forButtonIndex:(unsigned int)arg2;
 - (void)textFieldDidEndEditingAtIndexPath:(id)arg1;
 - (void)textFieldDidChangeAtIndexPath:(id)arg1;

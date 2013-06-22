@@ -11,8 +11,8 @@
     struct __CFRunLoopSource *_batteryRunLoopSource;
     struct IONotificationPort *_batteryIONotifyPort;
     unsigned int _batteryNotificationRef;
-    double _currentLevel;
     BOOL _isExteralPowerConnected;
+    double _currentLevel;
 }
 
 + (id)defaultMonitor;

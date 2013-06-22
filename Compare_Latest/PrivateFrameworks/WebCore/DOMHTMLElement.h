@@ -34,8 +34,6 @@
 - (void)setDraggable:(BOOL)arg1;
 - (BOOL)draggable;
 @property int tabIndex;
-- (id)classList;
-@property(copy) NSString *className;
 @property(copy) NSString *dir;
 - (void)setTranslate:(BOOL)arg1;
 - (BOOL)translate;

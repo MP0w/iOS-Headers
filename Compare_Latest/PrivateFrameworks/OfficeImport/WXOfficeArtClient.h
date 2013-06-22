@@ -10,7 +10,10 @@
 {
 }
 
+- (id)readGraphicData:(struct _xmlNode *)arg1 state:(id)arg2;
 - (void)readClientDataFromNode:(struct _xmlNode *)arg1 toDrawable:(id)arg2 state:(id)arg3;
+- (struct _xmlNode *)genericNonVisualPropertiesNodeForDrawableNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 state:(id)arg3;
+- (id)readClientDrawableFromXmlNode:(struct _xmlNode *)arg1 state:(id)arg2;
 
 @end
 

@@ -16,12 +16,14 @@
     long long _totalUnitCount;
     long long _completedUnitCount;
     NSString *_localizedDescription;
+    NSString *_localizedAdditionalDescription;
     BOOL _isCancellable;
     BOOL _isPausable;
     BOOL _isCancelled;
     BOOL _isPaused;
     NSMutableArray *_children;
     NSString *_kind;
+    BOOL _isPrioritizable;
 }
 
 + (id)decodableClasses;

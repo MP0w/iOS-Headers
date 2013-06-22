@@ -6,13 +6,14 @@
 
 #import <UIKit/UIInputView.h>
 
-@class UIImageView, UIKeyboardCandidateBar, UIKeyboardCandidateGrid, UIKeyboardCandidateSortControl, UIKeyboardCandidateSplitKeyboardToggleButton, UIKeyboardCandidateUnsplitKeyboardToggleButton;
+@class UIImageView, UIKeyboardCandidateBar, UIKeyboardCandidateGrid, UIKeyboardCandidateSortControl, UIKeyboardCandidateSplitKeyboardToggleButton, UIKeyboardCandidateUnsplitKeyboardToggleButton, UIView<UIKeyboardCandidateList>;
 
 @interface UIKeyboardCandidateView : UIInputView
 {
     UIKeyboardCandidateBar *_bar;
     UIKeyboardCandidateSortControl *_sortControl;
     UIKeyboardCandidateGrid *_extendedView;
+    UIView<UIKeyboardCandidateList> *_inlineView;
     UIImageView *_leftBackground;
     UIImageView *_rightBackground;
     UIKeyboardCandidateUnsplitKeyboardToggleButton *_leftButton;
@@ -28,18 +29,23 @@
 + (id)activeCandidateList;
 + (void)setActiveCandidateView:(id)arg1;
 + (id)activeCandidateView;
++ (id)sharedInstanceForInlineView:(BOOL)arg1;
++ (id)sharedInstanceForInlineView;
 + (id)sharedInstance;
+@property(retain, nonatomic) UIView<UIKeyboardCandidateList> *inlineView; // @synthesize inlineView=_inlineView;
 - (unsigned int)_numberOfColumns:(BOOL)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)layoutSubviews;
+- (float)barHeight;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_toggleExtendedCandidateView:(id)arg1;
-- (void)setCandidateBarExtended:(BOOL)arg1;
+- (void)setCandidateViewExtended:(BOOL)arg1;
 - (void)candidatesDidChange;
 - (id)activeCandidateList;
 - (void)setCandidateBarCanExtend:(BOOL)arg1;
+- (BOOL)isExtended;
 - (void)updatePageControlStatus;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -6,27 +6,25 @@
 
 #import "NSObject.h"
 
-@class AccountsManager, NSArray, NoteContext;
+@class ACAccountStore, NSArray, NoteContext;
 
 @interface AccountUtilities : NSObject
 {
-    AccountsManager *_accountsManager;
-    NSArray *_syncableAccounts;
+    ACAccountStore *_accountStore;
+    NSArray *_accountIDsEnabledForNotes;
     NoteContext *_noteContext;
 }
 
 + (id)sharedAccountUtilities;
 - (void).cxx_destruct;
 - (BOOL)localNotesExist;
-- (BOOL)isDeviceLocalAccount:(id)arg1;
 - (id)defaultStoreSyncIdWithDesiredSyncId:(id)arg1;
-- (id)syncAccountIdForDisplayAccountId:(id)arg1;
-- (id)allDisplayAccounts;
-- (id)allSyncableAccounts;
+- (id)accountIDsEnabledForNotes;
+- (id)accountsEnabledForNotes;
 - (void)dealloc;
 - (id)init;
-- (void)accountsChanged;
-- (id)accountsManager;
+- (void)_accountStoreDidChange:(id)arg1;
+- (id)accountStore;
 
 @end
 

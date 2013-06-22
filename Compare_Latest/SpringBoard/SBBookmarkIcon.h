@@ -6,24 +6,20 @@
 
 #import "SBLeafIcon.h"
 
-@class UIWebClip;
+@class SBBookmark;
 
 @interface SBBookmarkIcon : SBLeafIcon
 {
-    UIWebClip *_webClip;
+    SBBookmark *_bookmark;
 }
 
-@property(retain, nonatomic) UIWebClip *webClip; // @synthesize webClip=_webClip;
+@property(retain, nonatomic) SBBookmark *bookmark; // @synthesize bookmark=_bookmark;
 - (id)folderFallbackTitle;
 - (id)folderTitleOptions;
-- (void)completeUninstall;
-- (void)launch;
-- (id)displayName;
-- (id)generateIconImage:(int)arg1;
-- (BOOL)allowsUninstall;
+- (id)webClip;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithWebClip:(id)arg1;
+- (id)initWithBookmark:(id)arg1;
 
 @end
 

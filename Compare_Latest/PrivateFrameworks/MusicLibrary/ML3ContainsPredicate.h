@@ -15,7 +15,7 @@
 + (id)predicateWithProperty:(id)arg1 values:(id)arg2;
 @property(copy, nonatomic) id values; // @synthesize values=_values;
 - (void).cxx_destruct;
-- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
+- (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;

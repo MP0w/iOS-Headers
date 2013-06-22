@@ -10,6 +10,7 @@
 
 @interface EKPersistentObject : NSObject
 {
+    struct _opaque_pthread_mutex_t _lock;
     EKEventStore *_eventStore;
     id _objectID;
     struct __CFDictionary *_loadedProperties;
@@ -26,7 +27,7 @@
 - (void)_loadDefaultPropertiesIfNeeded;
 - (void)_takeValuesForDefaultProperties:(id)arg1;
 - (void)takeValues:(id)arg1 forProperties:(id)arg2;
-- (id)_loadChildIdentifiersForKey:(id)arg1;
+- (BOOL)_loadChildIdentifiersForKey:(id)arg1 values:(id *)arg2;
 - (BOOL)_loadRelationForKey:(id)arg1 value:(id *)arg2;
 - (void)primitiveSetDataValue:(id)arg1 forKey:(id)arg2;
 - (id)primitiveDataValueForKey:(id)arg1;
@@ -96,7 +97,7 @@
 - (id)objectID;
 - (void)_setEventStore:(id)arg1;
 @property(readonly, nonatomic) EKEventStore *eventStore;
-- (int)entityType;
+@property(readonly, nonatomic) int entityType;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;

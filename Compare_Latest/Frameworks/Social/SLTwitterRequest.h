@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-@class ACAccount, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSURL, OACredential;
+@class ACAccount, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<SLTimestampSkewStorageDelegate>, NSString, NSURL, OACredential;
 
 @interface SLTwitterRequest : NSObject
 {
     ACAccount *_account;
     OACredential *_credential;
     int _callingPID;
+    NSObject<SLTimestampSkewStorageDelegate> *_timestampSkewStorageDelegate;
     NSURL *_url;
     NSMutableDictionary *_parameters;
     int _requestMethod;
@@ -21,7 +22,6 @@
 }
 
 + (BOOL)shouldRetryAfterCount:(int)arg1 delay:(float *)arg2;
-+ (void)calculateTimestampSkewFromResponse:(id)arg1;
 + (BOOL)responseIsTimestampOutOfBounds:(id)arg1 data:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *parameters; // @synthesize parameters=_parameters;
 @property(readonly, nonatomic) int requestMethod; // @synthesize requestMethod=_requestMethod;
@@ -31,16 +31,21 @@
 - (void)performJSONRequestWithHandler:(id)arg1;
 - (void)performJSONRequestWithHandler:(id)arg1 retryCount:(void)arg2;
 - (void)setApplicationID:(id)arg1;
+- (id)timestampSkewStorageDelegate;
+- (void)setTimestampSkewStorageDelegate:(id)arg1;
 - (int)callingPID;
 - (void)setCallingPID:(int)arg1;
 - (void)performRequestWithHandler:(id)arg1;
 - (void)performRequestWithHandler:(id)arg1 retryCount:(void)arg2;
+- (void)calculateTimestampSkewFromResponse:(id)arg1;
 - (id)multiPartBodyData;
 - (id)_urlEncodedString:(id)arg1;
 - (id)_parameterString;
 - (id)_allParameters;
 - (void)addMultiPartData:(id)arg1 withName:(id)arg2 type:(id)arg3;
 - (id)signedURLRequest;
+- (void)_setTimestampSkew:(double)arg1;
+- (double)_timestampSkew;
 - (void)setParameter:(id)arg1 forKey:(id)arg2;
 - (id)commandName;
 - (BOOL)requiresAuthorization;

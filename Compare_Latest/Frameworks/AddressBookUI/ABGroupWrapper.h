@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ACAccountStore, AccountsManager, NSSet, NSString;
+@class ACAccountStore, NSSet, NSString;
 
 @interface ABGroupWrapper : NSObject
 {
@@ -15,20 +15,19 @@
     void *_source;
     void *_group;
     NSString *_cachedName;
-    AccountsManager *_accountsManager;
     ACAccountStore *_accountStore;
     id _delegate;
-    NSSet *_childGroupWrappers;
     BOOL _shouldBeSelectedWhenAllChildrenAreSelected;
     BOOL _selected;
+    NSSet *_childGroupWrappers;
     ABGroupWrapper *_parentGroupWrapper;
 }
 
 + (id)newGroupWrapperFromDictionaryRepresentation:(id)arg1 withAddressBook:(void *)arg2;
 + (id)newGroupWrappersWithAccountIdentifier:(id)arg1 addressBook:(void *)arg2 excludingSearchableStores:(BOOL)arg3;
 + (id)newGroupWrappersWithAccountIdentifier:(id)arg1 addressBook:(void *)arg2;
-+ (id)newGroupWrappersWithAccountIdentifier:(id)arg1 addressBook:(void *)arg2 accountsManager:(id)arg3 accountStore:(id)arg4;
-+ (id)newGroupWrappersWithAccountIdentifier:(id)arg1 addressBook:(void *)arg2 accountsManager:(id)arg3 accountStore:(id)arg4 excludingSearchableStores:(BOOL)arg5 isSoleAccount:(BOOL)arg6;
++ (id)newGroupWrappersWithAccountIdentifier:(id)arg1 addressBook:(void *)arg2 accountStore:(id)arg3;
++ (id)newGroupWrappersWithAccountIdentifier:(id)arg1 addressBook:(void *)arg2 accountStore:(id)arg3 excludingSearchableStores:(BOOL)arg4 isSoleAccount:(BOOL)arg5;
 @property(nonatomic) ABGroupWrapper *parentGroupWrapper; // @synthesize parentGroupWrapper=_parentGroupWrapper;
 @property(readonly, nonatomic) void *group; // @synthesize group=_group;
 @property(readonly, nonatomic) void *source; // @synthesize source=_source;
@@ -39,7 +38,6 @@
 @property(nonatomic) BOOL shouldBeSelectedWhenAllChildrenAreSelected; // @synthesize shouldBeSelectedWhenAllChildrenAreSelected=_shouldBeSelectedWhenAllChildrenAreSelected;
 @property(retain, nonatomic) NSSet *childGroupWrappers; // @synthesize childGroupWrappers=_childGroupWrappers;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
-@property(retain, nonatomic) AccountsManager *accountsManager; // @synthesize accountsManager=_accountsManager;
 - (id)description;
 @property(readonly, nonatomic) int sourceType;
 - (BOOL)isEqual:(id)arg1;
@@ -48,6 +46,8 @@
 - (int)compareToGroupWrapper:(id)arg1;
 - (int)score;
 - (void)childGroupWrapper:(id)arg1 didBecomeSelected:(BOOL)arg2;
+- (BOOL)toggleSelection;
+- (id)_rootGroupWrapper;
 - (void)setSelected:(BOOL)arg1 propagateSelectionToChildren:(BOOL)arg2;
 @property(readonly, nonatomic) NSString *name;
 - (BOOL)showLinkedPeople;
@@ -56,7 +56,6 @@
 - (BOOL)isGlobalWrapper;
 - (void)dealloc;
 - (id)initWithAddressBook:(void *)arg1 accountIdentifier:(id)arg2 source:(void *)arg3 group:(void *)arg4;
-- (id)accountManager;
 
 @end
 

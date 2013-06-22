@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, UIKeyboardEmojiInputController, UIKeyboardEmojiView, UITouch;
+@class NSArray, NSDictionary, UIKBRenderConfig, UIKeyboardEmojiInputController, UIKeyboardEmojiView, UITouch;
 
 @interface UIKeyboardEmojiPage : UIView
 {
@@ -21,13 +21,17 @@
     UITouch *_activeTouch;
     BOOL _needsLayout;
     BOOL _needsEmojiRendering;
+    UIKBRenderConfig *_renderConfig;
+    NSDictionary *_emojiAttributes;
     UIKeyboardEmojiView *_touched;
     UIKeyboardEmojiView *_pendingDisplay;
     UIKeyboardEmojiView *_onDisplay;
     UIKeyboardEmojiInputController *_inputController;
 }
 
-@property BOOL needsLayout; // @synthesize needsLayout=_needsLayout;
+@property(retain) UIKBRenderConfig *renderConfig; // @synthesize renderConfig=_renderConfig;
+@property(retain, nonatomic) NSDictionary *emojiAttributes; // @synthesize emojiAttributes=_emojiAttributes;
+@property BOOL needsEmojiRendering; // @synthesize needsEmojiRendering=_needsEmojiRendering;
 @property UIKeyboardEmojiInputController *inputController; // @synthesize inputController=_inputController;
 @property struct CGRect keyActivationRect; // @synthesize keyActivationRect=_keyActivationRect;
 @property(retain) UIKeyboardEmojiView *onDisplay; // @synthesize onDisplay=_onDisplay;

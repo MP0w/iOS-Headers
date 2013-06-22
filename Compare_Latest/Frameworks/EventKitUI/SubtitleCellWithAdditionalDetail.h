@@ -13,9 +13,9 @@
     UILabel *_additionalDetailLabel;
 }
 
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 @property(readonly, nonatomic) UILabel *additionalDetailLabel;
-- (void)dealloc;
 
 @end
 

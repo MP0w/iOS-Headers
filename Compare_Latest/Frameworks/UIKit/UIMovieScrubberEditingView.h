@@ -31,6 +31,7 @@
 - (BOOL)pointInsideRightHandle:(struct CGPoint)arg1;
 - (BOOL)pointInsideLeftHandle:(struct CGPoint)arg1;
 - (void)setCenterHandleEnabled:(BOOL)arg1;
+- (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

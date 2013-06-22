@@ -24,10 +24,10 @@
 @property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
 @property(retain, nonatomic) UIColor *etchColor; // @synthesize etchColor=_etchColor;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
+- (void).cxx_destruct;
 - (void)_drawOutline:(struct CGRect)arg1;
 - (void)_drawInterior:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -24,8 +24,8 @@
 - (int)blockType;
 - (void)clearRows;
 - (id)addRow;
-- (id)rowAt:(int)arg1;
-- (int)rowCount;
+- (id)rowAt:(unsigned int)arg1;
+- (unsigned int)rowCount;
 - (void)clearProperties;
 - (id)properties;
 - (void)dealloc;

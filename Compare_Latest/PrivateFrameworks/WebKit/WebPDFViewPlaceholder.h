@@ -20,15 +20,18 @@
     WebDataSource *_dataSource;
     NSObject<WebPDFViewPlaceholderDelegate> *_delegate;
     BOOL _didFinishLoadAndMemoryMap;
+    struct CGSize _containerSize;
 }
 
 + (id)supportedMIMETypes;
 + (Class)_representationClassForWebFrame:(id)arg1;
 + (void)setAsPDFDocRepAndView;
+@property struct CGSize containerSize; // @synthesize containerSize=_containerSize;
 @property(retain) NSString *title; // @synthesize title=_title;
 @property(retain) NSArray *pageYOrigins; // @synthesize pageYOrigins=_pageYOrigins;
 @property(retain) NSArray *pageRects; // @synthesize pageRects=_pageRects;
 @property NSObject<WebPDFViewPlaceholderDelegate> *delegate; // @synthesize delegate=_delegate;
+- (id).cxx_construct;
 - (void)simulateClickOnLinkToURL:(id)arg1;
 - (struct CGRect)rectForPageNumber:(unsigned int)arg1;
 - (void)didUnlockDocument;

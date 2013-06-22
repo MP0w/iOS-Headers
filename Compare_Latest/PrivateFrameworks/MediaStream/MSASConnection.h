@@ -40,6 +40,7 @@
 - (void)addComments:(id)arg1 toAssetCollectionWithGUID:(id)arg2 personID:(id)arg3;
 - (void)markCommentsForAssetCollectionWithGUID:(id)arg1 asViewedWithLastViewedDate:(id)arg2 personID:(id)arg3 info:(id)arg4;
 - (void)markCommentsForAssetCollectionWithGUID:(id)arg1 asViewedWithLastViewedDate:(id)arg2 personID:(id)arg3;
+- (void)deleteAssetCollectionsWithGUIDs:(id)arg1 personID:(id)arg2;
 - (void)deleteAssetCollectionWithGUID:(id)arg1 personID:(id)arg2 info:(id)arg3;
 - (void)deleteAssetCollectionWithGUID:(id)arg1 personID:(id)arg2;
 - (void)addAssetCollections:(id)arg1 toAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4;
@@ -58,6 +59,8 @@
 - (void)unsubscribeFromAlbumWithGUID:(id)arg1 personID:(id)arg2;
 - (void)subscribeToAlbumWithGUID:(id)arg1 personID:(id)arg2 info:(id)arg3;
 - (void)subscribeToAlbumWithGUID:(id)arg1 personID:(id)arg2;
+- (void)setMultipleContributorsEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4 completionBlock:(id)arg5;
+- (void)setMultipleContributorsEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 completionBlock:(id)arg4;
 - (void)setPublicAccessEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4 completionBlock:(id)arg5;
 - (void)setPublicAccessEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 completionBlock:(id)arg4;
 - (void)markAlbumGUIDAsViewed:(id)arg1 personID:(id)arg2 moveLastViewedAssetCollectionMarker:(BOOL)arg3 info:(id)arg4;
@@ -81,6 +84,8 @@
 - (void)commentWithGUID:(id)arg1 personID:(id)arg2 completionBlock:(id)arg3;
 - (void)commentGUIDsForAssetCollectionWithGUID:(id)arg1 personID:(id)arg2 completionBlock:(id)arg3;
 - (void)isAssetCollectionWithGUID:(id)arg1 markedAsUnviewedPersonID:(id)arg2 completionBlock:(id)arg3;
+- (void)videoURLsForAssetCollectionWithGUID:(id)arg1 forMediaAssetType:(unsigned int)arg2 personID:(id)arg3 completionBlock:(id)arg4;
+- (void)videoURLForAssetCollectionWithGUID:(id)arg1 personID:(id)arg2 completionBlock:(id)arg3;
 - (void)assetCollectionWithGUID:(id)arg1 personID:(id)arg2 completionBlock:(id)arg3;
 - (void)assetCollectionGUIDsInAlbumWithGUID:(id)arg1 personID:(id)arg2 completionBlock:(id)arg3;
 - (void)invitationWithGUID:(id)arg1 personID:(id)arg2 completionBlock:(id)arg3;
@@ -99,7 +104,7 @@
 - (void)activityIsThrottledByLackOfDiskSpacePersonID:(id)arg1 completionBlock:(id)arg2;
 - (void)assetsInDownloadQueueCountForPersonID:(id)arg1 completionBlock:(id)arg2;
 - (void)isBusyCompletionBlock:(id)arg1;
-- (void)handlePushNotification;
+- (void)handlePushNotificationForPersonID:(id)arg1;
 - (void)cancelActivitiesForPersonID:(id)arg1;
 - (void)retryOutstandingActivities;
 - (void)isInRetryStateHandler:(id)arg1;

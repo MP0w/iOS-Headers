@@ -10,6 +10,8 @@
 {
 }
 
++ (id)_accessibilityTargetClassName;
++ (id)_initializeSafeCategoryFromValidationManager;
 + (void)_initializeSafeCategory;
 - (BOOL)_accessibilityHitTestsAnyElement;
 - (void)_setAccessibilityHitTestsAnyElement:(BOOL)arg1;

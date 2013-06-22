@@ -6,19 +6,23 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class NSArray;
 
-@interface AFSpeechPhrase : NSObject
+@interface AFSpeechPhrase : NSObject <NSSecureCoding>
 {
-    NSArray *_interpretations;
     BOOL _isLowConfidence;
+    NSArray *_interpretations;
 }
 
++ (BOOL)supportsSecureCoding;
 @property BOOL isLowConfidence; // @synthesize isLowConfidence=_isLowConfidence;
 @property(copy, nonatomic) NSArray *interpretations; // @synthesize interpretations=_interpretations;
 - (void).cxx_destruct;
-- (id)initWithDKPlistRepresentation:(id)arg1;
-- (id)dkPlistRepresentation;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)description;
 
 @end
 

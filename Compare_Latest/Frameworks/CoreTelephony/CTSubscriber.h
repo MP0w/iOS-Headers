@@ -10,10 +10,14 @@
 
 @interface CTSubscriber : NSObject
 {
-    void *_internal;
     struct __CTServerConnection *_server;
+    struct vector<dispatch::block<void (^)(NSDictionary *)>, std::__1::allocator<dispatch::block<void (^)(NSDictionary *)>>> _authCallbacks;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)authenticateWithInfo:(id)arg1 handleResult:(id)arg2;
+- (void)handleAuthCallback:(id)arg1;
 - (BOOL)refreshCarrierToken;
 @property(readonly, nonatomic) NSData *carrierToken; // @dynamic carrierToken;
 - (void)dealloc;

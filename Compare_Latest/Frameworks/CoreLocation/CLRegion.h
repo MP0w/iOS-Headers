@@ -6,28 +6,39 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSString;
 
-@interface CLRegion : NSObject <NSCopying, NSCoding>
+@interface CLRegion : NSObject <NSCopying, NSSecureCoding>
 {
-    id _internal;
+    CDStruct_f756f8ea fRegion;
+    BOOL _notifyOnEntry;
+    BOOL _notifyOnExit;
+    NSString *_identifier;
+    double _radius;
+    CDStruct_2c43369c _center;
 }
 
++ (BOOL)supportsSecureCoding;
+@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) double radius; // @synthesize radius=_radius;
+@property(readonly, nonatomic) CDStruct_2c43369c center; // @synthesize center=_center;
+@property(readonly, nonatomic) CDStruct_f756f8ea clientRegion;
 - (BOOL)containsCoordinate:(CDStruct_2c43369c)arg1;
+@property(nonatomic) BOOL notifyOnExit; // @synthesize notifyOnExit=_notifyOnExit;
+@property(nonatomic) BOOL notifyOnEntry; // @synthesize notifyOnEntry=_notifyOnEntry;
 - (id)description;
-@property(readonly, nonatomic) CDStruct_076ea9f1 clientRegion;
-@property(readonly, nonatomic) NSString *identifier;
-@property(readonly, nonatomic) double radius;
-@property(readonly, nonatomic) CDStruct_2c43369c center;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+- (id)initWithIdentifier:(id)arg1;
 - (id)initCircularRegionWithCenter:(CDStruct_2c43369c)arg1 radius:(double)arg2 identifier:(id)arg3;
-- (id)initWithClientRegion:(CDStruct_076ea9f1)arg1;
+- (id)initWithClientRegion:(CDStruct_f756f8ea)arg1;
 
 @end
 

@@ -16,7 +16,7 @@
 
 + (id)searchCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)searchCompleted;
-@property(copy, nonatomic) NSArray *phoneLogIds;
+@property(copy, nonatomic) NSArray *phoneSearchResults;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

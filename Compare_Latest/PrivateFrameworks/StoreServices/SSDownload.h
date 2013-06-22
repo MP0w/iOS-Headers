@@ -34,13 +34,16 @@
 - (id)thumbnailImageData;
 @property(retain, nonatomic) SSDownloadStatus *status;
 @property(copy, nonatomic) SSDownloadMetadata *metadata;
+- (void)setBackgroundNetworkingUserInitiated:(BOOL)arg1;
 @property(retain, nonatomic) NSArray *assets;
 - (BOOL)loadThumbnailImageData;
 @property(readonly, nonatomic, getter=isExternal) BOOL external;
+- (BOOL)isBackgroundNetworkingUserInitiated;
 - (void)handleWithDownloadHandler:(id)arg1 completionBlock:(id)arg2;
 @property(readonly, nonatomic) id downloadIdentifier;
 - (id)copyXPCEncoding;
 - (id)initWithDownloadMetadata:(id)arg1;
+- (id)_newAssetWithURL:(id)arg1 assetType:(id)arg2;
 - (void)_resetLocalIVars;
 - (void)_addCachedPropertyValues:(id)arg1;
 - (void)_addCachedExternalValues:(id)arg1;
@@ -48,6 +51,7 @@
 - (void)setNetworkConstraints:(id)arg1;
 @property(copy) SSDownloadPolicy *downloadPolicy;
 - (void)setDownloadHandler:(id)arg1 completionBlock:(id)arg2;
+- (void)setBackgroundNetworkingJobGroupName:(id)arg1;
 - (void)resume;
 - (BOOL)removeAsset:(id)arg1;
 - (void)prioritizeAboveDownload:(id)arg1 completionBlock:(id)arg2;
@@ -64,6 +68,7 @@
 - (id)downloadPhaseIdentifier;
 - (long long)bytesTotal;
 - (long long)bytesDownloaded;
+- (id)backgroundNetworkingJobGroupName;
 - (id)assetsForType:(id)arg1;
 - (BOOL)addAsset:(id)arg1 forType:(id)arg2;
 - (void)dealloc;

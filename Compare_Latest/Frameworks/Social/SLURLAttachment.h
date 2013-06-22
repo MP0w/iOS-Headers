@@ -13,6 +13,7 @@
 
 - (int)urlType;
 - (id)initWithURL:(id)arg1 ofType:(int)arg2 preview:(id)arg3;
+- (id)initWithURL:(id)arg1 previewImage:(id)arg2;
 
 @end
 

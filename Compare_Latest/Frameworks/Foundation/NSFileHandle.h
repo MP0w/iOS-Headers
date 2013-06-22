@@ -12,6 +12,9 @@
 {
 }
 
++ (id)fileHandleForUpdatingURL:(id)arg1 mode:(unsigned short)arg2 error:(id *)arg3;
++ (id)fileHandleForWritingToURL:(id)arg1 mode:(unsigned short)arg2 error:(id *)arg3;
++ (id)fileHandleForReadingFromURL:(id)arg1 mode:(unsigned short)arg2 error:(id *)arg3;
 + (id)fileHandleForUpdatingURL:(id)arg1 error:(id *)arg2;
 + (id)fileHandleForWritingToURL:(id)arg1 error:(id *)arg2;
 + (id)fileHandleForReadingFromURL:(id)arg1 error:(id *)arg2;
@@ -41,6 +44,7 @@
 - (id)readDataToEndOfFile;
 - (id)availableData;
 - (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
+- (id)initWithURL:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
 - (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

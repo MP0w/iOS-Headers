@@ -20,8 +20,8 @@
 @property(retain, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (void)setDefaults;
 - (id)_kernel;
+- (void)setDefaults;
 
 @end
 

@@ -6,17 +6,17 @@
 
 #import <AppleAccount/AARequest.h>
 
-@class AAAccount, NSArray;
+@class ACAccount, NSArray;
 
 @interface AAEmailLookupRequest : AARequest
 {
-    AAAccount *_account;
+    ACAccount *_account;
     NSArray *_emailAddresses;
 }
 
 + (Class)responseClass;
 @property(retain, nonatomic) NSArray *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
-@property(retain, nonatomic) AAAccount *account; // @synthesize account=_account;
+@property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
 - (id)urlRequest;
 - (id)urlString;

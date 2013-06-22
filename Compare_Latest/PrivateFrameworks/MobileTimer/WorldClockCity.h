@@ -21,8 +21,8 @@
 }
 
 + (BOOL)isWorldClockCityProperties:(id)arg1;
-@property(readonly, nonatomic) ALCity *alCity; // @synthesize alCity=_alCity;
 @property(retain, nonatomic) City *weatherCity; // @synthesize weatherCity=_weatherCity;
+@property(readonly, nonatomic) ALCity *alCity; // @synthesize alCity=_alCity;
 @property(readonly, nonatomic) NSURL *idUrl;
 @property(readonly, nonatomic) NSString *countryCode;
 @property(readonly, nonatomic) NSString *unlocalizedCountryName;

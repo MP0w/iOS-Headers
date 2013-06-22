@@ -21,6 +21,7 @@
 @property(nonatomic) struct CGRect cornerFrame; // @synthesize cornerFrame=_cornerFrame;
 @property(nonatomic) BOOL hidesWithStatusBar; // @synthesize hidesWithStatusBar=_hidesWithStatusBar;
 @property(readonly, nonatomic) int visibleCorners; // @synthesize visibleCorners=_visibleCorners;
+- (BOOL)_shouldZoom;
 - (void)_updateForRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2 withStatusBarStyle:(int)arg3 statusBarShouldHide:(BOOL)arg4;
 - (void)_setCorners:(unsigned int)arg1 visible:(BOOL)arg2;
 - (void)layoutSubviews;

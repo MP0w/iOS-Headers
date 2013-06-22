@@ -44,8 +44,23 @@ typedef struct {
 } CDStruct_4185d922;
 
 typedef struct {
-    CDStruct_2c43369c center;
-    double radius;
     char identifier[512];
-} CDStruct_076ea9f1;
+    int type;
+    _Bool notifyOnEntry;
+    _Bool notifyOnExit;
+    union {
+        struct {
+            char proximityUUID[512];
+            unsigned short major;
+            unsigned short minor;
+            int definitionMask;
+            _Bool notifyEntryStateOnDisplay;
+        } beaconAttributes;
+        struct {
+            CDStruct_2c43369c center;
+            double radius;
+            double desiredAccuracy;
+        } circularAttributes;
+    } ;
+} CDStruct_f756f8ea;
 

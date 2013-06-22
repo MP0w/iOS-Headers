@@ -14,6 +14,8 @@
     NSDictionary *mFills;
 }
 
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (id)fills;
 - (id)colors;
 - (void)dealloc;

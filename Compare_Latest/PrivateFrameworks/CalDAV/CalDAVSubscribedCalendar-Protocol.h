@@ -6,7 +6,7 @@
 
 #import "CalDAVCalendar-Protocol.h"
 
-@class NSURL;
+@class NSString, NSURL;
 
 @protocol CalDAVSubscribedCalendar <CalDAVCalendar>
 @property double refreshInterval;
@@ -14,5 +14,10 @@
 @property BOOL hasAttachmentFilter;
 @property BOOL hasAlarmFilter;
 @property(retain) NSURL *subscriptionURL;
+
+@optional
+@property(retain) NSString *languageCode;
+@property(retain) NSString *locationCode;
+@property BOOL autoprovisioned;
 @end
 

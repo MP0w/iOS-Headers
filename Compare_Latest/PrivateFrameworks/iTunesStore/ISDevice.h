@@ -22,17 +22,17 @@
 + (void)setSharedInstance:(id)arg1;
 - (int)_deviceClass;
 - (id)supportedOfferDeviceForDevices:(id)arg1;
+- (void)resetLocationAndPrivacy;
 - (void)requestFreeSpace:(unsigned long long)arg1 atPath:(id)arg2 withOptions:(id)arg3 completionBlock:(id)arg4;
+- (BOOL)takePowerAssertion:(id)arg1;
 @property(readonly) NSString *systemName;
 @property(readonly) NSString *serialNumber;
+- (BOOL)releasePowerAssertion:(id)arg1;
 @property(readonly) NSString *hardwareName;
 @property(readonly) NSString *guid;
 @property(readonly) NSString *deviceName;
-- (id)copyPurchaseValidationContext;
 - (id)copyProtocolConditionalContext;
 - (BOOL)checkCapabilities:(id)arg1 withMismatches:(id *)arg2;
-- (BOOL)takePowerAssertion:(id)arg1;
-- (BOOL)releasePowerAssertion:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

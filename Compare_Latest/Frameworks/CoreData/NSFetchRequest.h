@@ -33,7 +33,8 @@
         unsigned int entityIsName:1;
         unsigned int refreshesRefetched:1;
         unsigned int propertiesValidated:1;
-        unsigned int _RESERVED:20;
+        unsigned int disableCaching:1;
+        unsigned int _RESERVED:19;
     } _flags;
 }
 
@@ -97,6 +98,8 @@
 - (BOOL)_isEditable;
 - (void)_incrementInUseCounter;
 - (void)_resolveEntityWithContext:(id)arg1;
+- (void)_setDisablePersistentStoreResultCaching:(BOOL)arg1;
+- (BOOL)_disablePersistentStoreResultCaching;
 
 @end
 

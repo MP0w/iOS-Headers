@@ -8,12 +8,13 @@
 
 #import "BBObserverDelegate-Protocol.h"
 #import "SBAwayBulletinListViewDelegate-Protocol.h"
+#import "SBVolumePressBandit-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class BBObserver, NSArray, NSMutableArray, SBAwayBulletinCell, SBAwayBulletinListView, SBAwayListActionContext, UIView;
+@class BBObserver, NSArray, NSMutableArray, SBAwayBulletinCell, SBAwayBulletinListView, SBUnlockActionContext, UIView;
 
-@interface SBAwayBulletinListController : NSObject <BBObserverDelegate, UITableViewDataSource, UITableViewDelegate, SBAwayBulletinListViewDelegate>
+@interface SBAwayBulletinListController : NSObject <SBVolumePressBandit, BBObserverDelegate, UITableViewDataSource, UITableViewDelegate, SBAwayBulletinListViewDelegate>
 {
     BBObserver *_observer;
     NSMutableArray *_listItems;
@@ -33,7 +34,7 @@
     BOOL _autoHideTimerActive;
     BOOL _hasManuallyShownNotifications;
     struct CGAffineTransform _pinnedViewTransform;
-    SBAwayListActionContext *_actionContext;
+    SBUnlockActionContext *_actionContext;
     NSMutableArray *_pendingSystemAlerts;
     id _itemToBlink;
     id _itemToFloat;
@@ -57,6 +58,7 @@
 - (void)setViewHiddenForUnlock:(BOOL)arg1;
 - (double)animationDurationForShowPasscodeUI:(BOOL)arg1 duration:(double)arg2;
 - (double)animationDelayForShowPasscodeUI:(BOOL)arg1 duration:(double)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
 - (void)scrollViewWillBeginDragging:(id)arg1;
@@ -72,6 +74,8 @@
 - (void)deactivateCardItem:(id)arg1;
 - (void)activateCardItem:(id)arg1 animated:(BOOL)arg2;
 - (void)activateOrUpdateCardItem:(id)arg1 animated:(BOOL)arg2;
+- (void)observer:(id)arg1 noteServerConnectionStateChanged:(BOOL)arg2;
+- (void)observer:(id)arg1 noteInvalidatedBulletinIDs:(id)arg2;
 - (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned int)arg2;
 - (id)observer:(id)arg1 composedAttachmentImageForType:(int)arg2 thumbnailData:(id)arg3 key:(id)arg4;
 - (id)observer:(id)arg1 multipleThumbnailSizeConstraintsForAttachmentType:(int)arg2;
@@ -81,6 +85,7 @@
 - (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
 - (id)_floatingItemToUseForNewItem:(id)arg1;
 - (void)_updateModelAndTableViewForRemoval:(id)arg1 originalHeight:(float)arg2;
+- (void)_updateModelAndTableViewForReplacingItem:(id)arg1 withNewItem:(id)arg2;
 - (void)_updateModelAndTableViewForModification:(id)arg1 originalHeight:(float)arg2;
 - (void)_updateModelAndTableViewForAddition:(id)arg1;
 - (void)_updateModelAndTableViewForAddition:(id)arg1 animated:(BOOL)arg2;
@@ -109,6 +114,10 @@
 - (void)willSetViewStyle:(int)arg1;
 - (BOOL)hasShownNotificationsManually;
 - (BOOL)shouldAutoHideNotifications;
+- (void)handleVolumeIncrease;
+- (void)handleVolumeDecrease;
+- (void)_reloadVolumePressBanditPreference;
+- (void)removeBulletinsFromObserver;
 - (void)setTableItemToFloat:(id)arg1;
 - (void)setTableItemToFloat:(id)arg1 force:(BOOL)arg2;
 - (void)_animateResetConfigurationAndPositioning:(BOOL)arg1 clearingUnlockContext:(BOOL)arg2 clearsFloatingItem:(BOOL)arg3;
@@ -129,7 +138,6 @@
 - (void)rebuildViewsAndStopHibernating;
 - (int)defaultStyle;
 - (void)clearViewsAndHibernate;
-- (void)_configureBBObserver;
 - (void)dealloc;
 - (id)init;
 

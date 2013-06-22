@@ -21,7 +21,6 @@
     NSMutableArray *_dirtyRemoves;
 }
 
-+ (void)initialize;
 + (void)preheat;
 + (id)indexerForDisplayIdentifier:(id)arg1 category:(id)arg2;
 - (void)dealloc;

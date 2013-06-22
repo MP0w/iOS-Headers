@@ -19,6 +19,7 @@
 - (int)compare:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)sha1Hash;
+- (unsigned int)uint32Hash;
 - (unsigned int)hash;
 - (unsigned long)readIntoData:(id)arg1;
 - (struct CGDataProvider *)cgDataProvider;

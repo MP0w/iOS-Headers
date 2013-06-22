@@ -35,8 +35,8 @@
 - (void)removeRun:(id)arg1;
 - (void)insertRun:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)addRun:(id)arg1;
-- (id)runAt:(int)arg1;
-- (int)runCount;
+- (id)runAt:(unsigned int)arg1;
+- (unsigned int)runCount;
 - (id)runs;
 - (void)clearProperties;
 - (id)properties;

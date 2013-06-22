@@ -10,13 +10,13 @@
 
 @interface MRHitBlob : NSObject
 {
+    unsigned char _currentLayoutIndex;
     MRLayer *_outerLayer;
     MRLayerEffect *_effectLayer;
     NSString *_innerPath;
     NSString *_elementID;
     id _clientObject;
     id <MRSlidePositionSupport> _proxyForSlide;
-    unsigned char _currentLayoutIndex;
 }
 
 @property(nonatomic) unsigned char currentLayoutIndex; // @synthesize currentLayoutIndex=_currentLayoutIndex;

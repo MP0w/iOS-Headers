@@ -6,17 +6,22 @@
 
 #import <MapKit/MKAnnotationView.h>
 
-@class MKPinAnnotationViewInternal;
+@class MKPinAnnotationViewInternal, UIImageView;
 
 @interface MKPinAnnotationView : MKAnnotationView
 {
     MKPinAnnotationViewInternal *_pinInternal;
+    UIImageView *_shadowView;
+    id _delegate;
+    int _pinType;
+    int _state;
+    BOOL _animatesDrop;
 }
 
 + (struct CGPoint)_calloutOffset;
 + (struct CGPoint)_shadowAnchorPoint;
 + (struct CGPoint)_perceivedAnchorPoint;
-+ (id)_shadowImage;
++ (struct UIImage *)_shadowImage;
 + (id)_reuseIdentifier;
 + (id)_pinsWithType:(int)arg1;
 + (id)_dropBounceAnimation;
@@ -27,6 +32,7 @@
 + (struct CGRect)_desiredBounds;
 + (struct CGSize)_perceivedSize;
 + (Class)layerClass;
+- (BOOL)_isAnimatingDrop;
 - (int)_state;
 - (BOOL)isHighlighted;
 - (void)setHighlighted:(BOOL)arg1;
@@ -35,10 +41,11 @@
 - (void)_liftDidEnd:(id)arg1;
 - (void)_liftBeforeDropDidEnd:(id)arg1;
 - (void)_dropAfterDraggingDidEnd:(id)arg1;
-- (void)_dropAfterDraggingAndRevertPosition:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_liftForDraggingAfterBounceAnimated:(BOOL)arg1;
 - (void)_liftForDraggingAnimated:(BOOL)arg1;
 - (void)setDragState:(unsigned int)arg1 animated:(BOOL)arg2;
 - (void)setDragState:(unsigned int)arg1;
+- (void)_dropAfterDraggingAndRevertPosition:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_dropFromPoint:(struct CGPoint)arg1 shadowStartPoint:(struct CGPoint)arg2 distance:(float)arg3 maxDistance:(float)arg4 withDelay:(double)arg5;
 - (id)_bounceAnimation:(BOOL)arg1 withBeginTime:(double)arg2 addToLayer:(BOOL)arg3;
 - (void)_stopDropAnimationAndDropToPosition;
@@ -46,16 +53,18 @@
 - (void)_stopDrop;
 - (void)_removeAllAnimations;
 - (void)setCenter:(struct CGPoint)arg1;
+- (void)_updateShadowLayer;
 - (void)_setRotationRadians:(float)arg1 withAnimation:(id)arg2;
 - (void)_updatePinType;
 - (void)_reset;
 - (int)_pinType;
+- (void)_invalidateImage;
 - (void)_setPinType:(int)arg1;
 - (id)_pinJumpImages;
 - (id)_pinBounceImages;
-- (id)_floatingImage;
-- (id)_highlightedImage;
-- (id)_image;
+- (struct UIImage *)_floatingImage;
+- (struct UIImage *)_highlightedImage;
+- (struct UIImage *)_image;
 - (id)_pins;
 - (id)description;
 - (void)_setMapType:(unsigned int)arg1;
@@ -68,6 +77,8 @@
 - (id)_internal;
 - (void)dealloc;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
+- (struct CGPoint)_draggingDropOffset;
+- (struct CGPoint)centerOffset;
 
 @end
 

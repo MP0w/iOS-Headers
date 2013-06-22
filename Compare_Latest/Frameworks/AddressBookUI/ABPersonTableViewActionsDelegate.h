@@ -10,26 +10,26 @@
 #import "ABPersonTableTinyActionDelegate-Protocol.h"
 #import "UIActionSheetDelegate-Protocol.h"
 
-@class ABPersonTableActionDataSource, ABPersonTableTinyActionCell, ABPersonTableViewDataSource, ABStyleProvider;
+@class ABPersonTableActionDataSource, ABPersonTableTinyActionCell, ABPersonTableViewDataSource, ABStyleProvider, ABUIPerson;
 
 @interface ABPersonTableViewActionsDelegate : NSObject <UIActionSheetDelegate, ABPersonTableActionDelegate, ABPersonTableTinyActionDelegate>
 {
     int _highlightedValueIdentifier;
-    void *_highlightedValuePerson;
     BOOL _highlightedValueIsImportant;
     int _actionSheetType;
     ABPersonTableTinyActionCell *_tinyActionCell;
     id <ABFMFActionButtonsDelegate> _FMFActionButtonsDelegate;
+    BOOL _actionShouldPickHighlightedValue;
     ABStyleProvider *_styleProvider;
     ABPersonTableViewDataSource *_dataSource;
     ABPersonTableActionDataSource *_actionDataSource;
-    BOOL _actionShouldPickHighlightedValue;
+    ABUIPerson *_highlightedValuePerson;
     int _highlightedValueProperty;
 }
 
 @property(nonatomic) int highlightedValueIdentifier; // @synthesize highlightedValueIdentifier=_highlightedValueIdentifier;
-@property(nonatomic) void *highlightedValuePerson; // @synthesize highlightedValuePerson=_highlightedValuePerson;
 @property(nonatomic) int highlightedValueProperty; // @synthesize highlightedValueProperty=_highlightedValueProperty;
+@property(retain, nonatomic) ABUIPerson *highlightedValuePerson; // @synthesize highlightedValuePerson=_highlightedValuePerson;
 @property(nonatomic) id <ABFMFActionButtonsDelegate> FMFActionButtonsDelegate; // @synthesize FMFActionButtonsDelegate=_FMFActionButtonsDelegate;
 @property(nonatomic) BOOL actionShouldPickHighlightedValue; // @synthesize actionShouldPickHighlightedValue=_actionShouldPickHighlightedValue;
 @property(readonly, nonatomic) ABPersonTableActionDataSource *actionDataSource; // @synthesize actionDataSource=_actionDataSource;
@@ -49,10 +49,10 @@
 - (void)reloadBottomActionDataForFavorites:(BOOL)arg1 texting:(BOOL)arg2 sharing:(BOOL)arg3 conferencing:(BOOL)arg4;
 - (void)reloadBottomActionCellAnimated:(BOOL)arg1;
 - (void)addToFavoritesButtonClicked:(id)arg1;
-- (void)conference:(id)arg1 person:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (void)conference:(id)arg1 person:(id)arg2 property:(int)arg3 identifier:(int)arg4;
 - (void)shareContactButtonClicked:(id)arg1;
-- (void)sendTextMessage:(id)arg1 person:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (void)callContact:(id)arg1 person:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (void)sendTextMessage:(id)arg1 person:(id)arg2 property:(int)arg3 identifier:(int)arg4;
+- (void)callContact:(id)arg1 person:(id)arg2 property:(int)arg3 identifier:(int)arg4;
 - (BOOL)shouldShowAddToFavoritesAction;
 - (BOOL)isFavoriteOfType:(int)arg1 inPropertyGroup:(id)arg2 atIndex:(int)arg3;
 - (int)actionGroupingCountForPropertyGroup:(id)arg1 whenEditing:(BOOL)arg2;

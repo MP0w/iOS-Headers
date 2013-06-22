@@ -12,13 +12,17 @@
 
 @interface TUBasicLogger : NSObject <TULogger>
 {
-    int _lock;
+    struct _opaque_pthread_mutex_t _lock;
     NSString *_identifier;
     int _minimumLogLevel;
     BOOL _enabled;
     NSObject<TUAppender> *_appender;
+    BOOL _backtracesEnabled;
+    BOOL _symbolicateBacktraces;
 }
 
+@property BOOL symbolicateBacktraces; // @synthesize symbolicateBacktraces=_symbolicateBacktraces;
+@property BOOL backtracesEnabled; // @synthesize backtracesEnabled=_backtracesEnabled;
 @property(readonly) NSObject<TUAppender> *appender;
 - (void)setAppender:(id)arg1;
 @property BOOL enabled;

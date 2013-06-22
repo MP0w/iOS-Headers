@@ -15,6 +15,8 @@
     NSObject<OS_dispatch_queue> *helperQueue;
     BOOL attachedToPixelBufferAdaptor;
     AVWeakReference *weakReferenceToAssetWriter;
+    int numberOfAppendFailures;
+    NSObject<OS_dispatch_queue> *appendFailureReadWriteQueue;
 }
 
 @end

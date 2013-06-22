@@ -14,8 +14,8 @@
     float lastInputY;
     float lastInputAngle;
     float lastInputRadius;
-    struct CGPoint inputPoint;
     float inputRotation;
+    struct CGPoint inputPoint;
 }
 
 @property float inputRotation; // @synthesize inputRotation;

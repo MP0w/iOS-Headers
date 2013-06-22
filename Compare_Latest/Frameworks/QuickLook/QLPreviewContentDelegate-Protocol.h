@@ -11,6 +11,7 @@
 - (void)previewContentController:(id)arg1 willEnterFullScreenWithHostedWindow:(id)arg2;
 - (void)previewContentController:(id)arg1 setAVState:(id)arg2 forPreviewItem:(id)arg3;
 - (void)previewContentController:(id)arg1 receivedTapOnURL:(id)arg2;
+- (void)showContentsWasTappedInPreviewContentController:(id)arg1;
 - (void)overlayWasTappedInPreviewContentController:(id)arg1;
 - (void)contentWasTappedInPreviewContentController:(id)arg1;
 - (void)previewContentController:(id)arg1 willHideOverlayWithDuration:(double)arg2;

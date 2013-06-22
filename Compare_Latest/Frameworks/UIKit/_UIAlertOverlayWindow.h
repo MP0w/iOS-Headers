@@ -16,7 +16,6 @@
 - (BOOL)_affectsTintView;
 - (BOOL)isInternalWindow;
 - (id)representation;
-- (BOOL)_shouldUseKeyWindowStack;
 - (void)_handleMouseUp:(struct __GSEvent *)arg1;
 
 @end

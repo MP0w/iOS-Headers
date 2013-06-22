@@ -19,7 +19,7 @@
 + (id)setWithArray:(id)arg1;
 + (id)setWithSet:(id)arg1;
 + (id)setWithObjects:(id)arg1;
-+ (id)setWithObjects:(id *)arg1 count:(unsigned int)arg2;
++ (id)setWithObjects:(const id *)arg1 count:(unsigned int)arg2;
 + (id)setWithObject:(id)arg1;
 + (id)set;
 - (void)setSet:(id)arg1;
@@ -37,7 +37,7 @@
 - (id)initWithSet:(id)arg1 copyItems:(BOOL)arg2;
 - (id)initWithSet:(id)arg1;
 - (id)initWithObjects:(id)arg1;
-- (id)initWithObjects:(id *)arg1 count:(unsigned int)arg2;
+- (id)initWithObjects:(const id *)arg1 count:(unsigned int)arg2;
 - (id)objectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
 - (id)objectsPassingTest:(id)arg1;
 - (void)enumerateObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;

@@ -15,15 +15,22 @@
     GEORequester *_requester;
     id _errorHandler;
     id _finishedHandler;
+    id _willSendRequestHandler;
+    id _simpleETARequestFinishedHandler;
+    BOOL _cancelled;
 }
 
 + (unsigned short)providerID;
 + (void)setUsePersistentConnection:(BOOL)arg1;
 + (void)_resetURL;
+- (void)requesterWillSendRequestForEstablishedConnection:(id)arg1;
 - (void)requesterDidFinish:(id)arg1;
 - (void)requesterDidCancel:(id)arg1;
 - (void)requester:(id)arg1 didFailWithError:(id)arg2;
 - (void)cancelRequest;
+- (void)startSimpleETARequest:(id)arg1 finished:(id)arg2 error:(void)arg3;
+- (void)startRequest:(id)arg1 connectionProperties:(const CDStruct_3d12f1c7 *)arg2 willSendRequest:(id)arg3 finished:(void)arg4 error:(id)arg5;
+- (void)updateRequest:(id)arg1 finished:(id)arg2 error:(void)arg3;
 - (void)startRequest:(id)arg1 finished:(id)arg2 error:(void)arg3;
 - (void)dealloc;
 - (id)init;

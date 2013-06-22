@@ -95,7 +95,7 @@
 @property(readonly, nonatomic) NSString *uuid;
 @property(nonatomic) struct CGColor *backgroundCGColor; // @dynamic backgroundCGColor;
 - (void)setBackgroundColorString:(id)arg1;
-@property(nonatomic) int loopingMode; // @dynamic loopingMode;
+@property(nonatomic) unsigned int loopingMode; // @dynamic loopingMode;
 - (void)setAudioPlaylist:(id)arg1;
 - (id)audioPlaylist;
 - (id)parent;
@@ -143,8 +143,6 @@
 - (int)lastSlideUsed;
 - (void)setLastSlideUsed:(int)arg1;
 - (void)setUsedAllPaths:(BOOL)arg1;
-- (double)removeFadeInIfNeeded;
-- (BOOL)needsToRemoveFadeIn;
 - (double)aspectRatioDidChange:(float)arg1 atTime:(double)arg2;
 - (BOOL)nearingEndWithOptions:(id)arg1;
 - (id)liveLock;

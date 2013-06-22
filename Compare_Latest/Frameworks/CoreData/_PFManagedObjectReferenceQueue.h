@@ -32,7 +32,7 @@
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
 - (unsigned int)retainCount;
-- (void)release;
+- (oneway void)release;
 - (id)retain;
 - (id)initForContext:(id)arg1;
 

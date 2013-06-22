@@ -11,7 +11,7 @@
 @interface AXEventListenerContainer : NSObject
 {
     id handler;
-    struct NSString *identifier;
+    NSString *identifier;
 }
 
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier;

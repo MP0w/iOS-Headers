@@ -14,9 +14,11 @@
     NSArray *_durations;
 }
 
++ (id)animatedImageWithContentsOfCPBitmapURL:(id)arg1;
 @property(copy, nonatomic) NSArray *durations; // @synthesize durations=_durations;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (id)_initWithImage:(id)arg1 durations:(id)arg2;
+- (BOOL)writeToCPBitmapURL:(id)arg1;
 - (id)initWithImages:(id)arg1 durations:(id)arg2;
 - (id)description;
 - (void)dealloc;

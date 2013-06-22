@@ -6,20 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSString, NSTimer, TPLCDView, UIImage;
+@class NSString, NSTimer, TPLegacyLCDView, TUCall, UIImage;
 
 @interface SBAwayInCallController : NSObject
 {
-    TPLCDView *_lcdView;
+    TPLegacyLCDView *_lcdView;
     BOOL _shouldShowInCallInfo;
     BOOL _isShowingInCallInfo;
     NSTimer *_durationTimer;
-    struct __CTCall *_displayedCall;
     NSString *_localizedLabel;
     UIImage *_callerImage;
     BOOL _isFullScreen;
+    TUCall *_displayedCall;
 }
 
+@property(retain, nonatomic) TUCall *displayedCall; // @synthesize displayedCall=_displayedCall;
 - (void)_setShowingInCallInfo:(BOOL)arg1;
 - (BOOL)isShowingInCallInfo;
 - (void)setShouldShowInCallInfo:(BOOL)arg1;

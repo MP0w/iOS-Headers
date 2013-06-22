@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class VKMapView;
+@class NSString, VKMapView;
 
 @interface VKPerformanceTest : NSObject
 {
@@ -15,16 +15,17 @@
     int _loopCounter;
     int _resultCount;
     struct VKPerformanceTestResult_struct *_results;
+    NSString *_outputHeader;
 }
 
-+ (void)runWithMapView:(id)arg1;
++ (void)runWithMapView:(id)arg1 outputHeader:(id)arg2;
 - (void)printResults;
 - (void)runTest:(int)arg1 step:(int)arg2;
 - (void)tick:(int)arg1;
 - (void)abort;
 - (void)loop;
 - (void)dealloc;
-- (id)initWithMapView:(id)arg1;
+- (id)initWithMapView:(id)arg1 outputHeader:(id)arg2;
 
 @end
 

@@ -8,29 +8,34 @@
 
 #import "StockUpdaterDelegate-Protocol.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSMutableDictionary;
 
 @interface StockUpdateManager : NSObject <StockUpdaterDelegate>
 {
     NSMutableArray *_updaters;
     BOOL _postingRemoteUpdateNotification;
+    NSMutableArray *_activeUpdaters;
+    NSMutableArray *_inactiveUpdaters;
+    NSMutableDictionary *_cacheDurationForParts;
 }
 
 + (void)clearSharedManager;
 + (id)sharedManager;
 - (void).cxx_destruct;
+- (void)updateAllStocksBasicWithCompletion:(id)arg1;
 - (void)updateAllStocksBasic;
+- (void)updateStockComprehensive:(id)arg1 withCompletion:(id)arg2;
 - (void)updateStockComprehensive:(id)arg1;
 - (void)updateStocksComprehensive:(id)arg1;
 - (void)setBasicDataCacheTimeInterval:(double)arg1;
+- (double)cacheDurationForParts:(id)arg1;
 - (void)cancel;
 - (void)failWithError:(id)arg1;
 - (BOOL)hadError;
 - (BOOL)isLoading;
-- (id)_comprehensiveUpdater;
-- (id)_listUpdater;
-- (void)_createUpdatersIfNeeded;
+- (id)availableStockUpdater;
 - (void)resetUpdaters;
+- (void)stockUpdater:(id)arg1 didFailWithError:(id)arg2 whileUpdatingStocks:(id)arg3 comprehensive:(BOOL)arg4;
 - (void)stockUpdater:(id)arg1 didUpdateStocks:(id)arg2 isComprehensive:(BOOL)arg3;
 - (void)stocksDidUpdateRemotely;
 - (void)dealloc;

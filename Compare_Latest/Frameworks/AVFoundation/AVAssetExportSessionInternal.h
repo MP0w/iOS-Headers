@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVAssetTrack, AVAudioMix, AVVideoComposition, AVWeakReference, NSArray, NSError, NSObject<OS_dispatch_queue>, NSString, NSURL;
+@class AVAsset, AVAssetTrack, AVAudioMix, AVCustomVideoCompositorSession, AVMetadataItemFilter, AVVideoComposition, AVWeakReference, NSArray, NSError, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface AVAssetExportSessionInternal : NSObject
 {
@@ -22,15 +22,19 @@
     NSString *preset16x9;
     NSURL *outputURL;
     NSString *outputFileType;
+    NSString *actualOutputFileType;
+    NSString *audioTimePitchAlgorithm;
     AVAudioMix *audioMix;
     AVVideoComposition *videoComposition;
+    void *figVideoCompositor;
+    AVCustomVideoCompositorSession *customVideoCompositorSession;
     NSArray *metadata;
+    AVMetadataItemFilter *metadataItemFilter;
     CDStruct_e83c9415 timeRange;
     long long maxFileSize;
     id handler;
     BOOL optimizeForNetworkUse;
     BOOL outputFileCreatedByRemaker;
-    BOOL useHardwareVideoEncoderIfAvailable;
     long compatibleFileTypesDispatchOncePredicate;
     NSArray *compatibleFileTypes;
     NSObject<OS_dispatch_queue> *remakerNotificationSerializationQueue;

@@ -10,7 +10,8 @@
 {
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotate;
 - (BOOL)wantsFullScreenLayout;
 
 @end

@@ -22,9 +22,9 @@
 @property(nonatomic) BOOL searchBarIsFirstResponder; // @synthesize searchBarIsFirstResponder=_searchBarIsFirstResponder;
 @property(nonatomic) int selectedRow; // @synthesize selectedRow=_selectedRow;
 @property(nonatomic) struct CGPoint scrollOffset; // @synthesize scrollOffset=_scrollOffset;
+- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -6,27 +6,38 @@
 
 #import "UIViewController.h"
 
-#import "EKTimeZoneChooserDelegate-Protocol.h"
+#import "UISearchDisplayDelegate-Protocol.h"
+#import "UITableViewDataSource-Protocol.h"
+#import "UITableViewDelegate-Protocol.h"
 
-@class EKTimeZoneChooserView, NSTimeZone;
+@class NSArray, NSTimeZone, UISearchDisplayController, UITableView;
 
-@interface EKTimeZoneViewController : UIViewController <EKTimeZoneChooserDelegate>
+@interface EKTimeZoneViewController : UIViewController <UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 {
+    UISearchDisplayController *_searchController;
+    UITableView *_tableView;
+    NSArray *_cities;
     int _style;
-    EKTimeZoneChooserView *_chooser;
-    NSTimeZone *_timeZone;
     id <EKTimeZoneViewControllerDelegate> _delegate;
+    NSTimeZone *_timeZone;
 }
 
-@property(readonly, nonatomic) int chooserStyle; // @synthesize chooserStyle=_style;
-@property(nonatomic) id <EKTimeZoneViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
+@property(nonatomic) __weak id <EKTimeZoneViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) int chooserStyle; // @synthesize chooserStyle=_style;
+- (void).cxx_destruct;
+- (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (void)searchDisplayControllerWillEndSearch:(id)arg1;
+- (void)searchDisplayController:(id)arg1 willHideSearchResultsTableView:(id)arg2;
+- (void)searchDisplayController:(id)arg1 willShowSearchResultsTableView:(id)arg2;
+- (void)searchDisplayControllerDidEndSearch:(id)arg1;
+- (void)searchDisplayControllerWillBeginSearch:(id)arg1;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (struct CGSize)contentSizeForViewInPopover;
-- (void)timeZoneChooserDidCancel:(id)arg1;
-- (void)timeZoneChooser:(id)arg1 didSelectTimeZone:(id)arg2 cityName:(id)arg3;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)loadView;
-- (void)dealloc;
+- (void)viewDidLoad;
 - (id)initWithChooserStyle:(int)arg1;
 
 @end

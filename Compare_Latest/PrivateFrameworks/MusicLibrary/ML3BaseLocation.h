@@ -13,6 +13,7 @@
 + (BOOL)insertionChangesLibraryContents;
 + (int)revisionTrackingCode;
 + (id)databaseTable;
++ (id)newWithDictionary:(id)arg1 inLibrary:(id)arg2;
 - (void)enumerateOrphanedAssetsUsingBlock:(id)arg1;
 
 @end

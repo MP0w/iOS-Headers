@@ -6,59 +6,59 @@
 
 #import "NSObject.h"
 
-#import "CKGenericAttachment-Protocol.h"
+#import "CKPreviewDispatchCachePolicyDelegate-Protocol.h"
 #import "QLPreviewItem-Protocol.h"
 
 @class NSData, NSDictionary, NSString, NSURL;
 
-@interface CKMediaObject : NSObject <QLPreviewItem, CKGenericAttachment>
+@interface CKMediaObject : NSObject <CKPreviewDispatchCachePolicyDelegate, QLPreviewItem>
 {
-    NSString *_transferGUID;
-    NSData *_data;
-    BOOL _dataIsPropertyListData;
-    NSString *_filename;
-    NSString *_mimeType;
-    NSString *_exportedFilename;
-    NSString *_hardLinkPath;
-    double _duration;
-    BOOL shouldRemoveTransfer;
+    id <CKFileTransfer> _transfer;
 }
 
-+ (struct CGSize)transcodeMaxSize;
-+ (BOOL)supportsMIMEType:(id)arg1;
-+ (id)fileExtensionForMIMEType:(id)arg1;
-+ (id)supportedMIMETypes;
-+ (id)mimeTypesToFileExtensions;
-@property(nonatomic) double duration; // @synthesize duration=_duration;
-@property(copy, nonatomic) NSString *exportedFilename; // @synthesize exportedFilename=_exportedFilename;
-@property(copy, nonatomic) NSString *mimeType; // @synthesize mimeType=_mimeType;
-@property(nonatomic) BOOL shouldRemoveTransfer; // @synthesize shouldRemoveTransfer;
-@property(copy, nonatomic) NSString *transferGUID; // @synthesize transferGUID=_transferGUID;
-@property(readonly, nonatomic) NSData *data; // @synthesize data=_data;
++ (id)fallbackFilenamePrefix;
++ (id)UTITypes;
++ (id)iconCache;
++ (id)previewDispatchCache;
++ (BOOL)isPreviewable;
+@property(retain, nonatomic) id <CKFileTransfer> transfer; // @synthesize transfer=_transfer;
+@property(readonly) NSURL *previewItemURL;
+@property(readonly, nonatomic) int mediaType;
+- (id)pasteboardItem;
+@property(readonly, nonatomic) NSString *UTIType;
+@property(readonly, nonatomic) NSString *mimeType;
+@property(readonly, nonatomic) NSDictionary *transcoderUserInfo;
+@property(readonly, nonatomic) NSString *filename;
+@property(readonly, nonatomic) NSURL *fileURL;
+@property(readonly, nonatomic) NSData *data;
+@property(readonly, nonatomic) NSString *transferGUID;
+- (id)initWithTransfer:(id)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)PNGDataFromImage:(id)arg1;
+- (id)fileManager;
+- (id)previewDispatchCache;
+- (BOOL)previewDispatchCache:(id)arg1 shouldReplaceCachedPreview:(id)arg2 withPreview:(id)arg3;
+- (id)generateThumbnailFillToSize:(struct CGSize)arg1;
+- (id)generateThumbnail;
+- (struct CGSize)bbSize;
+- (id)bbPreviewFillToSize:(struct CGSize)arg1;
+- (id)savedPreviewFromURL:(id)arg1 forOrientation:(BOOL)arg2;
+- (void)savePreview:(id)arg1 toURL:(id)arg2 forOrientation:(BOOL)arg3;
+- (id)generatePreviewFromThumbnail:(id)arg1 forOrientation:(BOOL)arg2;
+- (void)_sampleImageEdges:(id)arg1 usingRect:(struct CGRect)arg2 forMostlyWhitePixels:(unsigned int *)arg3 otherPixels:(unsigned int *)arg4;
+- (id)previewForOrientation:(BOOL)arg1;
+- (id)fileSizeString;
+- (id)downloadProgressString;
+- (BOOL)shouldShowDisclosure;
+- (BOOL)shouldBeQuickLooked;
+- (BOOL)shouldShowViewer;
 - (id)icon;
 - (id)subtitle;
 - (id)title;
-@property(readonly) NSURL *previewItemURL;
-- (BOOL)shouldShowDisclosure;
-- (BOOL)shouldBeQuickLooked;
-- (double)transcodeDuration;
-- (double)transcodeEndTime;
-- (double)transcodeStartTime;
-- (id)dataForMedia;
-- (id)filenameForMedia;
-- (id)sizeInBytesString;
-@property(copy, nonatomic) NSDictionary *SMSComposePropertyList;
-- (id)dataRepresentation;
-@property(readonly, nonatomic) NSString *filename; // @synthesize filename=_filename;
-- (void)copyToPasteboard:(id)arg1;
-@property(readonly, nonatomic) NSString *displayFilename;
-- (void)dealloc;
-- (id)initWithFilename:(id)arg1 mimeType:(id)arg2 exportedFilename:(id)arg3 composeOptions:(id)arg4;
-- (id)initWithData:(id)arg1 mimeType:(id)arg2 exportedFilename:(id)arg3;
-- (id)initWithTransferGUID:(id)arg1;
-- (void)setupTransfer;
-- (int)mediaType;
-- (id)description;
+- (Class)previewBalloonViewClass;
+- (Class)balloonViewClass;
+- (BOOL)isPreviewable;
 
 // Remaining properties
 @property(readonly) NSString *previewItemTitle;

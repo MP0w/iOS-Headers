@@ -6,7 +6,7 @@
 
 #import <iTunesStoreUI/SUScriptObject.h>
 
-@class NSArray, NSMutableDictionary, NSNumber, NSString, SSAuthenticationContext, SUClientInterface, SUScriptAccount, SUScriptAccountManager, SUScriptAppleAccountStore, SUScriptApplication, SUScriptDevice, SUScriptFairPlayContext, SUScriptKeyValueStore, SUScriptMediaLibrary, SUScriptNavigationBar, SUScriptNotificationObserver, SUScriptOperationDelegate, SUScriptPreviewOverlay, SUScriptProtocol, SUScriptPurchaseManager, SUScriptSectionsController, SUScriptViewController, SUScriptWindow, SUScriptWindowContext, SUWebImagePool, WebFrame;
+@class NSArray, NSMutableDictionary, NSNumber, NSString, SSAuthenticationContext, SUClientInterface, SUScriptAccount, SUScriptAccountManager, SUScriptAppleAccountStore, SUScriptApplication, SUScriptDevice, SUScriptFairPlayContext, SUScriptKeyValueStore, SUScriptMediaLibrary, SUScriptNavigationBar, SUScriptNotificationObserver, SUScriptOperationDelegate, SUScriptPreviewOverlay, SUScriptProtocol, SUScriptPurchaseManager, SUScriptSectionsController, SUScriptViewController, SUScriptWindow, SUScriptWindowContext, WebFrame;
 
 @interface SUScriptInterface : SUScriptObject
 {
@@ -25,7 +25,6 @@
     SUScriptOperationDelegate *_scriptOperationDelegate;
     SUScriptWindowContext *_scriptWindowContext;
     id _threadSafeDelegate;
-    SUWebImagePool *_webImagePool;
 }
 
 + (void)initialize;
@@ -93,7 +92,6 @@
 @property id <SUScriptInterfaceDelegate> delegate;
 @property(retain) SUClientInterface *clientInterface;
 @property(copy) SSAuthenticationContext *authenticationContext;
-- (id)imagePool;
 @property(readonly) SUScriptKeyValueStore *deviceLocalStorage;
 - (struct OpaqueJSContext *)copyJavaScriptContext;
 - (void)dealloc;
@@ -197,9 +195,6 @@
 - (void)setDevice:(id)arg1;
 @property(readonly) SUScriptDevice *device;
 - (id)makeAccountPageWithURLs:(id)arg1;
-- (id)makeScriptImagePickerController;
-- (id)makeMessageEntryViewController;
-- (id)makeMessage;
 - (id)makeDocumentInteractionController;
 @property(readonly) NSString *actionTypeReturnToLibrary;
 - (id)makeScriptActionWithType:(id)arg1;
@@ -210,7 +205,7 @@
 - (void)showMediaPreviewWithURLString:(id)arg1;
 - (void)showMediaPlayerWithURLString:(id)arg1 orientation:(id)arg2 title:(id)arg3 subtitle:(id)arg4 bookmarkID:(id)arg5 duration:(id)arg6 type:(id)arg7 imageURL:(id)arg8;
 - (id)makeMediaPlayerViewControllerWithMediaPlayerItem:(id)arg1;
-- (id)getAudioPlayerForURL:(id)arg1;
+- (id)getAudioPlayerForURL:(id)arg1 keyURL:(id)arg2 certificateURL:(id)arg3;
 - (id)activeAudioPlayers;
 - (id)makeActivityViewControllerWithProviders:(id)arg1 activities:(id)arg2;
 - (id)makeFacebookRequestWithURL:(id)arg1 requestMethod:(id)arg2;
@@ -221,6 +216,10 @@
 - (id)makeFacebookSessionWithAccount:(id)arg1;
 - (id)makeCalloutView;
 @property(readonly) SUScriptFairPlayContext *accountCreationSecureContext;
+- (id)makeGiftViewController;
+- (id)makeRedeemViewController;
+- (id)makeDonationViewControllerWithCharityIdentifier:(id)arg1;
+- (id)makeStoreSheetViewController;
 
 @end
 

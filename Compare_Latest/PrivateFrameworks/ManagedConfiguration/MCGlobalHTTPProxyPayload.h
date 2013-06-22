@@ -19,7 +19,8 @@
     NSString *_credentialUUID;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
 @property(retain, nonatomic) NSString *credentialUUID; // @synthesize credentialUUID=_credentialUUID;
 @property(retain, nonatomic) NSString *proxyPACURLString; // @synthesize proxyPACURLString=_proxyPACURLString;

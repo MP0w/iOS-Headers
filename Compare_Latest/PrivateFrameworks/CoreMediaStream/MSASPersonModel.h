@@ -14,7 +14,7 @@
 @property(nonatomic) BOOL shouldDownloadEarliestPhotosFirst; // @synthesize shouldDownloadEarliestPhotosFirst=_shouldDownloadEarliestPhotosFirst;
 - (void)removeAssetCollectionsFromUploadQueue:(id)arg1;
 - (void)setErrorCount:(int)arg1 forAssetCollectionInUploadQueue:(id)arg2;
-- (id)nextItemsForUploadAlbumGUID:(id)arg1 maxCount:(int)arg2;
+- (id)nextItemsForUploadAlbumGUID:(id)arg1 maxPriority:(int)arg2 maxCount:(int)arg3;
 - (id)nextItemsForUploadMaxCount:(int)arg1;
 - (id)itemsForUpload;
 - (int)assetCollectionsInUploadQueueAlbumGUID:(id)arg1;

@@ -10,13 +10,13 @@
 
 @interface CUTFileCopier : NSObject
 {
+    BOOL _shouldCancel;
+    BOOL _didErrorOccur;
+    BOOL _inProgress;
     id <CUTFileCopierDelegate> _delegate;
     NSURL *_inputURL;
     NSURL *_outputURL;
     id _identifier;
-    BOOL _shouldCancel;
-    BOOL _didErrorOccur;
-    BOOL _inProgress;
     unsigned int _operation;
     void *_BOMCopier;
 }

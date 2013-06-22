@@ -12,8 +12,11 @@
 {
     UIColor *_objectColor;
     UIColor *_shadowColor;
+    float _shadowHeightGrowthFactor;
 }
 
++ (float)width;
+@property(nonatomic) float shadowHeightGrowthFactor; // @synthesize shadowHeightGrowthFactor=_shadowHeightGrowthFactor;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

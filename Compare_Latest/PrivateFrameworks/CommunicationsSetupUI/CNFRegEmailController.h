@@ -65,6 +65,7 @@
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidLoad;
 - (void)dealloc;
 
 @end

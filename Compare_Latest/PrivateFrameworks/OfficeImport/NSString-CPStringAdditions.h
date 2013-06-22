@@ -10,7 +10,6 @@
 + (id)stringWithBytes:(const void *)arg1 length:(unsigned int)arg2 fontFamilyName:(id)arg3;
 + (id)stringWithBytes:(const void *)arg1 length:(unsigned int)arg2 codePointMapper:(void *)arg3;
 - (BOOL)startsWithString:(id)arg1;
-- (id)stringByFixingSymbolCharactersForFont:(struct __CTFont *)arg1;
-- (id)stringByFixingSymbolCharacters;
+- (id)stringByFixingCharactersWithLatinFontFamilyName:(id)arg1 symbolFontFamilyName:(id)arg2;
 @end
 

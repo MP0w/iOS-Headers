@@ -6,14 +6,8 @@
 
 #import <DataAccess/DALocalDBGateKeeper.h>
 
-@class NSMutableDictionary, NSString;
-
 @interface DAConcreteLocalDBGateKeeper : DALocalDBGateKeeper
 {
-    NSString *_buildVersion;
-    NSMutableDictionary *_refreshingWaiters;
-    NSMutableDictionary *_failedWaiters;
-    NSMutableDictionary *_restrictedWaiters;
 }
 
 - (void)_setUnitTestHackRunLoopMode:(id)arg1;
@@ -26,19 +20,14 @@
 - (void)registerPreemptiveWaiter:(id)arg1 forDataclassLocks:(int)arg2 completionHandler:(id)arg3;
 - (void)_registerWaiter:(id)arg1 forDataclassLocks:(int)arg2 preempt:(BOOL)arg3 completionHandler:(id)arg4;
 - (void)_notifyWaitersForDataclasses:(id)arg1;
-- (void)_removeRestrictedWaitersFromAllQueues;
 - (void)_abortWaiterForWrappers:(id)arg1;
-- (void)_decrementRefreshCountForWaiterID:(id)arg1 didFinish:(BOOL)arg2;
 - (BOOL)_canWakenWaiter:(id)arg1;
 - (void)setBookmarksLockHolder:(id)arg1;
 - (void)setNotesLockHolder:(id)arg1;
 - (void)setEventsLockHolder:(id)arg1;
 - (void)setContactsLockHolder:(id)arg1;
-- (void)giveAccountWithIDAnotherChance:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (BOOL)babysitterEnabled;
-- (void)_reloadBabysitterProperties;
 
 @end
 

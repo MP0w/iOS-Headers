@@ -13,5 +13,6 @@
 - (unsigned long long)businessID;
 - (id)businessName;
 - (BOOL)hasSingleBusiness;
+- (id)initWithPlacemark:(id)arg1;
 @end
 

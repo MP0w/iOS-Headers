@@ -6,10 +6,14 @@
 
 #import <UIKit/UIView.h>
 
-@class _UIInputViewContent;
+@class CALayer, NSArray, NSMutableDictionary, UIImage, UIKBRenderConfig, _UIInputViewContent;
 
 @interface UIInputView : UIView
 {
+    int _style;
+    UIKBRenderConfig *_renderConfig;
+    BOOL _suppressBackgroundStyling;
+    BOOL _disableSplitSupport;
     _UIInputViewContent *_leftContentView;
     _UIInputViewContent *_rightContentView;
     float _contentRatio;
@@ -22,19 +26,35 @@
     float _transitionGap;
     float _transitionLeftOffset;
     float _transitionRatio;
+    UIImage *_mergedImage;
+    UIImage *_splitImage;
+    NSMutableDictionary *_mergedSliceMap;
+    NSMutableDictionary *_splitSliceMap;
+    NSArray *_visibleLayers;
+    CALayer *_transitionLayer;
 }
 
++ (void)setupAppearancesIfNecessary;
+@property(retain, nonatomic) NSMutableDictionary *_splitSliceMap; // @synthesize _splitSliceMap;
+@property(retain, nonatomic) NSMutableDictionary *_mergedSliceMap; // @synthesize _mergedSliceMap;
+@property(retain, nonatomic) UIImage *_splitImage; // @synthesize _splitImage;
+@property(retain, nonatomic) UIImage *_mergedImage; // @synthesize _mergedImage;
 @property(nonatomic) struct CGSize rightContentViewSize; // @synthesize rightContentViewSize=_rightContentSize;
 @property(nonatomic) struct CGSize leftContentViewSize; // @synthesize leftContentViewSize=_leftContentSize;
 @property(nonatomic) float contentRatio; // @synthesize contentRatio=_contentRatio;
 @property(readonly, nonatomic) UIView *rightContentView; // @synthesize rightContentView=_rightContentView;
 @property(readonly, nonatomic) UIView *leftContentView; // @synthesize leftContentView=_leftContentView;
+@property(readonly, nonatomic) int inputViewStyle; // @synthesize inputViewStyle=_style;
 - (void)didEndSplitTransition;
 - (void)willBeginSplitTransition;
 - (struct CGSize)_defaultSize;
 - (float)_additionalClipHeight;
 - (int)_clipCornersOfView:(id)arg1;
 - (void)_updateClipCorners;
+- (void)updateSplitSubviewContraintsWithLeftContentSize:(struct CGSize)arg1 rightContentSize:(struct CGSize)arg2;
+- (void)updateMergedSubviewConstraints;
+- (void)layoutSplitSubviewsWithLeftContentSize:(struct CGSize)arg1 rightContentSize:(struct CGSize)arg2;
+- (void)layoutMergedSubviews;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_endSplitTransitionIfNeeded:(BOOL)arg1;
 - (void)_beginSplitTransitionIfNeeded:(float)arg1 gapWidth:(float)arg2;
@@ -43,9 +63,16 @@
 - (void)_setLeftOffset:(float)arg1 gapWidth:(float)arg2;
 - (BOOL)_supportsSplit;
 - (void)_setNeedsContentSizeUpdate;
+- (BOOL)_isSplit;
 - (BOOL)_isToolbars;
+- (void)setInputViewStyle:(int)arg1;
+- (id)_inheritedRenderConfig;
+- (void)_setRenderConfig:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 inputViewStyle:(int)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;
+@property(nonatomic) BOOL _suppressBackgroundStyling;
+@property(nonatomic) BOOL _disableSplitSupport;
 
 @end
 

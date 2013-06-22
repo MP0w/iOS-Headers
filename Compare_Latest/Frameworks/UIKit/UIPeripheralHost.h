@@ -8,10 +8,11 @@
 
 #import "UIGestureRecognizerDelegate-Protocol.h"
 #import "UIKeyboardSplitTransitionDelegate-Protocol.h"
+#import "UIScrollViewIntersectionDelegate-Protocol.h"
 
-@class CADisplayLink, NSMutableArray, NSMutableDictionary, NSMutableSet, UIInputViewPostPinningReloadState, UIInputViewSet, UIInputViewTransition, UIKeyboardAutomatic, UIKeyboardRotationState, UIPanGestureRecognizer, UIPeripheralHostState, UIPeripheralHostView, UIResponder, UIView;
+@class CADisplayLink, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, UIInputViewPostPinningReloadState, UIInputViewSet, UIInputViewTransition, UIKeyboardAutomatic, UIKeyboardRotationState, UIPanGestureRecognizer, UIPeripheralHostState, UIPeripheralHostView, UIResponder, UIScrollView, UIView;
 
-@interface UIPeripheralHost : NSObject <UIKeyboardSplitTransitionDelegate, UIGestureRecognizerDelegate>
+@interface UIPeripheralHost : NSObject <UIScrollViewIntersectionDelegate, UIKeyboardSplitTransitionDelegate, UIGestureRecognizerDelegate>
 {
     UIPeripheralHostView *_hostView;
     UIKeyboardAutomatic *_automaticKeyboard;
@@ -54,6 +55,8 @@
     NSMutableArray *_targetStateStack;
     UIInputViewSet *_inputViewSet;
     UIResponder *_responder;
+    NSString *_inputModeContextIdentifier;
+    BOOL _ignoreInputModeChanges;
     NSMutableSet *_pinningResponders;
     BOOL _ignoresPinning;
     UIInputViewPostPinningReloadState *_postPinningReloadState;
@@ -61,12 +64,22 @@
     BOOL _interfaceAutorotationDisabled;
     UIKeyboardRotationState *_rotationState;
     UIInputViewTransition *_currentTransition;
+    UIScrollView *_scrollViewForTransition;
+    BOOL _scrollViewShowsHorizontalScrollIndicator;
+    UIInputViewTransition *_scrollViewTransition;
+    BOOL _scrollViewTransitionFinishing;
+    struct CGPoint _scrollViewTransitionPreviousPoint;
+    struct CGPoint _scrollViewTransitionVelocity;
     UIResponder *_selfHostingTrigger;
     NSMutableDictionary *_preservedViewSets;
     BOOL _didFadeInputViews;
     BOOL _blockedReloadInputViewsForDictation;
     BOOL _animateCornerRefresh;
     BOOL _showCorners;
+    BOOL _clippingKeyboard;
+    struct CGRect _clippingKeyboardAdjustmentStart;
+    struct CGRect _clippingKeyboardAdjustmentEnd;
+    NSMutableArray *_extraViews;
     UIInputViewSet *_transientInputViewSet;
 }
 
@@ -76,6 +89,7 @@
 + (id)passthroughViews;
 + (float)gridViewRubberBandValueForValue:(float)arg1 target:(float)arg2 timeInterval:(float)arg3 velocity:(float *)arg4;
 + (struct CGRect)visiblePeripheralFrame;
++ (Class)hostViewClass;
 @property(nonatomic) int currentState; // @synthesize currentState=_automaticKeyboardState;
 @property(retain, nonatomic) UIInputViewPostPinningReloadState *postPinningReloadState; // @synthesize postPinningReloadState=_postPinningReloadState;
 @property(retain, nonatomic) UIResponder *selfHostingTrigger; // @synthesize selfHostingTrigger=_selfHostingTrigger;
@@ -163,6 +177,7 @@
 - (void)createHostViewIfNeeded;
 - (void)initializeTranslateGestureRecognizer;
 - (struct CGSize)sizeOfInputViewForInputViewSet:(id)arg1 withInterfaceOrientation:(int)arg2;
+- (void)textEffectsWindowDidRotate:(id)arg1;
 - (void)peripheralHostDidEnterBackground:(id)arg1;
 - (void)peripheralHostWillResume:(id)arg1;
 - (void)completeCurrentTransitionIfNeeded;
@@ -184,10 +199,16 @@
 - (void)setPeripheralToolbarFrameForHostWidth:(float)arg1;
 - (BOOL)isHostingActiveImpl;
 - (BOOL)hasCustomInputView;
-- (id)containerWindow;
-- (id)responderForCurrentAccessoryView;
+- (void)scrollView:(id)arg1 didFinishPanAtWindowPoint:(struct CGPoint)arg2;
+- (void)scrollView:(id)arg1 didPanAtWindowPoint:(struct CGPoint)arg2;
+- (void)animateKeyboardOutWithDuration:(double)arg1 delta:(float)arg2;
+- (void)updateScrollViewContentInsetBottom:(float)arg1;
+- (void)finishScrollViewTransition;
+- (void)hideScrollViewHorizontalScrollIndicator:(BOOL)arg1;
+- (id)_inheritedRenderConfig;
 - (void)updateInputAccessoryViewVisibility:(BOOL)arg1 withDuration:(float)arg2;
 - (void)candidateBarWillChangeHeight:(float)arg1 withDuration:(float)arg2;
+- (void)extendKeyboardBackdropHeight:(float)arg1 withDuration:(float)arg2;
 - (BOOL)isSplitting;
 - (BOOL)isTranslating;
 - (void)_endDisablingAnimations;
@@ -210,11 +231,19 @@
 - (void)setInputViews:(id)arg1 animationStyle:(id)arg2;
 - (id)computeTransitionFromInputViews:(id)arg1 toInputViews:(id)arg2 animationStyle:(id)arg3;
 - (id)computeTransitionForInputViews:(id)arg1 fromOrientation:(int)arg2 toOrientation:(int)arg3;
+- (BOOL)shouldApplySettingsForBackdropView:(id)arg1;
 - (void)executeTransition:(id)arg1;
+- (void)enableKeyboardTyping;
 - (void)adjustAccessoryViewForSubsumedTransition:(id)arg1;
 - (void)adjustHostViewForTransitionCompletion:(id)arg1;
 - (void)adjustHostViewForTransitionEndFrame:(id)arg1;
 - (void)adjustHostViewForTransitionStartFrame:(id)arg1;
+- (void)removeExtraViews;
+- (void)finishExtraViews;
+- (void)addExtraViews;
+- (void)updateExtraViewsForStart:(BOOL)arg1;
+- (struct CGRect)calculateRectForTransition:(id)arg1 forStart:(BOOL)arg2;
+- (float)accessoryViewFadeDuration:(id)arg1;
 @property(readonly, nonatomic) UIInputViewSet *loadAwareInputViews;
 - (void)implBoundsHeightChangeDoneForGeometry:(struct UIPeripheralAnimationGeometry)arg1;
 - (void)peripheralViewMinMaximized:(id)arg1 finished:(id)arg2 context:(id)arg3;
@@ -226,6 +255,9 @@
 - (BOOL)shouldUseHideNotificationForGeometry:(struct UIPeripheralAnimationGeometry)arg1;
 - (void)resetNextAutomaticOrderInDirectionAndDuration;
 - (void)setNextAutomaticOrderInDirection:(int)arg1 duration:(double)arg2;
+- (void)parallaxTransitionWillStartWithSettings:(id)arg1;
+- (void)addExtraAnimatedView:(id)arg1 withAlignment:(int)arg2 animation:(id)arg3;
+- (void)prepareToAnimateClippedKeyboardWithOffsets:(struct CGRect)arg1 orderingIn:(BOOL)arg2;
 - (void)popAnimationStyle;
 - (void)pushAnimationStyle:(id)arg1;
 - (void)setkeyboardAttachedViewHeight:(float)arg1;
@@ -247,6 +279,8 @@
 @property(nonatomic) BOOL automaticAppearanceInternalEnabled;
 @property(readonly, nonatomic) NSMutableArray *dropShadowViews;
 @property(readonly, nonatomic) UIView *view;
+- (void)_inputModeChangedWhileContextTracked:(id)arg1;
+- (void)_trackInputModeIfNecessary:(id)arg1;
 - (BOOL)_isTrackingResponder:(id)arg1;
 @property(nonatomic) BOOL ignoresPinning;
 - (void)_setIgnoresPinning:(BOOL)arg1 allowImmediateReload:(BOOL)arg2;
@@ -256,9 +290,14 @@
 - (void)_beginPinningInputViewsOnBehalfOfResponder:(id)arg1;
 - (void)_clearPinningResponders;
 - (void)_reloadInputViewsForResponder:(id)arg1;
+- (void)setTextEffectsWindowLevelForInputView:(id)arg1 responder:(id)arg2;
 - (void)_setReloadInputViewsForcedIsAllowed:(BOOL)arg1;
 - (void)prepareForPinning;
 - (BOOL)pinningPreventsInputViews:(id)arg1;
+- (id)containerTextEffectsWindowAboveStatusBar;
+- (id)containerTextEffectsWindow;
+- (id)containerWindow;
+- (id)_screenForFirstResponder:(id)arg1;
 
 @end
 

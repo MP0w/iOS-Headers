@@ -12,7 +12,7 @@
 }
 
 @property(readonly, nonatomic) id accelerometerHandler; // @synthesize accelerometerHandler=_accelerometerHandler;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithAccelerometerHandler:(id)arg1;
 
 @end

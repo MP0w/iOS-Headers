@@ -14,8 +14,8 @@
     EKStructuredLocation *_location;
 }
 
+- (void).cxx_destruct;
 - (void)loadView;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 location:(id)arg2;
 
 @end

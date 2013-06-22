@@ -14,6 +14,8 @@
 }
 
 @property(retain) NSNumber *ID; // @synthesize ID=_ID;
+- (void)dealloc;
+- (id)initWithCharacteristic:(id)arg1 dictionary:(id)arg2;
 - (id)initWithType:(id)arg1 value:(id)arg2;
 
 @end

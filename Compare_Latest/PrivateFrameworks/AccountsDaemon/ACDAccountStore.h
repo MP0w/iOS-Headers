@@ -4,103 +4,117 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import "ACAccountStore.h"
 
 #import "ACDAccountStoreProtocol-Protocol.h"
-#import "XPCProxyTarget-Protocol.h"
 
-@class ACDAccessPluginManager, ACDAccountNotifier, ACDAuthenticationPluginManager, ACDClient, ACDClientAuthorizationManager, ACDDatabase, NSMutableArray;
+@class ACDAccessPluginManager, ACDAccountStoreFilter, ACDAuthenticationPluginManager, ACDClient, ACDClientAuthorizationManager, ACDDatabase, ACDDataclassOwnersManager, NSMutableArray;
 
-@interface ACDAccountStore : NSObject <ACDAccountStoreProtocol, XPCProxyTarget>
+@interface ACDAccountStore : ACAccountStore <ACDAccountStoreProtocol>
 {
-    ACDClient *_client;
+    NSMutableArray *_accountChanges;
     ACDDatabase *_database;
+    ACDClientAuthorizationManager *_authorizationManager;
+    BOOL _notificationsEnabled;
+    BOOL _migrationInProgress;
     id <ACDAccountStoreDelegate> _delegate;
+    ACDClient *_client;
+    ACDAccountStoreFilter *_filter;
     ACDAuthenticationPluginManager *_authenticationPluginManager;
     ACDAccessPluginManager *_accessPluginManager;
-    ACDAccountNotifier *_accountNotifier;
-    ACDClientAuthorizationManager *_authorizationManager;
-    NSMutableArray *_accountChanges;
-    BOOL _notificationsEnabled;
+    ACDDataclassOwnersManager *_dataclassOwnersManager;
 }
 
-+ (id)_whiteList;
-@property(readonly, nonatomic) ACDDatabase *database; // @synthesize database=_database;
-@property(readonly, nonatomic) ACDClientAuthorizationManager *authorizationManager; // @synthesize authorizationManager=_authorizationManager;
-@property(retain, nonatomic) ACDClient *client; // @synthesize client=_client;
+@property(nonatomic, getter=isMigrationInProgress) BOOL migrationInProgress; // @synthesize migrationInProgress=_migrationInProgress;
 @property(nonatomic) BOOL notificationsEnabled; // @synthesize notificationsEnabled=_notificationsEnabled;
+@property(retain, nonatomic) ACDDataclassOwnersManager *dataclassOwnersManager; // @synthesize dataclassOwnersManager=_dataclassOwnersManager;
 @property(retain, nonatomic) ACDAccessPluginManager *accessPluginManager; // @synthesize accessPluginManager=_accessPluginManager;
 @property(retain, nonatomic) ACDAuthenticationPluginManager *authenticationPluginManager; // @synthesize authenticationPluginManager=_authenticationPluginManager;
+@property(nonatomic) __weak ACDAccountStoreFilter *filter; // @synthesize filter=_filter;
+@property(readonly, nonatomic) ACDClientAuthorizationManager *authorizationManager; // @synthesize authorizationManager=_authorizationManager;
+@property(nonatomic) __weak ACDClient *client; // @synthesize client=_client;
 @property(nonatomic) __weak id <ACDAccountStoreDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
+- (id)_remoteAccountStore;
+- (void)_connectToRemoteAccountStoreUsingEndpoint:(id)arg1;
+- (void)isPushSupportedForAccount:(id)arg1 completion:(id)arg2;
+- (void)kerberosAccountsForDomainFromURL:(id)arg1 completion:(id)arg2;
+- (void)tetheredSyncSourceTypeForDataclass:(id)arg1 completion:(id)arg2;
+- (void)isTetheredSyncingEnabledForDataclass:(id)arg1 completion:(id)arg2;
+- (void)accountExistsWithDescription:(id)arg1 completion:(id)arg2;
+- (void)isPerformingDataclassActionsForAccount:(id)arg1 completion:(id)arg2;
+- (void)dataclassActionsForAccountDeletion:(id)arg1 completion:(id)arg2;
+- (void)dataclassActionsForAccountSave:(id)arg1 completion:(id)arg2;
 - (void)updateExistenceCacheOfAccountWithTypeIdentifier:(id)arg1 withHandler:(id)arg2;
 - (void)_updateExistenceCacheOfAccountWithTypeIdentifier:(id)arg1 withHandler:(id)arg2;
 - (void)typeIdentifierForDomain:(id)arg1 withHandler:(id)arg2;
+- (void)clearGrantedPermissionsForAccountType:(id)arg1 withHandler:(id)arg2;
+- (void)grantedPermissionsForAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)permissionForAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)clearAllPermissionsGrantedForAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)setPermissionGranted:(id)arg1 forBundleID:(id)arg2 onAccountType:(id)arg3 withHandler:(id)arg4;
 - (void)appPermissionsForAccountType:(id)arg1 withHandler:(id)arg2;
-- (void)setNotificationsEnabledNum:(id)arg1;
+- (void)setNotificationsEnabledNum:(BOOL)arg1;
 - (void)requestAccessForAccountTypeWithIdentifier:(id)arg1 options:(id)arg2 withHandler:(id)arg3;
+- (void)_requestAccessForAccountTypeWithIdentifier:(id)arg1 options:(id)arg2 allowUserInteraction:(BOOL)arg3 withHandler:(id)arg4;
 - (void)promptUserForCredentialsWithAccount:(id)arg1 withHandler:(id)arg2;
-- (void)renewCredentialsForAccount:(id)arg1 withHandler:(id)arg2;
-- (void)verifyCredentialsForAccount:(id)arg1 withHandler:(id)arg2;
+- (void)renewCredentialsForAccount:(id)arg1 force:(BOOL)arg2 reason:(id)arg3 completion:(id)arg4;
+- (void)renewCredentialsForAccount:(id)arg1 reason:(id)arg2 completion:(id)arg3;
 - (void)verifyCredentialsForAccount:(id)arg1 saveWhenAuthorized:(BOOL)arg2 withHandler:(id)arg3;
-- (void)saveAccount:(id)arg1 forPID:(id)arg2 withHandler:(id)arg3;
+- (void)_completeSave:(id)arg1 pid:(id)arg2 dataclassActions:(id)arg3 completion:(id)arg4;
+- (void)saveAccount:(id)arg1 pid:(id)arg2 verify:(BOOL)arg3 dataclassActions:(id)arg4 completion:(id)arg5;
 - (void)saveAccount:(id)arg1 withHandler:(id)arg2;
-- (void)removeAccount:(id)arg1 withHandler:(id)arg2;
+- (void)canSaveAccount:(id)arg1 completion:(id)arg2;
+- (void)removeAccount:(id)arg1 withDataclassActions:(id)arg2 completion:(id)arg3;
 - (void)insertAccountDataclass:(id)arg1 withHandler:(id)arg2;
 - (void)removeAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)insertAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)accessKeysForAccountType:(id)arg1 handler:(id)arg2;
-- (void)propertiesForDataclassWithName:(id)arg1 accountIdentifier:(id)arg2 handler:(id)arg3;
 - (void)supportedDataclassesForAccountType:(id)arg1 handler:(id)arg2;
 - (void)syncableDataclassesForAccountType:(id)arg1 handler:(id)arg2;
 - (void)provisionedDataclassesForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)enabledDataclassesForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)accountIdentifiersEnabledToSyncDataclass:(id)arg1 handler:(id)arg2;
+- (void)accountIdentifiersEnabledForDataclass:(id)arg1 handler:(id)arg2;
+- (id)_childAccountsForAccountWithID:(id)arg1;
+- (void)childAccountsWithAccountTypeIdentifier:(id)arg1 parentAccountIdentifier:(id)arg2 handler:(id)arg3;
 - (void)childAccountsForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)parentAccountForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
-- (void)_accountsWithAccountType:(id)arg1 checkEntitlement:(BOOL)arg2 handler:(id)arg3;
 - (void)accountsWithAccountType:(id)arg1 handler:(id)arg2;
 - (void)dataclassesWithHandler:(id)arg1;
+- (id)_legacyCredentialForAccount:(id)arg1 client:(id)arg2 error:(id *)arg3;
 - (void)credentialForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)credentialForAccountWithIdentifier:(id)arg1 bundleID:(id)arg2 handler:(id)arg3;
 - (id)masterCredentialForAccountIdentifier:(id)arg1;
 - (void)accountTypeWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)displayAccountTypeForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
-- (void)accountTypeForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)accountTypesWithHandler:(id)arg1;
 - (void)accountsWithHandler:(id)arg1;
 - (void)accountWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)setClientBundleID:(id)arg1 withHandler:(id)arg2;
-- (id)_handleAccountAdd:(id)arg1 forPID:(id)arg2;
-- (id)_handleAccountMod:(id)arg1;
+- (id)_handleAccountAdd:(id)arg1 withDataclassActions:(id)arg2 forPID:(id)arg3;
+- (id)_handleAccountMod:(id)arg1 withDataclassActions:(id)arg2;
 - (id)_currentBundleIDForPID:(id)arg1;
 - (void)_noteAccountStoreDidSaveAccountsWithAccountTypeIdentifiers:(id)arg1;
-- (void)_setAccountManagedObjectRelationships:(id)arg1 withAccount:(id)arg2 isNew:(BOOL)arg3;
+- (void)_setAccountManagedObjectRelationships:(id)arg1 withAccount:(id)arg2 isNew:(BOOL)arg3 error:(id *)arg4;
 - (BOOL)_canSaveAccount:(id)arg1;
-- (id)_dataclassWithName:(id)arg1;
+- (id)_dataclassWithName:(id)arg1 createIfNecessary:(BOOL)arg2;
 - (id)_accountTypeWithIdentifier:(id)arg1;
 - (id)_displayAccountForAccount:(id)arg1;
 - (id)_accountWithIdentifier:(id)arg1;
-- (BOOL)_callerWithPID:(id)arg1 hasPermissionToAddAccount:(id)arg2;
-- (BOOL)_isClientPermittedToRemoveAccount:(id)arg1;
-- (BOOL)_isClientPermittedToAccessAccount:(id)arg1;
-- (BOOL)_isClientPermittedToAccessAccountType:(id)arg1;
-- (BOOL)_accessGrantedForBundleID:(id)arg1 onAccountType:(id)arg2;
-- (BOOL)_accessGrantedForClient:(id)arg1 onAccountType:(id)arg2;
-- (void)performSanityCheckOnDatabase:(id)arg1;
-- (id)_updateAccountNoSave:(id)arg1 error:(id *)arg2;
-- (id)_addAccountNoSave:(id)arg1 error:(id *)arg2;
-- (id)addAccountNoSave:(id)arg1 error:(id *)arg2;
+- (void)performSanityCheckOnDatabase;
+- (void)_deleteAccountNoSave:(id)arg1 withDataclassActions:(id)arg2 error:(id *)arg3;
+- (void)deleteAccountNoSave:(id)arg1 error:(id *)arg2;
+- (void)_updateAccountNoSave:(id)arg1 withDataclassActions:(id)arg2 error:(id *)arg3;
+- (void)updateAccountNoSave:(id)arg1 error:(id *)arg2;
+- (id)_addAccountNoSave:(id)arg1 withDataclassActions:(id)arg2 error:(id *)arg3;
+- (void)addAccountNoSave:(id)arg1 error:(id *)arg2;
 - (id)_save;
-- (id)_removeAccountNoSave:(id)arg1;
+- (id)_removeAccountNoSave:(id)arg1 withDataclassActions:(id)arg2;
 - (BOOL)accountsExistWithAccountTypeIdentifier:(id)arg1;
-- (id)accountsWithAccountTypeIdentifier:(id)arg1 checkEntitlement:(BOOL)arg2;
+- (id)accountsWithAccountTypeIdentifier:(id)arg1;
 - (id)accountTypeWithIdentifier:(id)arg1;
-- (id)initWithClient:(id)arg1 database:(id)arg2;
+- (id)initWithClient:(id)arg1;
 
 @end
 

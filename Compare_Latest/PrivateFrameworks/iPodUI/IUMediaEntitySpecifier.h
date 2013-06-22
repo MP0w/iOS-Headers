@@ -14,7 +14,8 @@
 @interface IUMediaEntitySpecifier : NSObject <NSCoding, NSCopying>
 {
     NSString *_artist;
-    struct CollectionPropertySpecifier _album;
+    NSString *_albumStringValue;
+    unsigned long long _albumCollectionPID;
     NSString *_genre;
     NSString *_composer;
     NSString *_podcast;
@@ -40,6 +41,7 @@
 + (id)mediaEntitySpecifierForAlbumWithItemsQuery:(id)arg1;
 + (BOOL)isMediaEntityTypeGroupedByDefault:(int)arg1;
 + (void)initialize;
+- (void).cxx_destruct;
 - (void)_lookupPlaylistNameIfNecessary;
 @property(readonly, nonatomic) NSString *titleForDerivatives;
 @property(readonly, nonatomic) unsigned long long specifiedPlaylistPersistentUID;
@@ -52,7 +54,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)_initWithMediaQuery:(id)arg1;
 
 @end

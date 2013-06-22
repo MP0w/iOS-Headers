@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class ACAccountCredential, ACAccountStore, ACAccountType, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSURL;
 
-@interface ACAccount : NSObject
+@interface ACAccount : NSObject <NSSecureCoding>
 {
     ACAccountStore *_store;
     NSString *_identifier;
     NSString *_accountDescription;
     NSString *_owningBundleID;
     NSString *_username;
-    NSString *_password;
-    NSString *_authToken;
+    NSString *_authenticationType;
+    NSString *_credentialType;
     ACAccountType *_accountType;
     ACAccountCredential *_credential;
     NSMutableDictionary *_properties;
@@ -27,57 +29,98 @@
     BOOL _supportsAuthentication;
     NSURL *_objectID;
     NSDate *_date;
+    NSDate *_lastCredentialRenewalRejectionDate;
     ACAccount *_parentAccount;
     BOOL _haveCheckedForParentAccount;
     NSString *_parentAccountIdentifier;
+    BOOL _haveCheckedForChildAccounts;
     NSArray *_childAccounts;
     NSMutableSet *_enabledDataclasses;
     NSMutableSet *_provisionedDataclasses;
+    NSMutableSet *_dirtyProperties;
+    NSMutableSet *_dirtyAccountProperties;
+    id _credentialsDidChangeObserver;
+    id _accountPropertiesTransformer;
+    BOOL _creatingFromManagedObject;
 }
 
 + (id)_createNewAccountUID;
++ (BOOL)supportsSecureCoding;
+@property(copy) id accountPropertiesTransformer; // @synthesize accountPropertiesTransformer=_accountPropertiesTransformer;
+@property(readonly, nonatomic) NSSet *dirtyAccountProperties; // @synthesize dirtyAccountProperties=_dirtyAccountProperties;
+@property(readonly, nonatomic) NSSet *dirtyProperties; // @synthesize dirtyProperties=_dirtyProperties;
 - (void).cxx_destruct;
+- (id)diffAccount:(id)arg1;
+@property(readonly, nonatomic) NSString *shortDebugName;
+- (void)setCreatingFromManagedObject:(BOOL)arg1;
+- (id)accountByCleaningThirdPartyTransformations;
+- (void)_loadAllCachedProperties;
+- (void)refresh;
 - (void)reload;
-- (void)setDate:(id)arg1;
-@property(readonly, nonatomic) NSDate *date;
-@property(copy, nonatomic) NSURL *objectID;
-- (void)setProperties:(id)arg1 forDataclass:(struct NSString *)arg2;
-- (id)propertiesForDataclass:(struct NSString *)arg1;
+- (void)takeValuesFromModifiedAccount:(id)arg1;
+- (void)_setObjectID:(id)arg1;
+@property(readonly, nonatomic) NSURL *objectID;
+- (void)setProperties:(id)arg1 forDataclass:(id)arg2;
+- (id)propertiesForDataclass:(id)arg1;
 - (void)setDataclassProperties:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *dataclassProperties;
-- (BOOL)isProvisionedForDataclass:(struct NSString *)arg1;
-- (void)setEnabled:(BOOL)arg1 forDataclass:(struct NSString *)arg2;
-- (BOOL)isEnabledToSyncDataclass:(struct NSString *)arg1;
+- (BOOL)isProvisionedForDataclass:(id)arg1;
+- (void)setEnabled:(BOOL)arg1 forDataclass:(id)arg2;
+- (BOOL)isEnabledToSyncDataclass:(id)arg1;
 - (id)enabledAndSyncableDataclasses;
-- (BOOL)isEnabledForDataclass:(struct NSString *)arg1;
+- (BOOL)isEnabledForDataclass:(id)arg1;
 @property(retain, nonatomic) NSMutableSet *enabledDataclasses;
-- (id)_enabledDataclassesShouldFaultEmptySet:(BOOL)arg1;
-@property(retain, nonatomic) NSSet *provisionedDataclasses;
+@property(retain, nonatomic) NSMutableSet *provisionedDataclasses;
+- (void)_clearCachedChildAccounts;
+- (id)childAccountsWithAccountTypeIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSArray *childAccounts;
 @property(readonly, nonatomic) ACAccount *displayAccount;
 @property(retain, nonatomic) ACAccount *parentAccount;
 @property(readonly, nonatomic) NSString *parentAccountIdentifier;
 @property(retain, nonatomic) ACAccountType *accountType;
-@property(nonatomic) __weak ACAccountStore *accountStore;
+@property(readonly, nonatomic) ACAccountStore *accountStore;
+- (void)_setAccountStore:(id)arg1;
+@property(readonly, nonatomic) BOOL supportsPush;
 @property(nonatomic) BOOL supportsAuthentication;
-@property(nonatomic) BOOL active;
-@property(nonatomic) BOOL authenticated;
+@property(nonatomic, getter=isActive) BOOL active;
+@property(retain, nonatomic) NSDate *lastCredentialRenewalRejectionDate;
+@property(nonatomic, getter=isAuthenticated) BOOL authenticated;
+- (BOOL)authenticated;
 - (void)setAccountProperty:(id)arg1 forKey:(id)arg2;
 - (id)accountPropertyForKey:(id)arg1;
 - (void)setAccountProperties:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *accountProperties;
+@property(retain, nonatomic) NSDate *creationDate;
 - (void)setOwningBundleID:(id)arg1;
 - (id)owningBundleID;
 @property(copy, nonatomic) NSString *accountDescription;
 @property(retain, nonatomic) ACAccountCredential *credential;
+- (id)credentialWithError:(id *)arg1;
 @property(copy, nonatomic) NSString *username;
+- (void)setCredentialType:(id)arg1;
+@property(readonly, nonatomic) NSString *credentialType;
+- (void)setAuthenticationType:(id)arg1;
+@property(readonly, nonatomic) NSString *authenticationType;
 - (void)setIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSString *identifier;
+- (void)_clearDirtyProperties;
+- (void)_markCredentialDirty;
+- (void)_markAccountPropertyDirty:(id)arg1;
+- (void)_markPropertyDirty:(id)arg1;
+- (BOOL)_useParentForCredentials;
+- (void)markAllPropertiesDirty;
+- (BOOL)isPropertyDirty:(id)arg1;
+@property(readonly, nonatomic, getter=isDirty) BOOL dirty;
 - (void)credentialsChanged:(id)arg1;
+- (void)_clearCachedCredentials;
 - (id)description;
 - (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)_installCredentialsChangedObserver;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithManagedAccount:(id)arg1;
+- (id)initWithManagedAccount:(id)arg1 accountStore:(id)arg2;
 - (id)initWithAccountType:(id)arg1;
 
 @end

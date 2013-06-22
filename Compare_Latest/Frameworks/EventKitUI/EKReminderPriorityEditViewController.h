@@ -13,15 +13,15 @@
 
 @interface EKReminderPriorityEditViewController : EKEditItemViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    unsigned int _priority;
     UITableView *_tableView;
+    unsigned int _priority;
 }
 
 @property(nonatomic) unsigned int priority; // @synthesize priority=_priority;
+- (void).cxx_destruct;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (void)viewDidUnload;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;

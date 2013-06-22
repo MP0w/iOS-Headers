@@ -13,7 +13,7 @@
     MFSMTPConnection *_connection;
 }
 
-- (int)deliverMessageData:(id)arg1 toRecipients:(id)arg2;
+- (id)deliverMessageData:(id)arg1 toRecipients:(id)arg2;
 - (id)newMessageWriter;
 - (void)_openConnection;
 - (Class)deliveryClass;

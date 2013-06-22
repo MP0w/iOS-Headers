@@ -29,6 +29,7 @@
 @property(retain) NSFileHandle *fh; // @synthesize fh=_fh;
 - (id)compressFile:(id)arg1;
 - (void)slurpDataFromFile:(id)arg1;
+- (void)logLine:(id)arg1 withPrefix:(id)arg2;
 - (void)logString:(id)arg1;
 - (void)logData:(id)arg1;
 - (id)initWithFilename:(id)arg1;

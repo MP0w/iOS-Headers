@@ -23,6 +23,7 @@
 - (void)handleEnabledChangedForConnection:(id)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (void)didStopForSession:(id)arg1 error:(id)arg2;
+- (void)didStartForSessionWithoutGraphRebuild:(id)arg1;
 - (void)didStartForSession:(id)arg1;
 - (void)removeConnection:(id)arg1;
 - (id)addConnection:(id)arg1 error:(id *)arg2;
@@ -31,6 +32,8 @@
 - (struct CGSize)outputSizeForCaptureOptions:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)updateMetadataTransformForCaptureOptions:(id)arg1;
+- (struct CGRect)rectForMetadataOutputRectOfInterest:(struct CGRect)arg1;
+- (struct CGRect)metadataOutputRectOfInterestForRect:(struct CGRect)arg1;
 - (id)transformedMetadataObjectForMetadataObject:(id)arg1 connection:(id)arg2;
 - (id)_inputForConnection:(id)arg1;
 - (id)connectionWithMediaType:(id)arg1;

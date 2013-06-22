@@ -11,6 +11,7 @@
 @protocol CoreDAVContainerMultiGetSubmittable <CoreDAVSubmittable>
 @property(nonatomic) BOOL shouldIgnoreResponseErrors;
 @property(readonly, nonatomic) NSSet *parsedContents;
+@property(readonly, nonatomic) NSSet *deletedURLs;
 @property(readonly, nonatomic) NSSet *missingURLs;
 @end
 

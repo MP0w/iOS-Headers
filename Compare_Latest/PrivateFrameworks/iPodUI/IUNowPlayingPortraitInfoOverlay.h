@@ -8,21 +8,35 @@
 
 #import "MFMailComposeViewControllerDelegate-Protocol.h"
 #import "SKStoreProductViewControllerDelegate-Protocol.h"
+#import "UIActionSheetDelegate-Protocol.h"
+#import "UIActivityItemsSource-Protocol.h"
 
-@interface IUNowPlayingPortraitInfoOverlay : IUPortraitInfoOverlay <SKStoreProductViewControllerDelegate, MFMailComposeViewControllerDelegate>
+@class UIActionSheet;
+
+@interface IUNowPlayingPortraitInfoOverlay : IUPortraitInfoOverlay <SKStoreProductViewControllerDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIActivityItemsSource>
 {
     id _actionSheetCompletionHandler;
     id _itemToShare;
+    UIActionSheet *_radioActionSheet;
 }
 
+- (void).cxx_destruct;
 - (void)_delayedSeedGeniusForControls:(id)arg1;
 - (void)_buttonAvailabilityChanged:(id)arg1;
 - (void)_appDefaultsChanged;
 - (void)_appDefaultsChanged:(id)arg1;
+- (id)activityViewController:(id)arg1 itemsForActivityType:(id)arg2;
+- (id)activityViewControllerPlaceholderItems:(id)arg1;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)controlsOverlay:(id)arg1 adjustShuffleAndRepeatTypeForItem:(id)arg2;
 - (BOOL)controlsOverlay:(id)arg1 shouldUseDetailScrubberForItem:(id)arg2;
 - (unsigned int)shuffleTypeForPlaybackControls:(id)arg1;
 - (unsigned int)repeatTypeForControlsOverlay:(id)arg1;
+- (void)controlsOverlay:(id)arg1 didTapTrackInfoButtonForItem:(id)arg2;
+- (void)controlsOverlay:(id)arg1 didTapRadioShareButtonForItem:(id)arg2;
+- (void)controlsOverlay:(id)arg1 didTapRadioHistoryButtonForItem:(id)arg2;
+- (void)controlsOverlay:(id)arg1 didTapRadioButtonForItem:(id)arg2;
+- (BOOL)controlsOverlay:(id)arg1 shouldHideRadioButtonForItem:(id)arg2;
 - (BOOL)controlsOverlay:(id)arg1 shouldDisableMailPodcastLinkButtonForItem:(id)arg2;
 - (BOOL)controlsOverlay:(id)arg1 shouldHideMailPodcastLinkButtonForItem:(id)arg2;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;

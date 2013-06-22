@@ -7,6 +7,6 @@
 #import "ML3Collection.h"
 
 @interface ML3Collection (MPMediaAdditions)
-+ (id)countedPropertyForMPMediaEntityProperty:(id)arg1;
++ (id)propertyForMPMediaEntityProperty:(id)arg1;
 @end
 

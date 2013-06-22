@@ -26,11 +26,11 @@
 @property(nonatomic) double time; // @synthesize time=_time;
 @property(nonatomic) unsigned int index; // @synthesize index=_index;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
+- (void).cxx_destruct;
 - (id)urlTitleTrimmingCharacterSet;
 @property(readonly, nonatomic) BOOL hasArtworkAtPlaybackTime;
 @property(readonly, nonatomic) double maxTime;
 @property(readonly, nonatomic) double comparableTime;
-- (void)dealloc;
 - (id)description;
 - (id)initWithMarkerType:(int)arg1;
 

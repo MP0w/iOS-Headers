@@ -6,14 +6,17 @@
 
 #import "NSObject.h"
 
-@class AVController, NSHashTable, NSMutableArray, NSMutableDictionary, SBUISound;
+@class AVController, NSHashTable, NSMutableArray, NSMutableDictionary, NSTimer, SBUISound;
 
 @interface SBSoundController : NSObject
 {
     NSMutableDictionary *_soundsBySystemSoundIDs;
-    AVController *_ringtoneController;
-    id _ringtoneObserver;
-    SBUISound *_ringtoneSound;
+    AVController *_avController;
+    SBUISound *_avControllerSound;
+    NSTimer *_avControllerMaxDurationTimer;
+    id _avControllerObserver;
+    NSMutableDictionary *_soundsByToneIdentifiers;
+    NSMutableDictionary *_toneAlertsByToneIdentifiers;
     NSHashTable *_observers;
     unsigned int _pendingCallbacks;
     NSMutableArray *_pendedCallbacks;
@@ -26,18 +29,19 @@
 - (void)_soundDidFinishPlaying:(id)arg1;
 - (void)_soundDidStartPlaying:(id)arg1;
 - (void)_ringerStateChanged:(id)arg1;
+- (BOOL)_playToneAlert:(id)arg1;
+- (BOOL)_playAVItem:(id)arg1 forSound:(id)arg2;
 - (BOOL)_playRingtone:(id)arg1;
 - (BOOL)_playSystemSound:(id)arg1;
-- (void)_killRingtone;
+- (void)_stopToneAlertForSound:(id)arg1;
+- (void)_killAVController;
 - (void)_cleanupSystemSound:(unsigned long)arg1 andKill:(BOOL)arg2;
 - (BOOL)handleVolumeButtonDownEvent;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-- (void)stopAllSounds;
-- (BOOL)_stopAllSounds;
-- (void)stopSound:(id)arg1;
-- (BOOL)playSound:(id)arg1 completion:(id)arg2;
-- (BOOL)playSound:(id)arg1;
+- (BOOL)stopAllSounds;
+- (BOOL)stopSound:(id)arg1;
+- (BOOL)playSound:(id)arg1 environments:(int)arg2 completion:(id)arg3;
 - (BOOL)isPlaying:(id)arg1;
 - (BOOL)isPlayingAnySound;
 - (void)dealloc;

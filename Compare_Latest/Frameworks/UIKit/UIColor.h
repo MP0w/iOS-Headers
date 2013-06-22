@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class CIColor, NSString;
 
-@interface UIColor : NSObject <NSCoding, NSCopying>
+@interface UIColor : NSObject <NSSecureCoding, NSCopying>
 {
     NSString *_systemColorName;
 }
@@ -24,7 +24,6 @@
 + (id)tableCellGrayTextColor;
 + (id)tableCellValue2BlueColor;
 + (id)tableCellValue1BlueColor;
-+ (id)tableCellBlueTextColor;
 + (id)sectionHeaderBorderColor;
 + (id)sectionHeaderOpaqueBackgroundColor;
 + (id)sectionHeaderBackgroundColor;
@@ -34,13 +33,13 @@
 + (id)tableSelectionGradientEndColor;
 + (id)tableSelectionGradientStartColor;
 + (id)tableSelectionColor;
++ (id)tablePlainHeaderFooterFloatingBackgroundColor;
++ (id)tablePlainHeaderFooterBackgroundColor;
++ (id)tableCellbackgroundColorPigglyWiggly;
++ (id)tableCellBackgroundColor;
 + (id)tableCellGroupedBackgroundColorLegacyWhite;
-+ (id)tableCellGroupedBackgroundColor;
 + (id)tableCellPlainBackgroundColor;
 + (id)tableBackgroundColor;
-+ (id)tableGroupedSeparatorLightColor;
-+ (id)tableSeparatorLightColor;
-+ (id)tableSeparatorDarkColor;
 + (id)brownColor;
 + (id)purpleColor;
 + (id)orangeColor;
@@ -57,11 +56,15 @@
 + (id)darkGrayColor;
 + (id)blackColor;
 + (id)classFallbacksForKeyedArchiver;
++ (BOOL)supportsSecureCoding;
++ (id)_composedColorFromSourceColor:(id)arg1 destinationColor:(id)arg2 tintColor:(id)arg3 alpha:(float)arg4;
 + (id)_systemColorForColor:(id)arg1 withName:(id)arg2;
 + (id)_systemColorWithName:(id)arg1;
 + (id)colorWithCIColor:(id)arg1;
 + (id)colorWithPatternImage:(id)arg1;
++ (id)_disambiguated_due_to_CIImage_colorWithCGColor:(struct CGColor *)arg1;
 + (id)colorWithCGColor:(struct CGColor *)arg1;
++ (id)_disambiguated_due_to_CIImage_colorWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
 + (id)colorWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4;
 + (id)colorWithHue:(float)arg1 saturation:(float)arg2 brightness:(float)arg3 alpha:(float)arg4;
 + (id)colorWithWhite:(float)arg1 alpha:(float)arg2;
@@ -70,21 +73,44 @@
 + (id)scrollViewTexturedBackgroundColor;
 + (id)underPageBackgroundColor;
 + (id)viewFlipsideBackgroundColor;
++ (id)tableCellBlueTextColor;
++ (id)tableGroupedSeparatorLightColor;
++ (id)tableSeparatorLightColor;
++ (id)tableSeparatorDarkColor;
++ (id)tableCellGroupedBackgroundColor;
 + (id)groupTableViewBackgroundColor;
++ (id)_markedTextBorderColor;
++ (id)_markedTextBackgroundColor;
 + (id)darkTextColor;
 + (id)lightTextColor;
++ (id)selectionGrabberColor;
 + (id)insertionPointColor;
 + (id)selectionHighlightColor;
 + (id)pinStripeColor;
++ (id)systemGrayColor;
++ (id)systemPinkColor;
++ (id)systemTealColor;
++ (id)systemYellowColor;
++ (id)systemOrangeColor;
++ (id)systemBlueColor;
++ (id)systemGreenColor;
++ (id)systemRedColor;
++ (id)_systemSelectedColor;
++ (id)_grayColorForFontSize:(float)arg1;
 + (id)_dimmingViewColor;
 + (id)_translucentPaperTextureColor;
 + (id)noContentDarkGradientBackgroundColor;
 + (id)noContentLightGradientBackgroundColor;
++ (id)_barHairlineShadowColor;
++ (id)_alternateSystemInteractionTintColor;
++ (id)_systemDestructiveTintColor;
++ (id)_systemInteractionTintColor;
 @property(retain, nonatomic, getter=_systemColorName, setter=_setSystemColorName:) NSString *systemColorName;
 - (BOOL)isPatternColor;
 - (id)styleString;
 - (float)alphaComponent;
 - (struct CGColor *)cgColor;
+- (BOOL)_getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
 - (BOOL)_getWhite:(float *)arg1 alpha:(float *)arg2;
 - (BOOL)getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
 - (BOOL)getHue:(float *)arg1 saturation:(float *)arg2 brightness:(float *)arg3 alpha:(float *)arg4;

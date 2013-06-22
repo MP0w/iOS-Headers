@@ -13,11 +13,14 @@
     void *_impl;
 }
 
-+ (id)privateCreateWithCFDictionaryRef:(struct __CFDictionary *)arg1;
++ (id)privateCreateOrConfigure:(id)arg1 withRawDescription:(id)arg2;
+- (BOOL)matchesRawDescription:(id)arg1;
 - (struct RouteDescriptionImpl *)privateGetImplementation;
 - (id)description;
 @property(readonly) NSArray *outputs;
 @property(readonly) NSArray *inputs;
+- (BOOL)isEqualToRoute:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

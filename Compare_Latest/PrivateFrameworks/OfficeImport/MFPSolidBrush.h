@@ -13,7 +13,7 @@
     TSUColor *mColor;
 }
 
-- (void)fillPath:(struct CGPath *)arg1 evenOddRule:(BOOL)arg2;
+- (void)fillPath:(id)arg1 evenOddRule:(BOOL)arg2;
 - (void)setColor:(id)arg1;
 - (id)color;
 - (void)dealloc;

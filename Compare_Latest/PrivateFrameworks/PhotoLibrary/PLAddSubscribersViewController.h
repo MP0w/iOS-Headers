@@ -29,6 +29,7 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
+- (id)contentScrollView;
 - (void)didReceiveMemoryWarning;
 - (void)dealloc;
 - (id)initWithSharedStream:(id)arg1;

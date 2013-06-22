@@ -62,8 +62,8 @@
     NSMutableSet *recycledPages;
     NSMutableSet *visiblePages;
     NSMutableArray *images;
-    CDStruct_85ec20a5 targetDevice;
-    CDStruct_85ec20a5 sourceDevice;
+    CDStruct_59eca22a targetDevice;
+    CDStruct_59eca22a sourceDevice;
 }
 
 @property unsigned int internetFlow; // @synthesize internetFlow;
@@ -109,9 +109,9 @@
 @property(retain, nonatomic) UIView *containerView; // @synthesize containerView;
 - (void)startAnimatingCablingForView:(id)arg1 startingOpacity:(float)arg2 endingOpacity:(float)arg3 duration:(double)arg4;
 - (id)builtInImageNamed:(id)arg1;
-- (id)insetImageForDeviceDiagramInfo:(CDStruct_85ec20a5 *)arg1 audioImage:(BOOL)arg2;
-- (id)deviceImageForDeviceDiagramInfo:(CDStruct_85ec20a5 *)arg1 audioImage:(BOOL)arg2;
-- (void)determineInfoForDevice:(id)arg1 deviceDiagramInfo:(CDStruct_85ec20a5 *)arg2;
+- (id)insetImageForDeviceDiagramInfo:(CDStruct_59eca22a *)arg1 audioImage:(BOOL)arg2;
+- (id)deviceImageForDeviceDiagramInfo:(CDStruct_59eca22a *)arg1 audioImage:(BOOL)arg2;
+- (void)determineInfoForDevice:(id)arg1 deviceDiagramInfo:(CDStruct_59eca22a *)arg2;
 - (void)changeDiagram:(id)arg1;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;

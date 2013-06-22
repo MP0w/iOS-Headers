@@ -23,7 +23,7 @@
 @property(readonly, nonatomic) long long revision; // @synthesize revision=_revision;
 @property(readonly, nonatomic) ML3Query *query; // @synthesize query=_query;
 - (void).cxx_destruct;
-- (unsigned int)songLimit;
+- (unsigned int)entityLimit;
 - (void)enumerateSectionsUsingBlock:(id)arg1;
 - (void)enumeratePersistentIDsUsingBlock:(id)arg1;
 - (long long)persistentIDAtIndex:(unsigned int)arg1;
@@ -31,7 +31,7 @@
 - (BOOL)updateToLibraryCurrentRevision;
 - (void)_onQueueInvokeAndClearUpdateFinishedBlocksWithDidUpdateResult:(BOOL)arg1;
 - (void)_onQueueAddUpdateFinishedBlock:(id)arg1;
-- (void)_mergeChangesWithFromNewPIDs:(const vector_6f037ce7 *)arg1 changedPIDs:(unordered_set_a245ffee *)arg2;
+- (void)_mergeChangesWithFromNewPIDs:(const vector_c1c297d2 *)arg1 changedPIDs:(unordered_set_cccfe4a5 *)arg2;
 - (void)_loadCurrentFullResults;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithQuery:(id)arg1;

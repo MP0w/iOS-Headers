@@ -25,7 +25,7 @@
 - (id)initWithType:(unsigned short)arg1;
 - (id)initWithEshObject:(struct EshObject *)arg1;
 - (id)ebInitWithType:(unsigned short)arg1 version:(unsigned short)arg2 state:(id)arg3;
-- (long)shapeID;
+- (int)shapeID;
 - (struct EshGroup *)eshGroup;
 - (struct EshShape *)eshShape;
 - (id)pbInitWithType:(unsigned short)arg1 version:(unsigned short)arg2 state:(id)arg3;

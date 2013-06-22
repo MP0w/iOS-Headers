@@ -4,13 +4,25 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UIWebDocumentViewPrintFormatter.h>
+#import <UIKit/UIViewPrintFormatter.h>
 
-@interface UITextViewPrintFormatter : UIWebDocumentViewPrintFormatter
+@class NSArray, UIPrintFormatter;
+
+@interface UITextViewPrintFormatter : UIViewPrintFormatter
 {
+    struct {
+        unsigned int initializedUsedRects:1;
+    } _textViewPrintFormatterFlags;
+    NSArray *_pageData;
+    UIPrintFormatter *_parentPrintFormatter;
 }
 
-- (id)_webDocumentView;
+- (void)drawInRect:(struct CGRect)arg1 forPageAtIndex:(int)arg2;
+- (struct CGRect)rectForPageAtIndex:(int)arg1;
+- (int)_recalcPageCount;
+- (id)_pageData;
+- (void)setParentPrintFormatter:(id)arg1;
+- (void)dealloc;
 
 @end
 

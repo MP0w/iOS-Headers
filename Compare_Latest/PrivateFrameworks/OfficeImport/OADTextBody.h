@@ -18,6 +18,7 @@
 - (void)removeUnnecessaryOverrides;
 - (void)flattenProperties;
 - (BOOL)isEmpty;
+- (void)removeLeadingNewlines;
 - (void)removeTrailingNewlines;
 - (void)setParentTextListStyle:(id)arg1;
 - (void)applyTextListStyle:(id)arg1;

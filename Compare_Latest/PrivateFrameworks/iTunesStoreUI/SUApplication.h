@@ -8,14 +8,16 @@
 
 #import "UIApplicationDelegate-Protocol.h"
 
-@class UIWindow;
+@class UIColor, UIWindow;
 
 @interface SUApplication : UIApplication <UIApplicationDelegate>
 {
     BOOL _terminateOnNextSuspend;
     UIWindow *_window;
+    UIColor *_interactionTintColor;
 }
 
+@property(copy, nonatomic) UIColor *interactionTintColor; // @synthesize interactionTintColor=_interactionTintColor;
 - (void)_teardownUI;
 - (void)_setupUI;
 - (void)_exitIfStoreNotAvailable;
@@ -27,7 +29,8 @@
 - (BOOL)applicationSuspend:(struct __GSEvent *)arg1 settings:(id)arg2;
 - (void)applicationDidFinishLaunching:(id)arg1;
 - (void)applicationDidEnterBackground:(id)arg1;
-- (BOOL)application:(id)arg1 handleOpenURL:(id)arg2;
+- (unsigned int)application:(id)arg1 supportedInterfaceOrientationsForWindow:(id)arg2;
+- (BOOL)application:(id)arg1 openURL:(id)arg2 sourceApplication:(id)arg3 annotation:(id)arg4;
 - (BOOL)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2;
 - (void)dealloc;
 - (id)init;

@@ -17,9 +17,9 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputContrast; // @synthesize inputContrast;
-@property(copy, nonatomic) NSNumber *inputBrightness; // @synthesize inputBrightness;
-@property(copy, nonatomic) NSNumber *inputSaturation; // @synthesize inputSaturation;
+@property(retain, nonatomic) NSNumber *inputContrast; // @synthesize inputContrast;
+@property(retain, nonatomic) NSNumber *inputBrightness; // @synthesize inputBrightness;
+@property(retain, nonatomic) NSNumber *inputSaturation; // @synthesize inputSaturation;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (void)setDefaults;

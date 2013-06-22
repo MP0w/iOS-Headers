@@ -32,6 +32,11 @@
     int _overrideTransportType;
     NSMutableArray *_signposts;
     unsigned int _stepID;
+    NSMutableArray *_substeps;
+    BOOL _endsOnFwy;
+    BOOL _toFreeway;
+    BOOL _tollAhead;
+    BOOL _tollPrior;
     struct {
         unsigned int distance:1;
         unsigned int expectedTime:1;
@@ -44,11 +49,16 @@
         unsigned int overrideDrivingSide:1;
         unsigned int overrideTransportType:1;
         unsigned int stepID:1;
+        unsigned int endsOnFwy:1;
+        unsigned int toFreeway:1;
+        unsigned int tollAhead:1;
+        unsigned int tollPrior:1;
     } _has;
 }
 
 @property(retain, nonatomic) NSString *notice; // @synthesize notice=_notice;
 @property(retain, nonatomic) NSString *instructions; // @synthesize instructions=_instructions;
+@property(retain, nonatomic) NSMutableArray *substeps; // @synthesize substeps=_substeps;
 @property(retain, nonatomic) GEONameInfo *exitNumber; // @synthesize exitNumber=_exitNumber;
 @property(nonatomic) int overrideDrivingSide; // @synthesize overrideDrivingSide=_overrideDrivingSide;
 @property(nonatomic) int overrideTransportType; // @synthesize overrideTransportType=_overrideTransportType;
@@ -67,6 +77,18 @@
 - (id)description;
 @property(readonly, nonatomic) BOOL hasNotice;
 @property(readonly, nonatomic) BOOL hasInstructions;
+@property(nonatomic) BOOL hasToFreeway;
+@property(nonatomic) BOOL toFreeway; // @synthesize toFreeway=_toFreeway;
+- (id)substepsAtIndex:(unsigned int)arg1;
+- (unsigned int)substepsCount;
+- (void)addSubsteps:(id)arg1;
+- (void)clearSubsteps;
+@property(nonatomic) BOOL hasEndsOnFwy;
+@property(nonatomic) BOOL endsOnFwy; // @synthesize endsOnFwy=_endsOnFwy;
+@property(nonatomic) BOOL hasTollAhead;
+@property(nonatomic) BOOL tollAhead; // @synthesize tollAhead=_tollAhead;
+@property(nonatomic) BOOL hasTollPrior;
+@property(nonatomic) BOOL tollPrior; // @synthesize tollPrior=_tollPrior;
 @property(readonly, nonatomic) BOOL hasExitNumber;
 @property(nonatomic) BOOL hasOverrideDrivingSide;
 @property(nonatomic) BOOL hasOverrideTransportType;
@@ -105,6 +127,9 @@
 @property(nonatomic) int maneuverEndBasicIndex; // @synthesize maneuverEndBasicIndex=_maneuverEndBasicIndex;
 @property(nonatomic) BOOL hasStepID;
 - (void)dealloc;
+- (void)shieldInfo:(id)arg1;
+- (id)intersectionNameInfo;
+- (id)firstNameInfo;
 @property(readonly, nonatomic) int hintFirstAnnouncementIndex;
 @property(readonly, nonatomic) BOOL hasHintFirstAnnouncementIndex;
 @property(readonly, nonatomic) unsigned int maneuverStartIndex;

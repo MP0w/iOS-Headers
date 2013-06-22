@@ -11,8 +11,8 @@
 @interface TSUFlushingManager : NSObject
 {
     TSURetainedPointerKeyDictionary *_objects;
-    struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerFlushingOrderLess, std::allocator<TSUFlushableObjectInfo *>> *_sortedObjects;
-    struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerTimeStampLess, std::allocator<TSUFlushableObjectInfo *>> *_sortedNewObjects;
+    struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerFlushingOrderLess, std::__1::allocator<TSUFlushableObjectInfo *>> *_sortedObjects;
+    struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerTimeStampLess, std::__1::allocator<TSUFlushableObjectInfo *>> *_sortedNewObjects;
     TSUPointerKeyDictionary *_inactiveObjects;
     unsigned long _clock;
     BOOL _alwaysFlushing;
@@ -20,7 +20,6 @@
     BOOL _stopFlushingWhenQueueEmpty;
     BOOL _isFlushing;
     id <TSUFlushable> _flushingObject;
-    BOOL _isWaitingForFlush;
     NSCondition *_cond;
     NSCondition *_isFlushingCond;
     TSUMemoryWatcher *_memoryWatcher;

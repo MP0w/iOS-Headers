@@ -16,17 +16,16 @@
     EKAttendeesListView *_contentView;
 }
 
+- (void).cxx_destruct;
 - (void)attendeeSelected:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)viewWillAppear:(BOOL)arg1;
 - (id)title;
-- (void)viewDidUnload;
 - (void)loadView;
-- (void)dealloc;
 - (id)initWithEvent:(id)arg1;
 
 // Remaining properties
-@property(nonatomic) id <EKEditItemViewControllerDelegate> editDelegate;
+@property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate;
 
 @end
 

@@ -12,9 +12,11 @@
     int _uColor;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) struct _VGLColor color; // @synthesize color=_color;
-- (id)init;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

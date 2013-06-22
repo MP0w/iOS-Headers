@@ -6,16 +6,17 @@
 
 #import <UIKit/UILabel.h>
 
-@class UITextRenderingAttributes, _UITabBarItemAppearanceStorage;
+@class _UITabBarItemAppearanceStorage;
 
 @interface UITabBarButtonLabel : UILabel
 {
     float _boundsWidth;
-    UITextRenderingAttributes *_attributes;
     _UITabBarItemAppearanceStorage *_appearanceStorage;
     BOOL _isSelected;
+    Class _appearanceGuideClass;
 }
 
+@property(nonatomic, setter=_setAppearanceGuideClass:) Class _appearanceGuideClass; // @synthesize _appearanceGuideClass;
 - (void)_applyTabBarButtonAppearanceStorage:(id)arg1 withTaggedSelectors:(id)arg2;
 - (id)_titleTextAttributesForState:(unsigned int)arg1;
 - (void)_setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
@@ -23,8 +24,9 @@
 - (void)_UIAppearance_setTitlePositionAdjustment:(struct UIOffset)arg1;
 - (void)setSelected:(BOOL)arg1;
 - (void)updateTextColorsForSelection;
+- (void)tintColorDidChange;
 - (void)sizeToFitBounds:(struct CGRect)arg1;
-- (id)_attributes;
+- (id)_stringDrawingContext;
 - (void)dealloc;
 
 @end

@@ -13,10 +13,12 @@
 
 @interface BKSApplicationLaunchSettings : NSObject <NSCopying, BKSXPCCoding>
 {
-    NSDictionary *_environment;
     BOOL _waitForDebugger;
     BOOL _disableASLR;
     BOOL _checkForLeaks;
+    NSDictionary *_environment;
+    NSDictionary *_containerEnvironment;
+    NSString *_containerPath;
     NSArray *_arguments;
     NSString *_standardOut;
     NSString *_standardError;
@@ -28,6 +30,8 @@
 @property(nonatomic) BOOL checkForLeaks; // @synthesize checkForLeaks=_checkForLeaks;
 @property(nonatomic) BOOL disableASLR; // @synthesize disableASLR=_disableASLR;
 @property(nonatomic) BOOL waitForDebugger; // @synthesize waitForDebugger=_waitForDebugger;
+@property(retain, nonatomic) NSString *containerPath; // @synthesize containerPath=_containerPath;
+@property(retain, nonatomic) NSDictionary *containerEnvironment; // @synthesize containerEnvironment=_containerEnvironment;
 @property(retain, nonatomic) NSDictionary *environment; // @synthesize environment=_environment;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;

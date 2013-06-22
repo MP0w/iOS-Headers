@@ -6,23 +6,23 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSObject<OS_dispatch_queue>, NSString;
+@class NSConditionLock, NSString;
 
 @interface MFCountryConfiguration : NSObject
 {
-    NSObject<OS_dispatch_queue> *_queue;
-    BOOL _isUpdating;
-    id _networkObserver;
-    NSLock *_countryCodeLock;
-    NSString *_oldCountryCode;
+    int _lock;
+    NSConditionLock *_generatorLock;
+    NSString *_lastCountryCode;
     NSString *_countryCode;
 }
 
 + (id)sharedConfiguration;
-@property(copy, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
-- (void)_useCountryCode:(id)arg1;
-- (void)_checkCountryCode;
+- (id)_countryCodeWithGenerator:(id)arg1;
+- (id)_networkCountryCode;
+- (id)_cellSimCountryCode;
 - (void)updateCurrentCountry;
+@property(readonly, nonatomic) NSString *countryCode;
+- (void)invalidate;
 - (void)dealloc;
 - (id)init;
 

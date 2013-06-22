@@ -25,10 +25,10 @@
 - (void)deleteCookie:(id)arg1;
 - (void)setCookie:(id)arg1;
 - (id)cookies;
-- (id)init;
 - (void)dealloc;
-- (id)_initWithSharedStorage;
+- (id)init;
 - (void)_readAcceptCookiesPreference;
+- (id)_initWithCFHTTPCookieStorage:(struct OpaqueCFHTTPCookieStorage *)arg1;
 - (void)_saveCookies;
 - (struct OpaqueCFHTTPCookieStorage *)_cookieStorage;
 - (void)_setPrivateBrowsingEnabled:(BOOL)arg1;

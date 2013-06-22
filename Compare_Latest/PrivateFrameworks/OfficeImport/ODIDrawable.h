@@ -19,7 +19,7 @@
 + (void)mapStyleFromPoint:(id)arg1 shape:(id)arg2 state:(id)arg3;
 + (id)addShapeWithBounds:(struct CGRect)arg1 rotation:(float)arg2 geometry:(id)arg3 state:(id)arg4;
 + (struct CGSize)sizeOfDiagram:(id)arg1;
-+ (id)shapeGeometryForBezierPath:(struct CGPath *)arg1 gSpace:(struct CGRect)arg2;
++ (id)shapeGeometryForBezierPath:(id)arg1 gSpace:(struct CGRect)arg2;
 + (id)shapeGeometryWithShapeType:(int)arg1 adjustValues:(const int *)arg2;
 + (id)shapeGeometryForDoubleArrowWithControlPoint:(struct CGPoint)arg1;
 + (id)shapeGeometryForRightArrowWithControlPoint:(struct CGPoint)arg1;

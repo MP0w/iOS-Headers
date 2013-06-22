@@ -89,14 +89,13 @@
         unsigned int editing:1;
         unsigned int editAnimation:1;
         unsigned int dragInProgress:1;
-        unsigned int dataSourceImplementsDataForImage:1;
         unsigned int dataSourceImplementsTextBadgeStringForImage:1;
         unsigned int dataSourceImplementsImageBadgeForImage:1;
         unsigned int dataSourceImplementsTitleForItem:1;
         unsigned int dataSourceImplementsSubtitleForItem:1;
         unsigned int dataSourceImplementsShowUnreadIndicatorForItem:1;
         unsigned int dataSourceImplementsPreheatImagesInRange:1;
-        unsigned int dataSourcePrefersLazyPreheating:1;
+        unsigned int dataSourceImplementsPreheatImageDataAtStartIndex:1;
         unsigned int dataSourceImplementsEditingOptionsForItemAtIndex:1;
         unsigned int dataSourceImplementsRemoveItemAtIndex:1;
         unsigned int dataSourceImplementsCollapsedIndexesForCount:1;
@@ -124,8 +123,8 @@
 + (id)selectionBadgeImage;
 + (float)maxStackedAngle;
 + (void)initialize;
-@property(nonatomic) struct CGPoint collapsedImageOffset; // @synthesize collapsedImageOffset=_collapsedImageOffset;
 @property(nonatomic) unsigned int unreadStartMarkerIndex; // @synthesize unreadStartMarkerIndex=_unreadStartMarkerIndex;
+@property(nonatomic) struct CGPoint collapsedImageOffset; // @synthesize collapsedImageOffset=_collapsedImageOffset;
 @property(nonatomic) PLStackItemViewCell *contextItemCell; // @synthesize contextItemCell=_contextItemCell;
 @property(retain, nonatomic) PLExpandableView *forwardingView; // @synthesize forwardingView=_forwardingView;
 @property(retain, nonatomic) NSString *initialScrollPositionOffsetKey; // @synthesize initialScrollPositionOffsetKey=_initialScrollPositionOffsetKey;
@@ -139,7 +138,7 @@
 @property(readonly, nonatomic) unsigned int numberOfColumns; // @synthesize numberOfColumns=_numColumns;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
-- (void)_preheatScrollingDataForRow:(int)arg1;
+- (void)_preheatImageDataForDownwardScroll:(BOOL)arg1;
 - (void)_preheatImageDataForDownwardScroll:(BOOL)arg1 windowSize:(unsigned int)arg2;
 - (id)_jiggleAnimation;
 - (void)_layoutItemCellsFromIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2 inTableCell:(id)arg3 animated:(BOOL)arg4;

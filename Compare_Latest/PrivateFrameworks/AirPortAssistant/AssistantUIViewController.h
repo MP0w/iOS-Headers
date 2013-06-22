@@ -12,7 +12,7 @@
 #import "TableViewManagerDelegate-Protocol.h"
 #import "UINavigationControllerDelegate-Protocol.h"
 
-@class AssistantCallbackController, AssistantSubUIViewController, AssistantUIController, NSDictionary, NSString, NetTopoMiniStaticLayout, TextLinkButton, UIActivityIndicatorView, UIAlertView, UIBarButtonItem, UILabel, UITableView, UITextField, UIView;
+@class AssistantCallbackController, AssistantSubUIViewController, AssistantUIController, NSArray, NSDictionary, NSString, NetTopoMiniStaticLayout, UIActivityIndicatorView, UIAlertView, UIBarButtonItem, UILabel, UITableView, UITextField, UIView;
 
 @interface AssistantUIViewController : AUUITableViewController <AssistantUIDelegate, AssistantCallbackUIDelegate, UINavigationControllerDelegate, AssistantSubcontrollerHelper, TableViewManagerDelegate>
 {
@@ -27,14 +27,14 @@
     UIView *topoContainerView;
     UIView *topoView;
     NetTopoMiniStaticLayout *topoLayout;
-    TextLinkButton *textLinkButton;
     UIBarButtonItem *nextButton;
     UIBarButtonItem *cancelButton;
-    UIView *_tableHeaderContainerView;
-    UITableView *_mainTableView;
+    UIView *tableHeaderContainerView;
     id _assistantDelegate;
     NSString *_macAddress;
+    NSString *_settingUpStatusText;
     NSDictionary *_scanInfoRecord;
+    NSArray *_paramScanResults;
     NSDictionary *_recommendationParamDict;
     AssistantUIController *_assistantUIController;
     AssistantCallbackController *_controllerContext;
@@ -42,22 +42,23 @@
     UIAlertView *passwordAlertView;
     UIAlertView *askUserQuestionAlertView;
     UIAlertView *connectionVerificationAlertView;
-    int askUserContext;
     int letMeChooseButtonIndex;
     int restoreButtonIndex;
     int recommendationButtonIndex;
     BOOL iPadIdiom;
     BOOL showingPasswordsAtEnd;
-    int _currentConnectionStatusStep;
+    int _currentUIConfigStep;
+    NSDictionary *_mfiAccessoryResponseDict;
     AssistantSubUIViewController *_currentSubController;
     BOOL _goingBack;
     unsigned int _selectedActionTag;
     UITextField *currentTextField;
     NSDictionary *recommendationParamDict;
-    AssistantSubUIViewController *currentSubController;
+    UITableView *_mainTableView;
 }
 
 + (void)readjustSubviewsInContainer:(id)arg1;
+@property(retain) NSString *settingUpStatusText; // @synthesize settingUpStatusText=_settingUpStatusText;
 @property(copy, nonatomic) NSString *macAddress; // @synthesize macAddress=_macAddress;
 @property(nonatomic) BOOL iPadIdiom; // @synthesize iPadIdiom;
 @property(nonatomic) int recommendationButtonIndex; // @synthesize recommendationButtonIndex;
@@ -66,18 +67,18 @@
 @property(retain, nonatomic) UIAlertView *askUserQuestionAlertView; // @synthesize askUserQuestionAlertView;
 @property(retain, nonatomic) UIAlertView *passwordAlertView; // @synthesize passwordAlertView;
 @property(retain, nonatomic) UITableView *mainTableView; // @synthesize mainTableView=_mainTableView;
-@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView=_tableHeaderContainerView;
+@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 @property(retain, nonatomic) NetTopoMiniStaticLayout *topoLayout; // @synthesize topoLayout;
-@property(retain, nonatomic) AssistantSubUIViewController *currentSubController; // @synthesize currentSubController;
+@property(retain, nonatomic) UIView *topoContainerView; // @synthesize topoContainerView;
+@property(retain, nonatomic) AssistantSubUIViewController *currentSubController; // @synthesize currentSubController=_currentSubController;
 @property(retain, nonatomic) UITextField *currentTextField; // @synthesize currentTextField;
 @property(retain, nonatomic) UIBarButtonItem *cancelButton; // @synthesize cancelButton;
 @property(retain, nonatomic) UIBarButtonItem *nextButton; // @synthesize nextButton;
-@property(retain, nonatomic) UILabel *spinnerWithStatusAdjacentLabel; // @synthesize spinnerWithStatusAdjacentLabel;
-@property(retain, nonatomic) TextLinkButton *textLinkButton; // @synthesize textLinkButton;
-@property(retain, nonatomic) UILabel *justTextLabel; // @synthesize justTextLabel;
+@property(retain, nonatomic) UIView *spinnerWithStatusBelowView; // @synthesize spinnerWithStatusBelowView;
+@property(retain, nonatomic) UIView *spinnerWithStatusAdjacentView; // @synthesize spinnerWithStatusAdjacentView;
 @property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
-@property(retain, nonatomic) UIActivityIndicatorView *spinnerWithStatusAdjacentSpinner; // @synthesize spinnerWithStatusAdjacentSpinner;
 @property(copy, nonatomic) NSDictionary *recommendationParamDict; // @synthesize recommendationParamDict;
+@property(copy, nonatomic) NSArray *paramScanResults; // @synthesize paramScanResults=_paramScanResults;
 @property(copy, nonatomic) NSDictionary *scanInfoRecord; // @synthesize scanInfoRecord=_scanInfoRecord;
 @property(retain, nonatomic) AssistantCallbackController *_controllerContext; // @synthesize _controllerContext;
 @property(retain, nonatomic) AssistantUIController *_assistantUIController; // @synthesize _assistantUIController;
@@ -92,6 +93,7 @@
 - (void)presentUIForStepByStepResult:(long)arg1;
 - (id)modifyTopoUIInLayer:(id)arg1 withLayout:(id)arg2 newLayout:(id)arg3;
 - (void)presentUIForStepByStepNextStep:(int)arg1 paramDict:(id)arg2;
+- (void)presentUIForStepByStepStart;
 - (void)presentUIForRecommendationResult:(long)arg1 paramDict:(id)arg2;
 - (void)presentUIForRecommmendationTargetInfo:(id)arg1;
 - (void)presentUIForRecommendationStatus;
@@ -106,18 +108,21 @@
 - (void)showAskUserPluginAudioCablingForStatus:(long)arg1 paramDict:(id)arg2;
 - (void)showAskUserSwapCablingForStatus:(long)arg1 paramDict:(id)arg2;
 - (void)showTellUserToPlugInEthernetForStatus:(long)arg1 paramDict:(id)arg2;
+- (void)showUIConfigPromptForGuestNetConfigWithParamDict:(id)arg1;
+- (void)showUIConfigPromptToSendDiagsUsageStatsWithParamDict:(id)arg1;
 - (void)showAskUserForPPPoECredentialsForStatus:(long)arg1 paramDict:(id)arg2;
 - (void)showTellUserToResetBroadbandDeviceForStatus:(long)arg1 paramDict:(id)arg2;
 - (void)playDoneSound;
 - (long)callbackAskUserAQuestion:(int)arg1 paramDict:(id)arg2 forController:(id)arg3;
 - (long)callbackAskUserForPassword:(int)arg1 param:(id)arg2 forController:(id)arg3;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)callbackAskCancel;
 - (void)baseStationConfigurationComplete:(id)arg1;
 - (void)readyToGuess;
 - (void)dealloc;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)initializeServiesDone;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)keyboardReturnKeySetEnabled:(BOOL)arg1;
 - (id)radioNameFromBaseStation:(id)arg1;
@@ -128,6 +133,8 @@
 - (void)showUIForSetupStatus;
 - (void)skipPluginAudioCabling;
 - (void)continueWithSwapCabling;
+- (void)continueWithGuestNetSettings;
+- (void)continueWithDiagsAndUsageStats;
 - (void)continueWithPPPoESettings;
 - (void)skipWANPort;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;

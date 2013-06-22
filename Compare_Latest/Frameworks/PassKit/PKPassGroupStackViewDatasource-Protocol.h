@@ -5,7 +5,6 @@
  */
 
 @protocol PKPassGroupStackViewDatasource
-- (float)minimumItemHeightStartingAtIndex:(unsigned int)arg1;
 - (float)groupHeightAtIndex:(unsigned int)arg1;
 - (unsigned int)indexOfGroup:(id)arg1;
 - (id)groupAtIndex:(unsigned int)arg1;

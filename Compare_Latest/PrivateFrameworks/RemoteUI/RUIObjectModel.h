@@ -7,12 +7,13 @@
 #import "NSObject.h"
 
 #import "RUIPageDelegate-Protocol.h"
+#import "RUIPasscodeViewDelegate-Protocol.h"
 #import "RUITableViewDelegate-Protocol.h"
 #import "UIWebViewDelegate-Protocol.h"
 
 @class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSTimer, NSURL, RUIPage, UIAlertView;
 
-@interface RUIObjectModel : NSObject <UIWebViewDelegate, RUITableViewDelegate, RUIPageDelegate>
+@interface RUIObjectModel : NSObject <UIWebViewDelegate, RUITableViewDelegate, RUIPasscodeViewDelegate, RUIPageDelegate>
 {
     NSString *_name;
     NSURL *_sourceURL;
@@ -28,6 +29,7 @@
     NSDictionary *_alert;
     NSDictionary *_clientInfo;
     NSDictionary *_serverInfo;
+    NSDictionary *_updateInfo;
     int _refreshDelay;
     NSString *_refreshURL;
     NSTimer *_refreshTimer;
@@ -40,6 +42,7 @@
 }
 
 + (id)objectModelForXMLNamed:(id)arg1;
+@property(retain, nonatomic) NSDictionary *updateInfo; // @synthesize updateInfo=_updateInfo;
 @property(nonatomic) int nextButtonStyle; // @synthesize nextButtonStyle=_nextButtonStyle;
 @property(retain, nonatomic) NSString *refreshURL; // @synthesize refreshURL=_refreshURL;
 @property(nonatomic) int refreshDelay; // @synthesize refreshDelay=_refreshDelay;
@@ -53,11 +56,12 @@
 @property(readonly, nonatomic) NSDictionary *namedPages; // @synthesize namedPages=_namedPages;
 @property(readonly, nonatomic) NSArray *defaultPages; // @synthesize defaultPages=_defaultPages;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (BOOL)RUIPage:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
+- (unsigned int)supportedInterfaceOrientationsForRUIPage:(id)arg1;
 - (void)RUIPage:(id)arg1 toggledEditing:(BOOL)arg2;
 - (void)RUIPage:(id)arg1 pressedNavBarButton:(id)arg2;
 - (void)_nextPage;
 - (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
+- (void)pinViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3;
 - (void)tableViewOMDidChange:(id)arg1;
 - (BOOL)tableViewOM:(id)arg1 deleteRowAtIndexPath:(id)arg2;
 - (void)tableViewOM:(id)arg1 pressedLink:(id)arg2 attributes:(id)arg3;
@@ -78,6 +82,12 @@
 - (BOOL)hasAttributeOrAttributeFunctionNamed:(id)arg1 withAttributes:(id)arg2;
 - (id)relativeURLWithString:(id)arg1;
 - (id)rowForFormField:(id)arg1;
+- (id)tableFooterViewForAttributes:(id)arg1;
+- (id)tableHeaderViewForAttributes:(id)arg1;
+- (Class)customFooterClassForSection:(id)arg1;
+- (Class)customHeaderClassForSection:(id)arg1;
+- (void)configureRow:(id)arg1;
+- (void)configureTableView:(id)arg1;
 - (id)alertView;
 - (void)setPages:(id)arg1;
 @property(readonly, nonatomic) NSArray *allPages;
@@ -92,6 +102,7 @@
 - (void)_displaySupplementalPage:(id)arg1;
 - (id)newNavigationControllerForPresentation;
 - (void)presentInParentViewController:(id)arg1 animated:(BOOL)arg2;
+- (void)presentWithBlock:(id)arg1;
 - (id)_firstPageForPresentation;
 - (void)refreshTimeout;
 - (void)_populatePageNavItem:(id)arg1 withNextButton:(BOOL)arg2;
@@ -102,7 +113,8 @@
 - (id)init;
 - (void)setJSGlobalContext:(struct OpaqueJSContext *)arg1;
 - (void)runScript;
-- (id)invokeStringFunction:(id)arg1;
+- (id)invokeScriptFunction:(id)arg1 withArguments:(id)arg2;
+- (id)objectForJSValue:(struct OpaqueJSValue *)arg1;
 - (BOOL)validateWithFunction:(id)arg1;
 - (BOOL)prepareScriptContext;
 

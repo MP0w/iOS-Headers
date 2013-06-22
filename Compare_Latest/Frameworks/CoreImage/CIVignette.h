@@ -16,13 +16,13 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputRadius; // @synthesize inputRadius;
-@property(copy, nonatomic) NSNumber *inputIntensity; // @synthesize inputIntensity;
+@property(retain, nonatomic) NSNumber *inputRadius; // @synthesize inputRadius;
+@property(retain, nonatomic) NSNumber *inputIntensity; // @synthesize inputIntensity;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (id)_kernel;
 - (BOOL)_isIdentity;
 - (void)setDefaults;
-- (id)_kernel;
 
 @end
 

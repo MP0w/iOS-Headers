@@ -14,47 +14,38 @@
     int _travelledTextureSampler;
     int _uAlphaTextureSampler;
     int _alphaTextureSampler;
-    int _uTrafficTextureSampler;
-    int _trafficTextureSampler;
     int _uHalfWidth;
     float _halfWidth;
-    int _uPrimaryColor;
-    struct _VGLColor _primaryColor;
-    int _uRouteTextureMappingScaler;
-    float _routeTextureMappingScaler;
-    int _uTextureCoordinateAdjustmentFactor;
-    float _textureCoordinateAdjustmentFactor;
-    int _uTrafficTextureMappingCap;
-    float _trafficTextureMappingCap;
-    int _uTrafficWidthScaler;
-    float _trafficWidthScaler;
-    int _uStrokeColor;
-    struct _VGLColor _strokeColor;
     int _uStrokeWidthScale;
     float _strokeWidthScale;
     int _uSplitLength;
     float _splitLength;
     int _uTravelledColor;
     struct _VGLColor _travelledColor;
+    int _uBrightness;
+    float _brightness;
+    int _uLightDirection;
+    CDStruct_03942939 _lightDirection;
+    int _uInverseBaseColor;
+    struct _VGLColor _inverseBaseColor;
+    int _uAlphaScale;
+    float _alphaScale;
 }
 
-+ (id)realisticProgram;
-+ (id)program;
-@property(nonatomic) float routeTextureMappingScaler; // @synthesize routeTextureMappingScaler=_routeTextureMappingScaler;
-@property(nonatomic) float textureCoordinateAdjustmentFactor; // @synthesize textureCoordinateAdjustmentFactor=_textureCoordinateAdjustmentFactor;
-@property(nonatomic) float trafficTextureMappingCap; // @synthesize trafficTextureMappingCap=_trafficTextureMappingCap;
-@property(nonatomic) float trafficWidthScaler; // @synthesize trafficWidthScaler=_trafficWidthScaler;
-@property(nonatomic) int trafficTextureSampler; // @synthesize trafficTextureSampler=_trafficTextureSampler;
-@property(nonatomic) float splitLength; // @synthesize splitLength=_splitLength;
-@property(nonatomic) struct _VGLColor primaryColor; // @synthesize primaryColor=_primaryColor;
++ (id)fragName;
++ (id)vertName;
+@property(nonatomic) float alphaScale; // @synthesize alphaScale=_alphaScale;
+@property(nonatomic) struct _VGLColor inverseBaseColor; // @synthesize inverseBaseColor=_inverseBaseColor;
+@property(nonatomic) float brightness; // @synthesize brightness=_brightness;
 @property(nonatomic) struct _VGLColor travelledColor; // @synthesize travelledColor=_travelledColor;
+@property(nonatomic) float splitLength; // @synthesize splitLength=_splitLength;
 @property(nonatomic) float strokeWidthScale; // @synthesize strokeWidthScale=_strokeWidthScale;
-@property(nonatomic) struct _VGLColor strokeColor; // @synthesize strokeColor=_strokeColor;
 @property(nonatomic) float halfWidth; // @synthesize halfWidth=_halfWidth;
 @property(nonatomic) int alphaTextureSampler; // @synthesize alphaTextureSampler=_alphaTextureSampler;
 @property(nonatomic) int travelledTextureSampler; // @synthesize travelledTextureSampler=_travelledTextureSampler;
 @property(nonatomic) int textureSampler; // @synthesize textureSampler=_textureSampler;
-- (id)initWithStyle:(int)arg1;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

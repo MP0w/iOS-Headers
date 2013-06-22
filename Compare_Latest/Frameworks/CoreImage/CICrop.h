@@ -6,21 +6,23 @@
 
 #import <CoreImage/CIFilter.h>
 
+#import "_CIFilterProperties-Protocol.h"
+
 @class CIImage, CIVector;
 
-@interface CICrop : CIFilter
+@interface CICrop : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
     CIVector *inputRectangle;
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) CIVector *inputRectangle; // @synthesize inputRectangle;
+@property(retain, nonatomic) CIVector *inputRectangle; // @synthesize inputRectangle;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
-- (id)outputImage;
-- (void)setDefaults;
 - (id)_initFromProperties:(id)arg1;
 - (id)_outputProperties;
+- (id)outputImage;
+- (void)setDefaults;
 
 @end
 

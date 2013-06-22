@@ -12,6 +12,10 @@
 {
     CDStruct_084d6ede _trafficColorOffsets;
     CDStruct_084d6ede _trafficColors;
+    unsigned int _historicTravelTime;
+    NSMutableArray *_incidentsOffReRoutes;
+    NSMutableArray *_incidentsOnETARoutes;
+    NSMutableArray *_incidentsOnReRoutes;
     NSMutableArray *_invalidSectionZilchPoints;
     NSMutableArray *_reroutedRoutes;
     NSData *_routeID;
@@ -19,10 +23,15 @@
     NSData *_zilchPoints;
     BOOL _routeNoLongerValid;
     struct {
+        unsigned int historicTravelTime:1;
         unsigned int routeNoLongerValid:1;
     } _has;
 }
 
+@property(nonatomic) unsigned int historicTravelTime; // @synthesize historicTravelTime=_historicTravelTime;
+@property(retain, nonatomic) NSMutableArray *incidentsOffReRoutes; // @synthesize incidentsOffReRoutes=_incidentsOffReRoutes;
+@property(retain, nonatomic) NSMutableArray *incidentsOnReRoutes; // @synthesize incidentsOnReRoutes=_incidentsOnReRoutes;
+@property(retain, nonatomic) NSMutableArray *incidentsOnETARoutes; // @synthesize incidentsOnETARoutes=_incidentsOnETARoutes;
 @property(retain, nonatomic) NSMutableArray *invalidSectionZilchPoints; // @synthesize invalidSectionZilchPoints=_invalidSectionZilchPoints;
 @property(retain, nonatomic) NSMutableArray *reroutedRoutes; // @synthesize reroutedRoutes=_reroutedRoutes;
 @property(nonatomic) BOOL routeNoLongerValid; // @synthesize routeNoLongerValid=_routeNoLongerValid;
@@ -36,6 +45,19 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasHistoricTravelTime;
+- (id)incidentsOffReRoutesAtIndex:(unsigned int)arg1;
+- (unsigned int)incidentsOffReRoutesCount;
+- (void)addIncidentsOffReRoutes:(id)arg1;
+- (void)clearIncidentsOffReRoutes;
+- (id)incidentsOnReRoutesAtIndex:(unsigned int)arg1;
+- (unsigned int)incidentsOnReRoutesCount;
+- (void)addIncidentsOnReRoutes:(id)arg1;
+- (void)clearIncidentsOnReRoutes;
+- (id)incidentsOnETARouteAtIndex:(unsigned int)arg1;
+- (unsigned int)incidentsOnETARoutesCount;
+- (void)addIncidentsOnETARoute:(id)arg1;
+- (void)clearIncidentsOnETARoutes;
 - (void)setTrafficColorOffsets:(unsigned int *)arg1 count:(unsigned int)arg2;
 - (unsigned int)trafficColorOffsetAtIndex:(unsigned int)arg1;
 - (void)addTrafficColorOffset:(unsigned int)arg1;

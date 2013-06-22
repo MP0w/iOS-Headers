@@ -17,8 +17,8 @@
     NSString *_cachedDisplayName;
 }
 
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (int)compare:(id)arg1;
 - (id)lastName;
 - (id)firstName;

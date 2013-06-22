@@ -13,13 +13,17 @@
     void *_impl;
 }
 
-+ (id)privateCreateChannelDescriptionsArrayWithCFArray:(struct __CFArray *)arg1 portUID:(struct __CFString *)arg2;
-+ (id)privateCreateWithCFDictionaryRef:(struct __CFDictionary *)arg1 portUID:(struct __CFString *)arg2 channelNumber:(unsigned long)arg3;
++ (id)privateCreateArray:(id)arg1 portUID:(id)arg2;
++ (id)privateCreate:(id)arg1 portUID:(id)arg2 channelNumber:(unsigned long)arg3;
 - (struct ChannelDescriptionImpl *)privateGetImplementation;
 - (id)description;
+@property(readonly) unsigned long channelLabel;
 @property(readonly) unsigned int channelNumber;
 @property(readonly) NSString *owningPortUID;
 @property(readonly) NSString *channelName;
+- (unsigned int)hash;
+- (BOOL)isEqualToChannel:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

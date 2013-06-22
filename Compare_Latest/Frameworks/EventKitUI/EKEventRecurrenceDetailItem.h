@@ -6,24 +6,24 @@
 
 #import <EventKitUI/EKEventDetailItem.h>
 
-@class EKEventDetailRecurrenceCell, NSString;
+@class EKEventDetailRecurrenceCell, NSDate, NSString;
 
 @interface EKEventRecurrenceDetailItem : EKEventDetailItem
 {
     EKEventDetailRecurrenceCell *_cell;
     int _repeatType;
     int _originalRepeatType;
-    CDStruct_b0fa4487 _repeatEndGr;
+    NSDate *_repeatEnd;
     NSString *_customRepeatDescription;
     BOOL _indent;
 }
 
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (void).cxx_destruct;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (void)setEvent:(id)arg1 store:(id)arg2;
 - (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
 - (void)reset;
-- (void)dealloc;
 
 @end
 

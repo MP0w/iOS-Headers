@@ -19,7 +19,6 @@
 - (void)releaseImagesAndViews;
 - (void)updateSegmentAndDividers:(int)arg1;
 - (void)updateSegmentImages;
-- (id)initWithFrame:(struct CGRect)arg1 keyboard:(id)arg2 key:(id)arg3 state:(int)arg4;
 
 @end
 

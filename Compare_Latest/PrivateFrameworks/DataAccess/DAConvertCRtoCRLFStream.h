@@ -6,7 +6,7 @@
 
 #import "NSInputStream.h"
 
-@class NSData;
+@class ASTrafficLogger, NSData;
 
 @interface DAConvertCRtoCRLFStream : NSInputStream
 {
@@ -23,6 +23,7 @@
     struct __CFRunLoopSource *_rls;
     void *_clientCallback;
     CDStruct_304912e7 _clientContext;
+    ASTrafficLogger *_trafficLogger;
 }
 
 - (void)dealloc;

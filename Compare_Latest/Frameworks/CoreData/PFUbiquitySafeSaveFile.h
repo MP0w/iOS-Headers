@@ -43,6 +43,7 @@
 - (void)safeSaveFinishedUpload;
 - (void)setSafeSaveSuccess:(BOOL)arg1;
 - (void)setSafeSaveError:(id)arg1;
+- (void)checkSafeSaveFileUploadAsync;
 - (void)checkSafeSaveFileUpload;
 - (BOOL)writeFileToLocation:(id)arg1 error:(id *)arg2;
 - (BOOL)loadFileFromLocation:(id)arg1 error:(id *)arg2;

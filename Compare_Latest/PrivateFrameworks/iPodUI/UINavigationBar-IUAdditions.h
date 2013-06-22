@@ -7,6 +7,6 @@
 #import "UINavigationBar.h"
 
 @interface UINavigationBar (IUAdditions)
-@property(nonatomic) int IUInterfaceStyle;
+@property(nonatomic) unsigned int IUInterfaceStyle;
 @end
 

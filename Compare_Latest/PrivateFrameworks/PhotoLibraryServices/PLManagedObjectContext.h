@@ -6,7 +6,7 @@
 
 #import "NSManagedObjectContext.h"
 
-@class NSObject<OS_xpc_object>, PLDelayedFiledSystemDeletions, PLMergePolicy, PLPhotoLibrary;
+@class NSMapTable, NSMutableArray, NSMutableSet, NSObject<OS_xpc_object>, PLDelayedFiledSystemDeletions, PLMergePolicy, PLPhotoLibrary;
 
 @interface PLManagedObjectContext : NSManagedObjectContext
 {
@@ -18,16 +18,29 @@
     BOOL _isBackingALAssetsLibrary;
     PLMergePolicy *_mergePolicy;
     PLDelayedFiledSystemDeletions *_delayedDeletions;
+    NSMutableArray *_delayedMomentAssetUpdates;
+    NSMapTable *_delayedMomentAssetDeletions;
+    NSMutableSet *_delayedCloudFeedDeletionEntries;
+    NSMutableArray *_delayedCloudFeedAlbumUpdates;
+    NSMutableArray *_delayedCloudFeedAssetInserts;
+    NSMutableArray *_delayedCloudFeedAssetUpdates;
+    NSMutableArray *_delayedCloudFeedCommentInserts;
+    NSMutableArray *_delayedCloudFeedInvitationRecordUpdates;
+    NSMutableArray *_delayedDupeAnalysisNormalInserts;
+    NSMutableArray *_delayedDupeAnalysisCloudInserts;
     PLPhotoLibrary *_photoLibrary;
     id <PLManagedObjectContextPTPNotificationDelegate> _ptpNotificationDelegate;
-    NSObject<OS_xpc_object> *changeHubConnection;
     BOOL _regenerateVideoThumbnails;
+    NSObject<OS_xpc_object> *changeHubConnection;
 }
 
 + (BOOL)assetsLibraryLoggingEnabled;
 + (void)handleUnknownMergeEvent;
-+ (void)mergeChangesFromRemoteContextSave:(id)arg1 intoAllContextsNotIdenticalTo:(id)arg2;
-+ (void)mergeIntoAllContextsChangesFromRemoteContextSave:(id)arg1;
++ (void)mergeChangesFromRemoteContextSave:(id)arg1 intoAllContextsNotIdenticalTo:(id)arg2 completionHandler:(id)arg3;
++ (void)mergeIntoAllContextsChangesFromRemoteContextSave:(id)arg1 completionHandler:(id)arg2;
++ (void)delayedDupeAnalysisDataFromChangeHubEvent:(id)arg1 normalInserts:(id *)arg2 cloudInserts:(id *)arg3;
++ (void)delayedCloudFeedDataFromChangeHubEvent:(id)arg1 albumUpdates:(id *)arg2 assetInserts:(id *)arg3 assetUpdates:(id *)arg4 commentInserts:(id *)arg5 invitationRecordUpdates:(id *)arg6 deletionEntries:(id *)arg7;
++ (void)delayedMomentDataFromChangeHubEvent:(id)arg1 insertsAndUpdates:(id *)arg2 deletes:(id *)arg3;
 + (id)allContextsNotIdenticalTo:(void *)arg1;
 + (id)sharedPersistentStoreCoordinator;
 + (id)managedObjectModel;
@@ -37,7 +50,7 @@
 + (void)getStoreURL:(id *)arg1 options:(id *)arg2 forFileURL:(id)arg3;
 + (void)getStoreURL:(id *)arg1 options:(id *)arg2;
 + (void)configurePersistentStoreCoordinator:(id)arg1;
-+ (void)recordVersion:(int)arg1 forStore:(id)arg2;
++ (void)recordVersion:(int)arg1 forStore:(id)arg2 extraMetadata:(id)arg3;
 + (BOOL)hasAtLeastOneAsset;
 + (id)databasePath;
 + (BOOL)databaseIsMissing;
@@ -49,8 +62,8 @@
 + (id)contextForDatabaseCreation;
 + (id)contextForPhotoLibrary:(id)arg1;
 @property(nonatomic) BOOL isBackingALAssetsLibrary; // @synthesize isBackingALAssetsLibrary=_isBackingALAssetsLibrary;
-@property(nonatomic) BOOL regenerateVideoThumbnails; // @synthesize regenerateVideoThumbnails=_regenerateVideoThumbnails;
 @property(nonatomic) BOOL isInitializingSingletons; // @synthesize isInitializingSingletons=_isInitializingSingletons;
+@property(nonatomic) BOOL regenerateVideoThumbnails; // @synthesize regenerateVideoThumbnails=_regenerateVideoThumbnails;
 @property(nonatomic) id <PLManagedObjectContextPTPNotificationDelegate> ptpNotificationDelegate; // @synthesize ptpNotificationDelegate=_ptpNotificationDelegate;
 @property(nonatomic) BOOL hasMetadataChanges; // @synthesize hasMetadataChanges=_hasMetadataChanges;
 @property(retain, nonatomic) PLDelayedFiledSystemDeletions *delayedDeletions; // @synthesize delayedDeletions=_delayedDeletions;
@@ -64,7 +77,22 @@
 - (void)_mergeChangesFromDidSaveDictionary:(id)arg1 usingObjectIDs:(BOOL)arg2;
 - (void)_notifyALAssetsLibraryWithChanges:(id)arg1 usingObjectIDs:(BOOL)arg2;
 - (BOOL)_tooManyAssetChangesToHandle:(unsigned int)arg1;
+- (void)appendDelayedDupeAnalysisToXPCMessage:(id)arg1;
+- (void)getDelayedDupeAnalysisNormalInserts:(id *)arg1 cloudInserts:(id *)arg2;
+- (void)recordAssetForDupeAnalysis:(id)arg1;
+- (void)_recordStreamAssetForDupeAnalyzis:(id)arg1;
+- (void)_recordNormalAssetForDupeAnalyzis:(id)arg1;
+- (void)appendDelayedCloudFeedDataToXPCMessage:(id)arg1;
+- (void)getDelayedCloudFeedAlbumUpdates:(id *)arg1 assetInserts:(id *)arg2 assetUpdates:(id *)arg3 commentInserts:(id *)arg4 invitationRecordUpdates:(id *)arg5 deletionEntries:(id *)arg6;
+- (void)recordInvitationRecordForCloudFeedUpdate:(id)arg1;
+- (void)recordCommentForCloudFeedUpdate:(id)arg1;
+- (void)recordAssetForCloudFeedUpdate:(id)arg1;
+- (void)recordAlbumForCloudFeedUpdate:(id)arg1;
+- (void)appendDelayedMomentDataToXPCMessage:(id)arg1;
+- (void)getDelayedMomentInsertsAndUpdates:(id *)arg1 deletes:(id *)arg2;
+- (void)recordAssetForMomentUpdate:(id)arg1;
 - (void)registerFilesystemDeletionInfo:(id)arg1;
+- (BOOL)_isValidDelete:(id)arg1;
 - (void)disconnectFromChangeHub;
 - (void)connectToChangeHub;
 - (BOOL)globalBoolValueForKey:(id)arg1 defaultValue:(BOOL)arg2;

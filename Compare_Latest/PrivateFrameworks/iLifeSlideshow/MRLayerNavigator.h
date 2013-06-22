@@ -26,8 +26,8 @@
     NSDictionary *mTransitionChanges;
     NSMutableArray *mHistoryBack;
     NSMutableArray *mHistoryForth;
-    MRLayer *mCurrentSublayer;
     BOOL mBackAndForthIsEnabled;
+    MRLayer *mCurrentSublayer;
     double mForcedTransitionTime;
 }
 

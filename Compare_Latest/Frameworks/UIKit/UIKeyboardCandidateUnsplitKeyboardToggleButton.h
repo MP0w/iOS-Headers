@@ -22,6 +22,8 @@
 @property(nonatomic) BOOL drawsBackground; // @synthesize drawsBackground=_drawsBackground;
 - (id)toggleButtonBackgroundImageWithHighlight:(BOOL)arg1;
 - (void)updateBackgroundImages;
+- (void)setHighlighted:(BOOL)arg1;
+- (void)setSelected:(BOOL)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -14,8 +14,8 @@
 {
     CHDChart *mChart;
     CHDChartType *mChartType;
-    int mOrder;
-    int mStyleIndex;
+    unsigned int mOrder;
+    unsigned int mStyleIndex;
     CHDFormula *mName;
     CHDDataValue *mLastCachedName;
     CHDData *mValueData;
@@ -32,7 +32,7 @@
 
 + (id)seriesWithChart:(id)arg1;
 - (_Bool)isEmpty;
-- (id)defaultSeriesNameForIndex:(int)arg1;
+- (id)defaultSeriesNameForIndex:(unsigned int)arg1;
 - (void)setHiddenFlag:(_Bool)arg1;
 - (_Bool)isHidden;
 - (_Bool)isDateTimeFormattingFlag;
@@ -61,10 +61,10 @@
 - (id)name;
 - (void)setLastCachedName:(id)arg1;
 - (id)lastCachedName;
-- (void)setStyleIndex:(int)arg1;
-- (int)styleIndex;
-- (void)setOrder:(int)arg1;
-- (int)order;
+- (void)setStyleIndex:(unsigned int)arg1;
+- (unsigned int)styleIndex;
+- (void)setOrder:(unsigned int)arg1;
+- (unsigned int)order;
 - (int)key;
 - (void)setChartType:(id)arg1;
 - (id)chart;

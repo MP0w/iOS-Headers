@@ -29,7 +29,6 @@
 - (BOOL)webView:(id)arg1 shouldInsertNode:(id)arg2 replacingDOMRange:(id)arg3 givenAction:(int)arg4;
 - (BOOL)webView:(id)arg1 shouldEndEditingInDOMRange:(id)arg2;
 - (BOOL)webView:(id)arg1 shouldBeginEditingInDOMRange:(id)arg2;
-- (BOOL)webView:(id)arg1 shouldShowDeleteInterfaceForElement:(id)arg2;
 
 @end
 

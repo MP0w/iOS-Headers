@@ -30,10 +30,11 @@
 }
 
 + (id)migrationStoreOptionsFromStoreOptions:(id)arg1;
++ (id)destinationURLForMigrationSourceURL:(id)arg1 createDocumentReplacementDirectory:(BOOL)arg2 error:(id *)arg3;
 + (void)setMigrationDebugLevel:(int)arg1;
 + (int)migrationDebugLevel;
 - (id)migrateStoreAtURL:(id)arg1 withManager:(id)arg2 metadata:(id)arg3 options:(id)arg4 error:(id *)arg5;
-- (id)managerForSourceModel:(id)arg1 destinationModel:(id)arg2 error:(id *)arg3;
+- (id)createMigrationManagerForSourceModel:(id)arg1 destinationModel:(id)arg2 error:(id *)arg3;
 - (id)sourceModelForStoreAtURL:(id)arg1 metadata:(id)arg2 error:(id *)arg3;
 - (id)_gatherDataAndPerformMigration:(id *)arg1;
 - (id)resourceBundles;
@@ -47,7 +48,6 @@
 - (id)destinationConfigurationForMigration:(id)arg1 sourceMetadata:(id)arg2 error:(id *)arg3;
 - (id)destinationTypeForMigration:(id)arg1 sourceMetadata:(id)arg2 error:(id *)arg3;
 - (id)externalDataReferencesURLForDestination:(id)arg1 forStoreOfType:(id)arg2;
-- (id)destinationURLForMigration:(id)arg1 sourceURL:(id)arg2 sourceMetadata:(id)arg3 error:(id *)arg4;
 - (id)mappingModelForSourceModel:(id)arg1 destinationModel:(id)arg2 error:(id *)arg3;
 - (void)setMigrationManager:(id)arg1;
 - (id)migrationManager;

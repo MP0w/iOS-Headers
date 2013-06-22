@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSDate, NSString;
 
-@interface CLLocation : NSObject <NSCopying, NSCoding>
+@interface CLLocation : NSObject <NSCopying, NSSecureCoding>
 {
     id _internal;
 }
 
++ (BOOL)supportsSecureCoding;
 - (void)setHorizontalAccuracy:(double)arg1;
 @property(readonly, nonatomic) NSString *iso6709Notation;
 - (id)propagateLocationToTime:(double)arg1;

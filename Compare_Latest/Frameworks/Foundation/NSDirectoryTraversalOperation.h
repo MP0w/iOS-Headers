@@ -6,7 +6,7 @@
 
 #import <Foundation/NSOperation.h>
 
-@class NSError, NSString;
+@class NSError, NSMutableArray, NSString;
 
 @interface NSDirectoryTraversalOperation : NSOperation
 {
@@ -18,9 +18,12 @@
     int _lastDeviceInode;
     BOOL _shouldFilterUnderbars;
     BOOL _stopped;
+    NSMutableArray *_deviceEntryPoints;
+    NSMutableArray *_deviceNumbers;
 }
 
 + (id)directoryTraversalOperationAtPath:(id)arg1;
++ (BOOL)_needsStatInfo;
 + (id)_errorWithErrno:(int)arg1 atPath:(id)arg2;
 - (void)dealloc;
 - (void)main;

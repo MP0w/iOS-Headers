@@ -18,6 +18,7 @@
 
 + (float)rowHeightForGlobalContext:(id)arg1;
 @property(copy, nonatomic) NSString *subtitleMediaItemProperty; // @synthesize subtitleMediaItemProperty=_subtitleMediaItemProperty;
+- (void).cxx_destruct;
 - (id)backgroundColorForImageAtIndex:(unsigned int)arg1;
 - (void)reloadStringsWithProperties:(id)arg1;
 - (id)untruncationCalloutString;
@@ -28,7 +29,6 @@
 - (id)fontForLabelAtIndex:(unsigned int)arg1;
 - (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
 - (struct CGSize)artworkSize;
-- (void)dealloc;
 - (id)init;
 
 @end

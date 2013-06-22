@@ -37,7 +37,6 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithOptions:(int)arg1;
-- (id)initWithOptions:(int)arg1 andSearchDomains:(id)arg2;
 - (void)stuffChanged;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)searchDaemonQueryCompleted:(id)arg1;
@@ -46,6 +45,7 @@
 - (BOOL)setQueryString:(id)arg1;
 - (BOOL)_shouldIgnoreQuery:(id)arg1;
 - (id)queryString;
+- (void)retrieveImageDataForResult:(id)arg1 inSection:(id)arg2 preferredSize:(struct CGSize)arg3 completion:(id)arg4;
 - (BOOL)hasResults;
 - (void)updateSearchThroughWithString:(id)arg1;
 - (BOOL)sectionAtIndexIsValid:(unsigned int)arg1;

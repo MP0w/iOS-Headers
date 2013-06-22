@@ -6,17 +6,20 @@
 
 #import <iLifeSlideshow/MPLayer.h>
 
-@class MCContainerSerializer;
+@class MCContainerSerializer, MPTransition;
 
 @interface MPLayerSerializer : MPLayer
 {
     MCContainerSerializer *_layerSerializer;
+    MPTransition *_introTransition;
 }
 
 - (void)setAudioPlaylist:(id)arg1;
 - (void)moveEffectContainersFromIndices:(id)arg1 toIndex:(int)arg2;
 - (void)removeEffectContainersAtIndices:(id)arg1;
 - (void)insertEffectContainers:(id)arg1 atIndex:(int)arg2;
+- (void)setIntroTransition:(id)arg1;
+- (id)introTransition;
 - (void)dealloc;
 - (void)finalize;
 - (id)description;

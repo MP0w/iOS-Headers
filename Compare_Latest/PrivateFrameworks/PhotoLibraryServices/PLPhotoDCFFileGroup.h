@@ -24,9 +24,7 @@
     unsigned int _writeIsPending:1;
 }
 
-+ (struct CGImage *)createThumbnailOfImage:(struct CGImage *)arg1 format:(int)arg2 fullPath:(id)arg3 orientation:(int)arg4 outThumbnailData:(id *)arg5;
 + (id)allMetadataFileExtensions;
-- (void)createWildcatThumbnailsFromImage:(struct CGImage *)arg1 orientation:(int)arg2 options:(id)arg3 delegate:(id)arg4;
 - (BOOL)isWritePending;
 - (void)setWriteIsPending:(BOOL)arg1;
 - (void)deleteFiles;

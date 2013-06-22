@@ -9,5 +9,6 @@
 @interface DOMHTMLInputElement (UIWebInteraction)
 - (BOOL)nodeCanBecomeFirstResponder;
 - (BOOL)isLikelyToBeginPageLoad;
+- (BOOL)isAssistedDateType;
 @end
 

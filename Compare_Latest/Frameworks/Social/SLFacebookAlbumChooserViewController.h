@@ -13,19 +13,20 @@
 @interface SLFacebookAlbumChooserViewController : UITableViewController <SLFacebookAlbumManagerDelegate>
 {
     NSCache *_coverImageCache;
-    id <SLFacebookAlbumChooserViewControllerDelegate> _delegate;
     UIButton *_flipBackButton;
-    NSArray *_albums;
     SLFacebookAlbumManager *_albumManager;
+    NSArray *_albums;
+    id <SLFacebookAlbumChooserViewControllerDelegate> _delegate;
 }
 
-@property(retain) SLFacebookAlbumManager *albumManager; // @synthesize albumManager=_albumManager;
-@property(retain) NSArray *albums; // @synthesize albums=_albums;
-@property(retain) UIButton *flipBackButton; // @synthesize flipBackButton=_flipBackButton;
 @property __weak id <SLFacebookAlbumChooserViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain) NSArray *albums; // @synthesize albums=_albums;
+@property(retain) SLFacebookAlbumManager *albumManager; // @synthesize albumManager=_albumManager;
+@property(retain) UIButton *flipBackButton; // @synthesize flipBackButton=_flipBackButton;
 - (void).cxx_destruct;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewDidUnload;
@@ -37,8 +38,6 @@
 - (void)albumManager:(id)arg1 didFailAlbumRefreshWithError:(id)arg2;
 - (void)albumManager:(id)arg1 didRefreshAlbums:(id)arg2;
 - (struct CGSize)contentSizeForViewInPopover;
-- (void)cancelButtonTapped:(id)arg1;
-- (id)navigationItem;
 - (void)flipBackTapped:(id)arg1;
 - (void)didReceiveMemoryWarning;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

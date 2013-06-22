@@ -12,18 +12,19 @@
 {
     UILabel *_notesTitleView;
     UITextView *_notesView;
-    UIFont *_font;
     BOOL _isTruncatingNotes;
+    UIFont *_font;
 }
 
-@property(retain, nonatomic) UIFont *_font; // @synthesize _font;
 @property(readonly, nonatomic) BOOL isTruncatingNotes; // @synthesize isTruncatingNotes=_isTruncatingNotes;
+@property(retain, nonatomic) UIFont *_font; // @synthesize _font;
+- (void).cxx_destruct;
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;
 - (struct CGSize)_truncatedNotesViewSize:(float)arg1;
 - (id)_notesView;
 - (id)_notesTitleView;
 - (BOOL)update;
-- (void)dealloc;
+- (id)init;
 
 @end
 

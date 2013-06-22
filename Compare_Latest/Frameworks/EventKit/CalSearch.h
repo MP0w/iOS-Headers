@@ -28,12 +28,6 @@
     _Bool _implementsCancellationCallback;
 }
 
-- (int)seed;
-- (_Bool)moreResultsAvailable;
-- (void)stopSearching;
-- (void)startSearching;
-- (void)dealloc;
-- (id)initWithDatabase:(struct CalDatabase *)arg1 filter:(struct CalFilter *)arg2 dataSink:(id)arg3;
 - (void)_deleteSearchContext:(struct CalEventOccurrenceSearchContext *)arg1;
 - (struct CalEventOccurrenceSearchContext *)_createSearchContext;
 - (void)_getApplicationSearchResults:(struct CalEventOccurrenceSearchContext *)arg1;
@@ -51,6 +45,12 @@
 - (void)_addMatchedParticipantIds:(struct __CFArray *)arg1;
 - (void)_addMatchedEventIds:(struct __CFArray *)arg1;
 - (void)_startLoadingResults;
+- (int)seed;
+- (_Bool)moreResultsAvailable;
+- (void)stopSearching;
+- (void)startSearching;
+- (void)dealloc;
+- (id)initWithDatabase:(struct CalDatabase *)arg1 filter:(struct CalFilter *)arg2 dataSink:(id)arg3;
 
 @end
 

@@ -15,6 +15,7 @@
     NSURLRequest *_request;
     NSURLConnection *_connection;
     NSMutableData *_rawData;
+    BOOL _invalidResponse;
     struct _xmlSAXHandler {
         void *internalSubset;
         void *isStandalone;
@@ -49,7 +50,6 @@
         void *endElementNs;
         void *serror;
     } _saxHandler;
-    BOOL _invalidResponse;
 }
 
 + (unsigned int)uniqueQueryID;

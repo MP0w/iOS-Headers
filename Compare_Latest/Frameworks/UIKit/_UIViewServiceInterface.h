@@ -6,29 +6,35 @@
 
 #import "NSObject.h"
 
-@class BKSProcessAssertion, NSError, _UIAsyncInvocation, _UIViewServiceSessionEndpoint;
+#import "NSXPCConnectionDelegate-Protocol.h"
 
-@interface _UIViewServiceInterface : NSObject
+@class BKSProcessAssertion, NSError, NSString, NSXPCConnection, _UIAsyncInvocation;
+
+@interface _UIViewServiceInterface : NSObject <NSXPCConnectionDelegate>
 {
     int _terminationStateLock;
     NSError *_terminationError;
     id _terminationHandler;
     BOOL _isTerminated;
     _UIAsyncInvocation *_terminateInvocation;
-    _UIViewServiceSessionEndpoint *_serviceSessionEndpoint;
+    NSString *_serviceBundleIdentifier;
     BKSProcessAssertion *_serviceProcessAssertion;
+    NSXPCConnection *_serviceConnection;
     int __automatic_invalidation_retainCount;
     BOOL __automatic_invalidation_invalidated;
 }
 
-+ (id)connectToViewServiceWithBundleIdentifier:(id)arg1 connectionHandler:(id)arg2;
++ (id)connectToViewServiceWithBundleIdentifier:(id)arg1 deputyInterfaces:(id)arg2 connectionHandler:(id)arg3;
+@property(readonly, nonatomic) CDStruct_4c969caf serviceAuditToken;
+@property(readonly, nonatomic) int servicePID;
 - (void)dealloc;
 - (id)disconnect;
 - (void)setTerminationHandler:(id)arg1;
 - (void)_terminateUnconditionallyThen:(id)arg1;
 - (id)_terminateWithError:(id)arg1;
-- (id)connectToDeputyOfType:(id)arg1 connectionHandler:(id)arg2;
-- (id)_initWithConnectionInfo:(CDStruct_d58a15aa)arg1 serviceBundleIdentifier:(id)arg2;
+- (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(BOOL)arg3;
+- (id)connectToDeputyWithInterface:(id)arg1 fromExportedHostingObject:(id)arg2 connectionHandler:(id)arg3;
+- (id)_initWithConnectionInfo:(CDStruct_0f015c83)arg1 serviceBundleIdentifier:(id)arg2 deputyInterfaces:(id)arg3;
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
 - (unsigned int)retainCount;

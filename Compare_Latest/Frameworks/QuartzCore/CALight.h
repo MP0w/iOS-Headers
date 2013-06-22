@@ -17,8 +17,13 @@
     void *_priv;
 }
 
++ (id)CA_CAMLPropertyForKey:(id)arg1;
++ (void)CAMLParserStartElement:(id)arg1;
 + (id)defaultValueForKey:(id)arg1;
 + (id)lightWithType:(id)arg1;
+- (id)CAMLTypeForKey:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
+- (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)shouldArchiveValueForKey:(id)arg1;

@@ -8,14 +8,14 @@
 
 @interface EKSourceConstraints : NSObject
 {
-    int _maxAlarms;
-    int _maxRecurrences;
-    CDStruct_d63385cc _flags;
+    int _maxAlarmsAllowed;
+    int _maxRecurrencesAllowed;
+    CDStruct_75923904 _flags;
 }
 
-@property(nonatomic) CDStruct_d63385cc flags; // @synthesize flags=_flags;
-@property(nonatomic) int maxRecurrencesAllowed; // @synthesize maxRecurrencesAllowed=_maxRecurrences;
-@property(nonatomic) int maxAlarmsAllowed; // @synthesize maxAlarmsAllowed=_maxAlarms;
+@property(nonatomic) CDStruct_75923904 flags; // @synthesize flags=_flags;
+@property(nonatomic) int maxRecurrencesAllowed; // @synthesize maxRecurrencesAllowed=_maxRecurrencesAllowed;
+@property(nonatomic) int maxAlarmsAllowed; // @synthesize maxAlarmsAllowed=_maxAlarmsAllowed;
 @property(nonatomic) BOOL recurrenceSeriesMustIncludeMoreThanFirstOccurrence;
 @property(nonatomic) BOOL isFacebook;
 @property(nonatomic) BOOL supportsSharedCalendars;
@@ -52,6 +52,7 @@
 @property(nonatomic) BOOL statusesAreAccurate;
 @property(nonatomic) BOOL inviteesCanSeeAttendeeStatuses;
 @property(nonatomic) BOOL organizerCanSeeAttendeeStatuses;
+@property(nonatomic) BOOL snoozeAlarmRequiresDetach;
 @property(nonatomic) BOOL supportsAlarmsTriggeringAfterStartDate;
 @property(nonatomic) BOOL supportsAlarmTriggerDates;
 @property(nonatomic) BOOL supportsAlarmTriggerIntervals;

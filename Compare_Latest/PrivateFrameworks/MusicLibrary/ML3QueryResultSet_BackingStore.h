@@ -8,15 +8,17 @@
 
 @interface ML3QueryResultSet_BackingStore : NSObject
 {
-    vector_6f037ce7 _persistentIDs;
-    struct vector<unsigned char, std::allocator<unsigned char>> _sections;
+    vector_c1c297d2 _persistentIDs;
+    struct vector<unsigned char, std::__1::allocator<unsigned char>> _sections;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)backingStoreByRemovingPersistentIDs:(const unordered_set_a245ffee *)arg1;
+- (id)backingStoreByRemovingPersistentIDs:(const unordered_set_cccfe4a5 *)arg1;
+- (void)reverseEnumerateSectionsUsingBlock:(id)arg1;
 - (void)enumerateSectionsUsingBlock:(id)arg1;
-- (BOOL)containsPersistentIDs:(const unordered_set_a245ffee *)arg1;
+- (BOOL)containsPersistentIDs:(const unordered_set_cccfe4a5 *)arg1;
+- (void)reverseEnumeratePersistentIDsUsingBlock:(id)arg1;
 - (void)enumeratePersistentIDsUsingBlock:(id)arg1;
 - (long long)persistentIDAtIndex:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned int count;

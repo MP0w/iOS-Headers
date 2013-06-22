@@ -25,6 +25,8 @@
 - (void)dumpClustersStatistics;
 - (void)updateRatingsForLocationClusters;
 - (void)updateRatingsForKeywordClusters;
+- (void)updateRatingsForRoundedFifteenMinuteOfYearClusters;
+- (void)updateRatingsForRoundedFiveMinuteOfYearClusters;
 - (void)updateRatingsForMinuteOfYearClusters;
 - (void)updateRatingsForHourOfYearClusters;
 - (void)updateRatingsForDayOfYearClusters;
@@ -36,6 +38,8 @@
 - (id)orderedAndPrioritizedSlideClusters;
 - (void)createLocationClustersForPaths:(id)arg1;
 - (void)addPaths:(id)arg1 toUserDefinedCluster:(id)arg2;
+- (id)roundedFifteenMinuteOfYearClusterForAssetAtPath:(id)arg1;
+- (id)roundedFiveMinuteOfYearClusterForAssetAtPath:(id)arg1;
 - (id)minuteOfYearClusterForAssetAtPath:(id)arg1;
 - (id)hourOfYearClusterForAssetAtPath:(id)arg1;
 - (id)dayOfYearClusterForAssetAtPath:(id)arg1;
@@ -45,6 +49,8 @@
 - (id)userProvidedClusters;
 - (id)locationClusters;
 - (id)keywordClusters;
+- (id)roundedFifteenMinuteOfYearClusters;
+- (id)roundedFiveMinuteOfYearClusters;
 - (id)minuteOfYearClusters;
 - (id)hourOfYearClusters;
 - (id)dayOfYearClusters;
@@ -52,9 +58,18 @@
 - (id)monthClusters;
 - (id)yearClusters;
 - (void)updateAllSlidesClusterWithSlide:(id)arg1;
+- (void)updateRoundedFifteenMinuteOfYearClustersWithDate:(id)arg1 ofSlide:(id)arg2;
+- (void)updateRoundedFiveMinuteOfYearClustersWithDate:(id)arg1 ofSlide:(id)arg2;
+- (void)updateMinuteOfYearClustersWithDate:(id)arg1 ofSlide:(id)arg2;
+- (void)updateHourOfYearClustersWithDate:(id)arg1 ofSlide:(id)arg2;
+- (void)updateDayOfYearClustersWithDate:(id)arg1 ofSlide:(id)arg2;
+- (void)updateMonthOfYearClustersWithDate:(id)arg1 ofSlide:(id)arg2;
+- (void)updateMonthClustersWithDate:(id)arg1 ofSlide:(id)arg2;
+- (void)updateYearClustersWithDate:(id)arg1 ofSlide:(id)arg2;
 - (void)removeAllSingleSlideClusters;
 - (id)findBestClusterBasedOnUserDefinedSlideOrder:(id)arg1 startingWithSlide:(id)arg2;
 - (id)findBestChronologicalCluster:(id)arg1 startingWithSlide:(id)arg2;
+- (id)findBestCluster:(id)arg1 withMaxEffectSize:(int)arg2 idealEffectSize:(int)arg3;
 - (id)findBestCluster:(id)arg1;
 - (void)flushClusters;
 - (void)resetAllUsageCounters;
@@ -64,6 +79,7 @@
 - (id)clusterSlidesSortedChronologically:(id)arg1;
 - (id)allSlidesSortedChronologically;
 - (id)nextLeastUsedSlides:(int)arg1 forLayer:(id)arg2 markAsUsed:(BOOL)arg3;
+- (id)allSlidesSortedByPaths:(id)arg1;
 - (id)allSlidesSortedByUsage;
 - (id)slideForPath:(id)arg1;
 - (id)allSlides;

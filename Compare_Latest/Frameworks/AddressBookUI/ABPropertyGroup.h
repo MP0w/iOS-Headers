@@ -47,7 +47,7 @@
 - (int)_indexFromInfo:(id)arg1;
 - (void)_getIndex:(int *)arg1 andEditableFlag:(char *)arg2 fromInfo:(id)arg3;
 - (id)_getFromLineInfos:(id)arg1 key:(id)arg2 valueForKey:(id)arg3;
-- (int)indexOfIdentifier:(int)arg1 person:(void *)arg2;
+- (int)indexOfIdentifier:(int)arg1 person:(id)arg2;
 - (void)prepareActionsController:(id)arg1 withValueAtIndex:(int)arg2;
 - (id)actionsControllerPreparedWithValueAtIndex:(int)arg1;
 - (BOOL)shouldDisambiguateNotes;
@@ -87,7 +87,7 @@
 - (BOOL)setEmptyValueAtIndex:(int)arg1 editableFlag:(BOOL)arg2 whenEditing:(BOOL)arg3;
 - (id)lineInfosAtIndex:(int)arg1;
 - (id)localizedPropertyLabelAtIndex:(int)arg1;
-- (id)actualPropertyLabelAtIndex:(int)arg1 forPerson:(void *)arg2;
+- (id)actualPropertyLabelAtIndex:(int)arg1 forPerson:(id)arg2;
 - (id)propertyLabelAtIndex:(int)arg1;
 - (id)propertyLabelAtIndex:(int)arg1 forceUseReadonly:(BOOL)arg2;
 - (void)setPropertyLabel:(id)arg1 atIndex:(int)arg2;
@@ -97,7 +97,7 @@
 - (BOOL)_canSaveAtIndex:(int)arg1;
 - (BOOL)canSaveAtIndex:(int)arg1 editableFlag:(BOOL)arg2;
 - (BOOL)canDeleteAtIndex:(int)arg1 editableFlag:(BOOL)arg2;
-- (void)getAnyIdentifier:(int *)arg1 andPerson:(const void **)arg2 atIndex:(int)arg3;
+- (void)getAnyIdentifier:(int *)arg1 andPerson:(id *)arg2 atIndex:(int)arg3;
 - (id)writablePeopleAtIndex:(int)arg1;
 - (id)propertyValueAtIndex:(int)arg1 forceUseReadonly:(BOOL)arg2;
 - (id)propertyValueAtIndex:(int)arg1;
@@ -113,10 +113,12 @@
 - (id)allRecordInfosAtIndex:(int)arg1;
 - (int)itemCount;
 - (BOOL)allowsAdding;
-- (BOOL)allowsAddingForPerson:(void *)arg1;
+- (BOOL)allowsAddingForPerson:(id)arg1;
 - (BOOL)instantMessageServiceIsSupported;
-- (BOOL)instantMessageServiceIsSupportedForPerson:(void *)arg1;
+- (BOOL)_instantMessageServiceIsSupportedForPerson:(id)arg1;
+- (void *)defaultPolicy;
 - (void)setDefaultPolicy:(void *)arg1;
+- (void *)_policyForPerson:(id)arg1;
 - (void *)context;
 - (int)property;
 - (void)dealloc;
@@ -124,15 +126,15 @@
 - (int)insertionIndex;
 - (void)_reloadPreinsertedStuff:(BOOL)arg1 insertionStuff:(BOOL)arg2;
 - (id)_allRecordInfosInRecordInfoDictionary:(id)arg1;
-- (id)_recordInfoDictionaryForPerson:(void *)arg1;
-- (id)_recordInfoDictionaryForPerson:(void *)arg1 identifier:(int)arg2;
-- (id)_recordInfoForPerson:(void *)arg1;
-- (id)_recordInfoForPerson:(void *)arg1 identifier:(int)arg2;
+- (id)_recordInfoDictionaryForPerson:(id)arg1;
+- (id)_recordInfoDictionaryForPerson:(id)arg1 identifier:(int)arg2;
+- (id)_recordInfoForPerson:(id)arg1;
+- (id)_recordInfoForPerson:(id)arg1 identifier:(int)arg2;
 - (id)_recordInfoDictionaryWithAllPeople;
 - (void)_setRecordInfoDictionary:(id)arg1 atIndex:(int)arg2;
 - (id)_recordInfoDictionaryAtIndex:(int)arg1;
-- (BOOL)_recordInfoDictionary:(id)arg1 containsPerson:(void *)arg2;
-- (void)_insertSingleValue:(id)arg1 label:(id)arg2 identifier:(int)arg3 forPerson:(void *)arg4 indicesAndLabelsForValuesSeenAlready:(id)arg5;
+- (BOOL)_recordInfoDictionary:(id)arg1 containsPerson:(id)arg2;
+- (void)_insertSingleValue:(id)arg1 label:(id)arg2 identifier:(int)arg3 forPerson:(id)arg4 indicesAndLabelsForValuesSeenAlready:(id)arg5;
 - (id)_findFuzzyMatchingValue:(id)arg1 inDictionary:(id)arg2;
 - (BOOL)_isPropertyValue:(id)arg1 equivalentTo:(id)arg2;
 - (BOOL)_isBirthdayDate:(id)arg1 equivalentTo:(id)arg2;
@@ -140,7 +142,7 @@
 - (BOOL)_updateCacheWithPropertyValue:(id)arg1 atIndex:(int)arg2;
 - (BOOL)_updateCacheWithPropertyLabel:(id)arg1 atIndex:(int)arg2;
 - (BOOL)_updateCacheWithPropertyValue:(id)arg1 propertyLabel:(id)arg2 recordInfoDictionaryAtIndex:(unsigned int)arg3 shouldSetValue:(BOOL)arg4 shouldSetLabel:(BOOL)arg5;
-- (BOOL)_updateCacheForPerson:(void *)arg1 identifier:(int *)arg2 value:(id)arg3 label:(struct __CFString *)arg4 shouldSetValue:(BOOL)arg5 shouldSetLabel:(BOOL)arg6;
+- (BOOL)_updateCacheForPerson:(id)arg1 identifier:(int *)arg2 value:(id)arg3 label:(struct __CFString *)arg4 shouldSetValue:(BOOL)arg5 shouldSetLabel:(BOOL)arg6;
 - (id)_valueForCheckingExistenceOfPropertyValue:(id)arg1;
 - (id)_sortedPeople:(id)arg1;
 - (id)_peopleInCache;
@@ -151,17 +153,16 @@
 - (BOOL)_propertyIsDate;
 - (void)_clearAllCachedInfo;
 - (void)_getFromCacheAnyPropertyValue:(id *)arg1 andLabel:(id *)arg2 forRecordInfoDictionary:(id)arg3;
-- (void)_getAnyIdentifier:(int *)arg1 person:(const void **)arg2 propertyValue:(id *)arg3 propertyLabel:(id *)arg4 fromRecordInfoDictionary:(id)arg5;
+- (void)_getAnyIdentifier:(int *)arg1 person:(id *)arg2 propertyValue:(id *)arg3 propertyLabel:(id *)arg4 fromRecordInfoDictionary:(id)arg5;
 - (id)_bestValueBetween:(id)arg1 and:(id)arg2;
-- (void)_getFromCachePropertyValue:(id *)arg1 andLabel:(id *)arg2 forPerson:(void *)arg3 identifier:(int)arg4;
+- (void)_getFromCachePropertyValue:(id *)arg1 andLabel:(id *)arg2 forPerson:(id)arg3 identifier:(int)arg4;
 - (void)_addValuesToCache;
 - (BOOL)_hasNonNullSoundForIdentifier:(int)arg1;
-- (BOOL)_removeValueInCacheForPerson:(void *)arg1;
-- (BOOL)_setValueInCache:(void *)arg1 forPerson:(void *)arg2 preventLabelChange:(BOOL)arg3;
-- (BOOL)_setValueInCache:(void *)arg1 forPerson:(void *)arg2;
-- (id)_valueFromCacheForPerson:(void *)arg1;
-- (void *)_copyCachedValueForPerson:(void *)arg1;
-- (void *)policyForPerson:(void *)arg1;
+- (BOOL)_removeValueInCacheForPerson:(id)arg1;
+- (BOOL)_setValueInCache:(void *)arg1 forPerson:(id)arg2 preventLabelChange:(BOOL)arg3;
+- (BOOL)_setValueInCache:(void *)arg1 forPerson:(id)arg2;
+- (id)_valueFromCacheForPerson:(id)arg1;
+- (void *)_copyCachedValueForPerson:(id)arg1;
 
 @end
 

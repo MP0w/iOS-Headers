@@ -7,26 +7,29 @@
 #import "NSObject.h"
 
 #import "CLLocationManagerDelegate-Protocol.h"
+#import "SLPlaceDataSource-Protocol.h"
 
-@class ACAccount, CLLocation, CLLocationManager, NSHTTPURLResponse, NSMutableData, NSURLConnection;
+@class ACAccount, CLLocation, CLLocationManager, NSHTTPURLResponse, NSMutableData, NSObject<SLPlaceDataSourceDelegate>, NSURLConnection;
 
-@interface SLFacebookPlaceManager : NSObject <CLLocationManagerDelegate>
+@interface SLFacebookPlaceManager : NSObject <CLLocationManagerDelegate, SLPlaceDataSource>
 {
     CLLocationManager *_locationManager;
-    ACAccount *_account;
-    CLLocation *_currentLocation;
     double _timeout;
     BOOL _isCanceled;
-    BOOL _isUpdatingPlaces;
-    BOOL _disableTimout;
+    BOOL _isUpdatingLocation;
+    BOOL _disableTimeout;
     NSMutableData *_placeData;
     NSHTTPURLResponse *_urlResponse;
     NSURLConnection *_urlConnection;
     id _queuedSearchRequest;
-    id <SLFacebookPlaceManagerDelegate> _delegate;
+    CLLocation *_currentLocation;
+    NSObject<SLPlaceDataSourceDelegate> *_delegate;
+    ACAccount *_account;
 }
 
-@property __weak id <SLFacebookPlaceManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain) ACAccount *account; // @synthesize account=_account;
+@property __weak NSObject<SLPlaceDataSourceDelegate> *delegate; // @synthesize delegate=_delegate;
+@property(retain) CLLocation *currentLocation; // @synthesize currentLocation=_currentLocation;
 - (void).cxx_destruct;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
@@ -41,8 +44,8 @@
 - (void)fetchPlacesWithSearchString:(id)arg1;
 - (void)locationDidTimeout;
 - (void)cancelPlaceFetch;
-- (void)stopUpdatingPlaces;
-- (void)startUpdatingPlaces;
+- (void)stopUpdatingLocation;
+- (void)startUpdatingLocation;
 @property(readonly) double currentLocationAccuracy;
 - (id)initWithLocationManager:(id)arg1 account:(id)arg2 desiredAccuracy:(double)arg3 timeout:(double)arg4;
 

@@ -7,17 +7,22 @@
 #import "NSObject.h"
 
 #import "SBDisplayProtocol-Protocol.h"
+#import "SBLeafIconDataSource-Protocol.h"
+#import "SBScreenObserver-Protocol.h"
 #import "SBSystemLocalNotificationAlertDelegate-Protocol.h"
+#import "SBWindowContextHostManagerDelegate-Protocol.h"
+#import "SBWindowContextManagerDelegate-Protocol.h"
 
-@class BKSCFBundle, BKSMachSendRight, BKSProcessAssertion, NSArray, NSDate, NSDictionary, NSHashTable, NSMapTable, NSMutableSet, NSSet, NSString, NSTimer, PCPersistentTimer, SBActivationContext, SBAppContextHostManager, SBDefaultImageInfo, UIColor, UILocalNotification, UIRemoteApplication;
+@class BKSApplicationDataStore, BKSCFBundle, BKSMachSendRight, BKSProcessAssertion, NSArray, NSDate, NSDictionary, NSHashTable, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSTimer, PCPersistentTimer, SBActivationContext, SBWindowContextManager, UIColor, UILocalNotification, UIRemoteApplication;
 
-@interface SBApplication : NSObject <SBSystemLocalNotificationAlertDelegate, SBDisplayProtocol>
+@interface SBApplication : NSObject <SBScreenObserver, SBWindowContextManagerDelegate, SBSystemLocalNotificationAlertDelegate, SBDisplayProtocol, SBWindowContextHostManagerDelegate, SBLeafIconDataSource>
 {
     NSString *_bundleIdentifier;
     NSString *_displayIdentifier;
     NSString *_path;
     NSString *_bundleVersion;
-    NSArray *_defaultImageNames;
+    NSMutableDictionary *_defaultImageNamesByScreenType;
+    NSDictionary *_defaultImageNamesForOrientation;
     NSArray *_folderNames;
     NSString *_fallbackFolderName;
     NSDictionary *_searchDomainLaunchInfo;
@@ -27,7 +32,9 @@
     int _lastExitType;
     double _modificationDate;
     int _pid;
-    SBAppContextHostManager *_contextHostManager;
+    NSMapTable *_screenToContextHostManager;
+    NSMapTable *_defunctScreenToContextHostManager;
+    SBWindowContextManager *_contextManager;
     NSString *_displayName;
     NSArray *_tags;
     UIRemoteApplication *_remoteApplication;
@@ -49,12 +56,15 @@
     unsigned int _supportsLocationBackgroundMode:1;
     unsigned int _supportsVOIPBackgroundMode:1;
     unsigned int _supportsEABackgroundMode:1;
+    unsigned int _supportsRemoteNotificationBackgroundMode:1;
+    unsigned int _supportsFetchBackgroundMode:1;
     unsigned int _supportsContinuousBackgroundMode:1;
     unsigned int _wantsUnboundedTaskCompletionAssertions:1;
     unsigned int _prefersSavedSnapshots:1;
     unsigned int _suspendingUnsupported;
     unsigned int _hasBeenFrontmost:1;
     unsigned int _requiresHiDPI:1;
+    unsigned int _disableScreenJail:1;
     unsigned int _supportsPortraitOrientation:1;
     unsigned int _supportsPortraitUpsideDownOrientation:1;
     unsigned int _supportsLandscapeLeftOrientation:1;
@@ -70,6 +80,7 @@
     unsigned int _defaultStatusBarStyle:8;
     BOOL _defaultStatusBarHidden;
     UIColor *_defaultStatusBarTintColor;
+    BOOL _defaultIsTranslucent;
     unsigned int _defaultInterfaceOrientation:8;
     unsigned int _defaultInterfaceOrientationOverride:8;
     unsigned int _interfaceOrientationOverrideSet:1;
@@ -79,6 +90,9 @@
     unsigned int _launchAlerts:8;
     unsigned int _uninstalled:1;
     unsigned int _isLaunchableDuringSetup:1;
+    unsigned int _behavesAsCaller;
+    unsigned int _wantsPNGlessLaunch:1;
+    unsigned int _systemAppSupportsLocalNotifications:1;
     int _ratingRank;
     Class _iconClass;
     NSArray *_customMachServices;
@@ -109,7 +123,7 @@
     NSHashTable *_activationFlags;
     NSHashTable *_deactivationFlags;
     unsigned int _defaultImageInfoCount;
-    SBDefaultImageInfo *_defaultImageInfo;
+    NSMutableDictionary *_defaultImageInfoByScreenType;
     NSMutableSet *_suppressVolumeHudCategories;
     float _accelerometerSampleInterval;
     NSMutableSet *_idleTimerDisabledReasons;
@@ -125,6 +139,11 @@
     int _applicationRestorationCheckState;
     float _minimumBrightnessLevel;
     NSArray *_domainsToPreheat;
+    int _starkLaunchModes;
+    BOOL _starkStatusBarStartsTranslucent;
+    NSMutableArray *_activationContextStack;
+    NSMutableDictionary *_alertImpersonatorsByWorkspaceType;
+    BKSApplicationDataStore *_dataStore;
 }
 
 + (id)defaultValueForKey:(id)arg1 displayIdentifier:(id)arg2 urlScheme:(id)arg3;
@@ -132,15 +151,51 @@
 + (id)_defaultDisplayState;
 + (void)flushLaunchAlertsOfType:(int)arg1;
 + (BOOL)activationStateIsTransitory:(int)arg1;
++ (id)appStateKeysToPrefetch;
 + (void)initialize;
++ (id)_fallbackOrientationStringForOrientation:(int)arg1 fallbackOrientation:(int *)arg2;
++ (id)_orientationStringForOrientation:(int)arg1;
 + (void)removeCachedSnapshotsMatchingPath:(id)arg1;
++ (void)removeCachedSnapshotsForScreen:(id)arg1;
 + (void)removeCachedSnapshotSurface:(void *)arg1 forPath:(id)arg2;
 + (void)setCachedSnapshotSurface:(void *)arg1 forPath:(id)arg2;
 + (void *)cachedSnapshotSurfaceForPath:(id)arg1;
 + (id)systemSnapshotsDirectory;
 @property(retain, nonatomic) BKSMachSendRight *xpcEventPort; // @synthesize xpcEventPort=_xpcEventPort;
 @property(readonly, nonatomic) int pid; // @synthesize pid=_pid;
-@property(copy) NSString *displayIdentifier; // @synthesize displayIdentifier=_displayIdentifier;
+- (void)windowContextManager:(id)arg1 didStopTrackingContextsForScreen:(id)arg2;
+- (void)windowContextManager:(id)arg1 willStartTrackingContextsForScreen:(id)arg2;
+- (BOOL)windowContextManager:(id)arg1 shouldAddContext:(id)arg2;
+- (void)screenManager:(id)arg1 didReconnectScreen:(id)arg2;
+- (void)screenManager:(id)arg1 didDisconnectScreen:(id)arg2;
+- (void)screenManager:(id)arg1 didChangeSuppressionOfScreen:(id)arg2;
+- (void)_clearDefunctScreenHostingForScreen:(id)arg1;
+- (void)_hideContextsOnDefunctScreen:(id)arg1;
+- (BOOL)canAccessScreen:(id)arg1;
+- (BOOL)icon:(id)arg1 launchFromLocation:(int)arg2;
+- (BOOL)iconAllowsLaunch:(id)arg1;
+- (BOOL)iconCompleteUninstall:(id)arg1;
+- (BOOL)iconAllowsUninstall:(id)arg1;
+- (BOOL)iconIsRecentlyUpdated:(id)arg1;
+- (id)iconFormattedAccessoryString:(id)arg1;
+- (id)iconBadgeNumberOrString:(id)arg1;
+- (int)iconAccessoryType:(id)arg1;
+- (float)iconProgress:(id)arg1;
+- (BOOL)iconAppearsInNewsstand:(id)arg1;
+- (BOOL)iconCanElliptisizeLabel:(id)arg1;
+- (id)icon:(id)arg1 defaultImageWithFormat:(int)arg2;
+- (id)icon:(id)arg1 imageWithFormat:(int)arg2;
+- (unsigned int)iconPriority:(id)arg1;
+- (id)iconDisplayName:(id)arg1;
+- (void)_noteIconDataSourceDidChange;
+- (void)_removeAlertImpersonator:(id)arg1;
+- (void)_setAlertImpersonator:(id)arg1 forWorkspaceType:(int)arg2;
+- (id)_alertImpersonatorForWorkspaceType:(int)arg1;
+- (BOOL)_hasAnyAlertImpersonator;
+- (void)popActivationContext;
+- (void)pushActivationContext;
+- (BOOL)supportsStarkGateKeeper;
+- (BOOL)supportsStarkFullScreen;
 - (id)domainsToPreheat;
 - (id)deactivationSettingsDescription;
 - (id)descriptionForDeactivationSetting:(unsigned int)arg1;
@@ -156,7 +211,9 @@
 - (BOOL)hasStartedLaunching;
 - (BOOL)isRunning;
 - (BOOL)isRecordingAudio;
-- (BOOL)suppressesNotifications;
+- (BOOL)suppressesControlCenter;
+- (BOOL)suppressesNotificationCenter;
+- (BOOL)suppressesBanners;
 - (float)minimumBrightnessLevel;
 - (BOOL)showSystemVolumeHUDForCategory:(id)arg1;
 - (void)setSystemVolumeHUDEnabled:(BOOL)arg1 forCategory:(id)arg2;
@@ -176,6 +233,7 @@
 - (void)setExpectsFaceContact:(BOOL)arg1;
 - (id)idleTimerDisabledReasons;
 - (void)setIdleTimerDisabled:(BOOL)arg1 forReason:(id)arg2;
+- (BOOL)isTranslucent;
 - (int)effectiveStatusBarStyle;
 - (int)resolvedStatusBarStyle;
 - (int)launchingInterfaceOrientationForCurrentOrientation;
@@ -198,6 +256,8 @@
 - (void)clearActivationSettings;
 - (id)_activationFlags;
 - (id)_activationValues;
+- (id)_displayFlags;
+- (id)_displayValues;
 - (BOOL)displayFlag:(unsigned int)arg1;
 - (id)displayValue:(unsigned int)arg1;
 - (void)setDisplaySetting:(unsigned int)arg1 value:(id)arg2;
@@ -208,9 +268,9 @@
 - (id)_newValueTable;
 - (id)urlScheme;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)defaultImagePathForCurrentOrientationWithName:(id)arg1;
-- (id)_currentDefaultPNGName;
-- (BOOL)_applicationDoesNotHaveRestorationArchive;
+- (void)_noteSnapshotDidUpdate;
+- (void)_saveSnapshotForScreen:(id)arg1 frame:(struct CGRect)arg2 name:(id)arg3 overrideScale:(float)arg4;
+- (id)defaultImagePathForSnapshotWithName:(id)arg1 screen:(id)arg2;
 - (void)_suspendForPeriodicWakeTimerFired:(id)arg1;
 - (void)_dropPeriodicWakeProcessAssertion;
 - (void)_resumeForPeriodicWakeWithReason:(id)arg1;
@@ -246,6 +306,8 @@
 - (id)signerIdentity;
 - (BOOL)wantsUnboundedTaskCompletionAssertions;
 - (BOOL)supportsContinuousBackgroundMode;
+- (BOOL)supportsFetchBackgroundMode;
+- (BOOL)supportsRemoteNotificationBackgroundMode;
 - (BOOL)supportsEABackgroundMode;
 - (BOOL)supportsVOIPBackgroundMode;
 - (BOOL)supportsLocationBackgroundMode;
@@ -260,26 +322,23 @@
 - (BOOL)hasBeenFrontmost;
 - (unsigned int)applicationState;
 - (void)setApplicationState:(unsigned int)arg1;
+- (id)_stringForApplicationState:(unsigned int)arg1;
 - (id)preferenceDomain;
 - (id)sandboxPath;
 - (void)setSandboxPath:(id)arg1;
 - (void)_unregisterRemoteViewsAndSheets;
-- (void)hideContextHostViewForRequester:(id)arg1;
-- (void)setContextHostManager:(id)arg1;
-- (void)_setContextHostManager:(id)arg1;
-- (void)clearContextHostManager;
-- (void)_clearContextHostManager;
-- (id)contextHostManager;
-- (void)disableContextHostingForRequester:(id)arg1;
-- (void)enableContextHostingForLowPriorityRequester:(id)arg1;
-- (void)enableContextHostingForRequester:(id)arg1 orderFront:(BOOL)arg2;
-- (id)contextHostViewForRequester:(id)arg1 enableAndOrderFront:(BOOL)arg2;
-- (id)contextHostViewForRequester:(id)arg1;
-- (BOOL)isContextHostingEnabled;
+- (void)hostContextsOnScreen:(id)arg1 forRequester:(id)arg2;
+- (id)mainScreenContextHostManager;
+- (void)_clearContextHostManagers;
+- (void)_removeContextHostManager:(id)arg1;
+- (void)_addContextHostManager:(id)arg1;
+- (id)contextHostManagerForScreen:(id)arg1;
+- (id)contextManagerCreatingIfNecessary:(BOOL)arg1;
+- (id)_allContextHostManagersCreatingForMainScreenIfNecessary;
 - (void)_purgeCachedLocalNotifications;
 - (id)getPendingLocalNotification;
-- (void)systemLocalNotificationAlertShouldSnooze:(id)arg1 forApplication:(id)arg2;
-- (void)systemLocalNotificationAlertShouldLaunch:(id)arg1 forApplication:(id)arg2;
+- (void)systemLocalNotificationAlertShouldSnooze:(id)arg1;
+- (void)systemLocalNotificationAlertShouldLaunch:(id)arg1;
 - (void)_fireNotification:(id)arg1;
 - (void)localNotificationTimerFired;
 - (void)_updateLocalNotificationTimers;
@@ -287,9 +346,12 @@
 - (id)_lastLocalNotificationFireDate;
 - (void)_setLastLocalNotificationFireDate:(id)arg1;
 - (void)_dismissAllSystemLocalNotificationAlerts;
+- (void)setBadge:(id)arg1;
+- (id)badgeNumberOrString;
 - (BOOL)badgeHasBeenSetLocally;
 - (void)noteBadgeSetLocally;
 - (BOOL)usesLocalNotifications;
+- (BOOL)supportsLocalNotifications;
 - (void)cancelLocalNotification:(id)arg1;
 - (void)scheduleLocalNotifications:(id)arg1 replaceExistingNotifications:(BOOL)arg2;
 - (id)scheduledLocalNotifications;
@@ -318,6 +380,7 @@
 - (int)_launchingInterfaceOrientationForOrientation:(int)arg1;
 - (void)removeDefaultInterfaceOrientationOverride;
 - (void)overrideDefaultInterfaceOrientation:(int)arg1;
+- (int)starkStatusBarStyle;
 - (void)_notifyOfStatusBarTintOverride:(BOOL)arg1 withColor:(id)arg2;
 - (id)statusBarTintColor;
 - (BOOL)defaultStatusBarHidden;
@@ -330,13 +393,23 @@
 - (BOOL)_shouldAutoRelaunchForEA;
 - (void)_setAutoLaunchForVoIP:(BOOL)arg1;
 - (void)_setHasBeenLaunched;
+- (void)_lockStateDidChange:(id)arg1;
+- (void)_updateRecentlyUpdatedTimer;
+- (void)markRecentlyUpdated;
+- (void)_setRecentlyUpdated:(BOOL)arg1;
+- (BOOL)_isRecentlyUpdated;
 - (void)markNewlyInstalled;
-- (BOOL)isNewlyInstalled;
+- (BOOL)_isNewlyInstalled;
 - (BOOL)_shouldAutoLaunchForVoIP;
+- (void)didAnimateDeactivationOnStarkScreenController:(id)arg1;
+- (void)willAnimateDeactivationOnStarkScreenController:(id)arg1;
+- (void)didAnimateActivationOnStarkScreenController:(id)arg1;
+- (void)willAnimateActivationOnStarkScreenController:(id)arg1;
 - (void)didAnimateDeactivation;
-- (void)willAnimateDeactivation;
+- (void)willAnimateDeactivation:(BOOL)arg1;
 - (void)didAnimateActivation;
 - (void)willAnimateActivation;
+- (void)finishedBackgroundContentFetchingWithInfo:(id)arg1;
 - (void)didDeactivateForEventsOnly:(BOOL)arg1;
 - (void)willDeactivateForEventsOnly:(BOOL)arg1;
 - (void)didFailToActivate;
@@ -359,20 +432,23 @@
 - (void)setDisplayName:(id)arg1;
 - (id)displayName;
 - (Class)iconClass;
-- (id)_preferredImagePathInBundle:(id)arg1 baseResourceName:(id)arg2 ofType:(id)arg3 scale:(float *)arg4;
-- (id)_preferredImagePathByScaleInBundle:(id)arg1 resourceName:(id)arg2 ofType:(id)arg3 scale:(float *)arg4;
-- (id)_newDefaultImageInfoForLaunchingOrientation:(int)arg1 scale:(float)arg2;
-- (id)_defaultImageInfoForLaunchingOrientation:(int)arg1 scale:(float)arg2;
-- (id)defaultImage:(char *)arg1 preferredScale:(float)arg2 originalOrientation:(int *)arg3 currentOrientation:(int *)arg4 canUseIOSurface:(BOOL)arg5;
-- (id)defaultImage:(char *)arg1 preferredScale:(float)arg2 originalOrientation:(int *)arg3 currentOrientation:(int *)arg4;
+- (id)_preferredImagePathInBundle:(id)arg1 baseResourceName:(id)arg2 ofType:(id)arg3 screen:(id)arg4 outScale:(float *)arg5;
+- (id)_preferredImagePathByScaleInBundle:(id)arg1 resourceName:(id)arg2 ofType:(id)arg3 screen:(id)arg4 outScale:(float *)arg5;
+- (id)_newDefaultImageInfoForScreen:(id)arg1 launchingOrientation:(int)arg2;
+- (id)_defaultImageInfoForScreen:(id)arg1 launchingOrientation:(int)arg2;
+- (id)defaultImageForScreen:(id)arg1 snapshot:(char *)arg2 originalOrientation:(int *)arg3 currentOrientation:(int *)arg4 canUseIOSurface:(BOOL)arg5;
+- (id)defaultImageForScreen:(id)arg1 snapshot:(char *)arg2 originalOrientation:(int *)arg3 currentOrientation:(int *)arg4;
+- (id)defaultImageForScreen:(id)arg1;
 - (BOOL)isSnapshotPresentForLaunchingInterfaceOrientation:(int)arg1;
 - (id)_dynamicSnapshotSuffixForScale:(float)arg1;
 - (BOOL)_useLosslessSnapshotsForScale:(float)arg1;
 - (id)_pathIfFileExistsAtPath:(id)arg1;
 - (id)_additionalDisplayQualification;
 - (BOOL)shouldLaunchPNGless;
-- (void)flushSnapshots;
-- (id)appSnapshotPath;
+- (void)flushSnapshotsForScreen:(id)arg1;
+- (void)flushSnapshotsForAllScreens;
+- (id)appSnapshotPathForScreen:(id)arg1;
+- (id)_baseAppSnapshotPath;
 - (id)customSpotlightIconPathsForKey:(id)arg1;
 - (void)validateSystemProvisioningEntitlements:(CDStruct_6ad76789 *)arg1;
 - (BOOL)isLaunchableDuringSetup;
@@ -380,6 +456,8 @@
 - (BOOL)isNowRecordingApplication;
 - (id)webClip;
 - (BOOL)isWebApplication;
+- (BOOL)behavesLikePhone;
+- (BOOL)isFaceTime;
 - (BOOL)isMobilePhone;
 - (BOOL)isSystemProvisioningApplication;
 - (BOOL)isInternalApplication;
@@ -416,26 +494,41 @@
 - (double)autoLockTime;
 - (double)autoDimTime;
 - (BOOL)_idleTimerDisabledForAnyReason;
-- (id)initWithBundleIdentifier:(id)arg1 webClip:(id)arg2 path:(id)arg3 bundle:(id)arg4 infoDictionary:(id)arg5 isSystemApplication:(BOOL)arg6 signerIdentity:(id)arg7 provisioningProfileValidated:(BOOL)arg8;
+@property(copy) NSString *displayIdentifier; // @dynamic displayIdentifier;
+- (id)_sortedLaunchImagesForMainScreen:(id)arg1 bundle:(id)arg2;
+- (void)_assignDefaultLaunchImages:(id)arg1 forScreenType:(int)arg2;
+- (id)initWithBundleIdentifier:(id)arg1 webClip:(id)arg2 path:(id)arg3 bundle:(id)arg4 infoDictionary:(id)arg5 isSystemApplication:(BOOL)arg6 signerIdentity:(id)arg7 provisioningProfileValidated:(BOOL)arg8 entitlements:(id)arg9;
 - (void)_configureDisplayNameForInfoDictionary:(id)arg1 atBundlePath:(id)arg2;
 - (BOOL)isNewsstandApplication;
-- (void)_flushDefaultImageInfo;
-- (void)_endDefaultImageAccess;
-- (void)_beginDefaultImageAccess;
-- (id)_defaultPNGForLaunchingOrientation:(int)arg1 scale:(float)arg2 orientation:(int *)arg3;
-- (id)_defaultPNGPathForLaunchingOrientation:(int)arg1 scale:(float)arg2 imageOrientation:(int *)arg3 resultingScale:(float *)arg4;
-- (id)_snapshotImageForLaunchingOrientation:(int)arg1 scale:(float)arg2 originalOrientation:(int *)arg3 currentOrientation:(int *)arg4;
-- (id)_imageNamesForDefaultPNG;
-- (void)_addImageName:(id)arg1 toImageNamesArray:(id)arg2;
-- (id)_cachedImageForSnapshotPath:(id)arg1;
+- (id)_infoplist_defaultPNGPathForScreen:(id)arg1 launchingOrientation:(int)arg2 imageOrientation:(int *)arg3 resultingScale:(float *)arg4;
+- (BOOL)_infoplist_defaultPNGCalculateContainsCorgiImage;
+- (struct CGSize)_screenSizeForScreen:(id)arg1;
+- (id)_sanitizedImageNameFromName:(id)arg1 withExtension:(id)arg2 actualExtension:(out id *)arg3;
+- (id)_pathForExistingImageInCandidates:(id)arg1 forScreen:(id)arg2 launchingOrientation:(int)arg3 imageOrientation:(int *)arg4 resultingScale:(float *)arg5;
+- (void)_addImageName:(id)arg1 toImageNamesArray:(id)arg2 screen:(id)arg3;
+- (id)_cachedImageForSnapshotPath:(id)arg1 screen:(id)arg2;
 - (id)_imageForSnapshotAtPath:(id)arg1 fileOrientation:(int *)arg2;
-- (id)_defaultPNGOverrideName;
-- (id)_defaultImageName;
+- (id)_defaultPNGNameUsingFallbacks:(id)arg1;
+- (id)_defaultImageName:(id)arg1;
 - (id)_scaleSuffixForScale:(float)arg1;
 - (int)_fallbackImageOrientationForLaunchingOrientation:(int)arg1;
 - (id)_fallbackOrientationImageTagForLaunchingOrientation:(int)arg1;
 - (id)_orientationImageTagForLaunchingOrientation:(int)arg1;
 - (void)_imageOrientationParametersForLaunchingOrientation:(int)arg1 imageTag:(id *)arg2 fallbackImageTag:(id *)arg3 fallbackOrientation:(int *)arg4;
+- (id)_imageNamesFromInfoDictionary:(id)arg1;
+- (void)_flushDefaultImageInfoForAllScreens;
+- (void)_flushDefaultImageInfoForScreen:(id)arg1;
+- (void)_endDefaultImageAccess;
+- (void)_beginDefaultImageAccess;
+- (id)_defaultPNGForScreen:(id)arg1 launchingOrientation:(int)arg2 orientation:(int *)arg3;
+- (id)_defaultPNGPathForScreen:(id)arg1 launchingOrientation:(int)arg2 imageOrientation:(int *)arg3 resultingScale:(float *)arg4;
+- (id)_defaultPNGNameFromSuspensionSettings;
+- (BOOL)_applicationDoesNotHaveRestorationArchive;
+- (id)_defaultPNGNameWhenActivatingFromURLSetting:(id)arg1;
+- (id)_defaultPNGNameFromSearchDomainLaunchInfo:(id)arg1;
+- (id)_defaultPNGNameFromActivationSettings;
+- (id)_snapshotImageForScreen:(id)arg1 launchingOrientation:(int)arg2 originalOrientation:(int *)arg3 currentOrientation:(int *)arg4;
+- (id)_snapshotImageWithImageName:(id)arg1 forScreen:(id)arg2 launchingOrientation:(int)arg3 originalOrientation:(int *)arg4 currentOrientation:(int *)arg5;
 
 @end
 

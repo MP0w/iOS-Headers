@@ -14,9 +14,9 @@
     UILabel *_detailsSubtitleLabel;
     UILabel *_detailsTitleLabel;
     UIButton *_showCompleteAlbumButton;
+    BOOL _drawsInAlternateStyle;
     id <IUAlbumOfferTableFooterViewDelegate> _delegate;
     IUStoreOfferDownloadActionConfiguration *_downloadActionConfiguration;
-    BOOL _drawsInAlternateStyle;
     int _style;
     MPStoreCompletionOffering *_storeCompletionOffering;
 }
@@ -24,7 +24,8 @@
 @property(readonly, nonatomic) MPStoreCompletionOffering *storeCompletionOffering; // @synthesize storeCompletionOffering=_storeCompletionOffering;
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(nonatomic) BOOL drawsInAlternateStyle; // @synthesize drawsInAlternateStyle=_drawsInAlternateStyle;
-@property(nonatomic) id <IUAlbumOfferTableFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <IUAlbumOfferTableFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) IUStoreOfferDownloadActionConfiguration *downloadActionConfiguration; // @synthesize downloadActionConfiguration=_downloadActionConfiguration;
 - (id)_titleText;
 - (id)_subtitleText;
@@ -33,7 +34,7 @@
 - (id)_drawingBackgroundColor;
 - (void)_updateSubviewBackgroundColorsForCurrentBackgroundColor;
 - (void)_updateSubviewsForCurrentState;
-- (void)_showCompleteAlbumAction:(id)arg1;
+- (void)_showMissingItemsButtonAction:(id)arg1;
 - (void)_downloadButtonAction:(id)arg1;
 - (void)layoutSubviews;
 - (BOOL)_shouldShowOfferButtonOrLabel;

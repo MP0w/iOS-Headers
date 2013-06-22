@@ -32,6 +32,7 @@
 - (void)_beginSplitTransitionIfNeeded;
 - (BOOL)_accessorySuppressesShadow;
 - (id)_splittableInputAccessoryView;
+- (id)_themableInputAccessoryView;
 - (void)refreshPresentation;
 - (struct CGRect)_rightInputViewSetFrame;
 - (struct CGRect)_leftInputViewSetFrame;
@@ -53,8 +54,10 @@
 - (BOOL)_inputViewIsVisible;
 - (BOOL)usesKeyClicks;
 - (BOOL)isEqual:(id)arg1;
+- (BOOL)containsView:(id)arg1;
 @property(readonly, nonatomic, getter=isEmpty) BOOL empty;
 @property(readonly, nonatomic) UIView *layeringView;
+- (void)_setRenderConfig:(id)arg1;
 - (void)dealloc;
 - (id)initWithInputView:(id)arg1 accessoryView:(id)arg2 isKeyboard:(BOOL)arg3;
 @property(readonly, nonatomic) UIKeyboard *keyboard;

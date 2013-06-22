@@ -11,7 +11,7 @@
 @interface OCDReader : NSObject
 {
     id <OCCancelDelegate> mCancelDelegate;
-    id mDelegate;
+    id <OCDReaderDelegate> mDelegate;
     BOOL mIsThumbnail;
     CPImportTracing *mTracing;
     NSString *mFileName;
@@ -21,7 +21,7 @@
 
 @property(retain, nonatomic) CPImportTracing *tracing; // @synthesize tracing=mTracing;
 @property(nonatomic) BOOL isThumbnail; // @synthesize isThumbnail=mIsThumbnail;
-@property(nonatomic) id delegate; // @synthesize delegate=mDelegate;
+@property(nonatomic) id <OCDReaderDelegate> delegate; // @synthesize delegate=mDelegate;
 @property(retain, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
 @property(retain, nonatomic) NSError *startError; // @synthesize startError=mStartError;
 @property(retain, nonatomic) NSData *data; // @synthesize data=mData;

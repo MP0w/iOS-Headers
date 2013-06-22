@@ -10,9 +10,9 @@
 {
 }
 
++ (int)activityCategory;
 - (id)publishingBundle;
 - (BOOL)_canPerformWithSuppliedActivityItems:(id)arg1;
-- (id)_beforeActivity;
 - (id)_activityImage;
 - (id)activityTitle;
 - (id)activityType;

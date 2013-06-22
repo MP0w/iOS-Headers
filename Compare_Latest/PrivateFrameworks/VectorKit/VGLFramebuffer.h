@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class CAEAGLLayer, EAGLContext, VGLTexture;
+@class VGLContext, VGLScreenCanvas, VGLTexture;
 
 @interface VGLFramebuffer : NSObject
 {
-    EAGLContext *_eaglContext;
-    CAEAGLLayer *_eaglLayer;
+    VGLContext *_context;
+    VGLScreenCanvas *_canvas;
     unsigned int _framebuffer;
     unsigned int _renderbuffer;
     unsigned int _depthbuffer;
@@ -28,6 +28,9 @@
     VGLTexture *_texture;
 }
 
+@property(readonly, nonatomic) unsigned int framebuffer; // @synthesize framebuffer=_framebuffer;
+@property(nonatomic) VGLContext *context; // @synthesize context=_context;
+@property(nonatomic) VGLScreenCanvas *canvas; // @synthesize canvas=_canvas;
 @property(readonly, nonatomic) int height; // @synthesize height=_height;
 @property(readonly, nonatomic) int width; // @synthesize width=_width;
 @property(readonly, nonatomic) BOOL isPresentable; // @synthesize isPresentable=_isPresentable;
@@ -46,8 +49,8 @@
 - (BOOL)_createResolveFramebuffer;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 texture:(id)arg2 depth:(BOOL)arg3 stencil:(BOOL)arg4;
-- (id)initWithContext:(id)arg1 layer:(id)arg2 depth:(BOOL)arg3 stencil:(BOOL)arg4 multisampling:(BOOL)arg5;
-- (id)initWithContext:(id)arg1 layer:(id)arg2;
+- (id)initWithContext:(id)arg1 canvas:(id)arg2 depth:(BOOL)arg3 stencil:(BOOL)arg4 multisampling:(BOOL)arg5;
+- (id)initWithContext:(id)arg1 canvas:(id)arg2;
 @property(nonatomic) BOOL useMultisampling;
 
 @end

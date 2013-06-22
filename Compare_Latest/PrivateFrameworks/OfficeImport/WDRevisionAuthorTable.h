@@ -14,10 +14,10 @@
     WDDocument *mDocument;
 }
 
-- (int)authorAddLookup:(id)arg1;
+- (unsigned int)authorAddLookup:(id)arg1;
 - (void)addAuthor:(id)arg1;
-- (id)authorAt:(int)arg1;
-- (int)authorCount;
+- (id)authorAt:(unsigned int)arg1;
+- (unsigned int)authorCount;
 - (id)authors;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;

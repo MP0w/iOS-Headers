@@ -10,6 +10,7 @@
 
 @interface VMUSampler : NSObject
 {
+    unsigned int _options;
     int _pid;
     unsigned int _task;
     BOOL _needTaskPortDealloc;
@@ -41,8 +42,10 @@
     id _delegate;
     double _timeSpentSamplingWithoutCFI;
     double _timeSpentSamplingWithCFI;
-    BOOL _shouldOutputSignature;
-    BOOL _showDispatchQueueNames;
+    unsigned int _dispatchThreadSoftLimit;
+    unsigned int _dispatchThreadSoftLimitCount;
+    unsigned int _dispatchThreadHardLimit;
+    unsigned int _dispatchThreadHardLimitCount;
 }
 
 + (id)sampleAllThreadsOfTask:(unsigned int)arg1 withSymbolicator:(id)arg2 symbolicate:(BOOL)arg3;
@@ -54,6 +57,7 @@
 + (void)initialize;
 - (void)writeOutput:(id)arg1 append:(BOOL)arg2;
 - (id)createOutput;
+- (id)outputString;
 - (id)stopSamplingAndReturnCallNode;
 - (void)forceStop;
 - (void)stopSampling;
@@ -88,6 +92,7 @@
 - (void)_runSamplingThread;
 - (void)_fixupStacks:(id)arg1;
 - (unsigned int)recordSampleTo:(id)arg1 beginTime:(double)arg2 endTime:(double)arg3 thread:(unsigned int)arg4;
+- (void)_checkDispatchThreadLimits;
 - (void)initializeSamplingContext:(BOOL)arg1;
 - (void)_makeTimeshare;
 - (void)_makeHighPriority;

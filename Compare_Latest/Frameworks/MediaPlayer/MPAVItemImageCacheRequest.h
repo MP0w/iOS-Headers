@@ -16,8 +16,8 @@
 
 @property(readonly, nonatomic) CDStruct_1b6d18a9 imageTime; // @synthesize imageTime=_imageTime;
 @property(readonly, nonatomic) MPAVItem *AVItem; // @synthesize AVItem=_item;
+- (void).cxx_destruct;
 - (id)copyRawImageReturningError:(id *)arg1;
-- (void)dealloc;
 - (id)initWithAVItem:(id)arg1 imageTime:(CDStruct_1b6d18a9)arg2;
 - (id)init;
 

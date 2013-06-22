@@ -4,8 +4,6 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@class AVPlayerItemAccessLog, AVPlayerItemAccessLogEvent, AVPlayerItemErrorLog, AVPlayerItemErrorLogEvent, MPMediaItem, MPMediaLibrary, MPMediaQuery, MPMediaQueryCriteria, NSArray, NSString, UIImage;
-
 #pragma mark Named Structures
 
 struct CGPoint {
@@ -23,6 +21,11 @@ struct CGSize {
     float height;
 };
 
+struct FairPlayHWInfo_ {
+    unsigned int IDLength;
+    unsigned char ID[20];
+};
+
 struct MLArtworkFormatSpec {
     unsigned int _field1;
     unsigned int _field2;
@@ -36,48 +39,6 @@ struct MLArtworkFormatSpec {
 struct MLArtworkInstanceInfo {
     struct MLArtworkFormatSpec _field1;
     struct CGRect _field2;
-};
-
-struct MPMediaItemArtworkInternal {
-    UIImage *image;
-};
-
-struct MPMediaItemCollectionInternal {
-    NSArray *_items;
-    MPMediaQuery *_itemsQuery;
-    unsigned int _itemsCount;
-    MPMediaItem *_representativeItem;
-    int _containedMediaTypes;
-};
-
-struct MPMediaPropertyPredicateInternal {
-    NSString *_property;
-    id _value;
-    int _comparisonType;
-};
-
-struct MPMediaQueryInternal {
-    MPMediaLibrary *_mediaLibrary;
-    MPMediaQueryCriteria *_criteria;
-    int _isFilteringDisabled;
-    NSArray *_staticEntities;
-    int _staticEntityType;
-};
-
-struct MPMovieAccessLogEventInternal {
-    AVPlayerItemAccessLogEvent *event;
-};
-
-struct MPMovieAccessLogInternal {
-    AVPlayerItemAccessLog *accessLog;
-};
-
-struct MPMovieErrorLogEventInternal {
-    AVPlayerItemErrorLogEvent *event;
-};
-
-struct MPMovieErrorLogInternal {
-    AVPlayerItemErrorLog *errorLog;
 };
 
 struct StackItem {

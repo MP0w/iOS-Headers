@@ -20,13 +20,13 @@
 }
 
 + (id)customAttributes;
-@property(retain) CIVector *inputShadowOffset; // @synthesize inputShadowOffset;
-@property(retain) NSNumber *inputShadowDensity; // @synthesize inputShadowDensity;
-@property(retain) NSNumber *inputShadowRadius; // @synthesize inputShadowRadius;
-@property(retain) NSNumber *inputTime; // @synthesize inputTime;
-@property(retain) CIImage *inputMaskImage; // @synthesize inputMaskImage;
-@property(retain) CIImage *inputTargetImage; // @synthesize inputTargetImage;
-@property(retain) CIImage *inputImage; // @synthesize inputImage;
+@property(retain, nonatomic) CIVector *inputShadowOffset; // @synthesize inputShadowOffset;
+@property(retain, nonatomic) NSNumber *inputShadowDensity; // @synthesize inputShadowDensity;
+@property(retain, nonatomic) NSNumber *inputShadowRadius; // @synthesize inputShadowRadius;
+@property(retain, nonatomic) NSNumber *inputTime; // @synthesize inputTime;
+@property(retain, nonatomic) CIImage *inputMaskImage; // @synthesize inputMaskImage;
+@property(retain, nonatomic) CIImage *inputTargetImage; // @synthesize inputTargetImage;
+@property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)_kernel;
 - (void)setDefaults;

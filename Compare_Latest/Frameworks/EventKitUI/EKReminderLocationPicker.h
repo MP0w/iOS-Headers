@@ -30,7 +30,8 @@
     id <EKReminderLocationPickerDelegate> _locationPickerDelegate;
 }
 
-@property(nonatomic) id <EKReminderLocationPickerDelegate> locationPickerDelegate; // @synthesize locationPickerDelegate=_locationPickerDelegate;
+@property(nonatomic) __weak id <EKReminderLocationPickerDelegate> locationPickerDelegate; // @synthesize locationPickerDelegate=_locationPickerDelegate;
+- (void).cxx_destruct;
 - (BOOL)textFieldShouldReturn:(id)arg1;
 - (void)textFieldClearButtonPressed:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
@@ -75,7 +76,6 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)_showPickMeCardAlertIfNecessary;
 - (void)_removeExistingMeCardAlert;
-- (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithModel:(id)arg1 styleProvider:(id)arg2;

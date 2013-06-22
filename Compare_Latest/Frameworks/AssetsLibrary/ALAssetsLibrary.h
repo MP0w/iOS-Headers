@@ -33,6 +33,7 @@
 - (id)publicErrorForPrivateDomain:(id)arg1 withPrivateCode:(int)arg2;
 - (id)publicErrorFromPrivateError:(id)arg1;
 - (BOOL)_libraryIsAvailable;
+- (void)_performBlock:(id)arg1;
 - (void)_performBlockAndWait:(id)arg1;
 - (void)registerAlbum:(struct NSObject *)arg1 assetGroupPrivate:(id)arg2;
 - (BOOL)isValid;

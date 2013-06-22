@@ -6,7 +6,7 @@
 
 #import <CoreData/NSSQLConnection.h>
 
-@class NSMutableDictionary, NSMutableSet, NSSQLEntity, NSSQLiteStatement, NSString;
+@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSSQLEntity, NSSQLiteStatement, NSString;
 
 @interface NSSQLiteConnection : NSSQLConnection
 {
@@ -25,9 +25,11 @@
     NSMutableDictionary *_pragmaSettings;
     struct __CFDictionary *_cachedEntityUpdateStatements;
     double _timeOutOption;
+    double _timeOutIncrement;
     void *_extraBuffersForRegisteredFunctions[5];
     NSString *_dbPathRegisteredWithBackupd;
     long long _vacuumTracker;
+    NSMutableArray *_temporaryTables;
     struct __sqliteConnectionFlags {
         unsigned int _readyToBind:1;
         unsigned int _fetchInProgress:1;
@@ -35,7 +37,8 @@
         unsigned int _proxyLocking:1;
         unsigned int _vacuumSetupNeeded:1;
         unsigned int _usingWAL:1;
-        unsigned int _reserved:25;
+        unsigned int _disallowReconnect:1;
+        unsigned int _reserved:24;
     } _sqliteConnectionFlags;
     unsigned long long _debugInode;
 }
@@ -65,6 +68,7 @@
 - (long long)_getCurrentAutoVacuumValue;
 - (void)_performPostSaveTasks;
 - (void **)_buffersForRegisteredFunctions;
+- (void)didCreateSchema;
 - (void)willCreateSchema;
 - (void)_configurePageSize;
 - (void)_configureAutoVacuum;
@@ -75,6 +79,7 @@
 - (void)_registerExtraFunctions;
 - (BOOL)hasMetadataTable;
 - (BOOL)_hasTableWithName:(id)arg1;
+- (id)newFetchUUIDSForSubentitiesRootedAt:(id)arg1;
 - (id)fetchTableCreationSQL;
 - (id)fetchTableNames;
 - (BOOL)performIntegrityCheck;
@@ -92,6 +97,7 @@
 - (void)releaseSQLStatement;
 - (void)resetSQLStatement;
 - (void)execute;
+- (void)bindTempTableForBindIntarray:(id)arg1;
 - (void)prepareSQLStatement:(id)arg1;
 - (void)deleteRow:(id)arg1;
 - (void)updateRow:(id)arg1;
@@ -118,7 +124,7 @@
 - (void)_finalizeStatement;
 - (void)_clearTransactionCaches;
 - (void)connect;
-- (void)_configurePragmaOptions:(int)arg1;
+- (void)_configurePragmaOptions:(int)arg1 createdSchema:(BOOL)arg2;
 - (void)_configureUbiquityMetadataTable;
 - (void)_configureIntegrityCheck;
 - (void)_configureSynchronousMode;

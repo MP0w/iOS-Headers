@@ -8,45 +8,42 @@
 
 #import "UITableViewDataSource-Protocol.h"
 
-@class ABModel, ACAccountStore, AccountsManager, NSArray, NSDictionary;
+@class ABModel, ACAccountStore, NSArray, NSDictionary;
 
 @interface ABAccountsAndGroupDataSource : NSObject <UITableViewDataSource>
 {
-    ABModel *_model;
     NSArray *_accountIdentifiers;
     NSArray *_accountDisplayNames;
     NSDictionary *_groupsByAccountIdentifier;
+    ACAccountStore *_accountStore;
     BOOL _hidesSearchableSources;
     BOOL _hidesGlobalGroupWrapper;
-    AccountsManager *_accountsManager;
-    ACAccountStore *_accountStore;
     BOOL _dirty;
+    ABModel *_model;
 }
 
-@property(retain, nonatomic) ABModel *model; // @synthesize model=_model;
-@property(nonatomic, getter=isDirty) BOOL dirty; // @synthesize dirty=_dirty;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
-@property(retain, nonatomic) AccountsManager *accountsManager; // @synthesize accountsManager=_accountsManager;
+@property(nonatomic, getter=isDirty) BOOL dirty; // @synthesize dirty=_dirty;
 @property(nonatomic) BOOL hidesGlobalGroupWrapper; // @synthesize hidesGlobalGroupWrapper=_hidesGlobalGroupWrapper;
 @property(nonatomic) BOOL hidesSearchableSources; // @synthesize hidesSearchableSources=_hidesSearchableSources;
+@property(retain, nonatomic) ABModel *model; // @synthesize model=_model;
 - (void)cancelScheduledRefresh;
 - (void)scheduleRefresh;
 - (int)numberOfGroupsForAccountIdentifier:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)accountDisplayNameAtIndex:(int)arg1;
+- (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (int)numberOfAccounts;
 - (int)numberOfGroupsInAccountAtIndex:(int)arg1;
+- (id)accountDisplayNameAtIndex:(int)arg1;
 - (id)newContactsFilterFromSelectedGroupWrappers;
 - (id)indexPathForGroupWrapper:(id)arg1;
 - (id)groupWrapperForIndexPath:(id)arg1;
 - (void)reloadData;
-- (void)reloadDataIncludingAccountsManager:(BOOL)arg1 usingArchivedState:(BOOL)arg2;
+- (void)reloadDataIncludingAccountStore:(BOOL)arg1 usingArchivedState:(BOOL)arg2;
 - (id)defaultGroupWrapper;
 - (void)dealloc;
-- (id)init;
 
 @end
 

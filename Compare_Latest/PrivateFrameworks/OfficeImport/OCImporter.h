@@ -6,7 +6,7 @@
 
 #import <OfficeImport/OCMapper.h>
 
-@class CPImportTracing, NSData, NSURL, OCDReader;
+@class CPImportTracing, NSData, NSURL, OCDReader, TSUProgressContext;
 
 @interface OCImporter : OCMapper
 {
@@ -15,10 +15,13 @@
     OCDReader *mReader;
     CPImportTracing *mTracing;
     BOOL mTryAlternateReader;
+    TSUProgressContext *mProgressContext;
 }
 
 + (void)initialize;
 @property(readonly, nonatomic) CPImportTracing *tracing; // @synthesize tracing=mTracing;
+@property(retain) TSUProgressContext *progressContext; // @synthesize progressContext=mProgressContext;
+- (id)displayName;
 - (id)filename;
 - (BOOL)setPassphrase:(id)arg1;
 - (BOOL)isDocumentEncryptedUnsupportedVersion:(char *)arg1 errorMessage:(id *)arg2;

@@ -7,10 +7,11 @@
 #import <VectorKit/VKModelObject.h>
 
 #import "VKMapLayer-Protocol.h"
+#import "VKStylesheetObserver-Protocol.h"
 
 @class NSMutableSet, NSSet, VKMapModel, VKStylesheet;
 
-@interface VKMapTileModel : VKModelObject <VKMapLayer>
+@interface VKMapTileModel : VKModelObject <VKMapLayer, VKStylesheetObserver>
 {
     NSMutableSet *_tilesWillEnterScene;
     NSMutableSet *_tilesInScene;
@@ -19,6 +20,8 @@
     NSMutableSet *_tilesExitingScene;
     NSMutableSet *_previousTilesInScene;
     VKMapModel *_mapModel;
+    unsigned char _minimumZ;
+    unsigned char _maximumZ;
 }
 
 + (BOOL)reloadOnActiveTileGroupChange;
@@ -26,8 +29,9 @@
 @property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
 @property(readonly, nonatomic) NSSet *tilesInScene; // @synthesize tilesInScene=_tilesInScene;
 - (void)updateTilesInScene:(id)arg1 withContext:(id)arg2 categorize:(BOOL)arg3;
-- (void)activeTileGroupChanged:(id)arg1;
+- (void)activeTileGroupChanged;
 - (void)stylesheetDidChange;
+- (void)stylesheetWillChange;
 - (void)removePersistingExitingTiles:(id)arg1;
 - (void)willStopDrawingTiles:(id)arg1;
 - (void)willStartDrawingTiles:(id)arg1;

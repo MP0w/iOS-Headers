@@ -15,6 +15,8 @@
 + (BOOL)accessInstanceVariablesDirectly;
 + (int)version;
 + (void)initialize;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)URIRepresentation;
 - (id)description;

@@ -52,7 +52,7 @@
 - (void)webViewDidPreventDefaultForEvent:(id)arg1;
 - (void)webView:(id)arg1 didObserveDeferredContentChange:(int)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 needsScrollNotifications:(id)arg2 forFrame:(id)arg3;
-- (void)webView:(id)arg1 didReceiveViewportArguments:(id)arg2 forFrame:(id)arg3;
+- (void)webView:(id)arg1 didReceiveViewportArguments:(id)arg2;
 - (void)webView:(id)arg1 restoreStateFromHistoryItem:(id)arg2 forFrame:(id)arg3 force:(BOOL)arg4;
 - (void)webView:(id)arg1 saveStateToHistoryItem:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 didFinishLoadForFrame:(id)arg2;

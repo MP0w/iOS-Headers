@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class MPDocument;
+@class MPDocument, NSRecursiveLock;
 
 @interface MPCropController : NSObject
 {
     id _delegate;
     MPDocument *_authoredDocument;
+    NSRecursiveLock *_cropLock;
 }
 
 + (void)releaseSharedController;
@@ -24,6 +25,7 @@
 - (void)batchCrop:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;
+- (void)dealloc;
 - (id)init;
 - (double)durationOfSlide:(id)arg1;
 - (void)applyMultiFaceAnimatedCropToSlide:(id)arg1 withOptions:(id)arg2;

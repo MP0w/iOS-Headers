@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <MIME/MessageStore.h>
+#import <MIME/MFMessageStore.h>
 
 @class NSData;
 
-@interface MFDataMessageStore : MessageStore
+@interface MFDataMessageStore : MFMessageStore
 {
     NSData *_data;
     Class _messageClass;

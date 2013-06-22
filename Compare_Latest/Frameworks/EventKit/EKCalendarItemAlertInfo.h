@@ -12,31 +12,33 @@
 
 @interface EKCalendarItemAlertInfo : NSObject <NSCopying>
 {
-    NSString *_title;
-    NSString *_location;
-    NSDate *_date;
-    NSDate *_endDate;
-    NSTimeZone *_timeZone;
-    NSURL *_action;
     BOOL _allDay;
     BOOL _tentative;
+    BOOL _acknowledged;
+    NSString *_title;
+    NSString *_location;
+    NSDate *_eventDate;
+    NSDate *_endDate;
+    NSTimeZone *_eventTimeZone;
+    NSURL *_action;
     NSURL *_entityID;
     int _proximity;
     NSString *_externalID;
-    BOOL _acknowledged;
+    NSString *_dismissalID;
 }
 
-+ (id)alertInfoWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(BOOL)arg6 tentative:(BOOL)arg7 entityID:(id)arg8 action:(id)arg9 proximity:(int)arg10 externalID:(id)arg11 acknowledged:(BOOL)arg12;
++ (id)alertInfoWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(BOOL)arg6 tentative:(BOOL)arg7 entityID:(id)arg8 action:(id)arg9 proximity:(int)arg10 externalID:(id)arg11 acknowledged:(BOOL)arg12 dismissalID:(id)arg13;
+@property(readonly, nonatomic) NSString *dismissalID; // @synthesize dismissalID=_dismissalID;
 @property(readonly, nonatomic) BOOL acknowledged; // @synthesize acknowledged=_acknowledged;
 @property(readonly, nonatomic) NSString *externalID; // @synthesize externalID=_externalID;
 @property(readonly, nonatomic) int proximity; // @synthesize proximity=_proximity;
-@property(readonly, nonatomic) NSURL *entityID; // @synthesize entityID=_entityID;
 @property(readonly, nonatomic) BOOL tentative; // @synthesize tentative=_tentative;
 @property(readonly, nonatomic) BOOL allDay; // @synthesize allDay=_allDay;
+@property(readonly, nonatomic) NSURL *entityID; // @synthesize entityID=_entityID;
 @property(readonly, nonatomic) NSURL *action; // @synthesize action=_action;
-@property(readonly, nonatomic) NSTimeZone *eventTimeZone; // @synthesize eventTimeZone=_timeZone;
+@property(readonly, nonatomic) NSTimeZone *eventTimeZone; // @synthesize eventTimeZone=_eventTimeZone;
 @property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
-@property(readonly, nonatomic) NSDate *eventDate; // @synthesize eventDate=_date;
+@property(readonly, nonatomic) NSDate *eventDate; // @synthesize eventDate=_eventDate;
 @property(readonly, nonatomic) NSString *location; // @synthesize location=_location;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 - (BOOL)isEqual:(id)arg1;
@@ -44,7 +46,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(BOOL)arg6 tentative:(BOOL)arg7 entityID:(id)arg8 action:(id)arg9 proximity:(int)arg10 externalID:(id)arg11 acknowledged:(BOOL)arg12;
+- (id)initWithTitle:(id)arg1 location:(id)arg2 date:(id)arg3 endDate:(id)arg4 timeZone:(id)arg5 allDay:(BOOL)arg6 tentative:(BOOL)arg7 entityID:(id)arg8 action:(id)arg9 proximity:(int)arg10 externalID:(id)arg11 acknowledged:(BOOL)arg12 dismissalID:(id)arg13;
 
 @end
 

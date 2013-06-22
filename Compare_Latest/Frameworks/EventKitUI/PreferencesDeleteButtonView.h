@@ -13,10 +13,10 @@
     UIButton *_button;
 }
 
-+ (float)defaultHeight;
+- (void).cxx_destruct;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 @property(readonly, nonatomic) UIButton *button;
-- (void)dealloc;
 - (id)initWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;
 
 @end

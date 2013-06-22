@@ -10,24 +10,26 @@
 
 @interface MBDomain : NSObject
 {
-    NSString *_rootPath;
-    NSSet *_relativePathsNotToCheckIfModifiedDuringBackup;
     BOOL _shouldDigest;
+    NSString *_rootPath;
+    NSString *_name;
+    NSSet *_relativePathsToBackupAndRestore;
+    NSSet *_relativePathsNotToBackup;
+    NSSet *_relativePathsNotToBackupToDrive;
+    NSSet *_relativePathsNotToBackupToService;
+    NSSet *_relativePathsNotToCheckIfModifiedDuringBackup;
+    NSSet *_relativePathsToRestoreOnly;
+    NSSet *_relativePathsToRestoreOnlyFromService;
+    NSSet *_relativePathsToRemoveOnRestore;
+    NSSet *_relativePathsOfSystemFilesToAlwaysRestore;
+    NSSet *_relativePathsOfSystemFilesToAlwaysRemoveOnRestore;
+    NSSet *_relativePathsNotToRestore;
+    NSSet *_relativePathsNotToMigrate;
     NSSet *_relativePathsNotToRestoreToIPods;
     NSSet *_relativePathsNotToBackupAndRestoreToAppleTVs;
-    NSSet *_relativePathsToRestoreOnly;
     NSSet *_relativePathsToBackgroundRestore;
-    NSSet *_relativePathsToRemoveOnRestore;
-    NSSet *_relativePathsNotToBackup;
-    NSSet *_relativePathsToBackupAndRestore;
     NSSet *_relativePathsNotToRemoveIfNotRestored;
-    NSSet *_relativePathsOfSystemFilesToAlwaysRestore;
     NSDictionary *_relativePathAggregateDictionaryGroups;
-    NSSet *_relativePathsNotToBackupToDrive;
-    NSString *_name;
-    NSSet *_relativePathsNotToRestore;
-    NSSet *_relativePathsNotToBackupToService;
-    NSSet *_relativePathsNotToMigrate;
     NSDictionary *_relativePathDomainRedirects;
 }
 
@@ -51,24 +53,26 @@
 + (id)_setOfStringsFromValue:(id)arg1 forKey:(id)arg2;
 + (id)_stringByRemovingCommentsFromValue:(id)arg1 forKey:(id)arg2;
 + (BOOL)_boolFromValue:(id)arg1 forKey:(id)arg2;
+@property(nonatomic) BOOL shouldDigest; // @synthesize shouldDigest=_shouldDigest;
 @property(retain, nonatomic) NSDictionary *relativePathDomainRedirects; // @synthesize relativePathDomainRedirects=_relativePathDomainRedirects;
-@property(retain, nonatomic) NSSet *relativePathsNotToMigrate; // @synthesize relativePathsNotToMigrate=_relativePathsNotToMigrate;
-@property(retain, nonatomic) NSSet *relativePathsNotToBackupToService; // @synthesize relativePathsNotToBackupToService=_relativePathsNotToBackupToService;
-@property(retain, nonatomic) NSSet *relativePathsNotToRestore; // @synthesize relativePathsNotToRestore=_relativePathsNotToRestore;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-@property(retain, nonatomic) NSSet *relativePathsNotToBackupToDrive; // @synthesize relativePathsNotToBackupToDrive=_relativePathsNotToBackupToDrive;
 @property(retain, nonatomic) NSDictionary *relativePathAggregateDictionaryGroups; // @synthesize relativePathAggregateDictionaryGroups=_relativePathAggregateDictionaryGroups;
-@property(retain, nonatomic) NSSet *relativePathsOfSystemFilesToAlwaysRestore; // @synthesize relativePathsOfSystemFilesToAlwaysRestore=_relativePathsOfSystemFilesToAlwaysRestore;
 @property(retain, nonatomic) NSSet *relativePathsNotToRemoveIfNotRestored; // @synthesize relativePathsNotToRemoveIfNotRestored=_relativePathsNotToRemoveIfNotRestored;
-@property(retain, nonatomic) NSSet *relativePathsToBackupAndRestore; // @synthesize relativePathsToBackupAndRestore=_relativePathsToBackupAndRestore;
-@property(retain, nonatomic) NSSet *relativePathsNotToBackup; // @synthesize relativePathsNotToBackup=_relativePathsNotToBackup;
-@property(retain, nonatomic) NSSet *relativePathsToRemoveOnRestore; // @synthesize relativePathsToRemoveOnRestore=_relativePathsToRemoveOnRestore;
 @property(retain, nonatomic) NSSet *relativePathsToBackgroundRestore; // @synthesize relativePathsToBackgroundRestore=_relativePathsToBackgroundRestore;
-@property(retain, nonatomic) NSSet *relativePathsToRestoreOnly; // @synthesize relativePathsToRestoreOnly=_relativePathsToRestoreOnly;
 @property(retain, nonatomic) NSSet *relativePathsNotToBackupAndRestoreToAppleTVs; // @synthesize relativePathsNotToBackupAndRestoreToAppleTVs=_relativePathsNotToBackupAndRestoreToAppleTVs;
 @property(retain, nonatomic) NSSet *relativePathsNotToRestoreToIPods; // @synthesize relativePathsNotToRestoreToIPods=_relativePathsNotToRestoreToIPods;
-@property(nonatomic) BOOL shouldDigest; // @synthesize shouldDigest=_shouldDigest;
+@property(retain, nonatomic) NSSet *relativePathsNotToMigrate; // @synthesize relativePathsNotToMigrate=_relativePathsNotToMigrate;
+@property(retain, nonatomic) NSSet *relativePathsNotToRestore; // @synthesize relativePathsNotToRestore=_relativePathsNotToRestore;
+@property(retain, nonatomic) NSSet *relativePathsOfSystemFilesToAlwaysRemoveOnRestore; // @synthesize relativePathsOfSystemFilesToAlwaysRemoveOnRestore=_relativePathsOfSystemFilesToAlwaysRemoveOnRestore;
+@property(retain, nonatomic) NSSet *relativePathsOfSystemFilesToAlwaysRestore; // @synthesize relativePathsOfSystemFilesToAlwaysRestore=_relativePathsOfSystemFilesToAlwaysRestore;
+@property(retain, nonatomic) NSSet *relativePathsToRemoveOnRestore; // @synthesize relativePathsToRemoveOnRestore=_relativePathsToRemoveOnRestore;
+@property(retain, nonatomic) NSSet *relativePathsToRestoreOnlyFromService; // @synthesize relativePathsToRestoreOnlyFromService=_relativePathsToRestoreOnlyFromService;
+@property(retain, nonatomic) NSSet *relativePathsToRestoreOnly; // @synthesize relativePathsToRestoreOnly=_relativePathsToRestoreOnly;
 @property(retain, nonatomic) NSSet *relativePathsNotToCheckIfModifiedDuringBackup; // @synthesize relativePathsNotToCheckIfModifiedDuringBackup=_relativePathsNotToCheckIfModifiedDuringBackup;
+@property(retain, nonatomic) NSSet *relativePathsNotToBackupToService; // @synthesize relativePathsNotToBackupToService=_relativePathsNotToBackupToService;
+@property(retain, nonatomic) NSSet *relativePathsNotToBackupToDrive; // @synthesize relativePathsNotToBackupToDrive=_relativePathsNotToBackupToDrive;
+@property(retain, nonatomic) NSSet *relativePathsNotToBackup; // @synthesize relativePathsNotToBackup=_relativePathsNotToBackup;
+@property(retain, nonatomic) NSSet *relativePathsToBackupAndRestore; // @synthesize relativePathsToBackupAndRestore=_relativePathsToBackupAndRestore;
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSString *rootPath; // @synthesize rootPath=_rootPath;
 @property(readonly, nonatomic) NSString *bundleID;
 @property(readonly, nonatomic, getter=isUninstalledAppDomain) BOOL installedAppDomain;

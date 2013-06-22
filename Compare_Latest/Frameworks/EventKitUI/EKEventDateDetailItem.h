@@ -8,22 +8,24 @@
 
 #import "EKCellShortener-Protocol.h"
 
-@class PreferencesDoubleTwoPartValueCell;
+@class NSDate, PreferencesDoubleTwoPartValueCell;
 
 @interface EKEventDateDetailItem : EKEventDetailItem <EKCellShortener>
 {
     PreferencesDoubleTwoPartValueCell *_cell;
-    CDStruct_b0fa4487 _startDateGr;
-    CDStruct_b0fa4487 _endDateGr;
+    NSDate *_startDate;
+    NSDate *_endDate;
     BOOL _indent;
 }
 
+- (void).cxx_destruct;
 - (void)shortenCell:(id)arg1;
-- (id)cellForSubitemAtIndex:(int)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
 - (void)setEvent:(id)arg1 store:(id)arg2;
 - (void)reset;
+- (void)dealloc;
 
 @end
 

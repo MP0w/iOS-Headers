@@ -25,7 +25,7 @@
     BOOL _hasBeenRead;
     BOOL _isOutgoing;
     BOOL _isVisibleByDefault;
-    int _madridType;
+    long long _madridType;
     int _identifier;
     NSDate *_date;
     NSArray *_recipients;
@@ -43,7 +43,7 @@
 @property(readonly, nonatomic) NSArray *messageParts; // @synthesize messageParts=_messageParts;
 @property(readonly, nonatomic) NSAttributedString *madridAttributedBody; // @synthesize madridAttributedBody=_madridAttributedBody;
 @property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
-@property(readonly, nonatomic) int madridType; // @synthesize madridType=_madridType;
+@property(readonly, nonatomic) long long madridType; // @synthesize madridType=_madridType;
 @property(readonly, nonatomic) BOOL isOutgoing; // @synthesize isOutgoing=_isOutgoing;
 @property(readonly, nonatomic) BOOL hasBeenRead; // @synthesize hasBeenRead=_hasBeenRead;
 @property(readonly, nonatomic) BOOL isMadrid; // @synthesize isMadrid=_isMadrid;
@@ -57,11 +57,11 @@
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (id)attachmentText:(BOOL)arg1;
 - (id)previewText;
-- (id)alertImageData;
+- (id)alertImage;
 - (BOOL)senderIsVoicemail;
 - (id)voicemailString;
 @property(readonly, nonatomic) BOOL isMessageFullyLoaded;
-- (CDStruct_cb19c43e *)_copyMadridAttachmentRecordForGUID:(id)arg1;
+- (struct _IMDAttachmentRecordStruct *)_copyMadridAttachmentRecordForGUID:(id)arg1;
 - (BOOL)_hasAttachments;
 - (void)_loadMessageParts;
 @property(readonly, nonatomic) NSString *plainBody;

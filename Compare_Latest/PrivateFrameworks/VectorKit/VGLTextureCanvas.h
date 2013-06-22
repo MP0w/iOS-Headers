@@ -8,7 +8,7 @@
 
 #import "VGLCanvas-Protocol.h"
 
-@class VGLContext, VGLTexture;
+@class VGLContext, VGLResource, VGLTexture, VGLTextureFramebuffer;
 
 @interface VGLTextureCanvas : NSObject <VGLCanvas>
 {
@@ -18,8 +18,9 @@
     struct CGSize _sizeInPixels;
     float _contentScale;
     struct _VGLColor _glClearColor;
-    unsigned int _framebuffer;
-    unsigned int _depthbuffer;
+    VGLResource *_framebufferResource;
+    VGLResource *_depthbufferResource;
+    VGLTextureFramebuffer *_framebuffer;
 }
 
 + (Class)contextClass;
@@ -29,8 +30,12 @@
 @property(readonly, nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
 @property(nonatomic) struct _VGLColor glClearColor; // @synthesize glClearColor=_glClearColor;
 @property(readonly, nonatomic) VGLContext *vglContext; // @synthesize vglContext=_targetContext;
+- (id).cxx_construct;
+- (void)dumpTextureToPath:(id)arg1;
+- (id)_framebufferResource;
 - (void)didDrawView;
 - (void)willDrawView;
+- (void)_bindFramebuffer;
 - (void)setRasterizedContext:(id)arg1;
 - (id)description;
 - (void)dealloc;

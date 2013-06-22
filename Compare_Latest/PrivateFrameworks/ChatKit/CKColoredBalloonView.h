@@ -6,18 +6,32 @@
 
 #import <ChatKit/CKBalloonView.h>
 
+@class CKGradientView, UIImageView, UIView<CKGradientReferenceView>;
+
 @interface CKColoredBalloonView : CKBalloonView
 {
-    int _outgoingColor;
+    BOOL _color;
+    BOOL _filled;
+    UIImageView *_mask;
+    CKGradientView *_gradientView;
 }
 
-@property(nonatomic) int outgoingColor; // @synthesize outgoingColor=_outgoingColor;
-- (void)updateHighlightedImage;
-- (void)updateImage;
-- (void)setOrientation:(int)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+@property(retain, nonatomic) CKGradientView *gradientView; // @synthesize gradientView=_gradientView;
+@property(retain, nonatomic) UIImageView *mask; // @synthesize mask=_mask;
+@property(nonatomic, getter=isFilled) BOOL filled; // @synthesize filled=_filled;
+@property(nonatomic) BOOL color; // @synthesize color=_color;
+- (id)balloonImage;
+- (BOOL)wantsGradient;
+@property(retain, nonatomic) UIView<CKGradientReferenceView> *gradientReferenceView;
+- (void)setCanUseOpaqueMask:(BOOL)arg1;
+- (void)setHasTail:(BOOL)arg1;
+- (void)prepareForDisplay;
+- (struct UIEdgeInsets)alignmentRectInsets;
 - (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (id)description;
+- (void)dealloc;
+- (void)configureForMessagePart:(id)arg1;
 
 @end
 

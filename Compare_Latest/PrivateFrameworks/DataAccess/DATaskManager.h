@@ -23,6 +23,8 @@
     id <DATask> _activeModalTask;
     int _state;
     NSTimer *_managerIdleTimer;
+    NSTimer *_powerLogIdleTimer;
+    BOOL _didLogSyncStart;
 }
 
 @property(readonly) NSArray *queuedTasks; // @synthesize queuedTasks=_queuedTasks;
@@ -50,9 +52,12 @@
 - (void)taskEndModal:(id)arg1;
 - (void)taskRequestModal:(id)arg1;
 - (void)taskDidFinish:(id)arg1;
+- (BOOL)_hasTasksIndicatingARunningSync;
 - (BOOL)_hasTasksForcingNetworkConnection;
 - (BOOL)_taskInQueueForcesNetworkConnection:(id)arg1;
 - (BOOL)_taskForcesNetworking:(id)arg1;
+- (void)_logSyncEnd;
+- (id)_powerLogInfoDictionary;
 - (void)_useOpportunisticSocketsAgain;
 - (id)stateString;
 - (void)shutdown;
@@ -65,7 +70,6 @@
 - (void)submitExclusiveTask:(id)arg1;
 - (id)accountPersistentUUID;
 - (id)accountID;
-- (id)scheme;
 - (id)identityPersist;
 - (BOOL)useSSL;
 - (id)password;

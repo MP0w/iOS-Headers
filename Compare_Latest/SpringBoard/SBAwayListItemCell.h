@@ -6,7 +6,7 @@
 
 #import "UITableViewCell.h"
 
-@class SBAwayBulletinListController, SBBulletinCellContentViewBase, UIImageView;
+@class NSArray, SBAwayBulletinListController, SBBulletinCellContentViewBase, UIImageView;
 
 @interface SBAwayListItemCell : UITableViewCell
 {
@@ -16,8 +16,27 @@
     SBBulletinCellContentViewBase *_cellContentView;
     SBAwayBulletinListController *_controller;
     BOOL _shouldBlinkIcon;
+    NSArray *_buttons;
+    id <SBAwayListCellButtonHandler> _buttonHandler;
+    BOOL _layoutButtonsBelowContent;
 }
 
++ (float)_buttonHorizontalPadding;
++ (float)_buttonVerticalPadding;
++ (float)_paddedWidthForButton:(id)arg1;
++ (float)_paddedHeightForButton:(id)arg1;
++ (float)_paddedButtonHeight;
++ (BOOL)_shouldLayoutButtonsBelowForContentWidth:(float)arg1 buttonLabels:(id)arg2;
++ (float)_buttonVerticalInset;
++ (float)_buttonHorizontalInset;
++ (struct CGSize)_buttonShadowOffset;
++ (id)_buttonFont;
++ (float)_buttonWidthForText:(id)arg1;
++ (id)_cancelButtonBackgroundImage;
++ (id)_buttonPressedImage;
++ (id)_buttonBackgroundImage;
++ (id)_snoozeButtonPressedImage;
++ (id)_snoozeButtonBackgroundImage;
 + (float)_cellContentExtraPadding;
 + (float)_cellContentTopPadding;
 + (float)_cellContentRightPadding;
@@ -26,10 +45,24 @@
 + (float)_contentWidthForRowWidth:(float)arg1;
 + (float)_rowHeightForContentHeight:(float)arg1;
 @property(nonatomic) BOOL shouldBlinkIcon; // @synthesize shouldBlinkIcon=_shouldBlinkIcon;
+- (id)_buttonsForButtonLabels:(id)arg1;
+- (void)setButtonLabels:(id)arg1 handler:(id)arg2;
+- (void)_getFloatingButtonWidth:(float *)arg1 inset:(float *)arg2;
+- (void)_getButtonWidth:(float *)arg1 inset:(float *)arg2;
+- (void)_forwardButtonPressToHandler:(id)arg1;
+- (void)_setButtons:(id)arg1;
+- (id)_pressedButtonImageForIndex:(int)arg1;
+- (BOOL)_shouldUseCancelButtonImageForIndex:(int)arg1;
+- (BOOL)_shouldUseSnoozeButtonImageForIndex:(int)arg1;
+- (id)_buttonImageForIndex:(int)arg1;
+- (id)_buttonForIndex:(int)arg1 title:(id)arg2;
 - (void)setController:(id)arg1;
 - (struct CGRect)_cellContentViewFrame;
 - (struct CGRect)_contentRect;
 - (BOOL)_drawsSeparator;
+- (void)_layoutButtons;
+- (void)_layoutIconImageView;
+- (void)_layoutSeparator;
 - (void)layoutSubviews;
 - (void)setMessage:(id)arg1;
 - (void)setTitle:(id)arg1;
@@ -41,6 +74,8 @@
 - (void)_removeIconBlinkAnimation;
 - (void)_addIconBlinkAnimation;
 - (BOOL)_hasBackgroundColor;
+- (float)_maxButtonWidth;
+- (float)_cellContentLeftPadding;
 
 @end
 

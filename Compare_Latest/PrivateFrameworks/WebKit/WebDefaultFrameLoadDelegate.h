@@ -11,6 +11,7 @@
 }
 
 + (id)sharedFrameLoadDelegate;
+- (void)webView:(id)arg1 didRemoveFrameFromHierarchy:(id)arg2;
 - (void)webView:(id)arg1 didClearInspectorWindowObject:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 didFirstVisuallyNonEmptyLayoutInFrame:(id)arg2;
 - (void)webView:(id)arg1 didHandleOnloadEventsForFrame:(id)arg2;
@@ -23,6 +24,7 @@
 - (void)webView:(id)arg1 didDetectXSS:(id)arg2;
 - (void)webView:(id)arg1 didRunInsecureContent:(id)arg2;
 - (void)webViewDidDisplayInsecureContent:(id)arg1;
+- (void)webView:(id)arg1 didCreateJavaScriptContext:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 windowScriptObjectAvailable:(id)arg2;
 - (void)webView:(id)arg1 didClearWindowObject:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 willCloseFrame:(id)arg2;

@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
+@class BKSProcessAssertion;
+
 @interface _UIBackgroundTaskInfo : NSObject
 {
     unsigned int _taskId;
     id _expireHandler;
-    struct SBSProcessAssertion *_processAssertion;
+    BKSProcessAssertion *_processAssertion;
     int _count;
 }
 
 - (void)invalidate;
 - (void)fireExpirationHandler;
 - (void)dealloc;
-- (id)initWithProcessAssertion:(struct SBSProcessAssertion *)arg1 expirationHandler:(id)arg2;
+- (id)initWithProcessAssertion:(id)arg1 expirationHandler:(id)arg2;
 
 @end
 

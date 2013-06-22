@@ -6,11 +6,21 @@
 
 #import <Foundation/NSSubstitutionCheckingResult.h>
 
+@class NSArray;
+
 @interface NSCorrectionCheckingResult : NSSubstitutionCheckingResult
 {
+    NSArray *_alternativeStrings;
 }
 
 - (unsigned long long)resultType;
+- (id)resultByAdjustingRangesWithOffset:(int)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)alternativeStrings;
+- (id)initWithRange:(struct _NSRange)arg1 replacementString:(id)arg2 alternativeStrings:(id)arg3;
 
 @end
 

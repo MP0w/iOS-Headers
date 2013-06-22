@@ -19,7 +19,7 @@
 @property(nonatomic) float letterSpacing; // @synthesize letterSpacing=_letterSpacing;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
-- (void)_handleKeyEvent:(struct __GSEvent *)arg1;
+- (void)_handleKeyUIEvent:(id)arg1;
 - (id)_style;
 - (void)_endedEditing;
 - (void)attachFieldEditor:(id)arg1;

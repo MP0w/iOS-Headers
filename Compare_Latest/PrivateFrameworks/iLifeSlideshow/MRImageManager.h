@@ -18,7 +18,6 @@
     NSMutableSet *mAvailableFBOs;
     NSMutableSet *mRecyclableFBOs;
     NSMutableSet *mRemoteKeysToRelease;
-    NSMutableDictionary *_assetMasters;
     unsigned long long mHostTime;
 }
 
@@ -31,7 +30,7 @@
 - (id)retainedByUserImageWithCGContext:(struct CGContext *)arg1;
 - (void)setTime:(double)arg1 forImageKey:(id)arg2;
 - (void)play:(BOOL)arg1 forImageKey:(id)arg2;
-- (void)releaseImageBufferForImage:(id)arg1;
+- (void)tryReleaseImageBufferForImage:(id)arg1;
 - (id)retainedByUserImageForAsset:(id)arg1 atSize:(struct CGSize)arg2 andTime:(double)arg3 previousImageBufferKey:(id)arg4 options:(id)arg5;
 - (void)recycleFBOTexture:(id)arg1;
 - (id)fboTextureWithSize:(struct CGSize)arg1;

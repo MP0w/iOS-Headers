@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MPDetailSlider, MPVolumeView, NSMutableDictionary, NSMutableSet, NSNumberFormatter, NSOperation, NSString, NSTimer, NSURL, QLPopOverState, QLProgressView, UIBarButtonItem, UIDocumentInteractionController, UIImageView, UILabel, UINavigationController, UISegmentedControl, UITapGestureRecognizer, UIView, UIViewController<QLPreviewContentControllerProtocol>, _UIAsyncInvocation;
+@class MPVolumeView, NSMutableDictionary, NSMutableSet, NSNumberFormatter, NSString, NSURL, QLArchiveViewer, QLPreviewItemsSource, QLProgressView, UIBarButtonItem, UIDocumentInteractionController, UIImageView, UILabel, UINavigationController, UITapGestureRecognizer, UIView, UIViewController<QLPreviewContentControllerProtocol>, _UIAsyncInvocation;
 
 @interface QLPreviewControllerReserved : NSObject
 {
@@ -15,38 +15,28 @@
     BOOL blockRemoteImages;
     BOOL useCustomActionButton;
     BOOL showActionAsDefaultButton;
-    NSString *loadintTextForMissingFiles;
+    NSString *loadingTextForMissingFiles;
     int mode;
     int previousMode;
-    id <QLPreviewControllerDataSource> dataSource;
-    NSMutableDictionary *previewItemCache;
-    unsigned int numberOfPreviewItems;
-    int currentPreviewItemIndex;
+    QLPreviewItemsSource *itemsSource;
     NSURL *currentPreviewItemURL;
-    id <QLPreviewItem> presentedPreviewItem;
     NSMutableSet *preloadedPreviewItems;
     UIViewController<QLPreviewContentControllerProtocol> *previewContentController;
+    _UIAsyncInvocation *cancelViewServiceRequest;
     int barStyle;
     int previousToolbarStyle;
     BOOL translucent;
-    BOOL previousToolbarWasTranlucent;
+    BOOL previousToolbarWasTranslucent;
     int previousStatusBarStyle;
     UINavigationController *navigationController;
-    NSTimer *overlayTimer;
     int overlayState;
-    UISegmentedControl *segmentedArrowControl;
-    UIBarButtonItem *arrowsItem;
+    UIBarButtonItem *archiveItem;
     UIBarButtonItem *titleItem;
     UIBarButtonItem *actionItem;
-    MPDetailSlider *detailSlider;
-    UIImageView *navigationBarBackground;
-    UIImageView *navigationBarShadow;
-    UILabel *scrubSpeedLabel;
-    UILabel *scrubInstructionsLabel;
     BOOL scrubbing;
     UIBarButtonItem *indexItem;
     UILabel *indexLabel;
-    UIBarButtonItem *pauseButton;
+    UIBarButtonItem *playPauseButton;
     UIBarButtonItem *routeButton;
     MPVolumeView *volumeView;
     BOOL internalViewsLoaded;
@@ -60,22 +50,18 @@
     UIView *parentControllerView;
     unsigned int statusBarWasHidden:1;
     unsigned int toolbarWasHidden:1;
-    unsigned int isZooming:1;
-    unsigned int isZoomingIn:1;
-    unsigned int useZoomAnimation:1;
-    unsigned int useTransitionImage:1;
-    unsigned int hasLoadError:1;
     unsigned int isDelayingPresentation:1;
     unsigned int delayedItemIsLoaded:1;
-    QLPopOverState *popOverState;
+    unsigned int isInUIDICPopover:1;
     NSNumberFormatter *indexFormatter;
     QLProgressView *progressView;
     UITapGestureRecognizer *_tapGestureRegnizer;
     BOOL loadingProgressVisible;
-    NSOperation *openOperation;
+    QLArchiveViewer *archiveViewer;
     UIDocumentInteractionController *interactionController;
-    _UIAsyncInvocation *cancelViewServiceRequest;
+    NSMutableDictionary *pdfPreviewDataCache;
     NSMutableDictionary *avStateForPreviewItems;
+    BOOL sourceIsManaged;
 }
 
 - (void)dealloc;

@@ -13,7 +13,7 @@
 - (BOOL)_tryRetain;
 - (BOOL)_isDeallocating;
 - (unsigned int)retainCount;
-- (void)release;
+- (oneway void)release;
 - (id)retain;
 - (id)_setupForKeys:(id *)arg1 count:(unsigned int)arg2 table:(void *)arg3 inData:(id)arg4;
 - (void)dealloc;

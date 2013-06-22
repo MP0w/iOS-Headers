@@ -7,6 +7,6 @@
 #import "NSError.h"
 
 @interface NSError (TLExtensions)
-- (id)nonRedundantDescription;
+- (id)tl_nonRedundantDescription;
 @end
 

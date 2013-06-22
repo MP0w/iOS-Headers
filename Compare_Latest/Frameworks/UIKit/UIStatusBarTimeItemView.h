@@ -14,7 +14,8 @@
 }
 
 - (void)dealloc;
-- (id)contentsImageForStyle:(int)arg1;
+- (int)textStyle;
+- (id)contentsImage;
 - (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
 
 @end

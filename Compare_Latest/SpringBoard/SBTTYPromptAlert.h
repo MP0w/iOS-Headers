@@ -16,6 +16,8 @@
 
 + (BOOL)dialNumberPromptingIfNecessary:(id)arg1 addressBookUID:(int)arg2 urlAddition:(id)arg3;
 + (void)displayForNumber:(id)arg1 addressBookUID:(int)arg2;
+- (void)activate;
+- (BOOL)hasTranslucentBackground;
 - (int)addressBookUID;
 - (id)number;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;

@@ -14,16 +14,20 @@
 {
     id <NSProgressSubscriber> _forwarder;
     id _subscriberID;
+    NSString *_lowerCaseAppBundleID;
+    NSString *_lowerCaseCategoryName;
+    BOOL _isGeneral;
     NSFileAccessNode *_itemLocation;
-    NSString *_appBundleIDOrNil;
 }
 
+@property NSFileAccessNode *itemLocation; // @synthesize itemLocation=_itemLocation;
+@property BOOL isGeneral; // @synthesize isGeneral=_isGeneral;
+@property(copy) NSString *category; // @synthesize category=_lowerCaseCategoryName;
 - (id)description;
 - (id)descriptionWithIndenting:(id)arg1;
 - (oneway void)removePublisherForID:(id)arg1;
 - (oneway void)observePublisherForID:(id)arg1 value:(id)arg2 forKey:(id)arg3 inUserInfo:(BOOL)arg4;
-- (oneway void)addPublisher:(id)arg1 forID:(id)arg2 withValues:(id)arg3 isOld:(BOOL)arg4;
-- (void)setItemLocation:(id)arg1;
+- (oneway void)addPublisher:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3 withValues:(id)arg4 isOld:(BOOL)arg5;
 - (id)appBundleID;
 - (void)dealloc;
 - (id)initWithForwarder:(id)arg1 subscriberID:(id)arg2 appBundleID:(id)arg3;

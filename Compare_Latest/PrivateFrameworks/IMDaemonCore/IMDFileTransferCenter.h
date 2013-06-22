@@ -25,13 +25,14 @@
 @property(retain, nonatomic) NSString *contextStamp; // @synthesize contextStamp=_contextStamp;
 - (void)_handleFileTransferRemoved:(id)arg1;
 - (void)_handleFileTransferStopped:(id)arg1;
-- (void)_handleFileTransfer:(id)arg1 acceptedWithPath:(id)arg2 autoRename:(BOOL)arg3 overwrite:(BOOL)arg4;
+- (void)_handleFileTransfer:(id)arg1 acceptedWithPath:(id)arg2 autoRename:(BOOL)arg3 overwrite:(BOOL)arg4 postNotification:(BOOL)arg5;
 - (void)_handleFileTransfer:(id)arg1 updatedWithProperties:(id)arg2;
-- (void)_handleFileTransfer:(id)arg1 createdWithProperties:(id)arg2;
+- (void)_handleFileTransfer:(id)arg1 createdWithProperties:(id)arg2 fromPid:(int)arg3;
 - (void)_handleSendFileTransfer:(id)arg1;
 - (id)_allFileTransfers;
 - (void)acceptTransfer:(id)arg1 path:(id)arg2;
 - (void)failTransfer:(id)arg1 error:(id)arg2;
+- (void)resetTransferAndPostError:(id)arg1 error:(id)arg2;
 - (void)failTransfer:(id)arg1 reason:(int)arg2;
 - (void)endTransfer:(id)arg1;
 - (void)startFinalizingTransfer:(id)arg1;
@@ -57,7 +58,7 @@
 - (id)_removeWrapperForTransfer:(id)arg1;
 - (id)_createWrapperForTransfer:(id)arg1;
 - (void)_addSpotlightPropertiesFromFileTransfer:(id)arg1 toDirectory:(id)arg2;
-- (void)_addDefaultGatekeeperPropertiesToDirectory:(id)arg1;
+- (void)addDefaultGatekeeperPropertiesToDirectory:(id)arg1;
 - (void)_addGatekeeperProperties:(id)arg1 toDirectory:(id)arg2;
 - (long)_addGatekeeperProperties:(id)arg1 toFileAtPath:(id)arg2;
 - (void)fileCopierDidFinish:(id)arg1;

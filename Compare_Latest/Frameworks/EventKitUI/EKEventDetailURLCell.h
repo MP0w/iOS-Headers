@@ -14,6 +14,7 @@
     UITextView *_URLView;
 }
 
+- (void).cxx_destruct;
 - (id)_URLView;
 - (id)_URLTitleView;
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;

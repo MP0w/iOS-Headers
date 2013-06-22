@@ -12,6 +12,7 @@
 
 + (Class)multiDownloaderClass;
 + (Class)simpleRequesterClass;
++ (id)queryStringFromKey:(const struct _GEOTileKey *)arg1;
 + (unsigned char)tileProviderIdentifier;
 - (id)multiTileURLStringForTileKey:(struct _GEOTileKey *)arg1 useStatusCodes:(char *)arg2;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;

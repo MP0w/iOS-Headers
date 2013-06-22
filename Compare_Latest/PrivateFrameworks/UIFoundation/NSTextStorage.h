@@ -6,7 +6,7 @@
 
 #import "NSMutableAttributedString.h"
 
-@class NSMutableArray;
+@class NSArray, NSMutableArray;
 
 @interface NSTextStorage : NSMutableAttributedString
 {
@@ -14,37 +14,46 @@
     int _editedDelta;
     struct {
         unsigned int editedMask:8;
-        unsigned int :8;
+        unsigned int postWillProcess:1;
+        unsigned int postDidProcess:1;
+        unsigned int :6;
         unsigned int disabled:16;
     } _flags;
     NSMutableArray *_layoutManagers;
     id _sideData;
+    unsigned int _editedMask;
+    int _changeInLength;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (id)delegate;
-- (void)setDelegate:(id)arg1;
+@property(nonatomic) int changeInLength; // @synthesize changeInLength=_changeInLength;
+@property(nonatomic) struct _NSRange editedRange; // @synthesize editedRange=_editedRange;
+@property(nonatomic) unsigned int editedMask; // @synthesize editedMask=_editedMask;
+- (BOOL)_usesSimpleTextEffects;
+- (void)_setUsesSimpleTextEffects:(BOOL)arg1;
+- (id)cuiStyleEffects;
+- (id)cuiCatalog;
+@property(nonatomic) id <NSTextStorageDelegate> delegate;
 - (void)fontSetChanged;
 - (void)_notifyEdited:(unsigned int)arg1 range:(struct _NSRange)arg2 changeInLength:(int)arg3 invalidatedRange:(struct _NSRange)arg4;
-- (BOOL)fixesAttributesLazily;
+@property(readonly, nonatomic) BOOL fixesAttributesLazily;
 - (void)ensureAttributesAreFixedInRange:(struct _NSRange)arg1;
 - (void)invalidateAttributesInRange:(struct _NSRange)arg1;
 - (struct _NSRange)_rangeByEstimatingAttributeFixingForRange:(struct _NSRange)arg1;
 - (void)processEditing;
 - (void)edited:(unsigned int)arg1 range:(struct _NSRange)arg2 changeInLength:(int)arg3;
-- (int)changeInLength;
-- (unsigned int)editedMask;
-- (struct _NSRange)editedRange;
 - (BOOL)_isEditing;
+- (void)coordinateEditing:(id)arg1;
 - (void)endEditing;
 - (void)beginEditing;
 - (BOOL)_forceFixAttributes;
 - (void)_setForceFixAttributes:(BOOL)arg1;
+- (void)coordinateReading:(id)arg1;
 - (void)_unlock;
 - (BOOL)_lockForWritingWithExceptionHandler:(BOOL)arg1;
 - (BOOL)_lockForWriting;
 - (BOOL)_lockForReading;
-- (id)layoutManagers;
+@property(readonly, nonatomic) NSArray *layoutManagers;
 - (void)removeLayoutManager:(id)arg1;
 - (void)addLayoutManager:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -53,6 +62,7 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
+- (void)coordinateAccess:(id)arg1;
 
 @end
 

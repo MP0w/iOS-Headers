@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSMutableSet, NSSet, NSString;
 
-@interface SUScanOptions : NSObject <NSCoding>
+@interface SUScanOptions : NSObject <NSSecureCoding>
 {
     NSString *_identifier;
     BOOL _forced;
     NSMutableSet *_types;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(retain, nonatomic) NSSet *types; // @synthesize types=_types;
 @property(nonatomic, getter=isForced) BOOL forced; // @synthesize forced=_forced;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;

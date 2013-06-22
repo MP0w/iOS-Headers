@@ -27,11 +27,14 @@
 + (id)_stopImageForStyle:(int)arg1;
 + (struct CGSize)_sizeForStyle:(int)arg1;
 + (id)_nonstopImageForStyle:(int)arg1;
++ (BOOL)_isStyleModernShimmer:(int)arg1;
 + (id)_fillImageForStyle:(int)arg1;
++ (void)_drawModernGradientInRect:(struct CGRect)arg1;
 + (id)_baseImageForStyle:(int)arg1;
 @property(nonatomic) float value; // @synthesize value=_value;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
 @property(nonatomic) BOOL canCancel; // @synthesize canCancel=_canCancel;
+- (void).cxx_destruct;
 - (void)_setInternalHidden:(BOOL)arg1;
 - (struct CGRect)_fillFrameForSize:(struct CGSize)arg1 inBounds:(struct CGRect)arg2;
 - (struct CGRect)_centerImageViewFrame:(struct CGRect)arg1 inBounds:(struct CGRect)arg2 forStyle:(int)arg3;
@@ -44,7 +47,6 @@
 - (void)setHidden:(BOOL)arg1;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)dealloc;
 - (id)initWithStyle:(int)arg1;
 
 @end

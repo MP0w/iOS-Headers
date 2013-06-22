@@ -10,7 +10,9 @@
 {
 }
 
-- (id)passFaceTemplate;
+- (id)tallFaceTemplate;
+- (id)shortFaceTemplate;
+- (id)shortScrunchedFaceTemplate;
 
 @end
 

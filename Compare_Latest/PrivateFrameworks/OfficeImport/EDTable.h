@@ -30,6 +30,7 @@
     _Bool mShowRowStripes;
     _Bool mShowColumnStripes;
     EDCollection *mTableColumns;
+    EDCollection *mColumnFilters;
 }
 
 + (id)tableWithResources:(id)arg1;
@@ -42,6 +43,7 @@
 - (_Bool)showLastColumn;
 - (void)setShowFirstColumn:(_Bool)arg1;
 - (_Bool)showFirstColumn;
+- (id)columnFilters;
 - (id)tableColumns;
 - (void)setTotalsRowCount:(unsigned int)arg1;
 - (unsigned int)totalsRowCount;

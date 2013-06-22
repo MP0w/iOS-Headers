@@ -11,6 +11,7 @@
 }
 
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (BOOL)_hasRenderLayerSubclass;
 + (id)defaultValueForKey:(id)arg1;
 @property struct CGColor *foregroundColor;
 - (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;

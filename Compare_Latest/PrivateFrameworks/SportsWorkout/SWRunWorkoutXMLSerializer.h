@@ -14,7 +14,7 @@
 + (void)__serializeWorkoutDict:(id)arg1 toURL:(id)arg2;
 + (id)__formatPace:(unsigned int)arg1;
 + (id)__formatTimeInterval:(unsigned int)arg1;
-+ (id)__snapshotDictArrayForSnapshotVector:(vector_ebf5b573)arg1;
++ (id)__snapshotDictArrayForSnapshotVector:(vector_f582d009)arg1;
 + (id)dictionaryForWorkoutFileAtURL:(id)arg1;
 + (void)serializeWorkoutDict:(id)arg1 toURL:(id)arg2;
 + (id)__gregorianCalendar;

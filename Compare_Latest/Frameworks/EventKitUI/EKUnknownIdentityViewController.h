@@ -13,10 +13,10 @@
     id <EKIdentityProtocol> _identity;
 }
 
+- (void).cxx_destruct;
 - (void)unknownPersonViewController:(id)arg1 didResolveToPerson:(void *)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)setIdentity:(id)arg1;
-- (void)dealloc;
 - (id)initWithIdentity:(id)arg1;
 
 @end

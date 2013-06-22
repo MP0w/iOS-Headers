@@ -14,5 +14,6 @@
 - (id)viewForDraggedItem:(id)arg1 atScale:(float)arg2;
 - (struct CGRect)frameForDraggedItem:(id)arg1;
 - (id)dragInitiatedAtPoint:(struct CGPoint)arg1;
+- (BOOL)allowsDrag;
 @end
 

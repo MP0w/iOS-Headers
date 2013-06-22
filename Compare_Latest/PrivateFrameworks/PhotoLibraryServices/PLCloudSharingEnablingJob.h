@@ -11,13 +11,13 @@
     BOOL _enableSharing;
 }
 
-+ (void)deleteAllLocalSharedAlbumsInLibrary:(id)arg1;
++ (void)deleteAllLocalSharedAlbumsInLibrary:(id)arg1 keepPendingAlbums:(BOOL)arg2;
 + (void)enableCloudSharing:(BOOL)arg1;
 @property(nonatomic) BOOL enableSharing; // @synthesize enableSharing=_enableSharing;
 - (void)runDaemonSide;
 - (BOOL)shouldArchiveXPCToDisk;
 - (void)run;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 - (id)description;
 - (id)initFromXPCObject:(id)arg1;
 - (void)encodeToXPCObject:(id)arg1;

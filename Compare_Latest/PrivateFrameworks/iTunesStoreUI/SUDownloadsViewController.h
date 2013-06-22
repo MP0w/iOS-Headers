@@ -42,6 +42,7 @@
 - (void)reload;
 - (void)loadView;
 - (id)copyScriptViewController;
+- (id)contentScrollView;
 - (void)applicationWillEnterForeground;
 - (void)updateTabBarItemsAnimated:(BOOL)arg1;
 - (void)dealloc;

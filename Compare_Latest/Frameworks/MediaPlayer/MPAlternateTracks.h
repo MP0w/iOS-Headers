@@ -6,29 +6,43 @@
 
 #import "NSObject.h"
 
-@class MPAVItem, NSDictionary, NSMutableDictionary;
+#import "AVPlayerItemLegibleOutputPushDelegate-Protocol.h"
 
-@interface MPAlternateTracks : NSObject
+@class AVPlayerItemLegibleOutput, MPAVItem, MPAlternateTextTrack, NSArray, NSDictionary, NSMutableDictionary;
+
+@interface MPAlternateTracks : NSObject <AVPlayerItemLegibleOutputPushDelegate>
 {
     MPAVItem *_item;
     NSDictionary *_alternateTracks;
     NSMutableDictionary *_trackChangeDictionary;
+    BOOL _disableAlternateTextTrackRendering;
+    AVPlayerItemLegibleOutput *_legibleOutput;
+    MPAlternateTextTrack *_currentTextTrack;
+    NSArray *_outOfBandTextTracks;
 }
 
-+ (id)fallbackSubtitleOptionForAsset:(id)arg1 withSelectedAudioOption:(id)arg2;
-- (id)_titleOfOption:(id)arg1;
++ (id)accessibleSubtitleCharacteristics;
++ (id)subtitleLanguages;
+@property(nonatomic) BOOL disableAlternateTextTrackRendering; // @synthesize disableAlternateTextTrackRendering=_disableAlternateTextTrackRendering;
+@property(retain, nonatomic) NSArray *outOfBandTextTracks; // @synthesize outOfBandTextTracks=_outOfBandTextTracks;
+- (void).cxx_destruct;
+- (void)_suppressAVFSubtitleRendering;
+- (id)_currentTextTrackAccordingToAVF;
 - (id)_keyForTrackType:(unsigned int)arg1;
+- (void)enableLegibleOutputIfNecessary;
+- (void)reloadDataWithChangedCaptionDisplayType:(BOOL)arg1;
 - (void)reloadData;
 - (unsigned int)trackCountForTypes:(unsigned int)arg1;
 - (BOOL)hasTracksForTypes:(unsigned int)arg1;
+- (void)legibleOutput:(id)arg1 didOutputAttributedStrings:(id)arg2 nativeSampleBuffers:(id)arg3 forItemTime:(CDStruct_1b6d18a9)arg4;
 - (id)tracksForType:(unsigned int)arg1;
 - (void)setTrack:(id)arg1 forType:(unsigned int)arg2;
+@property(retain, nonatomic) MPAlternateTextTrack *selectedAlternateTextTrack;
 @property(readonly, nonatomic, getter=isLoaded) BOOL loaded;
 - (unsigned int)indexOfCurrentTrackForType:(unsigned int)arg1;
 - (id)currentTrackForType:(unsigned int)arg1;
 - (void)commitTrackChanges;
 - (void)beginTrackChanges;
-- (void)dealloc;
 - (id)initWithItem:(id)arg1;
 
 @end

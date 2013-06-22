@@ -6,31 +6,17 @@
 
 #import "NSObject.h"
 
-#import "ASDynamicAccountClassLoader-Protocol.h"
-
 @class NSMutableDictionary;
 
-@interface DAAccountLoader : NSObject <ASDynamicAccountClassLoader>
+@interface DAAccountLoader : NSObject
 {
-    NSMutableDictionary *_accountTypeToAccountFrameworkSubpath;
-    NSMutableDictionary *_accountTypeToAccountDaemonBundleSubpath;
-    NSMutableDictionary *_accountTypeToClassNames;
     NSMutableDictionary *_acAccountTypeToAccountFrameworkSubpath;
     NSMutableDictionary *_acAccountTypeToAccountDaemonBundleSubpath;
     NSMutableDictionary *_acAccountTypeToClassNames;
     NSMutableDictionary *_acParentAccountTypeToChildAccountTypes;
 }
 
-+ (BOOL)loadBundleForAccountWithProperties:(id)arg1;
 + (id)sharedInstance;
-- (BOOL)loadBundleForAccountWithProperties:(id)arg1;
-- (Class)daemonAppropriateAccountClassForAccountType:(id)arg1;
-- (Class)agentClassForAccountType:(id)arg1;
-- (Class)daemonAccountClassForAccountType:(id)arg1;
-- (Class)clientAccountClassForAccountType:(id)arg1;
-- (Class)accountClassForAccountType:(id)arg1;
-- (void)loadDaemonBundleForAccountType:(id)arg1;
-- (void)loadFrameworkForAccountType:(id)arg1;
 - (Class)daemonAppropriateAccountClassForACAccount:(id)arg1;
 - (Class)agentClassForACAccount:(id)arg1;
 - (Class)daemonAccountClassForACAccount:(id)arg1;

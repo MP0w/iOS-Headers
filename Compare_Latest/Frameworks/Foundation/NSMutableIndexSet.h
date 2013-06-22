@@ -20,6 +20,9 @@
 - (void)addIndex:(unsigned int)arg1;
 - (void)addIndexesInRange:(struct _NSRange)arg1;
 - (void)_mergeOverlappingRangesStartingAtIndex:(unsigned int)arg1;
+- (void)removeIndexesPassingTest:(id)arg1;
+- (void)removeIndexesInRange:(struct _NSRange)arg1 options:(unsigned int)arg2 passingTest:(id)arg3;
+- (void)removeIndexesWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
 - (void)removeIndexesFromIndexSet:(id)arg1;
 - (void)removeIndexes:(id)arg1;
 - (void)addIndexes:(const unsigned int *)arg1 count:(unsigned int)arg2;

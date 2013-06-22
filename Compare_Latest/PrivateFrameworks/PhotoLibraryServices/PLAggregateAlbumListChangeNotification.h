@@ -4,14 +4,14 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <PhotoLibraryServices/PLAlbumListChangeNotification.h>
+#import <PhotoLibraryServices/PLAssetContainerListChangeNotification.h>
 
 @class PLAggregateAlbumList;
 
-@interface PLAggregateAlbumListChangeNotification : PLAlbumListChangeNotification
+@interface PLAggregateAlbumListChangeNotification : PLAssetContainerListChangeNotification
 {
     PLAggregateAlbumList *_albumList;
-    PLAlbumListChangeNotification *_note;
+    PLAssetContainerListChangeNotification *_note;
     unsigned int _indexOffet;
 }
 
@@ -20,6 +20,8 @@
 - (id)changedObjects;
 - (id)insertedObjects;
 - (id)deletedObjects;
+- (unsigned int)snapshotIndexForContainedObject:(id)arg1;
+- (id)changedIndexesRelativeToSnapshot;
 - (id)changedIndexes;
 - (void)enumerateMovesWithBlock:(id)arg1;
 - (id)insertedIndexes;

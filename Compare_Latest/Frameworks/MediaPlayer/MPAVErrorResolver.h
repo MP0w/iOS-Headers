@@ -11,7 +11,8 @@
     id <MPAVErrorResolverDelegate> _delegate;
 }
 
-@property(nonatomic) id <MPAVErrorResolverDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MPAVErrorResolverDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)sendDidResolveError:(id)arg1 withResolution:(int)arg2;
 - (void)resolveError:(id)arg1;
 

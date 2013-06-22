@@ -10,24 +10,23 @@
 
 @interface MPStoreOfferMediaItemArtwork : MPMediaItemArtwork
 {
-    NSArray *_artworkDictionaries;
+    NSArray *_screenshotDictionaries;
+    NSArray *_itemArtworkDictionaries;
     NSArray *_containerArtworkDictionaries;
 }
 
-- (id)albumImageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3;
-- (id)albumImageWithFormat:(int)arg1 artworkCacheID:(id)arg2;
-- (id)albumImageWithFormat:(int)arg1;
-- (id)coverFlowImageWithSize:(struct CGSize)arg1;
+- (void).cxx_destruct;
+- (id)imageWithSize:(struct CGSize)arg1 artworkCacheID:(id)arg2;
+- (id)imageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3;
 - (id)albumImageDataWithSize:(struct CGSize)arg1;
 - (id)albumImageWithSize:(struct CGSize)arg1;
 - (id)imageDataWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)imageWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (BOOL)hasArtworkAvailable;
 - (id)imageWithSize:(struct CGSize)arg1;
-- (id)_bestImageURLForSize:(struct CGSize)arg1 container:(BOOL)arg2;
+- (id)_bestImageURLForSize:(struct CGSize)arg1 artworkDictionaries:(id)arg2;
 - (id)_imageWithURL:(id)arg1;
-- (void)dealloc;
-- (id)initWithStoreItemArtworkDictionaries:(id)arg1 containerArtworkDictionaries:(id)arg2;
+- (id)initWithScreenshotDictionaries:(id)arg1 itemArtworkDictionaries:(id)arg2 containerArtworkDictionaries:(id)arg3;
 
 @end
 

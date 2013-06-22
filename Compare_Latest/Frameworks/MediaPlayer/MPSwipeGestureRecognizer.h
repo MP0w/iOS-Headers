@@ -17,6 +17,7 @@
 }
 
 @property(readonly, nonatomic) int swipeDirection; // @synthesize swipeDirection=_swipeDirection;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (void)reset;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;

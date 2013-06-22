@@ -15,7 +15,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewDidUnload;
 - (void)viewDidLoad;
-- (int)libraryViewController:(id)arg1 willSetCellAccessoryType:(int)arg2 forAlbum:(id)arg3;
+- (int)libraryViewController:(id)arg1 willSetCellAccessoryType:(int)arg2 forAlbum:(struct NSObject *)arg3;
 - (int)bannerViewStyle;
 - (int)albumListFilter;
 - (void)animateBannerThumbnailToAlbumAtIndex:(unsigned int)arg1 completion:(id)arg2;

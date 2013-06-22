@@ -14,14 +14,11 @@
     CDStruct_1b6d18a9 _lastStopTime;
     unsigned int _sequenceNum;
     id _block;
-    CDStruct_1b6d18a9 _currentTime;
-    CDStruct_1b6d18a9 _currentHostTime;
 }
 
 - (void)_handleTimeDiscontinuity;
 - (void)_resetNextFireTime;
 - (void)_effectiveRateChanged;
-- (void)_cacheTimebaseTimeAndHostTime;
 - (void)dealloc;
 - (id)initWithPlayer:(id)arg1 interval:(CDStruct_1b6d18a9)arg2 queue:(id)arg3 block:(id)arg4;
 

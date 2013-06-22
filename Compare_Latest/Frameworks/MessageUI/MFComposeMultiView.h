@@ -15,8 +15,12 @@
     UILabel *_imageSizeLabel;
     UILabel *_placeholderImageSizeLabel;
     BOOL _imageSizeShown;
+    BOOL _accountAutoselected;
 }
 
+@property(nonatomic, getter=isAccountAutoselected) BOOL accountAutoselected; // @synthesize accountAutoselected=_accountAutoselected;
+- (struct CGColor *)labelColor;
+- (void)refreshPreferredContentSize;
 - (void)layoutSubviews;
 - (void)setShowsImageSize:(BOOL)arg1;
 - (void)setImageSizeDescription:(id)arg1;
@@ -24,7 +28,6 @@
 - (id)imageSizeHeaderLabelView;
 - (id)placeholderImageSizeLabel;
 - (id)imageSizeLabel;
-- (struct CGRect)_initialLabelFrame;
 - (id)accountLabel;
 - (void)dealloc;
 

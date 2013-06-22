@@ -22,7 +22,6 @@
 @property(nonatomic) BOOL isValid; // @synthesize isValid=_isValid;
 @property(retain, nonatomic) PLManagedAsset *photo; // @synthesize photo=_photo;
 - (void)_performBlockAndWait:(id)arg1;
-- (void)libraryWillDisappear;
 - (void)libraryDidChange;
 @property(nonatomic) ALAssetsLibrary *library;
 - (void)dealloc;

@@ -6,26 +6,28 @@
 
 #import <PhotoLibraryServices/PLCloudSharingJob.h>
 
-@class NSArray, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @interface PLPublishCloudSharedAssetsJob : PLCloudSharingJob
 {
-    NSString *_batchCommentText;
-    NSArray *_originalAssetUUIDs;
-    NSString *_publishAlbumCloudGUID;
     BOOL _isNewAlbum;
+    NSString *_publishAlbumCloudGUID;
+    NSArray *_originalAssetUUIDs;
+    NSDictionary *_trimmedVideoPathInfo;
+    NSString *_batchCommentText;
 }
 
-+ (void)publishBatchOfOriginalAssets:(id)arg1 toSharedAlbum:(id)arg2 isNewAlbum:(BOOL)arg3 batchCommentText:(id)arg4;
-@property(nonatomic) BOOL isNewAlbum; // @synthesize isNewAlbum=_isNewAlbum;
-@property(retain, nonatomic) NSString *publishAlbumCloudGUID; // @synthesize publishAlbumCloudGUID=_publishAlbumCloudGUID;
-@property(retain, nonatomic) NSArray *originalAssetUUIDs; // @synthesize originalAssetUUIDs=_originalAssetUUIDs;
++ (void)publishBatchOfOriginalAssets:(id)arg1 toSharedAlbum:(id)arg2 withTrimmedVideoPathInfo:(id)arg3 isNewAlbum:(BOOL)arg4 batchCommentText:(id)arg5;
 @property(retain, nonatomic) NSString *batchCommentText; // @synthesize batchCommentText=_batchCommentText;
+@property(nonatomic) BOOL isNewAlbum; // @synthesize isNewAlbum=_isNewAlbum;
+@property(retain, nonatomic) NSDictionary *trimmedVideoPathInfo; // @synthesize trimmedVideoPathInfo=_trimmedVideoPathInfo;
+@property(retain, nonatomic) NSArray *originalAssetUUIDs; // @synthesize originalAssetUUIDs=_originalAssetUUIDs;
+@property(retain, nonatomic) NSString *publishAlbumCloudGUID; // @synthesize publishAlbumCloudGUID=_publishAlbumCloudGUID;
 - (void)executeDaemonOperation;
 - (void)runDaemonSide;
 - (BOOL)shouldArchiveXPCToDisk;
 - (void)run;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 - (void)dealloc;
 - (id)description;
 - (id)initFromXPCObject:(id)arg1;

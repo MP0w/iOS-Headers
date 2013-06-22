@@ -16,7 +16,7 @@
 + (void)_createFilterableDictionary;
 + (BOOL)canFilterByProperty:(id)arg1;
 - (id)representativeItem;
-- (int)mediaTypes;
+- (unsigned int)mediaTypes;
 - (unsigned int)count;
 - (id)items;
 @property(readonly, nonatomic) int playlistAttributes;

@@ -8,12 +8,13 @@
 
 #import "IMSystemMonitorListener-Protocol.h"
 
-@class IMHandle, IMPeople, IMServiceImpl, NSArray, NSAttributedString, NSData, NSDate, NSDictionary, NSMutableDictionary, NSString;
+@class IMHandle, IMPeople, IMServiceImpl, NSArray, NSAttributedString, NSData, NSDate, NSDictionary, NSMutableDictionary, NSRecursiveLock, NSString;
 
 @interface IMAccount : NSObject <IMSystemMonitorListener>
 {
     IMServiceImpl *_service;
     IMPeople *_buddyList;
+    NSRecursiveLock *_lock;
     NSMutableDictionary *_imHandles;
     NSMutableDictionary *_inlineTransfers;
     IMHandle *_loginIMHandle;
@@ -25,6 +26,7 @@
     int _accountType;
     NSDictionary *_data;
     NSMutableDictionary *_dataChanges;
+    NSMutableDictionary *_localCache;
     NSDictionary *_profile;
     NSMutableDictionary *_profileChanges;
     NSString *_countryCode;
@@ -102,7 +104,6 @@
 @property(retain, nonatomic) NSString *login; // @synthesize login=_loginID;
 - (void)_handleIncomingCommand:(id)arg1 withProperties:(id)arg2 fromBuddyInfo:(id)arg3;
 - (void)_handleDeliveredCommand:(id)arg1 withProperties:(id)arg2 fromBuddyInfo:(id)arg3;
-- (void)_handleIncomingData:(id)arg1 fromBuddyInfo:(id)arg2;
 - (BOOL)_updateDisplayName:(id)arg1;
 @property(copy, nonatomic) NSString *displayName;
 - (void)setInteger:(int)arg1 forPreferenceKey:(id)arg2;
@@ -124,16 +125,23 @@
 @property(readonly, nonatomic) BOOL isAsleep;
 - (void)systemWillSleep;
 - (void)systemDidWake;
+- (void)_setInteger:(int)arg1 forKey:(id)arg2;
 - (void)setInteger:(int)arg1 forKey:(id)arg2;
 - (int)integerForKey:(id)arg1;
+- (void)_setBool:(BOOL)arg1 forKey:(id)arg2;
 - (void)setBool:(BOOL)arg1 forKey:(id)arg2;
 - (BOOL)boolForKey:(id)arg1;
+- (void)_setString:(id)arg1 forKey:(id)arg2;
 - (void)setString:(id)arg1 forKey:(id)arg2;
 - (id)stringForKey:(id)arg1;
 - (id)dictionaryDataForKey:(id)arg1;
+- (void)_setDictionaryData:(id)arg1 forKey:(id)arg2;
 - (void)setDictionaryData:(id)arg1 forKey:(id)arg2;
+- (void)_removeObjectForKey:(id)arg1;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
+- (void)_setLocalCachedObject:(id)arg1 forKey:(id)arg2;
+- (void)_setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
 - (int)validationErrorReasonForAlias:(id)arg1 type:(int)arg2;
 - (int)validationErrorReasonForAlias:(id)arg1;
@@ -157,7 +165,6 @@
 @property(readonly, nonatomic) NSArray *aliases;
 - (id)_statuses;
 - (id)_aliasInfoForAlias:(id)arg1;
-- (BOOL)refreshVettedAliases;
 - (id)_aliases;
 @property(readonly, nonatomic) NSArray *vettedAliases;
 - (void)_updateProfileInfo:(id)arg1;

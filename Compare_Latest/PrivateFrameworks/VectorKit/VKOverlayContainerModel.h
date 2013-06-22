@@ -7,10 +7,11 @@
 #import <VectorKit/VKMapTileModel.h>
 
 #import "VKMapLayer-Protocol.h"
+#import "VKStylesheetObserver-Protocol.h"
 
-@class NSMapTable, NSMutableArray, NSMutableSet, NSSet;
+@class NSMapTable, NSMutableArray, NSMutableSet, NSSet, VKSkyModel, VKStylesheet;
 
-@interface VKOverlayContainerModel : VKMapTileModel <VKMapLayer>
+@interface VKOverlayContainerModel : VKMapTileModel <VKMapLayer, VKStylesheetObserver>
 {
     NSMutableSet *_visibleOverlays;
     NSMutableArray *_overlayPainters;
@@ -24,24 +25,31 @@
     NSMapTable *_persistentOverlaysToPainters;
     NSMutableSet *_persistentOverlays;
     id <VKRouteMatchedAnnotationPresentation> _routeLineSplitAnnotation;
-    CDStruct_9a8617ed _puckPosition;
-    BOOL _shouldSplitRouteLine;
+    float _brightness;
+    VKSkyModel *_skyModel;
+    CDStruct_cc67e4ef _puckPosition;
 }
 
++ (BOOL)reloadOnStylesheetChange;
+@property(retain, nonatomic) VKSkyModel *skyModel; // @synthesize skyModel=_skyModel;
+@property(nonatomic) float brightness; // @synthesize brightness=_brightness;
 @property(nonatomic) BOOL shouldOccludeTraffic; // @synthesize shouldOccludeTraffic=_shouldOccludeTraffic;
 @property(readonly, nonatomic) NSSet *persistentOverlays; // @synthesize persistentOverlays=_persistentOverlays;
 @property(retain, nonatomic) id <VKRouteMatchedAnnotationPresentation> routeLineSplitAnnotation; // @synthesize routeLineSplitAnnotation=_routeLineSplitAnnotation;
 @property(nonatomic) BOOL shouldShowTraffic; // @synthesize shouldShowTraffic=_shouldShowTraffic;
-@property(nonatomic) BOOL shouldSplitRouteLine; // @synthesize shouldSplitRouteLine=_shouldSplitRouteLine;
 @property(nonatomic) BOOL shouldCheckForOcclusion; // @synthesize shouldCheckForOcclusion=_shouldCheckForOcclusion;
-@property(readonly, nonatomic) CDStruct_9a8617ed puckPosition; // @synthesize puckPosition=_puckPosition;
+@property(readonly, nonatomic) CDStruct_cc67e4ef puckPosition; // @synthesize puckPosition=_puckPosition;
 @property(nonatomic) id <VKOverlayContainerDelegate> delegate; // @synthesize delegate=_delegate;
+- (id).cxx_construct;
+- (void)stylesheetDidChange;
+@property(readonly, nonatomic) VKStylesheet *stylesheet;
 - (void)removePersistentOverlay:(id)arg1;
 - (void)addPersistentOverlay:(id)arg1;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)_updatePainterOrdering;
 @property(readonly, nonatomic, getter=isInRealisticMode) BOOL inRealisticMode;
+- (unsigned int)supportedRenderPasses;
 - (unsigned int)mapLayerPosition;
 - (void)dealloc;
 - (id)init;

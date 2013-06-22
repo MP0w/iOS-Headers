@@ -21,11 +21,15 @@
     CoreDAVItemWithNoChildren *_invalidImageType;
     CoreDAVItemWithNoChildren *_imageError;
     CoreDAVItemWithNoChildren *_maxAttendees;
+    CoreDAVItemWithNoChildren *_quotaExceeded;
+    CoreDAVItemWithNoChildren *_maxResources;
     CoreDAVLeafItem *_status;
 }
 
 + (id)copyParseRules;
 @property(retain) CoreDAVLeafItem *status; // @synthesize status=_status;
+@property(retain) CoreDAVItemWithNoChildren *maxResources; // @synthesize maxResources=_maxResources;
+@property(retain) CoreDAVItemWithNoChildren *quotaExceeded; // @synthesize quotaExceeded=_quotaExceeded;
 @property(retain) CoreDAVItemWithNoChildren *maxAttendees; // @synthesize maxAttendees=_maxAttendees;
 @property(retain) CoreDAVItemWithNoChildren *imageError; // @synthesize imageError=_imageError;
 @property(retain) CoreDAVItemWithNoChildren *invalidImageType; // @synthesize invalidImageType=_invalidImageType;

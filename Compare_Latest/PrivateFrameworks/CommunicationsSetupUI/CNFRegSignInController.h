@@ -23,11 +23,9 @@
     unsigned int _signinFailureCount;
     CNFRegLearnMoreButton *_learnMoreButton;
     BOOL _hideLearnMoreButton;
-    BOOL _showSplash;
     BOOL _useSystemAccount;
 }
 
-@property(nonatomic) BOOL showSplash; // @synthesize showSplash=_showSplash;
 @property(nonatomic) BOOL hideLearnMoreButton; // @synthesize hideLearnMoreButton=_hideLearnMoreButton;
 @property(nonatomic) unsigned int signinFailureCount; // @synthesize signinFailureCount=_signinFailureCount;
 @property(copy, nonatomic) id alertHandler; // @synthesize alertHandler=_alertHandler;
@@ -92,10 +90,6 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)_layoutLearnMoreButton;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (id)_existingLearnMoreViewForSection:(int)arg1;
-- (id)_existingLearnMoreViewForSpecifier:(id)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (id)specifierList;

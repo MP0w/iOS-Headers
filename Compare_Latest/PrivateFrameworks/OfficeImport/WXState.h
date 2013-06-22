@@ -79,8 +79,8 @@
 - (_Bool)hasAnnotations;
 - (id)annotationWithID:(long)arg1;
 - (void)addAnnotationID:(long)arg1 annotation:(id)arg2;
-- (id)bookmarkName:(int)arg1;
-- (void)addBookmarkId:(int)arg1 name:(id)arg2;
+- (id)bookmarkName:(long)arg1;
+- (void)addBookmarkId:(long)arg1 name:(id)arg2;
 - (void)clearOutNodesToBeAdded:(id)arg1;
 - (id)nodesToBeAdded:(id)arg1;
 - (void)addText:(id)arg1 node:(struct _xmlNode *)arg2;

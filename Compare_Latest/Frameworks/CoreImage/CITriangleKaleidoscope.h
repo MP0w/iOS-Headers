@@ -15,18 +15,20 @@
     NSNumber *inputSize;
     NSNumber *inputRotation;
     NSNumber *inputDecay;
+    CIImage *_decayPowerLUTImage;
+    float _previousInputDecay;
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputDecay; // @synthesize inputDecay;
-@property(copy, nonatomic) NSNumber *inputRotation; // @synthesize inputRotation;
-@property(copy, nonatomic) NSNumber *inputSize; // @synthesize inputSize;
-@property(copy, nonatomic) CIVector *inputPoint; // @synthesize inputPoint;
+@property(retain, nonatomic) NSNumber *inputDecay; // @synthesize inputDecay;
+@property(retain, nonatomic) NSNumber *inputRotation; // @synthesize inputRotation;
+@property(retain, nonatomic) NSNumber *inputSize; // @synthesize inputSize;
+@property(retain, nonatomic) CIVector *inputPoint; // @synthesize inputPoint;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (void)setDefaults;
 - (id)_geomKernel;
 - (id)_colorKernel;
+- (void)setDefaults;
 
 @end
 

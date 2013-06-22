@@ -13,19 +13,14 @@
     UIWebClip *_webClip;
 }
 
-@property(retain, nonatomic) UIWebClip *webClip; // @synthesize webClip=_webClip;
 - (id)folderFallbackTitle;
 - (id)folderTitleOptions;
 - (id)uninstallAlertCancelTitle;
 - (id)uninstallAlertConfirmTitle;
 - (id)uninstallAlertBody;
 - (id)uninstallAlertTitle;
-- (BOOL)allowsUninstall;
-- (BOOL)shouldEllipsizeLabel;
 - (BOOL)canGenerateImageInBackgroundForFormat:(int)arg1;
-- (id)generateIconImage:(int)arg1;
-- (void)dealloc;
-- (id)initWithApplication:(id)arg1;
+- (id)webClip;
 
 @end
 

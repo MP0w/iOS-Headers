@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCopying-Protocol.h"
+#import "UIDynamicItem-Protocol.h"
 
 @class NSIndexPath, NSString;
 
-@interface UICollectionViewLayoutAttributes : NSObject <NSCopying>
+@interface UICollectionViewLayoutAttributes : NSObject <NSCopying, UIDynamicItem>
 {
     NSString *_elementKind;
     NSString *_reuseIdentifer;
@@ -20,10 +21,12 @@
     float _alpha;
     struct CATransform3D _transform;
     NSIndexPath *_indexPath;
+    NSString *_isCloneString;
     struct {
         unsigned int isCellKind:1;
         unsigned int isDecorationView:1;
         unsigned int isHidden:1;
+        unsigned int isClone:1;
     } _layoutFlags;
     int _zIndex;
 }
@@ -46,13 +49,17 @@
 - (BOOL)_isEquivalentTo:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
+@property(nonatomic) struct CGAffineTransform transform;
 @property(nonatomic) struct CGRect frame;
+@property(nonatomic) struct CGRect bounds;
 - (id)initialLayoutAttributesForInsertedDecorationElementOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_reuseIdentifier;
 - (void)_setReuseIdentifier:(id)arg1;
 - (id)_elementKind;
 - (void)_setElementKind:(id)arg1;
+- (BOOL)_isClone;
+- (void)_setIsClone:(BOOL)arg1;
 @property(nonatomic, getter=isHidden) BOOL hidden;
 - (void)dealloc;
 - (id)init;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSTimer, SBDeviceLockDisableAssertion;
+@class NSTimer, SBPasscodeLockDisableAssertion;
 
 @interface SBSyncController : NSObject
 {
@@ -18,7 +18,7 @@
     BOOL _appsChangedDuringSync;
     int _restoreStartedNotifyToken;
     int _restoreEndedNotifyToken;
-    SBDeviceLockDisableAssertion *_disableDeviceLockAssertion;
+    SBPasscodeLockDisableAssertion *_disableDeviceLockAssertion;
 }
 
 + (id)sharedInstance;

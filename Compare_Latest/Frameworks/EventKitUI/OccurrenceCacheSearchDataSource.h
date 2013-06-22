@@ -18,6 +18,7 @@
     } _resultsLock;
 }
 
+- (void).cxx_destruct;
 - (id)_cachedDays;
 - (void)stopSearching;
 - (void)searchWithTerm:(id)arg1;

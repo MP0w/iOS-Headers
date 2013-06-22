@@ -8,7 +8,7 @@
 
 #import "FTMessageQueueDelegate-Protocol.h"
 
-@class FTMessage, FTMessageQueue, IMTimer, NSArray, NSNumber, NSString;
+@class FTMessageQueue, IDSBaseMessage, IMTimer, NSArray, NSNumber, NSString;
 
 @interface FTMessageDelivery : NSObject <FTMessageQueueDelegate>
 {
@@ -41,7 +41,7 @@
 @property(readonly) BOOL hasQueuedItems;
 @property(readonly) BOOL busy;
 @property(readonly) NSArray *allMessages;
-@property(readonly) FTMessage *currentMessage;
+@property(readonly) IDSBaseMessage *currentMessage;
 @property(readonly) NSArray *queuedMessages;
 - (BOOL)_sendMessageAsynchronously:(id)arg1 error:(id *)arg2;
 - (void)_informDelegateAboutMessage:(id)arg1 error:(id)arg2 result:(id)arg3 resultCode:(int)arg4;

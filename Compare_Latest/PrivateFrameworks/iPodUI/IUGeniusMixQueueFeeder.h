@@ -9,12 +9,11 @@
 @interface IUGeniusMixQueueFeeder : IUMediaQueryQueueFeeder
 {
     id <IUGeniusMixQueueFeederDataSource> _dataSource;
-    BOOL _disableRepeat;
-    BOOL _disableNewPlaylists;
     unsigned int _currentPlaylistOffset;
 }
 
 @property(retain, nonatomic) id <IUGeniusMixQueueFeederDataSource> dataSource; // @synthesize dataSource=_dataSource;
+- (void).cxx_destruct;
 - (BOOL)_configureWithMix:(id)arg1 dataSource:(id)arg2 startEntityIndex:(unsigned int)arg3 startPlayback:(BOOL)arg4;
 - (void)shuffleItemsWithAnchor:(unsigned int *)arg1;
 - (id)mediaItemAtIndex:(unsigned int)arg1;
@@ -22,15 +21,15 @@
 - (id)query;
 - (BOOL)shouldReloadForChangeFromNetworkType:(int)arg1 toNetworkType:(int)arg2;
 - (BOOL)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(BOOL)arg2;
-- (unsigned int)realRepeatType;
 - (id)localizedPositionInPlaylistString:(id)arg1;
+- (id)localizedAttributedPositionInPlaylistStringForItem:(id)arg1 withRegularTextAttributes:(id)arg2 emphasizedTextAttributes:(id)arg3;
 - (void)restoreAVControllerPlaybackQueue:(id)arg1 fromUnarchiver:(id)arg2;
 - (void)archiveAVControllerPlaybackQueue:(id)arg1 toArchiver:(id)arg2;
 - (id)pathAtIndex:(unsigned int)arg1;
 - (unsigned int)itemCount;
-- (void)_appDefaultChangedNotification:(id)arg1;
-- (void)dealloc;
-- (id)init;
+- (BOOL)userCanChangeShuffleAndRepeatType;
+- (unsigned int)realShuffleType;
+- (unsigned int)realRepeatType;
 
 @end
 

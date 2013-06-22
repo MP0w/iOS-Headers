@@ -14,9 +14,13 @@
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 - (id)_kindDescription;
+- (unsigned int)photosCount;
 - (id)posterImage;
 - (id)localizedTitle;
 - (void)awakeFromInsert;
+
+// Remaining properties
+@property(nonatomic) short wallpaperAlbumType; // @dynamic wallpaperAlbumType;
 
 @end
 

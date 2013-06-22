@@ -7,6 +7,8 @@
 #import "UIView.h"
 
 @interface UIView (SpringBoardAdditions)
+- (void)sbs_printLayerHierarchy;
+- (void)_printLayer:(id)arg1 level:(int)arg2;
 - (BOOL)hasActiveKeyboardOnScreen;
 @end
 

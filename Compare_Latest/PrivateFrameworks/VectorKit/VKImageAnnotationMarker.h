@@ -15,6 +15,7 @@
 
 @property(nonatomic) BOOL drawsOnGround;
 - (void)setImage:(id)arg1;
+@property(nonatomic) float brightness;
 - (void)dealloc;
 - (id)init;
 

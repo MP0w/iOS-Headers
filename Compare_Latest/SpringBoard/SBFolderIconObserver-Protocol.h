@@ -7,6 +7,6 @@
 #import "SBIconObserver-Protocol.h"
 
 @protocol SBFolderIconObserver <SBIconObserver>
-- (void)folderIcon:(id)arg1 didUpdateGridImage:(id)arg2 withSkipping:(BOOL)arg3 forContainedIconImageUpdate:(id)arg4;
+- (void)folderIcon:(id)arg1 didUpdateGridImage:(id)arg2 forListIndex:(unsigned int)arg3 forContainedIconImageUpdate:(id)arg4;
 @end
 

@@ -6,25 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, _CKPriorityQueue;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface CKDispatchQueue : NSObject
 {
-    NSObject<OS_dispatch_queue> *_dispatch_queue;
+    unsigned int _fifo;
     BOOL _suspended;
-    _CKPriorityQueue *_priorityQueue;
-    BOOL cancelled;
+    BOOL _cancelled;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_lockQueue;
+    struct __CFBinaryHeap *_heap;
+    NSMutableDictionary *_dispatchQueueBlocks;
 }
 
 + (id)concurrentQueueWithDispatchPriority:(long)arg1;
 + (id)serialQueueWithDispatchPriority:(long)arg1;
-@property(getter=isCancelled) BOOL cancelled; // @synthesize cancelled;
-@property(retain, nonatomic) _CKPriorityQueue *priorityQueue; // @synthesize priorityQueue=_priorityQueue;
+@property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
+@property(retain, nonatomic) NSMutableDictionary *dispatchQueueBlocks; // @synthesize dispatchQueueBlocks=_dispatchQueueBlocks;
+@property(retain, nonatomic) struct __CFBinaryHeap *heap; // @synthesize heap=_heap;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *lockQueue; // @synthesize lockQueue=_lockQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(nonatomic, getter=isSuspended) BOOL suspended; // @synthesize suspended=_suspended;
-- (id)_initWithDispatchAttr:(id)arg1 dispatchPriority:(long)arg2;
 - (void)cancelOustandingBlocks;
+- (void)removeOutstandingBlockForKey:(id)arg1;
+- (BOOL)containsOutstandingBlockForKey:(id)arg1;
+- (id)allKeysOfOutstandingBlocks;
+- (int)queuePriorityOfOutstandingBlockForKey:(id)arg1;
+- (void)setQueuePriority:(int)arg1 ofOutstandingBlockForKey:(id)arg2;
+- (void)addBlock:(id)arg1 withQueuePriority:(void)arg2 forKey:(int)arg3;
 - (void)addBlock:(id)arg1 withQueuePriority:(void)arg2;
 - (void)addBlock:(id)arg1;
+- (id)_initWithDispatchAttr:(id)arg1 dispatchPriority:(long)arg2;
 - (id)init;
 - (void)dealloc;
 

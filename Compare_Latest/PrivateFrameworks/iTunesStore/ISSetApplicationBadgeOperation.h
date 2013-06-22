@@ -10,12 +10,12 @@
 
 @interface ISSetApplicationBadgeOperation : ISOperation
 {
-    id _badgeValue;
+    NSString *_badgeValue;
     NSString *_bundleIdentifier;
 }
 
 @property(retain) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
-@property(retain) id badgeValue; // @synthesize badgeValue=_badgeValue;
+@property(retain) NSString *badgeValue; // @synthesize badgeValue=_badgeValue;
 - (id)uniqueKey;
 - (void)run;
 - (void)dealloc;

@@ -16,10 +16,10 @@ struct CalDatabase {
     int _field2;
     struct CPRecordStore *_field3;
     struct CalEventOccurrenceCache *_field4;
-    struct __CFDictionary *_field5;
+    struct CalScheduledTaskCache *_field5;
     struct __CFDictionary *_field6;
-    struct _opaque_pthread_mutex_t _field7;
-    _Bool _field8;
+    struct __CFDictionary *_field7;
+    struct _opaque_pthread_mutex_t _field8;
     unsigned int _field9;
     unsigned int _field10;
     struct __CFArray *_field11;
@@ -105,6 +105,8 @@ struct CalParticipantIdsSearchContext {
     struct CalDatabase *_field5;
 };
 
+struct CalScheduledTaskCache;
+
 struct CalSpotlightMatchedEventContext {
     int _field1;
     char *_field2;
@@ -143,6 +145,7 @@ typedef struct {
     unsigned int supportsAlarmTriggerIntervals:1;
     unsigned int supportsAlarmTriggerDates:1;
     unsigned int supportsAlarmsTriggeringAfterStartDate:1;
+    unsigned int snoozeAlarmRequiresDetach:1;
     unsigned int organizerCanSeeAttendeeStatuses:1;
     unsigned int inviteesCanSeeAttendeeStatuses:1;
     unsigned int statusesAreAccurate:1;
@@ -179,7 +182,7 @@ typedef struct {
     unsigned int supportsSharedCalendars:1;
     unsigned int isFacebook:1;
     unsigned int recurrenceSeriesMustIncludeMoreThanFirstOccurrence:1;
-} CDStruct_d63385cc;
+} CDStruct_75923904;
 
 typedef struct {
     int year;
@@ -208,10 +211,11 @@ typedef struct {
     unsigned short _field1[64];
     struct __CFString *_field2;
     unsigned short *_field3;
-    CDStruct_1ef3fb1f _field4;
-    int _field5;
+    char *_field4;
+    CDStruct_1ef3fb1f _field5;
     int _field6;
-} CDStruct_df6741a8;
+    int _field7;
+} CDStruct_64adce64;
 
 typedef struct {
     CDStruct_1ef3fb1f _field1;

@@ -21,11 +21,12 @@
 + (id)videoCompositionWithPropertiesOfAsset:(id)arg1;
 - (BOOL)isValidForAsset:(id)arg1 timeRange:(CDStruct_e83c9415)arg2 validationDelegate:(id)arg3;
 - (BOOL)_isValidReturningExceptionReason:(id *)arg1;
+- (id)instructionForFigInstruction:(void *)arg1;
 - (id)_serializableInstructions;
 - (void)setAnimationTool:(id)arg1;
 @property(readonly, nonatomic) AVVideoCompositionCoreAnimationTool *animationTool;
 - (id)_postProcessingRootLayer;
-- (id)_postProcessingVideoLayer;
+- (id)_postProcessingVideoLayers;
 - (BOOL)_hasPostProcessingLayers;
 - (int)_auxiliaryTrackID;
 - (id)_auxiliaryTrackLayer;
@@ -38,8 +39,11 @@
 @property(readonly, nonatomic) struct CGSize renderSize;
 - (void)setFrameDuration:(CDStruct_1b6d18a9)arg1;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 frameDuration;
-- (void)setCompositor:(id)arg1;
-- (id)compositor;
+- (BOOL)_copyFigVideoCompositor:(const void **)arg1 andSession:(id *)arg2 recyclingSession:(id)arg3 forFigRemaker:(BOOL)arg4 error:(id *)arg5;
+- (void)setCustomVideoCompositorClass:(Class)arg1;
+@property(readonly, nonatomic) Class customVideoCompositorClass;
+- (void)setBuiltInCompositorName:(id)arg1;
+- (id)builtInCompositorName;
 - (void)finalize;
 - (void)dealloc;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

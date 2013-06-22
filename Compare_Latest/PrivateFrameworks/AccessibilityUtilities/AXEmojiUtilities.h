@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)stringByReplacingEmojiCharactersWithEmojiDescriptions:(id)arg1 stringForPauses:(id)arg2;
++ (id)stringByReplacingEmojiCharactersWithEmojiDescriptions:(id)arg1 stringForPauses:(id)arg2 language:(id)arg3;
 
 @end
 

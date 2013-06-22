@@ -6,21 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, Protocol;
+@class Protocol;
 
 @interface NSXPCInterface : NSObject
 {
     Protocol *_protocol;
-    NSMutableDictionary *_methods;
+    struct __CFDictionary *_methods2;
     id _reserved1;
 }
 
 + (id)signatureForBlock:(id)arg1;
 + (id)interfaceWithProtocol:(id)arg1;
-- (id)_interfaceForArgument:(unsigned int)arg1 ofSelector:(id)arg2 reply:(BOOL)arg3;
-- (id)_allowedClassesForSelector:(id)arg1 reply:(BOOL)arg2;
-- (id)_verifiedMethodSignatureForReplyBlockOfSelector:(id)arg1;
-- (id)_verifiedMethodSignatureForSelector:(id)arg1;
+- (id)_interfaceForArgument:(unsigned int)arg1 ofSelector:(SEL)arg2 reply:(BOOL)arg3;
+- (id)_allowedClassesForSelector:(SEL)arg1 reply:(BOOL)arg2;
+- (id)_verifiedMethodSignatureForReplyBlockOfSelector:(SEL)arg1;
+- (id)_verifiedMethodSignatureForSelector:(SEL)arg1;
 - (id)replyBlockSignatureForSelector:(SEL)arg1;
 - (void)setReplyBlockSignature:(id)arg1 forSelector:(SEL)arg2;
 - (Class)classForSelector:(SEL)arg1 argumentIndex:(unsigned int)arg2 ofReply:(BOOL)arg3;
@@ -31,6 +31,7 @@
 - (void)setClasses:(id)arg1 forSelector:(SEL)arg2 argumentIndex:(unsigned int)arg3 ofReply:(BOOL)arg4;
 @property Protocol *protocol;
 - (id)debugDescription;
+- (void)finalize;
 - (void)dealloc;
 - (id)init;
 

@@ -27,8 +27,8 @@
 @property(retain, nonatomic) NSString *messageSubtitle; // @synthesize messageSubtitle=_messageSubtitle;
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
+- (void).cxx_destruct;
 - (BOOL)isRestorableNavigationPathNode;
-- (void)dealloc;
 - (id)initForVideo;
 - (id)initForMusic;
 - (id)init;

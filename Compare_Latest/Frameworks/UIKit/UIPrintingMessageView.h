@@ -6,17 +6,15 @@
 
 #import <UIKit/UIView.h>
 
-@class UIImageView, UILabel;
+@class UILabel;
 
 @interface UIPrintingMessageView : UIView
 {
     UILabel *_title;
     UILabel *_message;
-    UIImageView *_icon;
 }
 
 - (void)setMessage:(id)arg1;
-- (void)layoutSubviews;
 - (void)dealloc;
 - (id)initInView:(id)arg1 title:(id)arg2;
 

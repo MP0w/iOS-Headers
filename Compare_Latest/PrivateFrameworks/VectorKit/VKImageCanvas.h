@@ -6,29 +6,40 @@
 
 #import <VectorKit/VGLImageCanvas.h>
 
+#import "VKAnimationRunner-Protocol.h"
 #import "VKWorldDelegate-Protocol.h"
 
-@class NSTimer, VKCamera, VKLayoutContext, VKScene, VKWorld;
+@class VKCamera, VKDispatch, VKLayoutContext, VKScene, VKTimer, VKWorld;
 
-@interface VKImageCanvas : VGLImageCanvas <VKWorldDelegate>
+@interface VKImageCanvas : VGLImageCanvas <VKWorldDelegate, VKAnimationRunner>
 {
     VKWorld *_world;
     VKCamera *_camera;
     VKScene *_scene;
     VKLayoutContext *_layoutContext;
-    NSTimer *_layoutTimer;
+    VKDispatch *_dispatch;
+    VKTimer *_layoutTimer;
+    BOOL _shouldDrawWhileLoading;
+    double _frameTimestamp;
+    BOOL _needsLayout;
+    BOOL _needsDisplay;
 }
 
 + (Class)contextClass;
+@property(readonly, nonatomic) VKDispatch *dispatch; // @synthesize dispatch=_dispatch;
 @property(readonly, nonatomic) VKCamera *camera; // @synthesize camera=_camera;
 @property(readonly, nonatomic) VKWorld *world; // @synthesize world=_world;
+- (void)animationDidStop:(id)arg1;
+- (void)runAnimation:(id)arg1;
 - (void)worldDisplayDidChange:(id)arg1;
 - (void)worldLayoutDidChange:(id)arg1;
-- (void)renderScene;
+- (void)renderScene:(id)arg1;
 - (void)cancelLoad;
 - (void)loadScene;
-- (void)_spinScene;
+- (void)_spinScene:(id)arg1;
+- (void)setSize:(struct CGSize)arg1;
 - (void)dealloc;
+- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 context:(id)arg3 homeQueue:(id)arg4;
 - (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 context:(id)arg3;
 
 @end

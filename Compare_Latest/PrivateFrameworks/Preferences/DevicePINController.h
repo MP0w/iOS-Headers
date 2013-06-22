@@ -21,10 +21,13 @@
     UIBarButtonItem *_doneButton;
     NSString *_error1;
     NSString *_error2;
+    BOOL _hidesNavigationButtons;
 }
 
 + (BOOL)settingEnabled;
-- (BOOL)_success;
+@property(nonatomic) BOOL hidesNavigationButtons; // @synthesize hidesNavigationButtons=_hidesNavigationButtons;
+@property(nonatomic) id <DevicePINControllerDelegate> pinDelegate; // @synthesize pinDelegate=_pinDelegate;
+- (BOOL)success;
 - (void)setPane:(id)arg1;
 - (struct CGRect)paneFrame;
 - (void)viewDidAppear:(BOOL)arg1;
@@ -74,6 +77,7 @@
 - (id)stringsTable;
 - (void)_dismiss;
 - (struct CGSize)pinContentSizeForViewInPopover;
+- (void)setMode:(int)arg1;
 - (void)setSpecifier:(id)arg1;
 - (id)init;
 - (void)willUnlock;

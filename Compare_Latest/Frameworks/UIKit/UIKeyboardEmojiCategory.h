@@ -10,25 +10,25 @@
 
 @interface UIKeyboardEmojiCategory : NSObject
 {
-    int _type;
+    int _categoryType;
     NSArray *_emoji;
     int _lastVisibleFirstEmojiIndex;
 }
 
 + (id)localizedStringForKey:(id)arg1;
 + (id)categoryForType:(int)arg1;
-+ (id)getGlyphForRecents:(id)arg1;
 + (id)emojiRecentsFromPreferences;
++ (BOOL)hasVariantsForEmoji:(id)arg1;
 + (id)categories;
 + (int)numberOfCategories;
 @property(nonatomic) int lastVisibleFirstEmojiIndex; // @synthesize lastVisibleFirstEmojiIndex=_lastVisibleFirstEmojiIndex;
 @property(retain) NSArray *emoji; // @synthesize emoji=_emoji;
-@property int categoryType; // @synthesize categoryType=_type;
+@property int categoryType; // @synthesize categoryType=_categoryType;
 - (id)description;
-@property(readonly) NSString *displayDescription;
-@property(readonly) NSString *displaySymbol;
-@property(readonly) NSString *displayName;
-@property(readonly, nonatomic) NSString *name;
+@property(readonly, getter=recentDescription) NSString *recentDescription;
+@property(readonly, getter=displaySymbol) NSString *displaySymbol;
+@property(readonly, getter=displayName) NSString *displayName;
+@property(readonly, nonatomic, getter=name) NSString *name;
 - (void)dealloc;
 - (void)releaseCategories;
 

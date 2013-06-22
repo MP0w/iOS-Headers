@@ -15,7 +15,7 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputPower; // @synthesize inputPower;
+@property(retain, nonatomic) NSNumber *inputPower; // @synthesize inputPower;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (BOOL)_isIdentity;

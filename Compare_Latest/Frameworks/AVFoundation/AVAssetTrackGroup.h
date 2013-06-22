@@ -4,20 +4,23 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <AVFoundation/AVTrackGroup.h>
+#import "NSObject.h"
 
-@class NSArray;
+#import "NSCopying-Protocol.h"
 
-@interface AVAssetTrackGroup : AVTrackGroup
+@class AVAssetTrackGroupInternal, NSArray;
+
+@interface AVAssetTrackGroup : NSObject <NSCopying>
 {
-    id _assetComparisonToken;
-    NSArray *_trackIDs;
+    AVAssetTrackGroupInternal *_assetTrackGroup;
 }
 
-- (id)trackIDs;
 - (id)_assetComparisonToken;
+@property(readonly, nonatomic) NSArray *trackIDs;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)finalize;
 - (void)dealloc;
 - (id)init;
 - (id)initWithAsset:(id)arg1 trackIDs:(id)arg2;

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSMutableArray, NSString, UICalloutBarButton, UICalloutBarOverlay, UIResponder;
+@class NSArray, NSMutableArray, NSString, UICalloutBarBackground, UICalloutBarButton, UIResponder;
 
 @interface UICalloutBar : UIView
 {
@@ -34,7 +34,7 @@
     UICalloutBarButton *m_nextButton;
     UICalloutBarButton *m_previousButton;
     NSMutableArray *m_rectsToEvade;
-    UICalloutBarOverlay *m_overlay;
+    UICalloutBarBackground *m_overlay;
     double m_fadedTime;
     id m_responderTarget;
     NSArray *m_replacements;
@@ -46,7 +46,7 @@
     BOOL m_ignoreFade;
 }
 
-+ (void)fadeSharedCalloutBarIfNeededForView:(id)arg1 window:(id)arg2;
++ (void)fadeSharedCalloutBarIfNeededForTouchInView:(id)arg1 window:(id)arg2;
 + (void)hideSharedCalloutBar;
 + (void)fadeSharedCalloutBar;
 + (BOOL)sharedCalloutBarIsVisible;
@@ -76,8 +76,8 @@
 - (BOOL)hasReplacements;
 - (void)clearEvadeRects;
 - (void)addRectToEvade:(struct CGRect)arg1;
-- (void)hideAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
-- (void)appearAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+- (void)hideAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
+- (void)appearAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (BOOL)recentlyFaded;
 - (void)updateAnimated:(BOOL)arg1;
 - (void)update;
@@ -100,6 +100,7 @@
 - (BOOL)calculateControlFrameForCalloutSize:(struct CGSize)arg1 below:(BOOL)arg2;
 - (float)supressHorizontalXMovementIfNeededForPoint:(struct CGPoint)arg1 proposedX:(float)arg2;
 - (BOOL)rectClear:(struct CGRect)arg1;
+- (void)resetPage;
 - (struct CGRect)textEffectsWindowBoundsWithoutStatusBar;
 - (int)textEffectsVisibilityLevel;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;

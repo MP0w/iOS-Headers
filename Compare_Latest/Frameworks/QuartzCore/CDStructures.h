@@ -82,15 +82,6 @@ struct CADoubleSize {
 
 struct CAEAGLBuffer;
 
-struct CALinearMaskContext {
-    void *_field1;
-    unsigned int _field2;
-    int _field3;
-    int _field4;
-    struct CGAffineTransform _field5;
-    struct CGGlyphLock *_field6;
-};
-
 struct CAMediaTimingFunctionPrivate {
     float _field1[2];
     float _field2[2];
@@ -164,8 +155,6 @@ struct CGAffineTransform {
 
 struct CGColorSpace;
 
-struct CGGlyphLock;
-
 struct CGPathElement {
     int _field1;
     struct CGPoint *_field2;
@@ -225,12 +214,11 @@ struct Context {
     unsigned int _field13;
     unsigned int _field14;
     struct ObjectCache *_field15;
-    unsigned int _field16;
-    struct __CFMachPort *_field17;
-    struct __CFRunLoopSource *_field18;
-    float _field19;
-    struct Commit *_field20;
-    struct Generic _field21;
+    id _field16;
+    unsigned int _field17;
+    float _field18;
+    struct Commit *_field19;
+    struct Generic _field20;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -246,8 +234,8 @@ struct Data {
     unsigned char _field3;
     unsigned char _field4;
     unsigned char _field5;
-    unsigned int :2;
-    unsigned int :2;
+    unsigned int :3;
+    unsigned int :3;
     unsigned int :4;
     unsigned int :4;
     unsigned int :1;
@@ -270,7 +258,7 @@ struct Data {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-    unsigned int :32;
+    unsigned int :30;
     struct Vec2<double> _field6;
     struct Rect _field7;
 };
@@ -302,23 +290,28 @@ struct Display {
     unsigned int _field22;
     double _field23;
     _Bool _field24;
+    _Bool _field25;
 };
 
-struct DisplayLink {
-    void **_field1;
-    struct Display *_field2;
-    void *_field3;
-    SEL _field4;
-    void *_field5;
-    int _field6;
-    struct Mutex _field7;
-    struct Condition _field8;
-    struct _opaque_pthread_t *_field9;
-    id _field10;
-    struct __CFRunLoop *_field11;
-    struct List<const __CFString *> *_field12;
+struct DisplayLink;
+
+struct DisplayLinkItem {
+    struct Display *_field1;
+    void *_field2;
+    SEL _field3;
+    void *_field4;
+    int _field5;
+    struct Mutex _field6;
+    struct Condition _field7;
+    struct _opaque_pthread_t *_field8;
+    id _field9;
+    struct Ref<CA::Display::DisplayLink> _field10;
+    struct List<const __CFString *> *_field11;
+    unsigned long long _field12;
     unsigned long long _field13;
     unsigned long long _field14;
+    unsigned int :1;
+    unsigned int :1;
     unsigned int :1;
 };
 
@@ -408,6 +401,10 @@ struct Rect {
     double _field4;
 };
 
+struct Ref<CA::Display::DisplayLink> {
+    struct DisplayLink *_field1;
+};
+
 struct Ref<CA::Render::Handle> {
     struct Handle *_field1;
 };
@@ -458,13 +455,12 @@ struct Server {
     struct SpinLock _field9;
     struct PendingOperation *_field10;
     struct Context *_field11;
-    unsigned int _field12;
-    struct Shape *_field13;
-    unsigned int _field14;
-    struct Context *_field15;
-    struct Renderer *_field16;
+    struct Shape *_field12;
+    unsigned int _field13;
+    struct Context *_field14;
+    struct Renderer *_field15;
+    double _field16;
     double _field17;
-    unsigned int :1;
     unsigned int :1;
     unsigned int :1;
 };
@@ -578,12 +574,57 @@ struct _CALayerIvars {
     void *unused1[8];
 };
 
+struct _CAMLWriterAttribute;
+
+struct _CAMLWriterElement {
+    struct _CAMLWriterElement *_field1;
+    struct _CAMLWriterElement *_field2;
+    struct _CAMLWriterElement *_field3;
+    struct _CAMLWriterElement **_field4;
+    void *_field5;
+    struct __CFString *_field6;
+    struct _CAMLWriterAttribute *_field7;
+    struct _CAMLWriterAttribute **_field8;
+    struct __CFString *_field9;
+    unsigned int _field10;
+};
+
+struct _CAMLWriterPriv {
+    struct __CFData *_field1;
+    struct __CFURL *_field2;
+    id _field3;
+    struct _CAMLWriterElement *_field4;
+    struct __CFString *_field5;
+    struct __CFSet *_field6;
+    int _field7;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+};
+
 struct _CAPackageData {
     id _field1;
     id _field2;
     id _field3;
     _Bool _field4;
     _Bool _field5;
+    id _field6;
+    id _field7;
+};
+
+struct _CAPropertyInfo {
+    unsigned int _field1;
+    SEL _field2[2];
+    unsigned int :16;
+    unsigned int :16;
+    char *_field3;
+    struct __CFString *_field4;
+};
+
+struct _CARenderRendererInfo {
+    int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
 };
 
 struct _CAStateControllerData {
@@ -609,8 +650,6 @@ struct _NSRange {
 };
 
 struct __CFDictionary;
-
-struct __CFRunLoop;
 
 struct __CFString;
 

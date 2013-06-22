@@ -10,31 +10,31 @@
 
 @interface PLCloudSharingInvitationChangeJob : PLCloudSharingJob
 {
-    NSString *_albumGUID;
     NSArray *_MSASSharingRelationships;
-    int _relationshipChangeType;
-    NSDictionary *_mstreamdInfoDictionary;
+    NSString *_albumGUID;
     NSString *_resendInvitationGUID;
-    int _jobType;
+    NSDictionary *_mstreamdInfoDictionary;
+    long long _relationshipChangeType;
+    long long _jobType;
 }
 
 + (void)resendPendingInvitationWithGUID:(id)arg1 albumGUID:(id)arg2;
 + (void)sendServerPendingInvitationsForAlbumWithGUID:(id)arg1;
-+ (void)saveServerStateLocallyForSharingInvitationRelationships:(id)arg1 changeType:(int)arg2 info:(id)arg3;
-+ (void)saveServerStateLocallyForSharingACLRelationships:(id)arg1 changeType:(int)arg2 info:(id)arg3;
-@property(nonatomic) int jobType; // @synthesize jobType=_jobType;
-@property(retain, nonatomic) NSString *resendInvitationGUID; // @synthesize resendInvitationGUID=_resendInvitationGUID;
++ (void)saveServerStateLocallyForSharingInvitationRelationships:(id)arg1 changeType:(long long)arg2 info:(id)arg3;
++ (void)saveServerStateLocallyForSharingACLRelationships:(id)arg1 changeType:(long long)arg2 info:(id)arg3;
 @property(retain, nonatomic) NSDictionary *mstreamdInfoDictionary; // @synthesize mstreamdInfoDictionary=_mstreamdInfoDictionary;
-@property(nonatomic) int relationshipChangeType; // @synthesize relationshipChangeType=_relationshipChangeType;
-@property(retain, nonatomic) NSArray *MSASSharingRelationships; // @synthesize MSASSharingRelationships=_MSASSharingRelationships;
+@property(nonatomic) long long jobType; // @synthesize jobType=_jobType;
+@property(retain, nonatomic) NSString *resendInvitationGUID; // @synthesize resendInvitationGUID=_resendInvitationGUID;
 @property(retain, nonatomic) NSString *albumGUID; // @synthesize albumGUID=_albumGUID;
+@property(nonatomic) long long relationshipChangeType; // @synthesize relationshipChangeType=_relationshipChangeType;
+@property(retain, nonatomic) NSArray *MSASSharingRelationships; // @synthesize MSASSharingRelationships=_MSASSharingRelationships;
 - (void)executeSendServerPendingInvitationsForAlbumWithGUID;
 - (void)executeSaveServerStateLocallyForSharingACLRelationships;
 - (void)executeSaveServerStateLocallyForSharingInvitationRelationships;
 - (void)runDaemonSide;
 - (BOOL)shouldArchiveXPCToDisk;
 - (void)run;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 - (void)dealloc;
 - (id)description;
 - (id)initFromXPCObject:(id)arg1;

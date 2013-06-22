@@ -11,12 +11,12 @@
 @interface NewsParserData : NSObject
 {
     int state;
-    NSMutableArray *newsItems;
-    NSMutableString *buffer;
+    NSMutableArray *_newsItems;
+    NSMutableString *_buffer;
 }
 
-@property(retain, nonatomic) NSMutableString *buffer; // @synthesize buffer;
-@property(retain, nonatomic) NSMutableArray *newsItems; // @synthesize newsItems;
+@property(retain, nonatomic) NSMutableString *buffer; // @synthesize buffer=_buffer;
+@property(retain, nonatomic) NSMutableArray *newsItems; // @synthesize newsItems=_newsItems;
 - (void).cxx_destruct;
 
 @end

@@ -13,6 +13,8 @@
 }
 
 - (void)setSelectionRange:(int)arg1 end:(int)arg2;
+- (void)setRangeText:(id)arg1 start:(unsigned int)arg2 end:(unsigned int)arg3 selectionMode:(id)arg4;
+- (void)setRangeText:(id)arg1;
 - (void)select;
 - (void)setCustomValidity:(id)arg1;
 - (BOOL)checkValidity;

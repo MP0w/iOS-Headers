@@ -10,7 +10,7 @@
 {
 }
 
-- (id)contentsImageForStyle:(int)arg1;
+- (id)contentsImage;
 
 @end
 

@@ -17,6 +17,7 @@
 + (id)metricsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)metrics;
 @property(copy, nonatomic) NSDictionary *timings;
+@property(copy, nonatomic) NSString *originalCommandId;
 @property(copy, nonatomic) NSString *category;
 - (id)encodedClassName;
 - (id)groupIdentifier;

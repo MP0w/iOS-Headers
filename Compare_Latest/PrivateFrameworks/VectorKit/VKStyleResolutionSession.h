@@ -6,22 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSMapTable, VKStylesheet;
+@class NSMapTable, NSMutableDictionary, VKStylesheet;
 
 @interface VKStyleResolutionSession : NSObject
 {
     VKStylesheet *_stylesheet;
     NSMapTable *_attrToStyle;
+    NSMapTable *_genericShieldAttrToStyle;
     NSMapTable *_styleToGroup;
+    NSMutableDictionary *_localeToAttrToStyle;
     int _vectorType;
 }
 
 - (void)dealloc;
 - (void)removeFeature:(CDStruct_4c1ff046 *)arg1;
 - (id)allGroups;
+- (void)evaluateFeatureAttributes:(id)arg1 updateGroup:(id)arg2;
 - (id)evaluateFeature:(CDStruct_4c1ff046 *)arg1 createNewGroup:(id)arg2 appendToGroup:(void)arg3;
+- (id)evaluateFeature:(CDStruct_4c1ff046 *)arg1 locale:(id)arg2;
+- (id)_attrToStyleTableForLocale:(id)arg1;
 - (id)evaluateFeature:(CDStruct_4c1ff046 *)arg1;
-- (id)evaluateGenericShieldsForFeature:(CDStruct_4c1ff046 *)arg1;
+- (BOOL)usesStyleSheet:(id)arg1 vectorType:(int)arg2;
 - (id)initWithStylesheet:(id)arg1 vectorType:(int)arg2;
 
 @end

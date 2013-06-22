@@ -21,9 +21,10 @@
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
 - (float)ab_heightToFitForViewInPopoverView;
 - (void)loadView;
+- (void)setStyleProvider:(id)arg1;
 @property(readonly, nonatomic) id vibrationPickerViewController;
 - (void)dealloc;
-- (id)initWithVibrationType:(int)arg1;
+- (id)initWithAlertType:(int)arg1;
 
 @end
 

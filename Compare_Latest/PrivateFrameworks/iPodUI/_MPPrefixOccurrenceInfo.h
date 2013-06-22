@@ -18,7 +18,7 @@
 @property(copy, nonatomic) NSString *property; // @synthesize property=_property;
 @property(copy, nonatomic) NSString *prefixString; // @synthesize prefixString=_prefixString;
 @property(nonatomic) unsigned int occurrenceCount; // @synthesize occurrenceCount=_occurrenceCount;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

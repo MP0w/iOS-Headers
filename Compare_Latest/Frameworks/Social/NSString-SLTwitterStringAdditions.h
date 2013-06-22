@@ -7,6 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (SLTwitterStringAdditions)
-- (unsigned int)SLTwitterTwitterCharacterCountWithShortenedURLLength:(unsigned int)arg1;
+- (BOOL)isTwitterDuplicatePostError;
+- (unsigned int)SLTwitterCharacterCountWithShortenedURLLength:(unsigned int)arg1;
 @end
 

@@ -6,11 +6,13 @@
 
 #import "NSObject.h"
 
-@class AVWeakReference;
+@class AVWeakReference, NSObject<OS_dispatch_queue>;
 
 @interface AVPlayerItemOutputInternal : NSObject
 {
     AVWeakReference *weakReference;
+    NSObject<OS_dispatch_queue> *timebaseReadWriteQueue;
+    struct OpaqueCMTimebase *timebase;
 }
 
 @end

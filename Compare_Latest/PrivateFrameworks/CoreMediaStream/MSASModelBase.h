@@ -10,12 +10,12 @@
 
 @interface MSASModelBase : NSObject
 {
+    BOOL _dbWasRecreated;
     struct sqlite3 *_db;
     NSString *_personID;
     struct __CFDictionary *_statements;
     NSObject<OS_dispatch_queue> *_statementQueue;
     NSObject<OS_dispatch_queue> *_dbQueue;
-    BOOL _dbWasRecreated;
 }
 
 @property(nonatomic) BOOL dbWasRecreated; // @synthesize dbWasRecreated=_dbWasRecreated;

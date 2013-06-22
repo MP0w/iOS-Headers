@@ -12,6 +12,7 @@
 
 - (void)didMoveToWindow;
 - (BOOL)touchesShouldCancelInContentView:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

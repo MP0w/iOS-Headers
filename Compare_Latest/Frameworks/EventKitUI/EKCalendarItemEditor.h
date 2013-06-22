@@ -14,16 +14,10 @@
 @interface EKCalendarItemEditor : UITableViewController <EKCalendarItemEditItemDelegate, UIActionSheetDelegate>
 {
     NSArray *_editItems;
-    EKEventStore *_store;
     id _revertState;
-    EKCalendarItem *_calendarItem;
     NSArray *_currentItems;
     UIActionSheet *_alertSheet;
-    id <EKCalendarItemEditorDelegate> _editorDelegate;
     EKCalendarItemEditItem *_currentEditItem;
-    BOOL _scrollToNotes;
-    UIResponder *_responderToRestoreOnAppearence;
-    int _visibleSectionToRestoreOnAppearence;
     BOOL _giveTitleCellKeyboardFocus;
     int _editItemVisibility;
     BOOL _isIgnoringCellHeightChange;
@@ -33,19 +27,28 @@
     BOOL _hasAppeared;
     UIBarButtonItem *_cancelButton;
     UIBarButtonItem *_doneButton;
+    BOOL _scrollToNotes;
     BOOL _showsTimeZone;
-    _UIAccessDeniedView *_accessDeniedView;
     BOOL _canHideDoneAndCancelButtons;
+    id <EKCalendarItemEditorDelegate> _editorDelegate;
+    EKEventStore *_store;
+    EKCalendarItem *_calendarItem;
+    UIResponder *_responderToRestoreOnAppearence;
+    int _visibleSectionToRestoreOnAppearence;
+    _UIAccessDeniedView *_accessDeniedView;
 }
 
-@property(nonatomic) BOOL canHideDoneAndCancelButtons; // @synthesize canHideDoneAndCancelButtons=_canHideDoneAndCancelButtons;
 @property(retain, nonatomic) _UIAccessDeniedView *accessDeniedView; // @synthesize accessDeniedView=_accessDeniedView;
 @property(readonly) EKCalendarItemEditItem *currentEditItem; // @synthesize currentEditItem=_currentEditItem;
+@property(nonatomic) BOOL canHideDoneAndCancelButtons; // @synthesize canHideDoneAndCancelButtons=_canHideDoneAndCancelButtons;
+@property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
 @property(nonatomic) int visibleSectionToRestoreOnAppearence; // @synthesize visibleSectionToRestoreOnAppearence=_visibleSectionToRestoreOnAppearence;
 @property(retain, nonatomic) UIResponder *responderToRestoreOnAppearence; // @synthesize responderToRestoreOnAppearence=_responderToRestoreOnAppearence;
-@property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
 @property(nonatomic) BOOL scrollToNotes; // @synthesize scrollToNotes=_scrollToNotes;
-@property(nonatomic) id <EKCalendarItemEditorDelegate> editorDelegate; // @synthesize editorDelegate=_editorDelegate;
+@property(retain, nonatomic) EKCalendarItem *calendarItem; // @synthesize calendarItem=_calendarItem;
+@property(retain, nonatomic) EKEventStore *store; // @synthesize store=_store;
+@property(nonatomic) __weak id <EKCalendarItemEditorDelegate> editorDelegate; // @synthesize editorDelegate=_editorDelegate;
+- (void).cxx_destruct;
 - (void)_deleteRecurringSheetButtonPressed:(int)arg1;
 - (void)_deleteSheetButtonPressed:(int)arg1;
 - (void)_detachSheetButtonPressed:(int)arg1;
@@ -75,7 +78,11 @@
 - (id)defaultAlertTitleForEditItem:(id)arg1;
 - (void)editItemRequiresPopoverSizeUpdate:(id)arg1;
 - (void)editItemRequiresHeightChange:(id)arg1;
+- (void)editItem:(id)arg1 wantsIndexPathsScrolledToVisible:(id)arg2;
+- (void)editItem:(id)arg1 wantsRowInsertions:(id)arg2 rowDeletions:(id)arg3 rowReloads:(id)arg4;
 - (void)editItem:(id)arg1 wantsRowInsertions:(id)arg2 rowDeletions:(id)arg3;
+- (void)editItem:(id)arg1 wantsRowReload:(id)arg2;
+- (void)editItem:(id)arg1 performActionsOnCellAtSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3 actions:(id)arg4;
 - (void)_reallyHandleCellHeightChange;
 - (void)_tableViewDidUpdateHeights;
 - (void)_tableViewWillUpdateHeights;
@@ -120,10 +127,10 @@
 - (void)done:(id)arg1;
 - (void)cancelEditingWithDelegateNotification:(BOOL)arg1;
 - (void)cancel:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)applicationDidResume;
-- (void)viewDidUnload;
 - (void)viewDidLoad;
+- (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
@@ -133,8 +140,6 @@
 - (int)editItemVisibility;
 - (void)setEditItemVisibility:(int)arg1 animated:(BOOL)arg2;
 - (void)_updateCurrentEditItemsFromVisibility:(int)arg1 toVisibility:(int)arg2 animated:(BOOL)arg3;
-@property(retain, nonatomic) EKCalendarItem *calendarItem;
-@property(retain, nonatomic) EKEventStore *store;
 - (void)_localeChanged;
 - (id)_editItems;
 - (void)dealloc;

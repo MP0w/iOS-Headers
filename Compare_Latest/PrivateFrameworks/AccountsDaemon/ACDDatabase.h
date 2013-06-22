@@ -6,34 +6,40 @@
 
 #import "NSObject.h"
 
-@class NSManagedObjectContext, NSManagedObjectModel, NSPersistentStore, NSPersistentStoreCoordinator, NSString;
+@class NSManagedObjectContext, NSManagedObjectModel, NSPersistentStore, NSString;
 
 @interface ACDDatabase : NSObject
 {
     NSString *_path;
     NSManagedObjectContext *_context;
     NSManagedObjectModel *_model;
-    NSPersistentStoreCoordinator *_storeCoordinator;
     NSPersistentStore *_store;
 }
 
++ (void)resetPeristentStoreCoordinator;
++ (void)_removeFilesAtURL:(id)arg1 forStoreCoordinator:(id)arg2;
++ (id)_sharedPersistentCoordinatorForStoreAtPath:(id)arg1;
++ (id)_managedObjectModel;
 + (struct __CFString *)_copyRootPath;
 + (id)defaultPath;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
 - (void).cxx_destruct;
+- (void)_handleManagedObjectContextDidSaveNotification:(id)arg1;
 - (BOOL)_databaseFileExists;
-- (void)_removeFilesAtURL:(id)arg1 forStoreCoordinator:(id)arg2;
-- (id)_persistentStoreCoordinator;
 - (id)_store;
-- (id)_managedObjectModel;
 - (void)_setupManagedObjectContext;
+- (void)setAccountPropertyWithKey:(id)arg1 value:(id)arg2 owner:(id)arg3;
+- (void)deleteAccountPropertyWithKey:(id)arg1 owner:(id)arg2;
+- (id)_accountPropertyWithKey:(id)arg1 owner:(id)arg2;
 - (unsigned int)countOfEntityNamed:(id)arg1 withPredicate:(id)arg2;
+- (id)existingObjectWithURI:(id)arg1;
 - (id)objectForObjectURI:(id)arg1;
 - (id)fetchObjectsForEntityNamed:(id)arg1 withPredicate:(id)arg2 sortDescriptor:(id)arg3;
 - (id)fetchObjectsForEntityNamed:(id)arg1 withPredicate:(id)arg2;
 - (id)fetchObjectsForEntityNamed:(id)arg1;
 @property(nonatomic) int version; // @dynamic version;
 @property(readonly, nonatomic) NSManagedObjectContext *managedObjectContext; // @dynamic managedObjectContext;
+- (void)dealloc;
 - (id)initWithPath:(id)arg1;
 - (id)initWithDefaultPath;
 

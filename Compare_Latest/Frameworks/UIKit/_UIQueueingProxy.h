@@ -22,7 +22,6 @@
 + (id)proxyWithTarget:(id)arg1 shouldSuspendInvocationBlock:(id)arg2;
 - (id)description;
 - (BOOL)respondsToSelector:(SEL)arg1;
-- (BOOL)isBlock;
 - (void)removeAllEnqueuedInvocations;
 - (void)resume;
 - (void)_dispatchSuspendedMessages;

@@ -6,17 +6,21 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface _UIViewAnimationAttributes : NSObject <NSCoding>
+@interface _UIViewAnimationAttributes : NSObject <NSSecureCoding>
 {
     double _duration;
     double _delay;
     unsigned int _options;
+    int _curve;
 }
 
++ (BOOL)supportsSecureCoding;
+@property(readonly, nonatomic, getter=_curve) int curve; // @synthesize curve=_curve;
 @property(readonly, nonatomic, getter=_delay) double delay; // @synthesize delay=_delay;
 @property(readonly, nonatomic, getter=_duration) double duration; // @synthesize duration=_duration;
+- (int)curve;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

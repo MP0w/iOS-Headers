@@ -21,7 +21,7 @@
 - (void)updateWithDate:(id)arg1;
 - (void)updateWithData:(id)arg1;
 - (void)updateWithBytes:(const void *)arg1 length:(unsigned int)arg2;
-- (void)updateWithInt64:(int)arg1;
+- (void)updateWithInt64:(long long)arg1;
 - (void)updateWithInt32:(int)arg1;
 
 @end

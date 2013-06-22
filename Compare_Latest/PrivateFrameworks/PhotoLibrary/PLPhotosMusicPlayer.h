@@ -10,9 +10,6 @@
 {
 }
 
-+ (void)setEnableRouteDiscovery:(BOOL)arg1;
-+ (void)stopRoutingMusicToAirTunes;
-+ (void)routeMusicToAirTunesService:(id)arg1;
 + (void)setShouldRepeatMusic:(BOOL)arg1;
 + (void)continueMusic;
 + (void)pauseMusic:(BOOL)arg1;

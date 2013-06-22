@@ -38,18 +38,19 @@
 @property(readonly) NSSet *clones;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromContextId:(unsigned int)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toContextId:(unsigned int)arg2;
-- (struct CGRect)frameOfContextId:(unsigned int)arg1;
-- (unsigned int)contextIdHostingContextId:(unsigned int)arg1;
+- (unsigned int)taskPortOfContextId:(unsigned int)arg1;
 - (unsigned int)clientPortOfContextId:(unsigned int)arg1;
 - (unsigned int)clientPortAtPosition:(struct CGPoint)arg1;
 - (unsigned int)contextIdAtPosition:(struct CGPoint)arg1;
-- (id)contextIdsWithClientPort:(unsigned int)arg1;
 @property(readonly) unsigned int rendererFlags;
+@property(readonly) NSString *uniqueId;
 @property(readonly) unsigned int displayId;
 @property(readonly) NSString *deviceName;
 @property(readonly) NSString *name;
+@property float scale;
 @property(readonly) struct CGRect bounds;
 - (void)dealloc;
+- (void)update;
 - (void)invalidate;
 - (id)_initWithCADisplayServer:(struct Server *)arg1;
 

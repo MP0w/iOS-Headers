@@ -33,7 +33,7 @@
 
 + (double)defaultDurationForTransition:(int)arg1;
 - (void)_transitionDidStop:(id)arg1 finished:(id)arg2;
-- (void)_startTransition:(int)arg1 withDuration:(float)arg2;
+- (void)_startTransition:(int)arg1 withDuration:(double)arg2;
 - (void)setIgnoresInteractionEvents:(BOOL)arg1;
 - (BOOL)ignoresInteractionEvents;
 - (BOOL)rasterizesOnTransition;

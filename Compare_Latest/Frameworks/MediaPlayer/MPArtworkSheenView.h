@@ -15,6 +15,7 @@
     float _rotation;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) UIImage *image;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;

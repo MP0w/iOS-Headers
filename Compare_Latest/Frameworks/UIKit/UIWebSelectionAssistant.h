@@ -34,6 +34,7 @@
 - (void)tap:(id)arg1;
 - (void)makeWebSelection:(id)arg1;
 @property(readonly, nonatomic) struct CGRect selectionFrame;
+@property(readonly, nonatomic) UIWebSelectionView *selectionView;
 @property(readonly, nonatomic) UIWebSelection *selection;
 - (void)selectionChanged;
 - (void)clearSelection;

@@ -13,7 +13,8 @@
     NSData *_pemData;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
 @property(readonly, nonatomic) NSData *pemData; // @synthesize pemData=_pemData;
 - (void).cxx_destruct;

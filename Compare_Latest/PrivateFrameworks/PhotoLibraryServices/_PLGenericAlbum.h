@@ -16,14 +16,13 @@
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 + (id)insertInManagedObjectContext:(id)arg1;
-- (id)objectID;
 
 // Remaining properties
 @property(retain, nonatomic) NSMutableSet *albumLists; // @dynamic albumLists;
 @property(retain, nonatomic) PLManagedAsset *keyAsset; // @dynamic keyAsset;
 @property(retain, nonatomic) NSNumber *kind; // @dynamic kind;
-@property(nonatomic) unsigned int pendingItemsCount; // @dynamic pendingItemsCount;
-@property(nonatomic) unsigned int pendingItemsType; // @dynamic pendingItemsType;
+@property(nonatomic) int pendingItemsCount; // @dynamic pendingItemsCount;
+@property(nonatomic) int pendingItemsType; // @dynamic pendingItemsType;
 @property(retain, nonatomic) NSDictionary *slideshowSettings; // @dynamic slideshowSettings;
 @property(retain, nonatomic) NSString *title; // @dynamic title;
 @property(retain, nonatomic) NSString *uuid; // @dynamic uuid;

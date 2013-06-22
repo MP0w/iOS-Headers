@@ -30,8 +30,10 @@
     unsigned int _minTrafficTypeRampClosureZ;
     unsigned int _minTrafficTypeRoadClosureZ;
     unsigned int _minTrafficTypeUnknownZ;
-    int _rasterMode;
     unsigned int _rasterPolygonChangeoverZ;
+    float _realisticNightBrightness;
+    float _realisticShieldNightBrightness;
+    float _shieldNightBrightness;
     struct {
         unsigned int buildingChangeoverZ:1;
         unsigned int minLineTriangleWidth:1;
@@ -43,8 +45,10 @@
         unsigned int minTrafficTypeRampClosureZ:1;
         unsigned int minTrafficTypeRoadClosureZ:1;
         unsigned int minTrafficTypeUnknownZ:1;
-        unsigned int rasterMode:1;
         unsigned int rasterPolygonChangeoverZ:1;
+        unsigned int realisticNightBrightness:1;
+        unsigned int realisticShieldNightBrightness:1;
+        unsigned int shieldNightBrightness:1;
     } _has;
 }
 
@@ -58,7 +62,6 @@
 @property(nonatomic) unsigned int minTrafficTypeUnknownZ; // @synthesize minTrafficTypeUnknownZ=_minTrafficTypeUnknownZ;
 @property(nonatomic) unsigned int buildingChangeoverZ; // @synthesize buildingChangeoverZ=_buildingChangeoverZ;
 @property(nonatomic) unsigned int rasterPolygonChangeoverZ; // @synthesize rasterPolygonChangeoverZ=_rasterPolygonChangeoverZ;
-@property(nonatomic) int rasterMode; // @synthesize rasterMode=_rasterMode;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)copyTo:(id)arg1;
@@ -138,6 +141,12 @@
 - (void)clearLayerZoomRangeBackgroundRasters;
 @property(readonly, nonatomic) unsigned int *layerZoomRangeBackgroundRasters;
 @property(readonly, nonatomic) unsigned int layerZoomRangeBackgroundRastersCount;
+@property(nonatomic) BOOL hasRealisticShieldNightBrightness;
+@property(nonatomic) float realisticShieldNightBrightness; // @synthesize realisticShieldNightBrightness=_realisticShieldNightBrightness;
+@property(nonatomic) BOOL hasShieldNightBrightness;
+@property(nonatomic) float shieldNightBrightness; // @synthesize shieldNightBrightness=_shieldNightBrightness;
+@property(nonatomic) BOOL hasRealisticNightBrightness;
+@property(nonatomic) float realisticNightBrightness; // @synthesize realisticNightBrightness=_realisticNightBrightness;
 @property(nonatomic) BOOL hasMinTrafficTypeRampClosureZ;
 @property(nonatomic) BOOL hasMinTrafficTypeLaneClosureZ;
 @property(nonatomic) BOOL hasMinTrafficTypeHazardZ;
@@ -150,7 +159,6 @@
 @property(nonatomic) BOOL hasMinLineTriangleWidth;
 @property(nonatomic) float minLineTriangleWidth; // @synthesize minLineTriangleWidth=_minLineTriangleWidth;
 @property(nonatomic) BOOL hasRasterPolygonChangeoverZ;
-@property(nonatomic) BOOL hasRasterMode;
 - (void)dealloc;
 - (struct _NSRange)zoomRangeForMapLayer:(unsigned int)arg1;
 

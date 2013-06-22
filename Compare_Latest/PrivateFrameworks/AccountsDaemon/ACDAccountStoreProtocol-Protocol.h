@@ -7,12 +7,17 @@
 #import "NSObject-Protocol.h"
 
 @protocol ACDAccountStoreProtocol <NSObject>
+- (void)isPushSupportedForAccount:(id)arg1 completion:(id)arg2;
+- (void)tetheredSyncSourceTypeForDataclass:(id)arg1 completion:(id)arg2;
+- (void)isTetheredSyncingEnabledForDataclass:(id)arg1 completion:(id)arg2;
 - (void)promptUserForCredentialsWithAccount:(id)arg1 withHandler:(id)arg2;
-- (void)renewCredentialsForAccount:(id)arg1 withHandler:(id)arg2;
+- (void)renewCredentialsForAccount:(id)arg1 reason:(id)arg2 completion:(id)arg3;
+- (void)renewCredentialsForAccount:(id)arg1 force:(BOOL)arg2 reason:(id)arg3 completion:(id)arg4;
 - (void)verifyCredentialsForAccount:(id)arg1 saveWhenAuthorized:(BOOL)arg2 withHandler:(id)arg3;
-- (void)verifyCredentialsForAccount:(id)arg1 withHandler:(id)arg2;
 - (void)clearAllPermissionsGrantedForAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)typeIdentifierForDomain:(id)arg1 withHandler:(id)arg2;
+- (void)clearGrantedPermissionsForAccountType:(id)arg1 withHandler:(id)arg2;
+- (void)grantedPermissionsForAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)permissionForAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)setPermissionGranted:(id)arg1 forBundleID:(id)arg2 onAccountType:(id)arg3 withHandler:(id)arg4;
 - (void)appPermissionsForAccountType:(id)arg1 withHandler:(id)arg2;
@@ -21,10 +26,14 @@
 - (void)removeAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)insertAccountType:(id)arg1 withHandler:(id)arg2;
 - (void)updateExistenceCacheOfAccountWithTypeIdentifier:(id)arg1 withHandler:(id)arg2;
-- (void)saveAccount:(id)arg1 forPID:(id)arg2 withHandler:(id)arg3;
+- (void)saveAccount:(id)arg1 pid:(id)arg2 verify:(BOOL)arg3 dataclassActions:(id)arg4 completion:(id)arg5;
 - (void)saveAccount:(id)arg1 withHandler:(id)arg2;
-- (void)removeAccount:(id)arg1 withHandler:(id)arg2;
+- (void)canSaveAccount:(id)arg1 completion:(id)arg2;
+- (void)removeAccount:(id)arg1 withDataclassActions:(id)arg2 completion:(id)arg3;
 - (void)accessKeysForAccountType:(id)arg1 handler:(id)arg2;
+- (void)isPerformingDataclassActionsForAccount:(id)arg1 completion:(id)arg2;
+- (void)dataclassActionsForAccountDeletion:(id)arg1 completion:(id)arg2;
+- (void)dataclassActionsForAccountSave:(id)arg1 completion:(id)arg2;
 - (void)syncableDataclassesForAccountType:(id)arg1 handler:(id)arg2;
 - (void)supportedDataclassesForAccountType:(id)arg1 handler:(id)arg2;
 - (void)dataclassesWithHandler:(id)arg1;
@@ -34,7 +43,10 @@
 - (void)credentialForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)accountTypeWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)displayAccountTypeForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
-- (void)accountTypeForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
+- (void)childAccountsWithAccountTypeIdentifier:(id)arg1 parentAccountIdentifier:(id)arg2 handler:(id)arg3;
+- (void)kerberosAccountsForDomainFromURL:(id)arg1 completion:(id)arg2;
+- (void)accountExistsWithDescription:(id)arg1 completion:(id)arg2;
+- (void)accountIdentifiersEnabledForDataclass:(id)arg1 handler:(id)arg2;
 - (void)accountIdentifiersEnabledToSyncDataclass:(id)arg1 handler:(id)arg2;
 - (void)childAccountsForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)parentAccountForAccountWithIdentifier:(id)arg1 handler:(id)arg2;
@@ -42,7 +54,7 @@
 - (void)accountWithIdentifier:(id)arg1 handler:(id)arg2;
 - (void)accountTypesWithHandler:(id)arg1;
 - (void)accountsWithHandler:(id)arg1;
-- (void)setNotificationsEnabledNum:(id)arg1;
+- (void)setNotificationsEnabledNum:(BOOL)arg1;
 - (void)setClientBundleID:(id)arg1 withHandler:(id)arg2;
 @end
 

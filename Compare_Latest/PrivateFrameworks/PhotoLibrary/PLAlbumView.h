@@ -19,6 +19,7 @@
     unsigned int _sectionsCount;
     unsigned int _totalItemsCount;
     unsigned int _columnsPerRow;
+    unsigned int _maxRowsOnScreen;
     struct CGPoint _previousContentOffset;
     float _previousOffsetRatio;
     UITableView *_tableView;
@@ -38,7 +39,6 @@
     PLAlbumSelectionControlsView *_selectionControlsView;
     id <PLAlbumViewDelegate> _delegate;
     NSMutableSet *_selectedPhotoIndexPaths;
-    NSMutableSet *_activityIndexPaths;
     NSIndexPath *_unreadStartMarkerIndexPath;
     UILongPressGestureRecognizer *_longPressRecognizer;
     NSIndexPath *_calloutSelectionIndexPath;
@@ -50,7 +50,7 @@
     struct {
         unsigned int displayTextBadges:1;
         unsigned int canShowCopyCallout:1;
-        unsigned int usesViewBasedCells:1;
+        unsigned int isReordering:1;
         unsigned int allowsReordering:1;
         unsigned int delegateCanSelect:1;
         unsigned int delegateSelectionDidChange:1;
@@ -93,13 +93,9 @@
 @property(nonatomic) BOOL canShowCopyCallout;
 @property(nonatomic) BOOL displaysTextBadges;
 @property(nonatomic) BOOL allowsReordering;
-@property(nonatomic) BOOL usesViewBasedCells;
+@property(nonatomic) BOOL isReordering;
 - (void)_updateUnreadMarkerForCell:(id)arg1 atRowIndexPath:(id)arg2 animated:(BOOL)arg3;
 - (void)setUnreadStartMarkerIndexPath:(id)arg1 animated:(BOOL)arg2;
-- (void)hideActivityOnPhotoAtIndexPath:(id)arg1;
-- (void)showActivityOnPhotoAtIndexPath:(id)arg1;
-@property(copy, nonatomic) NSSet *activityIndexPaths;
-- (void)_changeActivityStateOfPhotoAtIndexPath:(id)arg1;
 - (void)toggleSelectAll:(id)arg1;
 - (void)clearSelection;
 - (void)deselectPhotoAtIndexPath:(id)arg1;
@@ -121,6 +117,7 @@
 @property(nonatomic) id <PLAlbumViewDelegate> delegate;
 - (BOOL)canBecomeFirstResponder;
 - (void)_updateTableCell:(id)arg1 photoStartIndexPath:(id)arg2;
+- (id)_lastPhotoIndexPathForRowIndexPath:(id)arg1;
 - (id)_firstPhotoIndexPathForRowIndexPath:(id)arg1;
 - (unsigned int)_cellPhotoIndexForPhotoIndexPath:(id)arg1;
 - (id)_tableRowIndexPathForPhotoIndexPath:(id)arg1;

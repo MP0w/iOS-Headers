@@ -19,7 +19,6 @@
 }
 
 + (id)sharedKeyDictionaryWithKeySet:(id)arg1;
-- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (Class)classForCoder;
@@ -31,7 +30,9 @@
 - (id)keySet;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
+- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)keyEnumerator;
+- (void)getObjects:(id *)arg1 andKeys:(id *)arg2 count:(unsigned int)arg3;
 - (id)objectForKey:(id)arg1;
 - (unsigned int)count;
 

@@ -9,6 +9,5 @@
 @interface NSMutableOrderedSet (PLAdditions)
 - (void)pl_removeObjectsInArray:(id)arg1;
 - (void)pl_addObjectsFromArray:(id)arg1;
-- (BOOL)pl_replaceObjectsAtIndexes:(id)arg1 wihtObjectsIfDifferent:(id)arg2;
 @end
 

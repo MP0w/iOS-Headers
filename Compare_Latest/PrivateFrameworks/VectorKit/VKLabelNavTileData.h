@@ -14,19 +14,24 @@
     NSMapTable *_geoJunctionToJunctionMap;
     NSMutableArray *_tileEdgeJunctions;
     BOOL _foundTileEdgeJunctions;
+    BOOL _oppositeCarriagewayJunctionsValid;
+    NSMutableArray *_oppositeCarriagewayJunctions;
     struct vector<LabelNavJunctionInfo, vk_allocator<LabelNavJunctionInfo>> _junctionInfos;
 }
 
-@property(retain, nonatomic) VKLabelTile *tile; // @synthesize tile=_tile;
+@property(readonly, nonatomic) NSMutableArray *oppositeCarriagewayJunctions; // @synthesize oppositeCarriagewayJunctions=_oppositeCarriagewayJunctions;
+@property(nonatomic) BOOL oppositeCarriagewayJunctionsValid; // @synthesize oppositeCarriagewayJunctionsValid=_oppositeCarriagewayJunctionsValid;
+@property(readonly, nonatomic) VKLabelTile *tile; // @synthesize tile=_tile;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)appendNavJunctionsInWorldRect:(CDStruct_aca18c62)arg1 junctions:(id)arg2;
+- (void)findOppositeCarriagewayJunctionsWithRouteFeatures:(unordered_map_ad9b4de7 *)arg1 distanceThreshold:(double)arg2;
+- (void)appendNavJunctionsInWorldRect:(const BRectImp_d02b3a99 *)arg1 junctions:(id)arg2;
 - (void)initializeJunctionInfos;
-- (id)findTileEdgeJunctionAtCoordinate:(CDStruct_6e3f967a)arg1;
+- (id)findTileEdgeJunctionAtCoordinate:(Vec2Imp_1782d7e3)arg1;
 - (void)_findTileEdgeJunctions;
 - (void)addJunction:(id)arg1;
-- (id)junctionAtCoordinate:(CDStruct_6e3f967a)arg1;
-- (id)junctionForGeoJunction:(CDStruct_7523a67d *)arg1;
+- (id)junctionAtCoordinate:(Vec2Imp_1782d7e3)arg1;
+- (id)junctionForGeoJunction:(CDStruct_dde70fb6 *)arg1;
 - (void)dealloc;
 - (id)initWithTile:(id)arg1;
 

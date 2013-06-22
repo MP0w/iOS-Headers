@@ -13,11 +13,11 @@
     struct CGPoint _scrollPosition;
 }
 
-- (void)_insertPhotoOrVideo;
+- (id)targetForAction:(SEL)arg1 withSender:(id)arg2;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)decreaseQuoteLevel;
 - (void)increaseQuoteLevel;
-- (void)quoteLevelMenu;
+- (void)showQuoteLevelOptions;
 - (id)supportedPasteboardTypesForCurrentSelection;
 - (void)ensureSelection;
 - (BOOL)resignFirstResponder;

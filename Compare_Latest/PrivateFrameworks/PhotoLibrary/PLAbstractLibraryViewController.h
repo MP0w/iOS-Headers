@@ -6,17 +6,18 @@
 
 #import "UIViewController.h"
 
-#import "PLAlbumChangeObserver-Protocol.h"
-#import "PLAlbumListChangeObserver-Protocol.h"
 #import "PLAlbumStreamActivityDelegate-Protocol.h"
 #import "PLAlbumStreamingOptionsViewControllerDelegate-Protocol.h"
+#import "PLAssetContainerListChangeObserver-Protocol.h"
+#import "PLAssetContainerObserver-Protocol.h"
 #import "PLDismissableViewController-Protocol.h"
+#import "PLNavigableAssetContainerListViewController-Protocol.h"
 #import "PLPhotoLibraryShouldReloadObserver-Protocol.h"
 #import "PLPhotosPickerSessionParticipant-Protocol.h"
 
-@class NSArray, NSDate, NSObject<PLAlbumContainer>, NSObject<PLAssetContainer>, NSString, PLAlbumStreamActivity, PLAlbumStreamingOptionsViewController, PLPhotosPickerSession, PLSyncProgressView, UIAlertView, UIBarButtonItem, UIImage;
+@class NSArray, NSDate, NSObject<PLAlbumContainer>, NSObject<PLAlbumProtocol>, NSString, PLAlbumStreamActivity, PLAlbumStreamingOptionsViewController, PLPhotosPickerSession, PLSyncProgressView, UIAlertView, UIBarButtonItem, UIImage;
 
-@interface PLAbstractLibraryViewController : UIViewController <PLAlbumStreamingOptionsViewControllerDelegate, PLAlbumStreamActivityDelegate, PLAlbumListChangeObserver, PLAlbumChangeObserver, PLPhotoLibraryShouldReloadObserver, PLDismissableViewController, PLPhotosPickerSessionParticipant>
+@interface PLAbstractLibraryViewController : UIViewController <PLAlbumStreamingOptionsViewControllerDelegate, PLAlbumStreamActivityDelegate, PLNavigableAssetContainerListViewController, PLAssetContainerListChangeObserver, PLAssetContainerObserver, PLPhotoLibraryShouldReloadObserver, PLDismissableViewController, PLPhotosPickerSessionParticipant>
 {
     struct NSObject *_albumList;
     int _contentMode;
@@ -44,33 +45,35 @@
         unsigned int delegateImplementsShouldEnableAlbum:1;
         unsigned int reserved:27;
     } _alcFlags;
-    UIImage *_listHeaderImage;
     NSString *_listHeaderLabel;
+    UIImage *_listHeaderImage;
     id _listHeaderActionHandler;
 }
 
 @property(copy, nonatomic) id listHeaderActionHandler; // @synthesize listHeaderActionHandler=_listHeaderActionHandler;
-@property(nonatomic) id <PLAbstractLibraryViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(copy, nonatomic) NSString *listHeaderLabel; // @synthesize listHeaderLabel=_listHeaderLabel;
 @property(retain, nonatomic) UIImage *listHeaderImage; // @synthesize listHeaderImage=_listHeaderImage;
+@property(copy, nonatomic) NSString *listHeaderLabel; // @synthesize listHeaderLabel=_listHeaderLabel;
+@property(nonatomic) id <PLAbstractLibraryViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PLPhotosPickerSession *currentPickerSession; // @synthesize currentPickerSession=_currentPickerSession;
 @property(retain, nonatomic) UIBarButtonItem *customRightButton; // @synthesize customRightButton=_customRightButton;
 @property(copy, nonatomic) id didSelectAlbumHandler; // @synthesize didSelectAlbumHandler=_didSelectAlbumHandler;
 @property(readonly, nonatomic) NSObject<PLAlbumContainer> *albumList; // @synthesize albumList=_albumList;
-@property(retain, nonatomic) NSObject<PLAssetContainer> *hiddenAlbum; // @synthesize hiddenAlbum=_hiddenAlbum;
+@property(retain, nonatomic) NSObject<PLAlbumProtocol> *hiddenAlbum; // @synthesize hiddenAlbum=_hiddenAlbum;
 - (void)_updateAlbumsSortOrderIfNeeded;
 - (void)_updateAlbumsWithNotification:(id)arg1;
 - (void)_updateSyncProgress;
 - (void)_updateHasContent;
+- (void)navigateToRevealAssetContainer:(id)arg1 initiallyHidden:(BOOL)arg2 animated:(BOOL)arg3;
+- (void)navigateToAssetContainer:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
 - (void)albumStreamActivity:(id)arg1 didFinishSuccessfully:(BOOL)arg2;
 - (void)albumStreamActivity:(id)arg1 didCreateAlbum:(struct NSObject *)arg2;
-- (BOOL)prepareForDismissingAnimated:(BOOL)arg1;
+- (BOOL)prepareForDismissingForced:(BOOL)arg1;
 - (void)_addLocalAlbum:(id)arg1;
 - (void)_addStreamedAlbum:(id)arg1;
 - (void)addAlbum:(id)arg1;
 - (void)shouldReload:(id)arg1;
-- (void)albumDidChange:(id)arg1;
-- (void)albumListDidChange:(id)arg1;
+- (void)assetContainerDidChange:(id)arg1;
+- (void)assetContainerListDidChange:(id)arg1;
 - (void)_appWillEnterForeground:(id)arg1;
 - (id)_suppresionContexts;
 - (BOOL)_appAllowsSupressionOfAlerts;
@@ -82,7 +85,7 @@
 - (BOOL)canNavigateIntoAlbum:(struct NSObject *)arg1;
 - (BOOL)albumIsDisplayedEnabled:(struct NSObject *)arg1;
 - (id)_syncProgressAlbums;
-- (void)setHiddenAlbum:(id)arg1 animated:(BOOL)arg2;
+- (void)setHiddenAlbum:(struct NSObject *)arg1 animated:(BOOL)arg2;
 @property(nonatomic) BOOL allowsEditingAlbums;
 - (void)setAlbumList:(struct NSObject *)arg1 contentMode:(int)arg2;
 @property(readonly, nonatomic) int interfaceIdiom;
@@ -100,7 +103,7 @@
 @property(readonly, nonatomic) BOOL hasContent;
 @property(nonatomic) BOOL albumsListViewInSync;
 @property(readonly, nonatomic) BOOL libraryViewVisible;
-@property(retain, nonatomic) NSObject<PLAssetContainer> *openAlbum;
+@property(retain, nonatomic) NSObject<PLAlbumProtocol> *openAlbum;
 @property(getter=isSyncProgressVisible) BOOL syncProgressVisible;
 @property(readonly, nonatomic) PLSyncProgressView *syncProgressView;
 - (id)visibleCellViewForAlbumAtIndex:(unsigned int)arg1;
@@ -116,7 +119,6 @@
 - (void)beginAddPhotosSessionForAlbum:(id)arg1 didShowHandler:(id)arg2 completionHandler:(void)arg3;
 - (void)navigateToRevealAlbum:(struct NSObject *)arg1 initiallyHidden:(BOOL)arg2 animated:(BOOL)arg3;
 - (void)navigateToAlbum:(struct NSObject *)arg1 animated:(BOOL)arg2 completion:(id)arg3;
-- (void)hideAlbum:(struct NSObject *)arg1;
 
 @end
 

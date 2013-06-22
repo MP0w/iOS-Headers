@@ -18,6 +18,8 @@
 - (BOOL)cameraViewShouldShowPreviewAfterSelection:(id)arg1;
 - (void)cameraView:(id)arg1 videoSavedToPath:(id)arg2 editingInfo:(id)arg3;
 - (void)cameraView:(id)arg1 photoSaved:(id)arg2;
+- (void)cameraViewWillPreviewPhoto:(id)arg1;
+- (void)cameraViewWillRetakePhoto:(id)arg1;
 - (void)cameraViewCancelled:(id)arg1;
 - (void)_windowOrientationWillChange:(id)arg1;
 - (void)_adjustContentSizeForOrientation:(int)arg1;
@@ -46,6 +48,8 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (int)_imagePickerStatusBarStyle;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotate;
 - (void)loadView;
 - (id)_cameraView;
 - (void)dealloc;

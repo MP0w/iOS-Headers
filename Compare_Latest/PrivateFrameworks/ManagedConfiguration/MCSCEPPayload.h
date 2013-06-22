@@ -23,7 +23,8 @@
     unsigned int _retryDelay;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
 @property(readonly, nonatomic) unsigned int retryDelay; // @synthesize retryDelay=_retryDelay;
 @property(readonly, nonatomic) unsigned int retries; // @synthesize retries=_retries;

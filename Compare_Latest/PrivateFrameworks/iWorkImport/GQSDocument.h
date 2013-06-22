@@ -30,7 +30,7 @@
     BOOL mGeneratingThumbnail;
     BOOL mThumbnailGenerationDone;
     unsigned int mTextScale;
-    set_ac3beeb4 *mWrapPoints;
+    set_a2165b2d *mWrapPoints;
     struct __CFDictionary *mBundleResourceUriMap;
     GQDSStylesheet *mStylesheet;
     BOOL mIsReadingStorageAttachments;
@@ -46,8 +46,8 @@
 - (id)currentWrapPointGenerator;
 - (struct __CFString *)uriForBundleResource:(struct __CFString *)arg1 ofType:(struct __CFString *)arg2;
 - (void)clearWrapPoints;
-- (vector_8a2ced25 *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
-- (const set_ac3beeb4 *)wrapPoints;
+- (vector_dadce35e *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
+- (const set_a2165b2d *)wrapPoints;
 - (void)addWrapPoint:(id)arg1;
 - (void)setThumbnailGenerationDone:(BOOL)arg1;
 - (BOOL)isThumbnailGenerationDone;

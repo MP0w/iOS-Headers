@@ -12,8 +12,9 @@
     unsigned int _paintCount;
 }
 
++ (id)layerBeingPainted;
+@property(nonatomic) struct TileGrid *tileGrid; // @synthesize tileGrid=_tileGrid;
 @property(nonatomic) unsigned int paintCount; // @synthesize paintCount=_paintCount;
-- (void)setTileGrid:(struct TileGrid *)arg1;
 - (id)actionForKey:(id)arg1;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)layoutSublayers;

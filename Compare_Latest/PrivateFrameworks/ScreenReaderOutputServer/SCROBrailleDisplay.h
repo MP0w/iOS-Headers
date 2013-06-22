@@ -19,6 +19,7 @@
     BOOL _showEightDot;
     BOOL _shouldBatchUpdates;
     BOOL _needsUpdating;
+    BOOL _automaticBrailleTranslationEnabled;
     NSString *_driverIdentifier;
     NSString *_driverModelIdentifier;
     int _mainSize;
@@ -76,6 +77,7 @@
 
 + (id)displayWithIOElement:(id)arg1 driverIdentifier:(id)arg2 delegate:(id)arg3;
 + (BOOL)brailleDriverClassIsValid:(Class)arg1;
+@property(nonatomic) BOOL automaticBrailleTranslationEnabled; // @synthesize automaticBrailleTranslationEnabled=_automaticBrailleTranslationEnabled;
 @property(nonatomic) BOOL delegateWantsPanningCallbacks; // @synthesize delegateWantsPanningCallbacks=_delegateWantsPanningCallbacks;
 @property(nonatomic) BOOL delegateWantsDisplayCallback; // @synthesize delegateWantsDisplayCallback=_delegateWantsDisplayCallback;
 - (void)_delayedSleepNotification:(id)arg1;

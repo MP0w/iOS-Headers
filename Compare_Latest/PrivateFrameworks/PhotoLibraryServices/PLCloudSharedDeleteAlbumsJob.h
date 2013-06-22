@@ -17,7 +17,7 @@
 @property(retain, nonatomic) NSArray *albumCloudGUIDsToDelete; // @synthesize albumCloudGUIDsToDelete=_albumCloudGUIDsToDelete;
 - (void)runDaemonSide;
 - (void)run;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 - (void)dealloc;
 - (id)description;
 - (id)initFromXPCObject:(id)arg1;

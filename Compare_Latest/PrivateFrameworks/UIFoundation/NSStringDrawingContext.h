@@ -18,33 +18,45 @@
     NSDictionary *_linkAttributes;
     unsigned int _numberOfLineFragments;
     unsigned int _maximumNumberOfLines;
-    BOOL _wantsNumberOfLineFragments;
-    BOOL _multilineTruncation;
-    BOOL _wantsBaselineOffset;
     float _baselineOffset;
-    BOOL _wantsScaledBaselineOffset;
     float _scaledBaselineOffset;
-    BOOL _wantsScaledLineHeight;
     float _scaledLineHeight;
+    id _layout;
+    struct {
+        unsigned int _wantsNumberOfLineFragments:1;
+        unsigned int _wrapsForTruncationMode:1;
+        unsigned int _wantsBaselineOffset:1;
+        unsigned int _wantsScaledBaselineOffset:1;
+        unsigned int _wantsScaledLineHeight:1;
+        unsigned int _drawsDebugBaselines:1;
+        unsigned int _cachesLayout:1;
+        unsigned int _usesSimpleTextEffects:1;
+    } _sdcFlags;
+    BOOL _wantsNumberOfLineFragments;
 }
 
-@property(nonatomic) float scaledLineHeight; // @synthesize scaledLineHeight=_scaledLineHeight;
-@property(nonatomic) BOOL wantsScaledLineHeight; // @synthesize wantsScaledLineHeight=_wantsScaledLineHeight;
-@property(nonatomic) float scaledBaselineOffset; // @synthesize scaledBaselineOffset=_scaledBaselineOffset;
-@property(nonatomic) BOOL wantsScaledBaselineOffset; // @synthesize wantsScaledBaselineOffset=_wantsScaledBaselineOffset;
-@property(nonatomic) float baselineOffset; // @synthesize baselineOffset=_baselineOffset;
-@property(nonatomic) BOOL wantsBaselineOffset; // @synthesize wantsBaselineOffset=_wantsBaselineOffset;
-@property(nonatomic) unsigned int maximumNumberOfLines; // @synthesize maximumNumberOfLines=_maximumNumberOfLines;
-@property(nonatomic) BOOL wrapsForTruncationMode; // @synthesize wrapsForTruncationMode=_multilineTruncation;
-@property(nonatomic) unsigned int numberOfLineFragments; // @synthesize numberOfLineFragments=_numberOfLineFragments;
 @property(nonatomic) BOOL wantsNumberOfLineFragments; // @synthesize wantsNumberOfLineFragments=_wantsNumberOfLineFragments;
+@property(retain, nonatomic) id layout; // @synthesize layout=_layout;
+@property(nonatomic) float scaledLineHeight; // @synthesize scaledLineHeight=_scaledLineHeight;
+@property(nonatomic) float scaledBaselineOffset; // @synthesize scaledBaselineOffset=_scaledBaselineOffset;
+@property(nonatomic) float baselineOffset; // @synthesize baselineOffset=_baselineOffset;
+@property(nonatomic) unsigned int maximumNumberOfLines; // @synthesize maximumNumberOfLines=_maximumNumberOfLines;
+@property(nonatomic) unsigned int numberOfLineFragments; // @synthesize numberOfLineFragments=_numberOfLineFragments;
 @property(nonatomic) struct CGRect totalBounds; // @synthesize totalBounds=_totalBounds;
 @property(nonatomic) float actualTrackingAdjustment; // @synthesize actualTrackingAdjustment=_actualTrackingAdjustment;
 @property(nonatomic) float actualScaleFactor; // @synthesize actualScaleFactor=_actualScaleFactor;
 @property(nonatomic) float minimumTrackingAdjustment; // @synthesize minimumTrackingAdjustment=_minimumTrackingAdjustment;
 @property(nonatomic) float minimumScaleFactor; // @synthesize minimumScaleFactor=_minimumScaleFactor;
+@property(nonatomic) BOOL usesSimpleTextEffects;
+@property(nonatomic) BOOL cachesLayout;
+@property(nonatomic) BOOL drawsDebugBaselines;
+@property(nonatomic) BOOL wantsScaledLineHeight;
+@property(nonatomic) BOOL wantsScaledBaselineOffset;
+@property(nonatomic) BOOL wantsBaselineOffset;
+@property(nonatomic) BOOL wrapsForTruncationMode;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
+- (void)dealloc;
 
 @end
 

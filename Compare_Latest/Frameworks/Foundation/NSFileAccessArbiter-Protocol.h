@@ -8,6 +8,7 @@
 
 @protocol NSFileAccessArbiter <NSObject>
 - (void)tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;
+- (void)writerWithPurposeID:(id)arg1 didChangeUbiquityOfItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didVersionChangeOfKind:(id)arg2 toItemAtURL:(id)arg3 withClientID:(id)arg4 name:(id)arg5;
 - (void)writerWithPurposeID:(id)arg1 didReconnectItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didDisconnectItemAtURL:(id)arg2;

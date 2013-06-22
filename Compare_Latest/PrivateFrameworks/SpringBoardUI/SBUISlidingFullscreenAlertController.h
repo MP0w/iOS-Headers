@@ -24,7 +24,6 @@
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)_updateLayoutForStatusBarAndInterfaceOrientation;
 - (BOOL)viewIsReadyToBeRemoved;
-- (void)viewWillAppear:(BOOL)arg1;
 - (void)animateViewOut;
 - (float)_animationDelayForOthersActivation;
 - (float)_slideOutAnimationDuration;
@@ -32,17 +31,18 @@
 - (BOOL)_animatingToHomescreenWallpaper;
 - (void)_viewAnimatedOut;
 - (void)viewWillAnimateOut;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)animateDisplayIn:(float)arg1 middleDelay:(float)arg2;
 - (void)performAnimateDisplayIn;
 - (void)prepareToAnimateDisplayIn;
 - (BOOL)shouldShowBottomBar;
 - (BOOL)isShowingWallpaper;
+- (BOOL)hasTranslucentBackground;
 - (id)backgroundView;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (id)newBottomBar;
 - (id)newTopBar;
-- (BOOL)displaysAboveStatusBar;
 - (BOOL)isSlidingViewController;
 
 @end

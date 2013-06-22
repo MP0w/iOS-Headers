@@ -6,11 +6,9 @@
 
 #import <PhotoLibrary/PLPhotoBrowserController.h>
 
-#import "PLAlbumChangeObserver-Protocol.h"
+@class NSDictionary, UIBarButtonItem, UINavigationItem, UIToolbar;
 
-@class UIBarButtonItem, UINavigationItem, UIToolbar;
-
-@interface PLPhotoScrollerViewController : PLPhotoBrowserController <PLAlbumChangeObserver>
+@interface PLPhotoScrollerViewController : PLPhotoBrowserController
 {
     UINavigationItem *_navItem;
     UIBarButtonItem *_doneItem;
@@ -19,14 +17,16 @@
     unsigned int _dontChangeStatusBar:1;
     unsigned int _toolbarWasHiddenWhenSelfWasPushed:1;
     unsigned int _viewWillDisappear:1;
+    NSDictionary *_buttonGroups;
+    UIToolbar *_buttonBar;
 }
 
+@property(retain, nonatomic) UIToolbar *buttonBar; // @synthesize buttonBar=_buttonBar;
 @property(retain, nonatomic) UIBarButtonItem *doneItem;
 - (void)_forceRotationToPortaitIfNecessary;
 - (void)updateNavigationItemTitle;
 @property(readonly, nonatomic) unsigned int visibleItemIndex;
 - (void)didMoveToPhotoAtIndex:(unsigned int)arg1;
-- (void)startSettingWallpaper;
 - (void)willPresentActionSheet:(id)arg1;
 - (id)airTunesButton;
 - (void)updateAirTunesButton;
@@ -36,13 +36,12 @@
 - (void)setDontChangeStatusBar:(BOOL)arg1;
 - (void)removeRemakerContainerView;
 - (id)remakerContainerView;
-- (void)_setupButtonBar;
-@property(retain, nonatomic) UIToolbar *buttonBar;
+- (void)_setupButtonGroups;
 - (void)_updateToolbar:(BOOL)arg1;
-- (void)setToolbarHidden:(BOOL)arg1 withDuration:(double)arg2;
-- (void)_updateCommentsButtonFrameForUIOrientation:(int)arg1;
 - (id)_currentToolbarItems;
-- (id)navigationItem;
+- (void)_updateNavigationBar;
+- (BOOL)_shouldShowEditButtonItem;
+- (id)_newEditButtonItem;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)viewWillLayoutSubviews;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
@@ -53,7 +52,7 @@
 - (void)viewDidUnload;
 - (void)loadView;
 - (void)dealloc;
-- (id)_initWithAlbum:(struct NSObject *)arg1 lockStatusBar:(BOOL)arg2 currentImageIndex:(int)arg3 delayImageLoading:(BOOL)arg4;
+- (id)_initWithAssetContainerList:(id)arg1 lockStatusBar:(BOOL)arg2 currentImageIndexPath:(id)arg3 delayImageLoading:(BOOL)arg4;
 
 @end
 

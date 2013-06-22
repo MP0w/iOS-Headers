@@ -6,15 +6,20 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSExpression : NSObject <NSCoding, NSCopying>
+@interface NSExpression : NSObject <NSSecureCoding, NSCopying>
 {
-    void *_reserved;
+    struct _expressionFlags {
+        unsigned int _evaluationBlocked:1;
+        unsigned int _reservedExpressionFlags:31;
+    } _expressionFlags;
     unsigned int _expressionType;
 }
 
++ (BOOL)supportsSecureCoding;
++ (id)expressionForAnyKey;
 + (id)expressionForBlock:(id)arg1 arguments:(void)arg2;
 + (id)expressionForMinusSet:(id)arg1 with:(id)arg2;
 + (id)expressionForIntersectSet:(id)arg1 with:(id)arg2;
@@ -59,6 +64,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)allowEvaluation;
+- (BOOL)_allowsEvaluation;
 - (id)initWithExpressionType:(unsigned int)arg1;
 
 @end

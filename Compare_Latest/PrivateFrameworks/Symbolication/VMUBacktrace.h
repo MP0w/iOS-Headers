@@ -26,7 +26,6 @@
     } _callstack;
 }
 
-- (id).cxx_construct;
 - (unsigned long long)dispatchQueueSerialNumber;
 - (int)threadState;
 - (void)setThreadState:(int)arg1;

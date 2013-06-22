@@ -10,18 +10,23 @@
 
 @interface EKDayViewContentItem : NSObject
 {
+    BOOL _pinned;
     unsigned int _eventIndex;
     EKDayOccurrenceView *_view;
     EKCalendarDate *_startDate;
     EKCalendarDate *_endDate;
+    struct CGRect _unPinnedViewFrame;
 }
 
 @property(copy, nonatomic) EKCalendarDate *endDate; // @synthesize endDate=_endDate;
 @property(copy, nonatomic) EKCalendarDate *startDate; // @synthesize startDate=_startDate;
-@property(readonly, nonatomic) unsigned int eventIndex; // @synthesize eventIndex=_eventIndex;
+@property(nonatomic) struct CGRect unPinnedViewFrame; // @synthesize unPinnedViewFrame=_unPinnedViewFrame;
+@property(nonatomic, getter=isPinned) BOOL pinned; // @synthesize pinned=_pinned;
 @property(retain, nonatomic) EKDayOccurrenceView *view; // @synthesize view=_view;
+@property(readonly, nonatomic) unsigned int eventIndex; // @synthesize eventIndex=_eventIndex;
+- (void).cxx_destruct;
+- (id)description;
 - (BOOL)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)initWithEventIndex:(unsigned int)arg1;
 
 @end

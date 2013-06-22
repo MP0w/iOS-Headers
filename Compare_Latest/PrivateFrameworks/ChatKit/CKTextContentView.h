@@ -24,6 +24,9 @@
 - (void)_updateDefaultText;
 - (void)reflow;
 - (void)_adjustForSingleLineHeightIfNecessary;
+- (struct CGSize)intrinsicContentSize;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)paste:(id)arg1;
 - (BOOL)hasContent;
 - (void)willMoveToSuperview:(id)arg1;
 - (id)automaticallySelectedOverlay;
@@ -36,7 +39,7 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)supportedPasteboardTypesForCurrentSelection;
-- (void)_wvSetupCSSWithMargins:(struct UIEdgeInsets)arg1;
+- (void)_wvSetupCSS;
 - (void)_wvReflow;
 
 @end

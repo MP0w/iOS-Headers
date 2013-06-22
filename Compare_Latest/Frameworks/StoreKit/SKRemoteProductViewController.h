@@ -15,11 +15,12 @@
     SKStoreProductViewController *_productViewController;
 }
 
++ (id)serviceViewControllerInterface;
++ (id)exportedInterface;
 @property(nonatomic) __weak SKStoreProductViewController *productViewController; // @synthesize productViewController=_productViewController;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-- (void)storeKit_setWantsFullScreenLayout:(id)arg1;
 - (void)setStatusBarStyle:(id)arg1 animated:(id)arg2;
 - (void)setStatusBarHidden:(id)arg1 withAnimation:(id)arg2;
+- (void)promptForStarRating;
 - (void)presentPageWithRequest:(id)arg1 animated:(id)arg2;
 - (void)loadDidFinishWithResult:(id)arg1 error:(id)arg2;
 - (void)didReceiveTitle:(id)arg1;

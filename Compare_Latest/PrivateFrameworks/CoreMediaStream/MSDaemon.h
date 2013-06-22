@@ -10,11 +10,11 @@
 
 @interface MSDaemon : NSObject
 {
+    BOOL _stabilizedIsBusy;
     int _busyCount;
     int _UIBusyCount;
     NSObject<OS_dispatch_queue> *_idleCountQueue;
     NSTimer *_hysteresisTimer;
-    BOOL _stabilizedIsBusy;
 }
 
 @property(nonatomic) BOOL stabilizedIsBusy; // @synthesize stabilizedIsBusy=_stabilizedIsBusy;

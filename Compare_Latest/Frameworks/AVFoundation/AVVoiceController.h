@@ -64,7 +64,13 @@
 - (void)finishedRecording;
 - (void)recordBufferReceived:(struct MyAudioQueueBuffer *)arg1;
 - (void)beganRecording;
+- (void)handleMediaServerReset:(id)arg1;
+- (void)handleMediaServerDeath:(id)arg1;
+- (void)handleRouteChange:(id)arg1;
+- (void)handleInterruption:(id)arg1;
 - (void)hardwareConfigChanged;
+- (void)removeSessionNotifications;
+- (void)setSessionNotifications;
 - (struct ControllerImpl *)impl;
 @property(getter=isStopOnBargeInEnabled) BOOL stopOnBargeInEnabled;
 @property(getter=isBargeInDetectEnabled) BOOL bargeInDetectEnabled;

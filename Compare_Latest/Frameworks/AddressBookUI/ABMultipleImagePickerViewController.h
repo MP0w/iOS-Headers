@@ -16,13 +16,13 @@
 }
 
 @property(nonatomic) id <ABMultipleSourceImagePickerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)dealloc;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
-- (void)addImageData:(id)arg1 title:(id)arg2 isSelectedImage:(BOOL)arg3 person:(void *)arg4;
+- (void)addImageData:(id)arg1 title:(id)arg2 isSelectedImage:(BOOL)arg3 person:(id)arg4;
 - (void)viewDidLoad;
+- (void)dealloc;
 - (id)initWithStyle:(int)arg1;
 
 @end

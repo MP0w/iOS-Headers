@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSString, UIFont;
+@class EKCalendarDate, NSString, UIFont;
 
 @interface CalendarCustomTimeView : UIView
 {
@@ -15,10 +15,11 @@
     unsigned int _showDates:1;
     unsigned int _highlighted:1;
     unsigned int _forceSingleLine:1;
+    unsigned int _isDeclined:1;
     unsigned int _startDesignator:2;
     unsigned int _endDesignator:2;
-    CDStruct_b0fa4487 _startDate;
-    CDStruct_b0fa4487 _endDate;
+    EKCalendarDate *_startDate;
+    EKCalendarDate *_endDate;
     NSString *_startTimeString;
     NSString *_endTimeString;
     NSString *_startDateString;
@@ -43,6 +44,7 @@
     float _yTextOffset;
 }
 
+- (void).cxx_destruct;
 - (float)fullTextWidth;
 - (float)fullTextHeight;
 - (void)drawRect:(struct CGRect)arg1;
@@ -50,13 +52,14 @@
 - (void)setForceSingleLine:(BOOL)arg1;
 - (void)setHighlighted:(BOOL)arg1;
 - (void)relayoutText;
-- (void)setStartDate:(CDStruct_b0fa4487)arg1 endDate:(CDStruct_b0fa4487)arg2;
-- (id)_dateString:(CDStruct_b0fa4487)arg1;
-- (id)_timeString:(CDStruct_b0fa4487)arg1 use24Hr:(BOOL)arg2;
-- (int)_designatorForTime:(CDStruct_b0fa4487)arg1 use24Hr:(BOOL)arg2;
+- (void)setStartDate:(id)arg1 endDate:(id)arg2;
+- (id)_dateString:(id)arg1;
+- (id)_timeString:(id)arg1 use24Hr:(BOOL)arg2;
+- (int)_designatorForTime:(id)arg1 use24Hr:(BOOL)arg2;
 - (BOOL)_isTwoLinesHigh;
 - (BOOL)showDates;
 - (void)setShowDates:(BOOL)arg1;
+- (void)setIsDeclined:(BOOL)arg1;
 - (void)setIsAllDay:(BOOL)arg1;
 - (void)_rebuildStrings;
 - (void)_localeChanged;

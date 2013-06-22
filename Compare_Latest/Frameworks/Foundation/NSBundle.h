@@ -12,10 +12,10 @@
     id _cfBundle;
     unsigned int _reserved2;
     Class _principalClass;
-    id _tmp1;
-    id _tmp2;
-    void *_reserved1;
-    void *_reserved0;
+    id _initialPath;
+    id _resolvedPath;
+    id _reserved3;
+    id _lock;
 }
 
 + (id)preferredLocalizationsFromArray:(id)arg1 forPreferences:(id)arg2;
@@ -54,7 +54,6 @@
 - (id)infoDictionary;
 - (Class)principalClass;
 - (Class)classNamed:(id)arg1;
-- (id)defaultsDictionary;
 - (void)invalidateResourceCache;
 - (id)bundleLanguages;
 - (unsigned int)versionNumber;
@@ -76,9 +75,6 @@
 - (id)resourcePath;
 - (id)bundleURL;
 - (id)bundlePath;
-- (id)_compatibility_bundleURL;
-- (id)_compatility_bundlePath;
-- (void)_initInfoDictionary;
 - (id)initWithPath:(id)arg1;
 - (id)initWithURL:(id)arg1;
 - (void)finalize;
@@ -88,7 +84,6 @@
 - (BOOL)unload;
 - (BOOL)loadAndReturnError:(id *)arg1;
 - (BOOL)load;
-- (id)_computeExecutablePath;
 - (id)localizedStringForKey:(id)arg1 value:(id)arg2 table:(id)arg3;
 - (id)URLsForResourcesWithExtension:(id)arg1 subdirectory:(id)arg2;
 - (id)pathsForResourcesOfType:(id)arg1 inDirectory:(id)arg2;

@@ -4,70 +4,58 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "BasicAccount.h"
+#import "NSObject.h"
 
-#import "AccountCreationProtocol-Protocol.h"
-#import "AccountFullAccountProtocol-Protocol.h"
-#import "BasicAccountSyncing-Protocol.h"
+@class ACAccount, DAStatusReport, DATaskManager, NSArray, NSData, NSMutableDictionary, NSString, NSURL;
 
-@class ACAccount, DASettingsTemplate, DAStatusReport, NSArray, NSData, NSMutableDictionary, NSString, NSURL;
-
-@interface DAAccount : BasicAccount <AccountFullAccountProtocol, AccountCreationProtocol, BasicAccountSyncing>
+@interface DAAccount : NSObject
 {
     ACAccount *_backingAccountInfo;
-    int _dataclasses;
-    BOOL _requiresAccountDeleteAndReAdd;
     BOOL _hasInitted;
     BOOL _shouldPromptForPassword;
-    BOOL _shouldFailAllTasks;
     BOOL _shouldUseOpportunisticSockets;
     NSMutableDictionary *_haveWarnedAboutCertDict;
-    DASettingsTemplate *_settingsTemplate;
     DAStatusReport *_statusReport;
     struct __CFDictionary *_consumers;
     struct __CFURLStorageSession *_storageSession;
+    DATaskManager *_taskManager;
+    BOOL _shouldFailAllTasks;
+    BOOL _isValidating;
+    int _dataclasses;
+    int _daAccountVersion;
+    NSArray *_appIdsForPasswordPrompt;
+    NSMutableDictionary *_dataclassPropertyURLsByDataclass;
 }
 
-+ (id)newAccountOfAccountType:(id)arg1;
-+ (Class)classForAccountType:(id)arg1;
-+ (id)defaultProperties;
-+ (Class)daemonClass;
-+ (Class)clientClass;
-+ (Class)accountClass;
++ (id)daAccountSubclassWithBackingAccountInfo:(id)arg1;
++ (void)reacquireClientRestrictions:(id)arg1;
++ (id)oneshotListOfAccountIDs;
++ (id)_leafAccountTypes;
+@property(retain, nonatomic) NSMutableDictionary *dataclassPropertyURLsByDataclass; // @synthesize dataclassPropertyURLsByDataclass=_dataclassPropertyURLsByDataclass;
+@property(nonatomic) BOOL isValidating; // @synthesize isValidating=_isValidating;
+@property(readonly) NSArray *appIdsForPasswordPrompt; // @synthesize appIdsForPasswordPrompt=_appIdsForPasswordPrompt;
+@property(readonly, nonatomic) DATaskManager *taskManager; // @synthesize taskManager=_taskManager;
+@property(setter=setDAAccountVersion:) int daAccountVersion; // @synthesize daAccountVersion=_daAccountVersion;
 @property BOOL shouldUseOpportunisticSockets; // @synthesize shouldUseOpportunisticSockets=_shouldUseOpportunisticSockets;
-@property(nonatomic) BOOL shouldFailAllTasks; // @synthesize shouldFailAllTasks=_shouldFailAllTasks;
 @property(readonly) DAStatusReport *statusReport; // @synthesize statusReport=_statusReport;
-@property(retain) DASettingsTemplate *settingsTemplate; // @synthesize settingsTemplate=_settingsTemplate;
 @property(readonly) ACAccount *backingAccountInfo; // @synthesize backingAccountInfo=_backingAccountInfo;
 @property BOOL shouldPromptForPassword; // @synthesize shouldPromptForPassword=_shouldPromptForPassword;
 @property(readonly) int enabledDataclassesBitmask; // @synthesize enabledDataclassesBitmask=_dataclasses;
-- (BOOL)upgradeToAccountsdWithStore:(id)arg1 parentAccount:(id)arg2;
-- (id)backingACAccountTypeIdentifier;
-- (void)upgradeAccountSpecificPropertiesOnAccount:(id)arg1 inStore:(id)arg2 parentAccount:(id)arg3;
-- (void)upgradeToHoodooAccountInfo;
-- (BOOL)upgradeAccount;
-- (BOOL)_upgradeSelfFromPreKirkwood;
-- (void)_removeHostsToTrust;
-- (BOOL)accountNeedsUpgrade;
-@property(setter=setDAAccountVersion:) int daAccountVersion;
-- (void)saveAccountSettings;
-- (void)saveChildAccountSettingsWithAccountsManager:(id)arg1;
-@property(readonly) NSArray *appIdsForPasswordPrompt;
-- (id)urlForKeychain;
-@property(copy) NSString *user;
+- (void)reload;
+- (void)shutdown;
 - (id)description;
-- (BOOL)usesLegacyAccountSettings;
 - (struct __CFURLStorageSession *)copyStorageSession;
-- (BOOL)childKeyIsSharedForWriting:(id)arg1;
-- (BOOL)childKeyIsSharedForReading:(id)arg1;
+- (BOOL)isSubscribedCalendarAccount;
+- (BOOL)isGoogleAccount;
 - (BOOL)isHotmailAccount;
 - (BOOL)isCalDAVChildAccount;
 - (BOOL)isCardDAVAccount;
-- (BOOL)isDAMMeAccount;
 - (BOOL)isCalDAVAccount;
+- (BOOL)isBookmarkDAVAccount;
 - (BOOL)isLDAPAccount;
 - (BOOL)isActiveSyncAccount;
 - (BOOL)isEqualToAccount:(id)arg1;
+@property(readonly, nonatomic) BOOL shouldFailAllTasks; // @synthesize shouldFailAllTasks=_shouldFailAllTasks;
 - (void)resetStatusReport;
 - (BOOL)resetCertWarnings;
 - (void)setHaveWarnedAboutCert:(id)arg1 forHost:(id)arg2;
@@ -83,7 +71,6 @@
 - (id)addUsernameToURL:(id)arg1;
 @property(readonly) int keychainAccessibilityType;
 - (void)saveAccountProperties;
-- (void)prepareForAccountSave;
 - (void)removeClientCertificateData;
 - (id)defaultContainerIdentifierForDADataclass:(int)arg1;
 - (void)stopMonitoringFolders;
@@ -91,13 +78,16 @@
 - (BOOL)monitorFolderWithID:(id)arg1;
 - (BOOL)monitorFoldersWithIDs:(id)arg1;
 - (void)tearDown;
-- (BOOL)requiresAccountDeleteAndReAdd;
-@property BOOL needsRediscovery;
-@property BOOL shouldAutodiscoverPrincipalURL;
+- (id)oauthInfoProvider;
+- (id)oauth2Token;
+- (id)additionalHeaderValues;
+@property BOOL shouldDoInitialAutodiscovery;
 - (BOOL)autodiscoverAccountConfigurationWithConsumer:(id)arg1;
-- (void)checkValidityWithConsumer:(id)arg1;
+- (void)discoverInitialPropertiesWithConsumer:(id)arg1;
+- (void)checkValidityOnAccountStore:(id)arg1 withConsumer:(id)arg2;
 @property(copy) NSURL *principalURL;
-@property(copy) NSString *scheme;
+@property(readonly) NSString *scheme;
+@property(copy) NSString *principalPath;
 @property int port;
 @property(retain) NSData *encryptionIdentityPersistentReference;
 @property(retain) NSData *signingIdentityPersistentReference;
@@ -108,10 +98,11 @@
 @property(copy) NSString *host;
 - (id)domainOnly;
 - (id)usernameWithoutDomain;
-- (void)setVersion:(id)arg1;
-- (id)version;
+- (int)portFromDataclassPropertiesForDataclass:(id)arg1;
+- (BOOL)useSSLFromDataclassPropertiesForDataclass:(id)arg1;
+- (id)hostFromDataclassPropertiesForDataclass:(id)arg1;
+- (id)urlFromDataclassPropertiesForDataclass:(id)arg1;
 @property(copy) NSString *password;
-- (void)setPassword:(id)arg1 withAccessibility:(int)arg2;
 - (id)passwordWithExpected:(BOOL)arg1;
 - (void)removeConsumerForTask:(id)arg1;
 - (id)consumerForTask:(id)arg1;
@@ -130,10 +121,12 @@
 - (id)spinnerIdentifiers;
 - (id)dataclassProperties;
 - (void)setEnabled:(BOOL)arg1 forDADataclass:(int)arg2;
-- (BOOL)isEnabledForDataclass:(id)arg1;
 - (BOOL)enabledForDADataclass:(int)arg1;
+- (BOOL)enabledForAnyDADataclasses:(int)arg1;
+- (void)setEnabled:(BOOL)arg1 forDataclass:(id)arg2;
+- (BOOL)isEnabledForDataclass:(id)arg1;
 - (BOOL)isDisabled;
-- (BOOL)supportsDADataclass:(int)arg1;
+@property(copy) NSString *user;
 @property(copy) NSString *username;
 - (id)displayName;
 @property(copy) NSString *accountDescription;
@@ -143,17 +136,14 @@
 - (id)syncStoreIdentifier;
 - (id)accountID;
 - (void)resetAccountID;
-- (id)initWithProperties:(id)arg1;
+- (void)ingestBackingAccountInfoProperties;
 - (id)initWithBackingAccountInfo:(id)arg1;
 - (void)dealloc;
 - (BOOL)handleTrustChallenge:(id)arg1;
 - (void)handleTrust:(struct __SecTrust *)arg1 forHost:(id)arg2 withCompletionBlock:(id)arg3;
 - (id)_serverSuffixesToAlwaysFail;
 - (int)_actionForTrust:(struct __SecTrust *)arg1 host:(id)arg2 service:(id)arg3;
-- (void)_handlePasswordNotification:(struct __CFUserNotification *)arg1 response:(unsigned long)arg2 callback:(id)arg3;
-- (void)_renewAccountCredentialsWithHandler_legacy:(id)arg1;
-- (void)renewAccountCredentialsWithHandler:(id)arg1;
-@property(readonly) ACAccount *backingCredentialAccount;
+- (void)dropAssertionsAndRenewCredentialsWithHandler:(id)arg1;
 - (id)localizedInvalidPasswordMessage;
 - (id)localizedIdenticalAccountFailureMessage;
 - (void)cancelShareResponseInstance:(id)arg1 error:(id)arg2;
@@ -167,6 +157,7 @@
 - (void)synchronizeContactsFolder:(id)arg1 previousTag:(id)arg2 previousSyncToken:(id)arg3 actions:(id)arg4 highestIdContext:(CDStruct_1ef3fb1f *)arg5 isInitialUberSync:(BOOL)arg6 isResyncAfterConnectionFailed:(BOOL)arg7 previousTagIsSuspect:(BOOL)arg8 consumer:(id)arg9;
 - (id)contactsFolders;
 - (id)defaultContactsFolder;
+- (id)draftsFolder;
 - (id)deletedItemsFolder;
 - (id)sentItemsFolder;
 - (id)inboxFolder;

@@ -45,6 +45,11 @@ struct SCRCMathAverageValue {
     float current;
 };
 
+struct _NSRange {
+    unsigned int _field1;
+    unsigned int _field2;
+};
+
 struct _SCRCStackNode {
     id _field1;
     void *_field2;

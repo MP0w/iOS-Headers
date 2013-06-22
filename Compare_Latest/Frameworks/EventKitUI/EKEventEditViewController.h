@@ -10,26 +10,25 @@
 
 @interface EKEventEditViewController : UINavigationController
 {
-    EKEventStore *_store;
     EKEvent *_event;
-    id <EKEventEditViewDelegate> _editViewDelegate;
     NSString *_eventId;
     BOOL _showsTimeZone;
+    EKEventStore *_store;
+    id <EKEventEditViewDelegate> _editViewDelegate;
     EKEventEditor *_editor;
 }
 
 + (void)setDefaultDatesForEvent:(id)arg1;
 @property(retain, nonatomic) EKEventEditor *editor; // @synthesize editor=_editor;
 @property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
-@property(nonatomic) id <EKEventEditViewDelegate> editViewDelegate; // @synthesize editViewDelegate=_editViewDelegate;
+@property(nonatomic) __weak id <EKEventEditViewDelegate> editViewDelegate; // @synthesize editViewDelegate=_editViewDelegate;
+@property(retain, nonatomic) EKEventStore *eventStore; // @synthesize eventStore=_store;
+- (void).cxx_destruct;
 - (void)handleTapOutside;
-- (void)setCanHideDoneAndCancelButtons:(BOOL)arg1;
-- (BOOL)canHideDoneAndCancelButtons;
-- (void)setShowAttachments:(BOOL)arg1;
-- (BOOL)showAttachments;
-- (void)setScrollToNotes:(BOOL)arg1;
-- (BOOL)scrollToNotes;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+@property(nonatomic) BOOL canHideDoneAndCancelButtons;
+@property(nonatomic) BOOL showAttachments;
+@property(nonatomic) BOOL scrollToNotes;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)_storeChanged:(id)arg1;
 - (void)editor:(id)arg1 prepareCalendarItemForEdit:(id)arg2;
 - (void)editor:(id)arg1 didCompleteWithAction:(int)arg2;
@@ -38,7 +37,6 @@
 - (void)refreshStartAndEndDates;
 - (struct CGSize)contentSizeForViewInPopover;
 @property(retain, nonatomic) EKEvent *event;
-@property(retain, nonatomic) EKEventStore *eventStore;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithEvent:(id)arg1 store:(id)arg2;

@@ -6,16 +6,21 @@
 
 #import <iPodUI/IUSectionInfo.h>
 
-@class NSMutableArray;
+@class NSArray, NSMutableArray;
 
 @interface IUMutableSectionInfo : IUSectionInfo
 {
     NSMutableArray *_info;
+    NSArray *_indexBarTitles;
 }
 
+- (void).cxx_destruct;
 - (id)titleOfSectionAtIndex:(unsigned int)arg1;
+- (id)titleOfIndexBarSectionAtIndex:(unsigned int)arg1;
 - (unsigned int)numberOfSections;
+- (unsigned int)numberOfIndexBarTitles;
 - (unsigned int)indexOfSectionAtIndex:(unsigned int)arg1;
+- (void)setIndexBarTitles:(id)arg1;
 - (void)addSectionWithTitle:(id)arg1 index:(unsigned int)arg2;
 - (void)dealloc;
 

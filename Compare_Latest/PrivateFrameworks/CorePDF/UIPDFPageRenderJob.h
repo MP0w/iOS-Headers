@@ -24,6 +24,7 @@
     int _lock;
 }
 
+@property(readonly) struct CGSize size; // @synthesize size=_size;
 @property BOOL releaseWhenDone; // @synthesize releaseWhenDone=_releaseWhenDone;
 @property(readonly) int priority; // @synthesize priority=_priority;
 @property(readonly) unsigned int pageIndex; // @synthesize pageIndex=_pageIndex;

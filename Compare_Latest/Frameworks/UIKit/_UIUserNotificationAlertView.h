@@ -12,6 +12,7 @@
     struct __CFRunLoopSource *_userNotificationRunLoopSource;
     BOOL _runsModal;
     BOOL _runningModal;
+    id _strongDelegate;
 }
 
 + (void)initialize;

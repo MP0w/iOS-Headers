@@ -21,6 +21,7 @@
 - (id)_copyKeyForState:(unsigned int)arg1 barMetrics:(int)arg2;
 - (struct UIOffset)titlePositionAdjustmentForBarMetrics:(int)arg1;
 - (id)textAttributesForState:(unsigned int)arg1;
+- (void)styleButton:(id)arg1;
 - (void)styleBarButtonItem:(id)arg1;
 - (void)setTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(int)arg2;
 - (void)setTextAttributes:(id)arg1 forState:(unsigned int)arg2;

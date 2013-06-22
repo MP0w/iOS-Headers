@@ -30,8 +30,8 @@
 
 @property(readonly, nonatomic) double birthdate; // @synthesize birthdate=_birthdate;
 @property(readonly, nonatomic) CDUnion_f5b85e25 shaderMatrix; // @synthesize shaderMatrix=_shaderMatrix;
-@property(readonly, nonatomic) CDStruct_aca18c62 rect; // @synthesize rect=bounds;
 @property(readonly, nonatomic) struct VKTileKey key; // @synthesize key=_key;
+- (id).cxx_construct;
 - (void)updateViewDependentStateWithContext:(id)arg1;
 - (unsigned int)geometryCount;
 @property(readonly, nonatomic) double tileWidth;

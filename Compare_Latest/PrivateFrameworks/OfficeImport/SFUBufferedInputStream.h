@@ -13,7 +13,7 @@
     id <SFUInputStream> mStream;
     char *mBuffer;
     unsigned long mBufferSize;
-    unsigned long mBufferOffset;
+    long long mBufferOffset;
     long long mBufferStart;
     long long mBufferEnd;
 }

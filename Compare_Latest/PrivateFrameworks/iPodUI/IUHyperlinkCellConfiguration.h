@@ -22,11 +22,11 @@
 @property(retain, nonatomic) UIColor *titleShadowColor; // @synthesize titleShadowColor=_titleShadowColor;
 @property(retain, nonatomic) UIFont *titleFont; // @synthesize titleFont=_titleFont;
 @property(retain, nonatomic) UIColor *titleColor; // @synthesize titleColor=_titleColor;
+- (void).cxx_destruct;
 - (BOOL)getShadowColor:(id *)arg1 offset:(struct CGSize *)arg2 forLabelAtIndex:(unsigned int)arg3 withModifiers:(unsigned int)arg4;
 - (id)fontForLabelAtIndex:(unsigned int)arg1;
 - (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
 - (void)reloadLayoutInformation;
-- (void)dealloc;
 - (id)initWithTitle:(id)arg1;
 - (id)init;
 

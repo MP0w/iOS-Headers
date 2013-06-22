@@ -12,12 +12,7 @@
 {
 }
 
-+ (id)createArrayOfRangesForAllUnmappedObjectsInStoreWithStoreMetadata:(id)arg1 withLocalPeerID:(id)arg2;
-+ (id)fakeManagedObjectURIForStoreMetadata:(id)arg1 entityName:(id)arg2 andPrimaryKey:(id)arg3;
-+ (id)peerRangeForLocalPrimaryKey:(unsigned int)arg1 inStoreNamed:(id)arg2 andEntityName:(id)arg3 inManagedObjectContext:(id)arg4;
-- (void)loadFromStoreMetadataDictionary:(id)arg1;
 - (void)loadFromBaselineDictionary:(id)arg1;
-- (id)createBaselineDictionary;
 
 // Remaining properties
 @property(retain, nonatomic) NSNumber *end; // @dynamic end;

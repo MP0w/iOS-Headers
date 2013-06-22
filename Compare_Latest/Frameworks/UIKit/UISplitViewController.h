@@ -43,14 +43,23 @@
         unsigned int delegateWantsWillHideCallback:1;
         unsigned int delegateWantsWillPresentCallback:1;
         unsigned int delegateWantsNavigationRequests:1;
+        unsigned int resizesDetailOnSlide:1;
+        unsigned int delegateSupportedInterfaceOrientations:1;
+        unsigned int delegatePreferredInterfaceOrientationForPresentation:1;
     } _splitViewControllerFlags;
 }
 
 + (BOOL)_optsOutOfPopoverControllerHierarchyCheck;
++ (BOOL)doesOverrideSupportedInterfaceOrientations;
++ (BOOL)doesOverridePreferredInterfaceOrientationForPresentation;
 + (BOOL)_forcePresentsWithGesture;
 + (BOOL)_forcePresentsInSlidingPopover;
 @property(nonatomic) BOOL presentsWithGesture; // @synthesize presentsWithGesture=_presentsWithGesture;
 @property(nonatomic) id <UISplitViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_popoverController:(id)arg1 willAnimateToFrame:(struct CGRect)arg2;
+- (struct CGRect)_detailViewFrameWithPopoverControllerFrame:(struct CGRect)arg1;
+- (void)_setResizesDetailOnSlide:(BOOL)arg1;
+- (BOOL)_resizesDetailOnSlide;
 - (void)_getRotationContentSettings:(CDStruct_19ba41f1 *)arg1;
 - (void)__viewWillLayoutSubviews;
 - (void)_updateMasterViewControllerFrame;
@@ -64,6 +73,8 @@
 - (BOOL)hidesMasterViewDuringRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
 - (BOOL)revealsMasterViewDuringRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
 - (BOOL)_isRotating;
+- (int)preferredInterfaceOrientationForPresentation;
+- (unsigned int)supportedInterfaceOrientations:(id)arg1;
 - (BOOL)_shouldSynthesizeSupportedOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)popoverWillAppear:(id)arg1;
@@ -119,6 +130,7 @@
 - (void)_commonInit;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
+- (id)_allContainedViewControllers;
 
 @end
 

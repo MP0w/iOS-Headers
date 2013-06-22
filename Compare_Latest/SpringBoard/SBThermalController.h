@@ -21,10 +21,14 @@
     int _warningResponseToken;
     NSMutableSet *_warningSuppressionAssertions;
     BOOL _warningSuppressionPreference;
+    int _level;
+    BOOL _inSunlight;
 }
 
 + (void)logThermalEvent:(id)arg1;
 + (id)sharedInstance;
+@property(readonly, nonatomic, getter=isInSunlight) BOOL inSunlight; // @synthesize inSunlight=_inSunlight;
+@property(readonly, nonatomic) int level; // @synthesize level=_level;
 - (void)thermalWarningAlert:(id)arg1 didTriggerAction:(int)arg2;
 - (void)thermalWarningAssertionExpired:(id)arg1;
 - (BOOL)captureWarningSuppressionAssertionWithPort:(unsigned int)arg1 reason:(id)arg2;

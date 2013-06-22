@@ -4,11 +4,9 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <VectorKit/VKDrawStyle.h>
 
-#import "_VKStyle-Protocol.h"
-
-@interface VKGenericShieldDrawStyle : NSObject <_VKStyle>
+@interface VKGenericShieldDrawStyle : VKDrawStyle
 {
     int _style;
     struct _VGLColor _backgroundColor;
@@ -32,7 +30,8 @@
 @property(nonatomic) int style; // @synthesize style=_style;
 - (id).cxx_construct;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (id)variant;
 - (id)initWithStyleInfo:(id)arg1;
 
 @end

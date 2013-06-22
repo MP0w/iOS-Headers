@@ -4,14 +4,53 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <GeoServices/GEOETATrafficUpdateRequest.h>
+#import "PBRequest.h"
 
-@interface GEOETARequest : GEOETATrafficUpdateRequest
+@class GEOWaypoint, NSMutableArray;
+
+@interface GEOETARequest : PBRequest
 {
-    unsigned short _providerID;
+    CDStruct_4db06779 _timepoint;
+    NSMutableArray *_destinations;
+    GEOWaypoint *_origin;
+    NSMutableArray *_serviceTags;
+    int _transportType;
+    BOOL _includeHistoricTravelTime;
+    struct {
+        unsigned int timepoint:1;
+        unsigned int transportType:1;
+        unsigned int includeHistoricTravelTime:1;
+    } _has;
 }
 
-@property(nonatomic) unsigned short providerID; // @synthesize providerID=_providerID;
+@property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(retain, nonatomic) NSMutableArray *destinations; // @synthesize destinations=_destinations;
+@property(retain, nonatomic) GEOWaypoint *origin; // @synthesize origin=_origin;
+@property(nonatomic) CDStruct_4db06779 timepoint; // @synthesize timepoint=_timepoint;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)copyTo:(id)arg1;
+- (Class)responseClass;
+- (unsigned int)requestTypeCode;
+- (void)writeTo:(id)arg1;
+- (BOOL)readFrom:(id)arg1;
+- (id)dictionaryRepresentation;
+- (id)description;
+- (id)serviceTagAtIndex:(unsigned int)arg1;
+- (unsigned int)serviceTagsCount;
+- (void)addServiceTag:(id)arg1;
+- (void)clearServiceTags;
+@property(nonatomic) BOOL hasIncludeHistoricTravelTime;
+@property(nonatomic) BOOL includeHistoricTravelTime; // @synthesize includeHistoricTravelTime=_includeHistoricTravelTime;
+- (id)destinationAtIndex:(unsigned int)arg1;
+- (unsigned int)destinationsCount;
+- (void)addDestination:(id)arg1;
+- (void)clearDestinations;
+@property(readonly, nonatomic) BOOL hasOrigin;
+@property(nonatomic) BOOL hasTimepoint;
+@property(nonatomic) BOOL hasTransportType;
+@property(nonatomic) int transportType; // @synthesize transportType=_transportType;
+- (void)dealloc;
 
 @end
 

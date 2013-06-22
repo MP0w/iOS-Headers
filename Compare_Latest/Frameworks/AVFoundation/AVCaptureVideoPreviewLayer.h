@@ -16,6 +16,8 @@
 + (id)layerWithSession:(id)arg1;
 + (void)initialize;
 - (void)_updateCaptureDeviceTransform;
+- (struct CGRect)rectForMetadataOutputRectOfInterest:(struct CGRect)arg1;
+- (struct CGRect)metadataOutputRectOfInterestForRect:(struct CGRect)arg1;
 - (id)transformedMetadataObjectForMetadataObject:(id)arg1;
 - (id)_input;
 - (struct CGRect)rectForMetadataObject:(id)arg1;
@@ -52,6 +54,8 @@
 @property(readonly, nonatomic, getter=isOrientationSupported) BOOL orientationSupported;
 @property(copy) NSString *videoGravity;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)updateInternalStateForCaptureOptions:(id)arg1;
+- (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (void)handleEnabledChangedForConnection:(id)arg1;
 - (id)subLayer;
 - (void)layoutSublayers;

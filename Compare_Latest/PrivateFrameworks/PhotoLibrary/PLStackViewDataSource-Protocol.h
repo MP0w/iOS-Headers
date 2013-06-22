@@ -12,8 +12,8 @@
 - (int)stackViewItemCount:(id)arg1;
 
 @optional
-- (BOOL)stackViewPrefersLazyPreheating:(id)arg1;
 - (void)stackView:(id)arg1 getUnreadStartMarkerCount:(unsigned int *)arg2 showsProgress:(char *)arg3;
+- (void)stackView:(id)arg1 preheatImageDataAtStartIndex:(unsigned int)arg2 endIndex:(unsigned int)arg3 windowSize:(unsigned int)arg4 downDirection:(BOOL)arg5;
 - (void)stackView:(id)arg1 preheatImagesInRange:(struct _NSRange)arg2;
 - (void)stackView:(id)arg1 tappedItemAtIndex:(unsigned int)arg2;
 - (id)stackView:(id)arg1 collapsedIndexesForCount:(unsigned int)arg2;
@@ -24,7 +24,6 @@
 - (id)stackView:(id)arg1 titleForItemAtIndex:(int)arg2;
 - (id)stackView:(id)arg1 badgeImageForImageAtIndex:(int)arg2;
 - (id)stackView:(id)arg1 textBadgeStringForImageAtIndex:(int)arg2;
-- (id)stackView:(id)arg1 dataForImageAtIndex:(int)arg2 imageData:(CDStruct_3ff5127f *)arg3;
 - (BOOL)stackView:(id)arg1 writeItemsWithIndexes:(id)arg2 toPasteboard:(id)arg3;
 - (void)stackViewItemMoveDidComplete:(id)arg1;
 - (void)stackView:(id)arg1 moveItemAtIndex:(unsigned int)arg2 toIndex:(unsigned int)arg3;

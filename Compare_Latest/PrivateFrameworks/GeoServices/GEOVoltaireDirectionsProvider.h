@@ -13,6 +13,7 @@
 @interface GEOVoltaireDirectionsProvider : GEODirectionsProvider <PBRequesterDelegate>
 {
     GEORequester *_requester;
+    BOOL _cancelled;
 }
 
 + (void)setUsePersistentConnection:(BOOL)arg1;

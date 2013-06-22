@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class ACAccountStore, AccountsManager, NSMutableDictionary, NSTimer;
+@class ACAccountStore, NSMutableDictionary, NSTimer;
 
 @interface ABRefreshController : NSObject
 {
-    AccountsManager *_accountsManager;
     ACAccountStore *_accountStore;
     double _refreshDelay;
     NSMutableDictionary *_accountGroupListsToRefreshByObserver;
@@ -21,15 +20,12 @@
 + (id)sharedInstance;
 - (BOOL)canRefreshSources:(id)arg1;
 - (void)refreshEverythingNow;
-- (id)_allContactsSyncingAccounts;
 - (void)refreshAccountGroupList:(id)arg1;
 - (void)refreshContactsFilter:(id)arg1;
 - (BOOL)_acAccountExistsForIdentifier:(id)arg1;
 - (id)refreshableAccountIdentifiersForContactsFilter:(id)arg1;
 - (BOOL)canRefreshAccountIdentifier:(id)arg1;
-- (void)_refreshAccountGroupList:(id)arg1 isUserRequested:(BOOL)arg2;
 - (void)_refreshGroupListForACAccountWithIdentifier:(id)arg1 isUserRequested:(BOOL)arg2;
-- (void)_refreshAccount:(id)arg1 isUserRequested:(BOOL)arg2;
 - (void)_refreshACAccountWithIdentifier:(id)arg1 isUserRequested:(BOOL)arg2;
 - (void)startRefreshingOrphanedAccountsWithAddressBook:(void *)arg1;
 - (void)startRefreshingOrphanedAccountsWithAddressBook:(void *)arg1 afterDelay:(BOOL)arg2;
@@ -42,9 +38,6 @@
 - (BOOL)canRefreshContactsFilter:(id)arg1;
 - (void)_addObjectToRefresh:(id)arg1 withObserver:(void *)arg2 toDictionary:(id *)arg3;
 - (void)_setRefreshDelay:(double)arg1;
-- (void)accountsChanged;
-- (void)_setAccountsManager:(id)arg1;
-- (id)accountsManager;
 - (id)accountStore;
 - (void)_proceedWithRefresh:(id)arg1;
 - (void)_invalidateTimer;

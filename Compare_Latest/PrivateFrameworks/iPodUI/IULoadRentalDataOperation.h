@@ -20,6 +20,7 @@
     NSRunLoop *_runLoop;
 }
 
+- (void).cxx_destruct;
 - (void)_stopRunLoop;
 - (void)_startCheckoutRequest:(id)arg1;
 - (void)_setRunLoop:(id)arg1;
@@ -40,7 +41,6 @@
 @property(readonly) NSDictionary *rentalInformation;
 @property(readonly) IURentalData *rentalData;
 @property(readonly) int loadReason;
-- (void)dealloc;
 - (id)initWithRentalData:(id)arg1 reason:(int)arg2;
 - (id)initWithRentalData:(id)arg1;
 - (id)init;

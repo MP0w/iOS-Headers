@@ -6,21 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class CTTelephonyNetworkInfo, NSString;
 
 @interface CTRadioAccessTechnology : NSObject
 {
-    struct __CTServerConnection *_server;
-    struct queue _queue;
-    NSString *_radioAccessTechnology;
+    CTTelephonyNetworkInfo *_networkInfo;
 }
 
-- (id).cxx_construct;
-- (void).cxx_destruct;
-- (void)queryDataMode;
-- (BOOL)setRadioAccessTechnology_nl:(id)arg1;
-@property NSString *radioAccessTechnology; // @synthesize radioAccessTechnology=_radioAccessTechnology;
+@property(readonly) NSString *radioAccessTechnology;
 - (void)dealloc;
+- (id)initWithCTTelephonyNetworkInfo:(id)arg1;
 - (id)init;
 
 @end

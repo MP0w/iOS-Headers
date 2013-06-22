@@ -17,11 +17,11 @@
 + (id)masterLayoutMap;
 - (id)slideLayoutForSlideHolder:(id)arg1;
 - (id)masterInfoForSlideHolder:(id)arg1;
-- (long)masterIdForTitleId:(long)arg1;
-- (void)setMasterId:(long)arg1 forTitleId:(long)arg2;
+- (int)masterIdForTitleId:(int)arg1;
+- (void)setMasterId:(int)arg1 forTitleId:(int)arg2;
 - (id)allMasterIds;
-- (id)masterInfoForMasterId:(long)arg1;
-- (void)setMasterInfo:(id)arg1 forMasterId:(long)arg2;
+- (id)masterInfoForMasterId:(int)arg1;
+- (void)setMasterInfo:(id)arg1 forMasterId:(int)arg2;
 - (void)dealloc;
 - (id)init;
 

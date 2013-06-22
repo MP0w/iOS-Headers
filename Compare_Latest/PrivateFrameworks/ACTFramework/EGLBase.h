@@ -13,6 +13,7 @@
 @interface EGLBase : NSObject <ESRenderer>
 {
     EAGLContext *mGLContext;
+    EAGLContext *mGLBackupContext;
     unsigned int mFramebuffer;
     unsigned int mTextureArray[32];
 }
@@ -28,6 +29,7 @@
 - (unsigned int)createProgramWithVertexShader:(const char *)arg1 fragmentShader:(const char *)arg2;
 - (void)dealloc;
 - (id)context;
+- (void)setCurrentContext;
 - (void)restoreContext;
 - (void)backupContext;
 - (void)releaseTextures;

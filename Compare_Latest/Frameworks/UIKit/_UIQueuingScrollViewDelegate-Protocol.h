@@ -8,6 +8,7 @@
 
 @protocol _UIQueuingScrollViewDelegate <NSObject>
 - (BOOL)queuingScrollViewShouldLayoutSubviews:(id)arg1;
+- (void)queuingScrollViewDidFinishScrolling:(id)arg1;
 - (void)queuingScrollView:(id)arg1 didBailoutOfScrollAndRevealedView:(id)arg2;
 - (void)queuingScrollView:(id)arg1 didEndManualScroll:(BOOL)arg2 toRevealView:(id)arg3 direction:(int)arg4 animated:(BOOL)arg5 didFinish:(BOOL)arg6 didComplete:(BOOL)arg7;
 - (void)queuingScrollView:(id)arg1 didCommitManualScroll:(BOOL)arg2 toRevealView:(id)arg3 concealView:(id)arg4 direction:(int)arg5 animated:(BOOL)arg6 canComplete:(BOOL)arg7;

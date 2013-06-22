@@ -4,32 +4,18 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBNewsstandItemIconViewBase.h"
+#import "SBIconView.h"
 
-@class UILabel, UIView;
-
-@interface SBNewsstandItemIconView : SBNewsstandItemIconViewBase
+@interface SBNewsstandItemIconView : SBIconView
 {
-    UIView *_iconTransformView;
-    UILabel *_indexLabel;
-    unsigned int _newsstandIndex;
 }
 
-+ (struct CGSize)_maxLabelSize;
 + (struct CGSize)defaultIconSize;
-- (void)setNewsstandIndex:(unsigned int)arg1;
-- (void)positionLabel;
-- (void)setIsGrabbed:(BOOL)arg1;
-- (struct CGRect)_frameForAccessoryView;
-- (void)positionIconImageView;
-- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)applyIconImageTransform:(struct CATransform3D)arg1 duration:(float)arg2 delay:(float)arg3;
-- (id)createShadowImageView;
-- (void)positionCloseBoxOfType:(int)arg1;
-- (void)prepareForRecycling;
-- (struct CGRect)defaultFrameForProgressBar;
-- (void)dealloc;
-- (id)initWithDefaultSize;
++ (int)_defaultIconFormat;
+- (struct CGRect)_frameForUpdatedMarkWithLabelFrame:(struct CGRect)arg1;
+- (struct CGRect)_frameForLabel;
+- (struct CGRect)_frameForImageView;
+- (BOOL)_showsShadow;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

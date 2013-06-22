@@ -23,10 +23,7 @@
 - (void)getPositionWithOptions:(unsigned int)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
 - (void)getPlaybackInfoWithOptions:(unsigned int)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
 - (void)stopWithOptions:(unsigned int)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
-- (void)playWithRemoteURL:(id)arg1 startPosition:(float)arg2 completionQueue:(id)arg3 completionBlock:(id)arg4;
-- (void)playRemoteWithParams:(id)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
-- (void)playWithLocalFilePath:(id)arg1 startPosition:(float)arg2 playInfo:(id)arg3 completionQueue:(id)arg4 completionBlock:(id)arg5;
-- (void)playWithLocalFilePath:(id)arg1 params:(id)arg2 completionQueue:(id)arg3 completionBlock:(id)arg4;
+- (void)playWithParams:(id)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
 - (void)authorizeWithPICRequest:(id)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
 - (void)setSlideshowInfo:(id)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
 - (void)getSlideshowInfoWithOptions:(unsigned int)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
@@ -38,6 +35,8 @@
 - (void)addResourceData:(id)arg1 mimeType:(id)arg2 uuid:(id)arg3 completionQueue:(id)arg4 completionBlock:(id)arg5;
 - (void)setProperty:(id)arg1 qualifier:(id)arg2 value:(id)arg3 completionQueue:(id)arg4 completionBlock:(id)arg5;
 - (void)getProperty:(id)arg1 qualifier:(id)arg2 completionQueue:(id)arg3 completionBlock:(id)arg4;
+- (void)removeItem:(id)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
+- (void)insertItem:(id)arg1 afterItem:(id)arg2 completionQueue:(id)arg3 completionBlock:(id)arg4;
 - (void)sendPhotoData:(id)arg1 options:(id)arg2 completionQueue:(id)arg3 completionBlock:(id)arg4;
 - (void)sendPhotoData:(id)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;
 - (void)startPresentation:(id)arg1 completionQueue:(id)arg2 completionBlock:(id)arg3;

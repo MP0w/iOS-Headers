@@ -33,7 +33,7 @@
 - (void)_addRelatedObject:(id)arg1 setInverse:(BOOL)arg2 dirty:(BOOL)arg3;
 - (void)removeItem:(id)arg1;
 - (void)addItem:(id)arg1;
-@property(readonly, nonatomic) int count;
+@property(readonly, nonatomic) unsigned int count;
 @property(copy, nonatomic) NSSet *items;
 - (id)_effectiveItems;
 - (id)_loadedItems;

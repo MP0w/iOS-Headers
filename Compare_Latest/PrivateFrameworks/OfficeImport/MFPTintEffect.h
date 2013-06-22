@@ -8,12 +8,12 @@
 
 @interface MFPTintEffect : MFPEffect
 {
-    long mHue;
-    long mAmount;
+    int mHue;
+    int mAmount;
 }
 
 + (id)GUID;
-- (id)initWithHue:(long)arg1 amount:(long)arg2;
+- (id)initWithHue:(int)arg1 amount:(int)arg2;
 
 @end
 

@@ -6,19 +6,19 @@
 
 #import "UILabel.h"
 
-@class NSIndexSet;
+@class NSIndexSet, UIColor;
 
 @interface EKStrikethroughLabel : UILabel
 {
-    BOOL _strikethroughEnabled;
     NSIndexSet *_textMetrics;
+    UIColor *_strikethroughColor;
 }
 
-@property(nonatomic) BOOL strikethroughEnabled; // @synthesize strikethroughEnabled=_strikethroughEnabled;
+@property(retain, nonatomic) UIColor *strikethroughColor; // @synthesize strikethroughColor=_strikethroughColor;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)_invalidateTextMetrics;
 - (id)_textMetrics;
-- (void)dealloc;
 - (void)setLineBreakMode:(int)arg1;
 - (void)setText:(id)arg1;
 - (void)setFont:(id)arg1;

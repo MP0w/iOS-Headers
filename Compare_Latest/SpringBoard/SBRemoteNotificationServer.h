@@ -8,18 +8,24 @@
 
 #import "APSConnectionDelegate-Protocol.h"
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
 @interface SBRemoteNotificationServer : NSObject <APSConnectionDelegate>
 {
     NSMutableDictionary *_bundleIdentifiersToClients;
     NSMutableDictionary *_environmentsToConnections;
+    NSMutableSet *_bundleIdentifiersNeedingToken;
     NSString *_lastNotificationReceivedBundleIdentifier;
+    NSObject<OS_dispatch_queue> *_topicsQueue;
+    NSMutableDictionary *_appImportanceTracker;
 }
 
 + (id)sharedInstance;
 - (id)_allPushRegisteredThirdPartyBundleIDs;
+- (void)clearMessageUserInfoForToken:(int)arg1 forBundleIdentifier:(id)arg2;
+- (id)getMessageUserInfoForToken:(int)arg1 forBundleIdentifier:(id)arg2;
 - (id)getMessageUserInfoForBundleIdentifier:(id)arg1;
+- (void)setMessageUserInfo:(id)arg1 forToken:(int)arg2 forBundleIdentifier:(id)arg3;
 - (void)setMessageUserInfo:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)postSettingsChangedNotificationForBundleIdentifier:(id)arg1;
 - (void)setSettingsTypes:(unsigned int)arg1 forBundleIdentifier:(id)arg2;
@@ -32,13 +38,21 @@
 - (unsigned int)getEffectiveEnabledTypesForApplication:(id)arg1;
 - (void)unregisterApplication:(id)arg1;
 - (void)registerApplication:(id)arg1 forEnvironment:(id)arg2 withTypes:(unsigned int)arg3;
+- (id)_allTopicsForApplication:(id)arg1;
+- (id)_cloudDatabaseTopicsForApplication:(id)arg1;
 - (void)calculateTopics;
+- (void)_appDebugStateDidChange:(id)arg1;
+- (void)_appStateDidChange:(id)arg1;
+- (void)_topicsQueue_appImportanceDecreased:(id)arg1;
+- (void)_topicsQueue_appImportanceIncreased:(id)arg1;
+- (void)_topicsQueue_moveTopicsForApp:(id)arg1 fromList:(unsigned int)arg2 toList:(unsigned int)arg3;
 - (id)allSettingsEnabledTypeValues;
 - (id)allAppEnabledTypeValues;
 - (id)lastNotificationReceivedBundleIdentifier;
 - (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
 - (void)noteApplicationFinishedLaunching:(id)arg1;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
+- (void)connection:(id)arg1 didReceiveToken:(id)arg2 forTopic:(id)arg3 identifier:(id)arg4;
 - (void)run;
 - (void)dealloc;
 - (id)init;

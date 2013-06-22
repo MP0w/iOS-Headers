@@ -18,7 +18,8 @@
     NSString *_accountPersistentUUID;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
 @property(copy, nonatomic) NSString *accountPersistentUUID; // @synthesize accountPersistentUUID=_accountPersistentUUID;
 @property(readonly, nonatomic) BOOL useSSL; // @synthesize useSSL=_useSSL;

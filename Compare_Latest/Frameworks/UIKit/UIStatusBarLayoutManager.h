@@ -12,9 +12,11 @@
 {
     UIStatusBarForegroundView *_foregroundView;
     int _region;
-    UIStatusBarItemView *_itemViews[24];
+    UIStatusBarItemView *_itemViews[31];
+    BOOL _persistentAnimationsEnabled;
 }
 
+@property(nonatomic) BOOL persistentAnimationsEnabled; // @synthesize persistentAnimationsEnabled=_persistentAnimationsEnabled;
 @property(nonatomic) UIStatusBarForegroundView *foregroundView; // @synthesize foregroundView=_foregroundView;
 - (struct CGRect)_repositionedNewFrame:(struct CGRect)arg1 widthDelta:(float)arg2;
 - (float)_positionAfterPlacingItemView:(id)arg1 startPosition:(float)arg2;
@@ -41,6 +43,7 @@
 - (BOOL)updateDoubleHeightItem;
 - (BOOL)prepareDoubleHeightItemWithEnabledItems:(char *)arg1;
 - (BOOL)_updateItemView:(id)arg1 withData:(id)arg2 actions:(int)arg3 animated:(BOOL)arg4;
+- (BOOL)_processDelta:(float)arg1 forView:(id)arg2;
 - (void)_positionNewItemViewsWithEnabledItems:(char *)arg1;
 - (void)_prepareEnabledItemType:(int)arg1 withEnabledItems:(char *)arg2 withData:(id)arg3 actions:(int)arg4 itemAppearing:(char *)arg5 itemDisappearing:(char *)arg6;
 - (BOOL)updateItemsWithData:(id)arg1 actions:(int)arg2 animated:(BOOL)arg3;

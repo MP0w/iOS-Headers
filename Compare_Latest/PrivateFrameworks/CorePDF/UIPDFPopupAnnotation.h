@@ -14,6 +14,7 @@
 
 @property(nonatomic) struct CGRect adjustedBounds; // @synthesize adjustedBounds=_adjustedBounds;
 @property(nonatomic) UIPDFAnnotation *parent; // @synthesize parent;
+- (BOOL)recognizeGestures;
 - (int)annotationType;
 - (struct CGRect)bounds;
 - (Class)viewClass;

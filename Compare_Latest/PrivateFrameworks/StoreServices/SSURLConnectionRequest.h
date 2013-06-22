@@ -8,16 +8,21 @@
 
 #import "SSXPCCoding-Protocol.h"
 
-@class NSURLRequest, SSURLRequestProperties;
+@class NSURLRequest, SSAuthenticationContext, SSURLRequestProperties;
 
 @interface SSURLConnectionRequest : SSRequest <SSXPCCoding>
 {
     SSURLRequestProperties *_requestProperties;
+    SSAuthenticationContext *_authenticationContext;
+    BOOL _runsInProcess;
     BOOL _shouldMescalSign;
 }
 
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
+- (BOOL)_canRunInProcess;
+@property BOOL runsInProcess;
+@property(copy) SSAuthenticationContext *authenticationContext;
 - (void)startWithCompletionBlock:(id)arg1;
 - (BOOL)start;
 @property(readonly) NSURLRequest *URLRequest;

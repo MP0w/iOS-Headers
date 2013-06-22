@@ -14,7 +14,7 @@
 - (BOOL)_isDeallocating;
 - (Class)classForCoder;
 - (Class)classForArchiver;
-- (void)release;
+- (oneway void)release;
 - (id)retain;
 
 @end

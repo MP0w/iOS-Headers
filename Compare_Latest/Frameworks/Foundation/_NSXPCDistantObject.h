@@ -9,14 +9,14 @@
 #import "NSSecureCoding-Protocol.h"
 #import "NSXPCProxyCreating-Protocol.h"
 
-@class NSLock, NSMutableDictionary, NSXPCConnection, NSXPCInterface;
+@class NSXPCConnection, NSXPCInterface;
 
 @interface _NSXPCDistantObject : NSObject <NSXPCProxyCreating, NSSecureCoding>
 {
     NSXPCConnection *_connection;
     NSXPCInterface *_remoteInterface;
-    NSMutableDictionary *_knownSelectors;
-    NSLock *_selectorLock;
+    struct __CFDictionary *_knownSelectors;
+    int _selectorLock;
     unsigned long long _proxyNumber;
     BOOL _exported;
 }
@@ -27,6 +27,7 @@
 @property(retain) NSXPCConnection *_connection; // @synthesize _connection;
 @property unsigned long long _proxyNumber; // @synthesize _proxyNumber;
 - (id)remoteObjectProxyWithTimeout:(double)arg1 errorHandler:(id)arg2;
+- (id)remoteObjectProxyWithUserInfo:(id)arg1 errorHandler:(id)arg2;
 - (id)remoteObjectProxyWithErrorHandler:(id)arg1;
 - (id)remoteObjectProxy;
 - (void)forwardInvocation:(id)arg1;
@@ -34,6 +35,7 @@
 - (BOOL)conformsToProtocol:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)finalize;
 - (void)dealloc;
 - (id)_initWithConnection:(id)arg1 proxyNumber:(unsigned long long)arg2 interface:(id)arg3;
 - (id)init;

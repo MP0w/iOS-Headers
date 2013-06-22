@@ -7,14 +7,18 @@
 #import "NSObject.h"
 
 #import "SBBulletinAlertHandlerRegistry-Protocol.h"
+#import "_UISettingsKeyObserver-Protocol.h"
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, SBAlertItemsSettings;
 
-@interface SBBulletinAlertHandlerRegistry : NSObject <SBBulletinAlertHandlerRegistry>
+@interface SBBulletinAlertHandlerRegistry : NSObject <_UISettingsKeyObserver, SBBulletinAlertHandlerRegistry>
 {
     NSMutableDictionary *_handlersBySectionID;
+    SBAlertItemsSettings *_settings;
+    BOOL _disabled;
 }
 
+- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)addAlertHandler:(id)arg1 forSection:(id)arg2;
 - (id)alertHandlersForSection:(id)arg1;
 - (void)dealloc;

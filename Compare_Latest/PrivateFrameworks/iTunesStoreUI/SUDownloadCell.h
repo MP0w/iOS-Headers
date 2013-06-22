@@ -6,12 +6,12 @@
 
 #import <iTunesStoreUI/SUGridTableViewCell.h>
 
-@class SUDownloadCellProgressBar, UIButton;
+@class UIButton, UISlider;
 
 @interface SUDownloadCell : SUGridTableViewCell
 {
     UIButton *_accessoryButton;
-    SUDownloadCellProgressBar *_progressBar;
+    UISlider *_progressBar;
 }
 
 - (void)_reloadProgressBar;

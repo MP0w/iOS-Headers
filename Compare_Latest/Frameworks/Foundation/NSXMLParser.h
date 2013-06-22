@@ -20,6 +20,7 @@
 - (void)_pushNamespaces:(id)arg1;
 - (struct _xmlParserCtxt *)_parserContext;
 - (void)_setParserError:(int)arg1;
+- (void)_setExpandedParserError:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (int)columnNumber;
@@ -30,7 +31,9 @@
 - (void)abortParsing;
 - (BOOL)parse;
 - (BOOL)parseFromStream;
+- (BOOL)finishIncrementalParse;
 - (BOOL)parseData:(id)arg1;
+- (BOOL)_handleParseResult:(int)arg1;
 - (BOOL)shouldContinueAfterFatalError;
 - (void)setShouldContinueAfterFatalError:(BOOL)arg1;
 - (BOOL)shouldResolveExternalEntities;

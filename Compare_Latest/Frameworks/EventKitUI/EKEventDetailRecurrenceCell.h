@@ -14,13 +14,13 @@
     float _lastLayoutWidth;
 }
 
+- (void).cxx_destruct;
 - (float)height;
 - (void)layoutSubviews;
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;
 - (id)_myTableView;
 - (void)setRecurrenceString:(id)arg1;
 - (id)_recurrenceLabel;
-- (void)dealloc;
 
 @end
 

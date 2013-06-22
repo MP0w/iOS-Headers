@@ -24,8 +24,14 @@
     OADColorScheme *mColorScheme;
     OADColorMap *mColorMap;
     OADFontScheme *mFontScheme;
+    unsigned int mGroupDepth;
 }
 
+@property(retain, nonatomic) NSMutableDictionary *sourceURLToTargetBulletBlipIndexMap; // @synthesize sourceURLToTargetBulletBlipIndexMap=mSrcURLToTgtBulletBlipIndexMap;
+@property(retain, nonatomic) NSMutableDictionary *sourceURLToTargetBlipIndexMap; // @synthesize sourceURLToTargetBlipIndexMap=mSrcURLToTgtBlipIndexMap;
+- (BOOL)isInsideGroup;
+- (void)popGroup;
+- (void)pushGroup;
 - (id)bulletBlipRefForURL:(id)arg1;
 - (id)blipRefForURL:(id)arg1;
 - (id)blipRefWithURL:(id)arg1 blipArray:(id)arg2 blipURLtoIndexMap:(id)arg3;
@@ -43,7 +49,7 @@
 - (id)oavState;
 - (void)setDocumentState:(id)arg1;
 - (id)documentState;
-- (void)clearDrawableForShapeIdMap;
+- (void)resetForNewDrawing;
 - (void)setDrawable:(id)arg1 forShapeId:(unsigned long)arg2;
 - (id)drawableForShapeId:(unsigned long)arg1;
 - (void)setTableStyleCache:(id)arg1;

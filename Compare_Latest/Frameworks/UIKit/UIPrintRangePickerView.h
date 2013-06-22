@@ -11,7 +11,8 @@
     float _shift;
 }
 
-- (void)setFrame:(struct CGRect)arg1;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)layoutSubviews;
 - (float)_wheelShift;
 
 @end

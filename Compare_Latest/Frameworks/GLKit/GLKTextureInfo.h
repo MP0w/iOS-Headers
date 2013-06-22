@@ -14,14 +14,14 @@
     unsigned int target;
     unsigned int width;
     unsigned int height;
-    unsigned int alphaState;
-    unsigned int textureOrigin;
+    int alphaState;
+    int textureOrigin;
     BOOL containsMipmaps;
 }
 
 @property(readonly) BOOL containsMipmaps; // @synthesize containsMipmaps;
-@property(readonly) unsigned int textureOrigin; // @synthesize textureOrigin;
-@property(readonly) unsigned int alphaState; // @synthesize alphaState;
+@property(readonly) int textureOrigin; // @synthesize textureOrigin;
+@property(readonly) int alphaState; // @synthesize alphaState;
 @property(readonly) unsigned int height; // @synthesize height;
 @property(readonly) unsigned int width; // @synthesize width;
 @property(readonly) unsigned int target; // @synthesize target;

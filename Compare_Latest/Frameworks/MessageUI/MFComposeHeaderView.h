@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class MFHeaderLabelView, NSString;
+@class MFHeaderLabelView, NSLayoutConstraint, NSString;
 
 @interface MFComposeHeaderView : UIView
 {
@@ -15,18 +15,25 @@
     MFHeaderLabelView *_labelView;
     id _delegate;
     UIView *_separator;
+    NSLayoutConstraint *_labelAlignToTopConstraint;
     BOOL _drawsLetterpress;
 }
 
-+ (float)defaultHeight;
++ (float)_labelTopPadding;
++ (float)separatorHeight;
++ (float)preferredHeight;
++ (id)defaultFont;
 @property(nonatomic) BOOL drawsLetterpress; // @synthesize drawsLetterpress=_drawsLetterpress;
 - (void)dealloc;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)refreshPreferredContentSize;
 - (void)setDelegate:(id)arg1;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)handleTouchesEnded;
 - (BOOL)_canBecomeFirstResponder;
+- (void)_updateLayoutConstraints;
+- (void)addCenteredLayoutConstraintForView:(id)arg1;
 - (float)maxLabelX;
 - (void)setLabelHighlighted:(BOOL)arg1;
 - (void)setLabel:(id)arg1;

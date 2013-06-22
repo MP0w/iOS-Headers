@@ -21,6 +21,7 @@
 - (void)_itemReadyToPlay:(id)arg1;
 - (void)_networkTypeDidChangeNotification:(id)arg1;
 - (void)_matchCellularRestrictedDidChangeNotification:(id)arg1;
+- (void)_previewSessionDidStopNotification:(id)arg1;
 - (void)_downloadCancelledNotification:(id)arg1;
 - (void)_availableMediaLibrariesDidChangeNotification:(id)arg1;
 - (void)_appDefaultsChangedNotification:(id)arg1;

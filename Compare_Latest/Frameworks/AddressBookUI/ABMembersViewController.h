@@ -25,6 +25,8 @@
     _UIAccessDeniedView *_accessDeniedView;
 }
 
+- (void)removeBackdropMasks;
+- (void)updateBackdropMasks;
 - (BOOL)personViewController:(id)arg1 shouldContinueAfterEditingConfirmed:(BOOL)arg2 forPerson:(void *)arg3;
 - (void)insertProperty:(int *)arg1 insertValue:(id *)arg2 insertLabel:(id *)arg3;
 - (void)preferredPersonDidChangeToPerson:(void *)arg1;
@@ -34,6 +36,7 @@
 - (id)membersController;
 - (id)model;
 - (void)resetStateForDisplayedFilterChange;
+- (void)model:(id)arg1 localChangeWithInfo:(struct __CFDictionary *)arg2;
 - (void)modelDatabaseChange:(id)arg1;
 - (void)_updateForModel;
 - (void)handleExternalChangeOnPersonViewControllers;
@@ -44,6 +47,7 @@
 - (void)personWasSelected:(void *)arg1;
 - (void)cancelSearching:(id)arg1;
 - (void)membersControllerDidEndServerSearch:(id)arg1;
+- (void)membersControllerDidEndSearching:(id)arg1;
 - (void)membersControllerWillEndSearching:(id)arg1;
 - (void)membersControllerWillStartSearching:(id)arg1;
 - (BOOL)membersController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;

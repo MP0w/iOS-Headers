@@ -4,9 +4,9 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Message/Account.h>
+#import <Message/MFAccount.h>
 
-@interface DeliveryAccount : Account
+@interface DeliveryAccount : MFAccount
 {
 }
 
@@ -18,16 +18,14 @@
 + (id)existingAccountWithIdentifier:(id)arg1;
 + (id)accountWithIdentifier:(id)arg1;
 + (id)accountWithUniqueId:(id)arg1;
-+ (void)saveAccountInfoToDefaults;
 + (void)removeDeliveryAccount:(id)arg1;
 + (void)addDeliveryAccount:(id)arg1;
-+ (void)setDeliveryAccounts:(id)arg1;
 + (id)deliveryAccounts;
 + (id)existingAccountForUniqueID:(id)arg1;
 + (void)reloadDeliveryAccounts;
 + (void)_postDeliveryAccountsHaveChanged;
-+ (id)supportedDataclasses;
-+ (id)basicAccountProperties;
++ (id)accountTypeIdentifier;
+- (void)_updateAccountDescriptionWithUsername:(id)arg1 hostname:(id)arg2;
 - (BOOL)shouldUseSaveSentForAccount:(id)arg1;
 - (BOOL)supportsOutboxCopy;
 - (BOOL)supportsSoftBankCodePoints;
@@ -38,6 +36,7 @@
 - (id)mailAccountIfAvailable;
 - (void)setMaximumMessageBytes:(unsigned long long)arg1;
 - (unsigned long long)maximumMessageBytes;
+- (void)_setAccountProperties:(id)arg1;
 - (void)setUsername:(id)arg1;
 - (void)setShouldUseAuthentication:(BOOL)arg1;
 - (BOOL)shouldUseAuthentication;

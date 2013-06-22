@@ -45,6 +45,7 @@
 @property(readonly, nonatomic) unsigned long long nowPlayingItemPersistentID; // @synthesize nowPlayingItemPersistentID=_nowPlayingItemPersistentID;
 @property(retain, nonatomic) MPMediaLibrary *mediaLibrary; // @synthesize mediaLibrary=_mediaLibrary;
 @property(nonatomic) int invalidationBehavior; // @synthesize invalidationBehavior=_invalidationBehavior;
+- (void).cxx_destruct;
 - (void)_setQueriesEntities:(id)arg1;
 - (void)_reloadOverlayQueries;
 - (id)_newContextForShuffle;
@@ -60,13 +61,13 @@
 - (id)entitiesForQuery:(id)arg1;
 - (void)productViewControllerDidFinish:(id)arg1;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (id)_newGetMoreActionRowForMediaType:(int)arg1;
-- (id)_getMoreURLForMediaType:(int)arg1;
+- (id)_newGetMoreActionRowForMediaType:(unsigned int)arg1;
+- (id)_getMoreURLForMediaType:(unsigned int)arg1;
 - (void)_getMoreAction:(id)arg1;
 - (id)copyGetMoreFromITunesStoreActionRow;
 - (id)bestStoreURL;
 @property(readonly, nonatomic) BOOL shouldLoadLocalImagesSynchronously; // @dynamic shouldLoadLocalImagesSynchronously;
-- (void)downloadCloudAssetsWithOptions:(int)arg1;
+- (void)downloadCloudAssetsWithAttributes:(id)arg1;
 @property(readonly, nonatomic) BOOL matchesNowPlayingQuery;
 - (void)invalidateDynamicTrackCaches;
 - (void)reloadNowPlayingItemPersistentID;
@@ -78,14 +79,12 @@
 - (id)queryForIndex:(unsigned int)arg1 localEntityIndex:(unsigned int *)arg2;
 - (id)entityAtIndex:(unsigned int)arg1;
 - (id)entityAtIndex:(unsigned int)arg1 localEntityIndex:(unsigned int *)arg2 localEntityCount:(unsigned int *)arg3 query:(id *)arg4;
-- (id)queriesAppropriateForGroupingProperty:(int)arg1 mediaType:(int)arg2;
+- (id)queriesAppropriateForGroupingProperty:(int)arg1 mediaType:(unsigned int)arg2;
 @property(copy, nonatomic) MPMediaQuery *query;
 - (void)_invalidateWithOverlayDataSourceLoadBlock:(id)arg1;
-- (void)_wifiEnabledDidChangeNotification:(id)arg1;
 - (void)_enabledMediaTypesDidChangeNotification:(id)arg1;
 - (void)_mediaLibraryDidChangeNotification:(id)arg1;
 - (void)_mediaLibraryDynamicPropertiesDidChangeNotification:(id)arg1;
-- (void)_matchCellularRestrictedDidChangeNotification:(id)arg1;
 - (void)_handleTrackDynamicPropertiesChanged;
 - (void)_handleMediaLibraryDidChange;
 - (void)_handleDefaultMediaLibraryDidChange;
@@ -113,6 +112,7 @@
 - (Class)cellConfigurationClassForEntity:(id)arg1;
 - (id)countStringFormat;
 - (BOOL)canDeleteIndex:(unsigned int)arg1;
+- (BOOL)deleteHidesFromCloudForIndex:(unsigned int)arg1 hidesAll:(out char *)arg2;
 - (unsigned int)count;
 - (BOOL)_hasGreaterThanOrEqualEntityCount:(unsigned int)arg1 playbackQuery:(BOOL)arg2;
 - (BOOL)isEmpty;
@@ -121,7 +121,7 @@
 - (BOOL)isRestorableNavigationPathNode;
 - (void)reloadData;
 - (void)invalidate;
-@property(readonly, nonatomic) int filteredMediaTypes;
+@property(readonly, nonatomic) unsigned int filteredMediaTypes;
 - (void)reloadDataWithCompletionHandler:(id)arg1;
 - (void)reloadQueriesEntities;
 - (void)dealloc;

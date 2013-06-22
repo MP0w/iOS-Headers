@@ -16,8 +16,8 @@
     NSMutableArray *mTexts;
     NSMutableDictionary *mActions;
     NSMutableDictionary *mEffectAttributes;
-    NSString *mEffectID;
     BOOL mIsLive;
+    NSString *mEffectID;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;

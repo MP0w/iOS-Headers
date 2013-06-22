@@ -18,6 +18,13 @@
 }
 
 + (id)processInfo;
+- (void)performActivityWithOptions:(unsigned long long)arg1 reason:(id)arg2 block:(id)arg3;
+- (void)endActivity:(id)arg1;
+- (id)beginActivityWithOptions:(unsigned long long)arg1 reason:(id)arg2;
+- (void)endSystemBehaviorSuspension:(id)arg1;
+- (id)beginSuspensionOfSystemBehaviors:(unsigned long long)arg1 reason:(id)arg2;
+- (void)_enableAutomaticTerminationOnly:(id)arg1;
+- (void)_disableAutomaticTerminationOnly:(id)arg1;
 - (BOOL)automaticTerminationSupportEnabled;
 - (void)setAutomaticTerminationSupportEnabled:(BOOL)arg1;
 - (void)enableAutomaticTermination:(id)arg1;

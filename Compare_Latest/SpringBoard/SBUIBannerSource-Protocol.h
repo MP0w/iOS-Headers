@@ -7,10 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBUIBannerSource <NSObject>
-- (id)newBannerViewForItem:(id)arg1;
-- (void)removeAllBannerItems;
-- (id)dequeueNextBannerItem;
-- (id)peekNextBannerItem;
+- (id)newBannerViewForContext:(id)arg1;
+- (id)dequeueNextBannerItemForTarget:(id)arg1;
+- (id)peekNextBannerItemForTarget:(id)arg1;
 
 @optional
 - (void)bannerViewDidDismiss:(id)arg1 forReason:(int)arg2;

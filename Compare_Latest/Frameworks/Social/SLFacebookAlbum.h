@@ -6,28 +6,29 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSString;
 
-@interface SLFacebookAlbum : NSObject <NSCoding>
+@interface SLFacebookAlbum : NSObject <NSSecureCoding>
 {
-    NSString *_name;
-    NSString *_coverPhotoIdentifier;
-    NSString *_identifier;
     BOOL _canUpload;
     BOOL _isDefaultAlbum;
+    NSString *_identifier;
+    NSString *_name;
+    NSString *_coverPhotoIdentifier;
     int _count;
 }
 
 + (id)albumsWithAlbumDataDictionaries:(id)arg1;
 + (id)albumWithDataDictionary:(id)arg1;
-@property int count; // @synthesize count=_count;
++ (BOOL)supportsSecureCoding;
 @property BOOL isDefaultAlbum; // @synthesize isDefaultAlbum=_isDefaultAlbum;
 @property BOOL canUpload; // @synthesize canUpload=_canUpload;
-@property(retain) NSString *identifier; // @synthesize identifier=_identifier;
+@property int count; // @synthesize count=_count;
 @property(retain) NSString *coverPhotoIdentifier; // @synthesize coverPhotoIdentifier=_coverPhotoIdentifier;
 @property(retain) NSString *name; // @synthesize name=_name;
+@property(retain) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

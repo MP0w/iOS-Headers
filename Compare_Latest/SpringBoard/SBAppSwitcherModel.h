@@ -18,9 +18,6 @@
 - (id)snapshot;
 - (void)appsRemoved:(id)arg1 added:(id)arg2;
 - (id)identifiers;
-- (unsigned int)count;
-- (id)identifierAtIndex:(unsigned int)arg1;
-- (id)appAtIndex:(unsigned int)arg1;
 - (void)remove:(id)arg1;
 - (void)addToFront:(id)arg1;
 - (id)_recentsFromPrefs;

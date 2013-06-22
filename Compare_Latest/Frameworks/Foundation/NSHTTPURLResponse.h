@@ -15,6 +15,7 @@
 
 + (BOOL)isErrorStatusCode:(int)arg1;
 + (id)localizedStringForStatusCode:(int)arg1;
++ (BOOL)supportsSecureCoding;
 - (struct __SecTrust *)_peerTrust;
 - (void)_setPeerTrust:(struct __SecTrust *)arg1;
 - (id)_clientCertificateState;
@@ -23,6 +24,7 @@
 - (void)dealloc;
 - (int)statusCode;
 - (id)allHeaderFields;
+- (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithURL:(id)arg1 statusCode:(int)arg2 HTTPVersion:(id)arg3 headerFields:(id)arg4;

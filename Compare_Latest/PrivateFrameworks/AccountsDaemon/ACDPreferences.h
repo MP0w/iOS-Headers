@@ -11,10 +11,11 @@
 }
 
 + (id)sharedPreferences;
+- (void)reset;
 - (void)synchronize;
 - (double)serverTimeoutInterval;
-- (void)_setValue:(id)arg1 forKey:(struct __CFString *)arg2;
-- (id)_valueForKey:(struct __CFString *)arg1;
+- (void)setObject:(id)arg1 forKey:(id)arg2;
+- (id)objectForKey:(id)arg1;
 
 @end
 

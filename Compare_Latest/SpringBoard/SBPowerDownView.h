@@ -6,33 +6,47 @@
 
 #import "SBAlertView.h"
 
-@class NSTimer, TPBottomSingleButtonBar, TPTopLockBar, UIView;
+#import "SBPowerDownViewInterface-Protocol.h"
 
-@interface SBPowerDownView : SBAlertView
+@class NSTimer, SBFakeStatusBarView, SBGlintyStringView, UILabel, UIPanGestureRecognizer, UIView, _UIBackdropView;
+
+@interface SBPowerDownView : SBAlertView <SBPowerDownViewInterface>
 {
-    id <SBPowerDownViewDelegate> _delegate;
-    UIView *_dimView;
-    TPTopLockBar *_lockView;
-    TPBottomSingleButtonBar *_cancelView;
     NSTimer *_autoDismissTimer;
+    id <SBPowerDownViewDelegate> _delegate;
+    SBFakeStatusBarView *_fakeStatusBarView;
+    UIView *_dynamicDarkeningAboveTopBar;
+    UIView *_dynamicDarkeningBelowBottomBar;
+    UIView *_darkeningUnderlay;
+    UIView *_topContainer;
+    UIView *_topBar;
+    SBGlintyStringView *_topBarLabel;
+    _UIBackdropView *_topBarBackground;
+    UIView *_bottomContainer;
+    UIView *_bottomBar;
+    UILabel *_bottomBarLabel;
+    _UIBackdropView *_bottomBarBackground;
+    BOOL _addedFakeStatusBar;
+    UIPanGestureRecognizer *_slideGestureRecognizer;
+    struct CGPoint _slideGestureInitialPoint;
 }
 
 @property(nonatomic) id <SBPowerDownViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_animatePowerDown;
+- (void)_slideCompleted:(BOOL)arg1;
+- (void)_notifyDelegateCancelled;
+- (void)_notifyDelegatePowerDown;
+- (void)_resetAutoDismissTimer;
+- (void)_cancelAutoDismissTimer;
+- (id)_newDarkeningView:(struct CGRect)arg1;
+- (struct CGRect)_frameForInnerDarkening;
+- (void)_removeFakeStatusBarIfNecessary;
+- (void)_addFakeStatusBarIfNecessary;
+- (void)_slideGestureRecognizer:(id)arg1;
 - (void)layoutForInterfaceOrientation:(int)arg1;
 - (BOOL)isSupportedInterfaceOrientation:(int)arg1;
-- (void)animateDark;
 - (void)animateOut;
 - (void)animateIn;
-- (void)notifyDelegateOfPowerDown;
-- (void)finishedAnimatingOut;
-- (void)finishedAnimatingIn;
-- (void)powerDown:(id)arg1;
-- (void)lockBarStoppedTracking:(id)arg1;
-- (void)lockBarStartedTracking:(id)arg1;
-- (void)lockBarUnlocked:(id)arg1;
-- (void)cancel:(id)arg1;
-- (void)resetAutoDismissTimer;
-- (void)cancelAutoDismissTimer;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

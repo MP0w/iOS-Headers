@@ -20,6 +20,7 @@
 - (void)viewWillAppear:(BOOL)arg1;
 @property(nonatomic) id <TableViewManagerDelegate> delegate;
 @property(retain, nonatomic) UITableView *tableView; // @dynamic tableView;
+- (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

@@ -8,10 +8,11 @@
 
 #import "EAAccessoryDelegate-Protocol.h"
 #import "NSStreamDelegate-Protocol.h"
+#import "iAUPServerDelegate-Protocol.h"
 
-@class EAAccessory, EASession, NSMutableData, NSObject<OS_dispatch_queue>, NSString, NSURL, iAUPServer;
+@class EAAccessory, EASession, NSMutableData, NSObject<OS_dispatch_queue>, NSString, NSTimer, NSURL, iAUPServer;
 
-@interface EAFirmwareUpdater : MobileAssetUpdater <EAAccessoryDelegate, NSStreamDelegate>
+@interface EAFirmwareUpdater : MobileAssetUpdater <EAAccessoryDelegate, NSStreamDelegate, iAUPServerDelegate>
 {
     unsigned int _productIDCode;
     EAAccessory *_accessory;
@@ -30,6 +31,8 @@
     iAUPServer *_iAUPServer;
     NSObject<OS_dispatch_queue> *_eaNotificationDispatchQueue;
     BOOL _firmwareUpdateComplete;
+    BOOL _isExpectingReconnect;
+    NSTimer *_reconnectTimer;
     NSString *_updateBundleFilename;
     NSURL *_updateBundleURL;
 }
@@ -37,7 +40,6 @@
 + (id)findAccessoryWithProductIDCode:(unsigned int)arg1;
 + (id)appProtocolStringWithProductIDCode:(unsigned int)arg1;
 + (id)bootloaderProtocolStringWithProductIDCode:(unsigned int)arg1;
-@property(copy, nonatomic) id progressHandler; // @synthesize progressHandler=_progressHandler;
 @property(copy, nonatomic) id applyCompletion; // @synthesize applyCompletion=_applyCompletion;
 @property(retain, nonatomic) iAUPServer *server; // @synthesize server=_iAUPServer;
 @property(retain, nonatomic) NSURL *firmwareBundleURL; // @synthesize firmwareBundleURL=_updateBundleURL;
@@ -57,6 +59,7 @@
 - (void)updateComplete:(id)arg1;
 - (void)firmwareUpdateComplete:(id)arg1;
 - (void)updateProgress:(double)arg1;
+- (void)logStatusString:(id)arg1;
 - (id)writeData:(id)arg1;
 - (id)openSession;
 - (id)applyFirmware:(id)arg1 progress:(void)arg2;
@@ -66,6 +69,9 @@
 - (id)queryPredicate;
 - (id)overrideQueryPredicateFromDict:(id)arg1;
 - (id)supportedProtocolForAccessory:(id)arg1;
+- (void)reconnectTimerDidFire:(id)arg1;
+- (void)stopReconnectTimer;
+- (void)startReconnectTimer;
 - (BOOL)findAccessory;
 - (void)dealloc;
 - (id)initWithProductIDCode:(unsigned int)arg1 assetType:(id)arg2;

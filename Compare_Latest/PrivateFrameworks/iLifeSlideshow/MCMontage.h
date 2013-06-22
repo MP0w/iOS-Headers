@@ -18,15 +18,19 @@
     NSMutableDictionary *mContainersForObjectIDs;
     NSRecursiveLock *mLock;
     MCPlug *mRootPlug;
-    double mAudioFadeOutDuration;
     NSString *mBasePath;
-    unsigned long long mUUIDSeed;
     NSArray *mLayouts;
+    double mFadeInDuration;
+    double mFadeOutDuration;
+    double mAudioFadeOutDuration;
+    unsigned long long mUUIDSeed;
 }
 
 @property(retain) NSArray *layouts; // @synthesize layouts=mLayouts;
 @property(copy) NSString *basePath; // @synthesize basePath=mBasePath;
 @property(nonatomic) double audioFadeOutDuration; // @synthesize audioFadeOutDuration=mAudioFadeOutDuration;
+@property(nonatomic) double fadeOutDuration; // @synthesize fadeOutDuration=mFadeOutDuration;
+@property(nonatomic) double fadeInDuration; // @synthesize fadeInDuration=mFadeInDuration;
 @property(readonly, nonatomic) MCPlug *rootPlug; // @synthesize rootPlug=mRootPlug;
 - (void)forgetAboutContainer:(id)arg1;
 - (void)registerContainer:(id)arg1;

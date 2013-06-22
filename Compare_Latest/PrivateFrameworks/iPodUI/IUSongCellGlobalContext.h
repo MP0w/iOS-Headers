@@ -19,6 +19,7 @@
 
 @property(nonatomic) BOOL hasIndexBar; // @synthesize hasIndexBar=_hasIndexBar;
 @property(retain, nonatomic) id aggregateProperties; // @synthesize aggregateProperties=_aggregateProperties;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL showArtistSubtitle;
 @property(nonatomic) BOOL showAlbumSubtitle;
 - (BOOL)showsValueForProperty:(id)arg1;

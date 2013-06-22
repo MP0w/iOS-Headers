@@ -21,6 +21,7 @@
     NSString *_cachedEmailAddress;
     NSArray *_cachedEmailAddresses;
     NSString *_cachedIconString;
+    BOOL _cachedIsActive;
     BOOL _cachedIsHotmailAccount;
     BOOL _cachedCalendarEnabled;
     BOOL _cachedSecureMIMEEnabled;
@@ -29,25 +30,26 @@
     BOOL _cachedRestrictMessageTransfersToOtherAccounts;
     BOOL _cachedRestrictSendingFromExternalProcesses;
     BOOL _cachedRestrictSyncingRecents;
+    BOOL _cachedArchiveByDefault;
+    BOOL _cachedSourceIsManaged;
     NSString *_cachedInboxFolderID;
     NSString *_cachedSentMessagesFolderID;
     NSString *_cachedTrashFolderID;
     MFDAMailbox *_temporaryInbox;
-    BOOL _startListeningOnHierarchyChange;
     BOOL _loadedInitialMailboxList;
     BOOL _receivedInitialMailboxUpdate;
     BOOL _doneInitialInboxCheck;
     BOOL _observingPushedFoldersPrefsChanged;
     int _supportsServerSearch;
+    int _supportsMessageFlagging;
     unsigned int _daysToSync;
     NSMutableDictionary *_requestQueuesByFolderID;
     NSLock *_watchedFolderIdsLock;
     NSSet *_watchedFolderIds;
     NSCountedSet *_userFocusMailboxIds;
+    NSString *_folderTag;
 }
 
-+ (id)supportedDataclasses;
-+ (id)basicAccountProperties;
 + (id)accountIDForDirectoryName:(id)arg1 isAccountDirectory:(char *)arg2;
 + (id)_URLScheme;
 + (id)displayedShortAccountTypeString;
@@ -55,6 +57,7 @@
 + (id)accountTypeString;
 + (id)folderIDForRelativePath:(id)arg1 accountID:(id *)arg2;
 + (Class)_accountConduitClass;
+- (id)fetchLimits;
 - (BOOL)restrictedFromSyncingRecents;
 - (BOOL)restrictedFromSendingExternally;
 - (BOOL)restrictedFromTransferingMessagesToOtherAccounts;
@@ -74,7 +77,10 @@
 - (void)removeUserFocusMailbox:(id)arg1;
 - (void)addUserFocusMailbox:(id)arg1;
 - (id)_watchedFolderIds;
+- (void)changePushedMailboxUidsAdded:(id)arg1 deleted:(id)arg2;
+- (id)_folderIdsForMailboxUids:(id)arg1;
 - (id)pushedMailboxUids;
+- (BOOL)supportsUserPushedMailboxes;
 - (unsigned int)daysToSync;
 - (BOOL)supportsServerSearch;
 - (BOOL)shouldRestoreMessagesAfterFailedDelete;
@@ -91,17 +97,22 @@
 - (id)delegateeInvitationICSRepresentationInMessage:(id)arg1 summary:(id *)arg2;
 - (BOOL)reconstituteOrphanedMeetingInMessage:(id)arg1;
 - (void)dealloc;
+- (BOOL)isEnabledForDataclass:(id)arg1;
 - (BOOL)derivesDeliveryAccountInfoFromMailAccount;
 - (id)iconString;
 - (void)invalidate;
 - (id)accountPropertyForKey:(id)arg1;
+- (BOOL)isActive;
 - (BOOL)_isUnitTesting;
+- (BOOL)sourceIsManaged;
+- (BOOL)shouldArchiveByDefault;
 - (BOOL)supportsMessageFlagging;
 - (id)primaryMailboxUid;
 - (void)_ensureWeHaveLoadedInitialMailboxList;
 - (BOOL)isMailboxLocalForType:(int)arg1;
 - (id)_specialMailboxUidWithType:(int)arg1 create:(BOOL)arg2;
-- (BOOL)moveMessages:(id)arg1 fromMailbox:(id)arg2 toMailbox:(id)arg3 markAsRead:(BOOL)arg4 unsuccessfulOnes:(id)arg5;
+- (id)_relativePathForType:(int)arg1;
+- (BOOL)moveMessages:(id)arg1 fromMailbox:(id)arg2 toMailbox:(id)arg3 markAsRead:(BOOL)arg4 unsuccessfulOnes:(id)arg5 newMessages:(id)arg6;
 - (BOOL)performRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3;
 - (void)processRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3;
 - (void)addRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3;
@@ -147,7 +158,7 @@
 - (id)displayName;
 - (void)foldersContentsChanged:(id)arg1;
 - (id)initWithDAAccount:(id)arg1;
-- (id)initWithLibrary:(id)arg1 properties:(id)arg2;
+- (id)initWithLibrary:(id)arg1 persistentAccount:(id)arg2;
 
 @end
 

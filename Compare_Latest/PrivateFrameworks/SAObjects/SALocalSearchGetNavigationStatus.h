@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
-@class NSNumber, NSURL;
+@class NSNumber;
 
-@interface SALocalSearchGetNavigationStatus : SABaseClientBoundCommand
+@interface SALocalSearchGetNavigationStatus : SADomainCommand
 {
 }
 
@@ -16,7 +16,6 @@
 + (id)getNavigationStatus;
 - (BOOL)requiresResponse;
 @property(copy, nonatomic) NSNumber *getRoute;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -16,8 +16,8 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) CIColor *inputColor1; // @synthesize inputColor1;
-@property(copy, nonatomic) CIColor *inputColor0; // @synthesize inputColor0;
+@property(retain, nonatomic) CIColor *inputColor1; // @synthesize inputColor1;
+@property(retain, nonatomic) CIColor *inputColor0; // @synthesize inputColor0;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (void)setDefaults;
 - (id)outputImage;

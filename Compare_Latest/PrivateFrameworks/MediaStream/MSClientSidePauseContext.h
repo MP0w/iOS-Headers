@@ -6,18 +6,18 @@
 
 #import "NSObject.h"
 
-@class CPDistributedMessagingCenter, MSTimerGate, NSObject<OS_dispatch_queue>, NSString;
+@class MSTimerGate, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 @interface MSClientSidePauseContext : NSObject
 {
     NSString *_UUID;
     NSObject<OS_dispatch_queue> *_timerQueue;
-    CPDistributedMessagingCenter *_server;
+    NSXPCConnection *_server;
     MSTimerGate *_gate;
 }
 
 @property(retain, nonatomic) MSTimerGate *gate; // @synthesize gate=_gate;
-@property(retain, nonatomic) CPDistributedMessagingCenter *server; // @synthesize server=_server;
+@property(retain, nonatomic) NSXPCConnection *server; // @synthesize server=_server;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *timerQueue; // @synthesize timerQueue=_timerQueue;
 - (void).cxx_destruct;
 - (void)timerQueuePing;

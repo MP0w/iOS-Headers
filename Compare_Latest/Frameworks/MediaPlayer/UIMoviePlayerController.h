@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MPAVController, MPAVItem, MPMovieAccessLog, MPMovieErrorLog, MPSystemNowPlayingController, MPTransitionController, MPVideoView, NSArray, NSDate, NSString, UIImage, UIMovieSnapshotView, UIMovieView, UINavigationController, UIView, UIViewController, _UIHostedWindow;
+@class MPAVController, MPAVItem, MPMovieAccessLog, MPMovieErrorLog, MPSystemNowPlayingController, MPTransitionController, MPVideoView, NSArray, NSDate, NSString, UIImage, UIMovieView, UINavigationController, UIView, UIViewController, _UIHostedWindow;
 
 @interface UIMoviePlayerController : NSObject
 {
@@ -39,7 +39,6 @@
     unsigned int _playableContentTypeOverride;
     double _timeWhenResignedActive;
     double _timeToSnapshot;
-    UIMovieSnapshotView *_snapshotView;
     NSArray *_closedCaptionData;
     MPSystemNowPlayingController *_nowPlayingController;
     struct {
@@ -67,7 +66,6 @@
         unsigned int schedulePortraitLoadingIndicator:1;
         unsigned int clientClearedMoviePath:1;
         unsigned int canCommitStatusBarAndOverlayChanges:1;
-        unsigned int videoFrameDisplayOnResumeDisabled:1;
         unsigned int usingDebugTestPath:1;
         unsigned int allowsWirelessPlayback:1;
         unsigned int useHostedWindowWhenFullscreen:1;
@@ -79,9 +77,9 @@
 + (Class)preferredWindowClass;
 @property(copy, nonatomic) NSString *youTubeVideoID; // @synthesize youTubeVideoID=_youTubeVideoID;
 @property(copy, nonatomic) NSString *playbackErrorDescription; // @synthesize playbackErrorDescription=_playbackErrorDescription;
-@property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
-@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned int audioControlsStyle; // @synthesize audioControlsStyle=_audioControlsStyle;
+- (void).cxx_destruct;
 - (void)_setTVOutEnabled:(BOOL)arg1;
 - (void)_updateForStreamingOptions;
 - (id)_backgroundPlaceholderView;
@@ -102,8 +100,6 @@
 - (void)_didEnterBackgroundNotification:(id)arg1;
 - (void)_moviePlayerDidBecomeActiveNotification:(id)arg1;
 - (void)_moviePlayerWillBecomeActiveNotification:(id)arg1;
-- (void)_removeSnapshotView;
-- (void)_addSnapshotViewForTime:(double)arg1;
 - (void)_ensureActive;
 - (void)_videoViewPathWillChangeNotification:(id)arg1;
 - (void)_mutedDidChangeNotification:(id)arg1;
@@ -112,6 +108,7 @@
 - (void)_timedMetadataAvailableNotification:(id)arg1;
 - (void)_itemPlaybackDidEndNotification:(id)arg1;
 - (void)_timeDidJumpNotification:(id)arg1;
+- (void)_alternateTracksAvailableNotification:(id)arg1;
 - (void)_itemDurationAvailableNotification:(id)arg1;
 - (void)_itemReadyToPlayNotification:(id)arg1;
 - (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
@@ -129,7 +126,10 @@
 - (void)_willBeginSuspendAnimationNotification:(id)arg1;
 - (void)_willSuspendNotification:(id)arg1;
 - (void)_pausePlaybackForNotification:(id)arg1;
-- (void)snapshotViewWasTapped:(id)arg1;
+- (void)_alternateTextTrackDidOutputNotification:(id)arg1;
+- (void)_alternateTextTrackWillChangeNotification:(id)arg1;
+- (void)videoControllerDidEndScrubbing:(id)arg1;
+- (void)videoControllerDidBeginScrubbing:(id)arg1;
 - (struct CGRect)videoControllerFrameAfterFullscreenExit:(id)arg1;
 - (void)videoControllerDidCreateFullscreenView:(id)arg1;
 - (void)videoControllerDidHideOverlay:(id)arg1;
@@ -146,7 +146,6 @@
 - (void)viewControllerRequestsExit:(id)arg1 reason:(int)arg2;
 - (void)resignActiveAndEndAirPlay;
 - (void)resignActive;
-@property(nonatomic) BOOL videoFrameDisplayOnResumeDisabled;
 @property(nonatomic) BOOL alwaysAllowHidingControlsOverlay;
 @property(nonatomic) BOOL useLegacyControls;
 @property(readonly, nonatomic) MPMovieErrorLog *errorLog;
@@ -202,6 +201,7 @@
 - (id)_activeVideoController;
 - (void)_setActiveViewController:(id)arg1 forTransition:(BOOL)arg2;
 - (id)_topViewController;
+@property(nonatomic) BOOL limitReadAhead;
 @property(readonly, nonatomic) unsigned int bufferingState;
 @property(readonly, nonatomic) BOOL areClosedCaptionsAvailable;
 @property(readonly, nonatomic) float volume;
@@ -225,6 +225,7 @@
 - (void)prepareForPlayback;
 @property(readonly, nonatomic) BOOL isPreparedForPlayback;
 @property(nonatomic) unsigned int playableContentType;
+@property(nonatomic) BOOL disableAlternateTextTrackRendering;
 @property(nonatomic) BOOL useApplicationAudioSession;
 @property(retain, nonatomic) NSString *audioSessionModeOverride;
 @property(readonly, nonatomic) unsigned int hostedWindowContextID;
@@ -244,8 +245,10 @@
 @property(copy, nonatomic) NSString *movieSubtitle;
 @property(copy, nonatomic) NSString *moviePath;
 - (void)setItem:(id)arg1 animated:(BOOL)arg2;
+@property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
 @property(readonly, nonatomic) BOOL canContinuePlayingWhenLocked;
 @property(readonly, nonatomic) BOOL canContinuePlayingInBackground;
+@property(readonly, nonatomic) UIView *alternateTextTrackView;
 - (void)unlockMoviePlaybackResources;
 @property(nonatomic) unsigned int options;
 - (void)dealloc;

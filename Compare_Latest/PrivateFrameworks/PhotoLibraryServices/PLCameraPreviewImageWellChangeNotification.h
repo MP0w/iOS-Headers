@@ -6,16 +6,16 @@
 
 #import <PhotoLibraryServices/PLChangeNotification.h>
 
-@class NSManagedObjectID, UIImage;
+@class NSString, UIImage;
 
 @interface PLCameraPreviewImageWellChangeNotification : PLChangeNotification
 {
     UIImage *_image;
-    NSManagedObjectID *_assetID;
+    NSString *_uuid;
 }
 
 + (id)notification;
-@property(readonly, nonatomic) NSManagedObjectID *assetID;
+@property(readonly, nonatomic) NSString *assetUUID;
 @property(readonly, nonatomic) UIImage *image;
 - (id)description;
 - (id)object;

@@ -22,8 +22,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;
-- (id)coordinateAsString;
-- (BOOL)isValid;
 
 @end
 

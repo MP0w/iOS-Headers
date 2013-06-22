@@ -14,10 +14,11 @@
     int _uScale;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
 @property(nonatomic) int textureSampler; // @synthesize textureSampler=_textureSampler;
-- (id)init;
+- (void)setup;
 
 @end
 

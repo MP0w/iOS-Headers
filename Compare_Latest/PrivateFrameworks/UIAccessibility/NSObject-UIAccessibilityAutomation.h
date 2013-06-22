@@ -21,6 +21,7 @@
 - (BOOL)_accessibilityUserTestingIsRightNavButton;
 - (BOOL)_accessibilityUserTestingIsBackNavButton;
 - (void)_accessibilitySetUserTestingIsCancelButton:(BOOL)arg1;
+- (void)_accessibilitySetUserTestingIsDefaultButton:(BOOL)arg1;
 - (BOOL)_accessibilityUserTestingIsCancelButton;
 - (BOOL)_accessibilityUserTestingIsDefaultButton;
 @end

@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "UIAlertViewDelegate-Protocol.h"
+@class NSArray, NSDictionary, NSMutableArray, NSString;
 
-@class BKSApplicationStateMonitor, NSArray, NSDictionary, NSMutableArray, NSString;
-
-@interface MPAudioDeviceController : NSObject <UIAlertViewDelegate>
+@interface MPAudioDeviceController : NSObject
 {
     NSString *_category;
     id _delegate;
@@ -21,21 +19,16 @@
     BOOL _pickedRouteHasVolumeControl;
     BOOL _pickedRouteHasVolumeControlIsValid;
     NSMutableArray *_pickableRoutesCompletionHandlers;
-    BKSApplicationStateMonitor *_applicationMonitor;
-    int _retainCount;
+    BOOL _scheduledSendAudioRoutesDidChange;
 }
 
 + (void)setRouteDiscoveryEnabled:(BOOL)arg1;
 + (BOOL)routeDiscoveryEnabled;
-@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_sendFakeRouteChange;
-- (void)_registerForAVControllerNotifications;
-- (void)_routeDiscoveryDidEndNotification:(id)arg1;
-- (void)_portStatusDidChangeNotification:(id)arg1;
-- (void)_sendDelegateAudioRoutesChanged;
 - (void)_scheduleSendDelegateAudioRoutesChanged;
-- (void)_activeAudioRouteDidChange:(id)arg1;
-- (void)_pickableRoutesChangedNotification:(id)arg1;
+- (void)_registerForAVControllerNotifications;
 - (void)_mediaServerDied;
 - (BOOL)_routeIsWireless:(id)arg1;
 - (BOOL)_routeIsReceiver:(id)arg1;
@@ -43,46 +36,46 @@
 - (BOOL)_routeIsHeadphones:(id)arg1;
 - (BOOL)_routeIsDisplayPort:(id)arg1;
 - (BOOL)_routeIsSpeaker:(id)arg1;
-- (BOOL)_pickRoute:(id)arg1 withPassword:(id)arg2;
-- (BOOL)_pickRoute:(id)arg1;
-- (id)_pickableRoutes;
 - (id)_pickedRoute;
+- (id)_pickableRoutes;
+- (void)_routeDiscoveryDidEndNotification:(id)arg1;
+- (void)_portStatusDidChangeNotification:(id)arg1;
+- (void)_pickableRoutesChangedNotification:(id)arg1;
+- (void)_activeAudioRouteDidChange:(id)arg1;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 @property(nonatomic) BOOL routeDiscoveryEnabled;
-- (void)determinePickableRoutesWithCompletionHandler:(id)arg1;
-- (void)logCurrentRoutes;
-- (int)indexOfPickedRoute;
-- (BOOL)pickRouteAtIndex:(unsigned int)arg1 withPassword:(id)arg2;
-- (BOOL)pickRouteAtIndex:(unsigned int)arg1;
+- (BOOL)wirelessRouteIsPicked;
+- (BOOL)volumeControlIsAvailable;
+- (BOOL)speakerRouteIsPicked;
+- (void)setCategory:(id)arg1;
 - (id)routeTypeAtIndex:(unsigned int)arg1;
 - (BOOL)routeRequiresPasswordAtIndex:(unsigned int)arg1;
-- (id)routeNameAtIndex:(unsigned int)arg1 isPicked:(char *)arg2;
-- (id)routeDescriptionAtIndex:(unsigned int)arg1;
-- (void)clearCachedRoutes;
-- (void)restorePickedRoute;
-- (BOOL)pickBestDeviceRoute;
-- (BOOL)pickHandsetRoute;
-- (BOOL)pickSpeakerRoute;
-- (unsigned int)numberOfAudioRoutes;
-- (BOOL)airtunesRouteIsPicked;
-- (BOOL)wirelessRouteIsPicked;
-- (BOOL)handsetRouteIsPicked;
-- (BOOL)receiverRouteIsPicked;
-- (BOOL)speakerRouteIsPicked;
 - (BOOL)routeOtherThanHandsetAndSpeakerIsAvailable;
 - (BOOL)routeOtherThanHandsetIsAvailable;
+- (id)routeNameAtIndex:(unsigned int)arg1 isPicked:(char *)arg2;
+- (id)routeDescriptionAtIndex:(unsigned int)arg1;
+- (void)restorePickedRoute;
+- (BOOL)receiverRouteIsPicked;
+- (BOOL)pickSpeakerRoute;
+- (BOOL)pickRouteAtIndex:(unsigned int)arg1 withPassword:(id)arg2;
+- (BOOL)pickRouteAtIndex:(unsigned int)arg1;
+- (BOOL)pickRoute:(id)arg1 withPassword:(id)arg2;
+- (BOOL)pickRoute:(id)arg1;
+- (BOOL)pickHandsetRoute;
 - (id)pickedRouteDescription;
+- (BOOL)pickBestDeviceRoute;
+- (unsigned int)numberOfAudioRoutes;
 - (id)nameOfPickedRoute;
-- (BOOL)volumeControlIsAvailable;
-- (void)setCategory:(id)arg1;
+- (void)logCurrentRoutes;
 - (BOOL)isPickedRouteDistinctFromRoute:(id)arg1;
+- (int)indexOfRouteWithName:(id)arg1;
+- (int)indexOfPickedRoute;
+- (BOOL)handsetRouteIsPicked;
+- (void)determinePickableRoutesWithCompletionHandler:(id)arg1;
+- (void)clearCachedRoutes;
+- (BOOL)airtunesRouteIsPicked;
 - (void)dealloc;
 - (id)init;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
-- (oneway void)release;
-- (id)retain;
 
 @end
 

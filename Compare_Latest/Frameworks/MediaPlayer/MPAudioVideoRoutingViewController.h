@@ -6,19 +6,20 @@
 
 #import "UIViewController.h"
 
-@class MPAudioVideoRoutingTableViewController;
+@class MPAudioVideoRoutingTableViewController, UINavigationController;
 
 @interface MPAudioVideoRoutingViewController : UIViewController
 {
+    UINavigationController *_navigationController;
     MPAudioVideoRoutingTableViewController *_tableViewController;
     id <MPAudioVideoRoutingViewControllerDelegate> _delegate;
 }
 
 + (BOOL)hasWirelessDisplayRoutes;
-@property(nonatomic) id <MPAudioVideoRoutingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MPAudioVideoRoutingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_doneAction:(id)arg1;
-- (void)loadView;
-- (void)dealloc;
+- (void)viewDidLoad;
 - (id)init;
 
 @end

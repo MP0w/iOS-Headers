@@ -23,6 +23,7 @@
     NSObject<OS_dispatch_queue> *_isolation;
 }
 
++ (id)cloudPlistName;
 + (id)cameraRollPlistName;
 + (id)migrateOldPlistToNewPlist:(id)arg1;
 @property(readonly) NSURL *directoryURL; // @synthesize directoryURL=_baseURL;

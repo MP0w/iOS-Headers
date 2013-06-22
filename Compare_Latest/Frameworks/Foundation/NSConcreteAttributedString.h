@@ -19,6 +19,7 @@
 - (unsigned int)length;
 - (id)attribute:(id)arg1 atIndex:(unsigned int)arg2 effectiveRange:(struct _NSRange *)arg3;
 - (id)attributesAtIndex:(unsigned int)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (id)init;

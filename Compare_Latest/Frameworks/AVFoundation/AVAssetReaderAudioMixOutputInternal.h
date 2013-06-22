@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAudioMix, AVAudioOutputSettings, NSArray, NSMutableDictionary;
+@class AVAudioMix, AVAudioOutputSettings, NSArray, NSMutableDictionary, NSString;
 
 @interface AVAssetReaderAudioMixOutputInternal : NSObject
 {
@@ -15,6 +15,7 @@
     NSMutableDictionary *audioVolumeCurvesForTracks;
     NSMutableDictionary *audioTapProcessorsForTracks;
     AVAudioOutputSettings *audioOutputSettings;
+    NSString *audioTimePitchAlgorithm;
 }
 
 @end

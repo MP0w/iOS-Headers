@@ -16,13 +16,13 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputScale; // @synthesize inputScale;
-@property(copy, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
+@property(retain, nonatomic) NSNumber *inputScale; // @synthesize inputScale;
+@property(retain, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (id)_kernel;
 - (_Bool)_isIdentity;
 - (void)setDefaults;
-- (id)_kernel;
 
 @end
 

@@ -22,7 +22,6 @@
 - (int)columnNumber;
 - (int)rowNumber;
 - (id)workbook;
-- (_Bool)isThereContentOutsideOfLassoBoundsForRowMin:(unsigned int)arg1 rowMax:(unsigned int)arg2 columnMin:(unsigned int)arg3 columnMax:(unsigned int)arg4;
 - (int)resolveFunctionName:(id)arg1;
 - (BOOL)isCurrentSheet:(id)arg1;
 - (unsigned int)resolveTableColumn:(id)arg1 columnName:(id)arg2;

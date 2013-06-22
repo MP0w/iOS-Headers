@@ -12,9 +12,7 @@
 {
     NSMutableArray *_routes;
     int _status;
-    struct {
-        unsigned int status:1;
-    } _has;
+    CDStruct_47fe53f2 _has;
 }
 
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;

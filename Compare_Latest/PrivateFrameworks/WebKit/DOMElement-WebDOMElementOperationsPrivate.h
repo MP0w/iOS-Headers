@@ -8,6 +8,5 @@
 
 @interface DOMElement (WebDOMElementOperationsPrivate)
 + (id)_DOMElementFromJSContext:(struct OpaqueJSContext *)arg1 value:(struct OpaqueJSValue *)arg2;
-- (id)_markerTextForListItem;
 @end
 

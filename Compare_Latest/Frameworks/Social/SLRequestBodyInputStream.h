@@ -30,7 +30,7 @@
 - (BOOL)getBuffer:(char **)arg1 length:(unsigned int *)arg2;
 - (BOOL)hasBytesAvailable;
 - (unsigned int)bytesRead;
-- (unsigned int)totalBytes;
+@property(readonly) unsigned int totalBytes;
 - (int)read:(char *)arg1 maxLength:(unsigned int)arg2;
 - (unsigned int)streamStatus;
 - (id)streamError;

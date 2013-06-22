@@ -35,6 +35,7 @@
 @property(retain, nonatomic) IUViewControllerContext *sourceContext; // @synthesize sourceContext=_sourceContext;
 @property(copy, nonatomic) MPMediaQuery *query; // @synthesize query=_query;
 @property(retain, nonatomic) IUMediaDataSource *dataSource; // @synthesize dataSource=_dataSource;
+- (void).cxx_destruct;
 - (void)_reloadDataSourceFromSourceContext;
 - (id)_newDataSourceFromType:(int)arg1 mediaQuery:(id)arg2;
 - (id)_newDataSourceFromType:(int)arg1 mediaSpecifier:(id)arg2;

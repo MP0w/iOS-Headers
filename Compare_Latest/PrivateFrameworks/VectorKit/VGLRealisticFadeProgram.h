@@ -13,7 +13,7 @@
 }
 
 @property(nonatomic) float fade; // @synthesize fade=_fade;
-- (id)initWithVertName:(id)arg1 fragName:(id)arg2;
+- (void)setup;
 
 @end
 

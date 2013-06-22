@@ -12,11 +12,11 @@
 {
 }
 
-- (void)resolveMarker:(id)arg1 withSeriesGraphicProperties:(id)arg2 forSeriesIndex:(int)arg3;
-- (void)resolveGraphicPropertiesOfErrorBar:(id)arg1 forSeriesIndex:(int)arg2;
-- (void)resolveGraphicPropertiesOfTrendline:(id)arg1 forSeriesIndex:(int)arg2;
-- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(int)arg2 isLine:(_Bool)arg3;
-- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(int)arg2;
+- (void)resolveMarker:(id)arg1 withSeriesGraphicProperties:(id)arg2 forSeriesIndex:(unsigned int)arg3;
+- (void)resolveGraphicPropertiesOfErrorBar:(id)arg1 forSeriesIndex:(unsigned int)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
+- (void)resolveGraphicPropertiesOfTrendline:(id)arg1 forSeriesIndex:(unsigned int)arg2;
+- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned int)arg2 isLine:(_Bool)arg3 colorMap:(id)arg4 colorScheme:(id)arg5;
+- (void)resolveGraphicPropertiesOfSeries:(id)arg1 forSeriesIndex:(unsigned int)arg2 colorMap:(id)arg3 colorScheme:(id)arg4;
 - (id)autoAxisStroke;
 - (void)resolveLegendGraphicProperties:(id)arg1;
 - (void)resolveMinorGridLinesGraphicProperties:(id)arg1;
@@ -26,8 +26,8 @@
 - (void)resolveFloorGraphicProperties:(id)arg1;
 - (void)resolveWallGraphicProperties:(id)arg1;
 - (void)resolveChartAreaGraphicProperties:(id)arg1;
-- (id)autoStrokeForSeriesIndex:(int)arg1;
-- (id)autoSeriesFill:(int)arg1;
+- (id)autoStrokeForSeriesIndex:(unsigned int)arg1;
+- (id)autoSeriesFill:(unsigned int)arg1;
 - (id)autoSeriesBorderStroke;
 - (id)autoFill;
 - (id)autoStroke;

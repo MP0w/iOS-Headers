@@ -11,7 +11,8 @@
     id <IUBackOfAlbumTableViewControllerDelegate> _delegate;
 }
 
-@property(nonatomic) id <IUBackOfAlbumTableViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <IUBackOfAlbumTableViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_beginPlaybackForRow:(int)arg1;
 - (void)performDefaultActionForRow:(int)arg1;
 - (void)viewDidAppear:(BOOL)arg1;

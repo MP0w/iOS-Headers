@@ -8,7 +8,7 @@
 
 #import "NSXMLParserDelegate-Protocol.h"
 
-@class NSMutableArray, NSURL, NSXMLParser, RUIObjectModel;
+@class NSData, NSMutableArray, NSURL, NSXMLParser, RUIObjectModel;
 
 @interface RUIParser : NSObject <NSXMLParserDelegate>
 {
@@ -20,21 +20,25 @@
     int _parserState;
     NSURL *_baseURL;
     BOOL _succeeded;
+    NSData *_xmlData;
 }
 
 @property(readonly, nonatomic) BOOL succeeded; // @synthesize succeeded=_succeeded;
+@property(retain, nonatomic) NSData *xmlData; // @synthesize xmlData=_xmlData;
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 - (void)parser:(id)arg1 validationErrorOccurred:(id)arg2;
 - (void)parser:(id)arg1 parseErrorOccurred:(id)arg2;
 - (void)parser:(id)arg1 foundCDATA:(id)arg2;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
+- (void)_addTableFooterViewWithAttributes:(id)arg1;
+- (void)_addTableHeaderViewWithAttributes:(id)arg1;
 - (void)_addSectionWithAttributes:(id)arg1;
 - (void)_addNavigationBarWithAttributes:(id)arg1;
 - (id)_lastRow;
 - (id)_lastPageCreateIfNeeded;
 - (void)_newRowWithAttributeDict:(id)arg1;
-- (id)_createNewPage;
+- (id)_createNewPageWithAttributes:(id)arg1;
 - (id)_createSupplementalPageNamed:(id)arg1;
 - (int)actionSignal;
 - (id)uiObjectModel;

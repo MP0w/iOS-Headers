@@ -18,14 +18,17 @@
     NSMutableDictionary *_localSearchResultsByAddress;
     NSMutableDictionary *_serverSearchResultsByAddress;
     NSMutableDictionary *_recentRecipientsByAddress;
+    NSMutableDictionary *_corecipientsByAddress;
     struct __CFArray *_resultTypesSortOrder;
     struct __CFArray *_resultTypesPriorityOrder;
     struct __CFSet *_finishedResultTypes;
     int _preferredType;
     BOOL _favorMobileNumbers;
     int _resetCount;
+    NSArray *_enteredRecipients;
 }
 
+@property(retain, nonatomic) NSArray *enteredRecipients; // @synthesize enteredRecipients=_enteredRecipients;
 - (id)_dictionaryForResultType:(int)arg1;
 - (void)processAddedResultsOfType:(int)arg1 completion:(id)arg2;
 - (void)_appendSortedResultsOfType:(int)arg1 excluding:(id)arg2 toResults:(id)arg3;

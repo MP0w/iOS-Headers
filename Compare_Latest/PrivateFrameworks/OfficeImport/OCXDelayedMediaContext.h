@@ -16,6 +16,7 @@
     NSURL *mTargetLocation;
 }
 
+- (id)dataRep;
 - (_Bool)saveDelayedMedia:(id)arg1 toFile:(id)arg2;
 - (_Bool)loadDelayedNode:(id)arg1;
 - (void)dealloc;

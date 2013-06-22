@@ -17,12 +17,12 @@
     MPAnimationPath *_parentPath;
     MCAnimationKeyframe *_keyframe;
     double _time;
-    int _offsetType;
+    unsigned int _offsetType;
     double _preControl;
     double _postControl;
 }
 
-@property(nonatomic) int offsetType; // @synthesize offsetType=_offsetType;
+@property(nonatomic) unsigned int offsetType; // @synthesize offsetType=_offsetType;
 @property(nonatomic) double time; // @synthesize time=_time;
 @property(nonatomic) double postControl; // @synthesize postControl=_postControl;
 @property(nonatomic) double preControl; // @synthesize preControl=_preControl;

@@ -14,11 +14,13 @@
     UIImageView *_footerImageView;
 }
 
-- (id)_transitGlyphForTransitType:(int)arg1 scrunched:(BOOL)arg2;
+- (id)_transitGlyphForTransitType:(int)arg1;
 - (void)layoutSubviews;
 - (void)createBodyContentViews;
 - (void)dealloc;
-- (id)passFaceTemplate;
+- (id)tallFaceTemplate;
+- (id)shortFaceTemplate;
+- (id)shortScrunchedFaceTemplate;
 
 @end
 

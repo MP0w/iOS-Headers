@@ -13,10 +13,12 @@
     NSMutableArray *_directionsFeedbackCollections;
     NSMutableArray *_mapsUsageFeedbackCollections;
     NSMutableArray *_placeSearchFeedbackCollections;
+    NSMutableArray *_suggestionsFeedbackCollections;
     NSMutableArray *_transitAppLaunchFeedbackCollections;
     NSMutableArray *_usageCollections;
 }
 
+@property(retain, nonatomic) NSMutableArray *suggestionsFeedbackCollections; // @synthesize suggestionsFeedbackCollections=_suggestionsFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *mapsUsageFeedbackCollections; // @synthesize mapsUsageFeedbackCollections=_mapsUsageFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *transitAppLaunchFeedbackCollections; // @synthesize transitAppLaunchFeedbackCollections=_transitAppLaunchFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *placeSearchFeedbackCollections; // @synthesize placeSearchFeedbackCollections=_placeSearchFeedbackCollections;
@@ -31,6 +33,10 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)suggestionsFeedbackCollectionAtIndex:(unsigned int)arg1;
+- (unsigned int)suggestionsFeedbackCollectionsCount;
+- (void)addSuggestionsFeedbackCollection:(id)arg1;
+- (void)clearSuggestionsFeedbackCollections;
 - (id)mapsUsageFeedbackCollectionAtIndex:(unsigned int)arg1;
 - (unsigned int)mapsUsageFeedbackCollectionsCount;
 - (void)addMapsUsageFeedbackCollection:(id)arg1;

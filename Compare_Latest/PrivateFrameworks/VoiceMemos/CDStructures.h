@@ -6,18 +6,90 @@
 
 #pragma mark Named Structures
 
+struct AudioStreamBasicDescription {
+    double _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    unsigned int _field7;
+    unsigned int _field8;
+    unsigned int _field9;
+};
+
+struct AudioUnitMeterClipping {
+    float peakValueSinceLastCall;
+    unsigned char sawInfinity;
+    unsigned char sawNotANumber;
+};
+
 struct CGPoint {
-    float _field1;
-    float _field2;
+    float x;
+    float y;
 };
 
 struct CGRect {
-    struct CGPoint _field1;
-    struct CGSize _field2;
+    struct CGPoint origin;
+    struct CGSize size;
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    float width;
+    float height;
 };
+
+struct PowerMeter {
+    _Bool mInstantaneousMode;
+    double mSampleRate;
+    double mPeakDecay1;
+    double mPeakDecay;
+    double mDecay1;
+    double mDecay;
+    int mPrevBlockSize;
+    int mPeakHoldCount;
+    double mPeak;
+    double mAveragePowerPeak;
+    double mMaxPeak;
+    struct AudioUnitMeterClipping mClipping;
+    double mAveragePowerF;
+    float m_vAvePower[16];
+    int mAveragePowerI;
+};
+
+struct UIEdgeInsets {
+    float top;
+    float left;
+    float bottom;
+    float right;
+};
+
+struct _NSRange {
+    unsigned int _field1;
+    unsigned int _field2;
+};
+
+struct vector<float, std::__1::allocator<float>> {
+    float *__begin_;
+    float *__end_;
+    struct __compressed_pair<float *, std::__1::allocator<float>> {
+        float *__first_;
+    } __end_cap_;
+};
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    double beginTime;
+    double endTime;
+} CDStruct_73a5d3ca;
+
+// Template types
+typedef struct vector<float, std::__1::allocator<float>> {
+    float *__begin_;
+    float *__end_;
+    struct __compressed_pair<float *, std::__1::allocator<float>> {
+        float *__first_;
+    } __end_cap_;
+} vector_ec52ae8c;
 

@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
 @class NSArray, NSData, NSURL;
 
-@interface SALocalSearchSendToProtobufConduit : SABaseClientBoundCommand
+@interface SALocalSearchSendToProtobufConduit : SADomainCommand
 {
 }
 
@@ -19,7 +19,6 @@
 @property(copy, nonatomic) NSData *rawRequest;
 @property(copy, nonatomic) NSURL *endpoint;
 @property(copy, nonatomic) NSArray *attributes;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

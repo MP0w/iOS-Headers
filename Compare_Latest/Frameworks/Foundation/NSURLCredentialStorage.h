@@ -20,9 +20,10 @@
 - (void)setCredential:(id)arg1 forProtectionSpace:(id)arg2;
 - (id)allCredentials;
 - (id)credentialsForProtectionSpace:(id)arg1;
+- (id)_internalInit;
+- (id)_initWithCFURLCredentialStorage:(struct _CFURLCredentialStorage *)arg1;
 - (id)init;
 - (void)dealloc;
-- (id)_internalInit;
 
 @end
 

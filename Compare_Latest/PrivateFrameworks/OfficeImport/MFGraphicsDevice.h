@@ -19,12 +19,12 @@
     NSDictionary *m_fillMap;
 }
 
-- (int)plgBlt:(struct CGPoint *)arg1:(id)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6:(id)arg7:(int)arg8:(int)arg9:(struct CGAffineTransform *)arg10:(unsigned long)arg11;
-- (int)maskBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(id)arg8:(int)arg9:(int)arg10:(unsigned long)arg11:(struct CGAffineTransform *)arg12:(unsigned long)arg13;
-- (int)stretchBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9:(unsigned long)arg10:(struct CGAffineTransform *)arg11:(unsigned long)arg12 usePaletteForBilevel:(BOOL)arg13;
-- (int)stretchBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9:(unsigned long)arg10:(struct CGAffineTransform *)arg11:(unsigned long)arg12;
-- (int)bitBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(unsigned long)arg8:(struct CGAffineTransform *)arg9:(unsigned long)arg10;
-- (int)patBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(unsigned long)arg5;
+- (int)plgBlt:(struct CGPoint *)arg1:(id)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6:(id)arg7:(int)arg8:(int)arg9:(struct CGAffineTransform *)arg10:(unsigned int)arg11;
+- (int)maskBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(id)arg8:(int)arg9:(int)arg10:(unsigned int)arg11:(struct CGAffineTransform *)arg12:(unsigned int)arg13;
+- (int)stretchBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9:(unsigned int)arg10:(struct CGAffineTransform *)arg11:(unsigned int)arg12 usePaletteForBilevel:(BOOL)arg13;
+- (int)stretchBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(int)arg8:(int)arg9:(unsigned int)arg10:(struct CGAffineTransform *)arg11:(unsigned int)arg12;
+- (int)bitBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(id)arg5:(int)arg6:(int)arg7:(unsigned int)arg8:(struct CGAffineTransform *)arg9:(unsigned int)arg10;
+- (int)patBlt:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(unsigned int)arg5;
 - (id)createBitmap:(unsigned int)arg1:(unsigned int)arg2:(unsigned int)arg3:(unsigned int)arg4:(const char *)arg5:(unsigned int)arg6;
 - (id)createDIBitmap:(const char *)arg1:(unsigned int)arg2:(const char *)arg3:(unsigned int)arg4:(int)arg5;
 - (id)createDIBitmap:(const char *)arg1:(unsigned int)arg2:(int)arg3;
@@ -65,9 +65,9 @@
 - (int)resizePalette:(unsigned int)arg1:(unsigned int)arg2;
 - (int)setPaletteEntries:(unsigned int)arg1:(id)arg2:(unsigned int)arg3;
 - (id)createColorWithRGBBytes:(unsigned char)arg1:(unsigned char)arg2:(unsigned char)arg3:(unsigned char)arg4;
-- (int)createPen:(int)arg1:(long)arg2:(id)arg3:(double *)arg4:(unsigned int)arg5;
-- (int)createFontIndirectW:(long)arg1:(long)arg2:(long)arg3:(long)arg4:(long)arg5:(_Bool)arg6:(_Bool)arg7:(_Bool)arg8:(int)arg9:(int)arg10:(unsigned char)arg11:(int)arg12:(int)arg13:(int)arg14:(id)arg15:(id)arg16:(id)arg17:(unsigned int)arg18:(unsigned int)arg19:(unsigned int)arg20:(unsigned int)arg21:(unsigned int)arg22:(unsigned int)arg23;
-- (int)createFontIndirect:(long)arg1:(long)arg2:(long)arg3:(long)arg4:(long)arg5:(_Bool)arg6:(_Bool)arg7:(_Bool)arg8:(int)arg9:(int)arg10:(unsigned char)arg11:(int)arg12:(int)arg13:(int)arg14:(id)arg15;
+- (int)createPen:(int)arg1:(int)arg2:(id)arg3:(double *)arg4:(unsigned int)arg5;
+- (int)createFontIndirectW:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(_Bool)arg6:(_Bool)arg7:(_Bool)arg8:(int)arg9:(int)arg10:(unsigned char)arg11:(int)arg12:(int)arg13:(int)arg14:(id)arg15:(id)arg16:(id)arg17:(unsigned int)arg18:(unsigned int)arg19:(unsigned int)arg20:(unsigned int)arg21:(unsigned int)arg22:(unsigned int)arg23;
+- (int)createFontIndirect:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(_Bool)arg6:(_Bool)arg7:(_Bool)arg8:(int)arg9:(int)arg10:(unsigned char)arg11:(int)arg12:(int)arg13:(int)arg14:(id)arg15;
 - (int)createBrush:(int)arg1:(id)arg2:(int)arg3:(unsigned int)arg4;
 - (int)createRegion:(id)arg1;
 - (int)deleteObject:(int)arg1;
@@ -81,7 +81,7 @@
 - (int)bezierTo:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6;
 - (int)chord:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6:(int)arg7:(int)arg8;
 - (int)arcTo:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6:(int)arg7:(int)arg8;
-- (int)angleArc:(int)arg1:(int)arg2:(unsigned long)arg3:(double)arg4:(double)arg5;
+- (int)angleArc:(int)arg1:(int)arg2:(unsigned int)arg3:(double)arg4:(double)arg5;
 - (int)pie:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6:(int)arg7:(int)arg8;
 - (int)arc:(int)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(int)arg6:(int)arg7:(int)arg8;
 - (int)polyPolyline:(struct CGPoint *)arg1:(int *)arg2:(int)arg3;

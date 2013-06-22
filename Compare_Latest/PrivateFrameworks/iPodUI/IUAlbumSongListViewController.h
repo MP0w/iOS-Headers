@@ -6,19 +6,43 @@
 
 #import <iPodUI/IUStoreCompletionListViewController.h>
 
+#import "AFContextProvider-Protocol.h"
 #import "IUAlbumOfferTableFooterViewDelegate-Protocol.h"
+#import "MPStoreDownloadManagerObserver-Protocol.h"
 
-@interface IUAlbumSongListViewController : IUStoreCompletionListViewController <IUAlbumOfferTableFooterViewDelegate>
+@class IUAlbumInformationView, IUMusicMediaItemImageRequest, NSOperationQueue;
+
+@interface IUAlbumSongListViewController : IUStoreCompletionListViewController <AFContextProvider, IUAlbumOfferTableFooterViewDelegate, MPStoreDownloadManagerObserver>
 {
+    IUAlbumInformationView *_albumInformationView;
+    IUMusicMediaItemImageRequest *_artworkImageCacheRequest;
+    NSOperationQueue *_downloadableEntitiesOperationQueue;
 }
 
 + (Class)tableViewCellClass;
+- (void).cxx_destruct;
+- (void)_updateCloudDownloadButton;
+- (void)_updateAlbumInformationView;
+- (BOOL)_shouldShowOfferButtonOrLabelForOffering:(id)arg1;
 - (BOOL)_footerShouldDrawInAlternateStyle;
+- (void)_shuffleAction:(id)arg1;
+- (void)_downloadAllAction:(id)arg1;
+- (void)downloadManager:(id)arg1 downloadDidFinish:(id)arg2;
+- (void)downloadManager:(id)arg1 didAddDownloads:(id)arg2 removeDownloads:(id)arg3;
+- (id)getCurrentContext;
+- (BOOL)allowContextProvider:(id)arg1;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
+- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (void)albumOfferTableFooterView:(id)arg1 showItemsInOffer:(id)arg2;
-- (BOOL)hideActionRowsOnAppear;
 - (void)updateFooterView;
 - (id)newOfferTableFooterViewWithStoreCompletionOffering:(id)arg1;
-- (BOOL)_shouldShowOfferButtonOrLabelForOffering:(id)arg1;
+- (BOOL)hideActionRowsOnAppear;
+- (void)viewControllerDidFinishReloadForDataSourceInvalidation;
+- (void)reloadData;
+- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -6,21 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSNumber, NSString;
+@class ACDDatabase, ACDTelemetryWatchdog, NSMutableDictionary, NSNumber, NSString, NSXPCConnection;
 
 @interface ACDClient : NSObject
 {
-    struct _xpc_connection_s *_connection;
-    NSString *_bundleID;
+    NSXPCConnection *_connection;
+    ACDDatabase *_database;
     struct __CFBundle *_bundle;
+    NSString *_bundleID;
     NSNumber *_pid;
     NSString *_localizedAppName;
     NSString *_name;
-    NSMutableDictionary *_accessOptions;
+    NSMutableDictionary *_entitlementChecks;
+    ACDTelemetryWatchdog *_telemetry;
 }
 
 + (id)clientWithBundleID:(id)arg1;
-@property(readonly, nonatomic) struct _xpc_connection_s *connection; // @synthesize connection=_connection;
+@property(retain, nonatomic) ACDTelemetryWatchdog *telemetry; // @synthesize telemetry=_telemetry;
+@property(readonly, nonatomic) ACDDatabase *database; // @synthesize database=_database;
+@property(readonly, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
 - (id)debugDescription;
 - (BOOL)hasEntitlement:(id)arg1;
@@ -28,10 +32,11 @@
 @property(readonly, nonatomic) NSString *adamOrDisplayID;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSString *localizedAppName;
-@property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
+@property(retain, nonatomic) NSString *bundleID;
 @property(readonly, nonatomic) NSNumber *pid;
 - (void)dealloc;
-- (id)initWithConnection:(struct _xpc_connection_s *)arg1;
+- (id)initWithConnection:(id)arg1 database:(id)arg2;
+- (id)initWithConnection:(id)arg1;
 
 @end
 

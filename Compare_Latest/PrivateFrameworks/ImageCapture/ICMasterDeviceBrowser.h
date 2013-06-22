@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSCameraDeviceManager, NSMutableArray, PTPCameraDeviceManager;
+@class ExFATCameraDeviceManager, MSCameraDeviceManager, NSMutableArray, PTPCameraDeviceManager;
 
 @interface ICMasterDeviceBrowser : NSObject
 {
@@ -15,6 +15,7 @@
     int _numberOfBrowsingBrowsers;
     MSCameraDeviceManager *_msDevManager;
     PTPCameraDeviceManager *_ptpDevManager;
+    ExFATCameraDeviceManager *_exFATManager;
 }
 
 + (BOOL)exists;
@@ -28,8 +29,8 @@
 - (void)stop:(id)arg1;
 - (int)start:(id)arg1;
 - (void)removeMSCamera:(id)arg1;
-- (int)addRemoveMSCamera;
 - (int)addMSCamera:(id)arg1;
+- (int)addExFATCamera:(id)arg1;
 - (void)removePTPCamera:(id)arg1;
 - (int)addPTPCamera:(id)arg1;
 - (void)removeBrowser:(id)arg1;

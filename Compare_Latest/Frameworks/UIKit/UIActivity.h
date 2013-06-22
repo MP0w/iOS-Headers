@@ -11,7 +11,7 @@
     id _activityCompletionHandler;
 }
 
-+ (id)_activityImageForPrerenderedImage:(id)arg1;
++ (int)activityCategory;
 + (id)_activityGenericImage:(id)arg1;
 + (id)_activityFunctionImage:(id)arg1;
 + (id)_activityImageForApplication:(id)arg1;
@@ -25,13 +25,17 @@
 - (id)activityTitle;
 - (id)activityType;
 - (void)dealloc;
+- (id)_attachmentNameForActivityItem:(id)arg1;
+- (id)_thumbnailImageForActivityItem:(id)arg1;
+- (id)_dataTypeIdentifierForActivityItem:(id)arg1;
+- (id)_subjectForActivityItem:(id)arg1;
+- (struct CGSize)_thumbnailSize;
 - (void)_setSubject:(id)arg1;
 - (BOOL)_dismissActivityFromViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
 - (BOOL)_presentActivityOnViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
 - (void)_cleanup;
 - (id)_embeddedActivityViewController;
 - (void)_setActivityCompletionHandler:(id)arg1;
-- (BOOL)_canAdjustOrder;
 - (id)_beforeActivity;
 - (id)_activityImage;
 - (BOOL)_canPerformWithSuppliedActivityItems:(id)arg1;

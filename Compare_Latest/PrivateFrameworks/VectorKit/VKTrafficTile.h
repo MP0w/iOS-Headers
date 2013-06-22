@@ -15,17 +15,21 @@
     VKTileKeyMap *_dynamicTiles;
     NSMutableArray *_incidents;
     struct TrafficSkeletonTile _trafficData;
+    struct vector<VKRibbonMultiPolylineSegment, vk_allocator<VKRibbonMultiPolylineSegment>> _ribbonSegments;
+    vector_012c76ef _tileBoundaryDesignators;
 }
 
+@property(nonatomic) vector_012c76ef *tileBoundaryDesignators; // @synthesize tileBoundaryDesignators=_tileBoundaryDesignators;
 @property(readonly, nonatomic) VKTileKeyMap *dynamicTiles; // @synthesize dynamicTiles=_dynamicTiles;
 @property(readonly, nonatomic) NSArray *incidents; // @synthesize incidents=_incidents;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)writeDataToDirectory:(id)arg1 error:(id *)arg2;
 - (void)buildTrafficMeshWithRoadData:(id)arg1;
+- (void)buildConnectionDesignators;
 - (void)buildIncidentsForDynamic:(id)arg1;
-- (void)buildTrafficMeshWithRoadData:(id)arg1 dynamicTile:(id)arg2 ribbonMaker:(struct VKRibbonMakerData_t *)arg3 trafficAccum:(struct TrafficAccum *)arg4 styleSession:(id)arg5;
-- (BOOL)_buildStartOffset:(float *)arg1 endOffset:(float *)arg2 forLine:(CDStruct_a206f7ef *)arg3 forSkeleton:(const struct Record *)arg4 forRange:(struct _NSRange)arg5 forFlow:(const struct Flow *)arg6 forPoints:(CDStruct_6e3f967a *)arg7;
+- (void)buildTrafficMeshWithRoadData:(id)arg1 dynamicTile:(id)arg2 ribbonMaker:(struct VKRibbonMakerData *)arg3 trafficAccum:(struct TrafficAccum *)arg4 styleSession:(id)arg5;
+- (void)enumerateTrafficRoadPiecesForTile:(id)arg1 usingFunction:(const function_ccedc87b *)arg2;
+- (BOOL)_buildStartOffset:(float *)arg1 endOffset:(float *)arg2 forLine:(CDStruct_c272c4e8 *)arg3 forSkeleton:(const struct Record *)arg4 forRange:(struct _NSRange)arg5 forFlow:(const struct Flow *)arg6 forPoints:(Vec2Imp_1782d7e3 *)arg7;
 - (void)buildSkeletonMeshForDebug:(id)arg1;
 - (void)buildSkeletonMap;
 - (void)dealloc;

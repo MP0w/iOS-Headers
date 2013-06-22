@@ -23,6 +23,8 @@
 @property id <StepByStepUIDelegate> delegate; // @synthesize delegate=_delegate;
 - (long)setupFromAutoguessRecommendation:(id)arg1 withOptions:(id)arg2;
 - (void)stepByStepNextStepResult:(long)arg1 withOptions:(id)arg2;
+- (long)resume;
+- (long)cancelStepByStep;
 - (long)subclassAssistantCallback:(struct AssistantCallbackContext *)arg1;
 - (void)dealloc;
 - (id)init;

@@ -12,7 +12,7 @@
 {
     void *_xconnection;
     NSObject<OS_dispatch_queue> *_userQueue;
-    NSObject<OS_dispatch_queue> *_internalQueue;
+    void *reserved0;
     id <NSXPCListenerDelegate> _delegate;
     NSString *_serviceName;
     unsigned long long _state;
@@ -25,6 +25,8 @@
 + (id)anonymousListener;
 + (id)serviceListener;
 @property id <NSXPCListenerDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)_queue;
+- (void)_setQueue:(id)arg1;
 - (void)setOptions:(unsigned int)arg1;
 - (id)endpoint;
 - (id)serviceName;

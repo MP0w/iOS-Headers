@@ -12,7 +12,10 @@
 {
     int _segmentCount;
     int _segmentMax;
-    struct PATHSEGMENT *_head;
+    struct PATHSEGMENT {
+        unsigned char;
+        struct CGPoint;
+    } *_head;
     int _lastSubpathIndex;
     int _elementCount;
     float _lineWidth;

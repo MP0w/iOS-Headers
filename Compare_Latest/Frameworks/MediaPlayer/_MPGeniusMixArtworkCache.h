@@ -6,22 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSData;
+@class NSData, UIImage;
 
 @interface _MPGeniusMixArtworkCache : NSObject
 {
     NSData *_data;
-    struct CGImage *_artworkImage;
+    UIImage *_artworkImage;
 }
 
 + (id)artworkCacheWithContentsOfFile:(id)arg1;
 + (id)artworkCacheWithCoverCount:(unsigned int)arg1 coverSize:(struct CGSize)arg2 entityArtworkCacheHash:(unsigned long long)arg3 artworkData:(void *)arg4 length:(unsigned int)arg5;
+- (void).cxx_destruct;
 - (BOOL)writeToFile:(id)arg1;
 @property(readonly, nonatomic) unsigned long long entityArtworkCacheHash;
 @property(readonly, nonatomic) struct CGSize coverSize;
 @property(readonly, nonatomic) unsigned int coverCount;
-@property(readonly, nonatomic) struct CGImage *artworkImage;
-- (void)dealloc;
+@property(readonly, nonatomic) UIImage *artworkImage;
 - (id)init;
 
 @end

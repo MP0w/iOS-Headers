@@ -19,11 +19,11 @@
     SBUIAnimationController *_animation;
     id _alertActivationBlock;
     BOOL _animatedAppDeactivation;
+    BOOL _suspendWorkspace;
 }
 
 @property(copy, nonatomic) id alertActivationBlock; // @synthesize alertActivationBlock=_alertActivationBlock;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 didCommitAnimation:(BOOL)arg2 withDuration:(double)arg3 afterDelay:(double)arg4;
 - (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
 - (void)_transactionComplete;
 - (BOOL)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;

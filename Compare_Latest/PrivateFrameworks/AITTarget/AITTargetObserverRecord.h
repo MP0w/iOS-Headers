@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>;
+
 @interface AITTargetObserverRecord : NSObject
 {
-    struct dispatch_queue_s *_queue;
+    NSObject<OS_dispatch_queue> *_queue;
     id _handler;
     id _observer;
 }
 
-+ (id)recordForObserver:(id)arg1 queue:(struct dispatch_queue_s *)arg2 block:(id)arg3;
++ (id)recordForObserver:(id)arg1 queue:(id)arg2 block:(id)arg3;
 @property(readonly) id handler; // @synthesize handler=_handler;
-@property(readonly) struct dispatch_queue_s *queue; // @synthesize queue=_queue;
+@property(readonly) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly) id observer; // @synthesize observer=_observer;
 - (void)dealloc;
 

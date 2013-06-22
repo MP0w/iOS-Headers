@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSURLRequestInternal;
 
-@interface NSURLRequest : NSObject <NSCoding, NSCopying, NSMutableCopying>
+@interface NSURLRequest : NSObject <NSSecureCoding, NSCopying, NSMutableCopying>
 {
     NSURLRequestInternal *_internal;
 }
 
 + (double)defaultTimeoutInterval;
 + (void)setDefaultTimeoutInterval:(double)arg1;
++ (BOOL)supportsSecureCoding;
 + (id)requestWithURL:(id)arg1;
 + (id)requestWithURL:(id)arg1 cachePolicy:(unsigned int)arg2 timeoutInterval:(double)arg3;
 + (void)checkForSharedCookieStoreNeed:(struct _CFURLRequest *)arg1;

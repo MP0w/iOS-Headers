@@ -9,10 +9,15 @@
 @interface UIInternalEvent : UIEvent
 {
     struct __GSEvent *_gsEvent;
+    struct __IOHIDEvent *_hidEvent;
 }
 
+- (id)_screen;
+- (struct __IOHIDEvent *)_hidEvent;
+- (void)_setHIDEvent:(struct __IOHIDEvent *)arg1;
 - (struct __GSEvent *)_gsEvent;
 - (void)_setGSEvent:(struct __GSEvent *)arg1;
+- (void)dealloc;
 
 @end
 

@@ -15,6 +15,5 @@
 - (BOOL)_requiresAccessoryView;
 - (void)_stopAssistingDocumentView:(id)arg1;
 - (void)_startAssistingDocumentView:(id)arg1;
-- (BOOL)_isAssistedDateType;
 @end
 

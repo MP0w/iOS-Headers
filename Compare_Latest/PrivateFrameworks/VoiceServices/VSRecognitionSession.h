@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, VSRecognitionAction, VSSpeechSynthesizer;
+@class NSArray, NSString, VSKeepAlive, VSRecognitionAction, VSSpeechSynthesizer;
 
 @interface VSRecognitionSession : NSObject
 {
     NSString *_modelIdentifier;
-    void *_keepAlive;
+    VSKeepAlive *_keepAlive;
     id <VSRecognitionSessionDelegate> _delegate;
     VSRecognitionAction *_currentAction;
     NSArray *_topLevelKeywords;
@@ -63,6 +63,7 @@
 - (int)keywordCount;
 - (id)keywordAtIndex:(int)arg1;
 - (void)setKeywordPhase:(unsigned int)arg1;
+- (float)inputLevelDB;
 - (float)inputLevel;
 - (void)setInputLevelUpdateInterval:(double)arg1;
 - (id)displayStatusString;

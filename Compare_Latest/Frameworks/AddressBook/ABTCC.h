@@ -21,6 +21,7 @@
 - (void)simulate:(int)arg1;
 - (void)accessRequestWithCompletion:(id)arg1;
 - (void)callExternalChangeCallbacks:(BOOL)arg1;
+- (unsigned char)isAccessRestricted;
 - (int)accessPreflight;
 - (void)dealloc;
 - (id)init;

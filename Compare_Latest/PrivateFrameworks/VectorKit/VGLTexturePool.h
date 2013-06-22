@@ -6,20 +6,22 @@
 
 #import "NSObject.h"
 
-@class VGLContext;
+@class NSMutableArray, VGLContext;
 
 @interface VGLTexturePool : NSObject
 {
     struct CGSize _contentSize;
     struct CGSize _textureSize;
     VGLContext *_context;
-    struct vector<unsigned int, vk_allocator<unsigned int>> *_tokens;
+    NSMutableArray *_textureResources;
 }
 
 - (id).cxx_construct;
 - (id)checkoutTexture;
-- (void)dealloc;
 - (void)purge;
+- (void)pushTextureResource:(id)arg1;
+- (void)allocateTextureResource;
+- (void)dealloc;
 - (id)initWithCapacity:(int)arg1 textureSize:(struct CGSize)arg2 scale:(int)arg3 context:(id)arg4;
 
 @end

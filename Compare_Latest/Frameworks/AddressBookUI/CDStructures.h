@@ -28,12 +28,24 @@ struct UIEdgeInsets {
     float right;
 };
 
+struct UIOffset {
+    float _field1;
+    float _field2;
+};
+
 struct _NSRange {
     unsigned int location;
     unsigned int length;
 };
 
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    id _field1;
+    id _field2;
+    id _field3;
+    id _field4;
+} CDStruct_89ddc8e1;
 
 typedef struct {
     id _field1;
@@ -51,7 +63,7 @@ typedef struct {
 
 typedef struct {
     struct *_field1;
-    int _field2;
-    int _field3;
-} CDStruct_486bb585;
+    unsigned int _field2;
+    unsigned int _field3;
+} CDStruct_e817f9f7;
 

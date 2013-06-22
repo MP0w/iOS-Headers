@@ -6,12 +6,15 @@
 
 #import "NSObject.h"
 
-@interface AltitudeGEOResourceObserver : NSObject
+#import "GEOResourceManifestTileGroupObserver-Protocol.h"
+
+@interface AltitudeGEOResourceObserver : NSObject <GEOResourceManifestTileGroupObserver>
 {
     struct GeoResourceManager *_geoResourceManager;
 }
 
-- (void)_activeTileGroupChanged:(id)arg1;
+- (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
+- (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)dealloc;
 - (id)initWithResourceManager:(struct GeoResourceManager *)arg1;
 

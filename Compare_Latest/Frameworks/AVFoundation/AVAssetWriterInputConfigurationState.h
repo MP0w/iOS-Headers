@@ -23,12 +23,20 @@
     NSString *_languageCode;
     NSString *_extendedLanguageTag;
     BOOL _marksOutputTrackAsEnabled;
+    BOOL _hasClientSpecifiedValueForPreferredVolume;
+    float _preferredVolume;
+    BOOL _hasClientSpecifiedValueForLayer;
+    int _layer;
     short _alternateGroupID;
     NSDictionary *_trackReferences;
 }
 
 @property(copy, nonatomic) NSDictionary *trackReferences; // @synthesize trackReferences=_trackReferences;
 @property(nonatomic) short alternateGroupID; // @synthesize alternateGroupID=_alternateGroupID;
+@property(nonatomic) int layer; // @synthesize layer=_layer;
+@property(nonatomic) BOOL hasClientSpecifiedValueForLayer; // @synthesize hasClientSpecifiedValueForLayer=_hasClientSpecifiedValueForLayer;
+@property(nonatomic) float preferredVolume; // @synthesize preferredVolume=_preferredVolume;
+@property(nonatomic) BOOL hasClientSpecifiedValueForPreferredVolume; // @synthesize hasClientSpecifiedValueForPreferredVolume=_hasClientSpecifiedValueForPreferredVolume;
 @property(nonatomic) BOOL marksOutputTrackAsEnabled; // @synthesize marksOutputTrackAsEnabled=_marksOutputTrackAsEnabled;
 @property(copy, nonatomic) NSString *extendedLanguageTag; // @synthesize extendedLanguageTag=_extendedLanguageTag;
 @property(copy, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;

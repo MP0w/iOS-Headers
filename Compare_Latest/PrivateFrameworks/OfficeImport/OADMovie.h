@@ -6,9 +6,17 @@
 
 #import <OfficeImport/OCDDelayedMedia.h>
 
+@class NSData, NSString;
+
 @interface OADMovie : OCDDelayedMedia
 {
+    NSData *mData;
+    NSString *mName;
 }
+
+@property(retain) NSString *name; // @synthesize name=mName;
+@property(retain) NSData *data; // @synthesize data=mData;
+- (void)dealloc;
 
 @end
 

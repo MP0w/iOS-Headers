@@ -10,6 +10,7 @@
 {
 }
 
+- (id)contentScrollView;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)_saveChanges;

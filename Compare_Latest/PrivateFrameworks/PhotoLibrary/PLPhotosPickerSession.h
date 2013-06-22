@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSMutableSet, NSObject<PLAssetContainer>, NSSet, NSString, UIViewController;
+@class NSMutableDictionary, NSMutableSet, NSObject<PLAlbumProtocol>, NSSet, NSString, UIViewController;
 
 @interface PLPhotosPickerSession : NSObject
 {
@@ -28,7 +28,7 @@
 @property(nonatomic) int bannerButtonType; // @synthesize bannerButtonType=_bannerButtonType;
 @property(readonly, nonatomic) NSSet *allSelectedAssets; // @synthesize allSelectedAssets=_allSelectedAssets;
 @property(retain, nonatomic) NSMutableDictionary *selectedAssetsByAlbumID; // @synthesize selectedAssetsByAlbumID=_selectedAssetsByAlbumID;
-@property(retain, nonatomic) NSObject<PLAssetContainer> *destinationAlbum; // @synthesize destinationAlbum=_destinationAlbum;
+@property(retain, nonatomic) NSObject<PLAlbumProtocol> *destinationAlbum; // @synthesize destinationAlbum=_destinationAlbum;
 @property(copy, nonatomic) NSString *currentPrompt; // @synthesize currentPrompt=_currentPrompt;
 - (void)_updatePromptText;
 - (void)_dismissSessionSuccessfully:(BOOL)arg1 animated:(BOOL)arg2;

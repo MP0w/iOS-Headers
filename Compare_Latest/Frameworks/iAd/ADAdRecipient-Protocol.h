@@ -6,22 +6,18 @@
 
 #import "NSObject-Protocol.h"
 
+@class UIView, UIViewController;
+
 @protocol ADAdRecipient <NSObject>
-@property(nonatomic) BOOL policyEngineManaged;
+@property(readonly, nonatomic) UIViewController *presentingViewController;
+@property(readonly, nonatomic) UIView *adSpaceView;
+@property(readonly, nonatomic) int options;
+@property(readonly, nonatomic) int internalAdType;
 - (void)storyboardViewControllerDidPresent;
 - (void)serverStoryboardDidTransitionOut;
 - (void)serverBannerViewDidFailToReceiveAdWithError:(id)arg1;
 - (void)serverBannerViewDidLoad;
 - (void)serverBannerViewWillLoad;
-- (void)bannerControllerRevoked;
-- (void)bannerControllerGranted;
-- (int)internalAdType;
-- (id)authenticationUserName;
-- (id)advertisingSection;
-- (id)identifier;
-
-@optional
-- (void)serverInterstitialViewExpiredAndWasUnloaded;
-- (id)modalViewController;
+- (void)setRemoteWindowContextId:(unsigned int)arg1;
 @end
 

@@ -8,7 +8,7 @@
 
 #import "TUAppender-Protocol.h"
 
-@class NSMutableArray, NSMutableDictionary, NSString;
+@class NSMutableArray, NSString;
 
 @interface TUInMemoryAppender : NSObject <TUAppender>
 {
@@ -17,12 +17,12 @@
     NSMutableArray *_buffer;
     BOOL _shouldLogDyldInfo;
     BOOL _shouldLogSystemInfo;
-    NSMutableDictionary *_dyldInfo;
     NSString *_cachedPrettyNameForPid;
 }
 
 @property BOOL shouldLogSystemInfo; // @synthesize shouldLogSystemInfo=_shouldLogSystemInfo;
 @property BOOL shouldLogDyldInfo; // @synthesize shouldLogDyldInfo=_shouldLogDyldInfo;
+- (void)setAppenderDelegate:(id)arg1;
 - (void)reset;
 - (void)logWithIdentifier:(id)arg1 pid:(int)arg2 date:(id)arg3 level:(int)arg4 topic:(id)arg5 text:(id)arg6 backtrace:(id)arg7;
 - (void)flush;

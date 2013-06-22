@@ -12,6 +12,7 @@
 
 + (id)activeInstance;
 + (id)sharedInstance;
+- (BOOL)usesDimmingView;
 - (void)hide;
 - (void)fadeWithDelay:(double)arg1;
 - (void)fade;

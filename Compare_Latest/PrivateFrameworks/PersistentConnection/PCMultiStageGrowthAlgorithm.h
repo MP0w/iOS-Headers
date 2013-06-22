@@ -8,7 +8,7 @@
 
 #import "PCGrowthAlgorithm-Protocol.h"
 
-@class NSDate, NSString;
+@class NSDate, NSDictionary, NSString;
 
 @interface PCMultiStageGrowthAlgorithm : NSObject <PCGrowthAlgorithm>
 {
@@ -41,9 +41,12 @@
 - (void)_processInitialGrowthAction:(int)arg1;
 - (void)processNextAction:(int)arg1;
 - (void)_resetAlgorithmToInterval:(double)arg1;
+- (void)_resetAlgorithmToInterval:(double)arg1 stage:(int)arg2;
+@property(readonly, nonatomic) NSDictionary *cacheInfo;
+- (BOOL)useIntervalIfImprovement:(double)arg1;
 - (void)_setCurrentKeepAliveInterval:(double)arg1;
 - (void)dealloc;
-- (id)initWithKeepAliveInterval:(double)arg1 loggingIdentifier:(id)arg2 algorithmName:(id)arg3;
+- (id)initWithCacheInfo:(id)arg1 loggingIdentifier:(id)arg2 algorithmName:(id)arg3;
 
 @end
 

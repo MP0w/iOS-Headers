@@ -6,17 +6,25 @@
 
 #import <UIKit/UIButton.h>
 
-@class NSString;
+@class NSString, UIKBThemedView;
 
 @interface UIKeyboardCandidateToggleButton : UIButton
 {
+    BOOL _arrowColor;
+    NSString *_arrowDirection;
+    UIKBThemedView *_themedView;
 }
 
+@property(nonatomic) BOOL arrowColor; // @synthesize arrowColor=_arrowColor;
+@property(retain, nonatomic) UIKBThemedView *themedView; // @synthesize themedView=_themedView;
+@property(copy, nonatomic) NSString *arrowDirection; // @synthesize arrowDirection=_arrowDirection;
+- (void)_setRenderConfig:(id)arg1;
 - (void)setArrowColor:(id)arg1 forState:(unsigned int)arg2;
 - (id)arrowColorForState:(unsigned int)arg1;
-@property(copy, nonatomic) NSString *arrowDirection;
+- (void)updateArrow;
 - (void)layoutSubviews;
 - (struct CGRect)labelFrameFromFrame:(struct CGRect)arg1;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

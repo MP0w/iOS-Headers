@@ -15,14 +15,14 @@
     _Bool mHidden;
     _Bool mDetailsHidden;
     int mType;
-    unsigned int mItemIndex;
+    unsigned long mItemIndex;
 }
 
 + (id)pivotFieldItem;
 - (void)setType:(int)arg1;
 - (int)type;
-- (void)setItemIndex:(unsigned int)arg1;
-- (unsigned int)itemIndex;
+- (void)setItemIndex:(unsigned long)arg1;
+- (unsigned long)itemIndex;
 - (void)setDetailsHidden:(_Bool)arg1;
 - (_Bool)detailsHidden;
 - (void)setHidden:(_Bool)arg1;

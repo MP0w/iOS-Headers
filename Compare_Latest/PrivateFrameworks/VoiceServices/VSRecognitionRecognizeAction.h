@@ -50,6 +50,7 @@
 - (int)_keywordCount;
 - (id)_keywordAtIndex:(int)arg1;
 - (id)_keywords;
+- (float)_inputLevelDB;
 - (float)_inputLevel;
 - (BOOL)_setInputLevelUpdateInterval:(double)arg1;
 - (BOOL)_setBluetoothInputAllowed:(BOOL)arg1;

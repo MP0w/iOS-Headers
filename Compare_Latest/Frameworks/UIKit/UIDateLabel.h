@@ -6,34 +6,59 @@
 
 #import <UIKit/UILabel.h>
 
+@class NSCalendar, NSDate, NSString, UIFont;
+
 @interface UIDateLabel : UILabel
 {
     BOOL _forceTimeOnly;
-    double _date;
-    struct __CFDate *_dateKey;
+    NSDate *_date;
     BOOL _boldForAllLocales;
+    NSDate *_yesterday;
+    NSDate *_today;
+    NSDate *_noon;
+    NSDate *_tomorrow;
+    NSDate *_previousWeek;
+    UIFont *_timeDesignatorFont;
+    NSCalendar *_calendar;
+    BOOL _shouldRecomputeText;
 }
 
 + (id)defaultFont;
++ (id)pmString;
++ (id)amString;
++ (id)_weekdayDateFormatter;
++ (id)_relativeDateFormatter;
++ (id)_timeOnlyDateFormatter;
++ (id)_dateFormatter;
++ (id)_timeFormatWithoutDesignator;
+@property(nonatomic) BOOL shouldRecomputeText; // @synthesize shouldRecomputeText=_shouldRecomputeText;
 @property(nonatomic) BOOL boldForAllLocales; // @synthesize boldForAllLocales=_boldForAllLocales;
 @property(nonatomic) BOOL forceTimeOnly; // @synthesize forceTimeOnly=_forceTimeOnly;
-- (id)_dateLabelCache;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)drawTextInRect:(struct CGRect)arg1;
-- (id)timeDesignatorFont;
-- (double)timeInterval;
-- (void)setTimeInterval:(double)arg1;
-- (void)setDate:(id)arg1;
-- (void)sizeToFit;
-- (id)timeDesignator;
+@property(readonly, nonatomic) struct CGSize timeDesignatorSize;
+@property(readonly, nonatomic) UIFont *timeDesignatorFont;
+@property(readonly, nonatomic) NSString *timeDesignator;
+@property(readonly, nonatomic) BOOL timeDesignatorAppearsBeforeTime;
+@property(readonly, nonatomic) BOOL use24HourTime;
 - (id)font;
+@property(readonly, nonatomic, getter=_dateString) NSString *dateString;
 - (id)text;
-- (void)_updateDateStrings;
-- (void)setFontWithoutInvalidation:(id)arg1;
-- (void)setFont:(id)arg1;
+- (void)_recomputeTextIfNecessary;
+@property(nonatomic) double timeInterval;
+@property(retain, nonatomic) NSDate *date;
+- (double)_tomorrow;
+- (double)_noon;
+- (double)_today;
+- (double)_yesterday;
+- (double)_lastWeek;
+- (id)_todayDate;
+- (id)_dateWithDayDiffFromToday:(int)arg1;
+- (id)_calendar;
+- (void)drawTextInRect:(struct CGRect)arg1;
+- (void)drawRect:(struct CGRect)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
 - (void)_didUpdateDate;
-- (void)_invalidateDateKey;
-- (struct __CFDate *)_dateKey;
+- (void)invalidate;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

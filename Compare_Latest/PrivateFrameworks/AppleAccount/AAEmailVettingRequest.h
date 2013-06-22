@@ -6,14 +6,14 @@
 
 #import <AppleAccount/AARequest.h>
 
-@class AAAccount;
+@class ACAccount;
 
 @interface AAEmailVettingRequest : AARequest
 {
-    AAAccount *_account;
+    ACAccount *_account;
 }
 
-@property(retain, nonatomic) AAAccount *account; // @synthesize account=_account;
+@property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
 - (id)urlRequest;
 - (id)initWithURLString:(id)arg1 account:(id)arg2;

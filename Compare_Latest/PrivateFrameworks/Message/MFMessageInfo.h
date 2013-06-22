@@ -17,14 +17,12 @@
     unsigned int _uid;
     unsigned int _dateReceivedInterval;
     unsigned int _dateSentInterval;
-    long long _conversationHash;
     unsigned int _mailboxID;
+    long long _conversationHash;
     long long _generationNumber;
-    BOOL _knownToHaveAttachments;
 }
 
 + (long long)newGenerationNumber;
-@property(nonatomic, getter=isKnownToHaveAttachments) BOOL knownToHaveAttachments; // @synthesize knownToHaveAttachments=_knownToHaveAttachments;
 @property(readonly, nonatomic) long long generationNumber; // @synthesize generationNumber=_generationNumber;
 @property(nonatomic) unsigned int mailboxID; // @synthesize mailboxID=_mailboxID;
 @property(nonatomic) long long conversationHash; // @synthesize conversationHash=_conversationHash;
@@ -38,7 +36,7 @@
 - (id)initWithUid:(unsigned int)arg1 mailboxID:(unsigned int)arg2 dateReceivedInterval:(unsigned int)arg3 dateSentInterval:(unsigned int)arg4 conversationHash:(long long)arg5 read:(BOOL)arg6 knownToHaveAttachments:(BOOL)arg7 flagged:(BOOL)arg8 isVIP:(BOOL)arg9;
 - (id)init;
 @property(nonatomic) BOOL isVIP;
-- (BOOL)knownToHaveAttachments;
+@property(nonatomic, getter=isKnownToHaveAttachments) BOOL knownToHaveAttachments;
 @property(nonatomic) BOOL uidIsLibraryID;
 @property(nonatomic) BOOL deleted;
 @property(nonatomic) BOOL flagged;

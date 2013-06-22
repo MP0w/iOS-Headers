@@ -9,32 +9,37 @@
 #import "QLPreviewContentControllerProtocol-Protocol.h"
 #import "QLPreviewItemInteractionDelegate-Protocol.h"
 
-@class NSMutableArray, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSString, UILongPressGestureRecognizer, UIPageViewController, UISegmentedControl, UITapGestureRecognizer;
+@class NSMutableArray, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSString, QLAirPlayController, UIColor, UILongPressGestureRecognizer, UIPageViewController, UISegmentedControl, UITapGestureRecognizer;
 
 @interface QLPreviewContentController : UIViewController <QLPreviewContentControllerProtocol, QLPreviewItemInteractionDelegate>
 {
     id <QLPreviewContentDataSource> _dataSource;
     id <QLPreviewContentDelegate> _delegate;
+    BOOL _isForeground;
+    QLAirPlayController *_airPlayController;
     UITapGestureRecognizer *_tapRecognizer;
     UILongPressGestureRecognizer *_longPressRecognizer;
     UIPageViewController *_pageViewController;
     NSMutableDictionary *_previewViewControllerCache;
+    NSMutableSet *_gestureRecognizersForFullScreenDisplay;
     NSMutableArray *_previewViewControllerCacheOrdering;
     int _previewMode;
     int _numberOfPreviewItems;
     int _currentPreviewItemIndex;
-    NSString *_loadintTextForMissingFiles;
+    NSString *_loadingTextForMissingFiles;
     UISegmentedControl *_customToolbarSegmentedArrowControl;
+    UIColor *_backgroundColor;
+    BOOL _transitioning;
     BOOL _swiping;
     NSMutableSet *_loadingItems;
     NSMutableOrderedSet *_scheduledLoads;
-    BOOL _waitingForRemoteInstantiation;
     BOOL _overlayHidden;
     BOOL _blockRemoteImages;
     CDStruct_6904a77d clientContext;
 }
 
 @property CDStruct_6904a77d clientContext; // @synthesize clientContext;
+@property(copy) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property id <QLPreviewContentDelegate> delegate; // @synthesize delegate=_delegate;
 @property id <QLPreviewContentDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void)_scheduleAdjacentPreviewItems;
@@ -49,10 +54,20 @@
 - (void)previewItemDidLoad:(id)arg1 atIndex:(int)arg2 withError:(id)arg3;
 - (void)previewItem:(id)arg1 requiresDisplayBundle:(id)arg2 withHints:(id)arg3;
 - (void)previewItemWillLoad:(id)arg1;
+- (void)showContentsWasTappedForPreviewItem:(id)arg1;
 - (void)overlayWasInteractedWithOnPreviewItem:(id)arg1;
+- (void)viewDidUpdateForPreviewItem:(id)arg1;
 - (void)viewWasTappedOnPreviewItem:(id)arg1;
 - (void)previewItem:(id)arg1 willHideOverlayWithDuration:(double)arg2;
 - (void)previewItem:(id)arg1 willShowOverlayWithDuration:(double)arg2;
+- (void)_rightSwipeRecognized:(id)arg1;
+- (void)_leftSwipeRecognized:(id)arg1;
+- (void)_updateAirPlay;
+- (void)_activateAirPlayOnRemoteScreen:(id)arg1;
+- (void)_deactivateAirPlay;
+- (void)_updateScreenConfiguration;
+- (void)_screenDidDisconnect:(id)arg1;
+- (void)_screenDidConnect:(id)arg1;
 - (void)pageViewController:(id)arg1 willTransitionToViewControllers:(id)arg2;
 - (void)pageViewController:(id)arg1 didFinishAnimating:(BOOL)arg2 previousViewControllers:(id)arg3 transitionCompleted:(BOOL)arg4;
 - (id)pageViewController:(id)arg1 viewControllerAfterViewController:(id)arg2;
@@ -61,23 +76,28 @@
 - (void)copy:(id)arg1;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (BOOL)canBecomeFirstResponder;
+- (void)becomeForeground;
 - (void)enterBackground;
+- (void)_updateBackgroundWithDuration:(double)arg1;
+- (void)setTransitioning:(BOOL)arg1;
 - (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
+- (void)_updateContentFrame;
 - (void)setContentFrame:(struct CGRect)arg1;
+- (void)willChangeContentFrame;
 - (void)_longPressGestureRecognized:(id)arg1;
 - (void)_hideMenuController;
 - (void)_tapGestureRecognized:(id)arg1;
 - (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (BOOL)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)willMoveToParentViewController:(id)arg1;
+- (id)snapshotView;
 - (void)togglePlayState;
 - (void)endScrubbing;
 - (void)scrubToValue:(double)arg1;
 - (void)beginScrubbing;
 - (id)printPageHelper;
 - (id)printPageRenderer;
-- (id)pdfPreviewData;
-- (void)setLoadintTextForMissingFiles:(id)arg1;
+- (void)setLoadingTextForMissingFiles:(id)arg1;
 - (void)setBlockRemoteImages:(BOOL)arg1;
 @property int previewMode; // @synthesize previewMode=_previewMode;
 - (void)refreshCurrentPreviewItem;
@@ -89,14 +109,17 @@
 - (id)currentPreviewViewController;
 - (id)_previewViewControllerForPreviewItemIndex:(unsigned int)arg1;
 - (id)_previewControllerForPreviewItem:(id)arg1 createIfNeeded:(BOOL)arg2 withIndex:(int)arg3;
-- (id)_copyPreviewControllerForPreview:(id)arg1;
+- (id)_copyPreviewControllerForPreview:(id)arg1 withIndex:(int)arg2;
 - (void)_updateTapRecognizer;
 - (void)_cachePreviewViewController:(id)arg1;
 - (void)_removeNonCachedPreviewViewControllers;
-- (id)_cachedPreviewControllerForPreviewItem:(id)arg1;
+- (id)_cachedPreviewControllerForPreviewItem:(id)arg1 withIndex:(int)arg2;
+- (void)_clearPreviewViewControllerCache;
 - (void)forceResignFirstResponder;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidLayoutSubviews;
+- (void)viewDidLoad;
 - (void)configureWithParameters:(id)arg1;
 - (void)didReceiveMemoryWarning;
 - (void)dealloc;

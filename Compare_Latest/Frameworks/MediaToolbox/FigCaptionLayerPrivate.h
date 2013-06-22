@@ -11,8 +11,9 @@
 @interface FigCaptionLayerPrivate : NSObject
 {
     struct OpaqueFigCFCaptionRenderer *renderer;
-    NSMutableArray *rowLayers;
+    NSMutableArray *captionElementLayers;
     struct OpaqueFigSimpleMutex *renderMutex;
+    struct OpaqueFigReentrantMutex *layoutSublayersMutex;
 }
 
 @end

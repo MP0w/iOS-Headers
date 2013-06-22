@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ESDContainer, ESDObject, ESDRoot, NSMutableArray, NSMutableDictionary, OADTheme, PBOfficeArtReaderState, PBOutlineBulletDictionary, PBSlideState, PDPresentation, PDSlideBase, TSUNoCopyDictionary;
+@class ESDContainer, ESDObject, ESDRoot, NSMutableArray, NSMutableDictionary, PBOfficeArtReaderState, PBOutlineBulletDictionary, PBSlideState, PDPresentation, PDSlideBase, TSUNoCopyDictionary;
 
 @interface PBPresentationReaderState : NSObject
 {
@@ -31,7 +31,6 @@
     ESDObject *mCurrentMacCharStyle;
     ChVector_b45fc7a7 *mSrcDocMasterStyleInfoVector;
     ChVector_b45fc7a7 *mSrcCurrentMasterStyleInfoVector;
-    OADTheme *mDefaultTheme;
     PBSlideState *mSlideState;
     id <OCCancelDelegate> mCancel;
     BOOL mHasSlideNumberPlaceholder;
@@ -69,17 +68,14 @@
 - (unsigned int)textLength;
 - (void)setTgtSlide:(id)arg1;
 - (id)tgtSlide;
-- (id)defaultTheme;
-- (void)setDefaultTheme:(id)arg1;
-- (id)baseTextListStyle;
 - (id)fontEntityAtIndex:(unsigned int)arg1;
 - (void)addFontEntity:(id)arg1 charSet:(int)arg2 type:(int)arg3 family:(int)arg4;
 - (unsigned int)fontEntityCount;
 - (id)officeArtState;
 - (id)slideIndexesRef;
-- (int)getSlideIndexAt:(int)arg1;
-- (void)addSlideIndex:(int)arg1;
-- (int)numberOfSlideIndexes;
+- (unsigned int)getSlideIndexAt:(unsigned int)arg1;
+- (void)addSlideIndex:(unsigned int)arg1;
+- (unsigned int)numberOfSlideIndexes;
 - (id)tgtPresentation;
 - (void)setDocumentRoot:(id)arg1;
 - (id)documentRoot;

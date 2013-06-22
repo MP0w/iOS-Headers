@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVAudioMix, AVPlayerConnection, AVPlayerItem, AVPropertyStorage, AVVideoComposition, AVWeakReference, NSArray, NSDate, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL;
+@class AVAsset, AVAudioMix, AVCustomVideoCompositorSession, AVPlayerConnection, AVPlayerItem, AVPropertyStorage, AVVideoComposition, AVWeakReference, NSArray, NSDate, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface AVPlayerItemInternal : NSObject
 {
@@ -16,6 +16,7 @@
     struct OpaqueFigPlaybackItem *figPlaybackItem;
     struct OpaqueFigCPEProtector *figCPEProtector;
     struct OpaqueCMTimebase *figTimebase;
+    id <AVPlayerItemDelegate> delegate;
     AVWeakReference *playerReference;
     AVPlayerConnection *playerConnection;
     BOOL isCurrentPlayerItem;
@@ -25,6 +26,7 @@
     NSError *error;
     NSURL *URL;
     AVAsset *asset;
+    NSArray *automaticallyLoadedAssetKeys;
     AVAsset *assetWithFigPlaybackItem;
     NSArray *trackIDsForAssetWithFigPlaybackItem;
     NSObject<OS_dispatch_queue> *syncLayersQ;
@@ -33,8 +35,8 @@
     CDStruct_1b6d18a9 initialTime;
     CDStruct_1b6d18a9 initialToleranceBefore;
     CDStruct_1b6d18a9 initialToleranceAfter;
-    CDStruct_1b6d18a9 initialForwardPlaybackEndTime;
-    CDStruct_1b6d18a9 initialReversePlaybackEndTime;
+    CDStruct_1b6d18a9 forwardPlaybackEndTime;
+    CDStruct_1b6d18a9 reversePlaybackEndTime;
     NSDate *initialDate;
     NSDate *initialEstimatedDate;
     BOOL initialLimitReadAhead;
@@ -46,40 +48,53 @@
     double initialBufferingTargetMinimum;
     double initialBufferingTargetMaximum;
     struct __CFString *initialFigTimePitchAlgorithm;
+    BOOL savesDownloadedDataToDiskWhenDone;
+    BOOL nonForcedSubtitlesEnabled;
+    BOOL networkUsuallyExceedsMaxBitRate;
+    BOOL allowProgressiveSwitchUp;
+    float maximumBitRate;
     AVAudioMix *audioMix;
     AVVideoComposition *videoComposition;
+    void *figVideoCompositor;
+    AVCustomVideoCompositorSession *customVideoCompositorSession;
     BOOL seekingWaitsForVideoCompositionRendering;
     NSArray *textStyleRules;
     NSDictionary *gaplessInfo;
+    int initialVariantIndex;
     NSDictionary *audibleDRMInfo;
     NSDictionary *rampInOutInfo;
     float soundCheckVolumeNormalization;
     float volumeAdjustment;
     NSMutableArray *handlersToCallWhenReadyForEnqueueing;
     NSMutableDictionary *mediaOptionsSelectedByClient;
-    NSMutableDictionary *tracksSelectedByClientViaAlternateTrackGroupSPI;
     BOOL haveInitialSamples;
     BOOL haveCPEProtector;
     BOOL didSetAssetToAssetWithFigPlaybackItem;
+    BOOL didBecomeReadyForBasicInspection;
     BOOL didBecomeReadyForInspectionOfMediaSelectionOptions;
     BOOL didBecomeReadyForInspectionOfTracks;
     BOOL didBecomeReadyForInspectionOfPresentationSize;
+    BOOL didBecomeReadyForInspectionOfDuration;
     BOOL didInformObserversAboutAvailabilityOfTracks;
     BOOL didFireKVOForAssetForNonStreamingItem;
     BOOL didApplyInitialAudioMix;
     BOOL wasInitializedWithURL;
     BOOL needTimedMetadataNotification;
-    BOOL nonForcedSubtitleDisplayEnabled;
     BOOL externalSubtitlesEnabled;
     BOOL externalProtectionRequested;
+    BOOL requiresAccessLog;
     int eqPreset;
     struct OpaqueFigSimpleMutex *seekIDMutex;
     int nextSeekIDToGenerate;
     int pendingSeekID;
     id seekCompletionHandler;
     NSString *dataYouTubeID;
-    NSMutableArray *itemOutputs;
+    NSArray *itemOutputs;
     NSMutableArray *itemVideoOutputs;
+    NSMutableArray *itemLegibleOutputs;
+    NSString *serviceIdentifier;
+    NSString *mediaKind;
+    unsigned int restrictions;
 }
 
 @end

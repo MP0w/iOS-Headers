@@ -20,6 +20,7 @@
 
 + (float)defaultHeight;
 @property(nonatomic) int style; // @synthesize style=_style;
+- (void).cxx_destruct;
 - (void)_layoutSubviews;
 - (void)reloadForAdditions:(id)arg1 removals:(id)arg2 animate:(BOOL)arg3;
 - (id)newVolumeSlider;

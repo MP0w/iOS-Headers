@@ -13,9 +13,11 @@
     CTCallCenter *_callCenter;
     struct __CTServerConnection *_ctServerConnection;
     NSMutableDictionary *_currentCallDictionary;
-    BOOL _isDesignatedServiceProvider;
+    BOOL _isDesignatedAudioServiceProvider;
+    BOOL _isDesignatedVideoServiceProvider;
     struct __CFMachPort *_ctServerMachPort;
-    struct __CFUUID *_ctToken;
+    struct __CFUUID *_ctAudioToken;
+    struct __CFUUID *_ctVideoToken;
 }
 
 + (id)numberToDialForNumber:(id)arg1 dialAssist:(char *)arg2;
@@ -26,6 +28,7 @@
 - (void)startWatchingForCTRequests;
 - (void)_chatStateChanged:(id)arg1;
 - (void)notifyCallEndedForChat:(id)arg1;
+- (void)_notifyMissedCallForInviteFromID:(id)arg1 isVideo:(BOOL)arg2;
 - (void)notifyMissedCallForChat:(id)arg1;
 - (void)notifyCallStartedForChat:(id)arg1;
 - (void)notifyCallConnectingForChat:(id)arg1;

@@ -8,16 +8,16 @@
 
 @interface StyledMPMediaQuery : MPMediaQuery
 {
-    CDStruct_ee3f66e2 *_searchStyle;
+    CDStruct_c37684e5 *_searchStyle;
     int _entityType;
 }
 
-@property(nonatomic) CDStruct_ee3f66e2 *searchStyle; // @synthesize searchStyle=_searchStyle;
+@property(nonatomic) CDStruct_c37684e5 *searchStyle; // @synthesize searchStyle=_searchStyle;
 @property(nonatomic) int entityType; // @synthesize entityType=_entityType;
 - (id)queryForEntityAtIndex:(unsigned int)arg1;
 - (unsigned long long)playlistUIDAtIndex:(unsigned int)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithSearchStyle:(CDStruct_ee3f66e2 *)arg1 searchString:(id)arg2;
+- (id)initWithSearchStyle:(CDStruct_c37684e5 *)arg1 searchString:(id)arg2;
 
 @end
 

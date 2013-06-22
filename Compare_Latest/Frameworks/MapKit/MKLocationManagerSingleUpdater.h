@@ -12,6 +12,7 @@
 @interface MKLocationManagerSingleUpdater : NSObject <MKLocationManagerObserver, MKLocationManagerOperation>
 {
     id _handler;
+    BOOL _active;
 }
 
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;

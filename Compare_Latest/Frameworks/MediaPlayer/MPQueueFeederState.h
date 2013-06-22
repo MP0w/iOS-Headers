@@ -20,8 +20,8 @@
 @property(nonatomic) double currentTime; // @synthesize currentTime=_currentTime;
 @property(nonatomic) unsigned int currentItemIndex; // @synthesize currentItemIndex=_currentItemIndex;
 @property(retain, nonatomic) MPQueueFeeder *feeder; // @synthesize feeder=_feeder;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (id)initWithStateOfAVController:(id)arg1;
 
 @end

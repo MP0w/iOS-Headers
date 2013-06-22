@@ -10,8 +10,5 @@
 {
 }
 
-- (struct CGRect)accessoryEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
-- (struct CGRect)accessoryStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
-
 @end
 

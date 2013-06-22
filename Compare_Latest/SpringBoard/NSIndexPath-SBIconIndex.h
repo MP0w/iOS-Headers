@@ -13,5 +13,7 @@
 - (id)indexPathWithPrefixPath:(id)arg1;
 - (id)subpathFromPosition:(unsigned int)arg1;
 - (id)_subpathWithRange:(struct _NSRange)arg1;
+- (unsigned int)sbListIndex;
+- (unsigned int)sbIconIndex;
 @end
 

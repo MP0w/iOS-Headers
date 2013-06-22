@@ -6,30 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSMutableDictionary;
-
 @interface SSLockdown : NSObject
 {
-    NSMutableDictionary *_dictionary;
-    NSLock *_lock;
 }
 
 + (id)sharedInstance;
-- (void)_setLocalValue:(void *)arg1 forKey:(struct __CFString *)arg2 domain:(struct __CFString *)arg3;
-- (BOOL)_ntsSaveLocalDictionary;
-- (id)_ntsLocalDictionary;
-- (id)_localDictionaryFileName;
-- (id)_localDictionaryDirectory;
-- (void *)_copyLocalValueForKey:(struct __CFString *)arg1 domain:(struct __CFString *)arg2;
-- (void)setValue:(void *)arg1 forKey:(struct __CFString *)arg2 domain:(struct __CFString *)arg3;
-- (void)removeAccountFromDomain:(struct __CFString *)arg1;
-- (void *)copyValueForKey:(struct __CFString *)arg1 domain:(struct __CFString *)arg2;
-- (void *)copyITunesValueForKey:(struct __CFString *)arg1 usedDomain:(const struct __CFString **)arg2;
 - (struct __CFString *)copyDeviceGUID;
-- (id)copyAccountDictionaryForDomain:(struct __CFString *)arg1;
-@property(readonly) long long totalDiskCapacity;
-- (void)dealloc;
-- (id)init;
 
 @end
 

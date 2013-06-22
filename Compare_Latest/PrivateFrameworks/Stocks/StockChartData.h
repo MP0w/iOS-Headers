@@ -6,41 +6,43 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDate, NSString, NSTimeZone, StockGraphImageSet;
+@class NSArray, NSDate, NSTimeZone, Stock, StockGraphImageSet;
 
 @interface StockChartData : NSObject
 {
-    NSString *symbol;
-    int chartInterval;
-    CDStruct_8cc9ba3e *stockValues;
-    unsigned int stockValueCount;
-    NSArray *interestingIndexes;
-    NSDate *marketOpenDate;
-    NSDate *marketCloseDate;
-    NSTimeZone *marketTimeZone;
-    CDStruct_8cc9ba3e *minValue;
-    CDStruct_8cc9ba3e *maxValue;
-    double expirationTime;
-    BOOL isUnavailable;
-    BOOL hasVolume;
-    StockGraphImageSet *graphImageSets[2];
-    NSArray *labelInfoArrays[4];
-    int labelAlignments[2];
+    StockGraphImageSet *_graphImageSets[2];
+    NSArray *_labelInfoArrays[4];
+    int _labelAlignments[2];
+    BOOL _isUnavailable;
+    BOOL _hasVolume;
+    Stock *_stock;
+    int _chartInterval;
+    CDStruct_8cc9ba3e *_stockValues;
+    unsigned int _stockValueCount;
+    NSArray *_interestingIndexes;
+    NSDate *_marketOpenDate;
+    NSDate *_marketCloseDate;
+    NSTimeZone *_marketTimeZone;
+    CDStruct_8cc9ba3e *_minValue;
+    CDStruct_8cc9ba3e *_maxValue;
+    int _yAxisFractionDigits;
+    double _expirationTime;
 }
 
-@property(nonatomic) BOOL hasVolume; // @synthesize hasVolume;
-@property(nonatomic) BOOL isUnavailable; // @synthesize isUnavailable;
-@property(nonatomic) double expirationTime; // @synthesize expirationTime;
-@property(nonatomic) CDStruct_8cc9ba3e *maxValue; // @synthesize maxValue;
-@property(nonatomic) CDStruct_8cc9ba3e *minValue; // @synthesize minValue;
-@property(retain, nonatomic) NSTimeZone *marketTimeZone; // @synthesize marketTimeZone;
-@property(retain, nonatomic) NSDate *marketCloseDate; // @synthesize marketCloseDate;
-@property(retain, nonatomic) NSDate *marketOpenDate; // @synthesize marketOpenDate;
-@property(retain, nonatomic) NSArray *interestingIndexes; // @synthesize interestingIndexes;
-@property(readonly) unsigned int stockValueCount; // @synthesize stockValueCount;
-@property(readonly) CDStruct_8cc9ba3e *stockValues; // @synthesize stockValues;
-@property(nonatomic) int chartInterval; // @synthesize chartInterval;
-@property(copy, nonatomic) NSString *symbol; // @synthesize symbol;
+@property(nonatomic) int yAxisFractionDigits; // @synthesize yAxisFractionDigits=_yAxisFractionDigits;
+@property(nonatomic) BOOL hasVolume; // @synthesize hasVolume=_hasVolume;
+@property(nonatomic) BOOL isUnavailable; // @synthesize isUnavailable=_isUnavailable;
+@property(nonatomic) double expirationTime; // @synthesize expirationTime=_expirationTime;
+@property(nonatomic) CDStruct_8cc9ba3e *maxValue; // @synthesize maxValue=_maxValue;
+@property(nonatomic) CDStruct_8cc9ba3e *minValue; // @synthesize minValue=_minValue;
+@property(retain, nonatomic) NSTimeZone *marketTimeZone; // @synthesize marketTimeZone=_marketTimeZone;
+@property(retain, nonatomic) NSDate *marketCloseDate; // @synthesize marketCloseDate=_marketCloseDate;
+@property(retain, nonatomic) NSDate *marketOpenDate; // @synthesize marketOpenDate=_marketOpenDate;
+@property(retain, nonatomic) NSArray *interestingIndexes; // @synthesize interestingIndexes=_interestingIndexes;
+@property(readonly) unsigned int stockValueCount; // @synthesize stockValueCount=_stockValueCount;
+@property(readonly) CDStruct_8cc9ba3e *stockValues; // @synthesize stockValues=_stockValues;
+@property(nonatomic) int chartInterval; // @synthesize chartInterval=_chartInterval;
+@property(nonatomic) __weak Stock *stock; // @synthesize stock=_stock;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)description;
@@ -52,7 +54,7 @@
 - (void)setImageSet:(id)arg1 forStockGraphSize:(int)arg2;
 - (id)imageSetForStockGraphSize:(int)arg1;
 - (CDStruct_8cc9ba3e *)allocateStockValuesWithCount:(unsigned int)arg1;
-- (id)initWithSymbol:(id)arg1 interval:(int)arg2;
+- (id)initWithStock:(id)arg1 interval:(int)arg2;
 
 @end
 

@@ -7,6 +7,6 @@
 #import "SBUISound.h"
 
 @interface SBUISound (SBUtilities)
-- (id)initWithBBSound:(id)arg1;
++ (id)soundWithBBSound:(id)arg1;
 @end
 

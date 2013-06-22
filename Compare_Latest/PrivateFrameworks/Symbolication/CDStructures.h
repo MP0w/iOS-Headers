@@ -6,19 +6,87 @@
 
 #pragma mark Named Structures
 
+struct VMULabelUniquingDataForStringType {
+    id _field1;
+    id _field2;
+};
+
 struct _CSTypeRef {
     unsigned int _opaque_1;
     unsigned int _opaque_2;
 };
 
-struct _NSRange {
+struct _VMUBlockNode {
+    unsigned long long _field1;
+    unsigned int :3;
+    unsigned int :36;
+    unsigned int :25;
+};
+
+struct _VMUDirectedGraphEdge {
     unsigned int _field1;
     unsigned int _field2;
+    unsigned int _field3;
+};
+
+struct _VMUDirectedGraphNode {
+    unsigned int _field1;
+    unsigned int _field2;
+};
+
+struct _VMUObjectGraphEdge {
+    unsigned int :64;
+    unsigned int :4;
+    unsigned int :60;
 };
 
 struct _VMURange {
     unsigned long long location;
     unsigned long long length;
+};
+
+struct _VMURegionMap {
+    void *_field1;
+    struct _VMURegionNode *_field2;
+    unsigned int _field3;
+    unsigned long long _field4;
+    unsigned long long _field5;
+    unsigned int _field6[0];
+};
+
+struct _VMURegionNode {
+    unsigned long long _field1;
+    unsigned long long _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    void *_field5;
+    unsigned long long _field6;
+    _Bool _field7;
+    _Bool _field8;
+    _Bool _field9;
+    struct *_field10;
+    unsigned int _field11;
+    unsigned int _field12;
+    unsigned long long _field13;
+    unsigned long long _field14;
+    int _field15;
+    int _field16;
+    unsigned int _field17;
+    unsigned char _field18;
+    unsigned char _field19;
+};
+
+struct _VMUThreadNode {
+    unsigned long long _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int *_field4;
+};
+
+struct _VMUZoneNode {
+    unsigned long long _field1;
+    struct malloc_introspection_t *_field2;
+    id _field3;
 };
 
 struct __CFRuntimeBase {
@@ -60,6 +128,8 @@ struct dyld_image_info_64 {
     unsigned long long _field3;
 };
 
+struct malloc_introspection_t;
+
 struct nlist_64 {
     union {
         unsigned int _field1;
@@ -68,11 +138,6 @@ struct nlist_64 {
     unsigned char _field3;
     unsigned short _field4;
     unsigned long long _field5;
-};
-
-struct objc_classheader_t {
-    int _field1;
-    int _field2;
 };
 
 struct timeval {
@@ -88,6 +153,19 @@ typedef struct {
     unsigned int _field3;
     unsigned int _field4;
 } CDStruct_7523a67d;
+
+typedef struct {
+    unsigned long long _field1;
+    unsigned int :60;
+    unsigned int :4;
+    id _field2;
+} CDStruct_599faf0f;
+
+typedef struct {
+    unsigned long long _field1;
+    int _field2;
+    unsigned long long _field3;
+} CDStruct_df82e459;
 
 typedef struct {
     unsigned int _field1;

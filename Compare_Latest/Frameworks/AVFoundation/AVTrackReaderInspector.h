@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVAssetTrackInspector.h>
 
-@class AVWeakReference, NSArray;
+@class AVWeakReference;
 
 @interface AVTrackReaderInspector : AVAssetTrackInspector
 {
@@ -15,7 +15,6 @@
     int _trackID;
     unsigned long _mediaType;
     AVWeakReference *_weakReferenceToAsset;
-    NSArray *_cachedMediaCharacteristics;
 }
 
 - (unsigned int)hash;
@@ -27,13 +26,13 @@
 - (id)segmentForTrackTime:(CDStruct_1b6d18a9)arg1;
 - (id)segments;
 - (float)nominalFrameRate;
+- (id)loudnessInfo;
 - (float)preferredVolume;
 - (int)layer;
 - (struct CGAffineTransform)preferredTransform;
 - (struct CGSize)dimensions;
 - (struct CGSize)naturalSize;
 - (id)extendedLanguageTag;
-- (id)mediaCharacteristics;
 - (id)languageCode;
 - (float)estimatedDataRate;
 - (int)naturalTimeScale;
@@ -45,6 +44,7 @@
 - (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
 - (struct OpaqueFigTrackReader *)_trackReader;
 - (id)mediaType;
+- (unsigned long)_figMediaType;
 - (int)trackID;
 - (id)asset;
 - (void)finalize;

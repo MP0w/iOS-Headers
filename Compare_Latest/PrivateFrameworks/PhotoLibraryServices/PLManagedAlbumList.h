@@ -7,13 +7,14 @@
 #import <PhotoLibraryServices/_PLManagedAlbumList.h>
 
 #import "PLAlbumContainer-Protocol.h"
+#import "PLDerivedAlbumListOrigin-Protocol.h"
 #import "PLIndexMappersDataOrigin-Protocol.h"
 
-@class NSMutableOrderedSet, NSString, PLFilteredAlbumList;
+@class NSMutableOrderedSet, NSObject<PLIndexMappingCache>, NSString;
 
-@interface PLManagedAlbumList : _PLManagedAlbumList <PLAlbumContainer, PLIndexMappersDataOrigin>
+@interface PLManagedAlbumList : _PLManagedAlbumList <PLAlbumContainer, PLDerivedAlbumListOrigin, PLIndexMappersDataOrigin>
 {
-    PLFilteredAlbumList *_filteredAlbumLists[5];
+    NSObject<PLIndexMappingCache> *_derivedAlbumLists[5];
     BOOL isRegisteredForChanges;
     BOOL didRegisteredWithUserInterfaceContext;
 }
@@ -22,6 +23,7 @@
 + (void)persistAlbumListUUIDs:(id)arg1 type:(int)arg2 allowsOverwrite:(BOOL)arg3;
 + (BOOL)isValidPathForPersistence:(id)arg1;
 + (BOOL)isValidTypeForPersistence:(int)arg1;
++ (id)allStreamedAlbumsListInManagedObjectContext:(id)arg1;
 + (id)placesAlbumListInManagedObjectContext:(id)arg1;
 + (id)facesAlbumListInManagedObjectContext:(id)arg1;
 + (id)eventListInManagedObjectContext:(id)arg1;
@@ -31,6 +33,7 @@
 + (id)_typeDescriptionForAlbumListType:(int)arg1;
 + (unsigned int)_priorityForAlbumKind:(int)arg1;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
++ (id)wallpaperAlbumListInPhotoLibrary:(id)arg1;
 + (id)allStreamedAlbumsListInPhotoLibrary:(id)arg1;
 + (id)placesAlbumListInPhotoLibrary:(id)arg1;
 + (id)facesAlbumListInPhotoLibrary:(id)arg1;
@@ -45,20 +48,28 @@
 - (void)registerForChanges;
 - (void)enumerateDerivedIndexMappers:(id)arg1;
 - (BOOL)hasDerivedIndexMappers;
-- (void)enumerateFilteredAlbumLists:(id)arg1;
-- (void)unregisterAllFilteredAlbums;
-- (void)registerFilteredAlbumList:(id)arg1;
+- (void)enumerateDerivedAlbumLists:(id)arg1;
+- (void)unregisterAllDerivedAlbums;
+- (void)registerDerivedAlbumList:(struct NSObject *)arg1;
 - (void)updateAlbumsOrderIfNeeded;
 - (BOOL)needsReordering;
 - (void)setNeedsReordering;
+- (void)insertIntoOrderedAlbumsAtIndexByPriorityForAlbum:(id)arg1;
 @property(readonly, nonatomic) id albumsSortingComparator;
 - (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;
+- (id)containersRelationshipName;
+- (BOOL)canEditContainers;
+- (BOOL)isEmpty;
+@property(readonly, nonatomic) unsigned int containersCount;
+- (id)containers;
 @property(readonly, nonatomic) NSString *_typeDescription;
 @property(readonly, nonatomic) NSString *_prettyDescription;
 @property(readonly, nonatomic) int filter;
 @property(readonly, nonatomic) BOOL canEditAlbums;
 @property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 @property(readonly, nonatomic) BOOL hasAtLeastOneAlbum;
+@property(readonly, nonatomic) unsigned int albumsCount;
+- (id)_albumsCountFetchRequest;
 @property(readonly, nonatomic) NSMutableOrderedSet *albums;
 @property(nonatomic) int albumListType;
 - (void)willTurnIntoFault;

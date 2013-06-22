@@ -32,6 +32,7 @@
 - (id)trackWithTrackID:(int)arg1;
 - (void)_tracksDidChange;
 - (id)tracks;
+- (id)metadata;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
 - (id)commonMetadata;
@@ -79,6 +80,7 @@
 - (id)chapterMetadataGroupsWithTitleLocale:(id)arg1 containingItemsWithCommonKeys:(id)arg2;
 @property(readonly) NSArray *availableChapterLocales;
 - (int)unusedTrackID;
+- (id)_exportURL;
 - (BOOL)_containsAtLeastOnePlayableVideoTrack;
 - (BOOL)_containsAtLeastOnePlayableAudioTrack;
 - (id)_chapterTracks;

@@ -6,7 +6,7 @@
 
 #import <iLifeSlideshow/MREffect.h>
 
-@class MRCroppingSprite, MRImage, MRTextRenderer, NSArray, NSMutableArray, NSMutableDictionary;
+@class MRCAMLBezierData, MRCroppingSprite, MRImage, MROrigamiAnimationPath, MRTextRenderer, NSArray, NSMutableArray, NSMutableDictionary;
 
 @interface MREffectOrigamiTitle : MREffect
 {
@@ -21,6 +21,8 @@
     NSMutableDictionary *mSprites;
     struct CGSize mImageSize;
     int mWordCount;
+    MRCAMLBezierData *mBreakCurve;
+    MROrigamiAnimationPath *mBigSwing;
 }
 
 - (id)patchworkAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
@@ -35,6 +37,8 @@
 - (void)renderTitleEffectAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 - (void)renderAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 - (BOOL)isLoadedForTime:(double)arg1;
+- (void)_cleanupSwingTimings;
+- (void)_setupSwingTimings;
 - (void)_cleanup;
 - (id)init;
 - (void)_unload;

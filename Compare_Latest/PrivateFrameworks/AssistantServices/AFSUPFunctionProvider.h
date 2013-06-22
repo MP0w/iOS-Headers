@@ -12,7 +12,8 @@
 
 @interface AFSUPFunctionProvider : AFSpeakableUtteranceParser <AFSpeakableNamespaceProvider>
 {
-    NSDateFormatter *_ourFormatter;
+    NSDateFormatter *_dateFormatter;
+    NSDateFormatter *_timeFormatter;
     BOOL _useSpeechMode;
 }
 
@@ -29,6 +30,7 @@
 - (id)_currentTime:(id)arg1;
 - (id)_dateFormattedWithFormatter:(id)arg1 arguments:(id)arg2;
 - (void)useSpeechMode:(BOOL)arg1;
+- (id)initWithLocale:(id)arg1;
 - (id)init;
 
 @end

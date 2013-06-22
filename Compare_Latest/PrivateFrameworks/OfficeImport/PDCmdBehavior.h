@@ -4,18 +4,18 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <OfficeImport/PDCommonBehaviorData.h>
+#import <OfficeImport/PDAnimateBehavior.h>
 
 @class NSString;
 
-@interface PDCmdBehavior : PDCommonBehaviorData
+@interface PDCmdBehavior : PDAnimateBehavior
 {
     NSString *mCmd;
-    int mType;
+    int mBehaviorType;
 }
 
-- (void)setType:(int)arg1;
-- (int)type;
+- (void)setBehaviorType:(int)arg1;
+- (int)behaviorType;
 - (void)setCmd:(id)arg1;
 - (id)cmd;
 

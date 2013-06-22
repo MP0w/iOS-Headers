@@ -22,15 +22,16 @@
     struct _VGLColor _polygonColor;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) struct _VGLColor polygonColor; // @synthesize polygonColor=_polygonColor;
 @property(nonatomic) int isToBeStroked; // @synthesize isToBeStroked=_isToBeStroked;
 @property(nonatomic) int isPolygonSolidColor; // @synthesize isPolygonSolidColor=_isPolygonSolidColor;
 @property(nonatomic) struct _VGLColor strokeColor; // @synthesize strokeColor=_strokeColor;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
+- (id).cxx_construct;
 @property(nonatomic) int texturePolygonSampler;
-- (id)init;
-- (id)initWithVertName:(id)arg1 fragName:(id)arg2;
+- (void)setup;
 
 @end
 

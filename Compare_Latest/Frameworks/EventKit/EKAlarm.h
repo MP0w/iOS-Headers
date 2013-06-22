@@ -8,11 +8,12 @@
 
 #import "NSCopying-Protocol.h"
 
-@class EKObjectToOneRelation, EKStructuredLocation, NSDate;
+@class EKCalendarItem, EKObjectToOneRelation, EKStructuredLocation, NSArray, NSDate, NSString;
 
 @interface EKAlarm : EKObject <NSCopying>
 {
     EKObjectToOneRelation *_locationRelation;
+    EKCalendarItem *_owner;
 }
 
 + (BOOL)areLocationsCurrentlyEnabled;
@@ -22,27 +23,30 @@
 + (BOOL)areLocationsAvailable;
 + (id)alarmWithRelativeOffset:(double)arg1;
 + (id)alarmWithAbsoluteDate:(id)arg1;
+@property(retain, nonatomic) EKCalendarItem *owner; // @synthesize owner=_owner;
 @property(retain, nonatomic) EKObjectToOneRelation *locationRelation; // @synthesize locationRelation=_locationRelation;
 - (BOOL)validate:(id *)arg1;
 - (id)description;
 - (BOOL)rebase;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)originalAlarm;
+@property(readonly, nonatomic) BOOL isSnoozedAlarm;
+- (void)removeSnoozedAlarm:(id)arg1;
+- (void)addSnoozedAlarm:(id)arg1;
+@property(copy, nonatomic) NSArray *snoozedAlarms;
+- (id)_snoozedAlarmsRelation;
+@property(retain, nonatomic) EKAlarm *originalAlarm;
 - (id)_originalAlarmRelation;
-- (void)setDefaultAlarm:(BOOL)arg1;
-- (BOOL)isDefaultAlarm;
+@property(nonatomic, getter=isDefaultAlarm) BOOL defaultAlarm;
 - (id)ownerUUID;
 @property(copy, nonatomic) EKStructuredLocation *structuredLocation;
 - (id)_locationRelation;
 @property(nonatomic) int proximity;
-- (BOOL)isAbsolute;
-- (id)externalID;
-- (void)setAcknowledgedDate:(id)arg1;
-- (id)acknowledgedDate;
+@property(readonly) BOOL isAbsolute;
+@property(readonly, nonatomic) NSString *externalID;
+@property(copy, nonatomic) NSDate *acknowledgedDate;
 @property(copy, nonatomic) NSDate *absoluteDate;
 @property(nonatomic) double relativeOffset;
-- (id)UUID;
-- (id)owner;
+@property(readonly, nonatomic) NSString *UUID;
 - (id)lazyLoadRelationForKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithRelativeOffset:(double)arg1;

@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBBulletinDateLabel <NSObject>
+@property(nonatomic) BOOL isTimestamp;
 @property(nonatomic) int labelType;
 @property(nonatomic) id <SBDateLabelDelegate> delegate;
 @property(nonatomic, getter=isAllDay) BOOL allDay;

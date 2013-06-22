@@ -11,6 +11,7 @@
 }
 
 + (int)interfaceOrientationForDeviceOrientation:(int)arg1;
++ (id)callDurationStringForChat:(id)arg1;
 + (id)currentCallDurationString;
 + (id)faceTimeDisplayNameForDestination:(id)arg1 image:(id *)arg2 fullscreenImage:(id *)arg3 isPhoneNumber:(char *)arg4;
 + (id)faceTimeDisplayNameForDestination:(id)arg1 image:(id *)arg2;
@@ -18,7 +19,8 @@
 + (id)statusStringForState:(unsigned int)arg1;
 + (id)statusStringForContactName:(id)arg1 status:(int)arg2 useFloatingHUD:(BOOL)arg3;
 + (int)statusForState:(unsigned int)arg1;
-+ (id)networkSettingsURLAllowingCellular:(BOOL)arg1;
++ (id)wifiSettingsURL;
++ (id)cellularSettingsURL;
 
 @end
 

@@ -15,23 +15,28 @@
     id _timingFunction;
     double _duration;
     double _startTimestamp;
-    double _pauseTimestamp;
-    struct {
-        unsigned int runsForever:1;
-        unsigned int startTimestampSet:1;
-        unsigned int pauseTimestampSet:1;
-        unsigned int completed:1;
-        unsigned int state:2;
-    } _flags;
+    double _lastTimestamp;
     NSString *_name;
     int _priority;
+    id <VKAnimationRunner> _runner;
+    struct {
+        unsigned int resuming:1;
+        unsigned int runsForever:1;
+        unsigned int startTimestampSet:1;
+        unsigned int state:3;
+    } _flags;
 }
 
++ (void)setDragCoefficientGetter:(id)arg1;
+@property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
+@property(copy, nonatomic) id stepHandler; // @synthesize stepHandler=_stepHandler;
 @property(readonly, nonatomic) int priority; // @synthesize priority=_priority;
 @property(copy, nonatomic) id timingFunction; // @synthesize timingFunction=_timingFunction;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
+- (id).cxx_construct;
+- (void)transferToRunner:(id)arg1;
 - (void)stop;
-- (void)startWithStepHandler:(id)arg1 completionHandler:(void)arg2;
+- (void)startWithRunner:(id)arg1;
 - (void)onTimerFired:(double)arg1;
 - (void)resume;
 - (void)pause;

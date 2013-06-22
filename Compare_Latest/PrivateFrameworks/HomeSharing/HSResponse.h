@@ -6,27 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSError;
+@class NSData, NSDictionary, NSError, NSString;
 
 @interface HSResponse : NSObject
 {
-    struct __CFHTTPMessage *_CFHTTPMessage;
     NSData *_responseData;
     unsigned int _responseCode;
     NSDictionary *_responseHeaderFields;
     NSError *_error;
+    NSString *_MIMEType;
 }
 
 + (id)responseWithResponse:(id)arg1;
-+ (id)responseWithCode:(unsigned int)arg1 headerFields:(id)arg2 data:(id)arg3 error:(id)arg4;
++ (id)responseWithCode:(unsigned int)arg1 headerFields:(id)arg2 data:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
+@property(readonly, nonatomic) NSString *MIMEType; // @synthesize MIMEType=_MIMEType;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) NSDictionary *responseHeaderFields; // @synthesize responseHeaderFields=_responseHeaderFields;
 @property(readonly, nonatomic) unsigned int responseCode; // @synthesize responseCode=_responseCode;
 @property(readonly, nonatomic) NSData *responseData; // @synthesize responseData=_responseData;
-@property(nonatomic) struct __CFHTTPMessage *CFHTTPMessage; // @synthesize CFHTTPMessage=_CFHTTPMessage;
 - (id)description;
 - (void)dealloc;
-- (id)initWithCode:(unsigned int)arg1 headerFields:(id)arg2 data:(id)arg3 error:(id)arg4;
+- (id)initWithCode:(unsigned int)arg1 headerFields:(id)arg2 data:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
 
 @end
 

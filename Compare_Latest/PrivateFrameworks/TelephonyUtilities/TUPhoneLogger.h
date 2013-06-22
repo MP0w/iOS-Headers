@@ -8,34 +8,35 @@
 
 #import "TULogger-Protocol.h"
 
-@class TUInMemoryAppender, TURemoteAppender;
+@class TURemoteAppender;
 
 @interface TUPhoneLogger : NSObject <TULogger>
 {
-    int _lock;
-    id _signalHandler;
-    TUInMemoryAppender *_inMemoryAppender;
+    struct _opaque_pthread_mutex_t _lock;
     TURemoteAppender *_remoteAppender;
-    int _loggingConfiguration;
+    BOOL _loggingEnabled;
     BOOL _loggingConfigurationCached;
     struct dispatch_queue_s *_appenderQueue;
+    long _createAppenderOnce;
+    BOOL _backtracesEnabled;
+    BOOL _symbolicationEnabled;
 }
 
 + (id)sharedPhoneLogger;
+@property BOOL symbolicationEnabled; // @synthesize symbolicationEnabled=_symbolicationEnabled;
+@property BOOL backtracesEnabled; // @synthesize backtracesEnabled=_backtracesEnabled;
 - (BOOL)shouldLogWithLevel:(int)arg1 topic:(id)arg2;
 - (BOOL)shouldLog;
 - (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 format:(id)arg4 args:(void *)arg5;
 - (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 text:(id)arg4;
 - (void)logWithLevel:(int)arg1 topic:(id)arg2 backtrace:(BOOL)arg3 format:(id)arg4;
-- (id)_appender;
+@property(readonly) TURemoteAppender *appender; // @dynamic appender;
 - (BOOL)_shouldLogWithLevel:(int)arg1 topic:(id)arg2;
-- (int)_loggingConfiguration;
+@property(readonly) BOOL loggingEnabled; // @dynamic loggingEnabled;
 - (void)_loggingChanged;
 - (id)identifier;
-- (id)signalHandler;
 - (void)dealloc;
 - (id)init;
-- (void)_handleSignal:(int)arg1;
 
 @end
 

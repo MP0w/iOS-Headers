@@ -28,6 +28,7 @@
 + (id)systemVersionDescription;
 - (void)saveLogFile;
 - (void)setPreferenceSpecifier:(id)arg1;
+- (id)textView;
 - (void)startTimer;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)stopTimer;

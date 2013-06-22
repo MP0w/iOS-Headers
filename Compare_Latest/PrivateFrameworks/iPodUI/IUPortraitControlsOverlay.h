@@ -22,6 +22,7 @@
 }
 
 @property(nonatomic) int style; // @synthesize style=_style;
+- (void).cxx_destruct;
 - (void)_showScrubInstructionOverlayAnimationDidEnd;
 - (float)_sizeToFitForCurrentStateAnimated:(BOOL)arg1;
 - (void)_sizeToFitAnimationDidEnd;
@@ -43,10 +44,10 @@
 - (id)playbackSpeedButtonImageForPlaybackSpeed:(unsigned int)arg1;
 - (id)newTrackInfoLabel;
 - (id)newProgressIndicator;
+- (id)newButtonBezelViewForPart:(unsigned long long)arg1;
 - (id)newButtonForPart:(unsigned long long)arg1;
 - (id)mailButtonImage;
 - (id)geniusButtonImageForControlState:(unsigned int)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -6,14 +6,20 @@
 
 #import "NSObject.h"
 
+@class NSMutableDictionary;
+
 @interface WeatherImageLoader : NSObject
 {
+    NSMutableDictionary *_cache;
 }
 
 + (id)yahooButtonImage;
 + (id)twcButtonImage;
 + (id)conditionImageNamed:(id)arg1;
 + (id)conditionImageWithConditionIndex:(int)arg1;
++ (void)preCacheMiniIcons;
++ (id)sharedImageLoader;
+@property(retain, nonatomic) NSMutableDictionary *cache; // @synthesize cache=_cache;
 
 @end
 

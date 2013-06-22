@@ -6,11 +6,11 @@
 
 #import <UIKit/UIScrollView.h>
 
-@class DOMNode, UIWebDocumentView, UIWebOverflowContentView, UIWebOverflowScrollListener;
+@class DOMNode, UIWebBrowserView, UIWebOverflowContentView, UIWebOverflowScrollListener;
 
 @interface UIWebOverflowScrollView : UIScrollView
 {
-    UIWebDocumentView *_webDocumentView;
+    UIWebBrowserView *_webBrowserView;
     UIWebOverflowScrollListener *_scrollListener;
     UIWebOverflowContentView *_overflowContentView;
     DOMNode *_node;
@@ -21,14 +21,14 @@
 @property(retain, nonatomic) DOMNode *node; // @synthesize node=_node;
 @property(retain, nonatomic) UIWebOverflowContentView *overflowContentView; // @synthesize overflowContentView=_overflowContentView;
 @property(retain, nonatomic) UIWebOverflowScrollListener *scrollListener; // @synthesize scrollListener=_scrollListener;
-@property(nonatomic) UIWebDocumentView *webDocumentView; // @synthesize webDocumentView=_webDocumentView;
+@property(nonatomic) UIWebBrowserView *webBrowserView; // @synthesize webBrowserView=_webBrowserView;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)_replaceLayer:(id)arg1;
 - (void)prepareForRemoval;
 - (void)fixUpViewAfterInsertion;
 - (id)superview;
 - (void)dealloc;
-- (id)initWithLayer:(id)arg1 node:(id)arg2 webDocumentView:(id)arg3;
+- (id)initWithLayer:(id)arg1 node:(id)arg2 webBrowserView:(id)arg3;
 
 @end
 

@@ -22,10 +22,12 @@
 
 @property(nonatomic) id <SSRequestDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_shutdownRequestWithMessageID:(long long)arg1;
-- (void)_endBackgroundTask;
-- (void)_beginBackgroundTask;
+- (void)__endBackgroundTask;
+- (void)__beginBackgroundTask;
 - (void)_startWithMessageID:(long long)arg1 messageBlock:(id)arg2;
 - (void)_shutdownRequest;
+- (void)_endBackgroundTask;
+- (void)_beginBackgroundTask;
 @property(nonatomic) BOOL shouldCancelAfterTaskExpiration;
 - (void)startWithCompletionBlock:(id)arg1;
 - (BOOL)start;

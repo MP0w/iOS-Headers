@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol VKMercatorTerrainHeightProvider <NSObject>
-- (double)heightAtPoint:(CDStruct_31142d93)arg1;
+- (double)heightAtPoint:(struct VKPoint)arg1;
 @end
 

@@ -12,7 +12,7 @@
 - (BOOL)_moveItemAtPath:(id)arg1 toPath:(id)arg2 uniquePath:(id *)arg3 error:(id *)arg4 asCopy:(BOOL)arg5;
 - (id)createUniqueDirectoryWithName:(id)arg1 atPath:(id)arg2 ofType:(id)arg3;
 - (id)uniqueFilename:(id)arg1 atPath:(id)arg2 ofType:(id)arg3;
-- (BOOL)makeDirectoriesInPath:(id)arg1 mode:(unsigned long)arg2;
+- (BOOL)makeDirectoriesInPath:(id)arg1 mode:(unsigned int)arg2;
 - (BOOL)_isPathOnMissingVolume:(id)arg1;
 - (id)_randomTemporaryPathWithFileName:(id)arg1;
 - (id)_randomTemporaryPathWithSuffix:(id)arg1 fileName:(id)arg2;

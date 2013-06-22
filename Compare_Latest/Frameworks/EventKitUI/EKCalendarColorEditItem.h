@@ -14,16 +14,16 @@
     unsigned int _checkedRow;
 }
 
+- (void).cxx_destruct;
 - (BOOL)saveStateToCalendar:(id)arg1;
-- (void)calendarEditor:(id)arg1 didSelectSubitem:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (void)calendarEditor:(id)arg1 didSelectSubitem:(unsigned int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (id)headerTitle;
-- (int)numberOfSubitems;
+- (unsigned int)numberOfSubitems;
 - (void)setCalendar:(id)arg1 store:(id)arg2;
 @property(readonly, nonatomic) NSMutableArray *cells; // @synthesize cells=_cells;
 - (id)_cellForColor:(id)arg1;
 - (void)reset;
-- (void)dealloc;
 
 @end
 

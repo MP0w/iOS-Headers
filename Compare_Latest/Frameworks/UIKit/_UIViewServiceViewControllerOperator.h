@@ -18,6 +18,7 @@
 @interface _UIViewServiceViewControllerOperator : UIViewController <XPCProxyTarget, _UIViewServiceViewControllerOperator_RemoteViewControllerInterface, _UIHostedTextServiceSessionDelegate, _UIViewServiceDummyPopoverControllerDelegate, _UIViewServiceDeputy, _UIViewServiceDeputyRotationSource>
 {
     int _hostPID;
+    CDStruct_4c969caf _hostAuditToken;
     id _remoteViewControllerProxyToOperator;
     id _remoteViewControllerProxyToViewController;
     UIViewController *_localViewController;
@@ -26,9 +27,10 @@
     UIActionSheet *_hostedActionSheet;
     BOOL _serviceInPopover;
     int _hostStatusBarOrientation;
+    float _hostStatusBarHeight;
     NSMutableArray *_deputyRotationDelegates;
     unsigned int _hostAccessibilityServerPort;
-    id <_UIViewServiceDeputyDelegate> _delegate;
+    id <_UIViewServiceDeputyDelegate> _deputyDelegate;
     _UIHostedTextServiceSession *_textServiceSession;
     _UIAsyncInvocation *_prepareForDisconnectionInvocation;
     _UIAsyncInvocation *_invalidationInvocation;
@@ -38,17 +40,23 @@
     _UIViewServiceDummyPopoverController *_dummyPopoverController;
     unsigned int _supportedOrientations;
     BOOL _canShowTextServices;
+    id <_UIViewServiceViewControllerOperatorDelegate> _delegate;
 }
 
-+ (id)operatorWithRemoteViewControllerProxy:(id)arg1;
++ (id)XPCInterface;
++ (id)operatorWithRemoteViewControllerProxy:(id)arg1 hostPID:(int)arg2 hostAuditToken:(CDStruct_4c969caf)arg3;
+@property(nonatomic) id <_UIViewServiceViewControllerOperatorDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)__restoreStateForSession:(id)arg1 restorationAnchor:(id)arg2;
+- (void)__saveStateForSession:(id)arg1 restorationAnchor:(id)arg2 completionHandler:(id)arg3;
+- (BOOL)_validateSessionIdentifier:(id)arg1 restorationAnchor:(id)arg2 functionName:(const char *)arg3;
+- (id)_sessionForStateRestoration:(id)arg1;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)__textServiceDidDismiss;
 - (void)dismissHostedTextServiceSession:(id)arg1 animated:(BOOL)arg2;
 - (id)_showServiceForText:(id)arg1 type:(int)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
 - (BOOL)_canShowTextServices;
 - (id)_inputViewsKey;
-- (void)__alertIsDisappearing:(id)arg1;
-- (void)__alertIsAppearing:(id)arg1 withFrameValue:(id)arg2;
+- (void)setNeedsStatusBarAppearanceUpdate;
 - (void)__hostDidPromoteFirstResponder;
 - (void)__setContentSize:(id)arg1;
 - (void)__createViewController:(id)arg1 withAppearanceSerializedRepresentations:(id)arg2 hostAccessibilityServerPort:(id)arg3 canShowTextServices:(BOOL)arg4 replyHandler:(id)arg5;
@@ -56,14 +64,16 @@
 - (void)__hostDidRotateFromInterfaceOrientation:(int)arg1 skipSelf:(BOOL)arg2;
 - (void)__hostWillAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2 skipSelf:(BOOL)arg3;
 - (void)__hostWillRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2 skipSelf:(BOOL)arg3;
+- (void)__hostDidChangeStatusBarHeight:(float)arg1;
 - (void)__hostDidChangeStatusBarOrientationToInterfaceOrientation:(int)arg1;
 - (void)__hostWillEnterForeground;
 - (void)__hostDidEnterBackground;
 - (void)__setServiceInPopover:(BOOL)arg1;
+- (void)__hostViewDidMoveToScreenWithIntegerDisplayID:(unsigned int)arg1 contextReplyPort:(id)arg2;
 - (void)__hostViewDidDisappear:(BOOL)arg1;
 - (void)__hostViewWillDisappear:(BOOL)arg1;
 - (void)__hostViewDidAppear:(BOOL)arg1;
-- (void)__hostViewWillAppear:(BOOL)arg1 inInterfaceOrientation:(int)arg2 completionHandler:(id)arg3;
+- (void)__hostViewWillAppear:(BOOL)arg1 inInterfaceOrientation:(int)arg2 statusBarHeight:(float)arg3 completionHandler:(id)arg4;
 - (void)__hostReadyToReceiveMessagesFromServiceViewController;
 - (void)setDeputyDelegate:(id)arg1;
 - (id)invalidate;
@@ -86,11 +96,10 @@
 - (void)__hostedActionSheetDidPresent;
 - (void)_dismissActionSheet:(id)arg1 withClickedButtonIndex:(int)arg2 animated:(BOOL)arg3;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
-- (void)_presentActionSheet:(id)arg1 asPopoverFromBarButtonItem:(id)arg2 orFromRect:(struct CGRect)arg3 inView:(id)arg4 withPreferredArrowDirections:(int)arg5 passthroughViews:(id)arg6 backgroundStyle:(id)arg7 animated:(BOOL)arg8;
+- (void)_presentActionSheet:(id)arg1 asPopoverFromBarButtonItem:(id)arg2 orFromRect:(struct CGRect)arg3 inView:(id)arg4 withPreferredArrowDirections:(unsigned int)arg5 passthroughViews:(id)arg6 backgroundStyle:(int)arg7 animated:(BOOL)arg8;
 - (void)_presentActionSheet:(id)arg1 inView:(id)arg2 fromYCoordinate:(float)arg3;
 - (void)_firstResponderDidChange:(id)arg1;
-- (BOOL)_shouldUseNextFirstResponder;
-- (id)defaultFirstResponder;
+- (BOOL)becomeFirstResponder;
 - (void)__hostDidUpdateAppearanceWithSerializedRepresentations:(id)arg1 originalSource:(id)arg2;
 - (id)_appearanceSource;
 - (void)_windowDidUpdateCurrentTintView:(id)arg1;
@@ -110,6 +119,7 @@
 - (void)_prepareForDisconnectionUnconditionallyThen:(id)arg1;
 - (void)establishViewControllerDeputyWithProxy:(id)arg1 completionHandler:(id)arg2;
 - (void)dealloc;
+- (id)_queue;
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
 - (unsigned int)retainCount;

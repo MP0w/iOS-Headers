@@ -65,16 +65,6 @@ typedef struct {
     void *copyDescription;
 } CDStruct_304912e7;
 
-typedef struct {
-    int _field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    int _field5;
-    int _field6;
-    char _field7;
-} CDStruct_3ff5127f;
-
 // Ambiguous groups
 typedef struct {
     double _field1;

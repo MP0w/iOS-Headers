@@ -48,12 +48,13 @@
 - (id)subscribedStreamsForPersonID:(id)arg1;
 - (void)computeHashForAsset:(id)arg1 personID:(id)arg2;
 - (void)resetSubscriberSyncForPersonID:(id)arg1;
-- (void)pollForSubscriptionUpdatesTriggeredByPushNotification;
+- (void)pollForSubscriptionUpdatesTriggeredByPushNotificationForPersonID:(id)arg1;
 - (void)pollForSubscriptionUpdatesForPersonID:(id)arg1;
 - (BOOL)enqueueAssetCollection:(id)arg1 personID:(id)arg2 outError:(id *)arg3;
 - (void)forgetPersonID:(id)arg1;
 - (void)stopAllActivities;
 - (void)abortAllActivityForPersonID:(id)arg1;
+- (void)reenqueueQuarantinedActivitiesWithReason:(id)arg1;
 - (void)retryOutstandingActivities;
 - (id)_boundServerSideConfigManagerForPersonID:(id)arg1;
 - (id)_boundDeleterForPersonID:(id)arg1;

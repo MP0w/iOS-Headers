@@ -16,6 +16,7 @@
     unsigned int mByteCount;
 }
 
+- (id)dataRep;
 - (struct SsrwOOStream *)stream;
 - (_Bool)loadDelayedNode:(id)arg1;
 - (_Bool)saveDelayedMedia:(id)arg1 toFile:(id)arg2;

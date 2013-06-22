@@ -30,7 +30,6 @@
     double _discoveryTimeStamp;
 }
 
-@property(retain, nonatomic) GKDiscoveryPeerConnection *trialConnection; // @synthesize trialConnection=_trialConnection;
 @property(copy, nonatomic) id resolveTimeoutHandler; // @synthesize resolveTimeoutHandler=_resolveTimeoutHandler;
 @property(retain, nonatomic) GKSimpleTimer *resolveTimer; // @synthesize resolveTimer=_resolveTimer;
 @property(nonatomic) double discoveryTimeStamp; // @synthesize discoveryTimeStamp=_discoveryTimeStamp;
@@ -39,6 +38,7 @@
 @property(retain, nonatomic) NSMutableArray *sendDataBuffer; // @synthesize sendDataBuffer=_sendDataBuffer;
 @property(retain, nonatomic) GKDiscoveryPeerConnection *connection; // @synthesize connection=_connection;
 @property(nonatomic) BOOL shouldSignalDiscovery; // @synthesize shouldSignalDiscovery=_shouldSignalDiscovery;
+@property(retain, nonatomic) GKDiscoveryPeerConnection *trialConnection; // @synthesize trialConnection=_trialConnection;
 @property(retain, nonatomic) NSNumber *chosenInterface; // @synthesize chosenInterface=_chosenInterface;
 @property(retain, nonatomic) NSMutableArray *attemptedInterfaces; // @synthesize attemptedInterfaces=_attemptedInterfaces;
 @property(retain, nonatomic) NSMutableArray *orderedInterfaces; // @synthesize orderedInterfaces=_orderedInterfaces;

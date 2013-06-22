@@ -13,6 +13,7 @@
 - (id)nsli_description;
 - (BOOL)nsli_resolvedValue:(float *)arg1 forSymbolicConstant:(id)arg2 inConstraint:(id)arg3 error:(id *)arg4;
 - (BOOL)nsli_lowerAttribute:(int)arg1 intoExpression:(id)arg2 withCoefficient:(float)arg3 container:(id)arg4;
+- (BOOL)nsli_lowerAttribute:(int)arg1 intoExpression:(id)arg2 withCoefficient:(float)arg3 forConstraint:(id)arg4;
 - (id)nsli_superitem;
 - (struct CGSize)nsli_convertSizeFromEngineSpace:(struct CGSize)arg1;
 - (struct CGSize)nsli_convertSizeToEngineSpace:(struct CGSize)arg1;

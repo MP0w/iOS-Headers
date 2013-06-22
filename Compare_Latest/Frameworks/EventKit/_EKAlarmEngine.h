@@ -30,6 +30,7 @@
     NSDate *_tomorrow;
 }
 
++ (double)defaultRadius;
 + (id)sharedInstance;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)locationManager:(id)arg1 monitoringDidFailForRegion:(id)arg2 withError:(id)arg3;
@@ -42,6 +43,7 @@
 - (id)_stringForAuthorizationStatus:(int)arg1;
 - (void)_removeAllFences;
 - (void)_locationDaemonDidLaunch;
+- (void)_calendarNotificationSettingChanged;
 - (void)_timeDidChangeSignificantly;
 - (void)_syncDidEnd;
 - (void)_syncDidStart;

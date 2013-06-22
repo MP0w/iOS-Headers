@@ -13,6 +13,7 @@
 }
 
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (BOOL)_hasRenderLayerSubclass;
 + (id)defaultValueForKey:(id)arg1;
 @property unsigned int seed;
 @property BOOL preservesDepth;
@@ -29,10 +30,19 @@
 @property float lifetime;
 @property float birthRate;
 @property(copy) NSArray *emitterCells;
+- (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;
 - (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
 - (struct Layer *)_copyRenderLayer:(struct Transaction *)arg1 layerFlags:(unsigned int)arg2 commitFlags:(unsigned int *)arg3;
 - (id)implicitAnimationForKeyPath:(id)arg1;
+- (void)reloadValueForKeyPath:(id)arg1;
 - (void)didChangeValueForKey:(id)arg1;
+@property float cullMaxZ;
+@property float cullMinZ;
+@property struct CGRect cullRect;
+@property float spinBias;
+@property float emitterDuration;
+@property struct CGPath *emitterPath;
+@property(copy) NSArray *emitterBehaviors;
 
 @end
 

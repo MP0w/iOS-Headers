@@ -26,7 +26,7 @@
 - (void)run;
 @property(readonly, nonatomic) NSPersistentStoreCoordinator *coordinator;
 @property(readonly, nonatomic) PLManagedObjectContext *managedObjectContext;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 - (void)dealloc;
 
 @end

@@ -6,27 +6,23 @@
 
 #import "NSObject.h"
 
-#import "GEOTileSourceClient-Protocol.h"
+#import "GEOMapAccessRestrictions-Protocol.h"
 
-@class NSMutableArray, VKTileSource;
+@class GEOMapAccess;
 
-@interface VKMapMatcher : NSObject <GEOTileSourceClient>
+@interface VKMapMatcher : NSObject <GEOMapAccessRestrictions>
 {
-    VKTileSource *_tileSource;
-    NSMutableArray *_currentTiles;
-    id <VKMapMatcherDelegate> _delegate;
+    GEOMapAccess *_map;
+    id <VKRoutePreloadSession> _routePreloader;
 }
 
-@property(nonatomic) id <VKMapMatcherDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)matchLocation:(id)arg1;
-- (void)tileSource:(id)arg1 didFailToLoadTileKey:(const struct _GEOTileKey *)arg2 error:(id)arg3;
-- (void)tileSource:(id)arg1 declinedToLoadTileKey:(const struct _GEOTileKey *)arg2;
-- (void)tileSourceDidFinishWithNetwork:(id)arg1;
-- (void)tileSourceWillGoToNetwork:(id)arg1;
-- (void)tileSource:(id)arg1 didFetchData:(id)arg2 forKey:(const struct _GEOTileKey *)arg3;
++ (id)mapMatcherOfType:(id)arg1;
+@property(retain, nonatomic) id <VKRoutePreloadSession> routePreloader; // @synthesize routePreloader=_routePreloader;
+- (id)matchLocation:(id)arg1 transportType:(int)arg2;
+@property(readonly, nonatomic) BOOL allowsNetworkTileLoad;
 - (id)tilesAround:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2;
 - (void)dealloc;
-- (id)initWithTileSource:(id)arg1;
+- (id)init;
 
 @end
 

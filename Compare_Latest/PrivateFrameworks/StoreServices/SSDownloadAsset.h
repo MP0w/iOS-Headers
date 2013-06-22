@@ -29,13 +29,15 @@
 - (id)initWithURLRequest:(id)arg1 type:(int)arg2;
 - (id)copyXPCEncoding;
 - (int)_legacyAssetType;
-- (id)_initWithDownloadMetadata:(id)arg1 type:(id)arg2;
 @property(readonly) SSURLRequestProperties *URLRequestProperties;
 - (void)_resetLocalIVars;
 @property(readonly) NSURLRequest *URLRequest;
 @property(readonly) NSArray *sinfs;
+- (long long)bytesUploadTotal;
+- (long long)bytesUploaded;
 - (long long)bytesDownloaded;
 - (void)dealloc;
+- (id)initWithURLRequestProperties:(id)arg1;
 - (id)initWithURLRequest:(id)arg1;
 
 @end

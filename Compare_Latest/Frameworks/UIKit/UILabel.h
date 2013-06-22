@@ -15,15 +15,16 @@
     struct CGSize _size;
     UIColor *_highlightedColor;
     int _numberOfLines;
+    int _measuredNumberOfLines;
     float _lastLineBaseline;
     float _minimumScaleFactor;
     NSMutableAttributedString *_attributedText;
-    NSAttributedString *_scaledAttributedText;
     NSAttributedString *_synthesizedAttributedText;
     NSMutableDictionary *_defaultAttributes;
     float _actualFontSize;
     float _minimumFontSize;
     int _lineSpacing;
+    id _layout;
     struct {
         unsigned int unused1:3;
         unsigned int highlighted:1;
@@ -39,17 +40,23 @@
         unsigned int marqueeRequired:1;
         unsigned int drawsLetterpress:1;
         unsigned int unused3:1;
-        unsigned int usesLegacyStringDrawing:1;
+        unsigned int usesExplicitPreferredMaxLayoutWidth:1;
+        unsigned int determiningPreferredMaxLayoutWidth:1;
+        unsigned int inSecondConstraintsPass:1;
+        unsigned int drawsDebugBaselines:1;
+        unsigned int explicitBaselineOffset:1;
+        unsigned int usesSimpleTextEffects:1;
     } _textLabelFlags;
     float _preferredMaxLayoutWidth;
 }
 
-+ (id)_synthesizedAttributedString:(id)arg1 withWordWrapping:(BOOL)arg2;
++ (struct CGSize)_legacy_adjustSizeForWebKitConstraining:(struct CGSize)arg1 withFont:(id)arg2;
 + (id)_defaultAttributes;
 + (id)defaultFont;
-+ (void)initialize;
 @property(nonatomic) float minimumScaleFactor; // @synthesize minimumScaleFactor=_minimumScaleFactor;
 @property(nonatomic) float preferredMaxLayoutWidth; // @synthesize preferredMaxLayoutWidth=_preferredMaxLayoutWidth;
+- (BOOL)_usesSimpleTextEffects;
+- (void)_setUsesSimpleTextEffects:(BOOL)arg1;
 - (BOOL)drawsUnderline;
 - (void)setDrawsUnderline:(BOOL)arg1;
 - (id)letterpressStyle;
@@ -67,27 +74,30 @@
 - (id)_siblingMarqueeLabels;
 - (void)setMarqueeEnabled:(BOOL)arg1;
 - (BOOL)_shouldDrawUnderlinesLikeWebKit;
-- (BOOL)_allowAscentRounding;
 - (void)_setWordRoundingEnabled:(BOOL)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)_drawTextInRect:(struct CGRect)arg1 baselineCalculationOnly:(BOOL)arg2;
-- (void)_legacy_drawTextInRect:(struct CGRect)arg1 baselineCalculationOnly:(BOOL)arg2;
-- (id)_attributes;
 - (BOOL)_drawsUnderline;
 - (void)drawTextInRect:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
+- (void)updateConstraints;
+- (void)_setInSecondConstraintsPass:(BOOL)arg1;
+- (void)_prepareForSecondIntrinsicContentSizeCalculationWithEngine:(id)arg1;
+- (void)_prepareForFirstIntrinsicContentSizeCalculation;
+- (void)nsis_valueOfVariable:(id)arg1 didChangeInEngine:(id)arg2;
+- (BOOL)_needsDoubleUpdateConstraintsPass;
 - (float)_baselineOffsetFromBottom;
 @property(readonly, nonatomic) float _lastLineBaseline;
 @property(nonatomic) int baselineAdjustment;
+@property(nonatomic, setter=_setDrawsDebugBaselines:) BOOL _drawsDebugBaselines;
 @property(nonatomic) BOOL adjustsLetterSpacingToFitWidth;
 @property(nonatomic) int lineSpacing;
 @property(nonatomic) int numberOfLines;
 @property(nonatomic) int lineBreakMode;
 - (void)_setLineBreakMode:(int)arg1;
 @property(nonatomic, getter=isHighlighted) BOOL highlighted;
-- (BOOL)_usesCGToDrawShadow;
 - (float)shadowBlur;
 - (void)setShadowBlur:(float)arg1;
 @property(nonatomic) struct CGSize shadowOffset;
@@ -102,8 +112,6 @@
 @property(retain, nonatomic) UIColor *highlightedTextColor;
 @property(nonatomic) int textAlignment;
 - (void)_setTextAlignment:(int)arg1;
-- (float)actualFontSize;
-- (void)setActualFontSize:(float)arg1;
 @property(nonatomic) float minimumFontSize;
 - (float)_minimumFontSize;
 - (void)_setMinimumFontSize:(float)arg1;
@@ -117,10 +125,9 @@
 - (void)_setText:(id)arg1;
 - (void)_invalidateTextSize;
 - (struct CGRect)_textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2 includingShadow:(BOOL)arg3;
-- (struct CGRect)_legacy_textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2 includingShadow:(BOOL)arg3;
+- (id)_stringDrawingContext;
 - (struct CGRect)textRectForBounds:(struct CGRect)arg1 limitedToNumberOfLines:(int)arg2;
 - (struct CGSize)textSize;
-- (struct CGSize)_legacy_textSize;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -130,14 +137,17 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonInit;
 @property(retain, nonatomic, getter=_synthesizedAttributedText, setter=_setSynthesizedAttributedText:) NSAttributedString *_synthesizedAttributedText;
-- (void)_setUsesLegacyStringDrawing:(BOOL)arg1;
-- (BOOL)_usesLegacyStringDrawing;
+- (void)_invalidateDefaultAttributes;
 - (void)_setDefaultAttributes:(id)arg1;
 - (id)_defaultAttributes;
-- (float)_preferredLayoutWidth;
-- (void)_setPreferredLayoutWidth:(float)arg1;
-- (BOOL)isTextFieldCenteredLabel;
+- (float)_preferredMaxLayoutWidth;
 - (id)_scriptingInfo;
+@property(nonatomic, setter=_setLastLineBaselineFrameOriginY:) float _lastLineBaselineFrameOriginY;
+@property(nonatomic, setter=_setFirstLineBaselineFrameOriginY:) float _firstLineBaselineFrameOriginY;
+@property(nonatomic, setter=_setFirstLineCapFrameOriginY:) float _firstLineCapFrameOriginY;
+@property(readonly, nonatomic) float _firstLineBaselineOffsetFromBoundsTop;
+@property(readonly, nonatomic) float _capOffsetFromBoundsTop;
+- (int)_measuredNumberOfLines;
 - (struct CGSize)rawSize;
 - (void)setRawSize:(struct CGSize)arg1;
 - (void)drawContentsInRect:(struct CGRect)arg1;
@@ -153,6 +163,7 @@
 - (unsigned long long)defaultAccessibilityTraits;
 - (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
 - (BOOL)isAccessibilityElementByDefault;
+- (BOOL)_isTextFieldCenteredLabel;
 
 @end
 

@@ -12,6 +12,8 @@
 {
     SUPlayerStatus *_playerStatus;
     NSURL *_url;
+    NSURL *_keyUrl;
+    NSURL *_certificateUrl;
 }
 
 + (void)initialize;
@@ -40,15 +42,17 @@
 @property(readonly) NSString *nowPlayingKeyAlbumTitle;
 @property(readonly) NSString *URL;
 @property(readonly) int state;
+@property(readonly) NSString *keyURL;
 @property(readonly) double duration;
 @property(readonly) double currentTime;
+@property(readonly) NSString *certificateURL;
 - (id)_className;
 - (void)stop;
 - (void)setValue:(id)arg1 forNowPlayingKey:(id)arg2;
 - (void)pause;
 - (void)play;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1;
+- (id)initWithURL:(id)arg1 keyURL:(id)arg2 certificateURL:(id)arg3;
 
 @end
 

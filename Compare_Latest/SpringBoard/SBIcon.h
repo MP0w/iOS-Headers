@@ -15,12 +15,13 @@
     NSHashTable *_observers;
     id _badgeNumberOrString;
     unsigned int _uninstalled:1;
-    UIImage *_cachedIconImages[12];
+    UIImage *_cachedIconImages[14];
 }
 
 + (id)memoryMappedIconImageOfSize:(struct CGSize)arg1 scale:(float)arg2 withDrawing:(id)arg3;
 + (id)memoryMappedIconImageForIconImage:(id)arg1;
 + (id)_iconImageOfSize:(struct CGSize)arg1 scale:(float)arg2 failGracefully:(BOOL)arg3 drawing:(id)arg4;
+- (BOOL)canReceiveGrabbedIcon;
 - (id)folderFallbackTitle;
 - (id)folderTitleOptions;
 - (id)uninstallAlertCancelTitle;
@@ -35,13 +36,15 @@
 - (void)setUninstalled;
 - (void)completeUninstall;
 - (BOOL)allowsUninstall;
-- (void)launchFromViewSwitcher;
-- (void)launch;
+- (BOOL)isTrackingProgress;
+- (float)progress;
+- (void)launch:(int)arg1;
 - (id)automationID;
+- (BOOL)isRecentlyUpdated;
 - (void)setBadge:(id)arg1;
 - (void)noteBadgeDidChange;
 - (int)accessoryTypeForLocation:(int)arg1;
-- (id)badgeTextForLocation:(int)arg1;
+- (id)accessoryTextForLocation:(int)arg1;
 - (id)badgeNumberOrString;
 - (int)badgeValue;
 - (void)reloadIconImagePurgingImageCache:(BOOL)arg1;
@@ -49,6 +52,7 @@
 - (void)purgeCachedImages;
 - (id)gridCellImage;
 - (id)getGenericIconImage:(int)arg1;
+- (id)getUnmaskedIconImage:(int)arg1;
 - (id)getIconImage:(int)arg1;
 - (id)getStandardIconImageForLocation:(int)arg1;
 - (BOOL)shouldCacheImageForFormat:(int)arg1;
@@ -64,7 +68,6 @@
 - (id)representation;
 - (void)dealloc;
 - (id)init;
-- (id)iconOverlayImageForLocation:(int)arg1;
 - (int)iconFormatForLocation:(int)arg1;
 @property(readonly, nonatomic) BOOL shouldWarmUp;
 - (BOOL)hasCachedImageForLocation:(int)arg1;
@@ -79,13 +82,15 @@
 - (BOOL)hasObserver:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+- (id)description;
 - (id)application;
 - (BOOL)isApplicationIcon;
 - (BOOL)isBookmarkIcon;
-- (id)download;
+- (id)appPlaceholder;
 - (BOOL)isDownloadingIcon;
 - (BOOL)isUserInstalledApplicationIcon;
 - (BOOL)isWebApplicationIcon;
+- (BOOL)hasFolderIconView;
 - (id)folder;
 - (BOOL)isFolderIcon;
 - (id)applicationBundleID;
@@ -93,6 +98,8 @@
 - (id)leafIdentifier;
 - (BOOL)isLeafIcon;
 - (BOOL)isPrintStatusIcon;
+- (Class)iconImageViewClassForLocation:(int)arg1;
+- (Class)iconViewClassForLocation:(int)arg1;
 - (void)_notifyLaunchEnabledDidChange;
 - (void)_notifyAccessoriesDidUpdate;
 - (void)_notifyImageDidUpdate;

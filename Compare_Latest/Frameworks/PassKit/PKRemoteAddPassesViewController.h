@@ -7,19 +7,15 @@
 #import "_UIRemoteViewController.h"
 
 #import "PKRemoteAddPassesViewControllerProtocol-Protocol.h"
-#import "WLXPCProxyTarget-Protocol.h"
 
-@interface PKRemoteAddPassesViewController : _UIRemoteViewController <WLXPCProxyTarget, PKRemoteAddPassesViewControllerProtocol>
+@interface PKRemoteAddPassesViewController : _UIRemoteViewController <PKRemoteAddPassesViewControllerProtocol>
 {
 }
 
-+ (id)requiredWhitelistClassNames;
-- (void)dealloc;
++ (id)serviceViewControllerInterface;
++ (id)exportedInterface;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)ingestionDidFinishWithResult:(int)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 
 @end
 

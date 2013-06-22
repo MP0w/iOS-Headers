@@ -10,49 +10,56 @@
 
 @interface AVResolvedCaptureOptions : NSObject
 {
+    NSString *sessionPreset;
+    BOOL captureSessionPresetChanging;
     NSMutableDictionary *baseCaptureOptions;
     NSMutableDictionary *optionsOverrides;
     struct __CFDictionary *outputSettingsOverrides;
-    float minFrameRateOverride;
-    float maxFrameRateOverride;
     BOOL usePreviewSizedCaptureBuffers;
     BOOL useStabilizationIfAvailable;
+    BOOL hasStillImageOutput;
     NSString *faceDetectionMode;
     BOOL faceDetectionNotificationsEnabled;
     AVCaptureDeviceFormat *resolvedVideoDeviceFormat;
+    CDStruct_1b6d18a9 resolvedVideoMinFrameDuration;
+    CDStruct_1b6d18a9 resolvedVideoMaxFrameDuration;
+    NSMutableDictionary *resolvedVideoCompressionProperties;
+    BOOL resolvesFrameRatesUsingDefaultValues;
 }
 
-+ (id)resolvedCaptureOptionsWithCaptureOptionsDictionary:(id)arg1;
++ (id)resolvedCaptureOptionsWithSessionPreset:(id)arg1 captureOptionsDictionary:(id)arg2;
 + (void)initialize;
-- (void)validateResolvedOptions:(id)arg1 againstSensorFormat:(id)arg2;
+@property(readonly) NSString *sessionPreset; // @synthesize sessionPreset;
+@property BOOL resolvesFrameRatesUsingDefaultValues; // @synthesize resolvesFrameRatesUsingDefaultValues;
 - (void)setBestCaptureResolutionForAVScalingMode:(id)arg1 captureOptions:(id)arg2;
 - (void)setBestPreviewResolutionForCaptureOptions:(id)arg1;
-- (void)setBestSensorResolutionForCamera:(id)arg1 captureOptions:(id)arg2 chosenSensorFormat:(id *)arg3;
 - (id)deviceFormatForCamera:(id)arg1 captureOptions:(id)arg2;
+- (void)applyInputPriorityOverridesToCaptureOptions:(id)arg1 forCamera:(id)arg2;
 - (void)resolveOutputSettingsToCaptureOptions:(id)arg1 resolvedScalingMode:(id *)arg2;
-- (void)resolveFrameRatesToCaptureOptions:(id)arg1;
+- (void)resolveFrameRatesToCaptureOptions:(id)arg1 withCamera:(id)arg2;
 - (BOOL)hasOverridesAffectingPreviewFormatInResolvedOptions:(id)arg1 withScalingMode:(id)arg2;
 - (BOOL)hasOverridesAffectingCaptureFormatInResolvedOptions:(id)arg1 withScalingMode:(id)arg2;
-- (BOOL)hasOverridesAffectingSensorFormatInResolvedOptions:(id)arg1;
 - (BOOL)hasMaxFrameRateOverrideInResolvedOptions:(id)arg1;
 - (BOOL)hasMinFrameRateOverrideInResolvedOptions:(id)arg1;
 - (BOOL)hasHeightOverrideInResolvedOptions:(id)arg1;
 - (BOOL)hasWidthOverrideInResolvedOptions:(id)arg1;
 - (id)cameraForCaptureOptions:(id)arg1;
+- (id)resolvedVideoCompressionProperties;
+- (CDStruct_1b6d18a9)resolvedVideoMaxFrameDuration;
+- (CDStruct_1b6d18a9)resolvedVideoMinFrameDuration;
 - (id)resolvedVideoDeviceFormat;
 - (id)resolvedCaptureOptionsDictionary;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;
 - (void)enableFaceDetectionNotificationsForConnection:(id)arg1;
 - (void)addFaceDetectionMode:(id)arg1 forConnection:(id)arg2;
 - (int)rankForFaceDetectionMode:(id)arg1;
+@property(nonatomic) BOOL hasStillImageOutput;
 - (void)useStabilizationIfAvailableForConnection:(id)arg1;
 - (void)usePreviewSizedCaptureBuffersForConnection:(id)arg1;
-- (void)addMaxFrameRate:(float)arg1 forConnection:(id)arg2;
-- (void)addMinFrameRate:(float)arg1 forConnection:(id)arg2;
 - (void)addOutputSettings:(id)arg1 forConnection:(id)arg2;
 - (id)baseCaptureOptions;
 - (void)dealloc;
-- (id)initWithCaptureOptionsDictionary:(id)arg1;
+- (id)initWithSessionPreset:(id)arg1 captureOptionsDictionary:(id)arg2;
 
 @end
 

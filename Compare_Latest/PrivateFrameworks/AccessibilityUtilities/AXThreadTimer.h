@@ -4,11 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <AccessibilityUtilities/AXTimer.h>
+#import "NSObject.h"
+
+#import <AccessibilityUtilities/AXTimer-Protocol.h>
 
 @class AXThreadTimerTask, NSThread;
 
-@interface AXThreadTimer : AXTimer
+@interface AXThreadTimer : NSObject <AXTimer>
 {
     NSThread *_thread;
     id _cancelBlock;
@@ -17,8 +19,9 @@
 
 @property(retain, nonatomic) AXThreadTimerTask *task; // @synthesize task=_task;
 - (void)dealloc;
-- (BOOL)isPending;
-- (BOOL)isCancelled;
+@property(readonly, nonatomic, getter=isActive) BOOL active;
+@property(readonly, nonatomic, getter=isPending) BOOL pending;
+@property(readonly, nonatomic, getter=isCancelled) BOOL cancelled;
 - (void)cancel;
 - (void)afterDelay:(double)arg1 processBlock:(id)arg2 cancelBlock:(void)arg3;
 - (void)afterDelay:(double)arg1 processBlock:(id)arg2;

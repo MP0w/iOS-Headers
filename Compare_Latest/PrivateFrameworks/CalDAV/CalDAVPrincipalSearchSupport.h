@@ -10,6 +10,7 @@
 {
 }
 
++ (id)parserMappingsWithServerSupportSet:(id)arg1 includeEmail:(BOOL)arg2;
 + (id)resultTypeForRecordType:(id)arg1;
 + (id)propertySearchItemForWellKnownType:(int)arg1;
 + (id)namespaceAndNameForWellKnownType:(int)arg1;

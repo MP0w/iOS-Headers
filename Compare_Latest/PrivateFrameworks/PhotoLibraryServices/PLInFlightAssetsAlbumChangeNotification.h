@@ -4,14 +4,14 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <PhotoLibraryServices/PLAlbumChangeNotification.h>
+#import <PhotoLibraryServices/PLAssetContainerChangeNotification.h>
 
 @class NSMutableSet, NSOrderedSet, PLInFlightAssetsAlbum;
 
-@interface PLInFlightAssetsAlbumChangeNotification : PLAlbumChangeNotification
+@interface PLInFlightAssetsAlbumChangeNotification : PLAssetContainerChangeNotification
 {
     PLInFlightAssetsAlbum *_album;
-    PLAlbumChangeNotification *_backingNotification;
+    PLAssetContainerChangeNotification *_backingNotification;
     NSOrderedSet *_oldOIDs;
     NSMutableSet *_uniquedOIDs;
     BOOL _keyAssetDidChange;
@@ -19,7 +19,7 @@
 
 + (id)notificationForDerivedObject:(id)arg1 priorChangeState:(id)arg2 forBackingObjectNotification:(id)arg3;
 @property(readonly, nonatomic) NSOrderedSet *oldOIDs; // @synthesize oldOIDs=_oldOIDs;
-@property(readonly, nonatomic) PLAlbumChangeNotification *backingNotification; // @synthesize backingNotification=_backingNotification;
+@property(readonly, nonatomic) PLAssetContainerChangeNotification *backingNotification; // @synthesize backingNotification=_backingNotification;
 @property(readonly, nonatomic) PLInFlightAssetsAlbum *album; // @synthesize album=_album;
 - (id)_changedObjects;
 - (BOOL)_getOldSet:(id *)arg1 newSet:(id *)arg2;

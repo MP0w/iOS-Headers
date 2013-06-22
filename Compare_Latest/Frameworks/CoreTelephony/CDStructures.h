@@ -20,12 +20,22 @@ struct __CTServerConnection {
     struct _xpc_connection_s *_field6;
 };
 
+struct block<void (^)(NSDictionary *)>;
+
 struct dispatch_object_s;
 
 struct dispatch_queue_s;
 
 struct queue {
     struct dispatch_object_s *fObj;
+};
+
+struct vector<dispatch::block<void (^)(NSDictionary *)>, std::__1::allocator<dispatch::block<void (^)(NSDictionary *)>>> {
+    struct block<void (^)(NSDictionary *)> *__begin_;
+    struct block<void (^)(NSDictionary *)> *__end_;
+    struct __compressed_pair<dispatch::block<void (^)(NSDictionary *)>*, std::__1::allocator<dispatch::block<void (^)(NSDictionary *)>>> {
+        struct block<void (^)(NSDictionary *)> *__first_;
+    } __end_cap_;
 };
 
 #pragma mark Typedef'd Structures

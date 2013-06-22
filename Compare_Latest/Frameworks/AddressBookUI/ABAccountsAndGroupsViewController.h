@@ -8,10 +8,11 @@
 
 #import "UITableViewDelegate-Protocol.h"
 
-@class ABAccountsAndGroupDataSource, ABPeoplePickerNavigationController, UITableView;
+@class ABAccountsAndGroupDataSource, ABPeoplePickerNavigationController, UIRefreshControl;
 
 @interface ABAccountsAndGroupsViewController : ABAbstractViewController <UITableViewDelegate>
 {
+    UIRefreshControl *_refreshControl;
     ABAccountsAndGroupDataSource *_dataSource;
     BOOL _needsReload;
     BOOL _tableViewNeedsReloadAfterResume;
@@ -24,9 +25,6 @@
 - (void)modelDatabaseChange:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)_updateDisplayedContactsFilterFromSelection;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)done:(id)arg1;
 - (int)abViewControllerType;
 - (void)applicationDidResume;
@@ -34,20 +32,17 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
-- (void)setStyleProvider:(id)arg1;
-- (void)_applyStylesToTableView:(id)arg1;
+- (BOOL)hidesGlobalGroupWrapper;
+- (void)setHidesGlobalGroupWrapper:(BOOL)arg1;
+- (BOOL)hidesSearchableSources;
+- (void)setHidesSearchableSources:(BOOL)arg1;
+- (void)updateRefreshButton;
+- (void)refreshEverythingNow;
+- (void)reloadData;
 - (void)setModel:(id)arg1;
 - (id)model;
 - (void)dealloc;
 - (id)initWithModel:(id)arg1;
-@property(nonatomic) BOOL hidesGlobalGroupWrapper;
-@property(nonatomic) BOOL hidesSearchableSources;
-- (void)accessibilityLargeTextDidChange;
-- (void)_applyAccessibilityFontChanges;
-@property(readonly, nonatomic) UITableView *tableView;
-- (void)updateRefreshButton;
-- (void)refreshEverythingNow;
-- (void)reloadData;
 - (id)allGroupWrapperIndexPaths;
 
 @end

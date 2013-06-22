@@ -8,30 +8,32 @@
 
 #import "NSISRowBody-Protocol.h"
 
+@class NSMutableArray;
+
 @interface NSISObjectiveLinearExpression : NSObject <NSISRowBody>
 {
     struct __CFDictionary *_priorityMap;
-    struct __CFArray *_sortedPriorityVectors;
-    struct __CFArray *_constant;
+    NSMutableArray *_variablesSortedByPriorityVectors;
+    struct __CFData *_constant;
 }
 
 - (void)verifyInternalIntegrity;
-- (void)leadingPriority:(float *)arg1 andValue:(float *)arg2 forVariable:(id)arg3;
+- (void)leadingPriority:(float *)arg1 andValue:(double *)arg2 forVariable:(id)arg3;
 - (id)restrictedVariableWithCoefficientOfLargestNegativeMagnitude;
 - (void)replaceVariable:(id)arg1 withExpression:(id)arg2 processVariableNewToReceiver:(id)arg3 processVariableDroppedFromReceiver:(void)arg4;
-- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(float)arg2 timesVariable:(id)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
-- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(float)arg2;
-- (void)addExpression:(id)arg1 priority:(float)arg2 times:(float)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
-- (void)addVariable:(id)arg1 priority:(float)arg2 times:(float)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
-- (void)addVariable:(id)arg1 priority:(float)arg2 times:(float)arg3;
-- (void)setPriorityVector:(struct __CFArray *)arg1 forVariable:(id)arg2;
+- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2 timesVariable:(id)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
+- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2;
+- (void)addExpression:(id)arg1 priority:(float)arg2 times:(double)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
+- (void)addVariable:(id)arg1 priority:(float)arg2 times:(double)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
+- (void)addVariable:(id)arg1 priority:(float)arg2 times:(double)arg3;
+- (void)setPriorityVector:(struct __CFData *)arg1 forKnownAbsentVariable:(id)arg2;
 - (void)removeVariable:(id)arg1;
-- (struct __CFArray *)priorityVectorForVariable:(id)arg1;
-- (id)allVariables;
+- (struct __CFData *)priorityVectorForVariable:(id)arg1;
+- (unsigned int)variableCount;
 - (void)enumerateVariables:(id)arg1;
 - (BOOL)constantTermIsZero;
-- (void)incrementConstantWithPriorityVector:(struct __CFArray *)arg1;
-- (void)incrementConstantWithPriority:(float)arg1 value:(float)arg2;
+- (void)incrementConstantWithPriorityVector:(struct __CFData *)arg1 timesScalarCoefficient:(double)arg2;
+- (void)incrementConstantWithPriority:(float)arg1 value:(double)arg2;
 - (id)description;
 - (void)dealloc;
 - (id)initWithLinearExpression:(id)arg1 priority:(float)arg2;

@@ -13,6 +13,8 @@
         unsigned int isReadyToBeActivated:1;
         unsigned int hasBeenActivated:1;
     } _voiceControlFlags;
+    BOOL _expectsFaceContact;
+    BOOL _expectsFaceContactInLandscape;
 }
 
 + (void)setNextRecognitionAudioInputPaths:(id)arg1;
@@ -32,6 +34,10 @@
 - (void)cancelIfNotActivated;
 - (void)activateWhenReady;
 - (id)initFromMenuButton;
+- (BOOL)expectsFaceContactInLandscape;
+- (BOOL)expectsFaceContact;
+- (void)setExpectsFaceContact:(BOOL)arg1 inLandscape:(BOOL)arg2;
+- (void)setExpectsFaceContact:(BOOL)arg1;
 - (id)initFromWiredHeadsetButton;
 - (id)init;
 - (void)_setRoutingAttributesForWiredHeadset:(BOOL)arg1;

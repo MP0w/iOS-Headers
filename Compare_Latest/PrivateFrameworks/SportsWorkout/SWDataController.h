@@ -18,7 +18,6 @@
 }
 
 + (id)sharedDataController;
-- (void)_removeAllEmpedsFromCheckpoint;
 - (void)_migrateTotals;
 - (void)_migrateBests;
 - (void)_importWorkoutFilesFromDirectory:(id)arg1;

@@ -22,6 +22,7 @@
 @property(nonatomic) float zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(nonatomic) int tileSize; // @synthesize tileSize=_tileSize;
 @property(nonatomic) CDStruct_c3b9c2ee centerCoordinate; // @synthesize centerCoordinate=_centerCoordinate;
+- (id).cxx_construct;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (id)initWithDictionaryRepresentation:(id)arg1;
 

@@ -9,6 +9,7 @@
 @protocol MPMovieViewDelegate <NSObject>
 
 @optional
+- (void)movieView:(id)arg1 willMoveToSuperview:(id)arg2;
 - (void)movieViewDidMoveToWindow:(id)arg1;
 - (void)movieView:(id)arg1 willMoveToWindow:(id)arg2;
 @end

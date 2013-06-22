@@ -7,9 +7,12 @@
 #import "UIImage.h"
 
 @interface UIImage (ChatKitAdditions)
++ (id)__ck_documentIconNamed:(id)arg1;
 + (id)ckImageWithData:(id)arg1;
 + (id)ckImageNamed:(id)arg1;
 - (void)decode;
-- (id)imageWithOrientation:(int)arg1;
+- (struct CGRect)__ck_contentsCenter;
+- (id)__ck_imageWithOrientation:(int)arg1;
+- (id)__ck_resizableBalloonWithOrientation:(BOOL)arg1 skinny:(BOOL)arg2 framed:(BOOL)arg3;
 @end
 

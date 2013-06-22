@@ -19,15 +19,17 @@
     unsigned int _genNumber;
     NSOrderedSet *_properties;
     unsigned int _searchTypes;
-    NSArray *_searchAccountIDs;
     NSObject<OS_dispatch_queue> *_serverSearchQueue;
+    NSArray *_explicitSearchAccountIDs;
+    NSArray *_searchAccounts;
+    int _contactSearchAccountChangedToken;
     BOOL _registeredForAddressBookChanges;
     NSString *_recentsBundleIdentifier;
     NSString *_sendingAddress;
 }
 
 @property(copy, nonatomic) NSString *sendingAddress; // @synthesize sendingAddress=_sendingAddress;
-@property(retain) NSArray *searchAccountIDs; // @synthesize searchAccountIDs=_searchAccountIDs;
+@property(retain) NSArray *searchAccountIDs; // @synthesize searchAccountIDs=_explicitSearchAccountIDs;
 @property(copy, nonatomic) NSString *recentsBundleIdentifier; // @synthesize recentsBundleIdentifier=_recentsBundleIdentifier;
 - (void)dealloc;
 - (id)_serverSearchQueue;
@@ -37,13 +39,18 @@
 - (void)searchQuery:(id)arg1 returnedResults:(id)arg2;
 - (void)_handleSearchQuery:(id)arg1 returnedResults:(id)arg2;
 - (void)_handleSearchQueryFinished:(id)arg1 context:(id)arg2;
+- (void)_handleCorecipientSearchResults:(id)arg1 operation:(id)arg2 taskID:(id)arg3;
 - (void)_handleSearchQueriesByAccountID:(id)arg1 operation:(id)arg2 taskID:(id)arg3;
 - (void)_handleLocalSearchResults:(id)arg1 type:(int)arg2 operation:(id)arg3 taskID:(id)arg4;
 - (void)_handleRecentsSearchFrequentResults:(id)arg1 infrequentResults:(id)arg2 operation:(id)arg3 taskID:(id)arg4;
 - (void)_registerForAddressBookChanges;
 - (void)_handleAddressBookChangeNotification;
+- (void)_invalidateSearchAccounts;
+@property(readonly, nonatomic) NSArray *searchAccounts;
 - (void)_handleTaskFinished:(id)arg1 context:(id)arg2;
+- (id)searchForCorecipientsWithRecipients:(id)arg1 consumer:(id)arg2;
 - (id)searchForText:(id)arg1 consumer:(id)arg2;
+- (void)_performLazySetup;
 - (void)setSearchTypes:(unsigned int)arg1;
 - (id)initWithAddressBook:(void *)arg1 properties:(int *)arg2 propertyCount:(unsigned int)arg3;
 - (id)initWithAddressBook:(void *)arg1 properties:(int *)arg2 propertyCount:(unsigned int)arg3 recentsBundleIdentifier:(id)arg4;

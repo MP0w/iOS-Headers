@@ -7,6 +7,8 @@
 #import "UIView.h"
 
 @interface UIView (PhotoLibraryAdditions)
++ (double)pl_setHiddenAnimationDuration;
+- (void)pl_setHidden:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)pl_drawBorderWithColor:(id)arg1 width:(float)arg2;
 - (BOOL)pl_isOnScreen:(id)arg1;
 @end

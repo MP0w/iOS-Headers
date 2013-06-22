@@ -16,11 +16,11 @@
 }
 
 + (float)defaultHeight;
-- (void)updateFill;
 - (float)progress;
 - (void)setProgress:(float)arg1;
 - (id)fillImage;
 - (id)trackImage;
+- (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

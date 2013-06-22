@@ -20,15 +20,20 @@
 + (id)defaultActionForKey:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (BOOL)_hasRenderLayerSubclass;
 + (id)layer;
 + (BOOL)needsDisplayForKey:(id)arg1;
 + (id)defaultValueForKey:(id)arg1;
++ (void)CAMLParserEndElement:(id)arg1;
++ (void)CAMLParserStartElement:(id)arg1;
 + (BOOL)resolveInstanceMethod:(SEL)arg1;
-+ (void *)CA_getterForType:(int)arg1;
-+ (void *)CA_setterForType:(int)arg1;
++ (void *)CA_getterForProperty:(const struct _CAPropertyInfo *)arg1;
++ (void *)CA_setterForProperty:(const struct _CAPropertyInfo *)arg1;
 + (id)properties;
 + (BOOL)needsLayoutForKey:(id)arg1;
 - (id).cxx_construct;
+@property BOOL allowsGroupOpacity;
+@property BOOL allowsEdgeAntialiasing;
 @property BOOL drawsAsynchronously;
 @property float rasterizationScale;
 @property BOOL shouldRasterize;
@@ -141,6 +146,7 @@
 - (id)debugDescription;
 - (void)dealloc;
 - (void)_dealloc;
+- (id)_initWithReference:(id)arg1;
 - (id)initWithLayer:(id)arg1;
 - (id)initWithBounds:(struct CGRect)arg1;
 - (id)init;
@@ -166,6 +172,7 @@
 @property BOOL allowsGroupBlending;
 @property BOOL allowsDisplayCompositing;
 @property BOOL preloadsCache;
+@property BOOL swapsMaskAndLayer;
 @property BOOL contentsOpaque;
 @property struct CGAffineTransform contentsTransform;
 @property BOOL shadowPathIsBounds;
@@ -178,13 +185,14 @@
 @property BOOL literalContentsCenter;
 @property BOOL hitTestsAsOpaque;
 @property BOOL allowsHitTesting;
-@property BOOL allowsGroupOpacity;
-@property BOOL allowsEdgeAntialiasing;
 - (void)setFlipped:(BOOL)arg1;
 - (BOOL)isFlipped;
 - (BOOL)doubleSided;
 - (BOOL)opaque;
 - (BOOL)hidden;
+- (id)CAMLTypeForKey:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
+- (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (void)layerDidBecomeVisible:(BOOL)arg1;
 - (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;
 - (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;
@@ -200,6 +208,7 @@
 - (BOOL)layoutIsActive;
 - (void)_prepareContext:(struct CGContext *)arg1;
 - (void *)regionBeingDrawn;
+- (unsigned int)_renderImageCopyFlags;
 - (void)setContentsChanged;
 - (void)invalidateContents;
 @property(copy) CAMeshTransform *meshTransform;
@@ -230,6 +239,7 @@
 @property float coefficientOfRestitution;
 @property float momentOfInertia;
 @property float mass;
+- (BOOL)getRendererInfo:(struct _CARenderRendererInfo *)arg1 size:(unsigned long)arg2;
 
 // Remaining properties
 @property(copy) NSArray *stateTransitions; // @dynamic stateTransitions;

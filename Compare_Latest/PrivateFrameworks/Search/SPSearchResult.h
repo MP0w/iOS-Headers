@@ -14,6 +14,7 @@
     NSString *_auxiliarySubtitle;
     NSString *_auxiliaryTitle;
     int _flags;
+    unsigned int _numberOfSummaryLines;
     NSString *_subtitle;
     NSString *_summary;
     NSString *_title;
@@ -21,9 +22,11 @@
     struct {
         unsigned int identifier:1;
         unsigned int flags:1;
+        unsigned int numberOfSummaryLines:1;
     } _has;
 }
 
+@property(nonatomic) unsigned int numberOfSummaryLines; // @synthesize numberOfSummaryLines=_numberOfSummaryLines;
 @property(nonatomic) int flags; // @synthesize flags=_flags;
 @property(retain, nonatomic) NSString *url; // @synthesize url=_url;
 @property(nonatomic) unsigned long long identifier; // @synthesize identifier=_identifier;
@@ -39,6 +42,7 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) BOOL hasNumberOfSummaryLines;
 @property(nonatomic) BOOL hasFlags;
 @property(readonly, nonatomic) BOOL hasUrl;
 @property(nonatomic) BOOL hasIdentifier;

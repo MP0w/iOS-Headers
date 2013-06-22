@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol SKUIServiceProductPageViewController <NSObject>
+- (void)setShowsStoreButton:(id)arg1;
 - (void)setScriptContextDictionary:(id)arg1;
 - (void)setProductPageStyle:(id)arg1;
 - (void)setClientIdentifier:(id)arg1;
@@ -14,5 +15,6 @@
 - (void)loadProductWithURL:(id)arg1;
 - (void)loadProductWithRequest:(id)arg1;
 - (void)loadProductWithParameters:(id)arg1;
+- (void)finishStarRatingPromptWithRating:(id)arg1;
 @end
 

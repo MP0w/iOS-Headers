@@ -17,35 +17,18 @@
     NSString *_chatIdentifier;
     NSString *_guid;
     NSString *_roomName;
+    NSString *_displayName;
     NSString *_lastAddressedLocalHandle;
     NSArray *_participants;
     FZMessage *_lastMessage;
     int _state;
     unsigned char _style;
     unsigned int _unreadCount;
-    unsigned int _failedCount;
-    int _isArchived;
-    int _rowIDOfMostRecentFailedMessage;
+    long long _rowID;
+    BOOL _isArchived;
 }
 
-@property(copy) NSString *lastAddressedLocalHandle; // @synthesize lastAddressedLocalHandle=_lastAddressedLocalHandle;
-- (void)_setRowIDOfMostRecentFailedMessage:(int)arg1;
-@property int rowIDOfMostRecentFailedMessage; // @synthesize rowIDOfMostRecentFailedMessage=_rowIDOfMostRecentFailedMessage;
-- (void)_setFailedCount:(unsigned int)arg1;
-@property unsigned int failedCount; // @synthesize failedCount=_failedCount;
-@property(readonly) int isArchived; // @synthesize isArchived=_isArchived;
-@property(retain) FZMessage *lastMessage; // @synthesize lastMessage=_lastMessage;
-@property(copy) NSString *chatIdentifier; // @synthesize chatIdentifier=_chatIdentifier;
-@property(copy) NSArray *participants; // @synthesize participants=_participants;
-@property(copy) NSString *accountID; // @synthesize accountID=_accountID;
-@property(copy) NSString *guid; // @synthesize guid=_guid;
-@property(copy) NSString *roomName; // @synthesize roomName=_roomName;
-@property unsigned char style; // @synthesize style=_style;
-@property int state; // @synthesize state=_state;
-- (void)_setUnreadCount:(unsigned int)arg1;
-@property unsigned int unreadCount; // @synthesize unreadCount=_unreadCount;
-@property(copy) NSString *serviceName; // @synthesize serviceName=_serviceName;
-@property(retain) NSDictionary *properties; // @synthesize properties=_properties;
+- (void)updateDisplayName:(id)arg1;
 - (void)updateProperties:(id)arg1;
 - (void)_updateLastMessage:(id)arg1;
 @property(readonly) NSDictionary *dictionaryRepresentation;
@@ -55,12 +38,29 @@
 @property(readonly) IMDServiceSession *serviceSession;
 @property(readonly) IMDService *service;
 @property(readonly) IMDAccount *account;
+@property(copy) NSString *accountID;
 - (void)removeParticipant:(id)arg1;
 - (void)removeParticipants:(id)arg1;
 - (void)addParticipant:(id)arg1;
 - (void)addParticipants:(id)arg1;
+- (void)_setRowID:(long long)arg1;
+@property long long rowID;
+@property(readonly) BOOL isArchived;
+- (void)_setUnreadCount:(unsigned int)arg1;
+@property unsigned int unreadCount;
+@property int state;
+@property unsigned char style;
+@property(retain) FZMessage *lastMessage;
+@property(retain) NSDictionary *properties;
+@property(copy) NSString *lastAddressedLocalHandle;
+@property(copy) NSString *displayName;
+@property(copy) NSString *roomName;
+@property(copy) NSArray *participants;
+@property(copy) NSString *serviceName;
+@property(copy) NSString *chatIdentifier;
+@property(copy) NSString *guid;
 - (void)dealloc;
-- (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 chatIdentifier:(id)arg4 participants:(id)arg5 roomName:(id)arg6 lastAddressedLocalHandle:(id)arg7 state:(int)arg8 style:(unsigned char)arg9;
+- (id)initWithAccountID:(id)arg1 service:(id)arg2 guid:(id)arg3 chatIdentifier:(id)arg4 participants:(id)arg5 roomName:(id)arg6 displayName:(id)arg7 lastAddressedLocalHandle:(id)arg8 state:(int)arg9 style:(unsigned char)arg10;
 
 @end
 

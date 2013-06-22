@@ -11,7 +11,5 @@
 @optional
 - (void)cameraViewControllerFinishedOpeningIrisForPreview:(id)arg1;
 - (void)cameraViewControllerFinishedClosingIris:(id)arg1;
-- (void)cameraViewControllerUIShouldUnlock:(id)arg1;
-- (void)cameraViewControllerUIShouldLock:(id)arg1;
 @end
 

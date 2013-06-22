@@ -16,8 +16,11 @@
     UILabel *_subHeaderLabel;
     float _subHeaderSized;
     BOOL _isFirstSection;
+    BOOL _isRightToLeft;
 }
 
+@property(readonly, nonatomic) UILabel *subHeaderLabel; // @synthesize subHeaderLabel=_subHeaderLabel;
+@property(readonly, nonatomic) UILabel *headerLabel; // @synthesize headerLabel=_headerLabel;
 - (void)dealloc;
 - (float)headerHeightForWidth:(float)arg1 inTableView:(id)arg2;
 - (void)layoutSubviews;

@@ -12,18 +12,18 @@
 {
     NSMutableArray *mLevelOverrides;
     WDDocument *mDocument;
-    int mIndex;
+    unsigned int mIndex;
     WDListDefinition *mListDefinition;
 }
 
 - (id)initWithDocument:(id)arg1 listDefinition:(id)arg2;
-- (int)listId;
-- (void)setIndex:(int)arg1;
-- (int)index;
+- (long)listId;
+- (void)setIndex:(unsigned int)arg1;
+- (unsigned int)index;
 - (id)levelOverrides;
 - (id)addLevelOverride;
-- (id)levelOverrideAt:(int)arg1;
-- (int)levelOverrideCount;
+- (id)levelOverrideAt:(unsigned int)arg1;
+- (unsigned int)levelOverrideCount;
 - (id)listDefinition;
 - (id)document;
 - (void)dealloc;

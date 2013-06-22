@@ -8,12 +8,12 @@
 
 #import "ABPersonImageDataDelegate-Protocol.h"
 
-@class ABPersonTableViewDataSource;
+@class ABPersonTableViewDataSource, ABUIPerson, NSMutableDictionary;
 
 @interface ABPersonTableViewImageDataDelegate : NSObject <ABPersonImageDataDelegate>
 {
-    struct __CFDictionary *_currentImageData;
-    void *_personForImageData;
+    NSMutableDictionary *_currentImageData;
+    ABUIPerson *_personForImageData;
     BOOL _hasImageChanges;
     BOOL _didChangePreferredPersonForImage;
     ABPersonTableViewDataSource *_dataSource;
@@ -21,25 +21,25 @@
 
 @property(nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
 - (BOOL)didChangePreferredPersonForImage;
-- (void *)personForImageDataExcludingPeople:(id)arg1;
-- (id)imageDataWithFormat:(int)arg1 cropRect:(struct CGRect *)arg2 forPerson:(void *)arg3 isRemoved:(char *)arg4;
+- (id)personForImageDataExcludingPeople:(id)arg1;
+- (id)imageDataWithFormat:(int)arg1 cropRect:(struct CGRect *)arg2 forPerson:(id)arg3 isRemoved:(char *)arg4;
 - (void)updateRecordImages;
 - (void)resetImageData;
 - (BOOL)hasImageChanges;
-- (void)setCurrentImageData:(struct __CFDictionary *)arg1;
-- (struct __CFDictionary *)currentImageData;
+- (void)setCurrentImageData:(id)arg1;
+- (id)currentImageData;
 - (void)reloadImageData;
 - (void)imageWillSave;
 - (void)refreshImageData;
-- (void)setPersonForImageData:(void *)arg1;
-- (void *)personForImageData;
-- (void)removeImageDataForPerson:(void *)arg1;
-- (void)setImageData:(id)arg1 withFormat:(int)arg2 cropRect:(struct CGRect)arg3 forPerson:(void *)arg4;
-- (id)imageDataWithFormat:(int)arg1 cropRect:(struct CGRect *)arg2 forPerson:(void *)arg3;
-- (BOOL)hasImageDataForPerson:(void *)arg1;
+- (void)setPersonForImageData:(id)arg1;
+- (id)personForImageData;
+- (void)removeImageDataForPerson:(id)arg1;
+- (void)setImageData:(id)arg1 withFormat:(int)arg2 cropRect:(struct CGRect)arg3 forPerson:(id)arg4;
+- (id)imageDataWithFormat:(int)arg1 cropRect:(struct CGRect *)arg2 forPerson:(id)arg3;
+- (BOOL)hasImageDataForPerson:(id)arg1;
 - (id)writablePeople;
 - (id)people;
-- (void)markImagesWith:(id)arg1 forPerson:(void *)arg2;
+- (void)markImagesWith:(id)arg1 forPerson:(id)arg2;
 - (void)dealloc;
 
 @end

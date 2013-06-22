@@ -22,8 +22,8 @@
     BOOL mIsBehindText;
     BOOL mAllowOverlap;
     BOOL mMoveWithText;
-    int mZIndexTotal;
-    int mZIndex;
+    long mZIndexTotal;
+    long mZIndex;
 }
 
 @property(nonatomic) BOOL allowOverlap; // @synthesize allowOverlap=mAllowOverlap;
@@ -31,10 +31,10 @@
 @property(nonatomic) int textWrappingMode; // @synthesize textWrappingMode=mTextWrappingMode;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=mBounds;
 - (id).cxx_construct;
-- (void)setZIndexTotal:(int)arg1;
-- (int)zIndexTotal;
-- (void)setZIndex:(int)arg1;
-- (int)zIndex;
+- (void)setZIndexTotal:(long)arg1;
+- (long)zIndexTotal;
+- (void)setZIndex:(long)arg1;
+- (long)zIndex;
 - (void)setRelativeVerticalPosition:(int)arg1;
 - (int)relativeVerticalPosition;
 - (void)setRelativeHorizontalPosition:(int)arg1;

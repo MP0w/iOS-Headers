@@ -6,7 +6,7 @@
 
 #import "UIViewController.h"
 
-@class NSString;
+@class NSString, NSTimer, UIView;
 
 @interface QLDisplayBundle : UIViewController
 {
@@ -17,8 +17,9 @@
     BOOL _loaded;
     BOOL _loading;
     NSString *_password;
-    CDStruct_6904a77d clientContext;
+    NSTimer *_refreshTimer;
     int _index;
+    CDStruct_6904a77d clientContext;
 }
 
 + (BOOL)needsAVControls;
@@ -30,6 +31,7 @@
 @property BOOL loading; // @synthesize loading=_loading;
 @property BOOL loaded; // @synthesize loaded=_loaded;
 @property id <QLPreviewItemInteractionDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)gestureRecognizersForFullScreenDisplay;
 - (BOOL)overlayOwnedByDisplayBundle;
 - (void)togglePlayState;
 - (void)endScrubbing;
@@ -38,6 +40,15 @@
 - (id)printPageHelper;
 - (id)printPageRenderer;
 - (id)pdfPreviewData;
+@property(readonly) struct CGRect contentFrame;
+- (void)viewDidUpdate;
+- (void)discardAirPlayView;
+- (void)setupAirPlayView;
+- (void)endTrackingViewUpdates;
+- (void)beginTrackingViewUpdates;
+@property(readonly) UIView *airplayView;
+@property(readonly) UIView *accessoryView;
+@property(readonly) int airPlayMode;
 - (BOOL)canCopyToPasteboard;
 - (BOOL)acceptControllerTouch:(id)arg1 fromGestureRecognizer:(id)arg2;
 - (int)backgroundType;

@@ -21,8 +21,8 @@
 + (BOOL)usesScreenFonts;
 + (void)setUsesFontLeading:(BOOL)arg1;
 + (BOOL)usesFontLeading;
-- (struct CGSize)cts_sizeWithAttributes:(id)arg1;
-- (void)cts_drawInRect:(struct CGRect)arg1 withAttributes:(id)arg2;
-- (void)cts_drawAtPoint:(struct CGPoint)arg1 withAttributes:(id)arg2;
+- (struct CGSize)sizeWithAttributes:(id)arg1;
+- (void)drawInRect:(struct CGRect)arg1 withAttributes:(id)arg2;
+- (void)drawAtPoint:(struct CGPoint)arg1 withAttributes:(id)arg2;
 @end
 

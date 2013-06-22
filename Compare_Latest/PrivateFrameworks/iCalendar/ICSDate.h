@@ -12,6 +12,7 @@
 {
 }
 
+- (id)parametersToIncludeForChecksumVersion:(int)arg1;
 - (id)description;
 - (BOOL)hasFloatingTimeZone;
 - (BOOL)hasTimeComponent;

@@ -18,10 +18,10 @@
 
 - (void)setRoundedCorners:(int)arg1 withCornersFrame:(struct CGRect)arg2;
 - (void)dealloc;
-- (id)initWithView:(id)arg1;
-- (id)initWithImage:(id)arg1;
-- (id)initWithSnapshotFrame:(struct CGRect)arg1 ioSurface:(void *)arg2 snapshotTransform:(struct CGAffineTransform)arg3;
-- (id)initWithSnapshotFrame:(struct CGRect)arg1 image:(id)arg2 originalImageOrientation:(int)arg3 currentImageOrientation:(int)arg4 interfaceOrientation:(int)arg5 doubleHeightStatusBar:(BOOL)arg6 preventSplit:(BOOL)arg7 chrome:(id)arg8 chromeStatusBarHidden:(BOOL)arg9 needsZoomFilter:(BOOL)arg10 asyncDecodeImage:(BOOL)arg11;
+- (id)initWithView:(id)arg1 screen:(id)arg2;
+- (id)initWithImage:(id)arg1 screen:(id)arg2;
+- (id)initWithSnapshotFrame:(struct CGRect)arg1 screen:(id)arg2 ioSurface:(void *)arg3 snapshotTransform:(struct CGAffineTransform)arg4;
+- (id)initWithSnapshotFrame:(struct CGRect)arg1 screen:(id)arg2 image:(id)arg3 originalImageOrientation:(int)arg4 currentImageOrientation:(int)arg5 interfaceOrientation:(int)arg6 doubleHeightStatusBar:(BOOL)arg7 preventSplit:(BOOL)arg8 chrome:(id)arg9 chromeStatusBarHidden:(BOOL)arg10 needsZoomFilter:(BOOL)arg11 asyncDecodeImage:(BOOL)arg12;
 - (id)_initWithFrame:(struct CGRect)arg1;
 
 @end

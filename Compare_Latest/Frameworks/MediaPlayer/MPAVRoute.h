@@ -34,9 +34,9 @@
 @property(nonatomic) BOOL isPicked; // @synthesize isPicked=_isPicked;
 @property(nonatomic) int displayRouteType; // @synthesize displayRouteType=_displayRouteType;
 @property(nonatomic) BOOL displayIsPicked; // @synthesize displayIsPicked=_displayIsPicked;
+- (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
-- (void)dealloc;
 - (id)_initWithName:(id)arg1 routeType:(int)arg2 routeUID:(id)arg3 routeIndex:(unsigned int)arg4 requiresPassword:(BOOL)arg5;
 
 @end

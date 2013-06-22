@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @interface IMUserNotification : NSObject
 {
@@ -19,6 +19,9 @@
 @property(readonly, nonatomic) NSDictionary *responseInformation;
 @property(readonly, nonatomic) unsigned int responseFlags;
 @property(retain, nonatomic) NSDictionary *userInfo;
+@property(nonatomic) BOOL usesNotificationCenter;
+@property(nonatomic) BOOL showInLockScreen;
+@property(retain, nonatomic) NSString *representedApplicationBundle;
 @property(readonly, nonatomic) unsigned int response;
 @property(readonly, nonatomic) NSDictionary *displayInformation;
 @property(readonly, nonatomic) unsigned int displayFlags;

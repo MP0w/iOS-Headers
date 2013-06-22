@@ -6,15 +6,16 @@
 
 #import "UIViewController.h"
 
+#import "PLEffectSelectionViewControllerDelegate-Protocol.h"
 #import "PLImageAdjustmentViewDelegate-Protocol.h"
 #import "UIActionSheetDelegate-Protocol.h"
 #import "UIAlertViewDelegate-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 #import "UIScrollViewDelegate-Protocol.h"
 
-@class CIFilter, NSArray, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSTimer, NSUndoManager, PLImageAdjustmentView, PLManagedAsset, UIActionSheet, UIAlertView, UIImage, UILabel, UINavigationBar, UIPopoverController, UIProgressHUD, UIScrollView, UIToolbar, UIView;
+@class CIContext, CIFilter, EAGLContext, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSTimer, NSUndoManager, PLEffectSelectionViewController, PLImageAdjustmentView, PLManagedAsset, PLProgressHUD, UIActionSheet, UIAlertView, UIImage, UILabel, UINavigationBar, UIPopoverController, UIScrollView, UIToolbar, UIView;
 
-@interface PLEditPhotoController : UIViewController <PLImageAdjustmentViewDelegate, UIScrollViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate>
+@interface PLEditPhotoController : UIViewController <PLImageAdjustmentViewDelegate, UIScrollViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, PLEffectSelectionViewControllerDelegate>
 {
     UIScrollView *_scrollView;
     UIView *_zoomView;
@@ -22,7 +23,8 @@
     UILabel *_messageView;
     UINavigationBar *_navigationBar;
     UIToolbar *_toolbar;
-    UIProgressHUD *_savingHUD;
+    PLEffectSelectionViewController *_effectSelectionViewController;
+    PLProgressHUD *_savingHUD;
     UIActionSheet *_actionSheet;
     UIAlertView *_alertView;
     UIPopoverController *_popover;
@@ -42,11 +44,14 @@
     NSArray *_autoRedEyeCorrections;
     CIFilter *_autoRedEyeFilter;
     CIFilter *_redEyeFilter;
+    NSArray *_effectFilters;
     struct CGRect _normalizedCropRect;
     float _straightenAngle;
     float _rotationAngle;
     NSDictionary *_cachedMetadata;
     UIImage *_scaledCachedImage;
+    UIImage *_smallThumbnailImage;
+    UIImage *_largeThumbnailImage;
     NSObject<OS_dispatch_queue> *_cachedImageQueue;
     id _didEndZoomingBlock;
     id _editCompletionBlock;
@@ -66,10 +71,26 @@
     unsigned int _modal:1;
     unsigned int _isUsingProxyImage:1;
     unsigned int _shouldPublishToPhotoStreams:1;
+    unsigned int _needsFilteredFullSizeImage:1;
+    unsigned int _preloadedEffectFilters:1;
+    unsigned int _stopPreloadEffectFilters:1;
+    BOOL _supportsEffects;
+    unsigned int _nextPreloadEffectFilterIndex;
+    NSMutableDictionary *_thumbnailCache;
+    NSDictionary *_thumbnailCacheAdjustmentState;
+    CIContext *_ciContextThumbnails;
+    CIContext *_ciContextFullSize;
+    CIContext *_ciContextMainThread;
+    EAGLContext *_glesContextThumbnails;
+    EAGLContext *_glesContextFullSize;
+    NSObject<OS_dispatch_queue> *_effectQueueThumbnails;
+    NSObject<OS_dispatch_queue> *_effectQueueFullSize;
     int _currentMode;
+    BOOL __toolbarHidden;
 }
 
 + (void)initialize;
+@property(nonatomic, setter=_setToolbarHidden:) BOOL _toolbarHidden; // @synthesize _toolbarHidden=__toolbarHidden;
 @property(copy, nonatomic) id actionCompletionBlock; // @synthesize actionCompletionBlock=_actionCompletionBlock;
 @property(nonatomic) float rotationAngle; // @synthesize rotationAngle=_rotationAngle;
 - (BOOL)isEditing;
@@ -77,14 +98,27 @@
 - (BOOL)savesAdjustmentsToCameraRoll;
 - (struct CGSize)editedImageSize;
 - (void)_setUndoManager:(id)arg1;
+- (void)effectSelectionViewController:(id)arg1 requestsThumbnailWithEffect:(id)arg2 completionBlock:(id)arg3;
+- (void)_computeFullSizeFilteredImageWithAdjustmentState:(id)arg1;
+- (void)_computeFullSizeFilteredImage;
+- (void)effectSelectionViewController:(id)arg1 didSelectEffect:(id)arg2;
+- (void)_thumbnailImageWithEffectFilters:(id)arg1 inputImage:(id)arg2 applyOrientation:(BOOL)arg3 forceSquareCrop:(BOOL)arg4 completionBlock:(id)arg5;
+- (void)_fetchSmallThumbnailForEffectFilter:(id)arg1 completionBlock:(id)arg2;
+- (void)_preloadNextEffectFilter;
+- (void)_preloadEffectFilters;
+- (void)_dismissEffectSelection;
+- (void)_presentEffectSelection;
+- (struct CGSize)_editedImageFullSize;
 - (void)updatePendingPhoto;
 @property(readonly, nonatomic) PLManagedAsset *pendingPhoto;
 @property(retain, nonatomic) PLManagedAsset *editedPhoto;
 - (void)_setEditedPhoto:(id)arg1 resetFilters:(BOOL)arg2;
 @property(readonly, nonatomic) UIScrollView *scrollView;
 @property(retain, nonatomic) UIToolbar *toolbar;
+- (void)_layoutToolbar;
 @property(retain, nonatomic) UINavigationBar *navigationBar;
 - (void)_updateAggregateInfoForCurrentAdjustmentState;
+- (BOOL)_adjustmentState:(id)arg1 isEqualTo:(id)arg2;
 - (BOOL)_currentStateIsEqualToAdjustmentState:(id)arg1;
 - (id)_originalState;
 - (id)_adjustmentState;
@@ -121,15 +155,16 @@
 - (void)_writeXMPSidecarToPhoto:(id)arg1 properties:(id)arg2 orientation:(int)arg3;
 - (BOOL)_writeXMPHeaderToPhoto:(id)arg1 properties:(id)arg2 orientation:(int)arg3;
 - (void)_saveAdjustmentsToCopy;
-- (id)newAdjustedImageWithoutGeometry;
+- (id)newAdjustedImageWithoutGeometryUsingContext:(id)arg1;
 - (id)_croppedStraightenedImage;
-- (id)_cropAndStraightenFilters;
-- (id)_newImageFromImage:(id)arg1 filters:(id)arg2 orientation:(int)arg3;
+- (id)_cropAndStraightenFiltersForImageSize:(struct CGSize)arg1 forceSquareCrop:(BOOL)arg2 forceUseGeometry:(BOOL)arg3;
+- (id)_newImageFromImage:(id)arg1 filters:(id)arg2 orientation:(int)arg3 ciContext:(id)arg4;
+- (id)_largeThumbnailImage;
+- (id)_smallThumbnailImage;
 - (id)_scaledCachedImage;
-- (id)_scaledCachedImageFromData:(id)arg1 utiType:(id)arg2 imageSize:(struct CGSize)arg3 scaledToMaxDimension:(unsigned int)arg4 outImageProperties:(id *)arg5;
-- (id)_currentNonGeometryFilters;
+- (id)_currentNonGeometryFiltersWithEffectFilters:(id)arg1;
 - (void)applicationDidEnterBackground:(id)arg1;
-- (void)albumDidChange:(id)arg1;
+- (void)assetContainerDidChange:(id)arg1;
 - (void)didRedoNotification:(id)arg1;
 - (void)didUndoNotification:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
@@ -145,9 +180,12 @@
 - (void)editViewDidTouchImage:(id)arg1 location:(struct CGPoint)arg2;
 - (void)editViewDidCropImage:(id)arg1;
 - (void)editViewWillCropImage:(id)arg1;
+- (void)setToolbarItems:(id)arg1 animated:(BOOL)arg2;
+- (void)_updateToolbarSetHiddenState:(BOOL)arg1;
 - (void)_updateToolbar;
 - (void)_updateModeButtons;
 - (void)_updateEditedImage:(BOOL)arg1;
+- (void)_setEditedImage:(id)arg1 isProxyImage:(BOOL)arg2 updateCropAndStraighten:(BOOL)arg3 forceAnimate:(BOOL)arg4;
 - (void)_setEditedImage:(id)arg1 isProxyImage:(BOOL)arg2 updateCropAndStraighten:(BOOL)arg3;
 - (void)_updateEnhanceButton;
 - (void)_updateButtons;
@@ -184,11 +222,11 @@
 - (id)_redEyeLabel;
 - (id)_startToolbarItems;
 - (id)_currentToolbarItems;
-- (void)setToolbarItems:(id)arg1 animated:(BOOL)arg2;
 - (id)navigationItem;
 - (void)motionEnded:(int)arg1 withEvent:(id)arg2;
 - (BOOL)canBecomeFirstResponder;
 - (void)_updateCropInsetsForOrientation:(int)arg1;
+- (void)didReceiveMemoryWarning;
 - (BOOL)hidesBottomBarWhenPushed;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
@@ -202,6 +240,7 @@
 - (float)rotatedZoomToFitScale;
 - (float)zoomToFitScale;
 - (void)sizeToFit:(BOOL)arg1;
+- (id)contentScrollView;
 - (void)_startEditingWithAsset:(id)arg1;
 - (void)startEditingAsset:(id)arg1 proxyImage:(id)arg2 completion:(id)arg3;
 - (void)dealloc;

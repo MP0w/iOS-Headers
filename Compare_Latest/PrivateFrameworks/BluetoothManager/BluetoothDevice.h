@@ -13,7 +13,6 @@
     NSString *_name;
     NSString *_address;
     struct BTDeviceImpl *_device;
-    BOOL _isLowEnergy;
 }
 
 - (void)setSyncGroup:(int)arg1 enabled:(BOOL)arg2;
@@ -47,13 +46,12 @@
 - (id)name;
 - (BOOL)_isNameCached;
 - (void)_clearName;
-- (BOOL)isLowEnergy;
 - (void)setDevice:(struct BTDeviceImpl *)arg1;
 - (struct BTDeviceImpl *)device;
 - (int)compare:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithDevice:(struct BTDeviceImpl *)arg1 address:(id)arg2 isLE:(BOOL)arg3;
+- (id)initWithDevice:(struct BTDeviceImpl *)arg1 address:(id)arg2;
 
 @end
 

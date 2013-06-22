@@ -6,28 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, NSString;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface HSFairPlayInfo : NSObject
 {
-    BOOL _hasValidMescalSession;
+    NSObject<OS_dispatch_queue> *_sapQueue;
     void *_hwInfo;
-    NSMutableSet *_requestsToSign;
     void *_session;
 }
 
 - (id)_hexStringForData:(id)arg1;
 - (BOOL)_getHardwareInfo:(struct FairPlayHWInfo_ *)arg1;
-- (BOOL)shouldSignRequestAction:(id)arg1;
-- (id)signatureForData:(id)arg1;
-- (id)processSignedResponseData:(id)arg1 withSignature:(id)arg2;
-- (BOOL)setupMescalWithURL:(id)arg1 certificateURL:(id)arg2 requestsToSign:(id)arg3 userAgent:(id)arg4;
-- (void)_addRequestsToSign:(id)arg1;
-- (void)endMescalSession;
 - (id)securityInfoForURL:(id)arg1;
 - (void)endSecuritySession;
-- (id)continueNegotationWithData:(id)arg1 isComplete:(char *)arg2;
-- (id)beginNegotiation;
+- (id)continueNegotationWithSAPVersion:(unsigned int)arg1 data:(id)arg2 isComplete:(char *)arg3;
+- (id)beginNegotiationWithSAPVersion:(unsigned int)arg1;
 @property(readonly, nonatomic) NSString *deviceGUID;
 - (void)dealloc;
 - (id)init;

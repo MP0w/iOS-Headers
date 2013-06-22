@@ -6,20 +6,13 @@
 
 #import <PassKit/PKPassBackFaceView.h>
 
-@class UILabel;
-
 @interface PKPassWelcomeBackFaceView : PKPassBackFaceView
 {
-    UILabel *_appleLabel;
-    UILabel *_addressLabel;
 }
 
-- (void)layoutSubviews;
-- (void)createBodyContentViews;
 - (BOOL)showBackgroundMatte;
 - (BOOL)showUpdateDateLabel;
-- (BOOL)deleteEnabled;
-- (void)dealloc;
+- (BOOL)showsDelete;
 
 @end
 

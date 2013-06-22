@@ -10,13 +10,13 @@
 
 @interface VUCategory : NSObject
 {
-    id _value;
     NSString *_displayName;
+    id _value;
 }
 
 + (id)categoryWithDisplayName:(id)arg1 value:(id)arg2;
-@property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) id value; // @synthesize value=_value;
+@property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 
 @end
 

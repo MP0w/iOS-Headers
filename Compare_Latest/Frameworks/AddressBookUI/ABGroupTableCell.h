@@ -4,21 +4,21 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <AddressBookUI/ABChameleonCell.h>
+#import "UITableViewCell.h"
 
 #import "ABGroupWrapperDelegate-Protocol.h"
 
 @class ABGroupWrapper;
 
-@interface ABGroupTableCell : ABChameleonCell <ABGroupWrapperDelegate>
+@interface ABGroupTableCell : UITableViewCell <ABGroupWrapperDelegate>
 {
     ABGroupWrapper *_groupWrapper;
 }
 
 @property(retain, nonatomic) ABGroupWrapper *groupWrapper; // @synthesize groupWrapper=_groupWrapper;
-- (void)dealloc;
 - (void)groupWrapper:(id)arg1 didBecomeSelected:(BOOL)arg2;
 - (void)updateFromGroupWrapper;
+- (void)dealloc;
 
 @end
 

@@ -11,8 +11,10 @@
     id _netServiceBrowser;
     id _delegate;
     void *_reserved;
+    BOOL _includesPeerToPeer;
 }
 
+@property BOOL includesPeerToPeer; // @synthesize includesPeerToPeer=_includesPeerToPeer;
 - (void)finalize;
 - (void)dealloc;
 - (void)_dispatchCallBack:(void *)arg1 flags:(unsigned long)arg2 error:(CDStruct_1ef3fb1f)arg3;
@@ -23,8 +25,7 @@
 - (void)searchForBrowsableDomains;
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
-- (void)setDelegate:(id)arg1;
-- (id)delegate;
+@property id <NSNetServiceBrowserDelegate> delegate;
 - (id)init;
 - (void)searchForAllDomains;
 

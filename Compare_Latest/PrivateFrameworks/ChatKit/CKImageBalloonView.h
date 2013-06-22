@@ -6,20 +6,34 @@
 
 #import <ChatKit/CKBalloonView.h>
 
-@interface CKImageBalloonView : CKBalloonView
+#import "CKAnimationTimerObserver-Protocol.h"
+
+@class CKAnimatedImage, NSArray, UIImageView;
+
+@interface CKImageBalloonView : CKBalloonView <CKAnimationTimerObserver>
 {
-    id _highlightedImageBlock;
+    CKAnimatedImage *_animatedImage;
+    NSArray *_frames;
+    UIImageView *_tailMask;
 }
 
-+ (float)entryFieldBalloonAdditionalHeight;
-+ (struct CGPoint)entryFieldBalloonOffset;
-+ (struct UIEdgeInsets)contentInsetsForBalloonOrientation:(int)arg1;
 + (BOOL)fixedWidth;
-@property(copy, nonatomic) id highlightedImageBlock; // @synthesize highlightedImageBlock=_highlightedImageBlock;
+@property(retain, nonatomic) UIImageView *tailMask; // @synthesize tailMask=_tailMask;
+@property(copy, nonatomic) NSArray *frames; // @synthesize frames=_frames;
+@property(retain, nonatomic) CKAnimatedImage *animatedImage; // @synthesize animatedImage=_animatedImage;
+- (void)updateAnimationTimerObserving;
+- (void)animationTimerFired:(unsigned int)arg1;
+- (void)setCanUseOpaqueMask:(BOOL)arg1;
+- (void)setHasTail:(BOOL)arg1;
 - (void)prepareForReuse;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)dealloc;
+- (void)prepareForDisplay;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2;
+- (void)didMoveToWindow;
+- (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (id)description;
+- (void)dealloc;
+- (void)configureForMessagePart:(id)arg1;
 
 @end
 

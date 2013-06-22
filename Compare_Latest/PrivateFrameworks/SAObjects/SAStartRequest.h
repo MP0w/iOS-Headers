@@ -17,6 +17,7 @@
 + (id)startRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)startRequest;
 @property(copy, nonatomic) NSString *utterance;
+@property(nonatomic) BOOL talkOnly;
 @property(copy, nonatomic) NSString *origin;
 @property(copy, nonatomic) NSNumber *motionConfidence;
 @property(copy, nonatomic) NSString *motionActivity;

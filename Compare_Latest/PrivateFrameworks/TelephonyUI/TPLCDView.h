@@ -12,29 +12,33 @@
 {
     UIView *_contentView;
     TPLCDTextView *_textView;
-    TPLCDTextView *_secondLineTextView;
     TPLCDTextView *_labelView;
     TPLCDSubImageView *_imageView;
     unsigned int _layoutAsLabelled:1;
+    BOOL _verticallyCenterTextViewIfLabelless;
+    BOOL _hasBackgroundGradient;
+    UIView *_backgroundGradientView;
 }
 
 + (float)labelFontSize;
 + (float)textFontSize;
+@property(nonatomic) BOOL hasBackgroundGradient; // @synthesize hasBackgroundGradient=_hasBackgroundGradient;
+@property(retain, nonatomic) UIView *backgroundGradientView; // @synthesize backgroundGradientView=_backgroundGradientView;
+@property BOOL verticallyCenterTextViewIfLabelless; // @synthesize verticallyCenterTextViewIfLabelless=_verticallyCenterTextViewIfLabelless;
+- (id)secondLineText;
+- (void)setSecondLineText:(id)arg1;
 - (void)setLayoutAsLabelled:(BOOL)arg1;
 - (void)setShadowColor:(id)arg1;
 - (id)subImage;
 - (void)setSubImage:(id)arg1;
 - (void)blinkLabel;
 - (id)label;
-- (void)setLabel:(id)arg1;
 - (void)setLabel:(id)arg1 animate:(BOOL)arg2;
+- (void)setLabel:(id)arg1;
 - (void)didFinishAnimatingLCDLabelFadeOut:(id)arg1 finished:(id)arg2 context:(id)arg3;
-- (void)setSecondLineText:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGRect)_imageViewFrame;
 - (struct CGRect)_labelFrame;
-- (id)secondLineText;
-- (struct CGRect)_text2Frame;
 - (struct CGRect)textFrame;
 - (struct CGRect)_text1Frame;
 - (id)text;

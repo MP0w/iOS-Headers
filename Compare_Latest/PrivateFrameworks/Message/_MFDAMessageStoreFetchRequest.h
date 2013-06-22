@@ -8,14 +8,14 @@
 
 #import "MFDAMailAccountRequest-Protocol.h"
 
-@class MFDAMessageStore, Message, MimePart;
+@class MFDAMessageStore, MFMessage, MFMimePart;
 
 @interface _MFDAMessageStoreFetchRequest : DAMailboxFetchMessageRequest <MFDAMailAccountRequest>
 {
     id <MFRequestQueueResponseConsumer><DAMailAccountStreamConsumerFactory> consumer;
     MFDAMessageStore *store;
-    Message *message;
-    MimePart *part;
+    MFMessage *message;
+    MFMimePart *part;
     int format;
     BOOL partial;
 }

@@ -31,6 +31,9 @@
 - (id)fileReferenceURL;
 - (BOOL)isFileReferenceURL;
 - (BOOL)checkResourceIsReachableAndReturnError:(id *)arg1;
+- (void)setTemporaryResourceValue:(id)arg1 forKey:(id)arg2;
+- (void)removeAllCachedResourceValues;
+- (void)removeCachedResourceValueForKey:(id)arg1;
 - (BOOL)setResourceValues:(id)arg1 error:(id *)arg2;
 - (BOOL)setResourceValue:(id)arg1 forKey:(id)arg2 error:(id *)arg3;
 - (id)resourceValuesForKeys:(id)arg1 error:(id *)arg2;

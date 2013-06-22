@@ -8,22 +8,22 @@
 
 #import "ABCardPropertyPickerDelegate-Protocol.h"
 
-@class NSArray;
+@class ABUIPerson, NSArray;
 
 @interface ABPropertyPickerViewController : ABPickerViewController <ABCardPropertyPickerDelegate>
 {
+    void *_addressBook;
+    ABUIPerson *_person;
     struct __CFArray *_properties;
     NSArray *_policies;
-    void *_addressBook;
-    void *_person;
 }
 
+@property(retain, nonatomic) ABUIPerson *person; // @synthesize person=_person;
 @property(retain, nonatomic) NSArray *policies; // @synthesize policies=_policies;
 - (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2 withDefaultValue:(id)arg3;
 - (void)propertyPicker:(id)arg1 selectedProperty:(int)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-@property(nonatomic) void *person;
 @property(nonatomic) void *addressBook;
 @property(nonatomic) struct __CFArray *properties;
 - (float)ab_heightToFitForViewInPopoverView;

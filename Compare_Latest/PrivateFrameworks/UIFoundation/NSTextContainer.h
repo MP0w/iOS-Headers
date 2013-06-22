@@ -9,11 +9,12 @@
 #import "NSCoding-Protocol.h"
 #import "NSTextLayoutOrientationProvider-Protocol.h"
 
-@class NSLayoutManager;
+@class NSArray, NSLayoutManager;
 
 @interface NSTextContainer : NSObject <NSCoding, NSTextLayoutOrientationProvider>
 {
     NSLayoutManager *_layoutManager;
+    id _textView;
     struct CGSize _size;
     float _lineFragmentPadding;
     unsigned int _maximumLines;
@@ -21,28 +22,47 @@
         unsigned int widthTracksTextView:1;
         unsigned int heightTracksTextView:1;
         unsigned int observingFrameChanges:1;
-        unsigned int _reserved:13;
+        unsigned int lineBreakMode:4;
+        unsigned int _reserved:9;
     } _tcFlags;
+    NSArray *_exclusionPaths;
+    struct CGPath *_cachedBoundingPath;
+    struct __CFArray *_cachedClippingAttributes;
+    struct __CFArray *_cachedBounds;
+    float _cacheBoundsMinY;
+    float _cacheBoundsMaxY;
+    int _layoutOrientation;
 }
 
 + (void)initialize;
-@property unsigned int maximumNumberOfLines; // @synthesize maximumNumberOfLines=_maximumLines;
-- (int)layoutOrientation;
-- (BOOL)containsPoint:(struct CGPoint)arg1;
-- (BOOL)isSimpleRectangularTextContainer;
-- (struct CGRect)lineFragmentRectForProposedRect:(struct CGRect)arg1 sweepDirection:(unsigned int)arg2 movementDirection:(unsigned int)arg3 remainingRect:(struct CGRect *)arg4;
-- (float)lineFragmentPadding;
-- (void)setLineFragmentPadding:(float)arg1;
+@property(nonatomic) unsigned int maximumNumberOfLines; // @synthesize maximumNumberOfLines=_maximumLines;
+- (id)description;
+@property(nonatomic) int layoutOrientation;
+@property(readonly) BOOL isSimpleRectangularTextContainer;
+- (struct CGRect)lineFragmentRectForProposedRect:(struct CGRect)arg1 remainingRect:(struct CGRect *)arg2;
+- (struct CGRect)lineFragmentRectForProposedRect:(struct CGRect)arg1 atIndex:(unsigned int)arg2 writingDirection:(int)arg3 remainingRect:(struct CGRect *)arg4;
+@property(copy, nonatomic) NSArray *exclusionPaths;
+@property(nonatomic) int lineBreakMode;
+@property(nonatomic) float lineFragmentPadding;
+@property(nonatomic) struct CGSize size;
 - (struct CGSize)containerSize;
 - (void)setContainerSize:(struct CGSize)arg1;
+@property(nonatomic) BOOL heightTracksTextView;
+@property(nonatomic) BOOL widthTracksTextView;
+- (void)setTextView:(id)arg1;
+- (id)textView;
+- (struct CGPoint)textContainerOrigin;
 - (void)replaceLayoutManager:(id)arg1;
-- (void)setLayoutManager:(id)arg1;
-- (id)layoutManager;
+@property(nonatomic) NSLayoutManager *layoutManager;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)dealloc;
 - (id)init;
+- (id)initWithSize:(struct CGSize)arg1;
 - (id)initWithContainerSize:(struct CGSize)arg1;
 - (void)_commonInit;
+- (void)_resizeAccordingToTextView:(id)arg1;
+- (void)coordinateAccess:(id)arg1;
 
 @end
 

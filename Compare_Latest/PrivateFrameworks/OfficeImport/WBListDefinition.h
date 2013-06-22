@@ -10,7 +10,6 @@
 {
 }
 
-+ (void)write:(id)arg1 listDefinition:(id)arg2 to:(struct WrdListFormat *)arg3;
 + (void)readFrom:(id)arg1 listDefinition:(id)arg2 listFormat:(struct WrdListFormat *)arg3 document:(id)arg4;
 
 @end

@@ -12,7 +12,7 @@
 #import "UISearchDisplayDelegate-Protocol.h"
 #import "UITextFieldDelegate-Protocol.h"
 
-@class ABMembersDataSource, ABMembersFilteredDataSource, NSIndexPath, NSOperationQueue, NSString, UISearchBar, UISearchDisplayController, UIView, UIViewController;
+@class ABMembersDataSource, ABMembersFilteredDataSource, NSIndexPath, NSOperationQueue, NSString, UISearchBar, UISearchDisplayController, UITableView, UIViewController, _UINavigationControllerPalette;
 
 @interface ABMembersController : ABContentController <ABMembersDataSourceDelegate, UITextFieldDelegate, UISearchDisplayDelegate, ABSearchOperationDelegate, UISearchBarDelegate>
 {
@@ -21,7 +21,7 @@
     id <ABStyleProvider> _styleProvider;
     unsigned int _cellsCreated;
     unsigned int _memberCount;
-    UIView *_tableAccessoryView;
+    UITableView *_tableView;
     UISearchBar *_searchBar;
     UISearchDisplayController *_searchController;
     UIViewController *_parentViewController;
@@ -37,9 +37,11 @@
     BOOL _searchEnabled;
     BOOL _needToClearOldResults;
     id <ABMembersControllerSearchCompletionDelegate> _searchCompletionDelegate;
+    _UINavigationControllerPalette *_searchPalette;
 }
 
 + (id)newNameSearchOperationWithString:(id)arg1 contactsFilter:(id)arg2 addressBook:(void *)arg3 delegate:(id)arg4 inOutSequenceNumber:(unsigned int *)arg5;
+@property(retain, nonatomic) _UINavigationControllerPalette *searchPalette; // @synthesize searchPalette=_searchPalette;
 @property(nonatomic) id <ABMembersControllerDelegate> membersControllerDelegate; // @synthesize membersControllerDelegate=_membersControllerDelegate;
 @property(nonatomic) id <ABMembersControllerSearchCompletionDelegate> searchCompletionDelegate; // @synthesize searchCompletionDelegate=_searchCompletionDelegate;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
@@ -55,20 +57,19 @@
 - (void)displayedMembersListChanged;
 - (void)_reselectLastSelectedCellIfNeeded;
 - (void)setBannerTitle:(id)arg1 value:(id)arg2;
-- (void)searchDisplayController:(id)arg1 willShowSearchResultsTableView:(id)arg2;
-- (void)searchDisplayController:(id)arg1 willHideSearchResultsTableView:(id)arg2;
+- (void)searchDisplayControllerDidEndSearch:(id)arg1;
 - (void)searchDisplayControllerWillEndSearch:(id)arg1;
 - (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
 @property(readonly, nonatomic) NSString *currentSearchText;
 - (BOOL)_shouldDeactivateOnCancelButtonClicked;
-- (void)searchDisplayController:(id)arg1 didLoadSearchResultsTableView:(id)arg2;
-- (void)searchBarTextDidBeginEditing:(id)arg1;
-- (void)searchBarSearchButtonClicked:(id)arg1;
+- (void)searchDisplayController:(id)arg1 willShowSearchResultsTableView:(id)arg2;
 - (void)searchBarCancelButtonClicked:(id)arg1;
 - (void)searchDisplayControllerWillBeginSearch:(id)arg1;
 - (void)makeMainTableViewVisible;
 - (void)searchOperation:(id)arg1 didFindMatches:(id)arg2 moreComing:(BOOL)arg3;
 - (id)_localizedStringForError:(int)arg1;
+- (id)__searchController;
+- (id)__searchBar;
 - (void)_searchForWords:(id)arg1;
 - (id)operationQueue;
 - (void)_cancelGALSearch;
@@ -76,7 +77,6 @@
 - (void)cancelSearchingAnimated:(BOOL)arg1;
 - (void)resetStateForDisplayedFilterChange;
 - (BOOL)shouldShowGroups;
-- (id)accessoryView;
 - (id)selectedCell;
 - (void)setCellsCreated:(unsigned int)arg1;
 - (unsigned int)cellsCreated;
@@ -100,6 +100,7 @@
 - (id)contentView;
 - (id)tableView;
 - (void)_reloadFontSizes;
+- (void)_updateRowsHeights;
 - (BOOL)shouldShowIndex;
 @property(readonly, nonatomic) BOOL isServerSearchGroup;
 - (BOOL)isSearching;

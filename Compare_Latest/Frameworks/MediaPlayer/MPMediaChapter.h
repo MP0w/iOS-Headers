@@ -24,12 +24,12 @@
 @property(nonatomic) int chapterType; // @synthesize chapterType=_chapterType;
 @property(nonatomic) unsigned int indexInChaptersWithSameType; // @synthesize indexInChaptersWithSameType=_indexInChaptersWithSameType;
 @property(nonatomic) unsigned int indexInChaptersWithAnyType; // @synthesize indexInChaptersWithAnyType=_indexInChaptersWithAnyType;
+- (void).cxx_destruct;
 - (double)duration;
 - (id)title;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (int)_sortByChapterIndex:(id)arg1;
 
 @end

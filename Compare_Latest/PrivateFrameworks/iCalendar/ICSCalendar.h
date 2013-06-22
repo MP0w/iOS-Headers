@@ -25,6 +25,7 @@
 + (void)setDefaultProdid:(id)arg1;
 + (id)name;
 + (id)calendarWithKnownTimeZones;
+- (id)propertiesToIncludeForChecksumVersion:(int)arg1;
 - (id)parsingErrors;
 - (void)addParsingError:(id)arg1;
 - (id)timeZoneForKey:(id)arg1;

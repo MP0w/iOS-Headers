@@ -35,6 +35,7 @@
 @property(readonly, nonatomic) id <UIPDFSelectionWidget> selectionWidget; // @synthesize selectionWidget=_selectionWidget;
 @property(readonly, nonatomic) BOOL rangeMode; // @synthesize rangeMode=_rangeMode;
 @property(nonatomic) UIPDFPageView *pageView; // @synthesize pageView=_pageView;
+- (id)description;
 - (void)layoutSelections;
 @property(readonly, nonatomic) struct CGPoint currentSelectionPoint;
 @property(readonly, nonatomic) struct CGPoint initialSelectionPoint;

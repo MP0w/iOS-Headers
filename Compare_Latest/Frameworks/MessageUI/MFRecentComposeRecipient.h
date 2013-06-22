@@ -13,7 +13,11 @@
     CRRecentContact *_recent;
 }
 
+- (id)description;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isGroup;
 - (id)placeholderName;
+- (id)preferredSendingAddress;
 - (id)recentContact;
 - (BOOL)isRemovableFromSearchResults;
 - (void)dealloc;

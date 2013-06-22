@@ -16,9 +16,11 @@
 + (id)mainQueue;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setSuspended:(BOOL)arg1;
+- (void)setName:(id)arg1;
 - (void)setMaxConcurrentOperationCount:(int)arg1;
 @property BOOL adjustsMaxConcurrentOperationCount;
 - (id)operations;
+- (id)name;
 - (int)maxConcurrentOperationCount;
 - (int)operationCount;
 - (void)cancelAllOperations;

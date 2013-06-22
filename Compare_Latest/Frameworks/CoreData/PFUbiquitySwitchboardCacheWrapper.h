@@ -6,44 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSObject<OS_dispatch_semaphore>, NSString, PFUbiquityBaseline, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector, PFUbiquityLocation, PFUbiquityPeerRangeCache, PFUbiquityPeerReceipt, PFUbiquityTransactionHistoryCache, PFUbiquityTransactionLogCache;
+@class NSLock, NSString, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector, PFUbiquityLocation, PFUbiquityPeerRangeCache, PFUbiquityPeerReceipt, PFUbiquityTransactionHistoryCache, PFUbiquityTransactionLogCache;
 
 @interface PFUbiquitySwitchboardCacheWrapper : NSObject
 {
     NSString *_localPeerID;
     PFUbiquityLocation *_ubiquityRootLocation;
+    NSString *_storeName;
     PFUbiquityGlobalObjectIDCache *_globalIDCache;
     PFUbiquityPeerRangeCache *_peerRangeCache;
     PFUbiquityTransactionLogCache *_transactionLogCache;
     PFUbiquityTransactionHistoryCache *_transactionHistoryCache;
     PFUbiquityKnowledgeVector *_kv;
+    PFUbiquityKnowledgeVector *_baselineKV;
     PFUbiquityPeerReceipt *_peerReceipt;
     BOOL _pendingReceiptWrite;
     NSLock *_receiptFileLock;
     BOOL _allowSchedulingOfReceiptFileWrites;
-    PFUbiquityBaseline *_baseline;
-    BOOL _pendingBaselineMove;
-    BOOL _baselineUploaded;
-    NSLock *_baselineLock;
-    BOOL _allowReplacementOfBaseline;
-    NSObject<OS_dispatch_semaphore> *_baselineSemaphore;
 }
 
+@property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
-@property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
-@property(readonly, nonatomic) BOOL pendingBaselineMove; // @synthesize pendingBaselineMove=_pendingBaselineMove;
+@property(retain, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
+@property(retain) PFUbiquityKnowledgeVector *baselineKV; // @synthesize baselineKV=_baselineKV;
 @property(retain) PFUbiquityKnowledgeVector *kv; // @synthesize kv=_kv;
 @property(readonly, nonatomic) PFUbiquityPeerReceipt *peerReceipt; // @synthesize peerReceipt=_peerReceipt;
 @property(readonly, nonatomic) PFUbiquityTransactionHistoryCache *transactionHistoryCache; // @synthesize transactionHistoryCache=_transactionHistoryCache;
 @property(readonly, nonatomic) PFUbiquityTransactionLogCache *transactionLogCache; // @synthesize transactionLogCache=_transactionLogCache;
 @property(readonly, nonatomic) PFUbiquityPeerRangeCache *peerRangeCache; // @synthesize peerRangeCache=_peerRangeCache;
 @property(readonly, nonatomic) PFUbiquityGlobalObjectIDCache *globalIDCache; // @synthesize globalIDCache=_globalIDCache;
-- (void)timerFinishedUploadingPeerFile;
-- (void)checkPeerFileUploaded;
-- (BOOL)monitorUploadOfBaseline:(id)arg1 synchronously:(BOOL)arg2 error:(id *)arg3;
+- (BOOL)writeReceiptFile:(BOOL)arg1 error:(id *)arg2;
 - (void)scheduleReceiptFileWrite:(id)arg1;
-- (BOOL)writeReceiptFile:(id *)arg1;
-- (void)cachePeerReceipt:(id)arg1;
 - (void)cacheWrapperWillBeRemovedFromEntry;
 - (void)dealloc;
 - (id)initWithStoreName:(id)arg1 privateStore:(id)arg2 forLocalPeerID:(id)arg3 andUbiquityRootLocation:(id)arg4;

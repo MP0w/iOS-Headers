@@ -6,68 +6,73 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString;
+@class NSString;
 
 @interface VMUCallTreeNode : NSObject
 {
-    unsigned int flags;
-    NSString *name;
-    unsigned long long address;
-    NSArray *sortedChildrenWithPseudoNode;
-    unsigned int numBytes;
-    unsigned int count;
+    VMUCallTreeNode *_parent;
+    NSString *_name;
+    unsigned long long _address;
+    unsigned int _count;
+    unsigned long long _numBytes;
+    unsigned int _numChildren;
     union {
-        NSString *thePseudoName;
         VMUCallTreeNode *theChild;
         id *theChildren;
-    } un;
-    VMUCallTreeNode *parent;
+    } _un;
 }
 
-+ (id)rootForCompare:(id)arg1 to:(id)arg2;
-+ (void)compareChildrenOf:(id)arg1 toChildrenOf:(id)arg2 storeDiffIn:(id)arg3;
-+ (id)rootForSampleFile:(struct __sFILE *)arg1;
 + (id)rootForTraceData:(id)arg1;
++ (id)makeFakeRootForNode:(id)arg1;
++ (id)nodeWithName:(id)arg1 address:(unsigned long long)arg2 count:(unsigned int)arg3 numBytes:(unsigned long long)arg4;
 + (id)rootForSamples:(id)arg1 symbolicator:(struct _CSTypeRef)arg2;
 + (id)rootForSamples:(id)arg1 symbolicator:(struct _CSTypeRef)arg2 sampler:(id)arg3 options:(unsigned int)arg4;
-+ (id)makeFakeRootForNode:(id)arg1;
-- (id)largestTopOfStackPath;
+- (void)addTraceEvent:(id)arg1 forTraceData:(id)arg2;
+- (id)pruneMallocSize:(unsigned long long)arg1;
+- (id)pruneCount:(unsigned int)arg1;
+- (id)chargeSystemLibrariesToCallersAndKeepBoundaries:(BOOL)arg1;
+- (id)chargeLibrariesToCallers:(id)arg1 keepBoundaries:(BOOL)arg2;
+- (id)chargeLibrariesInSet:(id)arg1 toCaller:(id)arg2 parentLibrary:(id)arg3;
+- (id)filterOutSymbols:(id)arg1;
+- (id)filterOutSymbols:(id)arg1 required:(id)arg2;
+- (id)invertedNode;
+- (id)stringFromCallTreeIndentIfNoBranches:(BOOL)arg1;
+- (id)stringFromCallTreeIndentIfNoBranches:(BOOL)arg1 showPseudoNodes:(BOOL)arg2;
+- (BOOL)callTreeHasBranches;
 - (id)fullOutputWithThreshold:(unsigned int)arg1;
-- (id)sortedChildrenByNameWithPseudoNode;
+- (id)fullOutputWithThreshold:(unsigned int)arg1 showPseudoNodes:(BOOL)arg2;
+- (void)countFunctionOccurrencesInTree:(id)arg1;
+- (id)largestTopOfStackPath;
 - (id)sortedChildrenWithPseudoNode;
 - (id)sortedChildrenWithPseudoNode:(id)arg1 withCompare:(SEL)arg2;
-- (void)setNameToCount:(id)arg1;
-- (id)findNodeMatching:(id)arg1 searchForward:(BOOL)arg2 ignoreCase:(BOOL)arg3 wholeWords:(BOOL)arg4;
-- (id)prevNode;
-- (id)nextNode;
-- (id)prune:(unsigned int)arg1;
-- (id)invertedNode;
-- (id)filterOutSymbols:(id)arg1 required:(id)arg2;
-- (id)filterOutSymbols:(id)arg1;
-- (id)filterOutWaiting;
 - (id)pseudoNodeTopOfStackChild;
-- (id)pseudoName;
-- (unsigned int)sumOfChildrenCounts;
-- (int)compareNames:(id)arg1;
 - (int)comparePuttingMainThreadFirst:(id)arg1;
 - (int)compare:(id)arg1;
-- (char *)addSubTreeFromFile:(struct __sFILE *)arg1 withIndent:(int)arg2 withLine:(char *)arg3 withLen:(unsigned int *)arg4;
-- (void)addTraceEvent:(id)arg1 forTraceData:(id)arg2;
-- (void)addStackEntry:(id)arg1 symbolicator:(struct _CSTypeRef)arg2 sampler:(id)arg3 numBytes:(unsigned int)arg4 options:(unsigned int)arg5 uniqueStrings:(id)arg6 addressToSymbolNameMap:(id)arg7 threadPortToNameMap:(id)arg8 dispatchQueueSerialNumToNameMap:(id)arg9;
-- (void)dealloc;
-- (void)release;
-- (unsigned int)retainCount;
-- (id)retain;
+- (int)compareSizeAndCount:(id)arg1;
 - (id)findOrAddChildWithName:(id)arg1 address:(unsigned long long)arg2;
-- (id)findOrAddChildWithName:(id)arg1 address:(unsigned long long)arg2 compareSymbolNames:(BOOL)arg3;
+- (id)findOrAddChildWithName:(id)arg1 address:(unsigned long long)arg2 nodeSearchType:(int)arg3 isLeafNode:(BOOL)arg4;
+- (void)parseNameIntoSymbol:(id *)arg1 library:(id *)arg2 loadAddress:(unsigned long long *)arg3 offset:(unsigned long long *)arg4 address:(unsigned long long *)arg5 suffix:(id *)arg6;
+- (id)nameWithStringsForSymbol:(id)arg1 library:(id)arg2 loadAddress:(id)arg3 offset:(id)arg4 address:(id)arg5 suffix:(id)arg6;
+- (id)nameWithoutOffset;
+- (BOOL)isMallocBlockContentNode;
+- (BOOL)symbolNameIsUnknown;
+- (id)pseudoName;
 - (BOOL)isPseudo;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)browserName;
-- (id)parent;
-- (unsigned long long)address;
+- (void)getBrowserName:(id)arg1;
 - (id)name;
-- (unsigned int)numBytes;
+- (unsigned long long)numBytes;
 - (unsigned int)count;
+- (unsigned long long)address;
+- (id)parent;
+- (void)dealloc;
+- (void)addChild:(id)arg1;
+- (void)setChildren:(id)arg1;
+- (id)allChildren;
+- (id)childAtIndex:(unsigned int)arg1;
+- (void)setNumChildren:(unsigned int)arg1;
+- (unsigned int)numChildren;
+- (id)initWithName:(id)arg1 address:(unsigned long long)arg2 count:(unsigned int)arg3 numBytes:(unsigned long long)arg4;
 
 @end
 

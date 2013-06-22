@@ -20,11 +20,11 @@
 }
 
 @property(nonatomic) int locationPickerCellAccessoryType; // @synthesize locationPickerCellAccessoryType=_locationPickerCellAccessoryType;
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (id)_failPressedImage;
 - (id)_failImage;
 - (id)_exclamationGlyphImage;
-- (void)dealloc;
 - (id)initWithStyle:(int)arg1 buttonHandler:(id)arg2 styleProvider:(id)arg3;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 

@@ -29,7 +29,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
-- (unsigned int)numberOfSubexpressions;
+- (unsigned long)numberOfSubexpressions;
 - (id)initWithExpressionString:(id)arg1 options:(unsigned int)arg2;
 - (id)initWithExpressionString:(id)arg1;
 - (void)dealloc;

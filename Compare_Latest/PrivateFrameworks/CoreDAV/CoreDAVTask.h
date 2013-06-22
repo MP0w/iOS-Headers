@@ -8,7 +8,7 @@
 
 #import "CoreDAVSubmittable-Protocol.h"
 
-@class CoreDAVErrorItem, CoreDAVRequestLogger, NSData, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableDictionary, NSURL, NSURLConnection, NSURLRequest;
+@class CoreDAVErrorItem, CoreDAVRequestLogger, NSData, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableDictionary, NSString, NSURL, NSURLConnection, NSURLRequest;
 
 @interface CoreDAVTask : NSObject <CoreDAVSubmittable>
 {
@@ -52,6 +52,7 @@
     NSData *_fakeResponseData;
     BOOL _haveParsedFakeResponseData;
     CoreDAVErrorItem *_forbiddenErrorItem;
+    NSString *_uniqueID;
 }
 
 + (id)stringFromDepth:(int)arg1;
@@ -72,6 +73,8 @@
 @property(nonatomic) id <CoreDAVTaskDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) id <CoreDAVAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
 @property(nonatomic) id <CoreDAVTaskManager> taskManager; // @synthesize taskManager=_taskManager;
+- (id)_requestForLogging;
+- (id)_connectionForLogging;
 - (void)reportStatusWithError:(id)arg1;
 - (int)numDownloadedElements;
 - (void)reset;
@@ -89,11 +92,13 @@
 - (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
 - (id)lastRedirectURL;
 - (id)connection:(id)arg1 needNewBodyStream:(id)arg2;
+- (BOOL)_shouldHandleStatusCode:(int)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didSendBodyData:(int)arg2 totalBytesWritten:(int)arg3 totalBytesExpectedToWrite:(int)arg4;
 - (void)_handleBadPasswordResponse;
 - (id)_applyStorageSession:(struct __CFURLStorageSession *)arg1 toRequest:(id)arg2;
 - (id)_applyAuthenticationChain:(struct __CFArray *)arg1 toRequest:(id)arg2;
+- (id)credentialForOAuthChallenge:(id)arg1;
 - (BOOL)markAsFinished;
 @property(readonly, getter=isFinished) BOOL finished;
 - (void)finishCoreDAVTaskWithError:(id)arg1;

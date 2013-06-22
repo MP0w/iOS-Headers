@@ -7,23 +7,22 @@
 @class MPAVController, MPAVItem, UINavigationBar;
 
 @protocol MPVideoOverlay
-@property(nonatomic) id <MPVideoOverlayDelegate> delegate;
-@property(readonly, nonatomic) UINavigationBar *navigationBar;
-@property(retain, nonatomic) MPAVController *player;
-@property(nonatomic) BOOL navigationBarHidden;
 @property(nonatomic) unsigned long long disabledParts;
 @property(nonatomic) unsigned long long visibleParts;
 @property(nonatomic) unsigned long long desiredParts;
-@property(nonatomic) int interfaceOrientation;
 @property(retain, nonatomic) MPAVItem *item;
+@property(nonatomic) __weak id <MPVideoOverlayDelegate> delegate;
+@property(readonly, nonatomic) UINavigationBar *navigationBar;
+@property(retain, nonatomic) MPAVController *player;
+@property(nonatomic) BOOL navigationBarHidden;
 @property(nonatomic) BOOL allowsWirelessPlayback;
-@property(nonatomic) id <MPVideoControllerProtocol> videoViewController;
+@property(nonatomic) __weak id <MPVideoControllerProtocol> videoViewController;
 - (void)hideAlternateTracks;
 - (void)showAlternateTracks;
-- (BOOL)updateTimeBasedValues;
-- (void)stopTicking;
-- (void)startTicking;
 - (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+- (void)stopTicking;
+- (void)startTicking;
+- (BOOL)updateTimeBasedValues;
 @end
 

@@ -16,13 +16,13 @@
     NSMutableArray *mFormulas;
     unsigned int mDifferentialStyleIndex;
     _Bool mStopIfTrue;
-    int mPriority;
+    long mPriority;
     _Bool mAboveAverage;
     _Bool mBottom;
     _Bool mEqualAverage;
     _Bool mPercent;
-    unsigned int mRank;
-    int mStdDev;
+    unsigned long mRank;
+    long mStdDev;
     NSString *mText;
     int mTimePeriod;
 }
@@ -32,10 +32,10 @@
 - (int)timePeriod;
 - (void)setText:(id)arg1;
 - (id)text;
-- (void)setStdDev:(int)arg1;
-- (int)stdDev;
-- (void)setRank:(unsigned int)arg1;
-- (unsigned int)rank;
+- (void)setStdDev:(long)arg1;
+- (long)stdDev;
+- (void)setRank:(unsigned long)arg1;
+- (unsigned long)rank;
 - (void)setPercent:(_Bool)arg1;
 - (_Bool)percent;
 - (void)setEqualAverage:(_Bool)arg1;
@@ -44,8 +44,8 @@
 - (_Bool)bottom;
 - (void)setAboveAverage:(_Bool)arg1;
 - (_Bool)aboveAverage;
-- (void)setPriority:(int)arg1;
-- (int)priority;
+- (void)setPriority:(long)arg1;
+- (long)priority;
 - (void)setStopIfTrue:(_Bool)arg1;
 - (_Bool)stopIfTrue;
 - (void)setDifferentialStyle:(id)arg1;

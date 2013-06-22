@@ -27,9 +27,6 @@
 + (BOOL)_isNewsstandApp;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedLibrary;
-+ (id)sharedLibraryIfExists;
-+ (id)sharedLibraryCreatingIfNecessary:(BOOL)arg1;
-+ (void)load;
 - (id)description;
 - (void)_applicationWillTerminate:(id)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;
@@ -45,6 +42,7 @@
 - (id)_libraryURL;
 - (id)_appSupportURL;
 - (void)_didFinishLaunchingWasCalled;
+- (void)_performBackgroundTask:(id)arg1 withDescription:(void)arg2;
 - (void)_issueChanged:(id)arg1;
 - (BOOL)_canPerformBackgroundDownloads;
 - (id)_fileManager;

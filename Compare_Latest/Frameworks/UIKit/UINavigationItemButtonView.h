@@ -6,15 +6,18 @@
 
 #import <UIKit/UINavigationItemView.h>
 
-@class UIColor, _UIBarButtonItemAppearanceStorage;
+@class UIColor, UIImageView, _UIBarButtonItemAppearanceStorage;
 
 @interface UINavigationItemButtonView : UINavigationItemView
 {
     int _style;
     BOOL _pressed;
     _UIBarButtonItemAppearanceStorage *_appearanceStorage;
+    BOOL _customBackgroundImageChangedToOrFromNil;
+    UIImageView *_imageView;
 }
 
+- (Class)_appearanceGuideClass;
 - (void)_applyBarButtonAppearanceStorage:(id)arg1 withTaggedSelectors:(id)arg2;
 - (struct UIOffset)_backButtonTitlePositionAdjustmentForBarMetrics:(int)arg1;
 - (void)_setBackButtonTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(int)arg2;
@@ -30,6 +33,9 @@
 - (id)_backButtonBackgroundImageForState:(unsigned int)arg1 barMetrics:(int)arg2;
 - (void)_setBackButtonBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
 - (void)_UIAppearance_setBackButtonBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
+- (BOOL)hasCustomBackgroundImage;
+- (void)backIndicatorViewHasRespondedToCustomBackgroundImageChange;
+- (BOOL)customBackgroundImageChangedToOrFromNil;
 - (id)_titleTextAttributesForState:(unsigned int)arg1;
 - (void)_setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
 - (void)_UIAppearance_setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
@@ -42,6 +48,7 @@
 - (id)_defaultFont;
 - (id)_scriptingInfo;
 - (BOOL)pressed;
+- (void)setPressed:(BOOL)arg1 initialPress:(BOOL)arg2;
 - (void)setPressed:(BOOL)arg1;
 - (void)setStyle:(int)arg1;
 - (void)setStyle:(int)arg1 animated:(BOOL)arg2;
@@ -50,6 +57,8 @@
 - (id)image;
 - (id)title;
 - (void)drawRect:(struct CGRect)arg1;
+- (BOOL)_canDrawContent;
+- (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_drawBackground;
 - (struct UIEdgeInsets)alignmentRectInsets;
@@ -59,6 +68,7 @@
 - (id)_currentTextColorForBarStyle:(int)arg1;
 - (BOOL)_useSilverLookForBarStyle:(int)arg1;
 - (id)_appearanceStorage;
+- (void)tintColorDidChange;
 
 @end
 

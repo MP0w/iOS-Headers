@@ -24,13 +24,15 @@
 + (id)sharedInstance;
 + (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
 - (void)bulletinWindowStoppedBeingBusy;
+- (void)observer:(id)arg1 noteServerConnectionStateChanged:(BOOL)arg2;
+- (void)observer:(id)arg1 noteInvalidatedBulletinIDs:(id)arg2;
 - (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned int)arg2;
 - (void)observer:(id)arg1 removeBulletin:(id)arg2;
 - (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
-- (void)_enqueueBlock:(id)arg1;
+- (void)_enqueueBlock:(id)arg1 forBulletin:(void)arg2;
 - (BOOL)_shouldHonorPlaySoundRequestForBulletin:(id)arg1;
 - (void)_hardwareButtonPressed:(id)arg1;
-- (void)_configureBBObserver;
+- (BOOL)quietModeEnabled;
 - (void)killSounds;
 - (void)killSoundForBulletin:(id)arg1;
 - (BOOL)playSoundForBulletin:(id)arg1;

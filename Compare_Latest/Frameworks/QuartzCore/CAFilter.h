@@ -21,10 +21,14 @@
     void *_cache;
 }
 
++ (void)CAMLParserStartElement:(id)arg1;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)filterWithName:(id)arg1;
 + (id)filterWithType:(id)arg1;
 + (id)filterTypes;
+- (id)CAMLTypeForKey:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
+- (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

@@ -10,10 +10,10 @@
 {
 }
 
-- (CDStruct_b0fa4487)minRecurrenceEndDateGr;
+- (id)minRecurrenceEndDate;
 - (id)recurrenceTimeZone;
 - (id)recurrenceDate;
-- (id)stringForGregorianDate:(CDStruct_b0fa4487)arg1;
+- (id)stringForDate:(id)arg1;
 - (id)event;
 - (void)setCalendarItem:(id)arg1 store:(id)arg2;
 

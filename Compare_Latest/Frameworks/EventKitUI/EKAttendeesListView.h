@@ -23,6 +23,7 @@
     UIImage *_pendingImage;
 }
 
+- (void).cxx_destruct;
 - (id)_pendingImage;
 - (id)_notAttendingImage;
 - (id)_maybeImage;

@@ -6,30 +6,28 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class ABUIPerson, NSString;
 
 @interface ABActionsController : NSObject
 {
-    void *_person;
     int _property;
-    int _recordID;
     int _multiValueIdentifier;
     id _value;
     NSString *_stringValue;
     void *_context;
     int _lastPropertyForActions;
     struct __CFArray *_actionsForProperty;
+    ABUIPerson *_person;
 }
 
 + (int)defaultActionForProperty:(int)arg1;
 + (id)newActionsControllerForProperty:(int)arg1;
+@property(retain, nonatomic) ABUIPerson *person; // @synthesize person=_person;
 - (void)_performAction:(int)arg1 forProperty:(int)arg2;
 - (int)_actionAtIndex:(int)arg1 forProperty:(int)arg2;
 - (struct __CFArray *)_actionsForProperty:(int)arg1;
 - (void)setContext:(void *)arg1;
 - (void *)context;
-- (void)setPerson:(void *)arg1;
-- (void)setRecordID:(int)arg1;
 - (void)setMultiValueIdentifier:(int)arg1;
 - (void)setValue:(id)arg1;
 - (id)value;
@@ -44,7 +42,6 @@
 - (id)titleAtIndex:(int)arg1 forProperty:(int)arg2;
 - (id)titleForAction:(int)arg1;
 - (int)actionsCountForProperty:(int)arg1;
-- (void *)person;
 - (void)dealloc;
 - (id)init;
 - (id)initWithProperty:(int)arg1;

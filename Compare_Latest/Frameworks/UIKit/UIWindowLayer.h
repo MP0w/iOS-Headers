@@ -13,5 +13,7 @@
     UIWindow *_window;
 }
 
+- (id)actionForKey:(id)arg1;
+
 @end
 

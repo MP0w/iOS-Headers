@@ -12,6 +12,8 @@
 {
 }
 
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (void)setStyleColor:(id)arg1;
 - (float)alpha;
 - (id)copyWithZone:(struct _NSZone *)arg1;

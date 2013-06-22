@@ -12,7 +12,7 @@
 }
 
 + (BOOL)clearVars;
-+ (CDStruct_76c99235 *)poolInfo;
++ (CDStruct_7b508128 *)poolInfo;
 + (int)clearPool;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)clearAllPools;

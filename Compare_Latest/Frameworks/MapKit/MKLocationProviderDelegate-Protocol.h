@@ -7,12 +7,16 @@
 #import "NSObject-Protocol.h"
 
 @protocol MKLocationProviderDelegate <NSObject>
+- (void)locationProvider:(id)arg1 didReceiveError:(id)arg2 monitoringRegion:(id)arg3;
+- (void)locationProvider:(id)arg1 didExitRegion:(id)arg2;
+- (void)locationProvider:(id)arg1 didEnterRegion:(id)arg2;
 - (void)locationProviderDidResumeLocationUpdates:(id)arg1;
 - (void)locationProviderDidPauseLocationUpdates:(id)arg1;
 - (BOOL)locationProviderShouldPauseLocationUpdates:(id)arg1;
 - (void)locationProviderDidChangeAuthorizationStatus:(id)arg1;
 - (void)locationProvider:(id)arg1 didReceiveError:(id)arg2;
 - (void)locationProvider:(id)arg1 didUpdateHeading:(id)arg2;
+- (void)locationProvider:(id)arg1 didUpdateLocation:(id)arg2 lastKnownNavCourse:(double)arg3;
 - (void)locationProvider:(id)arg1 didUpdateLocation:(id)arg2;
 @end
 

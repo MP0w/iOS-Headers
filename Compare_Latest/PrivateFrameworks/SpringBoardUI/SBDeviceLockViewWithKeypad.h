@@ -6,9 +6,11 @@
 
 #import <SpringBoardUI/SBDeviceLockView.h>
 
+#import "TPDialerKeypadDelegate-Protocol.h"
+
 @class SBDeviceLockKeypad;
 
-@interface SBDeviceLockViewWithKeypad : SBDeviceLockView
+@interface SBDeviceLockViewWithKeypad : SBDeviceLockView <TPDialerKeypadDelegate>
 {
     SBDeviceLockKeypad *_keypad;
     BOOL _cancelingTouches;

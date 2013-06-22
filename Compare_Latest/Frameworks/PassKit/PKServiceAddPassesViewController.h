@@ -6,61 +6,55 @@
 
 #import "UIViewController.h"
 
+#import "PKGroupsControllerDelegate-Protocol.h"
 #import "PKPassGroupStackViewDatasource-Protocol.h"
 #import "PKPassGroupStackViewDelegate-Protocol.h"
 #import "PKServiceAddPassesViewControllerProtocol-Protocol.h"
 #import "UIScrollViewDelegate-Protocol.h"
-#import "WLCardGroupsControllerDelegate-Protocol.h"
-#import "WLXPCProxyTarget-Protocol.h"
 
-@class NSMutableArray, NSMutableData, NSURLConnection, PKLocalPass, PKPassGroupStackView, PKPassGroupsController, PKPassLibrary, PKUIServiceView, UINavigationBar, UIProgressView;
+@class NSArray, NSMutableArray, NSMutableData, NSURLConnection, PKGroupsController, PKPassGroupStackView, UINavigationBar, UIProgressView;
 
-@interface PKServiceAddPassesViewController : UIViewController <WLXPCProxyTarget, PKPassGroupStackViewDelegate, PKPassGroupStackViewDatasource, WLCardGroupsControllerDelegate, UIScrollViewDelegate, PKServiceAddPassesViewControllerProtocol>
+@interface PKServiceAddPassesViewController : UIViewController <PKPassGroupStackViewDelegate, PKPassGroupStackViewDatasource, PKGroupsControllerDelegate, UIScrollViewDelegate, PKServiceAddPassesViewControllerProtocol>
 {
     NSURLConnection *_downloadPassURLConnection;
     long long _downloadPassExpectedBytes;
     NSMutableData *_downloadPassData;
-    int _containmentStatus;
-    PKPassLibrary *_passLibrary;
-    PKLocalPass *_localPass;
+    BOOL _allowsPassIngestion;
+    BOOL _alreadyAdding;
     BOOL _haveStartedCardAnimation;
-    BOOL _haveKickedOffCardFetch;
-    UINavigationBar *_navigationBar;
     BOOL _viewAppeared;
+    NSMutableArray *_localPasses;
+    NSArray *_localPassDatas;
+    UINavigationBar *_navigationBar;
     PKPassGroupStackView *_cardStackView;
-    int _presentationState;
-    PKPassGroupsController *_cardGroupsController;
+    PKGroupsController *_groupsController;
     NSMutableArray *_minimumCardHeightFromHereToTop;
-    BOOL _giveUpOnPreppingCards;
-    id _remoteViewControllerProxy;
+    int _presentationState;
     UIProgressView *_progressView;
-    PKUIServiceView *_serviceView;
 }
 
-+ (id)requiredWhitelistClassNames;
-@property(retain) PKUIServiceView *serviceView; // @synthesize serviceView=_serviceView;
++ (id)_remoteViewControllerInterface;
++ (id)_exportedInterface;
++ (BOOL)_preventsAppearanceProxyCustomization;
 @property(retain, nonatomic) UIProgressView *progressView; // @synthesize progressView=_progressView;
-@property(retain) id remoteViewControllerProxy; // @synthesize remoteViewControllerProxy=_remoteViewControllerProxy;
-@property BOOL giveUpOnPreppingCards; // @synthesize giveUpOnPreppingCards=_giveUpOnPreppingCards;
-@property(retain, nonatomic) NSMutableArray *minimumCardHeightFromHereToTop; // @synthesize minimumCardHeightFromHereToTop=_minimumCardHeightFromHereToTop;
-@property(retain, nonatomic) PKPassGroupsController *cardGroupsController; // @synthesize cardGroupsController=_cardGroupsController;
 @property(nonatomic) int presentationState; // @synthesize presentationState=_presentationState;
-@property(retain, nonatomic) PKPassGroupStackView *cardStackView; // @synthesize cardStackView=_cardStackView;
 @property(nonatomic) BOOL viewAppeared; // @synthesize viewAppeared=_viewAppeared;
+@property(retain, nonatomic) NSMutableArray *minimumCardHeightFromHereToTop; // @synthesize minimumCardHeightFromHereToTop=_minimumCardHeightFromHereToTop;
+@property(retain, nonatomic) PKGroupsController *groupsController; // @synthesize groupsController=_groupsController;
+@property(retain, nonatomic) PKPassGroupStackView *cardStackView; // @synthesize cardStackView=_cardStackView;
 @property(retain) UINavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
-@property(nonatomic) BOOL haveKickedOffCardFetch; // @synthesize haveKickedOffCardFetch=_haveKickedOffCardFetch;
 @property(nonatomic) BOOL haveStartedCardAnimation; // @synthesize haveStartedCardAnimation=_haveStartedCardAnimation;
-@property(retain, nonatomic) PKLocalPass *localPass; // @synthesize localPass=_localPass;
-@property(retain, nonatomic) PKPassLibrary *passLibrary; // @synthesize passLibrary=_passLibrary;
+@property(retain, nonatomic) NSArray *localPassDatas; // @synthesize localPassDatas=_localPassDatas;
+@property(retain, nonatomic) NSMutableArray *localPasses; // @synthesize localPasses=_localPasses;
 - (void)groupsController:(id)arg1 didMoveGroup:(id)arg2 fromIndex:(unsigned int)arg3 toIndex:(unsigned int)arg4;
 - (void)groupsController:(id)arg1 didRemoveGroup:(id)arg2 atIndex:(unsigned int)arg3;
 - (void)groupsController:(id)arg1 didInsertGroup:(id)arg2 atIndex:(unsigned int)arg3;
-- (void)_calculateMinimumCardHeights;
-- (void)cardStackView:(id)arg1 didAnimateToState:(int)arg2;
+- (void)groupStackView:(id)arg1 didAnimateToState:(int)arg2;
 - (int)suppressedContent;
 - (BOOL)passesGrowWhenFlipped;
+- (void)groupStackViewDidEndReordering:(id)arg1;
+- (void)groupStackViewDidBeginReordering:(id)arg1;
 - (void)groupStackView:(id)arg1 deleteConfirmedForPass:(id)arg2;
-- (float)minimumItemHeightStartingAtIndex:(unsigned int)arg1;
 - (unsigned int)indexOfGroup:(id)arg1;
 - (float)groupHeightAtIndex:(unsigned int)arg1;
 - (unsigned int)numberOfGroups;
@@ -68,11 +62,11 @@
 - (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
+- (void)loadGroups;
 - (void)cancelCard:(id)arg1;
 - (void)acceptCard:(id)arg1;
-- (void)ingestCardWithData:(id)arg1;
+- (void)ingestPasses:(id)arg1;
 - (void)ingestCardAtURL:(id)arg1;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
@@ -81,15 +75,17 @@
 - (void)tearDownDownloadConnection;
 - (void)showDownloadingPassUI;
 - (void)updateAddButtonAndSettings;
-- (void)cardBackSwitchesDidChangeNotification:(id)arg1;
 - (void)updateAddButton;
+- (void)updateCancelButton;
+- (id)genericTitleWithCount:(unsigned int)arg1;
+- (id)styleTitleUsingPass:(id)arg1 count:(unsigned int)arg2;
+- (void)updateNavTitle;
+- (void)setAllowsPassIngestion:(BOOL)arg1;
 - (void)animateInCardIfNeeded;
 - (void)dealloc;
 - (void)tearDown;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)willAppearInRemoteViewController:(id)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 
 @end
 

@@ -19,12 +19,14 @@
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (void)_setNowPlayingButtonVisible:(BOOL)arg1 forController:(id)arg2 animated:(BOOL)arg3;
 - (void)_pushNowPlayingControllerAnimated:(BOOL)arg1;
 - (void)_dismissSearch;
 - (void)_playbackStateChangedNotification:(id)arg1;
 - (void)_nowPlayingChangedNotification:(id)arg1;
 - (void)_nowPlayingButtonAction:(id)arg1;
+- (void)tabBarController:(id)arg1 willEndCustomizingViewControllers:(id)arg2 changed:(BOOL)arg3;
 - (void)tabBarController:(id)arg1 willSelectViewController:(id)arg2;
 - (void)tabBarController:(id)arg1 didSelectViewController:(id)arg2;
 - (BOOL)tabBarController:(id)arg1 canSelectViewController:(id)arg2;

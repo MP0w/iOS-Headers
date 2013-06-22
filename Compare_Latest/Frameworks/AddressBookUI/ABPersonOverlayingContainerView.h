@@ -19,7 +19,7 @@
     id <ABPersonTabsLayoutManager> _tabsLayoutManager;
 }
 
-@property(nonatomic) id <ABPersonTabsLayoutManager> tabsLayoutManager; // @synthesize tabsLayoutManager=_tabsLayoutManager;
+@property(retain, nonatomic) id <ABPersonTabsLayoutManager> tabsLayoutManager; // @synthesize tabsLayoutManager=_tabsLayoutManager;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_abContentView;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 - (void)layoutSubviews;

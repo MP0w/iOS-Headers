@@ -6,24 +6,32 @@
 
 #import "SBToAppWorkspaceTransaction.h"
 
-@class SBAwayController;
+@class SBDisableActiveInterfaceOrientationChangeAssertion, SBLockScreenViewControllerBase;
 
 @interface SBActivateAppUnderLockScreenWorkspaceTransaction : SBToAppWorkspaceTransaction
 {
-    SBAwayController *_awayController;
+    SBLockScreenViewControllerBase *_lockScreenController;
+    SBDisableActiveInterfaceOrientationChangeAssertion *_disableActiveOrientationChangeAssertion;
 }
 
 - (BOOL)selfApplicationExited:(id)arg1;
 - (BOOL)selfApplicationLaunchDidFail:(id)arg1;
 - (BOOL)selfWorkspaceDidResume;
+- (void)_suspendWorkspaceIfNecessary;
+- (BOOL)_shouldWorkspaceBeSuspended;
 - (BOOL)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
+- (BOOL)selfApplicationActivated:(id)arg1;
 - (BOOL)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
+- (void)_alertDidActivate;
 - (void)_handleAppActivationFailure;
+- (void)_setupAndActivate;
+- (void)_transactionComplete;
 - (void)_commit;
 - (BOOL)shouldPerformToAppStateCleanupOnCompletion;
 - (BOOL)shouldToggleSpringBoardStatusBarOnCleanup;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 application:(id)arg3 awayController:(id)arg4;
+- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 application:(id)arg3 lockScreenController:(id)arg4 activationHandler:(id)arg5;
+- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 application:(id)arg3 lockScreenController:(id)arg4;
 
 @end
 

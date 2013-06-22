@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol SKUIClientProductPageViewController <NSObject>
-- (void)storeKit_setWantsFullScreenLayout:(id)arg1;
 - (void)setStatusBarStyle:(id)arg1 animated:(id)arg2;
 - (void)setStatusBarHidden:(id)arg1 withAnimation:(id)arg2;
+- (void)promptForStarRating;
 - (void)presentPageWithRequest:(id)arg1 animated:(id)arg2;
 - (void)loadDidFinishWithResult:(id)arg1 error:(id)arg2;
 - (void)didReceiveTitle:(id)arg1;

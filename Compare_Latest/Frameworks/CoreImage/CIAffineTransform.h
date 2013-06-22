@@ -6,21 +6,23 @@
 
 #import <CoreImage/CIFilter.h>
 
+#import "_CIFilterProperties-Protocol.h"
+
 @class CIImage, NSValue;
 
-@interface CIAffineTransform : CIFilter
+@interface CIAffineTransform : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
     NSValue *inputTransform;
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSValue *inputTransform; // @synthesize inputTransform;
+@property(retain, nonatomic) NSValue *inputTransform; // @synthesize inputTransform;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
-- (id)outputImage;
-- (void)setDefaults;
 - (id)_initFromProperties:(id)arg1;
 - (id)_outputProperties;
+- (id)outputImage;
+- (void)setDefaults;
 
 @end
 

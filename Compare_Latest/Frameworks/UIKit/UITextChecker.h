@@ -8,11 +8,12 @@
 
 @interface UITextChecker : NSObject
 {
-    id _checker;
     id _reserved;
     int _usdt;
 }
 
++ (void)queryLocalUpdateAssets:(id)arg1;
++ (id)_textCheckerBackgroundQueue;
 + (void)unlearnWord:(id)arg1;
 + (BOOL)hasLearnedWord:(id)arg1;
 + (void)learnWord:(id)arg1;
@@ -24,6 +25,8 @@
 + (id)dictionaryInfo:(id)arg1;
 + (id)openUserDictionary:(id)arg1;
 + (struct __CFSet *)createDictHashTable:(BOOL)arg1;
++ (id)bestLanguageForString:(id)arg1 fromAlternatives:(id)arg2 currentLanguage:(id)arg3;
++ (id)bestLanguageForString:(id)arg1 fromAlternatives:(id)arg2 currentLanguage:(id)arg3 insertionPointIndex:(unsigned int)arg4 scriptForBestLanguage:(id *)arg5;
 + (id)availableLanguages;
 + (int)uniqueSpellDocumentTag;
 - (BOOL)isWordInUserDictionaries:(id)arg1 caseSensitive:(BOOL)arg2;
@@ -32,6 +35,7 @@
 - (void)ignoreWord:(id)arg1;
 - (id)alternativesForPinyinInputString:(id)arg1;
 - (id)stringForInputString:(id)arg1 language:(id)arg2;
+- (BOOL)canChangeCaseOfFirstLetterInString:(id)arg1 toUpperCase:(BOOL)arg2 language:(id)arg3;
 - (id)suggestWordInLanguage:(id)arg1;
 - (id)completionsForPartialWordRange:(struct _NSRange)arg1 inString:(id)arg2 language:(id)arg3;
 - (id)guessesForWordRange:(struct _NSRange)arg1 inString:(id)arg2 language:(id)arg3;
@@ -48,6 +52,7 @@
 - (id)_initWithAsynchronousLoading:(BOOL)arg1;
 - (id)init;
 - (void)initGlobals;
+- (void)queryUpdateBundle;
 - (void)initUserDictionaries;
 - (void)_setDocumentDictionaryName:(id)arg1;
 - (void)_setLanguageDictionaryName:(id)arg1;

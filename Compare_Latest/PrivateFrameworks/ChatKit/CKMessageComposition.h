@@ -16,6 +16,7 @@
 + (id)_createMessagePartFromResourceDictionary:(id)arg1 identifier:(id)arg2 relativeToPath:(id)arg3 version:(int)arg4;
 + (void)deleteFileWithPrefix:(id)arg1 path:(id)arg2;
 + (id)newComposition;
++ (id)newCompositionForText:(id)arg1 subject:(id)arg2;
 + (id)newCompositionForText:(id)arg1;
 - (void)writeToFileWithPrefix:(id)arg1 path:(id)arg2;
 @property(readonly, nonatomic) NSArray *messageParts;

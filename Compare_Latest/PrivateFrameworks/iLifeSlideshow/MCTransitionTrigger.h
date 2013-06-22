@@ -12,8 +12,8 @@
 {
     NSMutableDictionary *_transitionAttributes;
     NSString *_transitionID;
-    double _transitionDuration;
     NSString *_transitionDestinationPlugID;
+    double _transitionDuration;
 }
 
 + (id)transitionForTargetPlugObjectID:(id)arg1 withTransitionID:(id)arg2;

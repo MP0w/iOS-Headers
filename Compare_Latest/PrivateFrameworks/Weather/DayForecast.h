@@ -17,17 +17,12 @@
     unsigned int _dayNumber;
 }
 
+@property(nonatomic) unsigned int dayNumber; // @synthesize dayNumber=_dayNumber;
+@property(nonatomic) unsigned int dayOfWeek; // @synthesize dayOfWeek=_dayOfWeek;
+@property(nonatomic) unsigned int icon; // @synthesize icon=_icon;
+@property(copy, nonatomic) NSString *low; // @synthesize low=_low;
+@property(copy, nonatomic) NSString *high; // @synthesize high=_high;
 - (int)compareDayNumberToDayForecast:(id)arg1;
-- (unsigned int)dayOfWeek;
-- (void)setDayOfWeek:(unsigned int)arg1;
-- (unsigned int)dayNumber;
-- (void)setDayNumber:(unsigned int)arg1;
-- (unsigned int)icon;
-- (void)setIcon:(unsigned int)arg1;
-- (id)low;
-- (void)setLow:(id)arg1;
-- (id)high;
-- (void)setHigh:(id)arg1;
 - (id)description;
 - (void)dealloc;
 

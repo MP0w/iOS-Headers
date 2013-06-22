@@ -17,17 +17,12 @@
 }
 
 @property(readonly) SSURLBagContext *context; // @synthesize context=_context;
-- (void)_writeURLBagToDiskCache:(id)arg1;
+- (BOOL)_setURLBagWithDictionary:(id)arg1 response:(id)arg2 error:(id *)arg3;
 - (void)_setOutputURLBag:(id)arg1;
 - (void)_postBagDidLoadNotificationWithURLBag:(id)arg1;
-- (void)_loadURLBagFromURL:(id)arg1;
-- (id)_copySandboxBootstrapURLs;
-- (id)_copyProductionBootstrapURLs;
-- (id)_copyBootstrapURLs;
 - (void)_addHeadersToRequestProperties:(id)arg1;
 - (void)operation:(id)arg1 willSendRequest:(id)arg2;
 - (BOOL)operation:(id)arg1 shouldSetStoreFrontID:(id)arg2;
-- (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
 - (id)uniqueKey;
 - (void)run;
 @property(readonly) ISURLBag *URLBag;

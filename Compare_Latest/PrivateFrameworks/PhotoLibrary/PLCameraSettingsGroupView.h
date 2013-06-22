@@ -10,9 +10,9 @@
 
 @interface PLCameraSettingsGroupView : UIView
 {
+    BOOL shouldCenterTitle;
     int type;
     NSString *title;
-    BOOL shouldCenterTitle;
     UILabel *titleLabel;
     UISwitch *accessorySwitch;
 }

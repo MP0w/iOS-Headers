@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray;
+@class NSArray, NSMutableArray;
 
 @interface GEOVoltaireRasterTileTrafficData : NSObject
 {
     CDStruct_1ef3fb1f *_vertices;
     NSMutableArray *_trafficSegments;
+    NSArray *_trafficIncidents;
     double _expirationTime;
 }
 
 + (double)expirationTimeInterval;
 + (id)createWithData:(id)arg1 tileKey:(const struct _GEOTileKey *)arg2;
+@property(readonly, nonatomic) NSArray *trafficIncidents; // @synthesize trafficIncidents=_trafficIncidents;
 @property(nonatomic) double expirationTime; // @synthesize expirationTime=_expirationTime;
 @property(retain, nonatomic) NSMutableArray *trafficSegments; // @synthesize trafficSegments=_trafficSegments;
 @property(nonatomic) CDStruct_1ef3fb1f *vertices; // @synthesize vertices=_vertices;

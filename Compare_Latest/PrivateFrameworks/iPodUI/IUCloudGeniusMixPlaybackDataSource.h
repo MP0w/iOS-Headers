@@ -22,6 +22,7 @@
 + (Class)queueFeederClass;
 @property(retain, nonatomic) MPMediaItem *requiredInitialMediaItem; // @synthesize requiredInitialMediaItem=_requiredInitialMediaItem;
 @property(readonly, nonatomic) MPGeniusMix *mix; // @synthesize mix=_mix;
+- (void).cxx_destruct;
 - (BOOL)_canPlayFromCloudUsingNetworkType:(int)arg1;
 - (id)initialMediaItem;
 - (void)_networkTypeDidChangeNotification:(id)arg1;

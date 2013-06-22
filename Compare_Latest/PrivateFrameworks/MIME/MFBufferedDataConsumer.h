@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "MFCollectingDataConsumer-Protocol.h"
+#import "MFGuaranteedCollectingDataConsumer-Protocol.h"
 
 @class NSArray, NSMutableData, NSString;
 
-@interface MFBufferedDataConsumer : NSObject <MFCollectingDataConsumer>
+@interface MFBufferedDataConsumer : NSObject <MFGuaranteedCollectingDataConsumer>
 {
     NSMutableData *_data;
     int _fd;

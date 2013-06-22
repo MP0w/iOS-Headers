@@ -18,8 +18,6 @@
 - (id)symbol;
 - (id)predicateFormat;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
 
 @end
 

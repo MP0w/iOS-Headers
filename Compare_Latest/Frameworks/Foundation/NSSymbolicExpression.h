@@ -13,6 +13,7 @@
     NSString *_token;
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;

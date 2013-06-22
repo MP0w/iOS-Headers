@@ -10,15 +10,15 @@
 
 @interface MSASAssetDownloader : MSASAssetTransferer
 {
+    BOOL _didEncounterNetworkConditionError;
+    BOOL _isDownloadingThumbnails;
+    BOOL _isWaitingForFirstDownloadEvent;
     int _state;
     NSMutableArray *_itemsInFlight;
     NSMutableDictionary *_assetToItemInFlightMap;
     NSMutableArray *_finishedAssets;
-    BOOL _didEncounterNetworkConditionError;
-    BOOL _isDownloadingThumbnails;
     NSString *_currentFocusAlbumGUID;
     NSString *_currentFocusAssetCollectionGUID;
-    BOOL _isWaitingForFirstDownloadEvent;
     NSString *_objectGUID;
     NSString *_downloadBatchPerfGUID;
 }
@@ -35,13 +35,14 @@
 @property(retain, nonatomic) NSMutableArray *itemsInFlight; // @synthesize itemsInFlight=_itemsInFlight;
 @property(nonatomic) int state; // @synthesize state=_state;
 - (void).cxx_destruct;
-- (void)MMCSEngine:(id)arg1 didFinishGettingAllAssetsContext:(id)arg2;
-- (void)MMCSEngine:(id)arg1 didMakeGetProgress:(float)arg2 state:(int)arg3 onAsset:(id)arg4 context:(id)arg5;
+- (void)didFinishGettingAllAssets;
+- (void)MMCSEngine:(id)arg1 didMakeGetProgress:(float)arg2 state:(int)arg3 onAsset:(id)arg4;
 - (id)_orphanedAssetError;
-- (void)MMCSEngine:(id)arg1 didFinishGettingAsset:(id)arg2 path:(id)arg3 context:(id)arg4 error:(id)arg5;
-- (void)MMCSEngine:(id)arg1 didFinishPuttingAllAssetsContext:(id)arg2;
-- (void)MMCSEngine:(id)arg1 didMakePutProgress:(float)arg2 state:(int)arg3 onAsset:(id)arg4 context:(id)arg5;
-- (void)MMCSEngine:(id)arg1 didFinishPuttingAsset:(id)arg2 context:(id)arg3 error:(id)arg4;
+- (void)MMCSEngine:(id)arg1 didFinishGettingAsset:(id)arg2 path:(id)arg3 error:(id)arg4;
+- (void)didFinishPuttingAllAssets;
+- (void)MMCSEngine:(id)arg1 didMakePutProgress:(float)arg2 state:(int)arg3 onAsset:(id)arg4;
+- (void)MMCSEngine:(id)arg1 didCreateRequestorContext:(id)arg2 forAssets:(id)arg3;
+- (void)MMCSEngine:(id)arg1 didFinishPuttingAsset:(id)arg2 error:(id)arg3;
 - (void)_workQueueDidFinishWithItem:(id)arg1 error:(id)arg2;
 - (void)_workQueueStopTrackingItem:(id)arg1;
 - (void)didEnqueueAsset:(id)arg1 forAlbumGUID:(id)arg2;

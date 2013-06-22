@@ -17,6 +17,7 @@
 @property(readonly) BOOL needsPublishUpdate;
 @property(retain) NSString *syncToken;
 @property(retain) NSString *ctag;
+@property BOOL needsResync;
 @property BOOL wasModifiedLocally;
 @property BOOL canBeShared;
 @property BOOL canBePublished;

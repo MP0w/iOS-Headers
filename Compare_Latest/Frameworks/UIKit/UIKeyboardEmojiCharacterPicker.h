@@ -23,7 +23,7 @@
 - (id)charactersForRow:(int)arg1;
 - (void)reloadForCategory:(id)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 keyboard:(id)arg2 key:(id)arg3 state:(int)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;
 
 @end
 

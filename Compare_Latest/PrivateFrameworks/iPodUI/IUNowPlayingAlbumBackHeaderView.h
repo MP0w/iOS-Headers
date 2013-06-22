@@ -28,6 +28,7 @@
 @property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
+- (void).cxx_destruct;
 - (id)_infoTitle;
 - (void)_reloadViews;
 - (void)_layoutForWildcatGridStyle;

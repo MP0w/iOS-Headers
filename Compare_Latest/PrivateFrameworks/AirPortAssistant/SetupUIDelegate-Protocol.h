@@ -11,7 +11,7 @@
 - (void)setupProgressUpdated:(int)arg1 status:(long)arg2 paramDict:(id)arg3 forController:(id)arg4;
 - (void)setupMonitoredSettingChanged:(long)arg1 paramDict:(id)arg2 forController:(id)arg3;
 - (void)setupMonitoringMessage:(long)arg1 paramDict:(id)arg2 forController:(id)arg3;
-- (void)setupRPCResponseWithResult:(long)arg1 responseDict:(id)arg2 forController:(id)arg3;
+- (void)setupRPCResponseWithResult:(long)arg1 rpcSelector:(int)arg2 responseDict:(id)arg3 forController:(id)arg4;
 - (void)setupTaskResponseWithResult:(long)arg1 responseDict:(id)arg2 forController:(id)arg3;
 @end
 

@@ -17,7 +17,7 @@
 - (Class)classForArchiver;
 - (Class)classForCoder;
 - (unsigned int)retainCount;
-- (void)release;
+- (oneway void)release;
 - (id)retain;
 - (id)init;
 

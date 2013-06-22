@@ -6,17 +6,19 @@
 
 #import <AVFoundation/AVAssetInspector.h>
 
-@class NSArray, NSData, NSURL;
+@class NSArray, NSURL;
 
 @interface AVFigAssetInspector : AVAssetInspector
 {
     struct OpaqueFigAsset *_figAsset;
     struct OpaqueFigFormatReader *_formatReader;
+    long _formatReaderOnce;
     BOOL didCheckForSaveRestriction;
     BOOL hasSaveRestriction;
 }
 
-@property(readonly, nonatomic) NSData *SHA1Digest;
+- (id)SHA1Digest;
+@property(readonly, nonatomic, getter=_isStreaming) BOOL streaming;
 @property(readonly, nonatomic) BOOL hasProtectedContent;
 @property(readonly, nonatomic) unsigned long long downloadToken;
 @property(readonly, nonatomic) NSURL *resolvedURL;
@@ -44,7 +46,7 @@
 - (float)preferredRate;
 - (CDStruct_1b6d18a9)duration;
 - (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
-- (struct OpaqueFigFormatReader *)_formatReader;
+@property(readonly, nonatomic, getter=_formatReader) struct OpaqueFigFormatReader *formatReader;
 @property(readonly, nonatomic, getter=_figAsset) struct OpaqueFigAsset *figAsset;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;

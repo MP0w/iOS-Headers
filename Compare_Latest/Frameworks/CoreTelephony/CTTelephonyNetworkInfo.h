@@ -6,19 +6,41 @@
 
 #import "NSObject.h"
 
-@class CTCarrier, CTRadioAccessTechnology;
+@class CTCarrier, NSDictionary, NSLock, NSString;
 
 @interface CTTelephonyNetworkInfo : NSObject
 {
-    void *_internal;
-    CTCarrier *_subscriberCellularProvider;
+    struct queue _queue;
+    struct __CTServerConnection *server_connection;
+    NSLock *server_lock;
     id _subscriberCellularProviderDidUpdateNotifier;
-    CTRadioAccessTechnology *_radioAccessTechnology;
+    BOOL _monitoringCellId;
+    CTCarrier *_subscriberCellularProvider;
+    NSString *_cachedCurrentRadioAccessTechnology;
+    NSDictionary *_cachedSignalStrength;
+    NSString *_cachedCellId;
 }
 
-@property(retain, nonatomic) CTRadioAccessTechnology *radioAccessTechnology; // @synthesize radioAccessTechnology=_radioAccessTechnology;
+@property BOOL monitoringCellId; // @synthesize monitoringCellId=_monitoringCellId;
+@property(retain) NSString *cachedCellId; // @synthesize cachedCellId=_cachedCellId;
+@property(retain) NSDictionary *cachedSignalStrength; // @synthesize cachedSignalStrength=_cachedSignalStrength;
+@property(retain) NSString *cachedCurrentRadioAccessTechnology; // @synthesize cachedCurrentRadioAccessTechnology=_cachedCurrentRadioAccessTechnology;
 @property(retain) CTCarrier *subscriberCellularProvider; // @synthesize subscriberCellularProvider=_subscriberCellularProvider;
-- (void)postUpdatesIfNecessary;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (id)radioAccessTechnology;
+@property(retain, nonatomic) NSString *cellId;
+@property(readonly, nonatomic) NSDictionary *signalStrength;
+@property(readonly, nonatomic) NSString *currentRadioAccessTechnology;
+- (void)queryCellId;
+- (void)updateRadioAccessTechnology:(id)arg1;
+- (void)queryDataMode;
+- (void)queryCTSignalStrengthNotification;
+- (void)updateSignalStrength:(id)arg1;
+- (void)handleCTRegistrationCellChangedNotification:(id)arg1;
+- (void)handleCTSignalStrengthNotification:(id)arg1;
+- (id)createSignalStrengthDictWithBars:(id)arg1;
+- (void)postCellularProviderUpdatesIfNecessary;
 - (void)handleNotificationFromConnection:(void *)arg1 ofType:(id)arg2 withInfo:(id)arg3;
 - (BOOL)updateNetworkInfoAndShouldNotifyClient:(char *)arg1;
 - (BOOL)getAllowsVOIP:(char *)arg1 withCTError:(CDStruct_1ef3fb1f *)arg2;

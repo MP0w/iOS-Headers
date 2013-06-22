@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@class NSArray, NSString, NSTimer, UIImage, UIView, UIWebPDFView, XPCMachSendRight, _UIViewServiceInterface, _UIViewServiceXPCProxy;
+@class NSString, NSTimer, UIImage, UIView, UIWebPDFView;
 
 #pragma mark Named Structures
 
@@ -55,26 +55,6 @@ struct CGSize {
     float width;
     float height;
 };
-
-struct COWQueue<int> {
-    unsigned int _field1;
-    unsigned int _field2;
-    struct SharedElements *_field3;
-};
-
-struct COWQueue<writing_point16_t> {
-    unsigned int _field1;
-    unsigned int _field2;
-    struct SharedElements *_field3;
-};
-
-struct KBStrokeList {
-    struct COWQueue<writing_point16_t> _field1;
-    struct COWQueue<int> _field2;
-    int _field3;
-};
-
-struct SharedElements;
 
 struct UIEdgeInsets {
     float top;
@@ -155,24 +135,6 @@ struct UIStringIDTableBucket {
     struct UIStringIDTableBucket *_field3;
 };
 
-struct UIWebDocumentViewViewportConfiguration {
-    struct CGSize size;
-    float initialScale;
-    float minimumScale;
-    float maximumScale;
-    char allowsUserScaling;
-};
-
-struct WKView;
-
-struct WKWindow {
-    struct _WKObject _field1;
-    id _field2;
-    struct WKView *_field3;
-    struct WKView *_field4;
-    struct WKView *_field5;
-};
-
 struct _NSRange {
     unsigned int location;
     unsigned int length;
@@ -185,11 +147,12 @@ struct _PDFHistoryItem {
     struct CGPoint contentOffset;
 };
 
-struct _WKClassInfo;
-
-struct _WKObject {
-    unsigned int _field1;
-    struct _WKClassInfo *_field2;
+struct _UIWebViewportConfiguration {
+    struct CGSize size;
+    float initialScale;
+    float minimumScale;
+    float maximumScale;
+    _Bool allowsUserScaling;
 };
 
 #pragma mark Typedef'd Structures
@@ -197,20 +160,8 @@ struct _WKObject {
 typedef struct {
     id _field1;
     id _field2;
-    char _field3;
-    char _field4;
-    unsigned long long _field5;
-    int _field6;
-} CDStruct_59875e80;
-
-typedef struct {
-    id _field1;
-    id _field2;
-    int _field3;
-    id _field4;
-    id _field5;
-    int _field6;
-} CDStruct_982099be;
+    id _field3;
+} CDStruct_0f015c83;
 
 typedef struct {
     UIWebPDFView *view;
@@ -229,7 +180,14 @@ typedef struct {
 } CDStruct_04eade4e;
 
 typedef struct {
-    char itemIsEnabled[24];
+    unsigned long _field1;
+    id *_field2;
+    unsigned long *_field3;
+    unsigned long _field4[5];
+} CDStruct_11f37819;
+
+typedef struct {
+    char itemIsEnabled[25];
     char timeString[64];
     int gsmSignalStrengthRaw;
     int gsmSignalStrengthBars;
@@ -254,7 +212,19 @@ typedef struct {
     unsigned int displayRawGSMSignal:1;
     unsigned int displayRawWifiSignal:1;
     unsigned int locationIconType:1;
-} CDStruct_24dca785;
+} CDStruct_87a532be;
+
+typedef struct {
+    unsigned int val[8];
+} CDStruct_4c969caf;
+
+typedef struct {
+    unsigned int idiom:6;
+    unsigned int landscape:1;
+    unsigned int split:1;
+    unsigned int appearance:8;
+    unsigned int rendering:16;
+} CDStruct_961fb75c;
 
 typedef struct {
     char animateContentRotation;
@@ -264,6 +234,25 @@ typedef struct {
     float contentStretchRightEdgeInset;
     int edgeClip;
 } CDStruct_19ba41f1;
+
+typedef struct {
+    double w;
+    double x;
+    double y;
+    double z;
+} CDStruct_bf7dff04;
+
+typedef struct {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+    float _field5;
+    float _field6;
+    float _field7;
+    float _field8;
+    float _field9;
+} CDStruct_ffb0d7a1;
 
 typedef struct {
     float _field1;
@@ -276,29 +265,12 @@ typedef struct {
 typedef struct {
     float _field1;
     float _field2;
-    float _field3;
-} CDStruct_869f9c67;
-
-typedef struct {
-    float _field1;
-    float _field2;
 } CDStruct_b2fbf00d;
 
 typedef struct {
     float amount;
     int unit;
 } CDStruct_d5a6e384;
-
-typedef struct {
-    int _field1;
-    int _field2;
-    id _field3;
-    id _field4;
-    float _field5;
-    int _field6;
-    SEL _field7;
-    id _field8;
-} CDStruct_dbaf35c5;
 
 typedef struct {
     int _field1;
@@ -319,7 +291,7 @@ typedef struct {
 } CDStruct_8f44d8bf;
 
 typedef struct {
-    char overrideItemIsEnabled[24];
+    char overrideItemIsEnabled[25];
     unsigned int overrideTimeString:1;
     unsigned int overrideGsmSignalStrengthRaw:1;
     unsigned int overrideGsmSignalStrengthBars:1;
@@ -341,8 +313,8 @@ typedef struct {
     unsigned int overrideBluetoothConnected:1;
     unsigned int overrideDisplayRawGSMSignal:1;
     unsigned int overrideDisplayRawWifiSignal:1;
-    CDStruct_24dca785 values;
-} CDStruct_3d5224b0;
+    CDStruct_87a532be values;
+} CDStruct_364e5eb5;
 
 typedef struct {
     CDStruct_d5a6e384 _field1[4];
@@ -354,20 +326,15 @@ typedef struct {
 } CDStruct_9b4cf30b;
 
 typedef struct {
-    _UIViewServiceInterface *interface;
-    _UIViewServiceXPCProxy *viewControllerOperatorProxy;
-    _UIViewServiceXPCProxy *serviceViewControllerProxy;
-    _UIViewServiceXPCProxy *textEffectsOperatorProxy;
-    unsigned int hostedWindowContextID;
-    NSArray *serviceViewControllerSupportedInterfaceOrientations;
-    XPCMachSendRight *serviceAccessibilityServerPortWrapper;
-    struct CGAffineTransform serviceRootLayerTransform;
-    struct CGRect serviceRootLayerFrame;
-    struct CGAffineTransform textEffectsRootLayerTransform;
-    struct CGRect textEffectsRootLayerFrame;
-    unsigned int textEffectsWindowContextID;
-    unsigned int textEffectsWindowAboveStatusBarContextID;
-} CDStruct_5a8e6190;
+    CDStruct_bf7dff04 quaternion;
+    CDStruct_03942939 userAcceleration;
+    CDStruct_03942939 rotationRate;
+    CDStruct_03942939 magneticField;
+    int magneticFieldCalibrationLevel;
+    _Bool doingYawCorrection;
+    _Bool doingBiasEstimation;
+    _Bool isInitialized;
+} CDStruct_04e8b4cd;
 
 typedef struct {
     id _field1;
@@ -391,6 +358,50 @@ typedef struct {
     CDStruct_75b8db5d middle;
     CDStruct_75b8db5d bottom;
 } CDStruct_c8cd2c5d;
+
+// Ambiguous groups
+typedef struct {
+    float _field1;
+    float _field2;
+    float _field3;
+} CDStruct_869f9c67;
+
+typedef struct {
+    float x;
+    float y;
+    float z;
+} CDStruct_03942939;
+
+#pragma mark Named Unions
+
+union _GLKQuaternion {
+    struct {
+        union _GLKVector3 v;
+        float s;
+    } ;
+    struct {
+        float x;
+        float y;
+        float z;
+        float w;
+    } ;
+    float q[4];
+};
+
+union _GLKVector3 {
+    CDStruct_03942939 ;
+    struct {
+        float r;
+        float g;
+        float b;
+    } ;
+    struct {
+        float s;
+        float t;
+        float p;
+    } ;
+    float v[3];
+};
 
 #pragma mark Typedef'd Unions
 

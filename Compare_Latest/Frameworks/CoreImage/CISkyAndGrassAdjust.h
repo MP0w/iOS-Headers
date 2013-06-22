@@ -16,12 +16,12 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputGrassAmount; // @synthesize inputGrassAmount;
-@property(copy, nonatomic) NSNumber *inputSkyAmount; // @synthesize inputSkyAmount;
+@property(retain, nonatomic) NSNumber *inputGrassAmount; // @synthesize inputGrassAmount;
+@property(retain, nonatomic) NSNumber *inputSkyAmount; // @synthesize inputSkyAmount;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (void)setDefaults;
 - (id)_kernel;
+- (void)setDefaults;
 
 @end
 

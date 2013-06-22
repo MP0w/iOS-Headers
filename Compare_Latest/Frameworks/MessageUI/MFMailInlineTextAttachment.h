@@ -4,13 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "MessageTextAttachment.h"
+#import "MFMessageTextAttachment.h"
 
-@class MimeTextAttachment, NSData;
+@class MFMimeTextAttachment, NSData;
 
-@interface MFMailInlineTextAttachment : MessageTextAttachment
+@interface MFMailInlineTextAttachment : MFMessageTextAttachment
 {
-    MimeTextAttachment *_original;
+    MFMimeTextAttachment *_original;
     NSData *_iconImageData;
     struct CGSize _cachedImageSize;
     unsigned int _hasBeenDownloaded:1;

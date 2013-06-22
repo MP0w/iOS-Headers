@@ -7,10 +7,12 @@
 #import "NSObject-Protocol.h"
 
 @protocol MPMusicPlayerControllerServerDelegate <NSObject>
+- (void)musicPlayerServer:(id)arg1 prepareQueueWithRadioStation:(id)arg2;
 - (void)musicPlayerServer:(id)arg1 prepareQueueWithGeniusMixPlaylist:(id)arg2;
 - (void)musicPlayerServer:(id)arg1 prepareQueueWithQuery:(id)arg2;
 - (void)musicPlayerServer:(id)arg1 setShuffleMode:(int)arg2;
 - (void)musicPlayerServer:(id)arg1 setFirstItem:(id)arg2;
+- (id)currentRadioStationForMusicPlayerServer:(id)arg1;
 - (id)currentMediaQueryForMusicPlayerServer:(id)arg1;
 - (BOOL)isNowPlayingItemFromGeniusMixForMusicPlayerServer:(id)arg1;
 - (unsigned int)unshuffledIndexOfNowPlayingItemForMusicPlayerServer:(id)arg1;

@@ -23,6 +23,7 @@
     UIButton *_unlinkButton;
     UILabel *_instructionLabel;
     UILabel *_fgsnLabel;
+    NSString *_fgsnSerialNumber;
 }
 
 @property(nonatomic) BOOL bordered; // @synthesize bordered=_bordered;

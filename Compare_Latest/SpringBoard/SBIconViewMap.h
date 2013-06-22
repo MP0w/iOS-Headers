@@ -20,11 +20,14 @@
     id <SBIconViewDelegate> _viewDelegate;
     NSMapTable *_recycledIconViewsByType;
     NSMapTable *_labels;
-    NSMapTable *_badges;
+    NSMapTable *_legibilityImages;
+    NSMapTable *_accessoryImages;
+    int _legibilityStyle;
 }
 
 + (id)switcherMap;
 + (id)homescreenMap;
+@property(nonatomic) int legibilityStyle; // @synthesize legibilityStyle=_legibilityStyle;
 @property(nonatomic) id <SBIconViewDelegate> viewDelegate; // @synthesize viewDelegate=_viewDelegate;
 - (void)iconViewDidChangeLocation:(id)arg1;
 - (void)node:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
@@ -33,8 +36,13 @@
 - (void)_modelReloadedState;
 - (void)_modelReloadedIcons;
 - (void)_modelRemovedIcon:(id)arg1;
+- (void)_cacheAccessoryImagesForIcon:(id)arg1 location:(int *)arg2;
+- (void)_cacheLabelImagesForIcon:(id)arg1 location:(int *)arg2 style:(int)arg3;
+- (void)_cacheImagesForIcon:(id)arg1;
 - (void)purgeRecycledIconViewsForClass:(Class)arg1;
 - (void)recycleAndPurgeAll;
+- (void)recycleIconView:(id)arg1;
+- (id)extraIconViewForIcon:(id)arg1;
 - (void)recycleViewForIcon:(id)arg1;
 - (void)_recycleIconView:(id)arg1;
 - (void)purgeIconFromMap:(id)arg1;

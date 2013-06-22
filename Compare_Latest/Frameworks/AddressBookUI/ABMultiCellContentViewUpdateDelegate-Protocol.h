@@ -13,7 +13,7 @@
 - (void)multiCellContentView:(id)arg1 didResizeAnimated:(BOOL)arg2;
 - (void)multiCellContentView:(id)arg1 willResizeAnimated:(BOOL)arg2;
 - (void)multiCellContentViewDidEndEditing:(id)arg1;
-- (void)multiCellContentView:(id)arg1 entryFieldDidEndEditing:(id)arg2;
+- (void)multiCellContentView:(id)arg1 entryFieldDidEndEditing:(id)arg2 forKey:(id)arg3;
 - (void)multiCellContentView:(id)arg1 entryField:(id)arg2 didUpdateValue:(id)arg3 forKey:(id)arg4;
 - (void)multiCellContentView:(id)arg1 entryFieldDidBeginEditing:(id)arg2;
 - (BOOL)multiCellContentView:(id)arg1 entryFieldShouldBeginEditing:(id)arg2;

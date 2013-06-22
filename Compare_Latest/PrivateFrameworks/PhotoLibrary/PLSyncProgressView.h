@@ -13,16 +13,16 @@
     UIActivityIndicatorView *_spinner;
     UILabel *_infoLabel;
     NSNumberFormatter *_countFormatter;
-    unsigned int _totalCount;
-    unsigned int _currentCount;
     int _style;
     int _progressType;
+    unsigned int _currentCount;
+    unsigned int _totalCount;
 }
 
+@property(readonly, nonatomic) unsigned int totalCount; // @synthesize totalCount=_totalCount;
+@property(readonly, nonatomic) unsigned int currentCount; // @synthesize currentCount=_currentCount;
 @property(readonly, nonatomic) int progressType; // @synthesize progressType=_progressType;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
-@property(readonly, nonatomic) unsigned int currentCount; // @synthesize currentCount=_currentCount;
-@property(readonly, nonatomic) unsigned int totalCount; // @synthesize totalCount=_totalCount;
 - (id)_progressDescription;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

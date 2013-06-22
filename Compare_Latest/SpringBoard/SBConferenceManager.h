@@ -6,35 +6,31 @@
 
 #import "NSObject.h"
 
-@class CNFConferenceController;
-
 @interface SBConferenceManager : NSObject
 {
-    CNFConferenceController *_conferenceController;
-    unsigned int _chatState;
+    BOOL _hasFaceTimeCapability;
+    struct MGNotificationTokenStruct *_faceTimeCapabilityUpdateToken;
 }
 
 + (void)initialize;
 + (id)sharedInstance;
-@property(readonly) unsigned int chatState; // @synthesize chatState=_chatState;
 - (void)_faceTimeAppActivationStateChanged:(id)arg1;
 - (void)_updateStatusBar;
 - (void)updateStatusBar;
 - (void)_faceTimeCapabilityChanged:(id)arg1;
-- (void)_faceTimeAvailabilityChanged:(id)arg1;
 - (id)currentCallStatusDisplayString;
 - (id)currentCallRemoteUserId;
 - (void)endFaceTime;
 - (void)_faceTimeStateChanged:(id)arg1;
-- (void)_handleInvitation:(id)arg1;
+- (void)invitedToIMAVChat:(id)arg1;
 - (void)dealloc;
 - (BOOL)canStartFaceTime;
 - (BOOL)inFaceTime;
 - (BOOL)activeFaceTimeCallExists;
 - (BOOL)faceTimeInvitationExists;
 - (BOOL)faceTimeIsAvailable;
+- (BOOL)hasFaceTimeCapability;
 - (id)_faceTimeApp;
-@property(readonly) CNFConferenceController *conferenceController;
 - (id)init;
 
 @end

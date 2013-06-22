@@ -14,6 +14,7 @@
     OADTextBody *mTextBody;
 }
 
+- (BOOL)isTextBox;
 - (void)createPresetGeometryWithShapeType:(int)arg1;
 - (void)removeUnnecessaryOverrides;
 - (void)flattenProperties;

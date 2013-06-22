@@ -15,6 +15,7 @@
     NSExpression *_falseExpression;
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
 - (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
@@ -26,6 +27,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)allowEvaluation;
 - (void)dealloc;
 - (id)initWithPredicate:(id)arg1 trueExpression:(id)arg2 falseExpression:(id)arg3;
 

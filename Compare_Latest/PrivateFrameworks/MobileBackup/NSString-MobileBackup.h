@@ -12,5 +12,6 @@
 - (id)MBAppendGreenteaSuffix;
 - (BOOL)pathComponentExistsInSet:(id)arg1;
 - (id)stringByAppendingSlash;
+- (const char *)FSR;
 @end
 

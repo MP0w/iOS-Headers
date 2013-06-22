@@ -16,7 +16,7 @@
 
 + (id)randomGeneratorWithSeed:(unsigned long)arg1;
 + (BOOL)clearVars;
-+ (CDStruct_76c99235 *)poolInfo;
++ (CDStruct_7b508128 *)poolInfo;
 - (float)randomFloatInRange:(float)arg1:(float)arg2;
 - (long)randomInt;
 - (void)_seed:(unsigned long)arg1;

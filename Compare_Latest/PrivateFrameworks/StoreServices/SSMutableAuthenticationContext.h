@@ -16,7 +16,9 @@
 {
 }
 
+- (void)setValuesWithAccount:(id)arg1;
 @property(nonatomic) int tokenType; // @dynamic tokenType;
+@property(nonatomic) BOOL persistsAcrossDeviceLock; // @dynamic persistsAcrossDeviceLock;
 @property(copy, nonatomic) NSDictionary *HTTPHeaders; // @dynamic HTTPHeaders;
 @property(nonatomic, getter=isDemoAccount) BOOL demoAccount; // @dynamic demoAccount;
 @property(copy, nonatomic) NSString *clientIdentifierHeader; // @dynamic clientIdentifierHeader;
@@ -26,6 +28,7 @@
 @property(nonatomic) BOOL shouldSuppressDialogs; // @dynamic shouldSuppressDialogs;
 @property(nonatomic) BOOL shouldIgnoreProtocol; // @dynamic shouldIgnoreProtocol;
 @property(nonatomic) BOOL shouldFollowAccountButtons; // @dynamic shouldFollowAccountButtons;
+@property(nonatomic) BOOL shouldCreateNewSession; // @dynamic shouldCreateNewSession;
 @property(retain, nonatomic) NSNumber *requiredUniqueIdentifier; // @dynamic requiredUniqueIdentifier;
 @property(copy, nonatomic) NSDictionary *requestParameters; // @dynamic requestParameters;
 @property(nonatomic) int promptStyle; // @dynamic promptStyle;

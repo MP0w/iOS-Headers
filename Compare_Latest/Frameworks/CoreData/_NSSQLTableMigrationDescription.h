@@ -37,6 +37,7 @@
 - (id)createUpdateStatementForEntityMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
 - (id)createFEKUpdateStatementsForEntityMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
 - (id)createInsertStatementForEntityMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
+- (id)createDeleteStatementForEntityMigrations:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
 - (void)appendStatementsToCompleteMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
 - (void)appendStatementsToPerformMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;
 - (void)appendStatementsToPrepareForMigration:(id)arg1 migrationContext:(struct _NSSQLMigrationContext)arg2;

@@ -6,12 +6,22 @@
 
 #import <UIKit/UIView.h>
 
+@class CALayer, UIKBRenderConfig;
+
 @interface UIKeyboardDicationBackgroundGradientView : UIView
 {
+    UIKBRenderConfig *_renderConfig;
+    CALayer *_whiteOverlay;
+    CALayer *_coloredOverlay;
 }
 
+@property(retain, nonatomic) CALayer *coloredOverlay; // @synthesize coloredOverlay=_coloredOverlay;
+@property(retain, nonatomic) CALayer *whiteOverlay; // @synthesize whiteOverlay=_whiteOverlay;
+@property(retain, nonatomic) UIKBRenderConfig *renderConfig; // @synthesize renderConfig=_renderConfig;
+- (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (struct CGRect)_backgroundFillFrame;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

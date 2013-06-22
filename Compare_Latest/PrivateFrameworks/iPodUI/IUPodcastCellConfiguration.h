@@ -16,6 +16,7 @@
 }
 
 + (float)rowHeightForGlobalContext:(id)arg1;
+- (void).cxx_destruct;
 - (void)reloadStringsWithProperties:(id)arg1;
 - (id)displayProperties;
 - (void)reloadImages;
@@ -29,7 +30,6 @@
 - (float)alphaForLabelAtIndex:(unsigned int)arg1 fromAlpha:(float *)arg2;
 - (id)fontForLabelAtIndex:(unsigned int)arg1;
 - (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -4,10 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@protocol NSGlyphStorage
+#import "NSObject-Protocol.h"
+
+@protocol NSGlyphStorage <NSObject>
 - (unsigned int)layoutOptions;
 - (id)attributedString;
-- (void)setIntAttribute:(int)arg1 value:(int)arg2 forGlyphAtIndex:(unsigned int)arg3;
-- (void)insertGlyphs:(const unsigned int *)arg1 length:(unsigned int)arg2 forStartingGlyphAtIndex:(unsigned int)arg3 characterIndex:(unsigned int)arg4;
+- (void)setGlyphs:(const unsigned short *)arg1 properties:(const int *)arg2 characterIndexes:(const unsigned int *)arg3 font:(id)arg4 forGlyphRange:(struct _NSRange)arg5;
 @end
 

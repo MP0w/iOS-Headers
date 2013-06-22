@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)readRangedFrom:(id)arg1 index:(unsigned long)arg2 type:(int)arg3 paragraph:(id)arg4;
-+ (void)readFrom:(id)arg1 at:(long)arg2 paragraph:(id)arg3;
++ (void)readRangedFrom:(id)arg1 index:(unsigned int)arg2 type:(int)arg3 paragraph:(id)arg4;
++ (void)readFrom:(id)arg1 at:(int)arg2 paragraph:(id)arg3;
 + (unsigned int)findStartFrom:(id)arg1 annotation:(const struct WrdAnnotation *)arg2;
 
 @end

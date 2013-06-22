@@ -6,8 +6,12 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @interface AVMediaSelectionOptionInternal : NSObject
 {
+    NSString *_displayName;
+    NSString *_displayNameLocaleIdentifier;
 }
 
 @end

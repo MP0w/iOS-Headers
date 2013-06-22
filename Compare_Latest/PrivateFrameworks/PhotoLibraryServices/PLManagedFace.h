@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSManagedObject.h"
+#import <PhotoLibraryServices/PLManagedObject.h>
 
 @class NSString, PLManagedAsset;
 
-@interface PLManagedFace : NSManagedObject
+@interface PLManagedFace : PLManagedObject
 {
 }
 

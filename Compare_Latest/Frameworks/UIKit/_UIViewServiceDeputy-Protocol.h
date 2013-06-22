@@ -8,9 +8,10 @@
 #import "_UIViewServiceDeputy_UIViewServiceInterface-Protocol.h"
 
 @protocol _UIViewServiceDeputy <NSObject, _UIViewServiceDeputy_UIViewServiceInterface>
++ (id)XPCInterface;
+- (id)invalidate;
 
 @optional
 - (void)setDeputyDelegate:(id)arg1;
-- (id)invalidate;
 @end
 

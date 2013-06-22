@@ -27,6 +27,7 @@
 @property(readonly) NSString *storeFrontIdentifier;
 @property(readonly) int responseType;
 - (id)newAccount;
+@property(readonly, getter=isNewCustomer) BOOL newCustomer;
 @property(readonly) NSNumber *failureType;
 @property(readonly) int enabledServiceTypes;
 @property(readonly) NSString *creditsString;

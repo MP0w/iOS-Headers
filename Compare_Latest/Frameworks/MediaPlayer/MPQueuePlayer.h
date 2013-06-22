@@ -8,7 +8,7 @@
 
 #import "MPAudioDeviceControllerDelegate-Protocol.h"
 
-@class AVAudioSessionMediaPlayerOnly, AVPlayer, AVPlayerItem, AVQueuePlayer, MPAudioDeviceController, NSArray, NSDictionary, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class AVPlayer, AVPlayerItem, AVQueuePlayer, MPAudioDeviceController, NSArray, NSDictionary, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MPQueuePlayer : NSObject <MPAudioDeviceControllerDelegate>
 {
@@ -33,10 +33,11 @@
 
 @property(nonatomic) int defaultItemEQPresetType; // @synthesize defaultItemEQPresetType=_defaultItemEQPresetType;
 @property(copy, nonatomic) id playbackQueueCommitHandler; // @synthesize playbackQueueCommitHandler=_playbackQueueCommitHandler;
+- (void).cxx_destruct;
 - (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
-- (float)_volume;
+- (float)_userVolume;
 - (void)_setWantsVolumeChangesWhenPausedOrInactive:(BOOL)arg1;
-- (void)_setVolume:(float)arg1;
+- (void)_setUserVolume:(float)arg1;
 - (void)_setStoppingFadeOutDuration:(float)arg1;
 - (void)_setPreferredLanguageList:(id)arg1;
 @property(copy, nonatomic) NSString *externalPlaybackVideoGravity;
@@ -47,11 +48,11 @@
 - (BOOL)_resumePlayback:(double)arg1 error:(id *)arg2;
 - (BOOL)_CALayerDestinationIsTVOut;
 @property(readonly, nonatomic) BOOL outputObscuredDueToInsufficientExternalProtection;
-@property(readonly, nonatomic) AVAudioSessionMediaPlayerOnly *playerAVAudioSession;
+@property(readonly, nonatomic) id playerAVAudioSession;
 @property(nonatomic) BOOL usesExternalPlaybackWhileExternalScreenIsActive;
+@property(nonatomic) BOOL usesAudioOnlyModeForExternalPlayback;
 @property(readonly, nonatomic) int status;
 @property(nonatomic) float rate;
-@property(copy, nonatomic, setter=_setDisplaysUsedForPlayback:) NSArray *_displaysUsedForPlayback;
 @property(nonatomic) BOOL allowsExternalPlayback;
 @property(nonatomic) int actionAtItemEnd;
 - (void)seekToTime:(CDStruct_1b6d18a9)arg1 toleranceBefore:(CDStruct_1b6d18a9)arg2 toleranceAfter:(CDStruct_1b6d18a9)arg3;

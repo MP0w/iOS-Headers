@@ -6,23 +6,27 @@
 
 #import "NSObject.h"
 
+#import "GEOResourceManifestTileGroupObserver-Protocol.h"
 #import "NSXMLParserDelegate-Protocol.h"
 
-@interface GEOAltitudeManifest : NSObject <NSXMLParserDelegate>
+@class GEOAltitudeManifestReserved;
+
+@interface GEOAltitudeManifest : NSObject <NSXMLParserDelegate, GEOResourceManifestTileGroupObserver>
 {
-    struct map<unsigned int, _GEOAltitudeTriggerData, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, _GEOAltitudeTriggerData>>> _triggerData;
+    GEOAltitudeManifestReserved *_reserved;
 }
 
 + (id)sharedManager;
-- (id).cxx_construct;
-- (void).cxx_destruct;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (void)parseManifest:(id)arg1;
 - (id)availableRegions;
 - (unsigned int)versionForRegion:(unsigned int)arg1;
 - (void)dealloc;
 - (BOOL)parseXml:(id)arg1;
-- (void)_activeTileGroupChanged:(id)arg1;
+- (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
+- (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
+- (void)_reloadManifest;
+- (void)commonInit;
 - (id)initWithoutObserver;
 - (id)init;
 

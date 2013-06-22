@@ -12,7 +12,7 @@
     BOOL _shouldAnimateConnection;
 }
 
-- (id)contentsImageForStyle:(int)arg1;
+- (id)contentsImage;
 - (void)performPendedActions;
 - (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
 

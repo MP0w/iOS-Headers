@@ -12,6 +12,7 @@
     void *_addressBook;
 }
 
++ (BOOL)isAuthorizedToUseAddressBook;
 + (id)sharedManager;
 - (void)removeClient:(id)arg1;
 - (void)addClient:(id)arg1;

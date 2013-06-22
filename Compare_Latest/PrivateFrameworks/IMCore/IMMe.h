@@ -23,6 +23,7 @@
 + (id)imHandleForService:(id)arg1;
 + (id)me;
 + (id)fallbackUserName;
+- (id)description;
 - (void)myPictureChanged;
 @property(readonly, nonatomic) NSArray *imHandles;
 @property(readonly, nonatomic) IMHandle *bestIMHandle;

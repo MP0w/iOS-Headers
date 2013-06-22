@@ -13,6 +13,7 @@
     NSLock *_lock;
     unsigned int _identifier;
     unsigned int _port;
+    int _pid;
     struct __CFArray *_queue;
     struct __CFSet *_callbackSet;
 }
@@ -20,8 +21,9 @@
 + (void)registerCallbackWithKey:(int)arg1 forClientIdentifier:(unsigned int)arg2;
 + (id)callbacksForClientIdentifier:(unsigned int)arg1;
 + (void)sendCallback:(id)arg1;
++ (BOOL)isClientTrustedWithPortToken:(CDStruct_6ad76789)arg1;
 + (long)removeClientWithPort:(unsigned int)arg1;
-+ (id)addClientGetIdentifier:(unsigned int *)arg1 getPort:(unsigned int *)arg2;
++ (id)addClientGetIdentifier:(unsigned int *)arg1 token:(CDStruct_6ad76789)arg2 getPort:(unsigned int *)arg3;
 + (void)initialize;
 - (void)_sendCallback:(id)arg1;
 - (BOOL)_wantsCallback:(id)arg1;

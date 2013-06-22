@@ -12,6 +12,8 @@
 {
 }
 
++ (id)modernTransparentAppearanceController;
++ (id)modernAppearanceController;
 + (id)gradientAppearanceController;
 + (id)translucentBlackAppearanceController;
 + (id)stripedAppearanceController;
@@ -25,9 +27,18 @@
 @property(readonly, nonatomic) UIColor *learnMoreShadowColor;
 @property(readonly, nonatomic) UIColor *learnMoreTextColorSelected;
 @property(readonly, nonatomic) UIColor *learnMoreTextColor;
+@property(readonly, nonatomic) UIColor *navigationBarTintColor;
+@property(readonly, nonatomic) BOOL navigationBarHidesShadow;
+@property(readonly, nonatomic) BOOL navigationBarHidesTitle;
+@property(readonly, nonatomic) BOOL firstNavigationBarHidden;
 @property(readonly, nonatomic) int navigationBarActivityIndicatorStyle;
 @property(readonly, nonatomic) BOOL navigationBarIsTranslucent;
 @property(readonly, nonatomic) int navigationBarStyle;
+@property(readonly, nonatomic) UIColor *splashSignInFieldsBackgroundColor;
+@property(readonly, nonatomic) UIColor *splashSignInFieldsBorderColor;
+@property(readonly, nonatomic) UIColor *splashEntryPlaceholderTextColor;
+@property(readonly, nonatomic) UIColor *splashEntryFieldTextColor;
+@property(readonly, nonatomic) BOOL splashScreenShowsIcon;
 @property(readonly, nonatomic) BOOL webViewDrawsShadows;
 @property(readonly, nonatomic) BOOL webViewIsOpaque; // @dynamic webViewIsOpaque;
 @property(readonly, nonatomic) UIColor *webViewBackgroundColor; // @dynamic webViewBackgroundColor;
@@ -37,12 +48,16 @@
 @property(readonly, nonatomic) UIColor *searchResultsTableSeparatorTopShadowColor;
 @property(readonly, nonatomic) UIColor *searchResultsTableSeparatorColor;
 @property(readonly, nonatomic) int searchResultsTableSeparatorStyle;
+@property(readonly, nonatomic) int tableFooterTextAlignment;
+@property(readonly, nonatomic) int tableHeaderTextAlignment;
 @property(readonly, nonatomic) UIFont *tableFooterFont;
+@property(readonly, nonatomic) UIColor *tableFooterTextColor;
 @property(readonly, nonatomic) UIFont *tableHeaderFont;
 @property(readonly, nonatomic) struct CGSize tableHeaderTextShadowOffset;
 @property(readonly, nonatomic) UIColor *tableHeaderTextShadowColor;
 @property(readonly, nonatomic) UIColor *tableHeaderTextColorSelected;
 @property(readonly, nonatomic) UIColor *tableHeaderTextColor;
+@property(readonly, nonatomic) UIImage *tableCellCheckmarkImageDisabled;
 @property(readonly, nonatomic) UIImage *tableCellCheckmarkImageSelected;
 @property(readonly, nonatomic) UIImage *tableCellCheckmarkImage;
 @property(readonly, nonatomic) UIView *tableCellCustomAccessoryViewDisclosureIndicator;

@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) int quantity;
 @property(readonly, nonatomic) NSString *productIdentifier;
 - (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) NSString *applicationUsername;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

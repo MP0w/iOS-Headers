@@ -6,33 +6,29 @@
 
 #import "NSObject.h"
 
-#import "ADXPCConnectionDelegate-Protocol.h"
+@class NSXPCConnection;
 
-@class ADXPCConnection;
-
-@interface ADAdSheetProxy : NSObject <ADXPCConnectionDelegate>
+@interface ADAdSheetProxy : NSObject
 {
-    unsigned int _adSheetBootstrapAttempts;
-    ADXPCConnection *_adSheetConnection;
+    BOOL _serviceLaunchThrottled;
     int _bootstrapState;
-    double _lastTermination;
+    unsigned int _adSheetBootstrapAttempts;
+    NSXPCConnection *_adSheetConnection;
     int _classicUnavailableToken;
+    double _lastTermination;
 }
 
 + (id)sharedInstance;
 @property(nonatomic) int classicUnavailableToken; // @synthesize classicUnavailableToken=_classicUnavailableToken;
+@property(retain, nonatomic) NSXPCConnection *adSheetConnection; // @synthesize adSheetConnection=_adSheetConnection;
+@property(nonatomic) unsigned int adSheetBootstrapAttempts; // @synthesize adSheetBootstrapAttempts=_adSheetBootstrapAttempts;
 @property(nonatomic) double lastTermination; // @synthesize lastTermination=_lastTermination;
 @property(nonatomic) int bootstrapState; // @synthesize bootstrapState=_bootstrapState;
-@property(retain, nonatomic) ADXPCConnection *adSheetConnection; // @synthesize adSheetConnection=_adSheetConnection;
-@property(nonatomic) unsigned int adSheetBootstrapAttempts; // @synthesize adSheetBootstrapAttempts=_adSheetBootstrapAttempts;
-- (void)xpcConnection:(id)arg1 receivedMessage:(id)arg2 userInfo:(id)arg3;
-- (void)xpcConnectionFailed:(id)arg1;
+@property(nonatomic) BOOL serviceLaunchThrottled; // @synthesize serviceLaunchThrottled=_serviceLaunchThrottled;
 - (void)_bootstrap;
-- (void)commitFence;
 - (void)resetAdSheetThrottle;
 - (BOOL)isBootstrapped;
-- (id)remoteObjectForMessageName:(id)arg1 senderId:(id)arg2;
-- (void)sendMessage:(id)arg1 userInfo:(id)arg2;
+@property(readonly, nonatomic) id <ADSSession_RPC> rpcProxy;
 - (id)init;
 
 @end

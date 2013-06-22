@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSMutableSet, NSString;
 
 @interface CLLocationManagerInternal : NSObject
 {
@@ -33,8 +33,10 @@
     BOOL fPaused;
     BOOL fAllowsMapCorrection;
     BOOL fBatchingLocation;
+    NSMutableSet *fRangedRegions;
 }
 
+@property(readonly, nonatomic) NSMutableSet *rangedRegions; // @synthesize rangedRegions=fRangedRegions;
 - (void)dealloc;
 - (void)stopUpdatingLocationAutoPaused;
 - (int)PausesLocationUpdatesAutomatically;

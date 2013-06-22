@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSMutableArray, NSMutableSet, NSThread;
+@class NSLock, NSMutableArray, NSMutableSet, NSString, NSThread;
 
 @interface MFNetworkController : NSObject
 {
@@ -21,6 +21,7 @@
     BOOL _dns;
     struct __CTServerConnection *_telephony;
     NSMutableSet *_calls;
+    NSMutableSet *_backgroundWifiClients;
     long _interface;
     struct __SCPreferences *_wiFiPreferences;
     BOOL _hasCellDataCapability;
@@ -28,10 +29,17 @@
     BOOL _isWiFiEnabled;
     BOOL _isRoamingAllowed;
     BOOL _data;
+    NSString *_dataIndicator;
+    void *_wifiManager;
 }
 
 + (id)networkAssertionWithIdentifier:(id)arg1;
 + (id)sharedInstance;
+@property(nonatomic) void *wifiManager; // @synthesize wifiManager=_wifiManager;
+- (id)copyDiagnosticInformation;
+- (void)removeBackgroundWifiClient:(id)arg1;
+- (void)addBackgroundWifiClient:(id)arg1;
+- (void)_updateWifiClientType;
 - (void)removeNetworkObserver:(id)arg1;
 - (id)addNetworkObserverBlock:(id)arg1 queue:(void)arg2;
 - (id)_networkAssertionWithIdentifier:(id)arg1;
@@ -40,6 +48,8 @@
 - (void)_setDataStatus_nts:(id)arg1;
 - (void)_checkKeys:(id)arg1 forStore:(struct __SCDynamicStore *)arg2;
 - (void)_setFlags:(unsigned int)arg1 forReachability:(struct __SCNetworkReachability *)arg2;
+- (BOOL)is4GConnection;
+- (BOOL)is3GConnection;
 - (BOOL)inAirplaneMode;
 - (BOOL)isOnWWAN;
 - (BOOL)isFatPipe;
@@ -47,11 +57,13 @@
 - (BOOL)_isNetworkUp_nts;
 - (BOOL)isDataAvailable;
 - (int)dataStatus;
+- (BOOL)_simulationOverrideForType:(unsigned int)arg1 actualValue:(BOOL)arg2;
 - (void)invalidate;
 - (void)dealloc;
 - (void)_tearDownTelephony_nts;
 - (void)_setUpTelephony_nts;
 - (CDStruct_dff5684f)_pollDataAndCallStatus_nts;
+- (void)_inititializeWifiManager;
 - (id)init;
 
 @end

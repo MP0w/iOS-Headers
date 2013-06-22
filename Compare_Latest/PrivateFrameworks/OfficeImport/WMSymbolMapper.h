@@ -14,6 +14,8 @@
     NSString *mFontName;
 }
 
++ (BOOL)isSymbolFontName:(id)arg1;
++ (unsigned short)mapCharacter:(unsigned short)arg1 withFontName:(id)arg2;
 + (unsigned short)mapZapfDingbatsCharacter:(unsigned short)arg1;
 + (unsigned short)mapWindingsCharacter:(unsigned short)arg1;
 - (void)mapAt:(id)arg1 withState:(id)arg2;

@@ -6,23 +6,18 @@
 
 #import <VectorKit/VKCameraController.h>
 
-#import "UIGestureRecognizerDelegate-Protocol.h"
+@class VKAnimation, VKCameraContext, VKMapModel;
 
-@class VKAnimation, VKMapModel, VKRunningCurve;
-
-@interface VKTrackingCameraController : VKCameraController <UIGestureRecognizerDelegate>
+@interface VKTrackingCameraController : VKCameraController
 {
-    id <VKTrackingCameraControllerDelegate> _delegate;
+    id <VKTrackingCameraControllerDelegate> _trackingDelegate;
     int _viewStyle;
     int _focusStyle;
     VKAnimation *_animation;
-    double _verticalGroundspanInFrontOfReference;
-    CDStruct_31142d93 _farthestPoi;
-    VKRunningCurve *_cameraPositionCurve;
-    VKRunningCurve *_cameraLookAtCurve;
-    VKRunningCurve *_cameraRightCurve;
-    CDStruct_9a8617ed _puckPosition;
-    CDStruct_31142d93 _puckTargetPosition;
+    double _verticalGroundspan;
+    struct VKPoint _farthestPoi;
+    CDStruct_cc67e4ef _puckPosition;
+    struct VKPoint _puckTargetPosition;
     double _startZoomScale;
     double _endZoomScale;
     double _zoomScale;
@@ -33,12 +28,11 @@
     double _startPitch;
     double _startCourse;
     double _startDistance;
-    CDStruct_31142d93 _startPuckScreenPosition;
+    struct VKPoint _startPuckScreenPosition;
     id _completionHandler;
     double _puckOffset;
-    double _puckBottom;
-    CDStruct_31142d93 _previousReference;
-    CDStruct_31142d93 _previousFocus;
+    struct VKPoint _previousReference;
+    double _previousCourse;
     struct VKCircularBuffer<double> *_rotationRateBuffer;
     double _previousStepTime;
     VKAnimation *_tapZoomAnimation;
@@ -49,16 +43,53 @@
     double _cruiseHeight;
     double _cruisePhiOverride;
     double _cruiseHeightOverride;
-    CDStruct_da177989 _lastUpdate;
+    VKCameraContext *_lastCameraContext;
     BOOL _shouldLimitTopDownHeight;
-    struct UIEdgeInsets _insets;
+    struct VKEdgeInsets _insets;
+    struct VKNavigationCameraModel _cameraModel;
+    int _panStyle;
+    struct State {
+        State_3e0671f0 modelState;
+        struct VKPoint puckPosition;
+    } _panStartCameraState;
+    Vec3Imp_f658403c _panCameraOffset;
+    CDStruct_aa5aacbc _panCameraOrientation;
+    struct {
+        double x;
+        double y;
+        double z;
+        double w;
+    } _panCameraOrientationQuaternion;
+    double _panReturnStartTime;
+    struct CGPoint _startPanPoint;
+    double _panCourseOffset;
+    double _panPitchOffset;
+    VKAnimation *_panAnimation;
+    BOOL _panning;
+    double _pitchOffset;
+    VKAnimation *_pitchAnimation;
+    BOOL _pitching;
+    BOOL _zooming;
+    double _userZoomFocusStyleZoomScale;
+    double _userZoomFocusStyleMinZoomScale;
+    double _userZoomFocusStyleMaxZoomScale;
+    VKAnimation *_zoomScaleAnimation;
+    VKAnimation *_horizontalOffsetAnimation;
+    double _horizontalOffset;
 }
 
+@property(nonatomic) int panStyle; // @synthesize panStyle=_panStyle;
 @property(nonatomic) BOOL shouldLimitTopDownHeight; // @synthesize shouldLimitTopDownHeight=_shouldLimitTopDownHeight;
 @property(nonatomic) double tracePlaybackSpeedMultiplier; // @synthesize tracePlaybackSpeedMultiplier=_tracePlaybackSpeedMultiplier;
 @property(retain, nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
-@property(nonatomic) id <VKTrackingCameraControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) id <VKTrackingCameraControllerDelegate> trackingDelegate; // @synthesize trackingDelegate=_trackingDelegate;
 - (id).cxx_construct;
+- (void)stopPitchingWithFocusPoint:(struct CGPoint)arg1;
+- (void)updatePitchWithFocusPoint:(struct CGPoint)arg1 translation:(double)arg2;
+- (void)startPitchingWithFocusPoint:(struct CGPoint)arg1;
+- (void)pan:(struct CGPoint)arg1 worldDelta:(const Vec3Imp_f658403c *)arg2;
+- (void)stopPanning:(struct CGPoint)arg1;
+- (void)startPanning:(struct CGPoint)arg1;
 - (void)canvasFrameDidChange;
 - (id)detailedDescription;
 - (void)stopPinchingWithFocusPoint:(struct CGPoint)arg1;
@@ -67,26 +98,30 @@
 - (void)zoom:(double)arg1 relativeToPoint:(struct CGPoint)arg2 completionHandler:(id)arg3;
 - (void)_startTapZoomAnimationFrom:(double)arg1 to:(double)arg2 completionHandler:(id)arg3;
 - (void)setGesturing:(BOOL)arg1;
+@property(nonatomic) double userZoomFocusStyleMaxGroundspanMeters;
+@property(nonatomic) double userZoomFocusStyleMinGroundspanMeters;
+@property(nonatomic) double userZoomFocusStyleGroundspanMeters;
+- (double)relevantZoomScale;
+- (void)setRelevantZoomScale:(double)arg1;
 - (void)_resumeAnimationIfNecessary;
+- (void)setUserZoomFocusStyleZoomScale:(double)arg1;
 @property(nonatomic) double zoomScale;
 - (BOOL)isAtDefaultZoomScale;
 - (void)_updateCruiseHeightAndPhi;
-- (void)_boundPuck:(const CDStruct_31142d93 *)arg1 cameraPosition:(CDStruct_31142d93 *)arg2 cameraOrientation:(CDStruct_aa5aacbc *)arg3;
-- (void)_updateCameraForStartAnimation:(double)arg1 position:(CDStruct_31142d93)arg2 orientation:(const CDStruct_aa5aacbc *)arg3;
+- (void)_updateCameraForStartAnimation:(double)arg1 position:(struct VKPoint)arg2 orientation:(const CDStruct_aa5aacbc *)arg3;
 - (void)_step;
-- (CDStruct_0038f5ee)_getTargetStateTopDownForReference:(CDStruct_31142d93)arg1 focus:(CDStruct_31142d93)arg2 puckVerticalOffsetFromBottom:(double)arg3;
-- (CDStruct_0038f5ee)_getTargetStateRooftopForReference:(CDStruct_31142d93)arg1 focus:(CDStruct_31142d93)arg2;
-- (void)_updateVerticalGroundspanForFocusStyle:(int)arg1 viewStyle:(int)arg2 reference:(CDStruct_31142d93)arg3 pois:(id)arg4;
-- (void)puckAnimator:(id)arg1 updatedTargetPosition:(CDStruct_31142d93)arg2;
+- (void)_updateVerticalGroundspanForCameraContext:(id)arg1 reference:(struct VKPoint)arg2;
+- (void)puckAnimator:(id)arg1 updatedTargetPosition:(struct VKPoint)arg2;
 - (void)puckAnimatorDidStop:(id)arg1;
-- (void)puckAnimator:(id)arg1 updatedPosition:(CDStruct_9a8617ed *)arg2;
-- (void)setCameraViewForPointOfReference:(CDStruct_c3b9c2ee)arg1 referenceHeading:(double)arg2 pointOfFocus:(CDStruct_c3b9c2ee)arg3 pointsOfInterest:(id)arg4 style:(int)arg5 focusStyle:(int)arg6 animated:(BOOL)arg7;
-- (void)_applyUpdateIfNecessary:(CDStruct_da177989)arg1;
-- (void)endAnimating;
-- (void)beginAnimating;
+- (void)puckAnimator:(id)arg1 updatedPosition:(CDStruct_cc67e4ef *)arg2;
+- (void)resumeIfNeeded;
+- (void)pauseIfNeeded;
+- (BOOL)isGesturing;
+- (void)updateCameraContext:(id)arg1;
 - (void)dealloc;
 - (void)startWithPounce:(BOOL)arg1 pounceCompletionHandler:(id)arg2;
-- (void)setEdgeInsets:(struct UIEdgeInsets)arg1;
+- (void)setPuckHorizontalOffset:(double)arg1 duration:(double)arg2 timingFunction:(id)arg3;
+- (void)setEdgeInsets:(struct VKEdgeInsets)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)init;
 

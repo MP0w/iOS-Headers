@@ -23,6 +23,7 @@
 - (void)_statusBarViewControllerKeyboardDidHide:(id)arg1;
 - (void)_statusBarViewControllerKeyboardWillShow:(id)arg1;
 - (void)_changeStatusBarOrientationFinished:(id)arg1 finished:(BOOL)arg2 context:(void *)arg3;
+- (void)_finishStatusBarOrientationChange;
 - (void)_updateCornersForRotationFromOrientation:(int)arg1 toOrientation:(int)arg2 withStatusBarStyle:(int)arg3 statusBarShouldHide:(BOOL)arg4;
 - (void)_changeStatusBarOrientationFrom:(int)arg1 toOrientation:(int)arg2;
 - (void)_statusBarHideAnimationFinished:(id)arg1 finished:(BOOL)arg2 hidden:(id)arg3;

@@ -95,6 +95,7 @@
 - (id)_genericLabel;
 - (id)parseURL;
 - (id)parseValueArray;
+- (id)parseRemainingLine;
 - (id)parseSingleValue;
 - (BOOL)parseORG;
 - (BOOL)parseABMaiden;

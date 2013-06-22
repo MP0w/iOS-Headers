@@ -13,12 +13,15 @@
     AVMetadataObjectInternal *_objectInternal;
 }
 
++ (id)derivedMetadataObjectFromMetadataObject:(id)arg1 withTransform:(struct CGAffineTransform)arg2 isVideoMirrored:(BOOL)arg3 rollAdjustment:(float)arg4;
+- (id)originalMetadataObject;
 - (id)input;
 @property(readonly) NSString *type;
 @property(readonly) struct CGRect bounds;
 @property(readonly) CDStruct_1b6d18a9 duration;
 @property(readonly) CDStruct_1b6d18a9 time;
 - (void)dealloc;
+- (id)initDerivedMetadataObjectFromMetadataObject:(id)arg1 withTransform:(struct CGAffineTransform)arg2 isVideoMirrored:(BOOL)arg3 rollAdjustment:(float)arg4;
 - (id)init;
 
 @end

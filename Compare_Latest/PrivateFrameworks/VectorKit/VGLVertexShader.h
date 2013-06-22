@@ -10,8 +10,7 @@
 {
 }
 
-+ (id)shaderWithName:(id)arg1;
-- (id)initWithName:(id)arg1;
+- (id)initWithName:(id)arg1 resourceFactory:(id)arg2;
 
 @end
 

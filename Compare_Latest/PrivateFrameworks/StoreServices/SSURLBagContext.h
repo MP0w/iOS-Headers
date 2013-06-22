@@ -17,25 +17,21 @@
     BOOL _allowsExpiredBags;
     int _bagType;
     NSMutableDictionary *_httpHeaders;
-    BOOL _ignoresDiskCache;
+    BOOL _ignoresCaches;
     NSNumber *_userIdentifier;
     BOOL _usesCachedBagsOnly;
 }
 
-+ (id)diskCacheDirectoryPath;
 + (id)contextWithBagType:(int)arg1;
 @property(nonatomic) BOOL usesCachedBagsOnly; // @synthesize usesCachedBagsOnly=_usesCachedBagsOnly;
 @property(retain, nonatomic) NSNumber *userIdentifier; // @synthesize userIdentifier=_userIdentifier;
-@property(nonatomic) BOOL ignoresDiskCache; // @synthesize ignoresDiskCache=_ignoresDiskCache;
+@property(nonatomic) BOOL ignoresCaches; // @synthesize ignoresCaches=_ignoresCaches;
 @property(nonatomic) int bagType; // @synthesize bagType=_bagType;
 @property(nonatomic) BOOL allowsExpiredBags; // @synthesize allowsExpiredBags=_allowsExpiredBags;
 @property(nonatomic) int allowedRetryCount; // @synthesize allowedRetryCount=_allowedRetryCount;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) NSString *diskCachePath;
-@property(readonly, nonatomic) NSString *diskCacheKey;
-@property(readonly, nonatomic) struct __CFString *diskCacheExpirationTimeKey;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)description;

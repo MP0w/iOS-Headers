@@ -6,18 +6,18 @@
 
 #import "NSObject.h"
 
-@class PDAnimationTargetElement;
+@class PDAnimationTarget;
 
 @interface PDTimeCondition : NSObject
 {
     BOOL mHasDelay;
     int mDelay;
     int mTriggerEvent;
-    PDAnimationTargetElement *mTgtElement;
+    PDAnimationTarget *mTarget;
 }
 
-- (void)setTgtElement:(id)arg1;
-- (id)tgtElement;
+- (void)setTarget:(id)arg1;
+- (id)target;
 - (void)setTriggerEvent:(int)arg1;
 - (int)triggerEvent;
 - (void)setDelay:(int)arg1;

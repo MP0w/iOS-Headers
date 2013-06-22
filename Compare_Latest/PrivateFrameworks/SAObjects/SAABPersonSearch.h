@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
 @class NSDate, NSNumber, NSString, NSURL, SAEmail, SALocation, SAPhone;
 
-@interface SAABPersonSearch : SABaseClientBoundCommand
+@interface SAABPersonSearch : SADomainCommand
 {
 }
 
@@ -25,7 +25,6 @@
 @property(copy, nonatomic) NSDate *birthday;
 @property(retain, nonatomic) SALocation *address;
 @property(copy, nonatomic) NSURL *accountIdentifier;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

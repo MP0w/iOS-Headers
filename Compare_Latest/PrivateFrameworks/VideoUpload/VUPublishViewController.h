@@ -11,7 +11,7 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSString, PLTableViewEditableCell, UIAlertView, UIButton, UIImageView, UILabel, UIPickerView, UITableView, UITableViewCell, VUCategory, VUCategoryCell, VUFooterContainerView;
+@class NSArray, NSMutableArray, NSString, PLTableViewEditableCell, UIAlertView, UIImageView, UIPickerView, UITableView, UITableViewCell, VUCategory, VUCategoryCell, VUFooterContainerView;
 
 @interface VUPublishViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>
 {
@@ -31,8 +31,6 @@
     unsigned int _accessRow;
     UITableViewCell *_accountCell;
     VUFooterContainerView *_footerContainer;
-    UILabel *_termsLabel;
-    UIButton *_termsButton;
     UIAlertView *_authenticationAlert;
     UIAlertView *_accountAlert;
     UIAlertView *_authenticationFailedAlert;
@@ -44,20 +42,20 @@
         int access;
         int account;
     } _sectionIndices;
+    BOOL _showHDSection;
     BOOL _enableHDSection;
     id <VUPublishViewControllerDelegate> _delegate;
-    BOOL _showHDSection;
-    int _selectedOption;
-    int _HDSize;
     int _SDSize;
+    int _HDSize;
+    int _selectedOption;
 }
 
-@property(nonatomic) int SDSize; // @synthesize SDSize=_SDSize;
-@property(nonatomic) int HDSize; // @synthesize HDSize=_HDSize;
 @property(readonly, nonatomic) int selectedOption; // @synthesize selectedOption=_selectedOption;
+@property(nonatomic) int HDSize; // @synthesize HDSize=_HDSize;
+@property(nonatomic) int SDSize; // @synthesize SDSize=_SDSize;
+@property(nonatomic) BOOL enableHDSection; // @synthesize enableHDSection=_enableHDSection;
 @property(nonatomic) BOOL showHDSection; // @synthesize showHDSection=_showHDSection;
 @property(nonatomic) id <VUPublishViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL enableHDSection; // @synthesize enableHDSection=_enableHDSection;
 @property(readonly, nonatomic) VUCategory *videoCategory;
 @property(readonly, nonatomic) NSArray *videoTags;
 @property(readonly, nonatomic) NSString *videoDescription;
@@ -80,6 +78,7 @@
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(int)arg2;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (id)termsOfUseURL;
 - (id)termsOfUseString;
@@ -96,8 +95,8 @@
 - (void)_shrinkView;
 - (void)_automaticKeyboardDidHide:(id)arg1;
 - (void)_automaticKeyboardDidShow:(id)arg1;
+- (void)resignResponder;
 - (void)_footerFrameDidChangeWithSplitKeyboard:(BOOL)arg1;
-- (float)_termsBlurbHeightForWidth:(float)arg1;
 - (void)_updatePublishButton;
 - (int)_indexOfBlankTagCellOtherThan:(id)arg1;
 - (void)_addNewTagCell;

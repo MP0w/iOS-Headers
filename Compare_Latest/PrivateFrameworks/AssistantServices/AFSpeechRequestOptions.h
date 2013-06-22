@@ -6,21 +6,30 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class NSString;
 
-@interface AFSpeechRequestOptions : NSObject
+@interface AFSpeechRequestOptions : NSObject <NSSecureCoding>
 {
+    BOOL _isEyesFree;
+    BOOL _useAutomaticEndpointing;
     int _event;
     NSString *_btDeviceAddress;
-    BOOL _isEyesFree;
+    NSString *_serverCommandId;
+    double _activationEventTime;
 }
 
++ (BOOL)supportsSecureCoding;
+@property(nonatomic) double activationEventTime; // @synthesize activationEventTime=_activationEventTime;
+@property(nonatomic) BOOL useAutomaticEndpointing; // @synthesize useAutomaticEndpointing=_useAutomaticEndpointing;
+@property(copy, nonatomic) NSString *serverCommandId; // @synthesize serverCommandId=_serverCommandId;
 @property(nonatomic) BOOL isEyesFree; // @synthesize isEyesFree=_isEyesFree;
 @property(copy, nonatomic) NSString *btDeviceAddress; // @synthesize btDeviceAddress=_btDeviceAddress;
 @property(nonatomic) int activationEvent; // @synthesize activationEvent=_event;
 - (void).cxx_destruct;
-- (id)initWithDKPlistRepresentation:(id)arg1;
-- (id)dkPlistRepresentation;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)initWithActivationEvent:(int)arg1;
 
 @end

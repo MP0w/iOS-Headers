@@ -40,8 +40,11 @@
 @property(copy, nonatomic) NSSet *attachments;
 - (BOOL)hasAttachments;
 @property(copy, nonatomic) NSData *externalData;
+- (void)setExternalModificationTag:(id)arg1;
+- (id)externalModificationTag;
 @property(copy, nonatomic) NSString *externalID;
 @property(copy, nonatomic) NSString *uniqueID;
+@property(copy, nonatomic) NSDate *participationStatusModifiedDate;
 @property(readonly, nonatomic) int selfParticipantStatus;
 @property(retain, nonatomic) EKPersistentOrganizer *organizer;
 @property(retain, nonatomic) EKPersistentAttendee *selfAttendee;
@@ -65,6 +68,7 @@
 @property(readonly, nonatomic) BOOL hasAlarms;
 @property(copy, nonatomic) NSURL *URL;
 @property(copy, nonatomic) NSURL *action;
+@property(nonatomic) int sequence;
 @property(nonatomic) int priority;
 @property(nonatomic, getter=isAllDay) BOOL allDay;
 @property(copy, nonatomic) NSTimeZone *timeZone;

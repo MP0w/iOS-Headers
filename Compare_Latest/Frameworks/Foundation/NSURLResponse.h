@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSURLResponseInternal;
 
-@interface NSURLResponse : NSObject <NSCoding, NSCopying>
+@interface NSURLResponse : NSObject <NSSecureCoding, NSCopying>
 {
     NSURLResponseInternal *_internal;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)_responseWithCFURLResponse:(struct _CFURLResponse *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)suggestedFilename;
@@ -24,6 +25,7 @@
 - (id)MIMEType;
 - (id)URL;
 - (struct _CFURLResponse *)_CFURLResponse;
+- (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

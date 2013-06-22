@@ -27,10 +27,18 @@
     UIWebView *_webView;
     WebContainerView *_webContainerView;
     float _cachedHeight;
+    BOOL _configured;
+    float _height;
 }
 
 + (void)resetLocale;
-+ (id)_monthAndDayFormatter;
++ (id)_formatterForMonthAndDay;
++ (id)_formatterForShortDate;
++ (id)_formatterForDateYMD;
++ (id)_timeZoneAdjustedDateFromDate:(id)arg1;
++ (void)initialize;
+@property(nonatomic) BOOL configured; // @synthesize configured=_configured;
+@property(nonatomic) float height; // @synthesize height=_height;
 @property(retain, nonatomic) NSDate *dateMax; // @synthesize dateMax=_dateMax;
 @property(retain, nonatomic) NSDate *dateMin; // @synthesize dateMin=_dateMin;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
@@ -38,6 +46,8 @@
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSDictionary *deleteAction; // @synthesize deleteAction=_deleteAction;
 @property(nonatomic) BOOL rowInvalid; // @synthesize rowInvalid=_rowInvalid;
+- (id)sourceURL;
+- (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (BOOL)textFieldShouldReturn:(id)arg1;
 - (int)numberOfComponentsInPickerView:(id)arg1;
 - (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
@@ -52,10 +62,12 @@
 - (void)populatePostbackDictionary:(id)arg1;
 - (BOOL)supportsAutomaticSelection;
 - (id)tableCell;
+- (BOOL)loadAccessoryImage;
+- (void)accessoryImageLoaded;
 - (void)setImage:(id)arg1;
-- (id)_dateFormatter;
 - (int)tableCellStyle;
 - (Class)tableCellClass;
+- (void)setAttributes:(id)arg1;
 - (void)setDelegate:(id)arg1;
 
 @end

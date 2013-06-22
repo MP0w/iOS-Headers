@@ -11,6 +11,7 @@
 }
 
 + (id)defaultProperties;
+- (BOOL)isEqual:(id)arg1;
 - (id)initWithDefaults;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

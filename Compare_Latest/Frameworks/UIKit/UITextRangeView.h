@@ -60,7 +60,6 @@
 @property(nonatomic) BOOL baseIsStart; // @synthesize baseIsStart=m_baseIsStart;
 @property(retain, nonatomic) UITouch *activeTouch; // @synthesize activeTouch=m_activeTouch;
 @property(nonatomic) int mode; // @synthesize mode=m_mode;
-- (void)setEnclosingScrollViewsEnabled:(BOOL)arg1;
 - (struct CGPoint)convertFromMagnifierPoint:(struct CGPoint)arg1;
 - (struct CGPoint)magnifierPoint;
 - (void)updateGrabbers;
@@ -88,11 +87,8 @@
 - (void)willScroll;
 - (void)doneMagnifying;
 - (void)prepareForMagnification;
-- (void)selectionAnimationDidStop:(id)arg1 finished:(id)arg2;
-- (void)updateWithMagnifierTerminalPoint:(BOOL)arg1;
 - (void)updateBaseIsStartWithDocumentPoint:(struct CGPoint)arg1;
 - (void)updateSelectionWithDocumentPoint:(struct CGPoint)arg1;
-- (void)updateSelectionWithPoint:(struct CGPoint)arg1;
 @property(retain, nonatomic) NSArray *rects; // @synthesize rects=m_rects;
 @property(readonly, nonatomic) UIResponder<UITextInput> *container;
 @property(readonly, nonatomic) UITextSelectionView *selectionView;

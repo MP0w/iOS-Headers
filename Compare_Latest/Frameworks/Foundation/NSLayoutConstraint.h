@@ -19,10 +19,9 @@
     float _loweredConstant;
     id _markerAndPositiveExtraVar;
     id _negativeExtraVar;
+    unsigned long long _layoutConstraintFlags;
     float _coefficient;
     float _priority;
-    unsigned long long _layoutConstraintFlags;
-    id _flange;
 }
 
 + (id)constraintWithItem:(id)arg1 attribute:(int)arg2 relatedBy:(int)arg3 constant:(float)arg4;
@@ -41,12 +40,13 @@
 - (BOOL)_nsib_isRedundantInEngine:(id)arg1;
 - (id)nsis_descriptionOfVariable:(id)arg1;
 - (id)_loweredExpression;
-- (id)_loweredExpressionReportingConstantIsRounded:(char *)arg1;
+- (BOOL)_lowerIntoExpression:(id)arg1 reportingConstantIsRounded:(char *)arg2;
 - (struct CGSize)_engineToContainerScalingCoefficients;
 - (void)_makeExtraVars;
 - (void)_removeFromEngine:(id)arg1;
 - (void)_addToEngine:(id)arg1;
 - (BOOL)_addToEngine:(id)arg1 integralizationAdjustment:(float)arg2 mutuallyExclusiveConstraints:(id *)arg3;
+- (BOOL)_addLoweredExpression:(id)arg1 toEngine:(id)arg2 integralizationAdjustment:(float)arg3 lastLoweredConstantWasRounded:(BOOL)arg4 mutuallyExclusiveConstraints:(id *)arg5;
 - (float)priorityForVariable:(id)arg1;
 - (BOOL)_describesSameRestrictionAsConstraint:(id)arg1;
 - (id)_constraintByReplacingView:(id)arg1 withView:(id)arg2;

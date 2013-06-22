@@ -19,8 +19,10 @@
     OADParagraphProperties *mDefaultTextProperties;
     BOOL mDefaultTextPropertiesHaveExplicitFontSize;
     id <CHAutoStyling> mAutoStyling;
+    BOOL mIgnoreFormulas;
 }
 
+@property(nonatomic) BOOL ignoreFormulas; // @synthesize ignoreFormulas=mIgnoreFormulas;
 - (id)autoStyling;
 - (void)popTitleTextProperties;
 - (void)pushTitleTextProperties:(BOOL)arg1;

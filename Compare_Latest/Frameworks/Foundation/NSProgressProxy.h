@@ -6,21 +6,28 @@
 
 #import <Foundation/NSProgress.h>
 
+@class NSString;
+
 @interface NSProgressProxy : NSProgress
 {
     id <NSProgressPublisher> _forwarder;
+    NSString *_publishingAppBundleIDOrNil;
     BOOL _isOld;
     id _unpublishingHandler;
 }
 
+- (id)_publishingAppBundleIdentifier;
 - (BOOL)isOld;
 - (void)acknowledgeWithSuccess:(BOOL)arg1;
+- (void)prioritize;
 - (void)pause;
 - (void)cancel;
 - (void)unpublish;
 - (void)publish;
 - (void)setKind:(id)arg1;
 - (void)setUserInfoObject:(id)arg1 forKey:(id)arg2;
+- (void)setPrioritizationHandler:(id)arg1;
+- (void)setPrioritizable:(BOOL)arg1;
 - (void)setPausingHandler:(id)arg1;
 - (void)setCancellationHandler:(id)arg1;
 - (void)setPausable:(BOOL)arg1;
@@ -33,7 +40,7 @@
 - (void)_invokeUnpublishingHandler;
 - (void)_invokePublishingHandler:(id)arg1;
 - (void)dealloc;
-- (id)_initWithForwarder:(id)arg1 values:(id)arg2 isOld:(BOOL)arg3;
+- (id)_initWithForwarder:(id)arg1 publishingAppBundleID:(id)arg2 values:(id)arg3 isOld:(BOOL)arg4;
 
 @end
 

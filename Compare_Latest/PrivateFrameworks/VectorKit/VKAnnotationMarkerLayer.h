@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, VKAnnotationMarker;
+@class NSArray, NSMutableArray, VKAnnotationMarker, VKAnnotationModel;
 
 @interface VKAnnotationMarkerLayer : NSObject
 {
+    VKAnnotationModel *_model;
     VKAnnotationMarkerLayer *_superlayer;
     NSMutableArray *_sublayers;
     VKAnnotationMarker *_annotationMarker;
@@ -18,17 +19,29 @@
     BOOL _hasScreenRect;
     CDStruct_aca18c62 _screenRect;
     BOOL _hasMass;
+    int _styleType;
+    float _contentScale;
 }
 
+@property(nonatomic) VKAnnotationModel *model; // @synthesize model=_model;
+@property(nonatomic) int styleType; // @synthesize styleType=_styleType;
+@property(readonly, nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
 @property(nonatomic) BOOL hasMass; // @synthesize hasMass=_hasMass;
-@property(nonatomic) CDStruct_aca18c62 screenRect; // @synthesize screenRect=_screenRect;
+@property(nonatomic) CDStruct_d2b197d1 screenRect; // @synthesize screenRect=_screenRect;
 @property(readonly, nonatomic) BOOL hasScreenRect; // @synthesize hasScreenRect=_hasScreenRect;
 @property(nonatomic) struct CGPoint accumulatedCenterOffset; // @synthesize accumulatedCenterOffset=_accumulatedCenterOffset;
 @property(nonatomic) struct CGPoint centerOffset; // @synthesize centerOffset=_centerOffset;
 @property(nonatomic) VKAnnotationMarker *annotationMarker; // @synthesize annotationMarker=_annotationMarker;
 @property(readonly, nonatomic) NSArray *sublayers; // @synthesize sublayers=_sublayers;
 @property(nonatomic) VKAnnotationMarkerLayer *superlayer; // @synthesize superlayer=_superlayer;
-- (float)distanceFromPoint:(CDStruct_31142d93)arg1 canvasSize:(struct CGSize)arg2;
+- (id).cxx_construct;
+- (void)stylesheetDidChange;
+- (void)_updateStyle;
+- (int)_vectorType;
+- (void)updateWithStyle:(id)arg1;
+- (id)_styleAttributes;
+- (float)distanceFromPoint:(struct VKPoint)arg1 canvasSize:(struct CGSize)arg2;
+- (void)updateWithContentScale:(float)arg1;
 - (void)drawWithContext:(id)arg1;
 - (void)layoutWithContext:(id)arg1;
 - (void)willLayoutWithContext:(id)arg1;
@@ -38,6 +51,7 @@
 - (void)addSublayer:(id)arg1;
 - (void)removeFromSuperlayer;
 - (void)removeSublayer:(id)arg1;
+- (void)runAnimation:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

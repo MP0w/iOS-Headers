@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSString, SUDocumentation;
 
-@interface SUDescriptor : NSObject <NSCoding, NSCopying>
+@interface SUDescriptor : NSObject <NSSecureCoding, NSCopying>
 {
     SUDocumentation *_documentation;
     NSString *_publisher;
@@ -29,6 +29,7 @@
     BOOL _downloadableOverCellular;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(nonatomic, getter=isDownloadableOverCellular) BOOL downloadableOverCellular; // @synthesize downloadableOverCellular=_downloadableOverCellular;
 @property(nonatomic, getter=isDownloadable) BOOL downloadable; // @synthesize downloadable=_downloadable;
 @property(nonatomic) BOOL autoDownloadAllowableForCellular; // @synthesize autoDownloadAllowableForCellular=_autoDownloadAllowableForCellular;
@@ -51,7 +52,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (unsigned long long)totalRequiredFreeSpace;
-- (id)downloadPolicy;
 - (id)humanReadableUpdateName;
 - (void)dealloc;
 - (id)init;

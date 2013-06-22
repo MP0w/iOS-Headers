@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class CKConversation, CKSendingProgressView, NSMutableSet, NSString, NSTimer, UIView;
+@class CKConversation, NSMutableSet, NSString, NSTimer, UIView;
 
 @interface CKTranscriptStatusController : NSObject
 {
-    UIView *_multipleRecipientTitleView;
-    CKSendingProgressView *_statusView;
+    UIView *_progressView;
     NSString *_title;
     CKConversation *_conversation;
     float _lastVal;
@@ -21,6 +20,7 @@
     BOOL _updatingProgress;
     BOOL _viewTitle;
     BOOL _finishingUp;
+    BOOL _animatingFadeOut;
     id _delegate;
     BOOL _suspended;
 }
@@ -41,7 +41,6 @@
 - (void)_startUpdatingProgress;
 - (void)_updateCurrentMessages;
 - (void)_updateNavItemTitleView:(BOOL)arg1;
-- (id)_statusView;
 - (void)_hideName;
 - (void)_updateTitle:(BOOL)arg1;
 - (id)_localizedTitleForSendingPart:(int)arg1 ofPart:(int)arg2;
@@ -49,6 +48,7 @@
 - (BOOL)_shouldShowProgress;
 - (void)reset;
 - (void)brieflyShowName;
+- (void)setProgressIndicatorHidden:(BOOL)arg1;
 - (void)dealloc;
 
 @end

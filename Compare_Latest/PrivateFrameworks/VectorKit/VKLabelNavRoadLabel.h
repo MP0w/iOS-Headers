@@ -6,28 +6,31 @@
 
 #import "NSObject.h"
 
-@class NSString, VKLabelNavRoad;
+@class NSString;
 
 @interface VKLabelNavRoadLabel : NSObject
 {
-    shared_ptr_3dab79f3 _label;
-    VKLabelNavRoad *_road;
+    shared_ptr_338aa11d _label;
+    int _navLabelType;
+    id <VKLabelNavFeature> _navFeature;
     NSString *_displayGroup;
-    BOOL _isShield;
+    int _alignment;
     unsigned int _displayID;
 }
 
-+ (id)displayGroupForShieldLabelOnRoad:(id)arg1;
+@property(nonatomic) int alignment; // @synthesize alignment=_alignment;
 @property(nonatomic) unsigned int displayID; // @synthesize displayID=_displayID;
-@property(readonly, nonatomic) BOOL isShield; // @synthesize isShield=_isShield;
-@property(readonly, nonatomic) const shared_ptr_3dab79f3 *label; // @synthesize label=_label;
-@property(nonatomic) VKLabelNavRoad *road; // @synthesize road=_road;
+@property(readonly, nonatomic) const shared_ptr_338aa11d *label; // @synthesize label=_label;
+@property(nonatomic) id <VKLabelNavFeature> navFeature; // @synthesize navFeature=_navFeature;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)description;
 - (id)displayGroup;
+@property(readonly, nonatomic) BOOL isJunctionLabel;
+@property(readonly, nonatomic) BOOL isRoadLabel;
+@property(readonly, nonatomic) BOOL isShieldLabel;
 - (void)dealloc;
-- (id)initWithRoad:(id)arg1 label:(const shared_ptr_3dab79f3 *)arg2;
+- (id)initWithNavFeature:(id)arg1 label:(const shared_ptr_338aa11d *)arg2 navLabelType:(int)arg3;
 
 @end
 

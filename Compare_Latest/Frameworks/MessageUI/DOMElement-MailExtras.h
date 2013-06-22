@@ -8,6 +8,8 @@
 
 @interface DOMElement (MailExtras)
 + (BOOL)isRichTextStyle:(id)arg1;
+- (BOOL)mf_hasBackgroundColorOrImage;
+- (id)mf_computedBackgroundColor;
 - (BOOL)mf_isContainedInAnyElementInSet:(id)arg1;
 @property(readonly) DOMElement *mf_containingQuoteBlockElement;
 @property(readonly) BOOL mf_isContainedInQuoteBlock;

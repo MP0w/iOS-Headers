@@ -13,10 +13,11 @@
 + (float)defaultHeight;
 - (BOOL)_shouldSendContentChangedNotificationsIfOnlyMarkedTextChanged;
 - (id)_scriptingInfo;
-- (Class)_systemBackgroundViewClass;
+- (void)setPaddingTop:(float)arg1 paddingLeft:(float)arg2;
 - (struct CGRect)rightViewRectForBounds:(struct CGRect)arg1;
-- (struct CGRect)_textRectExcludingButtonsForBounds:(struct CGRect)arg1;
+- (struct CGRect)_availableTextRectExcludingButtonsForBounds:(struct CGRect)arg1;
 - (struct CGRect)iconRect;
+- (id)_placeholderColor;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

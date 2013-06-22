@@ -6,17 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_xpc_object>, NSURLRequest;
+@class NSObject<OS_xpc_object>, NSString, NSURLRequest;
 
 @interface IMRemoteURLConnection : NSObject
 {
     NSURLRequest *_request;
+    NSString *_bundleIdentifierForDataUsage;
     id _block;
     NSObject<OS_xpc_object> *_connection;
     BOOL _loading;
     BOOL _forceCellularIfPossible;
+    int _retries;
 }
 
+@property(retain) NSString *bundleIdentifierForDataUsage; // @synthesize bundleIdentifierForDataUsage=_bundleIdentifierForDataUsage;
 @property BOOL forceCellularIfPossible; // @synthesize forceCellularIfPossible=_forceCellularIfPossible;
 - (void)cancel;
 - (void)load;

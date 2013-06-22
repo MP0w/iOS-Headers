@@ -4,36 +4,50 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIImageView.h"
+#import "UIView.h"
 
-@interface SBWallpaperView : UIImageView
+#import "_UISettingsKeyObserver-Protocol.h"
+
+@class SBWallpaperParallaxSettings, UIImageView;
+
+@interface SBWallpaperView : UIView <_UISettingsKeyObserver>
 {
+    UIView *_contentView;
+    id <SBProceduralWallpaper> _proceduralWallpaper;
+    UIImageView *_imageView;
+    UIImageView *_topGradientView;
+    UIImageView *_bottomGradientView;
+    struct CGRect _wallpaperContentsRect;
+    SBWallpaperParallaxSettings *_parallaxSettings;
+    BOOL _shouldAnimateProceduralWallpaper;
+    BOOL _topGradientVisible;
+    BOOL _bottomGradientVisible;
     int _orientation;
     int _variant;
-    UIImageView *_topGradient;
-    UIImageView *_bottomGradient;
-    BOOL _usesFilter;
-    float _gradientAlpha;
-    struct CGRect _wallpaperContentsRect;
+    float _zoomFactor;
 }
 
-@property(nonatomic) BOOL usesFilter; // @synthesize usesFilter=_usesFilter;
-@property(nonatomic) float gradientAlpha; // @synthesize gradientAlpha=_gradientAlpha;
-@property(readonly, nonatomic) int variant; // @synthesize variant=_variant;
+@property(nonatomic) BOOL bottomGradientVisible; // @synthesize bottomGradientVisible=_bottomGradientVisible;
+@property(nonatomic) BOOL topGradientVisible; // @synthesize topGradientVisible=_topGradientVisible;
+@property(nonatomic) float zoomFactor; // @synthesize zoomFactor=_zoomFactor;
+@property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+@property(nonatomic) int variant; // @synthesize variant=_variant;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
-- (void)resetCurrentImageToWallpaper;
-- (void)replaceWallpaperWithImage:(id)arg1;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
-- (void)setAlpha:(float)arg1;
-- (float)alpha;
-@property(nonatomic) float filterAlpha;
+- (void)_updateParallax;
+- (void)_updateSettingsForVariant:(int)arg1;
+- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)_setShouldAnimateProceduralWallpaper:(BOOL)arg1;
+- (void)_screenBlankStateChanged:(id)arg1;
+- (void)_updateProceduralWallpaperAnimationState;
 - (void)setOrientation:(int)arg1 duration:(double)arg2;
 - (void)_setOrientation:(int)arg1 duration:(double)arg2 force:(BOOL)arg3;
-- (void)_setGradientImagesWithOrientation:(int)arg1;
-- (BOOL)_shouldShowGradientOverWallpaper;
-- (void)_wallpaperChanged;
-- (void)_resetImage;
-- (void)setImage:(id)arg1;
+- (void)_layoutGradientsWithOrientation:(int)arg1;
+- (void)setVariant:(int)arg1 withOutAnimationFactory:(id)arg2 inAnimationFactory:(id)arg3 newContentAlpha:(float)arg4 completion:(id)arg5;
+- (void)setHidden:(BOOL)arg1;
+- (void)layoutSubviews;
+- (void)resetWallpaperWithOutAnimationFactory:(id)arg1 inAnimationFactory:(id)arg2 newContentAlpha:(float)arg3 completion:(id)arg4;
+- (float)bottomGradientHeight;
+- (float)topGradientHeight;
 - (void)dealloc;
 - (id)initWithOrientation:(int)arg1 variant:(int)arg2;
 

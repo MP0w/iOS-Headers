@@ -17,11 +17,11 @@
     WDListDefinition *mLastKnownGoodListDefinition;
 }
 
-- (id)definitionWithId:(int)arg1;
-- (id)addDefinition:(int)arg1;
+- (id)definitionWithId:(long)arg1;
+- (id)addDefinition:(long)arg1;
 - (id)addDefinition;
-- (id)definitionAt:(int)arg1;
-- (int)definitionCount;
+- (id)definitionAt:(unsigned int)arg1;
+- (unsigned int)definitionCount;
 - (id)document;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;

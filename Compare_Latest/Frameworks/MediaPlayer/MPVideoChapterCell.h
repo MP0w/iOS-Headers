@@ -13,6 +13,7 @@
     MPVideoChapterCellContentView *_chapterContentView;
 }
 
+- (void).cxx_destruct;
 - (void)prepareForReuse;
 - (void)setArtworkImageRequest:(id)arg1 artworkLoadCompletionHandler:(id)arg2;
 @property(retain, nonatomic) MPImageCache *artworkImageCache;

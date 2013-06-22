@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class DeliveryAccount, MFMailDelivery, MailAccount, Message, MutableMessageHeaders, NSArray, NSDictionary, NSString, PlainTextDocument;
+@class DeliveryAccount, MFMailDelivery, MFMessage, MFMutableMessageHeaders, MFPlainTextDocument, MailAccount, NSArray, NSDictionary, NSString;
 
 @interface MFOutgoingMessageDelivery : NSObject
 {
-    Message *_message;
-    MutableMessageHeaders *_headers;
+    MFMessage *_message;
+    MFMutableMessageHeaders *_headers;
     NSArray *_mixedContent;
     BOOL _textPartsAreHTML;
     NSString *_htmlBody;
-    PlainTextDocument *_plainTextAlternative;
+    MFPlainTextDocument *_plainTextAlternative;
     NSArray *_otherHTMLAndAttachments;
     NSArray *_charsets;
     id <MFDeliveryDelegate> _delegate;
@@ -36,8 +36,8 @@
 - (id)_deliveryAccountForInitializers;
 - (id)message;
 - (int)deliveryStatus;
-- (int)deliverSynchronously;
-- (int)_deliverSynchronouslyWithCurrentSettings:(BOOL)arg1;
+- (id)deliverSynchronously;
+- (id)_deliverSynchronouslyWithCurrentSettings:(BOOL)arg1;
 - (id)originalHeaders;
 - (id)_currentDeliveryObject;
 - (void)dealloc;

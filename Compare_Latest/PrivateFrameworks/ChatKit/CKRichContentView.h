@@ -21,6 +21,7 @@
 - (id)DOMDocument;
 - (void)_wvInsertHTML:(id)arg1;
 - (void)_wvHelperThawSelectionTag;
+- (id)textElementForText:(id)arg1;
 - (id)createDocumentFragment;
 - (id)nodeForImageSize:(struct CGSize)arg1 ID:(id)arg2 URL:(id)arg3;
 - (id)brElement;

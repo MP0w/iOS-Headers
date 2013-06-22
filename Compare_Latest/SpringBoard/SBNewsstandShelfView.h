@@ -4,32 +4,23 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UITableViewCell.h"
+#import "SBGradientView.h"
 
-@class UIImageView, UILabel;
+@class SBHighlightView, UIColor, UIView;
 
-@interface SBNewsstandShelfView : UITableViewCell
+@interface SBNewsstandShelfView : SBGradientView
 {
-    UIImageView *_body;
-    UIImageView *_leftEdge;
-    UIImageView *_rightEdge;
-    UIImageView *_shadowLeft;
-    UIImageView *_shadowMiddle;
-    UIImageView *_shadowRight;
-    int _orientation;
+    UIView *_tintView;
+    float _tintAlpha;
+    SBHighlightView *_highlightView;
     unsigned int _shelfIndex;
-    UILabel *_label;
 }
 
-+ (id)shelf;
-+ (id)reuseIdentifier;
-+ (float)shelfItemBaselineOffset;
-+ (float)shelfEdgeHeight;
-+ (float)shelfHeight;
-- (void)configureForOrientation:(int)arg1 shelfIndex:(unsigned int)arg2;
-- (unsigned int)shelfIndex;
+@property(nonatomic) unsigned int shelfIndex; // @synthesize shelfIndex=_shelfIndex;
+- (void)layoutSubviews;
+@property(nonatomic) float tintAlpha;
+@property(retain, nonatomic) UIColor *tintColor;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

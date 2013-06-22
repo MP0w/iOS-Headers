@@ -69,6 +69,7 @@
 - (void)accommodatePresentedItemDeletionWithCompletionHandler:(id)arg1;
 @property(readonly) NSOperationQueue *presentedItemOperationQueue;
 @property(readonly) NSURL *presentedItemURL;
+- (id)_storeInfoForEntityDescription:(id)arg1;
 - (id)_newObjectIDForEntity:(id)arg1 referenceData64:(unsigned long long)arg2;
 - (id)_newReservedKeysForEntities:(id)arg1 counts:(id)arg2;
 - (void)recomputePrimaryKeyMaxForEntities:(id)arg1;
@@ -103,6 +104,8 @@
 - (id)refreshObjects:(id)arg1;
 - (id)saveChanges:(id)arg1;
 - (id)_ubiquityDictionaryForAttribute:(id)arg1 onObject:(id)arg2;
+- (id)newFetchUUIDSForSubentitiesRootedAt:(id)arg1;
+- (void)resetExternalDataReferencesDirectories;
 - (void)deleteExternalDataReferences:(id)arg1;
 - (id)writeExternalDataReferences;
 - (id)externalDataReferencesToDelete;
@@ -165,8 +168,9 @@
 - (void)invalidateObjectsWithGlobalIDs:(id)arg1;
 - (id)countForFetchRequest:(id)arg1 inContext:(id)arg2;
 - (id)_newRowsForFetchPlan:(id)arg1 selectedBy:(SEL)arg2 withArgument:(id)arg3;
-- (id)_prepareResultsFromResultSet:(CDStruct_02686582 *)arg1 usingFetchPlan:(id)arg2 withMatchingRows:(id *)arg3;
-- (id)_prepareDictionaryResultsFromResultSet:(CDStruct_02686582 *)arg1 usingFetchPlan:(id)arg2;
+- (id)_processRawRows:(CDStruct_576b85d7 *)arg1 forFetchPlan:(id)arg2 selectedBy:(SEL)arg3 withArgument:(id)arg4;
+- (id)_prepareResultsFromResultSet:(CDStruct_576b85d7 *)arg1 usingFetchPlan:(id)arg2 withMatchingRows:(id *)arg3;
+- (id)_prepareDictionaryResultsFromResultSet:(CDStruct_576b85d7 *)arg1 usingFetchPlan:(id)arg2;
 - (void)forgetSnapshotsForGlobalIDs:(id)arg1;
 - (id)availableChannel;
 - (id)_obtainOpenChannel;
@@ -206,6 +210,7 @@
 - (id)channels;
 - (void)setCurrentContext:(id)arg1;
 - (id)currentContext;
+- (void)_useModel:(id)arg1;
 - (id)model;
 - (id)adapter;
 - (struct _NSScalarObjectID *)newForeignKeyID:(long long)arg1 entity:(id)arg2;

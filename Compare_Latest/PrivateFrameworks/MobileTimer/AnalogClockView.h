@@ -13,14 +13,17 @@
 @interface AnalogClockView : UIView <Clock>
 {
     int _runMode;
-    int _style;
     UIImage *_faceDayImage;
     UIImage *_faceNightImage;
     UIImageView *_faceView;
     UIView<HandView> *_dayHands[3];
     UIView<HandView> *_nightHands[3];
     UIView<HandView> *_shadowHands[3];
-    UIImageView *_rivet;
+    UIImageView *_middleDotDay;
+    UIImageView *_middleDotNight;
+    UIImageView *_middleRedDot;
+    UIImageView *_rivetsBelow[3];
+    UIImageView *_rivetsAbove[3];
     NSDate *_time;
     BOOL _nighttime;
     double _seconds;
@@ -30,6 +33,41 @@
     BOOL _minuteHourAnimationTriggered;
 }
 
++ (id)overSecondHandDotImage;
++ (id)makeOverSecondHandDotImage;
++ (id)overHourHandDotForDayTime:(BOOL)arg1;
++ (id)overHourHandDotImageForDaytime:(BOOL)arg1;
++ (id)makeDotImageSize:(float)arg1 color:(id)arg2;
++ (id)clockHand:(int)arg1 asShadow:(BOOL)arg2 daytime:(BOOL)arg3;
++ (id)makeClockHand:(int)arg1 asShadow:(BOOL)arg2 daytime:(BOOL)arg3;
++ (id)clockFaceForDaytime:(BOOL)arg1;
++ (void)adjustNumberalCenter:(struct CGPoint *)arg1 forNumeralIndex:(int)arg2;
++ (id)makeClockFaceForDaytime:(BOOL)arg1;
++ (id)imageForType:(int)arg1 dayTime:(BOOL)arg2 generation:(id)arg3;
++ (id)imageCacheNameForType:(int)arg1 daytime:(BOOL)arg2;
++ (struct CGPoint)shadowRotationalCenterForHand:(int)arg1;
++ (struct CGPoint)handRotationalCenterForHand:(int)arg1;
++ (struct ShadowInfo)shadowInfoAtIndex:(unsigned int)arg1;
++ (struct CGSize)clockSize;
++ (id)overSecondHandDotColor;
++ (id)nightTimeOverHourHandDotColor;
++ (id)dayTimeOverHourHandDotColor;
++ (float)overSecondHandDotSize;
++ (float)overHourHandDotSize;
++ (struct CGSize)shadowOffset;
++ (struct UIEdgeInsets)shadowInsets;
++ (BOOL)doesFaceHaveShadow;
++ (id)numeralFont;
++ (float)numeralInset;
++ (float)faceRadius;
++ (id)nightTimeFaceColor;
++ (id)nightTimeTextColor;
++ (id)dayTimeFaceColor;
++ (id)dayTimeTextColor;
++ (id)resourcePath;
++ (int)style;
++ (id)analogClockWithStyle:(int)arg1;
++ (struct UIEdgeInsets)insetsForStyle:(int)arg1;
 + (struct CGSize)sizeForStyle:(int)arg1;
 + (void)unregisterSweepingClock:(id)arg1;
 + (void)unregisterTickingClock:(id)arg1;
@@ -41,12 +79,15 @@
 + (void)updateTimeForAllSweeping;
 + (void)updateFlutterForAllTicking;
 + (void)updateTimeForAllTicking;
++ (id)cacheVersionHash;
++ (id)cacheVersionedPath;
++ (id)cacheTopLevelPath;
 + (void)initialize;
++ (Class)classForStyle:(int)arg1;
+@property(readonly, nonatomic, getter=isNighttime) BOOL nighttime; // @synthesize nighttime=_nighttime;
+@property(retain, nonatomic) NSDate *time; // @synthesize time=_time;
 @property(readonly, nonatomic) UIImageView *faceView; // @synthesize faceView=_faceView;
 @property(nonatomic) int runMode; // @synthesize runMode=_runMode;
-@property(readonly, nonatomic, getter=isNighttime) BOOL nighttime; // @synthesize nighttime=_nighttime;
-@property(nonatomic) int style; // @synthesize style=_style;
-@property(retain, nonatomic) NSDate *time; // @synthesize time=_time;
 - (void)stop;
 - (void)start;
 @property(readonly, nonatomic, getter=isStarted) BOOL started;
@@ -60,12 +101,10 @@
 - (void)updateFlutter;
 - (void)setHandAngle:(float)arg1 forHandIndex:(int)arg2;
 - (struct CGSize)intrinsicContentSize;
+@property(readonly, nonatomic) int style;
 - (void)dealloc;
-- (id)initWithBitmapHandsForStyle:(int)arg1 hasRivet:(BOOL)arg2 centerOffset:(struct CGSize)arg3 dayHandParts:(id *)arg4 dayHandRotationalCenters:(struct CGPoint *)arg5 nightHandParts:(id *)arg6 nightHandRotationalCenters:(struct CGPoint *)arg7 shadowHandParts:(id *)arg8 shadowHandRotationalCenters:(struct CGPoint *)arg9 shadowOffset:(struct CGSize)arg10;
-- (id)initWithVectorHandsForStyle:(int)arg1 resourcePath:(id)arg2 offsets:(struct CGPoint *)arg3 scales:(struct CGSize *)arg4;
-- (id)initWithBitmapStyle:(int)arg1;
-- (id)initWithVectorStyle:(int)arg1;
-- (id)initWithStyle:(int)arg1;
+- (id)init;
+- (void)setFrame:(struct CGRect)arg1;
 
 @end
 

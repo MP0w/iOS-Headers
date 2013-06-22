@@ -6,45 +6,55 @@
 
 #import <VectorKit/VKMeshAnnotationMarker.h>
 
-@class VGLDualTexturedMesh, VGLMesh, VGLRenderState, VGLSingleTexturedMesh, VGLTexture, VKAnimation;
+@class VGLRenderState, VGLTexture, VKAnimation;
 
 @interface VKNavUserLocationAnnotationMarker : VKMeshAnnotationMarker
 {
-    VGLDualTexturedMesh *_domeMesh;
-    VGLSingleTexturedMesh *_arrowMesh;
-    VGLSingleTexturedMesh *_rimMesh;
-    VGLMesh *_dropShadowMesh;
-    VGLRenderState *_renderState;
     BOOL _shouldBillboard;
-    double _animationStartTime;
-    double _lastFrameTimestamp;
+    VKAnimation *_billboardAnimation;
+    float _billboardFactor;
     float _scale;
     BOOL _shouldShowCourse;
+    BOOL _puckFlipped;
     double _presentationCourse;
     double _sizePoints;
     BOOL _stale;
-    VGLTexture *_domeTexture;
-    VGLTexture *_domeTextureGrey;
     VGLTexture *_arrowTexture;
-    VGLTexture *_arrowTextureGrey;
-    VGLTexture *_arrowShadowTexture;
-    VGLTexture *_arrowShadowTextureGrey;
+    VGLTexture *_circleTexture;
     VKAnimation *_puckStyleAnimation;
     int _puckStyle;
     float _greyPuckAlphaScale;
+    VGLRenderState *_puckRenderState;
+    struct {
+        float alphaScale;
+        CDStruct_aa5aacbc arrowMatrix;
+        CDStruct_aa5aacbc circleMatrix;
+        int depthMode;
+        struct _VGLColor arrowColor;
+    } _puckState;
+    int _style;
+    struct _VGLColor _arrowColor;
+    struct _VGLColor _arrowColorStale;
+    float _circleBrightness;
 }
 
+@property(nonatomic) struct _VGLColor innerColor; // @synthesize innerColor=_arrowColor;
+@property(nonatomic) int style; // @synthesize style=_style;
 @property(nonatomic) BOOL shouldShowCourse; // @synthesize shouldShowCourse=_shouldShowCourse;
 @property(nonatomic) BOOL shouldBillboard; // @synthesize shouldBillboard=_shouldBillboard;
 @property(nonatomic, getter=isStale) BOOL stale; // @synthesize stale=_stale;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
+- (id).cxx_construct;
+- (void)updateWithStyle:(id)arg1;
+- (void)setModel:(id)arg1;
 - (void)_updatePuckStyle;
-- (void)_drawWithContext:(id)arg1 puckState:(const CDStruct_63774aaa *)arg2;
-- (id)_newDropShadowMesh;
+- (void)_drawPuckWithContext:(id)arg1;
 - (void)drawWithContext:(id)arg1;
+- (void)layoutWithContext:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
+- (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2 style:(int)arg3;
+- (void)_updateTextures;
 @property(nonatomic) double presentationCourse;
 
 @end

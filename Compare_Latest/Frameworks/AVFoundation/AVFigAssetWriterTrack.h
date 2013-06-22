@@ -29,6 +29,8 @@
 - (int)_attachToFigAssetWriterUsingFormatSpecification:(id)arg1 sourcePixelBufferAttributes:(id)arg2 error:(id *)arg3;
 - (void)setExcludeFromAutoSelection:(BOOL)arg1;
 - (void)setAlternateGroupID:(short)arg1;
+- (void)setLayer:(int)arg1;
+- (void)setTrackVolume:(float)arg1;
 - (void)setMarksOutputTrackAsEnabled:(BOOL)arg1;
 - (void)setExtendedLanguageTag:(id)arg1;
 - (void)setLanguageCode:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class EKEventStore, NSArray, NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, PCPersistentTimer;
+@class EKEventStore, NSArray, NSDate, NSMutableArray, NSObject<OS_dispatch_queue>, NSTimer, PCPersistentTimer;
 
 @interface _EKNotificationMonitor : NSObject
 {
@@ -15,21 +15,35 @@
     BOOL _running;
     PCPersistentTimer *_timer;
     NSDate *_nextFireTime;
+    NSTimer *_syncTimer;
+    BOOL _pendingChanges;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_timerQueue;
-    int _lastCount;
+    unsigned int _lastCount;
     NSMutableArray *_notifications;
+    NSMutableArray *_recentlyRepliedNotifications;
+    NSMutableArray *_culledRecentlyRepliedNotifications;
     BOOL _initialCheck;
     BOOL _shouldInstallPersistentTimer;
+    BOOL _loadRecentlyRepliedNotifications;
 }
 
+- (void)_syncDidEnd;
+- (void)_syncDidStart;
+- (void)_syncTimerFired:(id)arg1;
+- (void)_killSyncTimer;
+- (void)_resetSyncTimer;
 - (void)_notifyForUnalertedNotifications:(id)arg1;
 - (void)_checkForUpdates;
+- (unsigned int)_checkForRecentlyRepliedNotifications:(id)arg1;
 - (unsigned int)_checkForNotifications:(id)arg1;
+- (int)_doesEvent:(id)arg1 occurAfterDate:(id)arg2;
+- (id)_notificationFromEvent:(id)arg1;
 - (void)_timerFired;
 - (void)_databaseChanged;
 - (void)_resetTimer;
 - (void)adjust;
+@property(readonly, nonatomic) NSArray *recentlyRepliedNotifications;
 @property(readonly, nonatomic) NSArray *notifications;
 @property(readonly, nonatomic) unsigned int notificationCount;
 - (void)stop;

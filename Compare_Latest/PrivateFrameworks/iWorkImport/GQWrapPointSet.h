@@ -8,7 +8,7 @@
 
 @interface GQWrapPointSet : NSObject
 {
-    set_ac3beeb4 *mWrapPointSet;
+    set_a2165b2d *mWrapPointSet;
 }
 
 - (void)dealloc;

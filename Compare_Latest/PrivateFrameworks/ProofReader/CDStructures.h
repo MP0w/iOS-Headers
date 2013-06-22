@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct _NSRange {
-    unsigned int _field1;
-    unsigned int _field2;
+    unsigned int location;
+    unsigned int length;
 };
 
 struct _PR_BUF_IO {

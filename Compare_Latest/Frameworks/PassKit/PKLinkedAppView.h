@@ -4,18 +4,20 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIView.h"
+#import "UITableViewCell.h"
 
 #import "SKStoreProductViewControllerDelegate-Protocol.h"
 
-@class NSArray, NSDictionary, PKLinkedAppUserRatingView, SSSoftwareLibraryItem, UIActivityIndicatorView, UIButton, UIImageView, UILabel;
+@class NSArray, NSDictionary, NSURL, PKLinkedAppUserRatingView, SKStoreProductViewController, SSSoftwareLibraryItem, UIActivityIndicatorView, UIButton, UIImageView, UILabel;
 
-@interface PKLinkedAppView : UIView <SKStoreProductViewControllerDelegate>
+@interface PKLinkedAppView : UITableViewCell <SKStoreProductViewControllerDelegate>
 {
+    BOOL _lookupInitiated;
+    BOOL _appInstalled;
+    BOOL _appNotAvailable;
     NSArray *_storeIDs;
     NSDictionary *_foundStoreItem;
     SSSoftwareLibraryItem *_foundLibraryItem;
-    BOOL _appInstalled;
     UIImageView *_iconView;
     UILabel *_tapToOpen;
     UILabel *_appName;
@@ -25,9 +27,12 @@
     UILabel *_price;
     UIActivityIndicatorView *_activityIndicator;
     UILabel *_loadingLabel;
-    BOOL _appNotAvailable;
+    SKStoreProductViewController *_productViewController;
+    NSURL *_appLaunchURL;
 }
 
+@property(retain, nonatomic) NSURL *appLaunchURL; // @synthesize appLaunchURL=_appLaunchURL;
+@property(retain, nonatomic) SKStoreProductViewController *productViewController; // @synthesize productViewController=_productViewController;
 @property(nonatomic) BOOL appNotAvailable; // @synthesize appNotAvailable=_appNotAvailable;
 @property(retain, nonatomic) UILabel *loadingLabel; // @synthesize loadingLabel=_loadingLabel;
 @property(retain, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
@@ -42,6 +47,7 @@
 @property(retain, nonatomic) SSSoftwareLibraryItem *foundLibraryItem; // @synthesize foundLibraryItem=_foundLibraryItem;
 @property(retain, nonatomic) NSDictionary *foundStoreItem; // @synthesize foundStoreItem=_foundStoreItem;
 @property(retain, nonatomic) NSArray *storeIDs; // @synthesize storeIDs=_storeIDs;
+@property(nonatomic) BOOL lookupInitiated; // @synthesize lookupInitiated=_lookupInitiated;
 - (void)productViewControllerDidFinish:(id)arg1;
 - (id)_priceForItem:(id)arg1;
 - (int)_bindingTypeForNewsstandItem:(id)arg1;
@@ -62,10 +68,10 @@
 - (void)_layoutLoadingView;
 - (void)layoutSubviews;
 - (void)performStoreLookup;
+- (void)reloadWithDelay:(double)arg1;
 - (void)reload;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 storeIDs:(id)arg2;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithStoreIDs:(id)arg1 appLaunchURL:(id)arg2;
 
 @end
 

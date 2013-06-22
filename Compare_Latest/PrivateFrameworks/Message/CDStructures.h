@@ -39,19 +39,21 @@ struct z_stream_s {
 
 typedef struct {
     id _field1;
+    id _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    char _field5;
+    char _field6;
+    char _field7;
+} CDStruct_6bb6060a;
+
+typedef struct {
+    id _field1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :2;
 } CDStruct_3441fd00;
-
-typedef struct {
-    unsigned int _field1;
-    unsigned int _field2;
-    char _field3;
-    char _field4;
-    char _field5;
-} CDStruct_7721b905;
 
 typedef struct {
     int location;

@@ -27,6 +27,7 @@
 + (id)alloc;
 + (id)initWithCapacity:(unsigned int)arg1;
 + (id)init;
++ (BOOL)supportsSecureCoding;
 - (void)removeAllObjects;
 - (void)addEntriesFromDictionary:(id)arg1;
 - (id)objectEnumerator;

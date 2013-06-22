@@ -6,22 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class NSArray, NSDictionary, NSMutableDictionary;
 
 @interface CKMediaObjectManager : NSObject
 {
-    NSMutableDictionary *_mediaObjectDict;
+    NSMutableDictionary *_transfers;
+    NSArray *_classes;
+    NSDictionary *_UTITypes;
+    NSDictionary *_dynTypes;
 }
 
 + (id)sharedInstance;
+@property(copy, nonatomic) NSDictionary *dynTypes; // @synthesize dynTypes=_dynTypes;
+@property(copy, nonatomic) NSDictionary *UTITypes; // @synthesize UTITypes=_UTITypes;
+@property(copy, nonatomic) NSArray *classes; // @synthesize classes=_classes;
+@property(retain, nonatomic) NSMutableDictionary *transfers; // @synthesize transfers=_transfers;
+- (void)transferRemoved:(id)arg1;
+- (Class)transferClass;
+- (id)imageDataWithData:(id)arg1;
+- (id)fileManager;
+- (id)transferWithFileURL:(id)arg1 transcoderUserInfo:(id)arg2;
+- (id)transferWithTransferGUID:(id)arg1 message:(id)arg2;
+- (id)mediaObjectWithPasteboard:(id)arg1 itemAtIndex:(unsigned int)arg2;
+- (id)mediaObjectWithFileURL:(id)arg1 filename:(id)arg2 transcoderUserInfo:(id)arg3;
+- (id)mediaObjectWithData:(id)arg1 UTIType:(id)arg2 filename:(id)arg3 transcoderUserInfo:(id)arg4;
+- (id)mediaObjectWithTransferGUID:(id)arg1 message:(id)arg2;
+- (Class)classForFilename:(id)arg1;
+- (Class)classForUTIType:(id)arg1;
+- (id)UTITypeForFilename:(id)arg1;
+- (id)UTITypeForExtension:(id)arg1;
+- (id)init;
 - (void)dealloc;
-- (Class)mediaObjectClassForMIMEType:(id)arg1;
-- (Class)mediaObjectClassForPath:(id)arg1;
-- (id)newMediaObjectForTransferGUID:(id)arg1;
-- (Class)mediaObjectClassForTransferGUID:(id)arg1;
-- (id)newMediaObjectForData:(id)arg1 mimeType:(id)arg2 exportedFilename:(id)arg3;
-- (id)newMediaObjectForFilename:(id)arg1 mimeType:(id)arg2 exportedFilename:(id)arg3 composeOptions:(id)arg4;
-- (void)_registerAllMediaTypes;
 
 @end
 

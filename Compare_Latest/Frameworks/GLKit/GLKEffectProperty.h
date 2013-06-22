@@ -13,11 +13,11 @@
     int _location;
     char *_nameString;
     struct GLKEffectPropertyPrv *_prv;
+    unsigned char _masksInitialized;
     char *_vshSource;
     char *_fshSource;
-    unsigned long long _dirtyUniforms;
-    unsigned char _masksInitialized;
     GLKEffect *_effect;
+    unsigned long long _dirtyUniforms;
 }
 
 + (void)logSetMasksWithLabel:(id)arg1 obj:(id)arg2 typeStr:(id)arg3;

@@ -14,6 +14,7 @@
     NSSubstringPredicateOperator *_stringVersion;
 }
 
++ (BOOL)supportsSecureCoding;
 - (unsigned int)options;
 - (void)_setOptions:(unsigned int)arg1;
 - (BOOL)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;

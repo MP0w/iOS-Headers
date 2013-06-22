@@ -15,7 +15,18 @@
 
 + (id)sharedInstance;
 @property(nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection;
+- (int)getCurrentModelVersion;
+- (void)resetDupesAnalysis;
+- (void)rebuildCloudFeed;
+- (void)analyzeMomentList:(id)arg1;
+- (void)analyzeMoment:(id)arg1;
+- (void)analyzeInvalidMomentsAndDupesIfNeeded;
+- (void)analyzeAllMoments;
+- (void)rebuildMomentLists;
+- (void)rebuildMomentsIncremental:(BOOL)arg1;
 - (void)automaticallyDeleteEmptyAlbum:(id)arg1;
+- (void)setPersonInfoDictionary:(id)arg1 forPersonID:(id)arg2;
+- (id)personInfoDictionaryForPersonID:(id)arg1;
 - (id)emailAddressForKey:(int)arg1;
 - (int)keyForEmailAddress:(id)arg1;
 - (unsigned long long)attemptToPurgeSharedAssetsSpace:(unsigned long long)arg1;
@@ -46,8 +57,7 @@
 - (void)updateModelAfterOTARestore;
 - (void)updateStackedImageCacheForAlbum:(id)arg1;
 - (void)updateCameraPreviewWellImage:(id)arg1;
-- (void)updateThumbnailsForPhoto:(id)arg1 generatePreviewImage:(BOOL)arg2 waitForReply:(BOOL)arg3 assignNewIndex:(BOOL)arg4;
-- (void)updateThumbnailsForPhoto:(id)arg1 generatePreviewImage:(BOOL)arg2 waitForReply:(BOOL)arg3;
+- (void)updateThumbnailsForPhoto:(id)arg1 waitForReply:(BOOL)arg2 assignNewIndex:(BOOL)arg3 forceRefresh:(BOOL)arg4;
 - (void)getLibrarySizes:(id)arg1;
 - (void)getPhotosAndVideosCountWithHandler:(id)arg1;
 - (void)launchAssetsd;
@@ -55,8 +65,8 @@
 - (void)createPhotoLibraryDatabase;
 - (void)addAssetWithURL:(id)arg1 toAlbumWithUUID:(id)arg2 handler:(id)arg3;
 - (void)addGroupWithName:(id)arg1 handler:(id)arg2;
-- (id)imageDataFromAssetURL:(id)arg1 format:(int)arg2;
-- (void)requestImageFromAssetURL:(id)arg1 format:(int)arg2 handler:(id)arg3;
+- (id)imageDataForAsset:(id)arg1 format:(int)arg2;
+- (void)requestImageDataForAsset:(id)arg1 format:(int)arg2 handler:(id)arg3;
 - (id)fileURLForNewAssetWithType:(unsigned int)arg1 extension:(id)arg2;
 - (void)saveAssetWithJobDictionary:(id)arg1 handler:(id)arg2 imageSurface:(void)arg3 previewImageSurface:(struct __IOSurface *)arg4;
 - (id)fileURLForAssetURL:(id)arg1 withAdjustments:(BOOL)arg2;

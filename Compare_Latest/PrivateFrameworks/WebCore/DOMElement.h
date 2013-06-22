@@ -12,6 +12,7 @@
 {
 }
 
+- (void)remove;
 - (BOOL)webkitMatchesSelector:(id)arg1;
 - (id)querySelectorAll:(id)arg1;
 - (id)querySelector:(id)arg1;
@@ -44,13 +45,15 @@
 - (void)setAttribute:(id)arg1:(id)arg2;
 - (void)setAttribute:(id)arg1 value:(id)arg2;
 - (id)getAttribute:(id)arg1;
-- (id)webkitRegionOverflow;
+- (id)webkitRegionOverset;
 @property(readonly) NSString *innerText;
 @property(readonly) unsigned int childElementCount;
 @property(readonly) DOMElement *nextElementSibling;
 @property(readonly) DOMElement *previousElementSibling;
 @property(readonly) DOMElement *lastElementChild;
 @property(readonly) DOMElement *firstElementChild;
+- (id)classList;
+@property(copy) NSString *className;
 @property(readonly) int scrollHeight;
 @property(readonly) int scrollWidth;
 @property int scrollTop;
@@ -68,7 +71,7 @@
 @property(readonly) NSString *tagName;
 - (BOOL)isFocused;
 - (id)_getURLAttribute:(id)arg1;
-- (struct __GSFont *)_font;
+- (struct __CTFont *)_font;
 - (int)structuralComplexityContribution;
 
 @end

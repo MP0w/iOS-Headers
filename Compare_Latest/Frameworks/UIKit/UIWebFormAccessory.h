@@ -28,8 +28,9 @@
 @property(nonatomic, getter=isPreviousEnabled) BOOL previousEnabled;
 @property(nonatomic, getter=isNextEnabled) BOOL nextEnabled;
 - (void)setClearVisible:(BOOL)arg1;
-- (void)setAutoFillVisible:(BOOL)arg1;
-@property(nonatomic, getter=isAutoFillEnabled) BOOL autoFillEnabled;
+- (void)showAutoFillButton;
+- (void)showAutoFillButtonWithTitle:(id)arg1;
+- (void)hideAutoFillButton;
 - (void)_refreshAutofillPresentation;
 - (void)clear:(id)arg1;
 - (void)autoFill:(id)arg1;

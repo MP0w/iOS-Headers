@@ -6,75 +6,35 @@
 
 #import "UIView.h"
 
-#import "PLCameraButtonBarProtocol-Protocol.h"
+@class CAMBottomBar, PLCropOverlayPreviewBottomBar, PLCropOverlayWallpaperBottomBar;
 
-@class NSString, PLCameraButton, PLCameraToggleButton, PLCropOverlayBottomBarButton, UIButton, UIImage, UIImageView, UILabel;
-
-@interface PLCropOverlayBottomBar : UIView <PLCameraButtonBarProtocol>
+@interface PLCropOverlayBottomBar : UIView
 {
-    UIImage *_backgroundImage;
-    int _buttonBarStyle;
-    int _buttonBarMode;
-    UIImageView *_takePhotoView;
-    PLCameraButton *_shutterButton;
-    PLCameraToggleButton *_toggleButton;
-    PLCropOverlayBottomBarButton *_cancelButton;
-    UIView *_modeSwitch;
-    UIButton *_playPauseButton;
-    UIImage *_playImage;
-    UIImage *_pauseImage;
-    NSString *_title;
-    UIImageView *_editPhotoView;
-    PLCropOverlayBottomBarButton *_editCancelButton;
-    PLCropOverlayBottomBarButton *_editDoneButton;
-    UILabel *_editLabel;
-    id _delegate;
-    unsigned int _takingPhotoView:1;
-    unsigned int _wasEnabled:1;
-    unsigned int _slideBottomBarVertically:1;
-    unsigned int _isBackgroundVisible:1;
+    BOOL _playingVideo;
+    BOOL _inPopover;
+    int _style;
+    CAMBottomBar *_cameraBottomBar;
+    PLCropOverlayPreviewBottomBar *_previewBottomBar;
+    PLCropOverlayWallpaperBottomBar *_wallpaperBottomBar;
 }
 
-@property(nonatomic) int buttonBarMode; // @synthesize buttonBarMode=_buttonBarMode;
-@property(nonatomic) int buttonBarStyle; // @synthesize buttonBarStyle=_buttonBarStyle;
-- (void)setButtonBarMode:(int)arg1 animationDuration:(double)arg2;
-- (void)_setVisibility:(BOOL)arg1;
-- (BOOL)isBackgroundVisible;
-- (void)_slideAnimationComplete:(id)arg1;
-- (void)didCaptureVideo;
-- (void)didCapturePhoto;
-- (void)_didCapture;
-- (void)doneButtonClicked:(id)arg1;
-- (void)toggleButtonClicked:(id)arg1;
-- (void)editCancelButtonClicked:(id)arg1;
-- (void)_animateEditViewUp:(BOOL)arg1;
-- (void)_animateEditViewLeft:(BOOL)arg1;
-- (void)cancelButtonClicked:(id)arg1;
-- (id)delegate;
-- (void)setDelegate:(id)arg1;
-- (void)setCancelButtonHidden:(BOOL)arg1;
-- (void)setCancelButtonTitle:(id)arg1;
-- (void)setOKButtonTitle:(id)arg1;
-- (struct CGRect)titleRect;
-- (void)setTitle:(id)arg1;
-- (id)modeSwitch;
-- (void)setModeSwitch:(id)arg1;
-- (id)toggleButton;
-- (id)shutterButton;
-- (void)setEnabled:(BOOL)arg1;
-- (void)setTakePhoto:(BOOL)arg1;
-- (void)didPauseVideo;
-- (void)didPlayVideo;
-- (void)_updatePlayPauseButtonImage:(id)arg1;
-- (void)_playPause:(id)arg1;
-- (void)prepareForVideoEdit;
-- (id)_pauseImage;
-- (id)_playImage;
-- (void)_prepareForPhotoEdit;
-- (void)_createTakePhotoView;
+@property(nonatomic, getter=isInPopover) BOOL inPopover; // @synthesize inPopover=_inPopover;
+@property(nonatomic, getter=isPlayingVideo) BOOL playingVideo; // @synthesize playingVideo=_playingVideo;
+@property(retain, nonatomic) PLCropOverlayWallpaperBottomBar *wallpaperBottomBar; // @synthesize wallpaperBottomBar=_wallpaperBottomBar;
+@property(retain, nonatomic) PLCropOverlayPreviewBottomBar *previewBottomBar; // @synthesize previewBottomBar=_previewBottomBar;
+@property(retain, nonatomic) CAMBottomBar *cameraBottomBar; // @synthesize cameraBottomBar=_cameraBottomBar;
+@property(nonatomic) int style; // @synthesize style=_style;
+- (void)_updateStyle;
+- (BOOL)_isEditingStyle:(int)arg1;
+- (void)_updatePreviewBottomBarForPlaybackState;
+- (void)_updateBottomBars;
+- (void)togglePlaybackState;
+- (void)setStyle:(int)arg1 animated:(BOOL)arg2;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 buttonBarStyle:(int)arg2;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (void)_commonPLCropOverlayBottomBarInitialization;
 
 @end
 

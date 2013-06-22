@@ -14,7 +14,6 @@
     VKCamera *_defaultTrackingCamera;
     id <VGLCanvas> _canvas;
     BOOL _forceLayout;
-    BOOL _userIsGesturing;
     BOOL _iconsShouldAlignToPixels;
     float _styleZAdjust;
     CDStruct_8caa76fc _pointSize;
@@ -30,6 +29,7 @@
 @property(retain, nonatomic) VKAnchorContext *anchorContext; // @synthesize anchorContext=_anchorContext;
 @property(retain, nonatomic) VKViewTransform *viewTransform; // @synthesize viewTransform=_viewTransform;
 @property(retain, nonatomic) VKCamera *defaultTrackingCamera; // @synthesize defaultTrackingCamera=_defaultTrackingCamera;
+- (id).cxx_construct;
 - (void)dealloc;
 - (void)canvasDidChange;
 - (id)initWithCanvas:(id)arg1 camera:(id)arg2;

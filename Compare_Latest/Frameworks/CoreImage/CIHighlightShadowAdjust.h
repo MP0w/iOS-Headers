@@ -6,32 +6,33 @@
 
 #import <CoreImage/CIFilter.h>
 
+#import "_CIFilterProperties-Protocol.h"
+
 @class CIImage, NSNumber;
 
-@interface CIHighlightShadowAdjust : CIFilter
+@interface CIHighlightShadowAdjust : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
     NSNumber *inputRadius;
     NSNumber *inputShadowAmount;
     NSNumber *inputHighlightAmount;
-    NSNumber *_inputRadius;
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputRadius; // @synthesize inputRadius=_inputRadius;
-@property(copy, nonatomic) NSNumber *inputHighlightAmount; // @synthesize inputHighlightAmount;
-@property(copy, nonatomic) NSNumber *inputShadowAmount; // @synthesize inputShadowAmount;
+@property(retain, nonatomic) NSNumber *inputHighlightAmount; // @synthesize inputHighlightAmount;
+@property(retain, nonatomic) NSNumber *inputShadowAmount; // @synthesize inputShadowAmount;
+@property(retain, nonatomic) NSNumber *inputRadius; // @synthesize inputRadius;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
+- (id)_initFromProperties:(id)arg1;
+- (id)_outputProperties;
 - (id)outputImage;
-- (BOOL)_isIdentity;
-- (void)setDefaults;
 - (id)_kernelSnoB;
 - (id)_kernelS;
 - (id)_kernelSH;
 - (id)_kernelSHnoB_v1;
 - (id)_kernelSH_v1;
-- (id)_initFromProperties:(id)arg1;
-- (id)_outputProperties;
+- (BOOL)_isIdentity;
+- (void)setDefaults;
 
 @end
 

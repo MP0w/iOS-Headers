@@ -6,18 +6,19 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class NSString, UIActivityIndicatorView, UILabel, UIView;
+@class UIActivityIndicatorView, UILabel;
 
 @interface UIPrintStatusTableViewCell : UITableViewCell
 {
-    UILabel *_hostLabel;
-    UIView *_verticalBar;
     UIActivityIndicatorView *_activityIndicator;
+    UILabel *_titleLabel;
+    UILabel *_hostLabel;
 }
 
+@property(retain, nonatomic) UILabel *hostLabel; // @synthesize hostLabel=_hostLabel;
+@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)layoutSubviews;
 @property(nonatomic) BOOL showActive;
-@property(copy, nonatomic) NSString *hostName;
 - (void)dealloc;
 - (id)initWithReuseIdentifier:(id)arg1;
 

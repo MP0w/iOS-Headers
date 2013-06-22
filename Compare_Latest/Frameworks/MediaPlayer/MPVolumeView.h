@@ -9,7 +9,7 @@
 #import "MPAudioDeviceControllerDelegate-Protocol.h"
 #import "NSCoding-Protocol.h"
 
-@class MPAudioDeviceController, MPAudioVideoRoutingActionSheet, MPAudioVideoRoutingPopoverController, MPVolumeSlider, UIButton, UILabel;
+@class MPAudioDeviceController, MPAudioVideoRoutingActionSheet, MPAudioVideoRoutingPopoverController, MPVolumeSlider, UIButton, UIImage, UILabel;
 
 @interface MPVolumeView : UIView <MPAudioDeviceControllerDelegate, NSCoding>
 {
@@ -32,10 +32,14 @@
     int _style;
     MPVolumeSlider *_volumeSlider;
     BOOL _volumeSliderShrinksFromBothEnds;
+    BOOL _wirelessRouteIsPicked;
+    BOOL _wirelessRoutesAvailable;
     unsigned int _routePopoverPermittedArrowDirections;
 }
 
 @property(nonatomic) unsigned int routePopoverPermittedArrowDirections; // @synthesize routePopoverPermittedArrowDirections=_routePopoverPermittedArrowDirections;
+- (void).cxx_destruct;
+- (void)_updateWirelessRouteStatus;
 - (void)_setShowsVolumeSlider:(BOOL)arg1;
 - (void)_setShowsRouteButton:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_getDefaultVolumeSliderFrame:(struct CGRect *)arg1 routeButtonFrame:(struct CGRect *)arg2 forBounds:(struct CGRect)arg3;
@@ -60,12 +64,15 @@
 - (void)setVolumeThumbImage:(id)arg1 forState:(unsigned int)arg2;
 @property(nonatomic) BOOL routeButtonShowsTouchWhenHighlighted;
 - (void)setRouteButtonImage:(id)arg1 forState:(unsigned int)arg2;
+@property(retain, nonatomic) UIImage *volumeWarningSliderImage;
 - (void)setMaximumVolumeSliderImage:(id)arg1 forState:(unsigned int)arg2;
 - (void)setMinimumVolumeSliderImage:(id)arg1 forState:(unsigned int)arg2;
 - (struct CGRect)routeButtonRectForBounds:(struct CGRect)arg1;
 - (id)routeButtonImageForState:(unsigned int)arg1;
 - (id)maximumVolumeSliderImageForState:(unsigned int)arg1;
 - (id)minimumVolumeSliderImageForState:(unsigned int)arg1;
+@property(readonly, nonatomic, getter=areWirelessRoutesAvailable) BOOL wirelessRoutesAvailable;
+@property(readonly, nonatomic, getter=isWirelessRouteActive) BOOL wirelessRouteActive;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
 - (void)willMoveToWindow:(id)arg1;

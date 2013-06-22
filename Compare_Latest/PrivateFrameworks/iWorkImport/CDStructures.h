@@ -62,6 +62,8 @@ struct NSObjectComparator<GQDWrapPoint> {
     SEL _field1;
 };
 
+struct ObjcSharedPtr<GQDWrapPoint>;
+
 struct SFUZipEndOfCentralDirectory {
     unsigned int _field1;
     long long _field2;
@@ -80,43 +82,12 @@ struct StateSpec {
     struct ActionFinder *_field9;
 };
 
-struct _Deque_iterator<std::pair<const Action *, int>, std::pair<const Action *, int>&, std::pair<const Action *, int>*> {
-    struct pair<const Action *, int> *_field1;
-    struct pair<const Action *, int> *_field2;
-    struct pair<const Action *, int> *_field3;
-    struct pair<const Action *, int> **_field4;
-};
-
-struct _Deque_iterator<std::tr1::shared_ptr<StateSpec>, std::tr1::shared_ptr<StateSpec>&, std::tr1::shared_ptr<StateSpec>*> {
-    struct shared_ptr<StateSpec> *_field1;
-    struct shared_ptr<StateSpec> *_field2;
-    struct shared_ptr<StateSpec> *_field3;
-    struct shared_ptr<StateSpec> **_field4;
-};
-
-struct _Rb_tree<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::ObjcSharedPtr<GQDWrapPoint>, std::_Identity<GQUtility::ObjcSharedPtr<GQDWrapPoint>>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
-    struct _Rb_tree_impl<GQUtility::NSObjectComparator<GQDWrapPoint>, false> _field1;
-};
-
-struct _Rb_tree_impl<GQUtility::NSObjectComparator<GQDWrapPoint>, false> {
-    struct NSObjectComparator<GQDWrapPoint> _field1;
-    struct _Rb_tree_node_base _field2;
-    unsigned int _field3;
-};
-
-struct _Rb_tree_node_base {
-    int _field1;
-    struct _Rb_tree_node_base *_field2;
-    struct _Rb_tree_node_base *_field3;
-    struct _Rb_tree_node_base *_field4;
-};
-
 struct __sbuf {
     char *_field1;
     int _field2;
 };
 
-struct _xmlBuffer;
+struct _xmlBuf;
 
 struct _xmlCharEncodingHandler;
 
@@ -177,64 +148,87 @@ struct _xmlNs {
     struct _xmlDoc *_field6;
 };
 
-struct deque<std::pair<const Action *, int>, std::allocator<std::pair<const Action *, int>>> {
-    struct _Deque_impl {
+struct deque<std::__1::pair<const Action *, int>, std::__1::allocator<std::__1::pair<const Action *, int>>> {
+    struct __split_buffer<std::__1::pair<const Action *, int>*, std::__1::allocator<std::__1::pair<const Action *, int>*>> {
         struct pair<const Action *, int> **_field1;
-        unsigned int _field2;
-        struct _Deque_iterator<std::pair<const Action *, int>, std::pair<const Action *, int>&, std::pair<const Action *, int>*> _field3;
-        struct _Deque_iterator<std::pair<const Action *, int>, std::pair<const Action *, int>&, std::pair<const Action *, int>*> _field4;
+        struct pair<const Action *, int> **_field2;
+        struct pair<const Action *, int> **_field3;
+        struct __compressed_pair<std::__1::pair<const Action *, int>**, std::__1::allocator<std::__1::pair<const Action *, int>*>> {
+            struct pair<const Action *, int> **_field1;
+        } _field4;
     } _field1;
+    unsigned int _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::pair<const Action *, int>>> {
+        unsigned long _field1;
+    } _field3;
 };
 
-struct deque<std::tr1::shared_ptr<StateSpec>, std::allocator<std::tr1::shared_ptr<StateSpec>>> {
-    struct _Deque_impl {
+struct deque<std::__1::shared_ptr<StateSpec>, std::__1::allocator<std::__1::shared_ptr<StateSpec>>> {
+    struct __split_buffer<std::__1::shared_ptr<StateSpec>*, std::__1::allocator<std::__1::shared_ptr<StateSpec>*>> {
         struct shared_ptr<StateSpec> **_field1;
-        unsigned int _field2;
-        struct _Deque_iterator<std::tr1::shared_ptr<StateSpec>, std::tr1::shared_ptr<StateSpec>&, std::tr1::shared_ptr<StateSpec>*> _field3;
-        struct _Deque_iterator<std::tr1::shared_ptr<StateSpec>, std::tr1::shared_ptr<StateSpec>&, std::tr1::shared_ptr<StateSpec>*> _field4;
+        struct shared_ptr<StateSpec> **_field2;
+        struct shared_ptr<StateSpec> **_field3;
+        struct __compressed_pair<std::__1::shared_ptr<StateSpec>**, std::__1::allocator<std::__1::shared_ptr<StateSpec>*>> {
+            struct shared_ptr<StateSpec> **_field1;
+        } _field4;
     } _field1;
+    unsigned int _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::shared_ptr<StateSpec>>> {
+        unsigned long _field1;
+    } _field3;
 };
 
 struct internal_state;
 
 struct pair<const Action *, int>;
 
-struct set<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
-    struct _Rb_tree<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::ObjcSharedPtr<GQDWrapPoint>, std::_Identity<GQUtility::ObjcSharedPtr<GQDWrapPoint>>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> _field1;
+struct set<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
+    struct __tree<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
+        struct __tree_node<GQUtility::ObjcSharedPtr<GQDWrapPoint>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<GQUtility::ObjcSharedPtr<GQDWrapPoint>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
+                struct __tree_node_base<void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, GQUtility::NSObjectComparator<GQDWrapPoint>> {
+            unsigned long _field1;
+            struct NSObjectComparator<GQDWrapPoint> _field2;
+        } _field3;
+    } _field1;
 };
 
 struct shared_ptr<StateSpec>;
 
-struct stack<std::pair<const Action *, int>, std::deque<std::pair<const Action *, int>, std::allocator<std::pair<const Action *, int>>>> {
-    struct deque<std::pair<const Action *, int>, std::allocator<std::pair<const Action *, int>>> _field1;
+struct stack<std::__1::pair<const Action *, int>, std::__1::deque<std::__1::pair<const Action *, int>, std::__1::allocator<std::__1::pair<const Action *, int>>>> {
+    struct deque<std::__1::pair<const Action *, int>, std::__1::allocator<std::__1::pair<const Action *, int>>> _field1;
 };
 
-struct stack<std::tr1::shared_ptr<StateSpec>, std::deque<std::tr1::shared_ptr<StateSpec>, std::allocator<std::tr1::shared_ptr<StateSpec>>>> {
-    struct deque<std::tr1::shared_ptr<StateSpec>, std::allocator<std::tr1::shared_ptr<StateSpec>>> _field1;
+struct stack<std::__1::shared_ptr<StateSpec>, std::__1::deque<std::__1::shared_ptr<StateSpec>, std::__1::allocator<std::__1::shared_ptr<StateSpec>>>> {
+    struct deque<std::__1::shared_ptr<StateSpec>, std::__1::allocator<std::__1::shared_ptr<StateSpec>>> _field1;
 };
 
-struct vector<GQUtility::ObjcSharedPtr<GQDWrapPoint>, std::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
-    struct _Vector_impl {
+struct vector<GQUtility::ObjcSharedPtr<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
+    struct ObjcSharedPtr<GQDWrapPoint> *_field1;
+    struct ObjcSharedPtr<GQDWrapPoint> *_field2;
+    struct __compressed_pair<GQUtility::ObjcSharedPtr<GQDWrapPoint>*, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
         struct ObjcSharedPtr<GQDWrapPoint> *_field1;
-        struct ObjcSharedPtr<GQDWrapPoint> *_field2;
-        struct ObjcSharedPtr<GQDWrapPoint> *_field3;
-    } _field1;
+    } _field3;
 };
 
-struct vector<float, std::allocator<float>> {
-    struct _Vector_impl {
+struct vector<float, std::__1::allocator<float>> {
+    float *_field1;
+    float *_field2;
+    struct __compressed_pair<float *, std::__1::allocator<float>> {
         float *_field1;
-        float *_field2;
-        float *_field3;
-    } _field1;
+    } _field3;
 };
 
-struct vector<unsigned short, std::allocator<unsigned short>> {
-    struct _Vector_impl {
+struct vector<unsigned short, std::__1::allocator<unsigned short>> {
+    unsigned short *_field1;
+    unsigned short *_field2;
+    struct __compressed_pair<unsigned short *, std::__1::allocator<unsigned short>> {
         unsigned short *_field1;
-        unsigned short *_field2;
-        unsigned short *_field3;
-    } _field1;
+    } _field3;
 };
 
 struct z_stream_s {
@@ -270,39 +264,50 @@ typedef struct {
 } CDStruct_dff5684f;
 
 // Template types
-typedef struct set<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
-    struct _Rb_tree<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::ObjcSharedPtr<GQDWrapPoint>, std::_Identity<GQUtility::ObjcSharedPtr<GQDWrapPoint>>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> _field1;
-} set_ac3beeb4;
+typedef struct set<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
+    struct __tree<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
+        struct __tree_node<GQUtility::ObjcSharedPtr<GQDWrapPoint>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<GQUtility::ObjcSharedPtr<GQDWrapPoint>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
+                struct __tree_node_base<void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, GQUtility::NSObjectComparator<GQDWrapPoint>> {
+            unsigned long _field1;
+            struct NSObjectComparator<GQDWrapPoint> _field2;
+        } _field3;
+    } _field1;
+} set_a2165b2d;
 
-typedef struct stack<std::pair<const Action *, int>, std::deque<std::pair<const Action *, int>, std::allocator<std::pair<const Action *, int>>>> {
-    struct deque<std::pair<const Action *, int>, std::allocator<std::pair<const Action *, int>>> _field1;
-} stack_52c9a520;
+typedef struct stack<std::__1::pair<const Action *, int>, std::__1::deque<std::__1::pair<const Action *, int>, std::__1::allocator<std::__1::pair<const Action *, int>>>> {
+    struct deque<std::__1::pair<const Action *, int>, std::__1::allocator<std::__1::pair<const Action *, int>>> _field1;
+} stack_1c37755b;
 
-typedef struct stack<std::tr1::shared_ptr<StateSpec>, std::deque<std::tr1::shared_ptr<StateSpec>, std::allocator<std::tr1::shared_ptr<StateSpec>>>> {
-    struct deque<std::tr1::shared_ptr<StateSpec>, std::allocator<std::tr1::shared_ptr<StateSpec>>> _field1;
-} stack_b6de2217;
+typedef struct stack<std::__1::shared_ptr<StateSpec>, std::__1::deque<std::__1::shared_ptr<StateSpec>, std::__1::allocator<std::__1::shared_ptr<StateSpec>>>> {
+    struct deque<std::__1::shared_ptr<StateSpec>, std::__1::allocator<std::__1::shared_ptr<StateSpec>>> _field1;
+} stack_3670a4ff;
 
-typedef struct vector<GQUtility::ObjcSharedPtr<GQDWrapPoint>, std::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
-    struct _Vector_impl {
+typedef struct vector<GQUtility::ObjcSharedPtr<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
+    struct ObjcSharedPtr<GQDWrapPoint> *_field1;
+    struct ObjcSharedPtr<GQDWrapPoint> *_field2;
+    struct __compressed_pair<GQUtility::ObjcSharedPtr<GQDWrapPoint>*, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
         struct ObjcSharedPtr<GQDWrapPoint> *_field1;
-        struct ObjcSharedPtr<GQDWrapPoint> *_field2;
-        struct ObjcSharedPtr<GQDWrapPoint> *_field3;
-    } _field1;
-} vector_8a2ced25;
+    } _field3;
+} vector_dadce35e;
 
-typedef struct vector<float, std::allocator<float>> {
-    struct _Vector_impl {
+typedef struct vector<float, std::__1::allocator<float>> {
+    float *_field1;
+    float *_field2;
+    struct __compressed_pair<float *, std::__1::allocator<float>> {
         float *_field1;
-        float *_field2;
-        float *_field3;
-    } _field1;
-} vector_7080b1cc;
+    } _field3;
+} vector_f9ed6fc8;
 
-typedef struct vector<unsigned short, std::allocator<unsigned short>> {
-    struct _Vector_impl {
+typedef struct vector<unsigned short, std::__1::allocator<unsigned short>> {
+    unsigned short *_field1;
+    unsigned short *_field2;
+    struct __compressed_pair<unsigned short *, std::__1::allocator<unsigned short>> {
         unsigned short *_field1;
-        unsigned short *_field2;
-        unsigned short *_field3;
-    } _field1;
-} vector_e7f19545;
+    } _field3;
+} vector_195fe69b;
 

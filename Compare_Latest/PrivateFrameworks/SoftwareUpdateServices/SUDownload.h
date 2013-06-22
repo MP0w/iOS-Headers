@@ -6,21 +6,23 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class SUDescriptor, SUDownloadMetadata, SUOperationProgress;
 
-@interface SUDownload : NSObject <NSCoding, NSCopying>
+@interface SUDownload : NSObject <NSSecureCoding, NSCopying>
 {
     SUDescriptor *_descriptor;
     SUOperationProgress *_progress;
     SUDownloadMetadata *_metadata;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(retain, nonatomic) SUDownloadMetadata *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) SUDescriptor *descriptor; // @synthesize descriptor=_descriptor;
 @property(retain, nonatomic) SUOperationProgress *progress; // @synthesize progress=_progress;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

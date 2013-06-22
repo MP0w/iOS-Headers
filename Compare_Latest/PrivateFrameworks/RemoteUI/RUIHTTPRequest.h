@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSURLConnectionDelegate-Protocol.h"
+#import "NSURLConnectionDataDelegate-Protocol.h"
 
 @class NSMutableData, NSURLConnection, NSURLRequest;
 
-@interface RUIHTTPRequest : NSObject <NSURLConnectionDelegate>
+@interface RUIHTTPRequest : NSObject <NSURLConnectionDataDelegate>
 {
     NSURLRequest *_request;
     NSURLConnection *_connection;

@@ -6,16 +6,18 @@
 
 #import <EventKit/EKParticipant.h>
 
+@class NSDate;
+
 @interface EKAttendee : EKParticipant
 {
 }
 
 + (id)attendeeWithEmailAddress:(id)arg1 name:(id)arg2;
 + (id)attendeeWithName:(id)arg1 emailAddress:(id)arg2 address:(id)arg3;
+@property(readonly, nonatomic) NSDate *lastModifiedParticipationStatus;
 - (void)setParticipantType:(int)arg1;
 - (int)participantType;
-- (void)setPendingStatus:(int)arg1;
-- (int)pendingStatus;
+@property(nonatomic) int pendingStatus;
 - (void)setParticipantRole:(int)arg1;
 - (int)participantRole;
 - (void)setParticipantStatus:(int)arg1;

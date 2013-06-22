@@ -17,12 +17,12 @@
 + (void)_daemonConnectedNotification:(id)arg1;
 + (void)_accountRegistrationStatusChanged:(id)arg1;
 + (BOOL)faceTimeIsAvailable;
-+ (void)setupServiceHandlerForControllerType:(int)arg1;
 + (void)updateConferenceCapabilitiesForControllerType:(int)arg1;
-+ (void)setCapabilities:(unsigned long long)arg1;
-+ (unsigned long long)capabilities;
++ (void)setCapabilities:(unsigned int)arg1;
++ (unsigned int)capabilities;
 + (int)activationState;
 + (void)activateFaceTime;
++ (BOOL)callingIsSupported;
 + (BOOL)faceTimeIsSupported;
 + (id)faceTimeSourceAccount;
 + (BOOL)_isValidProcess;

@@ -6,24 +6,25 @@
 
 #import "NSObject.h"
 
-@class VKCamera, VKScreenCanvas, VKScreenCanvas<VKCameraControllerCanvasDelegate>;
+@class VKCamera;
 
 @interface VKCameraController : NSObject
 {
     VKCamera *_camera;
-    VKScreenCanvas *_canvas;
+    id <VGLCanvas> _canvas;
+    id <VKCameraControllerDelegate> _delegate;
     BOOL _gesturing;
     int _animating;
 }
 
+@property(nonatomic) id <VKCameraControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=isGesturing) BOOL gesturing; // @synthesize gesturing=_gesturing;
-@property(nonatomic) VKScreenCanvas<VKCameraControllerCanvasDelegate> *canvas; // @synthesize canvas=_canvas;
+@property(nonatomic) id <VGLCanvas> canvas; // @synthesize canvas=_canvas;
 @property(retain, nonatomic) VKCamera *camera; // @synthesize camera=_camera;
 - (id)detailedDescription;
 @property(readonly, nonatomic, getter=isAnimating) BOOL animating;
-- (void)endAnimating;
+- (void)endAnimating:(BOOL)arg1;
 - (void)beginAnimating;
-- (struct CGPoint)screenPointWithIndex:(int)arg1 fromRecognizer:(id)arg2;
 - (void)canvasDidLayout;
 - (void)dealloc;
 

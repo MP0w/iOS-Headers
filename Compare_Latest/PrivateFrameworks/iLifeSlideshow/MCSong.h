@@ -10,17 +10,17 @@
 
 @interface MCSong : MCObject
 {
+    BOOL mStartTimeIsDefined;
+    BOOL mDurationIsDefined;
     MCAssetAudio *mAsset;
     float mVolume;
-    double mFadeInDuration;
-    double mFadeOutDuration;
     unsigned int mIndex;
-    double mStartTime;
-    BOOL mStartTimeIsDefined;
-    double mDuration;
-    BOOL mDurationIsDefined;
     MCAudioPlaylist *mAudioPlaylistIfAudioPlaylistSong;
     MCSlide *mSlideIfSlideSong;
+    double mFadeInDuration;
+    double mFadeOutDuration;
+    double mStartTime;
+    double mDuration;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;

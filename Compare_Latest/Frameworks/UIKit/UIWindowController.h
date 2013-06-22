@@ -23,11 +23,17 @@
     int _toModalStyle;
     BOOL _needsDidAppear;
     BOOL _needsDidDisappear;
+    BOOL __interactiveTransition;
+    id <UIViewControllerAnimatedTransitioning> _transitionController;
+    id <UIViewControllerInteractiveTransitioning> _interactionController;
 }
 
 + (void)windowWillBeDeallocated:(id)arg1;
 + (id)windowControllerForWindow:(id)arg1;
+@property(nonatomic, getter=_isInteractiveTransition, setter=_setInteractiveTransition:) BOOL _interactiveTransition; // @synthesize _interactiveTransition=__interactiveTransition;
 @property(nonatomic) UIWindow *window; // @synthesize window=_window;
+@property(retain, nonatomic, setter=_setInteractionController:) id <UIViewControllerInteractiveTransitioning> _interactionController; // @synthesize _interactionController;
+@property(retain, nonatomic, setter=_setTransitionController:) id <UIViewControllerAnimatedTransitioning> _transitionController; // @synthesize _transitionController;
 @property(nonatomic) BOOL presenting; // @synthesize presenting=_presenting;
 @property(readonly, nonatomic) UITransitionView *transitionView; // @synthesize transitionView=_transitionView;
 - (BOOL)transitionViewShouldUseViewControllerCallbacks;
@@ -38,7 +44,9 @@
 - (struct CGPoint)_adjustOrigin:(struct CGPoint)arg1 givenOtherOrigin:(struct CGPoint)arg2 forTransition:(int)arg3;
 - (double)durationForTransition:(int)arg1;
 - (void)transitionViewDidComplete:(id)arg1 fromView:(id)arg2 toView:(id)arg3 removeFromView:(BOOL)arg4;
+- (void)transitionViewDidCancel:(id)arg1 fromView:(id)arg2 toView:(id)arg3;
 - (void)transitionViewDidStart:(id)arg1;
+- (void)transition:(int)arg1 fromViewController:(id)arg2 toViewController:(id)arg3 target:(id)arg4 didEndSelector:(SEL)arg5 animation:(id)arg6;
 - (void)transition:(int)arg1 fromViewController:(id)arg2 toViewController:(id)arg3 target:(id)arg4 didEndSelector:(SEL)arg5;
 - (void)_transplantView:(id)arg1 toSuperview:(id)arg2 atIndex:(unsigned int)arg3;
 - (void)_prepareKeyboardForTransition:(int)arg1 fromView:(id)arg2;

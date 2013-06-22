@@ -8,7 +8,7 @@
 
 #import "MPPlaybackControlsDelegate-Protocol.h"
 
-@class IUPortraitControlsOverlay, MPAVController, MPAVItem, MPNowPlayingItemQueueInfoButton, MPTextView, UIImage;
+@class IUPortraitControlsOverlay, IUTextView, MPAVController, MPAVItem, MPNowPlayingItemQueueInfoButton, UIImage;
 
 @interface IUPortraitInfoOverlay : UIView <MPPlaybackControlsDelegate>
 {
@@ -16,7 +16,7 @@
     UIImage *_artworkImage;
     IUPortraitControlsOverlay *_controlsView;
     id <IUPortraitInfoOverlayDelegate> _delegate;
-    MPTextView *_displayableTextView;
+    IUTextView *_displayableTextView;
     MPAVItem *_item;
     MPNowPlayingItemQueueInfoButton *_itemQueueInfoButton;
     MPAVController *_player;
@@ -31,9 +31,10 @@
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
-@property(nonatomic) id <IUPortraitInfoOverlayDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <IUPortraitInfoOverlayDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) IUPortraitControlsOverlay *controlsView; // @synthesize controlsView=_controlsView;
 @property(nonatomic) BOOL allowsDetailScrubbing; // @synthesize allowsDetailScrubbing=_allowsDetailScrubbing;
+- (void).cxx_destruct;
 - (void)_updateAllItemDependenciesForItem:(id)arg1 animate:(BOOL)arg2;
 - (void)_updateItemQueueInfoButtonForItem:(id)arg1 atTime:(double)arg2 animate:(BOOL)arg3;
 - (BOOL)_configureNowPlayingQueueInfoButton:(id)arg1 item:(id)arg2 time:(double)arg3;

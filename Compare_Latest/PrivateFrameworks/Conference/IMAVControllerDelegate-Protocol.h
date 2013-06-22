@@ -5,10 +5,10 @@
  */
 
 @protocol IMAVControllerDelegate
-- (void)invitedToIMAVChat:(id)arg1;
 
 @optional
-- (void)incomingNegotiationRequest:(id)arg1;
 - (void)inviteFailedFromIMHandle:(id)arg1 reason:(int)arg2;
+- (void)createdOutgoingIMAVChat:(id)arg1;
+- (void)invitedToIMAVChat:(id)arg1;
 @end
 

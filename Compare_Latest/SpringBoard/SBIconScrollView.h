@@ -14,5 +14,8 @@
 - (BOOL)_scrollsToMakeFirstResponderVisible;
 - (BOOL)cancelTouchTracking;
 
+// Remaining properties
+@property(nonatomic) id <SBIconScrollViewDelegate> delegate;
+
 @end
 

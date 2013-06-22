@@ -7,7 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol PKServiceAddPassesViewControllerProtocol <NSObject>
+- (void)setAllowsPassIngestion:(BOOL)arg1;
 - (void)ingestCardAtURL:(id)arg1;
-- (void)ingestCardWithData:(id)arg1;
+- (void)ingestPasses:(id)arg1;
 @end
 

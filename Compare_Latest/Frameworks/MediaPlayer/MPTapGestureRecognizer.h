@@ -17,6 +17,7 @@
 }
 
 @property unsigned int tapCount; // @synthesize tapCount=_lastTapCount;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (void)reset;
 - (struct CGPoint)locationInView:(id)arg1;

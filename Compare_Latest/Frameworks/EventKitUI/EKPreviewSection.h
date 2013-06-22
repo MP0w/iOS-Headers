@@ -6,20 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class NSArray, NSDate;
 
 @interface EKPreviewSection : NSObject
 {
     NSArray *_events;
-    CDStruct_b0fa4487 _date;
+    NSDate *_date;
 }
 
-+ (id)sectionWithDate:(CDStruct_b0fa4487)arg1;
-@property(nonatomic) CDStruct_b0fa4487 date; // @synthesize date=_date;
++ (id)sectionWithDate:(id)arg1;
+@property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(readonly, nonatomic) NSArray *events; // @synthesize events=_events;
+- (void).cxx_destruct;
 - (void)addEvent:(id)arg1;
-- (void)dealloc;
-- (id)initWithDate:(CDStruct_b0fa4487)arg1;
+- (id)initWithDate:(id)arg1;
 
 @end
 

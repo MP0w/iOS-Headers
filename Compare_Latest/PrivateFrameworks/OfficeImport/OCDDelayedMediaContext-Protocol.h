@@ -7,6 +7,7 @@
 #import "OCDDelayedNodeContext-Protocol.h"
 
 @protocol OCDDelayedMediaContext <OCDDelayedNodeContext>
+- (id)dataRep;
 - (_Bool)saveDelayedMedia:(id)arg1 toFile:(id)arg2;
 @end
 

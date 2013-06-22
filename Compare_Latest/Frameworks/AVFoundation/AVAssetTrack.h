@@ -20,13 +20,17 @@
 + (id)mediaTypesForMediaCharacteristics;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)associatedTracksOfType:(id)arg1;
+- (id)availableTrackAssociationTypes;
+- (BOOL)hasProtectedContent;
+- (id)_trackReferences;
 - (id)_pairedForcedOnlySubtitlesTrack;
 - (id)_mostCloselyAssociatedTrackAmongTracks:(id)arg1;
 - (id)_followingTrackAmongTracks:(id)arg1;
 - (id)_fallbackTrack;
-- (id)_allReferencedTracksWithReferenceType:(id)arg1;
-- (id)_firstReferencedTrackWithReferenceType:(id)arg1;
+- (id)_firstAssociatedTrackWithAssociationType:(id)arg1;
 - (BOOL)isExcludedFromAutoselectionInTrackGroup;
+- (id)metadata;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
 - (id)commonMetadata;
@@ -34,6 +38,7 @@
 - (id)segmentForTrackTime:(CDStruct_1b6d18a9)arg1;
 - (id)segments;
 - (float)nominalFrameRate;
+- (id)loudnessInfo;
 - (float)preferredVolume;
 - (int)layer;
 - (struct CGAffineTransform)preferredTransform;
@@ -52,6 +57,7 @@
 - (long long)totalSampleDataLength;
 - (BOOL)isSelfContained;
 - (BOOL)isEnabled;
+- (long)playabilityValidationResult;
 - (BOOL)isPlayable;
 - (id)formatDescriptions;
 - (id)mediaType;
@@ -69,7 +75,8 @@
 - (id)_initWithAsset:(id)arg1 trackID:(int)arg2;
 - (id)init;
 - (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
-- (BOOL)_hasMultipleNonEmptyEdits;
+- (BOOL)_hasScaledEdits;
+- (BOOL)_hasMultipleEdits;
 
 @end
 

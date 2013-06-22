@@ -10,8 +10,8 @@
 
 @interface IMReachability : NSObject
 {
-    id <IMReachabilityDelegate> _delegate;
     BOOL _gettingFlags;
+    id <IMReachabilityDelegate> _delegate;
     unsigned int _flags;
     NSString *_description;
     void *_reachabilityRef;

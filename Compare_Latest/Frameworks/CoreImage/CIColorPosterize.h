@@ -15,12 +15,12 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputLevels; // @synthesize inputLevels;
+@property(retain, nonatomic) NSNumber *inputLevels; // @synthesize inputLevels;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (BOOL)_isIdentity;
-- (void)setDefaults;
 - (id)_kernel;
+- (void)setDefaults;
 
 @end
 

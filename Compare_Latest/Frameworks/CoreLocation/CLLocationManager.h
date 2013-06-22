@@ -13,6 +13,7 @@
     id _internal;
 }
 
++ (BOOL)bundleSupported:(id)arg1;
 + (BOOL)shutdownDaemon;
 + (BOOL)dumpLogsWithMessage:(id)arg1;
 + (void)setDefaultEffectiveBundle:(id)arg1;
@@ -26,8 +27,10 @@
 + (int)_authorizationStatusForBundleIdentifier:(id)arg1 bundle:(id)arg2;
 + (BOOL)deferredLocationUpdatesAvailable;
 + (BOOL)mapCorrectionAvailable;
++ (BOOL)isRangingAvailable;
 + (BOOL)regionMonitoringEnabled;
 + (BOOL)regionMonitoringAvailable;
++ (BOOL)isMonitoringAvailableForClass:(Class)arg1;
 + (BOOL)significantLocationChangeMonitoringAvailable;
 + (BOOL)headingAvailable;
 + (void)setLocationServicesEnabled:(BOOL)arg1;
@@ -36,6 +39,7 @@
 + (id)sharedManager;
 + (void)setEntityAuthorized:(BOOL)arg1 forLocationDictionary:(id)arg2;
 + (BOOL)isEntityAuthorizedForLocationDictionary:(id)arg1;
++ (BOOL)hasUsedBackgroundLocationServices:(id)arg1;
 + (id)dateLocationLastUsedForLocationDictionary:(id)arg1;
 + (unsigned int)activeLocationServiceTypesForLocationDictionary:(id)arg1;
 + (BOOL)isLocationActiveForLocationDictionary:(id)arg1;
@@ -54,7 +58,10 @@
 - (void)resumeLocationUpdates;
 - (void)onClientEventRegionSetupCompleted:(id)arg1;
 - (void)onClientEventRegionResponseDelayed:(id)arg1;
+- (void)onClientEventRangingError:(id)arg1;
+- (void)onClientEventRanging:(id)arg1;
 - (void)onClientEventRegionError:(id)arg1;
+- (void)onClientEventRegionState:(id)arg1;
 - (void)onClientEventRegion:(id)arg1;
 - (void)onClientEventError:(id)arg1;
 - (void)onClientEventHistoricLocation:(id)arg1;
@@ -68,8 +75,12 @@
 - (id)appsUsingLocationWithDetails;
 - (id)appsUsingLocation;
 - (void)resetApps;
+@property(readonly, nonatomic) NSSet *rangedRegions;
+- (void)stopRangingBeaconsInRegion:(id)arg1;
+- (void)startRangingBeaconsInRegion:(id)arg1;
 @property(readonly, nonatomic) NSSet *monitoredRegions;
 @property(readonly, nonatomic) double maximumRegionMonitoringDistance;
+- (void)requestStateForRegion:(id)arg1;
 - (void)stopMonitoringForRegion:(id)arg1;
 - (void)startMonitoringForRegion:(id)arg1;
 - (void)startMonitoringForRegion:(id)arg1 desiredAccuracy:(double)arg2;

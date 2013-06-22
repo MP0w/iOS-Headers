@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol MKAnnotationSelector <NSObject>
+- (BOOL)shouldHideOffscreenSelectedAnnotation;
 - (id)annotationCoordinateTest;
 - (id)annotationRectTest;
 @end

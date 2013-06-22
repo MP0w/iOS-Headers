@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableDictionary;
 
-@interface OADColorScheme : NSObject
+@interface OADColorScheme : NSObject <NSCopying>
 {
     NSMutableDictionary *mColors;
 }
@@ -19,6 +21,7 @@
 - (void)addColor:(id)arg1 index:(int)arg2;
 - (id)colorForIndex:(int)arg1;
 - (unsigned int)colorCount;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDelegate-Protocol.h"
 
-@class GEOSimpleTileRequester, NSMutableData, NSString, NSURL, NSURLConnection;
+@class GEOSimpleTileRequester, NSData, NSMutableData, NSString, NSURL, NSURLConnection;
 
 @interface _GEOTileDownloadOp : NSObject <NSURLConnectionDelegate>
 {
@@ -21,22 +21,27 @@
     NSString *_editionHeader;
     unsigned int _tileEdition;
     NSString *_userAgent;
+    NSData *_auditToken;
     BOOL _useCookies;
     _GEOTileDownloadOp *_baseTile;
     _GEOTileDownloadOp *_localizationTile;
     unsigned int _contentLength;
     GEOSimpleTileRequester *_delegate;
     BOOL _gotData;
-    _GEOTileDownloadOp *localizationTile;
+    int _attempts;
+    double _startTime;
+    double _timeout;
 }
 
+@property(nonatomic) double timeout; // @synthesize timeout=_timeout;
 @property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(nonatomic) GEOSimpleTileRequester *delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) BOOL finished; // @synthesize finished=_finished;
 @property(readonly, nonatomic) unsigned int contentLength; // @synthesize contentLength=_contentLength;
-@property(retain, nonatomic) _GEOTileDownloadOp *localizationTile; // @synthesize localizationTile;
+@property(retain, nonatomic) _GEOTileDownloadOp *localizationTile; // @synthesize localizationTile=_localizationTile;
 @property(retain, nonatomic) _GEOTileDownloadOp *baseTile; // @synthesize baseTile=_baseTile;
 @property(nonatomic) BOOL useCookies; // @synthesize useCookies=_useCookies;
+@property(retain, nonatomic) NSData *auditToken; // @synthesize auditToken=_auditToken;
 @property(retain, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
 @property unsigned int tileEdition; // @synthesize tileEdition=_tileEdition;
 @property(retain, nonatomic) NSString *editionHeader; // @synthesize editionHeader=_editionHeader;
@@ -48,6 +53,7 @@
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
+- (double)elapsed;
 - (void)cancel;
 - (void)start;
 - (id)description;

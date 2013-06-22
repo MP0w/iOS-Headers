@@ -53,7 +53,7 @@
 - (id)copyFolderMultiGetTaskWithURLs:(id)arg1;
 - (id)copyMultiGetTaskWithURLs:(id)arg1;
 - (id)_copyContainerParserMappings;
-- (void)_getTask:(id)arg1 finishedWithParsedContents:(id)arg2 error:(id)arg3;
+- (void)_getTask:(id)arg1 finishedWithParsedContents:(id)arg2 deletedItems:(id)arg3 error:(id)arg4;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)_syncReportTask:(id)arg1 didFinishWithError:(id)arg2;
 - (void)deleteTask:(id)arg1 completedWithError:(id)arg2;

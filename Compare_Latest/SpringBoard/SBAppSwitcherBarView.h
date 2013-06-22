@@ -57,7 +57,6 @@
 - (void)_reflowAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)_layoutIconsInRange:(BOOL)arg1 minIndex:(unsigned int)arg2 maxIndex:(unsigned int)arg3;
 - (void)_layoutIconsInVisibleRange:(BOOL)arg1;
-- (void)_toggleIconViewEditingState:(id)arg1 animated:(BOOL)arg2;
 - (unsigned int)iconIndexColumnOnPageAtPoint:(struct CGPoint)arg1 orientation:(int)arg2;
 - (void)_computeVisibleIconIndexRange:(BOOL)arg1 forOrientation:(int)arg2 contentOffset:(struct CGPoint)arg3 firstIndex:(unsigned int *)arg4 lastIndex:(unsigned int *)arg5;
 - (void)_setVisibleIconIndexRange:(BOOL)arg1;
@@ -85,7 +84,6 @@
 - (BOOL)nowPlayingControlsVisible;
 - (void)addAuxiliaryViews:(id)arg1;
 - (void)reloadOrRemoveIconWithDisplayIdentifier:(id)arg1;
-- (void)_iconRemoveDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)removeIconWithDisplayIdentifier:(id)arg1;
 - (void)addIconWithDisplayIdentifier:(id)arg1;
 - (BOOL)isVisible;

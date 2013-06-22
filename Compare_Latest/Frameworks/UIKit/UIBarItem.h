@@ -21,7 +21,7 @@
 + (id)_appearanceWhenContainedIn:(id)arg1;
 + (id)_appearanceRecorder;
 + (id)appearance;
-+ (id)_appearanceProxyViewClasses;
++ (id)_appearanceBlindViewClasses;
 @property(nonatomic, setter=_setShouldArchiveUIAppearanceTags:) BOOL _shouldArchiveUIAppearanceTags; // @synthesize _shouldArchiveUIAppearanceTags;
 @property(nonatomic, setter=_setHasCustomizableInstanceAppearanceModifications:) BOOL _hasCustomizableInstanceAppearanceModifications; // @synthesize _hasCustomizableInstanceAppearanceModifications;
 - (id)titleTextAttributesForState:(unsigned int)arg1;

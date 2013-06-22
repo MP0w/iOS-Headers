@@ -8,16 +8,15 @@
 
 #import "UIKBCacheableView-Protocol.h"
 
-@class NSMutableDictionary, NSTimer, UIKBKeyView, UIKBTree, UIKeyboardLayoutStar;
+@class CALayer, NSMutableDictionary, NSString, NSTimer, UIKBCacheToken, UIKBKeyView, UIKBRenderConfig, UIKBTree;
 
 @interface UIKBKeyplaneView : UIView <UIKBCacheableView>
 {
-    UIKBTree *_keyboard;
     UIKBTree *_keyplane;
-    UIKeyboardLayoutStar *_layout;
+    UIKBTree *_defaultKeyplane;
+    UIKBCacheToken *_cacheToken;
     UIView *_splitRight;
     UIKBKeyView *_candidateGapView;
-    NSMutableDictionary *_states;
     NSMutableDictionary *_subviewIndex;
     NSMutableDictionary *_activeViewIndex;
     NSMutableDictionary *_renderedKeyViews;
@@ -25,16 +24,24 @@
     NSTimer *_activatedTimer;
     BOOL _performingDeactivation;
     BOOL _shouldDrawRect;
+    UIKBRenderConfig *_renderConfig;
+    CALayer *_keyBorders;
+    CALayer *_keyBackgrounds;
+    CALayer *_keyCaps;
 }
 
-@property(nonatomic) UIKeyboardLayoutStar *layout; // @synthesize layout=_layout;
+@property(retain, nonatomic) UIKBRenderConfig *renderConfig; // @synthesize renderConfig=_renderConfig;
+@property(retain, nonatomic) UIKBCacheToken *cacheToken; // @synthesize cacheToken=_cacheToken;
+@property(retain, nonatomic) UIKBTree *defaultKeyplane; // @synthesize defaultKeyplane=_defaultKeyplane;
 @property(retain, nonatomic) UIKBTree *keyplane; // @synthesize keyplane=_keyplane;
 - (void)purgeSubviews;
 - (void)purgeKeyViews;
 - (void)activateKeys;
 - (void)deactivateKeys;
-- (void)deactivateKey:(id)arg1;
+- (void)deactivateKey:(id)arg1 isStateDowngrade:(BOOL)arg2;
+- (void)dimKeyCaps:(float)arg1 duration:(float)arg2;
 - (void)updateDecorationViewsIfNeeded;
+- (void)deactivateKey:(id)arg1;
 - (id)viewForKey:(id)arg1 state:(int)arg2;
 - (id)viewForKey:(id)arg1;
 - (int)stateForKey:(id)arg1;
@@ -51,15 +58,19 @@
 - (void)cancelDelayedDeactivation;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)drawContentsOfRenderers:(id)arg1;
 - (BOOL)_shouldDrawLowResBackground;
+@property(readonly, nonatomic) BOOL keepNonPersistent;
 @property(readonly, nonatomic) float cachedWidth;
 @property(readonly, nonatomic) BOOL cacheDeferable;
 - (void)displayLayer:(id)arg1;
-- (id)cacheKey;
+- (id)_setupLayerIfNoLayer:(id)arg1 withContents:(id)arg2;
+- (id)cacheKeysForRenderFlags:(id)arg1;
+@property(readonly, nonatomic) NSString *cacheKey;
 - (BOOL)validForKeyplane:(id)arg1 withVisualStyle:(int)arg2;
 - (void)dealloc;
 - (void)removeFromSuperview;
-- (id)initWithFrame:(struct CGRect)arg1 keyboard:(id)arg2 keyplane:(id)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2;
 
 @end
 

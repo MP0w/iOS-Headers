@@ -6,32 +6,38 @@
 
 #import <UIKit/UIView.h>
 
+#import "UIBarPositioning-Protocol.h"
 #import "UIStatusBarTinting-Protocol.h"
+#import "_UIBarPositioningInternal-Protocol.h"
 
-@class NSArray, NSString, UIButton, UIColor, UIImage, UIImageView, UILabel, UITextField;
+@class NSArray, NSString, UIBarButtonItem, UIButton, UIColor, UIImage, UIImageView, UILabel, UITextField, _UISearchBarNavigationItem, _UISearchBarScopeBarBackground;
 
-@interface UISearchBar : UIView <UIStatusBarTinting>
+@interface UISearchBar : UIView <UIStatusBarTinting, _UIBarPositioningInternal, UIBarPositioning>
 {
     UITextField *_searchField;
     UILabel *_promptLabel;
     UIButton *_cancelButton;
     id <UISearchBarDelegate> _delegate;
     id _controller;
-    UIColor *_tintColor;
+    UIColor *_barTintColor;
     UIImageView *_separator;
     NSString *_cancelButtonText;
     NSArray *_scopes;
     int _selectedScope;
     UIView *_background;
     UIView *_scopeBar;
+    UIView *_scopeBarContainerView;
     struct UIEdgeInsets _contentInset;
     UIImageView *_shadowView;
     id _appearanceStorage;
+    _UISearchBarNavigationItem *_navigationItem;
+    _UISearchBarScopeBarBackground *_scopeBarBackgroundView;
+    UIBarButtonItem *_animatedAppearanceBarButtonItem;
     struct {
         unsigned int barStyle:3;
         unsigned int showsBookmarkButton:1;
         unsigned int showsCancelButton:1;
-        unsigned int isTranslucent:1;
+        unsigned int barTranslucence:3;
         unsigned int autoDisableCancelButton:1;
         unsigned int showsScopeBar:1;
         unsigned int hideBackground:1;
@@ -41,15 +47,27 @@
         unsigned int searchResultsButtonSelected:1;
         unsigned int pretendsIsInBar:1;
         unsigned int disabled:1;
+        unsigned int extendingBackground:1;
+        unsigned int backgroundLayoutNeedsUpdate:1;
+        unsigned int containedInNavigationPalette:1;
     } _searchBarFlags;
     UIColor *_statusBarTintColor;
     UIView *_inputAccessoryView;
+    int _barPosition;
 }
 
+@property(readonly, nonatomic) int barPosition; // @synthesize barPosition=_barPosition;
 @property(retain, nonatomic) UIView *inputAccessoryView; // @synthesize inputAccessoryView=_inputAccessoryView;
 @property(retain, nonatomic, setter=_setStatusBarTintColor:) UIColor *_statusBarTintColor; // @synthesize _statusBarTintColor;
-@property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
+@property(retain, nonatomic) UIColor *barTintColor; // @synthesize barTintColor=_barTintColor;
 @property(nonatomic) id <UISearchBarDelegate> delegate; // @synthesize delegate=_delegate;
+- (BOOL)_containedInNavigationPalette;
+- (void)setBounds:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)_layoutBackgroundViewConsideringTopBarStatusAndChangedHeight:(BOOL)arg1;
+- (BOOL)_isAtTop;
+- (id)_animatedAppearanceBarButtonItem;
+- (id)_navigationItem;
 - (struct UIOffset)positionAdjustmentForSearchBarIcon:(int)arg1;
 - (void)setPositionAdjustment:(struct UIOffset)arg1 forSearchBarIcon:(int)arg2;
 @property(nonatomic) struct UIOffset searchTextPositionAdjustment;
@@ -63,20 +81,30 @@
 @property(retain, nonatomic) UIImage *scopeBarBackgroundImage;
 - (id)imageForSearchBarIcon:(int)arg1 state:(unsigned int)arg2;
 - (id)_imageForSearchBarIcon:(int)arg1 state:(unsigned int)arg2;
+- (id)_imageForSearchBarIcon:(int)arg1 state:(unsigned int)arg2 customImage:(char *)arg3;
 - (void)setImage:(id)arg1 forSearchBarIcon:(int)arg2 state:(unsigned int)arg3;
 - (id)searchFieldBackgroundImageForState:(unsigned int)arg1;
 - (void)setSearchFieldBackgroundImage:(id)arg1 forState:(unsigned int)arg2;
 - (void)_setSeparatorImage:(id)arg1;
 - (id)_separatorImage;
 @property(retain, nonatomic) UIImage *backgroundImage;
-- (void)_setTintColor:(id)arg1 forceUpdate:(BOOL)arg2;
+- (id)backgroundImageForBarPosition:(int)arg1 barMetrics:(int)arg2;
+- (void)setBackgroundImage:(id)arg1 forBarPosition:(int)arg2 barMetrics:(int)arg3;
+- (id)backgroundImageForBarMetrics:(int)arg1;
+- (void)setBackgroundImage:(id)arg1 forBarMetrics:(int)arg2;
+- (void)_setBarTintColor:(id)arg1 forceUpdate:(BOOL)arg2;
+- (id)_effectiveBarTintColor;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (void)_scopeChanged:(id)arg1;
 @property(nonatomic) BOOL showsScopeBar;
+- (void)_setShowsScopeBar:(BOOL)arg1 animateOpacity:(BOOL)arg2;
 - (void)_setScopeBarHidden:(BOOL)arg1;
 @property(nonatomic) int selectedScopeButtonIndex;
 @property(copy, nonatomic) NSArray *scopeButtonTitles;
 - (void)_setUpScopeBar;
+- (void)_updateScopeBarBackground;
+- (struct UIEdgeInsets)_scopeBarInsets;
+- (BOOL)_scopeBarIsVisible;
 - (struct UIEdgeInsets)contentInset;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (id)_makeShadowView;
@@ -88,6 +116,7 @@
 - (float)_landscapeScopeBarWidth;
 - (float)_landscapeSearchFieldWidth;
 - (float)_availableBoundsWidth;
+- (BOOL)_searchFieldWidthShouldBeFlexible;
 - (void)_setShowsSeparator:(BOOL)arg1;
 - (id)_currentSeparatorImage;
 - (struct CGSize)intrinsicContentSize;
@@ -135,6 +164,13 @@
 - (void)_populateArchivedSubviews:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)_scopeBarContainer;
+- (int)_barPosition;
+- (void)_setBarPosition:(int)arg1;
+- (id)_scopeBarBackgroundView;
+- (id)_backgroundView;
+- (BOOL)_extendingBackground;
+- (void)_setActingAsNavBar:(BOOL)arg1 isTopBar:(BOOL)arg2;
 - (void)_setEnabled:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_setScopeBarSegmentsEnabled:(BOOL)arg1;
 - (void)_setEnabled:(BOOL)arg1;
@@ -159,10 +195,12 @@
 - (void)_setAutoDisableCancelButton:(BOOL)arg1;
 - (void)_setCancelButtonText:(id)arg1;
 - (void)_setupPromptLabel;
+- (BOOL)_textFieldShouldScrollToVisibleWhenBecomingFirstResponder:(id)arg1;
 - (BOOL)textFieldShouldEndEditing:(id)arg1;
 - (BOOL)textFieldShouldBeginEditing:(id)arg1;
 - (void)_updateOpacity;
 - (void)_setupSearchField;
+- (void)tintColorDidChange;
 - (void)_updateMagnifyingGlassView;
 - (void)_updateSearchFieldArt;
 - (BOOL)_isInBar;
@@ -172,6 +210,9 @@
 - (float)_autolayoutSpacingAtEdge:(int)arg1 nextToNeighbor:(id)arg2;
 - (float)_autolayoutSpacingAtEdge:(int)arg1 inContainer:(id)arg2;
 - (BOOL)_hasCustomAutolayoutNeighborSpacing;
+
+// Remaining properties
+@property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
 
 @end
 

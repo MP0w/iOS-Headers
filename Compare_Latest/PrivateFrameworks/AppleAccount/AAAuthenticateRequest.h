@@ -6,17 +6,19 @@
 
 #import <AppleAccount/AARequest.h>
 
-@class AAAccount, NSString;
+@class ACAccount, NSString;
 
 @interface AAAuthenticateRequest : AARequest
 {
     NSString *_username;
     NSString *_password;
-    AAAccount *_account;
+    NSString *_authToken;
+    ACAccount *_account;
 }
 
 + (Class)responseClass;
-@property(copy, nonatomic) AAAccount *account; // @synthesize account=_account;
+@property(copy, nonatomic) NSString *authToken; // @synthesize authToken=_authToken;
+@property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(copy, nonatomic) NSString *username; // @synthesize username=_username;
 - (void).cxx_destruct;

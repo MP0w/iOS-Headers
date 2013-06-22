@@ -10,7 +10,9 @@
 {
 }
 
+- (void)_drawIconIntoCurrentContextWithImageSize:(struct CGSize)arg1 iconBase:(id)arg2;
 - (BOOL)canGenerateImageInBackgroundForFormat:(int)arg1;
+- (id)getUnmaskedIconImage:(int)arg1;
 - (id)generateIconImage:(int)arg1;
 - (void)localeChanged;
 - (void)dealloc;

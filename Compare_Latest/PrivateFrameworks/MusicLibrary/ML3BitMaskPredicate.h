@@ -15,7 +15,7 @@
 + (id)predicateWithProperty:(id)arg1 mask:(long long)arg2 value:(long long)arg3;
 @property(nonatomic) long long value; // @synthesize value=_value;
 @property(nonatomic) long long mask; // @synthesize mask=_mask;
-- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
+- (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;

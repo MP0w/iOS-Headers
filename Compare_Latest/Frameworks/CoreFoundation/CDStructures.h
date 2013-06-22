@@ -11,8 +11,6 @@ struct Block_byref {
     struct Block_byref *_field2;
     int _field3;
     unsigned int _field4;
-    void *_field5;
-    void *_field6;
 };
 
 struct NSMethodFrameArgInfo {
@@ -82,12 +80,12 @@ typedef struct {
 } CDStruct_11f37819;
 
 typedef struct {
-    int _field1;
-    void *_field2;
-    void *_field3;
-    void *_field4;
-    void *_field5;
-} CDStruct_60d14f2d;
+    int version;
+    void *info;
+    void *retain;
+    void *release;
+    void *copyDescription;
+} CDStruct_304912e7;
 
 typedef struct {
     int _field1;

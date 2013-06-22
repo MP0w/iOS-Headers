@@ -14,7 +14,7 @@
     NSMutableArray *mEntries;
 }
 
-- (struct __CFDate *)createDateFromString:(struct __CFString *)arg1 forceAllowAMPM:(BOOL)arg2 succesTSUlFormatString:(const struct __CFString **)arg3;
+- (struct __CFDate *)newDateFromString:(struct __CFString *)arg1 forceAllowAMPM:(BOOL)arg2 succesTSUlFormatString:(const struct __CFString **)arg3;
 - (id)entryForSeparator:(unsigned short)arg1;
 - (void)addSeparator:(unsigned short)arg1 format:(id)arg2 locale:(struct __CFLocale *)arg3;
 - (void)dealloc;

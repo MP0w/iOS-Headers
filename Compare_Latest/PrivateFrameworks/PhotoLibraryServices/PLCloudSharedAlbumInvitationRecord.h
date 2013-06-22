@@ -4,24 +4,28 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSManagedObject.h"
+#import <PhotoLibraryServices/PLManagedObject.h>
 
-@class NSNumber, NSString, PLCloudSharedAlbum;
+@class NSArray, NSDate, NSNumber, NSString, PLCloudSharedAlbum;
 
-@interface PLCloudSharedAlbumInvitationRecord : NSManagedObject
+@interface PLCloudSharedAlbumInvitationRecord : PLManagedObject
 {
 }
 
 + (id)cloudSharedAlbumInvitationRecordsWithAlbumGUID:(id)arg1 inLibrary:(id)arg2;
 + (id)cloudSharedAlbumInvitationRecordWithGUID:(id)arg1 inLibrary:(id)arg2;
-+ (id)insertNewInvitationRecordIntoAlbum:(id)arg1 withFirstName:(id)arg2 lastName:(id)arg3 email:(id)arg4 inLibrary:(id)arg5;
++ (id)insertNewInvitationRecordIntoAlbum:(id)arg1 withFirstName:(id)arg2 lastName:(id)arg3 emails:(id)arg4 phones:(id)arg5 inLibrary:(id)arg6;
 + (id)entityName;
 + (id)entityInManagedObjectContext:(id)arg1;
 - (id)invitationStateDescription;
-@property(retain, nonatomic) NSString *inviteeEmail;
+- (void)setInviteeEmails:(id)arg1 phones:(id)arg2;
+@property(readonly, nonatomic) NSArray *inviteePhones;
+@property(readonly, nonatomic) NSArray *inviteeEmails;
 - (id)inviteeDisplayNameIncludingEmail:(BOOL)arg1;
 - (void)delete;
 - (void)dealloc;
+- (void)prepareForDeletion;
+- (void)willSave;
 - (void)awakeFromInsert;
 - (id)init;
 
@@ -33,7 +37,11 @@
 @property(retain, nonatomic) NSNumber *invitationStateLocal; // @dynamic invitationStateLocal;
 @property(nonatomic) NSNumber *inviteeEmailKey; // @dynamic inviteeEmailKey;
 @property(retain, nonatomic) NSString *inviteeFirstName; // @dynamic inviteeFirstName;
+@property(retain, nonatomic) NSString *inviteeFullName; // @dynamic inviteeFullName;
+@property(nonatomic) NSString *inviteeHashedPersonID; // @dynamic inviteeHashedPersonID;
 @property(retain, nonatomic) NSString *inviteeLastName; // @dynamic inviteeLastName;
+@property(retain, nonatomic) NSDate *inviteeSubscriptionDate; // @dynamic inviteeSubscriptionDate;
+@property(nonatomic) BOOL isMine; // @dynamic isMine;
 
 @end
 

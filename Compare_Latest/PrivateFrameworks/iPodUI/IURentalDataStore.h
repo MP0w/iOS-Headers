@@ -21,6 +21,7 @@
 
 + (id)existingInstance;
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (void)_scheduleRentalEvents;
 - (void)_resetLocalNotifications;
 - (id)_rentalDataForMediaItem:(id)arg1;

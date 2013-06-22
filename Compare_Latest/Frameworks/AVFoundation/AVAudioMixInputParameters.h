@@ -27,6 +27,7 @@
 @property(readonly, nonatomic) struct opaqueMTAudioProcessingTap *audioTapProcessor;
 - (void)setTrackID:(int)arg1;
 @property(readonly, nonatomic) int trackID;
+- (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;

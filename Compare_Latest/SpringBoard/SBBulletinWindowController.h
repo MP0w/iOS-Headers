@@ -8,7 +8,7 @@
 
 #import "SBUIActiveOrientationObserver-Protocol.h"
 
-@class NSMutableSet, UIWindow;
+@class NSMutableSet, SBBulletinRootViewController, UIViewController, UIWindow;
 
 @interface SBBulletinWindowController : NSObject <SBUIActiveOrientationObserver>
 {
@@ -16,25 +16,30 @@
     int _trueBulletinWindowOrientation;
     int _overrideBulletinWindowOrientation;
     BOOL _rotatingKeyboard;
-    BOOL _aboveShowcase;
+    BOOL _aboveAssistant;
+    BOOL _uiLocked;
     NSMutableSet *_windowClients;
     NSMutableSet *_keyClients;
     NSMutableSet *_busyClients;
     NSMutableSet *_busyReasons;
+    SBBulletinRootViewController *_rootVC;
 }
 
 + (BOOL)shouldSuppressAlertForBulletin:(id)arg1;
 + (id)sharedInstance;
-@property(nonatomic, getter=isWindowAboveShowcase) BOOL windowAboveShowcase; // @synthesize windowAboveShowcase=_aboveShowcase;
+@property(nonatomic, getter=isWindowAboveAssistant) BOOL windowAboveAssistant; // @synthesize windowAboveAssistant=_aboveAssistant;
 @property(readonly, nonatomic) UIWindow *window; // @synthesize window=_bulletinWindow;
+@property(readonly, nonatomic) UIViewController *rootViewController; // @synthesize rootViewController=_rootVC;
 - (BOOL)_hasKeyWindowClients;
 - (void)activeInterfaceOrientationDidChangeToOrientation:(int)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(int)arg3;
 - (void)activeInterfaceOrientationWillChangeToOrientation:(int)arg1;
+- (void)_lockStateChanged:(id)arg1;
+- (BOOL)_shouldAllowRotation:(BOOL)arg1;
 - (void)_setTrueWindowOrientation:(int)arg1;
 - (void)_setOverrideWindowOrientation:(int)arg1;
 - (void)_cleanUpAfterRotatingFromOrientation:(int)arg1;
-- (void)_doRotationToOrientation:(int)arg1 duration:(double)arg2 forOverride:(BOOL)arg3;
-- (void)_prepareToRotateToOrientation:(int)arg1 forOverride:(BOOL)arg2;
+- (void)_doRotationToOrientation:(int)arg1 duration:(double)arg2;
+- (void)_prepareToRotateToOrientation:(int)arg1 duration:(double)arg2;
 - (void)clearOverrideWindowOrientation;
 - (BOOL)_hasOrientationOverride;
 - (void)overrideWindowOrientation:(int)arg1;
@@ -44,7 +49,9 @@
 - (void)removeBusyClient:(id)arg1;
 - (void)addBusyClient:(id)arg1;
 - (void)removeWindowClient:(id)arg1;
-- (void)_updateWindowTransformAndFrameForOrientation;
+- (void)removeWindowClient:(id)arg1 withChildViewController:(id)arg2;
+- (void)_rotateIfNecessaryTo:(int)arg1 withDuration:(double)arg2 forOverride:(BOOL)arg3;
+- (void)addWindowClient:(id)arg1 withChildViewController:(id)arg2;
 - (void)addWindowClient:(id)arg1;
 - (void)_didResignKeyWindow:(id)arg1;
 - (void)_didBecomeKeyWindow:(id)arg1;

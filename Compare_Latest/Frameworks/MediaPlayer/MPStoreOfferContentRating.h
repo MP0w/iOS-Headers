@@ -24,6 +24,7 @@
 @property(copy, nonatomic) NSString *ratingLabel; // @synthesize ratingLabel=_ratingLabel;
 @property(copy, nonatomic) NSString *ratingDescription; // @synthesize ratingDescription=_ratingDescription;
 @property(nonatomic) int ratingLevel; // @synthesize ratingLevel=_ratingLevel;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) id mediaPropertyContentRatingValue;
 - (BOOL)_isRatingSystemForTV:(unsigned int)arg1;
 - (BOOL)_isRatingSystemForMusic:(unsigned int)arg1;
@@ -34,7 +35,6 @@
 @property(readonly, nonatomic, getter=isRestrictedContent) BOOL restrictedContent;
 @property(readonly, nonatomic, getter=isExplicitContent) BOOL explicitContent;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;

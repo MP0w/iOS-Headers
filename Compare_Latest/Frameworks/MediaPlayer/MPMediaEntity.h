@@ -25,6 +25,7 @@
 - (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
+- (void)invalidateCachedProperties;
 @property(readonly, nonatomic) MPMediaItem *representativeItem;
 @property(readonly, nonatomic) unsigned long long persistentID;
 @property(readonly, nonatomic) BOOL isPurchasableStoreOffer;

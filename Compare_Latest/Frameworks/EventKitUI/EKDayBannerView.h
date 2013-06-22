@@ -13,11 +13,14 @@
     CalendarArrowButton *_leftArrow;
     CalendarArrowButton *_rightArrow;
     EKDayBannerNameView *_nameView;
+    BOOL _showWeekNumber;
     id _delegate;
 }
 
 + (float)defaultHeight;
-@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) BOOL showWeekNumber; // @synthesize showWeekNumber=_showWeekNumber;
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)swipeGesture:(id)arg1;
 - (void)calendarArrowButtonActivated:(id)arg1 forRepeat:(BOOL)arg2;
 - (BOOL)isTracking;

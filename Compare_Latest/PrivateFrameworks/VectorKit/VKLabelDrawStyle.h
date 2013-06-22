@@ -4,13 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
-
-#import "_VKStyle-Protocol.h"
+#import <VectorKit/VKDrawStyle.h>
 
 @class NSMutableArray;
 
-@interface VKLabelDrawStyle : NSObject <_VKStyle>
+@interface VKLabelDrawStyle : VKDrawStyle
 {
     struct VKProfileSparseRamp<signed char> visibility;
     struct VKProfileSparseRamp<signed char> shieldVisibility;
@@ -40,6 +38,8 @@
     struct VKProfileSparseRamp<float> arrowHeightMedium;
     struct VKProfileSparseRamp<float> arrowHeightLarge;
     struct VKProfileSparseRamp<float> arrowSpacing;
+    struct VKProfileSparseRamp<int> layer;
+    struct VKProfileSparseRamp<int> arrowLayer;
     struct VKProfileSparseRamp<VKLabelTextVisibility> textVisibility;
     struct VKProfileSparseRamp<signed char> onlyShowIfTappable;
     struct VKProfileSparseRamp<signed char> yieldsToOnscreenLabels;
@@ -48,13 +48,28 @@
     struct VKProfileSparseRamp<float> spacingSmall;
     struct VKProfileSparseRamp<float> spacingMedium;
     struct VKProfileSparseRamp<float> spacingLarge;
+    struct VKProfileSparseRamp<float> offsetSmall;
+    struct VKProfileSparseRamp<float> offsetMedium;
+    struct VKProfileSparseRamp<float> offsetLarge;
     struct VKProfileSparseRamp<int> iconStyle;
     struct VKProfileSparseRamp<_VGLColor> iconBadgeColor;
+    struct VKProfileSparseRamp<_VGLColor> iconBadgeLightColor;
+    struct VKProfileSparseRamp<VKBlendMode> iconBadgeLightBlendMode;
+    struct VKProfileSparseRamp<float> iconBevelAmount;
     struct VKProfileSparseRamp<_VGLColor> iconGradientTopColor;
     struct VKProfileSparseRamp<_VGLColor> iconGradientBottomColor;
     struct VKProfileSparseRamp<_VGLColor> iconGlyphColor;
+    struct VKProfileSparseRamp<VKIconGlyphStyle> iconGlyphStyle;
+    struct VKProfileSparseRamp<VKBlendMode> iconGlyphBlendMode;
+    struct VKProfileSparseRamp<float> iconHaloSize;
     struct VKProfileSparseRamp<_VGLColor> iconHaloColor;
-    struct VKProfileSparseRamp<VKGenericShieldStyle> genericShieldStyle;
+    struct VKProfileSparseRamp<float> iconBrightness;
+    struct VKProfileSparseRamp<CGSize> iconDropShadowOffset;
+    struct VKProfileSparseRamp<float> iconDropShadowSize;
+    struct VKProfileSparseRamp<_VGLColor> iconDropShadowColor;
+    struct VKProfileSparseRamp<float> iconCornerRadius;
+    struct VKProfileSparseRamp<VKBlendMode> iconGlowBlendMode;
+    struct VKProfileSparseRamp<int> genericShieldStyle;
     struct VKProfileSparseRamp<_VGLColor> genericShieldBackgroundColor;
     struct VKProfileSparseRamp<_VGLColor> genericShieldBorderColor;
     struct VKProfileSparseRamp<_VGLColor> genericShieldTextColor;
@@ -63,31 +78,56 @@
     struct VKProfileSparseRamp<CGSize> genericShieldDropShadowOffset;
     struct VKProfileSparseRamp<float> genericShieldDropShadowSize;
     struct VKProfileSparseRamp<_VGLColor> genericShieldDropShadowColor;
+    struct VKProfileSparseRamp<int> showLabelAsShield;
     struct VKProfileSparseRamp<float> roadWidth;
+    struct VKProfileSparseRamp<float> marginTop;
+    struct VKProfileSparseRamp<float> marginRight;
+    struct VKProfileSparseRamp<float> marginBottom;
+    struct VKProfileSparseRamp<float> marginLeft;
+    struct VKProfileSparseRamp<int> collisionOrder;
+    struct VKProfileSparseRamp<float> collisionRank;
+    struct VKProfileSparseRamp<signed char> selectable;
+    struct VKProfileSparseRamp<float> parallaxHeight;
     NSMutableArray *fontFamily;
     NSMutableArray *icon;
+    NSMutableArray *iconGlow;
     float tiltLimit;
+    BOOL navSignsVisible;
+    BOOL navShieldsVisible;
+    float navSignsBrightness;
+    struct _VGLColor arrowColor;
+    struct _VGLColor arrowHaloColor;
+    int labelClass;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (BOOL)areNavShieldsVisible;
+- (BOOL)areNavSignsVisible;
+- (BOOL)areTextBoxesEverVisible;
 - (BOOL)areShieldsEverVisible;
 - (BOOL)visibleAtMaxZoom:(float)arg1;
+- (unsigned int)minArrowZoom;
+- (unsigned int)maxVisibleZoom;
+- (unsigned int)minVisibleZoom;
+- (unsigned int)arrowLayer;
+- (unsigned int)layer;
 - (BOOL)showShieldTextAsLabelAtZoom:(float)arg1;
 - (BOOL)arrowVisibleAtZoom:(float)arg1;
 - (double)minimumRoadArrowSpacingForZoom:(int)arg1;
 - (double)minimumRoadLabelSpacingForZoom:(int)arg1 scaleFactor:(int)arg2;
 - (double)mapWidthInEmsForZoom:(int)arg1 scaleFactor:(int)arg2;
 - (void)getLabelTextGlyphStyle:(CDStruct_ddfd0e57 *)arg1 atZoom:(int)arg2 scaleFactor:(int)arg3;
-- (void)getLabelStyle:(CDStruct_daf29242 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
-- (void)getRoadSignStyle:(CDStruct_daf29242 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
-- (void)getNavShieldStyle:(CDStruct_daf29242 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
-- (void)getShieldStyle:(CDStruct_daf29242 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
+- (void)getLabelStyle:(struct VKLabelStyle *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
+- (void)getRoadSignStyle:(CDStruct_32f014a0 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
+- (void)getNavShieldStyle:(CDStruct_32f014a0 *)arg1 atZoom:(float)arg2 tilt:(float)arg3 contentScale:(float)arg4 scaleFactor:(int)arg5;
+- (id)genericShieldStyle;
 - (unsigned char)dedupeRank;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (id)variant;
 - (void)dealloc;
-- (id)init;
+- (id)initWithStyle:(id)arg1;
 
 @end
 

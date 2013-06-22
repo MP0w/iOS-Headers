@@ -8,27 +8,29 @@
 
 #import "NSCopying-Protocol.h"
 
-@class MPMediaQuery, MPStoreCollectionCompletionOffering, MPStoreLinkCompletionOffering, NSDictionary;
+@class MPMediaQuery, MPStoreCollectionCompletionOffering, MPStoreOfferMediaItemCollection, NSDictionary, NSURL;
 
 @interface MPStoreCompletionOffering : NSObject <NSCopying>
 {
     int _preferredStoreOfferVariant;
     NSDictionary *_responseCollectionDictionary;
     MPMediaQuery *_localItemsQuery;
-    MPStoreCollectionCompletionOffering *_purchaseableCollectionOffering;
-    MPStoreLinkCompletionOffering *_linkOffering;
+    MPStoreCollectionCompletionOffering *_collectionWithCompletionItemsOffering;
+    int _presentationStyle;
+    NSURL *_storeURL;
 }
 
 + (id)offeringWithCollectionResponseDictionary:(id)arg1 localItemsQuery:(id)arg2;
 + (int)defaultOfferVariant;
 + (void)setDefaultOfferVariant:(int)arg1;
-@property(readonly, nonatomic) MPStoreLinkCompletionOffering *linkOffering; // @synthesize linkOffering=_linkOffering;
-@property(retain, nonatomic) MPStoreCollectionCompletionOffering *purchaseableCollectionOffering; // @synthesize purchaseableCollectionOffering=_purchaseableCollectionOffering;
+@property(readonly, nonatomic) NSURL *storeURL; // @synthesize storeURL=_storeURL;
+@property(readonly, nonatomic) int presentationStyle; // @synthesize presentationStyle=_presentationStyle;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) MPStoreOfferMediaItemCollection *collectionWithCompletionItems;
 @property(nonatomic) int preferredStoreOfferVariant;
-- (id)_getPurchaseableCollectionOffering;
+- (void)_loadOfferingData;
 - (id)copyByInvalidatingCalculatedContent;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithCollectionResponseDictionary:(id)arg1 localItemsQuery:(id)arg2;
 
 @end

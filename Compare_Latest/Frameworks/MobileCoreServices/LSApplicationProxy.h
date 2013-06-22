@@ -6,27 +6,50 @@
 
 #import <MobileCoreServices/LSResourceProxy.h>
 
-@class NSArray, NSDictionary, NSString, NSURL, NSUUID;
+#import "NSSecureCoding-Protocol.h"
 
-@interface LSApplicationProxy : LSResourceProxy
+@class NSArray, NSDictionary, NSProgress, NSString, NSURL, NSUUID;
+
+@interface LSApplicationProxy : LSResourceProxy <NSSecureCoding>
 {
     unsigned int _flags;
     unsigned int _bundleFlags;
     NSArray *_privateDocumentIconNames;
     LSApplicationProxy *_privateDocumentTypeOwner;
-    NSURL *_bundleURL;
-    NSString *_vendorID;
-    NSString *_bundleVersion;
-    NSString *_shortVersionString;
+    NSArray *_directionsModes;
+    NSArray *_UIBackgroundModes;
+    NSArray *_audioComponents;
+    BOOL _profileValidated;
+    BOOL _isPlaceholder;
+    BOOL _isAppUpdate;
+    BOOL _isNewsstandApp;
+    BOOL _isRestricted;
+    BOOL _foundBackingBundle;
     NSString *_applicationType;
     NSString *_signerIdentity;
     NSDictionary *_entitlements;
     NSDictionary *_environmentVariables;
-    NSArray *_directionsModes;
+    NSArray *_machOUUIDs;
+    NSString *_vendorID;
+    NSString *_vendorName;
+    NSString *_bundleVersion;
+    NSString *_shortVersionString;
+    NSURL *_bundleURL;
+    unsigned int _installType;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)applicationProxyForIdentifier:(id)arg1 roleIdentifier:(id)arg2;
++ (id)applicationProxyForIdentifier:(id)arg1 placeholder:(BOOL)arg2;
 + (id)applicationProxyForIdentifier:(id)arg1;
+@property(readonly, nonatomic) BOOL foundBackingBundle; // @synthesize foundBackingBundle=_foundBackingBundle;
+@property(readonly, nonatomic) BOOL isRestricted; // @synthesize isRestricted=_isRestricted;
+@property(readonly, nonatomic) BOOL isNewsstandApp; // @synthesize isNewsstandApp=_isNewsstandApp;
+@property(readonly, nonatomic) BOOL isAppUpdate; // @synthesize isAppUpdate=_isAppUpdate;
+@property(readonly, nonatomic) BOOL isPlaceholder; // @synthesize isPlaceholder=_isPlaceholder;
+@property(readonly, nonatomic) unsigned int installType; // @synthesize installType=_installType;
+@property(readonly, nonatomic) BOOL profileValidated; // @synthesize profileValidated=_profileValidated;
+@property(readonly, nonatomic) NSURL *bundleURL; // @synthesize bundleURL=_bundleURL;
 - (id)iconStyleDomain;
 - (id)description;
 - (unsigned int)hash;
@@ -34,27 +57,35 @@
 - (id)localizedName;
 - (void)setPrivateDocumentTypeOwner:(id)arg1;
 - (id)privateDocumentTypeOwner;
+- (id)iconDataForVariant:(int)arg1;
 - (void)setPrivateDocumentIconAllowOverride:(BOOL)arg1;
 - (BOOL)privateDocumentIconAllowOverride;
 - (void)setPrivateDocumentIconNames:(id)arg1;
 - (id)privateDocumentIconNames;
 - (id)resourcesDirectoryURL;
+- (id)installProgressSync;
+@property(readonly, nonatomic) NSProgress *installProgress;
 @property(readonly, nonatomic) NSUUID *deviceIdentifierForVendor;
+@property(readonly, nonatomic) NSArray *audioComponents;
+@property(readonly, nonatomic) NSArray *UIBackgroundModes;
 @property(readonly, nonatomic) NSArray *directionsModes;
 @property(readonly, nonatomic) NSDictionary *environmentVariables; // @synthesize environmentVariables=_environmentVariables;
 @property(readonly, nonatomic) NSDictionary *entitlements; // @synthesize entitlements=_entitlements;
-@property(readonly, nonatomic) BOOL profileValidated;
 @property(readonly, nonatomic) NSString *signerIdentity; // @synthesize signerIdentity=_signerIdentity;
+@property(readonly, nonatomic) NSString *shortVersionString; // @synthesize shortVersionString=_shortVersionString;
+@property(readonly, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
+@property(readonly, nonatomic) NSString *vendorName; // @synthesize vendorName=_vendorName;
+@property(readonly, nonatomic) NSString *vendorID; // @synthesize vendorID=_vendorID;
 @property(readonly, nonatomic) NSString *applicationType; // @synthesize applicationType=_applicationType;
-@property(readonly, nonatomic) NSString *shortVersionString;
-@property(readonly, nonatomic) NSString *bundleVersion;
-@property(readonly, nonatomic) NSString *vendorID;
+@property(readonly, nonatomic) NSArray *machOUUIDs; // @synthesize machOUUIDs=_machOUUIDs;
 @property(readonly, nonatomic) NSURL *containerURL;
-@property(readonly, nonatomic) NSURL *bundleURL;
 @property(readonly, nonatomic) NSString *roleIdentifier;
 @property(readonly, nonatomic) NSString *applicationIdentifier;
 - (void)dealloc;
-- (id)_initWithApplicationIdentifier:(id)arg1 name:(id)arg2 containerURL:(id)arg3 resourcesDirectoryURL:(id)arg4 iconsDictionary:(id)arg5 iconFileNames:(id)arg6 iconIsPrerendered:(BOOL)arg7;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)_initWithApplicationIdentifier:(id)arg1 bundleType:(unsigned int)arg2 name:(id)arg3 containerURL:(id)arg4 resourcesDirectoryURL:(id)arg5 iconsDictionary:(id)arg6 iconFileNames:(id)arg7 iconIsPrerendered:(BOOL)arg8;
+- (unsigned char)_createContext:(struct LSContext *)arg1 andGetBundle:(unsigned int *)arg2 withData:(const struct LSBundleData **)arg3;
 - (id)_plistValueForKey:(id)arg1;
 
 @end

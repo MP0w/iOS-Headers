@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "PLThumbPersistenceManager-Protocol.h"
+
 @class NSDictionary, NSMutableArray, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSString;
 
-@interface PLImageTable : NSObject
+@interface PLImageTable : NSObject <PLThumbPersistenceManager>
 {
     int _format;
     NSString *_path;
@@ -22,47 +24,51 @@
     long long _fileLength;
     int _entryCount;
     unsigned long _segmentLength;
-    int _segmentCount;
+    unsigned int _segmentCount;
     NSMutableArray *_allSegments;
     NSMutableIndexSet *_preheatIndexes;
     NSObject<OS_dispatch_queue> *_preheatIndexIsolation;
     NSObject<OS_dispatch_queue> *_preheatQueue;
 }
 
-+ (struct CGRect)scaleSize:(struct CGSize)arg1 toFitWithinSize:(struct CGSize)arg2;
++ (void)writeImage:(id)arg1 toData:(id *)arg2 thumbnailFormat:(int)arg3 videoDuration:(id)arg4 width:(int *)arg5 height:(int *)arg6 bytesPerRow:(int *)arg7 dataWidth:(int *)arg8 dataHeight:(int *)arg9 dataOffset:(int *)arg10;
 + (void)releaseSegmentCache;
 @property(readonly, nonatomic) int imageLength; // @synthesize imageLength=_imageLength;
 @property(readonly, nonatomic) int imageRowBytes; // @synthesize imageRowBytes=_imageRowBytes;
 @property(readonly, nonatomic) int imageFormat; // @synthesize imageFormat=_format;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
-- (id)_tableDescription;
-- (void)rotateEntryAtIndex:(int)arg1 byDegrees:(int)arg2 withWhiteInsert:(int)arg3;
-- (BOOL)entryAtIndexIsPlaceholder:(int)arg1;
-- (void)setImage:(id)arg1 forEntryAtIndex:(int)arg2 videoDuration:(id)arg3 photoUUID:(id)arg4 isPlaceholder:(BOOL)arg5;
-- (void)setImageData:(const void *)arg1 forEntryAtIndex:(int)arg2 asset:(id)arg3;
-- (void)_writeImage:(id)arg1 withDuration:(id)arg2 photoUUID:(id)arg3 toEntryAtIndex:(int)arg4 isPlaceholder:(BOOL)arg5;
-- (id)dataForEntryAtIndex:(int)arg1;
-- (struct CGSize)imageSize;
+- (id)preheatItemForAsset:(id)arg1;
+- (id)imageDataAtIndex:(unsigned int)arg1 width:(int *)arg2 height:(int *)arg3 bytesPerRow:(int *)arg4 dataWidth:(int *)arg5 dataHeight:(int *)arg6 dataOffset:(int *)arg7;
+- (void)preheatImageDataAtIndex:(unsigned int)arg1;
+- (void)preheatImageDataAtIndexes:(id)arg1;
+- (void)_doPreheat;
+- (id)_getAndClearPreheatIndexes;
+- (id)imageDataWithIdentifier:(id)arg1 orIndex:(unsigned int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 dataOffset:(int *)arg8;
+- (id)_debugDescription;
+- (void)setImageDataForEntry:(const void *)arg1 withIdentifier:(id)arg2 orIndex:(unsigned int)arg3 asset:(id)arg4;
+- (void)setImageForEntry:(id)arg1 withIdentifier:(id)arg2 orIndex:(unsigned int)arg3 videoDuration:(id)arg4 photoUUID:(id)arg5;
+@property(readonly, nonatomic) struct CGSize imageSize;
 - (void)_verifyThumbnailDataForIndex:(unsigned int)arg1 uuid:(id)arg2;
 - (void)compactWithOccupiedIndexes:(id)arg1;
 - (id)preflightCompactionWithOccupiedIndexes:(id)arg1;
 - (BOOL)_compactWithOccupiedIndexes:(id)arg1 outPhotoUUIDToIndexMap:(id *)arg2;
 @property(readonly, nonatomic) NSDictionary *photoUUIDToIndexMap;
-- (void)deleteEntryAtIndex:(int)arg1 withUUID:(id)arg2;
-- (void)_setEntryAtIndex:(int)arg1 imageData:(const void *)arg2 actualImageSize:(struct CGSize)arg3;
+- (BOOL)copyEntryFromOriginalAsset:(id)arg1 toAsset:(id)arg2;
+- (void)deleteEntryWithIdentifier:(id)arg1 orIndex:(unsigned int)arg2 uuid:(id)arg3;
 - (void)_flushEntryAtAddress:(void *)arg1;
 - (void)_flushEntryAtAddress:(void *)arg1 count:(int)arg2;
 - (void)ensureIndexExists:(int)arg1;
 - (void)_addEntriesIfNecessaryForIndex:(int)arg1;
 - (void)_setEntryCount:(int)arg1;
 - (int)entryCount;
-- (id)_mappedImageDataAtIndex:(int)arg1;
-- (void)fileLengthChangedExternally;
+- (void)_adviseWillNeedEntriesInRange:(struct _NSRange)arg1;
+- (id)dataForEntryAtIndex:(unsigned int)arg1;
 - (void)_updateSegmentCount;
 - (void)_reloadSegmentAtIndex:(int)arg1;
 - (void)_releaseSegment:(id)arg1;
 - (void)_releaseSegmentAtIndex:(int)arg1;
 - (id)_segmentAtIndex:(int)arg1;
+- (BOOL)usesThumbIdentifiers;
 @property(readonly, nonatomic) BOOL isReadOnly;
 - (unsigned long)_segmentLength;
 - (int)_fileDescriptor;
@@ -71,12 +77,6 @@
 @property(readonly, nonatomic) int imageWidth;
 - (id)initWithPath:(id)arg1 imageFormat:(int)arg2;
 - (id)initWithPath:(id)arg1 imageFormat:(int)arg2 readOnly:(BOOL)arg3;
-- (void)preheatImageDataAtIndexex:(id)arg1;
-- (id)_getAndClearPreheatIndexes;
-- (void)_addPreheatIndexes:(id)arg1;
-- (id)imageDataAtIndex:(int)arg1 width:(int *)arg2 height:(int *)arg3 bytesPerRow:(int *)arg4 dataWidth:(int *)arg5 dataHeight:(int *)arg6 dataOffset:(int *)arg7;
-- (BOOL)thumbnailForAsset:(id)arg1 existsAtIndex:(int)arg2;
-- (struct __CFDictionary *)newCurrentAssetUUIDsToIndexesMapping;
 
 @end
 

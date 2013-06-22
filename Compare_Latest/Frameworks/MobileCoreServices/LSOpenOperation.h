@@ -12,10 +12,11 @@
 {
     BOOL _executing;
     BOOL _finished;
+    BOOL _sourceIsManaged;
     NSURL *_resourceURL;
     NSString *_applicationIdentifier;
     NSString *_documentIdentifier;
-    id _userInfoPList;
+    id _userInfoPlist;
     NSDictionary *_options;
     id _delegate;
     int _result;
@@ -29,7 +30,7 @@
 - (void)completeOperation;
 - (void)main;
 - (void)dealloc;
-- (id)initForOpeningResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 userInfo:(id)arg4 options:(id)arg5 delegate:(id)arg6;
+- (id)initForOpeningResource:(id)arg1 usingApplication:(id)arg2 uniqueDocumentIdentifier:(id)arg3 sourceIsManaged:(BOOL)arg4 userInfo:(id)arg5 options:(id)arg6 delegate:(id)arg7;
 
 @end
 

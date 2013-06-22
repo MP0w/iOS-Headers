@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIViewController.h"
+#import "UITableViewController.h"
 
 @class ABModel;
 
-@interface ABAbstractViewController : UIViewController
+@interface ABAbstractViewController : UITableViewController
 {
     ABModel *_model;
     id <ABStyleProvider> _styleProvider;
@@ -24,8 +24,7 @@
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
+- (BOOL)supportedInterfaceOrientation:(int)arg1;
 - (BOOL)_allowsAutorotation;
 - (void)dealloc;
 - (void)setAddressBook:(void *)arg1;

@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) SSKeybagRequest *request; // @synthesize request=_request;
 @property(retain, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
+- (void).cxx_destruct;
 - (void)requestDidFinish:(id)arg1;
 - (void)request:(id)arg1 didFailWithError:(id)arg2;
 - (void)resolveError:(id)arg1;

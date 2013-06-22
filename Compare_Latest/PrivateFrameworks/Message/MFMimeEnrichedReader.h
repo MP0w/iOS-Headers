@@ -13,7 +13,8 @@
     struct {
         unsigned short buffer[64];
         struct __CFString *theString;
-        unsigned short *directBuffer;
+        unsigned short *directUniCharBuffer;
+        char *directCStringBuffer;
         CDStruct_dff5684f rangeToBuffer;
         int bufferedRangeStart;
         int bufferedRangeEnd;

@@ -8,12 +8,12 @@
 
 @interface WebDeviceOrientationInternal : NSObject
 {
-    struct RefPtr<WebCore::DeviceOrientation> m_orientation;
+    struct RefPtr<WebCore::DeviceOrientationData> m_orientation;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)initWithCoreDeviceOrientation:(PassRefPtr_ce175d97)arg1;
+- (id)initWithCoreDeviceOrientation:(PassRefPtr_f9d63018)arg1;
 
 @end
 

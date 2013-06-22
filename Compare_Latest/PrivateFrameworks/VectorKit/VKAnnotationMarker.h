@@ -7,23 +7,18 @@
 #import <VectorKit/VKAnnotationMarkerLayer.h>
 
 #import "VKAnchorDelegate-Protocol.h"
-#import "VKCalloutSource-Protocol.h"
 #import "VKTrackableAnnotationPresentation-Protocol.h"
 
-@class NSString, UICalloutView, UIPopoverController, UIView, VKAnchor, VKAnimation, VKAnnotationModel;
+@class NSString, VKAnchor, VKAnimation;
 
-@interface VKAnnotationMarker : VKAnnotationMarkerLayer <VKCalloutSource, VKAnchorDelegate, VKTrackableAnnotationPresentation>
+@interface VKAnnotationMarker : VKAnnotationMarkerLayer <VKAnchorDelegate, VKTrackableAnnotationPresentation>
 {
     id <VKAnnotation> _annotation;
     NSString *_reuseIdentifier;
-    VKAnnotationModel *_model;
-    CDStruct_31142d93 _projectedPoint;
-    CDStruct_31142d93 _projectedGroundPoint;
+    struct VKPoint _projectedPoint;
+    struct VKPoint _projectedGroundPoint;
     BOOL _selected;
     BOOL _canShowCallout;
-    UIView *_leftCalloutAccessoryView;
-    UIView *_rightCalloutAccessoryView;
-    UICalloutView *_calloutView;
     int _dragState;
     BOOL _draggable;
     BOOL _tracking;
@@ -35,9 +30,9 @@
     BOOL _useScreenSpacePoint;
     float _dropFraction;
     VKAnchor *_anchor;
-    CDStruct_0f1abaa7 _styleTransitionState;
+    CDStruct_c71ade79 _styleTransitionState;
     id <VKAnnotationMarkerDelegate> _delegate;
-    UIPopoverController *_calloutPopoverController;
+    BOOL _hidden;
     struct CGPoint _calloutOffset;
 }
 
@@ -45,33 +40,30 @@
 + (id)keyPathsForValuesAffectingTitle;
 + (unsigned int)_selectedZIndex;
 + (unsigned int)_zIndex;
+@property(nonatomic) BOOL hidden; // @synthesize hidden=_hidden;
 @property(nonatomic) float dropFraction; // @synthesize dropFraction=_dropFraction;
 @property(nonatomic) BOOL useScreenSpacePoint; // @synthesize useScreenSpacePoint=_useScreenSpacePoint;
 @property(nonatomic) BOOL followsTerrain; // @synthesize followsTerrain=_followsTerrain;
 @property(nonatomic) BOOL animatingToCoordinate; // @synthesize animatingToCoordinate=_animatingToCoordinate;
 @property(nonatomic) id <VKAnnotationMarkerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) CDStruct_0f1abaa7 styleTransitionState; // @synthesize styleTransitionState=_styleTransitionState;
+@property(nonatomic) CDStruct_c71ade79 styleTransitionState; // @synthesize styleTransitionState=_styleTransitionState;
 @property(nonatomic) struct CGPoint calloutOffset; // @synthesize calloutOffset=_calloutOffset;
 @property(nonatomic, getter=isDraggable) BOOL draggable; // @synthesize draggable=_draggable;
 @property(nonatomic) int dragState; // @synthesize dragState=_dragState;
-@property(retain, nonatomic) UICalloutView *calloutView; // @synthesize calloutView=_calloutView;
-@property(retain, nonatomic) UIPopoverController *calloutPopoverController; // @synthesize calloutPopoverController=_calloutPopoverController;
-@property(retain, nonatomic) UIView *rightCalloutAccessoryView; // @synthesize rightCalloutAccessoryView=_rightCalloutAccessoryView;
-@property(retain, nonatomic) UIView *leftCalloutAccessoryView; // @synthesize leftCalloutAccessoryView=_leftCalloutAccessoryView;
 @property(nonatomic) BOOL canShowCallout; // @synthesize canShowCallout=_canShowCallout;
 @property(nonatomic, getter=isSelected) BOOL selected; // @synthesize selected=_selected;
-@property(nonatomic) CDStruct_31142d93 projectedGroundPoint; // @synthesize projectedGroundPoint=_projectedGroundPoint;
-@property(nonatomic) CDStruct_31142d93 projectedPoint; // @synthesize projectedPoint=_projectedPoint;
-@property(nonatomic) VKAnnotationModel *model; // @synthesize model=_model;
+@property(nonatomic) struct VKPoint projectedGroundPoint; // @synthesize projectedGroundPoint=_projectedGroundPoint;
+@property(nonatomic) struct VKPoint projectedPoint; // @synthesize projectedPoint=_projectedPoint;
 @property(readonly, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
 @property(retain, nonatomic) id <VKAnnotation> annotation; // @synthesize annotation=_annotation;
+- (id).cxx_construct;
 - (BOOL)isPersistent;
 - (id)subtitle;
-- (id)title;
+@property(readonly, nonatomic) NSString *title;
 - (id)debugAnchorPointString;
-- (struct CGPoint)screenPointToScrollRelativeToWithCanvasSize:(struct CGSize)arg1;
-- (struct CGPoint)calloutAnchorPointWithCanvasSize:(struct CGSize)arg1;
-- (CDStruct_31142d93)pointInWorldWithContext:(id)arg1;
+- (struct CGPoint)screenPointToScrollRelativeToWithCanvasSize:(struct CGSize)arg1 canvasScale:(float)arg2;
+- (struct CGPoint)calloutAnchorPointWithCanvasSize:(struct CGSize)arg1 canvasScale:(float)arg2 snapToPixels:(BOOL)arg3;
+- (struct VKPoint)pointInWorldWithContext:(id)arg1;
 - (struct CGRect)significantFrameWithCanvasSize:(struct CGSize)arg1;
 - (struct CGRect)frameWithCanvasSize:(struct CGSize)arg1;
 - (struct CGPoint)pointToDropAtForPoint:(struct CGPoint)arg1;
@@ -83,7 +75,7 @@
 @property(nonatomic, getter=isTracking) BOOL tracking;
 @property(nonatomic) struct CGPoint presentationPoint;
 @property(nonatomic) CDStruct_c3b9c2ee presentationCoordinate;
-- (void)anchorWorldPointDidChange:(id)arg1;
+- (void)anchorWorldPointDidChange:(void *)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;

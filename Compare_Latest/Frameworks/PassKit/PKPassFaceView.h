@@ -23,13 +23,13 @@
     int _contentViewCreatedRegions;
     int _invariantViewCreatedRegions;
     PKPassFaceTemplate *_faceTemplate;
-    NSArray *_buckets;
-    int _template;
-    id <PKPassFaceDelegate> _delegate;
     BOOL _allowBackgroundPlaceHolders;
+    BOOL _clipsContent;
+    NSArray *_buckets;
+    int _style;
+    id <PKPassFaceDelegate> _delegate;
     int _backgroundMode;
     int _visibleRegions;
-    BOOL _clipsContent;
     float _clippedContentHeight;
     NSMutableSet *_headerInvariantViews;
     NSMutableSet *_bodyInvariantViews;
@@ -37,9 +37,9 @@
     NSMutableSet *_bodyContentViews;
 }
 
-+ (id)newBackFaceViewForTemplate:(int)arg1 tall:(BOOL)arg2;
-+ (id)newFrontFaceViewForTemplate:(int)arg1;
-+ (Class)_faceClassForTemplate:(int)arg1 front:(BOOL)arg2;
++ (id)newBackFaceViewForStyle:(int)arg1 tall:(BOOL)arg2;
++ (id)newFrontFaceViewForStyle:(int)arg1;
++ (Class)_faceClassForStyle:(int)arg1 front:(BOOL)arg2;
 @property(readonly, nonatomic) NSMutableSet *bodyContentViews; // @synthesize bodyContentViews=_bodyContentViews;
 @property(readonly, nonatomic) NSMutableSet *headerContentViews; // @synthesize headerContentViews=_headerContentViews;
 @property(readonly, nonatomic) NSMutableSet *bodyInvariantViews; // @synthesize bodyInvariantViews=_bodyInvariantViews;
@@ -51,10 +51,9 @@
 @property(nonatomic) int backgroundMode; // @synthesize backgroundMode=_backgroundMode;
 @property(nonatomic) BOOL allowBackgroundPlaceHolders; // @synthesize allowBackgroundPlaceHolders=_allowBackgroundPlaceHolders;
 @property(nonatomic) id <PKPassFaceDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) int template; // @synthesize template=_template;
+@property(nonatomic) int style; // @synthesize style=_style;
 @property(readonly, nonatomic) NSArray *buckets; // @synthesize buckets=_buckets;
 - (void)_handleTimeOrLocaleChange:(id)arg1;
-- (int)_backgroundForBucketTemplate:(id)arg1;
 - (id)_relevantBuckets;
 - (void)_setShowsBackgroundView:(BOOL)arg1;
 - (void)_setContentViewsAlpha:(float)arg1;
@@ -63,6 +62,7 @@
 - (void)_flushContentViewsForRegions:(int)arg1;
 - (void)_createContentViewsForRegions:(int)arg1;
 - (void)_createInvariantViewsForRegions:(int)arg1;
+- (void)prepareForFlip;
 - (void)createBodyContentViews;
 - (void)createHeaderContentViews;
 - (void)createBodyInvariantViews;
@@ -70,12 +70,16 @@
 - (struct CGSize)contentSize;
 @property(readonly, nonatomic) BOOL isFrontFace;
 - (id)passFaceTemplate;
+- (int)_validityStateForPass:(id)arg1;
 - (void)presentDiff:(id)arg1 completion:(id)arg2;
+@property(readonly, nonatomic) PKBarcodeStickerView *barcodeView;
 - (struct CGRect)barcodeFrame;
+- (void)_positionBarcodeView;
 - (void)layoutSubviews;
 - (struct UIEdgeInsets)shadowInsets;
 - (void)createContentViewsWithFade:(BOOL)arg1;
 - (void)setDimmer:(float)arg1 animated:(BOOL)arg2;
+@property(readonly, nonatomic) BOOL bodyContentCreated;
 @property(readonly, nonatomic) PKPassColorProfile *colorProfile; // @synthesize colorProfile=_colorProfile;
 @property(readonly, nonatomic) PKPass *pass; // @synthesize pass=_pass;
 @property(readonly, nonatomic) struct CGRect contentBounds;

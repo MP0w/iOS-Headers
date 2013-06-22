@@ -10,6 +10,8 @@
 {
 }
 
++ (id)_accessibilityTargetClassName;
++ (id)_initializeSafeCategoryFromValidationManager;
 + (void)_initializeSafeCategory;
 - (id)_accessibilityAutomaticIdentifier;
 - (void)accessibilityZoomOutAtPoint:(struct CGPoint)arg1;
@@ -24,7 +26,7 @@
 - (id)accessibilityLabel;
 - (struct CGPoint)accessibilityActivationPoint;
 - (BOOL)_accessibilitySupportsActivateAction;
-- (void)accessibilityActivate;
+- (BOOL)accessibilityActivate;
 - (void)accessibilityElementDidLoseFocus;
 - (void)accessibilityElementDidBecomeFocused;
 - (void)_accessibilitySetValue:(id)arg1;

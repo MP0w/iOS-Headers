@@ -14,30 +14,32 @@
 {
     EKEventStore *_store;
     EKEvent *_event;
-    id <EKEventDetailItemDelegate> _delegate;
     UIViewController<EKEditItemViewControllerProtocol> *_viewController;
     BOOL _allowsEditing;
     BOOL _shouldIndent;
+    id <EKEventDetailItemDelegate> _delegate;
     int _cellPosition;
 }
 
 @property(nonatomic) BOOL shouldIndent; // @synthesize shouldIndent=_shouldIndent;
 @property(nonatomic) int cellPosition; // @synthesize cellPosition=_cellPosition;
 @property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
-@property(nonatomic) id <EKEventDetailItemDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <EKEventDetailItemDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)editItemViewController:(id)arg1 didCompleteWithAction:(int)arg2;
+- (BOOL)saveEvent;
 - (BOOL)editItemViewControllerCommit:(id)arg1;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (void)notifySubitemDidCommit:(int)arg1;
+- (void)notifySubitemDidCommit:(unsigned int)arg1;
 - (void)notifyDidEndEditing;
 - (void)notifyDidStartEditing;
-- (void)eventViewController:(id)arg1 didSelectSubitem:(int)arg2;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
+- (void)eventViewController:(id)arg1 didSelectSubitem:(unsigned int)arg2;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
 - (BOOL)hasDetailViewControllerAtIndex:(unsigned int)arg1;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (void)layoutCellsForWidth:(float)arg1 position:(int)arg2;
-- (int)numberOfSubitems;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
+- (unsigned int)numberOfSubitems;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
 - (void)reset;
 - (void)setEvent:(id)arg1 store:(id)arg2;

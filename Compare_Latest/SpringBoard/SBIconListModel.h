@@ -6,21 +6,24 @@
 
 #import "NSObject.h"
 
+#import "NSFastEnumeration-Protocol.h"
 #import "SBIconIndexMutableListObserver-Protocol.h"
 #import "SBIconIndexNode-Protocol.h"
 
 @class NSHashTable, SBFolder, SBIconIndexMutableList;
 
-@interface SBIconListModel : NSObject <SBIconIndexNode, SBIconIndexMutableListObserver>
+@interface SBIconListModel : NSObject <SBIconIndexNode, SBIconIndexMutableListObserver, NSFastEnumeration>
 {
     SBIconIndexMutableList *_icons;
     NSHashTable *_nodeObservers;
+    NSHashTable *_listObservers;
     BOOL _iconStateIsDirty;
     SBFolder *_folder;
 }
 
 + (unsigned int)maxIcons;
 + (Class)viewClass;
+- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (void)list:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
 - (void)list:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
 - (id)nodeDescriptionWithPrefix:(id)arg1;
@@ -31,10 +34,14 @@
 - (id)containedNodeIdentifiers;
 - (BOOL)containsNodeIdentifier:(id)arg1;
 - (id)nodeIdentifier;
+- (void)_notifyListObservers:(id)arg1;
+- (void)removeListObserver:(id)arg1;
+- (void)addListObserver:(id)arg1;
+- (void)warmUpIconImages;
 - (id)description;
 - (BOOL)matchesRepresentation:(id)arg1;
 - (id)representation;
-- (BOOL)resetWithRepresentation:(id)arg1 model:(id)arg2 leafIdentifiersAdded:(id)arg3;
+- (BOOL)resetWithRepresentation:(id)arg1 model:(id)arg2 overflowNodes:(id)arg3 leafIdentifiersAdded:(id)arg4;
 - (void)markIconStateClean;
 - (BOOL)isIconStateDirty;
 - (id)iconsOfClass:(Class)arg1;

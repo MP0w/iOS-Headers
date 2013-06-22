@@ -97,6 +97,7 @@
 - (void)setOrientationDelegate:(id)arg1;
 - (BOOL)isZoomedOut;
 - (float)currentToDefaultZoomRatio;
+- (float)currentToMinZoomRatio;
 - (float)defaultZoomScale;
 - (float)zoomToFitScale;
 - (float)zoomToFillScale;
@@ -116,8 +117,9 @@
 - (void)applicationWillResignActive:(id)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)contentViewFrameChanged;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)resetZoom;
+- (void)viewDidLayoutSubviews;
+- (void)_resetZoomCommon;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
@@ -140,9 +142,8 @@
 - (void)setCommentsTableVisibility:(BOOL)arg1 duration:(float)arg2;
 @property(readonly, nonatomic) BOOL commentsTableIsVisible;
 - (void)initializeCommentsTable;
-- (void)updateCommentsForVisibleOverlays:(BOOL)arg1;
+- (void)updateForVisibleOverlays:(BOOL)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
-- (void)viewWillUnload;
 - (void)loadView;
 - (BOOL)didRequestFullSizeImage;
 - (BOOL)hasFullSizeImage;
@@ -151,7 +152,6 @@
 - (void)_setImage:(id)arg1 isThumbnail:(BOOL)arg2;
 - (void)_updateAggdKeys;
 - (void)_updateModelPhotoWithImage:(id)arg1;
-- (void)_updateGradientImageForOrientation:(int)arg1;
 - (void)_updateContentInset;
 - (void)_adjustScrollViewContentOffsetForInsets;
 - (void)_centerImageInScrollView;
@@ -173,6 +173,8 @@
 - (BOOL)isTVOut;
 - (void)setTileDelegate:(id)arg1;
 - (id)tileDelegate;
+- (void)showContentView;
+- (void)hideContentView;
 - (void)setVideoView:(id)arg1;
 - (id)videoView;
 - (id)scrollView;

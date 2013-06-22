@@ -7,6 +7,8 @@
 #import "NSManagedObjectContext.h"
 
 @interface NSManagedObjectContext (PLManagedObjectContext)
+- (id)photoLibrary;
+- (BOOL)isUserInterfaceContext;
 - (void)pl_refresh;
 @end
 

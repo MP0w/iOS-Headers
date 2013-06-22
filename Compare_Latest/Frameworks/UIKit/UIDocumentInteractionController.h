@@ -27,6 +27,7 @@
     UIPopoverController *_popoverController;
     UIActivityViewController *_activityViewController;
     BOOL _shouldUnzipDocument;
+    BOOL _sourceIsManaged;
     NSURL *_unzippedDocumentURL;
     id _applicationToOpen;
     NSURL *_tmpURLToDeleteOnDealloc;
@@ -59,6 +60,7 @@
     } _documentInteractionControllerFlags;
 }
 
++ (id)_pathFilterPredicate;
 + (id)_unzippingQueue;
 + (id)_UTIForFileURL:(id)arg1;
 + (id)interactionControllerWithURL:(id)arg1;
@@ -67,6 +69,7 @@
 + (id)_applicationsForDocumentProxy:(id)arg1;
 @property(retain, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_popoverController;
 @property(retain, nonatomic) UIActivityViewController *activityViewController; // @synthesize activityViewController=_activityViewController;
+@property(nonatomic) BOOL sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 @property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(retain, nonatomic) id annotation; // @synthesize annotation=_annotation;
 @property(nonatomic) id <UIDocumentInteractionControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -79,8 +82,9 @@
 - (BOOL)_delegateImplementsLegacyActions;
 - (BOOL)_canSaveToCameraRollForType;
 - (BOOL)_isValidURL:(id)arg1;
-- (BOOL)_isFilenameValidForUnzipping:(id)arg1;
+- (BOOL)_isFilenameValidForUnzipping:(id)arg1 allowsArchiveZip:(BOOL)arg2;
 - (BOOL)_documentNeedsHelpUnzippingForPreview;
+- (BOOL)_canUnzipDocumentForPreview;
 - (BOOL)_canUnzipDocument;
 - (id)_unzippedDocumentURL;
 - (void)_setUnzippedDocumentURL:(id)arg1;
@@ -89,6 +93,8 @@
 - (void)_interfaceOrientationWillChange:(id)arg1;
 - (void)_invalidate;
 - (void)_unzipFileAndSetupPayload:(id)arg1;
+- (id)_unzipFileAndSetupPayload:(id)arg1 completion:(id)arg2;
+- (id)_pathsInArchive:(id)arg1;
 - (BOOL)_setupPreviewController;
 - (BOOL)_setupForOpenInMenu;
 - (BOOL)_setupForOptionsMenu;
@@ -130,11 +136,15 @@
 - (id)previewController:(id)arg1 previewItemAtIndex:(int)arg2;
 - (int)numberOfPreviewItemsInPreviewController:(id)arg1;
 - (void)popoverController:(id)arg1 animationCompleted:(int)arg2;
+- (void)_dismissEverythingWithExtremePrejudiceAnimated:(BOOL)arg1;
 - (void)openDocumentWithDefaultApplication;
 - (unsigned int)applicationCount;
 - (void)setPreviewURLOverride:(id)arg1;
 - (BOOL)_delegateExistsAndImplementsRequiredMethods:(id *)arg1;
-- (id)_documentProxy;
+- (id)_documentProxySourceIsManaged:(BOOL)arg1;
+- (id)extractSubitemFromArchive:(id)arg1 completion:(id)arg2;
+- (id)subitemsInArchive:(id)arg1;
+@property(readonly, nonatomic, getter=isArchive) BOOL archive;
 
 @end
 

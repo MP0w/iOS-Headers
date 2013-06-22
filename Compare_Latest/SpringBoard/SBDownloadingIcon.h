@@ -6,30 +6,18 @@
 
 #import "SBLeafIcon.h"
 
-@class NSMutableArray, NSOperation, NSString, SSDownload, SSDownloadStatus;
+@class SBApplicationPlaceholder;
 
 @interface SBDownloadingIcon : SBLeafIcon
 {
-    NSString *_applicationBundleID;
-    SSDownload *_download;
-    float _progress;
-    BOOL _installing;
     BOOL _wasUninstalledByUser;
     BOOL _isNewsstandDownload;
-    SSDownloadStatus *_lastStatus;
-    SSDownload *_downloadForImageDataBeingLoaded;
-    NSOperation *_iconImageGenerationOperation;
-    NSMutableArray *_imageCacheFilePaths;
-    BOOL _imageCacheBeingRead;
+    SBApplicationPlaceholder *_appPlaceholder;
 }
 
-+ (id)__iconImageFromData:(id)arg1 format:(int)arg2 scale:(float)arg3 options:(int)arg4 darken:(BOOL)arg5;
-+ (id)__darkenedIconImageForImage:(id)arg1;
-+ (id)leafIdentifierForDownload:(id)arg1;
-+ (id)leafIdentifierForDownloadUniqueID:(id)arg1;
-+ (void)setupDownloadingIconImageCache;
-+ (id)__imageCacheDirectoryPath;
-+ (id)backgroundQueue;
++ (id)leafIdentifierForApplicationPlaceholder:(id)arg1;
++ (id)leafIdentifierForApplicationPlaceholderBundleID:(id)arg1;
+- (void)cancelDownload;
 - (BOOL)iconAppearsInNewsstand;
 - (void)_showAlertForError:(id)arg1;
 - (id)uninstallAlertCancelTitle;
@@ -38,31 +26,13 @@
 - (id)uninstallAlertTitle;
 - (void)setUninstalledByUser:(BOOL)arg1;
 - (BOOL)uninstalledByUser;
-- (void)retry;
 - (void)setNewsstandDownload:(BOOL)arg1;
 - (BOOL)isNewsstandDownload;
-- (id)download;
-- (void)setDownload:(id)arg1;
-- (void)setDownload:(id)arg1 allowReloadImage:(BOOL)arg2;
-- (void)setApplicationBundleID:(id)arg1;
-- (id)applicationBundleID;
-- (BOOL)isDone;
-- (float)progress;
+- (id)appPlaceholder;
+- (void)setApplicationPlaceholder:(id)arg1;
 - (void)reloadForStatusChange;
 - (void)completeUninstall;
-- (BOOL)allowsUninstall;
-- (void)launch;
 - (id)realDisplayName;
-- (id)displayName;
-- (id)_downloadingLabel;
-- (BOOL)canEllipsizeLabel;
-- (id)generateIconImage:(int)arg1;
-- (void)_removeImageCacheFileAtPath:(id)arg1;
-- (void)_reloadThumbnailImage;
-- (void)loadAndDarkenHomeScreenIconImageInBackground;
-- (BOOL)shouldCacheImageForFormat:(int)arg1;
-- (id)getGenericIconImage:(int)arg1;
-- (int)_iconImageOptions;
 - (id)undarkenedHomeScreenIconImage;
 - (id)identifierForCorrespondingApplicationIcon;
 - (id)description;
@@ -70,9 +40,7 @@
 - (BOOL)matchesRepresentation:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithDownload:(id)arg1;
-- (id)initWithDownload:(id)arg1 tryLoadImageImmediately:(BOOL)arg2;
-- (id)initWithLeafIdentifier:(id)arg1;
+- (id)initWithApplicationPlaceholder:(id)arg1;
 
 @end
 

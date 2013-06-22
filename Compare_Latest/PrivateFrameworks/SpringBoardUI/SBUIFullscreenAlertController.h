@@ -40,12 +40,14 @@
 - (void)finishedAnimatingOut;
 - (void)finishedAnimatingIn;
 - (void)animateViewOut;
+- (void)presentViewController:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (BOOL)definesPresentationContext;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)viewDidLoad;
 - (void)viewWillAnimateOut;
-- (BOOL)displaysAboveStatusBar;
 - (BOOL)allowSuspension;
 - (BOOL)isSlidingViewController;
+- (void)setWallpaperTunnelActive:(BOOL)arg1;
 - (void)requestDeactivationAnimated:(BOOL)arg1 animateOldDisplayInWithStyle:(int)arg2;
 - (void)requestActivationAnimated:(BOOL)arg1 animateCurrentDisplayOut:(BOOL)arg2 withDelay:(BOOL)arg3;
 - (id)init;

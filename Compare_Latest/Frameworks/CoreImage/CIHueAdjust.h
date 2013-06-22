@@ -15,7 +15,7 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
+@property(retain, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (void)setDefaults;

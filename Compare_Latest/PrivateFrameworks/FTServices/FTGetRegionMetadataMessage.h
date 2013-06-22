@@ -4,13 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <FTServices/FTMessage.h>
+#import "IDSBaseMessage.h"
 
 #import "NSCopying-Protocol.h"
 
 @class NSDictionary, NSString;
 
-@interface FTGetRegionMetadataMessage : FTMessage <NSCopying>
+@interface FTGetRegionMetadataMessage : IDSBaseMessage <NSCopying>
 {
     NSString *_language;
     NSDictionary *_responseRegionInformation;

@@ -23,11 +23,11 @@
     BOOL _documentViewPresentedViewController;
     struct CGPoint _interactionPoint;
     DOMNode *_interactionElement;
+    BOOL _allowMultipleFiles;
+    BOOL _isUsingCamera;
     NSArray *_mimeTypes;
     UIWebDocumentView *_documentView;
     NSObject<WebOpenPanelResultListener> *_resultListener;
-    BOOL _allowMultipleFiles;
-    BOOL _isUsingCamera;
     id <UIWebFileUploadPanelDelegate> _delegate;
 }
 
@@ -42,6 +42,7 @@
 - (void)imagePickerController:(id)arg1 didFinishPickingMediaWithInfo:(id)arg2;
 - (BOOL)_willMultipleSelectionDelegateBeCalled;
 - (id)_thumbnailSizedImageForImage:(id)arg1;
+- (void)_processMediaInfoDictionaries:(id)arg1 atIndex:(unsigned int)arg2 processedResults:(id)arg3 processedImageCount:(unsigned int)arg4 processedVideoCount:(unsigned int)arg5 successBlock:(id)arg6 failureBlock:(void)arg7;
 - (void)_processMediaInfoDictionaries:(id)arg1 successBlock:(id)arg2 failureBlock:(void)arg3;
 - (id)_displayStringForPhotos:(unsigned int)arg1 videos:(unsigned int)arg2;
 - (void)_temporaryFilePathForOriginalImage:(id)arg1 successBlock:(id)arg2 failureBlock:(void)arg3;

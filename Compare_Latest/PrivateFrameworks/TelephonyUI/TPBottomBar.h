@@ -22,17 +22,12 @@
 + (float)defaultHeightForOrientation:(int)arg1;
 + (float)defaultHeightForStyle:(int)arg1;
 + (float)defaultHeightForStyle:(int)arg1 orientation:(int)arg2;
-+ (id)upsideDownShadowImage;
-+ (id)_backgroundImage;
 @property(readonly) UIImageView *shadowView; // @synthesize shadowView=_shadowView;
 @property(nonatomic) BOOL suppressDrawingBackground; // @synthesize suppressDrawingBackground=_suppressDrawingBackground;
 - (void)setWellAlpha:(float)arg1;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)layoutSubviews;
 - (int)orientation;
 - (void)setOrientation:(int)arg1;
 - (void)setOrientation:(int)arg1 updateFrame:(BOOL)arg2;
-- (void)dealloc;
 - (id)init;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;

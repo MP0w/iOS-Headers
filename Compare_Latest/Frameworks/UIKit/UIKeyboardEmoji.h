@@ -10,17 +10,17 @@
 
 @interface UIKeyboardEmoji : NSObject
 {
-    NSString *emojiString;
-    unsigned short _glyph;
+    NSString *_emojiString;
+    BOOL _hasDingbat;
 }
 
-+ (id)emojiWithString:(id)arg1;
-@property unsigned short glyph; // @synthesize glyph=_glyph;
-@property(retain) NSString *emojiString; // @synthesize emojiString;
++ (id)emojiWithString:(id)arg1 hasDingbat:(BOOL)arg2;
+@property BOOL hasDingbat; // @synthesize hasDingbat=_hasDingbat;
+@property(retain, nonatomic) NSString *emojiString; // @synthesize emojiString=_emojiString;
 - (BOOL)isEqual:(id)arg1;
-@property(readonly) NSString *key;
+- (id)key;
 - (void)dealloc;
-- (id)initWithString:(id)arg1;
+- (id)initWithString:(id)arg1 hasDingbat:(BOOL)arg2;
 
 @end
 

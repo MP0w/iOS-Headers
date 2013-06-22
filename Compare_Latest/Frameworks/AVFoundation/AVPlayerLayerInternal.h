@@ -11,6 +11,7 @@
 @interface AVPlayerLayerInternal : NSObject
 {
     AVPlayer *_player;
+    CALayer *maskLayer;
     CALayer *contentLayer;
     NSString *videoGravity;
     NSString *subtitleGravity;

@@ -6,12 +6,11 @@
 
 #import "SBBaseSoftwareUpdateAlertItem.h"
 
-@class UIActivityIndicatorView, UILabel;
+@class UIView;
 
 @interface SBSoftwareUpdateVerifyingUpdateAlertItem : SBBaseSoftwareUpdateAlertItem
 {
-    UIActivityIndicatorView *_activityView;
-    UILabel *_label;
+    UIView *_activityAccessoryView;
 }
 
 - (BOOL)dismissOnLock;
@@ -21,7 +20,6 @@
 - (BOOL)behavesSuperModally;
 - (BOOL)reappearsAfterLock;
 - (BOOL)reappearsAfterUnlock;
-- (void)willPresentAlertView:(id)arg1;
 - (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 - (void)dealloc;
 - (id)initWithDescriptor:(id)arg1;

@@ -17,15 +17,15 @@
     struct CGSize _layoutSize;
     unsigned int _isDeleteConfirmationVisible:1;
     unsigned int _needsDisplay:1;
-    IUDownloadActionConfiguration *_purchaseActionConfiguration;
-    struct CGSize _purchaseButtonSize;
-    struct CGSize _downloadButtonSize;
-    struct CGSize _downloadProgressIndicatorSize;
     BOOL _downloadable;
     BOOL _downloadInProgress;
     BOOL _canShowPurchasableMediaViews;
+    IUDownloadActionConfiguration *_purchaseActionConfiguration;
+    struct CGSize _purchaseButtonSize;
     struct CGPoint _downloadButtonOrigin;
     struct CGPoint _downloadProgressIndicatorOrigin;
+    struct CGSize _downloadButtonSize;
+    struct CGSize _downloadProgressIndicatorSize;
 }
 
 + (BOOL)showsUntruncationCallout;
@@ -35,18 +35,19 @@
 + (id)backgroundColorWithModifiers:(unsigned int)arg1;
 + (id)customActionRowConfigurationWithSimpleCellConfiguration:(id)arg1;
 + (void)configureTableDisplaySettings:(id)arg1 dataSource:(id)arg2;
+@property(nonatomic) struct CGSize downloadProgressIndicatorSize; // @synthesize downloadProgressIndicatorSize=_downloadProgressIndicatorSize;
+@property(nonatomic) struct CGSize downloadButtonSize; // @synthesize downloadButtonSize=_downloadButtonSize;
 @property(readonly, nonatomic) struct CGPoint downloadProgressIndicatorOrigin; // @synthesize downloadProgressIndicatorOrigin=_downloadProgressIndicatorOrigin;
 @property(readonly, nonatomic) struct CGPoint downloadButtonOrigin; // @synthesize downloadButtonOrigin=_downloadButtonOrigin;
 @property(readonly, nonatomic) BOOL canShowPurchasableMediaViews; // @synthesize canShowPurchasableMediaViews=_canShowPurchasableMediaViews;
 @property(nonatomic, getter=isDownloadInProgress) BOOL downloadInProgress; // @synthesize downloadInProgress=_downloadInProgress;
 @property(nonatomic, getter=isDownloadable) BOOL downloadable; // @synthesize downloadable=_downloadable;
-@property(nonatomic) struct CGSize downloadProgressIndicatorSize; // @synthesize downloadProgressIndicatorSize=_downloadProgressIndicatorSize;
-@property(nonatomic) struct CGSize downloadButtonSize; // @synthesize downloadButtonSize=_downloadButtonSize;
 @property(nonatomic) struct CGSize layoutSize; // @synthesize layoutSize=_layoutSize;
 @property(nonatomic) struct CGSize backgroundSize; // @synthesize backgroundSize=_backgroundSize;
 @property(nonatomic) struct CGSize purchaseButtonSize; // @synthesize purchaseButtonSize=_purchaseButtonSize;
 @property(retain, nonatomic) IUDownloadActionConfiguration *purchaseActionConfiguration; // @synthesize purchaseActionConfiguration=_purchaseActionConfiguration;
 @property(nonatomic) BOOL isNowPlaying; // @synthesize isNowPlaying=_isNowPlaying;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MPMediaItem *mediaItem;
 @property(nonatomic) BOOL isDeleteConfirmationVisible;
 - (struct CGSize)offsetForLabelAtIndex:(unsigned int)arg1;
@@ -78,7 +79,6 @@
 @property(readonly, nonatomic) struct CGRect purchaseButtonFrame;
 - (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
 - (id)backgroundColorWithModifiers:(unsigned int)arg1;
-- (void)dealloc;
 @property(readonly, nonatomic) int preset;
 
 @end

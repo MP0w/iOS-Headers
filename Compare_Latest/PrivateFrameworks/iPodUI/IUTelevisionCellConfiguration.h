@@ -13,6 +13,7 @@
 + (float)rowHeightForGlobalContext:(id)arg1;
 - (void)configureForEntity:(id)arg1 query:(id)arg2 entityIndex:(unsigned int)arg3 entityCount:(unsigned int)arg4;
 - (struct CGPoint)downloadProgressIndicatorOrigin;
+- (struct CGPoint)downloadButtonOrigin;
 - (struct CGRect)purchaseButtonFrame;
 - (BOOL)canShowPurchasableMediaViews;
 - (void)reloadStringsWithProperties:(id)arg1;

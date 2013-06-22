@@ -9,7 +9,7 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSObject<TPIncomingCallOptionsViewDelegate>, TPBottomBar<TPBottomGrabberBar>, TPBottomGrabberLockBar, UITableView;
+@class NSArray, NSMutableArray, NSObject<TPIncomingCallOptionsViewDelegate>, TPBottomBar, TPBottomBar<TPBottomGrabberBar>, TPBottomGrabberLockBar, UITableView;
 
 @interface TPIncomingCallOptionsView : UIView <UITableViewDelegate, UITableViewDataSource>
 {
@@ -46,6 +46,7 @@
 - (float)optionsHeight;
 - (float)barHeight;
 - (void)layoutSubviews;
+@property(readonly) TPBottomBar *lockBar;
 - (void)tap:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;

@@ -11,7 +11,7 @@
 #import "SUPreviewOverlayContainer-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 
-@class ISURLRequestPerformance, NSString, SSAuthenticationContext, SSMutableURLRequestProperties, SSURLRequestProperties, SUNavigationMenuViewController, SUPageSectionGroup, SUSearchFieldController, SUSegmentedControl, SUStorePageProtocol, UIPopoverController;
+@class ISURLRequestPerformance, NSDictionary, NSString, SSAuthenticationContext, SSMutableURLRequestProperties, SSURLRequestProperties, SUNavigationMenuViewController, SUPageSectionGroup, SUSearchFieldController, SUSegmentedControl, SUStorePageProtocol, UIPopoverController, _UIBackdropView;
 
 @interface SUStorePageViewController : SUViewController <SUMenuViewControllerDelegate, SUPreviewOverlayContainer, UIPopoverControllerDelegate, ISURLOperationDelegate>
 {
@@ -37,10 +37,12 @@
     int _activeSectionIndex;
     SUPageSectionGroup *_sectionsGroup;
     SUSegmentedControl *_segmentedControl;
+    _UIBackdropView *_backdropView;
     id <SUStorePageViewControllerDelegate> _delegate;
     BOOL _lastLoadDidFail;
     id _loadBlock;
     ISURLRequestPerformance *_performanceMetrics;
+    NSDictionary *_showcaseDictionary;
     BOOL _useWebViewFastPath;
 }
 
@@ -65,7 +67,6 @@
 - (void)_setRightNavigationItem:(id)arg1 forTag:(int)arg2;
 - (void)_setPendingChildViewController:(id)arg1;
 - (void)_setLeftNavigationItem:(id)arg1 forTag:(int)arg2;
-- (void)_setAllowedOrientations:(id)arg1;
 - (void)_setActiveChildViewController:(id)arg1 shouldTearDown:(BOOL)arg2;
 - (BOOL)_sectionIsNetworkConstrained;
 - (void)_repositionForChildViewController:(id)arg1;
@@ -79,6 +80,7 @@
 - (void)_reloadNavigationButtons;
 - (void)_reloadNavigationBar;
 - (void)_reloadForAppearance:(BOOL)arg1;
+- (void)_reloadBackgroundViewProperties;
 - (void)_performActionForProtocolButton:(id)arg1;
 - (id)_newSegmentedControlWithItems:(id)arg1;
 - (id)_newBarButtonItemsWithButtonItems:(id)arg1 replacingItemWithTag:(int)arg2 withButtonItem:(id)arg3;
@@ -97,6 +99,7 @@
 - (void)_applyPropertiesToViewController:(id)arg1;
 - (id)_activePageSection;
 - (id)_activeChildViewController;
+- (void)_showNativeShowcaseWithDictionary:(id)arg1;
 - (BOOL)_shouldDisplaySegmentedControlInNavigationBar:(id)arg1;
 - (void)_setSegmentedControl:(id)arg1;
 - (void)_setHeaderView:(id)arg1;
@@ -146,9 +149,9 @@
 - (id)navigationItemForScriptInterface;
 - (void)loadView;
 - (BOOL)loadMoreWithURL:(id)arg1;
+- (int)ITunesStoreUIBarStyle;
 - (void)iTunesStoreUI_searchFieldControllerDidChange:(id)arg1;
 - (id)iTunesStoreUI_searchFieldController;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
 - (void)invalidateForMemoryPurge;
 - (void)invalidate;
 - (void)handleStoreFailureWithError:(id)arg1;

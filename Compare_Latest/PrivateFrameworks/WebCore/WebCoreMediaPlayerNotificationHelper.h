@@ -12,6 +12,9 @@
     BOOL _deferredPropertiesScheduled;
 }
 
+- (void)pluginElementDidOutputAttributedStrings:(id)arg1 nativeSampleBuffers:(id)arg2 forTime:(double)arg3;
+- (void)pluginElementDidSelectTextTrack:(id)arg1;
+- (void)pluginElementInBandAlternateTextTracksDidChange:(id)arg1;
 - (void)scheduleDeferredPropertiesWithOptionalDelay:(id)arg1;
 - (void)schedulePrepareToPlayWithOptionalDelay:(id)arg1;
 - (void)deliverNotification:(id)arg1;

@@ -14,8 +14,10 @@
     NSValue *searchFieldPositionAdjustment;
     NSMutableDictionary *iconImages;
     UIImage *separatorImage;
+    UIImage *scopeBarBackgroundImage;
 }
 
+@property(retain, nonatomic) UIImage *scopeBarBackgroundImage; // @synthesize scopeBarBackgroundImage;
 @property(retain, nonatomic) UIImage *separatorImage; // @synthesize separatorImage;
 @property(retain, nonatomic) NSValue *searchFieldPositionAdjustment; // @synthesize searchFieldPositionAdjustment;
 - (void)dealloc;

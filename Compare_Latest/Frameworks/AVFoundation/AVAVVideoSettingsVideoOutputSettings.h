@@ -13,6 +13,8 @@
 @interface AVAVVideoSettingsVideoOutputSettings : AVVideoOutputSettings <AVReencodedVideoSettingsForFig>
 {
     NSDictionary *_adaptedVideoCompressionProperties;
+    NSDictionary *_VTPixelAspectRatioDictionary;
+    NSDictionary *_VTCleanApertureDictionary;
 }
 
 + (BOOL)_validateVideoCompressionProperties:(id)arg1 againstSupportedPropertyDictionary:(id)arg2 forCodecType:(id)arg3 exceptionReason:(id *)arg4;
@@ -21,6 +23,8 @@
 @property(readonly, nonatomic) NSDictionary *videoCompressionProperties;
 @property(readonly, nonatomic) NSDictionary *videoEncoderSpecification;
 @property(readonly, nonatomic) unsigned long videoCodecType;
+- (id)cleanApertureDictionary;
+- (id)pixelAspectRatioDictionary;
 - (int)height;
 - (int)width;
 - (BOOL)canFullySpecifyOutputFormatReturningReason:(id *)arg1;

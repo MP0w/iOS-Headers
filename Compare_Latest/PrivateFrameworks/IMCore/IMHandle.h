@@ -20,7 +20,6 @@
     NSDictionary *_otherServiceIDs;
     NSDate *_idleSince;
     NSDate *_feedUpdatedDate;
-    NSDictionary *_presenceProps;
     NSDictionary *_extraProps;
     NSDictionary *_certs;
     NSSet *_groups;
@@ -65,7 +64,6 @@
     BOOL _isBot;
     BOOL _isAnonymous;
     BOOL _beingTornDown;
-    BOOL _willUpdateIdleTime;
     BOOL _hasCheckedCardMap;
     BOOL _isRegistered;
     int _priority;
@@ -84,6 +82,7 @@
 + (void)setNotificationsEnabled:(BOOL)arg1;
 @property(readonly, nonatomic) int addressBookIdentifier; // @synthesize addressBookIdentifier=_addressBookIdentifier;
 @property(retain, nonatomic) NSURL *statusMessageAsURL; // @synthesize statusMessageAsURL=_statusMessageURL;
+@property(nonatomic) int IDStatus; // @synthesize IDStatus=_IDStatus;
 @property(readonly, nonatomic) BOOL isBot; // @synthesize isBot=_isBot;
 @property(readonly, nonatomic) BOOL isMobile; // @synthesize isMobile=_isMobile;
 @property(retain, nonatomic) NSDictionary *otherServiceIDs; // @synthesize otherServiceIDs=_otherServiceIDs;
@@ -98,7 +97,6 @@
 @property(readonly, nonatomic) NSDate *feedUpdatedDate; // @synthesize feedUpdatedDate=_feedUpdatedDate;
 @property(readonly, nonatomic) unsigned int previousStatus; // @synthesize previousStatus=_prevStatus;
 @property(readonly, nonatomic) unsigned int authRequestStatus; // @synthesize authRequestStatus=_authRequestStatus;
-@property(readonly, nonatomic) NSDictionary *presenceProperties; // @synthesize presenceProperties=_presenceProps;
 @property(readonly, nonatomic) NSDictionary *extraProperties; // @synthesize extraProperties=_extraProps;
 @property(readonly, nonatomic) NSURL *statusURL; // @synthesize statusURL=_statusURL;
 @property(setter=_setIsRegisteredWithRegistrar:) BOOL _isRegisteredWithRegistrar; // @synthesize _isRegisteredWithRegistrar=_isRegistered;
@@ -111,7 +109,6 @@
 - (void)_imPersonPictureChanged:(id)arg1;
 - (void)_sendCommand:(id)arg1 properties:(id)arg2;
 - (void)_sendAutomationData:(id)arg1 properties:(id)arg2;
-- (void)_sendData:(id)arg1;
 @property(readonly, nonatomic) BOOL hasMultiwayAudio;
 @property(readonly, nonatomic) BOOL hasAudio;
 @property(readonly, nonatomic) BOOL hasMultiwayVideo;
@@ -147,9 +144,6 @@
 @property(readonly, nonatomic) double timeSinceStatusChanged;
 @property(readonly, nonatomic) double timeSinceWentOffline;
 - (void)setStatus:(unsigned int)arg1 message:(id)arg2 richMessage:(id)arg3;
-- (void)_updateIdleTimer;
-- (void)_updateIdleTime;
-- (void)_scheduleIdleTimeUpdate;
 - (void)_clearStatusMessageURLCache;
 @property(readonly, nonatomic) NSString *statusMessage;
 - (void)_filterStatusMessage;
@@ -158,7 +152,7 @@
 - (void)setStatusURLFromString:(id)arg1;
 - (void)setFeedUpdatedDate:(id)arg1;
 - (void)setIdleSince:(id)arg1;
-@property(nonatomic) int IDStatus; // @synthesize IDStatus=_IDStatus;
+- (void)_setIDStatus:(int)arg1;
 - (void)requestIDStatus;
 @property(readonly, nonatomic) double idleTime;
 @property(readonly, nonatomic) NSString *nameOfStatus;
@@ -183,10 +177,7 @@
 - (BOOL)_isMyIDInList:(id)arg1;
 - (void)propertiesChanged:(id)arg1;
 - (void)_setExtraProperties:(id)arg1;
-- (void)setPresenceProperties:(id)arg1;
 @property(readonly, nonatomic) id bestSibling;
-- (id)bestSiblingInGroup:(id)arg1;
-- (id)bestSiblingInGroup:(id)arg1 otherThan:(id)arg2;
 - (id)bestIMHandleForAccount:(id)arg1 onService:(id)arg2 inGroup:(id)arg3 otherThan:(id)arg4;
 @property(readonly, nonatomic) id bestAccountSibling;
 - (id)bestIMHandleForAccount:(id)arg1;
@@ -197,6 +188,7 @@
 - (void)setValue:(id)arg1 ofExtraProperty:(id)arg2;
 - (void)requestValueOfProperty:(id)arg1;
 - (id)_formattedPhoneNumber;
+- (void)_updateOriginalID:(id)arg1;
 - (struct __CFPhoneNumber *)phoneNumberRef;
 - (void)_createPhoneNumberRefIfNeeded;
 @property(readonly, nonatomic) BOOL isLoginIMHandle;
@@ -230,6 +222,7 @@
 - (void)resetUniqueName;
 @property(readonly, nonatomic) NSString *nameAndID;
 @property(readonly, nonatomic) NSString *fullName;
+- (id)displayNameForChat:(id)arg1;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSString *normalizedID;
 @property(readonly, nonatomic) NSString *displayID;

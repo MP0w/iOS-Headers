@@ -18,10 +18,10 @@
     NSPersistentStoreCoordinator *_psc;
     NSMutableDictionary *_storeNameToFetchedMetadata;
     NSArray *_globalObjectIDs;
-    unsigned int _numRangesToReserve;
+    int _numRangesToReserve;
 }
 
-@property(readonly, nonatomic) unsigned int numRangesToReserve; // @synthesize numRangesToReserve=_numRangesToReserve;
+@property(readonly, nonatomic) int numRangesToReserve; // @synthesize numRangesToReserve=_numRangesToReserve;
 @property(readonly, nonatomic) NSArray *globalObjectIDs; // @synthesize globalObjectIDs=_globalObjectIDs;
 @property(readonly, nonatomic) NSManagedObjectContext *moc; // @synthesize moc=_moc;
 @property(readonly, nonatomic) NSPersistentStore *store; // @synthesize store=_store;

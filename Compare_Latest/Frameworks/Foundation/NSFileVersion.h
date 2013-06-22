@@ -39,6 +39,7 @@
 + (id)_temporaryDirectoryURLForNewVersionOfItemAtURL:(id)arg1 temporaryStorageIdentifier:(id)arg2;
 + (id)_addVersionOfItemAtURL:(id)arg1 withContentsOfURL:(id)arg2 options:(unsigned int)arg3 temporaryStorageIdentifier:(id *)arg4 error:(id *)arg5;
 + (id)_versionOfItemAtURL:(id)arg1 forPersistentIdentifier:(id)arg2 temporaryStorageIdentifier:(id)arg3;
++ (id)_otherNonpurgeableVersionsOfItemAtURL:(id)arg1 temporaryStorageIdentifier:(id)arg2;
 + (id)_otherVersionsOfItemAtURL:(id)arg1 temporaryStorageIdentifier:(id)arg2;
 + (id)_libraryForURL:(id)arg1 clientID:(id)arg2 temporaryStorageIdentifier:(id *)arg3;
 + (id)_supportedGenerationalStorageClientIDs;
@@ -69,6 +70,7 @@
 - (void)_overrideModificationDateWithDate:(id)arg1;
 - (BOOL)_setDocumentInfo:(id)arg1;
 - (id)_documentInfo;
+- (id)_initWithFileURL:(id)arg1 library:(id)arg2 clientID:(id)arg3 generationInfo:(id)arg4;
 - (id)_initWithFileURL:(id)arg1 library:(id)arg2 clientID:(id)arg3 name:(id)arg4 contentsURL:(id)arg5 isBackup:(BOOL)arg6 revision:(id)arg7;
 - (id)restoreOverItemAtURL:(id)arg1 error:(id *)arg2;
 

@@ -12,6 +12,7 @@
     unsigned int _options;
 }
 
++ (BOOL)supportsSecureCoding;
 - (BOOL)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)options;

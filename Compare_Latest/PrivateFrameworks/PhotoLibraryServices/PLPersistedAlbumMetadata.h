@@ -10,11 +10,11 @@
 
 @interface PLPersistedAlbumMetadata : NSObject
 {
+    BOOL _allowsOverwite;
     NSString *_title;
     NSString *_uuid;
     NSNumber *_kind;
     NSMutableOrderedSet *_assetUUIDs;
-    BOOL _allowsOverwite;
     PLManagedAlbum *_managedAlbum;
     NSURL *_metadataURL;
 }

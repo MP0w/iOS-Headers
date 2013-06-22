@@ -25,10 +25,10 @@
 - (void)setDelegate:(id)arg1;
 - (void)setText:(id)arg1;
 - (id)text;
+- (void)refreshPreferredContentSize;
 - (void)textFieldDidBecomeFirstResponder:(id)arg1;
 - (void)textFieldDidResignFirstResponder:(id)arg1;
 - (BOOL)becomeFirstResponder;
-- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -23,9 +23,12 @@
 - (const id *)knownKeyValuesPointer;
 - (unsigned long long)version;
 - (id)objectID;
+- (void)updateFromSQLRow:(id)arg1;
 - (void)updateWithValues:(id)arg1 version:(unsigned long long)arg2;
+- (id)description;
 - (void)dealloc;
 - (id)initWithObjectID:(id)arg1 withValues:(id)arg2 version:(unsigned long long)arg3;
+- (id)initWithObjectID:(id)arg1 fromSQLRow:(id)arg2;
 - (id)_propertyCache;
 
 @end

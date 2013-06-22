@@ -36,7 +36,7 @@
 - (id)member:(id)arg1;
 - (id)pointerFunctions;
 - (id)initWithPointerFunctions:(id)arg1 capacity:(unsigned int)arg2;
-- (void)getKeys:(void **)arg1 count:(unsigned int *)arg2;
+- (void)getKeys:(const void **)arg1 count:(unsigned int *)arg2;
 - (void)removeAllItems;
 - (id)copy;
 - (void)removeItem:(const void *)arg1;

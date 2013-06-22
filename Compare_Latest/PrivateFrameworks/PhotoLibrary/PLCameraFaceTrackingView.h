@@ -12,7 +12,6 @@
 }
 
 @property(nonatomic) BOOL isInFrame; // @synthesize isInFrame=_isInFrame;
-- (void)scaleWithZoomFactor:(float)arg1;
 - (void)animateToFrame:(struct CGRect)arg1;
 - (void)fadeOut;
 - (void)fadeIn;

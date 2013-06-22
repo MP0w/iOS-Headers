@@ -23,6 +23,7 @@
 @property(nonatomic) BOOL showControlsWithFirstFrame; // @synthesize showControlsWithFirstFrame=_showControlsWithFirstFrame;
 @property(nonatomic) double restoredTimeOnAppear; // @synthesize restoredTimeOnAppear=_restoredTimeOnAppear;
 @property(nonatomic) double currentTimeOnAppear; // @synthesize currentTimeOnAppear=_currentTimeOnAppear;
+- (void).cxx_destruct;
 - (id)_scaleModeButton;
 - (void)_endPlayback;
 - (void)_endPlaybackByPausing;
@@ -39,7 +40,7 @@
 - (void)viewControllerRequestsExit:(id)arg1;
 - (BOOL)videoController:(id)arg1 tappedButtonPart:(unsigned long long)arg2;
 - (void)videoController:(id)arg1 scaleModeDidChange:(unsigned int)arg2;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (BOOL)restoreArchivedContexts:(id)arg1;
 - (id)copyArchivableContexts;
 - (BOOL)shouldArchiveCreateVideoSnapshot;

@@ -8,18 +8,33 @@
 
 @interface VKPTrafficStyle : PBCodable
 {
+    float _fadingOffset;
+    float _fadingSlope;
     unsigned int _fillColor;
-    int _pattern;
-    float _spacing;
+    float _patternLength;
+    float _patternSlotLength;
+    float _patternWidth;
+    unsigned int _secondaryColor;
+    int _uNUSEDPattern;
     float _widthFraction;
     struct {
+        unsigned int fadingOffset:1;
+        unsigned int fadingSlope:1;
         unsigned int fillColor:1;
-        unsigned int pattern:1;
-        unsigned int spacing:1;
+        unsigned int patternLength:1;
+        unsigned int patternSlotLength:1;
+        unsigned int patternWidth:1;
+        unsigned int secondaryColor:1;
+        unsigned int uNUSEDPattern:1;
         unsigned int widthFraction:1;
     } _has;
 }
 
+@property(nonatomic) float fadingSlope; // @synthesize fadingSlope=_fadingSlope;
+@property(nonatomic) float fadingOffset; // @synthesize fadingOffset=_fadingOffset;
+@property(nonatomic) float patternWidth; // @synthesize patternWidth=_patternWidth;
+@property(nonatomic) float patternLength; // @synthesize patternLength=_patternLength;
+@property(nonatomic) unsigned int secondaryColor; // @synthesize secondaryColor=_secondaryColor;
 @property(nonatomic) unsigned int fillColor; // @synthesize fillColor=_fillColor;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
@@ -28,10 +43,15 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) BOOL hasSpacing;
-@property(nonatomic) float spacing; // @synthesize spacing=_spacing;
-@property(nonatomic) BOOL hasPattern;
-@property(nonatomic) int pattern; // @synthesize pattern=_pattern;
+@property(nonatomic) BOOL hasFadingSlope;
+@property(nonatomic) BOOL hasFadingOffset;
+@property(nonatomic) BOOL hasPatternWidth;
+@property(nonatomic) BOOL hasPatternLength;
+@property(nonatomic) BOOL hasSecondaryColor;
+@property(nonatomic) BOOL hasPatternSlotLength;
+@property(nonatomic) float patternSlotLength; // @synthesize patternSlotLength=_patternSlotLength;
+@property(nonatomic) BOOL hasUNUSEDPattern;
+@property(nonatomic) int uNUSEDPattern; // @synthesize uNUSEDPattern=_uNUSEDPattern;
 @property(nonatomic) BOOL hasFillColor;
 @property(nonatomic) BOOL hasWidthFraction;
 @property(nonatomic) float widthFraction; // @synthesize widthFraction=_widthFraction;

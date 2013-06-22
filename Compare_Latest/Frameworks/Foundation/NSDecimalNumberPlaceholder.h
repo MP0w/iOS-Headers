@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithMantissa:(unsigned long long)arg1 exponent:(short)arg2 isNegative:(BOOL)arg3;

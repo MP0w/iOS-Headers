@@ -50,9 +50,6 @@
 - (id)standardChromeView;
 - (id)backgroundView;
 - (id)contentView;
-- (void)motionCancelled:(int)arg1 withEvent:(id)arg2;
-- (void)motionEnded:(int)arg1 withEvent:(id)arg2;
-- (void)motionBegan:(int)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;

@@ -21,7 +21,6 @@
 - (void)adjustPopoverSize;
 - (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)dealloc;
 - (id)initWithPrintPanelViewController:(id)arg1;
 
 @end

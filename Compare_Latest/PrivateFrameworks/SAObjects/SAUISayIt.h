@@ -6,7 +6,7 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
-@class NSString;
+@class NSNumber, NSString;
 
 @interface SAUISayIt : SABaseClientBoundCommand
 {
@@ -16,6 +16,7 @@
 + (id)sayIt;
 - (BOOL)requiresResponse;
 @property(copy, nonatomic) NSString *message;
+@property(copy, nonatomic) NSNumber *listenAfterSpeaking;
 @property(retain, nonatomic) id <SAAceSerializable> context;
 - (id)encodedClassName;
 - (id)groupIdentifier;

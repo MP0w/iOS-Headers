@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class InlineCandidateCell, NSArray, NSMutableArray;
+@class NSArray, NSMutableArray, _UIInlineCandidateCell;
 
 @interface UIInlineCandidateTextView : UIView
 {
@@ -18,13 +18,12 @@
     id _target;
     SEL _action;
     unsigned int _selectedItem;
-    InlineCandidateCell *_currentlyPushedItem;
+    _UIInlineCandidateCell *_currentlyPushedItem;
     BOOL _showingArrow;
     BOOL _arrowHighlighted;
     BOOL _phraseEditable;
 }
 
-- (BOOL)needsWebDocumentViewEventsDirectly;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
@@ -33,10 +32,6 @@
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (struct CGRect)_calculateRectForExpandedHitRegion;
-- (void)mouseUp:(struct __GSEvent *)arg1;
-- (void)_mouseUp:(struct __GSEvent *)arg1 wasCancelled:(BOOL)arg2;
-- (void)mouseDragged:(struct __GSEvent *)arg1;
-- (void)mouseDown:(struct __GSEvent *)arg1;
 - (void)redrawArrow;
 - (id)findCell:(struct CGPoint)arg1;
 - (void)drawRect:(struct CGRect)arg1;

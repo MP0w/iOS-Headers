@@ -12,15 +12,26 @@
     float _scale;
     int _uAlpha;
     float _alpha;
+    int _uBrightness;
+    float _brightness;
     CDStruct_03942939 _cameraPositionInTileSpace;
     int _uCameraPositionInTileSpace;
+    int _uFacadeColor;
+    struct _VGLColor _facadeColor;
+    int _uTopColor;
+    struct _VGLColor _topColor;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
+@property(nonatomic) struct _VGLColor topColor; // @synthesize topColor=_topColor;
+@property(nonatomic) struct _VGLColor facadeColor; // @synthesize facadeColor=_facadeColor;
 @property(nonatomic) CDStruct_03942939 cameraPositionInTileSpace; // @synthesize cameraPositionInTileSpace=_cameraPositionInTileSpace;
+@property(nonatomic) float brightness; // @synthesize brightness=_brightness;
 @property(nonatomic) float alpha; // @synthesize alpha=_alpha;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
-- (id)init;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

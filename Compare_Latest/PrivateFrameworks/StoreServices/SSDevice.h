@@ -45,6 +45,7 @@
 - (void)_reloadAfterStoreFrontChange;
 - (id)_productVersion;
 - (void)_postStoreFrontDidChangeNotification;
+- (id)_newUserAgentWithClientName:(id)arg1 version:(id)arg2 isCachable:(char *)arg3;
 - (BOOL)_is1080pCapable;
 - (BOOL)_is720pCapable;
 - (void)_invalidateSoftwareCUID;
@@ -58,7 +59,6 @@
 - (int)_deviceClass;
 - (id)_copyProductType;
 - (id)_copyKeyValueStoreValueForDomain:(id)arg1 key:(id)arg2;
-- (id)_copyGSCapabilityValueForKey:(struct __CFString *)arg1;
 - (void)_cacheKeyValueStoreValues;
 - (void)resetStoreFrontForSignOut;
 - (void)unionAutomaticDownloadKinds:(id)arg1 withCompletionBlock:(id)arg2;
@@ -80,7 +80,7 @@
 @property(readonly, getter=isPluggedIn) BOOL pluggedIn;
 @property(readonly) int deviceType;
 @property(readonly) double batteryLevel;
-@property(readonly) unsigned long deviceTypeIdentifier;
+- (id)userAgentWithClientName:(id)arg1 version:(id)arg2;
 @property(readonly) NSString *userAgent;
 @property(readonly) NSString *storeFrontIdentifier;
 - (void)showPromptWithIdentifier:(id)arg1 completionHandler:(id)arg2;
@@ -89,6 +89,7 @@
 - (void)loadStoreFrontWithCompletionHandler:(id)arg1;
 - (void)getCellularNetworkingAllowedWithBlock:(id)arg1;
 - (void)getAvailableItemKindsWithBlock:(id)arg1;
+@property(readonly) unsigned long deviceTypeIdentifier;
 - (id)copyStoreFrontRequestHeaders;
 @property(readonly) NSSet *automaticDownloadKinds;
 - (void)dealloc;

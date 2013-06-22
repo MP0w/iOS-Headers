@@ -11,16 +11,18 @@
     int _uColor;
     struct _VGLColor _color;
     int _uInvFwidth;
-    CDStruct_6e3f967a _invFwidth;
+    Vec2Imp_1782d7e3 _invFwidth;
     int _uGridView;
     CDUnion_f5b85e25 _gridView;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) CDUnion_f5b85e25 gridView; // @synthesize gridView=_gridView;
-@property(nonatomic) CDStruct_6e3f967a invFwidth; // @synthesize invFwidth=_invFwidth;
+@property(nonatomic) Vec2Imp_1782d7e3 invFwidth; // @synthesize invFwidth=_invFwidth;
 @property(nonatomic) struct _VGLColor color; // @synthesize color=_color;
-- (id)init;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

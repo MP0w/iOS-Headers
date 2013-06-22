@@ -6,11 +6,11 @@
 
 #import <Preferences/PSTableCell.h>
 
-#import "UITextViewDelegate-Protocol.h"
+#import "UITextContentViewDelegate-Protocol.h"
 
 @class PSTextView;
 
-@interface PSTextViewTableCell : PSTableCell <UITextViewDelegate>
+@interface PSTextViewTableCell : PSTableCell <UITextContentViewDelegate>
 {
     PSTextView *_textView;
 }
@@ -21,11 +21,11 @@
 - (BOOL)resignFirstResponder;
 - (BOOL)canBecomeFirstResponder;
 - (BOOL)becomeFirstResponder;
-- (void)textViewDidEndEditing:(id)arg1;
+- (void)textContentViewDidEndEditing:(id)arg1;
 - (void)_adjustTextView:(id)arg1 updateTable:(BOOL)arg2 withSpecifier:(id)arg3;
 - (void)layoutSubviews;
 - (void)cellRemovedFromView;
-- (void)textViewDidChange:(id)arg1;
+- (void)textContentViewDidChange:(id)arg1;
 - (void)setValue:(id)arg1;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;

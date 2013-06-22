@@ -6,11 +6,10 @@
 
 #import <AddressBookUI/ABPasteboardControl.h>
 
-@class ABClippingImageView, UIImage, UIImageView;
+@class ABClippingImageView, ABUIPerson, UIImage, UIImageView;
 
 @interface ABPersonImageView : ABPasteboardControl
 {
-    void *_displayedPerson;
     UIImageView *_personImageView;
     UIImageView *_editingImageView;
     ABClippingImageView *_emptyImageView;
@@ -18,24 +17,21 @@
     UIImage *_personImage;
     BOOL _isEditing;
     BOOL _showLabel;
-    BOOL _scalesContentToFit;
     BOOL _needsReflow;
     BOOL _needsReload;
-    id <ABPersonImageDataDelegate> _imageDataDelegate;
-    BOOL _multiplePhotoBackdropEnabled;
-    BOOL _shouldPickBestImage;
-    id <ABStyleProvider> _styleProvider;
     BOOL _allowsEditing;
+    BOOL _multiplePhotoBackdropEnabled;
+    ABUIPerson *_displayedPerson;
+    id <ABStyleProvider> _styleProvider;
+    id <ABPersonImageDataDelegate> _imageDataDelegate;
 }
 
-+ (struct CGSize)sizeForOptimalPerformance;
 + (id)newImageWithName:(id)arg1;
-@property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
-@property(nonatomic) BOOL scalesContentToFit; // @synthesize scalesContentToFit=_scalesContentToFit;
-@property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
-@property(nonatomic) BOOL shouldPickBestImage; // @synthesize shouldPickBestImage=_shouldPickBestImage;
-@property(nonatomic) BOOL multiplePhotoBackdropEnabled; // @synthesize multiplePhotoBackdropEnabled=_multiplePhotoBackdropEnabled;
 @property(nonatomic) id <ABPersonImageDataDelegate> imageDataDelegate; // @synthesize imageDataDelegate=_imageDataDelegate;
+@property(nonatomic) BOOL multiplePhotoBackdropEnabled; // @synthesize multiplePhotoBackdropEnabled=_multiplePhotoBackdropEnabled;
+@property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
+@property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
+@property(retain, nonatomic) ABUIPerson *displayedPerson; // @synthesize displayedPerson=_displayedPerson;
 - (void)paste:(id)arg1;
 - (void)copy:(id)arg1;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
@@ -44,14 +40,11 @@
 - (BOOL)abShouldShowMenu;
 - (id)_supportedPasteboardImageTypesIncludingCustomTypes:(BOOL)arg1;
 - (id)_newDictionaryWithImageData;
-- (BOOL)hasImageToDisplay;
 - (void)setIsEditing:(BOOL)arg1 animate:(BOOL)arg2;
-@property(nonatomic) void *displayedPerson;
 - (void)setNeedsReload;
 - (void)setNeedsReflow;
 - (void)reload;
-- (id)copyDefaultImageForPerson:(void *)arg1;
-- (id)copyImageForPerson:(void *)arg1 withFrameSize:(struct CGSize)arg2 operation:(id)arg3 cache:(id)arg4;
+- (id)copyDefaultImageForPerson:(id)arg1;
 - (void)layoutSubviews;
 - (void)reflowIfNeeded;
 - (void)reloadIfNeeded;

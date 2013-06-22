@@ -12,6 +12,7 @@
 
 - (BOOL)shouldShowDisclosure;
 - (BOOL)shouldBeQuickLooked;
+- (BOOL)shouldShowViewer;
 
 @end
 

@@ -8,10 +8,11 @@
 
 @interface WebCookieStorageObjCAdapter : NSObject
 {
+    void *m_cookieChangeCallback;
 }
 
 - (void)stopListeningForCookieChangeNotifications;
-- (void)startListeningForCookieChangeNotifications;
+- (void)startListeningForCookieChangeNotificationsWithCallback:(void *)arg1;
 - (void)cookiesChangedNotificationHandler:(id)arg1;
 - (void)notifyCookiesChangedOnMainThread;
 

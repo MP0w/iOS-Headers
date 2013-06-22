@@ -8,16 +8,14 @@
 
 #import "NSManagedObjectContextFaultingDelegate-Protocol.h"
 
-@class NSError, NSManagedObjectContext, NSMutableDictionary, NSMutableSet, NSObject<_PFUbiquityRecordImportOperationDelegate>, NSPersistentStore, NSPersistentStoreCoordinator, NSString, PFUbiquityImportContext, PFUbiquityKnowledgeVector, PFUbiquitySwitchboardEntry, PFUbiquityTransactionLog;
+@class NSError, NSManagedObjectContext, NSMutableDictionary, NSMutableSet, NSObject<_PFUbiquityRecordImportOperationDelegate>, NSPersistentStoreCoordinator, PFUbiquityImportContext, PFUbiquityKnowledgeVector, PFUbiquitySwitchboardEntry, PFUbiquityTransactionLog;
 
 @interface _PFUbiquityRecordImportOperation : PFUbiquityImportOperation <NSManagedObjectContextFaultingDelegate>
 {
     NSManagedObjectContext *_moc;
     NSPersistentStoreCoordinator *_psc;
-    NSPersistentStore *_store;
     PFUbiquityTransactionLog *_transactionLog;
     PFUbiquitySwitchboardEntry *_entry;
-    NSString *_localPeerID;
     NSMutableSet *_insertedObjectIDs;
     NSMutableSet *_updatedObjectIDs;
     NSMutableSet *_deletedObjectIDs;
@@ -32,12 +30,12 @@
     BOOL _wroteKV;
     int _inMemorySequenceNumber;
     NSError *_operationError;
+    NSMutableDictionary *_relationshipsToObjectIDsToCheck;
 }
 
 @property(readonly, nonatomic) BOOL wroteKV; // @synthesize wroteKV=_wroteKV;
 @property(readonly, nonatomic) NSError *operationError; // @synthesize operationError=_operationError;
 @property(readonly, nonatomic) BOOL success; // @synthesize success=_success;
-@property(readonly) NSPersistentStore *store; // @synthesize store=_store;
 @property(readonly, nonatomic) BOOL transactionDidRollBack; // @synthesize transactionDidRollBack=_transactionDidRollback;
 @property(retain, nonatomic) PFUbiquityKnowledgeVector *updatedStoreKnowledgeVector; // @synthesize updatedStoreKnowledgeVector=_updatedStoreKnowledgeVector;
 @property(retain, nonatomic) PFUbiquityImportContext *importContext; // @synthesize importContext=_importContext;
@@ -48,11 +46,9 @@
 @property(readonly, nonatomic) NSMutableSet *deletedObjectIDs; // @synthesize deletedObjectIDs=_deletedObjectIDs;
 @property(readonly, nonatomic) NSMutableSet *updatedObjectIDs; // @synthesize updatedObjectIDs=_updatedObjectIDs;
 @property(readonly, nonatomic) NSMutableSet *insertedObjectIDs; // @synthesize insertedObjectIDs=_insertedObjectIDs;
-@property(readonly) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) PFUbiquityTransactionLog *transactionLog; // @synthesize transactionLog=_transactionLog;
 @property(readonly) NSPersistentStoreCoordinator *psc; // @synthesize psc=_psc;
 @property(readonly) NSManagedObjectContext *moc; // @synthesize moc=_moc;
-- (void)coordinatorWillRemoveStore:(id)arg1;
 - (int)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
 - (id)description;
 - (void)respondToStoreTransactionStateChangeNotification:(id)arg1;
@@ -63,10 +59,10 @@
 - (void)notifyDelegateOfError:(id)arg1;
 - (id)retainedDelegate;
 @property NSObject<_PFUbiquityRecordImportOperationDelegate> *delegate;
+- (void)cancel;
 - (id)copy;
 - (void)dealloc;
-- (id)initWithTransactionLog:(id)arg1 withLocalPeerID:(id)arg2;
-- (id)initWithTransactionLog:(id)arg1;
+- (id)initWithTransactionLog:(id)arg1 persistentStore:(id)arg2 andLocalPeerID:(id)arg3;
 - (id)init;
 
 @end

@@ -20,7 +20,7 @@
 {
     id <MFMailPopoverManagerDelegate> _popoverOwner;
     id <MFMailComposeViewDelegate> _mailComposeViewDelegate;
-    id <MFMailComposeRecipientViewDelegate> _composeRecipientViewDelegate;
+    id <MFComposeRecipientViewDelegate> _composeRecipientViewDelegate;
     UIView *_headerView;
     UIView *_contentView;
     UIView *_shadowView;
@@ -38,6 +38,7 @@
     MFComposeImageSizeView *_imageSizeField;
     UIPickerView *_fromAddressPickerView;
     MFFromAddressViewController *_fromAddressViewController;
+    UIView *_fromAddressPickerBackgroundView;
     UIResponder *_firstResponderBeforeSheet;
     UIResponder *_pinningResponder;
     NSInvocation *_delayedPopoverInvocation;
@@ -74,7 +75,7 @@
 @property(readonly, nonatomic) MFMailComposeRecipientView *ccField; // @synthesize ccField=_ccField;
 @property(readonly, nonatomic) MFMailComposeRecipientView *toField; // @synthesize toField=_toField;
 @property(nonatomic) id <MFMailPopoverManagerDelegate> popoverOwner; // @synthesize popoverOwner=_popoverOwner;
-@property(nonatomic) id <MFMailComposeRecipientViewDelegate> composeRecipientDelegate; // @synthesize composeRecipientDelegate=_composeRecipientViewDelegate;
+@property(nonatomic) id <MFComposeRecipientViewDelegate> composeRecipientDelegate; // @synthesize composeRecipientDelegate=_composeRecipientViewDelegate;
 @property(nonatomic) id <MFMailComposeViewDelegate> composeViewDelegate; // @synthesize composeViewDelegate=_mailComposeViewDelegate;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
@@ -90,16 +91,21 @@
 - (void)clearSearchForRecipientView:(id)arg1 reflow:(BOOL)arg2 clear:(BOOL)arg3;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)selectSearchResultsRecipientAtIndexPath:(id)arg1;
-- (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
+- (void)_accessoryButtonTapped:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (float)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
+- (void)composeContactsSearchController:(id)arg1 didFindCorecipients:(id)arg2;
 - (void)composeContactsSearchController:(id)arg1 finishedWithResults:(BOOL)arg2;
 - (void)composeContactsSearchController:(id)arg1 didSortResults:(id)arg2;
 - (id)sendingAddressForComposeContactsSearchController:(id)arg1;
+- (void)findCorecipientsWithRecipientView:(id)arg1;
 - (void)invalidateSearchResultRecipient:(id)arg1;
 - (void)cancelSearch;
 - (void)beginSearchForText:(id)arg1 recipientView:(id)arg2;
 - (BOOL)presentSearchResults:(id)arg1;
+- (void)dismissSearchResults;
 - (BOOL)presentSearchResults;
 - (BOOL)chooseSelectedSearchResult;
 - (void)selectPreviousSearchResult;
@@ -144,6 +150,7 @@
 - (void)_cancelDelayedPopover;
 - (void)_presentDelayedPopover;
 - (void)cancelDelayedPopover;
+- (void)_adjustHeaderFieldsPreferredContentSize;
 - (void)_layoutMultiFieldWithChangingView:(id)arg1 toSize:(struct CGSize)arg2 fieldFrame:(struct CGRect)arg3;
 - (void)_layoutFromFieldWithChangingView:(id)arg1 toSize:(struct CGSize)arg2 fieldFrame:(struct CGRect)arg3;
 - (void)_setupField:(id *)arg1 withLabel:(id)arg2 navTitle:(id)arg3 frame:(struct CGRect)arg4;

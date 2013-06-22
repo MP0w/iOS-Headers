@@ -16,5 +16,7 @@
     BOOL _statusBarWasHidden;
 }
 
+- (void).cxx_destruct;
+
 @end
 

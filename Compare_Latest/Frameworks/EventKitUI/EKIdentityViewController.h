@@ -14,14 +14,14 @@
     id <EKIdentityProtocol> _identity;
 }
 
+- (void).cxx_destruct;
 - (BOOL)personViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)setIdentity:(id)arg1;
-- (void)dealloc;
 - (id)initWithIdentity:(id)arg1;
 
 // Remaining properties
-@property(nonatomic) id <EKEditItemViewControllerDelegate> editDelegate;
+@property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate;
 
 @end
 

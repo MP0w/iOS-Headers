@@ -23,7 +23,7 @@
     _Bool mContentFormatDerived;
     int mAxisId;
     unsigned int mContentFormatId;
-    int mFontIndex;
+    unsigned int mFontIndex;
     double mScalingMaximum;
     double mScalingMinimum;
     int mOrientation;
@@ -42,7 +42,7 @@
     int mCrosses;
     double mTickLabelRotation;
     _Bool mIsAutoRotation;
-    int mTickLabelColorIndex;
+    unsigned int mTickLabelColorIndex;
     EDResources *mResources;
 }
 
@@ -112,10 +112,10 @@
 - (void)dealloc;
 - (id)initWithResources:(id)arg1;
 - (id)tickLabelColor;
-- (void)setTickLabelColorIndex:(int)arg1;
-- (int)tickLabelColorIndex;
-- (void)setFontIndex:(int)arg1;
-- (int)fontIndex;
+- (void)setTickLabelColorIndex:(unsigned int)arg1;
+- (unsigned int)tickLabelColorIndex;
+- (void)setFontIndex:(unsigned int)arg1;
+- (unsigned int)fontIndex;
 - (void)setContentFormatId:(unsigned int)arg1;
 - (unsigned int)contentFormatId;
 

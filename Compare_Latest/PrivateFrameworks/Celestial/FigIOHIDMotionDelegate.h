@@ -18,7 +18,7 @@
 }
 
 - (BOOL)managingAccel;
-- (void)getVector:(float *)arg1:(float *)arg2:(float *)arg3 forTimeStamp:(double)arg4;
+- (void)getVectorX:(float *)arg1 y:(float *)arg2 z:(float *)arg3 forTimeStamp:(double)arg4;
 - (void)didUpdateAccelerationWithEventInfo:(CDStruct_bf7dff04 *)arg1;
 - (void)dealloc;
 - (id)init;

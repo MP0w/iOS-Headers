@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface CMLogItem : NSObject <NSCoding, NSCopying>
+@interface CMLogItem : NSObject <NSSecureCoding, NSCopying>
 {
     id _internalLogItem;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(readonly, nonatomic) double timestamp;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

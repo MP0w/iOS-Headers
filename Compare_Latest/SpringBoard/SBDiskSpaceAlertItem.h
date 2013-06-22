@@ -16,6 +16,7 @@
 - (void)_showUsagePrefs;
 - (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 - (void)performUnlockAction;
+- (id)init;
 
 @end
 

@@ -41,6 +41,7 @@
 - (void)start;
 - (void)setDelegateQueue:(id)arg1;
 - (void)dealloc;
+- (id)description;
 - (id)initWithRequest:(id)arg1 delegate:(id)arg2;
 - (id)initWithRequest:(id)arg1 delegate:(id)arg2 startImmediately:(BOOL)arg3;
 - (void)rejectProtectionSpaceAndContinueWithChallenge:(id)arg1;

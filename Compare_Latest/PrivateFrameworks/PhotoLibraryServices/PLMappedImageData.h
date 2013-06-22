@@ -6,7 +6,7 @@
 
 #import "NSMutableData.h"
 
-@class NSString, PLImageTableSegment;
+@class NSData, NSString, PLImageTableSegment;
 
 @interface PLMappedImageData : NSMutableData
 {
@@ -14,11 +14,12 @@
     void *_bytes;
     unsigned long _length;
     BOOL _freeBytes;
+    NSData *_pl_data;
 }
 
 - (void)dealloc;
+- (BOOL)pl_writeToPath:(id)arg1;
 - (unsigned int)pl_advisoryLength;
-@property(nonatomic) BOOL isPlaceholder;
 @property(copy, nonatomic) NSString *photoUUID;
 @property(nonatomic) unsigned int imageHeight;
 @property(nonatomic) unsigned int imageWidth;
@@ -28,6 +29,8 @@
 - (const void *)bytes;
 - (struct PLImageTableEntryFooter_s *)_footer;
 - (id)brokencopy;
+- (id)initWithEntryLength:(unsigned int)arg1;
+- (id)initWithThumbnailPath:(id)arg1;
 - (id)initWithImageTableSegment:(id)arg1 bytes:(void *)arg2 length:(unsigned long)arg3;
 
 @end

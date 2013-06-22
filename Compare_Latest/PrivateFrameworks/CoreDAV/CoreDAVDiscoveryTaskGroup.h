@@ -22,12 +22,14 @@
     NSArray *_potentialContextPaths;
     NSMutableArray *_discoveries;
     BOOL _didReceiveAuthenticationError;
+    BOOL _shouldBailEarly;
     id <CoreDAVAccountInfoProvider> _discoveredAccountInfo;
 }
 
 @property(retain, nonatomic) NSArray *potentialContextPaths; // @synthesize potentialContextPaths=_potentialContextPaths;
 @property(retain, nonatomic) NSString *wellKnownPath; // @synthesize wellKnownPath=_wellKnownPath;
 @property(retain) id <CoreDAVAccountInfoProvider> discoveredAccountInfo; // @synthesize discoveredAccountInfo=_discoveredAccountInfo;
+@property BOOL shouldBailEarly; // @synthesize shouldBailEarly=_shouldBailEarly;
 @property BOOL didReceiveAuthenticationError; // @synthesize didReceiveAuthenticationError=_didReceiveAuthenticationError;
 - (void)getDiscoveryStatus:(id)arg1 priorFailed:(id *)arg2 subsequentFailed:(id *)arg3 priorIncomplete:(id *)arg4 subsequentIncomplete:(id *)arg5 priorSuccess:(id *)arg6 subsequentSuccess:(id *)arg7;
 - (void)addToDiscoveryArray:(id *)arg1 discovery:(id)arg2;

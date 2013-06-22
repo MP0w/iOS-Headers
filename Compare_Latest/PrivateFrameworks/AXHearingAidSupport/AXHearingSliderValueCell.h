@@ -29,6 +29,7 @@
 - (void)layoutSubviews;
 - (void)updateValue;
 - (id)value;
+- (void)setValue:(id)arg1;
 - (void)sliderValueDidChange:(id)arg1;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)dealloc;

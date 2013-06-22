@@ -12,18 +12,18 @@
 
 @interface UIStatusBarComposedData : NSObject <NSCopying>
 {
-    CDStruct_24dca785 _rawData;
-    char _itemEnabled[24];
+    CDStruct_87a532be _rawData;
+    char _itemEnabled[31];
     NSString *_doubleHeightStatus;
 }
 
 @property(copy, nonatomic) NSString *doubleHeightStatus; // @synthesize doubleHeightStatus=_doubleHeightStatus;
 - (void)setItem:(int)arg1 enabled:(BOOL)arg2;
 - (BOOL)isItemEnabled:(int)arg1;
-@property(readonly, nonatomic) CDStruct_24dca785 *rawData;
+@property(readonly, nonatomic) CDStruct_87a532be *rawData;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithRawData:(const CDStruct_24dca785 *)arg1;
+- (id)initWithRawData:(const CDStruct_87a532be *)arg1;
 
 @end
 

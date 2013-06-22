@@ -10,11 +10,11 @@
 
 @interface AXLanguageTag : NSObject
 {
-    struct _NSRange _range;
+    BOOL _wasPredicted;
     NSString *_content;
     AXDialectMap *_unambiguousDialect;
     NSMutableOrderedSet *_ambiguousDialects;
-    BOOL _wasPredicted;
+    struct _NSRange _range;
 }
 
 + (id)tagWithDialect:(id)arg1 range:(struct _NSRange)arg2 content:(id)arg3 predictedByTagger:(BOOL)arg4;

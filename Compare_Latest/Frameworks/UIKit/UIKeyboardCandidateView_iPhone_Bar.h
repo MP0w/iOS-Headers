@@ -10,7 +10,7 @@
 {
 }
 
-- (void)setCandidateBarExtended:(BOOL)arg1;
+- (void)setCandidateViewExtended:(BOOL)arg1;
 - (unsigned int)_numberOfColumns:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

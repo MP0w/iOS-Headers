@@ -6,21 +6,21 @@
 
 #import "UIView.h"
 
-#import "MFLabelledAtomListDelegate-Protocol.h"
+#import "MFModernLabelledAtomListDelegate-Protocol.h"
 
-@class CKLabelledAtomList, NSArray, UIButton, UILabel;
+@class MFModernLabelledAtomList, NSArray, UIButton, UILabel;
 
-@interface CKAtomListView : UIView <MFLabelledAtomListDelegate>
+@interface CKAtomListView : UIView <MFModernLabelledAtomListDelegate>
 {
     NSArray *_addresses;
     NSArray *_arePhoneNumbers;
-    CKLabelledAtomList *_atomList;
+    MFModernLabelledAtomList *_atomList;
     UILabel *_recipientListLabel;
     UIButton *_detailsButton;
     UIButton *_hideDetailsButton;
     id _delegate;
     unsigned int _expanded:1;
-    int _style;
+    unsigned int _presentationOptions;
 }
 
 - (void)displayStringsDidChangeForLabelledAtomList:(id)arg1;
@@ -37,7 +37,7 @@
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
-- (id)initWithLabel:(id)arg1 totalWidth:(float)arg2 addresses:(id)arg3 arePhoneNumbers:(id)arg4 style:(int)arg5;
+- (id)initWithLabel:(id)arg1 totalWidth:(float)arg2 addresses:(id)arg3 arePhoneNumbers:(id)arg4 presentationOptions:(unsigned int)arg5;
 
 @end
 

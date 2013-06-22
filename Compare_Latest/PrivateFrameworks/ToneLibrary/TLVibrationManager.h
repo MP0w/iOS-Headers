@@ -6,26 +6,28 @@
 
 #import "NSObject.h"
 
-@class NSDictionary;
+@class NSDictionary, TLAccessQueue;
 
 @interface TLVibrationManager : NSObject
 {
     BOOL _needsRefresh;
     BOOL _allowsAutoRefresh;
-    BOOL _unitTestingModeEnabled;
-    NSDictionary *_cachedVibrationPatterns;
+    unsigned int _specialBehaviors;
+    NSDictionary *_cachedSystemVibrationPatterns;
     NSDictionary *_cachedUserGeneratedVibrationPatterns;
+    TLAccessQueue *_accessQueue;
 }
 
 + (void)_handleSystemVibrationDidChangeNotification;
-+ (void)releaseSharedVibrationManager;
 + (id)sharedVibrationManager;
+@property(retain, setter=_setAccessQueue:) TLAccessQueue *_accessQueue; // @synthesize _accessQueue;
 @property(retain, nonatomic, setter=_setCachedUserGeneratedVibrationPatterns:) NSDictionary *_cachedUserGeneratedVibrationPatterns; // @synthesize _cachedUserGeneratedVibrationPatterns;
-@property(retain, nonatomic, setter=_setCachedVibrationPatterns:) NSDictionary *_cachedVibrationPatterns; // @synthesize _cachedVibrationPatterns;
-@property(nonatomic, getter=_isUnitTestingModeEnabled, setter=_setUnitTestingModeEnabled:) BOOL _unitTestingModeEnabled; // @synthesize _unitTestingModeEnabled;
+@property(retain, nonatomic, setter=_setCachedSystemVibrationPatterns:) NSDictionary *_cachedSystemVibrationPatterns; // @synthesize _cachedSystemVibrationPatterns;
+@property(nonatomic, setter=_setSpecialBehaviors:) unsigned int _specialBehaviors; // @synthesize _specialBehaviors;
 @property(nonatomic, setter=_setAllowsAutoRefresh:) BOOL _allowsAutoRefresh; // @synthesize _allowsAutoRefresh;
 - (void)_setNeedsRefresh:(BOOL)arg1;
 @property(nonatomic) BOOL needsRefresh; // @synthesize needsRefresh=_needsRefresh;
+- (void)_performBlockInAccessQueue:(id)arg1;
 - (void)_makeSystemVibrationDataMigrationVersionCurrentIfNecessary;
 - (unsigned int)_storedSystemVibrationDataMigrationVersion;
 - (BOOL)_migrateLegacySettings;
@@ -47,7 +49,9 @@
 - (id)nameOfVibrationWithIdentifier:(id)arg1;
 - (id)_nameOfVibrationWithIdentifier:(id)arg1;
 - (id)_localizedNameForVibrationWithIdentifier:(id)arg1;
-@property(readonly, nonatomic) NSDictionary *_vibrationPatterns;
+- (id)_patternForSystemVibrationWithIdentifier:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *_systemVibrationPatterns;
+@property(readonly, nonatomic, getter=_isUnitTestingModeEnabled) BOOL _unitTestingModeEnabled;
 - (id)noneVibrationPattern;
 - (id)noneVibrationName;
 - (id)noneVibrationIdentifier;
@@ -64,7 +68,7 @@
 - (BOOL)refresh;
 @property(nonatomic) BOOL allowsAutoRefresh;
 - (void)dealloc;
-- (id)initWithUnitTestingModeEnabled:(BOOL)arg1;
+- (id)_initWithSpecialBehaviors:(unsigned int)arg1;
 - (id)init;
 - (id)currentVibrationPatternForType:(int)arg1;
 - (id)currentVibrationNameForType:(int)arg1;

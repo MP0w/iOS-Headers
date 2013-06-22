@@ -27,17 +27,17 @@
     GLKEffectPropertyFog *_fog;
     NSString *_label;
     unsigned char _lightModelTwoSided;
-    union _GLKVector4 _lightModelAmbientColor;
-    GLKEffectPropertyConstantColor *_constantColorProp;
     unsigned char _useConstantColor;
     unsigned char _propertyArrayStale;
-    NSMutableArray *_propertyArray;
     unsigned char _effectStale;
+    GLKEffectPropertyConstantColor *_constantColorProp;
+    NSMutableArray *_propertyArray;
     GLKEffect *_effect;
     unsigned int _programName;
+    union _GLKVector4 _lightModelAmbientColor;
 }
 
-@property(retain, nonatomic) NSString *label; // @synthesize label=_label;
+@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(nonatomic) unsigned int programName; // @synthesize programName=_programName;
 @property(nonatomic) GLKEffect *effect; // @synthesize effect=_effect;
 @property(nonatomic) unsigned char effectStale; // @synthesize effectStale=_effectStale;
@@ -45,7 +45,7 @@
 @property(nonatomic) unsigned char propertyArrayStale; // @synthesize propertyArrayStale=_propertyArrayStale;
 @property(nonatomic) unsigned char useConstantColor; // @synthesize useConstantColor=_useConstantColor;
 @property(readonly, nonatomic) GLKEffectPropertyConstantColor *constantColorProp; // @synthesize constantColorProp=_constantColorProp;
-@property(retain, nonatomic) NSArray *textureOrder; // @synthesize textureOrder=_textureOrder;
+@property(copy, nonatomic) NSArray *textureOrder; // @synthesize textureOrder=_textureOrder;
 @property(nonatomic) union _GLKVector4 lightModelAmbientColor; // @synthesize lightModelAmbientColor=_lightModelAmbientColor;
 @property(nonatomic) int lightingType; // @synthesize lightingType=_lightingType;
 @property(readonly, nonatomic) GLKEffectPropertyTransform *transform; // @synthesize transform=_transform;

@@ -14,6 +14,7 @@
 - (void)purge;
 - (id)pathForResourceWithName:(id)arg1;
 - (id)dataForResourceWithName:(id)arg1;
+- (id)_localNameForResourceName:(id)arg1;
 - (id)init;
 
 @end

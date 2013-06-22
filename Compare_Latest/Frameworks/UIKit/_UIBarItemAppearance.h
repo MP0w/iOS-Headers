@@ -10,7 +10,7 @@
 
 @interface _UIBarItemAppearance : _UIAppearance
 {
-    NSArray *_barButtonViewAppearances;
+    NSArray *_blindViewAppearances;
 }
 
 + (id)_appearanceForClass:(Class)arg1 withContainerList:(id)arg2;

@@ -8,22 +8,22 @@
 
 #import "UITextFieldDelegate-Protocol.h"
 
-@class CalendarURLCell;
+@class UITableViewCell;
 
 @interface EKEventURLInlineEditItem : EKEventEditItem <UITextFieldDelegate>
 {
-    CalendarURLCell *_cell;
+    UITableViewCell *_cell;
 }
 
+- (void).cxx_destruct;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
 - (BOOL)isInline;
-- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
 - (void)reset;
-- (void)dealloc;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 
 @end

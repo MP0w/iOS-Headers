@@ -21,7 +21,7 @@
     double ringTime[64];
 }
 
-- (void)getVector:(float *)arg1:(float *)arg2:(float *)arg3 forTimeStamp:(double)arg4;
+- (void)getVectorX:(float *)arg1 y:(float *)arg2 z:(float *)arg3 forTimeStamp:(double)arg4;
 - (void)accelerometer:(id)arg1 didAccelerateWithTimeStamp:(double)arg2 x:(float)arg3 y:(float)arg4 z:(float)arg5 eventType:(int)arg6;
 - (void)dealloc;
 - (id)init;

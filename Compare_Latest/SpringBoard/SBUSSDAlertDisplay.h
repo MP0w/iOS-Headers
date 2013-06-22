@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate-Protocol.h"
 
-@class SBTextDisplayView, TPBottomSingleButtonBar, UIActivityIndicatorView, UIScrollView, UITextField, UITransitionView, UIView;
+@class TPBottomSingleButtonBar, UIActivityIndicatorView, UITextField, UITextView, UITransitionView, UIView;
 
 @interface SBUSSDAlertDisplay : SBAlertView <UITextFieldDelegate>
 {
@@ -16,11 +16,10 @@
     UIView *_notifyView;
     UIView *_replyView;
     UITransitionView *_transitionView;
-    UIScrollView *_scroller;
-    SBTextDisplayView *_contentView;
-    SBTextDisplayView *_charsRemainingView;
+    UITextView *_charsRemainingView;
     UIActivityIndicatorView *_progressIndicator;
     UITextField *_responseField;
+    UITextView *_textView;
     BOOL _allowsResponse;
 }
 
@@ -36,7 +35,9 @@
 - (void)_setupResponseBar;
 - (void)alertDisplayBecameVisible;
 - (void)alertDisplayWillBecomeVisible;
-- (void)displayString:(id)arg1 centerVertically:(BOOL)arg2;
+- (void)displayString:(id)arg1;
+- (id)_textView;
+- (id)_charsRemainingView;
 - (void)dealloc;
 - (id)_replyView;
 - (id)_notifyView;

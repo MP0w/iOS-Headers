@@ -9,14 +9,17 @@
 @interface SBUIAnimationZoomDownAppToPhone : SBUIAnimationZoomDownApp
 {
     BOOL _usingSuperZoomImplementation;
+    BOOL _fromPhoneAppToFaceTimeAppDuringCall;
 }
 
 - (void)_applicationDependencyStateChanged;
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
+- (void)animateZoomWithCompletion:(id)arg1;
 - (BOOL)_shouldZoomUsingSuperImplementation;
 - (id)_animationProgressDependency;
+- (BOOL)_animationShouldStart;
 - (void)dealloc;
 - (void)_cleanupPhonesContextHostView;
 - (CDStruct_5d575efc)fakeStatusBarInfoWithStartEffectivelyHidden:(BOOL)arg1 endStyle:(int)arg2 endOrientation:(int)arg3;

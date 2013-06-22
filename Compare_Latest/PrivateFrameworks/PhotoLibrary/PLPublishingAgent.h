@@ -120,6 +120,7 @@
 - (void)_stopNetworkObservation;
 - (void)_startNetworkObservation;
 - (void)_networkReachabilityDidChange:(id)arg1;
+@property(readonly, nonatomic) BOOL allowsCellularAccessForRequests;
 
 @end
 

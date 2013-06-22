@@ -12,24 +12,25 @@
 @interface NSIndexPath : NSObject <NSCopying, NSCoding>
 {
     unsigned int *_indexes;
-    unsigned int _hash;
     unsigned int _length;
     void *_reserved;
 }
 
 + (id)indexPathWithIndexes:(const unsigned int *)arg1 length:(unsigned int)arg2;
 + (id)indexPathWithIndex:(unsigned int)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (int)compare:(id)arg1;
-- (unsigned int)hash;
-- (id)description;
-- (void)getIndexes:(unsigned int *)arg1;
-- (unsigned int)indexAtPosition:(unsigned int)arg1;
-- (unsigned int)length;
-- (id)indexPathByAddingIndex:(unsigned int)arg1;
-- (id)indexPathByRemovingLastIndex;
++ (id)indexPath;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)description;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (int)compare:(id)arg1;
+- (id)indexPathByAddingIndex:(unsigned int)arg1;
+- (id)indexPathByRemovingLastIndex;
+- (void)getIndexes:(unsigned int *)arg1;
+- (void)getIndexes:(unsigned int *)arg1 range:(struct _NSRange)arg2;
+- (unsigned int)indexAtPosition:(unsigned int)arg1;
+- (unsigned int)length;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithIndexes:(const unsigned int *)arg1 length:(unsigned int)arg2;

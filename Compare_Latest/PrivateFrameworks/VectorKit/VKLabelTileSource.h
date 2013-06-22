@@ -6,25 +6,24 @@
 
 #import <VectorKit/VKTileSetBackedTileSource.h>
 
-@class VKLabelFeaturePool;
-
 @interface VKLabelTileSource : VKTileSetBackedTileSource
 {
-    VKLabelFeaturePool *_featurePool;
+    shared_ptr_dd1f7020 _labelManager;
     BOOL _localizeLabels;
     int _labelScaleFactor;
 }
 
 @property(nonatomic) int labelScaleFactor; // @synthesize labelScaleFactor=_labelScaleFactor;
 @property(nonatomic) BOOL localizeLabels; // @synthesize localizeLabels=_localizeLabels;
-@property(retain, nonatomic) VKLabelFeaturePool *featurePool; // @synthesize featurePool=_featurePool;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
 - (int)_labelTileType;
 - (int)defaultMaximumZoomLevel;
 - (BOOL)maximumZoomLevelBoundsCamera;
 - (BOOL)minimumZoomLevelBoundsCamera;
 - (void)dealloc;
-- (id)initWithTileSet:(id)arg1 featurePool:(id)arg2;
+- (id)initWithTileSet:(id)arg1 labelManager:(const shared_ptr_dd1f7020 *)arg2;
 
 @end
 

@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSString;
 
-@interface NSSortDescriptor : NSObject <NSCoding, NSCopying>
+@interface NSSortDescriptor : NSObject <NSSecureCoding, NSCopying>
 {
     unsigned int _sortDescriptorFlags;
     NSString *_key;
@@ -19,6 +19,7 @@
     id _selectorOrBlock;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)_defaultSelectorName;
 + (id)sortDescriptorWithKey:(id)arg1 ascending:(BOOL)arg2 comparator:(id)arg3;
 + (id)sortDescriptorWithKey:(id)arg1 ascending:(BOOL)arg2 selector:(SEL)arg3;
@@ -39,6 +40,8 @@
 - (void)_setKey:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)_disallowEvaluation;
+- (void)allowEvaluation;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)initWithKey:(id)arg1 ascending:(BOOL)arg2 comparator:(id)arg3;

@@ -17,7 +17,7 @@
     struct dispatch_queue_s *_ivarQueue;
     struct dispatch_queue_s *_monitorDelegateQueue;
     CUTWeakReference *_delegateReference;
-    BOOL _demoOverride;
+    NSString *_demoOverrideInterface;
     int _previousLinkQuality;
     BOOL _trackUsability;
     unsigned int _thresholdOffTransitionCount;
@@ -29,6 +29,7 @@
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)_callDelegateOnIvarQueueWithBlock:(id)arg1;
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
+@property(readonly, nonatomic) BOOL isRadioHot;
 @property(readonly, nonatomic) BOOL isPoorLinkQuality;
 @property(readonly, nonatomic) NSString *linkQualityString;
 @property(readonly, nonatomic) BOOL isInternetReachable;
@@ -44,6 +45,9 @@
 - (void)_addMonitorWithInterfaceName:(id)arg1;
 - (void)dealloc;
 - (id)initWithDelegateQueue:(struct dispatch_queue_s *)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) struct __CFString *currentRAT;
 
 @end
 

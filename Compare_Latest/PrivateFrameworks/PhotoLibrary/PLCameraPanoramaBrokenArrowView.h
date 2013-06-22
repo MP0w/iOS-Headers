@@ -12,7 +12,6 @@
 {
     UIImageView *_arrowHead;
     UIView *_arrowTail;
-    UIImageView *_arrowTailGlow;
     CAShapeLayer *_arrowTailPiecesLayer;
     struct CGPath *_currentTailPiecesPath;
     struct CGRect _arrowTailRect;

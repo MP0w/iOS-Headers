@@ -18,9 +18,12 @@
     int _prefsStyle;
     int _onlyAllowedStyle;
     BOOL _onlyAllowedStyleSet;
-    NSRunLoop *_runLoop;
+    int _interfaceIdentifier;
+    NSRunLoop *_delegateRunLoop;
+    struct dispatch_queue_s *_delegateQueue;
     id <PCGrowthAlgorithm> _wwanGrowthAlgorithm;
     id <PCGrowthAlgorithm> _wifiGrowthAlgorithm;
+    id <PCGrowthAlgorithm> _lastScheduledGrowthAlgorithm;
     PCDarwinNotificationRunLoopSource *_prefsChangedSource;
     PCPersistentTimer *_intervalTimer;
     PCPersistentTimer *_reconnectWakeTimer;
@@ -43,7 +46,7 @@
     BOOL _isInReconnectMode;
     BOOL _reconnectWithKeepAliveDelay;
     BOOL _forceManualWhenRoaming;
-    BOOL _fallBackToAlternateInterface;
+    BOOL _enableNonCellularConnections;
     BOOL _isReachable;
 }
 
@@ -52,7 +55,6 @@
 + (id)intervalCacheDictionaries;
 + (Class)growthAlgorithmClass;
 @property(readonly, nonatomic) NSString *loggingIdentifier; // @synthesize loggingIdentifier=_serviceIdentifier;
-@property(nonatomic) BOOL fallBackToAlternateInterface; // @synthesize fallBackToAlternateInterface=_fallBackToAlternateInterface;
 @property(nonatomic) double keepAliveGracePeriod; // @synthesize keepAliveGracePeriod=_keepAliveGracePeriod;
 - (id)_stringForEvent:(int)arg1;
 - (id)_stringForAction:(int)arg1;
@@ -60,8 +62,8 @@
 - (void)logAtLevel:(int)arg1 format:(id)arg2 arguments:(void *)arg3;
 - (void)logAtLevel:(int)arg1 format:(id)arg2;
 - (void)log:(id)arg1;
-- (double)_getCachedWWANKeepAliveInterval;
-- (void)_saveWWANKeepAliveInterval:(double)arg1;
+- (id)_getCachedWWANKeepAliveInterval;
+- (void)_saveWWANKeepAliveInterval;
 - (void)_releasePowerAssertion;
 - (void)_takePowerAssertionWithTimeout:(double)arg1;
 - (void)_adjustInterfaceAssertions;
@@ -71,11 +73,13 @@
 - (void)_clearTimersReleasingPowerAssertion:(BOOL)arg1;
 - (void)_clearTimers;
 - (void)_calloutWithEvent:(int)arg1;
+- (void)_callDelegateWithEvent:(id)arg1;
 - (void)_delayTimerFired;
 - (void)_intervalTimerFired;
 - (void)_setupKeepAliveForReconnect;
 - (void)_setupTimerForPoll;
 - (void)_setupTimerForPushWithKeepAliveInterval:(double)arg1;
+- (void)setEnableNonCellularConnections:(BOOL)arg1;
 - (BOOL)shouldClientScheduleReconnectDueToFailure;
 - (void)cancelPollingIntervalOverride;
 - (void)setPollingIntervalOverride:(double)arg1;
@@ -84,6 +88,8 @@
 @property double maximumKeepAliveInterval;
 @property(nonatomic) double minimumKeepAliveInterval;
 @property(readonly, nonatomic) double currentKeepAliveInterval;
+@property(readonly, nonatomic) BOOL isRunning;
+- (void)stopAndResetManager;
 - (void)stopManager;
 - (void)_resolveStateWithAction:(int)arg1;
 - (void)_validateActionForCurrentStyle:(int)arg1;
@@ -96,6 +102,9 @@
 - (void)_preferencesChanged;
 - (void)dealloc;
 - (id)initWithConnectionClass:(int)arg1 delegate:(id)arg2 serviceIdentifier:(id)arg3;
+- (id)initWithConnectionClass:(int)arg1 interfaceIdentifier:(int)arg2 delegate:(id)arg3 serviceIdentifier:(id)arg4;
+- (id)initWithConnectionClass:(int)arg1 delegate:(id)arg2 delegateQueue:(struct dispatch_queue_s *)arg3 serviceIdentifier:(id)arg4;
+- (id)_initWithConnectionClass:(int)arg1 interfaceIdentifier:(int)arg2 delegate:(id)arg3 delegateQueue:(struct dispatch_queue_s *)arg4 serviceIdentifier:(id)arg5;
 
 @end
 

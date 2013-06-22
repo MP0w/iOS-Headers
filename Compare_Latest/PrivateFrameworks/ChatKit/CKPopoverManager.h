@@ -8,25 +8,27 @@
 
 #import "UIPopoverControllerDelegate-Protocol.h"
 
-@class UIPopoverController;
+@class UIPopoverController, UIViewController;
 
 @interface CKPopoverManager : NSObject <UIPopoverControllerDelegate>
 {
     UIPopoverController *_popoverController;
     id _presenter;
     id _handler;
-    BOOL _dismissingPopoverForRotation;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) UIPopoverController *popoverController; // @synthesize popoverController=_popoverController;
 @property(copy, nonatomic) id handler; // @synthesize handler=_handler;
 @property(copy, nonatomic) id presenter; // @synthesize presenter=_presenter;
+- (void)replaceCurrentControllerWithController:(id)arg1;
+- (BOOL)isShowingPopover;
+- (void)representCurrentPopover;
+@property(readonly, nonatomic) UIViewController *currentContentController;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)didFinishRotating;
-- (void)willStartRotating;
-- (void)dismissCurrentPopover;
-- (void)showPopover:(id)arg1 withPresenter:(id)arg2 withHandler:(void)arg3;
+- (void)dismissCurrentPopoverAnimated:(BOOL)arg1;
+- (void)showPopoverWithContentViewController:(id)arg1 withPresenter:(id)arg2 withHandler:(void)arg3;
 - (void)dealloc;
 
 @end

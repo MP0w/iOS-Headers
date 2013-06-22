@@ -21,6 +21,7 @@
 }
 
 @property(nonatomic) struct _NSRange focusedRange; // @synthesize focusedRange=_focusedRange;
+- (void).cxx_destruct;
 - (unsigned int)sourceArrayIndexForIndex:(unsigned int)arg1;
 - (BOOL)_onQueueExtendMap;
 @property(readonly, nonatomic) unsigned int countOfArrayIndexMappings;

@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, Protocol, XPCProxy;
+@class NSMutableArray, Protocol;
 
 @interface SKInvocationQueueProxy : NSObject
 {
     NSMutableArray *_invocationQueue;
-    XPCProxy *_invocationTarget;
+    id _invocationTarget;
     Protocol *_protocol;
 }
 
-@property(retain, nonatomic) XPCProxy *invocationTarget; // @synthesize invocationTarget=_invocationTarget;
+@property(retain, nonatomic) id invocationTarget; // @synthesize invocationTarget=_invocationTarget;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (void)dealloc;

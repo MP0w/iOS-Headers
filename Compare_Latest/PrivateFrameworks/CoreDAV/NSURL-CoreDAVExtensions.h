@@ -13,6 +13,7 @@
 - (id)CDVfixedURLByAppendingPathComponent:(id)arg1;
 - (id)CDVFileSystemSafePath;
 - (BOOL)CDVIsEqualToURL:(id)arg1;
+- (id)CDVServerURLWithPath:(BOOL)arg1;
 - (id)CDVServerURL;
 - (id)CDVURLByDeletingLastPathComponent;
 - (id)CDVRawLastPathComponent;

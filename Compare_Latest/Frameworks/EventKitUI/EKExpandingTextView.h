@@ -16,6 +16,7 @@
     BOOL _allowEnclosingViewScroll;
 }
 
+- (void).cxx_destruct;
 - (void)setContentSize:(struct CGSize)arg1;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)setBackgroundColor:(id)arg1;

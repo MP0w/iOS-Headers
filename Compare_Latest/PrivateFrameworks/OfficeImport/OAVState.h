@@ -31,7 +31,7 @@
 - (void)setOAXState:(id)arg1;
 - (id)oaxState;
 - (Class)client;
-- (void)reset;
+- (void)resetForNewDrawing;
 - (void)dealloc;
 - (id)initWithClient:(Class)arg1 packagePart:(id)arg2;
 

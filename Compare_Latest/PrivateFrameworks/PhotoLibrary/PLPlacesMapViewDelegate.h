@@ -22,8 +22,10 @@
     CDStruct_feeb6407 _previousRegion;
     float _previousZoomLevel;
     id <PlacesMapViewDelegateDetailsDelegate> _detailsDelegate;
+    BOOL _displayMoreDetails;
 }
 
+@property(nonatomic) BOOL displayMoreDetails; // @synthesize displayMoreDetails=_displayMoreDetails;
 - (void)_flushAnnotation:(id)arg1 fromMap:(id)arg2;
 - (void)_setupMapViewCenteredOnAllPlaces:(id)arg1;
 - (void)_updateVisibleAnnotationsAfterUpdatingMapView:(id)arg1;
@@ -32,10 +34,9 @@
 - (void)mapView:(id)arg1 didAddAnnotationViews:(id)arg2;
 - (void)_updateAnnotationsInMapView:(id)arg1;
 - (void)mapView:(id)arg1 annotationView:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
-- (id)_borderedPosterImageFromImage:(id)arg1 withSize:(struct CGSize)arg2;
 - (id)mapView:(id)arg1 viewForAnnotation:(id)arg2;
 - (void)mapView:(id)arg1 regionDidChangeAnimated:(BOOL)arg2;
-- (void)mapViewWillStartLoadingMap:(id)arg1;
+- (void)mapViewWillStartRenderingMap:(id)arg1;
 - (void)updateMapView:(id)arg1 WithAddedAssets:(id)arg2 deletedAssets:(id)arg3 updatedAssets:(id)arg4;
 - (void)fullResetOfMapView:(id)arg1;
 - (void)setDetailsDelegate:(id)arg1;

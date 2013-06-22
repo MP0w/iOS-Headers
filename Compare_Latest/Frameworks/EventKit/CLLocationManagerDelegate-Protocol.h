@@ -18,6 +18,9 @@
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didExitRegion:(id)arg2;
 - (void)locationManager:(id)arg1 didEnterRegion:(id)arg2;
+- (void)locationManager:(id)arg1 rangingBeaconsDidFailForRegion:(id)arg2 withError:(id)arg3;
+- (void)locationManager:(id)arg1 didRangeBeacons:(id)arg2 inRegion:(id)arg3;
+- (void)locationManager:(id)arg1 didDetermineState:(int)arg2 forRegion:(id)arg3;
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(id)arg1;
 - (void)locationManager:(id)arg1 didUpdateHeading:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;

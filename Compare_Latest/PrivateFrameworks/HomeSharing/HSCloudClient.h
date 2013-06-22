@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "HSCloudAvailability-Protocol.h"
+
 @class HSConnectionConfiguration, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
 
-@interface HSCloudClient : NSObject
+@interface HSCloudClient : NSObject <HSCloudAvailability>
 {
     BOOL _active;
     HSConnectionConfiguration *_configuration;
@@ -28,10 +30,18 @@
 - (void)_serverDidLaunch;
 - (void)_sendConfigurationToDaemon;
 - (void)_performBlockOnMainThread:(id)arg1;
+- (BOOL)canShowCloudVideo;
+- (BOOL)canShowCloudMusic;
+- (BOOL)canShowCloudDownloadButtons;
+- (BOOL)shouldProhibitActionsForCurrentNetworkConditions;
+- (BOOL)isCellularDataRestricted;
+- (BOOL)hasProperNetworkConditionsToPlayMedia;
 - (void)updatePlaylistWithSagaID:(unsigned long long)arg1 itemSagaIDs:(id)arg2 queue:(id)arg3 completionHandler:(id)arg4;
+- (void)updateArtistImagesWithCompletionHandler:(id)arg1;
 - (void)uploadItemProperties;
 - (void)incrementItemProperty:(id)arg1 forSagaID:(unsigned long long)arg2;
 - (void)setItemProperties:(id)arg1 forSagaID:(unsigned long long)arg2;
+- (void)setItemProperties:(id)arg1 forPurchaseHistoryID:(unsigned long long)arg2;
 - (void)setPreferredVideoQuality:(long long)arg1;
 - (void)setDaemonConfiguration:(unsigned long long)arg1;
 - (void)resignActive;
@@ -40,6 +50,8 @@
 - (void)loadUpdateProgressWithCompletionHandler:(id)arg1;
 - (void)loadIsUpdateInProgressWithCompletionHandler:(id)arg1;
 - (void)loadGeniusItemsForSagaID:(unsigned long long)arg1 completionHandler:(id)arg2;
+- (void)loadArtworkInfoForSagaIDs:(id)arg1 completionHandler:(id)arg2;
+- (void)loadArtworkInfoForPurchaseHistoryIDs:(id)arg1 completionHandler:(id)arg2;
 - (void)loadArtworkDataForPurchaseHistoryIDs:(id)arg1 completionHandler:(id)arg2;
 - (void)loadArtworkDataForPurchaseHistoryID:(unsigned long long)arg1 completionHandler:(id)arg2;
 - (void)loadArtworkDataForSagaID:(unsigned long long)arg1 completionHandler:(id)arg2;
@@ -51,7 +63,14 @@
 - (void)downloadGeniusDataWithCompletionHandler:(id)arg1;
 - (void)deauthenticateWithCompletionHandler:(id)arg1;
 - (void)updateSagaLibraryWithCompletionHandler:(id)arg1;
+- (void)unhideAllPurchasedApps:(id)arg1;
+- (void)setHidden:(BOOL)arg1 purchasedAppWithStoreID:(id)arg2 completionHandler:(id)arg3;
+- (void)redownloadPurchaseAppWithStoreID:(id)arg1 completionHandler:(id)arg2;
+- (void)jaliscoAppsImageDataForStoreID:(id)arg1 completionHandler:(id)arg2;
+- (void)searchJaliscoAppsLibrary:(id)arg1 searchMethod:(long long)arg2 completionHandler:(id)arg3;
+- (void)updateJaliscoAppsLibraryWithReason:(long long)arg1 completionHandler:(id)arg2;
 - (void)updateJaliscoLibraryWithCompletionHandler:(id)arg1;
+- (void)removeJaliscoLibrary;
 - (void)updateJaliscoLibraryWithReason:(long long)arg1 completionHandler:(id)arg2;
 - (void)becomeActive;
 - (void)authenticateWithCompletionHandler:(id)arg1;

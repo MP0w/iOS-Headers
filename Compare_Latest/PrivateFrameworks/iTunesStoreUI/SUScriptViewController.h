@@ -25,6 +25,7 @@
 @property(readonly) NSString *modalPresentationStyleNameFullScreen;
 @property(readonly) NSString *modalPresentationStyleNameFormSheet;
 @property id wantsFullScreenLayout;
+@property id usesBlurredBackground;
 @property(retain) SUScriptViewController *transientViewController;
 @property(retain) id topBackgroundColor;
 @property(copy) id toolbarItems;

@@ -21,6 +21,7 @@
 }
 
 + (id)mediaPlayerDownloadManager;
+- (void).cxx_destruct;
 - (void)_rebuildCacheIfNecessary;
 - (void)_clearCache;
 - (id)_copyObservers;

@@ -12,10 +12,10 @@
 
 @interface MSASAssetTransferer : NSObject <MMCSEngineDelegate>
 {
+    BOOL _hasShutDown;
     id _delegate;
     NSString *_personID;
     MMCSEngine *_engine;
-    double _maxMMCSTokenValidityTimeInterval;
     MSAlbumSharingDaemon *_daemon;
     MSASPersonModel *_model;
     MSBackoffManager *_backoffManager;
@@ -25,7 +25,7 @@
     NSString *_focusAssetCollectionGUID;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_eventQueue;
-    BOOL _hasShutDown;
+    double _maxMMCSTokenValidityTimeInterval;
 }
 
 @property(nonatomic) BOOL hasShutDown; // @synthesize hasShutDown=_hasShutDown;
@@ -46,12 +46,13 @@
 - (void)MMCSEngine:(id)arg1 logPerformanceMetrics:(id)arg2;
 - (void)MMCSEngine:(id)arg1 logMessage:(id)arg2 logLevel:(int)arg3;
 - (BOOL)MMCSEngine:(id)arg1 shouldLogAtLogLevel:(int)arg2;
-- (void)MMCSEngine:(id)arg1 didFinishGettingAllAssetsContext:(id)arg2;
-- (void)MMCSEngine:(id)arg1 didMakeGetProgress:(float)arg2 state:(int)arg3 onAsset:(id)arg4 context:(id)arg5;
-- (void)MMCSEngine:(id)arg1 didFinishGettingAsset:(id)arg2 path:(id)arg3 context:(id)arg4 error:(id)arg5;
-- (void)MMCSEngine:(id)arg1 didFinishPuttingAllAssetsContext:(id)arg2;
-- (void)MMCSEngine:(id)arg1 didMakePutProgress:(float)arg2 state:(int)arg3 onAsset:(id)arg4 context:(id)arg5;
-- (void)MMCSEngine:(id)arg1 didFinishPuttingAsset:(id)arg2 context:(id)arg3 putReceipt:(id)arg4 error:(id)arg5;
+- (void)didFinishGettingAllAssets;
+- (void)MMCSEngine:(id)arg1 didMakeGetProgress:(float)arg2 state:(int)arg3 onAsset:(id)arg4;
+- (void)MMCSEngine:(id)arg1 didFinishGettingAsset:(id)arg2 path:(id)arg3 error:(id)arg4;
+- (void)didFinishPuttingAllAssets;
+- (void)MMCSEngine:(id)arg1 didMakePutProgress:(float)arg2 state:(int)arg3 onAsset:(id)arg4;
+- (void)MMCSEngine:(id)arg1 didCreateRequestorContext:(id)arg2 forAssets:(id)arg3;
+- (void)MMCSEngine:(id)arg1 didFinishPuttingAsset:(id)arg2 putReceipt:(id)arg3 error:(id)arg4;
 - (void)_sendDidIdleNotification;
 - (id)_canceledError;
 - (id)_MMCSTokenTooOldError;

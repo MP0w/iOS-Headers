@@ -6,10 +6,11 @@
 
 #import <UIKit/UIViewController.h>
 
-@class UIWindow;
+@class UIWindow, _UIFallbackPresentationWindow;
 
 @interface _UIFallbackPresentationViewController : UIViewController
 {
+    _UIFallbackPresentationWindow *_presentationWindow;
     UIWindow *_rotationDecider;
 }
 

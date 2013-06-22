@@ -6,11 +6,11 @@
 
 #import <Preferences/PINView.h>
 
-@class UIPasscodeField;
+@class PSPasscodeField;
 
 @interface NumericPINView : PINView
 {
-    UIPasscodeField *_passcodeField;
+    PSPasscodeField *_passcodeField;
 }
 
 - (void)appendString:(id)arg1;

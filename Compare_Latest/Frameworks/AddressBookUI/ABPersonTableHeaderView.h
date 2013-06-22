@@ -9,7 +9,7 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class ABMultiCell, ABMultiCellContentView, ABNamePropertyGroup, ABPersonImageView, ABPersonNameDisplayView, NSString, UIFont, UIImageView, UITableView;
+@class ABMultiCell, ABMultiCellContentView, ABNamePropertyGroup, ABPersonImageView, ABPersonNameDisplayView, ABUIPerson, NSString, UIFont, UIImageView, UITableView;
 
 @interface ABPersonTableHeaderView : UIView <UITableViewDelegate, UITableViewDataSource>
 {
@@ -69,8 +69,7 @@
 @property(copy, nonatomic) NSString *alternateName;
 - (void)_updateShowsMultiplePhotoBackdrop;
 - (void)_recreateEditingViewContainer;
-@property(nonatomic) void *personForImageView;
-- (void *)personForName;
+@property(retain, nonatomic) ABUIPerson *personForImageView;
 - (id)_imageShadowView;
 - (id)_displayView;
 - (float)_extraHeaderViewAvailableWidthForWidth:(float)arg1 whenEditing:(BOOL)arg2;

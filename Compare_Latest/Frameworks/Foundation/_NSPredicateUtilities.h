@@ -10,6 +10,12 @@
 {
 }
 
++ (id)_constantValueClassesForSecureCoding;
++ (id)_operatorClassesForSecureCoding;
++ (id)_extendedExpressionClassesForSecureCoding;
++ (id)_expressionClassesForSecureCoding;
++ (id)_compoundPredicateClassesForSecureCoding;
++ (id)_predicateClassesForSecureCoding;
 + (id)_parserableCollectionDescription:(id)arg1;
 + (id)_parserableDateDescription:(id)arg1;
 + (id)_parserableStringDescription:(id)arg1;
@@ -23,6 +29,7 @@
 + (id)bitwiseXor:(id)arg1 with:(id)arg2;
 + (id)bitwiseOr:(id)arg1 with:(id)arg2;
 + (id)bitwiseAnd:(id)arg1 with:(id)arg2;
++ (id)distanceToLocation:(id)arg1 fromLocation:(id)arg2;
 + (id)now;
 + (id)objectFrom:(id)arg1 withIndex:(id)arg2;
 + (id)randomn:(id)arg1;
@@ -31,6 +38,10 @@
 + (id)_convertStringToNumber:(id)arg1;
 + (id)lowercase:(id)arg1;
 + (id)uppercase:(id)arg1;
++ (id)tokenize:(id)arg1 using:(id)arg2;
++ (id)_collapseAndTokenize:(id)arg1 flags:(unsigned int)arg2 locale:(id)arg3;
++ (id)_processAndTokenize:(id)arg1 flags:(unsigned int)arg2 locale:(id)arg3;
++ (id)_doTokenization:(id)arg1 locale:(id)arg2;
 + (id)trunc:(id)arg1;
 + (id)abs:(id)arg1;
 + (id)ceiling:(id)arg1;
@@ -55,6 +66,7 @@
 + (id)sum:(id)arg1;
 + (unsigned int)_getCommonTypeFor:(id)arg1;
 + (unsigned int)_getITypeFor:(const char *)arg1;
+- (double)distanceFromLocation:(id)arg1;
 
 @end
 

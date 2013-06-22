@@ -9,6 +9,7 @@
 @protocol NSNetServiceDelegate <NSObject>
 
 @optional
+- (void)netService:(id)arg1 didAcceptConnectionWithInputStream:(id)arg2 outputStream:(id)arg3;
 - (void)netService:(id)arg1 didUpdateTXTRecordData:(id)arg2;
 - (void)netServiceDidStop:(id)arg1;
 - (void)netService:(id)arg1 didNotResolve:(id)arg2;

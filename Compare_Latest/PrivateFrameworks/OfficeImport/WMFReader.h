@@ -12,15 +12,15 @@
 
 @interface WMFReader : NSObject <MFReader>
 {
-    long m_recordsRead;
+    int m_recordsRead;
     WMFPlayer *m_player;
-    unsigned long m_length;
+    unsigned int m_length;
     const char *m_pBuffer;
-    unsigned long m_cursor;
+    unsigned int m_cursor;
 }
 
-- (int)moveDataCursor:(unsigned long)arg1;
-- (int)checkBytesAvailable:(unsigned long)arg1;
+- (int)moveDataCursor:(unsigned int)arg1;
+- (int)checkBytesAvailable:(unsigned int)arg1;
 - (int)playRecord;
 - (int)playHeaders;
 - (int)play:(id)arg1;

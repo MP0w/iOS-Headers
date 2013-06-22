@@ -13,6 +13,7 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 @property(nonatomic) BOOL initialized; // @synthesize initialized=_initialized;
+- (void)matchStyleOfStatusBar:(id)arg1;
 - (oneway void)release;
 - (id)retain;
 - (void)dealloc;

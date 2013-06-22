@@ -8,12 +8,12 @@
 
 #import "CNFAudioDeviceControllerProtocol-Protocol.h"
 #import "CNFDisplayControllerDelegate-Protocol.h"
-#import "CNFSoundPlayerDelegateProtocol-Protocol.h"
+#import "TUAudioPlayerDelegateProtocol-Protocol.h"
 #import "UIApplicationDelegate-Protocol.h"
 
-@class AVController, CNFAudioDeviceController, CNFAudioPlayer, CNFDisplayController, NSObject<CNFCallViewControllerDelegate>, NSURL, UIWindow;
+@class AVController, CNFAudioDeviceController, CNFDisplayController, NSObject<CNFCallViewControllerDelegate>, NSURL, TUAudioPlayer, UIWindow;
 
-@interface CNFCallViewController : UIViewController <UIApplicationDelegate, CNFDisplayControllerDelegate, CNFSoundPlayerDelegateProtocol, CNFAudioDeviceControllerProtocol>
+@interface CNFCallViewController : UIViewController <TUAudioPlayerDelegateProtocol, UIApplicationDelegate, CNFDisplayControllerDelegate, CNFAudioDeviceControllerProtocol>
 {
     NSObject<CNFCallViewControllerDelegate> *_delegate;
     CNFDisplayController *_displayController;
@@ -21,10 +21,9 @@
     CNFAudioDeviceController *_deviceController;
     BOOL _isOutgoingInvitation;
     BOOL _initialMuteState;
-    BOOL _audioWasInterrupted;
     BOOL _faceTimeEndedWhileSoundPlaying;
     NSURL *_originationURL;
-    CNFAudioPlayer *_player;
+    TUAudioPlayer *_player;
 }
 
 @property(retain, nonatomic) NSURL *originationURL; // @synthesize originationURL=_originationURL;
@@ -56,7 +55,6 @@
 - (void)_playOutgoingRingSound;
 - (void)_delayedPlayOutgoingRingSound;
 - (BOOL)_endAudioInterruption;
-- (BOOL)_beginAudioInterruption;
 - (void)conferenceDisplayControllerEndedWhileSuspending:(id)arg1;
 - (BOOL)auxiliaryAudioRoutesAvailable;
 - (void)conferenceDisplayController:(id)arg1 cameraToggleWithReason:(unsigned int)arg2;
@@ -69,7 +67,6 @@
 - (void)_handleDismissConference:(id)arg1;
 - (void)_handleFirstRemoteFrame:(id)arg1;
 - (void)_handleInvitationSent:(id)arg1;
-- (void)_handleTelephonyStateChanged:(id)arg1;
 - (void)_handleStateChanged:(id)arg1;
 - (void)_handleConferenceConnected:(id)arg1;
 - (void)_handleConferenceConnecting:(id)arg1;

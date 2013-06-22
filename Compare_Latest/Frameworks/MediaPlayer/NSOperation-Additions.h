@@ -7,7 +7,6 @@
 #import "NSOperation.h"
 
 @interface NSOperation (Additions)
-- (void)NSOperationAdditions_dealloc;
 @property(nonatomic) unsigned int tag;
 @end
 

@@ -6,22 +6,18 @@
 
 #import "NSObject.h"
 
-#import "PCInterfaceUsabilityMonitorDelegate-Protocol.h"
+#import "PCInterfaceMonitorDelegate-Protocol.h"
 
-@class NSRecursiveLock, NSString, NSTimer, PCNonCellularUsabilityMonitor, PCPersistentTimer, PCWWANUsabilityMonitor;
+@class NSRecursiveLock, NSString, NSTimer, PCSimpleTimer;
 
-@interface PCPersistentInterfaceManager : NSObject <PCInterfaceUsabilityMonitorDelegate>
+@interface PCPersistentInterfaceManager : NSObject <PCInterfaceMonitorDelegate>
 {
     NSRecursiveLock *_lock;
     struct __CFDictionary *_delegatesAndRunLoops;
-    struct __CFSet *_WWANInterfaceAssertionDelegates;
-    NSTimer *_WWANInterfaceAssertionDisableTimer;
     struct __CFSet *_WiFiAutoAssociationDelegates;
-    PCPersistentTimer *_WiFiAutoAssociationDisableTimer;
+    PCSimpleTimer *_WiFiAutoAssociationDisableTimer;
     struct __CFSet *_wakeOnWiFiDelegates;
-    PCPersistentTimer *_wakeOnWiFiDisableTimer;
-    PCWWANUsabilityMonitor *_wwanMonitor;
-    PCNonCellularUsabilityMonitor *_wifiMonitor;
+    PCSimpleTimer *_wakeOnWiFiDisableTimer;
     void *_ctServerConnection;
     void *_interfaceAssertion;
     void *_wifiManager;
@@ -30,7 +26,7 @@
     BOOL _isWWANInterfaceUp;
     NSTimer *_inCallWWANOverrideTimer;
     BOOL _isWWANInterfaceDataActive;
-    BOOL _isWWANInHomeCountry;
+    BOOL _ctIsWWANInHomeCountry;
     BOOL _hasWWANStatusIndicator;
     BOOL _isPowerStateDetectionSupported;
     BOOL _isWWANInterfaceInProlongedHighPowerState;
@@ -64,7 +60,6 @@
 - (void)_updateWWANInterfaceAssertionsLocked;
 - (void)_updateWWANInterfaceAssertions;
 - (BOOL)_wantsWWANInterfaceAssertion;
-- (void)keepWWANInterfaceUp:(BOOL)arg1 forDelegate:(id)arg2;
 @property(readonly) BOOL areAllNetworkInterfacesDisabled;
 @property(readonly) BOOL isWakeOnWiFiSupported;
 - (BOOL)_isWiFiUsable;
@@ -73,6 +68,7 @@
 - (BOOL)_isInternetReachableLocked;
 @property(readonly) BOOL isInCall;
 @property(readonly) BOOL isWWANInHomeCountry;
+- (BOOL)_isWWANInHomeCountryLocked;
 @property(readonly) BOOL isWWANInterfaceActivationPermitted;
 @property(readonly) BOOL isWWANInterfaceInProlongedHighPowerState;
 @property(readonly) BOOL isPowerStateDetectionSupported;
@@ -85,9 +81,9 @@
 - (BOOL)_wifiIsPoorLinkQuality;
 - (BOOL)_wwanIsPoorLinkQuality;
 @property(readonly, nonatomic) NSString *currentLinkQualityString;
+- (void)_updateCTIsWWANInHomeCountry:(BOOL)arg1 isWWANInterfaceDataActive:(BOOL)arg2;
 - (void)_updateWWANInterfaceUpState;
 - (void)_updateWWANInterfaceUpStateLocked;
-- (BOOL)_wwanLinkQualityBelowThresholdAndWoWAvailableLocked;
 - (void)_clearInCallWWANOverrideTimerLocked;
 - (void)_inCallWWANOverrideTimerFired;
 - (void)_serverCallbackLocked:(id)arg1 info:(id)arg2;

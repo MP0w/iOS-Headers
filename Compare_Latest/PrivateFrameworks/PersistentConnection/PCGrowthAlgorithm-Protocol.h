@@ -7,11 +7,15 @@
 #import "NSObject-Protocol.h"
 #import "PCLoggingDelegate-Protocol.h"
 
+@class NSDictionary;
+
 @protocol PCGrowthAlgorithm <PCLoggingDelegate, NSObject>
+@property(readonly, nonatomic) NSDictionary *cacheInfo;
 @property(nonatomic) double maximumKeepAliveInterval;
 @property(nonatomic) double minimumKeepAliveInterval;
 @property(readonly, nonatomic) double currentKeepAliveInterval;
 - (void)processNextAction:(int)arg1;
-- (id)initWithKeepAliveInterval:(double)arg1 loggingIdentifier:(id)arg2 algorithmName:(id)arg3;
+- (BOOL)useIntervalIfImprovement:(double)arg1;
+- (id)initWithCacheInfo:(id)arg1 loggingIdentifier:(id)arg2 algorithmName:(id)arg3;
 @end
 

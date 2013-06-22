@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, VKLabelNavRoad, VKLabelTile;
+#import "VKLabelNavFeature-Protocol.h"
 
-@interface VKLabelNavJunction : NSObject
+@class NSArray, NSMutableArray, NSString, VKLabelNavRoad, VKLabelNavRoadLabel, VKLabelTile;
+
+@interface VKLabelNavJunction : NSObject <VKLabelNavFeature>
 {
     VKLabelTile *_tile;
-    CDStruct_6e3f967a _tileCoordinate;
-    CDStruct_7523a67d *_geoJunction;
-    CDStruct_3f2a7a20 _routeOffset;
+    Vec2Imp_1782d7e3 _tileCoordinate;
+    CDStruct_dde70fb6 *_geoJunction;
+    struct PolylineCoordinate _routeOffset;
     NSMutableArray *_roads;
     VKLabelNavRoad *_incomingRoad;
     VKLabelNavRoad *_outgoingRoad;
@@ -21,42 +23,75 @@
     int _preferredLabelPlacement;
     BOOL _isOnDualCarriageway;
     BOOL _foundRoads;
-    BOOL _foundOverpasses;
     BOOL _isOverpass;
+    BOOL _isRouteOverpass;
+    int _largestRoadClass;
+    struct {
+        CDStruct_4c1ff046 _field1;
+        Vec2Imp_1782d7e3 _field2;
+        unsigned char _field3;
+        char _field4;
+        char _field5;
+        CDStruct_183601bc *_field6;
+    } *_labelFeature;
+    NSString *_name;
+    VKLabelNavRoadLabel *_junctionSign;
+    BOOL _areLabelsDisabled;
     unsigned int _depthFromRoute;
-    CDStruct_31142d93 _worldCoordinate;
+    double _worldUnitsPerMeter;
+    VKLabelNavJunction *_overpassJunction;
+    struct VKPoint _worldCoordinate;
     double _sortValue;
+    BOOL _isRouteRefineJunction;
 }
 
-@property(nonatomic) BOOL isOnDualCarriageway; // @synthesize isOnDualCarriageway=_isOnDualCarriageway;
+@property(readonly, nonatomic) VKLabelNavRoadLabel *junctionSign; // @synthesize junctionSign=_junctionSign;
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) BOOL isRouteRefineJunction; // @synthesize isRouteRefineJunction=_isRouteRefineJunction;
+@property(nonatomic) BOOL isRouteOverpass; // @synthesize isRouteOverpass=_isRouteOverpass;
 @property(readonly, nonatomic) BOOL isOverpass; // @synthesize isOverpass=_isOverpass;
+@property(nonatomic) VKLabelNavJunction *overpassJunction; // @synthesize overpassJunction=_overpassJunction;
 @property(nonatomic) unsigned int depthFromRoute; // @synthesize depthFromRoute=_depthFromRoute;
+@property(nonatomic) BOOL isOnDualCarriageway; // @synthesize isOnDualCarriageway=_isOnDualCarriageway;
 @property(nonatomic) float distanceFromPreviousShieldLabel; // @synthesize distanceFromPreviousShieldLabel=_distanceFromPreviousShieldLabel;
 @property(nonatomic) int preferredLabelPlacement; // @synthesize preferredLabelPlacement=_preferredLabelPlacement;
 @property(readonly, nonatomic) VKLabelNavRoad *incomingRoad; // @synthesize incomingRoad=_incomingRoad;
 @property(readonly, nonatomic) VKLabelNavRoad *outgoingRoad; // @synthesize outgoingRoad=_outgoingRoad;
-@property(nonatomic) CDStruct_3f2a7a20 routeOffset; // @synthesize routeOffset=_routeOffset;
-@property(readonly, nonatomic) CDStruct_6e3f967a tileCoordinate; // @synthesize tileCoordinate=_tileCoordinate;
-@property(readonly, nonatomic) const CDStruct_7523a67d *geoJunction; // @synthesize geoJunction=_geoJunction;
+@property(nonatomic) struct PolylineCoordinate routeOffset; // @synthesize routeOffset=_routeOffset;
+@property(readonly, nonatomic) Vec2Imp_1782d7e3 tileCoordinate; // @synthesize tileCoordinate=_tileCoordinate;
+@property(readonly, nonatomic) const CDStruct_dde70fb6 *geoJunction; // @synthesize geoJunction=_geoJunction;
 @property(readonly, nonatomic) VKLabelTile *tile; // @synthesize tile=_tile;
 - (id).cxx_construct;
+@property(readonly, nonatomic) BOOL isGuidanceStepStart;
+@property(readonly, nonatomic) NSString *shieldDisplayGroup;
+@property(readonly, nonatomic) BOOL isInGuidance;
+@property(readonly, nonatomic) BOOL isStartOfRoadName;
+- (void)createLabelWithNavContext:(struct NavContext *)arg1 isDrivingSideRight:(BOOL)arg2;
+- (struct VKPoint)_anchorCoordinateForSignOrientation:(int)arg1;
+- (int)_signOrientationWithDrivingSide:(BOOL)arg1;
+@property(readonly, nonatomic) double worldUnitsPerMeter; // @synthesize worldUnitsPerMeter=_worldUnitsPerMeter;
 @property(readonly, nonatomic) int requiredLabelPlacement;
+- (void)evaluateCrossStreetsUsingRouteJunction:(id)arg1;
 - (void)evaluateCrossStreets;
-- (void)addRouteEdge:(id)arg1 atA:(BOOL)arg2;
-- (void)findOverpasses;
+- (void)addRouteEdge:(const struct VKLabelNavRouteRoadEdge *)arg1 atA:(BOOL)arg2;
 - (void)findRoads;
+@property(readonly, nonatomic) int largestRoadClass;
 @property(readonly, nonatomic) NSArray *roads; // @synthesize roads=_roads;
 @property(readonly, nonatomic) BOOL isMultiRoadIntersection;
+@property(readonly, nonatomic) BOOL isIntraRamp;
 @property(readonly, nonatomic) BOOL isOffRouteGraph;
 @property(readonly, nonatomic) BOOL isAwayFromRoute;
+@property(readonly, nonatomic) BOOL isRamp;
+@property(readonly, nonatomic) int intraRoadPriority;
 @property(readonly, nonatomic) BOOL isIntersection;
+@property(readonly, nonatomic) BOOL isOnRoute;
 @property(readonly, nonatomic) BOOL isRoadTerminus;
 @property(readonly, nonatomic) BOOL isTileEdgeJunction;
 - (BOOL)matchesLocationForJunction:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithRoadEdge:(const CDStruct_b4689c16 *)arg1 atA:(BOOL)arg2 routeOffset:(CDStruct_3f2a7a20)arg3 tile:(id)arg4;
-- (id)initWithGEOJunction:(CDStruct_7523a67d *)arg1 routeOffset:(CDStruct_3f2a7a20)arg2 tile:(id)arg3;
+- (id)initWithRoadEdge:(const CDStruct_fc3c0eb0 *)arg1 atA:(BOOL)arg2 routeOffset:(struct PolylineCoordinate)arg3 tile:(id)arg4;
+- (id)initWithGEOJunction:(CDStruct_dde70fb6 *)arg1 routeOffset:(struct PolylineCoordinate)arg2 tile:(id)arg3;
 
 @end
 

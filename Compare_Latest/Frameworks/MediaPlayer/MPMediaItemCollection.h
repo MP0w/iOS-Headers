@@ -6,32 +6,39 @@
 
 #import <MediaPlayer/MPMediaEntity.h>
 
-@class MPMediaItem, NSArray;
+@class MPMediaItem, MPMediaQuery, NSArray;
 
 @interface MPMediaItemCollection : MPMediaEntity
 {
-    struct MPMediaItemCollectionInternal _internal;
+    unsigned int _containedMediaTypes;
+    NSArray *_items;
+    unsigned int _itemsCount;
+    MPMediaQuery *_itemsQuery;
+    MPMediaItem *_representativeItem;
 }
 
 + (id)representativePersistentIDPropertyForGroupingType:(int)arg1;
 + (id)sortTitlePropertyForGroupingType:(int)arg1;
 + (id)titlePropertyForGroupingType:(int)arg1;
 + (id)collectionWithItems:(id)arg1;
-@property(nonatomic) struct MPMediaItemCollectionInternal _internal; // @synthesize _internal;
-@property(readonly, nonatomic) int mediaTypes;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) unsigned int mediaTypes;
 @property(readonly, nonatomic) unsigned int count;
 @property(readonly, nonatomic) MPMediaItem *representativeItem;
 @property(readonly, nonatomic) NSArray *items;
 - (id)itemsQuery;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)_init;
 - (id)initWithItemsQuery:(id)arg1;
 - (id)initWithItems:(id)arg1;
 - (id)init;
-- (BOOL)hasDownloadingItem;
-- (BOOL)hasDownloadableItem;
+- (id)SAMPMediaEntityRepresentation;
+- (id)SAMPCollectionRepresentationWithItems;
+- (id)SAMPCollectionRepresentation;
+- (int)groupingType;
+- (BOOL)MPSD_hasDownloadingItem;
+- (BOOL)MPSD_hasDownloadableItem;
 
 @end
 

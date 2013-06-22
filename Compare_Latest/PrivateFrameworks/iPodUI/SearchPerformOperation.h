@@ -17,10 +17,10 @@
     NSString *_searchIdentifier;
 }
 
+- (void).cxx_destruct;
 - (void)main;
 - (void)enumerateEntitiesForQuery:(id)arg1;
 - (void)_reportResultsWithQuery:(id)arg1 searchIdentifier:(id)arg2;
-- (void)dealloc;
 - (id)initWithSearchDataSource:(id)arg1 searchString:(id)arg2 searchScope:(int)arg3 searchIdentifier:(id)arg4;
 
 @end

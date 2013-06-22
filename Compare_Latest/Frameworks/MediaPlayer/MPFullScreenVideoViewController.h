@@ -19,6 +19,7 @@
 
 @property(nonatomic) int autorotationState; // @synthesize autorotationState=_autorotationState;
 - (BOOL)inhibitOverlay;
+- (void).cxx_destruct;
 - (void)_reallyRemoveOverlay;
 - (void)_rotationAnimationFinished:(id)arg1;
 - (void)_hideOverlayAnimationFinished:(id)arg1;

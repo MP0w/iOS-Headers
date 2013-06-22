@@ -8,8 +8,8 @@
 
 @interface WAKClipView : WAKView
 {
-    WAKView *_documentView;
     BOOL _copiesOnScroll;
+    WAKView *_documentView;
 }
 
 @property(nonatomic) BOOL copiesOnScroll; // @synthesize copiesOnScroll=_copiesOnScroll;

@@ -27,12 +27,14 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;
+- (void)exchangeObjectAtIndex:(unsigned int)arg1 withObjectAtIndex:(unsigned int)arg2;
 - (unsigned int)indexOfObjectIdenticalTo:(id)arg1;
 - (void)setObject:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
 - (void)removeObjectAtIndex:(unsigned int)arg1;
 - (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
 - (void)_mutate;
+- (void)enumerateObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
 - (id)objectAtIndex:(unsigned int)arg1;

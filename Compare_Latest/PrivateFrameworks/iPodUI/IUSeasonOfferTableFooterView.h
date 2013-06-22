@@ -26,9 +26,10 @@
     id <IUSeasonOfferTableFooterViewDelegate> _delegate;
 }
 
-@property(nonatomic) id <IUSeasonOfferTableFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <IUSeasonOfferTableFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIColor *separatorColor; // @synthesize separatorColor=_separatorColor;
 @property(retain, nonatomic) IUMediaDataSource *dataSource; // @synthesize dataSource=_dataSource;
+- (void).cxx_destruct;
 - (void)_variantSegmentedControlAction:(id)arg1;
 - (id)_completeMySeasonText;
 - (void)_downloadButtonPressedAction:(id)arg1;
@@ -40,7 +41,6 @@
 - (void)layoutSubviews;
 - (BOOL)_shouldShowOfferButtonOrLabel;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)dealloc;
 - (void)_reloadDownloadAction;
 - (id)initWithStoreCompletionOffering:(id)arg1 showingMissingItems:(BOOL)arg2 offerVariant:(int)arg3;
 

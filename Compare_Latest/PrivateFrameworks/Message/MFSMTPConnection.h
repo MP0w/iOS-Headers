@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Message/Connection.h>
+#import <Message/MFConnection.h>
 
 @class MFSMTPResponse, NSMutableArray, NSMutableData, NSString;
 
-@interface MFSMTPConnection : Connection
+@interface MFSMTPConnection : MFConnection
 {
     MFSMTPResponse *_lastResponse;
     NSMutableArray *_serviceExtensions;

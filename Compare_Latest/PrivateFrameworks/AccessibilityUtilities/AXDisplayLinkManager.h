@@ -11,12 +11,12 @@
 @interface AXDisplayLinkManager : NSObject
 {
     CADisplayLink *_displayLink;
-    NSMutableSet *_activeTargetActions;
-    NSMutableSet *_addedTargetActions;
-    NSMutableSet *_removedTargetActions;
     BOOL _handlingDisplayRefresh;
     BOOL _shouldInvalidate;
     BOOL _shouldInvalidateAutomatically;
+    NSMutableSet *_activeTargetActions;
+    NSMutableSet *_addedTargetActions;
+    NSMutableSet *_removedTargetActions;
 }
 
 + (void)releaseCurrentDisplayLinkManager;

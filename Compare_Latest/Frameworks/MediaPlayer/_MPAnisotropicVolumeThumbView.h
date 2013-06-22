@@ -19,6 +19,7 @@
     UIImageView *_rightLightReflectionView;
 }
 
+- (void).cxx_destruct;
 - (void)_updateAccelerometerX:(double)arg1 Y:(double)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

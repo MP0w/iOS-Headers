@@ -4,17 +4,20 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <ChatKit/CKCompressibleImageMediaObject.h>
+#import <ChatKit/CKImageMediaObject.h>
 
-@interface CKAnimatedImageMediaObject : CKCompressibleImageMediaObject
+@interface CKAnimatedImageMediaObject : CKImageMediaObject
 {
 }
 
-+ (id)mimeTypesToFileExtensions;
-- (BOOL)saveExtendedPreview:(id)arg1 toPath:(id)arg2 forOrientation:(int)arg3;
-- (id)extendedPreviewForOrientation:(int)arg1 highlight:(BOOL)arg2;
-- (id)savedExtendedPreviewFromPath:(id)arg1 forOrientation:(int)arg2;
-- (BOOL)wantsExtendedPreview;
++ (id)UTITypes;
+- (void)saveAnimatedPreview:(id)arg1 toURL:(id)arg2 forOrientation:(BOOL)arg3;
+- (id)generateThumbnails;
+- (id)savedAnimatedPreviewFromURL:(id)arg1 forOrientation:(BOOL)arg2;
+- (id)generateAnimatedPreviewFromThumbnails:(id)arg1 forOrientation:(BOOL)arg2;
+- (id)notificationCenter;
+- (BOOL)previewDispatchCache:(id)arg1 shouldReplaceCachedPreview:(id)arg2 withPreview:(id)arg3;
+- (id)previewForOrientation:(BOOL)arg1;
 
 @end
 

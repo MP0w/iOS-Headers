@@ -11,7 +11,7 @@
 }
 
 + (id)sharedKeychain;
-- (void)migratePasswordForAccount:(id)arg1 persistentUUID:(id)arg2 passwordExpected:(BOOL)arg3;
+- (void)migratePasswordForAccount:(id)arg1;
 - (BOOL)removePasswordForAccount:(id)arg1 withPersistentUUID:(id)arg2;
 - (BOOL)setPassword:(id)arg1 forAccount:(id)arg2 withPersistentUUID:(id)arg3 withAccessibility:(int)arg4;
 - (void)_removePersistentCredentialsForAccount:(id)arg1;

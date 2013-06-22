@@ -12,6 +12,7 @@
 {
 }
 
+- (void)remove;
 @property(readonly) NSString *internalSubset;
 @property(readonly) NSString *systemId;
 @property(readonly) NSString *publicId;

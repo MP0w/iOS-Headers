@@ -47,6 +47,7 @@
 - (void)resolveForPeer:(id)arg1;
 - (id)generateDeviceID;
 - (void)dealloc;
+- (id)initWithDomain:(id)arg1 type:(id)arg2;
 - (id)init;
 
 @end

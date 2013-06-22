@@ -25,13 +25,17 @@
     BOOL _currentUnread;
     BOOL _anyUnread;
     BOOL _showDotsSevenAndEight;
+    int _lineFocus;
 }
 
+@property(nonatomic) int lineFocus; // @synthesize lineFocus=_lineFocus;
 - (int)lastToken;
 - (int)firstToken;
 - (struct __CFDictionary *)chunkDictionary;
 - (struct __CFArray *)chunkArray;
 - (void)translate;
+- (void)addText:(id)arg1 language:(id)arg2 selection:(struct _NSRange *)arg3 token:(int)arg4 focused:(BOOL)arg5 technical:(BOOL)arg6;
+- (void)addText:(id)arg1 selection:(struct _NSRange *)arg2 token:(int)arg3 focused:(BOOL)arg4 technical:(BOOL)arg5;
 - (void)addText:(id)arg1 language:(id)arg2 selection:(struct _NSRange *)arg3 token:(int)arg4 focused:(BOOL)arg5;
 - (void)addText:(id)arg1 selection:(struct _NSRange *)arg2 token:(int)arg3 focused:(BOOL)arg4;
 - (id)statusText;

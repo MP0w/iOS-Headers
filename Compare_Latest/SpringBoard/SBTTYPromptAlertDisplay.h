@@ -4,19 +4,40 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBSlidingAlertDisplay.h"
+#import "SBAlertView.h"
 
-@interface SBTTYPromptAlertDisplay : SBSlidingAlertDisplay
+#import "TPSuperBottomBarDelegateProtocol-Protocol.h"
+
+@class TPLCDView, TPSuperBottomBar, UIImage, UIImageView, UIView;
+
+@interface SBTTYPromptAlertDisplay : SBAlertView <TPSuperBottomBarDelegateProtocol>
 {
+    UIView *_containerView;
+    UIImageView *_backgroundView;
+    UIView *_voiceAndTTYWrapperView;
+    TPSuperBottomBar *_cancelBar;
+    TPLCDView *_promptView;
+    BOOL _didAnimateIn;
+    UIImage *_calleeImage;
+    BOOL _isFullscreenImage;
+    BOOL _imageSetupDone;
 }
 
-+ (id)bottomBarForInstance:(id)arg1;
-+ (id)topBarForInstance:(id)arg1;
+- (id)thumbnailImage;
+- (id)backgroundImage;
+- (void)computeImageInformation;
+- (id)customizedTitleForItemInBar:(id)arg1 withActionType:(int)arg2;
+- (void)bottomBarActionPerformed:(int)arg1 fromBar:(id)arg2;
 - (void)_ignore:(id)arg1;
 - (void)_chooseTTYMode:(id)arg1;
 - (void)_chooseVoiceMode:(id)arg1;
 - (void)_makeCall;
-- (id)initWithSize:(struct CGSize)arg1;
+- (void)startAnimatingIn;
+- (void)dismiss;
+- (void)layoutForInterfaceOrientation:(int)arg1;
+- (BOOL)isSupportedInterfaceOrientation:(int)arg1;
+- (float)_lcdYOffset;
+- (void)dealloc;
 
 @end
 

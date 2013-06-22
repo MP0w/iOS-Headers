@@ -14,13 +14,13 @@
 }
 
 @property(retain, nonatomic) NSArray *assetsToShare; // @synthesize assetsToShare=_assetsToShare;
+- (void)prepareWithActivityItems:(id)arg1;
 - (void)performActivity;
 - (id)messageComposeViewController;
 - (id)activityViewController;
 - (BOOL)canPerformWithActivityItems:(id)arg1;
 - (BOOL)_canPerformWithSuppliedActivityItems:(id)arg1;
 - (Class)MMSControllerClass;
-- (id)_beforeActivity;
 
 @end
 

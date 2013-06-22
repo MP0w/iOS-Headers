@@ -14,6 +14,10 @@
 {
 }
 
++ (float)memberTextBaseline;
++ (float)memberRowHeight;
++ (float)memberHeaderTextBaseline;
++ (float)memberHeaderRowHeight;
 + (id)defaultStyleProviderForStyle:(int)arg1;
 + (id)defaultStyleProvider;
 - (BOOL)reloadCallAction;
@@ -37,6 +41,7 @@
 @property(readonly, nonatomic) UIFont *groupAccountNameFont;
 @property(readonly, nonatomic) UIColor *groupsTableBackgroundColor;
 @property(readonly, nonatomic) BOOL groupsTableShouldRemoveBackgroundView;
+@property(readonly, nonatomic) BOOL peoplePickerBarStyleIsTranslucent;
 @property(readonly, nonatomic) int peoplePickerBarStyle;
 @property(readonly, nonatomic) BOOL shouldUsePeoplePickerBarStyle;
 - (int)dialogStyleForDeleteConfirmation;
@@ -45,10 +50,13 @@
 @property(readonly, nonatomic) BOOL presentModalViewInPopover;
 @property(readonly, nonatomic) int unknownModalPresentationStyle;
 @property(readonly, nonatomic) int composeModalPresentationStyle;
+@property(readonly, nonatomic) BOOL shouldDefinePickerTransitionStyle;
+@property(readonly, nonatomic) int pickerTransitionStyle;
 @property(readonly, nonatomic) BOOL shouldPropagateStylesToPickers;
 @property(readonly, nonatomic) BOOL shouldPropagateStylesThroughUnknownPersonActions;
 @property(readonly, nonatomic) BOOL linkedPhotoLabelStringsDescribeSourceOnly;
 @property(readonly, nonatomic) BOOL linkedPhotoPickerIncludesCurrentPhoto;
+@property(readonly, nonatomic) BOOL labelPickerUsesOpaqueBackground;
 @property(readonly, nonatomic) BOOL labelPickerShouldPushCustomLabelCreator;
 - (id)newCardDividerViewVertical:(BOOL)arg1;
 - (void)unselectAllCellParts:(id)arg1;
@@ -92,6 +100,8 @@
 @property(readonly, nonatomic) float cardContentOccluderDefaultTopFadingHeight;
 @property(readonly, nonatomic) UIColor *cardValueHighlightedTextColor;
 - (void)setIndicatesFaceTimeHistory:(BOOL)arg1 onActionButton:(id)arg2;
+@property(readonly, nonatomic) BOOL cardActionsAllowFaceTimeFavorites;
+@property(readonly, nonatomic) BOOL cardActionsAllowVoiceFavorites;
 @property(readonly, nonatomic) UIImage *cardActionConferenceIconPressed;
 @property(readonly, nonatomic) UIImage *cardActionConferenceIcon;
 - (id)newCardActionButton;
@@ -249,7 +259,6 @@
 @property(readonly, nonatomic) BOOL cardTableShouldAdjustForKeyboard;
 @property(readonly, nonatomic) UIColor *cardTableBackgroundColor;
 @property(readonly, nonatomic) BOOL cardTableShouldRemoveBackgroundView;
-@property(readonly, nonatomic) UIImage *memberSectionListHeaderImageOpaque;
 @property(readonly, nonatomic) UIImage *memberSectionListHeaderImage;
 @property(readonly, nonatomic) BOOL searchControllerForceKeyboardDisplayEnabled;
 @property(readonly, nonatomic) BOOL serverSearchNavigationBarHidingEnabled;
@@ -259,7 +268,13 @@
 @property(readonly, nonatomic) UIColor *membersBackgroundColor;
 @property(readonly, nonatomic) UIColor *membersHeaderBackgroundColor;
 @property(readonly, nonatomic) UIColor *memberSelectedBackgroundColor;
+@property(readonly, nonatomic) UIImage *memberPlaceholderCompanyImage;
+@property(readonly, nonatomic) UIImage *memberPlaceholderPersonImage;
+@property(readonly, nonatomic) UIImage *memberPhotoOverlayImage;
+@property(readonly, nonatomic) UIImage *memberPhotoMaskImage;
+@property(readonly, nonatomic) BOOL memberShowContactPhoto;
 @property(readonly, nonatomic) struct CGSize memberNameShadowOffset;
+@property(readonly, nonatomic) UIColor *memberSearchFieldBackgroundColor;
 @property(readonly, nonatomic) UIColor *memberNameSelectedShadowColor;
 @property(readonly, nonatomic) UIColor *memberNameShadowColor;
 @property(readonly, nonatomic) UIImage *memberNameMeCardDisabledImage;
@@ -285,7 +300,7 @@
 @property(readonly, nonatomic) unsigned int membersCountToShowIndex;
 @property(readonly, nonatomic) unsigned int membersCountToShowSections;
 @property(readonly, nonatomic) int membersSelectionStyle;
-@property(readonly, nonatomic) BOOL memberNameRespectsLargeTextSetting;
+- (BOOL)memberNameRespectsLargeTextSetting;
 - (struct __CFDictionary *)newBackgroundViewsForChameleonCell;
 - (id)newBackgroundViewForCellStyle:(int)arg1 selected:(BOOL)arg2;
 - (id)newTableFooterViewForCellStyle:(int)arg1;

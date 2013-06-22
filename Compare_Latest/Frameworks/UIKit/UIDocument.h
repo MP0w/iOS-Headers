@@ -26,11 +26,9 @@
     id _differenceSinceSaving;
     NSTimer *_autosavingTimer;
     double _lastSaveTime;
-    unsigned int _fileContentsPreservationReason;
     double _lastPreservationTime;
     id _versionWithoutRecentChanges;
     NSMutableArray *_versions;
-    void *_conflictObserver;
     NSLock *_documentPropertyLock;
     id _alertPresenter;
     struct __docFlags {
@@ -110,7 +108,7 @@
 - (void)_finishSavingToURL:(id)arg1 forSaveOperation:(int)arg2 changeCount:(id)arg3;
 - (void)saveToURL:(id)arg1 forSaveOperation:(int)arg2 completionHandler:(id)arg3;
 - (id)contentsForType:(id)arg1 error:(id *)arg2;
-- (void)_coordinateWritingItemAtURL:(id)arg1 error:(id *)arg2 byAccessor:(id)arg3;
+- (BOOL)_coordinateWritingItemAtURL:(id)arg1 error:(id *)arg2 byAccessor:(id)arg3;
 - (id)fileAttributesToWriteToURL:(id)arg1 forSaveOperation:(int)arg2 error:(id *)arg3;
 - (BOOL)writeContents:(id)arg1 toURL:(id)arg2 forSaveOperation:(int)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)writeContents:(id)arg1 andAttributes:(id)arg2 safelyToURL:(id)arg3 forSaveOperation:(int)arg4 error:(id *)arg5;

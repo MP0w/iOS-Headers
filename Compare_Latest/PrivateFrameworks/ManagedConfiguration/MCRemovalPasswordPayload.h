@@ -13,7 +13,8 @@
     NSString *_removalPasscode;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
 @property(retain, nonatomic) NSString *removalPasscode; // @synthesize removalPasscode=_removalPasscode;
 - (void).cxx_destruct;

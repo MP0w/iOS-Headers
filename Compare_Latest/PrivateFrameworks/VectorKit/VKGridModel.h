@@ -7,30 +7,36 @@
 #import <VectorKit/VKModelObject.h>
 
 #import "VKMapLayer-Protocol.h"
+#import "VKStylesheetObserver-Protocol.h"
 
-@class VGLMesh, VGLRenderState, VKAnimation;
+@class VGLMesh, VGLRenderState, VKMapModel, VKStylesheet;
 
-@interface VKGridModel : VKModelObject <VKMapLayer>
+@interface VKGridModel : VKModelObject <VKMapLayer, VKStylesheetObserver>
 {
+    VKMapModel *_mapModel;
+    BOOL _simpleGridEnabled;
     VGLRenderState *_renderState;
-    VGLMesh *_mesh;
     double _gridMix;
     CDStruct_aa5aacbc _projection;
     CDStruct_aa5aacbc _gridView;
-    CDStruct_6e3f967a _invFwidth;
-    struct _VGLColor _color;
+    Vec2Imp_1782d7e3 _invFwidth;
+    struct _VGLColor _fillColor;
     struct _VGLColor _lineColor;
-    VKAnimation *_colorAnimation;
-    BOOL _simpleGridEnabled;
+    VGLMesh *_mesh;
 }
 
++ (BOOL)reloadOnStylesheetChange;
+@property(readonly, nonatomic) struct _VGLColor fillColor; // @synthesize fillColor=_fillColor;
+@property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
 @property(nonatomic) BOOL simpleGridEnabled; // @synthesize simpleGridEnabled=_simpleGridEnabled;
-@property(nonatomic) struct _VGLColor color; // @synthesize color=_color;
+- (id).cxx_construct;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)dealloc;
 - (id)init;
-- (void)setColor:(struct _VGLColor)arg1 animated:(BOOL)arg2;
+- (void)stylesheetDidChange;
+@property(readonly, nonatomic) VKStylesheet *stylesheet;
+- (unsigned int)supportedRenderPasses;
 - (unsigned int)mapLayerPosition;
 
 @end

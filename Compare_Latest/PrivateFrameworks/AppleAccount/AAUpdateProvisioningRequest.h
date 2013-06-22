@@ -6,20 +6,23 @@
 
 #import <AppleAccount/AARequest.h>
 
-@class AAAccount;
+@class ACAccount, NSString;
 
 @interface AAUpdateProvisioningRequest : AARequest
 {
-    AAAccount *_account;
+    ACAccount *_account;
+    NSString *_authToken;
 }
 
 + (Class)responseClass;
-@property(retain, nonatomic) AAAccount *account; // @synthesize account=_account;
+@property(copy, nonatomic) NSString *authToken; // @synthesize authToken=_authToken;
+@property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
 - (id)urlRequest;
 - (id)urlString;
 - (id)urlCredential;
 - (id)initWithURLString:(id)arg1 account:(id)arg2;
+- (id)initWithAccount:(id)arg1 token:(id)arg2;
 - (id)initWithAccount:(id)arg1;
 
 @end

@@ -4,17 +4,10 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <MapKit/MKAnnotationViewInternal.h>
+#import "NSObject.h"
 
-@class UIImageView;
-
-@interface MKPinAnnotationViewInternal : MKAnnotationViewInternal
+@interface MKPinAnnotationViewInternal : NSObject
 {
-    UIImageView *shadowView;
-    id delegate;
-    int pinType;
-    int state;
-    BOOL animatesDrop;
 }
 
 @end

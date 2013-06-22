@@ -11,15 +11,17 @@
     int _tileSize;
     BOOL _bootstrap;
     unsigned int _maxZ;
+    double _lodBias;
 }
 
+@property(nonatomic) double lodBias; // @synthesize lodBias=_lodBias;
 @property(nonatomic) unsigned int maxZ; // @synthesize maxZ=_maxZ;
 @property(nonatomic) BOOL bootstrap; // @synthesize bootstrap=_bootstrap;
 @property(nonatomic) int tileSize; // @synthesize tileSize=_tileSize;
 - (CDStruct_6adf2384)relevantTilesForContext:(id)arg1;
-- (float)_zoomLevelForGroundPoint:(const CDStruct_31142d93 *)arg1 context:(id)arg2;
+- (float)_zoomLevelForGroundPoint:(const struct VKPoint *)arg1 context:(id)arg2;
 - (float)_zoomLevelForScreenPoint:(struct CGPoint)arg1 context:(id)arg2;
-- (id)keysForContext:(id)arg1;
+- (id)keysForContext:(id)arg1 neighbors:(id)arg2;
 - (id)init;
 
 @end

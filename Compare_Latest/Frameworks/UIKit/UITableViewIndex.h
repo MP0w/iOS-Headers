@@ -19,12 +19,18 @@
     struct CGSize _cachedSizeToFit;
     UIColor *_indexColor;
     UIColor *_indexBackgroundColor;
+    UIColor *_indexTrackingBackgroundColor;
+    float _topPadding;
+    float _bottomPadding;
 }
 
 @property(readonly, nonatomic) BOOL pastBottom; // @synthesize pastBottom=_pastBottom;
 @property(readonly, nonatomic) BOOL pastTop; // @synthesize pastTop=_pastTop;
 @property(readonly, nonatomic) int selectedSection; // @synthesize selectedSection=_selectedSection;
+- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)tintColorDidChange;
 @property(retain, nonatomic) UIColor *indexBackgroundColor;
+@property(retain, nonatomic) UIColor *indexTrackingBackgroundColor;
 @property(retain, nonatomic) UIColor *indexColor;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
@@ -40,10 +46,10 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)_displayTitles;
-- (void)mouseUp:(struct __GSEvent *)arg1;
-- (void)mouseDragged:(struct __GSEvent *)arg1;
-- (void)mouseDown:(struct __GSEvent *)arg1;
-- (id)_createTouchesWithMouseEvent:(struct __GSEvent *)arg1 phase:(int)arg2;
+- (void)_willChangeToIdiom:(int)arg1 onScreen:(id)arg2;
+- (float)_minLineSpacingForIdiom:(int)arg1;
+- (id)_fontForIdiom:(int)arg1;
+- (int)_idiom;
 
 @end
 

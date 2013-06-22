@@ -10,9 +10,7 @@
 {
 }
 
-+ (void)writeCharacterProperties:(id)arg1 to:(id)arg2;
-+ (void)writeText:(id)arg1 to:(id)arg2;
-+ (void)readFrom:(id)arg1 at:(long)arg2 textRun:(struct WrdCharacterTextRun *)arg3 paragraph:(id)arg4 specialCharacter:(id)arg5;
++ (void)readFrom:(id)arg1 at:(int)arg2 textRun:(struct WrdCharacterTextRun *)arg3 paragraph:(id)arg4 specialCharacter:(id)arg5;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSDictionary, NSString;
+@class NSData, NSDictionary, NSMutableArray, NSString;
 
 @interface HSRequest : NSObject
 {
@@ -17,9 +17,12 @@
     struct __CFHTTPMessage *_message;
     int _method;
     BOOL _excludeSessionIDFromURL;
+    NSMutableArray *_cachedBodyDataBlocks;
+    BOOL _concurrent;
 }
 
 + (id)request;
+@property(readonly, nonatomic, getter=isConcurrent) BOOL concurrent; // @synthesize concurrent=_concurrent;
 @property(nonatomic) BOOL excludeSessionIDFromURL; // @synthesize excludeSessionIDFromURL=_excludeSessionIDFromURL;
 @property(nonatomic) int method; // @synthesize method=_method;
 @property(copy, nonatomic) NSData *bodyData; // @synthesize bodyData=_bodyData;
@@ -27,12 +30,16 @@
 - (id)_methodStringForMethod:(int)arg1;
 - (id)_defaultHeaderFields;
 - (BOOL)acceptsGzipEncoding;
+- (unsigned int)cachedBodyDataBlocksLength;
+- (void)appendCachedBodyDataBlocksIntoData:(id)arg1 clearCache:(BOOL)arg2;
+- (void)cacheBodyDataBlock:(id)arg1;
 - (id)canonicalResponseForResponse:(id)arg1;
 - (struct __CFHTTPMessage *)CFHTTPMessageForBaseURL:(id)arg1 sessionID:(unsigned int)arg2;
 - (id)requestURLForBaseURL:(id)arg1 sessionID:(unsigned int)arg2;
 - (void)setValue:(id)arg1 forArgument:(id)arg2;
 - (void)setValue:(id)arg1 forHeaderField:(id)arg2;
 - (id)descriptionWithoutHeaderFields;
+@property(readonly, nonatomic) double timeoutInterval;
 - (id)description;
 - (void)dealloc;
 - (id)initWithAction:(id)arg1;

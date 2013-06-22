@@ -15,14 +15,21 @@
     BOOL _retryPrefersWWAN;
 }
 
-+ (void)logRequestCancelled;
-+ (void)logRequestCompleted;
-+ (void)logRequestFailed;
-+ (void)logRequestStarted;
++ (void)logDictationCancelled;
++ (void)logDictationSucceeded;
++ (void)logDictationFailedWithError:(id)arg1;
++ (void)logDictationStarted;
++ (void)logSiriRequestCancelled;
++ (void)logSiriRequestSucceeded;
++ (void)logSiriRequestFailedWithError:(id)arg1;
++ (void)logSiriOtherRequestStarted;
++ (void)logSiriSpeechRequestStarted;
++ (id)_fullAggDKeyWithPrefix:(id)arg1 error:(id)arg2;
 + (void)logRequestCancelAfterSeconds:(double)arg1;
 + (void)missedAlertContextForRequest;
 + (void)missedAppContextForRequest;
 + (void)logRequestCompletedWithDuration:(double)arg1;
++ (void)logTimeToBeepWithDuration:(double)arg1;
 @property BOOL hasActiveRequest; // @synthesize hasActiveRequest=_hasActiveRequest;
 @property int connectionType; // @synthesize connectionType=_type;
 - (void)speechResponseFailure;

@@ -6,29 +6,33 @@
 
 #import "PBRequest.h"
 
-@class GEOLocation, GEOMapRegion, GEORouteAttributes, NSData, NSMutableArray;
+@class GEOClientCapabilities, GEOLocation, GEOMapRegion, GEORouteAttributes, NSData, NSMutableArray;
 
 @interface GEODirectionsRequest : PBRequest
 {
+    GEOClientCapabilities *_clientCapabilities;
     GEOMapRegion *_currentMapRegion;
     GEOLocation *_currentUserLocation;
     int _departureTime;
-    unsigned int _maxRouteCount;
+    unsigned int _mainTransportTypeMaxRouteCount;
     NSData *_originalRouteID;
     NSData *_originalRouteZilchPoints;
     GEORouteAttributes *_routeAttributes;
     NSMutableArray *_serviceTags;
     unsigned int _timeSinceLastRerouteRequest;
     NSMutableArray *_waypoints;
+    BOOL _getRouteForZilchPoints;
     struct {
         unsigned int departureTime:1;
-        unsigned int maxRouteCount:1;
+        unsigned int mainTransportTypeMaxRouteCount:1;
         unsigned int timeSinceLastRerouteRequest:1;
+        unsigned int getRouteForZilchPoints:1;
     } _has;
 }
 
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
 @property(nonatomic) int departureTime; // @synthesize departureTime=_departureTime;
+@property(retain, nonatomic) GEOClientCapabilities *clientCapabilities; // @synthesize clientCapabilities=_clientCapabilities;
 @property(retain, nonatomic) NSData *originalRouteZilchPoints; // @synthesize originalRouteZilchPoints=_originalRouteZilchPoints;
 @property(retain, nonatomic) NSData *originalRouteID; // @synthesize originalRouteID=_originalRouteID;
 @property(retain, nonatomic) GEOMapRegion *currentMapRegion; // @synthesize currentMapRegion=_currentMapRegion;
@@ -48,15 +52,18 @@
 - (unsigned int)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
+@property(nonatomic) BOOL hasGetRouteForZilchPoints;
+@property(nonatomic) BOOL getRouteForZilchPoints; // @synthesize getRouteForZilchPoints=_getRouteForZilchPoints;
 @property(nonatomic) BOOL hasDepartureTime;
+@property(readonly, nonatomic) BOOL hasClientCapabilities;
 @property(nonatomic) BOOL hasTimeSinceLastRerouteRequest;
 @property(nonatomic) unsigned int timeSinceLastRerouteRequest; // @synthesize timeSinceLastRerouteRequest=_timeSinceLastRerouteRequest;
 @property(readonly, nonatomic) BOOL hasOriginalRouteZilchPoints;
 @property(readonly, nonatomic) BOOL hasOriginalRouteID;
 @property(readonly, nonatomic) BOOL hasCurrentMapRegion;
 @property(readonly, nonatomic) BOOL hasCurrentUserLocation;
-@property(nonatomic) BOOL hasMaxRouteCount;
-@property(nonatomic) unsigned int maxRouteCount; // @synthesize maxRouteCount=_maxRouteCount;
+@property(nonatomic) BOOL hasMainTransportTypeMaxRouteCount;
+@property(nonatomic) unsigned int mainTransportTypeMaxRouteCount; // @synthesize mainTransportTypeMaxRouteCount=_mainTransportTypeMaxRouteCount;
 - (id)waypointAtIndex:(unsigned int)arg1;
 - (unsigned int)waypointsCount;
 - (void)addWaypoint:(id)arg1;

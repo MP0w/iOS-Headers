@@ -4,15 +4,21 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <GeoServices/GEOLocationShiftRequest.h>
+#import "NSObject.h"
 
-@interface GEOLocationShiftFunctionRequest : GEOLocationShiftRequest
+@class GEOLocationShiftRequest, GEOPolyLocationShiftRequest, PBRequest;
+
+@interface GEOLocationShiftFunctionRequest : NSObject
 {
     unsigned short _providerID;
+    GEOLocationShiftRequest *_locationShiftRequest;
+    GEOPolyLocationShiftRequest *_polyLocationShiftRequest;
 }
 
-@property(nonatomic) unsigned short providerID; // @synthesize providerID=_providerID;
+@property(readonly, nonatomic) PBRequest *shiftRequest;
 @property(nonatomic) CDStruct_c3b9c2ee coordinate;
+@property(nonatomic) unsigned short providerID; // @synthesize providerID=_providerID;
+- (void)dealloc;
 
 @end
 

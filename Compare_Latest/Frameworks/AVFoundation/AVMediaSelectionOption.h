@@ -16,6 +16,8 @@
 }
 
 + (id)mediaSelectionOptionForAsset:(id)arg1 group:(id)arg2 dictionary:(id)arg3 hasUnderlyingTrack:(BOOL)arg4;
+@property(readonly, nonatomic) NSString *displayName;
+- (id)displayNameWithLocale:(id)arg1;
 - (id)propertyList;
 - (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
 - (id)metadataForFormat:(id)arg1;
@@ -23,12 +25,16 @@
 - (id)_title;
 @property(readonly, nonatomic) NSArray *commonMetadata;
 - (BOOL)displaysNonForcedSubtitles;
+- (id)associatedPersistentIDs;
+- (id)associatedExtendedLanguageTag;
+@property(readonly, nonatomic) NSString *extendedLanguageTag;
 @property(readonly, nonatomic) NSLocale *locale;
 - (BOOL)_isDesignatedDefault;
 @property(readonly, nonatomic, getter=isPlayable) BOOL playable;
 - (BOOL)hasMediaCharacteristic:(id)arg1;
 @property(readonly, nonatomic) NSArray *mediaSubTypes;
 @property(readonly, nonatomic) NSString *mediaType;
+- (id)_groupMediaType;
 - (id)_groupID;
 - (id)group;
 - (id)optionID;

@@ -13,6 +13,7 @@
 }
 
 + (id)name;
+@property(retain) NSString *x_calendarserver_extended_freebusy;
 @property(retain) NSString *x_calendarserver_mask_uid;
 @property(retain) NSArray *freebusy;
 

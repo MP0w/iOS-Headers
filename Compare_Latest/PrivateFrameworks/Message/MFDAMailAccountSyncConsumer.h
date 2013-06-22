@@ -9,7 +9,7 @@
 #import "DAMailboxRequestConsumer-Protocol.h"
 #import "DAMailboxStreamingContentConsumer-Protocol.h"
 
-@class ActivityMonitor, NSArray, NSMutableData, NSString;
+@class MFActivityMonitor, NSArray, NSMutableData, NSString;
 
 @interface MFDAMailAccountSyncConsumer : MFDAMailAccountConsumer <DAMailboxRequestConsumer, DAMailboxStreamingContentConsumer>
 {
@@ -17,7 +17,7 @@
     NSArray *_consumers;
     NSString *_tag;
     NSString *_accountID;
-    ActivityMonitor *_monitor;
+    MFActivityMonitor *_monitor;
     id _streamConsumer;
     NSMutableData *_bodyData;
     BOOL _moreAvailable;

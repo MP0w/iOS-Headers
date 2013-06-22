@@ -33,6 +33,7 @@
 - (void)serialize;
 - (BOOL)appendResult:(id)arg1;
 - (BOOL)appendSection:(id)arg1;
+- (BOOL)appendResult:(id)arg1 toSection:(id)arg2;
 - (unsigned int)sectionCount;
 - (id)_convertConformingResult:(id)arg1;
 - (unsigned int)write:(const char *)arg1 maxLength:(unsigned int)arg2;

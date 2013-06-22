@@ -12,28 +12,29 @@
 {
     NSMutableArray *_configurationManagedSubviews;
     NSMutableArray *_contentViewSubviews;
+    BOOL _drawAsDisabled;
     BOOL _drawInAlternateStyle;
-    BOOL _useSubviewLayout;
     BOOL _editing;
     BOOL _hideArtwork;
-    struct CGSize _backgroundSize;
     BOOL _highlighted;
+    BOOL _selected;
+    BOOL _useSubviewLayout;
     IUMediaTableCell *_cell;
     IUTableCellConfiguration *_configuration;
-    BOOL _selected;
-    BOOL _drawAsDisabled;
+    struct CGSize _backgroundSize;
 }
 
-@property(nonatomic) BOOL drawAsDisabled; // @synthesize drawAsDisabled=_drawAsDisabled;
+@property(nonatomic, getter=isUsingSubviewLayout) BOOL useSubviewLayout; // @synthesize useSubviewLayout=_useSubviewLayout;
 @property(nonatomic, getter=isSelected) BOOL selected; // @synthesize selected=_selected;
-@property(retain, nonatomic) IUTableCellConfiguration *configuration; // @synthesize configuration=_configuration;
-@property(nonatomic) IUMediaTableCell *cell; // @synthesize cell=_cell;
 @property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
-@property(nonatomic) struct CGSize backgroundSize; // @synthesize backgroundSize=_backgroundSize;
 @property(nonatomic) BOOL hideArtwork; // @synthesize hideArtwork=_hideArtwork;
 @property(nonatomic, getter=isEditing) BOOL editing; // @synthesize editing=_editing;
-@property(nonatomic, getter=isUsingSubviewLayout) BOOL useSubviewLayout; // @synthesize useSubviewLayout=_useSubviewLayout;
 @property(nonatomic) BOOL drawInAlternateStyle; // @synthesize drawInAlternateStyle=_drawInAlternateStyle;
+@property(nonatomic) BOOL drawAsDisabled; // @synthesize drawAsDisabled=_drawAsDisabled;
+@property(retain, nonatomic) IUTableCellConfiguration *configuration; // @synthesize configuration=_configuration;
+@property(nonatomic) __weak IUMediaTableCell *cell; // @synthesize cell=_cell;
+@property(nonatomic) struct CGSize backgroundSize; // @synthesize backgroundSize=_backgroundSize;
+- (void).cxx_destruct;
 - (id)_scriptingInfo;
 - (void)_updateSubviewBackgrounds;
 - (void)_updateDisabledStyleForSubviews;
@@ -51,7 +52,6 @@
 - (void)drawBackgroundInRect:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)dealloc;
 
 @end
 

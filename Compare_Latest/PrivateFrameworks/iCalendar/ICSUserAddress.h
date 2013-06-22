@@ -6,7 +6,7 @@
 
 #import <iCalendar/ICSProperty.h>
 
-@class NSString;
+@class ICSDateValue, NSString;
 
 @interface ICSUserAddress : ICSProperty
 {
@@ -29,6 +29,7 @@
 - (void)setX_calendarserver_email:(id)arg1;
 @property(retain) NSString *email;
 @property BOOL x_apple_self_invited;
+@property(retain) ICSDateValue *partstatModified;
 @property BOOL rsvp;
 @property int role;
 @property int scheduleforcesend;

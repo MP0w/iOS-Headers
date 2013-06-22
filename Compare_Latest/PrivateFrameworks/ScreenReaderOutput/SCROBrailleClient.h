@@ -54,6 +54,8 @@
 - (void)setAnnouncementsDisplayMode;
 - (void)setExpandedStatusDisplayModeWithStatus:(id)arg1;
 - (int)displayMode;
+- (BOOL)automaticBrailleTranslationEnabled;
+- (void)setAutomaticBrailleTranslationEnabled:(BOOL)arg1;
 - (BOOL)showEightDotBraille;
 - (void)setShowEightDotBraille:(BOOL)arg1;
 - (int)contractionMode;
@@ -74,6 +76,8 @@
 - (void)setMainAttributedString:(id)arg1;
 - (id)driverConfiguration;
 - (BOOL)isConfigured;
+- (BOOL)alwaysUsesNemethCodeForTechnicalText;
+- (void)setAlwaysUsesNemethCodeForTechnicalText:(BOOL)arg1;
 - (id)tableIdentifier;
 - (void)setTableIdentifier:(id)arg1;
 - (void)removeDisplayWithBluetoothDeviceAddress:(id)arg1;

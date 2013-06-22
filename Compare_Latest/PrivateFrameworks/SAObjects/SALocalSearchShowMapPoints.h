@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
-@class NSNumber, NSString, NSURL, SALocalSearchMapItem;
+@class NSNumber, NSString, SALocalSearchMapItem;
 
-@interface SALocalSearchShowMapPoints : SABaseClientBoundCommand
+@interface SALocalSearchShowMapPoints : SADomainCommand
 {
 }
 
@@ -21,7 +21,6 @@
 @property(retain, nonatomic) SALocalSearchMapItem *itemSource;
 @property(retain, nonatomic) SALocalSearchMapItem *itemDestination;
 @property(copy, nonatomic) NSString *directionsType;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

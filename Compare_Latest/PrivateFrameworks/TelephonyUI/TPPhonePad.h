@@ -6,10 +6,13 @@
 
 #import "UIControl.h"
 
-@interface TPPhonePad : UIControl
+#import "TPDialerKeypadProtocol-Protocol.h"
+
+@interface TPPhonePad : UIControl <TPDialerKeypadProtocol>
 {
     int _downKey;
-    id _delegate;
+    int _highlightKey;
+    id <TPDialerKeypadDelegate> _delegate;
     BOOL _playsSounds;
     BOOL _supportsHardPause;
     float _topHeight;
@@ -30,12 +33,14 @@
 + (BOOL)shouldStringAutoDial:(id)arg1 givenLastChar:(BOOL)arg2;
 @property BOOL supportsHardPause; // @synthesize supportsHardPause=_supportsHardPause;
 - (void)_stopAllSoundsForcingCallbacks:(BOOL)arg1;
-- (void)_stopSoundForKey:(int)arg1;
-- (void)_playSoundForKey:(int)arg1;
+- (void)_stopSoundForKey:(unsigned int)arg1;
+- (void)_playSoundForKey:(unsigned int)arg1;
 - (void)_notifySoundCompletionIfNecessary:(unsigned long)arg1;
-- (struct CGRect)_rectForKey:(int)arg1;
+- (struct CGRect)_rectForKey:(unsigned int)arg1;
 - (int)_keyForPoint:(struct CGPoint)arg1;
-- (void)_handleKeyPressAndHold:(id)arg1;
+- (void)_handleKeyPressAndHoldForKey:(int)arg1;
+- (void)_handleKeyPressAndHoldForDownKey:(id)arg1;
+- (void)_handleKeyPressAndHoldForHighlightedKey:(id)arg1;
 - (void)_handleKey:(id)arg1 forUIEvent:(id)arg2;
 - (BOOL)cancelTouchTracking;
 - (void)setHighlighted:(BOOL)arg1;
@@ -45,12 +50,13 @@
 - (id)_imageByCroppingImage:(id)arg1 toRect:(struct CGRect)arg2;
 - (struct CGRect)_updateRect:(struct CGRect)arg1 withScale:(float)arg2;
 - (float)_yFudge;
+- (id)_highlightedImage;
 - (id)_keypadImage;
 - (id)_pressedImage;
 - (struct CGPoint)_keypadOrigin;
 - (void)setNeedsDisplayForKey:(int)arg1;
-- (id)_buttonForKeyAtIndex:(int)arg1;
-- (void)setButton:(id)arg1 forKeyAtIndex:(int)arg2;
+- (id)_buttonForKeyAtIndex:(unsigned int)arg1;
+- (void)setButton:(id)arg1 forKeyAtIndex:(unsigned int)arg2;
 - (void)setPlaysSounds:(BOOL)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)movedToWindow:(id)arg1;
@@ -61,6 +67,10 @@
 - (void)_activateSounds:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (int)indexForHighlightedKey;
+- (void)highlightKeyAtIndex:(int)arg1;
+- (void)performTapActionEndForHighlightedKey;
+- (void)performTapActionDownForHighlightedKey;
 - (id)scriptingInfoWithChildren;
 
 @end

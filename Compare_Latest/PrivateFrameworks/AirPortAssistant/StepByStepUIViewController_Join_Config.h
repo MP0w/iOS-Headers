@@ -8,22 +8,16 @@
 
 #import "StepByStepUIDevicePicker-Protocol.h"
 
-@class NSString, UILabel, UIView;
+@class NSString;
 
 @interface StepByStepUIViewController_Join_Config : StepByStepUIViewController_DevicePicker <StepByStepUIDevicePicker>
 {
-    UIView *tableHeaderContainerView;
-    UIView *justTextContainerView;
-    UILabel *justTextLabel;
     NSString *personalizedBaseName;
     unsigned int productID;
     int deviceKind;
 }
 
 @property(retain, nonatomic) NSString *personalizedBaseName; // @synthesize personalizedBaseName;
-@property(retain, nonatomic) UILabel *justTextLabel; // @synthesize justTextLabel;
-@property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
-@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 - (BOOL)showMoreOptions;
 - (void)selectedDeviceUpdated;
 - (id)devicePickerLabel;
@@ -37,9 +31,9 @@
 - (void)textFieldDidChangeAtIndexPath:(id)arg1;
 - (BOOL)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned int)arg3 toString:(id)arg4;
 - (void)viewDidLoad;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)syncTopoUIForTarget:(id)arg1 andSource:(id)arg2 andNetwork:(id)arg3 connectionType:(id)arg4;
 - (void)setupTable;
-- (BOOL)isAirPlayDevice;
 - (void)validateAndUpdateNextButton;
 
 @end

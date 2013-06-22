@@ -10,7 +10,7 @@
 {
 }
 
-- (id)itemAtIndex:(int)arg1;
+- (id)itemAtIndex:(unsigned int)arg1;
 
 @end
 

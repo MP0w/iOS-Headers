@@ -6,26 +6,19 @@
 
 #import <TelephonyUI/TPBottomSingleButtonBar.h>
 
-@class TPButton, UIView;
+@class TPButton;
 
 @interface TPBottomDoubleButtonBar : TPBottomSingleButtonBar
 {
     TPButton *_button2;
-    UIView *_well1;
-    UIView *_well2;
-    UIView *_wellContainer;
 }
 
-+ (float)_wellPadding;
-- (void)setWellAlpha:(float)arg1;
+- (void)setDrawsSeparateWells:(BOOL)arg1;
 - (void)layoutSubviews;
 - (void)_layoutButtons;
-- (void)_layoutWells;
-- (void)setDrawsSeparateWells:(BOOL)arg1;
 - (id)button2;
 - (void)setButton2:(id)arg1 andStyle:(BOOL)arg2;
 - (void)setButton:(id)arg1 andStyle:(BOOL)arg2;
-- (void)_updateButtonSettings:(id)arg1;
 - (void)dealloc;
 - (id)initForVideoChatWithFrame:(struct CGRect)arg1;
 - (id)initForEmergencyCallWithFrame:(struct CGRect)arg1;

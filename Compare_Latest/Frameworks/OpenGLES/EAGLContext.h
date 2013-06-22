@@ -21,6 +21,7 @@
 - (struct EAGLMacroContext *)getMacroContextPrivate;
 - (unsigned int)getParameter:(unsigned int)arg1 to:(int *)arg2;
 - (unsigned int)setParameter:(unsigned int)arg1 to:(int *)arg2;
+- (BOOL)setBlockFence:(id)arg1 onQueue:(void)arg2;
 - (void)swapNotification:(struct __IOMobileFramebuffer *)arg1 forTransaction:(unsigned int)arg2 onLayer:(unsigned int)arg3;
 - (void)sendNotification:(unsigned int)arg1 forTransaction:(unsigned int)arg2 onLayer:(unsigned int)arg3;
 - (BOOL)texImageIOSurface:(struct __IOSurface *)arg1 target:(unsigned int)arg2 internalFormat:(unsigned int)arg3 width:(unsigned int)arg4 height:(unsigned int)arg5 format:(unsigned int)arg6 type:(unsigned int)arg7 plane:(unsigned int)arg8 invert:(BOOL)arg9;

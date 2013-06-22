@@ -39,7 +39,6 @@
 - (void)scaleDidChange:(id)arg1;
 - (void)scaleWillChange:(id)arg1;
 - (void)doneMagnifying;
-- (void)updateWithMagnifierTerminalPoint:(BOOL)arg1;
 - (void)prepareForMagnification;
 - (void)layoutChangedByScrolling:(BOOL)arg1;
 - (struct CGRect)selectionBoundingBox;

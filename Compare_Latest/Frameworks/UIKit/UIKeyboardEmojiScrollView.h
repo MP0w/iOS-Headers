@@ -7,11 +7,12 @@
 #import <UIKit/UIKBKeyView.h>
 
 #import "UIKeyboardEmojiInput-Protocol.h"
+#import "UIKeyboardEmojiPressIndicationDelegate-Protocol.h"
 #import "UIScrollViewDelegate-Protocol.h"
 
-@class NSMutableArray, UIKeyboardEmojiCategory, UIKeyboardEmojiInputController, UILabel, UIPageControl, UIScrollView;
+@class NSMutableArray, UIKeyboardEmojiCategory, UIKeyboardEmojiInputController, UILabel, UIPageControl, UIScrollView, UIView;
 
-@interface UIKeyboardEmojiScrollView : UIKBKeyView <UIScrollViewDelegate, UIKeyboardEmojiInput>
+@interface UIKeyboardEmojiScrollView : UIKBKeyView <UIScrollViewDelegate, UIKeyboardEmojiInput, UIKeyboardEmojiPressIndicationDelegate>
 {
     UIKeyboardEmojiInputController *_inputController;
     UIKeyboardEmojiCategory *_category;
@@ -21,8 +22,12 @@
     UILabel *_optionalDescription;
     NSMutableArray *_pages;
     int _currentPage;
+    UIView *_pressIndicator;
+    BOOL _whiteText;
 }
 
+@property BOOL whiteText; // @synthesize whiteText=_whiteText;
+@property(retain, nonatomic) UIView *pressIndicator; // @synthesize pressIndicator=_pressIndicator;
 - (void)goToFirstPage;
 - (void)setScrollDelay:(double)arg1;
 - (int)currentPage;
@@ -43,8 +48,11 @@
 - (void)doLayout;
 - (void)forceLayout;
 - (BOOL)shouldCache;
+- (void)setRenderConfig:(id)arg1;
+- (void)removePressIndicator;
+- (void)installPressIndicatorAtPoint:(struct CGPoint)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 keyboard:(id)arg2 key:(id)arg3 state:(int)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;
 
 @end
 

@@ -10,11 +10,11 @@
 {
     int mAdjustment;
     int mChannel;
-    long mAdjustValue;
+    int mAdjustValue;
 }
 
 + (id)GUID;
-- (id)initWithAdjustment:(int)arg1 channel:(int)arg2 adjustValue:(long)arg3;
+- (id)initWithAdjustment:(int)arg1 channel:(int)arg2 adjustValue:(int)arg3;
 
 @end
 

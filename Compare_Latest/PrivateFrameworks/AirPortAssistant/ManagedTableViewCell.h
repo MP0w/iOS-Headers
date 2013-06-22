@@ -17,6 +17,7 @@
     float _neededContentHeight;
     float _computedRightmostEditTextInset;
     float _forcedRightmostEditTextInset;
+    struct CGRect _modifiedContentViewFrame;
 }
 
 @property(nonatomic) float forcedRightmostEditTextInset; // @synthesize forcedRightmostEditTextInset=_forcedRightmostEditTextInset;
@@ -27,9 +28,16 @@
 @property(nonatomic) TableViewManager *parentTableManager; // @synthesize parentTableManager=_parentTableManager;
 - (id)accessibilityValue;
 - (void)layoutSubviews;
+- (void)repositionView:(id)arg1 ifOverlapsPreviousView:(id)arg2;
 - (float)calculateFrameSizeForView:(id)arg1 forItem:(id)arg2 atItemIndex:(unsigned int)arg3 withRemainingContentWidth:(float)arg4;
 - (void)calculatePositionForView:(id)arg1 forItem:(id)arg2 atItemIndex:(unsigned int)arg3;
+- (float)usableContentWidth;
+- (float)usableContentWidthForItem:(id)arg1 withVerticalNeighborView:(id)arg2;
+- (float)rightInsetForView:(id)arg1 withItem:(id)arg2;
+- (float)leftInsetForView:(id)arg1 withItem:(id)arg2;
+- (float)verticalInset;
 - (float)horizontalSpacingForView:(id)arg1 withItem:(id)arg2;
+- (float)edgeInsetValue:(id)arg1;
 - (void)dealloc;
 - (void)prepareForReuse;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;

@@ -9,15 +9,14 @@
 #import "QLPreviewContentDataSource-Protocol.h"
 #import "QLPreviewContentDelegate-Protocol.h"
 #import "QLRemotePreviewContentControllerProtocol-Protocol.h"
-#import "XPCProxyTarget-Protocol.h"
 
-@class NSMutableDictionary, QLPreviewContentController, QLRemotePrintPageHelper, XPCProxy<QLRemotePreviewContentProxyProtocol>, _UIHostedWindow;
+@class NSMutableDictionary, QLPreviewContentController, QLRemotePrintPageHelper, _UIHostedWindow;
 
-@interface QLServicePreviewContentController : UIViewController <XPCProxyTarget, QLRemotePreviewContentControllerProtocol, QLPreviewContentDataSource, QLPreviewContentDelegate>
+@interface QLServicePreviewContentController : UIViewController <QLRemotePreviewContentControllerProtocol, QLPreviewContentDataSource, QLPreviewContentDelegate>
 {
     NSMutableDictionary *_previewItemCache;
+    int _sourceUUID;
     QLPreviewContentController *_previewContentController;
-    XPCProxy<QLRemotePreviewContentProxyProtocol> *_previewContentProxy;
     int _numberOfPreviewItems;
     int _previewMode;
     BOOL _remoteInstantiationFinished;
@@ -27,11 +26,15 @@
     _UIHostedWindow *_hostedWindow;
 }
 
++ (id)_remoteViewControllerInterface;
++ (id)_exportedInterface;
+@property(readonly) int sourceUUID; // @synthesize sourceUUID=_sourceUUID;
 - (id)clientProcessAlertViewForPreviewContentController:(id)arg1;
 - (void)previewContentControllerDidExitFullScreen:(id)arg1;
 - (void)previewContentController:(id)arg1 willEnterFullScreenWithHostedWindow:(id)arg2;
 - (void)previewContentController:(id)arg1 setAVState:(id)arg2 forPreviewItem:(id)arg3;
 - (void)previewContentController:(id)arg1 receivedTapOnURL:(id)arg2;
+- (void)showContentsWasTappedInPreviewContentController:(id)arg1;
 - (void)contentWasTappedInPreviewContentController:(id)arg1;
 - (void)overlayWasTappedInPreviewContentController:(id)arg1;
 - (void)previewContentController:(id)arg1 willHideOverlayWithDuration:(double)arg2;
@@ -41,41 +44,43 @@
 - (void)previewContentController:(id)arg1 didLoadItem:(id)arg2 atIndex:(int)arg3 withError:(id)arg4;
 - (void)previewContentController:(id)arg1 didMoveToItem:(id)arg2 atIndex:(int)arg3;
 - (void)previewContentController:(id)arg1 willMoveToItemAtIndex:(int)arg2;
+- (void)previewContentController:(id)arg1 previewItemAtIndex:(int)arg2 completionBlock:(id)arg3;
 - (id)previewContentController:(id)arg1 previewItemAtIndex:(int)arg2;
 - (int)numberOfPreviewItemsInPreviewContentController:(id)arg1;
+- (int)currentSourceUUIDForPreviewContentController:(id)arg1;
+- (id)_remotePreviewItemAtIndex:(int)arg1;
 - (void)togglePlayState;
 - (void)endScrubbing;
 - (void)scrubToValue:(double)arg1;
 - (void)beginScrubbing;
-- (void)_getPDFPageAtIndex:(int)arg1 size:(id)arg2 handler:(id)arg3;
-- (void)_prepareForDrawingPages:(id)arg1;
-- (void)_getNumberOfPagesForSize:(id)arg1 withHandler:(id)arg2;
+- (void)_getPDFPageAtIndex:(int)arg1 size:(struct CGSize)arg2 handler:(id)arg3;
+- (void)_prepareForDrawingPages:(struct _NSRange)arg1;
+- (void)_getNumberOfPagesForSize:(struct CGSize)arg1 withHandler:(id)arg2;
 - (id)printPageHelper;
 - (id)printPageRenderer;
-- (void)_getPDFPreviewDataWithHandler:(id)arg1;
-- (id)pdfPreviewData;
 - (void)forceResignFirstResponder;
+- (void)becomeForeground;
 - (void)enterBackground;
 - (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
 - (void)_willAnimateRotationTo:(int)arg1;
 - (void)_updateHostedWindowFrame;
-- (void)_setContentFrame:(id)arg1;
 - (void)setContentFrame:(struct CGRect)arg1;
+- (void)willChangeContentFrame;
 - (void)refreshCurrentPreviewItem;
 - (void)reloadData;
 - (void)configureWithParameters:(id)arg1;
-- (void)setLoadintTextForMissingFiles:(id)arg1;
+- (void)setLoadingTextForMissingFiles:(id)arg1;
+- (void)setTransitioning:(BOOL)arg1;
 - (void)setBlockRemoteImages:(BOOL)arg1;
 - (int)currentPreviewItemIndex;
 - (int)numberOfPreviewItems;
-- (void)_setPreviewItems:(id)arg1;
 - (void)_setNumberOfPreviewItems:(int)arg1;
 - (void)setCurrentPreviewItemIndex:(int)arg1;
 @property int previewMode;
 @property id <QLPreviewContentDelegate> delegate;
 @property id <QLPreviewContentDataSource> dataSource;
-- (void)willAppearInRemoteViewController:(id)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
+- (void)purgeCache;
+- (void)_willAppearInRemoteViewController;
 - (void)dealloc;
 - (id)init;
 

@@ -17,7 +17,7 @@
 + (id)keypadImage;
 - (BOOL)cancelKeyChar;
 - (BOOL)deleteKeyChar;
-- (struct CGRect)_rectForKey:(int)arg1;
+- (struct CGRect)_rectForKey:(unsigned int)arg1;
 - (float)_yFudge;
 - (void)setHighlighted:(BOOL)arg1;
 - (void)dealloc;

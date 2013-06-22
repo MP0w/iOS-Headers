@@ -74,7 +74,9 @@
 - (void)systemDidUnlock;
 - (id)broadcasterForListenersWithCapabilities:(unsigned int)arg1;
 - (id)broadcasterForVCConferenceListeners;
+- (id)broadcasterForACConferenceListeners;
 - (id)broadcasterForAVConferenceListeners;
+- (id)broadcasterForChatObserverListeners;
 - (id)broadcasterForChatListeners;
 - (id)broadcaster;
 - (void)refreshServiceCapabilities;
@@ -146,8 +148,8 @@
 - (void)sendMessage:(id)arg1 toChat:(id)arg2 style:(unsigned char)arg3;
 - (void)processMessageForSending:(id)arg1 toChat:(id)arg2 style:(unsigned char)arg3 completionBlock:(id)arg4;
 - (id)chatForChatIdentifier:(id)arg1 style:(unsigned char)arg2;
-- (void)_mapRoomChatToGroupChat:(id *)arg1 style:(char *)arg2;
-- (void)canonicalizeChatIdentifier:(id *)arg1 style:(char *)arg2;
+- (void)_mapRoomChatToGroupChat:(id *)arg1 style:(unsigned char *)arg2;
+- (void)canonicalizeChatIdentifier:(id *)arg1 style:(unsigned char *)arg2;
 - (void)unregisterChat:(id)arg1 style:(unsigned char)arg2;
 - (BOOL)isChatRegistered:(id)arg1 style:(unsigned char)arg2;
 - (void)registerChat:(id)arg1 style:(unsigned char)arg2 handleInfo:(id)arg3;
@@ -182,13 +184,11 @@
 - (void)joinChatID:(id)arg1 handleInfo:(id)arg2 identifier:(id)arg3 style:(unsigned char)arg4 joinProperties:(id)arg5;
 - (void)updateAuthorizationCredentials:(id)arg1 token:(id)arg2;
 - (void)validateProfile;
-- (void)refreshVettedAliases;
 - (void)unvalidateAliases:(id)arg1;
 - (void)validateAliases:(id)arg1;
 - (void)removeAliases:(id)arg1;
 - (void)addAliases:(id)arg1;
 - (void)sendCommand:(id)arg1 withProperties:(id)arg2 toPerson:(id)arg3;
-- (void)sendData:(id)arg1 toPerson:(id)arg2;
 - (void)relay:(id)arg1 sendCancel:(id)arg2 toPerson:(id)arg3;
 - (void)relay:(id)arg1 sendUpdate:(id)arg2 toPerson:(id)arg3;
 - (void)relay:(id)arg1 sendInitateRequest:(id)arg2 toPerson:(id)arg3;

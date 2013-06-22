@@ -8,17 +8,12 @@
 
 #import "SAAceSerializable-Protocol.h"
 
-@class SASportsSeasonRange;
-
 @interface SASportsSeason : AceObject <SAAceSerializable>
 {
 }
 
 + (id)seasonWithDictionary:(id)arg1 context:(id)arg2;
 + (id)season;
-@property(retain, nonatomic) SASportsSeasonRange *regularSeason;
-@property(retain, nonatomic) SASportsSeasonRange *preSeason;
-@property(retain, nonatomic) SASportsSeasonRange *postSeason;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

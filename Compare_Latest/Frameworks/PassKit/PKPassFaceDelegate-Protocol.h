@@ -10,5 +10,6 @@
 - (BOOL)passFaceDeleteButtonEnabled;
 - (void)passFaceDeleteButtonPressed:(id)arg1;
 - (void)passFaceFlipButtonPressed:(id)arg1;
+- (void)passFaceShareButtonPressed:(id)arg1;
 @end
 

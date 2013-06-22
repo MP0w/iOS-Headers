@@ -13,15 +13,18 @@
     SSXPCConnection *_controlConnection;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     long long _sessionID;
+    long long _assetID;
+    long long _downloadID;
 }
 
 - (id)_copySessionPropertyWithKey:(const char *)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (id)description;
 @property(readonly) SSDownloadAsset *downloadAsset;
 @property(readonly) SSDownload *download;
 - (void)dealloc;
-- (id)_initWithSessionIdentifier:(long long)arg1 controlConnection:(id)arg2;
+- (id)_initWithMessage:(id)arg1 controlConnection:(id)arg2;
 - (id)init;
 - (id)_initSSDownloadSession;
 

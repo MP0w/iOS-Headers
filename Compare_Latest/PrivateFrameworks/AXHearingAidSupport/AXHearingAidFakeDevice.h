@@ -12,24 +12,26 @@
 {
     NSMutableArray *_leftFakePrograms;
     NSMutableArray *_rightFakePrograms;
-    int updateCount;
     BOOL _connected;
+    int updateCount;
     int _type;
+    NSString *_deviceUUID;
 }
 
-@property(nonatomic) int type; // @synthesize type=_type;
+@property(retain, nonatomic) NSString *deviceUUID; // @synthesize deviceUUID=_deviceUUID;
 @property(nonatomic) BOOL connected; // @synthesize connected=_connected;
+@property(nonatomic) int type; // @synthesize type=_type;
 @property(nonatomic) int updateCount; // @synthesize updateCount;
-- (id)selectedPrograms;
-- (void)selectProgram:(id)arg1;
+- (void)persist;
 - (BOOL)didLoadRequiredProperties;
 - (BOOL)didLoadBasicProperties;
+- (id)valueForProperty:(int)arg1;
 - (id)persistentRepresentation;
 - (void)writeInt:(unsigned char)arg1 toPeripheral:(id)arg2 forProperty:(int)arg3;
-- (void)reload;
 - (id)rightPrograms;
 - (id)leftPrograms;
 - (void)createPrograms;
+- (BOOL)isPersistent;
 @property(nonatomic) BOOL isPaired;
 - (BOOL)isConnected;
 - (BOOL)rightAvailable;
@@ -38,18 +40,21 @@
 - (void)connect;
 - (id)modelForType;
 - (id)manufacturerForType;
-- (void)sendUpdates;
 - (void)dealloc;
 - (id)initWithDeviceType:(int)arg1;
 
 // Remaining properties
 @property(nonatomic) BOOL isConnecting;
 @property(nonatomic) float leftBatteryLevel;
+@property(retain, nonatomic) NSString *leftFirmwareVersion;
+@property(retain, nonatomic) NSString *leftHardwareVersion;
 @property(retain, nonatomic) NSString *leftUUID;
 @property(retain, nonatomic) NSString *manufacturer;
 @property(retain, nonatomic) NSString *model;
 @property(retain, nonatomic) NSString *name;
 @property(nonatomic) float rightBatteryLevel;
+@property(retain, nonatomic) NSString *rightFirmwareVersion;
+@property(retain, nonatomic) NSString *rightHardwareVersion;
 @property(retain, nonatomic) NSString *rightUUID;
 
 @end

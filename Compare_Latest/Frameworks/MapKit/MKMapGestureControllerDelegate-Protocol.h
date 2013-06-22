@@ -7,6 +7,14 @@
 #import "NSObject-Protocol.h"
 
 @protocol MKMapGestureControllerDelegate <NSObject>
+- (void)gestureControllerDidStopTiltingDecelerating:(id)arg1;
+- (void)gestureControllerDidStopTilting:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)gestureControllerWillStartTilting:(id)arg1;
+- (void)gestureControllerDidStopRotatingDecelerating:(id)arg1;
+- (void)gestureControllerDidStopRotating:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)gestureControllerWillStartRotating:(id)arg1;
+- (void)gestureControllerDidStopTwoFingerLongPress:(id)arg1;
+- (void)gestureControllerWillStartTwoFingerLongPress:(id)arg1;
 - (void)gestureControllerDidStopZoomingDecelerating:(id)arg1 direction:(int)arg2;
 - (void)gestureControllerDidStopZooming:(id)arg1 direction:(int)arg2 willDecelerate:(BOOL)arg3;
 - (void)gestureControllerWillStartZooming:(id)arg1 animated:(BOOL)arg2;

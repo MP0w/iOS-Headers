@@ -8,19 +8,18 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSArray, NSData;
+@class AVPlayerItemAccessLog, NSArray, NSData;
 
 @interface MPMovieAccessLog : NSObject <NSCopying>
 {
-    struct MPMovieAccessLogInternal _internal;
+    AVPlayerItemAccessLog *_accessLog;
 }
 
-@property(nonatomic) struct MPMovieAccessLogInternal _internal; // @synthesize _internal;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *events;
 @property(readonly, nonatomic) unsigned int extendedLogDataStringEncoding;
 @property(readonly, nonatomic) NSData *extendedLogData;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)_initWithAVItemAccessLog:(id)arg1;
 
 @end

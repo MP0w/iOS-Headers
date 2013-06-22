@@ -34,7 +34,6 @@
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (BOOL)canHandleSwipes;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (void)setTabBar:(id)arg1 currentItems:(id)arg2 availableItems:(id)arg3;

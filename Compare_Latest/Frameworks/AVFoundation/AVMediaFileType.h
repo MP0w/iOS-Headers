@@ -15,10 +15,12 @@
     NSString *_uti;
 }
 
++ (id)isoFileTypes;
 + (id)_mediaFileTypeWithFileTypeIdentifier:(id)arg1 exceptionReason:(id *)arg2;
 + (id)mediaFileTypeWithFileTypeIdentifier:(id)arg1;
 + (id)allFileTypeIdentifiers;
 + (void)initialize;
+- (BOOL)supportsFormat:(struct opaqueCMFormatDescription *)arg1;
 - (BOOL)supportsOutputSettings:(id)arg1 reason:(id *)arg2;
 @property(readonly, nonatomic) unsigned long audioFileTypeID;
 @property(readonly, nonatomic) NSString *figFormatReaderFileFormat;

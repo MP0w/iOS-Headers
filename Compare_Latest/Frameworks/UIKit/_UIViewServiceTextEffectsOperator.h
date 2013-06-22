@@ -20,13 +20,15 @@
     _UIAsyncInvocation *_invalidationInvocation;
     UIWindow *_hostedWindow;
     struct CGPoint _windowOffset;
+    BOOL _canRestoreInputViews;
     BOOL _isRestoringInputViews;
     id <_UIViewServiceDeputyDelegate> _delegate;
     int __automatic_invalidation_retainCount;
     BOOL __automatic_invalidation_invalidated;
 }
 
-+ (id)operatorWithRemoteViewControllerProxy:(id)arg1;
++ (id)XPCInterface;
++ (id)operatorWithRemoteViewControllerProxy:(id)arg1 hostPID:(int)arg2;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)finishRotation;
 - (void)rotateToInterfaceOrientation:(int)arg1;
@@ -36,15 +38,19 @@
 - (void)setDeputyDelegate:(id)arg1;
 - (void)__prepareForDisconnectionWithCompletionHandler:(id)arg1;
 - (void)__hostViewWillDisappear:(BOOL)arg1;
+- (void)_viewServiceHostWillEnterForeground:(id)arg1;
 - (void)__hostWillEnterForeground;
+- (void)_restoreInputViews;
 - (void)__hostDidEnterBackground;
 - (void)__setNextAutomaticOrderOutDirection:(int)arg1 duration:(double)arg2;
 - (void)__setContentSize:(id)arg1 windowOffset:(id)arg2;
 - (void)__createHostedTextEffectsWithReplyHandler:(id)arg1;
+- (void)_sendNotification:(id)arg1;
 - (void)windowDidGainFirstResponder:(id)arg1;
 - (void)dealloc;
 - (void)_invalidateUnconditionallyThen:(id)arg1;
 - (void)_prepareForDisconnectionUnconditionallyThen:(id)arg1;
+- (id)_queue;
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
 - (unsigned int)retainCount;

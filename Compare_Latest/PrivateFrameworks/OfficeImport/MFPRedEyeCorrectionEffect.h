@@ -8,12 +8,12 @@
 
 @interface MFPRedEyeCorrectionEffect : MFPEffect
 {
-    vector_14373fa0 *mAreas;
+    vector_ea45b3ba *mAreas;
 }
 
 + (id)GUID;
 - (void)dealloc;
-- (id)initWithAreas:(const vector_14373fa0 *)arg1;
+- (id)initWithAreas:(const vector_ea45b3ba *)arg1;
 
 @end
 

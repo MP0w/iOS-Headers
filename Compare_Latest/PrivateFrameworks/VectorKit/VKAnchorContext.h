@@ -6,30 +6,22 @@
 
 #import "NSObject.h"
 
-@class VKGlobePointCache, VKMercatorTerrainHeightCache;
-
 @interface VKAnchorContext : NSObject
 {
-    BOOL _isMercator;
-    BOOL _isGeocentric;
-    VKGlobePointCache *_globePointCache;
-    VKMercatorTerrainHeightCache *_mercatorTerrainHeightCache;
+    shared_ptr_4d0abf3b _anchorContext;
+    shared_ptr_00dc923b _anchorFactory;
 }
 
-@property(retain, nonatomic) VKMercatorTerrainHeightCache *mercatorTerrainHeightCache; // @synthesize mercatorTerrainHeightCache=_mercatorTerrainHeightCache;
-@property(retain, nonatomic) VKGlobePointCache *globePointCache; // @synthesize globePointCache=_globePointCache;
-@property(readonly, nonatomic) BOOL isGeocentric; // @synthesize isGeocentric=_isGeocentric;
-@property(readonly, nonatomic) BOOL isMercator; // @synthesize isMercator=_isMercator;
-- (void)removeHandle:(id)arg1;
-- (void)clearTerrainHeightForAnchor:(id)arg1;
-- (CDStruct_31142d93)mercatorTerrainPointForAnchor:(id)arg1;
-- (CDStruct_31142d93)geocentricPointForAnchor:(id)arg1;
-- (id)newAnchorAtCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)newAnchorAtCoordinate:(CDStruct_c3b9c2ee)arg1 followsTerrain:(BOOL)arg2;
-- (id)newAnchorAtMercatorPoint:(CDStruct_31142d93)arg1;
-- (void)dealloc;
+- (void)setMercatorTerrainHeightCache:(id)arg1;
+- (BOOL)isMercator;
 - (id)initGeocentricWithCache:(id)arg1;
 - (id)initMercator;
+- (id)initWithAnchorContext:(struct AnchorContext *)arg1;
+- (shared_ptr_00dc923b)anchorFactory;
+- (shared_ptr_4d0abf3b)anchorContext;
 - (id)init;
 
 @end

@@ -13,7 +13,11 @@
     ICSCalendar *_calendar;
 }
 
++ (void)suppressParserSyntaxErrorLogging;
++ (int)ICSChecksumVersionSpecifiedInOptions:(unsigned int)arg1;
 - (BOOL)validate:(id *)arg1;
+- (id)ICSChecksumForVersion:(int)arg1;
+- (id)ICSChecksumStringForVersion:(int)arg1;
 - (id)ICSStringWithOptions:(unsigned int)arg1;
 - (id)ICSDataWithOptions:(unsigned int)arg1;
 - (id)calendar;

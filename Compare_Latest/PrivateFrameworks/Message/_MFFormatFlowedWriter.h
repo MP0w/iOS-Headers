@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSMutableString, PlainTextDocument;
+@class MFPlainTextDocument, NSMutableString;
 
 @interface _MFFormatFlowedWriter : NSObject
 {
-    PlainTextDocument *_inputDocument;
+    MFPlainTextDocument *_inputDocument;
     unsigned long _encoding;
     NSMutableString *_outputString;
     NSMutableString *_quotedString;

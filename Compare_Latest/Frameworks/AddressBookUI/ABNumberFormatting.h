@@ -11,6 +11,7 @@
 }
 
 + (id)newLocalizedStringWithInt:(int)arg1;
++ (id)localizedStringWithInt:(int)arg1;
 
 @end
 

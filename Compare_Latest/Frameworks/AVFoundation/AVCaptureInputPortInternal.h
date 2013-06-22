@@ -13,6 +13,7 @@
     AVCaptureInput *input;
     NSString *mediaType;
     struct opaqueCMFormatDescription *formatDescription;
+    struct OpaqueCMClock *clock;
     BOOL enabled;
 }
 

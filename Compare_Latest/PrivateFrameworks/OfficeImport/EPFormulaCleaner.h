@@ -28,7 +28,7 @@
 - (void)reset;
 - (void)reportWarning:(int)arg1 parameter:(id)arg2;
 - (void)reportWarning:(int)arg1;
-- (id)extractFormulaToCleanFromSharedFormula:(id)arg1;
+- (id)newFormulaToCleanFromSharedFormula:(id)arg1;
 - (id)useEvaluationStackToGetParameter:(unsigned int)arg1 tokenIndex:(unsigned int)arg2 allReferencesAllowed:(_Bool)arg3 success:(_Bool *)arg4;
 - (unsigned int)useEvaluationStackToGetParameter:(unsigned int)arg1 tokenIndex:(unsigned int)arg2;
 - (_Bool)useEvaluationStackToCheckFunctionId:(int)arg1 functionName:(id)arg2 tokenIndex:(unsigned int)arg3;
@@ -49,8 +49,8 @@
 - (_Bool)cleanName:(unsigned int)arg1;
 - (_Bool)cleanArea3D:(unsigned int)arg1;
 - (_Bool)cleanRef3D:(unsigned int)arg1;
-- (_Bool)cleanArea:(unsigned int)arg1;
-- (_Bool)cleanRef:(unsigned int)arg1;
+- (_Bool)cleanArea:(unsigned int)arg1 updateSheet:(BOOL)arg2;
+- (_Bool)cleanRef:(unsigned int)arg1 updateSheet:(BOOL)arg2;
 - (_Bool)cleanArray:(unsigned int)arg1;
 - (void)updateSheet:(id)arg1 rowMin:(int)arg2 rowMinRelative:(_Bool)arg3 rowMax:(int)arg4 rowMaxRelative:(_Bool)arg5 columnMin:(int)arg6 columnMinRelative:(_Bool)arg7 columnMax:(int)arg8 columnMaxRelative:(_Bool)arg9;
 - (void)updateSheet:(id)arg1 row:(int)arg2 rowRelative:(_Bool)arg3 column:(int)arg4 columnRelative:(_Bool)arg5;

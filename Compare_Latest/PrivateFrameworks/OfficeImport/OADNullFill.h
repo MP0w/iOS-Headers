@@ -12,8 +12,7 @@
 
 + (id)nullFill;
 + (id)defaultProperties;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (void)setParent:(id)arg1;
 - (void)setStyleColor:(id)arg1;
 - (id)initWithDefaults;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -12,8 +12,10 @@
 {
     unsigned long _hash;
     NSString *_encodedAddress;
+    NSString *_comment;
 }
 
+@property(readonly, nonatomic) NSString *commentedAddress;
 @property(retain, nonatomic) NSString *address;
 - (BOOL)isEqualToEmail:(id)arg1;
 @property(readonly, nonatomic) unsigned long hash;

@@ -34,7 +34,6 @@
 + (id)_abValuesForPerson:(void *)arg1 property:(id)arg2 propertyID:(int)arg3 key:(id)arg4 label:(id)arg5;
 + (id)_abMultiValuesForPerson:(void *)arg1 property:(id)arg2 property:(int)arg3 key:(id)arg4 label:(id)arg5;
 + (unsigned int)_indexOfMarkerInMatches:(id)arg1 matchingABMatch:(id)arg2;
-+ (void)frame:(id)arg1 sourceFrame:(id)arg2 willSubmitForm:(id)arg3 withValues:(id)arg4 submissionListener:(id)arg5;
 + (void)_frame:(id)arg1 sourceFrame:(id)arg2 willSubmitRegularForm:(id)arg3 withValues:(id)arg4;
 + (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 + (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
@@ -55,7 +54,6 @@
 + (BOOL)addressBookCompletionEnabled;
 + (BOOL)shouldSaveFormData;
 + (BOOL)previousDataCompletionEnabled;
-- (void)autoFillWithElementValue;
 - (void)acceptedAutoFillWord:(id)arg1;
 - (BOOL)hasCurrentSuggestions;
 - (CDStruct_421913e2)suggestionsForString:(id)arg1 inputIndex:(unsigned int)arg2;

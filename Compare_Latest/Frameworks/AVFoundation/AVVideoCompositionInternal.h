@@ -10,7 +10,8 @@
 
 @interface AVVideoCompositionInternal : NSObject
 {
-    NSString *compositor;
+    NSString *builtInCompositorName;
+    Class customCompositorClass;
     CDStruct_1b6d18a9 frameDuration;
     struct CGSize renderSize;
     float renderScale;

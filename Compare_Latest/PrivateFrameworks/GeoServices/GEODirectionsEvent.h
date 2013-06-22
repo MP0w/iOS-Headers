@@ -21,14 +21,7 @@
     NSString *_synthesizedStepInstructions;
     int _synthesizedStepManeuverType;
     int _type;
-    struct {
-        unsigned int errorCode:1;
-        unsigned int occurrenceResponseIndex:1;
-        unsigned int occurrenceStepIndex:1;
-        unsigned int switchedToResponseIndex:1;
-        unsigned int synthesizedStepManeuverType:1;
-        unsigned int type:1;
-    } _has;
+    CDStruct_c516b0c7 _has;
 }
 
 @property(nonatomic) long long errorCode; // @synthesize errorCode=_errorCode;

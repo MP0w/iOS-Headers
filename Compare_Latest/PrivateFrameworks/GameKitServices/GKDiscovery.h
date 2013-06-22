@@ -24,6 +24,7 @@
 @property(copy, nonatomic) id playerLostHandler;
 @property(copy, nonatomic) id playerFoundHandler;
 - (void)dealloc;
+- (id)initWithDomain:(id)arg1 type:(id)arg2;
 - (id)init;
 
 @end

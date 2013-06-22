@@ -10,10 +10,10 @@
 
 @interface EDPivotDataField : NSObject
 {
-    int mBaseField;
-    unsigned int mBaseItem;
-    unsigned int mFieldId;
-    unsigned int mNumFmtId;
+    long mBaseField;
+    unsigned long mBaseItem;
+    unsigned long mFieldId;
+    unsigned long mNumFmtId;
     NSString *mName;
     int mFormat;
 }
@@ -23,14 +23,14 @@
 - (int)showDataAs;
 - (void)setName:(id)arg1;
 - (id)name;
-- (void)setNumFmtId:(unsigned int)arg1;
-- (unsigned int)numFmtId;
-- (void)setFieldId:(unsigned int)arg1;
-- (unsigned int)fieldId;
-- (void)setBaseItem:(unsigned int)arg1;
-- (unsigned int)baseItem;
-- (void)setBaseField:(int)arg1;
-- (int)baseField;
+- (void)setNumFmtId:(unsigned long)arg1;
+- (unsigned long)numFmtId;
+- (void)setFieldId:(unsigned long)arg1;
+- (unsigned long)fieldId;
+- (void)setBaseItem:(unsigned long)arg1;
+- (unsigned long)baseItem;
+- (void)setBaseField:(long)arg1;
+- (long)baseField;
 - (void)dealloc;
 - (id)init;
 

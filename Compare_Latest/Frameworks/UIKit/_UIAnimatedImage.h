@@ -14,6 +14,8 @@
     double _duration;
 }
 
++ (BOOL)supportsSecureCoding;
+- (id)_imageWithLetterpressEffectWithForegroundColor:(id)arg1;
 - (id)_imageScaledToProportion:(float)arg1 interpolationQuality:(int)arg2;
 - (id)_doubleBezeledImageWithExteriorShadowRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4 interiorShadowRed:(float)arg5 green:(float)arg6 blue:(float)arg7 alpha:(float)arg8 fillRed:(float)arg9 green:(float)arg10 blue:(float)arg11 alpha:(float)arg12;
 - (id)_bezeledImageWithShadowRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4 fillRed:(float)arg5 green:(float)arg6 blue:(float)arg7 alpha:(float)arg8 drawShadow:(BOOL)arg9;
@@ -32,8 +34,8 @@
 - (void)dealloc;
 - (id)initWithImages:(id)arg1 duration:(double)arg2;
 - (id)_initWithOtherImage:(id)arg1;
-- (id)_unselectedTabBarItemImageWithTintColor:(id)arg1;
-- (id)_selectedTabBarItemImageWithTintColor:(id)arg1;
+- (id)_unselectedTabBarItemImageWithTintColor:(id)arg1 metrics:(int)arg2 style:(int)arg3;
+- (id)_selectedTabBarItemImageWithTintColor:(id)arg1 metrics:(int)arg2 style:(int)arg3;
 
 @end
 

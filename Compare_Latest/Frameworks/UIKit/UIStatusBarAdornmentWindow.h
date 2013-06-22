@@ -10,5 +10,7 @@
 {
 }
 
+- (BOOL)_shouldZoom;
+
 @end
 

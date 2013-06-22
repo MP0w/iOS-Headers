@@ -8,24 +8,29 @@
 
 #import "NSCoding-Protocol.h"
 
-@class NSDictionary, NSMutableDictionary, NSString;
+@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
 
 @interface APSMessage : NSObject <NSCoding>
 {
+    NSObject<OS_xpc_object> *_xpcMessage;
     NSMutableDictionary *_plist;
+    NSObject<OS_dispatch_queue> *_ivarQueue;
 }
 
 - (id)dictionaryRepresentation;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
+- (id)guid;
+- (void)setGuid:(id)arg1;
 @property(nonatomic) unsigned int identifier;
 @property(retain, nonatomic) NSDictionary *userInfo;
 @property(retain, nonatomic) NSString *topic;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithTopic:(id)arg1 userInfo:(id)arg2;
 - (id)initWithDictionary:(id)arg1;
+- (id)initWithDictionary:(id)arg1 xpcMessage:(id)arg2;
 
 @end
 

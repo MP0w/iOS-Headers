@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-@class AVCaptureInput, NSString;
+@class AVCaptureInput, AVMetadataObject, NSString;
 
 @interface AVMetadataObjectInternal : NSObject
 {
-    CDStruct_1b6d18a9 time;
-    CDStruct_1b6d18a9 duration;
-    struct CGRect bounds;
     NSString *type;
     AVCaptureInput *input;
+    AVMetadataObject *originalMetadataObject;
+    struct CGRect bounds;
+    CDStruct_1b6d18a9 time;
+    CDStruct_1b6d18a9 duration;
 }
 
+@property(retain) AVMetadataObject *originalMetadataObject; // @synthesize originalMetadataObject;
 @property(retain) AVCaptureInput *input; // @synthesize input;
 @property(retain) NSString *type; // @synthesize type;
 @property struct CGRect bounds; // @synthesize bounds;

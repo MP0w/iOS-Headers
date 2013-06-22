@@ -6,24 +6,29 @@
 
 #import <AVFoundation/AVAssetTrackInspector.h>
 
-@class AVWeakReference, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>;
+@class AVWeakReference, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface AVFigAssetTrackInspector : AVAssetTrackInspector
 {
+    struct OpaqueFigAsset *_figAsset;
     struct OpaqueFigAssetTrack *_figAssetTrack;
     struct OpaqueFigSimpleMutex *_loadingMutex;
+    struct OpaqueFigSimpleMutex *_validationMutex;
     struct OpaqueFigSemaphore *_playabilityValidationSemaphore;
     NSObject<OS_dispatch_queue> *_completionHandlerQueue;
     int _playableStatus;
     long _playableResult;
+    long _playabilityValidationResult;
     BOOL _playable;
     NSMutableArray *_loadingBatches;
     AVWeakReference *_weakReferenceToAsset;
-    NSArray *_cachedMediaCharacteristics;
 }
 
+- (void)_invokeCompletionHandlerForLoadingBatches:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (BOOL)hasProtectedContent;
+- (id)_trackReferences;
 - (BOOL)isExcludedFromAutoselectionInTrackGroup;
 - (id)metadataForFormat:(id)arg1;
 - (id)availableMetadataFormats;
@@ -31,13 +36,13 @@
 - (id)segmentForTrackTime:(CDStruct_1b6d18a9)arg1;
 - (id)segments;
 - (float)nominalFrameRate;
+- (id)loudnessInfo;
 - (float)preferredVolume;
 - (int)layer;
 - (struct CGAffineTransform)preferredTransform;
 - (struct CGSize)dimensions;
 - (struct CGSize)naturalSize;
 - (id)extendedLanguageTag;
-- (id)mediaCharacteristics;
 - (id)languageCode;
 - (float)estimatedDataRate;
 - (int)naturalTimeScale;
@@ -45,8 +50,9 @@
 - (long long)totalSampleDataLength;
 - (BOOL)isSelfContained;
 - (BOOL)isEnabled;
+- (long)playabilityValidationResult;
 - (BOOL)isPlayable;
-- (void)setIsPlayable:(BOOL)arg1 result:(long)arg2;
+- (BOOL)_loadValueOfPlayableByWaitingForAsyncValidationIfNeeded:(BOOL)arg1;
 - (id)formatDescriptions;
 - (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
 - (id)mediaType;
@@ -55,15 +61,14 @@
 - (struct OpaqueFigSemaphore *)_playabilityValidationSemaphore;
 - (id)_loadingBatches;
 - (struct OpaqueFigSimpleMutex *)_loadingMutex;
-- (id)_completionHandlerQueue;
 - (struct OpaqueFigAssetTrack *)_figAssetTrack;
 - (id)asset;
 - (void)_ensureAllDependenciesOfKeyAreLoaded:(id)arg1;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
 - (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
 - (int)_loadStatusForFigAssetTrackProperty:(id)arg1 returningError:(int *)arg2;
-- (void)_removeFigAssetTrackNotifications;
-- (void)_addFigAssetTrackNotifications;
+- (void)_removeFigNotifications;
+- (void)_addFigNotifications;
 - (void)finalize;
 - (void)dealloc;
 - (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;

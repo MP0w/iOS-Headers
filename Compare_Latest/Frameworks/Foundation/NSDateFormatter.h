@@ -6,13 +6,14 @@
 
 #import <Foundation/NSFormatter.h>
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSObject<OS_dispatch_semaphore>;
 
 @interface NSDateFormatter : NSFormatter
 {
     NSMutableDictionary *_attributes;
     struct __CFDateFormatter *_formatter;
     unsigned int _counter;
+    NSObject<OS_dispatch_semaphore> *_lock;
 }
 
 + (id)dateFormatFromTemplate:(id)arg1 options:(unsigned int)arg2 locale:(id)arg3;

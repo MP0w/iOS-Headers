@@ -106,7 +106,6 @@
 - (unsigned int)countOfVisibleNotes;
 - (id)allVisibleNotes;
 - (BOOL)saveSilently:(id *)arg1;
-- (BOOL)handleSaveErrors:(id)arg1;
 - (BOOL)save:(id *)arg1;
 - (BOOL)saveOutsideApp:(id *)arg1;
 - (void)invalidate;

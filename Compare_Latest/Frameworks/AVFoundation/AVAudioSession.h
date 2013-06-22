@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVAudioSessionRouteDescription, NSString;
+@class AVAudioSessionPortDescription, AVAudioSessionRouteDescription, NSArray, NSString;
 
 @interface AVAudioSession : NSObject
 {
@@ -16,13 +16,17 @@
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)privateAllocInitSingleton;
 + (id)sharedInstance;
+- (void)privateUpdateAudioFormat:(id)arg1;
+- (void)privateUpdateAudioFormats:(id)arg1;
 - (void)privateUpdateDataSources:(id)arg1 forInput:(BOOL)arg2;
 - (void)privateUpdateInputGain:(id)arg1;
 - (void)privateUpdatePromptStyle:(id)arg1;
 - (void)privateUpdateOutputVolume:(id)arg1;
 - (BOOL)privateSetPropertyValue:(unsigned long)arg1 withBool:(BOOL)arg2 error:(id *)arg3;
 - (void)privateHandleServerDied;
-- (void)privateMarkKVOPropertiesDirty;
+- (void)privateMarkKVOPropertiesDirty:(unsigned int)arg1;
+- (void)privateHandleFormatChange:(id)arg1;
+- (void)privateHandleFormatsChange:(id)arg1;
 - (void)privateHandlePromptStyleChange:(id)arg1;
 - (void)privateHandleOutputDataSourcesChange:(id)arg1;
 - (void)privateHandleInputDataSourcesChange:(id)arg1;
@@ -36,16 +40,28 @@
 - (int)currentHardwareInputNumberOfChannels;
 - (double)currentHardwareSampleRate;
 - (BOOL)inputIsAvailable;
+- (BOOL)setIAmTheAssistant:(BOOL)arg1 error:(id *)arg2;
+- (BOOL)setDefaultChatMode:(id)arg1 error:(id *)arg2;
+- (BOOL)silenceOutput:(unsigned int)arg1 error:(id *)arg2;
+- (BOOL)setActivationContext:(id)arg1 error:(id *)arg2;
 - (BOOL)setPreferredHardwareSampleRate:(double)arg1 error:(id *)arg2;
-- (BOOL)setActive:(BOOL)arg1 withFlags:(int)arg2 error:(id *)arg3;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;
+- (id)privateRefreshAvailableInputs;
+@property(readonly) NSArray *availableInputs;
+- (unsigned int)opaqueSessionID;
 @property(readonly) AVAudioSessionRouteDescription *currentRoute;
+@property(readonly) AVAudioSessionPortDescription *preferredInput;
+- (BOOL)setPreferredInput:(id)arg1 error:(id *)arg2;
 - (BOOL)overrideOutputAudioPort:(unsigned int)arg1 error:(id *)arg2;
 - (BOOL)setMode:(id)arg1 error:(id *)arg2;
 @property(readonly) NSString *mode;
+- (int)maximumOutputNumberOfChannels;
+- (int)maximumInputNumberOfChannels;
 - (int)outputNumberOfChannels;
 - (int)inputNumberOfChannels;
+- (int)preferredOutputNumberOfChannels;
+- (int)preferredInputNumberOfChannels;
 - (double)preferredIOBufferDuration;
 - (double)preferredSampleRate;
 - (double)IOBufferDuration;
@@ -59,15 +75,28 @@
 - (id)outputDataSources;
 - (id)inputDataSource;
 - (id)inputDataSources;
+- (id)privateGetSelectedDataSource:(BOOL)arg1;
 - (id)privateGetDataSources:(BOOL)arg1;
+- (struct AVAudioSessionImpl *)privateGetImplementation;
 - (float)inputGain;
+- (void)setAllowAllBuiltInDataSources:(BOOL)arg1;
+- (BOOL)allowAllBuiltInDataSources;
+- (BOOL)setForceSoundCheck:(BOOL)arg1 error:(id *)arg2;
+- (BOOL)forceSoundCheck;
+- (BOOL)isEarpieceActiveNoiseCancelationEnabled;
+- (int)audioFormat;
+- (id)audioFormats;
 - (unsigned int)promptStyle;
 - (float)outputVolume;
 - (BOOL)setOutputDataSource:(id)arg1 error:(id *)arg2;
 - (BOOL)setInputDataSource:(id)arg1 error:(id *)arg2;
 - (BOOL)setInputGain:(float)arg1 error:(id *)arg2;
+- (BOOL)setPreferredOutputNumberOfChannels:(int)arg1 error:(id *)arg2;
+- (BOOL)setPreferredInputNumberOfChannels:(int)arg1 error:(id *)arg2;
 - (BOOL)setPreferredIOBufferDuration:(double)arg1 error:(id *)arg2;
 - (BOOL)setPreferredSampleRate:(double)arg1 error:(id *)arg2;
+- (BOOL)requestRecordPermission;
+- (BOOL)setActive:(BOOL)arg1 withFlags:(int)arg2 error:(id *)arg3;
 - (BOOL)setActive:(BOOL)arg1 withOptions:(unsigned int)arg2 error:(id *)arg3;
 - (BOOL)setActive:(BOOL)arg1 error:(id *)arg2;
 - (BOOL)setCategory:(id)arg1 withOptions:(unsigned int)arg2 error:(id *)arg3;
@@ -79,6 +108,7 @@
 - (unsigned int)retainCount;
 - (id)retain;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)privateConfigureRouteDescription:(id)arg1;
 - (id)init;
 
 @end

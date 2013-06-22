@@ -17,7 +17,7 @@
 - (id)initWithSet:(id)arg1;
 - (id)initWithArray:(id)arg1;
 - (id)initWithSet:(id)arg1 copyItems:(BOOL)arg2;
-- (id)initWithObjects:(id *)arg1 count:(unsigned int)arg2;
+- (id)initWithObjects:(const id *)arg1 count:(unsigned int)arg2;
 - (id)initWithCapacity:(unsigned int)arg1;
 - (id)init;
 - (unsigned int)countForObject:(id)arg1;

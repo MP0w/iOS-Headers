@@ -20,7 +20,8 @@
 + (id)_singletonContext;
 + (id)clContextOptions:(id)arg1;
 + (id)glesContextOptions:(id)arg1;
-+ (struct Context *)glesInternalContextOptions:(id)arg1;
++ (struct Context *)glesInternalContextWithEAGLContext:(id)arg1 options:(id)arg2;
++ (struct Context *)glesInternalContextWithOptions:(id)arg1;
 - (struct CGSize)outputImageMaximumSize;
 - (struct CGSize)inputImageMaximumSize;
 - (unsigned long)maximumOutputImageSize;

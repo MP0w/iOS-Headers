@@ -22,7 +22,6 @@
 - (void)setPrimitiveIndexValue:(short)arg1;
 - (short)primitiveIndexValue;
 @property short indexValue;
-- (id)objectID;
 
 // Remaining properties
 @property(retain, nonatomic) PLManagedAsset *asset; // @dynamic asset;

@@ -21,12 +21,14 @@
     BOOL _shouldDeleteAfterAnimation;
     BOOL _editing;
     BOOL _shouldAnimateShadow;
-    BOOL _shouldRasterizeAfterAnimation;
-    BOOL _shouldResetRasterizationAfterAnimation;
+    BOOL _shouldResetGroupOpacityAfterAnimation;
+    BOOL _shouldAllowGroupOpacityAfterAnimation;
+    BOOL _shouldClipToBoundsAfterAnimation;
 }
 
-@property(nonatomic) BOOL shouldResetRasterizationAfterAnimation; // @synthesize shouldResetRasterizationAfterAnimation=_shouldResetRasterizationAfterAnimation;
-@property(nonatomic) BOOL shouldRasterizeAfterAnimation; // @synthesize shouldRasterizeAfterAnimation=_shouldRasterizeAfterAnimation;
+@property(nonatomic) BOOL shouldClipToBoundsAfterAnimation; // @synthesize shouldClipToBoundsAfterAnimation=_shouldClipToBoundsAfterAnimation;
+@property(nonatomic) BOOL shouldAllowGroupOpacityAfterAnimation; // @synthesize shouldAllowGroupOpacityAfterAnimation=_shouldAllowGroupOpacityAfterAnimation;
+@property(nonatomic) BOOL shouldResetGroupOpacityAfterAnimation; // @synthesize shouldResetGroupOpacityAfterAnimation=_shouldResetGroupOpacityAfterAnimation;
 @property(nonatomic) BOOL shouldAnimateShadow; // @synthesize shouldAnimateShadow=_shouldAnimateShadow;
 @property(readonly, nonatomic) BOOL editing; // @synthesize editing=_editing;
 @property(readonly, nonatomic) BOOL shouldDeleteAfterAnimation; // @synthesize shouldDeleteAfterAnimation=_shouldDeleteAfterAnimation;

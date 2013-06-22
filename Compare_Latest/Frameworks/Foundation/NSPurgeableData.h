@@ -18,7 +18,7 @@
 
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithBytes:(void *)arg1 length:(unsigned int)arg2 copy:(BOOL)arg3 freeWhenDone:(BOOL)arg4 bytesAreVM:(BOOL)arg5;
+- (id)initWithBytes:(void *)arg1 length:(unsigned int)arg2 copy:(BOOL)arg3 deallocator:(id)arg4;
 - (id)initWithCapacity:(unsigned int)arg1;
 - (id)init;
 - (BOOL)isContentDiscarded;

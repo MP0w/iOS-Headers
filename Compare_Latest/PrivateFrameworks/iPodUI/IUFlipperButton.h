@@ -18,6 +18,7 @@
     BOOL _isFlipping;
 }
 
+- (void).cxx_destruct;
 - (void)toggle;
 - (void)setBackImage:(id)arg1;
 - (void)setFrontImage:(id)arg1;
@@ -27,7 +28,6 @@
 - (void)flipBasedOnFlip:(id)arg1;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)hitRect;
-- (void)dealloc;
 - (void)setDelegate:(id)arg1;
 - (id)initWithImage:(id)arg1;
 

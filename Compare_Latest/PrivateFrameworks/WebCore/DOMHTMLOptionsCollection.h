@@ -10,10 +10,10 @@
 {
 }
 
-- (id)namedItem:(id)arg1;
 - (id)item:(unsigned int)arg1;
 - (void)remove:(unsigned int)arg1;
 - (void)add:(id)arg1 index:(unsigned int)arg2;
+- (id)namedItem:(id)arg1;
 @property unsigned int length;
 @property int selectedIndex;
 - (void)finalize;

@@ -9,7 +9,7 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class ABBannerView, ABModel, NSMutableArray;
+@class ABBannerView, ABModel, ABUIPerson, NSMutableArray;
 
 @interface ABMembersDataSource : NSObject <UITableViewDelegate, UITableViewDataSource>
 {
@@ -24,6 +24,7 @@
     struct __CFDictionary *_displayableSectionIndexToSectionIndex;
     struct __CFDictionary *_sectionIndexToDisplayableSectionIndex;
     ABBannerView *_bannerView;
+    ABUIPerson *_meCard;
 }
 
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
@@ -55,6 +56,7 @@
 - (void)setBannerView:(id)arg1 inTableView:(id)arg2;
 - (id)bannerView;
 - (BOOL)shouldShowGroups;
+- (void)_invalidateMeCard;
 - (void)dealloc;
 
 @end

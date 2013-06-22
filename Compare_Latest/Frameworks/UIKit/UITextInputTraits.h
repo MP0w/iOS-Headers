@@ -31,6 +31,7 @@
     int textLoupeVisibility;
     int textSelectionBehavior;
     id textSuggestionDelegate;
+    BOOL isSingleLineDocument;
     BOOL contentsIsSingleValue;
     BOOL acceptsEmoji;
     BOOL returnKeyGoesToNextResponder;
@@ -44,11 +45,13 @@
     BOOL forceEnableDictation;
     BOOL useInterfaceLanguageForLocalization;
     BOOL deferBecomingResponder;
+    BOOL enablesReturnKeyOnNonWhiteSpaceContent;
 }
 
 + (BOOL)keyboardTypeRequiresASCIICapable:(int)arg1;
 + (id)traitsByAdoptingTraits:(id)arg1;
 + (id)defaultTextInputTraits;
+@property(nonatomic) BOOL enablesReturnKeyOnNonWhiteSpaceContent; // @synthesize enablesReturnKeyOnNonWhiteSpaceContent;
 @property(nonatomic) BOOL deferBecomingResponder; // @synthesize deferBecomingResponder;
 @property(nonatomic) BOOL useInterfaceLanguageForLocalization; // @synthesize useInterfaceLanguageForLocalization;
 @property(nonatomic) BOOL forceEnableDictation; // @synthesize forceEnableDictation;
@@ -62,6 +65,7 @@
 @property(nonatomic) int emptyContentReturnKeyType; // @synthesize emptyContentReturnKeyType;
 @property(nonatomic) BOOL acceptsEmoji; // @synthesize acceptsEmoji;
 @property(nonatomic) BOOL contentsIsSingleValue; // @synthesize contentsIsSingleValue;
+@property(nonatomic) BOOL isSingleLineDocument; // @synthesize isSingleLineDocument;
 @property(nonatomic) int textSelectionBehavior; // @synthesize textSelectionBehavior;
 @property(nonatomic) int textLoupeVisibility; // @synthesize textLoupeVisibility;
 @property(nonatomic) unsigned int insertionPointWidth; // @synthesize insertionPointWidth;
@@ -78,6 +82,7 @@
 @property(nonatomic) int autocorrectionType; // @synthesize autocorrectionType;
 @property(nonatomic) int autocapitalizationType; // @synthesize autocapitalizationType;
 - (BOOL)isEqual:(id)arg1;
+- (BOOL)publicTraitsMatchTraits:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)takeTraitsFrom:(id)arg1;
@@ -88,6 +93,7 @@
 @property(nonatomic) struct __CFCharacterSet *textTrimmingSet; // @dynamic textTrimmingSet;
 - (id)dictionaryRepresentation;
 - (void)setToSecureValues;
+- (void)_setColorsToMatchTintColor:(id)arg1;
 
 @end
 

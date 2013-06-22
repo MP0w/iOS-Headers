@@ -44,6 +44,8 @@
 - (id)areReadReceiptsEnabled:(id)arg1;
 - (id)readReceiptSpecifierIdentifiers;
 - (BOOL)shouldShowReadReceipts;
+- (id)blacklistSettingsSpecifierIdentifiers;
+- (BOOL)shouldShowBlacklistSettings;
 - (id)characterCountSpecifierIdentifiers;
 - (BOOL)shouldShowCharacterCount;
 - (id)genericSettingsSpecifierIdentifiers;

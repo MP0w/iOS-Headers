@@ -10,15 +10,17 @@
 
 @interface PLBBBulletin : NSObject
 {
-    int _bulletinType;
+    long long _bulletinType;
     NSString *_senderName;
     NSString *_senderEmailAddress;
     NSString *_albumTitle;
     NSString *_photosBatchID;
     NSString *_mainAssetUUID;
     BOOL _mainAssetIsMine;
+    BOOL _mainAssetIsVideo;
     BOOL _containsBatchFirstKnownAsset;
     NSMutableSet *_assetUUIDs;
+    int _assetCount;
     NSMutableSet *_placeholderAssetUUIDs;
     NSMutableSet *_lowResThumbAssetUUIDs;
     int _invitationState;
@@ -27,21 +29,27 @@
     NSString *_commentText;
     int _commentCount;
     BOOL _commentIsCaption;
-    NSDate *_expirationDate;
-    NSString *_albumUUID;
-    NSDate *_date;
+    BOOL _suppressAlert;
+    NSMutableSet *_senderNames;
+    BOOL _forMultipleAsset;
+    BOOL _allMultipleAssetIsMine;
+    BOOL _isMixedType;
     unsigned int _recordID;
     unsigned int _replacedBulletinRecordID;
+    NSString *_albumUUID;
+    NSDate *_date;
+    NSDate *_expirationDate;
 }
 
+@property BOOL suppressAlert; // @synthesize suppressAlert=_suppressAlert;
+@property(readonly) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
+@property(readonly) NSDate *date; // @synthesize date=_date;
 @property(readonly) NSString *senderEmailAddress; // @synthesize senderEmailAddress=_senderEmailAddress;
 @property(readonly) NSString *mainAssetUUID; // @synthesize mainAssetUUID=_mainAssetUUID;
+@property(readonly) NSString *albumUUID; // @synthesize albumUUID=_albumUUID;
 @property unsigned int replacedBulletinRecordID; // @synthesize replacedBulletinRecordID=_replacedBulletinRecordID;
 @property unsigned int recordID; // @synthesize recordID=_recordID;
-@property(readonly) NSDate *date; // @synthesize date=_date;
-@property(readonly) int bulletinType; // @synthesize bulletinType=_bulletinType;
-@property(readonly) NSString *albumUUID; // @synthesize albumUUID=_albumUUID;
-@property(readonly) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
+@property(readonly) long long bulletinType; // @synthesize bulletinType=_bulletinType;
 - (id)_localizedCountFormatter;
 - (BOOL)assetWithUUID:(id)arg1 didChangePlaceholderKindTo:(int)arg2 fromOldKind:(int)arg3;
 - (BOOL)isCommentPiggyBackedOnPhotosAddedBulletin;
@@ -59,15 +67,17 @@
 - (id)bulletinByMergingWithBulletin:(id)arg1;
 @property(readonly) BOOL canMergeWithPersistedBulletins;
 - (void)dealloc;
-- (id)_initWithLikesCount:(int)arg1 commentDate:(id)arg2 firstCommentGUID:(id)arg3 toAssetWithUUID:(id)arg4 photosBatchID:(id)arg5 mainAssetIsMine:(BOOL)arg6 inAlbumWithTitle:(id)arg7 albumUUID:(id)arg8 assetUUIDs:(id)arg9 placeholderAssetUUIDs:(id)arg10 lowResThumbAssetUUIDs:(id)arg11;
-- (id)_initWithCommentsCount:(int)arg1 commentDate:(id)arg2 firstCommentGUID:(id)arg3 toAssetWithUUID:(id)arg4 photosBatchID:(id)arg5 mainAssetIsMine:(BOOL)arg6 inAlbumWithTitle:(id)arg7 albumUUID:(id)arg8 assetUUIDs:(id)arg9 placeholderAssetUUIDs:(id)arg10 lowResThumbAssetUUIDs:(id)arg11;
+- (id)_initWithLikesCount:(int)arg1 commentDate:(id)arg2 firstCommentGUID:(id)arg3 toAssetWithUUID:(id)arg4 photosBatchID:(id)arg5 mainAssetIsMine:(BOOL)arg6 mainAssetIsVideo:(BOOL)arg7 inAlbumWithTitle:(id)arg8 albumUUID:(id)arg9 assetUUIDs:(id)arg10 placeholderAssetUUIDs:(id)arg11 lowResThumbAssetUUIDs:(id)arg12 senderNames:(id)arg13 forMultipleAsset:(BOOL)arg14 allMultipleAssetIsMine:(BOOL)arg15 isMixedType:(BOOL)arg16;
+- (id)_initWithCommentsCount:(int)arg1 commentDate:(id)arg2 firstCommentGUID:(id)arg3 toAssetWithUUID:(id)arg4 photosBatchID:(id)arg5 mainAssetIsMine:(BOOL)arg6 mainAssetIsVideo:(BOOL)arg7 inAlbumWithTitle:(id)arg8 albumUUID:(id)arg9 assetUUIDs:(id)arg10 placeholderAssetUUIDs:(id)arg11 lowResThumbAssetUUIDs:(id)arg12;
 - (id)initWithLikeAdded:(id)arg1;
 - (id)initWithCommentAdded:(id)arg1;
+- (id)_initWithPhotosAddedBulletin:(id)arg1 mergedWithBulletinDictionary:(id)arg2;
 - (id)_initWithPhotosAddedBulletin:(id)arg1 mergedWithBulletin:(id)arg2;
-- (id)initWithAssetAdded:(id)arg1 atIndex:(unsigned int)arg2 toAlbum:(id)arg3 misc:(id)arg4;
+- (id)initWithAssetAdded:(id)arg1 atIndex:(unsigned int)arg2 toAlbum:(id)arg3;
+- (id)initWithMultipleContributorEnabledForAlbum:(id)arg1;
 - (id)initWithInvitationRecordStatusChanged:(id)arg1;
 - (id)initWithInvitationAlbum:(id)arg1;
-- (id)_initWithType:(int)arg1;
+- (id)_initWithType:(long long)arg1;
 - (id)init;
 
 @end

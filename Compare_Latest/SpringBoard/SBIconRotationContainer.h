@@ -6,27 +6,22 @@
 
 #import "UIView.h"
 
-@class SBIcon;
+@class SBIcon, SBIconView, SBIconViewMap;
 
 @interface SBIconRotationContainer : UIView
 {
-    UIView *_startSnapshot;
-    UIView *_endSnapshot;
-    SBIcon *_icon;
-    BOOL _shouldCrossfade;
-    int _toOrientation;
-    int _fromOrientation;
-    unsigned int _startIndex;
-    unsigned int _endIndex;
+    struct SBIconCoordinate _coordinate;
+    SBIconViewMap *_viewMap;
+    SBIconView *_startView;
+    SBIconView *_endView;
 }
 
-@property(retain, nonatomic) SBIcon *icon; // @synthesize icon=_icon;
-- (id)newSnapshot:(id)arg1 includingShadows:(BOOL)arg2;
-- (void)crossfadeWithDuration:(double)arg1 inIconList:(id)arg2;
+@property(readonly, nonatomic) struct SBIconCoordinate coordinate; // @synthesize coordinate=_coordinate;
+- (void)crossfadeWithDuration:(double)arg1;
 - (void)prepareToCrossfade;
-- (void)setOrigin:(struct CGPoint)arg1;
-- (void)setStartIcon:(id)arg1 endIcon:(id)arg2 inIconList:(id)arg3 fromOrientation:(int)arg4 toOrientation:(int)arg5;
+@property(readonly, nonatomic) SBIcon *endIcon;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 startIcon:(id)arg2 endIcon:(id)arg3 viewMap:(id)arg4 coordinate:(struct SBIconCoordinate)arg5;
 
 @end
 

@@ -11,7 +11,7 @@
 @interface WDFieldMarker : WDRun
 {
     WDCharacterProperties *mProperties;
-    long mFieldPosition;
+    int mFieldPosition;
     int mMarkerType;
     unsigned char mFieldType;
     unsigned int mZombieEmbed:1;
@@ -42,8 +42,8 @@
 - (unsigned char)fieldType;
 - (void)setFieldMarkerType:(int)arg1;
 - (int)fieldMarkerType;
-- (void)setFieldPosition:(long)arg1;
-- (long)fieldPosition;
+- (void)setFieldPosition:(int)arg1;
+- (int)fieldPosition;
 - (void)dealloc;
 - (id)initWithParagraph:(id)arg1;
 - (void)clearProperties;

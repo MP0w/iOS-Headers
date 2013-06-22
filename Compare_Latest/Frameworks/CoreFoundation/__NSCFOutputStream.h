@@ -14,7 +14,7 @@
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)_unscheduleFromCFRunLoop:(struct __CFRunLoop *)arg1 forMode:(struct __CFString *)arg2;
 - (void)_scheduleInCFRunLoop:(struct __CFRunLoop *)arg1 forMode:(struct __CFString *)arg2;
-- (BOOL)_setCFClientFlags:(unsigned long)arg1 callback:(void *)arg2 context:(CDStruct_60d14f2d *)arg3;
+- (BOOL)_setCFClientFlags:(unsigned long)arg1 callback:(void *)arg2 context:(CDStruct_304912e7 *)arg3;
 - (BOOL)hasSpaceAvailable;
 - (int)write:(const char *)arg1 maxLength:(unsigned int)arg2;
 - (id)streamError;

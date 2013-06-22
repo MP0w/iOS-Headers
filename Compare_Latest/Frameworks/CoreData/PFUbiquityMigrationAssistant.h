@@ -17,19 +17,24 @@
     NSMutableDictionary *_logLocationsByVersionHash;
     NSMutableArray *_receiptLocations;
     NSMutableArray *_orderedReceipts;
+    NSString *_previousModelVersionHash;
+    NSString *_currentModelVersionHash;
 }
 
-- (void)dealloc;
+@property(readonly, nonatomic) NSString *currentModelVersionHash; // @synthesize currentModelVersionHash=_currentModelVersionHash;
+@property(readonly, nonatomic) NSString *previousModelVersionHash; // @synthesize previousModelVersionHash=_previousModelVersionHash;
 - (id)transactionLogLocationsForModelVersionHash:(id)arg1;
 - (id)latestBaselineLocationSkipModelVersionHash:(id)arg1;
 - (id)latestTransactionLogForModelVersionHash:(id)arg1;
+- (BOOL)electPreviousModelVersionHashFromTransactionLogsError:(id *)arg1;
 - (BOOL)canUseReceipts;
 - (id)orderedReceipts;
 - (id)transactionLogLocationsByModelVersionHash;
 - (id)receiptLocations;
 - (id)baselineLocationsByModelVersionHash;
 - (void)_populateBaselineAndTransactionLogLocations;
-- (id)initWithUbiquityRootLocation:(id)arg1 peerID:(id)arg2 ubiquityName:(id)arg3;
+- (void)dealloc;
+- (id)initWithUbiquityRootLocation:(id)arg1 peerID:(id)arg2 ubiquityName:(id)arg3 modelVersionHash:(id)arg4;
 
 @end
 

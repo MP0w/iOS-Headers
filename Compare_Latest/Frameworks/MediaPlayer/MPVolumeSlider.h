@@ -6,27 +6,29 @@
 
 #import "UISlider.h"
 
-@class MPAVController, NSString, NSTimer, UIImageView, UILabel, UIView;
+#import "MPVolumeControllerDelegate-Protocol.h"
 
-@interface MPVolumeSlider : UISlider
+@class MPAVController, MPVolumeController, NSString, NSTimer, UIImage, UIImageView, UILabel, UIView;
+
+@interface MPVolumeSlider : UISlider <MPVolumeControllerDelegate>
 {
+    MPVolumeController *_volumeController;
     NSTimer *_commitTimer;
-    MPAVController *_player;
     UILabel *_routeNameLabel;
     int _style;
     UIImageView *_thumbImageView;
     UIImageView *_thumbMaskImageView;
-    NSString *_volumeAudioCategory;
     BOOL _isOffScreen;
-    BOOL _volumeWarningEnabled;
     UIView *_volumeWarningView;
-    int _volumeWarningState;
-    float _EUVolumeLimit;
     BOOL _volumeWarningBlinking;
+    UIImage *_volumeWarningTrackImage;
+    UIView *_trackKnockoutView;
 }
 
+@property(retain, nonatomic) UIImage *volumeWarningTrackImage; // @synthesize volumeWarningTrackImage=_volumeWarningTrackImage;
 @property(nonatomic, setter=_setIsOffScreen:) BOOL _isOffScreen; // @synthesize _isOffScreen;
 @property(readonly, nonatomic) int style; // @synthesize style=_style;
+- (void).cxx_destruct;
 - (void)_endBlinkingWarningView;
 - (void)_blinkWarningView;
 - (void)_beginBlinkingWarningView;
@@ -38,18 +40,13 @@
 - (id)_minTrackImageForStyle:(int)arg1;
 - (id)_thumbImageForStyle:(int)arg1;
 - (void)_commitVolumeChange;
-- (void)_updateVolumeFromAVController;
-- (float)_volumeFromAVController;
-- (BOOL)_isPlayerInValidState;
-- (void)_EUVolumeLimitEnforcedDidChange:(id)arg1;
-- (void)_EUVolumeLimitDidChange:(id)arg1;
-- (void)_volumeDidChange:(id)arg1;
-- (void)_systemVolumeDidChange:(id)arg1;
-- (void)_systemMuteDidChange:(id)arg1;
 - (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
+- (void)volumeController:(id)arg1 EUVolumeLimitEnforcedDidChange:(BOOL)arg2;
+- (void)volumeController:(id)arg1 EUVolumeLimitDidChange:(float)arg2;
+- (void)volumeController:(id)arg1 volumeValueDidChange:(float)arg2;
 @property(copy, nonatomic) NSString *volumeAudioCategory;
 @property(retain, nonatomic) MPAVController *player;
 - (void)setUserInteractionEnabled:(BOOL)arg1;

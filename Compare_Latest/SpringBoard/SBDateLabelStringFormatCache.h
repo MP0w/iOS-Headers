@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSDateFormatter, NSNumberFormatter;
+#import "SBUILockScreenDateFormatter-Protocol.h"
 
-@interface SBDateLabelStringFormatCache : NSObject
+@class NSDate, NSDateFormatter, NSNumberFormatter;
+
+@interface SBDateLabelStringFormatCache : NSObject <SBUILockScreenDateFormatter>
 {
     NSDateFormatter *_dayOfWeekFormatter;
     NSDateFormatter *_dayOfWeekWithTimeFormatter;
@@ -19,11 +21,26 @@
     NSDateFormatter *_abbrevDayMonthTimeFormatter;
     NSDateFormatter *_timeFormatter;
     NSDateFormatter *_relativeDateTimeFormatter;
+    NSDateFormatter *_relativeDateFormatter;
+    NSDateFormatter *_dayOfWeekMonthDayFormatter;
+    NSDateFormatter *_timeNoAMPMFormatter;
     NSNumberFormatter *_decimalFormatter;
+    NSNumberFormatter *_timerNumberFormatter;
+    NSDateFormatter *_abbreviatedTimerFormatter;
+    NSDateFormatter *_alarmSnoozeFormatter;
+    NSDate *_timerReferenceDate;
+    NSDate *_alarmReferenceDate;
 }
 
 + (id)sharedInstance;
 + (void)load;
+- (id)formatAlarmSnoozeDuration:(double)arg1;
+- (id)formatAbbreviatedTimerDuration:(double)arg1;
+- (id)formatTimerDuration:(double)arg1;
+- (id)formatDateAsRelativeDateStyle:(id)arg1;
+- (BOOL)_shouldShowHoursForTimerDuration:(double)arg1;
+- (id)formatDateAsTimeNoAMPM:(id)arg1;
+- (id)formatDateAsDayOfWeekMonthDayStyle:(id)arg1;
 - (id)formatDateAsRelativeDateAndTimeStyle:(id)arg1;
 - (id)formatDateAsTimeStyle:(id)arg1;
 - (id)formatDateAsAbbreviatedDayMonthWithTimeStyle:(id)arg1;

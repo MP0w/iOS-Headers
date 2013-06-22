@@ -16,9 +16,11 @@
 + (id)predicateMatchingPredicates:(id)arg1;
 @property(retain, nonatomic) NSArray *predicates; // @synthesize predicates=_predicates;
 - (void).cxx_destruct;
+- (id)spotlightPredicate;
 - (BOOL)isDynamicForEntityClass:(Class)arg1;
-- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
+- (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
+- (id)predicateOptimizedForEntityClass:(Class)arg1;
 - (id)SQLJoinClausesForClass:(Class)arg1;
 - (id)description;
 - (unsigned int)hash;

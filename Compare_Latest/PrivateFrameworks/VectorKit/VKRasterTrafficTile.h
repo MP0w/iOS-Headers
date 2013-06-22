@@ -6,19 +6,22 @@
 
 #import <VectorKit/VKTile.h>
 
-@class GEOVoltaireRasterTileTrafficData, VKIntObjectMap;
+@class GEOVoltaireRasterTileTrafficData, NSArray, NSMutableArray, VKIntObjectMap;
 
 @interface VKRasterTrafficTile : VKTile
 {
     GEOVoltaireRasterTileTrafficData *_modelTile;
     VKIntObjectMap *_roadMeshes;
     VKIntObjectMap *_capMeshes;
+    NSMutableArray *_incidents;
 }
 
+@property(readonly, nonatomic) NSArray *incidents; // @synthesize incidents=_incidents;
 - (void)dealloc;
+- (void)_buildIncidents;
 - (void)_buildMeshes;
-- (id)capMeshForSpeed:(int)arg1;
-- (id)roadMeshForSpeed:(int)arg1;
+- (id)capMeshVendorForSpeed:(int)arg1;
+- (id)roadMeshVendorForSpeed:(int)arg1;
 - (id)initWithKey:(const struct VKTileKey *)arg1 downloadKey:(const struct _GEOTileKey *)arg2 trafficData:(id)arg3;
 
 @end

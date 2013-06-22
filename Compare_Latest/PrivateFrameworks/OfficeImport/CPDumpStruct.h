@@ -10,9 +10,9 @@
 
 @interface CPDumpStruct : CPDumpType
 {
-    int mSize;
+    long mSize;
     NSString *mSizeFieldName;
-    int mSizeCorrection;
+    long mSizeCorrection;
     NSMutableArray *mMembers;
 }
 
@@ -20,9 +20,9 @@
 - (void)dealloc;
 - (id)initWithSizeFieldName:(id)arg1 sizeCorrection:(int)arg2 members:(id)arg3;
 - (id)initWithSizeFieldName:(id)arg1 members:(id)arg2;
-- (id)initWithSize:(int)arg1 members:(id)arg2;
+- (id)initWithSize:(long)arg1 members:(id)arg2;
 - (id)initWithMembers:(id)arg1;
-- (id)initWithSize:(int)arg1 sizeFieldName:(id)arg2 sizeCorrection:(int)arg3 members:(id)arg4;
+- (id)initWithSize:(long)arg1 sizeFieldName:(id)arg2 sizeCorrection:(int)arg3 members:(id)arg4;
 
 @end
 

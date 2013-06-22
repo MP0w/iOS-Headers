@@ -16,7 +16,7 @@
 + (id)deletionsFromChangeHubEvent:(id)arg1;
 + (void)appendDescriptionForEvent:(id)arg1 toComponents:(id)arg2;
 - (id)initWithFilesystemDeletionInfos:(id)arg1;
-- (void)deleteAllRemainingFilesAndThumbnails;
+- (void)deleteAllRemainingFilesAndThumbnailsCompletionHandler:(id)arg1;
 - (void)appendToXPCMessage:(id)arg1;
 - (void)addFilesystemDeletionInfo:(id)arg1;
 - (void)dealloc;

@@ -24,6 +24,7 @@
 @property(copy, nonatomic) NSArray *recipientsBcc;
 @property(copy, nonatomic) NSArray *receivingAddresses;
 @property(copy, nonatomic) NSNumber *outgoing;
+@property(copy, nonatomic) NSString *messagePreview;
 @property(copy, nonatomic) NSString *message;
 @property(retain, nonatomic) SAPersonAttribute *fromEmail;
 @property(copy, nonatomic) NSDate *dateSent;

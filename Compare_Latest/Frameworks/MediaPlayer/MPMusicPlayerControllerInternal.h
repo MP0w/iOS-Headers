@@ -26,9 +26,10 @@
     unsigned int _useApplicationSpecificQueue:1;
     unsigned int _useCachedPlaybackState:1;
     unsigned int _cachedPlaybackStateIsValid:1;
-    unsigned int _allowsRemoteUIAccess:1;
+    unsigned int _allowsBackgroundVideo:1;
 }
 
+- (void).cxx_destruct;
 - (id)_bundleIdentifier;
 @property BOOL inBlockHandlingPlaybackStateChangedMessageFromServer;
 - (void)acquireProcessAssertion;

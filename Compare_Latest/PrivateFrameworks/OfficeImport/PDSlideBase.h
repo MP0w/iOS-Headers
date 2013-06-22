@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, OADBackground, OADTableStyle, PDAnimation, PDTransition;
+@class NSArray, NSString, OADBackground, OADShape, OADTableStyle, PDAnimation, PDTransition;
 
 @interface PDSlideBase : NSObject
 {
@@ -18,6 +18,10 @@
     OADTableStyle *mDefaultTableStyle;
     unsigned int mIsHidden:1;
     unsigned int mIsDoneWithContent:1;
+    BOOL mCachedSlideNumberShape;
+    OADShape *mSlideNumberShape;
+    BOOL mCachedSlideNumberPlaceholder;
+    OADShape *mSlideNumberPlaceholder;
 }
 
 + (int)inheritedPlaceholderType:(int)arg1;
@@ -40,6 +44,10 @@
 - (id)parentTextStyleForTables;
 - (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(BOOL)arg4;
 - (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+@property(readonly, nonatomic) BOOL hasMappableSlideNumberShape;
+@property(readonly, nonatomic) OADShape *slideNumberPlaceholder;
+@property(readonly, nonatomic) OADShape *slideNumberShape;
+- (id)placeholders;
 - (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2 useBaseTypeMatch:(BOOL)arg3 overrideIndex:(BOOL)arg4;
 - (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
 - (id)defaultTheme;

@@ -57,7 +57,6 @@
 - (void)setNilValueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
-- (BOOL)hasPersistentChangedValues;
 - (id)changedValues;
 - (id)committedValuesForKeys:(id)arg1;
 - (id)dictionaryWithValuesForKeys:(id)arg1;
@@ -113,6 +112,7 @@
 - (id)retain;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (BOOL)hasPersistentChangedValues;
 - (void)didRefresh:(BOOL)arg1;
 - (void)willRefresh:(BOOL)arg1;
 - (void)didFireFault;
@@ -134,7 +134,7 @@
 - (void)_chainNewError:(id)arg1 toOriginalErrorDoublePointer:(id *)arg2;
 - (void)_prepropagateDeleteForMerge;
 - (void)_propagateDelete;
-- (void)_propagateDelete:(BOOL)arg1;
+- (void)_propagateDelete:(unsigned int)arg1;
 - (void)_didChangeValue:(id)arg1 forRelationship:(id)arg2 named:(id)arg3 withInverse:(id)arg4;
 - (void)_maintainInverseRelationship:(id)arg1 forProperty:(id)arg2 forChange:(unsigned int)arg3 onSet:(id)arg4;
 - (void)_maintainInverseRelationship:(id)arg1 forProperty:(id)arg2 oldDestination:(id)arg3 newDestination:(id)arg4;
@@ -196,6 +196,7 @@
 - (void)_clearPendingChanges__;
 - (BOOL)_hasPendingChanges;
 - (BOOL)_hasAnyObservers__;
+- (BOOL)wasForgotten;
 - (id)_initWithEntity:(id)arg1 withID:(id)arg2 withHandler:(id)arg3 withContext:(id)arg4;
 - (void)_setGenericValue:(id)arg1 forKey:(id)arg2 withIndex:(long)arg3 flags:(long)arg4;
 - (id)_genericValueForKey:(id)arg1 withIndex:(long)arg2 flags:(long)arg3;

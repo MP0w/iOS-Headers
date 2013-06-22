@@ -13,6 +13,8 @@
 }
 
 + (id)name;
+- (id)propertiesThatIfPresentExcludeThisComponentFromChecksummingForVersion:(int)arg1;
+- (id)propertiesToIncludeForChecksumVersion:(int)arg1;
 - (BOOL)isDefaultAlarmDeleted;
 @property int x_apple_ews_busystatus;
 @property BOOL x_wr_rsvpneeded; // @dynamic x_wr_rsvpneeded;
@@ -40,6 +42,7 @@
 @property(retain) ICSDuration *duration; // @dynamic duration;
 @property(retain) NSArray *exdate; // @dynamic exdate;
 @property(retain) NSArray *exrule; // @dynamic exrule;
+@property BOOL forcedAllDay; // @dynamic forcedAllDay;
 @property(readonly) BOOL isAllDay; // @dynamic isAllDay;
 @property(retain) ICSDate *last_modified; // @dynamic last_modified;
 @property(retain) NSString *location; // @dynamic location;
@@ -59,6 +62,8 @@
 @property(retain) NSString *x_apple_ews_permission; // @dynamic x_apple_ews_permission;
 @property BOOL x_apple_ignore_on_restore; // @dynamic x_apple_ignore_on_restore;
 @property(retain) ICSStructuredLocation *x_apple_structured_location; // @dynamic x_apple_structured_location;
+@property(retain) ICSDuration *x_apple_travel_duration; // @dynamic x_apple_travel_duration;
+@property(retain) ICSStructuredLocation *x_apple_travel_start; // @dynamic x_apple_travel_start;
 
 @end
 

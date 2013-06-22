@@ -32,6 +32,8 @@
 @property(retain, nonatomic) NSMutableDictionary *printers; // @synthesize printers;
 @property(retain, nonatomic) NSFileHandle *handle; // @synthesize handle;
 @property(nonatomic) id <PKPrinterBrowserDelegate> delegate; // @synthesize delegate;
+- (void)addWithPrinterURI:(id)arg1 andBonjourURI:(id)arg2 andDisplayName:(id)arg3;
+- (void)addWithPrinterURI:(id)arg1 andDisplayName:(id)arg2;
 - (void)queryHardcodedPrinters;
 - (void)queryCallback:(int)arg1 flags:(unsigned int)arg2 fullName:(const char *)arg3 rdlen:(unsigned short)arg4 rdata:(const void *)arg5;
 - (void)browseLocalCallback:(unsigned int)arg1 interface:(unsigned int)arg2 name:(const char *)arg3 regType:(const char *)arg4 domain:(const char *)arg5;

@@ -12,10 +12,11 @@
     struct _VGLColor _color;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) struct _VGLColor color; // @synthesize color=_color;
-- (id)init;
-- (id)initWithVertName:(id)arg1 fragName:(id)arg2;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

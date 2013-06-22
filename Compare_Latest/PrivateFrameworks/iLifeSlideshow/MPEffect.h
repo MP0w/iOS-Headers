@@ -89,7 +89,7 @@
 @property(readonly, nonatomic) NSArray *texts;
 - (double)lowestDisplayTime;
 - (void)_updateTiming:(BOOL)arg1;
-- (void)_updateEffectTiming;
+- (void)_updateEffectTimingWithDocument:(id)arg1;
 @property(nonatomic) BOOL replaceSlides;
 - (BOOL)supportsUnlimitedSlides;
 - (void)removeAllSecondarySlides;
@@ -186,13 +186,14 @@
 - (id)objectID;
 - (id)plugID;
 - (void)updateEffectAttributes;
-- (id)slideInformation;
+- (id)slideInformationWithDocument:(id)arg1;
 - (BOOL)supportsEffectTiming;
 - (void)applyFormattedAttributes;
 - (id)formattedAttributes;
 - (id)_effectAttributes;
 - (void)updateTiming;
 - (void)setSkipEffectTiming:(BOOL)arg1;
+- (BOOL)isLive;
 - (void)setScriptingAnimations:(id)arg1;
 - (id)scriptingAnimations;
 - (void)setWidth:(float)arg1;

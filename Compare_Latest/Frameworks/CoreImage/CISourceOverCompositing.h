@@ -13,6 +13,7 @@
 + (id)_kernel_source;
 + (id)_kernel_name;
 + (id)_filter_display_name;
+- (id)outputImage;
 
 @end
 

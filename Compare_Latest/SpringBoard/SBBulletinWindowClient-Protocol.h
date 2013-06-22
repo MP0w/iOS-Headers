@@ -8,8 +8,8 @@
 
 @protocol SBBulletinWindowClient <NSObject>
 - (void)bulletinWindowDidRotateFromOrientation:(int)arg1;
-- (void)bulletinWindowIsAnimatingRotationToOrientation:(int)arg1;
-- (void)bulletinWindowWillRotateToOrientation:(int)arg1;
+- (void)bulletinWindowIsAnimatingRotationToOrientation:(int)arg1 duration:(double)arg2;
+- (void)bulletinWindowWillRotateToOrientation:(int)arg1 duration:(double)arg2;
 
 @optional
 - (void)bulletinWindowDidResignKey;

@@ -10,13 +10,12 @@
 {
 }
 
-+ (float)landscapeHeight;
-+ (float)portraitHeight;
-+ (struct CGSize)dictationLayoutSize;
-- (void)didRotate;
++ (float)iPhoneLandscapeHeight;
++ (float)iPhonePortraitHeight;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
-- (void)showKeyboardType:(int)arg1 withAppearance:(int)arg2;
+- (void)setRenderConfig:(id)arg1;
+- (void)showKeyboardWithInputTraits:(id)arg1 screenTraits:(id)arg2;
 - (BOOL)visible;
 - (id)initWithFrame:(struct CGRect)arg1;
 

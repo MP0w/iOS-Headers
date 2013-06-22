@@ -10,6 +10,8 @@
 {
 }
 
++ (BOOL)addressBookEnabled;
++ (void)setAddressBookEnabled:(BOOL)arg1;
 + (void)performBlock:(id)arg1;
 + (id)_threadedABAddressBookLock;
 + (void *)_threadedABAddressBookRef;

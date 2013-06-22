@@ -6,6 +6,8 @@
 
 @protocol AssistantUIDelegate
 - (void)doneWithAssistantResult:(long)arg1;
+- (void)showUIConfigPromptForGuestNetConfigWithParamDict:(id)arg1;
+- (void)showUIConfigPromptToSendDiagsUsageStatsWithParamDict:(id)arg1;
 - (void)connectionVerificationSucceededForSelector:(int)arg1;
 - (void)showAskUserPluginAudioCablingForStatus:(long)arg1 paramDict:(id)arg2;
 - (void)showAskUserSwapCablingForStatus:(long)arg1 paramDict:(id)arg2;
@@ -16,9 +18,14 @@
 - (void)presentUIForSetupStatusWithRecommendationDict:(id)arg1;
 - (void)presentUIForStepByStepResult:(long)arg1;
 - (void)presentUIForStepByStepNextStep:(int)arg1 paramDict:(id)arg2;
+- (void)presentUIForStepByStepStart;
 - (void)presentUIForRecommendationResult:(long)arg1 paramDict:(id)arg2;
 - (void)presentUIForRecommmendationTargetInfo:(id)arg1;
 - (void)presentUIForRecommendationStatus;
 - (void)assistantUpdateProgress:(id)arg1 forState:(int)arg2;
+
+@optional
+- (void)showUIConfigPromptPostHook;
+- (void)showUIConfigPromptPreHook;
 @end
 

@@ -48,9 +48,11 @@
         void *startElementNs;
         void *endElementNs;
         void *serror;
-    } saxHandler;
+    } _saxHandler;
 }
 
++ (BOOL)shouldGenerateOfflineData;
++ (void)setShouldGenerateOfflineData:(BOOL)arg1;
 + (void)saveDebugString;
 + (void)appendDebugString:(id)arg1;
 + (id)uniqueQueryIDString;
@@ -69,6 +71,7 @@
 - (id)connectionForRequest:(id)arg1 delegate:(id)arg2 startImmediately:(BOOL)arg3;
 - (void)dealloc;
 - (id)init;
+- (id)_yahooDoppelganger_connectionForRequest:(id)arg1 delegate:(id)arg2 startImmediately:(BOOL)arg3;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVAssetReaderOutput.h>
 
-@class AVAssetReaderAudioMixOutputInternal, AVAudioMix, NSArray, NSDictionary;
+@class AVAssetReaderAudioMixOutputInternal, AVAudioMix, NSArray, NSDictionary, NSString;
 
 @interface AVAssetReaderAudioMixOutput : AVAssetReaderOutput
 {
@@ -17,6 +17,7 @@
 - (BOOL)_enableTrackExtractionReturningError:(id *)arg1;
 - (id)_asset;
 - (id)mediaType;
+@property(copy, nonatomic) NSString *audioTimePitchAlgorithm;
 @property(copy, nonatomic) AVAudioMix *audioMix;
 - (void)_setAudioTapProcessor:(struct opaqueMTAudioProcessingTap *)arg1 forTrack:(id)arg2;
 - (struct opaqueMTAudioProcessingTap *)_audioTapProcessorForTrack:(id)arg1;

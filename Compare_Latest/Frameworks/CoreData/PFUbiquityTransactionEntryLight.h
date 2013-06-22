@@ -30,7 +30,7 @@
 @property(retain, nonatomic) PFUbiquityGlobalObjectID *globalID; // @synthesize globalID=_globalID;
 - (id)description;
 - (void)dealloc;
-- (id)initWithTransactionEntry:(id)arg1 andGlobalIDCache:(id)arg2;
+- (id)initWithTransactionEntry:(id)arg1 ubiquityRootLocation:(id)arg2 andGlobalIDCache:(id)arg3;
 - (id)init;
 
 @end

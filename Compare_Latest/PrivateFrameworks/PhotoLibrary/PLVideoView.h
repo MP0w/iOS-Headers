@@ -7,14 +7,16 @@
 #import "UIView.h"
 
 #import "PLMoviePlayerControllerDelegate-Protocol.h"
+#import "PLSlalomRegionEditorDelegate-Protocol.h"
 #import "UIMovieScrubberDataSource-Protocol.h"
 #import "UIMovieScrubberDelegate-Protocol.h"
 
-@class AVRemaker, NSArray, NSDictionary, NSLock, NSMutableDictionary, NSString, NSTimer, NSURL, PLAirPlayBackgroundView, PLAirTunesService, PLManagedAsset, PLMoviePlayerController, PLPhotoBakedThumbnails, PLPhotoTileViewController, PLProgressStack, PLVideoEditingOverlayView, PLVideoOutBackgroundView, PLVideoPosterFrameView, UIButton, UIImage, UIImageView, UIMovieScrubber;
+@class AVAsset, AVRemaker, NSArray, NSDictionary, NSLock, NSMutableDictionary, NSString, NSTimer, NSURL, PLManagedAsset, PLMoviePlayerController, PLPhotoBakedThumbnails, PLPhotoTileViewController, PLProgressStack, PLSlalomRegionEditor, PLVideoEditingOverlayView, PLVideoPosterFrameView, UIButton, UIImage, UIImageView, UIMovieScrubber;
 
-@interface PLVideoView : UIView <UIMovieScrubberDelegate, UIMovieScrubberDataSource, PLMoviePlayerControllerDelegate>
+@interface PLVideoView : UIView <UIMovieScrubberDelegate, UIMovieScrubberDataSource, PLMoviePlayerControllerDelegate, PLSlalomRegionEditorDelegate>
 {
     PLManagedAsset *_videoCameraImage;
+    NSString *_pathToOriginalVideo;
     NSURL *_videoURL;
     PLPhotoTileViewController *_imageTile;
     PLVideoPosterFrameView *_posterFrameView;
@@ -33,6 +35,8 @@
     PLPhotoBakedThumbnails *_bakedLandscapeThumbnails;
     PLPhotoBakedThumbnails *_bakedPortraitThumbnails;
     AVRemaker *_remaker;
+    double _remakerStartTime;
+    double _remakerEndTime;
     NSString *_trimmedPath;
     NSString *_videoPathAfterTrim;
     NSTimer *_trimProgressTimer;
@@ -49,12 +53,8 @@
     double _duration;
     double _cachedCurrentPlaybackTime;
     unsigned int _currentThumbnailRequestID;
-    PLAirTunesService *_selectedAirTunesService;
-    PLAirPlayBackgroundView *_airPlayBackgroundView;
-    PLVideoOutBackgroundView *_videoOutBackgroundView;
     NSArray *_imageGenerators;
     NSLock *_thumbnailReqlock;
-    unsigned int _showsPosterFrame:1;
     unsigned int _showsPlayButton:1;
     unsigned int _showsScrubber:1;
     unsigned int _canEdit:1;
@@ -66,7 +66,6 @@
     unsigned int _playFromBeginning:1;
     unsigned int _needsReloadScrubberThumbnails:1;
     unsigned int _playing:1;
-    unsigned int _playingToAirTunes:1;
     unsigned int _editing:1;
     unsigned int _disableEditAfterTrim:1;
     unsigned int _scrubbing:1;
@@ -75,14 +74,13 @@
     unsigned int _passthroughTrimming:1;
     unsigned int _preparingMoviePlayer:1;
     unsigned int _preparedMoviePlayer:1;
-    unsigned int _isMoviePlayerDelegate:1;
+    unsigned int _isMoviePlayerActive:1;
     unsigned int _moviePlayerIsReady:1;
     unsigned int _moviePlayerDidBuffer:1;
     unsigned int _showingOverlay:1;
     unsigned int _showingScrubber:1;
     unsigned int _showScrubberWhenMovieIsReady:1;
     unsigned int _playbackDidBegin:1;
-    unsigned int _playbackWillBegin:1;
     unsigned int _loadScrubberThumbnails:1;
     unsigned int _videoIsLandscape:1;
     unsigned int _canCreateMetadata:1;
@@ -95,31 +93,43 @@
     NSMutableDictionary *_thumbnailRequests;
     NSMutableDictionary *_requestsBeingProcessed;
     UIMovieScrubber *_scrubber;
+    PLSlalomRegionEditor *_slalomRegionEditor;
     NSMutableDictionary *_cachedThumbnails;
     NSArray *_landscapeSummaryThumbnailTimestamps;
     NSArray *_portraitSummaryThumbnailTimestamps;
+    BOOL _shouldPlayVideoWhenViewAppears;
+    AVAsset *__slalomOriginalAsset;
+    NSArray *__slalomRegions;
 }
 
 + (id)videoViewForVideoFileAtURL:(id)arg1;
+@property(retain, nonatomic, setter=_setSlalomRegions:) NSArray *_slalomRegions; // @synthesize _slalomRegions=__slalomRegions;
+@property(retain, nonatomic, setter=_setSlalomOriginalAsset:) AVAsset *_slalomOriginalAsset; // @synthesize _slalomOriginalAsset=__slalomOriginalAsset;
+@property(nonatomic) BOOL shouldPlayVideoWhenViewAppears; // @synthesize shouldPlayVideoWhenViewAppears=_shouldPlayVideoWhenViewAppears;
 @property(retain, nonatomic) PLProgressStack *trimProgressStack; // @synthesize trimProgressStack=_trimProgressStack;
-@property(readonly, nonatomic) UIView *posterFrameView; // @synthesize posterFrameView=_posterFrameView;
+@property(readonly, nonatomic) PLVideoPosterFrameView *posterFrameView; // @synthesize posterFrameView=_posterFrameView;
 @property(nonatomic) float scrubberWidth; // @synthesize scrubberWidth=_scrubberWidth;
 @property(readonly, nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
+- (void)slalomRegionEditorEndValueChanged:(id)arg1;
+- (void)slalomRegionEditorStartValueChanged:(id)arg1;
+- (void)slalomRegionEditorDidEndEditing:(id)arg1;
+- (void)slalomRegionEditorDidBeginEditing:(id)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)_updateScrubberValue;
+- (void)_updateSlalomRegionEditor;
+- (void)_setDuration:(double)arg1;
 @property(readonly, nonatomic) double duration;
 - (void)_playbackFinished;
 - (id)_moviePlayer;
-- (void)adjustUIForVideoOut:(BOOL)arg1;
-- (void)_airTunesServiceChanged;
-- (void)_removeAirPlayBackgroundView;
-- (void)_addAirPlayBackgroundView;
-- (id)_parentViewForExternalOutputBackground;
 - (void)_handleScreenConnectionChange:(BOOL)arg1;
 - (void)_screenDidDisconnect:(id)arg1;
 - (void)_screenDidConnect:(id)arg1;
 - (BOOL)shouldShowCopyCalloutAtPoint:(struct CGPoint)arg1;
-- (void)_scrubToTime:(double)arg1;
+- (double)_scrubberTimeFromMovieTime:(double)arg1;
+- (double)_movieTimeFromScrubberTime:(double)arg1;
+- (id)_thumbnailSourceAsset;
+- (double)_movieScrubberDuration;
+- (void)_scrubToMovieTime:(double)arg1;
 @property(nonatomic) double currentTime;
 @property(nonatomic) BOOL loadMediaImmediately;
 @property(nonatomic) BOOL scrubberIsSubview;
@@ -134,7 +144,6 @@
 - (void)_updateSnapshotImage;
 @property(readonly, nonatomic) UIImage *posterFrameImage;
 - (void)setPosterFrameImage:(id)arg1;
-@property(nonatomic) BOOL showsPosterFrame;
 - (void)didMoveToSuperview;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
@@ -142,16 +151,15 @@
 - (void)viewDidAppear;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)_updateScrubberVisibilityWithDuration:(double)arg1;
+- (void)forceStop;
 - (void)stop;
 - (void)pause;
 - (void)play;
 - (BOOL)playingToVideoOut;
 - (BOOL)playingToAirTunes;
-- (void)playToAirTunes;
 - (void)playButtonClicked:(id)arg1;
 - (void)_verifyPlaybackHasBegun;
 - (void)_didBeginPlayback;
-- (void)_delayedAddAirPlayBackground;
 - (BOOL)isPlaying;
 - (void)handleDoubleTap;
 - (void)toggleScaleMode:(float)arg1;
@@ -159,12 +167,12 @@
 @property(readonly, nonatomic) PLManagedAsset *videoCameraImage;
 @property(readonly, nonatomic) UIImageView *previewImageView;
 - (id)_videoSnapshot;
-@property(readonly, nonatomic) UIImage *currentFrameImage;
-- (id)newPreviewImageData:(id *)arg1 fullScreenImage:(id *)arg2;
+- (id)newPreviewImageData:(id *)arg1;
 @property(retain, nonatomic) PLManagedAsset *trimmedVideoClip;
 @property(readonly, nonatomic) NSString *videoPathAfterTrim;
 @property(readonly, nonatomic) double endTime;
 @property(readonly, nonatomic) double startTime;
+- (double)_scrubberStartTime;
 - (void)cancelTrim;
 - (void)trimUsingMode:(int)arg1 saveACopy:(BOOL)arg2;
 - (BOOL)wasTrimmedInPlace;
@@ -185,14 +193,15 @@
 - (void)_scrubberAnimationFinished;
 - (void)movieScrubberEditingAnimationFinished:(id)arg1;
 - (void)_reset;
+- (void)_setPlaybackDidBegin:(BOOL)arg1;
 - (void)_setPlaying:(BOOL)arg1;
+- (void)_updateForEditing;
 @property(nonatomic, getter=isEditing) BOOL editing;
 - (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)hideTrimMessage;
 - (void)showTrimMessage:(id)arg1 withBottomY:(float)arg2;
 - (void)setMaximumTrimLength:(double)arg1;
 - (void)_clearImageGenerators;
-- (void)_destroyGenerators;
 - (void)_serviceImageGenerationRequest;
 - (void)_removeThumbnailRequestForRequestID:(id)arg1;
 - (void)_addThumbnailRequestForTimestamp:(id)arg1 isPreviewThumbnail:(BOOL)arg2;
@@ -214,9 +223,10 @@
 - (id)_loadThumbnailsIntoDictionary:(id)arg1 isLandscape:(BOOL)arg2 aspectRatio:(float)arg3;
 - (void)movieScrubber:(id)arg1 requestThumbnailImageForTimestamp:(id)arg2;
 @property(readonly, nonatomic) BOOL _didSetPhotoData;
+- (BOOL)_canPlayStreamedVideoWithLocalVideo;
+- (BOOL)_mediaIsStreamedVideo;
 - (BOOL)_mediaIsVideo;
 @property(readonly, nonatomic) BOOL _mediaIsPlayable;
-@property(readonly, nonatomic) NSString *_mediaTitle;
 @property(readonly, nonatomic) NSString *_pathForPrebakedPortraitScrubberThumbnails;
 @property(readonly, nonatomic) NSString *_pathForPrebakedLandscapeScrubberThumbnails;
 @property(readonly, nonatomic) NSString *_pathForVideoPreviewFile;
@@ -226,13 +236,18 @@
 - (id)movieScrubber:(id)arg1 timestampsStartingAt:(id)arg2 endingAt:(id)arg3 maxCount:(int)arg4;
 - (id)movieScrubber:(id)arg1 evenlySpacedTimestamps:(int)arg2 startingAt:(id)arg3 endingAt:(id)arg4;
 - (double)movieScrubberDuration:(id)arg1;
-- (BOOL)moviePlayerHeadsetPreviousTrackPressed:(id)arg1;
-- (BOOL)moviePlayerHeadsetNextTrackPressed:(id)arg1;
-- (BOOL)moviePlayerHeadsetPlayPausePressed:(id)arg1;
-- (BOOL)moviePlayerCanManageStatusBar:(id)arg1;
-- (void)willResignMoviePlayerDelegate:(id)arg1;
-- (void)didBecomeMoviePlayerDelegate:(id)arg1;
+- (void)moviePlayerHeadsetPreviousTrackPressed:(id)arg1;
+- (void)moviePlayerHeadsetNextTrackPressed:(id)arg1;
+- (void)moviePlayerHeadsetPlayPausePressed:(id)arg1;
+- (id)moviePlayerRequestsPickedAirplayRoute:(id)arg1;
+- (void)moviePlayerWasSuspendedDuringPlayback:(id)arg1;
+- (void)moviePlayerControllerWillResignAsActiveController:(id)arg1;
+- (void)moviePlayerControllerDidBecomeActiveController:(id)arg1;
+- (void)_setMoviePlayerActive:(BOOL)arg1;
+- (void)_updateSlalomRegions:(id)arg1 forceSetAsset:(BOOL)arg2;
+- (void)_resetSlalomData;
 - (void)_prepareMoviePlayerIfNeeded;
+- (void)moviePlayer:(id)arg1 didChangeExternalPlayback:(BOOL)arg2;
 - (void)moviePlayerDurationAvailable:(id)arg1;
 - (void)moviePlayerReadyToPlay:(id)arg1;
 - (void)_savePreviewPosterFrameImage:(struct CGImage *)arg1;
@@ -255,15 +270,18 @@
 - (id)videoOverlayPlayButton;
 - (void)setVideoOverlayBackgroundView:(id)arg1;
 - (id)videoOverlayBackgroundView;
+- (id)slalomRegionEditor;
 - (id)videoScrubber;
 - (void)_createScrubberIfNeeded;
+- (float)_scrubberBackgroundHeight;
 - (void)_updateScrubberFrame;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (id)description;
 @property(nonatomic) id <PLVideoViewDelegate> delegate;
+- (void)_tearDownMoviePlayer;
+- (void)_setupMoviePlayerIfNecessary;
 - (void)dealloc;
-- (void)_resetMoviePlayer;
 - (id)_initWithFrame:(struct CGRect)arg1 videoCameraImage:(id)arg2 orientation:(int)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 videoCameraImage:(id)arg2 orientation:(int)arg3;
 

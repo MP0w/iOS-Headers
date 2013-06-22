@@ -12,6 +12,16 @@
 {
 }
 
++ (void)populateMediaTypesOfStaticContainersInLibrary:(id)arg1;
++ (void)_reloadContainedMediaTypesForContainerWithPersistID:(long long)arg1 connection:(id)arg2;
++ (void)_removeMediaTypesFromContainerWithPersistentID:(long long)arg1 mediaTypes:(id)arg2 connection:(id)arg3;
++ (void)_addMediaTypesToContainerWithPersistentID:(long long)arg1 mediaTypes:(id)arg2 connection:(id)arg3;
++ (void)_clearContainerMediaTypeInContainerWithPersistentID:(long long)arg1 connection:(id)arg2;
++ (id)_mediaTypesForTracksWithSwappedPersistentIDsInArray:(id)arg1 connection:(id)arg2;
++ (id)_mediaTypesForTracksInContainerWithPersistentID:(long long)arg1 connection:(id)arg2;
++ (id)_mediaTypesForTracksWithSwappedPersistentIDs:(const long long *)arg1 count:(int)arg2 connection:(id)arg3;
++ (id)__mediaTypesForTracksWithDatabaseConnection:(id)arg1 tracksPersistentIDsEnumerationBlock:(id)arg2;
++ (void)_updateContainedMediaTypeInContainerWithPersistentID:(long long)arg1 connection:(id)arg2 itemUpdateBlock:(id)arg3;
 + (void)populateDynamicContainersWithTrackPersistentID:(id)arg1 inLibrary:(id)arg2 createBuiltinSmartPlaylists:(BOOL)arg3;
 + (void)populateDynamicContainersWithTrackPersistentID:(id)arg1 inLibrary:(id)arg2;
 + (void)populateDynamicContainersInLibrary:(id)arg1 createBuiltinSmartPlaylists:(BOOL)arg2;
@@ -26,6 +36,7 @@
 + (void)populateSortOrdersOfPropertyValues:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3;
 + (BOOL)smartCriteriaCanBeEvaluated:(id)arg1;
 + (id)nextFilepathForPlaylistType:(int)arg1 withPersistentID:(unsigned long long)arg2 inLibrary:(id)arg3;
++ (id)defaultFilterPredicates;
 + (id)persistentIDColumnForTable:(id)arg1;
 + (id)extraTablesToDelete;
 + (id)foreignColumnForProperty:(id)arg1;
@@ -50,9 +61,11 @@
 - (BOOL)removeTracksAtIndexes:(id)arg1 notify:(BOOL)arg2 indexesTransformBlock:(id)arg3;
 - (void)_accessCurrentSwappedPersisentIDsUsingBlock:(id)arg1;
 - (BOOL)removeAllTracks;
-- (BOOL)_setSwappedItemPersistentIDs:(const long long *)arg1 size:(int)arg2;
-- (BOOL)_setSwappedItemPersistentIDs:(const long long *)arg1 size:(int)arg2 notify:(BOOL)arg3;
-- (void)bindPopulateStatement:(id)arg1 withStaticTrackPersistentID:(id)arg2;
+- (BOOL)_setSwappedItemPersistentIDs:(const long long *)arg1 reloadContainedMediaTypes:(BOOL)arg2 size:(int)arg3;
+- (BOOL)_setSwappedItemPersistentIDs:(const long long *)arg1 reloadContainedMediaTypes:(BOOL)arg2 size:(int)arg3 notify:(BOOL)arg4;
+- (BOOL)_setSwappedItemPersistentIDs:(const long long *)arg1 mediaTypesToRemove:(id)arg2 mediaTypesToAdd:(id)arg3 size:(int)arg4 notify:(BOOL)arg5;
+- (BOOL)_setSwappedItemPersistentIDs:(const long long *)arg1 reloadContainedMediaTypes:(BOOL)arg2 mediaTypesToRemove:(id)arg3 mediaTypesToAdd:(id)arg4 size:(int)arg5 notify:(BOOL)arg6;
+- (id)populateStatementParametersWithStaticTrackPersistentID:(id)arg1;
 - (id)populateSQLWithStaticTrackPersistentID:(id)arg1;
 @property(readonly) NSArray *displayOrderingTerms;
 @property(readonly) NSArray *cloudDisplayOrderingTerms;
@@ -60,15 +73,14 @@
 @property(readonly) NSArray *limitOrderingTerms;
 - (id)evaluationOrderingTerms;
 @property(readonly) NSString *limitingProperty;
-- (BOOL)isCustomContainerOrderingDescending;
 @property(readonly, getter=isLimitOrderingDescending) BOOL limitOrderingDescending;
 @property(readonly, getter=isLimitedByCount) BOOL limitedByCount;
 - (BOOL)isEvaluationOrderingDescending;
 @property(readonly) ML3Predicate *dynamicPredicate;
 @property(readonly) ML3Predicate *staticPredicate;
 - (struct SearchCriteriaList *)importedCriteriaList;
-- (void)didChangeValueForProperties:(const id *)arg1 count:(unsigned int)arg2;
-- (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
+- (void)setValues:(id)arg1 forProperties:(id)arg2 async:(BOOL)arg3 withCompletionBlock:(id)arg4;
+- (void)_setContainerSeedItemPersistentIDValue:(id)arg1;
 - (id)initWithDictionary:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3;
 
 @end

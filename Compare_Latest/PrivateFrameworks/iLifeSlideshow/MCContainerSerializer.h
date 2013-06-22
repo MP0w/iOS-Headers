@@ -6,16 +6,22 @@
 
 #import <iLifeSlideshow/MCContainer.h>
 
-@class NSArray, NSMutableSet, NSSet;
+@class NSArray, NSDictionary, NSMutableSet, NSSet, NSString;
 
 @interface MCContainerSerializer : MCContainer
 {
     NSMutableSet *mPlugs;
     NSArray *mCachedOrderedPlugs;
     double mCachedDuration;
+    NSString *_initialTransitionID;
+    NSDictionary *_initialTransitionAttributes;
+    double _initialTransitionDuration;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
+@property(copy) NSDictionary *initialTransitionAttributes; // @synthesize initialTransitionAttributes=_initialTransitionAttributes;
+@property(nonatomic) double initialTransitionDuration; // @synthesize initialTransitionDuration=_initialTransitionDuration;
+@property(copy) NSString *initialTransitionID; // @synthesize initialTransitionID=_initialTransitionID;
 - (double)timeInForPlug:(id)arg1;
 @property(readonly) NSArray *orderedPlugs;
 - (void)removeAllPlugs;

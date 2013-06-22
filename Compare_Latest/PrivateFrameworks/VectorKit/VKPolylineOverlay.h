@@ -4,18 +4,20 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import "GEOAttributedRoute.h"
 
 #import "VKOverlay-Protocol.h"
 
-@class GEOMapRegion, GEORoute, NSArray, NSMutableArray, VKTrafficSegmentsAlongRoute;
+@class GEOMapRegion, GEORoute, GEOZilchDecoder, NSArray, NSMutableArray, VKTrafficSegmentsAlongRoute;
 
-@interface VKPolylineOverlay : NSObject <VKOverlay>
+@interface VKPolylineOverlay : GEOAttributedRoute <VKOverlay>
 {
     GEOMapRegion *_boundingMapRegion;
     NSMutableArray *_sections;
-    GEORoute *_route;
+    NSMutableArray *_snappedPaths;
+    GEOZilchDecoder *_zilchDecoder;
     struct __CFSet *_observers;
+    unsigned int _firstVisiblePoint;
     double _trafficTimeStamp;
     VKTrafficSegmentsAlongRoute *_trafficSegments;
 }
@@ -24,11 +26,23 @@
 @property(readonly, nonatomic) VKTrafficSegmentsAlongRoute *trafficSegments; // @synthesize trafficSegments=_trafficSegments;
 @property(readonly, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(readonly, nonatomic) GEOMapRegion *boundingMapRegion; // @synthesize boundingMapRegion=_boundingMapRegion;
-@property(readonly, nonatomic) GEORoute *route; // @synthesize route=_route;
+@property(nonatomic) unsigned int firstVisiblePoint; // @synthesize firstVisiblePoint=_firstVisiblePoint;
+- (void)attributedRouteHasChanged;
+- (BOOL)isSnapping;
+- (void)forEachSnappedPath:(id)arg1;
+- (void)clearPathsForObserver:(id)arg1;
+- (void)_addPaths:(id)arg1 forObserver:(id)arg2;
+- (void)_snapPaths:(id)arg1 completionHandler:(id)arg2;
+- (void)updateSnappedPathsForLocation:(id)arg1;
+- (id)getPathsForPainter:(id)arg1 keysInView:(id)arg2 tiles:(id)arg3 shouldSnapToRoads:(BOOL)arg4 snappingCompletionHandler:(id)arg5;
+- (BOOL)supportsSnapping;
+- (void)_addSnappedPolylinePathsForSection:(id)arg1 rects:(const vector_d758ecaf *)arg2 toPaths:(id)arg3;
+- (void)_addPolylinePathsForSection:(id)arg1 rects:(const vector_d758ecaf *)arg2 toPaths:(id)arg3;
+- (BOOL)_meetsMinimumPathLengthBetweenStart:(unsigned int)arg1 end:(unsigned int)arg2;
 - (BOOL)resetTrafficWithRoute:(id)arg1 WithStep:(struct RouteCalibration *)arg2 trafficWalking:(struct TrafficWalking *)arg3 routeIndex:(int *)arg4;
 - (void)updateTraffic;
 - (void)calibrate:(struct RouteCalibration *)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3 forDistance:(unsigned int)arg4;
-- (struct _NSRange)sectionRangeForBounds:(CDStruct_aca18c62)arg1;
+- (struct _NSRange)sectionRangeForBounds:(CDStruct_d2b197d1)arg1;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 - (void)_buildSectionsFromRoute:(id)arg1;
 @property(readonly, nonatomic) unsigned int *trafficColorOffsets;
@@ -38,6 +52,8 @@
 - (CDStruct_c3b9c2ee)coordinateAtIndex:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned int pointCount;
 @property(readonly, nonatomic) GEORoute *geoRoute;
+- (void)_didReceiveMemoryWarning;
+- (void)_setNeedsLayout;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)dealloc;

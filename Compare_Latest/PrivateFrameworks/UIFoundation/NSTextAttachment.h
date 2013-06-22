@@ -7,29 +7,41 @@
 #import "NSObject.h"
 
 #import "NSCoding-Protocol.h"
+#import "NSTextAttachmentContainer-Protocol.h"
 
-@class NSData, NSString, UITextAttachmentView;
+@class NSData, NSString, UIImage, UITextAttachmentView;
 
-@interface NSTextAttachment : NSObject <NSCoding>
+@interface NSTextAttachment : NSObject <NSTextAttachmentContainer, NSCoding>
 {
     NSData *_data;
     NSString *_uti;
+    NSString *_cacheKey;
+    struct CGRect _bounds;
+    UIImage *_image;
     UITextAttachmentView *_wrapperView;
 }
 
-@property(nonatomic) struct CGRect drawingBounds;
-@property(retain, nonatomic) id image;
++ (id)imageCache;
++ (void)initialize;
+@property(retain, nonatomic) NSString *fileType; // @synthesize fileType=_uti;
+@property(retain, nonatomic) NSData *contents; // @synthesize contents=_data;
+- (struct CGRect)attachmentBoundsForTextContainer:(id)arg1 proposedLineFragment:(struct CGRect)arg2 glyphPosition:(struct CGPoint)arg3 characterIndex:(unsigned int)arg4;
+- (id)imageForBounds:(struct CGRect)arg1 textContainer:(id)arg2 characterIndex:(unsigned int)arg3;
+@property(nonatomic) struct CGRect bounds;
+- (struct CGRect)drawingBounds;
+- (void)setDrawingBounds:(struct CGRect)arg1;
+@property(retain, nonatomic) UIImage *image;
 - (id)attachmentCell;
 - (id)contentView;
 - (void)setContentView:(id)arg1;
-- (id)_wrapperView;
-- (void)_setWrapperView:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithFileWrapper:(id)arg1;
 - (id)fileWrapper;
 - (void)dealloc;
+- (id)initWithFileWrapper:(id)arg1;
 - (id)initWithData:(id)arg1 ofType:(id)arg2;
+- (id)_image;
+- (id)_cacheKey;
 
 @end
 

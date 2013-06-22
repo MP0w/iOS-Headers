@@ -5,6 +5,7 @@
  */
 
 @protocol CKTextContentViewDelegate
+- (void)ckTextContentViewDidPaste:(id)arg1;
 - (BOOL)ckTextContentViewShouldReturn:(id)arg1;
 @end
 

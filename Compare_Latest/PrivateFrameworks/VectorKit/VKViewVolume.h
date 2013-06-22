@@ -8,17 +8,18 @@
 
 @interface VKViewVolume : NSObject
 {
-    CDStruct_31142d93 _corners[8];
-    CDStruct_e77eda21 _faces[6];
+    struct VKPoint _corners[8];
+    CDStruct_257eabe6 _faces[6];
 }
 
-- (CDStruct_31142d93)lerpPoint:(float *)arg1;
-- (BOOL)distanceClipsPoint:(CDStruct_31142d93)arg1;
-- (BOOL)rejectsRect:(CDStruct_aca18c62)arg1;
+- (id).cxx_construct;
+- (struct VKPoint)lerpPoint:(float *)arg1;
+- (BOOL)distanceClipsPoint:(struct VKPoint)arg1;
+- (BOOL)rejectsRect:(CDStruct_d2b197d1)arg1;
 - (void)updateWithFrustum:(CDStruct_17faa5b0)arg1 matrix:(const CDStruct_aa5aacbc *)arg2;
-@property(readonly, nonatomic) CDStruct_e77eda21 farPlane;
-@property(readonly, nonatomic) const CDStruct_e77eda21 *faces;
-@property(readonly, nonatomic) const CDStruct_31142d93 *corners;
+@property(readonly, nonatomic) CDStruct_257eabe6 farPlane;
+@property(readonly, nonatomic) const CDStruct_257eabe6 *faces;
+@property(readonly, nonatomic) const struct VKPoint *corners;
 
 @end
 

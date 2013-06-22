@@ -19,8 +19,8 @@
 
 + (id)componentsFromDateFormatString:(id)arg1 locale:(id)arg2 desiredUnits:(int)arg3;
 + (id)componentsFromDateFormatString:(id)arg1 locale:(id)arg2;
-@property(nonatomic) struct _NSRange unitRange; // @synthesize unitRange=_unitRange;
 @property(nonatomic) float width; // @synthesize width=_width;
+@property(nonatomic) struct _NSRange unitRange; // @synthesize unitRange=_unitRange;
 @property(readonly, nonatomic) unsigned int calendarUnit; // @synthesize calendarUnit=_calendarUnit;
 @property(readonly, nonatomic) NSString *formatString; // @synthesize formatString=_formatString;
 @property(readonly, nonatomic) unsigned int equivalentUnit;

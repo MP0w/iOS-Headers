@@ -25,25 +25,31 @@
     MPButton *_chaptersButton;
     MPButton *_devicePickerButton;
     MPButton *_emailButton;
+    MPButton *_fastForward15SecondsButton;
+    MPButton *_likeOrBanButton;
     MPButton *_nextButton;
     MPButton *_playButton;
     MPButton *_previousButton;
+    MPButton *_rewind15SecondsButton;
     MPButton *_rewind30SecondsButton;
     MPButton *_scaleButton;
     MPButton *_toggleFullscreenButton;
     id _volumeSlider;
 }
 
++ (BOOL)buttonImagesUseBackgroundImage;
++ (int)buttonType;
 + (Class)buttonClass;
 + (unsigned long long)defaultVisibleParts;
 @property(nonatomic) BOOL registeredForPlayerNotifications; // @synthesize registeredForPlayerNotifications=_registeredForPlayerNotifications;
 @property(nonatomic) unsigned long long visibleParts; // @synthesize visibleParts=_visibleParts;
-@property(nonatomic) id target; // @synthesize target=_target;
+@property(nonatomic) __weak id target; // @synthesize target=_target;
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
 @property(nonatomic) unsigned long long disabledParts; // @synthesize disabledParts=_disabledParts;
 @property(nonatomic) unsigned long long desiredParts; // @synthesize desiredParts=_desiredParts;
 @property(nonatomic) BOOL allowsWirelessPlayback; // @synthesize allowsWirelessPlayback=_allowsWirelessPlayback;
+- (void).cxx_destruct;
 - (void)_updateEnabledStates:(BOOL)arg1;
 - (void)_updateButtonImageForPart:(unsigned long long)arg1;
 - (id)_updateAdditions:(id)arg1 removals:(id)arg2 forPart:(unsigned long long)arg3;
@@ -53,6 +59,7 @@
 - (void)_handleHoldForPart:(unsigned long long)arg1;
 - (void)_applyDesiredPartsWithAnimation:(BOOL)arg1;
 - (unsigned long long)_applyPossibleVisiblePartsToParts:(unsigned long long)arg1;
+- (void)updateVisibleButtonImages;
 - (BOOL)alwaysHidesSystemVolumeHUD;
 - (BOOL)showsVolumeSliderWhenNoVolumeControlAvailable;
 - (id)highlightedButtonImageForPart:(unsigned long long)arg1;
@@ -70,6 +77,7 @@
 - (void)_playbackStateChangedNotification:(id)arg1;
 - (void)_itemChangedNotification:(id)arg1;
 - (void)_timeMarkersAvailableNotification:(id)arg1;
+- (void)_isLikedDidChangeNotification:(id)arg1;
 - (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_availableRoutesChangedNotification:(id)arg1;
 - (void)_alternateTypesChangedNotification:(id)arg1;

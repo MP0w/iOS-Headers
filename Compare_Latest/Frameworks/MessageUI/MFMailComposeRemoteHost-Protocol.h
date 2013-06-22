@@ -6,6 +6,6 @@
 
 @protocol MFMailComposeRemoteHost
 - (void)bodyFinishedDrawing;
-- (void)compositionFinishedWithResult:(id)arg1 error:(id)arg2;
+- (void)serviceCompositionFinishedWithResult:(int)arg1 error:(id)arg2;
 @end
 

@@ -6,6 +6,14 @@
 
 #pragma mark Named Structures
 
+struct CGDataProviderSequentialCallbacks {
+    unsigned int _field1;
+    void *_field2;
+    void *_field3;
+    void *_field4;
+    void *_field5;
+};
+
 struct _PTPRange {
     unsigned long long location;
     unsigned long long length;

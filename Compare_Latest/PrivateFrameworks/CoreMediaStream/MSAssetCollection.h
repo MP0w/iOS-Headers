@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class MSAsset, NSArray, NSData, NSString;
 
-@interface MSAssetCollection : NSObject <NSCoding>
+@interface MSAssetCollection : NSObject <NSSecureCoding>
 {
     NSString *_assetCollectionID;
     NSString *_ctag;
@@ -18,10 +18,13 @@
     NSArray *_derivedAssets;
     NSString *_fileName;
     BOOL _wasDeleted;
+    long long _initialFailureDate;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)collectionWithMasterAsset:(id)arg1 fileName:(id)arg2 derivedAssets:(id)arg3;
 + (id)collectionWithMasterAsset:(id)arg1 fileName:(id)arg2;
+@property(nonatomic) long long initialFailureDate; // @synthesize initialFailureDate=_initialFailureDate;
 @property(nonatomic) BOOL wasDeleted; // @synthesize wasDeleted=_wasDeleted;
 @property(retain, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(retain, nonatomic) MSAsset *masterAsset; // @synthesize masterAsset=_masterAsset;

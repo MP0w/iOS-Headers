@@ -14,7 +14,8 @@
 }
 
 + (id)_allowedDefaults;
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
 - (void).cxx_destruct;
 - (id)subtitle1Description;

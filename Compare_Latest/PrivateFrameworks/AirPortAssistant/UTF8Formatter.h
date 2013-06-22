@@ -20,6 +20,7 @@
 - (void)setMaxByteCount:(unsigned int)arg1;
 - (BOOL)isPartialStringValid:(id)arg1 newEditingString:(id *)arg2 errorDescription:(id *)arg3;
 - (id)initWithMaxByteCount:(unsigned int)arg1 maxLength:(unsigned int)arg2;
+- (id)initAFPFormatterWithLength:(unsigned int)arg1;
 
 @end
 

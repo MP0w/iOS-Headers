@@ -7,8 +7,8 @@
 #pragma mark Named Structures
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    float width;
+    float height;
 };
 
 struct FairPlayHWInfo_ {
@@ -27,9 +27,46 @@ struct hostent {
 #pragma mark Typedef'd Structures
 
 typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    unsigned int _field7;
+    unsigned int *_field8;
+} CDStruct_16f720f6;
+
+typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    unsigned int _field7;
+    float _field8;
+    float _field9;
+    unsigned int *_field10;
+} CDStruct_9a46e3d5;
+
+typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+} CDStruct_cc4e5495;
+
+typedef struct {
     unsigned int propertyCode;
     void *bytes;
     unsigned int encodedLength;
     int valueType;
 } CDStruct_30baf813;
+
+typedef struct {
+    float _field1;
+    float _field2;
+} CDStruct_b2fbf00d;
 

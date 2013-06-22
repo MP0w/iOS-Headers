@@ -6,62 +6,62 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSData, NSDate, NSObject<OS_dispatch_queue>, NSString;
+@class NSArray, NSDate, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MCProfile : NSObject
 {
-    NSString *_displayName;
+    int _trustQueueTrustLevel;
+    BOOL _trustQueueTrustHasBeenEvaluated;
+    NSObject<OS_dispatch_queue> *_trustEvaluationQueue;
+    NSString *_signerQueueSignerSummary;
+    NSArray *_signerQueueSignerCertificates;
+    NSObject<OS_dispatch_queue> *_signerEvaluationQueue;
+    BOOL _encrypted;
+    BOOL _isLocked;
+    BOOL _needsReboot;
+    BOOL _isStub;
+    BOOL _mustInstallNonInteractively;
     NSString *_profileDescription;
+    NSString *_displayName;
     NSString *_identifier;
     NSString *_UUID;
     NSString *_organization;
     int _version;
     NSDate *_installDate;
     NSDate *_expiryDate;
-    BOOL _encrypted;
-    BOOL _isLocked;
     NSString *_removalPasscode;
-    BOOL _needsReboot;
-    BOOL _isStub;
-    NSString *_productBuildVersion;
     NSString *_productVersion;
-    NSData *_profileData;
+    NSString *_productBuildVersion;
     NSDate *_removalDate;
+    NSDictionary *_installOptions;
     NSString *_localizedConsentText;
-    int _trustLevel;
-    BOOL _trustHasBeenEvaluated;
-    NSObject<OS_dispatch_queue> *_trustEvaluationQueue;
-    NSString *_signerSummary;
-    NSArray *_signerCertificates;
-    BOOL _signerHasBeenEvaluated;
-    NSObject<OS_dispatch_queue> *_signerEvaluationQueue;
 }
 
-+ (int)_evaluateCertificateChain:(id)arg1;
-+ (int)_evaluateSignerTrust:(struct __SecTrust *)arg1;
 + (id)profileWithData:(id)arg1 fileName:(id)arg2 outError:(id *)arg3;
 + (id)profileWithData:(id)arg1 outError:(id *)arg2;
-+ (id)signerSummaryOfData:(id)arg1 outSignerCertificates:(id *)arg2;
-+ (int)evaluateTrustOfData:(id)arg1;
++ (id)dataFromCMSEncodedData:(id)arg1 outSignerCertificates:(id *)arg2;
++ (id)signerSummaryOfCertificate:(struct __SecCertificate *)arg1;
++ (int)evaluateTrustOfCertificateChain:(id)arg1;
++ (int)evaluateTrust:(struct __SecTrust *)arg1;
 + (BOOL)checkString:(id)arg1 isOneOfStrings:(id)arg2 key:(id)arg3 errorDomain:(id)arg4 errorCode:(int)arg5 errorString:(id)arg6 outError:(id *)arg7;
 + (id)removeOptionalNonZeroLengthStringInDictionary:(id)arg1 key:(id)arg2 errorDomain:(id)arg3 invalidDataCode:(int)arg4 invalidDataErrorString:(id)arg5 outError:(id *)arg6;
 + (id)removeRequiredNonZeroLengthStringInDictionary:(id)arg1 key:(id)arg2 errorDomain:(id)arg3 missingDataCode:(int)arg4 missingDataErrorString:(id)arg5 invalidDataCode:(int)arg6 invalidDataErrorString:(id)arg7 outError:(id *)arg8;
 + (id)removeOptionalObjectInDictionary:(id)arg1 key:(id)arg2 type:(Class)arg3 errorDomain:(id)arg4 invalidDataCode:(int)arg5 invalidDataErrorString:(id)arg6 outError:(id *)arg7;
 + (id)removeRequiredObjectInDictionary:(id)arg1 key:(id)arg2 type:(Class)arg3 errorDomain:(id)arg4 missingDataCode:(int)arg5 missingDataErrorString:(id)arg6 invalidDataCode:(int)arg7 invalidDataErrorString:(id)arg8 outError:(id *)arg9;
-+ (id)profileWithDictionary:(id)arg1 fileName:(id)arg2 originalData:(id)arg3 wasEncrypted:(BOOL)arg4 allowEmptyPayload:(BOOL)arg5 outError:(id *)arg6;
-+ (id)profileDictionaryFromProfileData:(id)arg1 outWasEncrypted:(char *)arg2 outError:(id *)arg3;
++ (id)profileWithDictionary:(id)arg1 fileName:(id)arg2 allowEmptyPayload:(BOOL)arg3 outError:(id *)arg4;
++ (id)profileDictionaryFromProfileData:(id)arg1 outError:(id *)arg2;
 + (id)profileWithData:(id)arg1 fileName:(id)arg2 allowEmptyPayload:(BOOL)arg3 outError:(id *)arg4;
 + (id)missingFieldErrorWithField:(id)arg1;
 + (id)badFieldTypeErrorWithField:(id)arg1;
 + (id)_malformedProfileError;
 @property(readonly, nonatomic) NSString *localizedConsentText; // @synthesize localizedConsentText=_localizedConsentText;
+@property(nonatomic) BOOL mustInstallNonInteractively; // @synthesize mustInstallNonInteractively=_mustInstallNonInteractively;
+@property(retain, nonatomic) NSDictionary *installOptions; // @synthesize installOptions=_installOptions;
 @property(readonly, nonatomic) NSDate *removalDate; // @synthesize removalDate=_removalDate;
-@property(retain, nonatomic) NSData *profileData; // @synthesize profileData=_profileData;
 @property(readonly, nonatomic) NSString *productBuildVersion; // @synthesize productBuildVersion=_productBuildVersion;
 @property(readonly, nonatomic) NSString *productVersion; // @synthesize productVersion=_productVersion;
 @property(readonly, nonatomic) BOOL isStub; // @synthesize isStub=_isStub;
 @property(readonly, nonatomic) BOOL needsReboot; // @synthesize needsReboot=_needsReboot;
-@property(readonly, nonatomic) NSString *removalPasscode; // @synthesize removalPasscode=_removalPasscode;
 @property(nonatomic, getter=isLocked) BOOL locked; // @synthesize locked=_isLocked;
 @property(retain, nonatomic) NSDate *installDate; // @synthesize installDate=_installDate;
 @property(readonly, nonatomic) int version; // @synthesize version=_version;
@@ -72,6 +72,7 @@
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(readonly, nonatomic) NSString *profileDescription; // @synthesize profileDescription=_profileDescription;
 - (void).cxx_destruct;
+- (BOOL)mayInstallWithOptions:(id)arg1 hasInteractionClient:(BOOL)arg2 outError:(id *)arg3;
 - (void)evaluateSignerTrustAsynchronouslyWithCompletion:(id)arg1;
 - (void)evaluateSignerTrust;
 @property(readonly, nonatomic) BOOL isManagedByProfileService;
@@ -83,18 +84,19 @@
 @property(readonly, nonatomic) BOOL isSigned;
 - (id)payloadWithUUID:(id)arg1;
 @property(readonly, nonatomic) NSArray *payloads;
+- (id)installationWarningsIncludeUnsignedProfileWarning:(BOOL)arg1;
 @property(readonly, nonatomic) NSArray *installationWarnings;
 @property(retain, nonatomic) NSArray *signerCertificates;
-@property(retain, nonatomic) NSString *signerSummary;
+@property(readonly, nonatomic) NSString *signerSummary;
 @property(readonly, nonatomic) struct __SecCertificate *signerCertificate;
-- (void)__evaluateSignerCertificates;
 @property(readonly, nonatomic) int trustLevel;
+@property(retain, nonatomic) NSString *removalPasscode; // @synthesize removalPasscode=_removalPasscode;
 - (BOOL)containsPayloadOfClass:(Class)arg1;
 - (id)stubDictionary;
 - (BOOL)writeStubToPath:(id)arg1;
 - (BOOL)writeStubToDirectory:(id)arg1;
 - (id)malformedProfileErrorWithError:(id)arg1;
-- (id)initWithDictionary:(id)arg1 originalData:(id)arg2 wasEncrypted:(BOOL)arg3 allowEmptyPayload:(BOOL)arg4 outError:(id *)arg5;
+- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(BOOL)arg2 outError:(id *)arg3;
 @property(readonly, nonatomic) NSString *UUIDHashFileName;
 @property(readonly, nonatomic) NSString *profileIDHashFileName;
 @property(readonly, nonatomic) NSString *stubFileName;

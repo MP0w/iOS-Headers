@@ -11,6 +11,7 @@
 @interface GEOGeocodeRequester : NSObject
 {
     NSMapTable *_pendingGeocodes;
+    NSMapTable *_pendingBatchGeocodes;
     NSLock *_pendingGeocodesLock;
     NSMapTable *_providers;
 }
@@ -18,6 +19,8 @@
 + (void)_countryProvidersDidChange:(id)arg1;
 + (id)sharedGeocodeRequester;
 - (void)registerProvider:(Class)arg1;
+- (void)cancelBatchReverseGeocode:(id)arg1;
+- (void)batchReverseGeocode:(id)arg1 success:(id)arg2 networkActivity:(void)arg3 error:(id)arg4;
 - (void)cancelGeocode:(id)arg1;
 - (void)reverseGeocode:(id)arg1 success:(id)arg2 networkActivity:(void)arg3 error:(id)arg4;
 - (void)forwardGeocode:(id)arg1 success:(id)arg2 networkActivity:(void)arg3 error:(id)arg4;

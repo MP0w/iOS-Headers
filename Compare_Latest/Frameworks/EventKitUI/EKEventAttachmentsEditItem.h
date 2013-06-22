@@ -8,26 +8,24 @@
 
 #import "EKEventAttachmentCellControllerDelegate-Protocol.h"
 #import "EKEventAttachmentEditViewControllerDelegate-Protocol.h"
-#import "UIDocumentInteractionControllerDelegate-Protocol.h"
 
 @class NSArray;
 
-@interface EKEventAttachmentsEditItem : EKEventEditItem <EKEventAttachmentCellControllerDelegate, EKEventAttachmentEditViewControllerDelegate, UIDocumentInteractionControllerDelegate>
+@interface EKEventAttachmentsEditItem : EKEventEditItem <EKEventAttachmentCellControllerDelegate, EKEventAttachmentEditViewControllerDelegate>
 {
     NSArray *_cellControllers;
 }
 
-- (void)documentInteractionControllerWillEndPreview:(id)arg1;
-- (id)documentInteractionControllerViewControllerForPreview:(id)arg1;
+- (void).cxx_destruct;
 - (id)owningEventForAttachmentEditViewController:(id)arg1;
 - (id)owningEventForAttachmentCellController:(id)arg1;
-- (id)_parentViewControllerForAttachmentCellController;
-- (BOOL)usesDetailViewControllerForSubitem:(int)arg1 inSubsection:(int)arg2;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
-- (void)editor:(id)arg1 didSelectSubitem:(int)arg2 inSubsection:(int)arg3;
-- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
-- (int)numberOfSubitemsInSubsection:(int)arg1;
+- (id)parentViewControllerForAttachmentCellController:(id)arg1;
+- (BOOL)usesDetailViewControllerForSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (void)editor:(id)arg1 didSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
+- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
 - (BOOL)_shouldCondenseIntoSingleItem;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 - (void)dealloc;

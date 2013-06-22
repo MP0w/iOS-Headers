@@ -33,6 +33,7 @@
 - (unsigned char)sendDownloadShouldUseCredentialStorage;
 - (struct _CFURLRequest *)sendWillSendRequest:(struct _CFURLRequest *)arg1 redirectResponse:(struct _CFURLResponse *)arg2;
 - (void)sendDidStart:(struct _CFURLDownload *)arg1;
+- (void)withDelegate:(id)arg1;
 - (BOOL)_downloadActive;
 - (id)_delegate;
 - (void)releaseDelegate;
@@ -42,6 +43,7 @@
 - (void)_setDelegate:(id)arg1;
 - (id)_directoryPath;
 - (id)url;
+- (void)_setDelegateQueue:(id)arg1;
 - (BOOL)deletesFileUponFailure;
 - (void)setDeletesFileUponFailure:(BOOL)arg1;
 - (BOOL)_deletesFileAfterFailure;
@@ -52,6 +54,7 @@
 - (void)dealloc;
 - (id)resumeData;
 - (id)_resumeInformation;
+- (id)description;
 - (id)initWithResumeData:(id)arg1 delegate:(id)arg2 path:(id)arg3;
 - (id)_initWithResumeInformation:(id)arg1 delegate:(id)arg2 path:(id)arg3;
 - (id)_initWithRequest:(id)arg1 delegate:(id)arg2 directory:(id)arg3;

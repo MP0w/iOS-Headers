@@ -14,15 +14,20 @@
     CDStruct_2c43369c coordinateOnFeature;
     double courseOnFeature;
     float distanceFromJunction;
+    float junctionRadius;
+    float roadWidth;
 }
 
+@property(readonly, nonatomic) float roadWidth; // @synthesize roadWidth;
+@property(readonly, nonatomic) float junctionRadius; // @synthesize junctionRadius;
 @property(readonly, nonatomic) float distanceFromJunction; // @synthesize distanceFromJunction;
 @property(readonly, nonatomic) double courseOnFeature; // @synthesize courseOnFeature;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinateOnFeature; // @synthesize coordinateOnFeature;
 @property(readonly, nonatomic) NSString *featureName; // @synthesize featureName;
+- (id).cxx_construct;
 - (id)description;
 - (void)dealloc;
-- (id)initWithGEORoadFeature:(CDStruct_a206f7ef *)arg1 pointOnFeature:(CDStruct_31142d93)arg2 courseOnFeature:(float)arg3 distanceFromJunction:(float)arg4;
+- (id)initWithGEORoadFeature:(CDStruct_c272c4e8 *)arg1 pointOnFeature:(struct VKPoint)arg2 courseOnFeature:(float)arg3 distanceFromJunction:(float)arg4 junctionRadius:(float)arg5 roadWidth:(float)arg6;
 
 @end
 

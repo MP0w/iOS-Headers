@@ -6,20 +6,18 @@
 
 #import "NSObject.h"
 
-@class VGLContext;
+@class VGLResource;
 
 @interface VGLShader : NSObject
 {
-    int token;
-    VGLContext *context;
+    VGLResource *_resource;
 }
 
-@property(nonatomic) VGLContext *context; // @synthesize context;
-@property(readonly, nonatomic) int token; // @synthesize token;
 - (void)printShaderInfoLog;
 - (BOOL)status:(unsigned int)arg1;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 shaderType:(unsigned int)arg2;
+@property(readonly, nonatomic) unsigned int token;
+- (id)initWithName:(id)arg1 shaderType:(unsigned int)arg2 resource:(id)arg3;
 
 @end
 

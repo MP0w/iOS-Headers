@@ -14,8 +14,9 @@
 {
     SBAlert *_alert;
     SBUIAnimationController *_animation;
+    BOOL _preventAlertDeactivationForAnimation;
+    BOOL _preventAlertDeactivationForAnimationLegacy;
     BOOL _animatedAppActivation;
-    BOOL _animatingAlertSuspension;
     BOOL _deactivateAfterNextLaunch;
     BOOL _activatingFromAssistant;
     BOOL _fadeAssistant;
@@ -23,7 +24,6 @@
 
 @property(readonly, nonatomic) SBAlert *alert; // @synthesize alert=_alert;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 didCommitAnimation:(BOOL)arg2 withDuration:(double)arg3 afterDelay:(double)arg4;
 - (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
 - (void)_handleFailure;
 - (void)_deactivateAlertIfNecessary;
@@ -31,8 +31,8 @@
 - (void)_transactionComplete;
 - (void)_endAnimation;
 - (BOOL)shouldPerformToAppStateCleanupOnCompletion;
-- (BOOL)selfAlertDidDeactivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)selfAlertWillDeactivate:(id)arg1 overAlerts:(id)arg2;
+- (BOOL)selfAlertDidDeactivate:(id)arg1;
+- (BOOL)selfAlertWillDeactivate:(id)arg1;
 - (BOOL)selfApplicationExited:(id)arg1;
 - (BOOL)selfApplicationLaunchDidFail:(id)arg1;
 - (BOOL)selfApplicationDidFinishLaunching:(id)arg1 withInfo:(id)arg2;
@@ -42,7 +42,7 @@
 - (void)_commit;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 alert:(id)arg3 toApplication:(id)arg4;
+- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 alert:(id)arg3 toApplication:(id)arg4 activationHandler:(id)arg5;
 
 @end
 

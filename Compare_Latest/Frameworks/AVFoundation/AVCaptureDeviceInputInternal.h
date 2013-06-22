@@ -13,6 +13,7 @@
     AVCaptureDevice *_device;
     NSArray *_ports;
     BOOL _ready;
+    BOOL _authorizedForCamera;
 }
 
 @end

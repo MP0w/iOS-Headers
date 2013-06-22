@@ -11,6 +11,7 @@
     int _style;
 }
 
+- (struct CGRect)availableProgressControlAreaFrame;
 - (void)layoutSubviews;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)pauseButtonImage;

@@ -12,8 +12,10 @@
 
 + (BOOL)isAlbumVideoPath:(id)arg1;
 + (BOOL)transformForImage:(struct CGImage *)arg1 captureOrientation:(int)arg2 format:(int)arg3 sizeInOut:(struct CGSize *)arg4 contextSizeOut:(struct CGSize *)arg5 transformOut:(struct CGAffineTransform *)arg6;
-+ (BOOL)formatWasSynced:(int)arg1;
-+ (BOOL)formatHasJPEGFile:(int)arg1;
++ (struct CGSize)scaledSizeForSize:(struct CGSize)arg1 format:(int)arg2 capLength:(BOOL)arg3;
++ (BOOL)formatIsFullscreen:(int)arg1;
++ (BOOL)formatSizeIsShortSide:(int)arg1;
++ (BOOL)formatIsBadgedForVideo:(int)arg1;
 + (BOOL)formatIsCropped:(int)arg1;
 + (unsigned int)maxLongSideForFullSizeFormat:(int)arg1;
 + (unsigned int)minShortSideForFullSizeFormat:(int)arg1;

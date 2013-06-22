@@ -12,12 +12,10 @@
 {
     UIBezierPath *_fillPath;
     UIColor *_fillColor;
-    UIColor *_tintColor;
     UIGroupTableViewCellBackground *_tableViewStyleBackground;
     UIView *_shadowView;
 }
 
-- (id)tintColor;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setTintColor:(id)arg1;
 - (void)setHighlighted:(BOOL)arg1;

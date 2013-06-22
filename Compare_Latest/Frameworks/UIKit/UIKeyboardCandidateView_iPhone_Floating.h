@@ -19,7 +19,7 @@
 - (void)_collapse:(id)arg1;
 - (void)candidatesDidChange;
 - (id)activeCandidateList;
-- (void)setCandidateBarExtended:(BOOL)arg1 fromRect:(struct CGRect)arg2;
+- (void)setCandidateViewExtended:(BOOL)arg1;
 - (unsigned int)_numberOfColumns:(BOOL)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -6,40 +6,46 @@
 
 #import "UIViewController.h"
 
-@class NSDate, NSURL, PKLocalPass, PKRemoteAddPassesViewController, _UIAsyncInvocation;
+@class NSArray, NSDate, NSURL, PKRemoteAddPassesViewController, _UIAsyncInvocation;
 
 @interface PKAddPassesViewController : UIViewController
 {
     BOOL _viewHasAppeared;
     NSDate *_perfTestingForIngestion;
-    PKRemoteAddPassesViewController *_remoteViewController;
-    _UIAsyncInvocation *_cancelViewServiceRequest;
-    PKLocalPass *_card;
+    BOOL _allowsPassIngestion;
+    BOOL _succeeded;
+    NSArray *_passes;
     NSURL *_URL;
+    _UIAsyncInvocation *_cancelViewServiceRequest;
+    PKRemoteAddPassesViewController *_remoteViewController;
     int _previousStatusBarStyle;
     id <PKAddPassesViewControllerDelegate> _delegate;
 }
 
 + (BOOL)isAvailable;
 @property(nonatomic) id <PKAddPassesViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(getter=_previousStatusBarStyle, setter=_setPreviousStatusBarStyle:) int _previousStatusBarStyle; // @synthesize _previousStatusBarStyle;
-@property(retain, getter=_URL, setter=_setURL:) NSURL *_URL; // @synthesize _URL;
-@property(retain, getter=_card, setter=_setCard:) PKLocalPass *_card; // @synthesize _card;
-@property(retain, getter=_cancelViewServiceRequest, setter=_setCancelViewServiceRequest:) _UIAsyncInvocation *_cancelViewServiceRequest; // @synthesize _cancelViewServiceRequest;
-@property(retain, getter=_remoteViewController, setter=_setRemoteViewController:) PKRemoteAddPassesViewController *_remoteViewController; // @synthesize _remoteViewController;
+@property(nonatomic) int previousStatusBarStyle; // @synthesize previousStatusBarStyle=_previousStatusBarStyle;
+@property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+@property(retain, nonatomic) NSArray *passes; // @synthesize passes=_passes;
+@property(retain, nonatomic) _UIAsyncInvocation *cancelViewServiceRequest; // @synthesize cancelViewServiceRequest=_cancelViewServiceRequest;
+@property(retain, nonatomic) PKRemoteAddPassesViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 - (void)_transitionDidStop:(id)arg1 finished:(id)arg2;
 - (void)ingestionDidFinishWithResult:(int)arg1;
+- (BOOL)succeeded;
+- (BOOL)wantsFullScreenLayout;
 - (void)loadView;
 - (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (int)modalPresentationStyle;
 - (int)modalTransitionStyle;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (id)initWithURL:(id)arg1;
+- (void)setAllowsPassIngestion:(BOOL)arg1;
 - (id)initWithPass:(id)arg1;
-- (id)initWithPass:(id)arg1 orURL:(id)arg2;
+- (id)initWithPasses:(id)arg1;
+- (id)initWithURL:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)dealloc;
 
 @end

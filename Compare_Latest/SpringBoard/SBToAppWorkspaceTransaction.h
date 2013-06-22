@@ -14,15 +14,20 @@
     BOOL _activateSuspended;
     double _watchdogExtension;
     BOOL _fromAssistant;
-    SBApplication *_toApplication;
+    BOOL _tearDownSwitcher;
+    id _activationHandlerBlock;
 }
 
-@property(retain, nonatomic) SBApplication *toApplication; // @synthesize toApplication=_toApplication;
+@property(readonly, nonatomic) SBApplication *toApplication; // @synthesize toApplication=_toApp;
+@property(nonatomic) BOOL tearDownSwitcher; // @synthesize tearDownSwitcher=_tearDownSwitcher;
 - (void)_commit;
-- (void)_captureApplicationData:(id)arg1;
+- (void)_captureApplicationData;
 - (BOOL)_shouldBeWatchdogged:(id *)arg1;
 - (double)_watchdogInterval;
+- (void)_fireAndClearActivationContinuationForActivationFailureIfNecessary;
+- (void)_interruptWithReason:(int)arg1;
 - (void)_transactionComplete;
+- (void)activate:(id)arg1;
 - (void)toggleStatusBarForCleanup;
 - (void)performToAppStateCleanup;
 - (BOOL)shouldAnimateOrientationChangeOnCompletion;
@@ -32,7 +37,7 @@
 - (BOOL)shouldHideSpringBoardStatusBarOnCleanup;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 toApplication:(id)arg3;
+- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 toApplication:(id)arg3 activationHandler:(id)arg4;
 
 @end
 

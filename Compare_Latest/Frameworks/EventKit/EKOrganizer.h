@@ -11,8 +11,7 @@
 }
 
 + (id)organizerWithName:(id)arg1 emailAddress:(id)arg2 address:(id)arg3 isCurrentUser:(BOOL)arg4;
-- (void)setCurrentUser:(BOOL)arg1;
-- (BOOL)isCurrentUser;
+@property(nonatomic, getter=isCurrentUser) BOOL currentUser;
 - (id)owner;
 - (id)lazyLoadRelationForKey:(id)arg1;
 - (id)description;

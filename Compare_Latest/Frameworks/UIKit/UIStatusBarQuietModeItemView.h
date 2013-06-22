@@ -15,7 +15,6 @@
 - (void)setVisible:(BOOL)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
 - (void)_triggerAction;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (float)extraRightPadding;
 - (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
 - (void)dealloc;
 

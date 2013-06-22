@@ -6,11 +6,10 @@
 
 #import <OfficeImport/OADDrawable.h>
 
-@class NSMutableArray, OADTableGrid, OADTableProperties;
+@class NSMutableArray, OADTableGrid;
 
 @interface OADTable : OADDrawable
 {
-    OADTableProperties *mProperties;
     OADTableGrid *mGrid;
     NSMutableArray *mRows;
 }

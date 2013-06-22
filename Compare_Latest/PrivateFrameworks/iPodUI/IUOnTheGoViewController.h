@@ -6,6 +6,7 @@
 
 #import <iPodUI/IUMusicViewController.h>
 
+#import "AFContextProvider-Protocol.h"
 #import "IUMediaActionButtonsCellDelegate-Protocol.h"
 #import "UIActionSheetDelegate-Protocol.h"
 #import "UIAlertViewDelegate-Protocol.h"
@@ -13,13 +14,15 @@
 
 @class IUMediaActionButtonsCell, IUMediaActionSheet, IUMediaAlertView;
 
-@interface IUOnTheGoViewController : IUMusicViewController <IUMediaActionButtonsCellDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UITextFieldDelegate>
+@interface IUOnTheGoViewController : IUMusicViewController <AFContextProvider, IUMediaActionButtonsCellDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 {
     IUMediaActionButtonsCell *_buttonsCell;
     IUMediaActionSheet *_confirmPlaylistChangeSheet;
     IUMediaAlertView *_renamePlaylistAlert;
+    BOOL _searchBarHiddenOrHiding;
 }
 
+- (void).cxx_destruct;
 - (void)_updateCloudPlaylist;
 - (void)_presentModalContextWithDefaultIdentifier:(id)arg1;
 - (void)_handleRename;
@@ -30,6 +33,8 @@
 - (id)_buttonsCellButtonTitlesForCurrentState;
 - (void)_addButtonAction:(id)arg1;
 - (void)_backingStoreChangedNotification:(id)arg1;
+- (id)getCurrentContext;
+- (BOOL)allowContextProvider:(id)arg1;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)modalContextWillDismiss:(id)arg1 withSuccess:(BOOL)arg2;
 - (void)mediaActionButtonsCell:(id)arg1 clickedButtonAtIndex:(unsigned int)arg2;
@@ -42,7 +47,8 @@
 - (BOOL)handleTabBarSelectedViewController:(id)arg1;
 - (void)configureNavigationItem:(id)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)updateForChangedEditingState:(BOOL)arg1;
 - (void)dealloc;
 - (id)init;
 

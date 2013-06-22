@@ -11,6 +11,7 @@
     unsigned char _lastEncoded;
     unsigned long _required;
     BOOL _forTextPart;
+    BOOL _badlyEncoded;
 }
 
 @property(nonatomic) BOOL forTextPart; // @synthesize forTextPart=_forTextPart;

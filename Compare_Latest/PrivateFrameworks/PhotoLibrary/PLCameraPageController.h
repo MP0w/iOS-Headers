@@ -6,9 +6,9 @@
 
 #import "UIPageController.h"
 
-#import "PLAlbumChangeObserver-Protocol.h"
-#import "PLAlbumListChangeObserver-Protocol.h"
 #import "PLApplicationCameraViewControllerDelegate-Protocol.h"
+#import "PLAssetContainerListChangeObserver-Protocol.h"
+#import "PLAssetContainerObserver-Protocol.h"
 #import "PLCameraPreviewWellImageChangeObserver-Protocol.h"
 #import "PLPhotoBrowserControllerDelegate-Protocol.h"
 #import "UIPageControllerDelegate-Protocol.h"
@@ -16,7 +16,7 @@
 
 @class PLApplicationCameraViewController, PLKeepDaemonAliveAssertion, UIPanGestureRecognizer, UIViewController;
 
-@interface PLCameraPageController : UIPageController <PLApplicationCameraViewControllerDelegate, PLAlbumListChangeObserver, PLAlbumChangeObserver, PLCameraPreviewWellImageChangeObserver, PLPhotoBrowserControllerDelegate, UIScrollViewDelegate, UIPageControllerDelegate>
+@interface PLCameraPageController : UIPageController <PLApplicationCameraViewControllerDelegate, PLAssetContainerListChangeObserver, PLAssetContainerObserver, PLCameraPreviewWellImageChangeObserver, PLPhotoBrowserControllerDelegate, UIScrollViewDelegate, UIPageControllerDelegate>
 {
     struct NSObject *_cameraAlbum;
     PLApplicationCameraViewController *_cameraViewController;
@@ -50,8 +50,8 @@
 - (void)_updateVolumeButtonEventsAbility;
 - (void)cameraPreviewWellImageDidChange:(id)arg1;
 - (void)_makeViewControllersPerformSelector:(SEL)arg1 withNotification:(id)arg2;
-- (void)albumDidChange:(id)arg1;
-- (void)albumListDidChange:(id)arg1;
+- (void)assetContainerDidChange:(id)arg1;
+- (void)assetContainerListDidChange:(id)arg1;
 - (void)_libraryDidChange:(id)arg1;
 - (void)prepareForDefaultImageSnapshot;
 - (void)dismissCameraAlbumForSuspension;

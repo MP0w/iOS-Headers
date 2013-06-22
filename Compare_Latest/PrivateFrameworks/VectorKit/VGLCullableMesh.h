@@ -12,8 +12,7 @@
     unsigned int _pointSize;
     struct shared_ptr<VGLMeshNode> _rootNode[2];
     struct vector<VGLMeshLeafNode, vk_allocator<VGLMeshLeafNode>> _leafNodes[2];
-    struct bitset<64> _leafsToDrawBitset[2];
-    struct dynamic_bitset<unsigned long, std::__1::allocator<unsigned long>> _leafsToDrawDynamicBitset[2];
+    struct bitset<32> _leafsToDrawBitset[2];
     struct _NSRange _rootRange[2];
 }
 
@@ -24,6 +23,7 @@
 - (void)drawInPreparedCulls:(id)arg1;
 - (void)prepareCullsInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned int)arg2;
 - (void)drawDebugBounds:(id)arg1;
+- (void)buildCullingTree;
 - (void)freeze;
 - (void)_createSortedLineIndicesFromSortedTriangleLinesForIndex:(unsigned int)arg1 fromIndex:(unsigned int)arg2;
 - (void)_splitForIndexMode:(unsigned int)arg1;

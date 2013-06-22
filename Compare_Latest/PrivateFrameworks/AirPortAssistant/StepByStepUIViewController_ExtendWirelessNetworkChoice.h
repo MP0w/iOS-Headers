@@ -8,19 +8,11 @@
 
 #import "StepByStepUIDevicePicker-Protocol.h"
 
-@class UILabel, UIView;
-
 @interface StepByStepUIViewController_ExtendWirelessNetworkChoice : StepByStepUIViewController_DevicePicker <StepByStepUIDevicePicker>
 {
-    UIView *tableHeaderContainerView;
-    UIView *justTextContainerView;
-    UILabel *justLabelView;
     int _selectorChoice;
 }
 
-@property(retain, nonatomic) UILabel *justLabelView; // @synthesize justLabelView;
-@property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
-@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 - (void)stepByStepUpdateProgress:(id)arg1 forState:(int)arg2;
 - (void)touchInCellAtIndexPath:(id)arg1;
 - (void)setupPickerTable;

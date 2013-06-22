@@ -23,6 +23,8 @@
 @property(readonly) NSArray *displays;
 - (void)dealloc;
 - (void)_detectDisplays;
+- (id)displayWithUniqueId:(id)arg1;
+- (id)displayWithDisplayId:(unsigned int)arg1;
 - (id)displayWithName:(id)arg1;
 - (void)removeAllDisplays;
 - (void)removeDisplay:(id)arg1;

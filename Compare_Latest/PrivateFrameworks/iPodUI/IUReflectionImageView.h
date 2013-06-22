@@ -21,12 +21,12 @@
 }
 
 @property(retain, nonatomic) UIColor *imageBackgroundColor; // @synthesize imageBackgroundColor=_imageBackgroundColor;
+- (void).cxx_destruct;
 - (void)setUseImageSize:(BOOL)arg1;
 - (void)setReflectionVisible:(BOOL)arg1;
 - (void)setReflectionAlphaWhenVisible:(float)arg1;
 @property(nonatomic) BOOL nonSquareImage;
 - (void)setImage:(id)arg1;
-- (void)dealloc;
 - (id)initWithReflectionHeight:(float)arg1 spacing:(float)arg2;
 - (id)init;
 

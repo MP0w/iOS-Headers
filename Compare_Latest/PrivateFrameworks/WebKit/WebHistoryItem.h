@@ -16,7 +16,6 @@
 }
 
 + (void)initialize;
-+ (void)initWindowWatcherIfNecessary;
 + (id)entryWithURL:(id)arg1;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
@@ -43,6 +42,8 @@
 - (id)initWithWebCoreHistoryItem:(PassRefPtr_b1663a8c)arg1;
 - (id)initWithURLString:(id)arg1 title:(id)arg2 displayTitle:(id)arg3 lastVisitedTimeInterval:(double)arg4;
 - (id)initWithURL:(id)arg1 target:(id)arg2 parent:(id)arg3 title:(id)arg4;
+- (BOOL)_hasCachedPageExpired;
+- (BOOL)_isInPageCache;
 - (void)_setScrollPoint:(struct CGPoint)arg1;
 - (struct CGPoint)_scrollPoint;
 - (void)_setViewportArguments:(id)arg1;

@@ -10,13 +10,13 @@
 
 @interface IMInvocationQueue : NSObject
 {
+    BOOL _holdQueue;
     id _delegate;
     id _target;
-    double _dequeueRate;
     NSMutableArray *_queue;
     NSMutableArray *_options;
     NSProtocolChecker *_protocolChecker;
-    BOOL _holdQueue;
+    double _dequeueRate;
 }
 
 @property(readonly, nonatomic) BOOL holdQueue; // @synthesize holdQueue=_holdQueue;

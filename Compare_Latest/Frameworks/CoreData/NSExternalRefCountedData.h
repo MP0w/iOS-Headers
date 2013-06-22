@@ -18,22 +18,24 @@
         unsigned int _virtualfk_count:14;
         unsigned int _ordkey_count:14;
     } _externalRefFlags;
-    id _toManyMap;
+    id *_toManyMap;
     double _birth;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (void)setRelatedIDs:(id)arg1 forKey:(id)arg2 options:(unsigned int)arg3 andTimestamp:(double)arg4;
-- (double)timestampForKey:(id)arg1;
-- (id)relatedIDsForKey:(id)arg1;
-- (unsigned int)optionsForKey:(id)arg1;
-- (void)updateFromOriginalRelationshipCaches:(id)arg1;
-- (void)setRelationshipCaches:(id)arg1;
-- (id)relationshipCaches;
+- (void)setAncillaryOrderKeys:(id)arg1 forProperty:(id)arg2 options:(unsigned int)arg3 andTimestamp:(double)arg4;
+- (id)ancillaryOrderKeysForProperty:(id)arg1;
+- (void)setRelatedObjectIDs:(id)arg1 forProperty:(id)arg2 options:(unsigned int)arg3 andTimestamp:(double)arg4;
+- (double)timestampForProperty:(id)arg1;
+- (id)relatedObjectIDsForProperty:(id)arg1;
+- (void)updateMissingRelationshipCachesFromOriginal:(id)arg1;
+- (void)copyRelationshipCachesFrom:(id)arg1;
+- (void)_initializeRelationshipCaches;
 - (void)incrementExternalReferenceCount:(int)arg1;
 - (int)externalReferenceCount;
 - (int)decrementRefCount;
 - (void)incrementRefCount;
+- (id)objectID;
 - (unsigned int)options;
 - (void)setTimestamp:(double)arg1;
 - (double)timestamp;
@@ -41,7 +43,7 @@
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
 - (unsigned int)retainCount;
-- (void)release;
+- (oneway void)release;
 - (id)retain;
 - (id)initWithOptions:(unsigned int)arg1 andTimestamp:(double)arg2;
 

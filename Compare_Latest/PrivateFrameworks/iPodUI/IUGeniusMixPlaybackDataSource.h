@@ -21,6 +21,7 @@
 + (Class)queueFeederClass;
 @property(retain, nonatomic) MPMediaItem *requiredInitialMediaItem; // @synthesize requiredInitialMediaItem=_requiredInitialMediaItem;
 @property(readonly, nonatomic) MPGeniusMix *mix; // @synthesize mix=_mix;
+- (void).cxx_destruct;
 - (id)_generateNewPlaylistQuery:(id *)arg1 index:(unsigned int)arg2;
 - (id)_queryForMediaItemAtIndex:(unsigned int)arg1;
 @property(readonly, nonatomic) MPMediaItem *initialMediaItem;

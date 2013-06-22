@@ -8,11 +8,12 @@
 
 #import "UIKeyInput-Protocol.h"
 #import "UIKeyboardInput-Protocol.h"
+#import "UITextInputPrivate-Protocol.h"
 #import "UITextInputTokenizer-Protocol.h"
 
 @class NSDictionary, UIColor, UIImage, UITextInteractionAssistant, UITextPosition, UITextRange, UIView;
 
-@interface DOMNode (UITextInputAdditions) <UIKeyboardInput, UIKeyInput, UITextInputTokenizer>
+@interface DOMNode (UITextInputAdditions) <UIKeyboardInput, UITextInputPrivate, UIKeyInput, UITextInputTokenizer>
 - (id)textDocument;
 @property(nonatomic) int selectionAffinity;
 - (BOOL)editing;
@@ -86,37 +87,22 @@
 - (struct CGPoint)constrainedPoint:(struct CGPoint)arg1 withInset:(float)arg2;
 - (int)selectionState;
 - (void)selectAll;
-- (void)moveForward:(unsigned int)arg1;
-- (void)moveBackward:(unsigned int)arg1;
 - (BOOL)selectionAtWordStart;
 - (BOOL)selectionAtDocumentStart;
 - (BOOL)hasSelection;
 - (void)extendCurrentSelection:(int)arg1;
 - (id)rangeByExtendingCurrentSelection:(int)arg1;
 - (id)rangeByMovingCurrentSelection:(int)arg1;
-- (void)setSelectedDOMRange:(id)arg1 affinityDownstream:(BOOL)arg2;
-- (id)selectedDOMRange;
 - (struct _NSRange)selectionRange;
-- (struct _NSRange)_markedTextNSRange;
 - (int)wordOffsetInRange:(id)arg1;
-- (void)expandSelectionToStartOfWordContainingCaretSelection;
-- (id)wordContainingCaretSelection;
-- (id)wordRangeContainingCaretSelection;
-- (id)nextUnperturbedDictationResultBoundaryFromPosition:(id)arg1;
-- (id)previousUnperturbedDictationResultBoundaryFromPosition:(id)arg1;
-- (struct CGRect)rectContainingCaretSelection;
 - (id)textColorForCaretSelection;
 - (id)fontForCaretSelection;
 - (unsigned short)characterAfterCaretSelection;
 - (void)replaceCurrentWordWithText:(id)arg1;
-- (void)replaceRangeWithText:(struct _NSRange)arg1 replacementText:(id)arg2;
-- (id)markedText;
+- (void)clearMarkedText;
 - (id)rectsForNSRange:(struct _NSRange)arg1;
-- (struct CGRect)rectForNSRange:(struct _NSRange)arg1;
 - (void)confirmMarkedText:(id)arg1;
 - (void)setMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2;
-- (void)setMarkedText:(id)arg1;
-- (unsigned short)characterBeforeCaretSelection;
 - (unsigned short)characterInRelationToCaretSelection:(int)arg1;
 - (struct CGRect)frameForDictationResultPlaceholder:(id)arg1;
 - (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
@@ -148,9 +134,11 @@
 @property(nonatomic) BOOL displaySecureTextUsingPlainText;
 @property(nonatomic) int emptyContentReturnKeyType;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
+@property(nonatomic) BOOL enablesReturnKeyOnNonWhiteSpaceContent;
 @property(nonatomic) BOOL forceEnableDictation;
 @property(retain, nonatomic) UIColor *insertionPointColor;
 @property(nonatomic) unsigned int insertionPointWidth;
+@property(nonatomic) BOOL isSingleLineDocument;
 @property(nonatomic) int keyboardAppearance;
 @property(nonatomic) int keyboardType;
 @property(nonatomic) BOOL learnsCorrections;

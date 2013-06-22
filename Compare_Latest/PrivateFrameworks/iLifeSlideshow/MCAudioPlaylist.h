@@ -13,12 +13,12 @@
     NSMutableSet *mSongs;
     NSArray *mCachedOrderedSongs;
     float mVolume;
+    float mDuckLevel;
+    MCContainer *mContainer;
     double mFadeInDuration;
     double mFadeOutDuration;
-    float mDuckLevel;
     double mDuckInDuration;
     double mDuckOutDuration;
-    MCContainer *mContainer;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;

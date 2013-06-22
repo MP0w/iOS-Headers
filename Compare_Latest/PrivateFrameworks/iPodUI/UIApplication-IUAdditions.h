@@ -14,7 +14,7 @@
 @property(readonly, nonatomic) UINavigationController *IUTopNavigationController;
 @property(readonly, nonatomic) IUiPodTabBarController *IUTabBarController;
 @property(readonly, nonatomic) UIViewController *IURootViewController;
-@property(readonly, nonatomic) int IUInterfaceType;
+@property(readonly, nonatomic) unsigned int IUInterfaceType;
 @property(readonly, nonatomic) unsigned int IUInterfaceOrientationMask;
 @property(readonly, nonatomic) IUiPodViewController *IUFullScreenViewController;
 - (void)endUserInteractionFocusOnView:(id)arg1;

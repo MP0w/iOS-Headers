@@ -22,6 +22,9 @@
 - (id)domainMap;
 @property(readonly, nonatomic) NSArray *datastores;
 @property(readonly, nonatomic) NSArray *searchBundles;
+- (void)createLockForDatastore:(id)arg1;
+- (void)unlockDatastore:(id)arg1;
+- (void)lockDatastore:(id)arg1;
 - (void)_loadSearchBundles;
 
 @end

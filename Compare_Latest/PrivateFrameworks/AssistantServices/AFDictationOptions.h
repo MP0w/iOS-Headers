@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
+#import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
+
 @class NSString;
 
-@interface AFDictationOptions : NSObject
+@interface AFDictationOptions : NSObject <NSSecureCoding, NSCopying>
 {
     NSString *_applicationName;
     NSString *_applicationVersion;
@@ -23,6 +26,7 @@
     NSString *_languageCodeOverride;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(copy, nonatomic) NSString *languageCodeOverride; // @synthesize languageCodeOverride=_languageCodeOverride;
 @property(nonatomic) int returnKeyType; // @synthesize returnKeyType=_returnKeyType;
 @property(copy, nonatomic) NSString *selectedText; // @synthesize selectedText=_selectedText;
@@ -35,8 +39,10 @@
 @property(copy, nonatomic) NSString *applicationVersion; // @synthesize applicationVersion=_applicationVersion;
 @property(copy, nonatomic) NSString *applicationName; // @synthesize applicationName=_applicationName;
 - (void).cxx_destruct;
-- (id)initWithDKPlistRepresentation:(id)arg1;
-- (id)dkPlistRepresentation;
+- (id)dictationOptionsWithoutTextContext;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 
 @end
 

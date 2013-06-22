@@ -28,11 +28,11 @@
 
 - (void)applyProcessorToObject:(id)arg1 sheet:(id)arg2;
 - (void)dealloc;
-- (id)flattenFont:(id)arg1 differentialFont:(id)arg2 isFontCopied:(_Bool *)arg3;
-- (id)flattenFill:(id)arg1 differentialFill:(id)arg2 isFillCopied:(_Bool *)arg3;
-- (id)flattenBorder:(int)arg1 borders:(id)arg2 differentialBorders:(id)arg3 flag:(_Bool)arg4 precedence:(int)arg5 row:(int)arg6 column:(int)arg7 isBorderCopied:(_Bool *)arg8;
-- (id)flattenBorders:(id)arg1 differentialBorders:(id)arg2 borderFlags:(int)arg3 precedence:(int)arg4 row:(int)arg5 column:(int)arg6 isBordersCopied:(_Bool *)arg7;
-- (void)applyDifferentialStyle:(id)arg1 borderFlags:(int)arg2 precedence:(int)arg3 toCell:(struct EDCellHeader **)arg4 row:(int)arg5 column:(int)arg6;
+- (id)copyFlattenFont:(id)arg1 differentialFont:(id)arg2;
+- (id)copyFlattenFill:(id)arg1 differentialFill:(id)arg2;
+- (id)copyFlattenBorder:(int)arg1 borders:(id)arg2 differentialBorders:(id)arg3 flag:(_Bool)arg4 precedence:(unsigned int)arg5 row:(int)arg6 column:(int)arg7;
+- (id)copyFlattenBorders:(id)arg1 differentialBorders:(id)arg2 borderFlags:(int)arg3 precedence:(unsigned int)arg4 row:(int)arg5 column:(int)arg6;
+- (void)applyDifferentialStyle:(id)arg1 borderFlags:(int)arg2 precedence:(unsigned int)arg3 toCell:(struct EDCellHeader **)arg4 row:(int)arg5 column:(int)arg6;
 - (void)applyStyleElements:(id)arg1 toCell:(struct EDCellHeader *)arg2 row:(int)arg3 column:(int)arg4;
 - (struct EDCellHeader *)cellWithSetupStyleAtRowNumber:(int)arg1 columnNumber:(int)arg2;
 - (void)processObject:(id)arg1;

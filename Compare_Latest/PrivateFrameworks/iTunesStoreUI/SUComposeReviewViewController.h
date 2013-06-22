@@ -6,35 +6,24 @@
 
 #import <iTunesStoreUI/SUViewController.h>
 
-#import "SUComposeReviewViewDelegate-Protocol.h"
-#import "UIAlertViewDelegate-Protocol.h"
+#import "SKComposeReviewDelegate-Protocol.h"
 
-@class ISReview, SUComposeReviewView, SURatingAlertView;
+@class NSURL, SKComposeReviewViewController;
 
-@interface SUComposeReviewViewController : SUViewController <SUComposeReviewViewDelegate, UIAlertViewDelegate>
+@interface SUComposeReviewViewController : SUViewController <SKComposeReviewDelegate>
 {
-    SUComposeReviewView *_composeView;
-    SURatingAlertView *_ratingAlert;
-    ISReview *_review;
-    int _state;
+    NSURL *_compositionURL;
+    SKComposeReviewViewController *_remoteViewController;
 }
 
-- (void)_setReviewByMergingWithReview:(id)arg1;
-- (void)_fetchReviewInfo;
-- (void)_submit;
-- (void)_cancel;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)composeReviewViewValidityChanged:(id)arg1;
-- (void)operationFinished:(id)arg1;
-- (void)operation:(id)arg1 failedWithError:(id)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
+@property(readonly, nonatomic) NSURL *compositionURL; // @synthesize compositionURL=_compositionURL;
+- (void)_showRemoteView;
+- (void)reviewComposeViewControllerDidFinish:(id)arg1;
 - (void)loadView;
+- (void)prepareWithCompletionBlock:(id)arg1;
 - (id)copyScriptViewController;
-- (void)applicationDidEnterBackground;
-- (void)setReview:(id)arg1;
-- (id)copyReview;
 - (void)dealloc;
+- (id)initWithCompositionURL:(id)arg1;
 - (id)init;
 
 @end

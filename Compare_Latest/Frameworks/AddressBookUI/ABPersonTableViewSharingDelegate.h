@@ -11,9 +11,9 @@
 @interface ABPersonTableViewSharingDelegate : NSObject
 {
     ABActionSheetDelegate *_actionSheetDelegate;
+    BOOL _shareMessageBodyIsHTML;
     ABStyleProvider *_styleProvider;
     ABPersonViewControllerHelper *_helper;
-    BOOL _shareMessageBodyIsHTML;
     NSString *_shareMessageBody;
     NSString *_shareMessageSubject;
     NSString *_shareLocationURL;
@@ -22,7 +22,7 @@
     id _willWeiboLocationCallback;
 }
 
-+ (void *)_newFakePersonForMergedPeople:(id)arg1;
++ (id)_fakePersonForMergedPeople:(id)arg1;
 @property(copy, nonatomic) id willWeiboLocationCallback; // @synthesize willWeiboLocationCallback=_willWeiboLocationCallback;
 @property(copy, nonatomic) id willTweetLocationCallback; // @synthesize willTweetLocationCallback=_willTweetLocationCallback;
 @property(retain, nonatomic) UIImage *shareLocationSnapshotImage; // @synthesize shareLocationSnapshotImage=_shareLocationSnapshotImage;
@@ -43,9 +43,7 @@
 - (void)shareActionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)shareLocationOnWeibo:(id)arg1;
 - (void)shareLocationOnTwitter:(id)arg1;
-- (void)smsComposeControllerSendStarted:(id)arg1;
-- (void)smsComposeControllerCancelled:(id)arg1;
-- (void)smsComposeControllerDataInserted:(id)arg1;
+- (void)messageComposeViewController:(id)arg1 didFinishWithResult:(int)arg2;
 - (void)shareContactByTextMessage:(id)arg1;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
 - (void)shareContactByEmail:(id)arg1;

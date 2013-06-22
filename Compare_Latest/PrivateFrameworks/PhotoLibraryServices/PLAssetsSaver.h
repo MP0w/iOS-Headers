@@ -31,16 +31,19 @@
 - (void)_saveImage:(id)arg1 imageData:(id)arg2 properties:(id)arg3 completionBlock:(id)arg4;
 - (id)_createWriteVideoCompletionBlockWithVideoPath:(SEL)arg1 target:(id)arg2 selector:(id)arg3 contextInfo:(SEL)arg4;
 - (id)_createWriteImageCompletionBlockWithImage:(SEL)arg1 target:(id)arg2 selector:(id)arg3 contextInfo:(SEL)arg4;
+- (void)saveCameraLastTokenWithUUID:(id)arg1 allAssetUUIDs:(id)arg2 bestAssetUUIDs:(id)arg3;
 - (void)regenerateVideoThumbnailsForVideo:(id)arg1 withCreationDate:(id)arg2 progressStack:(id)arg3 completionBlock:(id)arg4;
-- (void)saveCameraVideoAtPath:(id)arg1 withMetadata:(id)arg2 thumbnailImage:(id)arg3 createPreviewWellImage:(BOOL)arg4 progressStack:(id)arg5 videoHandler:(id)arg6 requestEnqueuedBlock:(void)arg7 completionBlock:(id)arg8;
+- (void)saveCameraVideoAtPath:(id)arg1 withMetadata:(id)arg2 thumbnailImage:(id)arg3 createPreviewWellImage:(BOOL)arg4 progressStack:(id)arg5 eventUUID:(id)arg6 isSlalom:(BOOL)arg7 slalomRegions:(id)arg8 videoHandler:(id)arg9 requestEnqueuedBlock:(void)arg10 completionBlock:(id)arg11;
+- (id)saveCameraImage:(id)arg1 metadata:(id)arg2 additionalProperties:(id)arg3 adjustmentFilters:(id)arg4 effectFilters:(id)arg5 previouslyPendingAsset:(id)arg6 requestEnqueuedBlock:(id)arg7;
 - (void)saveCameraImage:(id)arg1 metadata:(id)arg2 additionalProperties:(id)arg3 requestEnqueuedBlock:(id)arg4;
-- (void)_addCameraAssetToLibraryWithPath:(id)arg1 thumbnailImage:(id)arg2 metadata:(id)arg3 assetType:(int)arg4 kind:(int)arg5 completionHandler:(id)arg6;
+- (id)_addCameraAssetToLibraryWithPath:(id)arg1 thumbnailImage:(id)arg2 assetUUID:(id)arg3 metadata:(id)arg4 assetType:(int)arg5 kind:(short)arg6 kindSubtype:(short)arg7 batchUUID:(id)arg8 batchToken:(id)arg9 adjustmentFilters:(id)arg10 effectFilters:(id)arg11 completionHandler:(id)arg12;
 - (void)queueJobDictionary:(id)arg1 completionBlock:(id)arg2;
-- (void)queueJobDictionary:(id)arg1 asset:(id)arg2 requestEnqueuedBlock:(id)arg3 completionBlock:(void)arg4 imageSurface:(id)arg5 previewImageSurface:(void)arg6;
-- (void)requestAsynchronousImageFromAsset:(id)arg1 withFormat:(int)arg2 completionBlock:(id)arg3;
-- (void)requestSynchronousImageFromAsset:(id)arg1 withFormat:(int)arg2 completionBlock:(id)arg3;
-- (id)defaultExtensionForAssetType:(int)arg1;
-- (id)pathForNewAssetOfType:(int)arg1 extension:(id)arg2;
+- (void)queueJobDictionary:(id)arg1 asset:(id)arg2 requestEnqueuedBlock:(id)arg3 completionBlock:(void)arg4 imageSurface:(id)arg5 previewImageSurface:(void)arg6 slalomRegions:(struct __IOSurface *)arg7;
+- (id)_XMPDictionaryForAsset:(id)arg1 jobDictionary:(id)arg2;
+- (void)requestAsynchronousImageForAssetOID:(id)arg1 withFormat:(int)arg2 completionBlock:(id)arg3;
+- (id)requestSynchronousImageForAssetOID:(id)arg1 withFormat:(int)arg2;
+- (id)defaultExtensionForAssetType:(long long)arg1;
+- (id)pathForNewAssetOfType:(long long)arg1 extension:(id)arg2;
 - (void)_requestAccess;
 - (void)dealloc;
 

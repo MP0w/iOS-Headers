@@ -22,7 +22,9 @@
 - (id)volatileDomainForName:(id)arg1;
 - (id)volatileDomainNames;
 - (oneway void)release;
+- (void)dealloc;
 - (id)init;
+- (id)initWithSuiteName:(id)arg1;
 - (id)initWithUser:(id)arg1;
 - (void)registerDefaults:(id)arg1;
 - (void)removeSuiteNamed:(id)arg1;

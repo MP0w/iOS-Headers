@@ -19,6 +19,7 @@
 @property(copy, nonatomic) NSString *sport;
 @property(retain, nonatomic) SASportsSeason *season;
 @property(copy, nonatomic) NSString *identifier;
+@property(copy, nonatomic) NSString *displayedText;
 @property(copy, nonatomic) NSNumber *displayTeamLocationOverName;
 @property(copy, nonatomic) NSString *diplayedText;
 - (id)encodedClassName;

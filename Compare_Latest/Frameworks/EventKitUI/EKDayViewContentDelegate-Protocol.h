@@ -7,12 +7,12 @@
 #import "NSObject-Protocol.h"
 
 @protocol EKDayViewContentDelegate <NSObject>
+- (void)dayViewContent:(id)arg1 didTapInEmptySpaceOnDay:(double)arg2;
+- (void)dayViewContent:(id)arg1 didTapPinnedOccurrence:(id)arg2;
 
 @optional
 - (void)dayViewContent:(id)arg1 didSelectEvent:(id)arg2;
-- (void)occurrenceDragExited:(id)arg1;
 - (void)occurrencePressed:(id)arg1 onDay:(double)arg2;
-- (void)emptySpaceClickForDayViewContent:(id)arg1 onDay:(double)arg2;
 - (void)dayViewContent:(id)arg1 didCreateOccurrenceViews:(id)arg2;
 @end
 

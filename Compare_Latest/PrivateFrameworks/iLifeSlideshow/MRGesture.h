@@ -11,15 +11,15 @@
 @interface MRGesture : NSObject
 {
     MRHitBlob *_hitBlob;
-    struct CGPoint _locationInViewAtStart;
-    struct CGPoint _locationInSlideAtStart;
     float _linearScaleAtStart;
-    struct CGPoint _slideCenterAtStart;
     float _slideRotationAtStart;
     float _slideScaleAtStart;
-    struct CGPoint _currentTranslation;
     float _currentRotation;
     float _currentScale;
+    struct CGPoint _locationInViewAtStart;
+    struct CGPoint _locationInSlideAtStart;
+    struct CGPoint _slideCenterAtStart;
+    struct CGPoint _currentTranslation;
 }
 
 @property float currentScale; // @synthesize currentScale=_currentScale;

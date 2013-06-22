@@ -18,8 +18,10 @@
     id _underlyingResult;
     BOOL _timeIsSignificant;
     BOOL _timeIsApproximate;
+    BOOL _timeIsPast;
 }
 
+@property(readonly) BOOL timeIsPast;
 @property(readonly) BOOL timeIsApproximate;
 @property(readonly) BOOL timeIsSignificant;
 @property(readonly) void *underlyingResult;
@@ -40,6 +42,7 @@
 - (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4 referenceDate:(id)arg5;
 - (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4 referenceDate:(id)arg5 underlyingResult:(void *)arg6;
 - (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4 referenceDate:(id)arg5 underlyingResult:(void *)arg6 timeIsSignificant:(BOOL)arg7 timeIsApproximate:(BOOL)arg8;
+- (id)initWithRange:(struct _NSRange)arg1 date:(id)arg2 timeZone:(id)arg3 duration:(double)arg4 referenceDate:(id)arg5 underlyingResult:(void *)arg6 timeIsSignificant:(BOOL)arg7 timeIsApproximate:(BOOL)arg8 timeIsPast:(BOOL)arg9;
 
 @end
 

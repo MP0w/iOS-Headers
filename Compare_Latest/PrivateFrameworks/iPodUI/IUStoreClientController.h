@@ -22,11 +22,9 @@
 
 + (void)setSharedController:(id)arg1;
 + (id)sharedController;
-+ (id)continueSearchingURForMediaType:(int)arg1 searchString:(id)arg2;
++ (id)continueSearchingURForMediaType:(unsigned int)arg1 searchString:(id)arg2;
 + (id)musicStoreURLWithAction:(id)arg1;
-@property(retain, nonatomic) SUScriptInterface *scriptInterface; // @synthesize scriptInterface=_scriptInterface;
-@property(retain, nonatomic) NSString *purchasedItemIdentifier; // @synthesize purchasedItemIdentifier=_purchasedItemIdentifier;
-@property(retain, nonatomic) UIImageView *purchasedItemView; // @synthesize purchasedItemView=_purchasedItemView;
+- (void).cxx_destruct;
 - (void)downloadManagerNetworkUsageDidChange:(id)arg1;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 @property(readonly, nonatomic, getter=isStoreRestricted) BOOL storeRestricted;

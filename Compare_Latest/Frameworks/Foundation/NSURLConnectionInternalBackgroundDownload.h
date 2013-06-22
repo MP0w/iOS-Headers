@@ -10,7 +10,7 @@
 #import "SSDownloadHandlerDelegate-Protocol.h"
 #import "SSDownloadManagerObserver-Protocol.h"
 
-@class AsyncSSDownloadManager, NSCountedSet, NSMutableArray, NSTimer, SSDownloadHandler;
+@class NSAsyncSSDownloadManager, NSCountedSet, NSMutableArray, NSTimer, SSDownloadHandler;
 
 @interface NSURLConnectionInternalBackgroundDownload : NSURLConnectionInternal <NSURLConnectionRequired, SSDownloadManagerObserver, SSDownloadHandlerDelegate>
 {
@@ -18,7 +18,7 @@
     NSMutableArray *_pendingOps;
     NSCountedSet *_runloops;
     SSDownloadHandler *_handler;
-    AsyncSSDownloadManager *_manager;
+    NSAsyncSSDownloadManager *_manager;
     long long _downloadIdent;
     long long _ctLast;
     BOOL _terminated;

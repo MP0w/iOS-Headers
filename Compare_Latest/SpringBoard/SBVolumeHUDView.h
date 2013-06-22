@@ -19,7 +19,8 @@
 @property(nonatomic) float EUVolumeLimit; // @synthesize EUVolumeLimit=_euVolumeLimit;
 @property(nonatomic) BOOL headphonesPresent; // @synthesize headphonesPresent=_headphonesPresent;
 @property(nonatomic) int mode; // @synthesize mode=_mode;
-- (void)drawBlockForValue:(float)arg1 point:(struct CGPoint)arg2;
+- (void)_updateBlockView:(id)arg1 value:(float)arg2 blockSize:(struct CGSize)arg3 point:(struct CGPoint)arg4;
+- (id)_blockColorForValue:(float)arg1;
 - (void)setProgress:(float)arg1;
 - (id)init;
 - (void)_updateLabels;

@@ -6,16 +6,25 @@
 
 #import "NSObject.h"
 
+#import "BBXPCConnectionDelegate-Protocol.h"
 #import "XPCProxyTarget-Protocol.h"
 
-@interface BBSystemStateProvider : NSObject <XPCProxyTarget>
+@class BBServerConnection, NSSet;
+
+@interface BBSystemStateProvider : NSObject <BBXPCConnectionDelegate, XPCProxyTarget>
 {
-    id _serverProxy;
+    BBServerConnection *_connection;
+    unsigned int _currentState;
+    NSSet *_sectionIDs;
 }
 
+- (void)noteRestrictedSectionIDsDidChange:(id)arg1;
+- (void)connection:(id)arg1 connectionStateDidChange:(BOOL)arg2;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)noteChangeOfState:(unsigned int)arg1 newValue:(BOOL)arg2;
+- (void)_sendState:(unsigned int)arg1 value:(BOOL)arg2;
 - (void)noteOccurrenceOfEvent:(unsigned int)arg1;
+- (void)invalidate;
 - (void)dealloc;
 - (id)init;
 

@@ -14,17 +14,16 @@
     UILabel *_titleView;
     UILabel *_valueView;
     UILabel *_value2View;
-    unsigned int _visibleItems;
 }
 
+- (void).cxx_destruct;
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;
 - (int)style;
 - (id)value2View;
 - (id)valueView;
 - (id)titleView;
 - (BOOL)update;
-@property(readonly, nonatomic) unsigned int visibleItems; // @synthesize visibleItems=_visibleItems;
-- (void)dealloc;
+@property(readonly, nonatomic) unsigned int visibleItems;
 - (id)initWithEvent:(id)arg1 editable:(BOOL)arg2 platformStyle:(int)arg3;
 
 @end

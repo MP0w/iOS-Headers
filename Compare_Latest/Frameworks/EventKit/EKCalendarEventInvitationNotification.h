@@ -10,18 +10,20 @@
 
 @interface EKCalendarEventInvitationNotification : EKCalendarNotification
 {
+    BOOL _allDay;
+    BOOL _hasRecurrenceRules;
     NSString *_location;
     NSString *_calendarName;
     NSDate *_startDate;
     NSDate *_endDate;
-    BOOL _allDay;
-    BOOL _hasRecurrenceRules;
+    NSDate *_participationStatusModifiedDate;
     int _status;
 }
 
 @property(nonatomic) BOOL hasRecurrenceRules; // @synthesize hasRecurrenceRules=_hasRecurrenceRules;
-@property(nonatomic) int status; // @synthesize status=_status;
 @property(nonatomic, getter=isAllDay) BOOL allDay; // @synthesize allDay=_allDay;
+@property(nonatomic) int status; // @synthesize status=_status;
+@property(retain, nonatomic) NSDate *participationStatusModifiedDate; // @synthesize participationStatusModifiedDate=_participationStatusModifiedDate;
 @property(retain, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(retain, nonatomic) NSString *calendarName; // @synthesize calendarName=_calendarName;

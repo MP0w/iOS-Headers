@@ -16,7 +16,6 @@
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 + (id)insertInManagedObjectContext:(id)arg1;
-- (id)objectID;
 
 // Remaining properties
 @property(retain, nonatomic) NSString *title; // @dynamic title;

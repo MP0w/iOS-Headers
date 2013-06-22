@@ -15,6 +15,7 @@
 }
 
 + (void)addFontEntry:(id)arg1 script:(id)arg2 typeface:(id)arg3;
+- (BOOL)isEqual:(id)arg1;
 - (id)minorFont;
 - (id)minorTypefaceForScript:(id)arg1;
 - (unsigned int)minorFontCount;

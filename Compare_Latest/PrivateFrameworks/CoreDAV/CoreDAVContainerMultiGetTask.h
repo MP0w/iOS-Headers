@@ -22,8 +22,10 @@
     NSSet *_additionalPropElements;
     NSSet *_parsedContents;
     NSSet *_missingURLs;
+    NSSet *_deletedURLs;
 }
 
+@property(readonly, nonatomic) NSSet *deletedURLs; // @synthesize deletedURLs=_deletedURLs;
 @property(readonly, nonatomic) NSSet *missingURLs; // @synthesize missingURLs=_missingURLs;
 @property(readonly, nonatomic) NSSet *parsedContents; // @synthesize parsedContents=_parsedContents;
 @property(nonatomic) BOOL shouldIgnoreResponseErrors; // @synthesize shouldIgnoreResponseErrors=_shouldIgnoreResponseErrors;

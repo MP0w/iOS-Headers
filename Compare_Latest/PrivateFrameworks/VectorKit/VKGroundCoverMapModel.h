@@ -8,22 +8,36 @@
 
 #import "VKMapLayer-Protocol.h"
 
-@class NSMutableArray, VGLRenderState, VGLTexture;
+@class NSMutableArray, VGLRenderState, VGLTexture, VKPolygonDrawStyle;
 
 @interface VKGroundCoverMapModel : VKMapTileModel <VKMapLayer>
 {
-    VGLRenderState *_renderState;
     NSMutableArray *_sortedTiles;
+    VKPolygonDrawStyle *_landStyle;
+    BOOL _usePlainFillColor;
     float _alpha;
+    float _brightness;
+    BOOL _showVegetation;
+    VGLRenderState *_renderState;
     VGLTexture *_landTexture;
+    VGLTexture *_landTextureVariant;
+    float _layoutMaxZ;
+    float _layoutContentScale;
+    BOOL _needsLandSettingsUpdate;
 }
 
++ (BOOL)reloadOnActiveTileGroupChange;
 + (BOOL)reloadOnStylesheetChange;
+- (void)stylesheetDidChange;
+- (void)stylesheetWillChange;
+- (void)setActive:(BOOL)arg1;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (void)updateVegetationSettingsFromStylesheet;
 - (void)reset;
+- (unsigned int)supportedRenderPasses;
 - (unsigned int)mapLayerPosition;
-- (id)textureForName:(id)arg1 scale:(float)arg2;
+- (void)loadLandSettingsForLevelOfDetail:(unsigned int)arg1 scale:(float)arg2;
 - (void)dealloc;
 - (id)init;
 

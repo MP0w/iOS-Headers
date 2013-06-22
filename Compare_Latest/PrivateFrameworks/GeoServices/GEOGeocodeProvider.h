@@ -9,14 +9,17 @@
 @interface GEOGeocodeProvider : NSObject
 {
     id _successHandler;
+    id _batchSuccessHandler;
     id _errorHandler;
 }
 
 + (id)providerName;
 + (unsigned short)provider;
 @property(copy, nonatomic) id errorHandler; // @synthesize errorHandler=_errorHandler;
+@property(copy, nonatomic) id batchSuccessHandler; // @synthesize batchSuccessHandler=_batchSuccessHandler;
 @property(copy, nonatomic) id successHandler; // @synthesize successHandler=_successHandler;
 - (void)cancel;
+- (void)batchReverseGeocode:(id)arg1 success:(id)arg2 error:(void)arg3;
 - (void)reverseGeocode:(id)arg1 success:(id)arg2 error:(void)arg3;
 - (void)forwardGeocode:(id)arg1 success:(id)arg2 networkActivity:(void)arg3 error:(id)arg4;
 - (void)dealloc;

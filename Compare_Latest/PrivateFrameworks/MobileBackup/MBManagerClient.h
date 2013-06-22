@@ -31,6 +31,8 @@
 - (void)setLogLevel:(int)arg1;
 - (id)restoreInfo;
 - (id)getAppleIDsForBackupUDID:(id)arg1 snapshotID:(unsigned int)arg2 error:(id *)arg3;
+- (BOOL)deleteItemFromBackupUDID:(id)arg1 snapshotID:(unsigned int)arg2 domainName:(id)arg3 relativePath:(id)arg4 error:(id *)arg5;
+- (BOOL)addFileToBackupUDID:(id)arg1 snapshotID:(unsigned int)arg2 domainName:(id)arg3 relativePath:(id)arg4 fromPath:(id)arg5 error:(id *)arg6;
 - (BOOL)extractItemFromBackupUDID:(id)arg1 snapshotID:(unsigned int)arg2 domainName:(id)arg3 relativePath:(id)arg4 toPath:(id)arg5 error:(id *)arg6;
 - (void)setBackupEnabled:(BOOL)arg1 forDomainName:(id)arg2;
 - (BOOL)isBackupEnabledForDomainName:(id)arg1;
@@ -44,6 +46,7 @@
 - (BOOL)deleteSnapshotID:(unsigned int)arg1 fromBackupUDID:(id)arg2 error:(id *)arg3;
 - (BOOL)deleteBackupUDID:(id)arg1 error:(id *)arg2;
 - (BOOL)deleteAccountWithError:(id *)arg1;
+- (void)keyBagIsUnlocked;
 - (void)keyBagIsLocking;
 - (void)accountChanged;
 - (void)wakeUp;

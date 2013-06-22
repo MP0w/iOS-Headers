@@ -15,6 +15,7 @@
 
 + (id)functionWithName:(id)arg1;
 + (id)functionWithControlPoints:(float)arg1:(float)arg2:(float)arg3:(float)arg4;
++ (void)CAMLParserEndElement:(id)arg1 content:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
@@ -22,6 +23,8 @@
 - (void)_getPoints:(double *)arg1;
 - (void)dealloc;
 - (id)initWithControlPoints:(float)arg1:(float)arg2:(float)arg3:(float)arg4;
+- (void)encodeWithCAMLWriter:(id)arg1;
+- (id)CAMLType;
 - (float)_solveForInput:(float)arg1;
 
 @end

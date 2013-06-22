@@ -13,6 +13,8 @@
     NSLock *_lock;
 }
 
+- (void)removeAllObjects;
+- (void)removeObjectsForKeys:(id)arg1;
 - (void)enumerateKeysAndObjectsUsingBlock:(id)arg1;
 - (int)count;
 - (void)removeObjectForKey:(const struct VKTileKey *)arg1;

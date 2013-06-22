@@ -30,12 +30,13 @@
 - (id)chapterOfType:(int)arg1 atTime:(double)arg2;
 - (id)chapterOfType:(int)arg1 atIndex:(unsigned int)arg2;
 - (id)chaptersOfType:(int)arg1;
+@property(readonly, nonatomic) unsigned int albumTrackNumber;
 @property(readonly, nonatomic) BOOL rememberBookmarkTime;
 @property(nonatomic) BOOL hasBeenPlayed;
 @property(copy, nonatomic) NSDate *lastSkippedDate;
 @property(nonatomic) unsigned int skipCountSinceSync;
 @property(nonatomic) unsigned int skipCount;
-@property(copy, nonatomic) NSDate *lastUsedDate;
+@property(copy, nonatomic) NSDate *dateAccessed;
 @property(copy, nonatomic) NSDate *lastPlayedDate;
 @property(nonatomic) unsigned int playCountSinceSync;
 @property(nonatomic) unsigned int playCount;
@@ -49,12 +50,12 @@
 @property(readonly, nonatomic) double stopTime;
 @property(readonly, nonatomic) double startTime;
 @property(readonly, nonatomic) double playbackDuration;
-@property(readonly, nonatomic) int mediaType;
+@property(readonly, nonatomic) unsigned int mediaType;
 @property(readonly, nonatomic) BOOL isITunesU;
 @property(readonly, nonatomic) BOOL isRental;
 @property(readonly, nonatomic) NSString *genre;
 @property(readonly, nonatomic) NSString *composer;
-@property(nonatomic) double bookmarkTime;
+@property(readonly, nonatomic) double bookmarkTime;
 @property(readonly, nonatomic) MPMediaItemArtwork *artwork;
 @property(readonly, nonatomic) NSString *artist;
 @property(readonly, nonatomic) NSString *albumTitle;
@@ -66,8 +67,7 @@
 - (id)representativeItem;
 - (id)_bestStoreURL;
 - (void)didReceiveMemoryWarning;
-- (void)clearBookmarkTime;
-- (void)updateLastUsedDateToCurrentDate;
+- (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id)arg1;
 - (BOOL)incrementPlayCountForStopTime:(double)arg1;
 - (void)incrementPlayCountForPlayingToEnd;
 - (void)incrementSkipCount;
@@ -81,9 +81,9 @@
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)initWithPersistentID:(unsigned long long)arg1;
-- (BOOL)isDownloadInProgress;
-- (BOOL)isDownloadable;
 @property(readonly, nonatomic) BOOL mediaTypeCanSeedGenius;
+- (BOOL)MPSD_isDownloadInProgress;
+- (BOOL)MPSD_isDownloadable;
 
 @end
 

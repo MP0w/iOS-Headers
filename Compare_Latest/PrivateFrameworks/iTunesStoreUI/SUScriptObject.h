@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSMutableArray, NSMutableSet, NSString, SUClientInterface, SUScriptNativeObject, SUScriptObjectInvocationBatch, SUWebImagePool, WebFrame;
+@class NSLock, NSMutableArray, NSMutableSet, NSString, SUClientInterface, SUScriptNativeObject, SUScriptObjectInvocationBatch, WebFrame;
 
 @interface SUScriptObject : NSObject
 {
@@ -51,7 +51,6 @@
 - (void)lock;
 - (void)loadImageWithURL:(id)arg1 completionBlock:(id)arg2;
 - (BOOL)isVisible;
-@property(readonly) SUWebImagePool *imagePool;
 - (id)DOMElementWithElement:(id)arg1;
 - (void)dispatchEvent:(id)arg1 forName:(id)arg2 synchronously:(BOOL)arg3;
 - (void)dispatchEvent:(id)arg1 forName:(id)arg2;

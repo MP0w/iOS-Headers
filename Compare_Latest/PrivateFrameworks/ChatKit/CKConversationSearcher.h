@@ -11,12 +11,12 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class CKSpotlightQuery, NSArray, UISearchBar, UISearchDisplayController;
+@class CKSpotlightQuery, NSMutableArray, UISearchBar, UISearchDisplayController;
 
 @interface CKConversationSearcher : NSObject <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 {
     id <CKConversationSearcherDelegate> _delegate;
-    NSArray *_sortedSearchResults;
+    NSMutableArray *_sortedSearchResults;
     UISearchDisplayController *_searchController;
     UISearchBar *_searchBar;
     CKSpotlightQuery *_currentQuery;
@@ -42,7 +42,8 @@
 - (void)searchBarCancelButtonClicked:(id)arg1;
 - (void)searchBar:(id)arg1 textDidChange:(id)arg2;
 - (BOOL)searchBarShouldBeginEditing:(id)arg1;
-- (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
+- (BOOL)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 commitEditingStyle:(int)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;

@@ -7,6 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol IMDaemonListenerProtocol <NSObject>
+- (void)lastFailedMessageIDChanged:(long long)arg1;
+- (void)unreadCountChanged:(int)arg1;
 - (void)databaseNoLongerFull;
 - (void)databaseFull;
 - (void)databaseUpdated:(id)arg1;
@@ -20,6 +22,7 @@
 - (void)property:(id)arg1 changedTo:(id)arg2 from:(id)arg3;
 - (void)showForgotPasswordNotificationForAccount:(id)arg1;
 - (void)showInvalidCertNotificationForAccount:(id)arg1;
+- (void)account:(id)arg1 avAction:(unsigned int)arg2 withArguments:(id)arg3 toAVChat:(id)arg4 isVideo:(BOOL)arg5;
 - (void)account:(id)arg1 conference:(id)arg2 invitationSentSuccessfully:(BOOL)arg3;
 - (void)account:(id)arg1 conference:(id)arg2 peerID:(id)arg3 propertiesUpdated:(id)arg4;
 - (void)account:(id)arg1 conference:(id)arg2 peerIDChangedFromID:(id)arg3 toID:(id)arg4;
@@ -30,16 +33,12 @@
 - (void)account:(id)arg1 conference:(id)arg2 receivedCancelInvitationFrom:(id)arg3 properties:(id)arg4;
 - (void)account:(id)arg1 conference:(id)arg2 receivedResponseToInvitationFrom:(id)arg3 properties:(id)arg4;
 - (void)account:(id)arg1 conference:(id)arg2 receivedInvitationFrom:(id)arg3 properties:(id)arg4;
-- (void)account:(id)arg1 conference:(id)arg2 requestSendResponseWithResult:(int)arg3 toPerson:(id)arg4;
-- (void)account:(id)arg1 conference:(id)arg2 notifyMissedInvitationWithBuddy:(id)arg3;
-- (void)account:(id)arg1 conference:(id)arg2 cancelRequestInvitationWithBuddy:(id)arg3;
-- (void)account:(id)arg1 conference:(id)arg2 requestInvitationWithBuddy:(id)arg3;
 - (void)fileTransfer:(id)arg1 updatedWithCurrentBytes:(unsigned long long)arg2 totalBytes:(unsigned long long)arg3 averageTransferRate:(unsigned long long)arg4;
 - (void)fileTransfer:(id)arg1 updatedWithProperties:(id)arg2;
 - (void)fileTransfer:(id)arg1 createdWithProperties:(id)arg2;
 - (void)standaloneFileTransferRegistered:(id)arg1;
 - (void)historicalMessageGUIDsDeleted:(id)arg1 chatGUIDs:(id)arg2 queryID:(id)arg3;
-- (void)historyQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4;
+- (void)historyQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4 limit:(unsigned int)arg5;
 - (void)messageQuery:(id)arg1 finishedWithResult:(id)arg2 chatGUIDs:(id)arg3;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 member:(id)arg5 statusChanged:(int)arg6;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 statusChanged:(int)arg5 handleInfo:(id)arg6;
@@ -56,7 +55,6 @@
 - (void)chat:(id)arg1 updated:(id)arg2;
 - (void)account:(id)arg1 buddyInfo:(id)arg2 commandDelivered:(id)arg3 properties:(id)arg4;
 - (void)account:(id)arg1 buddyInfo:(id)arg2 commandReceived:(id)arg3 properties:(id)arg4;
-- (void)account:(id)arg1 buddyInfo:(id)arg2 dataReceived:(id)arg3;
 - (void)account:(id)arg1 handleSubscriptionRequestFrom:(id)arg2 withMessage:(id)arg3;
 - (void)account:(id)arg1 buddyProperties:(id)arg2 buddyPictures:(id)arg3;
 - (void)account:(id)arg1 groupsChanged:(id)arg2 error:(id)arg3;
@@ -75,6 +73,7 @@
 - (void)activeAccountsChanged:(id)arg1 forService:(id)arg2;
 - (void)defaultsChanged:(id)arg1 forService:(id)arg2;
 - (void)vcCapabilitiesChanged:(unsigned long long)arg1;
+- (void)pendingACRequestComplete;
 - (void)pendingVCRequestComplete;
 - (void)setupComplete;
 - (void)setupComplete:(BOOL)arg1 info:(id)arg2;

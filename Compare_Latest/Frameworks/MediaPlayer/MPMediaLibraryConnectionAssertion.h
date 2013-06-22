@@ -15,6 +15,7 @@
 }
 
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (id)description;
 - (void)dealloc;
 - (id)_initWithMediaLibrary:(id)arg1 identifier:(id)arg2;

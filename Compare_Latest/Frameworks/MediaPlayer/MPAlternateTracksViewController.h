@@ -20,6 +20,7 @@
     UITextLabel *_loadingLabel;
 }
 
+- (void).cxx_destruct;
 - (void)_setCell:(id)arg1 isChecked:(BOOL)arg2;
 - (void)_exitAnimated:(BOOL)arg1;
 - (void)removeLoadingUI;

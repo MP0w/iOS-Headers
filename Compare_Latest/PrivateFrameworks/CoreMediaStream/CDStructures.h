@@ -25,6 +25,8 @@ struct _MSDSPCContext {
 
 struct __CFData;
 
+struct __CFDictionary;
+
 struct __CFString;
 
 struct __MSSPCContext {
@@ -32,6 +34,7 @@ struct __MSSPCContext {
     struct __CFString *personID;
     struct __CFString *authToken;
     struct __CFDictionary *deviceInfo;
+    struct __CFDictionary *clientHeadersRef;
     double connectionTimeout;
     void *__didReceiveDataCallback;
     void *__didFinishCallback;

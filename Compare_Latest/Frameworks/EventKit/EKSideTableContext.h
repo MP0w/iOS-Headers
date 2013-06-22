@@ -22,6 +22,7 @@
 - (void)setSetting:(id)arg1 forKey:(id)arg2;
 - (id)settingForKey:(id)arg1;
 - (id)_settingForKey:(id)arg1;
+- (id)delayedProximityAlarms;
 - (id)alarmsBetweenStartDate:(id)arg1 endDate:(id)arg2;
 - (id)nextAlarmFireTime;
 - (id)insertNewAlarm;

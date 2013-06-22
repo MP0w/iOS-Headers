@@ -6,12 +6,12 @@
 
 #import <SpringBoardUI/SBDeviceLockTitle.h>
 
-@class TPLCDView;
+@class TPLegacyLCDView;
 
 @interface SBDeviceLockTitlePhone : SBDeviceLockTitle
 {
     BOOL _highlighted;
-    TPLCDView *_lcdView;
+    TPLegacyLCDView *_lcdView;
 }
 
 - (void)blinkSubtitle;

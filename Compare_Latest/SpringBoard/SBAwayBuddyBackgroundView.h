@@ -16,6 +16,7 @@
 
 - (void)setInfoButtonAlpha:(float)arg1;
 - (void)layoutSubviews;
+- (void)toggleShowsIMEIandICCID:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

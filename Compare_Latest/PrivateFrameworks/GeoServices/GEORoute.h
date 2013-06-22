@@ -10,6 +10,8 @@
 
 @interface GEORoute : PBCodable
 {
+    CDStruct_56d48c16 _advisorys;
+    CDStruct_084d6ede _incidentIndices;
     CDStruct_084d6ede _trafficColorOffsets;
     CDStruct_084d6ede _trafficColors;
     NSMutableArray *_advisoryNotices;
@@ -21,9 +23,11 @@
     unsigned int _distance;
     int _drivingSide;
     unsigned int _expectedTime;
+    unsigned int _historicTravelTime;
     NSString *_name;
     NSString *_phoneticName;
     NSData *_routeID;
+    NSMutableArray *_routeNames;
     int _routeType;
     NSMutableArray *_steps;
     int _transportType;
@@ -35,12 +39,15 @@
         unsigned int distance:1;
         unsigned int drivingSide:1;
         unsigned int expectedTime:1;
+        unsigned int historicTravelTime:1;
         unsigned int routeType:1;
         unsigned int transportType:1;
     } _has;
 }
 
 @property(retain, nonatomic) NSData *unpackedLatLngVertices; // @synthesize unpackedLatLngVertices=_unpackedLatLngVertices;
+@property(nonatomic) unsigned int historicTravelTime; // @synthesize historicTravelTime=_historicTravelTime;
+@property(retain, nonatomic) NSMutableArray *routeNames; // @synthesize routeNames=_routeNames;
 @property(retain, nonatomic) NSMutableArray *advisoryNotices; // @synthesize advisoryNotices=_advisoryNotices;
 @property(retain, nonatomic) NSData *basicPoints; // @synthesize basicPoints=_basicPoints;
 @property(nonatomic) unsigned int arrivalStepID; // @synthesize arrivalStepID=_arrivalStepID;
@@ -62,7 +69,24 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (void)setIncidentIndices:(unsigned int *)arg1 count:(unsigned int)arg2;
+- (unsigned int)incidentIndicesAtIndex:(unsigned int)arg1;
+- (void)addIncidentIndices:(unsigned int)arg1;
+- (void)clearIncidentIndices;
+@property(readonly, nonatomic) unsigned int *incidentIndices;
+@property(readonly, nonatomic) unsigned int incidentIndicesCount;
 @property(readonly, nonatomic) BOOL hasUnpackedLatLngVertices;
+- (void)setAdvisorys:(int *)arg1 count:(unsigned int)arg2;
+- (int)advisoryAtIndex:(unsigned int)arg1;
+- (void)addAdvisory:(int)arg1;
+- (void)clearAdvisorys;
+@property(readonly, nonatomic) int *advisorys;
+@property(readonly, nonatomic) unsigned int advisorysCount;
+@property(nonatomic) BOOL hasHistoricTravelTime;
+- (id)routeNameAtIndex:(unsigned int)arg1;
+- (unsigned int)routeNamesCount;
+- (void)addRouteName:(id)arg1;
+- (void)clearRouteNames;
 - (void)setTrafficColorOffsets:(unsigned int *)arg1 count:(unsigned int)arg2;
 - (unsigned int)trafficColorOffsetAtIndex:(unsigned int)arg1;
 - (void)addTrafficColorOffset:(unsigned int)arg1;
@@ -100,6 +124,9 @@
 - (void)clearSteps;
 @property(nonatomic) BOOL hasTransportType;
 - (void)dealloc;
+- (double)distanceFromPoint:(struct PolylineCoordinate)arg1 toPoint:(struct PolylineCoordinate)arg2;
+- (void)updateJapanTollManeuvers;
+- (int)transportTypeForStep:(id)arg1;
 - (BOOL)isContingentRouteFor:(id)arg1 afterPoint:(unsigned int)arg2 mainRoutes:(id)arg3;
 - (id)zilchDataFromStepIndex:(unsigned int)arg1;
 - (id)newETARouteFromStepIndex:(unsigned int)arg1 stepPercentRemaining:(double)arg2;
@@ -111,14 +138,13 @@
 - (unsigned int)stepIndexForPointIndex:(unsigned int)arg1;
 - (unsigned int)distanceFromStepIndex:(unsigned int)arg1 toStepIndex:(unsigned int)arg2;
 - (BOOL)unpackLatLngVertices;
-- (BOOL)unpackZilchPoints;
+- (void)unpackZilchPoints;
 - (BOOL)unpackBasicPoints;
-@property(readonly, getter=isComplete) BOOL complete;
 @property(readonly) unsigned int pointCount;
 - (int)formOfWayAt:(unsigned int)arg1;
 - (void)getFormOfWay:(int *)arg1 roadClass:(int *)arg2 at:(unsigned int)arg3;
 - (CDStruct_c3b9c2ee)pointAt:(unsigned int)arg1;
-- (struct ControlPoint *)controlPoints;
+- (void *)controlPoints;
 
 @end
 

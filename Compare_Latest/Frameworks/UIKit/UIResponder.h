@@ -6,24 +6,27 @@
 
 #import "NSObject.h"
 
+#import "UITextInputAdditions-Protocol.h"
 #import "UITextInput_Internal-Protocol.h"
 
-@class NSString, NSUndoManager, UIResponder<UITextInput>, UIView, UIView<UITextInputPrivate>;
+@class NSArray, NSString, NSUndoManager, UIResponder<UITextInput>, UITextInputMode, UIView, UIView<UITextInputPrivate>;
 
-@interface UIResponder : NSObject <UITextInput_Internal>
+@interface UIResponder : NSObject <UITextInput_Internal, UITextInputAdditions>
 {
 }
 
++ (void)clearTextInputContextIdentifier:(id)arg1;
 + (void)_finishStateRestoration;
 + (void)_cleanupAllStateRestorationTables;
 + (void)_prepareForSecondPassStateRestoration;
 + (void)_cleanupStateRestorationObjectIdentifierTrackingTables;
 + (void)_setRestoredIdentifierPathForObject:(id)arg1 identifierPath:(id)arg2;
 + (void)_updateStateRestorationIdentifierMap;
-+ (void)_stopTrackingObjectsWithIdentifiers;
-+ (void)_startTrackingObjectsWithIdentifiers;
++ (void)_stopDeferredTrackingObjectsWithIdentifiers;
++ (void)_startDeferredTrackingObjectsWithIdentifiers;
 + (id)objectWithRestorationIdentifierPath:(id)arg1;
 @property(readonly, nonatomic) NSUndoManager *undoManager;
+- (id)targetForAction:(SEL)arg1 withSender:(id)arg2;
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)_clearBecomeFirstResponderWhenCapable;
 - (id)firstResponder;
@@ -34,7 +37,6 @@
 - (BOOL)canBecomeFirstResponder;
 - (BOOL)becomeFirstResponder;
 - (BOOL)_containsResponder:(id)arg1;
-- (id)_window;
 - (BOOL)_containedInAbsoluteResponderChain;
 @property(readonly, nonatomic) UIResponder *_responderForEditing;
 @property(readonly, nonatomic) UIResponder *_editingDelegate;
@@ -46,6 +48,7 @@
 - (void)gestureEnded:(struct __GSEvent *)arg1;
 - (void)gestureStarted:(struct __GSEvent *)arg1;
 - (void)scrollWheel:(struct __GSEvent *)arg1;
+- (void)_wheelChangedWithEvent:(id)arg1;
 - (void)remoteControlReceivedWithEvent:(id)arg1;
 - (void)motionCancelled:(int)arg1 withEvent:(id)arg2;
 - (void)motionEnded:(int)arg1 withEvent:(id)arg2;
@@ -54,51 +57,55 @@
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)mouseMoved:(struct __GSEvent *)arg1;
-- (void)mouseExited:(struct __GSEvent *)arg1;
-- (void)mouseEntered:(struct __GSEvent *)arg1;
-- (void)mouseDragged:(struct __GSEvent *)arg1;
-- (void)mouseUp:(struct __GSEvent *)arg1;
-- (void)mouseDown:(struct __GSEvent *)arg1;
 - (void)reloadInputViewsWithoutReset;
 - (void)reloadInputViews;
+@property(readonly) NSString *textInputContextIdentifier;
+@property(readonly) UITextInputMode *textInputMode;
 @property(readonly) UIView *inputAccessoryView;
 @property(readonly) UIView *inputView;
+@property(readonly, nonatomic) NSArray *keyCommands;
+- (void)_didChangeToFirstResponder:(id)arg1;
+- (BOOL)_canChangeFirstResponder:(id)arg1 toResponder:(id)arg2;
+- (id)_responderSelectionImage;
+- (id)_responderSelectionContainerViewForResponder:(id)arg1;
+- (struct CGRect)_responderSelectionRectForWindow:(id)arg1;
+- (id)_deepestUnambiguousResponder;
+- (void)_physicalButtonsCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsEnded:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
+- (void)_moveWithEvent:(id)arg1;
 - (id)_showServiceForText:(id)arg1 type:(int)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
 - (BOOL)_canShowTextServices;
 - (id)_nextViewControllerInResponderChain;
 - (BOOL)_isViewController;
 - (void)_completeForwardingTouches:(id)arg1 phase:(int)arg2 event:(id)arg3;
 - (void)_completeForwardingTouches:(id)arg1 phase:(int)arg2 event:(id)arg3 index:(unsigned int)arg4;
-- (BOOL)_promoteDeepestDefaultFirstResponder;
-- (id)_deepestDefaultFirstResponderMatching:(id)arg1;
-- (id)_deepestDefaultFirstResponder;
 - (BOOL)_isTransitioningFromView:(id)arg1;
 - (void)_windowResignedKey;
 - (void)_windowBecameKey;
-- (BOOL)_shouldUseKeyWindowStack;
-- (BOOL)_shouldUseNextFirstResponder;
-- (BOOL)_shouldUseDefaultFirstResponder;
-- (id)_nextFirstResponderIfAllowed;
 - (id)nextFirstResponder;
-- (id)defaultFirstResponder;
+- (void)_handleKeyUIEvent:(id)arg1;
 - (void)_handleKeyEvent:(struct __GSEvent *)arg1;
 - (BOOL)_isPinningInputViews;
 - (void)_endPinningInputViews;
 - (void)_beginPinningInputViews;
 - (void)_becomeFirstResponderAndMakeVisible;
+- (BOOL)_canBecomeFirstResponder;
 - (void)_resignFirstResponder;
 - (void)_becomeFirstResponder;
+- (BOOL)_resignIfContainsFirstResponder;
+- (id)_responderWindow;
 - (id)_keyboardResponder;
 - (BOOL)_requiresKeyboardResetOnReload;
+- (BOOL)_requiresKeyboardWindowWhenFirstResponder;
 - (BOOL)_requiresKeyboardWhenFirstResponder;
-- (id)_targetForAction:(SEL)arg1 withSender:(id)arg2;
+- (id)_keyCommandForEvent:(id)arg1;
+- (id)_keyCommands;
 - (void)_controlTouchEnded:(id)arg1 withEvent:(id)arg2;
 - (void)_controlTouchMoved:(id)arg1 withEvent:(id)arg2;
 - (void)_controlTouchBegan:(id)arg1 withEvent:(id)arg2;
-- (void)_controlMouseDragged:(struct __GSEvent *)arg1;
-- (void)_controlMouseUp:(struct __GSEvent *)arg1;
-- (void)_controlMouseDown:(struct __GSEvent *)arg1;
+- (id)_window;
+- (BOOL)_supportsBecomeFirstResponderWhenPossible;
 - (BOOL)_canBecomeFirstResponderWhenPossible;
 - (BOOL)_becomeFirstResponderWhenPossible;
 - (id)_responderForBecomeFirstResponder;
@@ -165,7 +172,8 @@
 - (unsigned long)_characterAfterCaretSelection;
 - (struct _NSRange)_nsrangeForTextRange:(id)arg1;
 - (int)_indexForTextPosition:(id)arg1;
-- (struct _NSRange)_selectionAsNSRange;
+- (void)_selectAll;
+- (struct _NSRange)_selectedNSRange;
 - (id)_keyInput;
 @property(readonly, nonatomic, getter=_proxyTextInput) UIResponder<UITextInput> *__content;
 - (void)endSelectionChange;
@@ -180,7 +188,7 @@
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (id)_restorationIdentifierPath;
 @property(copy, nonatomic) NSString *restorationIdentifier;
-- (void)_trackObjectWithIdentifier:(id)arg1;
+- (void)_rebuildStateRestorationIdentifierPath;
 
 @end
 

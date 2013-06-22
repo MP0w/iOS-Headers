@@ -50,6 +50,7 @@
 - (void)dealloc;
 - (id)lineBoxRects;
 - (id)textRects;
+- (struct CGImage *)renderedImageForcingBlackText:(BOOL)arg1;
 - (struct CGRect)boundingBox;
 - (id)_text;
 - (id)description;

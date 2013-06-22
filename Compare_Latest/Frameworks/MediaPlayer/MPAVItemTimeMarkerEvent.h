@@ -22,8 +22,8 @@
 @property(retain, nonatomic) MPTimeMarker *artworkMarker; // @synthesize artworkMarker=_artworkMarker;
 @property(retain, nonatomic) MPTimeMarker *chapterMarker; // @synthesize chapterMarker=_chapterMarker;
 @property(retain, nonatomic) MPAVItem *AVItem; // @synthesize AVItem=_AVItem;
+- (void).cxx_destruct;
 - (id)crossedMarkerOfType:(int)arg1;
-- (void)dealloc;
 - (id)initWithTimeMarkerNotificationUserInfo:(id)arg1;
 
 @end

@@ -12,9 +12,10 @@
     int _textureSampler;
 }
 
-+ (id)program;
-@property(nonatomic) int textureSampler;
-- (id)init;
++ (id)fragName;
++ (id)vertName;
+@property(nonatomic) int textureSampler; // @synthesize textureSampler=_textureSampler;
+- (void)setup;
 
 @end
 

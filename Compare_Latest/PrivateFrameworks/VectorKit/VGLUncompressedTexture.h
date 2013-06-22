@@ -16,7 +16,8 @@
     BOOL _fastPath;
 }
 
-- (CDStruct_818bb265)textureCoordinateRect;
+- (BRectImp_7721609a)textureCoordinateRect:(struct CGRect)arg1;
+- (BOOL)isFlipped;
 - (BOOL)loadTexture;
 - (BOOL)decodeTexture;
 - (void)dealloc;

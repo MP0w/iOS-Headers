@@ -10,7 +10,12 @@
 
 @interface GEODirectionsResponse : PBCodable
 {
+    CDStruct_c55e649d *_problemDetails;
+    unsigned int _problemDetailsCount;
+    unsigned int _problemDetailsSpace;
     NSData *_directionsResponseID;
+    NSMutableArray *_incidentsOffRoutes;
+    NSMutableArray *_incidentsOnRoutes;
     int _instructionSignFillColor;
     int _localDistanceUnits;
     NSMutableArray *_placeSearchResponses;
@@ -26,6 +31,8 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSMutableArray *incidentsOffRoutes; // @synthesize incidentsOffRoutes=_incidentsOffRoutes;
+@property(retain, nonatomic) NSMutableArray *incidentsOnRoutes; // @synthesize incidentsOnRoutes=_incidentsOnRoutes;
 @property(retain, nonatomic) NSData *directionsResponseID; // @synthesize directionsResponseID=_directionsResponseID;
 @property(nonatomic) int localDistanceUnits; // @synthesize localDistanceUnits=_localDistanceUnits;
 @property(retain, nonatomic) NSMutableArray *placeSearchResponses; // @synthesize placeSearchResponses=_placeSearchResponses;
@@ -38,6 +45,20 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (void)setProblemDetails:(CDStruct_c55e649d *)arg1 count:(unsigned int)arg2;
+- (CDStruct_c55e649d)problemDetailAtIndex:(unsigned int)arg1;
+- (void)addProblemDetail:(CDStruct_c55e649d)arg1;
+- (void)clearProblemDetails;
+@property(readonly, nonatomic) CDStruct_c55e649d *problemDetails;
+@property(readonly, nonatomic) unsigned int problemDetailsCount;
+- (id)incidentsOffRoutesAtIndex:(unsigned int)arg1;
+- (unsigned int)incidentsOffRoutesCount;
+- (void)addIncidentsOffRoutes:(id)arg1;
+- (void)clearIncidentsOffRoutes;
+- (id)incidentsOnRoutesAtIndex:(unsigned int)arg1;
+- (unsigned int)incidentsOnRoutesCount;
+- (void)addIncidentsOnRoutes:(id)arg1;
+- (void)clearIncidentsOnRoutes;
 @property(nonatomic) BOOL hasInstructionSignFillColor;
 @property(nonatomic) int instructionSignFillColor; // @synthesize instructionSignFillColor=_instructionSignFillColor;
 @property(nonatomic) BOOL hasIsNavigable;

@@ -30,7 +30,7 @@
 @property int selectedIndex; // @dynamic selectedIndex;
 - (void)releaseImagesAndViews;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;
 
 @end
 

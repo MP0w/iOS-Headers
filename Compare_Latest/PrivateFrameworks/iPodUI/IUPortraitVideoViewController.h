@@ -23,13 +23,13 @@
 
 + (BOOL)supportsFullscreenDisplay;
 @property(retain, nonatomic) UINavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
+- (void).cxx_destruct;
 - (void)_removeOverlayView;
 - (void)_handleSwipeRight;
 - (id)videoOverlayViewIfLoaded;
 - (id)videoOverlayView;
 - (id)_overlayView;
 - (void)_layoutVideoView;
-- (struct CGRect)backgroundViewSnapshotFrame;
 - (id)newOverlayViewWithFrame:(struct CGRect)arg1;
 - (void)transportControlsDidResize:(id)arg1;
 - (BOOL)transportControls:(id)arg1 tappedButtonPart:(unsigned long long)arg2;

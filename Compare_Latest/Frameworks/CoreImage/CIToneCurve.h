@@ -6,9 +6,11 @@
 
 #import <CoreImage/CIFilter.h>
 
+#import "_CIFilterProperties-Protocol.h"
+
 @class CIImage, CIVector;
 
-@interface CIToneCurve : CIFilter
+@interface CIToneCurve : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
     CIVector *inputPoint0;
@@ -29,13 +31,13 @@
 @property(copy, nonatomic) CIVector *inputPoint1; // @synthesize inputPoint1;
 @property(copy, nonatomic) CIVector *inputPoint0; // @synthesize inputPoint0;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
+- (id)_initFromProperties:(id)arg1;
+- (id)_outputProperties;
 - (id)outputImage;
 - (BOOL)_isIdentity;
 - (id)_kernel16;
 - (void)setDefaults;
 - (void)dealloc;
-- (id)_initFromProperties:(id)arg1;
-- (id)_outputProperties;
 
 @end
 

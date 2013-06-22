@@ -13,16 +13,17 @@
     NSString *_title;
     NSString *_album;
     NSString *_artist;
-    int _mediaType;
+    unsigned int _mediaType;
 }
 
 + (void)getRequiredStringProperties:(id)arg1 optionalStringProperties:(id)arg2 forDataSource:(id)arg3;
 + (float)rowHeightForGlobalContext:(id)arg1;
 + (id)backgroundColorWithModifiers:(unsigned int)arg1;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
-@property(nonatomic) int mediaType; // @synthesize mediaType=_mediaType;
+@property(nonatomic) unsigned int mediaType; // @synthesize mediaType=_mediaType;
 @property(retain, nonatomic) NSString *artist; // @synthesize artist=_artist;
 @property(retain, nonatomic) NSString *album; // @synthesize album=_album;
+- (void).cxx_destruct;
 - (void)reloadStringsWithProperties:(id)arg1;
 - (id)displayProperties;
 - (void)reloadImages;
@@ -34,7 +35,6 @@
 - (BOOL)canShowPurchasableMediaViews;
 - (id)description;
 - (id)colorForLabelAtIndex:(unsigned int)arg1 withModifiers:(unsigned int)arg2;
-- (void)dealloc;
 - (id)init;
 
 @end

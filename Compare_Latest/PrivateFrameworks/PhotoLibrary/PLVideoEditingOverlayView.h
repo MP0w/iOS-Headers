@@ -6,13 +6,12 @@
 
 #import "UIView.h"
 
-@class UILabel, UIMovieScrubber;
+@class UILabel;
 
 @interface PLVideoEditingOverlayView : UIView
 {
     UILabel *_titleLabel;
     UILabel *_bodyLabel;
-    UIMovieScrubber *_scrubber;
 }
 
 - (void)layoutSubviews;

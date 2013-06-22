@@ -25,11 +25,11 @@
 - (id)createMetadataModel;
 - (id)newMetadataManagedObjectModel;
 - (void)removeAllCoordinatorsForRootLocation:(id)arg1;
-- (void)removeCachedCoordinatorsForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
-- (BOOL)cacheEntryForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2 error:(id *)arg3;
-- (id)entryForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
-- (id)newMetadataEntryForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2 error:(id *)arg3;
-- (id)newStackForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2 error:(id *)arg3;
+- (void)removeCachedCoordinatorsForLocalPeerID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3;
+- (BOOL)cacheEntryForLocalPeerID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3 error:(id *)arg4;
+- (id)entryForLocalPeerID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3;
+- (id)newMetadataEntryForLocalPeerID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3 error:(id *)arg4;
+- (id)newStackForLocalPeerID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3 error:(id *)arg4;
 - (id)description;
 - (void)dealloc;
 - (id)init;

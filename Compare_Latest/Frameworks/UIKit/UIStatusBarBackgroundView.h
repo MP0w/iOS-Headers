@@ -6,32 +6,30 @@
 
 #import <UIKit/UIView.h>
 
-@class UIColor, UIImageView, UIStatusBarCorners;
+@class UIImageView, UIStatusBarCorners, UIStatusBarStyleAttributes;
 
 @interface UIStatusBarBackgroundView : UIView
 {
-    int _style;
-    UIColor *_tintColor;
+    UIStatusBarStyleAttributes *_style;
     UIStatusBarCorners *_topCorners;
     UIImageView *_glowView;
     BOOL _glowEnabled;
     BOOL _suppressGlow;
 }
 
-- (BOOL)_topCornersAreRoundedForStyle:(int)arg1;
-- (id)_glowImageForStyle:(int)arg1;
-- (id)_baseImageForStyle:(int)arg1;
-- (id)_imageNameForStyle:(int)arg1;
+- (BOOL)_topCornersAreRounded;
+- (id)_glowImage;
+- (id)_baseImage;
+- (id)_backgroundImageName;
 - (void)_stopGlowAnimation;
 - (void)_startGlowAnimationWaitForNextCycle:(BOOL)arg1;
-- (BOOL)_styleCanGlow:(int)arg1;
+- (BOOL)_styleCanGlow;
 - (void)setSuppressesGlow:(BOOL)arg1;
 - (void)_setGlowAnimationEnabled:(BOOL)arg1 waitForNextCycle:(BOOL)arg2;
 - (void)setGlowAnimationEnabled:(BOOL)arg1;
-- (id)tintColor;
-- (int)style;
+- (id)style;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2 tintColor:(id)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 style:(id)arg2 backgroundColor:(id)arg3;
 
 @end
 

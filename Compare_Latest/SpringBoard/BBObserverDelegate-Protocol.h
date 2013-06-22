@@ -15,14 +15,21 @@
 - (id)observer:(id)arg1 thumbnailSizeConstraintsForAttachmentType:(int)arg2;
 - (BOOL)observerShouldFetchAttachmentSizeBeforeBulletinDelivery:(id)arg1;
 - (BOOL)observerShouldFetchAttachmentImageBeforeBulletinDelivery:(id)arg1;
+- (void)observer:(id)arg1 noteServerReceivedResponseForBulletin:(id)arg2;
+- (void)observer:(id)arg1 noteServerConnectionStateChanged:(BOOL)arg2;
+- (void)observer:(id)arg1 noteInvalidatedBulletinIDs:(id)arg2;
 - (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned int)arg2;
 - (void)observer:(id)arg1 purgeReferencesToBulletinID:(id)arg2;
 - (void)observer:(id)arg1 noteSectionParametersChanged:(id)arg2;
 - (void)observer:(id)arg1 updateSectionInfo:(id)arg2;
+- (void)observer:(id)arg1 updateSectionInfo:(id)arg2 inCategory:(int)arg3;
 - (void)observer:(id)arg1 updateSectionOrder:(id)arg2;
-- (void)observer:(id)arg1 updateSectionOrderRule:(unsigned int)arg2;
+- (void)observer:(id)arg1 updateSectionOrder:(id)arg2 forCategory:(int)arg3;
+- (void)observer:(id)arg1 updateSectionOrderRule:(int)arg2;
 - (void)observer:(id)arg1 removeBulletin:(id)arg2;
+- (void)observer:(id)arg1 removeBulletin:(id)arg2 forFeed:(unsigned int)arg3;
 - (void)observer:(id)arg1 modifyBulletin:(id)arg2;
+- (void)observer:(id)arg1 modifyBulletin:(id)arg2 forFeed:(unsigned int)arg3;
 - (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
 @end
 

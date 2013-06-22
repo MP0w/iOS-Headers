@@ -12,7 +12,7 @@
 {
     NSMutableDictionary *actualDictionary;
     unsigned int type;
-    int orignalCallID;
+    unsigned long orignalCallID;
 }
 
 + (BOOL)validateFocus:(id)arg1;
@@ -21,7 +21,7 @@
 + (BOOL)validateInvite:(id)arg1;
 + (BOOL)validateDictionary:(id)arg1;
 + (id)dictionaryFromData:(id)arg1;
-+ (id)inviteDictionaryToParticipantID:(id)arg1 fromParticipantID:(id)arg2 connectionData:(id)arg3 callID:(int)arg4 focus:(BOOL)arg5;
++ (id)inviteDictionaryToParticipantID:(id)arg1 fromParticipantID:(id)arg2 connectionData:(id)arg3 callID:(unsigned long)arg4 focus:(BOOL)arg5;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -29,7 +29,7 @@
 - (id)setLocalVCPartyID:(id)arg1;
 - (id)remoteVCPartyID;
 - (id)localVCPartyID;
-@property int callID;
+@property unsigned long callID;
 - (id)createBlob;
 - (id)version;
 - (void)setFocus:(BOOL)arg1;
@@ -49,8 +49,8 @@
 - (BOOL)isInviteDictionary;
 - (id)focusDictionary:(BOOL)arg1;
 - (id)cancelDictionary;
-- (id)replyDictionary:(unsigned int)arg1 connectionData:(id)arg2 callID:(int)arg3 focus:(BOOL)arg4;
-@property(readonly) int originalCallID;
+- (id)replyDictionary:(unsigned int)arg1 connectionData:(id)arg2 callID:(unsigned long)arg3 focus:(BOOL)arg4;
+@property(readonly) unsigned long originalCallID;
 - (void)dealloc;
 
 @end

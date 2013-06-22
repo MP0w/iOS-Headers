@@ -8,21 +8,26 @@
 
 #import "NSCopying-Protocol.h"
 
-@class EKRecurrenceEnd, NSArray, NSString;
+@class EKCalendarItem, EKRecurrenceEnd, NSArray, NSDate, NSString;
 
 @interface EKRecurrenceRule : EKObject <NSCopying>
 {
+    BOOL _usesEndDate;
     EKRecurrenceEnd *_cachedEnd;
+    EKCalendarItem *_owner;
 }
 
 + (id)iCalendarValueFromDate:(id)arg1 isDateOnly:(BOOL)arg2 isFloating:(BOOL)arg3;
 + (id)iCalendarValueFromDayOfTheWeek:(unsigned int)arg1;
 + (id)iCalendarValueFromRecurrenceType:(int)arg1;
 + (id)recurrenceRuleWithType:(int)arg1 interval:(unsigned int)arg2 end:(id)arg3;
+@property(retain, nonatomic) EKCalendarItem *owner; // @synthesize owner=_owner;
+@property(readonly) BOOL usesEndDate; // @synthesize usesEndDate=_usesEndDate;
 @property(retain, nonatomic) EKRecurrenceEnd *cachedEnd; // @synthesize cachedEnd=_cachedEnd;
 - (id)stringValueAsDateOnly:(BOOL)arg1 isFloating:(BOOL)arg2;
+- (void)pinToEndsOfMonthsWithCalendarItem:(id)arg1;
 - (BOOL)mayOccurAfterDate:(id)arg1;
-- (BOOL)dirtyStateMayAffectExceptionDates;
+@property(readonly, nonatomic) BOOL dirtyStateMayAffectExceptionDates;
 - (void)reset;
 - (void)setSetPositions:(id)arg1;
 @property(readonly, nonatomic) NSArray *setPositions;
@@ -38,21 +43,20 @@
 @property(readonly, nonatomic) NSArray *daysOfTheWeek;
 - (void)setFirstDayOfTheWeek:(unsigned int)arg1;
 @property(readonly, nonatomic) int firstDayOfTheWeek;
-- (id)cachedEndDate;
+@property(readonly, nonatomic) NSDate *cachedEndDate;
 @property(copy, nonatomic) EKRecurrenceEnd *recurrenceEnd;
-- (void)setInterval:(int)arg1;
+- (void)setInterval:(unsigned int)arg1;
 @property(readonly, nonatomic) int interval;
 - (void)setFrequency:(int)arg1;
 @property(readonly, nonatomic) int frequency;
 @property(readonly, nonatomic) NSString *calendarIdentifier;
-- (id)owner;
 - (id)lazyLoadRelationForKey:(id)arg1;
-- (CDStruct_6e43267c)gregorianUnits;
+@property(readonly) CDStruct_6e43267c gregorianUnits;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (BOOL)shouldPinMonthDays;
-- (id)UUID;
+@property(readonly, nonatomic) BOOL shouldPinMonthDays;
+@property(readonly, nonatomic) NSString *UUID;
 - (id)_persistentRule;
 - (id)initRecurrenceWithFrequency:(int)arg1 interval:(int)arg2 end:(id)arg3;
 - (id)initRecurrenceWithFrequency:(int)arg1 interval:(int)arg2 daysOfTheWeek:(id)arg3 daysOfTheMonth:(id)arg4 monthsOfTheYear:(id)arg5 weeksOfTheYear:(id)arg6 daysOfTheYear:(id)arg7 setPositions:(id)arg8 end:(id)arg9;

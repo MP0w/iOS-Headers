@@ -6,18 +6,19 @@
 
 #import "NSObject.h"
 
-@class ML3MusicLibrary, ML3SqliteDatabase;
+@class ML3DatabaseConnection, ML3MusicLibrary;
 
 @interface ITDBGeniusDatabase : NSObject
 {
     ML3MusicLibrary *_musicLibrary;
-    ML3SqliteDatabase *_geniusDB;
+    ML3DatabaseConnection *_geniusDBConnection;
     double _connectionFailedTime;
     struct __CFDictionary *_statementCache;
     BOOL _isInTransaction;
 }
 
 + (id)sharedGeniusDatabase;
+@property(readonly, nonatomic) ML3MusicLibrary *musicLibrary; // @synthesize musicLibrary=_musicLibrary;
 @property(nonatomic) BOOL isInTransaction; // @synthesize isInTransaction=_isInTransaction;
 - (void).cxx_destruct;
 - (BOOL)getGeniusSimilaritiesDataAndBytesForGlobalID:(unsigned long long)arg1 intoData:(id)arg2;
@@ -39,8 +40,8 @@
 - (BOOL)_copyBlobData:(id *)arg1 blobAllocType:(int)arg2 table:(id)arg3 blobColumn:(id)arg4 where:(id)arg5;
 - (unsigned long long)_getInt64ValueInTable:(id)arg1 column:(id)arg2 where:(id)arg3 limit:(unsigned int)arg4;
 - (unsigned int)_getInt32ValueInTable:(id)arg1 column:(id)arg2;
-- (unsigned int)_hasRowsInTable:(id)arg1;
-- (id)database;
+- (BOOL)_hasRowsInTable:(id)arg1;
+- (id)databaseConnection;
 - (void)_connect;
 - (void)_invalidateDatabase;
 - (id)init;

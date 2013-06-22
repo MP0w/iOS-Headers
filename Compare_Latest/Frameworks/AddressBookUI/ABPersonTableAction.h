@@ -53,7 +53,7 @@
 - (id)styleProvider;
 - (void)prepareButton:(id)arg1 forValueAtIndex:(int)arg2 inPropertyGroup:(id)arg3;
 - (void)buttonClicked:(id)arg1;
-- (void)performWithSender:(id)arg1 person:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (void)performWithSender:(id)arg1 person:(id)arg2 property:(int)arg3 identifier:(int)arg4;
 - (void)setFMFActionButton:(id)arg1;
 @property(readonly, nonatomic) UIButton *button;
 - (void)modifyDetailText:(id)arg1;

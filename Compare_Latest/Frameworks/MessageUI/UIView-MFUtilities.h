@@ -7,6 +7,8 @@
 #import "UIView.h"
 
 @interface UIView (MFUtilities)
+- (float)mf_currentScreenScale;
 - (id)mf_frontSibling;
+- (id)mf_enclosingScrollView;
 @end
 

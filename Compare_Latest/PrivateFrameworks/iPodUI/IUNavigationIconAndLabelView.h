@@ -16,8 +16,8 @@
     NSString *_title;
 }
 
+- (void).cxx_destruct;
 - (void)layoutSubviews;
-- (void)dealloc;
 - (id)initWithTitle:(id)arg1 icon:(id)arg2;
 
 @end

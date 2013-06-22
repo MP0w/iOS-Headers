@@ -6,11 +6,16 @@
 
 #import <UIKit/UILabel.h>
 
+@class UIButton;
+
 @interface UIButtonLabel : UILabel
 {
     BOOL _reverseShadow;
+    UIButton *_button;
 }
 
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (id)_defaultAttributes;
 - (struct CGSize)intrinsicContentSize;
 - (void)setReverseShadow:(BOOL)arg1;
 - (struct CGSize)shadowOffset;
@@ -21,6 +26,7 @@
 - (void)setShadowOffset:(struct CGSize)arg1;
 - (void)setLineBreakMode:(int)arg1;
 - (void)setFont:(id)arg1;
+- (id)_initWithFrame:(struct CGRect)arg1 button:(id)arg2;
 
 @end
 

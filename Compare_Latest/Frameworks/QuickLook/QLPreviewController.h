@@ -6,9 +6,11 @@
 
 #import "UIViewController.h"
 
+#import "QLPreviewTransitionAnimatorDelegate-Protocol.h"
+
 @class QLPreviewControllerReserved;
 
-@interface QLPreviewController : UIViewController
+@interface QLPreviewController : UIViewController <QLPreviewTransitionAnimatorDelegate>
 {
     QLPreviewControllerReserved *_reserved;
 }
@@ -29,16 +31,20 @@
 - (void)_showProgressUI;
 - (void)_scheduleDelayedTransitionIfNeeded;
 - (void)_resumeDelayedTransition;
-- (id)printInfoForDocumentInteractionControllerInPopOverState:(id)arg1;
+- (id)printInfoForDocumentInteractionController:(id)arg1;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)activityViewControllerPlaceholderItems:(id)arg1;
-- (id)activityItemForDocumentInteractionControllerInPopOverState:(id)arg1;
-- (id)popOverStateViewControllerForPreview:(id)arg1;
-- (id)_popOverState;
+- (id)_pdfPreviewDataAtURL:(id)arg1 loadIfNeeded:(BOOL)arg2;
+- (id)activityItemForDocumentInteractionController:(id)arg1;
+- (void)documentInteractionControllerDidDismissOptionsMenu:(id)arg1;
+- (void)documentInteractionControllerWillPresentOptionsMenu:(id)arg1;
 - (BOOL)_canPrint;
 - (void)prepareForPrinting;
 - (BOOL)canPrint;
+- (void)navigationGoBackAction:(id)arg1;
 - (void)playButtonAction:(id)arg1;
+- (void)showArchiveContent:(id)arg1;
+- (void)showArchiveContentAnimated:(BOOL)arg1;
 - (void)arrowsAction:(id)arg1;
 - (void)rightArrowAction:(id)arg1;
 - (void)leftArrowAction:(id)arg1;
@@ -50,6 +56,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)_unloadInternalViews;
 - (void)_loadInternalViews;
+- (void)_ensurePreviewModeAnimated:(BOOL)arg1;
 - (void)_ensurePreviewContentController;
 - (void)_configurePreviewContentController;
 - (struct CGRect)_contentFrameForRemoteView;
@@ -65,6 +72,7 @@
 - (void)_removeChildPreviewContentControllerIfNeeded;
 - (void)previewContentController:(id)arg1 receivedTapOnURL:(id)arg2;
 - (void)overlayWasTappedInPreviewContentController:(id)arg1;
+- (void)showContentsWasTappedInPreviewContentController:(id)arg1;
 - (void)contentWasTappedInPreviewContentController:(id)arg1;
 - (void)previewContentController:(id)arg1 willHideOverlayWithDuration:(double)arg2;
 - (void)previewContentController:(id)arg1 willShowOverlayWithDuration:(double)arg2;
@@ -73,26 +81,31 @@
 - (void)previewContentController:(id)arg1 didLoadItem:(id)arg2 atIndex:(int)arg3 withError:(id)arg4;
 - (void)previewContentController:(id)arg1 didMoveToItem:(id)arg2 atIndex:(int)arg3;
 - (void)previewContentController:(id)arg1 willMoveToItemAtIndex:(int)arg2;
+- (void)previewContentController:(id)arg1 previewItemAtIndex:(int)arg2 completionBlock:(id)arg3;
 - (id)previewContentController:(id)arg1 previewItemAtIndex:(int)arg2;
 - (int)numberOfPreviewItemsInPreviewContentController:(id)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)_openURL:(id)arg1 withApplicationProxy:(id)arg2;
+- (int)currentSourceUUIDForPreviewContentController:(id)arg1;
 - (id)_documentProxyForPreviewItem:(id)arg1;
 - (id)previewItemAtIndex:(int)arg1;
 - (void)refreshCurrentPreviewItem;
 - (void)reloadData;
 - (void)_prepareDelayedAppearance;
 @property int currentPreviewItemIndex;
+- (void)_showContentsIfPossibleAnimated:(BOOL)arg1;
+- (void)_setCurrentPreviewItemIndex:(int)arg1 showContentsIfPossible:(BOOL)arg2;
+- (void)setSourceIsManaged:(BOOL)arg1;
+- (BOOL)sourceIsManaged;
 @property(readonly) id <QLPreviewItem> currentPreviewItem;
+- (int)numberOfPreviewItems;
 @property id <QLPreviewControllerDataSource> dataSource;
 - (void)_ensurePreviewItemIndex;
+- (id)previewContentController;
+- (id)itemsSource;
+- (id)passThroughViewsForIndexSheet;
 - (id)_currentPreviewItemURL;
 - (void)_setCurrentPreviewItemURL:(id)arg1;
 - (int)mode;
-- (BOOL)translucent;
-- (void)setTranslucent:(BOOL)arg1;
-- (int)barStyle;
-- (void)setBarStyle:(int)arg1;
+- (void)setTransitioning:(BOOL)arg1;
 - (void)setLoadingTextForMissingFiles:(id)arg1;
 - (BOOL)showActionAsDefaultButton;
 - (void)setShowActionAsDefaultButton:(BOOL)arg1;
@@ -101,59 +114,33 @@
 - (BOOL)blockRemoteImages;
 - (void)setBlockRemoteImages:(BOOL)arg1;
 @property id <QLPreviewControllerDelegate> delegate;
-- (id)_interactionController;
+- (id)_currentInteractionController;
+- (id)_displayedInteractionController;
 - (void)presentPreviewItem:(id)arg1 onViewController:(id)arg2 withDelegate:(id)arg3 animated:(BOOL)arg4;
 - (void)didReceiveMemoryWarning;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)_commonInit;
-- (void)_finishZoomingOut:(BOOL)arg1;
-- (void)_finishZoomingIn:(BOOL)arg1;
-- (void)_dismissFromFullScreenWithDuration:(double)arg1;
-- (void)_prepareForFullScreenZoomOut;
-- (void)_zoomToFullScreenWithDuration:(double)arg1;
-- (void)_prepareForFullScreenZoomIn;
-- (void)_setClippingViewActive:(BOOL)arg1;
-- (void)_prepareTransitionImageForZoomingIn:(BOOL)arg1;
-- (void)_removeFadingFilters;
-- (void)_addFadeAnimationToView:(id)arg1 fromAlpha:(float)arg2 toAlpha:(float)arg3 duration:(double)arg4 withCurve:(int)arg5;
-- (void)_startPresentCustomTransitionWithDuration:(double)arg1;
-- (BOOL)inZoomAnimation;
-- (void)_viewWillStartPresentWithTransition;
-- (int)modalPresentationStyle;
-- (int)modalTransitionStyle;
 - (void)previewContentController:(id)arg1 setAVState:(id)arg2 forPreviewItem:(id)arg3;
-- (void)detailSlider:(id)arg1 didChangeScrubSpeed:(int)arg2;
-- (void)detailSlider:(id)arg1 didChangeValue:(float)arg2;
-- (void)detailSliderTrackingDidCancel:(id)arg1;
-- (void)detailSliderTrackingDidEnd:(id)arg1;
-- (void)detailSliderTrackingDidBegin:(id)arg1;
-- (void)_hideScrubInstructions;
-- (void)_showScrubInstructions;
 - (void)_updateAVState;
-- (void)_cancelOverlayTimer;
-- (void)_setupOverlayTimer;
-- (void)_fireOverlayIdleTimer;
+- (void)_contentWasTapped;
 - (void)_setControlsOverlayVisible:(BOOL)arg1 withStatusBar:(BOOL)arg2 duration:(double)arg3;
 - (void)_hideOverlayWithStatusBar:(BOOL)arg1 duration:(double)arg2;
 - (void)_showOverlayWithStatusBar:(BOOL)arg1 duration:(double)arg2;
 - (id)_currentNavigationController;
 - (struct CGRect)contentFrameWithoutOverlay;
-- (BOOL)overlayIsVisible;
-- (void)_contentWasTapped;
+- (void)wirelessRoutesDidChange:(id)arg1;
 - (void)_updateNavigationBar:(BOOL)arg1;
-- (void)_hideSliderInNavigationBar;
-- (void)_showSliderInNavigationBar;
-- (void)_showBackgroundImage;
-- (void)_hideBackgroundImage;
-- (void)_updateActionItem;
+- (BOOL)_updateActionItem;
 - (void)_updateToolbar:(BOOL)arg1;
+- (id)_listDescriptionString;
+- (void)_updateArchiveButton;
 - (id)_indexFormatter;
 - (void)_updateToolbarVisibility:(BOOL)arg1;
+- (BOOL)_needsToolbar;
 - (BOOL)_needsAVControls;
 - (void)_createControls;
 - (void)_updateRouteImages;
-- (id)_newSegmentedArrowControl;
 - (id)_fixedSpaceItemWithWidth:(float)arg1;
 - (id)_flexibleSpaceItem;
 

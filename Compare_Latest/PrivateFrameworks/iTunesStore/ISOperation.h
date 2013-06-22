@@ -66,6 +66,7 @@
 - (void)dealloc;
 - (id)init;
 - (BOOL)loadURLBagWithContext:(id)arg1 returningError:(id *)arg2;
+- (id)loadedURLBagWithContext:(id)arg1 returningError:(id *)arg2;
 - (BOOL)loadSoftwareMapReturningError:(id *)arg1;
 - (BOOL)copyAccountID:(id *)arg1 byAuthenticatingWithContext:(id)arg2 returningError:(id *)arg3;
 - (id)authenticatedAccountDSID;

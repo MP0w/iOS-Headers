@@ -7,38 +7,28 @@
 #import "NSObject.h"
 
 #import "SBPluginBundleController-Protocol.h"
-#import "SBUIPluginViewController-Protocol.h"
 
-@interface SBUIPluginController : NSObject <SBPluginBundleController, SBUIPluginViewController>
+@interface SBUIPluginController : NSObject <SBPluginBundleController>
 {
     id <SBUIPluginControllerHost> _host;
     BOOL _isVisible;
 }
 
-@property(getter=isVisible) BOOL visible; // @synthesize visible=_isVisible;
-@property id <SBUIPluginControllerHost> host; // @synthesize host=_host;
+@property(nonatomic, getter=isVisible) BOOL visible; // @synthesize visible=_isVisible;
+@property(nonatomic) id <SBUIPluginControllerHost> host; // @synthesize host=_host;
+- (id)viewControllerForActivationContext:(id)arg1;
 - (void)noteInterruption;
 - (BOOL)handledWiredMicButtonTap;
 - (void)handleBluetoothDismissal;
 - (BOOL)handledMenuButtonTap;
 - (BOOL)handledMenuButtonDownEvent;
 - (BOOL)handledPasscodeUnlockWithCompletion:(id)arg1;
-- (struct CGSize)desiredSizeForRevealMode:(int)arg1;
 - (BOOL)handleActivationEvent:(int)arg1 context:(void *)arg2;
 - (void)cancelPendingActivationEvent:(int)arg1;
 - (void)prepareForActivationEvent:(int)arg1 afterInterval:(double)arg2;
 - (BOOL)wantsActivationEvent:(int)arg1 interval:(double *)arg2;
 - (BOOL)supportedAndEnabled;
 - (void)registeredWithHost;
-- (void)viewDidRotateFromInterfaceOrientation:(int)arg1;
-- (void)viewWillAnimateRotationToInterfaceOrientation:(int)arg1;
-- (void)viewWillRotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidDisappear;
-- (void)viewWillDisappear;
-- (void)viewDidAppear;
-- (void)viewWillAppear;
-- (id)view;
-- (void)_postVisibilityDidChangeNotification;
 
 @end
 

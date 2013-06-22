@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
-@class NSArray, NSURL, SAMPCollection;
+@class NSArray, SAMPCollection;
 
-@interface SAMPSetQueue : SABaseClientBoundCommand
+@interface SAMPSetQueue : SADomainCommand
 {
 }
 
@@ -16,9 +16,9 @@
 + (id)setQueue;
 - (BOOL)requiresResponse;
 @property(copy, nonatomic) NSArray *sort;
+@property(nonatomic) BOOL shouldShuffle;
 @property(retain, nonatomic) SAMPCollection *mediaItems;
 @property(copy, nonatomic) NSArray *filters;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

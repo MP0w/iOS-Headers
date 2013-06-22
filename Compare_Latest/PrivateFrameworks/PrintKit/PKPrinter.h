@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableDictionary, NSMutableSet, NSNumber, NSString;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSString;
 
 @interface PKPrinter : NSObject
 {
@@ -59,10 +59,25 @@
         void *_field38;
         double _field39;
         int _field40;
+        int _field41;
+        int _field42;
+        char *_field43;
+        char *_field44;
+        char *_field45;
+        char *_field46;
+        char *_field47;
+        char *_field48;
+        int _field49;
+        struct z_stream_s _field50;
+        char *_field51;
     } *job_http;
     NSMutableDictionary *privateData;
     NSMutableSet *mediaReady;
+    NSMutableArray *rolls;
     NSMutableDictionary *specialFeedOrientation;
+    NSArray *printScalingSupported;
+    NSArray *mandatoryJobAttributes;
+    NSString *quotaManagementURL;
     int maxPDFKBytes;
     int maxJPEGKBytes;
     int maxJPEGXDimension;
@@ -71,6 +86,8 @@
     int preferred_landscape;
     BOOL isLocal;
     BOOL hasIdentifyPrinterOp;
+    BOOL connectionShouldNotBeTrusted;
+    BOOL isFromMCProfile;
     int kind;
 }
 
@@ -82,21 +99,29 @@
 + (BOOL)urfIsOptional;
 + (struct _ipp_s *)getAttributes:(const char **)arg1 count:(int)arg2 fromURI:(id)arg3;
 @property(readonly) BOOL hasIdentifyPrinterOp; // @synthesize hasIdentifyPrinterOp;
+@property BOOL isFromMCProfile; // @synthesize isFromMCProfile;
 @property BOOL isLocal; // @synthesize isLocal;
 @property(readonly) int accessState; // @synthesize accessState;
 @property(readonly) int type; // @synthesize type;
 @property(readonly) int kind; // @synthesize kind;
 @property(readonly) NSString *name; // @synthesize name;
+- (void)setupWithOptions:(id)arg1 completionHandler:(id)arg2;
+- (void)validatePassCode:(id)arg1 withCompletionHandler:(id)arg2;
+- (void)showPassCodeForSetupWithCompletionHandler:(id)arg1;
+@property(readonly) BOOL setupSupportsPasswordScope;
+@property(readonly) BOOL needsSetup;
 - (void)reconfirmWithForce:(BOOL)arg1;
 - (void)cancelUnlock;
 - (void)unlockWithCompletionHandler:(id)arg1;
 - (id)matchedPaper:(id)arg1 preferBorderless:(BOOL)arg2 withDuplexMode:(id)arg3 didMatch:(char *)arg4;
+- (BOOL)hasMatchingLoadedRoll:(id)arg1;
 - (int)startJob:(id)arg1 ofType:(id)arg2;
 - (int)sendData:(const char *)arg1 ofLength:(int)arg2;
 - (int)printURL:(id)arg1 ofType:(id)arg2 printSettings:(id)arg3;
 - (int)finishJob;
 - (int)abortJob;
 - (id)paperListForDuplexMode:(id)arg1;
+- (id)rollReadyPaperListWithContentSize:(struct CGSize)arg1;
 @property(readonly) NSString *uuid; // @dynamic uuid;
 @property(readonly) BOOL isIPPS; // @dynamic isIPPS;
 @property(readonly) BOOL isAdobeRGBSupported; // @dynamic isAdobeRGBSupported;
@@ -108,6 +133,10 @@
 - (BOOL)isPaperReady:(id)arg1;
 - (int)feedOrientation:(id)arg1;
 - (void)aggdAppsAndPrinters;
+- (void)createMediaReadyFromAttrs:(struct _ipp_s *)arg1;
+- (id)availableRollPapersPreferBorderless:(BOOL)arg1;
+- (id)rollFromAttrs:(struct _ipp_s *)arg1;
+@property(readonly) int jobTypesSupported;
 - (id)location;
 - (id)displayName;
 - (id)description;
@@ -118,7 +147,6 @@
 - (id)localName;
 - (int)finalizeJob:(int)arg1;
 - (struct _ipp_s *)createRequest:(id)arg1 ofType:(id)arg2 url:(id)arg3;
-- (struct _ipp_s *)newMediaColFromPaper:(id)arg1 Source:(id)arg2 Type:(id)arg3 DoMargins:(BOOL)arg4;
 - (BOOL)resolveWithTimeout:(int)arg1;
 - (void)resolve;
 @property(readonly) NSString *scheme;

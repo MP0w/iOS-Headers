@@ -46,11 +46,10 @@
 - (id)description;
 - (void)dealloc;
 - (struct CGRect)extent;
-- (id)imageByApplyingLanczosScale:(double)arg1 aspectRatio:(double)arg2;
-- (id)imageByApplyingBlur:(double)arg1;
-- (id)imageByApplyingGamma:(double)arg1;
-- (id)imageByUnpremultiplying;
-- (id)imageByPremultiplying;
+- (id)_imageByApplyingBlur:(double)arg1;
+- (id)_imageByApplyingGamma:(double)arg1;
+- (id)_imageByUnpremultiplying;
+- (id)_imageByPremultiplying;
 - (id)imageByCroppingToRect:(struct CGRect)arg1;
 - (id)imageByApplyingTransform:(struct CGAffineTransform)arg1;
 - (id)initWithContentsOfFile:(id)arg1 options:(id)arg2;
@@ -72,7 +71,7 @@
 - (id)_initWithBitmapData:(id)arg1 bytesPerRow:(unsigned long)arg2 size:(struct CGSize)arg3 format:(int)arg4 options:(id)arg5;
 - (id)initWithCGImageSource:(struct CGImageSource *)arg1 index:(unsigned long)arg2 options:(id)arg3;
 - (id)initWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
-- (id)_initWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
+- (id)_initNaiveWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 - (id)initWithCGImage:(struct CGImage *)arg1;
 - (id)initWithIOSurface:(struct __IOSurface *)arg1 options:(id)arg2;
 - (id)initWithIOSurface:(struct __IOSurface *)arg1;

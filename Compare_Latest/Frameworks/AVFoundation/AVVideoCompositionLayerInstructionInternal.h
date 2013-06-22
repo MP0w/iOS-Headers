@@ -13,6 +13,7 @@
     int trackID;
     NSMutableArray *transformRamps;
     NSMutableArray *opacityRamps;
+    NSMutableArray *cropRectangleRamps;
 }
 
 @end

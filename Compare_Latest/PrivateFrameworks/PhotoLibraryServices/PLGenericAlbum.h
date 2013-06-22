@@ -6,13 +6,13 @@
 
 #import <PhotoLibraryServices/_PLGenericAlbum.h>
 
-#import "PLAssetContainer-Protocol.h"
+#import "PLAlbumProtocol-Protocol.h"
 #import "PLDerivedAlbumOrigin-Protocol.h"
 #import "PLIndexMappersDataOrigin-Protocol.h"
 
-@class NSDictionary, NSMutableOrderedSet, NSNumber, NSObject<PLIndexMappingCache>, NSOrderedSet, NSString, NSURL, PLManagedAsset, PLPhotoLibrary, UIImage;
+@class NSArray, NSDate, NSDictionary, NSMutableOrderedSet, NSNumber, NSObject<PLIndexMappingCache>, NSOrderedSet, NSString, NSURL, PLManagedAsset, PLPhotoLibrary, UIImage;
 
-@interface PLGenericAlbum : _PLGenericAlbum <PLAssetContainer, PLDerivedAlbumOrigin, PLIndexMappersDataOrigin>
+@interface PLGenericAlbum : _PLGenericAlbum <PLAlbumProtocol, PLDerivedAlbumOrigin, PLIndexMappersDataOrigin>
 {
     NSObject<PLIndexMappingCache> *_derivededAlbums[5];
     BOOL isRegisteredForChanges;
@@ -50,6 +50,10 @@
 + (id)wallpaperAlbumInLibrary:(id)arg1;
 + (id)allPhotoStreamAssetsAlbumInLibrary:(id)arg1;
 + (id)allNonPhotoStreamAssetsAlbumInLibrary:(id)arg1;
++ (id)allVideosAlbumInLibrary:(id)arg1;
++ (id)allHorizontalPanoramasAlbumInLibrary:(id)arg1;
++ (id)allVerticalPanoramasAlbumInLibrary:(id)arg1;
++ (id)allPanoramasAlbumInLibrary:(id)arg1;
 + (id)allAssetsAlbumInLibrary:(id)arg1;
 + (id)cameraRollAlbumInLibrary:(id)arg1;
 + (id)_singletonManagedAlbumWithKind:(int)arg1 library:(id)arg2;
@@ -63,10 +67,11 @@
 - (void)enumerateDerivedAlbums:(id)arg1;
 - (void)unregisterAllDerivedAlbums;
 - (void)registerDerivedAlbum:(struct NSObject *)arg1;
+- (id)description;
 - (id)_prettyDescription;
 - (id)_compactDebugDescription;
 - (id)_kindDescription;
-- (unsigned int)countForAssetsOfKind:(int)arg1;
+- (unsigned int)countForAssetsOfKind:(short)arg1;
 @property(readonly, nonatomic) unsigned int indexOfPosterImage;
 - (void)unregisterForChanges;
 - (void)registerForChanges;
@@ -81,10 +86,18 @@
 @property(readonly, nonatomic) NSURL *groupURL;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
 - (BOOL)canPerformEditOperation:(int)arg1;
+@property(readonly, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) BOOL canShowComments;
+@property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isStandInAlbum;
+@property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
+@property(readonly, nonatomic) BOOL isSmartAlbum;
+@property(readonly, nonatomic) BOOL isWallpaperAlbum;
+@property(readonly, nonatomic) BOOL isPanoramasAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
 @property(nonatomic) int kindValue;
@@ -95,7 +108,7 @@
 @property(readonly, nonatomic) unsigned int videosCount;
 @property(readonly, nonatomic) unsigned int photosCount;
 @property(readonly, nonatomic) BOOL isEmpty;
-@property(readonly, nonatomic) unsigned int count;
+- (unsigned int)count;
 @property(readonly, nonatomic) unsigned int assetsCount;
 @property(readonly, nonatomic) unsigned int approximateCount;
 - (void)willTurnIntoFault;
@@ -112,11 +125,13 @@
 
 // Remaining properties
 @property(readonly, nonatomic) NSOrderedSet *assets; // @dynamic assets;
+@property(readonly, nonatomic) NSDate *endDate;
 @property(retain, nonatomic) NSString *importSessionID; // @dynamic importSessionID;
 @property(retain, nonatomic) PLManagedAsset *keyAsset; // @dynamic keyAsset;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets; // @dynamic mutableAssets;
-@property(nonatomic) unsigned int pendingItemsCount; // @dynamic pendingItemsCount;
-@property(nonatomic) unsigned int pendingItemsType; // @dynamic pendingItemsType;
+@property(nonatomic) int pendingItemsCount; // @dynamic pendingItemsCount;
+@property(nonatomic) int pendingItemsType; // @dynamic pendingItemsType;
+@property(readonly, nonatomic) NSDate *startDate;
 
 @end
 

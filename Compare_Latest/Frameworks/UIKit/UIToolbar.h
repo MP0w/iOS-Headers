@@ -6,34 +6,39 @@
 
 #import <UIKit/UIView.h>
 
+#import "UIBarPositioning-Protocol.h"
+#import "_UIBarPositioningInternal-Protocol.h"
 #import "_UIShadowedView-Protocol.h"
 
-@class NSArray, UIColor, UIImageView;
+@class NSArray, UIColor, UIImageView, _UIBackdropView;
 
-@interface UIToolbar : UIView <_UIShadowedView>
+@interface UIToolbar : UIView <_UIShadowedView, _UIBarPositioningInternal, UIBarPositioning>
 {
     id _delegate;
     NSArray *_items;
-    UIColor *_tintColor;
+    UIColor *_barTintColor;
     struct {
         unsigned int barStyle:2;
         unsigned int mode:2;
         unsigned int wasEnabled:1;
         unsigned int downButtonSentAction:1;
-        unsigned int isTranslucent:1;
-        unsigned int forceTopBarAppearance:1;
-        unsigned int autolayoutIsLocked:1;
+        unsigned int barTranslucence:3;
+        unsigned int isLocked:1;
+        unsigned int backgroundLayoutNeedsUpdate:1;
     } _toolbarFlags;
     struct __CFDictionary *_groups;
     NSArray *_buttonItems;
     int _currentButtonGroup;
     int _pressedTag;
     float _extraEdgeInsets;
-    UIView *_backgroundView;
     id _appearanceStorage;
-    id _currentAlert;
-    UIImageView *_shadowView;
-    float *_fadedItemAlphas;
+    _UIBackdropView *_adaptiveBackdrop;
+    UIImageView *_backgroundView;
+    UIView *_shadowView;
+    BOOL _forcesOpaqueBackground;
+    BOOL _isAdaptiveToolbarDisabled;
+    BOOL _wantsLetterpressContent;
+    int _barPosition;
 }
 
 + (float)defaultHeightForBarSize:(int)arg1;
@@ -43,8 +48,12 @@
 + (Class)defaultTextButtonClass;
 + (Class)defaultButtonClass;
 + (float)_buttonGap;
-@property(retain, nonatomic, setter=_setShadowView:) UIImageView *_shadowView; // @synthesize _shadowView;
-@property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
+@property(readonly, nonatomic) int barPosition; // @synthesize barPosition=_barPosition;
+@property(nonatomic, setter=_setWantsLetterpressContent:) BOOL _wantsLetterpressContent; // @synthesize _wantsLetterpressContent;
+@property(nonatomic, getter=_isAdaptiveToolbarDisabled, setter=_setAdaptiveToolbarDisabled:) BOOL _adaptiveToolbarDisabled; // @synthesize _adaptiveToolbarDisabled=_isAdaptiveToolbarDisabled;
+@property(nonatomic, setter=_setForcesOpaqueBackground:) BOOL _forcesOpaqueBackground; // @synthesize _forcesOpaqueBackground;
+@property(retain, nonatomic, setter=_setShadowView:) UIView *_shadowView; // @synthesize _shadowView;
+@property(retain, nonatomic) UIColor *barTintColor; // @synthesize barTintColor=_barTintColor;
 - (void)_setHidesShadow:(BOOL)arg1;
 - (BOOL)_hidesShadow;
 - (id)shadowImageForToolbarPosition:(int)arg1;
@@ -52,15 +61,11 @@
 - (id)backgroundImageForToolbarPosition:(int)arg1 barMetrics:(int)arg2;
 - (void)setBackgroundImage:(id)arg1 forToolbarPosition:(int)arg2 barMetrics:(int)arg3;
 - (void)_customViewChangedForButtonItem:(id)arg1;
+- (unsigned int)_subviewIndexAboveBackgroundView;
 - (void)animateToolbarItemIndex:(unsigned int)arg1 duration:(double)arg2 target:(id)arg3 didFinishSelector:(SEL)arg4;
 - (void)layoutSubviews;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
-- (void)_activityViewControllerIsDisappearing:(id)arg1;
-- (void)_activityViewControllerIsAppearing:(id)arg1;
-- (void)_alertIsDisappearing:(id)arg1;
-- (void)_alertIsAppearing:(id)arg1;
-- (void)_fadeInItems;
-- (void)_fadeOutItems;
+- (void)tintColorDidChange;
 - (BOOL)isMinibar;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)invalidateIntrinsicContentSize;
@@ -71,27 +76,30 @@
 - (void)setTranslatesAutoresizingMaskIntoConstraints:(BOOL)arg1;
 - (struct CGSize)defaultSizeForOrientation:(int)arg1;
 - (void)setItems:(id)arg1 animated:(BOOL)arg2;
-- (void)_finishSetItems:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+- (void)_finishSetItems:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)_didFinishHidingRetainedOldItems:(id)arg1;
 - (void)_sendAction:(id)arg1 withEvent:(id)arg2;
 @property(nonatomic, getter=isTranslucent) BOOL translucent;
-- (void)_setTintColor:(id)arg1 force:(BOOL)arg2;
+- (void)_setBarTintColor:(id)arg1 force:(BOOL)arg2;
+- (id)_effectiveBarTintColor;
+- (void)_updateBackgroundColor;
 @property(copy, nonatomic) NSArray *items;
-- (id)delegate;
-- (void)setDelegate:(id)arg1;
+@property(nonatomic) id <UIToolbarDelegate> delegate;
 - (int)mode;
 - (void)setMode:(int)arg1;
 @property(nonatomic) int barStyle;
 - (void)setBarStyle:(int)arg1 force:(BOOL)arg2;
 - (void)_updateOpacity;
+- (void)_updateToolbarButtonsForInteractionTintColorChange;
 - (float)extraEdgeInsets;
 - (void)setExtraEdgeInsets:(float)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)_setBackgroundView:(id)arg1;
-- (id)_backgroundView;
+- (BOOL)_isTopBar_legacy;
+- (int)_barPosition;
+- (void)_setBarPosition:(int)arg1;
 - (void)_setButtonBackgroundImage:(id)arg1 mini:(id)arg2 forStates:(unsigned int)arg3;
 - (void)_setBackgroundImage:(id)arg1 mini:(id)arg2;
 - (struct CGRect)_frameOfBarButtonItem:(id)arg1;
@@ -121,17 +129,22 @@
 - (id)initInView:(id)arg1 withFrame:(struct CGRect)arg2 withItemList:(id)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (BOOL)_subclassImplementsDrawRect;
-- (id)initInView:(id)arg1 withItems:(CDStruct_dbaf35c5 *)arg2 withCount:(int)arg3;
-- (id)initInView:(id)arg1 withFrame:(struct CGRect)arg2 withItems:(CDStruct_dbaf35c5 *)arg3 withCount:(int)arg4;
-- (BOOL)_isTopBar;
 - (BOOL)_isInNavigationBar;
 - (id)_customToolbarAppearance;
 - (void)_positionToolbarButtons:(id)arg1 ignoringItem:(id)arg2;
 - (id)_positionToolbarButtons:(id)arg1 ignoringItem:(id)arg2 actuallyRepositionButtons:(BOOL)arg3;
 - (void)_updateBackgroundImage;
-- (id)_currentCustomBackgroundRespectOversize:(char *)arg1;
-@property(nonatomic, setter=_setAutoLayoutIsLocked:) BOOL _autolayoutIsLocked;
-- (float)_edgeMarginForBorderedItem:(BOOL)arg1;
+- (void)_layoutBackgroundViewConsideringStatusBar;
+- (void)_setVisualAltitudeBias:(struct CGSize)arg1;
+- (void)_setVisualAltitude:(float)arg1;
+- (void)_cleanupAdaptiveBackdrop;
+- (id)_currentCustomBackground;
+- (id)_currentCustomBackgroundRespectOversize_legacy:(char *)arg1;
+@property(nonatomic, getter=_isLocked, setter=_setLocked:) BOOL _locked;
+- (BOOL)_supportsAdaptiveBackground;
+- (void)_setBackgroundView:(id)arg1;
+- (id)_backgroundView;
+- (float)_edgeMarginForBorderedItem:(BOOL)arg1 isText:(BOOL)arg2;
 - (void)_updateItemsForNewFrame:(id)arg1;
 - (void)_finishButtonAnimation:(int)arg1 forButton:(int)arg2;
 - (id)_currentButtons;
@@ -150,6 +163,9 @@
 - (float)_autolayoutSpacingAtEdge:(int)arg1 nextToNeighbor:(id)arg2;
 - (float)_autolayoutSpacingAtEdge:(int)arg1 inContainer:(id)arg2;
 - (BOOL)_hasCustomAutolayoutNeighborSpacing;
+
+// Remaining properties
+@property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
 
 @end
 

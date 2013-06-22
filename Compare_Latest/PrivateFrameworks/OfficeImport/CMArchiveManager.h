@@ -45,7 +45,7 @@
 - (id)addCssStyle:(id)arg1;
 - (int)resourceCount;
 - (BOOL)isOnPhone;
-- (BOOL)setIsOnPhone:(BOOL)arg1;
+- (void)setIsOnPhone:(BOOL)arg1;
 - (BOOL)progressiveMappingIsPausedOnPath:(id)arg1;
 - (void)restartProgressiveMappingOnPath:(id)arg1;
 - (void)pauseProgressiveMappingOnPath:(id)arg1;

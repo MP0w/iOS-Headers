@@ -4,20 +4,20 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <PhotoLibraryServices/PLAlbumChangeNotification.h>
+#import <PhotoLibraryServices/PLAssetContainerChangeNotification.h>
 
 #import "PLDerivedNotification-Protocol.h"
 #import "PLIndexMapperDataSource-Protocol.h"
 
 @class NSIndexSet, PLFilteredAlbum, PLIndexMapper;
 
-@interface PLFilteredAlbumChangeNotification : PLAlbumChangeNotification <PLIndexMapperDataSource, PLDerivedNotification>
+@interface PLFilteredAlbumChangeNotification : PLAssetContainerChangeNotification <PLIndexMapperDataSource, PLDerivedNotification>
 {
     PLFilteredAlbum *_album;
     NSIndexSet *_oldFilteredIndexes;
     NSIndexSet *_filteredIndexes;
     PLIndexMapper *_indexMapper;
-    PLAlbumChangeNotification *_backingNotification;
+    PLAssetContainerChangeNotification *_backingNotification;
 }
 
 + (id)notificationForDerivedObject:(id)arg1 priorChangeState:(id)arg2 forBackingObjectNotification:(id)arg3;

@@ -46,7 +46,6 @@
 - (void)lockEntryAlertDismissed:(id)arg1;
 - (int)_statusFromCT;
 - (int)_CTToSBSIMStatus:(struct __CFString *)arg1;
-- (BOOL)_hopelesslyPUKLocked;
 - (void)dealloc;
 - (id)init;
 

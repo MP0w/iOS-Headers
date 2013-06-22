@@ -7,7 +7,8 @@
 #import "IMAccountController.h"
 
 @interface IMAccountController (CKAdditions)
-- (id)__ck_anyAccount;
+- (id)__ck_bestAccountForAddress:(id)arg1;
+- (id)__ck_bestAccountForAddresses:(id)arg1;
 - (id)__ck_defaultAccountForService:(id)arg1;
 - (id)__ck_operationalPhoneAccountForService:(id)arg1;
 @end

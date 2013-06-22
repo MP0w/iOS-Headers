@@ -19,6 +19,7 @@
 - (void)window:(id)arg1 willRotateToInterfaceOrientation:(int)arg2 duration:(double)arg3;
 - (id)rotatingFooterViewForWindow:(id)arg1;
 - (id)rotatingHeaderViewForWindow:(id)arg1;
+- (id)rotatingSnapshotViewForWindow:(id)arg1;
 - (id)rotatingContentViewForWindow:(id)arg1;
 - (BOOL)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
 - (void)window:(id)arg1 willAnimateFromContentFrame:(struct CGRect)arg2 toContentFrame:(struct CGRect)arg3;

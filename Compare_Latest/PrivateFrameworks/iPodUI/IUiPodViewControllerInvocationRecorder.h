@@ -15,6 +15,7 @@
 }
 
 @property(retain, nonatomic) IUiPodViewController *viewController; // @synthesize viewController=_viewController;
+- (void).cxx_destruct;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (void)dealloc;

@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVPlayerItem, MPAVController, MPAlternateTracks, MPImageCache, MPMediaItem, MPQueueFeeder, NSArray, NSData, NSObject<OS_dispatch_queue>, NSString, NSURL;
+@class AVAsset, AVPlayerItem, MPAVController, MPAlternateTextTrack, MPAlternateTracks, MPImageCache, MPMediaItem, MPQueueFeeder, MPRadioAdTrack, NSArray, NSData, NSObject<OS_dispatch_queue>, NSString, NSURL, RadioAudioClip, RadioTrack;
 
 @interface MPAVItem : NSObject
 {
-    AVPlayerItem *_avPlayerItem;
     AVAsset *_asset;
     NSObject<OS_dispatch_queue> *_assetQueue;
+    AVPlayerItem *_avPlayerItem;
     BOOL _didAttemptToLoadAsset;
     BOOL _isAssetLoaded;
     MPQueueFeeder *_feeder;
@@ -38,22 +38,27 @@
     unsigned int _watchingAttributes:1;
     unsigned int _lyricsAvailable:1;
     unsigned int _timeMarkersNeedLoading:1;
+    BOOL _hasPostedNaturalSizeChange;
+    BOOL _limitReadAhead;
+    float _loudnessInfoVolumeNormalization;
 }
 
 + (void)applyVolumeNormalizationForQueuedItems:(id)arg1;
 + (id)URLFromPath:(id)arg1;
 + (void)setDefaultScaleMode:(unsigned int)arg1;
 + (unsigned int)defaultScaleMode;
+@property(nonatomic) float loudnessInfoVolumeNormalization; // @synthesize loudnessInfoVolumeNormalization=_loudnessInfoVolumeNormalization;
 @property(retain, nonatomic) NSArray *urlTimeMarkers; // @synthesize urlTimeMarkers=_urlTimeMarkers;
 @property(nonatomic) float soundCheckVolumeNormalization; // @synthesize soundCheckVolumeNormalization=_soundCheckVolumeNormalization;
-@property(nonatomic) MPAVController *player; // @synthesize player=_player;
+@property(nonatomic) __weak MPAVController *player; // @synthesize player=_player;
 @property BOOL isAssetLoaded; // @synthesize isAssetLoaded=_isAssetLoaded;
 @property(nonatomic) unsigned int indexInQueueFeeder; // @synthesize indexInQueueFeeder=_indexInQueueFeeder;
 @property(nonatomic) float defaultPlaybackRate; // @synthesize defaultPlaybackRate=_defaultPlaybackRate;
-@property(nonatomic) MPQueueFeeder *feeder; // @synthesize feeder=_feeder;
+@property(nonatomic) __weak MPQueueFeeder *feeder; // @synthesize feeder=_feeder;
 @property(retain, nonatomic) NSArray *chapterTimeMarkers; // @synthesize chapterTimeMarkers=_chapterTimeMarkers;
 @property(retain, nonatomic) NSArray *artworkTimeMarkers; // @synthesize artworkTimeMarkers=_artworkTimeMarkers;
 @property(readonly, nonatomic) MPAlternateTracks *alternateTracks; // @synthesize alternateTracks=_alternateTracks;
+- (void).cxx_destruct;
 - (void)replacePlayerItemWithPlayerItem:(id)arg1;
 - (void)reevaluateType;
 - (id)localeForAssetTrack:(id)arg1;
@@ -68,7 +73,7 @@
 - (id)_seekableTimeRanges;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_applicationDidBecomeActive:(id)arg1;
-- (void)_closedCaptioningStatusDidChangeNotification:(id)arg1;
+- (void)_captionAppearanceSettingsChanged;
 - (void)_itemAttributeAvailableKey:(id)arg1;
 @property(readonly, nonatomic) double timeOfSeekableEnd;
 @property(readonly, nonatomic) double timeOfSeekableStart;
@@ -80,8 +85,8 @@
 @property(readonly, nonatomic) double durationFromExternalMetadata;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 duration;
 @property(copy, nonatomic) NSString *videoID;
-- (id)localizedPositionInPlaylistString;
-@property(readonly, nonatomic) BOOL wantsSubtitles;
+@property(readonly, nonatomic) NSString *localizedPositionInPlaylistString;
+- (id)localizedAttributedPositionInPlaylistStringWithRegularTextAttributes:(id)arg1 emphasizedTextAttributes:(id)arg2;
 @property(readonly, nonatomic) unsigned long long persistentID;
 @property(readonly, nonatomic) float userRating;
 @property(readonly, nonatomic) unsigned int type;
@@ -96,15 +101,25 @@
 - (void)_loadTimeMarkersBlocking;
 @property(readonly, nonatomic) BOOL useEmbeddedChapterData;
 - (id)titlesForTime:(double)arg1;
+@property(readonly, nonatomic) NSArray *timedMetadataIfAvailable;
 - (id)imageCacheRequestWithSize:(struct CGSize)arg1 time:(double)arg2 usePlaceholderAsFallback:(BOOL)arg3;
 - (id)imageCacheRequestWithSize:(struct CGSize)arg1 time:(double)arg2;
 @property(readonly, nonatomic) MPImageCache *imageCache;
 - (void)_realoadEmbeddedTimeMarkers;
+@property(readonly, nonatomic) BOOL supportsTrackInfo;
+@property(readonly, nonatomic) BOOL supportsShare;
+@property(readonly, nonatomic) BOOL supportsSkip;
+@property(readonly, nonatomic) BOOL supportsLikeOrBan;
+@property(readonly, nonatomic) BOOL supportsHistory;
+@property(readonly, nonatomic) BOOL supportsAddStation;
 @property(readonly, nonatomic) BOOL supportsRewindAndFastForward15Seconds;
+@property(retain, nonatomic) MPAlternateTextTrack *selectedAlternateTextTrack;
+- (void)setLimitReadAhead:(BOOL)arg1;
 - (void)setOverrideDuration:(double)arg1;
 @property(nonatomic) BOOL hasPlayedThisSession;
 - (float)scanIntervalForLevel:(unsigned int)arg1 paused:(BOOL)arg2;
 @property(nonatomic) CDStruct_1b6d18a9 forwardPlaybackEndTime;
+- (void)replaceOutOfBandAlternateTextTracksWithArray:(id)arg1;
 @property(readonly, nonatomic) struct CGSize presentationSize;
 - (float)playbackRateForLevel:(unsigned int)arg1 direction:(int)arg2 paused:(BOOL)arg3;
 @property(readonly, nonatomic) NSURL *podcastURL;
@@ -112,7 +127,11 @@
 @property(readonly, nonatomic) NSString *mainTitle;
 @property(readonly, nonatomic) BOOL allowsEQ;
 @property(readonly, nonatomic) int customAVEQPreset;
+- (BOOL)limitReadAhead;
 @property(readonly, nonatomic, getter=isStreamable) BOOL streamable;
+@property(readonly, nonatomic, getter=isAlwaysLive) BOOL alwaysLive;
+@property(readonly, nonatomic) BOOL isAd;
+- (id)inBandAlternateTextTracks;
 @property(readonly, nonatomic) BOOL hasDisplayableText;
 @property(readonly, nonatomic) BOOL hasDataForItemArtwork;
 - (unsigned int)alternatesCountForTypes:(unsigned int)arg1;
@@ -123,6 +142,7 @@
 @property(readonly, nonatomic) double currentTimeDisplayOverride;
 @property(readonly, nonatomic) unsigned int countForQueueFeeder;
 @property(readonly, nonatomic) NSString *genre;
+@property(readonly, nonatomic, getter=isExplicitTrack) BOOL explicitTrack;
 - (BOOL)isAssetURLValid;
 - (BOOL)isPlaceholderForItem:(id)arg1;
 - (BOOL)isValidPlayerSubstituteForItem:(id)arg1;
@@ -143,9 +163,9 @@
 - (double)_durationInSeconds;
 - (BOOL)userSkippedPlayback;
 - (void)setUserSkippedPlayback:(BOOL)arg1;
-- (void)setUserEnabledSubtitles:(BOOL)arg1;
 - (void)setUserAdvancedDuringPlayback:(BOOL)arg1;
-@property(nonatomic) int subtitleTrackID;
+- (void)setSubtitleTrackID:(int)arg1;
+- (int)subtitleTrackID;
 - (void)setRating:(float)arg1;
 - (void)setPlaybackFinishedTime:(double)arg1;
 @property(nonatomic) double playbackCheckpointCurrentTime;
@@ -168,9 +188,16 @@
 - (id)init;
 - (BOOL)isSupportedDefaultPlaybackSpeed:(unsigned int)arg1;
 @property(readonly, nonatomic) MPMediaItem *mediaItem;
+- (id)_plistKeyForMPMediaItemProperty:(id)arg1;
+@property(readonly, nonatomic) RadioTrack *radioTrack;
+@property(readonly, nonatomic) BOOL isRadioItem;
+- (void)getStationDictionaryForDerivedStationUsingArtist:(BOOL)arg1 withCompletionHandler:(id)arg2;
+- (void)addDerivedStationForArtist:(BOOL)arg1 withCompletionHandler:(id)arg2;
+@property(readonly, nonatomic) MPRadioAdTrack *adTrack;
 @property(readonly, nonatomic) BOOL wasDownloadedThisSession;
 @property(readonly, nonatomic) BOOL isStreamingQuality;
-- (BOOL)prioritizeDownloadSession;
+@property(readonly, nonatomic) RadioAudioClip *audioClip;
+- (BOOL)MPSPWD_prioritizeDownloadSession;
 
 @end
 

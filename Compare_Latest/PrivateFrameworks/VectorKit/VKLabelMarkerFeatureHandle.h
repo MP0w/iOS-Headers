@@ -15,11 +15,12 @@
     int _tileZ;
 }
 
-@property(readonly, nonatomic) int tileZ; // @synthesize tileZ=_tileZ;
-@property(readonly, nonatomic) int tileY; // @synthesize tileY=_tileY;
-@property(readonly, nonatomic) int tileX; // @synthesize tileX=_tileX;
-@property(readonly, nonatomic) int featureIndex; // @synthesize featureIndex=_featureIndex;
-@property(readonly, nonatomic) int featureType; // @synthesize featureType=_featureType;
+- (id)initWithFeature:(CDStruct_4c1ff046 *)arg1;
+- (int)tileZ;
+- (int)tileY;
+- (int)tileX;
+- (int)featureIndex;
+- (int)featureType;
 
 @end
 

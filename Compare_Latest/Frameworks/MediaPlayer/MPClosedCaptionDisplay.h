@@ -16,6 +16,7 @@
     BOOL _rotating;
 }
 
+- (void).cxx_destruct;
 - (void)setText:(id)arg1;
 - (void)_updatePositioning:(BOOL)arg1;
 - (void)setNeedsLayout;

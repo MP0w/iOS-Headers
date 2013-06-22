@@ -8,7 +8,7 @@
 
 #import "SBAwayDateViewDelegate-Protocol.h"
 
-@class NSDictionary, NSMutableDictionary, NSTimer, SBAlertImageView, SBAwayBuddyBackgroundView, SBAwayBulletinListController, SBAwayChargingView, SBAwayDateView, SBAwayInCallController, SBAwayLockBar, SBAwaySwipeGestureRecognizer, SBAwayViewPluginController, SBThermalLockoutView, TPBottomSingleButtonBar, UIAlertView, UIButton, UIView, UIView<SBAwayHeaderPluginView>, UIWindow;
+@class NSDictionary, NSMutableDictionary, NSTimer, SBAlertImageView, SBAwayBuddyBackgroundView, SBAwayBulletinListController, SBAwayChargingView, SBAwayDateView, SBAwayInCallController, SBAwayLockBar, SBAwaySwipeGestureRecognizer, SBAwayViewPluginController, SBThermalLockoutView, TPLegacyBottomSingleButtonBar, UIAlertView, UIButton, UIView, UIView<SBAwayHeaderPluginView>, UIWindow;
 
 @interface SBAwayView : SBSlidingAlertDisplay <SBAwayDateViewDelegate>
 {
@@ -46,10 +46,11 @@
     int _alertSheetPosition;
     SBAwayInCallController *_inCallController;
     SBAwayLockBar *_lockBar;
-    TPBottomSingleButtonBar *_cancelSyncBar;
+    TPLegacyBottomSingleButtonBar *_cancelSyncBar;
     UIButton *_infoButton;
     UIView *_legalTextView;
     UIWindow *_previousWindow;
+    struct __CFBoolean *_hasHardwareKeyboardCapability;
 }
 
 + (id)lockLabels:(BOOL)arg1 fontSize:(float *)arg2;
@@ -57,7 +58,7 @@
 @property(retain, nonatomic) UIView *animatingFromHeaderView; // @synthesize animatingFromHeaderView=_animatingFromHeaderView;
 - (void)_layoutLegalTextOverlay:(int)arg1;
 - (void)_initializeLegalTextOverlay;
-- (void)_handleKeyEvent:(struct __GSEvent *)arg1;
+- (void)_handleKeyUIEvent:(id)arg1;
 - (void)_networkTetheringStateChanged:(id)arg1;
 - (void)animateToShowingDeviceLock:(BOOL)arg1 duration:(float)arg2;
 - (void)didMoveToWindow;

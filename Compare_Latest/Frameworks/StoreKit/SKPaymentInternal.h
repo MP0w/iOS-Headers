@@ -12,6 +12,7 @@
 
 @interface SKPaymentInternal : NSObject <NSCopying>
 {
+    NSString *_applicationUsername;
     NSString *_productIdentifier;
     int _quantity;
     NSData *_requestData;

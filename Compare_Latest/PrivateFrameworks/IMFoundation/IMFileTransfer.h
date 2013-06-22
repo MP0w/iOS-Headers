@@ -10,44 +10,46 @@
 
 @interface IMFileTransfer : NSObject
 {
+    BOOL _isIncoming;
+    BOOL _isDirectory;
+    BOOL _shouldAttemptToResume;
+    BOOL _wasRegisteredAsStandalone;
+    BOOL _shouldForceArchive;
+    BOOL _needsWrapper;
+    unsigned short _hfsFlags;
     NSURL *_localURL;
     NSData *_localBookmark;
-    double _lastUpdatedInterval;
-    double _lastAveragedInterval;
-    unsigned long long _lastAveragedBytes;
     NSString *_guid;
     NSString *_messageGUID;
     NSDate *_startDate;
     NSDate *_createdDate;
     int _transferState;
-    BOOL _isIncoming;
     NSString *_filename;
     NSURL *_transferDataURL;
     NSString *_utiType;
     NSString *_mimeType;
     unsigned long _hfsType;
-    unsigned short _hfsFlags;
     unsigned long _hfsCreator;
     NSString *_accountID;
     NSString *_otherPerson;
-    unsigned long long _currentBytes;
-    unsigned long long _totalBytes;
-    unsigned long long _averageTransferRate;
-    BOOL _isDirectory;
-    BOOL _shouldAttemptToResume;
     int _error;
     NSString *_errorDescription;
-    BOOL _wasRegisteredAsStandalone;
-    BOOL _shouldForceArchive;
     NSDictionary *_localUserInfo;
     NSString *_transferredFilename;
     NSDictionary *_transcoderUserInfo;
+    double _lastUpdatedInterval;
+    double _lastAveragedInterval;
+    unsigned long long _lastAveragedBytes;
+    unsigned long long _currentBytes;
+    unsigned long long _totalBytes;
+    unsigned long long _averageTransferRate;
 }
 
 + (BOOL)_doesLocalURLRequireArchiving:(id)arg1;
 + (id)_invalidCharactersForFileTransferName;
 @property(retain, nonatomic) NSDictionary *transcoderUserInfo; // @synthesize transcoderUserInfo=_transcoderUserInfo;
 @property(retain, nonatomic) NSString *transferredFilename; // @synthesize transferredFilename=_transferredFilename;
+@property(nonatomic, setter=_setNeedsWrapper:) BOOL _needsWrapper; // @synthesize _needsWrapper;
 @property(retain, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_localUserInfo;
 - (void)_setForceArchive:(BOOL)arg1;
 @property(nonatomic) BOOL shouldForceArchive; // @synthesize shouldForceArchive=_shouldForceArchive;
@@ -90,6 +92,7 @@
 - (void)_setTransferDataURL:(id)arg1;
 @property(readonly, nonatomic) BOOL existsAtLocalPath;
 @property(readonly, nonatomic) NSString *displayName;
+@property(readonly, nonatomic) BOOL isFinished;
 @property(readonly, nonatomic) BOOL canBeAccepted;
 - (void)_calculateTypeInformation;
 - (id)_dictionaryRepresentation;
@@ -101,6 +104,7 @@
 - (void)_setStartDate:(id)arg1;
 - (void)_setAccount:(id)arg1 otherPerson:(id)arg2;
 - (id)_initWithGUID:(id)arg1 filename:(id)arg2 isDirectory:(BOOL)arg3 localURL:(id)arg4 account:(id)arg5 otherPerson:(id)arg6 totalBytes:(unsigned long long)arg7 hfsType:(unsigned long)arg8 hfsCreator:(unsigned long)arg9 hfsFlags:(unsigned short)arg10 isIncoming:(BOOL)arg11;
+- (id)init;
 - (void)dealloc;
 
 @end

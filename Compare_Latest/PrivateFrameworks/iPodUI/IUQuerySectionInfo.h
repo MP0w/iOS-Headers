@@ -13,13 +13,13 @@
     MPMediaQuerySectionInfo *_sectionInfo;
 }
 
+- (void).cxx_destruct;
 - (unsigned int)indexOfSectionForSectionIndexTitleAtIndex:(unsigned int)arg1;
 - (id)titleOfSectionAtIndex:(unsigned int)arg1;
 - (id)titleOfIndexBarSectionAtIndex:(unsigned int)arg1;
 - (unsigned int)numberOfIndexBarTitles;
 - (unsigned int)numberOfSections;
 - (unsigned int)indexOfSectionAtIndex:(unsigned int)arg1;
-- (void)dealloc;
 - (id)initWithMediaQuerySectionInfo:(id)arg1;
 
 @end

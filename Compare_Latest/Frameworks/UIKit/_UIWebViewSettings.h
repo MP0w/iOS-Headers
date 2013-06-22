@@ -12,11 +12,11 @@
 
 @interface _UIWebViewSettings : NSObject <NSCopying>
 {
-    unsigned int _dataDetectorTypes;
     BOOL _allowsInlineMediaPlayback;
     BOOL _mediaPlaybackRequiresUserAction;
     BOOL _mediaPlaybackAllowsAirPlay;
     BOOL _suppressesIncrementalRendering;
+    unsigned int _dataDetectorTypes;
     NSString *_customUserAgent;
 }
 

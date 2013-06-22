@@ -10,21 +10,21 @@
 
 @interface EKEventAttendeesDetailItem : EKEventDetailItem
 {
-    int _status;
-    NSArray *_attendees;
     NSMutableDictionary *_attendeesCells;
     EKEventDetailAttendeesCell *_cell;
+    int _status;
+    NSArray *_attendees;
 }
 
-@property(retain) NSArray *attendees; // @synthesize attendees=_attendees;
-@property int status; // @synthesize status=_status;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
+@property(retain, nonatomic) NSArray *attendees; // @synthesize attendees=_attendees;
+@property(nonatomic) int status; // @synthesize status=_status;
+- (void).cxx_destruct;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
-- (int)numberOfSubitems;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
+- (unsigned int)numberOfSubitems;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (void)reset;
-- (void)dealloc;
 
 @end
 

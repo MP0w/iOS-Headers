@@ -27,12 +27,7 @@
 @property(retain, nonatomic) UIImage *grabberImage; // @synthesize grabberImage=_grabberImage;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)animateGrabberOutWithCompletion:(id)arg1;
-- (void)layoutSubviews;
-- (void)_layoutWells;
-- (float)_buttonWidth;
 - (void)dealloc;
-- (id)initForVideoChatWithFrame:(struct CGRect)arg1;
-- (id)initForIncomingCallWithFrame:(struct CGRect)arg1;
 
 @end
 

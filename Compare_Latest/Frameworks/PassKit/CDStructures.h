@@ -6,6 +6,25 @@
 
 #pragma mark Named Structures
 
+struct CATransform3D {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
+    float _field5;
+    float _field6;
+    float _field7;
+    float _field8;
+    float _field9;
+    float _field10;
+    float _field11;
+    float _field12;
+    float _field13;
+    float _field14;
+    float _field15;
+    float _field16;
+};
+
 struct CGPoint {
     float x;
     float y;
@@ -19,13 +38,6 @@ struct CGRect {
 struct CGSize {
     float width;
     float height;
-};
-
-struct PKEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
 };
 
 struct UIEdgeInsets {

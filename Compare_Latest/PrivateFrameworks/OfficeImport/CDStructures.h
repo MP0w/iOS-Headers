@@ -22,7 +22,7 @@ struct AxisParentChildren {
     int _field2;
     int _field3;
     int _field4;
-    ChVector_2347933f _field5;
+    ChVector_fe49fc78 _field5;
     int _field6;
     int _field7;
     int _field8;
@@ -78,39 +78,39 @@ struct CPXmlEnumDescription {
     char *_field2;
 };
 
-struct ChMap<unsigned long, EshOpt::Value, CsLess<unsigned long>> {
-    struct map<unsigned long, EshOpt::Value, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, EshOpt::Value>>> _field1;
+struct ChMap<unsigned int, EshOpt::Value, CsLess<unsigned int>> {
+    struct map<unsigned int, EshOpt::Value, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, EshOpt::Value>>> _field1;
 };
 
-struct ChMap<unsigned long, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned long>> {
-    struct map<unsigned long, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, PptBinaryReader::SKIP_CONDITIONS>>> _field1;
+struct ChMap<unsigned int, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned int>> {
+    struct map<unsigned int, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, PptBinaryReader::SKIP_CONDITIONS>>> _field1;
 };
 
-struct ChMap<unsigned long, WrdCharacterProperties *, CsLess<unsigned long>> {
-    struct map<unsigned long, WrdCharacterProperties *, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdCharacterProperties *>>> _field1;
+struct ChMap<unsigned int, WrdCharacterProperties *, CsLess<unsigned int>> {
+    struct map<unsigned int, WrdCharacterProperties *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, WrdCharacterProperties *>>> _field1;
 };
 
-struct ChMap<unsigned long, WrdParagraphProperties *, CsLess<unsigned long>> {
-    struct map<unsigned long, WrdParagraphProperties *, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdParagraphProperties *>>> _field1;
+struct ChMap<unsigned int, WrdParagraphProperties *, CsLess<unsigned int>> {
+    struct map<unsigned int, WrdParagraphProperties *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, WrdParagraphProperties *>>> _field1;
 };
 
-struct ChMap<unsigned long, WrdTableProperties *, CsLess<unsigned long>> {
-    struct map<unsigned long, WrdTableProperties *, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdTableProperties *>>> _field1;
+struct ChMap<unsigned int, WrdTableProperties *, CsLess<unsigned int>> {
+    struct map<unsigned int, WrdTableProperties *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, WrdTableProperties *>>> _field1;
 };
 
-struct ChMap<unsigned long, XlChartEnteredData *, CsLess<unsigned long>> {
-    struct map<unsigned long, XlChartEnteredData *, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, XlChartEnteredData *>>> _field1;
+struct ChMap<unsigned int, XlChartEnteredData *, CsLess<unsigned int>> {
+    struct map<unsigned int, XlChartEnteredData *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, XlChartEnteredData *>>> _field1;
 };
 
-struct ChMap<unsigned long, long, CsLess<unsigned long>> {
-    struct map<unsigned long, long, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, long>>> _field1;
+struct ChMap<unsigned int, int, CsLess<unsigned int>> {
+    struct map<unsigned int, int, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, int>>> _field1;
 };
 
-struct ChMap<unsigned long, unsigned long, CsLess<unsigned long>> {
-    struct map<unsigned long, unsigned long, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, unsigned long>>> _field1;
+struct ChMap<unsigned int, unsigned int, CsLess<unsigned int>> {
+    struct map<unsigned int, unsigned int, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned int>>> _field1;
 };
 
-struct ChPair<unsigned long, EscherObjectEnums>;
+struct ChPair<unsigned int, EscherObjectEnums>;
 
 struct ChStack<EshHeader> {
     struct EshHeader *_field1;
@@ -120,9 +120,9 @@ struct ChStack<EshHeader> {
     unsigned int _field5;
 };
 
-struct ChVector<ChPair<unsigned long, EscherObjectEnums>> {
-    struct ChPair<unsigned long, EscherObjectEnums> *_field1;
-    struct ChPair<unsigned long, EscherObjectEnums> *_field2;
+struct ChVector<ChPair<unsigned int, EscherObjectEnums>> {
+    struct ChPair<unsigned int, EscherObjectEnums> *_field1;
+    struct ChPair<unsigned int, EscherObjectEnums> *_field2;
     unsigned int _field3;
     unsigned int _field4;
     unsigned int _field5;
@@ -482,9 +482,9 @@ struct ChVector<short> {
     unsigned int _field5;
 };
 
-struct ChVector<unsigned long> {
-    unsigned long *_field1;
-    unsigned long *_field2;
+struct ChVector<unsigned int> {
+    unsigned int *_field1;
+    unsigned int *_field2;
     unsigned int _field3;
     unsigned int _field4;
     unsigned int _field5;
@@ -497,18 +497,16 @@ struct CsColour {
     unsigned short _field4;
 };
 
-struct CsLess<unsigned long>;
-
-struct CsPoint<long> {
-    long _field1[2];
+struct CsPoint<int> {
+    int _field1[2];
 };
 
 struct CsRect<float> {
     float _field1[4];
 };
 
-struct CsRect<long> {
-    long _field1[4];
+struct CsRect<int> {
+    int _field1[4];
 };
 
 struct CsSimpleHeapVector<XlRecord> {
@@ -598,8 +596,8 @@ struct EFLexer {
     int _field6;
     int _field7;
     int *_field8;
-    struct basic_istream<char, std::char_traits<char>> *_field9;
-    struct basic_ostream<char, std::char_traits<char>> *_field10;
+    struct basic_istream<char, std::__1::char_traits<char>> *_field9;
+    struct basic_ostream<char, std::__1::char_traits<char>> *_field10;
     char _field11;
     unsigned int _field12;
     char *_field13;
@@ -626,9 +624,9 @@ struct EFLexer {
     id _field34;
     char _field35;
     char *_field36;
-    struct basic_stringbuf<char, std::char_traits<char>, std::allocator<char>> *_field37;
-    struct basic_istream<char, std::char_traits<char>> *_field38;
-    struct basic_ostream<char, std::char_traits<char>> *_field39;
+    struct basic_stringbuf<char, std::__1::char_traits<char>, std::__1::allocator<char>> *_field37;
+    struct basic_istream<char, std::__1::char_traits<char>> *_field38;
+    struct basic_ostream<char, std::__1::char_traits<char>> *_field39;
     struct yy_buffer_state *_field40;
 };
 
@@ -703,7 +701,7 @@ struct EshContentData {
     struct EshOpt _field2;
     struct EshOpt _field3;
     struct EshSp _field4;
-    CsRect_0423b3b0 _field5;
+    CsRect_0aefebc6 _field5;
 };
 
 struct EshContentProperties {
@@ -771,8 +769,8 @@ struct EshMetafileBlipInfo {
     struct UID _field2;
     struct OcBinaryData _field3;
     int _field4;
-    CsRect_0423b3b0 _field5;
-    CsPoint_62d0eb08 _field6;
+    CsRect_0aefebc6 _field5;
+    CsPoint_c846a6ec _field6;
     int _field7;
     unsigned char _field8;
     unsigned char _field9;
@@ -792,7 +790,7 @@ struct EshOpt {
     void **_field1;
     unsigned short _field2;
     struct EshHeader _field3;
-    struct ChMap<unsigned long, EshOpt::Value, CsLess<unsigned long>> _field4;
+    struct ChMap<unsigned int, EshOpt::Value, CsLess<unsigned int>> _field4;
     struct EshColor _field5;
 };
 
@@ -854,6 +852,34 @@ struct EshShapeBase {
     struct EshShadow _field7;
     struct EshExtrusion _field8;
     struct EshCallout _field9;
+};
+
+struct EshShapeDefaults {
+    void **_field1;
+    unsigned short _field2;
+    struct EshContentData _field3;
+    struct EshTextBox _field4;
+    struct EshFill _field5;
+    struct EshStroke _field6;
+    struct EshShadow _field7;
+    struct EshExtrusion _field8;
+    struct EshCallout _field9;
+    struct EshShapeDefaultsPropertiesImpl _field10;
+    struct EshShapeDefaultsImageData _field11;
+};
+
+struct EshShapeDefaultsImageData {
+    void **_field1;
+    unsigned short _field2;
+    struct EshContentData *_field3;
+};
+
+struct EshShapeDefaultsPropertiesImpl {
+    void **_field1;
+    unsigned short _field2;
+    struct EshContentData *_field3;
+    void **_field4;
+    void **_field5;
 };
 
 struct EshShapeImageData {
@@ -970,6 +996,28 @@ struct OADAdjustPoint {
     struct OADAdjustCoord y;
 };
 
+struct OADCachedTextStyleData {
+    unsigned int verticalAlign:3;
+    short lineSpacing;
+    short beforeSpacing;
+    short afterSpacing;
+    short leftMargin;
+    short rightMargin;
+    short indent;
+    short defaultTab;
+    unsigned int horizontalAlign:4;
+    unsigned short fontFaceIndex;
+    short fontSize;
+    unsigned short fontColorIndex;
+    unsigned int bold:1;
+    unsigned int italic:1;
+    unsigned int underline:5;
+    unsigned int format:2;
+    unsigned int kerning:2;
+    unsigned int strikethrough:2;
+    unsigned int caps:2;
+};
+
 struct OADFormulaArg {
     int type;
     int value;
@@ -1059,12 +1107,6 @@ struct OcBinaryReader {
     void **_field1;
 };
 
-struct OcBinaryWriter {
-    void **_field1;
-    char *_field2;
-    struct SsrwOOStgInfo *_field3;
-};
-
 struct OcHyperlink;
 
 struct OcReader {
@@ -1113,13 +1155,6 @@ struct OcWriter {
     void **_field1;
 };
 
-struct PATHSEGMENT {
-    unsigned char _field1;
-    struct CGPoint _field2;
-};
-
-struct PBPointerHash;
-
 struct PBReaderMasterStyleInfo {
     struct PptTextMasterStyleAtom *_field1;
     struct PptTextMasterStyle9Atom *_field2;
@@ -1135,8 +1170,8 @@ struct PBTextFormatProgTagInfo {
 
 struct PBWriterMasterSlideInfo {
     struct PptSlidePersistAtom *_field1;
-    struct vector<PBWriterMasterStyleInfo, std::allocator<PBWriterMasterStyleInfo>> _field2;
-    struct map<PptPlaceholder, OADDrawable *, std::less<PptPlaceholder>, std::allocator<std::pair<const PptPlaceholder, OADDrawable *>>> _field3;
+    struct vector<PBWriterMasterStyleInfo, std::__1::allocator<PBWriterMasterStyleInfo>> _field2;
+    struct map<PptPlaceholder, OADDrawable *, std::__1::less<PptPlaceholder>, std::__1::allocator<std::__1::pair<const PptPlaceholder, OADDrawable *>>> _field3;
 };
 
 struct PBWriterMasterStyleInfo {
@@ -1147,10 +1182,10 @@ struct PBWriterMasterStyleInfo {
 struct PlotDescriptor;
 
 struct PptAnimColorBehavior_Color_Struct {
-    unsigned long _field1;
-    unsigned long _field2;
-    unsigned long _field3;
-    unsigned long _field4;
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
 };
 
 struct PptBinaryReader {
@@ -1178,11 +1213,11 @@ struct PptBinaryReader {
     unsigned int _field22;
     unsigned int _field23;
     unsigned int _field24;
-    struct ChMap<unsigned long, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned long>> _field25;
+    struct ChMap<unsigned int, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned int>> _field25;
     struct PptObjectFactory *_field26;
     struct EshMark *_field27;
     int _field28;
-    struct ChVector<ChPair<unsigned long, EscherObjectEnums>> _field29;
+    struct ChVector<ChPair<unsigned int, EscherObjectEnums>> _field29;
     _Bool _field30;
 };
 
@@ -1503,8 +1538,6 @@ struct SsrwOORootStorage {
     struct _RootStorage *_field3;
 };
 
-struct SsrwOOStgInfo;
-
 struct SsrwOOStorage {
     struct _Storage *_field1;
     unsigned short _field2[36];
@@ -1524,10 +1557,6 @@ struct TSUFlushableObjectInfo {
     unsigned long _field5[2];
 };
 
-struct TSUFlushableObjectInfoPointerFlushingOrderLess;
-
-struct TSUFlushableObjectInfoPointerTimeStampLess;
-
 struct TextRun;
 
 struct UID {
@@ -1540,10 +1569,10 @@ struct WBParagraphReadState {
     int _field3;
     struct WrdFieldPosition *_field4;
     int _field5;
-    struct vector<unsigned long, std::allocator<unsigned long>> _field6;
+    struct vector<unsigned int, std::__1::allocator<unsigned int>> _field6;
     int _field7;
     int _field8;
-    struct vector<unsigned long, std::allocator<unsigned long>> _field9;
+    struct vector<unsigned int, std::__1::allocator<unsigned int>> _field9;
 };
 
 struct WBTextBoxReaderInfo {
@@ -1592,8 +1621,8 @@ struct WrdBinaryReader {
     struct WrdStyleSheet *_field16;
     struct WrdEmbeddedTTFRecordTable *_field17;
     struct WrdDocumentFileRecord *_field18;
-    struct ChMap<unsigned long, unsigned long, CsLess<unsigned long>> _field19[8];
-    struct ChMap<unsigned long, unsigned long, CsLess<unsigned long>> _field20[8];
+    struct ChMap<unsigned int, unsigned int, CsLess<unsigned int>> _field19[8];
+    struct ChMap<unsigned int, unsigned int, CsLess<unsigned int>> _field20[8];
     unsigned int _field21;
     unsigned int _field22;
     unsigned int _field23;
@@ -1626,7 +1655,7 @@ struct WrdCHPXFKP;
 
 struct WrdCPTableHeaders {
     void **_field1;
-    ChVector_2347933f _field2;
+    ChVector_fe49fc78 _field2;
 };
 
 struct WrdCharacterProperties {
@@ -2498,8 +2527,8 @@ struct WrdSectionProperties {
     unsigned int _field30;
     unsigned int _field31;
     unsigned int _field32;
-    struct ChMap<unsigned long, unsigned long, CsLess<unsigned long>> _field33;
-    struct ChMap<unsigned long, unsigned long, CsLess<unsigned long>> _field34;
+    struct ChMap<unsigned int, unsigned int, CsLess<unsigned int>> _field33;
+    struct ChMap<unsigned int, unsigned int, CsLess<unsigned int>> _field34;
     unsigned short _field35;
     unsigned short _field36;
     unsigned short _field37;
@@ -2636,9 +2665,9 @@ struct WrdStyle {
     struct WrdCharacterProperties *_field6;
     struct WrdTableProperties *_field7;
     struct WrdDateTime *_field8;
-    struct ChMap<unsigned long, WrdParagraphProperties *, CsLess<unsigned long>> _field9;
-    struct ChMap<unsigned long, WrdCharacterProperties *, CsLess<unsigned long>> _field10;
-    struct ChMap<unsigned long, WrdTableProperties *, CsLess<unsigned long>> _field11;
+    struct ChMap<unsigned int, WrdParagraphProperties *, CsLess<unsigned int>> _field9;
+    struct ChMap<unsigned int, WrdCharacterProperties *, CsLess<unsigned int>> _field10;
+    struct ChMap<unsigned int, WrdTableProperties *, CsLess<unsigned int>> _field11;
     int _field12;
     unsigned short _field13;
     unsigned short _field14;
@@ -2928,9 +2957,9 @@ struct XlBinaryReader {
     _Bool _field39;
     _Bool _field40;
     _Bool _field41;
-    ChVector_2347933f _field42;
-    ChVector_2347933f _field43;
-    ChVector_2347933f _field44;
+    ChVector_fe49fc78 _field42;
+    ChVector_fe49fc78 _field43;
+    ChVector_fe49fc78 _field44;
     struct XlIndex *_field45;
     struct XlRow *_field46;
     struct XlRecord *_field47;
@@ -3072,9 +3101,9 @@ struct XlChartBinaryReader {
     _Bool _field39;
     _Bool _field40;
     _Bool _field41;
-    ChVector_2347933f _field42;
-    ChVector_2347933f _field43;
-    ChVector_2347933f _field44;
+    ChVector_fe49fc78 _field42;
+    ChVector_fe49fc78 _field43;
+    ChVector_fe49fc78 _field44;
     struct XlIndex *_field45;
     struct XlRow *_field46;
     struct XlRecord *_field47;
@@ -3104,7 +3133,7 @@ struct XlChartBinaryReader {
     struct XlObjectFactory *_field71;
     struct XlParserVisitor *_field72;
     _Bool _field73;
-    ChVector_2347933f _field74;
+    ChVector_fe49fc78 _field74;
     struct XlSubstreamProperties _field75;
     int _field76;
     int _field77;
@@ -3112,32 +3141,32 @@ struct XlChartBinaryReader {
     struct CsRect<float> _field79;
     int _field80;
     int _field81;
-    long _field82[4];
+    int _field82[4];
     int _field83;
     int _field84;
     int _field85;
     int _field86;
     int _field87;
-    ChVector_2347933f _field88;
-    long _field89[4];
+    ChVector_fe49fc78 _field88;
+    int _field89[4];
     int _field90;
     int _field91;
     struct AxisParentChildren _field92;
     struct AxisParentChildren _field93;
     struct ChVector<XlChartBinaryReader::SeriesDescriptor> _field94;
     struct ChVector<XlChartBinaryReader::PlotDescriptor> _field95;
-    struct ChMap<unsigned long, long, CsLess<unsigned long>> _field96;
-    struct ChMap<unsigned long, long, CsLess<unsigned long>> _field97;
+    struct ChMap<unsigned int, int, CsLess<unsigned int>> _field96;
+    struct ChMap<unsigned int, int, CsLess<unsigned int>> _field97;
     unsigned short _field98;
-    struct ChMap<unsigned long, long, CsLess<unsigned long>> _field99;
-    struct ChMap<unsigned long, long, CsLess<unsigned long>> _field100;
+    struct ChMap<unsigned int, int, CsLess<unsigned int>> _field99;
+    struct ChMap<unsigned int, int, CsLess<unsigned int>> _field100;
     float _field101;
     float _field102;
     unsigned short _field103;
     unsigned short _field104;
     int _field105;
-    ChVector_2347933f _field106;
-    ChVector_2347933f _field107;
+    ChVector_fe49fc78 _field106;
+    ChVector_fe49fc78 _field107;
     int _field108;
     _Bool _field109;
     _Bool _field110;
@@ -3259,8 +3288,8 @@ struct XlChartDataSeries {
     struct ChVector<XlChartSeriesFormat *> _field6;
     struct ChVector<XlChartSeriesFormat *> _field7;
     struct ChVector<XlChartCustomLabelText *> _field8;
-    struct ChVector<unsigned long> _field9;
-    ChVector_2347933f _field10;
+    struct ChVector<unsigned int> _field9;
+    ChVector_fe49fc78 _field10;
     struct XlChartLinkedData *_field11;
     struct XlChartLinkedData *_field12;
     struct XlChartLinkedData *_field13;
@@ -3277,8 +3306,8 @@ struct XlChartErrorBar {
     struct ChVector<XlChartSeriesFormat *> _field6;
     struct ChVector<XlChartSeriesFormat *> _field7;
     struct ChVector<XlChartCustomLabelText *> _field8;
-    struct ChVector<unsigned long> _field9;
-    ChVector_2347933f _field10;
+    struct ChVector<unsigned int> _field9;
+    ChVector_fe49fc78 _field10;
     struct XlChartLinkedData *_field11;
     struct XlChartLinkedData *_field12;
     struct XlChartLinkedData *_field13;
@@ -3396,7 +3425,7 @@ struct XlChartLinkedData {
     unsigned short _field4;
     short _field5;
     _Bool _field6;
-    struct ChMap<unsigned long, XlChartEnteredData *, CsLess<unsigned long>> _field7;
+    struct ChMap<unsigned int, XlChartEnteredData *, CsLess<unsigned int>> _field7;
 };
 
 struct XlChartMarkerStyle {
@@ -3551,8 +3580,8 @@ struct XlChartTrendLine {
     struct ChVector<XlChartSeriesFormat *> _field6;
     struct ChVector<XlChartSeriesFormat *> _field7;
     struct ChVector<XlChartCustomLabelText *> _field8;
-    struct ChVector<unsigned long> _field9;
-    ChVector_2347933f _field10;
+    struct ChVector<unsigned int> _field9;
+    ChVector_fe49fc78 _field10;
     struct XlChartLinkedData *_field11;
     struct XlChartLinkedData *_field12;
     struct XlChartLinkedData *_field13;
@@ -3708,8 +3737,8 @@ struct XlEshClientAnchor {
     unsigned short _field2;
     struct EshHeader _field3;
     unsigned short _field4;
-    CsRect_0423b3b0 _field5;
-    CsRect_0423b3b0 _field6;
+    CsRect_0aefebc6 _field5;
+    CsRect_0aefebc6 _field6;
 };
 
 struct XlEshObjectFactory {
@@ -3719,13 +3748,15 @@ struct XlEshObjectFactory {
 
 struct XlFileProtection {
     void **_field1;
-    int _field2;
+    _Bool _field2;
     _Bool _field3;
-    _Bool _field4;
-    short _field5;
+    short _field4;
+    struct OcText _field5;
     struct OcText _field6;
-    struct OcText _field7;
+    unsigned short _field7;
     char *_field8;
+    unsigned int _field9;
+    char *_field10;
 };
 
 struct XlFont {
@@ -4154,86 +4185,9 @@ struct XlXf {
 
 struct XlXti;
 
-struct _Hashtable_node<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>;
-
 struct _NSRange {
     unsigned int location;
     unsigned int length;
-};
-
-struct _Rb_tree<PptPlaceholder, std::pair<const PptPlaceholder, OADDrawable *>, std::_Select1st<std::pair<const PptPlaceholder, OADDrawable *>>, std::less<PptPlaceholder>, std::allocator<std::pair<const PptPlaceholder, OADDrawable *>>> {
-    struct _Rb_tree_impl<std::less<PptPlaceholder>, false> _field1;
-};
-
-struct _Rb_tree<TSUFlushableObjectInfo *, TSUFlushableObjectInfo *, std::_Identity<TSUFlushableObjectInfo *>, TSUFlushableObjectInfoPointerFlushingOrderLess, std::allocator<TSUFlushableObjectInfo *>> {
-    struct _Rb_tree_impl<TSUFlushableObjectInfoPointerFlushingOrderLess, false> _field1;
-};
-
-struct _Rb_tree<TSUFlushableObjectInfo *, TSUFlushableObjectInfo *, std::_Identity<TSUFlushableObjectInfo *>, TSUFlushableObjectInfoPointerTimeStampLess, std::allocator<TSUFlushableObjectInfo *>> {
-    struct _Rb_tree_impl<TSUFlushableObjectInfoPointerTimeStampLess, false> _field1;
-};
-
-struct _Rb_tree<unsigned long, std::pair<const unsigned long, EshOpt::Value>, std::_Select1st<std::pair<const unsigned long, EshOpt::Value>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, EshOpt::Value>>> {
-    struct _Rb_tree_impl<CsLess<unsigned long>, false> _field1;
-};
-
-struct _Rb_tree<unsigned long, std::pair<const unsigned long, PptBinaryReader::SKIP_CONDITIONS>, std::_Select1st<std::pair<const unsigned long, PptBinaryReader::SKIP_CONDITIONS>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, PptBinaryReader::SKIP_CONDITIONS>>> {
-    struct _Rb_tree_impl<CsLess<unsigned long>, false> _field1;
-};
-
-struct _Rb_tree<unsigned long, std::pair<const unsigned long, WrdCharacterProperties *>, std::_Select1st<std::pair<const unsigned long, WrdCharacterProperties *>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdCharacterProperties *>>> {
-    struct _Rb_tree_impl<CsLess<unsigned long>, false> _field1;
-};
-
-struct _Rb_tree<unsigned long, std::pair<const unsigned long, WrdParagraphProperties *>, std::_Select1st<std::pair<const unsigned long, WrdParagraphProperties *>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdParagraphProperties *>>> {
-    struct _Rb_tree_impl<CsLess<unsigned long>, false> _field1;
-};
-
-struct _Rb_tree<unsigned long, std::pair<const unsigned long, WrdTableProperties *>, std::_Select1st<std::pair<const unsigned long, WrdTableProperties *>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdTableProperties *>>> {
-    struct _Rb_tree_impl<CsLess<unsigned long>, false> _field1;
-};
-
-struct _Rb_tree<unsigned long, std::pair<const unsigned long, XlChartEnteredData *>, std::_Select1st<std::pair<const unsigned long, XlChartEnteredData *>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, XlChartEnteredData *>>> {
-    struct _Rb_tree_impl<CsLess<unsigned long>, false> _field1;
-};
-
-struct _Rb_tree<unsigned long, std::pair<const unsigned long, long>, std::_Select1st<std::pair<const unsigned long, long>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, long>>> {
-    struct _Rb_tree_impl<CsLess<unsigned long>, false> _field1;
-};
-
-struct _Rb_tree<unsigned long, std::pair<const unsigned long, unsigned long>, std::_Select1st<std::pair<const unsigned long, unsigned long>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, unsigned long>>> {
-    struct _Rb_tree_impl<CsLess<unsigned long>, false> _field1;
-};
-
-struct _Rb_tree_impl<CsLess<unsigned long>, false> {
-    struct CsLess<unsigned long> _field1;
-    struct _Rb_tree_node_base _field2;
-    unsigned int _field3;
-};
-
-struct _Rb_tree_impl<TSUFlushableObjectInfoPointerFlushingOrderLess, false> {
-    struct TSUFlushableObjectInfoPointerFlushingOrderLess _field1;
-    struct _Rb_tree_node_base _field2;
-    unsigned int _field3;
-};
-
-struct _Rb_tree_impl<TSUFlushableObjectInfoPointerTimeStampLess, false> {
-    struct TSUFlushableObjectInfoPointerTimeStampLess _field1;
-    struct _Rb_tree_node_base _field2;
-    unsigned int _field3;
-};
-
-struct _Rb_tree_impl<std::less<PptPlaceholder>, false> {
-    struct less<PptPlaceholder> _field1;
-    struct _Rb_tree_node_base _field2;
-    unsigned int _field3;
-};
-
-struct _Rb_tree_node_base {
-    int _field1;
-    struct _Rb_tree_node_base *_field2;
-    struct _Rb_tree_node_base *_field3;
-    struct _Rb_tree_node_base *_field4;
 };
 
 struct _RootStorage;
@@ -4256,8 +4210,6 @@ struct _SSRW_GUID {
     unsigned short _field3;
     unsigned char _field4[8];
 };
-
-struct _Select1st<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>;
 
 struct _SsrwOO_GUID {
     unsigned int _field1;
@@ -4295,6 +4247,16 @@ struct _StgInfo {
 
 struct _Storage;
 
+struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUFlushableObjectInfo *, void *>>> {
+    struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+};
+
+struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, unsigned int>, void *>>> {
+    struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+};
+
+struct __hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>;
+
 struct __sFILE {
     char *_field1;
     int _field2;
@@ -4322,6 +4284,14 @@ struct __sbuf {
     char *_field1;
     int _field2;
 };
+
+struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
+    struct __tree_node_base<void *> *__left_;
+};
+
+struct __tree_node<TSUFlushableObjectInfo *, void *>;
+
+struct __tree_node<std::__1::pair<unsigned int, unsigned int>, void *>;
 
 struct _tagLevelItem {
     struct _tagLevelItem *_field1;
@@ -4370,7 +4340,7 @@ struct _xmlAttr {
     void *_field12;
 };
 
-struct _xmlBuffer;
+struct _xmlBuf;
 
 struct _xmlDoc {
     void *_field1;
@@ -4434,81 +4404,195 @@ struct _xmlOutputBuffer {
     void *_field2;
     void *_field3;
     struct _xmlCharEncodingHandler *_field4;
-    struct _xmlBuffer *_field5;
-    struct _xmlBuffer *_field6;
+    struct _xmlBuf *_field5;
+    struct _xmlBuf *_field6;
     int _field7;
     int _field8;
 };
 
-struct allocator<__gnu_cxx::_Hashtable_node<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>>;
+struct basic_istream<char, std::__1::char_traits<char>>;
 
-struct basic_istream<char, std::char_traits<char>>;
+struct basic_ostream<char, std::__1::char_traits<char>>;
 
-struct basic_ostream<char, std::char_traits<char>>;
+struct basic_stringbuf<char, std::__1::char_traits<char>, std::__1::allocator<char>>;
 
-struct basic_stringbuf<char, std::char_traits<char>, std::allocator<char>>;
-
-struct equal_to<PDSlideBase *>;
-
-struct hash_map<PDSlideBase *, PBWriterMasterSlideInfo, PBPointerHash, std::equal_to<PDSlideBase *>, std::allocator<PBWriterMasterSlideInfo>> {
-    struct hashtable<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>, PDSlideBase *, PBPointerHash, std::_Select1st<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>, std::equal_to<PDSlideBase *>, std::allocator<PBWriterMasterSlideInfo>> _field1;
-};
-
-struct hashtable<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>, PDSlideBase *, PBPointerHash, std::_Select1st<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>, std::equal_to<PDSlideBase *>, std::allocator<PBWriterMasterSlideInfo>> {
-    struct allocator<__gnu_cxx::_Hashtable_node<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>> _field1;
-    struct PBPointerHash _field2;
-    struct equal_to<PDSlideBase *> _field3;
-    struct _Select1st<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>> _field4;
-    struct vector<__gnu_cxx::_Hashtable_node<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>*, std::allocator<__gnu_cxx::_Hashtable_node<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>*>> _field5;
-    unsigned int _field6;
+struct hash_map<PDSlideBase *, PBWriterMasterSlideInfo, PBPointerHash, std::__1::equal_to<PDSlideBase *>, std::__1::allocator<std::__1::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>> {
+    struct __hash_table<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, __gnu_cxx::__hash_map_hasher<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, PBPointerHash, true>, __gnu_cxx::__hash_map_equal<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, std::__1::equal_to<PDSlideBase *>, true>, std::__1::allocator<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*> {
+                struct __hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, __gnu_cxx::__hash_map_hasher<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, PBPointerHash, true>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, __gnu_cxx::__hash_map_equal<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, std::__1::equal_to<PDSlideBase *>, true>> {
+            float _field1;
+        } _field4;
+    } _field1;
 };
 
 struct internal_state;
 
-struct less<PptPlaceholder>;
-
-struct map<PptPlaceholder, OADDrawable *, std::less<PptPlaceholder>, std::allocator<std::pair<const PptPlaceholder, OADDrawable *>>> {
-    struct _Rb_tree<PptPlaceholder, std::pair<const PptPlaceholder, OADDrawable *>, std::_Select1st<std::pair<const PptPlaceholder, OADDrawable *>>, std::less<PptPlaceholder>, std::allocator<std::pair<const PptPlaceholder, OADDrawable *>>> _field1;
+struct map<PptPlaceholder, OADDrawable *, std::__1::less<PptPlaceholder>, std::__1::allocator<std::__1::pair<const PptPlaceholder, OADDrawable *>>> {
+    struct __tree<std::__1::pair<PptPlaceholder, OADDrawable *>, std::__1::__map_value_compare<PptPlaceholder, OADDrawable *, std::__1::less<PptPlaceholder>, true>, std::__1::allocator<std::__1::pair<PptPlaceholder, OADDrawable *>>> {
+        struct __tree_node<std::__1::pair<PptPlaceholder, OADDrawable *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<PptPlaceholder, OADDrawable *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<PptPlaceholder, OADDrawable *, std::__1::less<PptPlaceholder>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
-struct map<unsigned long, EshOpt::Value, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, EshOpt::Value>>> {
-    struct _Rb_tree<unsigned long, std::pair<const unsigned long, EshOpt::Value>, std::_Select1st<std::pair<const unsigned long, EshOpt::Value>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, EshOpt::Value>>> _field1;
+struct map<int, unsigned int, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, unsigned int>>> {
+    struct __tree<std::__1::pair<int, unsigned int>, std::__1::__map_value_compare<int, unsigned int, std::__1::less<int>, true>, std::__1::allocator<std::__1::pair<int, unsigned int>>> {
+        struct __tree_node<std::__1::pair<int, unsigned int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<int, unsigned int>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<int, unsigned int, std::__1::less<int>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
 };
 
-struct map<unsigned long, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, PptBinaryReader::SKIP_CONDITIONS>>> {
-    struct _Rb_tree<unsigned long, std::pair<const unsigned long, PptBinaryReader::SKIP_CONDITIONS>, std::_Select1st<std::pair<const unsigned long, PptBinaryReader::SKIP_CONDITIONS>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, PptBinaryReader::SKIP_CONDITIONS>>> _field1;
+struct map<long, unsigned int, std::__1::less<long>, std::__1::allocator<std::__1::pair<const long, unsigned int>>> {
+    struct __tree<std::__1::pair<long, unsigned int>, std::__1::__map_value_compare<long, unsigned int, std::__1::less<long>, true>, std::__1::allocator<std::__1::pair<long, unsigned int>>> {
+        struct __tree_node<std::__1::pair<long, unsigned int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<long, unsigned int>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long, unsigned int, std::__1::less<long>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
 };
 
-struct map<unsigned long, WrdCharacterProperties *, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdCharacterProperties *>>> {
-    struct _Rb_tree<unsigned long, std::pair<const unsigned long, WrdCharacterProperties *>, std::_Select1st<std::pair<const unsigned long, WrdCharacterProperties *>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdCharacterProperties *>>> _field1;
+struct map<unsigned int, EshOpt::Value, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, EshOpt::Value>>> {
+    struct __tree<std::__1::pair<unsigned int, EshOpt::Value>, std::__1::__map_value_compare<unsigned int, EshOpt::Value, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, EshOpt::Value>>> {
+        struct __tree_node<std::__1::pair<unsigned int, EshOpt::Value>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, EshOpt::Value>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, EshOpt::Value, CsLess<unsigned int>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
-struct map<unsigned long, WrdParagraphProperties *, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdParagraphProperties *>>> {
-    struct _Rb_tree<unsigned long, std::pair<const unsigned long, WrdParagraphProperties *>, std::_Select1st<std::pair<const unsigned long, WrdParagraphProperties *>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdParagraphProperties *>>> _field1;
+struct map<unsigned int, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, PptBinaryReader::SKIP_CONDITIONS>>> {
+    struct __tree<std::__1::pair<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, std::__1::__map_value_compare<unsigned int, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, PptBinaryReader::SKIP_CONDITIONS>>> {
+        struct __tree_node<std::__1::pair<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, PptBinaryReader::SKIP_CONDITIONS>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, PptBinaryReader::SKIP_CONDITIONS, CsLess<unsigned int>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
-struct map<unsigned long, WrdTableProperties *, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdTableProperties *>>> {
-    struct _Rb_tree<unsigned long, std::pair<const unsigned long, WrdTableProperties *>, std::_Select1st<std::pair<const unsigned long, WrdTableProperties *>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, WrdTableProperties *>>> _field1;
+struct map<unsigned int, WrdCharacterProperties *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, WrdCharacterProperties *>>> {
+    struct __tree<std::__1::pair<unsigned int, WrdCharacterProperties *>, std::__1::__map_value_compare<unsigned int, WrdCharacterProperties *, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, WrdCharacterProperties *>>> {
+        struct __tree_node<std::__1::pair<unsigned int, WrdCharacterProperties *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, WrdCharacterProperties *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, WrdCharacterProperties *, CsLess<unsigned int>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
-struct map<unsigned long, XlChartEnteredData *, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, XlChartEnteredData *>>> {
-    struct _Rb_tree<unsigned long, std::pair<const unsigned long, XlChartEnteredData *>, std::_Select1st<std::pair<const unsigned long, XlChartEnteredData *>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, XlChartEnteredData *>>> _field1;
+struct map<unsigned int, WrdParagraphProperties *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, WrdParagraphProperties *>>> {
+    struct __tree<std::__1::pair<unsigned int, WrdParagraphProperties *>, std::__1::__map_value_compare<unsigned int, WrdParagraphProperties *, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, WrdParagraphProperties *>>> {
+        struct __tree_node<std::__1::pair<unsigned int, WrdParagraphProperties *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, WrdParagraphProperties *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, WrdParagraphProperties *, CsLess<unsigned int>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
-struct map<unsigned long, long, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, long>>> {
-    struct _Rb_tree<unsigned long, std::pair<const unsigned long, long>, std::_Select1st<std::pair<const unsigned long, long>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, long>>> _field1;
+struct map<unsigned int, WrdTableProperties *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, WrdTableProperties *>>> {
+    struct __tree<std::__1::pair<unsigned int, WrdTableProperties *>, std::__1::__map_value_compare<unsigned int, WrdTableProperties *, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, WrdTableProperties *>>> {
+        struct __tree_node<std::__1::pair<unsigned int, WrdTableProperties *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, WrdTableProperties *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, WrdTableProperties *, CsLess<unsigned int>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
-struct map<unsigned long, unsigned long, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, unsigned long>>> {
-    struct _Rb_tree<unsigned long, std::pair<const unsigned long, unsigned long>, std::_Select1st<std::pair<const unsigned long, unsigned long>>, CsLess<unsigned long>, std::allocator<std::pair<const unsigned long, unsigned long>>> _field1;
+struct map<unsigned int, XlChartEnteredData *, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, XlChartEnteredData *>>> {
+    struct __tree<std::__1::pair<unsigned int, XlChartEnteredData *>, std::__1::__map_value_compare<unsigned int, XlChartEnteredData *, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, XlChartEnteredData *>>> {
+        struct __tree_node<std::__1::pair<unsigned int, XlChartEnteredData *>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, XlChartEnteredData *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, XlChartEnteredData *, CsLess<unsigned int>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
-struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerFlushingOrderLess, std::allocator<TSUFlushableObjectInfo *>> {
-    struct _Rb_tree<TSUFlushableObjectInfo *, TSUFlushableObjectInfo *, std::_Identity<TSUFlushableObjectInfo *>, TSUFlushableObjectInfoPointerFlushingOrderLess, std::allocator<TSUFlushableObjectInfo *>> _field1;
+struct map<unsigned int, int, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, int>>> {
+    struct __tree<std::__1::pair<unsigned int, int>, std::__1::__map_value_compare<unsigned int, int, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, int>>> {
+        struct __tree_node<std::__1::pair<unsigned int, int>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, int>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, int, CsLess<unsigned int>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
-struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerTimeStampLess, std::allocator<TSUFlushableObjectInfo *>> {
-    struct _Rb_tree<TSUFlushableObjectInfo *, TSUFlushableObjectInfo *, std::_Identity<TSUFlushableObjectInfo *>, TSUFlushableObjectInfoPointerTimeStampLess, std::allocator<TSUFlushableObjectInfo *>> _field1;
+struct map<unsigned int, unsigned int, CsLess<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned int>>> {
+    struct __tree<std::__1::pair<unsigned int, unsigned int>, std::__1::__map_value_compare<unsigned int, unsigned int, CsLess<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> {
+        struct __tree_node<std::__1::pair<unsigned int, unsigned int>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, unsigned int>, void *>>> _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, unsigned int, CsLess<unsigned int>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<unsigned int, unsigned int, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned int>>> {
+    struct __tree<std::__1::pair<unsigned int, unsigned int>, std::__1::__map_value_compare<unsigned int, unsigned int, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::pair<unsigned int, unsigned int>>> {
+        struct __tree_node<std::__1::pair<unsigned int, unsigned int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned int, unsigned int>, void *>>> __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, unsigned int, std::__1::less<unsigned int>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerFlushingOrderLess, std::__1::allocator<TSUFlushableObjectInfo *>> {
+    struct __tree<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerFlushingOrderLess, std::__1::allocator<TSUFlushableObjectInfo *>> {
+        struct __tree_node<TSUFlushableObjectInfo *, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUFlushableObjectInfo *, void *>>> _field2;
+        struct __compressed_pair<unsigned long, TSUFlushableObjectInfoPointerFlushingOrderLess> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerTimeStampLess, std::__1::allocator<TSUFlushableObjectInfo *>> {
+    struct __tree<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerTimeStampLess, std::__1::allocator<TSUFlushableObjectInfo *>> {
+        struct __tree_node<TSUFlushableObjectInfo *, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUFlushableObjectInfo *, void *>>> _field2;
+        struct __compressed_pair<unsigned long, TSUFlushableObjectInfoPointerTimeStampLess> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
 struct tagChWinTime {
@@ -4516,52 +4600,55 @@ struct tagChWinTime {
     unsigned int _field2;
 };
 
-struct vector<CGRect, std::allocator<CGRect>> {
-    struct _Vector_impl {
+struct unique_ptr<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>>> {
+        struct __hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<PDSlideBase *, PBWriterMasterSlideInfo>, void *>*>> {
+                unsigned long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct vector<CGRect, std::__1::allocator<CGRect>> {
+    struct CGRect *_field1;
+    struct CGRect *_field2;
+    struct __compressed_pair<CGRect *, std::__1::allocator<CGRect>> {
         struct CGRect *_field1;
-        struct CGRect *_field2;
-        struct CGRect *_field3;
-    } _field1;
+    } _field3;
 };
 
-struct vector<PBWriterMasterStyleInfo, std::allocator<PBWriterMasterStyleInfo>> {
-    struct _Vector_impl {
+struct vector<PBWriterMasterStyleInfo, std::__1::allocator<PBWriterMasterStyleInfo>> {
+    struct PBWriterMasterStyleInfo *_field1;
+    struct PBWriterMasterStyleInfo *_field2;
+    struct __compressed_pair<PBWriterMasterStyleInfo *, std::__1::allocator<PBWriterMasterStyleInfo>> {
         struct PBWriterMasterStyleInfo *_field1;
-        struct PBWriterMasterStyleInfo *_field2;
-        struct PBWriterMasterStyleInfo *_field3;
-    } _field1;
+    } _field3;
 };
 
-struct vector<WBTextBoxReaderInfo, std::allocator<WBTextBoxReaderInfo>> {
-    struct _Vector_impl {
+struct vector<WBTextBoxReaderInfo, std::__1::allocator<WBTextBoxReaderInfo>> {
+    struct WBTextBoxReaderInfo *_field1;
+    struct WBTextBoxReaderInfo *_field2;
+    struct __compressed_pair<WBTextBoxReaderInfo *, std::__1::allocator<WBTextBoxReaderInfo>> {
         struct WBTextBoxReaderInfo *_field1;
-        struct WBTextBoxReaderInfo *_field2;
-        struct WBTextBoxReaderInfo *_field3;
-    } _field1;
+    } _field3;
 };
 
-struct vector<__gnu_cxx::_Hashtable_node<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>*, std::allocator<__gnu_cxx::_Hashtable_node<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>*>> {
-    struct _Vector_impl {
-        struct _Hashtable_node<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>> **_field1;
-        struct _Hashtable_node<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>> **_field2;
-        struct _Hashtable_node<std::pair<PDSlideBase *const, PBWriterMasterSlideInfo>> **_field3;
-    } _field1;
-};
-
-struct vector<long, std::allocator<long>> {
-    struct _Vector_impl {
+struct vector<long, std::__1::allocator<long>> {
+    long *_field1;
+    long *_field2;
+    struct __compressed_pair<long *, std::__1::allocator<long>> {
         long *_field1;
-        long *_field2;
-        long *_field3;
-    } _field1;
+    } _field3;
 };
 
-struct vector<unsigned long, std::allocator<unsigned long>> {
-    struct _Vector_impl {
-        unsigned long *_field1;
-        unsigned long *_field2;
-        unsigned long *_field3;
-    } _field1;
+struct vector<unsigned int, std::__1::allocator<unsigned int>> {
+    unsigned int *_field1;
+    unsigned int *_field2;
+    struct __compressed_pair<unsigned int *, std::__1::allocator<unsigned int>> {
+        unsigned int *_field1;
+    } _field3;
 };
 
 struct yy_buffer_state;
@@ -4663,7 +4750,7 @@ typedef struct {
     WDBorder *insideVerticalBorder;
     int justification;
     int alignment;
-    int width;
+    long width;
     int widthType;
     short indent;
     int indentType;
@@ -4671,12 +4758,12 @@ typedef struct {
     int cellSpacingType;
     int verticalAnchor;
     int horizontalAnchor;
-    int verticalPosition;
-    int horizontalPosition;
-    int leftDistanceFromText;
-    int topDistanceFromText;
-    int rightDistanceFromText;
-    int bottomDistanceFromText;
+    long verticalPosition;
+    long horizontalPosition;
+    long leftDistanceFromText;
+    long topDistanceFromText;
+    long rightDistanceFromText;
+    long bottomDistanceFromText;
     int deleted;
     int edited;
     int formattingChanged;
@@ -4719,7 +4806,7 @@ typedef struct {
     unsigned int deletionDateOverridden:1;
     unsigned int editDateOverridden:1;
     unsigned int formattingChangeDateOverridden:1;
-} CDStruct_e3dc4f7f;
+} CDStruct_8f0e3ff6;
 
 typedef struct {
     id _field1;
@@ -4734,23 +4821,23 @@ typedef struct {
     int _field10;
     id _field11;
     id _field12;
-    int _field13;
-    int _field14;
+    id _field13;
+    id _field14;
     int _field15;
-    short _field16;
-    short _field17;
-    id _field18;
-    id _field19;
-    float _field20;
-    unsigned short _field21;
-    unsigned short _field22;
+    int _field16;
+    int _field17;
+    short _field18;
+    short _field19;
+    id _field20;
+    id _field21;
+    float _field22;
     unsigned short _field23;
-    unsigned char _field24;
-    unsigned char _field25;
-    unsigned char _field26;
-    unsigned char _field27;
-    unsigned char _field28;
-    unsigned char _field29;
+    unsigned short _field24;
+    unsigned short _field25;
+    unsigned short _field26;
+    unsigned short _field27;
+    unsigned short _field28;
+    unsigned short _field29;
     unsigned char _field30;
     unsigned char _field31;
     unsigned char _field32;
@@ -4759,13 +4846,19 @@ typedef struct {
     unsigned char _field35;
     unsigned char _field36;
     unsigned char _field37;
-    unsigned char _field38;
+    int _field38;
     unsigned char _field39;
     unsigned char _field40;
-    unsigned char _field41;
+    char _field41;
     unsigned char _field42;
     unsigned char _field43;
-    unsigned short _field44;
+    unsigned char _field44;
+    unsigned char _field45;
+    unsigned char _field46;
+    unsigned char _field47;
+    unsigned char _field48;
+    unsigned char _field49;
+    unsigned short _field50;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -4832,7 +4925,12 @@ typedef struct {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-} CDStruct_840bf732;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+    unsigned int :1;
+} CDStruct_b675bd9c;
 
 typedef struct {
     WDBorder *topBorder;
@@ -4840,18 +4938,18 @@ typedef struct {
     WDBorder *bottomBorder;
     WDBorder *rightBorder;
     int breakType;
-    unsigned int pageWidth;
-    unsigned int pageHeight;
+    long pageWidth;
+    long pageHeight;
     unsigned int pageScale;
     int pageOrientation;
     int textDirection;
-    unsigned int leftMargin;
-    unsigned int rightMargin;
-    unsigned int topMargin;
-    unsigned int bottomMargin;
-    unsigned int headerMargin;
-    unsigned int footerMargin;
-    unsigned int gutterMargin;
+    long leftMargin;
+    long rightMargin;
+    long topMargin;
+    long bottomMargin;
+    long headerMargin;
+    long footerMargin;
+    long gutterMargin;
     int borderDepth;
     int borderDisplay;
     int borderOffset;
@@ -4865,7 +4963,7 @@ typedef struct {
     NSMutableArray *columnWidths;
     NSMutableArray *columnSpaces;
     unsigned short columnCount;
-    int columnSpace;
+    long columnSpace;
     int verticalJustification;
     unsigned short indexToAuthorIDOfFormattingChange;
     NSDate *formattingChangeDate;
@@ -4909,7 +5007,7 @@ typedef struct {
     unsigned int formattingChangedOverridden:1;
     unsigned int indexToAuthorIDOfFormattingChangeOverridden:1;
     unsigned int formattingChangeDateOverridden:1;
-} CDStruct_a8aaff76;
+} CDStruct_9384fd93;
 
 typedef struct {
     unsigned char _field1;
@@ -4978,7 +5076,7 @@ typedef struct {
     int widthBeforeType;
     short widthAfter;
     int widthAfterType;
-    int height;
+    long height;
     int heightType;
     unsigned int widthBeforeOverridden:1;
     unsigned int widthBeforeTypeOverridden:1;
@@ -4988,7 +5086,7 @@ typedef struct {
     unsigned int heightTypeOverridden:1;
     unsigned int header:1;
     unsigned int headerOverridden:1;
-} CDStruct_65f4098e;
+} CDStruct_4f9224b4;
 
 typedef struct {
     id _field1;
@@ -5003,14 +5101,14 @@ typedef struct {
     CDStruct_5c52f79b _field10;
     id _field11;
     id _field12;
-    int _field13;
-    int _field14;
-    int _field15;
-    int _field16;
-    int _field17;
-    int _field18;
-    int _field19;
-    int _field20;
+    long _field13;
+    unsigned long _field14;
+    unsigned long _field15;
+    long _field16;
+    long _field17;
+    long _field18;
+    long _field19;
+    long _field20;
     short _field21;
     short _field22;
     short _field23;
@@ -5020,14 +5118,15 @@ typedef struct {
     unsigned short _field27;
     unsigned short _field28;
     unsigned short _field29;
-    char _field30;
-    unsigned char _field31;
+    unsigned short _field30;
+    char _field31;
     unsigned char _field32;
     unsigned char _field33;
     unsigned char _field34;
     unsigned char _field35;
     unsigned char _field36;
     unsigned char _field37;
+    unsigned char _field38;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -5085,7 +5184,8 @@ typedef struct {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
-} CDStruct_a944c298;
+    unsigned int :1;
+} CDStruct_fbd27f19;
 
 typedef struct {
     int mFormatType;
@@ -5177,13 +5277,13 @@ typedef struct ChVector<long> {
     unsigned int _field5;
 } ChVector_2347933f;
 
-typedef struct CsPoint<long> {
-    long _field1[2];
-} CsPoint_62d0eb08;
+typedef struct CsPoint<int> {
+    int _field1[2];
+} CsPoint_c846a6ec;
 
-typedef struct CsRect<long> {
-    long _field1[4];
-} CsRect_0423b3b0;
+typedef struct CsRect<int> {
+    int _field1[4];
+} CsRect_0aefebc6;
 
 typedef struct EshTablePropVal<EshComputedRect> {
     void **_field1;
@@ -5200,13 +5300,13 @@ typedef struct EshTablePropVal<EshPathCommand> {
     struct ChVector<EshPathCommand> _field2;
 } EshTablePropVal_ea625207;
 
-typedef struct vector<CGRect, std::allocator<CGRect>> {
-    struct _Vector_impl {
+typedef struct vector<CGRect, std::__1::allocator<CGRect>> {
+    struct CGRect *_field1;
+    struct CGRect *_field2;
+    struct __compressed_pair<CGRect *, std::__1::allocator<CGRect>> {
         struct CGRect *_field1;
-        struct CGRect *_field2;
-        struct CGRect *_field3;
-    } _field1;
-} vector_14373fa0;
+    } _field3;
+} vector_ea45b3ba;
 
 #pragma mark Named Unions
 

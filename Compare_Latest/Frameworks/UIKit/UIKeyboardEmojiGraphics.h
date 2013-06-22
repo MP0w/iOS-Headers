@@ -25,13 +25,14 @@
     struct CGGradient *_backgroundGradient;
 }
 
++ (id)pressIndicatorViewWithFrame:(struct CGRect)arg1;
 + (struct CGPoint)padding:(BOOL)arg1;
 + (struct CGPoint)margin:(BOOL)arg1;
 + (unsigned char)colCount:(BOOL)arg1;
 + (unsigned char)rowCount:(BOOL)arg1;
 + (struct CGSize)emojiSize:(BOOL)arg1;
-+ (struct __CFDictionary *)emojiFontAttributes;
-+ (struct __CFDictionary *)createEmojiFontAttributes:(BOOL)arg1;
++ (id)emojiFontAttributes;
++ (id)emojiFontAttributesForPortrait:(BOOL)arg1;
 + (id)imageWithRect:(struct CGRect)arg1 name:(id)arg2 pressed:(BOOL)arg3;
 + (BOOL)isLandscape;
 + (id)sharedInstance;

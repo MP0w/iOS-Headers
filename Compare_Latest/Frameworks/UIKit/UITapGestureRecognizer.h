@@ -13,8 +13,10 @@
     struct CGPoint _locationInView;
     id _imp;
     unsigned int _delaysRecognitionForGreaterTapCounts;
+    int _buttonType;
 }
 
+@property(nonatomic, setter=_setButtonType:) int _buttonType; // @synthesize _buttonType;
 - (BOOL)canPreventGestureRecognizer:(id)arg1;
 - (struct CGPoint)locationOfTouch:(unsigned int)arg1 inView:(id)arg2;
 - (unsigned int)numberOfTouches;
@@ -36,6 +38,9 @@
 - (void)tapRecognizerFailedToRecognizeTap:(id)arg1;
 - (void)tapRecognizerRecognizedTap:(id)arg1;
 - (BOOL)tapIsPossibleForTapRecognizer:(id)arg1;
+- (void)_physicalButtonsCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsEnded:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
 - (BOOL)_shouldRequireFailureOfGestureRecognizer:(id)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;

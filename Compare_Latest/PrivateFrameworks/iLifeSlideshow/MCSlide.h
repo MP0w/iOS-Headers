@@ -23,15 +23,15 @@
     MCSong *mSong;
     unsigned int mIndex;
     float mAudioVolume;
+    float mAudioDuckLevel;
+    NSString *mFrameID;
+    MCContainerEffect *mContainer;
     double mAudioFadeInDuration;
     double mAudioFadeOutDuration;
-    float mAudioDuckLevel;
     double mAudioDuckInDuration;
     double mAudioDuckOutDuration;
     double mStartTime;
     double mDuration;
-    NSString *mFrameID;
-    MCContainerEffect *mContainer;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;

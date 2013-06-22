@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class FTMessage, NSArray, NSMutableArray;
+@class IDSBaseMessage, NSArray, NSMutableArray;
 
 @interface FTMessageQueue : NSObject
 {
@@ -27,7 +27,7 @@
 - (void)_clearTimeout;
 @property(readonly) int count;
 @property(readonly) NSArray *messages;
-@property(readonly) FTMessage *topMessage;
+@property(readonly) IDSBaseMessage *topMessage;
 - (void)dealloc;
 - (id)init;
 

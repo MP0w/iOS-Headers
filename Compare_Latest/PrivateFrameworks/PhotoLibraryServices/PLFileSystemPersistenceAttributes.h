@@ -13,6 +13,7 @@
     NSDictionary *_attributes;
 }
 
+- (id)description;
 - (id)stringForKey:(id)arg1;
 - (BOOL)getUInt16:(unsigned short *)arg1 forKey:(id)arg2;
 - (id)UUIDStringForKey:(id)arg1;

@@ -16,7 +16,7 @@
 + (void)readDrawingGroup:(id)arg1 slide:(id)arg2 state:(id)arg3;
 + (unsigned char)mapDirection:(id)arg1;
 + (void)initTransitionMap:(id)arg1;
-+ (id)createOptions:(long)arg1 transType:(int)arg2;
++ (id)newOptions:(long)arg1 transType:(int)arg2;
 + (int)parseTransType:(int)arg1 direction:(long)arg2;
 + (void)parseSlideShowInfo:(struct PptSSSlideInfoAtom *)arg1 slideBase:(id)arg2 state:(id)arg3;
 + (BOOL)slideFollowsMasterBackground:(id)arg1;

@@ -13,6 +13,8 @@
 + (id)accountTypeString;
 + (id)defaultPathNameForAccountWithHostname:(id)arg1 username:(id)arg2;
 + (id)localAccount;
++ (id)accountTypeIdentifier;
+- (BOOL)supportsArchiving;
 - (BOOL)supportsAppend;
 - (BOOL)deleteInPlaceForMailbox:(id)arg1;
 - (id)_infoForMatchingURL:(id)arg1;
@@ -27,7 +29,6 @@
 - (BOOL)_shouldConfigureMailboxCache;
 - (BOOL)canFetch;
 - (void)setPassword:(id)arg1;
-- (id)password:(BOOL)arg1;
 - (void)setUsername:(id)arg1;
 - (void)setHostname:(id)arg1;
 - (id)displayName;
@@ -36,7 +37,8 @@
 - (id)mailboxPathExtension;
 - (Class)storeClass;
 - (id)uniqueId;
-- (id)initWithLibrary:(id)arg1 properties:(id)arg2;
+- (BOOL)isActive;
+- (id)initWithLibrary:(id)arg1 persistentAccount:(id)arg2;
 
 @end
 

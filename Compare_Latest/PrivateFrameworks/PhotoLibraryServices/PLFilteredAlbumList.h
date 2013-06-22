@@ -7,16 +7,18 @@
 #import "NSObject.h"
 
 #import "PLAlbumContainer-Protocol.h"
+#import "PLDerivedAlbumListOrigin-Protocol.h"
 #import "PLIndexMapperDataSource-Protocol.h"
 #import "PLIndexMappingCache-Protocol.h"
 
-@class NSMutableIndexSet, NSMutableOrderedSet, NSPredicate, NSString, PLIndexMapper, PLManagedAlbumList, PLPhotoLibrary;
+@class NSIndexSet, NSMutableIndexSet, NSMutableOrderedSet, NSObject<PLIndexMappingCache>, NSPredicate, NSString, PLIndexMapper, PLManagedAlbumList, PLPhotoLibrary;
 
-@interface PLFilteredAlbumList : NSObject <PLAlbumContainer, PLIndexMapperDataSource, PLIndexMappingCache>
+@interface PLFilteredAlbumList : NSObject <PLAlbumContainer, PLIndexMapperDataSource, PLIndexMappingCache, PLDerivedAlbumListOrigin>
 {
     PLIndexMapper *_indexMapper;
     NSMutableIndexSet *_filteredIndexes;
     NSMutableOrderedSet *_weak_albums;
+    NSObject<PLIndexMappingCache> *_derivedAlbumLists[5];
     PLManagedAlbumList *backingAlbumList;
     int filter;
     NSPredicate *predicate;
@@ -26,6 +28,9 @@
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate;
 @property(nonatomic) int filter; // @synthesize filter;
 @property(retain, nonatomic) PLManagedAlbumList *backingAlbumList; // @synthesize backingAlbumList;
+- (void)enumerateDerivedAlbumLists:(id)arg1;
+- (void)unregisterAllDerivedAlbums;
+- (void)registerDerivedAlbumList:(struct NSObject *)arg1;
 - (void)replaceFilteredAlbumsAtIndexes:(id)arg1 withFilteredValues:(id)arg2;
 - (void)replaceObjectInFilteredAlbumsAtIndex:(unsigned int)arg1 withObject:(id)arg2;
 - (void)removeFilteredAlbumsAtIndexes:(id)arg1;
@@ -41,8 +46,8 @@
 - (Class)derivedChangeNotificationClass;
 - (BOOL)mappedDataSourceChanged:(id)arg1 remoteNotificationData:(id)arg2;
 - (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
-- (id)cachedIndexMapState;
-- (id)filteredIndexes;
+@property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
+@property(readonly, nonatomic) NSIndexSet *filteredIndexes;
 @property(readonly, nonatomic) PLIndexMapper *indexMapper;
 @property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 - (void)_invalidateFilteredIndexes;
@@ -51,9 +56,15 @@
 - (id)managedObjectContext;
 - (id)identifier;
 - (void)_backingContextDidChange:(id)arg1;
+- (id)containersRelationshipName;
+- (BOOL)canEditContainers;
+- (BOOL)isEmpty;
+@property(readonly, nonatomic) unsigned int containersCount;
+- (id)containers;
 - (id)description;
 @property(readonly, nonatomic) PLPhotoLibrary *photoLibrary;
 - (BOOL)hasAtLeastOneAlbum;
+@property(readonly, nonatomic) unsigned int albumsCount;
 @property(readonly, nonatomic) NSMutableOrderedSet *albums;
 - (void)updateAlbumsOrderIfNeeded;
 - (BOOL)needsReordering;

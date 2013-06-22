@@ -10,12 +10,12 @@
 
 @interface MSAlbumSharingDaemon : MSDaemon
 {
+    BOOL _isRetryingOutstandingActivities;
     id <MSAlbumSharingDaemonDelegate> _delegate;
     NSMutableDictionary *_personIDToStateMachineMap;
     NSMutableDictionary *_personIDToDelegateMap;
     MSASDaemonModel *_daemonModel;
     int _busyCount;
-    BOOL _isRetryingOutstandingActivities;
     NSObject<OS_dispatch_queue> *_mapQueue;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSMutableDictionary *_nextUpdateDateByPersonID;
@@ -58,10 +58,13 @@
 - (void)addComments:(id)arg1 toAssetCollectionWithGUID:(id)arg2 personID:(id)arg3;
 - (void)markCommentsForAssetCollectionWithGUID:(id)arg1 asViewedWithLastViewedDate:(id)arg2 personID:(id)arg3 info:(id)arg4;
 - (void)markCommentsForAssetCollectionWithGUID:(id)arg1 asViewedWithLastViewedDate:(id)arg2 personID:(id)arg3;
+- (void)deleteAssetCollectionsWithGUIDs:(id)arg1 personID:(id)arg2;
 - (void)deleteAssetCollectionWithGUID:(id)arg1 personID:(id)arg2 info:(id)arg3;
 - (void)deleteAssetCollectionWithGUID:(id)arg1 personID:(id)arg2;
 - (void)addAssetCollections:(id)arg1 toAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4;
 - (void)addAssetCollections:(id)arg1 toAlbumWithGUID:(id)arg2 personID:(id)arg3;
+- (void)setMultipleContributorsEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4 completionBlock:(id)arg5;
+- (void)setMultipleContributorsEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 completionBlock:(id)arg4;
 - (void)setPublicAccessEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 info:(id)arg4 completionBlock:(id)arg5;
 - (void)setPublicAccessEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 personID:(id)arg3 completionBlock:(id)arg4;
 - (void)removeAccessControlEntryWithGUID:(id)arg1 personID:(id)arg2 info:(id)arg3;
@@ -100,8 +103,10 @@
 - (int)assetsInDownloadQueueCountForPersonID:(id)arg1;
 - (void)sendServerSideConfigurationDidChangeNotificationForPersonID:(id)arg1;
 - (void)setNextActivityDate:(id)arg1 forPersonID:(id)arg2;
-- (void)pollForSubscriptionUpdatesTriggeredByPushNotification;
+- (void)pollForSubscriptionUpdatesTriggeredByPushNotificationForPersonID:(id)arg1;
 - (id)personIDsListeningToPushNotification;
+- (void)deleteAlbumWithGUID:(id)arg1;
+- (void)addAlbum:(id)arg1;
 - (void)cancelActivitiesForPersonID:(id)arg1;
 - (void)stopAssetDownloadsForPersonID:(id)arg1;
 - (void)retryOutstandingActivities;

@@ -8,8 +8,9 @@
 
 @interface NSISVariable : NSObject
 {
-    int _refCount;
     id <NSISVariableDelegate> _delegate;
+    int _refCount;
+    unsigned int _ident;
 }
 
 + (id)variableWithName:(id)arg1 valueRestriction:(int)arg2 shouldBeMinimized:(BOOL)arg3;
@@ -29,6 +30,8 @@
 - (float)allowedMagnitudeForIntegralizationAdjustmentOfMarkedConstraint;
 - (BOOL)shouldBeIntegral;
 - (id)description;
+- (unsigned int)hash;
+- (id)init;
 
 @end
 

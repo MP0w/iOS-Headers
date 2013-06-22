@@ -17,10 +17,11 @@
 }
 
 + (id)customAttributes;
-@property(retain, nonatomic) NSData *inputCubeData; // @synthesize inputCubeData;
-@property(copy, nonatomic) NSNumber *inputCubeDimension; // @synthesize inputCubeDimension;
+@property(copy, nonatomic) NSData *inputCubeData; // @synthesize inputCubeData;
+@property(retain, nonatomic) NSNumber *inputCubeDimension; // @synthesize inputCubeDimension;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (BOOL)_checkInputs;
 - (id)cubeImage;
 - (id)_kernel;
 - (void)setDefaults;

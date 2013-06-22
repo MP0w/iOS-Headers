@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSArray *chapterTimeMarkers; // @synthesize chapterTimeMarkers=_chapterTimeMarkers;
 @property(retain, nonatomic) MPVideoView *videoView; // @synthesize videoView=_videoView;
 @property(nonatomic) unsigned int currentMarkerIndex; // @synthesize currentMarkerIndex=_currentMarker;
+- (void).cxx_destruct;
 - (void)_sizeColumnsToFit;
 - (void)_reloadThumbnails;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;

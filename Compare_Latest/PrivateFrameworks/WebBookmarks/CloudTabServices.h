@@ -15,6 +15,7 @@
 + (void)didToggleCloudTabs:(BOOL)arg1;
 + (void)clearTabsForCurrentDevice;
 + (void)clearAllCloudTabDevices;
++ (id)_serverConnection;
 
 @end
 

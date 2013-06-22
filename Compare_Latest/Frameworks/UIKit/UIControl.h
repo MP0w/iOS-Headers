@@ -27,9 +27,15 @@
         unsigned int selected:1;
         unsigned int verticalAlignment:2;
         unsigned int horizontalAlignment:2;
+        unsigned int wasLastHighlightSuccessful:1;
+        unsigned int touchHasHighlighted:1;
     } _controlFlags;
 }
 
+- (id)outlinePath;
+- (float)_highlightCornerRadius;
+- (struct CGRect)_clippedHighlightBounds;
+- (BOOL)canBecomeFirstResponder;
 - (void)sendActionsForControlEvents:(unsigned int)arg1;
 - (void)sendAction:(SEL)arg1 to:(id)arg2 forEvent:(id)arg3;
 - (id)actionsForTarget:(id)arg1 forControlEvent:(unsigned int)arg2;
@@ -42,9 +48,6 @@
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)mouseUp:(struct __GSEvent *)arg1;
-- (void)mouseDragged:(struct __GSEvent *)arg1;
-- (void)mouseDown:(struct __GSEvent *)arg1;
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 @property(nonatomic, getter=isSelected) BOOL selected; // @dynamic selected;
@@ -65,14 +68,17 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (BOOL)_touchHasHighlighted;
+- (void)_setTouchHasHighlighted:(BOOL)arg1;
+- (BOOL)_wasLastHighlightSuccessful;
+- (void)_setLastHighlightSuccessful:(BOOL)arg1;
+- (BOOL)_shouldDelaySendingTouchesEndedActionUntilNextRunLoop;
 - (BOOL)pointMostlyInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (BOOL)pointMostlyInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (void)_cancelDelayedActions;
 - (void)_sendDelayedActions;
 - (void)_delayActions;
 - (void)_setHighlightOnMouseDown:(BOOL)arg1;
 - (void)_sendActionsForEvents:(int)arg1 withEvent:(id)arg2;
-- (void)_sendActionsForEventMask:(int)arg1 withEvent:(struct __GSEvent *)arg2;
 - (BOOL)_hasActionForEventMask:(int)arg1;
 - (void)setTracking:(BOOL)arg1;
 - (void)removeTarget:(id)arg1 forEvents:(int)arg2;
@@ -82,11 +88,6 @@
 - (void)setRequiresDisplayOnTracking:(BOOL)arg1;
 - (BOOL)touchDragged;
 - (BOOL)shouldTrack;
-- (void)endTrackingAt:(struct CGPoint)arg1 previous:(struct CGPoint)arg2 withEvent:(struct __GSEvent *)arg3;
-- (BOOL)continueTrackingAt:(struct CGPoint)arg1 previous:(struct CGPoint)arg2 withEvent:(struct __GSEvent *)arg3;
-- (BOOL)beginTrackingAt:(struct CGPoint)arg1 withEvent:(struct __GSEvent *)arg2;
-- (void)sendAction:(SEL)arg1 toTarget:(id)arg2 forEvent:(struct __GSEvent *)arg3;
-- (BOOL)mouseInside;
 - (void)_sendDelayedActions:(BOOL)arg1;
 - (void)_unhighlight;
 - (void)_connectInterfaceBuilderEventConnection:(id)arg1;

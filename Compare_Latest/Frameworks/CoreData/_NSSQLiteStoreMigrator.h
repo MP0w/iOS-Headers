@@ -31,7 +31,7 @@
 + (BOOL)_annotatesMigrationMetadata;
 @property(readonly) NSSQLAdapter *adapter; // @synthesize adapter=_adapter;
 - (void)_addReindexedProperty:(id)arg1 toSetForEntity:(id)arg2;
-- (void)_addEntityMigration:(id)arg1 toTableMigrationForRootEntity:(id)arg2 migrationType:(int)arg3;
+- (void)_addEntityMigration:(id)arg1 toTableMigrationForRootEntity:(id)arg2 tableMigrationType:(int)arg3;
 - (void)_populateTableMigrationDescriptions;
 - (void)_populateEntityMigrationDescriptionsAndEntityMap;
 - (id)tableMigrationDescriptionForEntity:(id)arg1;
@@ -41,6 +41,11 @@
 - (id)createIndexStatementsForEntity:(id)arg1;
 - (id)createStatementsForUpdatingEntityKeys;
 - (id)createEntityMigrationStatements;
+- (BOOL)validateMigratedDataFromEntityMapping:(id)arg1 error:(id *)arg2;
+- (BOOL)validateMandatoryRelationship:(id)arg1 onEntity:(id)arg2 error:(id *)arg3;
+- (BOOL)validateMandatoryAttribute:(id)arg1 onEntity:(id)arg2 error:(id *)arg3;
+- (long long)_countUnreferencedPrimaryKeysForEntity:(id)arg1 inForeignKeyColumnName:(id)arg2 fromTable:(id)arg3;
+- (long long)_countNullsInColumn:(id)arg1 forEntity:(id)arg2;
 - (BOOL)performMigration:(id *)arg1;
 - (void)dealloc;
 - (id)initWithStore:(id)arg1 destinationModel:(id)arg2 mappingModel:(id)arg3;

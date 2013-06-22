@@ -30,7 +30,7 @@
 - (void)purge;
 - (void)removeAllObjects;
 - (void)setObject:(id)arg1 forKey:(const struct VKCacheKey *)arg2;
-- (id)objectWithoutTouchingForKey:(const struct VKCacheKey *)arg1;
+- (id)objectWithoutPromotingForKey:(const struct VKCacheKey *)arg1;
 - (id)objectForKey:(const struct VKCacheKey *)arg1;
 - (void)setReservedCapacity:(unsigned int)arg1 maximumCapacity:(unsigned int)arg2;
 - (void)evictIfNecessary;

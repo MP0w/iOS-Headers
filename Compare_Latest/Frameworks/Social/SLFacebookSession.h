@@ -6,23 +6,23 @@
 
 #import "NSObject.h"
 
-#import "SLProxyDelegate-Protocol.h"
-#import "XPCProxyTarget-Protocol.h"
-
-@interface SLFacebookSession : NSObject <XPCProxyTarget, SLProxyDelegate>
+@interface SLFacebookSession : NSObject
 {
-    id <SLFacebookRemoteSession> _proxy;
+    id <SLFacebookRemoteSessionProtocol> _remoteSession;
 }
 
++ (id)_remoteInterface;
 + (id)sharedSession;
 - (void).cxx_destruct;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)fetchLikeStatusForURL:(id)arg1 flags:(unsigned int)arg2 completion:(id)arg3;
 - (void)unlikeURL:(id)arg1 completion:(id)arg2;
 - (void)likeURL:(id)arg1 completion:(id)arg2;
+- (BOOL)uploadProfilePicture:(id)arg1 error:(id *)arg2;
 - (void)setActiveAccountIdentifier:(id)arg1;
 - (void)revokeAllAccessTokensForDevice;
 - (void)revokeAccessTokenForAppWithID:(id)arg1;
+- (void)cancelUploadWithIdentifier:(id)arg1;
+- (void)uploadsInProgress:(id)arg1;
 - (void)uploadPost:(id)arg1 suppressAlerts:(BOOL)arg2 withPostCompletion:(id)arg3;
 - (BOOL)uploadPost:(id)arg1 forPID:(int)arg2;
 - (BOOL)uploadPost:(id)arg1;

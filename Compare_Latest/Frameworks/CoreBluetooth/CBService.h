@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CBPeripheral, CBUUID, NSArray;
+@class CBPeripheral, CBUUID, NSArray, NSNumber;
 
 @interface CBService : NSObject
 {
@@ -15,13 +15,22 @@
     BOOL _isPrimary;
     NSArray *_includedServices;
     NSArray *_characteristics;
+    NSNumber *_startHandle;
+    NSNumber *_endHandle;
 }
 
+@property(readonly, nonatomic) NSNumber *endHandle; // @synthesize endHandle=_endHandle;
+@property(readonly, nonatomic) NSNumber *startHandle; // @synthesize startHandle=_startHandle;
 @property(retain) NSArray *characteristics; // @synthesize characteristics=_characteristics;
 @property(retain) NSArray *includedServices; // @synthesize includedServices=_includedServices;
 @property(readonly, nonatomic) BOOL isPrimary; // @synthesize isPrimary=_isPrimary;
 @property(readonly, nonatomic) CBUUID *UUID; // @synthesize UUID=_UUID;
 @property(readonly, nonatomic) CBPeripheral *peripheral; // @synthesize peripheral=_peripheral;
+- (id)handleCharacteristicsDiscovered:(id)arg1;
+- (id)handleIncludedServicesDiscovered:(id)arg1;
+- (void)invalidate;
+- (void)dealloc;
+- (id)initWithPeripheral:(id)arg1 dictionary:(id)arg2;
 
 @end
 

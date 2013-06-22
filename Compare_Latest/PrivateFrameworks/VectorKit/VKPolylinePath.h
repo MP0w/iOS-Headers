@@ -6,58 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSArray, VKPolylineTile;
+@class VKPolylineOverlay, VKPolylineOverlaySection;
 
 @interface VKPolylinePath : NSObject
 {
-    VKPolylineTile *_tile;
-    CDStruct_6e3f967a *_points;
+    VKPolylineOverlay *_overlay;
+    VKPolylineOverlaySection *_section;
+    Vec2Imp_1782d7e3 *_points;
     unsigned int _pointCount;
-    CDStruct_3f2a7a20 _routeStart;
-    CDStruct_3f2a7a20 _routeEnd;
-    BOOL _pathEntersTile;
-    BOOL _pathExitsTile;
-    BOOL _isMapMatched;
-    float _totalCost;
-    NSArray *_edges;
-    unsigned int *_simplifiedIndices;
-    unsigned int _simplifiedIndexCount;
-    double _simplifiedEpsilon;
+    BOOL _ownsPoints;
+    struct PolylineCoordinate _routeStart;
+    struct PolylineCoordinate _routeEnd;
     BOOL _trafficSpeed;
 }
 
 @property(nonatomic) BOOL trafficSpeed; // @synthesize trafficSpeed=_trafficSpeed;
-@property(readonly, nonatomic) double simplifiedEpsilon; // @synthesize simplifiedEpsilon=_simplifiedEpsilon;
-@property(readonly, nonatomic) unsigned int simplifiedIndexCount; // @synthesize simplifiedIndexCount=_simplifiedIndexCount;
-@property(readonly, nonatomic) const unsigned int *simplifiedIndices; // @synthesize simplifiedIndices=_simplifiedIndices;
-@property(readonly, nonatomic) BOOL pathExitsTile; // @synthesize pathExitsTile=_pathExitsTile;
-@property(readonly, nonatomic) BOOL pathEntersTile; // @synthesize pathEntersTile=_pathEntersTile;
-@property(readonly, nonatomic) VKPolylineTile *tile; // @synthesize tile=_tile;
-@property(readonly, nonatomic) NSArray *edges; // @synthesize edges=_edges;
-@property(readonly, nonatomic) BOOL isMapMatched; // @synthesize isMapMatched=_isMapMatched;
-@property(nonatomic) CDStruct_3f2a7a20 routeEnd; // @synthesize routeEnd=_routeEnd;
-@property(nonatomic) CDStruct_3f2a7a20 routeStart; // @synthesize routeStart=_routeStart;
+@property(readonly, nonatomic) VKPolylineOverlaySection *section; // @synthesize section=_section;
+@property(nonatomic) struct PolylineCoordinate routeEnd; // @synthesize routeEnd=_routeEnd;
+@property(nonatomic) struct PolylineCoordinate routeStart; // @synthesize routeStart=_routeStart;
 @property(readonly, nonatomic) unsigned int pointCount; // @synthesize pointCount=_pointCount;
-@property(readonly, nonatomic) CDStruct_6e3f967a *points; // @synthesize points=_points;
+@property(readonly, nonatomic) Vec2Imp_1782d7e3 *points; // @synthesize points=_points;
 - (id).cxx_construct;
 - (void)splitTrafficSegmentationAndAddTo:(id)arg1 with:(id)arg2;
 - (void)assignTo:(id)arg1 withSegment:(const struct TrafficSegment *)arg2;
-- (CDStruct_6e3f967a)interpolateAt:(const CDStruct_3f2a7a20 *)arg1;
-- (CDStruct_3f2a7a20)pathIndexFromRouteIndex:(CDStruct_3f2a7a20)arg1;
-- (void)clearSimplification;
-- (void)simplifyWithEpsilon:(double)arg1;
-- (void)checkEdgeList:(id)arg1;
-- (void)sortCandidates:(id)arg1;
-- (BOOL)addRoadEdge:(CDStruct_b4689c16 *)arg1 prevEdge:(id)arg2 toList:(id)arg3 maxCost:(float)arg4;
-- (void)followEdge:(id)arg1 edgeList:(id)arg2;
-- (void)findEdges;
-- (float)_maxDistanceToEdgeOfTile;
-- (void)_printPointsOnRoadEdge:(const CDStruct_b4689c16 *)arg1;
-- (void)assignPoints:(CDStruct_6e3f967a *)arg1 count:(unsigned int)arg2;
-- (void)addPoints:(const CDStruct_6e3f967a *)arg1 count:(unsigned int)arg2;
-- (void)postUpdate;
+- (Vec2Imp_1782d7e3)interpolateAt:(const struct PolylineCoordinate *)arg1;
+- (struct PolylineCoordinate)pathIndexFromRouteIndex:(struct PolylineCoordinate)arg1;
+- (void)assignPoints:(Vec2Imp_1782d7e3 *)arg1 count:(unsigned int)arg2;
+- (id)description;
+@property(readonly) BOOL isMapMatched;
 - (void)dealloc;
-- (id)initWithTile:(id)arg1;
+- (id)initWithOverlay:(id)arg1 section:(id)arg2 routeStartIndex:(unsigned int)arg3 routeEndIndex:(unsigned int)arg4;
+- (id)initWithOverlay:(id)arg1 section:(id)arg2;
 
 @end
 

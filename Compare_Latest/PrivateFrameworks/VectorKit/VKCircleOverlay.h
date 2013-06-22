@@ -20,6 +20,7 @@
 + (id)circleWithCenterCoordinate:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2;
 @property(readonly, nonatomic) double radius; // @synthesize radius=_radius;
 @property(readonly, nonatomic) GEOMapRegion *boundingMapRegion; // @synthesize boundingMapRegion=_boundingMapRegion;
+- (id).cxx_construct;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate; // @synthesize coordinate=_coordinate;
 - (void)dealloc;
 - (id)_initWithCenterCoordinate:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2;

@@ -17,6 +17,7 @@
     MPAudioVideoRoutingPopoverController *_routePopoverController;
 }
 
+- (void).cxx_destruct;
 - (void)_rotationAnimationFinished:(id)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)overlayDidDismissAlternateTracksPopover:(id)arg1;
@@ -49,7 +50,6 @@
 - (void)unregisterForPlayerNotifications;
 - (void)registerForPlayerNotifications;
 - (void)dealloc;
-- (id)init;
 
 @end
 

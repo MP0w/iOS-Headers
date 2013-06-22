@@ -4,30 +4,36 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIKeyboardCandidate.h"
+#import <TextInput/TIKeyboardCandidate.h>
 
-@class NSString;
+@class NSString, NSValue;
 
-@interface TIMecabraCandidate : UIKeyboardCandidate
+@interface TIMecabraCandidate : TIKeyboardCandidate
 {
-    void *_candidate;
-    NSString *_displayReading;
-    NSString *_firstSyllable;
+    BOOL _emojiCandidate;
+    BOOL _extensionCandidate;
+    BOOL _isForShortcutConversion;
+    NSString *_candidate;
+    NSString *_input;
+    NSValue *_mecabraCandidatePointerValue;
 }
 
++ (int)type;
++ (BOOL)supportsSecureCoding;
 - (BOOL)isForShortcutConversion;
-- (BOOL)isEmojiCandidate;
 - (BOOL)isExtensionCandidate;
-@property(readonly, nonatomic) NSString *displayReading;
-- (void *)mecabraCandidate;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)initWithMecabraCandidate:(const void *)arg1;
-- (id)initConversionCandidateWithSurface:(id)arg1 andInput:(id)arg2;
-@property(readonly, nonatomic) NSString *firstSyllable;
-@property(readonly, nonatomic) NSString *convertedInput;
+- (BOOL)isEmojiCandidate;
+@property(retain, nonatomic) NSValue *mecabraCandidatePointerValue; // @synthesize mecabraCandidatePointerValue=_mecabraCandidatePointerValue;
 - (id)input;
 - (id)candidate;
+- (void)encodeWithCandidateResultSetCoder:(id)arg1;
+- (id)initWithCandidateResultSetCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 mecabraCandidatePointerValue:(id)arg3 isExtension:(BOOL)arg4 isEmoji:(BOOL)arg5 isShortcut:(BOOL)arg6;
+- (id)initWithSurface:(id)arg1 input:(id)arg2 mecabraCandidatePointerValue:(id)arg3;
 
 @end
 

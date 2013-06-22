@@ -8,15 +8,23 @@
 
 #import "MCProfileConnectionObserver-Protocol.h"
 
-@class AVWeakReference, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
+@class AVCaptureDeviceFormat, AVWeakReference, NSArray, NSDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
 
 @interface AVCaptureFigVideoDevice : AVCaptureDevice <MCProfileConnectionObserver>
 {
     NSDictionary *_deviceProperties;
+    NSDictionary *_sensorProperties;
+    AVCaptureDeviceFormat *_activeFormat;
+    CDStruct_1b6d18a9 _activeMinFrameDuration;
+    CDStruct_1b6d18a9 _activeMaxFrameDuration;
     int _focusMode;
     struct CGPoint _focusPointOfInterest;
+    float _focusPosition;
+    BOOL _manualFocusSupportEnabled;
     int _focusInFlightCount;
     BOOL _adjustingFocus;
+    int _autoFocusRangeRestriction;
+    BOOL _smoothAutoFocusEnabled;
     int _exposureMode;
     CDStruct_1b6d18a9 _exposureDuration;
     float _exposureGain;
@@ -50,20 +58,54 @@
     BOOL _lowLightBoostEnabled;
     float _saturation;
     float _contrast;
-    NSMutableArray *_formats;
+    BOOL _videoZoomUpsampleOnly;
+    BOOL _videoZoomVideoStabilizationUpsample;
+    BOOL _videoZoomDynamicISPCrop;
+    float _videoZoomFactor;
+    float _videoZoomRampTarget;
+    int _videoZoomRampCounter;
+    float _videoZoomRampAcceleration;
+    BOOL _videoZoomDrawOverlay;
+    float _videoZoomUpsamplingThreshold;
+    NSArray *_formats;
+    struct OpaqueCMClock *_deviceClock;
+    BOOL _isNonUIBuild;
     AVWeakReference *_weakReference;
 }
 
++ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (BOOL)_cameraAccessIsEnabled;
 + (id)_devices;
 + (void)initialize;
+- (struct OpaqueCMClock *)deviceClock;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (BOOL)doesHandleNotification:(id)arg1;
+- (void)setFigCaptureStreamFactoryTestProperty:(struct __CFString *)arg1 withValue:(void *)arg2 error:(id *)arg3;
+- (void *)copyFigCaptureStreamFactoryTestProperty:(struct __CFString *)arg1 error:(id *)arg2;
 - (void)setAutomaticallyEnablesLowLightBoostWhenAvailable:(BOOL)arg1;
 - (BOOL)automaticallyEnablesLowLightBoostWhenAvailable;
+- (void)_setAutomaticallyEnablesLowLightBoostWhenAvailable:(BOOL)arg1;
 - (BOOL)isLowLightBoostEnabled;
 - (BOOL)isLowLightBoostSupported;
+- (BOOL)isYoMamaWearsCombatBootsSupported;
+- (BOOL)HDRUsesPreBracketedFrameAsEV0;
 - (BOOL)isHDRSupported;
+- (float)videoZoomUpsamplingThreshold;
+- (void)cancelVideoZoomRamp;
+- (BOOL)isRampingVideoZoom;
+- (void)rampToVideoZoomFactor:(float)arg1 withRate:(float)arg2;
+- (void)setVideoZoomFactor:(float)arg1;
+- (float)videoZoomFactor;
+- (void)setVideoZoomDynamicISPCrop:(BOOL)arg1;
+- (BOOL)videoZoomDynamicISPCrop;
+- (void)setVideoZoomVideoStabilizationUpsample:(BOOL)arg1;
+- (BOOL)videoZoomVideoStabilizationUpsample;
+- (void)setVideoZoomUpsampleOnly:(BOOL)arg1;
+- (BOOL)videoZoomUpsampleOnly;
+- (void)setVideoZoomDrawOverlay:(BOOL)arg1;
+- (BOOL)videoZoomDrawOverlay;
+- (void)setVideoZoomRampAcceleration:(float)arg1;
+- (float)videoZoomRampAcceleration;
 - (void)_restoreColorProperties;
 - (void)setContrast:(float)arg1;
 - (BOOL)_setContrast:(float)arg1;
@@ -71,8 +113,10 @@
 - (void)setSaturation:(float)arg1;
 - (BOOL)_setSaturation:(float)arg1;
 - (float)saturation;
+- (BOOL)_setBoolValue:(BOOL)arg1 forRecorderProperty:(struct __CFString *)arg2;
 - (BOOL)_setFloatValue:(float)arg1 forRecorderProperty:(struct __CFString *)arg2;
 - (float)_floatValueForRecorderProperty:(struct __CFString *)arg1;
+- (BOOL)isMachineReadableCodeDetectionSupported;
 - (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (BOOL)_faceDetectionDebugMetadataReportingEnabled;
 - (BOOL)isFaceDetectionDebugMetadataReportingEnabled;
@@ -150,6 +194,16 @@
 - (BOOL)_setExposureWithMode:(int)arg1 pointOfInterest:(id)arg2;
 - (BOOL)isExposureModeSupported:(int)arg1;
 - (void)_setAdjustingExposure:(BOOL)arg1;
+- (void)setSmoothAutoFocusEnabled:(BOOL)arg1;
+- (BOOL)isSmoothAutoFocusEnabled;
+- (BOOL)isSmoothAutoFocusSupported;
+- (void)setManualFocusSupportEnabled:(BOOL)arg1;
+- (BOOL)isManualFocusSupportEnabled;
+- (void)setFocusPosition:(float)arg1;
+- (float)focusPosition;
+- (void)setAutoFocusRangeRestriction:(int)arg1;
+- (int)autoFocusRangeRestriction;
+- (BOOL)isAutoFocusRangeRestrictionSupported;
 - (void)_setAdjustingFocus:(BOOL)arg1;
 - (BOOL)isAdjustingFocus;
 - (void)setFocusPointOfInterest:(struct CGPoint)arg1;
@@ -170,6 +224,17 @@
 - (BOOL)startUsingDevice:(id *)arg1;
 - (BOOL)isConnected;
 - (BOOL)isInUseByAnotherApplication;
+- (void)setActiveVideoMaxFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (void)_setActiveVideoMaxFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (CDStruct_1b6d18a9)activeVideoMaxFrameDuration;
+- (void)setActiveVideoMinFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (void)_setActiveVideoMinFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (CDStruct_1b6d18a9)activeVideoMinFrameDuration;
+- (void)setActiveFormat:(id)arg1;
+- (id)activeFormat;
+- (void)_setActiveFormatAndFrameRatesForResolvedOptions:(id)arg1 sendingFrameRatesToFig:(BOOL)arg2;
+- (void)_addMissingPresetSensorFormatsAndDefaultFrameRates:(id)arg1;
+- (id)_deviceFormatMatchingWidth:(int)arg1 height:(int)arg2 minFrameRate:(int)arg3 maxFrameRate:(int)arg4 pixelFormat:(int)arg5 inFormatsArray:(id)arg6;
 - (id)formats;
 - (BOOL)supportsAVCaptureSessionPreset:(id)arg1;
 - (BOOL)hasMediaType:(id)arg1;
@@ -179,7 +244,7 @@
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)dealloc;
 - (id)init;
-- (id)initWithProperties:(id)arg1;
+- (id)initWithProperties:(id)arg1 sensorProperties:(id)arg2;
 
 @end
 

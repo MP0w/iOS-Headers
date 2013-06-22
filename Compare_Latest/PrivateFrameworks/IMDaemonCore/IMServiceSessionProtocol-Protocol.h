@@ -8,7 +8,6 @@
 
 @optional
 - (void)validateProfile;
-- (void)refreshVettedAliases;
 - (void)unvalidateAliases:(id)arg1;
 - (void)validateAliases:(id)arg1;
 - (void)removeAliases:(id)arg1;
@@ -23,7 +22,6 @@
 - (void)respondToVCInvitationWithPerson:(id)arg1 properties:(id)arg2 conference:(id)arg3;
 - (void)requestVCWithPerson:(id)arg1 properties:(id)arg2 conference:(id)arg3;
 - (void)sendCommand:(id)arg1 withProperties:(id)arg2 toPerson:(id)arg3;
-- (void)sendData:(id)arg1 toPerson:(id)arg2;
 - (void)sendFileTransfer:(id)arg1 toPerson:(id)arg2;
 - (void)passwordUpdated;
 - (void)setBlockIdleStatus:(BOOL)arg1;

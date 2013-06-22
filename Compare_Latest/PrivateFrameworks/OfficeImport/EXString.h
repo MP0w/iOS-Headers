@@ -10,6 +10,7 @@
 {
 }
 
++ (void)replaceEscapeAsciiCodes:(id)arg1;
 + (id)readStringWithAsciiCodeFromXmlStringElement:(struct _xmlNode *)arg1;
 + (id)edStringWithRunsFromXmlDivElement:(struct _xmlNode *)arg1 state:(id)arg2;
 + (id)edStringWithRunsFromXmlStringElement:(struct _xmlNode *)arg1 state:(id)arg2;

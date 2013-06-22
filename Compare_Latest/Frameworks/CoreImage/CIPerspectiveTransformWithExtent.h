@@ -19,11 +19,11 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) CIVector *inputBottomLeft; // @synthesize inputBottomLeft;
-@property(copy, nonatomic) CIVector *inputBottomRight; // @synthesize inputBottomRight;
-@property(copy, nonatomic) CIVector *inputTopRight; // @synthesize inputTopRight;
-@property(copy, nonatomic) CIVector *inputTopLeft; // @synthesize inputTopLeft;
-@property(copy, nonatomic) CIVector *inputExtent; // @synthesize inputExtent;
+@property(retain, nonatomic) CIVector *inputBottomLeft; // @synthesize inputBottomLeft;
+@property(retain, nonatomic) CIVector *inputBottomRight; // @synthesize inputBottomRight;
+@property(retain, nonatomic) CIVector *inputTopRight; // @synthesize inputTopRight;
+@property(retain, nonatomic) CIVector *inputTopLeft; // @synthesize inputTopLeft;
+@property(retain, nonatomic) CIVector *inputExtent; // @synthesize inputExtent;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)_kernel;

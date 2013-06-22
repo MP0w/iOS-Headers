@@ -4,28 +4,29 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <UIKit/_UIBarAppearanceStorage.h>
 
 @class UIImage;
 
-@interface _UIToolbarAppearanceStorage : NSObject
+@interface _UIToolbarAppearanceStorage : _UIBarAppearanceStorage
 {
-    UIImage *backgroundImage;
-    UIImage *miniBackgroundImage;
-    UIImage *topBackgroundImage;
-    UIImage *miniTopBackgroundImage;
     UIImage *shadowImage;
     UIImage *topShadowImage;
     BOOL hidesShadow;
+    UIImage *_backgroundImage;
+    UIImage *_miniBackgroundImage;
+    UIImage *_topBackgroundImage;
+    UIImage *_miniTopBackgroundImage;
 }
 
++ (int)typicalBarPosition;
+@property(retain, nonatomic) UIImage *miniTopBackgroundImage; // @synthesize miniTopBackgroundImage=_miniTopBackgroundImage;
+@property(retain, nonatomic) UIImage *topBackgroundImage; // @synthesize topBackgroundImage=_topBackgroundImage;
+@property(retain, nonatomic) UIImage *miniBackgroundImage; // @synthesize miniBackgroundImage=_miniBackgroundImage;
+@property(retain, nonatomic) UIImage *backgroundImage; // @synthesize backgroundImage=_backgroundImage;
 @property(nonatomic) BOOL hidesShadow; // @synthesize hidesShadow;
 @property(retain, nonatomic) UIImage *topShadowImage; // @synthesize topShadowImage;
 @property(retain, nonatomic) UIImage *shadowImage; // @synthesize shadowImage;
-@property(retain, nonatomic) UIImage *miniTopBackgroundImage; // @synthesize miniTopBackgroundImage;
-@property(retain, nonatomic) UIImage *topBackgroundImage; // @synthesize topBackgroundImage;
-@property(retain, nonatomic) UIImage *miniBackgroundImage; // @synthesize miniBackgroundImage;
-@property(retain, nonatomic) UIImage *backgroundImage; // @synthesize backgroundImage;
 - (void)dealloc;
 
 @end

@@ -12,6 +12,11 @@
 {
     AVWeakReference *weakReference;
     NSString *sessionPreset;
+    BOOL adjustingDeviceActiveFormat;
+    int sessionPresetChangeSeed;
+    int resolvedSessionPresetChangeSeed;
+    int videoDeviceChangeSeed;
+    int resolvedVideoDeviceChangeSeed;
     int beginConfigRefCount;
     NSMutableDictionary *captureOptions;
     NSMutableDictionary *figRecorderOptions;
@@ -27,12 +32,15 @@
     BOOL running;
     BOOL interrupted;
     BOOL recording;
+    BOOL usesApplicationAudioSession;
+    BOOL automaticallyConfiguresApplicationAudioSession;
     AVRunLoopCondition *runLoopCondition;
     BOOL waitingForRecorderDidStartPreviewing;
     BOOL waitingForRecorderDidStartRecording;
     BOOL waitingForRecorderDidStopSource;
     BOOL waitingForRecorderDidStopPreviewing;
     BOOL waitingForRecorderDidStopRecording;
+    struct OpaqueCMClock *masterClock;
 }
 
 - (void)dealloc;

@@ -8,11 +8,11 @@
 
 @interface PLCameraIrisAnimationView : UIView
 {
+    BOOL shouldSetupAnimationInDidMoveToWindow;
     id irisAnimationDelegate;
     SEL irisAnimationDidStopSelector;
     double irisAnimationDuration;
     struct CGPoint irisAnimationPosition;
-    BOOL shouldSetupAnimationInDidMoveToWindow;
 }
 
 @property(nonatomic) BOOL shouldSetupAnimationInDidMoveToWindow; // @synthesize shouldSetupAnimationInDidMoveToWindow;

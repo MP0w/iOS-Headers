@@ -19,6 +19,7 @@
 - (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (void)runAnimation:(id)arg1;
 - (void)worldDisplayDidChange;
 - (void)worldLayoutDidChange;
 - (id)description;

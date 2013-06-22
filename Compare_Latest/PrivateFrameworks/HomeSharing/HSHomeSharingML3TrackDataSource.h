@@ -10,12 +10,7 @@
 {
 }
 
-- (id)currentTrackFilePath;
-- (id)currentTrackArtworkCacheID;
-- (int)currentTrackIsDownloading;
-- (long long)currentTrackStoreSagaID;
-- (long long)currentTrackPersistentID;
-- (BOOL)mediaKindIsSupported:(unsigned int)arg1;
+- (id)createImportItem;
 
 @end
 

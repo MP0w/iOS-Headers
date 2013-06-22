@@ -6,7 +6,7 @@
 
 #import <CoreDAV/CoreDAVItem.h>
 
-@class CoreDAVErrorItem, CoreDAVItemWithHrefChildItem, CoreDAVLeafItem, NSMutableArray, NSMutableSet;
+@class CoreDAVErrorItem, CoreDAVItemWithHrefChildItem, CoreDAVLeafItem, CoreDAVMatchResultsItem, NSMutableArray, NSMutableSet;
 
 @interface CoreDAVResponseItem : CoreDAVItem
 {
@@ -17,9 +17,11 @@
     CoreDAVLeafItem *_responseDescription;
     CoreDAVItemWithHrefChildItem *_location;
     CoreDAVLeafItem *_serverUID;
+    CoreDAVMatchResultsItem *_matchResults;
 }
 
 + (id)copyParseRules;
+@property(retain) CoreDAVMatchResultsItem *matchResults; // @synthesize matchResults=_matchResults;
 @property(retain) CoreDAVLeafItem *serverUID; // @synthesize serverUID=_serverUID;
 @property(retain) CoreDAVItemWithHrefChildItem *location; // @synthesize location=_location;
 @property(retain) CoreDAVLeafItem *responseDescription; // @synthesize responseDescription=_responseDescription;

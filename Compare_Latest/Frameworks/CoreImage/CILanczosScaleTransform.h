@@ -16,8 +16,8 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputAspectRatio; // @synthesize inputAspectRatio;
-@property(copy, nonatomic) NSNumber *inputScale; // @synthesize inputScale;
+@property(retain, nonatomic) NSNumber *inputAspectRatio; // @synthesize inputAspectRatio;
+@property(retain, nonatomic) NSNumber *inputScale; // @synthesize inputScale;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (BOOL)_isIdentity;

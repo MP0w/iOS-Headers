@@ -10,7 +10,7 @@
 #import "SBSwitcherPopoverWindowControllerDelegate-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 
-@class MPAudioVideoRoutingActionSheet, MPAudioVideoRoutingPopoverController, SBAirPlayBarView, SBAppSwitcherVolumeSlider, SBApplication, SBNowPlayingBarView, UIButton, UIViewController;
+@class MPAudioVideoRoutingActionSheet, MPAudioVideoRoutingPopoverController, SBAirPlayBarView, SBAppSwitcherVolumeSlider, SBApplication, SBNowPlayingBarView, UIActionSheet, UIButton, UIViewController;
 
 @interface SBNowPlayingBar : NSObject <SBIconViewDelegate, UIPopoverControllerDelegate, SBSwitcherPopoverWindowControllerDelegate>
 {
@@ -18,6 +18,9 @@
     SBAirPlayBarView *_airPlayView;
     MPAudioVideoRoutingActionSheet *_airPlayActionSheet;
     UIViewController *_airPlayController;
+    UIActionSheet *_likeBanActionSheet;
+    unsigned long long _trackIdentifierForActionSheet;
+    BOOL _likeBanPopoverVisible;
     SBAppSwitcherVolumeSlider *_volumeSlider;
     UIButton *_airPlayButton;
     SBApplication *_nowPlayingApp;
@@ -33,6 +36,8 @@
 - (void)switcherPopoverController:(id)arg1 willRotateToOrientation:(int)arg2 duration:(double)arg3;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)audioRoutesChanged:(id)arg1;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)backlightLevelChanged;
 - (void)iconTouchBegan:(id)arg1;
 - (BOOL)iconShouldAllowTap:(id)arg1;
@@ -40,6 +45,7 @@
 - (BOOL)_isAirPlayOn;
 - (void)_showAudioRoutingPopover;
 - (BOOL)_shouldShowAirPlayButton;
+- (void)_dismissLikeBanSheet;
 - (void)_dismissAirPlayDetail;
 - (void)_airPlayButtonHit:(id)arg1;
 - (void)_brightnessSliderTouchEnded:(id)arg1;
@@ -50,6 +56,7 @@
 - (void)_nowPlayingInfoChanged;
 - (void)_updateNowPlayingInfo;
 - (void)_updateNowPlayingApp;
+- (void)_likeBanButtonHit:(id)arg1;
 - (void)_fifteenSecondSkip:(id)arg1;
 - (void)_trackButtonDownSeek:(id)arg1;
 - (void)_trackButtonDown:(id)arg1;

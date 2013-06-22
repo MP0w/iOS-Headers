@@ -6,20 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary;
 
 @interface WebUIGeolocationSupport : NSObject
 {
     NSMutableDictionary *_sites;
-    BOOL _allowed;
-    int _challengeCount;
-    NSString *_key;
+    struct Deque<GeolocationChallengeData, 0> _challenges;
+    struct HashMap<WTF::RetainPtr<UIAlertView>, GeolocationChallengeData, WTF::PtrHash<WTF::RetainPtr<UIAlertView>>, WTF::HashTraits<WTF::RetainPtr<UIAlertView>>, WTF::HashTraits<GeolocationChallengeData>> _activeChallenges;
 }
 
 + (id)sharedWebUIGeolocationSupport;
++ (void)initialize;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)decidePolicyForGeolocationRequestFromOrigin:(id)arg1 requestingURL:(id)arg2 window:(id)arg3 listener:(id)arg4;
 - (void)webView:(id)arg1 decidePolicyForGeolocationRequestFromOrigin:(id)arg2 frame:(id)arg3 listener:(id)arg4;
-- (BOOL)webFrame:(id)arg1 decidePolicyForGeolocationRequestFromOrigin:(id)arg2;
+- (void)_decidePolicyForGeolocationRequestFromOrigin:(id)arg1 requestingURL:(id)arg2 window:(id)arg3 listener:(id)arg4;
+- (void)_executeNextChallenge;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (int)_getChallengeCountFromHistoryForToken:(id)arg1 requestingURL:(id)arg2;
 - (void)clearCache;
 - (void)save;
 - (void)load;

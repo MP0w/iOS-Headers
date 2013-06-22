@@ -15,6 +15,7 @@
     NSPredicate *_subpredicate;
 }
 
++ (BOOL)supportsSecureCoding;
 - (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
 - (BOOL)_shouldUseParensWithDescription;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
@@ -29,6 +30,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)allowEvaluation;
 - (id)initWithExpression:(id)arg1 usingIteratorExpression:(id)arg2 predicate:(id)arg3;
 - (id)initWithExpression:(id)arg1 usingIteratorVariable:(id)arg2 predicate:(id)arg3;
 - (void)dealloc;

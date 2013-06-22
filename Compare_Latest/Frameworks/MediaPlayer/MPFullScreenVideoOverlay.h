@@ -42,15 +42,15 @@
 }
 
 @property(nonatomic) unsigned long long visibleParts; // @synthesize visibleParts=_visibleParts;
-@property(nonatomic) id <MPVideoControllerProtocol> videoViewController; // @synthesize videoViewController=_videoViewController;
+@property(nonatomic) __weak id <MPVideoControllerProtocol> videoViewController; // @synthesize videoViewController=_videoViewController;
 @property(readonly, nonatomic) MPTransportControls *transportControls; // @synthesize transportControls=_transportControls;
 @property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
-@property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 @property(nonatomic) BOOL navigationBarHidden; // @synthesize navigationBarHidden=_navigationBarHidden;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
 @property(nonatomic) unsigned long long disabledParts; // @synthesize disabledParts=_disabledParts;
 @property(nonatomic) unsigned long long desiredParts; // @synthesize desiredParts=_desiredParts;
-@property(nonatomic) id <MPVideoOverlayDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MPVideoOverlayDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_hideScrubInstructions;
 - (void)_showScrubInstructions;
 - (unsigned long long)_visiblePartsForTransportControlsWithParts:(unsigned long long)arg1;
@@ -69,6 +69,7 @@
 - (void)detailSliderTrackingDidCancel:(id)arg1;
 - (void)detailSliderTrackingDidEnd:(id)arg1;
 - (void)detailSliderTrackingDidBegin:(id)arg1;
+- (void)_itemTypeAvailable:(id)arg1;
 - (void)_videoViewScaleModeDidChangeNotification:(id)arg1;
 - (void)_isExternalPlaybackActiveDidChangeNotification:(id)arg1;
 - (void)_playbackStateDidChangeNotification:(id)arg1;
@@ -83,6 +84,7 @@
 @property(nonatomic) BOOL allowsDetailScrubbing;
 @property(nonatomic) BOOL TVOutEnabled;
 - (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
+- (void)setInterfaceOrientation:(int)arg1;
 - (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (id)viewsToFadeOutWhenShowingBackside;
 - (void)crossedTimeMakerWithEvent:(id)arg1;

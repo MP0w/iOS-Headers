@@ -10,7 +10,7 @@
 + (id)CA_CAMLPropertyForKey:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (BOOL)CA_encodesPropertyConditionally:(unsigned int)arg1 type:(int)arg2;
-+ (void *)CA_getterForType:(int)arg1;
-+ (void *)CA_setterForType:(int)arg1;
++ (void *)CA_getterForProperty:(const struct _CAPropertyInfo *)arg1;
++ (void *)CA_setterForProperty:(const struct _CAPropertyInfo *)arg1;
 @end
 

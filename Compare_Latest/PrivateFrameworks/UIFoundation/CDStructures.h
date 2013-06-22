@@ -234,10 +234,11 @@ typedef struct {
         unsigned int :1;
         unsigned int :1;
         unsigned int :2;
-        unsigned int :11;
+        unsigned int :1;
+        unsigned int :10;
     } _field20;
     void *_field21[0];
-} CDStruct_88fe8ffc;
+} CDStruct_6c9b9d05;
 
 #pragma mark Typedef'd Unions
 

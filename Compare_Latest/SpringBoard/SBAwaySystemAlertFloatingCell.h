@@ -10,25 +10,28 @@
 {
 }
 
++ (float)_paddedHeightForButton:(id)arg1;
++ (BOOL)_shouldLayoutButtonsBelowForContentWidth:(float)arg1 buttonLabels:(id)arg2;
 + (float)_cellContentExtraPadding;
 + (float)_cellContentTopPadding;
 + (float)_cellContentRightPadding;
 + (float)_cellContentLeftPadding;
++ (float)_buttonHorizontalPadding;
++ (float)_buttonVerticalPadding;
 + (float)_buttonVerticalInset;
 + (float)_buttonHorizontalInset;
++ (struct CGSize)_buttonShadowOffset;
 + (id)_buttonFont;
-+ (id)_cancelButtonBackgroundImage;
 + (id)_buttonBackgroundImage;
-+ (id)_alarmButtonBackgroundImage;
++ (id)_snoozeButtonBackgroundImage;
 + (float)rowHeightForTitle:(id)arg1 message:(id)arg2 rowWidth:(float)arg3 buttonLabels:(id)arg4;
 + (float)_rowHeightForContentHeight:(float)arg1;
-- (void)layoutSubviews;
 - (void)_clearButtonHandler;
 - (void)_getButtonWidth:(float *)arg1 inset:(float *)arg2;
-- (struct CGRect)_cellContentViewFrame;
 - (struct CGRect)_contentRect;
 - (BOOL)_drawsSeparator;
-- (void)setButtonLabels:(id)arg1 handler:(id)arg2 isAlarm:(BOOL)arg3;
+- (BOOL)_shouldUseCancelButtonImageForIndex:(int)arg1;
+- (BOOL)_shouldUseSnoozeButtonImageForIndex:(int)arg1;
 - (void)setIconImage:(id)arg1;
 - (BOOL)_hasBackgroundColor;
 - (void)_createContentView;

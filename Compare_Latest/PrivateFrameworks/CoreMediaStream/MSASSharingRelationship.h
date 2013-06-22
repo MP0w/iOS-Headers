@@ -8,27 +8,35 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSString;
+@class NSArray, NSDate, NSString;
 
 @interface MSASSharingRelationship : NSObject <NSCopying>
 {
+    BOOL _isMine;
     NSString *_GUID;
     NSString *_albumGUID;
     NSString *_email;
+    NSArray *_emails;
+    NSArray *_phones;
     NSString *_firstName;
     NSString *_lastName;
     NSString *_fullName;
     NSString *_personID;
+    NSDate *_subscriptionDate;
     int _state;
 }
 
 + (BOOL)supportsSecureCoding;
 + (id)MSASPSharingRelationshipFromProtocolDictionary:(id)arg1;
+@property(nonatomic) BOOL isMine; // @synthesize isMine=_isMine;
 @property(nonatomic) int state; // @synthesize state=_state;
+@property(retain, nonatomic) NSDate *subscriptionDate; // @synthesize subscriptionDate=_subscriptionDate;
 @property(retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
 @property(retain, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
 @property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
+@property(retain, nonatomic) NSArray *phones; // @synthesize phones=_phones;
+@property(retain, nonatomic) NSArray *emails; // @synthesize emails=_emails;
 @property(retain, nonatomic) NSString *email; // @synthesize email=_email;
 @property(retain, nonatomic) NSString *albumGUID; // @synthesize albumGUID=_albumGUID;
 @property(retain, nonatomic) NSString *GUID; // @synthesize GUID=_GUID;
@@ -41,6 +49,7 @@
 - (id)_fullName;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (id)init;
 
 @end
 

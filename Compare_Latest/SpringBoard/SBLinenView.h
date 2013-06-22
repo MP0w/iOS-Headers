@@ -21,6 +21,7 @@
 + (unsigned int)_maximumNumberOfStrips;
 + (void)_generateStripsIfNecessary;
 + (id)squareImageForBounds:(struct CGRect)arg1;
++ (CDStruct_b2fbf00d)stripMetricsForIndex:(unsigned int)arg1;
 + (float)naturalWidth;
 + (void)load;
 @property(nonatomic) int type; // @synthesize type=_type;

@@ -12,12 +12,12 @@
 - (BOOL)hasImageChanges;
 - (void)imageWillSave;
 - (void)refreshImageData;
-- (void)removeImageDataForPerson:(void *)arg1;
-- (void)setImageData:(id)arg1 withFormat:(int)arg2 cropRect:(struct CGRect)arg3 forPerson:(void *)arg4;
-- (id)imageDataWithFormat:(int)arg1 cropRect:(struct CGRect *)arg2 forPerson:(void *)arg3;
-- (BOOL)hasImageDataForPerson:(void *)arg1;
-- (void)setPersonForImageData:(void *)arg1;
-- (void *)personForImageData;
+- (void)removeImageDataForPerson:(id)arg1;
+- (void)setImageData:(id)arg1 withFormat:(int)arg2 cropRect:(struct CGRect)arg3 forPerson:(id)arg4;
+- (id)imageDataWithFormat:(int)arg1 cropRect:(struct CGRect *)arg2 forPerson:(id)arg3;
+- (BOOL)hasImageDataForPerson:(id)arg1;
+- (void)setPersonForImageData:(id)arg1;
+- (id)personForImageData;
 - (id)writablePeople;
 - (id)people;
 

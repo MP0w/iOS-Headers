@@ -9,17 +9,15 @@
 @interface VKTrafficDynamicTile : VKTile
 {
     struct _GEOTileKey _downloadKey;
-    shared_ptr_0e624577 _tile;
+    struct shared_ptr<zilch::TrafficDynamicTile> _tile;
     struct unordered_multimap<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::hash<long long>, std::__1::equal_to<long long>, vk_allocator<std::__1::pair<const long long, const zilch::TrafficDynamicTile::Flow *>>> _flows;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)writeDataToDirectory:(id)arg1 error:(id *)arg2;
 - (const struct Incident *)incidentAtIndex:(unsigned int)arg1;
 - (int)flowForRoadId:(long long)arg1 buffer:(const struct Flow **)arg2 maxSize:(int)arg3;
 - (void)dealloc;
-- (id)initWithTileIgnoringFlows:(shared_ptr_0e624577)arg1 sourceKey:(const struct VKTileKey *)arg2;
 - (id)initWithKey:(const struct VKTileKey *)arg1 downloadKey:(const struct _GEOTileKey *)arg2 data:(id)arg3;
 @property(readonly, nonatomic) long updateTime;
 @property(readonly, nonatomic) unsigned int incidentCount;

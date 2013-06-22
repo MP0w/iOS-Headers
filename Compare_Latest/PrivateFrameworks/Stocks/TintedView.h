@@ -10,13 +10,13 @@
 
 @interface TintedView : UIView
 {
-    UIColor *_tintColor;
     UIImage *_image;
+    UIColor *_tintColor;
 }
 
+@property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
+@property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
-- (void)setTintColor:(id)arg1;
-- (void)setImage:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)init;
 

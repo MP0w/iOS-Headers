@@ -6,7 +6,9 @@
 
 #import "NSString.h"
 
-@interface AXAttributedString : NSString
+#import "NSCopying-Protocol.h"
+
+@interface AXAttributedString : NSString <NSCopying>
 {
     struct __CFAttributedString *_string;
 }
@@ -23,6 +25,8 @@
 - (id)lowercaseString;
 - (id)string;
 - (BOOL)isAXAttributedString;
+- (void)enumerateAttributesUsingBlock:(id)arg1;
+- (id)attributeValueForKey:(id)arg1;
 - (id)attributesAtIndex:(int)arg1 effectiveRange:(struct _NSRange *)arg2;
 - (void)appendAXAttributedString:(id)arg1;
 - (void)appendString:(id)arg1;

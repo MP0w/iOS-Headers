@@ -11,6 +11,7 @@
 }
 
 - (void)_getItemsWithMessage:(id)arg1 completionBlock:(id)arg2;
+- (void)refreshReceiptsWithCompletionBlock:(id)arg1;
 - (void)getLibraryItemsForITunesStoreItemIdentifiers:(id)arg1 completionBlock:(id)arg2;
 - (void)getLibraryItemForBundleIdentifiers:(id)arg1 completionBlock:(id)arg2;
 

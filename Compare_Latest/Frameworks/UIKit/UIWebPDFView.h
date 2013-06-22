@@ -7,12 +7,14 @@
 #import <UIKit/UIView.h>
 
 #import "UIGestureRecognizerDelegate-Protocol.h"
+#import "UIPDFAnnotationControllerDelegate-Protocol.h"
+#import "UIPDFPageViewDelegate-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 #import "WebPDFViewPlaceholderDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSObject<UIWebPDFViewDelegate>, NSString, NSURL, UIColor, UIPDFDocument, UITapGestureRecognizer, WebPDFViewPlaceholder;
+@class NSArray, NSData, NSMutableArray, NSObject<UIWebPDFViewDelegate>, NSString, NSURL, UIColor, UIPDFDocument, UITapGestureRecognizer, WebPDFViewPlaceholder;
 
-@interface UIWebPDFView : UIView <WebPDFViewPlaceholderDelegate, UIPopoverControllerDelegate, UIGestureRecognizerDelegate>
+@interface UIWebPDFView : UIView <UIPDFPageViewDelegate, UIPDFAnnotationControllerDelegate, WebPDFViewPlaceholderDelegate, UIPopoverControllerDelegate, UIGestureRecognizerDelegate>
 {
     NSMutableArray *_backingLayerImageViews;
     struct CGPDFDocument *_cgPDFDocument;
@@ -32,16 +34,17 @@
     struct CGPoint _contentOffsetAtScrollStart;
     NSMutableArray *_pageViews;
     NSArray *_pageMinYs;
-    WebPDFViewPlaceholder *pdfPlaceHolderView;
     BOOL hidePageViewsUntilReadyToRender;
-    UIColor *backgroundColorForUnRenderedContent;
     BOOL hideActivityIndicatorForUnRenderedContent;
+    BOOL readyForSnapshot;
+    WebPDFViewPlaceholder *pdfPlaceHolderView;
+    UIColor *backgroundColorForUnRenderedContent;
     NSString *documentPassword;
     NSArray *pageRects;
-    BOOL readyForSnapshot;
 }
 
 + (void)setAsPDFDocRepAndView;
++ (void)initialize;
 @property(retain, nonatomic) NSArray *pageMinYs; // @synthesize pageMinYs=_pageMinYs;
 @property(nonatomic) BOOL readyForSnapshot; // @synthesize readyForSnapshot;
 @property(retain, nonatomic) NSArray *pageRects; // @synthesize pageRects;
@@ -66,12 +69,12 @@
 - (id)_selection;
 - (id)_pageWithSelection;
 - (void)clearSelection;
-- (void)annotationIsBeingPressed:(id)arg1 annotation:(id)arg2 atPoint:(struct CGPoint)arg3;
-- (void)annotationWasTouched:(id)arg1 annotation:(id)arg2 atPoint:(struct CGPoint)arg3;
-- (void)didLongPress:(id)arg1 inRect:(struct CGRect)arg2 atPoint:(struct CGPoint)arg3 linkingToPageIndex:(unsigned int)arg4;
-- (void)didLongPress:(id)arg1 inRect:(struct CGRect)arg2 atPoint:(struct CGPoint)arg3 linkingToURL:(id)arg4;
-- (void)didTouch:(id)arg1 inRect:(struct CGRect)arg2 atPoint:(struct CGPoint)arg3 linkingToPageIndex:(unsigned int)arg4;
-- (void)didTouch:(id)arg1 inRect:(struct CGRect)arg2 atPoint:(struct CGPoint)arg3 linkingToURL:(id)arg4;
+- (void)annotation:(id)arg1 isBeingPressedAtPoint:(struct CGPoint)arg2 controller:(id)arg3;
+- (void)annotation:(id)arg1 wasTouchedAtPoint:(struct CGPoint)arg2 controller:(id)arg3;
+- (void)_didLongPress:(id)arg1 inRect:(struct CGRect)arg2 atPoint:(struct CGPoint)arg3 linkingToPageIndex:(unsigned int)arg4;
+- (void)_didLongPress:(id)arg1 inRect:(struct CGRect)arg2 atPoint:(struct CGPoint)arg3 linkingToURL:(id)arg4;
+- (void)_didTouch:(id)arg1 inRect:(struct CGRect)arg2 atPoint:(struct CGPoint)arg3 linkingToPageIndex:(unsigned int)arg4;
+- (void)_didTouch:(id)arg1 inRect:(struct CGRect)arg2 atPoint:(struct CGPoint)arg3 linkingToURL:(id)arg4;
 - (void)resetZoom:(id)arg1;
 - (void)zoom:(id)arg1 to:(struct CGRect)arg2 atPoint:(struct CGPoint)arg3 kind:(int)arg4;
 - (void)didCompleteLayout;
@@ -105,6 +108,7 @@
 - (void)dealloc;
 - (void)_removeBackgroundImageObserverIfNeeded:(id)arg1;
 - (id)initWithWebPDFViewPlaceholder:(id)arg1;
+@property(readonly, nonatomic) NSData *documentData;
 @property(readonly, nonatomic) UIPDFDocument *document;
 - (id)uiPDFDocument;
 @property(readonly, nonatomic) struct CGPDFDocument *cgPDFDocument;

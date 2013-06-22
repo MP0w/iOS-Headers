@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class ABUIPerson, NSArray;
 
 @interface ABAbstractPropertyGroup : NSObject
 {
     NSArray *_people;
     id <ABStyleProvider> _styleProvider;
     BOOL _hasChanges;
-    void *_preinsertedPerson;
+    ABUIPerson *_preinsertedPerson;
 }
 
-@property(nonatomic) void *preinsertedPerson; // @synthesize preinsertedPerson=_preinsertedPerson;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(nonatomic) BOOL hasChanges; // @synthesize hasChanges=_hasChanges;
+@property(retain, nonatomic) ABUIPerson *preinsertedPerson; // @synthesize preinsertedPerson=_preinsertedPerson;
 @property(retain, nonatomic) NSArray *people; // @synthesize people=_people;
 - (BOOL)canSave;
 - (void)reloadFromModel;

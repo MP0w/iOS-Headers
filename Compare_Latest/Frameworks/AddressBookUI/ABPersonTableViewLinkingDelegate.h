@@ -17,12 +17,12 @@
     BOOL _ignoresReloadLinkedInfos;
     BOOL _shouldAllowLinkingAnotherContact;
     BOOL _hasLinkChanges;
-    ABPersonTableViewDataSource *_dataSource;
-    ABPersonViewControllerHelper *_helper;
     BOOL _shouldShowLinkingUIOnCard;
     BOOL _showsLinkedPeople;
     BOOL _appearsInLinkingPeoplePicker;
     BOOL _updateShouldAllowLinkingAnotherContact;
+    ABPersonTableViewDataSource *_dataSource;
+    ABPersonViewControllerHelper *_helper;
 }
 
 @property(nonatomic) BOOL updateShouldAllowLinkingAnotherContact; // @synthesize updateShouldAllowLinkingAnotherContact=_updateShouldAllowLinkingAnotherContact;
@@ -43,12 +43,12 @@
 - (int)numberOfLinkedCardRows;
 - (BOOL)manuallyUnlinkCardAtRow:(int)arg1;
 - (void)_finalizeLinkChanges;
-- (BOOL)manuallyLinkPerson:(void *)arg1;
+- (BOOL)manuallyLinkPerson:(id)arg1;
 - (id)allNonUnifiedPeople;
 - (void)reloadLinkingUI;
 - (BOOL)reloadLinkedInfos;
 - (void)forceUseLinkedInfos:(id)arg1 currentIndexInLinkedInfos:(int)arg2;
-- (id)newLinkedInfoForPerson:(void *)arg1;
+- (id)newLinkedInfoForPerson:(id)arg1;
 - (id)linkedInfoAtRow:(int)arg1;
 - (int)indexOfLinkedInfoAtRow:(int)arg1;
 - (id)sourceNameForCurrentCard;

@@ -18,6 +18,7 @@
     IUMediaActionSheet *_confirmPlaylistChangeSheet;
 }
 
+- (void).cxx_destruct;
 - (void)_delayedEditAction:(id)arg1;
 - (void)_delayedDoneAction:(id)arg1;
 - (void)_delayedSaveAction:(id)arg1;

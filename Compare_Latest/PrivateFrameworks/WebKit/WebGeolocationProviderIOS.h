@@ -6,55 +6,44 @@
 
 #import "NSObject.h"
 
-#import "GeolocationUpdateListener-Protocol.h"
 #import "WebGeolocationProvider-Protocol.h"
 
-@class GeolocationCoreLocationDelegate, NSTimer, WebGeolocationPosition;
-
-@interface WebGeolocationProviderIOS : NSObject <WebGeolocationProvider, GeolocationUpdateListener>
+@interface WebGeolocationProviderIOS : NSObject <WebGeolocationProvider>
 {
-    NSTimer *_sendLastPositionAsynchronouslyTimer;
-    BOOL _isSuspended;
-    WebGeolocationPosition *_lastPosition;
+    struct RetainPtr<WebGeolocationCoreLocationProvider> _coreLocationProvider;
+    struct RetainPtr<_WebCoreLocationUpdateThreadingProxy> _coreLocationUpdateListenerProxy;
     BOOL _enableHighAccuracy;
-    HashSet_2803207d _trackedWebViews;
-    GeolocationCoreLocationDelegate *_geolocationCoreLocationDelegate;
-    HashSet_2803207d _registeredWebViews;
-    HashSet_2803207d _pendingInitialPositionWebView;
-    HashSet_2803207d _warmUpWebViews;
-    HashMap_842a3805 _webViewsWaitingForCoreLocationStart;
+    BOOL _isSuspended;
     BOOL _shouldResetOnResume;
+    struct HashMap<WTF::RetainPtr<WebView>, WTF::RetainPtr<id<WebGeolocationProviderInitializationListener>>, WTF::PtrHash<WTF::RetainPtr<WebView>>, WTF::HashTraits<WTF::RetainPtr<WebView>>, WTF::HashTraits<WTF::RetainPtr<id<WebGeolocationProviderInitializationListener>>>> _webViewsWaitingForCoreLocationStart;
+    struct HashSet<WebView *, WTF::PtrHash<WebView *>, WTF::HashTraits<WebView *>> _warmUpWebViews;
+    struct HashSet<WebView *, WTF::PtrHash<WebView *>, WTF::HashTraits<WebView *>> _pendingInitialPositionWebView;
+    struct HashSet<WebView *, WTF::PtrHash<WebView *>, WTF::HashTraits<WebView *>> _registeredWebViews;
+    struct HashSet<WebView *, WTF::PtrHash<WebView *>, WTF::HashTraits<WebView *>> _trackedWebViews;
+    struct RetainPtr<NSTimer> _sendLastPositionAsynchronouslyTimer;
+    struct RetainPtr<WebGeolocationPosition> _lastPosition;
 }
 
 + (id)sharedGeolocationProvider;
-@property(nonatomic) BOOL shouldResetOnResume; // @synthesize shouldResetOnResume=_shouldResetOnResume;
-@property(readonly, nonatomic) HashMap_842a3805 webViewsWaitingForCoreLocationStart; // @synthesize webViewsWaitingForCoreLocationStart=_webViewsWaitingForCoreLocationStart;
-@property(readonly, nonatomic) HashSet_2803207d warmUpWebViews; // @synthesize warmUpWebViews=_warmUpWebViews;
-@property(readonly, nonatomic) HashSet_2803207d pendingInitialPositionWebView; // @synthesize pendingInitialPositionWebView=_pendingInitialPositionWebView;
-@property(readonly, nonatomic) HashSet_2803207d registeredWebViews; // @synthesize registeredWebViews=_registeredWebViews;
-@property(retain, nonatomic) GeolocationCoreLocationDelegate *geolocationCoreLocationDelegate; // @synthesize geolocationCoreLocationDelegate=_geolocationCoreLocationDelegate;
-@property(readonly, nonatomic) HashSet_2803207d trackedWebViews; // @synthesize trackedWebViews=_trackedWebViews;
-@property(nonatomic) BOOL enableHighAccuracy; // @synthesize enableHighAccuracy=_enableHighAccuracy;
-@property(retain, nonatomic) WebGeolocationPosition *lastPosition; // @synthesize lastPosition=_lastPosition;
-@property(nonatomic) BOOL isSuspended; // @synthesize isSuspended=_isSuspended;
-@property(retain, nonatomic) NSTimer *sendLastPositionAsynchronouslyTimer; // @synthesize sendLastPositionAsynchronouslyTimer=_sendLastPositionAsynchronouslyTimer;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)resetGeolocation;
 - (void)errorOccurred:(id)arg1;
-- (void)handlePendingInitialPosition:(id)arg1;
 - (void)positionChanged:(id)arg1;
 - (void)geolocationDelegateUnableToStart;
 - (void)geolocationDelegateStarted;
 - (void)stopTrackingWebView:(id)arg1;
-- (void)resume;
-- (void)suspend;
 - (void)cancelWarmUpForWebView:(id)arg1;
 - (void)initializeGeolocationForWebView:(id)arg1 listener:(id)arg2;
+- (void)setEnableHighAccuracy:(BOOL)arg1;
+- (id)lastPosition;
 - (void)unregisterWebView:(id)arg1;
 - (void)registerWebView:(id)arg1;
-- (void)stopCoreLocationDelegateIfNeeded;
-- (void)startCoreLocationDelegate;
+- (void)_handlePendingInitialPosition:(id)arg1;
+- (void)_stopCoreLocationDelegateIfNeeded;
+- (void)_startCoreLocationDelegate;
+- (void)resume;
+- (void)suspend;
 - (void)dealloc;
 
 @end

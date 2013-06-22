@@ -9,8 +9,10 @@
 @interface SBIconListPageControl : UIPageControl
 {
     id _delegate;
+    BOOL _firstPageIsSearch;
 }
 
+@property(nonatomic) BOOL firstPageIsSearch; // @synthesize firstPageIsSearch=_firstPageIsSearch;
 @property(nonatomic) id <SBIconListPageControlDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)_pageIndicatorCurrentImageForPage:(int)arg1;
@@ -18,6 +20,7 @@
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (float)defaultHeight;
 
 @end
 

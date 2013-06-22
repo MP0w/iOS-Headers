@@ -22,6 +22,9 @@
 - (id)tableOffsetKey;
 - (int)_cellEditStyleForAlbum:(struct NSObject *)arg1;
 - (void)loadView;
+- (void)assetContainerListDidChange:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

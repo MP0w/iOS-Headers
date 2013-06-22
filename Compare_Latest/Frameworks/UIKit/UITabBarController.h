@@ -9,7 +9,7 @@
 #import "NSCoding-Protocol.h"
 #import "UITabBarDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, UINavigationController, UITabBar, UIView;
+@class NSArray, NSMutableArray, UIMoreNavigationController, UINavigationController, UITabBar, UIView;
 
 @interface UITabBarController : UIViewController <UITabBarDelegate, NSCoding>
 {
@@ -18,25 +18,40 @@
     UIView *_viewControllerTransitionView;
     id _tabBarItemsToViewControllers;
     UIViewController *_selectedViewController;
-    UINavigationController *_moreNavigationController;
+    UIMoreNavigationController *_moreNavigationController;
     NSArray *_customizableViewControllers;
-    id <UITabBarControllerDelegate> _delegate;
+    id <UITabBarControllerDelegate><UITabBarControllerDelegate_Private> _delegate;
     UIViewController *_selectedViewControllerDuringWillAppear;
     UIViewController *_transientViewController;
-    unsigned int _maxItems;
+    unsigned int _customMaxItems;
+    unsigned int _defaultMaxItems;
+    int _tabBarPosition;
     struct {
         unsigned int isShowingMoreItem:1;
         unsigned int needsToRebuildItems:1;
         unsigned int isBarHidden:1;
         unsigned int editButtonOnLeft:1;
+        unsigned int barLayoutIsValid:1;
+        unsigned int reselectTab:1;
+        unsigned int delegateSupportedInterfaceOrientations:1;
+        unsigned int delegatePreferredInterfaceOrientationForPresentation:1;
     } _tabBarControllerFlags;
     NSMutableArray *_moreChildViewControllers;
+    UIView *_accessoryView;
+    id <UIViewControllerAnimatedTransitioning> __animator;
+    id <UIViewControllerInteractiveTransitioning> __interactor;
 }
 
 + (Class)_moreNavigationControllerClass;
++ (BOOL)doesOverrideSupportedInterfaceOrientations;
++ (BOOL)doesOverridePreferredInterfaceOrientationForPresentation;
+@property(retain, nonatomic, setter=_setInteractor:) id <UIViewControllerInteractiveTransitioning> _interactor; // @synthesize _interactor=__interactor;
+@property(retain, nonatomic, setter=_setAnimator:) id <UIViewControllerAnimatedTransitioning> _animator; // @synthesize _animator=__animator;
 @property(nonatomic) id <UITabBarControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic, setter=_setAccessoryView:) UIView *_accessoryView; // @synthesize _accessoryView;
 @property(nonatomic) NSMutableArray *moreChildViewControllers; // @synthesize moreChildViewControllers=_moreChildViewControllers;
 - (void)_setBadgeValue:(id)arg1 forTabBarItem:(id)arg2;
+- (id)rotatingSnapshotViewForWindow:(id)arg1;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willAnimateSecondHalfOfRotationFromInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)didAnimateFirstHalfOfRotationToInterfaceOrientation:(int)arg1;
@@ -49,10 +64,13 @@
 - (id)rotatingHeaderView;
 - (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (int)preferredInterfaceOrientationForPresentation;
+- (unsigned int)supportedInterfaceOrientations;
 - (BOOL)_shouldSynthesizeSupportedOrientations;
 - (BOOL)_doAllViewControllersSupportInterfaceOrientation:(int)arg1;
 - (BOOL)_allowsAutorotation;
 - (void)_setMaximumNumberOfItems:(unsigned int)arg1;
+- (unsigned int)_effectiveMaxItems;
 - (BOOL)showsEditButtonOnLeft;
 - (void)setShowsEditButtonOnLeft:(BOOL)arg1;
 - (void)revealTabBarSelection;
@@ -62,18 +80,25 @@
 - (id)transientViewController;
 - (void)transitionViewDidComplete:(id)arg1 fromView:(id)arg2 toView:(id)arg3;
 - (void)transitionFromViewController:(id)arg1 toViewController:(id)arg2 transition:(int)arg3 shouldSetSelected:(BOOL)arg4;
+- (id)_customAnimatorForFromViewController:(id)arg1 toViewController:(id)arg2;
+- (id)_customInteractionControllerForAnimator:(id)arg1;
+- (struct CGRect)_frameForWrapperViewForViewController:(id)arg1;
+- (id)transitionCoordinator;
 - (struct CGRect)_frameForViewController:(id)arg1;
 - (void)_updateLayoutForStatusBarAndInterfaceOrientation;
 - (id)_transitionView;
 - (void)transitionFromViewController:(id)arg1 toViewController:(id)arg2;
 - (void)_tabBarItemClicked:(id)arg1;
 - (id)_viewControllerForTabBarItem:(id)arg1;
+- (void)_setTabBarPosition:(int)arg1;
+- (int)_effectiveTabBarPosition;
+- (int)_tabBarPosition;
 @property(readonly, nonatomic) UITabBar *tabBar;
 - (id)_viewControllersInTabBar;
 - (id)allViewControllers;
 - (void)showBarWithTransition:(int)arg1;
 - (void)hideBarWithTransition:(int)arg1;
-- (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+- (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (BOOL)_isBarHidden;
 - (void)tabBar:(id)arg1 didEndCustomizingItems:(id)arg2 changed:(BOOL)arg3;
 - (void)tabBar:(id)arg1 willEndCustomizingItems:(id)arg2 changed:(BOOL)arg3;
@@ -81,8 +106,12 @@
 - (void)beginCustomizingTabBar:(id)arg1;
 @property(copy, nonatomic) NSArray *customizableViewControllers; // @synthesize customizableViewControllers=_customizableViewControllers;
 @property(readonly, nonatomic) UINavigationController *moreNavigationController;
+- (void)setRestorationIdentifier:(id)arg1;
+- (void)_setMoreNavigationControllerRestorationIdentifier;
 - (id)_existingMoreNavigationController;
 - (BOOL)_allowsCustomizing;
+- (id)childViewControllerForStatusBarHidden;
+- (id)childViewControllerForStatusBarStyle;
 - (void)_setSelectedViewController:(id)arg1;
 @property(nonatomic) UIViewController *selectedViewController;
 @property(nonatomic) unsigned int selectedIndex;
@@ -93,6 +122,7 @@
 - (void)_rebuildTabBarItemsIfNeeded;
 @property(copy, nonatomic) NSArray *viewControllers;
 - (void)_configureTargetActionForTabBarItem:(id)arg1;
+- (void)_willChangeToIdiom:(int)arg1 onScreen:(id)arg2;
 - (BOOL)_reallyWantsFullScreenLayout;
 - (void)updateTabBarItemForViewController:(id)arg1;
 - (void)_setSelectedTabBarItem:(id)arg1;
@@ -103,12 +133,17 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)_isPresentationContextByDefault;
 - (void)loadView;
+- (void)_layoutContainerView;
+- (void)setView:(id)arg1;
 - (void)setTabBar:(id)arg1;
+- (void)_setTabBarVisualAltitude;
 - (void)_prepareTabBar;
 - (void)__viewWillLayoutSubviews;
 - (void)_selectDefaultViewControllerIfNecessaryWithAppearanceTransitions:(BOOL)arg1;
+- (id)_wrapperViewForViewController:(id)arg1;
 - (void)_layoutViewController:(id)arg1;
-- (id)defaultFirstResponder;
+- (id)_deepestUnambiguousResponder;
+- (BOOL)becomeFirstResponder;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)_shouldPersistViewWhenCoding;
@@ -117,6 +152,7 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
+- (id)_allContainedViewControllers;
 
 @end
 

@@ -10,14 +10,14 @@
 
 @interface EKDayOccurrenceResizeHandleView : UIView
 {
-    UIColor *_baseColor;
     EKDayOccurrenceView *_occurrenceView;
+    UIColor *_baseColor;
 }
 
 @property(readonly, nonatomic) EKDayOccurrenceView *occurrenceView; // @synthesize occurrenceView=_occurrenceView;
 @property(retain, nonatomic) UIColor *baseColor; // @synthesize baseColor=_baseColor;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)dealloc;
 - (void)willMoveToSuperview:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 occurrenceView:(id)arg2;
 - (struct CGRect)_circleRect;

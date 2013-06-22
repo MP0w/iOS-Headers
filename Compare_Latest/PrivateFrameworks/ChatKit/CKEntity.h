@@ -6,43 +6,48 @@
 
 #import "NSObject.h"
 
-@class NSString, UIImage;
+#import "CKTranscriptDataRowObject-Protocol.h"
 
-@interface CKEntity : NSObject
+@class IMHandle, NSAttributedString, NSString, UIImage;
+
+@interface CKEntity : NSObject <CKTranscriptDataRowObject>
 {
-    int _addressBookUID;
-    int _identifier;
-    int _propertyType;
-    BOOL _foundABNameForSender;
-    BOOL _senderIsVoicemail;
-    void *_abRecord;
-    unsigned int _addressHash;
-    id _contactImageThumbnail;
+    IMHandle *_handle;
 }
 
-+ (id)contactImageThumbnailForMeCard;
-+ (void)resetClassCache;
-+ (id)copyAllEntities;
-@property(readonly, nonatomic) BOOL senderIsVoicemail; // @synthesize senderIsVoicemail=_senderIsVoicemail;
-@property(readonly, nonatomic) BOOL foundABNameForSender; // @synthesize foundABNameForSender=_foundABNameForSender;
-@property(nonatomic) int propertyType; // @synthesize propertyType=_propertyType;
-@property(readonly, nonatomic) void *abRecord; // @synthesize abRecord=_abRecord;
-@property(nonatomic) int identifier; // @synthesize identifier=_identifier;
-@property(nonatomic) int addressBookUID; // @synthesize addressBookUID=_addressBookUID;
-@property(readonly, nonatomic) UIImage *contactImageThumbnail;
++ (id)copyEntityForAddressString:(id)arg1;
++ (id)copyEntityForAddressString:(id)arg1 onService:(id)arg2;
++ (id)_copyEntityForAddressString:(id)arg1 onAccount:(id)arg2;
+@property(retain, nonatomic) IMHandle *handle; // @synthesize handle=_handle;
+@property(readonly, nonatomic) NSAttributedString *attributedTranscriptText;
+@property(readonly, nonatomic) UIImage *transcriptContactImage;
+- (id)contactImage;
 @property(readonly, nonatomic) BOOL hasContactImage;
-@property(readonly, nonatomic) unsigned int addressHash;
-@property(readonly, nonatomic) NSString *normalizedRawAddress;
-@property(readonly, nonatomic) struct __CFPhoneNumber *phoneNumberRef;
-- (void)setABRecord:(void *)arg1 withIdentifier:(int)arg2;
-@property(readonly, nonatomic) NSString *textVibrationIdentifier; // @dynamic textVibrationIdentifier;
-@property(readonly, nonatomic) NSString *textToneIdentifier; // @dynamic textToneIdentifier;
+@property(readonly, nonatomic) NSString *textVibrationIdentifier;
+@property(readonly, nonatomic) NSString *textToneIdentifier;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) NSString *fullName;
 @property(readonly, nonatomic) NSString *originalAddress;
 @property(readonly, nonatomic) NSString *rawAddress;
+@property(readonly, nonatomic) int propertyType;
+@property(readonly, nonatomic) int identifier;
+@property(readonly, nonatomic) void *abRecord;
+@property(readonly, nonatomic) IMHandle *defaultIMHandle;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)description;
 - (void)dealloc;
-- (id)init;
-- (void)resetCaches;
+- (id)initWithIMHandle:(id)arg1;
+- (id)personViewControllerWithDelegate:(id)arg1;
+- (id)__ck_displayContactImage;
+- (void)__ck_prewarmForDisplay;
+- (BOOL)__ck_displayDuringSend;
+- (BOOL)__ck_displayTranscriptOrientation;
+- (struct UIEdgeInsets)__ck_displayContentAlignmentInsets;
+- (struct CGSize)__ck_displaySize:(struct UIEdgeInsets *)arg1;
+- (id)__ck_displayCellIdentifier;
+- (Class)__ck_displayCellClass;
+- (id)__ck_displayGUIDWithMessage:(id)arg1;
 
 @end
 

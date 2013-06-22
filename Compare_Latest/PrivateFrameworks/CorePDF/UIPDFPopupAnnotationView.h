@@ -11,7 +11,6 @@
 @interface UIPDFPopupAnnotationView : UIPDFAnnotationView
 {
     UIImage *_image;
-    int _style;
 }
 
 - (void)drawRect:(struct CGRect)arg1;

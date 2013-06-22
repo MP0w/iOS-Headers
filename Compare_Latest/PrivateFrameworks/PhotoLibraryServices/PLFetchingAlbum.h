@@ -6,11 +6,11 @@
 
 #import <PhotoLibraryServices/_PLFetchingAlbum.h>
 
-#import "PLAssetContainerDisplayCount-Protocol.h"
+#import "PLAlbumProtocolDisplayCount-Protocol.h"
 
 @class NSFetchRequest, NSOrderedSet;
 
-@interface PLFetchingAlbum : _PLFetchingAlbum <PLAssetContainerDisplayCount>
+@interface PLFetchingAlbum : _PLFetchingAlbum <PLAlbumProtocolDisplayCount>
 {
     unsigned int _countForDisplay;
     unsigned int _photosCount;
@@ -18,6 +18,7 @@
     int _emptyState;
 }
 
++ (id)_panoramasAlbumPredicate;
 + (BOOL)contextShouldIgnoreChangesForFetchRequest;
 + (BOOL)contextShouldIgnoreChangesForFetchedAssetsSet;
 + (BOOL)contextShouldIgnoreChangesForFetchedAssets;
@@ -29,8 +30,8 @@
 - (id)keyAsset;
 - (void)batchFetchAssets:(id)arg1;
 - (BOOL)canPerformEditOperation:(int)arg1;
-- (unsigned int)countForAssetsOfKind:(int)arg1;
-- (unsigned int)_fetchedCountForAssetsOfKind:(int)arg1;
+- (unsigned int)countForAssetsOfKind:(short)arg1;
+- (unsigned int)_fetchedCountForAssetsOfKind:(short)arg1;
 - (BOOL)isEmpty;
 @property(readonly, nonatomic) unsigned int countForDisplay;
 - (unsigned int)count;

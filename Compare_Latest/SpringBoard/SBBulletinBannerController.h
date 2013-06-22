@@ -8,19 +8,27 @@
 
 #import "BBObserverDelegate-Protocol.h"
 #import "SBUIBannerSource-Protocol.h"
+#import "SBUIBannerTargetManagerObserver-Protocol.h"
+#import "SBVolumePressBandit-Protocol.h"
 
 @class BBObserver, NSMutableArray, NSMutableSet;
 
-@interface SBBulletinBannerController : NSObject <BBObserverDelegate, SBUIBannerSource>
+@interface SBBulletinBannerController : NSObject <BBObserverDelegate, SBUIBannerSource, SBUIBannerTargetManagerObserver, SBVolumePressBandit>
 {
     NSMutableArray *_bulletinQueue;
     BBObserver *_observer;
     NSMutableSet *_sectionIDsToPend;
+    BOOL _quietModeEnabled;
+    id <SBUIBannerTarget> _bannerTarget;
 }
 
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
 + (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
+- (void)observer:(id)arg1 noteAlertBehaviorOverridesChanged:(unsigned int)arg2;
+- (void)observer:(id)arg1 noteServerReceivedResponseForBulletin:(id)arg2;
+- (void)observer:(id)arg1 noteServerConnectionStateChanged:(BOOL)arg2;
+- (void)observer:(id)arg1 noteInvalidatedBulletinIDs:(id)arg2;
 - (id)observer:(id)arg1 composedAttachmentImageForType:(int)arg2 thumbnailData:(id)arg3 key:(id)arg4;
 - (id)observer:(id)arg1 thumbnailSizeConstraintsForAttachmentType:(int)arg2;
 - (BOOL)observerShouldFetchAttachmentImageBeforeBulletinDelivery:(id)arg1;
@@ -28,17 +36,21 @@
 - (void)observer:(id)arg1 removeBulletin:(id)arg2;
 - (void)observer:(id)arg1 modifyBulletin:(id)arg2;
 - (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
-- (void)removeAllBannerItems;
-- (id)dequeueNextBannerItem;
-- (id)peekNextBannerItem;
-- (id)newBannerViewForItem:(id)arg1;
+- (void)bannerTargetManager:(id)arg1 didRemoveTarget:(id)arg2;
+- (void)bannerTargetManager:(id)arg1 didAddTarget:(id)arg2;
+- (id)newBannerViewForContext:(id)arg1;
+- (void)_syncLockScreenDismissalsForSeedBulletin:(id)arg1 additionalBulletins:(id)arg2;
+- (id)dequeueNextBannerItemForTarget:(id)arg1;
+- (id)peekNextBannerItemForTarget:(id)arg1;
+- (void)_showTestBanner:(id)arg1;
 - (void)_removeNextBulletinIfNecessary;
 - (void)_queueBulletin:(id)arg1;
 - (BOOL)_replaceBulletin:(id)arg1;
 - (void)_removeBulletin:(id)arg1;
 - (unsigned int)_indexOfQueuedBulletinID:(id)arg1;
-- (void)_configureBBObserver;
-- (void)showTestBanner;
+- (void)handleVolumeDecrease;
+- (void)handleVolumeIncrease;
+- (void)_reloadVolumePressBanditPreference;
 - (void)dealloc;
 - (id)init;
 

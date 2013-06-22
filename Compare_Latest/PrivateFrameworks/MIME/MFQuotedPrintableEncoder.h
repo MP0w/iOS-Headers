@@ -16,7 +16,7 @@
     BOOL _forHeader;
 }
 
-+ (unsigned long)requiredSizeToEncodeHeaderBytes:(const char *)arg1 length:(unsigned long)arg2;
++ (unsigned int)requiredSizeToEncodeHeaderBytes:(const char *)arg1 length:(unsigned int)arg2;
 @property(nonatomic) BOOL forHeader; // @synthesize forHeader=_forHeader;
 @property(nonatomic) BOOL forTextPart; // @synthesize forTextPart=_forTextPart;
 - (void)done;

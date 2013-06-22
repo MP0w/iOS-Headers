@@ -11,7 +11,6 @@
 @interface UIPDFDocument : NSObject
 {
     struct CGPDFDocument *_cgDocument;
-    id *_pageArray;
     unsigned int _numberOfPages;
     float _cachedWidth;
     NSString *_documentID;
@@ -23,12 +22,16 @@
     int _imageCacheLock;
     UIPDFPageImageCache *_thumbnailCache;
     int _thumbnailLock;
+    id <NSObject><UIPDFDocumentDelegate> _delegate;
 }
 
 + (id)documentNamed:(id)arg1;
 @property(readonly) struct CGPDFDocument *CGDocument; // @synthesize CGDocument=_cgDocument;
+@property(nonatomic) id <NSObject><UIPDFDocumentDelegate> delegate; // @synthesize delegate=_delegate;
+- (BOOL)copyDocumentTo:(id)arg1;
 - (BOOL)allowsCopying;
 @property(readonly) NSString *documentID; // @dynamic documentID;
+- (void)purgePagesBefore:(unsigned int)arg1;
 - (id)copyPageAtIndex:(unsigned int)arg1;
 - (id)pageAtIndex:(unsigned int)arg1;
 @property(readonly) unsigned int numberOfPages; // @dynamic numberOfPages;
@@ -36,10 +39,7 @@
 - (void)dealloc;
 - (id)initWithURL:(id)arg1;
 - (id)initWithCGPDFDocument:(struct CGPDFDocument *)arg1;
-- (void)setCGPDFDocument:(struct CGPDFDocument *)arg1;
 - (struct CGPDFDocument *)copyCGPDFDocument;
-- (void)purgePagesBefore:(unsigned int)arg1;
-- (void)_clearCachedState;
 @property(retain) UIPDFPageImageCache *thumbnailCache; // @dynamic thumbnailCache;
 @property(retain) UIPDFPageImageCache *pageImageCache; // @dynamic pageImageCache;
 - (float)sumHeight;

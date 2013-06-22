@@ -10,33 +10,33 @@
 
 @interface PLCloudSharingViewedStateChangeJob : PLCloudSharingJob
 {
-    NSString *_albumGUID;
-    NSDate *_assetCollectionLastViewedCommentDate;
-    BOOL _assetCollectionHasUnreadComments;
-    NSString *_assetCollectionGUID;
-    int _albumUnviewedAssetCount;
     BOOL _albumHasUnseenContent;
-    int _jobType;
+    BOOL _assetCollectionHasUnreadComments;
+    NSString *_albumGUID;
+    NSString *_assetCollectionGUID;
+    NSDate *_assetCollectionLastViewedCommentDate;
+    long long _jobType;
+    long long _albumUnviewedAssetCount;
 }
 
 + (void)setLastViewedCommentDate:(id)arg1 forAssetCollection:(id)arg2 inAlbum:(id)arg3;
 + (void)markAssetCollection:(id)arg1 asHavingUnreadComments:(BOOL)arg2 inAlbum:(id)arg3;
 + (void)updateUnviewedAssetCollectionCount:(int)arg1 forAlbum:(id)arg2;
 + (void)markAlbum:(id)arg1 asHavingUnseenContent:(BOOL)arg2;
-@property(nonatomic) int jobType; // @synthesize jobType=_jobType;
-@property(nonatomic) BOOL albumHasUnseenContent; // @synthesize albumHasUnseenContent=_albumHasUnseenContent;
-@property(nonatomic) int albumUnviewedAssetCount; // @synthesize albumUnviewedAssetCount=_albumUnviewedAssetCount;
-@property(retain, nonatomic) NSString *assetCollectionGUID; // @synthesize assetCollectionGUID=_assetCollectionGUID;
-@property(nonatomic) BOOL assetCollectionHasUnreadComments; // @synthesize assetCollectionHasUnreadComments=_assetCollectionHasUnreadComments;
 @property(retain, nonatomic) NSDate *assetCollectionLastViewedCommentDate; // @synthesize assetCollectionLastViewedCommentDate=_assetCollectionLastViewedCommentDate;
+@property(nonatomic) BOOL assetCollectionHasUnreadComments; // @synthesize assetCollectionHasUnreadComments=_assetCollectionHasUnreadComments;
+@property(retain, nonatomic) NSString *assetCollectionGUID; // @synthesize assetCollectionGUID=_assetCollectionGUID;
+@property(nonatomic) long long albumUnviewedAssetCount; // @synthesize albumUnviewedAssetCount=_albumUnviewedAssetCount;
+@property(nonatomic) BOOL albumHasUnseenContent; // @synthesize albumHasUnseenContent=_albumHasUnseenContent;
 @property(retain, nonatomic) NSString *albumGUID; // @synthesize albumGUID=_albumGUID;
+@property(nonatomic) long long jobType; // @synthesize jobType=_jobType;
 - (void)_executeAssetLastViewedCommentDateChangedWithGroup;
 - (void)_executeAssetCommentsReadStateChangedWithGroup;
 - (void)_executeAlbumUnviewedAssetCountChangedWithGroup;
 - (void)_executeAlbumViewedStateChanged;
 - (void)runDaemonSide;
 - (void)run;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 - (void)dealloc;
 - (id)description;
 - (id)initFromXPCObject:(id)arg1;

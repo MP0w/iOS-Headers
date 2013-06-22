@@ -6,18 +6,18 @@
 
 #import "UIView.h"
 
-@class MPAVController, MPMovieSnapshotController, NSString;
+@class MPAVController, NSDictionary, NSString;
 
 @interface MPVideoView : UIView
 {
     MPAVController *_player;
-    MPMovieSnapshotController *_snapshotController;
     NSString *_moviePath;
     NSString *_movieSubtitle;
     NSString *_movieTitle;
     NSString *_videoID;
     double _startTime;
     double _stopTime;
+    NSDictionary *_AVURLAssetOptions;
     unsigned int _scaleMode;
 }
 
@@ -26,13 +26,14 @@
 @property(nonatomic) double stopTime; // @synthesize stopTime=_stopTime;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
 @property(nonatomic) unsigned int scaleMode; // @synthesize scaleMode=_scaleMode;
-@property(nonatomic) MPAVController *player; // @synthesize player=_player;
+@property(nonatomic) __weak MPAVController *player; // @synthesize player=_player;
 @property(retain, nonatomic) NSString *movieTitle; // @synthesize movieTitle=_movieTitle;
 @property(retain, nonatomic) NSString *movieSubtitle; // @synthesize movieSubtitle=_movieSubtitle;
-- (void)scheduleThumbnailWithSize:(struct CGSize)arg1 orientation:(int)arg2 time:(float)arg3 delegate:(id)arg4;
-- (void)cancelSnapshots;
+@property(retain, nonatomic) NSDictionary *AVURLAssetOptions; // @synthesize AVURLAssetOptions=_AVURLAssetOptions;
+- (void).cxx_destruct;
 - (void)_playbackStateChangedNotification:(id)arg1;
 - (void)_bufferingStateChangedNotification:(id)arg1;
+- (void)didMoveToWindow;
 @property(readonly, nonatomic) struct CGRect movieContentFrame;
 @property(readonly, nonatomic) struct CGRect movieFrame;
 @property(readonly, nonatomic) unsigned int effectiveScaleMode;

@@ -23,6 +23,7 @@
 + (void)_getIsCMCDisabled:(char *)arg1 disabledReason:(id *)arg2;
 + (void)setWantsArtwork:(BOOL)arg1;
 + (id)storeOfferingController;
+- (void).cxx_destruct;
 - (void)_onQueueClearCache;
 - (void)_onQueueSetCachedCompletionOffering:(id)arg1 forStoreLookupID:(id)arg2;
 - (id)_onQueueCompletionOfferingForAlbumItemsQuery:(id)arg1;

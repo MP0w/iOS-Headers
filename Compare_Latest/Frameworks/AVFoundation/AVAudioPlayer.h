@@ -10,7 +10,7 @@
 
 @interface AVAudioPlayer : NSObject
 {
-    void *_impl;
+    id _impl;
 }
 
 @property(copy, nonatomic) NSArray *channelAssignments;
@@ -37,18 +37,19 @@
 - (BOOL)playAtTime:(double)arg1;
 - (BOOL)play;
 - (BOOL)prepareToPlay;
-- (id)initWithData:(id)arg1 error:(id *)arg2;
+- (id)initWithData:(id)arg1 fileTypeHint:(id)arg2 error:(id *)arg3;
+- (id)initWithContentsOfURL:(id)arg1 fileTypeHint:(id)arg2 error:(id *)arg3;
 - (id)initWithContentsOfURL:(id)arg1 error:(id *)arg2;
+- (id)initWithData:(id)arg1 error:(id *)arg2;
 - (void)dealloc;
 - (void)finalize;
-- (void)privCommonCleanup;
 - (void)endInterruption;
 - (void)endInterruptionWithFlags:(id)arg1;
 - (void)beginInterruption;
 - (void)decodeError:(id)arg1;
 - (void)finishedPlaying:(id)arg1;
 - (id)baseInit;
-- (struct AudioPlayerImpl *)impl;
+- (id)impl;
 
 @end
 

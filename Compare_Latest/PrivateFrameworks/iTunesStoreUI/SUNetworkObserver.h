@@ -29,12 +29,9 @@
 - (void)_handleUsingNetworkChange:(id)arg1;
 - (void)_handleNetworkTypeChange:(id)arg1;
 - (void)_cancelStartupTimer;
-- (void)_cancelPartnerDetect;
 - (void)_partnerHeaderChanged:(id)arg1;
 - (void)_networkUsageStateChanged:(id)arg1;
 - (void)_networkTypeChanged:(id)arg1;
-- (void)operationFinished:(id)arg1;
-- (void)operation:(id)arg1 failedWithError:(id)arg2;
 - (void)startNetworkAvailabilityTimer;
 - (void)setPartnersEnabled:(BOOL)arg1;
 @property(retain, nonatomic) NSString *partnerIdentifier; // @synthesize partnerIdentifier=_partnerIdentifier;

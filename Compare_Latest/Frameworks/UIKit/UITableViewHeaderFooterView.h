@@ -14,29 +14,34 @@
 {
     int _tableViewStyle;
     UIImage *_backgroundImage;
-    BOOL _sectionHeader;
     struct CGRect _frame;
     int _textAlignment;
     UITableView *_tableView;
     float _maxTitleWidth;
-    BOOL _labelBackgroundColorNeedsUpdate;
-    BOOL _detailLabelBackgroundColorNeedsUpdate;
-    BOOL _floating;
     NSString *_reuseIdentifier;
     UIView *_backgroundView;
     UILabel *_label;
     UILabel *_detailLabel;
     UIView *_contentView;
+    UIView *_topSeparatorView;
     UIColor *_tintColor;
+    float _marginWidth;
+    float _rightMarginWidth;
+    struct {
+        unsigned int isHeader:1;
+        unsigned int labelBackgroundColorNeedsUpdate:1;
+        unsigned int detailLabelBackgroundColorNeedsUpdate:1;
+        unsigned int floating:1;
+    } _headerFooterFlags;
 }
 
 + (id)_defaultFontForTableViewStyle:(int)arg1 isSectionHeader:(BOOL)arg2;
 @property(retain, nonatomic) UIImage *backgroundImage; // @synthesize backgroundImage=_backgroundImage;
 @property(nonatomic) float maxTitleWidth; // @synthesize maxTitleWidth=_maxTitleWidth;
 @property(nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
-@property(nonatomic) BOOL sectionHeader; // @synthesize sectionHeader=_sectionHeader;
 @property(copy, nonatomic) NSString *reuseIdentifier; // @synthesize reuseIdentifier=_reuseIdentifier;
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
+- (void)_tableViewDidUpdateMarginWidth;
 @property(retain, nonatomic) UIColor *tintColor;
 - (id)_scriptingInfo;
 - (void)layoutSubviews;
@@ -45,9 +50,14 @@
 @property(nonatomic) BOOL floating;
 @property(nonatomic) int tableViewStyle;
 - (void)_updateLayerContents;
+@property(nonatomic, getter=_rightMarginWidth, setter=_setRightMarginWidth:) float rightMarginWidth;
+@property(nonatomic, getter=_marginWidth, setter=_setMarginWidth:) float marginWidth;
+- (void)_updateContentAndBackgroundView;
+- (struct CGRect)_backgroundRect;
 @property(retain, nonatomic) UIView *backgroundView;
+- (void)_setupBackgroundView;
 - (void)_updateBackgroundImage;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_sizeThatFits:(struct CGSize)arg1 stripPaddingForAbuttingView:(BOOL)arg2 isTopHeader:(BOOL)arg3;
 - (BOOL)_useDetailText;
 - (struct CGRect)_detailLabelFrame;
 - (struct CGRect)_labelFrame;
@@ -65,6 +75,7 @@
 - (struct CGSize)_detailTextSizeForWidth:(float)arg1;
 - (struct CGSize)_textSizeForWidth:(float)arg1;
 @property(nonatomic) int textAlignment;
+@property(nonatomic) BOOL sectionHeader;
 - (struct CGRect)frame;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)prepareForReuse;

@@ -36,9 +36,7 @@
 - (void)_connectedStatusChanged;
 - (BOOL)connected;
 - (BOOL)_onlySensorsConnected;
-- (id)connectedLEDevices;
 - (id)connectedDevices;
-- (id)connectedDevices:(BOOL)arg1;
 - (id)connectingDevices;
 - (void)setConnectable:(BOOL)arg1;
 - (BOOL)connectable;
@@ -46,9 +44,7 @@
 - (void)connectDevice:(id)arg1 withServices:(unsigned int)arg2;
 - (void)acceptSSP:(int)arg1 forDevice:(id)arg2;
 - (void)setPincode:(id)arg1 forDevice:(id)arg2;
-- (id)pairedLEDevices;
 - (id)pairedDevices;
-- (id)pairedDevices:(BOOL)arg1;
 - (void)unpairDevice:(id)arg1;
 - (void)cancelPairing;
 - (void)setDevicePairingEnabled:(BOOL)arg1;

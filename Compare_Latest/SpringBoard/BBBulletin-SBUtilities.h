@@ -6,7 +6,11 @@
 
 #import "BBBulletin.h"
 
-@interface BBBulletin (SBUtilities)
+#import "SBUIQuietModePlayability-Protocol.h"
+
+@interface BBBulletin (SBUtilities) <SBUIQuietModePlayability>
+- (BOOL)overridesQuietMode;
+- (BOOL)isCritical;
 - (id)sectionIconImageWithFormat:(int)arg1;
 @end
 

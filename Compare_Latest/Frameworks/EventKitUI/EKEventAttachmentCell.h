@@ -13,11 +13,11 @@
     UIActivityIndicatorView *_activityIndicator;
 }
 
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)showSpinner:(BOOL)arg1;
 - (void)setAttachment:(id)arg1;
 - (id)_iconForDocumentProxy:(id)arg1;
-- (void)dealloc;
 
 @end
 

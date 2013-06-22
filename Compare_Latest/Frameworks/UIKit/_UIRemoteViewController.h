@@ -8,15 +8,17 @@
 
 #import "UIActionSheetDelegate-Protocol.h"
 #import "XPCProxyTarget-Protocol.h"
+#import "_UIRemoteViewController_TextEffectsOperatorInterface-Protocol.h"
 #import "_UIRemoteViewController_ViewControllerOperatorInterface-Protocol.h"
 
-@class NSArray, NSError, NSObject<OS_dispatch_semaphore>, NSString, UIActionSheet, UIDimmingView, UIView, _UIAsyncInvocation, _UIRemoteView, _UISizeTrackingView, _UITextServiceSession, _UIViewServiceInterface;
+@class NSArray, NSError, NSString, UIActionSheet, UIDimmingView, UIView, _UIAsyncInvocation, _UIRemoteView, _UISizeTrackingView, _UITextServiceSession, _UIViewServiceInterface;
 
-@interface _UIRemoteViewController : UIViewController <XPCProxyTarget, _UIRemoteViewController_ViewControllerOperatorInterface, UIActionSheetDelegate>
+@interface _UIRemoteViewController : UIViewController <XPCProxyTarget, _UIRemoteViewController_ViewControllerOperatorInterface, _UIRemoteViewController_TextEffectsOperatorInterface, UIActionSheetDelegate>
 {
     NSString *_serviceBundleIdentifier;
     _UIViewServiceInterface *_serviceInterface;
     id _serviceViewControllerProxy;
+    id _serviceViewControllerControlMessageProxy;
     NSArray *_serviceViewControllerSupportedInterfaceOrientations;
     unsigned int _serviceAccessibilityServerPort;
     unsigned int _serviceRegisteredScrollToTopViewCount;
@@ -25,13 +27,14 @@
     id _textEffectsOperatorProxy;
     _UIAsyncInvocation *_textEffectsOperatorHalfDisconnectionInvocation;
     BOOL _fencingCurrentTransaction;
-    NSObject<OS_dispatch_semaphore> *_fenceBarrier;
+    unsigned int _fenceReplyPort;
     _UISizeTrackingView *_sizeTrackingView;
     _UIRemoteView *_serviceViewControllerRemoteView;
     _UIRemoteView *_fullScreenTextEffectsRemoteView;
     _UIRemoteView *_textEffectsAboveStatusBarRemoteView;
     UIView *_fullScreenTextEffectsSnapshotView;
     BOOL _snapshotTextEffectsAfterRotation;
+    unsigned int _serviceScreenDisplayID;
     _UIAsyncInvocation *_terminationInvocation;
     int _terminationErrorLock;
     NSError *_terminationError;
@@ -40,10 +43,18 @@
     int __automatic_invalidation_retainCount;
     BOOL __automatic_invalidation_invalidated;
     UIDimmingView *_hostedDimmingView;
+    UIView *_touchGrabbingView;
+    int _preferredStatusBarStyle;
+    BOOL _prefersStatusBarHidden;
 }
 
 + (id)requestViewController:(id)arg1 fromServiceWithBundleIdentifier:(id)arg2 connectionHandler:(id)arg3;
++ (BOOL)_shouldUseXPCObjects;
++ (id)exportedInterface;
++ (id)serviceViewControllerInterface;
 + (BOOL)shouldPropagateAppearanceCustomizations;
+- (void)restoreStateForSession:(id)arg1 anchor:(id)arg2;
+- (void)saveStateForSession:(id)arg1 anchor:(id)arg2;
 - (void)__dismissTextServiceSessionAnimated:(BOOL)arg1;
 - (void)__showServiceForText:(id)arg1 type:(int)arg2 fromRectValue:(id)arg3 replyHandler:(id)arg4;
 - (void)_appearanceInvocationsDidChange:(id)arg1;
@@ -53,9 +64,14 @@
 - (void)__viewServicePopoverDidSetUseToolbarShine:(BOOL)arg1;
 - (void)__viewServicePopoverDidChangeContentSize:(id)arg1 animated:(BOOL)arg2 fenceSendRight:(id)arg3 withReplyHandler:(id)arg4;
 - (void)__viewServiceDidPromoteFirstResponder;
+- (void)__sendNotificationName:(id)arg1 userInfo:(id)arg2;
 - (void)dimmingViewWasTapped:(id)arg1;
 - (void)__setViewServiceIsDisplayingPopover:(BOOL)arg1;
 - (void)__setSupportedInterfaceOrientations:(id)arg1;
+- (void)__viewServiceDidUpdatePreferredStatusBarStyle:(int)arg1 hidden:(BOOL)arg2;
+- (BOOL)prefersStatusBarHidden;
+- (int)preferredStatusBarStyle;
+- (BOOL)_requiresKeyboardWindowWhenFirstResponder;
 - (void)_didResignContentViewControllerOfPopover:(id)arg1;
 - (void)_willBecomeContentViewControllerOfPopover:(id)arg1;
 - (void)_didRotateFromInterfaceOrientation:(int)arg1 forwardToChildControllers:(BOOL)arg2 skipSelf:(BOOL)arg3;
@@ -67,9 +83,8 @@
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
+- (void)__willChangeToIdiom:(int)arg1 onScreen:(id)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)_alertIsDisappearing:(id)arg1;
-- (void)_alertIsAppearing:(id)arg1;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)__dismissActionSheetWithClickedButtonIndex:(int)arg1 animated:(BOOL)arg2;
 - (void)__presentActionSheetFromYCoordinate:(float)arg1 withTitle:(id)arg2 buttonTitles:(id)arg3 cancelButtonIndex:(int)arg4 destructiveButtonIndex:(int)arg5 style:(int)arg6;
@@ -83,6 +98,7 @@
 - (void)_terminateUnconditionallyThen:(id)arg1;
 - (id)disconnect;
 - (id)_terminateWithError:(id)arg1;
+- (void)_updateTouchGrabbingView;
 - (void)_applicationWillResignActive:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)_snapshotAndRemoveTextEffectsRemoteView;
@@ -92,10 +108,15 @@
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_hostWillEnterForeground:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
+- (void)_statusBarHeightDidChange:(id)arg1;
 - (void)_statusBarOrientationDidChange:(id)arg1;
+@property(readonly, nonatomic) CDStruct_4c969caf serviceAuditToken;
+@property(readonly, nonatomic) int serviceProcessIdentifier;
 @property(readonly, nonatomic) NSString *serviceBundleIdentifier;
 - (void)synchronizeAnimationsInActions:(id)arg1;
-- (id)_initWithViewServiceBundleIdentifier:(id)arg1 connectionInfo:(CDStruct_5a8e6190)arg2;
+- (void)loadView;
+- (void)_awakeWithConnectionInfo:(id)arg1;
+- (id)_initWithViewServiceBundleIdentifier:(id)arg1;
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
 - (unsigned int)retainCount;
@@ -103,7 +124,8 @@
 - (id)retain;
 - (int)__automatic_invalidation_logic;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-@property(readonly, nonatomic) id serviceViewControllerProxy;
+- (id)serviceViewControllerProxyWithErrorHandler:(id)arg1;
+- (id)serviceViewControllerProxy;
 - (void)viewServiceSupportedInterfaceOrientationsDidChange;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 

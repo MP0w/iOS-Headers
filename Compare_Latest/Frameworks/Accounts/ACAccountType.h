@@ -6,37 +6,36 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class ACAccountStore, NSSet, NSString, NSURL;
 
-@interface ACAccountType : NSObject
+@interface ACAccountType : NSObject <NSSecureCoding>
 {
     NSString *_accountTypeDescription;
     NSString *_identifier;
     NSString *_credentialType;
-    int _credentialAvailability;
     NSURL *_objectID;
     int _visibility;
-    id _credentialProtectionPolicy;
+    NSString *_credentialProtectionPolicy;
     ACAccountStore *_accountStore;
     int _supportsAuthentication;
-    int _maximumSavedAllowed;
     BOOL _supportsMultipleAccounts;
     NSSet *_supportedDataclasses;
     NSSet *_syncableDataclasses;
     NSSet *_accessKeys;
 }
 
++ (BOOL)supportsSecureCoding;
+@property(nonatomic) BOOL supportsMultipleAccounts; // @synthesize supportsMultipleAccounts=_supportsMultipleAccounts;
 @property(nonatomic) __weak ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSSet *accessKeys; // @synthesize accessKeys=_accessKeys;
-@property(readonly, nonatomic) BOOL supportsMultipleAccounts; // @synthesize supportsMultipleAccounts=_supportsMultipleAccounts;
 @property(nonatomic) int supportsAuthentication; // @synthesize supportsAuthentication=_supportsAuthentication;
 @property(readonly, nonatomic) BOOL accessGranted;
 @property(copy, nonatomic) id credentialProtectionPolicy;
 @property(nonatomic) int visibility;
-@property(nonatomic) int credentialAvailability;
-@property(readonly, nonatomic) NSString *credentialType; // @synthesize credentialType=_credentialType;
-- (void)setCredentialType:(id)arg1;
+@property(retain, nonatomic) NSString *credentialType; // @synthesize credentialType=_credentialType;
 @property(retain, nonatomic) NSURL *objectID; // @synthesize objectID=_objectID;
 - (void)setAccountTypeDescription:(id)arg1;
 @property(readonly, nonatomic) NSString *accountTypeDescription; // @synthesize accountTypeDescription=_accountTypeDescription;
@@ -44,9 +43,12 @@
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) NSSet *syncableDataclasses; // @synthesize syncableDataclasses=_syncableDataclasses;
 @property(readonly, nonatomic) NSSet *supportedDataclasses; // @synthesize supportedDataclasses=_supportedDataclasses;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithManagedAccountType:(id)arg1;
+- (id)initWithManagedAccountType:(id)arg1 accountStore:(id)arg2;
 - (id)initWithIdentifier:(id)arg1 description:(id)arg2;
 
 @end

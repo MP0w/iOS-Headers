@@ -6,13 +6,27 @@
 
 #import <EventKitUI/EKEventEditItem.h>
 
-@interface EKEventAvailabilityEditItem : EKEventEditItem
+#import "EKCalendarItemDisclosableEditItem-Protocol.h"
+
+@class NSArray;
+
+@interface EKEventAvailabilityEditItem : EKEventEditItem <EKCalendarItemDisclosableEditItem>
 {
+    int _availability;
+    unsigned int _supportedAvailabilities;
+    NSArray *_choices;
+    unsigned int _availabilityIndexInChoices;
 }
 
-- (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
-- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
+- (void).cxx_destruct;
+- (unsigned int)indexOfSelectedDisclosedItem;
+- (void)didSelectDisclosedItemAtIndex:(int)arg1;
+- (id)titleForDisclosedItemAtIndex:(int)arg1 inSubitem:(int)arg2;
+- (int)numberOfDisclosableItemsInSubitem:(int)arg1;
+- (int)disclosedEditItemTypeForSubitem:(int)arg1;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (BOOL)saveAndDismissWithForce:(BOOL)arg1;
+- (void)refreshFromCalendarItemAndStore;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 
 @end

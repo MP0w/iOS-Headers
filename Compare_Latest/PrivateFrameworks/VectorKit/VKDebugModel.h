@@ -8,21 +8,17 @@
 
 #import "VKMapLayer-Protocol.h"
 
-@class VGLBasicProgram;
-
 @interface VKDebugModel : VKModelObject <VKMapLayer>
 {
     BOOL _geocentric;
-    VGLBasicProgram *_basicProgram;
     float _fontSize;
-    struct LabelFeature *_debugHighlightedFeature;
 }
 
 @property(nonatomic) BOOL geocentric; // @synthesize geocentric=_geocentric;
 - (void)_paintTile:(id)arg1 fromLayer:(unsigned int)arg2 withContext:(id)arg3;
 - (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
-- (void)debugHighlightLabelAtScreenPoint:(struct CGPoint)arg1 viewTransform:(id)arg2 featurePool:(id)arg3 renderStamp:(unsigned int)arg4;
 - (void)dealloc;
+- (unsigned int)supportedRenderPasses;
 - (unsigned int)mapLayerPosition;
 
 @end

@@ -9,6 +9,5 @@
 @interface UIImage (NikeAdditions)
 + (id)reversedNikeRunLandscapeBackgroundImage;
 + (id)nikeRunLandscapeBackgroundImage;
-+ (id)nikeBackgroundImage;
 @end
 

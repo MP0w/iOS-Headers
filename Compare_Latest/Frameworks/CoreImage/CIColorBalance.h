@@ -18,10 +18,10 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputDamping; // @synthesize inputDamping;
-@property(copy, nonatomic) NSNumber *inputWarmth; // @synthesize inputWarmth;
-@property(copy, nonatomic) NSNumber *inputStrength; // @synthesize inputStrength;
-@property(copy, nonatomic) CIColor *inputColor; // @synthesize inputColor;
+@property(retain, nonatomic) NSNumber *inputDamping; // @synthesize inputDamping;
+@property(retain, nonatomic) NSNumber *inputWarmth; // @synthesize inputWarmth;
+@property(retain, nonatomic) NSNumber *inputStrength; // @synthesize inputStrength;
+@property(retain, nonatomic) CIColor *inputColor; // @synthesize inputColor;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)_kernel;

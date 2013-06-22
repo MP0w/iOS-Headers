@@ -7,11 +7,10 @@
 #import "NSObject.h"
 
 #import "IMAVControllerDelegate-Protocol.h"
-#import "IMAVInvitationControllerDelegate-Protocol.h"
 
 @class IMAVChat, NSMutableArray;
 
-@interface CNFConferenceController : NSObject <IMAVControllerDelegate, IMAVInvitationControllerDelegate>
+@interface CNFConferenceController : NSObject <IMAVControllerDelegate>
 {
     BOOL _isConnected;
     int _type;
@@ -35,16 +34,13 @@
 - (void)avChatStateChanged:(id)arg1;
 - (void)_handleConferenceEnded:(id)arg1 withReason:(unsigned int)arg2 withError:(int)arg3;
 - (void)_handleConferenceConnecting:(id)arg1;
-- (void)avChatStateChangedFrom:(unsigned int)arg1 to:(unsigned int)arg2 reason:(unsigned int)arg3;
-- (void)conference:(id)arg1 receivedCancelledInvitationFromIMHandle:(id)arg2;
-- (void)conference:(id)arg1 handleMissedInvitationFromIMHandle:(id)arg2;
-- (void)conference:(id)arg1 receivedInvitationFromIMHandle:(id)arg2;
 - (void)inviteFailedFromIMHandle:(id)arg1 reason:(int)arg2;
 - (void)invitedToIMAVChat:(id)arg1;
-- (BOOL)faceTimeInvitationExists;
+- (BOOL)activeFaceTimeAudioCallExists;
 - (BOOL)inFaceTime;
+- (BOOL)activeFaceTimeCallExists;
+- (BOOL)faceTimeInvitationExists;
 - (BOOL)_chat:(id)arg1 isCrossInvitationWithChat:(id)arg2;
-- (unsigned int)_currentChatState;
 - (void)endFaceTime;
 - (struct CGSize)localCameraAspectRatioForOrientation:(unsigned int)arg1;
 @property(readonly, nonatomic) struct CGSize remoteCameraAspectRatio;
@@ -55,8 +51,8 @@
 - (BOOL)faceTimePaused;
 - (void)setFaceTimeMuted:(BOOL)arg1;
 - (BOOL)faceTimeMuted;
-- (void)declineFaceTimeInvitationForConferenceID:(id)arg1 fromHandle:(id)arg2;
-- (void)acceptFaceTimeInvitationForConferenceID:(id)arg1 fromHandle:(id)arg2;
+- (void)declineFaceTimeInvitationForChat:(id)arg1;
+- (void)acceptFaceTimeInvitationForChat:(id)arg1;
 - (id)avChatForConferenceID:(id)arg1;
 - (id)sendFaceTimeInvitationTo:(id)arg1 isVideo:(BOOL)arg2;
 - (id)sendFaceTimeInvitationTo:(id)arg1;
@@ -65,9 +61,7 @@
 - (id)remoteParticipant;
 - (BOOL)_activeChatExists;
 - (void)_handleEndAVChat:(id)arg1 withReason:(unsigned int)arg2 error:(int)arg3;
-- (void)_handleAVChatStateChangeFromState:(unsigned int)arg1 to:(unsigned int)arg2 withReason:(unsigned int)arg3;
-- (void)_handleCanceledInvitationForConferenceID:(id)arg1 fromHandle:(id)arg2;
-- (void)_handleInvitationForConferenceID:(id)arg1 fromHandle:(id)arg2;
+- (void)_handleAVChatStateChangedToState:(unsigned int)arg1;
 - (BOOL)faceTimeIsAvailable;
 - (BOOL)isInvitationListener;
 @property(readonly, nonatomic) BOOL isFullConferenceCapable; // @dynamic isFullConferenceCapable;

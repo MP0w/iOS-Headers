@@ -132,14 +132,15 @@ struct ASEvent {
     id _field38;
     id _field39;
     id _field40;
-    int _field41;
-    char _field42;
+    id _field41;
+    int _field42;
     char _field43;
     char _field44;
     char _field45;
     char _field46;
     char _field47;
-    id _field48;
+    char _field48;
+    id _field49;
 };
 
 struct ASNote {

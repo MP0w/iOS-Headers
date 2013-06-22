@@ -23,6 +23,7 @@
     NSAttributedString *_messageSubject;
     NSArray *_fileTransferGUIDs;
     NSError *_error;
+    NSArray *_parts;
     unsigned long long _flags;
     BOOL _isInvitationMessage;
     long long _messageID;
@@ -38,7 +39,8 @@
 @property(retain, nonatomic) NSDate *timeRead; // @synthesize timeRead=_timeRead;
 - (void)_updateTimeDelivered:(id)arg1;
 @property(retain, nonatomic) NSDate *timeDelivered; // @synthesize timeDelivered=_timeDelivered;
-@property(readonly, nonatomic) NSArray *fileTransferGUIDs; // @synthesize fileTransferGUIDs=_fileTransferGUIDs;
+- (void)_updateFileTransferGUIDs:(id)arg1;
+@property(copy, nonatomic) NSArray *fileTransferGUIDs; // @synthesize fileTransferGUIDs=_fileTransferGUIDs;
 @property(nonatomic) BOOL isInvitationMessage; // @synthesize isInvitationMessage=_isInvitationMessage;
 - (void)_updateError:(id)arg1;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
@@ -46,7 +48,8 @@
 @property(nonatomic) unsigned long long flags; // @synthesize flags=_flags;
 - (void)_updateMessageID:(long long)arg1;
 @property(nonatomic) long long messageID; // @synthesize messageID=_messageID;
-@property(readonly, nonatomic) NSString *guid; // @synthesize guid=_guid;
+- (void)_updateGUID:(id)arg1;
+@property(retain, nonatomic) NSString *guid; // @synthesize guid=_guid;
 - (void)_updateText:(id)arg1;
 @property(retain, nonatomic) NSAttributedString *text; // @synthesize text=_text;
 - (void)_updateTime:(id)arg1;
@@ -55,6 +58,7 @@
 @property(readonly, nonatomic) IMHandle *subject; // @synthesize subject=_subject;
 - (void)_updateSender:(id)arg1;
 @property(retain, nonatomic) IMHandle *sender; // @synthesize sender=_sender;
+- (void)_flushMessageParts;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) FZMessage *_fzMessage;
@@ -92,6 +96,9 @@
 - (id)_initWithSender:(id)arg1 time:(id)arg2 timeRead:(id)arg3 timeDelivered:(id)arg4 plainText:(id)arg5 text:(id)arg6 messageSubject:(id)arg7 fileTransferGUIDs:(id)arg8 flags:(unsigned long long)arg9 error:(id)arg10 guid:(id)arg11 messageID:(long long)arg12 subject:(id)arg13;
 - (id)_copyWithFlags:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) NSArray *parts;
+- (void)_loadParts;
+- (void)_parseIMMessagePartsWithTextProcessingBlock:(id)arg1 fileTransferProcessingBlock:(void)arg2;
 
 @end
 

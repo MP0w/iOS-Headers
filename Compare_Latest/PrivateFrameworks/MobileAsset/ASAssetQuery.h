@@ -10,17 +10,19 @@
 
 @interface ASAssetQuery : NSObject
 {
-    NSArray *_results;
-    NSString *_assetType;
     BOOL _queriesLocalAssetInformationOnly;
     NSPredicate *_predicate;
+    NSArray *_results;
+    NSString *_assetType;
+    double _networkTimeout;
 }
 
 + (id)queryPredicateForProperties:(id)arg1;
-@property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
-@property(nonatomic) BOOL queriesLocalAssetInformationOnly; // @synthesize queriesLocalAssetInformationOnly=_queriesLocalAssetInformationOnly;
 @property(copy, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
+@property(nonatomic) double networkTimeout; // @synthesize networkTimeout=_networkTimeout;
 @property(retain, nonatomic) NSArray *results; // @synthesize results=_results;
+@property(nonatomic) BOOL queriesLocalAssetInformationOnly; // @synthesize queriesLocalAssetInformationOnly=_queriesLocalAssetInformationOnly;
+@property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
 - (void)stopQuery;
 - (void)startQuery:(id)arg1;
 - (id)runQueryAndReturnError:(id *)arg1;

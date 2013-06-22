@@ -8,13 +8,13 @@
 
 @interface EPBorder : EDBorder
 {
-    int mPrecedence;
+    unsigned int mPrecedence;
 }
 
-+ (id)borderWithBorder:(id)arg1 precedence:(int)arg2 resources:(id)arg3;
-- (int)precedence;
++ (id)borderWithBorder:(id)arg1 precedence:(unsigned int)arg2 resources:(id)arg3;
+- (unsigned int)precedence;
 - (BOOL)isEqualToBorder:(id)arg1;
-- (id)initWithBorder:(id)arg1 precedence:(int)arg2 resources:(id)arg3;
+- (id)initWithBorder:(id)arg1 precedence:(unsigned int)arg2 resources:(id)arg3;
 
 @end
 

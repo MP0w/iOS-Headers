@@ -14,20 +14,16 @@
     NSATSGlyphStorage *_glyphStorage;
     unsigned int _lastGlyphIndex;
     unsigned int _lastContainerIndex;
-    CDStruct_88fe8ffc *_typesetterAuxiliary;
+    CDStruct_6c9b9d05 *_typesetterAuxiliary;
     CDUnion_a04c68c6 *_lineFragmentRectArgs;
     char *_bidiLevels;
     struct {
         unsigned int _isiChatTypesetter:1;
         unsigned int _resToWillSetLineFragmentRect:1;
-        unsigned int _resToShouldBreakLineByWordWithCharacterAtIndex:1;
-        unsigned int _resToShouldBreakLineByHyphenatingWithCharacterAtIndex:1;
-        unsigned int _resToBBoxForControlGlyph:1;
         unsigned int _isBusy:1;
         unsigned int _baselineRendering:1;
-        unsigned int _forceTruncation:1;
         unsigned int _forceWordWrapping:1;
-        unsigned int _reserved:23;
+        unsigned int _reserved:27;
     } _flags;
     struct {
         unsigned int _resolvedWritingDirection:2;

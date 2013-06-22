@@ -15,6 +15,7 @@
     MPVideoView *_videoView;
 }
 
+- (void).cxx_destruct;
 - (void)_playbackStateChanged:(id)arg1;
 - (id)videoView;
 - (BOOL)setVideoView:(id)arg1;

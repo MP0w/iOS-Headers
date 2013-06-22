@@ -12,11 +12,11 @@
 {
     unsigned char _enabled;
     unsigned int _name;
-    int _target;
+    unsigned int _target;
     int _envMode;
+    unsigned char _matrixEnabled;
     NSString *_filePath;
     int _textureIndex;
-    unsigned char _matrixEnabled;
     char *_unit2dNameString;
     char *_unitCubeNameString;
     int _unit2dLoc;
@@ -42,7 +42,7 @@
 @property(nonatomic) int textureIndex; // @synthesize textureIndex=_textureIndex;
 @property(readonly, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
 @property(nonatomic) unsigned char enabled; // @synthesize enabled=_enabled;
-@property(nonatomic) int target; // @synthesize target=_target;
+@property(nonatomic) unsigned int target; // @synthesize target=_target;
 - (void)dealloc;
 - (void)bind;
 - (id)description;

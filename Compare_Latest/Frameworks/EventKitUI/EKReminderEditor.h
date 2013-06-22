@@ -14,14 +14,15 @@
     id <EKReminderEditorDelegate> _reminderEditorDelegate;
 }
 
-@property(nonatomic) id <EKReminderEditorDelegate> reminderEditorDelegate; // @synthesize reminderEditorDelegate=_reminderEditorDelegate;
+@property(nonatomic) __weak id <EKReminderEditorDelegate> reminderEditorDelegate; // @synthesize reminderEditorDelegate=_reminderEditorDelegate;
 @property(retain, nonatomic) id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
+- (void).cxx_destruct;
 - (BOOL)_canDetachSingleOccurrence;
 - (void)_revertEvent;
 - (void)_copyEventForPossibleRevert;
 - (void)editItemTextChanged:(id)arg1;
 - (void)editItem:(id)arg1 didEndDatePickingAnimated:(BOOL)arg2;
-- (void)editItem:(id)arg1 willBeginDatePickingWithDate:(id)arg2 action:(SEL)arg3 animated:(BOOL)arg4 forSubitem:(int)arg5 inSubsection:(int)arg6;
+- (void)editItem:(id)arg1 willBeginDatePickingWithDate:(id)arg2 action:(SEL)arg3 animated:(BOOL)arg4 forSubitem:(unsigned int)arg5 inSubsection:(unsigned int)arg6;
 - (BOOL)shouldDisplayEditItem:(id)arg1 withVisibility:(int)arg2;
 - (unsigned int)entityType;
 - (id)notificationNamesForLocaleChange;
@@ -40,7 +41,6 @@
 - (void)prepareEditItems;
 - (id)_editItems;
 - (void)loadView;
-- (void)dealloc;
 @property(retain, nonatomic) EKReminder *reminder;
 
 @end

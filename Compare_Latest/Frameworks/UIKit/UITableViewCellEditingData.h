@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class UITableViewCell, UITableViewCellDeleteConfirmationControl, UITableViewCellEditControl, UITableViewCellReorderControl, UIView;
+@class UITableViewCell, UITableViewCellDeleteConfirmationControl_Legacy, UITableViewCellEditControl, UITableViewCellReorderControl, UIView;
 
 @interface UITableViewCellEditingData : NSObject
 {
@@ -14,7 +14,7 @@
     int _editingStyle;
     UITableViewCellEditControl *_editControl;
     UITableViewCellReorderControl *_reorderControl;
-    UITableViewCellDeleteConfirmationControl *_deleteConfirmationControl;
+    UITableViewCellDeleteConfirmationControl_Legacy *_deleteConfirmationControl;
     UIView *_reorderSeparatorView;
 }
 

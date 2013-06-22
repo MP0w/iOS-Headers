@@ -11,7 +11,6 @@
 @interface CalendarEventLoader : NSObject
 {
     EKEventStore *_store;
-    id <CalendarEventLoaderDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_occurrencesLock;
     NSArray *_loadedOccurrences;
     NSMutableSet *_occurrencesAwaitingRefresh;
@@ -33,9 +32,11 @@
     double _currentlyLoadingEnd;
     double _lastRequestedStart;
     double _lastRequestedEnd;
+    id <CalendarEventLoaderDelegate> _delegate;
 }
 
-@property(nonatomic) id <CalendarEventLoaderDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <CalendarEventLoaderDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_getLoadStart:(double *)arg1 end:(double *)arg2 fromLoadedStart:(double)arg3 loadedEnd:(double)arg4 currentlyLoadingStart:(double)arg5 currentlyLoadingEnd:(double)arg6;
 - (void)_getStart:(double)arg1 end:(double)arg2 paddedByDays:(int)arg3 inTimeZone:(id)arg4 resultStart:(double *)arg5 resultEnd:(double *)arg6;
 - (void)_getStart:(double)arg1 end:(double)arg2 expandedToComponents:(unsigned int)arg3 withResultStart:(double *)arg4 resultEnd:(double *)arg5;

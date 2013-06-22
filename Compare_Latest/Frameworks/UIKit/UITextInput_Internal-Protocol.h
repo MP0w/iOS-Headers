@@ -25,6 +25,8 @@
 - (id)_moveLeft:(BOOL)arg1 withHistory:(id)arg2;
 - (id)_moveDown:(BOOL)arg1 withHistory:(id)arg2;
 - (id)_moveUp:(BOOL)arg1 withHistory:(id)arg2;
+- (struct _NSRange)_selectedNSRange;
+- (void)_selectAll;
 - (int)_selectionAffinity;
 - (id)_positionFromPosition:(id)arg1 inDirection:(int)arg2 offset:(int)arg3 withAffinityDownstream:(BOOL)arg4;
 - (void)_setSelectedTextRange:(id)arg1 withAffinityDownstream:(BOOL)arg2;
@@ -65,6 +67,7 @@
 
 @optional
 @property(readonly, nonatomic) UIView<UITextInputPrivate> *_textSelectingContainer;
+- (BOOL)_isInteractiveTextSelectionDisabled;
 - (struct CGRect)_lastRectForRange:(id)arg1;
 @end
 

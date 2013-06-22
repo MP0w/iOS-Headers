@@ -21,21 +21,21 @@
     BOOL _canceled;
     NSString *_baseURLString;
     unsigned int _maxConcurrentLoads;
-    id <GEOResourceLoaderDelegate> _delegate;
+    BOOL _ignoreCachedResources;
+    NSArray *_resourceInfos;
 }
 
 @property(readonly, nonatomic) NSArray *loadedResources; // @synthesize loadedResources=_loadedResources;
-@property(nonatomic) id <GEOResourceLoaderDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSString *uniqueTileGroupIdentifier; // @synthesize uniqueTileGroupIdentifier=_uniqueTileGroupIdentifier;
 @property(readonly, nonatomic) unsigned int tileGroupIdentifier; // @synthesize tileGroupIdentifier=_tileGroupIdentifier;
 - (void)cancel;
-- (BOOL)_writeResourceToDisk:(id)arg1;
+- (BOOL)_writeResourceToDisk:(id)arg1 withData:(id)arg2 orExistingPathOnDisk:(id)arg3;
 - (void)_loadNextResource;
 - (void)startWithProgressHandler:(id)arg1 completionHandler:(void)arg2;
-- (void)_addNecessaryResourcesForType:(int)arg1;
 - (void)_cleanup;
+- (id)_urlForResource:(id)arg1;
 - (void)dealloc;
-- (id)initWithTileGroupIdentifier:(unsigned int)arg1 uniqueIdentifier:(id)arg2 targetDirectory:(id)arg3 baseURLString:(id)arg4 isFirstLoad:(BOOL)arg5;
+- (id)initWithTileGroupIdentifier:(unsigned int)arg1 uniqueIdentifier:(id)arg2 targetDirectory:(id)arg3 baseURLString:(id)arg4 resources:(id)arg5 isFirstLoad:(BOOL)arg6 ignoreCachedResources:(BOOL)arg7;
 
 @end
 

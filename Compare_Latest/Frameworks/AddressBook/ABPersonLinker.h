@@ -23,9 +23,9 @@
 - (BOOL)linkRecentlyAddedPeopleWithLimit:(int)arg1;
 - (id)copyArrayOfAllPeopleWithROWIDGreatThan:(int)arg1 withLimit:(int)arg2;
 - (void)makeInitialLinks;
-- (void)makeInitialLinksCountingOuterIterations:(int *)arg1;
+- (void)makeInitialLinksCountingOuterIterations:(unsigned int *)arg1;
 - (void)removeAllLinks;
-- (void)makeLinksForAddedPeople:(id)arg1 inInitialLinking:(BOOL)arg2 countingOuterIterations:(int *)arg3;
+- (void)makeLinksForAddedPeople:(id)arg1 inInitialLinking:(BOOL)arg2 countingOuterIterations:(unsigned int *)arg3;
 - (void)presortPeople:(id)arg1;
 - (void)addPerson:(void *)arg1 toDictionary:(id)arg2 withProperty:(int)arg3;
 - (id)suggestedPeopleToLinkWithPerson:(void *)arg1 isInitialLinking:(BOOL)arg2;

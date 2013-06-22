@@ -6,19 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSMapTable;
-
 @interface VKMercatorTerrainHeightCache : NSObject
 {
     id <VKMercatorTerrainHeightProvider> _heightProvider;
-    NSMapTable *_anchorToHeight;
+    struct map<vk::Anchor *, float, std::__1::less<vk::Anchor *>, std::__1::allocator<std::__1::pair<vk::Anchor *const, float>>> _anchorToHeight;
 }
 
 @property(nonatomic) id <VKMercatorTerrainHeightProvider> heightProvider; // @synthesize heightProvider=_heightProvider;
-- (void)invalidateRect:(const CDStruct_aca18c62 *)arg1;
-- (void)removeCachedValueForAnchor:(id)arg1;
-- (double)heightForAnchor:(id)arg1;
-- (void)dealloc;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)invalidateRect:(const CDStruct_d2b197d1 *)arg1;
+- (void)removeCachedValueForAnchor:(struct Anchor *)arg1;
+- (double)heightForAnchor:(struct Anchor *)arg1;
 
 @end
 

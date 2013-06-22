@@ -23,8 +23,10 @@
     unsigned int _gotTooMany:1;
     unsigned int _gotEnoughTaps:1;
     unsigned int _cancelPastAllowableMovement:1;
+    int _buttonType;
 }
 
+@property(nonatomic, setter=_setButtonType:) int _buttonType; // @synthesize _buttonType;
 @property(nonatomic) float allowableMovement; // @synthesize allowableMovement=_allowableMovement;
 @property(nonatomic) double delay; // @synthesize delay=_minimumPressDuration;
 @property(nonatomic) unsigned int numberOfTouchesRequired; // @synthesize numberOfTouchesRequired=_numberOfTouchesRequired;
@@ -36,9 +38,13 @@
 - (void)tapRecognizerFailedToRecognizeTap:(id)arg1;
 - (void)tapRecognizerRecognizedTap:(id)arg1;
 - (BOOL)tapIsPossibleForTapRecognizer:(id)arg1;
+- (void)_physicalButtonsCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsEnded:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
 @property(readonly, nonatomic) struct CGPoint startPoint;
 - (struct CGPoint)centroidScreen;
 @property(readonly, nonatomic) struct CGPoint centroid;
+- (void)_interactionsEndedWithValidTouches:(BOOL)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;

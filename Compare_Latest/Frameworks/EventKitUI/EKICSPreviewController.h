@@ -11,28 +11,29 @@
 @interface EKICSPreviewController : NSObject
 {
     EKICSPreviewModel *_model;
+    EKEventStore *_eventStore;
+    EKEventViewController *_currentImport;
+    UIViewController *_contentViewController;
+    BOOL _importing;
+    BOOL _hasCustomCancelButton;
+    int _cancelButtonType;
     BOOL _allowsImport;
     BOOL _allowsEditing;
     BOOL _allowsSubitems;
     BOOL _actionsDisabled;
-    EKEventStore *_eventStore;
-    EKEventViewController *_currentImport;
-    UIViewController *_contentViewController;
-    id <EKICSPreviewControllerDelegate> _previewDelegate;
-    BOOL _importing;
-    BOOL _hasCustomCancelButton;
-    int _cancelButtonType;
-    BOOL _allowsToDos;
     BOOL _allowsInvalidProperties;
+    BOOL _allowsToDos;
+    id <EKICSPreviewControllerDelegate> _previewDelegate;
 }
 
-@property(nonatomic) BOOL allowsInvalidProperties; // @synthesize allowsInvalidProperties=_allowsInvalidProperties;
 @property(nonatomic) BOOL allowsToDos; // @synthesize allowsToDos=_allowsToDos;
+@property(nonatomic) BOOL allowsInvalidProperties; // @synthesize allowsInvalidProperties=_allowsInvalidProperties;
 @property(nonatomic) BOOL actionsDisabled; // @synthesize actionsDisabled=_actionsDisabled;
 @property(nonatomic) BOOL allowsSubitems; // @synthesize allowsSubitems=_allowsSubitems;
 @property(nonatomic) BOOL allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(nonatomic) BOOL allowsImport; // @synthesize allowsImport=_allowsImport;
-@property(nonatomic) id <EKICSPreviewControllerDelegate> previewDelegate; // @synthesize previewDelegate=_previewDelegate;
+@property(nonatomic) __weak id <EKICSPreviewControllerDelegate> previewDelegate; // @synthesize previewDelegate=_previewDelegate;
+- (void).cxx_destruct;
 - (void)importEventFromController:(id)arg1 intoCalendar:(id)arg2;
 - (void)importAllIntoCalendar:(id)arg1;
 - (void)calendarChooserDidCancel:(id)arg1;
@@ -50,8 +51,8 @@
 - (id)viewController;
 - (id)detailViewForEvent:(id)arg1 eventInRealStore:(BOOL)arg2;
 @property(readonly, nonatomic) BOOL isImporting;
-@property(readonly, nonatomic) int unimportedEventCount;
-@property(readonly, nonatomic) int totalEventCount;
+@property(readonly, nonatomic) unsigned int unimportedEventCount;
+@property(readonly, nonatomic) unsigned int totalEventCount;
 - (void)_databaseChanged:(id)arg1;
 - (void)dealloc;
 - (id)initWithData:(id)arg1 eventStore:(id)arg2 options:(unsigned int)arg3;

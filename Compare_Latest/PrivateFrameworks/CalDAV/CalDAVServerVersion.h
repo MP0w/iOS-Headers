@@ -29,6 +29,9 @@
     BOOL _supportsExtendedCalendarQuery;
     BOOL _supportsRequestCompression;
     BOOL _supportsManagedAttachments;
+    BOOL _supportsCheckForValidEmail;
+    BOOL _supportsChecksumming;
+    BOOL _supportsCalendarHomeSync;
     NSString *_supportedCalendarComponentSets;
     NSSet *_complianceClasses;
     NSString *_serverHeader;
@@ -38,6 +41,9 @@
 + (id)versionWithHTTPHeaders:(id)arg1;
 + (id)_prototypeMatchingServerHeaders:(id)arg1;
 @property(copy, nonatomic) NSString *supportedCalendarComponentSets; // @synthesize supportedCalendarComponentSets=_supportedCalendarComponentSets;
+@property(nonatomic) BOOL supportsCalendarHomeSync; // @synthesize supportsCalendarHomeSync=_supportsCalendarHomeSync;
+@property(nonatomic) BOOL supportsChecksumming; // @synthesize supportsChecksumming=_supportsChecksumming;
+@property(nonatomic) BOOL supportsCheckForValidEmail; // @synthesize supportsCheckForValidEmail=_supportsCheckForValidEmail;
 @property(nonatomic) BOOL supportsManagedAttachments; // @synthesize supportsManagedAttachments=_supportsManagedAttachments;
 @property(nonatomic) BOOL supportsRequestCompression; // @synthesize supportsRequestCompression=_supportsRequestCompression;
 @property(nonatomic) BOOL supportsExtendedCalendarQuery; // @synthesize supportsExtendedCalendarQuery=_supportsExtendedCalendarQuery;

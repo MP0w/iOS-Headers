@@ -11,7 +11,6 @@
 @interface PLCameraViewController : UIViewController
 {
     PLCameraView *_cameraView;
-    BOOL _ignoreAppearCallbacks;
 }
 
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;

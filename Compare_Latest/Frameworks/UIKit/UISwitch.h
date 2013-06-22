@@ -7,15 +7,20 @@
 #import <UIKit/UIControl.h>
 
 #import "NSCoding-Protocol.h"
+#import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class UIColor, UIImage;
+@class UIColor, UIImage, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIView<_UISwitchInternalViewProtocol>;
 
-@interface UISwitch : UIControl <NSCoding>
+@interface UISwitch : UIControl <UIGestureRecognizerDelegate, NSCoding>
 {
-    id _control;
+    UILongPressGestureRecognizer *_pressGesture;
+    UIPanGestureRecognizer *_panGesture;
+    UIView<_UISwitchInternalViewProtocol> *_control;
+    BOOL _on;
     float _enabledAlpha;
 }
 
+@property(nonatomic, getter=isOn) BOOL on; // @synthesize on=_on;
 @property(nonatomic) float enabledAlpha; // @synthesize enabledAlpha=_enabledAlpha;
 - (void)_populateArchivedSubviews:(id)arg1;
 @property(retain, nonatomic) UIImage *onImage;
@@ -36,7 +41,6 @@
 - (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
 - (void)_onAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)setOn:(BOOL)arg1 animated:(BOOL)arg2;
-@property(nonatomic, getter=isOn) BOOL on; // @dynamic on;
 - (void)dealloc;
 - (void)_animateToOn:(BOOL)arg1 withDuration:(float)arg2 sendAction:(BOOL)arg3;
 - (void)encodeWithCoder:(id)arg1;
@@ -44,10 +48,22 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
+- (void)_handleLongPressNL:(id)arg1;
 - (void)_handleTapNL:(id)arg1;
 - (void)_handlePanNL:(id)arg1;
+- (BOOL)_gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (void)_commonInitNewLookNeue1;
 - (void)_commonInitNewLook;
 - (BOOL)_useOldSize;
+- (void)_setKnobBounceMass:(float)arg1;
+- (float)_knobBounceMass;
+- (void)_setKnobBounceStiffness:(float)arg1;
+- (float)_knobBounceStiffness;
+- (void)_setKnobBounceDamping:(float)arg1;
+- (float)_knobBounceDamping;
+- (void)_setKnobBounceDuration:(float)arg1;
+- (float)_knobBounceDuration;
+- (void)_setPressed:(BOOL)arg1 on:(BOOL)arg2 animated:(BOOL)arg3 completion:(id)arg4;
 - (void)setAlternateColors:(BOOL)arg1;
 - (id)_scriptingInfo;
 - (BOOL)isElementAccessibilityExposedToInterfaceBuilder;

@@ -28,6 +28,7 @@
 - (void)forwardRelinquishmentMessageWithKind:(id)arg1 parameters:(id)arg2 resultHandler:(id)arg3;
 - (void)updateLastEventIdentifier:(unsigned long long)arg1;
 - (void)observeVersionChangeOfKind:(id)arg1 withClientID:(id)arg2 name:(id)arg3 subitemPath:(id)arg4;
+- (void)observeUbiquityChangeAtSubitemPath:(id)arg1;
 - (void)observeMoveOfSubitemAtURL:(id)arg1 toURL:(id)arg2 byWriterWithPurposeID:(id)arg3;
 - (void)observeChangeOfSubitemAtURL:(id)arg1 byWriterWithPurposeID:(id)arg2;
 - (void)observeReconnectionByWriterWithPurposeID:(id)arg1;

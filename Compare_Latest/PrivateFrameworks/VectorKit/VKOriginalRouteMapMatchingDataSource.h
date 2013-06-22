@@ -13,7 +13,6 @@
 @interface VKOriginalRouteMapMatchingDataSource : NSObject <VKRouteMapMatchingDataSource>
 {
     struct _NSRange _sectionRange;
-    struct VKRouteMapMatchingSection **_mmSections;
     NSArray *_sections;
 }
 
@@ -21,7 +20,7 @@
 - (id).cxx_construct;
 - (void)forEachMapMatchingSection:(id)arg1;
 - (void)dealloc;
-- (id)initWithFromSections:(id)arg1 range:(struct _NSRange)arg2;
+- (id)initWithSections:(id)arg1 range:(struct _NSRange)arg2;
 
 @end
 

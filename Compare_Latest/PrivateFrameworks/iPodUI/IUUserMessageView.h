@@ -21,6 +21,7 @@
 }
 
 @property(retain, nonatomic) IUUserMessageDataSource *dataSource; // @synthesize dataSource=_dataSource;
+- (void).cxx_destruct;
 - (void)_sizeLabelToFit:(id)arg1;
 - (void)_reloadFindContentButton;
 - (void)_reloadView;
@@ -29,6 +30,7 @@
 - (id)_newSubtitleLabel;
 - (id)_newLabel;
 - (void)_storeRestrictionsChangedNotification:(id)arg1;
+- (void)_allowsDeletionRestrictionDidChangeNotification:(id)arg1;
 - (void)_findContentButton:(id)arg1;
 - (void)layoutSubviews;
 - (void)didMoveToSuperview;

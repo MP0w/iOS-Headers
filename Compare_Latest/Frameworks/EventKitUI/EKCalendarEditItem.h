@@ -16,22 +16,23 @@
     id <EKStyleProvider> _styleProvider;
 }
 
+@property(readonly, nonatomic) EKCalendar *calendar; // @synthesize calendar=_calendar;
 @property(retain, nonatomic) id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
-@property id <EKCalendarEditItemDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <EKCalendarEditItemDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)applyStyleProviderToCell:(id)arg1;
 - (BOOL)becomeFirstResponder;
 - (BOOL)saveStateToCalendar:(id)arg1;
-- (void)calendarEditor:(id)arg1 didSelectSubitem:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
+- (void)calendarEditor:(id)arg1 didSelectSubitem:(unsigned int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (float)footerHeightForSection;
 - (id)footerViewForSection;
 - (id)headerTitle;
-- (int)numberOfSubitems;
+- (unsigned int)numberOfSubitems;
 - (BOOL)configureWithCalendar:(id)arg1;
 - (void)reset;
 - (void)setCalendar:(id)arg1 store:(id)arg2;
-- (void)dealloc;
 
 @end
 

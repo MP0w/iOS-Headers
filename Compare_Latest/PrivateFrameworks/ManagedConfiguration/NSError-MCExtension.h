@@ -15,7 +15,7 @@
 - (id)MCUSEnglishSuggestion;
 - (id)MCUSEnglishDescription;
 - (BOOL)MCContainsErrorDomain:(id)arg1 code:(int)arg2;
-- (id)MCMakePrimaryError;
+- (id)MCCopyAsPrimaryError;
 - (id)MCFindPrimaryError;
 - (id)MCVerboseDescription;
 @end

@@ -15,6 +15,8 @@
 - (BOOL)_canAddTrackAssociationWithTrackOfInput:(id)arg1 type:(id)arg2 exceptionReason:(id *)arg3;
 - (void)setSourcePixelBufferAttributes:(id)arg1;
 - (void)setAlternateGroupID:(short)arg1;
+- (void)setLayer:(int)arg1;
+- (void)setPreferredVolume:(float)arg1;
 - (void)setMarksOutputTrackAsEnabled:(BOOL)arg1;
 - (void)setExtendedLanguageTag:(id)arg1;
 - (void)setLanguageCode:(id)arg1;

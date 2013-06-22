@@ -13,7 +13,6 @@
 
 @interface MPMoviePlayerControllerNew : NSObject <MPMovieViewDelegate, MPMediaPlayback>
 {
-    int _retainCount;
     int _additionalButtons;
     NSMutableSet *_asyncImageGenerators;
     int _controlStyle;
@@ -61,6 +60,7 @@
     MPMovieErrorLog *_cachedErrorLog;
 }
 
+- (void).cxx_destruct;
 - (id)errorLog;
 - (id)accessLog;
 - (id)timedMetadataForKey:(id)arg1;
@@ -101,7 +101,6 @@
 - (void)setInlinePlaybackUsesTVOut:(BOOL)arg1;
 - (id)_videoViewController;
 - (id)_videoView;
-- (struct CGRect)_videoFrame;
 - (BOOL)_shouldEnforceHDCP;
 - (BOOL)_shouldContinuePlaybackInBackground;
 - (void)_setVideoViewControllerOverlayStyle;
@@ -118,6 +117,11 @@
 - (void)_setControlsHidden:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_setAudioSessionModeOverride:(id)arg1;
 - (void)_setAdditionalButtons:(int)arg1;
+- (double)_seekableStartTime;
+- (double)_seekableEndTime;
+- (id)_resolvedContentURL;
+- (double)_playableStartTime;
+- (double)_playableEndTime;
 - (id)_navigationBar;
 - (id)_movieTitle;
 - (id)_movieSubtitle;
@@ -129,6 +133,7 @@
 - (id)_delegate;
 - (id)_audioSessionModeOverride;
 - (BOOL)_areControlsHidden;
+- (id)_advertisementView;
 - (int)_additionalButtons;
 - (void)_simpleRemoteNotification:(id)arg1;
 - (void)_willTerminateNotification:(id)arg1;
@@ -168,6 +173,7 @@
 - (BOOL)videoControllerShouldAutohide:(id)arg1;
 - (void)movieViewDidMoveToWindow:(id)arg1;
 - (void)movieView:(id)arg1 willMoveToWindow:(id)arg2;
+- (void)movieView:(id)arg1 willMoveToSuperview:(id)arg2;
 - (double)endPlaybackTime;
 - (void)setEndPlaybackTime:(double)arg1;
 - (double)initialPlaybackTime;
@@ -209,15 +215,12 @@
 - (int)playbackState;
 - (id)backgroundView;
 - (id)view;
+- (void)setAsset:(id)arg1;
+- (id)asset;
 - (void)setContentURL:(id)arg1;
 - (id)contentURL;
 - (void)dealloc;
 - (id)init;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
-- (oneway void)release;
-- (id)retain;
 
 @end
 

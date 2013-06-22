@@ -18,12 +18,13 @@
 + (void)releaseSharedManager;
 + (id)sharedManager;
 + (void)loadStyleManagerWithPaths:(id)arg1;
+- (BOOL)canUseClusteringForStyleID:(id)arg1;
 - (double)posterTimeForStyleID:(id)arg1;
 - (BOOL)needsReauthorOnAspectRatioChange:(id)arg1;
 - (BOOL)needsStyleUpdateOnSlideChangeForStyleID:(id)arg1;
 - (BOOL)needsTimingUpdateOnSlideChangeForStyleID:(id)arg1;
 - (int)numberOfSlidesToPreloadForStyleID:(id)arg1;
-- (int)subtitleOrderForStyleID:(id)arg1;
+- (unsigned int)subtitleOrderForStyleID:(id)arg1;
 - (BOOL)authorOnAspectRatioChangeForStyleID:(id)arg1;
 - (id)defaultColorSchemeForStyleID:(id)arg1;
 - (BOOL)supportsRandomTransitionForStyleID:(id)arg1;
@@ -64,11 +65,12 @@
 - (float)displayDurationFactorForStyleID:(id)arg1;
 - (int)antialiasLevelForStyleID:(id)arg1;
 - (id)demoDocumentWithImages:(id)arg1 properties:(id)arg2 count:(int)arg3 options:(id)arg4;
-- (int)mediaPresentationOrderForStyleID:(id)arg1;
+- (unsigned int)mediaPresentationOrderForStyleID:(id)arg1;
+- (double)allowUserDefinedDurationForStyleID:(id)arg1;
 - (double)navigationIncrementForStyleID:(id)arg1;
 - (BOOL)hasImagesForLayerID:(id)arg1 forStyleID:(id)arg2;
 - (BOOL)canCancelAuthoringForStyleID:(id)arg1;
-- (int)regionOfInterestPickModeForStyleID:(id)arg1;
+- (unsigned int)regionOfInterestPickModeForStyleID:(id)arg1;
 - (id)backgroundColorLayersForStyleID:(id)arg1;
 - (id)layerIDForLayerIndex:(int)arg1 ofStyle:(id)arg2;
 - (int)layerIndexForLayerID:(id)arg1 ofStyle:(id)arg2;
@@ -82,7 +84,7 @@
 - (float)defaultAutoKenBurnsLikelihoodForZIndex:(int)arg1 ofStyle:(id)arg2;
 - (float)defaultFilterLikelihoodForZIndex:(int)arg1 ofStyle:(id)arg2;
 - (id)defaultPositionForZIndex:(int)arg1 ofStyle:(id)arg2;
-- (int)reorderModeForStyleID:(id)arg1;
+- (unsigned int)reorderModeForStyleID:(id)arg1;
 - (struct CGSize)defaultSizeForZIndex:(int)arg1 ofStyle:(id)arg2;
 - (BOOL)easeKenBurnsForStyleID:(id)arg1;
 - (int)kenBurnsOffsetTypeForStyleID:(id)arg1;

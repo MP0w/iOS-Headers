@@ -17,6 +17,7 @@
 
 + (id)_defaultHighlightImage;
 + (struct CGSize)defaultHighlightSize;
+- (void).cxx_destruct;
 @property(retain, nonatomic) UIImage *highlightImage;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

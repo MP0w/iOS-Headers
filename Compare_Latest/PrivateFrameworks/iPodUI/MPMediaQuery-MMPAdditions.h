@@ -6,10 +6,10 @@
 
 #import "MPMediaQuery.h"
 
-@class MPMediaItem, MPMediaItemCollection, MPMediaPlaylist, NSArray, NSString;
+@class MPMediaItem, MPMediaItemCollection, NSArray, NSString;
 
 @interface MPMediaQuery (MMPAdditions)
-+ (id)devicePurchasesPlaylist;
++ (int)backOfAlbumGroupingTypeForMediaType:(unsigned int)arg1;
 + (id)activeOnTheGoPlaylist;
 + (id)queryForMediaEntityType:(int)arg1;
 - (id)displayableStringByStrippingCommonPrefixOffString:(id)arg1 property:(id)arg2;
@@ -18,9 +18,8 @@
 @property(readonly, nonatomic) int comparableGroupingType;
 - (BOOL)isEqualToNowPlayingQuery:(id)arg1;
 - (id)nowPlayingComparableQuery;
-@property(nonatomic) int filteredMediaTypes;
-- (id)backOfAlbumQueryForItem:(id)arg1;
-@property(readonly, nonatomic) MPMediaPlaylist *containingPlaylist;
+@property(nonatomic) unsigned int filteredMediaTypes;
+- (id)backOfAlbumQueryForItem:(id)arg1 defaultGrouping:(int)arg2;
 @property(readonly, nonatomic) MPMediaItem *containingEntityRepresentativeItem;
 @property(readonly, nonatomic) MPMediaItemCollection *containingAlbum;
 @property(readonly, nonatomic) int containingEntityType;
@@ -32,7 +31,6 @@
 - (id)representativeItemsForAlbumsOfArtistAtIndex:(unsigned int)arg1 returningTotalItemCount:(unsigned int *)arg2;
 - (id)representativeItemForEntityAtIndex:(unsigned int)arg1;
 @property(nonatomic) unsigned int groupingThreshold;
-@property(readonly, nonatomic) NSArray *playlistsWithoutActivePlaylists;
 @property(readonly, nonatomic) NSArray *entities;
 - (id)queryForDrillingIntoEntityAtIndex:(unsigned int)arg1;
 - (id)queryForDrillingIntoEntity:(id)arg1;

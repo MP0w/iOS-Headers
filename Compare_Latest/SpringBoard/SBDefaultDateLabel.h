@@ -15,6 +15,7 @@
     NSDate *_timeZoneRelativeStartDate;
     NSDate *_timeZoneRelativeEndDate;
     BOOL _allDay;
+    BOOL _isTimestamp;
     NSDate *_effectiveAllDayStartDate;
     NSDate *_effectiveAllDayLastValidDate;
     NSDate *_effectiveAllDayEndDate;
@@ -27,6 +28,7 @@
 }
 
 + (id)_currentCalendar;
+@property(nonatomic) BOOL isTimestamp; // @synthesize isTimestamp=_isTimestamp;
 @property(nonatomic) int labelType; // @synthesize labelType=_labelType;
 @property(nonatomic) id <SBDateLabelDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=isAllDay) BOOL allDay; // @synthesize allDay=_allDay;
@@ -38,6 +40,7 @@
 - (void)_updateTimerFired:(id)arg1;
 - (void)updateTextIfNecessary:(BOOL)arg1;
 - (id)constructLabelString;
+- (id)_constructNonAllDayLabelStringWithDate:(id)arg1 startTime:(double)arg2 startIsToday:(BOOL)arg3 sameDayDates:(BOOL)arg4 eventOngoing:(BOOL)arg5 withCurrentDate:(id)arg6 forStartLabel:(BOOL)arg7;
 - (BOOL)isEffectiveAllDay;
 - (BOOL)isDateWithinEffectiveAllDayRange:(id)arg1;
 - (id)_localDateForDate:(id)arg1 inTimeZone:(id)arg2;

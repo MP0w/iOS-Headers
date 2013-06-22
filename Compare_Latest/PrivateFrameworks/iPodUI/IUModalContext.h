@@ -18,17 +18,19 @@
 }
 
 @property(nonatomic) int tag; // @synthesize tag=_tag;
-@property(nonatomic) id parentViewController; // @synthesize parentViewController=_parentViewController;
-@property(nonatomic) id <IUModalContextDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id parentViewController; // @synthesize parentViewController=_parentViewController;
+@property(nonatomic) __weak id <IUModalContextDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *defaultControllerIdentifier; // @synthesize defaultControllerIdentifier=_defaultControllerIdentifier;
+- (void).cxx_destruct;
 - (id)copyQueryForQuery:(id)arg1;
-- (int)allowedMediaTypesForMediaTypes:(int)arg1;
+- (unsigned int)allowedMediaTypesForMediaTypes:(unsigned int)arg1;
 - (BOOL)shouldSetEditing:(BOOL)arg1;
 @property(readonly, nonatomic) UIViewController *viewController;
 @property(readonly, nonatomic) BOOL hideIndexBar;
 - (void)handleSelectionForIndex:(unsigned int)arg1 dataSource:(id)arg2;
 - (void)dismissWithSuccess:(BOOL)arg1;
 - (id)newTabBarController;
+@property(readonly, nonatomic) BOOL disallowChangingQueryPredicates;
 - (void)configureRootNavigationItem:(id)arg1 navigationBar:(id)arg2;
 - (void)configureNavigationItem:(id)arg1;
 - (void)configureDataSource:(id)arg1;

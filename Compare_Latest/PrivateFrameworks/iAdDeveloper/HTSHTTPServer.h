@@ -18,19 +18,19 @@
     unsigned long long _bytesWritten;
     double _lastReplenishTime;
     NSMutableDictionary *_authTokens;
+    BOOL _digestAuthenticationEnabled;
+    BOOL _pipeliningEnabled;
+    unsigned short _port;
     id <HTSHTTPServerDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
-    unsigned short _port;
-    BOOL _digestAuthenticationEnabled;
+    struct __CFHTTPMessage *_currentRequest;
+    NSString *_documentRoot;
+    int _cacheMaxAge;
     double _latency;
     double _latencyStddev;
     double _kbps;
     double _bandwidthStddev;
     unsigned long long _totalBytesWritten;
-    struct __CFHTTPMessage *_currentRequest;
-    NSString *_documentRoot;
-    int _cacheMaxAge;
-    BOOL _pipeliningEnabled;
 }
 
 @property(nonatomic) BOOL pipeliningEnabled; // @synthesize pipeliningEnabled=_pipeliningEnabled;

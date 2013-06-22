@@ -10,8 +10,15 @@
 {
 }
 
++ (BOOL)hasLibMIS;
++ (void)initCoreText;
++ (void)initImageIO;
++ (void)initAddressBook;
++ (void)initMobileInternetSharing;
++ (void)initCoreGraphics;
 + (void)initPowerlog;
 + (void)initVPNUtilities;
++ (void)loadBundleAtURL:(id)arg1 completionBlock:(id)arg2;
 
 @end
 

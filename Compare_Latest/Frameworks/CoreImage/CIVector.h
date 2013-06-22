@@ -55,6 +55,7 @@
 - (id)initWithX:(float)arg1 Y:(float)arg2;
 - (id)initWithX:(float)arg1;
 - (id)init;
+- (float *)_values;
 
 @end
 

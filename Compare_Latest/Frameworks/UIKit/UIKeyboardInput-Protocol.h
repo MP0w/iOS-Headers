@@ -4,8 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UITextInputPrivate-Protocol.h"
+#import "NSObject-Protocol.h"
 
-@protocol UIKeyboardInput <UITextInputPrivate>
+@protocol UIKeyboardInput <NSObject>
+
+@optional
+- (void)keyboardInputChangedSelection:(id)arg1;
+- (BOOL)keyboardInputChanged:(id)arg1;
+- (BOOL)keyboardInputShouldDelete:(id)arg1;
+- (BOOL)keyboardInput:(id)arg1 shouldInsertText:(id)arg2 isMarkedText:(BOOL)arg3;
+- (BOOL)keyboardInput:(id)arg1 shouldReplaceTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 @end
 

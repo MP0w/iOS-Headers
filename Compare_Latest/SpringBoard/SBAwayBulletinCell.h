@@ -6,18 +6,19 @@
 
 #import "SBAwayListItemCell.h"
 
-@class SBAwayListActionContext, SBBulletinLockBar;
+@class SBBulletinLockBar, SBUnlockActionContext;
 
 @interface SBAwayBulletinCell : SBAwayListItemCell
 {
     SBBulletinLockBar *_lockBar;
-    SBAwayListActionContext *_actionContext;
+    SBUnlockActionContext *_actionContext;
     BOOL _disableUnlockSound;
 }
 
++ (Class)contentViewClass;
 + (float)rowHeightForSubtitle:(id)arg1 imageHeight:(float)arg2;
-+ (float)rowHeightForSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 rowWidth:(float)arg4;
-@property(readonly, nonatomic) SBAwayListActionContext *actionContext; // @synthesize actionContext=_actionContext;
++ (float)rowHeightForSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 rowWidth:(float)arg4 buttonLabels:(id)arg5;
+@property(readonly, nonatomic) SBUnlockActionContext *actionContext; // @synthesize actionContext=_actionContext;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_lockBarSlidBackToOrigin:(id)arg1 withDuration:(double)arg2;
 - (void)lockBarSlidBackToOrigin:(id)arg1;
@@ -27,6 +28,9 @@
 - (void)resetLockBar;
 - (void)setDisableUnlockSound:(BOOL)arg1;
 - (void)setUnlockActionContext:(id)arg1;
+- (id)_lockBar;
+- (void)_createLockBarOnlyIfNeeded;
+- (void)_layoutLockBar;
 - (void)_createLockBar;
 - (BOOL)_createsLockBarEarly;
 - (void)layoutSubviews;

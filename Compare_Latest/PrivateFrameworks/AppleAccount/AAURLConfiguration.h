@@ -16,6 +16,14 @@
 + (void)reset;
 + (id)urlConfiguration;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *loginDelegatesURL;
+@property(readonly, nonatomic) NSString *syncMachineURL;
+@property(readonly, nonatomic) NSString *finishProvisioningURL;
+@property(readonly, nonatomic) NSString *existingAppleIDTermsUIURL;
+@property(readonly, nonatomic) NSString *iForgotUIURL;
+@property(readonly, nonatomic) NSString *fmipAuthenticate;
+@property(readonly, nonatomic) NSString *ckAppLoginCheckURL;
+@property(readonly, nonatomic) NSString *ckAppLoginURL;
 @property(readonly, nonatomic) NSString *genericTermsURL;
 @property(readonly, nonatomic) NSString *emailLookupURL;
 @property(readonly, nonatomic) NSString *signingSessionURL;

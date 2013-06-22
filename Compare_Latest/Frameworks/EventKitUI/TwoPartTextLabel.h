@@ -13,8 +13,13 @@
     NSString *_secondTextPart;
     struct CGSize _part2Size;
     float _minPart2Width;
+    BOOL _strikethroughPart1;
+    BOOL _strikethroughPart2;
 }
 
+@property(nonatomic) BOOL strikethroughPart2; // @synthesize strikethroughPart2=_strikethroughPart2;
+@property(nonatomic) BOOL strikethroughPart1; // @synthesize strikethroughPart1=_strikethroughPart1;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setMinimumPart2Width:(float)arg1;
 - (float)rightmostDisplayedPartWidth;
@@ -24,7 +29,6 @@
 - (struct CGSize)textPart2Size;
 - (void)setTextPart1:(id)arg1;
 - (void)setTextPart1:(id)arg1 part2:(id)arg2;
-- (void)dealloc;
 
 @end
 

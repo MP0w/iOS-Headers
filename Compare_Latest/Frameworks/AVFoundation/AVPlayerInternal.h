@@ -29,17 +29,20 @@
     NSArray *displaysUsedForPlayback;
     BOOL needsToCreateFigPlayer;
     BOOL logPerformanceData;
+    NSDictionary *cachedFigMediaSelectionCriteriaProperty;
     BOOL reevaluateBackgroundPlayback;
     BOOL hostApplicationInForeground;
     BOOL hadAssociatedOnscreenPlayerLayerWhenSuspended;
     BOOL iapdExtendedModeIsActive;
     AVAudioSessionMediaPlayerOnly *audioSessionMediaPlayerOnly;
+    NSDictionary *vibrationPattern;
     struct OpaqueFigSimpleMutex *prerollIDMutex;
     int nextPrerollIDToGenerate;
     int pendingPrerollID;
     id prerollCompletionHandler;
     NSObject<OS_dispatch_queue> *subtitleQueue;
     NSDictionary *currentSubtitlesPayload;
+    BOOL autoSwitchStreamVariants;
 }
 
 @end

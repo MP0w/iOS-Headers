@@ -23,6 +23,7 @@
     unsigned int _internalFormat;
 }
 
+- (id).cxx_construct;
 - (BOOL)loadTexture;
 - (BOOL)decodeTexture;
 - (void)dealloc;

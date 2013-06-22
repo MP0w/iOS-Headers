@@ -8,12 +8,12 @@
 
 #import "GKSessionVoiceChatDelegate-Protocol.h"
 #import "GKVoiceChatClient-Protocol.h"
+#import "InterfaceListenerDelegate-Protocol.h"
 #import "VideoConferenceSpeakingDelegate-Protocol.h"
-#import "WifiListenerDelegate-Protocol.h"
 
-@class GKRWLock, GKSessionInternal, GKVoiceChatServiceFocus, GKWifiListener, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, VoiceChatSessionRoster;
+@class GKInterfaceListener, GKRWLock, GKSessionInternal, GKVoiceChatServiceFocus, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, VoiceChatSessionRoster;
 
-@interface GKVoiceChatSessionInternal : NSObject <GKSessionVoiceChatDelegate, GKVoiceChatClient, VideoConferenceSpeakingDelegate, WifiListenerDelegate>
+@interface GKVoiceChatSessionInternal : NSObject <GKSessionVoiceChatDelegate, GKVoiceChatClient, VideoConferenceSpeakingDelegate, InterfaceListenerDelegate>
 {
     NSString *_sessionName;
     unsigned int _conferenceID;
@@ -41,7 +41,7 @@
     id <GKVoiceChatSessionDelegate> delegate;
     unsigned int congestionState;
     id _publicWrapper;
-    GKWifiListener *_wifiListener;
+    GKInterfaceListener *_wifiListener;
     BOOL _currentWifiState;
 }
 
@@ -70,6 +70,7 @@
 @property(readonly, nonatomic) NSString *sessionName;
 @property(getter=isActiveSession) BOOL activeSession;
 @property(readonly) NSArray *peerList;
+- (BOOL)getMuteStateForPeer:(id)arg1;
 - (void)setMute:(BOOL)arg1 forPeer:(id)arg2;
 - (void)stopSessionInternal;
 - (void)stopSession;
@@ -82,7 +83,7 @@
 - (id)encodePeerID:(id)arg1;
 - (void)calculateConferenceID;
 - (id)initWithGKSession:(id)arg1 publicWrapper:(id)arg2 sessionName:(id)arg3;
-- (void)wifiStateDidChange:(BOOL)arg1;
+- (void)interfaceStateDidChangeWithWifiUp:(BOOL)arg1 withCellUp:(BOOL)arg2;
 - (void)session:(id)arg1 didReceiveOOBAudioPacket:(id)arg2 fromPeerID:(id)arg3;
 - (void)session:(id)arg1 peer:(id)arg2 didChangeState:(int)arg3;
 - (void)session:(id)arg1 didReceiveAudioPacket:(id)arg2 fromPeerID:(id)arg3;
@@ -94,7 +95,7 @@
 - (void)informClientVoiceChatConnecting:(id)arg1;
 - (void)informClientVoiceChatDidStart:(id)arg1;
 @property id <GKVoiceChatSessionDelegate> delegate;
-- (void)voiceChatService:(id)arg1 didReceiveInvitationFromParticipantID:(id)arg2 callID:(int)arg3;
+- (void)voiceChatService:(id)arg1 didReceiveInvitationFromParticipantID:(id)arg2 callID:(unsigned long)arg3;
 - (void)voiceChatService:(id)arg1 didStopWithParticipantID:(id)arg2 error:(id)arg3;
 - (void)voiceChatService:(id)arg1 didNotStartWithParticipantID:(id)arg2 error:(id)arg3;
 - (void)voiceChatService:(id)arg1 didStartWithParticipantID:(id)arg2;

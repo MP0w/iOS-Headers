@@ -10,8 +10,21 @@
 {
 }
 
++ (id)availableServices;
 + (id)allServices;
 + (id)serviceForServiceType:(id)arg1;
+- (id)composeViewController;
+- (id)activityImage;
+- (id)activityTitle;
+- (BOOL)supportsVideoURL:(id)arg1;
+- (BOOL)supportsImageURL:(id)arg1;
+- (id)shareSheetClassName;
+- (id)shareSheetHostingBundleIdentifier;
+- (id)connectionName;
+- (int)maximumVideoTimeLimit;
+- (int)maximumVideoDataSize;
+- (int)maximumVideoCount;
+- (int)maximumImageDataSize;
 - (int)maximumImageCount;
 - (int)maximumURLCount;
 - (void)addExtraParameters:(id)arg1 forRequest:(id)arg2;

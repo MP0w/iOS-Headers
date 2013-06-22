@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSOperationQueue;
+@class NSObject<OS_dispatch_semaphore>, NSOperationQueue;
 
 @interface CMDeviceOrientationManagerInternal : NSObject
 {
@@ -14,8 +14,9 @@
     struct Dispatcher *fDeviceOrientationDispatcher;
     id fDeviceOrientationHandler;
     NSOperationQueue *fDeviceOrientationQueue;
-    struct dispatch_semaphore_s *fDeviceOrientationSemaphore;
+    NSObject<OS_dispatch_semaphore> *fDeviceOrientationSemaphore;
     BOOL fDidSignalSemaphore;
+    int fOrientationCallbackMode;
     struct Sample {
         double timestamp;
         CDStruct_bdecc0cd orientation;

@@ -6,11 +6,11 @@
 
 #import <VectorKit/VKAnnotationMarkerLayer.h>
 
-@class UIColor, VGLMesh, VKAnimation;
+@class VGLMesh, VGLRenderState, VKAnimation;
 
 @interface VKCircleAnnotationMarkerLayer : VKAnnotationMarkerLayer
 {
-    UIColor *_fillColor;
+    struct CGColor *_fillColor;
     float _fillColorComponents[4];
     float _radius;
     float _presentationRadius;
@@ -23,25 +23,30 @@
     CDStruct_aa5aacbc _inverseMatrix;
     VGLMesh *_strokeMesh;
     float _strokeWidth;
-    UIColor *_strokeColor;
+    struct CGColor *_strokeColor;
     float _strokeColorComponents[4];
     int _strokeTriangleCount;
-    CDStruct_31142d93 _localEyePos;
-    CDStruct_31142d93 _localEyeDir;
+    struct VKPoint _localEyePos;
+    Vec3Imp_f658403c _localEyeDir;
     BOOL _hasDistanceRadiusToScreenRadiusMultiplier;
     float _distanceRadiusToScreenRadiusMultiplier;
+    VGLRenderState *_circleRenderState;
 }
 
-@property(retain, nonatomic) UIColor *strokeColor; // @synthesize strokeColor=_strokeColor;
+@property(nonatomic) struct CGColor *strokeColor; // @synthesize strokeColor=_strokeColor;
 @property(nonatomic) float strokeWidth; // @synthesize strokeWidth=_strokeWidth;
 @property(nonatomic) float minRadius; // @synthesize minRadius=_minRadius;
 @property(nonatomic) double distanceRadius; // @synthesize distanceRadius=_distanceRadius;
 @property(nonatomic) float radius; // @synthesize radius=_radius;
-@property(retain, nonatomic) UIColor *fillColor; // @synthesize fillColor=_fillColor;
+@property(nonatomic) struct CGColor *fillColor; // @synthesize fillColor=_fillColor;
+- (id).cxx_construct;
 - (void)drawWithContext:(id)arg1;
 - (void)layoutWithContext:(id)arg1;
+- (void)setDistanceRadius:(double)arg1 duration:(double)arg2;
+- (void)setRadius:(float)arg1 duration:(double)arg2;
 - (void)_createStrokeMeshWithTriangleCount:(int)arg1 context:(id)arg2;
 - (void)dealloc;
+- (id)init;
 
 @end
 

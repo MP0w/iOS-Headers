@@ -6,25 +6,18 @@
 
 #import <Preferences/PSListController.h>
 
-@class NSArray, NSDictionary;
-
 @interface PSInternationalController : PSListController
 {
     struct __CFLocale *_locale;
     double _sampleTime;
-    NSArray *_voiceControlTitles;
-    NSDictionary *_voiceControlShortTitles;
-    NSArray *_voiceControlValues;
 }
 
-+ (id)voiceControlLanguageData;
++ (id)voiceControlLanguageIdentifiers;
++ (id)titlesForLanguageIdentifiers:(id)arg1;
++ (id)shortTitlesForLanguageIdentifiers:(id)arg1;
 + (id)capitalizeFirstPartOfCountry:(id)arg1;
 + (void)setLocale:(id)arg1;
 + (void)setLanguage:(id)arg1;
-- (id)voiceControlValues:(id)arg1;
-- (id)voiceControlShortTitles;
-- (id)voiceControlTitles:(id)arg1;
-- (void)_initVoiceControlData;
 - (id)defaultCalendarForLocale:(id)arg1;
 - (id)formattedPhoneNumber:(id)arg1;
 - (id)formattedTime:(id)arg1;

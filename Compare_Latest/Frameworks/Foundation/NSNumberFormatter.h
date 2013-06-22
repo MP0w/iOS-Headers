@@ -6,14 +6,16 @@
 
 #import <Foundation/NSFormatter.h>
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSRecursiveLock;
 
 @interface NSNumberFormatter : NSFormatter
 {
     NSMutableDictionary *_attributes;
     struct __CFNumberFormatter *_formatter;
     unsigned int _counter;
-    void *_reserved[12];
+    unsigned int _behavior;
+    NSRecursiveLock *_lock;
+    void *_reserved[10];
 }
 
 + (id)localizedStringFromNumber:(id)arg1 numberStyle:(unsigned int)arg2;

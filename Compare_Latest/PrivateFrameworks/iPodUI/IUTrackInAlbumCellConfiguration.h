@@ -33,6 +33,7 @@
 @property(nonatomic) unsigned int index; // @synthesize index=_index;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(retain, nonatomic) NSString *actionRowTitle; // @synthesize actionRowTitle=_actionRowTitle;
+- (void).cxx_destruct;
 - (void)_updateSubtitleText;
 - (float)_indexColumnWidth;
 @property(retain, nonatomic) NSString *title;

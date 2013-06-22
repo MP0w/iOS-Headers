@@ -6,29 +6,24 @@
 
 #import "NSObject.h"
 
-#import "WebBookmarksClientProtocol-Protocol.h"
-#import "XPCProxyTarget-Protocol.h"
+#import "WebBookmarksXPCConnectionDelegate-Protocol.h"
 
-@class XPCProxy<WebBookmarksServerProtocol>;
+@class WebBookmarksXPCConnection;
 
-@interface WebBookmarksServerProxy : NSObject <WebBookmarksClientProtocol, XPCProxyTarget>
+@interface WebBookmarksServerProxy : NSObject <WebBookmarksXPCConnectionDelegate>
 {
+    WebBookmarksXPCConnection *_connection;
     id <WebBookmarksClientDelegateProtocol> _delegate;
-    XPCProxy<WebBookmarksServerProtocol> *_serverProxy;
 }
 
 @property(nonatomic) id <WebBookmarksClientDelegateProtocol> delegate; // @synthesize delegate=_delegate;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)didFinishFetching;
-- (void)didUpdateReadingListFetchingProgress:(id)arg1;
-- (void)didStopFetchingReadingListItem:(id)arg1;
-- (void)didStartFetchingReadingListItem:(id)arg1;
-- (void)didTogglePrivateBrowsing:(BOOL)arg1;
-- (void)didToggleCloudTabs:(BOOL)arg1 terminateAfterUpdating:(BOOL)arg2;
-- (void)clearTabsForCurrentDevice;
-- (void)clearAllCloudTabDevices;
+- (void)didUpdateProgressWithMessage:(id)arg1;
+- (void)didStopFetchingReadingListItemWithMessage:(id)arg1;
+- (void)didStartFetchingReadingListItemWithMessage:(id)arg1;
 - (void)startReadingListFetcher;
-- (void)addReadingListItems:(id)arg1;
+- (void)connection:(id)arg1 didCloseWithError:(id)arg2;
+- (void)_clearConnection;
 - (void)invalidate;
 - (void)dealloc;
 - (id)init;

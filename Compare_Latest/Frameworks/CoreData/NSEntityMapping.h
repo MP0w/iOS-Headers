@@ -60,6 +60,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (BOOL)_hasInferredMappingNeedingValidation;
 - (id)_mappingsByName;
 - (void)_addRelationshipMapping:(id)arg1;
 - (void)_addAttributeMapping:(id)arg1;

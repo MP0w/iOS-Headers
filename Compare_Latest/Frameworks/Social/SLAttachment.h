@@ -6,23 +6,41 @@
 
 #import "NSObject.h"
 
-@class UIImage;
+#import "NSSecureCoding-Protocol.h"
 
-@interface SLAttachment : NSObject
+@class NSString, UIImage;
+
+@interface SLAttachment : NSObject <NSSecureCoding>
 {
+    id _previewUpdateObserver;
+    id _payloadUpdateObserver;
+    NSString *_identifier;
+    BOOL _pendingPreviewProxy;
     int _previewType;
-    UIImage *_preview;
+    UIImage *_previewImage;
+    int _type;
     id _payload;
-    id _updateObserver;
+    int _downsampleStatus;
 }
 
++ (BOOL)attachmentTypeRepresentsAnImage:(int)arg1;
++ (BOOL)supportsSecureCoding;
+@property(nonatomic) BOOL pendingPreviewProxy; // @synthesize pendingPreviewProxy=_pendingPreviewProxy;
+@property(nonatomic) int downsampleStatus; // @synthesize downsampleStatus=_downsampleStatus;
+@property(copy, nonatomic) id payload; // @synthesize payload=_payload;
+@property(nonatomic) int type; // @synthesize type=_type;
+@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(retain, nonatomic) UIImage *previewImage; // @synthesize previewImage=_previewImage;
 @property int previewType; // @synthesize previewType=_previewType;
 - (void).cxx_destruct;
-- (id)payload;
-- (id)preview;
-- (void)setPreview:(id)arg1;
-- (void)setUpdateObserver:(id)arg1;
-- (id)initWithPayload:(id)arg1 preview:(id)arg2;
+- (id)description;
+- (void)setPayloadUpdateObserverWithBlock:(id)arg1;
+- (void)setPreviewUpdateObserverWithBlock:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)_uniqueIdentifier;
+- (id)initWithPayload:(id)arg1 type:(int)arg2 previewImage:(id)arg3;
+- (id)init;
 
 @end
 

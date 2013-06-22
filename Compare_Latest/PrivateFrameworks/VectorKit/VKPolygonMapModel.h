@@ -6,37 +6,43 @@
 
 #import <VectorKit/VKVectorMapModel.h>
 
-@class VGLRenderState;
+#import "VKStylesheetObserver-Protocol.h"
 
-@interface VKPolygonMapModel : VKVectorMapModel
+@class VGLRenderState, VKStylesheet;
+
+@interface VKPolygonMapModel : VKVectorMapModel <VKStylesheetObserver>
 {
-    VGLRenderState *_renderState;
     BOOL _drawShapes;
-    struct {
-        id _field1;
-        id _field2;
-        char _field3;
-        char _field4;
-        struct _VGLColor _field5;
-        struct _VGLColor _field6;
-        float _field7;
-        unsigned int _field8;
-    } *_renderSteps;
-    int _renderStepCount;
-    int _renderStepMax;
+    struct RenderStepsSet _renderStepsSet;
+    struct RenderStepsSet _transitRenderStepsSet;
+    VGLRenderState *_transparentRenderState;
+    VGLRenderState *_renderState;
 }
 
 @property(nonatomic) BOOL drawShapes; // @synthesize drawShapes=_drawShapes;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)renderTransparentPolygonsInRenderStepSet:(const struct RenderStepsSet *)arg1 withWidth:(float)arg2 minDepth:(float)arg3 context:(id)arg4;
+- (void)drawTransparentPolygonStrokesInRenderStepSet:(const struct RenderStepsSet *)arg1 withWidth:(float)arg2 minDepth:(float)arg3 context:(id)arg4;
+- (void)drawTransparentPolygonsInRenderStepSet:(const struct RenderStepsSet *)arg1 withContext:(id)arg2 stencil:(int)arg3;
+- (void)stylesheetDidChange;
+- (void)stylesheetWillChange;
 - (void)drawCoastlinesWithContext:(id)arg1;
-- (void)drawPolygonsWithContext:(id)arg1;
+- (void)renderNormalPolygonsInRenderStepSet:(const struct RenderStepsSet *)arg1 withWidth:(float)arg2 minDepth:(float)arg3 context:(id)arg4;
 - (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
-- (void)drawScene:(id)arg1 withContext:(id)arg2;
+- (void)drawScene:(id)arg1 withContext:(id)arg2 pass:(unsigned int)arg3;
+- (void)drawRenderStepSet:(const struct RenderStepsSet *)arg1 scene:(id)arg2 withContext:(id)arg3;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (struct RenderStepsSet *)renderStepSetForFeatureWithAttributes:(id)arg1;
 - (unsigned int)textureSize;
+- (unsigned int)supportedRenderPasses;
 - (unsigned int)mapLayerPosition;
 - (void)reset;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, nonatomic) VKStylesheet *stylesheet;
 
 @end
 

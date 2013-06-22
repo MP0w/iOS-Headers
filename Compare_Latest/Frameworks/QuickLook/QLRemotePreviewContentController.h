@@ -9,7 +9,7 @@
 #import "QLPreviewContentControllerProtocol-Protocol.h"
 #import "QLPrintPageRendererDataSource-Protocol.h"
 
-@class NSMutableDictionary, QLPreviewController, QLPrintPageRenderer, _UIRemoteView;
+@class NSMapTable, QLPreviewController, QLPrintPageRenderer, _UIRemoteView;
 
 @interface QLRemotePreviewContentController : _UIRemoteViewController <QLPreviewContentControllerProtocol, QLPrintPageRendererDataSource>
 {
@@ -18,31 +18,35 @@
     id <QLPreviewContentDelegate> _delegate;
     int _currentPreviewItemIndex;
     int _numberOfPreviewItems;
-    NSMutableDictionary *_previewItemsForProxys;
+    NSMapTable *_previewItemsForProxys;
+    NSMapTable *_proxysForPreviewItems;
     QLPrintPageRenderer *_printPageRenderer;
     _UIRemoteView *_fullScreenView;
     BOOL _statusBarWasHidden;
     BOOL _isHostingFullScreenWindow;
 }
 
++ (id)serviceViewControllerInterface;
++ (id)exportedInterface;
 @property id <QLPreviewContentDelegate> delegate; // @synthesize delegate=_delegate;
 @property id <QLPreviewContentDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property QLPreviewController *previewController; // @synthesize previewController=_previewController;
 - (void)_didExitFullScreen;
 - (void)_willEnterFullScreenWithContext:(id)arg1;
 - (void)_setAVState:(id)arg1 forPreviewItem:(id)arg2;
-- (void)_getPDFPreviewDataWithHandler:(id)arg1;
 - (void)_previewContentControllerReceivedTapOnURL:(id)arg1;
+- (void)_showContentsWasTappedInPreviewContentController;
 - (void)_overlayWasTappedInPreviewContentController;
 - (void)_contentWasTappedInPreviewContentController;
 - (void)_previewContentControllerWillHideOverlayWithDuration:(double)arg1;
 - (void)_previewContentControllerWillShowOverlayWithDuration:(double)arg1;
 - (void)_previewContentControllerDidUnloadItem:(id)arg1;
 - (void)_previewContentControllerDidLoadItem:(id)arg1 atIndex:(int)arg2 withError:(id)arg3;
-- (void)_previewContentControllerdidMoveToItem:(id)arg1 atIndex:(int)arg2;
+- (void)_previewContentControllerDidMoveToItemAtIndex:(int)arg1;
 - (void)_previewContentControllerWillMoveToItemAtIndex:(int)arg1;
-- (void)_requestPreviewItemsAtIndexes:(id)arg1;
-- (void)_previewContentControllerGetPreviewItemAtIndex:(int)arg1 handler:(id)arg2;
+- (void)_previewContentControllerGetPreviewItemAtIndex:(int)arg1 sourceUUID:(int)arg2 handler:(id)arg3;
+- (id)_proxyForPreviewItem:(id)arg1;
+- (id)_previewItemFromProxy:(id)arg1;
 - (id)printPageRenderer:(id)arg1 pdfDataForPageAtIndex:(int)arg2 withSize:(struct CGSize)arg3 printingDone:(char *)arg4;
 - (void)printPageRenderer:(id)arg1 prepareForDrawingPages:(struct _NSRange)arg2;
 - (int)numberOfPageInPrintPageRenderer:(id)arg1 withSize:(struct CGSize)arg2;
@@ -52,13 +56,15 @@
 - (void)endScrubbing;
 - (void)scrubToValue:(double)arg1;
 - (void)beginScrubbing;
-- (id)pdfPreviewData;
 - (void)forceResignFirstResponder;
+- (void)becomeForeground;
 - (void)enterBackground;
 - (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
 - (void)setContentFrame:(struct CGRect)arg1;
+- (void)willChangeContentFrame;
 - (void)configureWithParameters:(id)arg1;
-- (void)setLoadintTextForMissingFiles:(id)arg1;
+- (void)setLoadingTextForMissingFiles:(id)arg1;
+- (void)setTransitioning:(BOOL)arg1;
 - (void)setBlockRemoteImages:(BOOL)arg1;
 - (void)refreshCurrentPreviewItem;
 - (void)reloadData;
@@ -70,7 +76,6 @@
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (void)dealloc;
 

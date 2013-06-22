@@ -17,7 +17,6 @@
 
 + (id)proxyForwardingMessagesToObject:(id)arg1 onQueue:(id)arg2;
 - (id)description;
-- (BOOL)isBlock;
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (void)dealloc;

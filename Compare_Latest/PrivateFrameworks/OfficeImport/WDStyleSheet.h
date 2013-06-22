@@ -43,7 +43,7 @@
 - (id)paragraphStyleWithStartingName:(id)arg1;
 - (id)styleWithName:(id)arg1;
 - (id)styleWithId:(id)arg1;
-- (int)styleCount;
+- (unsigned int)styleCount;
 - (id)styles;
 - (id)document;
 - (void)dealloc;

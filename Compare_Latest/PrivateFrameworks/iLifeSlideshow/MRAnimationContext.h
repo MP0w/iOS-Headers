@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class CMAttitude, MRAnimationPathScalar, NSDictionary;
+@class MRAnimationPathScalar, NSDictionary;
 
 @interface MRAnimationContext : NSObject
 {
     MRAnimationPathScalar *animationPath;
-    CMAttitude *attitude;
     float *param1;
     float *param2;
     NSDictionary *state;

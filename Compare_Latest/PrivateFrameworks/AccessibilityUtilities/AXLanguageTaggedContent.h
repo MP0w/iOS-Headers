@@ -10,8 +10,8 @@
 
 @interface AXLanguageTaggedContent : NSObject
 {
-    NSMutableArray *_tags;
     BOOL _tagged;
+    NSMutableArray *_tags;
     NSLinguisticTagger *_linguisticTagger;
     NSMutableOrderedSet *_unpredictedAmbiguousLangMaps;
     NSString *_userPreferredLangID;

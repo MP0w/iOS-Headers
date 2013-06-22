@@ -5,9 +5,7 @@
  */
 
 @protocol VKLabelModelDelegate
-- (void)labelModel:(id)arg1 didDeselectLabelMarker:(id)arg2;
-- (void)labelModel:(id)arg1 labelMarker:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
-- (void)labelModel:(id)arg1 willSelectLabelMarker:(id)arg2;
+- (void)labelModel:(id)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
 - (id)labelModel:(id)arg1 mapTileForTile:(id)arg2 layer:(unsigned int)arg3;
 @end
 

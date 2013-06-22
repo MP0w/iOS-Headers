@@ -8,13 +8,13 @@
 
 @interface MFPHueSaturationLightnessEffect : MFPEffect
 {
-    long mHueChange;
-    long mSaturationChange;
-    long mLightnessChange;
+    int mHueChange;
+    int mSaturationChange;
+    int mLightnessChange;
 }
 
 + (id)GUID;
-- (id)initWithHueChange:(long)arg1 saturationChange:(long)arg2 lightnessChange:(long)arg3;
+- (id)initWithHueChange:(int)arg1 saturationChange:(int)arg2 lightnessChange:(int)arg3;
 
 @end
 

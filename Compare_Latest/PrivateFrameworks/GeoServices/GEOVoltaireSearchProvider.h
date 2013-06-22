@@ -16,6 +16,7 @@
     id _finished;
     id _spellingSuggestion;
     id _refinement;
+    BOOL _cancelled;
 }
 
 + (id)_searchURLForRequest:(id)arg1;

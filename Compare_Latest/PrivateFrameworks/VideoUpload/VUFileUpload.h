@@ -10,12 +10,12 @@
 
 @interface VUFileUpload : NSObject
 {
-    NSData *_data;
     NSString *_name;
+    NSData *_data;
 }
 
-@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;
 

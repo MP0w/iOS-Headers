@@ -8,13 +8,10 @@
 
 #import "StepByStepUIDevicePicker-Protocol.h"
 
-@class NSString, UILabel, UIView;
+@class NSString;
 
 @interface StepByStepUIViewController_ExtendWireless_Config : StepByStepUIViewController_DevicePicker <StepByStepUIDevicePicker>
 {
-    UIView *tableHeaderContainerView;
-    UIView *justTextContainerView;
-    UILabel *justTextLabel;
     NSString *connectionType;
     NSString *unlocalizedStatusString;
     NSString *personalizedBaseName;
@@ -22,9 +19,6 @@
 }
 
 @property(retain, nonatomic) NSString *personalizedBaseName; // @synthesize personalizedBaseName;
-@property(retain, nonatomic) UILabel *justTextLabel; // @synthesize justTextLabel;
-@property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
-@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 - (BOOL)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned int)arg3 toString:(id)arg4;
 - (void)validateAndUpdateNextButton;
 - (void)setupDevices;
@@ -36,6 +30,7 @@
 - (void)setupHeaderAndFooter;
 - (void)setupAndShowEditableBaseStationName;
 - (void)viewDidLoad;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

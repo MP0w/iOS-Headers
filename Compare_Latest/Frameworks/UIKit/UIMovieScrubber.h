@@ -110,8 +110,8 @@
 - (void)setRotationDisabled:(BOOL)arg1;
 - (float)_valueForTouch:(id)arg1;
 - (void)_sendDelayedActions;
-- (void)_sliderAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
-- (void)_sliderAnimationWillStart:(id)arg1 context:(void *)arg2;
+- (void)_sliderAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
+- (void)_sliderAnimationWillStart:(id)arg1 context:(id)arg2;
 @property(nonatomic) double trimEndValue; // @dynamic trimEndValue;
 - (struct CGRect)_editingViewFrameForEndValueWithFrame:(struct CGRect)arg1;
 @property(nonatomic) double trimStartValue; // @dynamic trimStartValue;
@@ -122,12 +122,15 @@
 - (void)_updateThumbLocation;
 - (void)setValue:(double)arg1 animated:(BOOL)arg2;
 @property(nonatomic) double value; // @dynamic value;
+@property(readonly, nonatomic) struct UIEdgeInsets alignmentMargins;
 @property(readonly, nonatomic) BOOL isInsideNavigationBar;
 - (void)didMoveToWindow;
 - (void)didMoveToSuperview;
 - (void)_updateTimes;
 - (void)_initSubviews;
 - (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (struct CGRect)thumbRectForValue:(float)arg1;
 - (struct CGRect)_editingRect;

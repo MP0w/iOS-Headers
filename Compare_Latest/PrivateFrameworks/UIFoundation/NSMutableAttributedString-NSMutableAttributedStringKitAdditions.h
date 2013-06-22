@@ -14,6 +14,7 @@
 - (BOOL)readFromData:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3;
 - (BOOL)readFromURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3;
 - (BOOL)readFromData:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
+- (BOOL)readFromFileURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
 - (BOOL)readFromURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
 - (void)unscriptRange:(struct _NSRange)arg1;
 - (void)subscriptRange:(struct _NSRange)arg1;

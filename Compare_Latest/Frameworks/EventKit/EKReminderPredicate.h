@@ -10,25 +10,25 @@
 
 @interface EKReminderPredicate : EKPredicate
 {
-    NSString *_title;
-    NSString *_listTitle;
     BOOL _limitToCompletedOrIncomplete;
     BOOL _completed;
+    BOOL _useCompletionDateAsAlternate;
+    BOOL _useDueDateAsCompletionDate;
+    NSString *_title;
+    NSString *_listTitle;
     NSDate *_dueAfter;
     NSDate *_dueBefore;
-    BOOL _useDueDateAsCompletionDate;
     NSString *_searchTerm;
     int _sortOrder;
     unsigned int _maxResults;
-    BOOL _useCompletionDateAsAlternate;
 }
 
 + (id)predicateWithCalendars:(id)arg1;
-@property(nonatomic) BOOL useCompletionDateAsAlternate; // @synthesize useCompletionDateAsAlternate=_useCompletionDateAsAlternate;
 @property(nonatomic) unsigned int maxResults; // @synthesize maxResults=_maxResults;
 @property(nonatomic) int sortOrder; // @synthesize sortOrder=_sortOrder;
 @property(retain, nonatomic) NSString *searchTerm; // @synthesize searchTerm=_searchTerm;
 @property(nonatomic) BOOL useDueDateAsCompletionDate; // @synthesize useDueDateAsCompletionDate=_useDueDateAsCompletionDate;
+@property(nonatomic) BOOL useCompletionDateAsAlternate; // @synthesize useCompletionDateAsAlternate=_useCompletionDateAsAlternate;
 @property(retain, nonatomic) NSDate *dueBefore; // @synthesize dueBefore=_dueBefore;
 @property(retain, nonatomic) NSDate *dueAfter; // @synthesize dueAfter=_dueAfter;
 @property(nonatomic) BOOL completed; // @synthesize completed=_completed;

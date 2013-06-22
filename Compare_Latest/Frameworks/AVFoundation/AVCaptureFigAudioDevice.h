@@ -14,9 +14,11 @@
     BOOL _levelMeteringEnabled;
     BOOL _isConnected;
     NSString *_localizedName;
+    struct OpaqueCMClock *_deviceClock;
 }
 
 + (id)_devices;
+- (struct OpaqueCMClock *)deviceClock;
 - (void)audioInputDeviceLocalizedNameDidChangeHandler:(id)arg1;
 - (void)audioInputDevicesDidChangeHandler:(id)arg1;
 - (BOOL)supportsAVCaptureSessionPreset:(id)arg1;
@@ -25,7 +27,6 @@
 - (BOOL)startUsingDevice:(id *)arg1;
 - (BOOL)isConnected;
 - (BOOL)isInUseByAnotherApplication;
-- (id)formats;
 - (BOOL)hasMediaType:(id)arg1;
 - (id)localizedName;
 - (id)modelID;

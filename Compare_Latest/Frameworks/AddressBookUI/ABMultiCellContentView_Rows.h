@@ -35,7 +35,7 @@
 - (struct CGRect)backgroundRectForView:(id)arg1;
 - (struct CGRect)rectForView:(id)arg1;
 - (BOOL)tabToNextResponder:(BOOL)arg1 fromView:(id)arg2;
-- (void)entryFieldDidEndEditing:(id)arg1;
+- (void)entryField:(id)arg1 didEndEditingForKey:(id)arg2;
 - (void)updateSubviewsForNewStateAnimated:(BOOL)arg1;
 - (void)reloadFromModel;
 - (void)reloadFromModelIncludingRows:(BOOL)arg1;

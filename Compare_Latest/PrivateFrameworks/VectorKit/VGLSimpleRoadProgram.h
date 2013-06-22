@@ -16,8 +16,7 @@
 
 @property(nonatomic) int textureSampler; // @synthesize textureSampler=_textureSampler;
 @property(nonatomic) float lineWidth; // @synthesize lineWidth=_lineWidth;
-- (id)init;
-- (id)initWithVertName:(id)arg1 fragName:(id)arg2;
+- (void)setup;
 
 @end
 

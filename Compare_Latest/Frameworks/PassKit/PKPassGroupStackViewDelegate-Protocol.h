@@ -7,10 +7,13 @@
 @protocol PKPassGroupStackViewDelegate
 - (int)suppressedContent;
 - (BOOL)passesGrowWhenFlipped;
+- (void)groupStackViewDidEndReordering:(id)arg1;
+- (void)groupStackViewDidBeginReordering:(id)arg1;
 - (void)groupStackView:(id)arg1 deleteConfirmedForPass:(id)arg2;
 
 @optional
-- (void)cardStackView:(id)arg1 didAnimateToState:(int)arg2;
 - (void)flyInAnimationDidEnd;
+- (void)groupStackView:(id)arg1 didAnimateToState:(int)arg2;
+- (void)groupStackView:(id)arg1 groupDidMoveFromIndex:(unsigned int)arg2 toIndex:(unsigned int)arg3;
 @end
 

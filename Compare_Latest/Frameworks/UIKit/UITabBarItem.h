@@ -6,15 +6,15 @@
 
 #import <UIKit/UIBarItem.h>
 
-@class NSSet, NSString, UIImage, UIView;
+@class NSString, UIColor, UIImage, UIView;
 
 @interface UITabBarItem : UIBarItem
 {
     NSString *_title;
-    NSSet *_possibleTitles;
     SEL _action;
     id _target;
-    UIImage *_image;
+    UIImage *_templateImage;
+    UIImage *_selectedTemplateImage;
     UIImage *_selectedImage;
     UIImage *_unselectedImage;
     struct UIEdgeInsets _imageInsets;
@@ -32,11 +32,17 @@
         unsigned int customSelectedImage:1;
         unsigned int customUnselectedImage:1;
     } _tabBarItemFlags;
+    int _barMetrics;
+    int _imageStyle;
+    UIColor *_tintColor;
 }
 
-+ (id)_appearanceProxyViewClasses;
++ (id)_appearanceBlindViewClasses;
 - (void)setTag:(int)arg1;
 - (int)tag;
+@property(retain, nonatomic, setter=_setTintColor:) UIColor *_tintColor; // @synthesize _tintColor;
+@property(nonatomic, setter=_setImageStyle:) int _imageStyle; // @synthesize _imageStyle;
+@property(nonatomic, setter=_setBarMetrics:) int _barMetrics; // @synthesize _barMetrics;
 - (struct UIOffset)titlePositionAdjustment;
 - (void)setTitlePositionAdjustment:(struct UIOffset)arg1;
 - (id)titleTextAttributesForState:(unsigned int)arg1;
@@ -44,6 +50,7 @@
 - (id)finishedUnselectedImage;
 - (id)finishedSelectedImage;
 - (void)setFinishedSelectedImage:(id)arg1 withFinishedUnselectedImage:(id)arg2;
+@property(retain, nonatomic) UIImage *selectedImage;
 @property(copy, nonatomic) NSString *badgeValue;
 - (struct UIEdgeInsets)imageInsets;
 - (void)setImageInsets:(struct UIEdgeInsets)arg1;
@@ -57,8 +64,10 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithTabBarSystemItem:(int)arg1 tag:(int)arg2;
+- (id)initWithTitle:(id)arg1 image:(id)arg2 selectedImage:(id)arg3;
 - (id)initWithTitle:(id)arg1 image:(id)arg2 tag:(int)arg3;
 - (id)init;
+- (id)_internalTemplateImages;
 - (id)_internalTemplateImage;
 - (void)_setInternalTemplateImage:(id)arg1;
 - (id)_internalTitle;
@@ -66,18 +75,20 @@
 @property(nonatomic) SEL action;
 @property(nonatomic) id target;
 @property(retain, nonatomic) UIImage *unselectedImage;
-@property(retain, nonatomic) UIImage *selectedImage;
 @property(nonatomic) BOOL animatedBadge;
 @property(nonatomic) BOOL viewIsCustom;
 @property(retain, nonatomic) UIView *view;
 - (int)systemItem;
 - (BOOL)isSystemItem;
 - (void)_updateView;
-- (id)_createViewForTabBar:(id)arg1 showingBadge:(BOOL)arg2 withTint:(BOOL)arg3;
-- (id)_createViewForTabBar:(id)arg1 showingBadge:(BOOL)arg2;
+- (void)_updateViewForIdiom:(int)arg1;
+- (void)_updateViewForIdiom:(int)arg1 positionItems:(BOOL)arg2;
+- (id)_createViewForTabBar:(id)arg1 showingBadge:(BOOL)arg2 withTint:(BOOL)arg3 idiom:(int)arg4;
+- (id)_createViewForTabBar:(id)arg1 showingBadge:(BOOL)arg2 idiom:(int)arg3;
 - (void)_setTitleTextAttributeValue:(id)arg1 forAttributeKey:(id)arg2 state:(unsigned int)arg3;
 - (id)nextResponder;
 - (id)_updateImageWithTintColor:(id)arg1 isSelected:(BOOL)arg2 getImageOffset:(struct UIOffset *)arg3;
+- (void)_updateButtonForTintColor:(id)arg1 selected:(BOOL)arg2;
 
 @end
 

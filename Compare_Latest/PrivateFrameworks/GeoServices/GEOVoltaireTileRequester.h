@@ -6,12 +6,13 @@
 
 #import <GeoServices/GEOTileRequester.h>
 
+#import "GEOResourceManifestTileGroupObserver-Protocol.h"
 #import "GEOTileRequesterDelegate-Protocol.h"
 #import "GEOVoltaireMultiTileDownloaderDelegate-Protocol.h"
 
 @class GEOVoltaireSimpleTileRequester, NSMutableArray, NSThread, NSTimer;
 
-@interface GEOVoltaireTileRequester : GEOTileRequester <GEOVoltaireMultiTileDownloaderDelegate, GEOTileRequesterDelegate>
+@interface GEOVoltaireTileRequester : GEOTileRequester <GEOVoltaireMultiTileDownloaderDelegate, GEOTileRequesterDelegate, GEOResourceManifestTileGroupObserver>
 {
     NSMutableArray *_activeDownloads;
     NSThread *_startThread;
@@ -37,7 +38,8 @@
 - (void)cleanup;
 - (void)_startWithTileKeys:(id)arg1;
 - (id)multiTileURLStringForTileKey:(struct _GEOTileKey *)arg1 useStatusCodes:(char *)arg2;
-- (void)_didReceiveActiveTileGroup:(id)arg1;
+- (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
+- (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)_failedToReceiveActiveTileGroup:(id)arg1;
 - (void)start;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;

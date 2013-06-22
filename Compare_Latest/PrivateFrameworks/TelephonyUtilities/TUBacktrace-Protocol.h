@@ -4,8 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
+@class NSArray, NSDictionary;
+
 @protocol TUBacktrace
-- (id)dyldLoadLocations;
-- (id)symbolicatedBacktraceStrings;
+@property(readonly) NSDictionary *dyldContext;
+@property(readonly) NSArray *symbolicatedBacktraceStrings;
+@property(readonly) NSArray *unsymbolicatedBacktraceStrings;
 @end
 

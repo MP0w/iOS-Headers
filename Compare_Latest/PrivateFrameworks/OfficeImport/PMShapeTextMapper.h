@@ -19,7 +19,7 @@
 - (int)textAnchor;
 - (BOOL)isTableCellContent;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
-- (BOOL)setRectangular:(BOOL)arg1;
+- (void)setRectangular:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithOadTextBody:(id)arg1 bounds:(id)arg2 parent:(id)arg3;
 

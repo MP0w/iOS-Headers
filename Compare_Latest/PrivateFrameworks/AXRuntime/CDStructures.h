@@ -6,6 +6,21 @@
 
 #pragma mark Named Structures
 
+struct CGPoint {
+    float _field1;
+    float _field2;
+};
+
+struct CGRect {
+    struct CGPoint _field1;
+    struct CGSize _field2;
+};
+
+struct CGSize {
+    float _field1;
+    float _field2;
+};
+
 struct _NSRange {
     unsigned int _field1;
     unsigned int _field2;

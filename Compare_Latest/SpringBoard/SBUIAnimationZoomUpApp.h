@@ -4,29 +4,44 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBUIAnimationController.h"
+#import "SBUIMainScreenAnimationController.h"
 
 @class UIView;
 
-@interface SBUIAnimationZoomUpApp : SBUIAnimationController
+@interface SBUIAnimationZoomUpApp : SBUIMainScreenAnimationController
 {
-    UIView *_viewToAnimate;
     UIView *_contextHostView;
-    BOOL _requiresHostView;
-    BOOL _activateBeforeHosting;
-    BOOL _animateBanner;
-    BOOL _doFadeInsteadOfZoom;
+    BOOL _zoomHostView;
     CDStruct_5d575efc _fakeStatusBarInfo;
-    BOOL _fadeOrScatterSpringBoardIfNecessary;
+    int _animationTransition;
+    BOOL _finishedZooming;
+    BOOL _finishedActivating;
+    BOOL _finishedCrossfadingToHostView;
+    BOOL _fromSwitcher;
+    BOOL _fromNC;
+    BOOL _fromCC;
+    BOOL _fromAssistant;
+    UIView *_viewToAnimate;
 }
 
-@property(nonatomic) BOOL fadeOrScatterSpringBoardIfNecessary; // @synthesize fadeOrScatterSpringBoardIfNecessary=_fadeOrScatterSpringBoardIfNecessary;
-- (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+@property(nonatomic) int animationTransition; // @synthesize animationTransition=_animationTransition;
+- (BOOL)_shouldWaitForSiriDismissBeforeZooming;
+- (void)_maybeReportAnimationFinished;
+- (void)_noteContextHostCrossfadeDidFinish;
+- (void)_maybeStartCrossfade;
+- (void)_noteZoomDidFinish;
+- (void)_applicationDependencyStateChanged;
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
 - (void)_prepareAnimation;
 - (id)_animationProgressDependency;
 - (BOOL)_animationShouldStart;
+- (void)cleanupZoom;
+- (void)animateZoomWithCompletion:(id)arg1;
+- (void)prepareZoom;
+- (double)animationDelay;
+- (double)animationDuration;
+- (void)animateFakeStatusBarWithParameters:(id)arg1;
 - (CDStruct_5d575efc)fakeStatusBarInfoWithStartStyle:(int)arg1 startOrientation:(int)arg2;
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1;

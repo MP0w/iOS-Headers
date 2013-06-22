@@ -4,24 +4,31 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBWorkspaceTransaction.h"
+#import "SBActivateAppUnderLockScreenWorkspaceTransaction.h"
 
-@class SBApplication, SBAwayController;
+#import "SBUIAnimationControllerDelegate-Protocol.h"
 
-@interface SBReturnToLockscreenWorkspaceTransaction : SBWorkspaceTransaction
+@class SBApplication, SBUIAnimationController;
+
+@interface SBReturnToLockscreenWorkspaceTransaction : SBActivateAppUnderLockScreenWorkspaceTransaction <SBUIAnimationControllerDelegate>
 {
     SBApplication *_fromApp;
-    SBAwayController *_awayController;
     BOOL _workspaceAlreadyResumed;
+    BOOL _animatedAppDeactivation;
+    SBUIAnimationController *_animation;
+    BOOL _suspendWorkspace;
 }
 
+- (void)animationControllerDidFinishAnimation:(id)arg1;
+- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
 - (BOOL)selfApplicationDidBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
-- (BOOL)selfWorkspaceDidResume;
-- (BOOL)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
+- (void)_alertDidActivate;
+- (void)_transactionComplete;
 - (void)_commit;
 - (id)debugDescription;
 - (void)dealloc;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 fromApplication:(id)arg3 toAwayController:(id)arg4;
+- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 fromApplication:(id)arg3 toLockScreenController:(id)arg4 andApp:(id)arg5 activationHandler:(id)arg6;
+- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 fromApplication:(id)arg3 toLockScreenController:(id)arg4 andApp:(id)arg5;
 
 @end
 

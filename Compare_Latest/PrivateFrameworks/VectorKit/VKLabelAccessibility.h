@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class VKLabelManager;
+@class VKLabelModel;
 
 @interface VKLabelAccessibility : NSObject
 {
-    VKLabelManager *_labelManager;
+    VKLabelModel *_labelModel;
 }
 
 - (void)forEachDisplayedLabel:(id)arg1;
 - (void)dealloc;
-- (id)initWithLabelManager:(id)arg1;
+- (id)initWithLabelModel:(id)arg1;
 
 @end
 

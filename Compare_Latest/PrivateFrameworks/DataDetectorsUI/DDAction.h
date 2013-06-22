@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSDictionary, NSURL;
 
-@interface DDAction : NSObject <NSCoding>
+@interface DDAction : NSObject <NSCoding, NSSecureCoding>
 {
     struct __DDResult *_result;
     struct __DDResult *_coalescedResult;
@@ -25,8 +26,11 @@
 
 + (id)defaultActionWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 + (id)actionWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
++ (BOOL)supportsSecureCoding;
 @property BOOL isDefaultAction; // @synthesize isDefaultAction=_isDefaultAction;
 @property id delegate; // @synthesize delegate=_delegate;
+- (id)description;
+- (void)addToRecents;
 - (id)context;
 - (struct __CFArray *)associatedResults;
 - (struct __DDResult *)coalescedResult;

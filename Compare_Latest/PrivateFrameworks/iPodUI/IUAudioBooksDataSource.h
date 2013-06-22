@@ -28,7 +28,7 @@
 - (BOOL)hideActionRowsOnAppear;
 - (BOOL)hasActionRowsEvenWhenNoOtherRowsExist;
 - (SEL)libraryHasDisplayableEntitiesSelector;
-- (int)filteredMediaTypes;
+- (unsigned int)filteredMediaTypes;
 - (id)init;
 
 @end

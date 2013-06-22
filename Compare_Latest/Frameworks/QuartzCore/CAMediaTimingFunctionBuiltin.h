@@ -11,6 +11,7 @@
     unsigned int _index;
 }
 
+- (void)encodeWithCAMLWriter:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (Class)classForCoder;
 - (id)description;

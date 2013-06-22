@@ -12,7 +12,7 @@
 {
     int _format;
     int _singleThumbnailImageLength;
-    int _count;
+    unsigned int _count;
     BOOL _dataIsMutable;
     NSData *_thumbnailData;
     NSMutableArray *_thumbnailImages;
@@ -39,7 +39,7 @@
 - (char *)thumbnailBytesAtIndex:(int)arg1;
 - (unsigned long)thumbnailLength;
 - (id)thumbnailDataAtIndex:(int)arg1;
-- (int)count;
+- (unsigned int)count;
 - (BOOL)saveToFile:(id)arg1;
 - (id)serializedData;
 - (id)description;

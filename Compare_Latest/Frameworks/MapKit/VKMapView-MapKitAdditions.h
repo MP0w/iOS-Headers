@@ -7,6 +7,6 @@
 #import "VKMapView.h"
 
 @interface VKMapView (MapKitAdditions)
-- (void)_mapkit_configureFromDefaults;
+- (void)_mapkit_configureFromDefaults:(BOOL)arg1;
 @end
 

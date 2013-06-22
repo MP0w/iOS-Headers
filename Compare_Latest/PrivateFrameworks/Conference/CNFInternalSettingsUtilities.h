@@ -17,6 +17,7 @@
 + (void)signOutAllAccounts;
 + (void)nukeKeychain;
 + (void)killEverything;
++ (void)killFaceTime;
 + (void)killMediaServerd;
 + (void)syncImagentLogSettings;
 + (void)killImavagent;

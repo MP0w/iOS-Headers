@@ -23,6 +23,7 @@
 - (void)setLocalizedDescription:(id)arg1;
 - (id)mf_shortDescription;
 - (id)mf_moreInfo;
+- (id)recoveryAttempter;
 - (id)localizedDescription;
 - (id)userInfo;
 - (void)setUserInfoObject:(id)arg1 forKey:(id)arg2;

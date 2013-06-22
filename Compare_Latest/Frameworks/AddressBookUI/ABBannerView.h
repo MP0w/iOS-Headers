@@ -15,12 +15,10 @@
 }
 
 + (float)defaultHeight;
-- (void)_drawContentInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
-- (void)drawRect:(struct CGRect)arg1;
-- (id)value;
-- (void)setValue:(id)arg1;
-- (id)title;
-- (void)setTitle:(id)arg1;
+@property(copy, nonatomic) NSString *value; // @synthesize value=_value;
+@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+- (void)_updateLabel;
+- (void)setTitle:(id)arg1 value:(id)arg2;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 

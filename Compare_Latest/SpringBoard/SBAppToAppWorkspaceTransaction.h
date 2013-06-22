@@ -6,17 +6,15 @@
 
 #import "SBToAppWorkspaceTransaction.h"
 
-#import "SBUIAnimationControllerDelegate-Protocol.h"
+#import "SBUIAnimationControllerGroupDelegate-Protocol.h"
 
 @class BKSApplicationActivationAssertion, SBApplication, SBUIAnimationController;
 
-@interface SBAppToAppWorkspaceTransaction : SBToAppWorkspaceTransaction <SBUIAnimationControllerDelegate>
+@interface SBAppToAppWorkspaceTransaction : SBToAppWorkspaceTransaction <SBUIAnimationControllerGroupDelegate>
 {
     SBApplication *_fromApp;
     SBUIAnimationController *_animationController;
     BKSApplicationActivationAssertion *_suspendingAppAssertion;
-    BOOL _deactivateAlertsAfterLaunch;
-    BOOL _shouldLaunchPNGLess;
     BOOL _animatedActivation;
     BOOL _animatedDeactivation;
     BOOL _deactivatingAppFromAppToAppGesture;
@@ -24,14 +22,13 @@
 
 @property(retain, nonatomic) SBApplication *fromApp; // @synthesize fromApp=_fromApp;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 didCommitAnimation:(BOOL)arg2 withDuration:(double)arg3 afterDelay:(double)arg4;
 - (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
 - (id)_setupAnimationFrom:(id)arg1 to:(id)arg2;
 - (void)_transactionComplete;
 - (void)_interruptWithReason:(int)arg1;
 - (BOOL)_canBeInterrupted;
 - (void)_endAnimation;
-- (BOOL)selfAlertDidDeactivate:(id)arg1 overAlerts:(id)arg2;
+- (BOOL)selfAlertDidDeactivate:(id)arg1;
 - (BOOL)selfApplicationExited:(id)arg1;
 - (BOOL)selfApplicationLaunchDidFail:(id)arg1;
 - (BOOL)selfApplicationActivated:(id)arg1;
@@ -41,7 +38,7 @@
 - (BOOL)selfApplicationWillBecomeReceiver:(id)arg1 fromApplication:(id)arg2;
 - (void)_kickOffActivation;
 - (void)_commit;
-- (void)_beginAnimation;
+- (void)_setupAnimation;
 - (int)_setupMilestonesFrom:(id)arg1 to:(id)arg2;
 - (BOOL)shouldAnimateOrientationChangeOnCompletion;
 - (BOOL)shouldPerformToAppStateCleanupOnCompletion;
@@ -49,7 +46,7 @@
 - (id)debugDescription;
 - (void)dealloc;
 - (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 exitedApp:(id)arg3;
-- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 from:(id)arg3 to:(id)arg4;
+- (id)initWithWorkspace:(id)arg1 alertManager:(id)arg2 from:(id)arg3 to:(id)arg4 activationHandler:(id)arg5;
 
 @end
 

@@ -9,7 +9,6 @@
 @interface NSHTTPURLResponse (ISAdditions)
 - (long long)maxExpectedContentLength;
 - (id)_iTunesStore_valueForHTTPHeader:(id)arg1;
-- (BOOL)getAppleMaxAge:(double *)arg1;
 - (double)expirationInterval;
 - (id)expirationDate;
 - (id)_dateFromExpires;

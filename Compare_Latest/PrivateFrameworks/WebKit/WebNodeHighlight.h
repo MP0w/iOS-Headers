@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class HighlightLayer, WAKView, WebNodeHighlightView;
+@class WAKView, WebHighlightLayer, WebNodeHighlightView;
 
 @interface WebNodeHighlight : NSObject
 {
     WAKView *_targetView;
-    HighlightLayer *_highlightLayer;
+    WebHighlightLayer *_highlightLayer;
     WebNodeHighlightView *_highlightView;
     struct InspectorController *_inspectorController;
     id _delegate;

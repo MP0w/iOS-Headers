@@ -6,28 +6,30 @@
 
 #import <EventKit/EKCalendarItem.h>
 
-@class NSDate, NSDateComponents;
+@class EKAlarm, EKObjectID, NSDate, NSDateComponents, NSURL;
 
 @interface EKReminder : EKCalendarItem
 {
+    BOOL hadRecurrences;
 }
 
 + (void)_removeSnoozedAlarmsFromReminder:(id)arg1 usingDueDate:(id)arg2;
 + (id)reminderWithEventStore:(id)arg1;
-- (id)bestDisplayAlarm;
+@property(nonatomic) BOOL hadRecurrences; // @synthesize hadRecurrences;
+@property(readonly, nonatomic) EKAlarm *bestDisplayAlarm;
 - (BOOL)commit:(id *)arg1;
 - (BOOL)validate:(id *)arg1;
+- (void)snoozeAlarm:(id)arg1 withTimeIntervalFromNow:(double)arg2;
 - (void)clearParentID;
-- (id)parentID;
+@property(readonly, nonatomic) EKObjectID *parentID;
 @property(nonatomic, getter=isCompleted) BOOL completed;
 - (id)description;
 @property(nonatomic) int priority;
-- (void)setDisplayOrder:(unsigned int)arg1;
-- (unsigned int)displayOrder;
+@property(nonatomic) unsigned int displayOrder;
 @property(copy, nonatomic) NSDate *completionDate;
 - (void)setTimeZone:(id)arg1;
 @property(copy, nonatomic) NSDateComponents *dueDateComponents;
-- (id)dueDate;
+@property(readonly, nonatomic) NSDate *dueDate;
 @property(copy, nonatomic) NSDateComponents *startDateComponents;
 - (id)externalURI;
 - (id)reminderIdentifier;
@@ -35,6 +37,9 @@
 - (id)_persistentReminder;
 - (void)dealloc;
 - (id)initWithPersistentObject:(id)arg1;
+
+// Remaining properties
+@property(copy, nonatomic) NSURL *action;
 
 @end
 

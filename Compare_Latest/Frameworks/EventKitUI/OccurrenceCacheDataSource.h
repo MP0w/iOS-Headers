@@ -19,6 +19,7 @@
     int _cachedDaysSeed;
 }
 
+- (void).cxx_destruct;
 - (void)invalidate;
 - (void)stopSearching;
 - (void)searchWithTerm:(id)arg1;

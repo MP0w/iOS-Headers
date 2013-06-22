@@ -13,12 +13,12 @@
 
 @interface IMNetworkConnectionMonitor : IMConnectionMonitor <IMSystemMonitorListener, IMReachabilityDelegate>
 {
+    BOOL _isConnected;
+    BOOL _isSleeping;
     IMReachability *_hostReachability;
     IMReachability *_ipReachability;
     unsigned int _hostFlags;
     unsigned int _ipFlags;
-    BOOL _isConnected;
-    BOOL _isSleeping;
 }
 
 @property(nonatomic) BOOL _isSleeping; // @synthesize _isSleeping;

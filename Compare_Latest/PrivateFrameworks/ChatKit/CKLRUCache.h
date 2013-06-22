@@ -6,11 +6,13 @@
 
 #import "CPLRUDictionary.h"
 
-@interface CKLRUCache : CPLRUDictionary
+#import <ChatKit/CKCache-Protocol.h>
+
+@interface CKLRUCache : CPLRUDictionary <CKCache>
 {
 }
 
-- (id)init;
+- (id)initWithMaximumCapacity:(unsigned int)arg1;
 - (void)dealloc;
 
 @end

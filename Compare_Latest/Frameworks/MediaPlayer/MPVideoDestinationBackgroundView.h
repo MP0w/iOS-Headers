@@ -19,9 +19,9 @@
 
 @property(copy, nonatomic) NSString *destinationName; // @synthesize destinationName=_destinationName;
 @property(nonatomic) int style; // @synthesize style=_style;
+- (void).cxx_destruct;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

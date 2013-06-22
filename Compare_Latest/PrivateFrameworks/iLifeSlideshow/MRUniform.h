@@ -14,7 +14,7 @@
 }
 
 + (BOOL)clearVars;
-+ (CDStruct_76c99235 *)poolInfo;
++ (CDStruct_7b508128 *)poolInfo;
 - (id)initWithMat4:(float [16])arg1;
 - (id)initWithMat4ForMat3:(float [16])arg1;
 - (id)initWithI:(int)arg1;

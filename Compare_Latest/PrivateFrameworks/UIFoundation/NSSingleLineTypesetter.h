@@ -12,9 +12,9 @@
 {
     float _lineWidth;
     struct _NSRange _currentBufferRange;
-    unsigned int *_glyphBuffer;
-    unsigned int *_inscriptionBuffer;
-    char *_elasticBuffer;
+    unsigned short *_glyphs;
+    int *_props;
+    unsigned int *_charIndexes;
     struct {
         unsigned int _usesScreenFonts:1;
         unsigned int _reserved:31;
@@ -35,13 +35,12 @@
 - (void)setLineFragmentRect:(struct CGRect)arg1 forGlyphRange:(struct _NSRange)arg2 usedRect:(struct CGRect)arg3 baselineOffset:(float)arg4;
 - (id)substituteFontForFont:(id)arg1;
 - (void)getLineFragmentRect:(struct CGRect *)arg1 usedRect:(struct CGRect *)arg2 remainingRect:(struct CGRect *)arg3 forStartingGlyphAtIndex:(unsigned int)arg4 proposedRect:(struct CGRect)arg5 lineSpacing:(float)arg6 paragraphSpacingBefore:(float)arg7 paragraphSpacingAfter:(float)arg8;
-- (unsigned int)getGlyphsInRange:(struct _NSRange)arg1 glyphs:(unsigned int *)arg2 characterIndexes:(unsigned int *)arg3 glyphInscriptions:(unsigned int *)arg4 elasticBits:(char *)arg5 bidiLevels:(char *)arg6;
+- (unsigned int)getGlyphsInRange:(struct _NSRange)arg1 glyphs:(unsigned short *)arg2 properties:(int *)arg3 characterIndexes:(unsigned int *)arg4 bidiLevels:(char *)arg5;
 - (struct _NSRange)glyphRangeForCharacterRange:(struct _NSRange)arg1 actualCharacterRange:(struct _NSRange *)arg2;
 - (struct _NSRange)characterRangeForGlyphRange:(struct _NSRange)arg1 actualGlyphRange:(struct _NSRange *)arg2;
 - (id)attributedString;
 - (unsigned int)layoutOptions;
-- (void)setIntAttribute:(int)arg1 value:(int)arg2 forGlyphAtIndex:(unsigned int)arg3;
-- (void)insertGlyphs:(const unsigned int *)arg1 length:(unsigned int)arg2 forStartingGlyphAtIndex:(unsigned int)arg3 characterIndex:(unsigned int)arg4;
+- (void)setGlyphs:(const unsigned short *)arg1 properties:(const int *)arg2 characterIndexes:(const unsigned int *)arg3 font:(id)arg4 forGlyphRange:(struct _NSRange)arg5;
 - (id)createRenderingContextForCharacterRange:(struct _NSRange)arg1 typesetterBehavior:(int)arg2 usesScreenFonts:(BOOL)arg3 hasStrongRight:(BOOL)arg4 maximumWidth:(float)arg5;
 - (id)init;
 - (BOOL)_allowsEllipsisGlyphSubstitution;

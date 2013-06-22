@@ -25,9 +25,9 @@
     ESDObject *mTgtSoundCollectionAtomHolder;
     ESDContainer *mTgtBinaryTagData9;
     NSMutableDictionary *mTgtDocProgTagDatas;
-    struct vector<PBWriterMasterStyleInfo, std::allocator<PBWriterMasterStyleInfo>> *mDocMasterStyleInfoVector;
+    struct vector<PBWriterMasterStyleInfo, std::__1::allocator<PBWriterMasterStyleInfo>> *mDocMasterStyleInfoVector;
     PDSlideBase *mCurrentSrcSlideBase;
-    struct hash_map<PDSlideBase *, PBWriterMasterSlideInfo, PBPointerHash, std::equal_to<PDSlideBase *>, std::allocator<PBWriterMasterSlideInfo>> *mSrcSlideMasterOrLayoutInfoMap;
+    struct hash_map<PDSlideBase *, PBWriterMasterSlideInfo, PBPointerHash, std::__1::equal_to<PDSlideBase *>, std::__1::allocator<std::__1::pair<PDSlideBase *const, PBWriterMasterSlideInfo>>> *mSrcSlideMasterOrLayoutInfoMap;
     struct PBWriterMasterSlideInfo *mCurrentMasterSlideInfo;
     id <OCCancelDelegate> mCancel;
     TSUNoCopyDictionary *mTransitionMap;

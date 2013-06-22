@@ -7,7 +7,9 @@
 #import "NSIndexSet.h"
 
 @interface NSIndexSet (PLAdditions)
-- (id)pl_indexSetByExtractingIndexes:(id)arg1;
+- (id)pl_indexSetAdjustedForInsertions:(id)arg1;
+- (id)pl_indexSetAdjustedForDeletions:(id)arg1;
+- (id)_pl_indexSetByUpdatingWithChangedIndexes:(id)arg1 asInserts:(BOOL)arg2;
 - (id)pl_shortDescription;
 @end
 

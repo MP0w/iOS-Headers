@@ -7,6 +7,8 @@
 #import "UIView.h"
 
 @interface UIView (ABUIViewIndexPathDrillDown)
+- (void)updateBackdropMask;
+- (id)ancestorBackdropView;
 - (id)abSubviewAtIndexPath:(id)arg1;
 - (id)abIndexPathOfSubview:(id)arg1;
 @end

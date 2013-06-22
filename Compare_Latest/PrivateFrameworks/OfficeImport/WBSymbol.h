@@ -10,8 +10,6 @@
 {
 }
 
-+ (void)writeCharacterProperties:(id)arg1 to:(id)arg2;
-+ (void)writeText:(id)arg1 to:(id)arg2;
 + (void)readFrom:(id)arg1 textRun:(struct WrdCharacterTextRun *)arg2 paragraph:(id)arg3 symbol:(id)arg4;
 
 @end

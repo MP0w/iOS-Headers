@@ -21,6 +21,13 @@ struct CGSize {
     float height;
 };
 
+struct UIEdgeInsets {
+    float top;
+    float left;
+    float bottom;
+    float right;
+};
+
 struct _NSRange {
     unsigned int location;
     unsigned int length;
@@ -39,7 +46,8 @@ typedef struct {
     unsigned int showsCancelButton:1;
     unsigned int showsWritableCalendarsOnly:1;
     unsigned int showsRefreshButton:1;
-} CDStruct_1cfc42b8;
+    unsigned int allowsPullToRefresh:1;
+} CDStruct_a7a51b3b;
 
 typedef struct {
     int year;

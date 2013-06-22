@@ -18,7 +18,7 @@
     id <ABPersonTabsLayoutManager> _tabsLayoutManager;
 }
 
-@property(nonatomic) id <ABPersonTabsLayoutManager> tabsLayoutManager; // @synthesize tabsLayoutManager=_tabsLayoutManager;
+@property(retain, nonatomic) id <ABPersonTabsLayoutManager> tabsLayoutManager; // @synthesize tabsLayoutManager=_tabsLayoutManager;
 @property(nonatomic) ABPersonViewControllerHelper *helper; // @synthesize helper=_helper;
 - (void)layoutSubviews;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;

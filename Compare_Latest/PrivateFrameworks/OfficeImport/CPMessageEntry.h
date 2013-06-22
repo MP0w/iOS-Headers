@@ -10,7 +10,7 @@
 
 @interface CPMessageEntry : NSObject
 {
-    int m_timeStamp;
+    unsigned int m_timeStamp;
     int m_tag;
     NSString *m_text;
     NSArray *m_parameters;
@@ -19,7 +19,7 @@
 }
 
 + (void)initialize;
-@property(nonatomic) int timeStamp; // @synthesize timeStamp=m_timeStamp;
+@property(nonatomic) unsigned int timeStamp; // @synthesize timeStamp=m_timeStamp;
 - (void)addAffectedObject:(id)arg1;
 - (void)mergeEntries:(id)arg1;
 - (id)description;
@@ -28,7 +28,7 @@
 - (int)getCount;
 - (id)affectedObjects;
 - (id)getParameter:(unsigned int)arg1;
-- (int)getParameterCount;
+- (unsigned int)getParameterCount;
 - (id)getMessageText;
 - (int)getMessageTag;
 - (unsigned int)hash;

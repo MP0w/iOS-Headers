@@ -4,37 +4,28 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBAlert.h"
+#import "SBLockScreenViewControllerBase.h"
 
-#import "SBShowcaseControllerOwner-Protocol.h"
 #import "SBSlidingAlertDisplayDelegate-Protocol.h"
 
-@class NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PLCameraPageController, SBAlertItem, SBApplication, SBAwayBulletinListController, SBAwayView, SBDeviceLockDisableAssertion, SBShowcaseController, SBUIController, UIImageView, UIView, _UIDynamicValueAnimation;
+@class NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PLCameraPageController, SBAlertItem, SBApplication, SBAwayBulletinListController, SBAwayView, SBPasscodeLockDisableAssertion, SBShowcaseController, SBUIController, UIImageView, UIView, _UIDynamicValueAnimation;
 
-@interface SBAwayController : SBAlert <SBSlidingAlertDisplayDelegate, SBShowcaseControllerOwner>
+@interface SBAwayController : SBLockScreenViewControllerBase <SBSlidingAlertDisplayDelegate>
 {
     SBUIController *_uiController;
     SBShowcaseController *_showcaseController;
     SBAwayView *_awayView;
     unsigned int _isActive:1;
-    unsigned int _isLocked:1;
-    unsigned int _isUnlocking:1;
-    unsigned int _isActivatingBacklightForUnlock:1;
     unsigned int _isDimmed:1;
     unsigned int _isDimming:1;
     unsigned int _orderedOutDimmed:1;
     unsigned int _frontDimmed:1;
     unsigned int _makingEmergencyCall:1;
-    unsigned int _appRequestedPasscodeEntry:1;
-    unsigned int _relockAfterUnlock:1;
     unsigned int _showOverheatUI:1;
     unsigned int _performingAutoUnlock:1;
     unsigned int _validPhotoCountCheck:1;
     unsigned int _showcaseAnimating:1;
-    unsigned int _hasBeenLockedOnce:1;
-    unsigned int _isInLostMode:1;
     unsigned int _animatingDeactivation:1;
-    int _unlockSource;
     NSDictionary *_nowPlayingInfo;
     SBApplication *_nowPlayingApp;
     id <SBDeviceLockViewOwner> _deviceUnlockDisplay;
@@ -58,30 +49,21 @@
     UIView *_cameraSlidingContainerView;
     UIView *_cameraFakeStatusBar;
     UIView *_cameraShadowView;
-    BOOL _dimTimerDisabledForCamera;
     NSDate *_lastCameraSessionID;
     BOOL _exitedCameraForAlert;
     BOOL _restartCameraAfterCall;
     BOOL _disableGracePeriodForCamera;
-    SBDeviceLockDisableAssertion *_disableGracePeriodForCameraAssertion;
-    SBDeviceLockDisableAssertion *_disableDeviceLockWhileUnlockedAssertion;
+    SBPasscodeLockDisableAssertion *_disableGracePeriodForCameraAssertion;
     NSObject<OS_dispatch_queue> *_prewarmQueue;
+    id _savedWindowDelegate;
     int _gracePeriodWhenLocked;
     BOOL _keepBulletinsUnreadOnUnlock;
-    NSString *_currentTestName;
     BOOL _sbFinishedLaunching;
 }
 
 + (void)registerForAlerts;
-+ (id)sharedAwayControllerIfExists;
-+ (id)sharedAwayController;
-@property(retain, nonatomic) NSString *currentTestName; // @synthesize currentTestName=_currentTestName;
 @property(retain, nonatomic) SBShowcaseController *showcaseController; // @synthesize showcaseController=_showcaseController;
 @property(nonatomic) BOOL chargingViewHasFadedOut; // @synthesize chargingViewHasFadedOut=_chargingViewHasFadedOut;
-- (void)runUnlockTest:(id)arg1 options:(id)arg2;
-- (void)_irisOpened;
-- (void)slidingAlertViewDeactivationAnimationCompleted:(id)arg1;
-- (void)slidingAlertViewDeactivationAnimationStart:(id)arg1;
 - (void)willAnimateToggleDeviceLockWithStyle:(int)arg1 toVisibility:(BOOL)arg2 withDuration:(double)arg3;
 - (void)showcase:(id)arg1 didTransferOwnershipToOwner:(id)arg2;
 - (void)assumeShowcaseOwnership:(id)arg1;
@@ -109,7 +91,7 @@
 - (BOOL)handleVolumeDownButtonPressed;
 - (BOOL)handleVolumeUpButtonPressed;
 - (BOOL)handleLockButtonPressed;
-- (BOOL)handleSlideshowHardwareButton;
+- (void)handleSlideshowHardwareButton;
 - (void)hardwareKeyboardAvailabilityChanged;
 - (BOOL)handleMenuButtonHeld;
 - (BOOL)handleMenuButtonDoubleTap;
@@ -131,16 +113,13 @@
 - (id)activeAwayPluginController;
 - (id)highestPriorityAwayPluginController;
 - (BOOL)isAwayPluginViewVisible;
-- (BOOL)isInLostMode;
-- (void)exitLostModeIfNecessary;
-- (void)activateLostModeForRemoteLock:(BOOL)arg1;
 - (void)toggleShowsIMEIandICCID:(id)arg1;
 - (BOOL)toggleMediaControls;
 - (void)hideMediaControls;
 - (BOOL)isShowingMediaControls;
 - (void)_batteryStatusChanged;
 - (BOOL)shouldShowInCallUI;
-- (void)updateInCallUI;
+- (void)updateInCallUI:(id)arg1;
 - (void)updateCardItem:(id)arg1;
 - (void)deactivateCardItem:(id)arg1;
 - (void)activateCardItem:(id)arg1 animated:(BOOL)arg2;
@@ -152,9 +131,6 @@
 - (id)currentAlertItem;
 - (void)didAnimateLockKeypadOut;
 - (void)didAnimateLockKeypadIn;
-- (void)cleanupUIForAssistantPopoverDismissalAnimated:(BOOL)arg1;
-- (void)updateUIForAssistantPopoverRotationToOrientation:(int)arg1 withDuration:(double)arg2;
-- (void)prepareUIForAssistantPopoverWithCompletion:(id)arg1;
 - (BOOL)isMakingEmergencyCall;
 - (void)emergencyCallWasRemoved;
 - (void)emergencyCallWasDisplayed;
@@ -165,7 +141,6 @@
 - (void)updateAwayViewNowPlayingInfo;
 - (void)updateNowPlayingInfo:(id)arg1 app:(id)arg2;
 - (void)didFinishAnimatingOut;
-- (void)orderOut;
 - (int)statusBarStyleOverridesToCancel;
 - (int)statusBarStyle;
 - (int)effectiveStatusBarStyle;
@@ -173,32 +148,43 @@
 - (void)removeFromView;
 - (void)deactivate;
 - (void)animateDeactivation;
-- (BOOL)currentlyAnimatingDeactivation;
 - (void)activate;
-- (BOOL)handleKeyEvent:(struct __GSEvent *)arg1;
-- (void)userEventsDidIdle;
-- (void)userEventPresenceTimerExpired;
-- (void)userEventOccurred;
-- (void)updateOrientationForUndim;
 - (void)undimScreen:(BOOL)arg1;
 - (void)undimScreen;
 - (int)interfaceOrientationForActivation;
 - (void)dimScreen:(BOOL)arg1;
-- (void)preventIdleSleepForNumberOfSeconds:(float)arg1;
-- (void)preventIdleSleep;
-- (void)allowIdleSleep;
-- (void)relockForButtonPress:(BOOL)arg1 afterCall:(BOOL)arg2 dimmed:(BOOL)arg3;
-- (void)relockForButtonPress:(BOOL)arg1 afterCall:(BOOL)arg2;
-- (void)_dimTimerFired;
+- (BOOL)handleExternalKeyDownEvent;
+- (BOOL)lockScreenBulletinControllerIsActive;
+- (id)currentUnlockActionContext;
+- (BOOL)lockScreenIsShowingBulletins;
+- (void)setShowingOverheatUI:(BOOL)arg1;
+- (BOOL)isShowingOverheatUI;
+- (void)prepareToEnterLostMode;
+- (id)activeLockScreenPluginController;
+- (BOOL)isLockScreenPluginViewVisible;
+- (BOOL)hasActiveUIAccessories;
+- (BOOL)isInScreenOffMode;
+- (void)setInScreenOffMode:(BOOL)arg1;
+- (void)restartViewRelatedTimers;
+- (void)clearViewRelatedTimers;
+- (BOOL)isShowingNewBulletin;
+- (BOOL)canRelockForAutoDimTimer;
+- (BOOL)wantsScreenToAutoDim;
+- (id)activationBlockAnimated:(SEL)arg1;
+- (void)noteStartingPhoneCallWhileUILocked;
+- (void)launchEmergencyDialer;
+- (void)finishUIUnlockFromSource:(int)arg1;
+- (BOOL)canBeDeactivatedForUIUnlockFromSource:(int)arg1;
+- (void)prepareForUIUnlock;
+- (BOOL)wantsPasscodeLockForUIUnlockFromSource:(int)arg1 withOptions:(id)arg2;
+- (BOOL)isPasscodeLockVisible;
+- (void)setPasscodeLockVisible:(BOOL)arg1 animated:(BOOL)arg2 withUnlockSource:(int)arg3 andOptions:(id)arg4;
+- (void)setPasscodeLockVisible:(BOOL)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (void)relock:(id)arg1;
+- (void)_prepareToLockUI;
 - (void)finishedDimmingScreen;
-- (BOOL)isActivatingWhileDimmed;
 - (BOOL)isDimmed;
-- (void)_restartDimTimer:(float)arg1 mode:(int)arg2;
-- (void)restartDimTimer:(float)arg1;
-- (void)restartDimTimer;
-- (void)cancelDimTimer;
 - (BOOL)attemptDeviceUnlockWithPassword:(id)arg1 lockViewOwner:(id)arg2;
-- (double)_undimInterval;
 - (id)restoreFromSavedBulletinController;
 - (BOOL)awayBulletinControllerIsActive;
 - (id)activeOrPendingBulletinController;
@@ -208,16 +194,9 @@
 - (void)cancelReturnToCameraAfterCall;
 - (void)noteStartingPhoneCallWhileLocked;
 - (void)_finishedUnlockAttemptWithStatus:(BOOL)arg1;
-- (BOOL)isActivatingBacklightForUnlock;
 - (BOOL)isLockedAndInactive;
 - (BOOL)isLockedAndUndimmed;
 - (BOOL)_isAccessoryActive;
-- (void)attemptUnlock;
-- (void)attemptUnlockFromSource:(int)arg1;
-- (void)frontLocked:(BOOL)arg1 animate:(BOOL)arg2 automatically:(BOOL)arg3;
-- (void)remoteLock:(BOOL)arg1;
-- (void)_lockFeaturesForRemoteLock:(BOOL)arg1;
-- (void)frontLocked:(BOOL)arg1 withAnimation:(int)arg2 automatically:(BOOL)arg3 disableLockSound:(BOOL)arg4;
 - (id)activationBlockWithAnimation:(SEL)arg1;
 - (void)printLockLog;
 - (BOOL)shouldAnimateOtherDisplaysResumption;
@@ -232,32 +211,15 @@
 - (void)_photoLibraryChanged;
 - (void)_awayInCallControllerDidToggleShowingInCallInfo:(id)arg1;
 - (BOOL)shouldShowLockStatusBarTime;
-- (BOOL)isLocked;
-- (void)noteResetRestoreStateChanged;
-- (double)idleDimDuration;
-- (void)cancelApplicationRequestedDeviceLockEntry;
-- (void)applicationRequestedDeviceUnlock;
-- (void)activationChanged:(id)arg1;
-- (void)unlockWithSound:(BOOL)arg1;
-- (void)unlockWithSound:(BOOL)arg1 bypassPinLock:(BOOL)arg2;
-- (void)unlockWithSound:(BOOL)arg1 unlockSource:(int)arg2;
-- (void)_unlockWithSound:(BOOL)arg1 unlockSource:(int)arg2 isAutoUnlock:(BOOL)arg3 bypassPinLock:(BOOL)arg4;
-- (void)_attemptUnlockWithSound:(BOOL)arg1 unlockSource:(int)arg2 isAutoUnlock:(BOOL)arg3 lockOwner:(id)arg4 bypassPinLock:(BOOL)arg5;
+- (void)noteResetRestoreStateChanged:(id)arg1;
 - (void)screensaverDidFadeToBlack:(id)arg1 finished:(id)arg2 context:(void *)arg3;
-- (void)_finishUnlockWithSound:(BOOL)arg1 unlockSource:(int)arg2 isAutoUnlock:(BOOL)arg3;
-- (BOOL)performingAutoUnlock;
 - (void)showTestBulletin;
-- (void)_idleTimerDisabledReasonsChanged:(id)arg1;
-- (void)_deviceLockedChanged:(id)arg1;
 - (void)_deviceBlockedChanged:(id)arg1;
 - (id)allPendingAlertItems;
-- (void)lock;
-- (void)setLocked:(BOOL)arg1;
+- (void)_handleDeviceLockStateChangeNotification:(id)arg1;
 - (void)_pendAlertItem:(id)arg1;
 - (void)setShowOverheatUI:(BOOL)arg1;
 - (BOOL)showOverheatUI;
-- (void)_sendLockStateChangedNotification;
-- (void)playLockSound;
 - (void)reactivatePendingAlertItems:(BOOL)arg1;
 - (void)reactivatePendingAlertItemsWithBulletinController:(id)arg1 forUnlock:(BOOL)arg2;
 - (BOOL)shouldPendAlertItemsWhileActive;
@@ -279,9 +241,6 @@
 - (void)_restoreWindowOrientationAndDelegate;
 - (void)_setCameraAsWindowDelegate;
 - (void)dismissCameraAnimated:(BOOL)arg1;
-- (void)cleanupRunningGestureIfNeeded;
-- (void)handleDismissCameraSystemGesture:(id)arg1;
-- (BOOL)allowDismissCameraSystemGesture;
 - (void)_tearDownCameraPreview;
 - (void)_removeCameraPreviewViews;
 - (void)_activateCameraAfterCall;
@@ -298,7 +257,6 @@
 - (id)_newDynamicAnimationForCameraStart:(BOOL)arg1 targetValue:(double)arg2 withInitialVelocity:(double)arg3;
 - (void)_translateSlidingViewByY:(float)arg1;
 - (void)_setupCameraSlideDownAnimation;
-- (void)_cleanupFromCanceledCameraDismissGesture;
 - (void)_cleanupFromCameraPanGesture;
 - (void)_cleanupFromCameraPanGestureAndCancelPrewarm:(BOOL)arg1;
 - (void)_setupCameraSlideUpAnimation;
@@ -310,12 +268,11 @@
 - (void)alertDisplayWillBecomeVisible;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
 - (id)awayView;
+- (void)loadView;
 - (BOOL)undimsDisplay;
 - (float)finalAlpha;
 - (BOOL)showsSpringBoardStatusBar;
-- (struct CGRect)alertWindowRect;
-- (id)initWithUIController:(id)arg1;
-@property(readonly) BOOL hasEverBeenLocked;
+- (id)init;
 
 @end
 

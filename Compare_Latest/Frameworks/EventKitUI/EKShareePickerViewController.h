@@ -16,7 +16,8 @@
     id <EKShareePickerViewControllerDelegate> _delegate;
 }
 
-@property(nonatomic) id <EKShareePickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <EKShareePickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (int)eventAttendeePicker:(id)arg1 getValidationStatusForEmailAddress:(id)arg2;
 - (void)eventAttendeePicker:(id)arg1 cacheValidationStatus:(int)arg2 forEmail:(id)arg3;
 - (struct CGSize)contentSizeForViewInPopover;
@@ -26,7 +27,6 @@
 - (id)_shareeFromRecipient:(id)arg1;
 - (void)add;
 - (void)cancel;
-- (void)dealloc;
 - (void)viewDidLoad;
 - (void)setSearchAccountID:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

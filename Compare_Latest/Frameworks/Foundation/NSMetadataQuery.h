@@ -21,7 +21,9 @@
 - (id)valueLists;
 - (unsigned int)indexOfResult:(id)arg1;
 - (id)results;
-- (void)_zapResultArray;
+- (void)_zapResultArrayIfIdenticalTo:(id)arg1;
+- (void)enumerateResultsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
+- (void)enumerateResultsUsingBlock:(id)arg1;
 - (id)resultAtIndex:(unsigned int)arg1;
 - (unsigned int)resultCount;
 - (void)_update;
@@ -39,9 +41,14 @@
 - (void)_noteNote3:(id)arg1;
 - (void)_noteNote2:(id)arg1;
 - (void)_noteNote1:(id)arg1;
+- (void)_postNotificationName:(id)arg1 userInfo:(id)arg2;
 - (void)_setBatchingParams;
 - (void)setSearchItemURLs:(id)arg1;
 - (id)searchItemURLs;
+- (void)setSearchItems:(id)arg1;
+- (id)searchItems;
+- (void)setOperationQueue:(id)arg1;
+- (id)operationQueue;
 - (void)setSearchScopes:(id)arg1;
 - (id)searchScopes;
 - (void)setNotificationBatchingInterval:(double)arg1;

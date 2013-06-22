@@ -21,11 +21,12 @@
     int __maxNumOps;
     int __actualMaxNumOps;
     int __numExecOps;
-    unsigned int __poke;
+    unsigned int __unused2;
     unsigned char __mainQ;
     unsigned char __suspended;
     unsigned char __overcommit;
     unsigned char __pad1[1];
+    NSObject<OS_dispatch_queue> *__dispatchQueue;
     char __nameBuffer[160];
 }
 

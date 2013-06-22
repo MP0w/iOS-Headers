@@ -6,26 +6,23 @@
 
 #import <ChatKit/CKMessagePart.h>
 
-@class CKMediaObject, NSArray, NSData;
+@class CKMediaObject;
 
 @interface CKMediaObjectMessagePart : CKMessagePart
 {
     CKMediaObject *_mediaObject;
-    NSArray *_composeImages;
-    NSData *_previewData;
-    NSData *_composeData;
-    NSData *_dataForHighlight;
 }
 
 @property(readonly, nonatomic) CKMediaObject *mediaObject; // @synthesize mediaObject=_mediaObject;
-@property(copy, nonatomic) NSArray *composeImages; // @synthesize composeImages=_composeImages;
 - (void)dealloc;
 - (int)type;
-- (void)copyToPasteboard;
-- (int)_orientation;
-- (BOOL)isDisplayable;
+- (id)pasteboardItems;
 - (id)initWithMediaObject:(id)arg1;
 - (id)detachedCopy;
+- (id)description;
+- (void)__ck_prewarmForDisplay;
+- (id)composeImages;
+- (Class)balloonViewClass;
 
 @end
 

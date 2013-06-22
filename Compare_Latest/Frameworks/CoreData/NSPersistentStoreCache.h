@@ -13,8 +13,10 @@
 }
 
 + (void)initialize;
-- (id)externalDataForSourceObjectID:(id)arg1 key:(id)arg2 timestamp:(double)arg3;
-- (void)registerExternalData:(id)arg1 forSourceObjectID:(id)arg2 key:(id)arg3 options:(unsigned int)arg4 andTimestamp:(double)arg5;
+- (id)ancillaryOrderKeysForSourceObjectID:(id)arg1 forProperty:(id)arg2 timestamp:(double)arg3;
+- (void)registerAncillaryOrderKeys:(id)arg1 forSourceObjectID:(id)arg2 forProperty:(id)arg3 options:(unsigned int)arg4 andTimestamp:(double)arg5;
+- (id)externalDataForSourceObjectID:(id)arg1 forProperty:(id)arg2 timestamp:(double)arg3;
+- (void)registerExternalData:(id)arg1 forSourceObjectID:(id)arg2 forProperty:(id)arg3 options:(unsigned int)arg4 andTimestamp:(double)arg5;
 - (unsigned int)optionsForObjectID:(id)arg1;
 - (id)externalDataForObjectID:(id)arg1 timestamp:(double)arg2;
 - (void)registerExternalData:(id)arg1 forObjectID:(id)arg2 options:(unsigned int)arg3;

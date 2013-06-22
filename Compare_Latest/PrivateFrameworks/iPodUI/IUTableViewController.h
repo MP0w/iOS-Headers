@@ -7,13 +7,14 @@
 #import <iPodUI/IUiPodViewController.h>
 
 #import "IUSearchHelperDelegate-Protocol.h"
+#import "MPStoreDownloadManagerObserver-Protocol.h"
 #import "UIActionSheetDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
 @class IUMediaActionSheet, IUMediaAlertView, IUSearchHelper, IUTableViewControllerInfo, NSIndexPath, NSObject<OS_dispatch_queue>, UILabel, UISearchDisplayController, UITableView, UIView;
 
-@interface IUTableViewController : IUiPodViewController <IUSearchHelperDelegate, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface IUTableViewController : IUiPodViewController <IUSearchHelperDelegate, MPStoreDownloadManagerObserver, UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     IUMediaActionSheet *_deleteActionSheet;
     IUMediaAlertView *_deleteAlertView;
@@ -25,7 +26,7 @@
     UILabel *_globalHeaderLabel;
     unsigned int _ignoreTableReloadCount;
     NSIndexPath *_indexPathToDeletePendingConfirmation;
-    BOOL _needsTableFooterViewScrolledToVisible;
+    BOOL _needsTableBottomScrolledToVisible;
     BOOL _isBeingRemoved;
     BOOL _keepSelectionOnAppear;
     BOOL _reloadingData;
@@ -41,13 +42,16 @@
 + (Class)tableViewClass;
 + (id)tableViewBackgroundColor;
 + (Class)tableViewCellClass;
-@property(nonatomic) BOOL needsTableFooterViewScrolledToVisible; // @synthesize needsTableFooterViewScrolledToVisible=_needsTableFooterViewScrolledToVisible;
+@property(nonatomic) BOOL needsTableBottomScrolledToVisible; // @synthesize needsTableBottomScrolledToVisible=_needsTableBottomScrolledToVisible;
 @property(retain, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(readonly, nonatomic) IUSearchHelper *searchHelper; // @synthesize searchHelper=_searchHelper;
 @property(retain, nonatomic) UIView *footerView; // @synthesize footerView=_footerView;
-- (void)_updateForChangedEditingState:(BOOL)arg1;
+- (void).cxx_destruct;
+- (void)updateForChangedEditingState:(BOOL)arg1;
 - (void)updateFooterView;
-- (void)autoscrollTableFooterViewToVisibleIfNeeded;
+- (void)autoscrollTableBottomToVisibleIfNeeded;
+- (void)_scrollTableBottomToVisibleNow:(BOOL)arg1;
+- (void)_updateCellsForChangedDownloads:(id)arg1;
 - (void)_reloadDataIncludingDataSource:(BOOL)arg1 popIfEmpty:(BOOL)arg2;
 - (void)_addGlobalHeaderIfNecessary;
 - (void)_cancelDeleteAction:(id)arg1;
@@ -60,7 +64,6 @@
 - (void)_deleteEntityAtIndexPath:(id)arg1;
 - (void)_createTableIfNecessary;
 - (void)_cancelDeleteAlertView:(BOOL)arg1;
-- (void)_tableViewController_purchasableMediaDidFinishNotification:(id)arg1;
 - (void)_tableViewController_networkTypeDidChangeNotification:(id)arg1;
 - (void)_tableViewController_mediaLibraryDisplayValuesDidChangeNotification:(id)arg1;
 - (void)_tableViewController_defaultMediaLibraryDidChangeNotification:(id)arg1;
@@ -68,6 +71,8 @@
 - (void)_delayedDeselectIndexPath:(id)arg1;
 - (void)searchHelperWillEndSearch:(id)arg1;
 - (void)searchHelperWillBeginSearch:(id)arg1;
+- (void)downloadManager:(id)arg1 downloadDidFinish:(id)arg2;
+- (void)downloadManager:(id)arg1 didAddDownloads:(id)arg2 removeDownloads:(id)arg3;
 - (void)alertViewCancel:(id)arg1;
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
@@ -77,6 +82,8 @@
 - (id)tableView:(id)arg1 targetIndexPathForMoveFromRowAtIndexPath:(id)arg2 toProposedIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 didEndEditingRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willBeginEditingRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 titleForDeleteConfirmationButtonForRowAtIndexPath:(id)arg2;
+- (BOOL)deleteHidesFromCloudForRowAtIndexPath:(id)arg1;
 - (int)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
@@ -129,7 +136,6 @@
 - (void)beginIgnoringTableReload;
 - (void)concealCompletionOfferingItems;
 - (void)toggleVisibilityOfItemsInCompletionOffering:(id)arg1;
-- (void)mediaListAggregateView:(id)arg1 performActionForSimpleCellPreset:(int)arg2;
 @property(readonly, nonatomic) BOOL allowsDisclosureInCells;
 - (void)_updateHeightForTableHeaderViewHiding;
 - (void)reloadRowsAtIndexPaths:(id)arg1 withRowAnimation:(int)arg2;

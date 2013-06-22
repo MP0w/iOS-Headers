@@ -12,9 +12,9 @@
 {
     BOOL _shouldPostNotifications;
     BOOL _active;
-    NSMutableDictionary *_parentalControls;
     BOOL _disableAV;
     BOOL _forceChatLogging;
+    NSMutableDictionary *_parentalControls;
 }
 
 + (id)standardControls;

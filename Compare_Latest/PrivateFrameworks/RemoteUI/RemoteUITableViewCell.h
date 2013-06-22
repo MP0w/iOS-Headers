@@ -17,7 +17,6 @@
     UIView *_remoteUIAccessoryView;
 }
 
-+ (id)alertImage;
 @property(retain, nonatomic) UIView *remoteUIAccessoryView; // @synthesize remoteUIAccessoryView=_remoteUIAccessoryView;
 @property(nonatomic) int remoteUIAccessoryType; // @synthesize remoteUIAccessoryType=_remoteUIAccessoryType;
 @property(nonatomic) BOOL leftAlignDetailLabel; // @synthesize leftAlignDetailLabel=_leftAlignDetailLabel;

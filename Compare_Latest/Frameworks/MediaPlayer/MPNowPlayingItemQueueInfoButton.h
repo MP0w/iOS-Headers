@@ -22,9 +22,10 @@
     id <MPNowPlayingItemQueueInfoButtonDelegate> _delegate;
 }
 
-@property(nonatomic) id <MPNowPlayingItemQueueInfoButtonDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MPNowPlayingItemQueueInfoButtonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned int allowedDisplayTypes; // @synthesize allowedDisplayTypes=_allowedDisplayTypes;
 @property(retain, nonatomic) NSURL *infoURL; // @synthesize infoURL=_infoURL;
+- (void).cxx_destruct;
 - (void)clicked:(id)arg1;
 - (void)updateForItemCrossedTimeMarkerNotification:(id)arg1 currentTime:(double)arg2;
 - (void)configureForItem:(id)arg1;
@@ -40,7 +41,6 @@
 @property(readonly, nonatomic) int infoDisplayType;
 - (int)_infoDisplayTypeForURL:(id)arg1 urlIsTimed:(BOOL)arg2 feederCount:(unsigned int)arg3 askDelegate:(BOOL)arg4;
 - (int)buttonType;
-- (void)dealloc;
 - (void)clearWeakReferencesToObject:(id)arg1;
 - (id)init;
 

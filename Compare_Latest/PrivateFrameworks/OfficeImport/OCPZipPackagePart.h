@@ -13,6 +13,7 @@
     SFUZipEntry *mEntry;
 }
 
+@property(readonly, nonatomic) SFUZipEntry *zipEntry; // @synthesize zipEntry=mEntry;
 - (struct _xmlTextReader *)xmlReader;
 - (struct _xmlDoc *)xmlDocument;
 - (void)copyToFile:(id)arg1;

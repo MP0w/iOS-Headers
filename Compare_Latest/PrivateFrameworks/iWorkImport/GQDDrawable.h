@@ -17,7 +17,7 @@
     char *mUid;
     GQDBezierPath *mWrapPath;
     GQDAffineGeometry *mWrapGeometry;
-    set_ac3beeb4 *mInnerWrapPoints;
+    set_a2165b2d *mInnerWrapPoints;
     BOOL mHasPagesOrder;
     long mPagesOrder;
 }
@@ -26,8 +26,8 @@
 - (BOOL)hasPagesOrder;
 - (struct CGPath *)createBezierPath;
 - (void)clearWrapPoints;
-- (vector_8a2ced25 *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
-- (const set_ac3beeb4 *)wrapPoints;
+- (vector_dadce35e *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
+- (const set_a2165b2d *)wrapPoints;
 - (void)addWrapPoint:(id)arg1;
 - (int)collectWrapPointsForState:(id)arg1 graphicStyle:(id)arg2;
 - (const char *)uid;

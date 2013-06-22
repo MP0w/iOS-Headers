@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class TIWordTokenizer, WebBookmark;
+@class WebBookmark, WebBookmarkTitleWordTokenizer;
 
 @interface WebBookmarkCollection : NSObject
 {
     struct sqlite3 *_db;
     struct __CFLocale *_locale;
-    TIWordTokenizer *_wordTokenizer;
+    WebBookmarkTitleWordTokenizer *_wordTokenizer;
     WebBookmark *_rootBookmark;
     BOOL _merging;
     BOOL _dirty;
@@ -22,12 +22,13 @@
 + (unsigned long long)readingListArchivesDiskUsage;
 + (id)safariDirectoryPath;
 + (id)readingListArchivesDirectoryPath;
++ (id)_uniqueExternalUUID;
 + (void)_postBookmarksChangedSyncNotification;
 + (void)unlockSync;
 + (BOOL)lockSync;
 + (BOOL)isLockedSync;
-+ (id)_uniqueExternalUUID;
 @property(nonatomic, getter=isMerging) BOOL merging; // @synthesize merging=_merging;
+- (void)clearBuiltinBookmarks;
 - (unsigned int)rollingReadingListMaximumCount;
 - (id)rollingListOfArchivedReadingListItems;
 - (void)rollOutReadingListItemIfNeededToMakeRoomForOneNewItem;
@@ -40,11 +41,12 @@
 - (id)_orderedWhereClauseForArchiveMode:(int)arg1;
 - (void)postBookmarksDidReloadNotification;
 - (unsigned int)indexOfReadingListBookmark:(id)arg1 countingOnlyUnread:(BOOL)arg2;
-- (id)firstReadingListBookmarkWithIconDataWithBaseURL:(id)arg1;
 - (id)firstReadingListBookmarkWithURLMatchingString:(id)arg1 prefixMatch:(BOOL)arg2;
-- (id)bookmarksWithURLsMatchingString:(id)arg1;
-- (id)bookmarksWithTitlesMatchingString:(id)arg1;
+- (id)readingListBookmarksMatchingString:(id)arg1 maxResults:(unsigned int)arg2 onlyArchivedBookmarks:(BOOL)arg3;
+- (void)_addBookmarksForReadingListMatchStatement:(id)arg1 normalizedQuery:(id)arg2 toArray:(id)arg3 maxResults:(int)arg4;
 - (id)_bookmarksFromStatementSelectingIDs:(const char *)arg1 withQuery:(id)arg2;
+- (void)enumerateBookmarks:(BOOL)arg1 andReadingListItems:(BOOL)arg2 matchingString:(id)arg3 usingBlock:(id)arg4;
+- (void)_enumerateBookmarksForMatchStatement:(id)arg1 normalizedQuery:(id)arg2 usingBlock:(id)arg3;
 - (id)bookmarksMatchingString:(id)arg1;
 - (struct sqlite3_stmt *)_prefixSearch:(id)arg1 usingColumns:(const char *)arg2 maxCount:(unsigned int)arg3;
 - (BOOL)reorderList:(id)arg1 moveBookmarkAtIndex:(unsigned int)arg2 toIndex:(unsigned int)arg3;
@@ -53,10 +55,13 @@
 - (BOOL)moveBookmark:(id)arg1 toFolderWithID:(unsigned int)arg2;
 - (BOOL)deleteBookmark:(id)arg1;
 - (BOOL)deleteBookmark:(id)arg1 postChangeNotification:(BOOL)arg2;
+- (BOOL)saveBookmark:(id)arg1 startReadingListFetcher:(BOOL)arg2;
 - (BOOL)saveBookmark:(id)arg1;
-- (id)readingListItemsWithIconData:(BOOL)arg1 unreadOnly:(BOOL)arg2;
+- (id)webFilterWhiteList;
+- (unsigned int)webFilterWhiteListFolderBookmarkID;
+- (id)bookmarksNeedingIcons;
+- (BOOL)bookmarkDisplaysIcon:(id)arg1;
 - (unsigned int)readingListFolderBookmarkID;
-- (id)readingList;
 - (id)readingListWithUnreadOnly:(BOOL)arg1;
 - (id)bookmarksBarList;
 - (id)rootList;
@@ -67,6 +72,7 @@
 - (id)subfoldersOfID:(unsigned int)arg1;
 - (id)rootBookmark;
 - (id)bookmarkAtPath:(id)arg1;
+- (id)webFilterWhiteListFolder;
 - (id)readingListFolder;
 - (id)bookmarksBarBookmark;
 - (id)bookmarkWithUUID:(id)arg1;
@@ -86,29 +92,14 @@
 - (id)initSafariBookmarkCollectionCheckingIntegrity:(BOOL)arg1;
 - (id)initWithPath:(id)arg1;
 - (id)initWithPath:(id)arg1 checkIntegrity:(BOOL)arg2;
-- (void)rollbackSyncTransaction;
-- (void)commitSyncTransaction;
-- (BOOL)beginSyncTransaction;
-- (id)syncDataForKey:(id)arg1;
-- (BOOL)setSyncData:(id)arg1 forKey:(id)arg2;
-- (id)syncStringForKey:(id)arg1;
-- (BOOL)syncSetString:(id)arg1 forKey:(id)arg2;
-- (BOOL)_deleteSyncPropertyForKey:(id)arg1;
-- (BOOL)_syncPropertyExistsForKey:(id)arg1;
-- (unsigned int)generation;
-- (BOOL)mergeWithBookmarksDictionary:(id)arg1 clearHidden:(BOOL)arg2 error:(id *)arg3;
-- (BOOL)_markSpecialBookmarks;
-- (BOOL)_mergeChildrenOfID:(unsigned int)arg1 referencingBase:(id)arg2 error:(id *)arg3;
-- (BOOL)_syncAdd:(id)arg1 toParent:(unsigned int)arg2 withOrderIndex:(unsigned int)arg3 error:(id *)arg4;
-- (id)bookmarksDictionary;
-- (BOOL)_addChildrenOfID:(unsigned int)arg1 toCollection:(id)arg2 recursive:(BOOL)arg3 error:(id *)arg4;
-- (id)_bookmarkDictionaryForSqliteRow:(struct sqlite3_stmt *)arg1 recursive:(BOOL)arg2 error:(id *)arg3;
 - (void)_simulateCrashWithDescription:(id)arg1;
 - (void)_startReadingListFetcher;
 - (void)_postBookmarksSpecialFoldersDidChangeNotification;
 - (void)_postBookmarksFolderContentsDidChangeNotification:(unsigned int)arg1;
 - (void)_postBookmarksDidReloadNotificationAndStartReadingListFetcherIfChangesWereMade;
 - (void)_postBookmarksDidReloadNotification;
+- (void)_registerForWebFilterConfigurationChangedNotification;
+- (BOOL)_isWebFilterWhiteListOnlyModeEnabled;
 - (void)_registerForSyncBookmarksFileChangedNotification;
 - (BOOL)_incrementDAVGeneration;
 - (int)_DAVGeneration;
@@ -127,7 +118,7 @@
 - (BOOL)_rebuildAncestorTable;
 - (BOOL)_orderChildrenWithServerIDs:(id)arg1 inFolderWithServerID:(id)arg2;
 - (BOOL)_unsafeOrderChildrenWithServerIDs:(id)arg1 inFolderWithServerID:(id)arg2;
-- (id)_serverIDAtOrderIndex:(int)arg1 inFolderWithServerID:(id)arg2;
+- (id)_serverIDAtOrderIndex:(unsigned int)arg1 inFolderWithServerID:(id)arg2;
 - (id)_serverIDsInFolderWithServerID:(id)arg1;
 - (id)_syncKeysForServerIDs:(id)arg1;
 - (BOOL)_setSyncData:(id)arg1 forBookmark:(id)arg2;
@@ -159,11 +150,16 @@
 - (int)_finalizeStatementIfNotNull:(struct sqlite3_stmt *)arg1;
 - (struct sqlite3_stmt *)_selectBookmarksWhere:(id)arg1 countOnly:(BOOL)arg2;
 - (struct sqlite3_stmt *)_selectBookmarksWhere:(id)arg1;
+- (id)_rootFolderHiddenChildrenClause;
 - (BOOL)_restoreMissingSpecialBookmarks;
 - (BOOL)_restoreBookmarkBarIfMissing;
 - (BOOL)_migrateBookmarksPlist:(id)arg1 syncAnchorPlist:(id)arg2;
 - (void)_migrateToCurrentSchema;
 - (void)_rerunMigrationsIfNecessary;
+- (void)_migrateSchemaVersion34ToVersion35;
+- (void)_migrateSchemaVersion33ToVersion34;
+- (void)_migrateSchemaVersion32ToVersion33;
+- (void)_migrateSchemaVersion31ToVersion32;
 - (void)_migrateSchemaVersion30ToVersion31;
 - (void)_migrateSchemaVersion29ToVersion30;
 - (void)_migrateSchemaVersion28ToVersion29;
@@ -198,14 +194,33 @@
 - (id)_mergeCandidateFolderWithTitle:(id)arg1 parent:(unsigned int)arg2;
 - (id)_firstBookmarkWithURLMatchingString:(id)arg1 prefixMatch:(BOOL)arg2 inParent:(unsigned int)arg3;
 - (id)_bookmarkWithSpecialID:(unsigned int)arg1;
-- (int)_orderIndexForBookmarkInsertedIntoParent:(unsigned int)arg1 insertAtBeginning:(BOOL)arg2;
+- (unsigned int)_orderIndexForBookmarkInsertedIntoParent:(unsigned int)arg1 insertAtBeginning:(BOOL)arg2;
 - (BOOL)_updateHiddenAncestorCountForBookmarksUnderFolderID:(unsigned int)arg1 addingOffset:(int)arg2;
 - (BOOL)_insertAncestorTableEntriesForBookmarkID:(unsigned int)arg1 withAncestorIDs:(id)arg2;
 - (void)_clearAndCreateAncestorTable;
 - (void)_restoreOrMergeReadingListFolderWithChangeNotification:(BOOL)arg1;
+- (void)_restoreOrMergeWhiteListFolderAndContentsWithChangeNotification:(BOOL)arg1;
 - (void)_normalizeDatabaseURLs;
 - (BOOL)_importSyncAnchorPlist:(id)arg1;
 - (BOOL)_importBookmarksPlist:(id)arg1;
+- (BOOL)containsOnlyStockBookmarks;
+- (void)rollbackSyncTransaction;
+- (void)commitSyncTransaction;
+- (BOOL)beginSyncTransaction;
+- (id)syncDataForKey:(id)arg1;
+- (BOOL)setSyncData:(id)arg1 forKey:(id)arg2;
+- (id)syncStringForKey:(id)arg1;
+- (BOOL)syncSetString:(id)arg1 forKey:(id)arg2;
+- (BOOL)_deleteSyncPropertyForKey:(id)arg1;
+- (BOOL)_syncPropertyExistsForKey:(id)arg1;
+- (unsigned int)generation;
+- (BOOL)mergeWithBookmarksDictionary:(id)arg1 clearHidden:(BOOL)arg2 error:(id *)arg3;
+- (BOOL)_markSpecialBookmarks;
+- (BOOL)_mergeChildrenOfID:(unsigned int)arg1 referencingBase:(id)arg2 error:(id *)arg3;
+- (BOOL)_syncAdd:(id)arg1 toParent:(unsigned int)arg2 withOrderIndex:(unsigned int)arg3 error:(id *)arg4;
+- (id)bookmarksDictionary;
+- (BOOL)_addChildrenOfID:(unsigned int)arg1 toCollection:(id)arg2 recursive:(BOOL)arg3 error:(id *)arg4;
+- (id)_bookmarkDictionaryForSqliteRow:(struct sqlite3_stmt *)arg1 recursive:(BOOL)arg2 error:(id *)arg3;
 
 @end
 

@@ -7,8 +7,7 @@
 #import "ACAccountStore.h"
 
 @interface ACAccountStore (AppleID)
-- (id)appleIDAccountType;
 - (id)accountWithAppleID:(id)arg1;
-- (id)accountWithDSID:(id)arg1;
+- (id)accountsWithAccountType:(id)arg1 appleID:(id)arg2;
 @end
 

@@ -7,18 +7,18 @@
 #import <UIKit/UIViewController.h>
 
 #import "WebUIBrowserLoadingControllerDelegate-Protocol.h"
-#import "XPCProxyTarget-Protocol.h"
 #import "_UIServiceWebViewControllerProtocol-Protocol.h"
 
 @class WebUIBrowserLoadingController, _UIServiceWebView;
 
-@interface _UIServiceWebViewController : UIViewController <XPCProxyTarget, _UIServiceWebViewControllerProtocol, WebUIBrowserLoadingControllerDelegate>
+@interface _UIServiceWebViewController : UIViewController <_UIServiceWebViewControllerProtocol, WebUIBrowserLoadingControllerDelegate>
 {
     _UIServiceWebView *_uiWebView;
     WebUIBrowserLoadingController *_loadingController;
-    id <_UIRemoteWebViewControllerProtocol> _remoteViewControllerProxy;
 }
 
++ (id)_exportedInterface;
++ (id)_remoteViewControllerInterface;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
@@ -44,12 +44,11 @@
 - (void)_remotelyDispatchWillPresentViewControllerWithCompletionHandler:(id)arg1;
 - (void)_remotelyDecidePolicyForRequest:(id)arg1 inMainFrame:(BOOL)arg2 navigationType:(id)arg3 decisionHandler:(id)arg4;
 - (void)setShouldDecidePolicyRemotely:(BOOL)arg1;
-- (void)willAppearInRemoteViewController:(id)arg1;
+- (void)_willAppearInRemoteViewController;
 - (void)_setupRemoteInspectorDetailsForRequestingProcess;
 - (id)localizedApplicationNameForProcess:(int)arg1;
 - (BOOL)_isInternalInstall;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 
 @end
 

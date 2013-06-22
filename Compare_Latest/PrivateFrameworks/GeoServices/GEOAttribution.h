@@ -11,11 +11,15 @@
 @interface GEOAttribution : PBCodable
 {
     NSString *_badge;
+    NSString *_badgeChecksum;
     NSString *_logo;
+    NSString *_logoChecksum;
     NSString *_name;
     NSString *_url;
 }
 
+@property(retain, nonatomic) NSString *logoChecksum; // @synthesize logoChecksum=_logoChecksum;
+@property(retain, nonatomic) NSString *badgeChecksum; // @synthesize badgeChecksum=_badgeChecksum;
 @property(retain, nonatomic) NSString *url; // @synthesize url=_url;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *logo; // @synthesize logo=_logo;
@@ -27,6 +31,8 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasLogoChecksum;
+@property(readonly, nonatomic) BOOL hasBadgeChecksum;
 @property(readonly, nonatomic) BOOL hasUrl;
 @property(readonly, nonatomic) BOOL hasName;
 @property(readonly, nonatomic) BOOL hasLogo;

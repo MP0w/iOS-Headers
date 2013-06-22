@@ -6,12 +6,12 @@
 
 #import <UIKit/UIView.h>
 
-@class NSTimer, UIHighlightView, UILabel;
+@class NSTimer, UILabel, _UIHighlightView;
 
 @interface UIWebPDFLabelView : UIView
 {
     UILabel *_label;
-    UIHighlightView *_highlight;
+    _UIHighlightView *_highlight;
     NSTimer *_timer;
     unsigned int currentPageIndex;
 }

@@ -13,7 +13,6 @@
     HSConnectionConfiguration *_configuration;
     int _connectionState;
     HSConnectionStream *_connectionStream;
-    HSConnectionStream *_concurrentConnectionStream;
     int _connectionType;
     NSObject<OS_dispatch_queue> *_queue;
     struct __CFReadStream *_readStream;
@@ -26,8 +25,16 @@
     NSString *password;
     unsigned int sessionID;
     NSString *username;
+    unsigned int _interfaceID;
+    unsigned int _controlKey;
+    unsigned int _controlPort;
+    unsigned int _promptID;
 }
 
+@property(nonatomic) unsigned int promptID; // @synthesize promptID=_promptID;
+@property unsigned int controlPort; // @synthesize controlPort=_controlPort;
+@property unsigned int controlKey; // @synthesize controlKey=_controlKey;
+@property unsigned int interfaceID; // @synthesize interfaceID=_interfaceID;
 @property(copy) NSString *username; // @synthesize username;
 @property unsigned int sessionID; // @synthesize sessionID;
 @property(copy) NSString *password; // @synthesize password;
@@ -39,13 +46,15 @@
 @property int connectionState; // @synthesize connectionState=_connectionState;
 @property unsigned int basePlaylistContainerID; // @synthesize basePlaylistContainerID;
 @property(getter=isAuthenticationRequired) BOOL authenticationRequired; // @synthesize authenticationRequired;
-- (void)_sendRequest:(id)arg1 onConnectionStream:(id)arg2 withInternalResponseHandler:(id)arg3;
+- (void)_setupControlConnectionWithInternalConnectionCompletionHandler:(id)arg1;
+- (void)_sendRequest:(id)arg1 withInternalResponseHandler:(id)arg2;
+- (unsigned int)_sapVersionForConnectionType;
 - (void)_notifyServerOfActivity;
 - (void)_loadDatabaseWithInternalConnectionCompletionHandler:(id)arg1;
 - (void)_continueFPSetupNegotiationWithData:(id)arg1 internalConnectionCompletionHandler:(id)arg2;
 - (void)checkForDatabaseUpdatesWithCompletionHandler:(id)arg1;
-- (void)sendConcurrentRequest:(id)arg1 withResponseHandler:(id)arg2;
 - (void)sendRequest:(id)arg1 withResponseHandler:(id)arg2;
+- (id)newControlConnection;
 - (void)disconnect;
 - (void)connectWithCompletionHandler:(id)arg1;
 @property(readonly) NSURL *baseURL;

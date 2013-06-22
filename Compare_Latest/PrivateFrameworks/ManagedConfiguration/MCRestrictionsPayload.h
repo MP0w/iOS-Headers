@@ -6,27 +6,30 @@
 
 #import <ManagedConfiguration/MCPayload.h>
 
-@class NSDictionary, NSMutableDictionary;
+@class NSMutableDictionary;
 
 @interface MCRestrictionsPayload : MCPayload
 {
     NSMutableDictionary *_restrictions;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
-@property(readonly, nonatomic) NSDictionary *restrictions; // @synthesize restrictions=_restrictions;
 - (void).cxx_destruct;
 - (id)installationWarnings;
 - (void)_insertRestrictedBoolForKey:(id)arg1 value:(id)arg2 preferenc:(BOOL)arg3;
 - (id)subtitle1Description;
 - (id)_defaultMediaSettings;
+- (id)_unionStrings;
+- (id)_intersectionStrings;
 - (id)_enforcedFeatureStrings;
 - (id)_restrictedFeatureStrings;
 - (id)description;
 - (id)stubDictionary;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 - (id)_invalidFieldErrorWithFieldName:(id)arg1;
+- (id)restrictions;
 
 @end
 

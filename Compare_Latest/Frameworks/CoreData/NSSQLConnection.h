@@ -43,6 +43,7 @@
 - (id)metadataColumns;
 - (void)saveMetadata:(id)arg1;
 - (BOOL)hasMetadataTable;
+- (id)newFetchUUIDSForSubentitiesRootedAt:(id)arg1;
 - (id)fetchTableCreationSQL;
 - (id)fetchTableNames;
 - (long long)fetchMaxPrimaryKeyForEntity:(id)arg1;
@@ -71,6 +72,7 @@
 - (void)resetSQLStatement;
 - (void)execute;
 - (void)prepareSQLStatement:(id)arg1;
+- (void)bindTempTableForBindIntarray:(id)arg1;
 - (void)selectAttributes:(id)arg1 fetchRequest:(id)arg2 lock:(BOOL)arg3 entity:(id)arg4;
 - (void)deleteRow:(id)arg1;
 - (void)updateRow:(id)arg1;

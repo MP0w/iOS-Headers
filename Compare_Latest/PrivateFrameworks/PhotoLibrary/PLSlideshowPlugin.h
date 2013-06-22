@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<PLAssetContainer>, PLManagedAsset;
+@class NSArray, NSObject<PLAlbumProtocol>, PLManagedAsset;
 
 @interface PLSlideshowPlugin : NSObject
 {
@@ -32,7 +32,7 @@
 - (id)newSlideshowView;
 @property(readonly, nonatomic) NSArray *displayedPhotos;
 @property(readonly, nonatomic) PLManagedAsset *currentPhoto;
-@property(retain, nonatomic) NSObject<PLAssetContainer> *album;
+@property(retain, nonatomic) NSObject<PLAlbumProtocol> *album;
 - (void)dealloc;
 
 @end

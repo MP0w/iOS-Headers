@@ -10,6 +10,7 @@
 {
 }
 
+- (void)drawInContext:(struct CGContext *)arg1;
 - (int)annotationType;
 
 @end

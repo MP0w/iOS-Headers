@@ -6,7 +6,7 @@
 
 #import <OfficeImport/CHBState.h>
 
-@class EBReaderSheetState;
+@class EBReaderSheetState, OADColorScheme;
 
 @interface CHBReaderState : CHBState
 {
@@ -17,6 +17,7 @@
     int mXlCurrentPlotIndex;
 }
 
+@property(readonly, nonatomic) OADColorScheme *colorScheme;
 - (const struct XlChartSeriesFormat *)defaultFormatForXlSeries:(const struct XlChartDataSeries *)arg1;
 - (const struct XlChartSeriesFormat *)xlCurrentDefaultSeriesFormat;
 - (void)setXlCurrentPlot:(struct XlChartPlot *)arg1;

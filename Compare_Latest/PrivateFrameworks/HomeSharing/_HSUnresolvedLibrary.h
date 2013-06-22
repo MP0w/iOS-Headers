@@ -10,6 +10,7 @@
 
 @interface _HSUnresolvedLibrary : NSObject
 {
+    int _browserType;
     id _completionHandler;
     NSNetService *_netService;
     struct _DNSServiceRef_t *_resolvingDNSService;
@@ -21,7 +22,7 @@
 - (void)resolveWithTimeout:(double)arg1 completionHandler:(id)arg2;
 - (void)_callAndInvalidateCompletionHandlerWithLibrary:(id)arg1;
 - (void)dealloc;
-- (id)initWithNSNetService:(id)arg1;
+- (id)initWithNSNetService:(id)arg1 browserType:(int)arg2;
 
 @end
 

@@ -6,27 +6,29 @@
 
 #import "UINavigationController.h"
 
+#import "CKSMSComposeViewServiceProtocol-Protocol.h"
 #import "CKTranscriptComposeDelegate-Protocol.h"
 
-@class CKModalTranscriptController, XPCProxy<CKSMSComposeRemoteViewControllerDelegate>;
+@class CKModalTranscriptController;
 
-@interface CKSMSComposeViewServiceController : UINavigationController <CKTranscriptComposeDelegate>
+@interface CKSMSComposeViewServiceController : UINavigationController <CKTranscriptComposeDelegate, CKSMSComposeViewServiceProtocol>
 {
     BOOL _canEditRecipients;
     BOOL _supportsAttachments;
     BOOL _supportsMessageInspection;
     BOOL _forceMMS;
+    BOOL _disableCameraAttachments;
     CKModalTranscriptController *_modalTranscriptController;
-    XPCProxy<CKSMSComposeRemoteViewControllerDelegate> *_viewServiceXPCProxy;
 }
 
-@property(retain, nonatomic) XPCProxy<CKSMSComposeRemoteViewControllerDelegate> *viewServiceXPCProxy; // @synthesize viewServiceXPCProxy=_viewServiceXPCProxy;
++ (id)_remoteViewControllerInterface;
++ (id)_exportedInterface;
 @property(retain, nonatomic) CKModalTranscriptController *modalTranscriptController; // @synthesize modalTranscriptController=_modalTranscriptController;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
-- (void)willAppearInRemoteViewController:(id)arg1;
+- (void)_willAppearInRemoteViewController;
 - (BOOL)supportsMessageInspection;
 - (BOOL)supportsAttachments;
 @property(nonatomic) BOOL canEditRecipients; // @dynamic canEditRecipients;
+- (void)transcriptController:(id)arg1 didSelectNewConversation:(id)arg2;
 - (void)showNewMessageCompositionForMessageParts:(id)arg1;
 - (void)showForwardedMessageParts:(id)arg1;
 - (void)transcriptController:(id)arg1 didSendMessageInConversation:(id)arg2;
@@ -36,11 +38,13 @@
 - (void)setTextEntryContentsVisible:(BOOL)arg1;
 - (void)disableCameraAttachments;
 - (void)setPendingAddresses:(id)arg1;
+- (void)setText:(id)arg1 subject:(id)arg2 addresses:(id)arg3;
 - (void)setText:(id)arg1 addresses:(id)arg2;
 - (void)forceMMS;
 - (void)_forceMMSIfNecessary;
 - (void)setUICustomizationData:(id)arg1;
 - (void)forceCancelComposition;
+- (void)insertAttachmentWithURL:(id)arg1 andDescription:(id)arg2;
 - (void)insertTextPart:(id)arg1;
 - (void)insertData:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
 - (void)insertFilename:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3 options:(id)arg4;

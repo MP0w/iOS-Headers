@@ -6,17 +6,20 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>;
+
 @interface CoreDAVLogging : NSObject
 {
     struct __CFDictionary *_logDelegates;
+    NSObject<OS_dispatch_queue> *_delegateMuckingQueue;
 }
 
 + (id)sharedLogging;
 - (void)logDiagnosticForProvider:(id)arg1 withLevel:(int)arg2 format:(id)arg3 args:(void *)arg4;
-- (struct __CFSet *)delegatesToLogTransmittedDataForAccountInfoProvider:(id)arg1;
+- (id)delegatesToLogTransmittedDataForAccountInfoProvider:(id)arg1;
 - (BOOL)_shouldOutputAtLevel:(int)arg1 forAccountInfoProvider:(id)arg2;
 - (BOOL)shouldLogAtLevel:(int)arg1 forAccountInfoProvider:(id)arg2;
-- (struct __CFSet *)_delegatesToLogForProvider:(id)arg1;
+- (id)_delegatesToLogForProvider:(id)arg1;
 - (void)removeLogDelegate:(id)arg1 forAccountInfoProvider:(id)arg2;
 - (void)addLogDelegate:(id)arg1 forAccountInfoProvider:(id)arg2;
 - (void)dealloc;

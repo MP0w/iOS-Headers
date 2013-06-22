@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSURLAuthenticationChallengeInternal;
 
-@interface NSURLAuthenticationChallenge : NSObject <NSCoding>
+@interface NSURLAuthenticationChallenge : NSObject <NSSecureCoding>
 {
     NSURLAuthenticationChallengeInternal *_internal;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)_createAuthenticationChallengeForCFAuthChallenge:(struct _CFURLAuthChallenge *)arg1 sender:(id)arg2;
++ (id)_authenticationChallengeForCFAuthChallenge:(struct _CFURLAuthChallenge *)arg1 sender:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)sender;

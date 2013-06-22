@@ -6,14 +6,26 @@
 
 #import "NSObject.h"
 
-@class AVAssetResourceLoader, NSDictionary, NSURLRequest;
+@class AVAssetResourceLoadingContentInformationRequest, AVAssetResourceLoadingDataRequest, AVWeakReference, NSDictionary, NSMutableData, NSMutableURLRequest, NSObject<OS_dispatch_queue>, NSURLRequest, NSURLResponse;
 
 @interface AVAssetResourceLoadingRequestInternal : NSObject
 {
-    AVAssetResourceLoader *resourceLoader;
+    AVWeakReference *weakReference;
+    AVWeakReference *weakReferenceToResourceLoader;
     NSDictionary *requestDictionary;
-    NSURLRequest *URLRequest;
-    unsigned char finished;
+    NSMutableURLRequest *URLRequest;
+    NSURLResponse *response;
+    NSURLRequest *redirect;
+    NSObject<OS_dispatch_queue> *dataCachingQueue;
+    NSMutableData *cachedData;
+    NSDictionary *cachedContentInformation;
+    AVAssetResourceLoadingContentInformationRequest *contentInformationRequest;
+    AVAssetResourceLoadingDataRequest *dataRequest;
+    int finished;
+    int cancelled;
+    int sentContentInfo;
+    struct OpaqueFigPlaybackItem *figPlaybackItem;
+    id streamingKeyRequestCompletionHandler;
 }
 
 @end

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMetadataQuery, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSPredicate, NSThread;
+@class LBFSEventsWatcher, NSArray, NSMetadataQuery, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_dispatch_queue>, NSOperationQueue, NSPredicate;
 
 @interface LBQuery : NSObject
 {
@@ -43,7 +43,9 @@
     void *_sort_context;
     NSObject<OS_dispatch_queue> *_notificationQueue;
     struct __LBItemUpdateObserver *_observer;
-    NSThread *_executeThread;
+    LBFSEventsWatcher *_watcher;
+    struct __CFRunLoop *_runLoop;
+    NSOperationQueue *_queryQueue;
     _Bool _pendingNote;
     unsigned long _notifyInterval;
     int _disableCount;
@@ -68,6 +70,8 @@
 - (void)_willRemove:(id)arg1;
 - (void)_didChange:(unsigned int)arg1 inSet:(id)arg2;
 - (void)_willChange:(unsigned int)arg1 inSet:(id)arg2;
+- (id)queryQueue;
+- (void)setQueryQueue:(id)arg1;
 - (void)setSortComparator:(void *)arg1 withContext:(void *)arg2;
 - (void)setSearchScope:(id)arg1 withOptions:(unsigned long)arg2;
 - (void)setCreateValueFunction:(void *)arg1 withContext:(void *)arg2 callbacks:(const CDStruct_41c7518b *)arg3;
@@ -85,7 +89,6 @@
 - (void)_updateQueryResultForURL:(id)arg1 info:(id)arg2 updateType:(int)arg3;
 - (void)updateQueryResultForURL:(id)arg1 info:(id)arg2 updateType:(int)arg3;
 - (void)performBlock:(id)arg1;
-- (void)runBlock:(id)arg1;
 - (void)__updateQueryResultForURL:(id)arg1 info:(id)arg2 updateType:(int)arg3;
 - (void)addChangeToURL:(id)arg1 withInfo:(id)arg2;
 - (void)addCreatedURL:(id)arg1 withInfo:(id)arg2;
@@ -94,7 +97,6 @@
 - (void)_sendNote;
 - (void)sendNote;
 - (void)stop;
-- (void)_stop;
 - (void)enableUpdates;
 - (void)_enableUpdates;
 - (void)disableUpdates;

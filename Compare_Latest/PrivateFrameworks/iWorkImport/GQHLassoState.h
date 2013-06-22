@@ -11,26 +11,26 @@
 @interface GQHLassoState : GQHState
 {
     GQHXML *mNavigation;
-    GQHXML *mIndex;
     int mSheetCount;
     int mTableCount;
     struct __CFString *mCssUri;
     struct __CFString *mCurrentSheetFilename;
-    struct __CFArray *mSheetFilenameList;
-    struct __CFArray *mSheetUriList;
     struct __CFString *mCurrentSheetUri;
     struct CGPoint mMaxCanvasPoint;
     unsigned int mCurrentDrawableZOrder;
     unsigned int mZOrderedDrawableCount;
     struct __CFDictionary *mDrawableUidToCssZOrderClassMap;
     struct __CFArray *mSheetCssUriList;
-    struct __CFArray *mSheetCssLastUriList;
     struct __CFString *mSheetCssFilename;
-    struct __CFString *mSheetCssLastFilename;
     struct __CFString *mSheetOneCss;
     struct __CFString *mSheetOneLastCSS;
     char *mFirstWorkspaceName;
     _Bool mIsProgressiveMode;
+    GQHXML *mIndex;
+    struct __CFArray *mSheetFilenameList;
+    struct __CFArray *mSheetUriList;
+    struct __CFArray *mSheetCssLastUriList;
+    struct __CFString *mSheetCssLastFilename;
 }
 
 - (id).cxx_construct;

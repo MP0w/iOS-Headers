@@ -10,8 +10,9 @@
 {
 }
 
+- (id)tileWithoutTouchingForKey:(const struct VKTileKey *)arg1;
 - (void)setObject:(id)arg1 forKey:(const struct VKTileKey *)arg2;
-- (id)objectWithoutTouchingForKey:(const struct VKTileKey *)arg1;
+- (id)objectWithoutPromotingForKey:(const struct VKTileKey *)arg1;
 - (id)objectForKey:(const struct VKTileKey *)arg1;
 
 @end

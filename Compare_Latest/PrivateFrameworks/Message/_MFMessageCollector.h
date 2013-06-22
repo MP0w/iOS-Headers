@@ -9,13 +9,16 @@
 #import "MessageConsumer-Protocol.h"
 #import "QueryProgressMonitor-Protocol.h"
 
-@class NSMutableArray;
+@class MFActivityMonitor, NSMutableArray;
 
 @interface _MFMessageCollector : NSObject <MessageConsumer, QueryProgressMonitor>
 {
-    NSMutableArray *messages;
+    NSMutableArray *_messages;
+    MFActivityMonitor *_monitor;
+    id _transmogrifier;
 }
 
+@property(copy, nonatomic) id transmogrifier; // @synthesize transmogrifier=_transmogrifier;
 - (BOOL)shouldCancel;
 - (void)newMessagesAvailable:(id)arg1;
 - (id)copyMessages;

@@ -17,10 +17,14 @@
     CAStateElement *_source;
 }
 
++ (void)CAMLParserStartElement:(id)arg1;
 @property(retain, nonatomic) CAStateElement *source; // @synthesize source=_source;
 @property(nonatomic) CALayer *target; // @synthesize target=_target;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)CAMLTypeForKey:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
+- (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)foreachLayer:(id)arg1;
 - (id)save;

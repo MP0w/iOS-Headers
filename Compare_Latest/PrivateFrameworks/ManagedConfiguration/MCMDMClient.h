@@ -15,8 +15,10 @@
 
 + (id)sharedClient;
 - (void).cxx_destruct;
+- (BOOL)isManagedByMDM;
 - (void)removeManagedAppsAccordingToFlags;
 - (void)simulatePush;
+- (void)retryNotNowResponse;
 - (void)scheduleTokenUpdate;
 - (void)notifyNewConfiguration;
 - (BOOL)checkOutCheckInURL:(id)arg1 identity:(struct __SecIdentity *)arg2 topic:(id)arg3 signMessage:(BOOL)arg4 outError:(id *)arg5;

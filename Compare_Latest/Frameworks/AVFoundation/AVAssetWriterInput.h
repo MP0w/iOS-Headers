@@ -21,6 +21,7 @@
 - (void)addTrackAssociationWithTrackOfInput:(id)arg1 type:(id)arg2;
 - (BOOL)canAddTrackAssociationWithTrackOfInput:(id)arg1 type:(id)arg2;
 - (void)markAsFinished;
+@property(readonly) int numberOfAppendFailures;
 - (BOOL)_appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
 - (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)requestMediaDataWhenReadyOnQueue:(id)arg1 usingBlock:(id)arg2;
@@ -35,6 +36,10 @@
 @property(readonly, nonatomic, getter=_pixelBufferPool) struct __CVPixelBufferPool *pixelBufferPool;
 @property(readonly, nonatomic, getter=_trackReferences) NSDictionary *trackReferences;
 @property(nonatomic, getter=_alternateGroupID, setter=_setAlternateGroupID:) short alternateGroupID;
+- (void)setLayer:(int)arg1;
+- (int)layer;
+- (void)setPreferredVolume:(float)arg1;
+- (float)preferredVolume;
 - (void)setMarksOutputTrackAsEnabled:(BOOL)arg1;
 - (BOOL)marksOutputTrackAsEnabled;
 - (void)setExtendedLanguageTag:(id)arg1;

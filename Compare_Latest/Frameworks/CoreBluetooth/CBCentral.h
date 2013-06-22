@@ -8,17 +8,22 @@
 
 #import "NSCopying-Protocol.h"
 
+@class NSUUID;
+
 @interface CBCentral : NSObject <NSCopying>
 {
     struct __CFUUID *_UUID;
+    NSUUID *_identifier;
+    unsigned int _maximumUpdateValueLength;
 }
 
+@property(nonatomic) unsigned int maximumUpdateValueLength; // @synthesize maximumUpdateValueLength=_maximumUpdateValueLength;
+@property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) struct __CFUUID *UUID; // @synthesize UUID=_UUID;
 - (id)description;
-- (void)setUUID:(struct __CFUUID *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithUUID:(struct __CFUUID *)arg1;
+- (id)initWithUUID:(id)arg1;
 
 @end
 

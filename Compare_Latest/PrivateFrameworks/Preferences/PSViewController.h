@@ -24,7 +24,6 @@
 - (void)popupViewDidDisappear;
 - (void)popupViewWillDisappear;
 - (void)handleURL:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)pushController:(id)arg1;
 - (void)didWake;
 - (void)didUnlock;

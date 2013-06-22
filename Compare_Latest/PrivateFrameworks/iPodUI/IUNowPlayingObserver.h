@@ -6,26 +6,33 @@
 
 #import "NSObject.h"
 
-@class MPAVController, MPSystemNowPlayingController;
+@class MPAVController, MPSystemNowPlayingController, NSMutableDictionary;
 
 @interface IUNowPlayingObserver : NSObject
 {
     MPSystemNowPlayingController *_nowPlayingController;
     MPAVController *_player;
     BOOL _waitingForItemArtwork;
+    NSMutableDictionary *_mediaItemCoalescedUpdateDateAccessedTimers;
 }
 
-- (void)_updateLastUsedDateForMediaItem:(id)arg1;
+- (void).cxx_destruct;
 - (id)_currentItem;
-- (void)_coalescedUpdateLastUsedDateForAVItem:(id)arg1;
+- (void)_coalescedUpdateDateAccessedForAVItem:(id)arg1;
+- (void)_coalescedUpdateLastUsedDateForMediaItem:(id)arg1;
 - (void)_rateDidChangeNotification:(id)arg1;
 - (void)_timeDidJumpNotification:(id)arg1;
 - (void)_repeatTypeChanged:(id)arg1;
+- (void)_radioArtworkDidLoadNotification:(id)arg1;
 - (void)_playbackStateChanged:(id)arg1;
 - (void)_mediaLibraryDisplayValuesDidChangeNotification:(id)arg1;
 - (void)_mediaArtworkDidLoadNotification:(id)arg1;
 - (void)_itemChanged:(id)arg1;
+- (void)_isBannedDidChangeNotification:(id)arg1;
+- (void)_isLikedDidChangeNotification:(id)arg1;
+- (void)_isInWishListDidChangeNotification:(id)arg1;
 - (void)_contentsChanged:(id)arg1;
+- (void)_avItemTitlesDidChangeNotification:(id)arg1;
 - (void)dealloc;
 - (id)initWithPlayer:(id)arg1;
 - (id)init;

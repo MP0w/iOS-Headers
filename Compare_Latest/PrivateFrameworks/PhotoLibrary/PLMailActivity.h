@@ -21,7 +21,6 @@
 - (BOOL)canPerformWithActivityItems:(id)arg1;
 - (BOOL)_canPerformWithSuppliedActivityItems:(id)arg1;
 - (BOOL)_canSendEmail;
-- (id)_beforeActivity;
 
 @end
 

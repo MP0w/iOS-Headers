@@ -23,8 +23,8 @@
     unsigned int nPrimarySurfaces;
     unsigned int nSurfaces;
     int loadMode;
-    unsigned int texelFormat;
-    unsigned int _dataCategory;
+    int texelFormat;
+    int _dataCategory;
     unsigned int _index;
     unsigned int GLTextureName;
     unsigned int bindTarget;
@@ -67,13 +67,13 @@
 @property(nonatomic) unsigned int height; // @synthesize height=_height;
 @property(nonatomic) unsigned int width; // @synthesize width=_width;
 @property(nonatomic) unsigned int type; // @synthesize type;
-@property(nonatomic) unsigned int texelFormat; // @synthesize texelFormat;
+@property(nonatomic) int texelFormat; // @synthesize texelFormat;
 @property(nonatomic) unsigned int format; // @synthesize format;
 @property(nonatomic) unsigned int internalFormat; // @synthesize internalFormat;
 @property(nonatomic) unsigned int textureTarget; // @synthesize textureTarget;
 @property(nonatomic) unsigned int bindTarget; // @synthesize bindTarget;
 @property(nonatomic) unsigned int index; // @synthesize index=_index;
-@property(nonatomic) unsigned int dataCategory; // @synthesize dataCategory=_dataCategory;
+@property(nonatomic) int dataCategory; // @synthesize dataCategory=_dataCategory;
 @property(nonatomic) int loadMode; // @synthesize loadMode;
 @property(nonatomic) unsigned int GLTextureName; // @synthesize GLTextureName;
 @property(readonly) NSData *imageData; // @synthesize imageData;

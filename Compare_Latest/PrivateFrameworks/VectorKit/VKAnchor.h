@@ -8,22 +8,22 @@
 
 @interface VKAnchor : NSObject
 {
-    CDStruct_31142d93 _mercatorPoint;
-    CDStruct_2c43369c _coordinate;
-    id <VKAnchorDelegate> _delegate;
+    shared_ptr_6f3fd3aa _anchor;
 }
 
-@property(nonatomic) id <VKAnchorDelegate> delegate; // @synthesize delegate=_delegate;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+@property(nonatomic) id <VKAnchorDelegate> delegate;
 - (int)worldIndexWithContext:(id)arg1;
-@property(readonly, nonatomic) CDStruct_31142d93 worldPoint;
-@property(nonatomic) CDStruct_31142d93 mercatorPoint;
+@property(readonly, nonatomic) struct VKPoint worldPoint;
+@property(readonly, nonatomic) struct VKPoint mercatorPoint;
 @property(nonatomic) CDStruct_c3b9c2ee coordinate;
+- (void)setMercatorPoint:(struct VKPoint)arg1;
 - (void)worldPointDidChange;
-- (id)initWithMercatorPoint:(CDStruct_31142d93)arg1;
-- (id)initWithCoordinate:(CDStruct_c3b9c2ee)arg1;
 @property(readonly, nonatomic) BOOL followsTerrain;
 @property(readonly, nonatomic) BOOL isGeocentric;
 @property(readonly, nonatomic) BOOL isMercator;
+- (id)initWithAnchor:(shared_ptr_6f3fd3aa)arg1;
 
 @end
 

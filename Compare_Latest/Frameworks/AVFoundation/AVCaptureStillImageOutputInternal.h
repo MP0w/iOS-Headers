@@ -13,16 +13,17 @@
     NSMutableArray *stillImageRequests;
     struct CGSize previewImageSize;
     unsigned long imageDataFormatType;
-    long long imageMaxDataSize;
     float jpegQuality;
     BOOL jpegQualitySpecified;
-    BOOL HDRCaptureEnabled;
+    int HDRCaptureMode;
     BOOL EV0CaptureEnabled;
     BOOL chromaNoiseReductionEnabled;
     BOOL suspendsVideoProcessingDuringCapture;
     NSDictionary *outputSettings;
     BOOL isCapturingPhoto;
     BOOL rawCaptureEnabled;
+    BOOL yoMamaWearsCombatBootsSupported;
+    BOOL yoMamaWearsCombatBootsEnabled;
 }
 
 - (void)dealloc;

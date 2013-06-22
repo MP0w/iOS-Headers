@@ -7,10 +7,11 @@
 #import "UITabBarController.h"
 
 #import "SUOverlayBackgroundDelegate-Protocol.h"
+#import "_UIBasicAnimationFactory-Protocol.h"
 
-@class NSArray, NSMutableArray, NSString, SUClientInterface, SUPreviewOverlayViewController, SUViewController, UIImage, UIViewController;
+@class NSArray, NSMutableArray, NSString, SUClientInterface, SUPreviewOverlayViewController, SUViewController, UIImage, UIViewController, _UIBackdropView;
 
-@interface SUTabBarController : UITabBarController <SUOverlayBackgroundDelegate>
+@interface SUTabBarController : UITabBarController <SUOverlayBackgroundDelegate, _UIBasicAnimationFactory>
 {
     SUClientInterface *_clientInterface;
     NSString *_moreListTitle;
@@ -25,6 +26,8 @@
     NSString *_preloadedViewControllerIdentifier;
     NSString *_preloadedViewControllerKey;
     SUPreviewOverlayViewController *_previewOverlayViewController;
+    int _storeBarStyle;
+    _UIBackdropView *_tabBarBackdropView;
 }
 
 + (Class)_moreNavigationControllerClass;
@@ -57,10 +60,13 @@
 - (id)_archivedContextsForViewController:(id)arg1;
 - (void)_applyMoreListConfiguration;
 - (void)_showPreviewOverlay:(id)arg1 animated:(BOOL)arg2;
+- (void)_setStoreBarStyle:(int)arg1;
 @property(readonly, nonatomic, getter=_previewOverlayViewController) SUPreviewOverlayViewController *_previewOverlayViewController;
 - (void)_hidePreviewOverlayAnimated:(BOOL)arg1;
 - (void)_partnerChanged:(id)arg1;
 - (void)_applicationDidChangeStatusBarFrame:(id)arg1;
+- (id)_timingFunctionForAnimation;
+- (id)_basicAnimationForView:(id)arg1 withKeyPath:(id)arg2;
 - (id)viewControllerForSectionType:(int)arg1;
 - (id)viewControllerForSectionIdentifier:(id)arg1;
 @property(retain, nonatomic) NSString *selectedIdentifier;
@@ -81,6 +87,7 @@
 - (void)tabBar:(id)arg1 willShowCustomizationSheet:(id)arg2 withNavigationBar:(id)arg3;
 - (void)tabBar:(id)arg1 willEndCustomizingItems:(id)arg2 changed:(BOOL)arg3;
 - (void)tabBar:(id)arg1 didEndCustomizingItems:(id)arg2 changed:(BOOL)arg3;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)setViewControllers:(id)arg1 animated:(BOOL)arg2;
 - (void)setTransientViewController:(id)arg1 animated:(BOOL)arg2;
 - (id)selectedViewController;
@@ -88,8 +95,8 @@
 - (id)_sectionForViewController:(id)arg1;
 - (id)rotatingHeaderView;
 - (id)rotatingFooterView;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
 - (void)loadView;
+- (int)ITunesStoreUIBarStyle;
 - (void)setTransientViewController:(id)arg1 onSectionWithIdentifier:(id)arg2;
 - (void)setSectionOrdering:(id)arg1;
 - (void)setMoreListSelectedImage:(id)arg1 unselectedImage:(id)arg2;

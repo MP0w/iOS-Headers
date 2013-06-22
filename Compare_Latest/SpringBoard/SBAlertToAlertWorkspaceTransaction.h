@@ -6,17 +6,28 @@
 
 #import "SBWorkspaceTransaction.h"
 
-@class SBAlert;
+#import "SBUIAnimationControllerDelegate-Protocol.h"
 
-@interface SBAlertToAlertWorkspaceTransaction : SBWorkspaceTransaction
+@class SBAlert, SBUIAnimationController;
+
+@interface SBAlertToAlertWorkspaceTransaction : SBWorkspaceTransaction <SBUIAnimationControllerDelegate>
 {
     SBAlert *_activatingAlert;
     SBAlert *_deactivatingAlert;
     BOOL _activation;
+    SBUIAnimationController *_animation;
+    BOOL _animatingAlertDeactivation;
 }
 
-- (BOOL)alertDidDeactivate:(id)arg1 overAlerts:(id)arg2;
-- (BOOL)selfAlertWillDeactivate:(id)arg1 overAlerts:(id)arg2;
+- (void)animationControllerDidFinishAnimation:(id)arg1;
+- (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
+- (void)_deactivateAlertIfNecessary;
+- (void)_alertAnimationComplete:(id)arg1;
+- (void)_handleFailure;
+- (void)_transactionComplete;
+- (void)_endAnimation;
+- (BOOL)selfAlertDidDeactivate:(id)arg1;
+- (BOOL)selfAlertWillDeactivate:(id)arg1;
 - (BOOL)selfAlertDidActivate:(id)arg1 overAlerts:(id)arg2;
 - (BOOL)selfAlertWillActivate:(id)arg1 overAlerts:(id)arg2;
 - (void)_commit;

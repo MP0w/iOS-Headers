@@ -10,10 +10,7 @@
 {
 }
 
-+ (void)writeCharacterProperties:(id)arg1 to:(id)arg2;
-+ (void)writeParagraphProperties:(id)arg1 to:(id)arg2;
-+ (void)writeText:(id)arg1 to:(id)arg2;
-+ (void)readFrom:(id)arg1 textRuns:(id)arg2 to:(id)arg3 index:(int)arg4 row:(id)arg5;
++ (void)readFrom:(id)arg1 textRuns:(id)arg2 to:(id)arg3 index:(unsigned int)arg4 row:(id)arg5;
 + (void)collectCellProperties:(struct WrdTableProperties *)arg1 tracked:(struct WrdTableProperties *)arg2 for:(id)arg3;
 + (void)readCellsFrom:(id)arg1 textRuns:(id)arg2 level:(int)arg3 to:(id)arg4 properties:(struct WrdTableProperties *)arg5 tracked:(struct WrdTableProperties *)arg6;
 

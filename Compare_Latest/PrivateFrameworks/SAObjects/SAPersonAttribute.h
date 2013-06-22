@@ -16,6 +16,7 @@
 
 + (id)personAttributeWithDictionary:(id)arg1 context:(id)arg2;
 + (id)personAttribute;
+@property(retain, nonatomic) id <SAAceSerializable> typedData;
 @property(retain, nonatomic) SAPerson *object;
 @property(copy, nonatomic) NSString *displayText;
 @property(copy, nonatomic) NSString *data;

@@ -12,10 +12,11 @@
     float _distanceMultiplier;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) float distanceMultiplier; // @synthesize distanceMultiplier=_distanceMultiplier;
 - (void)setColor:(struct _VGLColor)arg1;
-- (id)init;
+- (void)setup;
 
 @end
 

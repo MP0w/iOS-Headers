@@ -11,9 +11,10 @@
 #import "ABUnknownPersonViewControllerDelegate-Protocol.h"
 #import "MFComposeHeaderViewDelegate-Protocol.h"
 #import "MFComposeImageSizeViewDelegate-Protocol.h"
+#import "MFComposeRecipientViewDelegate-Protocol.h"
 #import "MFComposeSubjectViewDelegate-Protocol.h"
 #import "MFComposeTypeFactoryDelegate-Protocol.h"
-#import "MFMailComposeRecipientViewDelegate-Protocol.h"
+#import "MFGroupDetailViewControllerDelegate-Protocol.h"
 #import "MFMailComposeViewDelegate-Protocol.h"
 #import "MFMailPopoverManagerDelegate-Protocol.h"
 #import "MFSecureMIMECompositionManagerDelegate-Protocol.h"
@@ -23,9 +24,9 @@
 #import "UINavigationControllerDelegate-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 
-@class ABPeoplePickerNavigationController, ABPersonViewController, ABUnknownPersonViewController, MFAddressPickerReformatter, MFComposeBodyField, MFComposeImageSizeView, MFComposeRecipientAtom, MFComposeSubjectView, MFComposeTextContentView, MFGenericAttachmentStore, MFLock, MFMailAccountProxyGenerator, MFMailComposeRecipientView, MFMailPopoverManager, MFOutgoingMessageDelivery, MFRecentComposeRecipient, MFSecureMIMECompositionManager, MailboxUid, MutableMessageHeaders, NSArray, NSDictionary, NSString, UIActionSheet, UIAlertView, UIBarButtonItem, UIImagePickerController, UIView, _MFMailCompositionContext;
+@class ABPeoplePickerNavigationController, ABPersonViewController, ABUnknownPersonViewController, MFAddressPickerReformatter, MFComposeBodyField, MFComposeImageSizeView, MFComposeSubjectView, MFComposeTextContentView, MFGenericAttachmentStore, MFLock, MFMailAccountProxyGenerator, MFMailComposeRecipientView, MFMailPopoverManager, MFMailboxUid, MFModernComposeRecipientAtom, MFMutableMessageHeaders, MFOutgoingMessageDelivery, MFRecentComposeRecipient, MFSecureMIMECompositionManager, NSArray, NSDictionary, NSString, UIActionSheet, UIAlertView, UIBarButtonItem, UIImagePickerController, UIKeyCommand, UIView, _MFMailCompositionContext;
 
-@interface MFMailComposeController : UIViewController <UINavigationControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, ABPersonViewControllerDelegate, ABPeoplePickerNavigationControllerDelegate, ABUnknownPersonViewControllerDelegate, MFMailPopoverManagerDelegate, MFMailComposeViewDelegate, MFComposeHeaderViewDelegate, MFComposeSubjectViewDelegate, MFComposeImageSizeViewDelegate, MFMailComposeRecipientViewDelegate, MFSecureMIMECompositionManagerDelegate, MFComposeTypeFactoryDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
+@interface MFMailComposeController : UIViewController <UINavigationControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, ABPersonViewControllerDelegate, ABPeoplePickerNavigationControllerDelegate, ABUnknownPersonViewControllerDelegate, MFMailPopoverManagerDelegate, MFMailComposeViewDelegate, MFComposeHeaderViewDelegate, MFComposeSubjectViewDelegate, MFComposeImageSizeViewDelegate, MFComposeRecipientViewDelegate, MFSecureMIMECompositionManagerDelegate, MFComposeTypeFactoryDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate, MFGroupDetailViewControllerDelegate>
 {
     id <MFMailComposeViewControllerDelegate> _delegate;
     id _autorotationDelegate;
@@ -55,7 +56,7 @@
     MFMailComposeRecipientView *_toField;
     MFMailComposeRecipientView *_ccField;
     MFMailComposeRecipientView *_lastFocusedRecipientView;
-    MFComposeRecipientAtom *_atomPresentingCard;
+    MFModernComposeRecipientAtom *_atomPresentingCard;
     MFComposeSubjectView *_subjectField;
     MFComposeImageSizeView *_imageSizeField;
     MFComposeBodyField *_bodyField;
@@ -65,9 +66,9 @@
     UIActionSheet *_activeSheet;
     UIAlertView *_activeAlertView;
     MFOutgoingMessageDelivery *_delivery;
-    MutableMessageHeaders *_savedHeaders;
+    MFMutableMessageHeaders *_savedHeaders;
     NSString *_lastDraftMessageID;
-    MailboxUid *_lastDraftMailboxUid;
+    MFMailboxUid *_lastDraftMailboxUid;
     NSString *_initialTitle;
     MFLock *_autosaveLock;
     id _autosaveIdentifier;
@@ -95,6 +96,10 @@
     MFAddressPickerReformatter *_addressPickerReformatter;
     BOOL _contentVisible;
     BOOL _allowRestrictedAccounts;
+    UIKeyCommand *_sendKeyCommand;
+    UIKeyCommand *_escapeKeyCommand;
+    NSString *_originatingBundleID;
+    int _sourceAccountManagement;
 }
 
 + (BOOL)useAccountSignatures;
@@ -102,13 +107,19 @@
 + (id)signature;
 + (id)defaultSignature;
 + (id)preferenceForKey:(id)arg1;
++ (BOOL)isSetupForDeliveryAllowingRestrictedAccounts:(BOOL)arg1 originatingBundleID:(id)arg2 sourceAccountManagement:(int)arg3;
 + (BOOL)isSetupForDeliveryAllowingRestrictedAccounts:(BOOL)arg1;
 + (void)initialize;
+@property(nonatomic) int sourceAccountManagement; // @synthesize sourceAccountManagement=_sourceAccountManagement;
+@property(copy, nonatomic) NSString *originatingBundleID; // @synthesize originatingBundleID=_originatingBundleID;
+@property(readonly, nonatomic) MFOutgoingMessageDelivery *delivery; // @synthesize delivery=_delivery;
+@property(readonly, nonatomic) MFMailboxUid *lastDraftMailboxUid; // @synthesize lastDraftMailboxUid=_lastDraftMailboxUid;
+@property(readonly, nonatomic) NSString *lastDraftMessageID; // @synthesize lastDraftMessageID=_lastDraftMessageID;
 @property(copy, nonatomic) NSString *addressForMissingIdentity; // @synthesize addressForMissingIdentity=_addressForMissingIdentity;
 @property(retain, nonatomic) NSDictionary *errorsByRecipient; // @synthesize errorsByRecipient=_errorsByRecipient;
 @property(retain, nonatomic) NSDictionary *certificatesByRecipient; // @synthesize certificatesByRecipient=_certificatesByRecipient;
 @property(retain, nonatomic) MFRecentComposeRecipient *recentRecipientPresentingCard; // @synthesize recentRecipientPresentingCard=_recentRecipientPresentingCard;
-@property(retain, nonatomic) MFComposeRecipientAtom *atomPresentingCard; // @synthesize atomPresentingCard=_atomPresentingCard;
+@property(retain, nonatomic) MFModernComposeRecipientAtom *atomPresentingCard; // @synthesize atomPresentingCard=_atomPresentingCard;
 @property(retain, nonatomic) ABUnknownPersonViewController *unknownPersonViewController; // @synthesize unknownPersonViewController=_unknownPersonViewController;
 @property(retain, nonatomic) ABPersonViewController *personViewController; // @synthesize personViewController=_personViewController;
 @property(retain, nonatomic) ABPeoplePickerNavigationController *peoplePicker; // @synthesize peoplePicker=_peoplePicker;
@@ -126,7 +137,7 @@
 - (id)_missingIdentityErrorWithFormat:(id)arg1 title:(id)arg2;
 - (void)_updateIdentityStatus:(int *)arg1 withPolicy:(int)arg2 identity:(struct __SecIdentity *)arg3 error:(id)arg4;
 - (void)_updatePersonCard;
-- (int)_defaultAddressAtomStyle;
+- (unsigned int)_defaultAtomPresentationOptions;
 - (void)_updateRecipientAtomStyles;
 - (void)_updateTitleBarForEncryptionStatus:(int)arg1;
 - (void)_resetSecureCompositionManager;
@@ -150,9 +161,13 @@
 - (void)actionSheetCancel:(id)arg1;
 - (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (void)groupDetailViewControllerDidCancel:(id)arg1;
+- (void)groupDetailViewController:(id)arg1 didTapComposeRecipient:(id)arg2;
+- (void)groupDetailViewController:(id)arg1 didAskToRemoveGroup:(id)arg2;
 - (BOOL)chooseSelectedSearchResultForComposeRecipientView:(id)arg1;
 - (void)selectPreviousSearchResultForComposeRecipientView:(id)arg1;
 - (void)selectNextSearchResultForComposeRecipientView:(id)arg1;
+- (void)dismissSearchResultsForComposeRecipientView:(id)arg1;
 - (BOOL)presentSearchResultsForComposeRecipientView:(id)arg1;
 - (BOOL)composeRecipientViewShowingSearchResults:(id)arg1;
 - (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 identifier:(int)arg3;
@@ -160,8 +175,9 @@
 - (id)navigationControllerForRecentPersonCard;
 - (BOOL)isShowingRecentPersonCard;
 - (void)composeRecipientView:(id)arg1 showPersonCardForRecent:(id)arg2;
-- (id)_deleteButton;
+- (void)_showPersonCardForRecent:(id)arg1 showDeleteButton:(BOOL)arg2;
 - (void)_removeRecent;
+- (void)composeRecipientView:(id)arg1 showCorecipients:(id)arg2;
 - (void)composeRecipientView:(id)arg1 showPersonCardForAtom:(id)arg2;
 - (void)composeRecipientViewDidBecomeFirstResponder:(id)arg1;
 - (void)composeRecipientViewReturnPressed:(id)arg1;
@@ -173,7 +189,7 @@
 - (void)composeRecipientViewRequestAddRecipient:(id)arg1;
 - (void)composeRecipientView:(id)arg1 textDidChange:(id)arg2;
 - (void)composeRecipientView:(id)arg1 didChangeSize:(struct CGSize)arg2;
-- (void)composeRecipientViewDidFinishEnteringRecipient:(id)arg1;
+- (void)composeRecipientView:(id)arg1 didFinishEnteringAddress:(id)arg2;
 - (void)composeRecipientView:(id)arg1 didReplaceRecipients:(id)arg2 withRecipients:(id)arg3;
 - (void)composeRecipientView:(id)arg1 didRemoveRecipient:(id)arg2;
 - (void)composeRecipientView:(id)arg1 didAddRecipient:(id)arg2;
@@ -187,7 +203,7 @@
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (id)rotatingFooterView;
 - (id)rotatingHeaderView;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (BOOL)shouldAutorotate;
 - (void)_dismissPersonCard;
 - (BOOL)unknownPersonViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
 - (void)unknownPersonViewController:(id)arg1 didResolveToPerson:(void *)arg2;
@@ -196,6 +212,8 @@
 - (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
 - (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
 - (void)_dismissPeoplePicker:(id)arg1;
+- (void)_preferredContentSizeCategoryDidChange:(id)arg1;
+- (id)keyCommands;
 - (void)_displayAlertSheet:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1 isUserAction:(BOOL)arg2;
 - (void)_popoverWillBePresented:(id)arg1;
@@ -217,6 +235,7 @@
 - (void)viewWillUnload;
 - (void)viewDidLoad;
 - (void)loadView;
+- (void)composeShortcutInvoked:(id)arg1;
 - (void)setRecipientsKeyboardType:(int)arg1;
 - (void)setDraftMessageID:(id)arg1 mailbox:(id)arg2;
 - (void)_finishedComposing;
@@ -225,7 +244,6 @@
 - (BOOL)isSavingAsDraft;
 - (void)forceSaveAsDraft;
 - (void)_setupForSaveAsDraft;
-- (id)deliveryController;
 - (BOOL)needsDelivery;
 - (int)resolution;
 - (void)sendMessage;
@@ -255,7 +273,6 @@
 - (id)currentScaleImageSize;
 - (void)_attachmentCachedSizesChanged:(id)arg1;
 - (void)attachmentFinishedLoading:(id)arg1;
-- (void)_inlinedAttachmentFinishedLoading:(id)arg1;
 - (void)attachmentsRemoved:(id)arg1;
 - (void)addInlineAttachment:(id)arg1;
 - (void)_insertInlineAttachment:(id)arg1;

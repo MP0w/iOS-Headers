@@ -10,12 +10,12 @@
 
 @interface IMSystemProxySettingsFetcher : NSObject
 {
+    unsigned short _port;
+    unsigned short _proxyPort;
     id _delegate;
     NSString *_host;
-    unsigned short _port;
     int _proxyProtocol;
     NSString *_proxyHost;
-    unsigned short _proxyPort;
     NSString *_proxyAccount;
     NSString *_proxyPassword;
 }

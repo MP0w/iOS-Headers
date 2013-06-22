@@ -11,7 +11,6 @@
     int _statusBarHidden;
 }
 
-- (void)_animationDidFinish:(id)arg1;
 - (void)performTransition:(unsigned int)arg1;
 @property(nonatomic) BOOL statusBarHidden;
 - (id)init;

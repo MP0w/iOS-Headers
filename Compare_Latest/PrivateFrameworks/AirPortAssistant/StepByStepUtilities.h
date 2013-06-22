@@ -19,6 +19,7 @@
 + (id)selectorChoiceToReplaceOption:(int)arg1;
 + (id)findSourceConfigByName:(id)arg1 fromParamDict:(id)arg2;
 + (id)findSourceNetworkByName:(id)arg1 fromParamDict:(id)arg2;
++ (id)findSourceBaseByRadioName:(id)arg1 fromParamDict:(id)arg2;
 + (id)findSourceBaseByName:(id)arg1 fromParamDict:(id)arg2;
 + (id)getProductLocalizedStringWithFormat:(id)arg1 fromParamDict:(id)arg2;
 + (int)getDeviceKindFromParamDict:(id)arg1;

@@ -21,7 +21,6 @@
 @property(retain, nonatomic) SAPersonAttribute *sender;
 @property(copy, nonatomic) NSURL *refereceId;
 @property(copy, nonatomic) NSArray *recipients;
-@property(copy, nonatomic) NSNumber *providerId;
 @property(copy, nonatomic) NSNumber *outgoing;
 @property(retain, nonatomic) SALocation *location;
 @property(copy, nonatomic) NSDictionary *hashtagAlternatives;

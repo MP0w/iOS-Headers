@@ -13,6 +13,7 @@
     NSString *_variable;
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
 - (unsigned int)hash;

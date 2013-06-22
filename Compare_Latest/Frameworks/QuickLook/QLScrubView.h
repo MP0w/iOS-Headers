@@ -6,9 +6,11 @@
 
 #import "UIView.h"
 
+#import "UIGestureRecognizerDelegate-Protocol.h"
+
 @class NSMutableArray, NSMutableDictionary, NSMutableSet, NSOperationQueue, QLPageNumberView, QLThumbnailView;
 
-@interface QLScrubView : UIView
+@interface QLScrubView : UIView <UIGestureRecognizerDelegate>
 {
     id <QLScrubViewDataSource> _dataSource;
     id _delegate;
@@ -30,23 +32,22 @@
 + (float)defaultWidth;
 @property id delegate; // @synthesize delegate=_delegate;
 @property id <QLScrubViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
-- (void)drawRect:(struct CGRect)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_updateSelectedThumbnailView;
 - (void)layoutSubviews;
 - (void)_hidePageLabel;
+- (void)_updatePageLabelPosition;
 - (void)_showPageLabel;
 - (struct CGRect)_thumbnailFrameForPageAtIndex:(int)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (void)longTapReceived:(id)arg1;
+- (void)tapReceived:(id)arg1;
+- (void)panReceived:(id)arg1;
 - (void)_handleSwipAtLocation:(struct CGPoint)arg1;
 - (void)_notifyScrubingEnded;
 - (void)_notifyPageChanged;
 - (void)_notifyScrubingStarted;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)selectPageNumber:(int)arg1;
 - (void)reloadThumbnails;
 - (void)_removeThumbviews;

@@ -12,12 +12,12 @@
 {
     unsigned int mCurrentSheetIndex;
     EDSheet *mCurrentSheet;
-    unsigned int mCellStyleXfsOffset;
+    unsigned long mCellStyleXfsOffset;
     double mDefaultColumnWidth;
     double mDefaultRowHeight;
     OCPPackagePart *mCurrentPart;
     OCPPackagePart *mWorkbookPart;
-    struct __CFDictionary *mSharedFormulasMap;
+    struct map<long, unsigned int, std::__1::less<long>, std::__1::allocator<std::__1::pair<const long, unsigned int>>> mSharedFormulasMap;
     NSMutableArray *mArrayedFormulas;
     EDReference *mSheetDimension;
     EXOfficeArtState *mOfficeArtState;
@@ -39,6 +39,8 @@
 }
 
 @property(readonly, nonatomic) id <OCCancelDelegate> cancelDelegate; // @synthesize cancelDelegate=mCancelDelegate;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (BOOL)isCancelled;
 - (void)reportWorksheetWarning:(struct CPTaggedMessageStructure *)arg1;
 - (void)reportWarning:(struct CPTaggedMessageStructure *)arg1;
@@ -71,8 +73,8 @@
 - (double)defaultRowHeight;
 - (void)setDefaultColumnWidth:(double)arg1;
 - (double)defaultColumnWidth;
-- (void)setCellStyleXfsOffset:(unsigned int)arg1;
-- (unsigned int)cellStyleXfsOffset;
+- (void)setCellStyleXfsOffset:(unsigned long)arg1;
+- (unsigned long)cellStyleXfsOffset;
 - (void)setCurrentSheet:(id)arg1;
 - (id)currentSheet;
 - (void)setResources:(id)arg1;

@@ -18,9 +18,7 @@
 + (id)business2;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 @property(copy, nonatomic) NSArray *reviewList;
-@property(copy, nonatomic) NSArray *photoThumbnail;
 @property(copy, nonatomic) NSArray *photoList;
-@property(copy, nonatomic) NSArray *photoFullSize;
 @property(copy, nonatomic) NSString *phoneNumber;
 @property(retain, nonatomic) SALocalSearchOperationHours *operationHours;
 @property(copy, nonatomic) NSArray *offerLists;

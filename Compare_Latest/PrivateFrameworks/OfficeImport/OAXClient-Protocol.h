@@ -6,6 +6,7 @@
 
 @protocol OAXClient
 + (BOOL)sourceDrawableIsTopLevel:(struct _xmlNode *)arg1;
+- (id)readGraphicData:(struct _xmlNode *)arg1 state:(id)arg2;
 - (id)readOle:(struct _xmlNode *)arg1 state:(id)arg2;
 - (void)postprocessHyperlink:(id)arg1 relationship:(id)arg2 state:(id)arg3;
 - (id)readClientTextField:(struct _xmlNode *)arg1 paragraph:(id)arg2 state:(id)arg3;
@@ -15,5 +16,7 @@
 - (void)readClientDataFromPictureNode:(struct _xmlNode *)arg1 toImage:(id)arg2 state:(id)arg3;
 - (void)readClientDataFromShapeNode:(struct _xmlNode *)arg1 toShape:(id)arg2 state:(id)arg3;
 - (void)readClientDataFromNode:(struct _xmlNode *)arg1 toDrawable:(id)arg2 state:(id)arg3;
+- (struct _xmlNode *)genericNonVisualPropertiesNodeForDrawableNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 state:(id)arg3;
+- (id)readClientDrawableFromXmlNode:(struct _xmlNode *)arg1 state:(id)arg2;
 @end
 

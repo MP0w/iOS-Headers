@@ -6,49 +6,32 @@
 
 #import "NSObject.h"
 
-#import "VKCalloutSource-Protocol.h"
-
-@class NSArray, NSMutableArray, NSString, UICalloutView, UIView;
-
-@interface VKLabelMarker : NSObject <VKCalloutSource>
+@interface VKLabelMarker : NSObject
 {
-    struct _GEOTileKey _tileKey;
-    unsigned long long _businessID;
-    NSString *_title;
-    shared_ptr_3dab79f3 _label;
+    shared_ptr_dd1f7020 _manager;
+    shared_ptr_0c41964b _label;
     float _contentScale;
-    UIView *_leftCalloutAccessoryView;
-    UIView *_rightCalloutAccessoryView;
-    CDStruct_2c43369c _coordinate;
-    CDStruct_aca18c62 _bounds;
-    NSMutableArray *_featureHandles;
-    id <VKLabelMarkerDelegate> _delegate;
-    BOOL _hasBusinessID;
-    UICalloutView *_calloutView;
-    NSString *_manifestIdentifier;
 }
 
-@property(nonatomic) id <VKLabelMarkerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSArray *featureHandles; // @synthesize featureHandles=_featureHandles;
-@property(readonly, nonatomic) NSString *manifestIdentifier; // @synthesize manifestIdentifier=_manifestIdentifier;
-@property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate; // @synthesize coordinate=_coordinate;
-@property(retain, nonatomic) UIView *rightCalloutAccessoryView; // @synthesize rightCalloutAccessoryView=_rightCalloutAccessoryView;
-@property(retain, nonatomic) UIView *leftCalloutAccessoryView; // @synthesize leftCalloutAccessoryView=_leftCalloutAccessoryView;
-@property(readonly, nonatomic) shared_ptr_3dab79f3 label; // @synthesize label=_label;
-@property(retain, nonatomic) UICalloutView *calloutView; // @synthesize calloutView=_calloutView;
-@property(readonly, nonatomic) BOOL hasBusinessID; // @synthesize hasBusinessID=_hasBusinessID;
-@property(readonly, nonatomic) unsigned long long businessID; // @synthesize businessID=_businessID;
-@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) CDStruct_aca18c62 bounds;
-- (BOOL)isOneWayArrow;
-- (BOOL)isPOI;
 - (id)debugAnchorPointString;
-- (struct CGPoint)screenPointToScrollRelativeToWithCanvasSize:(struct CGSize)arg1;
-- (struct CGPoint)calloutAnchorPointWithCanvasSize:(struct CGSize)arg1;
-- (void)dealloc;
-- (id)initWithFeature:(struct LabelFeature *)arg1 label:(const shared_ptr_3dab79f3 *)arg2 contentScale:(float)arg3;
+- (struct CGPoint)screenPointToScrollRelativeToWithCanvasSize:(struct CGSize)arg1 canvasScale:(float)arg2;
+- (struct CGPoint)calloutAnchorPointWithCanvasSize:(struct CGSize)arg1 canvasScale:(float)arg2 snapToPixels:(BOOL)arg3;
+- (void)setLabelSelected:(BOOL)arg1;
+- (id)featureHandles;
+- (id)incident;
+- (unsigned long long)businessID;
+- (BOOL)hasBusinessID;
+- (BOOL)isTrafficIncident;
+- (BOOL)isOneWayArrow;
+- (BOOL)isSelectable;
+- (struct CGRect)calloutAnchorRect;
+- (CDStruct_d2b197d1)bounds;
+- (CDStruct_c3b9c2ee)coordinate;
+- (id)title;
+- (shared_ptr_0c41964b)infoLabel;
+- (id)initWithManager:(const shared_ptr_dd1f7020 *)arg1 infoLabel:(const shared_ptr_0c41964b *)arg2 contentScale:(float)arg3;
 
 @end
 

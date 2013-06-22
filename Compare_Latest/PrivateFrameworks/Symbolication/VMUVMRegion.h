@@ -37,15 +37,26 @@
     unsigned int pages_purgable_empty;
 }
 
-- (void)dealloc;
 - (id)breakAtLength:(unsigned long)arg1;
+- (void)addInfoFromRegion:(id)arg1;
+- (BOOL)hasSameInfoAsRegion:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isSubmap;
-- (id)type;
+- (unsigned int)purgeablePageCount;
+- (unsigned int)swappedOutPageCount;
+- (unsigned int)sharedNowPrivatePageCount;
+- (unsigned int)dirtyPageCount;
+- (unsigned int)residentPageCount;
+- (unsigned int)virtualPageCount;
+- (unsigned int)maxProtection;
 - (unsigned int)protection;
+- (id)path;
+- (id)type;
 - (struct _VMURange)range;
 - (id)description;
 - (id)descriptionWithOptions:(unsigned int)arg1 maximumLength:(unsigned int)arg2;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -17,8 +17,10 @@
     id <StockUpdaterDelegate> _delegate;
     QuoteParserData *_quoteParserData;
     NSError *_lastError;
+    id _updateCompletionHandler;
 }
 
+@property(copy, nonatomic) id updateCompletionHandler; // @synthesize updateCompletionHandler=_updateCompletionHandler;
 @property(retain, nonatomic) NSError *lastError; // @synthesize lastError=_lastError;
 @property(nonatomic) __weak id <StockUpdaterDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) BOOL isComprehensive; // @synthesize isComprehensive=_isComprehensive;

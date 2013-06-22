@@ -13,8 +13,6 @@
     PSSpecifier *_specifier;
     id _delegate;
     unsigned int _requiresKeyboard:1;
-    struct CGRect _pinstripeRect;
-    UIView *_pinstripeView;
 }
 
 + (float)preferredHeight;
@@ -30,7 +28,6 @@
 - (void)viewDidBecomeVisible;
 - (BOOL)wantsNewButton;
 - (id)specifierLabel;
-@property(nonatomic) struct CGRect pinstripeRect;
 - (BOOL)requiresKeyboard;
 - (id)preferenceValue;
 - (void)setPreferenceValue:(id)arg1;

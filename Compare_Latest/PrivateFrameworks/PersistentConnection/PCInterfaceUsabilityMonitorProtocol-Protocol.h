@@ -4,19 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject-Protocol.h"
+#import "PCInterfaceMonitorProtocol-Protocol.h"
 
-@class NSString;
-
-@protocol PCInterfaceUsabilityMonitorProtocol <NSObject>
+@protocol PCInterfaceUsabilityMonitorProtocol <PCInterfaceMonitorProtocol>
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
-@property(readonly, nonatomic) BOOL isPoorLinkQuality;
-@property(readonly, nonatomic) NSString *linkQualityString;
-@property(readonly, nonatomic) BOOL isInternetReachable;
-@property(readonly, nonatomic) BOOL isInterfaceHistoricallyUsable;
-@property(readonly, nonatomic) BOOL isInterfaceUsable;
-@property(readonly, nonatomic) int linkQuality;
-@property(readonly, nonatomic) int interfaceIdentifier;
+@property(readonly, nonatomic) BOOL isRadioHot;
 - (void)setTrackUsability:(BOOL)arg1;
 - (void)setThresholdOffTransitionCount:(unsigned int)arg1;
 - (void)setTrackedTimeInterval:(double)arg1;

@@ -8,8 +8,6 @@
 
 struct FetchResultsRowListHeader_st;
 
-struct FetchResultsRow_st;
-
 struct _NSExtraPropertyIVars {
     id _field1;
     long long _field2;
@@ -113,15 +111,21 @@ typedef struct {
     double _field3;
     int _field4;
     unsigned int _field5;
-    void **_field6;
-    void *_field7;
-    void *_field8;
-    struct FetchResultsRow_st *_field9;
-    struct FetchResultsRow_st *_field10;
-    struct FetchResultsRowListHeader_st **_field11;
+    int _field6;
+    int _field7;
+    unsigned long long _field8;
+    unsigned long long _field9;
     struct {
         unsigned int :1;
-        unsigned int :31;
-    } _field12;
-} CDStruct_02686582;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :29;
+    } _field10;
+    int _field11;
+    struct FetchResultsRowListHeader_st **_field12;
+    void **_field13;
+    void *_field14;
+    void *_field15;
+    void *_field16;
+} CDStruct_576b85d7;
 

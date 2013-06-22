@@ -15,6 +15,7 @@
 }
 
 @property(retain, nonatomic) MPStoreCompletionOffering *storeCompletionOffering; // @synthesize storeCompletionOffering=_storeCompletionOffering;
+- (void).cxx_destruct;
 - (void)_reloadCompletionOffering;
 - (void)_didLoadCompletionOffering:(id)arg1 isFromCache:(BOOL)arg2 error:(id)arg3;
 - (BOOL)showMoreFromiTunesActionRow;

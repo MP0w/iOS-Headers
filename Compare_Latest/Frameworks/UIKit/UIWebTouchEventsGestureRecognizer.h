@@ -12,12 +12,13 @@
 {
     id _touchTarget;
     SEL _touchAction;
+    id <UIWebTouchEventsGestureRecognizerDelegate> _webTouchDelegate;
     unsigned int _passedHitTest:1;
     unsigned int _defaultPrevented:1;
     unsigned int _inJavaScriptGesture:1;
+    unsigned int _type:2;
     float _originalGestureDistance;
     float _originalGestureAngle;
-    int _type;
     struct CGPoint _locationInWindow;
     NSMutableArray *_touchLocations;
     NSMutableArray *_touchIdentifiers;
@@ -35,6 +36,7 @@
 @property(readonly, nonatomic) struct CGPoint locationInWindow; // @synthesize locationInWindow=_locationInWindow;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 @property(nonatomic, getter=isDefaultPrevented) BOOL defaultPrevented; // @synthesize defaultPrevented=_defaultPrevented;
+- (id).cxx_construct;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
@@ -43,7 +45,6 @@
 - (void)_processTouches:(id)arg1 withEvent:(id)arg2 type:(int)arg3;
 - (void)_recordTouches:(id)arg1 type:(int)arg2;
 - (unsigned int)_getNextTouchIdentifier;
-- (BOOL)_hitTestTouches:(id)arg1;
 - (void)_resetGestureRecognizer;
 - (void)_reset;
 - (id)description;
@@ -53,7 +54,7 @@
 - (id)_locationsDescription;
 - (id)_typeDescription;
 - (void)dealloc;
-- (id)initWithTarget:(id)arg1 action:(SEL)arg2;
+- (id)initWithTarget:(id)arg1 action:(SEL)arg2 touchDelegate:(id)arg3;
 
 @end
 

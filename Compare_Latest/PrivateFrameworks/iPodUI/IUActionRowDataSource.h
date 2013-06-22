@@ -13,6 +13,7 @@
     NSMutableArray *_rows;
 }
 
+- (void).cxx_destruct;
 - (unsigned int)removeActionRowWithTag:(int)arg1;
 - (void)insertActionRow:(id)arg1 atIndex:(unsigned int)arg2;
 - (unsigned int)indexOfActionRowWithTag:(int)arg1;

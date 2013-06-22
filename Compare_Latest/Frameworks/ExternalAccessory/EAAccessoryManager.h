@@ -7,12 +7,14 @@
 #import "NSObject.h"
 
 #import "EABluetoothAccessoryPickerDelegate-Protocol.h"
+#import "EADiscoveredWirelessAccessoryDelegate-Protocol.h"
 
 @class EABluetoothAccessoryPicker, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, NSTimer;
 
-@interface EAAccessoryManager : NSObject <EABluetoothAccessoryPickerDelegate>
+@interface EAAccessoryManager : NSObject <EABluetoothAccessoryPickerDelegate, EADiscoveredWirelessAccessoryDelegate>
 {
     NSMutableArray *_connectedAccessories;
+    NSMutableArray *_discoveredWirelessAccessories;
     NSMutableArray *_sequesteredAccessories;
     NSString *_selectedBluetoothAddress;
     EABluetoothAccessoryPicker *_picker;
@@ -23,9 +25,15 @@
 }
 
 + (BOOL)isLoggingEnabled;
++ (void)accessibilityStopListening;
++ (void)accessibilityStartListening;
 + (void)registerCapabilities:(unsigned int)arg1;
 + (id)sharedAccessoryManager;
 - (void)devicePicker:(id)arg1 didSelectAddress:(id)arg2 errorCode:(int)arg3;
+- (void)stopWirelessAccessoryDiscovery;
+- (void)startWirelessAccessoryDiscovery;
+- (void)disconnectWirelessAccessory:(id)arg1;
+- (void)initiateConnectionToWirelessAccessory:(id)arg1;
 - (void)pointOfInterestSelection:(id)arg1;
 - (void)setAreLocationAccessoriesEnabled:(BOOL)arg1;
 - (BOOL)areLocationAccessoriesEnabled;
@@ -43,8 +51,10 @@
 - (void)wakeAccessoryWithToken:(id)arg1;
 - (void)endSession:(unsigned int)arg1 forConnectionID:(unsigned int)arg2;
 - (void)openCompleteForSession:(unsigned int)arg1 connectionID:(unsigned int)arg2;
+- (void)_timeSyncInfoUpdated:(id)arg1;
 - (void)_handleAccessoryNotificationTimeout:(id)arg1;
 - (void)_integrateSequesteredAccessories;
+- (void)_vehicleDataUpdated:(id)arg1;
 - (void)_gpsTimeRequested:(id)arg1;
 - (void)_nmeaFilteringSupportChanged:(id)arg1;
 - (void)_ephemerisURLAvailable:(id)arg1;
@@ -52,6 +62,10 @@
 - (void)_locationNmeaDataAvailable:(id)arg1;
 - (void)_externalAccessoryIPodOutOptionsChanged:(id)arg1;
 - (void)_externalAccessoryPortPropertyChanged:(id)arg1;
+- (void)_wirelessAccessoryDisconnected:(id)arg1;
+- (void)_wirelessAccessoryDidConnect:(id)arg1;
+- (void)_wirelessAccessoryNotAvailable:(id)arg1;
+- (void)_wirelessAccessoryAvailable:(id)arg1;
 - (void)_externalAccessoryDisconnected:(id)arg1;
 - (void)_externalAccessoryUpdated:(id)arg1;
 - (void)_externalAccessoryConnected:(id)arg1;

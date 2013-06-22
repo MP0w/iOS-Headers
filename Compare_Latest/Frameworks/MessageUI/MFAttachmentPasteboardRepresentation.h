@@ -13,18 +13,19 @@
 
 @interface MFAttachmentPasteboardRepresentation : NSObject <NSCoding, MFAttachmentPasteboardRepresentation>
 {
-    NSString *_name;
     NSData *_data;
+    NSString *_name;
     NSString *_mimeType;
 }
 
 @property(retain, nonatomic) NSString *mimeType; // @synthesize mimeType=_mimeType;
-@property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(readonly, nonatomic, getter=isValid) BOOL valid;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
+- (id)initWithMFAttachment:(id)arg1;
 - (id)initWithAttachment:(id)arg1;
 
 @end

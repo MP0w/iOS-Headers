@@ -7,6 +7,12 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBUIUserAgent <NSObject>
+- (void)setWallpaperTunnelActive:(BOOL)arg1 forFullscreenAlertController:(id)arg2;
+- (void)disableLockScreenBundleNamed:(id)arg1 deactivationContext:(id)arg2;
+- (void)enableLockScreenBundleNamed:(id)arg1 activationContext:(id)arg2;
+- (BOOL)isUsingLegacyStyle;
+- (void)activateRemoteAlertService:(id)arg1 options:(id)arg2;
+- (void)activateStarkRemoteAlertService:(id)arg1 ofType:(id)arg2;
 - (void)setMinimumBacklightLevel:(float)arg1 animated:(BOOL)arg2;
 - (void)notifyOnNextUserEvent;
 - (BOOL)isSBUILoggingEnabled;
@@ -22,6 +28,7 @@
 - (void)playRingtoneAtPath:(id)arg1;
 - (void)setBadgeNumberOrString:(id)arg1 forApplicationWithID:(id)arg2;
 - (void)setIdleText:(id)arg1;
+- (void)lockAndDimDeviceDisconnectingCallIfNecessary:(BOOL)arg1 andDimScreen:(BOOL)arg2;
 - (void)lockAndDimDeviceDisconnectingCallIfNecessary:(BOOL)arg1;
 - (void)lockAndDimDevice;
 - (BOOL)isIdleTimerDisabledForReason:(id)arg1;
@@ -44,8 +51,6 @@
 - (BOOL)canUserLaunchIcon;
 - (BOOL)alertIsActive;
 - (BOOL)springBoardIsActive;
-- (id)createWallpaperView:(int)arg1;
-- (BOOL)homeScreenIsDisplayingWallpaper;
 - (int)networkUsageTypeForAppWithDisplayID:(id)arg1;
 - (BOOL)lockScreenIsShowing;
 - (BOOL)deviceIsTethered;

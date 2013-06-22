@@ -20,7 +20,6 @@
 @property(retain, nonatomic) NSArray *grabberGestureRecognizers; // @synthesize grabberGestureRecognizers=_grabberGestureRecognizers;
 @property(readonly) UIView *grabberView; // @synthesize grabberView=_grabberView;
 @property(retain, nonatomic) UIImage *grabberImage; // @synthesize grabberImage=_grabberImage;
-- (void)setSuppressDrawingBackground:(BOOL)arg1;
 - (void)animateGrabberOutWithCompletion:(id)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;

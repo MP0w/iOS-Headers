@@ -11,9 +11,10 @@
 }
 
 + (id)sharedGenerator;
-- (id)newIconWithGlyph:(struct CGImage *)arg1 style:(CDStruct_ad152e0a *)arg2 scale:(float)arg3;
-- (id)keyForName:(id)arg1 style:(CDStruct_ad152e0a *)arg2;
-- (BOOL)canHandleStyle:(CDStruct_ad152e0a *)arg1;
+- (id)newIconWithGlyph:(struct CGImage *)arg1 style:(CDStruct_44473e2f *)arg2 scale:(float)arg3;
+- (struct CGSize)imageSizeForStyle:(CDStruct_44473e2f *)arg1 scale:(float)arg2;
+- (id)keyForName:(id)arg1 style:(CDStruct_44473e2f *)arg2;
+- (BOOL)canHandleStyle:(CDStruct_44473e2f *)arg1;
 
 @end
 

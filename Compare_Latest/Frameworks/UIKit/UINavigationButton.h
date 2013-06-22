@@ -18,16 +18,20 @@
     id _appearanceStorage;
     NSSet *_possibleSystemItems;
     unsigned int _size:2;
-    unsigned int _pad:30;
     float _minimumWidth;
     float _maximumWidth;
+    int _buttonItemStyle;
+    Class _appearanceGuideClass;
 }
 
 + (id)defaultFont;
+@property(nonatomic, setter=_setAppearanceGuideClass:) Class _appearanceGuideClass; // @synthesize _appearanceGuideClass;
+@property(nonatomic, setter=_setButtonItemStyle:) int _buttonItemStyle; // @synthesize _buttonItemStyle;
 @property(nonatomic) float maximumWidth; // @synthesize maximumWidth=_maximumWidth;
 @property(nonatomic) float minimumWidth; // @synthesize minimumWidth=_minimumWidth;
 @property(nonatomic) int barStyle; // @synthesize barStyle=_barStyle;
 @property(nonatomic) int style; // @synthesize style=_style;
+- (id)_appearanceStorage;
 - (void)_applyBarButtonAppearanceStorage:(id)arg1 withTaggedSelectors:(id)arg2;
 - (void)_setBackButtonBackgroundVerticalPositionAdjustment:(float)arg1 forBarMetrics:(int)arg2;
 - (void)_UIAppearance_setBackButtonBackgroundVerticalPositionAdjustment:(float)arg1 forBarMetrics:(int)arg2;
@@ -36,6 +40,7 @@
 - (struct UIOffset)_titlePositionAdjustmentForBarMetrics:(int)arg1;
 - (void)_setTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(int)arg2;
 - (void)_UIAppearance_setTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(int)arg2;
+- (BOOL)_hasBaselineAlignedAbsoluteVerticalPosition:(out float *)arg1 withinNavBar:(id)arg2 forSize:(struct CGSize)arg3;
 - (float)_backgroundVerticalPositionAdjustmentForBarMetrics:(int)arg1;
 - (void)_setBackgroundVerticalPositionAdjustment:(float)arg1 forBarMetrics:(int)arg2;
 - (void)_UIAppearance_setBackgroundVerticalPositionAdjustment:(float)arg1 forBarMetrics:(int)arg2;
@@ -68,6 +73,7 @@
 - (BOOL)contentsEqualTo:(id)arg1 withStyle:(int)arg2;
 @property(retain, nonatomic) UIImage *image;
 @property(retain, nonatomic) NSString *title;
+- (BOOL)_isModernButton;
 - (void)dealloc;
 - (id)initWithImage:(id)arg1 style:(int)arg2;
 - (id)initWithImage:(id)arg1;
@@ -79,12 +85,19 @@
 - (id)initWithValue:(id)arg1 width:(float)arg2 style:(int)arg3 barStyle:(int)arg4 possibleTitles:(id)arg5 tintColor:(id)arg6;
 - (id)initWithValue:(id)arg1 width:(float)arg2 style:(int)arg3 barStyle:(int)arg4 possibleTitles:(id)arg5 possibleSystemItems:(id)arg6 tintColor:(id)arg7 applyBezel:(BOOL)arg8 forButtonItemStyle:(int)arg9;
 - (void)_updateStyle;
+- (struct UIEdgeInsets)_pathImageEdgeInsets;
+- (struct UIEdgeInsets)_pathTitleEdgeInsets;
+- (struct UIEdgeInsets)_buttonTitleEdgeInsets;
 - (int)_barButtonItemStyle;
 - (void)_updateTitleColorsForState:(unsigned int)arg1;
+- (void)_updateTitleForLetterpress;
 - (void)_updateShadowOffsetWithAttributes:(id)arg1 forState:(unsigned int)arg2;
-- (struct UIOffset)_defaultTitleShadowOffsetForState:(unsigned int)arg1;
+- (struct CGSize)_defaultTitleShadowOffsetForState:(unsigned int)arg1;
 - (id)_defaultTitleShadowColorForState:(unsigned int)arg1;
 - (id)_defaultTitleColorForState:(unsigned int)arg1;
+- (void)_prepareToAppearInNavigationItemOnLeft:(BOOL)arg1;
+
+// Remaining properties
 @property(retain, nonatomic) UIColor *tintColor;
 
 @end

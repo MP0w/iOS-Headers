@@ -11,14 +11,14 @@
 @interface SymbolParserData : NSObject
 {
     int state;
-    NSMutableDictionary *dictionary;
-    NSMutableArray *symbols;
-    NSString *bufferString;
+    NSMutableDictionary *_dictionary;
+    NSMutableArray *_symbols;
+    NSString *_bufferString;
 }
 
-@property(retain, nonatomic) NSString *bufferString; // @synthesize bufferString;
-@property(retain, nonatomic) NSMutableArray *symbols; // @synthesize symbols;
-@property(retain, nonatomic) NSMutableDictionary *dictionary; // @synthesize dictionary;
+@property(retain, nonatomic) NSString *bufferString; // @synthesize bufferString=_bufferString;
+@property(retain, nonatomic) NSMutableArray *symbols; // @synthesize symbols=_symbols;
+@property(retain, nonatomic) NSMutableDictionary *dictionary; // @synthesize dictionary=_dictionary;
 - (void).cxx_destruct;
 
 @end

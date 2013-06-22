@@ -6,34 +6,37 @@
 
 #import <iPodUI/IUPlaybackViewController.h>
 
-#import "IUCoverFlowOwner-Protocol.h"
+#import "IUCoverZoomViewControllerDelegate-Protocol.h"
 
-@class IUCoverFlowViewController, IUMediaEntitySpecifier;
+@class IUCoverZoomViewController, IUMediaEntitySpecifier;
 
-@interface IUMixedPlaybackViewController : IUPlaybackViewController <IUCoverFlowOwner>
+@interface IUMixedPlaybackViewController : IUPlaybackViewController <IUCoverZoomViewControllerDelegate>
 {
     IUMediaEntitySpecifier *_albumContextSpecifier;
     BOOL _animateREO;
+    IUCoverZoomViewController *_coverZoomViewController;
     BOOL _nextPushWillZoomArtwork;
     IUMediaEntitySpecifier *_playlistContextSpecifier;
     BOOL _showFlipperHint;
-    IUCoverFlowViewController *_transferredCoverFlowController;
 }
 
-- (BOOL)_isExistingGeniusMixForDataSource:(id)arg1;
-- (BOOL)_previousViewControllerIsActiveGeniusMix;
+- (void).cxx_destruct;
 - (void)_updateAnimateForResumeEventsOnly;
+- (void)_transitionToCoverFlowWithInterfaceOrientation:(int)arg1;
+- (void)_transitionFromCoverFlow;
 - (void)_setFakeItemForDataSource:(id)arg1;
 - (void)_setAnimatesForResumeEventsOnly:(BOOL)arg1;
 - (void)_reloadTVOutForQuery:(id)arg1;
+- (BOOL)_previousViewControllerIsActiveGeniusMix;
+- (BOOL)_isExistingGeniusMixForDataSource:(id)arg1;
 - (void)_exitToPlaylistContext:(id)arg1 animated:(BOOL)arg2;
 - (void)_exitToAlbumContext:(id)arg1 animated:(BOOL)arg2;
 - (void)_backOfAlbumTrackChangeNotification:(id)arg1;
 - (void)_playlistChangeNotification:(id)arg1;
 - (unsigned int)transitionEffectForViewController:(id)arg1;
-@property(retain, nonatomic) IUCoverFlowViewController *coverFlowViewController;
-@property(readonly, nonatomic) BOOL isShowingCoverFlow; // @dynamic isShowingCoverFlow;
 @property(nonatomic) BOOL nextPushWillZoomArtwork;
+- (void)coverZoomViewControllerRequestsExit:(id)arg1;
+- (BOOL)isShowingCoverFlow;
 - (BOOL)IUShouldApplyInterfaceStyle;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
@@ -46,6 +49,7 @@
 - (id)newTransitionControllerForChangeToInterfaceOrientation:(int)arg1 fromInterfaceOrientation:(int)arg2;
 - (id)newTransitionControllerForChangeToItem:(id)arg1 fromItem:(id)arg2;
 - (id)newMediaNavigationItem;
+- (void)deviceOrientationChanged:(int)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -16,6 +16,7 @@
     struct __CFUserNotification *_userNotification;
 }
 
+- (void).cxx_destruct;
 - (void)_setValue:(id)arg1 forUserNotificationKey:(struct __CFString *)arg2;
 - (void)_redisplayIfNeeded;
 - (void)_dismissWithResponseDictionary:(id)arg1 flags:(unsigned long)arg2;

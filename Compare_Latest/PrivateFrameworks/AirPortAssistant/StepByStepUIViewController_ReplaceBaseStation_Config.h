@@ -12,20 +12,13 @@
 
 @interface StepByStepUIViewController_ReplaceBaseStation_Config : StepByStepUIViewController_DevicePicker <StepByStepUIDevicePicker>
 {
-    UIView *tableHeaderContainerView;
-    UIView *justTextContainerView;
-    UILabel *justTextLabel;
     UIView *justTextContainerView2;
     UILabel *justTextLabel2;
     NSString *personalizedBaseName;
 }
 
 @property(retain, nonatomic) NSString *personalizedBaseName; // @synthesize personalizedBaseName;
-@property(retain, nonatomic) UILabel *justTextLabel2; // @synthesize justTextLabel2;
 @property(retain, nonatomic) UIView *justTextContainerView2; // @synthesize justTextContainerView2;
-@property(retain, nonatomic) UILabel *justTextLabel; // @synthesize justTextLabel;
-@property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
-@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 - (void)primaryActionSelected:(BOOL)arg1;
 - (BOOL)shouldChangeTextField:(id)arg1 atIndexPath:(id)arg2 forTextIndex:(unsigned int)arg3 toString:(id)arg4;
 - (void)validateAndUpdateNextButton;
@@ -38,6 +31,8 @@
 - (void)setupHeaderAndFooter;
 - (void)setupEditableBaseStationName;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)dealloc;
+- (void)viewDidLoad;
 
 @end
 

@@ -7,21 +7,31 @@
 #import <VectorKit/VKModelObject.h>
 
 #import "VKMapLayer-Protocol.h"
+#import "VKStylesheetObserver-Protocol.h"
 
-@class VGLRenderState;
+@class VGLRenderState, VKMapModel, VKStylesheet;
 
-@interface VKSkyModel : VKModelObject <VKMapLayer>
+@interface VKSkyModel : VKModelObject <VKMapLayer, VKStylesheetObserver>
 {
-    VGLRenderState *_renderState;
-    struct _VGLColor _horizonColor;
-    struct _VGLColor _baseColor;
+    VKMapModel *_mapModel;
     float _skyStartOffset;
+    VGLRenderState *_renderState;
+    struct _VGLColor _fillColor;
+    struct _VGLColor _horizonColor;
 }
 
++ (BOOL)reloadOnStylesheetChange;
+@property(readonly, nonatomic) struct _VGLColor horizonColor; // @synthesize horizonColor=_horizonColor;
+@property(readonly, nonatomic) struct _VGLColor fillColor; // @synthesize fillColor=_fillColor;
+@property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
+- (id).cxx_construct;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)dealloc;
 - (id)init;
+- (void)stylesheetDidChange;
+@property(readonly, nonatomic) VKStylesheet *stylesheet;
+- (unsigned int)supportedRenderPasses;
 - (unsigned int)mapLayerPosition;
 
 @end

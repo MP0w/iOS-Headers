@@ -9,15 +9,12 @@
 @interface MFWeakReferenceHolder : NSObject
 {
     id <NSObject> _reference;
-    unsigned int _isZeroing:1;
 }
 
-+ (id)weakReferenceWithObject:(id)arg1 allowNonZeroing:(BOOL)arg2;
 + (id)weakReferenceWithObject:(id)arg1;
-- (BOOL)isZeroingWeakReference;
 - (id)retainedReference;
 - (void)dealloc;
-- (id)_initWithObject:(id)arg1 allowNonZeroing:(BOOL)arg2;
+- (id)_initWithObject:(id)arg1;
 - (id)init;
 
 @end

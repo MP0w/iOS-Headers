@@ -76,8 +76,8 @@
 - (void)setHasLayoutDrawables:(BOOL)arg1;
 - (void)inContent;
 - (void)clearWrapPoints;
-- (vector_8a2ced25 *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
-- (const set_ac3beeb4 *)wrapPoints;
+- (vector_dadce35e *)createListOfWrapPointsAlongY:(float)arg1 minX:(float)arg2 maxX:(float)arg3 zIndex:(int)arg4;
+- (const set_a2165b2d *)wrapPoints;
 - (void)addWrapPoint:(id)arg1;
 - (void)endWrapPointSet;
 - (void)beginWrapPointSet;

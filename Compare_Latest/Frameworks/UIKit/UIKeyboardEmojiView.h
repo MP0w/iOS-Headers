@@ -6,17 +6,21 @@
 
 #import <UIKit/UIControl.h>
 
-@class UIKeyboardEmoji, UIKeyboardEmojiImageView, UIView;
+@class UIKBRenderConfig, UIKeyboardEmoji, UIKeyboardEmojiImageView, UIView, UIView<UIKeyboardEmojiPressIndicationDelegate>;
 
 @interface UIKeyboardEmojiView : UIControl
 {
     UIKeyboardEmoji *_emoji;
     UIView *_popup;
     UIKeyboardEmojiImageView *_imageView;
+    UIKBRenderConfig *_renderConfig;
+    UIView<UIKeyboardEmojiPressIndicationDelegate> *_delegate;
 }
 
 + (id)emojiViewForEmoji:(id)arg1 withFrame:(struct CGRect)arg2;
 + (void)recycleEmojiView:(id)arg1;
+@property(retain, nonatomic) UIKBRenderConfig *renderConfig; // @synthesize renderConfig=_renderConfig;
+@property(retain) UIView<UIKeyboardEmojiPressIndicationDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain) UIKeyboardEmojiImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain) UIView *popup; // @synthesize popup=_popup;
 @property(retain) UIKeyboardEmoji *emoji; // @synthesize emoji=_emoji;

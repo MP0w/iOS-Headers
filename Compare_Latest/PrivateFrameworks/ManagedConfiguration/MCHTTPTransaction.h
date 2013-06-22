@@ -51,6 +51,7 @@
 - (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
 - (BOOL)connectionShouldUseCredentialStorage:(id)arg1;
 - (BOOL)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
+- (void)performCompletionBlock:(id)arg1;
 - (void)performSynchronously;
 - (void)_beginTransaction;
 - (void)dealloc;

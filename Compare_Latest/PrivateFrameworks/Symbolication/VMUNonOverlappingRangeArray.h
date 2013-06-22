@@ -18,7 +18,7 @@
 - (void)mergeRanges:(id)arg1;
 - (void)mergeRange:(struct _VMURange)arg1;
 - (void)sortAndMergeRanges;
-- (void)addRange:(struct _VMURange)arg1;
+- (void)addOrExtendRange:(struct _VMURange)arg1;
 
 @end
 

@@ -10,7 +10,6 @@
 {
 }
 
-- (id)newViewControllerForPage:(id)arg1 ofType:(int)arg2;
 - (id)newPlaceholderViewController;
 - (id)newNetworkLockoutViewControllerWithSection:(id)arg1;
 

@@ -16,7 +16,7 @@
     OADTextBody *mText;
 }
 
-+ (void)addConnectionToPoint:(id)arg1 order:(unsigned long)arg2 array:(id *)arg3;
++ (void)addConnectionToPoint:(id)arg1 order:(unsigned int)arg2 array:(id *)arg3;
 - (void)setText:(id)arg1;
 - (id)text;
 - (id)shapeProperties;

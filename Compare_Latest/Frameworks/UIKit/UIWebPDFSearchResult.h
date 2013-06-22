@@ -14,8 +14,8 @@
     unsigned int pageIndex;
     NSArray *strings;
     NSString *string;
-    struct CGRect boundingBox;
     NSArray *rects;
+    struct CGRect boundingBox;
 }
 
 @property(retain, nonatomic) NSArray *rects; // @synthesize rects;

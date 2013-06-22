@@ -21,10 +21,7 @@
 - (void)_controlTouchEnded:(id)arg1 withEvent:(id)arg2;
 - (void)_controlTouchMoved:(id)arg1 withEvent:(id)arg2;
 - (void)_controlTouchBegan:(id)arg1 withEvent:(id)arg2;
-- (void)_controlMouseUp:(struct __GSEvent *)arg1;
-- (void)_controlMouseDown:(struct __GSEvent *)arg1;
 - (void)dealloc;
-- (void)_controlMouseDragged:(struct __GSEvent *)arg1;
 - (id)initWithRemoveControl:(id)arg1 withTarget:(id)arg2 withLabel:(id)arg3;
 
 @end

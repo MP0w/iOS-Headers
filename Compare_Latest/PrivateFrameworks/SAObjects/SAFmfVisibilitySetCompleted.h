@@ -4,13 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
 #import "SAServerBoundCommand-Protocol.h"
 
 @class NSString, NSURL;
 
-@interface SAFmfVisibilitySetCompleted : SABaseClientBoundCommand <SAServerBoundCommand>
+@interface SAFmfVisibilitySetCompleted : SADomainCommand <SAServerBoundCommand>
 {
 }
 
@@ -18,7 +18,6 @@
 + (id)visibilitySetCompleted;
 - (BOOL)requiresResponse;
 @property(copy, nonatomic) NSURL *searchContext;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

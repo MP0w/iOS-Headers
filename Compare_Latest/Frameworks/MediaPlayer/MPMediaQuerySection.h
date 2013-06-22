@@ -14,17 +14,17 @@
 @interface MPMediaQuerySection : NSObject <NSCoding, NSCopying>
 {
     NSString *_title;
-    struct _NSRange _range;
     unsigned int _sectionIndexTitleIndex;
+    struct _NSRange _range;
 }
 
 @property(nonatomic) unsigned int sectionIndexTitleIndex; // @synthesize sectionIndexTitleIndex=_sectionIndexTitleIndex;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)_init;
 - (id)init;

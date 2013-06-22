@@ -22,6 +22,7 @@
 }
 
 - (id)sectionInfo;
+- (void).cxx_destruct;
 - (id)objectAtIndex:(unsigned int)arg1;
 - (unsigned int)count;
 - (id)copyWithZone:(struct _NSZone *)arg1;

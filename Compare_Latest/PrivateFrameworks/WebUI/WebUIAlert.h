@@ -34,7 +34,7 @@
 - (int)tableAction;
 - (int)hideAction;
 - (int)defaultAction;
-- (int)actionForButtonTag:(unsigned int)arg1;
+- (int)actionForButtonTag:(int)arg1;
 - (id)buttonTitles;
 - (id)_buttonTitleForAction:(int)arg1;
 - (id)bodyText;

@@ -11,7 +11,7 @@
 @interface SFUZipOutputEntry : NSObject
 {
     NSString *name;
-    unsigned int utf8NameLength;
+    unsigned long utf8NameLength;
     BOOL isCompressed;
     BOOL isEncrypted;
     unsigned int time;

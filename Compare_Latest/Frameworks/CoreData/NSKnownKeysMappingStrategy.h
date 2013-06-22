@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSFastEnumeration-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSKnownKeysMappingStrategy : NSObject <NSCoding, NSFastEnumeration>
+@interface NSKnownKeysMappingStrategy : NSObject <NSSecureCoding, NSFastEnumeration>
 {
 }
 

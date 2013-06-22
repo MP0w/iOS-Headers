@@ -14,22 +14,26 @@
 {
     NSIndexPath *_indexPath;
     NSString *_identifier;
-    unsigned int type;
+    BOOL _isClone;
+    unsigned int _type;
 }
 
 + (id)collectionItemKeyForLayoutAttributes:(id)arg1;
 + (id)collectionItemKeyForDecorationViewOfKind:(id)arg1 andIndexPath:(id)arg2;
 + (id)collectionItemKeyForSupplementaryViewOfKind:(id)arg1 andIndexPath:(id)arg2;
 + (id)collectionItemKeyForCellWithIndexPath:(id)arg1;
-@property(nonatomic) unsigned int type; // @synthesize type;
-@property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(retain, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
+@property(readonly, nonatomic) BOOL isClone; // @synthesize isClone=_isClone;
+@property(readonly, nonatomic) unsigned int type; // @synthesize type=_type;
+@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyAsClone:(BOOL)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)init;
+- (id)initWithType:(unsigned int)arg1 indexPath:(id)arg2 identifier:(id)arg3 clone:(BOOL)arg4;
+- (id)initWithType:(unsigned int)arg1 indexPath:(id)arg2 identifier:(id)arg3;
 
 @end
 

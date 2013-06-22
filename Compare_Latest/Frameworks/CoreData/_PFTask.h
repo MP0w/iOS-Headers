@@ -25,7 +25,7 @@
 - (BOOL)_isDeallocating;
 - (BOOL)_tryRetain;
 - (unsigned int)retainCount;
-- (void)release;
+- (oneway void)release;
 - (id)retain;
 - (void)finalize;
 - (void)dealloc;

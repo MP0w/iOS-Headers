@@ -12,10 +12,9 @@
 
 + (void)releaseSharedManager;
 + (id)sharedManager;
-+ (char *)convertCGImageToBufferUsingDataProvider:(struct CGImage *)arg1;
-+ (char *)convertCGImageToBufferUsingRGBDevice:(struct CGImage *)arg1;
-+ (char *)convertCGImageToBuffer:(struct CGImage *)arg1;
-+ (struct FaceCoreAPI *)faceCoreAPI;
++ (id)convertCGImageToBufferUsingDataProvider:(struct CGImage *)arg1;
++ (id)convertCGImageToBufferUsingRGBDevice:(struct CGImage *)arg1;
++ (id)convertCGImageToBuffer:(struct CGImage *)arg1;
 - (double)posterTimeForAssetAtPath:(id)arg1;
 - (id)absolutePathFromPath:(id)arg1;
 - (id)regionsOfInterestForAssetAtPath:(id)arg1;

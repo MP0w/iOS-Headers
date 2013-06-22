@@ -27,3 +27,8 @@ struct sockaddr_in {
     char _field5[8];
 };
 
+struct timeval {
+    int tv_sec;
+    int tv_usec;
+};
+

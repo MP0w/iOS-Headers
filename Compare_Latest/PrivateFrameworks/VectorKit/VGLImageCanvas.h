@@ -21,24 +21,29 @@
     BOOL _useStencilBuffer;
     struct _VGLColor _glClearColor;
     BOOL _canMakeImage;
+    BOOL _recreateFramebuffer;
 }
 
++ (struct CGImage *)newImageFromTargetTexture:(id)arg1;
++ (void *)bitmapData:(unsigned int *)arg1 fromTexture:(id)arg2;
 + (Class)contextClass;
-@property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(readonly, nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
+@property(nonatomic) struct CGSize size; // @synthesize size=_size;
+@property(nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
 @property(nonatomic) struct _VGLColor glClearColor; // @synthesize glClearColor=_glClearColor;
 @property(nonatomic) BOOL useStencilBuffer; // @synthesize useStencilBuffer=_useStencilBuffer;
 @property(nonatomic) BOOL useDepthBuffer; // @synthesize useDepthBuffer=_useDepthBuffer;
 @property(readonly, nonatomic) VGLContext *vglContext; // @synthesize vglContext=_targetContext;
-- (id)image;
+- (id).cxx_construct;
+- (struct CGImage *)newImage;
+- (void *)bitmapData:(unsigned int *)arg1;
 - (void)didDrawView;
 - (void)willDrawView;
 - (void)_destroyFramebuffer;
 - (void)_createFramebuffer;
 - (void)dealloc;
 - (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 context:(id)arg3;
-- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2;
 @property(readonly, nonatomic) struct CGSize sizeInPixels;
+@property(nonatomic) BOOL useMultisampling;
 
 @end
 

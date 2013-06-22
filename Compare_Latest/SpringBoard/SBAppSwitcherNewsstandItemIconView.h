@@ -4,20 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBNewsstandItemIconViewBase.h"
+#import "SBNewsstandItemIconView.h"
 
-@interface SBAppSwitcherNewsstandItemIconView : SBNewsstandItemIconViewBase
+@interface SBAppSwitcherNewsstandItemIconView : SBNewsstandItemIconView
 {
 }
 
-+ (Class)_labelImageParametersClassForIcon:(id)arg1 location:(int)arg2;
-- (id)_superviewForAccessoryView;
-- (void)positionIconImageView;
-- (void)positionCloseBoxOfType:(int)arg1;
-- (void)_updateLabelVisibility;
-- (void)setShadowsHidden:(BOOL)arg1;
-- (struct CGRect)defaultFrameForProgressBar;
-- (id)initWithFrame:(struct CGRect)arg1;
++ (int)_defaultIconFormat;
 
 @end
 

@@ -12,7 +12,7 @@
 
 + (id)readDrawablesFromXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 drawingState:(id)arg3;
 + (id)readDrawableFromXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 drawingState:(id)arg3;
-+ (void)readNonVisualPropertiesFromXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 toDrawable:(id)arg3 drawingState:(id)arg4;
++ (void)readNonVisualPropertiesFromDrawableXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 visualNodeName:(const char *)arg3 toDrawable:(id)arg4 drawingState:(id)arg5;
 
 @end
 

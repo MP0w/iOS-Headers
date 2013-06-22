@@ -17,14 +17,14 @@
 }
 
 + (id)customAttributes;
-@property(retain) NSNumber *inputWidth; // @synthesize inputWidth;
-@property(retain) NSNumber *inputAngle; // @synthesize inputAngle;
-@property(retain) CIVector *inputCenter; // @synthesize inputCenter;
-@property(retain) CIImage *inputImage; // @synthesize inputImage;
-- (void)setDefaults;
+@property(retain, nonatomic) NSNumber *inputWidth; // @synthesize inputWidth;
+@property(retain, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
+@property(retain, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
+@property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)_kernel;
 - (id)_kernel_source;
 - (id)_kernel_name;
+- (void)setDefaults;
 
 @end
 

@@ -6,14 +6,17 @@
 
 #import "NSObject.h"
 
-@interface QLPreviewItemAVState : NSObject
+#import "NSSecureCoding-Protocol.h"
+
+@interface QLPreviewItemAVState : NSObject <NSSecureCoding>
 {
+    BOOL playing;
     double position;
     double duration;
-    BOOL playing;
 }
 
 + (id)avStateWithPosition:(double)arg1 duration:(double)arg2 playing:(BOOL)arg3;
++ (BOOL)supportsSecureCoding;
 @property(getter=isPlaying) BOOL playing; // @synthesize playing;
 @property double duration; // @synthesize duration;
 @property double position; // @synthesize position;

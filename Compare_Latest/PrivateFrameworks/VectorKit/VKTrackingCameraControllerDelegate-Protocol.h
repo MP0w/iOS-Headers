@@ -7,11 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol VKTrackingCameraControllerDelegate <NSObject>
-- (void)trackingCameraControllerDidEndAnimating:(id)arg1;
-- (void)trackingCameraControllerDidBeginAnimating:(id)arg1;
-- (void)trackingCameraControllerDidChangeCameraState:(id)arg1;
 
 @optional
-- (void)trackingCameraController:(id)arg1 updatedStartAnimationTargetPosition:(CDStruct_31142d93)arg2 orientation:(const CDStruct_aa5aacbc *)arg3;
+- (void)trackingCameraController:(id)arg1 updatedStartAnimationTargetPosition:(struct VKPoint)arg2 orientation:(const CDStruct_aa5aacbc *)arg3;
 @end
 

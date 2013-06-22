@@ -18,7 +18,10 @@
 - (BOOL)_prepareForReadingReturningError:(id *)arg1;
 - (id)_asset;
 - (id)mediaType;
+@property(readonly, nonatomic) id <AVVideoCompositing> customVideoCompositor;
 @property(copy, nonatomic) AVVideoComposition *videoComposition;
+- (void)_setVideoComposition:(id)arg1 customVideoCompositorSession:(id)arg2;
+- (void)_setVideoComposition:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *videoSettings;
 @property(readonly, nonatomic) NSArray *videoTracks;
 - (id)description;

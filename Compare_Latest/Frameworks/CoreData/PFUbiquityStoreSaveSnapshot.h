@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNumber, NSString, PFUbiquityKnowledgeVector;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNumber, NSString, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector;
 
 @interface PFUbiquityStoreSaveSnapshot : NSObject
 {
@@ -31,8 +31,10 @@
     NSMutableArray *_filesInsertedInTransaction;
     NSArray *_filesDeletedInTransaction;
     PFUbiquityKnowledgeVector *_storeKV;
+    PFUbiquityGlobalObjectIDCache *_gidCache;
 }
 
+@property(retain, nonatomic) PFUbiquityGlobalObjectIDCache *globalObjectIDCache; // @synthesize globalObjectIDCache=_gidCache;
 @property(retain, nonatomic) PFUbiquityKnowledgeVector *storeKV; // @synthesize storeKV=_storeKV;
 @property(retain, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) NSDictionary *globalObjectIDToPermanentManagedObjectID; // @synthesize globalObjectIDToPermanentManagedObjectID=_globalObjectIDToPermanentManagedObjectID;
@@ -41,9 +43,8 @@
 @property(readonly, nonatomic) NSDictionary *peerIDToIndex; // @synthesize peerIDToIndex=_peerIDToIndex;
 @property(readonly, nonatomic) NSDictionary *entityNameToIndex; // @synthesize entityNameToIndex=_entityNameToIndex;
 @property(readonly, nonatomic) NSDictionary *managedObjectIDToGlobalObjectID; // @synthesize managedObjectIDToGlobalObjectID=_managedObjectIDToGlobalObjectID;
-@property(readonly, nonatomic) NSDictionary *storeOptions; // @synthesize storeOptions=_storeOptions;
 @property(retain, nonatomic) NSString *exportingPeerID; // @synthesize exportingPeerID=_exportingPeerID;
-@property(readonly, nonatomic) NSNumber *transactionNumber; // @synthesize transactionNumber=_transactionNumber;
+@property(retain, nonatomic) NSNumber *transactionNumber; // @synthesize transactionNumber=_transactionNumber;
 @property(readonly, nonatomic) NSDictionary *peerStates; // @synthesize peerStates=_peerStates;
 @property(readonly, nonatomic) NSDictionary *deletedObjects; // @synthesize deletedObjects=_deletedObjects;
 @property(readonly, nonatomic) NSDictionary *updatedObjects; // @synthesize updatedObjects=_updatedObjects;
@@ -53,6 +54,10 @@
 @property(readonly, nonatomic) NSArray *peerIDs; // @synthesize peerIDs=_peerIDs;
 @property(readonly, nonatomic) NSArray *entityNames; // @synthesize entityNames=_entityNames;
 - (id)createUbiquityDictionary:(id)arg1 withStoreExportContext:(id)arg2 error:(id *)arg3;
+- (void)finishGlobalIDReplacement;
+- (void)replaceGlobalObjectID:(id)arg1 withGlobalObjectID:(id)arg2;
+- (void)prepareForGlobalIDReplacement;
+- (void)replaceGlobalObjectIDsAtIndexes:(id)arg1 withGlobalObjectIDs:(id)arg2;
 - (void)setDeletedObjects:(id)arg1;
 - (void)setUpdatedObjects:(id)arg1;
 - (void)setInsertedObjects:(id)arg1;
@@ -60,7 +65,7 @@
 - (void)setTransactionNumber:(id)arg1 peerStates:(id)arg2 andPeerIDs:(id)arg3;
 - (id)transactionNumberFromPeerStates:(id)arg1;
 - (id)createKnowledgeVectorFromPeerStates;
-- (void)generatePeerStatesWithStoreExportContext:(id)arg1;
+- (void)generatePeerStates;
 - (void)reserveTransactionNumberWithStoreExportContext:(id)arg1;
 - (id)addManagedObject:(id)arg1 withTransactionType:(int)arg2 andStoreExportContext:(id)arg3 withError:(id *)arg4;
 - (id)globalObjectIDFromCompressedObjectID:(id)arg1;
@@ -72,7 +77,7 @@
 - (id)filesInsertedInTransaction;
 - (id)description;
 - (void)dealloc;
-- (id)initWithPersistentStoreOptions:(id)arg1 andExportingPeerID:(id)arg2;
+- (id)initForExport:(id)arg1;
 - (id)initWithExportingPeerID:(id)arg1;
 - (id)init;
 

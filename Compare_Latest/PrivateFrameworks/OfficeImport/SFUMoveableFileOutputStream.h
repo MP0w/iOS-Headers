@@ -21,7 +21,7 @@
 - (id)inputStream;
 - (BOOL)canCreateInputStream;
 - (void)flush;
-- (void)truncateToLength:(unsigned long)arg1;
+- (void)truncateToLength:(long long)arg1;
 - (BOOL)moveToPath:(id)arg1;
 - (void)seekToOffset:(long long)arg1 whence:(int)arg2;
 - (BOOL)canSeek;

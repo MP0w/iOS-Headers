@@ -13,8 +13,8 @@
 {
     unsigned int _shadowFlags;
     id _shadowColor;
-    struct CGSize _shadowOffset;
     float _shadowBlurRadius;
+    struct CGSize _shadowOffset;
 }
 
 + (id)defaultShadowColor;

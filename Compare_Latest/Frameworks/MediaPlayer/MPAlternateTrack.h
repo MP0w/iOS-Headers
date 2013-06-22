@@ -10,22 +10,20 @@
 
 @interface MPAlternateTrack : NSObject
 {
-    NSString *_name;
+    NSString *_displayName;
+    NSString *_canonicalLanguageIdentifier;
     AVMediaSelectionOption *_option;
-    BOOL _isSDH;
 }
 
 + (id)threeCharCodesForEncodedISO639_2_T:(id)arg1;
-+ (id)copyOffTrack;
-@property(nonatomic) BOOL isSDH; // @synthesize isSDH=_isSDH;
 @property(readonly, nonatomic) AVMediaSelectionOption *option; // @synthesize option=_option;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) NSString *canonicalLanguageIdentifier; // @synthesize canonicalLanguageIdentifier=_canonicalLanguageIdentifier;
+@property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
+- (void).cxx_destruct;
+- (void)_setDisplayNameFromOption:(id)arg1;
 - (id)description;
-- (id)_humanReadableLanguage;
 - (int)compare:(id)arg1;
-@property(readonly, nonatomic) NSString *displayName;
-- (void)dealloc;
-- (id)initWithName:(id)arg1 option:(id)arg2;
+- (id)initWithOption:(id)arg1;
 
 @end
 

@@ -16,6 +16,7 @@
     MFContactsSearchManager *_manager;
     MFContactsSearchResultsModel *_model;
     NSNumber *_taskID;
+    NSNumber *_corecipientSearchTaskID;
     BOOL _foundAnySearchResults;
     unsigned int _waitingOnSearchResultsCount;
 }
@@ -28,8 +29,10 @@
 - (void)finishedTaskWithID:(id)arg1;
 - (void)finishedSearchingForType:(int)arg1;
 - (void)consumeSearchResults:(id)arg1 type:(int)arg2 taskID:(id)arg3;
+- (void)findCorecipientsWithRecipients:(id)arg1;
 - (void)_cancelSearchAndNotify:(BOOL)arg1;
 - (void)cancelSearch;
+- (void)searchWithString:(id)arg1 enteredRecipients:(id)arg2;
 - (void)searchWithString:(id)arg1;
 - (void)dealloc;
 - (id)init;

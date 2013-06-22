@@ -10,12 +10,12 @@
 
 @interface CBATTRequest : NSObject
 {
+    NSNumber *_transactionID;
+    BOOL _ignoreResponse;
     CBCentral *_central;
     CBCharacteristic *_characteristic;
     unsigned int _offset;
     NSData *_value;
-    NSNumber *_transactionID;
-    BOOL _ignoreResponse;
 }
 
 @property(nonatomic) BOOL ignoreResponse; // @synthesize ignoreResponse=_ignoreResponse;

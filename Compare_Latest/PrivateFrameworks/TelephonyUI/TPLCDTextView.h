@@ -47,7 +47,7 @@
 - (id)text;
 - (void)setText:(id)arg1;
 - (void)setMinimumFontSize:(float)arg1;
-- (void)setFont:(struct __GSFont *)arg1;
+- (void)setFont:(id)arg1;
 - (void)setLCDTextFont:(id)arg1;
 - (void)setLeftTruncatesText:(BOOL)arg1;
 - (void)setCenterText:(BOOL)arg1;

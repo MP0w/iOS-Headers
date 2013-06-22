@@ -6,31 +6,34 @@
 
 #import "UIViewController.h"
 
-#import "MediaPickerModalContextDelegate-Protocol.h"
-#import "UIScrollViewDelegate-Protocol.h"
+@class NSString;
 
-@class MPMediaPickerControllerInternal, NSString;
-
-@interface MPMediaPickerController : UIViewController <MediaPickerModalContextDelegate, UIScrollViewDelegate>
+@interface MPMediaPickerController : UIViewController
 {
-    MPMediaPickerControllerInternal *_internal;
+    id <MPMediaPickerControllerDelegate> _delegate;
+    unsigned int _mediaTypes;
+    id _modalContext;
+    NSString *_prompt;
+    int _prevStatusBarStyle;
+    unsigned int _allowsPickingMultipleItems:1;
+    unsigned int _showsCloudItems:1;
 }
 
 + (void)preheatMediaPicker;
+- (void).cxx_destruct;
 - (void)_pickerDidPickItems:(id)arg1;
 - (void)_pickerDidCancel;
 @property(nonatomic) BOOL showsCloudItems;
 @property(nonatomic) BOOL allowsPickingMultipleItems;
 @property(copy, nonatomic) NSString *prompt;
-@property(nonatomic) id <MPMediaPickerControllerDelegate> delegate;
-@property(readonly, nonatomic) int mediaTypes;
-- (void)mediaPickerModalContext:(id)arg1 didPickMediaItems:(id)arg2;
-- (void)modalContextDidDismiss:(id)arg1 withSuccess:(BOOL)arg2;
+@property(nonatomic) __weak id <MPMediaPickerControllerDelegate> delegate;
+@property(readonly, nonatomic) unsigned int mediaTypes;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)dealloc;
-- (id)initWithMediaTypes:(int)arg1;
+- (id)initWithMediaTypes:(unsigned int)arg1;
 - (id)init;
 
 @end

@@ -52,7 +52,6 @@
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
-@property(readonly, nonatomic) UIView *popoverView;
 @property(nonatomic) BOOL rasterizePopoverLayer;
 - (void)didRotate;
 - (void)willRotate;
@@ -75,7 +74,6 @@
 - (BOOL)popoverShowing;
 - (void)presentPopover:(id)arg1 fromRect:(struct CGRect)arg2 inView:(id)arg3 direction:(unsigned int)arg4 allowInteractionWithViews:(id)arg5 withDelegate:(id)arg6 animated:(BOOL)arg7;
 - (void)presentPopover:(id)arg1 fromBarButtonItem:(id)arg2 withDelegate:(id)arg3 animated:(BOOL)arg4;
-- (void)presentActionSheetPopover:(id)arg1 fromRect:(struct CGRect)arg2 inView:(id)arg3 animated:(BOOL)arg4;
 - (void)presentPopover:(id)arg1 fromView:(id)arg2 animated:(BOOL)arg3;
 - (void)presentPopover:(id)arg1 fromBarButtonItem:(id)arg2 animated:(BOOL)arg3;
 - (void)dealloc;

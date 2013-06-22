@@ -57,6 +57,7 @@
 @property(copy, nonatomic) NSString *colorString;
 @property(nonatomic, getter=isColorDisplayOnly) BOOL colorDisplayOnly;
 @property(copy, nonatomic) NSString *title;
+@property(copy, nonatomic) NSString *externalModificationTag;
 @property(copy, nonatomic) NSString *externalID;
 - (int)entityType;
 - (id)init;

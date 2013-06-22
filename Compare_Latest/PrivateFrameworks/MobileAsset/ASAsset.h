@@ -19,9 +19,9 @@
     struct __MobileAsset *_cfAsset;
 }
 
-@property(readonly, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
 @property(retain, nonatomic) NSDictionary *downloadOptions; // @synthesize downloadOptions=_downloadOptions;
 @property(copy, nonatomic) id progressHandler; // @synthesize progressHandler=_progressHandler;
+@property(readonly, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
 - (id)_getLocalAttribute:(id)arg1;
 - (struct __MobileAsset *)mobileAsset;
 - (BOOL)purgeAndReturnError:(id *)arg1;
@@ -41,6 +41,8 @@
 @property(readonly, nonatomic) NSDictionary *attributes;
 @property(readonly, nonatomic) NSURL *localURL;
 - (id)description;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
 - (void)dealloc;
 - (BOOL)isPresentOnDisk;
 - (id)identifier;

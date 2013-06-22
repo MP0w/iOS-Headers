@@ -6,17 +6,18 @@
 
 #import "UITableViewCell.h"
 
-@class CKSummaryLabel, NSDate, NSString, UIDateLabel, UIImageView, UILabel;
+@class NSDate, NSString, UIDateLabel, UIImageView, UILabel;
 
 @interface CKConversationListCell : UITableViewCell
 {
     UIDateLabel *_dateLabel;
-    CKSummaryLabel *_summaryLabel;
-    CKSummaryLabel *_backupSummaryLabel;
+    UILabel *_summaryLabel;
     UIImageView *_unreadIndicatorImageView;
+    UIImageView *_chevronImageView;
     UILabel *_fromLabel;
     UIImageView *_groupImageView;
     BOOL _isPlaceholder;
+    UIImageView *_recipientPhotoView;
     NSString *_searchSummaryText;
     NSString *_searchMessageGUID;
     NSDate *_searchMessageDate;
@@ -27,16 +28,15 @@
 @property(copy, nonatomic) NSString *searchSummaryText; // @synthesize searchSummaryText=_searchSummaryText;
 @property(retain, nonatomic) NSDate *searchMessageDate; // @synthesize searchMessageDate=_searchMessageDate;
 @property(copy, nonatomic) NSString *searchMessageGUID; // @synthesize searchMessageGUID=_searchMessageGUID;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)layoutSubviews;
-- (void)didTransitionToState:(unsigned int)arg1;
-- (void)willTransitionToState:(unsigned int)arg1;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)_createBackupSummaryLabel;
+- (id)_calculateLayoutFrames;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)updateWithSearchResult:(id)arg1;
 - (void)updateContentsForConversation:(id)arg1;
-- (void)dealloc;
-- (void)updateFontSize;
+- (void)_userPreferredContentSizeChangedNotification:(id)arg1;
 - (void)prepareForReuse;
+- (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

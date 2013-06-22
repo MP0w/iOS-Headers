@@ -26,6 +26,8 @@
 - (void)replaceObject:(id)arg1 forKey:(id)arg2;
 - (void)removeObjectsForKeys:(id)arg1;
 - (void)removeKeysForObject:(id)arg1;
+- (void)removeEntriesPassingTest:(id)arg1;
+- (void)removeEntriesWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
 - (void)removeEntriesInDictionary:(id)arg1;
 - (void)removeAllObjects;
 - (void)invert;

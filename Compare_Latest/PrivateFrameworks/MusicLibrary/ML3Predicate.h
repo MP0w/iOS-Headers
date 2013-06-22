@@ -13,11 +13,15 @@
 {
 }
 
+- (id)spotlightPredicate;
+- (BOOL)isFalseAlways;
+- (BOOL)isTrueAlways;
 - (BOOL)isDynamicForEntityClass:(Class)arg1;
 - (id)SQLForEntityClass:(Class)arg1;
-- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
+- (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)SQLJoinClausesForClass:(Class)arg1;
+- (id)predicateOptimizedForEntityClass:(Class)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;

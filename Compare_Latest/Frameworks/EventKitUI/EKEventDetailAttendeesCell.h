@@ -13,12 +13,12 @@
     EKEventDetailAttendeesListView *_attendeesListView;
 }
 
+- (void).cxx_destruct;
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;
 - (id)_attendeesListView;
 - (void)setAttendees:(id)arg1;
 - (id)viewControllerForCell;
 - (BOOL)update;
-- (void)dealloc;
 - (id)initWithEvent:(id)arg1 editable:(BOOL)arg2;
 
 @end

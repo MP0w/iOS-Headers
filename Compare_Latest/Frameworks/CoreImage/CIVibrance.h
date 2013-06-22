@@ -6,24 +6,26 @@
 
 #import <CoreImage/CIFilter.h>
 
+#import "_CIFilterProperties-Protocol.h"
+
 @class CIImage, NSNumber;
 
-@interface CIVibrance : CIFilter
+@interface CIVibrance : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
     NSNumber *inputAmount;
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputAmount; // @synthesize inputAmount;
+@property(retain, nonatomic) NSNumber *inputAmount; // @synthesize inputAmount;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
-- (id)outputImage;
-- (BOOL)_isIdentity;
-- (void)setDefaults;
-- (id)_kernelPos;
-- (id)_kernelNeg;
 - (id)_initFromProperties:(id)arg1;
 - (id)_outputProperties;
+- (id)outputImage;
+- (id)_kernelPos;
+- (id)_kernelNeg;
+- (BOOL)_isIdentity;
+- (void)setDefaults;
 
 @end
 

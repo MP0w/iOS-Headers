@@ -10,9 +10,9 @@
 {
     BOOL _useDefaultModalPresentationStyle;
     BOOL _useDefaultModalTransitionStyle;
+    BOOL _animates;
     int _modalPresentationStyle;
     int _modalTransitionStyle;
-    BOOL _animates;
 }
 
 @property(nonatomic) BOOL animates; // @synthesize animates=_animates;

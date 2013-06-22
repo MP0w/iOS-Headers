@@ -18,11 +18,7 @@
     unsigned int _problematicResponseIndex;
     NSData *_problematicRouteID;
     unsigned int _problematicStepIndex;
-    struct {
-        unsigned int problematicEventIndex:1;
-        unsigned int problematicResponseIndex:1;
-        unsigned int problematicStepIndex:1;
-    } _has;
+    CDStruct_d18ab72a _has;
 }
 
 @property(nonatomic) unsigned long long problematicEventIndex; // @synthesize problematicEventIndex=_problematicEventIndex;

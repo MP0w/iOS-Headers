@@ -16,12 +16,12 @@
     UIView *_loadingContainerView;
     NSDate *_lastViewPhaseChangeDate;
     BOOL _indicatorIsVisible;
-    int _placeholderState;
     int _interfaceIdiom;
+    int _placeholderState;
 }
 
-@property(readonly) int interfaceIdiom; // @synthesize interfaceIdiom=_interfaceIdiom;
 @property int placeholderState; // @synthesize placeholderState=_placeholderState;
+@property(readonly) int interfaceIdiom; // @synthesize interfaceIdiom=_interfaceIdiom;
 - (void)layoutSubviews;
 - (void)_layoutSubviews;
 - (void)_removeLoadingContainerView;

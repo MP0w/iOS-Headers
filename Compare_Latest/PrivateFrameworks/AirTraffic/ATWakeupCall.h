@@ -22,7 +22,7 @@
     NSThread *_wakeThread;
     BOOL _searching;
     int _resolving;
-    int _hostsToResolve;
+    unsigned int _hostsToResolve;
 }
 
 + (id)wakeableHostsWithCompletion:(id)arg1;

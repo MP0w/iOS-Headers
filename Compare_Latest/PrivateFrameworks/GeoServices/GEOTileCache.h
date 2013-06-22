@@ -6,19 +6,14 @@
 
 #import "NSObject.h"
 
+@class GEOTileCacheReserved, NSObject<OS_dispatch_source>;
+
 @interface GEOTileCache : NSObject
 {
-    struct mutex _lock;
-    struct list<CacheItem, std::__1::allocator<CacheItem>> _list;
-    struct unordered_map<_GEOTileKey, std::__1::__list_iterator<CacheItem, void *>, hashkey, eqkey, std::__1::allocator<std::__1::pair<const _GEOTileKey, std::__1::__list_iterator<CacheItem, void *>>>> _map;
-    unsigned int _maxCapacity;
-    unsigned int _maxCost;
-    unsigned int _currentCost;
-    unsigned int _currentCount;
+    GEOTileCacheReserved *_reserved;
+    NSObject<OS_dispatch_source> *_memoryNotificationEventSource;
 }
 
-- (id).cxx_construct;
-- (void).cxx_destruct;
 - (void)_enteredBackground:(id)arg1;
 - (void)removeTilesMatchingPredicate:(id)arg1;
 - (void)enumerate:(id)arg1;
@@ -28,10 +23,11 @@
 - (void)_removeTileForKey:(const struct _GEOTileKey *)arg1;
 - (void)setNullForKey:(const struct _GEOTileKey *)arg1;
 - (void)setTile:(id)arg1 forKey:(const struct _GEOTileKey *)arg2 cost:(unsigned int)arg3;
+- (BOOL)containsKey:(const struct _GEOTileKey *)arg1 cost:(unsigned int *)arg2;
 - (id)tileForKey:(const struct _GEOTileKey *)arg1;
 @property unsigned int maxCost;
 @property unsigned int maxCapacity;
-- (void)_receivedMemoryNotification:(id)arg1;
+- (void)_receivedMemoryNotification;
 - (void)_evictWithMaxCost:(unsigned int)arg1 maxCapacity:(unsigned int)arg2;
 - (id)description;
 - (id)_description;

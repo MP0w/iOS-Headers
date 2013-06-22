@@ -11,6 +11,7 @@
 }
 
 - (void)_validateAllowedClass:(Class)arg1 forKey:(id)arg2 allowingInvocations:(BOOL)arg3;
+- (void)validateClassSupportsSecureCoding:(Class)arg1;
 - (void)validateAllowedClass:(Class)arg1 forKey:(id)arg2;
 - (id)allowedClasses;
 - (id)decodePropertyListForKey:(id)arg1;

@@ -4,17 +4,14 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import "SBAwayListItem.h"
 
-#import "SBAwayListCellButtonHandler-Protocol.h"
+@class NSString, SBAlertItem, UIImage;
 
-@class NSArray, NSString, SBAlertItem, UIImage;
-
-@interface SBAwaySystemAlertItem : NSObject <SBAwayListCellButtonHandler>
+@interface SBAwaySystemAlertItem : SBAwayListItem
 {
     SBAlertItem *_currentAlert;
     NSString *_title;
-    NSArray *_buttonLabels;
     UIImage *_appImage;
     NSString *_message;
     int _cancelButtonIdx;
@@ -22,9 +19,9 @@
 }
 
 - (BOOL)isAlarm;
+- (int)snoozeButtonindex;
 - (int)cancelButtonIndex;
 - (void)buttonPressedAtIndex:(int)arg1;
-- (id)buttonLabels;
 - (id)sortDate;
 - (id)iconImage;
 - (id)title;

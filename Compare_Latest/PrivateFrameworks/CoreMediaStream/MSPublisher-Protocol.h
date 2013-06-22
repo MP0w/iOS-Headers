@@ -9,6 +9,7 @@
 @protocol MSPublisher <NSObject>
 @property(nonatomic) int publishBatchSize;
 @property(nonatomic) id <MSPublisherDelegate> delegate;
+- (void)reenqueueQuarantinedAssetCollections;
 - (void)publish;
 - (void)stop;
 - (void)abort;

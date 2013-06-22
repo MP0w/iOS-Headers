@@ -8,7 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
-@class UIColor, UIImage, UIImageView, UIView;
+@class CAGradientLayer, CAShapeLayer, UIColor, UIImage, UIImageView, UIView;
 
 @interface UISlider : UIControl <NSCoding>
 {
@@ -37,6 +37,18 @@
     UIColor *_minTintColor;
     UIColor *_maxTintColor;
     UIColor *_thumbTintColor;
+    CAShapeLayer *_trackMaskLayer;
+    UIView *_trackContainerView;
+    UIView *_thumbViewNeue;
+    CAShapeLayer *_thumbViewNeueShape;
+    BOOL _useLookNeue;
+    BOOL _trackIsArtworkBased;
+    BOOL _thumbIsArtworkBased;
+    UIView *_minTrackViewNeue;
+    UIView *_maxTrackViewNeue;
+    CAGradientLayer *_maxTrackGradientLayer;
+    BOOL _maxColorIsValid;
+    UIImageView *_innerThumbView;
 }
 
 @property(retain, nonatomic) UIColor *thumbTintColor; // @synthesize thumbTintColor=_thumbTintColor;
@@ -49,16 +61,10 @@
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (BOOL)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (void)_controlMouseDragged:(struct __GSEvent *)arg1;
-- (void)_controlMouseUp:(struct __GSEvent *)arg1;
-- (void)_controlMouseDown:(struct __GSEvent *)arg1;
 - (BOOL)cancelMouseTracking;
-- (void)endTrackingAt:(struct CGPoint)arg1 previous:(struct CGPoint)arg2 withEvent:(struct __GSEvent *)arg3;
-- (BOOL)continueTrackingAt:(struct CGPoint)arg1 previous:(struct CGPoint)arg2 withEvent:(struct __GSEvent *)arg3;
-- (BOOL)beginTrackingAt:(struct CGPoint)arg1 withEvent:(struct __GSEvent *)arg2;
 - (void)_sendDelayedActions;
-- (void)_sliderAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
-- (void)_sliderAnimationWillStart:(id)arg1 context:(void *)arg2;
+- (void)_sliderAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
+- (void)_sliderAnimationWillStart:(id)arg1 context:(id)arg2;
 @property(nonatomic) float maximumValue; // @dynamic maximumValue;
 @property(nonatomic) float minimumValue; // @dynamic minimumValue;
 - (void)_setValue:(float)arg1 andSendAction:(BOOL)arg2;
@@ -73,6 +79,7 @@
 - (void)_updateAppearanceForEnabled:(BOOL)arg1;
 - (void)didMoveToWindow;
 - (void)_layoutSubviewsForBoundsChange:(BOOL)arg1;
+- (void)_updateMaxTrackColor;
 - (void)layoutSubviews;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
@@ -84,6 +91,12 @@
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)maximumValueImageRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)minimumValueImageRectForBounds:(struct CGRect)arg1;
+- (void)tintColorDidChange;
+- (void)_emptyTrackMaskAnimated:(BOOL)arg1;
+- (void)_fillTrackMaskAnimated:(BOOL)arg1;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (struct CGPath *)_maskPathForBounds:(struct CGRect)arg1 edgeInset:(struct UIEdgeInsets)arg2 andProgress:(float)arg3;
+- (id)_roundedCornersBezierPathInRect:(struct CGRect)arg1;
 @property(retain, nonatomic) UIImage *maximumValueImage;
 @property(retain, nonatomic) UIImage *minimumValueImage;
 @property(readonly, nonatomic) UIImage *currentMaximumTrackImage;
@@ -98,13 +111,22 @@
 - (BOOL)gestureRecognizerShouldBegin:(id)arg1;
 - (id)description;
 - (void)dealloc;
+- (void)_rebuildControlThumb:(BOOL)arg1 track:(BOOL)arg2;
+- (void)_buildTrackArtwork;
+- (void)_buildTrackNeue;
 - (void)_initSubviews;
 - (void)_initImages;
+- (id)createThumbViewNeue;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
+- (id)_maxValueView;
+- (id)_minValueView;
+- (id)_maxTrackView;
+- (id)_minTrackView;
+- (void)_setUseLookNeue:(BOOL)arg1;
 - (struct UIEdgeInsets)_thumbHitEdgeInsets;
 - (BOOL)_isThumbEnabled;
 - (void)_setMinimumTrackVisible:(BOOL)arg1 withDuration:(double)arg2;

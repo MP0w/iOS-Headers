@@ -11,13 +11,13 @@
 @interface MRAudioItem : NSObject
 {
     AVPlayerItem *_avPlayerItem;
+    float _volume;
+    float _duckLevel;
     double _startTime;
     double _duration;
     double _localTimeOffset;
-    float _volume;
     double _fadeInDuration;
     double _fadeOutDuration;
-    float _duckLevel;
     double _duckInDuration;
     double _duckOutDuration;
 }

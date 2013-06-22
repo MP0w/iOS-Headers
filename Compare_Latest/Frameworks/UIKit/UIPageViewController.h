@@ -44,7 +44,10 @@
     struct {
         unsigned int delegateWantsTransitionWillBegin:1;
         unsigned int delegateWantsTransitionCompleted:1;
+        unsigned int delegateWantsTransitionsFinished:1;
         unsigned int delegateCustomizesSpineLocationForInterfaceOrientation:1;
+        unsigned int delegateSupportedInterfaceOrientations:1;
+        unsigned int delegatePreferredInterfaceOrientationForPresentation:1;
         unsigned int dataSourceSuppliesBeforeViewController:1;
         unsigned int dataSourceSuppliesAfterViewController:1;
         unsigned int dataSourceSuppliesPageCount:1;
@@ -55,6 +58,8 @@
 + (id)_incomingViewControllerKeys;
 + (id)_outgoingViewControllerKeys;
 + (id)stringForSpineLocation:(int)arg1;
++ (BOOL)doesOverrideSupportedInterfaceOrientations;
++ (BOOL)doesOverridePreferredInterfaceOrientationForPresentation;
 + (BOOL)_isSpineLocation:(int)arg1 supportedForTransitionStyle:(int)arg2;
 + (BOOL)_isNavigationOrientation:(int)arg1 supportedForTransitionStyle:(int)arg2;
 + (BOOL)_isSupportedTransitionStyle:(int)arg1;
@@ -68,6 +73,7 @@
 - (id)queuingScrollView:(id)arg1 viewAfterView:(id)arg2;
 - (id)queuingScrollView:(id)arg1 viewBeforeView:(id)arg2;
 - (id)_queuingScrollView:(id)arg1 viewBefore:(BOOL)arg2 view:(id)arg3;
+- (void)queuingScrollViewDidFinishScrolling:(id)arg1;
 - (void)queuingScrollView:(id)arg1 didBailoutOfScrollAndRevealedView:(id)arg2;
 - (void)queuingScrollView:(id)arg1 didEndManualScroll:(BOOL)arg2 toRevealView:(id)arg3 direction:(int)arg4 animated:(BOOL)arg5 didFinish:(BOOL)arg6 didComplete:(BOOL)arg7;
 - (void)queuingScrollView:(id)arg1 didCommitManualScroll:(BOOL)arg2 toRevealView:(id)arg3 concealView:(id)arg4 direction:(int)arg5 animated:(BOOL)arg6 canComplete:(BOOL)arg7;
@@ -109,6 +115,8 @@
 - (id)_validatedViewControllersForPresentationOfViewControllers:(id)arg1 validRange:(struct _NSRange)arg2;
 - (struct _NSRange)_validRangeForPresentationOfViewControllersWithSpineLocation:(int)arg1;
 - (BOOL)_shouldSynthesizeSupportedOrientations;
+- (int)preferredInterfaceOrientationForPresentation;
+- (unsigned int)supportedInterfaceOrientations;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;

@@ -17,6 +17,7 @@
 - (id)instantiateWithOwner:(id)arg1 options:(id)arg2;
 - (id)unarchiverForInstantiatingReturningError:(id *)arg1;
 - (id)lazyArchiveData;
+- (id)nibDataForPath:(id)arg1;
 - (id)bundleResourcePath;
 - (id)identifierForStringsFile;
 - (void)setIdentifierForStringsFile:(id)arg1;

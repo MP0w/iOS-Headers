@@ -10,6 +10,7 @@
 {
 }
 
++ (id)dimmingView;
 + (void)hideAlertWindow;
 + (void)showAlertWindow;
 + (id *)destroyPressedImage;

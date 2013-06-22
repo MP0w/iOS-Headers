@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSAttributedString, NSMutableArray, NSString, UIImage, UIImageView, UILabel, UIPopoverController, UIToolbar, UIWindow;
+@class NSAttributedString, NSMutableArray, NSString, UIImage, UIImageView, UILabel, UIPopoverController, UIToolbar, UIWindow, _UIBackdropView;
 
 @interface UIActionSheet : UIView
 {
@@ -92,16 +92,24 @@
         unsigned int displaySelectedButtonGlyph:1;
         unsigned int indexOfSelectedButton:7;
         unsigned int useCustomSelectedButtonGlyph:1;
+        unsigned int usesNewStyle:1;
+        unsigned int isDesaturated:1;
     } _modalViewFlags;
     int _actionSheetStyle;
     UIImage *_selectedButtonGlyphImage;
     UIImage *_selectedButtonGlyphHighlightedImage;
     UIImageView *_shadowImageView;
+    _UIBackdropView *_backdropView;
+    UIImage *_dimViewImage;
 }
 
 + (Class)_popoverControllerClass;
 + (id)_popupAlertBackground;
 + (struct CGSize)minimumSize;
+- (id)interactionTintColor;
+- (void)setInteractionTintColor:(id)arg1;
+- (void)_transitionUIInView:(id)arg1 toSaturated:(BOOL)arg2;
+- (void)_transitionToLegacyAppearanceIfNecessary;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
 - (void)showFromBarButtonItem:(id)arg1;
@@ -112,10 +120,10 @@
 - (void)showInView:(id)arg1;
 - (id)_presentingViewForView:(id)arg1;
 - (void)_presentPopoverInCenterOfWindowForView:(id)arg1;
-- (void)_presentViaResponderChain:(id)arg1 asPopoverFromBarButtonItem:(id)arg2 orFromRect:(struct CGRect)arg3 inView:(id)arg4 withPreferredArrowDirections:(int)arg5 passthroughViews:(id)arg6 backgroundStyle:(int)arg7 animated:(BOOL)arg8;
-- (void)presentFromRect:(struct CGRect)arg1 inView:(id)arg2 direction:(int)arg3 allowInteractionWithViews:(id)arg4 backgroundStyle:(int)arg5 animated:(BOOL)arg6;
-- (void)presentFromBarButtonItem:(id)arg1 direction:(int)arg2 allowInteractionWithViews:(id)arg3 backgroundStyle:(int)arg4 animated:(BOOL)arg5;
-- (void)_presentFromBarButtonItem:(id)arg1 orFromRect:(struct CGRect)arg2 inView:(id)arg3 direction:(int)arg4 allowInteractionWithViews:(id)arg5 backgroundStyle:(int)arg6 animated:(BOOL)arg7;
+- (void)_presentViaResponderChain:(id)arg1 asPopoverFromBarButtonItem:(id)arg2 orFromRect:(struct CGRect)arg3 inView:(id)arg4 withPreferredArrowDirections:(unsigned int)arg5 passthroughViews:(id)arg6 backgroundStyle:(int)arg7 animated:(BOOL)arg8;
+- (void)presentFromRect:(struct CGRect)arg1 inView:(id)arg2 direction:(unsigned int)arg3 allowInteractionWithViews:(id)arg4 backgroundStyle:(int)arg5 animated:(BOOL)arg6;
+- (void)presentFromBarButtonItem:(id)arg1 direction:(unsigned int)arg2 allowInteractionWithViews:(id)arg3 backgroundStyle:(int)arg4 animated:(BOOL)arg5;
+- (void)_presentFromBarButtonItem:(id)arg1 orFromRect:(struct CGRect)arg2 inView:(id)arg3 direction:(unsigned int)arg4 allowInteractionWithViews:(id)arg5 backgroundStyle:(int)arg6 animated:(BOOL)arg7;
 @property(nonatomic) int destructiveButtonIndex;
 @property(nonatomic) int actionSheetStyle;
 - (id)initWithTitle:(id)arg1 delegate:(id)arg2 cancelButtonTitle:(id)arg3 destructiveButtonTitle:(id)arg4 otherButtonTitles:(id)arg5;
@@ -144,7 +152,7 @@
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
 - (BOOL)canBecomeFirstResponder;
-- (void)_handleKeyEvent:(struct __GSEvent *)arg1;
+- (void)_handleKeyUIEvent:(id)arg1;
 - (int)threeColumnsLayoutMode;
 - (void)setThreeColumnsLayoutMode:(int)arg1;
 - (BOOL)useThreeColumnsButtonsLayout;
@@ -181,6 +189,7 @@
 - (void)_alertSheetAnimationDidStop:(id)arg1 finished:(id)arg2;
 - (void)_appSuspended:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+- (BOOL)_canDrawContent;
 - (float)_bottomVerticalInset;
 - (float)_titleHorizontalInset;
 - (float)_titleVerticalBottomInset;
@@ -236,7 +245,6 @@
 - (void)_performPopup:(BOOL)arg1;
 - (BOOL)showsOverSpringBoardAlerts;
 - (void)setShowsOverSpringBoardAlerts:(BOOL)arg1;
-- (BOOL)_shouldOrderInAutomaticKeyboard;
 - (BOOL)_needsKeyboard;
 - (id)tableView;
 - (BOOL)tableShouldShowMinimumContent;

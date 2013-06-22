@@ -27,7 +27,7 @@
 - (BOOL)_isKeyValueGroup;
 - (BOOL)_isAlternateTrackGroup;
 - (BOOL)_matchesGroupID:(id)arg1 mediaType:(id)arg2;
-- (id)_mediaType;
+- (id)_groupMediaType;
 - (id)_groupID;
 - (id)dictionary;
 @property(readonly, nonatomic) BOOL allowsEmptySelection;

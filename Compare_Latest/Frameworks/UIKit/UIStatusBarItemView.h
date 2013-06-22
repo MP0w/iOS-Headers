@@ -6,50 +6,52 @@
 
 #import <UIKit/UIView.h>
 
-@class UIStatusBarItem, UIStatusBarLayoutManager;
+@class UIStatusBarForegroundStyleAttributes, UIStatusBarItem, UIStatusBarLayoutManager, _UILegibilityView;
 
 @interface UIStatusBarItemView : UIView
 {
-    UIStatusBarItem *_item;
-    int _foregroundStyle;
-    BOOL _visible;
-    BOOL _allowsUpdates;
-    UIStatusBarLayoutManager *_layoutManager;
     float _currentOverlap;
     struct CGContext *_imageContext;
     float _imageContextScale;
+    _UILegibilityView *_legibilityView;
+    BOOL _visible;
+    BOOL _allowsUpdates;
+    UIStatusBarItem *_item;
+    UIStatusBarLayoutManager *_layoutManager;
+    UIStatusBarForegroundStyleAttributes *_foregroundStyle;
 }
 
-+ (id)imageNamed:(id)arg1 forForegroundStyle:(int)arg2;
-+ (id)createViewForItem:(id)arg1 withData:(id)arg2 actions:(int)arg3 foregroundStyle:(int)arg4;
++ (id)createViewForItem:(id)arg1 withData:(id)arg2 actions:(int)arg3 foregroundStyle:(id)arg4;
 @property(nonatomic) BOOL allowsUpdates; // @synthesize allowsUpdates=_allowsUpdates;
 @property(nonatomic, getter=isVisible) BOOL visible; // @synthesize visible=_visible;
-@property(readonly, nonatomic) int foregroundStyle; // @synthesize foregroundStyle=_foregroundStyle;
+@property(readonly, nonatomic) UIStatusBarForegroundStyleAttributes *foregroundStyle; // @synthesize foregroundStyle=_foregroundStyle;
 @property(nonatomic) UIStatusBarLayoutManager *layoutManager; // @synthesize layoutManager=_layoutManager;
 @property(readonly, nonatomic) UIStatusBarItem *item; // @synthesize item=_item;
 - (id)description;
+- (id)imageWithText:(id)arg1;
 - (void)endImageContext;
 - (id)imageFromImageContextClippedToWidth:(float)arg1;
 - (void)beginImageContextWithMinimumWidth:(float)arg1;
+- (void)setPersistentAnimationsEnabled:(BOOL)arg1;
 - (void)performPendedActions;
-- (id)contentsImageForStyle:(int)arg1;
-- (BOOL)animatesFrameChange;
+- (id)contentsImage;
 - (BOOL)animatesDataChange;
 - (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
 - (float)maximumOverlap;
+- (float)addContentOverlap:(float)arg1;
+- (float)resetContentOverlap;
 - (float)extraRightPadding;
 - (float)extraLeftPadding;
 - (float)shadowPadding;
-- (float)shadowPaddingForStyle:(int)arg1;
 - (float)standardPadding;
 - (int)textAlignment;
-- (id)textColorForStyle:(int)arg1;
 - (id)textFont;
-- (BOOL)usesSmallerTextFont;
-- (void)drawText:(id)arg1 forStyle:(int)arg2 forWidth:(float)arg3 lineBreakMode:(int)arg4 letterSpacing:(float)arg5;
-- (void)_drawText:(id)arg1 inRect:(struct CGRect)arg2 withFont:(id)arg3 lineBreakMode:(int)arg4 letterSpacing:(float)arg5 textAlignment:(int)arg6;
-- (void)drawText:(id)arg1 forStyle:(int)arg2;
+- (int)textStyle;
+- (void)drawText:(id)arg1 forWidth:(float)arg2 lineBreakMode:(int)arg3 letterSpacing:(float)arg4 textSize:(struct CGSize)arg5;
+- (void)setContentMode:(int)arg1;
 - (float)updateContentsAndWidth;
+- (void)setLayerContentsImage:(id)arg1;
+- (int)legibilityStyle;
 - (float)setStatusBarData:(id)arg1 actions:(int)arg2;
 - (float)currentRightOverlap;
 - (float)currentLeftOverlap;
@@ -57,7 +59,7 @@
 - (void)setCurrentOverlap:(float)arg1;
 - (void)setVisible:(BOOL)arg1 frame:(struct CGRect)arg2 duration:(double)arg3;
 - (void)dealloc;
-- (id)initWithItem:(id)arg1 data:(id)arg2 actions:(int)arg3 style:(int)arg4;
+- (id)initWithItem:(id)arg1 data:(id)arg2 actions:(int)arg3 style:(id)arg4;
 - (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 
 @end

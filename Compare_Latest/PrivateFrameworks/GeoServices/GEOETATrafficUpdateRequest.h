@@ -6,10 +6,11 @@
 
 #import "PBRequest.h"
 
-@class GEOLocation, GEORouteAttributes, NSMutableArray;
+@class GEOClientCapabilities, GEOLocation, GEORouteAttributes, NSMutableArray;
 
 @interface GEOETATrafficUpdateRequest : PBRequest
 {
+    GEOClientCapabilities *_clientCapabilities;
     GEOLocation *_currentUserLocation;
     NSMutableArray *_destinationWaypoints;
     GEORouteAttributes *_routeAttributes;
@@ -22,6 +23,7 @@
 }
 
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(retain, nonatomic) GEOClientCapabilities *clientCapabilities; // @synthesize clientCapabilities=_clientCapabilities;
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
 @property(retain, nonatomic) NSMutableArray *destinationWaypoints; // @synthesize destinationWaypoints=_destinationWaypoints;
 @property(retain, nonatomic) GEORouteAttributes *routeAttributes; // @synthesize routeAttributes=_routeAttributes;
@@ -39,6 +41,7 @@
 - (unsigned int)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
+@property(readonly, nonatomic) BOOL hasClientCapabilities;
 - (id)routeAtIndex:(unsigned int)arg1;
 - (unsigned int)routesCount;
 - (void)addRoute:(id)arg1;

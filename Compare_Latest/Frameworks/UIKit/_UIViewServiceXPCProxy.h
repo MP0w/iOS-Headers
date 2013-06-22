@@ -21,7 +21,6 @@
 }
 
 + (id)activeFencePort;
-+ (void)initialize;
 - (void)invalidate;
 - (id)_withRemoteProtocol:(id)arg1 do:(id)arg2;
 - (void)forwardInvocation:(id)arg1 withRemoteProtocol:(id)arg2;
@@ -29,7 +28,6 @@
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)proxyWithRemoteProtocol:(id)arg1;
-- (id)proxyDeliveryingXPCReplyHandlersAsynchronously;
 - (void)restrictDecodingToWhitelistedClassNames:(id)arg1;
 - (void)dealloc;
 - (id)initWithConnection:(id)arg1 queue:(id)arg2 target:(id)arg3;

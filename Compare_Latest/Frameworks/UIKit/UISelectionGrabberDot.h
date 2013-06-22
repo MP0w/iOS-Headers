@@ -20,6 +20,7 @@
 - (int)textEffectsVisibilityLevelWhenKey;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 container:(id)arg2;
 
 @end

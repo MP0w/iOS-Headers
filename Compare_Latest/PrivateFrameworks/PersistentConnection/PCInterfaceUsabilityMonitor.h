@@ -45,6 +45,7 @@
 - (void)_callDelegateOnIvarQueueWithBlock:(id)arg1;
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
 @property(readonly, nonatomic) int interfaceIdentifier;
+@property(readonly, nonatomic) BOOL isRadioHot;
 @property(readonly, nonatomic) BOOL isInternetReachable;
 @property(readonly, nonatomic) int linkQuality;
 @property(readonly, nonatomic) BOOL isPoorLinkQuality;
@@ -61,6 +62,9 @@
 - (void)dealloc;
 - (id)initWithInterfaceName:(id)arg1 interfaceIdentifier:(int)arg2 delegateQueue:(struct dispatch_queue_s *)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, nonatomic) struct __CFString *currentRAT;
 
 @end
 

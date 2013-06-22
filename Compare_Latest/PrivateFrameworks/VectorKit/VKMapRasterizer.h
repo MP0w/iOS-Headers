@@ -28,11 +28,13 @@
 @property(nonatomic) struct _VGLColor backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) VKTileProvider *tileProvider; // @synthesize tileProvider=_tileProvider;
 @property(nonatomic) VKMapModel *mapModel; // @synthesize mapModel=_mapModel;
+- (id).cxx_construct;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
-- (void)recursiveDrawScene:(id)arg1 withContext:(id)arg2;
+- (void)recursiveDrawScene:(id)arg1 withContext:(id)arg2 pass:(unsigned int)arg3;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
 - (void)rasterizeKey:(const struct VKTileKey *)arg1 scene:(id)arg2;
 - (void)addSubmodel:(id)arg1;
+- (unsigned int)supportedRenderPasses;
 - (void)flushTextureCache;
 - (void)dealloc;
 - (id)init;

@@ -13,8 +13,9 @@
 @interface GLKView : UIView <NSCoding>
 {
     BOOL _inDraw;
-    NSMutableDictionary *_drawableProperties;
     BOOL _shouldDeleteFramebuffer;
+    BOOL _enableSetNeedsDisplay;
+    NSMutableDictionary *_drawableProperties;
     unsigned int _resolveFramebuffer;
     unsigned int _resolveColorRenderbuffer;
     unsigned int _multisampleFramebuffer;
@@ -30,7 +31,6 @@
     int _drawableDepthFormat;
     int _drawableStencilFormat;
     int _drawableMultisample;
-    BOOL _enableSetNeedsDisplay;
     void *_drawRectIMP;
 }
 

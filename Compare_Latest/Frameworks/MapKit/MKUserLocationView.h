@@ -6,55 +6,66 @@
 
 #import <MapKit/MKAnnotationView.h>
 
-@class CALayer, MKUserLocationViewInternal;
+#import "VKPuckAnimatorTarget-Protocol.h"
 
-@interface MKUserLocationView : MKAnnotationView
+@class CALayer, MKAccuracyUserLocationMarker;
+
+@interface MKUserLocationView : MKAnnotationView <VKPuckAnimatorTarget>
 {
-    MKUserLocationViewInternal *_imp;
+    MKAccuracyUserLocationMarker *_marker;
+    int _zoomDirection;
+    CALayer *_pulseLayer;
+    BOOL _allowsPulse;
+    BOOL _shouldPulse;
+    BOOL _shouldDisplayHeading;
+    double _headingAccuracy;
+    CALayer *_headingLayer;
 }
 
-+ (struct CADoubleRect)effectiveFrameWithFrame:(struct CADoubleRect)arg1;
-+ (float)accuracyDiameter:(float)arg1;
 + (unsigned int)_selectedZIndex;
 + (unsigned int)_zIndex;
-+ (Class)layerClass;
-- (id)description;
-- (void)_setMapType:(unsigned int)arg1;
-- (void)willMoveToWindow:(id)arg1;
-- (void)didMoveToWindow;
-- (BOOL)shouldDisplayAccuracy:(double *)arg1 diameter:(id *)arg2;
-- (void)removeHover;
-- (void)stopHover;
-- (void)setValue:(id)arg1 forKey:(id)arg2 actionContext:(id)arg3;
-- (void)setPosition:(id)arg1 accuracy:(id)arg2 duration:(double)arg3;
-- (void)setPosition:(BOOL)arg1 value:(struct CADoublePoint)arg2 accuracy:(BOOL)arg3 value:(float)arg4 duration:(double)arg5;
-- (void)setAccuracy:(float)arg1 duration:(double)arg2;
-- (void)setPosition:(struct CADoublePoint)arg1 duration:(double)arg2;
-- (unsigned int)accuracyIntersectionPoints:(struct CGPoint *)arg1 layer:(id)arg2 bounds:(struct CGRect)arg3;
-- (void)updateHalo;
-- (void)bounce;
-- (void)_setCalloutView:(id)arg1;
-- (void)setHighlighted:(BOOL)arg1;
++ (float)accuracyDiameter:(float)arg1;
++ (id)allocWithZone:(struct _NSZone *)arg1;
+@property(nonatomic) double headingAccuracy; // @synthesize headingAccuracy=_headingAccuracy;
+@property(nonatomic) BOOL shouldDisplayHeading; // @synthesize shouldDisplayHeading=_shouldDisplayHeading;
+@property(nonatomic) BOOL allowsPulse; // @synthesize allowsPulse=_allowsPulse;
+@property(nonatomic) int zoomDirection; // @synthesize zoomDirection=_zoomDirection;
+- (void)setAnimatingToCoordinate:(BOOL)arg1;
+@property(nonatomic) double presentationCourse;
+- (void)setPresentationCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (BOOL)_tracking;
+- (void)_setTracking:(BOOL)arg1;
 - (void)setZoomDirection:(int)arg1 deltaScale:(float)arg2;
-@property(nonatomic) int zoomDirection;
-@property(readonly, nonatomic, getter=isHovering) BOOL hovering;
-@property(nonatomic, getter=isStale) BOOL stale;
-@property(nonatomic) struct CADoublePoint position;
-@property(nonatomic) double headingAccuracy;
-@property(nonatomic) float accuracy;
-@property(nonatomic) id delegate;
-@property(nonatomic) BOOL shouldDisplayHeading;
-@property(nonatomic) BOOL shouldDisplayAccuracy;
-@property(nonatomic) BOOL shouldDisplayEffects;
-@property(nonatomic) BOOL shouldDisplayHalo;
-@property(readonly, nonatomic) CALayer *headingLayer;
-@property(readonly, nonatomic, getter=isDisplayingAccuracy) BOOL displayingAccuracy;
-@property(readonly, nonatomic) struct CGRect accuracyBounds;
-@property(readonly, nonatomic) struct CGRect _mapkit_visibleRect;
-- (struct CADoubleRect)effectiveFrame;
+- (void)_setPresentationCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (void)_setAnimatingToCoordinate:(BOOL)arg1;
+- (id)_vkMarker;
+- (void)tintColorDidChange;
+- (void)_updateLayers;
+- (void)locationManagerFailedToUpdateLocation;
+- (void)updateStateFromLocation:(id)arg1 duration:(double)arg2;
+- (struct CGRect)maximumBoundingRectWithCanvasSize:(struct CGSize)arg1;
+@property(nonatomic, getter=isEffectsEnabled) BOOL effectsEnabled;
+@property(nonatomic) float opacity;
+@property(nonatomic) int locationSource;
+@property(readonly, nonatomic) double locationAccuracy;
+- (void)_updateHeadingLayer;
+- (struct UIImage *)_headingImageForAccuracy:(double)arg1 anchorPoint:(struct CGPoint *)arg2;
+- (id)_baseLayer;
+- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+@property(readonly, nonatomic, getter=isStale) BOOL stale;
+- (struct CGRect)_mapkit_visibleRect;
+@property(nonatomic) BOOL allowsAccuracyRing;
+- (void)didMoveToWindow;
+- (void)_updatePulse;
+- (void)_pausePulse;
+- (void)_resumePulse;
+- (id)_pulseAnimation;
+- (id)_pulseLayer;
+- (void)_updatePulseColorMatrix;
+- (id)_pulseTintColor;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)actionForLayer:(id)arg1 forKey:(id)arg2;
+- (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
+- (id)init;
 
 @end
 

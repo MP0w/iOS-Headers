@@ -8,7 +8,7 @@
 
 #import "PLAlbumContainer-Protocol.h"
 
-@class MKMapView, NSMutableArray, NSString, PLPlace;
+@class MKMapView, NSArray, NSMutableArray, NSString, PLPlace;
 
 @interface PLPlaces : NSObject <PLAlbumContainer>
 {
@@ -23,10 +23,14 @@
     NSMutableArray *_animationOnlyAnnotations;
     MKMapView *_mapView;
     PLPlace *_nullPlace;
+    NSArray *_locationAssets;
 }
 
-- (void)removeObserver:(id)arg1 forKeyPath:(id)arg2 context:(void *)arg3;
-- (void)addObserver:(id)arg1 forKeyPath:(id)arg2 options:(unsigned int)arg3 context:(void *)arg4;
+- (id)containersRelationshipName;
+- (BOOL)canEditContainers;
+- (BOOL)isEmpty;
+@property(readonly, nonatomic) unsigned int containersCount;
+- (id)containers;
 @property(readonly, nonatomic) NSString *_typeDescription;
 @property(readonly, nonatomic) NSString *_prettyDescription;
 - (id)photoLibrary;
@@ -41,11 +45,13 @@
 - (id)managedObjectContext;
 @property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 - (BOOL)hasAtLeastOneAlbum;
+@property(readonly, nonatomic) unsigned int albumsCount;
 - (id)albums;
 - (id)identifier;
 - (CDStruct_90e2a262)_defaultRegionForNoPlacesData;
 - (void)_loadPlacesData;
-- (CDStruct_90e2a262)_placeRegionForPhoto:(id)arg1;
+- (void)_loadPlacesDataFromLocationAssets:(id)arg1;
+- (CDStruct_90e2a262)_placeRegionForPhoto:(id)arg1 isValidRegion:(char *)arg2;
 - (id)_placeForPhoto:(id)arg1 inPlaces:(id)arg2;
 - (id)_findVisiblePhotosInRegion:(CDStruct_90e2a262)arg1 notInRegion:(CDStruct_90e2a262)arg2;
 - (id)_findVisiblePhotosInRegion:(CDStruct_90e2a262)arg1;
@@ -72,7 +78,7 @@
 - (CDStruct_90e2a262)visibleMapRectangleForZoomedOutPins;
 - (void)setMapView:(id)arg1;
 - (void)dealloc;
-- (id)initWithMapView:(id)arg1;
+- (id)initWithMapView:(id)arg1 fixedLocationAssets:(id)arg2;
 - (id)_newAnimationAnnotationWithLongitude:(double)arg1 latitude:(double)arg2;
 - (id)_newPlaceForRegion:(CDStruct_90e2a262)arg1;
 

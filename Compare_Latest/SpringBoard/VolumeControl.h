@@ -37,14 +37,14 @@
 - (id)volumeHUDForCurrentCategory;
 - (void)_presentVolumeHUDWithMode:(int)arg1 volume:(float)arg2;
 - (id)_volumeHUDViewWithMode:(int)arg1 volume:(float)arg2;
-- (BOOL)_headphonesPresent;
+- (BOOL)headphonesPresent;
 - (void)_effectiveVolumeChanged:(id)arg1;
 - (int)_volumeModeForCategory:(id)arg1;
 - (void)_serverConnectionDied:(id)arg1;
 - (void)_unregisterForAVSystemControllerNotifications;
 - (void)_registerForAVSystemControllerNotifications;
 - (void)cancelVolumeEvent;
-- (void)handleVolumeEvent:(struct __GSEvent *)arg1;
+- (void)handleVolumeEvent:(struct __IOHIDEvent *)arg1;
 - (void)_turnOnScreenIfNecessaryForEULimit;
 - (id)lastDisplayedCategory;
 - (void)decreaseVolume;
@@ -56,6 +56,7 @@
 - (float)volume;
 - (void)toggleMute;
 - (BOOL)_HUDIsDisplayableForCategory:(id)arg1;
+- (BOOL)_isCategoryAlwaysHidden:(id)arg1;
 - (void)removeAlwaysHiddenCategory:(id)arg1;
 - (void)addAlwaysHiddenCategory:(id)arg1;
 - (void)dealloc;

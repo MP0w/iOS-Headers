@@ -57,6 +57,8 @@
 @property(nonatomic) BOOL hasType;
 - (void)dealloc;
 - (id)initWithGEOCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
+- (id)initWithLocation:(id)arg1;
 
 @end
 

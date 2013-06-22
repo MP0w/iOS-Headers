@@ -12,12 +12,12 @@
 
 @interface UIPDFTextRangeWidget : NSObject <UIPDFSelectionWidget>
 {
-    CALayer *_leftSelectionGrabber;
-    CALayer *_leftBar;
-    CALayer *_rightSelectionGrabber;
-    CALayer *_rightBar;
-    CALayer *_leftHandle;
-    CALayer *_rightHandle;
+    CALayer *_startSelectionGrabber;
+    CALayer *_startBar;
+    CALayer *_endSelectionGrabber;
+    CALayer *_endBar;
+    CALayer *_startHandle;
+    CALayer *_endHandle;
     CALayer *_fixedSelectionGrabber;
     UIPDFPageView *_pageView;
     float _handleHeight;
@@ -25,11 +25,20 @@
     struct CGPoint _initialSelectionPointOnPage;
     float _offsetX;
     float _offsetY;
-    BOOL _hiDPI;
+    unsigned int _startIndex;
+    unsigned int _endIndex;
+    struct CGColor *_grabberColor;
+    long _startRectangle;
+    long _endRectangle;
+    _Bool _startLeft;
+    _Bool _endRight;
+    float _startX;
+    float _endX;
 }
 
 @property(readonly, nonatomic) struct CGPoint initialSelectionPointOnPage; // @synthesize initialSelectionPointOnPage=_initialSelectionPointOnPage;
 @property(nonatomic) UIPDFPageView *pageView; // @synthesize pageView=_pageView;
+- (id)description;
 - (void)hide;
 @property(readonly, nonatomic) struct CGPoint currentSelectionPointOnPage;
 - (struct CGRect)selectionRectangle;
@@ -43,8 +52,9 @@
 - (void)setSelection:(id)arg1;
 - (void)setSelectedGrabber:(unsigned int)arg1;
 - (void)layoutWidget;
-- (void)layoutRightSelectionGrabber:(struct CGRect)arg1 transform:(struct CGAffineTransform *)arg2 width:(float)arg3 extraHeight:(float)arg4 unitSize:(struct CGSize)arg5;
-- (void)layoutLeftSelectionGrabber:(struct CGRect)arg1 transform:(struct CGAffineTransform *)arg2 width:(float)arg3 extraHeight:(float)arg4 unitSize:(struct CGSize)arg5;
+- (void)layoutEndSelectionGrabber:(struct CGRect)arg1 transform:(struct CGAffineTransform *)arg2 width:(float)arg3 extraHeight:(float)arg4 unitSize:(struct CGSize)arg5;
+- (void)layoutStartSelectionGrabber:(struct CGRect)arg1 transform:(struct CGAffineTransform *)arg2 width:(float)arg3 extraHeight:(float)arg4 unitSize:(struct CGSize)arg5;
+- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)dealloc;
 - (id)init;
 

@@ -13,8 +13,6 @@
 
 @interface EKEventGestureController : NSObject <UIGestureRecognizerDelegate, UIAlertViewDelegate>
 {
-    id <EKEventGestureControllerUntimedDelegate> _untimedDelegate;
-    id <EKEventGestureControllerDelegate> _delegate;
     UILongPressGestureRecognizer *_recognizer;
     EKDayOccurrenceView *_draggingView;
     EKEvent *_event;
@@ -40,22 +38,26 @@
     BOOL _hasStartedScrolling;
     int _consecutivePageTurnCount;
     BOOL _forcedStart;
-    BOOL _commitBlocked;
     BOOL _needsCommit;
     id _recurrenceSheetCompletionHandler;
     BOOL _usesXDragOffsetInCancelRegion;
     BOOL _usesHorizontalDragLocking;
+    BOOL _commitBlocked;
+    id <EKEventGestureControllerUntimedDelegate> _untimedDelegate;
+    id <EKEventGestureControllerDelegate> _delegate;
 }
 
-@property(readonly, nonatomic) struct CGPoint touchOffset; // @synthesize touchOffset=_touchOffset;
 @property(readonly, nonatomic) EKDayOccurrenceView *draggingView; // @synthesize draggingView=_draggingView;
+@property(readonly, nonatomic) struct CGPoint touchOffset; // @synthesize touchOffset=_touchOffset;
 @property(readonly, nonatomic) struct CGPoint latestTouchPoint; // @synthesize latestTouchPoint=_latestTouchPoint;
 @property(readonly, nonatomic) struct CGPoint firstTouchPoint; // @synthesize firstTouchPoint=_firstTouchPoint;
 @property(retain, nonatomic) EKEvent *event; // @synthesize event=_event;
+@property(nonatomic) BOOL commitBlocked; // @synthesize commitBlocked=_commitBlocked;
 @property(nonatomic) BOOL usesHorizontalDragLocking; // @synthesize usesHorizontalDragLocking=_usesHorizontalDragLocking;
 @property(nonatomic) BOOL usesXDragOffsetInCancelRegion; // @synthesize usesXDragOffsetInCancelRegion=_usesXDragOffsetInCancelRegion;
-@property(nonatomic) id <EKEventGestureControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) id <EKEventGestureControllerUntimedDelegate> untimedDelegate; // @synthesize untimedDelegate=_untimedDelegate;
+@property(nonatomic) __weak id <EKEventGestureControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <EKEventGestureControllerUntimedDelegate> untimedDelegate; // @synthesize untimedDelegate=_untimedDelegate;
+- (void).cxx_destruct;
 - (BOOL)_isPointInCancelRegion:(struct CGPoint)arg1;
 - (struct CGPoint)_computeOriginAtTouchPoint:(struct CGPoint)arg1 forDate:(double)arg2 isAllDay:(BOOL)arg3 allowXOffset:(BOOL)arg4 allowFloorAtRegionBottom:(BOOL)arg5;
 - (void)_updateHorizontalDragLockForPoint:(struct CGPoint)arg1;
@@ -72,7 +74,6 @@
 - (void)_scrollTimerFired:(id)arg1;
 - (void)_removeScrollTimer;
 - (void)_installScrollTimer;
-@property(nonatomic) BOOL commitBlocked;
 - (void)_commitUntimed;
 - (void)_longPress:(id)arg1;
 - (void)endForcedStart;

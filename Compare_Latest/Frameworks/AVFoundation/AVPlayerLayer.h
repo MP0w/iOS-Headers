@@ -13,10 +13,11 @@
     AVPlayerLayerInternal *_playerLayer;
 }
 
++ (id)keyPathsForValuesAffectingVideoRect;
 + (id)playerLayerWithPlayer:(id)arg1;
 - (struct CGRect)_minRectToFitVideoAndSubtitlesInBounds:(struct CGRect)arg1;
 - (struct CGRect)_videoRectForBounds:(struct CGRect)arg1;
-- (struct CGRect)videoRect;
+@property(readonly, nonatomic) struct CGRect videoRect;
 - (void)setOverscanSubtitleSupportEnabled:(BOOL)arg1;
 - (BOOL)isOverscanSubtitleSupportEnabled;
 - (float)_pctOfSubtitleLayerHeight;
@@ -30,6 +31,7 @@
 - (void)layerDidBecomeVisible:(BOOL)arg1;
 @property(retain, nonatomic) AVPlayer *player;
 - (void)_subtitlesDidChange:(id)arg1;
+- (void)subtitleLayerNeedsLayout:(id)arg1;
 - (void)_updateSubtitles:(id)arg1 forceRender:(BOOL)arg2;
 - (void)_updateSubtitleLayerForPlayerLayerBounds:(struct CGRect)arg1 presentationSize:(struct CGSize)arg2 playLayerTransform:(struct CATransform3D)arg3 forceRender:(BOOL)arg4;
 - (void)_calculateSubtitleLayerBounds:(struct CGRect)arg1 presentationSize:(struct CGSize)arg2 playLayerTransform:(struct CATransform3D)arg3 shouldUpdateCachedSubtitleSample:(BOOL)arg4 outBound:(struct CGRect *)arg5;
@@ -46,6 +48,7 @@
 - (void)addAnimation:(id)arg1 forKey:(id)arg2;
 - (void)_addAnimationsForSubtitleLayer:(id)arg1 size:(struct CGSize)arg2;
 - (void)_addAnimationsForContentLayer:(id)arg1 size:(struct CGSize)arg2 gravity:(id)arg3;
+- (void)_addAnimationsForMaskLayer:(id)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (id)initWithLayer:(id)arg1;
 - (id)init;

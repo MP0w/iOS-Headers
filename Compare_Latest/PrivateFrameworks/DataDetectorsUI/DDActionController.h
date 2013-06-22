@@ -37,6 +37,7 @@
 - (void)_presentController:(id)arg1;
 - (id)defaultActionForURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 - (id)actionsForURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
+- (id)actionsForURL:(id)arg1 result:(struct __DDResult *)arg2 enclosingResult:(struct __DDResult *)arg3 context:(id)arg4;
 - (void)_cleanup;
 - (void)dealloc;
 - (id)init;

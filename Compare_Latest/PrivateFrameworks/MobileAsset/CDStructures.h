@@ -6,8 +6,6 @@
 
 #pragma mark Named Structures
 
-struct SoftwareUpdateProperties;
-
 struct __MobileAsset {
     struct __CFRuntimeBase {
         unsigned int _field1;
@@ -18,9 +16,6 @@ struct __MobileAsset {
     struct __MobileAssetQuery *_field4;
     struct __MobileAssetQuery *_field5;
     unsigned char _field6;
-    unsigned char _field7;
-    struct SoftwareUpdateProperties *_field8;
-    unsigned int _field9;
 };
 
 struct __MobileAssetQuery;

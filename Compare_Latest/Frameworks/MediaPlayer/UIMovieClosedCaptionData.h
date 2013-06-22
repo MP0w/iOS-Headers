@@ -15,10 +15,10 @@
 }
 
 @property(retain, nonatomic) NSString *language; // @synthesize language=_language;
+- (void).cxx_destruct;
 - (id)description;
 - (id)timeMarkers;
 - (void)addCaptionText:(id)arg1 startTime:(double)arg2 endTime:(double)arg3;
-- (void)dealloc;
 
 @end
 

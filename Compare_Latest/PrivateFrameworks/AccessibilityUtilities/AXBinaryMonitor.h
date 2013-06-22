@@ -31,6 +31,7 @@
 - (void)addHandler:(id)arg1 forFramework:(void)arg2;
 - (void)addHandler:(id)arg1 forBundleName:(void)arg2;
 - (void)addHandler:(id)arg1 forBundleID:(void)arg2;
+- (void)_handleLoadedImagePath:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

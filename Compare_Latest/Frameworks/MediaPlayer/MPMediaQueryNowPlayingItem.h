@@ -14,32 +14,33 @@
 }
 
 + (void)applyVolumeNormalizationWithSoundCheckEnabled:(BOOL)arg1 forQueuedItems:(id)arg2 currentQuery:(id)arg3;
-@property(readonly, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
-- (void)_updateBookmarkTimeIfNecessary:(double)arg1;
+- (void).cxx_destruct;
+- (void)_updateBookmarkTimeIfNecessary:(double)arg1 isCheckpoint:(BOOL)arg2;
 - (id)_newTimeMarkersForChapterType:(int)arg1;
 - (void)_handlePlaybackFinishedTime:(double)arg1 finishedByHittingEnd:(BOOL)arg2;
 - (id)_chapterTitleForTime:(double)arg1;
-- (BOOL)wantsSubtitles;
+- (void)_applyLoudnessInfo;
 - (float)userRating;
 - (BOOL)useEmbeddedChapterData;
 - (id)urlTimeMarkers;
 - (unsigned int)type;
 - (id)titlesForTime:(double)arg1;
 - (BOOL)supportsRewindAndFastForward15Seconds;
-- (int)subtitleTrackID;
-- (void)setUserEnabledSubtitles:(BOOL)arg1;
-- (void)setSubtitleTrackID:(int)arg1;
+- (BOOL)supportsAddStation;
 - (void)setRating:(float)arg1;
 - (void)setPlaybackStoppedTime:(double)arg1;
 - (void)setPlaybackFinishedTime:(double)arg1;
 - (void)setPlaybackCheckpointCurrentTime:(double)arg1;
+- (void)setLoudnessInfoVolumeNormalization:(float)arg1;
 - (void)setAlternateAudioTrackID:(int)arg1;
-- (void)pushBookmarkingTimesToCloud;
+- (void)reevaluateType;
 - (double)playbackCheckpointCurrentTime;
 - (unsigned long long)persistentID;
 - (void)notePlaybackFinishedByHittingEnd;
+@property(readonly, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
 - (id)mainTitle;
 - (id)imageCacheRequestWithSize:(struct CGSize)arg1 time:(double)arg2 usePlaceholderAsFallback:(BOOL)arg3;
+- (id)imageCache;
 - (BOOL)hasDataForItemArtwork;
 - (BOOL)hasAlternatesForTypes:(unsigned int)arg1;
 - (void)handlePlaybackFinishedTime:(double)arg1 finishedByHittingEnd:(BOOL)arg2;
@@ -51,6 +52,7 @@
 - (BOOL)isAssetURLValid;
 - (BOOL)isPlaceholderForItem:(id)arg1;
 - (BOOL)isValidPlayerSubstituteForItem:(id)arg1;
+- (BOOL)isExplicitTrack;
 - (double)durationFromExternalMetadata;
 - (id)displayableText;
 - (unsigned int)discCount;
@@ -68,7 +70,6 @@
 - (id)album;
 - (void)loadAssetAndPlayerItem;
 - (id)description;
-- (void)dealloc;
 - (id)initWithMediaItem:(id)arg1;
 
 @end

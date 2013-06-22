@@ -22,11 +22,10 @@
     float _linearAttenuation;
     float _quadraticAttenuation;
     GLKEffectPropertyTransform *_transform;
-    union _GLKVector4 _positionEye;
-    union _GLKVector3 _normalizedSpotDirectionEye;
+    unsigned char _positionEyeStale;
+    unsigned char _firstLight;
     float _spotCutoffDegrees;
     unsigned long long *_effectDirtyUniforms;
-    unsigned char _positionEyeStale;
     int _positionEyeLoc;
     int _ambientLoc;
     int _diffuseLoc;
@@ -41,7 +40,8 @@
     int _ambientTermLoc;
     int _lightIndex;
     int _lightingType;
-    unsigned char _firstLight;
+    union _GLKVector3 _normalizedSpotDirectionEye;
+    union _GLKVector4 _positionEye;
     struct GLKBigInt_s _allVshMasks;
     struct GLKBigInt_s _allFshMasks;
 }

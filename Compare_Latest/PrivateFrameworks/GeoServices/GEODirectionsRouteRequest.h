@@ -13,6 +13,7 @@
 
 @property(nonatomic) unsigned short providerID; // @synthesize providerID=_providerID;
 - (Class)responseClass;
+- (id)initWithQuickETARequest:(id)arg1;
 
 @end
 

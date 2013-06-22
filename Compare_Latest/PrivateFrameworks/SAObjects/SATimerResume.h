@@ -4,18 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
-@class NSURL;
-
-@interface SATimerResume : SABaseClientBoundCommand
+@interface SATimerResume : SADomainCommand
 {
 }
 
 + (id)resumeWithDictionary:(id)arg1 context:(id)arg2;
 + (id)resume;
 - (BOOL)requiresResponse;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

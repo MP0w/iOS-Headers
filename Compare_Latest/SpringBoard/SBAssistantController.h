@@ -6,45 +6,37 @@
 
 #import "SBUIPluginHost.h"
 
-#import "SBHomeCentricPopoverControllerDelegate-Protocol.h"
-#import "SBShowcaseViewControllerProtocol-Protocol.h"
+@class NSHashTable, NSMutableSet, NSString, SBAssistantWindow, SBPasscodeLockDisableAssertion, UIViewController<SBUIPluginViewControllerInterface>;
 
-@class NSString, SBDeviceLockDisableAssertion, SBHomeCentricPopoverController, SBShowcaseController;
-
-@interface SBAssistantController : SBUIPluginHost <SBHomeCentricPopoverControllerDelegate, SBShowcaseViewControllerProtocol>
+@interface SBAssistantController : SBUIPluginHost
 {
-    SBHomeCentricPopoverController *_homeCentricPopover;
-    NSString *_popoverAppDisplayIDBeingHosted;
-    SBShowcaseController *_showcase;
-    int _revealMode;
+    NSString *_appDisplayIDBeingHosted;
+    SBAssistantWindow *_assistantWindow;
     BOOL _unlockedDevice;
-    BOOL _isDismissing;
+    BOOL _launchedInStark;
     int _activationEvent;
-    SBDeviceLockDisableAssertion *_disableAssertion;
+    SBPasscodeLockDisableAssertion *_disableAssertion;
+    NSMutableSet *_dismissingReasons;
+    int _pendingDismissViewType;
+    NSHashTable *_observers;
+    UIViewController<SBUIPluginViewControllerInterface> *_mainScreenViewController;
 }
 
-+ (BOOL)_runActivateAssistantTest;
++ (BOOL)_runActivateAssistantTest:(id)arg1;
 + (BOOL)isAssistantRunningHidden;
++ (BOOL)isAssistantViewVisible:(int)arg1;
 + (BOOL)isAssistantVisible;
 + (BOOL)shouldEnterAssistant;
 + (BOOL)supportedAndEnabled;
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
-@property(nonatomic) int revealMode; // @synthesize revealMode=_revealMode;
-@property(nonatomic) SBShowcaseController *showcase; // @synthesize showcase=_showcase;
-@property(getter=isDismissing) BOOL dismissing; // @synthesize dismissing=_isDismissing;
-- (void)uiPlugin:(id)arg1 ignoresKeyboardAvoidance:(BOOL)arg2;
 - (void)uiPlugin:(id)arg1 forceUpdateToInterfaceOrientation:(int)arg2 animated:(BOOL)arg3;
 - (void)uiPlugin:(id)arg1 isNowRunning:(BOOL)arg2;
 - (void)uiPluginUserEventOccurred:(id)arg1;
 - (BOOL)uiPlugin:(id)arg1 openURL:(id)arg2;
 - (BOOL)uiPlugin:(id)arg1 launchApplicationWithBundleID:(id)arg2 openURL:(id)arg3;
 - (BOOL)uiPluginAttemptDeviceUnlock:(id)arg1 withPassword:(id)arg2 lockViewOwner:(id)arg3;
-- (void)uiPluginWantsSizeUpdate:(id)arg1 revealMode:(int)arg2 withBlock:(id)arg3;
-- (BOOL)uiPluginWantsActivation:(id)arg1 forEvent:(int)arg2 revealMode:(int)arg3 completion:(id)arg4;
-- (void)_presentPopover:(id)arg1 revealMode:(int)arg2 completion:(id)arg3;
-- (int)_showcaseRevealModeForPluginRevealMode:(int)arg1;
-- (void)revealModeWillChange:(int)arg1;
+- (BOOL)uiPluginWantsActivation:(id)arg1 forEvent:(int)arg2 completion:(id)arg3;
 - (void)_dismissUIPlugin:(id)arg1 animated:(BOOL)arg2;
 - (void)dismissPluginForEvent:(int)arg1;
 - (BOOL)pluginSuppressesNotifications;
@@ -52,27 +44,47 @@
 - (BOOL)pluginWantsInterfaceOrientation:(int *)arg1;
 - (void)preparePluginForActivationEvent:(int)arg1 afterInterval:(double)arg2;
 - (BOOL)pluginWantsActivationEvent:(int)arg1 interval:(double *)arg2;
-- (void)homeCentricPopoverDidDismissView:(id)arg1;
-- (void)homeCentricPopoverWillDismissView:(id)arg1 animated:(BOOL)arg2;
-- (void)homeCentricPopoverDidPresentView:(id)arg1;
-- (void)homeCentricPopoverWillPresentView:(id)arg1 animated:(BOOL)arg2;
+- (void)_viewController:(id)arg1 animateDisappearanceWithContext:(id)arg2;
+- (void)_viewController:(id)arg1 willAnimateDisappearanceWithContext:(id)arg2;
+- (void)_viewController:(id)arg1 animateAppearanceWithContext:(id)arg2;
+- (void)_viewController:(id)arg1 willAnimateAppearanceWithContext:(id)arg2;
+- (void)_viewController:(id)arg1 setShowsStatusBar:(BOOL)arg2;
+- (void)_dismissForMainScreenAnimated:(BOOL)arg1 duration:(double)arg2 completion:(id)arg3;
+- (id)_fakeStatusBarForOrientation:(int)arg1;
+- (void)_presentForMainScreenAnimated:(BOOL)arg1 completion:(id)arg2;
+- (void)_notifyObserversViewDidDisappear:(int)arg1;
+- (void)_notifyObserversViewWillDisappear:(int)arg1;
+- (void)_notifyObserversViewDidAppear:(int)arg1;
+- (void)_notifyObserversViewWillAppear:(int)arg1;
+- (void)_starkSiriDidDisappear:(id)arg1;
+- (void)_starkSiriWillDisappear:(id)arg1;
+- (void)_starkSiriDidAppear:(id)arg1;
+- (void)_starkSiriWillAppear:(id)arg1;
+- (void)_viewDidDisappearOnMainScreen;
+- (void)_viewWillDisappearOnMainScreen;
+- (void)_viewDidAppearOnMainScreen;
+- (void)_viewWillAppearOnMainScreen;
 - (void)_cleanupContextHosting;
-- (BOOL)activateIgnoringTouches;
-- (float)revealAmountForMode:(int)arg1;
-- (float)bottomBarHeight;
-- (BOOL)shouldShowLockStatusBarTime;
+- (id)_activationFlags;
 - (BOOL)_isPluginLoaded;
 - (void)_loadPlugin;
-@property(nonatomic) BOOL unlockedDevice;
+- (BOOL)_isDismissingAllViews;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
+- (id)mainScreenView;
+- (BOOL)activateIgnoringTouches;
+- (BOOL)shouldShowLockStatusBarTime;
+@property(nonatomic) BOOL unlockedDevice; // @dynamic unlockedDevice;
 - (void)dismissAssistantForAlertActivation:(id)arg1;
-- (void)dismissAssistantWithFadeOfDuration:(double)arg1;
-- (void)dismissAssistantWithFade;
-- (void)dismissAssistant;
+- (void)dismissAssistantViewIfNecessaryWithFade:(int)arg1 ofDuration:(double)arg2 completion:(id)arg3;
+- (void)dismissAssistantViewIfNecessaryWithFade:(int)arg1 ofDuration:(double)arg2;
+- (void)dismissAssistantViewIfNecessaryWithFade:(int)arg1;
+- (void)dismissAssistantViewIfNecessary:(int)arg1;
+- (void)addActivationFlagsToDisplay:(id)arg1;
 - (void)_notePluginVisibilityDidChange;
-- (void)viewDidDisappear;
-- (void)viewDidAppear;
 - (void)dealloc;
 - (id)init;
+- (BOOL)isAssistantViewVisible:(int)arg1;
 
 @end
 

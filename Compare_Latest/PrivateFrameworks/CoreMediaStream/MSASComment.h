@@ -10,17 +10,20 @@
 
 @interface MSASComment : NSObject
 {
+    BOOL _isLike;
+    BOOL _isCaption;
+    BOOL _isBatchComment;
+    BOOL _isDeletable;
+    BOOL _isMine;
     NSString *_GUID;
     int _ID;
     NSDate *_timestamp;
-    BOOL _isLike;
-    BOOL _isCaption;
+    NSDate *_clientTimestamp;
+    NSString *_personID;
     NSString *_firstName;
     NSString *_lastName;
     NSString *_fullName;
     NSString *_email;
-    BOOL _isDeletable;
-    BOOL _isMine;
     NSString *_content;
 }
 
@@ -34,8 +37,11 @@
 @property(retain, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
 @property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
+@property(retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
+@property(nonatomic) BOOL isBatchComment; // @synthesize isBatchComment=_isBatchComment;
 @property(nonatomic) BOOL isCaption; // @synthesize isCaption=_isCaption;
 @property(nonatomic) BOOL isLike; // @synthesize isLike=_isLike;
+@property(retain, nonatomic) NSDate *clientTimestamp; // @synthesize clientTimestamp=_clientTimestamp;
 @property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) int ID; // @synthesize ID=_ID;
 @property(retain, nonatomic) NSString *GUID; // @synthesize GUID=_GUID;

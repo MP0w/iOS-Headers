@@ -14,6 +14,7 @@
 + (struct CGSize)_rotateAndNormalizeSize:(struct CGSize)arg1 withTransform:(struct CGAffineTransform)arg2;
 + (int)_degreesForRotationFromOriginalImageOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
 + (int)_degreesForRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)setRoundedCorners:(int)arg1 withCornersFrame:(struct CGRect)arg2;
 - (id)_initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

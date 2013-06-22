@@ -6,7 +6,7 @@
 
 #import <VectorKit/VKTileSource.h>
 
-@class GEOActiveTileSet, NSTimer, VKTilePool, _VKTileSetBackedTileSourceTimerTarget;
+@class GEOActiveTileSet, VKTilePool, VKTimer, _VKTileSetBackedTileSourceTimerTarget;
 
 @interface VKTileSetBackedTileSource : VKTileSource
 {
@@ -14,13 +14,14 @@
     struct _GEOTileKey _downloadTemplate;
     int _minimumDownloadZoomLevel;
     int _maximumDownloadZoomLevel;
-    NSTimer *_expirationTimer;
+    VKTimer *_expirationTimer;
     VKTilePool *_expiredTilePool;
     struct _NSRange _zoomLevelRange;
     _VKTileSetBackedTileSourceTimerTarget *_timerTarget;
 }
 
 @property(readonly, nonatomic) GEOActiveTileSet *tileSet; // @synthesize tileSet=_tileSet;
+- (id).cxx_construct;
 - (int)maximumZoomLevel;
 - (int)minimumZoomLevel;
 - (int)defaultMaximumZoomLevel;
@@ -43,7 +44,6 @@
 - (BOOL)expires;
 - (void)setClient:(id)arg1;
 - (void)clearCaches;
-- (id)tileSource;
 - (void)dealloc;
 - (id)initWithTileSet:(id)arg1;
 

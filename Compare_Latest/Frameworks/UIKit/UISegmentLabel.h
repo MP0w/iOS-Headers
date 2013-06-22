@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (id)_disabledFontColor;
 - (id)init;
 

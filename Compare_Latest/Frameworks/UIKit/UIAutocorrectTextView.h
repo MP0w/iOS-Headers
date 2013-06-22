@@ -23,7 +23,6 @@
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (struct CGRect)_calculateRectForExpandedHitRegion;
-- (BOOL)needsWebDocumentViewEventsDirectly;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setEdgeType:(int)arg1;
 - (void)dealloc;

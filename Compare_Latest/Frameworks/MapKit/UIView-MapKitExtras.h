@@ -6,10 +6,12 @@
 
 #import "UIView.h"
 
+@class CALayer, MKMapView;
+
 @interface UIView (MapKitExtras)
-- (struct CADoubleRect)_mapkit_doubleFrame;
+@property(readonly, nonatomic) struct CADoubleRect _mapkit_doubleFrame;
 - (unsigned int)_mapkit_countOfSet:(id)arg1 minusSubset:(id)arg2;
-- (id)_mapKit_mapView;
-- (id)_mapkit_currentLayer;
+@property(readonly, nonatomic) MKMapView *_mapKit_mapView;
+@property(readonly, nonatomic) CALayer *_mapkit_currentLayer;
 @end
 

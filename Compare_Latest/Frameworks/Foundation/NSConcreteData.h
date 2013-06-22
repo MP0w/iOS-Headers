@@ -9,23 +9,25 @@
 @interface NSConcreteData : NSData
 {
     unsigned int _isInline:1;
-    unsigned int _shouldFree:1;
-    unsigned int _hasVM:1;
-    unsigned int _retainCount:29;
+    unsigned int _retainCount:31;
     unsigned int _length;
     unsigned int _capacity;
     void *_bytes;
-    unsigned char _space[12];
+    union {
+        unsigned char _space[12];
+        id _deallocator;
+        void _field1;
+    } _u;
 }
 
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithBytes:(void *)arg1 length:(unsigned int)arg2 copy:(BOOL)arg3 freeWhenDone:(BOOL)arg4 bytesAreVM:(BOOL)arg5;
+- (id)initWithBytes:(void *)arg1 length:(unsigned int)arg2 copy:(BOOL)arg3 deallocator:(id)arg4;
 - (id)init;
 - (void)getBytes:(void *)arg1 range:(struct _NSRange)arg2;
 - (void)getBytes:(void *)arg1 length:(unsigned int)arg2;
 - (void)getBytes:(void *)arg1;
-- (BOOL)_bytesAreVM;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (const void *)bytes;
 - (unsigned int)length;

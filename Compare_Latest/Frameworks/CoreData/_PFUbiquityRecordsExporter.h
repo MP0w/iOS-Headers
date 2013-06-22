@@ -6,35 +6,42 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSLock, NSMutableDictionary, NSPersistentStoreCoordinator, NSString, NSTimer, PFUbiquityLocation;
+@class NSDate, NSLock, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PFUbiquityLocation;
 
 @interface _PFUbiquityRecordsExporter : NSObject
 {
     NSString *_localPeerID;
-    NSTimer *_tempMoveTimer;
     NSDate *_lastTransactionDate;
     PFUbiquityLocation *_ubiquityRootLocation;
-    NSPersistentStoreCoordinator *_monitoredPersistentStoreCoordinator;
+    PFUbiquityLocation *_localRootLocation;
+    NSString *_storeName;
     NSLock *_transactionLock;
     NSMutableDictionary *_pendingTransactionsToStoreNameAndTransactionNumber;
+    BOOL _pendingTempLogMove;
+    BOOL _allowTempLogStorage;
+    BOOL _useLocalStorage;
+    NSObject<OS_dispatch_queue> *_processingQueue;
 }
 
+@property(nonatomic) BOOL useLocalStorage; // @synthesize useLocalStorage=_useLocalStorage;
+@property(readonly, nonatomic) PFUbiquityLocation *localRootLocation; // @synthesize localRootLocation=_localRootLocation;
+@property(nonatomic) BOOL allowTempLogStorage; // @synthesize allowTempLogStorage=_allowTempLogStorage;
+@property(readonly, nonatomic) BOOL pendingTempLogMove; // @synthesize pendingTempLogMove=_pendingTempLogMove;
 @property(retain) NSDate *lastTransactionDate; // @synthesize lastTransactionDate=_lastTransactionDate;
-@property(retain) NSTimer *tempMoveTimer; // @synthesize tempMoveTimer=_tempMoveTimer;
-@property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
+@property(retain, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
-- (void)scheduleTempMoveTimerWithPeerURL:(id)arg1;
-- (void)timerMoveLogsFromTempDirectory:(id)arg1;
-- (void)onlyExportFromPersistentStoreCoordinator:(id)arg1;
+- (void)scheduleTempLogMove;
+- (void)moveLogsFromTempDirectory;
 - (id)createDictionaryForObjectsInSaveNotification:(id)arg1 forTransactionOfType:(int)arg2 withExportContext:(id)arg3 andSaveSnapshot:(id)arg4;
 - (void)managedObjectContextDidSave:(id)arg1;
 - (void)cleanUpFromRolledbackPendingTransaction:(id)arg1 withNotification:(id)arg2;
-- (id)createSetOfStoresToExportForNotification:(id)arg1;
 - (BOOL)shouldRespondToSaveNotification:(id)arg1;
+- (void)stopWatchingForChanges;
 - (void)beginWatchingForChangesFromStore:(id)arg1;
+@property(readonly, nonatomic) PFUbiquityLocation *currentRootLocation;
 - (id)description;
 - (void)dealloc;
-- (id)initWithLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
+- (id)initWithLocalPeerID:(id)arg1 forStoreName:(id)arg2 ubiquityRootLocation:(id)arg3 localRootLocation:(id)arg4 andProcessingQueue:(id)arg5;
 - (id)init;
 
 @end

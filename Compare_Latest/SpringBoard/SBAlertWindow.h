@@ -4,48 +4,28 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIWindow.h"
+#import "SBWindow.h"
 
-@class NSMapTable, NSMutableArray, SBAlertView, UIView;
+@class NSMapTable, SBAlertWindowViewController;
 
-@interface SBAlertWindow : UIWindow
+@interface SBAlertWindow : SBWindow
 {
-    UIView *_contentLayer;
-    unsigned int _isAnimating:1;
-    unsigned int _isInvalid:1;
-    unsigned int _handlerActive:1;
-    float _finalAlpha;
-    int _currentOrientation;
-    SBAlertView *_currentDisplay;
-    NSMutableArray *_stackedAlertDisplays;
+    SBAlertWindowViewController *_rootViewController;
     NSMapTable *_alertToDisplayMap;
 }
 
-+ (struct CGRect)constrainFrameToScreen:(struct CGRect)arg1;
++ (int)jailBehavior;
 - (void)noteInterfaceOrientationChangingTo:(int)arg1 animated:(BOOL)arg2;
-- (void)window:(id)arg1 willAnimateFromContentFrame:(struct CGRect)arg2 toContentFrame:(struct CGRect)arg3;
-- (void)window:(id)arg1 didRotateFromInterfaceOrientation:(int)arg2;
-- (void)window:(id)arg1 willAnimateRotationToInterfaceOrientation:(int)arg2 duration:(double)arg3;
-- (void)window:(id)arg1 willRotateToInterfaceOrientation:(int)arg2 duration:(double)arg3;
-- (id)rotatingContentViewForWindow:(id)arg1;
-- (BOOL)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
-- (BOOL)shouldWindowUseOnePartInterfaceRotationAnimation:(id)arg1;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
-- (void)_setupContentLayerForCurrentOrientation;
-- (BOOL)handlerAlreadyActive;
-- (void)setHandlerAlreadyActive:(BOOL)arg1;
-- (id)currentDisplay;
-- (void)alertDisplayWillDismiss;
-- (void)dismissWindow:(id)arg1;
-- (int)displayCount;
+- (id)stackedAlertsIncludingActiveAlert:(BOOL)arg1;
+- (int)stackedDisplayCount;
 - (BOOL)hasActiveAlertsOrDisplays;
 - (BOOL)deactivateAlert:(id)arg1;
 - (void)displayAlert:(id)arg1;
-- (id)contentLayer;
-- (id)stackedDisplayForAlert:(id)arg1;
 - (BOOL)isOpaque;
 - (void)dealloc;
-- (id)initWithContentRect:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithScreen:(id)arg1;
+- (id)initWithScreen:(id)arg1 rootViewController:(id)arg2;
 
 @end
 

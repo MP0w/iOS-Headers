@@ -71,8 +71,8 @@
 - (BOOL)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (unsigned int)supportedInterfaceOrientations;
 - (id)_rotationController;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willMoveToParentViewController:(id)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
@@ -91,12 +91,12 @@
 - (id)moreListSelectedImage;
 - (id)moreListImage;
 - (void)loadView;
+- (int)ITunesStoreUIBarStyle;
 - (int)interfaceOrientation;
 - (id)_existingNavigationItem;
 - (void)didReceiveMemoryWarning;
 - (id)copyArchivableContext;
 - (BOOL)_canReloadView;
-- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (void)applicationWillSuspend;
 - (void)applicationDidResume;
 - (void)trackOperation:(id)arg1 cancelOnDealloc:(BOOL)arg2;

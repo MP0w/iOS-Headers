@@ -19,11 +19,11 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) CIVector *inputBiasVector; // @synthesize inputBiasVector;
-@property(copy, nonatomic) CIVector *inputAVector; // @synthesize inputAVector;
-@property(copy, nonatomic) CIVector *inputBVector; // @synthesize inputBVector;
-@property(copy, nonatomic) CIVector *inputGVector; // @synthesize inputGVector;
-@property(copy, nonatomic) CIVector *inputRVector; // @synthesize inputRVector;
+@property(retain, nonatomic) CIVector *inputBiasVector; // @synthesize inputBiasVector;
+@property(retain, nonatomic) CIVector *inputAVector; // @synthesize inputAVector;
+@property(retain, nonatomic) CIVector *inputBVector; // @synthesize inputBVector;
+@property(retain, nonatomic) CIVector *inputGVector; // @synthesize inputGVector;
+@property(retain, nonatomic) CIVector *inputRVector; // @synthesize inputRVector;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (void)setDefaults;

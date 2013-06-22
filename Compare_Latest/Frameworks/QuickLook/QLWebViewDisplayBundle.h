@@ -11,11 +11,12 @@
 #import "UIWebPDFViewHandlerDelegate-Protocol.h"
 #import "UIWebViewDelegate-Protocol.h"
 
-@class NSData, NSMutableArray, NSURLRequest, QLPDFHanderDelegateForwarder, QLPreviewConverter, QLScrubView, UIWebView;
+@class NSData, NSMutableArray, NSURLRequest, QLPDFHanderDelegateForwarder, QLPreviewConverter, QLScrubView, UIView, UIWebView;
 
 @interface QLWebViewDisplayBundle : QLDisplayBundle <UIWebViewDelegate, UIScrollViewDelegate, QLScrubViewDataSource, UIWebPDFViewHandlerDelegate>
 {
     UIWebView *_webView;
+    UIView *_accessoryView;
     QLPreviewConverter *_previewConverter;
     NSURLRequest *_previewRequest;
     unsigned int _isLoadedDuringZoom:1;
@@ -39,6 +40,7 @@
 }
 
 + (int)backgroundTypeForUTI:(id)arg1 andMode:(int)arg2;
+- (id)gestureRecognizersForFullScreenDisplay;
 - (id)printPageHelper;
 - (id)pdfPreviewData;
 - (void)userInteractedWithScrubView:(id)arg1;
@@ -55,7 +57,7 @@
 - (void)_hideScrubberIfNeeded:(double)arg1;
 - (void)_hideOverlayDidEnd:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)_showScrubberIfNeeded:(double)arg1;
-- (id)_scrubView;
+- (id)_scrubView:(BOOL)arg1;
 - (void)pdfViewHandlerCompletedLayoutAndIsUnlocked:(id)arg1;
 - (struct CGPDFDocument *)_getCGPDFDocumentRef;
 - (id)alertViewForUIWebPDFViewHandler:(id)arg1;
@@ -80,9 +82,11 @@
 - (void)didReceiveMemoryWarning;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (int)airPlayMode;
 - (id)_getWebView:(BOOL)arg1;
 - (void)setPreviewItem:(id)arg1;
 - (void)setPreviewMode:(int)arg1;
+- (void)viewDidLoad;
 - (void)dealloc;
 
 @end

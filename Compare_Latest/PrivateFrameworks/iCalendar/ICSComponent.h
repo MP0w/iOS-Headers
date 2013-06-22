@@ -22,7 +22,11 @@
 + (id)stringFromStatus:(int)arg1;
 + (id)inheritanceKeywords;
 @property(retain) NSArray *components; // @synthesize components=_components;
+- (id)propertiesThatIfPresentExcludeThisComponentFromChecksummingForVersion:(int)arg1;
+- (id)parametersToIncludeForChecksumVersion:(int)arg1;
+- (id)propertiesToIncludeForChecksumVersion:(int)arg1;
 - (id)ICSStringWithOptions:(unsigned int)arg1;
+- (BOOL)ignorePropertyWithName:(id)arg1;
 - (void)ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
 - (void)dealloc;
 - (void)setProperty:(id)arg1 forName:(id)arg2;
@@ -38,6 +42,12 @@
 - (void)setPropertyValue:(id)arg1 forName:(id)arg2;
 - (void)removeComponent:(id)arg1;
 - (void)addComponent:(id)arg1;
+- (void)setForcedAllDay:(BOOL)arg1;
+- (BOOL)forcedAllDay;
+- (id)x_apple_travel_start;
+- (void)setX_apple_travel_start:(id)arg1;
+- (void)setX_apple_travel_duration:(id)arg1;
+- (id)x_apple_travel_duration;
 @property(retain) NSArray *conferences;
 @property(retain) NSString *x_apple_serverFilename;
 @property(retain) NSString *x_apple_scheduletag;

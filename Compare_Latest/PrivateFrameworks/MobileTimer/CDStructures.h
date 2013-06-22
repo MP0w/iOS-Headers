@@ -6,15 +6,6 @@
 
 #pragma mark Named Structures
 
-struct CGAffineTransform {
-    float a;
-    float b;
-    float c;
-    float d;
-    float tx;
-    float ty;
-};
-
 struct CGPoint {
     float x;
     float y;
@@ -28,5 +19,19 @@ struct CGRect {
 struct CGSize {
     float width;
     float height;
+};
+
+struct ShadowInfo {
+    id _field1;
+    float _field2;
+    struct CGSize _field3;
+    float _field4;
+};
+
+struct UIEdgeInsets {
+    float _field1;
+    float _field2;
+    float _field3;
+    float _field4;
 };
 

@@ -19,6 +19,7 @@
 - (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)destroyNativeObject;
+- (void)showSheetInViewController:(id)arg1;
 - (void)showSheet;
 - (void)showFromRect:(struct CGRect)arg1 inView:(id)arg2;
 - (void)show;

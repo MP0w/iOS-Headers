@@ -8,7 +8,7 @@
 
 #import "IMSystemMonitorListener-Protocol.h"
 
-@class FTCConnectionHandler, IMAccount, IMServiceImpl, NSArray, NSDictionary, NSMutableDictionary, NSSet, NSString, NSTimer;
+@class IMAccount, IMServiceImpl, NSArray, NSDictionary, NSMutableDictionary, NSSet, NSString, NSTimer;
 
 @interface CNFRegController : NSObject <IMSystemMonitorListener>
 {
@@ -31,14 +31,12 @@
     id _resetBlock;
     id _serviceDidBecomeUnsupportedBlock;
     int _serviceType;
-    FTCConnectionHandler *_connectionHandler;
     id _alertHandler;
     NSTimer *_wifiAlertWatchTimer;
     int _requiredWifiCount;
     unsigned char _originalWifiFlag;
     unsigned char _originalCellFlag;
     BOOL _originalUsesBackgroundNetwork;
-    NSDictionary *_cachedCallerIDMap;
     NSString *_logName;
     unsigned int _logIndent;
     int _systemAccountType;
@@ -53,6 +51,7 @@
         unsigned int ignoringAccountChanges:1;
         unsigned int activatingAccounts:1;
     } _controllerFlags;
+    NSDictionary *_cachedCallerIDMap;
 }
 
 + (id)controllerForServiceType:(int)arg1;
@@ -188,6 +187,7 @@
 - (id)accountsWithFilter:(int)arg1;
 - (id)accountsWithFilter:(int)arg1 message:(id)arg2;
 - (void)_clearFilterCache;
+- (id)__filter_operationalPredicate;
 - (id)__filter_signedInPredicate;
 - (id)__filter_validatedProfilePredicate;
 - (id)__filter_signInCompletePredicate;

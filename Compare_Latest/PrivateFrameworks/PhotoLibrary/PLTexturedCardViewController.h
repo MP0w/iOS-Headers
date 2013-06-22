@@ -20,7 +20,6 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)_updateDecorationToOrientation:(int)arg1;
 - (void)_updateWrapperViewToOrientation:(int)arg1;
 - (void)_updateNavigationBarToOrientation:(int)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;

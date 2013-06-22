@@ -11,6 +11,7 @@
     SEL _selector;
 }
 
++ (BOOL)supportsSecureCoding;
 - (BOOL)performPrimitiveOperationUsingObject:(id)arg1 andObject:(id)arg2;
 - (id)symbol;
 - (BOOL)isEqual:(id)arg1;

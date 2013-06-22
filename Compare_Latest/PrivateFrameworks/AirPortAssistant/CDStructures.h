@@ -7,17 +7,19 @@
 #pragma mark Named Structures
 
 struct AssistantCallbackContext {
-    struct AssistantContext *_field1;
-    int _field2;
-    struct __CFDictionary *_field3;
-    int _field4;
-    id _field5;
+    unsigned int _field1;
+    struct AssistantContext *_field2;
+    int _field3;
+    struct __CFDictionary *_field4;
+    int _field5;
     id _field6;
+    id _field7;
     struct _opaque_pthread_mutex_t {
         long _field1;
         char _field2[40];
-    } _field7;
-    void *_field8;
+    } _field8;
+    void *_field9;
+    int _field10;
 };
 
 struct AssistantContext;
@@ -47,9 +49,10 @@ struct _NSRange {
 typedef struct {
     unsigned int ethernetPortCount;
     unsigned int productID;
+    unsigned int subProductID;
     unsigned int productFamily;
     int deviceKind;
-} CDStruct_85ec20a5;
+} CDStruct_59eca22a;
 
 typedef struct {
     struct CGPoint _field1;

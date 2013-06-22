@@ -12,6 +12,7 @@
 
 @property(readonly) BOOL valid;
 @property(readonly) BOOL customError;
+@property(readonly) BOOL badInput;
 @property(readonly) BOOL stepMismatch;
 @property(readonly) BOOL rangeOverflow;
 @property(readonly) BOOL rangeUnderflow;

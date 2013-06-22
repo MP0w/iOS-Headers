@@ -13,7 +13,7 @@
     id _target;
     SEL _selector;
     unsigned long _count;
-    void *_objects[4];
+    void *_objects[5];
     NSConditionLock *_waitLock;
     unsigned long _mask;
 }

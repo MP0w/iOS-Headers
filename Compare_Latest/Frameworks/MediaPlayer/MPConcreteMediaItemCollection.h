@@ -6,38 +6,46 @@
 
 #import <MediaPlayer/MPMediaItemCollection.h>
 
+#import "MPCacheableConcreteMediaEntity-Protocol.h"
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class MPMediaItem, MPMediaQuery;
+@class MPConcreteMediaEntityPropertiesCache, MPMediaItem, MPMediaQuery;
 
-@interface MPConcreteMediaItemCollection : MPMediaItemCollection <NSCoding, NSCopying>
+@interface MPConcreteMediaItemCollection : MPMediaItemCollection <NSCoding, NSCopying, MPCacheableConcreteMediaEntity>
 {
     long long _identifier;
     MPMediaQuery *_itemsQuery;
     int _grouping;
     MPMediaItem *_representativeItem;
+    MPConcreteMediaEntityPropertiesCache *_propertiesCache;
 }
 
-- (int)mediaTypes;
++ (void)didChangeEntityWithDataProviderEntityClass:(Class)arg1 persistentID:(unsigned long long)arg2 deleted:(BOOL)arg3;
+- (void).cxx_destruct;
+- (unsigned int)mediaTypes;
 - (unsigned int)count;
 - (id)representativeItem;
 - (id)items;
 - (id)itemsQuery;
-- (void)setValue:(id)arg1 forProperty:(id)arg2;
+- (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(id)arg3;
+- (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
+- (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
 - (unsigned long long)persistentID;
 - (id)mediaLibrary;
-- (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)invalidateCachedProperties;
+@property(readonly, nonatomic) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
 - (void)dealloc;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)initWithIdentifier:(long long)arg1 itemsQuery:(id)arg2 grouping:(int)arg3;
 - (id)initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(int)arg4 representativeItemIdentifier:(long long)arg5;
+- (id)_initWithIdentifier:(long long)arg1 valuesForProperties:(id)arg2 itemsQuery:(id)arg3 grouping:(int)arg4 representativeItemIdentifier:(long long)arg5 propertiesCache:(id)arg6;
 
 @end
 

@@ -32,7 +32,6 @@
 - (struct VKTileKey)sourceKeyForRenderKey:(const struct VKTileKey *)arg1;
 - (struct VKTileKey)nativeKeyForRenderKey:(const struct VKTileKey *)arg1;
 - (void)matchTilesFromSource:(id)arg1;
-- (id)tileSource;
 - (void)_overlayBoundingMapRegionChanged:(id)arg1;
 - (void)removeOverlay:(id)arg1;
 - (void)addOverlay:(id)arg1;

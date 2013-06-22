@@ -17,11 +17,12 @@
 + (void)_unregisterIMLocalObject:(id)arg1;
 + (void)_registerIMLocalObject:(id)arg1;
 + (id)_registeredIMLocalObjectForPort:(unsigned int)arg1;
++ (void)_setExceptionHandlingDisabled:(BOOL)arg1;
 - (id)description;
 - (void)invalidate;
 @property(readonly, nonatomic) BOOL isValid;
 - (BOOL)isValidSelector:(SEL)arg1;
-- (void)_enqueueInvocation:(id)arg1;
+- (void)_enqueueInvocation:(id)arg1 xpcMessage:(id)arg2;
 - (void)_popInvocation;
 - (id)_peekInvocation;
 - (void)_noteNewInvocation;

@@ -21,8 +21,9 @@
 @property(nonatomic) float renderScale;
 @property(nonatomic) struct CGSize renderSize;
 @property(nonatomic) CDStruct_1b6d18a9 frameDuration;
-- (void)setCompositor:(id)arg1;
-- (id)compositor;
+@property(retain, nonatomic) Class customVideoCompositorClass;
+- (void)setBuiltInCompositorName:(id)arg1;
+- (id)builtInCompositorName;
 
 @end
 

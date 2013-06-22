@@ -24,10 +24,12 @@
     BOOL _demoAccount;
     NSDictionary *_httpHeaders;
     NSString *_initialPassword;
+    BOOL _persistsAcrossDeviceLock;
     NSString *_preferredITunesStoreClient;
     int _promptStyle;
     NSDictionary *_requestParameters;
     NSNumber *_requiredUniqueIdentifier;
+    BOOL _shouldCreateNewSession;
     BOOL _shouldFollowAccountButtons;
     BOOL _shouldIgnoreProtocol;
     BOOL _shouldSuppressDialogs;
@@ -43,10 +45,12 @@
 @property(readonly, nonatomic) BOOL shouldSuppressDialogs; // @synthesize shouldSuppressDialogs=_shouldSuppressDialogs;
 @property(readonly, nonatomic) BOOL shouldIgnoreProtocol; // @synthesize shouldIgnoreProtocol=_shouldIgnoreProtocol;
 @property(readonly, nonatomic) BOOL shouldFollowAccountButtons; // @synthesize shouldFollowAccountButtons=_shouldFollowAccountButtons;
+@property(readonly, nonatomic) BOOL shouldCreateNewSession; // @synthesize shouldCreateNewSession=_shouldCreateNewSession;
 @property(readonly, nonatomic) NSNumber *requiredUniqueIdentifier; // @synthesize requiredUniqueIdentifier=_requiredUniqueIdentifier;
 @property(readonly, nonatomic) NSDictionary *requestParameters; // @synthesize requestParameters=_requestParameters;
 @property(readonly, nonatomic) int promptStyle; // @synthesize promptStyle=_promptStyle;
 @property(readonly, nonatomic) NSString *preferredITunesStoreClient; // @synthesize preferredITunesStoreClient=_preferredITunesStoreClient;
+@property(readonly, nonatomic) BOOL persistsAcrossDeviceLock; // @synthesize persistsAcrossDeviceLock=_persistsAcrossDeviceLock;
 @property(readonly, nonatomic) NSString *initialPassword; // @synthesize initialPassword=_initialPassword;
 @property(readonly, nonatomic) NSDictionary *HTTPHeaders; // @synthesize HTTPHeaders=_httpHeaders;
 @property(readonly, nonatomic, getter=isDemoAccount) BOOL demoAccount; // @synthesize demoAccount=_demoAccount;

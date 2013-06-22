@@ -24,7 +24,7 @@
 @property(nonatomic) BOOL playImmediately; // @synthesize playImmediately=_playImmediately;
 @property(nonatomic, getter=isFocusedMediaItem) BOOL focusedMediaItem; // @synthesize focusedMediaItem=_focusedMediaItem;
 @property(nonatomic) unsigned int entityIndex; // @synthesize entityIndex=_entityIndex;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
 
 @end

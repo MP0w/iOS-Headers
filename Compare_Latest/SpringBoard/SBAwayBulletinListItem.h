@@ -4,23 +4,33 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import "SBAwayListItem.h"
 
 @class BBBulletin, BBObserver, NSDate, NSMutableArray, NSString, UIImage;
 
-@interface SBAwayBulletinListItem : NSObject
+@interface SBAwayBulletinListItem : SBAwayListItem
 {
     NSMutableArray *_bulletins;
     int _personID;
     NSString *_contactInfo;
     BBObserver *_observer;
-    BBBulletin *_activeBulletin;
     NSDate *_sortDate;
     NSDate *_displayDate;
     NSString *_message;
     UIImage *_listItemImage;
+    BBBulletin *_activeBulletin;
 }
 
+@property(retain) BBBulletin *activeBulletin; // @synthesize activeBulletin=_activeBulletin;
+- (BOOL)overridesQuietMode;
+- (BOOL)isCritical;
+- (BOOL)inertWhenLocked;
+- (id)observer;
+- (int)snoozeButtonindex;
+- (BOOL)wantsHighlightOnInsert;
+- (void)buttonPressedAtIndex:(int)arg1;
+- (BOOL)canBeClearedByNotificationCenter;
+- (BOOL)canSnooze;
 - (BOOL)isVIP;
 - (BOOL)canCoalesceWithBulletin:(id)arg1;
 - (BOOL)hasSamePersonAsBulletin:(id)arg1;
@@ -30,16 +40,25 @@
 - (id)description;
 - (unsigned int)maxMessageLines;
 - (id)subtitle;
+- (id)publishDate;
 - (id)date;
+- (BOOL)hasEventDate;
 - (id)title;
 - (id)message;
-- (id)activeBulletin;
 - (id)bulletins;
 - (id)sortDate;
 - (BOOL)containsBulletinWithID:(id)arg1;
 - (void)modifyBulletin:(id)arg1;
+- (void)removeAllBulletins;
 - (void)removeBulletin:(id)arg1;
 - (void)addBulletin:(id)arg1;
+- (void)_updateButtonLabels;
+- (void)_updateMessage;
+- (void)_updateImage;
+- (void)_updateDisplayDate;
+- (void)_updateSortDate;
+- (void)_updateActiveBulletin;
+- (id)sortedBulletins;
 - (void)_update;
 - (id)bulletinWithID:(id)arg1;
 - (void)dealloc;

@@ -13,17 +13,22 @@
 @interface TUSimpleBacktrace : NSObject <TUBacktrace>
 {
     NSArray *_symbolicatedBacktraceStrings;
-    NSDictionary *_dyldLoadLocations;
+    NSDictionary *_dyldContext;
     void **_unsymbolicatedBacktrace;
     int _unsymbolicatedBacktraceLength;
-    int _symbolicateSpinLock;
+    struct _opaque_pthread_mutex_t _symbolicateLock;
+    BOOL _shouldSymbolicate;
 }
 
++ (id)dyldContext;
++ (void)_rebuildDyldContext;
+@property BOOL shouldSymbolicate; // @synthesize shouldSymbolicate=_shouldSymbolicate;
 - (void)dealloc;
-- (id)dyldLoadLocations;
-- (id)symbolicatedBacktraceStrings;
+@property(readonly) NSDictionary *dyldContext;
+@property(readonly) NSArray *symbolicatedBacktraceStrings;
+@property(readonly) NSArray *unsymbolicatedBacktraceStrings;
 - (void)symbolicate;
-- (id)initWithSymbolicatedBacktraceStrings:(id)arg1 dyldLoadLocations:(id)arg2;
+- (id)initWithSymbolicatedBacktraceStrings:(id)arg1 dyldContext:(id)arg2;
 - (id)initWithExistingBacktrace:(void **)arg1 length:(int)arg2 symbolicateImmediately:(BOOL)arg3;
 - (id)initIgnoringTopEntries:(int)arg1 symbolicateImmediately:(BOOL)arg2;
 - (id)init;

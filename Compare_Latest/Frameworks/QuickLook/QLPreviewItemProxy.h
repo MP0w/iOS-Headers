@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 #import "QLPreviewItem-Protocol.h"
 
-@class NSString, NSURL;
+@class NSString, NSURL, NSUUID;
 
-@interface QLPreviewItemProxy : NSObject <NSCoding, QLPreviewItem>
+@interface QLPreviewItemProxy : NSObject <NSSecureCoding, QLPreviewItem>
 {
+    NSUUID *_uuid;
     NSString *_fileExtensionToken;
     int _fileExtensionHandle;
+    int _index;
     NSURL *_url;
     NSString *_title;
     NSURL *_urlForDisplay;
@@ -23,6 +25,10 @@
 }
 
 + (id)proxyWithPreviewItem:(id)arg1;
++ (id)encodedClasses;
++ (BOOL)supportsSecureCoding;
+@property(readonly) NSUUID *uuid; // @synthesize uuid=_uuid;
+@property int index; // @synthesize index=_index;
 @property(retain) NSString *password; // @synthesize password=_password;
 @property(retain) NSString *contentType; // @synthesize contentType=_contentType;
 @property(retain) NSURL *urlForDisplay; // @synthesize urlForDisplay=_urlForDisplay;

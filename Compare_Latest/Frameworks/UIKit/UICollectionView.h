@@ -6,7 +6,7 @@
 
 #import <UIKit/UIScrollView.h>
 
-@class NSArray, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, UICollectionReusableView, UICollectionViewLayout, UITouch, UIView;
+@class NSArray, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, UICollectionReusableView, UICollectionViewData, UICollectionViewLayout, UICollectionViewUpdate, UITouch, UIView, _UIDynamicAnimationGroup;
 
 @interface UICollectionView : UIScrollView
 {
@@ -18,16 +18,18 @@
     NSMutableDictionary *_supplementaryViewReuseQueues;
     NSMutableSet *_indexPathsForHighlightedItems;
     int _reloadingSuspendedCount;
+    int _updateAnimationCount;
     UICollectionReusableView *_firstResponderView;
     UIView *_newContentView;
     int _firstResponderViewType;
     NSString *_firstResponderViewKind;
     NSIndexPath *_firstResponderIndexPath;
     NSMutableDictionary *_allVisibleViewsDict;
+    NSMutableDictionary *_clonedViewsDict;
     NSIndexPath *_pendingSelectionIndexPath;
     NSMutableSet *_pendingDeselectionIndexPaths;
-    id _collectionViewData;
-    id _update;
+    UICollectionViewData *_collectionViewData;
+    UICollectionViewUpdate *_currentUpdate;
     struct CGRect _visibleBounds;
     struct CGRect _preRotationBounds;
     struct CGPoint _rotationBoundsOffset;
@@ -47,6 +49,21 @@
     NSMutableDictionary *_supplementaryViewNibDict;
     NSMutableDictionary *_cellNibExternalObjectsTables;
     NSMutableDictionary *_supplementaryViewNibExternalObjectsTables;
+    BOOL _isInInteractiveTransition;
+    BOOL _shouldAccumulateTrackedLayoutValues;
+    NSMutableDictionary *_interactiveTransitionInfos;
+    id _interactiveCompletionHandler;
+    double _currentInteractiveTransitionTimeStamp;
+    double _previousInteractiveTransitionTimeStamp;
+    double _startTimeStamp;
+    struct CGPoint _currentCenterOffset;
+    struct CGPoint _previousCenterOffset;
+    float _currentInteractiveTransitionProgress;
+    float _previousInteractiveTransitionProgress;
+    _UIDynamicAnimationGroup *_endInteractiveTransitionAnimationGroup;
+    UICollectionViewLayout *_nextLayoutForInteractiveTranstion;
+    NSMutableDictionary *_interactiveTransitionValueTrackingDict;
+    NSMutableArray *_trackedValuesKeys;
     struct {
         unsigned int delegateShouldHighlightItemAtIndexPath:1;
         unsigned int delegateDidHighlightItemAtIndexPath:1;
@@ -58,6 +75,8 @@
         unsigned int delegateSupportsMenus:1;
         unsigned int delegateDidEndDisplayingCell:1;
         unsigned int delegateDidEndDisplayingSupplementaryView:1;
+        unsigned int delegateIndexForReferenceItemDuringLayoutTransition:1;
+        unsigned int delegateOverrideForTransitionOffsetSize:1;
         unsigned int dataSourceNumberOfSections:1;
         unsigned int dataSourceViewForSupplementaryElement:1;
         unsigned int reloadSkippedDuringSuspension:1;
@@ -65,7 +84,6 @@
         unsigned int scheduledUpdateVisibleCellLayoutAttributes:1;
         unsigned int allowsSelection:1;
         unsigned int allowsMultipleSelection:1;
-        unsigned int updating:1;
         unsigned int fadeCellsForBoundsChange:1;
         unsigned int updatingLayout:1;
         unsigned int needsReload:1;
@@ -73,15 +91,30 @@
         unsigned int skipLayoutDuringSnapshotting:1;
         unsigned int layoutInvalidatedSinceLastCellUpdate:1;
         unsigned int doneFirstLayout:1;
+        unsigned int loadingOffscreenViews:1;
+        unsigned int updating:1;
     } _collectionViewFlags;
     struct CGPoint _lastLayoutOffset;
+    id _navigationCompletion;
 }
 
 + (id)_reuseKeyForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(id)arg2;
+@property(copy, nonatomic, getter=_navigationCompletion, setter=_setNavigationCompletion:) id navigationCompletion; // @synthesize navigationCompletion=_navigationCompletion;
 @property(retain, nonatomic, getter=_currentTouch, setter=_setCurrentTouch:) UITouch *currentTouch; // @synthesize currentTouch=_currentTouch;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(nonatomic) id <UICollectionViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) UICollectionViewLayout *collectionViewLayout; // @synthesize collectionViewLayout=_layout;
+- (id)_dynamicAnimationsForTrackValues;
+- (void)_updateTrackedLayoutValuesWith:(id)arg1;
+- (float)_trackedLayoutValueForKey:(id)arg1;
+- (void)_trackLayoutValue:(float)arg1 forKey:(id)arg2;
+- (int)maximumGlobalItemIndex;
+- (int)highlightedGlobalItem;
+- (void)_physicalButtonsCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsEnded:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
+- (void)_moveWithEvent:(id)arg1;
+- (BOOL)canBecomeFirstResponder;
 - (void)_cellMenuDismissed;
 - (void)_performAction:(SEL)arg1 forCell:(id)arg2 sender:(id)arg3;
 - (BOOL)_canPerformAction:(SEL)arg1 forCell:(id)arg2 sender:(id)arg3;
@@ -98,7 +131,7 @@
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (id)_selectableIndexPathForItemContainingHitView:(id)arg1;
 - (void)_unhighlightAllItems;
-- (void)_invalidateLayout;
+- (void)_invalidateLayoutWithContext:(id)arg1;
 - (void)performBatchUpdates:(id)arg1 completion:(void)arg2;
 - (void)_endUpdates;
 - (void)_beginUpdates;
@@ -133,6 +166,12 @@
 - (void)registerClass:(Class)arg1 forCellWithReuseIdentifier:(id)arg2;
 - (void)_scrollViewWillEndDraggingWithVelocity:(struct CGPoint)arg1 targetContentOffset:(inout struct CGPoint *)arg2;
 - (void)scrollToItemAtIndexPath:(id)arg1 atScrollPosition:(unsigned int)arg2 animated:(BOOL)arg3;
+- (id)_indexPathsForVisibleDecorationViewsOfKind:(id)arg1;
+- (id)_indexPathsForVisibleSupplementaryViewsOfKind:(id)arg1;
+- (id)_indexPathsForVisibleSupplementaryViewsOfKind:(id)arg1 isDecorationView:(BOOL)arg2;
+- (id)_visibleDecorationViewsOfKind:(id)arg1;
+- (id)_visibleSupplementaryViewsOfKind:(id)arg1;
+- (id)_visibleSupplementaryViewsOfKind:(id)arg1 isDecorationView:(BOOL)arg2;
 - (id)indexPathsForVisibleItems;
 - (id)visibleCells;
 - (id)cellForItemAtIndexPath:(id)arg1;
@@ -144,11 +183,23 @@
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (int)numberOfItemsInSection:(int)arg1;
 - (int)numberOfSections;
+- (id)_pivotForTransitionFromLayout:(id)arg1 toLayout:(id)arg2;
+- (void)cancelInteractiveTransition;
+- (void)finishInteractiveTransition;
+- (void)_finishInteractiveTransitionShouldFinish:(BOOL)arg1;
+- (void)_cleanUpAfterInteractiveTransitionDidFinish:(BOOL)arg1;
+- (void)_updateTransitionWithProgress:(float)arg1;
+- (id)startInteractiveTransitionToCollectionViewLayout:(id)arg1 completion:(id)arg2;
+- (void)_setCollectionViewLayout:(id)arg1 animated:(BOOL)arg2 isInteractive:(BOOL)arg3 completion:(id)arg4;
+- (void)setCollectionViewLayout:(id)arg1 animated:(BOOL)arg2 completion:(id)arg3;
 - (void)setCollectionViewLayout:(id)arg1 animated:(BOOL)arg2;
-- (void)animationDone:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+- (BOOL)_visible;
 - (void)layoutSubviews;
+- (id)_viewControllerToNotifyOnLayoutSubviews;
 - (void)_updateBackgroundView;
-- (id)_doubleSidedAnimationsForView:(id)arg1 withStartingLayoutAttributes:(id)arg2 endingLayoutAttributes:(id)arg3 withAnimationSetup:(id)arg4 animationCompletion:(void)arg5;
+- (BOOL)_isTransitionVisibleFrom:(id)arg1 toLayoutAttributes:(id)arg2;
+- (id)_doubleSidedAnimationsForView:(id)arg1 withStartingLayoutAttributes:(id)arg2 startingLayout:(id)arg3 endingLayoutAttributes:(id)arg4 endingLayout:(id)arg5 withAnimationSetup:(id)arg6 animationCompletion:(void)arg7 enableCustomAnimations:(id)arg8;
+- (void)_ensureViewsAreLoadedInRect:(struct CGRect)arg1;
 - (void)_updateVisibleCellsNow:(BOOL)arg1;
 - (id)_createPreparedSupplementaryViewForElementOfKind:(id)arg1 atIndexPath:(id)arg2 withLayoutAttributes:(id)arg3;
 - (id)_createPreparedCellForItemAtIndexPath:(id)arg1 withLayoutAttributes:(id)arg2;
@@ -157,6 +208,7 @@
 - (void)setBounds:(struct CGRect)arg1;
 - (void)_addControlledSubview:(id)arg1 atZIndex:(int)arg2;
 - (void)_setIsAncestorOfFirstResponder:(BOOL)arg1;
+- (void)_invalidateLayoutIfNecessary;
 - (void)reloadData;
 - (void)_setNeedsVisibleCellsUpdate:(BOOL)arg1 withLayoutAttributes:(BOOL)arg2;
 - (void)_resumeReloads;
@@ -177,9 +229,10 @@
 - (BOOL)_dataSourceImplementsNumberOfSections;
 - (void)_reloadDataIfNeeded;
 @property(nonatomic) id <UICollectionViewDelegate> delegate; // @dynamic delegate;
-- (id)_visibleSupplementaryViewForKind:(id)arg1 andIndexPath:(id)arg2;
-- (void)_setVisibleDecorationView:(id)arg1 forReuseIdentifier:(id)arg2 indexPath:(id)arg3;
-- (void)_setVisibleSupplementaryView:(id)arg1 forKind:(id)arg2 indexPath:(id)arg3;
+- (id)_visibleDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (id)_visibleSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (id)_visibleSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2 isDecorationView:(BOOL)arg3;
+- (void)_setVisibleSupplementaryView:(id)arg1 forKind:(id)arg2 indexPath:(id)arg3 isDecorationView:(BOOL)arg4;
 - (void)_setVisibleCell:(id)arg1 forIndexPath:(id)arg2;
 - (id)_keysForObject:(id)arg1 inDictionary:(id)arg2;
 - (void)_addEntriesFromDictionary:(id)arg1 inDictionary:(id)arg2;
@@ -192,6 +245,9 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 collectionViewLayout:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (BOOL)_indexPathIsValid:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
 
 @end
 

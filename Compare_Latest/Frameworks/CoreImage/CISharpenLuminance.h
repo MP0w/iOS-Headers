@@ -15,12 +15,12 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputSharpness; // @synthesize inputSharpness;
+@property(retain, nonatomic) NSNumber *inputSharpness; // @synthesize inputSharpness;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (id)_kernel;
 - (_Bool)_isIdentity;
 - (void)setDefaults;
-- (id)_kernel;
 
 @end
 

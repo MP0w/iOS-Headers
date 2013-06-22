@@ -22,9 +22,10 @@
 + (id)tabBarItemTitleKey;
 + (id)tabBarItemIconName;
 + (id)defaultTitle;
+- (void).cxx_destruct;
 - (id)_geniusMixAtIndex:(unsigned int)arg1;
 - (id)viewControllerContextForIndex:(unsigned int)arg1;
-- (struct CGImage *)loadRepresentativeImageAtIndex:(unsigned int)arg1 withTileLength:(float)arg2 completionBlock:(id)arg3;
+- (id)loadRepresentativeImageAtIndex:(unsigned int)arg1 withTileLength:(float)arg2 completionBlock:(id)arg3;
 - (id)representativeArtistsAtIndex:(unsigned int)arg1;
 - (id)mixNameAtIndex:(unsigned int)arg1;
 - (unsigned int)indexOfMix:(id)arg1;

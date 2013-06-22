@@ -30,7 +30,7 @@
 - (_Bool)isShape;
 - (void)setDrawable:(id)arg1;
 - (id)drawable;
-- (void)setTextBox:(id)arg1;
+- (void)setTextBox:(id)arg1 document:(id)arg2;
 - (id)textBox;
 - (void)setBounds:(struct CGRect)arg1;
 - (struct CGRect)bounds;

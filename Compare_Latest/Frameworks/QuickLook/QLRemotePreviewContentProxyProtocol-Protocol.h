@@ -13,14 +13,13 @@
 - (void)_previewContentControllerDidUnloadItem:(id)arg1;
 - (void)_previewContentControllerDidLoadItem:(id)arg1 atIndex:(int)arg2 withError:(id)arg3;
 - (void)_previewContentControllerReceivedTapOnURL:(id)arg1;
-- (void)_previewContentControllerdidMoveToItem:(id)arg1 atIndex:(int)arg2;
+- (void)_previewContentControllerDidMoveToItemAtIndex:(int)arg1;
 - (void)_previewContentControllerWillMoveToItemAtIndex:(int)arg1;
-- (void)_doneButtonWasTappedInPreviewContentController;
+- (void)_showContentsWasTappedInPreviewContentController;
 - (void)_overlayWasTappedInPreviewContentController;
 - (void)_contentWasTappedInPreviewContentController;
 - (void)_previewContentControllerWillHideOverlayWithDuration:(double)arg1;
 - (void)_previewContentControllerWillShowOverlayWithDuration:(double)arg1;
-- (void)_requestPreviewItemsAtIndexes:(id)arg1;
-- (void)_previewContentControllerGetPreviewItemAtIndex:(int)arg1 handler:(id)arg2;
+- (void)_previewContentControllerGetPreviewItemAtIndex:(int)arg1 sourceUUID:(int)arg2 handler:(id)arg3;
 @end
 

@@ -10,7 +10,7 @@
 #import "MRMarimbaHitBlobSupport-Protocol.h"
 #import "MRMarimbaPlayback-Protocol.h"
 
-@class EAGLContext, MPDocument, MPFaceDetector, MRRenderer, NSDictionary, NSString;
+@class EAGLContext, MPDocument, MPFaceDetector, MRRenderer, NSDictionary, NSString, NSTimer;
 
 @interface MRMarimbaLayer : CAEAGLLayer <MRMarimbaPlayback, MRMarimbaHitBlobSupport, MRMarimbaBasicPlayback>
 {
@@ -24,6 +24,7 @@
     float _morphingToAspectRatio;
     struct CGSize _frameBufferSize;
     NSDictionary *_nextMorphInfo;
+    NSTimer *_faceTimer;
     BOOL _usesNewImageManager;
     BOOL _enableSlideDidChangeNotification;
     NSString *_lastSlideChange;
@@ -35,6 +36,7 @@
     BOOL _slidesAreReadonly;
 }
 
++ (BOOL)shouldRenderOnBackgroundThread;
 + (void)releaseResources;
 + (id)layerWithDocument:(id)arg1;
 + (id)layerWithDocument:(id)arg1 size:(struct CGSize)arg2;
@@ -42,6 +44,7 @@
 @property(nonatomic) BOOL usesNewImageManager; // @synthesize usesNewImageManager=_usesNewImageManager;
 @property(nonatomic) BOOL slidesAreReadonly; // @synthesize slidesAreReadonly=_slidesAreReadonly;
 @property(nonatomic) BOOL isReadonly; // @synthesize isReadonly=_isReadonly;
+- (void)beginEditingOfText:(id)arg1;
 - (void)touchesCancelled:(id)arg1;
 - (BOOL)touchesEnded:(id)arg1;
 - (void)touchesMoved:(id)arg1;
@@ -86,13 +89,12 @@
 @property(retain, nonatomic) MPDocument *document;
 @property(readonly) struct CGSize size;
 - (void)setBounds:(struct CGRect)arg1;
-- (void)setAsynchronous:(BOOL)arg1;
+- (BOOL)asynchronous:(BOOL)arg1;
 - (void)cleanup;
 - (void)dealloc;
 - (id)init;
 - (void)_postNotificationForSlideChange:(id)arg1;
 - (void)_slideDidAppear:(id)arg1;
-- (void)removeFadeIn;
 - (void)gotoSlide:(id)arg1;
 - (void)gotoPreviousSlide;
 - (void)gotoNextSlide;
@@ -106,7 +108,6 @@
 - (id)_firstEffectContainer;
 - (void)whenTransitionIsFinishedSendAction:(SEL)arg1 toTarget:(id)arg2;
 - (BOOL)isInTransition;
-- (BOOL)isInFade;
 - (id)_currentEffectContainer;
 - (id)_currentEffectLayer;
 - (void)moveToSubtitleForSlide:(id)arg1;

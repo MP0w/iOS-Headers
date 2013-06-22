@@ -13,6 +13,7 @@
 }
 
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (BOOL)_hasRenderLayerSubclass;
 + (id)defaultValueForKey:(id)arg1;
 @property float lineDashPhase;
 @property(copy) NSArray *lineDashPattern;

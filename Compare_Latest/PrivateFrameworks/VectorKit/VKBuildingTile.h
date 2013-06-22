@@ -9,7 +9,10 @@
 @interface VKBuildingTile : VKVectorTile
 {
     BOOL _animating;
+    CDStruct_03942939 _cameraPosition;
 }
+
+- (id).cxx_construct;
 
 @end
 

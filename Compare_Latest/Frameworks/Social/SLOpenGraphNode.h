@@ -13,14 +13,14 @@
     BOOL _likedByMe;
     unsigned int _numberOfLikes;
     unsigned int _numberOfFriendLikes;
-    int _fetchState;
-    NSArray *_likedByFriends;
     NSURL *_URL;
+    NSArray *_likedByFriends;
+    int _fetchState;
 }
 
-@property(readonly) NSURL *URL; // @synthesize URL=_URL;
-@property(readonly) NSArray *likedByFriends; // @synthesize likedByFriends=_likedByFriends;
 @property(nonatomic) int fetchState; // @synthesize fetchState=_fetchState;
+@property(readonly) NSArray *likedByFriends; // @synthesize likedByFriends=_likedByFriends;
+@property(readonly) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
 - (void)invalidate;
 - (void)unlikeWithCompletion:(id)arg1;

@@ -6,25 +6,23 @@
 
 #import "UIView.h"
 
-#import "CKTranscriptButtonView-Protocol.h"
-
 @class UIButton;
 
-@interface CKTranscriptToolbarView : UIView <CKTranscriptButtonView>
+@interface CKTranscriptToolbarView : UIView
 {
-    id <CKTranscriptButtonViewDelegate> _transcriptButtonDelegate;
-    BOOL _cancelButtonVisible;
-    BOOL _hasContact;
-    BOOL _isGroupMessage;
     UIButton *_editButton;
     UIButton *_contactButton;
     UIButton *_cancelButton;
+    BOOL _hasContact;
+    BOOL _isGroupMessage;
+    BOOL _cancelButtonVisible;
+    id <CKTranscriptHeaderViewDelegate> _delegate;
 }
 
-@property(readonly, nonatomic) BOOL isGroupMessage; // @synthesize isGroupMessage=_isGroupMessage;
-@property(nonatomic) BOOL hasContact; // @synthesize hasContact=_hasContact;
 @property(nonatomic, getter=isCancelButtonVisible) BOOL cancelButtonVisible; // @synthesize cancelButtonVisible=_cancelButtonVisible;
-@property(nonatomic) id <CKTranscriptButtonViewDelegate> transcriptButtonDelegate; // @synthesize transcriptButtonDelegate=_transcriptButtonDelegate;
+@property(nonatomic) BOOL isGroupMessage; // @synthesize isGroupMessage=_isGroupMessage;
+@property(nonatomic) BOOL hasContact; // @synthesize hasContact=_hasContact;
+@property(nonatomic) id <CKTranscriptHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_buttonClicked:(id)arg1;
 - (struct CGRect)frameForButton:(short)arg1;
 - (void)layoutSubviews;

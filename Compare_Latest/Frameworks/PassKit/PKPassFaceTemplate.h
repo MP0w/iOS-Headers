@@ -11,13 +11,11 @@
 @interface PKPassFaceTemplate : NSObject
 {
     float _barcodeVerticalInset;
-    struct CGSize _barcodeMaxSize;
     PKPassFieldTemplate *_defaultFieldTemplate;
     NSMutableArray *_bucketTemplates;
-    BOOL _scrunched;
+    struct CGSize _barcodeMaxSize;
 }
 
-@property(nonatomic) BOOL scrunched; // @synthesize scrunched=_scrunched;
 @property(retain, nonatomic) NSMutableArray *bucketTemplates; // @synthesize bucketTemplates=_bucketTemplates;
 @property(retain, nonatomic) PKPassFieldTemplate *defaultFieldTemplate; // @synthesize defaultFieldTemplate=_defaultFieldTemplate;
 @property(nonatomic) struct CGSize barcodeMaxSize; // @synthesize barcodeMaxSize=_barcodeMaxSize;

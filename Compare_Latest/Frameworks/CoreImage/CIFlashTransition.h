@@ -23,14 +23,14 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputFadeThreshold; // @synthesize inputFadeThreshold;
-@property(copy, nonatomic) NSNumber *inputStriationContrast; // @synthesize inputStriationContrast;
-@property(copy, nonatomic) NSNumber *inputStriationStrength; // @synthesize inputStriationStrength;
-@property(copy, nonatomic) NSNumber *inputMaxStriationRadius; // @synthesize inputMaxStriationRadius;
-@property(copy, nonatomic) NSNumber *inputTime; // @synthesize inputTime;
-@property(copy, nonatomic) CIColor *inputColor; // @synthesize inputColor;
-@property(copy, nonatomic) CIVector *inputExtent; // @synthesize inputExtent;
-@property(copy, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
+@property(retain, nonatomic) NSNumber *inputFadeThreshold; // @synthesize inputFadeThreshold;
+@property(retain, nonatomic) NSNumber *inputStriationContrast; // @synthesize inputStriationContrast;
+@property(retain, nonatomic) NSNumber *inputStriationStrength; // @synthesize inputStriationStrength;
+@property(retain, nonatomic) NSNumber *inputMaxStriationRadius; // @synthesize inputMaxStriationRadius;
+@property(retain, nonatomic) NSNumber *inputTime; // @synthesize inputTime;
+@property(retain, nonatomic) CIColor *inputColor; // @synthesize inputColor;
+@property(retain, nonatomic) CIVector *inputExtent; // @synthesize inputExtent;
+@property(retain, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
 @property(retain, nonatomic) CIImage *inputTargetImage; // @synthesize inputTargetImage;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;

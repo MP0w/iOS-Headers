@@ -6,11 +6,18 @@
 
 #import <iLifeSlideshow/MRTransition.h>
 
+@class MROrigamiAnimationPath;
+
 @interface MRTransitionOrigamiFlip : MRTransition
 {
+    MROrigamiAnimationPath *mBigSwing;
+    MROrigamiAnimationPath *mSideSwing;
 }
 
 - (void)renderAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
+- (void)_cleanupSwingTimings;
+- (void)_setupSwingTimings;
+- (void)cleanup;
 - (id)initWithTransitionID:(id)arg1;
 
 @end

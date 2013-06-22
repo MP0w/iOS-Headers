@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVAssetReaderOutput.h>
 
-@class AVAssetReaderTrackOutputInternal, AVAssetTrack, NSDictionary;
+@class AVAssetReaderTrackOutputInternal, AVAssetTrack, NSDictionary, NSString;
 
 @interface AVAssetReaderTrackOutput : AVAssetReaderOutput
 {
@@ -19,6 +19,7 @@
 - (BOOL)_trimsSampleDurations;
 - (id)_asset;
 - (id)mediaType;
+@property(copy, nonatomic) NSString *audioTimePitchAlgorithm;
 @property(readonly, nonatomic) NSDictionary *outputSettings;
 @property(readonly, nonatomic) AVAssetTrack *track;
 - (id)description;

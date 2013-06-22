@@ -6,17 +6,10 @@
 
 #import "UIAlertView.h"
 
-@class UIImage;
-
 @interface SBUserNotificationAlertSheet : UIAlertView
 {
-    UIImage *_alertImage;
 }
 
-@property(retain, nonatomic) UIImage *alertImage; // @synthesize alertImage=_alertImage;
-- (id)_maskedAlertImage;
-- (void)dealloc;
-- (void)layout;
 - (void)dismissWithClickedButtonIndex:(int)arg1 animated:(BOOL)arg2;
 
 @end

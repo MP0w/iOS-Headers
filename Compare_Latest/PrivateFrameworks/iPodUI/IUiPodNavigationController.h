@@ -12,11 +12,12 @@
 {
     IUModalContext *_modalContext;
     UINavigationItem *_navigationItemTemplate;
-    int _style;
+    unsigned int _style;
 }
 
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) unsigned int style; // @synthesize style=_style;
 @property(retain, nonatomic) IUModalContext *modalContext; // @synthesize modalContext=_modalContext;
+- (void).cxx_destruct;
 - (void)_updateViewControllersModalContext;
 - (BOOL)navigationBar:(id)arg1 shouldPushItem:(id)arg2;
 - (BOOL)_shouldNavigationBarInsetViewController:(id)arg1;

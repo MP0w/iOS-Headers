@@ -11,6 +11,7 @@
 }
 
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
+- (id)predicateOptimizedForEntityClass:(Class)arg1;
 - (id)description;
 
 @end

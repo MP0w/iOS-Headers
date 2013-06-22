@@ -45,10 +45,11 @@
     void *fCompassCalibrationHud;
     _Bool fShowCompassCalibrationHudOnResume;
     _Bool fHaveSentDeviceRequiresMovementError;
-    int fGeomagneticModelProviderClient;
+    struct shared_ptr<CLGeomagneticModelProvider_Type::Client> fGeomagneticModelProviderClient;
     CDStruct_3e502cbb fGeomagneticModel;
     _Bool fHaveSentTrueNorthUnavailableError;
     double fDeviceMotionStartTimestamp;
+    _Bool fPrivateWantsPowerConservativeDeviceMotion;
     struct Dispatcher *fMagnetometerDispatcher;
     double fMagnetometerUpdateInterval;
     id fMagnetometerHandler;
@@ -74,6 +75,7 @@
 }
 
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithInfo:(id)arg1;
 

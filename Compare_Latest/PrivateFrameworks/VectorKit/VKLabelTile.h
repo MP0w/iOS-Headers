@@ -6,26 +6,26 @@
 
 #import <VectorKit/VKTile.h>
 
-@class GEOVectorTile, VKLabelFeaturePool, VKLabelFeatureTile, VKResourcesTile;
+@class GEOVectorTile;
 
 @interface VKLabelTile : VKTile
 {
-    VKLabelFeatureTile *_featureTile;
     int _tileType;
-    VKLabelFeaturePool *_featurePool;
-    struct LabelFeature **_features;
-    unsigned int _featureCount;
+    shared_ptr_dd1f7020 _labelManager;
+    GEOVectorTile *_modelTile;
+    set_2bef5b43 _roadFeatures;
+    set_a425ba2c _pointFeatures;
 }
 
-@property(readonly, nonatomic) int tileType; // @synthesize tileType=_tileType;
-- (void)setKey:(const struct VKTileKey *)arg1;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)description;
+- (const set_a425ba2c *)pointFeatures;
+- (const set_2bef5b43 *)roadFeatures;
+- (id)modelTile;
+- (int)tileType;
 - (void)dealloc;
-- (unsigned int)getFeatures:(struct LabelFeature **)arg1 inRect:(const CDStruct_aca18c62 *)arg2;
-- (unsigned int)featureCount;
-@property(retain, nonatomic) VKResourcesTile *resourcesTile;
-@property(readonly, nonatomic) GEOVectorTile *modelTile;
-- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 tileType:(int)arg3 featurePool:(id)arg4 stylesheet:(id)arg5 localizeText:(BOOL)arg6 scaleFactor:(int)arg7;
+- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 tileType:(int)arg3 labelManager:(const shared_ptr_dd1f7020 *)arg4;
 
 @end
 

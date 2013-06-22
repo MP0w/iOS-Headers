@@ -17,8 +17,8 @@
     unsigned int mOriginal:1;
     unsigned int mTracked:1;
     unsigned int mResolved:1;
-    CDStruct_65f4098e mOriginalProperties;
-    CDStruct_65f4098e mTrackedProperties;
+    CDStruct_4f9224b4 mOriginalProperties;
+    CDStruct_4f9224b4 mTrackedProperties;
 }
 
 - (id).cxx_construct;
@@ -52,7 +52,7 @@
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
 - (id)init;
-- (void)addPropertiesValues:(CDStruct_65f4098e *)arg1 to:(CDStruct_65f4098e *)arg2;
+- (void)addPropertiesValues:(CDStruct_4f9224b4 *)arg1 to:(CDStruct_4f9224b4 *)arg2;
 
 @end
 

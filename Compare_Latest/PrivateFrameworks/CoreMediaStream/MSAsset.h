@@ -7,13 +7,14 @@
 #import "NSObject.h"
 
 #import "MMCSAsset-Protocol.h"
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSData, NSDate, NSDictionary, NSError, NSString, NSURL;
 
-@interface MSAsset : NSObject <MMCSAsset, NSCoding, NSCopying>
+@interface MSAsset : NSObject <MMCSAsset, NSSecureCoding, NSCopying>
 {
+    BOOL _assetDataAvailableOnServer;
     NSData *_masterAssetHash;
     NSDictionary *_metadata;
     NSString *_path;
@@ -22,7 +23,6 @@
     NSError *_error;
     NSString *_type;
     NSData *_fileHash;
-    unsigned long long _protocolFileSize;
     NSString *_MMCSAccessHeader;
     NSDate *_MMCSAccessHeaderTimeStamp;
     NSString *_MMCSReceipt;
@@ -31,11 +31,16 @@
     NSDate *_batchCreationDate;
     NSDate *_photoCreationDate;
     id <NSCoding> _userInfo;
+    unsigned int _mediaAssetType;
+    unsigned long long _protocolFileSize;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)assetWithAsset:(id)arg1;
 + (id)asset;
 + (id)MSASPAssetFromProtocolDictionary:(id)arg1;
+@property(nonatomic) BOOL assetDataAvailableOnServer; // @synthesize assetDataAvailableOnServer=_assetDataAvailableOnServer;
+@property(nonatomic) unsigned int mediaAssetType; // @synthesize mediaAssetType=_mediaAssetType;
 @property(retain, nonatomic) id <NSCoding> userInfo; // @synthesize userInfo=_userInfo;
 @property(retain, nonatomic) NSDate *photoCreationDate; // @synthesize photoCreationDate=_photoCreationDate;
 @property(retain, nonatomic) NSDate *batchCreationDate; // @synthesize batchCreationDate=_batchCreationDate;
@@ -68,6 +73,8 @@
 @property(nonatomic) unsigned long long MMCSItemID;
 @property(nonatomic) unsigned long MMCSItemFlags;
 - (unsigned long long)_fileSize;
+- (BOOL)isVideo;
+- (BOOL)isPhoto;
 - (id)description;
 - (id)init;
 - (id)initWithGUID:(id)arg1;

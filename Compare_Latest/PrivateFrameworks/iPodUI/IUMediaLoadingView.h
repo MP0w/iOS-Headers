@@ -14,6 +14,7 @@
     UILabel *_label;
 }
 
+- (void).cxx_destruct;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;

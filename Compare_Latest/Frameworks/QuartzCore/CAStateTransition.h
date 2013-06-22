@@ -18,6 +18,7 @@
     NSArray *_elements;
 }
 
++ (void)CAMLParserStartElement:(id)arg1;
 @property(copy, nonatomic) NSArray *elements; // @synthesize elements=_elements;
 @property(copy, nonatomic) NSString *toState; // @synthesize toState=_toState;
 @property(copy, nonatomic) NSString *fromState; // @synthesize fromState=_fromState;
@@ -25,6 +26,9 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)CAMLTypeForKey:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
+- (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (double)duration;
 - (void)dealloc;
 - (id)init;

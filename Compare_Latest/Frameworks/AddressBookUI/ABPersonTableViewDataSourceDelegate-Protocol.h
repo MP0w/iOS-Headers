@@ -24,7 +24,7 @@
 - (void)tableView:(id)arg1 didEndEditingRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willBeginEditingRowAtIndexPath:(id)arg2;
 - (BOOL)personTableViewDataSource:(id)arg1 shouldShowAction:(id)arg2;
-- (void)personTableViewDataSource:(id)arg1 conference:(id)arg2 person:(void *)arg3 property:(int)arg4 identifier:(int)arg5;
+- (void)personTableViewDataSource:(id)arg1 conference:(id)arg2 person:(id)arg3 property:(int)arg4 identifier:(int)arg5;
 - (void)personTableViewDataSource:(id)arg1 shareContact:(id)arg2;
 - (BOOL)personTableViewDataSourceIsLocation:(id)arg1;
 - (void)personTableViewDataSource:(id)arg1 didDismissActionSheet:(id)arg2;

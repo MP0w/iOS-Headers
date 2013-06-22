@@ -6,19 +6,22 @@
 
 #import "NSObject.h"
 
-#import "XPCProxyTarget-Protocol.h"
+#import "WebBookmarksXPCConnectionDelegate-Protocol.h"
 
-@class XPCProxy<WebBookmarksSettingsProtocol>;
+@class WebBookmarksXPCConnection;
 
-@interface WebBookmarksSettingsGateway : NSObject <XPCProxyTarget>
+@interface WebBookmarksSettingsGateway : NSObject <WebBookmarksXPCConnectionDelegate>
 {
-    XPCProxy<WebBookmarksSettingsProtocol> *_settingsProxy;
+    WebBookmarksXPCConnection *_connection;
 }
 
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
+- (void)deleteSafariSecurityOrigin:(id)arg1;
+- (void)deleteAllSafariSecurityOrigins;
+- (void)getSafariWebDataUsageWithCompletion:(id)arg1;
 - (void)setCellularReadingListAllowed:(BOOL)arg1;
 - (void)getCellularReadingListAllowedWithCompletion:(id)arg1;
-- (void)invalidate;
+- (void)_clearConnection;
+- (void)connection:(id)arg1 didCloseWithError:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

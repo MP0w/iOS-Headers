@@ -27,6 +27,7 @@
 - (id)connectionMediaTypes;
 @property(nonatomic) BOOL alwaysDiscardsLateVideoFrames;
 @property(nonatomic) CDStruct_1b6d18a9 minFrameDuration;
+- (void)_setMinFrameDuration:(CDStruct_1b6d18a9)arg1;
 @property(copy, nonatomic) NSDictionary *videoSettings;
 - (id)vettedVideoSettingsForSettingsDictionary:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableVideoCodecTypes;

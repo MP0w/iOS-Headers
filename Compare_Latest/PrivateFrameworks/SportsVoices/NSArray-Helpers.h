@@ -7,9 +7,9 @@
 #import "NSArray.h"
 
 @interface NSArray (Helpers)
-- (id)_subsequenceFromIndex:(int)arg1;
-- (id)_subsequenceToIndex:(int)arg1;
-- (id)_subsequenceFrom:(int)arg1 to:(int)arg2;
+- (id)_subsequenceFromIndex:(unsigned int)arg1;
+- (id)_subsequenceToIndex:(unsigned int)arg1;
+- (id)_subsequenceFrom:(unsigned int)arg1 to:(unsigned int)arg2;
 - (BOOL)_containsSubArray:(id)arg1;
 - (id)repeatedNTimes:(int)arg1;
 - (id)_withoutEmptyStrings;

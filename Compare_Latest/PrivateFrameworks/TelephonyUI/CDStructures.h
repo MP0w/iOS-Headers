@@ -21,3 +21,10 @@ struct CGSize {
     float height;
 };
 
+struct UIEdgeInsets {
+    float top;
+    float left;
+    float bottom;
+    float right;
+};
+

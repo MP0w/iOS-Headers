@@ -6,7 +6,9 @@
 
 #import <UIKit/UISharedArtwork.h>
 
-@interface UIImageTableArtwork : UISharedArtwork
+#import "_UISharedArtworkResolving-Protocol.h"
+
+@interface UIImageTableArtwork : UISharedArtwork <_UISharedArtworkResolving>
 {
 }
 

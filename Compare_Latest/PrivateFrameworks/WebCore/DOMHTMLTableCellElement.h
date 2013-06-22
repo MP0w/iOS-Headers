@@ -27,6 +27,7 @@
 @property(copy) NSString *align;
 @property(copy) NSString *abbr;
 @property(readonly) int cellIndex;
+- (id)_cellAbove;
 
 @end
 

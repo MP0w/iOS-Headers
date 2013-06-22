@@ -25,6 +25,7 @@
 + (id)zero;
 + (id)maximumDecimalNumber;
 + (id)minimumDecimalNumber;
++ (BOOL)supportsSecureCoding;
 + (id)decimalNumberWithString:(id)arg1 locale:(id)arg2;
 + (id)decimalNumberWithString:(id)arg1;
 + (id)decimalNumberWithDecimal:(CDStruct_5fe7aead)arg1;

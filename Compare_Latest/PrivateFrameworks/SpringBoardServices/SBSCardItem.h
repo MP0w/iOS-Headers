@@ -9,20 +9,24 @@
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class NSData, NSDictionary, NSString;
+@class NSData, NSDictionary, NSString, UIImage;
 
 @interface SBSCardItem : NSObject <NSCopying, NSCoding>
 {
+    BOOL _requiresPasscode;
     NSString *_identifier;
     NSData *_iconData;
     NSString *_title;
     NSString *_body;
-    BOOL _requiresPasscode;
     NSString *_bundleName;
+    NSData *_attachmentData;
     NSDictionary *_userInfo;
+    UIImage *_thumbnail;
 }
 
+@property(copy, nonatomic) UIImage *thumbnail; // @synthesize thumbnail=_thumbnail;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
+@property(copy, nonatomic) NSData *attachmentData; // @synthesize attachmentData=_attachmentData;
 @property(copy, nonatomic) NSString *bundleName; // @synthesize bundleName=_bundleName;
 @property(nonatomic) BOOL requiresPasscode; // @synthesize requiresPasscode=_requiresPasscode;
 @property(copy, nonatomic) NSString *body; // @synthesize body=_body;
@@ -39,6 +43,7 @@
 - (id)initWithIdentifier:(id)arg1 iconData:(id)arg2 title:(id)arg3 body:(id)arg4 classification:(int)arg5 bundleName:(id)arg6 userInfo:(id)arg7;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 iconData:(id)arg2 title:(id)arg3 body:(id)arg4 requiresPasscode:(BOOL)arg5 bundleName:(id)arg6 userInfo:(id)arg7;
+- (id)initWithIdentifier:(id)arg1 iconData:(id)arg2 title:(id)arg3 body:(id)arg4 requiresPasscode:(BOOL)arg5 bundleName:(id)arg6 attachmentData:(id)arg7 userInfo:(id)arg8;
 
 @end
 

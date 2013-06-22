@@ -39,6 +39,7 @@
 @property(copy, nonatomic) NSString *groupPositionDescription;
 @property(copy, nonatomic) NSNumber *groupPosition;
 @property(copy, nonatomic) NSString *groupName;
+@property(copy, nonatomic) NSString *gamesPlayed;
 @property(copy, nonatomic) NSString *gamesBehind;
 @property(copy, nonatomic) NSNumber *conferencePosition;
 @property(copy, nonatomic) NSNumber *clinchedQualificationPosition;

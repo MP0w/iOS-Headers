@@ -16,11 +16,13 @@
     struct _VGLColor _color;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) struct _VGLColor color; // @synthesize color=_color;
 @property(nonatomic) float width; // @synthesize width=_width;
 @property(nonatomic) CDStruct_03942939 direction; // @synthesize direction=_direction;
-- (id)init;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

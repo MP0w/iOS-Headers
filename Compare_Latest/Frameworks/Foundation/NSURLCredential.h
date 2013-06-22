@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSURLCredentialInternal;
 
-@interface NSURLCredential : NSObject <NSCoding, NSCopying>
+@interface NSURLCredential : NSObject <NSSecureCoding, NSCopying>
 {
     NSURLCredentialInternal *_internal;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)credentialForTrust:(struct __SecTrust *)arg1;
 + (id)credentialWithIdentity:(struct __SecIdentity *)arg1 certificates:(id)arg2 persistence:(unsigned int)arg3;
 + (id)credentialWithUser:(id)arg1 password:(id)arg2 persistence:(unsigned int)arg3;

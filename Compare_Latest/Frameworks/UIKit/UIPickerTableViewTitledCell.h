@@ -4,18 +4,26 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UITableViewCell.h>
+#import <UIKit/UIPickerTableViewCell.h>
 
-@class NSAttributedString, NSString, UILabel;
+@class NSAttributedString, NSString, UIColor, UILabel;
 
-@interface UIPickerTableViewTitledCell : UITableViewCell
+@interface UIPickerTableViewTitledCell : UIPickerTableViewCell
 {
     UILabel *_titleLabel;
+    BOOL _isAttributed;
+    BOOL _usesModernStyle;
+    UIColor *_textColor;
 }
 
+@property(readonly, nonatomic) BOOL _isAttributed; // @synthesize _isAttributed;
+@property(readonly, nonatomic) UILabel *_titleLabel; // @synthesize _titleLabel;
+- (void)prepareForReuse;
 @property(retain, nonatomic) NSAttributedString *attributedTitle;
 @property(retain, nonatomic) NSString *title;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (void)dealloc;
+- (void)_setIsCenterCell:(BOOL)arg1;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 isModern:(BOOL)arg3 textColor:(id)arg4;
 
 @end
 

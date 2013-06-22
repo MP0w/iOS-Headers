@@ -12,7 +12,7 @@
 }
 
 + (struct CGSize)sizeForNumberOfRows:(unsigned int)arg1;
-+ (struct CGRect)rectAtIndex:(unsigned int)arg1 forImage:(id)arg2 maxCount:(unsigned int)arg3;
++ (struct CGRect)rectAtIndex:(unsigned int)arg1 maxCount:(unsigned int)arg2;
 + (struct CGSize)cellSpacing;
 + (struct CGSize)cellSize;
 + (unsigned int)numberOfRowsForNumberOfCells:(unsigned int)arg1;

@@ -8,5 +8,9 @@
 
 @protocol PLActivityViewControllerDelegate <NSObject>
 - (void)activityViewControllerDidDismiss:(id)arg1;
+
+@optional
+- (BOOL)activityViewControllerShouldAlwaysReportDidDismiss:(id)arg1;
+- (void)activityViewControllerWillDismiss:(id)arg1;
 @end
 

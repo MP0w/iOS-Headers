@@ -21,7 +21,7 @@
 - (id)validity;
 @property(readonly) BOOL willValidate;
 @property(copy) NSString *value;
-@property(readonly) NSString *type;
+@property(copy) NSString *type;
 @property(copy) NSString *name;
 - (void)setFormTarget:(id)arg1;
 - (id)formTarget;

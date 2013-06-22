@@ -6,14 +6,18 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSPredicate : NSObject <NSCoding, NSCopying>
+@interface NSPredicate : NSObject <NSSecureCoding, NSCopying>
 {
-    void *_reserved;
+    struct _predicateFlags {
+        unsigned int _evaluationBlocked:1;
+        unsigned int _reservedPredicateFlags:31;
+    } _predicateFlags;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)predicateWithBlock:(id)arg1;
 + (id)predicateWithValue:(BOOL)arg1;
 + (id)predicateWithFormat:(id)arg1 arguments:(void *)arg2;
@@ -31,6 +35,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)allowEvaluation;
+- (BOOL)_allowsEvaluation;
 - (id)generateMetadataDescription;
 
 @end

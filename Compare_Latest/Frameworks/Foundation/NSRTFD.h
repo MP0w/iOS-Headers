@@ -54,7 +54,7 @@
 - (id)initWithContentsOfFile:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithDictionary:(id)arg1 copyItems:(BOOL)arg2;
-- (id)initWithObjects:(id *)arg1 forKeys:(id *)arg2 count:(unsigned int)arg3;
+- (id)initWithObjects:(const id *)arg1 forKeys:(const id *)arg2 count:(unsigned int)arg3;
 - (id)init;
 - (id)initFromElement:(id)arg1 ofDocument:(id)arg2;
 - (unsigned int)addDirNamed:(id)arg1 lazy:(BOOL)arg2;

@@ -11,7 +11,7 @@
 }
 
 + (id)subjectFromSubject:(id)arg1 withComposeType:(int)arg2;
-+ (id)messageFromDelegate:(id)arg1;
++ (id)messageFromDelegate:(id)arg1 originatingBundleID:(id)arg2 sourceAccountManagement:(int)arg3;
 + (void)setupWithContent:(id)arg1 delegate:(id)arg2;
 + (void)setupWithCompositionModel:(id)arg1 delegate:(id)arg2;
 + (unsigned int)imageScaleFromUserDefaults;
@@ -21,6 +21,7 @@
 + (void)_setupForReplyAllWithModel:(id)arg1 delegate:(id)arg2;
 + (void)_setupForForwardWithModel:(id)arg1 delegate:(id)arg2;
 + (void)_setupForReplyWithModel:(id)arg1 delegate:(id)arg2;
++ (id)headersFromDelegate:(id)arg1 originatingBundleID:(id)arg2 sourceAccountManagement:(int)arg3;
 + (id)headersFromDelegate:(id)arg1;
 + (void)_addSignature:(BOOL)arg1 withDelegate:(id)arg2;
 + (void)_quoteFromModel:(id)arg1 delegate:(id)arg2;

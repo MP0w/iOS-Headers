@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class AVAssetTrack, AVOutputSettings;
+@class AVAssetTrack, AVOutputSettings, NSString;
 
 @interface AVAssetReaderTrackOutputInternal : NSObject
 {
     AVAssetTrack *track;
     AVOutputSettings *outputSettings;
+    NSString *audioTimePitchAlgorithm;
 }
 
 @end

@@ -12,8 +12,8 @@
 
 + (void)mapAnimationsFromSlide:(id)arg1 tgtSlide:(id)arg2 state:(id)arg3;
 + (void)parseBuildList:(id)arg1 buildMap:(id)arg2 state:(id)arg3;
-+ (id)createChartBuild:(id)arg1;
-+ (id)createParaBuild:(id)arg1;
++ (id)newChartBuild:(id)arg1;
++ (id)newParaBuild:(id)arg1;
 + (void)parseTargetContainerHolder:(id)arg1 setTargetObj:(id)arg2 state:(id)arg3;
 + (void)parseTimeNodeVariants:(id)arg1 commonData:(id)arg2;
 + (void)parseCmdBehaviorContainer:(id)arg1 cmdBehavior:(id)arg2 timeNode:(id)arg3;
@@ -21,7 +21,7 @@
 + (void)parseMotionBehaviorContainer:(id)arg1 motionBehavior:(id)arg2 timeNode:(id)arg3;
 + (void)parseEffectBehaviorContainer:(id)arg1 effectBehavior:(id)arg2 timeNode:(id)arg3;
 + (void)parseColorBehaviorContainer:(id)arg1 colorBehavior:(id)arg2 timeNode:(id)arg3;
-+ (id)createColorFromBehaviorColor:(struct PptAnimColorBehavior_Color_Struct *)arg1;
++ (id)newColorFromBehaviorColor:(struct PptAnimColorBehavior_Color_Struct *)arg1;
 + (void)parseAnimateBehaviorContainer:(id)arg1 animBehavior:(id)arg2 timeNode:(id)arg3;
 + (void)parseTimeConditionsHolder:(id)arg1 commonData:(id)arg2;
 + (id)parseMediaContainer:(id)arg1 timeNode:(id)arg2 state:(id)arg3;

@@ -14,14 +14,19 @@
 {
     id <GEOResourceManifestServerProxy> _serverProxy;
     NSHashTable *_serverProxyObservers;
-    NSMutableArray *_pendingRegionalResourceLoads;
     GEOActiveTileGroup *_activeTileGroup;
     NSLock *_activeTileGroupLock;
     NSDictionary *_resourceNamesToPaths;
+    NSMutableArray *_tileGroupObservers;
+    NSLock *_tileGroupObserversLock;
     GEOLocalizationRegionsInfo *_localizationRegionsInfo;
-    NSLock *_pendingRegionalResourceLoadsLock;
+    NSMutableArray *_networkActivityHandlers;
+    BOOL _isUpdatingManifest;
+    BOOL _isLoadingResources;
+    NSLock *_resourceNamesToPathsLock;
 }
 
++ (id)modernManager;
 + (id)sharedManager;
 + (void)setCallerWillStartServer;
 + (void)setHiDPI:(BOOL)arg1;
@@ -29,22 +34,23 @@
 + (void)useRemoteProxy;
 + (void)disableServerConnection;
 @property(readonly, nonatomic) id <GEOResourceManifestServerProxy> serverProxy; // @synthesize serverProxy=_serverProxy;
+- (void)devResourcesFolderDidChange;
+- (void)_notifyObserversOfResourcesChange;
+- (void)stopObservingDevResources;
+- (void)startObservingDevResources;
 - (void)forceUpdate;
-- (void)refreshActiveTileGroup;
 - (void)resetActiveTileGroup;
 - (void)setActiveTileGroupIdentifier:(unsigned int)arg1;
 - (unsigned int)activeTileGroupIdentifier;
 - (void)getResourceManifestWithHandler:(id)arg1;
 - (BOOL)hasResourceManifest;
 - (id)detailedDescription;
-- (oneway void)serverProxyDidFinishLoadingForList:(id)arg1;
-- (oneway void)serverProxyDidReceiveError:(id)arg1 forList:(id)arg2;
-- (oneway void)serverProxyDidReceiveResourceNames:(id)arg1 attributions:(id)arg2 forKey:(struct _GEOTileKey)arg3 fromList:(id)arg4;
 - (oneway void)serverProxyDidChangeActiveTileGroup:(id)arg1 finishedCallback:(id)arg2;
-- (void)cancelRegionalResourcesRequest:(id)arg1;
-- (void)loadRegionalResourcesForKeys:(id)arg1 allowNetwork:(BOOL)arg2 progress:(id)arg3 finished:(void)arg4 error:(id)arg5;
-- (void)loadRegionalResourcesForKeys:(id)arg1 progress:(id)arg2 finished:(void)arg3 error:(id)arg4;
-- (id)_listenerForTileKeys:(id)arg1 acquireLock:(BOOL)arg2;
+- (oneway void)serverProxyDidStopLoadingResources;
+- (oneway void)serverProxyWillStartLoadingResources;
+- (oneway void)serverProxyDidStopUpdatingResourceManifest;
+- (oneway void)serverProxyWillStartUpdatingResourceManifest;
+- (void)addNetworkActivityHandler:(id)arg1;
 - (id)pathForResourceWithName:(id)arg1;
 - (void)_buildResourceNamesToPaths;
 - (id)allResourceNames;
@@ -60,6 +66,8 @@
 @property(readonly, nonatomic) BOOL hasActiveTileGroup;
 - (unsigned int)mapMatchingZoomLevel;
 - (int)mapMatchingTileSetStyle;
+- (void)removeTileGroupObserver:(id)arg1;
+- (void)addTileGroupObserver:(id)arg1 queue:(id)arg2;
 - (void)removeServerProxyObserver:(id)arg1;
 - (void)addServerProxyObserver:(id)arg1;
 - (void)_localeChanged:(id)arg1;

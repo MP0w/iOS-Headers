@@ -6,6 +6,8 @@
 
 #import <UIKit/UIView.h>
 
+@class UIImageView;
+
 @interface UIMovieScrubberTrackOverlayView : UIView
 {
     double _value;
@@ -13,11 +15,8 @@
     double _maximumValue;
     double _startValue;
     double _endValue;
-    UIView *_leftFillView;
-    UIView *_rightFillView;
-    UIView *_innerShadowView;
-    struct CGRect _leftFillFrame;
-    struct CGRect _rightFillFrame;
+    UIImageView *_leftFillView;
+    UIImageView *_rightFillView;
     unsigned int _editingHandle;
     unsigned int _editing:1;
     unsigned int _zoomed:1;
@@ -36,7 +35,6 @@
 - (void)animateFillFramesAway;
 - (void)_updateRightFill;
 - (void)_updateLeftFill;
-- (void)setFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

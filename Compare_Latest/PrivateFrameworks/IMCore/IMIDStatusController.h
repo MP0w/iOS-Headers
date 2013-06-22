@@ -10,19 +10,21 @@
 
 @interface IMIDStatusController : NSObject
 {
-    NSMutableDictionary *_phoneNumberHistory;
-    NSMutableDictionary *_emailAddressHistory;
+    NSMutableDictionary *_idStatusCache;
 }
 
 + (id)sharedInstance;
-@property(retain, nonatomic) NSMutableDictionary *_emailAddressHistory; // @synthesize _emailAddressHistory;
-@property(retain, nonatomic) NSMutableDictionary *_phoneNumberHistory; // @synthesize _phoneNumberHistory;
-- (void)_setIDStatus:(int)arg1 forID:(id)arg2 onService:(id)arg3;
+@property(retain, nonatomic) NSMutableDictionary *_idStatusCache; // @synthesize _idStatusCache;
 - (int)statusForID:(id)arg1 onService:(id)arg2;
-- (void)_setHavePreviouslyConferenced:(BOOL)arg1 withID:(id)arg2;
-- (BOOL)_havePreviouslyConferencedWithID:(id)arg1;
-- (void)_writeConferenceHistory;
-- (void)_reloadHistory;
+- (void)requestStatusForID:(id)arg1 onAccount:(id)arg2;
+- (void)requestStatusForID:(id)arg1 onService:(id)arg2;
+- (int)_idStatusForID:(id)arg1 onAccount:(id)arg2;
+- (int)_statusForCanonicalizedID:(id)arg1 onService:(id)arg2;
+- (int)_idStatusForID:(id)arg1 onService:(id)arg2;
+- (void)IDQueryCompletedWithFromURI:(id)arg1 idStatusUpdates:(id)arg2 service:(id)arg3 success:(BOOL)arg4 error:(id)arg5;
+- (void)_updateCacheWithIDStatusChanges:(id)arg1;
+- (void)_purgeCache;
+- (void)_loadWithCache:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

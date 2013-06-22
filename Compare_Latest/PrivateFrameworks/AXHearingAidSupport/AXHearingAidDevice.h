@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "CBPeripheralDelegate-Protocol.h"
+#import "CBPeripheralPairingDelegate-Protocol.h"
 
 @class AXHearingAidMode, AXTimer, CBPeripheral, NSArray, NSMutableDictionary, NSString;
 
-@interface AXHearingAidDevice : NSObject <CBPeripheralDelegate>
+@interface AXHearingAidDevice : NSObject <CBPeripheralDelegate, CBPeripheralPairingDelegate>
 {
     float _leftVolume;
     float _rightVolume;
@@ -21,11 +22,10 @@
     BOOL _keepInSync;
     BOOL _finishedLoading;
     long initialLoadToken;
-    AXTimer *_leftInvalidationTimer;
-    AXTimer *_rightInvalidationTimer;
     AXTimer *_propertyWriteTimer;
-    BOOL _didLoseLeftPeripheral;
-    BOOL _didLoseRightPeripheral;
+    BOOL isPaired;
+    BOOL isConnecting;
+    BOOL isPersistent;
     NSString *leftUUID;
     NSString *rightUUID;
     NSString *name;
@@ -43,9 +43,6 @@
     AXHearingAidMode *currentLeftProgram;
     CBPeripheral *leftPeripheral;
     CBPeripheral *rightPeripheral;
-    BOOL isPaired;
-    BOOL isConnecting;
-    BOOL isPersistent;
     int leftLoadedProperties;
     int rightLoadedProperties;
     NSMutableDictionary *leftPropertiesLoadCount;
@@ -54,11 +51,13 @@
     NSString *rightPeripheralUUID;
     int leftWriteRequestProperties;
     int rightWriteRequestProperties;
-    struct CGImage *_devicePhoto;
+    int leftProgramVersion;
+    int rightProgramVersion;
 }
 
 + (id)characteristicsUUIDs;
-@property(nonatomic) struct CGImage *devicePhoto; // @synthesize devicePhoto=_devicePhoto;
+@property(nonatomic) int rightProgramVersion; // @synthesize rightProgramVersion;
+@property(nonatomic) int leftProgramVersion; // @synthesize leftProgramVersion;
 @property(nonatomic) int rightWriteRequestProperties; // @synthesize rightWriteRequestProperties;
 @property(nonatomic) int leftWriteRequestProperties; // @synthesize leftWriteRequestProperties;
 @property(retain, nonatomic) NSString *rightPeripheralUUID; // @synthesize rightPeripheralUUID;
@@ -72,8 +71,6 @@
 @property(nonatomic) float rightStreamVolume; // @synthesize rightStreamVolume=_rightStreamVolume;
 @property(nonatomic) float leftMicrophoneVolume; // @synthesize leftMicrophoneVolume=_leftMicrophoneVolume;
 @property(nonatomic) float rightMicrophoneVolume; // @synthesize rightMicrophoneVolume=_rightMicrophoneVolume;
-@property(nonatomic) float leftVolume; // @synthesize leftVolume=_leftVolume;
-@property(nonatomic) float rightVolume; // @synthesize rightVolume=_rightVolume;
 @property(nonatomic) BOOL isPersistent; // @synthesize isPersistent;
 @property(nonatomic) BOOL isConnecting; // @synthesize isConnecting;
 @property(nonatomic) BOOL isPaired; // @synthesize isPaired;
@@ -94,19 +91,22 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name;
 @property(retain, nonatomic) NSString *rightUUID; // @synthesize rightUUID;
 @property(retain, nonatomic) NSString *leftUUID; // @synthesize leftUUID;
-- (BOOL)peripheralsStillAvailable;
-- (void)didCommunicateWithPeripheral:(id)arg1;
 - (id)persistentRepresentation;
 - (BOOL)addPeripheral:(id)arg1;
 - (id)description;
+- (void)peripheralDidUnpair:(id)arg1;
+- (void)peripheral:(id)arg1 didFinishPairingWithResult:(id)arg2;
 - (void)peripheral:(id)arg1 didWriteValueForCharacteristic:(id)arg2 error:(id)arg3;
-- (void)logCharacteristic:(id)arg1 andPeripheral:(id)arg2;
-- (void)peripheralDidInvalidateServices:(id)arg1;
+- (void)peripheral:(id)arg1 didInvalidateServices:(id)arg2;
 - (void)peripheral:(id)arg1 didUpdateCharacteristic:(id)arg2;
 - (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 error:(id)arg3;
 - (void)peripheral:(id)arg1 didDiscoverCharacteristicsForService:(id)arg2 error:(id)arg3;
 - (void)peripheral:(id)arg1 didDiscoverServices:(id)arg2;
 - (void)peripheralDidUpdateName:(id)arg1;
+- (id)deviceDescription;
+- (id)valueForProperty:(int)arg1;
+- (void)setValue:(id)arg1 forProperty:(int)arg2;
+- (unsigned char)volumeValueForProperty:(int)arg1 andPeripheral:(id)arg2;
 - (void)setRightSelectedProgram:(id)arg1;
 - (id)rightSelectedProgram;
 - (void)setLeftSelectedProgram:(id)arg1;
@@ -114,17 +114,15 @@
 - (id)selectedProgramIndexes;
 - (id)selectedPrograms;
 - (void)selectProgram:(id)arg1;
+- (void)readProperty:(int)arg1 fromPeripheral:(id)arg2;
+- (void)readValueForCharacteristic:(id)arg1 fromPeripheral:(id)arg2;
 - (void)writeInt:(unsigned char)arg1 toPeripheral:(id)arg2 forProperty:(int)arg3;
-- (void)writeVolume:(float)arg1 toPeripheral:(id)arg2 forProperty:(int)arg3;
 - (void)delayWriteProperty:(int)arg1 forPeripheral:(id)arg2;
-- (unsigned char)volumeValueForProperty:(int)arg1 andPeripheral:(id)arg2;
 - (void)_sendDelayedWrites;
 - (void)loadFailedProperties;
 - (void)loadRequiredProperties;
 - (void)loadBasicProperties;
-- (void)reload;
 - (void)loadProperties:(int)arg1 forPeripheral:(id)arg2 withRetryPeriod:(float)arg3;
-- (void)reloadPropertiesForPeripheral:(id)arg1 withLoadCount:(id)arg2;
 - (void)setNotify:(BOOL)arg1 forPeripheral:(id)arg2;
 - (id)peripheral:(id)arg1 characteristicForProperty:(int)arg2;
 - (int)peripheral:(id)arg1 propertyForCharacteristic:(id)arg2;
@@ -136,6 +134,7 @@
 - (BOOL)didLoadRequiredProperties;
 - (BOOL)didLoadBasicProperties;
 - (BOOL)peripheral:(id)arg1 didLoadProperty:(int)arg2;
+- (id)deviceUUID;
 - (id)rssi;
 - (BOOL)containsPeripheralWithUUID:(id)arg1;
 - (void)connectionDidChange;

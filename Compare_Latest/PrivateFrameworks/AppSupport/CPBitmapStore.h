@@ -21,10 +21,11 @@
 @property(readonly, nonatomic) int version;
 - (id)_versionPath;
 - (void)purge;
-- (int)imageCount;
+- (unsigned int)imageCount;
 - (id)imagePath;
 - (void)removeImagesInGroups:(id)arg1;
 - (void)commitTransaction;
+- (void)storeImageDataForKey:(id)arg1 inGroup:(id)arg2 withSize:(struct CGSize)arg3 opaque:(BOOL)arg4 scale:(float)arg5 data:(id)arg6;
 - (void)storeImageForKey:(id)arg1 inGroup:(id)arg2 opaque:(BOOL)arg3 image:(struct CGImage *)arg4;
 - (struct CGImage *)copyAndStoreImageForKey:(id)arg1 inGroup:(id)arg2 withSize:(struct CGSize)arg3 opaque:(BOOL)arg4 scale:(float)arg5 draw:(id)arg6;
 - (struct CGImage *)_copyAndStoreImageForKey:(id)arg1 inGroup:(id)arg2 withSize:(struct CGSize)arg3 opaque:(BOOL)arg4 scale:(float)arg5 fillMem:(id)arg6 alternateCompletion:(void)arg7;

@@ -14,11 +14,15 @@
 }
 
 + (void)initialize;
+- (void)applyLiveSourceProperties;
+- (void)didStartForSessionWithoutGraphRebuild:(id)arg1;
+- (void)didStartForSession:(id)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (id)_input;
 - (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (BOOL)_faceMetadataIsActive;
 - (id)connectionMediaTypes;
+@property(nonatomic) struct CGRect rectOfInterest;
 @property(copy, nonatomic) NSArray *metadataObjectTypes;
 @property(readonly, nonatomic) NSArray *availableMetadataObjectTypes;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *metadataObjectsCallbackQueue;

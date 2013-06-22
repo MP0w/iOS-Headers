@@ -14,7 +14,7 @@
 
 @property(nonatomic) float textWidth; // @synthesize textWidth=_textWidth;
 @property(nonatomic) float textXPosition; // @synthesize textXPosition=_textXPosition;
-- (BOOL)isTextFieldCenteredLabel;
+- (BOOL)_isTextFieldCenteredLabel;
 
 @end
 

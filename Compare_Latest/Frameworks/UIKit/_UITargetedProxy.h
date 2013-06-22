@@ -12,6 +12,7 @@
 }
 
 + (id)proxyWithTarget:(id)arg1;
+- (void)_setTarget:(id)arg1;
 - (id)_target;
 - (id)description;
 - (void)forwardInvocation:(id)arg1;

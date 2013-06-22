@@ -16,13 +16,15 @@
 - (void)beginScrubbing;
 - (id)printPageHelper;
 - (id)printPageRenderer;
-- (id)pdfPreviewData;
 - (void)forceResignFirstResponder;
+- (void)becomeForeground;
 - (void)enterBackground;
 - (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
 - (void)setContentFrame:(struct CGRect)arg1;
+- (void)willChangeContentFrame;
+- (void)setTransitioning:(BOOL)arg1;
 - (void)setBlockRemoteImages:(BOOL)arg1;
-- (void)setLoadintTextForMissingFiles:(id)arg1;
+- (void)setLoadingTextForMissingFiles:(id)arg1;
 - (void)refreshCurrentPreviewItem;
 - (void)reloadData;
 - (int)currentPreviewItemIndex;

@@ -6,54 +6,48 @@
 
 #import "SBIconView.h"
 
-#import "SBFolderIconObserver-Protocol.h"
+#import "_UISettingsKeyObserver-Protocol.h"
 
-@class NSMutableSet, SBDownloadingProgressBar, SBFolderIcon, UIImageView;
+@class SBFolderSettings;
 
-@interface SBFolderIconView : SBIconView <SBFolderIconObserver>
+@interface SBFolderIconView : SBIconView <_UISettingsKeyObserver>
 {
-    UIImageView *_iconBackgroundView;
-    UIImageView *_iconForegroundView;
-    SBDownloadingProgressBar *_progressBar;
-    NSMutableSet *_animatingIcons;
-    unsigned int _currentScrollRow;
-    BOOL _skippingGridIcons;
-    float _miniIconVisibleOffset;
+    SBFolderSettings *_folderSettings;
 }
 
-- (void)folderIcon:(id)arg1 didUpdateGridImage:(id)arg2 withSkipping:(BOOL)arg3 forContainedIconImageUpdate:(id)arg4;
-- (void)iconAccessoriesDidUpdate:(id)arg1;
-- (void)iconImageDidUpdate:(id)arg1;
-- (void)prepareForRecycling;
-- (void)_updateProgressBar;
++ (BOOL)_canShowUpdatedMark;
+- (id)_folderIconImageView;
+- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)_applyEditingStateAnimated:(BOOL)arg1;
+- (void)cleanupAfterFloatyFolderCrossfade;
+- (void)setFloatyFolderCrossfadeFraction:(float)arg1;
+- (void)prepareToCrossfadeWithFloatyFolderView:(id)arg1;
+- (void)removeDropGlow;
+- (void)showDropGlow:(BOOL)arg1;
+- (void)prepareDropGlow;
+- (void)setBackgroundAndIconGridImageAlpha:(float)arg1;
+- (void)setIconGridImageAlpha:(float)arg1;
 - (double)grabDurationForEvent:(id)arg1;
-- (BOOL)delaysUnhighlightWhenTapped;
+- (BOOL)_delaysUnhighlightWhenTapped;
 - (BOOL)allowsTapWhileEditing;
 - (id)description;
 - (id)folder;
-- (void)positionCloseBoxOfType:(int)arg1;
+- (void)scrollToGapOrTopIfFullOfPage:(unsigned int)arg1 animated:(BOOL)arg2;
+- (void)scrollToTopOfPage:(unsigned int)arg1 animated:(BOOL)arg2;
+- (void)scrollToFirstGapAnimated:(BOOL)arg1;
+- (void)scrollToTopOfFirstPageAnimated:(BOOL)arg1;
+- (struct CGRect)visibleImageRelativeFrameForMiniIconAtIndex:(unsigned int)arg1;
+- (struct CGRect)frameForMiniIconAtIndex:(unsigned int)arg1;
+- (unsigned int)lastVisibleMiniIconIndex;
+- (unsigned int)centerVisibleMiniIconIndex;
+- (unsigned int)firstVisibleMiniIconIndex;
+- (unsigned int)visibleMiniIconListIndex;
+- (unsigned int)visibleMiniIconCount;
 - (id)iconBackgroundView;
-- (id)progressBar;
-- (void)setPartialGhostly:(float)arg1 requester:(int)arg2;
-- (void)setGhostly:(BOOL)arg1 requester:(int)arg2;
-- (void)placeGhostlyImageView;
-- (id)_iconBoundsForAccessory:(struct CGRect *)arg1;
-- (struct CGRect)frameForIconOverlay;
-- (void)showDropGlow:(BOOL)arg1;
-- (struct CGAffineTransform)transformToMakeIconBorderExpandToSizeOfDropGlow;
-- (void)positionIconImageView;
-- (void)_positionMiniGrid;
-- (id)iconImageSnapshot:(id)arg1;
-- (id)snapshotSettings;
-- (id)_folderForegroundImage;
-- (id)_folderBackgroundImage;
-- (struct CGRect)rectForMiniIconAtIndex:(unsigned int)arg1;
-- (void)setIsOverlapping:(BOOL)arg1;
-- (void)setIconScrollPosition:(int)arg1 animated:(BOOL)arg2;
 - (void)setIcon:(id)arg1;
-- (void)setFolderIcon:(id)arg1;
-@property(readonly) SBFolderIcon *folderIcon;
+- (id)folderIcon;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

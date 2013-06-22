@@ -7,23 +7,28 @@
 #import "UIViewController.h"
 
 #import "EKCalendarItemEditorDelegate-Protocol.h"
+#import "EKPickerTableViewDelegate-Protocol.h"
 #import "EKReminderEditorDelegate-Protocol.h"
 
 @class EKEventStore, EKReminder, EKReminderEditor;
 
-@interface EKReminderViewController : UIViewController <EKCalendarItemEditorDelegate, EKReminderEditorDelegate>
+@interface EKReminderViewController : UIViewController <EKCalendarItemEditorDelegate, EKReminderEditorDelegate, EKPickerTableViewDelegate>
 {
-    id <EKReminderViewControllerDelegate> _delegate;
     float _minimumTableHeight;
     BOOL _shouldShowDatePicker;
+    id _datePickerTarget;
+    SEL _datePickerAction;
+    id <EKReminderViewControllerDelegate> _delegate;
     EKReminderEditor *_editor;
 }
 
 @property(retain, nonatomic) EKReminderEditor *editor; // @synthesize editor=_editor;
-@property(nonatomic) id <EKReminderViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <EKReminderViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (id)getCurrentContext;
 - (BOOL)allowContextProvider:(id)arg1;
 - (void)_eventStoreChanged:(id)arg1;
+- (void)pickerTableViewDidChangeDatePickerInterval:(id)arg1;
 - (void)editor:(id)arg1 didChangeHeightAnimated:(BOOL)arg2;
 - (void)editor:(id)arg1 didCompleteWithAction:(int)arg2;
 - (void)editItemChanged;

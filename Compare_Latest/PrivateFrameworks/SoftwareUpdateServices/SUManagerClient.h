@@ -7,13 +7,12 @@
 #import "NSObject.h"
 
 #import "SUManagerClientInterface-Protocol.h"
-#import "XPCProxyTarget-Protocol.h"
 
-@class SUDescriptor;
+@class NSXPCConnection, SUDescriptor;
 
-@interface SUManagerClient : NSObject <XPCProxyTarget, SUManagerClientInterface>
+@interface SUManagerClient : NSObject <SUManagerClientInterface>
 {
-    id _serverProxy;
+    NSXPCConnection *_serverConnection;
     id <SUManagerClientDelegate> _delegate;
     BOOL _connected;
     BOOL _serverIsExiting;
@@ -37,11 +36,13 @@
 - (void)scanDidCompleteWithNewUpdateAvailable:(id)arg1 error:(id)arg2;
 - (void)scanRequestDidFinishForOptions:(id)arg1 update:(id)arg2 error:(id)arg3;
 - (void)scanRequestDidStartForOptions:(id)arg1;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)noteServerExiting;
 - (void)noteConnectionDropped;
 - (void)connectToServerIfNecessary;
-- (void)_invalidateProxy;
+- (void)_invalidateConnection;
+- (id)_remoteInterfaceWithErrorHandler:(id)arg1 connectIfNecessary:(void)arg2;
+- (id)_remoteInterfaceWithErrorHandler:(id)arg1;
+- (id)_remoteInterface;
 - (void)installUpdate:(id)arg1;
 - (void)isUpdateReadyForInstallation:(id)arg1;
 - (void)download:(id)arg1;

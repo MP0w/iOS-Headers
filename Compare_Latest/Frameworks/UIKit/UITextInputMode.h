@@ -6,14 +6,19 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class NSString;
 
-@interface UITextInputMode : NSObject
+@interface UITextInputMode : NSObject <NSSecureCoding>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)activeInputModes;
 + (id)currentInputMode;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSString *primaryLanguage;
 
 @end

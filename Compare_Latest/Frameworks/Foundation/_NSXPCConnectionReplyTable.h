@@ -6,19 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSMutableDictionary;
-
 @interface _NSXPCConnectionReplyTable : NSObject
 {
-    NSMutableDictionary *_replyTable;
-    NSLock *_replyTableLock;
+    struct __CFDictionary *_replyTable;
+    int _replyTableLock;
     unsigned long long _sequence;
 }
 
 - (id)replyInfoForSequence:(unsigned long long)arg1;
-- (unsigned long long)sequenceForReplyBlock:(id)arg1 errorBlock:(id)arg2 cleanupBlock:(void)arg3 protocol:(id)arg4 selector:(void)arg5;
+- (unsigned long long)sequenceForReplyBlock:(id)arg1 errorBlock:(id)arg2 cleanupBlock:(void)arg3 protocol:(id)arg4 selector:(void)arg5 userInfo:(id)arg6;
 - (void)invokeErrorBlockForSequence:(unsigned long)arg1 withError:(id)arg2;
 - (void)cleanupReplyBlocksWithError:(id)arg1;
+- (void)finalize;
 - (void)dealloc;
 - (id)init;
 

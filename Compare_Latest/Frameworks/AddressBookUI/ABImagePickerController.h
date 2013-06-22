@@ -36,7 +36,7 @@
 
 @property(nonatomic) id <ABPersonImageDataDelegate> imageDataDelegate; // @synthesize imageDataDelegate=_imageDataDelegate;
 - (void)multipleSourcePickerDidSelectPhotoPicker:(id)arg1;
-- (void)multipleSourcePicker:(id)arg1 didSelectPerson:(void *)arg2;
+- (void)multipleSourcePicker:(id)arg1 didSelectPerson:(id)arg2;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
@@ -57,7 +57,7 @@
 - (void)doEditPhoto;
 - (void)editPhoto;
 - (void)chooseExisting;
-- (void)usePhotoFromPerson:(void *)arg1;
+- (void)usePhotoFromPerson:(id)arg1;
 - (void)choosePhoto;
 - (id)buttonTitlesAndIndicesForPickingPreferredPhoto;
 - (void)addButtonForSource:(BOOL)arg1 suffix:(int)arg2 name:(id)arg3 indexInAllPeople:(int)arg4 toArray:(id)arg5;

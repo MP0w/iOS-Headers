@@ -36,9 +36,10 @@
 @property(nonatomic) BOOL ignoresInvalidation; // @synthesize ignoresInvalidation=_ignoresInvalidation;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) IUModalContext *modalContext; // @synthesize modalContext=_modalContext;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL canShowCompletionOfferings;
 @property(readonly, nonatomic) BOOL isContentDisplayEnabled;
-- (int)filteredMediaTypes;
+- (unsigned int)filteredMediaTypes;
 - (id)viewControllerContextForSearchCompletion;
 - (id)viewControllerContextForMediaQuery:(id)arg1;
 - (id)viewControllerContextForSpecifier:(id)arg1;

@@ -6,18 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSObject<PLAssetContainer>;
+@class NSMutableArray, NSObject<PLAlbumProtocol>;
 
 @interface PLAlbumSectionsManager : NSObject
 {
     NSMutableArray *_sectionRanges;
     BOOL _sectionRangesAreDirty;
-    id _sectioningComparator;
     struct NSObject *_album;
+    id _sectioningComparator;
 }
 
-@property(retain, nonatomic) NSObject<PLAssetContainer> *album; // @synthesize album=_album;
 @property(copy, nonatomic) id sectioningComparator; // @synthesize sectioningComparator=_sectioningComparator;
+@property(retain, nonatomic) NSObject<PLAlbumProtocol> *album; // @synthesize album=_album;
 - (void)setNeedsReload;
 - (void)processAlbumDidChangeNotification:(id)arg1 withHandler:(id)arg2;
 - (void)_reloadSections;

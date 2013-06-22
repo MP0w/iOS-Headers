@@ -15,8 +15,10 @@
     BOOL _authenticatesIfNeeded;
     SSAuthenticationContext *_authenticationContext;
     SSLookupProperties *_properties;
+    int _resultFilters;
 }
 
+@property(nonatomic) int resultFilters; // @synthesize resultFilters=_resultFilters;
 @property(copy, nonatomic) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
 @property(nonatomic) BOOL authenticatesIfNeeded; // @synthesize authenticatesIfNeeded=_authenticatesIfNeeded;
 - (id)initWithXPCEncoding:(id)arg1;
@@ -30,6 +32,7 @@
 @property(nonatomic) int localizationStyle;
 @property(copy, nonatomic) NSString *keyProfile;
 - (void)dealloc;
+- (id)initWithLocation:(id)arg1;
 - (id)init;
 
 @end

@@ -33,10 +33,10 @@
 - (int)textType;
 - (id)document;
 - (void)addBlock:(id)arg1;
-- (int)indexOfBlock:(id)arg1;
+- (unsigned int)indexOfBlock:(id)arg1;
 - (id)lastBlock;
-- (id)blockAt:(int)arg1;
-- (int)blockCount;
+- (id)blockAt:(unsigned int)arg1;
+- (unsigned int)blockCount;
 - (id)blocks;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1 textType:(int)arg2 tableCell:(id)arg3;

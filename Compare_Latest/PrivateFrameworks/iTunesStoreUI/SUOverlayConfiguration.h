@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class CPRegularExpression, NSString;
+@class NSRegularExpression, NSString;
 
 @interface SUOverlayConfiguration : NSObject
 {
-    CPRegularExpression *_bagKeyPattern;
+    NSRegularExpression *_bagKeyPattern;
     int _cornerRadius;
     BOOL _shouldShowNavigationBar;
     struct CGSize _size;
     NSString *_transitionName;
-    CPRegularExpression *_urlPattern;
+    NSRegularExpression *_urlPattern;
 }
 
 @property(readonly, nonatomic) NSString *transitionName; // @synthesize transitionName=_transitionName;

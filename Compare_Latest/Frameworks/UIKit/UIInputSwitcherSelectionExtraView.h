@@ -6,11 +6,17 @@
 
 #import <UIKit/UIView.h>
 
+@class UIKeyboardMenuView;
+
 @interface UIInputSwitcherSelectionExtraView : UIView
 {
     float m_pointerOffset;
+    UIKeyboardMenuView *_menu;
+    struct CGRect _keyRect;
 }
 
+@property(nonatomic) UIKeyboardMenuView *menu; // @synthesize menu=_menu;
+@property(nonatomic) struct CGRect keyRect; // @synthesize keyRect=_keyRect;
 @property(nonatomic) float pointerOffset; // @synthesize pointerOffset=m_pointerOffset;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;

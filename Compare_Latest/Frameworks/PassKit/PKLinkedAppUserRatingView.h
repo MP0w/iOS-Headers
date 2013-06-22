@@ -6,18 +6,15 @@
 
 #import "UIView.h"
 
-@class NSMutableArray, UILabel;
+@class NSMutableArray;
 
 @interface PKLinkedAppUserRatingView : UIView
 {
     NSMutableArray *_starViews;
-    UILabel *_ratingsCountLabel;
-    int _ratingCount;
     float _userRating;
 }
 
 @property(nonatomic) float userRating; // @synthesize userRating=_userRating;
-@property(nonatomic) int ratingCount; // @synthesize ratingCount=_ratingCount;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;

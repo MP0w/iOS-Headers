@@ -6,20 +6,39 @@
 
 #import "NSObject.h"
 
-@class AVAssetResourceLoadingRequestInternal, NSURLRequest;
+@class AVAssetResourceLoadingContentInformationRequest, AVAssetResourceLoadingDataRequest, AVAssetResourceLoadingRequestInternal, NSURLRequest, NSURLResponse;
 
 @interface AVAssetResourceLoadingRequest : NSObject
 {
     AVAssetResourceLoadingRequestInternal *_loadingRequest;
 }
 
+- (void)_removeFigPlaybackItemListeners;
+- (void)_addFigPlaybackItemListeners;
+- (void)generateStreamingContentKeyRequestDataAsynchronouslyForApp:(id)arg1 contentIdentifier:(id)arg2 options:(id)arg3 completionHandler:(id)arg4;
 - (id)streamingContentKeyRequestDataForApp:(id)arg1 contentIdentifier:(id)arg2 options:(id)arg3 error:(id *)arg4;
-- (void)finishLoadingWithError:(id)arg1;
 - (void)finishLoadingWithResponse:(id)arg1 data:(id)arg2 redirect:(id)arg3;
-- (void)_finishLoadingURLRequestWithDictionary:(id)arg1 context:(id)arg2;
+- (void)finishLoadingWithError:(id)arg1;
+- (void)finishLoading;
+- (void)_sendDataIncrementally:(id)arg1 data:(id)arg2;
+- (void)_sendDictionaryForURLRequest:(id)arg1 context:(id)arg2;
 - (id)serializableRepresentation;
-@property(readonly, nonatomic) BOOL finished;
+@property(copy, nonatomic) NSURLRequest *redirect;
+- (void)_appendToCachedData:(id)arg1;
+- (id)_getAndClearCachedData;
+@property(copy, nonatomic) NSURLResponse *response;
+@property(readonly, nonatomic) AVAssetResourceLoadingDataRequest *dataRequest;
+- (void)_setDataRequest:(id)arg1;
+@property(readonly, nonatomic) AVAssetResourceLoadingContentInformationRequest *contentInformationRequest;
+- (void)_setContentInformationRequest:(id)arg1;
+@property(readonly, nonatomic, getter=isCancelled) BOOL cancelled;
+- (BOOL)_tryToMarkAsCancelled;
+- (BOOL)finished;
+@property(readonly, nonatomic, getter=isFinished) BOOL finished;
 @property(readonly, nonatomic) NSURLRequest *request;
+- (id)_requestDictionary;
+- (id)_resourceLoader;
+- (id)_weakReference;
 - (id)description;
 - (void)finalize;
 - (void)dealloc;

@@ -8,7 +8,7 @@
 
 #import "MPDetailSliderDelegate-Protocol.h"
 
-@class MPVolumeView, NSString, NSTimer, SBDetailSlider, SBScrollingTitlesView, UIButton, UILabel;
+@class MPVolumeView, NSString, NSTimer, SBDetailSlider, SBScrollingTitlesView, UIActionSheet, UIButton, UILabel;
 
 @interface SBAwayMediaControlsView : UIView <MPDetailSliderDelegate>
 {
@@ -17,6 +17,9 @@
     UIButton *_prevButton;
     UIButton *_nextButton;
     UIButton *_playPauseButton;
+    UIButton *_likeBanButton;
+    UIActionSheet *_likeBanActionSheet;
+    unsigned long long _trackIdentifierForActionSheet;
     UIButton *_repeatButton;
     UIButton *_shuffleButton;
     SBDetailSlider *_trackPositionSlider;
@@ -46,21 +49,26 @@
 - (id)_shuffleImageForMode:(int)arg1;
 - (id)_repeatImageForMode:(int)arg1;
 - (void)_routeButtonDidChangeNotification:(id)arg1;
+- (id)_likeBanButton;
 - (id)_jumpFastForwardButton;
 - (id)_jumpRewindButton;
 - (id)_newNowPlayingLabelWithFont:(id)arg1 color:(id)arg2;
 - (id)_newJumpLabel;
 - (id)_newButtonWithImage:(id)arg1 action:(SEL)arg2;
+- (void)_siriActivated:(id)arg1;
 - (void)detailSlider:(id)arg1 didChangeValue:(float)arg2;
 - (void)detailSliderTrackingDidEnd:(id)arg1;
 - (void)detailSliderTrackingDidCancel:(id)arg1;
 - (void)detailSliderTrackingDidBegin:(id)arg1;
 - (void)_resetProgressSlider;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)_nowPlayingChanged:(id)arg1;
 - (void)_unregisterForNowPlayingNotifications;
 - (void)_registerForNowPlayingNotifications;
 - (void)_shuffleButtonAction:(id)arg1;
 - (void)_repeatButtonAction:(id)arg1;
+- (void)_likeBanButtonAction:(id)arg1;
 - (void)_didPresentRoutePicker;
 - (void)_volumeViewVisibilityChanged;
 - (void)_volumeChange:(id)arg1;
@@ -78,6 +86,7 @@
 - (void)setAlpha:(float)arg1;
 - (void)layoutSubviews;
 - (id)routeButtonVolumeView;
+- (void)_handlePluginFullscreenNotification:(id)arg1;
 - (void)dealloc;
 - (void)stopTickTimer;
 - (BOOL)isMediaControlsShowingOverlays;

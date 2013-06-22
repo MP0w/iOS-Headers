@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSNumber, UIImage;
+@class NSMutableDictionary, UIImage;
 
 @interface _UISegmentedControlAppearanceStorage : NSObject
 {
@@ -16,8 +16,7 @@
     NSMutableDictionary *_dividerImages;
     NSMutableDictionary *_miniDividerImages;
     NSMutableDictionary *_textAttributesForState;
-    NSNumber *_backgroundPositionAdjustmentInBar;
-    NSNumber *_backgroundPositionAdjustmentInMiniBar;
+    NSMutableDictionary *_backgroundPositionAdjustmentsForBarMetrics;
     NSMutableDictionary *_contentPositionOffsets;
     NSMutableDictionary *_miniContentPositionOffsets;
     BOOL _legacyDontHighlight;
@@ -47,8 +46,8 @@
 - (id)contentPositionOffsetForSegment:(int)arg1 inMiniBar:(BOOL)arg2;
 - (id)contentPositionOffsetForSegment:(int)arg1 inMiniBar:(BOOL)arg2 noFallback:(BOOL)arg3;
 - (void)setContentPositionOffset:(id)arg1 forSegment:(int)arg2 inMiniBar:(BOOL)arg3;
-- (id)backgroundPositionAdjustmentInMiniBar:(BOOL)arg1;
-- (void)setBackgroundPositionAdjustment:(id)arg1 inMiniBar:(BOOL)arg2;
+- (float)backgroundPositionAdjustmentForBarMetrics:(int)arg1;
+- (void)setBackgroundPositionAdjustment:(float)arg1 forBarMetrics:(int)arg2;
 - (BOOL)wantsTrackingSuppressed;
 
 @end

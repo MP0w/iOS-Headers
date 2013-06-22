@@ -6,9 +6,11 @@
 
 #import <CoreImage/CIFilter.h>
 
+#import "_CIFilterProperties-Protocol.h"
+
 @class CIImage, NSNumber;
 
-@interface CIFaceBalance : CIFilter
+@interface CIFaceBalance : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
     NSNumber *inputOrigI;
@@ -18,17 +20,17 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputWarmth; // @synthesize inputWarmth;
-@property(copy, nonatomic) NSNumber *inputStrength; // @synthesize inputStrength;
-@property(copy, nonatomic) NSNumber *inputOrigQ; // @synthesize inputOrigQ;
-@property(copy, nonatomic) NSNumber *inputOrigI; // @synthesize inputOrigI;
+@property(retain, nonatomic) NSNumber *inputWarmth; // @synthesize inputWarmth;
+@property(retain, nonatomic) NSNumber *inputStrength; // @synthesize inputStrength;
+@property(retain, nonatomic) NSNumber *inputOrigQ; // @synthesize inputOrigQ;
+@property(retain, nonatomic) NSNumber *inputOrigI; // @synthesize inputOrigI;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
+- (id)_initFromProperties:(id)arg1;
+- (id)_outputProperties;
 - (id)outputImage;
 - (BOOL)_isIdentity;
 - (id)_kernel;
 - (void)setDefaults;
-- (id)_initFromProperties:(id)arg1;
-- (id)_outputProperties;
 
 @end
 

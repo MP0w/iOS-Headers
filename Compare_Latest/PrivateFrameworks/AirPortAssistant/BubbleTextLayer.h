@@ -11,7 +11,8 @@
 @interface BubbleTextLayer : CALayer
 {
     struct CGSize _textSize;
-    struct CGSize _imageLayerSize;
+    struct CGSize _leftImageLayerSize;
+    struct CGSize _rightAccessoryLayerSize;
     struct CGSize _contentSize;
     struct CGSize _bubbleSize;
     struct CGRect _textFrame;
@@ -27,7 +28,9 @@
     NSMutableArray *_annotationPoints;
     struct CGColor *_generalShadowColor;
     struct CGColor *_whiteShadowColor;
-    CALayer *_imageLayer;
+    CALayer *_leftImageLayer;
+    CALayer *_rightAccessoryLayer;
+    id _owningView;
 }
 
 + (BOOL)needsDisplayForKey:(id)arg1;
@@ -36,18 +39,21 @@
 @property(readonly, nonatomic) float textBaselineOffset;
 @property(readonly, nonatomic) struct CGRect textFrame;
 - (struct CGSize)preferredFrameSize;
-- (struct CGSize)calculatePreferredSubframeSizesForLayerSize:(struct CGSize)arg1;
+- (struct CGSize)calculatePreferredSubframeSizes;
 - (struct CGSize)textPreferredFrameSizeForLayerSize:(struct CGSize)arg1;
 - (BOOL)isAnnotationBubble;
+- (struct CGSize)getRightAccessoryLayerPreferredSize;
 - (struct CGSize)getImagePreferredSize;
-@property(retain, nonatomic) void *font;
+@property(nonatomic) struct CGSize boundsSizeConstraint;
+@property(retain, nonatomic) id font;
+@property(retain, nonatomic) CALayer *rightAccessoryLayer;
 @property(retain, nonatomic) struct CGImage *image;
+@property(nonatomic) id owningView;
 - (void)addAnnotationPoint:(struct CGPoint)arg1;
 - (void)dealloc;
-- (id)init;
+- (id)initWithOwningView:(id)arg1;
 
 // Remaining properties
-@property(nonatomic) struct CGSize boundsSizeConstraint; // @dynamic boundsSizeConstraint;
 @property(retain, nonatomic) struct CGColor *fillColor; // @dynamic fillColor;
 @property(retain, nonatomic) struct CGColor *fillColor2; // @dynamic fillColor2;
 @property(nonatomic) float fontSize; // @dynamic fontSize;

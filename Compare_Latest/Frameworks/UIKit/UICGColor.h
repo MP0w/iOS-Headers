@@ -11,6 +11,7 @@
     struct CGColor *cachedColor;
 }
 
+- (BOOL)_getRed:(float *)arg1 green:(float *)arg2 blue:(float *)arg3 alpha:(float *)arg4;
 - (BOOL)_getWhite:(float *)arg1 alpha:(float *)arg2;
 - (BOOL)isPatternColor;
 - (float)alphaComponent;

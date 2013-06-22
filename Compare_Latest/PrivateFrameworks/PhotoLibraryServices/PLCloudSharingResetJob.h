@@ -13,7 +13,7 @@
 + (void)resetAllLocalState;
 - (void)runDaemonSide;
 - (void)run;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 
 @end
 

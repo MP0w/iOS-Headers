@@ -13,19 +13,17 @@
 
 @interface GLKViewController : UIViewController <NSCoding, GLKViewDelegate>
 {
-    UIScreen *_screen;
-    CADisplayLink *_displayLink;
     BOOL _displayLinkPaused;
-    GLKDisplayLinkMessenger *_displayLinkMessenger;
     BOOL _viewIsVisible;
     BOOL _firstResumeOccurred;
-    double _timeSinceFirstResumeStartTime;
     BOOL _lastResumeOccurred;
-    double _timeSinceLastResumeStartTime;
     BOOL _lastUpdateOccurred;
-    double _timeSinceLastUpdatePreviousTime;
     BOOL _lastDrawOccurred;
-    double _timeSinceLastDrawPreviousTime;
+    BOOL _pauseOnWillResignActive;
+    BOOL _resumeOnDidBecomeActive;
+    UIScreen *_screen;
+    CADisplayLink *_displayLink;
+    GLKDisplayLinkMessenger *_displayLinkMessenger;
     void *_updateIMP;
     id <GLKViewControllerDelegate> _delegate;
     int _screenFramesPerSecond;
@@ -33,12 +31,14 @@
     int _preferredFramesPerSecond;
     int _framesPerSecond;
     int _framesDisplayed;
+    double _timeSinceFirstResumeStartTime;
+    double _timeSinceLastResumeStartTime;
+    double _timeSinceLastUpdatePreviousTime;
+    double _timeSinceLastDrawPreviousTime;
     double _timeSinceFirstResume;
     double _timeSinceLastResume;
     double _timeSinceLastUpdate;
     double _timeSinceLastDraw;
-    BOOL _pauseOnWillResignActive;
-    BOOL _resumeOnDidBecomeActive;
 }
 
 @property(readonly, nonatomic) double timeSinceLastDraw; // @synthesize timeSinceLastDraw=_timeSinceLastDraw;

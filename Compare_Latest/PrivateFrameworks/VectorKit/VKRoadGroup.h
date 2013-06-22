@@ -6,34 +6,37 @@
 
 #import "NSObject.h"
 
-@class NSString, VKIntObjectMap, VKLabelDrawStyle, VKLineDrawStyle, VKStyle, VKVectorTile;
+@class NSString, VKIntObjectMap, VKLabelDrawStyle, VKLineDrawStyle, VKRoadDrawStyle, VKStyle, VKVectorTile;
 
 @interface VKRoadGroup : NSObject
 {
     VKVectorTile *_tile;
     VKStyle *_style;
-    const CDStruct_183601bc *_roadStyle;
+    VKRoadDrawStyle *_roadStyle;
     VKLineDrawStyle *_linetyle;
     VKLabelDrawStyle *_labelStyle;
     int _meshType;
-    VKIntObjectMap *_roadMeshes;
-    VKIntObjectMap *_capMeshes;
+    VKIntObjectMap *_roadMeshVendors;
+    VKIntObjectMap *_capMeshVendors;
     int _highestZ;
     int _lowestZ;
     BOOL _frozen;
+    BOOL _isPatternedRailway;
     VKLineDrawStyle *_lineStyle;
 }
 
+@property(nonatomic) BOOL isPatternedRailway; // @synthesize isPatternedRailway=_isPatternedRailway;
 @property(readonly, nonatomic) VKLabelDrawStyle *labelStyle; // @synthesize labelStyle=_labelStyle;
 @property(readonly, nonatomic) VKLineDrawStyle *lineStyle; // @synthesize lineStyle=_lineStyle;
-@property(readonly, nonatomic) const CDStruct_183601bc *roadStyle; // @synthesize roadStyle=_roadStyle;
+@property(readonly, nonatomic) VKRoadDrawStyle *roadStyle; // @synthesize roadStyle=_roadStyle;
 @property(readonly, nonatomic) int lowestZ; // @synthesize lowestZ=_lowestZ;
 @property(readonly, nonatomic) int highestZ; // @synthesize highestZ=_highestZ;
 @property(readonly, nonatomic) VKVectorTile *tile; // @synthesize tile=_tile;
 - (unsigned int)triangleCount;
+- (void)freezeStructure;
 - (void)freeze;
-- (id)capMeshAtZ:(int)arg1;
-- (id)roadMeshAtZ:(int)arg1;
+- (id)capMeshVendorAtZ:(int)arg1;
+- (id)roadMeshVendorAtZ:(int)arg1;
 @property(readonly, nonatomic) NSString *styleName;
 - (void)dealloc;
 - (id)initWithStyle:(id)arg1 tile:(id)arg2 createMesh:(BOOL)arg3 ofType:(int)arg4;

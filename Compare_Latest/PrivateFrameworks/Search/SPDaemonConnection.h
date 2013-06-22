@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, SPXPCConnection;
+@class NSObject<OS_dispatch_queue>, SPXPCConnection;
 
 @interface SPDaemonConnection : NSObject
 {
     SPXPCConnection *_connection;
     NSObject<OS_dispatch_queue> *_connectionQueue;
-    NSMutableDictionary *_tokens;
 }
 
 + (id)sharedConnection;
@@ -21,6 +20,7 @@
 - (void)searchResultWasSelected:(id)arg1 inDomain:(unsigned int)arg2 queryString:(id)arg3;
 - (void)indexUpdatedContent:(id)arg1 moreComing:(BOOL)arg2;
 - (BOOL)retrieveUpdateList:(id *)arg1 forDisplayIdentifier:(id)arg2 category:(id)arg3;
+- (void)retrieveImageDataForResult:(id)arg1 searchDomain:(unsigned int)arg2 size:(struct CGSize)arg3 completion:(id)arg4;
 - (void)registerApplication:(id)arg1 withCategories:(id)arg2;
 - (void)endRecordUpdatesForApplication:(id)arg1 andCategory:(id)arg2;
 - (void)requestRecordUpdatesForApplication:(id)arg1 category:(id)arg2 andIDs:(id)arg3;

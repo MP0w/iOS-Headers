@@ -7,7 +7,6 @@
 #import "DOMHTMLInputElement.h"
 
 @interface DOMHTMLInputElement (WebDOMHTMLInputElementOperationsPrivate)
-- (void)_setValueForUser:(id)arg1;
 - (void)_setAutofilled:(BOOL)arg1;
 @end
 

@@ -10,6 +10,7 @@
 {
     id _delegate;
     id _viewController;
+    id _context;
 }
 
 + (BOOL)launchAUForNetwork:(id)arg1 withMacAddress:(id)arg2 getAUFromAppStore:(BOOL)arg3;
@@ -17,18 +18,19 @@
 + (id)uniqueBaseStationName:(id)arg1 withBssid:(id)arg2;
 + (id)unconfiguredDeviceName:(id)arg1;
 + (BOOL)isUnconfiguredDevice:(id)arg1;
++ (BOOL)isGenericMFiAccessory:(id)arg1;
++ (BOOL)isSTAOnlyDevice:(id)arg1;
 + (BOOL)isAirPlayDevice:(id)arg1;
-+ (id)unconfiguredBaseStationName:(unsigned char)arg1;
-+ (BOOL)isUnconfiguredBaseStation:(id)arg1 productID:(char *)arg2 productFamily:(unsigned int *)arg3;
 + (void)cancelAirPortAssistantController;
 + (id)assistantUIViewControllerWithParameters:(id)arg1;
 + (id)sharedInstance;
 + (void)downloadAssetsIfNeeded;
 + (void)downloadAssetsCancel;
+@property(retain) id context; // @synthesize context=_context;
 @property(retain) id viewController; // @synthesize viewController=_viewController;
 @property(nonatomic) id <AirPortAssistantControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)dealloc;
-- (void)assistantComplete;
+- (void)assistantCompleteWithResult:(long)arg1;
 
 @end
 

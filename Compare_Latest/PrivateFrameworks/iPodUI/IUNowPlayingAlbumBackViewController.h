@@ -27,7 +27,8 @@
 @property(retain, nonatomic) IUModalContext *modalContext; // @synthesize modalContext=_modalContext;
 @property(readonly, nonatomic) IUBackOfAlbumDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) MPMediaQuery *customQuery; // @synthesize customQuery=_customQuery;
-@property(nonatomic) id coverFlowDelegate; // @synthesize coverFlowDelegate=_coverFlowDelegate;
+@property(nonatomic) __weak id coverFlowDelegate; // @synthesize coverFlowDelegate=_coverFlowDelegate;
+- (void).cxx_destruct;
 - (id)_tableViewController;
 - (void)_scrollCurrentRowToVisible;
 - (void)_reloadDataFromItemChange:(BOOL)arg1;

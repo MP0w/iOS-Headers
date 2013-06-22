@@ -8,13 +8,14 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSArray, SSSQLitePredicate;
+@class NSArray, NSString, SSSQLitePredicate;
 
 @interface SSSQLiteQueryDescriptor : NSObject <NSCopying>
 {
     Class _entityClass;
     int _limitCount;
     Class _memoryEntityClass;
+    NSString *_orderingClause;
     NSArray *_orderingDirections;
     NSArray *_orderingProperties;
     SSSQLitePredicate *_predicate;
@@ -25,6 +26,7 @@
 @property(copy, nonatomic) SSSQLitePredicate *predicate; // @synthesize predicate=_predicate;
 @property(copy, nonatomic) NSArray *orderingProperties; // @synthesize orderingProperties=_orderingProperties;
 @property(copy, nonatomic) NSArray *orderingDirections; // @synthesize orderingDirections=_orderingDirections;
+@property(copy, nonatomic) NSString *orderingClause; // @synthesize orderingClause=_orderingClause;
 @property(nonatomic) Class memoryEntityClass; // @synthesize memoryEntityClass=_memoryEntityClass;
 @property(nonatomic) int limitCount; // @synthesize limitCount=_limitCount;
 @property(nonatomic) Class entityClass; // @synthesize entityClass=_entityClass;

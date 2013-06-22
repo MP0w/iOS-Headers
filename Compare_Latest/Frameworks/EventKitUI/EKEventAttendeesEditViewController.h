@@ -13,13 +13,13 @@
     EKEventAttendeePicker *_picker;
 }
 
+- (void).cxx_destruct;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 @property(copy, nonatomic) NSArray *attendees;
 - (id)_recipientFromAttendee:(id)arg1;
 - (id)_attendeeFromRecipient:(id)arg1;
 - (BOOL)validateAllowingAlert:(BOOL)arg1;
 - (id)_firstInvalidRecipientAddress;
-- (void)dealloc;
 - (void)viewDidLoad;
 - (void)setSearchAccountID:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

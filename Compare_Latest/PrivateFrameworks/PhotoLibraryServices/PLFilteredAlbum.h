@@ -6,24 +6,24 @@
 
 #import "NSObject.h"
 
-#import "PLCloudSharedContainer-Protocol.h"
+#import "PLCloudSharedAlbumProtocol-Protocol.h"
 #import "PLIndexMapperDataSource-Protocol.h"
 #import "PLIndexMappingCache-Protocol.h"
-#import "PLUserEditableAssetContainer-Protocol.h"
+#import "PLUserEditableAlbumProtocol-Protocol.h"
 
-@class NSArray, NSDate, NSDictionary, NSIndexSet, NSMutableIndexSet, NSMutableOrderedSet, NSNumber, NSObject<PLAssetContainer>, NSOrderedSet, NSPredicate, NSString, NSURL, PLIndexMapper, PLManagedAsset, UIImage;
+@class NSArray, NSDate, NSDictionary, NSIndexSet, NSMutableIndexSet, NSMutableOrderedSet, NSNumber, NSObject<PLAlbumProtocol>, NSOrderedSet, NSPredicate, NSString, NSURL, PLIndexMapper, PLManagedAsset, UIImage;
 
-@interface PLFilteredAlbum : NSObject <PLUserEditableAssetContainer, PLCloudSharedContainer, PLIndexMapperDataSource, PLIndexMappingCache>
+@interface PLFilteredAlbum : NSObject <PLUserEditableAlbumProtocol, PLCloudSharedAlbumProtocol, PLIndexMapperDataSource, PLIndexMappingCache>
 {
     PLIndexMapper *_indexMapper;
     NSMutableIndexSet *_filteredIndexes;
     BOOL _backingAlbumSupportsEdits;
     BOOL _backingAlbumSupportsCloudShared;
     NSMutableOrderedSet *_weak_assets;
+    BOOL isObservingContextChanges;
     struct NSObject *_backingAlbum;
     int filter;
     NSPredicate *predicate;
-    BOOL isObservingContextChanges;
     NSArray *_filterParameters;
 }
 
@@ -38,7 +38,7 @@
 @property(nonatomic) BOOL isObservingContextChanges; // @synthesize isObservingContextChanges;
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate;
 @property(nonatomic) int filter; // @synthesize filter;
-@property(retain, nonatomic) NSObject<PLAssetContainer> *backingAlbum; // @synthesize backingAlbum=_backingAlbum;
+@property(retain, nonatomic) NSObject<PLAlbumProtocol> *backingAlbum; // @synthesize backingAlbum=_backingAlbum;
 - (void)replaceFilteredAssetsAtIndexes:(id)arg1 withFilteredValues:(id)arg2;
 - (void)replaceObjectInFilteredAssetsAtIndex:(unsigned int)arg1 withObject:(id)arg2;
 - (void)removeFilteredAssetsAtIndexes:(id)arg1;
@@ -61,20 +61,25 @@
 - (id)initWithBackingAlbum:(struct NSObject *)arg1 filter:(int)arg2 parameters:(id)arg3;
 - (void)updateStackedImageShouldNotifyImmediately:(BOOL)arg1;
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
-@property(nonatomic) unsigned int pendingItemsType;
-@property(nonatomic) unsigned int pendingItemsCount;
+@property(nonatomic) int pendingItemsType;
+@property(nonatomic) int pendingItemsCount;
 - (void)backingContextDidChange:(id)arg1;
 - (void)userDeleteSubscriberRecord:(id)arg1;
 - (void)getUnseenStartMarkerIndex:(unsigned int *)arg1 count:(unsigned int *)arg2 showsProgress:(char *)arg3;
+- (void)updateCloudLastContributionDateWithDate:(id)arg1;
 - (void)updateCloudLastInterestingChangeDateWithDate:(id)arg1;
 - (id)cloudOwnerDisplayNameIncludingEmail:(BOOL)arg1 allowsEmail:(BOOL)arg2;
 @property(readonly, nonatomic) NSOrderedSet *cloudAlbumSubscriberRecords;
+@property(nonatomic) BOOL cloudNotificationsEnabled;
 @property(readonly, nonatomic) NSDate *cloudFirstRecentBatchDate;
 @property(readonly, nonatomic) NSString *localizedSharedWithLabel;
 - (id)localizedSharedByLabelAllowsEmail:(BOOL)arg1;
 @property(readonly) int cloudRelationshipStateLocalValue;
 @property(readonly) int cloudRelationshipStateValue;
+@property(retain, nonatomic) NSDate *cloudLastContributionDate;
 @property(retain, nonatomic) NSDate *cloudLastInterestingChangeDate;
+@property(retain, nonatomic) NSNumber *cloudMultipleContributorsEnabledLocal;
+@property(retain, nonatomic) NSNumber *cloudMultipleContributorsEnabled;
 @property(retain, nonatomic) NSNumber *cloudPublicURLEnabledLocal;
 @property(retain, nonatomic) NSNumber *cloudPublicURLEnabled;
 @property unsigned int unseenAssetsCountIntegerValue;
@@ -82,7 +87,10 @@
 @property(retain, nonatomic) NSOrderedSet *invitationRecords;
 @property(retain, nonatomic) NSString *cloudPersonID;
 @property(retain, nonatomic) NSString *publicURL;
+@property(retain, nonatomic) NSDate *cloudSubscriptionDate;
+@property(retain, nonatomic) NSString *cloudOwnerHashedPersonID;
 @property(retain, nonatomic) NSString *cloudOwnerEmail;
+@property(retain, nonatomic) NSString *cloudOwnerFullName;
 @property(retain, nonatomic) NSString *cloudOwnerLastName;
 @property(retain, nonatomic) NSString *cloudOwnerFirstName;
 @property(retain, nonatomic) NSDictionary *cloudMetadata;
@@ -98,10 +106,17 @@
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
 - (BOOL)canPerformEditOperation:(int)arg1;
+@property(readonly, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) BOOL canShowComments;
+@property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isStandInAlbum;
+@property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
+@property(readonly, nonatomic) BOOL isWallpaperAlbum;
+@property(readonly, nonatomic) BOOL isPanoramasAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
 @property(readonly, nonatomic) UIImage *posterImage;
@@ -112,7 +127,7 @@
 @property(readonly, nonatomic) unsigned int photosCount;
 @property(readonly, nonatomic) BOOL isEmpty;
 @property(nonatomic) BOOL hasUnseenContentBoolValue;
-@property(readonly, nonatomic) unsigned int count;
+- (unsigned int)count;
 @property(readonly, nonatomic) unsigned int assetsCount;
 @property(readonly, nonatomic) unsigned int approximateCount;
 @property(readonly, nonatomic) NSMutableOrderedSet *userEditableAssets;
@@ -125,6 +140,10 @@
 @property(nonatomic) NSMutableOrderedSet *_assets;
 - (id)description;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, nonatomic) NSDate *endDate;
+@property(readonly, nonatomic) NSDate *startDate;
 
 @end
 

@@ -6,51 +6,43 @@
 
 #import "SBAlertItem.h"
 
-@class NSString, NSTimer, SBApplication;
+@class NSString, NSTimer, SBApplication, SBApplication<SBSystemLocalNotificationAlertDelegate>, SBUISound, UILocalNotification;
 
 @interface SBSystemLocalNotificationAlert : SBAlertItem
 {
-    id <SBSystemLocalNotificationAlertDelegate> _delegate;
-    SBApplication *_app;
-    NSString *_body;
+    SBApplication<SBSystemLocalNotificationAlertDelegate> *_app;
+    UILocalNotification *_localNotification;
+    NSString *_bodyText;
     NSString *_actionLabel;
     NSString *_customLockLabel;
-    NSString *_alertLaunchImage;
-    BOOL _showActionButton;
-    BOOL _hideTitle;
-    BOOL _allowSnooze;
-    NSTimer *_toneAutoMuteTimer;
     unsigned int _launchButtonIndex;
     unsigned int _snoozeButtonIndex;
-    id _context;
+    SBUISound *_sound;
+    NSTimer *_autoMuteTimer;
 }
 
-+ (void)stopPlayingAlertSoundOrTone;
-+ (BOOL)isPlayingTone;
-+ (void)playSoundWithName:(id)arg1 type:(int)arg2 inApp:(id)arg3 forAlert:(BOOL)arg4;
++ (void)snoozeAlertsAndDismiss:(BOOL)arg1;
++ (BOOL)isAnyAlertPlayingAnAVItem;
 + (id)pathForSoundName:(id)arg1 inApp:(id)arg2;
-+ (id)alertMatchingContext:(id)arg1;
 + (id)localizedStringFromKey:(id)arg1 defaultValue:(id)arg2 inBundle:(id)arg3 arguments:(id)arg4;
-+ (id)presentWithLocalNotification:(id)arg1 application:(id)arg2;
++ (id)alertMatchingLocalNotification:(id)arg1;
++ (id)alerts;
+@property(readonly, nonatomic) NSString *bodyText; // @synthesize bodyText=_bodyText;
+@property(readonly, nonatomic) UILocalNotification *localNotification; // @synthesize localNotification=_localNotification;
 @property(readonly, nonatomic) SBApplication *application; // @synthesize application=_app;
-@property(retain, nonatomic) id context; // @synthesize context=_context;
-@property(retain, nonatomic) NSString *alertLaunchImage; // @synthesize alertLaunchImage=_alertLaunchImage;
-@property(retain, nonatomic) NSString *customLockLabel; // @synthesize customLockLabel=_customLockLabel;
-@property(nonatomic) BOOL allowSnooze; // @synthesize allowSnooze=_allowSnooze;
-@property(nonatomic) BOOL hideTitle; // @synthesize hideTitle=_hideTitle;
-@property(nonatomic) id <SBSystemLocalNotificationAlertDelegate> delegate; // @synthesize delegate=_delegate;
+- (BOOL)isSystemLocalNotificationAlert;
+- (void)dismiss:(int)arg1;
+- (void)willDeactivateForReason:(int)arg1;
+- (void)willActivate;
+- (void)_autoMuteTimerFired;
+- (void)_playPresentationSound;
+- (id)sound;
+- (void)performUnlockAction;
+- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (int)alertPriority;
 - (id)alertItemNotificationSender;
 - (int)alertItemNotificationType;
-- (void)stopToneAutoMuteTimer;
-- (void)_toneAutoMuteTimerFired;
-- (void)startToneAutoMuteTimer;
-- (void)dismiss:(int)arg1;
-- (void)snoozeOrDismiss;
-- (void)snoozeIfPossible;
-- (void)willDeactivateForReason:(int)arg1;
-- (void)performUnlockAction;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (int)unlockSource;
 - (BOOL)isCriticalAlert;
 - (BOOL)shouldShowInEmergencyCall;
 - (float)lockLabelFontSize;
@@ -58,7 +50,8 @@
 - (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 - (Class)alertSheetClass;
 - (void)dealloc;
-- (id)initWithApplication:(id)arg1 body:(id)arg2 showActionButton:(BOOL)arg3 actionLabel:(id)arg4;
+- (id)initWithLocalNotification:(id)arg1 forApplication:(id)arg2;
+- (BOOL)isSnoozable;
 
 @end
 

@@ -22,9 +22,14 @@
     BOOL _shouldSetCookies;
     BOOL _usesPrivateCookieStore;
     ISURLRequestPerformance *_performanceMetrics;
+    BOOL _uploadProgressRequested;
 }
 
++ (BOOL)isSharedCacheStorageSession:(struct __CFURLStorageSession *)arg1;
++ (struct __CFURLStorageSession *)newSharedCacheStorageSession;
++ (struct _CFURLCache *)sharedCFURLCache;
 + (id)copyUserAgent;
+@property(nonatomic, getter=isUploadProgressRequested) BOOL uploadProgressRequested; // @synthesize uploadProgressRequested=_uploadProgressRequested;
 @property(getter=_usesPrivateCookieStore, setter=_setUsesPrivateCookieStore:) BOOL _usesPrivateCookieStore; // @synthesize _usesPrivateCookieStore;
 @property(getter=_shouldSetCookies, setter=_setShouldSetCookies:) BOOL _shouldSetCookies; // @synthesize _shouldSetCookies;
 @property(retain) NSURLResponse *response; // @synthesize response=_response;
@@ -67,6 +72,8 @@
 @property(readonly) ISURLRequestPerformance *performanceMetrics;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 willSendRequestForAuthenticationChallenge:(id)arg2;
+- (void)connection:(id)arg1 didSendBodyData:(int)arg2 totalBytesWritten:(int)arg3 totalBytesExpectedToWrite:(int)arg4;
+- (id)connection:(id)arg1 needNewBodyStream:(id)arg2;
 - (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
@@ -76,6 +83,7 @@
 - (void)handleResponse:(id)arg1;
 - (BOOL)handleRedirectFromDataProvider:(id)arg1 error:(id *)arg2;
 - (void)run;
+- (void)cancel;
 @property(copy) SSURLRequestProperties *requestProperties;
 - (void)setRequest:(id)arg1;
 - (id)request;

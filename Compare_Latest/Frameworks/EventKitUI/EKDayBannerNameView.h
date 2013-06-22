@@ -12,12 +12,17 @@
 {
     NSDateComponents *_day;
     NSCalendar *_calendar;
+    BOOL _showWeekNumber;
 }
 
+@property(nonatomic) BOOL showWeekNumber; // @synthesize showWeekNumber=_showWeekNumber;
+- (void).cxx_destruct;
 - (id)_accessibilityDay;
 - (void)drawRect:(struct CGRect)arg1;
+- (id)_weekNumberShadowColor;
+- (id)_weekNumberColor;
+- (id)_weekNumberFont;
 - (void)setDay:(id)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

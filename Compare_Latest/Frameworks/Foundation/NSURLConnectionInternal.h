@@ -28,8 +28,7 @@
 - (void)cancelAuthenticationChallenge:(id)arg1;
 - (void)continueWithoutCredentialForAuthenticationChallenge:(id)arg1;
 - (void)useCredential:(id)arg1 forAuthenticationChallenge:(id)arg2;
-- (void)_withErrorForConnection:(id)arg1;
-- (void)_withConnection:(id)arg1;
+- (void)_withConnectionAndDelegate:(id)arg1;
 - (void)_withActiveConnectionAndDelegate:(id)arg1;
 - (void)_withConnectionAndDelegate:(id)arg1 onlyActive:(void)arg2;
 - (void)invokeForDelegate:(id)arg1;

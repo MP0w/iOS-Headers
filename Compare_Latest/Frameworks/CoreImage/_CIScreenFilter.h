@@ -18,10 +18,10 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputSharpness; // @synthesize inputSharpness;
-@property(copy, nonatomic) NSNumber *inputWidth; // @synthesize inputWidth;
-@property(copy, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
-@property(copy, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
+@property(retain, nonatomic) NSNumber *inputSharpness; // @synthesize inputSharpness;
+@property(retain, nonatomic) NSNumber *inputWidth; // @synthesize inputWidth;
+@property(retain, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
+@property(retain, nonatomic) CIVector *inputCenter; // @synthesize inputCenter;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)_kernel;

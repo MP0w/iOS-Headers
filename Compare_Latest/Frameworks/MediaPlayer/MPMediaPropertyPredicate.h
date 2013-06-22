@@ -10,12 +10,14 @@
 
 @interface MPMediaPropertyPredicate : MPMediaPredicate
 {
-    struct MPMediaPropertyPredicateInternal _internal;
+    NSString *_property;
+    id _value;
+    int _comparisonType;
 }
 
 + (id)predicateWithValue:(id)arg1 forProperty:(id)arg2 comparisonType:(int)arg3;
 + (id)predicateWithValue:(id)arg1 forProperty:(id)arg2;
-@property(nonatomic) struct MPMediaPropertyPredicateInternal _internal; // @synthesize _internal;
+- (void).cxx_destruct;
 @property(nonatomic) int comparisonType;
 @property(copy, nonatomic) id value;
 @property(copy, nonatomic) NSString *property;
@@ -25,7 +27,6 @@
 - (id)descriptionOfValue:(id)arg1 forProperty:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)_ML3PredicateForML3EntityProperty:(id)arg1;
 - (id)ML3PredicateForContainer;
 - (id)ML3PredicateForTrack;

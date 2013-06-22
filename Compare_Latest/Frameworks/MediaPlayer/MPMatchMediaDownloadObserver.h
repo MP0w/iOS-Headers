@@ -6,24 +6,28 @@
 
 #import <MediaPlayer/MPMediaDownloadObserver.h>
 
-#import "MPPurchasableMediaDownloadObserver-Protocol.h"
+#import "MPStoreDownloadManagerObserver-Protocol.h"
 
-@class MPPurchasableMediaDownload;
+@class MPStoreDownload;
 
-@interface MPMatchMediaDownloadObserver : MPMediaDownloadObserver <MPPurchasableMediaDownloadObserver>
+@interface MPMatchMediaDownloadObserver : MPMediaDownloadObserver <MPStoreDownloadManagerObserver>
 {
-    MPPurchasableMediaDownload *_purchasableMediaDownload;
+    MPStoreDownload *_storeDownload;
 }
 
-- (void)purchasableMediaDownload:(id)arg1 downloadDidProgressWithPercentComplete:(double)arg2;
+- (void).cxx_destruct;
+- (void)downloadManager:(id)arg1 downloadDidProgress:(id)arg2;
 - (BOOL)isRestoreDownload;
+- (BOOL)isPurchasing;
 - (void)cancelDownload;
 - (BOOL)canCancel;
 - (BOOL)isCurrentlyPlayable;
+- (double)rawDownloadTotal;
+- (double)rawDownloadProgress;
 - (double)downloadProgress;
 - (void)_onQueue_invalidate;
 - (void)dealloc;
-- (id)initWithStoreID:(long long)arg1 mediaItemPersistentID:(unsigned long long)arg2;
+- (id)initWithStoreDownload:(id)arg1;
 
 @end
 

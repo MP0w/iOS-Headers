@@ -6,24 +6,27 @@
 
 #import "UITableViewCell.h"
 
-@class NSString, UIButton, UILabel;
+@class NSOrderedSet, UIButton, UILabel;
 
 @interface PLPhotoSmilesCommentCell : UITableViewCell
 {
+    BOOL _showUserLikes;
+    BOOL _isVideo;
     UILabel *_smileContentLabel;
-    NSString *_smileString;
     UIButton *_smileImageButton;
-    BOOL _userSmiled;
+    NSOrderedSet *_userLikes;
 }
 
-+ (id)_attributedStringForSmileText:(id)arg1;
-+ (float)heightOfSmileCellWithComments:(id)arg1 forWidth:(float)arg2 forInterfaceOrientation:(int)arg3;
-+ (id)smileStringForComments:(id)arg1;
-@property(nonatomic) BOOL userSmiled; // @synthesize userSmiled=_userSmiled;
++ (float)heightOfSmileCellWithComments:(id)arg1 forWidth:(float)arg2 isVideo:(BOOL)arg3 forInterfaceOrientation:(int)arg4;
++ (id)_attributedStringForComments:(id)arg1 color:(id)arg2 isVideo:(BOOL)arg3;
++ (id)_smileStringForComments:(id)arg1;
+@property(nonatomic) BOOL isVideo; // @synthesize isVideo=_isVideo;
+@property(copy, nonatomic) NSOrderedSet *userLikes; // @synthesize userLikes=_userLikes;
+@property(nonatomic) BOOL showUserLikes; // @synthesize showUserLikes=_showUserLikes;
 @property(readonly, nonatomic) UIButton *smileImageButton; // @synthesize smileImageButton=_smileImageButton;
-@property(copy, nonatomic) NSString *smileString; // @synthesize smileString=_smileString;
 @property(readonly, nonatomic) UILabel *smileContentLabel; // @synthesize smileContentLabel=_smileContentLabel;
 - (void)layoutSubviews;
+- (void)_updateContent;
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;

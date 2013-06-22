@@ -6,20 +6,31 @@
 
 #import "NSObject.h"
 
-@class MFComposeRecipient, NSString;
+@class MFComposeRecipient, NSArray, NSMutableArray, NSString;
 
 @interface PLInvitationRecipient : NSObject
 {
     MFComposeRecipient *_mfRecipient;
-    NSString *_emailAddress;
     NSString *_firstName;
     NSString *_lastName;
+    NSMutableArray *_allEmails;
+    NSMutableArray *_allPhones;
+    NSString *_selectedPhoneString;
+    NSString *_selectedEmailString;
+    NSString *_invalidAddressString;
 }
 
++ (id)validPhoneNumberFromString:(id)arg1;
++ (id)validEmailAddressFromComposeRecipient:(id)arg1;
+@property(readonly, nonatomic) NSString *invalidAddressString; // @synthesize invalidAddressString=_invalidAddressString;
+@property(readonly, nonatomic) NSString *selectedEmailString; // @synthesize selectedEmailString=_selectedEmailString;
+@property(readonly, nonatomic) NSString *selectedPhoneString; // @synthesize selectedPhoneString=_selectedPhoneString;
+@property(readonly, nonatomic) NSArray *allPhones; // @synthesize allPhones=_allPhones;
+@property(readonly, nonatomic) NSArray *allEmails; // @synthesize allEmails=_allEmails;
+- (id)description;
 @property(readonly, nonatomic) NSString *lastName;
 @property(readonly, nonatomic) NSString *firstName;
 - (id)displayName;
-@property(readonly, nonatomic) NSString *emailAddress;
 - (void)dealloc;
 - (id)initWithRecipient:(id)arg1;
 

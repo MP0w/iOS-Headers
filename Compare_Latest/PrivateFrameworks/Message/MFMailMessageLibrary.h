@@ -4,16 +4,19 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Message/MessageLibrary.h>
+#import <Message/MFMessageLibrary.h>
 
 #import "MFContentProtectionObserver-Protocol.h"
+#import "MFLibraryContentIndexDataSource-Protocol.h"
 #import "MFSQLiteConnectionPoolDelegate-Protocol.h"
 
-@class MFDbJournal, MFMailMessageLibraryMigrator, MFSQLiteConnectionPool, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
+@class MFAttachmentLibraryDataProvider, MFDbJournal, MFLibraryContentIndex, MFMailMessageLibraryMigrator, MFSQLiteConnectionPool, MFWeakObjectCache, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
 
-@interface MFMailMessageLibrary : MessageLibrary <MFSQLiteConnectionPoolDelegate, MFContentProtectionObserver>
+@interface MFMailMessageLibrary : MFMessageLibrary <MFLibraryContentIndexDataSource, MFSQLiteConnectionPoolDelegate, MFContentProtectionObserver>
 {
     MFSQLiteConnectionPool *_connectionPool;
+    MFLibraryContentIndex *_contentIndex;
+    MFWeakObjectCache *_libraryMessageCache;
     struct __CFDictionary *_mailboxCache;
     NSObject<OS_dispatch_queue> *_metadataQueue;
     id <MFMailboxPathProvider> _mailboxPathProvider;
@@ -25,21 +28,30 @@
     NSObject<OS_dispatch_queue> *_keyBagQueue;
     NSMutableSet *_messagesToThreadAtUnlock;
     id <MFMailMessageLibraryDelegate> _delegate;
+    MFAttachmentLibraryDataProvider *_attachmentDataProvider;
 }
 
 + (void)_removeLibrary:(BOOL)arg1 atPath:(id)arg2;
 + (void)removeLibraryAtPath:(id)arg1;
-+ (void)initialize;
 + (id)defaultPath;
 + (id)defaultInstance;
+- (id)_messageForStatement:(struct sqlite3_stmt *)arg1 options:(unsigned int)arg2 timestamp:(unsigned long long)arg3 isProtectedDataAvailable:(BOOL)arg4;
+- (void)_removeCachedLibraryMessageWithLibraryID:(unsigned int)arg1;
+- (id)_libraryMessageWithLibraryID:(unsigned int)arg1 wasCached:(char *)arg2;
+- (id)_libraryMessageCache;
 - (id)allMailboxURLStrings;
 - (void)setMailboxPathProvider:(id)arg1;
+- (id)itemsRequiringIndexingForContentIndex:(id)arg1 limit:(unsigned int)arg2;
+- (void)contentIndex:(id)arg1 assignTransactionIdentifier:(unsigned int)arg2 forDocumentIdentifiers:(id)arg3;
+- (void)_assignTransactionIdentifier:(unsigned int)arg1 forLibraryIDs:(id)arg2;
+- (void)contentIndex:(id)arg1 invalidateItemsGreaterThanTransactionId:(unsigned int)arg2;
 - (void)renameOrRemoveDatabase;
 - (void)_handleBusyError;
+- (void)_handleProtectedDataIOError;
 - (void)_handleIOError;
 - (void)_handleFullDatabase;
 - (void)_handleCorruptDatabase;
-- (void)_handleSQLiteErrorCode:(int)arg1;
+- (void)_handleSQLiteErrorCode:(int)arg1 db:(struct sqlite3 *)arg2;
 - (int)handleSqliteError:(struct sqlite3 *)arg1 format:(id)arg2;
 - (struct sqlite3_stmt *)preparedStatement:(struct sqlite3 *)arg1 pattern:(id)arg2;
 - (id)_activeConnectionWithDB:(struct sqlite3 *)arg1;
@@ -68,6 +80,7 @@
 - (int)attachProtectedDatabase:(struct sqlite3 *)arg1;
 - (void)_reconcileJournal:(struct sqlite3 *)arg1;
 - (BOOL)cleanupProtectedTables:(struct sqlite3 *)arg1 checkForInconsistencies:(BOOL)arg2;
+- (id)_indexSetOfMessagesDeleted;
 @property(readonly, nonatomic) int protectedDataAvailability;
 - (void)_setProtectedDataAvailabilityState:(int)arg1;
 - (id)hiddenPOPUIDsInMailbox:(id)arg1;
@@ -102,6 +115,8 @@
 - (id)queryForCriterion:(id)arg1 db:(struct sqlite3 *)arg2 options:(unsigned int)arg3 baseTable:(unsigned int)arg4;
 - (id)queryForCriterion:(id)arg1 db:(struct sqlite3 *)arg2 options:(unsigned int)arg3 baseTable:(unsigned int)arg4 isSubquery:(BOOL)arg5;
 - (id)queryForCriterion:(id)arg1 db:(struct sqlite3 *)arg2 options:(unsigned int)arg3 baseTable:(unsigned int)arg4 isSubquery:(BOOL)arg5 range:(struct _NSRange)arg6;
+- (id)equalToMailboxIDsFromCriterion:(id)arg1;
+- (id)dataProvider;
 - (BOOL)isMessageContentsLocallyAvailable:(id)arg1;
 - (BOOL)hasCompleteDataForMimePart:(id)arg1;
 - (id)dataForMimePart:(id)arg1 isComplete:(char *)arg2;
@@ -175,6 +190,8 @@
 - (unsigned int)nonDeletedCountForMailbox:(id)arg1;
 - (unsigned int)nonDeletedCountForMailbox:(id)arg1 includeServerSearchResults:(BOOL)arg2 includeThreadSearchResults:(BOOL)arg3;
 - (unsigned int)deletedCountForMailbox:(id)arg1;
+- (unsigned int)attachmentCountForMailbox:(id)arg1;
+- (unsigned int)flaggedCountForMailbox:(id)arg1;
 - (unsigned int)unreadCountForMailbox:(id)arg1 matchingCriterion:(id)arg2;
 - (unsigned int)unreadCountForMailbox:(id)arg1;
 - (unsigned int)integerForQuery:(id)arg1 withTextArgument:(id)arg2;
@@ -182,7 +199,9 @@
 - (id)messagesWithSummariesForMailbox:(id)arg1 fromRowID:(unsigned int)arg2 limit:(unsigned int)arg3;
 - (id)messagesWithoutSummariesForMailbox:(id)arg1;
 - (id)messagesWithSummariesForMailbox:(id)arg1 range:(struct _NSRange)arg2;
-- (int)countOfRelatedMessagesMatchingCriterion:(id)arg1 forConversationsContainingMessagesMatchingCriterion:(id)arg2 forMailbox:(id)arg3;
+- (struct __CFDictionary *)copySendersByLibraryIDForConversation:(long long)arg1 mailbox:(id)arg2 limit:(int)arg3;
+- (long long)oldestKnownConversationInMailbox:(id)arg1;
+- (unsigned int)countOfRelatedMessagesMatchingCriterion:(id)arg1 forConversationsContainingMessagesMatchingCriterion:(id)arg2 forMailbox:(id)arg3;
 - (id)copyMessageInfosForConversationsContainingMessagesMatchingCriterion:(id)arg1 forMailbox:(id)arg2;
 - (id)copyMessageInfosMatchingCriterion:(id)arg1;
 - (id)copyMessageInfosForMailbox:(id)arg1;
@@ -204,9 +223,11 @@
 - (BOOL)_writeEmlxFile:(id)arg1 withBodyData:(id)arg2 protectionClass:(int)arg3;
 - (void)setMessage:(id)arg1 isPartial:(BOOL)arg2;
 - (void)setNumberOfAttachments:(unsigned int)arg1 isSigned:(BOOL)arg2 isEncrypted:(BOOL)arg3 forMessage:(id)arg4;
+- (void)setFlagsFromDictionary:(id)arg1 forMessagesInMailboxURLString:(id)arg2;
 - (id)setFlagsFromDictionary:(id)arg1 forMessages:(id)arg2;
 - (void)setFlagsForMessages:(id)arg1 mask:(unsigned long long)arg2;
 - (void)setFlags:(unsigned long long)arg1 forMessage:(id)arg2;
+- (void)invalidateAndWait;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1;
 

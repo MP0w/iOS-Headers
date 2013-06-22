@@ -10,7 +10,7 @@
 
 @interface WDFormField : WDRun
 {
-    unsigned long mPosition;
+    unsigned int mPosition;
     BOOL mLinkAbsolute;
     BOOL mLinkSpecifyingNamedLocation;
     NSString *mNamedLocation;
@@ -32,8 +32,8 @@
 - (BOOL)linkSpecifyingNamedLocation;
 - (void)setLinkAbsolute:(BOOL)arg1;
 - (BOOL)linkAbsolute;
-- (void)setPosition:(unsigned long)arg1;
-- (unsigned long)position;
+- (void)setPosition:(unsigned int)arg1;
+- (unsigned int)position;
 - (void)dealloc;
 - (id)initWithParagraph:(id)arg1;
 

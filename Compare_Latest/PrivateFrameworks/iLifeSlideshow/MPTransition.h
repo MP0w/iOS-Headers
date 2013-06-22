@@ -51,7 +51,7 @@
 - (id)formattedAttributes;
 - (void)setIsRandom:(BOOL)arg1;
 - (BOOL)isRandom;
-- (void)setParentContainer:(id)arg1;
+- (void)setParent:(id)arg1;
 - (id)parentDocument;
 - (void)copyAttribures:(id)arg1;
 - (void)copyVars:(id)arg1;

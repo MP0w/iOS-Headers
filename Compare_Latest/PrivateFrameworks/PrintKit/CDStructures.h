@@ -41,19 +41,6 @@ struct _ipp_s {
     int _field8;
 };
 
-struct _pwg_size_s {
-    struct _pwg_map_s {
-        char *_field1;
-        char *_field2;
-    } _field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    int _field5;
-    int _field6;
-    int _field7;
-};
-
 struct fd_set;
 
 struct http_addrlist_s;
@@ -62,12 +49,46 @@ struct in_addr {
     unsigned int _field1;
 };
 
+struct internal_state;
+
+struct pwg_map_s {
+    char *_field1;
+    char *_field2;
+};
+
+struct pwg_size_s {
+    struct pwg_map_s _field1;
+    int _field2;
+    int _field3;
+    int _field4;
+    int _field5;
+    int _field6;
+    int _field7;
+};
+
 struct sockaddr_in {
     unsigned char _field1;
     unsigned char _field2;
     unsigned short _field3;
     struct in_addr _field4;
     char _field5[8];
+};
+
+struct z_stream_s {
+    char *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    char *_field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    char *_field7;
+    struct internal_state *_field8;
+    void *_field9;
+    void *_field10;
+    void *_field11;
+    int _field12;
+    unsigned int _field13;
+    unsigned int _field14;
 };
 
 #pragma mark Typedef'd Structures

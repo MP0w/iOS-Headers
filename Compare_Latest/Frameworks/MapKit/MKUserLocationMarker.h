@@ -8,29 +8,32 @@
 
 #import "VKPuckAnimatorTarget-Protocol.h"
 
+@class UIColor;
+
 @interface MKUserLocationMarker : VKRouteMatchedAnnotationMarker <VKPuckAnimatorTarget>
 {
     BOOL _stale;
-    BOOL _shouldDisplayHeading;
     BOOL _effectsEnabled;
     int _locationSource;
     float _opacity;
     double _presentationCourse;
-    double _headingAccuracy;
     double _locationAccuracy;
+    UIColor *_tintColor;
 }
 
++ (unsigned int)_zIndex;
+@property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(nonatomic) double presentationCourse; // @synthesize presentationCourse=_presentationCourse;
 @property(nonatomic) float opacity; // @synthesize opacity=_opacity;
 @property(nonatomic, getter=isEffectsEnabled) BOOL effectsEnabled; // @synthesize effectsEnabled=_effectsEnabled;
 @property(nonatomic) int locationSource; // @synthesize locationSource=_locationSource;
-@property(nonatomic) double locationAccuracy; // @synthesize locationAccuracy=_locationAccuracy;
-@property(nonatomic) double headingAccuracy; // @synthesize headingAccuracy=_headingAccuracy;
-@property(nonatomic) BOOL shouldDisplayHeading; // @synthesize shouldDisplayHeading=_shouldDisplayHeading;
+@property(readonly, nonatomic) double locationAccuracy; // @synthesize locationAccuracy=_locationAccuracy;
 - (void)locationManagerFailedToUpdateLocation;
-- (void)updateStateFromLocation:(id)arg1;
+- (void)updateStateFromLocation:(id)arg1 duration:(double)arg2;
 - (struct CGRect)maximumBoundingRectWithCanvasSize:(struct CGSize)arg1;
+- (void)setLocationAccuracy:(double)arg1 duration:(double)arg2;
 @property(nonatomic, getter=isStale) BOOL stale;
+- (void)dealloc;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 
 @end

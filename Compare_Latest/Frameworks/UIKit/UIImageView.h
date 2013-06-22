@@ -6,15 +6,41 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, UIImage;
+@class NSArray, UIColor, UIImage;
 
 @interface UIImageView : UIView
 {
     id _storage;
     UIImage *_decompressingImage;
     UIImage *_decompressingHighlightedImage;
+    struct UIEdgeInsets _cachedEdgeInsetsForEffects;
+    BOOL _edgeInsetsForEffectsAreValid;
+    BOOL __animatesContents;
+    struct UIEdgeInsets _edgeInsetsForEffects;
 }
 
+@property(nonatomic, setter=_setAnimatesContents:) BOOL _animatesContents; // @synthesize _animatesContents=__animatesContents;
+@property(nonatomic, setter=_setEdgeInsetsForEffectsAreValid:) BOOL _edgeInsetsForEffectsAreValid; // @synthesize _edgeInsetsForEffectsAreValid;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
+- (void)setAnimating:(BOOL)arg1;
+- (struct CGImage *)imageRef;
+- (void)setCGImageRef:(struct CGImage *)arg1;
+@property(nonatomic) int drawMode;
+- (void)_drawImageEffectsForImage:(id)arg1 inRect:(struct CGRect)arg2;
+- (BOOL)_needsImageEffectsForImage:(id)arg1 suppressColorizing:(BOOL)arg2;
+- (BOOL)_needsImageEffectsForImage:(id)arg1;
+- (void)tintColorDidChange;
+- (id)_effectiveTintColorWithImage:(id)arg1;
+@property(nonatomic, setter=_setMasksTemplateImages:) BOOL _masksTemplateImages;
+@property(nonatomic, setter=_setTemplateImageRenderingEffects:) unsigned int _templateImageRenderingEffects;
+@property(nonatomic, setter=_setDefaultRenderingMode:) int _defaultRenderingMode;
+@property(readonly, nonatomic) struct UIEdgeInsets _edgeInsetsForEffects; // @synthesize _edgeInsetsForEffects;
+- (void)_updateTemplateProperties;
+- (void)_templateSettingsDidChange;
+- (void)_updateMasking;
+- (BOOL)_shouldTreatImageAsTemplate:(id)arg1;
+- (id)_activeImage;
+- (id)_generateBackdropMaskImage;
 - (void)layoutSubviews;
 - (void)setBackgroundColor:(id)arg1;
 @property(nonatomic) int animationRepeatCount;
@@ -44,23 +70,20 @@
 - (BOOL)_setImageViewContents:(id)arg1;
 - (BOOL)_canDrawContent;
 - (BOOL)_shouldDrawImage:(id)arg1;
-- (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
-- (void)setAnimating:(BOOL)arg1;
-- (struct CGImage *)imageRef;
-- (void)setCGImageRef:(struct CGImage *)arg1;
-@property(nonatomic) int drawMode; // @dynamic drawMode;
 - (BOOL)useBlockyMagnificationInClassic;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
 - (unsigned long long)defaultAccessibilityTraits;
 - (BOOL)isAccessibilityElementByDefault;
+- (void)_applySettingsForLegibilityStyle:(int)arg1;
 - (id)_cachedPretiledImageForImage:(id)arg1;
 - (void)_clearPretiledImageCacheForImage:(id)arg1;
 - (void)_updatePretiledImageCacheForImage:(id)arg1;
 - (BOOL)_recomputePretilingState;
 
 // Remaining properties
+@property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
 @property(nonatomic, getter=isUserInteractionEnabled) BOOL userInteractionEnabled; // @dynamic userInteractionEnabled;
 
 @end

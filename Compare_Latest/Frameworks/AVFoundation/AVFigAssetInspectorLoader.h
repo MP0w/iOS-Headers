@@ -6,27 +6,30 @@
 
 #import <AVFoundation/AVAssetInspectorLoader.h>
 
-@class AVAssetCache, AVAssetInspector, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSURL;
+@class AVAssetCache, AVAssetInspector, AVWeakReference, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSURL;
 
 @interface AVFigAssetInspectorLoader : AVAssetInspectorLoader
 {
+    AVWeakReference *_weakReferenceToAsset;
+    NSDictionary *_initializationOptions;
     struct OpaqueFigAsset *_figAsset;
-    struct OpaqueFigFormatReader *_formatReader;
-    BOOL _formatReaderObtained;
     long _figAssetCreationStatus;
+    AVAssetInspector *_assetInspector;
+    long _assetInspectorOnce;
     NSObject<OS_dispatch_queue> *_completionHandlerQueue;
     struct OpaqueFigSimpleMutex *_loadingMutex;
+    struct OpaqueFigSimpleMutex *_playabilityMutex;
+    struct OpaqueFigSimpleMutex *_savedPhotosAlbumValidationMutex;
     struct OpaqueFigSemaphore *_playabilityValidationSemaphore;
     int _playableStatus;
     long _playableResult;
     BOOL _playable;
-    struct OpaqueFigSemaphore *_cameraRollValidationSemaphor;
+    struct OpaqueFigSemaphore *_cameraRollValidationSemaphore;
     int _compatibleWithSavedPhotosAlbumStatus;
     long _compatibleWithSavedPhotosAlbumResult;
     BOOL _compatibleWithSavedPhotosAlbum;
     NSMutableArray *_loadingBatches;
     BOOL _loadingCanceled;
-    AVAssetInspector *_assetInspector;
     AVAssetCache *_assetCache;
     BOOL _shouldMatchDataInCacheByURLPathComponentOnly;
     BOOL _shouldMatchDataInCacheByURLWithoutQueryComponent;
@@ -37,6 +40,7 @@
     BOOL _shouldOptimizeAccessForLinearMoviePlayback;
 }
 
++ (void)_mapAssetKeys:(id)arg1 toFigAssetPropertySet:(id)arg2 figAssetTrackPropertySet:(id)arg3 callerName:(id)arg4;
 + (id)_figAssetTrackPropertiesForKeys;
 + (id)_figAssetPropertiesForKeys;
 - (BOOL)_shouldOptimizeAccessForLinearMoviePlayback;
@@ -45,6 +49,7 @@
 - (BOOL)shouldMatchDataInCacheByURLWithoutQueryComponent;
 - (BOOL)shouldMatchDataInCacheByURLPathComponentOnly;
 - (id)assetCache;
+- (void)_invokeCompletionHandlerForLoadingBatches:(id)arg1;
 - (unsigned int)referenceRestrictions;
 - (BOOL)_isStreaming;
 - (BOOL)hasProtectedContent;
@@ -53,12 +58,12 @@
 - (id)URL;
 - (id)chapterGroupInfo;
 - (BOOL)isCompatibleWithSavedPhotosAlbum;
-- (void)setIsCompatibleWithSavedPhotosAlbum:(BOOL)arg1 result:(long)arg2;
+- (BOOL)_loadValueOfCompatibleWithSavedPhotosAlbumlByWaitingForAsyncValidationIfNeeded:(BOOL)arg1;
 - (BOOL)isComposable;
 - (BOOL)isReadable;
 - (BOOL)isExportable;
 - (BOOL)isPlayable;
-- (void)setIsPlayable:(BOOL)arg1 result:(long)arg2;
+- (BOOL)_loadValueOfPlayableByWaitingForAsyncValidationIfNeeded:(BOOL)arg1;
 - (id)lyrics;
 - (CDStruct_1b6d18a9)duration;
 - (void)_ensureAllDependenciesOfKeyAreLoaded:(id)arg1;
@@ -66,8 +71,8 @@
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 keysForCollectionKeys:(id)arg2 completionHandler:(id)arg3;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
 - (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
-- (int)_loadStatusForProperty:(id)arg1 returningError:(int *)arg2;
-- (struct OpaqueFigSemaphore *)_cameraRollValidationSemaphor;
+- (int)_loadStatusForProperty:(id)arg1 figAsset:(struct OpaqueFigAsset *)arg2 returningError:(int *)arg3;
+- (struct OpaqueFigSemaphore *)_cameraRollValidationSemaphore;
 - (struct OpaqueFigSemaphore *)_playabilityValidationSemaphore;
 - (id)_loadingBatches;
 - (struct OpaqueFigSimpleMutex *)_loadingMutex;
@@ -75,15 +80,13 @@
 - (struct OpaqueFigAsset *)_figAsset;
 - (id)assetInspector;
 - (struct OpaqueFigFormatReader *)_formatReader;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
 - (void)_removeFigAssetNotifications;
 - (void)_addFigAssetNotifications;
-- (id)_initWithDownloadToken:(unsigned long long)arg1;
-- (id)_initWithFigAsset:(struct OpaqueFigAsset *)arg1 options:(id)arg2;
 - (id)initWithURL:(id)arg1 options:(id)arg2;
+- (id)initWithURL:(id)arg1 options:(id)arg2 forAsset:(id)arg3;
+- (void)_createFigAsset;
 
 @end
 

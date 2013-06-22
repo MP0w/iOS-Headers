@@ -18,6 +18,7 @@
     NSMutableSet *_outstandingTasks;
     BOOL _isCancelling;
     BOOL _isTearingDown;
+    BOOL _isFinished;
     id <CoreDAVTaskGroupDelegate> _delegate;
     id _progressBlock;
     id _completionBlock;

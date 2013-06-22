@@ -6,25 +6,13 @@
 
 #import <ChatKit/CKAVMediaObject.h>
 
-@class NSDictionary, NSString;
-
 @interface CKAudioMediaObject : CKAVMediaObject
 {
-    NSDictionary *_transcodeOptions;
-    NSString *_transcodePath;
 }
 
-+ (id)mimeTypesToFileExtensions;
-- (id)effectiveExportedFilename;
-- (double)transcodeDuration;
-- (double)transcodeEndTime;
-- (double)transcodeStartTime;
-- (id)transcodeMimeType;
-- (id)transcodedFilename;
-- (void)prepareForTranscode;
-- (id)_transcodeOptions;
++ (id)fallbackFilenamePrefix;
++ (id)UTITypes;
 - (int)mediaType;
-- (void)dealloc;
 
 @end
 

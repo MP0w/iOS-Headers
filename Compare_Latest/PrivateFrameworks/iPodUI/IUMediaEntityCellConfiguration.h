@@ -18,7 +18,6 @@
     BOOL _isDisabled;
     MPMediaDownloadObserver *_downloadObserver;
     MPDownloadProgressIndicator *_progressIndicator;
-    int _downloadStatus;
     long long _downloadPersistentID;
 }
 
@@ -29,6 +28,7 @@
 @property(nonatomic) BOOL isGenius; // @synthesize isGenius=_isGenius;
 @property(readonly, nonatomic) MPMediaEntity *entity; // @synthesize entity=_entity;
 @property(retain, nonatomic) UIImage *artwork; // @synthesize artwork=_artwork;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL displaysArtworkFromRepresentativeItem;
 @property(readonly, nonatomic) struct CGSize artworkSize;
 - (void)reloadStringsWithProperties:(id)arg1;

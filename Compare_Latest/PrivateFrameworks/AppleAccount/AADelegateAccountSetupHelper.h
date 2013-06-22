@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AASetupAssistantService, NSArray, NSMutableArray, NSMutableDictionary, NSTimer;
+@class AASetupAssistantService, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_source>;
 
 @interface AADelegateAccountSetupHelper : NSObject
 {
@@ -14,14 +14,13 @@
     NSArray *_delegatesToSetup;
     NSMutableArray *_pendingCompletionBundles;
     NSMutableDictionary *_assistantDelegates;
-    NSTimer *_delegatesTimeout;
     id _handler;
+    NSObject<OS_dispatch_source> *_delegatetimer;
 }
 
 - (void).cxx_destruct;
 - (void)_setupDelegateAccountsWithEmailChoice:(id)arg1;
 - (void)_completeDelegateSetupWithResponse:(id)arg1;
-- (void)_storeDelegateTokensWithResponse:(id)arg1;
 - (id)_adjustResponseDictionary:(id)arg1 forAssistantDelegate:(id)arg2 withIdentifier:(id)arg3;
 - (void)_delegateBundlesDidTimeout;
 - (void)_delegateBundlesFinished;

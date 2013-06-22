@@ -19,15 +19,15 @@
     BOOL _showDisclosure;
     BOOL _showPlusButton;
     int _tag;
-    int _mediaTypes;
+    unsigned int _mediaTypes;
 }
 
-+ (id)hyperlinkActionRowWithTag:(int)arg1 mediaType:(int)arg2 title:(id)arg3 action:(SEL)arg4;
++ (id)hyperlinkActionRowWithTag:(int)arg1 mediaType:(unsigned int)arg2 title:(id)arg3 action:(SEL)arg4;
 + (id)actionRowWithPreset:(int)arg1 action:(SEL)arg2 title:(id)arg3 cellConfigurationClass:(Class)arg4;
 + (id)actionRowWithPreset:(int)arg1 action:(SEL)arg2 title:(id)arg3;
 + (id)actionRowWithPreset:(int)arg1 action:(SEL)arg2;
 + (id)actionRowWithTag:(int)arg1 action:(SEL)arg2;
-@property(readonly, nonatomic) int mediaTypes; // @synthesize mediaTypes=_mediaTypes;
+@property(readonly, nonatomic) unsigned int mediaTypes; // @synthesize mediaTypes=_mediaTypes;
 @property(readonly, nonatomic) int tag; // @synthesize tag=_tag;
 @property(nonatomic) BOOL showPlusButton; // @synthesize showPlusButton=_showPlusButton;
 @property(nonatomic) BOOL showDisclosure; // @synthesize showDisclosure=_showDisclosure;
@@ -37,12 +37,12 @@
 @property(retain, nonatomic) IUTableCellConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(retain, nonatomic) IUMediaTableCell *cell; // @synthesize cell=_cell;
 @property(readonly, nonatomic) SEL action; // @synthesize action=_action;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) int mediaDisclosureStyle;
 @property(readonly, nonatomic) UIView *accessoryView;
-- (void)dealloc;
 - (id)description;
-- (id)initWithPreset:(int)arg1 mediaTypes:(int)arg2 title:(id)arg3 action:(SEL)arg4 cellConfigurationClass:(Class)arg5;
-- (id)initWithTag:(int)arg1 mediaTypes:(int)arg2 selectable:(BOOL)arg3 action:(SEL)arg4;
+- (id)initWithPreset:(int)arg1 mediaTypes:(unsigned int)arg2 title:(id)arg3 action:(SEL)arg4 cellConfigurationClass:(Class)arg5;
+- (id)initWithTag:(int)arg1 mediaTypes:(unsigned int)arg2 selectable:(BOOL)arg3 action:(SEL)arg4;
 
 @end
 

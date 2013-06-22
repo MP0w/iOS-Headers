@@ -14,12 +14,12 @@
     UILabel *_titleLabel;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *title;
 - (void)showInView:(id)arg1 animated:(BOOL)arg2;
 - (void)hideAnimated:(BOOL)arg1;
 - (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

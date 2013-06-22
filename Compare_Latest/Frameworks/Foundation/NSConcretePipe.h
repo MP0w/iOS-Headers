@@ -15,7 +15,6 @@
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)finalize;
 - (void)dealloc;
 - (id)init;
 - (id)fileHandleForWriting;

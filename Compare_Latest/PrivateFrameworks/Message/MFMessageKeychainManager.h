@@ -26,13 +26,18 @@
 + (id)_copyAllIdentitiesWithError:(id *)arg1 usingBlock:(id)arg2;
 + (id)copyAllEncryptionIdentitiesForAddress:(id)arg1 error:(id *)arg2;
 + (id)copyAllSigningIdentitiesForAddress:(id)arg1 error:(id *)arg2;
++ (struct __SecIdentity *)copyClientSSLIdentityForHostName:(id)arg1 error:(id *)arg2;
++ (BOOL)_matchSSLClientIdentity:(struct __SecIdentity *)arg1 withHostname:(id)arg2;
++ (id)persistentReferenceForIdentity:(struct __SecIdentity *)arg1 error:(id *)arg2;
 + (struct __SecIdentity *)copyIdentityForPersistentReference:(id)arg1 error:(id *)arg2;
 + (struct __SecPolicy *)copySMIMEEncryptionPolicyForAddress:(id)arg1;
 + (struct __SecPolicy *)copySMIMESigningPolicyForAddress:(id)arg1;
 + (void)removePasswordForServiceName:(id)arg1 accountName:(id)arg2;
 + (void)setPassword:(id)arg1 forServiceName:(id)arg2 accountName:(id)arg3 keychainAccessibility:(void *)arg4;
++ (BOOL)addPassword:(id)arg1 forServiceName:(id)arg2 accountName:(id)arg3 keychainAccessibility:(void *)arg4 synchronizable:(BOOL)arg5 error:(id *)arg6;
 + (id)passwordForServiceName:(id)arg1 accountName:(id)arg2;
 + (id)passwordForServiceName:(id)arg1 accountName:(id)arg2 error:(id *)arg3;
++ (id)passwordForServiceName:(id)arg1 accountName:(id)arg2 synchronizable:(BOOL)arg3 error:(id *)arg4;
 + (id)_passwordForGenericAccount:(id)arg1 service:(id)arg2 error:(id *)arg3;
 + (void)removePasswordForHost:(id)arg1 username:(id)arg2 port:(int)arg3 keychainProtocol:(void *)arg4;
 + (void)setPassword:(id)arg1 forHost:(id)arg2 username:(id)arg3 port:(int)arg4 keychainProtocol:(void *)arg5 keychainAccessibility:(void *)arg6;

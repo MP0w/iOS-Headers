@@ -30,9 +30,12 @@
 - (BOOL)canAddInput:(id)arg1;
 - (BOOL)_canApplyTrackReferences:(id)arg1 exceptionReason:(id *)arg2;
 - (BOOL)canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2;
-- (BOOL)_canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2 exceptionReason:(id *)arg3;
+- (BOOL)_canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2 sourceFormat:(struct opaqueCMFormatDescription *)arg3 exceptionReason:(id *)arg4;
 @property(readonly, nonatomic) NSArray *inputGroups;
 @property(readonly, nonatomic) NSArray *inputs;
+@property(nonatomic) float preferredRate;
+@property(nonatomic) float preferredVolume;
+@property(nonatomic) struct CGAffineTransform preferredTransform;
 @property(copy, nonatomic) NSArray *metadata;
 @property(nonatomic) int movieTimeScale;
 @property(nonatomic) BOOL shouldOptimizeForNetworkUse;

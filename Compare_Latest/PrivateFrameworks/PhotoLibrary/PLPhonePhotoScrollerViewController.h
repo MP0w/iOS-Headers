@@ -18,8 +18,8 @@
     UIView *_viewToRemoveForSlideShow;
 }
 
-- (void)_updateNavigationBar;
 - (BOOL)_isAirPlayEnabled;
+- (float)videoViewScrubberYOrigin:(id)arg1 forOrientation:(int)arg2;
 - (BOOL)_isPerformingModalTransitionFromCamera;
 - (BOOL)isModalTransitioning;
 - (void)beginSlideshowByRemovingView:(id)arg1;
@@ -31,8 +31,7 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)didMoveToPhotoAtIndex:(unsigned int)arg1;
 - (void)dealloc;
-- (id)initWithPhoto:(id)arg1 inAlbum:(struct NSObject *)arg2;
-- (id)initWithPhoto:(id)arg1 inAlbum:(struct NSObject *)arg2 lockStatusBar:(BOOL)arg3 delayImageLoading:(BOOL)arg4;
+- (id)initWithPhotoAtIndexPath:(id)arg1 inAssetContainerList:(id)arg2 lockStatusBar:(BOOL)arg3 delayImageLoading:(BOOL)arg4;
 
 @end
 

@@ -38,7 +38,7 @@
 + (struct CGPoint)computePointValueForAnimationPath:(id)arg1 atTime:(double)arg2 defaultsTo:(struct CGPoint)arg3;
 + (float)computeScalarValueForAnimationPath:(id)arg1 atTime:(double)arg2 defaultsTo:(float)arg3 context:(id)arg4;
 + (double)transformTime:(double)arg1 forAnimationPath:(id)arg2;
-+ (int)timeOffSetFromString:(id)arg1;
++ (unsigned int)timeOffSetFromString:(id)arg1;
 + (id)parentsOfObject:(id)arg1;
 + (id)createPlugInSlide:(id)arg1 forLayer:(id)arg2 inDocument:(id)arg3;
 + (id)createPlugInContainer:(id)arg1 forLayer:(id)arg2 key:(id)arg3 inDocument:(id)arg4;

@@ -8,40 +8,37 @@
 
 #import "CBCentralManagerDelegate-Protocol.h"
 
-@class AXTimer, CBCentralManager, CBUUID, NSLock, NSMutableArray, NSObject<OS_dispatch_queue>;
+@class AXTimer, CBCentralManager, NSLock, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AXHearingAidDeviceController : NSObject <CBCentralManagerDelegate>
 {
     CBCentralManager *_bluetoothManager;
     NSLock *_centralRequestsLock;
     BOOL _isScanning;
-    AXTimer *_invalidateDevicesTimer;
     NSObject<OS_dispatch_queue> *_bluetoothCentralQueue;
     NSMutableArray *_availableSearchBlocks;
     NSMutableArray *_connectedSearchBlocks;
     NSMutableArray *_updateDeviceBlocks;
-    CBUUID *_leaHearingAidUUID;
-    CBUUID *_disUUID;
-    CBUUID *_manufacturerUUID;
-    NSMutableArray *availablePeripherals;
-    NSMutableArray *loadedDevices;
-    NSMutableArray *connectedDevices;
+    AXTimer *_deviceUpdatesTimer;
+    NSMutableDictionary *_deviceUpdatesDescription;
+    AXTimer *_advertisingTimeoutTimer;
+    NSMutableDictionary *_advertisingTimestamps;
+    NSMutableArray *_availablePeripherals;
+    NSMutableArray *_loadedDevices;
+    NSMutableArray *_connectedDevices;
     NSMutableArray *centralRequestBlocks;
     NSMutableArray *_persistentDevices;
 }
 
-+ (void)searchForConnectedDevicesWithCompletion:(id)arg1;
-+ (void)hearingAidDeviceUpdate:(id)arg1;
-+ (void)searchForAvailableDevicesWithCompletion:(id)arg1;
 + (id)sharedController;
 @property(retain, nonatomic) NSMutableArray *persistentDevices; // @synthesize persistentDevices=_persistentDevices;
 @property(retain, nonatomic) NSMutableArray *updateDeviceBlocks; // @synthesize updateDeviceBlocks=_updateDeviceBlocks;
 @property(retain, nonatomic) NSMutableArray *connectedSearchBlocks; // @synthesize connectedSearchBlocks=_connectedSearchBlocks;
 @property(retain, nonatomic) NSMutableArray *availableSearchBlocks; // @synthesize availableSearchBlocks=_availableSearchBlocks;
 @property(retain, nonatomic) NSMutableArray *centralRequestBlocks; // @synthesize centralRequestBlocks;
-@property(retain, nonatomic) NSMutableArray *connectedDevices; // @synthesize connectedDevices;
-@property(retain) NSMutableArray *loadedDevices; // @synthesize loadedDevices;
-@property(retain, nonatomic) NSMutableArray *availablePeripherals; // @synthesize availablePeripherals;
+@property(retain, nonatomic) NSMutableArray *connectedDevices; // @synthesize connectedDevices=_connectedDevices;
+@property(retain) NSMutableArray *loadedDevices; // @synthesize loadedDevices=_loadedDevices;
+@property(retain, nonatomic) NSMutableArray *availablePeripherals; // @synthesize availablePeripherals=_availablePeripherals;
 - (void)pairedHearingAidsDidChange;
 - (void)centralManager:(id)arg1 didDisconnectPeripheral:(id)arg2 error:(id)arg3;
 - (void)centralManager:(id)arg1 didFailToConnectPeripheral:(id)arg2 error:(id)arg3;
@@ -57,22 +54,34 @@
 - (id)manufacturerUUID;
 - (id)disUUID;
 - (id)leaHearingAidUUID;
-- (BOOL)isScanning;
 - (void)deviceDidFinishLoading:(id)arg1;
 - (void)device:(id)arg1 didSubsumeSlave:(id)arg2;
-- (void)deviceDidUpdateProperty:(id)arg1;
+- (void)device:(id)arg1 didUpdateProperty:(int)arg2;
+- (void)clearConnectedDevices;
+- (void)removeConnectedDevice:(id)arg1;
+- (void)addConnectedDevice:(id)arg1;
+- (void)clearAvailableDevices;
+- (void)removeAvailableDevice:(id)arg1;
+- (void)addAvailableDevice:(id)arg1;
+- (void)clearLoadedDevices;
+- (void)removeLoadedDevice:(id)arg1;
+- (void)addLoadedDevice:(id)arg1;
+- (void)loadedDevicesDidChange;
+- (id)hearingAidForPeripheral:(id)arg1;
+- (id)hearingAidsForUUID:(id)arg1;
+- (BOOL)isScanning;
+- (void)stopPropertyUpdates;
 - (void)stopSearching;
 - (BOOL)isBluetoothAvailable;
 - (void)disconnectFromPeripheral:(id)arg1;
 - (void)connectToPeripheral:(id)arg1;
 - (void)searchForConnectedDevices;
-- (id)sortByRSSI:(id)arg1;
 - (void)searchForAvailableDevices;
-- (id)hearingAidForPeripheral:(id)arg1;
-- (id)hearingAidsForUUID:(id)arg1;
-- (id)fakeHearingAids;
+- (void)clearMissingHearingAids;
 - (void)dealloc;
 - (id)init;
+- (void)registerForPropertyUpdates:(id)arg1;
+- (void)searchForAvailableDevicesWithCompletion:(id)arg1;
 
 @end
 

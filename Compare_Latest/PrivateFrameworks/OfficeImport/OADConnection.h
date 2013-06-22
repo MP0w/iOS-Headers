@@ -8,14 +8,14 @@
 
 @interface OADConnection : NSObject
 {
-    long mDrawableId;
+    unsigned long mDrawableId;
     int mLocationIndex;
 }
 
 - (void)setLocationIndex:(int)arg1;
 - (int)locationIndex;
-- (void)setDrawableId:(long)arg1;
-- (long)drawableId;
+- (void)setDrawableId:(unsigned long)arg1;
+- (unsigned long)drawableId;
 
 @end
 

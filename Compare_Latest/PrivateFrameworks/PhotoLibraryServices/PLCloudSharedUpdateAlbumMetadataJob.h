@@ -19,8 +19,9 @@
 - (id)_argumentsDictionaryAsData:(id)arg1;
 - (void)runDaemonSide;
 - (void)run;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 - (id)description;
+- (void)dealloc;
 - (id)initFromXPCObject:(id)arg1;
 - (void)encodeToXPCObject:(id)arg1;
 

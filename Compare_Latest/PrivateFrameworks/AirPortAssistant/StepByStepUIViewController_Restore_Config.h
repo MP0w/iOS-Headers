@@ -10,29 +10,19 @@
 
 @interface StepByStepUIViewController_Restore_Config : StepByStepUIViewController
 {
-    UIView *tableHeaderContainerView;
-    UIView *justTextContainerView;
-    UILabel *justTextLabel;
     UIView *restoreRecommendationContainerView;
-    UILabel *restoreRecommendationTextView;
-    UIView *dontRestoreRecommendationContainerView;
-    UILabel *dontRestoreRecommendationTextView;
-    BOOL dontRestore;
     UILabel *restoreRecommendationLabel;
+    UIView *dontRestoreRecommendationContainerView;
     UILabel *dontRestoreRecommendationLabel;
+    BOOL dontRestore;
 }
 
-@property(retain, nonatomic) UILabel *dontRestoreRecommendationLabel; // @synthesize dontRestoreRecommendationLabel;
 @property(retain, nonatomic) UIView *dontRestoreRecommendationContainerView; // @synthesize dontRestoreRecommendationContainerView;
-@property(retain, nonatomic) UILabel *restoreRecommendationLabel; // @synthesize restoreRecommendationLabel;
 @property(retain, nonatomic) UIView *restoreRecommendationContainerView; // @synthesize restoreRecommendationContainerView;
-@property(retain, nonatomic) UILabel *justTextLabel; // @synthesize justTextLabel;
-@property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
-@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)setupInitialTableHeaderConfiguration;
+- (void)dealloc;
 - (void)viewDidLoad;
-- (void)initUI;
 
 @end
 

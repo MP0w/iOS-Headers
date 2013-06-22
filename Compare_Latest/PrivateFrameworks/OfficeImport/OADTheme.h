@@ -16,14 +16,14 @@
     OADDefaultProperties *mTextDefaults;
 }
 
+@property(retain, nonatomic) OADDefaultProperties *textDefaults; // @synthesize textDefaults=mTextDefaults;
+@property(retain, nonatomic) OADDefaultProperties *lineDefaults; // @synthesize lineDefaults=mLineDefaults;
+@property(retain, nonatomic) OADDefaultProperties *shapeDefaults; // @synthesize shapeDefaults=mShapeDefaults;
+@property(retain, nonatomic) OADBaseStyles *baseStyles; // @synthesize baseStyles=mBaseStyles;
 - (id)addTextDefaults;
-- (id)textDefaults;
 - (id)addLineDefaults;
-- (id)lineDefaults;
 - (id)addShapeDefaults;
-- (id)shapeDefaults;
 - (void)addDefaults;
-- (id)baseStyles;
 - (void)dealloc;
 - (id)init;
 

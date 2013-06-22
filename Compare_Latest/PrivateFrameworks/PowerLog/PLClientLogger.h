@@ -4,14 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <PowerLog/PLXPCConnectionClient.h>
 
-@interface PLClientLogger : NSObject
+@interface PLClientLogger : PLXPCConnectionClient
 {
 }
 
 + (id)sharedInstance;
-- (BOOL)logEvent:(id)arg1 withContent:(id)arg2 blessed:(BOOL)arg3;
+- (void)PLXPCinvalidationHandler;
+- (BOOL)logEvent:(id)arg1 withContent:(id)arg2 withContentOrder:(id)arg3 forClientID:(short)arg4;
 
 @end
 

@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, NSRecursiveLock;
+@class NSHashTable, NSRecursiveLock;
 
 @interface AVObjectRegistry : NSObject
 {
-    NSMutableSet *_registeredObjects;
+    NSHashTable *_registeredObjects;
     NSRecursiveLock *_lock;
 }
 
@@ -25,11 +25,8 @@
 - (void)safePerformTarget:(id)arg1 selector:(SEL)arg2 object:(id)arg3 delay:(double)arg4;
 - (void)safeInvokeWithDescriptionDelayed:(id)arg1;
 - (void)safeInvokeWithDescription:(id)arg1;
-- (BOOL)isObjectRegistered:(id)arg1;
 - (void)unregisterObject:(id)arg1;
 - (void)registerObject:(id)arg1;
-- (BOOL)shouldReleaseObject:(id)arg1 requireThread:(id)arg2;
-- (void)finishedRelease;
 - (BOOL)safeRetainObject:(id)arg1;
 - (void)registerObjectForSafeRetain:(id)arg1;
 - (void)dealloc;

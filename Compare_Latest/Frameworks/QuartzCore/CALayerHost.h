@@ -11,6 +11,7 @@
 }
 
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (BOOL)_hasRenderLayerSubclass;
 @property unsigned int contextId;
 - (void)layerDidBecomeVisible:(BOOL)arg1;
 - (_Bool)_renderLayerDefinesProperty:(unsigned int)arg1;

@@ -6,16 +6,14 @@
 
 #import "NSObject.h"
 
-@class XPCProxy;
-
 @interface SLGuaranteedRemoteCall : NSObject
 {
-    id _remoteCallBlock;
-    XPCProxy *_proxy;
+    id _block;
+    id _proxy;
 }
 
-@property(retain) XPCProxy *proxy; // @synthesize proxy=_proxy;
-@property(copy) id block; // @synthesize block=_remoteCallBlock;
+@property(retain) id proxy; // @synthesize proxy=_proxy;
+@property(copy) id block; // @synthesize block=_block;
 - (void).cxx_destruct;
 
 @end

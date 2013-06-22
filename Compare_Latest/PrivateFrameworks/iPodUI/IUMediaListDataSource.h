@@ -6,16 +6,14 @@
 
 #import <iPodUI/IUMediaDataSource.h>
 
-@class IUActionRowDataSource, IUMediaListAggregateViewConfiguration, IUSectionInfo, IUVariableCellConfigurationCache, NSString, UIColor;
+@class IUActionRowDataSource, IUSectionInfo, IUVariableCellConfigurationCache, NSString, UIColor;
 
 @interface IUMediaListDataSource : IUMediaDataSource
 {
     Class _cellConfigurationClass;
     IUVariableCellConfigurationCache *_configurationCache;
-    IUMediaListAggregateViewConfiguration *_aggregateViewConfiguration;
     unsigned int _createdGlobalContexts:1;
     unsigned int _hasCachedActionState:1;
-    unsigned int _loadedAggregateViewConfiguration:1;
     IUActionRowDataSource *_prefixActionRows;
     IUSectionInfo *_sectionInfo;
     IUActionRowDataSource *_suffixActionRows;
@@ -25,11 +23,11 @@
 @property(copy, nonatomic) id reloadActionRowsCompletion; // @synthesize reloadActionRowsCompletion=_reloadActionRowsCompletion;
 @property(retain, nonatomic) IUSectionInfo *sectionInfo; // @synthesize sectionInfo=_sectionInfo;
 @property(nonatomic) Class cellConfigurationClass; // @synthesize cellConfigurationClass=_cellConfigurationClass;
+- (void).cxx_destruct;
 - (void)unloadReloadableData;
 - (void)reloadData;
 - (void)reloadDataWithCompletionHandler:(id)arg1;
 - (void)invalidate;
-- (void)resetAggregateTableHeaderViewConfiguration;
 - (id)contextForContext:(id)arg1 redirectType:(int)arg2;
 @property(readonly, nonatomic) BOOL shouldShowGlobalSectionHeader;
 - (void)clearCachedActionState;
@@ -92,10 +90,10 @@
 @property(readonly, nonatomic) unsigned int countOfActionRows;
 @property(readonly, nonatomic) BOOL hasPlayableItems;
 @property(readonly, nonatomic) unsigned int count;
-- (id)aggregateTableHeaderViewConfiguration;
 - (id)cellConfigurationForIndex:(unsigned int)arg1 shouldLoadArtwork:(BOOL)arg2 artworkLoadingCompletionHandler:(id)arg3;
 - (BOOL)canMoveIndex:(unsigned int)arg1;
 - (BOOL)canDeleteIndex:(unsigned int)arg1;
+- (BOOL)deleteHidesFromCloudForIndex:(unsigned int)arg1 hidesAll:(out char *)arg2;
 @property(readonly, nonatomic) BOOL allowsRearrange;
 @property(readonly, nonatomic) BOOL allowsDeletion;
 - (id)actionRowAtIndex:(unsigned int)arg1;

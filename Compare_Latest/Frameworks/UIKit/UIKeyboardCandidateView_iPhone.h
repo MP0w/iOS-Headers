@@ -6,12 +6,12 @@
 
 #import <UIKit/UIKeyboardCandidateView.h>
 
+#import "UICollectionViewDelegate-Protocol.h"
 #import "UIGestureRecognizerDelegate-Protocol.h"
-#import "UIScrollViewDelegate-Protocol.h"
 
 @class UIKeyboardCandidateGridHeader;
 
-@interface UIKeyboardCandidateView_iPhone : UIKeyboardCandidateView <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@interface UIKeyboardCandidateView_iPhone : UIKeyboardCandidateView <UICollectionViewDelegate, UIGestureRecognizerDelegate>
 {
     UIKeyboardCandidateGridHeader *_header;
 }
@@ -25,6 +25,7 @@
 - (void)_setupKeyboardInteraction;
 - (void)dealloc;
 - (void)layoutSubviews;
+- (float)barHeight;
 
 @end
 

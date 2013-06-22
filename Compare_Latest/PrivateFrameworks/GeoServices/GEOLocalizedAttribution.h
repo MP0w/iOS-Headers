@@ -38,7 +38,7 @@
 @property(readonly, nonatomic) BOOL hasDisplayName;
 @property(readonly, nonatomic) BOOL hasLanguage;
 - (void)dealloc;
-- (id)bestURLForLogos:(id)arg1;
+- (id)bestURLForLogos:(id)arg1 hiDPI:(BOOL)arg2;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIImageView.h>
 
-@class NSArray, NSString, UIColor, UIView, _UIBadgeView, _UISegmentedControlAppearanceStorage;
+@class NSArray, NSString, UIView, _UIBadgeView, _UISegmentedControlAppearanceStorage;
 
 @interface UISegment : UIImageView
 {
@@ -14,7 +14,6 @@
     _UISegmentedControlAppearanceStorage *_appearanceStorage;
     float _width;
     struct CGSize _contentOffset;
-    UIColor *_tintColor;
     int _barStyle;
     unsigned int _rightSegmentState;
     NSString *_badgeValue;
@@ -27,14 +26,15 @@
         unsigned int highlighted:1;
         unsigned int showDivider:1;
         unsigned int hasImage:1;
-        unsigned int isDisclosure:1;
         unsigned int position:3;
         unsigned int autosizeText:1;
         unsigned int isMomentary:1;
+        unsigned int wasSelected:1;
     } _segmentFlags;
     NSArray *_infoConstraints;
 }
 
++ (id)_backgroundImageWithStorage:(id)arg1 style:(int)arg2 mini:(BOOL)arg3 state:(unsigned int)arg4 position:(unsigned int)arg5 drawMode:(int *)arg6 defaultBlock:(id)arg7;
 @property(copy, nonatomic, setter=_setInfoConstraints:) NSArray *_infoConstraints; // @synthesize _infoConstraints;
 - (id)viewForBaselineLayout;
 - (float)_idealWidth;
@@ -43,6 +43,7 @@
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)infoName;
+- (void)_forceInfoDisplay;
 - (id)objectValue;
 - (void)setObjectValue:(id)arg1;
 - (void)setContentOffset:(struct CGSize)arg1;
@@ -53,16 +54,20 @@
 - (void)updateConstraints;
 - (void)_invalidateInfoConstraints;
 - (struct CGSize)contentSize;
+- (struct CGSize)_maximumTextSize;
 - (float)_barHeight;
 - (struct CGRect)contentRect;
 - (struct CGRect)_contentRectForBounds:(struct CGRect)arg1;
 - (void)animateRemoveForWidth:(float)arg1;
 - (void)animateAdd:(BOOL)arg1;
+- (BOOL)_shouldUsePadMomentaryAppearance;
 - (void)setShowDivider:(BOOL)arg1;
+- (BOOL)showDivider;
 @property int controlSize;
 @property(getter=isMomentary) BOOL momentary;
 @property(readonly) UIView *badgeView;
 @property(copy, nonatomic) NSString *badgeValue;
+- (void)tintColorDidChange;
 - (void)setHighlighted:(BOOL)arg1;
 - (BOOL)isHighlighted;
 @property(getter=isSelected) BOOL selected;
@@ -72,15 +77,14 @@
 - (void)setTintColor:(id)arg1;
 - (void)setBarStyle:(int)arg1;
 - (id)disabledTextColor;
+- (id)_attributedTextForState:(unsigned int)arg1 selected:(BOOL)arg2;
 - (void)_updateTextColors;
+- (void)setWasSelected:(BOOL)arg1;
+- (void)updateMasking;
+- (BOOL)_hasSelectedColor;
 - (id)_currentOptionsStyleTextShadowColor;
 - (id)_currentOptionsStyleTextColor;
 - (void)_updateBackgroundImage;
-- (void)_updateTexturedBackgroundImage;
-- (id)_texturedFillImage;
-- (id)_texturedRightCapImage;
-- (id)_texturedLeftCapImage;
-- (void)_tileImage:(id)arg1 inRect:(struct CGRect)arg2;
 - (void)updateDividerViewForChangedSegment:(id)arg1;
 - (void)insertDividerView;
 - (id)_dividerImage;
@@ -91,9 +95,10 @@
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;
+- (id)_tintColorArchivingKey;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithInfo:(id)arg1 style:(int)arg2 size:(int)arg3 barStyle:(int)arg4 tintColor:(id)arg5 appearanceStorage:(id)arg6 position:(unsigned int)arg7 isDisclosure:(BOOL)arg8 autosizeText:(BOOL)arg9;
-- (void)_commonInitWithInfo:(id)arg1 position:(unsigned int)arg2 autosizeText:(BOOL)arg3;
+- (id)initWithInfo:(id)arg1 style:(int)arg2 size:(int)arg3 barStyle:(int)arg4 tintColor:(id)arg5 appearanceStorage:(id)arg6 position:(unsigned int)arg7 autosizeText:(BOOL)arg8;
+- (void)_commonSegmentInit;
 
 @end
 

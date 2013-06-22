@@ -9,7 +9,7 @@
 @interface MRContextVertexAttributes : NSObject
 {
     const void *pointer;
-    unsigned int size;
+    unsigned long size;
     BOOL enabled;
 }
 

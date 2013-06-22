@@ -11,9 +11,9 @@
 @interface EPPivotTableStyleFlattener : EPStyleFlattener
 {
     EDPivotTable *mPivotTable;
-    int mFirstHeaderRow;
-    int mFirstDataRow;
-    int mFirstDataColumn;
+    long mFirstHeaderRow;
+    long mFirstDataRow;
+    long mFirstDataColumn;
     unsigned int mRowFieldsCount;
     unsigned int mColumnFieldsCount;
     unsigned int mPageFieldsCount;

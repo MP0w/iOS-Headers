@@ -59,6 +59,7 @@
 @property(readonly) NSArray *MD5HashStrings;
 @property(readonly, getter=isContentRestricted) BOOL contentRestricted;
 - (id)copyWritableMetadata;
+@property(readonly) NSData *appReceiptData;
 - (id)viewStoreItemURL;
 - (id)videoDetailsDictionary;
 @property(retain) NSString *transactionIdentifier;
@@ -93,6 +94,7 @@
 @property(retain) NSString *kind;
 @property unsigned long long itemIdentifier;
 - (void)setIndexInCollection:(id)arg1;
+- (void)setHighDefinition:(BOOL)arg1;
 @property unsigned long long genreIdentifier;
 @property(retain) NSString *genre;
 @property(retain) NSURL *fullSizeImageURL;
@@ -128,6 +130,7 @@
 - (id)networkName;
 - (BOOL)isSample;
 - (BOOL)isRental;
+- (BOOL)isHighDefinition;
 - (BOOL)isExplicitContent;
 - (BOOL)isCompilation;
 - (id)indexInCollection;

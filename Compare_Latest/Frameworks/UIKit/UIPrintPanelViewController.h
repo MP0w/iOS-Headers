@@ -25,6 +25,7 @@
 
 @property(retain, nonatomic) PKPrinter *printer; // @synthesize printer=_printer;
 @property(readonly, nonatomic) BOOL showPaper;
+@property(readonly, nonatomic) BOOL showCopies;
 @property(readonly, nonatomic) BOOL showPageRange;
 @property(readonly, nonatomic) BOOL showDuplex;
 @property(retain, nonatomic) UIPrintPaper *paper;

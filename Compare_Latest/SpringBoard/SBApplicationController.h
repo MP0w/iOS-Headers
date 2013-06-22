@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
-@class BKSApplicationStateMonitor, NSDictionary, NSLock, NSMutableDictionary, NSMutableSet, NSOperationQueue, SBApplication, SBDataLookupResults;
+#import "SBApplicationRestrictionDataSource-Protocol.h"
+#import "SBLSApplicationLifecycleObserver-Protocol.h"
 
-@interface SBApplicationController : NSObject
+@class BKSApplicationStateMonitor, NSCountedSet, NSDictionary, NSLock, NSMutableDictionary, NSMutableSet, NSOperationQueue, SBApplication, SBApplicationRestrictionController, SBLSApplicationWorkspaceObserver;
+
+@interface SBApplicationController : NSObject <SBApplicationRestrictionDataSource, SBLSApplicationLifecycleObserver>
 {
-    SBDataLookupResults *_pendingDataLookupResults;
-    NSLock *_pendingDataLookupResultsLock;
     NSMutableDictionary *_applications;
     NSMutableDictionary *_applicationsByBundleIdentifer;
     NSMutableSet *_applicationsPlayingMutedAudioSinceLastLock;
     SBApplication *_applicationCurrentlyRecordingAudio;
     int _locationStatusBarIconType;
     NSDictionary *_backgroundDisplayDict;
-    unsigned int _ignoreUninstallationEventCount;
     NSOperationQueue *_backgroundOperationQueue;
     NSLock *_applicationsLock;
     NSMutableDictionary *_systemAppsVisibilityOverrides;
@@ -26,46 +26,45 @@
     BKSApplicationStateMonitor *_appStateMonitor;
     BOOL _booting;
     NSMutableSet *_appsToAutoLaunchAfterBoot;
+    SBApplicationRestrictionController *_restrictionController;
+    SBLSApplicationWorkspaceObserver *_lsWorkspaceObserver;
+    NSCountedSet *_pendingRequestedUninstallsBundleID;
 }
 
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
 + (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
+- (void)applicationsUninstalled:(id)arg1;
+- (void)applicationsInstalled:(id)arg1;
+- (id)restrictionController;
+- (void)_removePendingRequestedUninstalledBundleID:(id)arg1;
 - (BOOL)updateAppIconVisibilityOverridesShowing:(id *)arg1 hiding:(id *)arg2;
 - (void)_setVisibilityOverridesAreDirty:(BOOL)arg1;
 - (int)appVisibilityOverrideForBundleIdentifier:(id)arg1;
 - (void)_reloadBackgroundIDsDict;
-- (void)processPendingInstalls;
-- (void)_handleDataLookupResultsIfReceived;
-- (void)_applicationRegistrationChangedCallback:(id)arg1 info:(id)arg2;
-- (void)_applicationsUnregistered:(id)arg1;
-- (void)_applicationsRegistered:(id)arg1;
-- (void)_applicationsRegistered:(id)arg1 unregistered:(id)arg2;
-- (BOOL)_hasRequiredCapabilities:(id)arg1;
-- (void)loadApplicationsWithBundle:(id)arg1 bundlePath:(id)arg2 isSystemApplication:(BOOL)arg3 defaultTags:(id)arg4 signerIdentity:(id)arg5 provisioningProfileValidated:(BOOL)arg6 seatbeltEnvironmentVariables:(id)arg7;
+- (void)loadApplicationsWithBundle:(id)arg1 bundlePath:(id)arg2 isSystemApplication:(BOOL)arg3 defaultTags:(id)arg4 signerIdentity:(id)arg5 provisioningProfileValidated:(BOOL)arg6 seatbeltEnvironmentVariables:(id)arg7 entitlements:(id)arg8;
 - (Class)applicationClassForInfoDictionary:(id)arg1;
 - (void)loadWebclipAndIcon:(id)arg1;
 - (void)loadApplicationsAndIcons:(id)arg1 reveal:(BOOL)arg2 popIn:(BOOL)arg3;
-- (void)_loadApplicationsAndIcons:(id)arg1 removed:(id)arg2 applicationDictionaries:(id)arg3 reveal:(BOOL)arg4 popIn:(BOOL)arg5 reloadAllIcons:(BOOL)arg6;
+- (void)_loadApplicationsAndIcons:(id)arg1 removed:(id)arg2 applicationProxies:(id)arg3 reveal:(BOOL)arg4 popIn:(BOOL)arg5 reloadAllIcons:(BOOL)arg6;
 - (void)_updateIconControllerAndModelForLoadedApplications:(id)arg1 reveal:(BOOL)arg2 popIn:(BOOL)arg3 reloadAllIcons:(BOOL)arg4;
 - (void)waitForOperationsToComplete;
-- (void)_decrementUninstallationEventCount;
 - (void)uninstallApplication:(id)arg1;
 - (void)removeApplicationsFromModelWithBundleIdentifier:(id)arg1;
 - (BOOL)loadApplication:(id)arg1;
 - (id)loadApplications;
-- (id)_loadApplications:(BOOL)arg1 applicationDictionaries:(id)arg2;
-- (id)_loadApplications:(id)arg1 removed:(id)arg2 applicationDictionaries:(id)arg3 updateRestrictions:(BOOL)arg4;
-- (void)_calculateApplicationDiff:(id *)arg1 removed:(id *)arg2 applicationDictionaries:(id)arg3;
-- (id)_modifiedApplications:(id)arg1 applicationDictionaries:(id)arg2;
-- (BOOL)_applicationHasBeenModified:(id)arg1 applicationDictionary:(id)arg2;
-- (void)_loadApplication:(id)arg1 dictionary:(id)arg2 allowDemoOnly:(BOOL)arg3;
-- (void)_loadApplication:(id)arg1 dictionary:(id)arg2;
-- (void)_postLoadApplications:(id)arg1 removed:(id)arg2 modified:(id)arg3 updateRestrictions:(BOOL)arg4;
+- (id)_loadApplications:(id)arg1 removed:(id)arg2 applicationProxies:(id)arg3;
+- (void)_calculateApplicationDiff:(id *)arg1 removed:(id *)arg2 applicationProxies:(id)arg3;
+- (id)_modifiedApplications:(id)arg1 applicationProxies:(id)arg2;
+- (BOOL)_applicationHasBeenModified:(id)arg1 applicationProxy:(id)arg2;
+- (void)_loadApplication:(id)arg1 proxy:(id)arg2;
 - (void)_sendInstalledAppsDidChangeNotification:(id)arg1 removed:(id)arg2 modified:(id)arg3;
 - (void)_preLoadApplications;
+- (id)_getLSApplicationProxies;
 - (id)newsstandApps;
 - (id)webApplications;
+- (id)clockApplication;
+- (id)faceTimeApp;
 - (id)mobilePhone;
 - (id)setupApplication;
 - (id)dataActivation;
@@ -88,9 +87,6 @@
 - (void)_mediaServerConnectionDied:(id)arg1;
 - (void)_registerForAVSystemControllerNotifications;
 - (void)_unregisterForAVSystemControllerNotifications;
-- (void)queuePendingDataLookupResults:(id)arg1;
-- (id)dequeuePendingDataLookupResults;
-- (BOOL)hasPendingDataLookupResults;
 - (void)dealloc;
 - (id)init;
 

@@ -8,7 +8,7 @@
 
 #import "UITextFieldDelegate-Protocol.h"
 
-@class NSString;
+@class NSString, UITextField;
 
 @interface SBPasscodeAlertItem : SBAlertItem <UITextFieldDelegate>
 {
@@ -16,11 +16,11 @@
     int _unlockScreenType;
     NSString *_errorString;
     BOOL _hasEmergencyCall;
+    UITextField *_textField;
 }
 
 - (void)didEndCall;
 - (void)_setErrorString:(id)arg1;
-- (void)dismiss:(int)arg1;
 - (BOOL)shouldShowInLockScreen;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;

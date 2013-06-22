@@ -4,25 +4,25 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBUIAnimationController.h"
+#import "SBUIMainScreenAnimationController.h"
 
 @class UIView;
 
-@interface SBUIAnimationZoomDownApp : SBUIAnimationController
+@interface SBUIAnimationZoomDownApp : SBUIMainScreenAnimationController
 {
     UIView *_viewToAnimate;
-    BOOL _animateBanner;
     CDStruct_5d575efc _fakeStatusBarInfo;
 }
 
-- (void)animationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
-- (float)endZoomScale;
-- (double)animationDelay;
-- (double)animationStartTime;
-- (double)animationDuration;
 - (void)_prepareAnimation;
+- (void)animateFakeStatusBarWithParameters:(id)arg1;
+- (void)cleanupZoom;
+- (void)animateZoomWithCompletion:(id)arg1;
+- (void)prepareZoom;
+- (double)animationDelay;
+- (double)animationDuration;
 - (id)appContext;
 - (BOOL)prefersLayerHostSnapshot;
 - (CDStruct_5d575efc)fakeStatusBarInfoWithStartEffectivelyHidden:(BOOL)arg1 endStyle:(int)arg2 endOrientation:(int)arg3;

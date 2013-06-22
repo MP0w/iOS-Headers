@@ -10,12 +10,26 @@
 {
 }
 
++ (BOOL)_allowsEvaluation;
++ (BOOL)supportsSecureCoding;
++ (id)defaultInstance;
++ (id)allocWithZone:(struct _NSZone *)arg1;
++ (void)initialize;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
+- (id)predicateFormat;
+- (id)init;
+- (id)_initPrivate;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)predicateFormat;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)init;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)autorelease;
+- (BOOL)_tryRetain;
+- (BOOL)_isDeallocating;
+- (oneway void)release;
+- (unsigned int)retainCount;
+- (id)retain;
 
 @end
 

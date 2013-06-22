@@ -18,7 +18,7 @@
 
 - (void)dealloc;
 - (void)_syncCookies;
-- (id)initWithSharedStorage;
+- (id)initInternalWithCFStorage:(struct OpaqueCFHTTPCookieStorage *)arg1;
 
 @end
 

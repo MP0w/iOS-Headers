@@ -19,6 +19,7 @@
 }
 
 @property(readonly, nonatomic) NSArray *viewControllerContexts; // @synthesize viewControllerContexts=_contexts;
+- (void).cxx_destruct;
 - (void)_resetViewControllersWithContexts:(id)arg1;
 - (id)_identifierForViewController:(id)arg1;
 - (void)_availableMediaLibrariesDidChangeNotification:(id)arg1;

@@ -28,6 +28,7 @@
     UIImage *iconImage;
     UIImage *startupImage;
     UIImage *startupLandscapeImage;
+    UIImage *initialLaunchImage;
     id delegate;
     NSMutableData *_customIconData;
     NSURLConnection *_iconConnection;
@@ -55,6 +56,7 @@
 + (id)webClipWithURL:(id)arg1;
 + (id)webClipWithIdentifier:(id)arg1;
 @property id delegate; // @synthesize delegate;
+@property(retain, nonatomic) UIImage *initialLaunchImage; // @synthesize initialLaunchImage;
 @property(retain, nonatomic) UIImage *startupLandscapeImage; // @synthesize startupLandscapeImage;
 @property(retain, nonatomic) UIImage *startupImage; // @synthesize startupImage;
 @property int statusBarStyle; // @synthesize statusBarStyle;
@@ -65,11 +67,11 @@
 @property BOOL removalDisallowed; // @synthesize removalDisallowed;
 @property BOOL classicMode; // @synthesize classicMode;
 @property BOOL fullScreen; // @synthesize fullScreen;
-@property(copy) NSString *title; // @synthesize title;
+@property(copy, nonatomic) NSString *title; // @synthesize title;
 @property(retain) NSURL *startupLandscapeImageURL; // @synthesize startupLandscapeImageURL;
 @property(retain) NSURL *startupImageURL; // @synthesize startupImageURL;
 @property(retain) NSArray *icons; // @synthesize icons;
-@property(retain) NSURL *pageURL; // @synthesize pageURL;
+@property(retain, nonatomic) NSURL *pageURL; // @synthesize pageURL;
 @property(copy) NSString *identifier; // @synthesize identifier;
 - (id)getStartupImage:(int)arg1;
 - (void)requestCustomLandscapeStartupImageUpdate;

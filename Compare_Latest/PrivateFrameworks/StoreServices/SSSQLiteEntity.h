@@ -33,6 +33,7 @@
 + (id)queryWithDatabase:(id)arg1 predicate:(id)arg2;
 + (id)minValueForProperty:(id)arg1 predicate:(id)arg2 database:(id)arg3;
 + (id)maxValueForProperty:(id)arg1 predicate:(id)arg2 database:(id)arg3;
++ (id)countForProperty:(id)arg1 predicate:(id)arg2 database:(id)arg3;
 + (id)_aggregateValueForProperty:(id)arg1 function:(id)arg2 predicate:(id)arg3 database:(id)arg4;
 + (id)anyInDatabase:(id)arg1 predicate:(id)arg2;
 @property(readonly, nonatomic) long long persistentID; // @synthesize persistentID=_persistentID;

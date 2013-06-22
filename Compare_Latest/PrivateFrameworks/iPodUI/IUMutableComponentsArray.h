@@ -14,6 +14,7 @@
 }
 
 @property(retain, nonatomic) NSArray *componentArrays; // @synthesize componentArrays=_componentArrays;
+- (void).cxx_destruct;
 - (void)removeObjectsAtIndexes:(id)arg1;
 - (void)removeAllObjects;
 - (void)replaceObjectAtIndex:(unsigned int)arg1 withObject:(id)arg2;
@@ -26,7 +27,6 @@
 - (id)_mutableArrayForIndex:(unsigned int *)arg1;
 - (id)_arrayForIndex:(unsigned int *)arg1 mutable:(BOOL)arg2;
 - (unsigned int)count;
-- (void)dealloc;
 - (id)initWithComponentArrays:(id)arg1;
 
 @end

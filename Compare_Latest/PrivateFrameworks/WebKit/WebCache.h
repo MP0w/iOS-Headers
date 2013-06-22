@@ -12,6 +12,7 @@
 
 + (BOOL)isDisabled;
 + (void)setDisabled:(BOOL)arg1;
++ (struct CGImage *)imageForURL:(id)arg1;
 + (void)removeImageFromCacheForURL:(id)arg1;
 + (_Bool)addImageToCache:(struct CGImage *)arg1 forURL:(id)arg2;
 + (void)clearCachedCredentials;

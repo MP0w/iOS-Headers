@@ -4,60 +4,80 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Social/SLComposeViewController.h>
+#import <Social/SLComposeServiceViewController.h>
 
-@class NSMutableDictionary, NSString, SLFacebookRemoteComposeViewController, UIImageView;
+#import "SLFacebookAlbumChooserViewControllerDelegate-Protocol.h"
+#import "SLFacebookAudienceViewControllerDelegate-Protocol.h"
+#import "SLPlaceDataSourceDelegate-Protocol.h"
+#import "SLSheetPlaceViewControllerDelegate-Protocol.h"
 
-@interface SLFacebookComposeViewController : SLComposeViewController
+@class ACAccount, ACAccountStore, ALAssetsLibrary, SLFacebookAlbumChooserViewController, SLFacebookAlbumManager, SLFacebookPlaceManager, SLFacebookPost, SLFacebookPostPrivacyManager, SLFacebookSession, SLSheetAction, SLSheetPlaceViewController, UIViewController<SLFacebookAudienceViewController>;
+
+@interface SLFacebookComposeViewController : SLComposeServiceViewController <SLPlaceDataSourceDelegate, SLSheetPlaceViewControllerDelegate, SLFacebookAudienceViewControllerDelegate, SLFacebookAlbumChooserViewControllerDelegate>
 {
-    SLFacebookRemoteComposeViewController *_remoteViewController;
     BOOL _wasPresented;
-    NSMutableDictionary *_delayedActions;
-    UIImageView *_vignetteView;
-    NSString *_lastVignetteName;
-    int _savedStatusBarStyle;
+    BOOL _hasAccessToAccount;
+    BOOL _hasCheckedAccess;
+    BOOL _hasShowedLocationDeniedAlert;
+    SLFacebookSession *_session;
+    ACAccountStore *_accountStore;
+    SLSheetPlaceViewController *_placeViewController;
+    UIViewController<SLFacebookAudienceViewController> *_audienceViewController;
+    SLFacebookAlbumChooserViewController *_albumChooserViewController;
+    SLFacebookPost *_post;
+    SLFacebookPostPrivacyManager *_postPrivacyManager;
+    SLFacebookPlaceManager *_placeManager;
+    SLFacebookAlbumManager *_albumManager;
+    ALAssetsLibrary *_assetsLibrary;
+    SLSheetAction *_privacySheetAction;
+    SLSheetAction *_albumSheetAction;
+    SLSheetAction *_placeSheetAction;
+    struct {
+        unsigned int showAlbumAction:1;
+        unsigned int showPrivacyAction:1;
+        unsigned int showPlaceAction:1;
+    } _actionFlags;
     id _completionHandler;
-    BOOL _didFailLoadingRemoteViewController;
 }
 
-+ (BOOL)canPost;
-@property(retain) SLFacebookRemoteComposeViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
++ (id)serviceBundle;
+@property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
 - (void).cxx_destruct;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewDidUnload;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
+- (void)_presentFacebookDisabledAlert;
+- (void)_presentNoAccountsAlert;
+- (void)callCompletionHandlerWithResult:(int)arg1;
+- (void)setupCommonUI;
+- (BOOL)canPost;
+- (void)handleImagePostWithURL;
+- (BOOL)hasAccountAccess;
+- (void)send;
+- (BOOL)validateText:(id)arg1;
+- (void)placeViewController:(id)arg1 didSelectPlace:(id)arg2;
+- (void)placeManager:(id)arg1 failedWithError:(id)arg2;
+- (void)_setPlace:(id)arg1;
+- (void)placeManager:(id)arg1 updatedPlaces:(id)arg2;
+- (BOOL)_isLocationAuthorizationDenied;
+- (void)_presentPlaceViewController;
+- (void)_handlePostPrivacyResultWithSuccess:(BOOL)arg1 error:(id)arg2;
+- (void)_updateAudienceButtonForPrivacySettingType:(int)arg1 name:(id)arg2;
+- (void)audienceViewController:(id)arg1 didSelectPostPrivacySetting:(id)arg2;
+- (void)_presentAudienceViewController;
+- (void)albumChooserViewController:(id)arg1 didSelectAlbum:(id)arg2;
+- (void)_presentAlbumViewController;
+- (id)albumManager;
+@property(retain) ACAccountStore *accountStore; // @dynamic accountStore;
+@property(readonly) ACAccount *privilegedAccount;
+- (void)createPreviewIfNeeded;
 - (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)viewWillLayoutSubviews;
+- (void)viewDidUnload;
+- (void)loadView;
+- (id)sheetActions;
+- (id)_albumSheetAction;
+- (id)_placeSheetAction;
+- (id)_privacySheetAction;
 - (void)didReceiveMemoryWarning;
-- (BOOL)_useCustomDimmingView;
-- (void)updateVignetteToOrientation:(int)arg1;
-- (id)addURLWithProxyPreviewImage:(SEL)arg1;
-- (id)addDownSampledImageDataByProxyWithPreviewImage:(SEL)arg1;
-- (id)addImageByProxy;
-- (BOOL)addURL:(id)arg1 withPreviewImage:(id)arg2;
-- (void)setLongitude:(double)arg1 latitude:(double)arg2 name:(id)arg3;
-- (BOOL)removeAllURLs;
-- (BOOL)removeAllImages;
-- (id)completionHandler;
-- (void)setCompletionHandler:(id)arg1;
-- (BOOL)addAttachment:(id)arg1;
-- (BOOL)addURL:(id)arg1;
-- (BOOL)addImage:(id)arg1;
-- (BOOL)addImageAsset:(id)arg1;
-- (BOOL)supportsImageAsset:(id)arg1;
-- (BOOL)setInitialText:(id)arg1;
-- (id)_delayedActions;
-- (void)_performActionsForEvent:(id)arg1;
-- (void)_addDelayedAction:(id)arg1 forEvent:(void)arg2;
-- (BOOL)canAddContent;
-- (void)remoteController:(id)arg1 didLoadWithError:(id)arg2;
-- (void)_handleRemoteViewFailure;
-- (id)serviceType;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
 

@@ -30,12 +30,15 @@
 - (void)activate;
 - (double)autoLockTime;
 - (double)autoDimTime;
-- (BOOL)suppressesNotifications;
+- (BOOL)suppressesControlCenter;
+- (BOOL)suppressesNotificationCenter;
+- (BOOL)suppressesBanners;
 - (double)accelerometerSampleInterval;
 - (void)setAccelerometerSampleInterval:(double)arg1;
 - (BOOL)orientationChangedEventsEnabled;
 - (void)setOrientationChangedEventsEnabled:(BOOL)arg1;
 - (BOOL)allowsEventOnlySuspension;
+- (int)starkStatusBarStyle;
 - (int)statusBarStyle;
 @end
 

@@ -19,8 +19,8 @@
 + (struct CGPoint)readPoint2DFromXmlNode:(struct _xmlNode *)arg1;
 + (float)readOptionalFractionFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
 + (float)readRequiredFractionFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (float)readOptionalAngleFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
-+ (float)readRequiredAngleFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (double)readOptionalAngleFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
++ (double)readRequiredAngleFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
 + (float)readOptionalLengthFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
 + (float)readRequiredLengthFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;
 + (long)readOptionalLongFromXmlNode:(struct _xmlNode *)arg1 name:(const char *)arg2;

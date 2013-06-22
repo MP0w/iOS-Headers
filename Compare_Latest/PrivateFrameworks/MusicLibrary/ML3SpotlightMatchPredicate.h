@@ -6,24 +6,22 @@
 
 #import <MusicLibrary/ML3Predicate.h>
 
-@class ML3MusicLibrary, MLSQLiteStatement, NSArray;
+@class ML3SpotlightNameCache, NSArray, NSString;
 
 @interface ML3SpotlightMatchPredicate : ML3Predicate
 {
-    ML3MusicLibrary *_library;
-    MLSQLiteStatement *_lookupStatement;
-    struct sqlite3 *_db;
-    struct unordered_map<long long, NSString *, std::tr1::hash<long long>, std::equal_to<long long>, std::allocator<std::pair<const long long, NSString *>>, false> _matchingNames;
-    struct unordered_map<long long, NSString *, std::tr1::hash<long long>, std::equal_to<long long>, std::allocator<std::pair<const long long, NSString *>>, false> _cachedNames;
+    ML3SpotlightNameCache *_names;
     NSArray *_searchProperties;
+    NSString *_searchString;
 }
 
-@property(retain, nonatomic) NSArray *searchProperties; // @synthesize searchProperties=_searchProperties;
-- (id).cxx_construct;
-- (void).cxx_destruct;
++ (id)predicateWithProperties:(id)arg1 searchString:(id)arg2;
+@property(readonly, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+- (id)SQLJoinClausesForClass:(Class)arg1;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (void)dealloc;
-- (id)initWithLibrary:(id)arg1;
+- (id)initWithSearchString:(id)arg1 matchingProperties:(id)arg2;
+- (id)spotlightPredicate;
 
 @end
 

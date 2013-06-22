@@ -8,6 +8,8 @@
 
 #import "NSCopying-Protocol.h"
 
+@class NSMutableArray;
+
 @interface _UIPopoverLayoutInfo : NSObject <NSCopying>
 {
     struct UIEdgeInsets _contentInset;
@@ -21,16 +23,17 @@
     struct CGRect _frame;
     float _offset;
     unsigned int _arrowDirection;
-    BOOL _updatesEnabled;
     BOOL _preferLandscapeOrientations;
+    BOOL _updatesEnabled;
+    NSMutableArray *_candidates;
 }
 
 + (id)_observationKeys;
+@property(nonatomic) BOOL preferLandscapeOrientations; // @synthesize preferLandscapeOrientations=_preferLandscapeOrientations;
 @property(nonatomic, getter=_updatesEnabled, setter=_setUpdatesEnabled:) BOOL updatesEnabled; // @synthesize updatesEnabled=_updatesEnabled;
 @property(readonly, nonatomic) unsigned int arrowDirection; // @synthesize arrowDirection=_arrowDirection;
 @property(readonly, nonatomic) float offset; // @synthesize offset=_offset;
 @property(readonly, nonatomic) struct CGRect frame; // @synthesize frame=_frame;
-@property(nonatomic) BOOL preferLandscapeOrientations; // @synthesize preferLandscapeOrientations=_preferLandscapeOrientations;
 @property(nonatomic) BOOL constrainToTargetRect; // @synthesize constrainToTargetRect=_constrainToTargetRect;
 @property(nonatomic) struct CGRect targetRect; // @synthesize targetRect=_targetRect;
 @property(nonatomic) struct UIEdgeInsets containingFrameInsets; // @synthesize containingFrameInsets=_containingFrameInsets;
@@ -42,6 +45,8 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_updateOutputs;
 - (struct CGSize)_popoverViewSizeForContentSize:(struct CGSize)arg1 arrowDirection:(unsigned int)arg2;
+- (id)candidates;
+- (void)setProperties:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;

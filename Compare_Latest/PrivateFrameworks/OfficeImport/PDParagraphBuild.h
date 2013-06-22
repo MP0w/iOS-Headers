@@ -27,8 +27,8 @@
 - (double)autoAdvanceTime;
 - (id)timeNodeDataList;
 - (id)addTimeNodeData;
-- (id)timeNodeDataAtIndex:(int)arg1;
-- (int)timeNodeDataListCount;
+- (id)timeNodeDataAtIndex:(unsigned int)arg1;
+- (unsigned int)timeNodeDataListCount;
 - (void)dealloc;
 - (id)init;
 

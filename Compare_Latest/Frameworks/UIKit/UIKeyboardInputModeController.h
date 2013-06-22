@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSString, UIKeyboardInputMode;
+@class NSArray, NSString, UIKeyboardInputMode;
 
 @interface UIKeyboardInputModeController : NSObject
 {
     UIKeyboardInputMode *_currentInputMode;
-    NSMutableArray *_supportedInputModeIdentifiers;
     NSArray *_inputModesWithoutHardwareSupport;
     NSString *currentLocale;
     NSString *currentLanguage;
@@ -19,6 +18,7 @@
     NSArray *enabledInputModes;
     NSArray *normalizedInputModes;
     NSArray *defaultKeyboardInputModes;
+    NSArray *defaultRawInputModes;
     NSArray *defaultInputModes;
     NSArray *defaultNormalizedInputModes;
     id <UIKeyboardInputModeControllerDelegate> _delegate;
@@ -28,6 +28,7 @@
 @property(nonatomic) id <UIKeyboardInputModeControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain) NSArray *defaultNormalizedInputModes; // @synthesize defaultNormalizedInputModes;
 @property(retain) NSArray *defaultInputModes; // @synthesize defaultInputModes;
+@property(copy, nonatomic) NSArray *defaultRawInputModes; // @synthesize defaultRawInputModes;
 @property(retain) NSArray *defaultKeyboardInputModes; // @synthesize defaultKeyboardInputModes;
 @property(retain) NSArray *normalizedInputModes; // @synthesize normalizedInputModes;
 @property(retain) NSArray *enabledInputModes; // @synthesize enabledInputModes;
@@ -36,11 +37,14 @@
 @property(retain) NSString *currentLocale; // @synthesize currentLocale;
 - (void)startConnectionForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
 - (void)startDictationConnectionForFileAtURL:(id)arg1 forInputModeIdentifier:(id)arg2;
+- (id)suggestedInputModesForCurrentLocale;
+- (id)suggestedInputModesForCurrentLocale:(BOOL)arg1 fallbackToDefaultInputModes:(BOOL)arg2;
 - (id)defaultEnabledInputModesForCurrentLocale:(BOOL)arg1;
-- (void)clearCachedValues;
+- (BOOL)currentLocaleRequiresExtendedSetup;
 - (void)updateCurrentInputMode:(id)arg1;
 @property(retain) UIKeyboardInputMode *currentInputMode;
 @property(readonly, nonatomic) BOOL containsDictationSupportedInputMode;
+@property(readonly, nonatomic) UIKeyboardInputMode *currentPublicInputMode;
 - (id)activeInputModes;
 - (id)inputModeWithIdentifier:(id)arg1;
 - (void)dealloc;

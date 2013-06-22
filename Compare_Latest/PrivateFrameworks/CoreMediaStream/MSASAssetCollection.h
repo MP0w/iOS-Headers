@@ -8,10 +8,13 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSArray, NSDictionary, NSString;
+@class NSArray, NSDate, NSDictionary, NSString;
 
 @interface MSASAssetCollection : NSObject <NSCopying>
 {
+    BOOL _hasComments;
+    BOOL _isDeletable;
+    BOOL _isMine;
     NSString *_GUID;
     NSString *_ctag;
     NSString *_albumGUID;
@@ -20,24 +23,27 @@
     NSString *_path;
     id <NSCoding> _userInfo;
     NSDictionary *_metadata;
-    long long _photoNumber;
-    BOOL _hasComments;
-    BOOL _isMine;
+    NSDate *_timestamp;
+    NSString *_personID;
     NSString *_fullName;
     NSString *_firstName;
     NSString *_lastName;
     NSString *_email;
+    long long _photoNumber;
 }
 
 + (BOOL)supportsSecureCoding;
 + (id)assetCollectionWithAssetCollection:(id)arg1;
 + (id)MSASPAssetCollectionFromProtocolDictionary:(id)arg1;
+@property(nonatomic) BOOL isMine; // @synthesize isMine=_isMine;
+@property(nonatomic) BOOL isDeletable; // @synthesize isDeletable=_isDeletable;
 @property(retain, nonatomic) NSString *email; // @synthesize email=_email;
 @property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(retain, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 @property(retain, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
-@property(nonatomic) BOOL isMine; // @synthesize isMine=_isMine;
+@property(retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
 @property(nonatomic) BOOL hasComments; // @synthesize hasComments=_hasComments;
+@property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) long long photoNumber; // @synthesize photoNumber=_photoNumber;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) id <NSCoding> userInfo; // @synthesize userInfo=_userInfo;
@@ -49,6 +55,8 @@
 @property(retain, nonatomic) NSString *GUID; // @synthesize GUID=_GUID;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)mediaAssetType;
+- (BOOL)hasVideoAsset;
 - (void)setMetadataValue:(id)arg1 forKey:(id)arg2;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;

@@ -6,27 +6,26 @@
 
 #import <MediaPlayer/MPMediaItem.h>
 
+#import "MPCacheableConcreteMediaEntity-Protocol.h"
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class MPMediaLibrary, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class MPConcreteMediaEntityPropertiesCache, MPMediaLibrary;
 
-@interface MPConcreteMediaItem : MPMediaItem <NSCoding, NSCopying>
+@interface MPConcreteMediaItem : MPMediaItem <NSCoding, NSCopying, MPCacheableConcreteMediaEntity>
 {
     MPMediaLibrary *_library;
     unsigned long long _persistentID;
-    NSMutableDictionary *_properties;
-    NSObject<OS_dispatch_queue> *_propertyQueue;
-    BOOL _cachesProperties;
+    MPConcreteMediaEntityPropertiesCache *_propertiesCache;
 }
 
-+ (void)persistentID:(unsigned long long)arg1 didChange:(BOOL)arg2;
++ (void)didChangeEntityWithDataProviderEntityClass:(Class)arg1 persistentID:(unsigned long long)arg2 deleted:(BOOL)arg3;
 + (id)concreteMediaItemWithPersistentID:(unsigned long long)arg1 library:(id)arg2;
 + (id)concreteMediaItemWithPersistentID:(unsigned long long)arg1;
-- (void)updateLastUsedDateToCurrentDate;
+- (void).cxx_destruct;
+- (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id)arg1;
 - (BOOL)incrementPlayCountForStopTime:(double)arg1;
 - (void)incrementPlayCountForPlayingToEnd;
-- (void)clearBookmarkTime;
 - (void)incrementSkipCount;
 - (void)noteWasPlayedToTime:(double)arg1 skipped:(BOOL)arg2;
 - (BOOL)didSkipWithPlayedToTime:(double)arg1;
@@ -34,7 +33,8 @@
 - (void)markNominalAmountHasBeenPlayed;
 - (void)reallyIncrementPlayCount;
 - (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
-- (void)setValue:(id)arg1 forProperty:(id)arg2;
+- (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(id)arg3;
+- (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
 - (id)_nonBatchableOrCachedValueForProperty:(id)arg1 needsFetch:(char *)arg2;
@@ -45,10 +45,10 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
-- (void)invalidate;
-- (void)delete;
+- (void)invalidateCachedProperties;
+@property(readonly, nonatomic) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
 - (void)dealloc;
-- (id)_initWithPersistentID:(unsigned long long)arg1 library:(id)arg2 cachesProperties:(BOOL)arg3;
+- (id)_initWithPersistentID:(unsigned long long)arg1 library:(id)arg2 propertiesCache:(id)arg3;
 - (id)initWithPersistentID:(unsigned long long)arg1 library:(id)arg2;
 - (id)initWithPersistentID:(unsigned long long)arg1;
 - (id)init;

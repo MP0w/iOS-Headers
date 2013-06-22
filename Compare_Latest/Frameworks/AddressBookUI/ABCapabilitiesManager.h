@@ -8,17 +8,22 @@
 
 @interface ABCapabilitiesManager : NSObject
 {
-    BOOL _isListeningToFTCServiceAvailability;
+    BOOL _isListeningToIDSServiceAvailability;
 }
 
 + (void)_setDefaultCapabilitiesManager:(id)arg1;
 + (id)defaultCapabilitiesManager;
+- (BOOL)_isAppAvailable:(id)arg1;
+- (BOOL)isFaceTimeAppAvailable;
+- (BOOL)isMessagesAppAvailable;
+- (BOOL)isMailAppAvailable;
+- (BOOL)isPhoneAppAvailable;
 - (BOOL)isWeiboServiceAvailable;
 - (BOOL)isTwitterServiceAvailable;
 - (BOOL)hasAdditionalTextTones;
-- (void)_startListeningToFTCServiceAvailabilityIfNecessary;
-- (void)removeFTCServiceAvailabilityListener:(id)arg1;
-- (void)addFTCServiceAvailabilityListener:(id)arg1 selector:(SEL)arg2;
+- (void)_startListeningToIDSServiceAvailabilityIfNecessary;
+- (void)removeIDSServiceAvailabilityListener:(id)arg1;
+- (void)addIDSServiceAvailabilityListener:(id)arg1 selector:(SEL)arg2;
 - (id)conferenceURLForDestinationID:(id)arg1;
 - (id)conferenceURLForPhoneNumber:(id)arg1;
 - (BOOL)hasPreviouslyConferencedWithID:(id)arg1;

@@ -6,20 +6,27 @@
 
 #import <VectorKit/VKVectorMapModel.h>
 
-@class VKRoadPainter;
+#import "VKStylesheetObserver-Protocol.h"
 
-@interface VKRoadMapModel : VKVectorMapModel
+@class VKRoadPainter, VKStylesheet;
+
+@interface VKRoadMapModel : VKVectorMapModel <VKStylesheetObserver>
 {
     VKRoadPainter *_roadPainter;
     BOOL _drawRoads;
 }
 
 @property(nonatomic) BOOL drawRoads; // @synthesize drawRoads=_drawRoads;
+- (void)stylesheetDidChange;
 - (void)dealloc;
 - (id)init;
 - (void)drawDebugScene:(id)arg1 WithContext:(id)arg2;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
+- (unsigned int)supportedRenderPasses;
 - (unsigned int)mapLayerPosition;
+
+// Remaining properties
+@property(readonly, nonatomic) VKStylesheet *stylesheet;
 
 @end
 

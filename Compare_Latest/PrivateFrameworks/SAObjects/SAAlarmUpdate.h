@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
 @class NSArray, NSNumber, NSString, NSURL;
 
-@interface SAAlarmUpdate : SABaseClientBoundCommand
+@interface SAAlarmUpdate : SADomainCommand
 {
 }
 
@@ -22,7 +22,6 @@
 @property(copy, nonatomic) NSNumber *enabled;
 @property(copy, nonatomic) NSURL *alarmId;
 @property(copy, nonatomic) NSArray *addedFrequency;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -14,6 +14,7 @@
 @property(nonatomic) unsigned short provider; // @synthesize provider=_provider;
 - (Class)responseClass;
 - (id)init;
+- (void)setDeviceGEOCoordinate:(CDStruct_c3b9c2ee)arg1;
 
 @end
 

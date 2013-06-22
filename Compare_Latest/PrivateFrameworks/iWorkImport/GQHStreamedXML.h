@@ -15,8 +15,8 @@
         void *_field2;
         void *_field3;
         struct _xmlCharEncodingHandler *_field4;
-        struct _xmlBuffer *_field5;
-        struct _xmlBuffer *_field6;
+        struct _xmlBuf *_field5;
+        struct _xmlBuf *_field6;
         int _field7;
         int _field8;
     } *mOutputBuffer;

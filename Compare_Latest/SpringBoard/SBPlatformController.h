@@ -6,65 +6,43 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableDictionary, NSString;
+@class NSArray, NSDictionary, NSLock, NSSet, NSString;
 
 @interface SBPlatformController : NSObject
 {
     NSString *_currentConfigurationName;
-    NSMutableDictionary *_currentConfiguration;
-    NSMutableDictionary *_currentCapabilities;
-    NSMutableDictionary *_regionalOverrideSoftwareBehaviors;
-    NSDictionary *_discoveredCapabilities;
-    int _currentLockdownState;
-    BOOL _saveLocalePostActivation;
+    long _defaultIconInfoOnce;
+    NSArray *_defaultStarkIconState;
+    NSDictionary *_defaultIconState;
+    NSSet *_defaultIconStateDisplayIdentifiers;
+    NSLock *_iconStateDisplayIdentifiersLock;
+    NSSet *_iconStateDisplayIdentifiers;
+    NSString *_localizedDeviceName;
+    BOOL _hasGasGauge;
+    BOOL _supportsOpenGLES2;
+    BOOL _internalInstall;
+    BOOL _carrierInstall;
 }
 
++ (id)uniqueDeviceIdentifier;
++ (id)deviceClass;
 + (id)productType;
 + (id)hardwareModel;
 + (id)systemBuildVersion;
 + (id)sharedInstance;
-- (void)setOriginalRegionFormatCountryCodeAndResetSoftwareBehaviorsIfNecessary;
-- (void)localeChanged;
-- (void)_iCloudRestoreDidEnd;
-- (void)visibleIdentifiersChanged:(id)arg1;
-- (void)lockdownStateChanged;
-- (id)regionalOverrideSoftwareBehaviorForKey:(id)arg1;
-- (void)setSoftwareBehavior:(id)arg1 forKey:(id)arg2;
-- (void)resetDefaultSoftwareBehaviorsAndPost:(BOOL)arg1;
-- (void)noteConfigurationChangedWithKeys:(id)arg1;
-- (struct __CFBoolean *)currentITunesStoreCapability;
-- (void)addTelephonyCapabilitiesAndPost:(BOOL)arg1;
-- (void)discoverCurrentConfiguration;
-- (BOOL)allowYouTubePlugin;
-- (BOOL)allowYouTube;
-- (BOOL)isCarrierInstall:(BOOL)arg1 hasInternalBundle:(BOOL)arg2;
-- (BOOL)allowSensitiveUI:(BOOL)arg1 hasInternalBundle:(BOOL)arg2;
-- (id)_copyDefaultConfigInfo;
-- (id)_copyConfigInfoWithName:(id)arg1;
-- (void)postCurrentConfiguration;
-- (id)currentConfigurationName;
-- (void)noteDeveloperDeviceStateMightHaveChanged;
-- (void)noteCapabilityOverridesMightHaveChanged;
-- (void)noteCapabilityOverrideMightHaveChanged:(id)arg1 setByPreference:(id)arg2;
-- (BOOL)capabililtyOverrideEnabledByPreference:(id)arg1;
-- (void)noteITunesStoreCapabilityChanged;
-- (void)registerForIconVisibilityChanges;
+- (void)_visibleIdentifiersChanged:(id)arg1;
+- (void)_loadDefaultIconInfoIfNecessary;
+- (id)_currentConfigurationName;
 - (BOOL)isCarrierInstall;
 - (BOOL)isInternalInstall;
+- (BOOL)supportsOpenGLES2;
+- (BOOL)hasGasGauge;
 - (id)localizedPlatformName;
-- (BOOL)matchesPlatforms:(id)arg1;
-- (id)defaultDisplayIdentifiers;
-- (void)_addIconListIdentifiers:(id)arg1 toSet:(id)arg2;
-- (id)iconState;
-- (id)platformName;
-- (BOOL)hasRestriction:(id)arg1;
-- (id)enabledCapabilities;
-- (BOOL)hasCapability:(id)arg1;
-- (void)addCapabilities:(id)arg1 resetCapabilites:(id)arg2;
-- (void)setValue:(id)arg1 forCapability:(id)arg2;
-- (id)hardwareInfoForCapability:(id)arg1;
-- (id)defaultInfoForCapability:(id)arg1;
-- (id)infoForCapability:(id)arg1;
+- (id)iconStateDisplayIdentifiers;
+- (void)registerForIconVisibilityChanges;
+- (id)defaultIconStateDisplayIdentifiers;
+- (id)defaultStarkIconState;
+- (id)defaultIconState;
 - (void)dealloc;
 - (id)init;
 

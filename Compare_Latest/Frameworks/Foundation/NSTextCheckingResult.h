@@ -17,6 +17,7 @@
 + (id)transitInformationCheckingResultWithRange:(struct _NSRange)arg1 components:(id)arg2;
 + (id)phoneNumberCheckingResultWithRange:(struct _NSRange)arg1 phoneNumber:(id)arg2;
 + (id)regularExpressionCheckingResultWithRanges:(struct _NSRange *)arg1 count:(unsigned int)arg2 regularExpression:(id)arg3;
++ (id)correctionCheckingResultWithRange:(struct _NSRange)arg1 replacementString:(id)arg2 alternativeStrings:(id)arg3;
 + (id)correctionCheckingResultWithRange:(struct _NSRange)arg1 replacementString:(id)arg2;
 + (id)replacementCheckingResultWithRange:(struct _NSRange)arg1 replacementString:(id)arg2;
 + (id)dashCheckingResultWithRange:(struct _NSRange)arg1 replacementString:(id)arg2;
@@ -31,6 +32,7 @@
 - (void *)underlyingResult;
 - (id)phoneNumber;
 - (id)regularExpression;
+- (id)alternativeStrings;
 - (id)replacementString;
 - (id)URL;
 - (id)components;

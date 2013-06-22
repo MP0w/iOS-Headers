@@ -11,8 +11,7 @@
 - (void)switchToContextForQuery:(id)arg1 behindTopController:(BOOL)arg2;
 - (BOOL)reloadWithDataSource:(id)arg1 keepPlayingCurrentItemIfPossible:(BOOL)arg2;
 - (BOOL)reloadWithDataSource:(id)arg1;
-- (id)currentMediaItem;
-- (id)currentMediaQuery;
+- (id)currentStation;
 - (void)_updateFeederModeFromCurrentItem;
 @end
 

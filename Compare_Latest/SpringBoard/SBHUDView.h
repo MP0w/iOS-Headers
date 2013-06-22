@@ -6,16 +6,19 @@
 
 #import "UIView.h"
 
-@class NSString, UIImage, UIImageView, UILabel;
+@class NSString, UIImage, UIImageView, _UIBackdropView;
 
 @interface SBHUDView : UIView
 {
     int _level;
-    UILabel *_titleLabel;
-    UILabel *_subtitleLabel;
-    UIImageView *_imageView;
+    NSString *_title;
+    NSString *_subtitle;
+    UIImage *_image;
     BOOL _showsProgress;
     float _progress;
+    UIView *_blockView;
+    _UIBackdropView *_backdropView;
+    UIImageView *_backdropMaskImageView;
 }
 
 + (float)progressIndicatorStep;
@@ -23,13 +26,17 @@
 @property(nonatomic) float progress; // @synthesize progress=_progress;
 @property(nonatomic) BOOL showsProgress; // @synthesize showsProgress=_showsProgress;
 @property(nonatomic) int level; // @synthesize level=_level;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)drawBlockForValue:(float)arg1 point:(struct CGPoint)arg2;
+- (void)layoutSubviews;
+- (void)_updateBlockView;
+- (id)_blockColorForValue:(float)arg1;
+- (void)_updateBlockView:(id)arg1 value:(float)arg2 blockSize:(struct CGSize)arg3 point:(struct CGPoint)arg4;
 @property(retain, nonatomic) UIImage *image;
 @property(retain, nonatomic) NSString *subtitle;
 @property(retain, nonatomic) NSString *title;
-- (void)layoutSubviews;
 - (BOOL)displaysLabel;
+- (void)_updateBackdropMask;
+- (void)dismissWithCompletion:(id)arg1;
+- (void)cancelDismissal;
 - (void)dealloc;
 - (id)initWithHUDViewLevel:(int)arg1;
 

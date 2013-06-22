@@ -23,8 +23,6 @@
 @property(nonatomic) ABPersonViewControllerHelper *helper; // @synthesize helper=_helper;
 @property(nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) ABStyleProvider *styleProvider; // @synthesize styleProvider=_styleProvider;
-- (id)secondarySourceNameForPerson:(void *)arg1;
-- (id)primarySourceNameForPerson:(void *)arg1;
 - (void)imagePicker:(id)arg1 didDismissActionSheet:(id)arg2;
 - (void)imagePicker:(id)arg1 presentActionSheet:(id)arg2;
 - (void)showImageMenuForHelper:(id)arg1;

@@ -39,6 +39,7 @@
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)_handleEndedTouches:(id)arg1 withFinalStateAdjustments:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (void)_processTouchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (BOOL)_updateMovingTouchesArraySavingOldArray:(id *)arg1;
 - (void)_removeHysteresisFromTranslation;

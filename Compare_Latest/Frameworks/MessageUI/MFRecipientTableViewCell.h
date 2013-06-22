@@ -6,24 +6,38 @@
 
 #import "UITableViewCell.h"
 
-@class MFComposeRecipient, MFRecipientTableViewCellView, UIImageView;
+@class MFComposeRecipient, MFRecipientTableViewCellDetailView, MFRecipientTableViewCellTitleView, UIColor, UIImageView;
 
 @interface MFRecipientTableViewCell : UITableViewCell
 {
-    MFRecipientTableViewCellView *_recipientView;
+    MFRecipientTableViewCellTitleView *_titleView;
+    MFRecipientTableViewCellDetailView *_detailView;
     MFComposeRecipient *_recipient;
     UIImageView *_cellImageView;
+    UIColor *_tintColor;
+    BOOL _shouldHighlightCompleteMatches;
+    BOOL _shouldDimIrrelevantInformation;
 }
 
++ (id)_defaultTintColor;
++ (float)heightWithRecipient:(id)arg1 width:(float)arg2;
 + (float)height;
++ (id)_tintedAttributedString:(id)arg1 toColor:(id)arg2 shouldDim:(BOOL)arg3;
 + (id)cellForRecipient:(id)arg1;
 + (id)identifier;
-- (void)dealloc;
+@property(nonatomic) BOOL shouldDimIrrelevantInformation; // @synthesize shouldDimIrrelevantInformation=_shouldDimIrrelevantInformation;
+@property(nonatomic) BOOL shouldHighlightCompleteMatches; // @synthesize shouldHighlightCompleteMatches=_shouldHighlightCompleteMatches;
+- (void)setTintColor:(id)arg1 animated:(BOOL)arg2;
+- (id)tintColor;
+- (void)setBackgroundColor:(id)arg1;
+- (void)setOpaque:(BOOL)arg1;
 - (void)setCellImage:(id)arg1 highlightedImage:(id)arg2;
 - (void)setRecipient:(id)arg1;
 - (id)recipient;
 - (void)layoutSubviews;
-- (struct CGRect)frameForRecipientView;
+- (struct CGRect)_frameForDetailView;
+- (struct CGRect)_frameForTitleView;
+- (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

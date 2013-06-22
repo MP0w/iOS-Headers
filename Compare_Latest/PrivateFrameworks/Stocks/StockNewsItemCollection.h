@@ -10,12 +10,12 @@
 
 @interface StockNewsItemCollection : NSObject
 {
-    NSArray *newsItems;
-    double expirationTime;
+    NSArray *_newsItems;
+    double _expirationTime;
 }
 
-@property(nonatomic) double expirationTime; // @synthesize expirationTime;
-@property(retain, nonatomic) NSArray *newsItems; // @synthesize newsItems;
+@property(nonatomic) double expirationTime; // @synthesize expirationTime=_expirationTime;
+@property(retain, nonatomic) NSArray *newsItems; // @synthesize newsItems=_newsItems;
 - (void).cxx_destruct;
 - (id)archiveArray;
 - (id)initWithArchiveArray:(id)arg1;

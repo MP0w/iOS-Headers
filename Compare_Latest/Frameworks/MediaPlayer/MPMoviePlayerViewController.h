@@ -13,6 +13,7 @@
     id _internal;
 }
 
+- (void).cxx_destruct;
 - (void)_restoreStatusBarAnimated:(BOOL)arg1;
 - (void)_moviePlayerViewController_playbackDidFinishNotification:(id)arg1;
 - (void)_moviePlayerViewController_applicationDidEnterBackgroundNotification:(id)arg1;
@@ -24,13 +25,15 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotate;
 - (void)loadView;
 - (void)remoteControlReceivedWithEvent:(id)arg1;
 - (BOOL)canBecomeFirstResponder;
 @property(readonly, nonatomic) MPMoviePlayerController *moviePlayer;
 - (void)dealloc;
 - (id)initWithContentURL:(id)arg1;
+- (id)initWithAsset:(id)arg1;
 - (id)init;
 
 @end

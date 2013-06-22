@@ -10,7 +10,7 @@
 #import "MSPublishStreamsProtocolDelegate-Protocol.h"
 #import <CoreMediaStream/MSPublisher-Protocol.h>
 
-@class MSMediaStreamDaemon, MSObjectQueue, MSPublishStreamsProtocol, NSMutableArray, NSMutableDictionary, NSURL;
+@class MSMediaStreamDaemon, MSObjectQueue, MSPublishStreamsProtocol, NSArray, NSMutableArray, NSMutableDictionary, NSURL;
 
 @interface MSPublisher : MSCupidStateMachine <MSPublisher, MSPublishStreamsProtocolDelegate, MSPublishStorageProtocolDelegate>
 {
@@ -18,6 +18,9 @@
     MSMediaStreamDaemon *_daemon;
     int _state;
     MSObjectQueue *_uploadQueue;
+    MSObjectQueue *_derivativesQueue;
+    MSObjectQueue *_quarantinedQueue;
+    NSArray *_pendingDerivativesQueue;
     NSMutableArray *_requestAuthQueue;
     unsigned int _sendingQueueCount;
     NSMutableArray *_sendingQueue;
@@ -76,6 +79,14 @@
 - (void)_requestDerivatives;
 - (void)publish;
 - (BOOL)_isAllowedToUpload;
+- (void)reenqueueQuarantinedAssetCollections;
+- (id)_checkObjectWrappers:(id)arg1;
+- (id)_checkAssetCollectionFiles:(id)arg1;
+- (id)_collectionWithNoDerivatives:(id)arg1;
+- (BOOL)_verifyAssetFile:(id)arg1;
+- (void)_quarantineOrDiscardWrappers:(id)arg1 withError:(id)arg2;
+- (void)_registerAllAssetsForWrapper:(id)arg1;
+- (void)_registerAsset:(id)arg1;
 - (void)_serverSideConfigurationDidChange:(id)arg1;
 - (void)_refreshServerSideConfiguredParameters;
 - (void)computeHashForAsset:(id)arg1;

@@ -14,7 +14,8 @@
     NSMutableArray *_buttons;
 }
 
-@property(nonatomic) id <IUMediaActionButtonsCellDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <IUMediaActionButtonsCellDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (id)_newButtonWithTitle:(id)arg1 action:(SEL)arg2;
 - (id)_buttonImageForControlState:(unsigned int)arg1;
 - (void)reconfigureWithButtonTitles:(id)arg1 animated:(BOOL)arg2;

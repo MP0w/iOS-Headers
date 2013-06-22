@@ -10,8 +10,6 @@
 
 @interface SFUDataRepresentation : NSObject
 {
-    BOOL mHasHash;
-    unsigned int mHash;
     BOOL mHasSha1Hash;
     NSData *mSha1Hash;
 }

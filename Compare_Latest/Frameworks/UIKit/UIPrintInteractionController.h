@@ -13,6 +13,7 @@
     UIPrintInfo *_printInfo;
     id <UIPrintInteractionControllerDelegate> _delegate;
     BOOL _showsPageRange;
+    BOOL _hidesNumberOfCopies;
     UIPrintPageRenderer *_printPageRenderer;
     UIPrintFormatter *_printFormatter;
     id _printingItem;
@@ -55,9 +56,12 @@
 @property(retain, nonatomic) PKPrinter *printer;
 @property(nonatomic) struct _NSRange pageRange;
 @property(readonly, nonatomic) int pageCount;
+@property(nonatomic) BOOL showsNumberOfCopies;
+- (BOOL)_canShowCopies;
 - (BOOL)_canShowPaperList;
 - (BOOL)_canShowPageRange;
 - (BOOL)_canShowDuplex;
+- (struct CGSize)_printItemContentSize;
 - (id)_currentPrintInfo;
 - (void)_cleanPrintState;
 - (void)dismissAnimated:(BOOL)arg1;

@@ -21,6 +21,7 @@
 }
 
 @property(nonatomic) int style; // @synthesize style=_style;
+- (void).cxx_destruct;
 - (void)_updateMarqueeView;
 - (void)_stopMarquee;
 - (void)_startMarquee;

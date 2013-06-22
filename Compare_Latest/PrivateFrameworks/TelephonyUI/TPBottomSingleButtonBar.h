@@ -6,21 +6,16 @@
 
 #import <TelephonyUI/TPBottomBar.h>
 
-@class TPButton, UIImageView, UIView;
+@class TPButton;
 
 @interface TPBottomSingleButtonBar : TPBottomBar
 {
     id _delegate;
-    UIImageView *_backgroundView;
-    UIView *_well;
     TPButton *_button;
-    BOOL _allowsDroppingIcons;
 }
 
 + (id)_backgroundImage;
-- (void)setSuppressDrawingBackground:(BOOL)arg1;
 - (void)setWellAlpha:(float)arg1;
-- (void)layoutSubviews;
 - (id)button;
 - (void)setButton:(id)arg1 andStyle:(BOOL)arg2;
 - (void)dealloc;

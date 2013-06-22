@@ -20,6 +20,7 @@
 + (id)_currentMoviePlayerController;
 + (void)_setCurrentMoviePlayerController:(id)arg1;
 + (Class)windowClass;
+- (void).cxx_destruct;
 - (void)viewControllerRequestsExit:(id)arg1;
 - (void)_videoViewScaleModeDidChange:(id)arg1;
 - (void)_bufferingStatusDidChangeNotification:(id)arg1;

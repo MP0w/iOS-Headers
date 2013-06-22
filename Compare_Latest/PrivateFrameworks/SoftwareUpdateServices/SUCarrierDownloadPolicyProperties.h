@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface SUCarrierDownloadPolicyProperties : NSObject <NSCoding>
+@interface SUCarrierDownloadPolicyProperties : NSObject <NSSecureCoding>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)_numberForKey:(id)arg1;

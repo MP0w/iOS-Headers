@@ -14,8 +14,10 @@
     OCPPackageProperties *mProperties;
     NSMutableDictionary *mDefaultContentTypes;
     NSMutableDictionary *mContentTypeOverrides;
+    NSMutableDictionary *mPartNameForContentType;
 }
 
+- (id)partNameForContentType:(id)arg1;
 - (id)properties;
 - (id)relationshipsByType:(id)arg1;
 - (id)relationshipForIdentifier:(id)arg1;
@@ -24,7 +26,8 @@
 - (id)init;
 - (id)contentTypeForPartLocation:(id)arg1;
 - (id)initWithRelationshipsXml:(struct _xmlDoc *)arg1 propertiesXml:(struct _xmlDoc *)arg2 contentTypesXml:(struct _xmlDoc *)arg3;
-- (void)readContentTypeOverrideFromElement:(struct _xmlNode *)arg1;
+- (void)processOverrides:(id)arg1;
+- (void)readContentTypeOverrideFromElement:(struct _xmlNode *)arg1 intoMap:(id)arg2;
 - (void)readDefaultContentTypeFromElement:(struct _xmlNode *)arg1;
 - (void)readContentTypesXml:(struct _xmlDoc *)arg1;
 

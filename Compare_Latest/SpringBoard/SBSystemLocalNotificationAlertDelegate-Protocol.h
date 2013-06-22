@@ -5,9 +5,9 @@
  */
 
 @protocol SBSystemLocalNotificationAlertDelegate
-- (void)systemLocalNotificationAlertShouldLaunch:(id)arg1 forApplication:(id)arg2;
+- (void)systemLocalNotificationAlertShouldLaunch:(id)arg1;
 
 @optional
-- (void)systemLocalNotificationAlertShouldSnooze:(id)arg1 forApplication:(id)arg2;
+- (void)systemLocalNotificationAlertShouldSnooze:(id)arg1;
 @end
 

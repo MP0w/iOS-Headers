@@ -7,10 +7,12 @@
 #import "NSObject.h"
 
 #import "BBObserverDelegate-Protocol.h"
+#import "SBVolumePressBandit-Protocol.h"
+#import "_UISettingsKeyObserver-Protocol.h"
 
-@class BBObserver, CPDistributedNotificationCenter, NSArray, NSMutableArray, NSMutableSet, NSTimer;
+@class BBObserver, CPDistributedNotificationCenter, NSArray, NSHashTable, NSMutableArray, NSMutableSet, NSTimer, SBAlertItem, SBAlertItemsSettings;
 
-@interface SBAlertItemsController : NSObject <BBObserverDelegate>
+@interface SBAlertItemsController : NSObject <_UISettingsKeyObserver, SBVolumePressBandit, BBObserverDelegate>
 {
     NSMutableArray *_lockedAlertItems;
     NSMutableArray *_unlockedAlertItems;
@@ -22,10 +24,19 @@
     BOOL _systemShuttingDown;
     NSMutableSet *_forceAlertsToPendReasons;
     BBObserver *_bbObserver;
+    NSHashTable *_observers;
+    SBAlertItemsSettings *_settings;
+    SBAlertItem *_testItem;
 }
 
 + (id)sharedInstance;
 @property(readonly, nonatomic) NSArray *lockedAlertItems; // @synthesize lockedAlertItems=_lockedAlertItems;
+- (void)handleVolumeDecrease;
+- (void)handleVolumeIncrease;
+- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
+- (void)_notifyObservers:(id)arg1;
 - (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
 - (void)_buddyDidExit;
 - (void)_notificationClientEnded:(id)arg1;
@@ -36,7 +47,8 @@
 - (void)notifySystemOfAlertItemActivation:(id)arg1;
 - (void)_postAlertPresentedNotificationForType:(int)arg1 sender:(id)arg2 date:(id)arg3;
 - (void)noteVolumeOrLockPressedOverLockedAlerts;
-- (void)deactivateAlertItemsForAlertActivationAndPendMiniAlerts:(BOOL)arg1;
+- (void)stopPendingAlertItemsForFullscreenAlert;
+- (void)deactivateAlertItemsForFullscreenAlertActivationAndPendMiniAlerts:(BOOL)arg1;
 - (BOOL)dontLockOverAlertItems;
 - (BOOL)deactivateAlertForMenuClickOrSystemGestureWithAnimation:(BOOL)arg1;
 - (BOOL)canDeactivateAlertForMenuClickOrSystemGesture;

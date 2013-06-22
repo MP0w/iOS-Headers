@@ -15,7 +15,6 @@
     SBDockIconListModel *_dock;
 }
 
-+ (int)maxListCount;
 - (void)node:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
 - (void)node:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
 - (void)list:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
@@ -30,6 +29,9 @@
 - (void)placeIconsOnFirstPage:(id)arg1;
 - (id)representation;
 - (BOOL)resetWithRepresentation:(id)arg1 model:(id)arg2 leafIdentifiersAdded:(id)arg3;
+- (id)_listsForCompaction;
+- (BOOL)canEditDisplayName;
+- (BOOL)canRemoveIcons;
 - (id)folderType;
 - (id)iconsOfClass:(Class)arg1;
 - (void)markIconStateClean;
@@ -37,11 +39,12 @@
 - (void)removeEmptyList:(id)arg1;
 - (id)listContainingLeafIconWithIdentifier:(id)arg1;
 - (id)listContainingIcon:(id)arg1;
-- (unsigned int)indexOfIconList:(id)arg1;
+- (unsigned int)indexOfList:(id)arg1;
 - (id)listAtIndex:(unsigned int)arg1;
 - (id)dockModel;
 - (void)dealloc;
 - (id)init;
+- (Class)controllerClass;
 - (Class)listViewClass;
 - (Class)listModelClass;
 

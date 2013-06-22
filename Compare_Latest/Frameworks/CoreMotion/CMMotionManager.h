@@ -26,6 +26,10 @@
 - (void)onMagnetometer:(const struct Sample *)arg1;
 - (void)onGyro:(const struct Sample *)arg1;
 - (void)onAccelerometer:(const struct Sample *)arg1;
+- (void)setMaxAccelerationVarianceForStability:(float)arg1;
+- (void)setSensorTurnOffTime:(double)arg1;
+- (void)setSensorThrottleTime:(double)arg1;
+- (void)setWantsPowerConservativeDeviceMotion:(BOOL)arg1;
 - (void)setDeviceMotionCallback:(void *)arg1 info:(void *)arg2 interval:(double)arg3 fsync:(BOOL)arg4;
 - (void)setGyroDataCallback:(void *)arg1 info:(void *)arg2 interval:(double)arg3;
 - (void)setAccelerometerDataCallback:(void *)arg1 info:(void *)arg2 interval:(double)arg3;

@@ -11,6 +11,7 @@
 }
 
 + (id)filesystemItemLinkOperationWithSourcePath:(id)arg1 destinationPath:(id)arg2;
++ (BOOL)_needsStatInfo;
 + (id)_errorWithErrno:(int)arg1 sourcePath:(id)arg2 destinationPath:(id)arg3;
 - (void)_handleFTSEntry:(struct _ftsent *)arg1;
 - (BOOL)_validatePaths:(id *)arg1;

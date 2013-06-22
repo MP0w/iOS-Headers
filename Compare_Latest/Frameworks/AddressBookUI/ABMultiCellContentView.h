@@ -62,7 +62,7 @@
 - (BOOL)canBeginEditingAnytime;
 - (BOOL)tabToNextResponder:(BOOL)arg1 fromView:(id)arg2;
 - (BOOL)entryFieldShouldReturn:(id)arg1;
-- (void)entryFieldDidEndEditing:(id)arg1;
+- (void)entryField:(id)arg1 didEndEditingForKey:(id)arg2;
 - (void)entryField:(id)arg1 valueDidChange:(id)arg2 forKey:(id)arg3;
 - (void)entryFieldDidBeginEditing:(id)arg1;
 - (BOOL)entryFieldShouldEndEditing:(id)arg1;

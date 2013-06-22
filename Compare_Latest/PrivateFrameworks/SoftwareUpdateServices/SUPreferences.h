@@ -10,9 +10,13 @@
 {
     int _logLevel;
     BOOL _disableUserWiFiOnlyPeriod;
+    BOOL _disableBuildNumberComparison;
+    BOOL _allowSameBuildUpdates;
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) BOOL allowSameBuildUpdates; // @synthesize allowSameBuildUpdates=_allowSameBuildUpdates;
+@property(readonly, nonatomic) BOOL disableBuildNumberComparison; // @synthesize disableBuildNumberComparison=_disableBuildNumberComparison;
 @property(readonly, nonatomic) BOOL disableUserWiFiOnlyPeriod; // @synthesize disableUserWiFiOnlyPeriod=_disableUserWiFiOnlyPeriod;
 @property(readonly, nonatomic) int logLevel; // @synthesize logLevel=_logLevel;
 - (void *)_copyPreferenceForKey:(struct __CFString *)arg1 ofType:(unsigned long)arg2;

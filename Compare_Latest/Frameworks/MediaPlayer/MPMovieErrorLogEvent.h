@@ -8,14 +8,14 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSDate, NSString;
+@class AVPlayerItemErrorLogEvent, NSDate, NSString;
 
 @interface MPMovieErrorLogEvent : NSObject <NSCopying>
 {
-    struct MPMovieErrorLogEventInternal _internal;
+    AVPlayerItemErrorLogEvent *_event;
 }
 
-@property(nonatomic) struct MPMovieErrorLogEventInternal _internal; // @synthesize _internal;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *errorComment;
 @property(readonly, nonatomic) NSString *errorDomain;
 @property(readonly, nonatomic) int errorStatusCode;
@@ -24,7 +24,6 @@
 @property(readonly, nonatomic) NSString *URI;
 @property(readonly, nonatomic) NSDate *date;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)_initWithAVItemErrorLogEvent:(id)arg1;
 
 @end

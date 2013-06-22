@@ -7,15 +7,18 @@
 #import "NSObject.h"
 
 #import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSArray;
 
-@interface DDScannerResult : NSObject <NSCoding>
+@interface DDScannerResult : NSObject <NSCoding, NSSecureCoding>
 {
     struct __DDResult *_coreResult;
     NSArray *_subResultsCache;
 }
 
++ (BOOL)supportsSecureCoding;
++ (id)resultsFromCoreResults:(struct __CFArray *)arg1;
 + (id)resultFromCoreResult:(struct __DDResult *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

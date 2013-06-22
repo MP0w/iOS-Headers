@@ -18,6 +18,7 @@
 
 @property(nonatomic) float topPadding; // @synthesize topPadding=_topPadding;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
+- (void).cxx_destruct;
 - (void)pinVisibleRow:(unsigned int)arg1;
 - (void)layoutSubviews;
 - (id)init;

@@ -18,6 +18,10 @@
     unsigned int _startCount;
 }
 
++ (id)centerForServerPort:(unsigned int)arg1;
++ (void)setCenter:(id)arg1 forServerPort:(unsigned int)arg2;
++ (struct __CFDictionary *)_serverPortToNotificationCenterMap;
++ (id)_serverPortToNotificationCenterMapDispatchQueue;
 + (id)centerNamed:(id)arg1;
 - (void)_receivedCheckIn:(unsigned int)arg1 auditToken:(CDStruct_6ad76789 *)arg2;
 - (BOOL)postNotificationName:(id)arg1 userInfo:(id)arg2 toBundleIdentifier:(id)arg3;

@@ -8,28 +8,34 @@
 
 #import "NSProgressPublisher-Protocol.h"
 
-@class NSFileAccessNode, NSMutableSet;
+@class NSFileAccessNode, NSMutableSet, NSString;
 
 @interface NSProgressPublisherProxy : NSObject <NSProgressPublisher>
 {
     id <NSProgressPublisher> _forwarder;
     id _publisherID;
+    NSString *_lowerCaseAppBundleID;
+    NSMutableSet *_lowerCaseBundleIDsOfUnacknowledgedApps;
+    NSString *_lowerCaseCategoryName;
+    BOOL _isGeneral;
     NSFileAccessNode *_itemLocation;
-    NSMutableSet *_bundleIDsOfUnacknowledgedApps;
 }
 
+@property NSFileAccessNode *itemLocation; // @synthesize itemLocation=_itemLocation;
+@property BOOL isGeneral; // @synthesize isGeneral=_isGeneral;
+@property(copy) NSString *category; // @synthesize category=_lowerCaseCategoryName;
 - (id)description;
 - (id)descriptionWithIndenting:(id)arg1;
 - (oneway void)appWithBundleID:(id)arg1 didAcknowledgeWithSuccess:(BOOL)arg2;
+- (oneway void)prioritize;
 - (oneway void)pause;
 - (oneway void)cancel;
 - (oneway void)stopProvidingValues;
 - (oneway void)startProvidingValuesWithInitialAcceptor:(id)arg1;
-- (void)broadcastValue:(id)arg1 forKey:(id)arg2 inUserInfo:(BOOL)arg3;
-- (void)setItemLocation:(id)arg1;
+- (id)appBundleID;
 - (id)publisherID;
 - (void)dealloc;
-- (id)initWithForwarder:(id)arg1 publisherID:(id)arg2 acknowledgementAppBundleIDs:(id)arg3;
+- (id)initWithForwarder:(id)arg1 publisherID:(id)arg2 appBundleID:(id)arg3 acknowledgementAppBundleIDs:(id)arg4;
 
 @end
 

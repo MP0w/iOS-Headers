@@ -16,8 +16,8 @@
     unsigned int mOriginal:1;
     unsigned int mTracked:1;
     unsigned int mResolved:1;
-    CDStruct_e3dc4f7f mOriginalProperties;
-    CDStruct_e3dc4f7f mTrackedProperties;
+    CDStruct_8f0e3ff6 mOriginalProperties;
+    CDStruct_8f0e3ff6 mTrackedProperties;
 }
 
 - (id).cxx_construct;

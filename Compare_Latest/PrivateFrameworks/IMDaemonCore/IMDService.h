@@ -45,6 +45,11 @@
 @property(readonly, nonatomic) BOOL supportsDatabase;
 @property(readonly, nonatomic) BOOL disallowDeactivation;
 @property(readonly, nonatomic) NSDictionary *defaultAccountSettings;
+- (id)newAccountWithAccountDefaults:(id)arg1 accountID:(id)arg2;
+- (void)accountRemoved:(id)arg1;
+- (void)accountAdded:(id)arg1;
+- (void)disableAccount:(id)arg1;
+- (void)enableAccount:(id)arg1;
 - (void)saveSettings;
 - (void)delayedSaveSettings;
 - (BOOL)clearOneTimeImportAccounts;
@@ -53,6 +58,8 @@
 - (id)_serviceDefaultsForDomain:(id)arg1;
 - (id)_defaultDefaults;
 - (void)synchronizeServiceDefaults;
+@property(readonly, nonatomic) BOOL isIDSBased;
+@property(readonly, nonatomic) Class accountClass;
 @property(readonly, nonatomic) Class sessionClass;
 - (id)_oldServiceDomain;
 @property(readonly, nonatomic) NSString *serviceDomain;

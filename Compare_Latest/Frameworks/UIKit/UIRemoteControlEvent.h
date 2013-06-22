@@ -12,6 +12,8 @@
 }
 
 - (void)_simpleRemoteActionNotification:(id)arg1;
+- (void)_sendEventToResponder:(id)arg1;
+- (id)_windows;
 - (void)_setSubtype:(int)arg1;
 - (int)subtype;
 - (int)type;

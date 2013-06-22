@@ -19,7 +19,7 @@
     BOOL delegateAborted;
     BOOL haveDetectedEncoding;
     NSData *bomChunk;
-    unsigned int nestingLevel;
+    unsigned int chunkSize;
 }
 
 @end

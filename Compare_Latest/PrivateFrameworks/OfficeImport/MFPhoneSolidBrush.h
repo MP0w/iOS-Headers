@@ -14,7 +14,7 @@
 }
 
 + (id)solidBrushWithColour:(id)arg1;
-- (void)fillPath:(id)arg1:(struct CGPath *)arg2;
+- (void)fillPath:(id)arg1:(id)arg2;
 - (void)dealloc;
 - (id)initWithColour:(id)arg1;
 

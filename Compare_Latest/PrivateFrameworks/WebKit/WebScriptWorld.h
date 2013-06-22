@@ -13,6 +13,7 @@
     WebScriptWorldPrivate *_private;
 }
 
++ (id)scriptWorldForJavaScriptContext:(id)arg1;
 + (id)scriptWorldForGlobalContext:(struct OpaqueJSContext *)arg1;
 + (id)world;
 + (id)standardWorld;

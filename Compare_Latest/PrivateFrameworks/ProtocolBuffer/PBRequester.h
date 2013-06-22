@@ -8,13 +8,14 @@
 
 #import "NSURLConnectionDelegate-Protocol.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableData, NSMutableDictionary, NSString, NSURL, NSURLConnection, PBDataReader;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableData, NSMutableDictionary, NSRunLoop, NSString, NSURL, NSURLConnection, PBDataReader;
 
 @interface PBRequester : NSObject <NSURLConnectionDelegate>
 {
     NSURL *_URL;
     id <PBRequesterDelegate> _delegate;
     NSURLConnection *_connection;
+    NSRunLoop *_connectionRunLoop;
     NSMutableData *_data;
     PBDataReader *_dataReader;
     unsigned int _lastGoodDataOffset;
@@ -35,6 +36,7 @@
     NSString *_logResponseToFile;
     BOOL _didNotifyRequestCompleted;
     NSArray *_clientCertificates;
+    NSDictionary *_connectionProperties;
     BOOL _shouldHandleCookies;
     struct {
         unsigned int ignoresResponse:1;
@@ -60,9 +62,12 @@
 @property(retain, nonatomic) NSString *logRequestToFile; // @synthesize logRequestToFile=_logRequestToFile;
 @property(nonatomic) double timeoutSeconds; // @synthesize timeoutSeconds=_timeoutSeconds;
 @property(retain, nonatomic) NSDictionary *httpResponseHeaders; // @synthesize httpResponseHeaders=_httpResponseHeaders;
+@property(retain, nonatomic) NSRunLoop *connectionRunLoop; // @synthesize connectionRunLoop=_connectionRunLoop;
 @property(retain, nonatomic) NSURLConnection *connection; // @synthesize connection=_connection;
 @property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+- (void)startWithConnectionProperties:(id)arg1;
+- (id)newConnectionWithCFURLRequest:(struct _CFURLRequest *)arg1 delegate:(id)arg2 connectionProperties:(id)arg3;
 - (id)newConnectionWithCFURLRequest:(struct _CFURLRequest *)arg1 delegate:(id)arg2;
 - (struct _CFURLRequest *)newCFMutableURLRequestWithURL:(id)arg1;
 - (id)decodeResponseData:(id)arg1;
@@ -72,6 +77,7 @@
 - (void)_removeTimeoutTimer;
 - (void)_startTimeoutTimer;
 @property(readonly, nonatomic) unsigned int requestResponseTime;
+- (id)connection:(id)arg1 willSendRequestForEstablishedConnection:(id)arg2 properties:(id)arg3;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
@@ -88,8 +94,11 @@
 - (void)pause;
 - (void)cancel;
 - (void)_cancelNoNotify;
+- (void)_start;
 - (void)start;
+- (void)_serializePayload:(id)arg1;
 - (void)_sendPayload:(id)arg1;
+- (id)_connectionRunLoop;
 - (void)writeRequest:(id)arg1 into:(id)arg2;
 - (id)requestPreamble;
 - (id)_osVersion;
@@ -103,6 +112,7 @@
 - (id)internalRequests;
 - (id)responseForRequest:(id)arg1;
 - (void)addRequest:(id)arg1;
+- (void)clearRequests;
 @property(readonly, nonatomic) NSArray *requests;
 - (void)setNeedsCancel;
 @property BOOL needsCancel;

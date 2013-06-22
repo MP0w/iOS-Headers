@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface SUDownloadMetadata : NSObject <NSCoding, NSCopying>
+@interface SUDownloadMetadata : NSObject <NSSecureCoding, NSCopying>
 {
     BOOL _autoDownload;
     BOOL _enabledFor2G;
@@ -23,6 +23,7 @@
     int _downloadFeeAgreementStatus;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(nonatomic) BOOL enforceWifiOnlyOverride; // @synthesize enforceWifiOnlyOverride=_enforceWifiOnlyOverride;
 @property(nonatomic, getter=isEnabledOnBatteryPower) BOOL enabledOnBatteryPower; // @synthesize enabledOnBatteryPower=_enabledOnBatteryPower;
 @property(nonatomic, getter=isEnabledForCellularRoaming) BOOL enabledForCellularRoaming; // @synthesize enabledForCellularRoaming=_enabledForCellularRoaming;

@@ -17,6 +17,7 @@
 - (BOOL)requiresResponse;
 @property(copy, nonatomic) NSString *reasonDescription;
 @property(nonatomic) int reason;
+@property(nonatomic) int errorCode;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

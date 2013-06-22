@@ -20,23 +20,36 @@
     NSString *_ringtoneName;
     BOOL _repeats;
     NSDictionary *_vibrationPattern;
+    int _alertType;
+    NSString *_accountIdentifier;
+    NSString *_toneIdentifier;
+    NSString *_vibrationIdentifier;
 }
 
 + (id)_possiblyCachedAlertSoundForInitializedSound:(id)arg1;
 + (id)alertSoundWithSystemSoundID:(unsigned long)arg1;
+@property(copy, nonatomic) NSString *vibrationIdentifier; // @synthesize vibrationIdentifier=_vibrationIdentifier;
+@property(copy, nonatomic) NSString *toneIdentifier; // @synthesize toneIdentifier=_toneIdentifier;
+@property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
+@property(nonatomic) int alertType; // @synthesize alertType=_alertType;
 @property(copy, nonatomic) NSString *audioCategory; // @synthesize audioCategory=_audioCategory;
 @property(nonatomic) unsigned int soundBehavior; // @synthesize soundBehavior=_soundBehavior;
 @property(nonatomic, getter=isRepeating) BOOL repeats; // @synthesize repeats=_repeats;
-@property(retain, nonatomic) NSString *ringtoneName; // @synthesize ringtoneName=_ringtoneName;
-@property(retain, nonatomic) NSDictionary *vibrationPattern; // @synthesize vibrationPattern=_vibrationPattern;
+@property(copy, nonatomic) NSString *ringtoneName; // @synthesize ringtoneName=_ringtoneName;
+@property(copy, nonatomic) NSDictionary *vibrationPattern; // @synthesize vibrationPattern=_vibrationPattern;
 @property(nonatomic) unsigned long systemSoundID; // @synthesize systemSoundID=_systemSoundID;
 @property(nonatomic) int soundType; // @synthesize soundType=_soundType;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 - (BOOL)_isUniquableAlertSound;
 - (void)dealloc;
+- (id)initWithToneAlert:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3;
+- (id)initWithToneAlert:(int)arg1 accountIdentifier:(id)arg2;
+- (id)initWithToneAlert:(int)arg1;
 - (id)initWithRingtone:(id)arg1 vibrationPattern:(id)arg2 repeats:(BOOL)arg3 audioCategory:(id)arg4;
 - (id)initWithRingtone:(id)arg1 vibrationPattern:(id)arg2 repeats:(BOOL)arg3;
 - (id)initWithSystemSoundID:(unsigned long)arg1 behavior:(unsigned int)arg2 vibrationPattern:(id)arg3;

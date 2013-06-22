@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import <AVFoundation/AVVideoCompositionInstruction-Protocol.h>
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class AVVideoCompositionInstructionInternal, NSArray;
 
-@interface AVVideoCompositionInstruction : NSObject <NSCoding, NSCopying, NSMutableCopying>
+@interface AVVideoCompositionInstruction : NSObject <NSSecureCoding, NSCopying, NSMutableCopying, AVVideoCompositionInstruction>
 {
     AVVideoCompositionInstructionInternal *_instruction;
 }
 
++ (BOOL)supportsSecureCoding;
 + (void)initialize;
 - (id)description;
 - (void)_setValuesFromDictionary:(id)arg1;
@@ -28,10 +30,14 @@
 @property(retain, nonatomic) struct CGColor *backgroundColor;
 - (void)setTimeRange:(CDStruct_e83c9415)arg1;
 @property(readonly, nonatomic) CDStruct_e83c9415 timeRange;
+@property(readonly, nonatomic) BOOL containsTweening;
+@property(readonly, nonatomic) NSArray *requiredSourceTrackIDs;
+@property(readonly, nonatomic) int passthroughTrackID;
 - (void)finalize;
 - (void)dealloc;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

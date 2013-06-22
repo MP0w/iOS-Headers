@@ -9,7 +9,6 @@
 @interface NSArray (FTAPSOutgoingMessage_Additions)
 - (id)_FTFilteredArrayForAPS;
 - (id)_IDsFromURIs;
-- (id)_URIsByTrimmingBindings:(id)arg1;
 - (id)_URIsFromIDs;
 @end
 

@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
-@class NSNumber, NSString, NSURL, SALocation, SAPerson;
+@class NSNumber, NSString, SALocation, SAPerson;
 
-@interface SAFmfGeoFenceSet : SABaseClientBoundCommand
+@interface SAFmfGeoFenceSet : SADomainCommand
 {
 }
 
@@ -21,7 +21,6 @@
 @property(retain, nonatomic) SAPerson *friend;
 @property(copy, nonatomic) NSString *fenceType;
 @property(copy, nonatomic) NSNumber *enable;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

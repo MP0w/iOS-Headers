@@ -19,21 +19,27 @@
     NSBundle *_auxTranslatorBundle;
     BOOL _auxTableSupportsContractedBraille;
     BOOL _auxTableSupportsEightDotBraille;
+    id <SCROBrailleTranslatorProtocol> _nemethTranslator;
+    BOOL _alwaysUsesNemethCodeForTechnicalText;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;
 + (id)sharedManager;
+@property(nonatomic) BOOL alwaysUsesNemethCodeForTechnicalText; // @synthesize alwaysUsesNemethCodeForTechnicalText=_alwaysUsesNemethCodeForTechnicalText;
 @property(readonly, nonatomic) BOOL auxiliaryTableSupportsEightDotBraille; // @synthesize auxiliaryTableSupportsEightDotBraille=_auxTableSupportsEightDotBraille;
 @property(readonly, nonatomic) BOOL auxiliaryTableSupportsContractedBraille; // @synthesize auxiliaryTableSupportsContractedBraille=_auxTableSupportsContractedBraille;
 @property(readonly, nonatomic) BOOL primaryTableSupportsEightDotBraille; // @synthesize primaryTableSupportsEightDotBraille=_tableSupportsEightDotBraille;
 @property(readonly, nonatomic) BOOL primaryTableSupportsContractedBraille; // @synthesize primaryTableSupportsContractedBraille=_tableSupportsContractedBraille;
 - (id)textForPrintBraille:(id)arg1 primaryTable:(BOOL)arg2 contracted:(BOOL)arg3 eightDot:(BOOL)arg4 locations:(id *)arg5;
 - (id)textForPrintBraille:(id)arg1 contracted:(BOOL)arg2 eightDot:(BOOL)arg3 locations:(id *)arg4;
+- (id)_printBrailleForText:(id)arg1 primaryTable:(BOOL)arg2 contracted:(BOOL)arg3 eightDot:(BOOL)arg4 locations:(id *)arg5 isTechnical:(BOOL)arg6;
+- (id)printBrailleForTechnicalText:(id)arg1 primaryTable:(BOOL)arg2 locations:(id *)arg3;
 - (id)printBrailleForText:(id)arg1 primaryTable:(BOOL)arg2 contracted:(BOOL)arg3 eightDot:(BOOL)arg4 locations:(id *)arg5;
 - (id)printBrailleForText:(id)arg1 contracted:(BOOL)arg2 eightDot:(BOOL)arg3 locations:(id *)arg4;
 - (id)auxiliaryTableIdentifier;
 - (void)setAuxiliaryTranslationTableWithTableIdentifier:(id)arg1;
+- (id)_loadTableIdentifier:(id)arg1 bundle:(id *)arg2 existingBundle:(id)arg3 existingTranslator:(id)arg4;
 - (id)primaryTableIdentifier;
 - (void)setPrimaryTranslationTableWithTableIdentifier:(id)arg1;
 - (void)dealloc;

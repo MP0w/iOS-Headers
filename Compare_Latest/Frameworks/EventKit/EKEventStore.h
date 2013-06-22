@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class EKCalendar, EKDaemonConnection, NSArray, NSMutableDictionary, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSTimeZone;
+#import <EventKit/EKDaemonConnection-Protocol.h>
 
-@interface EKEventStore : NSObject
+@class EKAlarm, EKCalendar, EKDaemonConnection, NSArray, NSMutableDictionary, NSMutableSet, NSNumber, NSObject<OS_dispatch_queue>, NSString, NSTimeZone;
+
+@interface EKEventStore : NSObject <EKDaemonConnection>
 {
     NSMutableDictionary *_registeredObjects;
     NSMutableDictionary *_publicRegisteredObjects;
@@ -20,7 +22,6 @@
     EKCalendar *_defaultCalendarForNewEvents;
     EKCalendar *_defaultCalendarForNewReminders;
     EKDaemonConnection *_database;
-    double _lastDatabaseNotificationTimestamp;
     unsigned long _flags;
     NSTimeZone *_timeZone;
     NSMutableDictionary *_calendars;
@@ -31,10 +32,10 @@
     NSObject<OS_dispatch_queue> *_unsavedChangesQueue;
     NSObject<OS_dispatch_queue> *_dbChangedQueue;
     NSMutableDictionary *_cachedValidatedEmails;
+    double _lastDatabaseNotificationTimestamp;
 }
 
 + (int)authorizationStatusForEntityType:(unsigned int)arg1;
-+ (BOOL)_isAuthorizationRestrictedForService:(struct __CFString *)arg1;
 + (Class)publicClassForEntityName:(id)arg1;
 + (Class)classForEntityName:(id)arg1;
 @property(retain, nonatomic) NSMutableDictionary *_cachedValidatedEmails; // @synthesize _cachedValidatedEmails;
@@ -55,24 +56,30 @@
 @property(nonatomic) NSMutableSet *insertedObjects; // @synthesize insertedObjects=_insertedObjects;
 @property(nonatomic) NSMutableDictionary *publicRegisteredObjects; // @synthesize publicRegisteredObjects=_publicRegisteredObjects;
 @property(nonatomic) NSMutableDictionary *registeredObjects; // @synthesize registeredObjects=_registeredObjects;
+- (BOOL)moveDiagnosticsLogToCrashReporterFolder;
+- (id)getCalDAVLog;
+- (id)getDataAccessLog;
 - (int)emailAddressValidationStatus:(id)arg1;
 - (void)cacheValidationStatusForEmail:(id)arg1 status:(int)arg2;
-- (id)defaultAllDayAlarm;
+@property(readonly, nonatomic) EKAlarm *defaultAllDayAlarm;
 @property(retain, nonatomic) NSNumber *defaultAllDayAlarmOffset; // @synthesize defaultAllDayAlarmOffset=_defaultAllDayAlarmOffset;
-- (id)defaultTimedAlarm;
+@property(readonly, nonatomic) EKAlarm *defaultTimedAlarm;
 @property(retain, nonatomic) NSNumber *defaultTimedAlarmOffset; // @synthesize defaultTimedAlarmOffset=_defaultTimedAlarmOffset;
 - (BOOL)isDataProtected;
 - (void)_protectedDataDidBecomeAvailable;
 - (void)_protectedDataWillBecomeUnavailable;
+- (id)predicateForMasterEventsInCalendars:(id)arg1;
 - (id)predicateForUpcomingEventsWithLimit:(int)arg1;
 - (id)predicateForUnalertedEvents;
 - (id)predicateForUnacknowledgedEvents;
 - (id)predicateForNotificationCenterVisibleEvents;
+- (id)predicateForRecentNotifiableEvents;
 - (id)predicateForNotifiableEvents;
 - (id)predicateForEventsWithStartDate:(id)arg1 endDate:(id)arg2 eventUUID:(id)arg3 calendars:(id)arg4;
 - (id)predicateForEventsWithStartDate:(id)arg1 endDate:(id)arg2 calendars:(id)arg3 loadDefaultProperties:(BOOL)arg4;
 - (id)predicateForEventsWithStartDate:(id)arg1 endDate:(id)arg2 calendars:(id)arg3;
 - (void)locationBasedAlarmOccurrencesWithCompletion:(id)arg1;
+- (void)alarmOccurrencesBetweenStartDate:(id)arg1 endDate:(id)arg2 inCalendars:(id)arg3 completion:(id)arg4;
 - (void)alarmOccurrencesBetweenStartDate:(id)arg1 endDate:(id)arg2 completion:(id)arg3;
 - (id)alarmWithUUID:(id)arg1;
 - (void)cancelFetchRequest:(id)arg1;
@@ -98,24 +105,23 @@
 - (void)_registerObjectImmediate:(id)arg1;
 - (void)refreshSourcesIfNecessary;
 - (void)refreshSourcesIfNecessary:(BOOL)arg1;
-- (void)_refreshSource:(id)arg1 accountsManager:(id)arg2 isUserRequested:(BOOL)arg3;
 - (void)_refreshDASource:(id)arg1 isUserRequested:(BOOL)arg2;
-- (void)_refreshSubscribedCalendar:(id)arg1 accountsManager:(id)arg2 isUserRequested:(BOOL)arg3;
-- (void)_refreshDASubscribedCalendar:(id)arg1 isUserRequested:(BOOL)arg2;
 - (BOOL)removeInviteReplyNotifications:(id)arg1 error:(id *)arg2;
 - (BOOL)removeInviteReplyNotification:(id)arg1 error:(id *)arg2;
 - (BOOL)markInviteReplyNotificationAlerted:(id)arg1;
 - (id)inviteReplyNotifications;
-- (int)inviteReplyNotificationsCount;
 - (BOOL)removeResourceChanges:(id)arg1 error:(id *)arg2;
 - (BOOL)removeResourceChange:(id)arg1 error:(id *)arg2;
 - (BOOL)markResourceChangeAlerted:(id)arg1 error:(id *)arg2;
 - (id)resourceChangesForEntityTypes:(unsigned int)arg1;
 - (id)sharedCalendarInvitationsForEntityTypes:(unsigned int)arg1;
 - (id)earliestExpiringNotifiableEventEndDateAfterDate:(id)arg1 timeZone:(id)arg2;
-- (int)notifiableEventCount;
-- (int)unacknowledgedEventCount;
+@property(readonly, nonatomic) int notifiableEventCount;
+@property(readonly, nonatomic) int unacknowledgedEventCount;
 - (void)markNotificationsAlertedAndSave:(id)arg1;
+- (void)setShowDeclinedEvents:(BOOL)arg1;
+- (id)scheduledTaskCacheFetchTasksOnDay:(id)arg1;
+- (id)scheduledTaskCacheFetchDaysAndTaskCounts;
 - (id)occurrenceCacheGetOccurrencesForCalendars:(id)arg1;
 - (id)occurrenceCacheGetOccurrencesForCalendars:(id)arg1 onDay:(double)arg2;
 - (BOOL)occurrenceCacheOccurrencesAreBeingGenerated;
@@ -123,6 +129,7 @@
 - (id)insertNewEvent;
 - (id)calendarWithExternalURI:(id)arg1;
 - (id)calendarWithIdentifier:(id)arg1;
+- (id)doEvents:(id)arg1 haveOccurrencesAfterDate:(id)arg2;
 - (id)closestCachedOccurrenceToDate:(double)arg1 forEventUID:(int)arg2;
 - (id)eventWithUUID:(id)arg1;
 - (BOOL)fetchProperties:(id)arg1 forReminders:(id)arg2;
@@ -194,6 +201,7 @@
 - (BOOL)removeSource:(id)arg1 error:(id *)arg2;
 - (BOOL)saveSource:(id)arg1 error:(id *)arg2;
 - (id)sourceWithIdentifier:(id)arg1;
+- (id)ownedSources;
 - (id)localSource;
 - (id)sources;
 - (void)_saveWithoutNotify;
@@ -203,8 +211,8 @@
 - (void)_validateObjectIDs:(id)arg1 completion:(id)arg2;
 - (id)changesSinceSequenceNumber:(int)arg1;
 - (int)sequenceNumber;
-- (id)connection;
-- (unsigned int)serverPort;
+@property(readonly) EKDaemonConnection *connection;
+@property(readonly) unsigned int serverPort;
 @property(copy, nonatomic) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
 - (void)_accessStatusChanged;
 - (void)requestAccessToEntityType:(unsigned int)arg1 completion:(id)arg2;

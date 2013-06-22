@@ -19,6 +19,7 @@
     void *_clusterPlaylist;
 }
 
+- (void).cxx_destruct;
 - (void)endGeneratingGeniusClusterItems;
 - (id)geniusClusterItemsWithCount:(unsigned int)arg1 error:(id *)arg2;
 - (BOOL)beginGeneratingGeniusClusterItemsWithSeedItems:(id)arg1 error:(id *)arg2;
@@ -30,19 +31,23 @@
 - (void)addItems:(id)arg1 completionBlock:(id)arg2;
 - (void)addItem:(id)arg1 completionBlock:(id)arg2;
 - (void)_updateLibraryForPlaylistEdit:(id)arg1;
+- (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
-- (int)mediaTypes;
+- (unsigned int)mediaTypes;
 - (unsigned int)count;
 - (id)representativeItem;
 - (id)items;
-- (void)setValue:(id)arg1 forProperty:(id)arg2;
+- (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(id)arg3;
+- (BOOL)setValue:(id)arg1 forProperty:(id)arg2;
 - (BOOL)existsInLibrary;
+- (id)mediaLibrary;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
+- (id)itemsQuery;
 - (id)initWithProperties:(id)arg1 itemsQuery:(id)arg2;
 
 @end

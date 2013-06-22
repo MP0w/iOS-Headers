@@ -6,67 +6,62 @@
 
 #import <iPodUI/IUTableViewController.h>
 
-#import "IUCoverFlowOwner-Protocol.h"
+#import "IUCoverZoomViewControllerDelegate-Protocol.h"
+#import "MPStoreDownloadManagerObserver-Protocol.h"
 
-@class IUCoverFlowTransitionController, IUCoverFlowViewController, IUMediaListAggregateView, NSOperationQueue;
+@class IUCoverZoomViewController, NSOperationQueue;
 
-@interface IUMediaListViewController : IUTableViewController <IUCoverFlowOwner>
+@interface IUMediaListViewController : IUTableViewController <IUCoverZoomViewControllerDelegate, MPStoreDownloadManagerObserver>
 {
-    IUCoverFlowTransitionController *_coverFlowTransition;
-    IUCoverFlowViewController *_coverFlowViewController;
-    IUMediaListAggregateView *_aggregateHeaderView;
-    double _nowPlayingAutoScrollEnableTime;
-    unsigned long long _lastAttemptedAutoscrollPersistentID;
+    IUCoverZoomViewController *_coverZoomViewController;
     NSOperationQueue *_downloadableEntitiesOperationQueue;
-    unsigned int _searchEnabled:1;
+    unsigned long long _lastAttemptedAutoscrollPersistentID;
+    double _nowPlayingAutoScrollEnableTime;
     unsigned int _hasPendingDynamicChanges:1;
     unsigned int _hasPendingNowPlayingItemChanges:1;
+    unsigned int _searchEnabled:1;
 }
 
 + (Class)tableViewClass;
+- (void).cxx_destruct;
 - (void)_transitionToCoverFlowWithInterfaceOrientation:(int)arg1;
 - (void)_transitionFromCoverFlow;
 - (BOOL)_handleControllerContext:(id)arg1;
 - (BOOL)_canShowCoverFlow;
 - (id)_baseViewController;
 - (void)_dataSourceCountStringFormatDidChange:(id)arg1;
-- (void)_purchasableMediaDidChangeNotification:(id)arg1;
 - (void)_canShowCloudDownloadButtonsDidChangeNotification:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_localizedDateFormatsDidChange:(id)arg1;
 - (void)_trackDynamicPropertiesChangedNotification:(id)arg1;
-- (void)_handleTrackDynamicPropertiesChanged;
 - (void)_nowPlayingItemChanged:(id)arg1;
 - (void)_mediaList_mediaLibraryDidChangeNotification:(id)arg1;
+- (void)_handleTrackDynamicPropertiesChanged;
 - (void)_handleNowPlayingItemChangedAndScrollToVisible;
 - (void)_autoscrollNowPlayingItemToVisibleWithIndexPath:(id)arg1 persistentID:(unsigned long long)arg2;
 - (void)_downloadAllAction:(id)arg1;
-- (void)_coverFlowDidTransitionOut:(id)arg1;
-- (void)_coverFlowTransitionInDidStop:(id)arg1 finished:(id)arg2;
-- (void)_delayedPushContext:(id)arg1;
+- (void)coverZoomViewControllerRequestsExit:(id)arg1;
+- (BOOL)isShowingCoverFlow;
+- (void)downloadManager:(id)arg1 downloadDidFinish:(id)arg2;
+- (void)downloadManager:(id)arg1 didAddDownloads:(id)arg2 removeDownloads:(id)arg3;
 - (void)remoteEventSelectItem;
 - (void)remoteEventMoveDown;
 - (void)remoteEventMoveUp;
 - (void)viewWillAppearForRemoteEvent;
 - (id)query;
-@property(readonly, nonatomic) BOOL isShowingCoverFlow; // @dynamic isShowingCoverFlow;
-@property(retain, nonatomic) IUCoverFlowViewController *coverFlowViewController;
 - (void)updateFooterView;
+- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
+- (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)performDefaultActionForRow:(int)arg1;
 - (void)performActionForActionRow:(id)arg1 animated:(BOOL)arg2;
 - (void)modalContextDidDismiss:(id)arg1 withSuccess:(BOOL)arg2;
 - (BOOL)hasSearchBar;
-- (void)deviceOrientationChanged:(int)arg1;
-- (void)loadView;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(BOOL)arg2;
-- (void)scrollViewWillBeginDragging:(id)arg1;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
-- (BOOL)handlePlaybackDataSource:(id)arg1;
 - (void)unregisterForPlayerNotifications;
 - (void)registerForPlayerNotifications;
-- (void)viewControllerDidFinishReloadForDataSourceInvalidation;
+- (BOOL)handlePlaybackDataSource:(id)arg1;
+- (void)deviceOrientationChanged:(int)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
+- (void)loadView;
 - (void)dealloc;
 - (id)init;
 

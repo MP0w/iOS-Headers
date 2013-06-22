@@ -13,16 +13,16 @@
 #import "UIKeyboardInput-Protocol.h"
 #import "UIModalViewDelegate-Protocol.h"
 #import "UITextAutoscrolling-Protocol.h"
+#import "UITextInputPrivate-Protocol.h"
 #import "UITextInputTokenizer-Protocol.h"
 #import "UIWebFileUploadPanelDelegate-Protocol.h"
 #import "_UIRotatingActionSheetDelegate-Protocol.h"
 #import "_UIWebDoubleTapDelegate-Protocol.h"
 
-@class CALayer, DOMElement, DOMHTMLElement, DOMNode, DOMRange, NSArray, NSDictionary, NSMutableSet, NSTimer, UIAutoscroll, UIColor, UIImage, UILongPressGestureRecognizer, UIPanGestureRecognizer, UITapGestureRecognizer, UITextChecker, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UIView, UIWebFileUploadPanel, UIWebRotatingSheet, UIWebSelectionAssistant, WebThreadSafeUndoManager, WebView, WebViewReachabilityObserver, _UITextServiceSession;
+@class CALayer, DOMElement, DOMHTMLElement, DOMNode, DOMRange, NSArray, NSDictionary, NSTimer, UIAutoscroll, UIColor, UIImage, UILongPressGestureRecognizer, UIPanGestureRecognizer, UITapGestureRecognizer, UITextChecker, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UIView, UIWebFileUploadPanel, UIWebRotatingSheet, UIWebSelectionAssistant, WebHistoryItem, WebThreadSafeUndoManager, WebView, WebViewReachabilityObserver, _UITextServiceSession, _UIWebHighlightLongPressGestureRecognizer, _UIWebViewportHandler;
 
-@interface UIWebDocumentView : UIWebTiledView <UIActionSheetDelegate, _UIRotatingActionSheetDelegate, UITextAutoscrolling, UIAutoscrollContainer, UIGestureRecognizerDelegate, UIKeyboardInput, UIKeyInput, UIModalViewDelegate, UITextInputTokenizer, _UIWebDoubleTapDelegate, UIWebFileUploadPanelDelegate>
+@interface UIWebDocumentView : UIWebTiledView <UIActionSheetDelegate, _UIRotatingActionSheetDelegate, UITextAutoscrolling, UIAutoscrollContainer, UIGestureRecognizerDelegate, UIKeyboardInput, UITextInputPrivate, UIKeyInput, UIModalViewDelegate, UITextInputTokenizer, _UIWebDoubleTapDelegate, UIWebFileUploadPanelDelegate>
 {
-    struct WKWindow *_wkWindow;
     WebView *_webView;
     WebViewReachabilityObserver *_reachabilityObserver;
     id m_parentTextView;
@@ -43,16 +43,13 @@
     int m_selectionGranularity;
     CALayer *_contentLayersHostingLayer;
     CALayer *_flattenedRotatingContentLayer;
-    NSMutableSet *_overflowScrollViewsPendingInsertion;
-    NSMutableSet *_overflowScrollViewsPendingDeletion;
-    NSMutableSet *_overflowScrollViews;
     NSArray *_additionalSubviews;
     UITextInputTraits *_traits;
     id <UITextInputDelegate> _inputDelegate;
     UITapGestureRecognizer *_singleTapGestureRecognizer;
     UITapGestureRecognizer *_doubleTapGestureRecognizer;
     UITapGestureRecognizer *_twoFingerDoubleTapGestureRecognizer;
-    UILongPressGestureRecognizer *_highlightLongPressGestureRecognizer;
+    _UIWebHighlightLongPressGestureRecognizer *_highlightLongPressGestureRecognizer;
     UILongPressGestureRecognizer *_longPressGestureRecognizer;
     UIPanGestureRecognizer *_twoFingerPanGestureRecognizer;
     struct {
@@ -74,16 +71,12 @@
         char acceptsFirstResponder;
         float documentScale;
     } _interaction;
-    struct UIWebDocumentViewViewportConfiguration _defaultViewportConfigurations[5];
-    struct UIWebDocumentViewViewportConfiguration _currentViewportConfiguration;
-    struct CGSize _minimumSize;
+    _UIWebViewportHandler *_viewportHandler;
     int _documentType;
     float _documentScale;
     float _previousDocumentScale;
-    struct CGRect _documentBounds;
     struct CGSize _fixedLayoutOriginRoundingDelta;
     struct CGSize _fixedLayoutSizeRoundingDelta;
-    unsigned int _customConfigurations;
     unsigned int _mouseDownCount;
     unsigned int _dataDetectorTypes;
     unsigned int _webCoreNeedsSetNeedsDisplay:1;
@@ -92,6 +85,7 @@
     unsigned int _ignoresKeyEvents:1;
     unsigned int _autoresizes:1;
     unsigned int _ignoresViewportOverflowWhenAutoresizing:1;
+    unsigned int _shouldIgnoreCustomViewport:1;
     unsigned int _updatingSize:1;
     unsigned int _scalesToFit:1;
     unsigned int _updatesScrollView:1;
@@ -117,11 +111,9 @@
     unsigned int _didFirstVisuallyNonEmptyLayout:1;
     unsigned int _loadInProgress:1;
     unsigned int _uiwdvIsResigningFirstResponder:1;
-    unsigned int _classicViewportMode:1;
     unsigned int _sizeUpdatesSuspended:1;
     unsigned int _sizeUpdateOccurredWhileSuspended:1;
     unsigned int _shouldOnlyRecognizeGesturesOnActiveElements:1;
-    unsigned int _shouldIgnoreCustomViewport:1;
     unsigned int _ignoresFocusEventFromFirstResponderChange:1;
     unsigned int _shouldCloseWebViewAtDealloc:1;
     unsigned int _shouldRemoveUserStyleSheet:1;
@@ -131,7 +123,8 @@
     unsigned int _avoidFixedPositionUpdateViaDidScroll:1;
     unsigned int _inspectorSearchingForNode:1;
     unsigned int _previousScrollWasScrollToTop:1;
-    unsigned int _skipResettingNeedsScrollNotifications:1;
+    unsigned int _pageIsLoadedFromPageCache:1;
+    unsigned int _shouldSendWillShowInteractionHighlight:1;
     WebThreadSafeUndoManager *_undoManager;
     UIWebSelectionAssistant *_webSelectionAssistant;
     UITextInteractionAssistant *_textSelectionAssistant;
@@ -142,9 +135,14 @@
     DOMElement *_dictationResultPlaceholder;
     id _dictationResultPlaceholderRemovalObserver;
     DOMRange *_rangeToRestoreAfterDictation;
+    struct _UIWebViewportConfiguration _defaultViewportConfigurations[5];
     _UITextServiceSession *_definitionSession;
     _UITextServiceSession *_learnSession;
+    WebHistoryItem *_latestCommittedPageLoadHistoryItem;
     BOOL _suppressesIncrementalRendering;
+    unsigned int _renderTreeSize;
+    unsigned int _renderTreeSizeThresholdForReset;
+    struct UIEdgeInsets _fixedPositionContentInset;
 }
 
 + (id)standardTextViewPreferences;
@@ -154,6 +152,9 @@
 + (Class)layerClass;
 + (id)_sharedHighlightView;
 + (id)_createDefaultHighlightView;
+@property(nonatomic) unsigned int renderTreeSizeThresholdForReset; // @synthesize renderTreeSizeThresholdForReset=_renderTreeSizeThresholdForReset;
+@property(readonly, nonatomic) unsigned int renderTreeSize; // @synthesize renderTreeSize=_renderTreeSize;
+@property(nonatomic) struct UIEdgeInsets fixedPositionContentInset; // @synthesize fixedPositionContentInset=_fixedPositionContentInset;
 @property(nonatomic) BOOL suppressesIncrementalRendering; // @synthesize suppressesIncrementalRendering=_suppressesIncrementalRendering;
 @property(retain, nonatomic) DOMRange *rangeToRestoreAfterDictation; // @synthesize rangeToRestoreAfterDictation=_rangeToRestoreAfterDictation;
 - (void)willZoomToLocation:(struct CGPoint)arg1 atScale:(float)arg2 forDuration:(double)arg3;
@@ -218,7 +219,6 @@
 - (void *)_createIOSurfaceFromRect:(struct CGRect)arg1;
 - (BOOL)_shouldFlattenContentLayersForRect:(struct CGRect)arg1;
 - (unsigned int)_contentSizeInExposedRect:(struct CGRect)arg1 topLayer:(id)arg2 visibleLayerCount:(int *)arg3;
-- (BOOL)_shouldUseInitialScale;
 - (float)maximumDoubleTapScale;
 - (void)didEndZoom;
 - (void)didZoom;
@@ -245,10 +245,15 @@
 - (void)makeTextWritingDirectionRightToLeft:(id)arg1;
 - (void)_promptForReplace:(id)arg1;
 - (void)replace:(id)arg1;
+- (void)decreaseSize:(id)arg1;
+- (void)increaseSize:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)select:(id)arg1;
 - (void)paste:(id)arg1;
+- (BOOL)_isDisplayingShortcutViewController;
 - (void)_addShortcut:(id)arg1;
+- (void)_insertAttributedTextWithoutClosingTyping:(id)arg1;
+- (BOOL)_isDisplayingReferenceLibraryViewController;
 - (void)_define:(id)arg1;
 - (struct CGRect)_shortcutPresentationRect;
 - (void)_showTextStyleOptions:(id)arg1;
@@ -294,8 +299,6 @@
 - (id)text;
 - (void)setText:(id)arg1;
 - (void)selectAll;
-- (void)moveForward:(unsigned int)arg1;
-- (void)moveBackward:(unsigned int)arg1;
 - (BOOL)selectionAtWordStart;
 - (BOOL)selectionAtDocumentStart;
 - (BOOL)hasSelection;
@@ -305,29 +308,19 @@
 - (void)setSelectedDOMRange:(id)arg1 affinityDownstream:(BOOL)arg2;
 - (id)selectedDOMRange;
 - (struct _NSRange)selectionRange;
-- (struct _NSRange)_markedTextNSRange;
 - (void)replaceSelectionWithWebArchive:(id)arg1 selectReplacement:(BOOL)arg2 smartReplace:(BOOL)arg3;
 - (int)wordOffsetInRange:(id)arg1;
-- (void)expandSelectionToStartOfWordContainingCaretSelection;
-- (id)wordContainingCaretSelection;
 - (id)nextUnperturbedDictationResultBoundaryFromPosition:(id)arg1;
-- (id)previousUnperturbedDictationResultBoundaryFromPosition:(id)arg1;
-- (id)wordRangeContainingCaretSelection;
-- (struct CGRect)rectContainingCaretSelection;
 - (id)rectsForNSRange:(struct _NSRange)arg1;
-- (struct CGRect)rectForNSRange:(struct _NSRange)arg1;
 - (id)textColorForCaretSelection;
 - (id)fontForCaretSelection;
 - (unsigned short)characterAfterCaretSelection;
-- (unsigned short)characterBeforeCaretSelection;
 - (unsigned short)characterInRelationToCaretSelection:(int)arg1;
-- (id)markedText;
 - (void)confirmMarkedText:(id)arg1;
 - (void)setMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2;
-- (void)setMarkedText:(id)arg1;
 - (void)replaceCurrentWordWithText:(id)arg1;
-- (void)replaceRangeWithText:(struct _NSRange)arg1 replacementText:(id)arg2;
 - (void)replaceRangeWithTextWithoutClosingTyping:(id)arg1 replacementText:(id)arg2;
+- (void)clearMarkedText;
 - (id)dictationInterpretations;
 - (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
 - (void)_finishedUsingDictationPlaceholder;
@@ -379,7 +372,8 @@
 - (struct CGRect)doubleTapRect;
 - (void)_handleTwoFingerDoubleTapAtLocation:(struct CGPoint)arg1;
 - (void)_handleDoubleTapAtLocation:(struct CGPoint)arg1;
-- (void)_handleDoubleTapAtPoint:(struct CGPoint)arg1 inWebHTMLView:(id)arg2 outRenderRect:(struct CGRect *)arg3;
+- (void)_handleSingleTapZoomPostClickAtLocation:(struct CGPoint)arg1;
+- (BOOL)_handleSingleTapZoomPreClickAtLocation:(struct CGPoint)arg1;
 @property(nonatomic, getter=isDoubleTapEnabled) BOOL doubleTapEnabled;
 @property(nonatomic) BOOL mediaPlaybackAllowsAirPlay;
 @property(nonatomic) BOOL shouldOnlyRecognizeGesturesOnActiveElements;
@@ -395,18 +389,9 @@
 - (id)subviews;
 - (BOOL)_shouldUpdateSubviewCachesForPlugins;
 - (void)_updateSubviewCaches;
-- (BOOL)_hasSubviewContainingWebContent:(id)arg1;
-- (void)_overflowScrollView:(id)arg1 didEndScrollingForNode:(id)arg2;
-- (void)_overflowScrollView:(id)arg1 scrollOffsetChangedForNode:(id)arg2 whileScrolling:(BOOL)arg3;
-- (void)_overflowScrollView:(id)arg1 willStartScrollingForNode:(id)arg2;
-- (void)webView:(id)arg1 willRemoveScrollingLayer:(id)arg2 withContentsLayer:(id)arg3 forNode:(id)arg4;
-- (void)webView:(id)arg1 didCreateOrUpdateScrollingLayer:(id)arg2 withContentsLayer:(id)arg3 scrollSize:(id)arg4 forNode:(id)arg5 allowHorizontalScrollbar:(BOOL)arg6 allowVerticalScrollbar:(BOOL)arg7;
-- (void)webViewDidCommitCompositingLayerChanges:(id)arg1;
-- (void)_removeAdditionalSubview:(id)arg1;
-- (void)_addAdditionalSubview:(id)arg1;
+- (id)_collectAdditionalSubviews;
 - (void)_setSubviewCachesNeedUpdate:(BOOL)arg1;
-- (void)_noteOverflowScrollViewPendingDeletion:(id)arg1;
-- (void)_noteOverflowScrollViewPendingInsertion:(id)arg1;
+- (void)webViewDidCommitCompositingLayerChanges:(id)arg1;
 - (void)_webthread_webView:(id)arg1 attachRootLayer:(id)arg2;
 - (void)revealedSelectionByScrollingWebFrame:(id)arg1;
 - (BOOL)isUnperturbedDictationResultMarker:(id)arg1;
@@ -487,8 +472,8 @@
 - (BOOL)needsScrollNotifications;
 - (void)webView:(id)arg1 needsScrollNotifications:(id)arg2 forFrame:(id)arg3;
 - (BOOL)isClassicViewportMode;
-- (void)webView:(id)arg1 didReceiveViewportArguments:(id)arg2 forFrame:(id)arg3;
-- (unsigned int)_applyViewportArguments:(id)arg1;
+- (void)webView:(id)arg1 didReceiveViewportArguments:(id)arg2;
+- (void)_applyViewportArguments:(id)arg1;
 @property(nonatomic) BOOL shouldIgnoreCustomViewport;
 - (void)_clearDoubleTapRect;
 - (void)_updateSize;
@@ -499,19 +484,16 @@
 - (struct CGRect)convertRect:(struct CGRect)arg1 toFrame:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromFrame:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toFrame:(id)arg2;
-- (void)viewportConfigurationsDidChange:(unsigned int)arg1;
+- (void)viewportHandler:(id)arg1 didChangeViewportSize:(struct CGSize)arg2;
+- (void)viewportHandlerDidChangeScales:(id)arg1;
 - (void)_updateScrollViewBoundaryZoomScales;
 - (float)_zoomedDocumentScale;
 - (float)minimumScale;
 - (float)maximumScale;
 - (float)initialScale;
 - (float)minimumScaleForMinimumSize:(struct CGSize)arg1;
-- (float)viewportHeight;
-- (float)viewportWidth;
 - (float)_documentScale;
 - (void)_setDocumentScale:(float)arg1;
-- (float)integralScaleForScale:(float)arg1;
-- (float)integralScaleForScale:(float)arg1 keepingPointFixed:(struct CGPoint *)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setUsePreTimberlineTransparencyBehavior;
 - (unsigned int)dataDetectorTypes;
@@ -590,6 +572,7 @@
 - (void)attemptClick:(id)arg1;
 - (void)_sendMouseMoveAndAttemptClick:(id)arg1;
 - (void)performClick:(id)arg1;
+- (void)_syntheticMouseEventNotHandledAtLocation:(struct CGPoint)arg1;
 - (void)_twoFingerPanRecognized:(id)arg1;
 - (void)_longPressRecognized:(id)arg1;
 - (void)_highlightLongPressRecognized:(id)arg1;
@@ -696,9 +679,11 @@
 @property(nonatomic) BOOL displaySecureTextUsingPlainText;
 @property(nonatomic) int emptyContentReturnKeyType;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically; // @dynamic enablesReturnKeyAutomatically;
+@property(nonatomic) BOOL enablesReturnKeyOnNonWhiteSpaceContent;
 @property(nonatomic) BOOL forceEnableDictation;
 @property(retain, nonatomic) UIColor *insertionPointColor; // @dynamic insertionPointColor;
 @property(nonatomic) unsigned int insertionPointWidth; // @dynamic insertionPointWidth;
+@property(nonatomic) BOOL isSingleLineDocument; // @dynamic isSingleLineDocument;
 @property(nonatomic) int keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) int keyboardType; // @dynamic keyboardType;
 @property(nonatomic) BOOL learnsCorrections;

@@ -30,6 +30,7 @@
 - (void)_makePresenter:(id)arg1 relinquishToAccessClaimWithID:(id)arg2 ifNecessaryUsingSelector:(SEL)arg3 recordingRelinquishment:(id)arg4 continuer:(id)arg5;
 - (void)_makePresenter:(id)arg1 setLastPresentedItemEventIdentifier:(unsigned long long)arg2;
 - (void)_makePresenter:(id)arg1 observeVersionChangeOfKind:(id)arg2 withClientID:(id)arg3 name:(id)arg4 subitemURL:(id)arg5;
+- (void)_makePresenter:(id)arg1 observeUbiquityChangeWithSubitemURL:(id)arg2;
 - (void)_makePresenterObserveReconnection:(id)arg1;
 - (void)_makePresenterObserveDisconnection:(id)arg1;
 - (void)_makePresenter:(id)arg1 observeMoveToURL:(id)arg2 withSubitemURL:(id)arg3;
@@ -46,6 +47,7 @@
 - (void)addFilePresenter:(id)arg1;
 - (void)tiePresenterForID:(id)arg1 toItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didVersionChangeOfKind:(id)arg2 toItemAtURL:(id)arg3 withClientID:(id)arg4 name:(id)arg5;
+- (void)writerWithPurposeID:(id)arg1 didChangeUbiquityOfItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didReconnectItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didDisconnectItemAtURL:(id)arg2;
 - (void)writerWithPurposeID:(id)arg1 didMoveItemAtURL:(id)arg2 toURL:(id)arg3;

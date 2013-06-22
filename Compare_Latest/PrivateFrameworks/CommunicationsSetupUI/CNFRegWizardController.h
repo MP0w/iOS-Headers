@@ -8,7 +8,7 @@
 
 #import "CNFRegFirstRunDelegate-Protocol.h"
 
-@class CNFRegController;
+@class CNFRegController, _UIBackdropView;
 
 @interface CNFRegWizardController : PSSetupController <CNFRegFirstRunDelegate>
 {
@@ -28,18 +28,22 @@
         unsigned int showSplashOnSignin:1;
         unsigned int reloadOnViewWillAppear:1;
         unsigned int allowCancel:1;
+        unsigned int allowSMS:1;
         unsigned int shouldTerminateInBackground:1;
     } _wizardFlags;
+    _UIBackdropView *_backdropView;
 }
 
 + (void)setSupportsAutoRotation:(BOOL)arg1;
 + (void)setGlobalAppearanceStyle:(int)arg1;
+@property(retain, nonatomic) _UIBackdropView *backdropView; // @synthesize backdropView=_backdropView;
 @property(copy, nonatomic) id alertHandler; // @synthesize alertHandler=_alertHandler;
 @property(retain, nonatomic) CNFRegController *regController; // @synthesize regController=_regController;
 @property(nonatomic) id <CNFRegWizardControllerDelegate> firstRunDelegate; // @synthesize firstRunDelegate=_firstRunDelegate;
 @property(nonatomic) BOOL shouldTerminateInBackground; // @dynamic shouldTerminateInBackground;
 @property(nonatomic) BOOL showSplashOnSignin;
 @property(nonatomic) BOOL hideLearnMoreButton; // @dynamic hideLearnMoreButton;
+@property(nonatomic) BOOL allowSMS;
 @property(nonatomic) BOOL allowCancel;
 @property(nonatomic) BOOL shouldListenForSuspension; // @dynamic shouldListenForSuspension;
 @property(nonatomic) BOOL reloadOnViewWillAppear; // @dynamic reloadOnViewWillAppear;
@@ -63,10 +67,18 @@
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)pushViewController:(id)arg1 transition:(int)arg2;
+- (void)pushViewController:(id)arg1 animated:(BOOL)arg2;
+- (id)popViewControllerWithTransition:(int)arg1;
+- (id)popViewControllerAnimated:(BOOL)arg1;
+- (void)setViewControllers:(id)arg1 animated:(BOOL)arg2;
+- (void)_updateNavigationBarHiddenForCurrentState;
+- (void)_updateNavigationBarHiddenForPop;
+- (void)_updateNavigationBarHiddenForPush;
+- (void)_updateNavigationBarTitle;
 - (void)setupController;
 - (void)viewDidLoad;
 - (BOOL)shouldShowFirstRunController;
-- (BOOL)shouldShowFirstRunController:(BOOL)arg1;
 - (id)controllersToShow;
 - (id)controllersToShow:(BOOL)arg1;
 - (id)controllerClassesToShow:(BOOL)arg1;

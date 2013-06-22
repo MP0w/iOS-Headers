@@ -6,16 +6,19 @@
 
 #import <EventKitUI/EKEventDetailItem.h>
 
-@class UITableViewCell;
+#import "UITextFieldDelegate-Protocol.h"
 
-@interface EKEventCommentDetailItem : EKEventDetailItem
+@class EKEventDetailCommentCell;
+
+@interface EKEventCommentDetailItem : EKEventDetailItem <UITextFieldDelegate>
 {
-    UITableViewCell *_cell;
+    EKEventDetailCommentCell *_cell;
 }
 
-- (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (void).cxx_destruct;
+- (void)textFieldDidEndEditing:(id)arg1;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (BOOL)configureWithCalendar:(id)arg1 preview:(BOOL)arg2;
 - (void)reset;
 

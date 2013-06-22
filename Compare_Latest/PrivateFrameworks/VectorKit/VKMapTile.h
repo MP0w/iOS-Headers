@@ -12,16 +12,11 @@
 
 @interface VKMapTile : VKTile <NSCopying>
 {
-    VKTile *_tiles[26];
-    unsigned int _states[26];
-    double _stateDates[26];
-    id _stateMetas[26];
-    struct {
-        float x0;
-        float x1;
-        float y0;
-        float y1;
-    } _localBounds[26];
+    VKTile *_tiles[28];
+    unsigned int _states[28];
+    double _stateDates[28];
+    id _stateMetas[28];
+    CDStruct_ff03d24e _localBounds[28];
     VKRasterTile *_rasterized;
     BOOL _needsRasterization;
     float _maximumStyleZ;
@@ -30,6 +25,7 @@
 @property(nonatomic) BOOL needsRasterization; // @synthesize needsRasterization=_needsRasterization;
 @property(retain, nonatomic) VKRasterTile *rasterized; // @synthesize rasterized=_rasterized;
 @property(readonly, nonatomic) float maximumStyleZ; // @synthesize maximumStyleZ=_maximumStyleZ;
+- (id).cxx_construct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (CDStruct_818bb265)localBoundsForLayer:(unsigned int)arg1;
 - (void)setTile:(id)arg1 state:(unsigned int)arg2 metadata:(id)arg3 forLayer:(unsigned int)arg4;

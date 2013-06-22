@@ -8,25 +8,22 @@
 
 #import "WebFormDelegate-Protocol.h"
 
-@class UIWebFormCompletionController, _UIWebFormDelegateEditedFormsMap;
+@class UIWebBrowserView, _UIWebFormDelegateEditedFormsMap;
 
 @interface UIWebFormDelegate : NSObject <WebFormDelegate>
 {
-    UIWebFormCompletionController *_completionController;
-    id <UIBrowserDocumentController> _controller;
+    UIWebBrowserView *_webBrowserView;
     _UIWebFormDelegateEditedFormsMap *_editedForms;
 }
 
-- (void)autoFillWithElementValue;
 - (void)acceptedAutoFillWord:(id)arg1;
 - (BOOL)hasCurrentSuggestions;
 - (CDStruct_421913e2)suggestionsForString:(id)arg1 inputIndex:(unsigned int)arg2;
-- (void)setController:(id)arg1;
-- (void)frameLayoutHasChanged:(id)arg1;
-- (void)formWillHide;
 - (BOOL)formWasEdited;
 - (void)dataSourceHasChangedForFrame:(id)arg1;
-- (id)initWithController:(id)arg1;
+- (id)initWithWebBrowserView:(id)arg1;
+- (void)willSendSubmitEventToForm:(id)arg1 inFrame:(id)arg2 withValues:(id)arg3;
+- (void)didFocusTextField:(id)arg1 inFrame:(id)arg2;
 - (BOOL)textField:(id)arg1 doCommandBySelector:(SEL)arg2 inFrame:(id)arg3;
 - (void)textFieldDidEndEditing:(id)arg1 inFrame:(id)arg2;
 - (void)textFieldDidBeginEditing:(id)arg1 inFrame:(id)arg2;

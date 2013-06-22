@@ -4,13 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBUIAnimationController.h"
+#import "SBUIMainScreenAnimationController.h"
 
 #import "SBUIFullscreenAnimationViewDelegate-Protocol.h"
 
 @class SBUISlideAppTransitionView;
 
-@interface SBUISlideAppTransitionController : SBUIAnimationController <SBUIFullscreenAnimationViewDelegate>
+@interface SBUISlideAppTransitionController : SBUIMainScreenAnimationController <SBUIFullscreenAnimationViewDelegate>
 {
     SBUISlideAppTransitionView *_transitionView;
     double _animationDelay;

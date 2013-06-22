@@ -6,29 +6,33 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface TLAlert : NSObject
 {
+    BOOL _shouldOverrideMasterSwitches;
     int _type;
-    unsigned long _soundID;
-    NSDictionary *_vibrationPattern;
+    NSString *_toneIdentifier;
+    NSString *_vibrationIdentifier;
     NSObject<OS_dispatch_queue> *_targetQueue;
     id _completionHandler;
 }
 
++ (void)_playToneAndVibrationForType:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3 shouldOverrideMasterSwitches:(BOOL)arg4;
 + (void)playToneAndVibrationForType:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3;
 + (void)playToneAndVibrationForType:(int)arg1 accountIdentifier:(id)arg2;
 + (void)playToneAndVibrationForType:(int)arg1;
-@property(copy, nonatomic) id completionHandler; // @synthesize completionHandler=_completionHandler;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *targetQueue; // @synthesize targetQueue=_targetQueue;
-@property(copy, nonatomic) NSDictionary *vibrationPattern; // @synthesize vibrationPattern=_vibrationPattern;
-@property(nonatomic) unsigned long soundID; // @synthesize soundID=_soundID;
+@property(copy, nonatomic, setter=_setCompletionHandler:) id _completionHandler; // @synthesize _completionHandler;
+@property(retain, nonatomic, setter=_setTargetQueue:) NSObject<OS_dispatch_queue> *_targetQueue; // @synthesize _targetQueue;
+@property(nonatomic, setter=_setShouldOverrideMasterSwitches:) BOOL _shouldOverrideMasterSwitches; // @synthesize _shouldOverrideMasterSwitches;
+- (void)_setVibrationIdentifier:(id)arg1;
+@property(copy, nonatomic) NSString *vibrationIdentifier; // @synthesize vibrationIdentifier=_vibrationIdentifier;
+- (void)_setToneIdentifier:(id)arg1;
+@property(copy, nonatomic) NSString *toneIdentifier; // @synthesize toneIdentifier=_toneIdentifier;
+- (void)_setType:(int)arg1;
 @property(nonatomic) int type; // @synthesize type=_type;
 - (void)stop;
 - (BOOL)playWithCompletionHandler:(id)arg1 targetQueue:(void)arg2;
-@property(readonly, nonatomic, getter=isPlaying) BOOL playing;
-- (unsigned long)soundBehavior;
 - (void)dealloc;
 - (id)initWithType:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3;
 - (id)initWithType:(int)arg1 accountIdentifier:(id)arg2;

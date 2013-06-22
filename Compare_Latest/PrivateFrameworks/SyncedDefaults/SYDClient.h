@@ -17,6 +17,7 @@
     BOOL _additionalSource;
 }
 
+- (void)sendMessageWithName:(id)arg1 userInfo:(id)arg2 replyHandler:(id)arg3;
 - (void)sendMessageWithName:(id)arg1 replyHandler:(id)arg2;
 - (id)sendMessageWithName:(id)arg1 userInfo:(id)arg2;
 - (void)sendMessageWithName:(id)arg1;

@@ -15,6 +15,8 @@
     NSDateFormatter *_sentFormatter;
 }
 
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
@@ -25,7 +27,6 @@
 - (void)popToJobsView;
 - (void)updateCancelButton;
 - (void)loadView;
-- (void)setupCancelButton;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)dealloc;
 - (id)initWithJob:(id)arg1;

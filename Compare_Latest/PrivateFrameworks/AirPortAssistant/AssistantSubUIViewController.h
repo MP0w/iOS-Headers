@@ -16,6 +16,11 @@
     NSMutableDictionary *_outResultsDict;
 }
 
++ (id)tableView;
++ (id)tableViewHeaderView;
++ (id)topoViewInContainerView:(id *)arg1;
++ (id)labelViewInContainer:(id *)arg1 withSpinner:(id *)arg2 above:(BOOL)arg3;
++ (id)labelViewInContainer:(id *)arg1;
 @property(readonly, nonatomic) NSDictionary *outResultsDict; // @synthesize outResultsDict=_outResultsDict;
 @property(retain, nonatomic) NSDictionary *inParamDict; // @synthesize inParamDict=_inParamDict;
 @property(nonatomic) BOOL iPadIdiom; // @synthesize iPadIdiom=_iPadIdiom;
@@ -23,7 +28,6 @@
 - (id)getProductLocalizedStringWithFormat:(id)arg1;
 - (void)setRightNavigationButton:(id)arg1 enable:(BOOL)arg2 hide:(BOOL)arg3;
 - (void)setLeftNavigationButton:(id)arg1 enable:(BOOL)arg2 hide:(BOOL)arg3;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

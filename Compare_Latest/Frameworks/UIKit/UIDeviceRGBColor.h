@@ -13,6 +13,7 @@
     float blueComponent;
     float alphaComponent;
     struct CGColor *cachedColor;
+    long cachedColorOnceToken;
 }
 
 - (BOOL)_getWhite:(float *)arg1 alpha:(float *)arg2;

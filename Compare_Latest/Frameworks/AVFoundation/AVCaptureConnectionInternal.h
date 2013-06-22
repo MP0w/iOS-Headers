@@ -26,8 +26,6 @@
     BOOL videoMirrored;
     BOOL videoOrientationSupported;
     int videoOrientation;
-    CDStruct_1b6d18a9 videoMinFrameDuration;
-    CDStruct_1b6d18a9 videoMaxFrameDuration;
     float videoMaxScaleAndCropFactor;
     float videoScaleAndCropFactor;
     int videoRetainedBufferCountHint;

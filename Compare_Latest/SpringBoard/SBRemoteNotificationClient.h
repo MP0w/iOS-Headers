@@ -8,7 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
-@class NSData, NSDate, NSDictionary, NSString;
+@class NSData, NSDate, NSDictionary, NSMapTable, NSString;
 
 @interface SBRemoteNotificationClient : NSObject <NSCoding>
 {
@@ -19,16 +19,17 @@
     unsigned int _settingsPresentedTypes;
     NSData *_lastKnownDeviceToken;
     NSDate *_missingDate;
-    int _dayOfLastContentPush;
-    unsigned int _dailyCountOfContentPushes;
+    int _dayOfLastNewsstandPush;
+    unsigned int _dailyCountOfNewsstandPushes;
     BOOL _hasShownSystemwideEnableAlert;
     NSDictionary *_lastUserInfo;
+    NSMapTable *_tokenToUserInfos;
 }
 
 @property(retain, nonatomic) NSDictionary *lastUserInfo; // @synthesize lastUserInfo=_lastUserInfo;
 @property(nonatomic) BOOL hasShownSystemwideEnableAlert; // @synthesize hasShownSystemwideEnableAlert=_hasShownSystemwideEnableAlert;
-@property(nonatomic) unsigned int dailyCountOfContentPushes; // @synthesize dailyCountOfContentPushes=_dailyCountOfContentPushes;
-@property(nonatomic) int dayOfLastContentPush; // @synthesize dayOfLastContentPush=_dayOfLastContentPush;
+@property(nonatomic) unsigned int dailyCountOfNewsstandPushes; // @synthesize dailyCountOfNewsstandPushes=_dailyCountOfNewsstandPushes;
+@property(nonatomic) int dayOfLastNewsstandPush; // @synthesize dayOfLastNewsstandPush=_dayOfLastNewsstandPush;
 @property(retain, nonatomic) NSDate *missingDate; // @synthesize missingDate=_missingDate;
 @property(retain, nonatomic) NSData *lastKnownDeviceToken; // @synthesize lastKnownDeviceToken=_lastKnownDeviceToken;
 @property(nonatomic) unsigned int settingsPresentedTypes; // @synthesize settingsPresentedTypes=_settingsPresentedTypes;
@@ -36,6 +37,9 @@
 @property(nonatomic) unsigned int appEnabledTypes; // @synthesize appEnabledTypes=_appEnabledTypes;
 @property(retain, nonatomic) NSString *environment; // @synthesize environment=_environment;
 @property(readonly, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
+- (id)getUserInfoForToken:(int)arg1;
+- (void)setUserInfo:(id)arg1 forToken:(int)arg2;
+@property(readonly, nonatomic) NSMapTable *tokenToUserInfos; // @synthesize tokenToUserInfos=_tokenToUserInfos;
 - (unsigned int)effectivelyEnabledTypes;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -6,13 +6,10 @@
 
 #import "UIAccessibilityElement.h"
 
+@class NSArray;
+
 @interface UIAccessibilityElement (Private)
-- (int)_accessibilityBestCharacterModeForHandwriting;
-- (BOOL)_accessibilityShouldEchoHandwritingCharacter;
-- (BOOL)_accessibilityCanHandleDirectHandwritingInput;
-- (void)_accessibilityInsertText:(id)arg1 atPosition:(int)arg2;
-- (BOOL)_accessibilityCanDeleteCharacterWithHandwriting;
-- (void)_accessibilityDeleteCharacterAtCursor;
+@property(retain, nonatomic) NSArray *accessibilityContainerElements;
 @property(nonatomic) struct CGRect bounds; // @dynamic bounds;
 - (void)delegateSpecificsForAttribute:(int)arg1 delegate:(id *)arg2 selector:(SEL *)arg3;
 - (void)setDelegate:(id)arg1 forAttribute:(int)arg2 withSelector:(SEL)arg3;

@@ -9,6 +9,7 @@
 @interface IUAlbumCellConfiguration : IUMediaEntityCellConfiguration
 {
     BOOL _artistSpecified;
+    BOOL _albumArtistSpecified;
 }
 
 + (id)backgroundColorWithModifiers:(unsigned int)arg1;

@@ -20,6 +20,7 @@
 - (void)getObjects:(id *)arg1 andKeys:(id *)arg2;
 - (unsigned int)count;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
+- (void)setObject:(id)arg1 forUncopiedKey:(id)arg2;
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

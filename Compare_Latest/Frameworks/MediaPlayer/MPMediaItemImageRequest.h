@@ -6,14 +6,14 @@
 
 #import <MediaPlayer/MPImageCacheRequest.h>
 
-@class MPMediaItem, NSString, UIImage;
+@class MPMediaItem, NSString;
 
 @interface MPMediaItemImageRequest : MPImageCacheRequest
 {
     NSString *_artworkCacheID;
     int _artworkFormat;
     MPMediaItem *_mediaItem;
-    int _placeHolderMediaType;
+    unsigned int _placeHolderMediaType;
     double _retrievalTime;
     BOOL _usePlaceholderAsFallback;
     BOOL _crop;
@@ -21,8 +21,9 @@
     BOOL _canUseSurfaceBackedImage;
 }
 
++ (id)placeholderImage;
 @property(nonatomic) BOOL canUseSurfaceBackedImage; // @synthesize canUseSurfaceBackedImage=_canUseSurfaceBackedImage;
-@property(nonatomic) int placeHolderMediaType; // @synthesize placeHolderMediaType=_placeHolderMediaType;
+@property(nonatomic) unsigned int placeHolderMediaType; // @synthesize placeHolderMediaType=_placeHolderMediaType;
 @property(nonatomic) BOOL usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
 @property(nonatomic) double retrievalTime; // @synthesize retrievalTime=_retrievalTime;
 @property(readonly, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
@@ -30,13 +31,13 @@
 @property(nonatomic) BOOL crop; // @synthesize crop=_crop;
 @property(nonatomic) int artworkFormat; // @synthesize artworkFormat=_artworkFormat;
 @property(copy, nonatomic) NSString *artworkCacheID; // @synthesize artworkCacheID=_artworkCacheID;
+- (void).cxx_destruct;
 - (void)composeUniqueKey;
 - (id)uniqueKey;
 - (id)copyRawImageReturningError:(id *)arg1;
 - (BOOL)canRequestSynchronously;
-@property(readonly, nonatomic) UIImage *unscaledPlaceholderImage;
 - (id)placeholderImage;
-- (void)dealloc;
+- (id)finalPlaceholderImage;
 - (void)setRetrievalTimeForPlaybackTime:(double)arg1;
 - (id)initWithMediaItem:(id)arg1;
 

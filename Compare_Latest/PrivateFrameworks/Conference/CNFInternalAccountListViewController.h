@@ -22,7 +22,6 @@
 - (void)_startListeningForNotifications;
 - (void)accountTappedWithSpecifier:(id)arg1;
 - (id)accountNameForSpecifier:(id)arg1;
-- (BOOL)canBeShownFromSuspendedState;
 - (id)specifiers;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;

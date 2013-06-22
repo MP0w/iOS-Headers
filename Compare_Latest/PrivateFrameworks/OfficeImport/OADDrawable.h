@@ -11,7 +11,7 @@
 @interface OADDrawable : NSObject
 {
     BOOL mHidden;
-    long mId;
+    unsigned long mId;
     OADDrawableProperties *mDrawableProperties;
     id <OADClient> mClientData;
     OADDrawable<OADDrawableContainer> *mParent;
@@ -27,8 +27,9 @@
 - (void)setClientData:(id)arg1;
 - (void)setDrawableProperties:(id)arg1;
 - (id)drawableProperties;
-- (void)setId:(long)arg1;
-- (long)id;
+- (void)identify;
+- (void)setId:(unsigned long)arg1;
+- (unsigned long)id;
 - (void)setHidden:(BOOL)arg1;
 - (BOOL)hidden;
 - (void)dealloc;

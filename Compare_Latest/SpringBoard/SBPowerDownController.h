@@ -8,36 +8,36 @@
 
 #import "SBPowerDownViewDelegate-Protocol.h"
 
-@class SBPowerDownView;
+@class SBAlertView<SBPowerDownViewInterface>;
 
 @interface SBPowerDownController : SBAlert <SBPowerDownViewDelegate>
 {
-    int _count;
     id _delegate;
-    SBPowerDownView *_powerDownView;
     BOOL _isFront;
+    SBAlertView<SBPowerDownViewInterface> *_powerDownView;
     id _orderOutCompletion;
 }
 
 + (id)sharedInstance;
+@property(nonatomic) id <SBPowerDownControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) id orderOutCompletion; // @synthesize orderOutCompletion=_orderOutCompletion;
+- (void)_lockedOnTop;
+- (void)_restoreIconListIfNecessary;
 - (void)powerDownViewAnimateOutCompleted:(id)arg1;
 - (void)powerDownViewRequestPowerDown:(id)arg1;
 - (void)powerDownViewRequestCancel:(id)arg1;
+- (BOOL)powerDownViewShouldHideStatusBar:(id)arg1;
+- (double)autoLockTime;
+- (void)deactivate;
+- (void)activate;
+- (BOOL)showsSpringBoardStatusBar;
+- (BOOL)managesOwnStatusBarAtActivation;
+- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
 - (void)cancel;
 - (void)powerDown;
-- (void)setDelegate:(id)arg1;
-- (void)alertDisplayWillBecomeVisible;
-- (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (void)lockedOnTop;
-- (void)deactivate;
-- (void)_restoreIconListIfNecessary;
-- (void)activate;
-- (id)powerDownViewWithSize:(struct CGSize)arg1;
 - (void)orderOutWithCompletion:(id)arg1;
 - (void)orderFront;
 - (BOOL)isOrderedFront;
-- (double)autoLockTime;
 - (void)dealloc;
 - (id)init;
 

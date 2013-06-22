@@ -28,6 +28,8 @@
 - (void)requestMediaDataWhenReadyOnQueue:(id)arg1 usingBlock:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *trackReferences;
 @property(nonatomic) short alternateGroupID;
+@property(nonatomic) int layer;
+@property(nonatomic) float preferredVolume;
 @property(nonatomic) BOOL marksOutputTrackAsEnabled;
 @property(copy, nonatomic) NSString *extendedLanguageTag;
 @property(copy, nonatomic) NSString *languageCode;
@@ -42,7 +44,7 @@
 @property(readonly, nonatomic) NSString *mediaType;
 @property(readonly, nonatomic) int trackID;
 - (void)transitionAssetWriterAndAllInputsToFailedStatusWithError:(id)arg1;
-- (void)transitionToTerminalStatus:(int)arg1;
+- (id)transitionToAndReturnTerminalHelperWithTerminalStatus:(int)arg1;
 @property(readonly, nonatomic) int status;
 - (void)dealloc;
 - (id)initWithConfigurationState:(id)arg1;

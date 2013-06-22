@@ -22,6 +22,7 @@
 @property(retain, nonatomic) UIViewController *inflightBackstopViewController; // @synthesize inflightBackstopViewController=_inflightBackstopViewController;
 @property(nonatomic) BOOL showOverlayAfterTransition; // @synthesize showOverlayAfterTransition=_showOverlayAfterTransition;
 @property(retain, nonatomic) UINavigationBar *portraitNavigationBar; // @synthesize portraitNavigationBar=_portraitNavigationBar;
+- (void).cxx_destruct;
 - (void)_updateStatusBar;
 - (void)_transformView:(id)arg1 forOrientation:(int)arg2 bounds:(struct CGRect)arg3;
 - (void)_prepareViewsWithBeginAnimationTransactionBlock:(id)arg1;

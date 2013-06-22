@@ -15,10 +15,10 @@
 }
 
 @property(nonatomic) BOOL usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
+- (void).cxx_destruct;
 - (id)uniqueKey;
 - (id)placeholderImage;
 - (id)copyRawImageReturningError:(id *)arg1;
-- (void)dealloc;
 - (id)initWithURL:(id)arg1;
 
 @end

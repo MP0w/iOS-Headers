@@ -14,12 +14,16 @@
     UITableView *_tableView;
     BOOL _showsDatePicker;
     BOOL _usesKeyboard;
+    id <EKPickerTableViewDelegate> _delegate;
 }
 
 @property(nonatomic) BOOL usesKeyboard; // @synthesize usesKeyboard=_usesKeyboard;
 @property(nonatomic) BOOL showsDatePicker; // @synthesize showsDatePicker=_showsDatePicker;
+@property(nonatomic) __weak id <EKPickerTableViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(readonly, nonatomic) UIDatePicker *datePicker; // @synthesize datePicker=_datePicker;
+- (void).cxx_destruct;
+- (void)_datePickerDoubleTapped:(id)arg1;
 - (id)inputView;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

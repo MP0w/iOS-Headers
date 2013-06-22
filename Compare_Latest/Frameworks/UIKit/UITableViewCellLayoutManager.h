@@ -11,20 +11,22 @@
 }
 
 + (id)layoutManagerForTableViewCellStyle:(int)arg1;
+- (struct CGRect)textRectForCell:(id)arg1;
 - (struct CGRect)contentEndingRectForCell:(id)arg1 forDisplayOfDeleteConfirmation:(BOOL)arg2;
 - (struct CGRect)contentStartingRectForCell:(id)arg1 forDisplayOfDeleteConfirmation:(BOOL)arg2;
 - (struct CGRect)contentEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
 - (struct CGRect)contentStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
+- (struct CGRect)selectedBackgroundEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
 - (struct CGRect)backgroundEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
 - (struct CGRect)backgroundStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
 - (struct CGRect)deleteConfirmationRectForCell:(id)arg1;
 - (BOOL)editingAccessoryShouldFadeForCell:(id)arg1;
-- (struct CGRect)editingAccessoryEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
-- (struct CGRect)editingAccessoryStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
+- (struct CGRect)editingAccessoryEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2 showingDeleteConfirmation:(BOOL)arg3;
+- (struct CGRect)editingAccessoryStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2 showingDeleteConfirmation:(BOOL)arg3;
 - (BOOL)editingAccessoryShouldAppearForCell:(id)arg1;
 - (BOOL)accessoryShouldFadeForCell:(id)arg1;
-- (struct CGRect)accessoryEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
-- (struct CGRect)accessoryStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
+- (struct CGRect)accessoryEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2 showingDeleteConfirmation:(BOOL)arg3;
+- (struct CGRect)accessoryStartingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2 showingDeleteConfirmation:(BOOL)arg3;
 - (BOOL)accessoryShouldAppearForCell:(id)arg1;
 - (BOOL)reorderSeparatorShouldFadeForCell:(id)arg1;
 - (struct CGRect)reorderSeparatorEndingRectForCell:(id)arg1 forNewEditingState:(BOOL)arg2;
@@ -52,6 +54,7 @@
 - (id)defaultEditableTextFieldForCell:(id)arg1;
 - (id)defaultLabelForCell:(id)arg1;
 - (id)defaultLabelForCell:(id)arg1 ofClass:(Class)arg2;
+- (id)defaultTextLabelFontForCell:(id)arg1;
 - (id)defaultImageViewForCell:(id)arg1;
 - (float)defaultDetailTextLabelFontSizeForCell:(id)arg1;
 - (float)defaultTextLabelFontSizeForCell:(id)arg1;

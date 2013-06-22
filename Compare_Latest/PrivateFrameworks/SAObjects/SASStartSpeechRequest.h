@@ -12,6 +12,7 @@
 
 + (id)startSpeechRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)startSpeechRequest;
+@property(nonatomic) BOOL talkOnly;
 @property(nonatomic) BOOL handsFree;
 @property(nonatomic) BOOL eyesFree;
 - (id)encodedClassName;

@@ -6,6 +6,7 @@
 
 #import "UIViewController.h"
 
+#import "ABPeoplePickerNavigationControllerDelegate-Protocol.h"
 #import "MFContactsSearchConsumer-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
@@ -13,7 +14,7 @@
 
 @class MFContactsSearchManager, MFContactsSearchResultsModel, MFSearchShadowView, NSArray, NSNumber, PLComposeRecipientView, UIPopoverController, UIScrollView, UITableView;
 
-@interface PLComposeRecipientViewController : UIViewController <MFContactsSearchConsumer, UITableViewDelegate, UITableViewDataSource, UIPopoverControllerDelegate>
+@interface PLComposeRecipientViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate, MFContactsSearchConsumer, UITableViewDelegate, UITableViewDataSource, UIPopoverControllerDelegate>
 {
     PLComposeRecipientView *_recipientView;
     UIScrollView *_recipientContainerView;
@@ -34,14 +35,19 @@
         unsigned int offsettingForResultsTable:1;
         unsigned int wasFirstResponder:1;
     } _flags;
+    NSArray *_properties;
     BOOL _drawsLetterpress;
 }
 
-+ (void)recordRecentEventForAddresses:(id)arg1;
++ (void)recordRecentInvitationRecipient:(id)arg1 displayName:(id)arg2 date:(id)arg3;
 @property(nonatomic) id <PLComposeRecipientViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned int maxExpandRows; // @synthesize maxExpandRows=_maxExpandRows;
 @property(nonatomic) BOOL drawsLetterpress; // @synthesize drawsLetterpress=_drawsLetterpress;
 @property(readonly, nonatomic) PLComposeRecipientView *recipientView; // @synthesize recipientView=_recipientView;
+- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
+- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
+- (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
+- (BOOL)shouldShowCardForPerson:(void *)arg1 peoplePicker:(id)arg2;
 - (BOOL)isRecipientViewFirstResponder;
 - (void)makeRecipientViewResignFirstResponder;
 - (void)makeRecipientViewFirstResponder;
@@ -50,6 +56,7 @@
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)composeRecipientViewReturnPressed:(id)arg1;
+- (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
 - (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 identifier:(int)arg3;
 - (id)composeRecipientView:(id)arg1 composeRecipientForAddress:(id)arg2;
 - (void)composeRecipientView:(id)arg1 showPersonCardForAtom:(id)arg2;
@@ -58,7 +65,7 @@
 - (void)composeRecipientViewRequestAddRecipient:(id)arg1;
 - (void)composeRecipientView:(id)arg1 textDidChange:(id)arg2;
 - (void)composeRecipientView:(id)arg1 didChangeSize:(struct CGSize)arg2;
-- (void)composeRecipientViewDidFinishEnteringRecipient:(id)arg1;
+- (void)composeRecipientView:(id)arg1 didFinishEnteringAddress:(id)arg2;
 - (void)composeRecipientView:(id)arg1 requestDeleteRecipientAtIndex:(int)arg2;
 - (void)endedNetworkActivity;
 - (void)beganNetworkActivity;
@@ -77,10 +84,12 @@
 - (void)_updateViewsLayoutAnimated:(BOOL)arg1 completion:(id)arg2;
 - (void *)_addressBook;
 - (void)_forceDismissPeoplePickerPopover;
+- (void)_dismissPeoplePicker:(id)arg1;
 - (id)recipients;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidUnload;
 - (void)loadView;
 - (void)didReceiveMemoryWarning;

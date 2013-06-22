@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSLock, NSMutableDictionary;
+@class NSMutableDictionary;
 
 @interface GLKShadingHash : NSObject
 {
-    NSLock *_vshLock;
-    NSLock *_fshLock;
+    struct dispatch_queue_s *_vshQueue;
+    struct dispatch_queue_s *_fshQueue;
     NSMutableDictionary *_compiledVshs;
     NSMutableDictionary *_compiledFshs;
 }

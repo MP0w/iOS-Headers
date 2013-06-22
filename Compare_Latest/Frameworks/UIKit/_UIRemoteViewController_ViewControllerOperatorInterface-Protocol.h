@@ -5,6 +5,7 @@
  */
 
 @protocol _UIRemoteViewController_ViewControllerOperatorInterface
+- (void)__viewServiceDidUpdatePreferredStatusBarStyle:(int)arg1 hidden:(BOOL)arg2;
 - (void)__viewServicePopoverDidSetUseToolbarShine:(BOOL)arg1;
 - (void)__viewServicePopoverDidChangeContentSize:(id)arg1 animated:(BOOL)arg2 fenceSendRight:(id)arg3 withReplyHandler:(id)arg4;
 - (void)__setViewServiceIsDisplayingPopover:(BOOL)arg1;

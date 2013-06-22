@@ -83,7 +83,7 @@
 - (void)matchDurationsForLayers:(id)arg1 withOptions:(id)arg2;
 - (void)scaleDurationsInEffectContainers:(id)arg1 withOptions:(id)arg2;
 - (void)scaleDurationsInLayer:(id)arg1 withOptions:(id)arg2;
-- (BOOL)determineIfSlideDisplayesForTheWholeDurationForEffect:(id)arg1 presetID:(id)arg2 atIndex:(int)arg3;
+- (BOOL)determineIfSlideDisplayesForTheWholeDurationForEffect:(id)arg1 presetID:(id)arg2 atIndex:(int)arg3 inStyleID:(id)arg4;
 - (id)findEffectIDInWeighter:(id)arg1 images:(id)arg2 startingIndex:(int)arg3 count:(int)arg4 triesToFind:(int *)arg5 constraints:(id)arg6 previousTags:(id)arg7;
 - (void)populateWeighter:(id)arg1 withTransitions:(id)arg2 andOptions:(id)arg3;
 - (void)populateWeighter:(id)arg1 withEffects:(id)arg2 andOptions:(id)arg3;
@@ -101,6 +101,9 @@
 - (BOOL)isAuthoring;
 - (void)setTitleTextToColor:(struct CGColor *)arg1 forLayerGroup:(id)arg2 inDocument:(id)arg3 withOptions:(id)arg4;
 - (void)setTitleTextToColor:(struct CGColor *)arg1 inDocument:(id)arg2 withOptions:(id)arg3;
+- (void)configureOutroInDocument:(id)arg1 withOptions:(id)arg2;
+- (void)configureIntroInDocument:(id)arg1 withOptions:(id)arg2;
+- (void)clearROICache;
 - (void)cleanup:(BOOL)arg1;
 - (void)cleanup;
 - (void)createAnimatedSetsInLayer2:(id)arg1 withOptions:(id)arg2;

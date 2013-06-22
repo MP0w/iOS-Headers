@@ -22,6 +22,7 @@
 }
 
 @property(readonly, nonatomic) MPMediaQuery *sourceMediaQuery; // @synthesize sourceMediaQuery=_sourceMediaQuery;
+- (void).cxx_destruct;
 - (void)_shuffleMutableOrderedArrayWithInitialIndex:(unsigned int)arg1;
 - (void)_resetCaches;
 - (void)_rebuildItemCachesWithInitialSourceItemIndex:(unsigned int)arg1;
@@ -48,7 +49,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithSourceMediaQuery:(id)arg1;
 - (id)initWithSourceMediaQuery:(id)arg1 orderedItems:(id)arg2 indexMap:(id)arg3 shuffleType:(unsigned int)arg4;
 

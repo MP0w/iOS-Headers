@@ -6,34 +6,50 @@
 
 #import <EventKitUI/EKCalendarItemEditItem.h>
 
+#import "EKCalendarItemDisclosableEditItem-Protocol.h"
 #import "EKCellShortener-Protocol.h"
 
-@class NSString, PreferencesValueCell;
+@class EKCalendarItemRecurrenceEndCell, EKRecurrenceTypeEditItemViewController, NSDate, NSString, PreferencesValueCell;
 
-@interface EKCalendarItemRecurrenceEditItem : EKCalendarItemEditItem <EKCellShortener>
+@interface EKCalendarItemRecurrenceEditItem : EKCalendarItemEditItem <EKCellShortener, EKCalendarItemDisclosableEditItem>
 {
     int _repeatType;
     int _originalRepeatType;
-    CDStruct_b0fa4487 _repeatEndGr;
+    NSDate *_repeatEnd;
+    NSDate *_originalRepeatEnd;
     NSString *_customRepeatDescription;
+    unsigned int _disclosedSubitem;
     int _shorteningStatus;
-    PreferencesValueCell *_dateCell;
+    PreferencesValueCell *_repeatEndDateCell;
+    EKRecurrenceTypeEditItemViewController *_recurrenceTypeVC;
+    EKCalendarItemRecurrenceEndCell *_repeatEndPickerCell;
 }
 
-- (CDStruct_b0fa4487)minRecurrenceEndDateGr;
-- (id)stringForGregorianDate:(CDStruct_b0fa4487)arg1;
+- (void).cxx_destruct;
+- (void)_neverRepeatButtonTapped:(id)arg1;
+- (void)_repeatEndDateChanged:(id)arg1;
+- (id)_repeatEndPickerCell;
+- (unsigned int)indexOfSelectedDisclosedItem;
+- (void)didSelectDisclosedItemAtIndex:(int)arg1;
+- (void)willDiscloseSubitem:(int)arg1;
+- (float)heightForDisclosedItemInSubitem:(unsigned int)arg1;
+- (id)cellForDisclosedItemInSubitem:(unsigned int)arg1;
+- (id)titleForDisclosedItemAtIndex:(int)arg1 inSubitem:(int)arg2;
+- (int)numberOfDisclosableItemsInSubitem:(int)arg1;
+- (id)_recurrenceTypeVC;
+- (int)disclosedEditItemTypeForSubitem:(int)arg1;
+- (id)minRecurrenceEndDate;
+- (id)stringForDate:(id)arg1;
 - (id)recurrenceTimeZone;
 - (id)recurrenceDate;
 - (void)shortenCell:(id)arg1;
-- (BOOL)editItemViewControllerCommit:(id)arg1;
-- (BOOL)validateRecurrenceType:(id)arg1;
-- (BOOL)editItemViewControllerCommit:(id)arg1 notify:(BOOL)arg2;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
-- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
-- (int)numberOfSubitemsInSubsection:(int)arg1;
+- (BOOL)_validateRecurrenceType:(id)arg1;
+- (void)_updateRepeatEndDateCell;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
+- (BOOL)saveAndDismissWithForce:(BOOL)arg1;
 - (void)refreshFromCalendarItemAndStore;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
-- (void)dealloc;
 - (void)reset;
 
 @end

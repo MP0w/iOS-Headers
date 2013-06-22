@@ -12,10 +12,10 @@
 {
     MFSQLiteConnection *_connection;
     unsigned int _generation;
-    BOOL _isWriter;
+    unsigned int _type;
 }
 
-@property(nonatomic) BOOL isWriter; // @synthesize isWriter=_isWriter;
+@property(nonatomic) unsigned int type; // @synthesize type=_type;
 @property(readonly, nonatomic) unsigned int generation; // @synthesize generation=_generation;
 @property(readonly, nonatomic) MFSQLiteConnection *connection; // @synthesize connection=_connection;
 - (void)dealloc;

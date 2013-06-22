@@ -10,7 +10,7 @@
 
 @interface SBOrderedRequesters : NSObject
 {
-    NSMutableArray *_bands[2];
+    NSMutableArray *_bands[3];
 }
 
 - (id)description;

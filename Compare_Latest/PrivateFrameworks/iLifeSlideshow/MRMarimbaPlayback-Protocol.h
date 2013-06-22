@@ -7,7 +7,6 @@
 @protocol MRMarimbaPlayback
 - (void)removeEffectContainersBeforeTime:(double)arg1;
 - (void)whenTransitionIsFinishedSendAction:(SEL)arg1 toTarget:(id)arg2;
-- (BOOL)isInFade;
 - (BOOL)isInTransition;
 - (void)gotoSlide:(id)arg1;
 - (void)gotoPreviousSlide;

@@ -6,20 +6,24 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, UIStatusBarComposedData, UIStatusBarLayoutManager;
+@class NSMutableArray, UIStatusBarComposedData, UIStatusBarForegroundStyleAttributes, UIStatusBarLayoutManager;
 
 @interface UIStatusBarForegroundView : UIView
 {
-    int _foregroundStyle;
-    char _itemIsEnabled[24];
+    char _itemIsEnabled[31];
     UIStatusBarLayoutManager *_layoutManagers[3];
     int _ignoreDataLevel;
     NSMutableArray *_actionAnimationStack;
     UIStatusBarComposedData *_pendedData;
     int _pendedActions;
+    int _idiom;
+    UIStatusBarForegroundStyleAttributes *_foregroundStyle;
 }
 
-@property(readonly, nonatomic) int foregroundStyle; // @synthesize foregroundStyle=_foregroundStyle;
+@property(readonly, nonatomic) UIStatusBarForegroundStyleAttributes *foregroundStyle; // @synthesize foregroundStyle=_foregroundStyle;
+@property(nonatomic) int idiom; // @synthesize idiom=_idiom;
+- (void)setPersistentAnimationsEnabled:(BOOL)arg1;
+- (float)edgePadding;
 - (BOOL)_tryToPlaceItem:(id)arg1 inItemArray:(id)arg2 layoutManager:(id)arg3 roomRemaining:(float *)arg4 allowSwap:(BOOL)arg5 swappedItem:(id *)arg6;
 - (id)_computeVisibleItemsPreservingHistory:(BOOL)arg1;
 - (void)_reflowItemViewsWithDuration:(double)arg1 preserveHistory:(BOOL)arg2;
@@ -35,7 +39,7 @@
 - (void)setStatusBarData:(id)arg1 actions:(int)arg2 animated:(BOOL)arg3;
 - (void)_setStatusBarData:(id)arg1 actions:(int)arg2 animated:(BOOL)arg3;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 foregroundStyle:(int)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 foregroundStyle:(id)arg2;
 
 @end
 

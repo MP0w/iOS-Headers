@@ -8,7 +8,7 @@
 
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSMutableIndexSet;
+@class NSMutableIndexSet, UIColor;
 
 @interface UIPickerTableView : UITableView <UITableViewDelegate>
 {
@@ -16,6 +16,9 @@
     int _selectionBarRow;
     NSMutableIndexSet *_checkedRows;
     float _lastClickedOffset;
+    int _lastSelectedRow;
+    BOOL _usesModernStyle;
+    UIColor *_textColor;
     struct {
         unsigned int allowsMultipleSelection:1;
         unsigned int scrollingDirection:2;
@@ -27,7 +30,11 @@
     } _pickerTableFlags;
 }
 
+@property(nonatomic) int lastSelectedRow; // @synthesize lastSelectedRow=_lastSelectedRow;
 @property(nonatomic) struct CGRect selectionBarRect; // @synthesize selectionBarRect=_selectionBarRect;
+@property(retain, nonatomic, getter=_textColor, setter=_setTextColor:) UIColor *_textColor;
+@property(getter=_usesModernStyle, setter=_setUsesModernStyle:) BOOL _usesModernStyle;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (BOOL)scrollViewShouldScrollToTop:(id)arg1;
@@ -39,12 +46,27 @@
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(struct CGPoint *)arg3;
 - (BOOL)_beginTrackingWithEvent:(id)arg1;
 - (BOOL)isRowChecked:(int)arg1;
+- (void)setBounds:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 @property(nonatomic) int selectionBarRow; // @synthesize selectionBarRow=_selectionBarRow;
 - (void)_setSelectionBarRow:(int)arg1;
 - (void)_playClickIfNecessary;
-- (id)_pickerView;
+- (id)_containerView;
 - (void)_scrollViewAnimationEnded:(id)arg1 finished:(BOOL)arg2;
+- (id)_anyDateLabel;
+- (void)layoutSubviews;
 - (void)setContentOffset:(struct CGPoint)arg1;
+- (void)_setContentOffset:(struct CGPoint)arg1 notify:(BOOL)arg2;
+- (void)_notifyContentOffsetChange;
+- (struct CATransform3D)_transformForCellAtY:(float)arg1;
+- (float)_rotationForCellCenterY:(float)arg1;
+- (float)_yForY:(float)arg1;
+- (float)_distanceToCenterForY:(float)arg1;
+- (float)_zForUnitY:(float)arg1;
+- (float)_viewYForUnitY:(float)arg1;
+- (float)_yRangingFromZeroTo:(float)arg1 forUnitY:(float)arg2;
+- (float)_unitYForViewY:(float)arg1;
+- (float)_zCoordinateForYCoordinate:(float)arg1;
 - (void)_updateContentInsets;
 - (void)_rectChangedWithNewSize:(struct CGSize)arg1 oldSize:(struct CGSize)arg2;
 - (BOOL)didSelectDisabled:(BOOL)arg1;
@@ -53,6 +75,7 @@
 - (BOOL)_scrollRowAtIndexPathToSelectionBar:(id)arg1 animated:(BOOL)arg2;
 - (struct CGRect)_selectionBarRectForBounds:(struct CGRect)arg1;
 - (void)dealloc;
+- (id)_pickerView;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;
 
 @end

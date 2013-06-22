@@ -18,7 +18,7 @@
 @property(nonatomic) BOOL hasArtworkAtPlaybackTime; // @synthesize hasArtworkAtPlaybackTime=_hasArtworkAtPlaybackTime;
 @property(retain, nonatomic) NSArray *chapters; // @synthesize chapters=_chapters;
 @property(nonatomic) unsigned int chapterIndex; // @synthesize chapterIndex=_chapterIndex;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

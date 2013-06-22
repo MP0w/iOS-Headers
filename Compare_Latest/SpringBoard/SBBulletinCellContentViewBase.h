@@ -31,10 +31,13 @@
     float _subtitleLineHeight;
     float _messageLineHeight;
     float _attachmentLineHeight;
+    BOOL _hasButton;
+    BOOL _buttonsBelowContent;
     BOOL _highlighted;
     int _dateFormatStyle;
 }
 
+@property(nonatomic) BOOL hasButton; // @synthesize hasButton=_hasButton;
 @property(nonatomic) int dateFormatStyle; // @synthesize dateFormatStyle=_dateFormatStyle;
 @property(nonatomic) int layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 @property(nonatomic, getter=isHighlighted) BOOL highlighted; // @synthesize highlighted=_highlighted;
@@ -45,6 +48,8 @@
 @property(retain, nonatomic) UILabel *messageLabel; // @synthesize messageLabel=_messageLabel;
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+- (BOOL)_drawsInColorContextAlways;
+- (struct CGSize)_shadowOffset;
 - (id)_vipAccessoryImage;
 - (id)_attachmentFont;
 - (id)_messageFont;
@@ -54,6 +59,7 @@
 - (void)_configureLabel:(id)arg1 withFont:(id)arg2 color:(id)arg3 alignment:(int)arg4;
 - (float)_heightForLabel:(id)arg1 forWidth:(float)arg2 maxHeight:(float)arg3;
 - (float)_heightForLabel:(id)arg1 forWidth:(float)arg2 minLines:(unsigned int)arg3 maxLines:(unsigned int)arg4 lineHeight:(float)arg5;
+- (void)setHasButtonBelow:(BOOL)arg1;
 - (void)_updateLabelFontsAndLineHeights;
 - (void)setVIP:(BOOL)arg1;
 - (void)setAttachmentImageSize:(struct CGSize)arg1;

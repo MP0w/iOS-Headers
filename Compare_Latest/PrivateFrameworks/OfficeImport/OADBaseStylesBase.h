@@ -16,8 +16,8 @@
 }
 
 @property(retain, nonatomic) OADFontScheme *fontScheme; // @synthesize fontScheme=mFontScheme;
-- (id)styleMatrix;
-- (id)colorScheme;
+@property(retain, nonatomic) OADStyleMatrix *styleMatrix; // @synthesize styleMatrix=mStyleMatrix;
+@property(retain, nonatomic) OADColorScheme *colorScheme; // @synthesize colorScheme=mColorScheme;
 - (void)dealloc;
 
 @end

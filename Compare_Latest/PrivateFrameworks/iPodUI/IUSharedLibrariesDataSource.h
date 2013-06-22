@@ -17,6 +17,7 @@
 + (id)tabBarItemTitleKey;
 + (id)tabBarItemIconName;
 @property(retain, nonatomic) MPMediaLibrary *connectingMediaLibrary; // @synthesize connectingMediaLibrary=_connectingMediaLibrary;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *sharedMediaLibraries;
 - (void)_mediaLibrariesDidChangeNotification:(id)arg1;
 - (BOOL)shouldShowGlobalSectionHeader;

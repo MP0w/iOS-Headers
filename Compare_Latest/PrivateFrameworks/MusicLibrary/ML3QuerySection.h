@@ -8,8 +8,8 @@
 
 @interface ML3QuerySection : NSObject
 {
-    struct _NSRange _range;
     unsigned int _sectionIndex;
+    struct _NSRange _range;
 }
 
 @property(nonatomic) unsigned int sectionIndex; // @synthesize sectionIndex=_sectionIndex;

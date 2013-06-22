@@ -18,12 +18,15 @@
     unsigned int mOriginal:1;
     unsigned int mTracked:1;
     unsigned int mResolved:1;
-    CDStruct_a944c298 *mOriginalProperties;
-    CDStruct_a944c298 *mTrackedProperties;
+    CDStruct_fbd27f19 *mOriginalProperties;
+    CDStruct_fbd27f19 *mTrackedProperties;
 }
 
 - (void)copyPropertiesInto:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)isIndexToAuthorIDOfFormattingChangeOverridden;
+- (void)setIndexToAuthorIDOfFormattingChange:(unsigned short)arg1;
+- (unsigned short)indexToAuthorIDOfFormattingChange;
 - (BOOL)isFormattingChangedOverridden;
 - (void)setFormattingChanged:(int)arg1;
 - (int)formattingChanged;
@@ -31,14 +34,14 @@
 - (void)setTablePart:(unsigned short)arg1;
 - (unsigned short)tablePart;
 - (void)addTabStopDeletedPosition:(short)arg1;
-- (short)tabStopDeletedPositionAt:(int)arg1;
-- (void)setTabStopDeletedPositionCount:(int)arg1;
-- (int)tabStopDeletedPositionCount;
+- (short)tabStopDeletedPositionAt:(unsigned long)arg1;
+- (void)setTabStopDeletedPositionCount:(unsigned long)arg1;
+- (unsigned long)tabStopDeletedPositionCount;
 - (void)removeTabStopAddedWithPosition:(short)arg1;
 - (void)addTabStopAdded:(CDStruct_bd9d81e1 *)arg1;
-- (CDStruct_bd9d81e1 *)tabStopAddedAt:(int)arg1;
-- (void)setTabStopAddedCount:(int)arg1;
-- (int)tabStopAddedCount;
+- (CDStruct_bd9d81e1 *)tabStopAddedAt:(unsigned long)arg1;
+- (void)setTabStopAddedCount:(unsigned long)arg1;
+- (unsigned long)tabStopAddedCount;
 - (BOOL)isKinsokuOffOverridden;
 - (void)setKinsokuOff:(BOOL)arg1;
 - (BOOL)kinsokuOff;
@@ -151,8 +154,8 @@
 - (void)setDropCap:(CDStruct_5c52f79b)arg1;
 - (CDStruct_5c52f79b)dropCap;
 - (BOOL)isListIndexOverridden;
-- (void)setListIndex:(int)arg1;
-- (int)listIndex;
+- (void)setListIndex:(unsigned int)arg1;
+- (unsigned int)listIndex;
 - (BOOL)isListOverridden;
 - (void)setList:(id)arg1;
 - (id)list;
@@ -181,7 +184,7 @@
 - (id)document;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
-- (BOOL)isAnythingOverriddenIn:(CDStruct_a944c298 *)arg1;
+- (BOOL)isAnythingOverriddenIn:(CDStruct_fbd27f19 *)arg1;
 
 @end
 

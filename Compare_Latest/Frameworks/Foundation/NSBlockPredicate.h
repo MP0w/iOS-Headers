@@ -20,6 +20,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (BOOL)supportsSecureCoding;
 - (id)initWithBlock:(id)arg1;
 
 @end

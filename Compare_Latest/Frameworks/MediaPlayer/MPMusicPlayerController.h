@@ -20,6 +20,7 @@
 + (void)initialize;
 + (id)iPodMusicPlayer;
 + (id)applicationMusicPlayer;
+- (void).cxx_destruct;
 - (void)_stopMigServer;
 - (void)_runMigServerOnPort:(unsigned int)arg1;
 - (void)_itemPlaybackDidEnd:(unsigned long long)arg1;
@@ -37,6 +38,7 @@
 - (void)_setUseApplicationSpecificQueue:(BOOL)arg1;
 - (BOOL)serverIsAlive;
 - (BOOL)skipInDirection:(int)arg1 error:(id *)arg2;
+- (void)setQueueWithRadioStation:(id)arg1;
 - (void)setQueueWithGeniusMixPlaylist:(id)arg1;
 - (void)setQueueWithQuery:(id)arg1 firstItem:(id)arg2;
 - (void)setCurrentChapterIndex:(unsigned int)arg1;
@@ -47,16 +49,18 @@
 - (unsigned int)indexOfNowPlayingItem;
 - (void)setPlaybackSpeed:(int)arg1;
 - (int)playbackSpeed;
-- (void)setAllowsRemoteUIAccess:(BOOL)arg1;
-- (BOOL)allowsRemoteUIAccess;
+- (void)setAllowsBackgroundVideo:(BOOL)arg1;
+- (BOOL)allowsBackgroundVideo;
 - (void)setUseCachedPlaybackState:(BOOL)arg1;
 - (void)pauseWithFadeoutDuration:(double)arg1;
+- (long long)nowPlayingRadioTrackID;
 - (id)nowPlayingItemAtIndex:(unsigned int)arg1;
 - (BOOL)setQueueWithSeedItems:(id)arg1;
 - (BOOL)isGeniusAvailableForSeedItems:(id)arg1;
 - (BOOL)isGeniusAvailable;
 - (void)endGeneratingPlaybackNotifications;
 - (void)beginGeneratingPlaybackNotifications;
+- (void)setVolumePrivate:(float)arg1;
 - (void)setVolume:(float)arg1;
 - (float)volume;
 - (void)setShuffleMode:(int)arg1;

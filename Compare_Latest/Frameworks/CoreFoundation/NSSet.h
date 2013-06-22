@@ -62,6 +62,8 @@
 - (id)sortedArrayWithOptions:(unsigned int)arg1 usingComparator:(id)arg2;
 - (id)objectsPassingTest:(id)arg1;
 - (id)objectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
+- (id)objectPassingTest:(id)arg1;
+- (id)objectWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
 - (id)members:(id)arg1 notFoundMarker:(id)arg2;
 - (void)makeObjectsPerformSelector:(SEL)arg1 withObject:(id)arg2;
 - (void)makeObjectsPerformSelector:(SEL)arg1;

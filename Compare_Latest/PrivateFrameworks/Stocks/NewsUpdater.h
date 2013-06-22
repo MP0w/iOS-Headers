@@ -16,6 +16,7 @@
     StockNewsItemCollection *_lastNewsItemCollection;
     Stock *_stock;
     NewsParserData *_newsParserData;
+    id _updateCompletionHandler;
 }
 
 + (id)_newsItemCollectionCache;
@@ -27,6 +28,7 @@
 - (void)didParseData;
 - (void)failWithError:(id)arg1;
 - (int)parseData:(id)arg1;
+- (void)fetchNewsForStock:(id)arg1 withCompletion:(id)arg2;
 - (void)saveLastResponse;
 - (BOOL)fetchNewsForStock:(id)arg1;
 - (void)loadNewsCacheFromDiskForSymbol:(id)arg1;

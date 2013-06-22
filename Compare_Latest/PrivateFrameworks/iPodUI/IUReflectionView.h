@@ -13,9 +13,9 @@
     UIImage *_image;
 }
 
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setImage:(id)arg1;
-- (void)dealloc;
 
 @end
 

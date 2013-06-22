@@ -9,19 +9,19 @@
 struct CLConnection;
 
 struct CLConnectionClient {
-    struct basic_string<char, std::char_traits<char>, std::allocator<char>> _field1;
-    struct dispatch_queue_s *_field2;
-    struct dispatch_queue_s *_field3;
-    struct dispatch_queue_s *_field4;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field1;
+    id _field2;
+    id _field3;
+    id _field4;
     struct CLConnection *_field5;
     struct CLNameValuePair _field6;
     struct CLNameValuePair _field7;
-    struct basic_string<char, std::char_traits<char>, std::allocator<char>> _field8;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field8;
     id _field9;
     void _field10;
     id _field11;
     void _field12;
-    struct map<std::basic_string<char>, void (^)(CLConnectionMessage *), std::less<std::basic_string<char>>, std::allocator<std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>>> _field13;
+    struct map<std::__1::basic_string<char>, void (^)(CLConnectionMessage *), std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>>> _field13;
     id _field14;
     void _field15;
     id _field16;
@@ -34,6 +34,10 @@ struct CLMotionActivity {
     int mountedState;
     int mountedConfidence;
     float tilt;
+    double timestamp;
+    int exitState;
+    double estExitTime;
+    double startTime;
 };
 
 struct CLNameValuePair {
@@ -41,41 +45,88 @@ struct CLNameValuePair {
     struct __CFDictionary *_field2;
 };
 
-struct Dispatcher {
+struct CLNotifierBase {
     void **_field1;
 };
 
-struct _Alloc_hider {
-    char *_field1;
+struct CLNotifierClientBase {
+    void **_field1;
 };
 
-struct _Rb_tree<std::basic_string<char>, std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>, std::_Select1st<std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>>, std::less<std::basic_string<char>>, std::allocator<std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>>> {
-    struct _Rb_tree_impl<std::less<std::basic_string<char>>, false> _field1;
+struct Client;
+
+struct Dispatcher {
+    void **_field1;
+    id _field2;
 };
 
-struct _Rb_tree_impl<std::less<std::basic_string<char>>, false> {
-    struct less<std::basic_string<char>> _field1;
-    struct _Rb_tree_node_base _field2;
-    unsigned int _field3;
+struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
+    struct __tree_node_base<void *> *__left_;
 };
 
-struct _Rb_tree_node_base {
-    int _field1;
-    struct _Rb_tree_node_base *_field2;
-    struct _Rb_tree_node_base *_field3;
-    struct _Rb_tree_node_base *_field4;
+struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
+    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
+        struct __rep {
+            union {
+                struct __long {
+                    unsigned int _field1;
+                    unsigned int _field2;
+                    char *_field3;
+                } _field1;
+                struct __short {
+                    union {
+                        unsigned char _field1;
+                        char _field2;
+                    } _field1;
+                    char _field2[11];
+                } _field2;
+                struct __raw {
+                    unsigned long _field1[3];
+                } _field3;
+            } _field1;
+        } _field1;
+    } _field1;
 };
 
-struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
-    struct _Alloc_hider _field1;
+struct map<SEL *, CLIntersiloInterfaceSelectorInfo *, std::__1::less<SEL *>, std::__1::allocator<std::__1::pair<SEL *const, CLIntersiloInterfaceSelectorInfo *>>> {
+    struct __tree<std::__1::pair<SEL *, CLIntersiloInterfaceSelectorInfo *>, std::__1::__map_value_compare<SEL *, CLIntersiloInterfaceSelectorInfo *, std::__1::less<SEL *>, true>, std::__1::allocator<std::__1::pair<SEL *, CLIntersiloInterfaceSelectorInfo *>>> {
+        struct __tree_node<std::__1::pair<SEL *, CLIntersiloInterfaceSelectorInfo *>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<SEL *, CLIntersiloInterfaceSelectorInfo *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<SEL *, CLIntersiloInterfaceSelectorInfo *, std::__1::less<SEL *>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
 };
 
-struct dispatch_queue_s;
+struct map<std::__1::basic_string<char>, void (^)(CLConnectionMessage *), std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>>> {
+    struct __tree<std::__1::pair<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, std::__1::__map_value_compare<std::__1::basic_string<char>, void (^)(CLConnectionMessage *), std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::pair<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>>> {
+        struct __tree_node<std::__1::pair<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<std::__1::basic_string<char>, void (^)(CLConnectionMessage *)>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, void (^)(CLConnectionMessage *), std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
 
-struct less<std::basic_string<char>>;
+struct map<unsigned long, int, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, int>>> {
+    struct __tree<std::__1::pair<unsigned long, int>, std::__1::__map_value_compare<unsigned long, int, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::pair<unsigned long, int>>> {
+        struct __tree_node<std::__1::pair<unsigned long, int>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<unsigned long, int>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, int, std::__1::less<unsigned long>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
 
-struct map<std::basic_string<char>, void (^)(CLConnectionMessage *), std::less<std::basic_string<char>>, std::allocator<std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>>> {
-    struct _Rb_tree<std::basic_string<char>, std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>, std::_Select1st<std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>>, std::less<std::basic_string<char>>, std::allocator<std::pair<const std::basic_string<char>, void (^)(CLConnectionMessage *)>>> _field1;
+struct shared_ptr<CLGeomagneticModelProvider_Type::Client> {
+    struct Client *__ptr_;
+    struct __shared_weak_count *__cntrl_;
 };
 
 #if 0

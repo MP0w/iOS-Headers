@@ -8,21 +8,24 @@
 
 #import "TUAppender-Protocol.h"
 
-@class NSFileHandle, NSMutableString, NSString, NSTimer;
+@class NSFileHandle, NSMutableString, NSObject<TUAppenderDelegate>, NSString, NSTimer;
 
 @interface TURollingFileAppender : NSObject <TUAppender>
 {
-    int _lock;
+    struct _opaque_pthread_mutex_t _lock;
     NSString *_directory;
     NSString *_prefix;
     NSMutableString *_buffer;
     NSFileHandle *_fileHandle;
     NSTimer *_scheduledFlushTimer;
     struct dispatch_queue_s *_backgroundQueue;
+    NSObject<TUAppenderDelegate> *_appenderDelegate;
 }
 
 + (BOOL)sendDirectoryToCrashReporter:(id)arg1 error:(id *)arg2;
+- (id)formattedDyldContextForBacktrace:(id)arg1;
 - (void)_reloadFileHandles;
+- (void)setAppenderDelegate:(id)arg1;
 - (void)logWithIdentifier:(id)arg1 pid:(int)arg2 date:(id)arg3 level:(int)arg4 topic:(id)arg5 text:(id)arg6 backtrace:(id)arg7;
 - (void)flush;
 - (void)_scheduleFlush;

@@ -10,19 +10,21 @@
 
 @interface PLSyncSaveJob : NSObject
 {
+    BOOL isVideo;
+    BOOL isSyncComplete;
     NSArray *facesInfo;
     NSURL *originalAssetURL;
-    BOOL isVideo;
     NSString *uuid;
     NSDate *creationDate;
     NSDate *modificationDate;
     NSSet *albumURIs;
     CLLocation *location;
     NSNumber *sortToken;
-    BOOL isSyncComplete;
+    NSString *originalFileName;
 }
 
 @property(nonatomic) BOOL isSyncComplete; // @synthesize isSyncComplete;
+@property(retain, nonatomic) NSString *originalFileName; // @synthesize originalFileName;
 @property(retain, nonatomic) NSNumber *sortToken; // @synthesize sortToken;
 @property(copy, nonatomic) CLLocation *location; // @synthesize location;
 @property(copy, nonatomic) NSSet *albumURIs; // @synthesize albumURIs;

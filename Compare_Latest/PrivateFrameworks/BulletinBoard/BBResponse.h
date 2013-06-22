@@ -15,16 +15,16 @@
     BBAssertion *_lifeAssertion;
     id _sendBlock;
     NSString *_bulletinID;
-    BOOL _deliverToPublisher;
-    NSString *_actionKey;
     BOOL _sent;
     NSString *_replyText;
     NSArray *_lifeAssertions;
+    int _actionType;
+    NSString *_buttonID;
 }
 
+@property(copy, nonatomic) NSString *buttonID; // @synthesize buttonID=_buttonID;
 @property(copy, nonatomic) NSString *replyText; // @synthesize replyText=_replyText;
-@property(retain, nonatomic) NSString *actionKey; // @synthesize actionKey=_actionKey;
-@property(nonatomic) BOOL deliverToPublisher; // @synthesize deliverToPublisher=_deliverToPublisher;
+@property(nonatomic) int actionType; // @synthesize actionType=_actionType;
 @property(retain, nonatomic) NSString *bulletinID; // @synthesize bulletinID=_bulletinID;
 @property(copy, nonatomic) id sendBlock; // @synthesize sendBlock=_sendBlock;
 @property(copy, nonatomic) NSArray *lifeAssertions; // @synthesize lifeAssertions=_lifeAssertions;

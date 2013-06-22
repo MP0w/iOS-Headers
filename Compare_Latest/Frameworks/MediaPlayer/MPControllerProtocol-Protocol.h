@@ -13,7 +13,7 @@
 @property(retain, nonatomic) MPAVController *player;
 @property(nonatomic) int orientation;
 @property(retain, nonatomic) MPAVItem *item;
-@property(nonatomic) id delegate;
+@property(nonatomic) __weak id delegate;
 - (void)setOrientation:(int)arg1 animate:(BOOL)arg2;
 - (void)noteIgnoredChangeTypes:(unsigned int)arg1;
 - (void)clearWeakReferencesToObject:(id)arg1;

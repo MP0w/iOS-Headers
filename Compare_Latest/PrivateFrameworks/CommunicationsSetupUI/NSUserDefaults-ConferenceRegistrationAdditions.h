@@ -9,8 +9,6 @@
 @interface NSUserDefaults (ConferenceRegistrationAdditions)
 + (BOOL)shouldShowCNFRegistrationServerLogs;
 + (void)setShouldShowCNFRegistrationServerLogs:(BOOL)arg1;
-+ (void)setCNFRegCallerIDMap:(id)arg1;
-+ (id)CNFRegCallerIDMap;
 + (id)CNFRegServerURLOverride;
 + (void)setCNFRegServerURLOverride:(id)arg1;
 + (void)setCNFRegSavedAccountName:(id)arg1;

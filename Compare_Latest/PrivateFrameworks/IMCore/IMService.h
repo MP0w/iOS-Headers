@@ -18,7 +18,6 @@
 + (unsigned int)myStatus;
 + (id)notificationCenter;
 + (id)serviceWithName:(id)arg1;
-+ (id)serviceWithNameNonBlocking:(id)arg1;
 + (id)allServicesNonBlocking;
 + (id)allServices;
 + (id)imageURLForStatus:(unsigned int)arg1;
@@ -27,6 +26,7 @@
 + (id)smsService;
 + (id)iMessageService;
 + (id)facetimeService;
++ (id)callService;
 + (id)jabberService;
 + (id)subnetService;
 + (id)aimService;

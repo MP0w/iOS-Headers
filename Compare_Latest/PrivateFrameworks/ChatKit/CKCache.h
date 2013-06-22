@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import <ChatKit/CKCache-Protocol.h>
+
 @class NSMutableDictionary;
 
-@interface CKCache : NSObject
+@interface CKCache : NSObject <CKCache>
 {
     NSMutableDictionary *_dictionary;
 }

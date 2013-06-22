@@ -16,7 +16,6 @@
     void *_searchContext;
 }
 
-+ (id)_propertiesToFindForServerSupportSet:(id)arg1;
 @property(nonatomic) void *searchContext; // @synthesize searchContext=_searchContext;
 @property(retain) CalDAVPrincipalSearchPropertySet *serverSupportSet; // @synthesize serverSupportSet=_serverSupportSet;
 @property(retain) NSSet *searchStrings; // @synthesize searchStrings=_searchStrings;

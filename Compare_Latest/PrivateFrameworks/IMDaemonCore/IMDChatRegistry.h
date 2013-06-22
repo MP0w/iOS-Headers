@@ -26,9 +26,9 @@
 - (void)addMessage:(id)arg1 toChat:(id)arg2;
 - (void)removeChat:(id)arg1;
 - (void)addChat:(id)arg1;
+- (void)updateStateForChat:(id)arg1 forcePost:(BOOL)arg2;
 - (void)updateStateForChat:(id)arg1;
-- (void)updateStateForChat:(id)arg1 fromMessage:(id)arg2 toMessage:(id)arg3;
-- (BOOL)updateFailedCountForChat:(id)arg1;
+- (void)updateStateForChat:(id)arg1 fromMessage:(id)arg2 toMessage:(id)arg3 forcePost:(BOOL)arg4;
 - (BOOL)updateUnreadCountForChat:(id)arg1;
 - (void)updateLastMessageForChat:(id)arg1;
 - (void)updateLastMessageForChat:(id)arg1 hintMessage:(id)arg2;

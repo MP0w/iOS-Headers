@@ -10,7 +10,7 @@
 #import "MPTransportControlsTarget-Protocol.h"
 #import "MPVideoOverlayDelegate-Protocol.h"
 
-@class MPAVItem, MPInlineVideoController, MPSwipableView, NSTimer, UIActivityIndicatorView, UIPinchGestureRecognizer, UITapGestureRecognizer, UIView<MPVideoOverlay>;
+@class MPAVItem, MPInlineVideoController, MPSwipableView, MPVideoPlaybackOverlayView, NSTimer, UIActivityIndicatorView, UIPinchGestureRecognizer, UITapGestureRecognizer;
 
 @interface MPInlineVideoFullscreenViewController : UIViewController <MPSwipableViewDelegate, MPVideoOverlayDelegate, MPTransportControlsTarget>
 {
@@ -21,20 +21,21 @@
     MPAVItem *_item;
     UIActivityIndicatorView *_loadingIndicator;
     MPInlineVideoController *_masterController;
-    UIView<MPVideoOverlay> *_overlayView;
+    MPVideoPlaybackOverlayView *_overlayView;
     UIPinchGestureRecognizer *_pinchGestureRecognizer;
     float _savedWindowLevel;
     BOOL _shouldForwardRotationEvents;
     MPSwipableView *_swipableView;
     UITapGestureRecognizer *_tapGestureRecognizer;
+    int _activeOverlayUserEvents;
 }
 
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
-@property(nonatomic) MPInlineVideoController *masterController; // @synthesize masterController=_masterController;
+@property(nonatomic) __weak MPInlineVideoController *masterController; // @synthesize masterController=_masterController;
+- (void).cxx_destruct;
 - (void)_viewWasPinched:(id)arg1;
 - (void)_viewWasTapped:(id)arg1;
 - (void)_showOverlayDidEnd;
-- (void)_setStatusBarStyle;
 - (void)_overlayIdleTimerFired:(id)arg1;
 - (void)_hideOverlayDidEnd:(id)arg1 finished:(id)arg2;
 - (void)_hideOverlayAnimated:(BOOL)arg1;
@@ -47,11 +48,9 @@
 - (void)hideLoadingIndicator;
 - (void)cancelOverlayIdleTimer;
 - (void)_windowWillRotate:(id)arg1;
-- (void)overlayTappedScaleModeButton:(id)arg1;
 - (void)overlayTappedBackButton:(id)arg1;
-- (void)overlayDidEndScrubbing:(id)arg1;
-- (void)overlayDidDismissAlternateTracksPopover:(id)arg1;
-- (void)overlayDidBeginScrubbing:(id)arg1;
+- (void)overlay:(id)arg1 didEndUserEvent:(int)arg2;
+- (void)overlay:(id)arg1 didBeginUserEvent:(int)arg2;
 - (BOOL)transportControls:(id)arg1 tappedButtonPart:(unsigned long long)arg2;
 - (void)swipableViewHadActivity:(id)arg1;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
@@ -59,7 +58,8 @@
 - (BOOL)wantsFullScreenLayout;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotate;
 - (void)loadView;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)dealloc;

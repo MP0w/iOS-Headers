@@ -12,6 +12,7 @@
 
 + (BOOL)isUbiquitousURLDownloaded:(id)arg1 error:(id *)arg2;
 + (BOOL)isUbiquitousURLUploaded:(id)arg1 error:(id *)arg2;
++ (BOOL)isUbiquitousItemAtURL:(id)arg1;
 + (id)_replaceBaseline:(id)arg1 inOrderedSet:(id)arg2 withOrderedSet:(id)arg3;
 + (id)newMutableOrderedSetFromCollection:(id)arg1 forParentContext:(id)arg2;
 + (id)newMutableSetFromCollection:(id)arg1 forParentContext:(id)arg2;
@@ -47,6 +48,7 @@
 + (BOOL)_doNameAndTypeCheck:(id)arg1;
 + (id)_getUUID;
 + (unsigned int)_generateHashForString:(id)arg1;
++ (id)_coalescedPrefetchKeypaths:(id)arg1;
 + (id)_groupObjectsByRootEntity:(id)arg1;
 + (id)_getPFBundleVersionNumber;
 + (id)_newObjectIDsArrayWithMapping:(id)arg1 andEntries:(id)arg2 andCoordinator:(id)arg3;

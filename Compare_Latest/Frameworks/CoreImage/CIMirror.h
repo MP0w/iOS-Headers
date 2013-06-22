@@ -16,13 +16,13 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
-@property(copy, nonatomic) CIVector *inputPoint; // @synthesize inputPoint;
+@property(retain, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
+@property(retain, nonatomic) CIVector *inputPoint; // @synthesize inputPoint;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (struct Rectangle)computeDOD:(struct vec2)arg1 tst:(struct vec3)arg2 off:(struct vec4)arg3 mtx:(struct vec4)arg4;
-- (void)setDefaults;
 - (id)_kernel;
+- (void)setDefaults;
 
 @end
 

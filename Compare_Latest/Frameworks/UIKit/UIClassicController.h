@@ -19,12 +19,17 @@
 }
 
 + (id)sharedClassicController;
-@property(nonatomic) BOOL drawsClassicChrome;
+- (void)setDrawsStatusBarFiller:(BOOL)arg1;
+- (BOOL)drawsStatusBarFiller;
+- (void)setZoomed:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setDrawsClassicChrome:(BOOL)arg1;
 - (BOOL)_shouldHideStatusBar;
-- (void)_classicChangeStatusBarOrientationFinished:(id)arg1 finished:(BOOL)arg2 context:(void *)arg3;
+- (BOOL)drawsClassicChrome;
+- (void)_classicChangeStatusBarOrientationFinished:(id)arg1 finished:(BOOL)arg2 context:(id)arg3;
 - (void)_classicChangeStatusBarOrientation:(id)arg1;
 - (void)_initializeStatusBarOrientation;
-@property(nonatomic, getter=isZoomed) BOOL zoomed;
+- (void)setZoomed:(BOOL)arg1;
+- (BOOL)isZoomed;
 - (void)_finishZoom:(BOOL)arg1;
 - (BOOL)_supportsZoom;
 - (void)_updateChromeView:(id)arg1 orientation:(int)arg2;
@@ -37,8 +42,6 @@
 - (void)setStatusBarStyle:(int)arg1 animationParameters:(id)arg2;
 - (void)setStatusBarHidden:(BOOL)arg1 animationParameters:(id)arg2;
 - (void)dealloc;
-@property(nonatomic) BOOL drawsStatusBarFiller;
-- (void)setZoomed:(BOOL)arg1 animated:(BOOL)arg2;
 
 @end
 

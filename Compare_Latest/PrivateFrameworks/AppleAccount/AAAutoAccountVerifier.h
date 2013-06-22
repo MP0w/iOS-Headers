@@ -8,22 +8,23 @@
 
 #import "MSSearchDelegate-Protocol.h"
 
-@class AAAccount, MSSearch, NSOperationQueue;
+@class ACAccount, MSSearch, NSOperationQueue;
 
 @interface AAAutoAccountVerifier : NSObject <MSSearchDelegate>
 {
     NSOperationQueue *_requesterQueue;
     MSSearch *_search;
-    AAAccount *_account;
+    ACAccount *_account;
     id _handler;
     int _attempts;
     BOOL _canceled;
 }
 
-@property(retain, nonatomic) AAAccount *account; // @synthesize account=_account;
+@property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
 - (void)search:(id)arg1 didFinishWithError:(id)arg2;
 - (BOOL)search:(id)arg1 didFindResults:(id)arg2;
+- (void)_resendVerificationEmailForAccount:(id)arg1 completion:(id)arg2;
 - (void)_validateToken:(id)arg1;
 - (void)_verify;
 - (void)cancel;

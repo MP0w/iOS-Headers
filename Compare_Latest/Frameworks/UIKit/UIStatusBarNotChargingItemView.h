@@ -13,8 +13,7 @@
     NSString *_notChargingString;
 }
 
-- (BOOL)usesSmallerTextFont;
-- (id)contentsImageForStyle:(int)arg1;
+- (id)contentsImage;
 - (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
 - (void)dealloc;
 

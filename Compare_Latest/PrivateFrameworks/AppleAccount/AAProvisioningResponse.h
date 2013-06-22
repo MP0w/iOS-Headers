@@ -14,6 +14,8 @@
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *fmipAuthToken;
+@property(readonly, nonatomic) NSString *iCloudAuthToken;
 @property(readonly, nonatomic) NSNumber *primaryEmailVerified;
 @property(readonly, nonatomic) NSString *primaryEmail;
 @property(readonly, nonatomic) NSString *lastName;

@@ -20,6 +20,8 @@
 - (void)setFireDate:(id)arg1;
 - (id)fireDate;
 - (void)invalidate;
+- (void)setTolerance:(double)arg1;
+- (double)tolerance;
 - (double)timeInterval;
 - (BOOL)isValid;
 - (void)finalize;

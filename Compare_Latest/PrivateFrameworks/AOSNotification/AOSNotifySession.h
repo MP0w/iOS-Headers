@@ -6,41 +6,57 @@
 
 #import "NSObject.h"
 
-@class CPDistributedNotificationCenter;
+@class CPDistributedNotificationCenter, NSXPCConnection;
 
 @interface AOSNotifySession : NSObject
 {
-    id <AOSNotifySessionDelegate> _delegate;
+    NSXPCConnection *_xpcConnection;
     CPDistributedNotificationCenter *_center;
+    id <AOSNotifySessionDelegate> _delegate;
 }
 
-+ (id)copyLostModeParams;
-+ (void)disableLostMode;
-+ (BOOL)lostModeIsActive;
 + (id)copyStoreAccount;
 + (id)sharedInstance;
 @property(nonatomic) id <AOSNotifySessionDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)dumpDebugInfo:(id)arg1;
-- (void)stopListeningOnTopic:(id)arg1;
-- (void)startListeningOnTopic:(id)arg1;
-- (id)cancelEmailVet;
-- (id)vetEmailAccount:(id)arg1;
+@property(retain, nonatomic) CPDistributedNotificationCenter *center; // @synthesize center=_center;
+@property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
+- (id)retrieveAllAccounts:(id *)arg1;
 - (void)_vetFinished:(id)arg1;
 - (void)_stopVettingNotifications;
 - (void)_vetResultReceived:(id)arg1;
-- (id)iCloudAccount;
-- (id)fmipAccount;
-- (id)retrieveAllAccounts:(id *)arg1;
-- (id)retrieveCurrentAccountForService:(id)arg1 returningAccount:(id *)arg2;
-- (id)removeAccount:(id)arg1;
-- (id)addAccount:(id)arg1;
+- (void)dumpDebugInfo:(id)arg1;
+- (void)stopListeningOnTopic:(id)arg1;
+- (void)startListeningOnTopic:(id)arg1;
 - (id)retrieveFMFAccount:(id *)arg1;
 - (id)removeFMFAccountWithUsername:(id)arg1;
 - (id)addFMFAccount:(id)arg1;
-- (id)_errorForCode:(int)arg1 message:(id)arg2;
+- (void)didExitFMFRegion:(id)arg1 atLocation:(id)arg2;
+- (void)didEnterFMFRegion:(id)arg1 atLocation:(id)arg2;
+- (id)disableFMIPUsingToken:(id)arg1 inContext:(int)arg2;
+- (id)enableFMIPInContext:(int)arg1;
+- (id)iCloudAccount;
+- (id)fmipAccount;
+- (id)storeAccount;
+- (id)fmipDeviceId;
+- (id)fmfDeviceId;
+- (void)fmipStateWithCompletion:(id)arg1;
+- (void)isFMIPStateChangeInProgressWithCompletion:(id)arg1;
+- (void)deviceActivationDidSucceed;
+- (BOOL)lockdownShouldDisableDevicePairing;
+- (BOOL)lockdownShouldDisableDeviceRestore;
+- (void)disableLostMode;
+- (id)enableLostModeWithInfo:(id)arg1;
+- (id)lostModeParams;
+- (id)lostModeInfo;
+- (BOOL)lostModeIsActive;
+- (id)cancelEmailVet;
+- (id)vetEmailAccount:(id)arg1;
+- (id)initWithDelegate:(id)arg1;
+- (id)newErrorForCode:(int)arg1 message:(id)arg2;
+- (void)_destroyXPCConnection;
+- (id)currentXPCConnection;
 - (void)dealloc;
 - (id)init;
-- (id)initWithDelegate:(id)arg1;
 
 @end
 

@@ -6,23 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSTimer, WebBookmarksServerProxy;
-
 @interface WebReadingList : NSObject
 {
-    WebBookmarksServerProxy *_serverProxy;
-    NSMutableArray *_batchedReadingListItems;
-    NSTimer *_batchTimer;
 }
 
-+ (id)_trimmedPreviewText:(id)arg1;
-+ (id)_trimmedTitle:(id)arg1;
 + (BOOL)_isSupportedReadingListURL:(id)arg1;
-+ (BOOL)_isSupported;
-- (void)dealloc;
-- (void)_batchTimerDidFire:(id)arg1;
 - (void)addReadingListItemWithURL:(id)arg1 title:(id)arg2 previewText:(id)arg3;
-- (id)init;
 
 @end
 

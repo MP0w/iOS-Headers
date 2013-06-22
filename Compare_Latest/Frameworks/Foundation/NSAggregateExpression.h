@@ -11,6 +11,7 @@
     id _collection;
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
 - (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
@@ -23,6 +24,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)allowEvaluation;
 - (id)initWithCollection:(id)arg1;
 
 @end

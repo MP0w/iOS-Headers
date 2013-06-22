@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-#import "PLAssetContainer-Protocol.h"
+#import "PLAlbumProtocol-Protocol.h"
 #import "PLDerivedAlbumOrigin-Protocol.h"
 #import "PLIndexMappingCache-Protocol.h"
 
-@class NSCache, NSDictionary, NSFetchRequest, NSMutableOrderedSet, NSNumber, NSObject<PLIndexMappingCache>, NSOrderedSet, NSString, NSURL, PLManagedAlbum, PLManagedAsset, UIImage;
+@class NSArray, NSCache, NSDate, NSDictionary, NSFetchRequest, NSMutableOrderedSet, NSNumber, NSObject<PLIndexMappingCache>, NSOrderedSet, NSString, NSURL, PLManagedAlbum, PLManagedAsset, UIImage;
 
-@interface PLInFlightAssetsAlbum : NSObject <PLAssetContainer, PLIndexMappingCache, PLDerivedAlbumOrigin>
+@interface PLInFlightAssetsAlbum : NSObject <PLAlbumProtocol, PLIndexMappingCache, PLDerivedAlbumOrigin>
 {
     NSFetchRequest *_fetchRequest;
     NSMutableOrderedSet *_albumOIDs;
@@ -53,18 +53,25 @@
 - (id)assetsByObjectIDAtIndexes:(id)arg1;
 - (void)updateStackedImageShouldNotifyImmediately:(BOOL)arg1;
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
-@property(nonatomic) unsigned int pendingItemsType;
-@property(nonatomic) unsigned int pendingItemsCount;
+@property(nonatomic) int pendingItemsType;
+@property(nonatomic) int pendingItemsCount;
 - (id)displayableIndexesForCount:(unsigned int)arg1;
 @property(readonly, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;
 @property(retain, nonatomic) NSDictionary *slideshowSettings;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
 - (BOOL)canPerformEditOperation:(int)arg1;
+@property(readonly, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) BOOL canShowComments;
+@property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isStandInAlbum;
+@property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
+@property(readonly, nonatomic) BOOL isWallpaperAlbum;
+@property(readonly, nonatomic) BOOL isPanoramasAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
 @property(readonly, nonatomic) UIImage *posterImage;
@@ -74,7 +81,7 @@
 @property(readonly, nonatomic) unsigned int videosCount;
 @property(readonly, nonatomic) unsigned int photosCount;
 @property(readonly, nonatomic) BOOL isEmpty;
-@property(readonly, nonatomic) unsigned int count;
+- (unsigned int)count;
 @property(readonly, nonatomic) unsigned int assetsCount;
 @property(readonly, nonatomic) unsigned int approximateCount;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
@@ -83,8 +90,8 @@
 @property(readonly, nonatomic) NSNumber *kind;
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *uuid;
-- (unsigned int)countForAssetsOfKind:(int)arg1;
-- (unsigned int)_fetchedCountForAssetsOfKind:(int)arg1;
+- (unsigned int)countForAssetsOfKind:(short)arg1;
+- (unsigned int)_fetchedCountForAssetsOfKind:(short)arg1;
 - (id)_albumOIDs;
 - (void)_resetAlbumOIDs;
 - (id)fetchRequest;
@@ -92,15 +99,17 @@
 - (Class)derivedChangeNotificationClass;
 - (BOOL)mappedDataSourceChanged:(id)arg1 remoteNotificationData:(id)arg2;
 - (id)currentStateForChange;
-- (id)cachedIndexMapState;
-- (void)deleteInflightAssets:(id)arg1;
+@property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
+- (void)removeInflightAssets:(id)arg1;
 - (void)addInFlightAsset:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithBackingAlbum:(struct NSObject *)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) NSDate *endDate;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) NSDate *startDate;
 
 @end
 

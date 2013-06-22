@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
+@class TSDBezierPath;
+
 @interface MFPPath : NSObject
 {
-    struct CGPath *mPath;
+    TSDBezierPath *mPath;
 }
 
-- (struct CGPath *)path;
+- (id)path;
 - (void)dealloc;
-- (id)initWithPath:(struct CGPath *)arg1;
+- (id)initWithPath:(id)arg1;
 
 @end
 

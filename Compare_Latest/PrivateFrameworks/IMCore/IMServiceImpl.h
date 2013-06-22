@@ -6,7 +6,7 @@
 
 #import <IMCore/IMService.h>
 
-@class IMAccount, NSArray, NSData, NSDictionary, NSMutableDictionary, NSString;
+@class IDSService, IMAccount, NSArray, NSData, NSDictionary, NSMutableDictionary, NSString;
 
 @interface IMServiceImpl : IMService
 {
@@ -22,6 +22,7 @@
     NSData *_imageData;
     NSArray *_abProperties;
     NSArray *_emailDomains;
+    IDSService *_idsService;
     unsigned int _screenNameSensitivity;
     BOOL _hasLoadedServiceProperties;
     BOOL _handlesChatInvites;
@@ -36,6 +37,7 @@
     BOOL _supportsIDStatusLookup;
     BOOL _supportsDatabaseStorage;
     BOOL _shouldInternationalizeNumbers;
+    BOOL _supportsOfflineTransfers;
     BOOL _shouldDisableDeactivation;
     BOOL _isPersistent;
     BOOL _isPlugInService;
@@ -64,6 +66,7 @@
 @property(readonly, nonatomic) BOOL supportsGroupAttachments; // @synthesize supportsGroupAttachments=_supportsGroupAttachments;
 @property(readonly, nonatomic) BOOL supportsMutatingGroupMembers; // @synthesize supportsMutatingGroupMembers=_supportsMutatingGroupMembers;
 @property(readonly, nonatomic) BOOL supportsPresence; // @synthesize supportsPresence=_supportsPresence;
+@property(readonly, nonatomic) BOOL supportsOfflineTransfers; // @synthesize supportsOfflineTransfers=_supportsOfflineTransfers;
 @property(readonly, nonatomic) BOOL supportsRegistration; // @synthesize supportsRegistration=_supportsRegistration;
 @property(readonly, nonatomic) BOOL handlesChatInvites; // @synthesize handlesChatInvites=_handlesChatInvites;
 @property(readonly, nonatomic) BOOL isPersistent; // @synthesize isPersistent=_isPersistent;
@@ -104,6 +107,7 @@
 @property(readonly, nonatomic) int maxChatParticipants;
 @property(readonly, nonatomic) NSData *serviceImageData;
 - (id)subtypeInformationForAccount:(id)arg1;
+- (id)_accountForUniqueID:(id)arg1;
 @property(retain, nonatomic) NSDictionary *serviceProperties;
 - (void)_loadPropertiesIfNeeded;
 - (id)_abPropertiesBySanitizingABProperties:(id)arg1;
@@ -121,7 +125,6 @@
 - (void)disconnect;
 - (void)doneSetup;
 - (BOOL)initialSyncPerformed;
-- (void)accountInitialSyncPerformed:(id)arg1;
 - (void)_calculateBestAccount;
 - (void)_syncWithRemoteBuddies;
 - (void)dealloc;

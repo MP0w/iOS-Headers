@@ -10,9 +10,9 @@
 
 @interface _UIWebMediaUploadItem : NSObject
 {
+    BOOL _video;
     NSString *_filePath;
     UIImage *_originalImage;
-    BOOL _video;
 }
 
 + (id)mediaUploadItemWithFilePath:(id)arg1 image:(id)arg2 isVideo:(BOOL)arg3;

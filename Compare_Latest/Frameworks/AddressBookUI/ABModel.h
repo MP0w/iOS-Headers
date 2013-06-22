@@ -11,7 +11,7 @@
 @interface ABModel : NSObject
 {
     void *_addressBook;
-    CDStruct_486bb585 *_sectionLists;
+    CDStruct_e817f9f7 *_sectionLists;
     struct __CFDictionary *_headerSortKeyToHeaderString;
     struct _NSRange _displayedMemberPreparedRange;
     unsigned int _numberOfDisplayedMembers;
@@ -64,10 +64,10 @@
 - (void *)selectedPerson;
 - (void)setSelectedPerson:(void *)arg1;
 - (void)prepareDisplayedMembersInRange:(struct _NSRange)arg1;
-- (CDStruct_486bb585 *)displayedMemberSectionLists;
-- (void)copyDisplayedNamePieces:(id *)arg1 isGroup:(char *)arg2 highlightIndex:(int *)arg3 forMemberID:(int *)arg4 atindex:(unsigned int)arg5;
+- (CDStruct_e817f9f7 *)displayedMemberSectionLists;
+- (void)copyDisplayedNamePieces:(id *)arg1 isGroup:(char *)arg2 highlightIndex:(int *)arg3 forMemberID:(int *)arg4 atindex:(int)arg5;
 - (int)indexForDisplayedMember:(void *)arg1;
-- (void *)displayedMemberAtIndex:(unsigned int)arg1;
+- (void *)displayedMemberAtIndex:(int)arg1;
 - (id)displayedMembersInRange:(struct _NSRange)arg1;
 - (id)_displayedGroupMembersInRange:(struct _NSRange)arg1;
 - (id)_partialDisplayedGroupMembersInRange:(struct _NSRange)arg1;
@@ -79,7 +79,7 @@
 - (id)_newModelRecordFromRecord:(void *)arg1;
 - (unsigned int)numberOfDisplayedMembers;
 - (id)allCachedModelRecords;
-- (int)displayedMemberSectionListsCount;
+- (unsigned int)displayedMemberSectionListsCount;
 - (void)setFilteredDisplayedMembers:(struct __CFArray *)arg1;
 - (void)resetSectionList;
 - (long)resetFullSectionList:(struct __CFDictionary *)arg1 maximumSectionCount:(int)arg2;

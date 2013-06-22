@@ -13,6 +13,7 @@
     UILabel *_labelView;
 }
 
+- (void).cxx_destruct;
 - (id)_localizedTextLabel;
 - (float)_localizedTextFontSize;
 - (id)_labelView;
@@ -22,7 +23,6 @@
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (struct CGRect)hitRect;
-- (void)dealloc;
 - (id)init;
 
 @end

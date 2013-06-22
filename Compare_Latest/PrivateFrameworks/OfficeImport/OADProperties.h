@@ -26,6 +26,7 @@
 - (BOOL)isMerged;
 - (void)setParent:(id)arg1 myRestrictedClass:(Class)arg2;
 - (void)setParent:(id)arg1;
+- (void)p_setParent:(id)arg1;
 - (void)dealloc;
 - (id)parent;
 - (id)initWithDefaults;

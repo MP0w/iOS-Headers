@@ -22,6 +22,8 @@
 + (id)rgbColorWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (BOOL)isBlack;
+- (BOOL)isWhite;
 - (unsigned char)blueByte;
 - (unsigned char)greenByte;
 - (unsigned char)redByte;

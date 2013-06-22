@@ -12,6 +12,7 @@
 }
 
 @property(retain, nonatomic) UIViewController *wrappedViewController; // @synthesize wrappedViewController=_wrappedViewController;
+- (void).cxx_destruct;
 - (void)_interfaceOrientationMaskDidChangeNotification:(id)arg1;
 - (void)window:(id)arg1 willAnimateFromContentFrame:(struct CGRect)arg2 toContentFrame:(struct CGRect)arg3;
 - (unsigned int)supportedInterfaceOrientations;

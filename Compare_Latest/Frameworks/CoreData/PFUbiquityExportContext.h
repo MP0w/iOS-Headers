@@ -6,23 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSSet, NSString;
+@class NSMutableDictionary, NSString, PFUbiquityLocation;
 
 @interface PFUbiquityExportContext : NSObject
 {
-    NSSet *_storesToExportFrom;
     NSMutableDictionary *_storeNameToStoreExportContext;
     NSMutableDictionary *_ubiquityRootPathToStack;
     NSString *_localPeerID;
+    PFUbiquityLocation *_ubiquityRootLocation;
+    BOOL _useLocalStorage;
 }
 
-@property(retain, nonatomic) NSSet *storesToExportFrom; // @synthesize storesToExportFrom=_storesToExportFrom;
+@property(nonatomic) BOOL useLocalStorage; // @synthesize useLocalStorage=_useLocalStorage;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 - (id)storeExportContextForStore:(id)arg1;
 - (id)storeExportContextForStoreName:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithLocalPeerID:(id)arg1;
+- (id)initWithLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
 
 @end
 

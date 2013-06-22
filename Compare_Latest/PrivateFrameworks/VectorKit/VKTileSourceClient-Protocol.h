@@ -7,6 +7,8 @@
 #import "NSObject-Protocol.h"
 
 @protocol VKTileSourceClient <NSObject>
+- (void)dirtyTilesFromTileSource:(id)arg1;
+- (void)tileSource:(id)arg1 dirtyTilesWithinRect:(const CDStruct_d2b197d1 *)arg2 level:(int)arg3;
 - (void)didStopLoadingTilesWithError:(id)arg1;
 - (void)willStartLoadingTiles;
 - (BOOL)tileSource:(id)arg1 keyIsNeeded:(const struct VKTileKey *)arg2;

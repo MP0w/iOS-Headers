@@ -10,6 +10,8 @@
 {
 }
 
++ (id)_accessibilityTargetClassName;
++ (id)_initializeSafeCategoryFromValidationManager;
 + (void)_initializeSafeCategory;
 - (id)accessibilityUserDefinedActivationPoint;
 - (id)accessibilityUserDefinedIdentifier;

@@ -10,8 +10,8 @@
 
 @interface MCAnimationPath : MCObjectLight
 {
-    NSString *mKey;
     BOOL mIsTriggered;
+    NSString *mKey;
 }
 
 + (id)animationPathWithKey:(id)arg1;

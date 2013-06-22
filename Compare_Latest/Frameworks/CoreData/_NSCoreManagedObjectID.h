@@ -38,9 +38,10 @@
 - (id)_storeIdentifier;
 - (BOOL)isTemporaryID;
 - (id)persistentStore;
+- (id)entityName;
 - (id)entity;
 - (void)finalize;
-- (void)release;
+- (oneway void)release;
 - (id)retain;
 
 @end

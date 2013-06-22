@@ -10,6 +10,7 @@
 {
 }
 
++ (id)getNotificationUserInfoForToken:(int)arg1;
 + (id)getPendingNotificationUserInfo;
 + (int)enabledRemoteNotificationTypes;
 + (void)registerForRemoteNotificationTypes:(int)arg1;

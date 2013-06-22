@@ -6,25 +6,28 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class NSLocale, NSMutableDictionary;
 
 @interface AFSpeakableUtteranceParser : NSObject
 {
     NSMutableDictionary *_providers;
     id _functionHandler;
+    NSLocale *_locale;
 }
 
 + (id)parseUserGeneratedMessage:(id)arg1;
 + (BOOL)_shouldAutomaticallyProvideFunctions;
 - (void).cxx_destruct;
+- (id)parseStringRemovingControlCharacters:(id)arg1 error:(id *)arg2;
 - (id)parseStringWithFormat:(id)arg1 error:(id *)arg2;
-- (id)parseStringWithFormat:(id)arg1 error:(id *)arg2 hadEmpties:(char *)arg3;
-- (id)_handleControlCodeAtIndex:(unsigned int)arg1 withBuffer:(CDStruct_df6741a8)arg2 totalLength:(unsigned int)arg3 consumedLength:(unsigned int *)arg4 hadEmpties:(char *)arg5;
-- (id)_handleOptionalAtIndex:(unsigned int)arg1 withBuffer:(CDStruct_df6741a8)arg2 totalLength:(unsigned int)arg3 consumedLength:(unsigned int *)arg4;
-- (id)_handleProviderAtIndex:(unsigned int)arg1 withBuffer:(CDStruct_df6741a8)arg2 totalLength:(unsigned int)arg3 consumedLength:(unsigned int *)arg4;
+- (id)parseStringWithFormat:(id)arg1 includeControlCharacters:(BOOL)arg2 error:(id *)arg3 hadEmpties:(char *)arg4;
+- (id)_handleControlCodeAtIndex:(unsigned int)arg1 withBuffer:(CDStruct_64adce64)arg2 totalLength:(unsigned int)arg3 consumedLength:(unsigned int *)arg4 hadEmpties:(char *)arg5;
+- (id)_handleOptionalAtIndex:(unsigned int)arg1 withBuffer:(CDStruct_64adce64)arg2 totalLength:(unsigned int)arg3 consumedLength:(unsigned int *)arg4;
+- (id)_handleProviderAtIndex:(unsigned int)arg1 withBuffer:(CDStruct_64adce64)arg2 totalLength:(unsigned int)arg3 consumedLength:(unsigned int *)arg4;
 @property(nonatomic) BOOL handlesFunctions;
 @property(nonatomic) BOOL handleTTSCodes;
 - (void)registerProvider:(id)arg1 forNamespace:(id)arg2;
+- (id)initWithLocale:(id)arg1;
 - (id)init;
 
 @end

@@ -6,6 +6,8 @@
 
 #import "NSObject.h"
 
+@class RTCReporting;
+
 @interface GKConnection : NSObject
 {
 }
@@ -28,6 +30,7 @@
 - (void)connect;
 - (unsigned int)gckPID;
 @property id eventDelegate;
+@property(nonatomic) RTCReporting *reportingAgent;
 - (struct OpaqueGCKSession *)gckSession;
 - (void)preRelease;
 - (id)initWithParticipantID:(id)arg1;

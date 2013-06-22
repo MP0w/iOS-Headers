@@ -6,20 +6,20 @@
 
 #import <Message/MFBufferedQueue.h>
 
-@class ActivityMonitor, MFDAMailbox, MFDAMessageStore, MFError, MFMailMessageLibrary;
+@class MFActivityMonitor, MFDAMailbox, MFDAMessageStore, MFError, MFMailMessageLibrary;
 
 @interface _MFDAMSBasicConsumer : MFBufferedQueue
 {
     MFDAMailbox *mailbox;
     MFDAMessageStore *store;
     MFMailMessageLibrary *library;
-    ActivityMonitor *monitor;
+    MFActivityMonitor *monitor;
     MFError *error;
     unsigned int numNewMessages;
 }
 
 @property(retain, nonatomic) MFError *error; // @synthesize error;
-@property(retain, nonatomic) ActivityMonitor *monitor; // @synthesize monitor;
+@property(retain, nonatomic) MFActivityMonitor *monitor; // @synthesize monitor;
 - (void)dealloc;
 - (id)initWithMaximumSize:(unsigned int)arg1 latency:(double)arg2;
 

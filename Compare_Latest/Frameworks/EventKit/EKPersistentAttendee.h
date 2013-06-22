@@ -6,6 +6,8 @@
 
 #import <EventKit/EKPersistentParticipant.h>
 
+@class NSDate;
+
 @interface EKPersistentAttendee : EKPersistentParticipant
 {
 }
@@ -14,6 +16,7 @@
 + (id)attendeeWithName:(id)arg1 emailAddress:(id)arg2 address:(id)arg3;
 + (id)relations;
 + (id)defaultPropertiesToLoad;
+@property(copy, nonatomic) NSDate *lastModified;
 - (id)owner;
 - (void)setOwner:(id)arg1;
 @property(nonatomic) int pendingStatus;

@@ -11,15 +11,15 @@
     _Bool mByPosition;
     _Bool mRelative;
     _Bool mSelected;
-    unsigned int mFieldId;
-    unsigned int mCount;
+    unsigned long mFieldId;
+    unsigned long mCount;
 }
 
 + (id)pivotAreaReference;
-- (void)setCount:(unsigned int)arg1;
-- (unsigned int)count;
-- (void)setFieldId:(unsigned int)arg1;
-- (unsigned int)fieldId;
+- (void)setCount:(unsigned long)arg1;
+- (unsigned long)count;
+- (void)setFieldId:(unsigned long)arg1;
+- (unsigned long)fieldId;
 - (void)setSelected:(_Bool)arg1;
 - (_Bool)selected;
 - (void)setRelative:(_Bool)arg1;

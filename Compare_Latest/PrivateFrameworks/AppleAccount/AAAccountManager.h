@@ -6,28 +6,33 @@
 
 #import "NSObject.h"
 
-@class AAAccount, NSArray, NSMutableArray, NSOperationQueue;
+@class ACAccountStore, NSMutableArray;
 
 @interface AAAccountManager : NSObject
 {
+    ACAccountStore *_accountStore;
     NSMutableArray *_accounts;
     NSMutableArray *_originalAccounts;
-    NSOperationQueue *_requesterQueue;
 }
 
 + (id)sharedManager;
 - (void).cxx_destruct;
 - (void)saveAllAccounts;
-- (void)updateAccount:(id)arg1;
+- (void)_removeAppleIDCertsForUsername:(id)arg1;
 - (void)removeAccount:(id)arg1;
+- (void)updateAccount:(id)arg1;
 - (void)addAccount:(id)arg1;
-- (void)reloadAccounts;
-- (id)accountWithPersonID:(id)arg1;
 - (id)accountWithIdentifier:(id)arg1;
+- (id)accountWithPersonID:(id)arg1;
 - (id)accountWithUsername:(id)arg1;
 - (id)accountsEnabledForDataclass:(id)arg1;
-@property(readonly) AAAccount *primaryAccount;
-@property(readonly) NSArray *accounts;
+- (id)primaryAccount;
+- (void)reloadAccounts;
+- (id)accounts;
+- (void)_stopObservingAccountStoreDidChangeNotification;
+- (void)_beginObservingAccountStoreDidChangeNotification;
+- (id)_accountStore;
+- (void)dealloc;
 
 @end
 

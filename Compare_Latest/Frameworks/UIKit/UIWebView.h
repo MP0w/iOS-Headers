@@ -19,6 +19,7 @@
 + (void)_updatePersistentStoragePaths;
 + (void)_fixPathsForSandboxDirectoryChange;
 + (id)_relativePathFromAbsolutePath:(id)arg1 removingPathComponents:(unsigned int)arg2;
++ (void)initialize;
 - (void)_addShortcut:(id)arg1;
 - (void)_define:(id)arg1;
 - (void)selectAll:(id)arg1;
@@ -30,13 +31,18 @@
 - (void)_setAudioSessionCategoryOverride:(unsigned int)arg1;
 - (BOOL)_alwaysDispatchesScrollEvents;
 - (void)_setAlwaysDispatchesScrollEvents:(BOOL)arg1;
+@property(readonly, nonatomic) unsigned int pageCount;
 - (unsigned int)_pageCount;
+@property(nonatomic) float gapBetweenPages;
 - (void)_setGapBetweenPages:(float)arg1;
 - (float)_gapBetweenPages;
+@property(nonatomic) float pageLength;
 - (void)_setPageLength:(float)arg1;
 - (float)_pageLength;
+@property(nonatomic) int paginationBreakingMode;
 - (void)_setPaginationBehavesLikeColumns:(BOOL)arg1;
 - (BOOL)_paginationBehavesLikeColumns;
+@property(nonatomic) int paginationMode;
 - (void)_setPaginationMode:(int)arg1;
 - (int)_paginationMode;
 - (void)_setDrawInWebThread:(BOOL)arg1;

@@ -23,7 +23,7 @@
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)addToRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)dealloc;
-- (id)_initWithDisplayLink:(struct DisplayLink *)arg1;
+- (id)_initWithDisplayLinkItem:(struct DisplayLinkItem *)arg1;
 @property(retain, nonatomic) id userInfo;
 @property(readonly, nonatomic) CADisplay *display;
 

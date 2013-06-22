@@ -15,6 +15,8 @@
     PDNotesSlide *mNotesSlide;
 }
 
+- (BOOL)hasMappableSlideNumberShape;
+- (id)background;
 - (void)setInheritedTextStyle:(id)arg1 placeholderType:(int)arg2 defaultTextListStyle:(id)arg3;
 - (void)doneWithContent;
 - (void)addComment:(id)arg1;

@@ -12,7 +12,7 @@
 }
 
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
-- (void)_updateBackgroundImage;
+- (void)layoutSubviews;
 - (void)dealloc;
 
 @end

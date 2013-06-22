@@ -13,25 +13,29 @@
 
 @interface VKGlobeLineContainer : NSObject <VKPolylineGroupOverlayObserver, VKPolylineObserver>
 {
-    BOOL _needsRepaint;
+    BOOL _trafficEnabled;
     id <VKRouteMatchedAnnotationPresentation> _routeLineSplitAnnotation;
+    id <VKGlobeLineContainerDelegate> _delegate;
     NSMutableArray *_overlays;
     VKGlobeViewWrapper *_wrapper;
-    struct map<VKPolylineOverlay *, unsigned int, std::__1::less<VKPolylineOverlay *>, vk_allocator<std::__1::pair<VKPolylineOverlay *const, unsigned int>>> polylinesToLines;
+    struct map<VKPolylineOverlay *, altitude::RouteLineData *, std::__1::less<VKPolylineOverlay *>, vk_allocator<std::__1::pair<VKPolylineOverlay *const, altitude::RouteLineData *>>> _polylinesToRoutes;
     VKPolylineOverlay *_selectedPolyline;
     NSMutableSet *_persistentOverlays;
     struct VKGlobeRouteSplit *_routeSplit;
+    struct VKGlobeRouteStyle *_routeStyle;
 }
 
-@property(nonatomic) BOOL needsRepaint; // @synthesize needsRepaint=_needsRepaint;
+@property(nonatomic) id <VKGlobeLineContainerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)setNeedsLayoutForPolyline:(id)arg1;
 - (void)polylineGroup:(id)arg1 didSelectPolyline:(id)arg2;
 - (void)polylineGroup:(id)arg1 didRemovePolyline:(id)arg2;
 - (void)polylineGroup:(id)arg1 didAddPolyline:(id)arg2;
+- (void)clearRouteLines;
+- (void)setStylesheet:(id)arg1;
 - (void)update;
-- (void)_recreateLineIfNeeded:(id)arg1;
+- (void)_recreateLinesIfNeeded;
 - (void)_updateRouteSplit;
 @property(retain, nonatomic) id <VKRouteMatchedAnnotationPresentation> routeLineSplitAnnotation;
 - (void)setTrafficEnabled:(BOOL)arg1;
@@ -45,8 +49,9 @@
 - (void)removeOverlay:(id)arg1;
 - (void)addPersistentOverlay:(id)arg1;
 - (void)addOverlay:(id)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (id)initWithGlobeViewWrapper:(id)arg1;
+- (id)initWithGlobeViewWrapper:(id)arg1 stylesheet:(id)arg2;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CMMotionManager, MRContext, MRImage, MRLayerEffect, MRRenderArguments, NSArray, NSConditionLock, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSRecursiveLock, NSString, NSThread;
+@class MRContext, MRImage, MRLayerEffect, MRRenderArguments, NSArray, NSConditionLock, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSRecursiveLock, NSString, NSThread;
 
 @interface MRRendererInternal : NSObject
 {
@@ -61,7 +61,6 @@
     NSMutableArray *mNavigatorHistoryBack;
     NSMutableArray *mNavigatorHistoryForth;
     NSDictionary *mForcedState;
-    CMMotionManager *mMotionManager;
     BOOL mHideTextWhileEditing;
     BOOL mUsesNewImageManager;
     double mFrameTime[64];
@@ -100,6 +99,7 @@
     BOOL mInnerIsPlayingNeedsSync;
     BOOL mUseOuterIsPlaying;
     unsigned int mCountOfPreloadingImages;
+    BOOL mUsesExternalDisplayLink;
 }
 
 @end

@@ -15,7 +15,7 @@
 }
 
 - (void)generateIndexedTrianglesWithHandler:(id)arg1;
-- (void)addPolygonForPoints:(const CDStruct_6e3f967a *)arg1 pointCount:(unsigned int)arg2 withStyle:(id)arg3;
+- (void)addPolygonForPoints:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned int)arg2 withStyle:(id)arg3;
 - (void)dealloc;
 
 @end

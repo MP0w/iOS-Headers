@@ -12,6 +12,8 @@
 {
     CAShapeLayer *_connectionLineLayer;
     struct CGPath *_hitTestPath;
+    struct CGColor *_lineColorActive;
+    struct CGColor *_lineColorInactive;
     struct CGColor *_lineColorEthernet;
     struct CGColor *_lineColorWiFi;
     struct CGColor *_selectedLineColor;
@@ -27,7 +29,7 @@
     struct CGPath *_arrowhead;
 }
 
-@property(readonly) struct CGPath *hitTestPath; // @synthesize hitTestPath=_hitTestPath;
+@property(readonly, nonatomic) struct CGPath *hitTestPath; // @synthesize hitTestPath=_hitTestPath;
 @property(nonatomic) unsigned int connectionMediumFallback; // @synthesize connectionMediumFallback=_connectionMediumFallback;
 @property(nonatomic) unsigned int upstreamConnectionSide; // @synthesize upstreamConnectionSide=_upstreamConnectionSide;
 @property(nonatomic) unsigned int connectionStyle; // @synthesize connectionStyle=_connectionStyle;
@@ -42,14 +44,14 @@
 - (void)addSideWindingConnectionToPath:(struct CGPath *)arg1 withOffset:(float)arg2;
 - (void)layoutSublayers;
 @property(readonly, nonatomic) unsigned int connectionMedium;
-- (BOOL)isSelected;
 - (void)setSelected:(BOOL)arg1;
 @property(nonatomic) struct CGPoint siblingMergePoint;
 @property(nonatomic) struct CGPoint upstreamConnectionPoint;
 @property(nonatomic) struct CGPoint downstreamConnectionPoint;
 - (struct CGRect)getUserInteractionBounds;
 - (void)dealloc;
-- (id)init;
+- (id)initWithUIStyle:(int)arg1 andOwningView:(id)arg2;
+- (void)initNetTopoDeviceConnectionLayerCommonWithStyle:(int)arg1 andOwningView:(id)arg2;
 
 @end
 

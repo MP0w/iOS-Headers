@@ -13,6 +13,7 @@
     NSString *_body;
     id _buttons;
     NSNumber *_cancelButtonIndex;
+    NSNumber *_destructiveButtonIndex;
     id _textFields;
     NSString *_title;
 }
@@ -26,11 +27,13 @@
 - (void)_logSheetWarnings;
 @property(retain) NSString *title;
 @property(retain) id textFields;
+@property(retain) NSNumber *destructiveButtonIndex;
 @property(retain) NSNumber *cancelButtonIndex;
 @property(retain) id buttons;
 @property(retain) NSString *body;
 - (id)_className;
 - (void)showFromDOMElement:(id)arg1;
+- (void)showSheetInPopOver:(id)arg1;
 - (void)showSheet;
 - (void)show;
 - (void)dismiss;

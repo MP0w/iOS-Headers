@@ -39,6 +39,7 @@
 @property(readonly) NSNumber *dsID;
 - (id)_className;
 @property(readonly) NSString *bundleVersion;
+@property(readonly) NSString *bundleShortVersionString;
 @property(readonly) NSString *bundleID;
 @property(readonly) NSNumber *adamID;
 - (int)launchWithURL:(id)arg1 options:(id)arg2 suspended:(id)arg3;

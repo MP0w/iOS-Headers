@@ -13,8 +13,9 @@
     MPMediaPlaylist *_playlist;
 }
 
+- (void).cxx_destruct;
 - (void)_mutateQueriesEntitiesWithBlock:(id)arg1;
-@property(readonly) MPMediaPlaylist *playlist;
+@property(readonly, nonatomic) MPMediaPlaylist *playlist;
 - (BOOL)updateQueriesPredicates;
 - (id)entitiesForQuery:(id)arg1;
 - (float)rowHeight;
@@ -27,7 +28,6 @@
 - (BOOL)canDeleteIndex:(unsigned int)arg1;
 - (BOOL)allowsRearrange;
 - (BOOL)allowsDeletion;
-- (void)dealloc;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <SAObjects/SAAceView.h>
 
-@class NSArray, NSString;
+@class NSArray, NSString, SAUIDomainObjectPicker;
 
 @interface SAUIDisambiguationList : SAAceView
 {
@@ -20,6 +20,7 @@
 @property(copy, nonatomic) NSString *speakableDelimiter;
 @property(copy, nonatomic) NSString *selectionResponse;
 @property(copy, nonatomic) NSArray *items;
+@property(retain, nonatomic) SAUIDomainObjectPicker *domainObjectPicker;
 @property(copy, nonatomic) NSString *disambiguationKey;
 - (id)encodedClassName;
 - (id)groupIdentifier;

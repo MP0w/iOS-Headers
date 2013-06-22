@@ -68,7 +68,7 @@
 - (void)forEachAccessClaimOnItemPerformProcedure:(id)arg1;
 - (void)forEachDescendantPerformProcedure:(id)arg1;
 - (id)biggestFilePackageLocation;
-- (BOOL)isFilePackage;
+- (BOOL)itemIsFilePackage;
 - (void)setParent:(id)arg1 name:(id)arg2;
 - (id)pathFromAncestor:(id)arg1;
 - (id)descendantForFileURL:(id)arg1;

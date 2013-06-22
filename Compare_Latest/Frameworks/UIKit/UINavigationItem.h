@@ -36,9 +36,11 @@
     unsigned int _leftFlexibleSpaceCount;
     unsigned int _rightFlexibleSpaceCount;
     NSMutableDictionary *_backgroundImages;
+    float __titleViewWidthForAnimations;
 }
 
 + (id)defaultFont;
+@property(nonatomic) float _titleViewWidthForAnimations; // @synthesize _titleViewWidthForAnimations=__titleViewWidthForAnimations;
 @property(nonatomic, setter=_setRightFlexibleSpaceCount:) unsigned int _rightFlexibleSpaceCount; // @synthesize _rightFlexibleSpaceCount;
 @property(nonatomic, setter=_setLeftFlexibleSpaceCount:) unsigned int _leftFlexibleSpaceCount; // @synthesize _leftFlexibleSpaceCount;
 @property(copy, nonatomic, setter=_setRightItemSpaceList:) NSArray *_rightItemSpaceList; // @synthesize _rightItemSpaceList;
@@ -51,6 +53,9 @@
 @property(readonly, nonatomic) NSMutableDictionary *_backgroundImages; // @synthesize _backgroundImages;
 @property(nonatomic) BOOL leftItemsSupplementBackButton;
 - (id)_automationID;
+- (id)_firstNonSpaceRightItem;
+- (id)_firstNonSpaceLeftItem;
+- (id)_firstNonSpaceItemInList:(id)arg1;
 - (void)setCustomRightItem:(id)arg1 animated:(BOOL)arg2;
 - (id)customRightItem;
 - (void)setCustomRightItem:(id)arg1;
@@ -131,7 +136,8 @@
 - (void)_setBackButtonTitle:(id)arg1 lineBreakMode:(int)arg2;
 - (void)setBackButtonTitle:(id)arg1;
 - (void)_setTitle:(id)arg1 animated:(BOOL)arg2;
-- (void)_setTitleAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
+- (void)_setTitle:(id)arg1 animated:(BOOL)arg2 matchBarButtonItemAnimationDuration:(BOOL)arg3;
+- (void)_setTitleAnimationDidStop:(id)arg1 finished:(id)arg2 context:(id)arg3;
 - (void)_cleanupFrozenTitleView;
 - (void)_freezeCurrentTitleView;
 - (void)setNavigationBar:(id)arg1;

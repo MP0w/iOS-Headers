@@ -24,6 +24,7 @@
 - (void)dealloc;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
 - (void)webViewDidFinishLoad:(id)arg1;
+- (id)sourceURL;
 - (id)webView;
 - (void)setDelegate:(id)arg1;
 

@@ -29,14 +29,15 @@
     id _entryFieldDelegate;
     BOOL _needsScrollToVisible;
     int _contentAdjustmentHoldCount;
-    int _outgoingBubbleColor;
+    BOOL _outgoingBubbleColor;
     BOOL _needsContentAdjustment;
 }
 
-@property(nonatomic) int outgoingBubbleColor; // @synthesize outgoingBubbleColor=_outgoingBubbleColor;
+@property(nonatomic) BOOL outgoingBubbleColor; // @synthesize outgoingBubbleColor=_outgoingBubbleColor;
 @property(readonly, nonatomic) NSArray *contentViews; // @synthesize contentViews=_contentViews;
+- (void)ckTextContentViewDidPaste:(id)arg1;
 - (BOOL)ckTextContentViewShouldReturn:(id)arg1;
-- (BOOL)canPasteObject:(id)arg1;
+- (BOOL)canPasteMediaObjects:(id)arg1;
 - (void)_endHoldingContentAdjustmentsWithAnimation:(BOOL)arg1;
 - (void)_endHoldingContentAdjustments;
 - (void)_beginHoldingContentAdjustments;
@@ -95,7 +96,6 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)desiredSize;
 - (void)setContentOffset:(struct CGPoint)arg1;
-- (void)handlePan:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

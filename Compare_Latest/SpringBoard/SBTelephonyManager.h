@@ -6,12 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSString, NSTimer, RadiosPreferences, SBAlertItem;
+@class NSString, NSTimer, RadiosPreferences, SBAlertItem, TUCall;
 
 @interface SBTelephonyManager : NSObject
 {
+    BOOL _containsCellularRadio;
+    BOOL _hasCellularTelephony;
+    BOOL _hasCellularData;
+    BOOL _hasAppleTelephony;
+    BOOL _hasAnyTelephony;
     NSString *_cachedCTRegistrationStatus;
-    BOOL _emergencyCallsOnly;
     int _registrationStatus;
     void *_suspendDormancyAssertion;
     BOOL _signalStrengthHasBeenSet;
@@ -42,11 +46,18 @@
     BOOL _modemDataConnectionTypeIsKnown;
     BOOL _fallingBackToCellular;
     struct tcp_connection_fallback_watch_s *_cellularFallbackWatcher;
+    TUCall *_incomingCall;
+    TUCall *_activeCall;
+    TUCall *_heldCall;
+    TUCall *_outgoingCall;
 }
 
 + (id)sharedTelephonyManagerCreatingIfNecessary:(BOOL)arg1;
 + (id)sharedTelephonyManager;
-- (void)_wokeFromSleep:(id)arg1;
+@property(retain, nonatomic) TUCall *outgoingCall; // @synthesize outgoingCall=_outgoingCall;
+@property(retain, nonatomic) TUCall *heldCall; // @synthesize heldCall=_heldCall;
+@property(retain, nonatomic) TUCall *activeCall; // @synthesize activeCall=_activeCall;
+@property(retain, nonatomic) TUCall *incomingCall; // @synthesize incomingCall=_incomingCall;
 - (void)noteWirelessModemChanged;
 - (void)setIsNetworkTethering:(BOOL)arg1 withNumberOfDevices:(int)arg2;
 - (int)numberOfNetworkTetheredDevices;
@@ -56,7 +67,6 @@
 - (BOOL)needsUserIdentificationModule;
 - (id)SIMStatus;
 - (void)_setSIMStatus:(id)arg1;
-- (BOOL)canOnlyMakeEmergencyCalls;
 - (int)registrationStatus;
 - (id)operatorName;
 - (void)operatorBundleChanged;
@@ -74,7 +84,6 @@
 - (void)_cancelFakeService;
 - (void)_updateRegistrationNow;
 - (void)_setRegistrationStatus:(int)arg1;
-- (void)_updateCanOnlyMakeEmergencyCalls;
 - (void)_setCachedCTRegistrationStatus:(struct __CFString *)arg1;
 - (struct __CFString *)_cachedCTRegistrationStatus;
 - (void)postponementStatusChanged;
@@ -93,7 +102,7 @@
 - (id)copyMobileEquipmentInfo;
 - (BOOL)isUsingVPNConnection;
 - (void)setIsUsingVPNConnection:(BOOL)arg1;
-- (void)setIsUsingWiFiConnection:(BOOL)arg1;
+- (void)_setIsUsingWiFiConnection:(BOOL)arg1;
 - (BOOL)isTTYEnabled;
 - (BOOL)isUsingSlowDataConnection;
 - (BOOL)isInAirplaneMode;
@@ -129,12 +138,14 @@
 - (BOOL)incomingCallExists;
 - (BOOL)heldCallExists;
 - (BOOL)activeCallExists;
+- (id)displayedCall;
 - (int)callCount;
-- (id)allMissedCallsAfterRowID:(long long)arg1;
-- (long long)getRowIDOfLastCallInsert;
+- (void)callEventHandler:(id)arg1;
 - (void)_delayedAudioResume;
+- (void)handleCallControlFailure:(id)arg1;
 - (void)updateDisplaySettings:(id)arg1 forOutgoingCallURL:(id)arg2 outURL:(id *)arg3;
-- (id)urlWithScheme:(id)arg1 fromDialingNumber:(id)arg2 abUID:(int)arg3 urlPathAddition:(id)arg4 forceAssist:(BOOL)arg5 suppressAssist:(BOOL)arg6 wasAlreadyAssisted:(BOOL)arg7;
+- (id)urlWithScheme:(id)arg1 fromDialingNumber:(id)arg2 abUID:(int)arg3 urlPathAddition:(id)arg4 service:(int)arg5 forceAssist:(BOOL)arg6 suppressAssist:(BOOL)arg7 wasAlreadyAssisted:(BOOL)arg8;
+- (BOOL)isEmergencyCallScheme:(id)arg1;
 - (id)lastKnownNetworkCountryCode;
 - (void)_updateLastKnownNetworkCountryCode;
 - (void)updateNetworkLocale;
@@ -155,6 +166,10 @@
 - (void)setCallForwardingIndicator:(int)arg1;
 - (double)inCallDuration;
 - (void)updateTTYIndicator;
+- (BOOL)hasAnyTelephony;
+- (BOOL)hasCellularData;
+- (BOOL)hasCellularTelephony;
+- (BOOL)containsCellularRadio;
 - (void)SBTelephonyDaemonRestartHandler;
 - (void)_serverConnectionDidError:(CDStruct_1ef3fb1f)arg1;
 - (void)_avSystemControllerDidError:(id)arg1;

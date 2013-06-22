@@ -20,15 +20,12 @@
 }
 
 + (id)sharedInstance;
-- (id)valueForDomain:(id)arg1 key:(id)arg2;
 - (void)dealloc;
-- (id)uniqueDeviceIdentifier;
 - (int)lockdownState;
 - (BOOL)isDeveloperDevice;
 - (BOOL)brickedDevice;
 - (void)_setupActivationState;
 - (void)_serviceAvailabilityChanged:(id)arg1;
-- (void)_developerDeviceStateChanged;
 - (void)_activationFailed;
 - (void)_resetActivationState;
 - (void)_postAlertsIfNeeded;

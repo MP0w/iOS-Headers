@@ -14,7 +14,7 @@
 }
 
 @property(retain, nonatomic) MPAVController *player; // @synthesize player;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)_automationID;
 
 @end

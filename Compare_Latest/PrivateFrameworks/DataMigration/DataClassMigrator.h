@@ -14,6 +14,7 @@
 }
 
 @property(retain, nonatomic) NSDictionary *context; // @synthesize context=_context;
+- (void).cxx_destruct;
 - (float)migrationProgress;
 - (float)estimatedDuration;
 - (BOOL)performMigration;
@@ -23,7 +24,6 @@
 @property(readonly, nonatomic) BOOL didRestoreFromCloudBackup;
 @property(readonly, nonatomic) BOOL didMigrateBackupFromDifferentDevice;
 @property(readonly, nonatomic) BOOL didRestoreFromBackup;
-- (void)dealloc;
 
 @end
 

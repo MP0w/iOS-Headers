@@ -48,9 +48,10 @@ struct sockaddr_in {
 };
 
 struct tagCONNRESULT {
-    int iCallID;
+    unsigned int dwCallID;
+    int iResultCount;
     int iRole;
-    int iRemoteCallID;
+    unsigned int dwRemoteCallID;
     int proto;
     int bIfRelay;
     unsigned short wRelayServType;
@@ -66,7 +67,9 @@ struct tagCONNRESULT {
     int bIfRemoteCellularQoS;
     int iLocalCellTech;
     int iRemoteCellTech;
+    unsigned int dwCellularUniqueTag;
     unsigned short wCellularMTU;
+    struct tagCONNRESULT *next;
 };
 
 struct tagIPPORT {

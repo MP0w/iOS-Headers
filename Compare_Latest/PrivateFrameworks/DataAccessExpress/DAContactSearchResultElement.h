@@ -33,7 +33,8 @@
     NSString *_zip;
     NSString *_country;
     NSData *_jpegPhoto;
-    NSString *_imAddress;
+    NSString *_imService;
+    NSString *_imUsername;
     NSString *_uri;
     NSString *_buildingName;
     NSString *_appleFloor;
@@ -63,7 +64,8 @@
 @property(copy) NSString *appleFloor; // @synthesize appleFloor=_appleFloor;
 @property(copy) NSString *buildingName; // @synthesize buildingName=_buildingName;
 @property(copy) NSString *uri; // @synthesize uri=_uri;
-@property(copy) NSString *imAddress; // @synthesize imAddress=_imAddress;
+@property(copy) NSString *imUsername; // @synthesize imUsername=_imUsername;
+@property(copy) NSString *imService; // @synthesize imService=_imService;
 @property(copy) NSData *jpegPhoto; // @synthesize jpegPhoto=_jpegPhoto;
 @property(copy) NSString *country; // @synthesize country=_country;
 @property(copy) NSString *zip; // @synthesize zip=_zip;

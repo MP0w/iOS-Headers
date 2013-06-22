@@ -22,5 +22,6 @@
 @property(retain, nonatomic) NSString *entityTimeZone; // @dynamic entityTimeZone;
 @property(retain, nonatomic) NSString *externalID; // @dynamic externalID;
 @property(retain, nonatomic) NSDate *fireTime; // @dynamic fireTime;
+@property(retain, nonatomic) NSNumber *isDelayedProximityAlarm; // @dynamic isDelayedProximityAlarm;
 @end
 

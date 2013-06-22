@@ -18,9 +18,9 @@
 + (void)removeKeychainPasswordForMACAddress:(id)arg1;
 + (id)keychainPasswordForMACAddress:(id)arg1;
 + (id)keychainWrapperWithMACAddress:(id)arg1;
-@property(retain) NSLock *lock; // @synthesize lock=_lock;
-@property(copy) NSString *serviceName; // @synthesize serviceName=_serviceName;
-@property(copy) NSString *accountName; // @synthesize accountName=_accountName;
+@property(retain, nonatomic) NSLock *lock; // @synthesize lock=_lock;
+@property(copy, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
+@property(copy, nonatomic) NSString *accountName; // @synthesize accountName=_accountName;
 - (void)removeGenericPassword;
 - (long)addGenericPassword:(id)arg1 withLabel:(id)arg2 andDescription:(id)arg3;
 - (id)genericPassword;

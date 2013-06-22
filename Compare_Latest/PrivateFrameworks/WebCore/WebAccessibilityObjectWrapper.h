@@ -4,17 +4,31 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <WebCore/WebAccessibilityObjectWrapperBase.h>
 
-@interface WebAccessibilityObjectWrapper : NSObject
+@interface WebAccessibilityObjectWrapper : WebAccessibilityObjectWrapperBase
 {
-    struct AccessibilityObject *m_object;
     int m_isAccessibilityElement;
     unsigned long long m_accessibilityTraitsFromAncestor;
 }
 
-- (void)accessibilityPostedNotification:(int)arg1;
+- (void)accessibilityPostedNotification:(id)arg1;
 - (void)accessibilitySetPostedNotificationCallback:(void *)arg1 withContext:(void *)arg2;
+- (struct CGPoint)accessibilityClickPoint;
+- (id)accessibilityMathType;
+- (int)accessibilityMathLineThickness;
+- (BOOL)accessibilityIsMathTopObject;
+- (id)accessibilityMathFencedCloseString;
+- (id)accessibilityMathFencedOpenString;
+- (id)accessibilityMathOverObject;
+- (id)accessibilityMathUnderObject;
+- (id)accessibilityMathSuperscriptObject;
+- (id)accessibilityMathSubscriptObject;
+- (id)accessibilityMathBaseObject;
+- (id)accessibilityMathDenominatorObject;
+- (id)accessibilityMathNumeratorObject;
+- (id)accessibilityMathRadicandObject;
+- (id)accessibilityMathRootIndexObject;
 - (id)accessibilityInvalidStatus;
 - (BOOL)accessibilityARIALiveRegionIsAtomic;
 - (id)accessibilityARIARelevantStatus;
@@ -44,7 +58,7 @@
 - (struct _NSRange)_convertToNSRange:(struct Range *)arg1;
 - (id)arrayOfTextForTextMarkers:(id)arg1 attributed:(BOOL)arg2;
 - (id)stringForTextMarkers:(id)arg1;
-- (BOOL)_addAccessibilityObject:(struct AccessibilityObject *)arg1 toTextMarkerArray:(id)arg2;
+- (BOOL)_addAccessibilityObject:(AccessibilityObject_241984a0 *)arg1 toTextMarkerArray:(id)arg2;
 - (void)accessibilityDecrement;
 - (void)accessibilityIncrement;
 - (void)accessibilityMoveSelectionToMarker:(id)arg1;
@@ -75,7 +89,8 @@
 - (struct CGRect)accessibilityFrame;
 - (struct CGPoint)accessibilityActivationPoint;
 - (struct CGRect)accessibilityElementRect;
-- (struct CGRect)_convertIntRectToScreenCoordinates:(struct IntRect)arg1;
+- (struct CGRect)convertRectToScreenSpace:(struct IntRect *)arg1;
+- (struct CGPoint)convertPointToScreenSpace:(struct FloatPoint *)arg1;
 - (id)accessibilityURL;
 - (id)accessibilityHint;
 - (BOOL)accessibilityIsComboBox;
@@ -89,9 +104,11 @@
 - (struct AccessibilityTable *)tableParent;
 - (struct AccessibilityTableCell *)tableCellParent;
 - (id)accessibilityLabel;
+- (BOOL)fileUploadButtonReturnsValueInTitle;
 - (BOOL)stringValueShouldBeUsedInLabel;
 - (BOOL)isAccessibilityElement;
 - (BOOL)determineIsAccessibilityElement;
+- (BOOL)isSVGGroupElement;
 - (unsigned long long)accessibilityTraits;
 - (unsigned long long)_accessibilityTraitsFromAncestors;
 - (struct WebAccessibilityObjectWrapper *)_accessibilityTableAncestor;
@@ -99,6 +116,7 @@
 - (struct WebAccessibilityObjectWrapper *)_accessibilityListAncestor;
 - (BOOL)_accessibilityIsLandmarkRole:(int)arg1;
 - (id)accessibilityLanguage;
+- (struct CGPath *)_accessibilityPath;
 - (int)indexOfAccessibilityElement:(id)arg1;
 - (id)accessibilityElementAtIndex:(int)arg1;
 - (int)accessibilityElementCount;
@@ -127,11 +145,10 @@
 - (unsigned long long)_axHeaderTrait;
 - (unsigned long long)_axVisitedTrait;
 - (unsigned long long)_axLinkTrait;
-- (struct AccessibilityObject *)accessibilityObject;
 - (BOOL)_prepareAccessibilityCall;
 - (void)dealloc;
 - (void)detach;
-- (id)initWithAccessibilityObject:(struct AccessibilityObject *)arg1;
+- (id)initWithAccessibilityObject:(AccessibilityObject_241984a0 *)arg1;
 
 @end
 

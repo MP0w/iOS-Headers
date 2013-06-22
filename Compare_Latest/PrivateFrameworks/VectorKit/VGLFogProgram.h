@@ -34,9 +34,10 @@
 @property(nonatomic) struct _VGLColor skyBottomColor; // @synthesize skyBottomColor=_skyBottomColor;
 @property(nonatomic) float horizonDepth; // @synthesize horizonDepth=_horizonDepth;
 @property(nonatomic) CDUnion_f5b85e25 modelViewMatrix; // @synthesize modelViewMatrix=_modelViewMatrix;
+- (id).cxx_construct;
 - (void)_updateFogSlopeInShader;
 - (void)dealloc;
-- (id)initWithVertName:(id)arg1 fragName:(id)arg2;
+- (void)setup;
 
 @end
 

@@ -18,20 +18,24 @@
     struct dispatch_queue_s *_monitorDelegateQueue;
     CUTWeakReference *_delegateReference;
     BOOL _isInCall;
+    BOOL _isInHighPowerState;
     BOOL _trackUsability;
     unsigned int _thresholdOffTransitionCount;
     double _trackedTimeInterval;
     NSString *_interfaceName;
     PCInterfaceUsabilityMonitor *_interfaceMonitor;
+    struct __CFString *_currentRAT;
     struct __CTServerConnection *_telephonyServer;
     long _wwanContextID;
     struct dispatch_queue_s *_ctServerQueue;
 }
 
+@property(readonly, nonatomic) struct __CFString *currentRAT; // @synthesize currentRAT=_currentRAT;
 - (void)interfaceReachabilityChanged:(id)arg1;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)_callDelegateOnIvarQueueWithBlock:(id)arg1;
 @property(nonatomic) id <PCInterfaceUsabilityMonitorDelegate> delegate;
+@property(readonly, nonatomic) BOOL isRadioHot;
 @property(readonly, nonatomic) BOOL isPoorLinkQuality;
 @property(readonly, nonatomic) NSString *linkQualityString;
 @property(readonly, nonatomic) BOOL isInternetReachable;

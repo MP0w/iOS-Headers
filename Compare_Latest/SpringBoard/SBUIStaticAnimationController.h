@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBUIAnimationController.h"
+#import "SBUIMainScreenAnimationController.h"
 
 @class SBApplication, UIView;
 
-@interface SBUIStaticAnimationController : SBUIAnimationController
+@interface SBUIStaticAnimationController : SBUIMainScreenAnimationController
 {
     BOOL _relaunchExpected;
     BOOL _awaitingKeybagRefetch;
@@ -18,6 +18,7 @@
 
 - (void)_cleanupAnimation;
 - (void)_startAnimation;
+- (BOOL)_shouldDismissBanner;
 - (void)_prepareAnimation;
 - (BOOL)_animationShouldStart;
 - (BOOL)_willAnimate;

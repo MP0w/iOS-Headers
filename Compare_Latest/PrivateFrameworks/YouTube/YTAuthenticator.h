@@ -30,7 +30,7 @@
 - (void)userCancelledAccountAuthentication;
 - (void)setAccount:(id)arg1 password:(id)arg2;
 - (void)_failedToAuthenticateAccount:(id)arg1;
-- (void)_didAuthenticateAccount:(id)arg1;
+- (void)didAuthenticateAccount;
 - (void)_removeAccountAuthenticationObservers;
 - (void)_addAccountAuthenticationObserers;
 - (void)_failedToAuthenticateDevice:(id)arg1;

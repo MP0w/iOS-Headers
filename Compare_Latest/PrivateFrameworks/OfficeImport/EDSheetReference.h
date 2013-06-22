@@ -8,18 +8,18 @@
 
 @interface EDSheetReference : EDReference
 {
-    int mSheetIndex;
+    unsigned int mSheetIndex;
 }
 
-+ (id)referenceWithSheetIndex:(int)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
++ (id)referenceWithSheetIndex:(unsigned int)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
 - (void)unionWithReference:(id)arg1;
 - (_Bool)fullyAdjacentToReference:(id)arg1;
-- (int)sheetIndex;
+- (unsigned int)sheetIndex;
 - (_Bool)isSheedIndexValid;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToTableReference:(id)arg1;
-- (id)initWithSheetIndex:(int)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
+- (id)initWithSheetIndex:(unsigned int)arg1 firstRow:(int)arg2 lastRow:(int)arg3 firstColumn:(int)arg4 lastColumn:(int)arg5;
 - (id)init;
 
 @end

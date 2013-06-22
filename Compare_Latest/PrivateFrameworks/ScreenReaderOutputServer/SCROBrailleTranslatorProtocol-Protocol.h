@@ -7,8 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol SCROBrailleTranslatorProtocol <NSObject>
+- (id)printBrailleForTechnicalText:(id)arg1 locations:(id *)arg2;
 - (id)textForPrintBraille:(id)arg1 contracted:(BOOL)arg2 eightDot:(BOOL)arg3 locations:(id *)arg4;
 - (id)printBrailleForText:(id)arg1 contracted:(BOOL)arg2 eightDot:(BOOL)arg3 locations:(id *)arg4;
+- (BOOL)activeTableSupportsTechnicalBraille;
 - (BOOL)activeTableSupportsEightDotBraille;
 - (BOOL)activeTableSupportsContractedBraille;
 - (id)activeTable;

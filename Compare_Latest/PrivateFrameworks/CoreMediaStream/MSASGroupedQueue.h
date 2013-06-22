@@ -10,16 +10,16 @@
 
 @interface MSASGroupedQueue : NSObject
 {
+    BOOL _isShuttingDown;
+    BOOL _isAssertingBusyAssertion;
     MSASServerSideModel *_model;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_memberQueue;
     int _maxGroupedCallbackEventBatchCount;
-    double _maxGroupedCallbackEventIdleInterval;
-    double _maxGroupedCallbackEventStaleness;
     MSTimerGate *_idleTimerGate;
     MSTimerGate *_stalenessTimerGate;
-    BOOL _isShuttingDown;
-    BOOL _isAssertingBusyAssertion;
+    double _maxGroupedCallbackEventIdleInterval;
+    double _maxGroupedCallbackEventStaleness;
 }
 
 @property(nonatomic) BOOL isShuttingDown; // @synthesize isShuttingDown=_isShuttingDown;

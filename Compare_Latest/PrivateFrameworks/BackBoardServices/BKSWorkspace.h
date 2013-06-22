@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class BKSApplicationActivationAssertion, BKSMachSendRight, BKSSignal, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
+@class BKSApplicationActivationAssertion, BKSSignal, BKSWorkspaceActivationTokenFactory, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
 
 @interface BKSWorkspace : NSObject
 {
@@ -15,33 +15,38 @@
     NSObject<OS_dispatch_queue> *_connectionQueue;
     NSObject<OS_dispatch_queue> *_applicationInfoQueue;
     id <BKSWorkspaceDelegate> _delegate;
+    NSObject<OS_xpc_object> *_serverEndpoint;
     NSObject<OS_xpc_object> *_serverConnection;
     NSString *_topApplicationBundleID;
     NSMutableArray *_runningApplicationInfo;
     NSMutableArray *_activatingApplications;
     NSMutableDictionary *_activationTokens;
-    BKSMachSendRight *_topEventPortOverride;
     unsigned int _serverPort;
     BOOL _suspended;
     BOOL _locked;
     BOOL _workspaceOwner;
+    BKSWorkspaceActivationTokenFactory *_activationTokenFactory;
     BKSApplicationActivationAssertion *_topApplicationAssertion;
 }
 
-@property(retain, nonatomic) BKSMachSendRight *topEventPortOverride; // @synthesize topEventPortOverride=_topEventPortOverride;
+@property(retain, nonatomic) BKSWorkspaceActivationTokenFactory *activationTokenFactory; // @synthesize activationTokenFactory=_activationTokenFactory;
 @property(readonly, nonatomic) BOOL suspended; // @synthesize suspended=_suspended;
 @property(readonly, nonatomic) unsigned int serverPort; // @synthesize serverPort=_serverPort;
 @property(nonatomic) id <BKSWorkspaceDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_addApplicationAsPending:(id)arg1;
+- (void)_receiveHandleOpenURLRequest:(id)arg1;
+- (void)_receiveHandleOpenApplicationRequest:(id)arg1;
+- (void)_receiveCanActivateApplication:(id)arg1;
 - (void)_receiveApplicationIsBeingDebuggedStateChanged:(id)arg1;
 - (void)_receiveWorkspaceActivationResponse:(id)arg1;
 - (void)_receiveWorkspaceIsSuspended:(id)arg1;
+- (void)_receiveApplicationFinishedBackgroundContentFetching:(id)arg1;
 - (void)_receiveApplicationSuspensionSettingsUpdated:(id)arg1;
 - (void)_receiveApplicationSuspended:(id)arg1;
 - (void)_receiveApplicationExited:(id)arg1;
 - (void)_receiveApplicationDidActivate:(id)arg1;
 - (void)_receiveApplicationLaunchBegan:(id)arg1;
 - (void)_receiveHandleStatusBarReturnActionFromApplication:(id)arg1;
-- (void)_receiveHandleOpenURL:(id)arg1;
 - (void)_receiveDidBecomeReceiver:(id)arg1;
 - (void)_receiveWillBecomeReceiver:(id)arg1;
 - (void)_sendReleaseApplicationActivationAssertion:(id)arg1;
@@ -52,7 +57,6 @@
 - (void)_sendApplication:(id)arg1 setTaskPort:(id)arg2;
 - (void)_sendApplication:(id)arg1 setIsConnectionToEA:(BOOL)arg2;
 - (void)_sendApplication:(id)arg1 setRecordingAudio:(BOOL)arg2;
-- (void)_sendTopEventPortOverride:(id)arg1;
 - (void)_sendShutdown:(BOOL)arg1;
 - (void)_sendLocked:(BOOL)arg1;
 - (void)_sendResume:(id)arg1;
@@ -93,7 +97,9 @@
 - (void)killall:(BOOL)arg1;
 - (id)runningBundleIDForPID:(int)arg1;
 - (id)runningApplications;
+- (void)_setupForActivationForBundleID:(id)arg1 activationSettings:(id)arg2 withResult:(id)arg3;
 - (void)activate:(id)arg1 withActivation:(id)arg2;
+- (id)_activationTokens;
 - (void)_noteWillActivateBundleIdentifier:(id)arg1 suspended:(BOOL)arg2 activationToken:(id)arg3;
 - (void)_clearActivationStateForBundleID:(id)arg1;
 - (id)_activationTokenForBundleID:(id)arg1;
@@ -106,7 +112,9 @@
 - (void)_invalidateConnection;
 - (void)_reregister;
 - (void)_registerWithServer;
+- (void)_makeInitialConnection;
 - (void)dealloc;
+- (id)initWithQueue:(id)arg1 endpoint:(id)arg2 delegate:(id)arg3 connectImmediately:(BOOL)arg4;
 - (id)initWithQueue:(id)arg1;
 - (id)init;
 

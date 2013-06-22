@@ -18,12 +18,14 @@
     int _uTaper;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) float taper; // @synthesize taper=_taper;
 @property(nonatomic) float width; // @synthesize width=_width;
 @property(nonatomic) float ramp; // @synthesize ramp=_ramp;
 @property(nonatomic) CDStruct_03942939 cameraDirection; // @synthesize cameraDirection=_cameraDirection;
-- (id)init;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

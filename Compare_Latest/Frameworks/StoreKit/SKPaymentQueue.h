@@ -45,6 +45,7 @@
 @property(readonly, nonatomic) NSArray *transactions;
 - (void)startDownloads:(id)arg1;
 - (void)resumeDownloads:(id)arg1;
+- (void)restoreCompletedTransactionsWithApplicationUsername:(id)arg1;
 - (void)restoreCompletedTransactions;
 - (void)removeTransactionObserver:(id)arg1;
 - (void)pauseDownloads:(id)arg1;

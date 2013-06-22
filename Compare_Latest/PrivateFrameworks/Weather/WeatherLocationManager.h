@@ -15,28 +15,29 @@
     NSTimer *_automaticLocationUpdateTimer;
     NSTimer *_accuracyFallbackTimer;
     int _authorizationStatus;
+    BOOL _authorizationStatusSet;
     double _oldestAcceptedTime;
     double _lastLocationUpdateTime;
     double _nextPlannedUpdate;
     BOOL _activelyTrackingLocation;
-    NSDate *_lastLocationTimeStamp;
-    CDStruct_2c43369c _lastLocationCoord;
-    float _lastLocationAccuracy;
-    id <CLLocationManagerDelegate> _delegate;
     BOOL _locationTrackingIsReady;
     CLLocationManager *_locationManager;
+    NSDate *_lastLocationTimeStamp;
+    float _lastLocationAccuracy;
+    id <CLLocationManagerDelegate> _delegate;
+    CDStruct_2c43369c _lastLocationCoord;
 }
 
 + (void)clearSharedLocationManager;
 + (id)sharedWeatherLocationManager;
-@property(retain, nonatomic) CLLocationManager *locationManager; // @synthesize locationManager=_locationManager;
-@property(nonatomic) BOOL locationTrackingIsReady; // @synthesize locationTrackingIsReady=_locationTrackingIsReady;
 @property(nonatomic) int authorizationStatus; // @synthesize authorizationStatus=_authorizationStatus;
 @property(nonatomic) BOOL activelyTrackingLocation; // @synthesize activelyTrackingLocation=_activelyTrackingLocation;
+@property(nonatomic) BOOL locationTrackingIsReady; // @synthesize locationTrackingIsReady=_locationTrackingIsReady;
 @property(nonatomic) id <CLLocationManagerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) float lastLocationAccuracy; // @synthesize lastLocationAccuracy=_lastLocationAccuracy;
 @property(nonatomic) CDStruct_2c43369c lastLocationCoord; // @synthesize lastLocationCoord=_lastLocationCoord;
+@property(nonatomic) float lastLocationAccuracy; // @synthesize lastLocationAccuracy=_lastLocationAccuracy;
 @property(copy, nonatomic) NSDate *lastLocationTimeStamp; // @synthesize lastLocationTimeStamp=_lastLocationTimeStamp;
+@property(retain, nonatomic) CLLocationManager *locationManager; // @synthesize locationManager=_locationManager;
 - (id)location;
 - (double)_lastLocationUpdateTime;
 - (double)_nextPlannedUpdate;
@@ -44,7 +45,7 @@
 - (void)_cleanupLocationTimer;
 - (void)_cleanupAccuracyFallbackTimer;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
-- (void)locationManager:(id)arg1 didUpdateToLocation:(id)arg2 fromLocation:(id)arg3;
+- (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 - (BOOL)isLocalStaleOrOutOfDate;
 - (void)_updateLocation:(id)arg1;
 - (BOOL)localWeatherAuthorized;
@@ -54,6 +55,7 @@
 - (void)_setUpLocationTimerWithInterval:(float)arg1;
 - (BOOL)loadAndPrepareLocationTrackingState;
 - (void)setLocationTrackingReady:(BOOL)arg1 activelyTracking:(BOOL)arg2;
+- (void)_setAuthorizationStatus:(int)arg1;
 - (void)forceLocationUpdate;
 - (void)_clearLastLocUpdateTime;
 - (void)dealloc;

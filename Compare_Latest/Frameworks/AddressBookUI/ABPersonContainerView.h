@@ -13,13 +13,13 @@
 @interface ABPersonContainerView : UIView <ABPersonTabsLayoutManager>
 {
     UISegmentedControl *_contentSwitchingTabs;
+    BOOL _hidesContentSwitchingTabs;
     UIView *_nonScrollableHeaderView;
     ABPersonTableView *_tableView;
     ABPersonTableViewDataSource *_dataSource;
     ABPersonOverlayingContainerView *_overlayingContainerView;
     UIImageView *_contentSwitchingTabsPocketShadow;
     UIImageView *_contentSwitchingTabsBorder;
-    BOOL _hidesContentSwitchingTabs;
 }
 
 @property(nonatomic) BOOL hidesContentSwitchingTabs; // @synthesize hidesContentSwitchingTabs=_hidesContentSwitchingTabs;

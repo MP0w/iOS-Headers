@@ -29,9 +29,9 @@
 - (id)calendarDateForYear;
 - (id)calendarDateForEndOfMonth;
 - (id)calendarDateForMonth;
-- (id)calendarDateForEndOfWeekWithWeekStart:(unsigned int)arg1;
-- (id)calendarDateForWeekWithWeekStart:(unsigned int)arg1 daysSinceWeekStart:(int *)arg2;
-- (id)calendarDateForWeekWithWeekStart:(unsigned int)arg1;
+- (id)calendarDateForEndOfWeekWithWeekStart:(long)arg1;
+- (id)calendarDateForWeekWithWeekStart:(long)arg1 daysSinceWeekStart:(int *)arg2;
+- (id)calendarDateForWeekWithWeekStart:(long)arg1;
 - (id)calendarDateForEndOfDay;
 - (id)calendarDateForDay;
 - (unsigned int)weeksInYear;
@@ -39,7 +39,7 @@
 - (unsigned int)daysInMonth;
 - (unsigned int)weekOfYear;
 - (unsigned int)dayOfYear;
-- (unsigned int)dayOfWeek;
+- (long)dayOfWeek;
 - (double)second;
 - (unsigned int)minute;
 - (unsigned int)hour;
@@ -52,6 +52,7 @@
 - (CDStruct_6e43267c)differenceAsGregorianUnits:(id)arg1 flags:(unsigned long)arg2;
 - (id)calendarDateWithDate:(id)arg1;
 - (id)calendarDateInTimeZone:(id)arg1;
+- (id)calendarDateByAddingMonths:(int)arg1;
 - (id)calendarDateByAddingWeeks:(int)arg1;
 - (id)calendarDateByAddingDays:(int)arg1;
 - (id)calendarDateByAddingGregorianUnits:(CDStruct_6e43267c)arg1;

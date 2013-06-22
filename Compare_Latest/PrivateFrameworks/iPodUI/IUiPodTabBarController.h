@@ -20,22 +20,25 @@
     IUModalContext *_modalContext;
     IUMoreListDelegateProxy *_moreListDelegateProxy;
     IUModalContext *_presentedModalContext;
-    int _style;
+    unsigned int _style;
 }
 
-+ (id)_newNavigationControllerWithRootContextIdentifier:(id)arg1 style:(int)arg2;
++ (id)_newNavigationControllerWithRootContextIdentifier:(id)arg1 style:(unsigned int)arg2;
 + (Class)_moreNavigationControllerClass;
 + (id)defaultIdentifiers;
-@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) unsigned int style; // @synthesize style=_style;
 @property(retain, nonatomic) IUModalContext *modalContext; // @synthesize modalContext=_modalContext;
 @property(nonatomic) BOOL allowsSearch; // @synthesize allowsSearch=_allowsSearch;
+- (void).cxx_destruct;
 - (id)_navigationControllerForIdentifier:(id)arg1 outIndex:(unsigned int *)arg2;
 - (void)_updateViewControllersModalContext;
 - (void)_switchToContextBehindCurrentController:(id)arg1 withRootControllerIdentifier:(id)arg2 withPlaybackDataSource:(id)arg3;
+- (void)_showOrHideTab:(id)arg1 forController:(id)arg2 inArray:(id)arg3 ifBlock:(id)arg4;
 - (BOOL)_shouldPushContextDuringSwitch:(id)arg1;
 - (void)_setNavigationControllerDelegates:(id)arg1;
 - (void)_reloadIPodViewControllers;
 - (BOOL)_pushContextForSpecifier:(id)arg1 unlessMatchesFinalIdentifier:(id)arg2 animated:(BOOL)arg3;
+- (BOOL)_hasMovies;
 - (void)_fixMoreListNavigationBar;
 - (id)_copyTabBarOrdering;
 - (void)_mediaLibraryDidChangeNotification:(id)arg1;

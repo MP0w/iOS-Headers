@@ -6,22 +6,22 @@
 
 #import "NSObject.h"
 
+@class UIImage;
+
 @interface MPMediaItemArtwork : NSObject
 {
-    struct MPMediaItemArtworkInternal _internal;
+    UIImage *_image;
 }
 
-@property(nonatomic) struct MPMediaItemArtworkInternal _internal; // @synthesize _internal;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) struct CGRect imageCropRect;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (id)albumImageDataWithSize:(struct CGSize)arg1;
 - (id)albumImageWithSize:(struct CGSize)arg1;
-- (id)coverFlowImageWithSize:(struct CGSize)arg1;
 - (id)imageDataWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)imageWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)imageWithSize:(struct CGSize)arg1;
 - (BOOL)hasArtworkAvailable;
-- (void)dealloc;
 - (id)initWithImage:(id)arg1;
 
 @end

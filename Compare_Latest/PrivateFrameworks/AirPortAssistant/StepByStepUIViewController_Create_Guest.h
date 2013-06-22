@@ -8,7 +8,7 @@
 
 #import "TableViewManagerDelegate-Protocol.h"
 
-@class NSString, UILabel, UIView;
+@class NSString;
 
 @interface StepByStepUIViewController_Create_Guest : StepByStepUIViewController <TableViewManagerDelegate>
 {
@@ -16,14 +16,8 @@
     NSString *_wifiPassword;
     BOOL _guestNetworkEnabled;
     int _guestNetSecMode;
-    UIView *tableHeaderContainerView;
-    UIView *justTextContainerView;
-    UILabel *justTextLabel;
 }
 
-@property(retain, nonatomic) UILabel *justTextLabel; // @synthesize justTextLabel;
-@property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
-@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 @property(nonatomic) int guestNetSecMode; // @synthesize guestNetSecMode=_guestNetSecMode;
 @property(nonatomic) BOOL guestNetworkEnabled; // @synthesize guestNetworkEnabled=_guestNetworkEnabled;
 @property(copy, nonatomic) NSString *wifiPassword; // @synthesize wifiPassword=_wifiPassword;
@@ -35,7 +29,6 @@
 - (void)setupInitialTableHeaderConfiguration;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
-- (void)initUI;
 - (void)validateAndUpdateNextButton;
 - (void)addGuestNetworkPasswordSection;
 - (void)addGuestNetworkIsEnabledSection;

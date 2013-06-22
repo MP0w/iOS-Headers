@@ -6,30 +6,12 @@
 
 #import "SBAwayListItemCell.h"
 
-@class NSArray;
-
 @interface SBAwaySystemAlertCell : SBAwayListItemCell
 {
-    NSArray *_buttons;
-    id <SBAwayListCellButtonHandler> _buttonHandler;
-    BOOL _horizontalButtonLayout;
 }
 
-+ (float)_buttonVerticalInset;
-+ (float)_buttonHorizontalInset;
-+ (id)_buttonFont;
-+ (float)_buttonWidthForText:(id)arg1;
-+ (id)_buttonPressedImage;
-+ (id)_buttonBackgroundImage;
-+ (id)_alarmButtonPressedImage;
-+ (id)_alarmButtonBackgroundImage;
 + (float)rowHeightForTitle:(id)arg1 message:(id)arg2 rowWidth:(float)arg3 buttonLabels:(id)arg4;
-- (void)layoutSubviews;
-- (float)_getMaxButtonWidth;
-- (struct CGRect)_cellContentViewFrame;
-- (void)setButtonLabels:(id)arg1 handler:(id)arg2 isAlarm:(BOOL)arg3;
 - (void)_createContentView;
-- (void)_forwardButtonPressToHandler:(id)arg1;
 - (void)dealloc;
 
 @end

@@ -11,7 +11,7 @@
     const struct Font *_font;
     int _character;
     unsigned int _count;
-    struct Vector<WTF::RetainPtr<const __CTFontDescriptor *>, 16> _fontDescriptors;
+    struct Vector<WTF::RetainPtr<const __CTFontDescriptor *>, 16, WTF::CrashOnOverflow> _fontDescriptors;
 }
 
 - (id).cxx_construct;

@@ -28,6 +28,7 @@
 + (id)writableTypes;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (void)initialize;
++ (id)unarchiveDocumentFromData:(id)arg1 withAssetKeyDelegate:(id)arg2 error:(id *)arg3;
 + (id)unarchiveDocumentFromData:(id)arg1 error:(id *)arg2;
 - (void)cleanup;
 - (id)documentAttributes;
@@ -46,8 +47,8 @@
 - (id)assetKeyDelegate;
 - (void)setNumberOfLoops:(double)arg1;
 - (double)numberOfLoops;
-- (void)setLoopingMode:(int)arg1;
-- (int)loopingMode;
+- (void)setLoopingMode:(unsigned int)arg1;
+- (unsigned int)loopingMode;
 - (void)setAuthoringOption:(id)arg1 forKey:(id)arg2;
 - (id)authoringOptionForKey:(id)arg1;
 - (void)removePropertiesForMediaPath:(id)arg1;
@@ -55,6 +56,10 @@
 - (id)propertiesForMediaPath:(id)arg1;
 - (void)setMediaProperties:(id)arg1;
 - (id)mediaProperties;
+- (void)setFadeInDuration:(double)arg1;
+- (double)fadeInDuration;
+- (void)setFadeOutDuration:(double)arg1;
+- (double)fadeOutDuration;
 - (void)setPreserveMedia:(BOOL)arg1;
 - (BOOL)preserveMedia;
 - (void)setDocumentAttribute:(id)arg1 forKey:(id)arg2;
@@ -121,8 +126,6 @@
 - (id)fullDebugLog;
 - (void)dump;
 - (id)montage;
-- (BOOL)needsToRemoveFadeIn;
-- (double)removeFadeInIfNeeded;
 - (BOOL)isInBatchModify;
 - (void)configureActions;
 - (BOOL)layersCanPositionZIndex;
@@ -178,7 +181,7 @@
 - (void)setupLayerGroups;
 - (void)setupDocumentLayerGroup;
 - (void)setDocumentLayerGroup:(id)arg1;
-- (id)propertiesForMediaPathAndCreateIfNeeded:(id)arg1;
+- (id)propertiesForMediaPathAndCreateIfNeeded:(id)arg1 withValue:(id)arg2 forKey:(id)arg3;
 - (void)setStyleID:(id)arg1;
 - (id)styleID;
 - (void)setTitle:(id)arg1;

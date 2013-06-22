@@ -62,6 +62,7 @@
 }
 
 + (id)defaultParagraphStyle;
++ (void)initialize;
 - (void)setMutableAttributedString:(id)arg1;
 - (id)documentAttributes;
 - (id)attributedString;
@@ -108,7 +109,7 @@
 - (BOOL)_addAttachmentForElement:(id)arg1 URL:(id)arg2 needsParagraph:(BOOL)arg3 usePlaceholder:(BOOL)arg4;
 - (void)_newTabForElement:(id)arg1;
 - (void)_newLineForElement:(id)arg1;
-- (void)_newParagraphForElement:(id)arg1 tag:(id)arg2 allowEmpty:(BOOL)arg3 suppressTrailingSpace:(BOOL)arg4;
+- (void)_newParagraphForElement:(id)arg1 tag:(id)arg2 allowEmpty:(BOOL)arg3 suppressTrailingSpace:(BOOL)arg4 isEntering:(BOOL)arg5;
 - (id)_attributesForElement:(id)arg1;
 - (id)_computedAttributesForElement:(id)arg1;
 - (id)_colorForNode:(id)arg1 property:(id)arg2;

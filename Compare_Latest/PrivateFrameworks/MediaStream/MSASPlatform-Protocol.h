@@ -24,6 +24,8 @@
 - (id)MMCSUploadSocketOptionsForPersonID:(id)arg1;
 - (id)MMCSDownloadSocketOptionsForPersonID:(id)arg1;
 - (id)metadataSocketOptionsForPersonID:(id)arg1;
+- (BOOL)personIDEnabledForAlbumSharing:(id)arg1;
+- (BOOL)shouldEnableNewFeatures;
 - (BOOL)deviceHasEnoughDiskSpaceRemainingToOperate;
 - (BOOL)shouldDownloadEarliestPhotosFirst;
 - (int)MMCSConcurrentConnectionsCount;

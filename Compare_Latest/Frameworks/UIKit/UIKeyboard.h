@@ -18,6 +18,7 @@
     BOOL m_minimized;
     BOOL m_respondingToImplGeometryChange;
     int m_orientation;
+    int m_idiom;
 }
 
 + (BOOL)splitKeyboardEnabled;
@@ -27,7 +28,6 @@
 + (BOOL)shouldMinimizeForHardwareKeyboard;
 + (BOOL)respondsToProxGesture;
 + (BOOL)isOnScreen;
-+ (struct CGRect)onscreenFrameForTextInputTraits:(id)arg1;
 + (struct CGRect)defaultFrameForInterfaceOrientation:(int)arg1;
 + (struct CGSize)defaultSizeForInterfaceOrientation:(int)arg1;
 + (struct CGSize)defaultSize;
@@ -35,6 +35,7 @@
 + (void)initImplementationNow;
 + (void)_clearActiveKeyboard;
 + (id)activeKeyboard;
+@property(nonatomic) int keyboardIdiom; // @synthesize keyboardIdiom=m_idiom;
 - (void)resizeForKeyplaneSize:(struct CGSize)arg1;
 @property(nonatomic) BOOL showsCandidatesInline;
 - (BOOL)canDismiss;
@@ -45,7 +46,9 @@
 @property(nonatomic, getter=isMinimized) BOOL minimized;
 - (void)maximize;
 - (void)minimize;
+- (void)_setRenderConfig:(id)arg1;
 - (id)targetWindow;
+- (BOOL)stringIsExemptFromChecker:(id)arg1;
 - (void)setCorrectionLearningAllowed:(BOOL)arg1;
 - (struct UIPeripheralAnimationGeometry)geometryForMinimize:(BOOL)arg1;
 - (void)syncMinimizedStateToHardwareKeyboardAttachedState;

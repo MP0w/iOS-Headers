@@ -43,6 +43,7 @@
 - (void)setNextKeyView:(id)arg1;
 - (BOOL)needsPanelToBecomeKey;
 - (BOOL)mouse:(struct CGPoint)arg1 inRect:(struct CGRect)arg2;
+- (BOOL)isHiddenOrHasHiddenAncestor;
 - (BOOL)isDescendantOf:(id)arg1;
 - (void)setHidden:(BOOL)arg1;
 - (id)hitTest:(struct CGPoint)arg1;

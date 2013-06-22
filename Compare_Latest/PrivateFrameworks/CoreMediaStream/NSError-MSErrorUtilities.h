@@ -12,6 +12,7 @@
 + (id)MSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3 suggestion:(id)arg4;
 + (id)MSErrorWithDomain:(id)arg1 code:(int)arg2 description:(id)arg3;
 - (id)MSMMCSRetryAfterDate;
+- (BOOL)MSIsRegistrationError;
 - (BOOL)MSIsQuotaError;
 - (BOOL)MSContainsErrorWithDomain:(id)arg1 code:(int)arg2;
 - (BOOL)MSIsBadTokenError;

@@ -24,6 +24,7 @@
 @property(retain) ICSDateTimeUTCValue *acknowledged;
 @property(retain) NSString *x_wr_alarmuid;
 @property int action;
+- (BOOL)isNoneAlarm;
 - (void)fixAlarm;
 
 // Remaining properties

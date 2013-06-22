@@ -6,31 +6,36 @@
 
 #import "NSObject.h"
 
-@class NSError, NSObject<OS_dispatch_queue>, NSString, _UIAsyncInvocation;
+@class NSArray, NSError, NSObject<OS_dispatch_queue>, NSString, _UIAsyncInvocation, _UIRemoteViewControllerConnectionInfo;
 
 @interface _UIRemoteViewControllerConnectionRequest : NSObject
 {
+    BOOL _useXPCObjects;
     id _handler;
     NSString *_viewServiceBundleIdentifier;
     NSString *_viewControllerClassName;
-    BOOL _propagateAppearanceCustomizations;
+    NSArray *_serializedAppearanceCustomizations;
+    id _exportedHostingObject;
+    id <_UIViewServiceDeputyXPCInterface> _serviceViewControllerDeputyInterface;
     _UIAsyncInvocation *_cancelInvocationForCurrentOperation;
-    CDStruct_5a8e6190 _connectionInfo;
+    _UIRemoteViewControllerConnectionInfo *_connectionInfo;
     NSObject<OS_dispatch_queue> *_queue;
     BOOL _isCancelledOrComplete;
     NSError *_error;
     _UIAsyncInvocation *_requestCancellationInvocation;
 }
 
-+ (id)requestViewController:(id)arg1 fromServiceWithBundleIdentifier:(id)arg2 propagateAppearanceCustomizations:(BOOL)arg3 connectionHandler:(id)arg4;
++ (id)requestViewController:(id)arg1 fromServiceWithBundleIdentifier:(id)arg2 serializedAppearanceCustomizations:(id)arg3 useXPCObjects:(BOOL)arg4 exportedHostingObject:(id)arg5 serviceViewControllerDeputyInterface:(id)arg6 connectionHandler:(id)arg7;
 - (id)_cancelWithError:(id)arg1;
 - (void)_didFinishEstablishingConnection;
+- (void)_connectToViewControllerControlMessageDeputy;
 - (void)_connectToServiceViewController;
 - (void)_sendServiceTextEffectsRequest;
 - (void)_connectToTextEffectsOperator;
 - (void)_sendServiceViewControllerRequest;
 - (void)_connectToViewControllerOperator;
 - (void)_connectToViewService;
+- (void)_connectToDeputyWithInterface:(id)arg1 orType:(id)arg2 fromExportedHostingObject:(id)arg3 successHandler:(id)arg4;
 - (void)_cancelUnconditionallyThen:(id)arg1;
 - (void)dealloc;
 

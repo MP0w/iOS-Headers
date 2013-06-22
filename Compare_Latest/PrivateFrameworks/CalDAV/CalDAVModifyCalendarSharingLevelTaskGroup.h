@@ -15,8 +15,10 @@
     int _action;
     NSURL *_url;
     int _state;
+    NSURL *_publishedURL;
 }
 
+@property(retain) NSURL *publishedURL; // @synthesize publishedURL=_publishedURL;
 @property int state; // @synthesize state=_state;
 @property(retain) NSURL *url; // @synthesize url=_url;
 @property int action; // @synthesize action=_action;

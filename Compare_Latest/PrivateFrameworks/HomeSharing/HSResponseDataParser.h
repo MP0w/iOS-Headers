@@ -11,6 +11,7 @@
 }
 
 + (id)_parseListingItemWithBytes:(const char *)arg1 length:(unsigned int)arg2 usingHandler:(id)arg3;
++ (id)_parsePlayStatusResponseWithBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)_parseItemIDArrayWithBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)_parseBrowseListingWithBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)_parseListingCollectionWithBytes:(const char *)arg1 length:(unsigned int)arg2 usingHandler:(id)arg3;
@@ -18,6 +19,9 @@
 + (id)_parseEditCommandResponseWithBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)_parseDictionaryCollectionWithBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)_parseDeletedIDListingWithBytes:(const char *)arg1 length:(unsigned int)arg2;
++ (id)_parseControlPromptResponseWithBytes:(const char *)arg1 length:(unsigned int)arg2;
++ (id)_parseControlInterfacesResponseWithBytes:(const char *)arg1 length:(unsigned int)arg2;
++ (id)_parseCloudLyricsInfoResponseWithBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)_parseCloudArtworkInfoResponseWithBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)_parseBulkCloudArtworkInfoResponseWithBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)_parseAuthorizedAccountTokenWithBytes:(const char *)arg1 length:(unsigned int)arg2;

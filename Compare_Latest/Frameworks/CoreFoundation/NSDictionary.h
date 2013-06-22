@@ -49,6 +49,8 @@
 - (id)keysSortedByValueWithOptions:(unsigned int)arg1 usingComparator:(id)arg2;
 - (id)keysOfEntriesPassingTest:(id)arg1;
 - (id)keysOfEntriesWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
+- (id)keyOfEntryPassingTest:(id)arg1;
+- (id)keyOfEntryWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToDictionary:(id)arg1;
 - (id)invertedDictionary;

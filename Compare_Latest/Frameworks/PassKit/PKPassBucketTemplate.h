@@ -10,13 +10,13 @@
 
 @interface PKPassBucketTemplate : NSObject
 {
+    BOOL _sitsOnStripImage;
     int _bucketAlignment;
-    struct CGRect _bucketRect;
     float _minFieldPadding;
     PKPassFieldTemplate *_defaultFieldTemplate;
     unsigned int _maxFields;
     NSMutableArray *_fieldTemplates;
-    BOOL _sitsOnStripImage;
+    struct CGRect _bucketRect;
 }
 
 @property(nonatomic) BOOL sitsOnStripImage; // @synthesize sitsOnStripImage=_sitsOnStripImage;

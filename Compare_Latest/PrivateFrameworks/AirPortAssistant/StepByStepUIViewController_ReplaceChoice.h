@@ -8,18 +8,10 @@
 
 #import "TableViewManagerDelegate-Protocol.h"
 
-@class UILabel, UIView;
-
 @interface StepByStepUIViewController_ReplaceChoice : StepByStepUIViewController <TableViewManagerDelegate>
 {
-    UIView *tableHeaderContainerView;
-    UIView *justTextContainerView;
-    UILabel *justTextLabel;
 }
 
-@property(retain, nonatomic) UILabel *justTextLabel; // @synthesize justTextLabel;
-@property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
-@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 - (void)touchInCellAtIndexPath:(id)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;

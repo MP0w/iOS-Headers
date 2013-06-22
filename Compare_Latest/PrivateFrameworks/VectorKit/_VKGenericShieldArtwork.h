@@ -13,19 +13,22 @@
     float _leftCap;
     float _rightCap;
     float _baseline;
-    float _horizontalPadding;
+    float _leftPadding;
+    float _rightPadding;
     NSDictionary *_stringAttributes;
     struct CGColor *_shadowColor;
     struct CGSize _shadowOffset;
     float _shadowSize;
+    unsigned int _maxLineCount;
+    float _lineSpacing;
 }
 
-- (struct CGImage *)newImageWithShieldText:(id)arg1;
+- (id).cxx_construct;
+- (struct CGImage *)newImageWithShieldText:(id)arg1 centerPoint:(struct CGPoint *)arg2;
+- (struct CGSize)size;
 - (struct CGSize)sizeWithTextWidth:(float)arg1;
-- (float)rightCapWidth;
-- (float)leftCapWidth;
 - (void)dealloc;
-- (id)initWithImage:(id)arg1 scale:(float)arg2 horizontalPadding:(float)arg3 textColor:(struct _VGLColor)arg4 baseline:(float)arg5 leftCap:(float)arg6 rightCap:(float)arg7 shouldStroke:(BOOL)arg8 strokeWidth:(float)arg9 strokeColor:(struct _VGLColor)arg10 shouldShadow:(BOOL)arg11 shadowOffset:(struct CGSize)arg12 shadowSize:(float)arg13 shadowColor:(struct _VGLColor)arg14 fontSize:(float)arg15;
+- (id)initWithImage:(struct CGImage *)arg1 scale:(float)arg2 leftPadding:(float)arg3 rightPadding:(float)arg4 textColor:(struct _VGLColor)arg5 baseline:(float)arg6 leftCap:(float)arg7 rightCap:(float)arg8 shouldStroke:(BOOL)arg9 strokeWidth:(float)arg10 strokeColor:(struct _VGLColor)arg11 shouldShadow:(BOOL)arg12 shadowOffset:(struct CGSize)arg13 shadowSize:(float)arg14 shadowColor:(struct _VGLColor)arg15 fontName:(id)arg16 fontSize:(float)arg17 maxLineCount:(unsigned int)arg18 lineSpacing:(float)arg19;
 
 @end
 

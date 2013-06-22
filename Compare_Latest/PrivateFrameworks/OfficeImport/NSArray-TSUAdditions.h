@@ -8,7 +8,8 @@
 
 @interface NSArray (TSUAdditions)
 + (id)arrayWithInts:(int *)arg1 count:(unsigned int)arg2;
-+ (id)arrayWithFloats:(float *)arg1 count:(unsigned int)arg2;
++ (id)arrayWithCGFloats:(float *)arg1 count:(unsigned int)arg2;
+- (id)firstObjectPassingTest:(id)arg1;
 - (void)enumerateSnapshotObjectsUsingBlock:(id)arg1;
 - (id)arrayByReversingOrder;
 - (id)arrayByAddingNonContainedObjectsFromArray:(id)arg1;
@@ -19,6 +20,6 @@
 - (unsigned int)indexOfSmallestObject;
 - (id)firstObject;
 - (id)initWithInts:(int *)arg1 count:(unsigned int)arg2;
-- (id)initWithFloats:(float *)arg1 count:(unsigned int)arg2;
+- (id)initWithCGFloats:(float *)arg1 count:(unsigned int)arg2;
 @end
 

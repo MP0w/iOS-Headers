@@ -14,6 +14,7 @@
     PDSlideMaster *mSlideMaster;
 }
 
+- (BOOL)hasMappableSlideNumberShape;
 - (void)doneWithContent;
 - (id)parentSlideBase;
 - (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
@@ -21,6 +22,7 @@
 - (id)parentTextStyleForTables;
 - (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(BOOL)arg4;
 - (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)background;
 - (id)defaultTheme;
 - (void)setSlideMaster:(id)arg1;
 - (id)slideMaster;

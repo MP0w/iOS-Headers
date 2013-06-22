@@ -30,10 +30,12 @@
     BOOL _isAnimatedTrashButton;
     id _appearanceStorage;
     BOOL _isInTopBar;
+    Class _appearanceGuideClass;
 }
 
 + (id)_defaultLabelColor;
 + (id)_defaultLabelFont;
+@property(nonatomic, setter=_setAppearanceGuideClass:) Class _appearanceGuideClass; // @synthesize _appearanceGuideClass;
 @property(nonatomic, getter=isAnimatedTrashButton) BOOL animatedTrashButton; // @synthesize animatedTrashButton=_isAnimatedTrashButton;
 - (void)_applyBarButtonAppearanceStorage:(id)arg1 withTaggedSelectors:(id)arg2;
 - (void)_setBackButtonTitlePositionAdjustment:(struct UIOffset)arg1 forBarMetrics:(int)arg2;
@@ -59,16 +61,16 @@
 - (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 barMetrics:(int)arg3;
 - (void)_UIAppearance_setBackgroundImage:(id)arg1 forState:(unsigned int)arg2 style:(int)arg3 barMetrics:(int)arg4;
 - (id)_info;
+- (BOOL)_shouldDelaySendingTouchesEndedActionUntilNextRunLoop;
 - (void)_adjustToolbarButtonInfoTintColorHasChanged:(BOOL)arg1;
 - (void)_adjustToolbarButtonInfo;
 - (void)_updateInfoTextColorsForState:(unsigned int)arg1;
 - (void)_updateShadowOffsetWithAttributes:(id)arg1 forState:(unsigned int)arg2;
-- (struct UIOffset)_defaultTitleShadowOffsetForState:(unsigned int)arg1;
+- (struct CGSize)_defaultTitleShadowOffsetForState:(unsigned int)arg1;
 - (id)_defaultTitleShadowColorForState:(unsigned int)arg1;
 - (id)_defaultTitleColorForState:(unsigned int)arg1;
 - (BOOL)_useSilverLook;
 - (void)setBarStyle:(int)arg1;
-- (void)setTintColor:(id)arg1;
 - (void)setToolbarTintColor:(id)arg1;
 - (BOOL)_useBarHeight;
 - (void)_setBarHeight:(float)arg1;
@@ -77,13 +79,17 @@
 - (BOOL)_isOn;
 - (void)_setOn:(BOOL)arg1;
 - (float)_paddingForLeft:(BOOL)arg1;
+- (BOOL)_shouldApplyPadding;
 - (BOOL)_canGetPadding;
+- (BOOL)_infoIsButton;
 - (BOOL)_isBordered;
 - (void)layoutSubviews;
 - (void)_adjustPushButtonForMiniBar:(BOOL)arg1 isChangingBarHeight:(BOOL)arg2;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setHighlighted:(BOOL)arg1;
+- (void)_setTouchHasHighlighted:(BOOL)arg1;
+- (void)_setLastHighlightSuccessful:(BOOL)arg1;
 - (BOOL)_canHandleStatusBarTouchAtLocation:(struct CGPoint)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;

@@ -23,7 +23,8 @@
     NSNumber *_minComplexCharacters;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
 @property(readonly, nonatomic) NSNumber *minComplexCharacters; // @synthesize minComplexCharacters=_minComplexCharacters;
 @property(readonly, nonatomic) NSNumber *maxPasscodeAgeDays; // @synthesize maxPasscodeAgeDays=_maxPasscodeAgeDays;
@@ -37,6 +38,7 @@
 @property(readonly, nonatomic) NSNumber *isPasscodeRequired; // @synthesize isPasscodeRequired=_isPasscodeRequired;
 @property(readonly, nonatomic) NSNumber *isSimplePasscodeAllowed; // @synthesize isSimplePasscodeAllowed=_isSimplePasscodeAllowed;
 - (void).cxx_destruct;
+- (id)restrictions;
 - (id)subtitle1Description;
 - (id)title;
 - (id)description;

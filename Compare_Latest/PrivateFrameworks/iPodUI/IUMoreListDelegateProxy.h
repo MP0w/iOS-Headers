@@ -14,8 +14,11 @@
 {
     UINavigationController *_moreListNavigationController;
     id _originalTableDelegate;
+    id _libraryChangedObserver;
 }
 
+@property(retain, nonatomic) id libraryChangedObserver; // @synthesize libraryChangedObserver=_libraryChangedObserver;
+- (void).cxx_destruct;
 - (id)_table;
 - (id)_navigationControllerForRow:(int)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;

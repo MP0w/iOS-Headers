@@ -10,29 +10,18 @@
 
 @interface MKGemImageManager : NSObject
 {
+    float _scale;
     VKImage *_normalImage;
     VKImage *_staleImage;
-    VKImage *_headingAngleLargeImage;
-    VKImage *_headingAngleMediumImage;
-    VKImage *_headingAngleSmallImage;
-    VKImage *_pulseMiniImage;
-    VKImage *_pulseSmallImage;
-    VKImage *_pulseNormalImage;
 }
 
-+ (id)sharedManager;
-- (id)pulseNormalImage;
-- (id)pulseSmallImage;
-- (id)pulseMiniImage;
-- (id)headingAngleSmallImage;
-- (id)headingAngleMediumImage;
-- (id)headingAngleLargeImage;
++ (id)sharedManagerWithScale:(float)arg1;
 - (id)staleImage;
 - (id)normalImage;
 - (id)_newImageNamed:(id)arg1;
 - (void)didReceiveMemoryWarning:(id)arg1;
 - (void)dealloc;
-- (id)init;
+- (id)initWithScale:(float)arg1;
 
 @end
 

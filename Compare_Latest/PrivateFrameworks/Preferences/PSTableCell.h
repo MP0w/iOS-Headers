@@ -6,7 +6,7 @@
 
 #import "UITableViewCell.h"
 
-@class NSString, PSSpecifier, UIImageView, UIView;
+@class NSString, PSSpecifier, UIImageView, UILongPressGestureRecognizer;
 
 @interface PSTableCell : UITableViewCell
 {
@@ -25,15 +25,11 @@
     BOOL _lazyIconDontUnload;
     BOOL _lazyIconForceSynchronous;
     NSString *_lazyIconAppID;
-    UIView *_topShadow;
-    UIView *_topEtchLine;
-    UIView *_bottomEtchLine;
-    BOOL _etch;
     BOOL _reusedCell;
+    BOOL _isCopyable;
+    UILongPressGestureRecognizer *_longTapRecognizer;
 }
 
-+ (id)bottomEtchLineView;
-+ (id)topEtchLineView;
 + (Class)cellClassForSpecifier:(id)arg1;
 + (int)cellStyle;
 + (id)reuseIdentifierForSpecifier:(id)arg1;
@@ -41,16 +37,19 @@
 + (id)reuseIdentifierForBasicCellTypes:(int)arg1;
 + (id)stringFromCellType:(int)arg1;
 + (int)cellTypeFromString:(id)arg1;
+@property(retain, nonatomic) UILongPressGestureRecognizer *longTapRecognizer; // @synthesize longTapRecognizer=_longTapRecognizer;
+@property(nonatomic) BOOL isCopyable; // @synthesize isCopyable=_isCopyable;
 @property(nonatomic) BOOL reusedCell; // @synthesize reusedCell=_reusedCell;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(retain, nonatomic) PSSpecifier *specifier; // @synthesize specifier=_specifier;
-- (void)_setBottomEtchHidden:(BOOL)arg1;
-- (void)_setTopEtchHidden:(BOOL)arg1;
-- (void)_setTopShadowHidden:(BOOL)arg1;
 - (float)textFieldOffset;
 - (void)reloadWithSpecifier:(id)arg1 animated:(BOOL)arg2;
 - (BOOL)cellEnabled;
 - (void)setCellEnabled:(BOOL)arg1;
+- (SEL)cellAction;
+- (void)setCellAction:(SEL)arg1;
+- (id)cellTarget;
+- (void)setCellTarget:(id)arg1;
 - (SEL)action;
 - (void)setAction:(SEL)arg1;
 - (id)target;
@@ -78,12 +77,16 @@
 - (BOOL)canReload;
 - (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)_updateEtchState:(BOOL)arg1;
 - (id)titleTextLabel;
 - (void)setValueChangedTarget:(id)arg1 action:(SEL)arg2 specifier:(id)arg3;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
+- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (void)copy:(id)arg1;
+- (id)_copyableText;
+- (void)longPressed:(id)arg1;
+- (BOOL)canBecomeFirstResponder;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 - (id)scriptingInfoWithChildren;

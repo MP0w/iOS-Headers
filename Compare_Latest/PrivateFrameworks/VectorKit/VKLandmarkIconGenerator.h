@@ -11,9 +11,9 @@
 }
 
 + (id)sharedGenerator;
-- (id)newIconWithMask:(struct CGImage *)arg1 outlineMask:(struct CGImage *)arg2 style:(CDStruct_ad152e0a *)arg3;
-- (id)keyForName:(id)arg1 style:(CDStruct_ad152e0a *)arg2;
-- (BOOL)canHandleStyle:(CDStruct_ad152e0a *)arg1;
+- (id)newIconWithMask:(struct CGImage *)arg1 outlineMask:(struct CGImage *)arg2 style:(CDStruct_44473e2f *)arg3 scale:(float)arg4;
+- (id)keyForName:(id)arg1 style:(CDStruct_44473e2f *)arg2;
+- (BOOL)canHandleStyle:(CDStruct_44473e2f *)arg1;
 
 @end
 

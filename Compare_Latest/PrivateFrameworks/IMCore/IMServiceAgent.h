@@ -20,7 +20,6 @@
 + (id)sharedAgent;
 + (int)serviceAgentCapabilities;
 + (void)setServiceAgentCapabilities:(int)arg1;
-- (void)dealloc;
 - (id)myPictureData;
 - (void)launchIfNecessary;
 @property(readonly, nonatomic) unsigned long long vcCapabilities;

@@ -6,17 +6,17 @@
 
 #import <UIKit/UIView.h>
 
-@class NSString, UINavigationBar;
+@class UILabel, UINavigationBar;
 
 @interface UINavBarPrompt : UIView
 {
-    NSString *_prompt;
+    UILabel *_label;
     UINavigationBar *_navBar;
 }
 
-- (void)setFrame:(struct CGRect)arg1;
-- (void)drawRect:(struct CGRect)arg1;
+- (void)layoutSubviews;
 - (struct CGRect)promptBounds;
+- (struct CGRect)_labelFrame;
 - (id)prompt;
 - (void)setPrompt:(id)arg1;
 - (void)dealloc;

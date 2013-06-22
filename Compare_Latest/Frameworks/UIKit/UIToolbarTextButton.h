@@ -20,6 +20,7 @@
 - (id)_scriptingInfo;
 - (void)_setPressed:(BOOL)arg1;
 - (void)dealloc;
+- (void)_updateTitleForLetterpress;
 - (id)initWithTitle:(id)arg1 pressedTitle:(id)arg2 withFont:(id)arg3 withBarStyle:(int)arg4 withStyle:(int)arg5 withTitleWidth:(float)arg6 possibleTitles:(id)arg7 withToolbarTintColor:(id)arg8;
 
 @end

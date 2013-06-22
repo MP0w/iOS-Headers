@@ -8,17 +8,19 @@
 
 #import "SLFacebookAudienceViewController-Protocol.h"
 
-@class NSArray, SLFacebookPostPrivacySetting;
+@class NSArray, SLFacebookPostPrivacySetting, UINavigationItem;
 
 @interface SLFacebookAudienceTableViewController : UITableViewController <SLFacebookAudienceViewController>
 {
     NSArray *_privacySettings;
     SLFacebookPostPrivacySetting *_selectedSetting;
     id <SLFacebookAudienceViewControllerDelegate> _selectionDelegate;
+    UINavigationItem *_navigationItem;
 }
 
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
@@ -27,7 +29,6 @@
 - (void)setPrivacySettings:(id)arg1;
 - (void)setSelectionDelegate:(id)arg1;
 - (void)cancelButtonTapped:(id)arg1;
-- (id)navigationItem;
 - (struct CGSize)contentSizeForViewInPopover;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(BOOL)arg1;

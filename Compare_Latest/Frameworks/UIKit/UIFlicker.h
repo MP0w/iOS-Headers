@@ -29,9 +29,6 @@
 - (void)setOffset:(struct CGPoint)arg1;
 - (struct CGPoint)offset;
 - (id)init;
-- (void)_throwMemberListTest;
-- (void)_mouseUpMemberListTest;
-- (void)_mouseDraggedMemberListTest;
 
 @end
 

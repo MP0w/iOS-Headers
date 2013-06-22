@@ -12,15 +12,16 @@
 
 @interface EKShareeViewController : UITableViewController <UIActionSheetDelegate>
 {
-    EKSharee *_sharee;
-    BOOL _allowEditing;
     UIActionSheet *_alertSheet;
+    BOOL _allowEditing;
+    EKSharee *_sharee;
     id <EKShareeViewControllerDelegate> _delegate;
 }
 
-@property(nonatomic) id <EKShareeViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <EKShareeViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) BOOL allowEditing; // @synthesize allowEditing=_allowEditing;
 @property(retain, nonatomic) EKSharee *sharee; // @synthesize sharee=_sharee;
+- (void).cxx_destruct;
 - (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)removeClicked:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
@@ -35,13 +36,9 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)loadView;
 - (void)_reloadTitle;
-- (int)_resendInvitationRow;
-- (int)_allowEditingRow;
-- (int)_addressCardRow;
 - (int)_rowForSubitem:(int)arg1;
 - (int)_subitemAtRow:(int)arg1;
 - (BOOL)_shouldDisplayResendInvitationButton;
-- (void)dealloc;
 - (id)initWithSharee:(id)arg1;
 
 @end

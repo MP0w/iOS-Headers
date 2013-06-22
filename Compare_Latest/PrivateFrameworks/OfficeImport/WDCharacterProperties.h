@@ -14,8 +14,8 @@
     unsigned int mOriginal:1;
     unsigned int mTracked:1;
     unsigned int mResolved:1;
-    CDStruct_840bf732 *mOriginalProperties;
-    CDStruct_840bf732 *mTrackedProperties;
+    CDStruct_b675bd9c *mOriginalProperties;
+    CDStruct_b675bd9c *mTrackedProperties;
 }
 
 + (int)languageFromString:(id)arg1;
@@ -39,11 +39,11 @@
 - (void)setHorizontalInVertical:(BOOL)arg1;
 - (BOOL)horizontalInVertical;
 - (BOOL)isOffsetToPictureDataOverridden;
-- (void)setOffsetToPictureData:(long)arg1;
-- (long)offsetToPictureData;
+- (void)setOffsetToPictureData:(int)arg1;
+- (int)offsetToPictureData;
 - (BOOL)isObjectIDForOle2Overridden;
-- (void)setObjectIDForOle2:(long)arg1;
-- (long)objectIDForOle2;
+- (void)setObjectIDForOle2:(int)arg1;
+- (int)objectIDForOle2;
 - (BOOL)isOle2Overridden;
 - (void)setOle2:(BOOL)arg1;
 - (BOOL)ole2;
@@ -60,14 +60,32 @@
 - (void)setLanguageForFarEast:(int)arg1;
 - (int)languageForFarEast;
 - (BOOL)isCharPositionOfPictureBulletInBookmarkOverridden;
-- (void)setCharPositionOfPictureBulletInBookmark:(long)arg1;
-- (long)charPositionOfPictureBulletInBookmark;
+- (void)setCharPositionOfPictureBulletInBookmark:(int)arg1;
+- (int)charPositionOfPictureBulletInBookmark;
 - (BOOL)isListCharacterPictureBulletOverridden;
 - (void)setListCharacterPictureBullet:(BOOL)arg1;
 - (BOOL)isListCharacterPictureBullet;
 - (BOOL)isSpecialCharacterOverridden;
 - (void)setSpecialCharacter:(BOOL)arg1;
 - (BOOL)isSpecialCharacter;
+- (BOOL)formattingChangedDifferentFrom:(id)arg1;
+- (BOOL)editDifferentFrom:(id)arg1;
+- (BOOL)deletionDifferentFrom:(id)arg1;
+- (BOOL)isEditDateOverridden;
+- (void)setEditDate:(id)arg1;
+- (id)editDate;
+- (BOOL)isDeletionDateOverridden;
+- (void)setDeletionDate:(id)arg1;
+- (id)deletionDate;
+- (BOOL)isIndexToAuthorIDOfFormattingChangeOverridden;
+- (void)setIndexToAuthorIDOfFormattingChange:(unsigned short)arg1;
+- (unsigned short)indexToAuthorIDOfFormattingChange;
+- (BOOL)isIndexToAuthorIDOfEditOverridden;
+- (void)setIndexToAuthorIDOfEdit:(unsigned short)arg1;
+- (unsigned short)indexToAuthorIDOfEdit;
+- (BOOL)isIndexToAuthorIDOfDeletionOverridden;
+- (void)setIndexToAuthorIDOfDeletion:(unsigned short)arg1;
+- (unsigned short)indexToAuthorIDOfDeletion;
 - (BOOL)isFormattingChangedOverridden;
 - (void)setFormattingChanged:(int)arg1;
 - (int)formattingChanged;
@@ -204,8 +222,11 @@
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
 - (int)reverseBooleanProperty:(int)arg1;
-- (BOOL)isBooleanProbablyDifferent:(int)arg1 than:(int)arg2;
-- (BOOL)isAnythingOverriddenIn:(CDStruct_840bf732 *)arg1;
+- (BOOL)formattingChangedDifferentFrom:(id)arg1 mode:(int)arg2;
+- (BOOL)editDifferentFrom:(id)arg1 mode:(int)arg2;
+- (BOOL)deletionDifferentFrom:(id)arg1 mode:(int)arg2;
+- (BOOL)isBooleanProbablyDifferent:(unsigned char)arg1 than:(unsigned char)arg2;
+- (BOOL)isAnythingOverriddenIn:(CDStruct_b675bd9c *)arg1;
 
 @end
 

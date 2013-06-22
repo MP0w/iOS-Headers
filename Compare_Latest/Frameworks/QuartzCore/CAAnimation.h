@@ -26,9 +26,10 @@
 + (BOOL)CA_encodesPropertyConditionally:(unsigned int)arg1 type:(int)arg2;
 + (id)animation;
 + (id)defaultValueForKey:(id)arg1;
++ (void)CAMLParserStartElement:(id)arg1;
 + (BOOL)resolveInstanceMethod:(SEL)arg1;
-+ (void *)CA_getterForType:(int)arg1;
-+ (void *)CA_setterForType:(int)arg1;
++ (void *)CA_getterForProperty:(const struct _CAPropertyInfo *)arg1;
++ (void *)CA_setterForProperty:(const struct _CAPropertyInfo *)arg1;
 + (id)properties;
 @property(retain) id delegate;
 @property(retain) CAMediaTimingFunction *timingFunction;
@@ -60,6 +61,9 @@
 @property(copy) NSString *beginTimeMode;
 @property double frameInterval;
 @property(getter=isEnabled) BOOL enabled;
+- (id)CAMLTypeForKey:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
+- (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (struct Object *)CA_copyRenderValue;
 - (void)applyForTime:(double)arg1 presentationObject:(id)arg2 modelObject:(id)arg3;

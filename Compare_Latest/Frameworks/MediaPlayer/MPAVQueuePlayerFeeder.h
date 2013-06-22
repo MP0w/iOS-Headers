@@ -33,6 +33,7 @@
 @property(nonatomic) unsigned int minQueueDepth; // @synthesize minQueueDepth=_minQueueDepth;
 @property(nonatomic) unsigned int maxQueueDepth; // @synthesize maxQueueDepth=_maxQueueDepth;
 @property(nonatomic) BOOL forceSynchronousQueueFilling; // @synthesize forceSynchronousQueueFilling=_forceSynchronousQueueFilling;
+- (void).cxx_destruct;
 - (void)_updateQueueDepthForRateChange;
 - (void)_updatePlayerQueueWithRemovedItems:(id)arg1 addedItems:(id)arg2 removeCurrentItem:(BOOL)arg3;
 - (void)_removeInvalidItems:(id)arg1;

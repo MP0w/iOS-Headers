@@ -7,10 +7,11 @@
 #import <UIKit/UIView.h>
 
 #import "UIKeyboardInput-Protocol.h"
+#import "UITextInputPrivate-Protocol.h"
 
 @class NSDictionary, UIColor, UIImage, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange;
 
-@interface UIDefaultKeyboardInput : UIView <UIKeyboardInput>
+@interface UIDefaultKeyboardInput : UIView <UIKeyboardInput, UITextInputPrivate>
 {
     UITextInputTraits *m_traits;
 }
@@ -64,14 +65,9 @@
 - (id)text;
 - (void)setText:(id)arg1;
 - (void)selectAll;
-- (void)moveForward:(unsigned int)arg1;
-- (void)moveBackward:(unsigned int)arg1;
 - (void)extendCurrentSelection:(int)arg1;
 - (id)rangeByExtendingCurrentSelection:(int)arg1;
 - (id)rangeByMovingCurrentSelection:(int)arg1;
-- (void)setSelectedDOMRange:(id)arg1 affinityDownstream:(BOOL)arg2;
-- (id)selectedDOMRange;
-- (struct _NSRange)_markedTextNSRange;
 - (struct _NSRange)selectionRange;
 - (BOOL)selectionAtWordStart;
 - (BOOL)selectionAtDocumentStart;
@@ -79,26 +75,16 @@
 - (BOOL)hasSelection;
 - (BOOL)hasContent;
 - (int)wordOffsetInRange:(id)arg1;
-- (void)expandSelectionToStartOfWordContainingCaretSelection;
-- (id)wordContainingCaretSelection;
-- (id)wordRangeContainingCaretSelection;
 - (id)nextUnperturbedDictationResultBoundaryFromPosition:(id)arg1;
-- (id)previousUnperturbedDictationResultBoundaryFromPosition:(id)arg1;
-- (struct CGRect)rectContainingCaretSelection;
 - (id)rectsForNSRange:(struct _NSRange)arg1;
-- (struct CGRect)rectForNSRange:(struct _NSRange)arg1;
 - (id)textColorForCaretSelection;
 - (id)fontForCaretSelection;
 - (unsigned short)characterAfterCaretSelection;
 - (unsigned short)characterBeforeCaretSelection;
 - (unsigned short)characterInRelationToCaretSelection:(int)arg1;
-- (id)markedText;
 - (void)confirmMarkedText:(id)arg1;
-- (void)setMarkedText:(id)arg1;
 - (void)setMarkedText:(id)arg1 selectedRange:(struct _NSRange)arg2;
-- (void)replaceRangeWithTextWithoutClosingTyping:(id)arg1 replacementText:(id)arg2;
 - (void)replaceCurrentWordWithText:(id)arg1;
-- (void)replaceRangeWithText:(struct _NSRange)arg1 replacementText:(id)arg2;
 - (void)insertText:(id)arg1;
 - (void)deleteBackward;
 - (id)delegate;
@@ -118,9 +104,11 @@
 @property(nonatomic) BOOL displaySecureTextUsingPlainText;
 @property(nonatomic) int emptyContentReturnKeyType;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically; // @dynamic enablesReturnKeyAutomatically;
+@property(nonatomic) BOOL enablesReturnKeyOnNonWhiteSpaceContent;
 @property(nonatomic) BOOL forceEnableDictation;
 @property(retain, nonatomic) UIColor *insertionPointColor; // @dynamic insertionPointColor;
 @property(nonatomic) unsigned int insertionPointWidth; // @dynamic insertionPointWidth;
+@property(nonatomic) BOOL isSingleLineDocument;
 @property(nonatomic) int keyboardAppearance; // @dynamic keyboardAppearance;
 @property(nonatomic) int keyboardType; // @dynamic keyboardType;
 @property(nonatomic) BOOL learnsCorrections;

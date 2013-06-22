@@ -12,6 +12,8 @@
 
 + (id)trackForeignPersistentID;
 + (id)propertiesForGroupingKey;
++ (id)countingQueryForBaseQuery:(id)arg1 countProperty:(id)arg2 forIdentifier:(long long)arg3;
++ (BOOL)propertyIsCountProperty:(id)arg1;
 + (id)foreignPropertyForProperty:(id)arg1 entityClass:(Class)arg2;
 + (id)allProperties;
 + (id)predisambiguatedProperties;

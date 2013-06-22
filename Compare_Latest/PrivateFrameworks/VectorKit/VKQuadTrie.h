@@ -24,12 +24,12 @@
 - (unsigned int)count;
 - (void)foreach:(id)arg1;
 - (id)itemsPassingRectTest:(id)arg1 coordinateTest:(void)arg2;
-- (id)itemsInRect:(CDStruct_aca18c62)arg1;
+- (id)itemsInRect:(CDStruct_d2b197d1)arg1;
 - (BOOL)contains:(id)arg1;
 - (BOOL)remove:(id)arg1;
 - (void)insert:(id)arg1;
 - (void)dealloc;
-- (id)initWithInitialRegion:(CDStruct_aca18c62)arg1 minimumSize:(CDStruct_c3b9c2ee)arg2 maximumItems:(unsigned int)arg3;
+- (id)initWithInitialRegion:(CDStruct_d2b197d1)arg1 minimumSize:(CDStruct_c3b9c2ee)arg2 maximumItems:(unsigned int)arg3;
 
 @end
 

@@ -6,22 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSBlock, NSString, NSXPCInterface;
+@class NSBlock, NSDictionary, NSXPCInterface;
 
 @interface _NSXPCConnectionReplyInfo : NSObject
 {
     NSBlock *_replyBlock;
     id _errorBlock;
     id _cleanupBlock;
-    NSString *_selector;
+    SEL _selector;
     NSXPCInterface *_interface;
+    NSDictionary *_userInfo;
 }
 
+@property(retain) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(retain) NSXPCInterface *interface; // @synthesize interface=_interface;
 @property(copy) id cleanupBlock; // @synthesize cleanupBlock=_cleanupBlock;
 @property(copy) id errorBlock; // @synthesize errorBlock=_errorBlock;
 @property(copy) NSBlock *replyBlock; // @synthesize replyBlock=_replyBlock;
-@property(copy) NSString *selector; // @synthesize selector=_selector;
+@property SEL selector; // @synthesize selector=_selector;
 - (void)dealloc;
 
 @end

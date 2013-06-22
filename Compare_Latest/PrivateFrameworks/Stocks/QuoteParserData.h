@@ -14,16 +14,16 @@
     double timeUpdated;
     int responseListCount;
     BOOL metadataParser;
-    NSArray *_requestStocks;
-    NSString *_bufferString;
     Stock *_stock;
     NSMutableDictionary *_dictionary;
+    NSString *_bufferString;
+    NSArray *_requestStocks;
 }
 
+@property(retain, nonatomic) NSArray *requestStocks; // @synthesize requestStocks=_requestStocks;
+@property(retain, nonatomic) NSString *bufferString; // @synthesize bufferString=_bufferString;
 @property(retain, nonatomic) NSMutableDictionary *dictionary; // @synthesize dictionary=_dictionary;
 @property(retain, nonatomic) Stock *stock; // @synthesize stock=_stock;
-@property(retain, nonatomic) NSString *bufferString; // @synthesize bufferString=_bufferString;
-@property(retain, nonatomic) NSArray *requestStocks; // @synthesize requestStocks=_requestStocks;
 - (void).cxx_destruct;
 
 @end

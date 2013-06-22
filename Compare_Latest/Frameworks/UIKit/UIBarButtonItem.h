@@ -35,17 +35,21 @@
         unsigned int selected:1;
         unsigned int imageHasEffects:1;
     } _barButtonItemFlags;
+    BOOL _flexible;
     float _toolbarCharge;
     float _minimumWidth;
     float _maximumWidth;
     NSSet *_possibleSystemItems;
-    BOOL _flexible;
+    NSSet *_possibleItemVariations;
+    UIBarButtonItem *_itemVariation;
 }
 
-+ (id)_appearanceProxyViewClasses;
++ (id)_appearanceBlindViewClasses;
 + (Class)classForNavigationButton;
 + (void)_getSystemItemStyle:(int *)arg1 title:(id *)arg2 image:(id *)arg3 selectedImage:(id *)arg4 action:(SEL *)arg5 forBarStyle:(int)arg6 landscape:(BOOL)arg7 alwaysBordered:(BOOL)arg8 usingSystemItem:(int)arg9 usingItemStyle:(int)arg10;
 @property(nonatomic, setter=_setFlexible:) BOOL _flexible; // @synthesize _flexible;
+@property(retain, nonatomic, setter=_setItemVariation:) UIBarButtonItem *_itemVariation; // @synthesize _itemVariation;
+@property(copy, nonatomic, setter=_setPossibleItemVariations:) NSSet *_possibleItemVariations; // @synthesize _possibleItemVariations;
 @property(nonatomic, setter=_setMaximumWidth:) float _maximumWidth; // @synthesize _maximumWidth;
 @property(nonatomic, setter=_setMinimumWidth:) float _minimumWidth; // @synthesize _minimumWidth;
 @property(nonatomic, setter=_setToolbarCharge:) float _toolbarCharge; // @synthesize _toolbarCharge;
@@ -121,6 +125,7 @@
 - (id)window;
 - (void)_updateView;
 - (void)_getToolbarEdgeInsets:(struct UIEdgeInsets *)arg1 imageInsets:(struct UIEdgeInsets *)arg2 glowInsets:(struct UIEdgeInsets *)arg3 forBarStyle:(int)arg4 landscape:(BOOL)arg5 alwaysBordered:(BOOL)arg6;
+- (struct UIEdgeInsets)_leftRightImagePaddingForEdgeMarginInNavBar;
 - (void)_getNavBarEdgeSizeAdjust:(struct CGSize *)arg1 imageInsets:(struct UIEdgeInsets *)arg2 landscape:(BOOL)arg3;
 - (void)_getSystemItemStyle:(int *)arg1 title:(id *)arg2 image:(id *)arg3 selectedImage:(id *)arg4 action:(SEL *)arg5 forBarStyle:(int)arg6 landscape:(BOOL)arg7 alwaysBordered:(BOOL)arg8;
 - (id)scriptingID;

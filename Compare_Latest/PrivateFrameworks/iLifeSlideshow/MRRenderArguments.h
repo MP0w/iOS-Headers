@@ -6,14 +6,13 @@
 
 #import "NSObject.h"
 
-@class CMAttitude, MRRenderer, NSDictionary, NSOperationQueue;
+@class MRRenderer, NSDictionary, NSOperationQueue;
 
 @interface MRRenderArguments : NSObject
 {
     MRRenderer *_renderer;
     NSOperationQueue *_preloadQueue;
     NSDictionary *_forcedState;
-    CMAttitude *_attitude;
     double _unalteredTime;
     double _displayLinkTimestamp;
     float _morphingProgress;
@@ -32,7 +31,6 @@
 @property float morphingProgress; // @synthesize morphingProgress=_morphingProgress;
 @property double displayLinkTimestamp; // @synthesize displayLinkTimestamp=_displayLinkTimestamp;
 @property double unalteredTime; // @synthesize unalteredTime=_unalteredTime;
-@property(retain) CMAttitude *attitude; // @synthesize attitude=_attitude;
 @property(retain) NSDictionary *forcedState; // @synthesize forcedState=_forcedState;
 @property(retain) NSOperationQueue *preloadQueue; // @synthesize preloadQueue=_preloadQueue;
 @property(readonly) MRRenderer *renderer; // @synthesize renderer=_renderer;

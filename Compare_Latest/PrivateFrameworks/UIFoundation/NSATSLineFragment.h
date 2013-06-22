@@ -37,6 +37,7 @@
 - (struct _NSRange)characterRange;
 - (struct _NSRange)glyphRange;
 - (void)layoutForStartingGlyphAtIndex:(unsigned int)arg1 characterIndex:(unsigned int)arg2 minPosition:(float)arg3 maxPosition:(float)arg4 lineFragmentRect:(struct CGRect)arg5;
+- (int)resolvedLineBreakMode:(BOOL)arg1;
 - (id)initWithTypesetter:(id)arg1;
 - (void)finalize;
 - (void)dealloc;

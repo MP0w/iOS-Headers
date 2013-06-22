@@ -8,7 +8,7 @@
 
 #import "SBUIAnimationControllerDelegate-Protocol.h"
 
-@class SBUIAnimationController;
+@class SBDisableActiveInterfaceOrientationChangeAssertion, SBStarkScreenController, SBUIAnimationController;
 
 @interface SBRelaunchAppWorkspaceTransaction : SBToAppWorkspaceTransaction <SBUIAnimationControllerDelegate>
 {
@@ -16,10 +16,12 @@
     BOOL _relaunchSuspended;
     BOOL _keepWorkspaceSuspended;
     BOOL _waitForReceiverChange;
+    SBDisableActiveInterfaceOrientationChangeAssertion *_disableActiveOrientationChangeAssertion;
+    SBStarkScreenController *_starkScreenController;
 }
 
+@property(retain, nonatomic) SBStarkScreenController *starkScreenController; // @synthesize starkScreenController=_starkScreenController;
 - (void)animationControllerDidFinishAnimation:(id)arg1;
-- (void)animationController:(id)arg1 didCommitAnimation:(BOOL)arg2 withDuration:(double)arg3 afterDelay:(double)arg4;
 - (void)animationController:(id)arg1 willBeginAnimation:(BOOL)arg2;
 - (void)_handleAppRelaunch:(id)arg1;
 - (BOOL)selfApplicationExited:(id)arg1;
@@ -33,6 +35,7 @@
 - (void)_commit;
 - (void)_endAnimation;
 - (id)_setupAnimationForApp:(id)arg1;
+- (id)_animationForApp:(id)arg1;
 - (BOOL)shouldToggleSpringBoardStatusBarOnCleanup;
 - (id)debugDescription;
 - (void)dealloc;

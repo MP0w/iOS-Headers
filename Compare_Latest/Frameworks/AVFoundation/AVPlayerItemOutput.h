@@ -14,12 +14,15 @@
 }
 
 - (void)_setTimebase:(struct OpaqueCMTimebase *)arg1;
+- (struct OpaqueCMTimebase *)_copyTimebase;
 - (void)_detachFromPlayerItem;
 - (void)_attachToPlayerItem:(id)arg1;
 - (id)_weakReference;
 @property(nonatomic) BOOL suppressesPlayerRendering;
 - (CDStruct_1b6d18a9)itemTimeForMachAbsoluteTime:(long long)arg1;
 - (CDStruct_1b6d18a9)itemTimeForHostTime:(double)arg1;
+- (CDStruct_1b6d18a9)_itemTimeForHostTimeAsCMTime:(CDStruct_1b6d18a9)arg1;
+- (void)finalize;
 - (void)dealloc;
 - (id)init;
 

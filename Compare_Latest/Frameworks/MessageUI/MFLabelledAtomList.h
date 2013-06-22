@@ -9,28 +9,32 @@
 #import "MFAddressAtomDelegate-Protocol.h"
 #import "MFPassthroughViewProvider-Protocol.h"
 
-@class NSDictionary, NSMutableArray, NSString, UILabel;
+@class NSDictionary, NSMutableArray, NSString, UIColor, UILabel;
 
 @interface MFLabelledAtomList : UIView <MFPassthroughViewProvider, MFAddressAtomDelegate>
 {
-    NSMutableArray *_addressAtoms;
     UILabel *_label;
+    void *_addressBook;
+    id <MFLabelledAtomListDelegate> _delegate;
+    NSMutableArray *_addressAtoms;
     NSString *_title;
     UILabel *_captionLabel;
-    id <MFLabelledAtomListDelegate> _delegate;
+    UIColor *_labelTextColor;
     NSDictionary *_recipients;
     float _firstLineWidth;
     BOOL _usePadDisplayStyle;
+    BOOL _labelVisible;
     unsigned int _needsReflow:1;
     unsigned int _isChangingFrame:1;
-    void *_addressBook;
-    BOOL _labelVisible;
     BOOL _primary;
 }
 
++ (id)defaultLabelTextColor;
 @property(nonatomic) BOOL primary; // @synthesize primary=_primary;
 @property(retain, nonatomic) NSDictionary *recipients; // @synthesize recipients=_recipients;
 @property(nonatomic) BOOL usePadDisplayStyle; // @synthesize usePadDisplayStyle=_usePadDisplayStyle;
+@property(retain, nonatomic) UIColor *labelTextColor; // @synthesize labelTextColor=_labelTextColor;
+@property(readonly, nonatomic) UILabel *label; // @synthesize label=_label;
 - (void)crossFadeLabelVisibility:(BOOL)arg1 animationDuration:(double)arg2;
 - (id)passthroughViews;
 - (void)setOpaque:(BOOL)arg1;

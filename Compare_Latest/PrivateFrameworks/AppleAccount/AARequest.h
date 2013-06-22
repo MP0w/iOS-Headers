@@ -13,6 +13,8 @@
     NSString *_urlString;
     BOOL _flushCache;
     struct OpaqueCFHTTPCookieStorage *_cookieStorage;
+    NSString *_oneTimePassword;
+    NSString *_machineId;
 }
 
 + (id)protocolVersion;
@@ -26,6 +28,8 @@
 - (id)urlCredential;
 @property(readonly) NSURLRequest *urlRequest;
 - (id)urlString;
+- (void)setDeviceProvisioningMachineId:(id)arg1;
+- (void)setDeviceProvisioningOneTimePassword:(id)arg1;
 - (void)setCookieStorage:(struct OpaqueCFHTTPCookieStorage *)arg1;
 - (id)initWithURLString:(id)arg1;
 

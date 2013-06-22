@@ -10,6 +10,13 @@
 {
 }
 
+- (id)activityImage;
+- (id)activityTitle;
+- (int)maximumVideoTimeLimit;
+- (int)maximumVideoDataSize;
+- (int)maximumVideoCount;
+- (int)maximumImageCount;
+- (int)maximumURLCount;
 - (BOOL)isFirstClassService;
 - (int)authenticationStyle;
 - (id)accountTypeIdentifier;

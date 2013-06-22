@@ -6,25 +6,22 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSCalendar, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject<PLAssetContainer>, NSSet, PLFetchingAlbum, PLGenericAlbum, PLInFlightAssetsAlbum, PLManagedAlbum, PLManagedObjectContext, PLThumbnailManager, PLWStackedImageCache;
+@class NSArray, NSCalendar, NSMutableArray, NSMutableDictionary, NSObject<PLAlbumProtocol>, NSSet, PLFetchingAlbum, PLGenericAlbum, PLInFlightAssetsAlbum, PLManagedAlbum, PLManagedObjectContext, PLThumbnailManager, PLWStackedImageCache;
 
 @interface PLPhotoLibrary : NSObject
 {
     BOOL _listeningForITunesSyncing;
-    BOOL _canTriggerDatabaseUpdate;
     BOOL _isTransient;
     unsigned int _pendingTransactions;
     struct __CFDictionary *_allPhotos;
     int _databaseMigrationKind;
     NSMutableArray *_transactionCompletionHandlers;
     PLThumbnailManager *_thumbnailManager;
-    NSDictionary *_existingThumbnailEntries;
     PLGenericAlbum *_allImportedPhotosAlbum;
     PLGenericAlbum *_lastImportedPhotosAlbum;
     NSCalendar *_exifConversionCalendar;
     NSMutableDictionary *_photoStreamAlbumsByStreamID;
     NSMutableArray *_photoStreamAlbums;
-    id _ptpDelegate;
     PLWStackedImageCache *_stackedImageCache;
     NSSet *_imageFileExtensions;
     NSSet *_rawImageFileExtensions;
@@ -58,13 +55,18 @@
 + (id)dcimDirectory;
 + (id)dcimDirectoryURL;
 + (id)iTunesPhotosDirectory;
++ (id)photoDataCachesDirectory;
 + (id)photoDataMiscDirectory;
 + (id)videosPath;
 + (id)photoMetadataDirectoryURL;
 + (id)photoDataDirectory;
 + (id)photoDataDirectoryURL;
 + (id)mediaFilesDirectoryURL;
-+ (BOOL)needsToBeSyncedWithiTunesBecauseFormatIDsChanged;
++ (BOOL)isDupeAnalysisNeeded;
++ (void)setDupeAnalysisNeeded:(BOOL)arg1;
++ (BOOL)isMomentAnalysisNeeded;
++ (void)setMomentAnalysisNeeded:(BOOL)arg1;
++ (id)fileReservationForFileAtPath:(id)arg1 exclusive:(BOOL)arg2;
 + (void)setTakingPhotoIsBusy:(BOOL)arg1;
 + (void)setVideoCaptureIsBusy:(BOOL)arg1;
 + (void)setImageWriterIsBusy:(BOOL)arg1;
@@ -78,9 +80,14 @@
 + (id)imageWriterIndicatorFilePath;
 + (id)takingVideoIndicatorFilePath;
 + (id)takingPhotoIndicatorFilePath;
-+ (void)_presentSqliteCorruptionErrorDialog;
++ (id)momentAnalysisNeededFilePath;
++ (id)dupeAnalysisNeededFilePath;
 + (void)createPhotoStreamAlbumWithStreamID:(id)arg1 completionHandler:(id)arg2;
 + (id)assetsDataDirectory;
++ (id)lightweightReimportPhotoCloudSharingAssetFileNameWithCloudAssetGUID:(id)arg1 type:(id)arg2;
++ (id)lightweightReimportPhotoCloudSharingAssetDirectoryForAlbumWithCloudGUID:(id)arg1 cloudPersonID:(id)arg2;
++ (id)lightweightReimportPhotoCloudSharingDataDirectory;
++ (id)photoCloudSharingCacheDataDirectory;
 + (id)photoCloudSharingDataDirectory;
 + (id)photoStreamsDataDirectory;
 + (void)setCloudAlbumSharingEnabled:(BOOL)arg1;
@@ -102,7 +109,7 @@
 - (id)albumsForContentMode:(int)arg1;
 - (BOOL)isPhotoInSavedPhotosAlbum:(id)arg1;
 - (void)processSyncSaveJob:(id)arg1 albumMap:(id)arg2;
-- (BOOL)hasPhotoWithFileCreationDate:(id)arg1 fileName:(id)arg2 fileSize:(int)arg3;
+- (BOOL)hasPhotoWithFileCreationDate:(id)arg1 fileName:(id)arg2 fileSize:(long long)arg3;
 - (int)priorityForFileExtension:(id)arg1;
 - (BOOL)isAudioFileExtension:(id)arg1;
 - (BOOL)isVideoFileExtension:(id)arg1;
@@ -112,14 +119,12 @@
 - (void)_loadFileExtensionInformation;
 - (id)masterFilenameFromSidecarFileInfo:(id)arg1;
 - (id)masterURLFromSidecarURLs:(id)arg1;
-- (id)addDCIMEntryAtFileURL:(id)arg1 toEvent:(struct NSObject *)arg2 sidecarFileInfo:(id)arg3 progress:(id)arg4 importSessionIdentifier:(id)arg5 isImported:(BOOL)arg6 previewImage:(id)arg7 thumbnailImage:(id)arg8 savedAssetType:(int)arg9 replacementUUID:(id)arg10 extendedInfo:(id)arg11 thumbnailsData:(struct __CFDictionary *)arg12 withUUID:(id)arg13;
-- (void)modifyDCIMEntryForVideo:(id)arg1 progress:(id)arg2 previewImage:(id)arg3 thumbnailImage:(id)arg4;
+- (id)addDCIMEntryAtFileURL:(id)arg1 toEvent:(struct NSObject *)arg2 orBatchToken:(id)arg3 sidecarFileInfo:(id)arg4 progress:(id)arg5 importSessionIdentifier:(id)arg6 isImported:(BOOL)arg7 previewImage:(id)arg8 thumbnailImage:(id)arg9 savedAssetType:(int)arg10 replacementUUID:(id)arg11 extendedInfo:(id)arg12 thumbnailsData:(struct __CFDictionary *)arg13 withUUID:(id)arg14;
 - (void)modifyDCIMEntryForPhoto:(id)arg1;
-- (id)newImageForDulcimerPhoto:(id)arg1 format:(int)arg2;
-- (id)newImageForDulcimerPhoto:(id)arg1 format:(int)arg2 outImageProperties:(const struct __CFDictionary **)arg3;
+- (id)newImageForPhoto:(id)arg1 format:(int)arg2;
+- (id)newImageForPhoto:(id)arg1 format:(int)arg2 outImageProperties:(const struct __CFDictionary **)arg3;
 - (id)dataForPhoto:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
 - (id)imageForFormat:(int)arg1 forAsset:(id)arg2;
-- (void)preheatImageDataForAssets:(id)arg1 format:(int)arg2;
 - (struct NSObject *)filesystemImportProgressAlbum;
 - (struct NSObject *)otaRestoreProgressAlbum;
 - (struct NSObject *)syncProgressAlbum;
@@ -128,7 +133,6 @@
 - (struct NSObject *)allPhotosAlbumIfExists;
 - (struct NSObject *)allPhotosAlbum;
 - (unsigned int)editableAlbumCount;
-- (id)editableAlbums;
 - (id)syncedAlbums;
 - (void)_updateWithInsertedAssetsCount:(unsigned int)arg1 deletedCount:(unsigned int)arg2 updatedAssets:(id)arg3;
 - (void)_updateHasAtLeastOnePhotoWithGPSWithInsertedCount:(unsigned int)arg1 deletedCount:(unsigned int)arg2 updatedAssets:(id)arg3;
@@ -143,9 +147,6 @@
 - (id)managedObjectWithObjectID:(id)arg1;
 - (void)setGlobalValue:(id)arg1 forKey:(id)arg2;
 - (id)globalValueForKey:(id)arg1;
-- (void)_unloadExistingThumbnailEntries;
-- (void)_loadExistingThumbnailEntries;
-- (void)_removeOrphanedThumbnailEntries;
 - (unsigned int)concurrencyType;
 - (BOOL)isTransient;
 - (void)loadDatabase;
@@ -164,8 +165,8 @@
 - (void)_migrationDidFinish;
 - (void)_deleteObsoleteMetadataFiles;
 - (id)_init;
-- (id)_getGlobal:(id)arg1 userInfo:(id)arg2;
-- (id)_setGlobal:(id)arg1 userInfo:(id)arg2;
+- (id)handleAssetsLibraryGetGlobalMessage:(id)arg1 userInfo:(id)arg2;
+- (id)handleAssetsLibrarySetGlobalMessage:(id)arg1 userInfo:(id)arg2;
 - (struct NSObject *)albumFromGroupURL:(id)arg1;
 - (id)photoFromAssetURL:(id)arg1;
 - (id)assetURLForManagedPhoto:(id)arg1;
@@ -173,11 +174,12 @@
 - (id)assetURLForPhoto:(id)arg1 extension:(id)arg2;
 - (void)setLastImportSessionUUID:(id)arg1;
 - (id)lastImportSessionUUID;
+- (id)duplicatePhotoStreamPhotosForPhotos:(id)arg1;
 - (void)removeFromKnownPhotoStreamAlbums:(id)arg1;
 - (void)addToKnownPhotoStreamAlbums:(id)arg1;
 - (struct NSObject *)allPhotoStreamPhotosAlbum;
 - (void)userDeleteAssets:(id)arg1;
-- (id)assetWithUUID:(id)arg1 inAlbum:(struct NSObject *)arg2;
+- (id)assetWithUUID:(id)arg1 inContainer:(id)arg2;
 - (id)assetWithUUID:(id)arg1;
 - (id)existingObjectWithID:(id)arg1 error:(id *)arg2;
 - (id)objectWithObjectID:(id)arg1;
@@ -186,6 +188,7 @@
 - (struct NSObject *)eventAlbumContainingPhoto:(id)arg1;
 @property(readonly, nonatomic) NSArray *photoStreamAlbumsForPreferences;
 @property(readonly, nonatomic) NSArray *photoStreamAlbums;
+- (id)albumListForAlbumOfKind:(int)arg1;
 - (void)userDeleteAlbums:(id)arg1;
 @property(readonly, nonatomic) NSArray *placeAlbums;
 @property(readonly, nonatomic) NSArray *faceAlbums;
@@ -196,12 +199,11 @@
 @property(readonly, nonatomic) NSArray *albums;
 - (struct NSObject *)albumWithUuid:(id)arg1;
 - (struct NSObject *)eventWithName:(id)arg1 andImportSessionIdentifier:(id)arg2;
-- (void)deleteInflightAssets:(id)arg1;
+- (void)removeInflightAssets:(id)arg1;
 - (void)addInflightAsset:(id)arg1;
-@property(readonly, nonatomic) NSObject<PLAssetContainer> *inFlightAssetsAlbum;
-@property(readonly, nonatomic) NSObject<PLAssetContainer> *savedPhotosAlbum;
-- (void)withDispatchGroup:(id)arg1 synchronously:(BOOL)arg2 performBlock:(id)arg3 completionHandler:(void)arg4;
-- (void)withDispatchGroup:(id)arg1 performBlock:(id)arg2 completionHandler:(void)arg3;
+@property(readonly, nonatomic) NSObject<PLAlbumProtocol> *inFlightAssetsAlbum;
+@property(readonly, nonatomic) NSObject<PLAlbumProtocol> *savedPhotosAlbum;
+- (void)_withDispatchGroup:(id)arg1 synchronously:(BOOL)arg2 performBlock:(id)arg3 completionHandler:(void)arg4;
 - (void)withDispatchGroup:(id)arg1 performBlock:(id)arg2;
 - (void)_withDispatchGroup:(id)arg1 synchronously:(BOOL)arg2 performTransaction:(id)arg3 completionHandler:(void)arg4;
 - (void)withDispatchGroup:(id)arg1 performTransaction:(id)arg2 completionHandler:(void)arg3;
@@ -214,28 +216,17 @@
 - (void)performTransaction:(id)arg1 completionHandler:(void)arg2;
 - (void)performTransactionAndWait:(id)arg1;
 - (void)performTransaction:(id)arg1;
-- (void)updateThumbnailsForPhoto:(id)arg1 previewImage:(id)arg2 thumbnailImage:(id)arg3;
 - (void)deleteAllImages;
-- (void)_compactThumbnailTablesIfNecessary;
-- (void)_deleteFilesAndEmptyDirectoriesAtPaths:(id)arg1;
-- (BOOL)rotateCameraPhoto:(id)arg1 byDegrees:(int)arg2;
 - (void)deleteImages:(id)arg1;
 - (BOOL)hasAtLeastOnePhoto;
 - (BOOL)hasAtLeastOneItem;
-- (id)iTunesFaceImageForRecordID:(int)arg1 faceIndex:(int)arg2 size:(struct CGSize)arg3 returnLocationInImage:(struct CGRect *)arg4;
-- (void)photoLibraryAvailableNotification;
-- (void)photoLibraryRebuildingNotification;
 - (void)photoLibraryCorruptNotification;
-- (void)_notifyPhotoLibraryIsNoLongerAvailableOnMainThread;
-- (void)_loadPhotoLibraryAfterMigration;
-- (id)_iTunesPhotos;
 - (void)copyAssetToCameraRoll:(id)arg1;
 - (void)clientApplicationWillEnterForeground;
 - (id)countOfAllPhotosAndVideos;
 - (void)flushAlbums;
 - (void)flushPhotoStreamAlbums;
 - (void)flushDCIMAlbums;
-- (BOOL)libraryIsAvailable;
 - (void)_releaseThumbnailManager;
 @property(readonly, nonatomic) PLThumbnailManager *thumbnailManager;
 - (void)dealloc;

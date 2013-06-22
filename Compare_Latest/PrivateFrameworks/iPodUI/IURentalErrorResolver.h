@@ -17,6 +17,7 @@
     IURentalData *_rentalData;
 }
 
+- (void).cxx_destruct;
 - (id)_mediaItem;
 - (BOOL)_errorIsFairPlayError:(id)arg1;
 - (void)_destroyPlaybackAlertView;

@@ -17,6 +17,7 @@
     NSMutableArray *_coastlineGroups;
     BOOL _shouldBlend;
     float _alpha;
+    float _contentScale;
     VKBuildingFootprintMaker *_buildingFootprintMaker;
     float _maximumStyleZ;
     float _textureScale;
@@ -25,6 +26,7 @@
     VKMapTileList *_fragments;
 }
 
+@property(nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
 @property(readonly, nonatomic) VKMapTileList *fragments; // @synthesize fragments=_fragments;
 @property(nonatomic) float maximumStyleZ; // @synthesize maximumStyleZ=_maximumStyleZ;
 @property(nonatomic) float textureScale; // @synthesize textureScale=_textureScale;
@@ -45,6 +47,7 @@
 - (void)buildPolygons;
 - (void)buildCoastlines;
 - (void)buildRoadGroupsAndGenerateMesh:(BOOL)arg1;
+- (void)postprocessRoadGroups;
 - (void)dealloc;
 - (id)initWithKey:(const struct VKTileKey *)arg1;
 

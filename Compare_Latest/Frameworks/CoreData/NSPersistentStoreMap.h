@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-@class NSMappedObjectStore, NSMutableDictionary, NSString;
+@class NSDictionary, NSMappedObjectStore, NSString;
 
 @interface NSPersistentStoreMap : NSObject
 {
     NSMappedObjectStore *_store;
     NSString *_databaseUUID;
-    NSMutableDictionary *_storeMetadata;
+    NSDictionary *_storeMetadata;
     unsigned long long _nextPK64;
-    NSMutableDictionary *_mappings;
+    NSDictionary *_mappings;
 }
 
 + (void)initialize;

@@ -6,13 +6,18 @@
 
 #import <VectorKit/VKTileSource.h>
 
+@class GEOTileKeyMap;
+
 @interface VKResourcesTileSource : VKTileSource
 {
+    GEOTileKeyMap *_keyToKeysMap;
 }
 
+- (void)cancelDownload:(const struct _GEOTileKey *)arg1;
+- (void)performDownload:(const struct _GEOTileKey *)arg1;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
-- (id)tileSource;
-- (Class)tileSourceClass;
+- (struct VKTileKey)sourceKeyForRenderKey:(const struct VKTileKey *)arg1;
+- (BOOL)canFetchTileForKey:(const struct VKTileKey *)arg1;
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
 - (int)zEquivalenceClass;
 - (int)maximumDownloadZoomLevel;
@@ -20,6 +25,8 @@
 - (int)tileSize;
 - (BOOL)maximumZoomLevelBoundsCamera;
 - (BOOL)minimumZoomLevelBoundsCamera;
+- (void)dealloc;
+- (id)init;
 
 @end
 

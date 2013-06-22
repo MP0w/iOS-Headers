@@ -25,7 +25,7 @@
 @property(nonatomic) int interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
-- (void)_handleKeyEvent:(struct __GSEvent *)arg1;
+- (void)_handleKeyUIEvent:(id)arg1;
 @property(nonatomic, getter=isHighlighted) BOOL highlighted;
 - (void)passcodeFieldDidAcceptEntry:(id)arg1;
 - (BOOL)passcodeField:(id)arg1 shouldInsertText:(id)arg2;

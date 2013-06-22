@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSDictionary, NSString;
 
 @interface PKPaper : NSObject
 {
@@ -18,6 +18,8 @@
     int topMargin;
     int rightMargin;
     int bottomMargin;
+    BOOL _isTransverse;
+    NSDictionary *rollInfo;
 }
 
 + (id)documentPapers;
@@ -32,6 +34,10 @@
 + (id)generic3_5x5Paper;
 + (id)genericLetterPaper;
 + (id)genericA4Paper;
++ (id)rollPaperWithAttributes:(id)arg1;
++ (BOOL)useMetric;
+@property(readonly, nonatomic) BOOL isTransverse; // @synthesize isTransverse=_isTransverse;
+@property(copy, nonatomic) NSDictionary *rollInfo; // @synthesize rollInfo;
 @property(nonatomic) int bottomMargin; // @synthesize bottomMargin;
 @property(nonatomic) int rightMargin; // @synthesize rightMargin;
 @property(nonatomic) int topMargin; // @synthesize topMargin;
@@ -44,15 +50,25 @@
 - (id)paperWithMarginsAdjustedForDuplexMode:(id)arg1;
 @property(readonly, nonatomic) NSString *localizedName; // @dynamic localizedName;
 - (id)localizedNameFromDimensions;
+- (struct _ipp_s *)createMediaColAndDoMargins:(BOOL)arg1;
+- (void)addToMediaCol:(struct _ipp_s *)arg1;
 - (void)dealloc;
+@property(readonly, nonatomic) NSString *mediaTypeName; // @dynamic mediaTypeName;
+@property(readonly, nonatomic) BOOL isRoll; // @dynamic isRoll;
+@property(readonly, nonatomic) int maxHeight;
+@property(readonly, nonatomic) int minHeight;
 @property(readonly, nonatomic) NSString *baseName; // @dynamic baseName;
 - (id)nameWithoutSuffixes:(id)arg1;
 @property(readonly, nonatomic) BOOL isBorderless;
 @property(readonly, nonatomic) float imageableArea; // @dynamic imageableArea;
 @property(readonly, nonatomic) struct CGRect imageableAreaRect;
 @property(readonly, nonatomic) struct CGSize paperSize;
-- (id)initWithPWGSize:(struct _pwg_size_s *)arg1 localizedName:(id)arg2 codeName:(id)arg3;
+- (id)initWithPWGSize:(struct pwg_size_s *)arg1 localizedName:(id)arg2 codeName:(id)arg3;
 - (id)initWithWidth:(int)arg1 Height:(int)arg2 Left:(int)arg3 Top:(int)arg4 Right:(int)arg5 Bottom:(int)arg6 localizedName:(id)arg7 codeName:(id)arg8;
+- (id)cutToPWGLength:(int)arg1;
+- (id)cutToLength:(float)arg1;
+@property(readonly, nonatomic) unsigned int maxCutLength; // @dynamic maxCutLength;
+@property(readonly, nonatomic) unsigned int minCutLength; // @dynamic minCutLength;
 
 @end
 

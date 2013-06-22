@@ -18,6 +18,7 @@
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
 + (id)webScriptNameForKey:(const char *)arg1;
+- (void).cxx_destruct;
 - (id)scriptAttributeKeys;
 - (id)attributeKeys;
 @property(readonly) int productPageStylePhone;
@@ -29,7 +30,6 @@
 @property int productPageStyle;
 - (id)_className;
 - (id)newNativeStorePageRequest;
-- (void)dealloc;
 
 @end
 

@@ -10,14 +10,16 @@
 
 @interface UIDatePickerWeekMonthDayView : UIView
 {
-    UILabel *_dateLabel;
-    UILabel *_weekdayLabel;
-    float _weekdayWidth;
     struct {
         unsigned int weekdayLast:1;
     } _datePickerWeekMonthDayViewFlags;
+    BOOL _isModern;
+    UILabel *_dateLabel;
+    UILabel *_weekdayLabel;
+    float _weekdayWidth;
 }
 
+@property(nonatomic) BOOL isModern; // @synthesize isModern=_isModern;
 @property(nonatomic) float weekdayWidth; // @synthesize weekdayWidth=_weekdayWidth;
 @property(readonly, nonatomic) UILabel *weekdayLabel; // @synthesize weekdayLabel=_weekdayLabel;
 @property(readonly, nonatomic) UILabel *dateLabel; // @synthesize dateLabel=_dateLabel;

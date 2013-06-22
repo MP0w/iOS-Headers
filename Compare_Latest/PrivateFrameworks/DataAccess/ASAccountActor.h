@@ -22,7 +22,7 @@
 - (oneway void)shutdown;
 - (oneway void)setAccount:(id)arg1;
 - (oneway void)startup;
-- (BOOL)isHotmailAccount;
+- (id)draftsFolder;
 - (id)deletedItemsFolder;
 - (id)sentItemsFolder;
 - (id)inboxFolder;

@@ -22,6 +22,7 @@
     NSTimer *mCheckTimer;
 }
 
+@property(nonatomic) BOOL isCancelled; // @synthesize isCancelled=mIsCancelled;
 @property(retain, nonatomic) NSObject<MRMarimbaPlayback> *renderer; // @synthesize renderer=mRenderer;
 @property(retain, nonatomic) MPDocument *document; // @synthesize document=mDocument;
 - (void)stop;

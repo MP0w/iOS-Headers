@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSArray, NSMutableArray, NSString, UIImageView, UILabel;
+@class NSArray, NSMutableArray, NSString, UIImage, UIImageView, UILabel;
 
 @interface IUGeniusGridView : UIView
 {
@@ -14,7 +14,6 @@
     UILabel *_basedOnLabel;
     id <IUGeniusGridViewDelegate> _delegate;
     BOOL _enabled;
-    struct CGImage *_image;
     UIView *_coversViewContainer;
     NSMutableArray *_coverViews;
     int _orientation;
@@ -24,6 +23,7 @@
     NSString *_title;
     unsigned int _page;
     UILabel *_titleLabel;
+    UIImage *_image;
 }
 
 + (float)coverImageSideLength;
@@ -31,13 +31,14 @@
 @property(nonatomic) BOOL showsPlayButton; // @synthesize showsPlayButton=_showsPlayButton;
 @property(readonly, nonatomic) int orientation; // @synthesize orientation=_orientation;
 @property(retain, nonatomic) NSArray *representativeArtists; // @synthesize representativeArtists=_representativeArtists;
-@property(nonatomic) struct CGImage *image; // @synthesize image=_image;
+@property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) unsigned int page; // @synthesize page=_page;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
-@property(nonatomic) id <IUGeniusGridViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <IUGeniusGridViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (id)_playButtonImage;
-- (void)_updateArtistsLabelLayout;
+- (void)_updateArtistsAndTitleLabelLayouts;
 - (void)_statusBarHeightDidChange:(id)arg1;
 - (void)_removeAllAnimations;
 - (void)_addFlipAnimationToLayer:(id)arg1 withBeginTime:(double)arg2 forwards:(BOOL)arg3;

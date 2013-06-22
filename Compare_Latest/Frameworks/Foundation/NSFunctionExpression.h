@@ -15,6 +15,7 @@
     NSArray *_arguments;
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
 - (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
 - (BOOL)_shouldUseParensWithDescription;
@@ -30,6 +31,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)allowEvaluation;
 - (id)initWithTarget:(id)arg1 selectorName:(id)arg2 arguments:(id)arg3;
 - (id)initWithExpressionType:(unsigned int)arg1 operand:(id)arg2 selector:(SEL)arg3 argumentArray:(id)arg4;
 - (id)initWithSelector:(SEL)arg1 argumentArray:(id)arg2;

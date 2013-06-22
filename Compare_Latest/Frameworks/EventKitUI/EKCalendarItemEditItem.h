@@ -13,16 +13,17 @@
 @interface EKCalendarItemEditItem : NSObject <EKEditItemViewControllerDelegate>
 {
     EKEventStore *_store;
-    id <EKCalendarItemEditItemDelegate> _delegate;
     UIViewController<EKEditItemViewControllerProtocol> *_viewController;
-    id <EKStyleProvider> _styleProvider;
     EKCalendarItem *_calendarItem;
+    id <EKCalendarItemEditItemDelegate> _delegate;
+    id <EKStyleProvider> _styleProvider;
     UIResponder *_selectedResponder;
 }
 
 @property(retain, nonatomic) UIResponder *selectedResponder; // @synthesize selectedResponder=_selectedResponder;
 @property(retain, nonatomic) id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
-@property id <EKCalendarItemEditItemDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <EKCalendarItemEditItemDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (id)viewForActionSheet;
 - (BOOL)shouldPinKeyboard;
 - (BOOL)isInline;
@@ -30,27 +31,28 @@
 - (void)editItemViewControllerWantsKeyboardPinned:(BOOL)arg1;
 - (BOOL)editItemViewControllerCommit:(id)arg1;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
+- (void)endInlineEditing;
 - (void)notifyRequiresHeightChange;
 - (void)notifyTextChanged;
-- (void)notifySubitemDidCommit:(int)arg1 inSubsection:(int)arg2;
+- (void)notifySubitemDidCommit:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
 - (void)notifyDidEndEditing;
 - (void)notifyDidStartEditing;
-- (BOOL)usesDetailViewControllerForSubitem:(int)arg1 inSubsection:(int)arg2;
+- (BOOL)usesDetailViewControllerForSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
 - (void)editor:(id)arg1 didStartEditingItem:(id)arg2;
 - (void)editorDidScroll:(id)arg1;
-- (BOOL)editor:(id)arg1 shouldClearSelectionFromSubitem:(int)arg2 inSubsection:(int)arg3;
-- (void)editor:(id)arg1 didDeselectSubitem:(int)arg2 inSubsection:(int)arg3;
-- (void)editor:(id)arg1 didSelectSubitem:(int)arg2 inSubsection:(int)arg3;
-- (BOOL)editor:(id)arg1 canSelectSubitem:(int)arg2 inSubsection:(int)arg3;
+- (BOOL)editor:(id)arg1 shouldClearSelectionFromSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (void)editor:(id)arg1 didDeselectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (void)editor:(id)arg1 didSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (BOOL)editor:(id)arg1 canSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
 - (id)titleForHeader;
 - (id)footerView;
 - (float)footerHeightForWidth:(float)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
-- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
-- (int)numberOfSubitemsInSubsection:(int)arg1;
-- (int)numberOfSubsections;
+- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
+- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
+- (unsigned int)numberOfSubsections;
 - (BOOL)shouldAppearWithVisibility:(int)arg1;
 - (void)applicationDidResume;
 - (BOOL)requiresReconfigurationOnCommit;
@@ -60,7 +62,6 @@
 - (void)refreshFromCalendarItemAndStore;
 - (id)calendarItem;
 - (void)setCalendarItem:(id)arg1 store:(id)arg2;
-- (void)dealloc;
 
 @end
 

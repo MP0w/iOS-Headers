@@ -6,21 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSMapTable, VKIconAtlas;
+#import "GEOResourceManifestTileGroupObserver-Protocol.h"
 
-@interface VKIconManager : NSObject
+@class NSMapTable, _VKLocalIconAtlas;
+
+@interface VKIconManager : NSObject <GEOResourceManifestTileGroupObserver>
 {
-    VKIconAtlas *_defaultAtlas;
+    NSMapTable *_defaultAtlases;
     NSMapTable *_regionalAtlases;
+    _VKLocalIconAtlas *_localAtlas;
 }
 
 + (id)sharedManager;
-- (id)iconForFeatureID:(unsigned long long)arg1 withResourceNames:(id)arg2 style:(CDStruct_ad152e0a *)arg3;
+- (id)artworkForFeatureID:(unsigned long long)arg1 withResourceNames:(id)arg2 style:(CDStruct_44473e2f *)arg3 contentScale:(float)arg4;
 - (id)_atlasForName:(id)arg1;
-- (void)getIconForName:(id)arg1 style:(CDStruct_ad152e0a *)arg2 finished:(id)arg3;
-- (id)iconForName:(id)arg1 style:(CDStruct_ad152e0a *)arg2;
+- (id)artworkForName:(id)arg1 withResourceNames:(id)arg2 style:(CDStruct_44473e2f *)arg3 contentScale:(float)arg4;
+- (id)_defaultAtlasForScale:(float)arg1;
 - (void)_didReceiveMemoryWarning:(id)arg1;
-- (void)_activeTileGroupChanged:(id)arg1;
+- (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
+- (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)purge;
 - (void)dealloc;
 - (id)init;

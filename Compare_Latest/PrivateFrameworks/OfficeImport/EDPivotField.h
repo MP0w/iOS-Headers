@@ -18,7 +18,7 @@
     _Bool mOutlineItems;
     _Bool mShowAllItems;
     _Bool mSubtotalTop;
-    unsigned int mNumFmtId;
+    unsigned long mNumFmtId;
     EDCollection *mPivotFieldItems;
 }
 
@@ -26,8 +26,8 @@
 - (id)pivotFieldItems;
 - (void)setAxis:(int)arg1;
 - (int)axis;
-- (void)setNumFmtId:(unsigned int)arg1;
-- (unsigned int)numFmtId;
+- (void)setNumFmtId:(unsigned long)arg1;
+- (unsigned long)numFmtId;
 - (void)setSubtotalTop:(_Bool)arg1;
 - (_Bool)subtotalTop;
 - (void)setShowAllItems:(_Bool)arg1;

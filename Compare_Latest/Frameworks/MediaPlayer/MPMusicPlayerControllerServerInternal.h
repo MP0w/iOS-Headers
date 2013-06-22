@@ -23,6 +23,7 @@
 }
 
 + (BOOL)_canSeedGeniusWithItem:(id)arg1;
+- (void).cxx_destruct;
 - (unsigned int)_numberOfItems;
 - (void)_tearDownVideoView;
 - (void)_endPlayback;
@@ -44,9 +45,10 @@
 - (void)_playbackStateDidChangeNotification:(id)arg1;
 - (void)_applicationStateChangedNotification:(id)arg1;
 - (void)_clientPortInvalidatedNotification:(id)arg1;
+- (void)setQueueWithRadioStation:(id)arg1;
 - (void)setQueueWithGeniusMixPlaylist:(id)arg1;
-- (void)setAllowsRemoteUIAccess:(id)arg1;
-- (id)allowsRemoteUIAccess;
+- (void)setAllowsBackgroundVideo:(id)arg1;
+- (id)allowsBackgroundVideo;
 - (void)setUseApplicationSpecificQueue:(id)arg1;
 - (BOOL)useApplicationSpecificQueue;
 - (void)registerForServerDiedNotifications;
@@ -64,7 +66,9 @@
 - (void)setPlaybackSpeed:(id)arg1;
 - (void)pauseWithFadeoutDuration:(id)arg1;
 - (void)playItem:(id)arg1;
+- (id)nowPlayingRadioTrackID;
 - (id)nowPlayingItemAtIndex:(id)arg1;
+- (id)queueAsRadioStation;
 - (id)queueAsQuery;
 - (void)setQueueWithQuery:(id)arg1 firstItem:(id)arg2;
 - (id)setQueueWithSeedItems:(id)arg1;

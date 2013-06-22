@@ -6,7 +6,7 @@
 
 #import <iLifeSlideshow/MREffect.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary;
+@class MRCAMLBezierData, MRImage, MROrigamiAnimationPath, NSArray, NSMutableArray, NSMutableDictionary;
 
 @interface MREffectOrigami : MREffect
 {
@@ -14,20 +14,31 @@
     NSArray *mPatchworkAtEnd;
     NSMutableDictionary *mSprites;
     NSMutableArray *mSpriteKeysWatcher;
-    NSMutableArray *mAnimationTimeBounds;
+    NSArray *mAnimationTimeBounds;
     NSMutableArray *mItemInfos;
     double mDurationStretchFactor;
+    MRImage *mBackColorImage;
+    float mBackColorForImage[3];
     float mDescriptionAspectRatio;
     float mPixelUnit;
     BOOL mIsOrigami2Effect;
     BOOL mIsHorizontal;
     BOOL mIsOriginallyHorizontal;
+    MRCAMLBezierData *mBreakCurve;
+    MROrigamiAnimationPath *mLittleSwing;
+    MROrigamiAnimationPath *mBigSwing;
+    MROrigamiAnimationPath *mSideSwing;
+    MROrigamiAnimationPath *mThirdsSwingTop;
+    MROrigamiAnimationPath *mThirdsSwingBottom;
+    CDStruct_1ef3fb1f *mBreakInfos;
+    unsigned int mTotalNumberOfFolds;
 }
 
++ (id)customTimingWithEffectID:(id)arg1 effectAttributes:(id)arg2 slideInformation:(id)arg3 textInformation:(id)arg4 inAspectRatio:(float)arg5;
++ (BOOL)hasCustomTiming;
 + (void)initialize;
 - (void)beginMorphingToAspectRatio:(float)arg1 withDuration:(double)arg2;
 - (BOOL)_needsRenderingAtTime:(double)arg1 remainingStillDurationAfter:(double *)arg2;
-- (double)_stretchTime:(double)arg1;
 - (id)patchworkAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 - (void)renderUnfoldingFlowerAtTime:(double)arg1 andProgress:(float)arg2 inContext:(id)arg3 withArguments:(id)arg4 inRect:(struct CGRect)arg5 withAttributes:(id)arg6;
 - (void)renderFlipDiagonalAtTime:(double)arg1 andProgress:(float)arg2 inContext:(id)arg3 withArguments:(id)arg4 inRect:(struct CGRect)arg5 withAttributes:(id)arg6;
@@ -47,8 +58,12 @@
 - (id)elementHitAtPoint:(struct CGPoint)arg1 withInverseMatrix:(float [16])arg2 localPoint:(struct CGPoint *)arg3;
 - (void)renderAtTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
 - (BOOL)prerenderForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
+- (void)_setupBreakInfos:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;
+- (id)_retainedByUserBackColorImageInContext:(id)arg1;
 - (void)setPixelSize:(struct CGSize)arg1;
 - (void)_setTargetSizeOfImageProviders;
+- (void)_cleanupSwingTimings;
+- (void)_setupSwingTimings;
 - (void)_unload;
 - (void)_cleanup;
 - (id)initWithEffectID:(id)arg1;

@@ -7,6 +7,7 @@
 #import "ABUnknownPersonViewController.h"
 
 @interface ABUnknownPersonViewController (MessageUI)
+- (id)_mf_initWithRecentGroup:(id)arg1;
 - (id)_mf_initWithEmailAddress:(id)arg1;
 @end
 

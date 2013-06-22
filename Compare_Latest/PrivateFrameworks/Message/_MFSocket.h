@@ -17,23 +17,32 @@
     NSString *_service;
     struct __CFString *_connectionServiceType;
     NSInvocation *_eventHandler;
+    NSArray *_clientCertificates;
+    int _lowThroughputCounter;
     int _numTimeoutSecs;
     BOOL _allowsTrustPrompt;
     BOOL _usesOpportunisticSockets;
     BOOL _canRead;
     BOOL _canWrite;
+    NSString *_sourceApplicationBundleIdentifier;
+    NSString *_accountIdentifier;
 }
 
-@property(nonatomic) BOOL allowsTrustPrompt; // @synthesize allowsTrustPrompt=_allowsTrustPrompt;
+@property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
+@property(copy, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
+@property(retain, nonatomic) NSArray *clientCertificates; // @synthesize clientCertificates=_clientCertificates;
 @property(nonatomic) BOOL usesOpportunisticSockets; // @synthesize usesOpportunisticSockets=_usesOpportunisticSockets;
+@property(nonatomic) BOOL allowsTrustPrompt; // @synthesize allowsTrustPrompt=_allowsTrustPrompt;
 @property(nonatomic) int timeout; // @synthesize timeout=_numTimeoutSecs;
-@property(readonly, nonatomic) BOOL isForcedConnection;
+- (void)enableExcessiveKeepaliveDetection:(BOOL)arg1;
+- (void)enableThroughputMonitoring:(BOOL)arg1;
+@property(readonly, nonatomic) BOOL isCellularConnection;
 @property(readonly, nonatomic) NSData *sourceIPAddress;
 @property(readonly, nonatomic) unsigned int remotePortNumber;
 @property(readonly, nonatomic) NSString *remoteHostname;
 - (void)setEventHandler:(id)arg1;
-- (int)readBytes:(char *)arg1 length:(int)arg2;
-- (int)writeBytes:(const char *)arg1 length:(int)arg2;
+- (int)readBytes:(char *)arg1 length:(unsigned long)arg2;
+- (int)writeBytes:(const char *)arg1 length:(unsigned long)arg2;
 - (unsigned int)_bufferedByteCount;
 - (BOOL)connectToHost:(id)arg1 withPort:(unsigned int)arg2 service:(id)arg3;
 @property(readonly, nonatomic) BOOL isValid;

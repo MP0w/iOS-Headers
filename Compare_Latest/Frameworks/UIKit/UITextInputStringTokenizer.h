@@ -20,6 +20,7 @@
 - (id)positionFromPosition:(id)arg1 toBoundary:(int)arg2 inDirection:(int)arg3;
 - (BOOL)isPosition:(id)arg1 atBoundary:(int)arg2 inDirection:(int)arg3;
 - (struct _NSRange)_getClosestTokenRangeForPosition:(id)arg1 granularity:(int)arg2 downstream:(BOOL)arg3;
+- (int)_indexForTextPosition:(id)arg1;
 - (id)initWithTextInput:(id)arg1;
 
 @end

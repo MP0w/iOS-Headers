@@ -13,8 +13,11 @@
     NSString *mediaType;
     int mediaSubType;
     NSDictionary *formatDictionary;
+    NSDictionary *deviceProperties;
     struct opaqueCMFormatDescription *formatDescription;
     NSArray *videoSupportedFrameRateRanges;
+    CDStruct_1b6d18a9 defaultActiveMinFrameDuration;
+    CDStruct_1b6d18a9 defaultActiveMaxFrameDuration;
 }
 
 @end

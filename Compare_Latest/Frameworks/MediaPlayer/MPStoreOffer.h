@@ -29,6 +29,7 @@
 @property(readonly, nonatomic) NSString *entityTitle; // @synthesize entityTitle=_entityTitle;
 @property(readonly, nonatomic) int entityType; // @synthesize entityType=_entityType;
 @property(readonly, nonatomic) unsigned long long entityPersistentID; // @synthesize entityPersistentID=_entityPersistentID;
+- (void).cxx_destruct;
 - (id)storeOfferDictionary;
 @property(readonly, nonatomic) double previewDuration;
 @property(readonly, nonatomic) NSURL *previewURL;
@@ -43,7 +44,6 @@
 - (id)buyURL;
 - (BOOL)_isBuy;
 @property(readonly, nonatomic) int buyType;
-- (void)dealloc;
 - (id)initWithStoreOfferDictionary:(id)arg1 regularPriceOfferDictionary:(id)arg2 passType:(int)arg3 entityType:(int)arg4 persistentID:(unsigned long long)arg5 title:(id)arg6;
 
 @end

@@ -29,8 +29,7 @@
         unsigned int adjustedForKeyboard:1;
         unsigned int endEditingAfterKeyboardDismiss:1;
         unsigned int automaticallyRestoresConfiguration:1;
-        unsigned int adjustsStatusBarStyle:1;
-        unsigned int reserved:26;
+        unsigned int reserved:27;
     } _lvcFlags;
 }
 
@@ -78,7 +77,6 @@
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;
-@property(nonatomic) BOOL adjustsStatusBarStyle;
 @property(nonatomic) BOOL automaticallyRestoresConfiguration;
 - (BOOL)albumIsDisplayedEnabled:(struct NSObject *)arg1;
 @property(nonatomic) id <PLLibraryViewControllerDelegate> delegate;

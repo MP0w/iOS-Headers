@@ -17,24 +17,24 @@
 }
 
 @property(retain, nonatomic) NSMutableArray *shareeCells; // @synthesize shareeCells=_shareeCells;
+- (void).cxx_destruct;
 - (id)eventStoreForShareePickerViewController:(id)arg1;
 - (void)shareePickerViewController:(id)arg1 didCompleteWithAction:(int)arg2;
 - (void)shareeViewController:(id)arg1 didCompleteWithAction:(int)arg2;
 - (void)shareeViewControllerDidChangeAccessLevel:(id)arg1;
 - (void)_popBackToCalendarEditor:(BOOL)arg1;
-- (void)calendarEditor:(id)arg1 didSelectSubitem:(int)arg2;
+- (void)calendarEditor:(id)arg1 didSelectSubitem:(unsigned int)arg2;
 - (BOOL)saveStateToCalendar:(id)arg1;
 - (id)headerTitle;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
-- (int)numberOfSubitems;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
+- (unsigned int)numberOfSubitems;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (BOOL)configureWithCalendar:(id)arg1;
 - (id)_shareeCellForName:(id)arg1 detailText:(id)arg2 additionalDetailText:(id)arg3;
 - (id)_addPersonCell;
 - (id)_stringForShareeAccessLevel:(int)arg1;
 - (id)_stringForShareeStatus:(int)arg1;
 - (void)reset;
-- (void)dealloc;
 
 @end
 

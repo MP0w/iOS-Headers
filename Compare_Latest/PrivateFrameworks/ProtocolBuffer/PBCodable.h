@@ -6,16 +6,21 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class NSData;
 
-@interface PBCodable : NSObject
+@interface PBCodable : NSObject <NSSecureCoding>
 {
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)dictionaryRepresentation;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
-@property(readonly, nonatomic) NSData *data; // @dynamic data;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+@property(readonly, nonatomic) NSData *data;
 - (id)initWithData:(id)arg1;
 - (id)init;
 

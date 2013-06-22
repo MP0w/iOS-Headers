@@ -32,8 +32,8 @@
 - (id)sourceDrawableForSourceDrawableId:(unsigned long)arg1;
 - (void)setTargetObject:(id)arg1 forSourceDrawable:(id)arg2;
 - (void)addDrawing:(id)arg1;
-- (id)drawingAtIndex:(unsigned int)arg1;
-- (unsigned int)drawingCount;
+- (id)drawingAtIndex:(unsigned long)arg1;
+- (unsigned long)drawingCount;
 - (void)setDrawingGroup:(id)arg1;
 - (id)drawingGroup;
 - (id)client;

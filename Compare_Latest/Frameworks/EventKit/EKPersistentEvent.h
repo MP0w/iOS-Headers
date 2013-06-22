@@ -6,7 +6,7 @@
 
 #import <EventKit/EKPersistentCalendarItem.h>
 
-@class NSDate, NSString, NSURL;
+@class NSArray, NSDate, NSString, NSURL;
 
 @interface EKPersistentEvent : EKPersistentCalendarItem
 {
@@ -25,11 +25,10 @@
 - (void)_adjustForNewCalendar;
 - (id)description;
 @property(readonly, nonatomic, getter=isEditable) BOOL editable;
-- (BOOL)allowsParticipationStatusModifications;
+@property(readonly, nonatomic) BOOL allowsParticipationStatusModifications;
 - (void)removeAction:(id)arg1;
 - (void)addAction:(id)arg1;
-- (void)setActions:(id)arg1;
-- (id)actions;
+@property(copy, nonatomic) NSArray *actions;
 - (BOOL)_hasExternalIDOrDeliverySource;
 - (BOOL)hasValidEventAction;
 - (id)committedStartDate;

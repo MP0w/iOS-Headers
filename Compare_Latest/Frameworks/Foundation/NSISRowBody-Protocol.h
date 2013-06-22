@@ -8,9 +8,8 @@
 
 @protocol NSISRowBody <NSObject>
 - (void)replaceVariable:(id)arg1 withExpression:(id)arg2 processVariableNewToReceiver:(id)arg3 processVariableDroppedFromReceiver:(void)arg4;
-- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(float)arg2 timesVariable:(id)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
-- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(float)arg2;
-- (id)allVariables;
+- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2 timesVariable:(id)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
+- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2;
 - (void)enumerateVariables:(id)arg1;
 - (void)removeVariable:(id)arg1;
 @end

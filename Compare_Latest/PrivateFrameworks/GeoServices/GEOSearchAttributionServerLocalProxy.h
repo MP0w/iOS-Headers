@@ -8,11 +8,10 @@
 
 #import "GEOSearchAttributionServerProxy-Protocol.h"
 
-@class GEOSearchAttributionManifest, NSMapTable, NSMutableArray;
+@class NSMapTable, NSMutableArray;
 
 @interface GEOSearchAttributionServerLocalProxy : NSObject <GEOSearchAttributionServerProxy>
 {
-    GEOSearchAttributionManifest *_manifest;
     NSMapTable *_listeners;
     BOOL _updatingManifest;
     NSMutableArray *_updateManifestCompletionHandlers;
@@ -25,7 +24,6 @@
 - (void)_pruneOldAttributionLogos;
 - (void)_sendError:(id)arg1 toListener:(id)arg2;
 - (void)_sendInfo:(id)arg1 updatedManifest:(BOOL)arg2 toListener:(id)arg3;
-- (id)_manifest;
 - (void)dealloc;
 - (id)init;
 

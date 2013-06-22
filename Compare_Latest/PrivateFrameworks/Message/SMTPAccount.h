@@ -19,16 +19,16 @@
     unsigned int _useCellDataOnly:1;
 }
 
++ (BOOL)isCommonPortNumber:(unsigned int)arg1;
 + (id)saslProfileName;
++ (unsigned int)defaultPortNumber;
 + (void)registerAppleServiceDeliveryHostname:(id)arg1;
 + (id)newDefaultInstance;
 + (id)displayedShortAccountTypeString;
 + (id)displayedAccountTypeString;
-+ (void *)keychainProtocol;
++ (void *)legacyKeychainProtocol;
 + (id)accountTypeString;
 - (void)dealloc;
-- (id)passwordFromKeychain;
-- (void)setPasswordInKeychain:(id)arg1;
 - (BOOL)canBeFallbackAccount;
 - (BOOL)_isAppleServiceDeliveryHostname:(id)arg1;
 - (void)releaseAllForcedConnections;
@@ -53,10 +53,7 @@
 - (id)connectionSettingsForAuthentication:(BOOL)arg1 secure:(id)arg2 insecure:(id)arg3;
 - (id)_defaultSettingsWithPort:(unsigned int)arg1 useSSL:(BOOL)arg2 directSSL:(BOOL)arg3;
 - (Class)connectionClass;
-- (unsigned int)keychainPortNumber;
-- (BOOL)isCommonPortNumber:(unsigned int)arg1;
 - (id)serviceName;
-- (unsigned int)defaultPortNumber;
 - (void)setDeliveryClass:(Class)arg1;
 - (Class)deliveryClass;
 - (id)certUIService;

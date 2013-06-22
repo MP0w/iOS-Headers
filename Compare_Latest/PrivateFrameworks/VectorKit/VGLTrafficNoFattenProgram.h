@@ -9,8 +9,10 @@
 @interface VGLTrafficNoFattenProgram : VGLSimpleRoadProgram
 {
     int _uPrimaryColor;
-    int _uTextureMappingGlobalScaler;
     struct _VGLColor _primaryColor;
+    int _uSecondaryColor;
+    struct _VGLColor _secondaryColor;
+    int _uTextureMappingGlobalScaler;
     float _textureMappingGlobalScaler;
     int _uAlphaScaler;
     float _alphaScaler;
@@ -19,21 +21,33 @@
     int _uDrivingDirection;
     float _drivingDirection;
     int _uAlphaRamp;
-    CDStruct_6e3f967a _alphaRamp;
+    Vec2Imp_1782d7e3 _alphaRamp;
     int _uGlowScale;
     float _glowScale;
+    int _uPhaseOffset;
+    float _phaseOffset;
+    int _uTrafficPattern;
+    CDStruct_f2e236b6 _trafficPattern;
+    int _uFadingFactor;
+    Vec2Imp_1782d7e3 _fadingFactor;
 }
 
-+ (id)program;
-@property(nonatomic) float textureMappingGlobalScaler; // @synthesize textureMappingGlobalScaler=_textureMappingGlobalScaler;
++ (id)fragName;
++ (id)vertName;
+@property(nonatomic) CDStruct_818bb265 trafficPattern; // @synthesize trafficPattern=_trafficPattern;
 @property(nonatomic) float glowScale; // @synthesize glowScale=_glowScale;
-@property(nonatomic) CDStruct_6e3f967a alphaRamp; // @synthesize alphaRamp=_alphaRamp;
+@property(nonatomic) Vec2Imp_1782d7e3 alphaRamp; // @synthesize alphaRamp=_alphaRamp;
 @property(nonatomic) float drivingDirection; // @synthesize drivingDirection=_drivingDirection;
 @property(nonatomic) float zoomShift; // @synthesize zoomShift=_zoomShift;
 @property(nonatomic) float alphaScaler; // @synthesize alphaScaler=_alphaScaler;
+@property(nonatomic) struct _VGLColor secondaryColor; // @synthesize secondaryColor=_secondaryColor;
 @property(nonatomic) struct _VGLColor primaryColor; // @synthesize primaryColor=_primaryColor;
+- (id).cxx_construct;
 - (void)updateTextureMappingGlobalScaler:(float)arg1;
-- (id)init;
+- (void)setFadingFactor:(Vec2Imp_1782d7e3)arg1;
+- (void)setPhaseOffset:(float)arg1;
+- (void)setTextureMappingGlobalScaler:(float)arg1;
+- (void)setup;
 
 @end
 

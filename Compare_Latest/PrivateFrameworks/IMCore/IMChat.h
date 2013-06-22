@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
-@class IMAccount, IMHandle, IMMessage, NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
+@class IMAccount, IMHandle, IMMessage, IMTimingCollection, NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface IMChat : NSObject
 {
     NSString *_guid;
+    NSString *_typingGUID;
     NSString *_currentQuery;
     NSString *_identifier;
     IMAccount *_account;
+    NSString *_displayName;
     NSString *_roomName;
     NSString *_roomNameWithoutSuffix;
     NSDate *_dateCreated;
@@ -29,6 +31,7 @@
     NSMutableDictionary *_messageMap;
     NSMutableDictionary *_chatProperties;
     NSMutableDictionary *_participantProperties;
+    IMTimingCollection *_timingCollection;
     int _joinState;
     unsigned char _style;
     unsigned int _numberOfMessagesToKeepLoaded;
@@ -38,7 +41,6 @@
     unsigned int _cachedFailureCount;
     unsigned int _dbFailedCount;
     unsigned int _dbUnreadCount;
-    int _rowIDOfMostRecentFailedMessage;
     void *_context;
     unsigned int _hasBeenConfigured:1;
     unsigned int _isRefreshing:1;
@@ -46,13 +48,17 @@
     unsigned int _wasInvitationHandled:1;
     unsigned int _didSendAFinishedMessage:1;
     unsigned int _shouldPostIndividualItemChanges:1;
+    unsigned int _shouldPostWillChangeNotification:1;
+    unsigned int _shouldPostJoinStatusChangeNotifications:1;
     unsigned int _didPostWillChangeNotification:1;
+    unsigned int _hasPendingMarkRead:1;
 }
 
 @property(retain, nonatomic) IMMessage *invitationForPendingParticipants; // @synthesize invitationForPendingParticipants=_invitationForPendingParticipants;
 @property(readonly, nonatomic) int joinState; // @synthesize joinState=_joinState;
 @property(readonly, nonatomic) NSDate *dateModified; // @synthesize dateModified=_dateModified;
 @property(readonly, nonatomic) NSDate *dateCreated; // @synthesize dateCreated=_dateCreated;
+@property(nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(readonly, nonatomic) NSString *roomName; // @synthesize roomName=_roomName;
 @property(nonatomic) void *contextInfo; // @synthesize contextInfo=_context;
 @property(readonly, nonatomic) unsigned char chatStyle; // @synthesize chatStyle=_style;
@@ -103,6 +109,9 @@
 - (void)updateMessage:(id)arg1;
 - (BOOL)canSendTransfer:(id)arg1;
 - (BOOL)canSendMessage:(id)arg1;
+@property(nonatomic) BOOL localUserIsTyping;
+- (void)_setLocalUserIsTyping:(BOOL)arg1 suppliedGUID:(id)arg2;
+@property(readonly, nonatomic) NSString *localTypingMessageGUID;
 - (void)sendMessage:(id)arg1;
 - (void)_sendMessage:(id)arg1 adjustingSender:(BOOL)arg2;
 - (void)cancelMessage:(id)arg1;
@@ -111,6 +120,7 @@
 @property(readonly, nonatomic) BOOL hasUnhandledInvitation;
 @property(readonly, nonatomic) NSString *roomNameWithoutSuffix;
 @property(readonly, nonatomic) NSString *persistentID;
+- (void)_setDisplayName:(id)arg1;
 - (void)setRoomName:(id)arg1;
 @property(readonly, nonatomic) unsigned int overallChatStatus;
 @property(readonly, nonatomic) BOOL canHaveMultipleParticipants;
@@ -128,6 +138,9 @@
 - (void)_handleMessageGUIDDeletions:(id)arg1;
 - (void)_setParticipantState:(unsigned int)arg1 forHandle:(id)arg2 quietly:(BOOL)arg3;
 - (void)_postNotification:(id)arg1 userInfo:(id)arg2;
+- (void)_endTiming;
+- (void)_startTiming:(id)arg1;
+- (id)_timingCollection;
 - (void)_accountLoggedOut:(id)arg1;
 - (void)_unwatchHandleStatusChangedForHandle:(id)arg1;
 - (void)_watchHandleStatusChangedForHandle:(id)arg1;
@@ -137,6 +150,7 @@
 - (void)clear;
 - (BOOL)deleteAllHistory;
 - (BOOL)deleteChatItems:(id)arg1;
+- (BOOL)deleteMessageParts:(id)arg1 forMessage:(id)arg2;
 - (BOOL)deleteChatItem:(id)arg1;
 - (BOOL)canDeleteChatItem:(id)arg1;
 @property(readonly, nonatomic) unsigned int messageFailureCount;
@@ -149,14 +163,16 @@
 - (id)chatItemForMessage:(id)arg1;
 - (id)_chatItemForGUID:(id)arg1;
 - (id)messageForGUID:(id)arg1;
-@property(readonly, nonatomic) int rowIDOfMostRecentFailedMessage; // @synthesize rowIDOfMostRecentFailedMessage=_rowIDOfMostRecentFailedMessage;
-- (void)_setRowIDOfMostRecentFailedMessage:(int)arg1;
+@property(readonly, nonatomic) int rowIDOfMostRecentFailedMessage;
 - (void)processChatItem:(id)arg1;
 - (BOOL)shouldAppendDatestampAfterChatItem:(id)arg1 andBeforeChatItem:(id)arg2;
 - (BOOL)shouldAppendTimestampAfterChatItem:(id)arg1 andBeforeChatItem:(id)arg2;
 - (BOOL)_doesChatItemContainTimestamp:(id)arg1;
 - (BOOL)shouldInsertChatItem:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)_insertHistoricalChatItems:(id)arg1 queryID:(id)arg2 isRefresh:(BOOL)arg3 isHistoryQuery:(BOOL)arg4 limit:(unsigned int)arg5;
 - (void)_insertHistoricalChatItems:(id)arg1 queryID:(id)arg2 isRefresh:(BOOL)arg3 isHistoryQuery:(BOOL)arg4;
+- (void)_fixMessageOrderingWithItems:(id)arg1;
+- (BOOL)_checkMessageOrderingWithItems:(id)arg1;
 - (void)_removeInitialTypingIndicator;
 - (void)_buildChatItemForErrorMessage:(id)arg1;
 - (void)_fixLastReceipientMessage;
@@ -199,15 +215,19 @@
 - (void)dealloc;
 - (id)init;
 - (void)_initialize;
-- (id)_initWithGUID:(id)arg1 account:(id)arg2 style:(unsigned char)arg3 roomName:(id)arg4 chatItems:(id)arg5 participants:(id)arg6;
+- (id)_initWithGUID:(id)arg1 account:(id)arg2 style:(unsigned char)arg3 roomName:(id)arg4 displayName:(id)arg5 chatItems:(id)arg6 participants:(id)arg7;
 - (void)_setupObservation;
+@property(nonatomic, setter=_setShouldPostJoinStatusChangeNotifications:) BOOL _shouldPostJoinStatusChangeNotifications;
+@property(nonatomic, setter=_setShouldPostWillChangeNotification:) BOOL _shouldPostWillChangeNotification;
 @property(nonatomic, setter=_setShouldPostIndividualItemChanges:) BOOL _shouldPostIndividualItemChanges;
 - (void)_setIsRefreshing:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL _isRefreshing;
 - (id)_privateInitWithAccount:(id)arg1 style:(unsigned char)arg2 roomName:(id)arg3 chatItems:(id)arg4 participants:(id)arg5;
 - (id)_copyChat;
+- (id)loadMessagesUpToGUID:(id)arg1 date:(id)arg2 limit:(unsigned int)arg3 loadImmediately:(BOOL)arg4;
 - (id)loadMessagesBeforeDate:(id)arg1 limit:(unsigned int)arg2 loadImmediately:(BOOL)arg3;
 - (id)loadMessagesBeforeDate:(id)arg1 limit:(unsigned int)arg2;
+- (id)loadMessagesUpToGUID:(id)arg1 limit:(unsigned int)arg2;
 - (id)_buildLoadQueryForSynchronize;
 @property(nonatomic) unsigned int numberOfMessagesToKeepLoaded;
 - (void)_trimMessagesAsNeeded;

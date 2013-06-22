@@ -12,7 +12,6 @@
     BOOL mIsTypeOverridden;
 }
 
-+ (id)presetPatternHeader;
 + (id)namedBitmapDataForPresetPatternType:(int)arg1;
 + (id)nameForPresetPatternType:(int)arg1;
 + (id)defaultProperties;

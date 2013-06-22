@@ -9,7 +9,7 @@
 #import "SUWebViewDelegate-Protocol.h"
 #import "SUWebViewManagerDelegate-Protocol.h"
 
-@class ISURLRequestPerformance, NSURL, SSAuthenticationContext, SSMutableAuthenticationContext, SUDelayedNavigationItem, SUMescalSession, SUObjectPool, SUStorePageProtocol, SUWebView, SUWebViewManager;
+@class ISURLRequestPerformance, NSURL, SSAuthenticationContext, SSMutableAuthenticationContext, SUDelayedNavigationItem, SUMescalSession, SUObjectPool, SUShowcaseViewController, SUStorePageProtocol, SUWebView, SUWebViewManager;
 
 @interface SUWebViewController : SUViewController <SUWebViewManagerDelegate, SUWebViewDelegate>
 {
@@ -23,6 +23,7 @@
     SUObjectPool *_objectPool;
     ISURLRequestPerformance *_performanceMetrics;
     int _scheduledOrientation;
+    SUShowcaseViewController *_showcaseViewController;
     SUStorePageProtocol *_storePageProtocol;
     int _style;
     NSURL *_url;
@@ -41,6 +42,7 @@
 - (void)_reloadUI;
 - (void)_reloadPlaceholderBackgroundView;
 - (void)_reloadObjectPool;
+- (void)_reloadBackgroundViewPropertiesWithScriptProperties:(id)arg1;
 - (void)_prepareToLoadURL:(id)arg1;
 - (id)_placeholderBackgroundView;
 - (id)_newURLRequestWithOperation:(id)arg1 bagContext:(id)arg2;
@@ -51,6 +53,7 @@
 - (void)_applyScriptProperties:(id)arg1;
 - (void)_applySavedScrollOffsetIfPossible;
 - (void)_addPlaceholderBackgroundView;
+- (void)_showNativeShowcaseWithDictionary:(id)arg1;
 - (void)_loadWithURLOperation:(id)arg1 completionBlock:(id)arg2;
 - (void)webViewManager:(id)arg1 webDocumentViewDidSetFrame:(struct CGRect)arg2;
 - (void)webViewManagerDidStartLoad:(id)arg1;
@@ -80,6 +83,7 @@
 - (void)loadView;
 - (void)keyboardWillShowWithInfo:(id)arg1;
 - (void)keyboardDidHideWithInfo:(id)arg1;
+- (int)ITunesStoreUIBarStyle;
 - (void)invalidate;
 - (struct CGRect)documentBounds;
 - (id)copyObjectForScriptFromPoolWithClass:(Class)arg1;

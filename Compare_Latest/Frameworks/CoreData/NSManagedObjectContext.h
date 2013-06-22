@@ -97,11 +97,13 @@
 - (void)rollback;
 - (id)executeFetchRequest:(id)arg1 error:(id *)arg2;
 - (unsigned int)countForFetchRequest:(id)arg1 error:(id *)arg2;
+- (BOOL)_checkObjectForExistenceAndCacheRow:(id)arg1;
 - (id)existingObjectWithID:(id)arg1 error:(id *)arg2;
 - (id)objectWithID:(id)arg1;
 - (BOOL)save:(id *)arg1;
 - (BOOL)obtainPermanentIDsForObjects:(id)arg1 error:(id *)arg2;
 - (BOOL)hasChanges;
+- (void)_prepareUnprocessedDeletionAfterRefresh:(id)arg1;
 - (void)deleteObject:(id)arg1;
 - (void)insertObject:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -154,7 +156,9 @@
 - (void)_setStopsValidationAfterFirstError:(BOOL)arg1;
 - (BOOL)_stopsValidationAfterFirstError;
 - (id)_retainedObjectsFromRemovedStore:(id)arg1;
+- (void)_informParentStoreNoLongerInterestedInObjectIDs:(id)arg1;
 - (void)_informParentStore:(id)arg1 noLongerInterestedInObjects:(id)arg2;
+- (void)_informParentStoreOfInterestInObjectIDs:(id)arg1;
 - (void)_informParentStore:(id)arg1 ofInterestInObjects:(id)arg2;
 - (void)_clearRefreshedObjects;
 - (void)_clearLockedObjects;
@@ -198,10 +202,10 @@
 - (void)_lockObjectStore_oldSchool;
 - (id)_mappedForParentStoreID:(id)arg1;
 - (BOOL)_hasIDMappings;
+- (id)_parentStore;
 - (void)_processObjectStoreChanges:(id)arg1;
 - (void)_propagateDeletesUsingTable:(id)arg1;
 - (BOOL)_processDeletedObjects:(id *)arg1;
-- (void)_processOwnedObjects:(id)arg1 set:(id)arg2 boolean:(BOOL)arg3;
 - (void)_noop:(id)arg1;
 - (void)_undoManagerCheckpoint:(id)arg1;
 - (void)_processRecentlyForgottenObjects:(id)arg1;
@@ -261,7 +265,6 @@
 - (id)_delegate;
 - (void)_setDelegate:(id)arg1;
 - (BOOL)_parentObtainPermanentIDsForObjects:(id)arg1 context:(id)arg2 error:(id *)arg3;
-- (id)_parentStore;
 - (id)newValueForRelationship:(id)arg1 forObjectWithID:(id)arg2 withContext:(id)arg3 error:(id *)arg4;
 - (id)newValuesForObjectWithID:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
 - (void)managedObjectContextDidUnregisterObjectsWithIDs:(id)arg1;

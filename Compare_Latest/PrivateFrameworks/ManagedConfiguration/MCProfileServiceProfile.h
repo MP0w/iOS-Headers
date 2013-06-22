@@ -28,7 +28,7 @@
 - (id)stubDictionary;
 - (id)payloads;
 - (id)localizedPayloadSummaryByType;
-- (id)initWithDictionary:(id)arg1 originalData:(id)arg2 wasEncrypted:(BOOL)arg3 allowEmptyPayload:(BOOL)arg4 outError:(id *)arg5;
+- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(BOOL)arg2 outError:(id *)arg3;
 - (id)_unsupportedValueErrorWithFieldName:(id)arg1 value:(id)arg2;
 - (id)_badDataTypeErrorWithFieldName:(id)arg1;
 

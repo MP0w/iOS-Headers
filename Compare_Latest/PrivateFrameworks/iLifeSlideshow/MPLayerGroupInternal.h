@@ -11,7 +11,7 @@
 @interface MPLayerGroupInternal : NSObject
 {
     double numberOfLoops;
-    int loopingMode;
+    unsigned int loopingMode;
     double durationPadding;
     double duration;
     double timeIn;
@@ -60,7 +60,7 @@
 @property(nonatomic) int sendLiveNotification; // @synthesize sendLiveNotification;
 @property(retain, nonatomic) NSDictionary *authoredVersionInfo; // @synthesize authoredVersionInfo;
 @property(nonatomic) struct CGColor *backgroundColor; // @synthesize backgroundColor;
-@property(nonatomic) int loopingMode; // @synthesize loopingMode;
+@property(nonatomic) unsigned int loopingMode; // @synthesize loopingMode;
 @property(retain, nonatomic) NSString *backgroundAudioID; // @synthesize backgroundAudioID;
 @property(nonatomic) double phaseOutDuration; // @synthesize phaseOutDuration;
 @property(nonatomic) double phaseInDuration; // @synthesize phaseInDuration;

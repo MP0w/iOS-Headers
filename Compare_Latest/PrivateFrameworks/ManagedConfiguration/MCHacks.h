@@ -10,18 +10,17 @@
 {
 }
 
-+ (void)_sendChangeNotificationsBasedOnDefaultsRemovalByDomain:(id)arg1;
-+ (void)_sendChangeNotificationsBasedOnDefaultsAdditionByDomain:(id)arg1;
-+ (void)_checkCarrierBundleRelatedSettings;
-+ (id)_deviceSpecificDefaultSettings;
-+ (void)_setRequriesEncryptedBackupInLockdownWithEffectiveUserSettings:(id)arg1;
-+ (void)_applyImpliedSettingsToSettingsDictionary:(id)arg1;
-+ (BOOL)_applyHeuristicsToRestrictions:(id)arg1 forProfile:(id)arg2 outError:(id *)arg3;
-+ (id)_selectLargestNumberFromSortedArray:(id)arg1 equalToOrLessThanNumber:(id)arg2;
-+ (id)_permittedAutoLockNumbers;
-+ (id)_permittedGracePeriodNumbers;
-+ (void)_applyServerSideChangesWithOldRestrictions:(id)arg1 newRestrictions:(id)arg2 oldEffectiveUserSettings:(id)arg3 newEffectiveUserSettings:(id)arg4;
-+ (void)_applyChangesWithOldRestrictions:(id)arg1 newRestrictions:(id)arg2 oldEffectiveUserSettings:(id)arg3 newEffectiveUserSettings:(id)arg4;
++ (id)sharedHacks;
+- (void)_sendChangeNotificationsBasedOnDefaultsRemovalByDomain:(id)arg1;
+- (void)_sendChangeNotificationsBasedOnDefaultsAdditionByDomain:(id)arg1;
+- (id)_deviceSpecificDefaultSettings;
+- (void)_setRequriesEncryptedBackupInLockdownWithEffectiveUserSettings:(id)arg1;
+- (void)_applyImpliedSettingsToSettingsDictionary:(id)arg1;
+- (BOOL)_applyHeuristicsToRestrictions:(id)arg1 forProfile:(id)arg2 outError:(id *)arg3;
+- (id)_selectLargestNumberFromSortedArray:(id)arg1 equalToOrLessThanNumber:(id)arg2;
+- (id)_permittedAutoLockNumbers;
+- (id)_permittedGracePeriodNumbers;
+- (void)_applyServerSideChangesWithOldRestrictions:(id)arg1 newRestrictions:(id)arg2 oldEffectiveUserSettings:(id)arg3 newEffectiveUserSettings:(id)arg4;
 
 @end
 

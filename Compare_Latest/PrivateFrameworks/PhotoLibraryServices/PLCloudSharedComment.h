@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSManagedObject.h"
+#import <PhotoLibraryServices/PLManagedObject.h>
 
-@class NSDate, NSNumber, NSString, PLManagedAsset;
+@class NSDate, NSNumber, NSString, PLCloudFeedCommentsEntry, PLManagedAsset;
 
-@interface PLCloudSharedComment : NSManagedObject
+@interface PLCloudSharedComment : PLManagedObject
 {
 }
 
@@ -17,27 +17,35 @@
 + (id)insertNewCommentIntoAsset:(id)arg1 commentDate:(id)arg2 withText:(id)arg3 isLike:(BOOL)arg4 isMyComment:(BOOL)arg5 inLibrary:(id)arg6;
 + (id)entityName;
 + (id)entityInManagedObjectContext:(id)arg1;
-@property(retain, nonatomic) NSString *commenterEmail;
+@property(readonly, nonatomic) NSString *commenterFullName;
+@property(readonly, nonatomic) NSString *commenterLastName;
+@property(readonly, nonatomic) NSString *commenterFirstName;
+@property(readonly, nonatomic) NSString *commenterEmail;
 - (BOOL)canBeDeletedByUser;
 - (id)commenterDisplayName;
 - (BOOL)isInterestingForAlbumsSorting;
 - (BOOL)shouldNotifyAsBulletinWithMediaStreamInfo:(id)arg1 asCaptionOnly:(char *)arg2;
 - (BOOL)_isInterestingToUser;
 @property(readonly, nonatomic) BOOL isLikeBoolValue;
+@property(readonly, nonatomic) PLCloudFeedCommentsEntry *cloudFeedEntry;
 - (id)asset;
 - (void)dealloc;
+- (void)prepareForDeletion;
+- (void)willSave;
 - (void)awakeFromInsert;
 - (id)init;
 
 // Remaining properties
+@property(retain, nonatomic) PLCloudFeedCommentsEntry *cloudFeedCommentEntry; // @dynamic cloudFeedCommentEntry;
+@property(retain, nonatomic) PLCloudFeedCommentsEntry *cloudFeedLikeCommentEntry; // @dynamic cloudFeedLikeCommentEntry;
 @property(retain, nonatomic) NSString *cloudGUID; // @dynamic cloudGUID;
+@property(retain, nonatomic) NSDate *commentClientDate; // @dynamic commentClientDate;
 @property(retain, nonatomic) NSDate *commentDate; // @dynamic commentDate;
 @property(retain, nonatomic) NSString *commentText; // @dynamic commentText;
 @property(retain, nonatomic) NSString *commentType; // @dynamic commentType;
 @property(retain, nonatomic) PLManagedAsset *commentedAsset; // @dynamic commentedAsset;
-@property(retain, nonatomic) NSNumber *commenterEmailKey; // @dynamic commenterEmailKey;
-@property(retain, nonatomic) NSString *commenterFirstName; // @dynamic commenterFirstName;
-@property(retain, nonatomic) NSString *commenterLastName; // @dynamic commenterLastName;
+@property(retain, nonatomic) NSString *commenterHashedPersonID; // @dynamic commenterHashedPersonID;
+@property(retain, nonatomic) NSNumber *isBatchComment; // @dynamic isBatchComment;
 @property(retain, nonatomic) NSNumber *isCaption; // @dynamic isCaption;
 @property(retain, nonatomic) NSNumber *isDeletable; // @dynamic isDeletable;
 @property(retain, nonatomic) NSNumber *isLike; // @dynamic isLike;

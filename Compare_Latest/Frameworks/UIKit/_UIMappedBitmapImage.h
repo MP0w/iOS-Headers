@@ -13,6 +13,7 @@
     NSData *_data;
 }
 
++ (BOOL)supportsSecureCoding;
 + (void)initialize;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 - (id)_initWithOtherImage:(id)arg1;

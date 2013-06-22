@@ -9,6 +9,10 @@
 @protocol PLCameraControllerDelegate <NSObject>
 
 @optional
+- (void)cameraController:(id)arg1 didFinishTransitionToShowEffectsGrid:(BOOL)arg2;
+- (void)cameraController:(id)arg1 didStartTransitionToShowEffectsGrid:(BOOL)arg2 animated:(BOOL)arg3;
+- (void)cameraController:(id)arg1 willTransitionToShowEffectsGrid:(BOOL)arg2;
+- (void)cameraControllerDidChangeEffectFilterIndex:(id)arg1;
 - (void)cameraControllerTorchAvailabilityChanged:(id)arg1;
 - (void)cameraController:(id)arg1 faceMetadataDidChange:(id)arg2;
 - (void)cameraControllerFocusDidEnd:(id)arg1;
@@ -29,7 +33,7 @@
 - (void)cameraControllerDidTakePhoto:(id)arg1;
 - (void)cameraControllerWillTakePhoto:(id)arg1;
 - (void)cameraControllerModeDidChange:(id)arg1;
-- (void)cameraControllerModeWillChange:(id)arg1;
+- (void)cameraController:(id)arg1 willChangeToMode:(int)arg2 device:(int)arg3;
 - (void)cameraController:(id)arg1 cleanApertureDidChange:(struct CGRect)arg2;
 - (void)cameraControllerServerDied:(id)arg1;
 - (void)cameraControllerSessionInterruptionEnded:(id)arg1;
@@ -41,5 +45,6 @@
 - (void)cameraControllerPreviewDidStart:(id)arg1;
 - (void)cameraControllerWillStartPreview:(id)arg1;
 - (void)cameraControllerDidStartSession:(id)arg1;
+- (void)cameraControllerDidSetupSession:(id)arg1;
 @end
 

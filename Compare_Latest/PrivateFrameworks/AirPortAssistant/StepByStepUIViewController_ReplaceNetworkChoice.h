@@ -8,18 +8,10 @@
 
 #import "StepByStepUIDevicePicker-Protocol.h"
 
-@class UILabel, UIView;
-
 @interface StepByStepUIViewController_ReplaceNetworkChoice : StepByStepUIViewController_DevicePicker <StepByStepUIDevicePicker>
 {
-    UIView *tableHeaderContainerView;
-    UIView *justTextContainerView;
-    UILabel *justTextLabel;
 }
 
-@property(retain, nonatomic) UILabel *justTextLabel; // @synthesize justTextLabel;
-@property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
-@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 - (id)devicePickerLabel;
 - (id)deviceTableLabel;
 - (void)setupDevices;

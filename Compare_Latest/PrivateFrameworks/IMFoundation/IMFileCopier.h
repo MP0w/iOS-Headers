@@ -6,21 +6,25 @@
 
 #import "NSObject.h"
 
-@class NSURL;
+@class NSObject<OS_dispatch_queue>, NSURL;
 
 @interface IMFileCopier : NSObject
 {
+    BOOL _shouldCancel;
+    BOOL _didErrorOccur;
+    BOOL _inProgress;
     id <IMFileCopierDelegate> _delegate;
     NSURL *_inputURL;
     NSURL *_outputURL;
     id _identifier;
-    BOOL _shouldCancel;
-    BOOL _didErrorOccur;
-    BOOL _inProgress;
     unsigned int _operation;
     void *_BOMCopier;
+    NSObject<OS_dispatch_queue> *_queue;
+    id _callback;
 }
 
+@property id _callback; // @synthesize _callback;
+@property NSObject<OS_dispatch_queue> *_queue; // @synthesize _queue;
 @property void *_BOMCopier; // @synthesize _BOMCopier;
 @property unsigned int operation; // @synthesize operation=_operation;
 @property BOOL inProgress; // @synthesize inProgress=_inProgress;
@@ -38,6 +42,7 @@
 - (void)_fillOutputURLFromInputURL;
 - (id)_temporaryCopierPath;
 - (void)dealloc;
+- (id)initWithInputURL:(id)arg1 outputURL:(id)arg2 identifier:(id)arg3 operation:(unsigned int)arg4 completionBlock:(id)arg5 queue:(void)arg6;
 - (id)initWithInputURL:(id)arg1 outputURL:(id)arg2 identifier:(id)arg3 operation:(unsigned int)arg4 delegate:(id)arg5;
 
 @end

@@ -8,15 +8,15 @@
 
 @interface HSNetworkObserver : NSObject
 {
-    int _networkType;
-    BOOL _shouldProhibitRequests;
     BOOL _isCellularNetworkingAllowed;
+    BOOL _shouldProhibitRequests;
+    int _networkType;
 }
 
 + (id)sharedNetworkObserver;
-@property(readonly, nonatomic) BOOL isCellularNetworkingAllowed; // @synthesize isCellularNetworkingAllowed=_isCellularNetworkingAllowed;
 @property(readonly, nonatomic) BOOL shouldProhibitRequests; // @synthesize shouldProhibitRequests=_shouldProhibitRequests;
 @property(readonly, nonatomic) int networkType; // @synthesize networkType=_networkType;
+@property(readonly, nonatomic) BOOL isCellularNetworkingAllowed; // @synthesize isCellularNetworkingAllowed=_isCellularNetworkingAllowed;
 - (void)_updateShouldProhibitRequestsWithNotification:(BOOL)arg1;
 - (BOOL)_isCellularNetworkingAllowed;
 - (void)_networkTypeDidChangeNotification:(id)arg1;

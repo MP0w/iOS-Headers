@@ -4,18 +4,19 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "SBAlert.h"
+#import "SBAlertAdapter.h"
 
-@class SBAlertView, SBUIFullscreenAlertController;
-
-@interface SBUIFullscreenAlertAdapter : SBAlert
+@interface SBUIFullscreenAlertAdapter : SBAlertAdapter
 {
-    SBUIFullscreenAlertController *_alertController;
-    SBAlertView *_alertDisplay;
     BOOL _animatingDeactivation;
 }
 
-- (id)description;
++ (id)_adapterForController:(id)arg1;
++ (void)alertAdapterDisplayDidDisappear:(id)arg1;
++ (void)deactivateAlertForController:(id)arg1 animated:(BOOL)arg2 animateOldDisplayInWithStyle:(int)arg3 isSlidingDisplay:(BOOL)arg4;
++ (void)activateAlertForController:(id)arg1 animated:(BOOL)arg2 animateCurrentDisplayOut:(BOOL)arg3 withDelay:(BOOL)arg4 isSlidingDisplay:(BOOL)arg5;
+- (id)effectiveViewController;
+- (void)setDisplay:(id)arg1;
 - (void)launchSucceeded:(BOOL)arg1;
 - (void)handleAutoLock;
 - (BOOL)handleHeadsetButtonPressed:(BOOL)arg1;
@@ -23,26 +24,20 @@
 - (BOOL)handleVolumeUpButtonPressed;
 - (BOOL)handleLockButtonPressed;
 - (BOOL)handleMenuButtonTap;
-- (BOOL)dismissPresentedModalAlertIfNecessary;
-- (void)presentAlertModally:(id)arg1;
-- (void)alertWindow:(id)arg1 didRotateFromInterfaceOrientation:(int)arg2;
-- (void)alertWindow:(id)arg1 willAnimateRotationToInterfaceOrientation:(int)arg2 duration:(double)arg3;
-- (void)alertWindow:(id)arg1 willRotateToInterfaceOrientation:(int)arg2 duration:(double)arg3;
-- (void)alertWindow:(id)arg1 resizedFromContentFrame:(struct CGRect)arg2 toContentFrame:(struct CGRect)arg3;
-- (id)alertController;
+- (void)displayDidDisappear;
 - (void)_updateForTransparentDismiss:(id)arg1;
 - (void)_pluginViewAnimatedOut:(id)arg1;
 - (void)animateViewOut;
 - (void)prepareViewToAnimateOut;
 - (BOOL)currentlyAnimatingDeactivation;
 - (void)setViewShouldAnimateIn:(BOOL)arg1;
-- (BOOL)viewDisplaysAboveStatusBar;
 - (BOOL)viewIsReadyToBeRemoved;
+- (id)display;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
-- (void)dealloc;
 - (BOOL)allowsStackingOfAlert:(id)arg1;
 - (BOOL)hasTranslucentBackground;
 - (BOOL)allowsEventOnlySuspension;
+- (void)dealloc;
 - (id)initWithAlertController:(id)arg1;
 
 @end

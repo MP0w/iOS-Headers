@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class CPProgressStage, NSDate, NSMutableArray;
+@class CPProgressStage, NSDate, NSMutableArray, TSUProgressContext;
 
 @interface CPProgressContext : NSObject
 {
+    TSUProgressContext *m_parentProgressContext;
     CPProgressStage *m_currentStage;
     NSDate *m_lastReportTime;
     NSMutableArray *m_stackOfBranches;
@@ -29,14 +30,14 @@
 + (void)removeProgressObserver:(id)arg1;
 + (void)addProgressObserver:(id)arg1 selector:(SEL)arg2;
 + (void)removeContextForCurrentThread;
-+ (void)createContextForCurrentThread;
++ (void)createContextForCurrentThreadWithParentContext:(id)arg1;
 + (id)stageForCurrentThread;
 + (id)contextForCurrentThread;
 - (void)reportProgress:(double)arg1;
 - (id)rootStage;
 - (id)currentStage;
 - (void)dealloc;
-- (id)init;
+- (id)initWithParentContext:(id)arg1;
 
 @end
 

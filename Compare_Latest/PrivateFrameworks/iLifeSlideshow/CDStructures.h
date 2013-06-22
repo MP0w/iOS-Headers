@@ -21,17 +21,6 @@ struct CGSize {
     float height;
 };
 
-struct FaceCoreAPI {
-    void **_field1;
-    struct FaceCoreAPIInternal *_field2;
-    struct FaceCoreContext *_field3;
-    void *_field4;
-};
-
-struct FaceCoreAPIInternal;
-
-struct FaceCoreContext;
-
 struct FunctionInterpreter<double> {
     void **_field1;
     struct Parser<double> *_field2;
@@ -96,7 +85,8 @@ typedef struct {
     id _field2;
     id _field3;
     char _field4;
-} CDStruct_76c99235;
+    char _field5;
+} CDStruct_7b508128;
 
 typedef struct {
     id _field1;

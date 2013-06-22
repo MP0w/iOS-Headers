@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSURLAuthenticationChallenge, NSURLConnectionDelegateProxy;
+@class NSOperationQueue, NSURLAuthenticationChallenge, NSURLConnectionDelegateProxy;
 
 @interface NSURLDownloadInternal : NSObject
 {
@@ -16,6 +16,7 @@
     NSURLConnectionDelegateProxy *proxy;
     id delegate;
     BOOL downloadActive;
+    NSOperationQueue *_targetQueue;
 }
 
 - (void)dealloc;

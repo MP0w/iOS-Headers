@@ -18,6 +18,7 @@
 
 + (float)verticalAdjust;
 + (struct CGSize)defaultSize;
+- (void).cxx_destruct;
 - (void)_updateRatingForPoint:(struct CGPoint)arg1;
 - (void)_tappedAction:(id)arg1 event:(id)arg2;
 - (struct CGRect)hitRect;

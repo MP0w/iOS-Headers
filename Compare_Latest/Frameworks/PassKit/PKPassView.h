@@ -8,7 +8,7 @@
 
 #import "PKPassFaceDelegate-Protocol.h"
 
-@class NSString, PKPass, PKPassBackFaceView, PKPassColorProfile, PKPassFaceView, PKPassFrontFaceView, UIImage;
+@class NSString, PKPass, PKPassBackFaceView, PKPassColorProfile, PKPassFaceView, PKPassFrontFaceView;
 
 @interface PKPassView : UIView <PKPassFaceDelegate>
 {
@@ -17,16 +17,13 @@
     PKPassFaceView *_visibleFace;
     PKPassFaceView *_otherFace;
     PKPassColorProfile *_colorProfile;
-    UIImage *_cardFrontSnapshot;
     id <WLCardViewDelegate> _delegate;
+    BOOL _backFaceIsTall;
     PKPass *_pass;
     int _contentMode;
-    BOOL _backFaceIsTall;
     int _suppressedContent;
-    UIImage *_passFrontSnapshot;
 }
 
-@property(retain, nonatomic) UIImage *passFrontSnapshot; // @synthesize passFrontSnapshot=_passFrontSnapshot;
 @property(nonatomic) int suppressedContent; // @synthesize suppressedContent=_suppressedContent;
 @property(nonatomic) BOOL backFaceIsTall; // @synthesize backFaceIsTall=_backFaceIsTall;
 @property(nonatomic) int contentMode; // @synthesize contentMode=_contentMode;
@@ -37,27 +34,33 @@
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (void)_flipPass:(BOOL)arg1;
+- (void)_flipPass:(BOOL)arg1 fromLeft:(BOOL)arg2 notify:(BOOL)arg3;
 - (void)applicationDidEnterBackground:(id)arg1;
 - (void)unregisterForEnterBackgroundNotification;
 - (void)registerForEnterBackgroundNotification;
 - (void)_updateBackFaceSuppressedContent;
+- (void)_updateFrontFaceSuppressedContent;
 - (BOOL)_visibleFaceShouldClipForCurrentViewMode:(float *)arg1;
 - (int)_regionsForCurrentModes;
 - (int)_frontFaceBackgroundModeForContentMode;
 - (void)_applyContentMode;
+- (void)passFaceShareButtonPressed:(id)arg1;
+- (void)passFaceFlipButtonPressed:(id)arg1;
 - (BOOL)passFaceDeleteButtonEnabled;
 - (void)passFaceDeleteButtonPressed:(id)arg1;
-- (void)passFaceFlipButtonPressed:(id)arg1;
-- (void)flipPass:(BOOL)arg1;
+- (void)flipPass:(BOOL)arg1 fromLeft:(BOOL)arg2 notify:(BOOL)arg3;
 - (void)createBackFaceIfNecessary;
+- (void)updateValidityDisplay;
 - (void)presentDiff:(id)arg1 completion:(id)arg2;
 - (void)layoutSubviews;
 - (void)setContentMode:(int)arg1 withDuration:(double)arg2;
 - (void)setDimmer:(float)arg1 animated:(BOOL)arg2;
+@property(readonly, nonatomic) BOOL frontFaceBodyContentCreated;
 @property(readonly, nonatomic) BOOL showingFront;
 @property(readonly, nonatomic) NSString *uniqueID;
 - (id)item;
+- (void)prepareForFlip;
+- (id)snapshotOfFrontFace;
 - (struct CGRect)frameOfVisibleFace;
 - (struct CGSize)sizeOfFrontFace;
 - (struct CGSize)sizeOfBackFace;

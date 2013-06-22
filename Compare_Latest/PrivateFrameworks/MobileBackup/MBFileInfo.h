@@ -13,8 +13,8 @@
 
 @interface MBFileInfo : NSObject <NSCopying, NSCoding>
 {
-    NSString *_path;
     BOOL _isDirectory;
+    NSString *_path;
     int _priority;
     NSDictionary *_extendedAttributes;
 }

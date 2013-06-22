@@ -10,7 +10,7 @@
 #import "MSASAssetUploaderDelegate-Protocol.h"
 #import "MSBackoffManagerDelegate-Protocol.h"
 
-@class MSASAssetDownloader, MSASAssetUploader, MSASPersonModel, MSASProtocol, MSAlbumSharingDaemon, MSBackoffManager, MSImageScalingSpecification, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
+@class MSASAssetDownloader, MSASAssetUploader, MSASPersonModel, MSASPhoneInvitations, MSASProtocol, MSAlbumSharingDaemon, MSBackoffManager, MSImageScalingSpecification, NSArray, NSDictionary, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
 
 @interface MSASStateMachine : NSObject <MSBackoffManagerDelegate, MSASAssetUploaderDelegate, MSASAssetDownloaderDelegate>
 {
@@ -23,6 +23,8 @@
     MSBackoffManager *_MMCSBackoffManager;
     MSASAssetUploader *_assetUploader;
     MSASAssetDownloader *_assetDownloader;
+    BOOL _isRetryingOutstandingActivities;
+    BOOL _hasShutDown;
     MSAlbumSharingDaemon *_daemon;
     NSString *_personID;
     id _delegate;
@@ -31,32 +33,34 @@
     NSString *_serverSideConfigurationVersion;
     NSString *_focusAlbumGUID;
     NSString *_focusAssetCollectionGUID;
-    BOOL _isRetryingOutstandingActivities;
     NSMutableArray *_assetInfoToReauthForDownload;
     id _stopHandlerBlock;
     MSASProtocol *_protocol;
+    MSASPhoneInvitations *_phoneInvitations;
     MSImageScalingSpecification *_derivativeImageScalingSpecification;
     MSImageScalingSpecification *_thumbnailImageScalingSpecification;
-    BOOL _hasShutDown;
+    NSArray *_derivativeSpecifications;
     NSDictionary *_metadataBackoffManagerParameters;
     NSDictionary *_MMCSBackoffManagerParameters;
-    NSObject<OS_dispatch_queue> *_serverSideConfigQueue;
+    NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_eventQueue;
+    NSObject<OS_dispatch_queue> *_serverSideConfigQueue;
     NSObject<OS_dispatch_queue> *_memberQueue;
     id _postCommandCompletionBlock;
-    NSObject<OS_dispatch_queue> *_workQueue;
 }
 
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(copy, nonatomic) id postCommandCompletionBlock; // @synthesize postCommandCompletionBlock=_postCommandCompletionBlock;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *memberQueue; // @synthesize memberQueue=_memberQueue;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *eventQueue; // @synthesize eventQueue=_eventQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *serverSideConfigQueue; // @synthesize serverSideConfigQueue=_serverSideConfigQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *eventQueue; // @synthesize eventQueue=_eventQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) NSDictionary *MMCSBackoffManagerParameters; // @synthesize MMCSBackoffManagerParameters=_MMCSBackoffManagerParameters;
 @property(retain, nonatomic) NSDictionary *metadataBackoffManagerParameters; // @synthesize metadataBackoffManagerParameters=_metadataBackoffManagerParameters;
 @property(nonatomic) BOOL hasShutDown; // @synthesize hasShutDown=_hasShutDown;
-@property(retain, nonatomic) MSImageScalingSpecification *thumbnailImageScalingSpecification; // @synthesize thumbnailImageScalingSpecification=_thumbnailImageScalingSpecification;
-@property(retain, nonatomic) MSImageScalingSpecification *derivativeImageScalingSpecification; // @synthesize derivativeImageScalingSpecification=_derivativeImageScalingSpecification;
+@property(readonly, nonatomic) NSArray *derivativeSpecifications; // @synthesize derivativeSpecifications=_derivativeSpecifications;
+@property(readonly, nonatomic) MSImageScalingSpecification *thumbnailImageScalingSpecification; // @synthesize thumbnailImageScalingSpecification=_thumbnailImageScalingSpecification;
+@property(readonly, nonatomic) MSImageScalingSpecification *derivativeImageScalingSpecification; // @synthesize derivativeImageScalingSpecification=_derivativeImageScalingSpecification;
+@property(retain, nonatomic) MSASPhoneInvitations *phoneInvitations; // @synthesize phoneInvitations=_phoneInvitations;
 @property(retain, nonatomic) MSASProtocol *protocol; // @synthesize protocol=_protocol;
 @property(copy, nonatomic, setter=_setStopHandlerBlock:) id _stopHandlerBlock; // @synthesize _stopHandlerBlock;
 @property(retain, nonatomic, setter=_setAssetInfoToReauthForDownload:) NSMutableArray *_assetInfoToReauthForDownload; // @synthesize _assetInfoToReauthForDownload;
@@ -71,12 +75,15 @@
 - (void)MSASAssetDownloaderDidFinishBatch:(id)arg1;
 - (void)_sendReauthorizeAssetsForDownloadDisposition:(int)arg1 params:(id)arg2;
 - (void)workQueueScheduleReauthForAssets:(id)arg1 inAlbum:(id)arg2;
-- (void)MSASAssetDownloader:(id)arg1 didFinishDownloadingAsset:(id)arg2 inAlbum:(id)arg3 error:(id)arg4;
+- (void)MSASAssetDownloader:(id)arg1 didFinishDownloadingAsset:(id)arg2 inAlbumGUID:(id)arg3 error:(id)arg4;
 - (void)MSASAssetDownloader:(id)arg1 willBeginBatchCount:(unsigned int)arg2;
 - (void)retrieveAssets:(id)arg1 inAlbum:(id)arg2;
 - (void)MSASAssetUploader:(id)arg1 didFinishUploadingAssetCollection:(id)arg2 intoAlbum:(id)arg3 error:(id)arg4;
 - (void)_deleteAssetFilesInAssetCollections:(id)arg1;
 - (void)_deleteAssetFilesInAssetCollection:(id)arg1;
+- (void)videoURLsForAssetCollection:(id)arg1 forMediaAssetType:(unsigned int)arg2 inAlbum:(id)arg3 completionBlock:(id)arg4;
+- (void)videoURLForAssetCollection:(id)arg1 inAlbum:(id)arg2 completionBlock:(id)arg3;
+- (void)setMultipleContributorsEnabled:(BOOL)arg1 forAlbum:(id)arg2 info:(id)arg3 completionBlock:(id)arg4;
 - (void)setPublicAccessEnabled:(BOOL)arg1 forAlbum:(id)arg2 info:(id)arg3 completionBlock:(id)arg4;
 - (void)_scheduleEventDisposition:(int)arg1 params:(id)arg2;
 - (void)scheduleEvent:(id)arg1 assetCollectionGUID:(id)arg2 albumGUID:(id)arg3 info:(id)arg4;
@@ -86,6 +93,7 @@
 - (void)removeSharingRelationships:(id)arg1 fromOwnedAlbum:(id)arg2 info:(id)arg3;
 - (void)_addSharingRelationshipsDisposition:(int)arg1 params:(id)arg2;
 - (void)addSharingRelationships:(id)arg1 toOwnedAlbum:(id)arg2 info:(id)arg3;
+- (void)_sendGetUploadTokensDisposition:(int)arg1 params:(id)arg2;
 - (void)_sendPutAssetCollectionsDisposition:(int)arg1 params:(id)arg2;
 - (void)_sendUploadCompleteDisposition:(int)arg1 params:(id)arg2;
 - (void)_continueAddingAssetCollectionsDisposition:(int)arg1 params:(id)arg2;
@@ -147,6 +155,7 @@
 - (id)persistentObjectForKey:(id)arg1;
 - (void)MSBackoffManagerDidUpdateNextExpiryDate:(id)arg1;
 - (void)workQueueUpdateNextActivityDate;
+- (id)serverCommunicationBackoffDate;
 - (id)latestNextActivityDate;
 - (void)_sendGetServerSideConfigurationDisposition:(int)arg1 params:(id)arg2;
 - (void)workQueueRefreshServerSideConfig;
@@ -159,6 +168,9 @@
 - (void)_cancelOutstandingCommandsDisposition:(int)arg1 params:(id)arg2;
 - (void)cancelOutstandingCommandsForAssetCollectionWithGUID:(id)arg1;
 - (void)cancelOutstandingCommandsForAlbumWithGUID:(id)arg1;
+- (id)rootCtagToCheckForChanges;
+- (void)setRootCtagFromPendingRootCtag;
+- (void)setPendingRootCtag:(id)arg1;
 - (void)workQueueCancelCompletionBlock:(id)arg1;
 - (void)workQueueCancelAllCommandsFilteredByAlbumGUID:(id)arg1 assetCollectionGUID:(id)arg2;
 - (void)cancelCompletionBlock:(id)arg1;

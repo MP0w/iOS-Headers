@@ -8,12 +8,13 @@
 
 #import "NSCopying-Protocol.h"
 
-@class AVMetadataItem, NSArray, NSDictionary, NSString;
+@class AVMetadataItem, NSArray, NSData, NSDictionary, NSString;
 
 @interface AVAssetInspector : AVFigObjectInspector <NSCopying>
 {
 }
 
+@property(readonly, nonatomic) NSData *SHA1Digest;
 @property(readonly, nonatomic, getter=isComposable) BOOL composable;
 @property(readonly, nonatomic, getter=isReadable) BOOL readable;
 @property(readonly, nonatomic, getter=isExportable) BOOL exportable;

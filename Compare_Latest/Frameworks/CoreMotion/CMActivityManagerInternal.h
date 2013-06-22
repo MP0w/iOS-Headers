@@ -6,18 +6,26 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>;
+
 @interface CMActivityManagerInternal : NSObject
 {
     struct CLConnectionClient *fLocationdConnection;
     id fActivityHandler;
-    struct dispatch_source_s *fWatchdogTimer;
-    struct dispatch_queue_s *fPrivateQueue;
+    NSObject<OS_dispatch_source> *fWatchdogTimer;
+    NSObject<OS_dispatch_queue> *fPrivateQueue;
+    BOOL fSubscribedToMotionState;
+    NSObject<OS_dispatch_semaphore> *fSidebandOverrideSemaphore;
+    NSObject<OS_dispatch_queue> *fSidebandOverrideQueue;
+    BOOL fSidebandOverrideWaiting;
 }
 
 - (void)stopActivityUpdatesPrivate;
 - (void)startActivityUpdatesWithHandlerPrivate:(id)arg1;
 - (void)stopWatchdogCheckinsPrivate;
 - (void)startWatchdogCheckinsPrivate;
+- (void)disconnect;
+- (void)connect;
 - (void)dealloc;
 - (id)init;
 

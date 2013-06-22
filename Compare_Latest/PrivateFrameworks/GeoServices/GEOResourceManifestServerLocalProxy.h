@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-#import "GEOResourceLoaderDelegate-Protocol.h"
 #import "GEOResourceManifestServerProxy-Protocol.h"
 #import "NSURLConnectionDelegate-Protocol.h"
 
-@class GEOActiveTileGroup, GEORegionalResourcesInfo, GEORegionalResourcesLoader, GEOResourceLoader, GEOResourceManifestDownload, NSError, NSLock, NSMutableData, NSMutableDictionary, NSString, NSTimer, NSURLConnection;
+@class GEOActiveTileGroup, GEOResourceLoader, GEOResourceManifestDownload, NSError, NSLock, NSMutableData, NSMutableDictionary, NSString, NSTimer, NSURLConnection;
 
-@interface GEOResourceManifestServerLocalProxy : NSObject <NSURLConnectionDelegate, GEOResourceLoaderDelegate, GEOResourceManifestServerProxy>
+@interface GEOResourceManifestServerLocalProxy : NSObject <NSURLConnectionDelegate, GEOResourceManifestServerProxy>
 {
     id <GEOResourceManifestServerProxyDelegate> _delegate;
     NSURLConnection *_connection;
@@ -24,10 +23,8 @@
     NSTimer *_tileGroupUpdateTimer;
     GEOResourceManifestDownload *_resourceManifest;
     GEOActiveTileGroup *_activeTileGroup;
-    GEORegionalResourcesInfo *_regionalResourcesInfo;
     GEOResourceLoader *_resourceLoader;
     NSMutableDictionary *_resourceRetainCounts;
-    GEORegionalResourcesLoader *_regionalResourcesLoader;
     BOOL _started;
     BOOL _hiDPI;
     unsigned int _manifestRetryCount;
@@ -38,12 +35,11 @@
 }
 
 @property(nonatomic) id <GEOResourceManifestServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
-- (oneway void)cancelRegionalResourcesLoadForKeys:(id)arg1;
-- (oneway void)loadRegionalResourcesForKeys:(id)arg1 allowNetwork:(BOOL)arg2;
+- (void)_purgeOldRegionalResources;
 - (oneway void)releaseResources:(id)arg1;
 - (oneway void)retainResources:(id)arg1;
 - (void)_retainResource:(id)arg1;
-- (id)resourceLoader:(id)arg1 resourceNamesForTileGroupWithIdentifier:(unsigned int)arg2 type:(int)arg3;
+- (id)_resourceInfosForTileGroup:(id)arg1;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
@@ -60,15 +56,16 @@
 - (void)_countryProvidersDidChange:(id)arg1;
 - (void)_writeManifestToDisk:(id)arg1;
 - (void)_writeActiveTileGroupToDisk:(id)arg1;
-- (oneway void)refreshActiveTileGroup;
+- (void)_activeTileGroupOverridesChanged:(id)arg1;
 - (oneway void)resetActiveTileGroup;
 - (oneway void)setActiveTileGroupIdentifier:(id)arg1;
 - (void)_cleanupConnection;
 - (void)_cancelConnection;
-- (void)_forceChangeActiveTileGroup:(id)arg1 flushTileCache:(BOOL)arg2;
+- (void)_forceChangeActiveTileGroup:(id)arg1 flushTileCache:(BOOL)arg2 ignoreIdentifier:(BOOL)arg3;
 - (void)_tileGroupTimerFired:(id)arg1;
 - (void)_scheduleTileGroupUpdateTimerWithTimeInterval:(double)arg1;
 - (void)_considerChangingActiveTileGroup;
+- (id)_idealTileGroupToUse;
 - (void)_changeActiveTileGroup:(id)arg1 flushTileCache:(BOOL)arg2;
 - (void)_loadFromDisk;
 - (oneway void)startServer:(id)arg1;
@@ -77,6 +74,7 @@
 - (void)openConnection;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
+- (id)serverQueue;
 
 @end
 

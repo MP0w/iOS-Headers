@@ -11,7 +11,7 @@
 - (BOOL)removeItemsAtPaths:(id)arg1;
 - (id)pathsAtDirectory:(id)arg1 withNameFamily:(id)arg2;
 - (BOOL)directoryExistsAtPath:(id)arg1;
-- (id)tmpFileForVideoTranscode;
+- (id)tmpFileForVideoTranscodeWithExtension:(id)arg1;
 - (id)makeUniqueDirectoryWithPath:(id)arg1;
 @end
 

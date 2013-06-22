@@ -21,7 +21,7 @@
     int keyboardType;
     int autoCapsType;
     int autoCorrectionType;
-    int textFieldType;
+    unsigned int textFieldType;
     NSString *_name;
     NSArray *_values;
     NSDictionary *_titleDict;
@@ -41,6 +41,7 @@
 + (id)emptyGroupSpecifier;
 + (id)groupSpecifierWithName:(id)arg1;
 + (id)preferenceSpecifierNamed:(id)arg1 target:(id)arg2 set:(SEL)arg3 get:(SEL)arg4 detail:(Class)arg5 cell:(int)arg6 edit:(Class)arg7;
++ (id)deleteButtonSpecifierWithName:(id)arg1 target:(id)arg2 action:(SEL)arg3;
 @property(nonatomic) BOOL showContentString; // @synthesize showContentString=_showContentString;
 @property(nonatomic) SEL controllerLoadAction; // @synthesize controllerLoadAction=_controllerLoadAction;
 @property(nonatomic) SEL buttonAction; // @synthesize buttonAction=_buttonAction;
@@ -62,6 +63,7 @@
 - (void)dealloc;
 - (void)setupIconImageWithPath:(id)arg1;
 - (void)setupIconImageWithBundle:(id)arg1;
+- (void)setValues:(id)arg1 titles:(id)arg2 shortTitles:(id)arg3 usingLocalizedTitleSorting:(BOOL)arg4;
 - (void)setValues:(id)arg1 titles:(id)arg2 shortTitles:(id)arg3;
 - (void)setValues:(id)arg1 titles:(id)arg2;
 - (void)loadValuesAndTitlesFromDataSource;

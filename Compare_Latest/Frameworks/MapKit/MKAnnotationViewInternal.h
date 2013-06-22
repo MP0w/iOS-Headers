@@ -6,31 +6,8 @@
 
 #import "NSObject.h"
 
-@class NSString, UICalloutView, UIImage, UIView;
-
 @interface MKAnnotationViewInternal : NSObject
 {
-    id <MKAnnotation> annotation;
-    UICalloutView *calloutView;
-    UIView *leftCalloutAccessoryView;
-    UIView *rightCalloutAccessoryView;
-    NSString *reuseIdentifier;
-    UIImage *image;
-    unsigned int mapType;
-    unsigned int zIndex;
-    struct CGPoint centerOffset;
-    struct CGPoint calloutOffset;
-    struct CGAffineTransform mapTransform;
-    unsigned int dragState;
-    struct {
-        unsigned int disabled:1;
-        unsigned int selected:1;
-        unsigned int canShowCallout:1;
-        unsigned int isHighlighted:1;
-        unsigned int canDisplayDisclosureInCallout:1;
-        unsigned int canDisplayPlacemarkInCallout:1;
-        unsigned int draggable:1;
-    } flags;
 }
 
 @end

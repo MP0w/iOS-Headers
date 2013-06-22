@@ -11,36 +11,28 @@
 @interface NSConcreteFileHandle : NSFileHandle
 {
     int _fd;
-    void *_nativeHandle;
-    NSObject<OS_dispatch_data> *_anchor;
     unsigned short _flags;
-    NSObject<OS_dispatch_source> *_dsrc;
-    char _padding[2];
     struct __CFRunLoopSource *_source;
     struct __CFRunLoop *_rl;
     unsigned short _activity;
-    char _padding2[2];
     int _error;
-    void *_resultBytes;
-    unsigned long _resultLength;
     int _resultSocket;
-    NSObject<OS_dispatch_queue> *_fhLock;
-    long long _weakRefCount;
+    NSObject<OS_dispatch_source> *_dsrc;
+    NSObject<OS_dispatch_data> *_resultData;
+    NSObject<OS_dispatch_queue> *_fhQueue;
     id _readabilityHandler;
     id _writeabilityHandler;
     NSObject<OS_dispatch_source> *_readMonitoringSource;
     NSObject<OS_dispatch_source> *_writeMonitoringSource;
-    NSObject<OS_dispatch_queue> *_readMonitoringQueue;
-    NSObject<OS_dispatch_queue> *_writeMonitoringQueue;
+    NSObject<OS_dispatch_queue> *_monitoringQueue;
 }
 
 - (void)setWriteabilityHandler:(id)arg1;
-- (void)clearWriteabilityHandler;
 - (id)writeabilityHandler;
 - (void)setReadabilityHandler:(id)arg1;
-- (void)clearReadabilityHandler;
 - (id)readabilityHandler;
-- (id)_monitor:(const struct dispatch_source_type_s *)arg1 source:(id)arg2 onQueue:(id)arg3;
+- (void)_locked_clearHandler:(id *)arg1 forSource:(void)arg2;
+- (id)_monitor:(int)arg1;
 - (void)waitForDataInBackgroundAndNotify;
 - (void)waitForDataInBackgroundAndNotifyForModes:(id)arg1;
 - (void)acceptConnectionInBackgroundAndNotify;
@@ -53,6 +45,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)finalize;
 - (void)dealloc;
+- (void)_commonDealloc;
 - (void)setPort:(id)arg1;
 - (id)port;
 - (void)closeFile;
@@ -69,15 +62,12 @@
 - (id)availableData;
 - (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3;
 - (id)initWithPath:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
+- (id)initWithURL:(id)arg1 flags:(int)arg2 createMode:(int)arg3 error:(id *)arg4;
 - (id)initWithFileDescriptor:(int)arg1;
 - (id)initWithFileDescriptor:(int)arg1 closeOnDealloc:(BOOL)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (int)fileDescriptor;
-- (void)lockedRelease;
-- (id)lockedRetain;
-- (oneway void)release;
-- (id)retain;
 
 @end
 

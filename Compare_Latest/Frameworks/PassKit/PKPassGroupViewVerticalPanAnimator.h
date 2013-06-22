@@ -11,19 +11,19 @@
 @interface PKPassGroupViewVerticalPanAnimator : NSObject
 {
     _UIDynamicValueAnimation *_panningAnimation;
-    struct CGPoint _panningViewTargetPosition;
-    float _panningViewTargetScale;
-    PKPassGroupView *_panningGroupView;
-    struct CGPoint _panningViewStartPosition;
     UIPanGestureRecognizer *_gestureRecognizer;
+    PKPassGroupView *_panningGroupView;
+    float _panningViewTargetScale;
+    struct CGPoint _panningViewStartPosition;
+    struct CGPoint _panningViewTargetPosition;
 }
 
-@property(retain, nonatomic) UIPanGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
-@property(nonatomic) struct CGPoint panningViewStartPosition; // @synthesize panningViewStartPosition=_panningViewStartPosition;
-@property(retain, nonatomic) PKPassGroupView *panningGroupView; // @synthesize panningGroupView=_panningGroupView;
 @property(nonatomic) float panningViewTargetScale; // @synthesize panningViewTargetScale=_panningViewTargetScale;
 @property(nonatomic) struct CGPoint panningViewTargetPosition; // @synthesize panningViewTargetPosition=_panningViewTargetPosition;
-- (void)animateWithStartVelocity:(float)arg1 completion:(id)arg2;
+@property(nonatomic) struct CGPoint panningViewStartPosition; // @synthesize panningViewStartPosition=_panningViewStartPosition;
+@property(retain, nonatomic) PKPassGroupView *panningGroupView; // @synthesize panningGroupView=_panningGroupView;
+@property(retain, nonatomic) UIPanGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
+- (void)dismissWithStartVelocity:(float)arg1 completion:(id)arg2;
 - (id)_dynamicAnimationWithStart:(float)arg1 target:(float)arg2 initialVelocity:(float)arg3;
 - (void)layoutViewsWithY:(float)arg1;
 - (void)stop;

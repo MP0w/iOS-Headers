@@ -6,7 +6,7 @@
 
 #import <OfficeImport/OCDDocument.h>
 
-@class NSMutableArray, NSMutableDictionary, OADTextListStyle;
+@class NSMutableArray, NSMutableDictionary;
 
 @interface PDPresentation : OCDDocument
 {
@@ -21,12 +21,11 @@
     BOOL mIsLooping;
     BOOL mIsKiosk;
     NSMutableDictionary *mCommentAuthors;
-    OADTextListStyle *mDefaultTextStyle;
 }
 
 - (id).cxx_construct;
+- (void)ensureDefaultLayoutsForMasters;
 - (void)flushUnusedMastersAndLayouts;
-- (id)defaultTextStyle;
 - (void)setCommentAuthor:(id)arg1 forId:(unsigned int)arg2;
 - (id)commentAuthorForId:(unsigned int)arg1;
 - (void)setIsKiosk:(BOOL)arg1;
@@ -57,6 +56,8 @@
 - (unsigned int)slideMasterCount;
 - (void)dealloc;
 - (id)init;
+- (void)cacheGraphicStylesForSlideBase:(id)arg1;
+- (void)cacheGraphicStyleForDrawable:(id)arg1 colorContext:(id)arg2;
 
 @end
 

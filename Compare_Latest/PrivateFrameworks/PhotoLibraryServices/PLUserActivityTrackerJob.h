@@ -10,9 +10,9 @@
 
 @interface PLUserActivityTrackerJob : PLDaemonJob
 {
-    long long _activity;
     NSArray *_uuids;
     NSString *_clientID;
+    long long _activity;
 }
 
 + (id)persistentStoreCoordinator;
@@ -48,13 +48,13 @@
 + (void)trackVideoWasPlayed:(id)arg1;
 + (void)trackPhotoWasViewed:(id)arg1;
 + (void)trackAlbumChosenForPictureFrame:(struct NSObject *)arg1;
-+ (void)trackAlbumStartedSlideShow:(struct NSObject *)arg1;
++ (void)trackAssetContainerStartedSlideShow:(id)arg1;
 @property(retain, nonatomic) NSString *clientID; // @synthesize clientID=_clientID;
 @property(retain, nonatomic) NSArray *uuids; // @synthesize uuids=_uuids;
 @property(nonatomic) long long activity; // @synthesize activity=_activity;
 - (void)runDaemonSide;
 - (void)run;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 - (id)initFromXPCObject:(id)arg1;
 - (void)encodeToXPCObject:(id)arg1;
 - (void)dealloc;

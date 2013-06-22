@@ -16,10 +16,10 @@
     BOOL _immutable;
 }
 
+@property(readonly, nonatomic) BOOL immutable; // @synthesize immutable=_immutable;
 @property(nonatomic) float position; // @synthesize position=_position;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(retain, nonatomic) NSString *string; // @synthesize string=_string;
-@property(readonly, nonatomic) BOOL immutable; // @synthesize immutable=_immutable;
 - (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;

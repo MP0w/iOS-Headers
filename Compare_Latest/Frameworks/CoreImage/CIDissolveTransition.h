@@ -16,13 +16,13 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSNumber *inputTime; // @synthesize inputTime;
+@property(retain, nonatomic) NSNumber *inputTime; // @synthesize inputTime;
 @property(retain, nonatomic) CIImage *inputTargetImage; // @synthesize inputTargetImage;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
-- (void)setDefaults;
 - (id)_fadeKernel;
 - (id)_kernel;
+- (void)setDefaults;
 
 @end
 

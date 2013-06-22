@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "AccountNotificationProtocol-Protocol.h"
-
 @class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
 
-@interface DADConnection : NSObject <AccountNotificationProtocol>
+@interface DADConnection : NSObject
 {
     NSObject<OS_xpc_object> *_conn;
     NSObject<OS_dispatch_queue> *_muckingWithConn;
@@ -23,9 +21,6 @@
     NSMutableDictionary *_inFlightShareRequests;
 }
 
-+ (void)accountDidChange:(id)arg1 forDataclass:(id)arg2;
-+ (void)accountWillChange:(id)arg1 forDataclass:(id)arg2;
-+ (void)noteAccountChanges:(id)arg1;
 + (void)setShouldIgnoreAccountChanges;
 + (id)sharedConnectionIfServerIsRunning;
 + (id)sharedConnection;
@@ -41,7 +36,6 @@
 - (BOOL)registerForInterrogationWithBlock:(id)arg1;
 - (void)_reallyRegisterForInterrogation;
 - (id)statusReports;
-- (void)applyNewAccountProperties:(id)arg1 onAccountWithId:(id)arg2 forceSave:(BOOL)arg3;
 - (BOOL)processFolderChange:(id)arg1 forAccountWithID:(id)arg2;
 - (void)respondToSharedCalendarInvite:(int)arg1 forCalendarWithID:(id)arg2 accountID:(id)arg3 queue:(id)arg4 completionBlock:(id)arg5;
 - (void)cancelDownloadingAttachmentWithDownloadID:(id)arg1 error:(id)arg2;

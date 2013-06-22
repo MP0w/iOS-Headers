@@ -5,6 +5,8 @@
  */
 
 @protocol _UIViewService_FencingControlInterface
+
+@optional
 - (void)__endFencingMessagesForSendRight:(id)arg1;
 - (void)__beginFencingMessagesWithSendRight:(id)arg1 connectionCount:(unsigned int)arg2;
 @end

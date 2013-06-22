@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString, PDAnimateMotionBehavior, PDAnimationTargetElement, PDBuild;
+@class NSString, PDAnimateMotionBehavior, PDAnimationTarget, PDBuild;
 
 @interface PDAnimationCache : NSObject
 {
@@ -14,7 +14,7 @@
     int mPresetId;
     int mPresetSubType;
     int mPresetClass;
-    PDAnimationTargetElement *mTargetElement;
+    PDAnimationTarget *mTarget;
     BOOL mHasDelay;
     double mDelay;
     BOOL mHasDuration;
@@ -57,7 +57,7 @@
 @property(nonatomic) int presetSubType; // @synthesize presetSubType=mPresetSubType;
 @property(nonatomic) int presetId; // @synthesize presetId=mPresetId;
 @property(nonatomic) int nodeType; // @synthesize nodeType=mNodeType;
-@property(retain, nonatomic) PDAnimationTargetElement *targetElement; // @synthesize targetElement=mTargetElement;
+@property(retain, nonatomic) PDAnimationTarget *target; // @synthesize target=mTarget;
 - (void)dealloc;
 - (id)initWithAnimationInfo:(id)arg1;
 

@@ -16,11 +16,11 @@
 }
 
 + (float)standardHeightForStyleProvider:(id)arg1;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)setStoreType:(id)arg1;
 - (void)setStoreName:(id)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 

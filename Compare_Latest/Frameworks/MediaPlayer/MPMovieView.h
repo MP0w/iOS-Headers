@@ -11,7 +11,9 @@
     id <MPMovieViewDelegate> _delegate;
 }
 
-@property(nonatomic) id <MPMovieViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MPMovieViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
+- (void)willMoveToSuperview:(id)arg1;
 - (void)didMoveToWindow;
 - (void)willMoveToWindow:(id)arg1;
 

@@ -7,8 +7,20 @@
 #import "NSObject-Protocol.h"
 
 @protocol PLMoviePlayerControllerDelegate <NSObject>
-- (BOOL)moviePlayerCanManageStatusBar:(id)arg1;
-- (void)didBecomeMoviePlayerDelegate:(id)arg1;
-- (void)willResignMoviePlayerDelegate:(id)arg1;
+- (void)moviePlayerHeadsetPreviousTrackPressed:(id)arg1;
+- (void)moviePlayerHeadsetNextTrackPressed:(id)arg1;
+- (void)moviePlayerHeadsetPlayPausePressed:(id)arg1;
+- (id)moviePlayerRequestsPickedAirplayRoute:(id)arg1;
+- (void)moviePlayerWasSuspendedDuringPlayback:(id)arg1;
+- (void)moviePlayer:(id)arg1 didChangeExternalPlayback:(BOOL)arg2;
+- (void)moviePlayerDurationAvailable:(id)arg1;
+- (void)moviePlayerPlaybackDidEnd:(id)arg1;
+- (void)moviePlayerPlaybackRateDidChange:(id)arg1;
+- (void)moviePlayerPlaybackStateDidChange:(id)arg1 fromPlaybackState:(unsigned int)arg2;
+- (void)moviePlayerBufferingStateDidChange:(id)arg1;
+- (void)moviePlayerReadyToPlay:(id)arg1;
+- (BOOL)moviePlayerExitRequest:(id)arg1 exitReason:(int)arg2;
+- (void)moviePlayerControllerWillResignAsActiveController:(id)arg1;
+- (void)moviePlayerControllerDidBecomeActiveController:(id)arg1;
 @end
 

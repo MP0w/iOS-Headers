@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBCountedMapValue <NSObject>
-@property(readonly, nonatomic) id <NSCopying> countedMapKey;
+- (id)countedMapKey;
 @end
 

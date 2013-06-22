@@ -13,16 +13,13 @@
     int _roadClass;
     int _trafficSpeed;
     int _drivingDirection;
-    float _textureMappingStepQuantizationScaler;
-    struct _VGLColor _trafficPrimaryColor;
 }
 
-@property(nonatomic) struct _VGLColor trafficPrimaryColor; // @synthesize trafficPrimaryColor=_trafficPrimaryColor;
-@property(nonatomic) float textureMappingStepQuantizationScaler; // @synthesize textureMappingStepQuantizationScaler=_textureMappingStepQuantizationScaler;
 @property(nonatomic) int trafficSpeed; // @synthesize trafficSpeed=_trafficSpeed;
 @property(nonatomic) int drivingDirection; // @synthesize drivingDirection=_drivingDirection;
 @property(readonly, nonatomic) int centerLineMeshType; // @synthesize centerLineMeshType=_meshType;
 @property(nonatomic) int roadClass; // @synthesize roadClass=_roadClass;
+- (void)freezeWithoutCulling;
 - (id)initDashedMesh;
 - (id)initTrafficMesh;
 - (id)initRoadAsLinesMesh;

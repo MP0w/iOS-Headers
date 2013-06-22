@@ -13,7 +13,7 @@
     int mPrevRowIndex;
     int mPrevColumnIndex;
     GQDTTable *mTable;
-    vector_e7f19545 *mCellCountInColumns;
+    vector_195fe69b *mCellCountInColumns;
     int mGroupLevel;
     _Bool mSplitTable;
     double mCurrentTablePosition;
@@ -34,7 +34,7 @@
 - (_Bool)splitTable;
 - (void)setGroupLevel:(int)arg1;
 - (int)groupLevel;
-- (vector_e7f19545 *)cellCountInColumns;
+- (vector_195fe69b *)cellCountInColumns;
 - (void)setTable:(id)arg1;
 - (id)table;
 - (void)setPrevRowIndex:(int)arg1 columnIndex:(int)arg2;

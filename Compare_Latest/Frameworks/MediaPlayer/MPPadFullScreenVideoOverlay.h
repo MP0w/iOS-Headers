@@ -33,6 +33,7 @@
 }
 
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+- (void).cxx_destruct;
 - (void)_scheduleHidePopoverTimer;
 - (unsigned long long)_convertedPartsMask:(unsigned long long)arg1;
 - (void)_hideScrubInstructions;
@@ -59,7 +60,6 @@
 - (void)setVisibleParts:(unsigned long long)arg1 animate:(BOOL)arg2;
 - (void)setNavigationBarHidden:(BOOL)arg1;
 - (void)setDesiredParts:(unsigned long long)arg1 animate:(BOOL)arg2;
-- (void)setInterfaceOrientation:(int)arg1;
 - (void)setPlayer:(id)arg1;
 - (void)setVideoViewController:(id)arg1;
 - (void)setItem:(id)arg1;

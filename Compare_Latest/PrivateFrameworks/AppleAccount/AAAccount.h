@@ -4,124 +4,87 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "BasicAccount.h"
+#import "NSObject.h"
 
-#import "ASDynamicAccountClassLoader-Protocol.h"
+@class ACAccount, NSArray, NSDictionary, NSSet, NSString;
 
-@class ACAccount, ACAccountStore, NSArray, NSDictionary, NSLock, NSOperationQueue, NSString;
-
-@interface AAAccount : BasicAccount <ASDynamicAccountClassLoader>
+@interface AAAccount : NSObject
 {
-    NSString *_cachedPassword;
-    NSString *_cachedToken;
-    NSString *_cachedCommerceToken;
-    NSString *_cachedFMIPToken;
-    NSOperationQueue *_requesterQueue;
-    NSLock *_tokenLock;
-    NSLock *_passwordLock;
-    NSLock *_fmipTokenLock;
-    NSString *_appleIDAccountIdentifier;
-    ACAccountStore *_accountStore;
-    ACAccount *_appleIDAccount;
+    ACAccount *_account;
+    NSString *_fmipToken;
+    NSArray *_appleIDAliases;
+    NSString *_protocolVersion;
 }
 
-+ (BOOL)loadBundleForAccountWithProperties:(id)arg1;
-+ (id)propertiesWhichRequireValidation;
-+ (void)setAOSEnabled:(BOOL)arg1;
-+ (BOOL)isAOSEnabled;
 + (id)dataclassesBoundToSingleAccount;
 + (id)dataclassesBoundToSyncAccount;
 + (id)dataclassesBoundToPrimaryAccount;
-+ (id)configuredSyncAccountName;
-+ (BOOL)doesConfiguredSyncAccountExist;
-+ (id)supportedDataclasses;
-+ (id)basicAccountProperties;
-+ (id)classicAccountTypeString;
 + (id)accountTypeString;
-+ (id)accountWithBasicAccount:(id)arg1;
-@property(copy, nonatomic) NSString *password; // @synthesize password=_cachedPassword;
+@property(readonly, nonatomic) NSString *protocolVersion; // @synthesize protocolVersion=_protocolVersion;
+@property(readonly, nonatomic) NSArray *appleIDAliases; // @synthesize appleIDAliases=_appleIDAliases;
+@property(copy, nonatomic) NSString *fmipToken; // @synthesize fmipToken=_fmipToken;
 - (void).cxx_destruct;
-- (void)refreshTokensWithHandler:(id)arg1;
-- (void)verifyCredentialsForAppleIDWithHandler:(id)arg1;
+@property(nonatomic) BOOL needsToVerifyTerms;
+- (void)lookupEmailAddresses:(id)arg1 withHandler:(id)arg2;
 - (void)renewCredentialsForAppleIDWithHandler:(id)arg1;
-- (void)removeAppleIDAccount;
-- (void)removeChildAccountWithIdentifier:(id)arg1;
-- (void)addChildAccount:(id)arg1;
-- (BOOL)_removeChildAccountsOfTypes:(id)arg1;
-- (BOOL)_removeChildAccountsOfType:(id)arg1;
-- (void)_performiCloudMigration;
-- (BOOL)fixPartialiCloudMigration;
-- (void)_migrateMobileMeMailChildAccount;
-- (void)removeAppleIDCerts;
-- (void)configureAppleIDCerts;
-- (id)_errorWithDescriptionForResponseError:(id)arg1;
-- (id)_mailChildAccountProperties;
-- (void)_setFMIPToken:(id)arg1;
-- (void)_setToken:(id)arg1;
-- (id)_deviceSpecificLocalizedString:(id)arg1;
-- (BOOL)isConfiguredSyncAccount;
-- (BOOL)becomeConfiguredSyncAccount;
-- (id)syncStoreIdentifier;
-- (void)setLocationAuthorizationForDeviceLocator:(BOOL)arg1;
+- (void)signInWithHandler:(id)arg1;
 - (void)setupChildMailAccountAndEnable:(BOOL)arg1 withEmail:(id)arg2;
-- (BOOL)needsEmailConfiguration;
-- (void)updateAccountWithProvisioningResponse:(id)arg1;
-- (id)accountFirstDisplayAlert;
-- (id)accountFooterButton;
-- (id)accountFooterText;
+- (void)authenticateWithHandler:(id)arg1;
+- (void)updateAccountPropertiesWithHandler:(id)arg1;
 - (void)flushCachedPassword;
 - (void)flushCachedTokens;
 - (void)removePasswordFromKeychain;
-- (void)savePasswordInKeychain;
 - (void)removeTokensFromKeychain;
-- (void)saveTokensInKeychain;
 - (void)saveFMIPTokenInKeychain;
-- (void)presentQuotaDepletionAlertForDataclass:(id)arg1;
-- (void)presentQuotaDepletionAlertForDataclass:(id)arg1 withHandler:(id)arg2;
+- (void)savePasswordInKeychain;
+- (void)saveTokensInKeychain;
 - (BOOL)presentQuotaDepletionAlertForDataclassIfNecessary:(id)arg1;
 - (BOOL)presentQuotaDepletionAlertForDataclassIfNecessary:(id)arg1 withHandler:(id)arg2;
+- (void)presentQuotaDepletionAlertForDataclass:(id)arg1;
+- (void)presentQuotaDepletionAlertForDataclass:(id)arg1 withHandler:(id)arg2;
 - (void)notifyUserOfQuotaDepletion;
-- (void)cancelNetworkActivity;
-- (void)lookupEmailAddresses:(id)arg1 withHandler:(id)arg2;
-- (void)resendVerificationEmail:(id)arg1;
-- (void)authenticateWithHandler:(id)arg1;
-- (void)_updateAccountRequestWithHandler:(id)arg1;
-- (void)updateAccountPropertiesWithHandler:(id)arg1;
-- (void)registerWithHandler:(id)arg1;
-- (void)signInWithHandler:(id)arg1;
+@property(readonly, nonatomic) NSArray *supportedDataclasses;
+@property(readonly, nonatomic) ACAccount *liverpoolAccount;
+- (id)_childAccounts;
+@property(readonly, nonatomic) NSString *syncStoreIdentifier;
+- (int)mobileMeAccountStatus;
+@property(readonly, nonatomic) BOOL needsEmailConfiguration;
+- (id)_mailChildAccount;
 - (void)setUseCellular:(BOOL)arg1 forDataclass:(id)arg2;
 - (BOOL)useCellularForDataclass:(id)arg1;
+@property(readonly, nonatomic) BOOL needsRegistration;
 @property(readonly, nonatomic) NSDictionary *serviceUnavailableInfo;
 @property(readonly, nonatomic) BOOL serviceUnavailable;
-- (void)setEnabled:(BOOL)arg1 forDataclass:(id)arg2;
-@property(readonly, nonatomic) NSArray *provisionedDataclasses;
-- (BOOL)isProvisionedForDataclass:(id)arg1;
+- (void)setAccountProperty:(id)arg1 forKey:(id)arg2;
+- (id)accountPropertyForKey:(id)arg1;
+- (void)updateAccountWithProvisioningResponse:(id)arg1;
 - (id)propertiesForDataclass:(id)arg1;
-@property(readonly, nonatomic) int mobileMeAccountStatus;
-@property(readonly, nonatomic) int accountServiceType;
-@property(readonly, nonatomic) BOOL needsRegistration;
-@property(readonly, nonatomic) BOOL primaryEmailVerified;
-@property(readonly, nonatomic) NSString *primaryEmail;
-@property(nonatomic) BOOL primaryAccount;
-@property(readonly, nonatomic) NSArray *appleIDAliases;
+- (BOOL)isProvisionedForDataclass:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *accountFirstDisplayAlert;
+@property(readonly, nonatomic) NSDictionary *accountFooterButton;
+@property(readonly, nonatomic) NSString *accountFooterText;
+@property(copy, nonatomic) NSString *password;
+@property(copy, nonatomic) NSString *authToken;
+- (BOOL)isEnabledForDataclass:(id)arg1;
+- (void)setEnabled:(BOOL)arg1 forDataclass:(id)arg2;
+@property(readonly, nonatomic) NSSet *enabledDataclasses;
+@property(readonly, nonatomic) NSSet *provisionedDataclasses;
 @property(readonly, nonatomic) NSDictionary *dataclassProperties;
+@property(readonly, nonatomic) BOOL primaryEmailVerified;
+@property(nonatomic) BOOL primaryAccount;
+@property(readonly, nonatomic) NSString *primaryEmail;
+@property(readonly, nonatomic) NSString *personID;
 @property(readonly, nonatomic) NSString *lastName;
 @property(readonly, nonatomic) NSString *firstName;
-@property(readonly, nonatomic) NSString *personID;
-@property(readonly, nonatomic) NSString *protocolVersion;
-@property(readonly, nonatomic) NSString *fmipToken;
-@property(readonly, nonatomic) NSString *authToken;
-@property(readonly, nonatomic) NSString *appleIDAccountIdentifier;
-- (id)appleIDAccount;
-- (BOOL)_requestAccessToAppleIDAccount;
-- (id)_createNewAppleIDAccount;
+@property(readonly, nonatomic) int accountServiceType;
+@property(copy, nonatomic) NSString *accountDescription;
 @property(copy, nonatomic) NSString *username;
-- (id)displayName;
-- (id)description;
-- (id)_accountStore;
-- (void)dealloc;
-- (void)_accountStoreChanged:(id)arg1;
-- (id)initWithProperties:(id)arg1;
+@property(readonly, nonatomic) NSString *displayName;
+- (id)account;
+@property(readonly, nonatomic) NSString *identifier;
+- (id)initWithAccount:(id)arg1;
+- (id)initWithAccountIdentifier:(id)arg1;
+- (id)init;
 
 @end
 

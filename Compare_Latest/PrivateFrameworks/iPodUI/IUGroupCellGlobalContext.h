@@ -15,6 +15,7 @@
     unsigned int _showVideoInfo:1;
 }
 
+- (void).cxx_destruct;
 - (int)_unplayedIndicatorStyleForEntity:(id)arg1;
 @property(nonatomic) BOOL showVideoInfo;
 @property(nonatomic) BOOL showUnplayedIndicator;

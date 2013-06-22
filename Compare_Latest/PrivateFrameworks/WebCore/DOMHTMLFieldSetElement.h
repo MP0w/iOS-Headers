@@ -17,6 +17,7 @@
 - (id)validationMessage;
 - (id)validity;
 - (BOOL)willValidate;
+- (id)elements;
 - (id)type;
 - (void)setName:(id)arg1;
 - (id)name;

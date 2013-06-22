@@ -15,8 +15,11 @@
 {
     IUMediaAlertView *_addPlaylistAlertView;
     UITextField *_addPlaylistAlertTextField;
+    id _addPlaylistAlertTextFieldChangeObserver;
+    id _contentsDidChangeObserver;
 }
 
+- (void).cxx_destruct;
 - (void)_updateCloudPlaylist:(id)arg1;
 - (void)_releaseAlertView;
 - (void)_confirmAddingPlaylist;
@@ -25,6 +28,8 @@
 - (void)modalContextWillDismiss:(id)arg1 withSuccess:(BOOL)arg2;
 - (BOOL)textFieldShouldReturn:(id)arg1;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
+- (BOOL)_isSaveButtonEnabled;
+- (void)_updateSaveButtonEnabledState;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (BOOL)hideActionRowsOnAppear;
 - (void)editPlaylist:(id)arg1;

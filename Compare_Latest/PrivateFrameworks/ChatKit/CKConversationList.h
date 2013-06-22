@@ -6,30 +6,29 @@
 
 #import "NSObject.h"
 
-@class CKConversation, FTCConnectionHandler, NSMutableArray;
+@class CKConversation, NSMutableArray;
 
 @interface CKConversationList : NSObject
 {
     NSMutableArray *_trackedConversations;
-    CKConversation *_pendingConversation;
-    FTCConnectionHandler *_connectionHandler;
     BOOL _loadingConversations;
     BOOL _loadedConversations;
+    CKConversation *_pendingConversation;
 }
 
++ (id)conversationThumbnailCache;
 + (id)sharedConversationList;
-@property(readonly, nonatomic) FTCConnectionHandler *connectionHandler; // @synthesize connectionHandler=_connectionHandler;
+@property(retain, nonatomic) CKConversation *pendingConversation; // @synthesize pendingConversation=_pendingConversation;
 @property(readonly, nonatomic) BOOL loadingConversations; // @synthesize loadingConversations=_loadingConversations;
 - (void)_handleMemoryWarning:(id)arg1;
-- (id)_chatIdentifierForEntities:(id)arg1 createIfNecessary:(BOOL)arg2;
 - (id)pendingConversationCreatingIfNecessary;
 - (void)_abChanged:(id)arg1;
-- (void)deleteConversationAtIndex:(int)arg1;
+- (void)deleteConversation:(id)arg1;
+- (void)deleteConversationAtIndex:(unsigned int)arg1;
 - (int)unreadFilteredConversationCount;
 - (int)unreadConversationCount;
 - (int)_unreadConversationCount:(BOOL)arg1;
 - (int)unreadCount;
-- (id)pendingConversation;
 - (void)unpendConversation;
 - (void)beginTrackingConversation:(id)arg1 forChat:(id)arg2;
 - (void)_postConversationListChangedNotification;

@@ -16,7 +16,7 @@
     BOOL _newsstandActivity;
 }
 
-- (float)shadowPaddingForStyle:(int)arg1;
+- (float)shadowPadding;
 - (float)updateContentsAndWidth;
 - (void)setVisible:(BOOL)arg1;
 - (int)_activityIndicatorStyle;

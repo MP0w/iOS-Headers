@@ -8,28 +8,34 @@
 
 #import "VKRouteMapMatchingDataSource-Protocol.h"
 
-@class VKAttributedRoute;
+@class NSSet, VKAttributedRoute;
 
 @interface VKRouteLine : NSObject <VKRouteMapMatchingDataSource>
 {
     BOOL _curve;
     BOOL _matchToRoads;
+    BOOL _hasNewRoadMatches;
     CDStruct_aca18c62 _bounds;
     CDStruct_aa5aacbc _inverseMatrix;
     VKAttributedRoute *_overlay;
     double _boundsUnitsPerMeter;
+    double _metersPerPoint;
     double _boundsInWorldUnit;
-    struct vector<VKRouteLineSection, vk_allocator<VKRouteLineSection>> _sections;
-    struct VKRouteLineFeatureCache _featureCache;
-    struct VKRouteLineSection *_userLocationSection;
-    CDStruct_3f2a7a20 _userLocationIndex;
-    CDStruct_6e3f967a _userLocation;
+    double _simplificationEpsilonPoints;
+    double _viewUnitsPerPoint;
+    struct vector<vk::RouteLineSection, vk_allocator<vk::RouteLineSection>> _sections;
+    struct RouteLineSection *_userLocationSection;
+    struct PolylineCoordinate _userLocationIndex;
+    Vec2Imp_1782d7e3 _userLocation;
     double _lastUserLocationMatchTimestamp;
     double _lastTrafficTimeStamp;
+    NSSet *_retainedTiles;
 }
 
+@property(nonatomic) double simplificationEpsilonPoints; // @synthesize simplificationEpsilonPoints=_simplificationEpsilonPoints;
+@property BOOL hasNewRoadMatches; // @synthesize hasNewRoadMatches=_hasNewRoadMatches;
 @property(nonatomic) VKAttributedRoute *overlay; // @synthesize overlay=_overlay;
-@property(readonly, nonatomic) CDStruct_aca18c62 bounds; // @synthesize bounds=_bounds;
+@property(readonly, nonatomic) CDStruct_d2b197d1 bounds; // @synthesize bounds=_bounds;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)drawDebugMarkersWithContext:(id)arg1;
@@ -37,9 +43,13 @@
 - (void)forEachMapMatchingSection:(id)arg1;
 - (void)forEachSection:(id)arg1;
 - (void)splitRouteLineAtAnnotation:(id)arg1;
+@property(readonly, nonatomic) BOOL needsUpdate;
 - (BOOL)isTrafficUptoDate:(double)arg1;
 - (BOOL)isTrafficUpToDate;
-- (void)buildRouteLineFromSortedPaths:(id)arg1 curve:(BOOL)arg2 matchRouteLine:(BOOL)arg3;
+- (void)createMeshIfNecessary:(BOOL)arg1 currentManeuver:(int)arg2;
+- (void)buildRouteLineForPainter:(id)arg1 keysInView:(id)arg2 tiles:(id)arg3 containerModel:(id)arg4 displayManeuvers:(BOOL)arg5 viewUnitsPerPoint:(double)arg6;
+- (void)_updateTilesCovered:(id)arg1;
+- (void)dealloc;
 
 @end
 

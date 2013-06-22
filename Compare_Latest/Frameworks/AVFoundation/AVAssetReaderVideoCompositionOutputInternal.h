@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
-@class AVVideoComposition, AVVideoOutputSettings, NSArray;
+@class AVCustomVideoCompositorSession, AVVideoComposition, AVVideoOutputSettings, NSArray;
 
 @interface AVAssetReaderVideoCompositionOutputInternal : NSObject
 {
     NSArray *videoTracks;
     AVVideoOutputSettings *videoOutputSettings;
     AVVideoComposition *videoComposition;
+    void *figVideoCompositor;
+    AVCustomVideoCompositorSession *customVideoCompositorSession;
 }
 
 @end

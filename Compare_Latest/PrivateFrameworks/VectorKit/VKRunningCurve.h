@@ -8,11 +8,11 @@
 
 @interface VKRunningCurve : NSObject
 {
-    CDStruct_03342fe8 _p0;
+    CDStruct_87a99b1f _p0;
     double _t0;
-    CDStruct_03342fe8 _p1;
+    CDStruct_87a99b1f _p1;
     double _t1;
-    CDStruct_03342fe8 _pu;
+    CDStruct_87a99b1f _pu;
     double _tu;
     struct {
         double mb[4][3];
@@ -21,9 +21,9 @@
 }
 
 - (id).cxx_construct;
-- (CDStruct_03342fe8)stateAtTime:(double)arg1;
+- (CDStruct_87a99b1f)stateAtTime:(double)arg1;
 - (BOOL)hasStateAtTime:(double)arg1;
-- (void)appendPosition:(CDStruct_31142d93)arg1 atTime:(double)arg2;
+- (void)appendPosition:(struct VKPoint)arg1 atTime:(double)arg2;
 - (void)dealloc;
 - (void)reset;
 - (id)init;

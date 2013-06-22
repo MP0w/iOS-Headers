@@ -6,15 +6,6 @@
 
 #pragma mark Named Structures
 
-struct CGAffineTransform {
-    float a;
-    float b;
-    float c;
-    float d;
-    float tx;
-    float ty;
-};
-
 struct CGPoint {
     float x;
     float y;
@@ -54,11 +45,7 @@ typedef struct {
 } CDStruct_af7d35ee;
 
 typedef struct {
-    struct __CFRuntimeBase {
-        unsigned int _field1;
-        unsigned char _field2[4];
-    } _field1;
-    int _field2;
-    long long _field3;
-} CDStruct_cb19c43e;
+    double latitude;
+    double longitude;
+} CDStruct_2c43369c;
 

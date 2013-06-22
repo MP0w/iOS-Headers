@@ -12,6 +12,10 @@
 
 - (void)perform;
 - (id)localizedName;
+- (BOOL)_titleFitsInActionSheet:(id)arg1;
+- (_Bool)_retrieveNameForDestinationNumber:(id *)arg1 label:(id *)arg2;
+- (id)_UIDsAndLabelsMatchingPhoneNumber:(id)arg1 inAddressBook:(void *)arg2;
+- (id)_nameForPerson:(void *)arg1;
 
 @end
 

@@ -10,15 +10,16 @@
 
 @interface MSASAlbumChange : NSObject
 {
+    BOOL _wasDeleted;
     NSString *_GUID;
     NSString *_ownerEmail;
+    NSString *_ownerPersonID;
     NSString *_ownerFullName;
     NSString *_ownerFirstName;
     NSString *_ownerLastName;
     NSString *_URLString;
     MSASInvitation *_invitation;
     NSString *_name;
-    BOOL _wasDeleted;
 }
 
 @property(nonatomic) BOOL wasDeleted; // @synthesize wasDeleted=_wasDeleted;
@@ -28,6 +29,7 @@
 @property(copy, nonatomic) NSString *ownerLastName; // @synthesize ownerLastName=_ownerLastName;
 @property(copy, nonatomic) NSString *ownerFirstName; // @synthesize ownerFirstName=_ownerFirstName;
 @property(copy, nonatomic) NSString *ownerFullName; // @synthesize ownerFullName=_ownerFullName;
+@property(copy, nonatomic) NSString *ownerPersonID; // @synthesize ownerPersonID=_ownerPersonID;
 @property(copy, nonatomic) NSString *ownerEmail; // @synthesize ownerEmail=_ownerEmail;
 @property(retain, nonatomic) NSString *GUID; // @synthesize GUID=_GUID;
 - (void).cxx_destruct;

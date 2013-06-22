@@ -26,7 +26,7 @@
 - (id)autorelease;
 - (BOOL)_tryRetain;
 - (BOOL)_isDeallocating;
-- (void)release;
+- (oneway void)release;
 - (unsigned int)retainCount;
 - (id)retain;
 - (id)_init__;

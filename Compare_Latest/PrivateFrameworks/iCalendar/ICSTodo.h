@@ -13,6 +13,7 @@
 }
 
 + (id)name;
+- (id)propertiesToIncludeForChecksumVersion:(int)arg1;
 @property(retain) NSArray *x_apple_activity;
 @property unsigned int x_apple_sort_order;
 @property(retain) ICSDate *due;

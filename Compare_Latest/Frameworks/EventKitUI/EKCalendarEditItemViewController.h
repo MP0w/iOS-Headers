@@ -6,9 +6,11 @@
 
 #import <EventKitUI/EKEditItemViewController.h>
 
+#import "EKCalendarChooserDelegate-Protocol.h"
+
 @class EKCalendar, EKCalendarChooser, EKEventStore;
 
-@interface EKCalendarEditItemViewController : EKEditItemViewController
+@interface EKCalendarEditItemViewController : EKEditItemViewController <EKCalendarChooserDelegate>
 {
     EKEventStore *_store;
     EKCalendarChooser *_chooser;
@@ -18,10 +20,10 @@
 }
 
 @property(nonatomic) BOOL limitToSource; // @synthesize limitToSource=_limitToSource;
+- (void).cxx_destruct;
+- (void)calendarChooserSelectionDidChange:(id)arg1;
 @property(retain, nonatomic) EKCalendar *selectedCalendar;
-- (void)viewDidUnload;
 - (void)loadView;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2 styleProvider:(id)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 store:(id)arg2 styleProvider:(id)arg3 entityType:(unsigned int)arg4;

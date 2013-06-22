@@ -14,10 +14,15 @@
     struct CGPDFSelection *_cgSelection;
     BOOL _dirty;
     struct __CFString *_string;
+    int _cachedStartIndex;
+    int _cachedEndIndex;
     CDStruct_dff5684f stringRange;
 }
 
 @property(nonatomic) CDStruct_dff5684f stringRange; // @synthesize stringRange;
+- (unsigned int)endIndex;
+- (unsigned int)startIndex;
+- (float)baseLineAtIndex:(unsigned int)arg1;
 - (CDStruct_dff5684f)extent;
 - (void)copyToPasteboard;
 - (unsigned int)extendAtEnd:(unsigned int)arg1;
@@ -38,8 +43,10 @@
 - (struct CGRect)bounds;
 - (struct CGAffineTransform)transform;
 - (id)page;
+- (id)initWithPage:(id)arg1 fromIndex:(unsigned int)arg2 toIndex:(unsigned int)arg3;
 - (id)initWithSelection:(id)arg1;
 - (id)initWithPage:(id)arg1 fromArchive:(id)arg2;
+- (id)init;
 - (id)description;
 - (void)extendToParagraph;
 - (struct CGPDFSelection *)CGSelection;

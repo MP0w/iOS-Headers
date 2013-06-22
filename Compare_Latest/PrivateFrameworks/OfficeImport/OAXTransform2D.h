@@ -11,7 +11,7 @@
 }
 
 + (struct CGRect)readChildrenBoundsFromParentXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2;
-+ (void)readFromParentXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 toDrawable:(id)arg3;
++ (void)readFromParentXmlNode:(struct _xmlNode *)arg1 inNamespace:(id)arg2 toDrawable:(id)arg3 drawingState:(id)arg4;
 
 @end
 

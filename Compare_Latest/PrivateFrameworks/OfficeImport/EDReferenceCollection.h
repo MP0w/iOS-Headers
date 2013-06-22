@@ -21,7 +21,7 @@
 - (unsigned int)addObject:(id)arg1;
 - (id)initWihNoCoalesce;
 - (id)init;
-- (_Bool)coalesceReferenceAtIndex1:(int)arg1 index2:(int)arg2;
+- (_Bool)coalesceReferenceAtIndex1:(unsigned int)arg1 index2:(unsigned int)arg2;
 - (void)coalesce;
 
 @end

@@ -9,8 +9,8 @@
 @interface NSString (TSUAdditions)
 + (id)stringByHexEncodingData:(id)arg1;
 + (id)stringWithXMLString:(const char *)arg1;
-+ (id)stringByBase64EncodingBytes:(const char *)arg1 length:(int)arg2 breakLines:(BOOL)arg3;
-+ (id)stringByBase64EncodingBytes:(const char *)arg1 length:(int)arg2;
++ (id)stringByBase64EncodingBytes:(const char *)arg1 length:(unsigned int)arg2 breakLines:(BOOL)arg3;
++ (id)stringByBase64EncodingBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)listSeparator;
 + (id)stringByIndentingString:(id)arg1;
 + (id)stringByIndentingString:(id)arg1 times:(unsigned int)arg2;
@@ -19,6 +19,7 @@
 - (BOOL)containsOnlyCharactersFromSet:(id)arg1;
 - (id)unescapeXML;
 - (id)escapeXML;
+- (id)stringByMakingFirstCharacterUppercase;
 - (id)stringByMakingFirstCharacterLowercase;
 - (id)encodeStringBase64;
 - (id)stringByTrimmingCharactersInSetFromFront:(id)arg1;

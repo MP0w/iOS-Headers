@@ -6,7 +6,9 @@
 
 #import <AVFoundation/AVAssetWriterInputHelper.h>
 
-@interface AVAssetWriterInputTerminalHelper : AVAssetWriterInputHelper
+#import "AVAssetWriterInputMediaDataRequesterDelegate-Protocol.h"
+
+@interface AVAssetWriterInputTerminalHelper : AVAssetWriterInputHelper <AVAssetWriterInputMediaDataRequesterDelegate>
 {
     int _terminalStatus;
     BOOL _didRequestMediaDataOnce;
@@ -15,9 +17,11 @@
 - (void)markAsFinished;
 - (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
 - (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
+- (void)requestMediaDataOnceIfNecessaryWithMediaDataRequester:(id)arg1;
+- (BOOL)mediaDataRequesterShouldRequestMediaData:(id)arg1;
 - (void)requestMediaDataWhenReadyOnQueue:(id)arg1 usingBlock:(id)arg2;
 - (BOOL)isReadyForMoreMediaData;
-- (void)transitionToTerminalStatus:(int)arg1;
+- (id)transitionToAndReturnTerminalHelperWithTerminalStatus:(int)arg1;
 - (int)status;
 - (id)initWithConfigurationState:(id)arg1 terminalStatus:(int)arg2;
 - (id)initWithConfigurationState:(id)arg1;

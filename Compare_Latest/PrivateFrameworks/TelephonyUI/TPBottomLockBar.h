@@ -6,7 +6,7 @@
 
 #import <TelephonyUI/TPBottomBar.h>
 
-@class NSArray, NSTimer, TPLockKnobView, TPLockTextView, TPWell, UIImageView, UIView;
+@class NSArray, NSTimer, TPLockTextView;
 
 @interface TPBottomLockBar : TPBottomBar
 {
@@ -15,29 +15,29 @@
     NSTimer *_cycleLabelTimer;
     id _delegate;
     id _representedObject;
-    TPLockKnobView *_knobView;
-    UIView *_trackArrow;
     TPLockTextView *_labelView;
-    TPWell *_well;
-    float _knobTrackInsetLeft;
     float _fontSize;
     float _deltaFromDefaultLabelWidth;
-    UIImageView *_backgroundView;
 }
 
 + (float)defaultLabelFontSize;
 + (struct CGSize)defaultSize;
-- (void)setWellAlpha:(float)arg1;
-- (void)setTextAlpha:(float)arg1;
-- (void)setSuppressDrawingBackground:(BOOL)arg1;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (BOOL)_canDrawContent;
-- (id)labelView;
+- (void)setKnobImage:(id)arg1;
+- (void)setKnobColor:(int)arg1;
 - (void)setKnobWellWidthToDefault;
 - (void)setKnobWellWidth:(float)arg1;
+- (id)wellImageName;
+- (float)defaultWellWidth;
 - (id)well;
 - (float)knobTrackInsetRight;
 - (float)knobTrackInsetLeft;
+- (id)knob;
+- (BOOL)usesBackgroundImage;
+- (void)setTextAlpha:(float)arg1;
+- (BOOL)_canDrawContent;
+- (id)labelView;
+- (float)slideTouchAreaInsetRight;
+- (float)slideTouchAreaInsetLeft;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)representedObject;
 - (void)setRepresentedObject:(id)arg1;
@@ -59,27 +59,19 @@
 - (void)startCyclingLabels;
 - (void)_setLabel:(id)arg1;
 - (void)_adjustLabelOrigin;
-- (void)_adjustKnobOrigin;
-- (float)_calcKnobYOffset;
 - (void)setLabel:(id)arg1;
 - (void)upInKnob;
 - (void)downInKnob;
 - (BOOL)isAnimating;
 - (void)stopAnimating;
 - (void)startAnimating;
-- (id)knob;
 - (void)dealloc;
 - (id)initForIncomingCallWithFrame:(struct CGRect)arg1;
-- (void)setKnobImage:(id)arg1;
-- (void)setKnobColor:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 knobColor:(int)arg2;
 - (id)_knobImageForColor:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 knobImage:(id)arg2;
 - (BOOL)_shouldStopLabelAnimationForGrab;
-- (BOOL)usesBackgroundImage;
 - (BOOL)allowsTouchTrackingBeyondVerticalThreshold;
-- (id)wellImageName;
-- (float)defaultWellWidth;
 - (void)drawRect:(struct CGRect)arg1;
 
 @end

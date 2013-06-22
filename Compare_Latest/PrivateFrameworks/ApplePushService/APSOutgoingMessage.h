@@ -10,15 +10,22 @@
 {
 }
 
+- (void)setPriority:(int)arg1;
+- (int)priority;
 @property(nonatomic) unsigned int payloadLength;
 @property(nonatomic) int payloadFormat;
 - (void)setTimedOut:(BOOL)arg1;
 - (BOOL)hasTimedOut;
 - (void)setCancelled:(BOOL)arg1;
 - (BOOL)wasCancelled;
+- (void)setSendInterface:(int)arg1;
+- (int)sendInterface;
 - (void)setSent:(BOOL)arg1;
 - (BOOL)wasSent;
 @property(nonatomic, getter=isCritical) BOOL critical;
+- (id)rawTimeoutTime;
+- (id)sendTimeoutTime;
+- (unsigned int)_effectiveSendTimeout;
 @property(nonatomic) unsigned int timeout;
 - (void)setTimestamp:(id)arg1;
 - (id)timestamp;

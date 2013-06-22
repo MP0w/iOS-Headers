@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, NSString, UILabel, UIToolbar, UIWindow;
+@class NSMutableArray, NSMutableDictionary, NSString, UILabel, UIModalItem, UIToolbar, UIViewController, UIWindow;
 
 @interface UIAlertView : UIView
 {
@@ -33,6 +33,11 @@
     UIView *_table;
     UIView *_dimView;
     UIView *_backgroundImageView;
+    UIView *_contentViewNeue;
+    UIView *_textFieldBackgroundView;
+    UIWindow *_blurWindow;
+    UIView *_backdropView;
+    NSMutableDictionary *_separatorsViews;
     struct {
         unsigned int numberOfRows:7;
         unsigned int delegateAlertSheetButtonClicked:1;
@@ -87,7 +92,16 @@
         unsigned int alertViewStyle:3;
         unsigned int isSBAlert:1;
         unsigned int isBeingDismissed:1;
+        unsigned int useLookNeue:1;
     } _modalViewFlags;
+    NSMutableArray *_buttonTitlesNeue;
+    UIModalItem *_representedModalItem;
+    NSString *_titleTextNeue;
+    NSString *_messageTextNeue;
+    UIViewController *_hostingViewControllerNeue;
+    UIWindow *_windowFOrSBNeueCompatibility;
+    UIView *_accessoryView;
+    UIViewController *_accessoryViewController;
 }
 
 + (id)_popupAlertBackground:(BOOL)arg1;
@@ -103,6 +117,7 @@
 - (void)_keyboardDidHide:(id)arg1;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
+- (void)_useLegacyUI:(BOOL)arg1;
 - (void)_useUndoStyle:(BOOL)arg1;
 - (BOOL)_shouldUseUndoStyle;
 - (id)textFieldAtIndex:(int)arg1;
@@ -127,6 +142,8 @@
 @property(nonatomic) id delegate;
 - (void)dealloc;
 - (id)initWithTitle:(id)arg1 message:(id)arg2 delegate:(id)arg3 defaultButton:(id)arg4 cancelButton:(id)arg5 otherButtons:(id)arg6;
+- (void)_setAccessoryViewController:(id)arg1;
+- (void)_setAccessoryView:(id)arg1;
 - (BOOL)_isSBAlert;
 - (void)_nukeOldTextFields;
 - (void)_addSubview:(id)arg1 positioned:(int)arg2 relativeTo:(id)arg3;
@@ -134,7 +151,7 @@
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
 - (BOOL)canBecomeFirstResponder;
-- (void)_handleKeyEvent:(struct __GSEvent *)arg1;
+- (void)_handleKeyUIEvent:(id)arg1;
 - (void)_prepareToBeReplaced;
 - (void)replaceAlert:(id)arg1;
 - (void)_prepareForDisplay;
@@ -181,6 +198,14 @@
 - (void)popupAlertAnimated:(BOOL)arg1 animationType:(int)arg2;
 - (void)popupAlertAnimated:(BOOL)arg1 atOffset:(float)arg2;
 - (void)popupAlertAnimated:(BOOL)arg1 animationType:(int)arg2 atOffset:(float)arg3;
+- (void)_loginFieldDidChangeForItem:(id)arg1;
+- (void)_passwordFieldDidChangeForItem:(id)arg1;
+- (void)modalItem:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)modalItem:(id)arg1 willDismissWithButtonIndex:(int)arg2;
+- (void)modalItem:(id)arg1 tappedButtonAtIndex:(int)arg2;
+- (void)didPresentModalItem:(id)arg1;
+- (void)willPresentModalItem:(id)arg1;
+- (id)_modalItemForNeueCompatibility;
 - (void)_adjustLabelFontSizes;
 - (void)_layoutIfNeeded;
 - (void)_layoutPopupAlertWithOrientation:(int)arg1 animated:(BOOL)arg2;
@@ -215,12 +240,12 @@
 - (void)_performPopup:(BOOL)arg1;
 - (void)_performPopup:(BOOL)arg1 animationType:(int)arg2;
 - (void)_performPopup:(BOOL)arg1 animationType:(int)arg2 revealedBySpringBoardAlert:(BOOL)arg3;
+- (id)_blurMaskImageForBounds:(struct CGRect)arg1;
 - (void)_showKeyboard:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_showManualKBIfNecessary;
 - (void)_keyboardHiddingAnimationDidStop:(id)arg1 finished:(id)arg2;
 - (BOOL)showsOverSpringBoardAlerts;
 - (void)setShowsOverSpringBoardAlerts:(BOOL)arg1;
-- (BOOL)_shouldOrderInAutomaticKeyboard;
 - (BOOL)_needsKeyboard;
 - (BOOL)_manualKeyboardIsVisible;
 - (id)tableView;

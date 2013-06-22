@@ -4,16 +4,22 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import "SBAwayListItem.h"
 
-@class SBSCardItem;
+@class NSString, SBSCardItem, UIImage;
 
-@interface SBAwayCardListItem : NSObject
+@interface SBAwayCardListItem : SBAwayListItem
 {
     SBSCardItem *_cardItem;
+    UIImage *_cardThumbnail;
+    UIImage *_iconImage;
 }
 
+@property(retain, nonatomic) UIImage *iconImage; // @synthesize iconImage=_iconImage;
+@property(retain, nonatomic) UIImage *cardThumbnail; // @synthesize cardThumbnail=_cardThumbnail;
 @property(copy, nonatomic) SBSCardItem *cardItem; // @synthesize cardItem=_cardItem;
+@property(readonly, nonatomic) NSString *body;
+@property(readonly, nonatomic) NSString *title;
 - (BOOL)inertWhenLocked;
 - (id)sortDate;
 - (void)dealloc;

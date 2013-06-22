@@ -4,15 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Message/MailMessage.h>
+#import <Message/MFMailMessage.h>
 
-@class DAMailMessage, MailboxUid, Message, NSString;
+@class DAMailMessage, MFMailboxUid, MFMessage, NSString;
 
-@interface MFDAMessage : MailMessage
+@interface MFDAMessage : MFMailMessage
 {
     DAMailMessage *_DAMailMessage;
-    Message *_rfc822CreatedMessage;
-    MailboxUid *_mailbox;
+    MFMessage *_rfc822CreatedMessage;
+    MFMailboxUid *_mailbox;
     NSString *_externalConversationID;
 }
 

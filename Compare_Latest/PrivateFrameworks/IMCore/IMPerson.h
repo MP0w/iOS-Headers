@@ -10,11 +10,13 @@
 
 @interface IMPerson : NSObject
 {
-    int _recordID;
     BOOL _registered;
     BOOL _beingTornDown;
+    int _recordID;
 }
 
++ (id)existingABPeopleWithInstantMessageAddress:(id)arg1 onServices:(id)arg2 allowSubstringMatch:(BOOL)arg3;
++ (id)existingABPersonWithInstantMessageAddress:(id)arg1 onServices:(id)arg2 allowSubstringMatch:(BOOL)arg3;
 + (id)existingABPersonWithFirstName:(id)arg1 andLastName:(id)arg2 andNickName:(id)arg3 orEmail:(id)arg4 orNumber:(id)arg5;
 + (id)existingABPersonWithFirstName:(id)arg1 andLastName:(id)arg2 andNickName:(id)arg3 orEmail:(id)arg4 orNumber:(id)arg5 countryCode:(id)arg6 identifier:(int *)arg7;
 + (id)existingABPersonWithFirstName:(id)arg1 andLastName:(id)arg2 andNickName:(id)arg3 orEmail:(id)arg4 orNumber:(id)arg5 identifier:(int *)arg6;
@@ -58,6 +60,7 @@
 @property(copy, nonatomic) NSString *nickname;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSString *displayName;
+@property(readonly, nonatomic) NSString *shortName;
 @property(readonly, nonatomic) NSString *companyName;
 @property(readonly, nonatomic) BOOL isCompany;
 - (void)dealloc;

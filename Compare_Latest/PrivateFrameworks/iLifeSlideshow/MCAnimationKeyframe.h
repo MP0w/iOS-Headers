@@ -11,11 +11,11 @@
 @interface MCAnimationKeyframe : MCObjectLight
 {
     MCAnimationPathKeyframed *mAnimationPath;
-    double mTimeOffset;
+    BOOL mIsSnapshot;
     int mTimeOffsetKind;
     float mPreControl;
     float mPostControl;
-    BOOL mIsSnapshot;
+    double mTimeOffset;
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;

@@ -6,11 +6,16 @@
 
 #import <DataDetectorsUI/DDTelephoneNumberAction.h>
 
-@interface DDTextMessageAction : DDTelephoneNumberAction
+#import "MFMessageComposeViewControllerDelegate-Protocol.h"
+
+@interface DDTextMessageAction : DDTelephoneNumberAction <MFMessageComposeViewControllerDelegate>
 {
 }
 
+- (void)messageComposeViewController:(id)arg1 didFinishWithResult:(int)arg2;
+- (id)viewController;
 - (void)perform;
+- (int)interactionType;
 - (id)localizedName;
 
 @end

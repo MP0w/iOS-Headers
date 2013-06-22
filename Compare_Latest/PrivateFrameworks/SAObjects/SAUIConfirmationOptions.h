@@ -21,6 +21,7 @@
 @property(copy, nonatomic) NSString *confirmText;
 @property(copy, nonatomic) NSArray *confirmCommands;
 @property(copy, nonatomic) NSString *cancelTrigger;
+@property(copy, nonatomic) NSArray *allConfirmationOptions;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

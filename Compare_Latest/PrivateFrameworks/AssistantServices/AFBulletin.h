@@ -6,18 +6,43 @@
 
 #import "NSObject.h"
 
-@class BBBulletin;
+#import "NSSecureCoding-Protocol.h"
 
-@interface AFBulletin : NSObject
+@class NSDate, NSString;
+
+@interface AFBulletin : NSObject <NSSecureCoding>
 {
-    BBBulletin *_bulletin;
     BOOL _read;
+    BOOL _allDay;
+    NSString *_bulletinID;
+    NSDate *_date;
+    NSDate *_endDate;
+    NSString *_message;
+    NSString *_modalAlertContentMessage;
+    NSDate *_recencyDate;
+    NSString *_sectionID;
+    NSString *_subtitle;
+    NSString *_timeZone;
+    NSString *_title;
 }
 
++ (BOOL)supportsSecureCoding;
+@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) NSString *timeZone; // @synthesize timeZone=_timeZone;
+@property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(readonly, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
+@property(readonly, nonatomic) NSDate *recencyDate; // @synthesize recencyDate=_recencyDate;
+@property(readonly, nonatomic) NSString *modalAlertContentMessage; // @synthesize modalAlertContentMessage=_modalAlertContentMessage;
+@property(readonly, nonatomic) NSString *message; // @synthesize message=_message;
+@property(readonly, nonatomic, getter=isAllDay) BOOL allDay; // @synthesize allDay=_allDay;
+@property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
+@property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
+@property(readonly, nonatomic) NSString *bulletinID; // @synthesize bulletinID=_bulletinID;
 @property(nonatomic, getter=isRead) BOOL read; // @synthesize read=_read;
-@property(retain, nonatomic) BBBulletin *bulletin; // @synthesize bulletin=_bulletin;
 - (void).cxx_destruct;
-- (id)dictionaryRepresentation;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)setBulletin:(id)arg1;
 
 @end
 

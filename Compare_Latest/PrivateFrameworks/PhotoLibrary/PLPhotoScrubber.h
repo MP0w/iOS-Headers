@@ -6,11 +6,10 @@
 
 #import "UIControl.h"
 
-@class BezelView, LoupeView, NSMutableArray, UIView;
+@class LoupeView, NSMutableArray, UIView;
 
 @interface PLPhotoScrubber : UIControl
 {
-    int _isHorizontal;
     id <PhotoScrubberDataSource> _dataSource;
     unsigned int _displayedImageIndex;
     int _prospectiveImageIndex;
@@ -21,7 +20,6 @@
     float _imagesPerViewRatio;
     NSMutableArray *_thumbnailViews;
     LoupeView *_loupe;
-    BezelView *_backgroundView;
     unsigned int _imageCount;
     BOOL _scrubbing;
     UIView *_accessoryView;
@@ -32,11 +30,9 @@
     float _vertialInsetMargin;
 }
 
-+ (id)_shadowImage;
-+ (id)_backgroundImage;
+@property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(nonatomic) float vertialInsetMargin; // @synthesize vertialInsetMargin=_vertialInsetMargin;
 @property(nonatomic) float horizontalInsetMargin; // @synthesize horizontalInsetMargin=_horizontalInsetMargin;
-@property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 - (int)displayedImageIndex;
 - (void)setDisplayedImageIndex:(int)arg1;
 - (void)_setDisplayedImageIndex:(id)arg1;
@@ -55,8 +51,7 @@
 - (BOOL)isScrubbing;
 - (void)_setIsScrubbing:(BOOL)arg1;
 - (void)_updateLoupeWithTouch:(id)arg1 forceUpdate:(BOOL)arg2;
-- (void)didMoveToSuperview;
-- (void)drawRect:(struct CGRect)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGPoint)_centerForImageAtIndex:(int)arg1;
 - (unsigned int)_imageIndexFromLocation:(struct CGPoint)arg1;
 - (unsigned int)_thumbnailIndexFromLocation:(struct CGPoint)arg1;
@@ -67,7 +62,6 @@
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)dealloc;
-- (id)initWithScrubberOrientation:(int)arg1;
 - (id)init;
 
 @end

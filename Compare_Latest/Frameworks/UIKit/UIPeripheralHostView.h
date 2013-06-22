@@ -6,27 +6,34 @@
 
 #import <UIKit/UIView.h>
 
-@class UIKeyboardCornerView, UIPeripheralHostLayer;
+@class UIKBRenderConfig, UIKeyboardCornerView, _UIBackdropView;
 
 @interface UIPeripheralHostView : UIView
 {
     int _explicitLayoutCount;
     UIKeyboardCornerView *_cornerViewLeft;
     UIKeyboardCornerView *_cornerViewRight;
+    _UIBackdropView *_inputBackdropView;
+    _UIBackdropView *_inputAccessoryBackdropView;
+    UIKBRenderConfig *_renderConfig;
 }
 
-+ (Class)layerClass;
 @property(readonly, nonatomic) UIKeyboardCornerView *cornerViewRight; // @synthesize cornerViewRight=_cornerViewRight;
 @property(readonly, nonatomic) UIKeyboardCornerView *cornerViewLeft; // @synthesize cornerViewLeft=_cornerViewLeft;
 - (void)removeFromSuperview;
 - (int)_clipCornersOfView:(id)arg1;
 - (void)resizeForKeyplaneSize:(struct CGSize)arg1;
-- (BOOL)_shouldUseKeyWindowStack;
-@property(readonly, nonatomic) UIPeripheralHostLayer *layer;
 - (void)layoutSubviews;
+- (BOOL)explicitLayout;
 - (void)endExplicitLayout;
 - (void)beginExplicitLayout;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)didAddSubview:(id)arg1;
+- (void)_setRenderConfig:(id)arg1;
+- (id)_inheritedRenderConfig;
+- (void)syncInputAccessoryViewBackdropToFrame:(struct CGRect)arg1;
+- (void)syncInputViewBackdropToFrame:(struct CGRect)arg1;
+- (void)setKeyboardAppearance:(int)arg1;
 - (int)textEffectsVisibilityLevel;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

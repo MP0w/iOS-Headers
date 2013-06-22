@@ -6,12 +6,11 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class UIActivityIndicatorView, UIView;
+@class UIActivityIndicatorView;
 
 @interface UIPrintStatusJobTableViewCell : UITableViewCell
 {
     UIActivityIndicatorView *_activityIndicator;
-    UIView *_verticalSeparator;
 }
 
 - (void)layoutSubviews;

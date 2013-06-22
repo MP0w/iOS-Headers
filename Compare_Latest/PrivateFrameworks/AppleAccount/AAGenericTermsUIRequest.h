@@ -6,12 +6,12 @@
 
 #import <AppleAccount/AARequest.h>
 
-@class AAAccount, NSDictionary;
+@class ACAccount, NSDictionary;
 
 @interface AAGenericTermsUIRequest : AARequest
 {
     NSDictionary *_requestDictionary;
-    AAAccount *_account;
+    ACAccount *_account;
 }
 
 + (Class)responseClass;

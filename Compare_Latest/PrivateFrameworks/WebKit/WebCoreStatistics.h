@@ -34,6 +34,7 @@
 + (unsigned long)iconRecordCount;
 + (unsigned long)iconRetainedPageURLCount;
 + (unsigned long)iconPageURLMappingCount;
++ (void)setJavaScriptGarbageCollectorTimerEnabled:(BOOL)arg1;
 + (void)garbageCollectJavaScriptObjectsOnAlternateThreadForDebugging:(BOOL)arg1;
 + (void)garbageCollectJavaScriptObjects;
 + (id)javaScriptObjectTypeCounts;

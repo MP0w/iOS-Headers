@@ -10,6 +10,7 @@
 
 @interface SBUIAnimationController : NSObject
 {
+    id <SBUIAnimationControllerDelegate> _delegate;
     UIWindow *_transitionWindow;
     UIView *_transitionContainer;
     SBApplication *_activatingApp;
@@ -17,17 +18,17 @@
     SBActivationContext *_activatingContext;
     SBActivationContext *_deactivatingContext;
     BKSApplicationActivationAssertion *_activationAssertion;
-    id <SBUIAnimationControllerDelegate> _delegate;
     id _commitBlock;
     int _animationState;
     BOOL _cancelOnNextSuspendIfNecessary;
     BOOL _didDisableUserInteraction;
     BOOL _didNotifyDelegateOfCompletion;
+    BOOL _needsCATransactionActivate;
 }
 
-+ (id)_transitionWindow;
 + (id)animationWithActivatingApp:(id)arg1 deactivatingApp:(id)arg2;
 + (id)animation;
+@property(nonatomic) BOOL needsCATransactionActivate; // @synthesize needsCATransactionActivate=_needsCATransactionActivate;
 @property(nonatomic) BOOL cancelOnNextSuspendIfNecessary; // @synthesize cancelOnNextSuspendIfNecessary=_cancelOnNextSuspendIfNecessary;
 @property(retain, nonatomic) SBActivationContext *deactivatingContext; // @synthesize deactivatingContext=_deactivatingContext;
 @property(retain, nonatomic) SBActivationContext *activatingContext; // @synthesize activatingContext=_activatingContext;
@@ -38,9 +39,11 @@
 @property(nonatomic) id <SBUIAnimationControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_transitionContainer;
 - (void)__cleanupAnimation;
-- (void)_noteAnimationDidFinish:(BOOL)arg1;
+- (void)_noteAnimationDidFinish;
 - (void)_notifyDelegateOfCompletion;
 - (void)_noteAnimationDidCommit:(BOOL)arg1 withDuration:(double)arg2 afterDelay:(double)arg3;
+- (BOOL)_shouldTakeActivationAssertionForDeactivatingApp;
+- (BOOL)_shouldDismissBanner;
 - (void)_cleanupAnimation;
 - (void)_cancelAnimation;
 - (void)_startAnimation;
@@ -51,6 +54,7 @@
 - (id)_animationIdentifier;
 - (BOOL)_willAnimate;
 - (void)endAnimation;
+- (BOOL)isComplete;
 - (BOOL)waitingToStart;
 - (void)beginAnimation;
 - (void)_applicationActivationStateDidChange;
@@ -66,6 +70,7 @@
 - (void)dealloc;
 - (id)initWithActivatingApp:(id)arg1 deactivatingApp:(id)arg2;
 - (id)init;
+- (id)_getTransitionWindow;
 
 @end
 

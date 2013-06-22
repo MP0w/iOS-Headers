@@ -4,13 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
-
-#import "_VKStyle-Protocol.h"
+#import <VectorKit/VKDrawStyle.h>
 
 @class NSMutableArray, NSString;
 
-@interface VKPolygonDrawStyle : NSObject <_VKStyle>
+@interface VKPolygonDrawStyle : VKDrawStyle
 {
     struct VKProfileSparseRamp<signed char> visibility;
     struct VKProfileSparseRamp<_VGLColor> fillColor;
@@ -36,11 +34,14 @@
     unsigned int hasFillTexture:1;
     unsigned int hasStrokeColor:1;
     NSString *_name;
+    float _variation;
 }
 
+@property(nonatomic) float variation; // @synthesize variation=_variation;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (id)preferredTextureNameAtZoom:(float)arg1;
 - (id)descriptionAtZoom:(float)arg1;
 - (BOOL)fancyCasingsVisibleAtZoom:(float)arg1;
 - (BOOL)casingsVisibleAtZoom:(float)arg1;
@@ -57,17 +58,20 @@
 - (float)secondTextureOpacityAtZoom:(float)arg1;
 - (id)secondTextureAtZoom:(float)arg1;
 - (int)textureBlendMode;
+- (id)textureVariantAtZoom:(float)arg1;
 - (float)textureOpacityAtZoom:(float)arg1;
 - (id)textureAtZoom:(float)arg1;
+- (struct _VGLColor)nonAnimatedFillColorAtZoom:(float)arg1;
 - (struct _VGLColor)fillColorAtZoom:(float)arg1;
 - (BOOL)isNotDrawn;
 - (BOOL)hasFillTexture;
 - (BOOL)hasFillColor;
 - (BOOL)visibleAtZoom:(float)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
 - (void)takeFromZoomInvariantProperties:(id)arg1;
+- (id)variant;
 - (void)dealloc;
-- (id)init;
+- (id)initWithStyle:(id)arg1;
 
 @end
 

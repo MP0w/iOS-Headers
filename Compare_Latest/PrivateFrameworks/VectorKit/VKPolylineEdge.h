@@ -8,41 +8,31 @@
 
 @interface VKPolylineEdge : NSObject
 {
-    CDStruct_b4689c16 _roadEdge;
-    CDStruct_6e3f967a *_points;
-    CDStruct_6e3f967a *_pointStorage;
-    unsigned int _pointCount;
-    float _cost;
-    float _totalCost;
-    float _pathOffsetA;
-    float _pathOffsetB;
-    float _featureOffsetA;
-    float _featureOffsetB;
-    CDStruct_3f2a7a20 _routeOffsetA;
-    CDStruct_3f2a7a20 _routeOffsetB;
-    BOOL _isFinalEdge;
-    int _direction;
+    CDStruct_aca18c62 _localBounds;
+    shared_ptr_035a2da2 _mapEdge;
+    struct vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>> _points;
+    struct vector<geo::PolylineCoordinate, vk_allocator<geo::PolylineCoordinate>> _routeOffsets;
+    unsigned long _mapEdgeOffset;
+    BOOL _clippedFront;
+    BOOL _clippedBack;
 }
 
-@property(readonly, nonatomic) int direction; // @synthesize direction=_direction;
-@property(readonly, nonatomic) BOOL isFinalEdge; // @synthesize isFinalEdge=_isFinalEdge;
-@property(readonly, nonatomic) float featureOffsetB; // @synthesize featureOffsetB=_featureOffsetB;
-@property(readonly, nonatomic) float featureOffsetA; // @synthesize featureOffsetA=_featureOffsetA;
-@property(nonatomic) CDStruct_3f2a7a20 routeOffsetB; // @synthesize routeOffsetB=_routeOffsetB;
-@property(nonatomic) CDStruct_3f2a7a20 routeOffsetA; // @synthesize routeOffsetA=_routeOffsetA;
-@property(readonly, nonatomic) float pathOffsetB; // @synthesize pathOffsetB=_pathOffsetB;
-@property(readonly, nonatomic) float pathOffsetA; // @synthesize pathOffsetA=_pathOffsetA;
-@property(nonatomic) float totalCost; // @synthesize totalCost=_totalCost;
-@property(readonly, nonatomic) float cost; // @synthesize cost=_cost;
-@property(readonly, nonatomic) unsigned int pointCount; // @synthesize pointCount=_pointCount;
-@property(readonly, nonatomic) CDStruct_6e3f967a *points; // @synthesize points=_points;
-- (void)computeCostWithPath:(CDStruct_6e3f967a *)arg1 pathCount:(unsigned int)arg2 prevEdge:(id)arg3;
-- (float)_roadLength;
-- (void)markFinalEdgeOnPath:(CDStruct_6e3f967a *)arg1 pathCount:(unsigned int)arg2;
+@property(readonly, nonatomic) BOOL clippedBack; // @synthesize clippedBack=_clippedBack;
+@property(readonly, nonatomic) BOOL clippedFront; // @synthesize clippedFront=_clippedFront;
+@property(readonly, nonatomic) unsigned long mapEdgeOffset; // @synthesize mapEdgeOffset=_mapEdgeOffset;
+@property(readonly, nonatomic) shared_ptr_035a2da2 mapEdge; // @synthesize mapEdge=_mapEdge;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) CDStruct_c272c4e8 *feature;
+@property(readonly, nonatomic) struct PolylineCoordinate routeOffsetB;
+@property(readonly, nonatomic) struct PolylineCoordinate routeOffsetA;
+@property(readonly, nonatomic) struct PolylineCoordinate *routeOffsets;
 - (id)description;
+@property(readonly, nonatomic) unsigned long pointCount;
+@property(readonly, nonatomic) Vec2Imp_1782d7e3 *points;
+- (void)calculateRouteOffsetsBetweenA:(struct PolylineCoordinate)arg1 andB:(struct PolylineCoordinate)arg2 overLength:(float)arg3 onRoute:(id)arg4;
 - (void)dealloc;
-- (id)initWithRoadEdge:(CDStruct_b4689c16 *)arg1;
-@property(readonly, nonatomic) const CDStruct_b4689c16 *roadEdge;
+- (id)initWithRoadPath:(const RoadPathElement_777899a4 *)arg1 sectionRect:(const CDStruct_d2b197d1 *)arg2;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CoreDAVResourceTypeItem, NSDictionary, NSSet, NSString, NSURL;
+@class CoreDAVResourceTypeItem, CoreDAVSupportedReportSetItem, NSDictionary, NSSet, NSString, NSURL;
 
 @interface CoreDAVContainer : NSObject
 {
@@ -18,7 +18,7 @@
     NSString *_pushKey;
     NSDictionary *_pushTransports;
     NSURL *_resourceID;
-    NSSet *_supportedReports;
+    CoreDAVSupportedReportSetItem *_supportedReportSetItem;
     NSString *_quotaAvailable;
     NSString *_quotaUsed;
     NSURL *_owner;
@@ -34,7 +34,7 @@
 @property(retain) NSURL *addMemberURL; // @synthesize addMemberURL=_addMemberURL;
 @property(retain) NSURL *owner; // @synthesize owner=_owner;
 @property(retain) CoreDAVResourceTypeItem *resourceType; // @synthesize resourceType=_resourceType;
-@property(retain) NSSet *supportedReports; // @synthesize supportedReports=_supportedReports;
+@property(retain) CoreDAVSupportedReportSetItem *supportedReportSetItem; // @synthesize supportedReportSetItem=_supportedReportSetItem;
 @property(retain) NSString *quotaUsed; // @synthesize quotaUsed=_quotaUsed;
 @property(retain) NSString *quotaAvailable; // @synthesize quotaAvailable=_quotaAvailable;
 @property(retain) NSURL *resourceID; // @synthesize resourceID=_resourceID;
@@ -48,12 +48,15 @@
 @property(readonly) BOOL supportsSyncCollectionReport;
 @property(readonly) BOOL supportsPrincipalPropertySearchReport;
 @property(readonly) NSSet *supportedReportsAsStringSet;
+@property(readonly) BOOL hasBindPrivileges;
 @property(readonly) BOOL hasWritePropertiesPrivileges;
 @property(readonly) BOOL hasWriteContentPrivileges;
 @property(readonly) BOOL hasReadPrivileges;
+- (BOOL)_anyPrivilegesMatches:(id)arg1;
 @property(readonly) NSSet *privilegesAsStringSet;
 @property(readonly) BOOL isPrincipal;
 @property(readonly) NSSet *resourceTypeAsStringSet;
+@property(readonly) NSSet *supportedReports;
 - (void)applyParsedProperties:(id)arg1;
 - (id)description;
 - (id)initWithURL:(id)arg1 andProperties:(id)arg2;

@@ -25,31 +25,9 @@
     BOOL _includeEmoji;
     struct CGRect _truncationRect;
     BOOL _drawUnderline;
-    id *renderString;
 }
 
-+ (id)attributesWithSystemFontOfSize:(float)arg1;
-@property(nonatomic) BOOL drawUnderline; // @synthesize drawUnderline=_drawUnderline;
-@property(nonatomic) id *renderString; // @synthesize renderString;
-@property(nonatomic) struct CGRect truncationRect; // @synthesize truncationRect=_truncationRect;
-@property(nonatomic) BOOL includeEmoji; // @synthesize includeEmoji=_includeEmoji;
-@property(nonatomic) int alignment; // @synthesize alignment=_alignment;
-@property(readonly, nonatomic) float actualTrackingAdjustment; // @synthesize actualTrackingAdjustment=_actualTrackingAdjustment;
-@property(nonatomic) float minimumTrackingAdjustment; // @synthesize minimumTrackingAdjustment=_minimumTrackingAdjustment;
-@property(nonatomic) float trackingAdjustment; // @synthesize trackingAdjustment=_trackingAdjustment;
-@property(nonatomic) int baselineAdjustment; // @synthesize baselineAdjustment=_baselineAdjustment;
-@property(nonatomic) int lineBreakMode; // @synthesize lineBreakMode=_lineBreakMode;
-@property(nonatomic) float lineSpacing; // @synthesize lineSpacing=_lineSpacing;
-@property(readonly, nonatomic) float actualFontSize; // @synthesize actualFontSize=_actualFontSize;
-@property(nonatomic) float minimumFontSize; // @synthesize minimumFontSize=_minimumFontSize;
-@property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
-- (id)attributesDictionary:(BOOL)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (int)ellipsisStyle;
-- (float)letterSpacing;
-- (void)setActualTrackingAdjustment:(float)arg1;
-- (void)setActualFontSize:(float)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

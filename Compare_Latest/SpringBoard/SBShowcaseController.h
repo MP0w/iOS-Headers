@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class SBSlidingViewHighlight, UIControl, UIView, UIWindow;
+@class SBHighlightView, SBWindow, UIControl, UIView;
 
 @interface SBShowcaseController : NSObject
 {
-    UIWindow *_hostWindow;
+    SBWindow *_hostWindow;
     UIView *_hostView;
-    UIWindow *_showcaseWindow;
+    SBWindow *_showcaseWindow;
     UIView *_rootView;
     UIView *_contentView;
     UIControl *_blockingView;
@@ -21,7 +21,7 @@
     UIView *_topShadowView;
     UIView *_bottomShadowView;
     UIView *_hidingView;
-    SBSlidingViewHighlight *_separator;
+    SBHighlightView *_separator;
     float _revealAmount;
     int _orientation;
     BOOL _isAnimating;
@@ -33,7 +33,7 @@
 + (float)fullRevealAmount;
 @property(nonatomic, getter=isAnimating) BOOL animating; // @synthesize animating=_isAnimating;
 @property(nonatomic) float revealAmount; // @synthesize revealAmount=_revealAmount;
-@property(readonly, nonatomic) UIWindow *window; // @synthesize window=_showcaseWindow;
+@property(readonly, nonatomic) SBWindow *window; // @synthesize window=_showcaseWindow;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
 @property(retain, nonatomic) UIView *hidingView; // @synthesize hidingView=_hidingView;
 @property(retain, nonatomic) UIView *hostView; // @synthesize hostView=_hostView;

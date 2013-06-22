@@ -11,16 +11,16 @@
 @interface MMCSSimpleFile : NSObject
 {
     int _fd;
-    double _progress;
     NSString *_authToken;
     int _encryptionBehavior;
     NSString *_localPath;
     NSURL *_requestURL;
     NSString *_requestorID;
     NSString *_guid;
-    unsigned long long _itemID;
     NSData *_signature;
     NSData *_fileHash;
+    double _progress;
+    unsigned long long _itemID;
     unsigned long long _protocolFileSize;
 }
 

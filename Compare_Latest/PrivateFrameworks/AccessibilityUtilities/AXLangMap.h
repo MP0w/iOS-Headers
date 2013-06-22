@@ -10,9 +10,10 @@
 
 @interface AXLangMap : NSObject
 {
-    NSArray *_dialects;
     BOOL _western;
     BOOL _ambiguous;
+    AXDialectMap *userLocaleDialect;
+    NSArray *_dialects;
     NSString *_generalLanguageID;
     AXDialectMap *_userPreferredDialect;
     NSArray *_alternateLanguageIDs;
@@ -26,6 +27,7 @@
 @property(retain, nonatomic) NSArray *dialects; // @synthesize dialects=_dialects;
 - (id)dialectWithLocaleIdentifier:(id)arg1;
 @property(readonly, nonatomic) AXDialectMap *defaultDialect;
+@property(readonly, nonatomic) AXDialectMap *userLocaleDialect; // @synthesize userLocaleDialect;
 - (id)debugDescription;
 - (id)basicDescription;
 - (id)description;

@@ -6,26 +6,28 @@
 
 #import <WebCore/WAKResponder.h>
 
-@class CALayer;
+@class CALayer, WAKView;
 
 @interface WAKWindow : WAKResponder
 {
-    struct WKWindow *_wkWindow;
     CALayer *_hostLayer;
     struct TileCache *_tileCache;
-    struct CGRect _cachedVisibleRect;
+    struct CGRect _frozenVisibleRect;
     CALayer *_rootLayer;
     struct CGSize _screenSize;
     struct CGSize _availableScreenSize;
     float _screenScale;
     struct CGRect _frame;
+    WAKView *_contentView;
+    WAKView *_responderView;
+    WAKView *_nextResponder;
+    BOOL _visible;
     BOOL _useOrientationDependentFontAntialiasing;
 }
 
 + (id)currentEvent;
 + (BOOL)hasLandscapeOrientation;
 + (void)setOrientationProvider:(id)arg1;
-+ (id)_wrapperForWindowRef:(struct WKWindow *)arg1;
 @property(nonatomic) BOOL useOrientationDependentFontAntialiasing; // @synthesize useOrientationDependentFontAntialiasing=_useOrientationDependentFontAntialiasing;
 - (id).cxx_construct;
 - (id)recursiveDescription;
@@ -35,9 +37,12 @@
 - (void)setTilePaintCountsVisible:(BOOL)arg1;
 - (void)setTileBordersVisible:(BOOL)arg1;
 - (id)hostLayer;
+- (void)unfreezeVisibleRect;
+- (void)freezeVisibleRect;
 - (void)didRotate;
 - (void)willRotate;
 - (void)displayRect:(struct CGRect)arg1;
+@property(nonatomic) struct CGImage *contentReplacementImage;
 - (BOOL)hasPendingDraw;
 - (BOOL)keepsZoomedOutTiles;
 - (void)setKeepsZoomedOutTiles:(BOOL)arg1;
@@ -52,7 +57,9 @@
 - (void)removeForegroundTiles;
 - (void)removeAllTiles;
 - (void)removeAllNonVisibleTiles;
+- (struct CGRect)extendedVisibleRect;
 - (struct CGRect)visibleRect;
+- (struct CGRect)_visibleRectRespectingMasksToBounds:(BOOL)arg1;
 - (void)setTilesOpaque:(BOOL)arg1;
 - (BOOL)tilesOpaque;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
@@ -63,7 +70,6 @@
 - (void)sendMouseMoveEvent:(id)arg1 contentChange:(int *)arg2;
 - (void)sendEventSynchronously:(id)arg1;
 - (void)sendEvent:(id)arg1;
-- (struct WKWindow *)_windowRef;
 - (id)rootLayer;
 - (void)setRootLayer:(id)arg1;
 - (float)screenScale;
@@ -77,12 +83,13 @@
 - (void)setFrame:(struct CGRect)arg1 display:(BOOL)arg2;
 - (BOOL)makeFirstResponder:(id)arg1;
 - (int)keyViewSelectionDirection;
+- (void)setVisible:(BOOL)arg1;
+- (BOOL)isVisible;
 - (void)makeKeyWindow;
 - (BOOL)isKeyWindow;
 - (struct CGPoint)convertScreenToBase:(struct CGPoint)arg1;
 - (struct CGPoint)convertBaseToScreen:(struct CGPoint)arg1;
 - (id)_newFirstResponderAfterResigning;
-- (BOOL)makeViewFirstResponder:(id)arg1;
 - (id)firstResponder;
 - (void)close;
 - (id)contentView;

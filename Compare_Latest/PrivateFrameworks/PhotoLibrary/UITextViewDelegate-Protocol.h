@@ -10,6 +10,8 @@
 @protocol UITextViewDelegate <NSObject, UIScrollViewDelegate>
 
 @optional
+- (BOOL)textView:(id)arg1 shouldInteractWithTextAttachment:(id)arg2 inRange:(struct _NSRange)arg3;
+- (BOOL)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (void)textViewDidChange:(id)arg1;
 - (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;

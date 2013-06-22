@@ -15,6 +15,7 @@
     NSMutableSet *_activeTouches;
 }
 
+- (void).cxx_destruct;
 - (BOOL)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
 - (BOOL)_gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;

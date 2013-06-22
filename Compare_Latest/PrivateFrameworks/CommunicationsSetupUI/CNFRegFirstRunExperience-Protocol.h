@@ -14,8 +14,5 @@
 @property(readonly, nonatomic) int currentAppearanceStyle;
 @property(nonatomic) id <CNFRegFirstRunDelegate> delegate;
 - (id)initWithRegController:(id)arg1 account:(id)arg2;
-
-@optional
-@property(nonatomic) BOOL showSplash;
 @end
 

@@ -21,7 +21,6 @@
     MPQueuePlayer *_player;
     id <MPAVPlaylistFeeder> _playlistFeeder;
     int _repeatMode;
-    int _retainCount;
     int _targetIndex;
     BOOL _updatedAudioSessionMode;
 }
@@ -31,6 +30,7 @@
 @property(readonly) MPQueuePlayer *player; // @synthesize player=_player;
 @property(readonly) MPAVItem *currentItem; // @synthesize currentItem=_currentItem;
 @property(retain, nonatomic) NSString *audioSessionModeOverride; // @synthesize audioSessionModeOverride=_audioSessionModeOverride;
+- (void).cxx_destruct;
 - (void)_updateAudioSessionMode;
 - (id)_audioSessionModeForMediaItem:(id)arg1;
 - (id)_feeder;
@@ -66,11 +66,6 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)init;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
-- (oneway void)release;
-- (id)retain;
 
 @end
 

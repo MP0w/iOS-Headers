@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSMutableDictionary, NSString, NSURL;
 
-@interface SUDocumentation : NSObject <NSCoding, NSCopying>
+@interface SUDocumentation : NSObject <NSSecureCoding, NSCopying>
 {
     NSURL *_baseDocumentationURL;
     NSString *_releaseNotesSummaryFileName;
@@ -25,6 +25,7 @@
     NSMutableDictionary *_cachedData;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(retain, nonatomic) NSString *primaryLanguage; // @synthesize primaryLanguage=_primaryLanguage;
 @property(retain, nonatomic) NSString *humanReadableUpdateName; // @synthesize humanReadableUpdateName=_humanReadableUpdateName;
 @property(retain, nonatomic) NSURL *licenseAgreementURL; // @synthesize licenseAgreementURL=_licenseAgreementURL;

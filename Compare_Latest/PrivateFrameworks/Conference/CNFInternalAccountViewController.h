@@ -32,7 +32,6 @@
 - (id)specifierForAlias:(id)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
-- (BOOL)canBeShownFromSuspendedState;
 - (id)bundle;
 - (id)specifiers;
 - (void)dealloc;

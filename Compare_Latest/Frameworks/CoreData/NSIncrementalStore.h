@@ -33,6 +33,7 @@
 - (id)metadata;
 - (BOOL)load:(id *)arg1;
 - (void)dealloc;
+- (void)_setMetadata:(id)arg1 includeVersioning:(BOOL)arg2;
 - (void)_preflightCrossCheck;
 - (id)_rawMetadata__;
 

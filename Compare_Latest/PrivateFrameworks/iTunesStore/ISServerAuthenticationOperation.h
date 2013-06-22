@@ -6,17 +6,21 @@
 
 #import <iTunesStore/ISOperation.h>
 
-@class ISDialog, NSNumber, NSURL, SSAuthenticationContext;
+@class ISDialog, ISDialogButton, NSNumber, NSURL, SSAuthenticationContext;
 
 @interface ISServerAuthenticationOperation : ISOperation
 {
     NSNumber *_authenticatedAccountDSID;
     SSAuthenticationContext *_authenticationContext;
     ISDialog *_dialog;
+    BOOL _performsButtonAction;
     NSURL *_redirectURL;
+    ISDialogButton *_selectedButton;
 }
 
+@property(retain) ISDialogButton *selectedButton; // @synthesize selectedButton=_selectedButton;
 @property(retain) NSURL *redirectURL; // @synthesize redirectURL=_redirectURL;
+@property BOOL performsButtonAction; // @synthesize performsButtonAction=_performsButtonAction;
 @property(retain) ISDialog *dialog; // @synthesize dialog=_dialog;
 @property(retain) NSNumber *authenticatedAccountDSID; // @synthesize authenticatedAccountDSID=_authenticatedAccountDSID;
 @property(retain) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
@@ -28,6 +32,7 @@
 - (BOOL)_copyAccountIdentifier:(id *)arg1 returningError:(id *)arg2;
 - (void)run;
 - (void)dealloc;
+- (id)init;
 
 @end
 

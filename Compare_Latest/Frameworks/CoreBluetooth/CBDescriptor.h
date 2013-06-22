@@ -6,18 +6,27 @@
 
 #import "NSObject.h"
 
-@class CBCharacteristic, CBUUID;
+@class CBCharacteristic, CBPeripheral, CBUUID, NSNumber;
 
 @interface CBDescriptor : NSObject
 {
     CBCharacteristic *_characteristic;
     CBUUID *_UUID;
     id _value;
+    CBPeripheral *_peripheral;
+    NSNumber *_handle;
 }
 
+@property(readonly, nonatomic) NSNumber *handle; // @synthesize handle=_handle;
+@property(readonly, nonatomic) CBPeripheral *peripheral; // @synthesize peripheral=_peripheral;
 @property(retain) id value; // @synthesize value=_value;
 @property(readonly, nonatomic) CBUUID *UUID; // @synthesize UUID=_UUID;
-@property(nonatomic) CBCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
+@property(nonatomic) __weak CBCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
+- (id)handleValueWritten:(id)arg1;
+- (id)handleValueUpdated:(id)arg1;
+- (void)invalidate;
+- (void)dealloc;
+- (id)initWithCharacteristic:(id)arg1 dictionary:(id)arg2;
 
 @end
 

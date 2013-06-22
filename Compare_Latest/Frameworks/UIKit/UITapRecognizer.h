@@ -37,7 +37,12 @@
 @property(nonatomic) double maximumIntervalBetweenSuccessiveTaps;
 @property(nonatomic) double maximumSingleTapDuration;
 @property(nonatomic) float allowableMovement;
+- (void)_physicalButtonsCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsEnded:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)_interactionEndedTouch:(BOOL)arg1;
+- (void)_beginInteraction;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;

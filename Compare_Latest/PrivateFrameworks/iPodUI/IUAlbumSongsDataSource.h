@@ -11,6 +11,7 @@
 }
 
 - (void)_addActionRow:(id)arg1;
+- (BOOL)canShowDownloadAllEntities;
 - (void)reloadActionRows;
 - (Class)cellConfigurationClass;
 

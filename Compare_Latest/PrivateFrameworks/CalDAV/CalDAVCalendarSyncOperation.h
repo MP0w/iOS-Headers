@@ -14,6 +14,7 @@
     BOOL _getScheduleChanges;
     NSError *_savedError;
     NSString *_nextCtag;
+    NSString *_nextSyncToken;
     id <CalDAVCalendar> _calendar;
 }
 
@@ -34,7 +35,7 @@
 - (id)_distantFutureEndDate;
 - (void)_finishWithError:(id)arg1;
 - (void)dealloc;
-- (id)initWithPrincipal:(id)arg1 calendar:(id)arg2 nextCtag:(id)arg3;
+- (id)initWithPrincipal:(id)arg1 calendar:(id)arg2 nextCtag:(id)arg3 nextSyncToken:(id)arg4;
 
 // Remaining properties
 @property(nonatomic) id <CalDAVCalendarSyncDelegate> delegate; // @dynamic delegate;

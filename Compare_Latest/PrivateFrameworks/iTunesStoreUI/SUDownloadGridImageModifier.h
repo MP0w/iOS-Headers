@@ -14,7 +14,6 @@
 @property(nonatomic) struct CGSize maxImageSize; // @synthesize maxImageSize=_maxImageSize;
 - (BOOL)scalesImage;
 - (struct CGRect)imageFrameForImage:(id)arg1 currentFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;
-- (void)drawBeforeImageForContext:(struct CGContext *)arg1 imageFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;
 - (void)drawAfterImageForContext:(struct CGContext *)arg1 imageFrame:(struct CGRect)arg2 finalSize:(struct CGSize)arg3;
 
 @end

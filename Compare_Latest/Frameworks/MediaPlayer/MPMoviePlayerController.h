@@ -12,14 +12,13 @@
 
 @interface MPMoviePlayerController : NSObject <MPMediaPlayback>
 {
-    void *_internal;
-    BOOL _readyForDisplay;
+    id _implementation;
 }
 
 + (void)allInstancesResignActive;
-@property(readonly, nonatomic) BOOL readyForDisplay; // @synthesize readyForDisplay=_readyForDisplay;
-- (struct CGRect)_videoFrame;
+- (void).cxx_destruct;
 - (BOOL)_isReadyForDisplay;
+@property(readonly, nonatomic) BOOL readyForDisplay;
 - (void)_resignActive;
 @property(nonatomic) float currentPlaybackRate;
 @property(nonatomic) double currentPlaybackTime;
@@ -62,6 +61,7 @@
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)dealloc;
 - (id)initWithContentURL:(id)arg1;
+- (id)initWithAsset:(id)arg1;
 - (id)init;
 
 @end

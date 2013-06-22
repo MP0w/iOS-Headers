@@ -14,18 +14,21 @@
     UIColor *m_selectionBarColor;
     UIImageView *m_dot;
     int m_orientation;
+    struct CGRect m_stickFrame;
+    struct CGRect m_dotFrame;
 }
 
 @property(nonatomic) BOOL showsBall;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)setFrame:(struct CGRect)arg1;
+- (void)setEdge:(struct CGRect)arg1;
+- (struct CGRect)stickFrameForEdge:(struct CGRect)arg1 withOverlap:(float)arg2;
 - (BOOL)isPointedLeft;
 - (BOOL)isPointedRight;
 - (BOOL)isPointedUp;
 - (BOOL)isPointedDown;
 - (BOOL)isVertical;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 container:(id)arg2 orientation:(int)arg3;
+- (id)initWithEdge:(struct CGRect)arg1 container:(id)arg2 orientation:(int)arg3;
 
 @end
 

@@ -69,7 +69,8 @@
 - (unsigned long)_characterAfterCaretSelection;
 - (struct _NSRange)_nsrangeForTextRange:(id)arg1;
 - (int)_indexForTextPosition:(id)arg1;
-- (struct _NSRange)_selectionAsNSRange;
+- (void)_selectAll;
+- (struct _NSRange)_selectedNSRange;
 - (id)_keyInput;
 @property(readonly, nonatomic, getter=_proxyTextInput) UIResponder<UITextInput> *__content;
 

@@ -18,11 +18,13 @@
     id _valuesSeenFromMainThread;
     id _cancellationHandler;
     id _pausingHandler;
+    id _prioritizationHandler;
     long long _pendingUnitCount;
     id _userInfoProxy;
     NSString *_publisherID;
     NSXPCConnection *_connection;
     int _unpublishingBlockageCount;
+    int _disconnectingBlockageCount;
     int _remoteObserverCount;
     NSMutableDictionary *_acknowledgementHandlersByBundleID;
     NSMutableDictionary *_lastNotificationTimesByKey;
@@ -31,9 +33,13 @@
     id _reserved2;
 }
 
-+ (void)removeSubscriber:(id)arg1;
 + (id)addSubscriberForFileURL:(id)arg1 usingBlock:(id)arg2;
++ (id)_addSubscriberForCategory:(id)arg1 usingPublishingHandler:(id)arg2;
++ (id)_addGeneralSubscriberUsingBlock:(id)arg1;
++ (void)removeSubscriber:(id)arg1;
++ (id)addSubscriberForFileURL:(id)arg1 withPublishingHandler:(id)arg2;
 + (id)keyPathsForValuesAffectingFractionCompleted;
++ (id)keyPathsForValuesAffectingLocalizedAdditionalDescription;
 + (id)keyPathsForValuesAffectingLocalizedDescription;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)progressWithTotalUnitCount:(long long)arg1;
@@ -41,14 +47,24 @@
 + (id)_registrarInterface;
 + (id)_subscriberInterface;
 + (id)_publisherInterface;
+- (void)handleAcknowledgementByAppWithBundleIdentifier:(id)arg1 usingBlock:(id)arg2;
+- (oneway void)prioritize;
+- (void)_prioritize;
+- (id)prioritizationHandler;
+- (void)setPrioritizationHandler:(id)arg1;
+- (BOOL)isPrioritizable;
+- (void)setPrioritizable:(BOOL)arg1;
+- (id)_publishingAppBundleIdentifier;
 @property(readonly, getter=isOld) BOOL old;
 - (void)acknowledgeWithSuccess:(BOOL)arg1;
 - (oneway void)appWithBundleID:(id)arg1 didAcknowledgeWithSuccess:(BOOL)arg2;
 - (oneway void)stopProvidingValues;
 - (oneway void)startProvidingValuesWithInitialAcceptor:(id)arg1;
-- (void)handleAcknowledgementByAppWithBundleIdentifier:(id)arg1 usingBlock:(id)arg2;
+- (id)acknowledgementHandlerForAppBundleIdentifier:(SEL)arg1;
+- (void)setAcknowledgementHandler:(id)arg1 forAppBundleIdentifier:(void)arg2;
 - (void)unpublish;
 - (void)_unblockUnpublishing;
+- (void)_unblockDisconnecting;
 - (void)publish;
 @property(copy) NSString *kind;
 - (id)ownedDictionaryObjectForKey:(id)arg1;
@@ -64,12 +80,13 @@
 @property(readonly, getter=isIndeterminate) BOOL indeterminate;
 - (void)setUserInfoObject:(id)arg1 forKey:(id)arg2;
 - (void)_setUserInfoValue:(id)arg1 forKey:(id)arg2;
-- (void)setPausingHandler:(id)arg1;
-- (void)setCancellationHandler:(id)arg1;
+@property(copy) id pausingHandler;
+@property(copy) id cancellationHandler;
 @property(readonly, getter=isPaused) BOOL paused;
 @property(readonly, getter=isCancelled) BOOL cancelled;
 @property(getter=isPausable) BOOL pausable;
 @property(getter=isCancellable) BOOL cancellable;
+@property(copy) NSString *localizedAdditionalDescription;
 @property(copy) NSString *localizedDescription;
 @property long long completedUnitCount;
 @property long long totalUnitCount;
@@ -85,7 +102,6 @@
 - (id)init;
 - (void)_setValue:(id)arg1 forKey:(id)arg2 inUserInfo:(BOOL)arg3;
 - (id)_initWithValues:(id)arg1;
-@property(readonly) NSString *localizedItemCountDescription;
 - (void)acknowledge;
 - (void)handleAcknowledgementByAppWithBundleIdentifer:(id)arg1 usingBlock:(id)arg2;
 

@@ -4,11 +4,9 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <VectorKit/VKDrawStyle.h>
 
-#import "_VKStyle-Protocol.h"
-
-@interface VKLineDrawStyle : NSObject <_VKStyle>
+@interface VKLineDrawStyle : VKDrawStyle
 {
     struct vector<LineDash, vk_allocator<LineDash>> fillDashes;
     struct vector<LineStipple, vk_allocator<LineStipple>> stipples;
@@ -17,7 +15,7 @@
     struct VKProfileSparseRamp<float> insetShadowHeight;
     struct VKProfileSparseRamp<float> insetShadowAngle;
     struct VKProfileSparseRamp<_VGLColor> insetShadowColor;
-    struct VKProfileSparseRamp<GEOVectorTilePoint> dropShadowOffset;
+    struct VKProfileSparseRamp<geo::Vec2Imp<float>> dropShadowOffset;
     struct VKProfileSparseRamp<float> dropShadowWidth;
     struct VKProfileSparseRamp<_VGLColor> dropShadowColor;
 }
@@ -25,7 +23,7 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (struct _VGLColor)dropShadowColorAtZoom:(float)arg1;
-- (CDStruct_6e3f967a)dropShadowOffsetAtZoom:(float)arg1;
+- (Vec2Imp_1782d7e3)dropShadowOffsetAtZoom:(float)arg1;
 - (float)dropShadowWidthAtZoom:(float)arg1;
 - (BOOL)hasDropShadowAtZoom:(float)arg1;
 - (struct _VGLColor)insetShadowColorAtZoom:(float)arg1;
@@ -37,8 +35,8 @@
 - (void)stippleArray:(float **)arg1 length:(unsigned int *)arg2 atZoom:(float)arg3;
 - (void)fillDashPattern:(float **)arg1 length:(unsigned int *)arg2 atZoom:(float)arg3;
 - (BOOL)hasDashAtAnyZ;
-- (void)takeFromZoomInvariantProperties:(id)arg1;
-- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2;
+- (void)takeFromStyleProperties:(id)arg1 atZoom:(unsigned int)arg2 globals:(id)arg3;
+- (id)variant;
 
 @end
 

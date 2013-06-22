@@ -34,6 +34,12 @@
 - (BOOL)canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2;
 - (id)inputGroups;
 @property(readonly, nonatomic) NSArray *inputs;
+- (void)setPreferredRate:(float)arg1;
+- (float)preferredRate;
+- (void)setPreferredVolume:(float)arg1;
+- (float)preferredVolume;
+- (void)setPreferredTransform:(struct CGAffineTransform)arg1;
+- (struct CGAffineTransform)preferredTransform;
 - (void)setMovieTimeScale:(int)arg1;
 - (int)movieTimeScale;
 @property(nonatomic) BOOL shouldOptimizeForNetworkUse;

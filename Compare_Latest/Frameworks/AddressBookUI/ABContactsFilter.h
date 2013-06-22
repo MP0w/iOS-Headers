@@ -11,10 +11,10 @@
 @interface ABContactsFilter : NSObject
 {
     void *_addressBook;
+    BOOL _showsAllContacts;
     NSArray *_groups;
     NSArray *_sources;
     void *_directorySource;
-    BOOL _showsAllContacts;
 }
 
 + (id)newContactsFilterFromDictionaryRepresentation:(id)arg1 withAddressBook:(void *)arg2;

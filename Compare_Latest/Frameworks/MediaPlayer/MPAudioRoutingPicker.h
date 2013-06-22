@@ -19,6 +19,7 @@
     NSArray *_routes;
 }
 
+- (void).cxx_destruct;
 - (BOOL)_pickRouteAtIndex:(unsigned int)arg1 withPassword:(id)arg2;
 - (BOOL)requiresPortraitOrientation;
 - (void)willMoveToSuperview:(id)arg1;

@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSMapTable, NSMutableDictionary, VKPShieldPack;
+@class NSMapTable, VKObjectPool, VKPShieldPack;
 
 @interface VKShieldAtlas : NSObject
 {
-    NSMutableDictionary *_shieldDict;
     NSMapTable *_atlasToImages;
     VKPShieldPack *_shieldPack;
+    VKObjectPool *_artworkPool;
 }
 
-- (id)artworkForShieldIdentifier:(id)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 extraScale:(float)arg4 mode:(int)arg5;
+- (id)artworkForShieldIdentifier:(id)arg1 textLength:(unsigned int)arg2 contentScale:(float)arg3 extraScale:(float)arg4 size:(int)arg5 numberOfLines:(unsigned int)arg6;
 - (void)purge;
 - (void)dealloc;
 - (id)initWithShieldPack:(id)arg1;

@@ -8,14 +8,14 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSDate, NSString;
+@class AVPlayerItemAccessLogEvent, NSDate, NSString;
 
 @interface MPMovieAccessLogEvent : NSObject <NSCopying>
 {
-    struct MPMovieAccessLogEventInternal _internal;
+    AVPlayerItemAccessLogEvent *_event;
 }
 
-@property(nonatomic) struct MPMovieAccessLogEventInternal _internal; // @synthesize _internal;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) int numberOfDroppedVideoFrames;
 @property(readonly, nonatomic) double indicatedBitrate;
 @property(readonly, nonatomic) double observedBitrate;
@@ -31,7 +31,6 @@
 @property(readonly, nonatomic) NSDate *playbackStartDate;
 @property(readonly, nonatomic) unsigned int numberOfSegmentsDownloaded;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)_initWithAVItemAccessLogEvent:(id)arg1;
 
 @end

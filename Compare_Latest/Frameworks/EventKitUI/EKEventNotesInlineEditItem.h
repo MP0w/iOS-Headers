@@ -15,16 +15,16 @@
     CalendarNotesCell *_cell;
 }
 
+- (void).cxx_destruct;
 - (BOOL)textViewShouldReturn:(id)arg1;
 - (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
 - (void)textViewDidEndEditing:(id)arg1;
 - (void)textViewDidBeginEditing:(id)arg1;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
 - (BOOL)isInline;
 - (void)reset;
-- (void)dealloc;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
 
 @end
 

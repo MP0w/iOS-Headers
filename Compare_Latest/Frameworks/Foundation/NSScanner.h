@@ -31,9 +31,11 @@
 - (BOOL)scanCharactersFromSet:(id)arg1 intoString:(id *)arg2;
 - (BOOL)scanHexInt:(unsigned int *)arg1;
 - (BOOL)scanHexLongLong:(unsigned long long *)arg1;
+- (BOOL)scanUnsignedInteger:(unsigned int *)arg1;
 - (BOOL)scanInteger:(int *)arg1;
 - (BOOL)scanInt:(int *)arg1;
 - (BOOL)scanLongLong:(long long *)arg1;
+- (BOOL)scanUnsignedLongLong:(unsigned long long *)arg1;
 - (BOOL)scanHexFloat:(float *)arg1;
 - (BOOL)scanHexDouble:(double *)arg1;
 - (BOOL)scanFloat:(float *)arg1;

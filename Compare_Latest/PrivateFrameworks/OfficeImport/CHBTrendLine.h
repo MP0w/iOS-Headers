@@ -11,7 +11,7 @@
 }
 
 + (void)readFrom:(struct XlChartTrendLine *)arg1 toSeries:(id)arg2 state:(id)arg3;
-+ (id)readTrendlineGraphicProperties:(const struct XlChartSeriesFormat *)arg1 forStyleIndex:(int)arg2 state:(id)arg3;
++ (id)readTrendlineGraphicProperties:(const struct XlChartSeriesFormat *)arg1 forStyleIndex:(unsigned int)arg2 state:(id)arg3;
 + (int)xlTrendLineRegressionTypeFrom:(int)arg1;
 + (int)edTrendLineTypeFrom:(int)arg1 order:(int)arg2;
 

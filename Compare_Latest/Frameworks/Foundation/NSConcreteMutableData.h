@@ -19,7 +19,7 @@
 
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithBytes:(void *)arg1 length:(unsigned int)arg2 copy:(BOOL)arg3 freeWhenDone:(BOOL)arg4 bytesAreVM:(BOOL)arg5;
+- (id)initWithBytes:(void *)arg1 length:(unsigned int)arg2 copy:(BOOL)arg3 deallocator:(id)arg4;
 - (id)initWithCapacity:(unsigned int)arg1;
 - (id)initWithLength:(unsigned int)arg1;
 - (id)init;
@@ -28,7 +28,6 @@
 - (void)increaseLengthBy:(unsigned int)arg1;
 - (void)appendData:(id)arg1;
 - (void)appendBytes:(const void *)arg1 length:(unsigned int)arg2;
-- (BOOL)_bytesAreVM;
 - (void)setLength:(unsigned int)arg1;
 - (void)_freeBytes;
 - (void *)mutableBytes;

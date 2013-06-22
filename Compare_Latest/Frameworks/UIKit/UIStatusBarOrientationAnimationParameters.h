@@ -12,6 +12,7 @@
 }
 
 @property(nonatomic) int orientationAnimation; // @synthesize orientationAnimation=_orientationAnimation;
+- (BOOL)shouldAnimate;
 - (id)initWithDefaultParameters;
 
 @end

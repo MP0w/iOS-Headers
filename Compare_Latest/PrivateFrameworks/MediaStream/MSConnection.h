@@ -6,46 +6,37 @@
 
 #import "NSObject.h"
 
-@class CPDistributedMessagingCenter, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSXPCConnection;
 
 @interface MSConnection : NSObject
 {
-    CPDistributedMessagingCenter *_center;
-    CPDistributedMessagingCenter *_noWakeCenter;
+    NSXPCConnection *_center;
+    NSXPCConnection *_noWakeCenter;
     NSMutableDictionary *_serverSideConfig;
     NSObject<OS_dispatch_queue> *_serverSideConfigQueue;
     int _serverSideConfigNotificationToken;
-    NSMutableDictionary *_shareState;
-    NSObject<OS_dispatch_queue> *_shareStateQueue;
-    int _shareStateNotificationToken;
 }
 
 + (id)sharedConnection;
 - (void).cxx_destruct;
 - (id)_machErrorWithUnderlyingError:(id)arg1;
 - (BOOL)isBusy;
+- (void)isBusyCompletionBlock:(id)arg1;
 - (void)resume:(id)arg1;
 - (id)pause;
 - (void)abortActivitiesForPersonID:(id)arg1;
 - (void)resetServerStateForPersonID:(id)arg1;
 - (void)refreshServerSideConfigurationForPersonID:(id)arg1;
 - (id)serverSideConfigurationForPersonID:(id)arg1;
-- (void)deleteAssetCollections:(id)arg1 personID:(id)arg2;
-- (void)removeShare:(id)arg1 fromPersonID:(id)arg2;
-- (void)modifyShare:(id)arg1 forPersonID:(id)arg2;
-- (void)sendInvitationsForShares:(id)arg1 forPersonID:(id)arg2;
-- (id)shareStateForPersonID:(id)arg1;
-- (BOOL)personIDHasOutstandingPublications:(id)arg1;
 - (void)forgetPersonID:(id)arg1;
-- (void)handleSubscriptionPush;
+- (void)handleSubscriptionPushForPersonID:(id)arg1;
 - (void)checkForOutstandingActivities;
-- (BOOL)computeHashForAsset:(id)arg1 personID:(id)arg2 outError:(id *)arg3;
-- (id)subscribedStreamsForPersonID:(id)arg1 outError:(id *)arg2;
-- (void)resetSubscriptionSyncForPersonID:(id)arg1;
 - (void)pollForSubscriptionUpdatesForPersonID:(id)arg1;
+- (void)deleteAssetCollections:(id)arg1 personID:(id)arg2;
 - (BOOL)enqueueAssetCollections:(id)arg1 personID:(id)arg2 outError:(id *)arg3;
 - (void)dealloc;
 - (id)init;
+- (void)_waitForMessageToBeSent;
 
 @end
 

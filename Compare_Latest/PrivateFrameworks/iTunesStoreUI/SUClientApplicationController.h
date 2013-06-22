@@ -43,6 +43,7 @@
 - (void)_cancelSuspendAfterDialogsDismissed;
 - (id)_accountViewController;
 - (void)_handleSearchURL:(id)arg1;
+- (void)_handleDonationURL:(id)arg1;
 - (void)_handleAccountURL:(id)arg1;
 - (void)_defaultHandleApplicationURLRequestProperties:(id)arg1;
 - (void)_retrySectionsAfterNetworkTransition;

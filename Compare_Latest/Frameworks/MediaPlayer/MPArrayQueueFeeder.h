@@ -13,6 +13,7 @@
     NSArray *_queueItems;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *items;
 - (id)playbackInfoAtIndex:(unsigned int)arg1;
 - (id)pathAtIndex:(unsigned int)arg1;

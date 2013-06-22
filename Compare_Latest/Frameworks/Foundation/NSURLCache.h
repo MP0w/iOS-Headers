@@ -52,6 +52,7 @@
 - (void)storeCachedResponse:(id)arg1 forRequest:(id)arg2;
 - (id)cachedResponseForRequest:(id)arg1;
 - (id)initWithMemoryCapacity:(unsigned int)arg1 diskCapacity:(unsigned int)arg2 diskPath:(id)arg3;
+- (id)_initWithExistingCFURLCache:(struct _CFURLCache *)arg1;
 - (id)initWithExistingSharedCFURLCache:(struct _CFURLCache *)arg1;
 - (id)init;
 - (long)_nscfBridgeURLCacheCurrentDiskUsage;

@@ -9,6 +9,7 @@
 @protocol PCInterfaceUsabilityMonitorDelegate <NSObject>
 
 @optional
+- (void)interfaceRadioHotnessChanged:(id)arg1;
 - (void)interfaceReachabilityChanged:(id)arg1;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 @end

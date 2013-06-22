@@ -6,24 +6,44 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
+#import <AccessibilityUtilities/AXTimer-Protocol.h>
 
-@interface AXTimer : NSObject
+@class AXAccessQueue, NSObject<OS_dispatch_source>, NSString;
+
+@interface AXTimer : NSObject <AXTimer>
 {
-    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    BOOL _automaticallyCancelPendingBlockUponSchedulingNewBlock;
+    BOOL _active;
+    BOOL _accessQueueIsExternal;
+    NSString *_label;
+    int _state;
+    AXAccessQueue *_accessQueue;
     NSObject<OS_dispatch_source> *_dispatchTimer;
-    BOOL _isCancelled;
-    BOOL _isPending;
 }
 
-- (void)cancel;
++ (id)timerTargettingMainAccessQueue;
++ (void)initialize;
+@property(retain, nonatomic) NSObject<OS_dispatch_source> *dispatchTimer; // @synthesize dispatchTimer=_dispatchTimer;
+@property(nonatomic) BOOL accessQueueIsExternal; // @synthesize accessQueueIsExternal=_accessQueueIsExternal;
+@property(retain, nonatomic) AXAccessQueue *accessQueue; // @synthesize accessQueue=_accessQueue;
+@property(nonatomic) int state; // @synthesize state=_state;
+@property(nonatomic, getter=isActive) BOOL active; // @synthesize active=_active;
+@property(nonatomic) BOOL automaticallyCancelPendingBlockUponSchedulingNewBlock; // @synthesize automaticallyCancelPendingBlockUponSchedulingNewBlock=_automaticallyCancelPendingBlockUponSchedulingNewBlock;
+@property(copy) NSString *label; // @synthesize label=_label;
+- (id)description;
+- (void)_warnAboutAsynchronousCancelling;
 - (void)_reallyCancel;
-- (BOOL)isCancelled;
-- (BOOL)isPending;
-- (void)afterDelay:(double)arg1 processBlock:(id)arg2 cancelBlock:(void)arg3;
+- (void)cancel;
+- (void)_warnAboutAsynchronousScheduling;
+- (void)_didFinishProcessingBlock;
+- (void)_afterDelay:(double)arg1 processBlock:(id)arg2 shouldTreatAsWritingBlock:(void)arg3;
+- (void)afterDelay:(double)arg1 processWritingBlock:(id)arg2;
+- (void)afterDelay:(double)arg1 processReadingBlock:(id)arg2;
 - (void)afterDelay:(double)arg1 processBlock:(id)arg2;
+- (void)_performEnqueuedWritingBlock:(id)arg1 asynchronousExecutionWarningHandler:(void)arg2;
+@property(readonly, nonatomic, getter=isPending) BOOL pending;
 - (void)dealloc;
-- (id)initWithTargetSerialQueue:(id)arg1;
+- (id)initWithTargetAccessQueue:(id)arg1;
 - (id)init;
 
 @end

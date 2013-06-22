@@ -42,6 +42,7 @@
     struct CGRect _visibleBounds;
 }
 
++ (Class)invalidationContextClass;
 @property(nonatomic) struct UIEdgeInsets sectionInset; // @synthesize sectionInset=_sectionInset;
 @property(nonatomic) struct CGSize footerReferenceSize; // @synthesize footerReferenceSize=_footerReferenceSize;
 @property(nonatomic) struct CGSize headerReferenceSize; // @synthesize headerReferenceSize=_headerReferenceSize;
@@ -65,10 +66,10 @@
 - (id)indexesForSectionFootersInRect:(struct CGRect)arg1 usingData:(id)arg2;
 - (id)indexesForSectionHeadersInRect:(struct CGRect)arg1 usingData:(id)arg2;
 - (struct CGSize)collectionViewContentSize;
+- (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
 - (void)prepareLayout;
-- (void)invalidateLayout;
-- (void)_invalidateLayout;
+- (void)invalidateLayoutWithContext:(id)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

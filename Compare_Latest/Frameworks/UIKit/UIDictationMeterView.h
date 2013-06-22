@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UIView.h>
+#import <UIKit/UIButton.h>
 
 @class CADisplayLink, CALayer, NSMutableArray, NSTimer, UIImageView;
 
-@interface UIDictationMeterView : UIView
+@interface UIDictationMeterView : UIButton
 {
     UIImageView *_background;
     UIImageView *_overlay;
@@ -23,6 +23,7 @@
     CADisplayLink *_displayLink;
     double _releaseStart;
     float _releaseLevel;
+    int _cachedViewMode;
 }
 
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;

@@ -4,73 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <StoreBookkeeper/SBKUniversalPlaybackPositionStore.h>
 
-@class MZAsynchronousTask, MZUniversalPlaybackPositionSyncHandler, NSDate, NSObject<OS_dispatch_queue>, NSTimer;
-
-@interface MZUniversalPlaybackPositionStore : NSObject
+@interface MZUniversalPlaybackPositionStore : SBKUniversalPlaybackPositionStore
 {
-    NSObject<OS_dispatch_queue> *_queue;
-    BOOL _refreshTimerActive;
-    BOOL _isActive;
-    BOOL _initialAutosyncNeeded;
-    unsigned int _automaticSynchronizeOptions;
-    id _accountsObserver;
-    id _prefsObserver;
-    double _autorefreshRate;
-    double _bagSpecifiedPollingInterval;
-    BOOL _hasLocalChangesToSync;
-    MZAsynchronousTask *_synchronizeTask;
-    MZAsynchronousTask *_bagLookupTask;
-    id <MZUniversalPlaybackPositionDataSource> _dataSource;
-    MZUniversalPlaybackPositionSyncHandler *_syncHandler;
-    NSDate *_dateToFireNextTimer;
-    NSTimer *_timer;
 }
 
-+ (id)keyValueStoreItemIdentifierForItem:(id)arg1;
-@property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
-@property(retain, nonatomic) NSDate *dateToFireNextTimer; // @synthesize dateToFireNextTimer=_dateToFireNextTimer;
-@property(retain, nonatomic) MZUniversalPlaybackPositionSyncHandler *syncHandler; // @synthesize syncHandler=_syncHandler;
-@property(nonatomic) id <MZUniversalPlaybackPositionDataSource> dataSource; // @synthesize dataSource=_dataSource;
-@property(retain, nonatomic) MZAsynchronousTask *bagLookupTask; // @synthesize bagLookupTask=_bagLookupTask;
-@property(nonatomic) unsigned int automaticSynchronizeOptions; // @synthesize automaticSynchronizeOptions=_automaticSynchronizeOptions;
-@property(retain, nonatomic) MZAsynchronousTask *synchronizeTask; // @synthesize synchronizeTask=_synchronizeTask;
-@property(nonatomic) BOOL hasLocalChangesToSync; // @synthesize hasLocalChangesToSync=_hasLocalChangesToSync;
-- (void)_onQueueResumeTimer;
-- (BOOL)_timerIsStopped;
-- (void)_onQueueSuspendTimer;
-- (void)_onQueueStartNewTimer;
-- (void)_onQueueStartNewTimerWithTimeIntervalSinceNow:(double)arg1;
-- (void)_onQueueStopTimer;
-- (void)_onQueueScheduleTimer;
-- (void)_timerFired:(id)arg1;
-- (void)_updateAutorefreshRateSettingAndRestartTimer:(BOOL)arg1;
-- (double)_effectiveAutorefreshRate;
-- (void)_updateForStoreAccountsChange;
-- (void)_onQueueLoadBagContextWithCompletionHandler:(id)arg1;
-- (void)_updateSettingsFromLoadedBagContext:(id)arg1;
-- (id)_accountForSyncing;
-- (void)_debugDisplayEntireBagDictionary:(id)arg1;
-- (void)_onQueueSynchronizeImmediatelyWithCompletionBlock:(id)arg1;
-- (void)_onQueueSynchronizeWithAutosynchronizeMask:(unsigned int)arg1 withCompletionBlock:(id)arg2;
-- (void)checkForAvailabilityWithCompletionBlock:(id)arg1;
-- (void)synchronizeImmedietlyWithCompletionBlock:(id)arg1;
-- (void)synchronizeImmediatelyWithCompletionBlock:(id)arg1;
-- (BOOL)automaticallySynchronizeOnBecomeActive;
-- (BOOL)_automaticallySynchronizeOnBecomeActive;
-- (void)setAutomaticallySynchronizeOnBecomeActive:(BOOL)arg1;
-- (BOOL)automaticallySynchronizeLocalChangesOnResignActive;
-- (BOOL)_automaticallySynchronizeLocalChangesOnResignActive;
-- (void)setAutomaticallySynchronizeLocalChangesOnResignActive:(BOOL)arg1;
-- (void)resignActive;
-- (void)becomeActive;
-- (void)_onQueueUpdateTimerForAutomaticSyncOptionChanges;
-- (void)_onQueueUpdateTimerForActiveChanges;
-- (void)dealloc;
-- (id)initWithInitialUpdateDelay:(double)arg1;
-- (id)initWithInitialUpdateDelay:(double)arg1 isActive:(BOOL)arg2;
-- (id)init;
+@property __weak id <SBKUniversalPlaybackPositionDataSource> dataSource;
 
 @end
 

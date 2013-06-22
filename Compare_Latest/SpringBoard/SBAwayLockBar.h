@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "TPBottomLockBar.h"
+#import "TPLegacyBottomLockBar.h"
 
 @class NSMutableDictionary, UIButton, UIView;
 
-@interface SBAwayLockBar : TPBottomLockBar
+@interface SBAwayLockBar : TPLegacyBottomLockBar
 {
     UIButton *_slideshowButton;
     UIView *_cameraGrabber;

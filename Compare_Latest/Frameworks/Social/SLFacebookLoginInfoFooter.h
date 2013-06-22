@@ -6,11 +6,9 @@
 
 #import "UIView.h"
 
-#import "PSHeaderFooterView-Protocol.h"
-
 @class NSString, UIFont, UILabel;
 
-@interface SLFacebookLoginInfoFooter : UIView <PSHeaderFooterView>
+@interface SLFacebookLoginInfoFooter : UIView
 {
     UIFont *_font;
     NSString *_paragraph1;
@@ -26,7 +24,7 @@
 - (void).cxx_destruct;
 - (float)preferredHeightForWidth:(float)arg1;
 - (void)layoutSubviews;
-- (id)initWithSpecifier:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

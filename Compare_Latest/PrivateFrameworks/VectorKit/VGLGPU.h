@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
-@class EAGLContext, EAGLSharegroup, NSSet;
+@class NSSet, NSString, VGLContext, VGLSharegroup;
 
 @interface VGLGPU : NSObject
 {
-    EAGLContext *_mainEAGLContext;
+    VGLContext *_internalContext;
+    VGLSharegroup *_sharegroup;
+    int _kind;
     NSSet *_extensionNames;
-    BOOL _paused;
+    int _initializedCapabilities;
     int _maxTextureSize;
     int _maxDepthBufferPlanes;
     int _maxStencilBufferPlanes;
@@ -22,13 +24,22 @@
     int _maxVaryingVectors;
     int _maxVertShaderTextureUnits;
     int _maxFragShaderTextureUnits;
+    NSString *_rendererName;
+    struct mutex _capabilitesLock;
     int _maxSamples;
 }
 
-+ (id)sharedInstance;
-@property(readonly, nonatomic) int maxTextureSize; // @synthesize maxTextureSize=_maxTextureSize;
-@property(nonatomic) BOOL paused; // @synthesize paused=_paused;
++ (id)gpuForKind:(int)arg1;
 @property(readonly, nonatomic) NSSet *extensionNames; // @synthesize extensionNames=_extensionNames;
+@property(readonly, nonatomic) int kind; // @synthesize kind=_kind;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (id)newContext:(Class)arg1;
+- (BOOL)platformSupports:(id)arg1;
+- (id)description;
+- (void)dealloc;
+- (id)initWithKind:(int)arg1;
+@property(readonly, nonatomic) NSString *rendererName; // @synthesize rendererName=_rendererName;
 @property(readonly, nonatomic) int maxSamples; // @synthesize maxSamples=_maxSamples;
 @property(readonly, nonatomic) int maxFragShaderTextureUnits; // @synthesize maxFragShaderTextureUnits=_maxFragShaderTextureUnits;
 @property(readonly, nonatomic) int maxVertShaderTextureUnits; // @synthesize maxVertShaderTextureUnits=_maxVertShaderTextureUnits;
@@ -38,10 +49,8 @@
 @property(readonly, nonatomic) int maxVertexAttributes; // @synthesize maxVertexAttributes=_maxVertexAttributes;
 @property(readonly, nonatomic) int maxStencilBufferPlanes; // @synthesize maxStencilBufferPlanes=_maxStencilBufferPlanes;
 @property(readonly, nonatomic) int maxDepthBufferPlanes; // @synthesize maxDepthBufferPlanes=_maxDepthBufferPlanes;
-@property(readonly, nonatomic) EAGLSharegroup *sharegroup;
-- (void)dealloc;
-- (id)init;
-- (BOOL)platformSupports:(id)arg1;
+@property(readonly, nonatomic) int maxTextureSize; // @synthesize maxTextureSize=_maxTextureSize;
+- (void)_initCapabilities;
 
 @end
 

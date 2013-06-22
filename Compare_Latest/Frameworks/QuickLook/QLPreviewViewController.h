@@ -8,11 +8,12 @@
 
 #import "QLPreviewItemInteractionDelegate-Protocol.h"
 #import "QLProgressViewDelegate-Protocol.h"
+#import "QLSwippableItemProtocol-Protocol.h"
 #import "UIDocumentPasswordViewDelegate-Protocol.h"
 
-@class NSString, NSTimer, QLDisplayBundle, QLProgressView, UIDocumentPasswordView;
+@class NSString, NSTimer, QLDisplayBundle, QLGenericView, QLProgressView, UIDocumentPasswordView, UIView;
 
-@interface QLPreviewViewController : UIViewController <QLPreviewItemInteractionDelegate, UIDocumentPasswordViewDelegate, QLProgressViewDelegate>
+@interface QLPreviewViewController : UIViewController <QLPreviewItemInteractionDelegate, UIDocumentPasswordViewDelegate, QLProgressViewDelegate, QLSwippableItemProtocol>
 {
     id <QLPreviewItemInteractionDelegate> _displayBundleDelegate;
     id <QLPreviewItem> _previewItem;
@@ -22,14 +23,20 @@
     BOOL _needsReload;
     BOOL _swiping;
     BOOL _shouldSwapDisplayBundles;
+    UIView *_scalingView;
+    UIView *_contentContainerView;
+    UIView *_accessoryContainerView;
+    float _aspectRatio;
+    float _scaleFactor;
     QLDisplayBundle *_displayBundle;
     QLDisplayBundle *_newDisplayBundle;
     NSTimer *_progressTimer;
     QLProgressView *_progressView;
     BOOL _loadingProgressVisible;
-    NSString *_loadintTextForMissingFiles;
+    NSString *_loadingTextForMissingFiles;
     BOOL _overlayHidden;
     UIDocumentPasswordView *_documentPasswordView;
+    QLGenericView *_airPlayPasswordView;
     BOOL _loadedWithPassword;
 }
 
@@ -46,17 +53,25 @@
 - (void)previewItemWillLoad:(id)arg1;
 - (void)previewItem:(id)arg1 willHideOverlayWithDuration:(double)arg2;
 - (void)previewItem:(id)arg1 willShowOverlayWithDuration:(double)arg2;
+- (void)showContentsWasTappedForPreviewItem:(id)arg1;
 - (void)overlayWasInteractedWithOnPreviewItem:(id)arg1;
+- (void)viewDidUpdateForPreviewItem:(id)arg1;
 - (void)viewWasTappedOnPreviewItem:(id)arg1;
 - (void)didFinishSwiping;
 - (void)willStartSwiping;
 - (void)cancelLoadIfNeeded;
 - (void)preloadIfNeeded;
+- (void)endTrackingViewUpdates;
+- (void)beginTrackingViewUpdates;
+@property(readonly) UIView *snapshotView;
+- (void)discardAirPlayView;
+- (void)setupAirPlayView;
+@property(readonly) UIView *airPlayView;
+@property(readonly) int airPlayMode;
 - (void)_refreshPreviewItem:(BOOL)arg1 withPassword:(id)arg2;
 - (void)refreshPreviewItem;
 - (void)_prepareDisplayBundle:(id)arg1 preload:(BOOL)arg2 withHints:(id)arg3;
 - (void)progressViewWasTapped:(id)arg1;
-- (void)_removeProgressiveUIAnimation:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)_hideProgressiveUI;
 - (void)_showProgressUI;
 - (void)_scheduleShowProgressiveUI;
@@ -74,11 +89,13 @@
 - (void)setOverlayHidden:(BOOL)arg1 duration:(double)arg2;
 @property int previewMode;
 @property CDStruct_6904a77d clientContext;
-- (void)setLoadintTextForMissingFiles:(id)arg1;
+- (void)setLoadingTextForMissingFiles:(id)arg1;
 @property(readonly) QLDisplayBundle *displayBundle;
 @property(retain) id <QLPreviewItem> previewItem;
+- (void)setAspectRatio:(float)arg1 scaleFactor:(float)arg2;
+- (void)_layoutViews;
 - (void)willMoveToParentViewController:(id)arg1;
-- (void)viewDidLoad;
+- (void)loadView;
 - (id)description;
 - (void)dealloc;
 - (id)init;

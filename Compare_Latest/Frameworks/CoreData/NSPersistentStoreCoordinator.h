@@ -8,7 +8,7 @@
 
 #import "NSLocking-Protocol.h"
 
-@class NSManagedObjectModel, NSMutableArray;
+@class NSArray, NSManagedObjectModel, NSMutableArray;
 
 @interface NSPersistentStoreCoordinator : NSObject <NSLocking>
 {
@@ -16,15 +16,14 @@
         unsigned int _isRegistered:1;
         unsigned int _reservedFlags:31;
     } _flags;
-    void *_reserved;
+    long _miniLock;
     NSMutableArray *_extendedStoreURLs;
     id _externalRecordsHelper;
     NSManagedObjectModel *_managedObjectModel;
     id _coreLock;
-    NSMutableArray *_persistentStores;
+    NSArray *_persistentStores;
 }
 
-+ (BOOL)_melissaIsDebugging;
 + (id)metadataForPersistentStoreOfType:(id)arg1 URL:(id)arg2 error:(id *)arg3;
 + (BOOL)setMetadata:(id)arg1 forPersistentStoreOfType:(id)arg2 URL:(id)arg3 error:(id *)arg4;
 + (Class)_classForPersistentStoreAtURL:(id)arg1;
@@ -34,18 +33,21 @@
 + (void)__Multithreading_Violation_AllThatIsLeftToUsIsHonor__;
 + (BOOL)accessInstanceVariablesDirectly;
 + (void)initialize;
++ (id)ubiquityStoreURLForStoreURL:(id)arg1 ubiquityIdentityToken:(id)arg2 localPeerID:(id)arg3 ubiquityName:(id)arg4;
++ (id)ubiquityStoreURLForStoreURL:(id)arg1 ubiquityIdentityToken:(id)arg2 ubiquityName:(id)arg3;
 + (void)_registerDefaultStoreClassesAndTypes;
 + (Class)_storeClassForStoreType:(id)arg1;
 + (id)_storeTypeForStore:(id)arg1;
++ (void)removeUbiquitousContentAndStore:(id)arg1 options:(id)arg2;
++ (BOOL)setMetadata:(id)arg1 forPersistentStoreOfType:(id)arg2 URL:(id)arg3 options:(id)arg4 error:(id *)arg5;
++ (id)metadataForPersistentStoreOfType:(id)arg1 URL:(id)arg2 options:(id)arg3 error:(id *)arg4;
 - (id)executeRequest:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
-- (id)managedObjectIDFromUTF8String:(const char *)arg1 length:(unsigned int)arg2;
 - (id)managedObjectIDForURIRepresentation:(id)arg1;
 - (id)migratePersistentStore:(id)arg1 toURL:(id)arg2 options:(id)arg3 withType:(id)arg4 error:(id *)arg5;
 - (BOOL)setURL:(id)arg1 forPersistentStore:(id)arg2;
 - (id)URLForPersistentStore:(id)arg1;
 - (id)persistentStoreForURL:(id)arg1;
 - (BOOL)removePersistentStore:(id)arg1 error:(id *)arg2;
-- (BOOL)_removePersistentStore:(id)arg1;
 - (id)addPersistentStoreWithType:(id)arg1 configuration:(id)arg2 URL:(id)arg3 options:(id)arg4 error:(id *)arg5;
 - (BOOL)_checkForSkewedEntityHashes:(id)arg1 metadata:(id)arg2;
 - (id)persistentStores;
@@ -90,6 +92,8 @@
 - (BOOL)_destroyPersistentStoreAtURL:(id)arg1 withType:(id)arg2 error:(id *)arg3;
 - (BOOL)_destroyPersistentStoreAtURL:(id)arg1 withType:(id)arg2 options:(id)arg3 error:(id *)arg4;
 - (BOOL)_replacePersistentStoreAtURL:(id)arg1 destinationOptions:(id)arg2 withPersistentStoreFromURL:(id)arg3 sourceOptions:(id)arg4 storeType:(id)arg5 error:(id *)arg6;
+- (id)managedObjectIDFromUTF8String:(const char *)arg1 length:(unsigned int)arg2;
+- (BOOL)_removePersistentStore:(id)arg1;
 
 @end
 

@@ -17,7 +17,7 @@
 - (void)_setImagePickerMediaTypes:(id)arg1;
 - (int)_imagePickerStatusBarStyle;
 - (void)_updateFilteredAlbumListWithFilter:(int)arg1;
-- (void)albumListDidChange:(id)arg1;
+- (void)assetContainerListDidChange:(id)arg1;
 - (void)cancelButtonClicked:(id)arg1;
 - (BOOL)shouldShowUnreadIndicatorForAlbum:(struct NSObject *)arg1;
 - (int)accessoryTypeForAlbum:(struct NSObject *)arg1;

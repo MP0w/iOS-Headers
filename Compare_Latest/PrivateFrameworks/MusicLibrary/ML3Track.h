@@ -10,13 +10,13 @@
 {
 }
 
-+ (void)_enumeratePathsToDeleteFromLibrary:(id)arg1 persistentIDs:(const long long *)arg2 count:(unsigned int)arg3 usingBlock:(id)arg4;
-+ (BOOL)_deleteAssetAtPath:(id)arg1;
-+ (BOOL)_clearLocationFromLibrary:(id)arg1 persistentIDs:(const long long *)arg2 count:(unsigned int)arg3;
++ (void)enumeratePathsToDeleteFromLibrary:(id)arg1 persistentIDs:(id)arg2 usingBlock:(id)arg3;
++ (BOOL)clearLocationFromLibrary:(id)arg1 persistentIDs:(id)arg2;
 + (BOOL)registerBookmarkMetadataIdentifierFunctionOnConnection:(id)arg1;
++ (void)updateAllBookmarkableStoreBookmarkMetadataIdentifiersOnConnection:(id)arg1;
 + (BOOL)trackValueAreInTheCloud:(id)arg1;
-+ (BOOL)unlinkRedownloadableAssetsFromLibrary:(id)arg1 persistentIDs:(const long long *)arg2 count:(unsigned int)arg3 deletedFileSize:(long long *)arg4;
-+ (BOOL)unlinkRedownloadableAssetsFromLibrary:(id)arg1 persistentIDs:(const long long *)arg2 count:(unsigned int)arg3;
++ (BOOL)unlinkRedownloadableAssetsFromLibrary:(id)arg1 persistentIDs:(id)arg2 deletedFileSize:(long long *)arg3;
++ (BOOL)unlinkRedownloadableAssetsFromLibrary:(id)arg1 persistentIDs:(id)arg2;
 + (id)collectionClassesToUpdateBeforeDelete;
 + (id)unsettableProperties;
 + (void)populateSortOrdersOfPropertyValues:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3;
@@ -49,18 +49,19 @@
 + (int)revisionTrackingCode;
 + (id)databaseTable;
 + (void)initialize;
++ (id)predicateByOptimizingComparisonPredicate:(id)arg1;
 + (id)orderingTermsForITTGTrackOrder:(unsigned long)arg1 descending:(BOOL)arg2;
 + (id)containerQueryWithContainer:(id)arg1 predicate:(id)arg2 orderingTerms:(id)arg3;
 + (id)containerQueryWithContainer:(id)arg1 predicate:(id)arg2 orderingProperties:(id)arg3;
 + (id)containerQueryWithContainer:(id)arg1 predicate:(id)arg2;
 + (id)containerQueryWithContainer:(id)arg1;
 + (id)importChaptersByParsingAsset:(id)arg1;
++ (id)flattenedChapterDataFromDAAPInfoDictionary:(id)arg1 trackPersistentID:(long long)arg2;
 + (id)flattenedChapterDataFromSyncInfoDictionaries:(id)arg1 trackPersistentID:(long long)arg2;
-+ (id)_flattenedChapterDataWithImportChapters:(id)arg1 library:(id)arg2 trackPersistentID:(long long)arg3;
++ (id)flattenedChapterDataWithImportChapters:(id)arg1 library:(id)arg2 trackPersistentID:(long long)arg3;
 + (id)_normalizedImportChapters:(id)arg1 trackPersistentID:(long long)arg2;
-- (void)updateUbiquitousBookmarkTimestamp;
+- (void)updateStoreBookmarkMetadataIdentifier;
 - (void)updateCollectionCloudStatus;
-- (void)didChangeValueForProperties:(const id *)arg1 count:(unsigned int)arg2;
 - (id)artworkCacheIDAtPlaybackTime:(double)arg1;
 - (id)chapterTOC;
 - (id)rawIntegrity;

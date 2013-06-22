@@ -26,6 +26,7 @@
     int _contractionMode;
     BOOL _showEightDot;
     BOOL _shouldBatchUpdates;
+    BOOL _automaticBrailleTranslation;
     NSMutableArray *_displayModeStack;
     SCROBrailleDisplayHistory *_history;
     NSAttributedString *_mainString;
@@ -60,10 +61,14 @@
 - (void)showPreviousAnnouncement;
 - (BOOL)showDotsSevenAndEight;
 - (void)setShowDotsSevenAndEight:(BOOL)arg1;
+- (BOOL)automaticBrailleTranslation;
+- (void)setAutomaticBrailleTranslationEnabled:(BOOL)arg1;
 - (void)setShowEightDotBraille:(BOOL)arg1;
 - (BOOL)showEightDotBraille;
 - (void)setContractionMode:(int)arg1;
 - (int)contractionMode;
+- (void)setAlwaysUsesNemethCodeForTechnicalText:(BOOL)arg1;
+- (BOOL)alwaysUsesNemethCodeForTechnicalText;
 - (void)configureTableWithIdentifier:(id)arg1;
 - (id)tableIdentifier;
 - (void)_setDisplayMode:(int)arg1;
@@ -119,6 +124,7 @@
 - (void)_disableAutoDetect;
 - (void)_enableAutoDetect;
 - (void)_setBatchUpdates:(id)arg1;
+- (void)_setAlwaysUsesNemethCodeForTechnicalText:(id)arg1;
 - (void)_setTableHandler:(id)arg1;
 - (void)_setDisplayInputAccessMode:(id)arg1;
 - (void)_setPrimaryDisplayKeyHandler:(id)arg1;
@@ -129,6 +135,7 @@
 - (void)_setLineDescriptorCallbackEnabledHandler:(id)arg1;
 - (void)_displayModeHandler:(id)arg1;
 - (void)_exitCurrentDisplayMode;
+- (void)automaticBrailleTranslationHandler:(id)arg1;
 - (void)_showEightDotHandler:(id)arg1;
 - (void)_contractionModeHandler:(id)arg1;
 - (void)_showDotsSevenAndEightHandler:(id)arg1;

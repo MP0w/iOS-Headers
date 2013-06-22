@@ -10,8 +10,6 @@
 {
 }
 
-+ (void)writeTextBox:(id)arg1 shape:(id)arg2 toXlGraphicsInfo:(struct XlGraphicsInfo *)arg3 state:(id)arg4;
-+ (void)writeTextRotationFromShape:(id)arg1 toXlGraphicsInfo:(struct XlGraphicsInfo *)arg2 state:(id)arg3;
 + (id)edTextBoxFromXlGraphicsInfo:(struct XlGraphicsInfo *)arg1 edResources:(id)arg2;
 
 @end

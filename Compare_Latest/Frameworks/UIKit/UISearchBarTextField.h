@@ -6,19 +6,26 @@
 
 #import <UIKit/UITextField.h>
 
-@class NSMutableDictionary, NSValue, UIImage;
+@class NSMutableDictionary, NSValue;
 
 @interface UISearchBarTextField : UITextField
 {
-    UIImage *_customClearButtonImage;
-    UIImage *_customClearButtonImagePressed;
+    NSMutableDictionary *_customClearButtons;
     NSMutableDictionary *_iconOffsets;
     NSValue *_searchTextOffsetValue;
 }
 
+- (id)_placeholderColor;
+- (Class)_systemBackgroundViewClass;
+- (Class)_placeholderLabelClass;
+- (void)tintColorDidChange;
+- (int)_suffixLabelTextAlignment;
+- (struct CGRect)_suffixFrame;
+- (struct CGRect)_availableTextRectForBounds:(struct CGRect)arg1 forEditing:(BOOL)arg2;
 - (BOOL)_shouldSendContentChangedNotificationsIfOnlyMarkedTextChanged;
 - (BOOL)_becomeFirstResponderWhenPossible;
 - (struct CGRect)clearButtonRectForBounds:(struct CGRect)arg1;
+- (struct CGSize)_clearButtonSize;
 - (struct CGRect)rightViewRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)leftViewRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)editingRectForBounds:(struct CGRect)arg1;
@@ -31,6 +38,8 @@
 - (void)_setOffsetValue:(id)arg1 forIcon:(int)arg2;
 - (id)_clearButtonImageForState:(unsigned int)arg1;
 - (void)_setClearButtonImage:(id)arg1 forState:(unsigned int)arg2;
+- (struct CGRect)adjustedCaretRectForCaretRect:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

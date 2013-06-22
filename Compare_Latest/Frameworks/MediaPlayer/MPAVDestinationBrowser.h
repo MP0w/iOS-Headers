@@ -10,7 +10,6 @@
 {
     BOOL _scansForDestinationsWhenEnteringForeground;
     BOOL _isScanning;
-    int _retainCount;
 }
 
 - (void)_endScanningForDestinationsNotification:(id)arg1;
@@ -20,11 +19,6 @@
 - (void)beginScanningForDestinations;
 - (void)dealloc;
 - (id)init;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
-- (oneway void)release;
-- (id)retain;
 
 @end
 

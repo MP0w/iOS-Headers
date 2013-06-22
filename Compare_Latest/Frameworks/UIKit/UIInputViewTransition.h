@@ -26,10 +26,12 @@
     struct CGRect endFloatingFrame;
     struct CGRect beginFloatingFrameScreen;
     struct CGRect endFloatingFrameScreen;
+    BOOL ignoreFrameChanges;
     UISnapshotView *snapshotView;
     struct CGRect snapshotViewEndFrame;
 }
 
+@property(nonatomic) BOOL ignoreFrameChanges; // @synthesize ignoreFrameChanges;
 @property(nonatomic) struct CGRect snapshotViewEndFrame; // @synthesize snapshotViewEndFrame;
 @property(retain, nonatomic) UISnapshotView *snapshotView; // @synthesize snapshotView;
 @property(nonatomic) struct CGRect endFloatingFrameScreen; // @synthesize endFloatingFrameScreen;
@@ -50,9 +52,11 @@
 - (id)description;
 - (BOOL)isOnScreen;
 - (BOOL)requiresAutomaticAppearanceEnabled;
+- (BOOL)shouldRecomputeEndFrame;
 - (BOOL)shouldCompleteOnSuspend;
 - (BOOL)isAlmostDone;
 - (BOOL)subsumesTransition:(id)arg1;
+@property(readonly, nonatomic) int cancelState;
 @property(readonly, nonatomic) int endState;
 @property(readonly, nonatomic) int transitioningState;
 @property(readonly, nonatomic) int beginState;

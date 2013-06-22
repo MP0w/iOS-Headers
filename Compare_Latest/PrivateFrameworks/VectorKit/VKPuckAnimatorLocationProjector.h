@@ -12,14 +12,15 @@
 {
     VKAttributedRouteMatch *_routeMatch;
     VKAttributedRouteMatch *_projectedRouteMatch;
-    CDStruct_31142d93 _projectedPosition;
+    struct VKPoint _projectedPosition;
     double _projectedCourse;
 }
 
 @property(readonly, nonatomic) double projectedCourse; // @synthesize projectedCourse=_projectedCourse;
-@property(readonly, nonatomic) CDStruct_31142d93 projectedPosition; // @synthesize projectedPosition=_projectedPosition;
+@property(readonly, nonatomic) struct VKPoint projectedPosition; // @synthesize projectedPosition=_projectedPosition;
 @property(retain, nonatomic) VKAttributedRouteMatch *projectedRouteMatch; // @synthesize projectedRouteMatch=_projectedRouteMatch;
 @property(retain, nonatomic) VKAttributedRouteMatch *routeMatch; // @synthesize routeMatch=_routeMatch;
+- (id).cxx_construct;
 @property(readonly, nonatomic) BOOL projectedLocationOnRoute;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee projectedLocation;
 - (void)projectFromLocation:(id)arg1 routeMatch:(id)arg2 speedMultiplier:(double)arg3;

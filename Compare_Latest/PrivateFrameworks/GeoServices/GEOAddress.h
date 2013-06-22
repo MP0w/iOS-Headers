@@ -36,6 +36,7 @@
 - (void)clearFormattedAddressLines;
 - (void)dealloc;
 - (id)addressDictionary;
+- (id)initWithAddressDictionary:(id)arg1;
 - (id)initWithAddressString:(id)arg1;
 
 @end

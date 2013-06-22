@@ -10,17 +10,21 @@
 {
     int _uVegetationAlpha;
     float _vegetationAlpha;
+    int _uVegetationBrightness;
+    float _vegetationBrightness;
     int _uLandSampler;
     int _landSampler;
     int _uVegetationSampler;
     int _vegetationSampler;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) int vegetationSampler; // @synthesize vegetationSampler=_vegetationSampler;
 @property(nonatomic) int landSampler; // @synthesize landSampler=_landSampler;
+@property(nonatomic) float vegetationBrightness; // @synthesize vegetationBrightness=_vegetationBrightness;
 @property(nonatomic) float vegetationAlpha; // @synthesize vegetationAlpha=_vegetationAlpha;
-- (id)init;
+- (void)setup;
 
 @end
 

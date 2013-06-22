@@ -19,7 +19,6 @@
     BOOL _executablePathNeedsCorrection;
     unsigned long long _executableLoadAddress;
     int _cpuType;
-    BOOL _isNative;
     BOOL _is64Bit;
     NSDictionary *_lsApplicationInformation;
     NSMutableArray *_binaryImages;
@@ -36,6 +35,7 @@
     NSString *_internalError;
 }
 
++ (id)parseBinaryImagesDescription:(id)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dateAndVersionDescription;
@@ -53,7 +53,6 @@
 - (id)binaryImages;
 - (id)_bundleLock;
 - (BOOL)isAppleApplication;
-- (BOOL)isTranslated;
 - (id)bundleIdentifier;
 - (id)executablePath;
 - (id)processVersion;
@@ -72,6 +71,8 @@
 - (id)_readDataFromMemory:(id)arg1 atAddress:(unsigned long long)arg2 size:(unsigned long)arg3;
 - (double)_extractDyldInfoFromSymbolOwner:(struct _CSTypeRef)arg1 withNonContiguousMemory:(id)arg2;
 - (id)initWithPid:(int)arg1 orTask:(unsigned int)arg2;
+- (void)clearCrashReporterInfo;
+- (void)setCrashReporterInfo;
 
 @end
 

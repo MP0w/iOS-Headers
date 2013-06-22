@@ -15,7 +15,6 @@
 - (id)purchaseManager:(id)arg1 purchaseBatchForPurchases:(id)arg2;
 - (id)purchaseManager:(id)arg1 purchaseBatchForItems:(id)arg2;
 - (BOOL)libraryContainsItemIdentifier:(unsigned long long)arg1;
-- (BOOL)composeReviewWithViewController:(id)arg1 animated:(BOOL)arg2;
 - (id)initWithClientInterface:(id)arg1;
 - (id)initWithClientIdentifier:(id)arg1;
 

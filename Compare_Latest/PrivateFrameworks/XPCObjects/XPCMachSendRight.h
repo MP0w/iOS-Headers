@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface XPCMachSendRight : NSObject <NSCoding>
+@interface XPCMachSendRight : NSObject <NSSecureCoding>
 {
     unsigned int _sendRight;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)wrapSendRight:(unsigned int)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

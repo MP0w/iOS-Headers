@@ -9,5 +9,6 @@
 @interface NSObject (TSUAdditions)
 + (BOOL)overridesClassSelector:(SEL)arg1 ofBaseClass:(Class)arg2;
 + (BOOL)overridesSelector:(SEL)arg1 ofBaseClass:(Class)arg2;
+- (void)performSelector:(SEL)arg1 withValue:(id)arg2;
 @end
 

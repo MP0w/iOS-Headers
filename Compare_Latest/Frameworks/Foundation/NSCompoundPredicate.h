@@ -15,6 +15,7 @@
     NSArray *_subpredicates;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)_operatorForType:(unsigned int)arg1;
 + (id)notPredicateWithSubpredicate:(id)arg1;
 + (id)orPredicateWithSubpredicates:(id)arg1;
@@ -35,6 +36,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)allowEvaluation;
 - (id)initWithType:(unsigned int)arg1 subpredicates:(id)arg2;
 - (id)generateMetadataDescription;
 

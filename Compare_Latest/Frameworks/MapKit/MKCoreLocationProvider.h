@@ -9,7 +9,7 @@
 #import "CLLocationManagerDelegate-Protocol.h"
 #import "MKLocationProvider-Protocol.h"
 
-@class CLLocationManager, NSBundle;
+@class CLLocationManager, NSBundle, NSString;
 
 @interface MKCoreLocationProvider : NSObject <CLLocationManagerDelegate, MKLocationProvider>
 {
@@ -18,9 +18,13 @@
     BOOL _locationServicesPreferencesDialogEnabled;
     int _authorizationStatus;
     NSBundle *_effectiveBundle;
+    NSString *_effectiveBundleIdentifier;
 }
 
 @property(nonatomic) id <MKLocationProviderDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)locationManager:(id)arg1 monitoringDidFailForRegion:(id)arg2 withError:(id)arg3;
+- (void)locationManager:(id)arg1 didExitRegion:(id)arg2;
+- (void)locationManager:(id)arg1 didEnterRegion:(id)arg2;
 - (void)locationManagerDidResumeLocationUpdates:(id)arg1;
 - (void)locationManagerDidPauseLocationUpdates:(id)arg1;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
@@ -29,6 +33,7 @@
 - (void)locationManager:(id)arg1 didUpdateHeading:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 - (void)dismissHeadingCalibrationDisplay;
+@property(readonly, nonatomic) BOOL airplaneModeBlocksLocation;
 @property(readonly, nonatomic) int authorizationStatus;
 @property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(nonatomic) int headingOrientation;
@@ -36,17 +41,22 @@
 @property(nonatomic) int activityType;
 @property(nonatomic, getter=isLocationServicesPreferencesDialogEnabled) BOOL locationServicesPreferencesDialogEnabled;
 @property(nonatomic) double desiredAccuracy;
+@property(copy, nonatomic) NSString *effectiveBundleIdentifier;
 @property(retain, nonatomic) NSBundle *effectiveBundle;
+- (void)_resetForNewEffectiveBundle;
+- (void)stopMonitoringRegion:(id)arg1;
+- (void)startMonitoringRegion:(id)arg1;
 - (void)stopUpdatingHeading;
 - (void)startUpdatingHeading;
 - (void)stopUpdatingLocation;
 - (void)startUpdatingLocation;
 - (void)_updateAuthorizationStatus;
+@property(readonly, nonatomic, getter=isMonitoringRegionsAvailable) BOOL monitoringRegionsAvailable;
 @property(readonly, nonatomic) BOOL usesCLMapCorrection;
 @property(readonly, nonatomic) CLLocationManager *_clLocationManager;
 - (void)_createCLLocationManager;
-- (id)init;
 - (void)dealloc;
+- (id)init;
 
 @end
 

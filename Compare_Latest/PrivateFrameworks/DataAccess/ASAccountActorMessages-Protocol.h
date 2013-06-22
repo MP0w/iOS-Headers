@@ -13,7 +13,7 @@
 - (oneway void)_newASPolicyKeyNotification:(id)arg1;
 - (id)delegateeInvitationICSRepresentationForMetaData:(id)arg1 inFolderWithId:(id)arg2 outSummary:(id *)arg3;
 - (BOOL)reattemptInvitationLinkageForMetaData:(id)arg1 inFolderWithId:(id)arg2;
-- (BOOL)isHotmailAccount;
+- (id)draftsFolder;
 - (id)deletedItemsFolder;
 - (id)sentItemsFolder;
 - (id)inboxFolder;

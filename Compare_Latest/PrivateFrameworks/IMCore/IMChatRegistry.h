@@ -27,6 +27,8 @@
     BOOL _wantsHistoryReload;
     BOOL _postMessageSentNotifications;
     unsigned int _defaultNumberOfMessagesToLoad;
+    unsigned int _daemonUnreadCount;
+    long long _daemonLastFailedMessageID;
 }
 
 + (Class)messageClass;
@@ -60,6 +62,8 @@
 @property(readonly, nonatomic) unsigned int numberOfExistingChats;
 - (BOOL)_hasChat:(id)arg1 forService:(id)arg2;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (long long)lastFailedMessageID;
+- (unsigned int)unreadCount;
 - (id)_createdChatForRoom:(id)arg1 onAccount:(id)arg2;
 - (id)_createdChatForIMHandles:(id)arg1 style:(unsigned char)arg2;
 - (id)_createdChatForIMHandle:(id)arg1;
@@ -80,6 +84,7 @@
 - (id)_chatInstanceForGUID:(id)arg1;
 - (void)_noteChatDealloc:(id)arg1;
 - (void)_noteChatInit:(id)arg1;
+- (void)_chat:(id)arg1 updateDisplayName:(id)arg2;
 - (void)_chat:(id)arg1 setValue:(id)arg2 forChatProperty:(id)arg3;
 - (void)_chat:(id)arg1 setProperties:(id)arg2 ofParticipant:(id)arg3;
 - (void)_chat_declineInvitation:(id)arg1;
@@ -94,8 +99,10 @@
 - (void)_daemonReallyDied:(id)arg1;
 - (void)setupComplete:(BOOL)arg1 info:(id)arg2;
 - (void)_handleChatReconstructions:(id)arg1;
-- (void)historyQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4;
+- (void)historyQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4 limit:(unsigned int)arg5;
 - (void)historicalMessageGUIDsDeleted:(id)arg1 chatGUIDs:(id)arg2 queryID:(id)arg3;
+- (void)lastFailedMessageIDChanged:(long long)arg1;
+- (void)unreadCountChanged:(int)arg1;
 - (void)chat:(id)arg1 updated:(id)arg2;
 - (void)_updateInfo:(id)arg1 forGUID:(id)arg2 updatingUnreadCount:(BOOL)arg3;
 - (void)_updateUnreadCountForChat:(id)arg1;

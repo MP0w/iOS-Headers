@@ -7,6 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (NSURL)
++ (id)fileURLWithFileSystemRepresentation:(const char *)arg1 isDirectory:(BOOL)arg2 relativeToURL:(id)arg3;
 + (id)fileURLWithPath:(id)arg1 isDirectory:(BOOL)arg2;
 + (id)fileURLWithPath:(id)arg1;
 + (id)URLWithString:(id)arg1 relativeToURL:(id)arg2;
@@ -31,6 +32,9 @@
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (const char *)fileSystemRepresentation;
+- (BOOL)getFileSystemRepresentation:(char *)arg1 maxLength:(unsigned int)arg2;
+- (id)initFileURLWithFileSystemRepresentation:(const char *)arg1 isDirectory:(BOOL)arg2 relativeToURL:(id)arg3;
 - (id)initFileURLWithPath:(id)arg1 isDirectory:(BOOL)arg2;
 - (id)initFileURLWithPath:(id)arg1;
 - (id)initWithScheme:(id)arg1 host:(id)arg2 path:(id)arg3;
@@ -48,7 +52,6 @@
 - (struct __CFDictionary *)_clientsCreatingIfNecessary:(BOOL)arg1;
 - (struct __CFURL *)_cfurl;
 - (id)initWithString:(id)arg1 relativeToURL:(id)arg2;
-- (id)_initWithMinimalBookmarkData:(id)arg1;
 - (unsigned long)_cfTypeID;
 - (BOOL)isMemberOfClass:(Class)arg1;
 - (BOOL)isKindOfClass:(Class)arg1;

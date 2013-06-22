@@ -22,6 +22,8 @@
 - (unsigned int)countByEnumeratingWithState:(CDStruct_c73467ff *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)objectEnumerator;
 - (id)allObjects;
+- (id)allCommentedAddresses;
+- (id)_generateAllObjectsFromSelector:(SEL)arg1;
 - (BOOL)isEqualToSet:(id)arg1;
 - (BOOL)isSubsetOfSet:(id)arg1;
 - (BOOL)intersectsSet:(id)arg1;

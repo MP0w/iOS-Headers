@@ -6,30 +6,33 @@
 
 #import "NSObject.h"
 
-@class BBSectionSubtypeParameters, NSData, NSLock, NSMutableDictionary, NSString;
+#import "NSSecureCoding-Protocol.h"
 
-@interface BBSectionParameters : NSObject
+@class BBSectionIcon, BBSectionSubtypeParameters, NSLock, NSMutableDictionary, NSString;
+
+@interface BBSectionParameters : NSObject <NSSecureCoding>
 {
     NSLock *_lock;
     BOOL _showsSubtitle;
-    unsigned int _messageNumberOfLines;
     BOOL _usesVariableLayout;
     BOOL _orderSectionUsingRecencyDate;
     BOOL _showsDateInFloatingLockScreenAlert;
+    BOOL _displaysCriticalBulletins;
+    unsigned int _messageNumberOfLines;
     BBSectionSubtypeParameters *_defaultSubtypeParameters;
     NSMutableDictionary *_allSubtypeParameters;
     NSString *_displayName;
-    NSData *_iconData;
-    BOOL _displaysCriticalBulletins;
+    BBSectionIcon *_icon;
     NSString *_uniqueIdentifier;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)copyCachedSectionParametersWithIdentifier:(id)arg1;
 + (void)removeSectionParametersFromCache:(id)arg1;
 + (void)addSectionParametersToCache:(id)arg1;
 @property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(nonatomic) BOOL displaysCriticalBulletins; // @synthesize displaysCriticalBulletins=_displaysCriticalBulletins;
-@property(retain, nonatomic) NSData *iconData; // @synthesize iconData=_iconData;
+@property(retain, nonatomic) BBSectionIcon *icon; // @synthesize icon=_icon;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSMutableDictionary *allSubtypeParameters; // @synthesize allSubtypeParameters=_allSubtypeParameters;
 @property(retain, nonatomic) BBSectionSubtypeParameters *defaultSubtypeParameters; // @synthesize defaultSubtypeParameters=_defaultSubtypeParameters;

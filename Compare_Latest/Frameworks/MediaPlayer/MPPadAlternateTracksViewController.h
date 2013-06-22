@@ -16,6 +16,7 @@
     UITableView *_tableView;
 }
 
+- (void).cxx_destruct;
 - (void)reloadData;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;

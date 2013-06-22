@@ -56,7 +56,7 @@
 @property unsigned int maxIndependentTasks; // @synthesize maxIndependentTasks=_maxIndependentTasks;
 @property unsigned int multiGetBatchSize; // @synthesize multiGetBatchSize=_multiGetBatchSize;
 @property(retain) NSURL *addMemberURL; // @synthesize addMemberURL=_addMemberURL;
-- (void)_getTask:(id)arg1 finishedWithParsedContents:(id)arg2 error:(id)arg3;
+- (void)_getTask:(id)arg1 finishedWithParsedContents:(id)arg2 deletedItems:(id)arg3 error:(id)arg4;
 - (void)getTask:(id)arg1 data:(id)arg2 error:(id)arg3;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (BOOL)shouldFetchMoreETags;
@@ -72,6 +72,8 @@
 - (void)syncAway;
 - (void)startTaskGroup;
 - (void)_getDataPayloads;
+- (void)deleteResourceURLs:(id)arg1;
+- (BOOL)shouldDownloadResource:(id)arg1 localETag:(id)arg2 serverETag:(id)arg3;
 - (void)_configureMultiGet:(id)arg1;
 - (void)_getOrder;
 - (void)_getETags;
@@ -87,6 +89,7 @@
 - (void)bailWithError:(id)arg1;
 - (void)_tearDownAllUnsubmittedTasks;
 - (void)taskGroupWillCancelWithError:(id)arg1;
+- (void)receivedPropertiesToValues:(id)arg1 forURL:(id)arg2;
 - (BOOL)shouldFetchResourceWithEtag:(id)arg1 propertiesToValues:(id)arg2;
 - (id)copyAdditionalResourcePropertiesToFetch;
 - (Class)bulkChangeTaskClass;

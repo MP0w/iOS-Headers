@@ -8,7 +8,7 @@
 
 @interface RCAVItem : AVItem
 {
-    unsigned int _didDetermineDuration:1;
+    BOOL _didDetermineDuration;
     double _duration;
 }
 

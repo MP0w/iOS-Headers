@@ -7,6 +7,10 @@
 #import "NSArray.h"
 
 @interface NSArray (Additions)
+- (unsigned int)pl_indexOfLastObjectInRange:(struct _NSRange)arg1 passingTest:(id)arg2;
+- (unsigned int)pl_indexOfLastObjectPassingTest:(id)arg1;
+- (unsigned int)pl_indexOfFirstObjectInRange:(struct _NSRange)arg1 passingTest:(id)arg2;
+- (unsigned int)pl_indexOfFirstObjectPassingTest:(id)arg1;
 - (id)pl_arrayOfUniqueObjectsNotInOrderedSet:(id)arg1;
 - (unsigned int)pl_countOfObjectsPassingTest:(id)arg1;
 - (id)pl_shortDescription;

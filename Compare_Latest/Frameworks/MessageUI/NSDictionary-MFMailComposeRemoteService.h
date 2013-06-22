@@ -7,6 +7,6 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (MFMailComposeRemoteService)
-- (id)mf_filterUsingMap:(id)arg1;
+- (id)mf_filterUsingMap:(id)arg1 inverse:(BOOL)arg2;
 @end
 

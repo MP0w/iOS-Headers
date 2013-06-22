@@ -12,8 +12,10 @@
 {
 }
 
+- (BOOL)shouldEnableNewFeatures;
 - (int)MMCSConcurrentConnectionsCount;
 - (id)personIDsEnabledForAlbumSharing;
+- (BOOL)personIDEnabledForAlbumSharing:(id)arg1;
 - (id)pushTokenForPersonID:(id)arg1;
 - (BOOL)personIDUsesProductionPushEnvironment:(id)arg1;
 - (id)_accountForPersonID:(id)arg1;

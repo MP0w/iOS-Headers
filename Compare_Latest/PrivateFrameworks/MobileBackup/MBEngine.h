@@ -27,10 +27,10 @@
 @property(readonly, nonatomic) MBSettingsContext *settingsContext; // @synthesize settingsContext=_settingsContext;
 - (void)pushAggregateDictionaryTotalFileCount:(long long)arg1 totalFileSize:(long long)arg2 duration:(double)arg3;
 - (id)aggregateDictionaryKey:(id)arg1;
+- (id)validateRestorePath:(id)arg1;
 - (id)validateFile:(id)arg1;
 @property(readonly, nonatomic, getter=shouldCommitIfPossible) BOOL commitIfPossible;
 @property(readonly, nonatomic, getter=isMigrate) BOOL migrate;
-@property(readonly, nonatomic, getter=isSplitRestore) BOOL splitRestore;
 @property(readonly, nonatomic, getter=isBackgroundRestore) BOOL backgroundRestore;
 @property(readonly, nonatomic, getter=isForegroundRestore) BOOL foregroundRestore;
 @property(readonly, nonatomic) NSString *restoreTypeString;

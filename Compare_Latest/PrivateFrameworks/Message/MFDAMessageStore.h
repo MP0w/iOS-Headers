@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <Message/LibraryStore.h>
+#import <Message/MFLibraryStore.h>
 
 @class DAFolder;
 
-@interface MFDAMessageStore : LibraryStore
+@interface MFDAMessageStore : MFLibraryStore
 {
     DAFolder *_DAFolder;
 }
@@ -17,11 +17,11 @@
 - (id)additionalHeadersForReplyOfMessage:(id)arg1;
 - (id)_additionalHeadersForAction:(int)arg1 ofMessage:(id)arg2;
 - (BOOL)canDeleteMessage:(id)arg1;
-- (BOOL)allMessagesAvailableLocally;
+- (BOOL)hasMoreFetchableMessages;
 - (BOOL)canFetchSearchResults;
 - (id)bestAlternativeForPart:(id)arg1;
 - (id)defaultAlternativeForPart:(id)arg1;
-- (id)_fetchDataForMimePart:(id)arg1 range:(struct _NSRange)arg2 isComplete:(char *)arg3;
+- (BOOL)_fetchDataForMimePart:(id)arg1 range:(struct _NSRange)arg2 isComplete:(char *)arg3 consumer:(id)arg4;
 - (id)_fetchBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 downloadIfNecessary:(BOOL)arg3 partial:(char *)arg4;
 - (id)_fetchBodyDataForNormalMessage:(id)arg1 format:(int)arg2 part:(id)arg3 streamConsumer:(id)arg4;
 - (id)_fetchBodyDataForSearchResult:(id)arg1 format:(int)arg2 streamConsumer:(id)arg3;
@@ -36,6 +36,7 @@
 - (void)deleteMessagesOlderThanNumberOfDays:(int)arg1 compact:(BOOL)arg2;
 - (id)messageForRemoteID:(id)arg1;
 - (BOOL)allowsAppend;
+- (void)setFlagsForAllMessagesFromDictionary:(id)arg1;
 - (id)setFlagsFromDictionary:(id)arg1 forMessages:(id)arg2;
 - (id)willSetFlagsFromDictionary:(id)arg1 forMessages:(id)arg2;
 - (void)setServerFlagsFromDictionary:(id)arg1 forMessages:(id)arg2;

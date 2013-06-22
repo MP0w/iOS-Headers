@@ -37,6 +37,7 @@
 + (id)EBookDownloadManager;
 + (void)setDownloadHandler:(id)arg1;
 + (void)removePersistenceIdentifier:(id)arg1;
++ (void)reconnectToLSApplicationWorkspace;
 - (void)_sendObserverConnection;
 - (void)_sendMessageToObservers:(SEL)arg1;
 - (void)_sendMessage:(id)arg1 withCompletionBlock:(id)arg2;

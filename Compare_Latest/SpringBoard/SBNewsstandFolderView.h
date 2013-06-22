@@ -6,92 +6,26 @@
 
 #import "SBFolderView.h"
 
-@class NSTimer, SBNewsstandCardView, SBNewsstandShelfFrameView, UIButton, UIImageView, UITableView;
+#import "SBIconIndexNodeObserver-Protocol.h"
 
-@interface SBNewsstandFolderView : SBFolderView
+@class SBNewsstandBackgroundView, UIButton;
+
+@interface SBNewsstandFolderView : SBFolderView <SBIconIndexNodeObserver>
 {
     UIButton *_storeButton;
-    UIImageView *_navigationBar;
-    UIImageView *_bottomBar;
-    UITableView *_shelvesView;
-    SBNewsstandShelfFrameView *_shelfFrameView;
-    unsigned int _minVisibleRow;
-    unsigned int _maxVisibleRow;
-    int _lastConfiguredOrientation;
-    BOOL _didMakeHeaderVisible;
-    float _targetContentOffset;
-    BOOL _orientationShenanigans;
-    NSTimer *_autoscrollTimer;
-    double _autoscrollStartTime;
-    int _autoscrollDirection;
-    float _autoscrollIntensity;
-    SBNewsstandCardView *_cardView;
-    BOOL _showingCardView;
+    UIButton *_emptyImageButton;
+    SBNewsstandBackgroundView *_backgroundView;
 }
 
-+ (id)woodImageForNotchDirection:(int)arg1 inOrientation:(int)arg2;
-+ (id)_bottombarImageForOrientation:(int)arg1;
-+ (id)_navbarImageForOrientation:(int)arg1;
-- (void)_placeBackgroundView;
-- (void)_placeIconListView;
-- (void)_placeBars;
-- (float)_labelHorizontalInset;
-- (float)_labelVerticalInset;
-- (void)_placeShadows;
-- (void)_placeShadow:(int)arg1;
-- (id)_shadowForPosition:(int)arg1;
-- (id)_shadowImageForPosition:(int)arg1;
-- (id)editTitleField;
-- (BOOL)canEditTitle;
-- (void)scrollViewDidScroll:(id)arg1;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (void)showStoreCard:(BOOL)arg1 animate:(BOOL)arg2;
-- (void)setFrame:(struct CGRect)arg1;
-- (struct CGPoint)_getOriginForCardOnShelf;
-- (BOOL)isShowingCard;
-- (id)cardView;
-- (void)noteHasGrabbedIcon:(id)arg1;
-- (void)noteGrabbedIconLocation:(struct CGPoint)arg1;
-- (void)_autoscrollTimerFired:(id)arg1;
-- (float)_maxVelocityInDirection:(int)arg1;
-- (int)_autoscrollableDirections;
-- (void)_cancelAutoscroll;
-- (void)didDropIconView;
-- (void)prepareToDropIconView:(id)arg1 targetFolderBounds:(struct CGRect *)arg2;
-- (void)setScrollOffset:(id)arg1;
-- (id)scrollOffset;
-- (BOOL)isScrolling;
-- (void)_storeAvailabilityDidChange:(id)arg1;
-- (void)storeButtonClicked;
-- (void)cleanUpAfterOrientationChange;
-- (void)prepareToSetOrientation:(int)arg1;
-- (void)_updateRotationDebugging;
-- (void)_prepareToSetOrientation:(int)arg1 dryRun:(BOOL)arg2;
-- (unsigned int)_rowForScrollOffset:(float)arg1;
-- (void)setRows:(unsigned int)arg1 notchInfo:(CDStruct_d18cc6b1)arg2 orientation:(int)arg3;
-- (void)_createInitialIconViews;
-- (void)_setupFolderTitleLabel;
-- (void)_setupBackgroundView;
-- (void)_setupNavigationBar;
-- (void)_configureBars;
-- (void)_updateVisibleRows;
-- (struct CGSize)_sizeForCurrentConfiguration;
-- (struct CGSize)_contentSizeForRows:(unsigned int)arg1 inOrientation:(int)arg2;
-- (float)_contentHeightForCurrentConfiguration;
-- (float)_contentHeightForRows:(unsigned int)arg1;
-- (float)_maxHeightForOrientation:(int)arg1;
-- (float)_extraRowPeekage;
-- (float)_shelfHeaderHeight;
-- (BOOL)_shouldShowStoreButton;
-- (float)_heightPerRow;
-- (id)iconListView;
-- (struct CGRect)rectForNotchLinen;
-- (Class)notchViewClass;
+- (void)node:(id)arg1 didRemoveContainedNodeIdentifiers:(id)arg2;
+- (void)node:(id)arg1 didAddContainedNodeIdentifiers:(id)arg2;
+- (void)_updateEmptyState;
+- (void)_storeButtonTapped:(id)arg1;
+- (void)_newsstandStoreAvailabilityDidChangeNotification:(id)arg1;
+- (void)_layoutSubviews;
+- (BOOL)_showsTitle;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFolder:(id)arg1 orientation:(int)arg2;
 
 @end
 

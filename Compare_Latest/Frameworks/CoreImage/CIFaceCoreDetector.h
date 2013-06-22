@@ -6,24 +6,23 @@
 
 #import <CoreImage/CIDetector.h>
 
-@class CIContext;
+@class CIContext, FCRFaceDetector, NSMutableDictionary;
 
 @interface CIFaceCoreDetector : CIDetector
 {
     CIContext *context;
-    void *faceCoreAPI;
+    NSMutableDictionary *featureOptions;
+    FCRFaceDetector *faceCoreDetector;
 }
 
+@property FCRFaceDetector *faceCoreDetector; // @synthesize faceCoreDetector;
 @property(retain, nonatomic) CIContext *context; // @synthesize context;
-@property void *faceCoreAPI; // @synthesize faceCoreAPI;
 - (id)featuresInImage:(id)arg1;
 - (id)featuresInImage:(id)arg1 options:(id)arg2;
 - (void)finalize;
 - (void)dealloc;
-- (struct FaceCoreAPI *)api;
 - (id)initWithContext:(id)arg1 options:(id)arg2;
-- (id)featuresFromFaceVector:(vector_c8aae6e9 *)arg1 ctm:(struct CGAffineTransform)arg2;
-- (BOOL)createFaceCoreImage:(struct image *)arg1 fromCIImage:(id)arg2;
+- (id)createFaceCoreDataFromCIImage:(id)arg1 width:(unsigned int *)arg2 height:(unsigned int *)arg3;
 - (id)adjustedImageFromImage:(id)arg1 orientation:(int)arg2 inverseCTM:(struct CGAffineTransform *)arg3;
 - (struct CGAffineTransform)ctmForImageWithBounds:(struct CGRect)arg1 orientation:(int)arg2;
 

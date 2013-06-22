@@ -17,6 +17,7 @@
     NSMutableDictionary *properties;
     NSMutableArray *subtrees;
     NSMutableDictionary *cache;
+    NSString *layoutTag;
 }
 
 + (id)keyboard;
@@ -27,37 +28,39 @@
 + (id)stringForType:(int)arg1;
 + (id)treeOfType:(int)arg1;
 + (id)uniqueName;
+@property(retain, nonatomic) NSString *layoutTag; // @synthesize layoutTag;
 @property(retain, nonatomic) NSMutableDictionary *cache; // @synthesize cache;
 @property(retain, nonatomic) NSMutableArray *subtrees; // @synthesize subtrees;
 @property(retain, nonatomic) NSMutableDictionary *properties; // @synthesize properties;
 @property(retain, nonatomic) NSString *name; // @synthesize name;
 @property(nonatomic) int type; // @synthesize type;
-- (BOOL)renderAsStringKey;
-- (BOOL)renderAsStringKeyExcludingPunctuation:(BOOL)arg1;
+- (BOOL)renderKeyInKeyplane:(id)arg1;
+- (BOOL)_renderAsStringKey;
 - (id)cacheDisplayString;
 - (BOOL)shouldCacheKey;
+- (BOOL)hasLayoutTag:(id)arg1;
 - (id)variantDisplayString;
+- (void)orderVariantKeys:(BOOL)arg1;
 - (BOOL)behavesAsShiftKey;
-- (void)removeClientVariantActionInfo;
+- (BOOL)canFadeOut;
+- (BOOL)modifiesKeyplane;
 - (BOOL)avoidsLanguageIndicator;
+- (void)setForceMultitap:(BOOL)arg1;
+- (BOOL)forceMultitap;
 - (void)setClipCorners:(int)arg1;
 - (int)clipCorners;
 - (void)setSplitMode:(int)arg1;
 - (int)splitMode;
 - (void)setDisabled:(BOOL)arg1;
 - (BOOL)disabled;
+- (void)setFlickDirection:(int)arg1;
+- (int)flickDirection;
 - (id)variantPopupBias;
 - (void)setVariantPopupBias:(id)arg1;
 - (void)setGhost:(BOOL)arg1;
 - (BOOL)ghost;
 - (void)setVisible:(BOOL)arg1;
 - (BOOL)visible;
-- (void)setClientVariantActionName:(id)arg1;
-- (id)clientVariantActionName;
-- (void)setClientVariantRepresentedString:(id)arg1;
-- (id)clientVariantRepresentedString;
-- (void)setIsClientVariantOverride:(BOOL)arg1;
-- (BOOL)isClientVariantOverride;
 - (void)setOverrideDisplayString:(id)arg1;
 - (id)overrideDisplayString;
 - (void)setRendering:(int)arg1;
@@ -79,19 +82,24 @@
 - (id)localizationKey;
 - (void)setDisplayString:(id)arg1;
 - (id)displayString;
+- (id)fullRepresentedString;
 - (void)setRepresentedString:(id)arg1;
 - (id)representedString;
 - (void)updateVariantTypeForActions:(unsigned int)arg1;
 - (int)_variantType;
+- (void)setState:(int)arg1;
+- (int)state;
 - (id)attributeSet:(BOOL)arg1;
 - (id)geometrySet:(BOOL)arg1;
 - (id)keySet;
 - (void)updateMoreAndInternationalKeysWithOptions:(int)arg1;
 - (void)updateDictationKeyOnNumberPads:(BOOL)arg1;
 - (id)findLeftMoreKey;
+- (struct CGRect)frameForKeylayoutName:(id)arg1;
 - (BOOL)looksLike:(id)arg1;
 - (BOOL)supportsType:(int)arg1;
 - (id)autolocalizedKeyCacheIterator;
+- (BOOL)isSplit;
 - (void)setIsGenerated:(BOOL)arg1;
 - (BOOL)isGenerated;
 - (BOOL)isLetters;
@@ -99,10 +107,11 @@
 - (BOOL)usesKeyCharging;
 - (BOOL)usesAdaptiveKeys;
 - (BOOL)isShiftKeyPlaneChooser;
-- (void)setShouldSkipCandidateSelection:(BOOL)arg1;
 - (BOOL)noLanguageIndicator;
 - (BOOL)notUseCandidateSelection;
+- (BOOL)shouldSkipCandidateSelectionForVariants;
 - (BOOL)shouldSkipCandidateSelection;
+- (BOOL)isAlphabeticPlane;
 - (BOOL)isShiftKeyplane;
 - (id)shiftAlternateKeyplaneName;
 - (id)alternateKeyplaneName;
@@ -119,11 +128,15 @@
 - (void)setAttributes:(id)arg1;
 - (id)keyplaneForKey:(id)arg1;
 - (id)keyForString:(id)arg1;
+- (void)precacheLayoutName:(id)arg1;
 - (id)layoutName;
 - (void)cacheKey:(id)arg1;
 - (id)_cacheRootNameForKey:(id)arg1;
 - (id)firstCachedKeyWithName:(id)arg1;
 - (id)cachedKeysByKeyName:(id)arg1;
+- (void)setVisualStyling:(CDStruct_961fb75c)arg1;
+- (CDStruct_961fb75c)visualStyling;
+- (CDStruct_961fb75c)stylingFromVisualStyle;
 - (void)setVisualStyle:(int)arg1;
 - (int)visualStyle;
 - (void)setFrameOnly:(struct CGRect)arg1;
@@ -131,6 +144,7 @@
 - (struct CGRect)paddedFrame;
 - (void)setFrame:(struct CGRect)arg1;
 - (struct CGRect)frame;
+- (struct CGRect)_keyplaneFrame;
 - (void)setGeometry:(id)arg1;
 - (id)geometry;
 - (void)setShape:(id)arg1;
@@ -153,7 +167,6 @@
 - (int)intForProperty:(id)arg1;
 - (id)stringForProperty:(id)arg1;
 - (BOOL)setObject:(id)arg1 forProperty:(id)arg2;
-- (id)subtreeAtIndexPath:(id)arg1 withPosition:(int)arg2;
 - (BOOL)isDuplicateOfTree:(id)arg1;
 - (BOOL)isEqualToTree:(id)arg1;
 - (BOOL)isSameAsTree:(id)arg1;
@@ -165,8 +178,6 @@
 - (id)componentName;
 - (id)unhashedName;
 - (id)nameFromAttributes;
-@property(readonly, nonatomic) BOOL acceptsShiftLock;
-@property(readonly, nonatomic) BOOL modifiesKeyplane;
 
 @end
 

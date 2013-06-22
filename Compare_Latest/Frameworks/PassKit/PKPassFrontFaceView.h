@@ -6,22 +6,36 @@
 
 #import <PassKit/PKPassFaceView.h>
 
-@class UIButton, UILabel;
+@class UILabel, WLEasyToHitCustomButton;
 
 @interface PKPassFrontFaceView : PKPassFaceView
 {
-    UIButton *_flipButton;
+    WLEasyToHitCustomButton *_flipButton;
+    WLEasyToHitCustomButton *_shareButton;
     UILabel *_logoLabel;
+    BOOL _showsInfo;
+    BOOL _showsShare;
 }
 
+@property(nonatomic) BOOL showsShare; // @synthesize showsShare=_showsShare;
+@property(nonatomic) BOOL showsInfo; // @synthesize showsInfo=_showsInfo;
+- (void)_shareButtonPressed;
 - (void)_flipButtonPressed;
 - (id)_relevantBuckets;
 - (void)layoutSubviews;
+- (void)prepareForFlip;
+- (void)updateValidity;
 - (void)createBodyContentViews;
 - (void)createHeaderContentViews;
+- (id)tallFaceTemplate;
+- (id)shortFaceTemplate;
+- (id)shortScrunchedFaceTemplate;
+- (id)passFaceTemplate;
+- (void)setClipsContent:(BOOL)arg1;
 - (struct CGSize)contentSize;
 - (BOOL)isFrontFace;
 - (void)dealloc;
+- (id)init;
 
 @end
 

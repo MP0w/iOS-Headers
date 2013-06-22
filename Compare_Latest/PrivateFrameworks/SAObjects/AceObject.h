@@ -28,6 +28,7 @@
 + (id)newAceObjectWithGenericCommand:(id)arg1 context:(id)arg2;
 + (id)aceObjectWithDictionary:(id)arg1 context:(id)arg2;
 + (id)aceObjectWithGenericCommand:(id)arg1 context:(id)arg2;
++ (BOOL)supportsSecureCoding;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
@@ -48,6 +49,8 @@
 - (id)initWithDictionary:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

@@ -6,44 +6,51 @@
 
 #import "UIButton.h"
 
-@class NSString, UIImageView;
+@class TPShineLabelView, _UIBackdropView;
 
 @interface TPButton : UIButton
 {
-    UIImageView *_plusSeparator;
     int _color;
-    NSString *_plusSeparatedTitle;
-    BOOL _forceReLayout;
-    BOOL _currentlyLayingOut;
-    BOOL _useStandardSizing;
+    _UIBackdropView *_backdropView;
+    struct CGSize offsetForshineLabel;
+    BOOL _blursBackground;
+    TPShineLabelView *_shineLabelView;
 }
 
 + (id)acceptVideoButtonImage;
 + (id)declineVideoButtonImage;
 + (id)declineButtonImage;
 + (id)answerButtonImage;
++ (float)maxWidthForCenterButton;
++ (float)defaultWidthForCenterButton;
++ (float)defaultWidthForSideButton;
 + (float)defaultHeightForColor:(int)arg1;
 + (float)defaultHeight;
-@property BOOL useStandardSizing; // @synthesize useStandardSizing=_useStandardSizing;
-- (void)layoutSubviews;
+@property(retain) TPShineLabelView *shineLabelView; // @synthesize shineLabelView=_shineLabelView;
+@property(nonatomic) BOOL blursBackground; // @synthesize blursBackground=_blursBackground;
+- (void)setDisabledButtonColor:(int)arg1;
+- (void)setTitleVerticalOffset:(float)arg1;
+- (void)setIconVerticalOffset:(float)arg1;
+- (void)setTitleImagePadding:(float)arg1;
 - (void)setMinimumTitleFontSize:(float)arg1 maximumTitleFontSize:(float)arg2;
 - (void)setMinimumTitleFontSize:(float)arg1;
-- (void)setIconVerticalOffset:(float)arg1;
-- (void)setTitleVerticalOffset:(float)arg1;
 - (void)setPlusSeparatedTitle:(id)arg1;
+- (void)_animationDidEnd;
+- (void)_animationWillBegin;
+- (void)setImage:(id)arg1 forState:(unsigned int)arg2;
+- (void)setShineLabelOffset:(struct CGSize)arg1;
+- (void)setUsesShineLabelWithText:(id)arg1;
+- (void)layoutSubviews;
 - (void)dealloc;
-- (struct CGRect)titleRectForContentRect:(struct CGRect)arg1;
-- (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;
-- (void)setTitleImagePadding:(float)arg1;
 - (int)buttonColor;
-- (void)setDisabledButtonColor:(int)arg1;
+- (struct CGSize)intrinsicContentSize;
+- (void)drawRect:(struct CGRect)arg1;
+- (void)setBackgroundColor:(id)arg1;
+- (id)initWithTitle:(id)arg1 icon:(id)arg2 color:(int)arg3 frame:(struct CGRect)arg4;
 - (void)setButtonColor:(int)arg1;
+- (void)setSelected:(BOOL)arg1;
 - (void)setEnabled:(BOOL)arg1;
 - (void)setHighlighted:(BOOL)arg1;
-- (void)_adjustIconColor;
-- (id)initWithTitle:(id)arg1 icon:(id)arg2 color:(int)arg3 frame:(struct CGRect)arg4;
-- (void)_setDisabledButtonColor:(int)arg1;
-- (void)_setButtonColor:(int)arg1;
 
 @end
 

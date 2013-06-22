@@ -5,6 +5,9 @@
  */
 
 @protocol ICSWriting
+- (id)propertiesThatIfPresentExcludeThisComponentFromChecksummingForVersion:(int)arg1;
+- (id)parametersToIncludeForChecksumVersion:(int)arg1;
+- (id)propertiesToIncludeForChecksumVersion:(int)arg1;
 - (void)ICSStringWithOptions:(unsigned int)arg1 appendingToString:(id)arg2;
 - (id)ICSStringWithOptions:(unsigned int)arg1;
 @end

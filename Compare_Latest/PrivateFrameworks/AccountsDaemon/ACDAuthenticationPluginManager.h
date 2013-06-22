@@ -6,24 +6,27 @@
 
 #import "NSObject.h"
 
-@class ACDAuthenticationHandlerQueueManager, NSSet;
+@class ACDAuthenticationHandlerQueueManager, NSObject<OS_dispatch_queue>, NSSet;
 
 @interface ACDAuthenticationPluginManager : NSObject
 {
     ACDAuthenticationHandlerQueueManager *_handlerManager;
     NSSet *_pluginBundles;
-    struct dispatch_queue_s *_authenticationPluginQueue;
-    struct dispatch_semaphore_s *_authPluginSemaphore;
+    NSObject<OS_dispatch_queue> *_authenticationPluginQueue;
 }
 
-@property(readonly) NSSet *pluginBundles; // @synthesize pluginBundles=_pluginBundles;
 - (void).cxx_destruct;
+- (id)_authCapableParentAccountForAccount:(id)arg1;
+- (id)_authenticationTypeForAccount:(id)arg1;
+- (id)_pluginIdentifierForAuthenticationType:(id)arg1;
+- (id)_pluginForAuthenticationType:(id)arg1;
 - (void)promptUserForCredentialsWithAccount:(id)arg1 handler:(id)arg2;
-- (void)renewCredentialsForAccount:(id)arg1 accountStore:(id)arg2 handler:(id)arg3;
-- (void)verifyCredentialsForAccount:(id)arg1 client:(id)arg2 handler:(id)arg3;
-- (void)verifyCredentialsForAccount:(id)arg1 client:(id)arg2 saveWhenAuthorized:(BOOL)arg3 handler:(id)arg4;
-- (id)pluginForAccountType:(id)arg1;
-- (void)dealloc;
+- (void)_handleRenewalCompletionResult:(int)arg1 forAccount:(id)arg2 renewalID:(id)arg3 accountStore:(id)arg4 error:(id)arg5;
+- (void)renewCredentialsForAccount:(id)arg1 accountStore:(id)arg2 force:(BOOL)arg3 reason:(id)arg4 completion:(id)arg5;
+- (void)_handleVerificationCompletionForAccount:(id)arg1 verifiedAccount:(id)arg2 error:(id)arg3 client:(id)arg4 shouldSave:(BOOL)arg5;
+- (void)verifyCredentialsForAccount:(id)arg1 accountStore:(id)arg2 saveWhenAuthorized:(BOOL)arg3 handler:(id)arg4;
+- (void)credentialForAccount:(id)arg1 client:(id)arg2 store:(id)arg3 handler:(id)arg4;
+- (BOOL)isPushSupportedForAccount:(id)arg1;
 - (id)init;
 
 @end

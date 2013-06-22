@@ -11,7 +11,7 @@
 @interface WMFPlayer : NSObject
 {
     MFGraphicsDevice *m_gdi;
-    long m_records;
+    int m_records;
     unsigned short m_windowsVersion;
     BOOL m_boundsSet;
     BOOL m_ignoreSetWindowOrg;
@@ -85,7 +85,7 @@
 - (int)playHeader:(unsigned int)arg1:(const char *)arg2;
 - (void)done;
 - (int)play:(unsigned int)arg1:(const char *)arg2;
-- (long)records;
+- (int)records;
 - (void)dealloc;
 - (id)initWithGraphicsDevice:(id)arg1;
 

@@ -4,27 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@class NSString;
-
 #pragma mark Named Structures
 
-struct CATransform3D {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    float _field5;
-    float _field6;
-    float _field7;
-    float _field8;
-    float _field9;
-    float _field10;
-    float _field11;
-    float _field12;
-    float _field13;
-    float _field14;
-    float _field15;
-    float _field16;
+struct CGAffineTransform {
+    float a;
+    float b;
+    float c;
+    float d;
+    float tx;
+    float ty;
 };
 
 struct CGPoint {
@@ -40,11 +28,6 @@ struct CGRect {
 struct CGSize {
     float width;
     float height;
-};
-
-struct CollectionPropertySpecifier {
-    NSString *stringValue;
-    unsigned long long collectionPID;
 };
 
 struct DefaultsEnumToStringMapping {
@@ -66,32 +49,16 @@ struct _NSRange {
     unsigned int _field2;
 };
 
-struct malloc_statistics_t {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-};
-
 #pragma mark Typedef'd Structures
 
 typedef struct {
     void *_field1;
     void *_field2;
-    int _field3;
-    int _field4;
+    unsigned int _field3;
+    unsigned int _field4;
     int _field5;
     id _field6;
     id _field7;
     id _field8;
-} CDStruct_ee3f66e2;
-
-typedef struct {
-    char _field1;
-    char _field2;
-    char _field3;
-    char _field4;
-    float _field5;
-    int _field6;
-} CDStruct_af7d35ee;
+} CDStruct_c37684e5;
 

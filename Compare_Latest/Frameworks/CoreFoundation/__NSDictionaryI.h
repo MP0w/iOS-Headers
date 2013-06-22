@@ -19,6 +19,7 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)enumerateKeysAndObjectsWithOptions:(unsigned int)arg1 usingBlock:(id)arg2;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (void)getObjects:(id *)arg1 andKeys:(id *)arg2 count:(unsigned int)arg3;
 - (id)keyEnumerator;

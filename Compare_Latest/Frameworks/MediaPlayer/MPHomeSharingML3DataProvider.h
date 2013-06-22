@@ -25,6 +25,7 @@
 + (void)beginScanningForLibraries;
 + (BOOL)isScanningForLibraries;
 @property(readonly, nonatomic) HSLibrary *homeSharingLibrary; // @synthesize homeSharingLibrary=_homeSharingLibrary;
+- (void).cxx_destruct;
 - (void)_fillContainerForQueryCriteria:(id)arg1 completionBlock:(id)arg2;
 - (id)_tokenDataForMediaItem:(id)arg1;
 - (void)_scheduleUpdateCheck;
@@ -40,9 +41,7 @@
 - (id)adjustedValueForMPProperty:(id)arg1 ofEntity:(id)arg2 withDefaultValue:(id)arg3;
 - (BOOL)setValue:(id)arg1 forProperty:(id)arg2 ofItemWithIdentifier:(long long)arg3;
 - (BOOL)hasGeniusMixes;
-- (void)loadCoverFlowArtworkImageForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
-- (void)loadBestTimedArtworkImageDataForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 atPlaybackTime:(double)arg3 completionBlock:(id)arg4;
-- (void)loadBestArtworkImageDataForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
+- (void)loadBestArtworkImageDataForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 atPlaybackTime:(double)arg3 completionBlock:(id)arg4;
 - (void)loadArtworkImageForFormat:(int)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
 - (id)itemResultSetForQueryCriteria:(id)arg1;
 - (void)loadQueryCriteria:(id)arg1 countOfCollectionsWithCompletionBlock:(id)arg2;
@@ -50,9 +49,6 @@
 - (void)loadQueryCriteria:(id)arg1 hasCollectionsWithCompletionBlock:(id)arg2;
 - (void)loadQueryCriteria:(id)arg1 hasItemsWithCompletionBlock:(id)arg2;
 - (BOOL)hasArtworkImageForItemWithIdentifier:(long long)arg1;
-- (void)updateUbiquitousValuesForTrackWithKey:(id)arg1 mediaPropertyValues:(id)arg2;
-- (void)performUbiquitousDatabaseUpdateTransaction:(id)arg1;
-- (void)downloadItemWithIdentifier:(long long)arg1 completionHandler:(id)arg2;
 - (void)disconnect;
 - (void)connectWithAuthenticationData:(id)arg1 completionBlock:(id)arg2 progressHandler:(void)arg3;
 - (BOOL)requiresAuthentication;

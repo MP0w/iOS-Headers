@@ -6,20 +6,20 @@
 
 #import "NSObject.h"
 
+#import "SBAssistantObserver-Protocol.h"
 #import "SBBulletinBusyClient-Protocol.h"
 #import "SBBulletinWindowClient-Protocol.h"
-#import "SBUIBannerSourceManager-Protocol.h"
+#import "SBUIBannerTarget-Protocol.h"
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class NSMutableArray, NSMutableSet, SBBannerAndShadowView, SBBannerDismissOverdueContext, UIView;
+@class NSHashTable, NSMutableArray, SBBannerContextView, UIImage;
 
-@interface SBBannerController : NSObject <SBUIBannerSourceManager, SBBulletinWindowClient, SBBulletinBusyClient, UIGestureRecognizerDelegate>
+@interface SBBannerController : NSObject <SBUIBannerTarget, SBAssistantObserver, SBBulletinWindowClient, SBBulletinBusyClient, UIGestureRecognizerDelegate>
 {
-    NSMutableSet *_sources;
-    NSMutableArray *_pendingStickyBannerItems;
-    SBBannerAndShadowView *_bannerAndShadowView;
-    UIView *_snapshotViewForAssistantShrinkFromFull;
-    UIView *_snapshotView;
+    NSHashTable *_sources;
+    NSMutableArray *_pendingBannerContextsNeedingRepop;
+    UIImage *_bannerViewBackgroundImage;
+    SBBannerContextView *_bannerView;
     BOOL _soundIsPlaying;
     BOOL _dismissalOverdue;
     BOOL _replaceDelayIsActive;
@@ -27,76 +27,74 @@
     BOOL _suppressingBanners;
     BOOL _enableDelayActive;
     BOOL _assistantIsFullyVisible;
-    BOOL _bannerPanGestureInProgress;
-    float _showcaseHeight;
-    id _animationContext;
-    id _dismissOverdueContext;
+    BOOL _uiLocked;
+    int _activeDismissGestureType;
+    int _overdueDismissReason;
+    id _overdueCompletionBlock;
+    BOOL _dismissingBannerForAssistantReveal;
+    BOOL _dismissingBannerForAssistantDismiss;
+    id _assistantRevealCompletionBlock;
+    id _assistantDismissCompletionBlock;
 }
 
 + (id)sharedInstanceIfExists;
 + (id)sharedInstance;
 + (id)_sharedInstanceCreateIfNecessary:(BOOL)arg1;
-@property(retain, nonatomic) SBBannerDismissOverdueContext *dismissOverdueContext; // @synthesize dismissOverdueContext=_dismissOverdueContext;
-@property(retain, nonatomic) UIView *snapshotViewForAssistantShrinkFromFull; // @synthesize snapshotViewForAssistantShrinkFromFull=_snapshotViewForAssistantShrinkFromFull;
 - (BOOL)gestureRecognizerShouldBegin:(id)arg1;
-- (id)_meshTransformForDegreesOfRotation:(float)arg1 flipInsets:(struct UIEdgeInsets)arg2 orientation:(int)arg3 topIsLive:(BOOL)arg4;
-- (void)_removePerspective;
-- (void)_setUpPerspectiveForNormalFlipRect:(struct CGRect)arg1;
-- (struct CGRect)_calculateFlipRectAndCreateSnapshotViewForBannerFrame:(struct CGRect)arg1 orientation:(int)arg2;
-- (struct CGRect)_currentBannerFrameForOrientation:(int)arg1;
-- (struct CGRect)_normalBannerFrameForOrientation:(int)arg1;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (void)_flipWithContext:(id)arg1;
-- (void)_soundDidFinishPlayingForBannerItem:(id)arg1;
+- (struct CGRect)_bannerFrameForOrientation:(int)arg1;
+- (void)_tearDownViewWithReason:(int)arg1;
+- (void)_playSoundForContext:(id)arg1;
+- (void)_performTransition:(int)arg1 withAnimation:(BOOL)arg2 context:(id)arg3 reason:(int)arg4 completion:(id)arg5;
+- (id)_newBannerViewForContext:(id)arg1;
+- (id)_bannerViewBackgroundImage;
+- (double)_durationForTransition:(int)arg1;
+- (void)_fireCompletionBlockForBannerAnimationForAssistantDismissIfNecessary;
+- (void)_fireCompletionBlockForBannerAnimationForAssistantRevealIfNecessary;
+- (void)_setOverdueCompletionBlock:(id)arg1;
+- (void)_soundDidFinishPlayingForBannerContext:(id)arg1;
 - (void)_dismissOverdueOrDequeueIfPossible;
 - (void)_stopCurrentSound;
 - (void)_replaceIntervalElapsed;
 - (void)_dismissIntervalElapsed;
-- (void)_sendDismissCallbacksIfNecessary:(int)arg1;
-- (void)_tryToDismissBannerWithContext:(id)arg1;
-- (void)_tryToDismissBannerWithAnimation:(int)arg1;
-- (void)_tryToDismissBannerWithAnimation:(int)arg1 dismissReason:(int)arg2;
+- (void)_tryToDismissWithAnimation:(BOOL)arg1 reason:(int)arg2 forceEvenIfBusy:(BOOL)arg3 completion:(id)arg4;
 - (void)_handleBannerTapGesture:(id)arg1;
 - (void)_handleBannerPanGesture:(id)arg1;
-- (void)_adjustShadowAlphasForProgress:(float)arg1;
-- (float)_progressForBannerTranslation:(float)arg1 maxTranslation:(float)arg2;
-- (void)_setBannerTranslation:(float)arg1 progress:(float)arg2;
-- (BOOL)_presentBannerForItem:(id)arg1 existingDismissReason:(int)arg2;
-- (void)_presentBannerView:(id)arg1 dismissReason:(int)arg2;
-- (void)_presentBannerView:(id)arg1;
-- (void)_tearDownView:(BOOL)arg1 reason:(int)arg2;
-- (void)_tearDownView;
-- (BOOL)_shouldPendStickyBannerItem:(id)arg1 withReason:(int)arg2;
+- (void)_handleDismissGestureType:(int)arg1 withState:(int)arg2 displacement:(float)arg3 velocity:(float)arg4;
+- (void)_updateDismissGestureState:(struct SBBannerDismissGestureState *)arg1 withDisplacement:(float)arg2 velocity:(float)arg3;
+- (void)_presentBannerForContext:(id)arg1 reason:(int)arg2;
+- (BOOL)_shouldPendStickyBannerContext:(id)arg1 withReason:(int)arg2;
 - (BOOL)_dequeueBannerIfPossibleIgnoringStickyBanner:(BOOL)arg1 existingDismissReason:(int)arg2;
-- (BOOL)_dequeueBannerIfPossibleIgnoringStickyBanner:(BOOL)arg1;
 - (BOOL)_dequeueBannerIfPossible;
 - (BOOL)_canDequeueIgnoringStickyBanner:(BOOL)arg1;
-- (BOOL)_canDequeue;
-- (id)_dequeueNextBannerItem;
-- (BOOL)_isItemShowable:(id)arg1;
-- (id)_animationContext;
+- (id)_dequeueNextBannerContext;
+- (BOOL)_isItemShowable:(id)arg1 fromSource:(id)arg2;
 - (void)_dequeueAfterDelayIfPossible;
 - (void)_updateBannerSuppressionStateAndDequeueIfPossible:(BOOL)arg1 withDelay:(BOOL)arg2;
 - (void)_updateBannerSuppressionState;
-- (void)_removePendingStickyItemsForSource:(id)arg1;
-- (id)_pendingStickyBannerItemForSource:(id)arg1;
-- (void)assistantRevealModeDidChange:(id)arg1;
-- (void)assistantRevealModeWillChange:(id)arg1;
+- (void)_removePendingContextsForSourceNeedingRepop:(id)arg1;
+- (id)_pendingBannerContextForSourceNeedingRepop:(id)arg1;
+- (void)_dismissBannerWithAnimation:(BOOL)arg1 reason:(int)arg2 forceEvenIfBusy:(BOOL)arg3 completion:(id)arg4;
+- (void)_lockStateChanged:(id)arg1;
+- (void)assistant:(id)arg1 viewDidDisappear:(int)arg2;
+- (void)assistant:(id)arg1 viewWillDisappear:(int)arg2;
+- (void)assistant:(id)arg1 viewDidAppear:(int)arg2;
+- (void)assistant:(id)arg1 viewWillAppear:(int)arg2;
 - (void)bulletinWindowDidRotateFromOrientation:(int)arg1;
-- (void)bulletinWindowIsAnimatingRotationToOrientation:(int)arg1;
-- (void)bulletinWindowWillRotateToOrientation:(int)arg1;
+- (void)bulletinWindowIsAnimatingRotationToOrientation:(int)arg1 duration:(double)arg2;
+- (void)bulletinWindowWillRotateToOrientation:(int)arg1 duration:(double)arg2;
 - (void)bulletinWindowStoppedBeingBusy;
-- (void)dismissCurrentBannerItemForSource:(id)arg1;
-- (id)currentBannerItemForSource:(id)arg1;
+- (void)dismissCurrentBannerContextForSource:(id)arg1;
+- (id)currentBannerContextForSource:(id)arg1;
 - (void)signalSource:(id)arg1;
 - (void)unregisterSource:(id)arg1;
 - (void)registerSource:(id)arg1;
-- (void)adjustLayoutForShowcaseHeight:(float)arg1;
+@property(readonly, nonatomic) int bannerTargetIdiom;
 - (id)newBannerSnapshotViewRotatedForOrientation:(int)arg1;
 - (void)setBannerAlpha:(float)arg1;
-- (void)dismissBannerWithAnimation:(int)arg1 reason:(int)arg2;
-- (void)dismissBannerWithoutAnimationForReason:(int)arg1;
-- (id)currentBannerItem;
+- (void)handleSystemDismissGestureWithState:(int)arg1 position:(struct CGPoint)arg2 velocity:(float)arg3;
+- (BOOL)isTrackingDismissGesture;
+- (void)dismissBannerWithAnimation:(BOOL)arg1 reason:(int)arg2 forceEvenIfBusy:(BOOL)arg3;
+- (void)dismissBannerWithAnimation:(BOOL)arg1 reason:(int)arg2;
 - (BOOL)isShowingBanner;
 - (void)dealloc;
 - (id)init;

@@ -13,9 +13,10 @@
     id <CKSMSComposeRemoteViewControllerDelegate> _delegate;
 }
 
++ (id)serviceViewControllerInterface;
++ (id)exportedInterface;
 + (id)requestViewControllerWithConnectionHandler:(id)arg1;
 @property(nonatomic) id <CKSMSComposeRemoteViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)smsComposeControllerCancelled;
 - (void)smsComposeControllerSendStartedWithText:(id)arg1;
 - (void)smsComposeControllerAppeared;

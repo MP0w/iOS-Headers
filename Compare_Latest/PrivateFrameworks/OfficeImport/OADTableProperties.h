@@ -8,11 +8,10 @@
 
 #import "OADEffectsParent-Protocol.h"
 
-@class NSArray, NSString, OADTableStyle;
+@class NSArray, OADTableStyle;
 
 @interface OADTableProperties : OADDrawableProperties <OADEffectsParent>
 {
-    NSString *mStyleId;
     OADTableStyle *mStyle;
     BOOL mRightToLeft;
     BOOL mFirstRow;
@@ -46,8 +45,6 @@
 - (BOOL)rightToLeft;
 - (void)setStyle:(id)arg1;
 - (id)style;
-- (void)setStyleId:(id)arg1;
-- (id)styleId;
 - (void)dealloc;
 - (id)initWithDefaults;
 

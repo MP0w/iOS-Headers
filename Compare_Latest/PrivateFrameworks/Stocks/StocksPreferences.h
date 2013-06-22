@@ -9,10 +9,14 @@
 @interface StocksPreferences : NSObject
 {
     BOOL _changeColorSwapped;
+    unsigned int _textDirection;
+    BOOL _textAttachmentDirectionIsRightToLeft;
 }
 
 + (void)clearSharedPreferences;
 + (id)sharedPreferences;
+@property(readonly, nonatomic) BOOL textAttachmentDirectionIsRightToLeft; // @synthesize textAttachmentDirectionIsRightToLeft=_textAttachmentDirectionIsRightToLeft;
+@property(readonly, nonatomic) unsigned int textDirection; // @synthesize textDirection=_textDirection;
 @property(readonly, nonatomic, getter=isChangeColorSwapped) BOOL changeColorSwapped; // @synthesize changeColorSwapped=_changeColorSwapped;
 - (void)synchronize;
 - (void)setObject:(id)arg1 forKey:(id)arg2;

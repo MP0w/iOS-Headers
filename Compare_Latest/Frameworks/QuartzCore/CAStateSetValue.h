@@ -19,6 +19,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)debugDescription;
 - (void)dealloc;
+- (id)CAMLTypeForKey:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)foreachLayer:(id)arg1;
 - (void)apply:(id)arg1;

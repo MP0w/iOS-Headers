@@ -121,6 +121,7 @@
 - (void)suspend;
 @property(nonatomic) BOOL animateForResumeEventsOnly;
 @property(nonatomic) BOOL isLockScreen;
+- (void)updateOrientation;
 - (void)_layoutLabel:(id)arg1 inPosition:(int)arg2 isLandscape:(BOOL)arg3 isLockedMusicInterface:(BOOL)arg4 hasProgressView:(BOOL)arg5;
 - (void)_layoutCaloriesInPosition:(int)arg1 isLandscape:(BOOL)arg2 isLockedMusicInterface:(BOOL)arg3 hasProgressView:(BOOL)arg4;
 - (void)_layoutPaceInPosition:(int)arg1 isLandscape:(BOOL)arg2 isLockedMusicInterface:(BOOL)arg3 hasProgressView:(BOOL)arg4;

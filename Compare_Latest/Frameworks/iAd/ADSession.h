@@ -6,47 +6,30 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSMutableSet, NSString;
+#import "ADSession_RPC-Protocol.h"
 
-@interface ADSession : NSObject
+@class NSMutableArray, NSString;
+
+@interface ADSession : NSObject <ADSession_RPC>
 {
-    NSMutableDictionary *_recipientsByAdType;
-    NSMutableDictionary *_bannerControllersByAdType;
-    NSMutableDictionary *_bannerControllers;
-    NSMutableSet *_pendingOpenControllers;
-    double _lastControllerCreationTime;
-    NSMutableSet *_reassignmentScheduledAdTypes;
     BOOL _applicationCanReceiveBackgroundAds;
-    id _remoteSession;
     NSString *_serverURL;
+    NSMutableArray *_adSpaces;
 }
 
-+ (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedInstance;
-@property(retain, nonatomic) NSString *serverURL; // @synthesize serverURL=_serverURL;
-@property(retain, nonatomic) id remoteSession; // @synthesize remoteSession=_remoteSession;
-- (id)autorelease;
-- (oneway void)release;
-- (unsigned int)retainCount;
-- (id)retain;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)applicationStateAllowsAds;
-- (void)_appWillResignActive;
+@property(retain, nonatomic) NSMutableArray *adSpaces; // @synthesize adSpaces=_adSpaces;
+@property(nonatomic) BOOL applicationCanReceiveBackgroundAds; // @synthesize applicationCanReceiveBackgroundAds=_applicationCanReceiveBackgroundAds;
+@property(copy, nonatomic) NSString *serverURL; // @synthesize serverURL=_serverURL;
 - (void)_appDidBecomeActive;
-- (void)forwardShakeEventToAdSheet;
+- (void)_appWillResignActive;
+- (void)_remote_policyEngineTestStationDescriptionsComputed:(id)arg1;
+- (void)_remote_heartbeatTokenDidChange:(id)arg1 error:(id)arg2;
 - (void)_orientationChanged;
-- (void)_handleAdSheetMessage:(id)arg1 userInfo:(id)arg2;
-- (void)bannerControllerDidClose:(id)arg1;
-- (void)bannerControllerDidOpen:(id)arg1;
-- (BOOL)_createBannerControllerForRecipient:(id)arg1;
-- (id)_unassignedBannerControllerForAdType:(id)arg1;
-- (void)_reassignAllBannerControllers;
-- (void)_reassignBannerControllersForAdType:(id)arg1 pool:(id)arg2;
-- (void)adRecipientPriorityChanged:(id)arg1;
-- (void)unregisterAdRecipient:(id)arg1;
-- (void)registerAdRecipient:(id)arg1;
-- (void)_adSheetConnectionLost;
+- (void)unregisterAdSpace:(id)arg1;
+- (void)registerAdSpace:(id)arg1;
 - (void)_adSheetConnectionBootstrapped;
+- (id)_linkedOnVersion;
 - (id)init;
 
 @end

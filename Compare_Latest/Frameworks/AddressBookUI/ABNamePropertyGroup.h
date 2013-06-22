@@ -6,25 +6,26 @@
 
 #import <AddressBookUI/ABAbstractPropertyGroup.h>
 
-@class NSMutableArray, NSMutableDictionary, NSMutableSet;
+@class ABUIPerson, NSMutableArray, NSMutableDictionary, NSMutableSet;
 
 @interface ABNamePropertyGroup : ABAbstractPropertyGroup
 {
     NSMutableArray *_properties;
-    void *_preferredPerson;
+    ABUIPerson *_preferredPerson;
     NSMutableSet *_propertiesWithMultipleValuePlaceholders;
     NSMutableDictionary *_valuesByPersonByProperty;
     id <ABPrimaryValueDelegate> _delegate;
 }
 
-@property(readonly, nonatomic) void *preferredPerson; // @synthesize preferredPerson=_preferredPerson;
+@property(readonly, nonatomic) ABUIPerson *preferredPerson; // @synthesize preferredPerson=_preferredPerson;
 @property(nonatomic) id <ABPrimaryValueDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)copyCompositeNameIgnoringOrganization:(BOOL)arg1;
 - (id)copyCompositePhoneticName;
 - (id)copyCompositeName;
-- (void *)newFakePersonFromCurrentProperties;
+- (id)_fakePersonFromCurrentProperties;
 - (BOOL)showsMultipleValuePlaceholderAtRow:(unsigned int)arg1;
 - (id)keyboardSettingsForRow:(unsigned int)arg1;
+- (BOOL)autofillValuesForRow:(unsigned int)arg1;
 - (void)setValue:(id)arg1 atRow:(unsigned int)arg2;
 - (id)valueForRow:(unsigned int)arg1 whenEditing:(BOOL)arg2;
 - (id)placeholderTextForRow:(unsigned int)arg1;
@@ -45,7 +46,7 @@
 - (id)init;
 - (BOOL)refreshPreferredPerson;
 - (id)_newLocalizedPlaceholderForProperty:(int)arg1;
-- (id)_valueForProperty:(int)arg1 person:(void *)arg2;
+- (id)_valueForProperty:(int)arg1 person:(id)arg2;
 - (void)_removeValueForProperty:(int)arg1;
 - (void)_setValue:(id)arg1 forProperty:(int)arg2;
 - (id)_indexPathForIndexPath:(id)arg1;
@@ -54,9 +55,9 @@
 - (BOOL)_showsMultipleValuePlaceholderForProperty:(int)arg1;
 - (int)_indexForProperty:(int)arg1;
 - (id)_labelAtIndex:(int)arg1;
-- (int)_propertyAtIndex:(int)arg1;
-- (int)_addItemForProperty:(int)arg1 duringReload:(BOOL)arg2;
-- (int)_insertItemAtIndex:(int)arg1 forProperty:(int)arg2 duringReload:(BOOL)arg3;
+- (int)_propertyAtIndex:(unsigned int)arg1;
+- (void)_addItemForProperty:(int)arg1 duringReload:(BOOL)arg2;
+- (void)_insertItemAtIndex:(int)arg1 forProperty:(int)arg2 duringReload:(BOOL)arg3;
 - (void)_clearAllCachedInfo;
 
 @end

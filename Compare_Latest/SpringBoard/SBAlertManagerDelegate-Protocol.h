@@ -7,9 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBAlertManagerDelegate <NSObject>
-- (void)alertManager:(id)arg1 didDeactivateAlert:(id)arg2 overAlerts:(id)arg3;
-- (void)alertManager:(id)arg1 willDeactivateAlert:(id)arg2 overAlerts:(id)arg3;
-- (void)alertManager:(id)arg1 didActivateAlert:(id)arg2 overAlerts:(id)arg3;
-- (void)alertManager:(id)arg1 willActivateAlert:(id)arg2 overAlerts:(id)arg3;
+
+@optional
+- (id)newAlertWindowForAlertManager:(id)arg1;
+- (BOOL)alertManager:(id)arg1 shouldDeactivateDismissedAlert:(id)arg2;
 @end
 

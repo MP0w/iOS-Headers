@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString, SPSearchResultSection;
+@class NSString, SPSearchResult;
 
 @interface SPApplication : NSObject
 {
@@ -19,7 +19,7 @@
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSString *displayIdentifier; // @synthesize displayIdentifier=_displayIdentifier;
 - (void)dealloc;
-@property(readonly, nonatomic) SPSearchResultSection *section;
+@property(readonly, nonatomic) SPSearchResult *searchResult;
 - (id)description;
 
 @end

@@ -16,7 +16,6 @@
     NSDate *_timestamp;
 }
 
-+ (id)token;
 @property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;

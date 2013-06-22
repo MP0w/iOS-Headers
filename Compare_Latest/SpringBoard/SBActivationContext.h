@@ -12,8 +12,10 @@
 
 @interface SBActivationContext : NSObject <NSCopying>
 {
+    NSMapTable *_displayValues;
     NSMapTable *_activationValues;
     NSMapTable *_deactivationValues;
+    NSHashTable *_displayFlags;
     NSHashTable *_activationFlags;
     NSHashTable *_deactivationFlags;
 }
@@ -23,12 +25,15 @@
 + (id)contextFromDisplay:(id)arg1;
 @property(copy, nonatomic) NSHashTable *deactivationFlags; // @synthesize deactivationFlags=_deactivationFlags;
 @property(copy, nonatomic) NSHashTable *activationFlags; // @synthesize activationFlags=_activationFlags;
+@property(copy, nonatomic) NSHashTable *displayFlags; // @synthesize displayFlags=_displayFlags;
 @property(copy, nonatomic) NSMapTable *deactivationValues; // @synthesize deactivationValues=_deactivationValues;
 @property(copy, nonatomic) NSMapTable *activationValues; // @synthesize activationValues=_activationValues;
+@property(copy, nonatomic) NSMapTable *displayValues; // @synthesize displayValues=_displayValues;
 - (id)_deactivationSettingsDescription;
 - (id)_descriptionForDeactivationSetting:(unsigned int)arg1;
 - (id)_activationSettingsDescription;
 - (id)_descriptionForActivationSetting:(unsigned int)arg1;
+- (id)_displaySettingsDescription;
 - (id)_descriptionForDisplaySetting:(unsigned int)arg1;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
@@ -42,6 +47,8 @@
 - (void)setActivationSetting:(unsigned int)arg1 value:(id)arg2;
 - (void)setActivationSetting:(unsigned int)arg1 flag:(BOOL)arg2;
 - (void)clearActivationSettings;
+- (BOOL)displayFlag:(unsigned int)arg1;
+- (id)displayValue:(unsigned int)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithDisplay:(id)arg1;

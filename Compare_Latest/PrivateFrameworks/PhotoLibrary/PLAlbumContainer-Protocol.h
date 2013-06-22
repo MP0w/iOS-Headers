@@ -4,24 +4,23 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject-Protocol.h"
+#import "PLAssetContainerList-Protocol.h"
 
 @class NSString;
 
-@protocol PLAlbumContainer <NSObject>
+@protocol PLAlbumContainer <PLAssetContainerList>
 @property(readonly, nonatomic) NSString *_typeDescription;
 @property(readonly, nonatomic) NSString *_prettyDescription;
 @property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 @property(readonly, nonatomic) int filter;
 @property(readonly, nonatomic) id albumsSortingComparator;
-- (id)photoLibrary;
+@property(readonly, nonatomic) unsigned int albumsCount;
 - (void)updateAlbumsOrderIfNeeded;
 - (BOOL)needsReordering;
 - (void)setNeedsReordering;
 - (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;
 - (BOOL)canEditAlbums;
 - (int)albumListType;
-- (id)managedObjectContext;
 - (BOOL)hasAtLeastOneAlbum;
 - (id)albums;
 - (id)identifier;

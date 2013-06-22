@@ -12,10 +12,11 @@
 {
     int _style;
     NSString *_buttonText;
-    BOOL _usesImage;
     BOOL _alwaysUnderline;
+    BOOL _usesImage;
 }
 
++ (id)roundedButtonWithText:(id)arg1 color:(id)arg2;
 @property(nonatomic) BOOL alwaysUnderline; // @synthesize alwaysUnderline=_alwaysUnderline;
 @property(nonatomic) BOOL usesImage; // @synthesize usesImage=_usesImage;
 @property(copy, nonatomic) NSString *buttonText; // @synthesize buttonText=_buttonText;

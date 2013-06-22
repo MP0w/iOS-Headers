@@ -16,7 +16,9 @@
     PLCloudSharedComment *_comment;
 }
 
++ (id)_attributedStringForBylineText:(id)arg1 color:(id)arg2;
 + (id)_attributedStringForBylineText:(id)arg1;
++ (id)_attributedStringForCommentText:(id)arg1 color:(id)arg2;
 + (id)_attributedStringForCommentText:(id)arg1;
 + (id)bylineStringForComment:(id)arg1;
 + (float)heightForComment:(id)arg1 forWidth:(float)arg2 forInterfaceOrientation:(int)arg3;
@@ -28,6 +30,7 @@
 @property(readonly, nonatomic) UILabel *commentBylineLabel; // @synthesize commentBylineLabel=_commentBylineLabel;
 @property(readonly, nonatomic) UILabel *commentContentLabel; // @synthesize commentContentLabel=_commentContentLabel;
 - (void)layoutSubviews;
+- (void)_updateContent;
 - (void)delete:(id)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;

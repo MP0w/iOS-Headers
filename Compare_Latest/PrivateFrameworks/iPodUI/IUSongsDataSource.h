@@ -15,16 +15,18 @@
     BOOL _syncAssetTotalTokenIsValid;
     int _syncCurrentAssetNumberToken;
     BOOL _syncCurrentAssetNumberTokenIsValid;
-    unsigned int _syncAssetTotal;
-    unsigned int _syncCurrentAssetNumber;
+    unsigned long long _syncAssetTotal;
+    unsigned long long _syncCurrentAssetNumber;
 }
 
 + (id)queryItemPropertiesToFetch;
 + (id)tabBarItemTitleKey;
 + (id)tabBarItemIconName;
 + (int)mediaEntityType;
+- (void).cxx_destruct;
 - (void)_updateSyncProgressString;
 - (int)_containingParentEntityType;
+- (void)_allowsDeletionRestrictionDidChangeNotification:(id)arg1;
 - (void)reloadActionRows;
 - (BOOL)canShowDownloadAllEntities;
 - (BOOL)allowsDownloadingAllEntities;

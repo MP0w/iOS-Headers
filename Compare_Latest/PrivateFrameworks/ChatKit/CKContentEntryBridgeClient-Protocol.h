@@ -5,7 +5,7 @@
  */
 
 @protocol CKContentEntryBridgeClient
-- (BOOL)canPasteObject:(id)arg1;
+- (BOOL)canPasteMediaObjects:(id)arg1;
 - (id)contentViews;
 - (id)subject;
 @end

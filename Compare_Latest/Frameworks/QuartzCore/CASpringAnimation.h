@@ -15,6 +15,7 @@
 @property float damping;
 @property float stiffness;
 @property float mass;
+- (double)durationForEpsilon:(double)arg1;
 - (double)_timeFunction:(double)arg1;
 - (unsigned int)_propertyFlagsForLayer:(id)arg1;
 - (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;

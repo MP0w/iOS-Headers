@@ -14,15 +14,18 @@
 @interface NSProgressRegistrar : NSObject <NSXPCListenerDelegate, NSProgressRegistrar>
 {
     NSObject<OS_dispatch_queue> *_queue;
+    NSMutableDictionary *_publishersByID;
+    NSMutableDictionary *_subscribersByID;
     NSFileAccessNode *_rootFileAccessNode;
-    NSMutableDictionary *_publishersAndSubscribersByID;
 }
 
 - (oneway void)removeSubscriberForID:(id)arg1;
 - (oneway void)addSubscriber:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3 fileURL:(id)arg4;
+- (oneway void)addSubscriber:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3;
+- (oneway void)addSubscriber:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3 category:(id)arg4;
 - (oneway void)removePublisherForID:(id)arg1;
 - (oneway void)observePublisherForID:(id)arg1 value:(id)arg2 forKey:(id)arg3 inUserInfo:(BOOL)arg4;
-- (oneway void)addPublisher:(id)arg1 forID:(id)arg2 acknowledgementAppBundleIDs:(id)arg3 fileURL:(id)arg4;
+- (oneway void)addPublisher:(id)arg1 forID:(id)arg2 appBundleID:(id)arg3 acknowledgementAppBundleIDs:(id)arg4 category:(id)arg5 isGeneral:(BOOL)arg6 fileURL:(id)arg7;
 - (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)finalize;
 - (void)dealloc;

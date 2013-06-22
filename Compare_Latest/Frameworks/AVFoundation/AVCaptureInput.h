@@ -14,6 +14,7 @@
 }
 
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
+- (struct OpaqueCMClock *)clock;
 - (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (void)didStopForSession:(id)arg1 error:(id)arg2;
 - (void)didStartForSession:(id)arg1;

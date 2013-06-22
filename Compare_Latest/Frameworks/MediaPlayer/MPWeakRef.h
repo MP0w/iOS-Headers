@@ -13,6 +13,7 @@
 }
 
 + (id)weakRefWithObject:(id)arg1;
+- (void).cxx_destruct;
 - (id)object;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

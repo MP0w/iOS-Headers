@@ -10,5 +10,6 @@
 - (void)toggleVisibilityOfItemsInCompletionOffering:(id)arg1;
 - (void)purchaseAsset:(id)arg1 completionHandler:(id)arg2;
 - (void)downloadAsset:(id)arg1 completionHandler:(id)arg2;
+- (void)didAddStation:(id)arg1 forItem:(id)arg2;
 @end
 

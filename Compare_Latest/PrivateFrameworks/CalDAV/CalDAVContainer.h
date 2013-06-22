@@ -14,8 +14,6 @@
     NSString *_ctag;
     NSString *_calendarColor;
     NSString *_calendarOrder;
-    NSString *_xmppURI;
-    NSString *_xmppServer;
     NSSet *_supportedCalendarComponentSet;
     BOOL _subscribedStripAlarms;
     BOOL _subscribedStripTodos;
@@ -34,9 +32,15 @@
     NSString *_defaultAllDayAlarms;
     NSSet *_sharees;
     NSString *_supportedCalendarComponentSets;
+    NSString *_locationCode;
+    NSString *_languageCode;
+    BOOL _autoprovisioned;
 }
 
 + (id)copyPropertyMappingsForParser;
+@property BOOL autoprovisioned; // @synthesize autoprovisioned=_autoprovisioned;
+@property(retain) NSString *languageCode; // @synthesize languageCode=_languageCode;
+@property(retain) NSString *locationCode; // @synthesize locationCode=_locationCode;
 @property(retain) NSString *supportedCalendarComponentSets; // @synthesize supportedCalendarComponentSets=_supportedCalendarComponentSets;
 @property(retain) NSSet *sharees; // @synthesize sharees=_sharees;
 @property(retain) NSString *defaultAllDayAlarms; // @synthesize defaultAllDayAlarms=_defaultAllDayAlarms;
@@ -55,8 +59,6 @@
 @property BOOL subscribedStripTodos; // @synthesize subscribedStripTodos=_subscribedStripTodos;
 @property BOOL subscribedStripAlarms; // @synthesize subscribedStripAlarms=_subscribedStripAlarms;
 @property(retain) NSSet *supportedCalendarComponentSet; // @synthesize supportedCalendarComponentSet=_supportedCalendarComponentSet;
-@property(retain) NSString *xmppServer; // @synthesize xmppServer=_xmppServer;
-@property(retain) NSString *xmppURI; // @synthesize xmppURI=_xmppURI;
 @property(retain) NSString *calendarOrder; // @synthesize calendarOrder=_calendarOrder;
 @property(retain) NSString *calendarColor; // @synthesize calendarColor=_calendarColor;
 @property(retain) NSString *ctag; // @synthesize ctag=_ctag;

@@ -16,6 +16,7 @@
     NSMutableArray *_chartDataLRUCache;
     double _lastModifiedTime;
     BOOL _needRemoteAddNotification;
+    BOOL _needRemoteDeleteNotification;
     BOOL _needRemoteMoveNotification;
     NSUbiquitousKeyValueStore *_syncedKVStore;
 }
@@ -24,6 +25,7 @@
 + (id)sharedManager;
 - (void).cxx_destruct;
 - (void)_checkForMovedStocks;
+- (void)_checkForDeletedStocks;
 - (void)_checkForAddedStocks;
 - (void)saveDataChanges;
 - (void)saveListChanges;

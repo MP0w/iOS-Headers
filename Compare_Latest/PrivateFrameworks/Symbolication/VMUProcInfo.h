@@ -50,6 +50,7 @@
 - (id)description;
 - (id)name;
 - (id)userAppName;
+- (id)valueForEnvVar:(id)arg1;
 - (id)envVars;
 - (id)arguments;
 - (id)firstArgument;

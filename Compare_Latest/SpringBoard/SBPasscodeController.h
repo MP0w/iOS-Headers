@@ -18,10 +18,16 @@
     SBPasscodeComplianceAlertItem *_complianceAlertItem;
     NSDate *_forcedComplianceDate;
     id _telephonyNotificationObserver;
+    int _restoreCompletedAlertStateChangedToken;
+    BOOL _delayedComplianceAlertUntilAfterRestoreCompletedAlert;
 }
 
 + (id)sharedInstance;
 - (void)checkPasscodeCompliance;
+- (void)_activateComplianceAlert;
+- (void)_stopListeningToRestoreCompletedAlertStateChangedNotifications;
+- (void)_startListeningToRestoreCompletedAlertStateChangedNotifications;
+- (BOOL)_isRestoreCompletedAlertActive;
 - (void)_stopListeningToTelephonyNotifications;
 - (void)_startListeningToTelephonyNotifications;
 - (void)_didEndCall;

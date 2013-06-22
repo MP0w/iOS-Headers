@@ -17,6 +17,7 @@
 + (BOOL)throwException:(id)arg1;
 + (id)scriptObjectForJSObject:(struct OpaqueJSValue *)arg1 originRootObject:(struct RootObject *)arg2 rootObject:(struct RootObject *)arg3;
 + (void)initialize;
+- (id)JSValue;
 - (struct OpaqueJSValue *)JSObject;
 - (void)setException:(id)arg1;
 - (void)setWebScriptValueAtIndex:(unsigned int)arg1 value:(id)arg2;
@@ -31,6 +32,7 @@
 - (void)finalize;
 - (void)dealloc;
 - (oneway void)release;
+- (struct OpaqueJSContext *)_globalContextRef;
 - (BOOL)_isSafeScript;
 - (struct RootObject *)_originRootObject;
 - (struct RootObject *)_rootObject;

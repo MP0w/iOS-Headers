@@ -11,9 +11,9 @@
 @interface MCMotionTrigger : MCAction
 {
     NSString *_key;
-    double _duration;
     float _easeIn;
     float _easeOut;
+    double _duration;
 }
 
 + (id)motionTriggerForTargetPlugObjectID:(id)arg1 withKey:(id)arg2 andDuration:(double)arg3;

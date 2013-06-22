@@ -15,7 +15,6 @@
     float _shadowBlur;
     void *_data;
     unsigned long _dataLength;
-    BOOL _buttonsBelowContent;
 }
 
 + (float)heightForSystemAlertStyleWithTitle:(id)arg1 maxLines:(unsigned int)arg2 message:(id)arg3 maxLines:(unsigned int)arg4 contentWidth:(float)arg5;
@@ -52,7 +51,6 @@
 - (void)_configureLabel:(id)arg1 withFont:(id)arg2 color:(id)arg3 alignment:(int)arg4;
 - (void)dealloc;
 - (id)_initForLayoutStyle:(int)arg1;
-- (void)setHasButtonBelow:(BOOL)arg1;
 - (void)setShadowBlur:(float)arg1;
 
 @end

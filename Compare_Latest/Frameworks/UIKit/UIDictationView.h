@@ -6,23 +6,28 @@
 
 #import <UIKit/UIView.h>
 
-@class UIButton, UIDictationMeterView, UIKeyboardDicationBackground;
+#import "_UISiriWaveyViewDelegate-Protocol.h"
 
-@interface UIDictationView : UIView
+@class UIButton, UIKeyboardDicationBackground, _UISiriWaveyView;
+
+@interface UIDictationView : UIView <_UISiriWaveyViewDelegate>
 {
     UIKeyboardDicationBackground *_background;
-    UIDictationMeterView *_meterView;
     UIButton *_endpointButton;
     UIButton *_endpointButtonLandscape;
+    UIButton *_waveTapEndpointButton;
     int _state;
     BOOL _keyboardInTransition;
     BOOL _automaticAppearanceWasEnabled;
+    _UISiriWaveyView *_waveyView;
 }
 
 + (struct CGSize)layoutSize;
 + (id)activeInstance;
 + (id)sharedInstance;
++ (struct CGSize)viewSize;
 + (Class)dictationViewClass;
+- (float)audioLevelForWaveyView:(id)arg1;
 - (BOOL)visible;
 - (void)endpointButtonPressed;
 - (void)dealloc;

@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "PLAssetContainer-Protocol.h"
+#import "PLAlbumProtocol-Protocol.h"
 
-@class NSDictionary, NSMutableArray, NSMutableOrderedSet, NSNumber, NSOrderedSet, NSSet, NSString, NSURL, PLManagedAsset, PLPlacesMapAnnotation, UIImage;
+@class NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableOrderedSet, NSNumber, NSOrderedSet, NSSet, NSString, NSURL, PLManagedAsset, PLPlacesMapAnnotation, UIImage;
 
-@interface PLPlace : NSObject <PLAssetContainer>
+@interface PLPlace : NSObject <PLAlbumProtocol>
 {
     PLPlacesMapAnnotation *_annotation;
     BOOL _titleIsNumberOfPhotos;
@@ -58,10 +58,17 @@
 @property(retain, nonatomic) NSString *importSessionID;
 @property(readonly, nonatomic) BOOL shouldDeleteWhenEmpty;
 - (BOOL)canPerformEditOperation:(int)arg1;
+@property(readonly, nonatomic) NSArray *localizedLocationNames;
 @property(readonly, nonatomic) BOOL canShowComments;
+@property(readonly, nonatomic) BOOL canContributeToCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isMultipleContributorCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isOwnedCloudSharedAlbum;
+@property(readonly, nonatomic) BOOL isStandInAlbum;
+@property(readonly, nonatomic) BOOL isPendingPhotoStreamAlbum;
 @property(readonly, nonatomic) BOOL isCloudSharedAlbum;
 @property(readonly, nonatomic) BOOL isPhotoStreamAlbum;
+@property(readonly, nonatomic) BOOL isWallpaperAlbum;
+@property(readonly, nonatomic) BOOL isPanoramasAlbum;
 @property(readonly, nonatomic) BOOL isCameraAlbum;
 @property(readonly, nonatomic) BOOL isLibrary;
 - (unsigned int)indexOfPosterImage;
@@ -71,13 +78,13 @@
 @property(readonly, nonatomic) NSString *name;
 - (void)updateStackedImageShouldNotifyImmediately:(BOOL)arg1;
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
-@property(nonatomic) unsigned int pendingItemsType;
-@property(nonatomic) unsigned int pendingItemsCount;
+@property(nonatomic) int pendingItemsType;
+@property(nonatomic) int pendingItemsCount;
 @property(nonatomic) BOOL hasUnseenContentBoolValue;
 @property(readonly, nonatomic) unsigned int videosCount;
 @property(readonly, nonatomic) unsigned int photosCount;
 @property(readonly, nonatomic) BOOL isEmpty;
-@property(readonly, nonatomic) unsigned int count;
+- (unsigned int)count;
 @property(readonly, nonatomic) unsigned int assetsCount;
 @property(readonly, nonatomic) unsigned int approximateCount;
 @property(readonly, nonatomic) NSMutableOrderedSet *mutableAssets;
@@ -92,6 +99,10 @@
 - (void)_updatePlaceToPlace:(id)arg1;
 - (id)_newAnnotationWith2DLocation:(CDStruct_c3b9c2ee)arg1 title:(id)arg2 subtitle:(id)arg3;
 - (void)_setRegion:(CDStruct_90e2a262)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) NSDate *endDate;
+@property(readonly, nonatomic) NSDate *startDate;
 
 @end
 

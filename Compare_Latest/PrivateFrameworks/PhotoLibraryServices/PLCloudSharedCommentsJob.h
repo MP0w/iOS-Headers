@@ -11,11 +11,11 @@
 @interface PLCloudSharedCommentsJob : PLCloudSharingJob
 {
     NSArray *_msASComments;
-    int _jobType;
-    NSString *_albumGUID;
-    NSString *_assetGUID;
     NSString *_commentGUID;
+    NSString *_assetGUID;
+    NSString *_albumGUID;
     NSDictionary *_mstreamdInfoDictionary;
+    long long _jobType;
 }
 
 + (id)directoryPathForInFlightComments:(BOOL)arg1;
@@ -24,18 +24,18 @@
 + (void)deleteSharedCommentFromServer:(id)arg1;
 + (void)publishCommentToServer:(id)arg1;
 @property(retain, nonatomic) NSDictionary *mstreamdInfoDictionary; // @synthesize mstreamdInfoDictionary=_mstreamdInfoDictionary;
-@property(retain, nonatomic) NSString *commentGUID; // @synthesize commentGUID=_commentGUID;
-@property(retain, nonatomic) NSString *assetGUID; // @synthesize assetGUID=_assetGUID;
 @property(retain, nonatomic) NSString *albumGUID; // @synthesize albumGUID=_albumGUID;
-@property(nonatomic) int jobType; // @synthesize jobType=_jobType;
+@property(retain, nonatomic) NSString *assetGUID; // @synthesize assetGUID=_assetGUID;
+@property(retain, nonatomic) NSString *commentGUID; // @synthesize commentGUID=_commentGUID;
 @property(retain, nonatomic) NSArray *msASComments; // @synthesize msASComments=_msASComments;
+@property(nonatomic) long long jobType; // @synthesize jobType=_jobType;
 - (void)executeDeleteCommentFromServer;
 - (void)executePublishCommentToServer;
 - (void)executeProcessServerNotificationOfCommentChanges;
 - (void)runDaemonSide;
 - (BOOL)shouldArchiveXPCToDisk;
 - (void)run;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 - (void)dealloc;
 - (id)description;
 - (id)initFromXPCObject:(id)arg1;

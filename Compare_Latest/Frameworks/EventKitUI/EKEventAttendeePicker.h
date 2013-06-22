@@ -9,22 +9,24 @@
 #import "ABPeoplePickerNavigationControllerDelegate-Protocol.h"
 #import "ABPersonViewControllerDelegate-Protocol.h"
 #import "ABUnknownPersonViewControllerDelegate-Protocol.h"
+#import "MFComposeRecipientViewDelegate-Protocol.h"
 #import "MFContactsSearchConsumer-Protocol.h"
-#import "_MFComposeRecipientViewDelegate-Protocol.h"
-#import "_MFComposeRecipientViewStyleDelegate-Protocol.h"
+#import "UITableViewDataSource-Protocol.h"
+#import "UITableViewDelegate-Protocol.h"
 
-@class MFContactsSearchManager, MFContactsSearchResultsModel, MFSearchShadowView, NSArray, NSNumber, NSString, UIKeyboard, UIScrollView, UITableView, _MFComposeRecipientView;
+@class MFComposeRecipientView, MFContactsSearchManager, MFContactsSearchResultsModel, MFSearchShadowView, NSArray, NSNumber, NSString, UIKeyboard, UIScrollView, UITableView;
 
-@interface EKEventAttendeePicker : UIViewController <ABPeoplePickerNavigationControllerDelegate, MFContactsSearchConsumer, _MFComposeRecipientViewDelegate, _MFComposeRecipientViewStyleDelegate, ABPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
+@interface EKEventAttendeePicker : UIViewController <UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate, MFContactsSearchConsumer, MFComposeRecipientViewDelegate, ABPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate>
 {
     NSArray *_recipients;
-    _MFComposeRecipientView *_composeRecipientView;
+    MFComposeRecipientView *_composeRecipientView;
     UIScrollView *_recipientScrollView;
     UITableView *_searchResultsView;
     MFSearchShadowView *_shadowView;
     BOOL _showingSearchField;
     UIKeyboard *_keyboard;
     NSNumber *_lastSearchId;
+    BOOL _ABAccessDenied;
     MFContactsSearchManager *_searchManager;
     MFContactsSearchResultsModel *_searchResultsModel;
     NSArray *_searchResults;
@@ -34,8 +36,9 @@
     id <EKEventAttendeePickerDelegate> _emailValidationDelegate;
 }
 
-@property(nonatomic) id <EKEventAttendeePickerDelegate> emailValidationDelegate; // @synthesize emailValidationDelegate=_emailValidationDelegate;
+@property(nonatomic) __weak id <EKEventAttendeePickerDelegate> emailValidationDelegate; // @synthesize emailValidationDelegate=_emailValidationDelegate;
 @property(copy, nonatomic) NSString *searchAccountID; // @synthesize searchAccountID=_searchAccountID;
+- (void).cxx_destruct;
 - (BOOL)unknownPersonViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
 - (void)unknownPersonViewController:(id)arg1 didResolveToPerson:(void *)arg2;
 - (BOOL)personViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
@@ -46,7 +49,7 @@
 - (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
 - (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
 - (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
-- (int)composeRecipientView:(id)arg1 atomStyleForRecipient:(id)arg2;
+- (unsigned int)_atomPresentationOptionsForRecipient:(id)arg1;
 - (id)composeRecipientView:(id)arg1 composeRecipientForRecord:(void *)arg2 identifier:(int)arg3;
 - (id)composeRecipientView:(id)arg1 composeRecipientForAddress:(id)arg2;
 - (void)composeRecipientViewDidFinishPickingRecipient:(id)arg1;
@@ -55,8 +58,9 @@
 - (void)composeRecipientView:(id)arg1 showPersonCardForAtom:(id)arg2;
 - (void)composeRecipientView:(id)arg1 textDidChange:(id)arg2;
 - (void)composeRecipientView:(id)arg1 didChangeSize:(struct CGSize)arg2;
-- (void)composeRecipientViewDidFinishEnteringRecipient:(id)arg1;
-- (void)composeRecipientView:(id)arg1 requestDeleteRecipientAtIndex:(int)arg2;
+- (void)composeRecipientView:(id)arg1 didAddRecipient:(id)arg2;
+- (void)composeRecipientView:(id)arg1 didFinishEnteringAddress:(id)arg2;
+- (void)composeRecipientView:(id)arg1 didRemoveRecipient:(id)arg2;
 - (void)animationDidStop:(id)arg1;
 - (void)searchWithText:(id)arg1;
 - (void)endedNetworkActivity;
@@ -79,7 +83,6 @@
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)commitRemainingText;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;

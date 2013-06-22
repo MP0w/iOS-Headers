@@ -28,10 +28,11 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
-@property(readonly, nonatomic) NSString *addCustomServicePlaceholder;
-@property(readonly, nonatomic) NSString *addCustomServiceButtonLabel;
-@property(readonly, nonatomic) NSString *addCustomServiceTitle;
-@property(readonly, nonatomic) NSString *selectServiceTitle;
+- (id)addCustomServicePlaceholder;
+- (id)addCustomServiceButtonLabel;
+- (id)addCustomServiceTitle;
+- (id)selectServiceTitle;
+- (void)setStyleProvider:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

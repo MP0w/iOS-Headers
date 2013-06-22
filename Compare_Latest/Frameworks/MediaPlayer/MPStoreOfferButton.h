@@ -20,8 +20,8 @@
     BOOL _shouldShowConfirmation;
     BOOL _allowsReload;
     BOOL _needsReload;
-    int _offerButtonStyle;
     BOOL _allowsMultiLineTitles;
+    int _offerButtonStyle;
     NSString *_itemOfferButtonStyle;
 }
 
@@ -36,6 +36,7 @@
 @property(copy, nonatomic) NSString *offerTitle; // @synthesize offerTitle=_offerTitle;
 @property(copy, nonatomic) NSString *confirmationTitle; // @synthesize confirmationTitle=_confirmationTitle;
 @property(nonatomic) int animationHorizontalAlignment; // @synthesize animationHorizontalAlignment=_animationHorizontalAlignment;
+- (void).cxx_destruct;
 - (void)_reloadButton;
 - (CDStruct_1d16deb2)_configurationForStyleVariant:(id)arg1;
 - (BOOL)_getConfiguration:(CDStruct_1d16deb2 *)arg1 forStyleVariant:(id)arg2 style:(int)arg3;

@@ -19,6 +19,7 @@
 @property(copy, nonatomic) NSString *number;
 @property(copy, nonatomic) NSString *label;
 @property(copy, nonatomic) NSNumber *favoriteVoice;
+@property(copy, nonatomic) NSNumber *favoriteFacetimeAudio;
 @property(copy, nonatomic) NSNumber *favoriteFacetime;
 - (id)encodedClassName;
 - (id)groupIdentifier;

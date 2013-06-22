@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSHashTable, NSMutableSet, VMUClassInfoMap, VMUNonOverlappingRangeArray;
+@class NSHashTable, NSMapTable, VMUClassInfoMap, VMUNonOverlappingRangeArray;
 
 @interface VMUObjectIdentifier : NSObject
 {
@@ -15,35 +15,56 @@
     id _memoryReader;
     VMUClassInfoMap *_isaToClassInfo;
     VMUClassInfoMap *_cfTypeIDtoClassInfo;
+    VMUClassInfoMap *_unrealizedClassInfos;
+    unsigned long _coreFoundationCFTypeIsa;
+    unsigned long _foundationCFTypeIsa;
+    id _isaTranslator;
+    unsigned int *_nonPointerIndexMapping;
+    void *_remoteObjectBuffer;
+    unsigned long _remoteObjectBufferSize;
+    NSMapTable *_isaToObjectLabelHandlerMap;
+    NSMapTable *_itemCountToLabelStringUniquingMap;
+    struct VMULabelUniquingDataForStringType *_stringToLabelStringUniquingData;
+    NSMapTable *_numberToLabelStringUniquingMap;
     NSHashTable *_objcRuntimeMallocBlocksHash;
-    NSMutableSet *_objcRuntimeMallocBlocks;
-    unsigned int _cfTypeCount;
-    unsigned int _objcClassCount;
-    unsigned int _cPlusPlusClassCount;
-    NSHashTable *_invalidPointers;
     VMUNonOverlappingRangeArray *_targetProcessVMranges;
-    int peeksAtRemoteObjectIsa;
 }
 
-- (struct _VMURange)vmRegionRangeForAddress:(unsigned long long)arg1;
-- (void)findObjCclasses;
-- (void)_addobjc_opt_ro_classesForOffsets:(struct objc_classheader_t *)arg1 count:(unsigned int)arg2 classOptAddress:(unsigned long long)arg3;
-- (void)findCFTypes;
-- (id)classInfoForObjectWithRange:(struct _VMURange)arg1;
-- (id)nullClassInfo;
-- (id)_classInfoForObject:(unsigned long long)arg1;
-- (id)classInfoForObject:(unsigned long long)arg1;
 - (id)classInfoForCFType:(struct __CFRuntimeBase *)arg1;
 - (id)classInfoForIsaPointer:(unsigned int)arg1;
-- (BOOL)isValidRemotePointer:(unsigned long long)arg1;
-- (id)objcRuntimeMallocBlocks;
+- (id)classInfoForObject:(unsigned long long)arg1;
+- (id)initWithTask:(unsigned int)arg1;
+- (id)labelForMemory:(void *)arg1 length:(unsigned int)arg2;
+- (id)labelForMallocBlock:(struct _VMURange)arg1;
+- (id)labelForNSSet:(id)arg1;
+- (id)labelForNSConcreteHashTable:(id)arg1;
+- (id)labelForNSDictionary:(id)arg1;
+- (id)labelForNSArray:(id)arg1;
+- (id)labelForItemCount:(long)arg1;
+- (id)labelForNSDate:(id)arg1;
+- (id)labelForNSNumber:(id)arg1;
+- (id)labelForNSPathStore2:(id)arg1;
+- (id)labelForNSConcreteAttributedString:(id)arg1;
+- (id)labelForNSCFStringAtRemoteAddress:(unsigned long long)arg1;
+- (id)labelForNSString:(id)arg1;
+- (id)uniquifyStringLabel:(id)arg1 stringType:(int)arg2;
+- (id)objectLabelHandlerForRemoteIsa:(Class)arg1;
+- (void)buildIsaToObjectLabelHandlerMap;
+- (id)osMajorMinorVersionString;
+- (struct _VMURange)vmRegionRangeForAddress:(unsigned long long)arg1;
+- (void)findObjCclasses;
+- (void)findCFTypes;
+- (id)_faultClass:(unsigned long)arg1 ofType:(int)arg2;
+- (id)classInfoForMemory:(void *)arg1 length:(unsigned int)arg2;
+- (id)classInfoForObjectWithRange:(struct _VMURange)arg1;
+- (id)nullClassInfo;
+- (void)enumerateAllClassInfosWithBlock:(id)arg1;
+- (void)enumerateRealizedClassInfosWithBlock:(id)arg1;
 - (id)objcRuntimeMallocBlocksHash;
-- (unsigned int)CPlusPlusClassCount;
 - (unsigned int)ObjCclassCount;
 - (unsigned int)CFTypeCount;
 - (void)dealloc;
-- (id)initWithTask:(unsigned int)arg1 symbolicator:(id)arg2;
-- (id)initWithTask:(unsigned int)arg1;
+- (id)initWithTask:(unsigned int)arg1 symbolicator:(struct _CSTypeRef)arg2;
 
 @end
 

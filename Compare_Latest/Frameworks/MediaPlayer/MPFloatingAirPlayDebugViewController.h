@@ -4,25 +4,26 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIViewController.h"
+#import "UINavigationController.h"
 
 #import "AirPlayDiagnosticsFullscreenControllerDelegate-Protocol.h"
 
-@class AirPlayDiagnosticsFullscreenController, UINavigationController, UIWindow;
+@class AirPlayDiagnosticsFullscreenController, UIWindow;
 
-@interface MPFloatingAirPlayDebugViewController : UIViewController <AirPlayDiagnosticsFullscreenControllerDelegate>
+@interface MPFloatingAirPlayDebugViewController : UINavigationController <AirPlayDiagnosticsFullscreenControllerDelegate>
 {
     UIWindow *_floatingWindow;
-    UINavigationController *_navController;
     BOOL _presentedAnimated;
     AirPlayDiagnosticsFullscreenController *_airPlayDiagsController;
 }
 
 @property(readonly, nonatomic) AirPlayDiagnosticsFullscreenController *airPlayDiagsController; // @synthesize airPlayDiagsController=_airPlayDiagsController;
+- (void).cxx_destruct;
 - (void)_destroyFloatingWindow;
-- (void)airPlayDiagnosticsFullscreenController:(id)arg1 didComplete:(BOOL)arg2;
+- (void)airPlayDiagnosticsContentViewController:(id)arg1 didComplete:(BOOL)arg2;
+- (unsigned int)supportedInterfaceOrientations;
+- (BOOL)shouldAutorotate;
 - (void)presentFromFloatingWindowAnimated:(BOOL)arg1 completion:(id)arg2;
-- (void)dealloc;
 
 @end
 

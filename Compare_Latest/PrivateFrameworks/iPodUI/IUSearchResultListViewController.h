@@ -11,7 +11,8 @@
     id <IUSearchResultListViewControllerDelegate> _searchResultListDelegate;
 }
 
-@property(nonatomic) id <IUSearchResultListViewControllerDelegate> searchResultListDelegate; // @synthesize searchResultListDelegate=_searchResultListDelegate;
+@property(nonatomic) __weak id <IUSearchResultListViewControllerDelegate> searchResultListDelegate; // @synthesize searchResultListDelegate=_searchResultListDelegate;
+- (void).cxx_destruct;
 - (void)performDefaultActionForRow:(int)arg1;
 - (BOOL)hasSearchBar;
 - (BOOL)allowsDisclosureInCells;

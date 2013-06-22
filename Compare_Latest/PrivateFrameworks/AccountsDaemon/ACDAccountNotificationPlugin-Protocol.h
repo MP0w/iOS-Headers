@@ -9,7 +9,10 @@
 @protocol ACDAccountNotificationPlugin <NSObject>
 
 @optional
+- (void)account:(id)arg1 didPerformActionsForDataclasses:(id)arg2;
+- (void)account:(id)arg1 willPerformActionsForDataclasses:(id)arg2;
 - (void)account:(id)arg1 didChangeWithType:(int)arg2 inStore:(id)arg3 oldAccount:(id)arg4;
 - (BOOL)account:(id)arg1 willChangeWithType:(int)arg2 inStore:(id)arg3 oldAccount:(id)arg4;
+- (BOOL)canSaveAccount:(id)arg1 inStore:(id)arg2;
 @end
 

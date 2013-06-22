@@ -16,6 +16,7 @@
     float _refreshControlHeight;
     float _visibleHeight;
     float _snappingHeight;
+    float _additionalTopInset;
     BOOL _insetsApplied;
     BOOL _adjustingInsets;
     struct UIEdgeInsets _appliedInsets;
@@ -28,6 +29,8 @@
 - (void)_setRefreshControlState:(int)arg1 notify:(BOOL)arg2;
 - (void)setRefreshControlState:(int)arg1;
 - (BOOL)_canTransitionFromState:(int)arg1 toState:(int)arg2;
+- (void)setBackgroundColor:(id)arg1;
+- (void)_updateConcealingMask;
 - (void)endRefreshing;
 - (void)beginRefreshing;
 - (void)_removeInsetHeight:(float)arg1;
@@ -35,6 +38,7 @@
 - (void)_removeInsets;
 - (void)_addInsets;
 - (void)_update;
+- (float)_stiffnessForVelocity:(float)arg1;
 - (void)_didScroll;
 - (float)_visibleHeightForContentOffset:(struct CGPoint)arg1 origin:(struct CGPoint)arg2;
 - (struct CGPoint)_originForContentOffset:(struct CGPoint)arg1;
@@ -43,6 +47,7 @@
 @property(readonly, nonatomic) float _snappingHeight;
 - (void)_updateSnappingHeight;
 - (void)_setVisibleHeight:(float)arg1;
+- (void)_updateHiddenStateIfNeeded;
 - (int)_recomputeNewState;
 @property(readonly, nonatomic) float _visibleHeight;
 - (void)_resizeToFitContents;

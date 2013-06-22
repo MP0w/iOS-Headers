@@ -18,6 +18,7 @@
 @property(copy, nonatomic) NSArray *views;
 @property(nonatomic) BOOL temporary;
 @property(nonatomic) BOOL scrollToTop;
+@property(copy, nonatomic) NSString *displayTarget;
 @property(copy, nonatomic) NSString *dialogPhase;
 - (id)encodedClassName;
 - (id)groupIdentifier;

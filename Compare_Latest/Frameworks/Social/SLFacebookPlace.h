@@ -4,36 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <Social/SLPlace.h>
 
-#import "NSCoding-Protocol.h"
-
-@class NSString, NSURL;
-
-@interface SLFacebookPlace : NSObject <NSCoding>
+@interface SLFacebookPlace : SLPlace
 {
-    NSString *_name;
-    NSURL *_pictureURL;
-    NSString *_identifier;
-    double _longitude;
-    double _distance;
-    NSString *_category;
-    double _latitude;
 }
 
 + (id)placeWithResponseDictionary:(id)arg1;
-@property double latitude; // @synthesize latitude=_latitude;
-@property(retain) NSString *category; // @synthesize category=_category;
-@property double distance; // @synthesize distance=_distance;
-@property double longitude; // @synthesize longitude=_longitude;
-@property(retain) NSString *identifier; // @synthesize identifier=_identifier;
-@property(retain) NSURL *pictureURL; // @synthesize pictureURL=_pictureURL;
-@property(retain) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
-- (id)description;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)encodableProperties;
 
 @end
 

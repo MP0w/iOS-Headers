@@ -14,7 +14,7 @@
 }
 
 + (id)customAttributes;
-@property(retain) NSNumber *inputAcuteAngle; // @synthesize inputAcuteAngle;
+@property(retain, nonatomic) NSNumber *inputAcuteAngle; // @synthesize inputAcuteAngle;
 - (void)setDefaults;
 
 @end

@@ -10,11 +10,15 @@
 {
 }
 
-+ (Class)_iconGridImageClass;
-+ (unsigned int)_maxIconsInGridImage;
+- (BOOL)hasFolderIconView;
 - (BOOL)isNewsstandIcon;
+- (id)getUnmaskedIconImage:(int)arg1;
+- (id)generateIconImage:(int)arg1;
+- (id)_generateImageUsingMask:(BOOL)arg1;
+- (id)_newsstandIconImageName;
+- (BOOL)canReceiveGrabbedIcon;
 - (id)folder;
-- (void)launchFromViewSwitcher;
+- (void)launch:(int)arg1;
 - (id)leafIdentifier;
 - (id)displayName;
 

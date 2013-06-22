@@ -15,10 +15,16 @@
 @property(copy) NSArray *URLs; // @dynamic URLs;
 @property(copy) id URLBagURLBlock; // @dynamic URLBagURLBlock;
 @property int URLBagType; // @dynamic URLBagType;
+@property(copy) NSData *clientAuditTokenData; // @dynamic clientAuditTokenData;
+@property(copy) NSString *clientAuditBundleIdentifier; // @dynamic clientAuditBundleIdentifier;
+@property BOOL shouldSetCookies; // @dynamic shouldSetCookies;
+@property BOOL shouldSendSecureToken; // @dynamic shouldSendSecureToken;
 @property BOOL shouldProcessProtocol; // @dynamic shouldProcessProtocol;
 @property BOOL shouldDecodeResponse; // @dynamic shouldDecodeResponse;
+@property BOOL shouldAddKBSyncData; // @dynamic shouldAddKBSyncData;
 @property BOOL requiresExtendedValidationCertificates; // @dynamic requiresExtendedValidationCertificates;
 - (void)setMultiPartFormDataWithDictionary:(id)arg1;
+@property(getter=isLargeDownload) BOOL largeDownload; // @dynamic largeDownload;
 @property(retain) NSInputStream *HTTPBodyStream; // @dynamic HTTPBodyStream;
 - (void)setValue:(id)arg1 forRequestParameter:(id)arg2;
 - (void)setValue:(id)arg1 forHTTPHeaderField:(id)arg2;
@@ -27,6 +33,7 @@
 @property(copy) NSString *URLBagKey; // @dynamic URLBagKey;
 @property double timeoutInterval; // @dynamic timeoutInterval;
 @property BOOL shouldDisableCellularFallback; // @dynamic shouldDisableCellularFallback;
+@property BOOL shouldDisableCellular; // @dynamic shouldDisableCellular;
 @property(copy) NSDictionary *requestParameters; // @dynamic requestParameters;
 @property unsigned int networkServiceType; // @dynamic networkServiceType;
 @property(getter=isITunesStoreRequest) BOOL ITunesStoreRequest; // @dynamic ITunesStoreRequest;

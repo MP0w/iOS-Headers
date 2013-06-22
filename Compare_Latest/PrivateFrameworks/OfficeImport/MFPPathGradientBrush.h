@@ -6,21 +6,21 @@
 
 #import <OfficeImport/MFPGradientBrush.h>
 
-@class NSArray, TSUColor;
+@class NSArray, TSDBezierPath, TSUColor;
 
 @interface MFPPathGradientBrush : MFPGradientBrush
 {
     TSUColor *mCenterColor;
     struct CGPoint mCenterPoint;
     NSArray *mSurroundColors;
-    struct CGPath *mPath;
+    TSDBezierPath *mPath;
 }
 
 - (id).cxx_construct;
 - (id)endColor;
 - (id)startColor;
 - (void)createShading;
-- (void)setPath:(struct CGPath *)arg1;
+- (void)setPath:(id)arg1;
 - (void)setSurroundColors:(id)arg1;
 - (void)setCenterPoint:(struct CGPoint)arg1;
 - (void)setCenterColor:(id)arg1;

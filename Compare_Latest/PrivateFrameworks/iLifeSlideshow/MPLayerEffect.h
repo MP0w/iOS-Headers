@@ -100,6 +100,7 @@
 - (id)formattedAttributes;
 - (void)updateTiming;
 - (void)setSkipEffectTiming:(BOOL)arg1;
+- (BOOL)isLive;
 
 @end
 

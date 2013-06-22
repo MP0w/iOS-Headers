@@ -17,7 +17,6 @@
 
 + (void)preheatStackedImageWithKey:(id)arg1;
 + (id)absolutePathToCachedStackedImagesDirectory;
-+ (id)absolutePathToCachesDirectory;
 + (id)sharedInstance;
 + (id)_pathToBakedCachedStackedImageWithKey:(id)arg1;
 + (id)_bakedStackedImageFilenameForWithKey:(id)arg1;

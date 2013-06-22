@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSURL;
+@class NSMutableDictionary, NSString, NSURL;
 
 @interface LBItem : NSObject
 {
     NSURL *_url;
+    NSString *_path;
     NSMutableDictionary *_attributes;
     id _replacement;
 }

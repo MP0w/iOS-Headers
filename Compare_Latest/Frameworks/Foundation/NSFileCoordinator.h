@@ -31,6 +31,7 @@
 + (void)__itemAtURL:(id)arg1 didResolveConflictVersionWithClientID:(id)arg2 name:(id)arg3 purposeID:(id)arg4;
 + (void)__itemAtURL:(id)arg1 didLoseVersionWithClientID:(id)arg2 name:(id)arg3 purposeID:(id)arg4;
 + (void)__itemAtURL:(id)arg1 didGainVersionWithClientID:(id)arg2 name:(id)arg3 purposeID:(id)arg4;
++ (void)__itemAtURL:(id)arg1 didChangeUbiquityWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didReconnectWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didDisconnectWithPurposeID:(id)arg2;
 + (void)__itemAtURL:(id)arg1 didMoveToURL:(id)arg2 purposeID:(id)arg3;
@@ -55,6 +56,7 @@
 - (void)__coordinateReadingItemAtURL:(id)arg1 options:(unsigned int)arg2 writingItemAtURL:(id)arg3 options:(unsigned int)arg4 purposeID:(id)arg5 byAccessor:(id)arg6;
 - (void)__coordinateWritingItemAtURL:(id)arg1 options:(unsigned int)arg2 purposeID:(id)arg3 byAccessor:(id)arg4;
 - (void)__coordinateReadingItemAtURL:(id)arg1 options:(unsigned int)arg2 purposeID:(id)arg3 byAccessor:(id)arg4;
+- (void)_ubiquityDidChangeForItemAtURL:(id)arg1;
 - (void)_itemAtURL:(id)arg1 didMoveToURL:(id)arg2;
 - (void)_itemAtURL:(id)arg1 willMoveToURL:(id)arg2;
 - (void)_coordinateWritingItemAtURL:(id)arg1 options:(unsigned int)arg2 writingItemAtURL:(id)arg3 options:(unsigned int)arg4 error:(id *)arg5 byAccessor:(id)arg6;

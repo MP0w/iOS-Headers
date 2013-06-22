@@ -31,6 +31,8 @@
     int _maxErrorCount;
 }
 
++ (id)_descriptionForRetrievalState:(int)arg1;
++ (id)_descriptionForState:(int)arg1;
 + (BOOL)isInRetryState;
 + (void)stopAllActivities;
 + (id)personIDsWithOutstandingActivities;
@@ -83,6 +85,8 @@
 - (void)_updateMasterManifest;
 - (void)_serverSideConfigurationDidChange:(id)arg1;
 - (void)_refreshServerSideConfigurationParameters;
+- (void)_changeRetrievalStateTo:(int)arg1;
+- (void)_changeStateTo:(int)arg1;
 - (void)dealloc;
 - (void)deactivate;
 - (id)initWithPersonID:(id)arg1 baseURL:(id)arg2;

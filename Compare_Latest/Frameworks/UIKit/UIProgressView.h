@@ -8,7 +8,7 @@
 
 #import "NSCoding-Protocol.h"
 
-@class UIColor, UIImage, UIImageView;
+@class CAGradientLayer, UIColor, UIImage, UIImageView;
 
 @interface UIProgressView : UIView <NSCoding>
 {
@@ -20,6 +20,11 @@
     UIImageView *_trackView;
     UIImageView *_progressView;
     BOOL _isAnimating;
+    BOOL _useArtwork;
+    CAGradientLayer *_trackGradientLayer;
+    CAGradientLayer *_progressGradientLayer;
+    struct CGRect _previousBounds;
+    struct CGRect _previousProgressBounds;
     UIImage *_trackImage;
     UIImage *_progressImage;
 }

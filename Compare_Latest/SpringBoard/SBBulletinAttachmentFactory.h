@@ -14,6 +14,7 @@
 + (id)listTextForAdditionalAttachmentCount:(unsigned int)arg1;
 + (id)_nAttachments:(unsigned int)arg1;
 + (id)_nMoreAttachments:(unsigned int)arg1;
++ (id)modalImageForAttachmentType:(int)arg1 thumbnailData:(id)arg2;
 + (id)bannerImageForAttachmentType:(int)arg1 thumbnailData:(id)arg2;
 + (id)lockScreenFloatingImageForAttachmentType:(int)arg1 thumbnailData:(id)arg2;
 + (id)listImageForAttachmentType:(int)arg1 thumbnailData:(id)arg2;
@@ -21,6 +22,7 @@
 + (id)_imageFromPNGData:(id)arg1;
 + (id)_imageByCroppingOrPaddingImage:(id)arg1 toSize:(struct CGSize)arg2;
 + (id)_genericImageForAttachmentType:(int)arg1;
++ (id)modalThumbnailConstraintsForAttachmentType:(int)arg1;
 + (id)bannerThumbnailConstraintsForAttachmentType:(int)arg1;
 + (id)lockScreenFloatingThumbnailContraintsForAttachmentType:(int)arg1;
 + (id)listThumbnailConstraintsForAttachmentType:(int)arg1;

@@ -22,12 +22,15 @@
 @property(readonly) NSString *activityTypeSaveToCameraRoll;
 @property(readonly) NSString *activityTypePrint;
 @property(readonly) NSString *activityTypePostToWeibo;
+@property(readonly) NSString *activityTypePostToVimeo;
 @property(readonly) NSString *activityTypePostToTwitter;
+@property(readonly) NSString *activityTypePostToFlickr;
 @property(readonly) NSString *activityTypePostToFacebook;
 @property(readonly) NSString *activityTypeMessage;
 @property(readonly) NSString *activityTypeMail;
 @property(readonly) NSString *activityTypeCopyToPasteboard;
 @property(readonly) NSString *activityTypeAssignToContact;
+@property(readonly) NSString *activityTypeAddToReadingList;
 @property(copy) id excludedActivityTypes;
 - (id)_className;
 - (void)setTitle:(id)arg1 forActivityType:(id)arg2;

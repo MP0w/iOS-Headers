@@ -6,12 +6,13 @@
 
 #import <EventKitUI/EKEditItemViewController.h>
 
+#import "EKPickerTableViewDelegate-Protocol.h"
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
 @class EKPickerTableView, NSDate;
 
-@interface EKReminderDueDateEditViewController : EKEditItemViewController <UITableViewDelegate, UITableViewDataSource>
+@interface EKReminderDueDateEditViewController : EKEditItemViewController <UITableViewDelegate, UITableViewDataSource, EKPickerTableViewDelegate>
 {
     NSDate *_dueDate;
     BOOL _hasDueDate;
@@ -20,6 +21,7 @@
     EKPickerTableView *_container;
 }
 
+- (void).cxx_destruct;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
@@ -30,6 +32,7 @@
 - (void)_updateDatePickerDate;
 - (void)_updateDatePickerPresenceAnimated:(BOOL)arg1;
 - (void)_updateEnabledState;
+- (void)pickerTableViewDidChangeDatePickerInterval:(id)arg1;
 - (void)_datePickerChanged:(id)arg1;
 - (void)_isAllDayChanged:(id)arg1;
 - (void)_hasDueDateChanged:(id)arg1;
@@ -44,7 +47,6 @@
 - (id)dueDate;
 - (void)setDueDate:(id)arg1;
 - (void)_setDueDate:(id)arg1 updateDatePicker:(BOOL)arg2;
-- (void)viewDidUnload;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;

@@ -10,12 +10,10 @@
 
 @interface ADDefaults : NSObject
 {
-    struct __CFString *_defaultsBundleId;
     NSMutableDictionary *_factoryDefaults;
+    struct __CFString *_defaultsBundleID;
 }
 
-+ (id)allocWithZone:(struct _NSZone *)arg1;
-+ (id)sharedInstance;
 + (void)setString:(id)arg1 forKey:(id)arg2;
 + (id)stringForKey:(id)arg1;
 + (void)setDouble:(double)arg1 forKey:(id)arg2;
@@ -27,11 +25,9 @@
 + (void)_setDefaultValue:(id)arg1 forKey:(id)arg2;
 + (id)_defaultValueForKey:(id)arg1 valueClass:(Class)arg2;
 + (void)addFactoryDefaults:(id)arg1;
-- (id)autorelease;
-- (oneway void)release;
-- (unsigned int)retainCount;
-- (id)retain;
-- (id)copyWithZone:(struct _NSZone *)arg1;
++ (id)sharedInstance;
+@property(nonatomic) struct __CFString *defaultsBundleID; // @synthesize defaultsBundleID=_defaultsBundleID;
+@property(retain, nonatomic) NSMutableDictionary *factoryDefaults; // @synthesize factoryDefaults=_factoryDefaults;
 - (id)init;
 
 @end

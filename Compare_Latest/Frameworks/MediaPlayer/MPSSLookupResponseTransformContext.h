@@ -14,7 +14,7 @@
 }
 
 @property(retain, nonatomic) MPMediaItem *collectionRepresentativeItem; // @synthesize collectionRepresentativeItem=_collectionRepresentativeItem;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithCollectionRepresentativeItem:(id)arg1;
 
 @end

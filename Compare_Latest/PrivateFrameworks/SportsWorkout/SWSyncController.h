@@ -7,13 +7,15 @@
 #import "NSObject.h"
 
 #import "SWGeneratePINConnectionDelegate-Protocol.h"
+#import "SWGenerateTokenConnectionDelegate-Protocol.h"
 #import "SWPINStatusConnectionDelegate-Protocol.h"
+#import "SWSyncCompleteConnectionDelegate-Protocol.h"
 #import "SWSyncServiceConnectionDelegate-Protocol.h"
 #import "SWSyncWorkoutConnectionDelegate-Protocol.h"
 
 @class NSMutableArray, NSString, SWSyncHost, SWSyncServiceConnection;
 
-@interface SWSyncController : NSObject <SWSyncServiceConnectionDelegate, SWGeneratePINConnectionDelegate, SWSyncWorkoutConnectionDelegate, SWPINStatusConnectionDelegate>
+@interface SWSyncController : NSObject <SWSyncServiceConnectionDelegate, SWGeneratePINConnectionDelegate, SWSyncWorkoutConnectionDelegate, SWPINStatusConnectionDelegate, SWGenerateTokenConnectionDelegate, SWSyncCompleteConnectionDelegate>
 {
     int _attemptedUploadCount;
     int _uploadCount;

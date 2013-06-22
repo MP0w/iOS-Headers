@@ -6,19 +6,32 @@
 
 #import "NSObject.h"
 
-@class NSNumber, NSString;
+@class NSArray, NSNumber, NSString;
 
 @interface AVAudioSessionDataSourceDescription : NSObject
 {
     void *_impl;
 }
 
-+ (id)privateCreateSourceDescriptionsArrayWithCFArray:(struct __CFArray *)arg1 forInput:(BOOL)arg2;
-+ (id)privateCreateWithCFDictionaryRef:(struct __CFDictionary *)arg1 forInput:(BOOL)arg2;
++ (id)privateCreateOrConfigureArray:(id)arg1 withRawSourceArray:(id)arg2 portID:(id)arg3;
++ (id)privateCreateOrConfigure:(id)arg1 withRawSourceDescription:(id)arg2 portID:(id)arg3;
+- (id)privateGetOwningPortID;
+- (void)configureOrientationAndPatterns:(id)arg1;
+- (id)initWithRawSourceDescription:(id)arg1 andOwningPortID:(id)arg2;
+- (BOOL)privateMatchesRawDescription:(id)arg1;
 - (struct DataSourceDescriptionImpl *)privateGetImplementation;
+- (BOOL)setPreferredPolarPattern:(id)arg1 error:(id *)arg2;
 - (id)description;
+@property(readonly) NSArray *supportedPolarPatterns;
+@property(readonly) NSString *preferredPolarPattern;
+@property(readonly) NSString *selectedPolarPattern;
+@property(readonly) NSString *orientation;
+@property(readonly) NSString *location;
 @property(readonly) NSString *dataSourceName;
 @property(readonly) NSNumber *dataSourceID;
+- (unsigned int)hash;
+- (BOOL)isEqualToDataSource:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -22,7 +22,7 @@
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
 @property(copy, nonatomic) NSString *path; // @synthesize path=_path;
 @property(readonly, nonatomic) MPAVItem *item; // @synthesize item=_item;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithMPAVItem:(id)arg1;
 - (id)init;
 

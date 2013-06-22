@@ -21,8 +21,7 @@
     NSArray *_callerIdGroupSpecifiers;
     PSSpecifier *_addAddressButtonSpecifier;
     NSArray *_replyWithMessageGroupSpecifiers;
-    NSArray *_cellularDataGroupSpecifiers;
-    PSSpecifier *_cellularDataSwitchSpecifier;
+    NSArray *_blacklistGroupSpecifiers;
     PSSpecifier *_blankAddressSpecifier;
     NSString *_pendingAddress;
     NSMutableArray *_addresses;
@@ -57,13 +56,9 @@
 - (int)groupIdForSpecifierId:(id)arg1;
 - (int)groupIdForSpecifier:(id)arg1;
 - (int)indexOfLastSpecifierInGroup:(id)arg1;
-- (void)updateCellularDataFooterText;
-- (void)refreshCellularDataAnimated:(BOOL)arg1;
-- (void)setCellularData:(id)arg1 specifier:(id)arg2;
-- (id)getCellularDataForSpecifier:(id)arg1;
-- (BOOL)cellularDataSwitchEnabled;
-- (void)showCellularData:(BOOL)arg1 animated:(BOOL)arg2;
-- (BOOL)shouldShowCellularData;
+- (void)refreshBlacklistSettingsAnimated:(BOOL)arg1;
+- (void)showBlacklistSettings:(BOOL)arg1 animated:(BOOL)arg2;
+- (BOOL)shouldShowBlacklistSettings;
 - (void)showReplyWithMessage:(BOOL)arg1 animated:(BOOL)arg2;
 - (BOOL)shouldShowReplyWithMessage;
 - (id)createSpecifierForCallerIdAlias:(id)arg1;
@@ -109,8 +104,8 @@
 - (void)clearAccountCache;
 - (void)firstRunController:(id)arg1 finishedWithState:(unsigned int)arg2;
 - (void)viewAccountControllerDidFinish:(id)arg1 withAppleId:(id)arg2;
-- (void)_setupAppearBlockForLocaleControllerWithAccount:(id)arg1;
 - (void)_showLocaleChooserWithAccount:(id)arg1;
+- (id)_localeChooserForAccount:(id)arg1;
 - (void)_hideLocaleChooser;
 - (void)_showViewAccountControllerForAccount:(id)arg1;
 - (void)_showSignInController;
@@ -166,7 +161,6 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)shouldReloadSpecifiersOnResume;
-- (BOOL)canBeShownFromSuspendedState;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (id)specifierList;

@@ -17,6 +17,7 @@
 }
 
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
+- (void)_updateSizeForLabel:(id)arg1;
 - (id)_newLabelWithText:(id)arg1 withFont:(id)arg2;
 - (void)layoutSubviews;
 - (void)setMessage:(id)arg1;

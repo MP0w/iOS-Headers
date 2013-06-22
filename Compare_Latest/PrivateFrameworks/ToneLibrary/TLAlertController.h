@@ -6,23 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class NSMutableDictionary, TLAccessQueue;
 
 @interface TLAlertController : NSObject
 {
     NSMutableDictionary *_alertsBySoundIDs;
-    NSObject<OS_dispatch_queue> *_alertsBySoundIDsAccessQueue;
+    TLAccessQueue *_alertsBySoundIDsAccessQueue;
 }
 
 + (id)sharedAlertController;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *alertsBySoundIDsAccessQueue; // @synthesize alertsBySoundIDsAccessQueue=_alertsBySoundIDsAccessQueue;
-@property(retain, nonatomic) NSMutableDictionary *alertsBySoundIDs; // @synthesize alertsBySoundIDs=_alertsBySoundIDs;
+@property(retain, setter=_setAlertsBySoundIDsAccessQueue:) TLAccessQueue *_alertsBySoundIDsAccessQueue; // @synthesize _alertsBySoundIDsAccessQueue;
+@property(retain, nonatomic, setter=_setAlertsBySoundIDs:) NSMutableDictionary *_alertsBySoundIDs; // @synthesize _alertsBySoundIDs;
+@property(readonly, nonatomic) BOOL _hasVibratorCapability;
 - (void)_systemSoundDidFinishPlaying:(unsigned long)arg1;
-- (void)_removeSoundID:(unsigned long)arg1 shouldStopSound:(BOOL)arg2 fireCompletionBlock:(BOOL)arg3;
+- (void)_removeSoundID:(unsigned long)arg1 shouldStopSound:(BOOL)arg2 fireCompletionHandler:(BOOL)arg3;
 - (BOOL)_stopAllAlerts;
+- (unsigned long)_soundIDForAlert:(id)arg1;
 - (void)_stopAlert:(id)arg1;
 - (BOOL)_playAlert:(id)arg1 completionHandler:(id)arg2 targetQueue:(void)arg3;
-- (BOOL)_isPlayingAlert:(id)arg1;
 - (BOOL)stopAllAlerts;
 - (void)dealloc;
 - (id)init;

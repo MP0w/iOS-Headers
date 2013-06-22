@@ -6,20 +6,32 @@
 
 #import "UIView.h"
 
-@class NSMutableArray, PKPassBucketTemplate;
+@class NSArray, NSMutableArray, PKPass, PKPassBucketTemplate, PKPassColorProfile;
 
 @interface PKPassBucketView : UIView
 {
-    NSMutableArray *_fieldViews;
+    NSMutableArray *_fieldViewDictionaries;
+    int _background;
+    PKPass *_pass;
     PKPassBucketTemplate *_bucketTemplate;
+    PKPassColorProfile *_colorProfile;
+    NSArray *_bucket;
 }
 
-@property(readonly, nonatomic) PKPassBucketTemplate *bucketTemplate; // @synthesize bucketTemplate=_bucketTemplate;
+@property(retain, nonatomic) NSArray *bucket; // @synthesize bucket=_bucket;
+@property(retain, nonatomic) PKPassColorProfile *colorProfile; // @synthesize colorProfile=_colorProfile;
+@property(retain, nonatomic) PKPassBucketTemplate *bucketTemplate; // @synthesize bucketTemplate=_bucketTemplate;
+@property(retain, nonatomic) PKPass *pass; // @synthesize pass=_pass;
 - (void)presentDiff:(id)arg1 inView:(id)arg2 completion:(id)arg3;
-- (void)layoutSubviews;
-- (void)setColorProfile:(id)arg1 background:(int)arg2;
+- (unsigned int)_layoutFormatOptionsForTemplate:(id)arg1;
+- (int)_backgroundForBucketTemplate:(id)arg1;
+- (id)_valueAttributedStringForField:(id)arg1 template:(id)arg2;
+- (id)_labelAttributedStringForField:(id)arg1 template:(id)arg2;
+- (void)_updateSubviews;
+- (void)_measureAndFitSubviews;
+- (void)updateConstraints;
 - (void)dealloc;
-- (id)initWithBucket:(id)arg1 bucketTemplate:(id)arg2;
+- (id)init;
 
 @end
 

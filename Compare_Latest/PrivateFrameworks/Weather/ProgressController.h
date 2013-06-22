@@ -22,7 +22,6 @@
 - (void)_hideSpinner;
 - (void)_setHideSpinnerTimer:(id)arg1;
 - (void)userScrolled;
-- (id)init;
 
 @end
 

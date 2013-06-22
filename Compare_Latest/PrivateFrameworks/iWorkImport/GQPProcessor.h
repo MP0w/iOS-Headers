@@ -16,8 +16,8 @@
         void *_field2;
         void *_field3;
         struct _xmlCharEncodingHandler *_field4;
-        struct _xmlBuffer *_field5;
-        struct _xmlBuffer *_field6;
+        struct _xmlBuf *_field5;
+        struct _xmlBuf *_field6;
         int _field7;
         int _field8;
         unsigned long _field9;
@@ -26,8 +26,8 @@
     SFUCryptoKey *mCryptoKey;
     unsigned long long mTotalBytesToConsume;
     SFUZipInflateInputStream *mInputStream;
-    stack_b6de2217 *mStateStack;
-    stack_52c9a520 *mActionStack;
+    stack_3670a4ff *mStateStack;
+    stack_1c37755b *mActionStack;
     GQSDocument *mDocumentState;
     struct __QLPreviewRequest *mOutputPreviewRequest;
     struct __CFBundle *mBundle;
@@ -47,8 +47,8 @@
 - (struct CGSize)thumbnailSize;
 - (id)cryptoKey;
 - (id)documentState;
-- (stack_52c9a520 *)actionStack;
-- (stack_b6de2217 *)stateStack;
+- (stack_1c37755b *)actionStack;
+- (stack_3670a4ff *)stateStack;
 - (BOOL)go;
 - (void)setBundle:(struct __CFBundle *)arg1;
 - (struct __CFBundle *)bundle;

@@ -6,55 +6,53 @@
 
 #import <UIKit/UIView.h>
 
+#import "UIKeyboardCandidateGridCollectionViewControllerDelegate-Protocol.h"
 #import "UIKeyboardCandidateList-Protocol.h"
 #import "UIKeyboardCandidateListDelegate-Protocol.h"
-#import "UIKeyboardCandidateScrollViewControllerDelegate-Protocol.h"
 
-@class NSArray, NSString, UIKeyboardCandidateScrollViewController, UIKeyboardCandidateSortControl;
+@class NSString, TIKeyboardCandidateResultSet, UIKeyboardCandidateGridCollectionViewController, UIKeyboardCandidateSortControl;
 
-@interface UIKeyboardCandidateInlineFloatingView : UIView <UIKeyboardCandidateList, UIKeyboardCandidateListDelegate, UIKeyboardCandidateScrollViewControllerDelegate>
+@interface UIKeyboardCandidateInlineFloatingView : UIView <UIKeyboardCandidateList, UIKeyboardCandidateListDelegate, UIKeyboardCandidateGridCollectionViewControllerDelegate>
 {
     BOOL _reducedWidth;
-    NSArray *_candidates;
+    TIKeyboardCandidateResultSet *_candidateSet;
     NSString *_inlineText;
-    struct CGRect _inlineRect;
     float _maxX;
-    BOOL _expanded;
-    UIKeyboardCandidateScrollViewController *_scrollViewController;
+    UIKeyboardCandidateGridCollectionViewController *_collectionViewController;
     id <UIKeyboardCandidateListDelegate> _candidateListDelegate;
     int _position;
-    struct CGRect _previousCollapsedFrame;
     UIKeyboardCandidateSortControl *_sortSelectionBar;
+    struct CGRect _inlineRect;
+    struct CGRect _previousCollapsedFrame;
 }
 
 @property(nonatomic) struct CGRect previousCollapsedFrame; // @synthesize previousCollapsedFrame=_previousCollapsedFrame;
 @property(nonatomic) int position; // @synthesize position=_position;
 @property(nonatomic) id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
 @property(readonly, nonatomic, getter=isReducedWidth) BOOL reducedWidth; // @synthesize reducedWidth=_reducedWidth;
-@property(nonatomic) BOOL expanded; // @synthesize expanded=_expanded;
 @property(nonatomic) float maxX; // @synthesize maxX=_maxX;
 @property(nonatomic) struct CGRect inlineRect; // @synthesize inlineRect=_inlineRect;
 @property(copy, nonatomic) NSString *inlineText; // @synthesize inlineText=_inlineText;
-@property(retain, nonatomic) NSArray *candidates; // @synthesize candidates=_candidates;
+@property(retain, nonatomic) TIKeyboardCandidateResultSet *candidateSet; // @synthesize candidateSet=_candidateSet;
 @property(readonly, nonatomic) UIKeyboardCandidateSortControl *sortSelectionBar; // @synthesize sortSelectionBar=_sortSelectionBar;
-@property(readonly, nonatomic) UIKeyboardCandidateScrollViewController *scrollViewController; // @synthesize scrollViewController=_scrollViewController;
+@property(readonly, nonatomic) UIKeyboardCandidateGridCollectionViewController *collectionViewController; // @synthesize collectionViewController=_collectionViewController;
 - (void)sortSelectionBarAction;
 - (void)padInlineFloatingViewExpand:(id)arg1;
 - (BOOL)padInlineFloatingViewIsExpanded:(id)arg1;
+- (unsigned int)gridCollectionViewNumberOfColumns:(id)arg1;
+- (unsigned int)gridCollectionViewSelectedSortMethodIndex:(id)arg1;
 - (void)candidateListShouldBeDismissed:(id)arg1;
 - (void)candidateListSelectionDidChange:(id)arg1;
 - (void)candidateListAcceptCandidate:(id)arg1;
 - (BOOL)handleTabKeyWithShift:(BOOL)arg1;
 - (BOOL)handleNumberKey:(unsigned int)arg1;
-- (void)configureKeyboard:(id)arg1;
-- (unsigned int)count;
+- (id)keyboardBehaviors;
+- (BOOL)hasCandidates;
 - (void)candidateAcceptedAtIndex:(unsigned int)arg1;
-- (id)candidateAtIndex:(unsigned int)arg1;
 - (unsigned int)currentIndex;
 - (id)currentCandidate;
 - (void)showPreviousPage;
 - (void)showNextPage;
-- (void)showPageAtIndex:(unsigned int)arg1;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
@@ -68,10 +66,9 @@
 - (struct CGRect)adjustedFrameFromDesiredFrame:(struct CGRect)arg1 textHeight:(float)arg2;
 - (BOOL)isAcceptableFrame:(struct CGRect)arg1 afterScrollBy:(float)arg2;
 - (struct CGRect)adjustedInlineRectFromInlineText:(id)arg1 inlineRect:(struct CGRect)arg2;
-- (void)collapse;
+- (BOOL)isExtendedList;
 - (void)expand;
-- (struct CGSize)expandedSize;
-- (struct CGSize)collapsedSize;
+- (struct CGSize)size;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)activeCandidateList;
 - (void)dealloc;

@@ -17,7 +17,7 @@
 - (void)drawTrianglesWithContext:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)initWithVertices:(const CDStruct_782f569c *)arg1 vertexCount:(int)arg2 indices:(const unsigned short *)arg3 indexCount:(int)arg4;
+- (id)initWithVertices:(const CDStruct_3ef7eac3 *)arg1 vertexCount:(int)arg2 indices:(const unsigned short *)arg3 indexCount:(int)arg4;
 - (id)initFromAsciiVertexFile:(id)arg1 indexFile:(id)arg2;
 
 @end

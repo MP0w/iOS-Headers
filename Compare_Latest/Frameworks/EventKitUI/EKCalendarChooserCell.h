@@ -13,6 +13,7 @@
     BOOL _showCheckmarksOnLeft;
     BOOL _checked;
     BOOL _shouldAnimate;
+    BOOL _showsColorDot;
     UIImage *_colorDot;
     UIImage *_colorDotHighlighted;
     UIImageView *_colorDotView;
@@ -21,21 +22,16 @@
     UILabel *_customDetailTextLabel;
 }
 
+@property(nonatomic) BOOL showsColorDot; // @synthesize showsColorDot=_showsColorDot;
 @property(nonatomic) BOOL shouldAnimate; // @synthesize shouldAnimate=_shouldAnimate;
-@property(readonly, nonatomic) UILabel *customDetailTextLabel; // @synthesize customDetailTextLabel=_customDetailTextLabel;
-@property(readonly, nonatomic) UILabel *customTitleTextLabel; // @synthesize customTitleTextLabel=_customTitleTextLabel;
 @property(nonatomic) BOOL checked; // @synthesize checked=_checked;
 @property(nonatomic) BOOL showCheckmarksOnLeft; // @synthesize showCheckmarksOnLeft=_showCheckmarksOnLeft;
+- (void).cxx_destruct;
 - (void)layoutSubviews;
-- (void)_layoutTextLabel:(id)arg1 usingOriginalLabel:(id)arg2;
-- (void)_setupCustomTextLabels;
-- (void)_copyLabelParametersFrom:(id)arg1 to:(id)arg2;
-- (void)_updateIndentationWidth;
 - (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setColorDotHighlighted:(id)arg1;
-- (void)setColorDot:(id)arg1;
+- (void)setColorDotHighlightedImage:(id)arg1;
+- (void)setColorDotImage:(id)arg1;
 - (void)prepareForReuse;
-- (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)setContentAlpha:(float)arg1;
 

@@ -27,13 +27,11 @@
 @property(readonly, nonatomic, getter=isVideoStabilizationSupported) BOOL supportsVideoStabilization;
 @property(nonatomic) float videoScaleAndCropFactor;
 @property(readonly, nonatomic) float videoMaxScaleAndCropFactor;
-- (BOOL)videoMaxFrameDurationIsSet;
 @property(nonatomic) CDStruct_1b6d18a9 videoMaxFrameDuration;
 @property(readonly, nonatomic, getter=isVideoMaxFrameDurationSupported) BOOL supportsVideoMaxFrameDuration;
-- (BOOL)videoMinFrameDurationIsSet;
 @property(nonatomic) CDStruct_1b6d18a9 videoMinFrameDuration;
-- (int)videoMaxFrameRate;
-- (int)videoMinFrameRate;
+- (void)_setVideoMinFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (CDStruct_1b6d18a9)_videoMinFrameDuration;
 @property(readonly, nonatomic, getter=isVideoMinFrameDurationSupported) BOOL supportsVideoMinFrameDuration;
 @property(nonatomic) int videoOrientation;
 @property(readonly, nonatomic, getter=isVideoOrientationSupported) BOOL supportsVideoOrientation;

@@ -4,25 +4,25 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
-@class NSDate, NSString, NSURL;
+@class NSArray, NSDate, NSNumber, NSString;
 
-@interface SASmsSearch : SABaseClientBoundCommand
+@interface SASmsSearch : SADomainCommand
 {
 }
 
 + (id)searchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)search;
 - (BOOL)requiresResponse;
-@property(copy, nonatomic) NSString *timeZoneId;
-@property(nonatomic) int status;
+@property(copy, nonatomic) NSNumber *unread;
+@property(copy, nonatomic) NSString *subject;
 @property(copy, nonatomic) NSDate *start;
-@property(copy, nonatomic) NSString *sender;
-@property(copy, nonatomic) NSString *recipient;
+@property(copy, nonatomic) NSArray *senders;
+@property(copy, nonatomic) NSArray *recipients;
+@property(copy, nonatomic) NSNumber *outgoing;
 @property(copy, nonatomic) NSString *message;
 @property(copy, nonatomic) NSDate *end;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

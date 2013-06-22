@@ -24,7 +24,10 @@
 - (void)conference:(id)arg1 receivedNoRemotePacketsForTime:(double)arg2 callID:(int)arg3;
 
 @optional
+- (void)conference:(id)arg1 didChangeLocalVariablesForCallID:(int)arg2;
+- (void)conference:(id)arg1 didReceiveARPLData:(id)arg2 withCallID:(int)arg3;
 - (void)conference:(id)arg1 didStopWithCallID:(int)arg2 error:(id)arg3 callMetadata:(id)arg4;
 - (void)conference:(id)arg1 didStartSession:(BOOL)arg2 withCallID:(int)arg3 error:(id)arg4;
+- (void)conference:(id)arg1 localIPChange:(id)arg2 withCallID:(int)arg3;
 @end
 

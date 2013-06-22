@@ -6,9 +6,11 @@
 
 #import "SBUIBannerItem.h"
 
+#import "SBDefaultBannerViewSource-Protocol.h"
+
 @class BBBulletin, BBObserver, NSArray, SBUISound, UIImage;
 
-@interface SBBulletinBannerItem : SBUIBannerItem
+@interface SBBulletinBannerItem : SBUIBannerItem <SBDefaultBannerViewSource>
 {
     BBBulletin *_seedBulletin;
     BBObserver *_observer;
@@ -19,19 +21,25 @@
 
 + (id)itemWithSeedBulletin:(id)arg1 additionalBulletins:(id)arg2 andObserver:(id)arg3;
 + (id)itemWithBulletin:(id)arg1 andObserver:(id)arg2;
+- (BOOL)overridesQuietMode;
+- (BOOL)isCritical;
+- (BOOL)inertWhenLocked;
+- (BOOL)isVIP;
+- (id)attachmentImage;
+- (id)attachmentText;
+- (id)iconImage;
+- (id)sourceDate;
+- (id)message;
+- (id)title;
+- (id)pullDownNotification;
 - (BOOL)canShowInAssistant;
 - (id)sortDate;
 - (id)seedBulletin;
 - (id)action;
 - (id)sound;
 - (void)_setSound;
-- (int)accessoryStyle;
-- (id)attachmentText;
-- (id)message;
-- (id)title;
+- (unsigned int)accessoryStyle;
 - (id)_appName;
-- (id)iconImage;
-- (id)attachmentImage;
 - (id)additionalBulletins;
 - (void)dealloc;
 - (id)_initWithSeedBulletin:(id)arg1 additionalBulletins:(id)arg2 andObserver:(id)arg3;

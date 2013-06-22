@@ -29,6 +29,7 @@
 - (BOOL)mf_isQuoteOrWithinQuote;
 - (int)mf_quoteLevelDelta;
 - (BOOL)mf_containsRichText;
+@property(readonly) BOOL mf_isAttachment;
 @property(readonly) BOOL mf_isBody;
 @end
 

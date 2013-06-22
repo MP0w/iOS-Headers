@@ -9,7 +9,7 @@
 #import "MFDraggableItem-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class NSString;
+@class MFComposeRecipientOriginContext, NSArray, NSString;
 
 @interface MFComposeRecipient : NSObject <NSCopying, MFDraggableItem>
 {
@@ -20,13 +20,26 @@
     NSString *_address;
     NSString *_label;
     NSString *_countryCode;
+    NSArray *_cachedCompleteMatches;
+    NSArray *_cachedMatchedStrings;
+    NSArray *_cachedSortedMembers;
+    MFComposeRecipientOriginContext *_originContext;
 }
 
 + (id)recipientWithProperty:(int)arg1 address:(id)arg2;
 + (id)recipientWithRecord:(void *)arg1 property:(int)arg2 identifier:(int)arg3;
 + (id)recipientWithRecord:(void *)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4;
 + (id)mf_recipientWithGALResult:(id)arg1;
+@property(readonly, nonatomic) MFComposeRecipientOriginContext *originContext; // @synthesize originContext=_originContext;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
+- (id)preferredSendingAddress;
+- (id)completelyMatchedAttributedStrings;
+- (BOOL)wasCompleteMatch;
+- (void)setOriginContext:(id)arg1;
+- (id)childrenWithCompleteMatches;
+- (id)sortedChildren;
+- (id)children;
+- (BOOL)isGroup;
 @property(readonly, nonatomic, getter=isRemovableFromSearchResults) BOOL removableFromSearchResults;
 - (id)objectForDragType:(id)arg1;
 - (id)supportedDragTypes;
@@ -37,6 +50,7 @@
 - (id)uncommentedAddress;
 - (id)placeholderName;
 - (id)displayString;
+- (id)shortName;
 - (id)compositeName;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setIdentifier:(int)arg1;

@@ -6,25 +6,20 @@
 
 #import "NSObject.h"
 
-@class AVMetadataFaceObject;
-
 @interface AVMetadataFaceObjectInternal : NSObject
 {
-    int faceID;
     BOOL hasRollAngle;
-    float rollAngle;
     BOOL hasYawAngle;
+    int faceID;
+    float rollAngle;
     float yawAngle;
-    AVMetadataFaceObject *originalFaceObject;
 }
 
-@property(retain) AVMetadataFaceObject *originalFaceObject; // @synthesize originalFaceObject;
 @property float yawAngle; // @synthesize yawAngle;
 @property BOOL hasYawAngle; // @synthesize hasYawAngle;
 @property float rollAngle; // @synthesize rollAngle;
 @property BOOL hasRollAngle; // @synthesize hasRollAngle;
 @property int faceID; // @synthesize faceID;
-- (void)dealloc;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MPAVItem, NSURL;
+@class AVAsset, MPAVItem, NSURL;
 
 @interface MPMovie : NSObject
 {
@@ -22,7 +22,9 @@
     unsigned int _lastKnownType;
 }
 
++ (id)movieWithAsset:(id)arg1 error:(id *)arg2;
 + (id)movieWithURL:(id)arg1 options:(id)arg2 error:(id *)arg3;
+- (void).cxx_destruct;
 - (void)_determineMediaType;
 - (id)_MPArrayQueueItem;
 - (void)_typeAvailableNotification:(id)arg1;
@@ -36,8 +38,11 @@
 @property(nonatomic) int movieSourceType;
 @property(readonly, nonatomic) int movieMediaTypes;
 @property(readonly, nonatomic) NSURL *url;
+@property(readonly, nonatomic) AVAsset *asset;
 - (void)dealloc;
+- (void)_sharedInit;
 - (id)_initWithURL:(id)arg1 options:(id)arg2 error:(id *)arg3;
+- (id)_initWithAsset:(id)arg1 error:(id *)arg2;
 
 @end
 

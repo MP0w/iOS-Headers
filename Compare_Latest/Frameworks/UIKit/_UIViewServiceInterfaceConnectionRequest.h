@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "XPCProxyTarget-Protocol.h"
+@class BKSProcessAssertion, NSError, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection, _UIAsyncInvocation;
 
-@class BKSProcessAssertion, NSError, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString, _UIAsyncInvocation, _UIViewServiceSessionEndpoint;
-
-@interface _UIViewServiceInterfaceConnectionRequest : NSObject <XPCProxyTarget>
+@interface _UIViewServiceInterfaceConnectionRequest : NSObject
 {
     id _connectionHandler;
     NSString *_serviceBundleIdentifier;
@@ -19,20 +17,17 @@
     NSError *_cancellationError;
     _UIAsyncInvocation *_cancellationInvocation;
     int _sessionRequestNotifyToken;
-    NSObject<OS_xpc_object> *_serviceSessionManagerConnection;
     BKSProcessAssertion *_serviceProcessAssertion;
-    _UIViewServiceSessionEndpoint *_serviceSessionEndpoint;
-    _UIAsyncInvocation *_sessionConnectionCancelInvocation;
+    NSXPCConnection *_serviceSessionConnection;
     int __automatic_invalidation_retainCount;
     BOOL __automatic_invalidation_invalidated;
 }
 
++ (id)connectToViewServiceViaXPCObjectsWithBundleIdentifier:(id)arg1 connectionHandler:(id)arg2;
 + (id)connectToViewServiceWithBundleIdentifier:(id)arg1 connectionHandler:(id)arg2;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)_cancelUnconditionallyThen:(id)arg1;
 - (void)_cancelWithError:(id)arg1;
 - (void)_didConnectToService;
-- (void)_connectToServiceSessionViaEndpoint:(id)arg1;
 - (void)_establishConnection;
 - (void)_createProcessAssertion;
 - (void)_launchService;

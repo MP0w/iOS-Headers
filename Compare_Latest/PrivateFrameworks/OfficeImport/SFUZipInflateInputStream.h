@@ -14,7 +14,7 @@
     long long mOffset;
     id <SFUBufferedInputStream> mInput;
     char *mOutBuffer;
-    unsigned long mOutBufferSize;
+    unsigned long long mOutBufferSize;
     BOOL mReachedEnd;
     BOOL mIsFromZip;
     unsigned long mCalculatedCrc;

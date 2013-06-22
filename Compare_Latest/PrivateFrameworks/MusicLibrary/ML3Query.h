@@ -32,17 +32,17 @@
 @property(readonly) Class entityClass; // @synthesize entityClass=_entityClass;
 - (void).cxx_destruct;
 @property(readonly) NSString *sectionProperty;
-- (void)bindToCountStatement:(id)arg1 bindingIndex:(inout int *)arg2;
+- (id)countStatementParameters;
 @property(readonly) NSString *selectCountSQL;
-- (void)bindToPersistentIDsStatement:(id)arg1 bindingIndex:(inout int *)arg2;
+- (id)persistentIDParameters;
 - (id)selectPersistentIDsSQLAndProperties:(id)arg1 ordered:(BOOL)arg2 distinct:(BOOL)arg3;
 - (id)selectPersistentIDsSQLAndProperties:(id)arg1 ordered:(BOOL)arg2;
 @property(readonly) NSString *selectPersistentIDsSQL;
 - (id)selectUnorderedPersistentIDsSQL;
-- (void)bindToSectionsStatement:(id)arg1 bindingIndex:(inout int *)arg2;
-- (id)selectSectionsSQLWithDistinctPersistentIDProperty:(BOOL)arg1;
+- (id)sectionsParameters;
+- (id)selectSectionsSQL;
 - (id)selectSQLWithColumns:(id)arg1 groupBy:(id)arg2 orderingTerms:(id)arg3 directionality:(id)arg4 usingLowerBound:(BOOL)arg5 distinct:(BOOL)arg6 limit:(unsigned int)arg7;
-- (void)bindToLowerBoundStatement:(id)arg1 bindingIndex:(inout int *)arg2 orderingTerms:(id)arg3 lowerBoundPersistentID:(long long)arg4;
+- (id)lowerBoundParametersForOrderingTerms:(id)arg1 lowerBoundPersistentID:(long long)arg2;
 - (id)selectSQLWithColumns:(id)arg1 groupBy:(id)arg2 orderingTerms:(id)arg3 directionality:(id)arg4 usingLowerBound:(BOOL)arg5;
 - (id)selectSQLWithColumns:(id)arg1 groupBy:(id)arg2 orderingTerms:(id)arg3;
 - (id)selectSQLWithColumns:(id)arg1 orderingTerms:(id)arg2 distinct:(BOOL)arg3;
@@ -52,13 +52,12 @@
 - (id)selectSQLWithColumns:(id)arg1 groupBy:(id)arg2 distinct:(BOOL)arg3;
 - (id)selectSQLWithColumns:(id)arg1 groupBy:(id)arg2;
 - (id)valueForAggregateFunction:(id)arg1 onEntitiesForProperty:(id)arg2;
-- (void)enumeratePersistentIDsAndProperties:(id)arg1 countedProperties:(id)arg2 ordered:(BOOL)arg3 cancelBlock:(id)arg4 usingBlock:(void)arg5;
-- (void)enumeratePersistentIDsAndProperties:(id)arg1 countedProperties:(id)arg2 ordered:(BOOL)arg3 usingBlock:(id)arg4;
-- (void)enumeratePersistentIDsAndProperties:(id)arg1 countedProperties:(id)arg2 usingBlock:(id)arg3;
+- (void)enumeratePersistentIDsAndProperties:(id)arg1 ordered:(BOOL)arg2 cancelBlock:(id)arg3 usingBlock:(void)arg4;
+- (void)enumeratePersistentIDsAndProperties:(id)arg1 ordered:(BOOL)arg2 usingBlock:(id)arg3;
 - (void)enumeratePersistentIDsAndProperties:(id)arg1 usingBlock:(id)arg2;
 - (void)enumeratePersistentIDsUsingBlock:(id)arg1;
+- (id)enumerationDatabaseResultForSQL:(id)arg1 onConnection:(id)arg2 withParameters:(id)arg3;
 - (void)enumerateSectionsUsingBlock:(id)arg1;
-@property(readonly) BOOL distinctPersistentIDProperty;
 - (BOOL)deleteAllEntitiesFromLibraryWithDeletionType:(int)arg1;
 - (BOOL)deleteAllEntitiesFromLibrary;
 @property(readonly) NSString *persistentIDProperty;
@@ -66,12 +65,16 @@
 @property(readonly) unsigned int countOfEntities;
 - (unsigned int)countOfDistinctRowsForColumn:(id)arg1;
 @property(readonly) BOOL hasEntities;
+@property(readonly) long long anyEntityPersistentID;
 - (BOOL)hasRowForColumn:(id)arg1;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithLibrary:(id)arg1 entityClass:(Class)arg2 predicate:(id)arg3 orderingTerms:(id)arg4 usingSections:(BOOL)arg5 nonDirectAggregateQuery:(id)arg6 propertyToCount:(id)arg7;
+@property(readonly) ML3Predicate *predicateIncludingSystemwidePredicates;
+- (id)nameOrderPropertyForProperty:(id)arg1;
+- (void)loadNamesFromLibrary:(id)arg1 onConnection:(id)arg2 forPredicate:(id)arg3 loadAllNames:(BOOL)arg4 cancelHandler:(id)arg5;
 
 @end
 

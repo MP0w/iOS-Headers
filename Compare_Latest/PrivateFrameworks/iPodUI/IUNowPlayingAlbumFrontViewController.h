@@ -10,7 +10,7 @@
 #import "MCProfileConnectionObserver-Protocol.h"
 #import "MPSwipableViewDelegate-Protocol.h"
 
-@class ADBannerView, IUPortraitInfoOverlay, MPAVItem, MPImageCacheRequest, MPReflectionImageView, MPSwipableView;
+@class ADBannerView, IUPortraitInfoOverlay, MPAVItem, MPImageCacheRequest, MPReflectionImageView, MPSwipableView, UILabel;
 
 @interface IUNowPlayingAlbumFrontViewController : MPViewController <IUPortraitInfoOverlayDelegate, MCProfileConnectionObserver, MPSwipableViewDelegate>
 {
@@ -18,29 +18,27 @@
     MPReflectionImageView *_artworkView;
     MPSwipableView *_backstopView;
     MPImageCacheRequest *_currentImageRequest;
-    float _filteredX;
-    float _filteredZ;
+    UILabel *_debugTrackInfoLabel;
     MPAVItem *_imageRequestPendingItem;
     BOOL _isInAppPurchaseAllowed;
+    BOOL _userCanChangeShuffleAndRepeatType;
     IUPortraitInfoOverlay *_overlayView;
     int _style;
 }
 
 + (struct CGRect)frameForArtwork;
 @property(nonatomic) int style; // @synthesize style=_style;
+- (void).cxx_destruct;
 - (void)_updateOverlayVisiblePartsForStyle;
 - (void)_updateIsInAppPurchaseAllowedForProfileConnection:(id)arg1;
 - (void)_updateArtworkForTime:(double)arg1;
+- (void)purgeArtworkViewUntilInForeground;
 - (void)_removeOverlayView;
 - (id)_overlayView;
 - (void)_handleDoubleTap:(id)arg1;
 - (void)_handleSingleTap;
 - (void)_handleSwipeRight;
 - (void)_addOverlayView:(id)arg1;
-- (void)coverFlowWillTransitionOut:(BOOL)arg1;
-- (void)coverFlowIsTransitioningOut:(BOOL)arg1;
-- (id)coverFlowControllerInitialTransitionImage:(id)arg1;
-- (void)coverFlowDidTransitionOut:(BOOL)arg1;
 - (void)artworkWillZoomOut;
 - (void)artworkWillZoomIn;
 - (void)artworkDidZoomOut;
@@ -49,8 +47,13 @@
 - (void)swipableView:(id)arg1 swipedInDirection:(int)arg2;
 - (void)infoOverlayDidFinishHiding:(id)arg1;
 - (BOOL)infoOverlayShouldDisplayQueuePositionUI:(id)arg1;
+- (void)didReceiveMemoryWarning;
+- (void)_applicationWillEnterForeground:(id)arg1;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
+- (void)_willShowAdViewNotification:(id)arg1;
+- (void)_radioModelDidChangeNotification:(id)arg1;
 - (void)_displayValuesDidChangeNotification:(id)arg1;
+- (void)_didHideAdViewNotification:(id)arg1;
 - (void)crossedTimeMakerWithEvent:(id)arg1;
 - (void)stopTicking;
 - (void)startTicking;
@@ -61,6 +64,7 @@
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (int)statusBarStyle;
+- (void)reloadArtworkView;
 - (void)loadView;
 - (void)dealloc;
 - (id)init;

@@ -28,6 +28,7 @@
 
 @property(nonatomic) int orientation; // @synthesize orientation=_interfaceOrientation;
 @property(retain, nonatomic) MPAVItem *item; // @synthesize item=_item;
+- (void).cxx_destruct;
 - (void)_setActiveViewController:(id)arg1 forTransition:(BOOL)arg2;
 - (void)_reloadForTransitionFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2 animated:(BOOL)arg3;
 - (void)_reloadForTransitionFromItem:(id)arg1 toItem:(id)arg2 animated:(BOOL)arg3;
@@ -40,6 +41,7 @@
 - (void)_itemChangedNotification:(id)arg1;
 - (void)crossedTimeMakerWithEvent:(id)arg1;
 - (void)updateArtworkToImageAtTimeMarker:(id)arg1;
+- (void)_avItemTitlesDidChangeNotification:(id)arg1;
 - (void)viewControllerRequestsExit:(id)arg1;
 - (void)viewController:(id)arg1 endIgnoringChangeType:(unsigned int)arg2;
 - (void)viewController:(id)arg1 beginIgnoringChangeTypes:(unsigned int)arg2;

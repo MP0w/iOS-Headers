@@ -9,7 +9,7 @@
 #import "TableViewManagerDelegate-Protocol.h"
 #import "UIPopoverControllerDelegate-Protocol.h"
 
-@class NSString, RecommendationActionController, UILabel, UIView;
+@class NSString, RecommendationActionController;
 
 @interface StepByStepUIViewController_Create_Config : StepByStepUIViewController <TableViewManagerDelegate, UIPopoverControllerDelegate>
 {
@@ -21,9 +21,6 @@
     NSString *_wifiPasswordVerify;
     NSString *_diskPassword;
     NSString *_diskPasswordVerify;
-    UIView *tableHeaderContainerView;
-    UIView *justTextContainerView;
-    UILabel *justTextLabel;
     BOOL useSinglePassword;
     BOOL hasDisk;
     BOOL useDifferentDiskPassword;
@@ -40,9 +37,6 @@
 @property(copy, nonatomic) NSString *basePasswordVerify; // @synthesize basePasswordVerify=_basePasswordVerify;
 @property(copy, nonatomic) NSString *basePassword; // @synthesize basePassword=_basePassword;
 @property(nonatomic) BOOL useSinglePassword; // @synthesize useSinglePassword;
-@property(retain, nonatomic) UILabel *justTextLabel; // @synthesize justTextLabel;
-@property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
-@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 @property(copy, nonatomic) NSString *personalizedBaseName; // @synthesize personalizedBaseName=_personalizedBaseName;
 @property(copy, nonatomic) NSString *wifiName; // @synthesize wifiName=_wifiName;
 - (void)textFieldDidChangeAtIndexPath:(id)arg1;

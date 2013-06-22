@@ -8,6 +8,7 @@
 
 @protocol NSProgressPublisher <NSObject>
 - (oneway void)appWithBundleID:(id)arg1 didAcknowledgeWithSuccess:(BOOL)arg2;
+- (oneway void)prioritize;
 - (oneway void)pause;
 - (oneway void)cancel;
 - (oneway void)stopProvidingValues;

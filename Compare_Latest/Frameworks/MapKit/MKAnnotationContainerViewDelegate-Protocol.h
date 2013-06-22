@@ -7,16 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol MKAnnotationContainerViewDelegate <NSObject>
-@property(readonly, nonatomic, getter=isZooming) BOOL zooming;
-- (void)annotationContainer:(id)arg1 didDeselectAnnotationView:(id)arg2;
-- (void)annotationContainer:(id)arg1 didSelectAnnotationView:(id)arg2;
-- (void)annotationContainer:(id)arg1 didAddAnnotationViews:(id)arg2;
-- (id)annotationContainer:(id)arg1 viewForAnnotation:(id)arg2;
 - (struct CGRect)annotationContainerVisibleRect:(id)arg1;
 - (struct CGPoint)convertCoordinate:(CDStruct_c3b9c2ee)arg1 toPointToView:(id)arg2;
 - (CDStruct_c3b9c2ee)convertPoint:(struct CGPoint)arg1 toCoordinateFromView:(id)arg2;
-- (struct CADoubleRect)_convertMapRect:(CDStruct_90e2a262)arg1 toDoubleRectToView:(id)arg2;
-- (struct CADoublePoint)_convertCoordinate:(CDStruct_c3b9c2ee)arg1 toDoublePointToView:(id)arg2;
 - (float)_zoomScale;
 - (struct CGRect)visibleRectInView:(id)arg1;
 - (struct CGRect)visibleCenteringRectInView:(id)arg1;
@@ -25,10 +18,9 @@
 - (void)annotationContainerDidAnimateBubble:(id)arg1;
 - (void)annotationContainerWillAnimateBubble:(id)arg1;
 - (float)annotationContainer:(id)arg1 pinDropDistanceForCoordinate:(CDStruct_c3b9c2ee)arg2 maxDistance:(float *)arg3 startPoint:(struct CGPoint *)arg4 shadowStartPoint:(struct CGPoint *)arg5;
-- (void)annotationContainer:(id)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2;
+- (void)annotationContainer:(id)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2 completionHandler:(id)arg3;
 - (void)annotationContainer:(id)arg1 annotationView:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
-- (BOOL)annotationContainerIsUserLocationChangeDone:(id)arg1;
 - (BOOL)annotationContainerIsRotated:(id)arg1;
-- (BOOL)annotationContainerEffectsEnabled:(id)arg1;
+- (BOOL)annotationContainerShouldAlignToPixels:(id)arg1;
 @end
 

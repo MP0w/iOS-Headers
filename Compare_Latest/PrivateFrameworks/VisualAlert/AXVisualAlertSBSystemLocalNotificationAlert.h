@@ -10,6 +10,8 @@
 {
 }
 
++ (id)_accessibilityTargetClassName;
++ (id)_initializeSafeCategoryFromValidationManager;
 + (void)_initializeSafeCategory;
 + (void)stopPlayingAlertSoundOrTone;
 + (id)presentWithLocalNotification:(id)arg1 application:(id)arg2;

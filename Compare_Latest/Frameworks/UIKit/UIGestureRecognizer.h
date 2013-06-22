@@ -6,14 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, NSMutableSet, UIEvent, UIView;
+@class NSMutableArray, NSMutableSet, UIPhysicalButtonsEvent, UITouchesEvent, UIView;
 
 @interface UIGestureRecognizer : NSObject
 {
     NSMutableArray *_targets;
     NSMutableArray *_delayedTouches;
     UIView *_view;
-    UIEvent *_updateEvent;
     id <UIGestureRecognizerDelegate> _delegate;
     NSMutableSet *_failureRequirements;
     NSMutableSet *_failureDependents;
@@ -37,6 +36,7 @@
         unsigned int privateDelegateShouldRecognizeSimultaneously:1;
         unsigned int privateDelegateShouldReceiveTouch:1;
         unsigned int subclassShouldRequireFailure:1;
+        unsigned int subclassShouldBeRequiredToFail:1;
         unsigned int cancelsTouchesInView:1;
         unsigned int delaysTouchesBegan:1;
         unsigned int delaysTouchesEnded:1;
@@ -46,7 +46,10 @@
         unsigned int delivered:1;
         unsigned int continuous:1;
         unsigned int requiresDelayedBegan:1;
+        unsigned int requiresSystemGesturesToFail:1;
     } _gestureFlags;
+    UITouchesEvent *_updateEvent;
+    UIPhysicalButtonsEvent *_updateButtonEvent;
 }
 
 + (BOOL)_touchesBeganWasDelayedForTouch:(id)arg1;
@@ -84,12 +87,14 @@
 - (BOOL)_isRecognized;
 - (void)_queueForResetIfFinished;
 - (void)_resetIfFinished;
-- (void)_updateGestureStateWithEvent:(id)arg1 afterDelay:(BOOL)arg2;
+- (void)_updateGestureStateWithEvent:(id)arg1 buttonEvent:(id)arg2 afterDelay:(BOOL)arg3;
 - (void)_delayedUpdateGesture;
 - (void)_queryFailureRequirements;
 - (BOOL)_requiresGestureRecognizerToFail:(id)arg1;
+- (BOOL)_shouldBeRequiredToFailByGestureRecognizer:(id)arg1;
 - (BOOL)_shouldRequireFailureOfGestureRecognizer:(id)arg1;
-- (void)_updateGestureWithEvent:(id)arg1;
+- (BOOL)_shouldReceiveTouch:(id)arg1;
+- (void)_updateGestureWithEvent:(id)arg1 buttonEvent:(id)arg2;
 - (void)_enqueueDelayedTouchesToSend;
 - (void)_enqueueDelayedTouchToSend:(id)arg1;
 - (void)_clearDelayedTouches;
@@ -99,15 +104,21 @@
 - (float)_distanceBetweenTouches:(id)arg1;
 - (struct CGPoint)_centroidOfTouches:(id)arg1 excludingEnded:(BOOL)arg2;
 - (id)_activeTouchesForEvent:(id)arg1;
+- (void)_ignorePhysicalButton:(id)arg1 forEvent:(id)arg2;
 - (void)ignoreTouch:(id)arg1 forEvent:(id)arg2;
 - (BOOL)canBePreventedByGestureRecognizer:(id)arg1;
 - (BOOL)canPreventGestureRecognizer:(id)arg1;
+- (void)_physicalButtonsCancelled:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsEnded:(id)arg1 withEvent:(id)arg2;
+- (void)_physicalButtonsBegan:(id)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)_setFailureMap:(id)arg1;
 - (id)_failureMap;
+- (void)_setRequiresSystemGesturesToFail:(BOOL)arg1;
+- (BOOL)_requiresSystemGesturesToFail;
 - (void)setState:(int)arg1;
 @property(readonly, nonatomic) int state;
 @property(nonatomic, getter=isEnabled) BOOL enabled;

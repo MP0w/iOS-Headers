@@ -7,24 +7,77 @@
 #import <EventKitUI/EKEventEditItem.h>
 
 #import "EKCellShortener-Protocol.h"
+#import "EKTimeZoneViewControllerDelegate-Protocol.h"
 
-@interface EKEventDateEditItem : EKEventEditItem <EKCellShortener>
+@class NSDateComponents, NSTimeZone, PreferencesTwoPartValueCell, UIDatePicker, UITableViewCell;
+
+@interface EKEventDateEditItem : EKEventEditItem <EKTimeZoneViewControllerDelegate, EKCellShortener>
 {
-    CDStruct_b0fa4487 _startDateGr;
-    CDStruct_b0fa4487 _endDateGr;
+    NSDateComponents *_startComponents;
+    NSDateComponents *_endComponents;
+    BOOL _allDay;
+    NSTimeZone *_timeZone;
+    PreferencesTwoPartValueCell *_startDateCell;
+    PreferencesTwoPartValueCell *_endDateCell;
+    UITableViewCell *_allDayCell;
+    UITableViewCell *_timeZoneCell;
+    UITableViewCell *_startDatePickerCell;
+    UITableViewCell *_endDatePickerCell;
+    int _selectedSubitem;
+    UIDatePicker *_startDatePicker;
+    UIDatePicker *_endDatePicker;
+    BOOL _endTimeWasMessedUp;
+    BOOL _changingDate;
+    int _shorteningStatus;
     BOOL _showsTimeZone;
+    BOOL _showsAllDay;
 }
 
+@property(nonatomic) BOOL showsAllDay; // @synthesize showsAllDay=_showsAllDay;
 @property(nonatomic) BOOL showsTimeZone; // @synthesize showsTimeZone=_showsTimeZone;
+- (void).cxx_destruct;
+- (id)_timeZoneDescription;
+- (void)_allDayChanged:(id)arg1;
+- (void)_datePickerChanged:(id)arg1;
+- (void)_updateDateColors;
+- (void)_updateDatePickerAnimated:(BOOL)arg1;
+- (BOOL)_endDateIsBeforeStartDate;
+- (void)_resetStartString:(BOOL)arg1 endString:(BOOL)arg2;
+- (void)_updateTimeWidths;
+- (void)_pickNextReasonableTime;
+- (void)_hideDatePicker;
+- (void)_setTimeZone:(id)arg1;
+- (void)_setAllDay:(BOOL)arg1;
+- (void)_setEndDate:(id)arg1;
+- (void)_setStartDate:(id)arg1;
+- (void)timeZoneViewControllerDidCancel:(id)arg1;
+- (void)timeZoneViewController:(id)arg1 didSelectTimeZone:(id)arg2;
+- (BOOL)saveAndDismissWithForce:(BOOL)arg1;
+- (void)endInlineEditing;
+- (void)editor:(id)arg1 didStartEditingItem:(id)arg2;
+- (BOOL)usesDetailViewControllerForSubitem:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (void)editor:(id)arg1 didSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (BOOL)editor:(id)arg1 canSelectSubitem:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
 - (void)shortenCell:(id)arg1;
-- (BOOL)editItemViewControllerCommit:(id)arg1;
-- (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
-- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
+- (void)_datePickerDoubleTapped:(id)arg1;
+- (id)_endDatePickerCell;
+- (id)_startDatePickerCell;
+- (id)_newDatePicker;
+- (id)_timeZoneCell;
+- (id)_allDayCell;
+- (id)_endDateCell;
+- (id)_startDateCell;
+- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
+- (int)_subitemForRow:(int)arg1;
+- (int)_rowForSubitem:(int)arg1;
+- (BOOL)isInline;
 - (BOOL)requiresReconfigurationOnCommit;
 - (BOOL)configureForCalendarConstraints:(id)arg1;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 - (void)refreshFromCalendarItemAndStore;
+- (id)init;
 
 @end
 

@@ -21,18 +21,12 @@
 }
 
 + (id)differentialStyle;
-- (void)setContentFormat:(id)arg1;
-- (id)contentFormat;
-- (void)setProtection:(id)arg1;
-- (id)protection;
-- (void)setFont:(id)arg1;
-- (id)font;
-- (void)setFill:(id)arg1;
-- (id)fill;
-- (void)setBorders:(id)arg1;
-- (id)borders;
-- (void)setAlignmentInfo:(id)arg1;
-- (id)alignmentInfo;
+@property(retain, nonatomic) EDContentFormat *contentFormat; // @synthesize contentFormat=mContentFormat;
+@property(retain, nonatomic) EDProtection *protection; // @synthesize protection=mProtection;
+@property(retain, nonatomic) EDFont *font; // @synthesize font=mFont;
+@property(retain, nonatomic) EDFill *fill; // @synthesize fill=mFill;
+@property(retain, nonatomic) EDBorders *borders; // @synthesize borders=mBorders;
+@property(retain, nonatomic) EDAlignmentInfo *alignmentInfo; // @synthesize alignmentInfo=mAlignmentInfo;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 

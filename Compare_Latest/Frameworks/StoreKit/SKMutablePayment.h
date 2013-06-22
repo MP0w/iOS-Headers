@@ -16,6 +16,7 @@
 @property(copy, nonatomic) NSData *requestData; // @dynamic requestData;
 @property(nonatomic) int quantity; // @dynamic quantity;
 @property(copy, nonatomic) NSString *productIdentifier; // @dynamic productIdentifier;
+@property(copy, nonatomic) NSString *applicationUsername; // @dynamic applicationUsername;
 
 @end
 

@@ -18,9 +18,11 @@
 - (BOOL)intersectsMapRect:(CDStruct_90e2a262)arg1;
 - (CDStruct_c3b9c2ee)coordinate;
 - (void)getCoordinates:(CDStruct_c3b9c2ee *)arg1 range:(struct _NSRange)arg2;
+- (void)_assignPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
 - (void)_setPoints:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
 - (void)_setCoordinates:(CDStruct_c3b9c2ee *)arg1 count:(unsigned int)arg2;
 - (void)_calculateBounds;
+- (void)_setBounds:(CDStruct_90e2a262)arg1;
 - (CDStruct_90e2a262)boundingMapRect;
 - (void)dealloc;
 

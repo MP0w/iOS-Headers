@@ -47,7 +47,7 @@
 - (void)finalize;
 - (void)dealloc;
 - (unsigned int)retainCount;
-- (void)release;
+- (oneway void)release;
 - (id)retain;
 
 @end

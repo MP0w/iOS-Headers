@@ -11,9 +11,9 @@
 
 @interface BKSApplicationExitInfo : NSObject <NSCopying, BKSXPCCoding>
 {
-    long long _status;
-    int _terminationReason;
     BOOL _wasReceiver;
+    int _terminationReason;
+    long long _status;
 }
 
 @property(nonatomic) BOOL wasReceiver; // @synthesize wasReceiver=_wasReceiver;

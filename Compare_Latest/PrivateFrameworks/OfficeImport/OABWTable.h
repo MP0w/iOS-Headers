@@ -15,8 +15,8 @@
     OABWriterState *mState;
     long mRowCount;
     long mColumnCount;
-    struct vector<long, std::allocator<long>> *mpXCoords;
-    struct vector<long, std::allocator<long>> *mpYCoords;
+    struct vector<long, std::__1::allocator<long>> *mpXCoords;
+    struct vector<long, std::__1::allocator<long>> *mpYCoords;
 }
 
 - (void)map;

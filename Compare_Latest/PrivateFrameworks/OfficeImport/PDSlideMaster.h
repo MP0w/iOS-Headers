@@ -16,9 +16,18 @@
     OADTextListStyle *mTitleTextStyle;
     OADTextListStyle *mBodyTextStyle;
     OADTextListStyle *mOtherTextStyle;
+    BOOL mHeaderPlaceholderIsVisible;
+    BOOL mFooterPlaceholderIsVisible;
+    BOOL mSlideNumberPlaceholderIsVisible;
+    BOOL mDateTimePlaceholderIsVisible;
 }
 
+@property(nonatomic) BOOL dateTimePlaceholderIsVisible; // @synthesize dateTimePlaceholderIsVisible=mDateTimePlaceholderIsVisible;
+@property(nonatomic) BOOL slideNumberPlaceholderIsVisible; // @synthesize slideNumberPlaceholderIsVisible=mSlideNumberPlaceholderIsVisible;
+@property(nonatomic) BOOL footerPlaceholderIsVisible; // @synthesize footerPlaceholderIsVisible=mFooterPlaceholderIsVisible;
+@property(nonatomic) BOOL headerPlaceholderIsVisible; // @synthesize headerPlaceholderIsVisible=mHeaderPlaceholderIsVisible;
 @property(retain, nonatomic) NSMutableArray *slideLayouts; // @synthesize slideLayouts=mSlideLayouts;
+- (BOOL)hasMappableSlideNumberShape;
 - (id)drawingTheme;
 - (void)doneWithContent;
 - (id)parentSlideBase;

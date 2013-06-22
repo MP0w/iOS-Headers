@@ -11,7 +11,6 @@
 }
 
 - (void)_forceDealloc;
-- (void)finalize;
 - (void)dealloc;
 - (id)copy;
 - (id)copyWithZone:(struct _NSZone *)arg1;

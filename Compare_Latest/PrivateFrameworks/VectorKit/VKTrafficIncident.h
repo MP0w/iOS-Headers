@@ -6,60 +6,43 @@
 
 #import "NSObject.h"
 
-#import "VKCalloutSource-Protocol.h"
+@class NSDate, NSString;
 
-@class NSDate, NSString, UICalloutView, UIView, VGLRenderState, VKAnchor, VKImage;
-
-@interface VKTrafficIncident : NSObject <VKCalloutSource>
+@interface VKTrafficIncident : NSObject
 {
-    CDStruct_31142d93 _pointInWorld;
-    CDUnion_f5b85e25 _shaderMatrix;
-    CDStruct_aca18c62 _screenRect;
-    UICalloutView *_calloutView;
-    VKImage *_image;
+    struct VKPoint _worldPoint;
     NSString *_title;
     NSString *_subtitle;
-    CDStruct_31142d93 _projectedPoint;
-    VGLRenderState *_renderState;
     int _type;
     CDStruct_2c43369c _location;
-    UIView *_leftCalloutAccessoryView;
-    UIView *_rightCalloutAccessoryView;
     NSString *_street;
     NSString *_crossStreet;
     NSString *_info;
     NSDate *_startDate;
     NSDate *_endDate;
     NSDate *_lastUpdatedDate;
-    VKAnchor *_anchor;
+    NSString *_uniqueString;
+    unsigned long long _uniqueID;
 }
 
+@property(readonly, nonatomic) struct VKPoint worldPoint; // @synthesize worldPoint=_worldPoint;
 @property(readonly, nonatomic) NSDate *lastUpdatedDate; // @synthesize lastUpdatedDate=_lastUpdatedDate;
 @property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(readonly, nonatomic) NSString *info; // @synthesize info=_info;
 @property(readonly, nonatomic) NSString *crossStreet; // @synthesize crossStreet=_crossStreet;
 @property(readonly, nonatomic) NSString *street; // @synthesize street=_street;
-@property(retain, nonatomic) UIView *rightCalloutAccessoryView; // @synthesize rightCalloutAccessoryView=_rightCalloutAccessoryView;
-@property(retain, nonatomic) UIView *leftCalloutAccessoryView; // @synthesize leftCalloutAccessoryView=_leftCalloutAccessoryView;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
-@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-@property(retain, nonatomic) UICalloutView *calloutView; // @synthesize calloutView=_calloutView;
+@property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) NSString *uniqueString; // @synthesize uniqueString=_uniqueString;
+@property(readonly, nonatomic) unsigned long long uniqueID; // @synthesize uniqueID=_uniqueID;
 - (id).cxx_construct;
-- (id)debugAnchorPointString;
-- (struct CGPoint)screenPointToScrollRelativeToWithCanvasSize:(struct CGSize)arg1;
-- (struct CGPoint)calloutAnchorPointWithCanvasSize:(struct CGSize)arg1;
-- (float)distanceFromPoint:(CDStruct_31142d93)arg1 canvasSize:(struct CGSize)arg2;
-- (BOOL)containsPoint:(CDStruct_31142d93)arg1;
-- (void)drawWithContext:(id)arg1;
-- (void)layoutWithContext:(id)arg1;
-- (CDStruct_31142d93)pointInWorldWithContext:(id)arg1;
-- (id)anchorWithContext:(id)arg1;
-- (CDStruct_31142d93)worldPoint;
-- (CDStruct_31142d93)projectedPoint;
 - (void)dealloc;
-- (id)initWithIncidentData:(const struct Incident *)arg1 worldPoint:(CDStruct_31142d93 *)arg2;
+- (id)initWithRouteIncident:(id)arg1;
+- (id)initWithIncident:(id)arg1 vertices:(CDStruct_1ef3fb1f *)arg2 tileRect:(CDStruct_d2b197d1)arg3 tileSize:(double)arg4;
+- (id)initWithIncidentData:(const struct Incident *)arg1 worldPoint:(struct VKPoint *)arg2;
+- (BOOL)hasSameIdentifier:(id)arg1;
 
 @end
 

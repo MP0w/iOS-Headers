@@ -6,28 +6,34 @@
 
 #import "NSObject.h"
 
-@class EAGLContext, NSMutableArray, VGLFramebuffer, VGLMesh, VGLProgram, VGLTexture, VGLVertexArrayObject;
+@class EAGLContext, NSMapTable, NSMutableArray, NSString, VGLFramebuffer, VGLGPU, VGLMesh, VGLProgram, VGLProgramFactory, VGLResourceFactory, VGLSharegroup, VGLTexture, VGLVertexArrayObject;
 
 @interface VGLContext : NSObject
 {
-    EAGLContext *_eaglContext;
+    VGLGPU *_gpu;
     NSMutableArray *_renderStateStack;
+    VGLSharegroup *_sharegroup;
+    VGLResourceFactory *_resourceFactory;
     VGLFramebuffer *_framebuffer;
+    struct CGSize _sizeInPixels;
     CDUnion_f5b85e25 _pixelSpaceMatrix;
     BOOL _depthTest;
     BOOL _stencilTest;
     BOOL _cullFace;
     BOOL _blend;
+    BOOL _scissorTest;
+    CDStruct_ff03d24e _scissorRect;
     int _blendMode;
     int _depthMode;
     float _lineWidth;
     float _clearDepth;
     struct _VGLColor _clearColor;
-    unsigned short _clearStencil;
+    unsigned char _clearStencil;
     VGLProgram *_program;
     struct _VGLColor _color;
     BOOL _depthMask;
     BOOL _colorMask;
+    unsigned char _stencilMask;
     VGLMesh *_meshForUnitSquare;
     VGLMesh *_meshForUnitTexture;
     VGLMesh *_meshForUnitTextureInverted;
@@ -43,29 +49,57 @@
     float _fpsStartTime;
     float _framerateSum;
     BOOL _drawFramerateGraph;
+    struct _VGLColor _frameRateGraphColor;
     float _framerateGraphSamples[30];
+    NSMapTable *_programCache;
+    VGLProgramFactory *_programFactory;
+    NSString *_programFactoryCohort;
+    BOOL _enablePolygonFillOffset;
+    CDStruct_e5f4ed30 _polygonOffset;
+    EAGLContext *_eaglContext;
+    struct _VGLColor _framerateGraphColor;
 }
 
 + (void)popContext;
-+ (void)pushContext:(id)arg1;
++ (void)pushContext:(id)arg1 queue:(id)arg2;
 + (id)_contextStack;
++ (id)_contextStackForQueue:(id)arg1;
+@property(nonatomic) CDStruct_e5f4ed30 polygonOffset; // @synthesize polygonOffset=_polygonOffset;
+@property(nonatomic) BOOL enablePolygonFillOffset; // @synthesize enablePolygonFillOffset=_enablePolygonFillOffset;
 @property(retain, nonatomic) VGLVertexArrayObject *VAO; // @synthesize VAO=_VAO;
 @property(retain, nonatomic) VGLProgram *program; // @synthesize program=_program;
+@property(nonatomic) unsigned char stencilMask; // @synthesize stencilMask=_stencilMask;
 @property(nonatomic) BOOL depthMask; // @synthesize depthMask=_depthMask;
 @property(nonatomic) BOOL colorMask; // @synthesize colorMask=_colorMask;
 @property(nonatomic) unsigned int activeTexture; // @synthesize activeTexture=_activeTexture;
-@property(nonatomic) unsigned short clearStencil; // @synthesize clearStencil=_clearStencil;
+@property(nonatomic) unsigned char clearStencil; // @synthesize clearStencil=_clearStencil;
 @property(nonatomic) struct _VGLColor clearColor; // @synthesize clearColor=_clearColor;
 @property(nonatomic) float clearDepth; // @synthesize clearDepth=_clearDepth;
 @property(nonatomic) float lineWidth; // @synthesize lineWidth=_lineWidth;
 @property(nonatomic) int depthMode; // @synthesize depthMode=_depthMode;
 @property(nonatomic) int blendMode; // @synthesize blendMode=_blendMode;
+@property(nonatomic) CDStruct_818bb265 scissorRect; // @synthesize scissorRect=_scissorRect;
+@property(nonatomic) BOOL scissorTest; // @synthesize scissorTest=_scissorTest;
 @property(nonatomic) BOOL cullFace; // @synthesize cullFace=_cullFace;
 @property(nonatomic) BOOL stencilTest; // @synthesize stencilTest=_stencilTest;
 @property(nonatomic) BOOL depthTest; // @synthesize depthTest=_depthTest;
 @property(readonly, nonatomic) CDUnion_f5b85e25 pixelSpaceMatrix; // @synthesize pixelSpaceMatrix=_pixelSpaceMatrix;
+@property(nonatomic) struct _VGLColor framerateGraphColor; // @synthesize framerateGraphColor=_framerateGraphColor;
 @property(nonatomic) BOOL drawFramerateGraph; // @synthesize drawFramerateGraph=_drawFramerateGraph;
+@property(readonly, nonatomic) VGLSharegroup *sharegroup; // @synthesize sharegroup=_sharegroup;
 @property(readonly, nonatomic) EAGLContext *eaglContext; // @synthesize eaglContext=_eaglContext;
+@property(readonly, nonatomic) VGLGPU *gpu; // @synthesize gpu=_gpu;
+- (id).cxx_construct;
+- (id)programFactoryCohort;
+- (void)setProgramFactoryCohort:(id)arg1;
+- (id)programWithClass:(Class)arg1;
+- (id)newRenderbuffer;
+- (id)newFramebuffer;
+- (id)newTextureResource;
+- (id)newBuffer;
+- (id)newVAO;
+- (id)newOcclusionResource:(int)arg1;
+- (void)performWhileCurrentContext:(id)arg1;
 - (BOOL)isCurrentContext;
 - (void)drawFramerateGraphMethod;
 - (void)dumpCounts;
@@ -75,7 +109,6 @@
 - (BOOL)checkForError;
 @property(readonly, nonatomic) VGLMesh *meshForUnitTextureInverted;
 @property(readonly, nonatomic) VGLMesh *meshForUnitTexture;
-@property(readonly, nonatomic) VGLMesh *meshForUnitSquare;
 - (void)drawTexture:(struct CGRect)arg1;
 - (void)fillRectAtZ:(float)arg1 x:(float)arg2 y:(float)arg3 w:(float)arg4 h:(float)arg5;
 - (void)drawRectAtZ:(float)arg1 x:(float)arg2 y:(float)arg3 w:(float)arg4 h:(float)arg5;
@@ -89,6 +122,7 @@
 - (void)fillUnitCircle;
 - (void)drawCircleX:(float)arg1 Y:(float)arg2 radius:(float)arg3;
 - (void)drawUnitCircle;
+- (void)drawUnitSquareMesh;
 - (void)drawTriangles:(int)arg1 nv:(int)arg2 pv:(float *)arg3;
 - (void)drawTriangleStrip:(int)arg1 nv:(int)arg2 pv:(float *)arg3;
 - (void)drawTriangleFan:(int)arg1 nv:(int)arg2 pv:(float *)arg3;
@@ -106,7 +140,7 @@
 - (void)_blendFuncWithSFactor:(unsigned int)arg1 dFactor:(unsigned int)arg2 sAlphaFactor:(unsigned int)arg3 dAlphaFactor:(unsigned int)arg4;
 - (void)updatePixelSpaceMatrixWithSize:(struct CGSize)arg1;
 - (void)updatePixelSpaceMatrix;
-- (void)setStencilFunc:(int)arg1 ref:(unsigned int)arg2 mask:(unsigned int)arg3;
+- (void)setStencilFunc:(int)arg1 ref:(unsigned char)arg2 mask:(unsigned char)arg3;
 - (void)setStencilOpFail:(int)arg1 zFail:(int)arg2 zPass:(int)arg3;
 - (void)doneStenciling;
 - (void)stencilToInclusion;
@@ -131,13 +165,14 @@
 - (void)popRenderState;
 - (void)pushRenderState;
 - (id)renderState;
+- (BOOL)renderbufferStorage:(unsigned int)arg1 fromCanvas:(id)arg2;
 @property(retain, nonatomic) VGLFramebuffer *targetFramebuffer;
 - (void)clearBufferColor:(BOOL)arg1 stencil:(BOOL)arg2 depth:(BOOL)arg3;
 - (void)reset;
 - (void)present;
 - (void)_makeActive;
 - (void)dealloc;
-- (id)init;
+- (id)initWithGPU:(id)arg1 sharegroup:(id)arg2;
 
 @end
 

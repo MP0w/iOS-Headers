@@ -10,22 +10,22 @@
 
 @interface StockNewsItem : NSObject
 {
-    unsigned long long ID;
-    NSString *headline;
-    NSString *summary;
-    NSString *source;
-    NSDate *date;
-    NSURL *link;
-    NSString *localizedDateString;
+    unsigned long long _ID;
+    NSString *_headline;
+    NSString *_summary;
+    NSString *_source;
+    NSDate *_date;
+    NSURL *_link;
+    NSString *_localizedDateString;
 }
 
 + (id)localizedStringForDate:(id)arg1;
-@property(retain, nonatomic) NSString *summary; // @synthesize summary;
-@property(retain, nonatomic) NSURL *link; // @synthesize link;
-@property(retain, nonatomic) NSDate *date; // @synthesize date;
-@property(retain, nonatomic) NSString *source; // @synthesize source;
-@property(retain, nonatomic) NSString *headline; // @synthesize headline;
-@property(nonatomic) unsigned long long ID; // @synthesize ID;
+@property(retain, nonatomic) NSURL *link; // @synthesize link=_link;
+@property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
+@property(retain, nonatomic) NSString *source; // @synthesize source=_source;
+@property(retain, nonatomic) NSString *summary; // @synthesize summary=_summary;
+@property(retain, nonatomic) NSString *headline; // @synthesize headline=_headline;
+@property(nonatomic) unsigned long long ID; // @synthesize ID=_ID;
 - (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) NSString *localizedDateString;

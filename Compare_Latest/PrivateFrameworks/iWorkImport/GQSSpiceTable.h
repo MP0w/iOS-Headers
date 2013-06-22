@@ -10,8 +10,8 @@
 {
     struct __CFDictionary *mVectorUidToAlongMap;
     BOOL mReadingRowVectors;
-    vector_7080b1cc *mRowPositions;
-    vector_7080b1cc *mColumnPositions;
+    vector_f9ed6fc8 *mRowPositions;
+    vector_f9ed6fc8 *mColumnPositions;
     float mCurrentCellMinX;
     float mCurrentCellMaxX;
     float mCurrentCellMinY;

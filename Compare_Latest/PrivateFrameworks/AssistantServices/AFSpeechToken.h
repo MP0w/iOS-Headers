@@ -6,18 +6,21 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class NSString;
 
-@interface AFSpeechToken : NSObject
+@interface AFSpeechToken : NSObject <NSSecureCoding>
 {
+    BOOL _removeSpaceBefore;
+    BOOL _removeSpaceAfter;
     NSString *_text;
     int _confidence;
     double _startTime;
     double _endTime;
-    BOOL _removeSpaceBefore;
-    BOOL _removeSpaceAfter;
 }
 
++ (BOOL)supportsSecureCoding;
 @property BOOL removeSpaceAfter; // @synthesize removeSpaceAfter=_removeSpaceAfter;
 @property BOOL removeSpaceBefore; // @synthesize removeSpaceBefore=_removeSpaceBefore;
 @property double endTime; // @synthesize endTime=_endTime;
@@ -25,8 +28,8 @@
 @property int confidenceScore; // @synthesize confidenceScore=_confidence;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
-- (id)initWithDKPlistRepresentation:(id)arg1;
-- (id)dkPlistRepresentation;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)description;
 
 @end

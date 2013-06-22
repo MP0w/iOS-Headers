@@ -15,9 +15,19 @@
     AVPlayerItemAccessLogEventInternal *_playerItemAccessLogEvent;
 }
 
+@property(readonly, nonatomic) double switchBitrate;
+@property(readonly, nonatomic) int mediaRequestsWWAN;
+@property(readonly, nonatomic) NSString *playbackType;
+@property(readonly, nonatomic) double observedBitrateStandardDeviation;
+@property(readonly, nonatomic) double observedMinBitrate;
+@property(readonly, nonatomic) double observedMaxBitrate;
+- (int)entryReasonCode;
+@property(readonly, nonatomic) int downloadOverdue;
+@property(readonly, nonatomic) double startupTime;
 @property(readonly, nonatomic) int numberOfDroppedVideoFrames;
 @property(readonly, nonatomic) double indicatedBitrate;
 @property(readonly, nonatomic) double observedBitrate;
+@property(readonly, nonatomic) double transferDuration;
 @property(readonly, nonatomic) long long numberOfBytesTransferred;
 @property(readonly, nonatomic) int numberOfStalls;
 @property(readonly, nonatomic) double durationWatched;
@@ -35,6 +45,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithDictionary:(id)arg1;
 - (id)init;
+- (id)serviceIdentifier;
 
 @end
 

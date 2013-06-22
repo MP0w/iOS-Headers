@@ -10,5 +10,6 @@
 - (void)__mainThreadPostNotificationName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
 - (void)__mainThreadPostNotificationName:(id)arg1 object:(id)arg2;
 - (void)__mainThreadPostNotification:(id)arg1;
+- (void)postNotificationName:(id)arg1;
 @end
 

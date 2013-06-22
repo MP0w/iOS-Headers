@@ -6,9 +6,11 @@
 
 #import <OfficeImport/MFRegion.h>
 
+@class TSDBezierPath;
+
 @interface MFPhoneRegion : MFRegion
 {
-    struct CGPath *m_path;
+    TSDBezierPath *m_path;
     struct CGRect m_bounds;
 }
 

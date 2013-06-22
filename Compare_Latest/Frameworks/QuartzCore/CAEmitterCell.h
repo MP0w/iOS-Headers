@@ -9,16 +9,18 @@
 #import "CAMediaTiming-Protocol.h"
 #import "CAPropertyInfo-Protocol.h"
 #import "NSCoding-Protocol.h"
+#import "NSCopying-Protocol.h"
 
 @class NSArray, NSDictionary, NSString;
 
-@interface CAEmitterCell : NSObject <CAPropertyInfo, NSCoding, CAMediaTiming>
+@interface CAEmitterCell : NSObject <NSCopying, CAPropertyInfo, NSCoding, CAMediaTiming>
 {
     void *_attr[2];
     void *_state;
     unsigned int _flags;
 }
 
++ (void)CAMLParserStartElement:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)defaultValueForKey:(id)arg1;
@@ -41,6 +43,11 @@
 @property struct CGColor *color;
 @property float spinRange;
 @property float spin;
+@property float rotationRange;
+@property float rotation;
+@property float orientationRange;
+@property float orientationLongitude;
+@property float orientationLatitude;
 @property float scaleSpeed;
 @property float scaleRange;
 @property float scale;
@@ -66,7 +73,11 @@
 @property double duration;
 @property double timeOffset;
 @property double beginTime;
+- (id)CAMLTypeForKey:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
+- (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)debugDescription;
+- (void)didChangeValueForKey:(id)arg1;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;
 - (id)valueForKeyPath:(id)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
@@ -79,6 +90,16 @@
 - (struct Object *)CA_copyRenderValue;
 - (void)CA_prepareRenderValue;
 - (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+@property float contentsFramesPerSecond;
+@property unsigned int contentsFramesPerRow;
+@property unsigned int contentsFrameCount;
+@property(copy) NSString *contentsFrameMode;
+@property float contentsScale;
+@property(copy) NSArray *emitterBehaviors;
+@property float massRange;
+@property float mass;
+@property(copy) NSString *particleType;
 
 @end
 

@@ -16,6 +16,7 @@
 
 + (Class)tableViewCellClass;
 + (id)tableViewBackgroundColor;
+- (void).cxx_destruct;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (struct CGRect)tableView:(id)arg1 frameForSectionIndexGivenProposedFrame:(struct CGRect)arg2;
@@ -23,7 +24,6 @@
 - (BOOL)shouldShowStoreButton;
 - (void)viewDidLoad;
 - (id)moreListTableCell;
-- (void)dealloc;
 - (id)init;
 
 @end

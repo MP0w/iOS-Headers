@@ -14,6 +14,7 @@
     float _tableHeight;
 }
 
+- (void).cxx_destruct;
 - (void)reset;
 @property(readonly, nonatomic) NSArray *caches;
 - (id)cacheForClass:(Class)arg1;

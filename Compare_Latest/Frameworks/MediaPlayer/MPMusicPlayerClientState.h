@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-@class MPMediaItem, MPMediaPlaylist, MPMediaQuery;
+@class MPMediaItem, MPMediaPlaylist, MPMediaQuery, MPRadioStation;
 
 @interface MPMusicPlayerClientState : NSObject
 {
-    BOOL _allowsRemoteUIAccess;
+    BOOL _allowsBackgroundVideo;
     int _backgroundPlaybackAccess;
     MPMediaItem *_firstItem;
     MPMediaPlaylist *_geniusMixPlaylist;
     BOOL _hasAudioBackgroundMode;
     MPMediaQuery *_query;
+    MPRadioStation *_radioStation;
     int _repeatMode;
     BOOL _seeking;
     int _shuffleMode;
@@ -23,6 +24,7 @@
     BOOL _videoPlaybackEnabled;
 }
 
+@property(retain, nonatomic) MPRadioStation *radioStation; // @synthesize radioStation=_radioStation;
 @property(nonatomic) BOOL videoPlaybackEnabled; // @synthesize videoPlaybackEnabled=_videoPlaybackEnabled;
 @property(nonatomic) BOOL useApplicationSpecificQueue; // @synthesize useApplicationSpecificQueue=_useApplicationSpecificQueue;
 @property(nonatomic) int shuffleMode; // @synthesize shuffleMode=_shuffleMode;
@@ -33,8 +35,8 @@
 @property(retain, nonatomic) MPMediaPlaylist *geniusMixPlaylist; // @synthesize geniusMixPlaylist=_geniusMixPlaylist;
 @property(retain, nonatomic) MPMediaItem *firstItem; // @synthesize firstItem=_firstItem;
 @property(nonatomic) int backgroundPlaybackAccess; // @synthesize backgroundPlaybackAccess=_backgroundPlaybackAccess;
-@property(nonatomic) BOOL allowsRemoteUIAccess; // @synthesize allowsRemoteUIAccess=_allowsRemoteUIAccess;
-- (void)dealloc;
+@property(nonatomic) BOOL allowsBackgroundVideo; // @synthesize allowsBackgroundVideo=_allowsBackgroundVideo;
+- (void).cxx_destruct;
 
 @end
 

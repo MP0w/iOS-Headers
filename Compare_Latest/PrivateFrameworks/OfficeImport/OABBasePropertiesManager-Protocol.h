@@ -10,7 +10,7 @@
 - (long)shadowSoftness;
 - (long)shadowOffsetY;
 - (long)shadowOffsetX;
-- (long)shadowAlpha;
+- (int)shadowAlpha;
 - (struct EshColor)shadowColor;
 - (int)shadowType;
 - (BOOL)isShadowed;
@@ -22,14 +22,14 @@
 - (int)strokeStartArrowType;
 - (int)strokeJoinStyle;
 - (int)strokeCapStyle;
-- (const struct EshTablePropVal<long> *)strokeCustomDash;
+- (const struct EshTablePropVal<int> *)strokeCustomDash;
 - (int)strokePresetDash;
 - (int)strokeCompoundType;
-- (long)strokeMiterLimit;
+- (int)strokeMiterLimit;
 - (long)strokeWidth;
-- (long)strokeFgAlpha;
+- (int)strokeFgAlpha;
 - (id)strokeFillBlipName;
-- (unsigned long)strokeFillBlipID;
+- (unsigned int)strokeFillBlipID;
 - (int)strokeFillType;
 @end
 

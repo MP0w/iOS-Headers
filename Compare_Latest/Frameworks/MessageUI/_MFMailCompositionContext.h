@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MFGenericAttachmentStore, MFMessageViewingContext, MailMessage, NSArray, NSString;
+@class MFGenericAttachmentStore, MFMailMessage, MFMessageViewingContext, NSArray, NSString;
 
 @interface _MFMailCompositionContext : NSObject
 {
@@ -19,18 +19,23 @@
     MFGenericAttachmentStore *_attachments;
     int _composeType;
     id _autosaveIdentifier;
-    MailMessage *_originalMessage;
+    MFMailMessage *_originalMessage;
     id _originalContent;
     MFMessageViewingContext *_loadingContext;
     BOOL _loadRest;
     BOOL _includeAttachments;
     BOOL _showKeyboardImmediately;
     BOOL _showContentImmediately;
+    BOOL _usingDefaultAccount;
     BOOL _prefersFirstLineSelection;
+    NSString *_originatingBundleID;
+    int _sourceAccountManagement;
 }
 
+@property(nonatomic) int sourceAccountManagement; // @synthesize sourceAccountManagement=_sourceAccountManagement;
+@property(copy, nonatomic) NSString *originatingBundleID; // @synthesize originatingBundleID=_originatingBundleID;
 @property(nonatomic) BOOL prefersFirstLineSelection; // @synthesize prefersFirstLineSelection=_prefersFirstLineSelection;
-@property(readonly, nonatomic) MailMessage *originalMessage; // @synthesize originalMessage=_originalMessage;
+@property(readonly, nonatomic) MFMailMessage *originalMessage; // @synthesize originalMessage=_originalMessage;
 @property(readonly, nonatomic) id autosaveIdentifier; // @synthesize autosaveIdentifier=_autosaveIdentifier;
 @property(readonly, nonatomic) int composeType; // @synthesize composeType=_composeType;
 @property(retain, nonatomic) MFMessageViewingContext *loadingContext; // @synthesize loadingContext=_loadingContext;
@@ -45,6 +50,7 @@
 @property(copy, nonatomic) NSArray *toRecipients; // @synthesize toRecipients=_toRecipients;
 @property(copy, nonatomic) NSString *subject; // @synthesize subject=_subject;
 @property(copy, nonatomic) NSString *sendingAddress; // @synthesize sendingAddress=_sendingAddress;
+@property(nonatomic) BOOL usingDefaultAccount; // @synthesize usingDefaultAccount=_usingDefaultAccount;
 - (id)addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
 - (void)setMessageBody:(id)arg1 isHTML:(BOOL)arg2;
 - (id)messageBody;

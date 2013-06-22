@@ -29,6 +29,7 @@
 + (struct __IOSurfaceAccelerator *)_createAccelerator;
 + (id)_stackQueueTransferSession;
 @property unsigned int maxJPEGSize; // @synthesize maxJPEGSize;
+- (void).cxx_destruct;
 - (void)_receivedMemoryWarning:(id)arg1;
 - (void)_decodeJPEG:(id)arg1 withInputSurface:(struct __IOSurface *)arg2 toIOSurface:(struct __IOSurface *)arg3;
 - (id)_newImageFrom420Surface:(struct __IOSurface *)arg1;

@@ -11,11 +11,6 @@
     BOOL _shouldHaveSash;
 }
 
-- (id)badgeTextForLocation:(int)arg1;
-- (int)accessoryTypeForLocation:(int)arg1;
-- (void)_checkHasBeenLaunchedState;
-- (BOOL)_shouldShowSashForNewlyInstalledApp;
-- (id)_newlyInstalledSashLabel;
 - (id)uninstallAlertCancelTitle;
 - (id)uninstallAlertConfirmTitle;
 - (id)uninstallAlertBodyForAppWithDocumentUpdatesPending;
@@ -28,9 +23,6 @@
 - (id)ratingsAlertSkipTitle;
 - (id)ratingsAlertBody;
 - (id)ratingsAlertTitle;
-- (BOOL)hasBeenSyncedBackToITunes;
-- (BOOL)allowsUninstall;
-- (id)initWithApplication:(id)arg1;
 
 @end
 

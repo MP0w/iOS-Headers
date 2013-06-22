@@ -17,6 +17,7 @@
     unsigned int _layoutSubviewsActive:1;
 }
 
+- (void).cxx_destruct;
 - (unsigned long long)_convertedPartsMask:(unsigned long long)arg1;
 - (void)_availableRoutesDidChangeNotification:(id)arg1;
 - (void)setVideoViewController:(id)arg1;

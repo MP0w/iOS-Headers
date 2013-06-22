@@ -8,7 +8,7 @@
 
 #import "NSLayoutManagerDelegate-Protocol.h"
 
-@class NSConcreteNotifyingMutableAttributedString, NSDictionary, NSLayoutManager, NSTextContainer;
+@class CUICatalog, CUIStyleEffectConfiguration, NSConcreteNotifyingMutableAttributedString, NSLayoutManager, NSTextContainer;
 
 @interface NSStringDrawingTextStorage : NSTextStorage <NSLayoutManagerDelegate>
 {
@@ -28,18 +28,20 @@
         unsigned int _typesetterBehavior:4;
         unsigned int _needToFlushCache:1;
         unsigned int _baselineMode:1;
-        unsigned int _truncatesLastVisibleLine:1;
         unsigned int _forceWordWrapping:1;
+        unsigned int _usesSimpleTextEffects:1;
         unsigned int _reserved:24;
     } _sdflags;
-    NSDictionary *_styledTextOptions;
+    CUICatalog *_catalog;
+    CUIStyleEffectConfiguration *_styleEffects;
 }
 
 + (void)_setHasCustomSettings:(BOOL)arg1;
-+ (BOOL)_fastDrawString:(id)arg1 attributes:(id)arg2 length:(long)arg3 inRect:(struct CGRect)arg4 graphicsContext:(struct CGContext *)arg5 baselineRendering:(BOOL)arg6 usesFontLeading:(BOOL)arg7 usesScreenFont:(BOOL)arg8 typesetterBehavior:(int)arg9 paragraphStyle:(id)arg10 lineBreakMode:(int)arg11 boundingRect:(struct CGRect *)arg12 padding:(float)arg13 scrollable:(_Bool)arg14 baselineOffset:(float *)arg15;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)stringDrawingTextStorage;
 + (void)initialize;
+@property(retain, nonatomic) CUIStyleEffectConfiguration *cuiStyleEffects; // @synthesize cuiStyleEffects=_styleEffects;
+@property(retain, nonatomic) CUICatalog *cuiCatalog; // @synthesize cuiCatalog=_catalog;
 - (void)addAttribute:(id)arg1 value:(id)arg2 range:(struct _NSRange)arg3;
 - (void)replaceCharactersInRange:(struct _NSRange)arg1 withAttributedString:(id)arg2;
 - (void)setAttributes:(id)arg1 range:(struct _NSRange)arg2;
@@ -60,10 +62,7 @@
 - (void)drawTextContainer:(id)arg1 withRect:(struct CGRect)arg2 graphicsContext:(struct CGContext *)arg3 baselineMode:(BOOL)arg4 scrollable:(BOOL)arg5 padding:(float)arg6;
 - (void)_setForceWordWrapping:(BOOL)arg1;
 - (BOOL)_forceWordWrapping;
-- (id)_styledTextOptions;
-- (void)_setStyledTextOptions:(id)arg1;
-- (void)_setTruncatesLastLine:(BOOL)arg1;
-- (BOOL)_truncatesLastLine;
+@property(nonatomic, getter=_usesSimpleTextEffects, setter=_setUsesSimpleTextEffects:) BOOL usesSimpleTextEffects;
 - (BOOL)_baselineMode;
 - (void)_setBaselineMode:(BOOL)arg1;
 - (float)_baselineDelta;
@@ -73,9 +72,6 @@
 - (id)flippedView;
 - (id)textContainer;
 - (id)layoutManager;
-- (BOOL)fastDrawAttributedString:(id)arg1 containerSize:(struct CGSize)arg2 padding:(float)arg3 inRect:(struct CGRect)arg4 onView:(id)arg5 pinToTop:(BOOL)arg6 sizeOnly:(BOOL)arg7 size:(struct CGSize *)arg8;
-- (BOOL)fastDrawString:(id)arg1 attributes:(id)arg2 containerSize:(struct CGSize)arg3 padding:(float)arg4 inRect:(struct CGRect)arg5 onView:(id)arg6 pinToTop:(BOOL)arg7 sizeOnly:(BOOL)arg8 size:(struct CGSize *)arg9;
-- (BOOL)_fastDrawGlyphs:(unsigned short *)arg1 advances:(struct CGSize *)arg2 length:(unsigned int)arg3 font:(id)arg4 color:(id)arg5 containerSize:(struct CGSize)arg6 usedRect:(struct CGRect)arg7 startingLocation:(struct CGPoint)arg8 inRect:(struct CGRect)arg9 onView:(id)arg10 context:(struct CGContext *)arg11 pinToTop:(BOOL)arg12;
 - (BOOL)_informationForFont:(id)arg1 glyphTable:(unsigned short **)arg2 positionTable:(float **)arg3;
 - (void)dealloc;
 - (unsigned int)retainCount;

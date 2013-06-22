@@ -6,17 +6,21 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class NSArray;
 
-@interface AFSpeechInterpretation : NSObject
+@interface AFSpeechInterpretation : NSObject <NSSecureCoding>
 {
     NSArray *_tokens;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *tokens; // @synthesize tokens=_tokens;
 - (void).cxx_destruct;
-- (id)initWithDKPlistRepresentation:(id)arg1;
-- (id)dkPlistRepresentation;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)description;
 
 @end
 

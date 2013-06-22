@@ -4,32 +4,28 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <Social/SLMicroBlogUserRecord.h>
+
+#import "NSSecureCoding-Protocol.h"
 
 @class NSString, NSURL;
 
-@interface SLTwitterUserRecord : NSObject
+@interface SLTwitterUserRecord : SLMicroBlogUserRecord <NSSecureCoding>
 {
     NSString *_id_str;
-    NSString *_screen_name;
-    NSString *_name;
-    NSString *_profile_image_url;
     NSURL *_objectID;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)userRecordWithScreenName:(id)arg1;
 + (id)userRecordWithDictionaryRepresentation:(id)arg1;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(copy, nonatomic) NSString *profile_image_url; // @synthesize profile_image_url=_profile_image_url;
-@property(copy, nonatomic) NSString *screen_name; // @synthesize screen_name=_screen_name;
-@property(copy, nonatomic) NSString *id_str; // @synthesize id_str=_id_str;
+@property(retain, nonatomic) NSURL *objectID; // @synthesize objectID=_objectID;
+@property(retain, nonatomic) NSString *id_str; // @synthesize id_str=_id_str;
 - (void).cxx_destruct;
 - (id)description;
-- (id)objectID;
-- (void)setObjectID:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)setValuesWithUserRecordRep:(id)arg1;
+- (void)setValuesWithUserDictionary:(id)arg1;
 
 @end
 

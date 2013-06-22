@@ -100,7 +100,7 @@
 - (id)initWithTitle:(id)arg1 message:(id)arg2 delegate:(id)arg3 defaultButton:(id)arg4 cancelButton:(id)arg5 otherButtons:(id)arg6;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (BOOL)canBecomeFirstResponder;
-- (void)_handleKeyEvent:(struct __GSEvent *)arg1;
+- (void)_handleKeyUIEvent:(id)arg1;
 - (void)_prepareToBeReplaced;
 - (void)replaceAlert:(id)arg1;
 - (void)_prepareForDisplay;
@@ -172,7 +172,6 @@
 - (void)_performPopup:(BOOL)arg1;
 - (BOOL)showsOverSpringBoardAlerts;
 - (void)setShowsOverSpringBoardAlerts:(BOOL)arg1;
-- (BOOL)_shouldOrderInAutomaticKeyboard;
 - (BOOL)_manualKeyboardIsVisible;
 - (BOOL)_needsKeyboard;
 - (id)tableView;
@@ -187,10 +186,9 @@
 - (void)setContext:(id)arg1;
 - (int)buttonCount;
 - (id)_addButtonWithTitleText:(id)arg1;
-- (id)addButtonWithTitle:(id)arg1 buttonClass:(Class)arg2;
 - (id)_addButtonWithTitle:(id)arg1;
 - (id)addButtonWithTitle:(id)arg1 label:(id)arg2;
-- (id)_addButtonWithTitle:(id)arg1 label:(id)arg2 buttonClass:(Class)arg3;
+- (id)_addButtonWithTitle:(id)arg1 label:(id)arg2;
 - (id)destructiveButton;
 - (void)setDestructiveButton:(id)arg1;
 - (id)_defaultButton;

@@ -6,36 +6,56 @@
 
 #import <UIKit/UIKBKeyView.h>
 
-@class UIKBTree;
+#import "UIGestureRecognizerDelegate-Protocol.h"
 
-@interface UIKBHandwritingView : UIKBKeyView
+@class NSMutableArray, UIKBHandwritingBoxcarFilterPointFIFO, UIKBHandwritingQuadCurvePointFIFO, UIKBHandwritingStrokePointFIFO, UIKBHandwritingStrokeView, UITapGestureRecognizer;
+
+@interface UIKBHandwritingView : UIKBKeyView <UIGestureRecognizerDelegate>
 {
-    struct KBStrokeList *_strokes;
-    id <UIKBHandwritingDelegateProtocol> _delegate;
+    BOOL _isInking;
+    UIKBHandwritingStrokeView *_strokeView;
+    float _inkWidth;
     struct CGColor *_inkColor;
     struct CGImage *_inkMask;
-    UIKBTree *_keyboard;
-    struct CGPoint _last;
-    int _down;
-    BOOL _stroked;
-    BOOL _captureEnabled;
-    BOOL _inGesture;
+    UITapGestureRecognizer *_tapGestureRecognizer;
+    NSMutableArray *_interpolatedPaths;
+    UIKBHandwritingStrokePointFIFO *_strokeFIFO;
+    UIKBHandwritingBoxcarFilterPointFIFO *_smoothingFIFO;
+    UIKBHandwritingQuadCurvePointFIFO *_interpolatingFIFO;
+    struct CGPoint _firstInkPoint;
 }
 
+@property(retain, nonatomic) UIKBHandwritingQuadCurvePointFIFO *interpolatingFIFO; // @synthesize interpolatingFIFO=_interpolatingFIFO;
+@property(retain, nonatomic) UIKBHandwritingBoxcarFilterPointFIFO *smoothingFIFO; // @synthesize smoothingFIFO=_smoothingFIFO;
+@property(retain, nonatomic) UIKBHandwritingStrokePointFIFO *strokeFIFO; // @synthesize strokeFIFO=_strokeFIFO;
+@property(retain, nonatomic) NSMutableArray *interpolatedPaths; // @synthesize interpolatedPaths=_interpolatedPaths;
+@property(nonatomic) struct CGPoint firstInkPoint; // @synthesize firstInkPoint=_firstInkPoint;
+@property(retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
+@property(nonatomic) BOOL isInking; // @synthesize isInking=_isInking;
+@property(nonatomic) struct CGImage *inkMask; // @synthesize inkMask=_inkMask;
+@property(nonatomic) struct CGColor *inkColor; // @synthesize inkColor=_inkColor;
+@property(nonatomic) float inkWidth; // @synthesize inkWidth=_inkWidth;
+@property(retain, nonatomic) UIKBHandwritingStrokeView *strokeView; // @synthesize strokeView=_strokeView;
 - (id).cxx_construct;
 - (BOOL)cancelTouchTracking;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)addInkPoint:(struct CGPoint)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)send;
-- (void)setDelegate:(id)arg1;
-- (BOOL)clear;
-- (void)updateForKeyboard:(id)arg1 key:(id)arg2;
+- (void)deleteStrokesAtIndexes:(id)arg1;
+- (void)clear;
+- (void)updateForKeyplane:(id)arg1 key:(id)arg2;
+- (void)setRenderConfig:(id)arg1;
 - (BOOL)shouldCache;
+- (BOOL)shouldRecognizerTap:(id)arg1;
+- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (void)handleTap:(id)arg1;
+- (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 keyboard:(id)arg2 key:(id)arg3 state:(int)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;
 
 @end
 

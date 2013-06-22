@@ -6,14 +6,15 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface CMAttitude : NSObject <NSCopying, NSCoding>
+@interface CMAttitude : NSObject <NSCopying, NSSecureCoding>
 {
     id _internal;
 }
 
++ (BOOL)supportsSecureCoding;
 - (void)multiplyByInverseOfAttitude:(id)arg1;
 @property(readonly, nonatomic) CDStruct_bf7dff04 quaternion;
 @property(readonly, nonatomic) CDStruct_afa449f9 rotationMatrix;

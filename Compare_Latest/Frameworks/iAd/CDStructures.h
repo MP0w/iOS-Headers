@@ -16,17 +16,17 @@ struct CGAffineTransform {
 };
 
 struct CGPoint {
-    float _field1;
-    float _field2;
+    float x;
+    float y;
 };
 
 struct CGRect {
-    struct CGPoint _field1;
-    struct CGSize _field2;
+    struct CGPoint origin;
+    struct CGSize size;
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    float width;
+    float height;
 };
 

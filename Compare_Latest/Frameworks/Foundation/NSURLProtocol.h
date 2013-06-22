@@ -16,7 +16,6 @@
 + (void)removePropertyForKey:(id)arg1 inRequest:(id)arg2;
 + (void)setProperty:(id)arg1 forKey:(id)arg2 inRequest:(id)arg3;
 + (id)propertyForKey:(id)arg1 inRequest:(id)arg2;
-+ (id)_protocolWithRequest:(id)arg1 cachedResponse:(id)arg2 client:(id)arg3 allowCF:(BOOL)arg4;
 + (void)unregisterClass:(Class)arg1;
 + (BOOL)registerClass:(Class)arg1;
 + (BOOL)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;

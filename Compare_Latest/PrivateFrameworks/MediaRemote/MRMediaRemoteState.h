@@ -15,6 +15,7 @@
     NSMutableDictionary *_commandHandlerBlocks;
     BOOL _isOverrideApp;
     BOOL _keepAlive;
+    int _originDiscoveryCount;
     int _notifyRestoreClientStateForLaunch;
     int _notifyDidLaunchToken;
     NSData *_nowPlayingArtworkData;
@@ -31,6 +32,8 @@
 - (void)endRouteDiscovery;
 @property(readonly, nonatomic) NSArray *commandHandlerBlocks;
 - (void)beginRouteDiscovery;
+- (void)endOriginDiscovery;
+- (void)beginOriginDiscovery;
 - (void)removeCommandHandlerBlockForKey:(id)arg1;
 - (void)addCommandHandlerBlock:(id)arg1 forKey:(void)arg2;
 - (void)_avSystemControllerServerConnectionDiedNotification:(id)arg1;

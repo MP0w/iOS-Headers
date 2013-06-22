@@ -24,6 +24,7 @@
 - (void)editDoneTapped;
 - (void)pushController:(id)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)setEditButtonEnabled:(BOOL)arg1;
 - (void)setEditingButtonHidden:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)_updateNavigationBar;
 - (id)_editButtonBarItem;

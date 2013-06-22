@@ -6,26 +6,25 @@
 
 #import "NSObject.h"
 
-@class DeliveryAccount, MailAccount, Message, MutableMessageHeaders, NSArray, NSDictionary, NSString, PlainTextDocument;
+@class DeliveryAccount, MFDeliveryResult, MFMessage, MFMutableMessageHeaders, MFPlainTextDocument, MailAccount, NSArray, NSDictionary, NSString;
 
 @interface MFMailDelivery : NSObject
 {
     id _delegate;
-    Message *_message;
+    MFMessage *_message;
     MailAccount *_archiveAccount;
     DeliveryAccount *_account;
-    MutableMessageHeaders *_headers;
+    MFDeliveryResult *_result;
+    MFMutableMessageHeaders *_headers;
     NSDictionary *_compositionSpecification;
     NSArray *_mixedContent;
     BOOL _textPartsAreHTML;
     NSString *_htmlString;
-    PlainTextDocument *_plainTextAlternative;
+    MFPlainTextDocument *_plainTextAlternative;
     NSArray *_otherStringsAndAttachments;
     NSArray *_charsets;
     unsigned int _threaded:1;
-    unsigned int _status:4;
     unsigned int _useCellDataOnly:1;
-    unsigned int __UNUSED__:24;
 }
 
 + (BOOL)deliverMessage:(id)arg1;
@@ -35,13 +34,14 @@
 @property(retain, nonatomic) NSDictionary *compositionSpecification; // @synthesize compositionSpecification=_compositionSpecification;
 - (void)archive;
 - (void)setCellDataOnly:(BOOL)arg1;
-- (int)deliverMessageData:(id)arg1 toRecipients:(id)arg2;
-- (int)deliverSynchronously;
+- (id)deliverMessageData:(id)arg1 toRecipients:(id)arg2;
+- (id)deliverSynchronously;
 - (void)deliverAsynchronously;
 - (BOOL)shouldEncryptMessage;
 - (BOOL)shouldSignMessage;
 - (id)headersForDelivery;
 - (id)originalHeaders;
+- (id)deliveryResult;
 - (int)deliveryStatus;
 - (void)setAccount:(id)arg1;
 - (id)account;

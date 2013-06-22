@@ -13,9 +13,9 @@
 
 @interface BKSWorkspaceActivationResponse : NSObject <NSCopying, BKSXPCCoding>
 {
-    NSString *_bundleIdentifier;
     BOOL _willResume;
     BOOL _launchFailed;
+    NSString *_bundleIdentifier;
 }
 
 + (id)responseForWorkspaceUnsuspend:(id)arg1;

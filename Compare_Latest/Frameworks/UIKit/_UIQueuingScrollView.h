@@ -25,6 +25,7 @@
         unsigned int delegateInterestedInCommittedScrolls:1;
         unsigned int delegateInterestedInCompletedScrolls:1;
         unsigned int delegateInterestedInBailedOutScrolls:1;
+        unsigned int delegateInterestedFinishedScrolling:1;
         unsigned int delegateCanVetoSubviewLayout:1;
         unsigned int dataSourceSuppliesBeforeView:1;
         unsigned int dataSourceSuppliesAfterView:1;
@@ -48,6 +49,7 @@
 - (void)_boundsDidChangeToSize:(struct CGSize)arg1;
 - (void)_adjustContentInsets;
 - (void)setView:(id)arg1 direction:(int)arg2 animated:(BOOL)arg3 completion:(id)arg4;
+- (void)_notifyDelegateDidFinishScrolling;
 - (void)_notifyDelegateDidBailoutOfScrollAndRevealedView:(id)arg1;
 - (void)_notifyDelegateDidEndManualScroll:(BOOL)arg1 toRevealView:(id)arg2 direction:(int)arg3 animated:(BOOL)arg4 didFinish:(BOOL)arg5 didComplete:(BOOL)arg6;
 - (void)_notifyDelegateDidCommitManualScroll:(BOOL)arg1 toRevealView:(id)arg2 concealView:(id)arg3 direction:(int)arg4 animated:(BOOL)arg5 canComplete:(BOOL)arg6;
@@ -71,9 +73,8 @@
 - (id)_viewBefore:(BOOL)arg1 view:(id)arg2;
 - (BOOL)_dataSourceProvidesViews;
 - (void)_setWrappedViewAtIndex:(int)arg1 withView:(id)arg2;
+- (void)scrollRectToVisible:(struct CGRect)arg1 animated:(BOOL)arg2;
 - (int)_abuttedPagingEdges;
-- (BOOL)_pagingDown;
-- (BOOL)_pagingUp;
 - (BOOL)_gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_scrollViewAnimationEnded:(id)arg1 finished:(BOOL)arg2;
 - (void)_scrollViewDidEndDecelerating;

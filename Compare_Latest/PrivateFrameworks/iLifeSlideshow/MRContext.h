@@ -23,9 +23,6 @@
     MRImageManager *mImageManager;
     BOOL mIsLocalContext;
     BOOL mIsFlipped;
-    BOOL mIsUsingIntelGPU;
-    BOOL mIsUsingIntelGMA950;
-    BOOL mPrefersSharedVRAM;
     BOOL mYUVTextureUsesYUVBorderColor;
     MRContextState *mOuterState;
     MRContextState *mInnerState;
@@ -36,7 +33,7 @@
     int mScissorRect[4];
     MRShader *mCurrentShader;
     MRImage *mTextureUnitImages[4];
-    int mActiveTextureUnit;
+    unsigned int mActiveTextureUnit;
     int mRenderBuffer;
     MRImage *mBlackImage;
     int _dimensionalMode;
@@ -46,9 +43,6 @@
 @property(readonly) int maxTextureSize; // @synthesize maxTextureSize=mMaxTextureSize;
 @property(readonly, nonatomic) int vram; // @synthesize vram=mVRAM;
 @property(readonly) EAGLContext *glContext; // @synthesize glContext=mGLContext;
-@property(readonly, nonatomic) BOOL prefersSharedVRAM; // @synthesize prefersSharedVRAM=mPrefersSharedVRAM;
-@property(readonly, nonatomic) BOOL isUsingIntelGMA950; // @synthesize isUsingIntelGMA950=mIsUsingIntelGMA950;
-@property(readonly, nonatomic) BOOL isUsingIntelGPU; // @synthesize isUsingIntelGPU=mIsUsingIntelGPU;
 @property(nonatomic) BOOL isFlipped; // @synthesize isFlipped=mIsFlipped;
 @property(nonatomic) int orientation; // @synthesize orientation=mOrientation;
 @property(nonatomic) float localAspectRatio; // @synthesize localAspectRatio=mLocalAspectRatio;
@@ -96,6 +90,7 @@
 - (void)setShaderUniformInt:(int)arg1 forKey:(id)arg2;
 - (void)unsetShader;
 - (void)setShader:(id)arg1;
+- (BOOL)shaderIsSet;
 - (void)_commitOuterToInner;
 - (BOOL)commitShaderChange;
 - (void)_updateTextureOnUnit:(unsigned int)arg1;
@@ -137,6 +132,7 @@
 - (void)cleanup;
 - (void)finalize;
 - (void)dealloc;
+- (id)initLocalWithContext:(id)arg1 texture:(id)arg2 andSize:(struct CGSize)arg3;
 - (id)initLocalWithContext:(id)arg1 glContext:(id)arg2 andSize:(struct CGSize)arg3;
 - (id)initWithEAGLContext:(id)arg1 andAssetManager:(id)arg2;
 

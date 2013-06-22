@@ -22,7 +22,7 @@
 - (id)objectForKey:(id)arg1;
 - (void)dealloc;
 - (id)initWithLocaleIdentifier:(id)arg1;
-- (id)init;
+- (id)_init;
 - (void)_update:(id)arg1;
 
 @end

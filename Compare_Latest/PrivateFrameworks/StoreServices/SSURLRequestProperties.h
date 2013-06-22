@@ -17,6 +17,8 @@
 {
     int _allowedRetryCount;
     unsigned int _cachePolicy;
+    NSString *_clientAuditBundleIdentifier;
+    NSData *_clientAuditTokenData;
     NSString *_clientIdentifier;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     long long _expectedContentLength;
@@ -25,12 +27,17 @@
     NSDictionary *_httpHeaders;
     NSString *_httpMethod;
     BOOL _isITunesStoreRequest;
+    BOOL _largeDownload;
     unsigned int _networkServiceType;
     NSDictionary *_requestParameters;
     BOOL _requiresExtendedValidationCertificates;
+    BOOL _shouldAddKBSyncData;
     BOOL _shouldDecodeResponse;
+    BOOL _shouldDisableCellular;
     BOOL _shouldDisableCellularFallback;
     BOOL _shouldProcessProtocol;
+    BOOL _shouldSendSecureToken;
+    BOOL _shouldSetCookies;
     double _timeoutInterval;
     NSString *_urlBagKey;
     int _urlBagType;
@@ -43,8 +50,11 @@
 @property(readonly) id URLBagURLBlock;
 @property(readonly) int URLBagType;
 @property(readonly) BOOL shouldDisableCellularFallback;
+@property(readonly) BOOL shouldDisableCellular;
 @property(readonly) BOOL shouldDecodeResponse;
+@property(readonly) BOOL shouldAddKBSyncData;
 @property(readonly) BOOL requiresExtendedValidationCertificates;
+@property(readonly, getter=isLargeDownload) BOOL largeDownload;
 @property(readonly) NSInputStream *HTTPBodyStream;
 - (id)copyURLRequest;
 @property(readonly) BOOL canBeResolved;
@@ -54,6 +64,10 @@
 @property(readonly) NSURL *URL;
 @property(readonly) NSString *URLBagKey;
 @property(readonly) double timeoutInterval;
+@property(readonly) NSData *clientAuditTokenData;
+@property(readonly) NSString *clientAuditBundleIdentifier;
+@property(readonly) BOOL shouldSetCookies;
+@property(readonly) BOOL shouldSendSecureToken;
 @property(readonly) BOOL shouldProcessProtocol;
 @property(readonly) NSDictionary *requestParameters;
 @property(readonly) unsigned int networkServiceType;

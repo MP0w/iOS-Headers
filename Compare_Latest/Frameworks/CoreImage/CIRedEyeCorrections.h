@@ -6,23 +6,25 @@
 
 #import <CoreImage/CIFilter.h>
 
+#import "_CIFilterProperties-Protocol.h"
+
 @class CIImage, NSArray, NSString;
 
-@interface CIRedEyeCorrections : CIFilter
+@interface CIRedEyeCorrections : CIFilter <_CIFilterProperties>
 {
     CIImage *inputImage;
     NSString *inputCameraModel;
     NSArray *inputCorrectionInfo;
 }
 
-@property(retain, nonatomic) NSArray *inputCorrectionInfo; // @synthesize inputCorrectionInfo;
-@property(retain, nonatomic) NSString *inputCameraModel; // @synthesize inputCameraModel;
+@property(copy, nonatomic) NSArray *inputCorrectionInfo; // @synthesize inputCorrectionInfo;
+@property(copy, nonatomic) NSString *inputCameraModel; // @synthesize inputCameraModel;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
+- (id)_initFromProperties:(id)arg1;
+- (id)_outputProperties;
 - (id)outputImage;
 - (BOOL)_isIdentity;
 - (void)setDefaults;
-- (id)_initFromProperties:(id)arg1;
-- (id)_outputProperties;
 
 @end
 

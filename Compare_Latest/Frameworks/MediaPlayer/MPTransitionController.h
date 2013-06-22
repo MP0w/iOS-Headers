@@ -31,6 +31,7 @@
 @property(retain, nonatomic) MPViewController *fromViewController; // @synthesize fromViewController=_fromViewController;
 @property(nonatomic) int fromInterfaceOrientation; // @synthesize fromInterfaceOrientation=_fromInterfaceOrientation;
 @property(nonatomic) float duration; // @synthesize duration=_duration;
+- (void).cxx_destruct;
 - (void)messageObserversWithSuccess:(BOOL)arg1;
 - (void)transition:(unsigned int)arg1;
 - (void)didFinishTransition:(BOOL)arg1;

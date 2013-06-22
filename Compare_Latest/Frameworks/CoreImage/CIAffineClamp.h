@@ -15,10 +15,11 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) NSValue *inputTransform; // @synthesize inputTransform;
+@property(retain, nonatomic) NSValue *inputTransform; // @synthesize inputTransform;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)_kernel;
+- (void)setDefaults;
 
 @end
 

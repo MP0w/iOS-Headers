@@ -19,7 +19,7 @@
 - (id)description;
 - (void)finalize;
 - (void)dealloc;
-- (void)getKeys:(void **)arg1 count:(unsigned int *)arg2;
+- (void)getKeys:(const void **)arg1 count:(unsigned int *)arg2;
 - (id)allObjects;
 - (void)removeAllItems;
 - (void)removeItem:(const void *)arg1;

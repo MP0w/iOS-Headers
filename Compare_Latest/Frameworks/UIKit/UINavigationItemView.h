@@ -6,18 +6,17 @@
 
 #import <UIKit/UIView.h>
 
-@class UIFont, UINavigationItem;
+@class UINavigationItem, _UINavigationBarAnimatingLabel;
 
 @interface UINavigationItemView : UIView
 {
-    UIFont *_font;
     UINavigationItem *_item;
-    float _titleWidth;
-    BOOL _titleAutosizesToFit;
+    struct CGSize _titleSize;
     UIView *_topCrossView;
     UIView *_bottomCrossView;
     BOOL _isCrossFading;
-    int _lineBreakMode;
+    BOOL _customFontSet;
+    _UINavigationBarAnimatingLabel *_label;
 }
 
 - (void)_cleanUpCrossView;
@@ -27,20 +26,26 @@
 - (void)_setLineBreakMode:(int)arg1;
 - (id)font;
 - (void)setFont:(id)arg1;
+- (void)_setFont:(id)arg1;
 - (BOOL)titleAutoresizesToFit;
 - (void)setTitleAutoresizesToFit:(BOOL)arg1;
 - (id)title;
-- (float)_titleWidth;
-- (void)_resetTitleWidth;
-- (void)drawRect:(struct CGRect)arg1;
+- (struct CGSize)_titleSize;
+- (void)_resetTitleSize;
+- (void)layoutSubviews;
+- (void)_updateLabel;
+- (struct CGRect)_labelFrame;
+- (void)_updateLabelContents;
+- (void)_updateLabelColor;
+- (void)_animateLabelChangeWithBlock:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)drawText:(id)arg1 inRect:(struct CGRect)arg2 barStyle:(int)arg3;
 - (struct CGSize)_currentTextShadowOffsetForBarStyle:(int)arg1;
 - (id)_currentTextShadowColorForBarStyle:(int)arg1;
 - (id)_currentTextColorForBarStyle:(int)arg1;
 - (BOOL)_useSilverLookForBarStyle:(int)arg1;
 - (id)_defaultFont;
 - (id)navigationItem;
+- (void)dealloc;
 - (id)initWithNavigationItem:(id)arg1;
 
 @end

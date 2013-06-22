@@ -45,6 +45,7 @@
 - (BOOL)synchronize;
 - (BOOL)_synchronizeForced:(BOOL)arg1;
 - (BOOL)_synchronizeForced:(BOOL)arg1 notificationQueue:(id)arg2;
+- (void)synchronizeWithCompletionHandler:(id)arg1;
 - (void)_scheduleRemoteSynchronization;
 - (id)dictionaryRepresentation;
 - (void)registerDefaultValues:(id)arg1;

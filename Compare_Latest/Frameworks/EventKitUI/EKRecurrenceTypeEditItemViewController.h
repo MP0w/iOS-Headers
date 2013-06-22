@@ -19,6 +19,7 @@
     NSIndexPath *_checkedItem;
 }
 
+- (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -27,10 +28,8 @@
 - (void)setCustomString:(id)arg1;
 @property(nonatomic) int repeatType;
 - (void)_checkItemAtIndexPath:(id)arg1;
-- (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 styleProvider:(id)arg2;
 
 @end

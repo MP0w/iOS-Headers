@@ -10,10 +10,12 @@
 {
 }
 
+- (void)mainQueueDidReceiveAppWhitelistChangedNotification;
 - (void)cancelAllNotificationsCompletionBlock:(id)arg1;
-- (BOOL)displayUserNotificationWithTitle:(id)arg1 message:(id)arg2 defaultButtonText:(id)arg3 alternateButtonText:(id)arg4 completionBlock:(id)arg5;
+- (void)displayUserNotificationWithTitle:(id)arg1 message:(id)arg2 defaultButtonText:(id)arg3 alternateButtonText:(id)arg4 displayOnLockScreen:(BOOL)arg5 displayInAppWhitelistModes:(BOOL)arg6 dismissAfterTimeInterval:(double)arg7 completionBlock:(id)arg8;
+@property(readonly, nonatomic) BOOL hasOutstandingNotifications;
 - (void)dealloc;
-- (BOOL)_cancelAllNotifications;
+- (id)init;
 
 @end
 

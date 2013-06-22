@@ -5,7 +5,7 @@
  */
 
 @protocol SUManagerServerInterface
-- (void)setType:(int)arg1 forClient:(id)arg2 withResult:(id)arg3;
+- (void)setClientType:(int)arg1 withResult:(id)arg2;
 - (void)installUpdate:(id)arg1;
 - (void)isUpdateReadyForInstallation:(id)arg1;
 - (void)download:(id)arg1;

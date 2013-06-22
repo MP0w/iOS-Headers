@@ -17,7 +17,9 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (int)libraryViewController:(id)arg1 willSetCellAccessoryType:(int)arg2 forAlbum:(id)arg3;
+- (int)libraryViewController:(id)arg1 willSetCellAccessoryType:(int)arg2 forAlbum:(struct NSObject *)arg3;
+- (id)_albumsComparator;
+- (struct NSObject *)albumListForContentMode:(int)arg1;
 - (int)albumListFilter;
 - (id)preparedLibraryViewController;
 @property(readonly, nonatomic) PLCloudSharedLibraryViewController *libraryViewController;

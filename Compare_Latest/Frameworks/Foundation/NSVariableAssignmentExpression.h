@@ -14,6 +14,7 @@
     NSExpression *_subexpression;
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
 - (void)acceptVisitor:(id)arg1 flags:(unsigned int)arg2;
 - (id)expressionValueWithObject:(id)arg1 context:(id)arg2;
@@ -26,6 +27,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)allowEvaluation;
 - (id)initWithAssignmentExpression:(id)arg1 expression:(id)arg2;
 - (id)initWithAssignmentVariable:(id)arg1 expression:(id)arg2;
 - (void)dealloc;

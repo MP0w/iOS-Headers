@@ -19,11 +19,15 @@
 
 + (void)replayRequests;
 + (void)stopAllRequests;
++ (void)setLogRequestResponseDirectory:(id)arg1;
++ (void)setOSVersion:(id)arg1;
++ (void)setAppID:(id)arg1;
 @property BOOL disableReplay; // @synthesize disableReplay=_disableReplay;
 @property(retain, nonatomic) NSString *debugRequestName; // @synthesize debugRequestName=_debugRequestName;
 - (id)newConnectionWithCFURLRequest:(struct _CFURLRequest *)arg1 delegate:(id)arg2;
 - (struct _CFURLRequest *)newCFMutableURLRequestWithURL:(id)arg1;
 - (id)persistentConnectionSession;
+- (id)requestPreamble;
 - (id)logResponseToFile;
 - (id)logRequestToFile;
 - (void)start;

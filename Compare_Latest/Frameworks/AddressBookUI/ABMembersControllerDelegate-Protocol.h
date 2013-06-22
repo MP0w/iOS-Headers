@@ -9,6 +9,7 @@
 @protocol ABMembersControllerDelegate <NSObject>
 - (id)model;
 - (void)membersControllerDidEndServerSearch:(id)arg1;
+- (void)membersControllerDidEndSearching:(id)arg1;
 - (void)membersControllerWillEndSearching:(id)arg1;
 - (void)membersControllerWillStartSearching:(id)arg1;
 - (BOOL)membersController:(id)arg1 shouldAllowSelectingPersonWithRecordID:(int)arg2;

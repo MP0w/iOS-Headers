@@ -20,17 +20,16 @@
 
 + (struct CGRect)statusBarWindowFrame;
 + (BOOL)isIncludedInClassicJail;
+- (BOOL)_shouldZoom;
 - (void)_updateTransformLayerForClassicPresentation;
 - (BOOL)_isStatusBarWindow;
 - (BOOL)_disableGroupOpacity;
 - (BOOL)_disableViewScaling;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)_styleAnimationDidStop:(id)arg1 finished:(id)arg2 completion:(void *)arg3;
 - (void)setTopCornerStyle:(int)arg1 topCornersOffset:(float)arg2 bottomCornerStyle:(int)arg3 animationParameters:(id)arg4;
 - (void)setCornersHidden:(BOOL)arg1 animationParameters:(id)arg2;
 - (int)orientation;
 - (void)_rotate;
-- (void)_fadeAnimationStopped:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)setOrientation:(int)arg1 animationParameters:(id)arg2;
 - (void)setStatusBar:(id)arg1;
 - (void)dealloc;

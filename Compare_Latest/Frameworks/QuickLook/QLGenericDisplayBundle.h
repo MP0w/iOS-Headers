@@ -6,23 +6,27 @@
 
 #import <QuickLook/QLDisplayBundle.h>
 
-@class NSError, UIImageView, UILabel, UITextView, UIView;
+#import "QLGenericViewDelegate-Protocol.h"
 
-@interface QLGenericDisplayBundle : QLDisplayBundle
+@class NSError, QLGenericView;
+
+@interface QLGenericDisplayBundle : QLDisplayBundle <QLGenericViewDelegate>
 {
-    UIView *_containerView;
-    UIImageView *_iconView;
-    UILabel *_titleLabel;
-    UITextView *_subtitleLabel;
+    QLGenericView *_airplayView;
     NSError *_error;
 }
 
 @property(retain) NSError *error; // @synthesize error=_error;
+- (void)genericViewDidClickOnArchiveButton:(id)arg1;
 - (void)_showLoadingProgress:(BOOL)arg1;
+- (void)discardAirPlayView;
+- (void)setupAirPlayView;
+- (id)airplayView;
+- (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)loadWithHints:(id)arg1;
 - (void)_loadPreviewItemInfos;
-- (void)_relayout;
 - (void)loadView;
+- (void)dealloc;
 
 @end
 

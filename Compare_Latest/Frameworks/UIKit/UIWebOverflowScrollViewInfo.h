@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class UIView, UIWebOverflowScrollView;
+@class CALayer, UIView, UIWebOverflowScrollView;
 
 @interface UIWebOverflowScrollViewInfo : NSObject
 {
     UIWebOverflowScrollView *_scrollView;
+    CALayer *_scrollViewLayer;
     UIView *_oldSuperview;
 }
 

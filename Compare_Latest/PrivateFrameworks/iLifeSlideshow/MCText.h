@@ -21,7 +21,7 @@
 @property MCContainerEffect *container; // @synthesize container=mContainer;
 @property(copy) NSString *keyInAsset; // @synthesize keyInAsset=mKeyInAsset;
 @property(nonatomic) unsigned int index; // @synthesize index=mIndex;
-@property(copy) NSAttributedString *attributedString; // @dynamic attributedString;
+@property(copy) NSAttributedString *attributedString;
 - (id)attributedStringWithCTAttributes;
 @property(retain, nonatomic) MCAsset *asset; // @synthesize asset=mAsset;
 - (id)imprint;

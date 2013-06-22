@@ -16,7 +16,7 @@
 - (const struct TrafficSegment *)segmentAtIndex:(unsigned int)arg1;
 - (BOOL)segmentSpeedAtIndex:(unsigned int)arg1;
 - (unsigned int)segmentCount;
-- (void)addSegmentAt:(CDStruct_3f2a7a20)arg1 forColor:(BOOL)arg2;
+- (void)addSegmentAt:(struct PolylineCoordinate)arg1 forColor:(BOOL)arg2;
 - (void)reset;
 
 @end

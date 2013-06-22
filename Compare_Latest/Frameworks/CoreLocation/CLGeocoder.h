@@ -19,8 +19,6 @@
 - (void)_notifyPartialResult:(id)arg1;
 - (void)_notifyResult:(id)arg1;
 - (void)_notifyResult:(id)arg1 error:(id)arg2;
-- (id)_placemarkWithLocation:(id)arg1;
-- (id)_placemarkWithPlace:(id)arg1;
 - (void)_ensureMainThreadExecutionContextForBlock:(id)arg1;
 - (void)_setLoggingPropertiesForRequest:(id)arg1;
 - (void)_request:(id)arg1 didReturnError:(id)arg2;

@@ -6,7 +6,7 @@
 
 #import "PBCodable.h"
 
-@class GEOAddress, GEOLatLng, GEOMapRegion, NSMutableArray, NSString;
+@class GEOAddress, GEOBusiness, GEOLatLng, GEOMapRegion, GEORating, NSMutableArray, NSString;
 
 @interface GEOPlace : PBCodable
 {
@@ -22,6 +22,8 @@
     NSString *_name;
     GEOAddress *_phoneticAddress;
     NSString *_phoneticName;
+    NSString *_spokenAddress;
+    NSString *_spokenName;
     int _type;
     int _version;
     BOOL _isDisputed;
@@ -37,6 +39,8 @@
 }
 
 @property(nonatomic) long long geoId; // @synthesize geoId=_geoId;
+@property(retain, nonatomic) NSString *spokenAddress; // @synthesize spokenAddress=_spokenAddress;
+@property(retain, nonatomic) NSString *spokenName; // @synthesize spokenName=_spokenName;
 @property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
 @property(retain, nonatomic) NSMutableArray *entryPoints; // @synthesize entryPoints=_entryPoints;
 @property(nonatomic) int addressGeocodeAccuracy; // @synthesize addressGeocodeAccuracy=_addressGeocodeAccuracy;
@@ -58,6 +62,8 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(nonatomic) BOOL hasGeoId;
+@property(readonly, nonatomic) BOOL hasSpokenAddress;
+@property(readonly, nonatomic) BOOL hasSpokenName;
 @property(nonatomic) BOOL hasLocalSearchProviderID;
 @property(nonatomic) BOOL hasIsDisputed;
 @property(nonatomic) BOOL isDisputed; // @synthesize isDisputed=_isDisputed;
@@ -80,7 +86,10 @@
 @property(nonatomic) BOOL hasVersion;
 @property(nonatomic) BOOL hasUID;
 - (void)dealloc;
+- (CDStruct_c3b9c2ee)coordinate;
 - (id)addressDictionary;
+@property(readonly, nonatomic) GEORating *firstRating;
+@property(readonly, nonatomic) GEOBusiness *firstBusiness;
 
 @end
 

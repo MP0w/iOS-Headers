@@ -13,8 +13,8 @@
     IUSearchDataSource *_searchDataSource;
 }
 
+- (void).cxx_destruct;
 - (void)main;
-- (void)dealloc;
 - (id)initWithSearchDataSource:(id)arg1;
 
 @end

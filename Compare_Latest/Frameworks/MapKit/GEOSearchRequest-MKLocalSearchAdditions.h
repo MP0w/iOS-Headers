@@ -7,6 +7,7 @@
 #import "GEOSearchRequest.h"
 
 @interface GEOSearchRequest (MKLocalSearchAdditions)
+- (id)_mapkit_initForCompletions;
 - (id)_mapkit_initWithLocalSearchRequest:(id)arg1;
 @end
 

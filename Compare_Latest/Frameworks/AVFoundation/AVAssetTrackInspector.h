@@ -8,14 +8,18 @@
 
 #import "AVAsynchronousKeyValueLoading-Protocol.h"
 
-@class AVWeakReference, NSArray, NSLocale, NSString;
+@class AVWeakReference, NSArray, NSDictionary, NSLocale, NSString;
 
 @interface AVAssetTrackInspector : AVFigObjectInspector <AVAsynchronousKeyValueLoading>
 {
     AVWeakReference *_weakReference;
+    long _synthesizeMediaCharacteristicsOnce;
+    NSArray *_cachedMediaCharacteristics;
 }
 
 + (id)assetTrackInspectorWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
+@property(readonly, nonatomic) BOOL hasProtectedContent;
+@property(readonly, nonatomic, getter=_trackReferences) NSDictionary *trackReferences;
 @property(readonly, nonatomic, getter=isExcludedFromAutoselectionInTrackGroup) BOOL excludedFromAutoselectionInTrackGroup;
 - (id)metadataForFormat:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableMetadataFormats;
@@ -24,6 +28,7 @@
 - (id)segmentForTrackTime:(CDStruct_1b6d18a9)arg1;
 @property(readonly, nonatomic) NSArray *segments;
 @property(readonly, nonatomic) float nominalFrameRate;
+@property(readonly, nonatomic) NSDictionary *loudnessInfo;
 @property(readonly, nonatomic) float preferredVolume;
 @property(readonly, nonatomic) int layer;
 @property(readonly, nonatomic) struct CGAffineTransform preferredTransform;
@@ -39,9 +44,11 @@
 @property(readonly, nonatomic) long long totalSampleDataLength;
 @property(readonly, nonatomic, getter=isSelfContained) BOOL selfContained;
 @property(readonly, nonatomic, getter=isEnabled) BOOL enabled;
+@property(readonly, nonatomic) long playabilityValidationResult;
 @property(readonly, nonatomic, getter=isPlayable) BOOL playable;
 @property(readonly, nonatomic) NSArray *formatDescriptions;
 @property(readonly, nonatomic) NSString *mediaType;
+@property(readonly, nonatomic, getter=_figMediaType) unsigned long figMediaType;
 @property(readonly, nonatomic) int trackID;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
 - (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;

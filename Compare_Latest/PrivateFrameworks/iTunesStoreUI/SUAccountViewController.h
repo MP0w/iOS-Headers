@@ -29,7 +29,9 @@
 - (id)newFetchOperation;
 - (void)handleFailureWithError:(id)arg1;
 - (void)enqueueFetchOperation;
+- (id)copyArchivableContext;
 - (void)dealloc;
+- (id)initWithExternalAccountURL:(id)arg1;
 - (id)init;
 
 @end

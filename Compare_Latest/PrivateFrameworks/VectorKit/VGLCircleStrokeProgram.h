@@ -16,20 +16,22 @@
     int _uLocalEyeDir;
     int _uTanHalfHorizFOV;
     int _uHalfScreenDims;
+    float _tanHalfHorizFOV;
+    Vec2Imp_1782d7e3 _halfScreenDims;
     CDStruct_03942939 _localEyePos;
     CDStruct_03942939 _localEyeDir;
-    float _tanHalfHorizFOV;
-    CDStruct_6e3f967a _halfScreenDims;
 }
 
-+ (id)program;
-@property(nonatomic) CDStruct_6e3f967a halfScreenDims; // @synthesize halfScreenDims=_halfScreenDims;
++ (id)fragName;
++ (id)vertName;
+@property(nonatomic) Vec2Imp_1782d7e3 halfScreenDims; // @synthesize halfScreenDims=_halfScreenDims;
 @property(nonatomic) float tanHalfHorizFOV; // @synthesize tanHalfHorizFOV=_tanHalfHorizFOV;
 @property(nonatomic) CDStruct_03942939 localEyeDir; // @synthesize localEyeDir=_localEyeDir;
 @property(nonatomic) CDStruct_03942939 localEyePos; // @synthesize localEyePos=_localEyePos;
 @property(nonatomic) struct _VGLColor color; // @synthesize color=_color;
 @property(nonatomic) int textureSampler; // @synthesize textureSampler=_textureSampler;
-- (id)init;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

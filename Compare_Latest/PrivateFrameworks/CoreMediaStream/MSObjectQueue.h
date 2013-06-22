@@ -14,7 +14,9 @@
 
 - (void)commitObjectsWrappers:(id)arg1;
 - (void)commitErrorCountsForObjectWrappers:(id)arg1;
+- (void)removeAllObjectWrappersFromQueue;
 - (void)removeObjectWrappersFromQueue:(id)arg1;
+- (id)allObjectWrappersOrderedByDescendingErrorCountMaxCount:(long long)arg1;
 - (id)smallestObjectWrappersTargetTotalSize:(long long)arg1 maxCount:(long long)arg2;
 - (id)objectWrappersWithZeroSizeMaxCount:(long long)arg1;
 - (id)allObjectWrappersMaxCount:(long long)arg1;

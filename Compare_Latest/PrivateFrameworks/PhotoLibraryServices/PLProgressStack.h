@@ -10,11 +10,11 @@
 
 @interface PLProgressStack : NSObject
 {
+    BOOL notifyUsingAssetsdNotificationCenter;
     id delegate;
     float currentMultiplier;
     NSMutableArray *multipliers;
     float currentTotal;
-    BOOL notifyUsingAssetsdNotificationCenter;
     NSString *mediaPathString;
 }
 

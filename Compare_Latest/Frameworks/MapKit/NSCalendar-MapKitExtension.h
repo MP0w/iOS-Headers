@@ -7,6 +7,6 @@
 #import "NSCalendar.h"
 
 @interface NSCalendar (MapKitExtension)
-+ (id)gregorianCalendar;
++ (id)_mapkit_gregorianCalendar;
 @end
 

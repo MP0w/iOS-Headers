@@ -6,7 +6,7 @@
 
 #import "SBAlertItem.h"
 
-@class AVController, BKSProcessAssertion, NSDictionary, NSObject<OS_dispatch_source>, NSString, NSTimer, UIImage;
+@class BKSProcessAssertion, NSDictionary, NSObject<OS_dispatch_source>, NSString, NSTimer, SBUISound;
 
 @interface SBUserNotificationAlert : SBAlertItem
 {
@@ -60,13 +60,11 @@
     unsigned int _configuredLocked:1;
     unsigned int _configuredNeedsPasscode:1;
     unsigned int _defaultResponseAppLaunchWaitingForPasscode:1;
-    UIImage *_alertImage;
-    AVController *_avController;
+    SBUISound *_sound;
     BKSProcessAssertion *_processAssertion;
 }
 
 @property(retain) NSString *defaultResponseLaunchBundleID; // @synthesize defaultResponseLaunchBundleID=_defaultResponseLaunchBundleID;
-@property(retain) UIImage *alertImage; // @synthesize alertImage=_alertImage;
 @property(retain) NSString *otherButtonTitle; // @synthesize otherButtonTitle=_otherButtonTitle;
 @property(retain) NSString *alternateButtonTitle; // @synthesize alternateButtonTitle=_alternateButtonTitle;
 @property(retain) NSString *defaultButtonTitle; // @synthesize defaultButtonTitle=_defaultButtonTitle;
@@ -102,7 +100,7 @@
 - (void)_cleanup;
 - (void)_setActivated:(BOOL)arg1;
 - (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
-- (void)stopSound;
+- (id)sound;
 - (void)willActivate;
 - (BOOL)allowMenuButtonDismissal;
 - (BOOL)dismissOnLock;

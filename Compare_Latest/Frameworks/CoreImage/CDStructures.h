@@ -47,38 +47,14 @@ struct Context {
     unsigned int _field2;
     struct CGColorSpace *_field3;
     struct CGColorSpace *_field4;
+    _Bool _field5;
 };
-
-struct FaceCoreAPI {
-    void **_field1;
-    struct FaceCoreAPIInternal *_field2;
-    struct FaceCoreContext *_field3;
-    void *_field4;
-};
-
-struct FaceCoreAPIInternal;
-
-struct FaceCoreContext;
 
 struct Rectangle {
     double _field1;
     double _field2;
     double _field3;
     double _field4;
-};
-
-struct _Vector_impl {
-    struct face *_field1;
-    struct face *_field2;
-    struct face *_field3;
-};
-
-struct face;
-
-struct image {
-    char *_field1;
-    int _field2;
-    int _field3;
 };
 
 struct vec2 {
@@ -97,10 +73,6 @@ struct vec4 {
     float _field2;
     float _field3;
     float _field4;
-};
-
-struct vector<vision::lib::face, std::allocator<vision::lib::face>> {
-    struct _Vector_impl _field1;
 };
 
 #pragma mark Typedef'd Structures
@@ -278,8 +250,4 @@ typedef struct {
     int mincol;
     int maxcol;
 } CDStruct_5973fb4f;
-
-typedef struct vector<vision::lib::face, std::allocator<vision::lib::face>> {
-    struct _Vector_impl _field1;
-} vector_c8aae6e9;
 

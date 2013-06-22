@@ -16,6 +16,7 @@
 
 + (id)defaultPropertiesToLoad;
 - (id)owner;
+@property(copy, nonatomic) NSString *comment;
 @property(copy, nonatomic) NSURL *address;
 @property(copy, nonatomic) NSString *lastName;
 @property(copy, nonatomic) NSString *firstName;

@@ -14,22 +14,19 @@
     PFUbiquityMetadataFactoryEntry *_metadataEntry;
     NSString *_localPeerID;
     PFUbiquityLocation *_ubiquityRootURL;
+    NSString *_storeName;
     PFUbiquityLocation *_metadataStoreFileLocation;
 }
 
-+ (BOOL)shouldRecoverStackMetadataForStore:(id)arg1 withLocalPeerID:(id)arg2;
-+ (id)defaultUbiquityRootLocation;
-+ (id)defaultUbiquityLocationForBundleIdentifier:(id)arg1 createIfMissing:(BOOL)arg2;
-+ (id)defaultUbiquityLocationForPeerID:(id)arg1 andBundleIdentifier:(id)arg2 createIfMissing:(BOOL)arg3;
+@property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
 @property(readonly, nonatomic) PFUbiquityLocation *metadataStoreFileLocation; // @synthesize metadataStoreFileLocation=_metadataStoreFileLocation;
 @property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootURL; // @synthesize ubiquityRootURL=_ubiquityRootURL;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) PFUbiquityMetadataFactoryEntry *metadataEntry; // @synthesize metadataEntry=_metadataEntry;
 @property(readonly, nonatomic) NSManagedObjectContext *metadataMOC; // @synthesize metadataMOC=_metadataMOC;
-- (id)importStatesMatchingStoreName:(id)arg1;
-- (id)importStateForStoreName:(id)arg1 andPeerID:(id)arg2;
 - (id)peerForPeerID:(id)arg1 createIfMissing:(BOOL)arg2;
 - (id)allPeers;
+- (id)createMinMetadataStoreKnowledgeVector:(id *)arg1;
 - (id)createMetadataStoreKnowledgeVector:(id *)arg1;
 - (BOOL)purgeMetadataForStoreMetadata:(id)arg1 withError:(id *)arg2;
 - (BOOL)purgeAndInitializeMetadataStoreFileWithError:(id *)arg1;

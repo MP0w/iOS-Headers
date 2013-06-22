@@ -6,8 +6,16 @@
 
 #import "NSObject-Protocol.h"
 
+@class NSString;
+
 @protocol UIKBCacheableView <NSObject>
+@property(readonly, nonatomic) BOOL keepNonPersistent;
 @property(readonly, nonatomic) float cachedWidth;
 @property(readonly, nonatomic) BOOL cacheDeferable;
+@property(readonly, nonatomic) NSString *cacheKey;
+- (id)cacheKeysForRenderFlags:(id)arg1;
+
+@optional
+- (void)drawContentsOfRenderers:(id)arg1;
 @end
 

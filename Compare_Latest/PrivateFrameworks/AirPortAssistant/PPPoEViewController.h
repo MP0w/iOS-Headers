@@ -13,7 +13,7 @@
 
 @interface PPPoEViewController : AssistantSubUIViewController <TableViewManagerDelegate, UINavigationControllerDelegate>
 {
-    UIView *containerView;
+    UIView *tableHeaderContainerView;
     UIView *justTextContainerView;
     UILabel *justTextLabel;
     UIView *spinnerWithStatusAdjacentView;
@@ -23,6 +23,9 @@
     id previousNavDelegate;
 }
 
+@property(retain, nonatomic) UIView *spinnerWithStatusAdjacentView; // @synthesize spinnerWithStatusAdjacentView;
+@property(retain, nonatomic) UIView *justTextContainerView; // @synthesize justTextContainerView;
+@property(retain, nonatomic) UIView *tableHeaderContainerView; // @synthesize tableHeaderContainerView;
 @property(retain) PPPoEConnectionUIViewController *pppoeConnectionUIViewController; // @synthesize pppoeConnectionUIViewController;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)touchInCellAtIndexPath:(id)arg1;
@@ -30,6 +33,7 @@
 - (id)valueForItemOfType:(id)arg1 atTypeIndex:(unsigned int)arg2 inCellWithTag:(int)arg3;
 - (void)dealloc;
 - (void)viewWillAppear:(BOOL)arg1;
+- (void)viewDidLoad;
 - (void)setupInitialTableHeaderConfiguration;
 
 @end

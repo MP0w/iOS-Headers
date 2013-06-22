@@ -16,18 +16,31 @@
     NSManagedObjectContext *_context;
     NSFetchRequest *_fetchRequest;
     NSFetchedResultsController *_fetchController;
+    int _notifyToken;
+    BOOL _valid;
 }
 
-+ (void)invalidateSharedModel;
++ (id)savedRecordingsDirectory;
++ (id)sharedModelForQueue:(id)arg1;
 + (id)sharedModel;
++ (void)initialize;
+@property(nonatomic) BOOL valid; // @synthesize valid=_valid;
 - (void).cxx_destruct;
+- (id)_copyFileIntoRecordingsDirectory:(id)arg1;
+- (void)_handleInternalModelDidSaveNotification:(id)arg1;
+- (void)_handleExternalModelDidSaveNotification:(id)arg1;
+- (void)_invalidateAndPostRecordingsDidChangeNotification;
+- (void)_scheduleAutomaticRecordingDeletions;
 - (void)_generateAssetManifestPlist;
 - (void)saveIfNecessary;
+- (BOOL)saveManagedObjectContext:(id *)arg1;
 - (id)recordingsForSpotlightSearch:(id)arg1;
 - (id)_labelPresetsForQuery:(id)arg1;
 - (BOOL)hasExistingRecordingForAudioFile:(id)arg1;
 - (void)deleteRecording:(id)arg1;
 - (id)insertRecordingWithAudioFile:(id)arg1 duration:(double)arg2 date:(id)arg3;
+- (id)_allCustomLabels;
+- (void)enumerateExistingRecordingsWithBlock:(id)arg1;
 - (id)recordingWithITunesPersistentID:(long long)arg1;
 - (id)recordingWithURIRepresentation:(id)arg1;
 - (id)recordingWithID:(id)arg1;

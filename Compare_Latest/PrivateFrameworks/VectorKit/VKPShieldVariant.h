@@ -13,12 +13,15 @@
     CDStruct_79d0722e _textShadow;
     CDStruct_f43f0670 _textStroke;
     CDStruct_58ec0031 _fontColor;
+    CDStruct_d570ea55 _centerPoints;
     unsigned int _atlasIndex;
     float _centerOffsetX;
     NSString *_fontName;
     float _fontSize;
     unsigned int _maxDigits;
     unsigned int _minDigits;
+    NSString *_nonDigitFontName;
+    float _nonDigitFontSize;
     unsigned int _quadIndex;
     float _textBaseLine;
     struct {
@@ -29,10 +32,13 @@
         unsigned int fontSize:1;
         unsigned int maxDigits:1;
         unsigned int minDigits:1;
+        unsigned int nonDigitFontSize:1;
         unsigned int textBaseLine:1;
     } _has;
 }
 
+@property(nonatomic) float nonDigitFontSize; // @synthesize nonDigitFontSize=_nonDigitFontSize;
+@property(retain, nonatomic) NSString *nonDigitFontName; // @synthesize nonDigitFontName=_nonDigitFontName;
 @property(nonatomic) CDStruct_79d0722e textShadow; // @synthesize textShadow=_textShadow;
 @property(nonatomic) CDStruct_f43f0670 textStroke; // @synthesize textStroke=_textStroke;
 @property(nonatomic) CDStruct_58ec0031 fontColor; // @synthesize fontColor=_fontColor;
@@ -51,6 +57,14 @@
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (void)setCenterPoints:(float *)arg1 count:(unsigned int)arg2;
+- (float)centerPointAtIndex:(unsigned int)arg1;
+- (void)addCenterPoint:(float)arg1;
+- (void)clearCenterPoints;
+@property(readonly, nonatomic) float *centerPoints;
+@property(readonly, nonatomic) unsigned int centerPointsCount;
+@property(nonatomic) BOOL hasNonDigitFontSize;
+@property(readonly, nonatomic) BOOL hasNonDigitFontName;
 @property(nonatomic) BOOL hasTextShadow;
 @property(nonatomic) BOOL hasTextStroke;
 @property(nonatomic) BOOL hasFontColor;

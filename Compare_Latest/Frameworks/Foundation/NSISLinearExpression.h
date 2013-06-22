@@ -6,42 +6,59 @@
 
 #import "NSObject.h"
 
-#import "NSCopying-Protocol.h"
+#import "NSFastEnumeration-Protocol.h"
 #import "NSISRowBody-Protocol.h"
 
-@interface NSISLinearExpression : NSObject <NSCopying, NSISRowBody>
+@interface NSISLinearExpression : NSObject <NSISRowBody, NSFastEnumeration>
 {
-    float _constant;
-    struct __CFArray *_sortedVarPointers;
-    struct __CFArray *_sortedVarCoeffs;
-    float _termScalar;
+    unsigned int inline_capacity;
+    unsigned int var_count;
+    double constant;
+    union {
+        struct {
+            id stored_extern_marker;
+            struct *slab;
+            unsigned int capacity;
+        } extern_data;
+        struct {
+            unsigned long aligner;
+        } inline_slab;
+        unsigned char padding[36];
+        void *_workaround13455311;
+    } data;
 }
 
-@property float constant; // @synthesize constant=_constant;
-- (void)scaleBy:(float)arg1;
-- (void)scalePrescaledVariablesBy:(double)arg1;
-- (id)allVariables;
++ (id)acquireFromPoolForUseCase:(int)arg1;
++ (id)newExpressionWithCapacity:(unsigned int)arg1;
+- (id)copyContentsAndReturnToPool;
+- (void)returnToPool;
+- (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
+- (id)init;
+- (id)initWithInlineCapacity:(unsigned int)arg1;
+- (void)verifyInternalIntegrity;
+- (void)scaleBy:(double)arg1;
+- (id)variablesArray;
+- (unsigned int)variableCount;
+- (BOOL)enumerateVariablesAndCoefficientsUntil:(id)arg1;
 - (void)enumerateVariables:(id)arg1;
 - (void)enumerateVariablesAndCoefficients:(id)arg1;
 - (id)description;
 - (void)replaceVariable:(id)arg1 withExpression:(id)arg2 processVariableNewToReceiver:(id)arg3 processVariableDroppedFromReceiver:(void)arg4;
-- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(float)arg2 timesVariable:(id)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
-- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(float)arg2;
+- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2 timesVariable:(id)arg3 processVariableNewToReceiver:(id)arg4 processVariableDroppedFromReceiver:(void)arg5;
+- (void)replaceVariable:(id)arg1 withVariablePlusDelta:(double)arg2;
 - (BOOL)isConstant;
-- (float)incrementConstant:(float)arg1;
-- (void)addVariable:(id)arg1 coefficient:(float)arg2 processVariableNewToReceiver:(id)arg3 processVariableDroppedFromReceiver:(void)arg4;
-- (void)addVariable:(id)arg1 coefficient:(float)arg2;
-- (void)addExpression:(id)arg1 times:(float)arg2 processVariableNewToReceiver:(id)arg3 processVariableDroppedFromReceiver:(void)arg4;
-- (void)addExpression:(id)arg1 times:(float)arg2;
+@property double constant;
+- (double)incrementConstant:(double)arg1;
+- (void)addVariable:(id)arg1 coefficient:(double)arg2 processVariableNewToReceiver:(id)arg3 processVariableDroppedFromReceiver:(void)arg4;
+- (void)addVariable:(id)arg1 coefficient:(double)arg2;
+- (void)addExpression:(id)arg1 times:(double)arg2 processVariableNewToReceiver:(id)arg3 processVariableDroppedFromReceiver:(void)arg4;
+- (void)addExpression:(id)arg1 times:(double)arg2;
 - (void)dealloc;
-- (void)setCoefficient:(float)arg1 forVariable:(id)arg2;
-- (float)coefficientForVariable:(id)arg1;
+- (void)replaceVariable:(id)arg1 withVariable:(id)arg2 coefficient:(double)arg3;
+- (void)setCoefficient:(double)arg1 forVariable:(id)arg2;
+- (double)coefficientForVariable:(id)arg1;
 - (void)removeVariable:(id)arg1;
-- (void)_setPreScaledCoefficient:(float)arg1 forVariable:(id)arg2;
-- (float)_preScaledCoefficientForVariable:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)init;
-- (id)initWithSortedVarPointers:(struct __CFArray *)arg1 sortedVarCoefficients:(struct __CFArray *)arg2 constant:(float)arg3 termScalar:(float)arg4;
 
 @end
 

@@ -10,38 +10,39 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class EKPickerTableView, PreferencesValueCell;
+@class EKPickerTableView, NSDate, PreferencesValueCell;
 
 @interface EKRecurrenceEndEditItemViewController : EKEditItemViewController <UITableViewDataSource, UITableViewDelegate, EKCellShortener>
 {
     EKPickerTableView *_container;
     PreferencesValueCell *_dateCell;
-    CDStruct_b0fa4487 _repeatEndGr;
-    CDStruct_b0fa4487 _preNeverEndDate;
-    CDStruct_b0fa4487 _minimumEndDate;
+    NSDate *_preNeverEndDate;
+    NSDate *_minimumEndDate;
     int _shorteningStatus;
     unsigned int _updatingPicker:1;
+    NSDate *_repeatEndDate;
 }
 
+@property(copy, nonatomic) NSDate *repeatEndDate; // @synthesize repeatEndDate=_repeatEndDate;
+- (void).cxx_destruct;
 - (void)shortenCell:(id)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (BOOL)tableView:(id)arg1 wantsHeaderForSection:(int)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
 - (BOOL)fitsPopoverWhenKeyboardActive;
 - (BOOL)_showsNeverButton;
 - (void)datePickerChanged:(id)arg1;
-- (void)setMinimumEndDate:(CDStruct_b0fa4487)arg1;
+- (void)setMinimumEndDate:(id)arg1;
 - (void)applyMinimumEndDateToPicker;
-@property CDStruct_b0fa4487 repeatEndDate;
 - (void)updatePicker;
 - (id)_endDateStringForCurrentShorteningStatus;
 - (id)_stringForEndDate;
 - (void)_localeChanged;
-- (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (void)loadView;

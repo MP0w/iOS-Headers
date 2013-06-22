@@ -16,6 +16,10 @@
 + (BOOL)supportsSecureCoding;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (id)description;
+- (BOOL)isValidDateInCalendar:(id)arg1;
+- (BOOL)isValidDate;
+- (int)valueForComponent:(unsigned int)arg1;
+- (void)setValue:(int)arg1 forComponent:(unsigned int)arg2;
 - (id)date;
 - (void)setLeapMonth:(BOOL)arg1;
 - (void)setYearForWeekOfYear:(int)arg1;
@@ -35,6 +39,7 @@
 - (void)setEra:(int)arg1;
 - (void)setTimeZone:(id)arg1;
 - (void)setCalendar:(id)arg1;
+- (BOOL)isLeapMonthSet;
 - (BOOL)isLeapMonth;
 - (int)yearForWeekOfYear;
 - (int)weekOfMonth;

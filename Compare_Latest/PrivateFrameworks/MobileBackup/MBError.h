@@ -30,6 +30,7 @@
 + (id)errorWithCode:(int)arg1 format:(id)arg2;
 + (id)sanitizedError:(id)arg1;
 + (BOOL)isRetryAfterError:(id)arg1 retryAfterDate:(id *)arg2;
++ (BOOL)isNSError:(id)arg1 withCode:(int)arg2;
 + (BOOL)isError:(id)arg1 withCodes:(int)arg2;
 + (BOOL)isError:(id)arg1 withCode:(int)arg2;
 + (int)codeForNSError:(id)arg1;

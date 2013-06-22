@@ -14,6 +14,7 @@
 }
 
 + (id)linkReferenceWithLinkIndex:(unsigned int)arg1 firstSheetIndex:(unsigned int)arg2 lastSheetIndex:(unsigned int)arg3;
+- (_Bool)isWorkbookLevelReference;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToLinkReference:(id)arg1;

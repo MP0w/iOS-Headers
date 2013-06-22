@@ -17,15 +17,15 @@
     unsigned char _texturingEnabled;
     NSArray *_textureOrder;
     NSString *_label;
-    NSMutableDictionary *_programHash;
     unsigned char _perVertexLightingEnabled;
     unsigned char _perPixelLightingEnabled;
+    unsigned char _masksInitialized;
+    _Bool _textureOrderStale;
+    NSMutableDictionary *_programHash;
     unsigned int _numLights;
     unsigned int _numTextures;
     float *_materialAmbientColor;
     float *_materialDiffuseColor;
-    union _GLKVector4 _baseLightingColor;
-    unsigned char _masksInitialized;
     int _aColorLoc;
     id *_effectShaderArray;
     NSMutableArray *_lightProperties;
@@ -38,12 +38,12 @@
     char **_fshStrings;
     unsigned int _numVshStrings;
     unsigned int _numFshStrings;
-    unsigned long long _dirtyUniforms;
-    _Bool _textureOrderStale;
     int _lightModelAmbientColorLoc;
     int _baseLightingColorLoc;
     struct GLKBigInt_s *_fshMask;
     struct GLKBigInt_s *_vshMask;
+    unsigned long long _dirtyUniforms;
+    union _GLKVector4 _baseLightingColor;
     struct GLKBigInt_s _prevFshMask;
     struct GLKBigInt_s _prevVshMask;
 }
@@ -51,11 +51,15 @@
 + (void)setStaticMasksWithVshRoot:(id)arg1 fshRoot:(id)arg2;
 + (id)shaderInfoLogForName:(unsigned int)arg1 effectLabel:(id)arg2 msg:(const char *)arg3;
 + (id)programInfoLogForName:(unsigned int)arg1 effectLabel:(id)arg2 msg:(const char *)arg3;
++ (void)unrollLoopNodesForStaticTreeWithRoot:(id)arg1;
++ (_Bool)parseXMLFile:(id)arg1 rootNode:(id)arg2;
++ (void)initializeStaticMasks;
++ (void)initialize;
 @property(nonatomic) struct GLKBigInt_s prevVshMask; // @synthesize prevVshMask=_prevVshMask;
 @property(nonatomic) struct GLKBigInt_s prevFshMask; // @synthesize prevFshMask=_prevFshMask;
 @property(nonatomic) struct GLKBigInt_s *vshMask; // @synthesize vshMask=_vshMask;
 @property(nonatomic) struct GLKBigInt_s *fshMask; // @synthesize fshMask=_fshMask;
-@property(retain, nonatomic) NSString *label; // @synthesize label=_label;
+@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(nonatomic) int baseLightingColorLoc; // @synthesize baseLightingColorLoc=_baseLightingColorLoc;
 @property(nonatomic) int lightModelAmbientColorLoc; // @synthesize lightModelAmbientColorLoc=_lightModelAmbientColorLoc;
 @property(nonatomic) _Bool textureOrderStale; // @synthesize textureOrderStale=_textureOrderStale;
@@ -69,7 +73,7 @@
 @property(nonatomic) unsigned int vshName; // @synthesize vshName=_vshName;
 @property(readonly, nonatomic) GLKShaderBlockNode *fshRootNode; // @synthesize fshRootNode=_fshRootNode;
 @property(readonly, nonatomic) GLKShaderBlockNode *vshRootNode; // @synthesize vshRootNode=_vshRootNode;
-@property(retain, nonatomic) NSArray *textureOrder; // @synthesize textureOrder=_textureOrder;
+@property(copy, nonatomic) NSArray *textureOrder; // @synthesize textureOrder=_textureOrder;
 @property(retain, nonatomic) NSMutableArray *lightProperties; // @synthesize lightProperties=_lightProperties;
 @property(nonatomic) id *effectShaderArray; // @synthesize effectShaderArray=_effectShaderArray;
 @property(nonatomic) int aColorLoc; // @synthesize aColorLoc=_aColorLoc;
@@ -110,9 +114,6 @@
 - (void)addTransformProperty;
 - (void)dirtyAllUniforms;
 - (id)initWithPropertyArray:(id)arg1;
-- (void)unrollLoopNodesForStaticTreeWithRoot:(id)arg1;
-- (_Bool)parseXMLFile:(id)arg1 rootNode:(id)arg2;
-- (void)initializeStaticMasks;
 - (id)init;
 
 @end

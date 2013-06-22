@@ -7,7 +7,7 @@
 #import "NSFileManager.h"
 
 @interface NSFileManager (SFUtilityAdditions)
-- (unsigned int)pathUsage:(id)arg1;
-- (unsigned int)directoryUsage:(id)arg1;
+- (unsigned long long)pathUsage:(id)arg1;
+- (unsigned long long)directoryUsage:(id)arg1;
 @end
 

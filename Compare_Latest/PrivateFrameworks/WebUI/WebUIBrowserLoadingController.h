@@ -17,22 +17,25 @@
     NSString *_lastSuccessfulURLString;
     BOOL _loadStartedDuringSimulatedClick;
     BOOL _loadEndedWithError;
+    BOOL _loadStoppedFromAPI;
     NSError *_errorThatCausedLoadToEnd;
     WebDataSource *_dataSourceWithError;
     unsigned int _pendingFrameLoadMessages;
     NSString *_userTypedAddress;
-    id <WebUIBrowserLoadingControllerDelegate> _delegate;
-    UIWebBrowserView *_browserView;
     BOOL _canGoBack;
     BOOL _canGoForward;
     BOOL _loading;
+    BOOL _simulatingClick;
+    id <WebUIBrowserLoadingControllerDelegate> _delegate;
+    UIWebBrowserView *_browserView;
     float _estimatedProgress;
     NSString *_title;
     NSString *_URLString;
     NSURL *_URL;
-    BOOL _simulatingClick;
+    int _loadingState;
 }
 
+@property(nonatomic) int loadingState; // @synthesize loadingState=_loadingState;
 @property(readonly, nonatomic, getter=isSimulatingClick) BOOL simulatingClick; // @synthesize simulatingClick=_simulatingClick;
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(readonly, nonatomic) NSString *URLString; // @synthesize URLString=_URLString;
@@ -43,10 +46,13 @@
 @property(readonly, nonatomic) BOOL canGoBack; // @synthesize canGoBack=_canGoBack;
 @property(retain, nonatomic) UIWebBrowserView *browserView; // @synthesize browserView=_browserView;
 @property(nonatomic) id <WebUIBrowserLoadingControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)webView:(id)arg1 didLayout:(unsigned int)arg2;
+- (void)webView:(id)arg1 didHandleOnloadEventsForFrame:(id)arg2;
 - (void)webView:(id)arg1 didFirstVisuallyNonEmptyLayoutInFrame:(id)arg2;
 - (void)webView:(id)arg1 didClearWindowObject:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 didRunInsecureContent:(id)arg2;
 - (void)webViewDidDisplayInsecureContent:(id)arg1;
+- (void)webView:(id)arg1 didRemoveFrameFromHierarchy:(id)arg2;
 - (void)webView:(id)arg1 didPopStateWithinPageForFrame:(id)arg2;
 - (void)webView:(id)arg1 didReplaceStateWithinPageForFrame:(id)arg2;
 - (void)webView:(id)arg1 didPushStateWithinPageForFrame:(id)arg2;
@@ -93,6 +99,8 @@
 - (id)_dataSourceURL;
 - (void)_performWebViewLoadSelector:(SEL)arg1 forceProgress:(BOOL)arg2;
 - (void)_progressChanged:(id)arg1;
+- (void)didDrawTiles;
+- (void)_attemptTransitionToLoadingState:(int)arg1;
 - (void)_updateBackForward;
 - (void)_setForwardURL:(id)arg1;
 - (void)_setBackURL:(id)arg1;

@@ -10,7 +10,8 @@
 {
 }
 
-- (void)_handleKeyEvent:(struct __GSEvent *)arg1;
+- (void)paste:(id)arg1;
+- (void)_handleKeyUIEvent:(id)arg1;
 - (id)customOverlayContainer;
 - (id)_previousKeyResponder;
 

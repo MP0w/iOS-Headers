@@ -10,6 +10,7 @@
 
 @interface NetTopoMiniStaticLayout : NSObject
 {
+    id _owningView;
     int _layoutOptions;
     CALayer *_containerLayer;
     NSMutableArray *_topoDeviceLayers;
@@ -22,7 +23,8 @@
 @property(readonly, nonatomic) NSArray *topoDeviceLayers; // @synthesize topoDeviceLayers=_topoDeviceLayers;
 - (void)createLayoutForDevices:(id)arg1;
 - (void)performLayout;
-- (struct CGImage *)newImageForDeviceSpec:(id)arg1 wantSmall:(BOOL)arg2;
+- (struct CGImage *)imageForDeviceSpec:(id)arg1 wantSmall:(BOOL)arg2 forContentsScale:(float)arg3;
+@property(retain, nonatomic) id owningView;
 @property(retain, nonatomic) CALayer *containerLayer; // @synthesize containerLayer=_containerLayer;
 - (void)dealloc;
 - (void)destroyDeviceLayers;

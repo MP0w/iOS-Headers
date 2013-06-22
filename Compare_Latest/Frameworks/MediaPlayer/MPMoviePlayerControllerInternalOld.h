@@ -42,5 +42,7 @@
     } _playerBitfield;
 }
 
+- (void).cxx_destruct;
+
 @end
 

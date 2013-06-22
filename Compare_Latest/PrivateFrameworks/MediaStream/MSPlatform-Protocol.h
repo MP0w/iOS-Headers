@@ -28,6 +28,7 @@
 
 @optional
 - (BOOL)isPerformanceLoggingEnabled;
+- (BOOL)shouldEnableNewFeatures;
 - (id)pushToken;
 - (id)pushTokenForPersonID:(id)arg1;
 - (BOOL)policyMaySendDelete;

@@ -13,10 +13,10 @@
 @interface ALAssetRepresentationPrivate : NSObject <ALAssetsLibraryAsset>
 {
     ALAssetsLibrary *_library;
+    BOOL _isValid;
     PLManagedAsset *_photo;
     PLSidecarFile *_sidecar;
     NSString *_extension;
-    BOOL _isValid;
     PLPhotoLibrary *_photoLibrary;
 }
 
@@ -32,7 +32,6 @@
 - (void)_performBlockAndWait:(id)arg1;
 - (BOOL)_isVideo;
 - (BOOL)_isImage;
-- (void)libraryWillDisappear;
 - (void)libraryDidChange;
 @property(nonatomic) ALAssetsLibrary *library;
 - (void)dealloc;

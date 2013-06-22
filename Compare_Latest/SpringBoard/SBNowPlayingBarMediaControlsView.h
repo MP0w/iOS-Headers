@@ -14,6 +14,7 @@
     UIButton *_playButton;
     UIButton *_nextButton;
     UIButton *_airPlayButton;
+    UIButton *_likeBanButton;
     UIButton *_fifteenSecondRewindButton;
     UIButton *_fifteenSecondFFButton;
     SBAppSwitcherLabel *_trackLabel;
@@ -22,6 +23,7 @@
     BOOL _isAirPlayVisible;
     BOOL _isPlaying;
     int _currentTrackSupportsSkip;
+    BOOL _currentTrackIsRadio;
     BOOL _isEnabled;
     BOOL _showingToggleLabel;
 }
@@ -43,6 +45,7 @@
 - (void)_layoutForiPhone;
 - (void)layoutSubviews;
 - (void)updateImages:(BOOL)arg1 enabled:(BOOL)arg2;
+@property(readonly, nonatomic) UIButton *likeBanButton; // @synthesize likeBanButton=_likeBanButton;
 @property(readonly, nonatomic) UIButton *fifteenSecondFFButton;
 @property(readonly, nonatomic) UIButton *fifteenSecondRewindButton;
 - (void)dealloc;

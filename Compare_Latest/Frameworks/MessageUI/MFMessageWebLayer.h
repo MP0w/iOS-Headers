@@ -6,7 +6,7 @@
 
 #import "UIWebBrowserView.h"
 
-@class DOMRange, LibraryMessage, MFMessageReformattingContext, NSMutableDictionary, NSObject<MFMessageWebLayerDelegate>, NSString, NSTimer;
+@class DOMRange, MFLibraryMessage, MFMessageReformattingContext, NSMutableDictionary, NSObject<MFMessageWebLayerDelegate>, NSString, NSTimer;
 
 @interface MFMessageWebLayer : UIWebBrowserView
 {
@@ -23,11 +23,12 @@
     id _postDisplayOperationBlock;
     id _postDisplayCancellationBlock;
     NSString *_mainFrameURL;
-    LibraryMessage *_displayInfoCacheLibraryMessage;
+    MFLibraryMessage *_displayInfoCacheLibraryMessage;
     NSMutableDictionary *_displayInfoCache;
     BOOL _stoppedLoading;
     BOOL _didReformatMessage;
-    BOOL _didFinishLoad;
+    struct CGRect _pendingFrameAdjustment;
+    BOOL _applyFrameAdjustmentsImmediately;
     NSString *_originalHTMLString;
     MFMessageReformattingContext *_reformattingContext;
     DOMRange *_bottomReplyRange;
@@ -54,8 +55,9 @@
 - (void)cancelPostDisplayOperation;
 - (void)setPostDisplayOperationBlock:(id)arg1 cancellationBlock:(void)arg2;
 - (void)stopLoadingAndClear;
+- (void)reloadUserStyleSheet;
 - (void)reload;
-- (void)loadFragments:(id)arg1 withDDContext:(id)arg2 forLibraryMessage:(id)arg3;
+- (void)loadFragments:(id)arg1 forLibraryMessage:(id)arg2;
 - (void)stopLoading:(id)arg1;
 - (void)_schedulePendingIgnoreStylesheets;
 - (void)_cancelPendingIgnoreStylesheets;
@@ -86,6 +88,10 @@
 - (void)updateInlinePluginWithContentID:(id)arg1 withHTMLRepresentation:(id)arg2 completionBlock:(id)arg3;
 - (void)updateImageURL:(id)arg1 withURL:(id)arg2 completionBlock:(id)arg3;
 - (void)appendMarkupString:(id)arg1 baseURL:(id)arg2;
+- (void)performBatchUpdates:(id)arg1;
+@property BOOL applyFrameAdjustmentsImmediately; // @synthesize applyFrameAdjustmentsImmediately=_applyFrameAdjustmentsImmediately;
+- (void)setFrameAdjustment:(struct CGRect)arg1;
+- (void)_updatePendingFrameAdjustment;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_sendDelegateSizeDidChange;
 - (void)copy:(id)arg1;
@@ -93,7 +99,6 @@
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
 - (void)webView:(id)arg1 decidePolicyForNewWindowAction:(id)arg2 request:(id)arg3 newFrameName:(id)arg4 decisionListener:(id)arg5;
 - (float)maximumDoubleTapScale;
-- (void)defaultMouseDragged:(struct __GSEvent *)arg1;
 - (void)dealloc;
 - (id)messageWebLayerDelegate;
 - (void)setMessageWebLayerDelegate:(id)arg1;

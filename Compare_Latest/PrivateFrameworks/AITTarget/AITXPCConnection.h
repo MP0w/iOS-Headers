@@ -6,23 +6,23 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
 
 @interface AITXPCConnection : NSObject
 {
     int _pid;
     id <AITXPCConnectionDelegate> _delegate;
     NSString *_bundleId;
-    struct _xpc_connection_s *_connection;
-    void *_currentMessage;
-    struct dispatch_queue_s *_dispatchQueue;
-    struct dispatch_queue_s *_internalQueue;
+    NSObject<OS_xpc_object> *_connection;
+    NSObject<OS_xpc_object> *_currentMessage;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_internalQueue;
 }
 
-@property(nonatomic) struct dispatch_queue_s *internalQueue; // @synthesize internalQueue=_internalQueue;
-@property(nonatomic) struct dispatch_queue_s *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
-@property(nonatomic) void *currentMessage; // @synthesize currentMessage=_currentMessage;
-@property(nonatomic) struct _xpc_connection_s *connection; // @synthesize connection=_connection;
+@property(nonatomic) NSObject<OS_dispatch_queue> *internalQueue; // @synthesize internalQueue=_internalQueue;
+@property(nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
+@property(nonatomic) NSObject<OS_xpc_object> *currentMessage; // @synthesize currentMessage=_currentMessage;
+@property(nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 @property(copy, nonatomic) NSString *bundleId; // @synthesize bundleId=_bundleId;
 @property(nonatomic) id <AITXPCConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) int pid;
@@ -30,11 +30,11 @@
 - (void)barrierWithCompletionHandler:(id)arg1;
 - (void)sendMessage:(id)arg1 userInfo:(id)arg2 replyHandler:(id)arg3;
 - (void)sendMessage:(id)arg1 userInfo:(id)arg2;
-- (void)_handleEvent:(void *)arg1;
-- (id)_deserializeMessage:(void *)arg1;
+- (void)_handleEvent:(id)arg1;
+- (id)_deserializeMessage:(id)arg1;
 - (void)closeConnection;
-- (id)initWithConnection:(struct _xpc_connection_s *)arg1 delegate:(id)arg2 dispatchQueue:(struct dispatch_queue_s *)arg3;
-- (id)initWithConnection:(struct _xpc_connection_s *)arg1 delegate:(id)arg2;
+- (id)initWithConnection:(id)arg1 delegate:(id)arg2 dispatchQueue:(id)arg3;
+- (id)initWithConnection:(id)arg1 delegate:(id)arg2;
 - (void)dealloc;
 
 @end

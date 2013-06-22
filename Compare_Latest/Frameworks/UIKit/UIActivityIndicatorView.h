@@ -17,26 +17,27 @@
     int _activityIndicatorViewStyle;
     int _actualActivityIndicatorViewStyle;
     BOOL _hidesWhenStopped;
-    float _width;
     BOOL _hasShadow;
+    BOOL _clockWise;
+    BOOL _spinning;
+    BOOL _useArtwork;
+    BOOL _useOutlineShadow;
+    float _width;
     UIColor *_color;
     int _spokeCount;
-    struct CGSize _shadowOffset;
     UIColor *_shadowColor;
     float _innerRadius;
     int _spokeFrameRatio;
     NSArray *_spokeImages;
-    BOOL _clockWise;
-    BOOL _spinning;
     float _spinningDuration;
-    BOOL _useArtwork;
     NSString *_artBackupKeyString;
     UIImageView *_internalView;
-    BOOL _useOutlineShadow;
+    struct CGSize _shadowOffset;
 }
 
 + (struct CGSize)size;
 + (struct CGSize)defaultSizeForStyle:(int)arg1;
++ (BOOL)_isModernStyle:(int)arg1;
 + (id)_loadResourcesForStyle:(int)arg1;
 @property(nonatomic) BOOL useOutlineShadow; // @synthesize useOutlineShadow=_useOutlineShadow;
 @property(readonly, nonatomic) UIImageView *internalView; // @synthesize internalView=_internalView;
@@ -62,6 +63,7 @@
 - (void)setStyle:(int)arg1;
 - (BOOL)_shouldGoBackToBaseStyle;
 - (BOOL)_shouldGoToCustomStyle;
+- (BOOL)_hasCustomColor;
 - (BOOL)_isArtWorkBased;
 - (BOOL)_canCustomize;
 - (void)generateImages;
@@ -73,11 +75,13 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_feedTheGear;
 - (void)_updateInternalViewFrameWithBounds:(struct CGRect)arg1;
+- (id)_generateModernImagesForImages:(id)arg1;
 - (id)_generateImages;
 - (id)_styleNameForStyle:(int)arg1;
 - (id)artBackupKey;
 - (id)_artBackupKey;
 - (id)_imageForStep:(int)arg1;
+- (BOOL)_isModern;
 - (float)_alphaValueForStep:(int)arg1;
 - (float)_widthForGearWidth:(float)arg1;
 - (float)_spokeLengthForGearWidth:(float)arg1;
@@ -102,7 +106,7 @@
 - (void)dealloc;
 - (id)initWithActivityIndicatorStyle:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)_commonInitWithFrame:(struct CGRect)arg1;
+- (void)_commonInit;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (BOOL)isElementAccessibilityExposedToInterfaceBuilder;

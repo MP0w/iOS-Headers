@@ -8,7 +8,7 @@
 
 #import "MPAVPlaylistFeeder-Protocol.h"
 
-@class MPAVController, NSDictionary;
+@class MPAVController, NSDictionary, RadioStation;
 
 @interface MPQueueFeeder : NSObject <MPAVPlaylistFeeder>
 {
@@ -31,10 +31,12 @@
 @property(nonatomic) unsigned int activeShuffleType; // @synthesize activeShuffleType=_activeShuffleType;
 @property(nonatomic) unsigned int shuffleType; // @synthesize shuffleType=_shuffleType;
 @property(nonatomic) unsigned int repeatType; // @synthesize repeatType=_repeatType;
-@property(nonatomic) MPAVController *AVController; // @synthesize AVController=_avController;
+@property(nonatomic) __weak MPAVController *AVController; // @synthesize AVController=_avController;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned int nonRepeatingItemCount;
 - (id)pathAtIndex:(unsigned int)arg1;
 - (id)localizedPositionInPlaylistString:(id)arg1;
+- (id)localizedAttributedPositionInPlaylistStringForItem:(id)arg1 withRegularTextAttributes:(id)arg2 emphasizedTextAttributes:(id)arg3;
 - (void)archiveAVControllerPlaybackQueue:(id)arg1 toArchiver:(id)arg2;
 - (void)restoreAVControllerPlaybackQueue:(id)arg1 fromUnarchiver:(id)arg2;
 - (id)playbackInfoAtIndex:(unsigned int)arg1;
@@ -48,12 +50,14 @@
 @property(readonly, nonatomic) unsigned int initialPlaybackQueueDepth;
 - (BOOL)hasItemForIndex:(unsigned int)arg1;
 - (void)assumeOwnershipOfItems:(id)arg1;
+- (void)controller:(id)arg1 willChangePlaybackIndexBy:(int)arg2 deltaType:(int)arg3 ignoreElapsedTime:(BOOL)arg4 allowSkippingAds:(BOOL)arg5;
 @property(readonly, nonatomic) unsigned int realShuffleType;
 @property(readonly, nonatomic) unsigned int realRepeatType;
 - (BOOL)hasValidItemAtIndex:(unsigned int)arg1;
 - (id)copyRawItemAtIndex:(unsigned int)arg1;
 - (void)clearReferencesToItem:(id)arg1;
 - (void)addReferenceToItem:(id)arg1;
+@property(readonly, nonatomic) BOOL userCanChangeShuffleAndRepeatType;
 @property(readonly, nonatomic) BOOL trackChangesCanEndPlayback;
 @property(readonly, nonatomic) NSDictionary *preferredLanguages;
 - (unsigned int)itemTypeForIndex:(unsigned int)arg1;
@@ -74,6 +78,7 @@
 - (void)_fixNextStartTimesByRemovingRange:(struct _NSRange)arg1;
 - (void)_fixNextStartTimesByInsertingRange:(struct _NSRange)arg1;
 - (void)dealloc;
+@property(readonly, nonatomic) RadioStation *station;
 
 @end
 

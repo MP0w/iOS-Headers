@@ -18,6 +18,7 @@
 
 @property(copy, nonatomic) id loadHandler; // @synthesize loadHandler=_loadHandler;
 @property(copy, nonatomic) id contentBoundsHandler; // @synthesize contentBoundsHandler=_contentBoundsHandler;
+- (void).cxx_destruct;
 - (void)_documentBoundsChangeNotification:(id)arg1;
 - (void)storePage:(id)arg1 finishedWithSuccess:(BOOL)arg2;
 - (id)viewControllerFactory;

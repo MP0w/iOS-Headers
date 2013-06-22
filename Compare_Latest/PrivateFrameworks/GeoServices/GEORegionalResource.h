@@ -15,6 +15,7 @@
     unsigned int _tileRangesSpace;
     CDStruct_084d6ede _validSubManifestVersions;
     NSMutableArray *_attributions;
+    NSMutableArray *_iconChecksums;
     NSMutableArray *_icons;
     unsigned int _x;
     unsigned int _y;
@@ -26,6 +27,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSMutableArray *iconChecksums; // @synthesize iconChecksums=_iconChecksums;
 @property(retain, nonatomic) NSMutableArray *attributions; // @synthesize attributions=_attributions;
 @property(retain, nonatomic) NSMutableArray *icons; // @synthesize icons=_icons;
 @property(nonatomic) unsigned int z; // @synthesize z=_z;
@@ -50,6 +52,10 @@
 - (void)clearTileRanges;
 @property(readonly, nonatomic) CDStruct_d66e66b9 *tileRanges;
 @property(readonly, nonatomic) unsigned int tileRangesCount;
+- (id)iconChecksumAtIndex:(unsigned int)arg1;
+- (unsigned int)iconChecksumsCount;
+- (void)addIconChecksum:(id)arg1;
+- (void)clearIconChecksums;
 - (id)attributionAtIndex:(unsigned int)arg1;
 - (unsigned int)attributionsCount;
 - (void)addAttribution:(id)arg1;

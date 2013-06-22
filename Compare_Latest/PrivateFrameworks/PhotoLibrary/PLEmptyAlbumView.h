@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSObject<PLAssetContainer>, NSString, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer;
+@class NSObject<PLAlbumProtocol>, NSString, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer;
 
 @interface PLEmptyAlbumView : UIView
 {
@@ -28,7 +28,7 @@
     BOOL _isSharedPhotoStreamList;
 }
 
-@property(retain, nonatomic) NSObject<PLAssetContainer> *album; // @synthesize album=_album;
+@property(retain, nonatomic) NSObject<PLAlbumProtocol> *album; // @synthesize album=_album;
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 @property(nonatomic) int filter; // @synthesize filter=_filter;
 - (BOOL)canBecomeFirstResponder;

@@ -24,12 +24,12 @@
 - (BOOL)empty;
 - (unsigned int)count;
 - (id)rest;
-- (id)slotSubsequenceFromIndex:(int)arg1;
-- (id)subsequenceFromIndex:(int)arg1;
+- (id)slotSubsequenceFromIndex:(unsigned int)arg1;
+- (id)subsequenceFromIndex:(unsigned int)arg1;
 - (id)reversed;
-- (id)occurrenceOfSequence:(id)arg1 atIndex:(int)arg2;
-- (id)portionFollowingOccurrenceOfSequence:(id)arg1 atIndex:(int)arg2;
-- (id)portionPrecedingOccurrenceOfSequence:(id)arg1 atIndex:(int)arg2;
+- (id)occurrenceOfSequence:(id)arg1 atIndex:(unsigned int)arg2;
+- (id)portionFollowingOccurrenceOfSequence:(id)arg1 atIndex:(unsigned int)arg2;
+- (id)portionPrecedingOccurrenceOfSequence:(id)arg1 atIndex:(unsigned int)arg2;
 - (id)first;
 - (id)initWithArray:(id)arg1;
 - (id)initFromPlist:(id)arg1;

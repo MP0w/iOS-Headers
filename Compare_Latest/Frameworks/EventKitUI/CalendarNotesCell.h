@@ -6,24 +6,20 @@
 
 #import "UITableViewCell.h"
 
-@class NSString, UILabel, UITextView;
+@class NSString, UITextView;
 
 @interface CalendarNotesCell : UITableViewCell
 {
     UITextView *_textView;
-    UILabel *_placeholder;
-    BOOL _showingPlaceholder;
+    NSString *_text;
 }
 
-@property(copy, nonatomic) NSString *text;
-- (void)textChanged:(id)arg1;
+@property(copy, nonatomic) NSString *text; // @synthesize text=_text;
+- (void).cxx_destruct;
+@property(retain, nonatomic) NSString *placeholder;
 - (BOOL)becomeFirstResponder;
 @property(readonly, nonatomic) UITextView *textView;
 - (void)layoutSubviews;
-@property(retain, nonatomic) NSString *placeholder;
-- (void)_updatePlaceholder;
-- (id)_placeholderLabel;
-- (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

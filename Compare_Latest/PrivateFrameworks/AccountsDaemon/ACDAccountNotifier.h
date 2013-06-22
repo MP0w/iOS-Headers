@@ -16,8 +16,11 @@
 + (id)sharedAccountNotifier;
 - (void).cxx_destruct;
 @property(readonly) NSSet *notificationPlugins;
+- (void)postDidPerformDataclassActionsOnAccount:(id)arg1 forDataclasses:(id)arg2;
+- (void)postWillPerformDataclassActionsOnAccount:(id)arg1 forDataclasses:(id)arg2;
 - (void)postDidChangeNotificationForType:(int)arg1 inStore:(id)arg2 newAccount:(id)arg3 oldAccount:(id)arg4;
 - (BOOL)postWillChangeNotificationForType:(int)arg1 inStore:(id)arg2 newAccount:(id)arg3 oldAccount:(id)arg4;
+- (BOOL)canSaveAccount:(id)arg1 inStore:(id)arg2;
 - (void)_faultInNotificationPlugins;
 
 @end

@@ -16,7 +16,7 @@
     double mForward;
     double mInterceptYAxis;
     int mPolynomialOrder;
-    int mMovingAveragePeriod;
+    long mMovingAveragePeriod;
     int mType;
     OADGraphicProperties *mGraphicProperties;
     CHDTrendlineLabel *mLabel;
@@ -33,8 +33,8 @@
 - (id)label;
 - (void)setType:(int)arg1;
 - (int)type;
-- (void)setMovingAveragePeriod:(int)arg1;
-- (int)movingAveragePeriod;
+- (void)setMovingAveragePeriod:(long)arg1;
+- (long)movingAveragePeriod;
 - (void)setPolynomialOrder:(int)arg1;
 - (int)polynomialOrder;
 - (void)setInterceptYAxis:(double)arg1;

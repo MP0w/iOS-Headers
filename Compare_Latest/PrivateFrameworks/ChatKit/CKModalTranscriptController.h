@@ -18,12 +18,10 @@
     BOOL _cameraSelectionDisabled;
 }
 
-+ (id)_newMediaObjectForFilename:(id)arg1 mimeType:(id)arg2 exportedFilename:(id)arg3 options:(id)arg4;
 @property(nonatomic) BOOL mimeType; // @synthesize mimeType=_mimeType;
 - (BOOL)_shouldUseExistingConversations;
-- (BOOL)_shouldUseNextFirstResponder;
 - (BOOL)_shouldUseDefaultFirstResponder;
-- (BOOL)_shouldUseKeyWindowStack;
+- (void)_conversationListDidFinishLoading:(id)arg1;
 - (void)registerForNotifications;
 - (void)transitionFromNewMessageToConversation;
 - (BOOL)shouldDismissAfterSend;
@@ -32,7 +30,6 @@
 - (void)disableCameraAttachments;
 - (void)setCanEditRecipients:(BOOL)arg1;
 - (void)setPendingAddresses:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (BOOL)getContainerWidth:(float *)arg1 offset:(float *)arg2;
 - (void)insertTextPart:(id)arg1;

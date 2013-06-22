@@ -6,13 +6,13 @@
 
 #import <UIKit/UIWebDocumentView.h>
 
-#import "UIBrowserDocumentController-Protocol.h"
 #import "UIWebFormAccessoryDelegate-Protocol.h"
+#import "UIWebTouchEventsGestureRecognizerDelegate-Protocol.h"
 #import "_UIWebRotationDelegate-Protocol.h"
 
-@class DOMNode, NSMutableArray, NSObject<UIFormPeripheral>, UIResponder, UIWebFormAccessory, UIWebFormDelegate, UIWebTouchEventsGestureRecognizer;
+@class DOMNode, NSHashTable, NSMutableArray, NSMutableSet, NSObject<UIFormPeripheral>, UIResponder, UIWebFormAccessory, UIWebFormDelegate, UIWebTouchEventsGestureRecognizer;
 
-@interface UIWebBrowserView : UIWebDocumentView <UIWebFormAccessoryDelegate, UIBrowserDocumentController, _UIWebRotationDelegate>
+@interface UIWebBrowserView : UIWebDocumentView <UIWebTouchEventsGestureRecognizerDelegate, UIWebFormAccessoryDelegate, _UIWebRotationDelegate>
 {
     UIWebFormAccessory *_accessory;
     NSObject<UIFormPeripheral> *_input;
@@ -34,6 +34,10 @@
     UIResponder *_editingDelegateForEverythingExceptForms;
     unsigned int _dispatchedTouchEvents;
     NSMutableArray *_deferredTouchEvents;
+    NSHashTable *_activeHighlighters;
+    NSMutableSet *_overflowScrollViewsPendingInsertion;
+    NSMutableSet *_overflowScrollViewsPendingDeletion;
+    NSMutableSet *_overflowScrollViews;
     struct {
         NSMutableArray *all;
         NSMutableArray *html;
@@ -45,12 +49,14 @@
         NSMutableArray *log;
     } _messages;
     CDStruct_d58a15aa _pdf;
+    id <UIWebAutoFillDelegate> _autoFillDelegate;
 }
 
 + (id)_PDFPageNumberLabel:(BOOL)arg1;
-+ (BOOL)isAutoFillAllowed;
 + (id)getUIWebBrowserViewForWebFrame:(id)arg1;
 + (float)preferredScrollDecelerationFactor;
++ (void)initialize;
+@property(nonatomic) id <UIWebAutoFillDelegate> autoFillDelegate; // @synthesize autoFillDelegate=_autoFillDelegate;
 @property(readonly, nonatomic) BOOL hasEditedTextField; // @synthesize hasEditedTextField=_hasEditedTextField;
 @property(nonatomic) BOOL allowDOMFocusRedirects; // @synthesize allowDOMFocusRedirects=_allowDOMFocusRedirects;
 @property(nonatomic) BOOL inputViewObeysDOMFocus; // @synthesize inputViewObeysDOMFocus=_inputViewObeysDOMFocus;
@@ -59,6 +65,22 @@
 @property(retain, nonatomic) DOMNode *_currentAssistedNode; // @synthesize _currentAssistedNode;
 @property(retain, nonatomic) NSObject<UIFormPeripheral> *_input; // @synthesize _input;
 @property(retain, nonatomic) UIWebFormAccessory *_accessory; // @synthesize _accessory;
+- (id)_collectAdditionalSubviews;
+- (void)webViewDidCommitCompositingLayerChanges:(id)arg1;
+- (void)_removeAdditionalSubview:(id)arg1;
+- (void)_addAdditionalSubview:(id)arg1;
+- (void)_noteOverflowScrollViewPendingDeletion:(id)arg1;
+- (void)_noteOverflowScrollViewPendingInsertion:(id)arg1;
+- (BOOL)_hasSubviewContainingWebContent:(id)arg1;
+- (void)_overflowScrollView:(id)arg1 didEndScrollingForNode:(id)arg2;
+- (void)_overflowScrollView:(id)arg1 scrollOffsetChangedForNode:(id)arg2 whileScrolling:(BOOL)arg3;
+- (void)_overflowScrollView:(id)arg1 willStartScrollingForNode:(id)arg2;
+- (void)webView:(id)arg1 willRemoveScrollingLayer:(id)arg2 withContentsLayer:(id)arg3 forNode:(id)arg4;
+- (void)webView:(id)arg1 didCreateOrUpdateScrollingLayer:(id)arg2 withContentsLayer:(id)arg3 scrollSize:(id)arg4 forNode:(id)arg5 allowHorizontalScrollbar:(BOOL)arg6 allowVerticalScrollbar:(BOOL)arg7;
+- (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
+- (void)redrawScaledDocument;
+- (void)_removeFindOnPageHighlighter:(id)arg1;
+- (id)addFindOnPageHighlighter;
 - (BOOL)considerHeightOfRectOfInterestForRotation;
 - (struct CGSize)contentSizeForScrollView:(id)arg1;
 - (float)scaleForProposedNewScale:(float)arg1 andOldScale:(float)arg2;
@@ -104,15 +126,15 @@
 - (BOOL)_shouldDeferEvents;
 - (void)webView:(id)arg1 elementDidBlurNode:(id)arg2;
 - (void)webView:(id)arg1 elementDidFocusNode:(id)arg2;
-- (void)webViewFormEditedStatusHasChanged:(id)arg1;
-- (BOOL)isAutoFilling;
+- (void)_webViewFormEditedStatusHasChanged:(id)arg1;
+- (BOOL)_isAutoFilling;
 - (BOOL)isAutoFillMode;
-- (void)autoFillWithElementValue;
 - (void)acceptedAutoFillWord:(id)arg1;
 - (void)webView:(id)arg1 didFirstLayoutInFrame:(id)arg2;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2 forFrame:(id)arg3;
 - (void)webView:(id)arg1 didFinishLoadForFrame:(id)arg2;
 - (void)webView:(id)arg1 didStartProvisionalLoadForFrame:(id)arg2;
+- (void)_clearFormAutoFillStateForFrame:(id)arg1;
 - (void)webView:(id)arg1 willCloseFrame:(id)arg2;
 - (void)_autoFillFrame:(id)arg1;
 - (void)_resetFormDataForFrame:(id)arg1;
@@ -132,6 +154,7 @@
 - (void)_endAllowingFocusRedirects;
 - (void)_beginAllowingFocusRedirects;
 - (void)_updateAccessory;
+- (void)_updateAutoFillButton;
 - (void)_displayFormNodeInputView;
 - (void)_stopAssistingFormNode;
 - (void)setBounds:(struct CGRect)arg1;
@@ -158,7 +181,9 @@
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (id)inputView;
 - (id)inputAccessoryView;
-- (void)_handleKeyEvent:(struct __GSEvent *)arg1;
+- (void)_prevAccessoryTab:(id)arg1;
+- (void)_nextAccessoryTab:(id)arg1;
+- (id)keyCommands;
 - (BOOL)resignFirstResponder;
 - (id)textDocument;
 - (id)_keyboardResponder;
@@ -170,6 +195,8 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithWebView:(id)arg1 frame:(struct CGRect)arg2;
+- (BOOL)isAnyTouchOverActiveArea:(id)arg1;
+- (BOOL)shouldIgnoreWebTouch;
 
 @end
 

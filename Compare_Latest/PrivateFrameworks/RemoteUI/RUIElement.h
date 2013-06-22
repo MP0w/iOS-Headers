@@ -20,7 +20,8 @@
 - (BOOL)loadImage;
 - (void)imageLoaded:(id)arg1;
 - (int)_horizontalAlignmentForString:(id)arg1;
-- (id)imageAttributeAndScale:(float *)arg1;
+- (id)URLAttributeForImageName:(id)arg1 getScale:(float *)arg2;
+- (id)sourceURL;
 - (void)dealloc;
 - (void)populatePostbackDictionary:(id)arg1;
 

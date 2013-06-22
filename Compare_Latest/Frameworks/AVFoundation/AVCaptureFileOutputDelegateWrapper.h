@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, NSURL;
+@class NSArray, NSURL;
 
 @interface AVCaptureFileOutputDelegateWrapper : NSObject
 {
@@ -14,7 +14,7 @@
     NSURL *_outputFileURL;
     BOOL _receivedDidStartRecording;
     BOOL _receivedDidStopRecording;
-    NSString *_didStopRecordingReason;
+    long _didStopRecordingError;
     NSArray *_metadata;
     NSArray *_connections;
 }
@@ -22,7 +22,7 @@
 + (id)wrapperWithURL:(id)arg1 delegate:(id)arg2 connections:(id)arg3;
 @property(readonly) NSArray *connections; // @synthesize connections=_connections;
 @property(retain) NSArray *metadata; // @synthesize metadata=_metadata;
-@property(copy) NSString *didStopRecordingReason; // @synthesize didStopRecordingReason=_didStopRecordingReason;
+@property long didStopRecordingError; // @synthesize didStopRecordingError=_didStopRecordingError;
 @property BOOL receivedDidStopRecording; // @synthesize receivedDidStopRecording=_receivedDidStopRecording;
 @property BOOL receivedDidStartRecording; // @synthesize receivedDidStartRecording=_receivedDidStartRecording;
 @property(readonly) NSURL *outputFileURL; // @synthesize outputFileURL=_outputFileURL;

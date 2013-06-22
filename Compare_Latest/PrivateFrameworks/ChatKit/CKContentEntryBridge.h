@@ -6,19 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSObject<CKContentEntryBridgeClient>;
+@class NSObject<CKContentEntryBridgeClient>, UIView<CKContentEntryBridgeClient>;
 
 @interface CKContentEntryBridge : NSObject
 {
-    int _outgoingBubbleColor;
-    NSObject<CKContentEntryBridgeClient> *_entryView;
+    BOOL _outgoingBubbleColor;
+    UIView<CKContentEntryBridgeClient> *_entryView;
 }
 
 + (id)newContentEntryBridge;
-@property(nonatomic) int outgoingBubbleColor; // @synthesize outgoingBubbleColor=_outgoingBubbleColor;
+@property(nonatomic) BOOL outgoingBubbleColor; // @synthesize outgoingBubbleColor=_outgoingBubbleColor;
 @property(nonatomic) NSObject<CKContentEntryBridgeClient> *contentEntryView; // @synthesize contentEntryView=_entryView;
 - (void)reset;
 - (void)updateComposition;
+- (void)ckTextContentViewDidPaste:(id)arg1;
 - (id)documentFragmentForPasteboardItemAtIndex:(int)arg1 inTextContentView:(id)arg2;
 - (id)newContentViewWithFrame:(struct CGRect)arg1;
 - (BOOL)hasContent;

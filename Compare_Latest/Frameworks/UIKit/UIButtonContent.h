@@ -9,7 +9,7 @@
 #import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class NSAttributedString, NSString, UIColor, UIImage, _UIGraphicsLetterpressStyle;
+@class NSAttributedString, NSNumber, NSString, UIColor, UIImage, _UIGraphicsLetterpressStyle;
 
 @interface UIButtonContent : NSObject <NSCoding, NSCopying>
 {
@@ -19,8 +19,10 @@
     UIImage *background;
     UIColor *titleColor;
     UIColor *shadowColor;
+    NSNumber *drawingStroke;
 }
 
+@property(retain, nonatomic) NSNumber *drawingStroke; // @synthesize drawingStroke;
 @property(retain, nonatomic) UIColor *shadowColor; // @synthesize shadowColor;
 @property(retain, nonatomic) UIColor *titleColor; // @synthesize titleColor;
 @property(retain, nonatomic) UIImage *background; // @synthesize background;

@@ -8,13 +8,9 @@
 
 @interface CKRecipientTableViewCell : MFRecipientTableViewCell
 {
-    BOOL _recipientAvailable;
 }
 
-+ (id)highlightedAvailableImage;
-+ (id)availableImage;
 + (id)cellForRecipient:(id)arg1;
-@property(nonatomic, getter=isRecipientAvailable) BOOL recipientAvailable; // @synthesize recipientAvailable=_recipientAvailable;
 
 @end
 

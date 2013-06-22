@@ -33,8 +33,7 @@
 - (id)_embeddedActivityViewController;
 - (void)prepareWithActivityItems:(id)arg1;
 - (BOOL)_canPerformWithSuppliedActivityItems:(id)arg1;
-- (id)_beforeActivity;
-- (id)_activityImage;
+- (id)activityImage;
 - (id)activityTitle;
 - (id)activityType;
 - (void)dealloc;

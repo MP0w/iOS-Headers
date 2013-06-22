@@ -7,9 +7,10 @@
 #import "NSObject-Protocol.h"
 
 @protocol GEOResourceManifestServerProxyDelegate <NSObject>
-- (oneway void)serverProxyDidFinishLoadingForList:(id)arg1;
-- (oneway void)serverProxyDidReceiveError:(id)arg1 forList:(id)arg2;
-- (oneway void)serverProxyDidReceiveResourceNames:(id)arg1 attributions:(id)arg2 forKey:(struct _GEOTileKey)arg3 fromList:(id)arg4;
 - (oneway void)serverProxyDidChangeActiveTileGroup:(id)arg1 finishedCallback:(id)arg2;
+- (oneway void)serverProxyDidStopLoadingResources;
+- (oneway void)serverProxyWillStartLoadingResources;
+- (oneway void)serverProxyDidStopUpdatingResourceManifest;
+- (oneway void)serverProxyWillStartUpdatingResourceManifest;
 @end
 

@@ -4,16 +4,16 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <PhotoLibraryServices/PLAlbumChangeNotification.h>
+#import <PhotoLibraryServices/PLAssetContainerChangeNotification.h>
 
 @class NSArray, PLPlace;
 
-@interface PLPlaceChangeNotification : PLAlbumChangeNotification
+@interface PLPlaceChangeNotification : PLAssetContainerChangeNotification
 {
     PLPlace *_fromPlace;
     PLPlace *_toPlace;
     NSArray *_changedObjects;
-    PLAlbumChangeNotification *_backingNotifiation;
+    PLAssetContainerChangeNotification *_backingNotifiation;
 }
 
 + (id)notificationForFromPlace:(id)arg1 toPlace:(id)arg2 changedObjects:(id)arg3 fromAlbumChangeNotification:(id)arg4;
@@ -22,7 +22,7 @@
 - (void)dealloc;
 - (id)initWithFromPlace:(id)arg1 toPlace:(id)arg2 changedObjects:(id)arg3 fromAlbumChangeNotification:(id)arg4;
 - (BOOL)titleDidChange;
-- (id)album;
+- (struct NSObject *)album;
 - (id)object;
 - (id)init;
 

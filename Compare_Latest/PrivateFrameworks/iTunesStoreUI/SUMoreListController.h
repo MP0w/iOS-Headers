@@ -18,6 +18,7 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)tabBarItem;
 - (void)loadView;
+- (int)ITunesStoreUIBarStyle;
 - (void)didMoveToParentViewController:(id)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

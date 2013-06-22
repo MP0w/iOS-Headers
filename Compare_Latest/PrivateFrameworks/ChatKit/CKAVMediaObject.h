@@ -6,32 +6,14 @@
 
 #import <ChatKit/CKMediaObject.h>
 
-@class NSString;
-
 @interface CKAVMediaObject : CKMediaObject
 {
-    NSString *_createdFilename;
     BOOL _durationLoaded;
+    double _duration;
 }
 
-+ (id)transcodeOptionsWithMaxBytes:(int)arg1 forMediaType:(int)arg2;
-+ (double)maxMMSTrimDurationForMediaType:(int)arg1;
-- (double)duration;
-- (void)setDuration:(double)arg1;
-- (void)copyToPasteboard:(id)arg1;
-- (id)icon;
-- (id)subtitle;
-- (id)title;
-- (id)fileForDataWithExtension:(id)arg1;
-- (id)effectiveExportedFilename;
-- (id)transcodeMimeType;
-- (double)transcodeDuration;
-- (double)transcodeEndTime;
-- (double)transcodeStartTime;
-- (id)transcodePath;
-- (id)transcodedFilename;
-- (void)prepareForTranscode;
-- (void)dealloc;
+@property(nonatomic) double duration; // @synthesize duration=_duration;
+- (id)description;
 
 @end
 

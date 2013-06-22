@@ -30,9 +30,10 @@
     EKReminderLocationItem *_itemBeingGeocoded;
 }
 
-@property(readonly, nonatomic) BOOL meCardIsSet; // @synthesize meCardIsSet=_meCardIsSet;
 @property(retain, nonatomic) EKReminderLocationItem *itemBeingGeocoded; // @synthesize itemBeingGeocoded=_itemBeingGeocoded;
 @property(retain, nonatomic) EKReminderLocationItem *customLocationItem; // @synthesize customLocationItem=_customLocationItem;
+@property(readonly, nonatomic) BOOL meCardIsSet; // @synthesize meCardIsSet=_meCardIsSet;
+- (void).cxx_destruct;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (id)_stringForAuthorizationStatus:(int)arg1;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;

@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
-@class PDTimeListNodeList, TSUNoCopyDictionary;
+@class PDRootTimeNode, TSUNoCopyDictionary;
 
 @interface PDAnimation : NSObject
 {
-    PDTimeListNodeList *mTimeListNodeList;
+    PDRootTimeNode *mRootTimeNode;
     TSUNoCopyDictionary *mBuildMap;
 }
 
 + (void)initialize;
 - (void)setBuildMap:(id)arg1;
 - (id)buildMap;
-- (id)addTimeListNodeList;
-- (id)timeListNodeList;
+- (id)addRootTimeNode;
+- (id)rootTimeNode;
 - (void)dealloc;
 - (id)init;
 

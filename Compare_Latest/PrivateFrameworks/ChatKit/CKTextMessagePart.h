@@ -6,23 +6,21 @@
 
 #import <ChatKit/CKMessagePart.h>
 
-@class NSAttributedString, NSString;
+@class NSAttributedString;
 
 @interface CKTextMessagePart : CKMessagePart
 {
     NSAttributedString *_text;
-    NSString *_contentLocation;
 }
 
-@property(copy, nonatomic) NSString *contentLocation; // @synthesize contentLocation=_contentLocation;
-- (void)copyToPasteboard;
+- (id)pasteboardItems;
 - (id)description;
-- (void)dealloc;
-- (id)text;
+@property(readonly, nonatomic) NSAttributedString *text; // @synthesize text=_text;
 - (id)initWithText:(id)arg1;
 - (int)type;
-- (BOOL)isDisplayable;
 - (id)detachedCopy;
+- (void)dealloc;
+- (Class)balloonViewClass;
 
 @end
 

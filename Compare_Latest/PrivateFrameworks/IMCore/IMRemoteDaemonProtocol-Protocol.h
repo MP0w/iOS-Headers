@@ -8,7 +8,6 @@
 
 @protocol IMRemoteDaemonProtocol <NSObject>
 - (void)validateProfileAccount:(id)arg1;
-- (void)refreshVettedAliasesAccount:(id)arg1;
 - (void)unvalidateAliases:(id)arg1 account:(id)arg2;
 - (void)validateAliases:(id)arg1 account:(id)arg2;
 - (void)removeAliases:(id)arg1 account:(id)arg2;
@@ -23,7 +22,6 @@
 - (void)respondToVCInvitationWithPerson:(id)arg1 properties:(id)arg2 conference:(id)arg3 account:(id)arg4;
 - (void)requestVCWithPerson:(id)arg1 properties:(id)arg2 conference:(id)arg3 account:(id)arg4;
 - (void)sendCommand:(id)arg1 withProperties:(id)arg2 toPerson:(id)arg3 account:(id)arg4;
-- (void)sendData:(id)arg1 toPerson:(id)arg2 account:(id)arg3;
 - (void)passwordUpdatedAccount:(id)arg1;
 - (void)setBlockIdleStatus:(BOOL)arg1 account:(id)arg2;
 - (void)setBlockList:(id)arg1 account:(id)arg2;
@@ -57,8 +55,10 @@
 - (void)autoReconnectAccount:(id)arg1;
 - (void)autoLoginAccount:(id)arg1;
 - (void)leaveChat:(id)arg1;
+- (void)chat:(id)arg1 updateDisplayName:(id)arg2;
 - (void)chat:(id)arg1 updateProperties:(id)arg2;
 - (void)cleanupAttachments;
+- (void)updateUnformattedID:(id)arg1 forBuddyID:(id)arg2 onService:(id)arg3;
 - (void)markReadForIDs:(id)arg1 style:(unsigned char)arg2 onServices:(id)arg3 messages:(id)arg4;
 - (void)markReadForMessageGUID:(id)arg1;
 - (void)updateMessage:(id)arg1;
@@ -68,11 +68,7 @@
 - (void)loadHistoryForIDs:(id)arg1 style:(unsigned char)arg2 onServices:(id)arg3 limit:(unsigned int)arg4 beforeGUID:(id)arg5 afterGUID:(id)arg6 chatID:(id)arg7 queryID:(id)arg8;
 - (void)loadMessageWithGUID:(id)arg1 queryID:(id)arg2;
 - (void)setListenerCapabilities:(unsigned int)arg1;
-- (void)conference:(id)arg1 account:(id)arg2 notifyMissedInvitationFromPerson:(id)arg3;
-- (void)conference:(id)arg1 account:(id)arg2 notifyInvitationCancelledFromPerson:(id)arg3;
-- (void)conference:(id)arg1 account:(id)arg2 notifyInvitationFromPerson:(id)arg3;
-- (void)conference:(id)arg1 account:(id)arg2 requestSendResponseWithResult:(int)arg3 toPerson:(id)arg4;
-- (void)clearPendingVCRequestsWithPerson:(id)arg1 forAccount:(id)arg2;
+- (void)account:(id)arg1 avAction:(unsigned int)arg2 withArguments:(id)arg3 toAVChat:(id)arg4 isVideo:(BOOL)arg5;
 - (void)fileTransferRemoved:(id)arg1;
 - (void)fileTransferStopped:(id)arg1;
 - (void)fileTransfer:(id)arg1 acceptedWithPath:(id)arg2 autoRename:(BOOL)arg3 overwrite:(BOOL)arg4;
@@ -86,12 +82,7 @@
 - (void)addAccount:(id)arg1 defaults:(id)arg2 service:(id)arg3;
 - (void)deactivateAccounts:(id)arg1;
 - (void)activateAccounts:(id)arg1;
-- (void)setAVManagerClient:(id)arg1 URLToShare:(id)arg2;
-- (void)provideVideoStill:(id)arg1 forPerson:(id)arg2 result:(unsigned int)arg3 transactionID:(unsigned int)arg4;
-- (void)provideCurrentAVChatInfo:(id)arg1 result:(unsigned int)arg2 transactionID:(unsigned int)arg3;
-- (void)requestVideoStillForPerson:(id)arg1 forListenerID:(id)arg2 responseID:(id)arg3;
-- (void)requestAudioReflector:(BOOL)arg1 forListenerID:(id)arg2 responseID:(id)arg3;
-- (void)requestCurrentAVChatInfoForListenerID:(id)arg1 responseID:(id)arg2;
+- (void)requestPendingACInvites;
 - (void)requestPendingVCInvites;
 - (void)setVCCapabilities:(unsigned long long)arg1;
 - (void)setValue:(id)arg1 ofPersistentProperty:(id)arg2;

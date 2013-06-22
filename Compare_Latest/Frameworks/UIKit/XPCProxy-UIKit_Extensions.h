@@ -7,9 +7,10 @@
 #import "XPCProxy.h"
 
 @interface XPCProxy (UIKit_Extensions)
+- (id)remoteObjectProxyWithErrorHandler:(id)arg1;
 - (id)disconnect;
 - (id)_disconnectionInvocation;
-- (id)proxyWithNewTarget:(id)arg1 label:(id)arg2;
-- (id)proxyWithNewTarget:(id)arg1 queue:(id)arg2;
+- (id)proxyWithNewTarget:(id)arg1 label:(id)arg2 errorHandler:(id)arg3;
+- (id)proxyWithNewTarget:(id)arg1 queue:(id)arg2 errorHandler:(id)arg3;
 @end
 

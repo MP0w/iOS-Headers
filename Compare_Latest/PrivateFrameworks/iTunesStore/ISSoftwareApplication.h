@@ -8,7 +8,7 @@
 
 #import "SSXPCCoding-Protocol.h"
 
-@class NSArray, NSNumber, NSString, SSItemContentRating;
+@class NSArray, NSDate, NSNumber, NSString, SSItemContentRating;
 
 @interface ISSoftwareApplication : NSObject <SSXPCCoding>
 {
@@ -19,6 +19,7 @@
     NSString *_bundleVersion;
     NSString *_containerPath;
     SSItemContentRating *_contentRating;
+    NSString *_deviceIdentifierForVendor;
     NSNumber *_itemIdentifier;
     NSString *_itemName;
     BOOL _profileValidated;
@@ -26,9 +27,12 @@
     NSNumber *_storeFrontIdentifier;
     NSNumber *_versionIdentifier;
     NSArray *_versionOrdering;
+    NSDate *_receiptExpirationDate;
+    unsigned int _vppStateFlags;
 }
 
 + (id)lookupAttributeKeys;
+@property(readonly, nonatomic) NSDate *receiptExpirationDate; // @synthesize receiptExpirationDate=_receiptExpirationDate;
 @property(copy, nonatomic) NSArray *versionOrdering; // @synthesize versionOrdering=_versionOrdering;
 @property(retain, nonatomic) NSNumber *versionIdentifier; // @synthesize versionIdentifier=_versionIdentifier;
 @property(retain, nonatomic) NSNumber *storeFrontIdentifier; // @synthesize storeFrontIdentifier=_storeFrontIdentifier;
@@ -36,6 +40,7 @@
 @property(nonatomic, getter=isProfileValidated) BOOL profileValidated; // @synthesize profileValidated=_profileValidated;
 @property(copy, nonatomic) NSString *itemName; // @synthesize itemName=_itemName;
 @property(retain, nonatomic) NSNumber *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
+@property(copy, nonatomic) NSString *deviceIdentifierForVendor; // @synthesize deviceIdentifierForVendor=_deviceIdentifierForVendor;
 @property(copy, nonatomic) SSItemContentRating *contentRating; // @synthesize contentRating=_contentRating;
 @property(copy, nonatomic) NSString *containerPath; // @synthesize containerPath=_containerPath;
 @property(copy, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
@@ -46,6 +51,8 @@
 - (void)_loadMetadataFromContainer:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
+@property(readonly, nonatomic) unsigned int vppStateFlags;
+- (void)resetVPPStateFlags;
 - (id)description;
 - (void)dealloc;
 - (id)initWithMobileInstallationDictionary:(id)arg1;

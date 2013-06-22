@@ -20,7 +20,6 @@
     NSMutableDictionary *_thumbnailViews;
     NSArray *_timestamps;
     UIMovieScrubberTrackOverlayView *_overlayView;
-    UIView *_maskView;
     UIView *_maskContainerView;
     struct CGSize _thumbnailSize;
     float _zoomOriginXDelta;
@@ -46,8 +45,8 @@
     } _trackFlags;
 }
 
-- (void)_unzoomAnimation:(id)arg1 didFinish:(id)arg2 context:(void *)arg3;
-- (void)_zoomAnimation:(id)arg1 didFinish:(id)arg2 context:(void *)arg3;
+- (void)_unzoomAnimation:(id)arg1 didFinish:(id)arg2 context:(id)arg3;
+- (void)_zoomAnimation:(id)arg1 didFinish:(id)arg2 context:(id)arg3;
 - (void)unzoom;
 - (void)_setOverlayViewIsZoomed:(BOOL)arg1 minValue:(float)arg2 maxValue:(float)arg3;
 - (BOOL)zoomAtPoint:(struct CGPoint)arg1;
@@ -66,8 +65,6 @@
 - (void)setValue:(double)arg1;
 @property(nonatomic) id <UIMovieScrubberTrackViewDelegate> delegate;
 @property(nonatomic) id <UIMovieScrubberTrackViewDataSource> dataSource;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

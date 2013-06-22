@@ -13,6 +13,7 @@
     CoreDAVLeafItem *_uid;
     CoreDAVHrefItem *_href;
     CoreDAVItemWithNoChildren *_inviteStatus;
+    CoreDAVItemWithNoChildren *_calendarPublic;
     CalDAVCalendarServerAccessItem *_access;
     CoreDAVItemWithHrefChildItem *_hostURL;
     CalDAVCalendarServerOrganizerItem *_organizer;
@@ -25,6 +26,7 @@
 @property(retain) CalDAVCalendarServerOrganizerItem *organizer; // @synthesize organizer=_organizer;
 @property(retain) CoreDAVItemWithHrefChildItem *hostURL; // @synthesize hostURL=_hostURL;
 @property(retain) CalDAVCalendarServerAccessItem *access; // @synthesize access=_access;
+@property(retain) CoreDAVItemWithNoChildren *calendarPublic; // @synthesize calendarPublic=_calendarPublic;
 @property(retain) CoreDAVItemWithNoChildren *inviteStatus; // @synthesize inviteStatus=_inviteStatus;
 @property(retain) CoreDAVHrefItem *href; // @synthesize href=_href;
 @property(retain) CoreDAVLeafItem *uid; // @synthesize uid=_uid;

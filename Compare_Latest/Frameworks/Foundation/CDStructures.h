@@ -8,6 +8,18 @@
 
 #pragma mark Named Structures
 
+struct CFURLProtocolImplementation_V0 {
+    int _field1;
+    void *_field2;
+    void *_field3;
+    void *_field4;
+    void *_field5;
+    void *_field6;
+    void *_field7;
+    void *_field8;
+    void *_field9;
+};
+
 struct CGPoint {
     float _field1;
     float _field2;
@@ -19,8 +31,8 @@ struct CGRect {
 };
 
 struct CGSize {
-    float _field1;
-    float _field2;
+    float width;
+    float height;
 };
 
 struct InternalInit {
@@ -98,6 +110,27 @@ struct _NSSimpleAttributeDictionaryElement {
     unsigned int hash;
     id key;
     id value;
+};
+
+struct _URIParseInfo {
+    int userinfoNameOffset;
+    int userinfoPasswordOffset;
+    int hostOffset;
+    int portOffset;
+    int pathOffset;
+    int paramOffset;
+    int queryOffset;
+    int fragmentOffset;
+    int endOffset;
+    unsigned int schemeExists:1;
+    unsigned int authorityExists:1;
+    unsigned int userinfoNameExists:1;
+    unsigned int userinfoPasswordExists:1;
+    unsigned int hostExists:1;
+    unsigned int portExists:1;
+    unsigned int paramExists:1;
+    unsigned int queryExists:1;
+    unsigned int fragmentExists:1;
 };
 
 struct _ftsent {
@@ -252,6 +285,8 @@ struct _xmlParserCtxt {
     int _field85;
     int _field86;
     struct _xmlParserNodeInfo *_field87;
+    int _field88;
+    unsigned long _field89;
 };
 
 struct _xmlParserInput;

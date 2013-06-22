@@ -22,9 +22,9 @@
 
 @property(nonatomic) BOOL shouldIgnoreResponseErrors; // @synthesize shouldIgnoreResponseErrors=_shouldIgnoreResponseErrors;
 @property(readonly, nonatomic) NSSet *parsedContents;
+@property(readonly, nonatomic) NSSet *deletedURLs;
 @property(readonly, nonatomic) NSSet *missingURLs;
 @property(readonly, nonatomic) NSError *error;
-- (void)taskGroupWillCancelWithError:(id)arg1;
 - (void)startTaskGroup;
 - (void)_fetchOneItem;
 - (void)_switchToSingleGetMode;

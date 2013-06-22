@@ -10,12 +10,13 @@
 
 @interface SBDefaultImageInfo : NSObject
 {
+    BOOL _hasSnapshot;
     int _launchingInterfaceOrientation;
     float _launchingScale;
     int _originalOrientation;
     int _currentOrientation;
-    BOOL _hasSnapshot;
     UIImage *_image;
+    struct CGSize _launchingScreenSize;
 }
 
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
@@ -24,6 +25,7 @@
 @property(nonatomic) int originalOrientation; // @synthesize originalOrientation=_originalOrientation;
 @property(nonatomic) float launchingScale; // @synthesize launchingScale=_launchingScale;
 @property(nonatomic) int launchingInterfaceOrientation; // @synthesize launchingInterfaceOrientation=_launchingInterfaceOrientation;
+@property(nonatomic) struct CGSize launchingScreenSize; // @synthesize launchingScreenSize=_launchingScreenSize;
 - (id)description;
 - (void)dealloc;
 

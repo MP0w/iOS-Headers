@@ -61,7 +61,6 @@
 - (void)cacheCurrentSize;
 @property(readonly) BOOL isPreparingForInspection;
 - (void)dealloc;
-- (void)release;
 - (id)initWithDelegate:(id)arg1 item:(id)arg2;
 
 @end

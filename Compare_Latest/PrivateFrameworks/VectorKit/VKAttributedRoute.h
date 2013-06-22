@@ -6,37 +6,37 @@
 
 #import <VectorKit/VKPolylineOverlay.h>
 
-@class VKOriginalRouteMapMatchingDataSource;
+#import "VKRouteMapMatchingDataSource-Protocol.h"
 
-@interface VKAttributedRoute : VKPolylineOverlay
+@class VKAttributedRouteMapMatcher, VKOriginalRouteMapMatchingDataSource;
+
+@interface VKAttributedRoute : VKPolylineOverlay <VKRouteMapMatchingDataSource>
 {
     VKOriginalRouteMapMatchingDataSource *_originalRouteMapMatchingDataSource;
-    id <VKRouteMapMatchingDataSource> _routeLineMapMatchingDataSource;
+    VKAttributedRouteMapMatcher *_driveMapMatcher;
+    VKAttributedRouteMapMatcher *_walkMapMatcher;
 }
 
++ (void)sendCoreLocationRouteHintFromMatch:(id)arg1 location:(id)arg2;
 + (id)attributedRouteWithRoute:(id)arg1;
-@property(nonatomic) id <VKRouteMapMatchingDataSource> routeLineMapMatchingDataSource; // @synthesize routeLineMapMatchingDataSource=_routeLineMapMatchingDataSource;
+- (id)_mapMatcherForTransportType:(int)arg1;
+- (void)forEachMapMatchingSection:(id)arg1;
 - (CDStruct_c3b9c2ee)locationAtDistance:(double)arg1 from:(id)arg2;
 - (id)projectedTunnelMatchUpToDistance:(double)arg1 from:(id)arg2 overTime:(double)arg3;
 - (id)routeMatchAtDistance:(double)arg1 from:(id)arg2 stopBeforeNextManeuver:(BOOL)arg3;
 - (id)_routeMatchAtDistance:(double)arg1 from:(id)arg2 stopAtEndOfTunnel:(BOOL)arg3 stopBeforeNextManeuver:(BOOL)arg4 atDate:(id)arg5;
-- (CDStruct_3f2a7a20)routeCoordinateAtDistanceAlongOriginalRoute:(double)arg1 from:(CDStruct_3f2a7a20)arg2;
-- (CDStruct_c3b9c2ee)locationForRouteCoordinate:(CDStruct_3f2a7a20)arg1;
-- (CDStruct_31142d93)pointForRouteCoordinate:(CDStruct_3f2a7a20)arg1;
-- (CDStruct_31142d93)_pointOnOriginalRouteForRouteCoordinate:(CDStruct_3f2a7a20)arg1;
-- (id)findClosestCoordinateAlongRouteForMatchedLocation:(id)arg1;
-- (id)findClosestCoordinateAlongRouteForMatchedLocation:(id)arg1 onDate:(id)arg2;
-- (id)findClosestCoordinateAlongRouteForLocation:(id)arg1 prevRouteMatch:(id)arg2 onDate:(id)arg3;
-- (id)_findClosestCoordinateAlongRouteForLocation:(id)arg1 prevRouteMatch:(id)arg2 useCLMatchedLocation:(BOOL)arg3 onDate:(id)arg4;
-- (id)_findClosestCoordinateAlongSectionsFromDataSource:(id)arg1 forLocation:(id)arg2 useCLMatchedLocation:(BOOL)arg3 prevRouteMatch:(id)arg4 onDate:(id)arg5;
-- (CDStruct_3f2a7a20)_bestMatchToPolylineSectionFrom:(id)arg1 point:(const CDStruct_31142d93 *)arg2 useCLMatchedLocation:(BOOL)arg3 bounds:(const CDStruct_aca18c62 *)arg4 points:(const struct Vertex *)arg5 pointCount:(unsigned int)arg6 distanceLeftToSearch:(double *)arg7 prevRouteMatch:(id)arg8 bestDistance:(double *)arg9 bestPoint:(CDStruct_31142d93 *)arg10 bestMatchedCourse:(double *)arg11 bestMatchLooksGood:(char *)arg12 bestStepIndex:(unsigned int *)arg13 stopLooking:(char *)arg14;
-- (id)_setupRouteMatchWithRawLocation:(id)arg1 previousMatch:(id)arg2 onDate:(id)arg3 distanceFromRoute:(double)arg4 coordinate:(CDStruct_3f2a7a20)arg5 matchedPoint:(CDStruct_31142d93)arg6 matchedCourse:(double)arg7 stepIndex:(unsigned int)arg8 isGoodMatch:(BOOL)arg9;
-- (CDStruct_3f2a7a20)_findRouteCoordinateWithOffset:(float)arg1 segA:(const struct Vertex *)arg2 segB:(const struct Vertex *)arg3 pointOnSegment:(CDStruct_6e3f967a)arg4 bounds:(const CDStruct_aca18c62 *)arg5;
-- (CDStruct_3f2a7a20)makeRouteCoordinateFromPointIndex:(unsigned int)arg1 offset:(float)arg2;
-- (id)_originalRouteMapMatchingDataSourceAroundPoint:(CDStruct_31142d93)arg1;
+- (struct PolylineCoordinate)routeCoordinateAtDistanceAlongOriginalRoute:(double)arg1 from:(struct PolylineCoordinate)arg2;
+- (struct VKPoint)_pointOnOriginalRouteForRouteCoordinate:(struct PolylineCoordinate)arg1;
+- (id)findClosestCoordinateAlongRouteForMatchedLocation:(id)arg1 transportType:(int)arg2;
+- (id)findClosestCoordinateAlongRouteForMatchedLocation:(id)arg1 onDate:(id)arg2 transportType:(int)arg3;
+- (id)mapMatchToLocation:(id)arg1 onDate:(id)arg2 withTrackedLocation:(id)arg3 transportType:(int)arg4;
+- (id)_findClosestCoordinateAlongRouteForLocation:(id)arg1 trackedLocation:(id)arg2 transportType:(int)arg3 useCLMatchedLocation:(BOOL)arg4 onDate:(id)arg5;
+- (struct PolylineCoordinate)_findRouteCoordinateWithOffset:(float)arg1 aPos:(const Vec2Imp_1782d7e3 *)arg2 aCoord:(const struct PolylineCoordinate *)arg3 bCoord:(const struct PolylineCoordinate *)arg4 pointOnSegment:(Vec2Imp_1782d7e3)arg5 bounds:(const CDStruct_d2b197d1 *)arg6;
+- (struct PolylineCoordinate)makeRouteCoordinateFromPointIndex:(unsigned int)arg1 offset:(float)arg2;
+- (id)_originalRouteMapMatchingDataSourceAroundPoint:(struct VKPoint)arg1;
 - (double)_courseAt:(unsigned int)arg1;
-@property(readonly, nonatomic) CDStruct_3f2a7a20 end;
-@property(readonly, nonatomic) CDStruct_3f2a7a20 start;
+@property(readonly, nonatomic) struct PolylineCoordinate end;
+@property(readonly, nonatomic) struct PolylineCoordinate start;
 - (void)dealloc;
 - (id)initWithRoute:(id)arg1;
 

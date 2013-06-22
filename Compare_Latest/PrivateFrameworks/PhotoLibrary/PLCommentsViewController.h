@@ -12,7 +12,7 @@
 #import "UITableViewDelegate-Protocol.h"
 #import "UITextViewDelegate-Protocol.h"
 
-@class CAGradientLayer, NSCache, PLCloudSharedComment, PLManagedAsset, PLPhotoCommentEntryView, UITableView, UIView;
+@class CAGradientLayer, NSCache, PLCloudSharedComment, PLManagedAsset, PLPhotoCommentEntryView, UIBarButtonItem, UIImageView, UITableView, UIView;
 
 @interface PLCommentsViewController : UIViewController <PLCloudCommentsChangeObserver, PLDismissableViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
 {
@@ -30,6 +30,7 @@
     id <PLCommentsViewControllerDelegate> _commentsControllerDelegate;
     UIView *_containerView;
     NSCache *_commentsHeightCache;
+    UIImageView *_gradientView;
     BOOL _lastRowMasked;
 }
 
@@ -43,9 +44,10 @@
 - (void)_postCommentValidated:(id)arg1;
 - (void)cancelCurrentAction:(id)arg1;
 - (void)cancelDeleteMode:(id)arg1;
-- (BOOL)prepareForDismissingAnimated:(BOOL)arg1;
+- (BOOL)prepareForDismissingForced:(BOOL)arg1;
 - (void)cloudCommentsDidChange:(id)arg1;
 - (void)_smileButtonTapped:(id)arg1;
+- (BOOL)checkAndAlertMaxLikesReached;
 - (void)_addCommentButtonTapped:(id)arg1;
 - (BOOL)_checkAndAlertMaxCommentsReachedWhenFinalizing:(BOOL)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
@@ -58,14 +60,22 @@
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
+- (int)postCommentSection;
+- (int)textCommentSection;
+- (int)assetOwnerCommentSection;
+- (int)smileCommentSection;
+- (BOOL)shouldShowCommentPostingUI;
+- (BOOL)showAssetOwnerSection;
 - (void)textViewDidChange:(id)arg1;
 - (BOOL)_adjustTextEntrySizeForOrientation:(int)arg1;
 - (void)_adjustInitialScrollPosition:(BOOL)arg1;
 - (id)_firstUnreadCloudComment;
 - (void)_updatePostButtonAndPlaceholder;
 - (void)setRasterization:(BOOL)arg1;
+@property(readonly, nonatomic) UIBarButtonItem *cancelButton;
 - (void)setBottomMaskEnabled:(BOOL)arg1;
 - (id)_textInPostFieldTrimmingWhitespace;
 - (void)updateViewLayoutWithDuration:(double)arg1 completion:(id)arg2;
@@ -77,7 +87,6 @@
 - (void)loadView;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (struct CGSize)_preferredViewSizeInContainerSize:(struct CGSize)arg1 forInterfaceOrientation:(int)arg2 tableViewSize:(struct CGSize *)arg3;
-- (float)_topTableMargin;
 - (float)_tableViewHeightForWidth:(float)arg1 interfaceOrientation:(int)arg2;
 - (float)_heightForComment:(id)arg1 forWidth:(float)arg2 forInterfaceOrientation:(int)arg3;
 - (void)dealloc;

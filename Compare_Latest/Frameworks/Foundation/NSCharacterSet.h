@@ -34,6 +34,12 @@
 + (id)whitespaceCharacterSet;
 + (id)controlCharacterSet;
 + (void)initialize;
++ (id)URLFragmentAllowedCharacterSet;
++ (id)URLQueryAllowedCharacterSet;
++ (id)URLPathAllowedCharacterSet;
++ (id)URLHostAllowedCharacterSet;
++ (id)URLPasswordAllowedCharacterSet;
++ (id)URLUserAllowedCharacterSet;
 - (id)_retainedBitmapRepresentation;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

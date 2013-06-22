@@ -9,14 +9,16 @@
 #import "NSCopying-Protocol.h"
 #import "SSXPCCoding-Protocol.h"
 
-@class NSMutableDictionary, NSString;
+@class CLLocation, NSMutableDictionary, NSString;
 
 @interface SSLookupProperties : NSObject <NSCopying, SSXPCCoding>
 {
+    CLLocation *_location;
     int _localizationStyle;
     NSMutableDictionary *_requestParameters;
 }
 
+@property(copy, nonatomic) CLLocation *location; // @synthesize location=_location;
 @property(nonatomic) int localizationStyle; // @synthesize localizationStyle=_localizationStyle;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;

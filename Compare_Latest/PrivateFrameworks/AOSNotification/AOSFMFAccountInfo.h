@@ -6,13 +6,16 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class NSDictionary, NSString;
 
-@interface AOSFMFAccountInfo : NSObject
+@interface AOSFMFAccountInfo : NSObject <NSSecureCoding>
 {
     NSString *_dsid;
     NSString *_username;
     NSString *_appAuthToken;
+    int _appAuthTokenStatus;
     NSDictionary *_additionalInfo;
     NSString *_aosServerHost;
     NSString *_aosServerProtocolScheme;
@@ -20,14 +23,19 @@
     NSString *_internalAuthToken;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(retain, nonatomic) NSString *internalAuthToken; // @synthesize internalAuthToken=_internalAuthToken;
 @property(retain, nonatomic) NSString *aosAPSEnvironment; // @synthesize aosAPSEnvironment=_aosAPSEnvironment;
 @property(retain, nonatomic) NSString *aosServerProtocolScheme; // @synthesize aosServerProtocolScheme=_aosServerProtocolScheme;
 @property(retain, nonatomic) NSString *aosServerHost; // @synthesize aosServerHost=_aosServerHost;
 @property(retain, nonatomic) NSDictionary *additionalInfo; // @synthesize additionalInfo=_additionalInfo;
+@property(nonatomic) int appAuthTokenStatus; // @synthesize appAuthTokenStatus=_appAuthTokenStatus;
 @property(retain, nonatomic) NSString *appAuthToken; // @synthesize appAuthToken=_appAuthToken;
 @property(retain, nonatomic) NSString *username; // @synthesize username=_username;
 @property(retain, nonatomic) NSString *dsid; // @synthesize dsid=_dsid;
+- (id)description;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 
 @end

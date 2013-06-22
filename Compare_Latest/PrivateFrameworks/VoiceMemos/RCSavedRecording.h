@@ -6,29 +6,33 @@
 
 #import "NSManagedObject.h"
 
-@class AVItem, NSDate, NSString;
+#import "UIActivityItemSource-Protocol.h"
 
-@interface RCSavedRecording : NSManagedObject
+@class AVItem, NSDate, NSString, NSURL;
+
+@interface RCSavedRecording : NSManagedObject <UIActivityItemSource>
 {
     AVItem *_avItem;
-    unsigned int _beingRemade:1;
-    NSString *_pathForRemaking;
+    BOOL _beingMade;
 }
 
-+ (id)localizedStringForRecordingLabel:(unsigned int)arg1;
-@property(copy, nonatomic) NSString *pathForRemaking; // @synthesize pathForRemaking=_pathForRemaking;
++ (id)localizedStringForRecordingLabel:(int)arg1;
 - (void).cxx_destruct;
-@property(nonatomic, getter=isBeingRemade) BOOL beingRemade;
+- (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2;
+- (id)activityViewController:(id)arg1 subjectForActivityType:(id)arg2;
+- (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
+- (id)activityViewControllerPlaceholderItem:(id)arg1;
+@property(nonatomic, getter=isBeingMade) BOOL beingMade;
 @property(readonly, nonatomic) AVItem *avItem;
 @property(readonly, nonatomic) NSString *detailLabel;
 @property(readonly, nonatomic) NSString *label;
+@property(readonly, nonatomic) NSURL *url;
 @property(nonatomic, getter=isSynced) BOOL synced;
 @property(nonatomic, getter=isPendingRestore) BOOL pendingRestore; // @dynamic pendingRestore;
 @property(nonatomic) long long iTunesPersistentID;
-@property(nonatomic) unsigned int labelPreset;
+@property(nonatomic) int labelPreset;
 @property(nonatomic) double duration;
 - (void)willSave;
-- (void)awakeFromFetch;
 - (void)awakeFromInsert;
 
 // Remaining properties

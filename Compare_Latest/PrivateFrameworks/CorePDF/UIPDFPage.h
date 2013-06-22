@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString, UIImage, UIPDFDocument, UIPDFSelection;
+@class NSMutableArray, NSString, UIImage, UIPDFDocument, UIPDFSelection;
 
 @interface UIPDFPage : NSObject
 {
@@ -14,9 +14,11 @@
     unsigned int _pageNumber;
     NSString *_stringInReadingOrder;
     UIPDFSelection *_selection;
+    int _lock;
     UIPDFDocument *_document;
     unsigned int _pageIndex;
     UIImage *_pageImage;
+    NSMutableArray *_annotations;
 }
 
 @property(retain) UIImage *pageImage; // @synthesize pageImage=_pageImage;
@@ -25,6 +27,14 @@
 @property(readonly) unsigned int pageIndex; // @synthesize pageIndex=_pageIndex;
 @property(readonly) unsigned int pageNumber; // @synthesize pageNumber=_pageNumber;
 @property(readonly) struct CGPDFPage *CGPage; // @synthesize CGPage=_cgPage;
+- (void)removeAnnotation:(id)arg1;
+- (void)addAnnotation:(id)arg1;
+- (void)removeAllAnnotations;
+- (void)clearAnnotations;
+- (id)annotations;
+- (id)annotationIn:(id)arg1 withIndex:(unsigned int)arg2;
+- (void)refresh;
+- (id)copyPage;
 - (id)findString:(id)arg1 fromSelection:(id)arg2 options:(unsigned int)arg3;
 - (unsigned long)cfCompareFlagsFromNSOptions:(unsigned int)arg1;
 - (id)string;
@@ -38,6 +48,8 @@
 - (id)getImageIfAvailable;
 - (void)drawInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
 - (void)dealloc;
+- (id)initWithDocument:(id)arg1 pageNumber:(unsigned int)arg2;
+- (void)setDocument:(id)arg1;
 - (id)initWithCGPDFPage:(struct CGPDFPage *)arg1;
 
 @end

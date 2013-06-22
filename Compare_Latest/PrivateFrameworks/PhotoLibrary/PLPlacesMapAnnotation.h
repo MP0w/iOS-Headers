@@ -40,9 +40,9 @@
 - (void)updateToTitle:(id)arg1 subtitle:(id)arg2 album:(struct NSObject *)arg3;
 - (struct NSObject *)photoAlbum;
 - (void)setSubtitle:(id)arg1;
-- (id)subtitle;
+@property(readonly, nonatomic) NSString *subtitle;
 - (void)setTitle:(id)arg1;
-- (id)title;
+@property(readonly, nonatomic) NSString *title;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initAnimationOnlyAnnotationWithLongitude:(double)arg1 latitude:(double)arg2;

@@ -13,10 +13,15 @@
 @interface MKUserLocation : NSObject <MKAnnotation>
 {
     MKUserLocationInternal *_internal;
+    double _expectedCoordinateUpdateInterval;
+    double _expectedHeadingUpdateInterval;
 }
 
 + (id)keyPathsForValuesAffectingSubtitle;
 + (void)_setAnnotationClass:(Class)arg1;
++ (id)title;
+@property(nonatomic) double expectedHeadingUpdateInterval; // @synthesize expectedHeadingUpdateInterval=_expectedHeadingUpdateInterval;
+@property(nonatomic) double expectedCoordinateUpdateInterval; // @synthesize expectedCoordinateUpdateInterval=_expectedCoordinateUpdateInterval;
 - (void)reset;
 @property(readonly, nonatomic) NSString *shortDescription;
 - (void)_updateCoordinate;

@@ -13,7 +13,7 @@
 - (BOOL)footerSubtitleAllowsEmail:(id)arg1;
 - (id)footerSubtitleForAlbumView:(id)arg1;
 - (void)albumView:(id)arg1 imageCount:(unsigned int *)arg2 videoCount:(unsigned int *)arg3 otherCount:(unsigned int *)arg4 pendingCount:(unsigned int *)arg5 importOperation:(int *)arg6;
-- (id)albumView:(id)arg1 imageDataForPhotoAtIndexPath:(id)arg2 imageWidth:(int *)arg3 imageHeight:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
+- (id)albumView:(id)arg1 imageForPhotoAtIndexPath:(id)arg2;
 - (unsigned int)albumView:(id)arg1 numberOfPhotosInSection:(unsigned int)arg2;
 
 @optional

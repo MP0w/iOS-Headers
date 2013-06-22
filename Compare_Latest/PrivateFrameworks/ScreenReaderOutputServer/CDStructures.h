@@ -15,3 +15,9 @@ struct __CFArray;
 
 struct __CFSet;
 
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned int _field1[8];
+} CDStruct_6ad76789;
+

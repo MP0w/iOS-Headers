@@ -16,6 +16,7 @@
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (void)_saveRentals;
 - (void)_loadRentals;
 - (void)requestDidFinish:(id)arg1;
@@ -23,7 +24,6 @@
 - (void)removeAllRentalsForDatabaseID:(id)arg1;
 - (void)removeRentalWithItemID:(unsigned long long)arg1;
 - (void)addRentalWithItemID:(unsigned long long)arg1 databaseID:(id)arg2;
-- (void)dealloc;
 - (id)_init;
 - (id)init;
 

@@ -17,12 +17,11 @@
     BOOL _containsEmoji;
     BOOL _canEllipsize;
     struct CGSize _maxSize;
+    int _legibilityStyle;
 }
 
-+ (id)parametersWithText:(id)arg1 canEllipsize:(BOOL)arg2 maxSize:(struct CGSize)arg3;
-- (struct CGSize)shadowOffset;
-- (float)shadowBlur;
-- (id)shadowColor;
++ (id)parametersWithText:(id)arg1 canEllipsize:(BOOL)arg2 maxSize:(struct CGSize)arg3 style:(int)arg4;
+- (int)legibilityStyle;
 - (id)textColor;
 - (id)font;
 - (BOOL)colorspaceIsGrayscale;
@@ -34,7 +33,7 @@
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
-- (id)initWithText:(id)arg1 canEllipsize:(BOOL)arg2 maxSize:(struct CGSize)arg3;
+- (id)initWithText:(id)arg1 canEllipsize:(BOOL)arg2 maxSize:(struct CGSize)arg3 style:(int)arg4;
 
 @end
 

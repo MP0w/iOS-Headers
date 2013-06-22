@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class UILongPressGestureRecognizer, UIMenuController, UIPDFPageView, UIPDFSelectionController, UIPDFViewMagnifyController, UITapGestureRecognizer;
+@class UILongPressGestureRecognizer, UIMenuController, UIPDFMagnifierController, UIPDFPageView, UIPDFSelectionController, UITapGestureRecognizer;
 
 @interface UIPDFViewTouchHandler : UIResponder <UIGestureRecognizerDelegate>
 {
@@ -20,7 +20,7 @@
     UITapGestureRecognizer *_twoFingerTapRecognizer;
     UIMenuController *_menuController;
     UIPDFSelectionController *_selectionController;
-    UIPDFViewMagnifyController *_magnifyController;
+    UIPDFMagnifierController *_magnifyController;
     BOOL _trackingSelection;
     BOOL _showMagnifier;
     BOOL _showLoupe;
@@ -44,6 +44,7 @@
 - (void)doubleTapRecognized:(id)arg1;
 - (void)longPressRecognized:(id)arg1;
 - (void)briefPressRecognized:(id)arg1;
+- (BOOL)delegateGesture:(id)arg1 kind:(int)arg2;
 - (void)setFirstTouch;
 - (BOOL)resignFirstResponder;
 - (BOOL)canBecomeFirstResponder;

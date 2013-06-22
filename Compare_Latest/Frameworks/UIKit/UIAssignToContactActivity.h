@@ -16,12 +16,12 @@
 {
     UIImage *_image;
     ABPeoplePickerNavigationController *_peoplePicker;
-    UIImagePickerController *_imagePickerController;
     void *_person;
+    UIImagePickerController *_imagePickerController;
 }
 
-@property(nonatomic) void *person; // @synthesize person=_person;
 @property(retain, nonatomic) UIImagePickerController *imagePickerController; // @synthesize imagePickerController=_imagePickerController;
+@property(nonatomic) void *person; // @synthesize person=_person;
 @property(retain, nonatomic) ABPeoplePickerNavigationController *peoplePicker; // @synthesize peoplePicker=_peoplePicker;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void)imagePickerControllerDidCancel:(id)arg1;

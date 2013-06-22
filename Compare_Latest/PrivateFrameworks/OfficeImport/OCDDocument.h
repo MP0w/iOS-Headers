@@ -6,20 +6,27 @@
 
 #import "NSObject.h"
 
-@class OADBlipCollection, OCDReader, OCDSummary;
+@class NSData, OADBlipCollection, OADGraphicStyleCache, OADTextListStyle, OCDReader, OCDSummary, OCDWriter;
 
 @interface OCDDocument : NSObject
 {
     OCDReader *mReader;
-    id <OCDWriter> mWriter;
+    OCDWriter *mWriter;
     OCDSummary *mSummary;
     OADBlipCollection *mBlips;
+    OADTextListStyle *mDefaultTextStyle;
+    OADGraphicStyleCache *mGraphicStyleCache;
+    NSData *mEncryptionInfo;
 }
 
+@property(retain, nonatomic) OADGraphicStyleCache *graphicStyleCache; // @synthesize graphicStyleCache=mGraphicStyleCache;
+@property(readonly, nonatomic) OADTextListStyle *defaultTextStyle; // @synthesize defaultTextStyle=mDefaultTextStyle;
 @property(readonly, nonatomic) OADBlipCollection *blips; // @synthesize blips=mBlips;
 @property(readonly, nonatomic) OCDSummary *summary; // @synthesize summary=mSummary;
-@property(retain, nonatomic) id <OCDWriter> writer; // @synthesize writer=mWriter;
+@property(retain, nonatomic) OCDWriter *writer; // @synthesize writer=mWriter;
 @property(retain, nonatomic) OCDReader *reader; // @synthesize reader=mReader;
+- (void)setEncryptionInfo:(id)arg1;
+- (id)encryptionInfo;
 - (_Bool)isToBinaryFile;
 - (_Bool)isFromBinaryFile;
 - (void)dealloc;

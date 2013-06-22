@@ -30,12 +30,12 @@
 }
 
 - (id).cxx_construct;
-- (void)strokePath:(struct CGPath *)arg1;
-- (void)applyDashCap;
-- (void)applyLineCap;
-- (void)applyLineJoin;
-- (void)applyDashPattern;
-- (void)applyDashPattern:(const float *)arg1 count:(int)arg2;
+- (void)strokePath:(id)arg1;
+- (void)applyDashCapToPath:(id)arg1;
+- (void)applyLineCapToPath:(id)arg1;
+- (void)applyLineJoinToPath:(id)arg1;
+- (void)applyDashPatternToPath:(id)arg1;
+- (void)setDashPattern:(const float *)arg1 count:(int)arg2 toPath:(id)arg3;
 - (void)setCustomEndCap:(id)arg1;
 - (id)customEndCap;
 - (void)setCustomStartCap:(id)arg1;

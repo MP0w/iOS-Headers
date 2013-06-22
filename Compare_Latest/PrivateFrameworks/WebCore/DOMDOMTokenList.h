@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)toggle:(id)arg1;
+- (BOOL)toggle:(id)arg1 force:(BOOL)arg2;
 - (void)remove:(id)arg1;
 - (void)add:(id)arg1;
 - (BOOL)contains:(id)arg1;

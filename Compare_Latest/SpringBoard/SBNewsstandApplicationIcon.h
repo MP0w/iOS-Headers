@@ -13,26 +13,19 @@
     SBNewsstandApplication *_fakeApp;
 }
 
-+ (id)iconOverlayImageForIcon:(id)arg1 inLocation:(int)arg2;
 @property(retain, nonatomic) SBNewsstandApplication *fakeApp; // @synthesize fakeApp=_fakeApp;
-- (id)_newlyInstalledSashLabel;
-- (BOOL)_shouldShowSashForNewlyInstalledApp;
-- (id)badgeTextForLocation:(int)arg1;
-- (id)badgeNumberOrString;
-- (int)accessoryTypeForLocation:(int)arg1;
-- (id)gridCellImage;
-- (BOOL)shouldCacheImageForFormat:(int)arg1;
-- (id)iconOverlayImageForLocation:(int)arg1;
 - (id)getGenericIconImage:(int)arg1;
 - (BOOL)iconAppearsInNewsstand;
 - (BOOL)isNewsstandApplicationIcon;
 - (int)iconFormatForLocation:(int)arg1;
-- (void)launch;
+- (void)launch:(int)arg1;
 - (BOOL)launchEnabled;
 - (id)application;
 - (BOOL)shouldWarmUp;
 - (void)dealloc;
 - (id)initWithApplication:(id)arg1;
+- (Class)iconImageViewClassForLocation:(int)arg1;
+- (Class)iconViewClassForLocation:(int)arg1;
 
 @end
 

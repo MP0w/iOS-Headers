@@ -6,21 +6,22 @@
 
 #import <Foundation/NSTask.h>
 
-@class NSMutableDictionary, NSObject<OS_dispatch_source>, NSPort;
+@class NSMutableDictionary, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSPort;
 
 @interface NSConcreteTask : NSTask
 {
+    NSObject<OS_dispatch_semaphore> *_lock;
     NSMutableDictionary *_dictionary;
+    id _terminationHandler;
+    NSObject<OS_dispatch_source> *_dsrc;
+    NSPort *_tmpPort;
+    int _suspendCount;
+    int _pid;
+    int _platformExitInfo;
     BOOL _hasExeced;
     BOOL _isRunning;
     BOOL _hasPostedDeathNotification;
     BOOL _terminationRun;
-    int _suspendCount;
-    id _terminationHandler;
-    int _pid;
-    int _platformExitInfo;
-    NSObject<OS_dispatch_source> *_dsrc;
-    NSPort *_tmpPort;
 }
 
 - (void)setStartsNewProcessGroup:(BOOL)arg1;
@@ -29,12 +30,6 @@
 - (void)finalize;
 - (void)dealloc;
 - (id)init;
-- (id)standardError;
-- (id)standardOutput;
-- (id)standardInput;
-- (void)setStandardError:(id)arg1;
-- (void)setStandardOutput:(id)arg1;
-- (void)setStandardInput:(id)arg1;
 - (int)suspendCount;
 - (BOOL)resume;
 - (BOOL)suspend;
@@ -43,6 +38,12 @@
 - (void)interrupt;
 - (id)taskDictionary;
 - (void)setTaskDictionary:(id)arg1;
+- (void)setStandardError:(id)arg1;
+- (void)setStandardOutput:(id)arg1;
+- (void)setStandardInput:(id)arg1;
+- (id)standardError;
+- (id)standardOutput;
+- (id)standardInput;
 - (id)currentDirectoryPath;
 - (id)preferredArchitectures;
 - (id)arguments;
@@ -53,6 +54,7 @@
 - (void)setCurrentDirectoryPath:(id)arg1;
 - (void)setPreferredArchitectures:(id)arg1;
 - (void)setArguments:(id)arg1;
+- (void)_withTaskDictionary:(id)arg1;
 - (void)waitUntilExit;
 - (void)launchWithDictionary:(id)arg1;
 - (void)launch;

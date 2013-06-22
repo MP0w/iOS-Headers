@@ -19,6 +19,7 @@
 - (double)rightPadding;
 - (double)leftPadding;
 - (void)addTableCellProperties:(id)arg1;
+- (void)addTableCellStyleProperties:(id)arg1;
 - (id)initWithTableCellProperties:(id)arg1;
 
 @end

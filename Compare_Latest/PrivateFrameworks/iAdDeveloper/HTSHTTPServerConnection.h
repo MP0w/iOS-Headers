@@ -26,8 +26,8 @@
     BOOL _outputStalled;
     BOOL _closeOnEmptyQueue;
     NSString *_identifier;
-    double _lastActivity;
     NSTimer *_idleTimer;
+    double _lastActivity;
 }
 
 @property(retain, nonatomic) NSTimer *idleTimer; // @synthesize idleTimer=_idleTimer;

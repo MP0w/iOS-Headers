@@ -14,6 +14,7 @@
 {
 }
 
++ (id)_nodeFromJSWrapper:(struct OpaqueJSValue *)arg1;
 - (BOOL)dispatchEvent:(id)arg1;
 - (void)removeEventListener:(id)arg1:(id)arg2:(BOOL)arg3;
 - (void)removeEventListener:(id)arg1 listener:(id)arg2 useCapture:(BOOL)arg3;
@@ -43,11 +44,11 @@
 @property(readonly) DOMElement *parentElement;
 @property(copy) NSString *textContent;
 @property(readonly) NSString *baseURI;
+@property(readonly) DOMNamedNodeMap *attributes;
 @property(readonly) NSString *localName;
 @property(copy) NSString *prefix;
 @property(readonly) NSString *namespaceURI;
 @property(readonly) DOMDocument *ownerDocument;
-@property(readonly) DOMNamedNodeMap *attributes;
 @property(readonly) DOMNode *nextSibling;
 @property(readonly) DOMNode *previousSibling;
 @property(readonly) DOMNode *lastChild;

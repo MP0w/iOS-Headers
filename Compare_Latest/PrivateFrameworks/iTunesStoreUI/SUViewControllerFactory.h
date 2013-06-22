@@ -17,6 +17,7 @@
 - (id)newPlaceholderViewController;
 - (id)newNetworkLockoutViewControllerWithSection:(id)arg1;
 - (id)newDownloadsViewController;
+- (id)newComposeReviewViewControllerWithCompositionURL:(id)arg1;
 
 @end
 

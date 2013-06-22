@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, UIView, UIWindow;
+#import "_UIResponderForwardable-Protocol.h"
 
-@interface UITouch : NSObject
+@class NSArray, NSMutableArray, UIResponder, UIView, UIWindow;
+
+@interface UITouch : NSObject <_UIResponderForwardable>
 {
     float _movementMagnitudeSquared;
     double _timestamp;
     int _phase;
     int _savedPhase;
     unsigned int _tapCount;
+    int _edgeType;
     UIWindow *_window;
     UIView *_view;
-    UIView *_gestureView;
     UIView *_warpedIntoView;
     NSMutableArray *_gestureRecognizers;
     NSMutableArray *_forwardingRecord;
@@ -34,13 +36,17 @@
         unsigned int _abandonForwardingRecord:1;
     } _touchFlags;
     BOOL _eaten;
+    struct CGSize _displacement;
 }
 
 + (id)_createTouchesWithGSEvent:(struct __GSEvent *)arg1 phase:(int)arg2 view:(id)arg3;
 @property(nonatomic, getter=_isEaten, setter=_setEaten:) BOOL _eaten; // @synthesize _eaten;
+@property(nonatomic, setter=_setEdgeType:) int _edgeType; // @synthesize _edgeType;
+@property(nonatomic, setter=_setDisplacement:) struct CGSize _displacement; // @synthesize _displacement;
 @property(nonatomic, setter=_setPathMajorRadius:) float _pathMajorRadius; // @synthesize _pathMajorRadius;
 @property(nonatomic, setter=_setPathIdentity:) unsigned char _pathIdentity; // @synthesize _pathIdentity;
 @property(nonatomic, setter=_setPathIndex:) unsigned char _pathIndex; // @synthesize _pathIndex;
+@property(nonatomic, setter=_setForwardablePhase:) int _forwardablePhase;
 - (void)_loadStateFromTouch:(id)arg1;
 - (struct CGPoint)previousLocationInView:(id)arg1;
 - (struct CGPoint)locationInView:(id)arg1;
@@ -59,7 +65,12 @@
 - (BOOL)_isStationaryRelativeToTouches:(id)arg1;
 - (void)_updateMovementMagnitudeForLocation:(struct CGPoint)arg1;
 @property(retain, nonatomic) UIView *warpedIntoView;
+@property(retain, nonatomic, setter=_setResponder:) UIResponder *_responder;
+- (SEL)_responderSelectorForPhase:(int)arg1;
 - (id)_forwardingRecord;
+- (void)_abandonForwardingRecord;
+- (BOOL)_isAbandoningForwardingRecord;
+- (id)_mutableForwardingRecord;
 - (BOOL)_wantsForwardingFromResponder:(id)arg1 toNextResponder:(id)arg2 withEvent:(id)arg3;
 - (int)_compareIndex:(id)arg1;
 - (struct CGPoint)_previousLocationInWindow:(id)arg1;
@@ -73,7 +84,6 @@
 - (id)description;
 - (id)_phaseDescription;
 - (void)_setLocationInWindow:(struct CGPoint)arg1 resetPrevious:(BOOL)arg2;
-@property(retain, nonatomic) UIView *gestureView;
 - (BOOL)_isFirstTouchForView;
 - (void)_setIsFirstTouchForView:(BOOL)arg1;
 - (float)_distanceFrom:(id)arg1 inView:(id)arg2;

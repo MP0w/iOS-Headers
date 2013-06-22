@@ -24,8 +24,10 @@
 - (void)deleteCommentWithGUID:(id)arg1;
 - (void)addComments:(id)arg1 toAssetCollectionWithGUID:(id)arg2;
 - (void)markCommentsForAssetCollectionWithGUID:(id)arg1 asViewedWithLastViewedDate:(id)arg2;
+- (void)deleteAssetCollectionsWithGUIDs:(id)arg1;
 - (void)deleteAssetCollectionWithGUID:(id)arg1;
 - (void)addAssetCollections:(id)arg1 toAlbumWithGUID:(id)arg2;
+- (void)setMultipleContributorsEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 completionBlock:(id)arg3;
 - (void)setPublicAccessEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 completionBlock:(id)arg3;
 - (void)removeAccessControlEntryWithGUID:(id)arg1;
 - (void)addAccessControlEntries:(id)arg1 toAlbumWithGUID:(id)arg2;
@@ -49,6 +51,7 @@
 - (void)markCommentsForAssetCollectionWithGUID:(id)arg1 asViewedWithLastViewedDate:(id)arg2 info:(id)arg3;
 - (void)deleteAssetCollectionWithGUID:(id)arg1 info:(id)arg2;
 - (void)addAssetCollections:(id)arg1 toAlbumWithGUID:(id)arg2 info:(id)arg3;
+- (void)setMultipleContributorsEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 info:(id)arg3 completionBlock:(id)arg4;
 - (void)setPublicAccessEnabled:(BOOL)arg1 forAlbumWithGUID:(id)arg2 info:(id)arg3 completionBlock:(id)arg4;
 - (void)removeAccessControlEntryWithGUID:(id)arg1 info:(id)arg2;
 - (void)addAccessControlEntries:(id)arg1 toAlbumWithGUID:(id)arg2 info:(id)arg3;
@@ -66,6 +69,7 @@
 - (void)refreshCommentsForAssetCollectionWithGUID:(id)arg1 resetSync:(BOOL)arg2 info:(id)arg3;
 - (void)refreshContentOfAlbumWithGUID:(id)arg1 resetSync:(BOOL)arg2 info:(id)arg3;
 - (void)refreshResetSync:(BOOL)arg1 info:(id)arg2;
+- (id)serverCommunicationBackoffDate;
 - (id)userInfoForCommentWithGUID:(id)arg1;
 - (void)setUserInfo:(id)arg1 forCommentWithGUID:(id)arg2;
 - (id)userInfoForInvitationWithGUID:(id)arg1;
@@ -85,6 +89,8 @@
 - (id)captionForAssetCollectionWithGUID:(id)arg1;
 - (id)commentWithGUID:(id)arg1;
 - (id)commentsForAssetCollectionWithGUID:(id)arg1;
+- (void)videoURLsForAssetCollectionWithGUID:(id)arg1 forMediaAssetType:(unsigned int)arg2 completionBlock:(id)arg3;
+- (void)videoURLForAssetCollectionWithGUID:(id)arg1 completionBlock:(id)arg2;
 - (id)assetCollectionWithGUID:(id)arg1;
 - (id)assetCollectionGUIDsInAlbumWithGUID:(id)arg1;
 - (id)assetCollectionsInAlbumWithGUID:(id)arg1;

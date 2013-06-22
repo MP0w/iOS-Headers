@@ -14,6 +14,7 @@
 {
     SUControlAppearance *_backButtonAppearance;
     SUControlAppearance *_confirmationButtonAppearance;
+    SUControlAppearance *_destructiveButtonAppearance;
     SUControlAppearance *_exitStoreButtonAppearance;
     SUControlAppearance *_forwardButtonAppearance;
     BOOL _isDefaultAppearance;
@@ -28,15 +29,18 @@
 + (id)_defaultTabBarAppearance;
 + (id)_defaultForwardButtonAppearance;
 + (id)_defaultDoneButtonAppearance;
++ (id)_defaultDestructiveButtonAppearance;
 + (id)_defaultConfirmationButtonAppearance;
 + (id)_defaultButtonAppearance;
 + (id)_defaultBackButtonAppearance;
++ (id)_defaultShadowWithColor:(id)arg1 offset:(struct CGSize)arg2;
 + (id)defaultAppearance;
 @property(copy, nonatomic) SUToolbarAppearance *toolbarAppearance; // @synthesize toolbarAppearance=_toolbarAppearance;
 @property(copy, nonatomic) SUTabBarAppearance *tabBarAppearance; // @synthesize tabBarAppearance=_tabBarAppearance;
 @property(copy, nonatomic) NSDictionary *navigationBarTitleTextAttributes; // @synthesize navigationBarTitleTextAttributes=_navigationBarTitleTextAttributes;
 @property(copy, nonatomic) SUControlAppearance *forwardButtonAppearance; // @synthesize forwardButtonAppearance=_forwardButtonAppearance;
 @property(copy, nonatomic) SUControlAppearance *exitStoreButtonAppearance; // @synthesize exitStoreButtonAppearance=_exitStoreButtonAppearance;
+@property(copy, nonatomic) SUControlAppearance *destructiveButtonAppearance; // @synthesize destructiveButtonAppearance=_destructiveButtonAppearance;
 @property(copy, nonatomic) SUControlAppearance *confirmationButtonAppearance; // @synthesize confirmationButtonAppearance=_confirmationButtonAppearance;
 @property(copy, nonatomic) SUControlAppearance *backButtonAppearance; // @synthesize backButtonAppearance=_backButtonAppearance;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -44,10 +48,12 @@
 - (void)_styleBackBarButtonItem:(id)arg1;
 - (void)styleToolbar:(id)arg1;
 - (void)styleTabBarItem:(id)arg1;
+- (void)styleTabBar:(id)arg1;
 - (void)styleSegmentedControl:(id)arg1 tintStyle:(int)arg2;
 - (void)styleNavigationBar:(id)arg1;
 - (void)styleForwardButtonItem:(id)arg1;
 - (void)styleExitStoreButtonItem:(id)arg1;
+- (void)styleDestructiveButton:(id)arg1;
 - (void)styleConfirmationButtonItem:(id)arg1;
 - (void)styleBarButtonItem:(id)arg1;
 - (void)setSegmentedControlAppearance:(id)arg1 forStyle:(int)arg2 tintStyle:(int)arg3;

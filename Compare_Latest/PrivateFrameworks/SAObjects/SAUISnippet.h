@@ -6,7 +6,7 @@
 
 #import <SAObjects/SAAceView.h>
 
-@class NSArray, SAUIConfirmationOptions;
+@class SAUIConfirmationOptions;
 
 @interface SAUISnippet : SAAceView
 {
@@ -14,7 +14,6 @@
 
 + (id)snippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)snippet;
-@property(copy, nonatomic) NSArray *otherOptions;
 @property(retain, nonatomic) SAUIConfirmationOptions *confirmationOptions;
 - (id)encodedClassName;
 - (id)groupIdentifier;

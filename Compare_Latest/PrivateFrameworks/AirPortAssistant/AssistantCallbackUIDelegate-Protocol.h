@@ -5,6 +5,7 @@
  */
 
 @protocol AssistantCallbackUIDelegate
+- (void)callbackAskCancel;
 
 @optional
 - (long)callbackAskUserAQuestion:(int)arg1 paramDict:(id)arg2 forController:(id)arg3;

@@ -6,13 +6,13 @@
 
 #import "UIView.h"
 
-@class PLCommentTextView, UIButton, UILabel, UIScrollView;
+@class PLCommentTextView, UIButton, UILabel, UIScrollView, _UIBackdropView;
 
 @interface PLPhotoCommentEntryView : UIView
 {
     UIScrollView *_scrollview;
-    UIView *_styledSeparatorView;
     UILabel *placeholderLabel;
+    _UIBackdropView *_backdropView;
     UILabel *_placeholderLabel;
     PLCommentTextView *_textView;
     UIButton *_postButton;
@@ -22,7 +22,6 @@
 @property(readonly, nonatomic) PLCommentTextView *textView; // @synthesize textView=_textView;
 @property(readonly, nonatomic) UILabel *placeholderLabel; // @synthesize placeholderLabel=_placeholderLabel;
 - (void)layoutSubviews;
-- (void)adjustButtonPosition;
 - (float)preferredHeightForOrientation:(int)arg1;
 - (float)heightForTextContentHeight:(float)arg1 orientation:(int)arg2;
 - (void)dealloc;

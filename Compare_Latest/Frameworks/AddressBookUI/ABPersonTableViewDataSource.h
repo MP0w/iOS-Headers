@@ -11,11 +11,10 @@
 #import "UITableViewDataSourcePrivate-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class ABActionsController, ABLabelViewWithVariablePositioning, ABMultiCellContentView, ABNamePropertyGroup, ABPersonCellLayoutManager, ABPersonImageView, ABPersonPickersDelegate, ABPersonTableFooterView, ABPersonTableHeaderView, ABPersonTableView, ABPersonTableViewActionsDelegate, ABPersonTableViewImageDataDelegate, ABPersonTableViewLinkingDelegate, ABPersonTableViewMultiCellDelegate, ABPersonTableViewSharingDelegate, AccountsManager, NSArray, NSDictionary, NSIndexPath, NSMutableArray, NSMutableDictionary, NSString, UIFont, UILabel, UIResponder, UITableViewCell, UIView;
+@class ABActionsController, ABLabelViewWithVariablePositioning, ABMultiCellContentView, ABNamePropertyGroup, ABPersonCellLayoutManager, ABPersonImageView, ABPersonPickersDelegate, ABPersonTableFooterView, ABPersonTableHeaderView, ABPersonTableView, ABPersonTableViewActionsDelegate, ABPersonTableViewImageDataDelegate, ABPersonTableViewLinkingDelegate, ABPersonTableViewMultiCellDelegate, ABPersonTableViewSharingDelegate, ABUIPerson, NSArray, NSDictionary, NSIndexPath, NSMutableArray, NSMutableDictionary, NSString, UIFont, UILabel, UIResponder, UITableViewCell, UIView;
 
 @interface ABPersonTableViewDataSource : NSObject <UITableViewDelegate, UITableViewDataSourcePrivate, ABPrimaryValueDelegate, ABPersonCellLayoutManagerDelegate>
 {
-    AccountsManager *_accountsManager;
     ABActionsController *_actionsController;
     struct __CFArray *_optionalProperties;
     struct __CFArray *_additionalProperties;
@@ -32,7 +31,7 @@
     NSMutableDictionary *_unusedPropertyGroupsStore;
     NSMutableArray *_editablePropertyGroups;
     NSMutableArray *_propertyGroups;
-    void *_preinsertedPerson;
+    ABUIPerson *_preinsertedPerson;
     struct __CFSet *_addNewValuePropertiesStore;
     struct __CFSet *_addNewValueProperties;
     ABNamePropertyGroup *_namePropertyGroup;
@@ -52,10 +51,6 @@
     BOOL _isUnlinkingPerson;
     BOOL _badgeEmailPropertiesForMailVIP;
     float _lastReturnedHeaderHeight;
-    NSArray *_people;
-    void *_addressBook;
-    id <ABPersonTableViewDataSourceDelegate> _delegate;
-    ABPersonTableView *_tableView;
     BOOL _allowsActions;
     BOOL _allowsEditing;
     BOOL _allowsAddToFavorites;
@@ -66,10 +61,19 @@
     BOOL _allowsSounds;
     BOOL _allowsVibrations;
     BOOL _shouldShowContactSourcesStringAsMessage;
+    BOOL _highlightedValueIsImportant;
+    BOOL _isSettingFirstResponder;
+    BOOL _isEndingEditingTransactions;
+    BOOL _viewControllerWillSlideOut;
+    BOOL _selectedPropertyForCellWithoutLabelDivider;
+    BOOL _ignoreVibrationsDidChangeNotification;
+    NSArray *_people;
+    void *_addressBook;
+    id <ABPersonTableViewDataSourceDelegate> _delegate;
+    ABPersonTableView *_tableView;
     struct __CFArray *_displayedProperties;
     int _highlightedValueProperty;
     int _highlightedValueIdentifier;
-    BOOL _highlightedValueIsImportant;
     int _insertionProperty;
     id _insertionValue;
     id _insertionLabel;
@@ -81,13 +85,8 @@
     NSIndexPath *_pinningMultiCellIndexPath;
     NSIndexPath *_pinningMultiCellRelativeIndexPath;
     UIResponder *_pinningResponder;
-    BOOL _isSettingFirstResponder;
-    BOOL _isEndingEditingTransactions;
-    BOOL _viewControllerWillSlideOut;
     int _customKeyboardOutDirection;
     NSMutableArray *_additionalLabels;
-    BOOL _selectedPropertyForCellWithoutLabelDivider;
-    BOOL _ignoreVibrationsDidChangeNotification;
 }
 
 @property(nonatomic) BOOL badgeEmailPropertiesForMailVIP; // @synthesize badgeEmailPropertiesForMailVIP=_badgeEmailPropertiesForMailVIP;
@@ -205,7 +204,6 @@
 - (id)propertyGroupsForEditing:(BOOL)arg1;
 - (id)newPropertyGroupsForEditing:(BOOL)arg1;
 - (id)newPropertyGroupsForEditing:(BOOL)arg1 withDisplayedProperties:(struct __CFArray *)arg2;
-- (BOOL)isMe;
 - (id)displayedPropertyGroupForProperty:(int)arg1 context:(void *)arg2 whenEditing:(BOOL)arg3;
 - (id)propertyGroupForProperty:(int)arg1 context:(void *)arg2;
 - (id)propertyGroupForProperty:(int)arg1 context:(void *)arg2 createIfEmpty:(BOOL)arg3;
@@ -216,7 +214,6 @@
 - (struct __CFArray *)additionalProperties;
 - (struct __CFArray *)newAdditionalProperties;
 - (BOOL)isPropertyOptional:(int)arg1;
-- (void *)policyForPerson:(void *)arg1;
 - (void)updateCellEditingStyleAtIndexPath:(id)arg1;
 - (int)tableViewRowAnimationForUpdateAction:(unsigned int)arg1 isFirstRow:(BOOL)arg2;
 - (id)_notesHeaderView;
@@ -296,7 +293,6 @@
 - (BOOL)isPropertyDisplayed:(int)arg1;
 - (void)setDisplayedProperties:(struct __CFArray *)arg1 andRefreshUI:(BOOL)arg2;
 - (id)namePropertyGroup;
-- (id)accountsManager;
 - (id)actionsController;
 - (BOOL)allowsVoiceFavorite;
 - (BOOL)allowsFaceTimeFavorite;
@@ -319,8 +315,6 @@
 - (void)_conferenceHistoryChanged:(id)arg1;
 - (void)updateContactSourcesStringIfNeeded;
 - (id)_contactSourcesString;
-- (id)secondarySourceNameForPerson:(void *)arg1;
-- (id)primarySourceNameForPerson:(void *)arg1;
 - (void)_getFirstRows:(id *)arg1 andOtherRows:(id *)arg2 fromIndexPaths:(id)arg3;
 - (BOOL)_isReadonlyAtIndexPath:(id)arg1;
 - (void)_getPropertyGroup:(id *)arg1 index:(int *)arg2 editableFlag:(char *)arg3 atIndexPath:(id)arg4;

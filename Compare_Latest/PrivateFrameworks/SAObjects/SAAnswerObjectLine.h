@@ -8,7 +8,7 @@
 
 #import "SAAceSerializable-Protocol.h"
 
-@class NSString, NSURL;
+@class NSNumber, NSString, NSURL;
 
 @interface SAAnswerObjectLine : AceObject <SAAceSerializable>
 {
@@ -17,6 +17,7 @@
 + (id)objectLineWithDictionary:(id)arg1 context:(id)arg2;
 + (id)objectLine;
 @property(copy, nonatomic) NSString *text;
+@property(copy, nonatomic) NSNumber *imageInverted;
 @property(copy, nonatomic) NSURL *image;
 - (id)encodedClassName;
 - (id)groupIdentifier;

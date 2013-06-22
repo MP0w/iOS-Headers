@@ -6,25 +6,23 @@
 
 #import "NSObject.h"
 
-@class AVAssetWriterInputWritingHelper, NSObject<OS_dispatch_queue>;
+@class NSObject<OS_dispatch_queue>;
 
 @interface AVAssetWriterInputMediaDataRequester : NSObject
 {
-    AVAssetWriterInputWritingHelper *_writingHelper;
     NSObject<OS_dispatch_queue> *_requestQueue;
     id _requestBlock;
+    id <AVAssetWriterInputMediaDataRequesterDelegate> _delegate;
 }
 
-@property(readonly, nonatomic) id requestBlock; // @synthesize requestBlock=_requestBlock;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *requestQueue; // @synthesize requestQueue=_requestQueue;
-- (void)_requestMediaDataIfReady;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)invalidate;
-- (void)startRequestingMediaData;
+@property id <AVAssetWriterInputMediaDataRequesterDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)requestMediaDataIfNecessary;
 - (void)finalize;
 - (void)dealloc;
+- (void)_collectUncollectables_invokedFromDeallocAndFinalize;
 - (id)init;
-- (id)initWithAssetWriterInputWritingHelper:(id)arg1 requestQueue:(id)arg2 requestBlock:(id)arg3;
+- (id)initWithRequestQueue:(id)arg1 requestBlock:(id)arg2;
 
 @end
 

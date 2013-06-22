@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
+@class NSMutableArray;
+
 @interface GEOTileEditionUpdate : NSObject
 {
-    struct vector<EditionEntry, std::__1::allocator<EditionEntry>> _entries;
+    NSMutableArray *_entries;
     BOOL _flushEverything;
 }
 
 @property(nonatomic) BOOL flushEverything; // @synthesize flushEverything=_flushEverything;
-- (id).cxx_construct;
-- (void).cxx_destruct;
+- (void)dealloc;
 - (void)tileset:(unsigned int *)arg1 edition:(unsigned int *)arg2 provider:(unsigned int *)arg3 atIndex:(unsigned int)arg4;
 - (unsigned int)tilesetCount;
 - (void)addTileset:(unsigned int)arg1 edition:(unsigned int)arg2 provider:(unsigned int)arg3;
+- (id)init;
 
 @end
 

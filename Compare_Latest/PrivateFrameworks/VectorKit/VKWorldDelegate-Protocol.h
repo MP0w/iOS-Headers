@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol VKWorldDelegate <NSObject>
+- (void)runAnimation:(id)arg1;
 - (void)worldDisplayDidChange:(id)arg1;
 - (void)worldLayoutDidChange:(id)arg1;
 @end

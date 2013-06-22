@@ -53,10 +53,10 @@
 @property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
 @property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly;
 @property(readonly, nonatomic) AVAssetCache *assetCache;
+- (BOOL)_hasResourceLoaderDelegate;
 @property(readonly, nonatomic) AVAssetResourceLoader *resourceLoader;
-- (id)requestForStreamingKeyForContext:(id)arg1 appID:(id)arg2 assetID:(id)arg3 options:(id)arg4 errorOut:(id *)arg5;
 - (void)_handleURLRequest:(id)arg1;
-- (void)_finishLoadingURLRequestWithResponseProperties:(id)arg1 context:(id)arg2;
+- (void)_finishLoadingCustomURLProviderRequestWithResponseProperties:(id)arg1 context:(id)arg2;
 
 @end
 

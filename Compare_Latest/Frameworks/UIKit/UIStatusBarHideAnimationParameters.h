@@ -14,6 +14,7 @@
 
 @property(nonatomic) float additionalSlideHeight; // @synthesize additionalSlideHeight=_additionalSlideHeight;
 @property(nonatomic) int hideAnimation; // @synthesize hideAnimation=_hideAnimation;
+- (BOOL)shouldAnimate;
 - (id)initWithDefaultParameters;
 
 @end

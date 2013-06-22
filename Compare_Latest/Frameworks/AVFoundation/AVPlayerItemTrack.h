@@ -19,6 +19,9 @@
 - (void)_setAudioTapProcessor:(struct opaqueMTAudioProcessingTap *)arg1;
 - (void)_setAudioVolumeCurve:(id)arg1;
 - (id)_audioVolumeCurve;
+- (void)setLoudnessInfo:(id)arg1;
+- (id)loudnessInfo;
+@property(readonly, nonatomic) float currentVideoFrameRate;
 - (id)fallbackTrack;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
 @property(readonly, nonatomic) AVAssetTrack *assetTrack;

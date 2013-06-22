@@ -23,7 +23,8 @@
 - (id)aceDictionary;
 - (id)commandValueForKey:(id)arg1;
 @property(readonly, nonatomic) NSString *domain;
-- (id)initWithMessage:(id)arg1;
+- (id)initWithData:(id)arg1 context:(id)arg2;
+- (id)initWithCommandInfo:(id)arg1 context:(id)arg2;
 
 @end
 

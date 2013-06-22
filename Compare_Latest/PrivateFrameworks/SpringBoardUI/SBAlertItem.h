@@ -21,14 +21,17 @@
     BOOL _allowInSetup;
     BOOL _pendInSetupIfNotAllowed;
     NSArray *_allowedBundleIDs;
+    BOOL _allowInStark;
 }
 
 + (void)activateAlertItem:(id)arg1;
 + (id)_alertItemsController;
+@property(nonatomic) BOOL allowInStark; // @synthesize allowInStark=_allowInStark;
 @property(retain, nonatomic) NSArray *allowedBundleIDs; // @synthesize allowedBundleIDs=_allowedBundleIDs;
 @property(nonatomic) BOOL pendInSetupIfNotAllowed; // @synthesize pendInSetupIfNotAllowed=_pendInSetupIfNotAllowed;
 @property(nonatomic) BOOL allowInSetup; // @synthesize allowInSetup=_allowInSetup;
 @property(nonatomic) BOOL ignoreIfAlreadyDisplaying; // @synthesize ignoreIfAlreadyDisplaying=_ignoreIfAlreadyDisplaying;
+- (id)prepareNewAlertSheetWithLockedState:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (BOOL)hasActiveKeyboardOnScreen;
 - (int)alertPriority;
@@ -64,11 +67,13 @@
 - (void)cleanPreviousConfiguration;
 - (void)playPresentationSound;
 - (void)_playPresentationSound;
+- (id)sound;
 - (BOOL)didPlayPresentationSound;
 - (BOOL)isCriticalAlert;
 - (BOOL)dismissOnModalDisplayActivation;
 - (BOOL)dismissOnLock;
 - (BOOL)togglesMediaControls;
+- (int)unlockSource;
 - (BOOL)unlocksScreen;
 - (BOOL)undimsScreen;
 - (BOOL)shouldShowInEmergencyCall;

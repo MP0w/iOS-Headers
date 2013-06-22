@@ -19,17 +19,17 @@
     BOOL _actionsDisabled;
 }
 
+- (void).cxx_destruct;
 - (id)importAllIntoCalendar:(id)arg1;
 - (id)importEvent:(id)arg1 intoCalendar:(id)arg2;
 @property(readonly, nonatomic) NSArray *allEvents;
 @property(readonly, nonatomic) NSArray *unimportedEvents;
 @property(readonly, nonatomic) NSArray *importedEvents;
 @property(readonly, nonatomic) BOOL actionsDisabled;
-@property(readonly, nonatomic) int unimportedEventCount;
-@property(readonly, nonatomic) int importedEventCount;
-@property(readonly, nonatomic) int totalEventCount;
+@property(readonly, nonatomic) unsigned int unimportedEventCount;
+@property(readonly, nonatomic) unsigned int importedEventCount;
+@property(readonly, nonatomic) unsigned int totalEventCount;
 @property(readonly, nonatomic) EKEventStore *eventStore;
-- (void)dealloc;
 - (id)initWithICSData:(id)arg1 eventStore:(id)arg2 options:(unsigned int)arg3;
 
 @end

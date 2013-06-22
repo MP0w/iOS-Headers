@@ -14,7 +14,8 @@
     BOOL _nonChaperonePairingAllowed;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
 @property(readonly, nonatomic) BOOL nonChaperonePairingAllowed; // @synthesize nonChaperonePairingAllowed=_nonChaperonePairingAllowed;
 @property(readonly, nonatomic) NSData *pairingCertificateData; // @synthesize pairingCertificateData=_pairingCertificateData;

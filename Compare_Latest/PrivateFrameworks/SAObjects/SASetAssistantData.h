@@ -16,6 +16,7 @@
 
 + (id)setAssistantDataWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setAssistantData;
+@property(nonatomic) BOOL voiceOver;
 @property(copy, nonatomic) NSNumber *uiScale;
 @property(copy, nonatomic) NSNumber *twentyFourHourTimeDisplay;
 @property(copy, nonatomic) NSString *timeZoneId;

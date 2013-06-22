@@ -25,14 +25,14 @@
     BOOL _immutablePathIsValid;
 }
 
++ (id)_continuousRoundedRectBezierPath:(struct CGRect)arg1 withRoundedCorners:(int)arg2 cornerRadii:(id)arg3 segments:(int)arg4;
++ (id)_continuousRoundedRectBezierPath:(struct CGRect)arg1 withRoundedCorners:(int)arg2 cornerRadius:(struct CGSize)arg3 segments:(int)arg4;
 + (id)_roundedRectBezierPath:(struct CGRect)arg1 withRoundedCorners:(int)arg2 cornerRadius:(float)arg3 segments:(int)arg4;
 + (id)roundedRectBezierPath:(struct CGRect)arg1 withRoundedCorners:(int)arg2 withCornerRadii:(id)arg3;
 + (id)roundedRectBezierPath:(struct CGRect)arg1 withRoundedCorners:(int)arg2 withCornerRadius:(float)arg3;
 + (id)roundedRectBezierPath:(struct CGRect)arg1 withRoundedEdges:(int)arg2;
 + (id)_bezierPathWithRoundedRect:(struct CGRect)arg1 byRoundingCorners:(unsigned int)arg2 cornerRadius:(float)arg3;
 + (id)roundedRectBezierPath:(struct CGRect)arg1 withTopCornerRadius:(float)arg2 withBottomCornerRadius:(float)arg3;
-+ (id)bezierPathForBottomOfRect:(struct CGRect)arg1 withCornerRadius:(float)arg2;
-+ (id)bezierPathForTopOfRect:(struct CGRect)arg1 withCornerRadius:(float)arg2;
 + (id)bezierPathWithCGPath:(struct CGPath *)arg1;
 + (id)bezierPathWithArcCenter:(struct CGPoint)arg1 radius:(float)arg2 startAngle:(float)arg3 endAngle:(float)arg4 clockwise:(BOOL)arg5;
 + (id)bezierPathWithRoundedRect:(struct CGRect)arg1 byRoundingCorners:(unsigned int)arg2 cornerRadii:(struct CGSize)arg3;
@@ -55,6 +55,7 @@
 - (void)clip;
 - (void)lineToPoint:(struct CGPoint)arg1;
 - (struct CGPath *)_pathRef;
+- (void)_addRoundedCornerWithTrueCorner:(struct CGPoint)arg1 radius:(struct CGSize)arg2 corner:(unsigned int)arg3 clockwise:(BOOL)arg4;
 - (struct CGPath *)_createMutablePathByDecodingData:(id)arg1;
 - (struct CGPath *)_mutablePath;
 - (void)addClip;

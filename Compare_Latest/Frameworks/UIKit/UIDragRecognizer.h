@@ -18,8 +18,16 @@
     UITouch *_touch;
     UIDelayedAction *_tooSlow;
     double _startAngle;
+    double _quietPeriod;
+    BOOL _canBeginDrag;
+    SEL _checkCanBeginDrag;
+    UIDelayedAction *ignoreTouch;
 }
 
+@property(retain, nonatomic) UIDelayedAction *ignoreTouch; // @synthesize ignoreTouch;
+@property(nonatomic) SEL checkCanBeginDrag; // @synthesize checkCanBeginDrag=_checkCanBeginDrag;
+@property(nonatomic) BOOL canBeginDrag; // @synthesize canBeginDrag=_canBeginDrag;
+@property(nonatomic) double quietPeriod; // @synthesize quietPeriod=_quietPeriod;
 @property(nonatomic) double startAngle; // @synthesize startAngle=_startAngle;
 @property(nonatomic) double angle; // @synthesize angle=_angle;
 @property(nonatomic) BOOL restrictsToAngle; // @synthesize restrictsToAngle=_restrictsToAngle;
@@ -31,6 +39,7 @@
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)clearIgnoreTouch;
 - (void)tooSlow:(id)arg1;
 - (void)clearTimer;
 - (void)_resetGestureRecognizer;

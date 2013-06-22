@@ -52,6 +52,7 @@
 + (void)_setInsomniaState:(BOOL)arg1;
 + (unsigned int)_voicemailPowerAssertion;
 + (BOOL)sharedServiceIsSubscribed;
++ (BOOL)_lockedSharedServiceIsSubscribed;
 + (id)sharedService;
 + (void)_handleSIMChange;
 + (void)initialize;
@@ -94,7 +95,7 @@
 - (int)maximumRecordedNameDuration;
 - (int)maximumGreetingDuration;
 - (void)cancelPasswordRequest;
-- (void)handlePasswordNotificationResponse:(struct __CFUserNotification *)arg1 flags:(unsigned long)arg2;
+- (void)handlePasswordNotificationResponse:(id)arg1;
 - (void)displayPasswordRequestIfNecessary;
 - (void)handlePasswordRequestCancellation;
 - (id)provisionalPassword;
@@ -133,7 +134,7 @@
 - (void)removeAllNonDetachedRecords;
 - (void)removeAllRecords;
 - (void)resetCounts;
-- (void)updateCountsForChangedFlags:(int)arg1 currentRecordFlags:(int)arg2;
+- (void)updateCountsForChangedFlags:(unsigned int)arg1 currentRecordFlags:(unsigned int)arg2;
 - (void)setTrashedCount:(unsigned int)arg1;
 - (unsigned int)trashedCount;
 - (void)setUnreadCount:(unsigned int)arg1;

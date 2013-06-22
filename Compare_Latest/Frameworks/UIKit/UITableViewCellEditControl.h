@@ -6,11 +6,14 @@
 
 #import <UIKit/UIControl.h>
 
-@class UITableViewCell;
+@class UIImageView, UITableViewCell, _UITableViewCellEditControlMinusView;
 
 @interface UITableViewCellEditControl : UIControl
 {
     UITableViewCell *_cell;
+    UIImageView *_imageView;
+    _UITableViewCellEditControlMinusView *_minusView;
+    UIImageView *_shadowView;
     unsigned int _style:2;
     unsigned int _rotated:1;
     unsigned int _rotating:1;
@@ -22,9 +25,9 @@
 + (id)_multiSelectHighlightedImage;
 + (id)_multiSelectSelectedImage;
 + (id)_multiSelectNotSelectedImage;
-+ (id)_insertImage;
-+ (id)_deleteImage;
-+ (id)_deleteImageBackground;
++ (id)_insertImage:(float)arg1;
++ (id)_deleteImage:(float)arg1;
++ (id)_deleteImageBackground:(float)arg1;
 + (struct CGRect)_minusRect;
 - (void)_multiselectColorChanged;
 @property(nonatomic, getter=isHiding) BOOL hiding;
@@ -36,6 +39,8 @@
 - (void)setHighlighted:(BOOL)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
+- (id)_shadowImage;
+- (void)dealloc;
 - (id)initWithTableViewCell:(id)arg1 editingStyle:(int)arg2;
 - (id)_currentImage;
 - (void)_toggleRotate;

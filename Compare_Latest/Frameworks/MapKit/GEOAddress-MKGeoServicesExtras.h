@@ -8,5 +8,6 @@
 
 @interface GEOAddress (MKGeoServicesExtras)
 - (id)singleLineAddress;
+- (id)initWithPlacemark:(id)arg1;
 @end
 

@@ -14,23 +14,23 @@
     NSString *_transformFunction;
     int _comparison;
     BOOL _caseInsensitive;
-    BOOL _treatNullAsBlank;
+    NSString *_treatNullAsString;
 }
 
 + (id)predicateWithProperty:(id)arg1 equalToValue:(id)arg2;
 + (id)predicateWithProperty:(id)arg1 equalToInteger:(int)arg2;
 + (id)predicateWithProperty:(id)arg1 equalToInt64:(long long)arg2;
 + (id)predicateWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3 transformFunction:(id)arg4;
-+ (id)predicateWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3 caseInsensitive:(BOOL)arg4 treatNullAsBlank:(BOOL)arg5;
++ (id)predicateWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3 caseInsensitive:(BOOL)arg4 treatNullAsString:(id)arg5;
 + (id)predicateWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3 caseInsensitive:(BOOL)arg4;
 + (id)predicateWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3;
 @property(copy, nonatomic) NSString *transformFunction; // @synthesize transformFunction=_transformFunction;
-@property(nonatomic) BOOL treatNullAsBlank; // @synthesize treatNullAsBlank=_treatNullAsBlank;
+@property(copy, nonatomic) NSString *treatNullAsString; // @synthesize treatNullAsString=_treatNullAsString;
 @property(nonatomic) BOOL caseInsensitive; // @synthesize caseInsensitive=_caseInsensitive;
 @property(nonatomic) int comparison; // @synthesize comparison=_comparison;
 @property(retain, nonatomic) id value; // @synthesize value=_value;
 - (void).cxx_destruct;
-- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
+- (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 @property(readonly, nonatomic) NSString *operator;
 - (id)description;
@@ -38,7 +38,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3 caseInsensitive:(BOOL)arg4 transformFunction:(id)arg5 treatNullAsBlank:(BOOL)arg6;
+- (id)initWithProperty:(id)arg1 value:(id)arg2 comparison:(int)arg3 caseInsensitive:(BOOL)arg4 transformFunction:(id)arg5 treatNullAsString:(id)arg6;
 
 @end
 

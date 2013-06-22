@@ -25,7 +25,7 @@
 @property(copy, nonatomic) id disconnectHandler; // @synthesize disconnectHandler=_disconnectHandler;
 @property(copy, nonatomic) id messageHandler; // @synthesize messageHandler=_messageHandler;
 @property(copy, nonatomic) id lockdownHandler; // @synthesize lockdownHandler=_lockdownHandler;
-- (int)_outstandingMessages;
+- (unsigned int)_outstandingMessages;
 - (void)_removeMessage:(id)arg1;
 - (void)_registerMessage:(id)arg1;
 - (void)_setEventHandlerOnConnection:(struct _xpc_connection_s *)arg1;

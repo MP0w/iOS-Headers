@@ -10,11 +10,16 @@
 {
     double _date;
     BOOL _indentsForDots;
+    BOOL _showWeekNumber;
 }
 
+@property(nonatomic) BOOL showWeekNumber; // @synthesize showWeekNumber=_showWeekNumber;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)drawTitle:(id)arg1 inRect:(struct CGRect)arg2;
+- (id)_weekNumberFont;
+- (id)_normalTextShadowColor;
+- (id)_normalTextColor;
 - (void)drawTitle:(id)arg1 withColor:(id)arg2 withShadowColor:(id)arg3 inRect:(struct CGRect)arg4;
+- (struct CGRect)_rectForOffetTextShadow:(struct CGRect)arg1;
 @property(nonatomic) BOOL indentsForDots;
 @property(nonatomic) double date;
 

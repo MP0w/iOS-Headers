@@ -11,9 +11,9 @@
     BOOL _loggingEnabled;
 }
 
-+ (void)applyVolumeNormalizationForQueuedItems:(id)arg1;
 + (void)setDefaultScaleMode:(unsigned int)arg1;
 + (unsigned int)defaultScaleMode;
++ (void)applyVolumeNormalizationForQueuedItems:(id)arg1;
 - (void)_updateRentalsPlistForFinish;
 - (id)_mediaSelectionOptionFromGroup:(id)arg1 withTrackID:(int)arg2;
 - (id)_fallbackAudioOptionFromOptions:(id)arg1 locale:(id)arg2 strict:(BOOL)arg3;

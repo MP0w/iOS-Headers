@@ -15,12 +15,15 @@
 {
     NSString *_title;
     BBAction *_action;
+    NSString *_identifier;
 }
 
++ (id)buttonWithTitle:(id)arg1 action:(id)arg2 identifier:(id)arg3;
 + (id)buttonWithTitle:(id)arg1 action:(id)arg2;
 + (id)_possiblyCachedButtonForInitializedButton:(id)arg1;
 + (void)_removeButtonFromCache:(id)arg1;
 + (void)_addButtonToCache:(id)arg1;
+@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) BBAction *action; // @synthesize action=_action;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)encodeWithCoder:(id)arg1;

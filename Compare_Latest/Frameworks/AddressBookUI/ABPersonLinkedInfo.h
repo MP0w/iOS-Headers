@@ -6,18 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class ABUIPerson, NSString;
 
 @interface ABPersonLinkedInfo : NSObject
 {
     NSString *_type;
     NSString *_name;
-    void *_person;
+    ABUIPerson *_person;
     BOOL _unified;
 }
 
 @property(getter=isUnified) BOOL unified; // @synthesize unified=_unified;
-@property void *person; // @synthesize person=_person;
+@property(retain) ABUIPerson *person; // @synthesize person=_person;
 @property(retain) NSString *name; // @synthesize name=_name;
 @property(retain) NSString *type; // @synthesize type=_type;
 - (id)description;

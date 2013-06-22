@@ -6,11 +6,11 @@
 
 #import "PSTableCell.h"
 
-@class AXHearingAidDevice, NSNumberFormatter, UIActivityIndicatorView, UIImageView, UILabel;
+@class AXRemoteHearingAidDevice, NSNumberFormatter, UIActivityIndicatorView, UIImageView, UILabel;
 
 @interface AXHearingAidDetailCell : PSTableCell
 {
-    AXHearingAidDevice *_device;
+    AXRemoteHearingAidDevice *_device;
     UILabel *_leftLabel;
     UIImageView *_leftBattery;
     UILabel *_rightLabel;
@@ -19,13 +19,14 @@
     NSNumberFormatter *_numberFormatter;
 }
 
-@property(retain, nonatomic) AXHearingAidDevice *device; // @synthesize device=_device;
+@property(retain, nonatomic) AXRemoteHearingAidDevice *device; // @synthesize device=_device;
 - (unsigned long long)accessibilityTraits;
 - (id)accessibilityValue;
 - (void)layoutSubviews;
 - (void)updateAvailability;
 - (id)imageForBatteryLevel:(float)arg1;
 - (void)dealloc;
+- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 andDevice:(id)arg3;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 
 @end

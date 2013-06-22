@@ -7,12 +7,13 @@
 #import "NSObject.h"
 
 #import "AVAudioSessionDelegateMediaPlayerOnly-Protocol.h"
+#import "MPAVControllerProtocol-Protocol.h"
 #import "MPAVErrorResolverDelegate-Protocol.h"
 #import "MPAudioDeviceControllerDelegate-Protocol.h"
 
-@class AVAudioSessionMediaPlayerOnly, AVPlayerLayer, CALayer, MPAVControllerToAggregateDCommunicator, MPAVDestinationBrowser, MPAVErrorResolver, MPAVItem, MPAVPlaylistManager, MPAudioDeviceController, MPQueueFeeder, MPQueuePlayer, MPVideoView, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableSet, NSNotification, NSObject<OS_dispatch_source>, NSString;
+@class AVPlayerLayer, CALayer, MPAVControllerToAggregateDCommunicator, MPAVDestinationBrowser, MPAVErrorResolver, MPAVItem, MPAVPlaylistManager, MPAudioDeviceController, MPMediaItem, MPMediaQuery, MPQueueFeeder, MPQueuePlayer, MPVideoView, NSArray, NSDate, NSDateFormatter, NSDictionary, NSMutableArray, NSMutableSet, NSNotification, NSObject<OS_dispatch_source>, NSString;
 
-@interface MPAVController : NSObject <AVAudioSessionDelegateMediaPlayerOnly, MPAudioDeviceControllerDelegate, MPAVErrorResolverDelegate>
+@interface MPAVController : NSObject <AVAudioSessionDelegateMediaPlayerOnly, MPAudioDeviceControllerDelegate, MPAVErrorResolverDelegate, MPAVControllerProtocol>
 {
     MPAVPlaylistManager *_avPlaylistManager;
     BOOL _forceSynchronousQueueFilling;
@@ -75,9 +76,6 @@
     unsigned int _pausedDuringInterruption:1;
     unsigned int _resumePlaybackWhenActive:1;
     unsigned int _useApplicationAudioSession:1;
-    unsigned int _subtitlesEnabled:1;
-    unsigned int _videoFrameDisplayOnResumeDisabled:1;
-    unsigned int _disconnectedVideoLayerOnSuspend:1;
     unsigned int _playInBackgroundUserDefaultEnabled:1;
     unsigned int _canPlayFastForward:1;
     unsigned int _canPlayFastReverse:1;
@@ -98,12 +96,15 @@
     double _lastInterruptionEnd;
     BOOL _shouldEnforceHDCP;
     NSMutableSet *_clientsWantingAirPlayVideo;
+    NSDateFormatter *_dateFormatter;
+    BOOL _currentItemDidLoad;
     BOOL _didResolveError;
     BOOL _disallowsAMRAudio;
+    BOOL _disableAirPlayMirroringDuringPlayback;
     NSDate *_itemDidChangeDate;
     unsigned int _stallBackgroundTaskIdentifier;
-    MPAVDestinationBrowser *_destinationBrowser;
     BOOL _shouldSkipToNextTrackOnResumeFromInterruption;
+    MPAVDestinationBrowser *_destinationBrowser;
 }
 
 + (id)_playerKeysToObserve;
@@ -113,6 +114,7 @@
 + (BOOL)isNetworkSupportedPath:(id)arg1;
 + (id)sharedInstance;
 + (void)initialize;
+@property(readonly, nonatomic) NSDateFormatter *dateFormatter; // @synthesize dateFormatter=_dateFormatter;
 @property(nonatomic) BOOL shouldSkipToNextTrackOnResumeFromInterruption; // @synthesize shouldSkipToNextTrackOnResumeFromInterruption=_shouldSkipToNextTrackOnResumeFromInterruption;
 @property(nonatomic) unsigned int state; // @synthesize state=_state;
 @property(nonatomic) BOOL shouldEnforceHDCP; // @synthesize shouldEnforceHDCP=_shouldEnforceHDCP;
@@ -125,11 +127,13 @@
 @property(nonatomic) unsigned int displayOverridePlaybackState; // @synthesize displayOverridePlaybackState=_displayOverridePlaybackState;
 @property(readonly, nonatomic) MPAVDestinationBrowser *destinationBrowser; // @synthesize destinationBrowser=_destinationBrowser;
 @property(retain, nonatomic) NSString *audioSessionModeOverride; // @synthesize audioSessionModeOverride=_audioSessionModeOverride;
+- (void).cxx_destruct;
 - (void)_pausePlaybackIfNecessaryIgnoringVideoLayerAttachment:(BOOL)arg1;
 - (void)_pausePlaybackIfNecessary;
 - (BOOL)_canPlayItem:(id)arg1;
 - (BOOL)_itemIsRestricted:(id)arg1;
 - (void)_playbackFailedWithError:(id)arg1 canResolve:(BOOL)arg2;
+- (id)_pickedRouteDescription;
 - (void)_resumeTickTimer;
 - (void)_pauseTickTimer;
 - (id)_extractImageFromMetadata:(id)arg1;
@@ -180,7 +184,6 @@
 - (BOOL)_changeChapterTimeMarkerIndexBy:(int)arg1;
 - (void)_cancelStallTimer;
 - (id)_avPlaylistManager;
-- (void)_setupDisplayForPlayback;
 - (void)_verifyDisplayProtection;
 - (void)_delayedUpdateTimeMarker;
 - (void)_delayedUpdateScanningRate;
@@ -189,10 +192,10 @@
 - (void)notifyAVPlayerItemWillChange:(id)arg1;
 - (void)_mediaLibraryDynamicPropertiesDidChangeNotification:(id)arg1;
 - (void)_updateCurrentTimeToBookmarkTimeForDynamicPropertyChange;
-- (void)_closedCaptioningStatusDidChangeNotification:(id)arg1;
-- (void)_applicationDidFinishSuspensionSnapshot:(id)arg1;
+- (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationSuspended:(id)arg1;
 - (void)_applicationSuspendedEventsOnly:(id)arg1;
+- (void)_applicationDidEnterBackgroundNotification:(id)arg1;
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)_applicationWillResignActive:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -210,13 +213,14 @@
 - (void)_disconnectAVPlaylistManagerWithReason:(int)arg1;
 - (void)_rateDidChange:(id)arg1;
 - (void)_updateCurrentItemBookkeepingForTimerCallback;
-- (void)_updateCurrentItemBookkeeping;
+- (void)_updateCurrentItemBookkeepingMarkedAsCheckpoint:(BOOL)arg1;
 @property(nonatomic) BOOL ubiquitousBookkeepingEnabled;
 - (void)endInterruptionFromInterruptor:(id)arg1 category:(id)arg2 flags:(unsigned int)arg3;
 - (void)beginInterruption;
 - (void)_itemWillChange:(id)arg1;
 - (void)_itemReadyToPlay:(id)arg1;
 - (void)_itemPlaybackDidEndNotification:(id)arg1;
+- (void)_itemHeartbeatIsInvalidNotification:(id)arg1;
 - (void)_itemFailedToPlayToEnd:(id)arg1;
 - (void)_itemFailedToPlayToEndNotification:(id)arg1;
 - (void)_playerFailedToQueueNotification:(id)arg1;
@@ -245,7 +249,6 @@
 - (void)_setVideoViewClass:(Class)arg1;
 @property(readonly, nonatomic) BOOL showPlaybackStateOverlaysOnTVOut;
 - (BOOL)shouldHaveNoActionAtEndForState:(unsigned int)arg1;
-@property(nonatomic) BOOL videoFrameDisplayOnResumeDisabled;
 - (void)finalizeBookkeepingNow;
 - (void)updateBookkeepingNow;
 - (void)ensureFeederIsSubclass:(Class)arg1;
@@ -255,13 +258,14 @@
 @property(readonly, nonatomic) MPVideoView *videoView;
 @property(readonly, nonatomic) CALayer *videoLayer;
 @property(nonatomic, getter=destinationIsTVOut, setter=setDestinationIsTVOut:) BOOL destinationIsTVOut;
+@property(nonatomic) BOOL usesAudioOnlyModeForExternalPlayback;
 - (void)switchToVideoPlayback:(BOOL)arg1 forItem:(id)arg2;
 - (void)switchToAudioPlayback:(BOOL)arg1 forItem:(id)arg2;
 - (void)setCurrentTime:(double)arg1 options:(int)arg2;
 @property(copy, nonatomic) NSString *externalPlaybackVideoGravity;
 - (void)setActive:(BOOL)arg1;
 - (void)reloadFeederWithStartQueueIndex:(unsigned int)arg1;
-@property(readonly, nonatomic) AVAudioSessionMediaPlayerOnly *_playerAVAudioSession;
+@property(readonly, nonatomic) id _playerAVAudioSession;
 - (void)feederChangedContents:(id)arg1;
 - (void)switchToFeeder:(id)arg1 mode:(int)arg2 index:(unsigned int)arg3 play:(BOOL)arg4;
 - (void)_switchToFeeder:(id)arg1 mode:(int)arg2 index:(unsigned int)arg3 play:(BOOL)arg4 configureFeederBlock:(id)arg5;
@@ -292,7 +296,6 @@
 @property(readonly, nonatomic) BOOL muted;
 @property(nonatomic) float volume;
 @property(readonly, nonatomic) BOOL hasVolumeControl;
-@property(nonatomic) BOOL subtitlesEnabled;
 @property(nonatomic) unsigned int shuffleType;
 @property(nonatomic) unsigned int repeatType;
 - (BOOL)_setRate:(float)arg1 forScanning:(BOOL)arg2;
@@ -309,6 +312,8 @@
 @property(readonly, nonatomic) BOOL isExternalPlaybackActive;
 - (unsigned int)_seeklessStateForState:(unsigned int)arg1;
 - (BOOL)_showsPlayingWhenInState:(unsigned int)arg1;
+@property(readonly, nonatomic) MPMediaQuery *currentMediaQuery;
+@property(readonly, nonatomic) MPMediaItem *currentMediaItem;
 @property(readonly, nonatomic) MPAVItem *currentItem;
 @property(readonly, nonatomic) unsigned int bufferingState; // @synthesize bufferingState=_bufferingState;
 @property(nonatomic) BOOL autoPlayWhenLikelyToKeepUp;

@@ -14,10 +14,14 @@
     UIImage *_icon;
 }
 
-+ (id)mimeTypesToFileExtensions;
++ (id)fallbackFilenamePrefix;
++ (id)UTITypes;
 @property(retain, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 @property(retain, nonatomic) PKPass *pass; // @synthesize pass=_pass;
 - (int)mediaType;
+- (BOOL)shouldShowDisclosure;
+- (BOOL)shouldBeQuickLooked;
+- (BOOL)shouldShowViewer;
 - (id)subtitle;
 - (id)title;
 - (void)dealloc;

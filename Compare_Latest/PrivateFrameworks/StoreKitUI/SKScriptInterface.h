@@ -16,6 +16,7 @@
 + (void)initialize;
 + (id)webScriptNameForSelector:(SEL)arg1;
 @property(nonatomic) __weak SKProductPageViewController *parentProductPageViewController; // @synthesize parentProductPageViewController=_parentProductPageViewController;
+- (void).cxx_destruct;
 - (void)showStoreSheetWithRequest:(id)arg1 animated:(BOOL)arg2;
 - (id)makeStoreSheetRequest;
 

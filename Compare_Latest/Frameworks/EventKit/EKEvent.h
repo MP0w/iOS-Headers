@@ -6,19 +6,23 @@
 
 #import <EventKit/EKCalendarItem.h>
 
-@class EKCalendarDate, EKParticipant, NSDate, NSNumber, NSString;
+@class EKCalendarDate, EKEventStore, EKParticipant, NSArray, NSDate, NSNumber, NSString, NSURL;
 
 @interface EKEvent : EKCalendarItem
 {
+    BOOL _occurrenceIsAllDay;
+    BOOL _requiresDetachDueToSnoozedAlarm;
     EKCalendarDate *_occurrenceStartDate;
     EKCalendarDate *_occurrenceEndDate;
-    BOOL _occurrenceIsAllDay;
     EKCalendarDate *_originalOccurrenceStartDate;
     EKCalendarDate *_originalOccurrenceEndDate;
     NSNumber *_originalOccurrenceIsAllDay;
+    int _attendeeCount;
 }
 
 + (id)eventWithEventStore:(id)arg1;
+@property(readonly) int attendeeCount; // @synthesize attendeeCount=_attendeeCount;
+@property(nonatomic) BOOL requiresDetachDueToSnoozedAlarm; // @synthesize requiresDetachDueToSnoozedAlarm=_requiresDetachDueToSnoozedAlarm;
 @property(copy, nonatomic) NSNumber *originalOccurrenceIsAllDay; // @synthesize originalOccurrenceIsAllDay=_originalOccurrenceIsAllDay;
 @property(copy, nonatomic) EKCalendarDate *originalOccurrenceEndDate; // @synthesize originalOccurrenceEndDate=_originalOccurrenceEndDate;
 @property(copy, nonatomic) EKCalendarDate *originalOccurrenceStartDate; // @synthesize originalOccurrenceStartDate=_originalOccurrenceStartDate;
@@ -45,46 +49,42 @@
 - (id)dirtyPropertiesToSkip;
 - (BOOL)commitWithSpan:(int)arg1 error:(id *)arg2;
 - (BOOL)validateWithSpan:(int)arg1 error:(id *)arg2;
-- (BOOL)_isAlarmAcknowledgedPropertyDirty;
+- (void)snoozeAlarm:(id)arg1 withTimeIntervalFromNow:(double)arg2;
 - (BOOL)refresh;
 - (id)description;
-- (BOOL)canBeRespondedTo;
+@property(readonly, nonatomic) BOOL canBeRespondedTo;
 - (BOOL)allowsAlarmModifications;
 - (BOOL)hasSelfAttendee;
-- (BOOL)canSetAvailability;
-- (id)uniqueId;
-- (id)externalId;
-- (int)pendingParticipationStatus;
-- (BOOL)canDetachSingleOccurrence;
+@property(readonly, nonatomic) BOOL canSetAvailability;
+@property(readonly, nonatomic) NSString *uniqueId;
+@property(readonly, nonatomic) NSDate *participationStatusModifiedDate;
+@property(readonly, nonatomic) int pendingParticipationStatus;
+- (BOOL)changingAllDayPropertyIsAllowed;
+@property(readonly) BOOL canDetachSingleOccurrence;
 - (BOOL)requiresDetach;
-- (BOOL)responseMustApplyToAll;
+@property(readonly, nonatomic) BOOL responseMustApplyToAll;
 - (BOOL)allowsCalendarModifications;
 - (BOOL)allowsRecurrenceModifications;
 @property(readonly, nonatomic) BOOL isDetached;
 - (int)compareStartDateWithEvent:(id)arg1;
 - (BOOL)canMoveToCalendar:(id)arg1 fromCalendar:(id)arg2 error:(id *)arg3;
 - (BOOL)isTentative;
-- (BOOL)locationChanged;
-- (BOOL)titleChanged;
-- (BOOL)timeChanged;
-- (BOOL)dateChanged;
+@property(readonly, nonatomic) BOOL locationChanged;
+@property(readonly, nonatomic) BOOL titleChanged;
+@property(readonly, nonatomic) BOOL timeChanged;
+@property(readonly, nonatomic) BOOL dateChanged;
 - (void)clearInvitationStatus;
-- (void)setInvitationStatus:(unsigned int)arg1;
-- (unsigned int)invitationStatus;
-- (void)setResponseComment:(id)arg1;
-- (id)responseComment;
+@property(nonatomic) unsigned int invitationStatus;
+@property(copy) NSString *responseComment;
 @property(nonatomic) int availability;
 - (void)setRecurrenceRule:(id)arg1;
 - (id)recurrenceRule;
-- (id)attachments;
-- (int)alarmCount;
-- (int)attendeeCount;
+@property(readonly, nonatomic) NSArray *attachments;
 @property(readonly, nonatomic) EKParticipant *organizer;
 - (id)attendees;
 @property(readonly, nonatomic) int birthdayPersonID;
 - (int)_parentParticipationStatus;
-- (void)setParticipationStatus:(int)arg1;
-- (int)participationStatus;
+@property(nonatomic) int participationStatus;
 - (void)setNeedsOccurrenceCacheUpdate:(BOOL)arg1;
 - (BOOL)needsOccurrenceCacheUpdate;
 - (void)setModifiedProperties:(unsigned int)arg1;
@@ -92,34 +92,34 @@
 @property(readonly, nonatomic) int status;
 - (CDStruct_b0fa4487)endDatePinnedForAllDay;
 - (CDStruct_b0fa4487)startDatePinnedForAllDay;
-- (CDStruct_b0fa4487)endDateGr;
-- (CDStruct_b0fa4487)startDateGr;
+@property(readonly, nonatomic) CDStruct_b0fa4487 endDateGr;
+@property(readonly, nonatomic) CDStruct_b0fa4487 startDateGr;
 - (CDStruct_b0fa4487)_gregorianDateCorrectedForTimeZoneFromCalendarDate:(id)arg1 orNSDate:(id)arg2;
-- (id)initialEndDate;
-- (id)occurrenceDate;
-- (id)initialStartDate;
+@property(readonly) NSDate *initialEndDate;
+@property(readonly, nonatomic) NSDate *occurrenceDate;
+@property(readonly) NSDate *initialStartDate;
 - (id)_effectiveTimeZone;
 - (void)setTimeZone:(id)arg1;
 @property(copy, nonatomic) NSDate *endDate;
-- (id)endCalendarDate;
-- (double)duration;
+@property(readonly, nonatomic) EKCalendarDate *endCalendarDate;
+@property(readonly) double duration;
 @property(copy, nonatomic) NSDate *startDate;
-- (id)startCalendarDate;
+@property(readonly, nonatomic) EKCalendarDate *startCalendarDate;
 @property(nonatomic, getter=isAllDay) BOOL allDay;
 - (BOOL)_isAllDay;
-- (id)birthdayTitleWithAddressBook:(void *)arg1;
+- (id)title;
 - (id)committedValueForKey:(id)arg1;
 - (void)_sendModifiedNote;
 - (BOOL)isDirtyIgnoringCalendar;
-- (BOOL)isAllDayDirty;
-- (BOOL)isEndDateDirty;
-- (BOOL)isStartDateDirty;
-- (BOOL)isStatusDirty;
+@property(readonly) BOOL isAllDayDirty;
+@property(readonly) BOOL isEndDateDirty;
+@property(readonly) BOOL isStartDateDirty;
+@property(readonly) BOOL isStatusDirty;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)exportToICS;
-- (id)eventStore;
-- (id)externalURL;
+@property(readonly, nonatomic) EKEventStore *eventStore;
+@property(readonly, nonatomic) NSURL *externalURL;
 - (id)externalURI;
 @property(readonly, nonatomic) NSString *eventIdentifier;
 - (void)dealloc;
@@ -128,6 +128,10 @@
 - (id)initWithPersistentObject:(id)arg1;
 - (id)initWithEventStore:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, nonatomic) NSString *UUID;
+@property(readonly) BOOL isEditable;
 
 @end
 

@@ -28,6 +28,7 @@
     NSMutableSet *_unusedGridViewPool;
 }
 
+- (void).cxx_destruct;
 - (void)_zoomOutDidStop;
 - (void)_zoomArtworkOut;
 - (void)_zoomArtworkInForDataSource:(id)arg1;
@@ -36,6 +37,7 @@
 - (void)_updateNavigationBarForCurrentPageAnimated:(BOOL)arg1;
 - (void)_reloadDataWithSelectedMix:(id)arg1;
 - (void)_pruneGridViewPages;
+- (void)_pruneAllGridViewPages;
 - (int)_playingGeniusMixPage;
 - (int)_pageForContentOffset;
 - (BOOL)_hasGridViewForPage:(int)arg1;
@@ -65,6 +67,9 @@
 - (void)unregisterForPlayerNotifications;
 - (void)registerForPlayerNotifications;
 - (void)viewDidDisappear:(BOOL)arg1;
+- (void)_applicationWillEnterForegroundNotification:(id)arg1;
+- (void)_applicationDidEnterBackgroundNotification:(id)arg1;
+- (void)didReceiveMemoryWarning;
 - (id)moreListTableCell;
 - (id)_moreListTitle;
 - (void)loadView;

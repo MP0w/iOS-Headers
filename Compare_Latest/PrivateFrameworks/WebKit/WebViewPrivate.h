@@ -58,14 +58,10 @@
     BOOL becomingFirstResponder;
     BOOL becomingFirstResponderFromOutside;
     BOOL usesPageCache;
-    BOOL catchesDelegateExceptions;
-    BOOL cssAnimationsSuspended;
     struct CGColor *backgroundColor;
     NSString *mediaStyle;
     BOOL hasSpellCheckerDocumentTag;
     int spellCheckerDocumentTag;
-    BOOL smartInsertDeleteEnabled;
-    BOOL selectTrailingWhitespaceEnabled;
     BOOL isStopping;
     id UIKitDelegate;
     id UIKitDelegateForwarder;
@@ -96,6 +92,7 @@
     int validationMessageTimerMagnification;
     float customDeviceScaleFactor;
     WebFixedPositionContent *_fixedPositionContent;
+    struct RetainPtr<NSData> sourceApplicationAuditData;
 }
 
 + (void)initialize;

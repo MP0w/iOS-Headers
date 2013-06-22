@@ -6,16 +6,22 @@
 
 #import "UIView.h"
 
+@class UILabel;
+
 @interface EKCurrentTimeMarkerView : UIView
 {
-    unsigned int _showsThumb:1;
-    unsigned int _showsLine:1;
+    BOOL _showsThumb;
+    BOOL _showsLine;
+    UILabel *_currentTimeLabel;
 }
 
-- (void)dealloc;
+@property(retain, nonatomic) UILabel *currentTimeLabel; // @synthesize currentTimeLabel=_currentTimeLabel;
+@property(nonatomic) BOOL showsLine; // @synthesize showsLine=_showsLine;
+@property(nonatomic) BOOL showsThumb; // @synthesize showsThumb=_showsThumb;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
-@property(nonatomic) BOOL showsThumb;
-@property(nonatomic) BOOL showsLine;
+@property(readonly, nonatomic) struct CGRect currentTimeFrame;
+- (void)updateTime;
 @property(readonly, nonatomic) float markerMidHeight;
 @property(readonly, nonatomic) float markerWidth;
 - (id)initWithFrame:(struct CGRect)arg1;

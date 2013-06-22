@@ -9,8 +9,7 @@
 @protocol PLVideoViewDelegate <NSObject>
 
 @optional
-- (BOOL)videoViewCanManageStatusBar:(id)arg1;
-- (id)videoViewSelectedAirTunesService:(id)arg1;
+- (id)videoViewRequestsPickedAirplayRoute:(id)arg1;
 - (BOOL)videoViewCanCreateMetadata:(id)arg1;
 - (BOOL)videoViewShouldRespondToPlayOverlayTap:(id)arg1;
 - (void)videoViewDidCancelEditing:(id)arg1;
@@ -29,6 +28,6 @@
 - (BOOL)videoViewCanBeginPlayback:(id)arg1;
 - (float)videoViewScrubberWidth:(id)arg1;
 - (float)videoViewScrubberYOrigin:(id)arg1 forOrientation:(int)arg2;
-- (void)videoView:(id)arg1 scrubberWasCreated:(id)arg2;
+- (void)videoView:(id)arg1 scrubberWasCreated:(id)arg2 slalomRegionEditor:(id)arg3;
 @end
 

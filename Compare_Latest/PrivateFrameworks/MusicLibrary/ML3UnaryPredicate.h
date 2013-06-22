@@ -14,8 +14,9 @@
 + (id)predicateWithPredicate:(id)arg1;
 @property(retain, nonatomic) ML3Predicate *predicate; // @synthesize predicate=_predicate;
 - (void).cxx_destruct;
-- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
+- (id)databaseStatementParameters;
 - (id)SQLJoinClausesForClass:(Class)arg1;
+- (id)predicateOptimizedForEntityClass:(Class)arg1;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

@@ -17,11 +17,11 @@
 }
 
 + (id)sharedStatistics;
+- (void).cxx_destruct;
 - (void)incrementViewDisplayCountForKey:(id)arg1;
 - (void)incrementViewDisplayCountForViewController:(id)arg1;
 - (id)domain;
 - (void)setAggregateStatisticsDomain:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -16,6 +16,7 @@
 }
 
 + (id)sharedArtworkImageCache;
+- (void).cxx_destruct;
 - (void)_onQueueCallDidLoadBlocksWithImage:(id)arg1 forURL:(id)arg2;
 - (void)_dumpCache;
 - (id)imageForURL:(id)arg1;

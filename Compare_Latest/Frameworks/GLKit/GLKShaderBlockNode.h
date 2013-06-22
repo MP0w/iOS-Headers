@@ -47,8 +47,8 @@
 @property(nonatomic) GLKShaderBlockNode *next; // @synthesize next=_next;
 @property(nonatomic) GLKShaderBlockNode *parent; // @synthesize parent=_parent;
 @property(nonatomic) int type; // @synthesize type=_type;
-@property(retain, nonatomic) NSString *loopVar; // @synthesize loopVar=_loopVar;
-@property(retain, nonatomic) NSString *label; // @synthesize label=_label;
+@property(copy, nonatomic) NSString *loopVar; // @synthesize loopVar=_loopVar;
+@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 - (void)dealloc;
 - (id)description;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;

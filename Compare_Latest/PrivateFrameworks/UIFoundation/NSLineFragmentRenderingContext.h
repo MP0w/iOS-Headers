@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary;
+@class CUICatalog, CUIStyleEffectConfiguration;
 
 @interface NSLineFragmentRenderingContext : NSObject
 {
@@ -24,22 +24,25 @@
         unsigned int _isRTL:1;
         unsigned int _vAdvance:1;
         unsigned int _flipped:1;
-        unsigned int _reserved:29;
+        unsigned int _usesSimpleTextEffects:1;
+        unsigned int _reserved:28;
     } _flags;
-    NSDictionary *_styledTextOptions;
+    CUICatalog *_catalog;
+    CUIStyleEffectConfiguration *_styleEffects;
 }
 
 + (void)initialize;
 + (id)allocWithZone:(struct _NSZone *)arg1;
+@property(retain, nonatomic) CUIStyleEffectConfiguration *cuiStyleEffects; // @synthesize cuiStyleEffects=_styleEffects;
+@property(retain, nonatomic) CUICatalog *cuiCatalog; // @synthesize cuiCatalog=_catalog;
 - (struct CGRect)imageBounds;
-- (id)styledTextOptions;
-- (void)setStyledTextOptions:(id)arg1;
 - (BOOL)isRTL;
 - (float)elasticWidth;
 - (float)lineFragmentWidth;
 - (void)getMaximumAscender:(float *)arg1 minimumDescender:(float *)arg2;
 - (struct CGSize)sizeWithBehavior:(int)arg1 usesFontLeading:(BOOL)arg2 baselineDelta:(float *)arg3;
 - (void)drawAtPoint:(struct CGPoint)arg1 inContext:(struct CGContext *)arg2;
+@property(nonatomic, getter=_usesSimpleTextEffects, setter=_setUsesSimpleTextEffects:) BOOL usesSimpleTextEffects;
 - (void)finalize;
 - (void)dealloc;
 - (id)initWithRuns:(struct __CFArray *)arg1 glyphOrigin:(float)arg2 lineFragmentWidth:(float)arg3 elasticWidth:(float)arg4 usesScreenFonts:(BOOL)arg5 isRTL:(BOOL)arg6;

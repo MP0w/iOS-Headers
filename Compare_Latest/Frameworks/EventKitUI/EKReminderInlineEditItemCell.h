@@ -17,11 +17,11 @@
 
 @property(nonatomic) float verticalPadding; // @synthesize verticalPadding=_verticalPadding;
 @property(readonly, nonatomic) EKExpandingTextView *textView; // @synthesize textView=_textView;
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (float)heightNeededForContentWidth:(float)arg1;
 - (float)_textViewWidthForContentWidth:(float)arg1;
 @property(copy, nonatomic) NSString *placeholder;
-- (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 
 @end

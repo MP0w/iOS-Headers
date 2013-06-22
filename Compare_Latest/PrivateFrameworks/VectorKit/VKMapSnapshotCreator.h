@@ -8,7 +8,7 @@
 
 #import "VKMapModelDelegate-Protocol.h"
 
-@class VKImageCanvas, VKMapModel;
+@class VKImageCanvas, VKMapCameraController, VKMapModel;
 
 @interface VKMapSnapshotCreator : NSObject <VKMapModelDelegate>
 {
@@ -16,6 +16,7 @@
     int _mapType;
     VKMapModel *_mapModel;
     id _completion;
+    VKMapCameraController *_cameraController;
 }
 
 + (BOOL)supportsSharingThumbnails;
@@ -23,40 +24,34 @@
 - (double)mapModelZoomScale:(id)arg1;
 - (BOOL)mapModelInNav:(id)arg1;
 - (BOOL)mapModelInNavAtDefaultZoom:(id)arg1;
-- (void)mapModelDidBecomeFullyDrawn:(id)arg1;
+- (void)mapModelDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(BOOL)arg2;
+- (void)mapModelWillBecomFullyDrawn:(id)arg1;
 - (void)mapModelDidBecomePartiallyDrawn:(id)arg1;
 - (id)mapModel:(id)arg1 painterForOverlay:(id)arg2;
+- (void)mapModel:(id)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
+- (void)mapModel:(id)arg1 willTransitionFrom:(int)arg2 to:(int)arg3 duration:(double)arg4;
 - (void)mapModelDidFailLoadingTiles:(id)arg1 withError:(id)arg2;
 - (void)mapModelDidFinishLoadingTiles:(id)arg1;
 - (void)mapModelDidStartLoadingTiles:(id)arg1;
-- (void)mapModel:(id)arg1 didDeselectTrafficIncident:(id)arg2;
-- (void)mapModel:(id)arg1 trafficIncident:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
-- (void)mapModel:(id)arg1 willSelectTrafficIncident:(id)arg2;
-- (void)mapModel:(id)arg1 didDeselectLabelMarker:(id)arg2;
-- (void)mapModel:(id)arg1 labelMarker:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
-- (void)mapModel:(id)arg1 willSelectLabelMarker:(id)arg2;
+- (void)mapModel:(id)arg1 didFinishAddingAnnotationMarkers:(id)arg2;
 - (void)mapModel:(id)arg1 didAnimateInAnnotationMarkers:(id)arg2;
 - (void)mapModel:(id)arg1 willAnimateInAnnotationMarkers:(id)arg2;
 - (void)mapModel:(id)arg1 annotationMarker:(id)arg2 didChangeDragState:(int)arg3 fromOldState:(int)arg4;
-- (void)mapModel:(id)arg1 didUpdateCalloutView:(id)arg2 forSource:(id)arg3 animated:(BOOL)arg4;
-- (void)mapModel:(id)arg1 willShowCalloutView:(id)arg2 forSource:(id)arg3;
-- (void)mapModel:(id)arg1 didUpdateCalloutPopoverController:(id)arg2 forSource:(id)arg3;
-- (void)mapModel:(id)arg1 willShowCalloutPopoverController:(id)arg2 forSource:(id)arg3;
-- (void)mapModel:(id)arg1 needsPanByPixelOffset:(struct CGPoint)arg2 relativeToScreenPoint:(struct CGPoint)arg3 animated:(BOOL)arg4 duration:(double)arg5 completionHandler:(id)arg6;
-- (void)mapModel:(id)arg1 annotationMarker:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
-- (void)mapModel:(id)arg1 didDeselectAnnotationMarker:(id)arg2;
-- (void)mapModel:(id)arg1 didSelectAnnotationMarker:(id)arg2;
+- (void)mapModel:(id)arg1 needsPanByOffset:(struct CGPoint)arg2 relativeToScreenPoint:(struct CGPoint)arg3 animated:(BOOL)arg4 duration:(double)arg5 completionHandler:(id)arg6;
 - (void)mapModel:(id)arg1 didAddAnnotationMarkers:(id)arg2;
 - (id)mapModel:(id)arg1 markerForAnnotation:(id)arg2;
 - (void)cancel;
 - (void)renderSnapshot:(id)arg1;
+- (void)setCenterCoordinate:(CDStruct_c3b9c2ee)arg1 altitude:(double)arg2 yaw:(double)arg3 pitch:(double)arg4;
+- (void)lookAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
 - (void)setMapRegion:(id)arg1 pitch:(double)arg2 yaw:(double)arg3;
 - (BOOL)isRoadClassDisabled:(int)arg1;
 @property(nonatomic) int labelScaleFactor;
 @property(nonatomic) BOOL localizeLabels;
 @property(nonatomic) int mapType;
+@property(readonly) struct CGSize size;
 - (void)dealloc;
-- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2;
+- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 homeQueue:(id)arg3;
 
 @end
 

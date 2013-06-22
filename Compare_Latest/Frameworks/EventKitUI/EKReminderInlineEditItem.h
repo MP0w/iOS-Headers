@@ -16,16 +16,17 @@
     BOOL _isListeningToHeightChanges;
 }
 
+- (void).cxx_destruct;
 - (void)textViewDidChangeContentHeight:(id)arg1;
 - (void)textViewDidChange:(id)arg1;
 - (void)textViewDidEndEditing:(id)arg1;
 - (void)textViewDidBeginEditing:(id)arg1;
 - (id)textFromReminder;
 - (int)cellStyle;
-- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
 - (id)newCell;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
 - (void)_applyStylesFromStyleProviderToTextView:(id)arg1;
 - (BOOL)shouldPinKeyboard;
 - (BOOL)isInline;

@@ -12,6 +12,7 @@
     void *_map;
 }
 
+- (unsigned int)count;
 - (void)removeObjectForKey:(const struct _GEOTileKey *)arg1;
 - (void)setObject:(id)arg1 forKey:(const struct _GEOTileKey *)arg2;
 - (id)objectForKey:(const struct _GEOTileKey *)arg1;

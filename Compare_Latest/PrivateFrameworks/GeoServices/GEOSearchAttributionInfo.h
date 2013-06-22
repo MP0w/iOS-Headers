@@ -6,32 +6,38 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class NSArray, NSString;
 
-@interface GEOSearchAttributionInfo : NSObject
+@interface GEOSearchAttributionInfo : NSObject <NSSecureCoding>
 {
     NSString *_identifier;
     unsigned int _version;
-    NSString *_logoPath;
-    NSString *_snippetLogoPath;
+    NSArray *_logoPaths;
+    NSArray *_snippetLogoPaths;
     NSString *_displayName;
     NSArray *_attributionApps;
     unsigned int _attributionRequirementsMask;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(nonatomic) unsigned int requirementsMask; // @synthesize requirementsMask=_attributionRequirementsMask;
 @property(retain, nonatomic) NSArray *attributionApps; // @synthesize attributionApps=_attributionApps;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
-@property(retain, nonatomic) NSString *snippetLogoPath; // @synthesize snippetLogoPath=_snippetLogoPath;
-@property(retain, nonatomic) NSString *logoPath; // @synthesize logoPath=_logoPath;
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)dealloc;
+- (void)addLogoPath:(id)arg1;
+- (id)snippetLogoPathForScale:(float)arg1;
+- (id)logoPathForScale:(float)arg1;
 - (BOOL)hasAttributionRequirement:(int)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithDictionaryRepresentation:(id)arg1;
-- (id)initWithSource:(id)arg1 localizedAttribution:(id)arg2 logoPath:(id)arg3 snippetLogoPath:(id)arg4;
+- (id)initWithSource:(id)arg1 localizedAttribution:(id)arg2 logoPaths:(id)arg3 snippetLogoPaths:(id)arg4;
 
 @end
 

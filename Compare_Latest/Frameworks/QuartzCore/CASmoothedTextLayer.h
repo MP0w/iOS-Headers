@@ -11,6 +11,7 @@
 }
 
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (BOOL)_hasRenderLayerSubclass;
 + (BOOL)needsDisplayForKey:(id)arg1;
 + (id)defaultValueForKey:(id)arg1;
 @property unsigned int fontSmoothingStyle;

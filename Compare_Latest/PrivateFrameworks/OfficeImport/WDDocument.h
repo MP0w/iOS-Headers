@@ -6,7 +6,7 @@
 
 #import <OfficeImport/OCDDocument.h>
 
-@class NSDate, NSMutableArray, NSString, OADBackground, OADTheme, WDCitationTable, WDFontTable, WDListDefinitionTable, WDListTable, WDRevisionAuthorTable, WDStyleSheet, WDText;
+@class NSDate, NSMutableArray, NSMutableSet, NSString, OADBackground, OADTheme, WDCitationTable, WDFontTable, WDListDefinitionTable, WDListTable, WDRevisionAuthorTable, WDStyleSheet, WDText;
 
 @interface WDDocument : OCDDocument
 {
@@ -57,11 +57,13 @@
     NSMutableArray *mChangeTrackingEditDates;
     NSMutableArray *mChangeTrackingEditAuthors;
     NSDate *mCreationDate;
+    NSDate *mModificationDate;
     NSMutableArray *mImageBullets;
     int mZIndexTotalForMainText;
     int mZIndexTotalForHeaderFooterText;
     OADBackground *mDocumentBackground;
     OADTheme *mTheme;
+    NSMutableSet *mObjPointers;
 }
 
 - (BOOL)isFromBinary;
@@ -92,6 +94,8 @@
 - (id)documentBackground;
 - (void)setDocumentBackground:(id)arg1;
 - (id)imageBulletText;
+- (void)setLastModDate:(id)arg1;
+- (id)lastModDate;
 - (void)setCreationDate:(id)arg1;
 - (id)creationDate;
 - (id)changeTrackingEditAuthors;
@@ -112,9 +116,9 @@
 - (void)setShowMarkup:(BOOL)arg1;
 - (BOOL)showMarkup;
 - (void)addRevisionAuthor:(id)arg1;
-- (int)revisionAuthorAddLookup:(id)arg1;
-- (id)revisionAuthorAt:(int)arg1;
-- (int)revisionAuthorCount;
+- (unsigned int)revisionAuthorAddLookup:(id)arg1;
+- (id)revisionAuthorAt:(unsigned int)arg1;
+- (unsigned int)revisionAuthorCount;
 - (id)revisionAuthorTable;
 - (void)setVersion:(id)arg1;
 - (id)version;
@@ -133,17 +137,17 @@
 - (void)setGutterPosition:(int)arg1;
 - (int)gutterPosition;
 - (id)addList:(id)arg1;
-- (id)listAt:(int)arg1;
-- (int)listCount;
+- (id)listAt:(unsigned int)arg1;
+- (unsigned int)listCount;
 - (id)listTable;
 - (id)addListDefinition;
-- (id)listDefinitionWithId:(int)arg1;
+- (id)listDefinitionWithId:(long)arg1;
 - (id)listDefinitionAt:(int)arg1;
-- (int)listDefinitionCount;
+- (unsigned int)listDefinitionCount;
 - (id)listDefinitionTable;
 - (void)addCitation:(id)arg1 forID:(id)arg2;
 - (id)citationFor:(id)arg1;
-- (int)citationCount;
+- (unsigned int)citationCount;
 - (void)setFootnoteNumberingStart:(unsigned short)arg1;
 - (unsigned short)footnoteNumberingStart;
 - (void)setEndnoteRestart:(int)arg1;
@@ -186,11 +190,13 @@
 - (BOOL)mirrorMargins;
 - (id)addSection;
 - (id)lastSection;
-- (id)sectionAt:(int)arg1;
-- (int)sectionCount;
+- (id)sectionAt:(unsigned int)arg1;
+- (unsigned int)sectionCount;
 - (id)sections;
 - (id)fontTable;
 - (id)styleSheet;
+- (void)removeObjPointer:(id)arg1;
+- (void)addObjPointer:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -6,29 +6,35 @@
 
 #import "NSObject.h"
 
-@class NSData;
+@class NSData, NSString;
 
 @interface FirmwareBundle : NSObject
 {
-    NSData *hash;
-    NSData *firmwareImage;
-    NSData *signature;
-    NSData *certificate;
-    unsigned int productIDCode;
-    unsigned int firmwareImageBaseAddress;
-    unsigned int firmwareImageSize;
+    NSString *_bundleDescription;
+    NSData *_firmwareImage;
+    NSData *_hash;
+    NSData *_certificate;
+    NSData *_signature;
+    unsigned int _productIDCode;
+    unsigned int _firmwareImageBaseAddress;
+    unsigned int _firmwareImageSize;
 }
 
-+ (id)parseResourceFileIntoData:(id)arg1;
-@property(readonly) unsigned int firmwareImageSize; // @synthesize firmwareImageSize;
-@property(readonly) unsigned int firmwareImageBaseAddress; // @synthesize firmwareImageBaseAddress;
-@property(readonly) unsigned int productIDCode; // @synthesize productIDCode;
-@property(readonly) NSData *signature; // @synthesize signature;
-@property(readonly) NSData *certificate; // @synthesize certificate;
-@property(readonly) NSData *hash; // @synthesize hash;
-@property(readonly) NSData *firmwareImage; // @synthesize firmwareImage;
++ (id)defaultBundlePath;
+@property(readonly) unsigned int firmwareImageSize; // @synthesize firmwareImageSize=_firmwareImageSize;
+@property(readonly) unsigned int firmwareImageBaseAddress; // @synthesize firmwareImageBaseAddress=_firmwareImageBaseAddress;
+@property(readonly) unsigned int productIDCode; // @synthesize productIDCode=_productIDCode;
+@property(readonly) NSData *signature; // @synthesize signature=_signature;
+@property(readonly) NSData *certificate; // @synthesize certificate=_certificate;
+@property(readonly) NSData *hash; // @synthesize hash=_hash;
+@property(readonly) NSData *firmwareImage; // @synthesize firmwareImage=_firmwareImage;
+- (id)description;
 - (void)dealloc;
-- (id)parseFirmwareImageFileIntoData:(id)arg1;
+- (id)parseSRECFile:(id)arg1 withDefaultByteValue:(unsigned char)arg2;
+- (void)parseSRECLine:(id)arg1 intoImage:(id)arg2;
+- (id)parseMSP430TXTFile:(id)arg1 withDefaultByteValue:(unsigned char)arg2;
+- (id)parseResourceFileIntoData:(id)arg1;
+- (void)parseFileName:(id)arg1 intoPath:(id *)arg2 andExtension:(id *)arg3;
 - (id)initWithBundleName:(id)arg1;
 - (id)initWithBundlePath:(id)arg1;
 - (id)initWithBundle:(id)arg1;

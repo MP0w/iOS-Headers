@@ -21,6 +21,7 @@
     NSObject<OS_dispatch_queue> *serialQueue;
     BOOL isPresentationLayer;
     BOOL isOverscanSubtitleSupportEnabled;
+    id delegate;
 }
 
 @end

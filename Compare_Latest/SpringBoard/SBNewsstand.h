@@ -10,8 +10,8 @@
 {
 }
 
++ (BOOL)useInternationalAssets;
 + (BOOL)addFakeApps;
-+ (BOOL)debugRotation;
 + (id)bundleIDToReplicate;
 + (BOOL)addManyIcons;
 + (BOOL)alwaysShowIconLabels;
@@ -23,7 +23,7 @@
 + (void)_iconVisibilityDidChange:(id)arg1;
 + (void)_availableStoreItemKindsDidChange:(id)arg1;
 + (void)reloadDefaults;
-+ (void)noteCapabilitiesDidChange;
++ (void)noteAppRestrictionsDidChange;
 + (void)_checkStoreSupport;
 + (void)_updateStoreAvailability;
 + (void)_loadDefaults;

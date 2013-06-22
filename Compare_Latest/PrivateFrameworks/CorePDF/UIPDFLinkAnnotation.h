@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)recognizeGestures;
 - (BOOL)shouldRecognizeTapOrPress:(struct CGPoint)arg1;
 - (BOOL)quadPoints:(struct CGPDFArray *)arg1 within:(struct CGRect)arg2;
 - (struct CGRect)linkRectangle;
@@ -18,7 +19,6 @@
 - (unsigned int)getNamedDestination:(struct CGPDFDictionary *)arg1;
 - (unsigned int)getDestination:(struct CGPDFDictionary *)arg1;
 - (id)newBaseURL;
-- (void)setPageView:(id)arg1;
 
 @end
 

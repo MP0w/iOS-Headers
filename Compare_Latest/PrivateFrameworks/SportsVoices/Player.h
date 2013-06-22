@@ -16,15 +16,13 @@
     NSBundle *_bundle;
 }
 
++ (void)_setAudioSessionActive:(BOOL)arg1;
 + (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 + (void)__nts_queuePlayerStatusChanged:(id)arg1;
 + (void)__nts_indicateEndOfQueuePlayback:(id)arg1;
 + (void)__deactivateAudioSession;
 + (void)__clearSharedPlayQueue;
 + (id)__sharedPlayQueue;
-+ (id)__stringForAudioSessionError:(long)arg1;
-+ (void)__audioSessionInterruptionDidEnd;
-+ (void)__audioSessionInterruptionDidBegin;
 + (void)__initializeAudioSession;
 + (void)initialize;
 - (void)stopAllSounds;

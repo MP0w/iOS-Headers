@@ -6,7 +6,9 @@
 
 #import "CALayer.h"
 
-@interface UIPDFPageContentLayer : CALayer
+#import "UIPDFSelectionLayer-Protocol.h"
+
+@interface UIPDFPageContentLayer : CALayer <UIPDFSelectionLayer>
 {
     CALayer *_selectionLayer;
 }
@@ -14,6 +16,7 @@
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)layoutSublayers;
 - (void)setNeedsDisplay;
+- (void)setSelectionNeedsDisplay;
 - (void)dealloc;
 - (id)init;
 

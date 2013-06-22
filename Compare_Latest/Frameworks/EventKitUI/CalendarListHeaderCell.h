@@ -11,9 +11,12 @@
 @interface CalendarListHeaderCell : UIView
 {
     CalendarListHeaderCellContentView *_contentView;
+    BOOL _showWeekNumber;
     double _date;
 }
 
+@property(nonatomic) BOOL showWeekNumber; // @synthesize showWeekNumber=_showWeekNumber;
+- (void).cxx_destruct;
 - (void)setNeedsDisplay;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)_backgroundImage;
@@ -22,7 +25,6 @@
 @property(readonly, nonatomic) BOOL reusable;
 @property(nonatomic) BOOL indentsForDots;
 @property(nonatomic) double date; // @synthesize date=_date;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 date:(double)arg2;
 
 @end

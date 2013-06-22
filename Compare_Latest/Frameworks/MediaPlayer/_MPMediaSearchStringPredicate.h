@@ -17,12 +17,12 @@
 + (id)predicateWithSearchString:(id)arg1 forProperties:(id)arg2;
 @property(copy, nonatomic) NSSet *properties; // @synthesize properties=_properties;
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+- (void).cxx_destruct;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)ML3PredicateForContainer;
 - (id)ML3PredicateForTrack;
 - (id)_ML3PredicateForEntityClass:(Class)arg1;

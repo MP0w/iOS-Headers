@@ -6,17 +6,9 @@
 
 #import <OfficeImport/OADMovie.h>
 
-@class NSData, NSString;
-
 @interface OADEmbeddedMediaFile : OADMovie
 {
-    NSData *mData;
-    NSString *mName;
 }
-
-@property(retain) NSString *name; // @synthesize name=mName;
-@property(retain) NSData *data; // @synthesize data=mData;
-- (void)dealloc;
 
 @end
 

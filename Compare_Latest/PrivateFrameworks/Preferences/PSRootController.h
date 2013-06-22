@@ -23,6 +23,7 @@
 + (id)readPreferenceValue:(id)arg1;
 + (void)setPreferenceValue:(id)arg1 specifier:(id)arg2;
 + (void)writePreference:(id)arg1;
++ (id)domainForSpecifier:(id)arg1;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)setViewControllers:(id)arg1 animated:(BOOL)arg2;
 - (id)popToRootViewControllerAnimated:(BOOL)arg1;
@@ -45,6 +46,7 @@
 - (void)willUnlock;
 - (void)didLock;
 - (void)suspend;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)sendWillBecomeActive;
 - (void)sendWillResignActive;
 - (void)willBecomeActive;

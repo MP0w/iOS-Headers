@@ -6,7 +6,7 @@
 
 @protocol CKEntryField
 @property(readonly, nonatomic) BOOL isShowingDictationPlaceholder;
-@property(nonatomic) int outgoingBubbleColor;
+@property(nonatomic) BOOL outgoingBubbleColor;
 - (void)setDefaultText:(id)arg1;
 - (id)activeView;
 - (void)updateFontSize;

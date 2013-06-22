@@ -28,7 +28,7 @@
     TSUNoCopyDictionary *mIndexToFonts;
     WDDocument *mTargetDocument;
     WBOfficeArtReaderState *mOfficeArtState;
-    struct vector<WBTextBoxReaderInfo, std::allocator<WBTextBoxReaderInfo>> *mTextBoxes;
+    struct vector<WBTextBoxReaderInfo, std::__1::allocator<WBTextBoxReaderInfo>> *mTextBoxes;
     BOOL mReportProgress;
     id mAnnotationRangeStart;
 }
@@ -53,7 +53,7 @@
 - (struct WrdFileShapeAddressTable *)fileShapeAddressTable;
 - (struct WrdStoryTable *)headerStoryTable;
 - (struct WrdStoryTable *)storyTable;
-- (id)readCharactersFrom:(unsigned long)arg1 to:(unsigned long)arg2 textType:(int)arg3;
+- (id)readCharactersFrom:(unsigned int)arg1 to:(unsigned int)arg2 textType:(int)arg3;
 - (id)readCharactersForTextRun:(struct WrdTextRun *)arg1;
 - (struct WrdFieldPositionTable *)fieldPositionTableForTextType:(int)arg1;
 - (struct WrdBookmarkTable *)annotationBookmarkTable;

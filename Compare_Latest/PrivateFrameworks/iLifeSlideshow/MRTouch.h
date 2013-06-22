@@ -11,10 +11,10 @@
 @interface MRTouch : NSObject
 {
     NSMutableArray *_gestureRecognizers;
-    struct CGPoint _location;
-    double _timestamp;
     unsigned int _tapCount;
     int _phase;
+    struct CGPoint _location;
+    double _timestamp;
 }
 
 + (id)touchWithUITouch:(id)arg1 inView:(id)arg2;

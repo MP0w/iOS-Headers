@@ -6,57 +6,63 @@
 
 #import "NSObject.h"
 
-@class MKPlacemark, NSArray, NSNumber, NSString, NSURL;
+#import "MKURLSerializable-Protocol.h"
 
-@interface MKMapItem : NSObject
+@class GEOPlace, MKPlacemark, NSNumber, NSString, NSURL;
+
+@interface MKMapItem : NSObject <MKURLSerializable>
 {
-    NSString *_businessID;
-    NSString *_localSearchProviderID;
-    NSString *_yelpID;
-    NSArray *_attributions;
-    BOOL isCurrentLocation;
-    MKPlacemark *placemark;
-    NSString *name;
-    NSString *phoneNumber;
-    NSURL *url;
-    NSString *placeID;
-    NSNumber *numberOfReviews;
-    NSNumber *rating;
-    NSNumber *numberOfRatings;
-    NSString *extSessionGuid;
-    NSArray *entryPoints;
+    BOOL _isCurrentLocation;
+    NSString *_extSessionGuid;
+    GEOPlace *_place;
+    BOOL _isPlaceHolder;
 }
 
-+ (id)standardOptionsFromPlistCompatibleDictionary:(id)arg1;
-+ (id)plistCompatibleDictionaryFromStandardOptions:(id)arg1;
-+ (BOOL)openMapsWithItems:(id)arg1 launchOptions:(id)arg2;
-+ (id)mapItemForCurrentLocation;
 + (id)urlForMapItems:(id)arg1 options:(id)arg2;
 + (id)urlForMapItem:(id)arg1 options:(id)arg2;
 + (id)mapItemsFromURL:(id)arg1 options:(id *)arg2;
 + (id)mapItemWithDictionary:(id)arg1;
-@property(copy, nonatomic) NSArray *attributions; // @synthesize attributions=_attributions;
-@property(copy, nonatomic) NSArray *entryPoints; // @synthesize entryPoints;
-@property(copy, nonatomic) NSString *extSessionGuid; // @synthesize extSessionGuid;
-@property(copy, nonatomic) NSNumber *numberOfRatings; // @synthesize numberOfRatings;
-@property(copy, nonatomic) NSNumber *rating; // @synthesize rating;
-@property(copy, nonatomic) NSNumber *numberOfReviews; // @synthesize numberOfReviews;
-@property(copy, nonatomic) NSString *placeID; // @synthesize placeID;
-@property(copy, nonatomic) NSString *yelpID; // @synthesize yelpID=_yelpID;
-@property(copy, nonatomic) NSString *localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
-@property(copy, nonatomic) NSString *businessID; // @synthesize businessID=_businessID;
-@property(retain, nonatomic) NSURL *url; // @synthesize url;
-@property(copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber;
-@property(copy, nonatomic) NSString *name; // @synthesize name;
-@property(retain, nonatomic) MKPlacemark *placemark; // @synthesize placemark;
-@property(nonatomic) BOOL isCurrentLocation; // @synthesize isCurrentLocation;
-- (BOOL)openInMapsWithLaunchOptions:(id)arg1;
-@property(readonly, nonatomic) BOOL isBusiness;
-- (void)dealloc;
-- (id)initWithPlacemark:(id)arg1;
-@property(readonly, nonatomic) NSURL *problemURL;
-- (id)_queryStringForDictionary:(id)arg1;
++ (id)standardOptionsFromPlistCompatibleDictionary:(id)arg1;
++ (id)plistCompatibleDictionaryFromStandardOptions:(id)arg1;
++ (BOOL)openMapsWithItems:(id)arg1 launchOptions:(id)arg2;
++ (id)mapItemForCurrentLocation;
++ (void)_mapItemGeocodedForStructuredLocation:(id)arg1 mapItem:(id)arg2;
++ (void)_mapItemGeocodedForCoordinate:(CDStruct_c3b9c2ee)arg1 mapItem:(id)arg2;
++ (void)_mapItemGeocodedForAddressDictionary:(id)arg1 mapItem:(id)arg2;
++ (void)_geocode:(id)arg1 isForward:(BOOL)arg2 mapItem:(id)arg3;
+@property(readonly, nonatomic) BOOL isPlaceHolder; // @synthesize isPlaceHolder=_isPlaceHolder;
+@property(copy, nonatomic) NSString *extSessionGuid; // @synthesize extSessionGuid=_extSessionGuid;
+@property(readonly, nonatomic) GEOPlace *place; // @synthesize place=_place;
+@property(nonatomic) BOOL isCurrentLocation; // @synthesize isCurrentLocation=_isCurrentLocation;
+- (id)_structuredAddressForUrlRespresentation:(id)arg1;
+- (id)_urlRepresentationForStructuredAddress:(id)arg1;
+- (id)initWithUrlRepresentation:(id)arg1;
+- (id)urlRepresentation;
 - (id)dictionaryRepresentation;
+- (BOOL)openInMapsWithLaunchOptions:(id)arg1;
+@property(retain, nonatomic) NSNumber *rating;
+@property(retain, nonatomic) NSNumber *numberOfReviews;
+@property(retain, nonatomic) NSNumber *numberOfRatings;
+- (id)_getRating;
+@property(retain, nonatomic) NSString *yelpID;
+@property(retain, nonatomic) NSString *businessID;
+@property(retain, nonatomic) NSURL *url;
+@property(copy, nonatomic) NSString *phoneNumber;
+- (id)_getBusiness;
+@property(copy, nonatomic) NSString *name;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)description;
+@property(readonly, nonatomic) MKPlacemark *placemark;
+- (void)dealloc;
+- (id)initWithPlace:(id)arg1 sessionGuid:(id)arg2;
+- (id)initWithPlacemark:(id)arg1;
+- (id)initWithCLLocation:(id)arg1;
+- (id)initWithAddressDictionary:(id)arg1;
+- (id)initWithPlace:(id)arg1 isPlaceHolderPlace:(BOOL)arg2;
+- (id)initWithPlace:(id)arg1;
+- (id)initWithPlaceSearchResponse:(id)arg1 name:(id)arg2;
+- (id)initWithPlaceResult:(id)arg1;
 
 @end
 

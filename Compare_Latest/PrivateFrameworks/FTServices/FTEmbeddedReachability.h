@@ -21,8 +21,6 @@
 - (int)networkStatusForFlags:(unsigned int)arg1;
 - (int)localWiFiStatusForFlags:(unsigned int)arg1;
 - (void)dealloc;
-- (void)stopNotifer;
-- (BOOL)startNotifer;
 
 @end
 

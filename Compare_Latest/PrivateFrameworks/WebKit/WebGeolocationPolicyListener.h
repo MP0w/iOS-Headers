@@ -11,18 +11,17 @@
 @interface WebGeolocationPolicyListener : NSObject <WebAllowDenyPolicyListener>
 {
     struct RefPtr<WebCore::Geolocation> _geolocation;
-    id _denyCallback;
+    struct RetainPtr<WebView *> _webView;
+    struct RetainPtr<id<WebGeolocationProvider>> _geolocationProvider;
 }
 
-@property(copy, nonatomic) id denyCallback; // @synthesize denyCallback=_denyCallback;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (BOOL)shouldClearCache;
 - (void)denyOnlyThisRequest;
 - (void)deny;
 - (void)allow;
-- (id)initWithGeolocation:(struct Geolocation *)arg1;
-- (void)dealloc;
+- (id)initWithGeolocation:(struct Geolocation *)arg1 forWebView:(id)arg2 provider:(id)arg3;
 
 @end
 

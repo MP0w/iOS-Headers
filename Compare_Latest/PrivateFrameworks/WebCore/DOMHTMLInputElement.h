@@ -15,6 +15,8 @@
 - (void)setValueForUser:(id)arg1;
 - (void)click;
 - (void)setSelectionRange:(int)arg1 end:(int)arg2;
+- (void)setRangeText:(id)arg1 start:(unsigned int)arg2 end:(unsigned int)arg3 selectionMode:(id)arg4;
+- (void)setRangeText:(id)arg1;
 - (void)select;
 - (void)setCustomValidity:(id)arg1;
 - (BOOL)checkValidity;
@@ -79,7 +81,7 @@
 - (id)formEnctype;
 - (void)setFormAction:(id)arg1;
 - (id)formAction;
-@property(readonly) DOMFileList *files;
+@property(retain) DOMFileList *files;
 @property(readonly) DOMHTMLFormElement *form;
 @property BOOL disabled;
 - (void)setDirName:(id)arg1;

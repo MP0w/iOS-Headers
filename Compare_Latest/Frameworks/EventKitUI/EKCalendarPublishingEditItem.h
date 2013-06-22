@@ -17,24 +17,23 @@
 }
 
 @property(nonatomic) BOOL published; // @synthesize published=_published;
+- (void).cxx_destruct;
 - (void)messageComposeViewController:(id)arg1 didFinishWithResult:(int)arg2;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
 - (id)pubishURL;
 - (id)calendarTitle;
-- (void)calendarEditor:(id)arg1 didSelectSubitem:(int)arg2;
-- (id)cellForSubitemAtIndex:(int)arg1;
+- (void)calendarEditor:(id)arg1 didSelectSubitem:(unsigned int)arg2;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1;
 - (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
 - (void)_publishChanged:(id)arg1;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 forWidth:(float)arg2;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 forWidth:(float)arg2;
 - (float)footerHeightForSection;
 - (id)footerViewForSection;
-- (int)numberOfSubitems;
+- (unsigned int)numberOfSubitems;
 - (BOOL)configureWithCalendar:(id)arg1;
-@property(readonly, nonatomic) UIView *footerView; // @synthesize footerView=_footerView;
+@property(readonly, nonatomic) UIView *footerView;
 - (void)_applyStyleToUILabel:(id)arg1;
-- (void)dealloc;
 - (void)reset;
-- (id)init;
 
 @end
 

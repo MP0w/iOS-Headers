@@ -20,7 +20,7 @@
 - (BOOL)textPathItalic;
 - (BOOL)textPathBold;
 - (id)textPathFontFamily;
-- (long)textPathFontSize;
+- (int)textPathFontSize;
 - (int)textPathTextAlignment;
 - (id)textPathUnicodeString;
 - (BOOL)isTextPath;

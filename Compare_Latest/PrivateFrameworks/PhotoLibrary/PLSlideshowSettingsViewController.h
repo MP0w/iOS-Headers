@@ -14,8 +14,8 @@
 
 @interface PLSlideshowSettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MPMediaPickerControllerDelegate>
 {
-    NSArray *_airPlayServices;
-    unsigned int _selectedAirPlayServiceIndex;
+    NSArray *_airplayRoutes;
+    unsigned int _selectedAirplayRouteIndex;
     NSArray *_transitionKeys;
     NSArray *_alternateTransitionLocalizations;
     NSString *_selectedTransition;
@@ -55,7 +55,7 @@
 - (void)loadView;
 - (void)updateTransitionKeys:(id)arg1;
 - (void)_updateSettingsInfo;
-- (id)_selectedAirPlayService;
+- (id)_selectedAirplayRoute;
 - (void)viewWillAppear:(BOOL)arg1;
 @property(nonatomic) MPMediaItemCollection *slideshowMusicCollection;
 @property(nonatomic) BOOL slideshowShouldPlayMusic;
@@ -64,7 +64,7 @@
 - (id)slideshowSettings;
 - (void)applySlideshowSettings:(id)arg1;
 - (void)dealloc;
-- (id)initWithAirPlayServices:(id)arg1 selectedServiceIndex:(unsigned int)arg2;
+- (id)initWithAirplayRoutes:(id)arg1 selectedRouteIndex:(unsigned int)arg2;
 
 @end
 

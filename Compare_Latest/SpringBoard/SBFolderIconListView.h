@@ -10,9 +10,10 @@
 {
 }
 
-+ (unsigned int)iconRowsForInterfaceOrientation:(int)arg1;
++ (unsigned int)maxVisibleIconRowsInterfaceOrientation:(int)arg1;
 + (unsigned int)iconColumnsForInterfaceOrientation:(int)arg1;
-- (struct CGRect)nineIconRectForScrollPosition:(int)arg1;
+- (int)iconLocation;
+- (float)sideIconInset;
 - (float)bottomIconInset;
 - (float)topIconInset;
 

@@ -25,11 +25,12 @@
 }
 
 + (void)purge;
-+ (id)textureWithName:(id)arg1 style:(id)arg2 levelOfDetail:(unsigned int)arg3;
++ (id)textureWithName:(id)arg1 style:(id)arg2 levelOfDetail:(unsigned int)arg3 scale:(float)arg4;
+- (id).cxx_construct;
 - (BOOL)loadTexture;
 - (BOOL)decodeTexture;
-- (void)_buildWithStyle:(id)arg1 levelOfDetail:(unsigned int)arg2;
-- (id)_createVKImageForName:(id)arg1;
+- (void)_buildWithStyle:(id)arg1 levelOfDetail:(unsigned int)arg2 scale:(float)arg3;
+- (id)_createVKImageForName:(id)arg1 scale:(float)arg2;
 - (void)_addTextureLayerWithName:(id)arg1 properties:(CDStruct_c0b8bb23)arg2;
 - (void)_addColor:(struct _VGLColor)arg1;
 - (void)dealloc;

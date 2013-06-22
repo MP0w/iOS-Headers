@@ -16,6 +16,7 @@
     SUClientInterface *_clientInterface;
     BOOL _loading;
     SUSection *_section;
+    int _storeBarStyle;
 }
 
 @property(retain, nonatomic) SUSection *section; // @synthesize section=_section;
@@ -24,17 +25,21 @@
 - (void)_loadingDidChangeNotification:(id)arg1;
 - (BOOL)clearsWeakScriptReferences;
 - (BOOL)window:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
+- (unsigned int)supportedInterfaceOrientations;
 - (id)_sectionForViewController:(id)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)setViewControllers:(id)arg1;
 - (void)setToolbarHidden:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setToolbarHidden:(BOOL)arg1;
+- (void)_setStoreBarStyle:(int)arg1 clientInterface:(id)arg2;
 - (void)setParentViewController:(id)arg1;
 - (void)restoreArchivableContext:(id)arg1;
 - (void)removeChildViewController:(id)arg1;
 - (id)moreListSelectedImage;
 - (id)moreListImage;
+- (void)loadView;
+- (int)ITunesStoreUIBarStyle;
 - (id)description;
 - (id)copyScriptViewController;
 - (id)copyArchivableContext;

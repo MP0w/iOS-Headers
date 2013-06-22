@@ -16,8 +16,12 @@
 }
 
 + (id)server;
+- (void)toggleGuidedAccess;
+- (BOOL)isGuidedAccessSelfLockedToApp:(id)arg1;
+- (BOOL)requestGuidedAccessSession:(BOOL)arg1 appID:(id)arg2;
+- (unsigned int)guidedAccessAvailability;
 - (void)setHearingAidControlIsVisible:(BOOL)arg1;
-- (void)removeEventListener:(struct NSString *)arg1;
+- (void)removeEventListener:(id)arg1;
 - (void)registerEventListener:(id)arg1 withIdentifierCallback:(void)arg2;
 - (void)setVoiceOverItemChooserVisible:(BOOL)arg1;
 - (void)wakeUpDeviceIfNecessary;
@@ -30,14 +34,19 @@
 - (void)zoomWillBeginAppSwitcherReveal;
 - (float)zoomAppSwitcherRevealAnimationDelay;
 - (double)zoomDeactivationAnimationStartDelay;
-- (void)postGSEvent:(CDStruct_b3e0c7ee *)arg1 systemEvent:(BOOL)arg2 postThroughHID:(BOOL)arg3;
+- (void)postEvent:(id)arg1 systemEvent:(BOOL)arg2;
+- (void)postEvent:(id)arg1 afterNamedTap:(id)arg2 includeTaps:(id)arg3;
+@property(nonatomic) BOOL invertColorsEnabled; // @dynamic invertColorsEnabled;
 - (double)zoomActivationAnimationStartDelay;
 - (void)registerAssistiveTouchPID:(int)arg1;
+- (void)registerAccessibilityUIServicePID:(int)arg1;
+- (void)registerSiriViewServicePID:(int)arg1;
 - (void)setLockScreenDimTimerEnabled:(BOOL)arg1;
 - (void)zoomFocusChanged:(id)arg1;
+- (void)adjustSystemZoom:(int)arg1;
 - (void)registerGestureConflictWithZoom:(id)arg1;
-- (BOOL)_connectIfNecessary;
-- (void)_connectServerIfNecessary;
+- (void)_willClearServer;
+- (void)_didConnectToServer;
 - (id)_handleZoomListener:(id)arg1;
 - (id)_handleEventListener:(id)arg1;
 - (id)_serviceName;

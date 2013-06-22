@@ -9,16 +9,16 @@
 @interface NSString (TSUNumberFormatStringUtilities)
 + (id)numberSymbols;
 - (id)prefixOfNumberFormatSubpattern;
-- (int)indexOfFirstNonPrefixCharacterInNumberFormatSubpattern;
+- (unsigned int)indexOfFirstNonPrefixCharacterInNumberFormatSubpattern;
 - (id)suffixOfNumberFormatSubpattern;
-- (int)indexOfLastNonSuffixCharacterInNumberFormatSubpattern;
+- (unsigned int)indexOfLastNonSuffixCharacterInNumberFormatSubpattern;
 - (id)numberPortionOfNumberFormatSubpattern;
 - (id)negativeSubpatternOfNumberFormatPattern;
 - (id)positiveSubpatternOfNumberFormatPattern;
-- (int)indexOfNumberFormatSubpatternSeparator;
+- (unsigned int)indexOfNumberFormatSubpatternSeparator;
 - (id)stringByRemovingEscapedCharactersFromNumberFormatPattern;
-- (id)createRangesOfEscapedCharactersInNumberFormatPattern;
+- (id)newRangesOfEscapedCharactersInNumberFormatPattern;
 - (BOOL)isNumberFormatPattern;
-- (id)createStringBySubstitutingCharactersCFNumberFormatterDoesntUnderstand;
+- (id)newStringBySubstitutingCharactersCFNumberFormatterDoesntUnderstand;
 @end
 

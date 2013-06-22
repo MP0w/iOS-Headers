@@ -14,8 +14,7 @@
 }
 
 @property(retain, nonatomic) UIControl *control; // @synthesize control=_control;
-- (void)layoutSubviews;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

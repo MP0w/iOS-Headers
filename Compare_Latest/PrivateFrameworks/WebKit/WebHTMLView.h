@@ -97,6 +97,7 @@
 - (void)pageUp:(id)arg1;
 - (void)pageDownAndModifySelection:(id)arg1;
 - (void)pageDown:(id)arg1;
+- (void)overWrite:(id)arg1;
 - (void)outdent:(id)arg1;
 - (void)moveWordRightAndModifySelection:(id)arg1;
 - (void)moveWordRight:(id)arg1;

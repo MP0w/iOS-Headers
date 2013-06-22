@@ -19,7 +19,9 @@
 - (void)reset;
 - (BOOL)refresh;
 - (id)description;
+@property(nonatomic) BOOL onlyCreatorCanModify;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
+@property(copy, nonatomic) NSString *externalModificationTag;
 @property(copy, nonatomic) NSString *externalID;
 @property(nonatomic) NSString *UUID;
 @property(copy, nonatomic) NSNumber *defaultAlarmOffset;

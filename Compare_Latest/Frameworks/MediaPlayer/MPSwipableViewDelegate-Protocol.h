@@ -15,6 +15,7 @@
 - (void)swipableView:(id)arg1 tappedWithCount:(unsigned int)arg2 atLocation:(struct CGPoint)arg3;
 - (void)swipableView:(id)arg1 swipedInDirection:(int)arg2;
 - (id)swipableView:(id)arg1 overrideHitTest:(struct CGPoint)arg2 withEvent:(id)arg3;
+- (void)swipableView:(id)arg1 willMoveToWindow:(id)arg2;
 - (void)swipableView:(id)arg1 didMoveToSuperview:(id)arg2;
 - (void)swipableView:(id)arg1 willMoveToSuperview:(id)arg2;
 @end

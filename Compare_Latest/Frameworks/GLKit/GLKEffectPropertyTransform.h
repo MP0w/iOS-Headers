@@ -11,13 +11,13 @@
     union _GLKMatrix4 _modelviewMatrix;
     union _GLKMatrix4 _projectionMatrix;
     union _GLKMatrix3 _normalMatrix;
-    union _GLKMatrix4 _invModelviewMatrix;
-    union _GLKMatrix4 _mvpMatrix;
     int _mvpMatrixLoc;
     int _modelviewMatrixLoc;
     int _projectionMatrixLoc;
     int _normalMatrixLoc;
     int _invModelviewMatrixLoc;
+    union _GLKMatrix4 _invModelviewMatrix;
+    union _GLKMatrix4 _mvpMatrix;
 }
 
 + (void)setStaticMasksWithVshRoot:(id)arg1 fshRoot:(id)arg2;

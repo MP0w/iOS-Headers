@@ -6,7 +6,10 @@
 
 #import "MFMessageBodyConsumableInnerTextNode-Protocol.h"
 
+@class NSArray;
+
 @protocol MFMessageBodyElement <MFMessageBodyConsumableInnerTextNode>
+@property(retain, nonatomic) NSArray *nodes;
 - (int)valueForAttributes:(int)arg1;
 - (unsigned int)quoteLevel;
 @end

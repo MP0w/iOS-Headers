@@ -6,29 +6,25 @@
 
 #import "NSObject.h"
 
-#import "XPCProxyTarget-Protocol.h"
+@class ACAccount, NSXPCConnection;
 
-@class ACAccount, XPCProxy<ACDOAuthSignerProtocol>;
-
-@interface ACOAuthSigner : NSObject <XPCProxyTarget>
+@interface ACOAuthSigner : NSObject
 {
-    XPCProxy<ACDOAuthSignerProtocol> *_oauthSignerProxy;
-    struct dispatch_queue_s *_connectionQueue;
-    struct _xpc_connection_s *_connection;
+    NSXPCConnection *_connection;
     ACAccount *_account;
+    id <ACDOAuthSignerProtocol> _proxyShim;
     BOOL _shouldIncludeAppIdInRequest;
 }
 
 @property(nonatomic) BOOL shouldIncludeAppIdInRequest; // @synthesize shouldIncludeAppIdInRequest=_shouldIncludeAppIdInRequest;
 - (void).cxx_destruct;
-- (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
+- (void)disconnectFromRemoteOAuthSigner;
+- (void)_connectToRemoteOAuthSignerUsingEndpoint:(id)arg1;
 - (id)signedURLRequestWithURLRequest:(id)arg1;
 - (id)signedURLRequestWithURLRequest:(id)arg1 applicationID:(id)arg2 timestamp:(id)arg3;
 - (id)signedURLRequestWithURLRequest:(id)arg1 callingPID:(id)arg2 timestamp:(id)arg3;
-- (id)oauthSignerProxy;
-- (void)_tearDownConnection;
-- (void)_configureWithConnection:(struct _xpc_connection_s *)arg1;
 - (void)dealloc;
+- (id)initWithAccount:(id)arg1 remoteEndpoint:(id)arg2;
 - (id)initWithAccount:(id)arg1;
 
 @end

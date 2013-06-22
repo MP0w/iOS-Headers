@@ -21,6 +21,7 @@
 + (Class)tableViewCellClass;
 + (id)tableViewBackgroundColor;
 @property(nonatomic) BOOL showsSectionHeader; // @synthesize showsSectionHeader=_showsSectionHeader;
+- (void).cxx_destruct;
 - (void)_updateNoSharedLibrariesViewAnimated:(BOOL)arg1;
 - (void)_selectLibrary:(id)arg1;
 - (void)_updateConnectionProgressForCellAtIndexPath:(id)arg1;

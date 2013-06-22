@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding-Protocol.h"
+
 @class NSNumber, NSSet, NSString;
 
-@interface BBSectionSubtypeParameters : NSObject
+@interface BBSectionSubtypeParameters : NSObject <NSSecureCoding>
 {
     BBSectionSubtypeParameters *_fallbackParameters;
     NSString *_topic;
@@ -27,6 +29,7 @@
     NSNumber *_boxedIPodOutAlertType;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(retain, nonatomic) NSNumber *boxedIPodOutAlertType; // @synthesize boxedIPodOutAlertType=_boxedIPodOutAlertType;
 @property(retain, nonatomic) NSNumber *boxedSubtypePriority; // @synthesize boxedSubtypePriority=_boxedSubtypePriority;
 @property(retain, nonatomic) NSNumber *boxedVisuallyIndicatesWhenDateIsInFuture; // @synthesize boxedVisuallyIndicatesWhenDateIsInFuture=_boxedVisuallyIndicatesWhenDateIsInFuture;

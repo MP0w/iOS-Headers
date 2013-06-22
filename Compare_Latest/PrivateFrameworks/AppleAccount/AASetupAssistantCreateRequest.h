@@ -6,13 +6,13 @@
 
 #import <AppleAccount/AARequest.h>
 
-@class AAAccount, AASigningSession, NSDictionary;
+@class AASigningSession, ACAccount, NSDictionary;
 
 @interface AASetupAssistantCreateRequest : AARequest
 {
     NSDictionary *appleIDParameters;
     AASigningSession *signingSession;
-    AAAccount *_account;
+    ACAccount *_account;
 }
 
 + (Class)responseClass;

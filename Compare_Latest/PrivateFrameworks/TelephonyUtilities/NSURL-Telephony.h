@@ -24,6 +24,7 @@
 @property(readonly) BOOL wasAlreadyAssisted;
 @property(readonly) BOOL suppressAssist;
 @property(readonly) BOOL forceAssist;
+@property(readonly) int callService;
 @property(readonly) int addressBookUID;
 @property(readonly) NSString *phoneNumber;
 @end

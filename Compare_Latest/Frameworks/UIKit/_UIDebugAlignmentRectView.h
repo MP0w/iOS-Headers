@@ -8,11 +8,13 @@
 
 @interface _UIDebugAlignmentRectView : UIView
 {
+    float _baselineOffset;
 }
 
 - (BOOL)isOpaque;
-- (id)_alignmentDebuggingOverlay;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)_alignmentDebuggingOverlayCreateIfNecessary:(BOOL)arg1;
+- (void)drawRect:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 baselineOffset:(float)arg2;
 
 @end
 

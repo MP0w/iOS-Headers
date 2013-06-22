@@ -15,14 +15,14 @@
     id <EKCellShortener> _shortener;
 }
 
-@property(nonatomic) id <EKCellShortener> shortener; // @synthesize shortener=_shortener;
+@property(nonatomic) __weak id <EKCellShortener> shortener; // @synthesize shortener=_shortener;
+- (void).cxx_destruct;
 - (void)checkValueWidths;
 - (void)shorten;
 - (void)layoutSubviews;
 - (void)_layoutSubviewsCore;
 - (void)layoutText:(id)arg1 andValue:(id)arg2;
 @property(readonly, nonatomic) UIColor *valueColor;
-- (void)dealloc;
 @property(readonly, nonatomic) TwoPartTextLabel *twoPartTextLabel;
 
 @end

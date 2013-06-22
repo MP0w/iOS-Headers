@@ -35,7 +35,7 @@
     struct CGPoint _center;
     float _audioVolume;
     NSString *_sizingMode;
-    int _mediaType;
+    unsigned int _mediaType;
     BOOL _isSecondary;
     BOOL _mirrorToDuplicatePaths;
     double _cachedShowTime;
@@ -100,8 +100,9 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
+- (BOOL)canZoom;
 - (double)maxDuration;
-- (void)setMediaType:(int)arg1;
+- (void)setMediaType:(unsigned int)arg1;
 - (id)fullDebugLog;
 - (void)dump;
 - (id)slide;

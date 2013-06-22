@@ -37,6 +37,7 @@
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithPosition:(int)arg1 selectionView:(id)arg2;
 

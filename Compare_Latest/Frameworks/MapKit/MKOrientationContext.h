@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, UIView;
+@class NSArray, NSMutableArray;
 
 @interface MKOrientationContext : NSObject
 {
     NSMutableArray *orientViews;
     NSArray *relativeViews;
-    UIView *projectionView;
+    struct UIView *projectionView;
     struct CGRect *relativeViewFrames;
 }
 
@@ -20,7 +20,7 @@
 - (void)invalidateView:(id)arg1;
 - (void)_computeRelativeViewFrame:(id)arg1;
 - (void)_computeRelativeViewFrames;
-- (id)initWithViewsToOrient:(id)arg1 relativeViews:(id)arg2 projectionView:(id)arg3;
+- (id)initWithViewsToOrient:(id)arg1 relativeViews:(id)arg2 projectionView:(struct UIView *)arg3;
 
 @end
 

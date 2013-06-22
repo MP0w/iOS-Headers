@@ -11,17 +11,15 @@
 }
 
 + (id)sharedInstance;
+- (BOOL)openURL:(id)arg1;
 - (BOOL)shouldRateLimitSearchCompletions;
 - (BOOL)supportsNavigation;
 - (BOOL)supports3DImagery;
+- (BOOL)supportsPitchAPI;
 - (BOOL)supports3DMaps;
 - (BOOL)isInternalInstall;
 - (BOOL)_featureFreedomEnabled;
-- (int)deviceTileSize;
-- (int)deviceTileScale;
 - (int)userInterfaceIdiom;
-- (BOOL)isLiveScrollCapable;
-- (BOOL)isSensitiveUIEnabled;
 - (BOOL)isHiDPI;
 - (struct CGSize)screenSize;
 - (float)screenScale;

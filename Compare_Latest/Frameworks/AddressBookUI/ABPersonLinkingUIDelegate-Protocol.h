@@ -14,6 +14,6 @@
 - (id)personNameForCardAtRow:(int)arg1;
 - (BOOL)canUnlinkCardAtRow:(int)arg1;
 - (BOOL)manuallyUnlinkCardAtRow:(int)arg1;
-- (BOOL)manuallyLinkPerson:(void *)arg1;
+- (BOOL)manuallyLinkPerson:(id)arg1;
 @end
 

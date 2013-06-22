@@ -6,68 +6,99 @@
 
 #import <UIKit/UIView.h>
 
+#import "UICollectionViewDataSource-Protocol.h"
+#import "UIKeyboardCandidateBarLayoutDelegate-Protocol.h"
 #import "UIKeyboardCandidateList-Protocol.h"
 #import "UIKeyboardCandidateListDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSString, UIImageView, UIScrollView;
+@class NSArray, NSIndexPath, NSString, TIKeyboardCandidateResultSet, UICollectionView, UIImageView;
 
-@interface UIKeyboardCandidateBar : UIView <UIKeyboardCandidateList, UIKeyboardCandidateListDelegate>
+@interface UIKeyboardCandidateBar : UIView <UIKeyboardCandidateList, UIKeyboardCandidateListDelegate, UIKeyboardCandidateBarLayoutDelegate, UICollectionViewDataSource>
 {
-    id <UIKeyboardCandidateListDelegate> m_delegate;
-    UIScrollView *m_scrollView;
-    NSArray *m_candidates;
-    NSArray *m_allCandidates;
-    NSString *m_inlineText;
-    NSMutableArray *m_cells;
-    unsigned int m_currentCandidateIndex;
-    struct CGRect m_inlineRect;
-    float m_maxX;
-    UIImageView *m_candidateMaskView;
-    BOOL m_canExtend;
+    BOOL _canExtend;
+    BOOL _shouldSkipLayoutUntilScrollViewAnimationEnds;
+    BOOL _didSkipLayout;
+    NSString *_inlineText;
+    UIImageView *_candidateMaskView;
+    id <UIKeyboardCandidateBarDelegate> _delegate;
+    id <UIKeyboardCandidateListDelegate> _candidateListDelegate;
+    UICollectionView *_collectionView;
+    TIKeyboardCandidateResultSet *_candidateResultSet;
+    NSArray *_filteredCandidates;
+    NSIndexPath *_dragStartNextPageIndexPath;
+    NSIndexPath *_dragStartPreviousPageIndexPath;
+    id _skippedSetCandidatesBlock;
+    struct CGPoint _dragStartOffset;
 }
 
 + (float)defaultCandidateWidth;
 + (float)candidateBarHeight;
-@property(readonly, nonatomic) UIImageView *candidateMaskView; // @synthesize candidateMaskView=m_candidateMaskView;
-@property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=m_scrollView;
-@property(readonly, nonatomic) NSString *inlineText; // @synthesize inlineText=m_inlineText;
-@property(retain, nonatomic) NSArray *candidates; // @synthesize candidates=m_candidates;
-@property BOOL canExtend; // @synthesize canExtend=m_canExtend;
-- (void)_forceLayoutTo:(unsigned int)arg1;
-- (void)layoutSubviews;
+@property(copy, nonatomic) id skippedSetCandidatesBlock; // @synthesize skippedSetCandidatesBlock=_skippedSetCandidatesBlock;
+@property(nonatomic) BOOL didSkipLayout; // @synthesize didSkipLayout=_didSkipLayout;
+@property(nonatomic) BOOL shouldSkipLayoutUntilScrollViewAnimationEnds; // @synthesize shouldSkipLayoutUntilScrollViewAnimationEnds=_shouldSkipLayoutUntilScrollViewAnimationEnds;
+@property(copy, nonatomic) NSIndexPath *dragStartPreviousPageIndexPath; // @synthesize dragStartPreviousPageIndexPath=_dragStartPreviousPageIndexPath;
+@property(copy, nonatomic) NSIndexPath *dragStartNextPageIndexPath; // @synthesize dragStartNextPageIndexPath=_dragStartNextPageIndexPath;
+@property(nonatomic) struct CGPoint dragStartOffset; // @synthesize dragStartOffset=_dragStartOffset;
+@property(nonatomic) BOOL canExtend; // @synthesize canExtend=_canExtend;
+@property(retain, nonatomic) NSArray *filteredCandidates; // @synthesize filteredCandidates=_filteredCandidates;
+@property(retain, nonatomic) TIKeyboardCandidateResultSet *candidateResultSet; // @synthesize candidateResultSet=_candidateResultSet;
+@property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
+@property(nonatomic) id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
+@property(nonatomic) id <UIKeyboardCandidateBarDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) UIImageView *candidateMaskView; // @synthesize candidateMaskView=_candidateMaskView;
+@property(copy, nonatomic) NSString *inlineText; // @synthesize inlineText=_inlineText;
 - (void)setFrame:(struct CGRect)arg1;
-- (BOOL)_addCells:(int)arg1;
-- (void)_bgAddCells:(id)arg1;
-- (struct CGSize)screenSpaceBetweenStatusBarAndKeyboard;
-- (void)_cellSelected:(id)arg1;
-- (void)_clearAll;
-- (void)_clearCells;
+@property(readonly, nonatomic) TIKeyboardCandidateResultSet *candidates;
+- (float)_emptySpaceForItemsToIndex:(unsigned int)arg1 inSection:(int)arg2;
+- (struct CGSize)_sizeOfItemAtIndex:(unsigned int)arg1 inSection:(int)arg2;
+- (id)_itemAtIndex:(unsigned int)arg1 inSection:(int)arg2;
+- (unsigned int)_countOfItemsInSection:(int)arg1;
+- (id)_indexPathForLastVisibleItem;
+- (id)_indexPathForFirstVisibleItem;
+- (id)_previousPageIndexPath;
+- (id)_nextPageIndexPath;
+- (void)_showPageAtIndexPath:(id)arg1;
+- (void)_updateCanExtendState;
+- (void)_stepSelectedCandidateInDirection:(BOOL)arg1;
+- (void)_scrollToFirstCandidateInSection:(int)arg1 withAnimation:(BOOL)arg2;
+- (void)_showCandidateAtIndex:(unsigned int)arg1 inSection:(int)arg2 scrollCellToVisible:(BOOL)arg3 animated:(BOOL)arg4;
+- (void)_performSkippedLayoutIfNeeded;
+- (BOOL)_showingInitiallyHiddenCandidates;
+- (void)_reloadData;
+- (void)_clearData;
 - (void)candidateListShouldBeDismissed:(id)arg1;
 - (void)candidateListSelectionDidChange:(id)arg1;
 - (void)candidateListAcceptCandidate:(id)arg1;
-- (void)configureKeyboard:(id)arg1;
+- (void)revealHiddenCandidates;
+- (id)keyboardBehaviors;
+- (BOOL)hasCandidates;
 - (unsigned int)count;
 - (void)candidateAcceptedAtIndex:(unsigned int)arg1;
-- (id)candidateAtIndex:(unsigned int)arg1;
 - (unsigned int)currentIndex;
 - (id)currentCandidate;
 - (BOOL)hasNextPage;
 - (BOOL)hasPreviousPage;
-- (void)showNextPage;
 - (void)showPreviousPage;
-- (float)_selectCandidateClosestToPageOffset:(float)arg1 withForwardPagingDirection:(BOOL)arg2;
-- (void)showPageAtIndex:(unsigned int)arg1;
+- (void)showNextPage;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
 - (void)showCandidate:(id)arg1;
-- (void)_setCurrentCandidateIndex:(unsigned int)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)candidatesDidChange;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
-@property(nonatomic) unsigned int selectedCandidateIndex; // @synthesize selectedCandidateIndex=m_currentCandidateIndex;
-- (void)layoutCells;
-- (void)layout;
+- (BOOL)isExtendedList;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
+- (void)scrollViewWillBeginDragging:(id)arg1;
+- (void)scrollViewDidEndScrollingAnimation:(id)arg1;
+- (void)scrollViewDidScroll:(id)arg1;
+- (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
+- (struct CGSize)sizeOfDummyItemForCollectionView:(id)arg1 layout:(id)arg2;
+- (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
+- (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
+- (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
+- (int)collectionView:(id)arg1 numberOfItemsInSection:(int)arg2;
+- (int)numberOfSectionsInCollectionView:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

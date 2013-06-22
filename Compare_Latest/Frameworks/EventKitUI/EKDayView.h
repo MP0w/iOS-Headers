@@ -7,40 +7,23 @@
 #import "UIView.h"
 
 #import "EKDayAllDayViewDelegate-Protocol.h"
+#import "EKDayTimeViewDelegate-Protocol.h"
 #import "EKDayViewContentDelegate-Protocol.h"
-#import "EKPadAllDayViewDelegate-Protocol.h"
 #import "UIScrollViewDelegate-Protocol.h"
 
-@class EKDayAllDayView, EKDayTimeView, EKDayViewContent, EKEvent, EKPadDayAllDayView, NSArray, NSCalendar, NSDate, NSDateComponents, UIImageView, UIScrollAnimation, UIScrollView;
+@class EKDayAllDayView, EKDayTimeView, EKDayViewContent, EKEvent, NSArray, NSCalendar, NSDate, NSDateComponents, UIColor, UIImageView, UIScrollAnimation, UIScrollView;
 
-@interface EKDayView : UIView <UIScrollViewDelegate, EKDayAllDayViewDelegate, EKDayViewContentDelegate, EKPadAllDayViewDelegate>
+@interface EKDayView : UIView <UIScrollViewDelegate, EKDayAllDayViewDelegate, EKDayViewContentDelegate, EKDayTimeViewDelegate>
 {
-    id <EKDayViewDataSource> _dataSource;
-    id <EKDayViewDelegate> _delegate;
-    EKPadDayAllDayView *_padAllDayView;
-    EKDayAllDayView *_allDayView;
-    EKDayViewContent *_dayContent;
-    EKDayTimeView *_timeView;
     UIScrollView *_scroller;
-    UIScrollAnimation *_scrollAnimation;
-    UIView *_bottomFader;
-    UIView *_topFader;
     int _orientation;
-    int _outlineStyle;
-    NSDateComponents *_displayDate;
-    NSCalendar *_calendar;
     double _dayStart;
     double _dayEnd;
     double _nextDSTTransition;
-    unsigned int _loadingOccurrences:1;
-    unsigned int _allowsOccurrenceSelection:1;
-    unsigned int _putSelectionOnTop:1;
-    unsigned int _didLoad:1;
-    unsigned int _scrollbarShowsInside:1;
-    unsigned int _scrollingToOccurrence:1;
-    unsigned int _settingDate:1;
-    BOOL _dimsNonSelectedItems;
-    BOOL _alignsMidnightToTop;
+    BOOL _putSelectionOnTop;
+    BOOL _scrollbarShowsInside;
+    BOOL _scrollingToOccurrence;
+    BOOL _settingDate;
     BOOL _userScrolling;
     BOOL _scrollToOccurrencesOnNextReload;
     UIImageView *_topVerticalGridExtension;
@@ -48,13 +31,37 @@
     UIView *_bottomLine;
     NSDate *_lastInspectedOccurrenceOnDate;
     struct CGSize _scrolledToFirstVisibleSecondForSize;
+    EKDayAllDayView *_allDayView;
+    EKDayViewContent *_dayContent;
+    EKDayTimeView *_timeView;
+    UIScrollAnimation *_scrollAnimation;
+    UIView *_allDayDividerViewTop;
+    UIView *_allDayDividerViewBottom;
+    BOOL _allowsOccurrenceSelection;
+    BOOL _alignsMidnightToTop;
+    BOOL _shouldEverShowTimeIndicators;
+    id <EKDayViewDelegate> _delegate;
+    id <EKDayViewDataSource> _dataSource;
+    NSDateComponents *_displayDate;
+    NSCalendar *_calendar;
+    float _contentInset;
+    int _outlineStyle;
+    UIColor *_occurrenceTextBackgroundColor;
 }
 
-@property(copy, nonatomic) NSDateComponents *displayDate; // @synthesize displayDate=_displayDate;
-@property(copy, nonatomic) NSCalendar *calendar; // @synthesize calendar=_calendar;
+@property(retain, nonatomic) UIColor *occurrenceTextBackgroundColor; // @synthesize occurrenceTextBackgroundColor=_occurrenceTextBackgroundColor;
+@property(nonatomic) int outlineStyle; // @synthesize outlineStyle=_outlineStyle;
+@property(nonatomic) BOOL shouldEverShowTimeIndicators; // @synthesize shouldEverShowTimeIndicators=_shouldEverShowTimeIndicators;
+@property(readonly, nonatomic) float contentInset; // @synthesize contentInset=_contentInset;
 @property(nonatomic) BOOL alignsMidnightToTop; // @synthesize alignsMidnightToTop=_alignsMidnightToTop;
-@property(nonatomic) id <EKDayViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) id <EKDayViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(nonatomic) BOOL allowsOccurrenceSelection; // @synthesize allowsOccurrenceSelection=_allowsOccurrenceSelection;
+@property(readonly, nonatomic) double dayEnd; // @synthesize dayEnd=_dayEnd;
+@property(readonly, nonatomic) double dayStart; // @synthesize dayStart=_dayStart;
+@property(copy, nonatomic) NSCalendar *calendar; // @synthesize calendar=_calendar;
+@property(copy, nonatomic) NSDateComponents *displayDate; // @synthesize displayDate=_displayDate;
+@property(nonatomic) __weak id <EKDayViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(nonatomic) __weak id <EKDayViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)addViewToScroller:(id)arg1 isAllDay:(BOOL)arg2;
 - (BOOL)isAllDayLabelHighlighted;
 - (void)setAllDayLabelHighlighted:(BOOL)arg1;
@@ -69,20 +76,11 @@
 - (double)dateAtPoint:(struct CGPoint)arg1 isAllDay:(char *)arg2;
 - (id)occurrenceViewAtPoint:(struct CGPoint)arg1;
 - (void)_timeViewTapped:(id)arg1;
-- (void)emptySpaceClickForDayViewContent:(id)arg1 onDay:(double)arg2;
+- (void)dayViewContent:(id)arg1 didTapPinnedOccurrence:(id)arg2;
+- (void)dayViewContent:(id)arg1 didTapInEmptySpaceOnDay:(double)arg2;
 - (void)dayViewContent:(id)arg1 didSelectEvent:(id)arg2;
 - (void)dayViewContent:(id)arg1 didCreateOccurrenceViews:(id)arg2;
-- (void)occurrenceDragExited:(id)arg1;
 - (void)occurrencePressed:(id)arg1 onDay:(double)arg2;
-@property(readonly, nonatomic) float contentInset;
-- (id)padAllDayView:(id)arg1 eventsForStartDate:(id)arg2 endDate:(id)arg3;
-- (void)padAllDayView:(id)arg1 didSelectEvent:(id)arg2;
-- (void)padAllDayViewFinishScrollingToOccurrence:(id)arg1;
-- (void)padAllDayViewEmptySpaceClick:(id)arg1 onDay:(double)arg2;
-- (void)padAllDayViewStartDrag:(id)arg1;
-- (void)padAllDayView:(id)arg1 occurrenceDragExited:(id)arg2;
-- (void)padAllDayView:(id)arg1 occurrencePressed:(id)arg2 onDay:(double)arg3;
-- (void)padAllDayView:(id)arg1 occurrenceClicked:(id)arg2 onDay:(double)arg3;
 - (void)allDayViewDidLayoutSubviews:(id)arg1;
 - (void)allDayView:(id)arg1 didSelectEvent:(id)arg2;
 - (void)reloadData;
@@ -96,23 +94,20 @@
 - (void)firstVisibleSecondChanged;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
-- (void)_notifyDelegateOfDragExitedOnOccurrence:(id)arg1;
 - (void)_notifyDelegateOfFinishedScrollingToOccurrence;
-- (void)_notifyDelegateOfPressOnEvent:(id)arg1;
 @property(retain, nonatomic) EKEvent *dimmedOccurrence;
 - (id)selectedEvent;
 - (void)selectEvent:(id)arg1;
 - (struct CGRect)rectForEvent:(id)arg1;
 - (float)yPositionPerhapsMatchingAllDayOccurrence:(id)arg1;
 - (id)occurrenceViewForEvent:(id)arg1;
-- (id)occurrenceVisibleRect:(id)arg1;
 - (void)resetLastSelectedOccurrencePoint;
 - (id)_generateVerticalGridExtensionImage;
 - (void)_clearVerticalGridExtensionImageCache;
 - (struct CGRect)_scrollerRect;
 - (int)_secondAtPosition:(float)arg1;
 - (float)_positionOfSecond:(int)arg1;
-@property(readonly, nonatomic) float scrollBarOffset; // @dynamic scrollBarOffset;
+@property(readonly, nonatomic) float scrollBarOffset;
 - (float)_verticalOffset;
 - (void)bringEventToFront:(id)arg1;
 @property(readonly, nonatomic) NSArray *occurrenceViews;
@@ -124,30 +119,31 @@
 - (void)_finishedScrollToSecond;
 - (void)_scrollToSecond:(int)arg1 animated:(BOOL)arg2 whenFinished:(id)arg3;
 - (void)scrollToEvent:(id)arg1 animated:(BOOL)arg2;
-- (id)_faderForFaderImage:(id)arg1 fader:(id)arg2 sizeToImage:(BOOL)arg3;
-- (void)setTopFader:(id)arg1 bottomFader:(id)arg2 sizeToImage:(BOOL)arg3;
+@property(readonly, nonatomic) UIView *allDayView;
+@property(nonatomic) int occurrenceBackgroundStyle;
+@property(retain, nonatomic) UIColor *occurrenceLocationColor;
+@property(retain, nonatomic) UIColor *occurrenceTitleColor;
+@property(retain, nonatomic) UIColor *gridLineColor;
+@property(nonatomic) struct _NSRange hoursToRender;
+@property(retain, nonatomic) UIColor *timeViewTextColor;
+@property(nonatomic) BOOL allowsScrolling;
 @property(nonatomic) unsigned int firstVisibleSecond;
-@property(nonatomic) BOOL dimsNonSelectedItems;
-@property(nonatomic) int outlineStyle;
-@property(nonatomic) BOOL showsSelectionOnTop;
 @property(nonatomic) BOOL showsLeftBorder;
 @property(nonatomic) BOOL eventsFillGrid;
-@property(nonatomic) BOOL allowsOccurrenceSelection;
-@property(nonatomic) BOOL darkensSelection;
 @property(nonatomic) BOOL showsTimeLine;
+- (struct CGRect)currentTimeRectInView:(id)arg1;
 @property(nonatomic) BOOL showsTimeMarker;
-@property(readonly, nonatomic) double dayEnd;
-@property(readonly, nonatomic) double dayStart;
 - (void)adjustForSignificantTimeChange;
 - (void)setOrientation:(int)arg1;
 - (void)setTimeZone:(id)arg1;
 - (void)_adjustForDateOrCalendarChange;
 - (void)_stopScrolling;
+- (void)adjustFrameToSpanStartDate:(id)arg1 endDate:(id)arg2;
 - (void)dealloc;
 - (void)layoutSubviews;
 - (void)_localeChanged;
-- (id)initWithFrame:(struct CGRect)arg1 orientation:(int)arg2 opaque:(BOOL)arg3;
-- (id)initWithFrame:(struct CGRect)arg1 orientation:(int)arg2 backgroundColor:(id)arg3 opaque:(BOOL)arg4 scrollbarShowsInside:(BOOL)arg5;
+- (id)description;
+- (id)initWithFrame:(struct CGRect)arg1 orientation:(int)arg2 displayDate:(id)arg3 backgroundColor:(id)arg4 opaque:(BOOL)arg5 scrollbarShowsInside:(BOOL)arg6;
 
 @end
 

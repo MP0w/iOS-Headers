@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSString, UIBezierPath;
 
 @interface NSObject (UIAccessibility)
 @property(nonatomic) BOOL shouldGroupAccessibilityChildren; // @dynamic shouldGroupAccessibilityChildren;
@@ -16,6 +16,7 @@
 @property(nonatomic) BOOL isAccessibilityElement; // @dynamic isAccessibilityElement;
 @property(nonatomic) unsigned long long accessibilityTraits; // @dynamic accessibilityTraits;
 @property(nonatomic) struct CGPoint accessibilityActivationPoint; // @dynamic accessibilityActivationPoint;
+@property(copy, nonatomic) UIBezierPath *accessibilityPath;
 @property(nonatomic) struct CGRect accessibilityFrame; // @dynamic accessibilityFrame;
 @property(copy, nonatomic) NSString *accessibilityHint; // @dynamic accessibilityHint;
 @property(copy, nonatomic) NSString *accessibilityValue; // @dynamic accessibilityValue;

@@ -11,7 +11,7 @@
     id <SWFakeRunSensorDelegate> _delegate;
 }
 
-+ (id)_newDelegate;
++ (id)_createDelegate;
 + (void)initialize;
 - (void)cancelSearching;
 - (void)beginSearching;

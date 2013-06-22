@@ -47,8 +47,12 @@
 - (void)_processDeletePhotoStreamDataJob:(id)arg1;
 - (void)_processAutodeleteEmptyAlbumJob:(id)arg1;
 - (void)_processImportImageJob:(id)arg1;
+- (void)_processTokenAssetJob:(id)arg1;
 - (void)_processImageJob:(id)arg1;
+- (BOOL)_writeXMPHeaderToPath:(id)arg1 properties:(id)arg2 orientation:(int)arg3;
+- (void)_writeJPEGFromIOSurface:(struct __IOSurface *)arg1 toPath:(id)arg2 orientation:(int)arg3;
 - (BOOL)saveImageJobToDisk:(id)arg1;
+- (BOOL)saveToDiskSlalomRegions:(id)arg1 forJob:(id)arg2;
 - (id)uuidFromIncomingFilename:(id)arg1;
 - (id)uniqueIncomingPathForAssetWithUUID:(id)arg1 andExtension:(id)arg2 isPhotoStream:(BOOL)arg3;
 - (id)incomingDirectoryPath;
@@ -56,7 +60,7 @@
 - (void)_removeTransientKeys:(id)arg1;
 - (id)pathForNewAssetPathAtAlbumDirectoryPath:(id)arg1 assetType:(unsigned int)arg2 extension:(id)arg3;
 - (id)cameraAssetPathForNewAssetWithExtension:(id)arg1;
-- (id)cameraAssetExtensionForType:(int)arg1;
+- (id)cameraAssetExtensionForType:(long long)arg1;
 - (BOOL)enqueueJob:(id)arg1;
 - (void)_decrementJobCount:(id)arg1;
 - (void)_incrementJobCount:(id)arg1;

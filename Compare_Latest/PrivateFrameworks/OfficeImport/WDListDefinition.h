@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableArray, WDDocument, WDStyle;
 
-@interface WDListDefinition : NSObject
+@interface WDListDefinition : NSObject <NSCopying>
 {
     int mType;
     NSMutableArray *mLevels;
-    int mListId;
+    long mListId;
     WDDocument *mDocument;
     WDStyle *mListStyle;
     WDStyle *mListStyleLink;
@@ -22,8 +24,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithDocument:(id)arg1;
 - (id)document;
-- (void)setListId:(int)arg1;
-- (int)listId;
+- (void)setListId:(long)arg1;
+- (long)listId;
 - (void)setListStyleLink:(id)arg1;
 - (id)listStyleLink;
 - (void)setListStyle:(id)arg1;

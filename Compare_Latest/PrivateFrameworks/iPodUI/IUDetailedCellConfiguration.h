@@ -17,6 +17,7 @@
 
 + (float)rowHeightForGlobalContext:(id)arg1;
 + (float)minimumRowHeight;
+- (void).cxx_destruct;
 - (int)_accessibilityUnplayedIndicatorStyle;
 - (id)backgroundColorForImageAtIndex:(unsigned int)arg1;
 - (void)reloadImages;

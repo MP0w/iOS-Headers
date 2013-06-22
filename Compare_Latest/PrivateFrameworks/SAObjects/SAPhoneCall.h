@@ -4,21 +4,21 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
-@class NSString, NSURL, SAPersonAttribute;
+@class NSNumber, SAPersonAttribute;
 
-@interface SAPhoneCall : SABaseClientBoundCommand
+@interface SAPhoneCall : SADomainCommand
 {
 }
 
 + (id)callWithDictionary:(id)arg1 context:(id)arg2;
 + (id)call;
 - (BOOL)requiresResponse;
-@property(copy, nonatomic) NSString *recipient;
+@property(nonatomic) BOOL faceTimeAudio;
 @property(nonatomic) BOOL faceTime;
+@property(copy, nonatomic) NSNumber *emergencyCall;
 @property(retain, nonatomic) SAPersonAttribute *callRecipient;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

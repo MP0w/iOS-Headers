@@ -20,6 +20,8 @@
 - (void)setArray:(id)arg1;
 - (void)setObject:(id)arg1;
 - (void)replaceObject:(id)arg1;
+- (void)removeObjectsPassingTest:(id)arg1;
+- (void)removeObjectsWithOptions:(unsigned int)arg1 passingTest:(id)arg2;
 - (void)removeObjectsInSet:(id)arg1;
 - (void)removeObjectsInOrderedSet:(id)arg1;
 - (void)removeObjectsInOrderedSet:(id)arg1 range:(struct _NSRange)arg2;

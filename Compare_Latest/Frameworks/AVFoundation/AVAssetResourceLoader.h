@@ -13,15 +13,17 @@
     AVAssetResourceLoaderInternal *_resourceLoader;
 }
 
-- (struct OpaqueFigAsset *)_figAsset;
+- (id)cachedContentInformationForURL:(id)arg1;
+- (void)cacheContentInformation:(id)arg1 forURL:(id)arg2;
 - (id)asset;
-- (BOOL)_attemptDelegateHandlingOfRequestWithDictionary:(id)arg1;
+- (void)_noteFinishingOfLoadingRequest:(id)arg1;
+- (void)_attemptDelegateHandlingOfRequestWithDictionary:(id)arg1 fallbackBlock:(id)arg2;
+- (void)_performDelegateCallbackSynchronouslyIfCurrentDelegateQueueIsQueue:(id)arg1 delegateCallbackBlock:(id)arg2;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
 @property(readonly, nonatomic) id <AVAssetResourceLoaderDelegate> delegate;
 - (id)stateQueue;
 - (void)setDelegate:(id)arg1 queue:(id)arg2;
-- (void)_removeFigAssetNotifications;
-- (void)_addFigAssetNotifications;
+- (void)setDelegate:(id)arg1;
 - (id)_weakReference;
 - (void)finalize;
 - (void)dealloc;

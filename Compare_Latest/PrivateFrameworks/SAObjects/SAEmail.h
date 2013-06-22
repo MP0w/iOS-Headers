@@ -17,6 +17,7 @@
 + (id)emailWithDictionary:(id)arg1 context:(id)arg2;
 + (id)email;
 @property(copy, nonatomic) NSString *label;
+@property(copy, nonatomic) NSNumber *favoriteFacetimeAudio;
 @property(copy, nonatomic) NSNumber *favoriteFacetime;
 @property(copy, nonatomic) NSString *emailAddress;
 - (id)encodedClassName;

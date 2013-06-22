@@ -16,12 +16,14 @@
     BOOL _onClientSide;
     id _remoteChildrenDelegate;
     NSMutableSet *_allChildren;
+    unsigned int _machPort;
 }
 
 + (BOOL)registerRemoteElement:(id)arg1;
 + (id)remoteElementForContextId:(unsigned int)arg1;
 + (id)remoteElementForBlock:(id)arg1;
 + (void)initialize;
+@property(nonatomic) unsigned int machPort; // @synthesize machPort=_machPort;
 @property(nonatomic) id <UIAccessibilityRemoteElementChildrenDelegate> remoteChildrenDelegate; // @synthesize remoteChildrenDelegate=_remoteChildrenDelegate;
 @property(nonatomic) BOOL onClientSide; // @synthesize onClientSide=_onClientSide;
 @property(nonatomic) unsigned int contextId; // @synthesize contextId=_contextId;
@@ -31,6 +33,10 @@
 - (struct CGRect)accessibilityFrame;
 - (void)unregister;
 - (id)accessibilityContainerElements;
+- (id)_accessibilityLastElement;
+- (id)_accessibilityFirstElement;
+- (id)_accessibilityResponderElement;
+- (id)_remoteElementWithAttribute:(int)arg1;
 - (BOOL)accessibilityViewIsModal;
 - (void)dealloc;
 - (id)initWithUUID:(id)arg1 andRemotePid:(int)arg2 andContextId:(unsigned int)arg3;

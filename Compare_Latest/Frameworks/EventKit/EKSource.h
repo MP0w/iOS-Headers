@@ -6,28 +6,30 @@
 
 #import <EventKit/EKObject.h>
 
-@class NSSet, NSString;
+@class EKSourceConstraints, NSNumber, NSSet, NSString;
 
 @interface EKSource : EKObject
 {
 }
 
++ (id)sourceWithEventStore:(id)arg1;
 - (BOOL)remove:(id *)arg1;
 - (BOOL)commit:(id *)arg1;
 - (id)description;
-- (int)displayOrderForNewCalendar;
-- (id)constraints;
+@property(readonly, nonatomic) int displayOrderForNewCalendar;
+@property(readonly, nonatomic) EKSourceConstraints *constraints;
 - (id)readWriteCalendarsForEntityType:(unsigned int)arg1;
 - (id)calendarsForEntityType:(unsigned int)arg1;
-- (id)allCalendars;
+@property(readonly, nonatomic) NSSet *allCalendars;
 @property(readonly, nonatomic) NSSet *calendars;
-- (BOOL)isFacebookSource;
-- (BOOL)isEnabled;
-- (id)externalID;
+@property(readonly, nonatomic) BOOL isFacebookSource;
+@property(readonly, nonatomic, getter=isEnabled) BOOL enabled;
+@property(nonatomic) BOOL onlyCreatorCanModify;
+@property(copy, nonatomic) NSString *externalModificationTag;
+@property(copy, nonatomic) NSString *externalID;
 @property(readonly, nonatomic) NSString *sourceIdentifier;
-- (void)setDefaultAlarmOffset:(id)arg1;
-- (id)defaultAlarmOffset;
-@property(readonly, nonatomic) NSString *title;
+@property(copy, nonatomic) NSNumber *defaultAlarmOffset;
+@property(copy, nonatomic) NSString *title;
 @property(readonly, nonatomic) int sourceType;
 - (id)_persistentItem;
 - (id)init;

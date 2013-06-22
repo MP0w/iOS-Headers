@@ -6,41 +6,48 @@
 
 #import "UIView.h"
 
-@class NSArray, NSMapTable, NSMutableArray, NSMutableSet;
+@class NSArray, NSMapTable, NSMutableArray, NSMutableOrderedSet;
 
 @interface MKOverlayContainerView : UIView
 {
-    NSMutableSet *_overlaySet;
-    NSMutableArray *_overlays;
-    NSMapTable *_overlayToView;
-    NSMutableArray *_views;
-    NSMutableArray *_viewClusters;
+    NSMutableOrderedSet *_overlays[2];
+    NSMapTable *_overlayToDrawable[2];
+    NSMutableArray *_drawables[2];
+    NSMutableArray *_vkOverlays[2];
+    UIView *_viewContainers[2];
     id <MKOverlayContainerViewDelegate> _delegate;
     float _mapZoomScale;
 }
 
 @property(nonatomic) float mapZoomScale; // @synthesize mapZoomScale=_mapZoomScale;
 @property(nonatomic) id <MKOverlayContainerViewDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_coalesceAdjacentClusters;
-- (void)_insertOverlayView:(id)arg1 forOverlay:(id)arg2 atIndex:(int)arg3;
-- (void)_removeOverlayView:(id)arg1 forOverlay:(id)arg2 coalesce:(BOOL)arg3;
-- (id)viewForOverlay:(id)arg1;
+- (void)didMoveToWindow;
+- (void)_insertDrawable:(id)arg1 forOverlay:(id)arg2 atIndex:(int)arg3 level:(int)arg4;
+- (void)_updateContentScale:(id)arg1;
+- (void)_removeDrawable:(id)arg1 forOverlay:(id)arg2 level:(int)arg3;
+- (id)drawableForOverlay:(id)arg1;
+- (id)overlaysInLevel:(int)arg1;
 @property(readonly, nonatomic) NSArray *overlays;
 - (void)insertOverlay:(id)arg1 belowOverlay:(id)arg2;
 - (void)insertOverlay:(id)arg1 aboveOverlay:(id)arg2;
+- (void)exchangeOverlay:(id)arg1 withOverlay:(id)arg2;
 - (void)exchangeOverlayAtIndex:(unsigned int)arg1 withOverlayAtIndex:(unsigned int)arg2;
+- (void)_exchangeOverlayAtIndex:(unsigned int)arg1 withOverlayAtIndex:(unsigned int)arg2 level:(int)arg3;
 - (void)insertOverlay:(id)arg1 atIndex:(unsigned int)arg2;
+- (void)insertOverlay:(id)arg1 atIndex:(unsigned int)arg2 level:(int)arg3;
 - (void)removeOverlays:(id)arg1;
 - (void)removeOverlay:(id)arg1;
+- (int)_levelForOverlay:(id)arg1 exists:(char *)arg2;
 - (void)addOverlays:(id)arg1;
 - (void)addOverlay:(id)arg1;
-- (void)swapViewsWithOverlay:(id)arg1 andOverlay:(id)arg2;
-- (void)_addInternalOverlay:(id)arg1 withView:(id)arg2;
+- (void)addOverlays:(id)arg1 level:(int)arg2;
+- (void)addOverlay:(id)arg1 level:(int)arg2;
 - (void)addAndRemoveOverlayViews;
-- (id)_considerAddingOverlayView:(id)arg1 inAddRect:(CDStruct_90e2a262)arg2;
-- (void)_configureAndAddView:(id)arg1 forOverlay:(id)arg2;
+- (id)_considerAddingDrawable:(id)arg1 inAddRect:(CDStruct_90e2a262)arg2 level:(int)arg3;
+- (void)_configureAndAddDrawable:(id)arg1 forOverlay:(id)arg2 level:(int)arg3;
 - (CDStruct_90e2a262)_mapRectWithFractionOfVisible:(double)arg1;
-- (int)_viewIndexForOverlayView:(id)arg1;
+- (int)_drawableIndexForDrawable:(id)arg1 level:(int)arg2;
+- (id)_viewContainerForLevel:(int)arg1;
 - (void)setDrawingEnabled:(BOOL)arg1;
 - (void)setLevelCrossFade:(BOOL)arg1;
 - (void)visibleRectChanged;

@@ -14,8 +14,11 @@
 {
     GEORequester *_requester;
     BOOL _isForwardGeocodeRequest;
+    BOOL _isBatchRequest;
+    BOOL _cancelled;
 }
 
++ (id)batchReverseGeocoderURL;
 + (id)reverseGeocoderURL;
 + (id)forwardGeocoderURL;
 + (void)setUsePersistentConnection:(BOOL)arg1;
@@ -25,6 +28,9 @@
 - (void)requesterDidCancel:(id)arg1;
 - (void)requester:(id)arg1 didFailWithError:(id)arg2;
 - (void)requesterDidFinish:(id)arg1;
+- (void)_batchRequesterDidFinish:(id)arg1;
+- (void)_singleRequesterDidFinish:(id)arg1;
+- (void)batchReverseGeocode:(id)arg1 success:(id)arg2 error:(void)arg3;
 - (void)reverseGeocode:(id)arg1 success:(id)arg2 error:(void)arg3;
 - (void)forwardGeocode:(id)arg1 success:(id)arg2 networkActivity:(void)arg3 error:(id)arg4;
 - (id)newRequester:(id)arg1;

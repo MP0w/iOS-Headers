@@ -14,6 +14,7 @@
     NSManagedObjectModel *_mom;
     NSKnownKeysDictionary *_entitiesByName;
     NSMutableArray *_entities;
+    id *_entityDescriptionToSQLMap;
     unsigned int _brokenHashVersion;
     BOOL _retainLeopardStyleDictionaries;
     BOOL _modelHasPrecomputedKeyOrder;

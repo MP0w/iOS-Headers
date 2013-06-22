@@ -23,10 +23,12 @@
     BOOL _countDidChange;
 }
 
+- (unsigned int)snapshotIndexForContainedObject:(id)arg1;
 @property(readonly, nonatomic) NSArray *changedObjects;
 @property(readonly, nonatomic) NSArray *insertedObjects;
 @property(readonly, nonatomic) NSArray *deletedObjects;
 @property(readonly, nonatomic) BOOL countDidChange;
+@property(readonly, nonatomic) NSIndexSet *changedIndexesRelativeToSnapshot;
 @property(readonly, nonatomic) NSIndexSet *changedIndexes;
 @property(readonly, nonatomic) BOOL hasMoves;
 - (void)enumerateMovesWithBlock:(id)arg1;
@@ -45,7 +47,7 @@
 @property(readonly, nonatomic) NSString *_contentRelationshipName;
 @property(readonly, nonatomic) NSArray *_changedObjects;
 @property(readonly, nonatomic) PLManagedObject *_managedObject;
-@property(readonly, nonatomic) BOOL _didCalculateDiffs;
+@property(nonatomic, setter=_setDidCalculateDiffs:) BOOL _didCalculateDiffs;
 - (id)_initWithObject:(id)arg1 snapshot:(id)arg2 changedObjects:(id)arg3;
 - (id)_init;
 

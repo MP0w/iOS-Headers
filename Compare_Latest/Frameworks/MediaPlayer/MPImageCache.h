@@ -17,42 +17,39 @@
     unsigned int _cacheSize;
     id <MPImageCacheDelegate> _delegate;
     NSOperationQueue *_operationQueue;
-    int _retainCount;
     int _resumeToForegroundCacheSize;
     int _suspendToBackgroundCacheSize;
+    id _idleEventHandler;
     id _libraryDisplayValueChangeObserver;
 }
 
-@property(nonatomic) id libraryDisplayValueChangeObserver; // @synthesize libraryDisplayValueChangeObserver=_libraryDisplayValueChangeObserver;
-@property(nonatomic) id <MPImageCacheDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id libraryDisplayValueChangeObserver; // @synthesize libraryDisplayValueChangeObserver=_libraryDisplayValueChangeObserver;
+@property(copy, nonatomic) id idleEventHandler; // @synthesize idleEventHandler=_idleEventHandler;
+@property(nonatomic) __weak id <MPImageCacheDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned int cacheSize; // @synthesize cacheSize=_cacheSize;
-- (id)imageForRequest:(id)arg1 fetchIfNecessary:(BOOL)arg2 waitUntilFetched:(BOOL)arg3;
-- (id)imageForRequest:(id)arg1 fetchIfNecessary:(BOOL)arg2;
+- (void).cxx_destruct;
 - (void)_zapCache;
 - (void)_zapCachedPlaceholders;
-- (void)_enqueueRequest:(id)arg1;
 - (void)_removeCachedImageForKey:(id)arg1;
+- (void)_enqueueRequest:(id)arg1;
+- (id)_imageByApplyingModificationsForCachedImageForRequest:(id)arg1;
 - (id)_cachedImageForKey:(id)arg1;
 - (void)_cacheImage:(id)arg1 forKey:(id)arg2;
 - (void)_didReceiveMemoryWarningNotification:(id)arg1;
 - (void)_willEnterForegroundNotification:(id)arg1;
 - (void)_didEnterBackgroundNotification:(id)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)imageRequest:(id)arg1 loadedImage:(id)arg2;
 - (void)imageRequest:(id)arg1 failedWithError:(id)arg2;
-- (void)cancelAllImageRequests;
 @property(nonatomic) BOOL imageRequestsSuspended;
 - (void)setCacheSize:(unsigned int)arg1 preserveExisting:(BOOL)arg2;
 - (void)loadImageForRequest:(id)arg1 asynchronously:(BOOL)arg2 completionHandler:(id)arg3;
+@property(readonly, nonatomic) BOOL isIdle;
 - (id)imageForRequest:(id)arg1 error:(id *)arg2;
-- (id)_imageByApplyingModificationsForCachedImageForRequest:(id)arg1;
+- (void)cancelAllImageRequests;
 - (id)cachedImageForRequest:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
-- (unsigned int)retainCount;
-- (oneway void)release;
-- (id)retain;
 
 @end
 

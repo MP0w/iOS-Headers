@@ -10,8 +10,8 @@
 
 @interface OADCustomShapeGeometry : OADShapeGeometry
 {
-    CsRect_0423b3b0 *mGeometryCoordSpace;
-    CsPoint_62d0eb08 *mLimo;
+    CsRect_0aefebc6 *mGeometryCoordSpace;
+    CsPoint_c846a6ec *mLimo;
     NSMutableArray *mFormulas;
     NSMutableArray *mTextBodyRects;
     NSMutableArray *mPaths;
@@ -26,10 +26,10 @@
 - (void)addFormula:(id)arg1;
 - (id)formulaAtIndex:(unsigned int)arg1;
 - (unsigned int)formulaCount;
-- (void)setLimo:(CsPoint_62d0eb08)arg1;
-- (CsPoint_62d0eb08)limo;
-- (void)setGeometryCoordSpace:(CsRect_0423b3b0)arg1;
-- (CsRect_0423b3b0)geometryCoordSpace;
+- (void)setLimo:(CsPoint_c846a6ec)arg1;
+- (CsPoint_c846a6ec)limo;
+- (void)setGeometryCoordSpace:(CsRect_0aefebc6)arg1;
+- (CsRect_0aefebc6)geometryCoordSpace;
 - (void)dealloc;
 - (id)init;
 

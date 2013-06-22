@@ -8,11 +8,11 @@
 
 #import "CNFRegFirstRunExperience-Protocol.h"
 
-@class CNFRegController, CNFRegLearnMoreButton, UIBarButtonItem;
+@class CNFRegController, UIBarButtonItem, UIButton;
 
 @interface CNFRegSplashScreenController : PSViewController <CNFRegFirstRunExperience>
 {
-    CNFRegLearnMoreButton *_learnMoreButton;
+    UIButton *_learnMoreButton;
     id <CNFRegFirstRunDelegate> _delegate;
     CNFRegController *_regController;
 }
@@ -22,22 +22,16 @@
 @property(retain, nonatomic) UIBarButtonItem *customRightButton; // @dynamic customRightButton;
 @property(retain, nonatomic) UIBarButtonItem *customLeftButton; // @dynamic customLeftButton;
 @property(readonly, nonatomic) int currentAppearanceStyle; // @dynamic currentAppearanceStyle;
-- (id)_shadowedLabelWithFont:(id)arg1 text:(id)arg2;
-- (id)_shadowLabelColor;
 - (void)_getStartedPressed:(id)arg1;
 - (void)_learnMorePressed:(id)arg1;
+- (id)userInteractionColor;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)willBecomeActive;
 - (void)loadView;
-- (float)_startingYOffset;
-- (id)splashImage;
 - (void)dealloc;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (id)initWithRegController:(id)arg1 account:(id)arg2;
 - (id)init;
-
-// Remaining properties
-@property(nonatomic) BOOL showSplash;
 
 @end
 

@@ -11,7 +11,7 @@
 @interface AltTileFetcher : NSObject
 {
     GEOTileLoader *_geoTileLoader;
-    struct KaroMapImp<_GEOTileKey, altitude::GeoServicesLoadJobReference, GEOTileKeyComp> _keyToJobMap;
+    struct KaroMapImp<_GEOTileKey, std::__1::shared_ptr<altitude::GeoServicesLoadJob>, GEOTileKeyComp> _keyToJobMap;
     struct Mutex _mutex;
     unsigned int _numDownloads;
 }
@@ -20,8 +20,9 @@
 - (void).cxx_destruct;
 - (BOOL)isDownloading;
 - (void)purgeExpired:(double)arg1;
+- (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)cancelRequests;
-- (_Bool)fetchDataForJobs:(struct GeoServicesLoadJobReference *)arg1 count:(unsigned int)arg2;
+- (_Bool)fetchDataForJob:(shared_ptr_3813db34 *)arg1;
 - (void)dealloc;
 - (id)init;
 

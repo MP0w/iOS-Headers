@@ -11,10 +11,10 @@
 @interface CMNetworkActivityMonitor : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
+    BOOL _networkIsActive;
     CMNetworkActivityObserver *_cmObserver;
     int _showingNetworkActivityCount;
     int _monitoringActiveCount;
-    BOOL _networkIsActive;
 }
 
 + (id)sharedActivityMonitor;

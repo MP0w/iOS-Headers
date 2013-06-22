@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSFileManager, PLCurrentThumbnailsInformation, PLPhotoLibrary, PLXPCTransaction;
+@class NSDictionary, NSFileManager, PLPhotoLibrary, PLXPCTransaction;
 
 @interface PLModelMigrator : NSObject
 {
@@ -15,11 +15,17 @@
     PLXPCTransaction *_transaction;
     PLPhotoLibrary *_photoLibrary;
     long _photoLibraryOnce;
-    PLCurrentThumbnailsInformation *_thumbnailsInformation;
+    NSDictionary *_syncedPropertiesByUUID;
 }
 
 + (void)repairSingletonObjectsInDatabaseWithCompletionHandler:(id)arg1;
++ (BOOL)_addSpecialAlbumsToStore:(id)arg1;
++ (void)_applySyncedProperties:(id)arg1 toAsset:(id)arg2;
++ (id)_newSyncedPropertiesByAssetUUIDs;
++ (id)_dateWithiTunesTimeInterval:(double)arg1;
++ (void)_forceCreateIndexOnOrderedAssets:(BOOL)arg1;
 + (BOOL)shouldRebuildDCIMSubDirectoryAtURL:(id)arg1 directoryEnumerator:(id)arg2 assetsKind:(int *)arg3;
++ (void)forceImportFileSystemDataIntoDatabase;
 + (void)setDidImportFileSystemAssets:(BOOL)arg1;
 + (id)modelMigrator;
 + (id)sharedModelMigratorForImport;
@@ -37,13 +43,30 @@
 + (void)recalculateCachedCounts;
 + (void)repairPotentialModelCorruption;
 + (void)cleanupModelAfterRestoreFromiTunes;
-+ (void)recreateThumbnailTablesIfNecessary;
 + (void)loadFileSystemDataIntoDatabase;
 + (void)waitForDataMigratorToExit;
++ (void)_createDatabase;
 + (void)createDatabase;
-@property(retain, nonatomic) PLCurrentThumbnailsInformation *_thumbnailsInformation; // @synthesize _thumbnailsInformation;
++ (void)validateCurrentModelVersion;
++ (BOOL)postProcessThumbnailsOnly;
++ (BOOL)isPostProcessingLightweightMigration;
++ (BOOL)postProcessMigratedStore:(id)arg1 fromVersion:(int)arg2;
++ (BOOL)_moveMyPhotoStreamToAlbumsListInStore:(id)arg1;
++ (BOOL)_updateKindSubtypeForExistingPanoramaPhotos;
++ (BOOL)_resetThumbnailsAndInitiateRebuildRequest;
++ (BOOL)_initiateLightweightReimportOfAllPhotoCloudSharingMetadataInStore:(id)arg1;
++ (BOOL)_deletePhotoCloudSharingMetadataInManagedObjectContext:(id)arg1 error:(id *)arg2;
++ (BOOL)_populateLightweightReimportDirectoryWithPhotoCloudSharingAssetsInManagedObjectContext:(id)arg1 error:(id *)arg2;
++ (BOOL)_fixupSyncedAssetAttributesInStore:(id)arg1;
++ (BOOL)_forceDupeAnalysis;
++ (BOOL)_resetDupesAnalysisInStore:(id)arg1 resetHashes:(BOOL)arg2;
++ (BOOL)_forceAnalyzeAllMoments;
++ (BOOL)_rebuildAllMomentsInStore:(id)arg1;
++ (BOOL)shouldAttemptLightweightMigration;
++ (int)currentModelVersion;
 @property(retain, nonatomic) NSFileManager *fileManager; // @synthesize fileManager=_fileManager;
 - (id)importFileSystemImportAssets:(id)arg1 forceUpdate:(BOOL)arg2;
+- (id)_syncedPropertiesForAssetUUID:(id)arg1;
 - (void)importAfterCrash:(id)arg1 dictionariesByPhotoStreamID:(id)arg2 completionBlock:(id)arg3;
 - (void)collectContentsOfDirectoryURL:(id)arg1 forAddingToAlbum:(id)arg2 intoAssetsArray:(id)arg3 assetsKind:(int)arg4;
 - (void)collectFileURLs:(id)arg1 forAddingToAlbum:(id)arg2 intoAssetsArray:(id)arg3 assetsKind:(int)arg4;
@@ -54,7 +77,6 @@
 - (void)resumePhotoStreams;
 - (void)pausePhotoStreams;
 - (void)dontImportFileSystemDataIntoDatabase;
-- (void)recreateThumbnailTablesIfNecessary;
 - (void)recalculateCachedCountsWithSemaphore:(id)arg1;
 - (void)repairPotentialModelCorruption;
 - (void)cleanupModelAfterRestoreFromiTunes;

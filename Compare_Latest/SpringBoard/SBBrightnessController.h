@@ -15,7 +15,7 @@
 
 + (id)sharedBrightnessController;
 - (void)cancelBrightnessEvent;
-- (void)handleBrightnessEvent:(struct __GSEvent *)arg1;
+- (void)handleBrightnessEvent:(struct __IOHIDEvent *)arg1;
 - (void)decreaseBrightnessAndRepeat;
 - (void)increaseBrightnessAndRepeat;
 - (void)setBrightnessLevel:(float)arg1;

@@ -23,6 +23,7 @@
     void *_stepFunction;
 }
 
++ (id)_dynamicValueAnimationMatchingCASpringAnimationWithMass:(double)arg1 stiffness:(double)arg2 damping:(float)arg3 velocity:(float)arg4 fromValue:(double)arg5 toValue:(double)arg6;
 @property(copy, nonatomic) NSArray *activeValues; // @synthesize activeValues=_activeValues;
 @property(nonatomic) double friction; // @synthesize friction=_friction;
 @property(nonatomic) double value; // @synthesize value=_value;

@@ -16,18 +16,18 @@
     EKEvent *_event;
 }
 
+@property(retain, nonatomic) EKEvent *event; // @synthesize event=_event;
+- (void).cxx_destruct;
 - (struct CGSize)contentSizeForViewInPopover;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (id)eventsForStartDate:(id)arg1 endDate:(id)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
-@property(retain, nonatomic) EKEvent *event;
 - (void)_updateTitle;
-- (void)dealloc;
 
 // Remaining properties
-@property(nonatomic) id <EKEditItemViewControllerDelegate> editDelegate;
+@property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate;
 
 @end
 

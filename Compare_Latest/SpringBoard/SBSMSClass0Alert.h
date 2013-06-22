@@ -10,9 +10,7 @@
 {
 }
 
-+ (void)defaultAlertTonePrefChanged;
 + (void)playMessageReceived;
-+ (BOOL)shouldPlayMessageReceived;
 + (void)registerForAlerts;
 - (void)deactivate;
 - (id)_initWithString:(id)arg1;

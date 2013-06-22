@@ -18,7 +18,8 @@
 - (BOOL)_isRootLevel;
 - (void)_playlistsChangedNotification:(id)arg1;
 - (void)_isGeniusEnabledDidChangeNotification:(id)arg1;
-- (id)entitiesForQuery:(id)arg1;
+- (void)setQueries:(id)arg1;
+- (void)_addDataSourcePredicatesToQuery:(id)arg1;
 - (id)viewControllerContextForIndex:(unsigned int)arg1;
 - (id)deleteConfirmationAlertViewForIndex:(unsigned int)arg1;
 - (id)deleteConfirmationSheetForIndex:(unsigned int)arg1;

@@ -8,7 +8,7 @@
 
 #import "NSURLConnectionDelegate-Protocol.h"
 
-@class GEONetworkDataReader, GEOTileKeyList, GEOTileKeyMap, NSMutableSet, NSString, NSURL, NSURLConnection;
+@class GEONetworkDataReader, GEOTileKeyList, GEOTileKeyMap, NSData, NSMutableSet, NSString, NSURL, NSURLConnection;
 
 @interface GEOVoltaireMultiTileDownloader : NSObject <NSURLConnectionDelegate>
 {
@@ -22,17 +22,22 @@
     GEONetworkDataReader *_reader;
     NSString *_sharedPrefix;
     NSString *_userAgent;
+    NSData *_auditToken;
     id <GEOVoltaireMultiTileDownloaderDelegate> _delegate;
     unsigned short _providerID;
     GEOTileKeyMap *_baseTilesWaitingForLocalized;
     GEOTileKeyMap *_localizedTilesWaitingForBase;
     NSString *_postString;
     BOOL _requireWiFi;
+    int _attempts;
+    double _startTime;
+    double _timeout;
 }
 
 @property(nonatomic) BOOL requireWiFi; // @synthesize requireWiFi=_requireWiFi;
 @property(nonatomic) BOOL useStatusCodes; // @synthesize useStatusCodes=_useStatusCodes;
 @property(readonly, nonatomic) NSURL *requestURL; // @synthesize requestURL=_requestURL;
+@property(retain, nonatomic) NSData *auditToken; // @synthesize auditToken=_auditToken;
 @property(retain, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
 @property(nonatomic) id <GEOVoltaireMultiTileDownloaderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)logDownloadDetails;
@@ -49,6 +54,7 @@
 - (void)_cancelWithError:(id)arg1;
 - (void)_failWithError:(id)arg1;
 - (void)_cleanupConnection;
+- (double)elapsed;
 - (void)cancel;
 - (void)start;
 - (void)dealloc;

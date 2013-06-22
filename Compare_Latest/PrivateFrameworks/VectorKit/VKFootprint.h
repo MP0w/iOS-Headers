@@ -11,23 +11,24 @@
     CDStruct_aca18c62 _boundingRect;
     struct VKFootprintConvexHull_struct _convexHull;
     double _maxDistance;
-    CDStruct_31142d93 _furthestGroundPoint;
+    struct VKPoint _furthestGroundPoint;
     double _minDistance;
-    CDStruct_31142d93 _nearestGroundPoint;
+    struct VKPoint _nearestGroundPoint;
     double _minDepth;
     double _maxDepth;
     double _centerDepth;
 }
 
-@property(readonly, nonatomic) CDStruct_31142d93 nearestGroundPoint; // @synthesize nearestGroundPoint=_nearestGroundPoint;
-@property(readonly, nonatomic) CDStruct_31142d93 furthestGroundPoint; // @synthesize furthestGroundPoint=_furthestGroundPoint;
+@property(readonly, nonatomic) struct VKPoint nearestGroundPoint; // @synthesize nearestGroundPoint=_nearestGroundPoint;
+@property(readonly, nonatomic) struct VKPoint furthestGroundPoint; // @synthesize furthestGroundPoint=_furthestGroundPoint;
 @property(readonly, nonatomic) double centerDepth; // @synthesize centerDepth=_centerDepth;
 @property(readonly, nonatomic) double maxDepth; // @synthesize maxDepth=_maxDepth;
 @property(readonly, nonatomic) double minDepth; // @synthesize minDepth=_minDepth;
 @property(readonly, nonatomic) struct VKFootprintConvexHull_struct convexHull; // @synthesize convexHull=_convexHull;
-@property(readonly, nonatomic) CDStruct_aca18c62 boundingRect; // @synthesize boundingRect=_boundingRect;
-- (BOOL)containsGroundPoint:(CDStruct_31142d93 *)arg1;
-- (BOOL)rejectsRect:(const CDStruct_aca18c62 *)arg1;
+@property(readonly, nonatomic) CDStruct_d2b197d1 boundingRect; // @synthesize boundingRect=_boundingRect;
+- (id).cxx_construct;
+- (BOOL)containsGroundPoint:(struct VKPoint *)arg1;
+- (BOOL)rejectsRect:(const CDStruct_d2b197d1 *)arg1;
 - (void)computeFromCamera:(id)arg1;
 
 @end

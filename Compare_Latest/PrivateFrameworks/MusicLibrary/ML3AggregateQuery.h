@@ -20,7 +20,6 @@
 - (id)selectPersistentIDsSQLAndProperties:(id)arg1 ordered:(BOOL)arg2;
 - (unsigned int)countOfEntities;
 - (BOOL)hasEntities;
-- (BOOL)distinctPersistentIDProperty;
 - (id)persistentIDProperty;
 - (Class)entityClass;
 - (void)encodeWithCoder:(id)arg1;

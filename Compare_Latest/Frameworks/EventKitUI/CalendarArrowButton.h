@@ -8,11 +8,13 @@
 
 @interface CalendarArrowButton : UIButton
 {
-    id _delegate;
     unsigned int _didRepeat:1;
     double _lastArrowDown;
+    id _delegate;
 }
 
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (id)_automationID;
 - (void)_touchExitOrOutside;
 - (void)_repeatCancelled;
@@ -20,10 +22,8 @@
 - (void)_performDownRepeat;
 - (void)_notifyArrowDown;
 - (void)_scheduleDownRepeat;
-- (void)setDelegate:(id)arg1;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (int)arrowType;
-- (void)dealloc;
 - (id)initWithArrowType:(int)arg1;
 
 @end

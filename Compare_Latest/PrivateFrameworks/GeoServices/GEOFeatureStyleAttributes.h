@@ -21,7 +21,13 @@
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithAttributes:(unsigned int)arg1;
 - (id)init;
+- (BOOL)isDrivable;
+- (BOOL)isWalkable;
+- (int)drivingSide;
+- (BOOL)hasDrivingSide;
+- (BOOL)isRailway;
 - (BOOL)isFreeway;
 - (BOOL)isRamp;
 - (BOOL)isTunnel;

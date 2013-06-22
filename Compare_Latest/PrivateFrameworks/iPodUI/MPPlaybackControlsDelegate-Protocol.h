@@ -9,6 +9,11 @@
 @protocol MPPlaybackControlsDelegate <NSObject>
 
 @optional
+- (void)controlsOverlay:(id)arg1 didTapTrackInfoButtonForItem:(id)arg2;
+- (void)controlsOverlay:(id)arg1 didTapRadioShareButtonForItem:(id)arg2;
+- (void)controlsOverlay:(id)arg1 didTapRadioHistoryButtonForItem:(id)arg2;
+- (void)controlsOverlay:(id)arg1 didTapRadioButtonForItem:(id)arg2;
+- (BOOL)controlsOverlay:(id)arg1 shouldHideRadioButtonForItem:(id)arg2;
 - (BOOL)controlsOverlay:(id)arg1 shouldDisableMailPodcastLinkButtonForItem:(id)arg2;
 - (BOOL)controlsOverlay:(id)arg1 shouldHideMailPodcastLinkButtonForItem:(id)arg2;
 - (void)controlsOverlay:(id)arg1 didClickMailPodcastLinkButtonForItem:(id)arg2;

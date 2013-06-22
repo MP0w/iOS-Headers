@@ -22,7 +22,7 @@
 @property(readonly, nonatomic) CDStruct_812d5f7b averageVelocities; // @synthesize averageVelocities=_smoothedDeltas;
 @property(readonly, nonatomic) CDStruct_812d5f7b allPixelDeltas; // @synthesize allPixelDeltas=_allPixelDeltas;
 @property(readonly, nonatomic) CDStruct_812d5f7b pixelDeltas; // @synthesize pixelDeltas=_pixelDeltas;
-- (void)extractHandMotionForActiveTouches:(CDStruct_5fc3239e *)arg1 count:(unsigned int)arg2 centroid:(struct CGPoint)arg3;
+- (void)extractHandMotionForActiveTouches:(CDStruct_9bf48c9a *)arg1 count:(unsigned int)arg2 centroid:(struct CGPoint)arg3;
 - (void)clear;
 
 @end

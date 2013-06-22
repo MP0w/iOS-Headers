@@ -6,11 +6,11 @@
 
 #import <AppleAccount/AARequest.h>
 
-@class AAAccount;
+@class ACAccount;
 
 @interface AASetupAssistantTermsFetchRequest : AARequest
 {
-    AAAccount *_account;
+    ACAccount *_account;
 }
 
 + (Class)responseClass;

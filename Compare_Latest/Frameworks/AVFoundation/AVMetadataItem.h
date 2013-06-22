@@ -18,6 +18,10 @@
 }
 
 + (id)_figMetadataPropertyFromMetadataItems:(id)arg1;
++ (id)_replaceQuickTimeUserDataKeySpaceWithISOUserDataKeySpaceIfRequired:(id)arg1;
++ (id)_isoUserDataKeysRequiringKeySpaceConversion;
++ (BOOL)_clientExpectsISOUserDataKeysInQuickTimeUserDataKeySpace;
++ (id)metadataItemsFromArray:(id)arg1 filteredByMetadataItemFilter:(id)arg2;
 + (id)metadataItemsFromArray:(id)arg1 withStringValue:(id)arg2;
 + (id)metadataItemsFromArray:(id)arg1 withKey:(id)arg2 keySpace:(id)arg3;
 + (id)metadataItemsFromArray:(id)arg1 filteredAndSortedAccordingToPreferredLanguages:(id)arg2;

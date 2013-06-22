@@ -12,6 +12,7 @@
 
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void)finalize;
+- (void)dealloc;
 - (id)description;
 - (unsigned int)retainCount;
 - (BOOL)_isDeallocating;

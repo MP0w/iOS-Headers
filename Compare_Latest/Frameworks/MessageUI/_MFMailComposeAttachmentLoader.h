@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class MailMessage;
+@class MFMailMessage;
 
 @interface _MFMailComposeAttachmentLoader : NSObject
 {
-    MailMessage *_message;
+    MFMailMessage *_message;
     id _content;
     BOOL _isDraft;
 }

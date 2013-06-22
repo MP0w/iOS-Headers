@@ -8,12 +8,12 @@
 
 #import "UITableViewDataSource-Protocol.h"
 
-@class UITableView, UITableViewCell, UITextField;
+@class AlphanumericPINTableViewCell, UITableView, UITextField;
 
 @interface AlphanumericPINView : PINView <UITableViewDataSource>
 {
     UITextField *_passcodeField;
-    UITableViewCell *_cell;
+    AlphanumericPINTableViewCell *_cell;
     UITableView *_table;
 }
 

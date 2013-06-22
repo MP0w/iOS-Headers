@@ -12,19 +12,21 @@
 
 @interface MSASProtocol : NSObject <NSURLConnectionDelegate>
 {
+    BOOL _isShuttingDown;
     MSASPConnectionGate *_gate;
     NSObject<OS_dispatch_queue> *_pendingConnectionsQueue;
     NSObject<OS_dispatch_group> *_pendingConnectionsGroup;
     NSString *_personID;
     NSURL *_baseURL;
     NSString *_serverSideConfigVersion;
-    BOOL _isShuttingDown;
+    NSString *_headerVersion;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_memberQueue;
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *memberQueue; // @synthesize memberQueue=_memberQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(readonly, nonatomic) NSString *headerVersion; // @synthesize headerVersion=_headerVersion;
 @property(nonatomic) BOOL isShuttingDown; // @synthesize isShuttingDown=_isShuttingDown;
 @property(retain, nonatomic) NSString *serverSideConfigVersion; // @synthesize serverSideConfigVersion=_serverSideConfigVersion;
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
@@ -45,19 +47,22 @@
 - (void)getTokensForAssets:(id)arg1 inAlbum:(id)arg2 albumURLString:(id)arg3 completionBlock:(id)arg4;
 - (id)_couldNotReauthorizeError;
 - (void)getAssetCollections:(id)arg1 inAlbum:(id)arg2 albumURLString:(id)arg3 completionBlock:(id)arg4;
-- (void)albumSummaryAlbum:(id)arg1 albumURLString:(id)arg2 resetSync:(BOOL)arg3 resetSyncedBlock:(id)arg4 assetCollectionChangeBlock:(void)arg5 completionBlock:(id)arg6;
+- (void)albumSummaryAlbum:(id)arg1 albumURLString:(id)arg2 resetSync:(BOOL)arg3 resetSyncedBlock:(id)arg4 assetCollectionChangeBlock:(void)arg5 albumSharingInfoChangeBlock:(id)arg6 completionBlock:(void)arg7;
 - (void)getSharingInfoForAlbum:(id)arg1 albumURLString:(id)arg2 completionBlock:(id)arg3;
 - (void)getChangesRootCtag:(id)arg1 completionBlock:(id)arg2;
 - (void)deleteComment:(id)arg1 fromAssetCollection:(id)arg2 inAlbum:(id)arg3 albumURLString:(id)arg4 completionBlock:(id)arg5;
 - (void)deleteAssetCollections:(id)arg1 inAlbum:(id)arg2 completionBlock:(id)arg3;
 - (void)deleteAlbum:(id)arg1 completionBlock:(id)arg2;
+- (void)setMultipleContributorsEnabled:(BOOL)arg1 forAlbum:(id)arg2 completionBlock:(id)arg3;
 - (void)setPublicAccessEnabled:(BOOL)arg1 forAlbum:(id)arg2 completionBlock:(id)arg3;
 - (void)addComment:(id)arg1 toAssetCollection:(id)arg2 inAlbum:(id)arg3 albumURLString:(id)arg4 completionBlock:(id)arg5;
 - (void)removeSharingRelationships:(id)arg1 fromAlbum:(id)arg2 completionBlock:(id)arg3;
 - (void)addSharingRelationships:(id)arg1 toAlbum:(id)arg2 completionBlock:(id)arg3;
 - (void)sendUploadCompleteSuccessfulAssetCollections:(id)arg1 failedAssetCollections:(id)arg2 album:(id)arg3 completionBlock:(id)arg4;
 - (BOOL)responseDict:(id)arg1 containsLimitErrorCode:(id)arg2 outMaxAllowed:(id *)arg3;
-- (void)putAssetCollections:(id)arg1 intoAlbum:(id)arg2 completionBlock:(id)arg3;
+- (void)getVideoURL:(id)arg1 forAssetCollectionWithGUID:(id)arg2 inAlbumWithGUID:(id)arg3 albumURLString:(id)arg4 completionBlock:(id)arg5;
+- (void)getUploadTokens:(id)arg1 forAssetCollectionWithGUID:(id)arg2 inAlbumWithGUID:(id)arg3 albumURLString:(id)arg4 completionBlock:(id)arg5;
+- (void)putAssetCollections:(id)arg1 intoAlbum:(id)arg2 albumURLString:(id)arg3 completionBlock:(id)arg4;
 - (void)updateAlbum:(id)arg1 albumURLString:(id)arg2 completionBlock:(id)arg3;
 - (void)createAlbum:(id)arg1 completionBlock:(id)arg2;
 - (id)_getAlbumURL;
@@ -77,11 +82,14 @@
 - (id)_deleteCommentURLWithBaseURL:(id)arg1;
 - (id)_deleteAssetsURLWithBaseURL:(id)arg1;
 - (id)_deleteURLWithBaseURL:(id)arg1;
+- (id)_enableMultipleContributorsURLWithBaseURL:(id)arg1;
 - (id)_enablePublicAccessURLWithBaseURL:(id)arg1;
 - (id)_addCommentURLWithBaseURL:(id)arg1;
 - (id)_unshareURL;
 - (id)_shareURL;
 - (id)_uploadCompleteURLWithBaseURL:(id)arg1;
+- (id)_getVideoURLWithBaseURL:(id)arg1;
+- (id)_getUploadTokensURLWithBaseURL:(id)arg1;
 - (id)_putAssetsURLWithBaseURL:(id)arg1;
 - (id)_updateAlbumURLWithBaseURL:(id)arg1;
 - (id)_createAlbumURL;

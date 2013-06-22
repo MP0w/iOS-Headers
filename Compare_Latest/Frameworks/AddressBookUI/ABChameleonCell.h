@@ -10,6 +10,7 @@
 {
     int _abCellStyle;
     id <ABStyleProvider> _styleProvider;
+    BOOL _hasConfiguredBackgroundViews;
 }
 
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;

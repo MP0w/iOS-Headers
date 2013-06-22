@@ -23,13 +23,15 @@
 
 @property(nonatomic) int simultaneousGestureTypes; // @synthesize simultaneousGestureTypes=_simultaneousGestureTypes;
 @property(nonatomic) int enabledGestureTypes; // @synthesize enabledGestureTypes=_enabledGestureTypes;
-@property(nonatomic) id <MPSwipableViewDelegate> swipeDelegate; // @synthesize swipeDelegate=_swipeDelegate;
+@property(nonatomic) __weak id <MPSwipableViewDelegate> swipeDelegate; // @synthesize swipeDelegate=_swipeDelegate;
+- (void).cxx_destruct;
 - (void)_updateGestureRecognizersForEnabledTypes;
 - (BOOL)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)_pinchGestureRecognized:(id)arg1;
 - (void)_activityGestureRecognized:(id)arg1;
 - (void)_tapGestureRecognized:(id)arg1;
 - (void)_swipeGestureRecognized:(id)arg1;
+- (void)willMoveToWindow:(id)arg1;
 - (void)didMoveToSuperview;
 - (void)willMoveToSuperview:(id)arg1;
 - (void)removeGestureRecognizer:(id)arg1;

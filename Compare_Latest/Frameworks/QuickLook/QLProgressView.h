@@ -15,16 +15,16 @@
     QLDisplayBundle *_displayBundle;
     UIActivityIndicatorView *_progressIndicator;
     UILabel *_loadingTextLabel;
-    NSString *_loadintTextForMissingFiles;
+    NSString *_loadingTextForMissingFiles;
 }
 
-@property(retain) NSString *loadintTextForMissingFiles; // @synthesize loadintTextForMissingFiles=_loadintTextForMissingFiles;
+@property(retain) NSString *loadingTextForMissingFiles; // @synthesize loadingTextForMissingFiles=_loadingTextForMissingFiles;
 @property id <QLProgressViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (int)backgroundColorType;
 - (void)dealloc;
-- (id)initWithBackgroundColorType:(int)arg1 loadintTextForMissingFiles:(id)arg2;
+- (id)initWithBackgroundColorType:(int)arg1 loadingTextForMissingFiles:(id)arg2;
 
 @end
 

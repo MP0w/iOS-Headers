@@ -14,6 +14,7 @@
 + (float)cornerRadius;
 + (float)arrowBase;
 + (float)arrowHeight;
+- (void)layoutSubviews;
 - (void)setArrowDirection:(unsigned int)arg1;
 - (unsigned int)arrowDirection;
 - (void)setArrowOffset:(float)arg1;

@@ -7,24 +7,24 @@
 #import "NSObject-Protocol.h"
 
 @protocol UIKeyboardCandidateList <NSObject>
-- (void)configureKeyboard:(id)arg1;
-- (unsigned int)count;
+- (id)keyboardBehaviors;
+- (BOOL)hasCandidates;
 - (void)candidateAcceptedAtIndex:(unsigned int)arg1;
-- (id)candidateAtIndex:(unsigned int)arg1;
 - (unsigned int)currentIndex;
 - (id)currentCandidate;
 - (void)showPreviousPage;
 - (void)showNextPage;
-- (void)showPageAtIndex:(unsigned int)arg1;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
 - (void)showCandidate:(id)arg1;
 - (void)showCandidateAtIndex:(unsigned int)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
-- (void)layout;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(float)arg4 layout:(BOOL)arg5;
+- (BOOL)isExtendedList;
 
 @optional
+- (void)revealHiddenCandidates;
+- (void)jumpToCompositions;
 - (void)candidatesDidChange;
 - (BOOL)hasPreviousPage;
 - (BOOL)hasNextPage;

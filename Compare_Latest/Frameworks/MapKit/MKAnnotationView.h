@@ -6,38 +6,93 @@
 
 #import "UIView.h"
 
-@class MKAnnotationViewInternal, NSString, UIImage;
+#import "MKAnnotationRepresentation-Protocol.h"
+#import "MKLocatableObject-Protocol.h"
 
-@interface MKAnnotationView : UIView
+@class MKAnnotationManager, MKUserLocationAnnotationViewProxy, NSString, UICalloutView, UIImage, VKAnchorWrapper, VKAttributedRouteMatch, _MKAnnotationViewAnchor;
+
+@interface MKAnnotationView : UIView <MKAnnotationRepresentation, MKLocatableObject>
 {
-    MKAnnotationViewInternal *_internal;
     BOOL _customTransformApplied;
     BOOL _internalTransformApplied;
+    BOOL _animatingToCoordinate;
+    BOOL _tracking;
+    CDStruct_2c43369c _presentationCoordinate;
+    double _presentationCourse;
+    id _presentationCoordinateChangedCallback;
+    MKUserLocationAnnotationViewProxy *_userLocationProxy;
+    float _rotationRadians;
+    _MKAnnotationViewAnchor *_anchor;
+    VKAttributedRouteMatch *_routeMatch;
+    float _mapRotationRadians;
+    BOOL _explicitlyHidden;
+    BOOL _hiddenForOffscreen;
+    float _mapPitchRadians;
+    MKAnnotationManager *_annotationManager;
+    id <MKAnnotation> _annotation;
+    UICalloutView *_calloutView;
+    UIView *_leftCalloutAccessoryView;
+    UIView *_rightCalloutAccessoryView;
+    UIView *_detailCalloutAccessoryView;
+    NSString *_reuseIdentifier;
+    UIImage *_image;
+    unsigned int _mapType;
+    unsigned int _zIndex;
+    struct CGPoint _centerOffset;
+    struct CGPoint _calloutOffset;
+    unsigned int _dragState;
+    id _calloutHitTest;
+    struct {
+        unsigned int disabled:1;
+        unsigned int selected:1;
+        unsigned int canShowCallout:1;
+        unsigned int isHighlighted:1;
+        unsigned int canDisplayDisclosureInCallout:1;
+        unsigned int canDisplayPlacemarkInCallout:1;
+        unsigned int draggable:1;
+    } _flags;
 }
 
++ (BOOL)_followsTerrain;
 + (id)_disclosureCalloutButton;
 + (unsigned int)_selectedZIndex;
 + (unsigned int)_zIndex;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)droppedPinTitle;
 + (id)currentLocationTitle;
-@property(nonatomic) struct CGAffineTransform _mapTransform;
+@property(nonatomic, getter=_mapPitchRadians, setter=_setMapPitchRadians:) float mapPitchRadians; // @synthesize mapPitchRadians=_mapPitchRadians;
+@property(nonatomic, getter=_mapRotationRadians, setter=_setMapRotationRadians:) float mapRotationRadians; // @synthesize mapRotationRadians=_mapRotationRadians;
+@property(retain, nonatomic, setter=_setRouteMatch:) VKAttributedRouteMatch *_routeMatch; // @synthesize _routeMatch;
+@property(retain, nonatomic) UIView *detailCalloutAccessoryView; // @synthesize detailCalloutAccessoryView=_detailCalloutAccessoryView;
+@property(retain, nonatomic) UIView *rightCalloutAccessoryView; // @synthesize rightCalloutAccessoryView=_rightCalloutAccessoryView;
+@property(retain, nonatomic) UIView *leftCalloutAccessoryView; // @synthesize leftCalloutAccessoryView=_leftCalloutAccessoryView;
+@property(copy, nonatomic) id _calloutHitTest; // @synthesize _calloutHitTest;
+@property(nonatomic, getter=_isTracking, setter=_setTracking:) BOOL _tracking; // @synthesize _tracking;
+@property(nonatomic, getter=_isAnimatingToCoordinate, setter=_setAnimatingToCoordinate:) BOOL _animatingToCoordinate; // @synthesize _animatingToCoordinate;
+@property(nonatomic, setter=_setPresentationCourse:) double _presentationCourse; // @synthesize _presentationCourse;
+@property(copy, nonatomic, setter=_setPresentationCoordinateChangedCallback:) id _presentationCoordinateChangedCallback; // @synthesize _presentationCoordinateChangedCallback;
+@property(nonatomic, setter=_setAnnotationManager:) MKAnnotationManager *_annotationManager; // @synthesize _annotationManager;
+- (BOOL)_isAnimatingDrop;
+- (id)_vkMarker;
+- (id)_containerView;
 - (BOOL)_canChangeOrientation;
 - (unsigned int)_orientationCount;
 - (BOOL)_hasAlternateOrientation;
+- (void)_transitionFrom:(int)arg1 to:(int)arg2 duration:(double)arg3;
 - (void)_setRotationRadians:(float)arg1 withAnimation:(id)arg2;
 - (void)_userTrackingModeDidChange:(id)arg1;
 - (void)_enableRotationForHeadingMode:(float)arg1;
 - (id)_annotationContainer;
+- (void)setHidden:(BOOL)arg1;
+- (void)_setHiddenForOffscreen:(BOOL)arg1;
 - (void)_resetZIndexNotify:(BOOL)arg1;
 - (void)_resetZIndex;
 - (void)_setZIndex:(unsigned int)arg1;
 - (void)_setZIndex:(unsigned int)arg1 notify:(BOOL)arg2;
 - (unsigned int)_zIndex;
-@property(retain, nonatomic) UIView *rightCalloutAccessoryView;
-@property(retain, nonatomic) UIView *leftCalloutAccessoryView;
 - (void)_setMapType:(unsigned int)arg1;
 - (unsigned int)_mapType;
+- (BOOL)isPersistent;
 - (void)_setCanDisplayPlacemarkInCallout:(BOOL)arg1;
 - (BOOL)_canDisplayPlacemarkInCallout;
 - (void)_setCanDisplayDisclosureInCallout:(BOOL)arg1;
@@ -47,15 +102,19 @@
 @property(nonatomic, getter=isDraggable) BOOL draggable;
 @property(nonatomic, getter=isHighlighted) BOOL highlighted;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
-- (struct CGRect)_significantFrame;
-- (struct CGRect)_significantBounds;
-- (CDStruct_c3b9c2ee)coordinate;
+@property(readonly, nonatomic) struct CGRect _significantFrame;
+@property(readonly, nonatomic, getter=_significantBounds) struct CGRect significantBounds;
+- (struct CGRect)_mapkit_visibleRect;
+@property(readonly, nonatomic) MKUserLocationAnnotationViewProxy *_userLocationProxy;
+@property(readonly, nonatomic) VKAnchorWrapper *anchor;
+@property(nonatomic, setter=_setPresentationCoordinate:) CDStruct_c3b9c2ee _presentationCoordinate; // @synthesize _presentationCoordinate;
+@property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
 @property(nonatomic) struct CGPoint calloutOffset;
 @property(nonatomic) struct CGPoint centerOffset;
+- (struct CGPoint)_draggingDropOffset;
 @property(nonatomic) BOOL canShowCallout;
 - (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
 @property(nonatomic, getter=isSelected) BOOL selected;
-- (void)_updateZIndex;
 @property(retain, nonatomic) UIImage *image;
 - (id)_contentLayer;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;

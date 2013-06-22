@@ -10,12 +10,16 @@
 {
     int _uColor;
     struct _VGLColor _color;
+    int _uCapWidth;
+    float _capWidth;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
+@property(nonatomic) float capWidth; // @synthesize capWidth=_capWidth;
 @property(nonatomic) struct _VGLColor color; // @synthesize color=_color;
-- (id)init;
-- (id)initWithVertName:(id)arg1 fragName:(id)arg2;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

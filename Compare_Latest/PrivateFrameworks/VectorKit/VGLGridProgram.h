@@ -24,7 +24,8 @@
     CDStruct_f2e236b6 _lineParams;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) CDStruct_818bb265 lineParams; // @synthesize lineParams=_lineParams;
 @property(nonatomic) float minorSize; // @synthesize minorSize=_minorSize;
 @property(nonatomic) float majorSize; // @synthesize majorSize=_majorSize;
@@ -32,7 +33,8 @@
 @property(nonatomic) struct _VGLColor lineColor; // @synthesize lineColor=_lineColor;
 @property(nonatomic) struct _VGLColor color; // @synthesize color=_color;
 @property(nonatomic) float gridMix; // @synthesize gridMix=_gridMix;
-- (id)init;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

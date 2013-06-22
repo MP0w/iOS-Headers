@@ -13,27 +13,31 @@
 
 @interface BKSApplicationActivationSettings : NSObject <NSCopying, BKSXPCCoding>
 {
-    BKSApplicationLaunchSettings *_launchSettings;
     BOOL _animated;
     BOOL _suspended;
     BOOL _suspendedEventsOnly;
-    NSURL *_openURL;
-    NSData *_payload;
     BOOL _safe;
     BOOL _firstLaunchAfterBoot;
     BOOL _enableTests;
-    double _userLaunchEventTime;
-    double _watchdogExtension;
     BOOL _forRemoteNotification;
     BOOL _forLocalNotification;
     BOOL _flip;
-    int _interfaceOrientation;
-    int _statusBarStyle;
     BOOL _statusBarHidden;
     BOOL _classic;
     BOOL _zoomInClassic;
+    BOOL _forBackgroundContentFetching;
+    BOOL _forBackgroundURLSession;
+    BKSApplicationLaunchSettings *_launchSettings;
+    NSURL *_openURL;
+    NSData *_payload;
+    int _interfaceOrientation;
+    int _statusBarStyle;
+    double _userLaunchEventTime;
+    double _watchdogExtension;
 }
 
+@property(nonatomic) BOOL forBackgroundURLSession; // @synthesize forBackgroundURLSession=_forBackgroundURLSession;
+@property(nonatomic) BOOL forBackgroundContentFetching; // @synthesize forBackgroundContentFetching=_forBackgroundContentFetching;
 @property(nonatomic) BOOL zoomInClassic; // @synthesize zoomInClassic=_zoomInClassic;
 @property(nonatomic) BOOL classic; // @synthesize classic=_classic;
 @property(nonatomic) BOOL statusBarHidden; // @synthesize statusBarHidden=_statusBarHidden;

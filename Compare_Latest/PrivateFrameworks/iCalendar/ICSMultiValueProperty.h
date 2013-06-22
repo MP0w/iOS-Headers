@@ -10,9 +10,9 @@
 {
 }
 
-- (void)setValues:(id)arg1 valueType:(int)arg2;
+- (void)setValues:(id)arg1 valueType:(unsigned int)arg2;
 - (id)values;
-- (void)setValue:(id)arg1 type:(int)arg2;
+- (void)setValue:(id)arg1 type:(unsigned int)arg2;
 - (id)value;
 - (BOOL)isMultiValued;
 - (id)initWithValue:(id)arg1 type:(unsigned int)arg2;

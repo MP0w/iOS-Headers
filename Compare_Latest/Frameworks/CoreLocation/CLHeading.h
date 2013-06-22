@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSDate;
 
-@interface CLHeading : NSObject <NSCopying, NSCoding>
+@interface CLHeading : NSObject <NSCopying, NSSecureCoding>
 {
     id _internal;
 }
 
++ (BOOL)supportsSecureCoding;
 @property(readonly, nonatomic) NSDate *timestamp;
 @property(readonly, nonatomic) double z;
 @property(readonly, nonatomic) double y;

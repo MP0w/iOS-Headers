@@ -30,7 +30,6 @@
 @property(getter=isDrawingEnabled) BOOL drawingEnabled;
 @property float maximumTileScale;
 @property struct CGColor *fillColor;
-- (BOOL)queueIsEmpty;
 - (void)displayInRect:(struct CGRect)arg1 levelOfDetail:(int)arg2 options:(id)arg3;
 - (BOOL)canDrawRect:(struct CGRect)arg1 levelOfDetail:(int)arg2;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1 levelOfDetail:(int)arg2;

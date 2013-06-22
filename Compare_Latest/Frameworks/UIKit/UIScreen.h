@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, UIScreenMode, UISoftwareDimmingWindow;
+@class NSArray, NSDictionary, UIScreenMode, UISoftwareDimmingWindow;
 
 @interface UIScreen : NSObject
 {
@@ -14,11 +14,17 @@
     struct CGRect _bounds;
     float _scale;
     float _horizontalScale;
+    int _userInterfaceIdiom;
+    NSDictionary *_capabilities;
+    int _workspaceCapableScreenType;
     struct {
         unsigned int bitsPerComponent:4;
         unsigned int initialized:1;
         unsigned int connected:1;
         unsigned int overscanCompensation:2;
+        unsigned int hasShownWindows:1;
+        unsigned int canAccessDisplay:1;
+        unsigned int canAccessDisplayValid:1;
     } _screenFlags;
     BOOL _wantsSoftwareDimming;
     UISoftwareDimmingWindow *_softwareDimmingWindow;
@@ -29,8 +35,12 @@
 + (struct CGRect)convertRect:(struct CGRect)arg1 toView:(id)arg2;
 + (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromView:(id)arg2;
 + (struct CGPoint)convertPoint:(struct CGPoint)arg1 toView:(id)arg2;
++ (BOOL)_shouldDisableJail;
 + (void)_prepareScreensForAppResume;
++ (id)_screenWithIntegerDisplayID:(unsigned int)arg1;
++ (id)_screenWithDisplayID:(id)arg1;
 + (id)_screenWithDisplayName:(id)arg1;
++ (id)_workspaceCapableScreens;
 + (id)screens;
 + (struct CGAffineTransform)transformToRotateScreen:(float)arg1;
 + (struct CGAffineTransform)transformForScreenOriginRotation:(float)arg1;
@@ -40,7 +50,9 @@
 @property(nonatomic, setter=_setLastNotifiedBacklightLevel:) int _lastNotifiedBacklightLevel; // @synthesize _lastNotifiedBacklightLevel;
 @property(retain, nonatomic, setter=_setSoftwareDimmingWindow:) UISoftwareDimmingWindow *_softwareDimmingWindow; // @synthesize _softwareDimmingWindow;
 @property(nonatomic) BOOL wantsSoftwareDimming; // @synthesize wantsSoftwareDimming=_wantsSoftwareDimming;
+@property(nonatomic, getter=_workspaceCapableScreenType, setter=_setWorkspaceCapableScreenType:) int workspaceCapableScreenType; // @synthesize workspaceCapableScreenType=_workspaceCapableScreenType;
 @property(readonly, nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
+- (id)_snapshotExcludingWindows:(id)arg1 withRect:(struct CGRect)arg2;
 - (id)description;
 @property(nonatomic) float brightness;
 - (BOOL)_supportsBrightness;
@@ -49,16 +61,33 @@
 - (void)_postBrightnessDidChangeNotificationIfAppropriate;
 - (float)rawBrightnessForBacklightLevel:(float)arg1;
 - (id)_lazySoftwareDimmingWindow;
+- (void)_updateWorkspaceCapableScreenType;
+- (BOOL)_isWorkspaceCapable;
+- (void)_applicationWillResignActive:(id)arg1;
+- (void)_applicationDidBecomeActive:(id)arg1;
+- (void)_setWantsFocus:(BOOL)arg1;
+- (id)_displayID;
+- (void)_setCapability:(id)arg1 forKey:(id)arg2;
+- (id)_capabilityForKey:(id)arg1;
+- (id)_capabilities;
+- (void)_updateCapabilities;
+- (void)_setUserInterfaceIdiom:(int)arg1;
+- (int)_userInterfaceIdiom;
+- (void)_updateUserInterfaceIdiom;
+- (void)_disconnectScreen;
+- (void)_connectScreen;
 - (float)_pointsPerInch;
 - (void)_setScale:(float)arg1;
 - (float)_scale;
 @property(readonly, nonatomic) float scale; // @synthesize scale=_scale;
 - (id)displayLinkWithTarget:(id)arg1 selector:(SEL)arg2;
+- (void)_requestFocusIfNecessary;
 - (void)_prepareForWindow;
 - (BOOL)_hasStatusBar;
 - (BOOL)_isMainScreen;
 - (BOOL)_isExternal;
 - (id)_name;
+- (unsigned int)_integerDisplayID;
 @property(nonatomic) int overscanCompensation;
 @property(readonly, nonatomic) NSArray *availableModes;
 - (int)screenType;
@@ -75,6 +104,9 @@
 - (float)_horizontalPixelScale;
 @property(readonly, nonatomic) struct CGRect applicationFrame;
 - (void)_computeMetrics;
+- (BOOL)_isRotatable;
+- (BOOL)_areBoundsJailed;
+- (struct UIEdgeInsets)_jailedBoundsEdgeInsets;
 - (struct CGRect)_applicationFrameForInterfaceOrientation:(int)arg1;
 - (void)_updateOverscanCompensationAllowingBackgroundUpdate:(BOOL)arg1;
 - (BOOL)_overscanAdjustmentNeedsUpdate;
@@ -83,6 +115,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)initWithDisplay:(id)arg1;
+- (id)snapshot;
 
 @end
 

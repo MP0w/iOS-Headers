@@ -13,13 +13,17 @@
 @interface IMAVLocalPreviewClient : NSObject <IMSystemMonitorListener>
 {
     BOOL _wantsPreview;
+    BOOL _wantsPausedPreview;
+    BOOL _wantsUnpausedPreview;
 }
 
 + (id)sharedInstance;
 - (void)didReceiveCommError;
 - (void)didReceiveErrorFromCamera:(unsigned int)arg1 error:(id)arg2;
+- (void)didChangeLocalScreenAttributes:(id)arg1;
 - (void)didChangeLocalVideoAttributes:(id)arg1;
 - (void)didReceiveFirstPreviewFrameFromCamera:(unsigned int)arg1;
+- (void)didPausePreview;
 - (void)didStopPreview;
 - (void)didStartPreview;
 - (void)systemScreenDidPowerDown;
@@ -31,11 +35,15 @@
 - (void)endAnimationToPIP;
 - (void)beginAnimationToPIP;
 @property(readonly, nonatomic) BOOL isPreviewRunning;
+- (void)unpausePreview;
+- (void)pausePreview;
 - (void)stopPreview;
 - (void)startPreview;
 - (void)_avDaemonConnected;
 - (void)_updatePreviewState;
 - (BOOL)_shouldPreviewBeRunning;
+- (void)setLocalScreenAttributes:(id)arg1;
+- (id)localScreenAttributesForVideoAttributes:(id)arg1;
 @property(nonatomic) void *localVideoBackLayer;
 @property(nonatomic) void *localVideoLayer;
 @property(nonatomic) IMAVCamera *localCamera;

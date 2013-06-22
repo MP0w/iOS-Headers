@@ -24,6 +24,7 @@
     BOOL _demo;
     int _enabledServiceTypes;
     NSLock *_lock;
+    BOOL _newCustomer;
     NSString *_secureToken;
     NSString *_storeFrontID;
     NSNumber *_uniqueIdentifier;
@@ -37,6 +38,7 @@
 @property(copy) NSString *storeFrontIdentifier;
 @property(getter=isSocialEnabled) BOOL socialEnabled;
 @property(copy) NSString *secureToken;
+@property(getter=isNewCustomer) BOOL newCustomer;
 @property int enabledServiceTypes;
 @property int availableServiceTypes;
 @property(getter=isDemoAccount) BOOL demoAccount;
@@ -53,8 +55,10 @@
 - (void)addEnabledServiceTypes:(int)arg1;
 - (void)addAvailableServiceTypes:(int)arg1;
 @property(readonly, getter=isAuthenticated) BOOL authenticated;
+- (void)getTermsAndConditionsWithBlock:(id)arg1;
 - (void)getPurchasedItemsForItems:(id)arg1 completionBlock:(id)arg2;
 - (void)getDownloadKindsEligibleForContentRestoreWithBlock:(id)arg1;
+- (void)acceptTermsAndConditions:(id)arg1 withCompletionBlock:(id)arg2;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithXPCEncoding:(id)arg1;

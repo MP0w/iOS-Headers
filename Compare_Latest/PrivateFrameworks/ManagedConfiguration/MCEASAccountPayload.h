@@ -24,10 +24,13 @@
     NSString *_accountPersistentUUID;
     NSData *_certificatePersistentID;
     BOOL _syncDefaultFoldersOnly;
+    NSString *_headerMagic;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
+@property(retain, nonatomic) NSString *headerMagic; // @synthesize headerMagic=_headerMagic;
 @property(nonatomic) BOOL syncDefaultFoldersOnly; // @synthesize syncDefaultFoldersOnly=_syncDefaultFoldersOnly;
 @property(retain, nonatomic) NSData *certificatePersistentID; // @synthesize certificatePersistentID=_certificatePersistentID;
 @property(copy, nonatomic) NSString *accountPersistentUUID; // @synthesize accountPersistentUUID=_accountPersistentUUID;

@@ -12,6 +12,7 @@
     struct UIEdgeInsets _capInsets;
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)_resizableImageWithCapMask:(int)arg1;
 - (BOOL)_isTiledWhenStretchedToSize:(struct CGSize)arg1;
 - (void)_setAlwaysStretches:(BOOL)arg1;
@@ -19,6 +20,7 @@
 - (struct CGRect)_contentStretchInPixels;
 - (int)resizingMode;
 - (struct UIEdgeInsets)capInsets;
+- (void)_setCapInsets:(struct UIEdgeInsets)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithImage:(id)arg1 capInsets:(struct UIEdgeInsets)arg2;

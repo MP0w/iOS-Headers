@@ -34,6 +34,7 @@
 - (id)initWithPath:(id)arg1 documentAttributes:(id *)arg2;
 - (id)initWithURL:(id)arg1 documentAttributes:(id *)arg2;
 - (id)_initWithURLFunnel:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3;
+- (id)initWithFileURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
 - (id)initWithURL:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
 - (id)initWithDocFormat:(id)arg1 documentAttributes:(id *)arg2;
 - (id)initWithRTFDFileWrapper:(id)arg1 documentAttributes:(id *)arg2;

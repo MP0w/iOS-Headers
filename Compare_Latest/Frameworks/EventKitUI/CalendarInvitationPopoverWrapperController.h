@@ -15,7 +15,7 @@
 }
 
 @property(retain, nonatomic) EKEventViewController *eventViewController; // @synthesize eventViewController=_eventViewController;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initForEventUID:(int)arg1;
 
 @end

@@ -16,14 +16,14 @@
     NSObject<OS_dispatch_queue> *_statusBarQueue;
 }
 
-@property(nonatomic) MPAVController *player; // @synthesize player=_player;
+@property(nonatomic) __weak MPAVController *player; // @synthesize player=_player;
+- (void).cxx_destruct;
 - (id)_progressInfoForItem:(id)arg1;
 - (int)_MRShuffleModeForMPShuffleType:(unsigned int)arg1;
 - (int)_MRRepeatModeForMPRepeatType:(unsigned int)arg1;
 - (unsigned int)_chapterIndexForItem:(id)arg1 atTime:(double)arg2;
 - (void)postProgressUpdateForItem:(id)arg1;
 - (void)postNowPlayingInfoForItem:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -6,9 +6,11 @@
 
 #import <UIKit/UIView.h>
 
+#import "_UISwitchInternalViewProtocol-Protocol.h"
+
 @class CALayer, UIColor, UIImage, UIImageView;
 
-@interface _UISwitchInternalView : UIView
+@interface _UISwitchInternalView : UIView <_UISwitchInternalViewProtocol>
 {
     UIImage *_colorMask;
     UIImage *_shapeMask;
@@ -65,6 +67,7 @@
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_setOnTintColor:(id)arg1;
+- (void)_setPressed:(BOOL)arg1 on:(BOOL)arg2 animated:(BOOL)arg3 shouldAnimateLabels:(BOOL)arg4 completion:(id)arg5;
 
 @end
 

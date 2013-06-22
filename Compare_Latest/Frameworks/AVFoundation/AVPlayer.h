@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVPlayerInternal, NSArray, NSError;
+@class AVPlayerInternal, NSArray, NSError, NSString;
 
 @interface AVPlayer : NSObject
 {
@@ -16,6 +16,7 @@
 + (BOOL)automaticallyNotifiesObserversOfUsesAirPlayVideoWhileAirPlayScreenIsActive;
 + (BOOL)automaticallyNotifiesObserversOfAirPlayVideoActive;
 + (BOOL)automaticallyNotifiesObserversOfAllowsAirPlayVideo;
++ (BOOL)automaticallyNotifiesObserversOfUsesAudioOnlyModeForExternalPlayback;
 + (BOOL)automaticallyNotifiesObserversOfExternalPlaybackActive;
 + (BOOL)automaticallyNotifiesObserversOfUsesExternalPlaybackWhileExternalScreenIsActive;
 + (BOOL)automaticallyNotifiesObserversOfAllowsExternalPlayback;
@@ -23,7 +24,12 @@
 + (BOOL)automaticallyNotifiesObserversOfClosedCaptionDisplayEnabled;
 + (id)keyPathsForValuesAffectingActionAtItemEnd;
 + (BOOL)automaticallyNotifiesObserversOfActionAtItemEnd;
++ (id)keyPathsForValuesAffectingMuted;
++ (BOOL)automaticallyNotifiesObserversOfMuted;
++ (id)keyPathsForValuesAffectingVolume;
 + (BOOL)automaticallyNotifiesObserversOfVolume;
++ (BOOL)automaticallyNotifiesObserversOfVibrationPattern;
++ (BOOL)automaticallyNotifiesObserversOfUserVolume;
 + (BOOL)automaticallyNotifiesObserversOfMasterClock;
 + (id)keyPathsForValuesAffectingRate;
 + (BOOL)automaticallyNotifiesObserversOfRate;
@@ -31,8 +37,14 @@
 + (id)playerWithPlayerItem:(id)arg1;
 + (id)playerWithURL:(id)arg1;
 + (void)initialize;
++ (BOOL)automaticallyNotifiesObserversOfDisallowsAllowsPixelBufferPoolSharing;
++ (BOOL)automaticallyNotifiesObserversOfDisallowsHardwareAcceleratedVideoDecoder;
 + (BOOL)automaticallyNotifiesObserversOfDisallowsAMRAudio;
++ (BOOL)automaticallyNotifiesObserversOfAppliesMediaSelectionCriteriaAutomatically;
++ (BOOL)automaticallyNotifiesObserversOfAutoSwitchStreamVariants;
++ (BOOL)automaticallyNotifiesObserversOfAudioOutputDeviceUniqueID;
 - (void)_logPerformanceDataForCurrentItem;
+- (id)_copyPerformanceDataForCurrentItem;
 - (void)_logPerformanceDataForPreviousItem;
 - (BOOL)_shouldLogPerformanceData;
 - (void)_checkDefaultsWriteForPerformanceLogging;
@@ -42,8 +54,6 @@
 - (void)_removeFPListeners;
 - (void)_addFPListeners;
 - (id)_fpNotificationNames;
-- (void)setExternalVideoGravity:(id)arg1;
-- (id)externalVideoGravity;
 - (void)_setNeroVideoGravityOnFigPlayer;
 - (void)setExternalPlaybackVideoGravity:(id)arg1;
 - (id)externalPlaybackVideoGravity;
@@ -51,6 +61,7 @@
 - (void)_removeLayer:(id)arg1;
 - (void)_detachLayersFromFigPlayer;
 - (void)_attachLayersToFigPlayer;
+- (void)_conformPlayerLayerToCurrentDimensions:(id)arg1;
 - (id)_playerLayers;
 - (id)_pixelBufferAttributeMediator;
 - (void)_removeAllLayers;
@@ -66,6 +77,9 @@
 - (BOOL)_airPlayVideoActive;
 - (void)setAllowsAirPlayVideo:(BOOL)arg1;
 - (BOOL)allowsAirPlayVideo;
+- (void)setUsesAudioOnlyModeForExternalPlayback:(BOOL)arg1;
+- (BOOL)usesAudioOnlyModeForExternalPlayback;
+- (BOOL)_usesAudioOnlyModeForExternalPlayback;
 - (int)externalPlaybackType;
 - (BOOL)isExternalPlaybackActive;
 - (BOOL)_externalPlaybackActive;
@@ -83,8 +97,16 @@
 - (int)actionAtItemEnd;
 - (int)_actionAtItemEnd;
 - (int)_defaultActionAtItemEnd;
-- (void)_setVolume:(float)arg1;
-- (float)_volume;
+- (void)setMuted:(BOOL)arg1;
+- (BOOL)isMuted;
+- (BOOL)_isMuted;
+- (void)setVolume:(float)arg1;
+- (float)volume;
+- (float)_playerVolume;
+- (void)setVibrationPattern:(id)arg1;
+- (id)vibrationPattern;
+- (void)_setUserVolume:(float)arg1;
+- (float)_userVolume;
 - (void)setMasterClock:(struct OpaqueCMClock *)arg1;
 - (struct OpaqueCMClock *)masterClock;
 - (void)prerollOperationDidComplete:(BOOL)arg1 notificationPayload:(struct __CFDictionary *)arg2;
@@ -102,6 +124,7 @@
 - (void)seekToDate:(id)arg1;
 - (CDStruct_1b6d18a9)currentTime;
 - (void)setRate:(float)arg1;
+- (void)setRate:(float)arg1 withVolumeRampDuration:(CDStruct_1b6d18a9)arg2;
 - (float)rate;
 - (float)_rate;
 - (void)_removeAllItems;
@@ -110,6 +133,7 @@
 - (BOOL)_removeItem:(id)arg1;
 - (void)_coordinateWithRemovalOfItem:(id)arg1;
 - (BOOL)_attachItem:(id)arg1 andPerformOperation:(int)arg2 withObject:(id)arg3;
+- (void)_createPlayer:(int)arg1 forItem:(id)arg2 prepareIt:(BOOL)arg3 completionHandler:(id)arg4;
 - (BOOL)_insertItem:(id)arg1 afterItem:(id)arg2;
 - (void)prepareItem:(id)arg1 withCompletionHandler:(id)arg2;
 - (BOOL)_insertPlaybackItemOfItem:(id)arg1 inPlayerQueueAfterPlaybackItemOfItem:(id)arg2;
@@ -122,8 +146,11 @@
 - (void)_changeStatusToFailedWithError:(id)arg1;
 @property(readonly, nonatomic) NSError *error;
 @property(readonly, nonatomic) int status;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
+- (id)valueForUndefinedKey:(id)arg1;
 - (void)addObserver:(id)arg1 forKeyPath:(id)arg2 options:(unsigned int)arg3 context:(void *)arg4;
 - (void)didChangeValueForKey:(id)arg1;
+- (BOOL)_isChangingValueForKey:(id)arg1;
 - (void)willChangeValueForKey:(id)arg1;
 - (void)_didAccessKVOForKey:(id)arg1;
 - (void)_willAccessKVOForKey:(id)arg1;
@@ -166,8 +193,22 @@
 - (void)_setEQPreset:(int)arg1;
 - (void)_setWantsVolumeChangesWhenPausedOrInactive:(BOOL)arg1;
 - (id)playerAVAudioSession;
+@property(nonatomic) BOOL allowsPixelBufferPoolSharing;
+- (BOOL)_allowsPixelBufferPoolSharing;
+- (void)setDisallowsHardwareAcceleratedVideoDecoder:(BOOL)arg1;
+- (BOOL)disallowsHardwareAcceleratedVideoDecoder;
+- (BOOL)_disallowsHardwareAcceleratedVideoDecoder;
 @property(nonatomic) BOOL disallowsAMRAudio;
 - (BOOL)_disallowsAMRAudio;
+- (id)mediaSelectionCriteriaForMediaCharacteristic:(id)arg1;
+- (void)setMediaSelectionCriteria:(id)arg1 forMediaCharacteristic:(id)arg2;
+@property(nonatomic) BOOL appliesMediaSelectionCriteriaAutomatically;
+- (BOOL)_appliesMediaSelectionCriteriaAutomatically;
+- (id)defaultMediaSelectionCriteriaForMediaCharacteristic:(id)arg1;
+- (void)setAutoSwitchStreamVariants:(BOOL)arg1;
+- (BOOL)autoSwitchStreamVariants;
+@property(copy, nonatomic) NSString *audioOutputDeviceUniqueID;
+- (id)_audioOutputDeviceUniqueID;
 
 @end
 

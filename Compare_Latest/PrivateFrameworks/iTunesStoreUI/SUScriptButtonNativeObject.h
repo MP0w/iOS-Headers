@@ -24,6 +24,7 @@
 - (void)showConfirmationWithTitle:(id)arg1 animated:(BOOL)arg2;
 - (void)setStyleFromString:(id)arg1;
 @property(nonatomic) struct UIEdgeInsets imageInsets;
+@property(nonatomic, getter=isEnabled) BOOL enabled; // @dynamic enabled;
 @property(readonly, nonatomic, getter=isShowingConfirmation) BOOL showingConfirmation;
 @property(readonly, nonatomic, getter=isBackButton) BOOL backButton;
 - (void)hideConfirmationAnimated:(BOOL)arg1;

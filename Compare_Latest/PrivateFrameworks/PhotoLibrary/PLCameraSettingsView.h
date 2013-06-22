@@ -21,7 +21,6 @@
 @property(nonatomic) BOOL hdrIsOn; // @synthesize hdrIsOn;
 @property(nonatomic) BOOL gridIsOn; // @synthesize gridIsOn;
 @property(nonatomic) id <PLCameraSettingsViewDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_enterPanoramaMode;
 - (void)_toggleEnableHDR:(id)arg1;
 - (void)_toggleEnableGridLines:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

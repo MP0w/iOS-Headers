@@ -22,6 +22,7 @@
 @property(nonatomic) unsigned int marqueeScrollableIndex; // @synthesize marqueeScrollableIndex=_marqueeScrollableIndex;
 @property(nonatomic) BOOL showingLoadingUI; // @synthesize showingLoadingUI=_showingLoadingUI;
 @property(retain, nonatomic) NSArray *titles; // @synthesize titles=_titles;
+- (void).cxx_destruct;
 - (void)_tearDownLabels;
 - (void)_updateLabelMarqueeScrolling;
 - (void)_layoutLabels;

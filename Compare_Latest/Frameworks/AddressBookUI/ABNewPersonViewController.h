@@ -6,62 +6,44 @@
 
 #import "UIViewController.h"
 
-@class ABContactsFilter, ABPersonTableViewDataSource, ABPersonViewControllerHelper, _UIAccessDeniedView;
+#import "ABContactViewControllerDelegate-Protocol.h"
 
-@interface ABNewPersonViewController : UIViewController
+@class ABContactViewController, ABContactsFilter, ABPersonTableViewDataSource, ABPersonViewControllerHelper;
+
+@interface ABNewPersonViewController : UIViewController <ABContactViewControllerDelegate>
 {
+    void *_addressBook;
+    void *_displayedPerson;
     id <ABNewPersonViewControllerDelegate> _newPersonViewDelegate;
-    id _parentGroup;
-    id _helper;
-    void *_recordForNewPerson;
+    void *_parentGroup;
+    ABPersonViewControllerHelper *_helper;
     ABPersonTableViewDataSource *_dataSource;
-    _UIAccessDeniedView *_accessDeniedView;
-    BOOL _isRealViewLoaded;
+    ABContactsFilter *_parentContactsFilter;
+    ABContactViewController *_contactViewController;
 }
 
-@property(nonatomic) BOOL isRealViewLoaded; // @synthesize isRealViewLoaded=_isRealViewLoaded;
+@property(retain, nonatomic) ABContactViewController *contactViewController; // @synthesize contactViewController=_contactViewController;
+@property(retain, nonatomic) ABContactsFilter *parentContactsFilter; // @synthesize parentContactsFilter=_parentContactsFilter;
 @property(readonly, nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
-@property(retain, nonatomic) ABContactsFilter *parentContactsFilter; // @synthesize parentContactsFilter=_parentGroup;
-- (void)accessChanged;
-- (int)abViewControllerType;
-- (void)applicationDidResume;
-- (void)applicationWillTerminate:(id)arg1;
-- (void)applicationWillSuspend;
-- (void)viewWillDisappear:(BOOL)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
-- (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (BOOL)_isSupportedInterfaceOrientation:(int)arg1;
-- (BOOL)_allowsAutorotation;
-- (void)viewDidUnload;
-- (void)loadView;
-@property(readonly, nonatomic) _UIAccessDeniedView *accessDeniedView; // @synthesize accessDeniedView=_accessDeniedView;
-- (void)updateNavigationButtons;
-@property(readonly, nonatomic) void *recordForNewPerson;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)viewDidLoad;
-- (float)ab_heightToFitForViewInPopoverView;
+@property(readonly, nonatomic) ABPersonViewControllerHelper *helper; // @synthesize helper=_helper;
+@property(nonatomic) void *parentGroup; // @synthesize parentGroup=_parentGroup;
 - (void)save:(id)arg1;
-- (void)attemptSaveAndTellDelegate:(BOOL)arg1;
-- (void)cancel:(id)arg1;
-- (void)saveAndTellDelegate:(BOOL)arg1;
-- (void)savePerson:(void *)arg1;
-- (void)decodeRestorableStateWithCoder:(id)arg1;
-- (void)encodeRestorableStateWithCoder:(id)arg1;
 @property(nonatomic) BOOL savesNewContactOnSuspend;
 @property(nonatomic) BOOL showsCancelButton;
-@property(nonatomic) void *parentGroup;
-@property(nonatomic) void *displayedPerson;
 @property(retain, nonatomic) id <ABStyleProvider> styleProvider;
+- (void)loadContactViewController;
+- (void)contactViewController:(id)arg1 didCompleteWithContact:(id)arg2;
+- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
+- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)loadView;
+@property(nonatomic) void *displayedPerson;
 @property(nonatomic) void *addressBook;
 @property(nonatomic) id <ABNewPersonViewControllerDelegate> newPersonViewDelegate;
 - (void)dealloc;
 - (id)initWithStyle:(int)arg1;
 - (id)init;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2 style:(int)arg3;
-@property(readonly, nonatomic) ABPersonViewControllerHelper *helper;
 
 @end
 

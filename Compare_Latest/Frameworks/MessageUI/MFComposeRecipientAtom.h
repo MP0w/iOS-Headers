@@ -10,17 +10,17 @@
 
 @interface MFComposeRecipientAtom : MFAtomView
 {
-    id <MFComposeRecipientAtomDelegate> _delegate;
+    id <_MFComposeRecipientAtomDelegate> _delegate;
     MFComposeRecipient *_recipient;
     UITextInputTraits *_traits;
     unsigned int _wasSelectedWhenTouchesBegan:1;
     unsigned int _touchesWereCancelled:1;
 }
 
-@property(nonatomic) id <MFComposeRecipientAtomDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_handleKeyEvent:(struct __GSEvent *)arg1;
-- (void)moveRight;
-- (void)moveLeft;
+@property(nonatomic) id <_MFComposeRecipientAtomDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)moveRight:(id)arg1;
+- (void)moveLeft:(id)arg1;
+- (id)keyCommands;
 - (void)handleTouchAndHold;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;

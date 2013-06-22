@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class EAGLContext;
+@class EAGLContext, MRContextState;
 
 @interface MRTexture : NSObject
 {
     EAGLContext *mParentGLContext;
+    MRContextState *mInnerState;
     unsigned long mWidth;
     unsigned long mHeight;
     unsigned int mTextureName;
@@ -39,6 +40,8 @@
 @property(readonly, nonatomic) unsigned int textureName; // @synthesize textureName=mTextureName;
 @property(readonly, nonatomic) unsigned long height; // @synthesize height=mHeight;
 @property(readonly, nonatomic) unsigned long width; // @synthesize width=mWidth;
+@property(readonly) MRContextState *innerState; // @synthesize innerState=mInnerState;
+- (void)setLabel:(id)arg1;
 - (void)uploadData:(void *)arg1 rowBytes:(unsigned int)arg2 toRect:(struct CGRect)arg3;
 - (void)cleanup;
 - (void)finalize;

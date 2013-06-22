@@ -15,6 +15,7 @@
 }
 
 @property(retain, nonatomic) id globalContext; // @synthesize globalContext=_globalContext;
+- (void).cxx_destruct;
 - (void)invalidateDynamicTrackCaches;
 - (void)reset;
 - (id)configurationForRow:(unsigned int)arg1;

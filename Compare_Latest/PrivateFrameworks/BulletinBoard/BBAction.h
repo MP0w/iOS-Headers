@@ -6,32 +6,34 @@
 
 #import "NSObject.h"
 
+#import "NSCoding-Protocol.h"
+#import "NSCopying-Protocol.h"
+
 @class NSDictionary, NSString, NSURL;
 
-@interface BBAction : NSObject
+@interface BBAction : NSObject <NSCopying, NSCoding>
 {
     id _internalBlock;
-    BOOL _hasCallblock;
-    BOOL _canBypassPinLock;
+    BOOL _deliverResponse;
     NSURL *_launchURL;
     NSString *_launchBundleID;
-    int _replyType;
+    BOOL _launchCanBypassPinLock;
     NSString *_activatePluginName;
     NSDictionary *_activatePluginContext;
+    int _actionType;
 }
 
 + (id)actionWithActivatePluginName:(id)arg1 activationContext:(id)arg2;
-+ (id)actionWithTextReplyCallblock:(id)arg1;
 + (id)actionWithLaunchBundleID:(id)arg1 callblock:(id)arg2;
 + (id)actionWithLaunchURL:(id)arg1 callblock:(id)arg2;
 + (id)actionWithCallblock:(id)arg1;
++ (id)action;
+@property(nonatomic) int actionType; // @synthesize actionType=_actionType;
 @property(copy, nonatomic) NSDictionary *activatePluginContext; // @synthesize activatePluginContext=_activatePluginContext;
 @property(copy, nonatomic) NSString *activatePluginName; // @synthesize activatePluginName=_activatePluginName;
-@property(nonatomic) BOOL canBypassPinLock; // @synthesize canBypassPinLock=_canBypassPinLock;
-@property(nonatomic) int replyType; // @synthesize replyType=_replyType;
+@property(nonatomic) BOOL launchCanBypassPinLock; // @synthesize launchCanBypassPinLock=_launchCanBypassPinLock;
 @property(copy, nonatomic) NSString *launchBundleID; // @synthesize launchBundleID=_launchBundleID;
 @property(retain, nonatomic) NSURL *launchURL; // @synthesize launchURL=_launchURL;
-@property(nonatomic) BOOL hasCallblock; // @synthesize hasCallblock=_hasCallblock;
 @property(copy, nonatomic) id internalBlock; // @synthesize internalBlock=_internalBlock;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
@@ -40,18 +42,16 @@
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)partialDescription;
-- (void)deliverResponse:(id)arg1;
+- (BOOL)deliverResponse:(id)arg1;
+@property(nonatomic) BOOL canBypassPinLock;
 - (id)bundleID;
 - (id)url;
 - (BOOL)isAppLaunchAction;
 - (BOOL)isURLLaunchAction;
-- (BOOL)wantsTextReply;
 - (BOOL)hasLaunchInfo;
+- (void)setCallblock:(id)arg1;
 - (void)dealloc;
-- (id)_initWithInternalCallblock:(id)arg1 replyType:(void)arg2;
 - (id)initWithActivatePluginName:(id)arg1 activationContext:(id)arg2;
-- (id)initWithTextReplyCallblock:(id)arg1;
-- (id)initWithCallblock:(id)arg1;
 
 @end
 

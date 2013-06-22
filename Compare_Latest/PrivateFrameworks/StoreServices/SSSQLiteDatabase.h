@@ -39,6 +39,9 @@
 @property BOOL takesTaskCompletionAssertions;
 - (void)endTaskCompletionAssertion;
 - (void)beginTaskCompletionAssertion;
+- (int)userVersionForDatabase:(id)arg1;
+- (int)userVersion;
+- (BOOL)setUserVersion:(int)arg1 forDatabase:(id)arg2;
 - (BOOL)setUserVersion:(int)arg1;
 - (void)prepareStatementForSQL:(id)arg1 cache:(BOOL)arg2 usingBlock:(id)arg3;
 - (void)performTransactionWithBlock:(id)arg1;
@@ -47,6 +50,7 @@
 - (void)dispatchBlockSync:(id)arg1;
 - (void)dispatchBlockAsync:(id)arg1;
 - (void)dispatchAfter:(unsigned long long)arg1 block:(id)arg2;
+- (int)countChanges;
 - (void)accessDatabaseUsingBlock:(id)arg1;
 - (void)dealloc;
 - (id)initWithDatabaseURL:(id)arg1 readOnly:(BOOL)arg2;

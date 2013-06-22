@@ -6,57 +6,53 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, NSTimeZone, PCPersistentTimer;
+@class PCPersistentTimer, SBPasscodeLockAssertionManager, SBPasscodeLockDisableAssertion, SecureBackup;
 
 @interface SBDeviceLockController : NSObject
 {
-    int _deviceLockState;
+    int _lockState;
+    double _lastLockDate;
     BOOL _isPermanentlyBlocked;
     BOOL _isBlockedForThermalCondition;
-    double _deviceLockBlockTime;
-    double _lastLockWallTime;
-    NSTimeZone *_lastLockTimeZone;
-    double _lastLockSecondsSinceBoot;
-    PCPersistentTimer *_deviceLockTimer;
-    int _gracePeriodWhenLocked;
-    NSMutableSet *_preventLockAssertions;
-    NSMutableSet *_gracePeriodSuspendAssertions;
+    double _deviceLockUnblockTime;
+    PCPersistentTimer *_deviceLockUnblockTimer;
+    SBPasscodeLockAssertionManager *_assertionManager;
+    SBPasscodeLockDisableAssertion *_transientPasscodeCheckingAssertion;
     BOOL _okToSendNotifications;
+    SecureBackup *_secureBackupHelper;
 }
 
++ (id)_sharedControllerIfExists;
 + (id)sharedController;
-- (void)removeDeviceLockDisableAssertion:(id)arg1;
-- (void)addDeviceLockDisableAssertion:(id)arg1;
-- (BOOL)_hasAnyActiveDeviceLockDisableAssertions;
-- (BOOL)_hasActiveGracePeriodSuspendAssertions;
-- (BOOL)_hasActivePreventLockAssertions;
++ (id)_sharedControllerCreateIfNecessary:(BOOL)arg1;
+- (id)description;
+- (void)_uncachePasscodeIfNecessary;
+- (void)_cachePassword:(id)arg1;
+- (BOOL)shouldAllowUnlockToApplication:(id)arg1;
+- (void)_removeDeviceLockDisableAssertion:(id)arg1;
+- (void)_addDeviceLockDisableAssertion:(id)arg1;
 - (BOOL)attemptDeviceUnlockWithPassword:(id)arg1 appRequested:(BOOL)arg2;
-- (void)notePasscodeGracePeriodMayHaveChanged;
+- (void)_notifyOfFirstUnlock;
+- (void)_setLockState:(int)arg1;
+- (void)_enablePasscodeLockImmediately:(BOOL)arg1;
+- (void)enablePasscodeLockImmediately;
+- (void)_updateDeviceLockedState;
+- (BOOL)_shouldLockDeviceNow;
+- (BOOL)isPasscodeLockedOrBlocked;
+- (BOOL)isPasscodeLocked;
+- (BOOL)deviceHasPasscodeSet;
+- (void)_setDeviceLockUnblockTime:(double)arg1;
+- (void)_unblockTimerFired;
+- (void)_scheduleUnblockTimer;
+- (void)_clearUnblockTimer;
 - (void)_clearBlockedState;
 - (BOOL)isPermanentlyBlocked:(double *)arg1;
 - (BOOL)isBlocked;
-- (void)_setDeviceLockState:(int)arg1;
-- (void)enableDeviceLock;
-- (void)_clearDeviceLockedTimer;
-- (BOOL)_shouldLockDeviceWithCurrentGracePeriod:(int)arg1;
-- (int)_getGracePeriod;
-- (void)_beginGracePeriod;
-- (void)_updateDeviceLockedState;
-- (void)_setDeviceLockTimer;
-- (BOOL)_shouldSetDeviceLockTimer;
-- (void)_cancelGracePeriodIfNecessaryAndPossible;
-- (BOOL)_shouldLockDeviceNow;
-- (BOOL)_shouldBeginGracePeriodNow;
+- (BOOL)_temporarilyBlocked;
 - (void)setBlockedForThermalCondition:(BOOL)arg1;
 - (void)_sendBlockStateChangeNotification;
 - (BOOL)isBlockedForThermalCondition;
-- (BOOL)isDeviceLockedOrBlocked;
-- (BOOL)isDeviceLocked;
-- (BOOL)isPasswordProtected;
 - (id)lastLockDate;
-- (void)profileConnectionDidReceivePasscodeChangedNotification:(id)arg1 userInfo:(id)arg2;
-- (void)profileConnectionDidReceiveRestrictionChangedNotification:(id)arg1 userInfo:(id)arg2;
-- (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

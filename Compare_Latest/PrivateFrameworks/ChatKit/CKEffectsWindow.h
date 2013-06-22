@@ -6,17 +6,18 @@
 
 #import "UIAutoRotatingWindow.h"
 
-@class UIImageView;
+#import <ChatKit/CKGradientReferenceView-Protocol.h>
 
-@interface CKEffectsWindow : UIAutoRotatingWindow
+@interface CKEffectsWindow : UIAutoRotatingWindow <CKGradientReferenceView>
 {
-    UIImageView *shadowImageView;
+    BOOL _shadowHidden;
+    struct CGRect _gradientFrame;
 }
 
-@property(retain, nonatomic) UIImageView *shadowImageView; // @synthesize shadowImageView;
-- (void)didAddSubview:(id)arg1;
-@property(nonatomic, getter=isShadowHidden) BOOL shadowHidden; // @dynamic shadowHidden;
-- (BOOL)shadowHidden;
+@property(nonatomic) struct CGRect gradientFrame; // @synthesize gradientFrame=_gradientFrame;
+@property(nonatomic, getter=isShadowHidden) BOOL shadowHidden; // @synthesize shadowHidden=_shadowHidden;
+- (void)setBounds:(struct CGRect)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 - (id)init;
 - (void)dealloc;
 

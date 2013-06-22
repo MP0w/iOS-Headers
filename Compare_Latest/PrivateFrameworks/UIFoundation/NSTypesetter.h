@@ -28,6 +28,7 @@
 - (void)setLineFragmentRect:(struct CGRect)arg1 forGlyphRange:(struct _NSRange)arg2 usedRect:(struct CGRect)arg3 baselineOffset:(float)arg4;
 - (void)getLineFragmentRect:(struct CGRect *)arg1 usedRect:(struct CGRect *)arg2 remainingRect:(struct CGRect *)arg3 forStartingGlyphAtIndex:(unsigned int)arg4 proposedRect:(struct CGRect)arg5 lineSpacing:(float)arg6 paragraphSpacingBefore:(float)arg7 paragraphSpacingAfter:(float)arg8;
 - (unsigned int)getGlyphsInRange:(struct _NSRange)arg1 glyphs:(unsigned int *)arg2 characterIndexes:(unsigned int *)arg3 glyphInscriptions:(unsigned int *)arg4 elasticBits:(char *)arg5 bidiLevels:(char *)arg6;
+- (unsigned int)getGlyphsInRange:(struct _NSRange)arg1 glyphs:(unsigned short *)arg2 properties:(int *)arg3 characterIndexes:(unsigned int *)arg4 bidiLevels:(char *)arg5;
 - (struct _NSRange)glyphRangeForCharacterRange:(struct _NSRange)arg1 actualCharacterRange:(struct _NSRange *)arg2;
 - (struct _NSRange)characterRangeForGlyphRange:(struct _NSRange)arg1 actualGlyphRange:(struct _NSRange *)arg2;
 - (float)baselineOffsetInLayoutManager:(id)arg1 glyphIndex:(unsigned int)arg2;
@@ -71,18 +72,20 @@
 - (int)typesetterBehavior;
 - (void)setUsesFontLeading:(BOOL)arg1;
 - (BOOL)usesFontLeading;
+- (int)_baseWritingDirection;
 - (id)_ellipsisFontForFont:(id)arg1;
 - (BOOL)_allowsEllipsisGlyphSubstitution;
-- (unsigned int)_sweepDirectionForGlyphAtIndex:(long)arg1;
 - (CDUnion_a04c68c6 *)_lineFragmentRectForProposedRectArgs;
 - (void)_updateParagraphStyleCache:(id)arg1;
 - (unsigned int)_getRemainingNominalParagraphRange:(struct _NSRange *)arg1 andParagraphSeparatorRange:(struct _NSRange *)arg2 charactarIndex:(unsigned int)arg3 layoutManager:(id)arg4 string:(id)arg5;
+- (void)_setLineBreakModeOverridden:(BOOL)arg1;
+- (BOOL)_isLineBreakModeOverridden;
 - (void)_setForceOriginalFontBaseline:(BOOL)arg1;
 - (BOOL)_forceOriginalFontBaseline;
 - (void)finalize;
 - (void)dealloc;
-- (CDStruct_88fe8ffc *)_getAuxData;
-- (CDStruct_88fe8ffc *)_allocateAuxData;
+- (CDStruct_6c9b9d05 *)_getAuxData;
+- (CDStruct_6c9b9d05 *)_allocateAuxData;
 
 @end
 

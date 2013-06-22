@@ -19,6 +19,7 @@
     BOOL _loading;
 }
 
++ (void)_fillinProtocolImplementation:(struct CFURLProtocolImplementation_V0 *)arg1;
 + (void)registerWithCFURLProtocol;
 + (void)permitRequest:(struct _CFURLRequest *)arg1;
 + (void)barRequest:(struct _CFURLRequest *)arg1;

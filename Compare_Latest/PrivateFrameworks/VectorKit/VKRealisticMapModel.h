@@ -8,33 +8,37 @@
 
 #import "VKMapLayer-Protocol.h"
 
-@class VGLRenderState;
+@class VGLRenderState, VKSkyModel;
 
 @interface VKRealisticMapModel : VKVectorMapModel <VKMapLayer>
 {
-    double _currentZoomLevel;
     VGLRenderState *_renderState;
     double _fade;
     float _sceneAlpha;
     id <VKRoutePreloadSession> _routePreloadSession;
     BOOL _disableRealisticRoads;
     BOOL _disableRealisticLand;
+    VKSkyModel *_skyModel;
 }
 
 @property(nonatomic) float sceneAlpha; // @synthesize sceneAlpha=_sceneAlpha;
 @property(nonatomic) BOOL disableRealisticRoads; // @synthesize disableRealisticRoads=_disableRealisticRoads;
 @property(nonatomic) BOOL disableRealisticLand; // @synthesize disableRealisticLand=_disableRealisticLand;
+@property(retain, nonatomic) VKSkyModel *skyModel; // @synthesize skyModel=_skyModel;
+- (void)stylesheetDidChange;
+- (void)stylesheetWillChange;
 - (void)drawDebugScene:(id)arg1 withContext:(id)arg2;
 - (void)drawScene:(id)arg1 withContext:(id)arg2;
 - (void)layoutScene:(id)arg1 withContext:(id)arg2;
+- (double)_calculateZoomLevelWithContext:(id)arg1;
 - (BOOL)wantsCategorizedSourceTiles;
-- (void)_updateZoomLevel:(id)arg1;
 - (void)willStartDrawingTiles:(id)arg1;
 - (void)preloadRenderingResourcesWithContext:(id)arg1;
 - (void)dealloc;
 - (id)init;
 @property(retain, nonatomic) id <VKRoutePreloadSession> routePreloadSession;
 - (BOOL)minimumZoomLevelBoundsCamera;
+- (unsigned int)supportedRenderPasses;
 - (unsigned int)mapLayerPosition;
 
 @end

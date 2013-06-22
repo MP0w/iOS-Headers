@@ -20,8 +20,10 @@
     int _masterStatusCellIndex;
     int _iBeamLocation;
     int _displayMode;
+    int _lineFocus;
     BOOL _needsDisplayFlush;
     BOOL _needsStatusFlush;
+    BOOL _needsFocusFlush;
     BOOL _blink;
     BOOL _currentUnread;
     BOOL _anyUnread;
@@ -55,6 +57,8 @@
 - (void)blinker;
 - (int)displayMode;
 - (void)setDisplayMode:(int)arg1;
+- (int)lineFocus;
+- (void)setLineFocus:(int)arg1;
 - (BOOL)showDotsSevenAndEight;
 - (void)setShowDotsSevenAndEight:(BOOL)arg1;
 - (id)newLineDescriptorscriptor;

@@ -8,17 +8,18 @@
 
 #import "AssistantUIDelegateResult-Protocol.h"
 #import "AutoGuessUIDelegate-Protocol.h"
-#import "SetupConnectionDelegate-Protocol.h"
+#import "SetupUIConfigDelegate-Protocol.h"
 #import "SetupUIDelegate-Protocol.h"
 #import "StepByStepUIDelegate-Protocol.h"
 
-@class AUSetupController, AutoGuessController, NSDictionary, NSMutableDictionary, NSString, StepByStepController;
+@class AUSetupController, AutoGuessController, NSArray, NSDictionary, NSMutableDictionary, NSString, StepByStepController;
 
-@interface AssistantUIController : NSObject <AutoGuessUIDelegate, SetupUIDelegate, SetupConnectionDelegate, StepByStepUIDelegate, AssistantUIDelegateResult>
+@interface AssistantUIController : NSObject <AutoGuessUIDelegate, SetupUIDelegate, StepByStepUIDelegate, AssistantUIDelegateResult, SetupUIConfigDelegate>
 {
     id _delegate;
     NSMutableDictionary *_setupOptions;
     int _state;
+    BOOL _canceling;
     AutoGuessController *_autoGuessController;
     AUSetupController *_setupController;
     StepByStepController *_stepByStepController;
@@ -31,6 +32,7 @@
     NSString *_targetMACAddress;
     NSDictionary *_targetScanRecord;
     NSDictionary *_targetBrowseRecord;
+    NSArray *_paramScanResults;
 }
 
 @property(retain) NSDictionary *lastStepByStepInstrumentation; // @synthesize lastStepByStepInstrumentation=_lastStepByStepInstrumentation;
@@ -45,21 +47,25 @@
 @property(readonly) int state; // @synthesize state=_state;
 @property(retain) NSMutableDictionary *setupOptions; // @synthesize setupOptions=_setupOptions;
 @property id delegate; // @synthesize delegate=_delegate;
+@property(retain) NSArray *paramScanResults; // @synthesize paramScanResults=_paramScanResults;
 @property(retain) NSDictionary *targetBrowseRecord; // @synthesize targetBrowseRecord=_targetBrowseRecord;
 @property(retain) NSDictionary *targetScanRecord; // @synthesize targetScanRecord=_targetScanRecord;
 @property(retain) NSString *targetMACAddress; // @synthesize targetMACAddress=_targetMACAddress;
 - (void)stepByStepNextStep:(int)arg1 paramDict:(id)arg2;
 - (void)stepByStepCompleteWithResult:(long)arg1 paramDict:(id)arg2;
 - (void)stepByStepProgressUpdated:(int)arg1 status:(long)arg2 paramString:(id)arg3;
-- (void)setupConnectionStatusUpdated:(int)arg1 status:(long)arg2 paramDict:(id)arg3 forController:(id)arg4;
+- (void)setupUIConfigPrompt:(int)arg1 paramDict:(id)arg2 forController:(id)arg3;
+- (void)setupUIConfigConnectionStatusUpdated:(int)arg1 status:(long)arg2 paramDict:(id)arg3 forController:(id)arg4;
 - (void)setupCompleteWithResult:(long)arg1 baseStationInfo:(id)arg2 forController:(id)arg3;
 - (void)setupProgressUpdated:(int)arg1 status:(long)arg2 paramDict:(id)arg3 forController:(id)arg4;
 - (void)autoguessProgressComplete:(id)arg1;
 - (void)autoguessProgressUpdated:(int)arg1 paramString:(id)arg2;
 - (void)autoguessUpdateTargetInfo:(id)arg1;
 - (void)presentUIForStepByStepNextStepResult:(long)arg1 withOptions:(id)arg2;
+- (void)showUIConfigPromptResult:(long)arg1 withOptions:(id)arg2;
 - (void)presentUIForConnectionVerificationResult:(long)arg1 withOptions:(id)arg2;
-- (id)modifyTopoUIInLayer:(id)arg1 withLayout:(id)arg2 targetProductID:(id)arg3 targetDeviceKind:(id)arg4 targetName:(id)arg5 targetWiFiName:(id)arg6 sourceProductID:(id)arg7 sourceDeviceKind:(id)arg8 sourceName:(id)arg9 sourceWiFiName:(id)arg10 connectionType:(id)arg11;
+- (void)deliverSetupUIConfigResult:(long)arg1 withOptions:(id)arg2;
+- (id)modifyTopoUIInLayer:(id)arg1 withLayout:(id)arg2 andOwningView:(id)arg3 targetProductID:(id)arg4 targetDeviceKind:(id)arg5 targetName:(id)arg6 targetWiFiName:(id)arg7 sourceProductID:(id)arg8 sourceDeviceKind:(id)arg9 sourceName:(id)arg10 sourceWiFiName:(id)arg11 connectionType:(id)arg12;
 - (long)doneWithAssistant:(BOOL)arg1;
 - (long)cancelCurrentAssistantState:(BOOL)arg1;
 - (long)startRestoreFromAutoGuessRecommendation;
@@ -73,6 +79,7 @@
 - (BOOL)restoreNetworkIfNeeded:(BOOL)arg1 disassociateIfNeeded:(BOOL)arg2 forceQuit:(BOOL)arg3;
 - (id)setupPromptStringForBaseInfo:(id)arg1 andResult:(long)arg2;
 - (void)handlePresentAutoGuessUIFromAutoGuessCompleteResult:(BOOL)arg1;
+- (void)presentUIForUIConfigPrompt:(int)arg1 paramDict:(id)arg2;
 - (void)presentUIForConnectionVerification:(int)arg1 status:(long)arg2 paramDict:(id)arg3;
 - (long)startSetupFromStepByStepResults:(id)arg1;
 

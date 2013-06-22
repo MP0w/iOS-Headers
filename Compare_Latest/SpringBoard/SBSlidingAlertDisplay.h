@@ -8,12 +8,12 @@
 
 #import "SBDeviceLockViewOwner-Protocol.h"
 
-@class SBDeviceLockView, SBEmergencyCallView, SBWallpaperView, UIImage, UIStatusBar, UIView;
+@class SBDeviceLockView, SBEmergencyCallView, UIImage, UIImageView, UIStatusBar, UIView;
 
 @interface SBSlidingAlertDisplay : SBAlertView <SBDeviceLockViewOwner>
 {
-    SBWallpaperView *_backgroundView;
     UIImage *_defaultDesktopImage;
+    UIImageView *_replacementBackgroundView;
     UIView *_topBar;
     UIView *_bottomBar;
     UIView *_overlayView;
@@ -34,6 +34,7 @@
     id <SBSlidingAlertDisplayDelegate> _delegate;
 }
 
++ (BOOL)shouldAnimateIconsIn;
 + (void)setDisplayPropertiesForActivationOfAlert:(id)arg1;
 + (id)bottomBarForInstance:(id)arg1;
 + (id)topBarForInstance:(id)arg1;
@@ -42,7 +43,6 @@
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (id)backgroundView;
 - (id)topBar;
 - (id)bottomBar;
 - (void)emergencyCallWasRemoved:(id)arg1 finished:(id)arg2 context:(void *)arg3;
@@ -50,7 +50,7 @@
 - (void)emergencyCallWasDisplayed;
 - (void)animateToEmergencyCall;
 - (void)_animateView:(id)arg1 direction:(int)arg2;
-- (void)alertWindowResizedFromContentFrame:(struct CGRect)arg1 toContentFrame:(struct CGRect)arg2;
+- (void)alertWindowViewControllerResizedFromContentFrame:(struct CGRect)arg1 toContentFrame:(struct CGRect)arg2;
 - (void)statusBarFrameChanged:(id)arg1;
 - (void)adjustForDoubleHighStatusBarIfNecessary;
 - (void)_adjustForDoubleHighStatusBar:(BOOL)arg1;
@@ -118,7 +118,6 @@
 - (id)lockBar;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)_defaultDesktopImage;
 - (void)_showUnlockFailedIndicator;
 - (void)_clearUnlockFailedIndicator;
 - (void)leftNavigationButtonPressed;

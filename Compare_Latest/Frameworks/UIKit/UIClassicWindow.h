@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)_shouldZoom;
 - (void)_updateTransformLayerForClassicPresentation;
 
 @end

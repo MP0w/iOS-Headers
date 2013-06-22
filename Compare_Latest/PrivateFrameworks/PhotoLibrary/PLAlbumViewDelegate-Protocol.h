@@ -10,7 +10,7 @@
 
 @optional
 - (BOOL)albumViewShouldShowPhotoCount:(id)arg1;
-- (void)albumView:(id)arg1 preheatImageDataAtIndexPath:(id)arg2 windowSize:(unsigned int)arg3 downDirection:(BOOL)arg4;
+- (void)albumView:(id)arg1 preheatImageDataAtStartIndexPath:(id)arg2 endIndexPath:(id)arg3 windowSize:(unsigned int)arg4 downDirection:(BOOL)arg5;
 - (void)albumView:(id)arg1 didTapPhotoAtIndexPath:(id)arg2;
 - (void)albumViewSelectionDidChange:(id)arg1 added:(id)arg2 removed:(id)arg3;
 - (BOOL)albumView:(id)arg1 canSelectPhotoAtIndexPath:(id)arg2;

@@ -10,18 +10,20 @@
 {
 }
 
-+ (int)maxListCount;
 - (id)nodeIdentifier;
 - (void)_setDisplayNameFromRepresentation:(id)arg1;
 - (BOOL)canAddIcon;
 - (id)folderType;
+- (BOOL)canEditDisplayName;
+- (BOOL)canRemoveIcons;
+- (BOOL)shouldRemoveWhenEmpty;
 - (BOOL)isNewsstandFolder;
-- (Class)folderViewClass;
 - (Class)listViewClass;
 - (Class)listModelClass;
 - (void)setIsOpen:(BOOL)arg1;
 - (id)icon;
 - (id)init;
+- (Class)controllerClass;
 
 @end
 

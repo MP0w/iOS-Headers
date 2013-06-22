@@ -4,13 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "MessageBody.h"
+#import "MFMessageBody.h"
 
 #import "MFCollectingDataConsumer-Protocol.h"
 
 @class MFBufferedDataConsumer, NSData;
 
-@interface _MFOutgoingMessageBody : MessageBody <MFCollectingDataConsumer>
+@interface _MFOutgoingMessageBody : MFMessageBody <MFCollectingDataConsumer>
 {
     MFBufferedDataConsumer *_consumer;
     NSData *_rawData;

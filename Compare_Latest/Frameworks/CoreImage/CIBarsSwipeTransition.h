@@ -19,12 +19,12 @@
 }
 
 + (id)customAttributes;
-@property(retain) NSNumber *inputTime; // @synthesize inputTime;
-@property(retain) NSNumber *inputBarOffset; // @synthesize inputBarOffset;
-@property(retain) NSNumber *inputWidth; // @synthesize inputWidth;
-@property(retain) NSNumber *inputAngle; // @synthesize inputAngle;
-@property(retain) CIImage *inputTargetImage; // @synthesize inputTargetImage;
-@property(retain) CIImage *inputImage; // @synthesize inputImage;
+@property(retain, nonatomic) NSNumber *inputTime; // @synthesize inputTime;
+@property(retain, nonatomic) NSNumber *inputBarOffset; // @synthesize inputBarOffset;
+@property(retain, nonatomic) NSNumber *inputWidth; // @synthesize inputWidth;
+@property(retain, nonatomic) NSNumber *inputAngle; // @synthesize inputAngle;
+@property(retain, nonatomic) CIImage *inputTargetImage; // @synthesize inputTargetImage;
+@property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)_kernel;
 - (void)setDefaults;

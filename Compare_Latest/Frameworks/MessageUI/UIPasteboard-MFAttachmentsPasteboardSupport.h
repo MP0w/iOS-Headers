@@ -9,5 +9,6 @@
 @interface UIPasteboard (MFAttachmentsPasteboardSupport)
 - (id)mf_getAttachmentsPasteboardRepresentations;
 - (void)mf_addPasteboardRepresentationsForAttachments:(id)arg1;
+- (void)mf_addPasteboardRepresentationsForTextAttachments:(id)arg1;
 @end
 

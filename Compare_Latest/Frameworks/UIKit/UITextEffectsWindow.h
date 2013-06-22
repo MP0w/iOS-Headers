@@ -6,32 +6,43 @@
 
 #import <UIKit/UIAutoRotatingWindow.h>
 
-@interface UITextEffectsWindow : UIAutoRotatingWindow
+#import "_UIScreenBasedObject-Protocol.h"
+
+@class UIScreen;
+
+@interface UITextEffectsWindow : UIAutoRotatingWindow <_UIScreenBasedObject>
 {
     unsigned long _activeEffectsCount;
     BOOL _inDealloc;
     BOOL _nonServiceHosted;
     float _defaultWindowLevel;
     struct CGPoint _hostedWindowOffset;
+    unsigned int _activeRemoteViewCount;
+    unsigned int _windowLevelCount;
+    float _windowLevelStack[5];
 }
 
 + (void)lowerTextEffectsWindowsForHideNotificationCenter;
 + (void)raiseTextEffectsWindowsForShowNotificationCenter;
 + (void)_releaseSharedInstances;
++ (id)sharedTextEffectsWindowAboveStatusBarForScreen:(id)arg1;
 + (id)sharedTextEffectsWindowAboveStatusBar;
++ (id)sharedTextEffectsWindowForScreen:(id)arg1;
 + (id)sharedTextEffectsWindow:(BOOL)arg1;
 + (id)sharedTextEffectsWindow;
++ (id)_sharedTextEffectsWindowforScreen:(id)arg1 aboveStatusBar:(BOOL)arg2 matchesStatusBarOrientationOnAccess:(BOOL)arg3;
 + (id)preferredTextEffectsWindowAboveStatusBar;
 + (id)preferredTextEffectsWindow;
 @property(nonatomic) struct CGPoint hostedWindowOffset; // @synthesize hostedWindowOffset=_hostedWindowOffset;
 @property(nonatomic) float defaultWindowLevel; // @synthesize defaultWindowLevel=_defaultWindowLevel;
 @property(nonatomic) BOOL nonServiceHosted; // @synthesize nonServiceHosted=_nonServiceHosted;
 - (BOOL)_isTextEffectsWindow;
+- (BOOL)_shouldTintStatusBar;
 - (BOOL)_affectsTintView;
 - (BOOL)isInternalWindow;
+- (id)aboveStatusBar;
+- (void)_applicationDidFinishLaunching:(id)arg1;
 - (BOOL)_usesWindowServerHitTesting;
-- (id)_showServiceForText:(id)arg1 type:(int)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
-- (BOOL)_canShowTextServices;
 - (int)interfaceOrientation;
 - (void)matchDeviceOrientation;
 - (void)updateSubviewOrdering;
@@ -59,11 +70,17 @@
 @property(readonly, nonatomic) struct CGRect hostedFrame;
 - (void)_updateTransformLayerForClassicPresentation;
 - (BOOL)_disableViewScaling;
+- (void)setTransform:(struct CGAffineTransform)arg1;
 - (void)setKeepContextInBackground:(BOOL)arg1;
 - (BOOL)_isWindowServerHostingManaged;
+- (void)_restoreWindowLevel;
+- (void)_setWindowLevel:(float)arg1;
 @property(readonly) unsigned int contextID;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+@property(readonly) UIScreen *_intendedScreen;
+- (BOOL)_matchingOptions:(id)arg1;
+- (id)_initWithScreen:(id)arg1 options:(id)arg2;
 
 @end
 

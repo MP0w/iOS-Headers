@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVCaptureDeviceFormat, AVCaptureDeviceInput;
+@class AVCaptureDeviceInput;
 
 @interface AVCaptureDeviceInternal : NSObject
 {
@@ -14,7 +14,6 @@
     int _configLockRefCount;
     int _configLockPid;
     BOOL _usingDevice;
-    AVCaptureDeviceFormat *_activeFormat;
     AVCaptureDeviceInput *_activeInput;
 }
 

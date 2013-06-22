@@ -88,14 +88,12 @@ struct SDARunState {
 
 struct Snapshot;
 
-struct _Vector_impl {
+struct vector<ISL::IPodSportsWorkout_Run::Snapshot, std::__1::allocator<ISL::IPodSportsWorkout_Run::Snapshot>> {
     struct Snapshot *_field1;
     struct Snapshot *_field2;
-    struct Snapshot *_field3;
-};
-
-struct vector<ISL::IPodSportsWorkout_Run::Snapshot, std::allocator<ISL::IPodSportsWorkout_Run::Snapshot>> {
-    struct _Vector_impl _field1;
+    struct __compressed_pair<ISL::IPodSportsWorkout_Run::Snapshot *, std::__1::allocator<ISL::IPodSportsWorkout_Run::Snapshot>> {
+        struct Snapshot *_field1;
+    } _field3;
 };
 
 #pragma mark Typedef'd Structures
@@ -105,7 +103,11 @@ typedef struct {
 } CDStruct_5cfa2073;
 
 // Template types
-typedef struct vector<ISL::IPodSportsWorkout_Run::Snapshot, std::allocator<ISL::IPodSportsWorkout_Run::Snapshot>> {
-    struct _Vector_impl _field1;
-} vector_ebf5b573;
+typedef struct vector<ISL::IPodSportsWorkout_Run::Snapshot, std::__1::allocator<ISL::IPodSportsWorkout_Run::Snapshot>> {
+    struct Snapshot *_field1;
+    struct Snapshot *_field2;
+    struct __compressed_pair<ISL::IPodSportsWorkout_Run::Snapshot *, std::__1::allocator<ISL::IPodSportsWorkout_Run::Snapshot>> {
+        struct Snapshot *_field1;
+    } _field3;
+} vector_f582d009;
 

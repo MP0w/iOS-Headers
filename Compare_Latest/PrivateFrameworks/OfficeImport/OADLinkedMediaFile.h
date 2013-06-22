@@ -11,8 +11,10 @@
 @interface OADLinkedMediaFile : OADMovie
 {
     NSURL *mUrl;
+    BOOL mIsExternal;
 }
 
+@property BOOL isExternal; // @synthesize isExternal=mIsExternal;
 @property(retain) NSURL *url; // @synthesize url=mUrl;
 - (void)dealloc;
 

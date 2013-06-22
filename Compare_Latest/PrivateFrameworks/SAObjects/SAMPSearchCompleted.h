@@ -4,13 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
 #import "SAServerBoundCommand-Protocol.h"
 
-@class NSArray, NSString, NSURL;
+@class NSArray, NSString;
 
-@interface SAMPSearchCompleted : SABaseClientBoundCommand <SAServerBoundCommand>
+@interface SAMPSearchCompleted : SADomainCommand <SAServerBoundCommand>
 {
 }
 
@@ -18,7 +18,6 @@
 + (id)searchCompleted;
 - (BOOL)requiresResponse;
 @property(copy, nonatomic) NSArray *results;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

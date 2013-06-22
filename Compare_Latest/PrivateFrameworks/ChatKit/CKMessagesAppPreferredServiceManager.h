@@ -10,7 +10,7 @@
 {
 }
 
-- (id)preferredServiceForConversation:(id)arg1 newComposition:(BOOL)arg2 checkWithServer:(BOOL)arg3 error:(int *)arg4;
+- (id)preferredServiceForConversation:(id)arg1 newComposition:(BOOL)arg2 checkWithServer:(BOOL)arg3 error:(char *)arg4;
 - (unsigned int)_optionsForRecipients:(id)arg1;
 - (unsigned int)__optionsForConversation:(id)arg1;
 

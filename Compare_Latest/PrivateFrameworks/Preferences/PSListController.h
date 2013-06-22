@@ -13,7 +13,7 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString, UIActionSheet, UIAlertView, UIKeyboard, UIPopoverController, UITableView;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSNumber, NSString, UIActionSheet, UIAlertView, UIKeyboard, UIPopoverController, UITableView;
 
 @interface PSListController : PSViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, PSViewControllerOffsetProtocol>
 {
@@ -43,6 +43,7 @@
     float _verticalContentOffset;
     NSString *_offsetItemName;
     struct CGPoint _contentOffsetWithKeyboard;
+    NSNumber *_marginWidth;
 }
 
 + (BOOL)displaysButtonBar;
@@ -75,7 +76,7 @@
 - (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (void)confirmationViewCancelledForSpecifier:(id)arg1;
 - (void)confirmationViewAcceptedForSpecifier:(id)arg1;
-- (void)showConfirmationSheetForSpecifier:(id)arg1;
+- (void)dismissConfirmationViewForSpecifier:(id)arg1 animated:(BOOL)arg2;
 - (void)showConfirmationViewForSpecifier:(id)arg1;
 - (void)showConfirmationViewForSpecifier:(id)arg1 useAlert:(BOOL)arg2 swapAlertButtons:(BOOL)arg3;
 - (BOOL)performConfirmationCancelActionForSpecifier:(id)arg1;
@@ -87,11 +88,13 @@
 - (void)returnPressedAtEnd;
 - (void)popupViewWillDisappear;
 - (void)formSheetViewWillDisappear;
+- (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)prepareSpecifiersMetadata;
 - (void)viewDidLoad;
 - (id)findFirstVisibleResponder;
 - (BOOL)shouldSelectResponderOnAppearance;
+- (void)_scrollToSpecifierNamed:(id)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
@@ -110,11 +113,12 @@
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)createPrequeuedPSTableCells:(unsigned int)arg1 etched:(BOOL)arg2;
+- (void)createPrequeuedPSTableCells:(unsigned int)arg1;
 - (id)cachedCellForSpecifierID:(id)arg1;
 - (id)cachedCellForSpecifier:(id)arg1;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
+- (void)setMarginWidth:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (id)specifierID;
 - (void)setSpecifierID:(id)arg1;
@@ -126,10 +130,6 @@
 - (id)_createGroupIndices:(id)arg1;
 - (void)viewDidUnload;
 - (void)loadView;
-- (id)tableBackgroundColor;
-- (id)contentScrollView;
-- (Class)backgroundViewClass;
-- (int)tableStyle;
 - (Class)tableViewClass;
 - (id)initForContentSize:(struct CGSize)arg1;
 - (id)init;
@@ -203,6 +203,7 @@
 - (void)_addIdentifierForSpecifier:(id)arg1;
 - (id)specifiers;
 - (id)loadSpecifiersFromPlistName:(id)arg1 target:(id)arg2;
+- (void)readPSListControllerPropertiesWithDictionary:(id)arg1;
 - (id)specifier;
 - (id)bundle;
 - (id)table;

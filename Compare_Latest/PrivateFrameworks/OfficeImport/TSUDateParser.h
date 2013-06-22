@@ -16,8 +16,8 @@
 }
 
 + (id)parserForDefaultLocale;
-- (struct __CFDate *)createDateFromString:(struct __CFString *)arg1 succesTSUlFormatString:(const struct __CFString **)arg2;
-- (struct __CFDate *)createDateFromString:(struct __CFString *)arg1 preferredFormatString:(struct __CFString *)arg2 succesTSUlFormatString:(const struct __CFString **)arg3 tryAggressiveFormats:(BOOL)arg4;
+- (struct __CFDate *)newDateFromString:(struct __CFString *)arg1 succesTSUlFormatString:(const struct __CFString **)arg2;
+- (struct __CFDate *)newDateFromString:(struct __CFString *)arg1 preferredFormatString:(struct __CFString *)arg2 succesTSUlFormatString:(const struct __CFString **)arg3 tryAggressiveFormats:(BOOL)arg4;
 - (void)dealloc;
 - (id)initWithLocale:(struct __CFLocale *)arg1;
 - (void)datePreferencesChanged:(id)arg1;

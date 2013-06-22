@@ -16,6 +16,7 @@
 }
 
 + (id)sharedNetworkPlayabilityMonitor;
+- (void).cxx_destruct;
 - (int)_onQueueEffectiveNetworkTypeForAverageBitrate:(double)arg1;
 @property(readonly, nonatomic) int networkType;
 @property(readonly, nonatomic) int effectiveNetworkTypeForPlayback;

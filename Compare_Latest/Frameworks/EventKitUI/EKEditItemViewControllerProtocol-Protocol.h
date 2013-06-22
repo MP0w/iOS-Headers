@@ -7,7 +7,7 @@
 @protocol EKEditItemViewControllerProtocol
 
 @optional
-@property(nonatomic) id <EKEditItemViewControllerDelegate> editDelegate;
+@property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate;
 - (void)saveAndDismissWithExtremePrejudice;
 @end
 

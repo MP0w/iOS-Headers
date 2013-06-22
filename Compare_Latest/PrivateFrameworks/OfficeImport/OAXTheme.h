@@ -11,8 +11,10 @@
 }
 
 + (void)readFromPackagePart:(id)arg1 toTheme:(id)arg2 state:(id)arg3;
-+ (void)readDefaultProperties:(struct _xmlNode *)arg1 defaultProperties:(id)arg2 drawingState:(id)arg3;
-+ (void)readObjectDefaults:(struct _xmlNode *)arg1 theme:(id)arg2 packagePart:(id)arg3 state:(id)arg4;
++ (void)readDefaultProperties:(struct _xmlNode *)arg1 fallback:(struct _xmlNode *)arg2 defaultProperties:(id)arg3 drawingState:(id)arg4;
++ (struct _xmlNode *)childNamed:(const char *)arg1 inParent:(struct _xmlNode *)arg2 fallbackParent:(struct _xmlNode *)arg3;
++ (void)readObjectDefaults:(struct _xmlNode *)arg1 theme:(id)arg2 drawingState:(id)arg3;
++ (void)readObjectDefaultsFromParent:(struct _xmlNode *)arg1 defaultsName:(const char *)arg2 toObjectDefaults:(id)arg3 drawingState:(id)arg4;
 
 @end
 

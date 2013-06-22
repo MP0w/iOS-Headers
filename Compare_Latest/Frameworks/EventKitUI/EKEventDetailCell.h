@@ -14,6 +14,7 @@
     BOOL _editable;
 }
 
+- (void).cxx_destruct;
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;
 - (BOOL)update;
 @property(readonly, nonatomic) BOOL isEditable;

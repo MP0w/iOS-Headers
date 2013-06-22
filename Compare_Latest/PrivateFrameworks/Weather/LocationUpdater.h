@@ -19,14 +19,14 @@
 + (void)clearSharedLocationUpdater;
 + (id)sharedLocationUpdater;
 @property(retain, nonatomic) City *currentCity; // @synthesize currentCity=_currentCity;
-- (void)_failed:(int)arg1;
+- (void)_failed:(unsigned int)arg1;
 - (void)didProcessDocument;
 - (id)aggregateDictionaryDomain;
 - (void)failCity:(id)arg1;
 - (BOOL)isDataValid:(id)arg1;
 - (void)updateWeatherForLocation:(id)arg1 city:(id)arg2;
 - (void)updateWeatherForLocation:(id)arg1 city:(id)arg2 withCompletionHandler:(id)arg3;
-- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(int)arg2;
+- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned int)arg2;
 - (void)handleNilCity;
 - (void)enableProgressIndicator:(BOOL)arg1;
 - (void)parsedResultCity:(id)arg1;

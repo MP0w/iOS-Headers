@@ -18,7 +18,7 @@
 
 + (id)activeInstance;
 + (id)sharedInstance;
-- (BOOL)handleModifiersChangedEvent:(struct __GSEvent *)arg1;
+- (BOOL)handleModifiersChangedEvent:(id)arg1;
 - (BOOL)switchMode:(id)arg1 withDelay:(BOOL)arg2;
 - (BOOL)handleSwitchCommand:(BOOL)arg1;
 - (BOOL)isVisible;

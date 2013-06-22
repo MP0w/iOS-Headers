@@ -9,28 +9,28 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class NSArray, PLAirTunesService, UITableView;
+@class NSArray, NSDictionary, UITableView;
 
 @interface PLAirTunesServicePickerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    NSArray *_availableServices;
     id _delegate;
     UITableView *_table;
-    PLAirTunesService *_selectedService;
-    BOOL _showDebugOption;
+    NSDictionary *_selectedRoute;
+    NSArray *_availableRoutes;
 }
 
+@property(retain, nonatomic) NSArray *availableRoutes; // @synthesize availableRoutes=_availableRoutes;
 @property(nonatomic) id <PLAirTunesServicePickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)setAvailableServices:(id)arg1;
+- (int)_indexofRouteWithRouteID:(id)arg1;
 - (void)_setCell:(id)arg1 checked:(BOOL)arg2;
 - (struct CGSize)contentSizeForViewInPopoverView;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)loadView;
-- (id)initWithAvailableAirTunesServices:(id)arg1 previouslySelectedService:(id)arg2 showDebugOption:(BOOL)arg3;
+- (id)initWithAvailableAirplayRoutes:(id)arg1 previouslySelectedRoute:(id)arg2;
 - (void)dealloc;
 
 @end

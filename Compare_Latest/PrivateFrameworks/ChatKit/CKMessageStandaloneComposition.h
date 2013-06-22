@@ -17,7 +17,6 @@
     NSArray *_messageParts;
 }
 
-- (id)resources;
 - (void)setSubject:(id)arg1;
 - (id)subject;
 - (id)markupString;
@@ -25,6 +24,7 @@
 - (id)messageParts;
 - (id)textString;
 - (void)setResources:(id)arg1;
+- (id)resources;
 - (void)setMarkupString:(id)arg1;
 - (void)_clearDerivedValues;
 

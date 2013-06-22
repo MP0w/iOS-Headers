@@ -6,20 +6,25 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
 #import "NSMutableCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class AVVideoCompositionLayerInstructionInternal;
 
-@interface AVVideoCompositionLayerInstruction : NSObject <NSCoding, NSCopying, NSMutableCopying>
+@interface AVVideoCompositionLayerInstruction : NSObject <NSSecureCoding, NSCopying, NSMutableCopying>
 {
     AVVideoCompositionLayerInstructionInternal *_layerInstruction;
 }
 
++ (BOOL)supportsSecureCoding;
 + (void)initialize;
 - (void)_setValuesFromDictionary:(id)arg1 timeRange:(CDStruct_e83c9415)arg2;
 - (id)dictionaryRepresentationWithTimeRange:(CDStruct_e83c9415)arg1;
+- (BOOL)getCropRectangleRampForTime:(CDStruct_1b6d18a9)arg1 startCropRectangle:(struct CGRect *)arg2 endCropRectangle:(struct CGRect *)arg3 timeRange:(CDStruct_e83c9415 *)arg4;
+- (void)setCropRectangleRampFromStartCropRectangle:(struct CGRect)arg1 toEndCropRectangle:(struct CGRect)arg2 timeRange:(CDStruct_e83c9415)arg3;
+- (void)setCropRectangle:(struct CGRect)arg1 atTime:(CDStruct_1b6d18a9)arg2;
+- (void)_setCropRectangleRampFromStartCropRectangle:(struct CGRect)arg1 toEndCropRectangle:(struct CGRect)arg2 timeRange:(CDStruct_e83c9415)arg3 selector:(SEL)arg4;
 - (BOOL)getOpacityRampForTime:(CDStruct_1b6d18a9)arg1 startOpacity:(float *)arg2 endOpacity:(float *)arg3 timeRange:(CDStruct_e83c9415 *)arg4;
 - (void)setOpacityRampFromStartOpacity:(float)arg1 toEndOpacity:(float)arg2 timeRange:(CDStruct_e83c9415)arg3;
 - (void)setOpacity:(float)arg1 atTime:(CDStruct_1b6d18a9)arg2;
@@ -28,6 +33,7 @@
 - (void)setTransformRampFromStartTransform:(struct CGAffineTransform)arg1 toEndTransform:(struct CGAffineTransform)arg2 timeRange:(CDStruct_e83c9415)arg3;
 - (void)setTransform:(struct CGAffineTransform)arg1 atTime:(CDStruct_1b6d18a9)arg2;
 - (void)_setTransformRampFromStartTransform:(struct CGAffineTransform)arg1 toEndTransform:(struct CGAffineTransform)arg2 timeRange:(CDStruct_e83c9415)arg3 selector:(SEL)arg4;
+- (void)_setCropRectangleRamps:(id)arg1;
 - (void)_setOpacityRamps:(id)arg1;
 - (void)_setTransformRamps:(id)arg1;
 - (void)setTrackID:(int)arg1;
@@ -36,6 +42,7 @@
 - (void)dealloc;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

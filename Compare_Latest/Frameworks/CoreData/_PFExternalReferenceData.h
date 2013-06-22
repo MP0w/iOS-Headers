@@ -24,13 +24,15 @@
         unsigned int _cleanupOnDealloc:1;
         unsigned int _dataProtectionLevel:3;
         unsigned int _isStoredUbiquitously:1;
-        unsigned int _reserved:25;
+        unsigned int _createdByUbiquityImport:1;
+        unsigned int _reserved:24;
     } _externalDataFlags;
 }
 
 + (BOOL)_releaseReservedMapFileDescriptor;
 + (BOOL)_reserveMapFileDescriptor;
 + (BOOL)_updateFileDescriptorsInUseReserveNew:(BOOL)arg1;
+- (BOOL)_createdByUbiquityImport;
 - (BOOL)isEqualToData:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)_isEqualHelper:(id)arg1;

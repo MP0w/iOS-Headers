@@ -16,6 +16,12 @@
 }
 
 + (id)sharedUserAgent;
+- (void)disableLockScreenBundleNamed:(id)arg1 deactivationContext:(id)arg2;
+- (void)enableLockScreenBundleNamed:(id)arg1 activationContext:(id)arg2;
+- (void)setWallpaperTunnelActive:(BOOL)arg1 forFullscreenAlertController:(id)arg2;
+- (BOOL)isUsingLegacyStyle;
+- (void)activateRemoteAlertService:(id)arg1 options:(id)arg2;
+- (void)activateStarkRemoteAlertService:(id)arg1 ofType:(id)arg2;
 - (void)setMinimumBacklightLevel:(float)arg1 animated:(BOOL)arg2;
 - (BOOL)isSBUILoggingEnabled;
 - (void)removeActiveInterfaceOrientationObserver:(id)arg1;
@@ -26,13 +32,12 @@
 - (void)playRingtoneAtPath:(id)arg1 vibrationPattern:(id)arg2;
 - (void)playRingtoneAtPath:(id)arg1;
 - (int)networkUsageTypeForAppWithDisplayID:(id)arg1;
-- (BOOL)homeScreenIsDisplayingWallpaper;
-- (id)createWallpaperView:(int)arg1;
 - (void)setIdleText:(id)arg1;
 - (void)setBadgeNumberOrString:(id)arg1 forApplicationWithID:(id)arg2;
 - (void)notifyOnNextUserEvent;
 - (BOOL)isIdleTimerDisabledForReason:(id)arg1;
 - (void)setIdleTimerDisabled:(BOOL)arg1 forReason:(id)arg2;
+- (void)lockAndDimDeviceDisconnectingCallIfNecessary:(BOOL)arg1 andDimScreen:(BOOL)arg2;
 - (void)lockAndDimDeviceDisconnectingCallIfNecessary:(BOOL)arg1;
 - (void)lockAndDimDevice;
 - (void)undimScreen;
@@ -50,6 +55,7 @@
 - (BOOL)launchApplicationFromSource:(int)arg1 withDisplayID:(id)arg2 options:(id)arg3;
 - (BOOL)canLaunchFromSource:(int)arg1 withURL:(id)arg2 bundleID:(id)arg3;
 - (BOOL)_openApplication:(id)arg1 withURL:(id)arg2 fromSource:(int)arg3 animated:(BOOL)arg4 options:(id)arg5;
+- (void)_cleanupFromBannerLaunch;
 - (id)_safeValue:(id)arg1 forKey:(id)arg2 ofType:(Class)arg3;
 - (BOOL)openURL:(id)arg1 allowUnlock:(BOOL)arg2 animated:(BOOL)arg3;
 - (void)openURL:(id)arg1 animateIn:(BOOL)arg2 scale:(float)arg3 start:(double)arg4 duration:(float)arg5 animateOut:(BOOL)arg6;

@@ -23,10 +23,16 @@
     struct UIOffset _infoOffset;
     UIImage *_customSelectedIndicatorImage;
     NSValue *_labelOffsetValue;
+    BOOL _selectedImageColoringIsStale;
+    BOOL _centerAllContents;
+    Class _appearanceGuideClass;
 }
 
 + (id)_defaultLabelColor;
 + (id)_defaultLabelFont;
+@property(nonatomic, setter=_setAppearanceGuideClass:) Class _appearanceGuideClass; // @synthesize _appearanceGuideClass;
+@property(nonatomic, setter=_setCenterAllContents:) BOOL _centerAllContents; // @synthesize _centerAllContents;
+@property(nonatomic, setter=_setSelectedImageColoringIsStale:) BOOL _selectedImageColoringIsStale; // @synthesize _selectedImageColoringIsStale;
 @property(readonly, nonatomic) UITabBarButtonLabel *tabBarButtonLabel; // @synthesize tabBarButtonLabel=_label;
 @property(retain, nonatomic) NSValue *labelOffsetValue; // @synthesize labelOffsetValue=_labelOffsetValue;
 - (void)_applyTabBarButtonAppearanceStorage:(id)arg1 withTaggedSelectors:(id)arg2;
@@ -34,6 +40,7 @@
 - (void)_setTitlePositionAdjustment:(struct UIOffset)arg1;
 - (void)_UIAppearance_setTitlePositionAdjustment:(struct UIOffset)arg1;
 - (void)_UIAppearance_setTitleTextAttributes:(id)arg1 forState:(unsigned int)arg2;
+- (void)_setLabelHidden:(BOOL)arg1;
 - (void)_setCustomSelectedIndicatorImage:(id)arg1;
 - (BOOL)_useBarHeight;
 - (void)_setBarHeight:(float)arg1;
@@ -41,6 +48,7 @@
 - (struct CGRect)_frameForSelectedIndicator;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
+- (void)tintColorDidChange;
 - (void)setEnabled:(BOOL)arg1;
 - (void)_setBadgeAnimated:(BOOL)arg1;
 - (void)_badgeAnimationDidStop:(id)arg1 finished:(id)arg2;

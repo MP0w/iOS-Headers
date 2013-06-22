@@ -18,6 +18,8 @@
     BOOL _isShortCode;
 }
 
++ (_Bool)isValidPhoneNumber:(id)arg1;
++ (_Bool)isValidPhoneNumberChar:(unsigned short)arg1;
 + (id)phoneNumberWithDigits:(id)arg1 countryCode:(id)arg2;
 @property BOOL isShortCode; // @synthesize isShortCode=_isShortCode;
 @property(readonly) NSString *countryCode; // @synthesize countryCode=_countryCode;

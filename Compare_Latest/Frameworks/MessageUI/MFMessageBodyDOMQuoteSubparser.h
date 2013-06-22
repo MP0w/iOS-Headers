@@ -6,14 +6,16 @@
 
 #import <MessageUI/MFMessageBodySubparser.h>
 
-@class DOMRange;
+@class DOMRange, NSMutableArray;
 
 @interface MFMessageBodyDOMQuoteSubparser : MFMessageBodySubparser
 {
     id _foundDedentedAttributionRangeBlock;
     id _foundTrailingEmptyQuoteRangeBlock;
-    id <MFMessageBodyElement_Private> _dedendedAttributionLastElement;
-    id <MFMessageBodyElement_Private> _dedentedAttributionLastTextElement;
+    id <MFMessageBodyElement_Private> _lastUnindentedElement;
+    id <MFMessageBodyElement_Private> _lastUnindentedAttributionHint;
+    NSMutableArray *_unindentedSiblingNodes;
+    unsigned int _unindentedSiblingGap;
     DOMRange *_trailingEmptyQuoteRange;
     unsigned int _trailingEmptyQuoteLevel;
 }

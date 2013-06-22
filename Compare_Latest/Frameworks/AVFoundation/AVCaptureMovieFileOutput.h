@@ -21,9 +21,10 @@
 - (long)_stopRecording;
 - (long)_startRecording:(id)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
-- (void)_handleStartRecordingErrorWithDomain:(id)arg1 code:(long)arg2 info:(id)arg3;
-- (long)_avErrorForDidStopRecordingReason:(id)arg1;
+- (id)_avErrorUserInfoDictionaryForError:(long)arg1 wrapper:(id)arg2;
+- (void)_handleStartRecordingError:(long)arg1 info:(id)arg2;
 @property(copy, nonatomic) NSArray *metadata;
+- (id)outputSettingsForConnection:(id)arg1;
 - (BOOL)sendsLastVideoPreviewFrame;
 - (void)setSendsLastVideoPreviewFrame:(BOOL)arg1;
 @property(nonatomic) CDStruct_1b6d18a9 movieFragmentInterval;

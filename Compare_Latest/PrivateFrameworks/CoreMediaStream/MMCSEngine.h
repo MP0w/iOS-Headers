@@ -27,24 +27,23 @@
     } _engineClientContext;
     NSMutableDictionary *_itemIDToAssetProxyMap;
     NSObject<OS_dispatch_queue> *_itemIDToAssetProxyMapQueue;
-    NSMutableDictionary *_contextToRequestorContextMap;
     NSMutableArray *_requestorContexts;
-    NSObject<OS_dispatch_queue> *_contextToReqestorContextMapQueue;
+    NSObject<OS_dispatch_queue> *_reqestorContextQueue;
     NSMutableDictionary *_autoItemIDDictionary;
     NSURL *_autoItemIDPersistenceURL;
     NSObject<OS_dispatch_queue> *_autoItemIDDictionaryQueue;
-    id <MMCSEngineDelegate> _delegate;
     BOOL _autoGenerateItemID;
     BOOL _isMetricsGatheringEnabled;
-    NSThread *_workThread;
     BOOL _isDone;
+    id <MMCSEngineDelegate> _delegate;
+    NSThread *_workThread;
     NSTimer *_threadKeepAliveTimer;
 }
 
 + (id)logStringForPutItemState:(int)arg1;
 + (id)logStringForGetItemState:(int)arg1;
-@property(retain, nonatomic) NSTimer *threadKeepAliveTimer; // @synthesize threadKeepAliveTimer=_threadKeepAliveTimer;
 @property(nonatomic) BOOL isDone; // @synthesize isDone=_isDone;
+@property(retain, nonatomic) NSTimer *threadKeepAliveTimer; // @synthesize threadKeepAliveTimer=_threadKeepAliveTimer;
 @property(retain, nonatomic) NSThread *workThread; // @synthesize workThread=_workThread;
 @property(nonatomic) BOOL isMetricsGatheringEnabled; // @synthesize isMetricsGatheringEnabled=_isMetricsGatheringEnabled;
 @property(nonatomic) BOOL autoGenerateItemID; // @synthesize autoGenerateItemID=_autoGenerateItemID;
@@ -52,15 +51,14 @@
 - (void).cxx_destruct;
 - (unsigned long long)_nextItemID;
 - (void)_initItemIDPersistence;
-- (void)_removeRequestorContextForContext:(id)arg1;
-- (id)_requestorContextForContext:(id)arg1;
+- (void)_removeRequestorContext:(id)arg1;
 - (void)_registerRequestorContext:(id)arg1;
 - (void)_removeAssetProxyForItemID:(unsigned long long)arg1;
 - (id)_assetProxyWithItemID:(unsigned long long)arg1;
 - (void)_registerAssetProxy:(id)arg1;
 - (void)_logLevel:(int)arg1 message:(id)arg2;
-- (void)putAssets:(id)arg1 requestURL:(id)arg2 DSID:(id)arg3 options:(id)arg4 context:(id)arg5;
-- (void)getAssets:(id)arg1 requestURL:(id)arg2 DSID:(id)arg3 options:(id)arg4 context:(id)arg5;
+- (void)putAssets:(id)arg1 requestURL:(id)arg2 DSID:(id)arg3 options:(id)arg4;
+- (void)getAssets:(id)arg1 requestURL:(id)arg2 DSID:(id)arg3 options:(id)arg4;
 - (void)unregisterAssets:(id)arg1;
 - (void)unregisterAsset:(id)arg1;
 - (void)registerAssets:(id)arg1 forDownloadCompletionBlock:(id)arg2;

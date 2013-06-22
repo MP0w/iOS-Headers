@@ -16,13 +16,12 @@
     TintedView *_tintedLineView;
 }
 
-+ (struct CGGradient *)_gradient;
 - (void).cxx_destruct;
 - (void)resizeSelectedLineClipViewWithLeftX:(float)arg1 rightX:(float)arg2;
 - (void)setShowingSelectedLine:(BOOL)arg1;
 - (void)setGraphImageSet:(id)arg1;
 - (void)setSelectedLineImage:(id)arg1;
-- (id)init;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -12,7 +12,6 @@
 {
     id target;
     id defaultTarget;
-    BOOL catchExceptions;
     _WebSafeAsyncForwarder *asyncForwarder;
     long asyncForwarderPred;
 }
@@ -23,7 +22,7 @@
 - (void)clearTarget;
 - (void)dealloc;
 - (id)asyncForwarder;
-- (id)initWithTarget:(id)arg1 defaultTarget:(id)arg2 catchExceptions:(BOOL)arg3;
+- (id)initWithTarget:(id)arg1 defaultTarget:(id)arg2;
 
 @end
 

@@ -10,6 +10,8 @@
 {
 }
 
++ (BOOL)_allowsEvaluation;
++ (BOOL)supportsSecureCoding;
 + (id)defaultInstance;
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (void)initialize;

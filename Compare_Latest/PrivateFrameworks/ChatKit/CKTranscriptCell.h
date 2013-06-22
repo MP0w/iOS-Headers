@@ -4,19 +4,14 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UITableViewCell.h"
+#import <ChatKit/CKEditableCollectionViewCell.h>
 
-@class UIView;
-
-@interface CKTranscriptCell : UITableViewCell
+@interface CKTranscriptCell : CKEditableCollectionViewCell
 {
-    UIView *_separatorHighlight;
 }
 
-- (void)setSeparatorHighlightVisible:(BOOL)arg1;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)layoutSubviews;
-- (void)dealloc;
+- (void)configureForRow:(id)arg1;
+- (void)configureForRowObject:(id)arg1;
 
 @end
 

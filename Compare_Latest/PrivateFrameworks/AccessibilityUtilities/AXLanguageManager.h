@@ -27,6 +27,7 @@
 @property(retain, nonatomic) NSArray *langMaps; // @synthesize langMaps=_langMaps;
 - (void)_handleUserLocaleDidChange:(id)arg1;
 - (id)_loadLangMaps;
+- (id)characterSetForRanges:(id)arg1;
 - (id)_preferredLanguageIDsFromUserSelectedKeyboards;
 - (id)descriptionOfWord:(id)arg1 forLanguage:(id)arg2;
 - (void)updateCachedDialects;

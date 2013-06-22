@@ -15,29 +15,53 @@
     NSMutableDictionary *_tileDatasByIndex;
     NSMutableArray *_junctions;
     NSMutableArray *_intersections;
+    BOOL _oppositeCarriagewayJunctionsValid;
+    NSMutableArray *_oppositeCarriagewayJunctions;
+    Vec2Imp_1782d7e3 _unitHeading;
     BOOL _offRouteJunctionsValid;
-    CDStruct_aca18c62 _offRouteJunctionSelectRect;
+    BRectImp_d02b3a99 _offRouteJunctionSelectRect;
     NSMutableArray *_offRouteJunctions;
+    struct PolylineCoordinate _routeUserOffset;
+    BOOL _routeFeatureMapValid;
+    unordered_map_ad9b4de7 _routeFeatureMap;
+    BOOL _simplifiedRouteValid;
+    vector_d5845d09 _simplifiedRoutePoints;
+    unsigned int _currentRoadStartSimplifiedPointIndex;
+    BOOL _screenRouteValid;
+    struct vector<RouteSegment, vk_allocator<RouteSegment>> _screenRouteSegments;
+    unsigned int _firstPOIAligningRouteSegment;
 }
 
 @property(retain, nonatomic) NSMutableArray *junctions; // @synthesize junctions=_junctions;
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)_nextIntersectionForRoad:(id)arg1;
 - (id)nextRoadSegmentForRoad:(id)arg1;
 - (id)_findInterTileJunctionForJunction:(id)arg1;
-- (id)_junctionForRoadEdge:(const CDStruct_b4689c16 *)arg1 atA:(BOOL)arg2 routeOffset:(CDStruct_3f2a7a20)arg3 tile:(id)arg4;
+- (id)_junctionForRoadEdge:(const CDStruct_fc3c0eb0 *)arg1 atA:(BOOL)arg2 routeOffset:(struct PolylineCoordinate)arg3 tile:(id)arg4;
 - (id)junctionForRoad:(id)arg1 nearJunction:(BOOL)arg2 crossTileEdge:(BOOL)arg3;
 - (void)setTiles:(id)arg1;
+- (void)startingLabelLayoutWithContext:(struct NavContext *)arg1 routeUserOffset:(struct PolylineCoordinate)arg2;
+- (void)routeJunctionsHaveChanged;
 - (void)reset;
 - (void)dealloc;
 - (id)initWithJunctions:(id)arg1;
+- (BOOL)isOnScreenRouteBackwardsAtJunction:(id)arg1 navContext:(struct NavContext *)arg2;
+- (BOOL)prepareOppositeCarriagewayJunctions;
+- (id)oppositeCarriagewayJunctions;
+- (unsigned char)computeRoutePositionMaskForPOIAtPixel:(const Vec2Imp_1782d7e3 *)arg1 currentPositionMask:(unsigned char)arg2 context:(struct NavContext *)arg3;
+- (BOOL)collideRouteWithLabel:(id)arg1 routeCrossProduct:(float *)arg2 context:(struct NavContext *)arg3;
+- (void)_transformRouteToScreenWithContext:(struct NavContext *)arg1;
+- (void)_updateSimplifiedRoute;
+- (BOOL)isPriorRouteCollinearWithRoad:(id)arg1 distance:(float)arg2;
 - (void)_findOffRouteJunctions;
-- (id)offRouteGraphJunctionsForViewTransform:(const struct ViewTransform *)arg1 labelContext:(struct LabelContext *)arg2 maxJunctions:(unsigned int)arg3;
+- (id)offRouteGraphJunctionsWithNavContext:(struct NavContext *)arg1 maxJunctions:(unsigned int)arg2 isOnRoute:(BOOL)arg3;
 - (void)_updateIntersectionsForDepth:(unsigned int)arg1;
 - (id)junctionListForDepth:(unsigned int)arg1;
 - (unsigned int)countReadyJunctionLists;
 - (void)evaluateDualCarriagewayForJunction:(id)arg1 outputJunctionList:(id)arg2;
-- (void)addPolylineEdge:(id)arg1 atA:(BOOL)arg2 tile:(id)arg3 junctionList:(id)arg4;
+- (id)overpassJunctionForJunction:(id)arg1;
+- (void)addRouteRoadEdge:(const struct VKLabelNavRouteRoadEdge *)arg1 atA:(BOOL)arg2 isRouteRefineJunction:(BOOL)arg3 tile:(id)arg4 junctionList:(id)arg5;
 
 @end
 

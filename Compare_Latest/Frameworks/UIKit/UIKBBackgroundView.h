@@ -8,12 +8,12 @@
 
 #import "UIKBCacheableView-Protocol.h"
 
-@class NSString;
+@class NSString, UIKBRenderConfig, UIKBTree;
 
 @interface UIKBBackgroundView : UIView <UIKBCacheableView>
 {
+    UIKBTree *_keyplane;
     int _visualStyle;
-    NSString *_layoutName;
     id _geometryCacheKey;
     struct CGRect _splitLeftRect;
     struct CGRect _splitLeftCacheRect;
@@ -24,14 +24,20 @@
     UIView *_splitRight;
     BOOL _isSplit;
     BOOL _centerFilled;
+    BOOL _hasCandidateKeys;
+    UIKBRenderConfig *_renderConfig;
 }
 
+@property(retain, nonatomic) UIKBRenderConfig *renderConfig; // @synthesize renderConfig=_renderConfig;
+@property(readonly, nonatomic) BOOL keepNonPersistent;
 @property(readonly, nonatomic) float cachedWidth;
 @property(readonly, nonatomic) BOOL cacheDeferable;
 - (void)displayLayer:(id)arg1;
-- (id)cacheKey;
+- (id)cacheKeysForRenderFlags:(id)arg1;
+@property(readonly, nonatomic) NSString *cacheKey;
+- (void)drawContentsOfRenderers:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (void)refreshStyleForKeyboard:(id)arg1;
+- (void)refreshStyleForKeyplane:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -13,6 +13,7 @@
 }
 
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
++ (BOOL)_hasRenderLayerSubclass;
 + (id)defaultValueForKey:(id)arg1;
 @property(copy) NSString *type;
 @property struct CGPoint endPoint;

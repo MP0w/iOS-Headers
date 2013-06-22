@@ -12,7 +12,7 @@
 {
     NSString *_identifier;
     NSString *_name;
-    NSString *_path;
+    NSString *_filePath;
     NSString *_artworkFile;
     NSDictionary *_playbackProperties;
     NSNumber *_pid;
@@ -31,7 +31,7 @@
 @property(nonatomic, getter=isRingtone) BOOL ringtone; // @synthesize ringtone=_ringtone;
 @property(nonatomic, getter=isPurchased) BOOL purchased; // @synthesize purchased=_purchased;
 @property(retain, nonatomic) NSDictionary *playbackProperties; // @synthesize playbackProperties=_playbackProperties;
-@property(retain, nonatomic) NSString *path; // @synthesize path=_path;
+@property(retain, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (BOOL)loadFromPropertyList:(id)arg1;

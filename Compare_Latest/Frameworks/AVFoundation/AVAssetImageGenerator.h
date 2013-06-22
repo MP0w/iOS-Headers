@@ -24,6 +24,7 @@
 - (id)_optionsDictionary;
 @property(nonatomic) CDStruct_1b6d18a9 requestedTimeToleranceAfter;
 @property(nonatomic) CDStruct_1b6d18a9 requestedTimeToleranceBefore;
+@property(readonly, nonatomic) id <AVVideoCompositing> customVideoCompositor;
 @property(copy, nonatomic) AVVideoComposition *videoComposition;
 @property(copy, nonatomic) NSString *apertureMode;
 @property(nonatomic) struct CGSize maximumSize;

@@ -13,6 +13,7 @@
         struct _NSRange indexRange;
         CDStruct_f3463f58 bounds;
         struct vector<int, vk_allocator<int>> groupInfoIndices;
+        struct unordered_set<int, std::__1::hash<int>, std::__1::equal_to<int>, vk_allocator<int>> overflowSourceFragments;
     } _fragments[16];
     float _fragmentSize;
     struct bitset<16> _fragmentsToDrawBitset;
@@ -22,13 +23,15 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)groupContainingPositionA:(CDStruct_03942939)arg1 positionB:(CDStruct_03942939)arg2 groupID:(unsigned int *)arg3;
+- (void)groupsContainingPositionA:(CDStruct_03942939)arg1 positionB:(CDStruct_03942939)arg2 groupIDs:(unsigned int *)arg3 groupIDCount:(unsigned int *)arg4 maxGroupIDs:(unsigned int)arg5;
 - (void)freeze;
 - (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned int)arg2 context:(id)arg3;
-- (void)drawGroup:(unsigned int)arg1 context:(id)arg2;
-- (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned int)arg2 excludeGroup:(int)arg3 context:(id)arg4;
+- (void)drawGroups:(const vector_81578dfd *)arg1 context:(id)arg2;
+- (void)drawInRects:(const CDStruct_818bb265 *)arg1 rectCount:(unsigned int)arg2 excludeGroups:(const vector_81578dfd *)arg3 context:(id)arg4;
+- (void)drawLinesInPreparedCulls:(id)arg1 excludeGroups:(const vector_81578dfd *)arg2;
+- (void)drawLinesInPreparedCulls:(id)arg1;
 - (void)drawInPreparedCulls:(id)arg1;
-- (void)drawInPreparedCulls:(id)arg1 excludeGroup:(int)arg2;
+- (void)drawInPreparedCulls:(id)arg1 excludeGroups:(const vector_81578dfd *)arg2;
 - (void)prepareCullsInRects:(const CDStruct_818bb265 *)arg1 numRects:(unsigned int)arg2;
 - (BOOL)addGroupForIndexRange:(struct _NSRange)arg1 boundingBox:(CDStruct_f3463f58)arg2 center:(CDStruct_03942939)arg3 groupID:(unsigned int)arg4;
 

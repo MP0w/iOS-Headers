@@ -6,30 +6,34 @@
 
 #import "NSObject.h"
 
-@class EKCalendar, EKGroupInfo, NSString, UIColor;
+@class EKCalendar, EKGroupInfo, NSString, UIColor, UIImage;
 
 @interface EKCalendarInfo : NSObject
 {
+    NSString *_title;
+    BOOL _selected;
     EKCalendar *_calendar;
     UIColor *_color;
-    BOOL _selected;
-    int _customGroupType;
     EKGroupInfo *_group;
+    int _customGroupType;
 }
 
 @property(nonatomic) int customGroupType; // @synthesize customGroupType=_customGroupType;
-@property(nonatomic) EKGroupInfo *group; // @synthesize group=_group;
+@property(nonatomic) __weak EKGroupInfo *group; // @synthesize group=_group;
 @property(nonatomic) BOOL selected; // @synthesize selected=_selected;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) EKCalendar *calendar; // @synthesize calendar=_calendar;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) UIImage *highlightedIcon;
+@property(readonly, nonatomic) UIImage *icon;
 - (id)description;
+@property(readonly, nonatomic) BOOL excludeFromSelectAll;
 @property(readonly, nonatomic) BOOL isEditable;
 @property(readonly, nonatomic) BOOL isPublished;
 @property(readonly, nonatomic) BOOL isShared;
 @property(readonly, nonatomic) BOOL isSubscribed;
 @property(readonly, nonatomic) int displayOrder;
 @property(readonly, nonatomic) NSString *title;
-@property(retain, nonatomic) EKCalendar *calendar;
-- (void)dealloc;
 - (id)initWithCalendar:(id)arg1;
 - (void)_updateCustomGroupType;
 

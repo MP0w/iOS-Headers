@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
-@class AVWeakReference, NSObject<OS_dispatch_queue>;
+@class AVWeakReference, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AVAssetResourceLoaderInternal : NSObject
 {
     AVWeakReference *weakReference;
     AVWeakReference *weakReferenceToAsset;
-    struct OpaqueFigAsset *figAsset;
     NSObject<OS_dispatch_queue> *stateQueue;
-    id <AVAssetResourceLoaderDelegate> delegate;
+    AVWeakReference *weakReferenceToDelegate;
     NSObject<OS_dispatch_queue> *delegateQueue;
+    NSMutableDictionary *pendingRequests;
+    NSObject<OS_dispatch_queue> *contentInformationCachingQueue;
+    NSMutableDictionary *contentInformationCache;
 }
 
 @end

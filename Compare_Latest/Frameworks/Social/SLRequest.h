@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class ACAccount, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSURL, OACredential, SLService;
+@class ACAccount, NSData, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSURL, OACredential, SLService;
 
 @interface SLRequest : NSObject
 {
@@ -19,6 +19,8 @@
     NSString *_multiPartBoundary;
     int _callingPID;
     NSString *_applicationID;
+    NSString *_contentType;
+    NSData *_payload;
     SLService *_service;
 }
 
@@ -27,6 +29,8 @@
 @property(readonly, nonatomic) NSDictionary *parameters; // @synthesize parameters=_parameters;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
 - (void).cxx_destruct;
+- (void)setPayload:(id)arg1;
+- (void)setContentType:(id)arg1;
 - (void)performJSONRequestWithHandler:(id)arg1;
 - (void)performJSONRequestWithHandler:(id)arg1 retryCount:(void)arg2;
 - (id)_commandName;
@@ -39,6 +43,8 @@
 - (BOOL)shouldIncludeParameterString;
 - (BOOL)_requiresAuthorization;
 - (id)_parameterString;
+- (void)_addAuthenticationParameters:(id)arg1;
+- (BOOL)_shouldAppendTencentWeiboParametersToRequest;
 - (id)_allParameters;
 - (void)_appendCoreSig1Signature;
 - (void)setApplicationID:(id)arg1;

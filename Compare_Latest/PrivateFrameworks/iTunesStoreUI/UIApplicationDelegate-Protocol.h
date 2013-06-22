@@ -17,11 +17,15 @@
 - (BOOL)application:(id)arg1 shouldRestoreApplicationState:(id)arg2;
 - (BOOL)application:(id)arg1 shouldSaveApplicationState:(id)arg2;
 - (id)application:(id)arg1 viewControllerWithRestorationIdentifierPath:(id)arg2 coder:(id)arg3;
+- (void)application:(id)arg1 needsUserChoiceForUbiquitousStorage:(id)arg2;
 - (unsigned int)application:(id)arg1 supportedInterfaceOrientationsForWindow:(id)arg2;
 - (void)applicationProtectedDataDidBecomeAvailable:(id)arg1;
 - (void)applicationProtectedDataWillBecomeUnavailable:(id)arg1;
 - (void)applicationWillEnterForeground:(id)arg1;
 - (void)applicationDidEnterBackground:(id)arg1;
+- (void)application:(id)arg1 handleEventsForBackgroundURLSession:(id)arg2 completionHandler:(id)arg3;
+- (void)application:(id)arg1 performFetchWithCompletionHandler:(id)arg2;
+- (void)application:(id)arg1 didReceiveRemoteNotification:(id)arg2 fetchCompletionHandler:(id)arg3;
 - (void)application:(id)arg1 didReceiveLocalNotification:(id)arg2;
 - (void)application:(id)arg1 didReceiveRemoteNotification:(id)arg2;
 - (void)application:(id)arg1 didFailToRegisterForRemoteNotificationsWithError:(id)arg2;

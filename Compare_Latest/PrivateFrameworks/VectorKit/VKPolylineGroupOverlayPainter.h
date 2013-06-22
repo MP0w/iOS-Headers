@@ -14,8 +14,12 @@
 {
     VKPolylineOverlay *_selectedPolyline;
     NSMapTable *_polylinesToPainters;
+    BOOL _showTraffic;
 }
 
+@property(nonatomic) BOOL showTraffic; // @synthesize showTraffic=_showTraffic;
+- (void)stylesheetDidChange;
+- (void)setBrightness:(float)arg1;
 - (void)_addPainterForOverlay:(id)arg1;
 - (void)polylineGroup:(id)arg1 didSelectPolyline:(id)arg2;
 - (void)polylineGroup:(id)arg1 didRemovePolyline:(id)arg2;

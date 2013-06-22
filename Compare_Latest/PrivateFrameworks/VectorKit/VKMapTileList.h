@@ -9,7 +9,7 @@
 @interface VKMapTileList : NSObject
 {
     struct vector<VKMapTile *, vk_allocator<VKMapTile *>> _list;
-    struct vector<VGLRect, vk_allocator<VGLRect>> _rectList[26];
+    vector_3bee010d _rectList[28];
     float _maximumStyleZ;
 }
 
@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) unsigned int numTiles;
 - (unsigned int)numRectForLayer:(unsigned int)arg1;
 - (const CDStruct_818bb265 *)rectListForLayer:(unsigned int)arg1;
+- (const vector_3bee010d *)rectListVectorForLayer:(unsigned int)arg1;
 @property(readonly, nonatomic) id *tileList;
 - (id)init;
 

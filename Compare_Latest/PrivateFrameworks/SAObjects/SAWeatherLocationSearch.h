@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
 @class NSString, NSURL;
 
-@interface SAWeatherLocationSearch : SABaseClientBoundCommand
+@interface SAWeatherLocationSearch : SADomainCommand
 {
 }
 
@@ -17,7 +17,6 @@
 - (BOOL)requiresResponse;
 @property(copy, nonatomic) NSString *locationId;
 @property(copy, nonatomic) NSURL *identifier;
-@property(copy, nonatomic) NSURL *targetAppId;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

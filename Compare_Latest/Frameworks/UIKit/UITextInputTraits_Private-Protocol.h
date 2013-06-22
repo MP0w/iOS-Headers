@@ -13,6 +13,7 @@
 - (void)takeTraitsFrom:(id)arg1;
 
 @optional
+@property(nonatomic) BOOL enablesReturnKeyOnNonWhiteSpaceContent;
 @property(nonatomic) BOOL deferBecomingResponder;
 @property(nonatomic) BOOL useInterfaceLanguageForLocalization;
 @property(nonatomic) BOOL forceEnableDictation;
@@ -26,6 +27,7 @@
 @property(nonatomic) int emptyContentReturnKeyType;
 @property(nonatomic) BOOL acceptsEmoji;
 @property(nonatomic) BOOL contentsIsSingleValue;
+@property(nonatomic) BOOL isSingleLineDocument;
 @property(nonatomic) id textSuggestionDelegate;
 @property(nonatomic) int textSelectionBehavior;
 @property(nonatomic) int textLoupeVisibility;

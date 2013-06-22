@@ -31,6 +31,8 @@
 - (void)searchDisplayControllerWillEndSearch:(id)arg1;
 - (void)searchDisplayControllerWillBeginSearch:(id)arg1;
 - (BOOL)searchDisplayController:(id)arg1 shouldReloadTableForSearchString:(id)arg2;
+- (void)searchDisplayController:(id)arg1 willHideSearchResultsTableView:(id)arg2;
+- (void)searchDisplayController:(id)arg1 willShowSearchResultsTableView:(id)arg2;
 - (void)searchBarTextDidBeginEditing:(id)arg1;
 - (void)searchBarSearchButtonClicked:(id)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
@@ -41,6 +43,8 @@
 - (id)tableView:(id)arg1 titleForHeaderInSection:(int)arg2;
 - (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
 - (int)numberOfSectionsInTableView:(id)arg1;
+- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
@@ -51,6 +55,7 @@
 - (void)configureSections;
 @property(retain, nonatomic) NSString *selectedCountryCode;
 - (void)_setSelectedCountryCode:(id)arg1 atPath:(id)arg2;
+- (void)setStyleProvider:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -22,6 +22,7 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 - (void)dealloc;
+- (CDStruct_c3b9c2ee)coordinate;
 
 @end
 

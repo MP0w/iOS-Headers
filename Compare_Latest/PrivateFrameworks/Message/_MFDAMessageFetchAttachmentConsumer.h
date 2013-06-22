@@ -8,13 +8,14 @@
 
 #import "DAMessageFetchAttachmentConsumer-Protocol.h"
 
-@class ActivityMonitor, NSData, NSMutableData;
+@class MFActivityMonitor, MFProgressFilterDataConsumer;
 
 @interface _MFDAMessageFetchAttachmentConsumer : MFDAMailAccountConsumer <DAMessageFetchAttachmentConsumer>
 {
-    NSMutableData *_accumulatedData;
+    MFProgressFilterDataConsumer *_progressFilter;
     unsigned int _expectedLength;
-    ActivityMonitor *_monitor;
+    unsigned int _accumulatedLength;
+    MFActivityMonitor *_monitor;
     BOOL _dataWasBase64;
     BOOL _fetchSucceeded;
 }
@@ -22,7 +23,7 @@
 @property(readonly) BOOL fetchSucceeded; // @synthesize fetchSucceeded=_fetchSucceeded;
 @property(readonly) BOOL dataWasBase64; // @synthesize dataWasBase64=_dataWasBase64;
 @property(nonatomic) unsigned int expectedLength; // @synthesize expectedLength=_expectedLength;
-@property(readonly, nonatomic) NSData *accumulatedData; // @synthesize accumulatedData=_accumulatedData;
+@property(retain, nonatomic) MFProgressFilterDataConsumer *progressFilter; // @synthesize progressFilter=_progressFilter;
 - (void)dealloc;
 - (id)initWithActivityMonitor:(id)arg1;
 - (void)attachmentFetchCompletedWithStatus:(int)arg1 forAttachmentNamed:(id)arg2 ofMessageWithServerID:(id)arg3 dataWasBase64:(BOOL)arg4;

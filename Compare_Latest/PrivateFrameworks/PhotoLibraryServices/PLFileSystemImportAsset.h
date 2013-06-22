@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSMutableSet, NSObject<PLAssetContainer>;
+@class NSDate, NSMutableSet, NSObject<PLAlbumProtocol>;
 
 @interface PLFileSystemImportAsset : NSObject
 {
@@ -17,7 +17,7 @@
 }
 
 @property(nonatomic) int assetKind; // @synthesize assetKind;
-@property(retain, nonatomic) NSObject<PLAssetContainer> *destinationAlbum; // @synthesize destinationAlbum=_destinationAlbum;
+@property(retain, nonatomic) NSObject<PLAlbumProtocol> *destinationAlbum; // @synthesize destinationAlbum=_destinationAlbum;
 @property(retain, nonatomic) NSDate *dateCreated; // @synthesize dateCreated=_dateCreated;
 @property(retain, nonatomic) NSMutableSet *urls; // @synthesize urls=_urls;
 - (int)compare:(id)arg1;

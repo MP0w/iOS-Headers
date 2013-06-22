@@ -16,12 +16,18 @@
     BOOL _shouldOptimizeForNetworkUse;
     NSArray *_metadataItems;
     int _movieTimeScale;
+    struct CGAffineTransform _preferredTransform;
+    float _preferredVolume;
+    float _preferredRate;
     NSArray *_inputs;
     NSArray *_inputGroups;
 }
 
 @property(copy, nonatomic) NSArray *inputGroups; // @synthesize inputGroups=_inputGroups;
 @property(copy, nonatomic) NSArray *inputs; // @synthesize inputs=_inputs;
+@property(nonatomic) float preferredRate; // @synthesize preferredRate=_preferredRate;
+@property(nonatomic) float preferredVolume; // @synthesize preferredVolume=_preferredVolume;
+@property(nonatomic) struct CGAffineTransform preferredTransform; // @synthesize preferredTransform=_preferredTransform;
 @property(nonatomic) int movieTimeScale; // @synthesize movieTimeScale=_movieTimeScale;
 @property(copy, nonatomic) NSArray *metadataItems; // @synthesize metadataItems=_metadataItems;
 @property(nonatomic) BOOL shouldOptimizeForNetworkUse; // @synthesize shouldOptimizeForNetworkUse=_shouldOptimizeForNetworkUse;

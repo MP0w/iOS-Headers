@@ -16,9 +16,11 @@
 
 @property(readonly) UISegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
 - (void)setSortControlTitles:(id)arg1;
+- (BOOL)needsToUpdateSortControlForTitles:(id)arg1;
 - (void)selectNextSegment;
 - (void)selectPreviousSegment;
 - (void)layoutSubviews;
+- (void)_setRenderConfig:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 visualStyle:(int)arg2;
 - (void)updateTitleTextAttributes;

@@ -17,14 +17,13 @@
     NSTimer *_repeatTimer;
     int _repeatCount;
     NSMutableDictionary *_dividerImages;
-    UIColor *_tintColor;
+    BOOL _continuous;
+    BOOL _autorepeat;
+    BOOL _wraps;
     double _value;
     double _minimumValue;
     double _maximumValue;
     double _stepValue;
-    BOOL _continuous;
-    BOOL _autorepeat;
-    BOOL _wraps;
 }
 
 @property(nonatomic) BOOL wraps; // @synthesize wraps=_wraps;
@@ -34,7 +33,8 @@
 @property(nonatomic) double maximumValue; // @synthesize maximumValue=_maximumValue;
 @property(nonatomic) double minimumValue; // @synthesize minimumValue=_minimumValue;
 @property(nonatomic) double value; // @synthesize value=_value;
-@property(retain, nonatomic) UIColor *tintColor;
+- (void)_updateImages;
+@property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
 - (id)decrementImageForState:(unsigned int)arg1;
 - (void)setDecrementImage:(id)arg1 forState:(unsigned int)arg2;
 - (void)_setDecrementImage:(id)arg1 forState:(unsigned int)arg2;

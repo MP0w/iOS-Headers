@@ -7,7 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol SBIconViewMapDelegate <NSObject>
-- (Class)viewMap:(id)arg1 iconViewClassForIcon:(id)arg2;
 - (int)viewMap:(id)arg1 locationForIcon:(id)arg2;
 - (unsigned int)viewMap:(id)arg1 maxRecycledIconViewsOfClass:(Class)arg2;
 

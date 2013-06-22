@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-#import "MFCollectingDataConsumer-Protocol.h"
+#import "MFGuaranteedCollectingDataConsumer-Protocol.h"
 
-@class LibraryMessage, MFBufferedDataConsumer, MFMailMessageLibrary, NSString;
+@class MFBufferedDataConsumer, MFLibraryMessage, MFMailMessageLibrary, NSString;
 
-@interface _MFDataCollector : NSObject <MFCollectingDataConsumer>
+@interface _MFDataCollector : NSObject <MFGuaranteedCollectingDataConsumer>
 {
     MFMailMessageLibrary *_library;
-    LibraryMessage *_message;
+    MFLibraryMessage *_message;
     MFBufferedDataConsumer *_consumer;
     NSString *_part;
     BOOL _partial;

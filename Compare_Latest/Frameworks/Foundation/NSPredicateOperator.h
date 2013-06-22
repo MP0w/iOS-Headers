@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@interface NSPredicateOperator : NSObject <NSCoding, NSCopying>
+@interface NSPredicateOperator : NSObject <NSSecureCoding, NSCopying>
 {
     unsigned int _operatorType;
     unsigned int _modifier;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)operatorWithCustomSelector:(SEL)arg1 modifier:(unsigned int)arg2;
 + (id)_newOperatorWithType:(unsigned int)arg1 modifier:(unsigned int)arg2 options:(unsigned int)arg3;
 + (id)operatorWithType:(unsigned int)arg1 modifier:(unsigned int)arg2 options:(unsigned int)arg3;

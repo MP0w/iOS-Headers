@@ -16,7 +16,8 @@
     id <EKCellShortener> _shortener;
 }
 
-@property(nonatomic) id <EKCellShortener> shortener; // @synthesize shortener=_shortener;
+@property(nonatomic) __weak id <EKCellShortener> shortener; // @synthesize shortener=_shortener;
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)_checkValueWidth;
 - (BOOL)detailText2IsPlaceholder;
@@ -26,7 +27,6 @@
 @property(readonly, nonatomic) UILabel *detailTextLabel2;
 @property(readonly, nonatomic) UILabel *textLabel2;
 - (void)_copyTextLabelAttributesFrom:(id)arg1 to:(id)arg2;
-- (void)dealloc;
 
 @end
 

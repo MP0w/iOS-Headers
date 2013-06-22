@@ -14,12 +14,12 @@
     TwoPartTextLabel *_twoPartLabel2;
 }
 
+- (void).cxx_destruct;
 - (void)layoutText:(id)arg1 andValue:(id)arg2;
 - (void)checkValueWidths;
 - (void)_layoutSubviewsCore;
 @property(readonly, nonatomic) TwoPartTextLabel *twoPartTextLabel2;
 @property(readonly, nonatomic) UILabel *textLabel2;
-- (void)dealloc;
 
 @end
 

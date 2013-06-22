@@ -6,22 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface MobileAccessoryUpdater : NSObject
 {
     id <MobileAccessoryUpdaterDelegate> _delegate;
+    id <FudConnection> _connection;
     NSString *_bundleIdentifier;
     NSString *_clientIdentifier;
     char *_cClientIdentifier;
-    struct _xpc_connection_s *_connection;
-    struct dispatch_queue_s *_sessionQueue;
-    struct dispatch_queue_s *_callbackQueue;
+    NSObject<OS_dispatch_queue> *_sessionQueue;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
     NSString *_activeFilter;
-    int _notifyToken;
+    BOOL _isInternalClient;
+    BOOL _didUnregister;
 }
 
 - (void)dealloc;
+- (id)activeFilter;
+- (id)clientIdentifier;
+- (id)bundleIdentifier;
 - (void)unregister;
 - (BOOL)setLastRemoteFindDate:(id)arg1;
 - (void)performNextStepWithOptions:(id)arg1;
@@ -30,17 +34,16 @@
 - (id)getActiveDeviceClass;
 - (BOOL)setActiveDeviceClass:(id)arg1;
 - (id)queryNextStep:(id *)arg1;
+- (BOOL)sendMessageForCommand:(int)arg1 withOptions:(id)arg2 requiresFilter:(BOOL)arg3 replyHandler:(id)arg4;
 - (BOOL)sendMessageForCommand:(int)arg1 withOptions:(id)arg2 requiresFilter:(BOOL)arg3;
 - (BOOL)doesOperationCodeRequireFilter:(int)arg1;
 - (int)getOperationCodeFromName:(id)arg1;
-- (void)handleInboundEvent:(void *)arg1;
-- (BOOL)createSession;
+- (void)handleInboundEvent:(id)arg1;
 - (BOOL)registerForIdentifier:(id)arg1 isGroupIdentifier:(BOOL)arg2;
 - (void)createConnection;
-- (BOOL)registerForBSDNotifications;
-- (id)initWithPluginIdentifier:(id)arg1 isGroupIdentifier:(BOOL)arg2 delegate:(id)arg3 options:(id)arg4 error:(id *)arg5;
 - (id)initWithPluginIdentifier:(id)arg1 delegate:(id)arg2 options:(id)arg3 error:(id *)arg4;
 - (id)initWithGroupIdentifer:(id)arg1 delegate:(id)arg2 options:(id)arg3 error:(id *)arg4;
+- (id)initWithPluginIdentifier:(id)arg1 isGroupIdentifier:(BOOL)arg2 delegate:(id)arg3 isInternalClient:(BOOL)arg4 options:(id)arg5 error:(id *)arg6;
 
 @end
 

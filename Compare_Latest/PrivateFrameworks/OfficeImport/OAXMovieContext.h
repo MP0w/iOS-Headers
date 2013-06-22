@@ -10,6 +10,7 @@
 {
 }
 
+- (id)dataRep;
 - (_Bool)loadDelayedNode:(id)arg1;
 
 @end

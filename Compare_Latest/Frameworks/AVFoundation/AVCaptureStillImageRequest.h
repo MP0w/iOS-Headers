@@ -16,19 +16,17 @@
     BOOL _stillImageMirrored;
     struct CGSize _previewImageSize;
     unsigned long _imageDataFormatType;
-    BOOL _isHDRImage;
-    BOOL _isEV0Image;
+    int _HDRMode;
     BOOL _chromaNoiseReductionEnabled;
     BOOL _suspendsVideoProcessing;
-    float _jpegQuality;
     BOOL _jpegQualitySpecified;
+    float _jpegQuality;
 }
 
 + (id)request;
 @property BOOL suspendsVideoProcessing; // @synthesize suspendsVideoProcessing=_suspendsVideoProcessing;
 @property BOOL chromaNoiseReductionEnabled; // @synthesize chromaNoiseReductionEnabled=_chromaNoiseReductionEnabled;
-@property BOOL isEV0Image; // @synthesize isEV0Image=_isEV0Image;
-@property BOOL isHDRImage; // @synthesize isHDRImage=_isHDRImage;
+@property int HDRMode; // @synthesize HDRMode=_HDRMode;
 @property(copy) id iosurfaceCompletionBlock; // @synthesize iosurfaceCompletionBlock=_iosurfaceCompletionBlock;
 @property(copy) id sbufCompletionBlock; // @synthesize sbufCompletionBlock=_sbufCompletionBlock;
 @property int stillImageOrientation; // @synthesize stillImageOrientation=_stillImageOrientation;

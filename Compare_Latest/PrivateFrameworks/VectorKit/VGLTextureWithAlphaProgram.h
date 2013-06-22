@@ -12,9 +12,9 @@
     float _alpha;
 }
 
-+ (id)program;
++ (id)fragName;
 @property(nonatomic) float alpha; // @synthesize alpha=_alpha;
-- (id)init;
+- (void)setup;
 
 @end
 

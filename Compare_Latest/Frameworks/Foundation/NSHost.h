@@ -34,6 +34,7 @@
 - (void)__resolveWithFlags:(int)arg1 resultArray:(id)arg2 handler:(id)arg3;
 - (void)blockingResolveUntil:(int)arg1;
 - (void)resolve:(id)arg1;
+- (id)_thingToResolve;
 - (id)initToResolve:(id)arg1 as:(int)arg2;
 
 @end

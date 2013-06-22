@@ -8,10 +8,13 @@
 
 @interface UIViewControllerWrapperView : UIView
 {
+    BOOL _tightWrappingDisabled;
 }
 
 + (id)existingWrapperViewForView:(id)arg1;
++ (id)wrapperViewForView:(id)arg1 wrapperFrame:(struct CGRect)arg2 viewFrame:(struct CGRect)arg3;
 + (id)wrapperViewForView:(id)arg1 frame:(struct CGRect)arg2;
+@property(nonatomic) BOOL tightWrappingDisabled; // @synthesize tightWrappingDisabled=_tightWrappingDisabled;
 - (void)unwrapView:(id)arg1;
 - (void)unwrapView;
 - (void)setBounds:(struct CGRect)arg1;

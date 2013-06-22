@@ -11,7 +11,8 @@
 @interface AVMediaSelectionKeyValueOption : AVMediaSelectionOption
 {
     id _groupID;
-    NSString *_mediaType;
+    id _groupMediaType;
+    NSString *_optionMediaType;
     NSDictionary *_dictionary;
     AVWeakReference *_weakReferenceToGroup;
     BOOL _displaysNonForcedSubtitles;
@@ -26,6 +27,7 @@
 - (BOOL)hasMediaCharacteristic:(id)arg1;
 - (id)mediaSubTypes;
 - (id)mediaType;
+- (id)_groupMediaType;
 - (id)_groupID;
 - (id)group;
 - (id)dictionary;

@@ -4,24 +4,27 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UIImageView.h>
+#import <UIKit/_UIBarBackgroundImageView.h>
 
-@class UIColor, _UINavigationBarAppearanceStorage;
+@class UIColor, UIImageView, UIView, _UIBackdropView, _UINavigationBarAppearanceStorage;
 
-@interface _UINavigationBarBackground : UIImageView
+@interface _UINavigationBarBackground : _UIBarBackgroundImageView
 {
-    UIColor *_tintColor;
+    UIColor *_barTintColor;
     _UINavigationBarAppearanceStorage *_appearanceStorage;
     UIImageView *_shadowView;
+    _UIBackdropView *_adaptiveBackdrop;
     struct {
-        unsigned int isTranslucent:1;
+        unsigned int barTranslucence:3;
         unsigned int barStyle:3;
         unsigned int backgroundImageNeedsUpdate:1;
         unsigned int isContainedInPopover:1;
+        unsigned int barWantsAdaptiveBackdrop:1;
+        unsigned int barForcesOpaqueBackground:1;
     } _navbarFlags;
 }
 
-@property(retain, nonatomic, setter=_setShadowView:) UIImageView *_shadowView; // @synthesize _shadowView;
+@property(retain, nonatomic, setter=_setShadowView:) UIView *_shadowView; // @synthesize _shadowView;
 @property(retain, nonatomic) _UINavigationBarAppearanceStorage *appearanceStorage; // @synthesize appearanceStorage=_appearanceStorage;
 - (void)dealloc;
 - (void)setBounds:(struct CGRect)arg1;
@@ -31,12 +34,15 @@
 - (id)_customShadowImageForSearchBar;
 - (void)didMoveToSuperview;
 - (void)updateBackgroundImage;
-- (id)_currentCustomBackgroundRespectOversize:(char *)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 barStyle:(int)arg2 tintColor:(id)arg3 appearance:(id)arg4 isTranslucent:(BOOL)arg5;
+- (id)_currentCustomBackground;
+- (id)_currentCustomBackgroundRespectOversize_legacy:(char *)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 barStyle:(int)arg2 barTintColor:(id)arg3 appearance:(id)arg4 barTranslucence:(int)arg5;
 - (void)_setIsContainedInPopover:(BOOL)arg1;
+@property(nonatomic) BOOL barForcesOpaqueBackground;
+@property(nonatomic) BOOL barWantsAdaptiveBackdrop;
 @property(nonatomic, getter=isTranslucent) BOOL translucent;
 @property(nonatomic) int barStyle;
-@property(retain, nonatomic) UIColor *tintColor;
+@property(retain, nonatomic) UIColor *barTintColor;
 
 @end
 

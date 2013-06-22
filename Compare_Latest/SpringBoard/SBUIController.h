@@ -6,19 +6,21 @@
 
 #import "NSObject.h"
 
+#import "SBAppSliderControllerDelegate-Protocol.h"
+#import "SBScreenConnectionHandler-Protocol.h"
 #import "SBShowcaseControllerOwner-Protocol.h"
+#import "SBUIActiveOrientationObserver-Protocol.h"
+#import "SBWallpaperColorObserver-Protocol.h"
+#import "SBWallpaperObserver-Protocol.h"
 #import "UIWindowDelegate-Protocol.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, SBAnimationStepper, SBApplication, SBDismissOnlyAlertItem, SBShowcaseController, SBSwitchAppGestureView, SBUIRootView, SBWallpaper, SBWallpaperView, SBWorkspaceEventQueueLockAssertion, UIStatusBar, UIStatusBarCorners, UIView, UIWindow;
+@class NSArray, NSMutableArray, NSMutableDictionary, SBAdaptiveColorInfo, SBAdaptiveColorProvider, SBAnimationStepper, SBAppSliderController, SBAppSliderWindowController, SBApplication, SBDismissOnlyAlertItem, SBShowcaseController, SBSwitchAppGestureView, SBWorkspaceEventQueueLockAssertion, UIStatusBar, UIStatusBarCorners, UIView, UIWindow;
 
-@interface SBUIController : NSObject <UIWindowDelegate, SBShowcaseControllerOwner>
+@interface SBUIController : NSObject <SBUIActiveOrientationObserver, SBAppSliderControllerDelegate, SBScreenConnectionHandler, SBWallpaperObserver, SBWallpaperColorObserver, UIWindowDelegate, SBShowcaseControllerOwner>
 {
     UIWindow *_window;
     UIView *_iconsView;
-    SBUIRootView *_rootView;
     UIView *_contentView;
-    SBWallpaper *_wallpaper;
-    SBWallpaperView *_wallpaperView;
     UIStatusBar *_fakeSpringBoardStatusBar;
     UIStatusBarCorners *_fakeTopCorners;
     SBShowcaseController *_showcaseController;
@@ -26,7 +28,8 @@
     SBApplication *_toggleSwitcherAfterLaunchApp;
     NSMutableArray *_showcaseDismissCompletionBlocks;
     BOOL _showcaseDismissAnimationInProgress;
-    unsigned int _rootViewHidden:1;
+    SBAppSliderController *_switcherController;
+    SBAppSliderWindowController *_sliderWindowController;
     unsigned int _ignoringEvents:1;
     unsigned int _lastVolumeDownToControl:1;
     unsigned int _isBatteryCharging:1;
@@ -37,6 +40,7 @@
     id _volumeHandler;
     float _batteryCapacity;
     float _curvedBatteryCapacity;
+    BOOL _supportsDetailedBatteryCapacity;
     int _batteryLoggingStartCapacity;
     SBDismissOnlyAlertItem *_fwChargingAlert;
     NSMutableDictionary *_installedSystemGestureViews;
@@ -52,6 +56,7 @@
     SBSwitchAppGestureView *_switchAppGestureView;
     float _switchAppGesturePreviousPercentage;
     float _switchAppGestureEffectivePercentage;
+    float _switchAppGestureInitialPercentage;
     unsigned int _switchAppGestureChangedFrames;
     UIView *_systemGestureBackdrop;
     UIView *_pendingGestureLaunchView;
@@ -65,7 +70,8 @@
     BOOL _toggleSwitcherAfterLaunchAppUsesSystemGestureOrientation;
     BOOL _keyboardNeedsShowcaseTranslation;
     BOOL _unprocessedKeyboardOrientationChangeForShowcase;
-    BOOL _showNotificationsGestureIsShowingTab;
+    SBAdaptiveColorProvider *_colorProvider;
+    SBAdaptiveColorInfo *_adaptiveColorInfo;
 }
 
 + (id)sharedInstanceIfExists;
@@ -73,25 +79,52 @@
 + (int)displayedLevelForLockScreenBatteryLevel:(int)arg1;
 + (struct CGAffineTransform)_transformAndFrame:(struct CGRect *)arg1 forStatusBarWithOrientation:(int)arg2 height:(float)arg3 inJailRect:(struct CGRect)arg4;
 + (id)_zoomViewWithIOSurfaceSnapshotOfApp:(id)arg1 includeStatusBar:(BOOL)arg2 includeBanner:(BOOL)arg3;
++ (void)_setRoundedCornersOnZoomLayerIfNecessary:(id)arg1 forApp:(id)arg2 withCornersFrame:(struct CGRect)arg3;
++ (id)_zoomViewForApplication:(id)arg1 screen:(id)arg2 interfaceOrientation:(int)arg3 includeStatusBar:(BOOL)arg4 includeBanner:(BOOL)arg5 snapshotFrame:(struct CGRect *)arg6 canUseIOSurface:(BOOL)arg7 decodeImage:(BOOL)arg8;
++ (id)_zoomViewForApplication:(id)arg1 screen:(id)arg2 image:(id)arg3 interfaceOrientation:(int)arg4 originalImageOrientation:(int)arg5 currentImageOrientation:(int)arg6 includeStatusBar:(BOOL)arg7 includeBanner:(BOOL)arg8 snapshotFrame:(struct CGRect *)arg9 canUseIOSurface:(BOOL)arg10 decodeImage:(BOOL)arg11;
++ (id)zoomViewForApplication:(id)arg1 withImage:(id)arg2 originalOrientation:(int)arg3 currentOrientation:(int)arg4;
 + (id)zoomViewForContextHostView:(id)arg1 application:(id)arg2 includeStatusBar:(BOOL)arg3 includeBanner:(BOOL)arg4;
 + (id)zoomViewForApplication:(id)arg1 includeStatusBar:(BOOL)arg2 includeBanner:(BOOL)arg3 includeRoundedCorners:(BOOL)arg4 canUseIOSurface:(BOOL)arg5 decodeImage:(BOOL)arg6;
-+ (void)_setRoundedCornersOnZoomLayerIfNecessary:(id)arg1 forApp:(id)arg2 withCornersFrame:(struct CGRect)arg3;
-+ (id)_zoomViewForApplication:(id)arg1 interfaceOrientation:(int)arg2 includeStatusBar:(BOOL)arg3 includeBanner:(BOOL)arg4 snapshotFrame:(struct CGRect *)arg5 canUseIOSurface:(BOOL)arg6 decodeImage:(BOOL)arg7;
++ (id)rawZoomViewForApplication:(id)arg1 onScreen:(id)arg2;
 + (struct CGRect)snapshotRectForOrientation:(int)arg1 statusBarStyle:(int)arg2 hidden:(BOOL)arg3;
++ (BOOL)_statusBarStyleIsTranslucent:(int)arg1;
+@property(retain) SBAdaptiveColorInfo *adaptiveColorInfo; // @synthesize adaptiveColorInfo=_adaptiveColorInfo;
 @property(retain, nonatomic) SBShowcaseController *showcaseController; // @synthesize showcaseController=_showcaseController;
+- (void)wallpaperDidChange;
+- (void)updateStatusBarLegibility;
+- (void)_updateLegibilityForColorStatistics:(id)arg1;
+- (void)wallpaperColorDidChange:(id)arg1;
+- (void)screenManager:(id)arg1 didTriggerConnectionHandlerEvent:(int)arg2 forScreen:(id)arg3;
+- (BOOL)screenManager:(id)arg1 shouldBindConnectionHandlerToScreen:(id)arg2;
+- (id)switcherController;
+- (void)_runAppSliderBringupTest;
+- (void)_runAppSliderDismissTest;
+- (void)_reloadSwitcherController;
+- (void)getRidOfAppSwitcher;
+- (void)animateAppSwitcherDismissalToApplication:(id)arg1 withCompletion:(id)arg2;
+- (void)_switcherFixupIconsViewIfNecessary;
+- (void)appSwitcherNeedsToReload:(id)arg1;
+- (void)appSwitcherWantsToDismissImmediately:(id)arg1;
+- (void)appSwitcher:(id)arg1 wantsToActivateApplication:(id)arg2;
+- (void)preheatAppSwitcherImages;
+- (BOOL)_canShowAppSwitcher;
 - (void)cleanupSwitchAppGestureStatusBar;
 - (BOOL)_switchAppGestureStatusBarMaintained;
 - (void)updateSwitchAppGestureStatusBar;
 - (void)prepareSwitchAppGestureStatusBar;
 - (void)_makeSwitchAppGestureFakeStatusBarVisible;
-- (void)_dismissBannerGestureEndedWithCompletionType:(int)arg1;
+- (void)_showControlCenterGestureCancelled;
+- (void)_showControlCenterGestureFailed;
+- (void)_showControlCenterGestureEndedWithLocation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
+- (void)_showControlCenterGestureChangedWithLocation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2;
+- (void)_showControlCenterGestureBeganWithLocation:(struct CGPoint)arg1;
+- (BOOL)allowsShowControlCenterGesture;
 - (void)_hideNotificationsGestureCancelled;
 - (void)_hideNotificationsGestureEndedWithCompletionType:(int)arg1 velocity:(struct CGPoint)arg2;
 - (void)_hideNotificationsGestureChanged:(float)arg1;
 - (void)_hideNotificationsGestureBegan:(float)arg1;
 - (void)_hideNotificationCenterTabControl;
 - (float)showNotificationsTabControlSwipableWidth;
-- (BOOL)isShowingNotificationCenterTabControl;
 - (BOOL)shouldShowNotificationCenterTabControlOnFirstSwipe;
 - (void)updateShouldShowNotificationCenterTabControlOnFirstSwipe;
 - (void)_showNotificationsGestureCancelled;
@@ -141,12 +174,14 @@
 - (BOOL)shouldSendTouchesToSystemGestures;
 - (void)notifyAppResumeActive:(id)arg1;
 - (void)notifyAppResignActive:(id)arg1;
+- (void)handleShowControlCenterSystemGesture:(id)arg1;
 - (void)handleDismissBannerSystemGesture:(id)arg1;
 - (void)handleHideNotificationsSystemGesture:(id)arg1;
 - (void)handleShowNotificationsSystemGesture:(id)arg1;
 - (void)handleFluidVerticalSystemGesture:(id)arg1;
 - (void)handleFluidHorizontalSystemGesture:(id)arg1;
 - (void)handleFluidScaleSystemGesture:(id)arg1;
+- (BOOL)allowSystemGestureType:(unsigned int)arg1;
 - (void)hideSystemGestureBackdrop;
 - (void)showSystemGestureBackdrop;
 - (id)systemGestureSnapshotForApp:(id)arg1 includeStatusBar:(BOOL)arg2 decodeImage:(BOOL)arg3;
@@ -177,6 +212,7 @@
 - (void)showcase:(id)arg1 updateRevealMode:(int)arg2 withBlock:(id)arg3;
 - (BOOL)presentShowcaseViewController:(id)arg1 revealMode:(int)arg2 completion:(id)arg3;
 - (void)noteStatusBarHeightChanged:(id)arg1;
+- (BOOL)supportsDetailedBatteryCapacity;
 - (BOOL)isConnectedToUnusableFirewireCharger;
 - (void)setIsConnectedToUnusableFirewireCharger:(BOOL)arg1;
 - (void)ACPowerChanged;
@@ -190,31 +226,36 @@
 - (float)batteryCapacity;
 - (void)updateBatteryState:(id)arg1;
 - (void)cancelVolumeEvent;
-- (void)handleVolumeEvent:(struct __GSEvent *)arg1;
+- (void)handleVolumeEvent:(struct __IOHIDEvent *)arg1;
 - (float)_contentRotationForOrientation:(int)arg1;
 - (struct CGAffineTransform)_portraitViewTransformForSwitcherSize:(struct CGSize)arg1 orientation:(int)arg2;
 - (BOOL)_ignoringEvents;
 - (void)_resumeEventsIfNecessary;
+- (void)requestApplicationEventsEnabledIfNecessary;
 - (void)_ignoreEvents;
 - (void)_showcaseBlockingViewHit:(id)arg1;
 - (BOOL)allowAlertWindowRotation;
-- (BOOL)isSwitcherShowing;
+- (BOOL)isShowcaseSwitcherShowing;
+- (BOOL)isAppSwitcherShowing;
+- (id)_appSliderController;
 - (BOOL)isShowcaseShowing;
 - (void)_unhostSwitcherAppImmediatelyAndHideForSuspend:(BOOL)arg1;
 - (void)_dismissShowcase:(double)arg1;
 - (void)removePrintTransitionView:(id)arg1;
 - (void)addPrintTransitionView:(id)arg1;
 - (void)dismissSwitcherWithoutUnhostingApp;
-- (void)dismissAssistantAnimated:(BOOL)arg1;
 - (void)dismissSwitcherAnimated:(BOOL)arg1;
+- (void)_dismissAppSwitcherImmediately;
 - (void)dismissShowcaseForAlert:(id)arg1;
 - (void)_adjustViewHierarchyForShowcase:(id)arg1 withContext:(id)arg2;
 - (void)_adjustAlertViewHierarchyForShowcaseContext:(id)arg1;
 - (id)_showcaseContextForOffset:(float)arg1;
 - (BOOL)showcaseExpectsFaceContact;
 - (void)openNewsstand;
+- (id)switcherWindow;
 - (void)_dismissShowcase:(double)arg1 unhost:(BOOL)arg2 completionBlock:(id)arg3;
 - (void)_dismissShowcase:(double)arg1 unhost:(BOOL)arg2;
+- (void)dismissShowcaseWithImmediateAppUnhosting;
 - (void)dismissShowcaseAnimated:(BOOL)arg1 withCompletionBlock:(id)arg2;
 - (BOOL)_revealShowcase:(id)arg1 revealMode:(int)arg2 duration:(double)arg3 fromSystemGesture:(BOOL)arg4 revealSetupBlock:(id)arg5;
 - (void)_revealShowcaseCore:(id)arg1 revealMode:(int)arg2 duration:(double)arg3 fromSystemGesture:(BOOL)arg4 revealSetupBlock:(id)arg5;
@@ -224,7 +265,7 @@
 - (void)_translateKeyboardWindowByOffset:(float)arg1 forShowcase:(id)arg2;
 - (void)textEffectsWindowRotated:(id)arg1;
 - (BOOL)activateSwitcher;
-- (BOOL)_activateSwitcher:(double)arg1;
+- (BOOL)_activateAppSwitcher:(double)arg1 fromSide:(int)arg2;
 - (BOOL)_activateSwitcher:(double)arg1 fromSystemGesture:(BOOL)arg2;
 - (BOOL)_canActivateShowcaseIgnoringTouches:(BOOL)arg1;
 - (void)_accessibilityWillBeginAppSwitcherRevealAnimation;
@@ -241,26 +282,16 @@
 - (BOOL)_handleButtonEventToSuspendDisplays:(BOOL)arg1 displayWasSuspendedOut:(char *)arg2;
 - (int)_dismissSheetsAndDetermineAlertStateForMenuClickOrSystemGesture;
 - (void)finishedUnscattering;
-- (void)zoomWallpaper:(BOOL)arg1 delay:(double)arg2 duration:(double)arg3;
 - (void)stopRestoringIconList;
 - (id)_snapshotUIAndUnhostForSwitcher:(id)arg1;
 - (void)tearDownIconListAndBar;
 - (void)restoreIconListForSuspendGesture;
-- (void)restoreIconListAnimated:(BOOL)arg1 delay:(double)arg2 animateWallpaper:(BOOL)arg3 keepSwitcher:(BOOL)arg4;
-- (void)restoreIconListAnimated:(BOOL)arg1 animateWallpaper:(BOOL)arg2 keepSwitcher:(BOOL)arg3;
-- (void)restoreIconListAnimated:(BOOL)arg1 animateWallpaper:(BOOL)arg2;
-- (void)restoreIconListAnimatedIfNeeded:(BOOL)arg1 animateWallpaper:(BOOL)arg2;
-- (void)restoreIconListAnimated:(BOOL)arg1 delay:(double)arg2;
-- (void)restoreIconListAnimated:(BOOL)arg1;
+- (void)restoreContentAndUnscatterIconsAnimated:(BOOL)arg1 withCompletion:(id)arg2;
+- (void)restoreContentAndUnscatterIconsAnimated:(BOOL)arg1;
+- (void)restoreContentUpdatingStatusBar:(BOOL)arg1;
+- (void)restoreContent;
 - (void)_closeOpenFolderIfNecessary;
-- (BOOL)isRootViewHidden;
 - (void)_hideKeyboard;
-- (void)setRootViewHiddenForScatter:(BOOL)arg1 duration:(double)arg2 delay:(double)arg3 additionalAnimations:(id)arg4 completion:(void)arg5;
-- (void)setRootViewHiddenForScatter:(BOOL)arg1 duration:(double)arg2 delay:(double)arg3 completion:(id)arg4;
-- (void)setRootViewHiddenForScatter:(BOOL)arg1 duration:(double)arg2 delay:(double)arg3;
-- (void)fadeIconsForScatter:(BOOL)arg1 duration:(double)arg2 delay:(double)arg3;
-- (void)scatterIconListAndBar:(BOOL)arg1 fade:(BOOL)arg2 animateWallpaper:(BOOL)arg3;
-- (void)scatterIconListAndBar:(BOOL)arg1;
 - (void)_deviceLockStateChanged:(id)arg1;
 - (void)_airPlayPasswordAlertWillAppear:(id)arg1;
 - (void)_releaseTransitionOrientationLock;
@@ -270,14 +301,12 @@
 - (void)_lockOrientationForTransition;
 - (void)activateURLFromBulletinList:(id)arg1;
 - (void)activateApplicationFromSwitcher:(id)arg1;
+- (void)activateApplicationAnimatedFromIcon:(id)arg1 fromLocation:(int)arg2;
 - (void)activateApplicationAnimated:(id)arg1;
-- (void)launchIcon:(id)arg1;
-- (BOOL)isDisplayingWallpaper;
-- (id)wallpaperView;
+- (void)launchIcon:(id)arg1 fromLocation:(int)arg2;
 - (void)setShouldRasterizeAndFreezeContentView:(BOOL)arg1;
 - (id)window;
 - (id)contentView;
-- (id)rootView;
 - (void)setFakeTopCornersVisible:(BOOL)arg1;
 - (void)setFakeSpringBoardStatusBarVisible:(BOOL)arg1;
 - (void)clearFakeSpringBoardStatusBarAndCorners;
@@ -286,10 +315,9 @@
 - (id)_fakeSpringBoardStatusBar;
 - (void)cleanUpOnFrontLocked;
 - (BOOL)promptUnlockForAppActivation:(id)arg1 withCompletion:(id)arg2;
-- (void)lockFromSource:(int)arg1 disconnectingCallIfNecessary:(BOOL)arg2;
-- (void)lockFromSource:(int)arg1;
 - (void)systemControllerRouteChanged:(id)arg1;
 - (void)finishLaunching;
+- (void)_setHidden:(BOOL)arg1;
 - (void)animateAppleDown:(BOOL)arg1;
 - (id)init;
 - (void)dealloc;

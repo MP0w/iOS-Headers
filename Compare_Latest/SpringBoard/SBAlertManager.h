@@ -6,44 +6,53 @@
 
 #import "NSObject.h"
 
-@class NSMutableArray, SBAlertWindow;
+@class NSMapTable, NSMutableArray, SBAlertWindow, UIScreen;
 
 @interface SBAlertManager : NSObject
 {
+    UIScreen *_screen;
     SBAlertWindow *_alertWindow;
     SBAlertWindow *_deferredAlertWindow;
     NSMutableArray *_alerts;
+    NSMapTable *_observers;
     BOOL _deactivatingAllAlerts;
     id <SBAlertManagerDelegate> _delegate;
+    struct {
+        unsigned int deactivateDismissed:1;
+        unsigned int newWindow:1;
+    } _delegateFlags;
 }
 
-@property(nonatomic) id <SBAlertManagerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)_deactivateAfterNextLaunch:(id)arg1;
-- (void)_updateSEOStatus;
-- (void)_tearDownAlertWindow:(id)arg1;
+- (void)alertIsReadyToBeRemovedFromView:(id)arg1;
+- (void)alertIsReadyToBeDeactivated:(id)arg1;
+- (void)_makeAlertWindowOpaque:(BOOL)arg1;
+- (void)_resetAlertWindowOpacity;
+- (void)_removeFromView:(id)arg1;
+- (void)_deactivate:(id)arg1;
+- (void)_activate:(id)arg1;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
 - (id)debugDescription;
 - (id)description;
-- (void)removeFromView:(id)arg1;
-- (void)_updateStatusBarTimeItemEnabled;
-- (struct CGRect)_alertWindowRect;
+- (void)applicationFinishedAnimatingBeneathAlert;
+- (void)applicationWillAnimateActivation;
 - (int)orientation;
-- (void)noteOrientationChanged:(int)arg1;
-- (void)workspaceDidAnimateSuspendingApp;
-- (void)workspaceWillAnimateActivatingApp;
 - (void)deactivateAlertsAfterLaunch;
 - (void)setAlertsShouldDeactivateAfterLaunch;
 - (void)deactivateAll;
-- (BOOL)containsAlert:(id)arg1;
-- (void)_deactivate:(id)arg1;
 - (void)deactivate:(id)arg1;
-- (void)_activate:(id)arg1;
 - (void)activate:(id)arg1;
 - (id)allAlerts;
+- (BOOL)containsAlert:(id)arg1;
+- (id)stackedAlertsIncludingActiveAlert:(BOOL)arg1;
 - (BOOL)hasStackedAlerts;
 - (id)activeAlert;
 - (id)window;
+- (id)screen;
+@property(nonatomic) id <SBAlertManagerDelegate> delegate;
 - (void)dealloc;
 - (id)init;
+- (id)initWithScreen:(id)arg1;
 
 @end
 

@@ -42,6 +42,7 @@
 @property(retain, nonatomic) NSString *tabBarItemTitle; // @synthesize tabBarItemTitle=_tabBarItemTitle;
 @property(nonatomic) BOOL shouldConfigureNavigationItem; // @synthesize shouldConfigureNavigationItem=_shouldConfigureNavigationItem;
 @property(retain, nonatomic) IUViewControllerContext *context; // @synthesize context=_context;
+- (void).cxx_destruct;
 - (void)_goToMusicStore:(id)arg1;
 - (void)_goToMovieStore:(id)arg1;
 - (BOOL)_enoughTimeSinceAppear;
@@ -55,6 +56,7 @@
 - (void)_eventsOnlyChangedNotification:(id)arg1;
 - (void)_deviceOrientationChangedNotification:(id)arg1;
 - (void)_dataSourceInvalidate:(id)arg1;
+- (void)_allowsDeletionRestrictionDidChangeNotification:(id)arg1;
 - (void)modalContextWillDismiss:(id)arg1 withSuccess:(BOOL)arg2;
 - (void)modalContextDidDismiss:(id)arg1 withSuccess:(BOOL)arg2;
 - (BOOL)_canReloadView;

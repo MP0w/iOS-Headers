@@ -24,6 +24,7 @@
 @property(retain, nonatomic) MPMediaQuery *query; // @synthesize query=_query;
 @property(readonly, nonatomic) unsigned int currentIndex; // @synthesize currentIndex=_currentIndex;
 @property(retain, nonatomic) id chapters; // @synthesize chapters=_chapters;
+- (void).cxx_destruct;
 - (BOOL)_shouldReloadQueryForChangeToItem:(id)arg1;
 - (unsigned int)_indexOfItem:(id)arg1;
 - (double)_durationInSecondsForIndex:(unsigned int)arg1;

@@ -11,15 +11,15 @@
 @interface MPStoreCollectionCompletionOffering : NSObject
 {
     MPMediaQuery *_localItemsQuery;
-    MPStoreOfferMediaItemCollection *_offeredCollection;
     int _preferredStoreOfferVariant;
+    MPStoreOfferMediaItemCollection *_offeredCollection;
     MPStoreOfferMediaItemCollection *_mergedCollection;
 }
 
 @property(readonly, nonatomic) MPStoreOfferMediaItemCollection *mergedCollection; // @synthesize mergedCollection=_mergedCollection;
-@property(readonly, nonatomic) int preferredStoreOfferVariant; // @synthesize preferredStoreOfferVariant=_preferredStoreOfferVariant;
 @property(readonly, nonatomic) MPStoreOfferMediaItemCollection *offeredCollection; // @synthesize offeredCollection=_offeredCollection;
-- (void)dealloc;
+@property(readonly, nonatomic) int preferredStoreOfferVariant; // @synthesize preferredStoreOfferVariant=_preferredStoreOfferVariant;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *localItems;
 @property(readonly, nonatomic) MPStoreOfferMediaItemCollection *itemsWithCompletionsCollection;
 - (id)initWithOfferedCollection:(id)arg1 localItemsQuery:(id)arg2 preferredStoreOfferVariant:(int)arg3;

@@ -9,25 +9,28 @@
 @interface VGLBuildingProgram : VGLFogProgram
 {
     int _uColor;
-    int _uScale;
-    int _uOneMinusScale;
-    int _uAlpha;
     struct _VGLColor _color;
+    int _uScale;
     float _scale;
+    int _uOneMinusScale;
     CDStruct_f2e236b6 _oneMinusScale;
-    CDStruct_03942939 _cameraPositionInTileSpace;
-    int _uCameraPositionInTileSpace;
+    int _uBrightness;
+    float _brightness;
     int _uTextureSampler;
     int _textureSampler;
+    CDStruct_03942939 _cameraPositionInTileSpace;
+    int _uCameraPositionInTileSpace;
 }
 
-+ (id)realisticProgram;
-+ (id)program;
-@property(nonatomic) int textureSampler; // @synthesize textureSampler=_textureSampler;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) CDStruct_03942939 cameraPositionInTileSpace; // @synthesize cameraPositionInTileSpace=_cameraPositionInTileSpace;
+@property(nonatomic) int textureSampler; // @synthesize textureSampler=_textureSampler;
+@property(nonatomic) float brightness; // @synthesize brightness=_brightness;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
 @property(nonatomic) struct _VGLColor color; // @synthesize color=_color;
-- (id)initWithVertName:(id)arg1 fragName:(id)arg2;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

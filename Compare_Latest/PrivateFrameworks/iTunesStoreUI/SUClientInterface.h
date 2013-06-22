@@ -6,15 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SUPreviewOverlayViewController, SUPurchaseManager, SUQueueSessionManager, SUTabBarController, SUUIAppearance, SUViewControllerFactory;
+@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, SUPreviewOverlayViewController, SUPurchaseManager, SUQueueSessionManager, SUTabBarController, SUUIAppearance, SUViewControllerFactory, UIColor;
 
 @interface SUClientInterface : NSObject
 {
     SUUIAppearance *_appearance;
     NSString *_clientIdentifier;
+    UIColor *_darkKeyColor;
     id <SUClientInterfaceDelegatePrivate> _delegate;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     BOOL _ignoresExpectedClientsProtocol;
+    UIColor *_lightKeyColor;
     NSString *_localStoragePath;
     SUPurchaseManager *_purchaseManager;
     SUQueueSessionManager *_queueSessionManager;
@@ -25,7 +27,9 @@
 }
 
 @property(retain) SUViewControllerFactory *viewControllerFactory; // @synthesize viewControllerFactory=_viewControllerFactory;
+@property(copy, nonatomic) UIColor *lightKeyColor; // @synthesize lightKeyColor=_lightKeyColor;
 @property(nonatomic) id <SUClientInterfaceDelegate> delegate; // @synthesize delegate=_delegate;
+@property(copy, nonatomic) UIColor *darkKeyColor; // @synthesize darkKeyColor=_darkKeyColor;
 - (void)_showPreviewOverlayAnimated:(BOOL)arg1;
 @property(getter=_ignoresExpectedClientsProtocol, setter=_setIgnoresExpectedClientsProtocol:) BOOL _ignoresExpectedClientsProtocol;
 - (void)_setStatusBarStyle:(int)arg1 animated:(BOOL)arg2;

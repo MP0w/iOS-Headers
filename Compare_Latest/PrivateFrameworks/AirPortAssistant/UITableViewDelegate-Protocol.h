@@ -31,6 +31,9 @@
 - (int)tableView:(id)arg1 accessoryTypeForRowWithIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
+- (float)tableView:(id)arg1 estimatedHeightForFooterInSection:(int)arg2;
+- (float)tableView:(id)arg1 estimatedHeightForHeaderInSection:(int)arg2;
+- (float)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;

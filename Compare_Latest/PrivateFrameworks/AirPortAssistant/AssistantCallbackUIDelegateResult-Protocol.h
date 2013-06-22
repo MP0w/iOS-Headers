@@ -7,6 +7,6 @@
 @protocol AssistantCallbackUIDelegateResult
 - (void)callbackAskUserAQuestionResult:(int)arg1 result:(long)arg2;
 - (void)callbackAskUserToChooseFromStringListResult:(long)arg1 selectedString:(id)arg2;
-- (void)callbackAskUserForPasswordResult:(long)arg1 password:(id)arg2;
+- (void)callbackAskUserForPasswordResult:(long)arg1 password:(id)arg2 remember:(int)arg3;
 @end
 

@@ -10,6 +10,8 @@
 {
 }
 
+- (id)activityImage;
+- (id)activityTitle;
 - (BOOL)isFirstClassService;
 - (int)authenticationStyle;
 - (id)accountTypeIdentifier;

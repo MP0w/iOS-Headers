@@ -10,6 +10,7 @@
 {
 }
 
++ (void)closeIdleLocalStorageDatabases;
 + (void)setStorageDatabaseIdleInterval:(double)arg1;
 + (id)_storageDirectoryPath;
 + (id)sharedWebStorageManager;

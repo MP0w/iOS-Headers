@@ -12,8 +12,8 @@
     float lastInputY;
     float lastInputAngle;
     _Bool firstTime;
-    struct CGPoint inputPoint;
     float inputOrientation;
+    struct CGPoint inputPoint;
 }
 
 @property float inputOrientation; // @synthesize inputOrientation;

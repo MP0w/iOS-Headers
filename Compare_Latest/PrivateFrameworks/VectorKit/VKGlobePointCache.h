@@ -15,7 +15,7 @@
 }
 
 @property(nonatomic) VKClassicGlobeCanvas *canvas; // @synthesize canvas=_canvas;
-- (CDStruct_31142d93)pointForHandle:(id)arg1 atCoordinate:(CDStruct_c3b9c2ee)arg2 withHighPrecision:(BOOL)arg3;
+- (struct VKPoint)pointForHandle:(id)arg1 atCoordinate:(CDStruct_c3b9c2ee)arg2 withHighPrecision:(BOOL)arg3;
 - (void)removeHandle:(id)arg1;
 - (id)addHandleAtCoordinate:(CDStruct_c3b9c2ee)arg1 withHighPrecision:(BOOL)arg2;
 - (void)dealloc;

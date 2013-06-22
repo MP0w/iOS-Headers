@@ -8,13 +8,11 @@
 
 @interface SBAwayBulletinFloatingContentView : SBBulletinCellContentViewBase
 {
-    BOOL _hasButton;
 }
 
 + (float)heightForSystemAlertStyleWithTitle:(id)arg1 maxLines:(unsigned int)arg2 message:(id)arg3 maxLines:(unsigned int)arg4 buttonHeight:(float)arg5 contentWidth:(float)arg6;
 + (float)heightForBulletinStyleWithSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 attachmentText:(id)arg4 imageHeight:(float)arg5 contentWidth:(float)arg6;
 + (float)heightForBulletinStyleWithSubtitle:(id)arg1 message:(id)arg2 maxLines:(unsigned int)arg3 contentWidth:(float)arg4;
-@property(nonatomic) BOOL hasButton; // @synthesize hasButton=_hasButton;
 - (void)_configureLabel:(id)arg1 withFont:(id)arg2 color:(id)arg3 alignment:(int)arg4;
 - (void)layoutSubviews;
 - (void)setAttachmentText:(id)arg1;
@@ -22,6 +20,7 @@
 - (void)setMessage:(id)arg1;
 - (void)setSubtitle:(id)arg1;
 - (void)setTitle:(id)arg1;
+- (struct CGSize)_shadowOffset;
 - (id)_vipAccessoryImage;
 - (id)_dateFont;
 - (id)_attachmentFont;

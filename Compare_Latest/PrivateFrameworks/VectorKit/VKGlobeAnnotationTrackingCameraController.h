@@ -6,21 +6,19 @@
 
 #import <VectorKit/VKAnnotationTrackingCameraController.h>
 
-@class AltMapView, VKGlobeViewWrapper;
-
 @interface VKGlobeAnnotationTrackingCameraController : VKAnnotationTrackingCameraController
 {
-    AltMapView *_altMapView;
-    VKGlobeViewWrapper *_globe;
-    CDStruct_2c43369c _currentAnimationStartCoordinate;
+    struct GlobeView *_globeView;
+    struct Anchor {
+        void **;
+    } *_anchor;
+    CDStruct_071ac149 _currentAnimationStartCoordinate;
     CDStruct_2c43369c _currentAnimationPresentationStartCoordinate;
     CDStruct_2c43369c _currentAnimationEndCoordinate;
 }
 
-@property(retain, nonatomic) VKGlobeViewWrapper *globe; // @synthesize globe=_globe;
-@property(retain, nonatomic) AltMapView *altMapView; // @synthesize altMapView=_altMapView;
+@property(nonatomic) struct GlobeView *globeView; // @synthesize globeView=_globeView;
 - (id).cxx_construct;
-- (void)setGesturing:(BOOL)arg1;
 - (void)_rotateToHeadingAnimated:(BOOL)arg1 duration:(double)arg2;
 - (void)_goToAnnotationAnimated:(BOOL)arg1 duration:(double)arg2 isInitial:(BOOL)arg3;
 - (void)dealloc;

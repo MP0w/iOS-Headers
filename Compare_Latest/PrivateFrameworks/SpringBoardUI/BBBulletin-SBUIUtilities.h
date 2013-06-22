@@ -8,6 +8,7 @@
 
 @interface BBBulletin (SBUIUtilities)
 + (void)killSounds;
+- (BOOL)bulletinAlertShouldOverrideQuietMode;
 - (id)actionBlockForButton:(SEL)arg1;
 - (id)defaultActionBlock;
 - (id)actionBlockForButton:(SEL)arg1 withOrigin:(id)arg2;

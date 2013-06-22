@@ -15,6 +15,7 @@
 + (id)snippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)snippet;
 @property(retain, nonatomic) SAUIAppPunchOut *punchOut;
+@property(retain, nonatomic) SAUIAppPunchOut *leagueAppPunchOut;
 @property(retain, nonatomic) SASportsLeague *league;
 - (id)encodedClassName;
 - (id)groupIdentifier;

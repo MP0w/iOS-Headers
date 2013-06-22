@@ -25,7 +25,7 @@
 - (void).cxx_destruct;
 - (void)_putItemsFailure;
 - (void)_requestCompleted;
-- (void)_putItemDone:(unsigned long long)arg1 error:(id)arg2;
+- (void)_putItemDone:(unsigned long long)arg1 putReceipt:(id)arg2 error:(id)arg3;
 - (void)publishAssets:(id)arg1 URL:(id)arg2;
 - (id)_getUTIFromItem:(unsigned long long)arg1;
 - (void)_closeFDForAsset:(id)arg1;

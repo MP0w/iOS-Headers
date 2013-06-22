@@ -10,6 +10,8 @@
 {
 }
 
++ (id)_accessibilityTargetClassName;
++ (id)_initializeSafeCategoryFromValidationManager;
 + (void)_initializeSafeCategory;
 - (id)localizedStringForKey:(id)arg1 value:(id)arg2 table:(id)arg3;
 - (void)_loadAXBundleForBundleOnMainThread;

@@ -15,7 +15,7 @@
     BOOL _didDisappearShouldAttemptReturnToSourceController;
 }
 
-- (void)_wifiEnabledDidChangeNotification:(id)arg1;
+- (void).cxx_destruct;
 - (void)_contentsDidChangeNotification:(id)arg1;
 - (void)setContext:(id)arg1;
 - (void)reloadData;

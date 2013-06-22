@@ -27,6 +27,7 @@
     MPAudioDeviceController *_audioDeviceController;
 }
 
++ (void)interrupt;
 + (BOOL)applicationCanBeConsideredNowPlaying:(id)arg1;
 + (id)sharedInstance;
 - (void)_delayedExtendSleepTimer;
@@ -45,13 +46,15 @@
 - (void)_registerForNotifications;
 - (void)_airPlayPasswordAlertWillDisappear;
 - (void)_airPlayPasswordAlertWillAppear;
+- (id)nameOfPickedRoute;
+- (BOOL)isScreenSharing;
 - (BOOL)routeOtherThanHandsetIsAvailable;
 - (BOOL)volumeControlIsAvailable;
 - (BOOL)handsetRouteIsSelected;
 - (void)requestAirPlayRouteDiscovery:(BOOL)arg1;
 - (void)audioDeviceControllerMediaServerDied:(id)arg1;
 - (void)audioDeviceControllerAudioRoutesChanged:(id)arg1;
-- (void)handleVolumeEvent:(struct __GSEvent *)arg1;
+- (void)handleVolumeEvent:(struct __IOHIDEvent *)arg1;
 - (void)cancelVolumeEvent;
 - (void)decreaseVolume;
 - (void)increaseVolume;
@@ -85,6 +88,7 @@
 - (BOOL)trackIsBeingPlayedByMusicApp;
 - (void)setCurrentTrackTime:(float)arg1;
 - (double)trackElapsedTime;
+- (id)artwork;
 - (double)trackDuration;
 - (int)shuffleMode;
 - (int)repeatMode;
@@ -93,6 +97,17 @@
 - (id)nowPlayingArtist;
 - (BOOL)trackSupports15SecondFF;
 - (BOOL)trackSupports15SecondRewind;
+- (BOOL)trackIsOnWishList;
+- (BOOL)addTrackToWishList;
+- (BOOL)likeTrack;
+- (BOOL)banTrack;
+- (BOOL)trackProhibitsSkip;
+- (BOOL)trackSupportsIsLiked;
+- (BOOL)trackSupportsIsBanned;
+- (BOOL)trackIsLiked;
+- (BOOL)trackIsBanned;
+- (BOOL)isRadioTrack;
+- (BOOL)isAdvertisement;
 - (unsigned long long)trackUniqueIdentifier;
 - (BOOL)isTVOut;
 - (BOOL)isMovie;

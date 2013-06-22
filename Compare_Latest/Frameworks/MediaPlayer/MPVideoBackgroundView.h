@@ -28,6 +28,7 @@
 @property(nonatomic) int destinationPlaceholderStyle; // @synthesize destinationPlaceholderStyle=_destinationPlaceholderStyle;
 @property(copy, nonatomic) NSString *destinationName; // @synthesize destinationName=_destinationName;
 @property(retain, nonatomic) UIView *backgroundPlaceholderPosterImageView; // @synthesize backgroundPlaceholderPosterImageView=_backgroundPlaceholderPosterImageView;
+- (void).cxx_destruct;
 - (void)_updateDestinationBackgroundViewAnimated:(BOOL)arg1;
 - (void)_tvOutCapabilityDidChangeNotification:(id)arg1;
 - (void)setShowDestinationPlaceholder:(BOOL)arg1 animated:(BOOL)arg2;

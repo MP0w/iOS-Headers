@@ -25,7 +25,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)description;
-- (BOOL)usesEndDate;
+@property(readonly, nonatomic) BOOL usesEndDate;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithOccurrenceCount:(unsigned int)arg1;

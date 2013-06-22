@@ -6,15 +6,32 @@
 
 #import <UIKit/UIStatusBarItemView.h>
 
+@class UIImageView;
+
 @interface UIStatusBarBatteryItemView : UIStatusBarItemView
 {
     int _capacity;
     int _state;
+    BOOL _persistentAnimationsEnabled;
+    UIImageView *_accessoryImageView;
+    int _animateionFrameRate;
 }
 
+- (void)_decreaseAnimationRate;
+- (void)_stopAnimationRateChanges;
+- (void)_scheduleAnimationRateDecrease;
+- (void)_addBatteryAnimationWithFrameInterval:(double)arg1;
+- (void)_stopBatteryAnimation;
+- (void)_startBatteryAnimation;
+- (void)_updateBatteryAnimation;
+- (void)setPersistentAnimationsEnabled:(BOOL)arg1;
 - (float)extraRightPadding;
-- (id)contentsImageForStyle:(int)arg1;
+- (id)contentsImage;
+- (id)_accessoryImage;
+- (BOOL)_needsAccessoryImage;
+- (float)_batteryYOffsetWithBackground:(id)arg1;
 - (BOOL)updateForNewData:(id)arg1 actions:(int)arg2;
+- (void)dealloc;
 
 @end
 

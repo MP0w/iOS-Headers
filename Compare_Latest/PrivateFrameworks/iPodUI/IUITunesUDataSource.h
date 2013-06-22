@@ -13,7 +13,7 @@
 + (id)tabBarItemTitleKey;
 + (id)tabBarItemIconName;
 - (id)viewControllerContextForMediaQuery:(id)arg1;
-- (int)filteredMediaTypes;
+- (unsigned int)filteredMediaTypes;
 - (void)setQueries:(id)arg1;
 - (id)createNoContentDataSource;
 - (SEL)libraryHasDisplayableEntitiesSelector;

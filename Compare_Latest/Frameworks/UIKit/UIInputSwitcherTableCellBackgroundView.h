@@ -6,13 +6,20 @@
 
 #import <UIKit/UIView.h>
 
+@class UIKeyboardMenuView, UITableView, UITableViewCell;
+
 @interface UIInputSwitcherTableCellBackgroundView : UIView
 {
-    BOOL m_selected;
+    UITableView *_tableView;
+    UITableViewCell *_cell;
+    UIKeyboardMenuView *_menu;
 }
 
-@property(nonatomic) BOOL selected; // @synthesize selected=m_selected;
+@property(nonatomic) UIKeyboardMenuView *menu; // @synthesize menu=_menu;
+@property(nonatomic) UITableViewCell *cell; // @synthesize cell=_cell;
+@property(nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 - (void)drawRect:(struct CGRect)arg1;
+- (id)initWithTableView:(id)arg1 cell:(id)arg2;
 
 @end
 

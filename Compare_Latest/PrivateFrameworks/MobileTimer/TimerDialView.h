@@ -28,11 +28,11 @@
     UIFont *_labelFont;
 }
 
-@property(nonatomic) float minorTickHeight; // @synthesize minorTickHeight=_minorTickHeight;
 @property(retain, nonatomic) UIFont *labelFont; // @synthesize labelFont=_labelFont;
-@property(nonatomic) float tickHorizontalSpacing; // @synthesize tickHorizontalSpacing=_tickHorizontalSpacing;
-@property(nonatomic) unsigned int minorTicksPerSection; // @synthesize minorTicksPerSection=_minorTicksPerSection;
+@property(nonatomic) float minorTickHeight; // @synthesize minorTickHeight=_minorTickHeight;
 @property(nonatomic) float majorTickHeight; // @synthesize majorTickHeight=_majorTickHeight;
+@property(nonatomic) unsigned int minorTicksPerSection; // @synthesize minorTicksPerSection=_minorTicksPerSection;
+@property(nonatomic) float tickHorizontalSpacing; // @synthesize tickHorizontalSpacing=_tickHorizontalSpacing;
 - (void)makeGraduatedSurfaceAtLeastWidth:(float)arg1;
 - (id)graduatedSection;
 - (float)pointsPerMinute;

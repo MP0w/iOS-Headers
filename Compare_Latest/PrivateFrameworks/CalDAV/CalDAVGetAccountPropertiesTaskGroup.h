@@ -19,9 +19,11 @@
     NSURL *_notificationURL;
     NSURL *_delegatePrincipalURL;
     NSURL *_updatedPrincipalURL;
+    BOOL _supportsCalendarUserSearch;
     CalDAVServerVersion *_serverVersion;
 }
 
+@property(readonly) BOOL supportsCalendarUserSearch; // @synthesize supportsCalendarUserSearch=_supportsCalendarUserSearch;
 @property(readonly) NSURL *updatedPrincipalURL; // @synthesize updatedPrincipalURL=_updatedPrincipalURL;
 @property(readonly) CalDAVServerVersion *serverVersion; // @synthesize serverVersion=_serverVersion;
 @property(readonly) NSSet *originalUserAddresses; // @synthesize originalUserAddresses=_originalUserAddresses;

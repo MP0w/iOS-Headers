@@ -12,6 +12,8 @@
 {
 }
 
++ (id)alloc;
++ (id)allocWithZone:(struct _NSZone *)arg1;
 - (void)performAfterDelay:(double)arg1;
 - (void)invoke;
 - (id)copyWithZone:(struct _NSZone *)arg1;

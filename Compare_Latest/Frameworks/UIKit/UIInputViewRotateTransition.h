@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)shouldRecomputeEndFrame;
 - (BOOL)shouldCompleteOnSuspend;
 - (BOOL)fadeAccessoryView;
 - (void)postNotificationsForTransitionEnd;

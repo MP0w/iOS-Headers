@@ -6,7 +6,7 @@
 
 #import "WAKView.h"
 
-@class WebViewPrivate;
+@class NSData, WebViewPrivate;
 
 @interface WebView : WAKView
 {
@@ -25,7 +25,6 @@
 + (void)_setTileCacheLayerPoolCapacity:(unsigned int)arg1;
 + (void)_setHTTPPipeliningEnabled:(BOOL)arg1;
 + (BOOL)_HTTPPipeliningEnabled;
-+ (double)_defaultMinimumTimerInterval;
 + (void)_setLoadResourcesSerially:(BOOL)arg1;
 + (void)_registerURLSchemeAsAllowingDatabaseAccessInPrivateBrowsing:(id)arg1;
 + (void)_registerURLSchemeAsAllowingLocalStorageAccessInPrivateBrowsing:(id)arg1;
@@ -82,6 +81,7 @@
 + (void)garbageCollectNow;
 + (void)releaseFastMallocMemory;
 + (void)willEnterBackgroundWithCompletionHandler:(id)arg1;
++ (void)_clearPrivateBrowsingSessionCookieStorage;
 + (void)_releaseMemoryNow;
 + (void)registerForMemoryNotifications;
 + (void)_handleMemoryWarning;
@@ -179,6 +179,7 @@
 - (id)preferences;
 - (void)setPreferences:(id)arg1;
 - (void)_updateScreenScaleFromWindow;
+- (void)_wakWindowVisibilityChanged:(id)arg1;
 - (void)_wakWindowScreenScaleChanged:(id)arg1;
 - (void)viewDidMoveToWindow;
 - (BOOL)shouldCloseWithWindow;
@@ -196,13 +197,13 @@
 - (BOOL)_canShowMIMEType:(id)arg1;
 - (void)_addToAllWebViewsSet;
 - (void)_removeFromAllWebViewsSet;
+@property(copy, nonatomic, getter=_sourceApplicationAuditData, setter=_setSourceApplicationAuditData:) NSData *sourceApplicationAuditData;
 - (void)_setWebGLEnabled:(BOOL)arg1;
 - (BOOL)_webGLEnabled;
 - (void)_setWantsTelephoneNumberParsing:(BOOL)arg1;
 - (BOOL)_wantsTelephoneNumberParsing;
 - (void)_documentScaleChanged;
 - (id)_fixedPositionContent;
-- (void)_setMinimumTimerInterval:(double)arg1;
 - (BOOL)searchFor:(id)arg1 direction:(BOOL)arg2 caseSensitive:(BOOL)arg3 wrap:(BOOL)arg4 startInSelection:(BOOL)arg5;
 - (unsigned int)countMatchesForText:(id)arg1 caseSensitive:(BOOL)arg2 highlight:(BOOL)arg3 limit:(unsigned int)arg4 markMatches:(BOOL)arg5;
 - (unsigned int)markAllMatchesForText:(id)arg1 caseSensitive:(BOOL)arg2 highlight:(BOOL)arg3 limit:(unsigned int)arg4;
@@ -213,6 +214,9 @@
 - (void)_setPageLength:(float)arg1;
 - (BOOL)_paginationBehavesLikeColumns;
 - (void)_setPaginationBehavesLikeColumns:(BOOL)arg1;
+- (void)_setVisibilityState:(int)arg1 isInitialState:(BOOL)arg2;
+- (unsigned int)_layoutMilestones;
+- (void)_listenForLayoutMilestones:(unsigned int)arg1;
 - (int)_paginationMode;
 - (void)_setPaginationMode:(int)arg1;
 - (BOOL)_useFixedLayout;
@@ -222,6 +226,8 @@
 - (void)setCSSAnimationsSuspended:(BOOL)arg1;
 - (BOOL)cssAnimationsSuspended;
 - (void)_updateActiveState;
+- (void)_updateVisibilityState;
+- (BOOL)_isViewVisible;
 - (id)trackedRepaintRects;
 - (void)resetTrackedRepaints;
 - (BOOL)isTrackingRepaints;
@@ -237,7 +243,6 @@
 - (BOOL)_isUsingAcceleratedCompositing;
 - (void)_setPostsAcceleratedCompositingNotifications:(BOOL)arg1;
 - (BOOL)_postsAcceleratedCompositingNotifications;
-- (void)_setJavaScriptURLsAreAllowed:(BOOL)arg1;
 - (BOOL)areMemoryCacheDelegateCallsEnabled;
 - (void)setMemoryCacheDelegateCallsEnabled:(BOOL)arg1;
 - (BOOL)isSelectTrailingWhitespaceEnabled;
@@ -246,8 +251,6 @@
 - (void)_setCustomHTMLTokenizerChunkSize:(int)arg1;
 - (void)_setCustomHTMLTokenizerTimeDelay:(double)arg1;
 - (void)_executeCoreCommandByName:(id)arg1 value:(id)arg2;
-- (BOOL)_catchesDelegateExceptions;
-- (void)_setCatchesDelegateExceptions:(BOOL)arg1;
 - (id)textIteratorForRect:(struct CGRect)arg1;
 - (void)_setGlobalHistoryItem:(struct HistoryItem *)arg1;
 - (id)_globalHistoryItem;
@@ -255,6 +258,8 @@
 - (BOOL)usesPageCache;
 - (id)_touchEventRegions;
 - (void)_overflowScrollPositionChangedTo:(struct CGPoint)arg1 forNode:(id)arg2 isUserScroll:(BOOL)arg3;
+- (void)_viewGeometryDidChange;
+- (BOOL)_fetchCustomFixedPositionLayoutRect:(struct CGRect *)arg1;
 - (void)_setCustomFixedPositionLayoutRect:(struct CGRect)arg1;
 - (void)_setCustomFixedPositionLayoutRectInWebThread:(struct CGRect)arg1 synchronize:(BOOL)arg2;
 - (void)_synchronizeCustomFixedPositionLayoutRect;
@@ -348,6 +353,7 @@
 - (void)_didFinishScrollingOrZooming;
 - (void)_willStartScrollingOrZooming;
 - (void)_dispatchTileDidDraw:(id)arg1;
+- (unsigned int)_renderTreeSize;
 - (id)styleAtSelectionStart;
 - (void)_dispatchUnloadEvent;
 - (BOOL)_isClosed;
@@ -480,8 +486,9 @@
 - (void)pageUp:(id)arg1;
 - (void)pageDownAndModifySelection:(id)arg1;
 - (void)pageDown:(id)arg1;
-- (void)orderFrontSubstitutionsPanel:(id)arg1;
+- (void)overWrite:(id)arg1;
 - (void)outdent:(id)arg1;
+- (void)orderFrontSubstitutionsPanel:(id)arg1;
 - (void)moveWordRightAndModifySelection:(id)arg1;
 - (void)moveWordRight:(id)arg1;
 - (void)moveWordLeftAndModifySelection:(id)arg1;
@@ -582,8 +589,8 @@
 - (id)_focusedFrame;
 - (struct CGRect)_convertRectFromRootView:(struct CGRect)arg1;
 - (struct CGPoint)_convertPointFromRootView:(struct CGPoint)arg1;
-- (void)_scheduleCompositingLayerSync;
-- (BOOL)_syncCompositingChanges;
+- (void)_scheduleCompositingLayerFlush;
+- (BOOL)_flushCompositingChanges;
 - (void)_setNeedsOneShotDrawingSynchronization:(BOOL)arg1;
 - (BOOL)_needsOneShotDrawingSynchronization;
 - (id)_selectedOrMainFrame;
@@ -597,17 +604,17 @@
 - (id)_deviceOrientationProvider;
 - (void)_setDeviceOrientationProvider:(id)arg1;
 - (void)_resetAllGeolocationPermission;
-- (void)_geolocationDidFailWithError:(id)arg1;
+- (void)_geolocationDidFailWithMessage:(id)arg1;
 - (void)_geolocationDidChangePosition:(id)arg1;
 - (id)_geolocationProvider;
 - (void)_setGeolocationProvider:(id)arg1;
+- (unsigned long long)_notificationIDForTesting:(struct OpaqueJSValue *)arg1;
 - (void)_notificationsDidClose:(id)arg1;
 - (void)_notificationDidClick:(unsigned long long)arg1;
 - (void)_notificationDidShow:(unsigned long long)arg1;
 - (id)_notificationProvider;
-- (void)_notificationControllerDestroyed;
 - (void)_setNotificationProvider:(id)arg1;
-- (struct OpaqueJSValue *)_computedStyleIncludingVisitedInfo:(struct OpaqueJSContext *)arg1 forElement:(struct OpaqueJSValue *)arg2;
+- (id)fullScreenPlaceholderView;
 
 @end
 

@@ -16,7 +16,7 @@
 
 @property(nonatomic) int timeOption; // @synthesize timeOption=_timeOption;
 @property(retain, nonatomic) NSArray *times; // @synthesize times=_times;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

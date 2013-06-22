@@ -4,18 +4,67 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@class NSArray;
+@class NSString, VGLMeshVendor;
 
 #pragma mark Named Structures
 
 struct AltitudeDebugSettings {
     char altitudePauseLoading;
     char altitudeShowTileBounds;
+    char altitudeThreadDrawing;
+    char altitudeHighResSatellite;
+    char altitudeMipmapSatellite;
+    char altitudeMipmapFlyover;
+    char altitudeShowNightLight;
+    char altitudeShowFlyoverDemarcation;
     float lodScale;
     float animationSpinTime;
+    float tourAnimationAltitude;
+    float tourAnimationStepDuration;
+    float tourAnimationCameraOffset;
+    float tourAnimationTilt;
 };
 
-struct CGFont;
+struct AnchorContext {
+    _Bool _field1;
+    id _field2;
+    id _field3;
+};
+
+struct AnchorFactory;
+
+struct AngularSpringDamper {
+    double _position;
+    double _velocity;
+    double _acceleration;
+    double _kSpring;
+    double _kDamper;
+    double _restingPosition;
+};
+
+struct Arrow;
+
+struct BRectImp<double> {
+    struct Vec2Imp<double> p0;
+    struct Vec2Imp<double> p1;
+};
+
+struct BRectImp<float> {
+    Vec2Imp_1782d7e3 _field1;
+    Vec2Imp_1782d7e3 _field2;
+};
+
+struct BufferRange;
+
+struct BuildingTopMeshFactory {
+    struct unordered_map<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, vk::BuildingTopMeshFactory::Group>>> _field1;
+    struct unordered_map<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, vk::BuildingTopMeshFactory::Group>>> _field2;
+    unsigned int _field3;
+};
+
+struct CGColor;
+
+struct CGContext;
 
 struct CGPoint {
     float x;
@@ -32,24 +81,58 @@ struct CGSize {
     float height;
 };
 
-struct CollisionObject {
-    struct Label *_field1;
-    int _field2;
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-    } _field3;
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-    } _field4;
-    CDStruct_183601bc *_field5;
-    CDStruct_183601bc *_field6;
-    unsigned int _field7;
+struct CameraManager {
+    void **_vptr$CameraManager;
+    _Bool _panBegin;
+    _Bool _panInProgress;
+    _Bool _panEnd;
+    struct Vector2i _panCurrentCursor;
+    struct Vector2i _panPreviousCursor;
+    struct Position3d _panStartPosition;
+    double _panDistance;
+    _Bool _rotateBegin;
+    _Bool _rotateInProgress;
+    _Bool _rotateEnd;
+    struct Position3d _rotateStartPosition;
+    struct Vector2i _rotateCurrentCursor;
+    double _rotateAngle;
+    _Bool _tiltBegin;
+    _Bool _tiltInProgress;
+    _Bool _tiltEnd;
+    struct Position3d _tiltStartPosition;
+    struct Vector2i _tiltCurrentCursor;
+    double _tiltAngle;
+    _Bool _zoomBegin;
+    _Bool _zoomInProgress;
+    _Bool _zoomEnd;
+    struct Position3d _zoomStartPosition;
+    struct Vector2i _zoomCurrentCursor;
+    double _zoomFactor;
+    _Bool _zoomRotateToNorth;
+    _Bool _useTiltLimit;
+    int _tiltLimitMode;
+    _Bool _tiltLimitTransferInProgress;
+    _Bool _tiltLimitPushDown;
+    double _startPushDownTilt;
+    double _tiltLimitTransferFraction;
+    double _startTiltLimitTilt;
+    struct PositionGeo3d _startTiltLimitPosition;
+    struct Vector3d _startTiltLimitDirection;
+};
+
+struct CollisionItem;
+
+struct CollisionPair;
+
+struct Color {
+    unsigned char _field1;
+    unsigned char _field2;
+    unsigned char _field3;
+    unsigned char _field4;
+};
+
+struct DiscontinuityEdgeInfo {
+    VGLMeshVendor *meshVendor;
 };
 
 struct Flow {
@@ -59,14 +142,66 @@ struct Flow {
     int _field4;
 };
 
+struct FontAtlas {
+    void **_field1;
+    struct shared_ptr<vk::FontAtlasPage> _field2;
+    struct vector<std::__1::shared_ptr<vk::FontAtlasPage>, vk_allocator<std::__1::shared_ptr<vk::FontAtlasPage>>> _field3;
+    struct FontAtlasCell *_field4;
+    struct FontAtlasCell *_field5;
+    int _field6;
+    struct CGColor *_field7;
+    struct CGContext *_field8;
+    void *_field9;
+    unsigned int _field10;
+    unsigned int _field11;
+    unsigned int _field12;
+    struct FontGlyphCache *_field13;
+};
+
+struct FontAtlasCell;
+
+struct FontAtlasPage;
+
+struct FontGlyphCache;
+
+struct FontOptions {
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field1;
+    _Bool _field2;
+    float _field3;
+    _Bool _field4;
+    float _field5;
+    float _field6;
+};
+
 struct GeoCoordinates {
     struct Longitude _field1;
     struct Latitude _field2;
 };
 
+struct GeoPolyline {
+    struct shared_ptr<const std::__1::vector<zilch::GeoCoordinates, std::__1::allocator<zilch::GeoCoordinates>>> _field1;
+    int _field2;
+};
+
+struct GlobeAdapter {
+    struct shared_ptr<vk::GlobeAdapterData> _field1;
+    struct GlobeView *_field2;
+    struct VKPoint _field3;
+    struct {
+        double _field1;
+        double _field2;
+    } _field4;
+    struct vector<std::__1::shared_ptr<vk::InfoMapTile>, vk_allocator<std::__1::shared_ptr<vk::InfoMapTile>>> _field5;
+    shared_ptr_dd1f7020 _field6;
+};
+
+struct GlobeAdapterData;
+
 struct GlobeView {
     void **_field1;
 };
+
+struct IconLabelPart;
 
 struct Incident {
     struct GeoCoordinates _field1;
@@ -83,113 +218,183 @@ struct Incident {
     _Bool _field12;
 };
 
-struct Label;
+struct IndicesQuad;
 
-struct LabelCollider {
-    struct vector<vk::CollisionObject *, vk_allocator<vk::CollisionObject *>> _objects;
-    struct vector<vk::SapEntry, vk_allocator<vk::SapEntry>> _axisY;
-    struct vector<vk::SapOverlap, vk_allocator<vk::SapOverlap>> _overlaps;
+struct InfoLabel;
+
+struct InfoLabelCollider {
+    struct vector<vk::CollisionItem, vk_allocator<vk::CollisionItem>> _field1;
+    struct vector<vk::CollisionPair, vk_allocator<vk::CollisionPair>> _field2;
 };
 
-struct LabelContext {
-    id _field1;
-    id _field2;
+struct InfoLabelFeaturePool {
+    struct mutex _field1;
+    struct map<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Less, vk_allocator<std::__1::pair<const vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>>> _field2;
+    struct map<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Less, vk_allocator<std::__1::pair<const vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>>> _field3;
+};
+
+struct InfoOcclusionTester {
+    void **_field1;
+    struct queue<std::__1::shared_ptr<vk::InfoOcclusionQuery>, std::__1::deque<std::__1::shared_ptr<vk::InfoOcclusionQuery>, std::__1::allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>>>> _field2;
+    struct queue<std::__1::shared_ptr<vk::InfoOcclusionQuery>, std::__1::deque<std::__1::shared_ptr<vk::InfoOcclusionQuery>, std::__1::allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>>>> _field3;
+    struct queue<unsigned int, std::__1::deque<unsigned int, std::__1::allocator<unsigned int>>> _field4;
+    id _field5;
+    unsigned int _field6;
+    _Bool _field7;
+    CDStruct_aa5aacbc _field8;
+};
+
+struct LabelFeature;
+
+struct LabelManager {
+    void **_field1;
+    struct weak_ptr<vk::LabelManager> _field2;
     id _field3;
-    id _field4;
-    struct ViewTransform *_field5;
+    unsigned int _field4;
+    int _field5;
     int _field6;
-    int _field7;
-    unsigned int _field8;
-    float _field9;
+    _Bool _field7;
+    _Bool _field8;
+    _Bool _field9;
     _Bool _field10;
     _Bool _field11;
     _Bool _field12;
     _Bool _field13;
     _Bool _field14;
     _Bool _field15;
-    int _field16;
-    CDStruct_aca18c62 _field17;
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-    } _field18;
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-    } _field19;
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-    } _field20;
-    int _field21;
-};
-
-struct LabelFeature {
-    void **_field1;
-    vector_51094ce7 _field2;
-    unsigned long long _field3;
-    unsigned long long _field4;
-    float _field5;
-    unsigned int _field6;
-    id _field7;
-    id _field8;
-    int _field9;
-    id _field10;
-    struct shared_ptr<const vk::LabelFeatureText> _field11;
-    struct LabelFeatureTileData *_field12;
-    struct mutex _field13;
-    struct LabelFeatureTileData *_field14;
-    int _field15;
     _Bool _field16;
     _Bool _field17;
     _Bool _field18;
     _Bool _field19;
+    _Bool _field20;
+    _Bool _field21;
+    _Bool _field22;
+    _Bool _field23;
+    Vec3Imp_f658403c _field24;
+    Vec3Imp_f658403c _field25;
+    Vec3Imp_f658403c _field26;
+    Vec3Imp_f658403c _field27;
+    Vec3Imp_f658403c _field28;
+    double _field29;
+    double _field30;
+    double _field31;
+    double _field32;
+    CDStruct_aa5aacbc _field33;
+    struct Mat4Imp<double> _field34;
+    struct CGSize _field35;
+    BRectImp_7721609a _field36;
+    BRectImp_7721609a _field37;
+    float _field38;
+    float _field39;
+    float _field40;
+    unsigned long long _field41;
+    double _field42[5];
+    double _field43;
+    int _field44;
+    struct vector<std::__1::shared_ptr<vk::InfoMapTile>, vk_allocator<std::__1::shared_ptr<vk::InfoMapTile>>> _field45;
+    struct InfoLabelFeaturePool _field46;
+    struct RoadLabelPool _field47;
+    struct PointLabelPool _field48;
+    struct TrafficIncidentLabelPool _field49;
+    struct vector<std::__1::shared_ptr<vk::InfoLabel>, vk_allocator<std::__1::shared_ptr<vk::InfoLabel>>> _field50;
+    struct vector<vk::InfoLabel *, vk_allocator<vk::InfoLabel *>> _field51;
+    struct FontAtlas _field52;
+    struct LabelMesh _field53;
+    struct LabelStyleCache _field54;
+    struct InfoLabelCollider _field55;
+    struct InfoOcclusionTester _field56;
+    struct shared_ptr<vk::LabelTrafficTilePool> _field57;
+    struct vector<std::__1::shared_ptr<vk::LabelIcon>, vk_allocator<std::__1::shared_ptr<vk::LabelIcon>>> _field58;
+    struct shared_ptr<vk::LabelManagerNotifierHook> _field59;
+    unsigned int _field60;
+    unsigned int _field61;
+    unsigned int _field62;
+    double _field63;
+    double _field64;
+    _Bool _field65;
+    float _field66;
+    int _field67;
+    shared_ptr_0c41964b _field68;
+    struct shared_ptr<vk::LabelFeature> _field69;
+    int _field70;
+    int _field71;
+    int _field72;
+    int _field73;
+    _Bool _field74;
+    _Bool _field75;
+    float _field76;
+    int _field77;
+    int _field78;
+    float _field79;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field80;
+    struct _retain_ptr<VKLabelMarker *, geo::_retain_objc, geo::_release_objc> {
+        void **_field1;
+        id _field2;
+        struct _retain_objc _field3;
+        struct _release_objc _field4;
+    } _field81;
+    struct _retain_ptr<VKLabelNavSupport *, geo::_retain_objc, geo::_release_objc> {
+        void **_field1;
+        id _field2;
+        struct _retain_objc _field3;
+        struct _release_objc _field4;
+    } _field82;
+    struct _retain_ptr<NSArray *, geo::_retain_objc, geo::_release_objc> {
+        void **_field1;
+        id _field2;
+        struct _retain_objc _field3;
+        struct _release_objc _field4;
+    } _field83;
+    struct vector<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>, vk_allocator<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>>> _field84;
+    _Bool _field85;
+    vector_a3d7a989 _field86;
+    BRectImp_d02b3a99 _field87;
+    BRectImp_7721609a _field88;
+    BRectImp_7721609a _field89;
+    BRectImp_7721609a _field90;
 };
 
-struct LabelFeatureArray<vk::LabelFeaturePoint> {
-    unsigned int _field1;
-    unsigned int _field2;
-    struct LabelFeaturePoint **_field3;
-    _Bool _field4;
-    id _field5;
-    _Bool _field6;
+struct LabelManagerNotifierHook;
+
+struct LabelMesh {
+    struct vector<vk::IconLabelPart *, vk_allocator<vk::IconLabelPart *>> _field1;
+    struct vector<vk::LabelMesh::BufferRange, vk_allocator<vk::LabelMesh::BufferRange>> _field2;
+    struct VGLIconMeshVAO _field3;
+    struct vector<vk::TextLabelPart *, vk_allocator<vk::TextLabelPart *>> _field4;
+    struct vector<vk::LabelMesh::BufferRange, vk_allocator<vk::LabelMesh::BufferRange>> _field5;
+    struct VGLTextMeshVAO _field6;
+    struct FontAtlas *_field7;
+    id _field8;
+    id _field9;
+    _Bool _field10;
 };
-
-struct LabelFeatureArray<vk::LabelFeaturePolygon> {
-    unsigned int _field1;
-    unsigned int _field2;
-    struct LabelFeaturePolygon **_field3;
-    _Bool _field4;
-    id _field5;
-    _Bool _field6;
-};
-
-struct LabelFeatureArray<vk::LabelFeatureRoad> {
-    unsigned int _field1;
-    unsigned int _field2;
-    struct LabelFeatureRoad **_field3;
-    _Bool _field4;
-    id _field5;
-    _Bool _field6;
-};
-
-struct LabelFeaturePoint;
-
-struct LabelFeaturePolygon;
-
-struct LabelFeatureRoad;
-
-struct LabelFeatureText;
-
-struct LabelFeatureTileData;
 
 struct LabelNavJunctionInfo;
+
+struct LabelStyleCache {
+    struct mutex _field1;
+    float _field2;
+    _Bool _field3;
+    int _field4;
+    int _field5;
+    int _field6;
+    struct _retain_ptr<VKStylesheet *, geo::_retain_objc, geo::_release_objc> {
+        void **_field1;
+        id _field2;
+        struct _retain_objc _field3;
+        struct _release_objc _field4;
+    } _field7;
+    _Bool _field8;
+    struct _retain_ptr<VKStyleResolutionSession *, geo::_retain_objc, geo::_release_objc> {
+        void **_field1;
+        id _field2;
+        struct _retain_objc _field3;
+        struct _release_objc _field4;
+    } _field9;
+    struct map<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>, std::__1::less<VKLabelDrawStyle *>, vk_allocator<std::__1::pair<VKLabelDrawStyle *const, std::__1::shared_ptr<vk::LabelStyle>>>> _field10;
+};
+
+struct LabelTrafficTilePool;
 
 struct Latitude {
     unsigned int _field1;
@@ -203,6 +408,40 @@ struct Longitude {
     unsigned int _field1;
 };
 
+struct MapEdge;
+
+struct Mat4Imp<double> {
+    double _field1[16];
+};
+
+struct NavContext {
+    void **_field1;
+    struct LabelManager *_field2;
+};
+
+struct NavLabel;
+
+struct PointLabelPool {
+    struct map<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, vk_allocator<std::__1::pair<const std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>>> _field1;
+};
+
+struct PolylineCoordinate {
+    unsigned int index;
+    float offset;
+};
+
+struct Position3d {
+    double _latitude;
+    double _longitude;
+    double _height;
+};
+
+struct PositionGeo3d {
+    double _x;
+    double _y;
+    double _z;
+};
+
 struct Record {
     unsigned int _field1;
     unsigned int _field2;
@@ -214,6 +453,32 @@ struct Record {
     float _field8;
 };
 
+struct RenderStepsSet {
+    struct vector<PolygonRenderStep, vk_allocator<PolygonRenderStep>> renderSteps;
+    struct vector<PolygonRenderStep, vk_allocator<PolygonRenderStep>> transparentRenderSteps;
+};
+
+struct RenderThread {
+    void **_field1;
+    void *_field2;
+    struct Renderer *_field3;
+};
+
+struct Renderer;
+
+struct RoadLabelPool {
+    struct map<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, vk_allocator<std::__1::pair<const std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>>> _field1;
+};
+
+struct RoadPathElement<std::__1::shared_ptr<geo::MapEdge>> {
+    void **_field1;
+    int _field2;
+    unsigned int _field3;
+    shared_ptr_035a2da2 _field4;
+    struct GeoPolyline _field5;
+    int _field6;
+};
+
 struct RouteCalibration {
     unsigned int _field1;
     float _field2;
@@ -221,37 +486,71 @@ struct RouteCalibration {
 
 struct RouteJunctionInfo;
 
-struct SapEntry;
+struct RouteLineSection {
+    void **_field1;
+    struct vector<vk::RouteLineSection::Vertex, vk_allocator<vk::RouteLineSection::Vertex>> _field2;
+    struct vector<vk::RouteLineSection::Arrow, vk_allocator<vk::RouteLineSection::Arrow>> _field3;
+    struct vector<vk::RouteLineSection::Arrow, vk_allocator<vk::RouteLineSection::Arrow>> _field4;
+    _Bool _field5;
+    float _field6;
+    float _field7;
+    struct list<VGLRouteLineMesh *, vk_allocator<VGLRouteLineMesh *>> _field8;
+    struct VertexSource *_field9;
+    struct VKPolylineWalker<vk::RouteLineSection::Vertex> _field10;
+    struct VKRouteLineToMeshPathMap _field11;
+    struct PolylineCoordinate _field12;
+    struct PolylineCoordinate _field13;
+    unsigned int *_field14;
+    unsigned int _field15;
+    double _field16;
+    float _field17;
+};
 
-struct SapOverlap;
+struct RouteLineStyle {
+    float strokeWidthRegularPoints;
+    double halfWidthRegularPoints;
+    double halfWidthRegularUnselectedScale;
+    double halfWidthRealisticMeters;
+    struct _VGLColor travelledRegularRouteLineColor;
+    struct _VGLColor inverseBaseColorSelected;
+    struct _VGLColor inverseBaseColorUnselected;
+    NSString *selectedTextureNameRealistic;
+    NSString *obscuredTextureNameRealistic;
+    NSString *travelledTextureNameRealistic;
+    double widthEnlargementStartZoom;
+    double widthEnlargementScale;
+    double maxEnlargement;
+    float arrowMinZoom;
+};
+
+struct RouteMapMatchingSection {
+    void **_field1;
+};
+
+struct RouteSegment;
+
+struct SnappedPathMapMatchingSection;
+
+struct SpringDamper {
+    double _position;
+    double _velocity;
+    double _acceleration;
+    double _kSpring;
+    double _kDamper;
+    double _restingPosition;
+};
 
 struct String {
-    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
-        struct __rep {
-            union {
-                struct __long {
-                    unsigned int _field1;
-                    unsigned int _field2;
-                    char *_field3;
-                } _field1;
-                struct __short {
-                    union {
-                        unsigned char _field1;
-                        char _field2;
-                    } _field1;
-                    char _field2[11];
-                } _field2;
-                struct __raw {
-                    unsigned long _field1[3];
-                } _field3;
-            } _field1;
-        } _field1;
-    } _field1;
+    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
 };
+
+struct TextLabelPart;
+
+struct TileExclusionArea;
 
 struct TrafficAccum {
     int _field1;
-    struct vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>> _field2;
+    struct vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>> _field2;
     int _field3;
     int _field4;
     int _field5;
@@ -264,8 +563,12 @@ struct TrafficAccum {
 
 struct TrafficDynamicTile;
 
+struct TrafficIncidentLabelPool {
+    struct vector<std::__1::shared_ptr<vk::InfoLabel>, vk_allocator<std::__1::shared_ptr<vk::InfoLabel>>> _field1;
+};
+
 struct TrafficSegment {
-    CDStruct_3f2a7a20 _field1;
+    struct PolylineCoordinate _field1;
     char _field2;
 };
 
@@ -281,59 +584,37 @@ struct TrafficWalking {
     unsigned int *_field5;
 };
 
-struct UIEdgeInsets {
-    float top;
-    float left;
-    float bottom;
-    float right;
-};
+struct UniformHandle;
 
-struct VGLFontAtlasCell {
-    int _field1;
-    CDStruct_1ef3fb1f _field2;
-    unsigned int _field3;
-    CDStruct_183601bc *_field4;
-    struct list_node<void *> *_field5;
-    struct list_node<void *> *_field6;
-};
-
-struct VGLFontGlyphQuad_struct;
-
-struct VGLFontGlyph_struct {
-    unsigned short _field1;
-    char _field2;
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-    } _field3;
-    struct CGFont *_field4;
-    float _field5;
-    float _field6;
-    float _field7;
-    struct {
-        CDStruct_6e3f967a _field1;
-        void *_field2;
-        struct VGLFontAtlasCell *_field3;
-        struct {
-            float _field1;
-            float _field2;
-            float _field3;
-            float _field4;
-        } _field4;
-        struct {
-            float _field1;
-            float _field2;
-            float _field3;
-            float _field4;
-        } _field5;
-    } _field8;
+struct VGLIconMeshVAO {
+    void **_field1;
+    struct vector<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad>> _field2;
+    struct vector<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad>> _field3;
+    unsigned int _field4;
+    id _field5;
+    id _field6;
+    id _field7;
+    unsigned int _field8;
+    _Bool _field9;
+    _Bool _field10;
 };
 
 struct VGLMeshLeafNode;
 
 struct VGLMeshNode;
+
+struct VGLTextMeshVAO {
+    void **_field1;
+    struct vector<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad>> _field2;
+    struct vector<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad>> _field3;
+    unsigned int _field4;
+    id _field5;
+    id _field6;
+    id _field7;
+    unsigned int _field8;
+    _Bool _field9;
+    _Bool _field10;
+};
 
 struct VKCacheKey {
     unsigned int a;
@@ -343,7 +624,7 @@ struct VKCacheKey {
 };
 
 struct VKCameraState {
-    CDStruct_31142d93 position;
+    struct VKPoint position;
     CDStruct_aa5aacbc orientation;
     float aspectRatio;
     float verticalFieldOfView;
@@ -356,10 +637,17 @@ struct VKCircularBuffer<double> {
     double _field4;
 };
 
+struct VKEdgeInsets {
+    float top;
+    float left;
+    float bottom;
+    float right;
+};
+
 struct VKFootprintConvexHull_struct {
     int edgeCount;
-    CDStruct_31142d93 edgeOrigin[6];
-    CDStruct_31142d93 edgeNormal[6];
+    struct VKPoint edgeOrigin[6];
+    Vec3Imp_f658403c edgeNormal[6];
 };
 
 struct VKGlobeRouteSplit {
@@ -367,22 +655,102 @@ struct VKGlobeRouteSplit {
     id _field2;
 };
 
+struct VKGlobeRouteStyle {
+    float _field1;
+    float _field2;
+    float _field3;
+    struct Color _field4;
+    struct Color _field5;
+    struct Color _field6;
+    struct Color _field7;
+    struct Color _field8;
+    float _field9;
+    float _field10;
+    float _field11;
+    float _field12;
+};
+
 struct VKGlobeStylesheet;
+
+struct VKLabelNavRouteRoadEdge {
+    struct PolylineCoordinate _field1;
+    struct PolylineCoordinate _field2;
+    CDStruct_183601bc *_field3;
+};
+
+struct VKLabelStyle {
+    char _field1;
+    unsigned int _field2;
+    float _field3;
+    char _field4;
+    struct _VGLColor _field5;
+    struct _VGLColor _field6;
+    unsigned int _field7;
+    float _field8;
+    float _field9;
+    CDStruct_44473e2f _field10;
+    int _field11;
+    char _field12;
+    float _field13;
+    float _field14;
+    struct _VGLColor _field15;
+    struct _VGLColor _field16;
+    int _field17;
+    int _field18;
+    int _field19;
+    char _field20;
+    char _field21;
+    char _field22;
+    float _field23;
+    int _field24;
+    float _field25;
+    float _field26;
+    float _field27;
+    float _field28;
+    float _field29;
+    float _field30;
+    char _field31;
+    float _field32;
+    int _field33;
+    float _field34;
+    int _field35;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field36;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field37;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field38;
+    struct FontOptions _field39;
+};
+
+struct VKNavigationCameraModel {
+    double _halfVerticalFov;
+    double _horizontalFov;
+    double _tanHalfHorizontalFov;
+    struct SpringDamper _pitchSpring;
+    struct AngularSpringDamper _courseSpring;
+    struct SpringDamper _referenceScreenOffsetSpring;
+    struct SpringDamper _boomLengthSpring;
+    State_3e0671f0 _targetState;
+    double _previousUpdateTime;
+};
 
 struct VKPerformanceTestResult_struct {
     char *_field1;
     float _field2[5];
 };
 
-struct VKPolylineWalker {
-    char *_field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
+struct VKPoint {
+    double x;
+    double y;
+    double z;
 };
 
+struct VKPolylineWalker<vk::RouteLineSection::Vertex> {
+    struct VKPolylineWalkerDataSource<vk::RouteLineSection::Vertex> *_field1;
+};
+
+struct VKPolylineWalkerDataSource<vk::RouteLineSection::Vertex>;
+
 struct VKProfileSparseRamp<CGSize> {
-    union {
+    union _u {
         struct VKProfileSparseRampValue {
             struct CGSize value;
             unsigned char hi;
@@ -392,29 +760,23 @@ struct VKProfileSparseRamp<CGSize> {
     unsigned char count;
 };
 
-struct VKProfileSparseRamp<GEOVectorTilePoint> {
-    union {
-        struct VKProfileSparseRampValue {
-            CDStruct_6e3f967a value;
-            unsigned char hi;
-        } v[2];
-        CDStruct_183601bc *extra;
-    } u;
+struct VKProfileSparseRamp<VKBlendMode> {
+    _u_73374b6e u;
     unsigned char count;
 };
 
-struct VKProfileSparseRamp<VKGenericShieldStyle> {
-    CDUnion_5c76812d u;
+struct VKProfileSparseRamp<VKIconGlyphStyle> {
+    _u_73374b6e u;
     unsigned char count;
 };
 
 struct VKProfileSparseRamp<VKLabelTextVisibility> {
-    CDUnion_5c76812d u;
+    _u_73374b6e u;
     unsigned char count;
 };
 
 struct VKProfileSparseRamp<_VGLColor> {
-    union {
+    union _u {
         struct VKProfileSparseRampValue {
             struct _VGLColor value;
             unsigned char hi;
@@ -425,7 +787,7 @@ struct VKProfileSparseRamp<_VGLColor> {
 };
 
 struct VKProfileSparseRamp<float> {
-    union {
+    union _u {
         struct VKProfileSparseRampValue {
             float value;
             unsigned char hi;
@@ -435,13 +797,24 @@ struct VKProfileSparseRamp<float> {
     unsigned char count;
 };
 
+struct VKProfileSparseRamp<geo::Vec2Imp<float>> {
+    union _u {
+        struct VKProfileSparseRampValue {
+            Vec2Imp_1782d7e3 value;
+            unsigned char hi;
+        } v[2];
+        Vec2Imp_1782d7e3 *extra;
+    } u;
+    unsigned char count;
+};
+
 struct VKProfileSparseRamp<int> {
-    CDUnion_5c76812d u;
+    _u_73374b6e u;
     unsigned char count;
 };
 
 struct VKProfileSparseRamp<signed char> {
-    union {
+    union _u {
         struct VKProfileSparseRampValue {
             char value;
             unsigned char hi;
@@ -452,7 +825,7 @@ struct VKProfileSparseRamp<signed char> {
 };
 
 struct VKProfileSparseRamp<unsigned int> {
-    union {
+    union _u {
         struct VKProfileSparseRampValue {
             unsigned int value;
             unsigned char hi;
@@ -462,35 +835,29 @@ struct VKProfileSparseRamp<unsigned int> {
     unsigned char count;
 };
 
-struct VKRibbonMakerData_t {
+struct VKRasterTileKey {
+    unsigned int x;
+    unsigned int y;
+    unsigned int z;
+    unsigned int pointSize;
+};
+
+struct VKRibbonMakerData {
     id _field1;
     id _field2;
     char _field3;
-    float _field4;
-    float _field5;
-    char _field6;
-    float _field7;
+    char _field4;
+    char _field5;
+    float _field6;
+    char _field7;
     char _field8;
     char _field9;
-    char _field10;
+    struct vector<VKRibbonPolylineSegment, vk_allocator<VKRibbonPolylineSegment>> _field10;
 };
 
-struct VKRouteLineFeatureCache {
-    struct unordered_map<GEOMultiSectionFeature *, VKRouteLineFeature, std::__1::hash<GEOMultiSectionFeature *>, std::__1::equal_to<GEOMultiSectionFeature *>, vk_allocator<std::__1::pair<GEOMultiSectionFeature *const, VKRouteLineFeature>>> _map;
-    CDStruct_aca18c62 _routeLineRect;
-};
+struct VKRibbonMultiPolylineSegment;
 
-struct VKRouteLineSection {
-    struct vector<VKRouteMapMatchingSection::Vertex, vk_allocator<VKRouteMapMatchingSection::Vertex>> _field1;
-    _Bool _field2;
-    float _field3;
-    float _field4;
-    struct list<VGLRouteLineMesh *, vk_allocator<VGLRouteLineMesh *>> _field5;
-    struct VKPolylineWalker _field6;
-    struct VKRouteLineToMeshPathMap _field7;
-    CDStruct_3f2a7a20 _field8;
-    CDStruct_3f2a7a20 _field9;
-};
+struct VKRibbonPolylineSegment;
 
 struct VKRouteLineToMeshPathMap {
     struct list<VKRouteLineToMeshPathMap::Range, vk_allocator<VKRouteLineToMeshPathMap::Range>> _field1;
@@ -506,47 +873,43 @@ struct VKTileKey {
     unsigned int pointSize;
 };
 
+struct Vec2Imp<double> {
+    double x;
+    double y;
+};
+
+struct Vec2Imp<float> {
+    float x;
+    float y;
+};
+
+struct Vec3Imp<double> {
+    double x;
+    double y;
+    double z;
+};
+
 struct Vector2i {
-    int _field1;
-    int _field2;
+    int _x;
+    int _y;
 };
 
-struct Vertex {
-    CDStruct_6e3f967a _field1;
-    CDStruct_3f2a7a20 _field2;
-    float _field3;
-    CDStruct_183601bc *_field4;
-    unsigned char _field5;
-    char _field6;
-    float _field7;
+struct Vector3d {
+    double _x;
+    double _y;
+    double _z;
 };
 
-struct ViewTransform {
+struct Vertex;
+
+struct VertexQuad;
+
+struct VertexSource;
+
+struct ViewTransform;
+
+struct Viewer {
     void **_field1;
-    int _field2;
-    CDStruct_31142d93 _field3;
-    CDStruct_31142d93 _field4;
-    CDStruct_31142d93 _field5;
-    float _field6;
-    float _field7;
-    _Bool _field8;
-    float _field9;
-    double _field10;
-    CDStruct_aa5aacbc _field11;
-    CDStruct_aa5aacbc _field12;
-    CDStruct_aa5aacbc _field13;
-    id _field14;
-    float _field15;
-    _Bool _field16;
-    CDStruct_31142d93 _field17;
-    CDStruct_31142d93 _field18;
-    double _field19;
-    double _field20;
-    struct CGSize _field21;
-    float _field22;
-    CDStruct_17faa5b0 _field23;
-    CDStruct_31142d93 _field24;
-    CDStruct_31142d93 _field25;
 };
 
 struct _GEOTileKey {
@@ -576,17 +939,45 @@ struct _VGLColor {
 
 struct _VKRealisticPolygonMetaData;
 
-struct __hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>;
+struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
+    struct __rep {
+        union {
+            struct __long {
+                unsigned int _field1;
+                unsigned int _field2;
+                char *_field3;
+            } _field1;
+            struct __short {
+                union {
+                    unsigned char _field1;
+                    char _field2;
+                } _field1;
+                char _field2[11];
+            } _field2;
+            struct __raw {
+                unsigned long _field1[3];
+            } _field3;
+        } _field1;
+    } _field1;
+};
 
-struct __hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>;
+struct __hash_node<int, void *>;
 
-struct __hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>;
+struct __hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>;
+
+struct __hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>;
 
 struct __hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>;
 
-struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>;
+struct __hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>;
+
+struct __hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>;
+
+struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>;
 
 struct __hash_node<std::__1::pair<unsigned int, unsigned int>, void *>;
+
+struct __hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>;
 
 struct __list_node<VGLRouteLineMesh *, void *>;
 
@@ -594,8 +985,8 @@ struct __list_node<VKRouteLineToMeshPathMap::Range, void *>;
 
 struct __shared_weak_count;
 
-struct __wrap_iter<VGLFontGlyphQuad_struct *> {
-    struct VGLFontGlyphQuad_struct *_field1;
+struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
+    struct __tree_node_base<void *> *__left_;
 };
 
 struct _opaque_pthread_mutex_t {
@@ -603,27 +994,55 @@ struct _opaque_pthread_mutex_t {
     char __opaque[40];
 };
 
-struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>;
+struct _release_objc;
+
+struct _retain_objc;
+
+struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
+    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
+};
 
 struct bitset<16> {
     unsigned int __first_;
 };
 
-struct bitset<64> {
-    unsigned long __first_[2];
+struct bitset<32> {
+    unsigned int __first_;
 };
 
-struct data_t {
-    struct root_plus_size root_plus_size_;
+struct deque<std::__1::shared_ptr<vk::InfoOcclusionQuery>, std::__1::allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>>> {
+    struct __split_buffer<std::__1::shared_ptr<vk::InfoOcclusionQuery>*, std::__1::allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>*>> {
+        struct shared_ptr<vk::InfoOcclusionQuery> **_field1;
+        struct shared_ptr<vk::InfoOcclusionQuery> **_field2;
+        struct shared_ptr<vk::InfoOcclusionQuery> **_field3;
+        struct __compressed_pair<std::__1::shared_ptr<vk::InfoOcclusionQuery>**, std::__1::allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>*>> {
+            struct shared_ptr<vk::InfoOcclusionQuery> **_field1;
+        } _field4;
+    } _field1;
+    unsigned int _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>>> {
+        unsigned long _field1;
+    } _field3;
 };
 
-struct dynamic_bitset<unsigned long, std::__1::allocator<unsigned long>> {
-    struct vector<unsigned long, std::__1::allocator<unsigned long>> m_bits;
-    unsigned int m_num_bits;
+struct deque<unsigned int, std::__1::allocator<unsigned int>> {
+    struct __split_buffer<unsigned int *, std::__1::allocator<unsigned int *>> {
+        unsigned int **_field1;
+        unsigned int **_field2;
+        unsigned int **_field3;
+        struct __compressed_pair<unsigned int **, std::__1::allocator<unsigned int *>> {
+            unsigned int **_field1;
+        } _field4;
+    } _field1;
+    unsigned int _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<unsigned int>> {
+        unsigned long _field1;
+    } _field3;
 };
 
-struct list<VGLFontAtlasCell, boost::intrusive::none, boost::intrusive::none, boost::intrusive::none> {
-    struct data_t data_;
+struct function<void (const vk::RoadPiece &)> {
+    struct type _field1;
+    struct __base<void (const vk::RoadPiece &)> *_field2;
 };
 
 struct list<VGLRouteLineMesh *, vk_allocator<VGLRouteLineMesh *>> {
@@ -646,43 +1065,136 @@ struct list<VKRouteLineToMeshPathMap::Range, vk_allocator<VKRouteLineToMeshPathM
     } _field2;
 };
 
-struct list_node<void *> {
-    struct list_node<void *> *next_;
-    struct list_node<void *> *prev_;
+struct map<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>, std::__1::less<VKLabelDrawStyle *>, vk_allocator<std::__1::pair<VKLabelDrawStyle *const, std::__1::shared_ptr<vk::LabelStyle>>>> {
+    struct __tree<std::__1::pair<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>>, std::__1::__map_value_compare<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>, std::__1::less<VKLabelDrawStyle *>, true>, vk_allocator<std::__1::pair<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>>>> {
+        struct __tree_node<std::__1::pair<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<VKLabelDrawStyle *, std::__1::shared_ptr<vk::LabelStyle>, std::__1::less<VKLabelDrawStyle *>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
 };
 
-struct map<VKPolylineOverlay *, unsigned int, std::__1::less<VKPolylineOverlay *>, vk_allocator<std::__1::pair<VKPolylineOverlay *const, unsigned int>>> {
-    struct __tree<std::__1::pair<VKPolylineOverlay *, unsigned int>, std::__1::__map_value_compare<VKPolylineOverlay *, unsigned int, std::__1::less<VKPolylineOverlay *>, true>, vk_allocator<std::__1::pair<VKPolylineOverlay *, unsigned int>>> {
-        struct __tree_node<std::__1::pair<VKPolylineOverlay *, unsigned int>, void *> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<VKPolylineOverlay *, unsigned int>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
-                struct __tree_node_base<void *> *__left_;
-            } __first_;
+struct map<VKPolylineOverlay *, altitude::RouteLineData *, std::__1::less<VKPolylineOverlay *>, vk_allocator<std::__1::pair<VKPolylineOverlay *const, altitude::RouteLineData *>>> {
+    struct __tree<std::__1::pair<VKPolylineOverlay *, altitude::RouteLineData *>, std::__1::__map_value_compare<VKPolylineOverlay *, altitude::RouteLineData *, std::__1::less<VKPolylineOverlay *>, true>, vk_allocator<std::__1::pair<VKPolylineOverlay *, altitude::RouteLineData *>>> {
+        struct __tree_node<std::__1::pair<VKPolylineOverlay *, altitude::RouteLineData *>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<VKPolylineOverlay *, altitude::RouteLineData *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<VKPolylineOverlay *, unsigned int, std::__1::less<VKPolylineOverlay *>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<VKPolylineOverlay *, altitude::RouteLineData *, std::__1::less<VKPolylineOverlay *>, true>> {
             unsigned long __first_;
         } __pair3_;
     } __tree_;
 };
 
-struct mutex {
-    struct _opaque_pthread_mutex_t _field1;
+struct map<VKTileKey, std::__1::shared_ptr<vk::StandardInfoMapTile>, TileKeyComparer, std::__1::allocator<std::__1::pair<const VKTileKey, std::__1::shared_ptr<vk::StandardInfoMapTile>>>> {
+    struct __tree<std::__1::pair<VKTileKey, std::__1::shared_ptr<vk::StandardInfoMapTile>>, std::__1::__map_value_compare<VKTileKey, std::__1::shared_ptr<vk::StandardInfoMapTile>, TileKeyComparer, true>, std::__1::allocator<std::__1::pair<VKTileKey, std::__1::shared_ptr<vk::StandardInfoMapTile>>>> {
+        struct __tree_node<std::__1::pair<VKTileKey, std::__1::shared_ptr<vk::StandardInfoMapTile>>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<VKTileKey, std::__1::shared_ptr<vk::StandardInfoMapTile>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<VKTileKey, std::__1::shared_ptr<vk::StandardInfoMapTile>, TileKeyComparer, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
 };
 
-struct root_plus_size {
-    unsigned long size_;
-    struct list_node<void *> root_;
+struct map<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, vk_allocator<std::__1::pair<const std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>>> {
+    struct __tree<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>, std::__1::__map_value_compare<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, true>, vk_allocator<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>>> {
+        struct __tree_node<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<unsigned long long, unsigned int>, std::__1::shared_ptr<vk::InfoLabel>, std::__1::less<std::__1::pair<unsigned long long, unsigned int>>, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<vk::Anchor *, float, std::__1::less<vk::Anchor *>, std::__1::allocator<std::__1::pair<vk::Anchor *const, float>>> {
+    struct __tree<std::__1::pair<vk::Anchor *, float>, std::__1::__map_value_compare<vk::Anchor *, float, std::__1::less<vk::Anchor *>, true>, std::__1::allocator<std::__1::pair<vk::Anchor *, float>>> {
+        struct __tree_node<std::__1::pair<vk::Anchor *, float>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::pair<vk::Anchor *, float>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<vk::Anchor *, float, std::__1::less<vk::Anchor *>, true>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Less, vk_allocator<std::__1::pair<const vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>>> {
+    struct __tree<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>, std::__1::__map_value_compare<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Less, true>, vk_allocator<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>>> {
+        struct __tree_node<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::PointLabelFeature>::Less, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Less, vk_allocator<std::__1::pair<const vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>>> {
+    struct __tree<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>, std::__1::__map_value_compare<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Less, true>, vk_allocator<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>>> {
+        struct __tree_node<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>, void *> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::pair<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Key, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Value, vk::InfoLabelFeaturePool::FeaturePoolEntry<vk::RoadLabelFeature>::Less, true>> {
+            unsigned long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct mutex {
+    struct _opaque_pthread_mutex_t __m_;
+};
+
+struct pair<unsigned int, VKRibbonMultiPolylineSegment *>;
+
+struct queue<std::__1::shared_ptr<vk::InfoOcclusionQuery>, std::__1::deque<std::__1::shared_ptr<vk::InfoOcclusionQuery>, std::__1::allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>>>> {
+    struct deque<std::__1::shared_ptr<vk::InfoOcclusionQuery>, std::__1::allocator<std::__1::shared_ptr<vk::InfoOcclusionQuery>>> _field1;
+};
+
+struct queue<unsigned int, std::__1::deque<unsigned int, std::__1::allocator<unsigned int>>> {
+    struct deque<unsigned int, std::__1::allocator<unsigned int>> _field1;
+};
+
+struct recursive_mutex {
+    struct _opaque_pthread_mutex_t __m_;
+};
+
+struct routelineTrafficSegment;
+
+struct set<std::__1::shared_ptr<vk::PointLabelFeature>, std::__1::less<std::__1::shared_ptr<vk::PointLabelFeature>>, vk_allocator<std::__1::shared_ptr<vk::PointLabelFeature>>> {
+    struct __tree<std::__1::shared_ptr<vk::PointLabelFeature>, std::__1::less<std::__1::shared_ptr<vk::PointLabelFeature>>, vk_allocator<std::__1::shared_ptr<vk::PointLabelFeature>>> {
+        struct __tree_node<std::__1::shared_ptr<vk::PointLabelFeature>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::shared_ptr<vk::PointLabelFeature>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::less<std::__1::shared_ptr<vk::PointLabelFeature>>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct set<std::__1::shared_ptr<vk::RoadLabelFeature>, std::__1::less<std::__1::shared_ptr<vk::RoadLabelFeature>>, vk_allocator<std::__1::shared_ptr<vk::RoadLabelFeature>>> {
+    struct __tree<std::__1::shared_ptr<vk::RoadLabelFeature>, std::__1::less<std::__1::shared_ptr<vk::RoadLabelFeature>>, vk_allocator<std::__1::shared_ptr<vk::RoadLabelFeature>>> {
+        struct __tree_node<std::__1::shared_ptr<vk::RoadLabelFeature>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::shared_ptr<vk::RoadLabelFeature>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::less<std::__1::shared_ptr<vk::RoadLabelFeature>>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
 };
 
 struct shared_ptr<VGLMeshNode> {
     struct VGLMeshNode *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<VGLTextMeshVAO>;
-
-struct shared_ptr<VKGlobeStylesheet> {
-    struct VKGlobeStylesheet *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -691,13 +1203,86 @@ struct shared_ptr<bool> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<const vk::LabelFeatureText> {
-    struct LabelFeatureText *_field1;
+struct shared_ptr<const std::__1::vector<zilch::GeoCoordinates, std::__1::allocator<zilch::GeoCoordinates>>> {
+    struct vector<zilch::GeoCoordinates, std::__1::allocator<zilch::GeoCoordinates>> *_field1;
     struct __shared_weak_count *_field2;
 };
 
-struct shared_ptr<vk::Label> {
-    struct Label *__ptr_;
+struct shared_ptr<geo::MapEdge> {
+    struct MapEdge *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<vk::Anchor> {
+    struct Anchor *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<vk::AnchorContext> {
+    struct AnchorContext *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<vk::AnchorFactory> {
+    struct AnchorFactory *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<vk::FontAtlasPage> {
+    struct FontAtlasPage *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<vk::GlobeAdapterData> {
+    struct GlobeAdapterData *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<vk::InfoLabel> {
+    struct InfoLabel *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<vk::InfoMapTile>;
+
+struct shared_ptr<vk::InfoOcclusionQuery>;
+
+struct shared_ptr<vk::LabelFeature> {
+    struct LabelFeature *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<vk::LabelIcon>;
+
+struct shared_ptr<vk::LabelManager> {
+    struct LabelManager *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<vk::LabelManagerNotifierHook> {
+    struct LabelManagerNotifierHook *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<vk::LabelTrafficTilePool> {
+    struct LabelTrafficTilePool *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<vk::NavLabel> {
+    struct NavLabel *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<vk::TrafficIncidentLabelFeature>;
+
+struct shared_ptr<vk::VKGlobeStylesheet> {
+    struct VKGlobeStylesheet *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<vk::ViewTransform> {
+    struct ViewTransform *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -706,33 +1291,37 @@ struct shared_ptr<zilch::TrafficDynamicTile> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>*>>> {
-        struct __hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>*>> {
+struct type {
+    unsigned char _field1[12];
+};
+
+struct unique_ptr<std::__1::__hash_node<int, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<int, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<int, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<int, void *>*>>> {
+        struct __hash_node<int, void *> **__first_;
+        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<int, void *>*>> {
+            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<int, void *>*>> {
                 unsigned long __first_;
             } __data_;
         } __second_;
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>*>>> {
-        struct __hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *> **__first_;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>*>> {
+struct unique_ptr<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>>> {
+        struct __hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *> **__first_;
+        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>> {
+            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>> {
                 unsigned long __first_;
             } __data_;
         } __second_;
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>*>>> {
-        struct __hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>*>> {
+struct unique_ptr<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>>> {
+        struct __hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *> **__first_;
+        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>> {
+            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>> {
                 unsigned long __first_;
             } __data_;
         } __second_;
@@ -750,11 +1339,33 @@ struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, const zilch::T
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*>>> {
-    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*>>> {
-        struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *> **_field1;
-        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*>> {
-            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*>> {
+struct unique_ptr<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> {
+        struct __hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *> **__first_;
+        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>> {
+            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>>> {
+        struct __hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *> **__first_;
+        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>> {
+            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>> {
+                unsigned long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>>> {
+        struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *> **_field1;
+        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>> {
+            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>> {
                 unsigned long _field1;
             } _field1;
         } _field2;
@@ -772,69 +1383,86 @@ struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, unsigned in
     } __ptr_;
 };
 
-struct unordered_map<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *, std::__1::hash<(null)<anonymous>::GlyphCacheKey>, std::__1::equal_to<(null)<anonymous>::GlyphCacheKey>, std::__1::allocator<std::__1::pair<const <anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>>> {
-    struct __hash_table<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, std::__1::__unordered_map_hasher<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *, std::__1::hash<(null)<anonymous>::GlyphCacheKey>, true>, std::__1::__unordered_map_equal<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *, std::__1::equal_to<(null)<anonymous>::GlyphCacheKey>, true>, std::__1::allocator<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *>*> {
-                struct __hash_node<std::__1::pair<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *, std::__1::hash<(null)<anonymous>::GlyphCacheKey>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<(null)<anonymous>::GlyphCacheKey, VGLFontGlyph_struct *, std::__1::equal_to<(null)<anonymous>::GlyphCacheKey>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<GEOMultiSectionFeature *, VKRouteLineFeature, std::__1::hash<GEOMultiSectionFeature *>, std::__1::equal_to<GEOMultiSectionFeature *>, vk_allocator<std::__1::pair<GEOMultiSectionFeature *const, VKRouteLineFeature>>> {
-    struct __hash_table<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, std::__1::__unordered_map_hasher<GEOMultiSectionFeature *, VKRouteLineFeature, std::__1::hash<GEOMultiSectionFeature *>, true>, std::__1::__unordered_map_equal<GEOMultiSectionFeature *, VKRouteLineFeature, std::__1::equal_to<GEOMultiSectionFeature *>, true>, vk_allocator<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *>*> {
-                struct __hash_node<std::__1::pair<GEOMultiSectionFeature *, VKRouteLineFeature>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<GEOMultiSectionFeature *, VKRouteLineFeature, std::__1::hash<GEOMultiSectionFeature *>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<GEOMultiSectionFeature *, VKRouteLineFeature, std::__1::equal_to<GEOMultiSectionFeature *>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<VGLUncompressedTexture *, VGLIconSubMesh *, std::__1::hash<VGLUncompressedTexture *>, std::__1::equal_to<VGLUncompressedTexture *>, std::__1::allocator<std::__1::pair<VGLUncompressedTexture *const, VGLIconSubMesh *>>> {
-    struct __hash_table<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, std::__1::__unordered_map_hasher<VGLUncompressedTexture *, VGLIconSubMesh *, std::__1::hash<VGLUncompressedTexture *>, true>, std::__1::__unordered_map_equal<VGLUncompressedTexture *, VGLIconSubMesh *, std::__1::equal_to<VGLUncompressedTexture *>, true>, std::__1::allocator<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *>*> {
-                struct __hash_node<std::__1::pair<VGLUncompressedTexture *, VGLIconSubMesh *>, void *> *__next_;
-            } __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<VGLUncompressedTexture *, VGLIconSubMesh *, std::__1::hash<VGLUncompressedTexture *>, true>> {
-            unsigned long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<VGLUncompressedTexture *, VGLIconSubMesh *, std::__1::equal_to<VGLUncompressedTexture *>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>>> {
-    struct __hash_table<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*> {
-                struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *> *_field1;
+struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>>> {
+    struct __compressed_pair<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>**, std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>>> {
+        struct __hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *> **_field1;
+        struct __bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>> {
+            struct __compressed_pair<unsigned long, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>> {
+                unsigned long _field1;
             } _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>, std::__1::hash<unsigned int>, true>> {
+    } _field1;
+};
+
+struct unique_ptr<vk::SnappedPathMapMatchingSection, std::__1::default_delete<vk::SnappedPathMapMatchingSection>> {
+    struct __compressed_pair<vk::SnappedPathMapMatchingSection *, std::__1::default_delete<vk::SnappedPathMapMatchingSection>> {
+        struct SnappedPathMapMatchingSection *__first_;
+    } __ptr_;
+};
+
+struct unordered_map<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, std::__1::equal_to<VKVectorTile *>, vk_allocator<std::__1::pair<VKVectorTile *const, OccluderGroupList>>> {
+    struct __hash_table<std::__1::pair<VKVectorTile *, OccluderGroupList>, std::__1::__unordered_map_hasher<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, true>, std::__1::__unordered_map_equal<VKVectorTile *, OccluderGroupList, std::__1::equal_to<VKVectorTile *>, true>, vk_allocator<std::__1::pair<VKVectorTile *, OccluderGroupList>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *>*> {
+                struct __hash_node<std::__1::pair<VKVectorTile *, OccluderGroupList>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<VKVectorTile *, OccluderGroupList, std::__1::equal_to<VKVectorTile *>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::hash<int>, std::__1::equal_to<int>, vk_allocator<std::__1::pair<const int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>>> {
+    struct __hash_table<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, std::__1::__unordered_map_hasher<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::hash<int>, true>, std::__1::__unordered_map_equal<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::equal_to<int>, true>, vk_allocator<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *>*> {
+                struct __hash_node<std::__1::pair<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::hash<int>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<int, std::__1::vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>>, std::__1::equal_to<int>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, vk_allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
+    struct __hash_table<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::equal_to<std::__1::basic_string<char>>, true>, vk_allocator<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*> {
+                struct __hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::equal_to<std::__1::basic_string<char>>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>>> {
+    struct __hash_table<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*> {
+                struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>, std::__1::equal_to<unsigned int>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::equal_to<unsigned int>, true>> {
             float _field1;
         } _field4;
     } _field1;
@@ -857,6 +1485,23 @@ struct unordered_map<unsigned int, unsigned int, std::__1::hash<unsigned int>, s
     } __table_;
 };
 
+struct unordered_map<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, vk::BuildingTopMeshFactory::Group>>> {
+    struct __hash_table<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, std::__1::__unordered_map_hasher<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *>*> {
+                struct __hash_node<std::__1::pair<unsigned int, vk::BuildingTopMeshFactory::Group>, void *> *_field1;
+            } _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::hash<unsigned int>, true>> {
+            unsigned long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, vk::BuildingTopMeshFactory::Group, std::__1::equal_to<unsigned int>, true>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
 struct unordered_multimap<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::hash<long long>, std::__1::equal_to<long long>, vk_allocator<std::__1::pair<const long long, const zilch::TrafficDynamicTile::Flow *>>> {
     struct __hash_table<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::__unordered_map_hasher<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::equal_to<long long>, true>, vk_allocator<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>>> {
         struct unique_ptr<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>>> __bucket_list_;
@@ -874,12 +1519,46 @@ struct unordered_multimap<long long, const zilch::TrafficDynamicTile::Flow *, st
     } __table_;
 };
 
-struct vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>> {
-    CDStruct_183601bc *_field1;
-    CDStruct_183601bc *_field2;
-    struct __compressed_pair<GEOVectorTilePoint *, vk_allocator<GEOVectorTilePoint>> {
-        CDStruct_183601bc *_field1;
-    } _field3;
+struct unordered_multimap<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, VKRibbonMultiPolylineSegment *>>> {
+    struct __hash_table<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, std::__1::__unordered_map_hasher<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*> {
+                struct __hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::equal_to<unsigned int>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_set<int, std::__1::hash<int>, std::__1::equal_to<int>, vk_allocator<int>> {
+    struct __hash_table<int, std::__1::hash<int>, std::__1::equal_to<int>, vk_allocator<int>> {
+        struct unique_ptr<std::__1::__hash_node<int, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<int, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<int, void *>*>, vk_allocator<std::__1::__hash_node<int, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<int, void *>*> {
+                struct __hash_node<int, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::hash<int>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::equal_to<int>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct vector<GEOLocationCoordinate2D, vk_allocator<GEOLocationCoordinate2D>> {
+    CDStruct_183601bc *__begin_;
+    CDStruct_183601bc *__end_;
+    struct __compressed_pair<GEOLocationCoordinate2D *, vk_allocator<GEOLocationCoordinate2D>> {
+        CDStruct_183601bc *__first_;
+    } __end_cap_;
 };
 
 struct vector<LabelNavJunctionInfo, vk_allocator<LabelNavJunctionInfo>> {
@@ -906,12 +1585,28 @@ struct vector<LineStipple, vk_allocator<LineStipple>> {
     } __end_cap_;
 };
 
+struct vector<PolygonRenderStep, vk_allocator<PolygonRenderStep>> {
+    CDStruct_183601bc *__begin_;
+    CDStruct_183601bc *__end_;
+    struct __compressed_pair<PolygonRenderStep *, vk_allocator<PolygonRenderStep>> {
+        CDStruct_183601bc *__first_;
+    } __end_cap_;
+};
+
 struct vector<RouteJunctionInfo, vk_allocator<RouteJunctionInfo>> {
     struct RouteJunctionInfo *_field1;
     struct RouteJunctionInfo *_field2;
     struct __compressed_pair<RouteJunctionInfo *, vk_allocator<RouteJunctionInfo>> {
         struct RouteJunctionInfo *_field1;
     } _field3;
+};
+
+struct vector<RouteSegment, vk_allocator<RouteSegment>> {
+    struct RouteSegment *__begin_;
+    struct RouteSegment *__end_;
+    struct __compressed_pair<RouteSegment *, vk_allocator<RouteSegment>> {
+        struct RouteSegment *__first_;
+    } __end_cap_;
 };
 
 struct vector<TrafficSegment, vk_allocator<TrafficSegment>> {
@@ -922,19 +1617,19 @@ struct vector<TrafficSegment, vk_allocator<TrafficSegment>> {
     } __end_cap_;
 };
 
-struct vector<VGLFontGlyphQuad_struct, vk_allocator<VGLFontGlyphQuad_struct>> {
-    struct VGLFontGlyphQuad_struct *_field1;
-    struct VGLFontGlyphQuad_struct *_field2;
-    struct __compressed_pair<VGLFontGlyphQuad_struct *, vk_allocator<VGLFontGlyphQuad_struct>> {
-        struct VGLFontGlyphQuad_struct *_field1;
-    } _field3;
+struct vector<UniformHandle, vk_allocator<UniformHandle>> {
+    struct UniformHandle *__begin_;
+    struct UniformHandle *__end_;
+    struct __compressed_pair<UniformHandle *, vk_allocator<UniformHandle>> {
+        struct UniformHandle *__first_;
+    } __end_cap_;
 };
 
-struct vector<VGLGroupCullableMesh *, vk_allocator<VGLGroupCullableMesh *>> {
-    id *__begin_;
-    id *__end_;
-    struct __compressed_pair<VGLGroupCullableMesh **, vk_allocator<VGLGroupCullableMesh *>> {
-        id *__first_;
+struct vector<VGLArrowMeshInfo, vk_allocator<VGLArrowMeshInfo>> {
+    CDStruct_183601bc *__begin_;
+    CDStruct_183601bc *__end_;
+    struct __compressed_pair<VGLArrowMeshInfo *, vk_allocator<VGLArrowMeshInfo>> {
+        CDStruct_183601bc *__first_;
     } __end_cap_;
 };
 
@@ -954,19 +1649,19 @@ struct vector<VGLMeshLeafNode, vk_allocator<VGLMeshLeafNode>> {
     } __end_cap_;
 };
 
+struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> {
+    id *__begin_;
+    id *__end_;
+    struct __compressed_pair<VGLMeshVendor **, vk_allocator<VGLMeshVendor *>> {
+        id *__first_;
+    } __end_cap_;
+};
+
 struct vector<VGLRect, vk_allocator<VGLRect>> {
     CDStruct_183601bc *__begin_;
     CDStruct_183601bc *__end_;
     struct __compressed_pair<VGLRect *, vk_allocator<VGLRect>> {
         CDStruct_183601bc *__first_;
-    } __end_cap_;
-};
-
-struct vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>> {
-    id *__begin_;
-    id *__end_;
-    struct __compressed_pair<VGLSingleTexturedGroupCullableMesh **, vk_allocator<VGLSingleTexturedGroupCullableMesh *>> {
-        id *__first_;
     } __end_cap_;
 };
 
@@ -986,19 +1681,27 @@ struct vector<VKMapTile *, vk_allocator<VKMapTile *>> {
     } __end_cap_;
 };
 
-struct vector<VKRouteLineSection, vk_allocator<VKRouteLineSection>> {
-    struct VKRouteLineSection *__begin_;
-    struct VKRouteLineSection *__end_;
-    struct __compressed_pair<VKRouteLineSection *, vk_allocator<VKRouteLineSection>> {
-        struct VKRouteLineSection *__first_;
+struct vector<VKRect, std::__1::allocator<VKRect>> {
+    CDStruct_183601bc *_field1;
+    CDStruct_183601bc *_field2;
+    struct __compressed_pair<VKRect *, std::__1::allocator<VKRect>> {
+        CDStruct_183601bc *_field1;
+    } _field3;
+};
+
+struct vector<VKRibbonMultiPolylineSegment, vk_allocator<VKRibbonMultiPolylineSegment>> {
+    struct VKRibbonMultiPolylineSegment *__begin_;
+    struct VKRibbonMultiPolylineSegment *__end_;
+    struct __compressed_pair<VKRibbonMultiPolylineSegment *, vk_allocator<VKRibbonMultiPolylineSegment>> {
+        struct VKRibbonMultiPolylineSegment *__first_;
     } __end_cap_;
 };
 
-struct vector<VKRouteMapMatchingSection::Vertex, vk_allocator<VKRouteMapMatchingSection::Vertex>> {
-    struct Vertex *_field1;
-    struct Vertex *_field2;
-    struct __compressed_pair<VKRouteMapMatchingSection::Vertex *, vk_allocator<VKRouteMapMatchingSection::Vertex>> {
-        struct Vertex *_field1;
+struct vector<VKRibbonPolylineSegment, vk_allocator<VKRibbonPolylineSegment>> {
+    struct VKRibbonPolylineSegment *_field1;
+    struct VKRibbonPolylineSegment *_field2;
+    struct __compressed_pair<VKRibbonPolylineSegment *, vk_allocator<VKRibbonPolylineSegment>> {
+        struct VKRibbonPolylineSegment *_field1;
     } _field3;
 };
 
@@ -1010,12 +1713,44 @@ struct vector<_VKRealisticPolygonMetaData, vk_allocator<_VKRealisticPolygonMetaD
     } __end_cap_;
 };
 
+struct vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>> {
+    struct DiscontinuityEdgeInfo **_field1;
+    struct DiscontinuityEdgeInfo **_field2;
+    struct __compressed_pair<const vk::DiscontinuityEdgeInfo **, vk_allocator<const vk::DiscontinuityEdgeInfo *>> {
+        struct DiscontinuityEdgeInfo **_field1;
+    } _field3;
+};
+
 struct vector<double, vk_allocator<double>> {
     double *_field1;
     double *_field2;
     struct __compressed_pair<double *, vk_allocator<double>> {
         double *_field1;
     } _field3;
+};
+
+struct vector<geo::PolylineCoordinate, vk_allocator<geo::PolylineCoordinate>> {
+    struct PolylineCoordinate *__begin_;
+    struct PolylineCoordinate *__end_;
+    struct __compressed_pair<geo::PolylineCoordinate *, vk_allocator<geo::PolylineCoordinate>> {
+        struct PolylineCoordinate *__first_;
+    } __end_cap_;
+};
+
+struct vector<geo::Vec2Imp<double>, vk_allocator<geo::Vec2Imp<double>>> {
+    struct Vec2Imp<double> *__begin_;
+    struct Vec2Imp<double> *__end_;
+    struct __compressed_pair<geo::Vec2Imp<double>*, vk_allocator<geo::Vec2Imp<double>>> {
+        struct Vec2Imp<double> *__first_;
+    } __end_cap_;
+};
+
+struct vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>> {
+    Vec2Imp_1782d7e3 *__begin_;
+    Vec2Imp_1782d7e3 *__end_;
+    struct __compressed_pair<geo::Vec2Imp<float>*, vk_allocator<geo::Vec2Imp<float>>> {
+        Vec2Imp_1782d7e3 *__first_;
+    } __end_cap_;
 };
 
 struct vector<int, vk_allocator<int>> {
@@ -1026,51 +1761,75 @@ struct vector<int, vk_allocator<int>> {
     } __end_cap_;
 };
 
-struct vector<std::__1::basic_string<char>, vk_allocator<std::__1::basic_string<char>>> {
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *__begin_;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *__end_;
-    struct __compressed_pair<std::__1::basic_string<char>*, vk_allocator<std::__1::basic_string<char>>> {
-        struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *__first_;
+struct vector<routelineTrafficSegment, vk_allocator<routelineTrafficSegment>> {
+    struct routelineTrafficSegment *__begin_;
+    struct routelineTrafficSegment *__end_;
+    struct __compressed_pair<routelineTrafficSegment *, vk_allocator<routelineTrafficSegment>> {
+        struct routelineTrafficSegment *__first_;
     } __end_cap_;
 };
 
-struct vector<std::__1::shared_ptr<VGLTextMeshVAO>, vk_allocator<std::__1::shared_ptr<VGLTextMeshVAO>>> {
-    struct shared_ptr<VGLTextMeshVAO> *__begin_;
-    struct shared_ptr<VGLTextMeshVAO> *__end_;
-    struct __compressed_pair<std::__1::shared_ptr<VGLTextMeshVAO>*, vk_allocator<std::__1::shared_ptr<VGLTextMeshVAO>>> {
-        struct shared_ptr<VGLTextMeshVAO> *__first_;
+struct vector<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
+    struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__begin_;
+    struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__end_;
+    struct __compressed_pair<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>*, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
+        struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__first_;
     } __end_cap_;
 };
 
-struct vector<std::__1::shared_ptr<vk::Label>, vk_allocator<std::__1::shared_ptr<vk::Label>>> {
-    shared_ptr_3dab79f3 *__begin_;
-    shared_ptr_3dab79f3 *__end_;
-    struct __compressed_pair<std::__1::shared_ptr<vk::Label>*, vk_allocator<std::__1::shared_ptr<vk::Label>>> {
-        shared_ptr_3dab79f3 *__first_;
+struct vector<std::__1::shared_ptr<vk::FontAtlasPage>, vk_allocator<std::__1::shared_ptr<vk::FontAtlasPage>>> {
+    struct shared_ptr<vk::FontAtlasPage> *_field1;
+    struct shared_ptr<vk::FontAtlasPage> *_field2;
+    struct __compressed_pair<std::__1::shared_ptr<vk::FontAtlasPage>*, vk_allocator<std::__1::shared_ptr<vk::FontAtlasPage>>> {
+        struct shared_ptr<vk::FontAtlasPage> *_field1;
+    } _field3;
+};
+
+struct vector<std::__1::shared_ptr<vk::InfoLabel>, vk_allocator<std::__1::shared_ptr<vk::InfoLabel>>> {
+    shared_ptr_0c41964b *_field1;
+    shared_ptr_0c41964b *_field2;
+    struct __compressed_pair<std::__1::shared_ptr<vk::InfoLabel>*, vk_allocator<std::__1::shared_ptr<vk::InfoLabel>>> {
+        shared_ptr_0c41964b *_field1;
+    } _field3;
+};
+
+struct vector<std::__1::shared_ptr<vk::InfoMapTile>, vk_allocator<std::__1::shared_ptr<vk::InfoMapTile>>> {
+    struct shared_ptr<vk::InfoMapTile> *__begin_;
+    struct shared_ptr<vk::InfoMapTile> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<vk::InfoMapTile>*, vk_allocator<std::__1::shared_ptr<vk::InfoMapTile>>> {
+        struct shared_ptr<vk::InfoMapTile> *__first_;
     } __end_cap_;
 };
 
-struct vector<std::__1::vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>>, vk_allocator<std::__1::vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>>>> {
-    struct vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>> *__begin_;
-    struct vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>> *__end_;
-    struct __compressed_pair<std::__1::vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>>*, vk_allocator<std::__1::vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>>>> {
-        struct vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>> *__first_;
+struct vector<std::__1::shared_ptr<vk::LabelIcon>, vk_allocator<std::__1::shared_ptr<vk::LabelIcon>>> {
+    struct shared_ptr<vk::LabelIcon> *_field1;
+    struct shared_ptr<vk::LabelIcon> *_field2;
+    struct __compressed_pair<std::__1::shared_ptr<vk::LabelIcon>*, vk_allocator<std::__1::shared_ptr<vk::LabelIcon>>> {
+        struct shared_ptr<vk::LabelIcon> *_field1;
+    } _field3;
+};
+
+struct vector<std::__1::shared_ptr<vk::NavLabel>, vk_allocator<std::__1::shared_ptr<vk::NavLabel>>> {
+    shared_ptr_338aa11d *__begin_;
+    shared_ptr_338aa11d *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<vk::NavLabel>*, vk_allocator<std::__1::shared_ptr<vk::NavLabel>>> {
+        shared_ptr_338aa11d *__first_;
     } __end_cap_;
 };
 
-struct vector<std::__1::weak_ptr<altitude::LabelData>, vk_allocator<std::__1::weak_ptr<altitude::LabelData>>> {
-    struct weak_ptr<altitude::LabelData> *__begin_;
-    struct weak_ptr<altitude::LabelData> *__end_;
-    struct __compressed_pair<std::__1::weak_ptr<altitude::LabelData>*, vk_allocator<std::__1::weak_ptr<altitude::LabelData>>> {
-        struct weak_ptr<altitude::LabelData> *__first_;
-    } __end_cap_;
+struct vector<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>, vk_allocator<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>>> {
+    struct shared_ptr<vk::TrafficIncidentLabelFeature> *_field1;
+    struct shared_ptr<vk::TrafficIncidentLabelFeature> *_field2;
+    struct __compressed_pair<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>*, vk_allocator<std::__1::shared_ptr<vk::TrafficIncidentLabelFeature>>> {
+        struct shared_ptr<vk::TrafficIncidentLabelFeature> *_field1;
+    } _field3;
 };
 
-struct vector<std::__1::weak_ptr<altitude::TrafficTile>, vk_allocator<std::__1::weak_ptr<altitude::TrafficTile>>> {
-    struct weak_ptr<altitude::TrafficTile> *__begin_;
-    struct weak_ptr<altitude::TrafficTile> *__end_;
-    struct __compressed_pair<std::__1::weak_ptr<altitude::TrafficTile>*, vk_allocator<std::__1::weak_ptr<altitude::TrafficTile>>> {
-        struct weak_ptr<altitude::TrafficTile> *__first_;
+struct vector<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>, vk_allocator<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>>> {
+    struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__begin_;
+    struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__end_;
+    struct __compressed_pair<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>*, vk_allocator<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>>> {
+        struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__first_;
     } __end_cap_;
 };
 
@@ -1090,14 +1849,6 @@ struct vector<unsigned int, vk_allocator<unsigned int>> {
     } _field3;
 };
 
-struct vector<unsigned long, std::__1::allocator<unsigned long>> {
-    unsigned long *__begin_;
-    unsigned long *__end_;
-    struct __compressed_pair<unsigned long *, std::__1::allocator<unsigned long>> {
-        unsigned long *__first_;
-    } __end_cap_;
-};
-
 struct vector<unsigned short, vk_allocator<unsigned short>> {
     unsigned short *__begin_;
     unsigned short *__end_;
@@ -1106,29 +1857,119 @@ struct vector<unsigned short, vk_allocator<unsigned short>> {
     } __end_cap_;
 };
 
-struct vector<vk::CollisionObject *, vk_allocator<vk::CollisionObject *>> {
-    struct CollisionObject **__begin_;
-    struct CollisionObject **__end_;
-    struct __compressed_pair<vk::CollisionObject **, vk_allocator<vk::CollisionObject *>> {
-        struct CollisionObject **__first_;
+struct vector<vk::CollisionItem, vk_allocator<vk::CollisionItem>> {
+    struct CollisionItem *_field1;
+    struct CollisionItem *_field2;
+    struct __compressed_pair<vk::CollisionItem *, vk_allocator<vk::CollisionItem>> {
+        struct CollisionItem *_field1;
+    } _field3;
+};
+
+struct vector<vk::CollisionPair, vk_allocator<vk::CollisionPair>> {
+    struct CollisionPair *_field1;
+    struct CollisionPair *_field2;
+    struct __compressed_pair<vk::CollisionPair *, vk_allocator<vk::CollisionPair>> {
+        struct CollisionPair *_field1;
+    } _field3;
+};
+
+struct vector<vk::IconLabelPart *, vk_allocator<vk::IconLabelPart *>> {
+    struct IconLabelPart **_field1;
+    struct IconLabelPart **_field2;
+    struct __compressed_pair<vk::IconLabelPart **, vk_allocator<vk::IconLabelPart *>> {
+        struct IconLabelPart **_field1;
+    } _field3;
+};
+
+struct vector<vk::InfoLabel *, vk_allocator<vk::InfoLabel *>> {
+    struct InfoLabel **_field1;
+    struct InfoLabel **_field2;
+    struct __compressed_pair<vk::InfoLabel **, vk_allocator<vk::InfoLabel *>> {
+        struct InfoLabel **_field1;
+    } _field3;
+};
+
+struct vector<vk::LabelMesh::BufferRange, vk_allocator<vk::LabelMesh::BufferRange>> {
+    struct BufferRange *_field1;
+    struct BufferRange *_field2;
+    struct __compressed_pair<vk::LabelMesh::BufferRange *, vk_allocator<vk::LabelMesh::BufferRange>> {
+        struct BufferRange *_field1;
+    } _field3;
+};
+
+struct vector<vk::RouteLineSection, vk_allocator<vk::RouteLineSection>> {
+    struct RouteLineSection *__begin_;
+    struct RouteLineSection *__end_;
+    struct __compressed_pair<vk::RouteLineSection *, vk_allocator<vk::RouteLineSection>> {
+        struct RouteLineSection *__first_;
     } __end_cap_;
 };
 
-struct vector<vk::SapEntry, vk_allocator<vk::SapEntry>> {
-    struct SapEntry *__begin_;
-    struct SapEntry *__end_;
-    struct __compressed_pair<vk::SapEntry *, vk_allocator<vk::SapEntry>> {
-        struct SapEntry *__first_;
+struct vector<vk::RouteLineSection::Arrow, vk_allocator<vk::RouteLineSection::Arrow>> {
+    struct Arrow *_field1;
+    struct Arrow *_field2;
+    struct __compressed_pair<vk::RouteLineSection::Arrow *, vk_allocator<vk::RouteLineSection::Arrow>> {
+        struct Arrow *_field1;
+    } _field3;
+};
+
+struct vector<vk::RouteLineSection::Vertex, vk_allocator<vk::RouteLineSection::Vertex>> {
+    struct Vertex *_field1;
+    struct Vertex *_field2;
+    struct __compressed_pair<vk::RouteLineSection::Vertex *, vk_allocator<vk::RouteLineSection::Vertex>> {
+        struct Vertex *_field1;
+    } _field3;
+};
+
+struct vector<vk::TextLabelPart *, vk_allocator<vk::TextLabelPart *>> {
+    struct TextLabelPart **_field1;
+    struct TextLabelPart **_field2;
+    struct __compressed_pair<vk::TextLabelPart **, vk_allocator<vk::TextLabelPart *>> {
+        struct TextLabelPart **_field1;
+    } _field3;
+};
+
+struct vector<vk::TileExclusionArea, std::__1::allocator<vk::TileExclusionArea>> {
+    struct TileExclusionArea *__begin_;
+    struct TileExclusionArea *__end_;
+    struct __compressed_pair<vk::TileExclusionArea *, std::__1::allocator<vk::TileExclusionArea>> {
+        struct TileExclusionArea *__first_;
     } __end_cap_;
 };
 
-struct vector<vk::SapOverlap, vk_allocator<vk::SapOverlap>> {
-    struct SapOverlap *__begin_;
-    struct SapOverlap *__end_;
-    struct __compressed_pair<vk::SapOverlap *, vk_allocator<vk::SapOverlap>> {
-        struct SapOverlap *__first_;
-    } __end_cap_;
+struct vector<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad>> {
+    struct IndicesQuad *_field1;
+    struct IndicesQuad *_field2;
+    struct __compressed_pair<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad *, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::IndicesQuad>> {
+        struct IndicesQuad *_field1;
+    } _field3;
 };
+
+struct vector<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad>> {
+    struct VertexQuad *_field1;
+    struct VertexQuad *_field2;
+    struct __compressed_pair<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad *, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLIconMeshVertex, 40>::VertexQuad>> {
+        struct VertexQuad *_field1;
+    } _field3;
+};
+
+struct vector<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad>> {
+    struct IndicesQuad *_field1;
+    struct IndicesQuad *_field2;
+    struct __compressed_pair<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad *, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::IndicesQuad>> {
+        struct IndicesQuad *_field1;
+    } _field3;
+};
+
+struct vector<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad>> {
+    struct VertexQuad *_field1;
+    struct VertexQuad *_field2;
+    struct __compressed_pair<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad *, vk_allocator<vk::VGLQuadMeshVAO<vk::VGLTextMeshVertex, 1000>::VertexQuad>> {
+        struct VertexQuad *_field1;
+    } _field3;
+};
+
+struct vector<zilch::GeoCoordinates, std::__1::allocator<zilch::GeoCoordinates>>;
 
 struct vector<zilch::TrafficSkeletonTile::Record, std::__1::allocator<zilch::TrafficSkeletonTile::Record>> {
     struct Record *__begin_;
@@ -1138,9 +1979,31 @@ struct vector<zilch::TrafficSkeletonTile::Record, std::__1::allocator<zilch::Tra
     } __end_cap_;
 };
 
-struct weak_ptr<altitude::LabelData>;
+struct weak_ptr<vk::LabelManager> {
+    struct LabelManager *_field1;
+    struct __shared_weak_count *_field2;
+};
 
-struct weak_ptr<altitude::TrafficTile>;
+#if 0
+// Names with conflicting types:
+typedef struct {
+    double _course;
+    double _referenceScreenOffset;
+    double _pitch;
+    double _boomLength;
+} State_3e0671f0;
+
+typedef struct {
+    void **_field1;
+    struct VKPoint _field2;
+    struct {
+        double _field1;
+        double _field2;
+    } _field3;
+    id _field4;
+} Anchor_facb9ede;
+
+#endif
 
 #pragma mark Typedef'd Structures
 
@@ -1164,13 +2027,14 @@ typedef struct {
     unsigned int _field1;
     unsigned int _field2;
     unsigned int _field3;
-    unsigned int _field4;
-} CDStruct_7523a67d;
+} CDStruct_32a7f38a;
 
 typedef struct {
-    unsigned int index;
-    float offset;
-} CDStruct_3f2a7a20;
+    unsigned int _field1;
+    int _field2;
+    int *_field3;
+    unsigned int _field4;
+} CDStruct_62f4b0a5;
 
 typedef struct {
     unsigned int _field1;
@@ -1218,17 +2082,16 @@ typedef struct {
 } CDStruct_17faa5b0;
 
 typedef struct {
-    double x0;
-    double x1;
-    double y0;
-    double y1;
-} CDStruct_aca18c62;
+    char _field1;
+    float _field2;
+    float _field3;
+} CDStruct_32f014a0;
 
 typedef struct {
-    double x;
-    double y;
-    double z;
-} CDStruct_31142d93;
+    double latitude;
+    double longitude;
+    double altitude;
+} CDStruct_071ac149;
 
 typedef struct {
     float _a;
@@ -1260,9 +2123,9 @@ typedef struct {
 } CDStruct_03942939;
 
 typedef struct {
-    float x;
-    float y;
-} CDStruct_6e3f967a;
+    float factor;
+    float units;
+} CDStruct_e5f4ed30;
 
 typedef struct {
     int blendMode;
@@ -1270,10 +2133,20 @@ typedef struct {
 } CDStruct_c0b8bb23;
 
 typedef struct {
+    int _field1;
+    int _field2;
+    float _field3;
+    int _field4;
+    float _field5;
+} CDStruct_8471daaf;
+
+typedef struct {
     int from;
     int to;
+    int fromDisplayStyle;
+    int toDisplayStyle;
     float fraction;
-} CDStruct_0f1abaa7;
+} CDStruct_c71ade79;
 
 typedef struct {
     int _field1;
@@ -1289,72 +2162,67 @@ typedef struct {
 typedef struct CDStruct_183601bc;
 
 typedef struct {
-    CDStruct_183601bc *road;
-    unsigned int vertexIndexA;
-    unsigned int vertexIndexB;
-    unsigned int junctionIndexA;
-    unsigned int junctionIndexB;
-    CDStruct_183601bc *junctionA;
-    CDStruct_183601bc *junctionB;
-} CDStruct_b4689c16;
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    CDStruct_183601bc *_field5;
+} CDStruct_dde70fb6;
+
+typedef struct {
+    unsigned int _field1;
+    float _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    int _field5;
+    struct {
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+    } _field6;
+} CDStruct_e9f6a06b;
+
+typedef struct {
+    CDStruct_183601bc *_field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    CDStruct_183601bc *_field6;
+    CDStruct_183601bc *_field7;
+} CDStruct_fc3c0eb0;
 
 typedef struct {
     int iconStyle;
     struct _VGLColor iconBadgeColor;
     struct _VGLColor iconGradientColor[2];
+    struct _VGLColor iconBadgeLightColor;
+    int iconBadgeLightBlendMode;
     struct _VGLColor iconGlyphColor;
+    int iconGlyphStyle;
+    int iconGlyphBlendMode;
+    float iconHaloSize;
     struct _VGLColor iconHaloColor;
-} CDStruct_ad152e0a;
+    struct CGSize iconDropShadowOffset;
+    float iconDropShadowSize;
+    struct _VGLColor iconDropShadowColor;
+    float iconCornerRadius;
+    float iconBrightness;
+    float iconBevelAmount;
+} CDStruct_44473e2f;
 
 typedef struct {
     CDStruct_4c1ff046 _field1;
-    unsigned int _field2;
+    char *_field2;
     unsigned int _field3;
-    int _field4;
-    int _field5;
-    unsigned int _field6;
-    unsigned int _field7;
-    struct {
-        float _field1;
-        float _field2;
-        float _field3;
-        float _field4;
-    } _field8;
-    CDStruct_183601bc *_field9;
-} CDStruct_a206f7ef;
+} CDStruct_0f5ec4c6;
 
 typedef struct {
-    CDStruct_31142d93 position;
-    double course;
-    char onRoute;
-} CDStruct_9a8617ed;
-
-typedef struct {
-    CDStruct_31142d93 _field1;
-    CDStruct_aa5aacbc _field2;
-} CDStruct_0038f5ee;
-
-typedef struct {
-    CDStruct_31142d93 position;
-    CDStruct_31142d93 tangent;
-    char tangentValid;
-} CDStruct_03342fe8;
-
-typedef struct {
-    CDStruct_31142d93 p;
-    CDStruct_31142d93 n;
-} CDStruct_e77eda21;
-
-typedef struct {
-    CDStruct_2c43369c pointOfReference;
-    double heading;
-    CDStruct_2c43369c pointOfFocus;
-    NSArray *pointsOfInterest;
-    int style;
-    int focusStyle;
-    char animated;
-    char applied;
-} CDStruct_da177989;
+    CDStruct_34734122 origin;
+    CDStruct_8caa76fc size;
+} CDStruct_02837cd9;
 
 typedef struct {
     CDStruct_58ec0031 _color;
@@ -1374,55 +2242,76 @@ typedef struct {
 
 typedef struct {
     CDStruct_03942939 _field1;
-    CDStruct_6e3f967a _field2;
+    Vec2Imp_1782d7e3 _field2;
     CDStruct_03942939 _field3;
-} CDStruct_094d0712;
+} CDStruct_2066d242;
 
 typedef struct {
     CDStruct_03942939 _field1;
-    CDStruct_6e3f967a _field2;
-} CDStruct_782f569c;
+    Vec2Imp_1782d7e3 _field2;
+} CDStruct_3ef7eac3;
 
 typedef struct {
-    char _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-    unsigned int _field5;
-    float _field6;
+    struct VKPoint position;
+    double course;
+    char onRoute;
+} CDStruct_cc67e4ef;
+
+typedef struct {
+    struct VKPoint position;
+    Vec3Imp_f658403c tangent;
+    char tangentValid;
+} CDStruct_87a99b1f;
+
+typedef struct {
+    struct VKPoint p;
+    Vec3Imp_f658403c n;
+} CDStruct_257eabe6;
+
+typedef struct {
+    double _field1;
+    struct PolylineCoordinate _field2;
+    struct VKPoint _field3;
+    double _field4;
+    double _field5;
+    unsigned int _field6;
     char _field7;
-    char _field8;
-    char _field9;
-    struct _VGLColor _field10;
-    struct _VGLColor _field11;
-    unsigned int _field12;
-    float _field13;
-    id _field14;
-    id _field15;
-    CDStruct_ad152e0a _field16;
-    char _field17;
-    float _field18;
-    float _field19;
-    int _field20;
-    char _field21;
-    char _field22;
-    char _field23;
-} CDStruct_daf29242;
+    struct {
+        unsigned int _field1;
+        double _field2;
+        struct PolylineCoordinate _field3;
+        struct {
+            double _field1;
+            double _field2;
+        } _field4;
+    } _field8;
+} CDStruct_34e0fc6f;
 
 typedef struct {
-    float _field1;
-    CDStruct_aa5aacbc _field2;
-    CDStruct_aa5aacbc _field3;
-    CDStruct_aa5aacbc _field4;
-    CDUnion_de9d7be0 _field5;
-    id _field6;
-    id _field7;
-    id _field8;
-    int _field9;
-} CDStruct_63774aaa;
+    CDStruct_4c1ff046 _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    int _field4;
+    int _field5;
+    int _field6;
+    unsigned int _field7;
+    unsigned int _field8;
+    BRectImp_7721609a _field9;
+    CDStruct_183601bc *_field10;
+    struct {
+        unsigned short _field1[2];
+        unsigned short _field2[2];
+    } _field11;
+    unsigned char _field12;
+} CDStruct_c272c4e8;
 
 typedef struct {
-    CDStruct_7523a67d _field1;
+    struct {
+        unsigned int _field1;
+        unsigned int _field2;
+        unsigned int _field3;
+        unsigned int _field4;
+    } _field1;
     struct {
         unsigned int _field1;
         int _field2;
@@ -1439,27 +2328,21 @@ typedef struct {
     } _field2;
 } CDStruct_dab2d0bd;
 
-typedef struct {
-    struct VKProfileSparseRamp<float> _field1;
-    struct VKProfileSparseRamp<_VGLColor> _field2;
-    int _field3;
-} CDStruct_556bdc76;
-
-typedef struct {
-    struct VKProfileSparseRamp<float> _field1;
-    struct VKProfileSparseRamp<float> _field2;
-    struct VKProfileSparseRamp<float> _field3;
-    struct VKProfileSparseRamp<float> _field4;
-    struct VKProfileSparseRamp<_VGLColor> _field5;
-    struct VKProfileSparseRamp<_VGLColor> _field6;
-    struct VKProfileSparseRamp<signed char> _field7;
-    struct VKProfileSparseRamp<int> _field8;
-    struct VKProfileSparseRamp<int> _field9;
-    struct VKProfileSparseRamp<signed char> _field10;
-    struct VKProfileSparseRamp<signed char> _field11;
-} CDStruct_47a47fda;
-
 // Ambiguous groups
+typedef struct {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+} CDStruct_d2b197d1;
+
+typedef struct {
+    double x0;
+    double x1;
+    double y0;
+    double y1;
+} CDStruct_aca18c62;
+
 typedef struct {
     double _field1;
     double _field2;
@@ -1476,6 +2359,11 @@ typedef struct {
 } CDStruct_8caa76fc;
 
 typedef struct {
+    double x;
+    double y;
+} CDStruct_34734122;
+
+typedef struct {
     float _field1;
     float _field2;
     float _field3;
@@ -1489,36 +2377,162 @@ typedef struct {
     float w;
 } CDStruct_f2e236b6;
 
-typedef struct __wrap_iter<VGLFontGlyphQuad_struct *> {
-    struct VGLFontGlyphQuad_struct *_field1;
-} __wrap_iter_b4e21cbe;
+typedef struct {
+    float x0;
+    float x1;
+    float y0;
+    float y1;
+} CDStruct_ff03d24e;
 
-typedef struct shared_ptr<vk::Label> {
-    struct Label *__ptr_;
+typedef struct BRectImp<double> {
+    struct Vec2Imp<double> p0;
+    struct Vec2Imp<double> p1;
+} BRectImp_d02b3a99;
+
+typedef struct BRectImp<float> {
+    Vec2Imp_1782d7e3 _field1;
+    Vec2Imp_1782d7e3 _field2;
+} BRectImp_7721609a;
+
+typedef struct RoadPathElement<std::__1::shared_ptr<geo::MapEdge>> {
+    void **_field1;
+    int _field2;
+    unsigned int _field3;
+    shared_ptr_035a2da2 _field4;
+    struct GeoPolyline _field5;
+    int _field6;
+} RoadPathElement_777899a4;
+
+typedef struct Vec2Imp<float> {
+    float x;
+    float y;
+} Vec2Imp_1782d7e3;
+
+typedef struct Vec3Imp<double> {
+    double x;
+    double y;
+    double z;
+} Vec3Imp_f658403c;
+
+typedef struct function<void (const vk::RoadPiece &)> {
+    struct type _field1;
+    struct __base<void (const vk::RoadPiece &)> *_field2;
+} function_ccedc87b;
+
+typedef struct set<std::__1::shared_ptr<vk::PointLabelFeature>, std::__1::less<std::__1::shared_ptr<vk::PointLabelFeature>>, vk_allocator<std::__1::shared_ptr<vk::PointLabelFeature>>> {
+    struct __tree<std::__1::shared_ptr<vk::PointLabelFeature>, std::__1::less<std::__1::shared_ptr<vk::PointLabelFeature>>, vk_allocator<std::__1::shared_ptr<vk::PointLabelFeature>>> {
+        struct __tree_node<std::__1::shared_ptr<vk::PointLabelFeature>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::shared_ptr<vk::PointLabelFeature>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::less<std::__1::shared_ptr<vk::PointLabelFeature>>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+} set_a425ba2c;
+
+typedef struct set<std::__1::shared_ptr<vk::RoadLabelFeature>, std::__1::less<std::__1::shared_ptr<vk::RoadLabelFeature>>, vk_allocator<std::__1::shared_ptr<vk::RoadLabelFeature>>> {
+    struct __tree<std::__1::shared_ptr<vk::RoadLabelFeature>, std::__1::less<std::__1::shared_ptr<vk::RoadLabelFeature>>, vk_allocator<std::__1::shared_ptr<vk::RoadLabelFeature>>> {
+        struct __tree_node<std::__1::shared_ptr<vk::RoadLabelFeature>, void *> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, vk_allocator<std::__1::__tree_node<std::__1::shared_ptr<vk::RoadLabelFeature>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::less<std::__1::shared_ptr<vk::RoadLabelFeature>>> {
+            unsigned long __first_;
+        } __pair3_;
+    } __tree_;
+} set_2bef5b43;
+
+typedef struct shared_ptr<geo::MapEdge> {
+    struct MapEdge *__ptr_;
     struct __shared_weak_count *__cntrl_;
-} shared_ptr_3dab79f3;
+} shared_ptr_035a2da2;
 
-typedef struct shared_ptr<zilch::TrafficDynamicTile> {
-    struct TrafficDynamicTile *__ptr_;
+typedef struct shared_ptr<vk::Anchor> {
+    struct Anchor *__ptr_;
     struct __shared_weak_count *__cntrl_;
-} shared_ptr_0e624577;
+} shared_ptr_6f3fd3aa;
 
-typedef struct unordered_map<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>>> {
-    struct __hash_table<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>>> {
-        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *>*> {
-                struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>>, void *> *_field1;
+typedef struct shared_ptr<vk::AnchorContext> {
+    struct AnchorContext *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_4d0abf3b;
+
+typedef struct shared_ptr<vk::AnchorFactory> {
+    struct AnchorFactory *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_00dc923b;
+
+typedef struct shared_ptr<vk::InfoLabel> {
+    struct InfoLabel *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_0c41964b;
+
+typedef struct shared_ptr<vk::LabelManager> {
+    struct LabelManager *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_dd1f7020;
+
+typedef struct shared_ptr<vk::NavLabel> {
+    struct NavLabel *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_338aa11d;
+
+typedef struct shared_ptr<vk::ViewTransform> {
+    struct ViewTransform *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_d1ecf7a2;
+
+typedef struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, vk_allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
+    struct __hash_table<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::equal_to<std::__1::basic_string<char>>, true>, vk_allocator<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *>*> {
+                struct __hash_node<std::__1::pair<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::equal_to<std::__1::basic_string<char>>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+} unordered_map_ad9b4de7;
+
+typedef struct unordered_map<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>>> {
+    struct __hash_table<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *>*> {
+                struct __hash_node<std::__1::pair<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>>, void *> *_field1;
             } _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>, std::__1::hash<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::hash<unsigned int>, true>> {
             unsigned long _field1;
         } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<GEOVectorTilePoint, vk_allocator<GEOVectorTilePoint>>, std::__1::equal_to<unsigned int>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::vector<geo::Vec2Imp<float>, vk_allocator<geo::Vec2Imp<float>>>, std::__1::equal_to<unsigned int>, true>> {
             float _field1;
         } _field4;
     } _field1;
-} unordered_map_69e8e828;
+} unordered_map_2e8bbe9f;
+
+typedef struct unordered_multimap<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, vk_allocator<std::__1::pair<const unsigned int, VKRibbonMultiPolylineSegment *>>> {
+    struct __hash_table<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, std::__1::__unordered_map_hasher<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::equal_to<unsigned int>, true>, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
+        struct unique_ptr<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*[], std::__1::__bucket_list_deallocator<vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*>, vk_allocator<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *>*> {
+                struct __hash_node<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, void *> *__next_;
+            } __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::hash<unsigned int>, true>> {
+            unsigned long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, VKRibbonMultiPolylineSegment *, std::__1::equal_to<unsigned int>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+} unordered_multimap_058b834e;
 
 typedef struct vector<RouteJunctionInfo, vk_allocator<RouteJunctionInfo>> {
     struct RouteJunctionInfo *_field1;
@@ -1528,47 +2542,93 @@ typedef struct vector<RouteJunctionInfo, vk_allocator<RouteJunctionInfo>> {
     } _field3;
 } vector_b376ae98;
 
-typedef struct vector<VGLFontGlyphQuad_struct, vk_allocator<VGLFontGlyphQuad_struct>> {
-    struct VGLFontGlyphQuad_struct *_field1;
-    struct VGLFontGlyphQuad_struct *_field2;
-    struct __compressed_pair<VGLFontGlyphQuad_struct *, vk_allocator<VGLFontGlyphQuad_struct>> {
-        struct VGLFontGlyphQuad_struct *_field1;
+typedef struct vector<VGLRect, vk_allocator<VGLRect>> {
+    CDStruct_183601bc *__begin_;
+    CDStruct_183601bc *__end_;
+    struct __compressed_pair<VGLRect *, vk_allocator<VGLRect>> {
+        CDStruct_183601bc *__first_;
+    } __end_cap_;
+} vector_3bee010d;
+
+typedef struct vector<VKRect, std::__1::allocator<VKRect>> {
+    CDStruct_183601bc *_field1;
+    CDStruct_183601bc *_field2;
+    struct __compressed_pair<VKRect *, std::__1::allocator<VKRect>> {
+        CDStruct_183601bc *_field1;
     } _field3;
-} vector_6f791529;
+} vector_d758ecaf;
 
-typedef struct vector<VGLGroupCullableMesh *, vk_allocator<VGLGroupCullableMesh *>> {
-    id *__begin_;
-    id *__end_;
-    struct __compressed_pair<VGLGroupCullableMesh **, vk_allocator<VGLGroupCullableMesh *>> {
-        id *__first_;
+typedef struct vector<const vk::DiscontinuityEdgeInfo *, vk_allocator<const vk::DiscontinuityEdgeInfo *>> {
+    struct DiscontinuityEdgeInfo **_field1;
+    struct DiscontinuityEdgeInfo **_field2;
+    struct __compressed_pair<const vk::DiscontinuityEdgeInfo **, vk_allocator<const vk::DiscontinuityEdgeInfo *>> {
+        struct DiscontinuityEdgeInfo **_field1;
+    } _field3;
+} vector_9adfa044;
+
+typedef struct vector<geo::Vec2Imp<double>, vk_allocator<geo::Vec2Imp<double>>> {
+    struct Vec2Imp<double> *__begin_;
+    struct Vec2Imp<double> *__end_;
+    struct __compressed_pair<geo::Vec2Imp<double>*, vk_allocator<geo::Vec2Imp<double>>> {
+        struct Vec2Imp<double> *__first_;
     } __end_cap_;
-} vector_af2832f0;
+} vector_d5845d09;
 
-typedef struct vector<std::__1::shared_ptr<vk::Label>, vk_allocator<std::__1::shared_ptr<vk::Label>>> {
-    shared_ptr_3dab79f3 *__begin_;
-    shared_ptr_3dab79f3 *__end_;
-    struct __compressed_pair<std::__1::shared_ptr<vk::Label>*, vk_allocator<std::__1::shared_ptr<vk::Label>>> {
-        shared_ptr_3dab79f3 *__first_;
+typedef struct vector<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
+    struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__begin_;
+    struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__end_;
+    struct __compressed_pair<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>*, vk_allocator<std::__1::pair<unsigned int, VKRibbonMultiPolylineSegment *>>> {
+        struct pair<unsigned int, VKRibbonMultiPolylineSegment *> *__first_;
     } __end_cap_;
-} vector_51094ce7;
+} vector_012c76ef;
 
-typedef struct vector<std::__1::vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>>, vk_allocator<std::__1::vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>>>> {
-    struct vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>> *__begin_;
-    struct vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>> *__end_;
-    struct __compressed_pair<std::__1::vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>>*, vk_allocator<std::__1::vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>>>> {
-        struct vector<VGLSingleTexturedGroupCullableMesh *, vk_allocator<VGLSingleTexturedGroupCullableMesh *>> *__first_;
+typedef struct vector<std::__1::shared_ptr<vk::NavLabel>, vk_allocator<std::__1::shared_ptr<vk::NavLabel>>> {
+    shared_ptr_338aa11d *__begin_;
+    shared_ptr_338aa11d *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<vk::NavLabel>*, vk_allocator<std::__1::shared_ptr<vk::NavLabel>>> {
+        shared_ptr_338aa11d *__first_;
     } __end_cap_;
-} vector_9cb5e896;
+} vector_a3d7a989;
 
-#pragma mark Typedef'd Unions
+typedef struct vector<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>, vk_allocator<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>>> {
+    struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__begin_;
+    struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__end_;
+    struct __compressed_pair<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>*, vk_allocator<std::__1::vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>>>> {
+        struct vector<VGLMeshVendor *, vk_allocator<VGLMeshVendor *>> *__first_;
+    } __end_cap_;
+} vector_f457f7ad;
 
+typedef struct vector<unsigned int, vk_allocator<unsigned int>> {
+    unsigned int *_field1;
+    unsigned int *_field2;
+    struct __compressed_pair<unsigned int *, vk_allocator<unsigned int>> {
+        unsigned int *_field1;
+    } _field3;
+} vector_81578dfd;
+
+typedef struct vector<vk::TileExclusionArea, std::__1::allocator<vk::TileExclusionArea>> {
+    struct TileExclusionArea *__begin_;
+    struct TileExclusionArea *__end_;
+    struct __compressed_pair<vk::TileExclusionArea *, std::__1::allocator<vk::TileExclusionArea>> {
+        struct TileExclusionArea *__first_;
+    } __end_cap_;
+} vector_a2f7343e;
+
+#pragma mark Named Unions
+
+#if 0
+// Names with conflicting types:
 typedef union {
     struct VKProfileSparseRampValue {
         int value;
         unsigned char hi;
     } v[2];
     int *extra;
-} CDUnion_5c76812d;
+} _u_73374b6e;
+
+#endif
+
+#pragma mark Typedef'd Unions
 
 typedef union {
     struct {
@@ -1594,18 +2654,18 @@ typedef union {
 
 typedef union {
     struct {
-        float m00;
-        float m01;
-        float m02;
-        float m10;
-        float m11;
-        float m12;
-        float m20;
-        float m21;
-        float m22;
-    } ;
-    float m[9];
-} CDUnion_de9d7be0;
+        float _field1;
+        float _field2;
+        float _field3;
+        float _field4;
+        float _field5;
+        float _field6;
+        float _field7;
+        float _field8;
+        float _field9;
+    } _field1;
+    float _field2[9];
+} CDUnion_2b8b3256;
 
 typedef union {
     struct {

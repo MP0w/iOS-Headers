@@ -8,7 +8,7 @@
 
 @protocol AITXPCConnectionDelegate <NSObject>
 - (void)xpcConnectionFailed:(id)arg1;
-- (void)xpcConnectionUnhandledMessage:(void *)arg1;
+- (void)xpcConnectionUnhandledMessage:(id)arg1;
 - (void)xpcConnection:(id)arg1 receivedMessage:(id)arg2 userInfo:(id)arg3;
 @end
 

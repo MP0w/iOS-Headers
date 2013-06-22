@@ -16,6 +16,8 @@
     NSMutableArray *mBgFills;
 }
 
++ (id)objectInArray:(id)arg1 withPossiblyOutOfRangeIndex:(unsigned int)arg2 defaultValue:(id)arg3;
+- (void)populateWithOfficeDefaults;
 - (id)bgFillAtIndex:(unsigned int)arg1;
 - (unsigned int)bgFillCount;
 - (void)addBgFill:(id)arg1;

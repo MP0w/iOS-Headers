@@ -15,13 +15,13 @@
     UILabel *_titleView;
 }
 
+- (void).cxx_destruct;
 - (void)layoutForWidth:(float)arg1 position:(int)arg2;
 - (id)_organizerView;
 - (id)_titleView;
 - (BOOL)update;
 - (BOOL)shouldDisplayForEvent;
 - (BOOL)hasCustomLayout;
-- (void)dealloc;
 - (id)initWithEvent:(id)arg1 editable:(BOOL)arg2;
 
 @end

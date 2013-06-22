@@ -6,21 +6,24 @@
 
 #import "UITableViewCell.h"
 
+@class UIView, _UIBackdropView;
+
 @interface TPAudioRouteCell : UITableViewCell
 {
-    BOOL _checked;
+    BOOL _isActiveRoute;
+    BOOL _blursBackground;
+    UIView *_effectsView;
+    _UIBackdropView *_backdropView;
 }
 
-+ (id)highlightedBackground;
-+ (id)normalBackground;
+@property(retain) _UIBackdropView *backdropView; // @synthesize backdropView=_backdropView;
+@property(retain) UIView *effectsView; // @synthesize effectsView=_effectsView;
+@property(nonatomic) BOOL blursBackground; // @synthesize blursBackground=_blursBackground;
+@property(nonatomic) BOOL isActiveRoute; // @synthesize isActiveRoute=_isActiveRoute;
 - (void)layoutSubviews;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setChecked:(BOOL)arg1;
+- (void)setIsMuteButtonWithImage:(id)arg1;
+- (void)dealloc;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
-- (id)enabledIcon;
-- (id)highlightedIcon;
-- (id)_shadowHighlightedColor;
-- (id)_shadowColor;
 
 @end
 

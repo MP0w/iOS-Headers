@@ -19,7 +19,7 @@
 - (id)fontWithName:(id)arg1 create:(BOOL)arg2;
 - (id)fontWithName:(id)arg1;
 - (void)clear;
-- (int)count;
+- (unsigned int)count;
 - (void)dealloc;
 - (id)init;
 

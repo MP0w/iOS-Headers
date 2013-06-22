@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, UICollectionView, UICollectionViewLayout;
+@class NSArray, NSMapTable, NSMutableArray, NSMutableDictionary, UICollectionView, UICollectionViewLayout;
 
 @interface UICollectionViewData : NSObject
 {
     UICollectionView *_collectionView;
     UICollectionViewLayout *_layout;
-    NSMutableDictionary *_screenPageDict;
+    NSMapTable *_screenPageMap;
     id *_globalItems;
     NSMutableDictionary *_supplementaryLayoutAttributes;
     NSMutableDictionary *_decorationLayoutAttributes;
+    NSMutableDictionary *_invalidatedSupplementaryViews;
     struct CGRect _validLayoutRect;
     int _numItems;
     int _numSections;
@@ -26,14 +27,20 @@
         unsigned int itemCountsAreValid:1;
         unsigned int layoutIsPrepared:1;
     } _collectionViewDataFlags;
+    NSMutableArray *_clonedLayoutAttributes;
 }
 
 + (void)initialize;
+@property(readonly, nonatomic) NSArray *clonedLayoutAttributes; // @synthesize clonedLayoutAttributes=_clonedLayoutAttributes;
 @property(readonly, nonatomic) BOOL layoutIsPrepared;
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 atIndexPath:(id)arg2;
+- (id)knownDecorationElementKinds;
+- (id)knownSupplementaryElementKinds;
+- (id)existingSupplementaryLayoutAttributes;
 - (id)existingSupplementaryLayoutAttributesInSection:(int)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
+- (id)layoutAttributesForElementsInRect:(struct CGRect)arg1 validateLayout:(BOOL)arg2;
 - (id)layoutAttributesForElementsInSection:(int)arg1;
 - (id)layoutAttributesForGlobalItemIndex:(int)arg1;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
@@ -58,6 +65,8 @@
 - (void)_validateItemCounts;
 - (void)_updateItemCounts;
 - (void)invalidate:(BOOL)arg1;
+- (void)validateSupplementaryViews;
+- (void)invalidateSupplementaryViews:(id)arg1;
 - (void)dealloc;
 - (id)initWithCollectionView:(id)arg1 layout:(id)arg2;
 

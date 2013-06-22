@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCoding-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class CIImage, NSArray, _UIDecompressionInfo;
 
-@interface UIImage : NSObject <NSCoding>
+@interface UIImage : NSObject <NSSecureCoding, NSCoding>
 {
     void *_imageRef;
     float _scale;
@@ -21,6 +22,7 @@
         unsigned int hasPattern:1;
         unsigned int isCIImage:1;
         unsigned int imageSetIdentifer:16;
+        unsigned int renderingMode:2;
     } _imageFlags;
     _UIDecompressionInfo *_decompressionInfo;
     struct UIEdgeInsets _alignmentRectInsets;
@@ -30,6 +32,8 @@
 + (id)animatedResizableImageNamed:(id)arg1 capInsets:(struct UIEdgeInsets)arg2 resizingMode:(int)arg3 duration:(double)arg4;
 + (id)animatedResizableImageNamed:(id)arg1 capInsets:(struct UIEdgeInsets)arg2 duration:(double)arg3;
 + (id)animatedImageNamed:(id)arg1 duration:(double)arg2;
++ (struct UIEdgeInsets)_edgeInsetsForStylePresetName:(id)arg1 scale:(float)arg2;
++ (BOOL)supportsSecureCoding;
 + (id)imageWithCIImage:(id)arg1 scale:(float)arg2 orientation:(int)arg3;
 + (id)imageWithCIImage:(id)arg1;
 + (id)imageWithCGImage:(struct CGImage *)arg1 scale:(float)arg2 orientation:(int)arg3;
@@ -61,6 +65,7 @@
 + (id)_tintedImageForSize:(struct CGSize)arg1 withTint:(id)arg2 maskImage:(id)arg3 effectsImage:(id)arg4 style:(int)arg5 edgeInsets:(struct UIEdgeInsets)arg6;
 + (id)_tintedImageForSize:(struct CGSize)arg1 withTint:(id)arg2 maskImage:(id)arg3 effectsImage:(id)arg4 style:(int)arg5;
 + (id)_tintedImageForSize:(struct CGSize)arg1 withTint:(id)arg2 effectsImage:(id)arg3 maskImage:(id)arg4 style:(int)arg5;
++ (struct CGSize)_legibilityImageSizeForSize:(struct CGSize)arg1 style:(int)arg2;
 @property(readonly, nonatomic) struct UIEdgeInsets alignmentRectInsets; // @synthesize alignmentRectInsets=_alignmentRectInsets;
 - (id)_automationID;
 - (void)drawAsPatternInRect:(struct CGRect)arg1;
@@ -72,6 +77,9 @@
 @property(readonly, nonatomic) NSArray *images;
 - (id)imageWithAlignmentRectInsets:(struct UIEdgeInsets)arg1;
 - (void)_setAlignmentRectInsets:(struct UIEdgeInsets)arg1;
+- (id)_imageWithLetterpressEffectWithForegroundColor:(id)arg1;
+@property(readonly, nonatomic) int renderingMode;
+- (id)imageWithRenderingMode:(int)arg1;
 @property(readonly, nonatomic) int resizingMode;
 @property(readonly, nonatomic) struct UIEdgeInsets capInsets;
 - (id)resizableImageWithCapInsets:(struct UIEdgeInsets)arg1 resizingMode:(int)arg2;
@@ -82,6 +90,7 @@
 - (struct CGRect)_contentStretchInPixels;
 @property(readonly, nonatomic) float scale;
 @property(readonly, nonatomic) int imageOrientation;
+- (struct CGSize)_sizeInPixels;
 @property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) CIImage *CIImage;
 @property(readonly, nonatomic) struct CGImage *CGImage;
@@ -106,6 +115,8 @@
 - (void)_saveDecompressedImage:(struct CGImage *)arg1;
 - (void)_decompressionFallbackImageCreation;
 - (void)_decompressionComplete;
+- (id)_flatImageWithColor:(id)arg1;
+- (CDStruct_ffb0d7a1)_calculateStatistics;
 - (id)_stretchableImageWithCapInsets:(struct UIEdgeInsets)arg1;
 - (BOOL)writeToCPBitmapFile:(id)arg1 flags:(int)arg2;
 - (struct __IOSurface *)ioSurface;
@@ -143,7 +154,7 @@
 - (id)_doubleBezeledImageWithExteriorShadowRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4 interiorShadowRed:(float)arg5 green:(float)arg6 blue:(float)arg7 alpha:(float)arg8 fillRed:(float)arg9 green:(float)arg10 blue:(float)arg11 alpha:(float)arg12;
 - (id)_bezeledImageWithShadowRed:(float)arg1 green:(float)arg2 blue:(float)arg3 alpha:(float)arg4 fillRed:(float)arg5 green:(float)arg6 blue:(float)arg7 alpha:(float)arg8 drawShadow:(BOOL)arg9;
 - (id)_flatImageWithWhite:(float)arg1 alpha:(float)arg2;
-- (BOOL)_isInvisible;
+- (BOOL)_isInvisibleAndGetIsTranslucent:(char *)arg1;
 - (int)_imageSetIdentifier;
 - (void)_setImageSetIdentifier:(int)arg1;
 - (BOOL)_isNamed;
@@ -154,9 +165,13 @@
 - (id)_applicationIconImageForFormat:(int)arg1 precomposed:(BOOL)arg2 scale:(float)arg3;
 - (id)_applicationIconImageForFormat:(int)arg1 precomposed:(BOOL)arg2;
 - (void)_preheatBitmapData;
+- (id)_applyBackdropViewSettings:(id)arg1;
 - (id)_subimageInRect:(struct CGRect)arg1;
-- (id)_unselectedTabBarItemImageWithTintColor:(id)arg1;
-- (id)_selectedTabBarItemImageWithTintColor:(id)arg1;
+- (id)_unselectedTabBarItemImageWithTintColor:(id)arg1 metrics:(int)arg2 style:(int)arg3;
+- (id)_selectedTabBarItemImageWithTintColor:(id)arg1 metrics:(int)arg2 style:(int)arg3;
+- (void)_drawImageForLegibilityStyle:(int)arg1 size:(struct CGSize)arg2;
+- (id)_imageForLegibilitySettings:(id)arg1;
+- (id)_imageForLegibilityStyle:(int)arg1;
 
 @end
 

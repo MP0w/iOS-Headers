@@ -7,6 +7,6 @@
 #import "NSObject-Protocol.h"
 
 @protocol VKAnchorDelegate <NSObject>
-- (void)anchorWorldPointDidChange:(id)arg1;
+- (void)anchorWorldPointDidChange:(void *)arg1;
 @end
 

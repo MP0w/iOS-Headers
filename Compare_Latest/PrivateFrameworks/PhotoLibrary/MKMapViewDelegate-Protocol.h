@@ -9,9 +9,11 @@
 @protocol MKMapViewDelegate <NSObject>
 
 @optional
-- (void)mapView:(id)arg1 didChangeUserTrackingMode:(int)arg2 animated:(BOOL)arg3;
 - (void)mapView:(id)arg1 didAddOverlayViews:(id)arg2;
 - (id)mapView:(id)arg1 viewForOverlay:(id)arg2;
+- (void)mapView:(id)arg1 didAddOverlayRenderers:(id)arg2;
+- (id)mapView:(id)arg1 rendererForOverlay:(id)arg2;
+- (void)mapView:(id)arg1 didChangeUserTrackingMode:(int)arg2 animated:(BOOL)arg3;
 - (void)mapView:(id)arg1 annotationView:(id)arg2 didChangeDragState:(unsigned int)arg3 fromOldState:(unsigned int)arg4;
 - (void)mapView:(id)arg1 didFailToLocateUserWithError:(id)arg2;
 - (void)mapView:(id)arg1 didUpdateUserLocation:(id)arg2;
@@ -22,6 +24,8 @@
 - (void)mapView:(id)arg1 annotationView:(id)arg2 calloutAccessoryControlTapped:(id)arg3;
 - (void)mapView:(id)arg1 didAddAnnotationViews:(id)arg2;
 - (id)mapView:(id)arg1 viewForAnnotation:(id)arg2;
+- (void)mapViewDidFinishRenderingMap:(id)arg1 fullyRendered:(BOOL)arg2;
+- (void)mapViewWillStartRenderingMap:(id)arg1;
 - (void)mapViewDidFailLoadingMap:(id)arg1 withError:(id)arg2;
 - (void)mapViewDidFinishLoadingMap:(id)arg1;
 - (void)mapViewWillStartLoadingMap:(id)arg1;

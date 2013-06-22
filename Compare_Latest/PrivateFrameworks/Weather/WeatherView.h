@@ -13,7 +13,6 @@
 @interface WeatherView : UIView <CityUpdaterDelegate>
 {
     City *_city;
-    id _delegate;
     BOOL _showingDay;
     UIImage *_bigIcon;
     UIImage *_secondaryBigIcon;
@@ -23,22 +22,22 @@
 }
 
 @property(retain, nonatomic, setter=showCity:) City *city; // @synthesize city=_city;
-@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
 - (id)_secondaryBigIcon;
 - (id)_bigIcon;
 - (void)setBigIcon:(unsigned int)arg1 dayNightChanged:(BOOL)arg2;
-- (void)updateWind;
 - (id)bigImageBundle;
 - (void)cleanupWindView;
 - (id)bundle;
-- (void)setupSecondaryBigIconOffset:(int)arg1;
-- (void)setupBigIconOffset:(int)arg1;
-- (struct CGRect)windFrame;
+- (void)setupSecondaryBigIconOffset:(unsigned int)arg1;
+- (void)setupBigIconOffset:(unsigned int)arg1;
 - (void)refreshLocalization;
 - (void)cityDidStartWeatherUpdate:(id)arg1;
 - (BOOL)updateWeatherDisplayForCity:(id)arg1;
+- (BOOL)_setCity:(id)arg1 associateAsDelegate:(BOOL)arg2;
 - (void)cityDidFinishWeatherUpdate:(id)arg1;
+- (void)resetLocale:(id)arg1;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

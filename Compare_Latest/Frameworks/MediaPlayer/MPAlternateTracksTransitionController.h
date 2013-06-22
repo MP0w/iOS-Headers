@@ -14,8 +14,8 @@
     UIImageView *_snapshotCoverImageView;
 }
 
-@property(nonatomic) MPVideoViewController *videoController; // @synthesize videoController=_videoController;
-- (void)_animationDidStop;
+@property(nonatomic) __weak MPVideoViewController *videoController; // @synthesize videoController=_videoController;
+- (void).cxx_destruct;
 - (void)performTransition:(unsigned int)arg1;
 
 @end

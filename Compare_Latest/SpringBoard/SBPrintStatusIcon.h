@@ -10,12 +10,8 @@
 {
 }
 
-- (BOOL)delaysUnhighlightWhenTapped;
-- (id)applicationBundleID;
-- (BOOL)shouldEllipsizeLabel;
-- (id)leafIdentifier;
-- (id)displayName;
-- (id)generateIconImage:(int)arg1;
+- (BOOL)_delaysUnhighlightWhenTapped;
+- (id)init;
 
 @end
 

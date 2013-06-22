@@ -14,6 +14,7 @@
 
 - (id)createTouchList;
 - (id)createTouch:(id)arg1 target:(id)arg2 identifier:(int)arg3 pageX:(int)arg4 pageY:(int)arg5 screenX:(int)arg6 screenY:(int)arg7;
+- (id)webkitGetNamedFlows;
 - (id)querySelectorAll:(id)arg1;
 - (id)querySelector:(id)arg1;
 - (id)getElementsByClassName:(id)arg1;
@@ -66,6 +67,8 @@
 - (id)createTextNode:(id)arg1;
 - (id)createDocumentFragment;
 - (id)createElement:(id)arg1;
+- (BOOL)webkitHidden;
+- (id)webkitVisibilityState;
 - (id)compatMode;
 @property(copy) NSString *selectedStylesheetSet;
 @property(readonly) NSString *preferredStylesheetSet;

@@ -28,11 +28,12 @@
 @property(nonatomic) int searchScope; // @synthesize searchScope=_searchScope;
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(retain, nonatomic) IUMediaQueriesDataSource *dataSourceToSearch; // @synthesize dataSourceToSearch=_dataSourceToSearch;
+- (void).cxx_destruct;
 - (void)_postResultsDoneNotification;
 - (void)_postResultsChangedNotification:(id)arg1;
 - (void)_updateDataInBackground;
 - (void)_searchPerformOperation:(id)arg1 didProduceQuery:(id)arg2 forSearchIdentifier:(id)arg3;
-- (id)_humanizedTitleWithResultCount:(unsigned int)arg1 searchStyle:(CDStruct_ee3f66e2 *)arg2;
+- (id)_humanizedTitleWithResultCount:(unsigned int)arg1 searchStyle:(CDStruct_c37684e5 *)arg2;
 - (id)copyContinueSearchInITunesStoreActionRow;
 - (void)_continueSearchInITunesStore:(id)arg1;
 @property(readonly, nonatomic) BOOL canContinueSearchInITunesStore;
@@ -46,7 +47,7 @@
 - (id)cellConfigurationForIndex:(unsigned int)arg1 shouldLoadArtwork:(BOOL)arg2 artworkLoadingCompletionHandler:(id)arg3;
 - (Class)cellConfigurationClassForEntity:(id)arg1;
 - (id)title;
-- (id)queriesAppropriateForGroupingProperty:(int)arg1 mediaType:(int)arg2;
+- (id)queriesAppropriateForGroupingProperty:(int)arg1 mediaType:(unsigned int)arg2;
 - (void)dealloc;
 - (void)_restrictionsDidChangeNotification:(id)arg1;
 - (void)_playlistContentsDidChangeNotification:(id)arg1;

@@ -16,12 +16,12 @@
 
 @property(nonatomic) int confirmationState; // @synthesize confirmationState=_confirmationState;
 @property(readonly, nonatomic) id downloadableMediaEntity; // @synthesize downloadableMediaEntity=_downloadableMediaEntity;
+- (void).cxx_destruct;
 - (void)cancelPendingActionForButton:(id)arg1;
 - (void)downloadAssetForButtonPressed:(id)arg1 completionHandler:(id)arg2;
 - (void)configureButtonForButtonPressed:(id)arg1 animate:(BOOL)arg2;
 - (void)configureButton:(id)arg1 animate:(BOOL)arg2;
 @property(readonly, nonatomic) UIButton *newButton;
-- (void)dealloc;
 - (id)initWithMediaEntity:(id)arg1;
 
 @end

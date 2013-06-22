@@ -20,6 +20,7 @@
 @property(nonatomic) BOOL TVOutEnabled; // @synthesize TVOutEnabled=_tvOutEnabled;
 @property(nonatomic) BOOL playAfterFlip; // @synthesize playAfterFlip=_shouldPlayAfterFlip;
 @property(retain, nonatomic) UINavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
+- (void).cxx_destruct;
 - (void)_showChapterGuideNavigationViews;
 - (void)_restoreOriginalNavigationViewsDidStop:(id)arg1;
 - (void)_restoreOriginalNavigationViews:(BOOL)arg1;
@@ -27,7 +28,6 @@
 - (void)_hideNavigationAndStatusBars;
 - (id)_copySwizzledNavigationViews;
 - (id)_chapterGuideTitleLabel;
-- (void)_hideNavigationBarAnimationDidFinish:(id)arg1;
 - (void)_done:(id)arg1;
 - (void)performTransition:(unsigned int)arg1;
 - (void)dealloc;

@@ -13,20 +13,44 @@
     AVCaptureDeviceFormatInternal *_internal;
 }
 
++ (id)deviceFormatWithDictionary:(id)arg1 deviceProperties:(id)arg2 mediaType:(id)arg3 mediaSubType:(int)arg4;
 + (void)initialize;
-+ (id)deviceFormatWithDictionary:(id)arg1 mediaType:(id)arg2 mediaSubType:(int)arg3;
-+ (id)_stringForFormatDescription:(struct opaqueCMFormatDescription *)arg1 frameRateRanges:(id)arg2;
+- (void)setDefaultActiveMaxFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (CDStruct_1b6d18a9)defaultActiveMaxFrameDuration;
+- (void)setDefaultActiveMinFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (CDStruct_1b6d18a9)defaultActiveMinFrameDuration;
+- (int)visCompanionSupportedFormatsArrayIndex;
+- (int)supportedFormatsArrayIndex;
+- (BOOL)usesPreviewSizedThumbnail;
+- (BOOL)needsPhotoPreviewDPCC;
+- (BOOL)needsPhotoTNR;
+- (BOOL)supportsHighProfileH264;
+- (BOOL)isHighResPhotoFormat;
+- (BOOL)isPhotoFormat;
+- (CDStruct_1ef3fb1f)sensorDimensions;
+- (CDStruct_1ef3fb1f)outputDimensions;
+- (id)formatDictionary;
+- (BOOL)isExperimental;
+- (int)rawBitDepth;
+- (BOOL)supportsVideoZoom;
 - (BOOL)supportsLowLightBoost;
 - (int)supportedStabilizationMethod;
-- (BOOL)isBinned;
-- (BOOL)hasBinned;
+@property(readonly, nonatomic, getter=isVideoStabilizationSupported) BOOL videoStabilizationSupported;
+@property(readonly, nonatomic) float videoZoomFactorUpscaleThreshold;
+@property(readonly, nonatomic) float videoMaxZoomFactor;
+- (struct CGSize)_maxVideoDimensions;
+@property(readonly, nonatomic) float videoFieldOfView;
+@property(readonly, nonatomic, getter=isVideoBinned) BOOL videoBinned;
+- (CDStruct_1b6d18a9)highestSupportedVideoFrameDuration;
+- (CDStruct_1b6d18a9)lowestSupportedVideoFrameDuration;
 @property(readonly, nonatomic) NSArray *videoSupportedFrameRateRanges;
 @property(readonly, nonatomic) struct opaqueCMFormatDescription *formatDescription;
 @property(readonly, nonatomic) NSString *mediaType;
 - (void)dealloc;
 - (BOOL)isEqual:(id)arg1;
-- (id)initWithDictionary:(id)arg1 mediaType:(id)arg2 mediaSubType:(int)arg3;
+- (id)initWithDictionary:(id)arg1 deviceProperties:(id)arg2 mediaType:(id)arg3 mediaSubType:(int)arg4;
 - (id)description;
+- (id)_stringForFormatDescription:(struct opaqueCMFormatDescription *)arg1 frameRateRanges:(id)arg2;
 
 @end
 

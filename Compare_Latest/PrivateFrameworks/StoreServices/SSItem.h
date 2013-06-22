@@ -85,6 +85,7 @@
 @property(readonly, nonatomic) NSString *itemTitle;
 - (id)itemOfferForIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSString *itemKind;
+@property(readonly, nonatomic, getter=isHighDefinition) BOOL highDefinition;
 @property(readonly, nonatomic, getter=isRestricted) BOOL restricted;
 @property(readonly, nonatomic, getter=isGameCenterEnabled) BOOL gameCenterEnabled;
 @property(readonly, nonatomic) SSItemImageCollection *imageCollection;

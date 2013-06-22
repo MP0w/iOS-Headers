@@ -19,7 +19,7 @@
 + (void)writeCoordSpaceFromGeometry:(id)arg1 toShape:(struct EshShape *)arg2;
 + (void)writeAdjustValuesFromGeometry:(id)arg1 toShapeProperties:(struct EshShapeProperties *)arg2;
 + (struct EshComputedValue)computedValueWithAdjustCoord:(struct OADAdjustCoord)arg1;
-+ (void)readFromLimo:(CsPoint_62d0eb08)arg1 toGeometry:(id)arg2;
++ (void)readFromLimo:(CsPoint_c846a6ec)arg1 toGeometry:(id)arg2;
 + (void)readFromTextBoxRects:(const EshTablePropVal_64904f96 *)arg1 toGeometry:(id)arg2;
 + (void)readFromFormulas:(const EshTablePropVal_f007a3b0 *)arg1 toGeometry:(id)arg2;
 + (void)readFromPathCommands:(const EshTablePropVal_ea625207 *)arg1 pathParams:(const struct EshPathParamTable *)arg2 toGeometry:(id)arg3;

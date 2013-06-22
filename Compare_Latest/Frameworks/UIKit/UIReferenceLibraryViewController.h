@@ -6,55 +6,80 @@
 
 #import <UIKit/UIViewController.h>
 
-@class NSString, UIView, UIWebView, UIWindow, _UIDictionaryDownloadViewController;
+#import <UIKit/UITableViewDataSource-Protocol.h>
+#import "UITableViewDelegate-Protocol.h"
+#import "_UILongDefinitionViewDelegate-Protocol.h"
+#import "_UIShortDefinitionViewDelegate-Protocol.h"
 
-@interface UIReferenceLibraryViewController : UIViewController
+@class NSArray, NSString, UIButton, UILabel, UINavigationController, UITableViewController, UIView, UIWindow;
+
+@interface UIReferenceLibraryViewController : UIViewController <_UIShortDefinitionViewDelegate, _UILongDefinitionViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
+    NSString *_term;
+    NSArray *_definitionValues;
+    UIView *_diddlyDoView;
+    UIView *_buttonsView;
+    UILabel *_dictionaryLabel;
+    UIButton *_doneButton;
+    UIView *_headerView;
+    UIView *_contentView;
+    UIView *_footerView;
+    UIView *_dictionaryDisplayView;
     int _oldPopoverStyle;
-    unsigned int _definitionLanguageDirection;
-    NSString *_stringToDefine;
-    UIWebView *_definitionView;
-    UIView *_definitionContainerView;
-    UIView *_modalHeaderView;
-    NSString *_stylesheet;
-    NSString *_definitionHTML;
-    id _dismissCompletionHandler;
+    UINavigationController *_baseNavController;
+    UITableViewController *_multiDefViewController;
+    UIViewController *_longDefViewController;
     UIWindow *_rotationDecider;
-    _UIDictionaryDownloadViewController *_downloadViewController;
-    BOOL _downloadableDictionaryAvailable;
+    id _dismissCompletionHandler;
 }
 
-+ (id)_noDefinitionLabel;
++ (id)_colorAttributes;
++ (id)_dictionaryDefinitionAttributes;
++ (id)_localizedDictionaryTitleAttributes;
++ (id)_pressedButtonImage;
++ (id)_defaultButtonImage;
++ (id)_diddlyDoViewLineColor;
 + (id)_foregroundColor;
 + (id)_backgroundColor;
-+ (id)_diddlydoLineColor;
 + (id)_viewControllerForReferenceWithString:(id)arg1 options:(unsigned int)arg2;
 + (id)_popoverControllerForReferenceLibraryWithString:(id)arg1;
 + (BOOL)dictionaryHasDefinitionForTerm:(id)arg1;
-@property(nonatomic) BOOL downloadableDictionaryAvailable; // @synthesize downloadableDictionaryAvailable=_downloadableDictionaryAvailable;
-@property(retain, nonatomic) _UIDictionaryDownloadViewController *downloadViewController; // @synthesize downloadViewController=_downloadViewController;
-@property(retain, nonatomic, setter=_setRotationDecider:) UIWindow *_rotationDecider; // @synthesize _rotationDecider;
 @property(copy, nonatomic) id dismissCompletionHandler; // @synthesize dismissCompletionHandler=_dismissCompletionHandler;
-@property(retain, nonatomic) NSString *definitionHTML; // @synthesize definitionHTML=_definitionHTML;
-@property(readonly, nonatomic) NSString *stylesheet; // @synthesize stylesheet=_stylesheet;
-@property(readonly, nonatomic) UIWebView *definitionView; // @synthesize definitionView=_definitionView;
-@property(readonly, nonatomic) NSString *stringToDefine; // @synthesize stringToDefine=_stringToDefine;
+@property(retain, nonatomic, setter=_setRotationDecider:) UIWindow *_rotationDecider; // @synthesize _rotationDecider;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)_didResignContentViewControllerOfPopover:(id)arg1;
 - (void)_willBecomeContentViewControllerOfPopover:(id)arg1;
-- (void)viewDidLayoutSubviews;
-- (void)viewWillLayoutSubviews;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
 - (void)_setPopoverController:(id)arg1;
-- (void)_repositionSubviews;
 - (void)viewDidLoad;
-- (void)downloadActionsAreComplete:(id)arg1;
-- (void)_userChoseToDownload:(id)arg1;
-- (void)showDownloadInterface;
-@property(readonly, nonatomic) UIView *definitionContainerView; // @synthesize definitionContainerView=_definitionContainerView;
-- (void)_dismissModalReferenceView:(id)arg1;
-@property(readonly, nonatomic) UIView *modalHeaderView; // @synthesize modalHeaderView=_modalHeaderView;
+- (unsigned int)supportedInterfaceOrientations;
+- (id)_dictionaryDisplayView;
+- (id)_contentView;
+- (id)_footerView;
+- (id)_headerView;
+- (id)_doneButton;
+- (id)_buttonsView;
+- (id)_diddlyDoView;
+- (id)_dictionaryLabel;
+- (id)_buttonWithTitle:(id)arg1;
+- (id)_colorAttributes;
+- (id)_dictionaryDefinitionAttributes;
+- (id)_localizedDictionaryTitleAttributes;
+- (id)_pressedButtonImage;
+- (id)_defaultButtonImage;
+- (id)_diddlyDoViewLineColor;
+- (id)_foregroundColor;
+- (id)_backgroundColor;
+- (void)_backButtonWasTapped:(id)arg1;
+- (void)_definitionValueWasChosen:(id)arg1;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (void)_searchWikipedia:(id)arg1;
+- (void)_doneButtonPressed:(id)arg1;
+- (void)_searchWeb:(id)arg1;
 - (void)dealloc;
 - (id)initWithTerm:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

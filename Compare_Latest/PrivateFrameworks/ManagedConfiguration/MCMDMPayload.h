@@ -21,7 +21,8 @@
     BOOL _checkOutWhenRemoved;
 }
 
-+ (id)localizedDescriptionForPayloadCount:(unsigned int)arg1;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
 + (id)typeStrings;
 @property(readonly, nonatomic) BOOL checkOutWhenRemoved; // @synthesize checkOutWhenRemoved=_checkOutWhenRemoved;
 @property(readonly, nonatomic) BOOL signMessage; // @synthesize signMessage=_signMessage;

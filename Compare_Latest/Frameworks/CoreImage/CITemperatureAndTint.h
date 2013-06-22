@@ -16,11 +16,11 @@
 }
 
 + (id)customAttributes;
-@property(copy, nonatomic) CIVector *inputTargetNeutral; // @synthesize inputTargetNeutral;
+@property(retain, nonatomic) CIVector *inputTargetNeutral; // @synthesize inputTargetNeutral;
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+@property(retain, nonatomic) CIVector *inputNeutral; // @dynamic inputNeutral;
 - (void)setDefaults;
-@property(copy, nonatomic) CIVector *inputNeutral; // @dynamic inputNeutral;
 
 @end
 

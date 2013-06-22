@@ -20,6 +20,7 @@
 - (id)contentsDescription;
 - (id)description;
 - (void)dealloc;
+- (void)removeAllObjects;
 - (id)initWithMapType:(int)arg1;
 
 @end

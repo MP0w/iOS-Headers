@@ -16,6 +16,7 @@
 }
 
 + (id)sharedInstance;
+- (id)dateStringForEventInvitationWithStartDate:(id)arg1 endDate:(id)arg2 timeZone:(id)arg3 allDay:(BOOL)arg4;
 - (id)dateStringForEventInvitation:(id)arg1 timeZone:(id)arg2;
 - (id)_stringForDateTime:(CDStruct_b0fa4487)arg1 timeZone:(struct __CFTimeZone *)arg2;
 - (id)_stringForTime:(CDStruct_b0fa4487)arg1;

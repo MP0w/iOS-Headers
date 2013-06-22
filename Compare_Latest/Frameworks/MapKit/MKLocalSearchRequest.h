@@ -8,15 +8,20 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSString;
+@class NSData, NSString;
 
 @interface MKLocalSearchRequest : NSObject <NSCopying>
 {
     NSString *_naturalLanguageQuery;
     BOOL _hasRegion;
     CDStruct_feeb6407 _region;
+    NSData *_suggestionMetadata;
+    NSData *_suggestionEntryMetadata;
 }
 
++ (id)searchRequestWithCompletion:(id)arg1;
+@property(retain, nonatomic) NSData *suggestionEntryMetadata; // @synthesize suggestionEntryMetadata=_suggestionEntryMetadata;
+@property(retain, nonatomic) NSData *suggestionMetadata; // @synthesize suggestionMetadata=_suggestionMetadata;
 @property(readonly, nonatomic) BOOL _hasRegion; // @synthesize _hasRegion;
 @property(nonatomic) CDStruct_90e2a262 region; // @synthesize region=_region;
 @property(copy, nonatomic) NSString *naturalLanguageQuery; // @synthesize naturalLanguageQuery=_naturalLanguageQuery;

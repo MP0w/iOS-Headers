@@ -19,17 +19,19 @@
     GLKEffectPropertyTexture *_textureCubeMap;
     GLKEffectPropertyTransform *_transform;
     NSString *_label;
+    unsigned char _effectStale;
+    unsigned char _centerChanged;
     unsigned int _vao;
     unsigned int _positionVBO;
     unsigned int _texCoordVBO;
     NSMutableArray *_propertyArray;
-    unsigned char _effectStale;
     GLKEffect *_effect;
     unsigned int _programName;
 }
 
+@property(nonatomic) unsigned char centerChanged; // @synthesize centerChanged=_centerChanged;
 @property(readonly, nonatomic) GLKEffectPropertyTransform *transform; // @synthesize transform=_transform;
-@property(retain, nonatomic) NSString *label; // @synthesize label=_label;
+@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(nonatomic) unsigned int programName; // @synthesize programName=_programName;
 @property(nonatomic) GLKEffect *effect; // @synthesize effect=_effect;
 @property(nonatomic) unsigned char effectStale; // @synthesize effectStale=_effectStale;

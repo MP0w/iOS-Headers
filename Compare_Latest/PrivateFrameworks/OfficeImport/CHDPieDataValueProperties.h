@@ -11,7 +11,7 @@
     int mExplosion;
 }
 
-- (id)shallowCopyWithIndex:(int)arg1;
+- (id)shallowCopyWithIndex:(unsigned int)arg1;
 - (void)setExplosion:(int)arg1;
 - (int)explosion;
 - (id)init;

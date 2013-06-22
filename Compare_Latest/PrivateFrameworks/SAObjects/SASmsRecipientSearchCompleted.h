@@ -8,7 +8,7 @@
 
 #import "SAServerBoundCommand-Protocol.h"
 
-@class NSArray, NSString, SAPersonAttribute;
+@class NSArray, NSString;
 
 @interface SASmsRecipientSearchCompleted : SABaseCommand <SAServerBoundCommand>
 {
@@ -17,7 +17,6 @@
 + (id)recipientSearchCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)recipientSearchCompleted;
 @property(copy, nonatomic) NSArray *recipients;
-@property(retain, nonatomic) SAPersonAttribute *recipient;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

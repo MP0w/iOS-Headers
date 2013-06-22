@@ -20,6 +20,7 @@
 - (void)_performActivity:(id)arg1;
 - (void)_prepareActivity:(id)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
+- (BOOL)sourceIsManaged;
 - (BOOL)_shouldShowSystemActivity:(id)arg1;
 
 @end

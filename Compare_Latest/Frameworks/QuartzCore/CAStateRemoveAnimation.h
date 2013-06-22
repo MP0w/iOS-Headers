@@ -18,6 +18,8 @@
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)CAMLTypeForKey:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)apply:(id)arg1;
 - (BOOL)matches:(id)arg1;

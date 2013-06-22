@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class ASAsset, NSString;
+@class ASAsset, ASAssetQuery, NSString;
 
 @interface MobileAssetUpdater : NSObject
 {
     ASAsset *_asset;
+    ASAssetQuery *_query;
     NSString *_assetType;
     NSString *_overrideFile;
     NSString *_purgeOverrideFile;
@@ -19,13 +20,14 @@
     id _logger;
 }
 
-@property(copy, nonatomic) id logger; // @synthesize logger=_logger;
-@property(nonatomic) BOOL requireAssetMetadata; // @synthesize requireAssetMetadata=_requireAssetMetadata;
+@property(copy) id logger; // @synthesize logger=_logger;
+@property BOOL requireAssetMetadata; // @synthesize requireAssetMetadata=_requireAssetMetadata;
 @property(readonly) BOOL assetDownloaded; // @synthesize assetDownloaded=_assetDownloaded;
-@property(retain, nonatomic) NSString *purgeOverrideFile; // @synthesize purgeOverrideFile=_purgeOverrideFile;
-@property(retain, nonatomic) NSString *overrideFile; // @synthesize overrideFile=_overrideFile;
-@property(retain, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
-@property(retain, nonatomic) ASAsset *asset; // @synthesize asset=_asset;
+@property(retain) NSString *purgeOverrideFile; // @synthesize purgeOverrideFile=_purgeOverrideFile;
+@property(retain) NSString *overrideFile; // @synthesize overrideFile=_overrideFile;
+@property(retain) NSString *assetType; // @synthesize assetType=_assetType;
+@property(retain) ASAssetQuery *query; // @synthesize query=_query;
+@property(retain) ASAsset *asset; // @synthesize asset=_asset;
 - (void)log:(int)arg1 format:(id)arg2;
 - (id)validateAsset;
 - (id)validateAssetAttributes:(id)arg1;

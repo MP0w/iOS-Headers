@@ -14,6 +14,7 @@
     NSMutableDictionary *_accountMap;
     BOOL _isReadOnly;
     BOOL _cachesEnabled;
+    NSArray *_operationalAccountsCache;
     NSMutableDictionary *_serviceToActiveAccountsMap;
     NSMutableDictionary *_serviceToAccountsMap;
     NSMutableDictionary *_serviceToConnectedAccountsMap;
@@ -23,6 +24,7 @@
 + (id)bestAccountFromAccounts:(id)arg1;
 + (id)sharedInstance;
 @property(readonly, nonatomic) NSArray *accounts; // @synthesize accounts=_accounts;
+- (void)_rebuildOperationalAccountsCache:(BOOL)arg1;
 - (void)_disableCache;
 - (void)_enableCache;
 - (id)jabberAccount;
@@ -61,6 +63,7 @@
 - (BOOL)addAccount:(id)arg1 atIndex:(int)arg2 locally:(BOOL)arg3;
 - (BOOL)addAccount:(id)arg1 atIndex:(int)arg2;
 - (BOOL)addAccount:(id)arg1;
+- (void)_accountRegistrationStatusChanged:(id)arg1;
 - (void)_activeAccountChanged:(id)arg1;
 - (void)setReadOnly:(BOOL)arg1;
 - (BOOL)readOnly;
@@ -85,7 +88,6 @@
 - (void)autoLogin;
 - (id)_bestOperationalAccountForSendingForService:(id)arg1;
 - (id)__iCloudSystemAccountForService:(id)arg1;
-- (id)_serviceAgentConnectedAccounts;
 
 @end
 

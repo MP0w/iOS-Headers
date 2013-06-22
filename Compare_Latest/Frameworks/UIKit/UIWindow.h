@@ -8,7 +8,7 @@
 
 #import "NSISEngineDelegate-Protocol.h"
 
-@class CALayer, NSArray, NSISEngine, NSMutableArray, NSMutableSet, NSUndoManager, UIColor, UIResponder, UIScreen, UIViewController;
+@class CALayer, NSArray, NSISEngine, NSMutableArray, NSMutableSet, NSUndoManager, UIColor, UIResponder, UIScreen, UIViewController, _UIResponderSelectionCursor, _UISystemGestureGateGestureRecognizer;
 
 @interface UIWindow : UIView <NSISEngineDelegate>
 {
@@ -30,6 +30,7 @@
     UIViewController *_rootViewController;
     UIColor *_savedBackgroundColor;
     NSMutableSet *_subtreeMonitoringViews;
+    NSMutableSet *_ancestorGeometryMonitoringViews;
     NSMutableSet *_tintViews;
     id _currentTintView;
     struct {
@@ -64,18 +65,24 @@
         unsigned int windowResizedToFullScreen:1;
     } _windowFlags;
     id _windowController;
+    _UIResponderSelectionCursor *_responderSelectionCursor;
+    _UISystemGestureGateGestureRecognizer *_systemGestureGateForGestures;
+    _UISystemGestureGateGestureRecognizer *_systemGestureGateForTouches;
+    BOOL __usesLegacySupportedOrientationChecks;
     NSArray *_windowInternalConstraints;
     NSArray *_rootViewConstraints;
     NSISEngine *_layoutEngine;
     id _deferredLaunchBlock;
-    BOOL __usesLegacySupportedOrientationChecks;
 }
 
 + (id)_findWithDisplayPoint:(struct CGPoint)arg1;
++ (id)allWindowsIncludingInternalWindows:(BOOL)arg1 onlyVisibleWindows:(BOOL)arg2 forScreen:(id)arg3;
 + (id)allWindowsIncludingInternalWindows:(BOOL)arg1 onlyVisibleWindows:(BOOL)arg2;
-+ (id)_hitTestToPoint:(struct CGPoint)arg1 pathIndex:(int)arg2 forEvent:(id)arg3;
++ (id)_hitTestToPoint:(struct CGPoint)arg1 pathIndex:(int)arg2 forEvent:(id)arg3 screen:(id)arg4;
 + (id)_topVisibleWindowPassingTest:(id)arg1;
++ (void *)createIOSurfaceFromScreen:(id)arg1;
 + (void *)createScreenIOSurface;
++ (void *)createIOSurfaceOnScreen:(id)arg1 withContextIds:(const unsigned int *)arg2 count:(unsigned int)arg3 frame:(struct CGRect)arg4 usePurpleGfx:(BOOL)arg5 outTransform:(struct CGAffineTransform *)arg6;
 + (void *)createIOSurfaceWithContextIds:(const unsigned int *)arg1 count:(unsigned int)arg2 frame:(struct CGRect)arg3 usePurpleGfx:(BOOL)arg4 outTransform:(struct CGAffineTransform *)arg5;
 + (void *)createIOSurfaceWithContextIds:(const unsigned int *)arg1 count:(unsigned int)arg2 frame:(struct CGRect)arg3 outTransform:(struct CGAffineTransform *)arg4;
 + (void *)createIOSurfaceWithContextIds:(const unsigned int *)arg1 count:(unsigned int)arg2 frame:(struct CGRect)arg3;
@@ -108,6 +115,10 @@
 @property(copy, nonatomic, setter=_setRootViewConstraints:) NSArray *_rootViewConstraints; // @synthesize _rootViewConstraints;
 @property(copy, nonatomic, setter=_setWindowInternalConstraints:) NSArray *_windowInternalConstraints; // @synthesize _windowInternalConstraints;
 @property(retain, nonatomic) UIViewController *rootViewController; // @synthesize rootViewController=_rootViewController;
+- (id)_rootLayer;
+- (BOOL)_shouldZoom;
+- (void)_geometryDidChangeForView:(id)arg1;
+- (id)_responderSelectionContainerViewForResponder:(id)arg1;
 - (void)_resizeWindowToFullScreenIfNecessary;
 - (void)_removeTintView:(id)arg1;
 - (void)_addTintView:(id)arg1;
@@ -117,6 +128,9 @@
 - (void)_updateAppTintView;
 - (id)_currentTintView;
 - (void)_writeLayerTreeToPath:(id)arg1;
+- (id)_ancestorGeometryMonitorsForView:(id)arg1;
+- (void)_unregisterViewForAncestorGeometryMonitoring:(id)arg1;
+- (void)_registerViewForAncestorGeometryMonitoring:(id)arg1;
 - (id)_subtreeMonitorsForView:(id)arg1;
 - (void)_unregisterViewForSubtreeMonitoring:(id)arg1;
 - (void)_registerViewForSubtreeMonitoring:(id)arg1;
@@ -130,6 +144,7 @@
 - (BOOL)_affectsTintView;
 - (BOOL)_includeInDefaultImageSnapshot;
 - (BOOL)isInternalWindow;
+- (BOOL)_isInAWindow;
 - (BOOL)_isHostedInAnotherProcess;
 - (BOOL)_usesWindowServerHitTesting;
 - (BOOL)_isWindowServerHostingManaged;
@@ -144,8 +159,10 @@
 - (void)undo:(id)arg1;
 - (id)undoManager;
 - (BOOL)_needsShakesWhenInactive;
+- (id)_deepestUnambiguousResponder;
+- (BOOL)_supportsBecomeFirstResponderWhenPossible;
 - (BOOL)_becomeFirstResponderWhenPossible;
-- (id)defaultFirstResponder;
+- (BOOL)becomeFirstResponder;
 - (id)_firstResponder;
 - (id)firstResponder;
 - (BOOL)_isSettingFirstResponder;
@@ -154,8 +171,6 @@
 - (void)_unregisterScrollToTopView:(id)arg1;
 - (void)_registerScrollToTopView:(id)arg1;
 - (id)_registeredScrollToTopViews;
-- (void)_unregisterSwipeView:(id)arg1;
-- (void)_registerSwipeView:(id)arg1;
 - (void)_unregisterChargedView:(id)arg1;
 - (void)_registerChargedView:(id)arg1;
 - (id)contentView;
@@ -168,11 +183,15 @@
 @property(readonly, nonatomic, getter=isKeyWindow) BOOL keyWindow;
 @property(nonatomic) float windowLevel;
 @property(retain, nonatomic) UIScreen *screen;
+- (id)_screen;
 - (id)delegate;
 - (void)setDelegate:(id)arg1;
 - (int)bitsPerComponent;
 - (int)windowOutput;
 - (void)handleStatusBarChangeFromHeight:(float)arg1 toHeight:(float)arg2;
+- (BOOL)_shouldDelayTouchForSystemGestures:(id)arg1;
+- (void)_createSystemGestureGateGestureRecognizerIfNeeded;
+- (id)_appearanceContainer;
 - (void)synchronizeDrawingWithID:(int)arg1 count:(unsigned int)arg2;
 - (void)synchronizeDrawingWithID:(int)arg1;
 - (int)_windowInterfaceOrientation;
@@ -187,9 +206,11 @@
 - (void)_setRotatableClient:(id)arg1 toOrientation:(int)arg2 updateStatusBar:(BOOL)arg3 duration:(double)arg4 force:(BOOL)arg5;
 - (void)_setRotatableClient:(id)arg1 toOrientation:(int)arg2 duration:(double)arg3 force:(BOOL)arg4;
 - (void)_setRotatableViewOrientation:(int)arg1 duration:(double)arg2 force:(BOOL)arg3;
+- (void)_setRotatableViewOrientation:(int)arg1 updateStatusBar:(BOOL)arg2 duration:(double)arg3 force:(BOOL)arg4;
 - (void)_updateStatusBarToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)_updateStatusBarToInterfaceOrientation:(int)arg1 duration:(double)arg2 fenceID:(int)arg3 animation:(int)arg4;
 - (void)_forceTwoPartRotationAnimation:(BOOL)arg1;
+- (void)_setRotatableViewOrientation:(int)arg1 updateStatusBar:(BOOL)arg2 duration:(double)arg3;
 - (void)_setRotatableViewOrientation:(int)arg1 duration:(double)arg2;
 - (void)setAutorotates:(BOOL)arg1 forceUpdateInterfaceOrientation:(BOOL)arg2;
 - (void)setAutorotates:(BOOL)arg1;
@@ -224,12 +245,15 @@
 - (void)setLevel:(float)arg1;
 - (struct CGPoint)convertDeviceToWindow:(struct CGPoint)arg1;
 - (struct CGPoint)convertWindowToDevice:(struct CGPoint)arg1;
+- (id)_rootForKeyResponderCycle;
 - (BOOL)_containedInAbsoluteResponderChain;
 - (id)nextResponder;
 - (void)_endModalSession;
 - (void)_beginModalSession;
 - (id)_exclusiveTouchView;
 - (void)_setExclusiveTouchView:(id)arg1;
+- (float)_convertVisualAltitude:(float)arg1 toWindow:(id)arg2;
+- (float)_convertVisualAltitude:(float)arg1 fromWindow:(id)arg2;
 - (struct CGPoint)_convertOffset:(struct CGPoint)arg1 fromWindow:(id)arg2;
 - (struct CGPoint)_convertOffset:(struct CGPoint)arg1 toWindow:(id)arg2;
 - (struct CGRect)convertRect:(struct CGRect)arg1 fromWindow:(id)arg2;
@@ -237,6 +261,8 @@
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromWindow:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toWindow:(id)arg2;
 - (void)sendEvent:(id)arg1;
+- (void)_sendButtonsForEvent:(id)arg1;
+- (void)_sendButtonGesturesForEvent:(id)arg1;
 - (void)_sendTouchesForEvent:(id)arg1;
 - (void)_sendGesturesForEvent:(id)arg1;
 - (void)_scrollToTopViewsUnderScreenPointIfNecessary:(struct CGPoint)arg1 resultHandler:(id)arg2;
@@ -248,6 +274,7 @@
 - (void)_orderFrontWithoutMakingKey;
 - (void)orderFront:(id)arg1;
 - (void)makeKeyAndOrderFront:(id)arg1;
+@property(nonatomic, setter=_setLegacyOrientationChecks:) BOOL _legacyOrientationChecks;
 - (void)setHidden:(BOOL)arg1;
 - (void)_setHidden:(BOOL)arg1 forced:(BOOL)arg2;
 - (void)addRootViewControllerViewIfPossible;
@@ -260,9 +287,12 @@
 - (void)_setLayerHidden:(BOOL)arg1;
 - (void)_orderContextToFront;
 - (BOOL)_hasContext;
+- (void)_destroyContextFromScreen:(id)arg1;
 - (void)_destroyContext;
 - (void)_createContext;
 - (void)_updateTransformLayer;
+- (BOOL)_isClippedByScreenJail;
+- (BOOL)_isConstrainedByScreenJail;
 - (void)_transformLayerShouldMaskToBounds:(BOOL)arg1;
 - (void)_updateTransformLayerForClassicPresentation;
 - (void)_tagAsSpringboardPresentationWindow;
@@ -275,6 +305,7 @@
 - (id)initWithContentRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonInit;
+- (id)_responderWindow;
 - (id)_window;
 - (float)_classicOffset;
 - (void)matchDeviceOrientation;
@@ -282,12 +313,14 @@
 - (BOOL)_isTextEffectsWindow;
 - (void)_matchDeviceBounds;
 - (BOOL)isElementAccessibilityExposedToInterfaceBuilder;
+- (id)_hostingHandle;
 - (void)updateConstraintsIfNeeded;
 - (void)layoutSublayersOfLayer:(id)arg1;
 - (id)_redundantConstraints;
 - (id)_uiib_candidateRedundantConstraints;
 - (id)_uiib_layoutEngineCreatingIfNecessary;
 - (void)_rebuildLayoutFromScratch;
+- (void)_layoutEngineWillChange;
 - (id)_layoutEngineConsultingOverride;
 - (id)_layoutEngineIfAvailableConsultingOverride;
 - (id)_layoutEngineCreateIfNecessaryConsultingOverride;
@@ -302,6 +335,7 @@
 - (void)_windowInternalConstraints_centerDidChange;
 - (void)_windowInternalConstraints_sizeDidChange;
 - (unsigned int)_expectedWindowInternalConstraintsCount;
+- (void)_uiib_invalidateWindowInternalConstraints;
 - (void)_invalidateWindowInternalConstraints;
 - (id)_centerExpressionInContainer:(id)arg1 vertical:(BOOL)arg2;
 - (BOOL)_isLoweringAnchoringConstraints;

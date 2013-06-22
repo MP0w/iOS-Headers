@@ -17,6 +17,7 @@
     NSMutableDictionary *_cardItems;
 }
 
+- (void)_updateThumbnailForCardItem:(id)arg1 withSnapshotter:(id)arg2 completion:(id)arg3;
 - (id)proxy:(id)arg1 detailedSignatureForSelector:(SEL)arg2;
 - (void)getCardItemsForControllerWithIdentifier:(id)arg1 withHandler:(id)arg2;
 - (void)clearCardItemsForControllerWithIdentifier:(id)arg1;

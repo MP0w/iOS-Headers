@@ -49,10 +49,11 @@
 @property(nonatomic) int renderZ; // @synthesize renderZ=_renderZ;
 - (id).cxx_construct;
 - (unsigned int)triangleCount;
-- (id)_meshForStyle:(id)arg1 tileKey:(struct VKTileKey)arg2;
-- (void)updateComponentsWithModelViewProjectionMatrix:(CDUnion_f5b85e25)arg1;
-- (void)addRoadForPolygon:(const CDStruct_6e3f967a *)arg1 pointCount:(unsigned int)arg2 characteristicPoints:(const CDStruct_dab2d0bd *)arg3 characteristicPointCount:(unsigned int)arg4 withStyle:(id)arg5;
+- (id)_meshForStyle:(id)arg1 tileKey:(struct VKTileKey)arg2 scale:(float)arg3;
+- (void)updateComponentsWithModelViewProjectionMatrix:(CDUnion_f5b85e25)arg1 contentScale:(float)arg2;
+- (void)addRoadForPolygon:(const Vec2Imp_1782d7e3 *)arg1 pointCount:(unsigned int)arg2 characteristicPoints:(const CDStruct_dab2d0bd *)arg3 characteristicPointCount:(unsigned int)arg4 withStyle:(id)arg5;
 - (void)dealloc;
+- (struct _VGLColor)casingColorVariantWithBlendingFactor:(float)arg1;
 - (id)initWithTile:(id)arg1;
 
 @end

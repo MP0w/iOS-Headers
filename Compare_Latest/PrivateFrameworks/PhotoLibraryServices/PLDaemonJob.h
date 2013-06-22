@@ -28,7 +28,7 @@
 - (void)handleReply;
 - (void)sendToAssetsdWithReply;
 - (void)sendToAssetsd;
-- (int)daemonOperation;
+- (long long)daemonOperation;
 - (void)dealloc;
 
 @end

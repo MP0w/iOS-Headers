@@ -6,13 +6,14 @@
 
 #import <MediaPlayer/MPMediaItemCollection.h>
 
-@class MPStoreOfferContentRating, NSArray, NSDictionary;
+@class MPMediaQuery, MPStoreOfferContentRating, NSArray, NSDictionary;
 
 @interface MPStoreOfferMediaItemCollection : MPMediaItemCollection
 {
     NSDictionary *_storeLookupPropertyValues;
     NSArray *_unmergedStoreMediaItems;
-    NSArray *_localItems;
+    MPMediaQuery *_localItemsQuery;
+    MPMediaItemCollection *_localCollection;
     BOOL _hasHiddenRestrictedContent;
     int _preferredStoreOfferVariant;
     MPStoreOfferContentRating *_collectionContentRating;
@@ -25,13 +26,16 @@
 + (id)contentRatingForCollectionPropertyValues:(id)arg1;
 + (id)mediaValueForStoreLookupCollectionPropertyValues:(id)arg1 mediaProperty:(id)arg2;
 + (id)collectionLookupKeyForMediaProperty:(id)arg1;
+- (void).cxx_destruct;
+- (void)_loadLocalCollection;
 - (id)_lookupOfferDictionaries;
 - (BOOL)hasPurchasableStoreOfferItemsForVariant:(int)arg1;
 - (BOOL)hasDownloadableStoreOfferItemsForVariant:(int)arg1;
 - (BOOL)_hasRestrictedContent;
 @property(readonly, nonatomic) BOOL isCollectionOfferPresentable;
 - (BOOL)isCheaperToPurchaseIndividualItems;
-@property(readonly, nonatomic) unsigned int countOfNonLocalItems;
+@property(readonly, nonatomic) NSArray *itemsByRemovingLocalItems;
+@property(readonly, nonatomic) NSArray *itemsByRemovingStoreOffers;
 - (id)buyOfferForVariant:(int)arg1;
 - (BOOL)_offeredItemAlreadyExists;
 - (id)title;
@@ -46,11 +50,13 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)copyByOverlayingLocalItems:(id)arg1 preferredStoreOfferVariant:(int)arg2;
-- (void)dealloc;
+- (id)copyByOverlayingMediaItemsWithItemsQuery:(id)arg1 preferredStoreOfferVariant:(int)arg2;
 - (id)initWithLookupResponseCollectionDictionary:(id)arg1 preferredStoreOfferVariant:(int)arg2;
-- (id)initWithLookupResponseCollectionDictionary:(id)arg1 preferredStoreOfferVariant:(int)arg2 offerMediaItems:(id)arg3 localItems:(id)arg4;
+- (id)initWithLookupResponseCollectionDictionary:(id)arg1 preferredStoreOfferVariant:(int)arg2 offerMediaItems:(id)arg3 localItemsQuery:(id)arg4;
 - (BOOL)_checkIsUsableOffer;
+
+// Remaining properties
+@property(readonly, nonatomic) NSArray *items;
 
 @end
 

@@ -26,6 +26,12 @@
 + (void)commit;
 + (BOOL)beginWithoutBlocking;
 + (void)begin;
++ (void)setInputTime:(double)arg1;
++ (double)inputTime;
++ (void)setCommitTime:(double)arg1;
++ (double)commitTime;
++ (void)setAnimatesFromModelValues:(BOOL)arg1;
++ (BOOL)animatesFromModelValues;
 + (unsigned int)currentState;
 + (void)synchronize;
 + (void)activateBackground:(BOOL)arg1;

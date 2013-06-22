@@ -23,6 +23,7 @@
 - (id)anySessionForServiceName:(id)arg1;
 - (id)sessionForAccount:(id)arg1;
 @property(readonly, nonatomic) NSArray *activeSessions;
+- (id)accountForIDSAccountUniqueID:(id)arg1;
 - (id)connectingAccountsForService:(id)arg1;
 @property(readonly, nonatomic) NSArray *connectingAccounts;
 - (id)connectedAccountsForService:(id)arg1;
@@ -33,6 +34,7 @@
 - (id)accountForAccountID:(id)arg1;
 - (id)accountsForLoginID:(id)arg1 onService:(id)arg2;
 @property(readonly, nonatomic) NSArray *accounts;
+- (void)setupAccount:(id)arg1;
 - (void)removeAccount:(id)arg1;
 - (void)addAccount:(id)arg1;
 - (BOOL)isAccountActive:(id)arg1;

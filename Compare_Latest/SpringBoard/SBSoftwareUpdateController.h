@@ -54,6 +54,7 @@
 - (void)client:(id)arg1 downloadDidStart:(id)arg2;
 - (void)client:(id)arg1 automaticDownloadDidFailToStartForNewUpdateAvailable:(id)arg2 withError:(id)arg3;
 - (void)client:(id)arg1 downloadWasInvalidatedForNewUpdateAvailable:(id)arg2;
+- (void)_postDownloadStateChangeNotification:(BOOL)arg1;
 - (void)_iTunesRestoreStateChanged:(id)arg1;
 - (void)_iCloudStatusChanged;
 - (void)_lockStateChanged:(id)arg1;

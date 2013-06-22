@@ -8,14 +8,16 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSDictionary, NSString;
+@class NSDate, NSDictionary, NSString;
 
 @interface MSASAlbum : NSObject <NSCopying>
 {
     NSString *_ownerEmail;
+    NSString *_ownerPersonID;
     NSString *_ownerFullName;
     NSString *_ownerFirstName;
     NSString *_ownerLastName;
+    NSDate *_subscriptionDate;
     NSString *_GUID;
     NSString *_ctag;
     int _relationshipState;
@@ -37,9 +39,11 @@
 @property(nonatomic) int relationshipState; // @synthesize relationshipState=_relationshipState;
 @property(retain, nonatomic) NSString *ctag; // @synthesize ctag=_ctag;
 @property(retain, nonatomic) NSString *GUID; // @synthesize GUID=_GUID;
+@property(retain, nonatomic) NSDate *subscriptionDate; // @synthesize subscriptionDate=_subscriptionDate;
 @property(retain, nonatomic) NSString *ownerLastName; // @synthesize ownerLastName=_ownerLastName;
 @property(retain, nonatomic) NSString *ownerFirstName; // @synthesize ownerFirstName=_ownerFirstName;
 @property(retain, nonatomic) NSString *ownerFullName; // @synthesize ownerFullName=_ownerFullName;
+@property(retain, nonatomic) NSString *ownerPersonID; // @synthesize ownerPersonID=_ownerPersonID;
 @property(retain, nonatomic) NSString *ownerEmail; // @synthesize ownerEmail=_ownerEmail;
 - (void).cxx_destruct;
 - (id)description;
@@ -51,7 +55,6 @@
 @property(readonly, nonatomic) BOOL useForeignCtag;
 - (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)_ownerFullName;
 
 @end
 

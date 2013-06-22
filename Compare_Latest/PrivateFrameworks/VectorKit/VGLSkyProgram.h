@@ -20,12 +20,14 @@
     struct _VGLColor _baseColor;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
 @property(nonatomic) float screenHeight; // @synthesize screenHeight=_screenHeight;
 @property(nonatomic) float skyStartOffset; // @synthesize skyStartOffset=_skyStartOffset;
 @property(nonatomic) struct _VGLColor color; // @synthesize color=_baseColor;
 @property(nonatomic) struct _VGLColor horizon; // @synthesize horizon=_horizonColor;
-- (id)init;
+- (id).cxx_construct;
+- (void)setup;
 
 @end
 

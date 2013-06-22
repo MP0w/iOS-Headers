@@ -10,11 +10,15 @@
 {
     int _uAlpha;
     float _alpha;
+    int _uBrightness;
+    float _brightness;
 }
 
-+ (id)program;
++ (id)fragName;
++ (id)vertName;
+@property(nonatomic) float brightness; // @synthesize brightness=_brightness;
 @property(nonatomic) float alpha; // @synthesize alpha=_alpha;
-- (id)init;
+- (void)setup;
 
 @end
 

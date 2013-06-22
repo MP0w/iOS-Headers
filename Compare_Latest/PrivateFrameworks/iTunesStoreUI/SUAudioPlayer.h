@@ -6,11 +6,15 @@
 
 #import "NSObject.h"
 
-@class AVAsset, AVPlayer, AVPlayerItem, NSMutableDictionary, NSURL, SUPlayerStatus;
+#import "AVAssetResourceLoaderDelegate-Protocol.h"
 
-@interface SUAudioPlayer : NSObject
+@class AVPlayer, AVPlayerItem, AVURLAsset, NSMutableDictionary, NSURL, SUPlayerStatus;
+
+@interface SUAudioPlayer : NSObject <AVAssetResourceLoaderDelegate>
 {
-    AVAsset *_asset;
+    AVURLAsset *_asset;
+    NSURL *_certificateUrl;
+    NSURL *_keyUrl;
     NSMutableDictionary *_nowPlayingInfo;
     AVPlayer *_player;
     AVPlayerItem *_playerItem;
@@ -19,6 +23,8 @@
     NSURL *_url;
 }
 
+@property(retain, nonatomic) NSURL *certificateURL; // @synthesize certificateURL=_certificateUrl;
+@property(retain, nonatomic) NSURL *keyURL; // @synthesize keyURL=_keyUrl;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_url;
 - (void)_updateForPeriodicTickWithTime:(double)arg1;
 - (void)_setPlayerState:(int)arg1;
@@ -29,6 +35,7 @@
 - (void)_destroyPlayerItem;
 - (void)_destroyPlayer;
 - (void)_applyNowPlayingInfo;
+- (BOOL)resourceLoader:(id)arg1 shouldWaitForLoadingOfRequestedResource:(id)arg2;
 - (void)_itemPlayedToEndNotification:(id)arg1;
 - (void)_itemFailedToPlayToEndNotification:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

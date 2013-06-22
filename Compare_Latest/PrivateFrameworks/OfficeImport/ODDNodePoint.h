@@ -20,7 +20,7 @@
 - (id)siblingTransition;
 - (void)setParentTransition:(id)arg1;
 - (id)parentTransition;
-- (void)addChild:(id)arg1 order:(unsigned long)arg2;
+- (void)addChild:(id)arg1 order:(unsigned int)arg2;
 - (id)children;
 - (id)parent;
 - (void)setType:(int)arg1;

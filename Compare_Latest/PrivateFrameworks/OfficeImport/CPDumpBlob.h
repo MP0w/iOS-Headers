@@ -8,11 +8,11 @@
 
 @interface CPDumpBlob : CPDumpType
 {
-    int mSize;
+    unsigned long mSize;
 }
 
 - (void)fromBinary:(struct __sFILE *)arg1 toXml:(struct _xmlNode *)arg2 state:(id)arg3;
-- (id)initWithSize_:(int)arg1;
+- (id)initWithSize_:(unsigned long)arg1;
 
 @end
 

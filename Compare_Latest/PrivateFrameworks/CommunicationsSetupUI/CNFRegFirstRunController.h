@@ -78,14 +78,10 @@
 - (void)_stopListeningForReturnKey;
 - (void)_startListeningForReturnKey;
 - (void)setSpecifier:(id)arg1;
-- (BOOL)canBeShownFromSuspendedState;
 - (void)dealloc;
 - (id)initWithParentController:(id)arg1 account:(id)arg2;
 - (id)initWithRegController:(id)arg1 account:(id)arg2;
 - (id)initWithRegController:(id)arg1;
-
-// Remaining properties
-@property(nonatomic) BOOL showSplash;
 
 @end
 

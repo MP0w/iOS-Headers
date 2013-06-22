@@ -15,13 +15,15 @@
 + (void)removeAutosavedMessageWithIdentifier:(id)arg1;
 + (BOOL)hasAutosavedMessageWithIdentifier:(id)arg1;
 + (unsigned int)maximumAttachmentSize;
++ (BOOL)canSendMailSourceAccountManagement:(int)arg1;
 + (BOOL)canSendMail;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (BOOL)shouldAutorotate;
 - (void)setAutorotationDelegate:(id)arg1;
 - (void)autosaveWithHandler:(id)arg1;
 - (void)recoverAutosavedMessageWithIdentifier:(id)arg1;
 - (void)addSetupAnimationBlock:(id)arg1;
 - (void)finalizeCompositionValues;
+- (void)setSourceAccountManagement:(int)arg1;
 - (void)setContentVisible:(BOOL)arg1;
 - (void)setKeyboardVisible:(BOOL)arg1;
 - (void)requestFramesForAttachmentsWithIdentifiers:(id)arg1 resultHandler:(id)arg2;

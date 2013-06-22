@@ -15,13 +15,14 @@
     NSMutableArray *mTransforms;
 }
 
-+ (id)tsuColorWithOADColor:(id)arg1;
++ (id)tsuColorWithRgbColor:(id)arg1;
 + (id)tsuColorWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3;
-+ (id)tsuColorWithOADColor:(id)arg1 colorMap:(id)arg2 colorScheme:(id)arg3 colorPalette:(id)arg4;
++ (id)tsuColorWithColor:(id)arg1 colorMap:(id)arg2 colorScheme:(id)arg3 colorPalette:(id)arg4;
++ (float)alphaWithColor:(id)arg1;
++ (id)rgbColorWithColor:(id)arg1 colorMap:(id)arg2 colorScheme:(id)arg3 colorPalette:(id)arg4;
 + (id)mapAdjustedColor:(id)arg1 colorMap:(id)arg2 colorScheme:(id)arg3 colorPalette:(id)arg4;
 + (int)mapSchemeColorID:(int)arg1 colorMap:(id)arg2;
 + (id)basicMapOfColor:(id)arg1 colorMap:(id)arg2 colorScheme:(id)arg3 colorPalette:(id)arg4;
-+ (id)colorWithRedByte:(unsigned char)arg1 greenByte:(unsigned char)arg2 blueByte:(unsigned char)arg3;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
 - (id)colorForStyleColor:(id)arg1;

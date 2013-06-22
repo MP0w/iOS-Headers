@@ -30,6 +30,8 @@
 @property(readonly, nonatomic) NSData *bodyData; // @synthesize bodyData=_body;
 - (id)initWithXPCEncoding:(id)arg1;
 - (id)copyXPCEncoding;
+@property(readonly, nonatomic) NSData *databaseEncoding;
+- (id)initWithDatabaseEncoding:(id)arg1;
 - (int)statusCode;
 - (id)allHeaderFields;
 - (void)dealloc;

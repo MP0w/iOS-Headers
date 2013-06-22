@@ -10,7 +10,6 @@
 {
 }
 
-- (id)_createTileSource;
 - (int)defaultMaximumZoomLevel;
 - (BOOL)minimumZoomLevelBoundsCamera;
 

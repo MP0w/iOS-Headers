@@ -29,6 +29,7 @@
 - (id)_manifest;
 - (void)dealloc;
 - (id)init;
+- (id)installedProfileWithIdentifier:(id)arg1;
 
 @end
 

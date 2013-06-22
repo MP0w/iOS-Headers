@@ -6,6 +6,8 @@
 
 #import <SAObjects/SAMPCollection.h>
 
+@class NSString;
+
 @interface SAMPAlbumCollection : SAMPCollection
 {
 }
@@ -13,6 +15,8 @@
 + (id)albumCollectionWithDictionary:(id)arg1 context:(id)arg2;
 + (id)albumCollection;
 - (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
+@property(copy, nonatomic) NSString *sortArtist;
+@property(copy, nonatomic) NSString *artist;
 @property(nonatomic) int rating;
 - (id)encodedClassName;
 - (id)groupIdentifier;

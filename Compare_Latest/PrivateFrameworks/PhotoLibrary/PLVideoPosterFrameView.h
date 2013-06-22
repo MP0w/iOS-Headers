@@ -14,6 +14,7 @@
     unsigned int _scaleMode;
 }
 
+@property(readonly, nonatomic) struct CGRect imageFrame;
 - (id)imageView;
 - (id)image;
 - (void)setScaleMode:(unsigned int)arg1;

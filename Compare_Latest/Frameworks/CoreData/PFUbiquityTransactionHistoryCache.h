@@ -6,20 +6,27 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector, PFUbiquityLocation;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSPersistentStore, NSPersistentStoreCoordinator, NSRecursiveLock, NSString, PFUbiquityGlobalObjectIDCache, PFUbiquityKnowledgeVector, PFUbiquityLocation;
 
 @interface PFUbiquityTransactionHistoryCache : NSObject
 {
     NSString *_localPeerID;
     PFUbiquityLocation *_rootLocation;
+    NSString *_storeName;
+    NSPersistentStore *_privateStore;
+    NSPersistentStoreCoordinator *_privatePSC;
     NSMutableDictionary *_peerIDToHistoryArray;
     NSMutableDictionary *_globalIDToHistoryArray;
     NSRecursiveLock *_peerIDToHistoryArrayLock;
     NSMutableArray *_entriesToWrite;
     PFUbiquityKnowledgeVector *_cacheKV;
+    PFUbiquityKnowledgeVector *_minCacheKV;
     PFUbiquityGlobalObjectIDCache *_globalIDCache;
+    BOOL _hasScheduledWriteBlock;
 }
 
+@property(readonly, nonatomic) PFUbiquityKnowledgeVector *minCacheKV; // @synthesize minCacheKV=_minCacheKV;
+@property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_rootLocation;
 @property(retain, nonatomic) PFUbiquityGlobalObjectIDCache *globalIDCache; // @synthesize globalIDCache=_globalIDCache;
 @property(readonly, nonatomic) PFUbiquityKnowledgeVector *cacheKV; // @synthesize cacheKV=_cacheKV;
 @property(readonly, nonatomic) NSArray *cachedGlobalIDs;
@@ -27,7 +34,6 @@
 - (BOOL)purgeCacheAndWritePendingEntries:(BOOL)arg1 error:(id *)arg2;
 - (BOOL)writePendingEntries:(id *)arg1;
 - (BOOL)addTransactionEntryLights:(id)arg1 error:(id *)arg2;
-- (BOOL)addTransactionEntriesFromExporter:(id)arg1 error:(id *)arg2;
 - (BOOL)addTransactionEntryLight:(id)arg1 needsWrite:(BOOL)arg2 error:(id *)arg3;
 - (BOOL)addTransactionEntry:(id)arg1 error:(id *)arg2;
 - (BOOL)cacheTransactionHistory:(id *)arg1;
@@ -35,7 +41,7 @@
 - (id)describeCaches;
 - (id)description;
 - (void)dealloc;
-- (id)initWithLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
+- (id)initWithLocalPeerID:(id)arg1 storeName:(id)arg2 privateStore:(id)arg3 andUbiquityRootLocation:(id)arg4;
 - (id)init;
 
 @end

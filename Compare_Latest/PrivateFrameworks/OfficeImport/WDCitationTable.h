@@ -16,7 +16,7 @@
 
 - (void)addCitation:(id)arg1 forID:(id)arg2;
 - (id)citationFor:(id)arg1;
-- (int)count;
+- (unsigned int)count;
 - (id)initWithDocument:(id)arg1;
 - (id)document;
 - (void)dealloc;

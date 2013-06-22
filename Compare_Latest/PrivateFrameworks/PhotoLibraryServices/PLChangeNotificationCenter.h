@@ -6,12 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSMutableSet, NSNotificationCenter, NSNumber, NSObject<OS_dispatch_queue>, PLManagedObjectContext;
+@class NSDictionary, NSMapTable, NSMutableArray, NSMutableIndexSet, NSMutableSet, NSNotificationCenter, NSNumber, NSObject<OS_dispatch_queue>, PLManagedObjectContext;
 
 @interface PLChangeNotificationCenter : NSObject
 {
-    BOOL _isPostingChanges;
-    NSMutableDictionary *_delayedBlocks;
     BOOL _isProcessingRemoteDidSave;
     NSObject<OS_dispatch_queue> *_thumbnailIndexIsolation;
     NSMutableIndexSet *_changedThumbnailIndexes;
@@ -25,6 +23,11 @@
     struct changeList_s _changedAlbums;
     struct contentChanges_s _albumsContent;
     struct changeList_s _changedAssets;
+    struct contentChanges_s _momentsContent;
+    struct changeList_s _changedMoments;
+    struct contentChanges_s _momentListsContent;
+    struct changeList_s _changedMomentLists;
+    struct changeList_s _changedCloudFeedEntries;
     PLManagedObjectContext *_moc;
     NSMutableArray *_enqueuedNotifications;
     NSMapTable *_changedInflightAssetsAlbumsToSnapshots;
@@ -38,8 +41,6 @@
 + (void)getInsertedAssetCount:(unsigned int *)arg1 deletedAssetCount:(unsigned int *)arg2 updatedAssets:(id)arg3 fromContextDidChangeNotification:(id)arg4;
 + (void)processChangeHubEvent:(id)arg1 withGroup:(id)arg2;
 + (void)distributeStackViewImageUpdatedForAlbumID:(id)arg1;
-+ (void)distributeThumbnailUpdatedAtIndexes:(id)arg1;
-+ (void)distributeThumbnailUpdatedAtIndex:(unsigned int)arg1;
 + (id)allManagedObjectKeysStrategy;
 + (id)defaultCenter;
 - (void)removeStackViewImageChangeObserver:(id)arg1;
@@ -66,12 +67,18 @@
 - (void)_postEnqueuedNotifications;
 - (void)_enqueueNotification:(id)arg1 object:(id)arg2 userInfoWithObjects:(const id *)arg3 forKeys:(const id *)arg4 count:(unsigned int)arg5;
 - (void)_enqueueNotification:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
-- (void)_enqueueAlbumListChangeNotification:(id)arg1;
+- (void)_enqueueAssetContainerListChangeNotification:(id)arg1;
 - (void)_enqueueAlbumChangeNotification:(id)arg1;
+- (void)_enqueueInvitationRecordsChangeNotification:(id)arg1;
+- (void)_enqueueAssetContainerChangeNotification:(id)arg1;
 - (void)_evaluateContainersWithUpdatedContent;
 - (void)_splitContextDidChangeNotification:(id)arg1;
 - (void)_cleanupState;
 - (void)_persistUserAlbumChanges;
+- (void)_enqueueAssetChangeNotification;
+- (void)_enqueueMomentListChangeNotifications;
+- (void)_enqueueMomentChangeNotifications;
+- (void)_enqueueCloudFeedEntriesChangeNotifications;
 - (void)_enqueueCloudCommentsNotifications;
 - (void)_enqueueAlbumNotifications;
 - (void)_enqueueAlbumListNotifications;
@@ -89,19 +96,24 @@
 - (void)processContextDidChangeNotification:(id)arg1;
 - (void)inflightAssetsAlbumWillChange:(id)arg1;
 - (void)_saveCurrentStateForAlbum:(id)arg1;
-- (void)setPostProcessingHandlerForIdentifier:(id)arg1 block:(id)arg2;
 - (void)removeObserver:(id)arg1 name:(id)arg2 object:(id)arg3;
 - (void)removeObserver:(id)arg1;
 - (id)addObserverForName:(id)arg1 object:(id)arg2 queue:(id)arg3 usingBlock:(id)arg4;
 - (void)addObserver:(id)arg1 selector:(SEL)arg2 name:(id)arg3 object:(id)arg4;
 - (void)removeShouldReloadObserver:(id)arg1;
 - (void)addShouldReloadObserver:(id)arg1;
+- (void)removeAssetChangeObserver:(id)arg1;
+- (void)addAssetChangeObserver:(id)arg1;
+- (void)removeCloudFeedEntriesObserver:(id)arg1;
+- (void)addCloudFeedEntriesObserver:(id)arg1;
+- (void)removeInvitationRecordsObserver:(id)arg1;
+- (void)addInvitationRecordsObserver:(id)arg1;
 - (void)removeCloudCommentsChangeObserver:(id)arg1 asset:(id)arg2;
 - (void)addCloudCommentsChangeObserver:(id)arg1 asset:(id)arg2;
-- (void)removeAlbumListChangeObserver:(id)arg1 albumList:(struct NSObject *)arg2;
-- (void)addAlbumListChangeObserver:(id)arg1 albumList:(struct NSObject *)arg2;
-- (void)removeAlbumChangeObserver:(id)arg1 album:(struct NSObject *)arg2;
-- (void)addAlbumChangeObserver:(id)arg1 album:(struct NSObject *)arg2;
+- (void)removeAssetContainerListChangeObserver:(id)arg1 containerList:(id)arg2;
+- (void)addAssetContainerListChangeObserver:(id)arg1 containerList:(id)arg2;
+- (void)removeAssetContainerChangeObserver:(id)arg1 container:(id)arg2;
+- (void)addAssetContainerChangeObserver:(id)arg1 container:(id)arg2;
 @property(readonly, nonatomic) NSNotificationCenter *backingCenter;
 - (void)enqueueNotification:(id)arg1;
 - (void)dealloc;

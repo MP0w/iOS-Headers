@@ -4,27 +4,24 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <Social/SLMicroBlogUserRecord.h>
 
-@class NSNumber, NSString, NSURL;
+#import "NSSecureCoding-Protocol.h"
 
-@interface SLWeiboUserRecord : NSObject
+@class NSNumber, NSURL;
+
+@interface SLWeiboUserRecord : SLMicroBlogUserRecord <NSSecureCoding>
 {
     NSNumber *_uid;
-    NSString *_screenName;
-    NSString *_weiboIdentifier;
-    NSString *_profileImageUrl;
     NSURL *_objectID;
 }
 
++ (BOOL)supportsSecureCoding;
 + (id)userRecordWithDictionaryRepresentation:(id)arg1;
-@property(copy, nonatomic) NSString *profile_image_url; // @synthesize profile_image_url=_profileImageUrl;
-@property(copy, nonatomic) NSString *screen_name; // @synthesize screen_name=_screenName;
+@property(retain, nonatomic) NSURL *objectID; // @synthesize objectID=_objectID;
 @property(copy, nonatomic) NSNumber *uid; // @synthesize uid=_uid;
 - (void).cxx_destruct;
-- (void)setObjectID:(id)arg1;
-- (id)objectID;
-- (void)_setValuesFromDictionaryRepresentation:(id)arg1;
+- (void)setValuesWithUserDictionary:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

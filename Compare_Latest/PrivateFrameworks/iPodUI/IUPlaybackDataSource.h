@@ -17,6 +17,7 @@
 @property(nonatomic) unsigned int shuffleType; // @synthesize shuffleType=_shuffleType;
 @property(nonatomic) BOOL restartPlaybackOnly; // @synthesize restartPlaybackOnly=_restartPlaybackOnly;
 @property(nonatomic) BOOL preservePlaybackState; // @synthesize preservePlaybackState=_preservePlaybackState;
+@property(readonly, nonatomic) int playbackMode;
 - (id)init;
 
 @end

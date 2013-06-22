@@ -10,24 +10,29 @@
 
 @interface PFUbiquityRecordsImporterSchedulingContext : NSObject
 {
-    NSMutableSet *_scheduledLogs;
-    NSMutableSet *_pendingLogs;
-    NSMutableSet *_failedLogs;
-    NSMutableSet *_ignoredLogs;
-    NSMutableDictionary *_logsToEncounteredErrors;
+    NSMutableSet *_scheduledLogLocations;
+    NSMutableSet *_pendingLogLocations;
+    NSMutableSet *_failedLogLocations;
+    NSMutableSet *_ignoredLogLocations;
+    NSMutableDictionary *_logLocationsToEncounteredErrors;
+    int _lock;
 }
 
-@property(readonly, nonatomic) NSDictionary *logsToEncounteredErrors; // @synthesize logsToEncounteredErrors=_logsToEncounteredErrors;
-@property(readonly, nonatomic) NSSet *ignoredLogs; // @synthesize ignoredLogs=_ignoredLogs;
-@property(readonly, nonatomic) NSSet *failedLogs; // @synthesize failedLogs=_failedLogs;
-@property(readonly, nonatomic) NSSet *scheduledLogs; // @synthesize scheduledLogs=_scheduledLogs;
-@property(readonly, nonatomic) NSSet *pendingLogs; // @synthesize pendingLogs=_pendingLogs;
+@property(readonly, nonatomic) NSDictionary *logLocationsToEncounteredErrors; // @synthesize logLocationsToEncounteredErrors=_logLocationsToEncounteredErrors;
+@property(readonly, nonatomic) NSSet *ignoredLogLocations; // @synthesize ignoredLogLocations=_ignoredLogLocations;
+@property(readonly, nonatomic) NSSet *failedLogLocations; // @synthesize failedLogLocations=_failedLogLocations;
+@property(readonly, nonatomic) NSSet *scheduledLogLocations; // @synthesize scheduledLogLocations=_scheduledLogLocations;
+@property(readonly, nonatomic) NSSet *pendingLogLocations; // @synthesize pendingLogLocations=_pendingLogLocations;
+- (void)unionWithSchedulingContext:(id)arg1;
+- (void)failedTransactionLogAtLocationRecovered:(id)arg1;
+- (void)addPendingLogLocation:(id)arg1;
+- (void)addPendingLogLocations:(id)arg1;
 - (void)transactionLogAtLocation:(id)arg1 failedToOpenWithError:(id)arg2;
 - (void)transactionLogAtLocationWasIgnored:(id)arg1;
 - (void)transactionLogAtLocationWasScheduled:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithPendingLogs:(id)arg1;
+- (id)initWithPendingLogLocations:(id)arg1;
 - (id)init;
 
 @end

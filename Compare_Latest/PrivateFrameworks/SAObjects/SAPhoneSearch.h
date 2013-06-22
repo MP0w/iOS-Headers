@@ -4,25 +4,27 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <SAObjects/SABaseClientBoundCommand.h>
+#import <SAObjects/SADomainCommand.h>
 
-@class NSDate, NSNumber, NSString, NSURL;
+@class NSArray, NSDate, NSNumber;
 
-@interface SAPhoneSearch : SABaseClientBoundCommand
+@interface SAPhoneSearch : SADomainCommand
 {
 }
 
 + (id)searchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)search;
 - (BOOL)requiresResponse;
-@property(copy, nonatomic) NSString *timeZoneId;
+@property(copy, nonatomic) NSNumber *voiceMail;
 @property(copy, nonatomic) NSDate *start;
-@property(copy, nonatomic) NSString *outgoingPhoneNumber;
-@property(nonatomic) BOOL missed;
-@property(copy, nonatomic) NSNumber *limit;
-@property(copy, nonatomic) NSString *incomingPhoneNumber;
+@property(copy, nonatomic) NSNumber *outgoing;
+@property(copy, nonatomic) NSNumber *missed;
+@property(copy, nonatomic) NSNumber *last;
+@property(copy, nonatomic) NSNumber *isNew;
+@property(copy, nonatomic) NSNumber *faceTimeAudio;
+@property(copy, nonatomic) NSNumber *faceTime;
 @property(copy, nonatomic) NSDate *end;
-@property(copy, nonatomic) NSURL *targetAppId;
+@property(copy, nonatomic) NSArray *contacts;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

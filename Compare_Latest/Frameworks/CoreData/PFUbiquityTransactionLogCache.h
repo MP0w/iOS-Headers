@@ -6,19 +6,21 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSRecursiveLock, NSString;
+@class NSMutableDictionary, NSRecursiveLock, NSString, PFUbiquityGlobalObjectIDCache;
 
 @interface PFUbiquityTransactionLogCache : NSObject
 {
     NSString *_localPeerID;
     NSMutableDictionary *_transactionLogCache;
     NSRecursiveLock *_transactionLogCacheLock;
+    PFUbiquityGlobalObjectIDCache *_gidCache;
 }
 
 - (void)removeLogsCachedForStoreNamed:(id)arg1 withUbiquityRootLocation:(id)arg2;
-- (id)cachedLogForLocation:(id)arg1 loadWithRetry:(BOOL)arg2 error:(id *)arg3;
+- (void)cacheExportedLog:(id)arg1;
+- (id)retainedCachedLogForLocation:(id)arg1 loadWithRetry:(BOOL)arg2 error:(id *)arg3;
 - (void)dealloc;
-- (id)initWithLocalPeerID:(id)arg1;
+- (id)initWithLocalPeerID:(id)arg1 andGlobalIDCache:(id)arg2;
 - (id)init;
 
 @end

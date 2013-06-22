@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-#import "NSCoding-Protocol.h"
 #import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
 @class NSURLProtectionSpaceInternal;
 
-@interface NSURLProtectionSpace : NSObject <NSCoding, NSCopying>
+@interface NSURLProtectionSpace : NSObject <NSSecureCoding, NSCopying>
 {
     NSURLProtectionSpaceInternal *_internal;
 }
 
++ (BOOL)supportsSecureCoding;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (struct _CFURLProtectionSpace *)_cfurlprtotectionspace;
@@ -32,6 +33,7 @@
 - (BOOL)isProxy;
 - (BOOL)receivesCredentialSecurely;
 - (id)realm;
+- (id)description;
 - (void)dealloc;
 - (id)init;
 - (id)_initWithCFURLProtectionSpace:(struct _CFURLProtectionSpace *)arg1;

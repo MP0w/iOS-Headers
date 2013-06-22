@@ -9,7 +9,7 @@
 #import "UITextFieldDelegate-Protocol.h"
 #import "UITextViewDelegate-Protocol.h"
 
-@class UIColor;
+@class PSListController, UIColor;
 
 @interface PSEditableTableCell : PSTableCell <UITextViewDelegate, UITextFieldDelegate>
 {
@@ -21,9 +21,13 @@
     id _realTarget;
     BOOL _valueChanged;
     BOOL _isEditing;
+    BOOL _returnKeyTapped;
+    PSListController *_controllerDelegate;
 }
 
 + (int)cellStyle;
+@property(nonatomic) PSListController *controllerDelegate; // @synthesize controllerDelegate=_controllerDelegate;
+@property(readonly, nonatomic) BOOL returnKeyTapped; // @synthesize returnKeyTapped=_returnKeyTapped;
 - (id)textField;
 - (void)setPlaceholderText:(id)arg1;
 - (void)setValue:(id)arg1;

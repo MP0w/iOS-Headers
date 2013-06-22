@@ -6,30 +6,29 @@
 
 #import "NSObject.h"
 
-#import "GEOTileSourceClient-Protocol.h"
+@class NSError, VKStylesheet, VKTileKeyList, VKTileKeyMap, VKTilePool;
 
-@class GEOTileSource, NSError, VKStylesheet, VKTileKeyList, VKTileKeyMap, VKTilePool;
-
-@interface VKTileSource : NSObject <GEOTileSourceClient>
+@interface VKTileSource : NSObject
 {
     id <VKTileSourceClient> _client;
-    GEOTileSource *_tileSource;
     VKTilePool *_tilePool;
     VKTileKeyMap *_pendingLoads;
     VKTileKeyList *_decoding;
     VKTileKeyList *_failedTiles;
     VKStylesheet *_stylesheet;
+    float _contentScale;
     int loadingTiles;
     NSError *_recentError;
 }
 
+@property(nonatomic) float contentScale; // @synthesize contentScale=_contentScale;
 @property(retain, nonatomic) VKStylesheet *stylesheet; // @synthesize stylesheet=_stylesheet;
 @property(nonatomic) id <VKTileSourceClient> client; // @synthesize client=_client;
-- (void)tileSource:(id)arg1 declinedToLoadTileKey:(const struct _GEOTileKey *)arg2;
-- (void)tileSource:(id)arg1 didFailToLoadTileKey:(const struct _GEOTileKey *)arg2 error:(id)arg3;
-- (void)tileSourceDidFinishWithNetwork:(id)arg1;
-- (void)tileSourceWillGoToNetwork:(id)arg1;
-- (void)tileSource:(id)arg1 didFetchData:(id)arg2 forKey:(const struct _GEOTileKey *)arg3;
+- (void)forceDownload;
+- (void)didFailToLoadTileKey:(const struct _GEOTileKey *)arg1 error:(id)arg2;
+- (void)didFinishWithNetwork;
+- (void)willGoToNetwork;
+- (void)didFetchData:(id)arg1 forKey:(const struct _GEOTileKey *)arg2;
 - (void)_failedToLoadSourceKey:(const struct VKTileKey *)arg1 downloadKey:(const struct _GEOTileKey *)arg2 error:(id)arg3;
 - (void)tileAvailabilityChanged:(id)arg1;
 - (void)populateVisibleTileSets:(id)arg1 withTiles:(id)arg2;
@@ -38,6 +37,10 @@
 - (void)fetchedTile:(id)arg1 forKey:(const struct VKTileKey *)arg2;
 - (void)failedToDecodeSourceKey:(const struct VKTileKey *)arg1;
 - (BOOL)_shouldDecodeTile:(const struct VKTileKey *)arg1;
+- (void)cancelDownload:(const struct _GEOTileKey *)arg1;
+- (void)performDownload:(const struct _GEOTileKey *)arg1;
+- (void)cancelFetchForKey:(const struct VKTileKey *)arg1;
+- (void)cancelFetchForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1;
 - (void)fetchTileForKey:(const struct VKTileKey *)arg1 sourceKey:(const struct VKTileKey *)arg2;
 - (id)tileForKey:(const struct VKTileKey *)arg1;
@@ -53,8 +56,6 @@
 @property(readonly, nonatomic) int minimumZoomLevel;
 @property(readonly, nonatomic) BOOL minimumZoomLevelBoundsCamera;
 @property(readonly, nonatomic) int zEquivalenceClass;
-@property(readonly, nonatomic) GEOTileSource *tileSource;
-- (Class)tileSourceClass;
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
 @property(readonly, nonatomic) int maximumDownloadZoomLevel;

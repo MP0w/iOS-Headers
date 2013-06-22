@@ -13,21 +13,21 @@
 
 @interface EKEventDetailExtendedNotesViewController : UIViewController <UIWebViewDelegate, EKEditItemViewControllerProtocol>
 {
-    NSString *_notes;
     UIWebView *_webView;
+    NSString *_notes;
 }
 
 @property(copy, nonatomic) NSString *notes; // @synthesize notes=_notes;
+- (void).cxx_destruct;
 - (void)webViewDidFinishLoad:(id)arg1;
 - (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
 - (id)_webView;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (unsigned int)supportedInterfaceOrientations;
 - (void)loadView;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties
-@property(nonatomic) id <EKEditItemViewControllerDelegate> editDelegate;
+@property(nonatomic) __weak id <EKEditItemViewControllerDelegate> editDelegate;
 
 @end
 

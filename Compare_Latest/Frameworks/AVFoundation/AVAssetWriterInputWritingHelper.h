@@ -6,9 +6,11 @@
 
 #import <AVFoundation/AVAssetWriterInputHelper.h>
 
+#import "AVAssetWriterInputMediaDataRequesterDelegate-Protocol.h"
+
 @class AVAssetWriterInputMediaDataRequester, AVFigAssetWriterTrack;
 
-@interface AVAssetWriterInputWritingHelper : AVAssetWriterInputHelper
+@interface AVAssetWriterInputWritingHelper : AVAssetWriterInputHelper <AVAssetWriterInputMediaDataRequesterDelegate>
 {
     AVFigAssetWriterTrack *_assetWriterTrack;
     AVAssetWriterInputMediaDataRequester *_mediaDataRequester;
@@ -18,13 +20,18 @@
 + (id)keyPathsForValuesAffectingReadyForMoreMediaData;
 @property(readonly, nonatomic, getter=_assetWriterTrack) AVFigAssetWriterTrack *assetWriterTrack; // @synthesize assetWriterTrack=_assetWriterTrack;
 - (struct __CVPixelBufferPool *)pixelBufferPool;
-- (void)transitionToTerminalStatus:(int)arg1;
+- (id)transitionToAndReturnTerminalHelperWithTerminalStatus:(int)arg1;
 - (int)trackID;
 - (void)markAsFinished;
 - (BOOL)prepareToFinishWritingReturningError:(id *)arg1;
 - (void)prepareToEndSession;
 - (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
 - (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_detachFromMediaDataRequester:(id)arg1;
+- (void)_attachToMediaDataRequester:(id)arg1;
+- (BOOL)mediaDataRequesterShouldRequestMediaData:(id)arg1;
+- (void)_nudgeMediaDataRequesterIfAppropriate;
 - (void)requestMediaDataWhenReadyOnQueue:(id)arg1 usingBlock:(id)arg2;
 - (BOOL)isReadyForMoreMediaData;
 - (int)status;

@@ -52,14 +52,14 @@
 - (id)serviceHost;
 - (id)UUID;
 - (void)synchronizeStateToDisk;
-- (void)setActiveCity:(int)arg1;
+- (void)setActiveCity:(unsigned int)arg1;
 - (int)loadActiveCity;
 - (id)loadSavedCities;
 - (id)_defaultCities;
 - (id)_ppt_addFakeTestCities;
-- (void)saveToDiskWithCities:(id)arg1 activeCity:(int)arg2;
+- (void)saveToDiskWithCities:(id)arg1 activeCity:(unsigned int)arg2;
 - (void)saveToDiskWithCities:(id)arg1;
-- (void)saveToDiskWithCity:(id)arg1 forActiveIndex:(int)arg2;
+- (void)saveToDiskWithCity:(id)arg1 forActiveIndex:(unsigned int)arg2;
 - (id)loadSavedCityAtIndex:(int)arg1;
 - (void)saveToDiskWithLocalWeatherCity:(id)arg1;
 - (id)localWeatherCity;
@@ -69,10 +69,10 @@
 - (BOOL)_defaultsAreValid;
 - (BOOL)isCelsius;
 - (void)setCelsius:(BOOL)arg1;
-- (BOOL)loadUnits;
 - (void)dealloc;
+- (BOOL)readTemperatureUnits;
+- (void)registerTemperatureUnits;
 - (id)init;
-- (void)registerDefaultUnits;
 
 @end
 

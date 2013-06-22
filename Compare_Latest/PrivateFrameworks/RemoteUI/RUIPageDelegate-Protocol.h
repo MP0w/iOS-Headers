@@ -5,7 +5,7 @@
  */
 
 @protocol RUIPageDelegate
-- (BOOL)RUIPage:(id)arg1 shouldAutorotateToInterfaceOrientation:(int)arg2;
+- (unsigned int)supportedInterfaceOrientationsForRUIPage:(id)arg1;
 - (void)RUIPage:(id)arg1 toggledEditing:(BOOL)arg2;
 - (void)RUIPage:(id)arg1 pressedNavBarButton:(id)arg2;
 @end

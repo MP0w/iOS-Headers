@@ -6,16 +6,17 @@
 
 #import "NSObject.h"
 
-@class DKConnection, NSString;
+@class NSString, NSXPCConnection;
 
 @interface AFDictationConnection : NSObject
 {
-    DKConnection *_connection;
+    NSXPCConnection *_assistantConnection;
     NSString *_lastUsedLanguage;
     id <AFDictationDelegate> _delegate;
     float _averagePower;
     float _peakPower;
     BOOL _isCapturingSpeech;
+    BOOL _hasActiveRequest;
 }
 
 + (void)fetchSupportedLanguageCodes:(id)arg1;
@@ -33,28 +34,32 @@
 - (void)cancelSpeech;
 - (void)startDictationWithLanguageCode:(id)arg1 options:(id)arg2;
 - (void)startDictationWithLanguageCode:(id)arg1 options:(id)arg2 speechOptions:(id)arg3;
+@property(readonly, nonatomic) BOOL currentlyUsingLocalDication;
 - (void)preheat;
-- (id)_connection;
-- (void)_handleMessage:(id)arg1;
-- (void)_unhandledMessage:(id)arg1;
-- (void)_msgSpeechRecognitionDidFail:(id)arg1;
-- (void)_msgSpeechRecognized:(id)arg1;
-- (void)_msgSpeechRecordingDidFail:(id)arg1;
-- (void)_msgSpeechRecordingDidCancel:(id)arg1;
-- (void)_msgSpeechRecordingDidEnd:(id)arg1;
-- (void)_msgSpeechLevelUpdate:(id)arg1;
-- (void)_msgSpeechRecordingDidBegin:(id)arg1;
-- (void)_msgSpeechRecordingWillBegin:(id)arg1;
-- (void)_clearConnection;
+- (void)_willCompleteDictation;
+- (void)_willFailDictationWithError:(id)arg1;
+- (void)_willCancelDictation;
+- (void)_willStartDictation;
+- (void)cancelAvailabilityMonitoring;
+- (void)beginAvailabilityMonitoring;
+- (BOOL)dictationIsAvailableForLanguage:(id)arg1;
+- (void)_availabilityChanged:(id)arg1;
+- (id)_assistantDictationService;
+- (id)_assistantConnection;
+- (void)_registerInvalidationHandlerForXPCConnection:(id)arg1;
+- (void)_clearConnections;
 - (void)_tellSpeechDelegateRecognitionDidFail:(id)arg1;
 - (void)_tellSpeechDelegateDidRecognizeSpeechPhrases:(id)arg1 languageModel:(id)arg2 correctionIdentifier:(id)arg3;
+- (void)_tellSpeechDelegateDidHypothesizeSpeechPhrases:(id)arg1 languageModel:(id)arg2;
 - (void)_tellSpeechDelegateRecordingDidFail:(id)arg1;
 - (void)_tellSpeechDelegateRecordingDidCancel;
 - (void)_tellSpeechDelegateRecordingDidEnd;
 - (void)_tellSpeechDelegateRecordingDidBegin;
 - (void)_tellSpeechDelegateRecordingWillBegin;
+- (void)_speechRecordingDidUpdateAveragePower:(float)arg1 peakPower:(float)arg2;
 - (void)_checkAndSetIsCapturingSpeech:(BOOL)arg1;
 - (void)dealloc;
+- (void)startDictationWithSpeechFileAtURL:(id)arg1 isNarrowBand:(BOOL)arg2 options:(id)arg3 forLanguage:(id)arg4;
 - (void)startDictationWithSpeechFileAtURL:(id)arg1 options:(id)arg2 forLanguage:(id)arg3;
 
 @end

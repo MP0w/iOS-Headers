@@ -34,8 +34,9 @@
 @property(nonatomic) int segmentedControlAlignment; // @synthesize segmentedControlAlignment=_segmentedControlAlignment;
 @property(readonly, nonatomic) UISegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
 @property(retain, nonatomic) UIView *leftView; // @synthesize leftView=_leftView;
-@property(nonatomic) id <IUSegmentedViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <IUSegmentedViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
+- (void).cxx_destruct;
 - (void)_setNavigationControllerDelegate:(id)arg1;
 - (void)_updateSegmentedControlVisibility;
 - (id)_newSegmentedControl;
@@ -45,6 +46,7 @@
 - (void)childNavigationController:(id)arg1 willNavigateToViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)transitionFromViewController:(id)arg1 toViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
+- (void)_allowsDeletionRestrictionDidChangeNotification:(id)arg1;
 - (void)_toggleEdit:(id)arg1;
 - (void)_segmentedControlChanged:(id)arg1;
 - (void)_updateFromSelectedSegmentedControlIndex;
@@ -55,7 +57,7 @@
 - (void)reloadEnabledState;
 @property(retain, nonatomic) UIViewController *transientViewController;
 - (void)setViewControllers:(id)arg1 transient:(BOOL)arg2;
-@property(nonatomic) UIViewController *selectedViewController;
+@property(nonatomic) __weak UIViewController *selectedViewController;
 - (void)setSelectedIndex:(unsigned int)arg1 animated:(BOOL)arg2;
 @property(retain, nonatomic) UINavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
 - (void)cancelEditing;
@@ -65,6 +67,7 @@
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

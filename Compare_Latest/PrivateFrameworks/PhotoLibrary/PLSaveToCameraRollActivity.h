@@ -19,7 +19,7 @@
 - (BOOL)canPerformWithActivityItems:(id)arg1;
 - (BOOL)_canPerformWithSuppliedActivityItems:(id)arg1;
 - (id)activityTitle;
-- (id)_beforeActivity;
+- (id)activityType;
 
 @end
 

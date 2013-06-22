@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class CALayer;
+@class CALayer, NSArray;
 
 @interface AVVideoCompositionCoreAnimationToolInternal : NSObject
 {
     CALayer *animationLayer;
     int auxiliaryTrackID;
-    CALayer *postProcessingVideoLayer;
+    NSArray *postProcessingVideoLayers;
     int way;
 }
 

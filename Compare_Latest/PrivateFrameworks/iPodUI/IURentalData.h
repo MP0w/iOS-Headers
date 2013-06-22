@@ -13,7 +13,7 @@
     IUUserNotificationAlert *_alert;
     int _deferRentalEventsCount;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
-    NSString *_downloadIdentifier;
+    long long _downloadIdentifier;
     BOOL _failed;
     NSDictionary *_fileProcessorInfo;
     BOOL _isPlaying;
@@ -25,6 +25,7 @@
 }
 
 + (BOOL)_shouldReadDemoRentalInfoForMediaItem:(id)arg1;
+- (void).cxx_destruct;
 - (void)_showAlertForTimeUntilExpiration:(double)arg1;
 - (void)_setLastFiredLocalNotification:(id)arg1;
 - (void)_setFileProcessorInfo:(id)arg1;
@@ -47,7 +48,7 @@
 @property(readonly) NSString *mediaPath;
 @property(readonly, getter=isDeferringRentalEvents) BOOL deferringRentalEvents;
 - (void)endDeferringRentalEvents;
-@property(readonly) NSString *downloadIdentifier;
+@property(readonly) long long downloadIdentifier;
 - (id)copyNextLocalNotification;
 - (void)beginDeferringRentalEvents;
 - (id)initWithMediaItem:(id)arg1;
@@ -58,7 +59,6 @@
 @property(readonly) int rentalState;
 @property(readonly) double playbackTimeRemaining;
 @property(readonly) NSDate *expirationDate;
-- (void)dealloc;
 - (id)init;
 
 @end

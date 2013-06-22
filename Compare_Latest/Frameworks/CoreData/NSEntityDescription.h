@@ -59,6 +59,8 @@
 - (unsigned int)retainCount;
 - (oneway void)release;
 - (id)retain;
+- (void)setCompoundIndexes:(id)arg1;
+- (id)compoundIndexes;
 - (void)setVersionHashModifier:(id)arg1;
 - (id)versionHashModifier;
 - (id)versionHash;
@@ -71,7 +73,6 @@
 - (id)properties;
 - (unsigned int)countByEnumeratingWithState:(CDStruct_11f37819 *)arg1 objects:(id *)arg2 count:(unsigned int)arg3;
 - (id)inverseForRelationshipKey:(id)arg1;
-- (id)_keypathsForDeletions;
 - (id)relationshipsWithDestinationEntity:(id)arg1;
 - (id)toOneRelationshipKeys;
 - (id)toManyRelationshipKeys;
@@ -99,8 +100,6 @@
 - (void)finalize;
 - (id)init;
 - (id)_propertyWithRenamingIdentifier:(id)arg1;
-- (void)setCompoundIndexes:(id)arg1;
-- (id)compoundIndexes;
 - (id)knownKeysMappingStrategy;
 - (void)_addProperty:(id)arg1;
 - (void)_addSubentity:(id)arg1;
@@ -156,6 +155,8 @@
 - (void)_setManagedObjectModel:(id)arg1;
 - (id)_initWithName:(id)arg1;
 - (id)_newMappingForPropertiesOfRange:(unsigned int)arg1;
+- (id)_keypathsForDeletions;
+- (void)_nukeMOClassName__;
 
 @end
 

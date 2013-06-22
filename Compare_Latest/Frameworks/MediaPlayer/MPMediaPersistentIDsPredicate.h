@@ -9,8 +9,8 @@
 @interface MPMediaPersistentIDsPredicate : MPMediaPredicate
 {
     long long *_persistentIDs;
-    unsigned int _count;
     BOOL _shouldContain;
+    unsigned int _count;
 }
 
 + (id)predicateWithPersistentIDs:(const long long *)arg1 count:(unsigned int)arg2 shouldContain:(BOOL)arg3;

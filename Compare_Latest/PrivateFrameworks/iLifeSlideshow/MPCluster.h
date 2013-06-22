@@ -29,6 +29,7 @@
 - (void)setUsageCountForLayer:(id)arg1 to:(float)arg2;
 - (id)allSlidesSortedChronologically;
 - (BOOL)clusterContainsSlideAtPath:(id)arg1;
+- (id)allSlidesSortedByUser;
 - (id)allSlides;
 - (int)slideCount;
 - (void)removeAllSlides;

@@ -18,6 +18,9 @@
     UIImageView *_dotView;
     EKStrikethroughLabel *_titleView;
     UIView<CalendarLabelTextMetrics> *_locationView;
+    UIImageView *_locationStatusView;
+    BOOL _hasLocationStatus;
+    int _locationStatus;
     BOOL _dataDetectedInLocation;
     CalendarCustomTimeView *_customTimeView;
     float _lastLayoutWidth;
@@ -25,8 +28,11 @@
     BOOL _isBirthday;
     BOOL _isFacebook;
     BOOL _needsReply;
+    BOOL _declined;
 }
 
++ (float)xMidpointForCalendarDot;
+- (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutForWidth:(float)arg1;
 - (float)layoutHeaderForWidth:(float)arg1;
@@ -37,7 +43,6 @@
 - (id)_titleView;
 - (id)_editButton;
 - (void)setEvent:(id)arg1 color:(id)arg2;
-- (void)dealloc;
 - (id)initWithEvent:(id)arg1 color:(id)arg2 style:(int)arg3;
 
 @end

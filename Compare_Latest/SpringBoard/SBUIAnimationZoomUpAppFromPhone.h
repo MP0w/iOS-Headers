@@ -12,7 +12,10 @@
 
 - (void)_cleanupAnimation;
 - (void)_prepareAnimation;
+- (void)animateZoomWithCompletion:(id)arg1;
+- (void)prepareZoom;
 - (CDStruct_5d575efc)fakeStatusBarInfoWithStartStyle:(int)arg1 startOrientation:(int)arg2;
+- (void)_cleanupPhonesContextHostView;
 - (void)dealloc;
 
 @end

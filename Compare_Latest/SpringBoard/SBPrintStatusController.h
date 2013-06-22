@@ -6,6 +6,7 @@
 
 #import "NSObject.h"
 
+#import "SBLeafIconDataSource-Protocol.h"
 #import "SBSwitcherPopoverWindowControllerDelegate-Protocol.h"
 #import "UINavigationControllerDelegate-Protocol.h"
 #import "UIPrintStatusDelegate-Protocol.h"
@@ -13,7 +14,7 @@
 
 @class SBAppSwitcherController, UIPrintStatusViewController, UIStatusBar, UITransitionView, UIView;
 
-@interface SBPrintStatusController : NSObject <UIPrintStatusDelegate, UINavigationControllerDelegate, UIStatusBarStyleDelegate, SBSwitcherPopoverWindowControllerDelegate>
+@interface SBPrintStatusController : NSObject <UIPrintStatusDelegate, UINavigationControllerDelegate, UIStatusBarStyleDelegate, SBSwitcherPopoverWindowControllerDelegate, SBLeafIconDataSource>
 {
     SBAppSwitcherController *_switcherController;
     UIPrintStatusViewController *_printStatusController;
@@ -28,6 +29,21 @@
 }
 
 @property(readonly, nonatomic) int numPrintJobs; // @synthesize numPrintJobs=_numPrintJobs;
+- (BOOL)icon:(id)arg1 launchFromLocation:(int)arg2;
+- (BOOL)iconAllowsLaunch:(id)arg1;
+- (BOOL)iconCompleteUninstall:(id)arg1;
+- (BOOL)iconAllowsUninstall:(id)arg1;
+- (BOOL)iconIsRecentlyUpdated:(id)arg1;
+- (int)iconAccessoryType:(id)arg1;
+- (id)iconFormattedAccessoryString:(id)arg1;
+- (id)iconBadgeNumberOrString:(id)arg1;
+- (float)iconProgress:(id)arg1;
+- (BOOL)iconAppearsInNewsstand:(id)arg1;
+- (BOOL)iconCanElliptisizeLabel:(id)arg1;
+- (id)iconDisplayName:(id)arg1;
+- (id)icon:(id)arg1 defaultImageWithFormat:(int)arg2;
+- (id)icon:(id)arg1 imageWithFormat:(int)arg2;
+- (unsigned int)iconPriority:(id)arg1;
 - (void)switcherPopoverController:(id)arg1 didRotateFromInterfaceOrientation:(int)arg2;
 - (void)switcherPopoverController:(id)arg1 willRotateToOrientation:(int)arg2 duration:(double)arg3;
 - (void)statusBar:(id)arg1 didAnimateFromHeight:(float)arg2 toHeight:(float)arg3 animation:(int)arg4;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class AVCaptureDeviceInternal, NSString;
+@class AVCaptureDeviceFormat, AVCaptureDeviceInternal, NSArray, NSString;
 
 @interface AVCaptureDevice : NSObject
 {
@@ -21,11 +21,21 @@
 - (void)_applyOverridesToCaptureOptions:(id)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (BOOL)doesHandleNotification:(id)arg1;
+- (void)setFigCaptureStreamFactoryTestProperty:(struct __CFString *)arg1 withValue:(void *)arg2 error:(id *)arg3;
+- (void *)copyFigCaptureStreamFactoryTestProperty:(struct __CFString *)arg1 error:(id *)arg2;
 - (void)setAutomaticallyEnablesLowLightBoostWhenAvailable:(BOOL)arg1;
 - (BOOL)automaticallyEnablesLowLightBoostWhenAvailable;
 - (BOOL)isLowLightBoostEnabled;
 - (BOOL)isLowLightBoostSupported;
+- (BOOL)isYoMamaWearsCombatBootsSupported;
+- (BOOL)HDRUsesPreBracketedFrameAsEV0;
 - (BOOL)isHDRSupported;
+- (float)videoZoomUpsamplingThreshold;
+- (void)cancelVideoZoomRamp;
+- (BOOL)isRampingVideoZoom;
+- (void)rampToVideoZoomFactor:(float)arg1 withRate:(float)arg2;
+- (void)setVideoZoomFactor:(float)arg1;
+- (float)videoZoomFactor;
 - (void)setContrast:(float)arg1;
 - (float)contrast;
 - (void)setSaturation:(float)arg1;
@@ -56,6 +66,16 @@
 - (void)setExposureMode:(int)arg1;
 - (int)exposureMode;
 - (BOOL)isExposureModeSupported:(int)arg1;
+- (void)setSmoothAutoFocusEnabled:(BOOL)arg1;
+- (BOOL)isSmoothAutoFocusEnabled;
+- (BOOL)isSmoothAutoFocusSupported;
+- (void)setManualFocusSupportEnabled:(BOOL)arg1;
+- (BOOL)isManualFocusSupportEnabled;
+- (void)setFocusPosition:(float)arg1;
+- (float)focusPosition;
+- (void)setAutoFocusRangeRestriction:(int)arg1;
+- (int)autoFocusRangeRestriction;
+- (BOOL)isAutoFocusRangeRestrictionSupported;
 - (void)setFocusPointOfInterest:(struct CGPoint)arg1;
 - (BOOL)isAdjustingFocus;
 - (struct CGPoint)focusPointOfInterest;
@@ -88,9 +108,17 @@
 - (void)unlockForConfiguration;
 - (BOOL)lockForConfiguration:(id *)arg1;
 - (BOOL)isLockedForConfiguration;
-- (id)formats;
+- (struct OpaqueCMClock *)deviceClock;
+- (void)_setActiveFormatAndFrameRatesForResolvedOptions:(id)arg1 sendingFrameRatesToFig:(BOOL)arg2;
+- (void)_setActiveVideoMaxFrameDuration:(CDStruct_1b6d18a9)arg1;
+@property(nonatomic) CDStruct_1b6d18a9 activeVideoMaxFrameDuration;
+- (void)_setActiveVideoMinFrameDuration:(CDStruct_1b6d18a9)arg1;
+@property(nonatomic) CDStruct_1b6d18a9 activeVideoMinFrameDuration;
+@property(retain, nonatomic) AVCaptureDeviceFormat *activeFormat;
+@property(readonly, nonatomic) NSArray *formats;
 @property(readonly, nonatomic, getter=isConnected) BOOL connected;
 - (BOOL)isInUseByAnotherApplication;
+- (BOOL)isMachineReadableCodeDetectionSupported;
 - (void)setFaceDetectionDebugMetadataReportingEnabled:(BOOL)arg1;
 - (BOOL)isFaceDetectionDebugMetadataReportingEnabled;
 - (int)faceRectangleAngle;
@@ -101,8 +129,6 @@
 - (BOOL)isFaceDetectionSupported;
 - (void)setSubjectAreaChangeMonitoringEnabled:(BOOL)arg1;
 - (BOOL)isSubjectAreaChangeMonitoringEnabled;
-- (void)setActiveFormat:(id)arg1;
-- (id)activeFormat;
 - (void)_sessionDidStart;
 - (void)_sessionWillStart;
 - (void)setActiveInput:(id)arg1;

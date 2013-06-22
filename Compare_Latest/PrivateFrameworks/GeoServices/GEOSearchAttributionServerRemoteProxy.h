@@ -8,16 +8,11 @@
 
 #import "GEOSearchAttributionServerProxy-Protocol.h"
 
-@class GEOSearchAttributionManifest;
-
 @interface GEOSearchAttributionServerRemoteProxy : NSObject <GEOSearchAttributionServerProxy>
 {
-    GEOSearchAttributionManifest *_manifest;
 }
 
 - (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 completionHandler:(id)arg3 errorHandler:(void)arg4;
-- (id)_manifest;
-- (void)dealloc;
 
 @end
 

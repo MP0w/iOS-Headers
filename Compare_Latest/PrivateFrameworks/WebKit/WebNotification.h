@@ -19,6 +19,9 @@
 - (void)dispatchShowEvent;
 - (unsigned long long)notificationID;
 - (id)origin;
+- (id)dir;
+- (id)lang;
+- (id)iconURL;
 - (id)tag;
 - (id)body;
 - (id)title;

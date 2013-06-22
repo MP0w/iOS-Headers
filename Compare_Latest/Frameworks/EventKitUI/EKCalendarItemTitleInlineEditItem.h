@@ -17,19 +17,19 @@
     unsigned int _showsLocation:1;
 }
 
+- (void).cxx_destruct;
 - (BOOL)textFieldShouldReturn:(id)arg1;
 - (BOOL)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (BOOL)saveAndDismissWithForce:(BOOL)arg1;
-- (id)cellForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2;
-- (id)_makeCell:(int)arg1;
-- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2 inSubsection:(int)arg3;
-- (int)numberOfSubitemsInSubsection:(int)arg1;
+- (id)cellForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2;
+- (id)_makeCell:(unsigned int)arg1;
+- (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(unsigned int)arg2 inSubsection:(unsigned int)arg3;
+- (unsigned int)numberOfSubitemsInSubsection:(unsigned int)arg1;
 - (void)reset;
 - (BOOL)isInline;
-- (void)dealloc;
-- (float)defaultCellHeightForSubitemAtIndex:(int)arg1 inSubsection:(int)arg2 forWidth:(float)arg3;
+- (float)defaultCellHeightForSubitemAtIndex:(unsigned int)arg1 inSubsection:(unsigned int)arg2 forWidth:(float)arg3;
 - (id)init;
 - (id)initWithLocation:(BOOL)arg1;
 

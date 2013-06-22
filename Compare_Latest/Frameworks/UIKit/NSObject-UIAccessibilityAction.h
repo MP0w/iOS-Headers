@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (UIAccessibilityAction)
+- (BOOL)accessibilityActivate;
 - (BOOL)accessibilityPerformMagicTap;
 - (BOOL)accessibilityPerformEscape;
 - (BOOL)accessibilityScroll:(int)arg1;

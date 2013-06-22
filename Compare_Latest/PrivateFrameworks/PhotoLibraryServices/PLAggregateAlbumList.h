@@ -7,11 +7,11 @@
 #import "NSObject.h"
 
 #import "PLAlbumContainer-Protocol.h"
-#import "PLAlbumListChangeObserver-Protocol.h"
+#import "PLAssetContainerListChangeObserver-Protocol.h"
 
 @class NSMutableOrderedSet, NSString;
 
-@interface PLAggregateAlbumList : NSObject <PLAlbumListChangeObserver, PLAlbumContainer>
+@interface PLAggregateAlbumList : NSObject <PLAssetContainerListChangeObserver, PLAlbumContainer>
 {
     NSMutableOrderedSet *_allAlbums;
     NSMutableOrderedSet *_childAlbumLists;
@@ -20,6 +20,11 @@
 
 + (struct NSObject *)albumListWithFilter:(int)arg1 inPhotoLibrary:(id)arg2;
 @property(nonatomic) int filter; // @synthesize filter=_filter;
+- (id)containersRelationshipName;
+- (BOOL)canEditContainers;
+- (BOOL)isEmpty;
+@property(readonly, nonatomic) unsigned int containersCount;
+- (id)containers;
 @property(readonly, nonatomic) NSString *_typeDescription;
 @property(readonly, nonatomic) NSString *_prettyDescription;
 - (id)photoLibrary;
@@ -33,9 +38,10 @@
 - (id)managedObjectContext;
 @property(readonly, nonatomic) unsigned int unreadAlbumsCount;
 - (BOOL)hasAtLeastOneAlbum;
+@property(readonly, nonatomic) unsigned int albumsCount;
 - (id)albums;
 - (id)identifier;
-- (void)albumListDidChange:(id)arg1;
+- (void)assetContainerListDidChange:(id)arg1;
 - (void)_invalidateAllAlbums;
 - (void)dealloc;
 - (id)initWithFilter:(int)arg1 inPhotoLibrary:(id)arg2;

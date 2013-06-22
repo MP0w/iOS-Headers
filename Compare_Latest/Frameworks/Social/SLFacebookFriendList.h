@@ -10,16 +10,16 @@
 
 @interface SLFacebookFriendList : NSObject
 {
-    NSString *_name;
     NSString *_identifier;
+    NSString *_name;
     NSString *_type;
 }
 
 + (id)friendListsWithResponseData:(id)arg1;
 + (id)friendListWithDictionary:(id)arg1;
 @property(retain) NSString *type; // @synthesize type=_type;
-@property(retain) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain) NSString *name; // @synthesize name=_name;
+@property(retain) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (id)initWithFriendListDictionary:(id)arg1;
 

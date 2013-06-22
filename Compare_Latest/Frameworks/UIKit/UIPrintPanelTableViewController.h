@@ -6,20 +6,21 @@
 
 #import <UIKit/UITableViewController.h>
 
-@class UIButton, UIPrintPanelViewController;
+@class UIPrintPanelViewController;
 
 @interface UIPrintPanelTableViewController : UITableViewController
 {
     UIPrintPanelViewController *_printPanelViewController;
-    UIButton *_printButton;
     int _rangeRow;
     int _copiesRow;
     int _duplexRow;
     int _paperRow;
     BOOL _contactingPrinter;
+    BOOL _canPrint;
 }
 
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (BOOL)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)updateDuplex:(id)arg1;
 - (void)updateCopies:(id)arg1;
 - (void)updatePageRange:(struct _NSRange)arg1;
@@ -30,7 +31,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
-- (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)clearPrintPanelViewController;
 - (void)setShowContactingPrinter:(BOOL)arg1;
@@ -40,7 +40,6 @@
 - (id)initWithPrintPanelViewController:(id)arg1;
 - (void)_updateSize;
 - (void)_update:(BOOL)arg1;
-- (void)_setupPrintButtons;
 
 @end
 

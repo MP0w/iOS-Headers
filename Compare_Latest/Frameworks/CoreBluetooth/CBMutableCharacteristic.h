@@ -6,19 +6,25 @@
 
 #import <CoreBluetooth/CBCharacteristic.h>
 
-@class CBUUID, NSArray, NSData, NSNumber;
+@class CBUUID, NSArray, NSData, NSMutableArray, NSNumber;
 
 @interface CBMutableCharacteristic : CBCharacteristic
 {
-    int _permissions;
     NSNumber *_ID;
+    int _permissions;
+    NSMutableArray *_subscribedCentrals;
 }
 
 @property(retain) NSNumber *ID; // @synthesize ID=_ID;
+@property(readonly) NSArray *subscribedCentrals; // @synthesize subscribedCentrals=_subscribedCentrals;
 @property(nonatomic) int permissions; // @synthesize permissions=_permissions;
 @property(retain) NSArray *descriptors;
 @property(nonatomic) int properties;
 - (id)description;
+- (BOOL)handleCentralUnsubscribed:(id)arg1;
+- (BOOL)handleCentralSubscribed:(id)arg1;
+- (void)dealloc;
+- (id)initWithService:(id)arg1 dictionary:(id)arg2;
 - (id)initWithType:(id)arg1 properties:(int)arg2 value:(id)arg3 permissions:(int)arg4;
 
 // Remaining properties

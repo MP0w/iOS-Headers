@@ -88,7 +88,7 @@
 - (id)initWithEffectID:(id)arg1;
 - (BOOL)needsMoreSlidesAtTime:(double)arg1;
 - (unsigned int)firstSlideIndexStillNeededAtTime:(double)arg1;
-@property(readonly, nonatomic) unsigned int typicalSlideBatchSize;
+@property(readonly, nonatomic) int typicalSlideBatchSize;
 @property(readonly, nonatomic) BOOL supportsDynamicExpansion;
 - (void)_unload;
 - (void)_loadForTime:(double)arg1 inContext:(id)arg2 withArguments:(id)arg3;

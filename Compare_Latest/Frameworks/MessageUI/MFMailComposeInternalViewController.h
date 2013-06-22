@@ -8,7 +8,7 @@
 
 #import "MFMailComposeRemoteViewControllerDelegate-Protocol.h"
 
-@class MFMailComposePlaceholderViewController, MFMailComposeRemoteViewController, NSError, NSMutableArray, NSMutableDictionary, NSString, XPCProxy<MFMailComposeRemoteService>, _UIAsyncInvocation;
+@class MFMailComposePlaceholderViewController, MFMailComposeRemoteViewController, NSError, NSMutableArray, NSMutableDictionary, NSString, _UIAsyncInvocation;
 
 @interface MFMailComposeInternalViewController : UIViewController <MFMailComposeRemoteViewControllerDelegate>
 {
@@ -17,7 +17,6 @@
     MFMailComposePlaceholderViewController *_placeholderViewController;
     MFMailComposeRemoteViewController *_serviceViewController;
     _UIAsyncInvocation *_cancellationInvocation;
-    XPCProxy<MFMailComposeRemoteService> *_serviceViewControllerProxy;
     NSMutableDictionary *_compositionValues;
     NSMutableArray *_attachments;
     NSString *_placeholderSubject;
@@ -42,6 +41,7 @@
 - (void)finalizeCompositionValues;
 - (id)addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
 - (void)setContentVisible:(BOOL)arg1;
+- (void)setSourceAccountManagement:(int)arg1;
 - (void)setShowKeyboardImmediately:(BOOL)arg1;
 - (void)setBccRecipients:(id)arg1;
 - (void)setCcRecipients:(id)arg1;
@@ -63,7 +63,7 @@
 - (void)_endDelayingCompositionPresentation;
 - (void)_beginDelayingCompositionPresenation;
 - (void)willMoveToParentViewController:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (BOOL)shouldAutorotate;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)viewDidLoad;

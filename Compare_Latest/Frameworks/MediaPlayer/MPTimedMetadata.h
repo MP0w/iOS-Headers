@@ -6,19 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString;
+@class AVMetadataItem, NSDictionary, NSString;
 
 @interface MPTimedMetadata : NSObject
 {
-    void *_internal;
+    AVMetadataItem *_metadataItem;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSDictionary *allMetadata;
 @property(readonly, nonatomic) double timestamp;
 @property(readonly, nonatomic) id value;
 @property(readonly, nonatomic) NSString *keyspace;
 @property(readonly, nonatomic) NSString *key;
-- (void)dealloc;
 - (id)_initWithMetadataItem:(id)arg1;
 - (id)init;
 

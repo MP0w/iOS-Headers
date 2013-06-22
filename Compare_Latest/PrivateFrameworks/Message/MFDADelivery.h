@@ -19,7 +19,7 @@
     NSString *_forwardedLongId;
 }
 
-- (int)deliverSynchronously;
+- (id)deliverSynchronously;
 - (id)newMessageWriter;
 - (void)setDAMailAccount:(id)arg1;
 - (void)dealloc;

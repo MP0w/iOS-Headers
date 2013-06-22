@@ -6,7 +6,7 @@
 
 #import <PhotoLibraryServices/PLManagedObject.h>
 
-@class NSData, NSDate, NSManagedObject, NSMutableSet, NSNumber, NSObject, NSSet, NSString;
+@class NSData, NSDate, NSManagedObject, NSMutableSet, NSNumber, NSObject, NSSet, NSString, PLLastTokenAsset, PLMoment;
 
 @interface _PLManagedAsset : PLManagedObject
 {
@@ -16,6 +16,10 @@
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 + (id)insertInManagedObjectContext:(id)arg1;
+@property(nonatomic) BOOL reverseLocationDataIsValid; // @dynamic reverseLocationDataIsValid;
+@property(retain, nonatomic) NSData *reverseLocationData; // @dynamic reverseLocationData;
+- (void)setLocalizedLocation:(id)arg1;
+- (id)localizedLocation;
 @property(readonly, nonatomic) NSMutableSet *albumsSet;
 @property(readonly, nonatomic) NSMutableSet *sidecarFilesSet;
 @property(readonly, nonatomic) NSMutableSet *albumsBeingKeyAssetForSet;
@@ -25,9 +29,6 @@
 - (void)setPrimitiveHeightValue:(short)arg1;
 - (short)primitiveHeightValue;
 @property short heightValue;
-- (void)setPrimitiveFlaggedValue:(BOOL)arg1;
-- (BOOL)primitiveFlaggedValue;
-@property BOOL flaggedValue;
 - (void)setPrimitiveDurationValue:(double)arg1;
 - (double)primitiveDurationValue;
 @property double durationValue;
@@ -47,6 +48,7 @@
 - (short)primitiveEmbeddedThumbnailHeightValue;
 - (void)setPrimitiveThumbnailIndexValue:(int)arg1;
 - (int)primitiveThumbnailIndexValue;
+@property(retain, nonatomic) NSNumber *orientation; // @dynamic orientation;
 - (void)setPrimitiveOriginalOrientationValue:(short)arg1;
 - (short)primitiveOriginalOrientationValue;
 @property short originalOrientationValue;
@@ -54,6 +56,7 @@
 - (void)setPrimitiveEmbeddedThumbnailOffsetValue:(int)arg1;
 - (int)primitiveEmbeddedThumbnailOffsetValue;
 @property(retain, nonatomic) NSString *originalFilename;
+@property(retain, nonatomic) NSData *originalHash;
 @property(nonatomic) short originalWidthValue;
 @property(retain, nonatomic) NSNumber *originalWidth;
 @property(nonatomic) short originalHeightValue;
@@ -64,12 +67,14 @@
 - (short)primitiveWidthValue;
 @property short widthValue;
 @property(retain, nonatomic) NSNumber *highDynamicRangeType;
+- (void)setPrimitiveKindSubtypeValue:(short)arg1;
+- (short)primitiveKindSubtypeValue;
+@property short kindSubtypeValue;
 - (void)setPrimitiveKindValue:(short)arg1;
 - (short)primitiveKindValue;
 @property short kindValue;
 - (void)setPrimitiveEmbeddedThumbnailWidthValue:(short)arg1;
 - (short)primitiveEmbeddedThumbnailWidthValue;
-- (id)objectID;
 - (void)awakeFromInsert;
 
 // Remaining properties
@@ -81,18 +86,23 @@
 @property(retain, nonatomic) NSString *directory; // @dynamic directory;
 @property(retain, nonatomic) NSObject *faceRectangles; // @dynamic faceRectangles;
 @property(retain, nonatomic) NSString *filename; // @dynamic filename;
-@property(retain, nonatomic) NSNumber *flagged; // @dynamic flagged;
 @property(retain, nonatomic) NSNumber *height; // @dynamic height;
 @property(retain, nonatomic) NSNumber *kind; // @dynamic kind;
+@property(retain, nonatomic) NSNumber *kindSubtype; // @dynamic kindSubtype;
+@property(retain, nonatomic) NSNumber *lastSelectionType; // @dynamic lastSelectionType;
+@property(retain, nonatomic) PLLastTokenAsset *lastTokenAsset; // @dynamic lastTokenAsset;
+@property(retain, nonatomic) NSString *lastUUID; // @dynamic lastUUID;
 @property(retain, nonatomic) NSData *locationData; // @dynamic locationData;
 @property(retain, nonatomic) NSDate *modificationDate; // @dynamic modificationDate;
-@property(retain, nonatomic) NSNumber *orientation; // @dynamic orientation;
+@property(retain, nonatomic) PLMoment *moment; // @dynamic moment;
+@property(retain, nonatomic) PLMoment *momentBeingKeyAssetFor; // @dynamic momentBeingKeyAssetFor;
 @property(retain, nonatomic) NSNumber *savedAssetType; // @dynamic savedAssetType;
 @property(retain, nonatomic) NSSet *sidecarFiles; // @dynamic sidecarFiles;
 @property(nonatomic) double sortToken; // @dynamic sortToken;
 @property(retain, nonatomic) NSString *title; // @dynamic title;
 @property(retain, nonatomic) NSString *uniformTypeIdentifier; // @dynamic uniformTypeIdentifier;
 @property(retain, nonatomic) NSString *uuid; // @dynamic uuid;
+@property(retain, nonatomic) NSNumber *visibilityState; // @dynamic visibilityState;
 @property(retain, nonatomic) NSNumber *width; // @dynamic width;
 
 @end

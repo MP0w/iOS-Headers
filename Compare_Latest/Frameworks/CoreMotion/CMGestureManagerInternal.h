@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
+@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
+
 @interface CMGestureManagerInternal : NSObject
 {
     int fPriority;
     struct CLConnectionClient *fLocationdConnection;
     id fGestureHandler;
-    struct dispatch_source_s *fWatchDogTimer;
-    struct dispatch_queue_s *fPrivateQueue;
+    NSObject<OS_dispatch_source> *fWatchDogTimer;
+    NSObject<OS_dispatch_queue> *fPrivateQueue;
 }
 
 - (void)stopGestureUpdatesPrivate;

@@ -18,12 +18,11 @@
 - (void)updatePersistentObject;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)setAddressBookEntityID:(id)arg1;
-- (id)addressBookEntityID;
+@property(copy, nonatomic) NSString *addressBookEntityID;
 @property(nonatomic) double radius;
 @property(retain, nonatomic) CLLocation *geoLocation;
 @property(retain, nonatomic) NSString *title;
-- (BOOL)isStructured;
+@property(readonly, nonatomic) BOOL isStructured;
 - (id)_persistentLocation;
 - (id)init;
 

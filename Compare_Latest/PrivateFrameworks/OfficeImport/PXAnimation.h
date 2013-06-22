@@ -31,8 +31,8 @@
 + (void)readAnimEffectElement:(struct _xmlNode *)arg1 timeNode:(id)arg2 drawingState:(id)arg3;
 + (void)readAnimElement:(struct _xmlNode *)arg1 timeNode:(id)arg2 drawingState:(id)arg3;
 + (void)readChartType:(id)arg1 oleChartTarget:(id)arg2;
-+ (id)readShapeTarget:(struct _xmlNode *)arg1 drawingState:(id)arg2;
-+ (id)readTgtElement:(struct _xmlNode *)arg1 drawingState:(id)arg2;
++ (id)newShapeTarget:(struct _xmlNode *)arg1 drawingState:(id)arg2;
++ (id)newTarget:(struct _xmlNode *)arg1 drawingState:(id)arg2;
 + (void)readTriggerEvent:(id)arg1 timeCondition:(id)arg2;
 + (void)readCondition:(struct _xmlNode *)arg1 timeCondition:(id)arg2 drawingState:(id)arg3;
 + (void)readStConditionList:(struct _xmlNode *)arg1 commonTimeNodeData:(id)arg2 drawingState:(id)arg3;

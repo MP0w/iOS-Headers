@@ -6,14 +6,25 @@
 
 #import "NSObject.h"
 
-@class DKConnection;
+@class AFVoiceInfo, NSArray, NSObject<OS_dispatch_queue>, NSXPCConnection;
 
 @interface AFSettingsConnection : NSObject
 {
-    DKConnection *_connection;
+    NSXPCConnection *_connection;
+    NSObject<OS_dispatch_queue> *_voicesQueue;
+    NSArray *_voices;
+    AFVoiceInfo *_selectedVoice;
 }
 
 - (void).cxx_destruct;
+- (void)setLanguage:(id)arg1;
+- (void)setOutputVoice:(id)arg1;
+- (void)getAvailableVoicesForRecognitionLanguage:(id)arg1 completion:(id)arg2;
+- (void)_updateVoicesWithCompletion:(id)arg1;
+- (void)_updateVoicesSync;
+- (id)_filterVoices:(id)arg1 forLanguage:(id)arg2;
+- (id)_voices;
+- (void)_setVoices:(id)arg1;
 - (void)barrier;
 - (void)killDaemon;
 - (void)setDictationEnabled:(BOOL)arg1;
@@ -23,11 +34,13 @@
 - (void)saveAccount:(id)arg1 setActive:(BOOL)arg2;
 - (id)accounts;
 - (void)fetchSupportedLanguageCodes:(id)arg1;
+- (id)_settingsServiceWithErrorHandler:(id)arg1;
+- (id)_settingsService;
 - (id)_connection;
 - (void)_clearConnection;
 - (void)dealloc;
-- (void)_sendMessage:(id)arg1 withReplySync:(id)arg2;
-- (void)_sendMessage:(id)arg1 withReply:(id)arg2;
+- (id)init;
+- (void)_syncDataWithAnchorKeys:(id)arg1 forceReset:(BOOL)arg2 completion:(id)arg3;
 
 @end
 

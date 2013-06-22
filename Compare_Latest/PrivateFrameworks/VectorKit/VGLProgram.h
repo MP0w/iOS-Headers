@@ -6,20 +6,24 @@
 
 #import "NSObject.h"
 
-@class NSString, VGLContext;
+#import "NSCopying-Protocol.h"
 
-@interface VGLProgram : NSObject
+@class VGLContext, VGLFragmentShader, VGLResource, VGLVertexShader;
+
+@interface VGLProgram : NSObject <NSCopying>
 {
-    int _token;
+    VGLResource *_resource;
     VGLContext *_context;
     int _uMatrix;
     CDUnion_f5b85e25 _matrix;
-    NSString *_vertName;
-    NSString *_fragName;
-    struct vector<int, vk_allocator<int>> _handlesVector;
-    struct vector<std::__1::basic_string<char>, vk_allocator<std::__1::basic_string<char>>> _handleStringVec;
+    VGLVertexShader *_vert;
+    VGLFragmentShader *_frag;
+    struct vector<UniformHandle, vk_allocator<UniformHandle>> _handlesVector;
 }
 
++ (id)fragName;
++ (id)vertName;
++ (id)programWithContext:(id)arg1;
 @property(nonatomic) VGLContext *context; // @synthesize context=_context;
 @property(nonatomic) CDUnion_f5b85e25 matrix; // @synthesize matrix=_matrix;
 - (id).cxx_construct;
@@ -29,19 +33,25 @@
 - (void)setUniformIntVec:(int)arg1 curr:(int *)arg2 next:(const int *)arg3 count:(int)arg4;
 - (void)setUniformInt:(int)arg1 curr:(int *)arg2 next:(int)arg3;
 - (void)setUniformMat4:(int)arg1 curr:(CDUnion_f5b85e25 *)arg2 next:(const CDUnion_f5b85e25 *)arg3;
-- (void)setUniformMat3:(int)arg1 curr:(CDUnion_de9d7be0 *)arg2 next:(const CDUnion_de9d7be0 *)arg3;
+- (void)setUniformMat3:(int)arg1 curr:(CDUnion_2b8b3256 *)arg2 next:(const CDUnion_2b8b3256 *)arg3;
 - (void)setUniformMat2:(int)arg1 curr:(CDUnion_552b2134 *)arg2 next:(const CDUnion_552b2134 *)arg3;
 - (void)setUniformVec4:(int)arg1 curr:(CDStruct_818bb265 *)arg2 next:(const CDStruct_818bb265 *)arg3;
 - (void)setUniformVec3:(int)arg1 curr:(CDStruct_03942939 *)arg2 next:(const CDStruct_03942939 *)arg3;
-- (void)setUniformVec2:(int)arg1 curr:(CDStruct_6e3f967a *)arg2 next:(const CDStruct_6e3f967a *)arg3;
+- (void)setUniformVec2:(int)arg1 curr:(Vec2Imp_1782d7e3 *)arg2 next:(const Vec2Imp_1782d7e3 *)arg3;
 - (void)setUniformColor:(int)arg1 curr:(struct _VGLColor *)arg2 next:(const struct _VGLColor *)arg3;
 - (void)printInfoLog;
 - (BOOL)link;
-- (void)validateUniforms;
 - (int)uniformLocation:(const char *)arg1;
+- (void)dirtyUniformCaches;
 - (void)dealloc;
-- (id)initWithVertName:(id)arg1 fragName:(id)arg2;
-@property(readonly, nonatomic) int token;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithResourceFactory:(id)arg1;
+- (void)setup;
+- (id)_init;
+- (id)init;
+- (BOOL)_attachBindLink;
+- (void)bindAttributes;
+@property(readonly, nonatomic) unsigned int token;
 
 @end
 

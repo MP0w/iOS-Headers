@@ -4,7 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@protocol _UIViewServiceImplicitAnimationDecodingProxy_EncodingProxyInterface
+#import "NSObject-Protocol.h"
+
+@protocol _UIViewServiceImplicitAnimationDecodingProxy_EncodingProxyInterface <NSObject>
+
+@optional
 - (void)__animateNextInvocationOfSelector:(id)arg1 withAnimationAttributes:(id)arg2;
 @end
 

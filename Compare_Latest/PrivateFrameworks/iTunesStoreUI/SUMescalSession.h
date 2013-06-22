@@ -16,6 +16,7 @@
     struct FPSAPContextOpaque_ *_session;
 }
 
+- (void)_teardownSession;
 - (id)_newDataWithBytes:(char *)arg1 length:(unsigned long)arg2;
 - (BOOL)verifyPrimeSignature:(id)arg1 error:(id *)arg2;
 - (id)signData:(id)arg1 error:(id *)arg2;

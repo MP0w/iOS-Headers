@@ -29,7 +29,7 @@
 - (id)dataLabel;
 - (int)key;
 - (void)dealloc;
-- (id)shallowCopyWithIndex:(int)arg1;
+- (id)shallowCopyWithIndex:(unsigned int)arg1;
 - (id)init;
 
 @end

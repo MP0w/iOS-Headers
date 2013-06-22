@@ -12,11 +12,13 @@
 
 - (CDStruct_95077174)getConnectionAttachmentLocations;
 - (void)setAssociatedNode:(id)arg1;
+- (void)pickCorrectImagesForContentsScale:(float)arg1;
 - (void)layoutSublayers;
 - (id)debugDescription;
 - (id)description;
 - (void)dealloc;
-- (id)init;
+- (id)initWithUIStyle:(int)arg1 andOwningView:(id)arg2;
+- (void)initNetTopoAirPortDeviceLayerCommonWithStyle:(int)arg1 andOwningView:(id)arg2;
 
 @end
 

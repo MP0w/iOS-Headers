@@ -8,11 +8,15 @@
 
 @interface PFUbiquityLogging : NSObject
 {
+    int _desiredLogLevel;
 }
 
 + (BOOL)canLogMessageAtLevel:(int)arg1;
 + (void)setLoggingLevel:(int)arg1;
 + (void)initialize;
+@property(nonatomic) int desiredLogLevel; // @synthesize desiredLogLevel=_desiredLogLevel;
+- (void)userDefaultsChanged:(id)arg1;
+- (void)checkUserDefaults;
 - (void)dealloc;
 - (id)init;
 

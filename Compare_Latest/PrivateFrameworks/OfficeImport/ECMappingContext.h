@@ -10,13 +10,15 @@
 
 @interface ECMappingContext : NSObject
 {
-    struct __CFDictionary *mIndexToMappedIndex;
+    struct map<unsigned int, unsigned int, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, unsigned int>>> mIndexToMappedIndex;
     NSMutableDictionary *mSheetNameToMappedIndex;
     struct __CFDictionary *mObjectToMappingInfo;
     NSMutableArray *mMappingInfos;
 }
 
 + (id)mappingContext;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)mappingInfoAtIndex:(unsigned int)arg1;
 - (unsigned int)mappingInfoCount;
 - (id)mappingInfoForObject:(id)arg1;

@@ -24,12 +24,17 @@
     BOOL _canRead;
     BOOL _canWrite;
     BOOL _sentCanRead;
+    unsigned int _bytesRead;
+    unsigned int _bytesWritten;
+    BOOL _enableThroughputMonitoring;
 }
 
 + (id)_networkDispatchQueue;
 + (void)setNetworkThread:(id)arg1;
 + (id)networkThread;
 @property(readonly, nonatomic) NSError *streamError; // @synthesize streamError=_error;
+- (void)enableExcessiveKeepaliveDetection:(BOOL)arg1;
+- (void)enableThroughputMonitoring:(BOOL)arg1;
 - (void)stream:(id)arg1 handleEvent:(unsigned int)arg2;
 - (void)_readBytesFromStream;
 - (void)close;

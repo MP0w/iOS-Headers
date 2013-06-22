@@ -14,7 +14,7 @@
 #import "_UIWebDoubleTapDelegate-Protocol.h"
 #import "_UIWebRotationDelegate-Protocol.h"
 
-@class NSArray, NSDictionary, NSObject<UIWebPDFViewHandlerDelegate>, UIAlertView, UIColor, UIDocumentPasswordView, UIHighlightView, UIView, UIWebPDFLabelView, UIWebPDFSearchController, UIWebPDFView, WebPDFNSNumberFormatter, _UIRotatingActionSheet;
+@class NSArray, NSDictionary, NSObject<UIWebPDFViewHandlerDelegate>, UIAlertView, UIColor, UIDocumentPasswordView, UIView, UIWebPDFLabelView, UIWebPDFSearchController, UIWebPDFView, WebPDFNSNumberFormatter, _UIHighlightView, _UIRotatingActionSheet;
 
 @interface UIWebPDFViewHandler : NSObject <UIWebPDFViewPrivateDelegate, UIDocumentPasswordViewDelegate, UIActionSheetDelegate, _UIRotatingActionSheetDelegate, UIWebPDFViewDelegate, _UIWebDoubleTapDelegate, _UIWebRotationDelegate>
 {
@@ -22,7 +22,7 @@
     BOOL _scalesPageToFit;
     float _initialZoomScale;
     NSObject<UIWebPDFViewHandlerDelegate> *_pdfHandlerDelegate;
-    UIHighlightView *_linkHighlightView;
+    _UIHighlightView *_linkHighlightView;
     UIWebPDFLabelView *_pageLabelView;
     BOOL _showPageLabels;
     BOOL _showsShadowsForHTMLContent;
@@ -113,7 +113,8 @@
 - (void)handleLinkClick:(id)arg1 inRect:(struct CGRect)arg2;
 - (void)_notifyDelegateDidClickLink:(id)arg1;
 - (void)_notifyDelegateWillClickLink:(id)arg1;
-- (void)_completeLinkClick:(id)arg1;
+- (void)_completeLinkClickWithURLString:(id)arg1;
+- (void)_completeLinkClickWithURL:(id)arg1;
 - (id)_absoluteUrlRelativeToDocumentURL:(id)arg1;
 - (void)scrollToPageNumber:(int)arg1 animate:(BOOL)arg2;
 - (void)highlightRect:(struct CGRect)arg1;

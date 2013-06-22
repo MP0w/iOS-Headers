@@ -15,7 +15,7 @@
 
 + (id)predicateWithPersistentIDs:(const long long *)arg1 count:(unsigned int)arg2 shouldContain:(BOOL)arg3;
 @property(readonly, nonatomic) BOOL shouldContain; // @synthesize shouldContain=_shouldContain;
-- (void)bindToStatement:(id)arg1 bindingIndex:(inout int *)arg2;
+- (id)databaseStatementParameters;
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;

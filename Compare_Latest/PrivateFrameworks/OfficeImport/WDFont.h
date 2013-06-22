@@ -20,7 +20,7 @@
 }
 
 - (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithName:(id)arg1;

@@ -12,6 +12,7 @@
     unsigned int _byteCount;
 }
 
++ (Class)classForCoder;
 - (BOOL)writeToURL:(id)arg1 atomically:(BOOL)arg2;
 - (BOOL)writeToURL:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 - (BOOL)writeToFile:(id)arg1 atomically:(BOOL)arg2;
@@ -31,9 +32,9 @@
 - (BOOL)_tryRetain;
 - (BOOL)_isDeallocating;
 - (unsigned int)retainCount;
-- (void)release;
+- (oneway void)release;
 - (id)retain;
-- (void)encodeWithCoder:(id)arg1;
+- (Class)classForArchiver;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 

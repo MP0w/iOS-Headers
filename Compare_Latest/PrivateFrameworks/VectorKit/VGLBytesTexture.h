@@ -11,7 +11,7 @@
 @interface VGLBytesTexture : VGLTexture
 {
     NSData *_data;
-    unsigned int _internalFormat;
+    int _internalFormat;
     int _width;
     int _height;
     unsigned int _pixelFormat;
@@ -21,7 +21,7 @@
 - (BOOL)loadTexture;
 - (BOOL)decodeTexture;
 - (void)dealloc;
-- (id)initWithData:(id)arg1 internalFormat:(unsigned int)arg2 size:(struct CGSize)arg3 pixelFormat:(unsigned int)arg4 pixelType:(unsigned int)arg5;
+- (id)initWithData:(id)arg1 internalFormat:(int)arg2 size:(struct CGSize)arg3 pixelFormat:(unsigned int)arg4 pixelType:(unsigned int)arg5;
 
 @end
 

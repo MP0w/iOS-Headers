@@ -22,8 +22,6 @@
     BOOL _scaleUp;
 }
 
-+ (void)_saveDuplex:(int)arg1;
-+ (void)_savePrinter:(id)arg1;
 + (id)printInfoWithDictionary:(id)arg1;
 + (id)printInfo;
 @property(nonatomic) BOOL scaleUp; // @synthesize scaleUp=_scaleUp;

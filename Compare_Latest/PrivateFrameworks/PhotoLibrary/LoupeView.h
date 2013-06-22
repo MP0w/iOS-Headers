@@ -11,7 +11,6 @@
 @interface LoupeView : UIView
 {
     UIImageView *_foreground;
-    UIImageView *_background;
     unsigned int _displayedIndex;
 }
 

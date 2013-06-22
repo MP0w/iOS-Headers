@@ -13,8 +13,8 @@
 @interface MCAnimationPathCombo : MCAnimationPath <MCAnimationPathSupport>
 {
     NSMutableSet *mAnimationPaths;
-    NSString *mCombineOperation;
     BOOL mIsSnapshot;
+    NSString *mCombineOperation;
 }
 
 - (BOOL)isSnapshot;

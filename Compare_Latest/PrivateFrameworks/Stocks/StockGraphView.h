@@ -8,7 +8,7 @@
 
 #import "GraphRenderOperationDelegate-Protocol.h"
 
-@class GraphRenderOperation, LineGraphView, NSArray, NSMutableArray, StockChartData, UIView<StockGraphViewContainer>;
+@class GraphRenderOperation, LineGraphView, NSArray, NSMutableArray, StockChartData, UIView<StockGraphViewContainer>, VolumeGraphView;
 
 @interface StockGraphView : UIView <GraphRenderOperationDelegate>
 {
@@ -28,20 +28,19 @@
     float _volumeBarWidth;
     unsigned long long _maxVolume;
     float _lineWidth;
-    LineGraphView *_lineView;
-    UIView *_volumeView;
     GraphRenderOperation *_renderOperation;
     BOOL _isRendered;
     BOOL _detailedMode;
-    BOOL _showingVolume;
-    BOOL _volumeCollapsed;
+    LineGraphView *_lineView;
+    VolumeGraphView *_volumeView;
+    struct UIEdgeInsets _graphInsets;
 }
 
-+ (id)SelectedLineColor;
+@property(nonatomic) struct UIEdgeInsets graphInsets; // @synthesize graphInsets=_graphInsets;
 @property(nonatomic) BOOL detailedMode; // @synthesize detailedMode=_detailedMode;
-@property(retain, nonatomic, setter=setDottedLinePositionsWithLabelInfo:) NSArray *dottedLinePositions; // @synthesize dottedLinePositions=_dottedLinePositions;
-@property(nonatomic) __weak UIView<StockGraphViewContainer> *chartViewDelegate; // @synthesize chartViewDelegate=_chartViewDelegate;
 @property(readonly, nonatomic) BOOL isRendered; // @synthesize isRendered=_isRendered;
+@property(nonatomic) __weak UIView<StockGraphViewContainer> *chartViewDelegate; // @synthesize chartViewDelegate=_chartViewDelegate;
+@property(retain, nonatomic, setter=setDottedLinePositionsWithLabelInfo:) NSArray *dottedLinePositions; // @synthesize dottedLinePositions=_dottedLinePositions;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (struct CGRect)volumeBarRectNearestToPoint:(struct CGPoint)arg1;
@@ -49,10 +48,12 @@
 - (struct CGPoint)rightmostPlottedPoint;
 - (void)loadStockChartData:(id)arg1;
 - (void)clearData;
+- (void)resizeSelectedVolumeClipViewWithLeftX:(float)arg1 rightX:(float)arg2;
 - (void)resizeSelectedLineClipViewWithLeftX:(float)arg1 rightX:(float)arg2;
 - (void)graphRenderOperationDidFinish:(id)arg1;
-- (void)recomputePathsAndRenderIfNeeded;
+- (void)recomputePathsAndRenderIfNeededForSize:(struct CGSize)arg1;
 - (void)cancelRenderOperation;
+@property(readonly, nonatomic) BOOL isRendering;
 - (void)readyForDisplayFromChartData;
 - (void)_processGraphDataForWidth:(float)arg1;
 - (unsigned long long)_normalizedAccumulatedVolumeInDataRange:(struct CGPoint)arg1;
@@ -61,11 +62,7 @@
 - (struct CGRect)_trueGraphPointsRegion;
 - (double)_timeAtPosition:(double)arg1;
 - (float)_priceAtTime:(double)arg1 dataPosition:(double *)arg2;
-- (void)volumeDidAnimate;
-- (BOOL)showingVolume;
-- (void)setVolumeCollapsed:(BOOL)arg1;
-- (void)animateSetShowingVolume:(BOOL)arg1;
-- (void)prepareToAnimateSetShowingVolume:(BOOL)arg1;
+- (void)setShowingSelectedVolumeRegion:(BOOL)arg1;
 - (void)setShowingSelectedLine:(BOOL)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_layoutSubviews;

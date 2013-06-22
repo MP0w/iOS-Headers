@@ -52,6 +52,7 @@
     unsigned int _inlinePlaybackUsesTVOut:1;
 }
 
++ (int)_activityIndicatorViewStyle;
 + (struct CGRect)calculateArtworkImageViewFrameInRect:(struct CGRect)arg1;
 + (BOOL)supportsFullscreenDisplay;
 @property(nonatomic) unsigned long long visibleParts; // @synthesize visibleParts=_visibleParts;
@@ -61,6 +62,7 @@
 @property(nonatomic) unsigned long long desiredParts; // @synthesize desiredParts=_desiredParts;
 @property(retain, nonatomic) UIColor *backstopColor; // @synthesize backstopColor=_backstopColor;
 @property(nonatomic) int artworkImageStyle; // @synthesize artworkImageStyle=_artworkImageStyle;
+- (void).cxx_destruct;
 - (void)_updateProgressControlForItem:(id)arg1;
 - (void)_updateIdleTimerDisabledFromPlaybackState:(unsigned int)arg1;
 - (BOOL)_showDestinationPlaceholder;
@@ -133,6 +135,7 @@
 - (void)removeChildViewController:(id)arg1;
 - (void)noteIgnoredChangeTypes:(unsigned int)arg1;
 - (void)loadView;
+- (void)exitFullscreen;
 @property(readonly, nonatomic) unsigned int hostedWindowContextID;
 @property(readonly, nonatomic) _UIHostedWindow *hostedWindow;
 - (void)setUseHostedWindowWhenFullscreen:(BOOL)arg1;
@@ -142,6 +145,7 @@
 @property(nonatomic) BOOL inlinePlaybackUsesTVOut;
 @property(nonatomic) BOOL disableAutoRotation;
 @property(nonatomic) BOOL attemptAutoPlayWhenControlsHidden;
+@property(nonatomic) BOOL autoPlayWhenLikelyToKeepUp;
 @property(nonatomic) BOOL allowsWirelessPlayback;
 @property(nonatomic) BOOL allowsDetailScrubbing;
 - (void)toggleScaleMode:(BOOL)arg1;
@@ -156,7 +160,6 @@
 @property(retain, nonatomic) MPAVItem *item;
 - (void)_updateAlwaysPlayWheneverPossible;
 @property(readonly, nonatomic) BOOL canChangeScaleMode;
-@property(readonly, nonatomic) struct CGRect backgroundViewSnapshotFrame;
 @property(readonly, nonatomic) UIView *backgroundView;
 - (void)_fixupViewHierarchyIfNecessary;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -186,7 +189,7 @@
 - (id)init;
 
 // Remaining properties
-@property(nonatomic) id delegate;
+@property(nonatomic) __weak id delegate;
 @property(nonatomic) BOOL inhibitOverlay;
 @property(nonatomic) int orientation;
 @property(readonly, nonatomic) UIView *view;

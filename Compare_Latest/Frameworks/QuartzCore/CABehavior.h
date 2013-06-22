@@ -20,8 +20,9 @@
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)arg1;
-+ (void *)CA_getterForType:(int)arg1;
-+ (void *)CA_setterForType:(int)arg1;
++ (void *)CA_getterForProperty:(const struct _CAPropertyInfo *)arg1;
++ (void *)CA_setterForProperty:(const struct _CAPropertyInfo *)arg1;
++ (void)CAMLParserStartElement:(id)arg1;
 + (BOOL)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)defaultValueForKey:(id)arg1;
@@ -30,6 +31,9 @@
 @property id delegate;
 @property(getter=isEnabled) BOOL enabled;
 @property(copy) NSString *name;
+- (id)CAMLTypeForKey:(id)arg1;
+- (void)encodeWithCAMLWriter:(id)arg1;
+- (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)debugDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;

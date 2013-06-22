@@ -11,7 +11,7 @@
     int mAlignment;
     unsigned short mDigitSubstitutionLanguage;
     int mDigitSubstitutionMethod;
-    unsigned long mFormatFlags;
+    unsigned int mFormatFlags;
     int mHotkeyPrefix;
     int mLineAlignment;
     float mFirstTabOffset;
@@ -31,8 +31,8 @@
 - (int)lineAlignment;
 - (void)setHotkeyPrefix:(int)arg1;
 - (int)hotkeyPrefix;
-- (void)setFormatFlags:(unsigned long)arg1;
-- (unsigned long)formatFlags;
+- (void)setFormatFlags:(unsigned int)arg1;
+- (unsigned int)formatFlags;
 - (void)setDigitSubstitutionMethod:(int)arg1;
 - (int)digitSubstitutionMethod;
 - (void)setDigitSubstitutionLanguage:(unsigned short)arg1;
