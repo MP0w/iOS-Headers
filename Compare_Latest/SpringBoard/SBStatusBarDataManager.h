@@ -37,6 +37,7 @@
         unsigned int bluetoothConnected:1;
         unsigned int displayRawGSMSignal:1;
         unsigned int displayRawWifiSignal:1;
+        unsigned int locationIconType:1;
     } _data;
     int _actions;
     char _itemIsEnabled[23];

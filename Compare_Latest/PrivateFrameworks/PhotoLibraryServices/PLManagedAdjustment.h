@@ -19,6 +19,7 @@
 + (struct CGRect)convertCropRect:(struct CGRect)arg1 fromImageSize:(struct CGSize)arg2 toImageSize:(struct CGSize)arg3;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (id)insertInPhotoLibrary:(id)arg1;
+- (id)metadataProperties;
 @property(nonatomic) int adjustmentType;
 
 // Remaining properties

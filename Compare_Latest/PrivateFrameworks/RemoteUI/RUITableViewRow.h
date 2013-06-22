@@ -29,13 +29,14 @@
     float _cachedHeight;
 }
 
++ (id)_monthAndDayFormatter;
++ (void)resetLocale;
 - (void)setDelegate:(id)arg1;
 @property(nonatomic) BOOL rowInvalid; // @synthesize rowInvalid=_rowInvalid;
 - (Class)tableCellClass;
 - (int)tableCellStyle;
 - (id)_dateFormatter;
-- (id)imageAttributeAndScale:(float *)arg1;
-- (void)imageLoaded:(id)arg1;
+- (void)setImage:(id)arg1;
 - (id)tableCell;
 - (BOOL)supportsAutomaticSelection;
 - (void)populatePostbackDictionary:(id)arg1;

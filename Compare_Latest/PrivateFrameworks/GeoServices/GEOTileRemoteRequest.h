@@ -12,14 +12,16 @@
 {
     GEOTileKeyList *_list;
     struct __CFRunLoop *_queue;
+    unsigned long long _handle;
     BOOL _movedToNetwork;
 }
 
 @property BOOL movedToNetwork; // @synthesize movedToNetwork=_movedToNetwork;
 @property(readonly, nonatomic) struct __CFRunLoop *queue; // @synthesize queue=_queue;
+@property(readonly, nonatomic) unsigned long long handle; // @synthesize handle=_handle;
 @property(readonly, nonatomic) GEOTileKeyList *list; // @synthesize list=_list;
 - (void)dealloc;
-- (id)initWithList:(id)arg1 queue:(struct __CFRunLoop *)arg2;
+- (id)initWithList:(id)arg1 handle:(unsigned long long)arg2 queue:(struct __CFRunLoop *)arg3;
 
 @end
 

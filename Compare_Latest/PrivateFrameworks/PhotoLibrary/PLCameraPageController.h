@@ -42,11 +42,12 @@
 - (void)_makeViewControllersPerformSelector:(SEL)arg1 withNotification:(id)arg2;
 - (void)albumDidChange:(id)arg1;
 - (void)_libraryDidChange:(id)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)prepareForDefaultImageSnapshot;
 - (void)dismissCameraAlbumForSuspension;
 - (void)dismissCameraAlbum:(id)arg1;
-- (void)dismissCameraAlbumAnimated:(BOOL)arg1;
-- (void)_dismissCameraAlbumAnimated:(BOOL)arg1 forSuspension:(BOOL)arg2;
+- (void)dismissCameraAlbumAnimated:(BOOL)arg1 forSuspension:(BOOL)arg2;
+- (void)prepareForDismissal;
 - (void)_stopCameraPreviewAnimated:(BOOL)arg1;
 - (void)stopCameraPreview;
 - (void)startCameraPreview;
@@ -68,6 +69,7 @@
 - (Class)_pageControllerScrollViewClass;
 - (id)_photoBrowser;
 - (struct NSObject *)cameraAlbum;
+- (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;

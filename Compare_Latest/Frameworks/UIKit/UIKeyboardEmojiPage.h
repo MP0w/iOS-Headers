@@ -4,14 +4,13 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <UIKit/UIControl.h>
+#import <UIKit/UIView.h>
 
-@class NSArray, NSMutableArray, NSString, UIKeyboardEmojiView, UITouch;
+@class NSArray, NSString, UIKeyboardEmojiView, UITouch;
 
-@interface UIKeyboardEmojiPage : UIControl
+@interface UIKeyboardEmojiPage : UIView
 {
     NSArray *_emoji;
-    NSMutableArray *_emojiViews;
     int _numRows;
     int _numCols;
     int _numPages;
@@ -23,12 +22,12 @@
     id <UIKeyboardEmojiController> _controller;
     UITouch *_activeTouch;
     BOOL _needsLayout;
+    BOOL _needsEmojiRendering;
     UIKeyboardEmojiView *_touched;
     UIKeyboardEmojiView *_pendingDisplay;
     UIKeyboardEmojiView *_onDisplay;
 }
 
-+ (struct CGSize)emojiSize:(BOOL)arg1;
 @property struct CGRect keyActivationRect; // @synthesize keyActivationRect=_keyActivationRect;
 @property(retain) UIKeyboardEmojiView *onDisplay; // @synthesize onDisplay=_onDisplay;
 @property(retain) UIKeyboardEmojiView *pendingDisplay; // @synthesize pendingDisplay=_pendingDisplay;
@@ -50,18 +49,16 @@
 - (void)showPendingPopup:(id)arg1;
 - (void)cancelPendingPopupChanges;
 - (id)closestForPoint:(struct CGPoint)arg1;
+- (struct CGRect)emojiRectForPoint:(struct CGPoint)arg1 index:(unsigned int *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)deactivatePopUps;
 - (void)clearSubviews;
 - (void)generateSubviews;
+- (void)drawRect:(struct CGRect)arg1;
 - (int)takeEmoji:(id)arg1 fromIndex:(int)arg2;
 - (struct CGRect)rectForRow:(int)arg1 Col:(int)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)updateLayoutConstants;
-- (struct CGPoint)padding:(BOOL)arg1;
-- (struct CGPoint)margin:(BOOL)arg1;
-- (unsigned char)colCount:(BOOL)arg1;
-- (unsigned char)rowCount:(BOOL)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -10,19 +10,15 @@
 
 @interface PLDelayedFiledSystemDeletions : NSObject
 {
-    NSMutableArray *_owningObjectIDURIs;
-    NSMutableArray *_fileURLs;
-    NSMutableArray *_thumbnailIndexes;
+    NSMutableArray *_deletionInfos;
 }
 
 + (id)deletionsFromChangeHubEvent:(void *)arg1;
 + (void)appendDescriptionForEvent:(void *)arg1 toComponents:(id)arg2;
-- (id)initWithOwningObjectIDURIs:(id)arg1 fileURLs:(id)arg2 thumbnailIndexes:(id)arg3;
+- (id)initWithFilesystemDeletionInfos:(id)arg1;
 - (void)deleteAllRemainingFilesAndThumbnails;
 - (void)appendToXPCMessage:(void *)arg1;
-- (id)allThumbnailIndexesToBeDeleted;
-- (id)URLsToBeDeletedForAsset:(id)arg1 thumbnailIndex:(unsigned int *)arg2;
-- (void)addDeletionsForAsset:(id)arg1 fileURLs:(id)arg2 thumbnailIndex:(unsigned int)arg3;
+- (void)addFilesystemDeletionInfo:(id)arg1;
 - (void)dealloc;
 - (id)debugDescription;
 

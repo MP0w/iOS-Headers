@@ -16,14 +16,14 @@
     int _currentIndex;
 }
 
-- (id)initWithObserver:(id)arg1 times:(id)arg2 context:(id)arg3 currentIndex:(int)arg4;
-- (void)dealloc;
-- (BOOL)gotoTime:(double)arg1;
-- (double)nextInterestingTime;
-- (double)prevInterestingTime;
-- (id)observer;
-- (id)context;
 - (int)currentIndex;
+- (id)context;
+- (id)observer;
+- (double)prevInterestingTime;
+- (double)nextInterestingTime;
+- (BOOL)gotoTime:(double)arg1;
+- (void)dealloc;
+- (id)initWithObserver:(id)arg1 times:(id)arg2 context:(id)arg3 currentIndex:(int)arg4;
 
 @end
 

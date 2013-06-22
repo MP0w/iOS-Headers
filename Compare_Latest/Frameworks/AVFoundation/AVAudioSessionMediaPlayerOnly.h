@@ -14,27 +14,29 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (void)dealloc;
-@property id <AVAudioSessionDelegateMediaPlayerOnly> delegate; // @dynamic delegate;
-- (BOOL)setActive:(BOOL)arg1 error:(id *)arg2;
-- (BOOL)setActive:(BOOL)arg1 withFlags:(int)arg2 error:(id *)arg3;
-- (BOOL)setCategory:(id)arg1 error:(id *)arg2;
-- (BOOL)setPreferredHardwareSampleRate:(double)arg1 error:(id *)arg2;
-- (BOOL)setPreferredIOBufferDuration:(double)arg1 error:(id *)arg2;
-@property(readonly) NSString *category;
-@property(readonly) double preferredHardwareSampleRate;
-@property(readonly) double preferredIOBufferDuration;
-@property(readonly) BOOL inputIsAvailable;
-@property(readonly) double currentHardwareSampleRate;
-@property(readonly) int currentHardwareInputNumberOfChannels;
-@property(readonly) int currentHardwareOutputNumberOfChannels;
-- (BOOL)isApplicationAudioSession;
-- (void)setApplicationAudioSession:(BOOL)arg1;
-- (id)_weakReference;
-- (BOOL)_setFigPlayer:(struct OpaqueFigPlayer *)arg1;
-- (void)_addFPListeners;
 - (void)_removeFPListeners;
+- (void)_addFPListeners;
+- (void)_setFigPlayer:(struct OpaqueFigPlayer *)arg1;
+- (id)_weakReference;
+- (void)setApplicationAudioSession:(BOOL)arg1;
+- (BOOL)isApplicationAudioSession;
+- (BOOL)setMode:(id)arg1 error:(id *)arg2;
+@property(readonly) NSString *mode;
+@property(readonly) int currentHardwareOutputNumberOfChannels;
+@property(readonly) int currentHardwareInputNumberOfChannels;
+@property(readonly) double currentHardwareSampleRate;
+@property(readonly) BOOL inputIsAvailable;
+@property(readonly) double preferredIOBufferDuration;
+@property(readonly) double preferredHardwareSampleRate;
+@property(readonly) NSString *category;
+- (BOOL)setPreferredIOBufferDuration:(double)arg1 error:(id *)arg2;
+- (BOOL)setPreferredHardwareSampleRate:(double)arg1 error:(id *)arg2;
+- (BOOL)setCategory:(id)arg1 error:(id *)arg2;
+- (BOOL)setActive:(BOOL)arg1 withFlags:(int)arg2 error:(id *)arg3;
+- (BOOL)setActive:(BOOL)arg1 error:(id *)arg2;
+@property id <AVAudioSessionDelegateMediaPlayerOnly> delegate; // @dynamic delegate;
+- (void)dealloc;
+- (id)init;
 
 @end
 

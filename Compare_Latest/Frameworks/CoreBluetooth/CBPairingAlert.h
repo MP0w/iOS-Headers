@@ -17,7 +17,7 @@
     id <CBPairingAlertDelegate> _delegate;
 }
 
-- (id)initWithPairingType:(id)arg1 andPasskey:(id)arg2;
+- (id)initWithDeviceName:(id)arg1 pairingType:(id)arg2 passkey:(id)arg3;
 - (void)dealloc;
 - (void)show;
 - (void)dismiss;

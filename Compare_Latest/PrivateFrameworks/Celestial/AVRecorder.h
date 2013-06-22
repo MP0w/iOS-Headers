@@ -11,29 +11,29 @@
     struct AVRecorderPrivate *_priv;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)setFilePath:(id)arg1;
-- (id)filePath;
-- (void)setAttribute:(id)arg1 forKey:(id)arg2;
-- (id)attributeForKey:(id)arg1;
-- (void)implNotification:(id)arg1;
-- (BOOL)activate:(id *)arg1;
-- (BOOL)start;
-- (void)stop;
-- (BOOL)isRecording;
-- (BOOL)isActive;
-- (BOOL)takePhoto;
-- (BOOL)autoFocusAtPoint:(struct CGPoint)arg1;
-- (void)deactivate;
-- (float)micVolume;
-- (void)setMicVolume:(float)arg1;
-- (long long)recordedFileSizeInBytes;
-- (double)recordedDuration;
-- (unsigned int)audioNumDeviceChannels;
-- (BOOL)audioCurrentAverageVolumeLevels:(float *)arg1 andPeakVolumeLevels:(float *)arg2;
-- (BOOL)audioCurrentAverageDecibelLevels:(float *)arg1 andPeakDecibelLevels:(float *)arg2;
 - (void)makeError:(id *)arg1 withDescription:(id)arg2 code:(long)arg3;
+- (BOOL)audioCurrentAverageDecibelLevels:(float *)arg1 andPeakDecibelLevels:(float *)arg2;
+- (BOOL)audioCurrentAverageVolumeLevels:(float *)arg1 andPeakVolumeLevels:(float *)arg2;
+- (unsigned int)audioNumDeviceChannels;
+- (double)recordedDuration;
+- (long long)recordedFileSizeInBytes;
+- (void)setMicVolume:(float)arg1;
+- (float)micVolume;
+- (void)deactivate;
+- (BOOL)autoFocusAtPoint:(struct CGPoint)arg1;
+- (BOOL)takePhoto;
+- (BOOL)isActive;
+- (BOOL)isRecording;
+- (void)stop;
+- (BOOL)start;
+- (BOOL)activate:(id *)arg1;
+- (void)implNotification:(id)arg1;
+- (id)attributeForKey:(id)arg1;
+- (void)setAttribute:(id)arg1 forKey:(id)arg2;
+- (id)filePath;
+- (void)setFilePath:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

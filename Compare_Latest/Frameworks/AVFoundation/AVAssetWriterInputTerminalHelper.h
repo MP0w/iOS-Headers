@@ -12,15 +12,15 @@
     BOOL _didRequestMediaDataOnce;
 }
 
-- (id)initWithConfigurationState:(id)arg1;
-- (id)initWithConfigurationState:(id)arg1 terminalStatus:(int)arg2;
-- (int)status;
-- (void)transitionToTerminalStatus:(int)arg1;
-- (BOOL)isReadyForMoreMediaData;
-- (void)requestMediaDataWhenReadyOnQueue:(struct dispatch_queue_s *)arg1 usingBlock:(id)arg2;
-- (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
-- (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
 - (void)markAsFinished;
+- (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
+- (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
+- (void)requestMediaDataWhenReadyOnQueue:(struct dispatch_queue_s *)arg1 usingBlock:(id)arg2;
+- (BOOL)isReadyForMoreMediaData;
+- (void)transitionToTerminalStatus:(int)arg1;
+- (int)status;
+- (id)initWithConfigurationState:(id)arg1 terminalStatus:(int)arg2;
+- (id)initWithConfigurationState:(id)arg1;
 
 @end
 

@@ -10,6 +10,10 @@
 {
 }
 
++ (struct CGSize)_shadowOffset;
++ (float)_shadowRadius;
++ (float)_shadowOpacity;
++ (struct UIEdgeInsets)_shadowInsets;
 + (id)_shadowPathForRect:(struct CGRect)arg1 arrowDirection:(unsigned int)arg2;
 + (struct UIEdgeInsets)contentViewInsets;
 + (float)arrowBase;

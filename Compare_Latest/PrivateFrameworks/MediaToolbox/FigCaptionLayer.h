@@ -13,15 +13,15 @@
     FigCaptionLayerPrivate *_priv;
 }
 
-- (id)init;
-- (void)setFontName:(const char *)arg1;
-- (void)finalize;
-- (void)dealloc;
-- (void)resetCaptions;
-- (void)processCaptionCommand:(unsigned int)arg1 data:(id)arg2;
-- (void)layoutSublayers;
-- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)_renderer:(struct OpaqueFigCFCaptionRenderer *)arg1 didChangeRows:(CDStruct_1ef3fb1f)arg2;
+- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
+- (void)layoutSublayers;
+- (void)processCaptionCommand:(unsigned int)arg1 data:(id)arg2;
+- (void)resetCaptions;
+- (void)dealloc;
+- (void)finalize;
+- (void)setFontName:(const char *)arg1;
+- (id)init;
 
 @end
 

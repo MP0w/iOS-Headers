@@ -11,10 +11,10 @@
     int _terminalStatus;
 }
 
-- (id)initWithConfigurationState:(id)arg1;
-- (id)initWithConfigurationState:(id)arg1 terminalStatus:(int)arg2;
-- (int)status;
 - (void)cancelWriting;
+- (int)status;
+- (id)initWithConfigurationState:(id)arg1 terminalStatus:(int)arg2;
+- (id)initWithConfigurationState:(id)arg1;
 
 @end
 

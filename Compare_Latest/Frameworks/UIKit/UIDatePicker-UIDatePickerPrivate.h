@@ -6,7 +6,10 @@
 
 #import <UIKit/UIDatePicker.h>
 
+@class NSDate;
+
 @interface UIDatePicker (UIDatePickerPrivate)
+@property(readonly, nonatomic, getter=_dateUnderSelectionBar) NSDate *dateUnderSelectionBar;
 @property(nonatomic, getter=_usesBlackChrome, setter=_setUsesBlackChrome:) BOOL usesBlackChrome;
 - (void)_setHidesLabels:(BOOL)arg1;
 - (void)_setHighlightsToday:(BOOL)arg1;

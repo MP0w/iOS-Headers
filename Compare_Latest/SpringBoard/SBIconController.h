@@ -86,6 +86,7 @@
     BOOL _folderKeyboardIsAnimatingRotation;
     BOOL _isAnimatingDockForIconScatter;
     BOOL _isAnimatingDockFade;
+    BOOL _isAnimatingFolderCreation;
 }
 
 + (id)sharedInstance;

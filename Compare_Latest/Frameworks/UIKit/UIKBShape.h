@@ -27,7 +27,7 @@
 @property(nonatomic) struct CGRect frame; // @synthesize frame=m_frame;
 @property(retain, nonatomic) UIKBGeometry *geometry; // @synthesize geometry=m_geometry;
 - (void)scaleWidth:(float)arg1;
-- (void)addRectFrom:(id)arg1 widthFraction:(float)arg2 adjustOrigin:(BOOL)arg3;
+- (void)addRectFrom:(id)arg1 widthFraction:(float)arg2 adjustOriginFactor:(float)arg3;
 - (void)addRectFrom:(id)arg1;
 - (id)description;
 - (BOOL)isEmpty;

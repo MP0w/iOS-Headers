@@ -13,33 +13,33 @@
     AVChapterMetadataItemInternal *_privChapter;
 }
 
-- (id)init;
-- (id)_initWithAsset:(id)arg1 chapterGroupIndex:(long)arg2 chapterIndex:(long)arg3 chapterType:(id)arg4 locale:(id)arg5 time:(CDStruct_1b6d18a9)arg6 duration:(CDStruct_1b6d18a9)arg7;
-- (void)_addFigAssetNotifications;
-- (void)_removeFigAssetNotifications;
-- (void)dealloc;
-- (void)finalize;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (id)description;
-- (id)key;
-- (id)commonKey;
-- (id)keySpace;
-- (id)locale;
-- (CDStruct_1b6d18a9)time;
-- (CDStruct_1b6d18a9)duration;
-- (id)value;
-- (void)_takeValueFrom:(id)arg1;
-- (id)extraAttributes;
-- (long)_chapterGroupIndex;
-- (long)_chapterIndex;
-- (BOOL)_valueForKeyDependsOnMetadataValue:(id)arg1;
-- (int)_valueStatus;
-- (void)_setValueStatus:(int)arg1 figErrorCode:(long)arg2;
-- (void)_ensureValueLoadedSync;
-- (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
-- (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
 - (void)cancelLoading;
+- (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
+- (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
+- (void)_ensureValueLoadedSync;
+- (void)_setValueStatus:(int)arg1 figErrorCode:(long)arg2;
+- (int)_valueStatus;
+- (BOOL)_valueForKeyDependsOnMetadataValue:(id)arg1;
+- (long)_chapterIndex;
+- (long)_chapterGroupIndex;
+- (id)extraAttributes;
+- (void)_takeValueFrom:(id)arg1;
+- (id)value;
+- (CDStruct_1b6d18a9)duration;
+- (CDStruct_1b6d18a9)time;
+- (id)locale;
+- (id)keySpace;
+- (id)commonKey;
+- (id)key;
+- (id)description;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (void)_removeFigAssetNotifications;
+- (void)_addFigAssetNotifications;
+- (id)_initWithAsset:(id)arg1 chapterGroupIndex:(long)arg2 chapterIndex:(long)arg3 chapterType:(id)arg4 locale:(id)arg5 time:(CDStruct_1b6d18a9)arg6 duration:(CDStruct_1b6d18a9)arg7;
+- (id)init;
 
 @end
 

@@ -16,7 +16,7 @@
     GKGame *_lastPlayedGame;
 }
 
-+ (id)photoKeyForSize:(int)arg1;
++ (int)sizeForPhotoSize:(int)arg1;
 + (void)loadPlayersForIdentifiers:(id)arg1 withPieces:(unsigned int)arg2 withCompletionHandler:(id)arg3;
 + (void)loadPlayersForIdentifiers:(id)arg1 withCompletionHandler:(id)arg2;
 + (id)unknownPlayer;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class GKGameInternal, GKLoadStoreItemContext, NSDictionary, NSNumber, NSString, SSItem;
+@class GKGameInternal, GKLoadStoreItemContext, NSDate, NSDictionary, NSNumber, NSString, SSItem;
 
 @interface GKGame : NSObject
 {
@@ -14,6 +14,7 @@
     SSItem *_storeItem;
     BOOL _sandboxed;
     GKLoadStoreItemContext *_storeItemLoadContext;
+    NSDate *_storeItemLoadExpirationDate;
 }
 
 + (id)defaultGameIconWithStyle:(int)arg1;
@@ -21,10 +22,12 @@
 + (void)updateGames:(id)arg1 withCompletionHandler:(id)arg2;
 + (id)currentGame;
 + (BOOL)isGameCenter;
+@property(retain, nonatomic) NSDate *storeItemLoadExpirationDate; // @synthesize storeItemLoadExpirationDate=_storeItemLoadExpirationDate;
 @property(retain, nonatomic) GKLoadStoreItemContext *storeItemLoadContext; // @synthesize storeItemLoadContext=_storeItemLoadContext;
 @property(nonatomic, getter=isSandboxed) BOOL sandboxed; // @synthesize sandboxed=_sandboxed;
 @property(retain, nonatomic) SSItem *storeItem; // @synthesize storeItem=_storeItem;
 @property(retain, nonatomic) GKGameInternal *internal; // @synthesize internal=_internal;
+- (BOOL)isStoreItemUnexpired;
 - (void)loadRecentFriendPlayersWithCompletionHandler:(id)arg1;
 - (void)loadStoreItemWithCompletionHandler:(id)arg1;
 - (void)loadIconForStyle:(int)arg1 withCompletionHandler:(id)arg2;

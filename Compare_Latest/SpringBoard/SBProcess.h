@@ -30,6 +30,7 @@
     int _suspendCount;
     struct dispatch_queue_s *_suspendQueue;
     double _timedAssertionReferenceTime;
+    double _allowIdleSleepReferenceTime;
     struct dispatch_group_s *_timerLifecycleGroup;
     struct dispatch_source_s *_backgroundPermissionCheckTimer;
     struct dispatch_source_s *_backgroundPermissionExpirationWarningTimer;
@@ -90,6 +91,7 @@
 - (BOOL)throttleDownUI;
 - (void)assertionsQueue_scheduleTaskCompletionAllowIdleSleep;
 - (void)assertionsQueue_cancelTaskCompletionAllowIdleSleep;
+- (BOOL)taskCompletionShouldPreventIdleSleep;
 - (BOOL)changeCounter:(int *)arg1 change:(int)arg2 queue:(struct dispatch_queue_s *)arg3 ifBlockSucceeds:(id)arg4;
 - (BOOL)incrementCounter:(int *)arg1 queue:(struct dispatch_queue_s *)arg2 ifBlockSucceeds:(id)arg3;
 - (BOOL)decrementCounter:(int *)arg1 queue:(struct dispatch_queue_s *)arg2 ifBlockSucceeds:(id)arg3;

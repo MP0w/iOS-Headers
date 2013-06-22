@@ -13,13 +13,13 @@
     NSMutableArray *_pendingAudioSampleBuffers;
 }
 
-- (id)initWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 outputSettings:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
-- (void)dealloc;
-- (int)_attachToFigAssetWriterUsingOutputSettings:(id)arg1 sourcePixelBufferAttributes:(id)arg2 error:(id *)arg3;
-- (BOOL)_flushPendingSampleBuffersReturningError:(id *)arg1;
-- (BOOL)addSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 error:(id *)arg2;
-- (void)prepareToEndSession;
 - (BOOL)markEndOfDataReturningError:(id *)arg1;
+- (void)prepareToEndSession;
+- (BOOL)addSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 error:(id *)arg2;
+- (BOOL)_flushPendingSampleBuffersReturningError:(id *)arg1;
+- (int)_attachToFigAssetWriterUsingOutputSettings:(id)arg1 sourcePixelBufferAttributes:(id)arg2 error:(id *)arg3;
+- (void)dealloc;
+- (id)initWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 outputSettings:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
 
 @end
 

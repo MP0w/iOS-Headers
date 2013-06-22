@@ -71,7 +71,6 @@
 - (void)_fetchPage:(BOOL)arg1;
 - (double)_expirationTime;
 - (void)_dismissNavigationMenuViewController;
-- (void)_delayedFetchPage;
 - (void)_applyPropertiesToViewController:(id)arg1;
 - (id)_activePageSection;
 - (id)_activeChildViewController;

@@ -6,22 +6,19 @@
 
 #import <MusicLibrary/ML3Query.h>
 
-@class ML3Container, ML3Predicate, NSLock, NSString;
+@class ML3Container, ML3Predicate, NSArray;
 
 @interface ML3ContainerQuery : ML3Query
 {
     ML3Predicate *_containerPredicate;
     ML3Container *_container;
-    NSLock *_limitCountLock;
-    unsigned int _limitCount;
-    BOOL _limitCountLoaded;
 }
 
++ (id)directionalityArrayForCount:(unsigned int)arg1 isDescending:(BOOL)arg2;
 @property(readonly) ML3Container *container; // @synthesize container=_container;
-- (void)bindToPersistentIDsSqlite3Statement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
 - (id)selectPersistentIDsSQLAndProperties:(id)arg1 ordered:(BOOL)arg2;
-@property(readonly) NSString *selectLimitingSQL;
-@property(readonly) unsigned int limitCount;
+@property(readonly) NSArray *limitedPersistentIDs;
+- (id)selectLimitingSQL;
 - (BOOL)requiresSmartLimiting;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

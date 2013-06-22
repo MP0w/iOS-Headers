@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableArray, NSString;
+@class NSDictionary, NSMutableArray, NSMutableIndexSet, NSString;
 
 @interface PLImageTable : NSObject
 {
@@ -19,11 +19,14 @@
     BOOL _readOnly;
     BOOL _dying;
     int _fid;
-    unsigned long _fileLength;
+    long long _fileLength;
     int _entryCount;
     unsigned long _segmentLength;
     int _segmentCount;
     NSMutableArray *_allSegments;
+    NSMutableIndexSet *_preheatIndexes;
+    struct dispatch_queue_s *_preheatIndexIsolation;
+    struct dispatch_queue_s *_preheatQueue;
 }
 
 + (struct CGRect)scaleSize:(struct CGSize)arg1 toFitWithinSize:(struct CGSize)arg2;
@@ -45,7 +48,7 @@
 - (id)preflightCompactionWithOccupiedIndexes:(id)arg1;
 - (BOOL)_compactWithOccupiedIndexes:(id)arg1 outPhotoUUIDToIndexMap:(id *)arg2;
 @property(readonly, nonatomic) NSDictionary *photoUUIDToIndexMap;
-- (void)deleteEntryAtIndex:(int)arg1;
+- (void)deleteEntryAtIndex:(int)arg1 withUUID:(id)arg2;
 - (void)_setEntryAtIndex:(int)arg1 imageData:(const void *)arg2 actualImageSize:(struct CGSize)arg3;
 - (void)_flushEntryAtAddress:(void *)arg1;
 - (void)_flushEntryAtAddress:(void *)arg1 count:(int)arg2;

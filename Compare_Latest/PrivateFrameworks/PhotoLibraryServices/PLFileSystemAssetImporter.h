@@ -6,22 +6,26 @@
 
 #import "NSObject.h"
 
-@class NSMutableIndexSet, PLPhotoLibrary;
+@class NSMutableDictionary, NSMutableIndexSet, NSMutableSet, PLPhotoLibrary;
 
 @interface PLFileSystemAssetImporter : NSObject
 {
-    BOOL _hasProcessedAnyAssets;
     PLPhotoLibrary *_photoLibrary;
     NSMutableIndexSet *_thumbIndexes;
+    BOOL _hasProcessedAnyAssets;
+    NSMutableSet *_existingUUIDs;
+    NSMutableDictionary *_existingUUIDsByPath;
 }
 
+@property(retain, nonatomic) NSMutableDictionary *existingUUIDsByPath; // @synthesize existingUUIDsByPath=_existingUUIDsByPath;
+@property(retain, nonatomic) NSMutableSet *existingUUIDs; // @synthesize existingUUIDs=_existingUUIDs;
 - (unsigned int)nextThumbnailIndex;
 - (void)createThumbnailForVideoAsset:(id)arg1;
 - (BOOL)setupPhotoAsset:(id)arg1 withURL:(id)arg2 thumbnailsInformation:(id)arg3 allowedToResetThumbnails:(BOOL)arg4;
 - (void)setModificationAndCreationDateOnAsset:(id)arg1 withURL:(id)arg2;
-- (id)addAssetWithURLs:(id)arg1 usingThumbnailsInformation:(id)arg2 duplicateUUIDs:(id)arg3;
+- (id)addAssetWithURLs:(id)arg1 usingThumbnailsInformation:(id)arg2;
 - (id)addAssetWithURLs:(id)arg1 usingThumbnailsInformation:(id)arg2 force:(BOOL)arg3;
-- (id)addAssetWithURLs:(id)arg1 usingThumbnailsInformation:(id)arg2 duplicateUUIDs:(id)arg3 force:(BOOL)arg4;
+- (id)assetURLisDuplicate:(id)arg1;
 - (id)_addAssetWithURL:(id)arg1;
 - (void)dealloc;
 - (id)initWithPhotoLibrary:(id)arg1;

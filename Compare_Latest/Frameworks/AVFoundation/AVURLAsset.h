@@ -13,31 +13,31 @@
     AVURLAssetInternal *_asset;
 }
 
-+ (void)initialize;
-+ (id)_avfValidationPlist;
-+ (void)_ensureAudiovisualTypes;
-+ (id)audiovisualTypes;
-+ (id)audiovisualMIMETypes;
-+ (BOOL)isPlayableExtendedMIMEType:(id)arg1;
 + (id)URLAssetWithURL:(id)arg1 options:(id)arg2;
-- (id)init;
-- (id)initWithURL:(id)arg1 options:(id)arg2;
-- (id)_errorForFigNotificationPayload:(struct __CFDictionary *)arg1 key:(struct __CFString *)arg2;
-- (void)_addFigAssetNotifications;
-- (void)_removeFigAssetNotifications;
-- (void)dealloc;
-- (void)finalize;
-- (id)description;
-- (id)_assetInspectorLoader;
-- (void)_setAssetInspectorLoader:(id)arg1;
-- (id)_assetInspector;
-- (struct OpaqueFigFormatReader *)_formatReader;
-- (id)tracks;
-- (void)_tracksDidChange;
-- (struct __CFURL *)_URL;
-@property(readonly, copy, nonatomic) NSURL *URL;
-- (void)cancelLoading;
++ (BOOL)isPlayableExtendedMIMEType:(id)arg1;
++ (id)audiovisualMIMETypes;
++ (id)audiovisualTypes;
++ (void)_ensureAudiovisualTypes;
++ (id)_avfValidationPlist;
++ (void)initialize;
 - (id)lyrics;
+- (void)cancelLoading;
+@property(readonly, nonatomic) NSURL *URL;
+- (struct __CFURL *)_URL;
+- (void)_tracksDidChange;
+- (id)tracks;
+- (struct OpaqueFigFormatReader *)_formatReader;
+- (id)_assetInspector;
+- (void)_setAssetInspectorLoader:(id)arg1;
+- (id)_assetInspectorLoader;
+- (id)description;
+- (void)finalize;
+- (void)dealloc;
+- (void)_removeFigAssetNotifications;
+- (void)_addFigAssetNotifications;
+- (id)_errorForFigNotificationPayload:(struct __CFDictionary *)arg1 key:(struct __CFString *)arg2;
+- (id)initWithURL:(id)arg1 options:(id)arg2;
+- (id)init;
 
 @end
 

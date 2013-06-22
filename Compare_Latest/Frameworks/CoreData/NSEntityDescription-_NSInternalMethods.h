@@ -26,6 +26,7 @@
 - (void)_setSuperentity:(id)arg1;
 - (id)_rootEntity;
 - (void)_removeSubentity:(id)arg1;
+- (id)_flattenedSubentities;
 - (struct __CFSet *)_collectSubentities;
 - (BOOL)_subentitiesIncludes:(id)arg1;
 - (id)_propertySearchMapping;

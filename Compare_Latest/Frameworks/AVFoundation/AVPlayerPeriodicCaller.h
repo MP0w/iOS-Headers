@@ -13,16 +13,16 @@
     struct OpaqueFigPlaybackItem *_figPlaybackItem;
 }
 
-- (id)initWithPlayer:(id)arg1 interval:(CDStruct_1b6d18a9)arg2 queue:(struct dispatch_queue_s *)arg3 block:(id)arg4;
-- (void)dealloc;
-- (void)finalize;
-- (void)_stopRespondingToPlayerStateChanges;
-- (void)invalidate;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)_startObservingPlaybackItemNotificationsForCurrentItem;
-- (void)_resetTimerForPlayerNewRate:(float)arg1;
-- (void)itemTimeJumped;
 - (void)_stopObservingPlaybackItemNotifications;
+- (void)itemTimeJumped;
+- (void)_resetTimerForPlayerNewRate:(float)arg1;
+- (void)_startObservingPlaybackItemNotificationsForCurrentItem;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)invalidate;
+- (void)_stopRespondingToPlayerStateChanges;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithPlayer:(id)arg1 interval:(CDStruct_1b6d18a9)arg2 queue:(struct dispatch_queue_s *)arg3 block:(id)arg4;
 
 @end
 

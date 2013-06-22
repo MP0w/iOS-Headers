@@ -6,7 +6,7 @@
 
 #import "UIControl.h"
 
-@class NSArray;
+@class NSArray, UIImageView;
 
 @interface GKHeaderSegmentedControl : UIControl
 {
@@ -22,6 +22,11 @@
     SEL _themeSelectionImageSelector;
     SEL _themeDividerImageSelector;
     SEL _themeFontSelector;
+    SEL _themeSelectedTextColorSelector;
+    SEL _themeNormalTextColorSelector;
+    SEL _themeSecondaryTextColorSelector;
+    SEL _themeTextShadowColorSelector;
+    SEL _themeTextSelectedShadowColorSelector;
     SEL _segmentLayoutSelector;
     float _dividerOffsetY;
     float _calculatedFontSize;
@@ -31,8 +36,12 @@
     float _textPaddingWidth;
     struct UIEdgeInsets _capInsets;
     NSArray *_processedLabels;
+    UIImageView *_backgroundView;
+    UIImageView *_foregroundView;
 }
 
+@property(retain, nonatomic) UIImageView *foregroundView; // @synthesize foregroundView=_foregroundView;
+@property(retain, nonatomic) UIImageView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) NSArray *processedLabels; // @synthesize processedLabels=_processedLabels;
 @property(nonatomic) struct UIEdgeInsets capInsets; // @synthesize capInsets=_capInsets;
 @property(nonatomic) float textPaddingWidth; // @synthesize textPaddingWidth=_textPaddingWidth;
@@ -42,6 +51,11 @@
 @property(nonatomic) float calculatedFontSize; // @synthesize calculatedFontSize=_calculatedFontSize;
 @property(nonatomic) float dividerOffsetY; // @synthesize dividerOffsetY=_dividerOffsetY;
 @property(nonatomic) SEL segmentLayoutSelector; // @synthesize segmentLayoutSelector=_segmentLayoutSelector;
+@property(nonatomic) SEL themeTextSelectedShadowColorSelector; // @synthesize themeTextSelectedShadowColorSelector=_themeTextSelectedShadowColorSelector;
+@property(nonatomic) SEL themeTextShadowColorSelector; // @synthesize themeTextShadowColorSelector=_themeTextShadowColorSelector;
+@property(nonatomic) SEL themeSecondaryTextColorSelector; // @synthesize themeSecondaryTextColorSelector=_themeSecondaryTextColorSelector;
+@property(nonatomic) SEL themeNormalTextColorSelector; // @synthesize themeNormalTextColorSelector=_themeNormalTextColorSelector;
+@property(nonatomic) SEL themeSelectedTextColorSelector; // @synthesize themeSelectedTextColorSelector=_themeSelectedTextColorSelector;
 @property(nonatomic) SEL themeFontSelector; // @synthesize themeFontSelector=_themeFontSelector;
 @property(nonatomic) SEL themeDividerImageSelector; // @synthesize themeDividerImageSelector=_themeDividerImageSelector;
 @property(nonatomic) SEL themeSelectionImageSelector; // @synthesize themeSelectionImageSelector=_themeSelectionImageSelector;
@@ -54,10 +68,11 @@
 @property(nonatomic) id <GKHeaderSegmentedControlDelegate> delegate; // @synthesize delegate=_delegate;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) float defaultHeight; // @dynamic defaultHeight;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)drawLargeRibbonBackgroundInRect:(struct CGRect)arg1;
+- (void)drawForegroundInRect:(struct CGRect)arg1;
+- (void)setNeedsLayout;
 - (void)enumerateSegmentContentRectsUsingBlock:(id)arg1;
 - (void)layoutSubviews;
+- (id)largeRibbonBackgroundImageForRect:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)clearLayoutCache;

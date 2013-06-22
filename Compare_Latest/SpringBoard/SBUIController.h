@@ -53,6 +53,9 @@
     BOOL _switcherAnimationInProgress;
     BOOL _switcherGestureRevealedOrDismissedSwitcher;
     SBSwitchAppGestureView *_switchAppGestureView;
+    float _switchAppGesturePreviousPercentage;
+    float _switchAppGestureEffectivePercentage;
+    unsigned int _switchAppGestureChangedFrames;
     UIView *_systemGestureBackdrop;
     UIView *_pendingGestureLaunchView;
     SBApplication *_pendingAppActivatedByGesture;
@@ -118,7 +121,7 @@
 - (void)_showZoomLayerWithImage:(id)arg1;
 - (void)showZoomLayerWithDefaultImageOfApp:(id)arg1 includeStatusBar:(BOOL)arg2 includeBanner:(BOOL)arg3;
 - (id)_zoomViewForAppDosado:(id)arg1 includeStatusBar:(BOOL)arg2 includeBanner:(BOOL)arg3;
-- (id)_zoomViewForApplication:(id)arg1 includeStatusBar:(BOOL)arg2 includeBanner:(BOOL)arg3 snapshotFrame:(struct CGRect *)arg4 canUseIOSurface:(BOOL)arg5;
+- (id)_zoomViewForApplication:(id)arg1 includeStatusBar:(BOOL)arg2 includeBanner:(BOOL)arg3 snapshotFrame:(struct CGRect *)arg4 canUseIOSurface:(BOOL)arg5 decodeImage:(BOOL)arg6;
 - (id)_zoomViewWithIOSurfaceSnapshotOfApp:(id)arg1 includeStatusBar:(BOOL)arg2 includeBanner:(BOOL)arg3;
 - (void)showZoomLayerWithIOSurfaceSnapshotOfApp:(id)arg1 includeStatusBar:(BOOL)arg2 includeBanner:(BOOL)arg3;
 - (void)showZoomLayerForCrossfadeFromApp:(id)arg1;
@@ -232,7 +235,7 @@
 - (void)_installSystemGestureView:(id)arg1 forKey:(id)arg2 forGesture:(int)arg3;
 - (id)systemGestureSnapshotOfSwitcher;
 - (id)systemGestureSnapshotWithIOSurfaceSnapshotOfApp:(id)arg1 forRequester:(id)arg2 includeStatusBar:(BOOL)arg3;
-- (id)systemGestureSnapshotForApp:(id)arg1 forRequester:(id)arg2 includeStatusBar:(BOOL)arg3;
+- (id)systemGestureSnapshotForApp:(id)arg1 forRequester:(id)arg2 includeStatusBar:(BOOL)arg3 decodeImage:(BOOL)arg4;
 - (void)showSystemGestureBackdrop;
 - (void)hideSystemGestureBackdrop;
 - (void)handleFluidScaleSystemGesture:(id)arg1;
@@ -261,8 +264,12 @@
 - (id)_calculateSwitchAppList;
 - (void)_clearSwitchAppList;
 - (void)removeAppFromSwitchAppList:(id)arg1;
+- (id)_makeSwitchAppValidList:(id)arg1;
+- (void)_getSwitchAppPrefetchApps:(id)arg1 initialApp:(id)arg2 outLeftwardAppIdentifier:(id *)arg3 outRightwardAppIdentifier:(id *)arg4;
 - (id)_makeSwitchAppFilteredList:(id)arg1 initialApp:(id)arg2;
-- (void)_switchAppGestureBegan;
+- (void)_clearGestureViewVendorCacheForAppWithDisplayIdenitifier:(id)arg1;
+- (void)_prefetchAdjacentAppsAndEvictRemotes:(id)arg1;
+- (void)_switchAppGestureBegan:(float)arg1;
 - (void)_switchAppGestureChanged:(float)arg1;
 - (void)_switchAppGestureEndedWithCompletionType:(int)arg1 cumulativePercentage:(float)arg2;
 - (void)_switchAppGestureCancelled;
@@ -292,6 +299,7 @@
 - (void)_hideNotificationsGestureEndedWithCompletionType:(int)arg1 velocity:(struct CGPoint)arg2;
 - (void)_hideNotificationsGestureCancelled;
 - (void)_dismissBannerGestureEndedWithCompletionType:(int)arg1;
+- (void)_makeSwitchAppGestureFakeStatusBarVisible;
 - (void)prepareSwitchAppGestureStatusBar;
 - (void)updateSwitchAppGestureStatusBar;
 - (void)cleanupSwitchAppGestureStatusBar;

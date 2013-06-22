@@ -26,6 +26,7 @@
 @property(nonatomic) BOOL hasY; // @synthesize hasY=_hasY;
 @property(nonatomic) int x; // @synthesize x=_x;
 @property(nonatomic) BOOL hasX; // @synthesize hasX=_hasX;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

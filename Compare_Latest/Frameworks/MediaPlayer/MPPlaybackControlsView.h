@@ -67,6 +67,7 @@
 - (id)_geniusButtonImage:(unsigned int)arg1;
 - (void)_validityChangedNotification:(id)arg1;
 - (void)_tickNotification:(id)arg1;
+- (void)_isGeniusEnabledDidChangeNotification:(id)arg1;
 - (void)crossedURLTimeMarker:(id)arg1;
 - (void)crossedArtworkTimeMarker:(id)arg1;
 - (void)crossedChapterTimeMarker:(id)arg1;

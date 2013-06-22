@@ -340,7 +340,7 @@ struct FrameLoader {
     _Bool _field19;
     _Bool _field20;
     _Bool _field21;
-    _Bool _field22;
+    int _field22;
     _Bool _field23;
     _Bool _field24;
     struct RefPtr<WebCore::SerializedScriptValue> _field25;

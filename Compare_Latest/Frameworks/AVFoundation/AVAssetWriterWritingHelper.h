@@ -15,16 +15,16 @@
     BOOL _startSessionCalled;
 }
 
-- (id)initWithConfigurationState:(id)arg1;
-- (id)initWithConfigurationState:(id)arg1 error:(id *)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (int)status;
-- (void)startSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
-- (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
-- (void)cancelWriting;
-- (void)finishWriting;
 - (void)_handleFailedNotificationWithError:(id)arg1;
+- (void)finishWriting;
+- (void)cancelWriting;
+- (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
+- (void)startSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
+- (int)status;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithConfigurationState:(id)arg1 error:(id *)arg2;
+- (id)initWithConfigurationState:(id)arg1;
 
 @end
 

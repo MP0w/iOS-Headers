@@ -12,7 +12,9 @@
 - (id)buttonItems;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)setAutoresizingMask:(unsigned int)arg1;
 - (void)setBadgeAnimated:(BOOL)arg1 forButton:(int)arg2;
 - (void)setBadgeGlyph:(id)arg1 forButton:(int)arg2;
 - (void)setBadgeValue:(id)arg1 forButton:(int)arg2;

@@ -70,13 +70,13 @@
 @property(nonatomic) struct CGPath *CGPath;
 - (void)removeAllPoints;
 - (void)closePath;
+- (void)applyTransform:(struct CGAffineTransform)arg1;
+- (void)appendPath:(id)arg1;
 - (void)addArcWithCenter:(struct CGPoint)arg1 radius:(float)arg2 startAngle:(float)arg3 endAngle:(float)arg4 clockwise:(BOOL)arg5;
 - (void)addQuadCurveToPoint:(struct CGPoint)arg1 controlPoint:(struct CGPoint)arg2;
 - (void)addCurveToPoint:(struct CGPoint)arg1 controlPoint1:(struct CGPoint)arg2 controlPoint2:(struct CGPoint)arg3;
 - (void)addLineToPoint:(struct CGPoint)arg1;
 - (void)moveToPoint:(struct CGPoint)arg1;
-- (void)applyTransform:(struct CGAffineTransform)arg1;
-- (void)appendPath:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

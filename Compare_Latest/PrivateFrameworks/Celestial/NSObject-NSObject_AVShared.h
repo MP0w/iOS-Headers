@@ -7,12 +7,12 @@
 #import "NSObject.h"
 
 @interface NSObject (NSObject_AVShared)
-- (void)postNotificationWithDescription:(id)arg1;
-- (void)allowSafePerformSelector;
-- (void)disallowSafePerformSelector;
-- (BOOL)okToNotifyFromThisThread;
-- (void)fromNotifySafeThreadPerformSelector:(SEL)arg1 withObject:(id)arg2;
-- (void)fromNotifySafeThreadPostNotificationName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
 - (void)fromMainThreadPostNotificationName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
+- (void)fromNotifySafeThreadPostNotificationName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;
+- (void)fromNotifySafeThreadPerformSelector:(SEL)arg1 withObject:(id)arg2;
+- (BOOL)okToNotifyFromThisThread;
+- (void)disallowSafePerformSelector;
+- (void)allowSafePerformSelector;
+- (void)postNotificationWithDescription:(id)arg1;
 @end
 

@@ -7,7 +7,7 @@
 #import <AVFoundation/AVURLAsset.h>
 
 @interface AVURLAsset (AVURLAssetFailedURLRequestHandling)
-@property(nonatomic, setter=setFailedURLRequestDelegate:) id <AVURLAssetFailedURLRequestHandling> failedURLRequestDelegate;
 - (void)finishHandlingFailedURLRequestWithResponseProperties:(id)arg1;
+@property(nonatomic, setter=setFailedURLRequestDelegate:) id <AVURLAssetFailedURLRequestHandling> failedURLRequestDelegate;
 @end
 

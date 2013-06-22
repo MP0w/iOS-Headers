@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
+- (void)batchFetchAssets:(id)arg1;
 - (id)displayableIndexesForCount:(unsigned int)arg1;
 @property(readonly, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;

@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSString *batchId; // @synthesize batchId=_batchId;
 @property(nonatomic) int error; // @synthesize error=_error;
 @property(nonatomic) BOOL hasError; // @synthesize hasError=_hasError;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
@@ -34,6 +35,7 @@
 - (id)adAtIndex:(unsigned int)arg1;
 - (unsigned int)adsCount;
 - (void)addAd:(id)arg1;
+- (void)clearAds;
 @property(readonly, nonatomic) BOOL hasBatchId;
 - (void)dealloc;
 

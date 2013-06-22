@@ -8,12 +8,13 @@
 
 #import "SBBulletinHeaderViewDelegate-Protocol.h"
 
-@class NSMutableSet, SBBulletinLinenSegmentView, UIImageView;
+@class NSMutableSet, SBBulletinLinenSegmentView, UIImageView, UIView;
 
 @interface SBBulletinTableView : UITableView <SBBulletinHeaderViewDelegate>
 {
     NSMutableSet *_visibleSectionHeaders;
-    SBBulletinLinenSegmentView *_fadeOverlay;
+    UIView *_fadeContainer;
+    SBBulletinLinenSegmentView *_fadeSegment;
     UIImageView *_fadeOverlayMask;
 }
 

@@ -13,13 +13,13 @@
     AVMutableVideoCompositionLayerInstructionInternal *_mutableLayerInstruction;
 }
 
-+ (id)videoCompositionLayerInstructionWithAssetTrack:(id)arg1;
 + (id)videoCompositionLayerInstruction;
-@property(nonatomic) int trackID;
-- (void)setTransform:(struct CGAffineTransform)arg1 atTime:(CDStruct_1b6d18a9)arg2;
-- (void)setTransformRampFromStartTransform:(struct CGAffineTransform)arg1 toEndTransform:(struct CGAffineTransform)arg2 timeRange:(CDStruct_e83c9415)arg3;
-- (void)setOpacity:(float)arg1 atTime:(CDStruct_1b6d18a9)arg2;
++ (id)videoCompositionLayerInstructionWithAssetTrack:(id)arg1;
 - (void)setOpacityRampFromStartOpacity:(float)arg1 toEndOpacity:(float)arg2 timeRange:(CDStruct_e83c9415)arg3;
+- (void)setOpacity:(float)arg1 atTime:(CDStruct_1b6d18a9)arg2;
+- (void)setTransformRampFromStartTransform:(struct CGAffineTransform)arg1 toEndTransform:(struct CGAffineTransform)arg2 timeRange:(CDStruct_e83c9415)arg3;
+- (void)setTransform:(struct CGAffineTransform)arg1 atTime:(CDStruct_1b6d18a9)arg2;
+@property(nonatomic) int trackID;
 
 @end
 

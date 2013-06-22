@@ -8,10 +8,11 @@
 
 #import "SUTabBarControllerDelegate-Protocol.h"
 
-@class ISOperation, NSString, NSURL, SSRemoteNotificationClient, SULocationObserver, SUPlaceholderViewController, SUSectionsResponse, SUTabBarController, UINavigationController;
+@class ISOperation, NSString, NSURL, SSRemoteNotificationClient, SULocationObserver, SUMediaPlayerViewController, SUPlaceholderViewController, SUSectionsResponse, SUTabBarController, UINavigationController;
 
 @interface SUClientApplicationController : SUClientController <SUTabBarControllerDelegate>
 {
+    SUMediaPlayerViewController *_activeMediaPlayer;
     SUPlaceholderViewController *_fetchSectionsPlaceholder;
     int _ignoreDownloadQueueChangeCount;
     NSURL *_launchURL;
@@ -19,6 +20,7 @@
     SUSectionsResponse *_lastSectionsResponse;
     ISOperation *_loadSectionsOperation;
     SULocationObserver *_locationObserver;
+    NSString *_preMediaDefaultPNG;
     BOOL _reloadForStorefrontChangeAfterAccountSetup;
     BOOL _reloadSectionsOnNextLaunch;
     SSRemoteNotificationClient *_remoteNotificationClient;
@@ -28,6 +30,7 @@
 + (id)sharedController;
 + (void)setSharedController:(id)arg1;
 @property(readonly, nonatomic) NSURL *launchURL; // @synthesize launchURL=_launchURL;
+@property(retain, nonatomic, getter=_activeMediaPlayer, setter=_setActiveMediaPlayer:) SUMediaPlayerViewController *_activeMediaPlayer; // @synthesize _activeMediaPlayer;
 - (BOOL)_showWildcatAccountViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)_setupTabBarController;
 - (id)_resumableViewController;
@@ -55,6 +58,7 @@
 - (void)_dialogDidFinishNotification:(id)arg1;
 - (void)bagDidLoadNotification:(id)arg1;
 - (void)_accountControllerDisappearedNotification:(id)arg1;
+- (void)_restorePreMediaPlayerSettings;
 - (void)resignActive;
 - (BOOL)presentOverlayBackgroundViewController:(id)arg1;
 - (void)presentExternalURLViewController:(id)arg1;

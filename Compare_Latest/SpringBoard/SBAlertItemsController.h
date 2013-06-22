@@ -26,6 +26,7 @@
 + (id)sharedInstance;
 - (id)init;
 - (void)dealloc;
+- (id)description;
 - (void)convertUnlockedAlertsToLockedAlerts;
 - (void)resetAutoDismissTimer;
 - (void)activateAlertItem:(id)arg1;
@@ -56,6 +57,7 @@
 - (void)forceAlertsToPendAndMoveActiveAlertsToPendingWithAnimation:(BOOL)arg1;
 - (void)_notificationClientStarted:(id)arg1;
 - (void)_notificationClientEnded:(id)arg1;
+- (void)_buddyDidExit;
 - (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned int)arg3;
 
 @end

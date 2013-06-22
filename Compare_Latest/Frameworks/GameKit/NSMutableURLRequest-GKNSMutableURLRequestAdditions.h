@@ -17,6 +17,7 @@
 - (void)setProcessName:(id)arg1;
 - (void)setDeviceUniqueID:(id)arg1;
 - (void)setRestrictions:(id)arg1;
+- (void)setStoreMode:(id)arg1;
 - (void)setDeviceScreenCapabilities:(id)arg1;
 - (void)setGameDescriptor:(id)arg1;
 - (void)setPlayerID:(id)arg1 authToken:(id)arg2;

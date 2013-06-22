@@ -38,7 +38,11 @@
 @property(copy, nonatomic) NSString *password; // @synthesize password=_cachedPassword;
 - (void)removeChildAccountWithIdentifier:(id)arg1;
 - (void)addChildAccount:(id)arg1;
+- (BOOL)_removeChildAccountsOfTypes:(id)arg1;
+- (BOOL)_removeChildAccountsOfType:(id)arg1;
 - (void)_performiCloudMigration;
+- (BOOL)fixPartialiCloudMigration;
+- (void)_migrateMobileMeMailChildAccount;
 - (void)removeAppleIDCerts;
 - (void)configureAppleIDCerts;
 - (id)_errorWithDescriptionForResponseError:(id)arg1;

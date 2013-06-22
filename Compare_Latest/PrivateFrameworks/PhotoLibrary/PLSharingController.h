@@ -32,6 +32,8 @@
 }
 
 + (void)copyItemsToPasteboard:(id)arg1;
++ (void)openEmailAccountPrefs;
++ (BOOL)allowedToModifyEmailAccounts;
 + (BOOL)canSendEmail;
 - (id)views;
 - (void)mailComposeController:(id)arg1 bodyFinishedLoadingWithResult:(BOOL)arg2 error:(id)arg3;

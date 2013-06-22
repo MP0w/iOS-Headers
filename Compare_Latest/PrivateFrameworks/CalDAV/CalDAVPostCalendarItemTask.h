@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "CoreDAVSyncPostTask.h"
+#import "CoreDAVPostTask.h"
 
 @class NSString;
 
-@interface CalDAVPostCalendarItemTask : CoreDAVSyncPostTask
+@interface CalDAVPostCalendarItemTask : CoreDAVPostTask
 {
     NSString *_previousScheduleTag;
 }

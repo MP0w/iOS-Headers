@@ -26,6 +26,7 @@
     Class _popoverBackgroundViewClass;
     struct CGSize _popoverContentSize;
     struct CGRect _targetRectInDimmingView;
+    int _popoverControllerStyle;
     unsigned int draggingChildScrollViewCount;
     unsigned int deceleratingChildScrollViewCount;
     id _target;
@@ -34,8 +35,9 @@
     UIViewController *_modalPresentationToViewController;
     unsigned int _toViewAutoResizingMask;
     UIViewController *_slidingViewController;
+    int _presentationState;
+    unsigned int _slideTransitionCount;
     struct {
-        unsigned int isPresentingOrDismissing:1;
         unsigned int isPresentingModalViewController:1;
         unsigned int isPresentingActionSheet:1;
         unsigned int dimsWhenModal:1;
@@ -53,6 +55,8 @@
     BOOL _preventFastMode;
 }
 
++ (BOOL)_forceAttemptsToAvoidKeyboard;
++ (struct UIEdgeInsets)_defaultPopoverLayoutMarginsForPopoverControllerStyle:(int)arg1 andContentViewController:(id)arg2;
 + (BOOL)_showTargetRectPref;
 + (BOOL)_popoversDisabled;
 @property(nonatomic, setter=_setPreventFastMode:) BOOL _preventFastMode; // @synthesize _preventFastMode;
@@ -72,8 +76,13 @@
 - (void)_modalAnimation:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)_modalTransition:(int)arg1 fromViewController:(id)arg2 toViewController:(id)arg3 target:(id)arg4 didEndSelector:(SEL)arg5;
 - (id)_dimmingView;
+- (id)_managingSplitViewController;
+- (void)_setManagingSplitViewController:(id)arg1;
 - (BOOL)isPresentingOrDismissing;
+- (BOOL)_isDismissing;
+- (BOOL)_isPresenting;
 - (void)_containedViewControllerModalStateChanged;
+- (void)_stopWatchingForNotifications;
 - (void)_stopWatchingForScrollViewNotifications;
 - (void)_startWatchingForScrollViewNotifications;
 - (void)_scrollViewDidEndDecelerating:(id)arg1;
@@ -86,21 +95,27 @@
 - (void)_hostingWindowWillRotate:(id)arg1;
 - (BOOL)_canRepresentAutomatically;
 - (void)_stopWatchingForKeyboardNotifications;
-- (void)_startWatchingForKeyboardNotifications;
+- (void)_startWatchingForKeyboardNotificationsIfNecessary;
 - (void)_keyboardStateChanged:(id)arg1;
 - (void)_moveAwayFromTheKeyboard:(id)arg1;
 - (id)_layoutInfoForCurrentKeyboardState;
 - (id)_layoutInfoForCurrentKeyboardStateAndHostingWindow:(id)arg1;
+- (id)_layoutInfoFromLayoutInfo:(id)arg1 forCurrentKeyboardStateAndHostingWindow:(id)arg2;
+- (BOOL)_attemptsToAvoidKeyboard;
 - (void)_stopWatchingForNavigationControllerNotifications:(id)arg1;
 - (void)_startWatchingForNavigationControllerNotifications:(id)arg1;
 - (void)_newViewControllerWasPushed:(id)arg1;
 - (void)_adjustPopoverForNewContentSizeFromViewController:(id)arg1 allowShrink:(BOOL)arg2;
 - (void)_newViewControllerWillBePushed:(id)arg1;
 - (void)dimmingViewWasTapped:(id)arg1;
-- (void)_dismissPopoverAnimated:(BOOL)arg1 notifyDelegate:(BOOL)arg2;
+- (void)_dismissPopoverAnimated:(BOOL)arg1 stateOnly:(BOOL)arg2 notifyDelegate:(BOOL)arg3;
+- (void)_postludeForDismissal;
+- (id)_completionBlockForDismissalWhenNotifyingDelegate:(SEL)arg1;
 - (void)_setContentViewController:(id)arg1 backgroundStyle:(int)arg2 animated:(BOOL)arg3;
 - (int)_popoverBackgroundStyle;
 - (void)_setPopoverBackgroundStyle:(int)arg1;
+- (BOOL)_manuallyHandlesContentViewControllerAppearanceCalls;
+- (int)_popoverControllerStyle;
 - (void)_performHierarchyCheckOnViewController:(id)arg1;
 - (void)_transitionFromViewController:(id)arg1 toViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)_layoutDimmingViewForInterfaceOrientationOfHostingWindow:(id)arg1;
@@ -109,10 +124,21 @@
 - (struct CGSize)_currentPopoverContentSize;
 - (id)_splitParentController;
 - (void)_setSplitParentController:(id)arg1;
+- (void)_setPopoverView:(id)arg1;
 - (id)popoverView;
 - (void)dismissPopoverAnimated:(BOOL)arg1;
 - (void)presentPopoverFromBarButtonItem:(id)arg1 permittedArrowDirections:(unsigned int)arg2 animated:(BOOL)arg3;
 - (void)presentPopoverFromRect:(struct CGRect)arg1 inView:(id)arg2 permittedArrowDirections:(unsigned int)arg3 animated:(BOOL)arg4;
+- (void)_presentPopoverFromEdge:(int)arg1 ofView:(id)arg2 animated:(BOOL)arg3;
+- (void)_presentPopoverBySlidingIn:(BOOL)arg1 fromEdge:(int)arg2 ofView:(id)arg3 animated:(BOOL)arg4 stateOnly:(BOOL)arg5 notifyDelegate:(BOOL)arg6;
+- (void)_invalidateLayoutInfo;
+- (void)_resetSlideTransitionCount;
+- (void)_incrementSlideTransitionCount:(BOOL)arg1;
+- (unsigned int)_slideTransitionCount;
+- (void)_setPresentationState:(int)arg1;
+- (int)_presentationState;
+- (Class)_defaultChromeViewClass;
+- (Class)_popoverLayoutInfoClass;
 @property(copy, nonatomic) NSArray *passthroughViews;
 @property(readonly, nonatomic, getter=isPopoverVisible) BOOL popoverVisible;
 - (void)setPopoverContentSize:(struct CGSize)arg1 animated:(BOOL)arg2;
@@ -122,6 +148,7 @@
 @property(retain, nonatomic) UIViewController *contentViewController;
 - (void)dealloc;
 - (id)initWithContentViewController:(id)arg1;
+- (id)_initWithContentViewController:(id)arg1 popoverControllerStyle:(int)arg2;
 - (id)init;
 
 @end

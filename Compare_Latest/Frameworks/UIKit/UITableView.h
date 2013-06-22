@@ -191,7 +191,6 @@
 
 @property(nonatomic) int sectionIndexMinimumDisplayRowCount; // @synthesize sectionIndexMinimumDisplayRowCount=_sectionIndexMinimumDisplayRowCount;
 @property(nonatomic, getter=_sectionContentInset, setter=_setSectionContentInset:) struct UIEdgeInsets sectionContentInset; // @synthesize sectionContentInset=_sectionContentInset;
-@property(retain, nonatomic) id scrollTestParameters; // @synthesize scrollTestParameters=_reserved;
 - (BOOL)_adjustsRowHeightsForSectionLocation;
 - (void)_setAdjustsRowHeightsForSectionLocation:(BOOL)arg1;
 @property(nonatomic) BOOL allowsMultipleSelectionDuringEditing;

@@ -38,6 +38,9 @@
 @optional
 @property(nonatomic) int selectionAffinity;
 @property(readonly, nonatomic) UIView *textInputView;
+- (void)dictationRecognitionFailed;
+- (void)dictationRecordingDidEnd;
+- (void)insertDictationResult:(id)arg1;
 - (int)characterOffsetOfPosition:(id)arg1 withinRange:(id)arg2;
 - (id)positionWithinRange:(id)arg1 atCharacterOffset:(int)arg2;
 - (id)textStylingAtPosition:(id)arg1 inDirection:(int)arg2;

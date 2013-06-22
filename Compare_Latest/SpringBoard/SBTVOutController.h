@@ -14,8 +14,8 @@
 + (id)sharedInstance;
 - (id)init;
 - (void)dealloc;
-- (void)addClone:(id)arg1 stevenoteAllowed:(BOOL)arg2;
-- (void)setIntialTVModeIfNeeded;
+- (void)addClone:(id)arg1;
+- (void)setInitialTVModeIfNeeded;
 - (void)updateLayerKitSettings;
 - (void)updateSettings;
 @property(readonly, nonatomic) BOOL isTVSignalTypeDigital;

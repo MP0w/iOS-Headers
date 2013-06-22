@@ -16,6 +16,7 @@
     Class _entityClass;
     ML3Predicate *_predicate;
     NSArray *_orderingProperties;
+    NSArray *_directionality;
     BOOL _usingSections;
     ML3AggregateQuery *_nonDirectAggregateQuery;
 }
@@ -48,6 +49,7 @@
 - (void)enumeratePersistentIDsUsingBlock:(id)arg1;
 - (void)enumerateSectionsUsingBlock:(id)arg1;
 - (BOOL)distinctPersistentIDProperty;
+- (BOOL)deleteAllEntitiesFromLibraryWithDeletionType:(int)arg1;
 - (BOOL)deleteAllEntitiesFromLibrary;
 - (id)persistentIDProperty;
 - (id)sections;

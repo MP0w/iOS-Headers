@@ -11,11 +11,11 @@
 @interface CoreDAVRequestLogger : NSObject
 {
     id <CoreDAVAccountInfoProvider> _provider;
-    NSArray *_responseHeadersSortDescriptors;
+    NSArray *_headerSortDescriptors;
     int _snippetsLogged;
 }
 
-@property(retain) NSArray *responseHeadersSortDescriptors; // @synthesize responseHeadersSortDescriptors=_responseHeadersSortDescriptors;
+@property(retain) NSArray *headerSortDescriptors; // @synthesize headerSortDescriptors=_headerSortDescriptors;
 - (void)finishCoreDAVResponse;
 - (void)logCoreDAVResponseSnippet:(id)arg1;
 - (void)logCoreDAVResponseHeaders:(id)arg1 andStatusCode:(int)arg2;

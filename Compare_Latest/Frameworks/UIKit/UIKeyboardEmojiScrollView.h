@@ -27,7 +27,7 @@
 - (void)goToFirstPage;
 - (void)setScrollDelay:(double)arg1;
 - (int)currentPage;
-- (void)ensureSurrounded:(int)arg1;
+- (void)ensureSurrounded;
 - (void)scrollViewWillBeginDecelerating:(id)arg1;
 - (void)scrollViewDidEndScrollingAnimation:(id)arg1;
 - (void)pageChanged;
@@ -35,7 +35,7 @@
 - (void)clearPages;
 - (void)interruptScrolling;
 - (void)layoutPages;
-- (void)delayedLayout:(id)arg1;
+- (void)delayLayout;
 - (void)layoutRecents;
 - (void)doLayout;
 - (void)forceLayout;

@@ -5,25 +5,25 @@
  */
 
 @protocol NSObject
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (Class)superclass;
-- (Class)class;
-- (id)self;
-- (struct _NSZone *)zone;
-- (id)performSelector:(SEL)arg1;
-- (id)performSelector:(SEL)arg1 withObject:(id)arg2;
-- (id)performSelector:(SEL)arg1 withObject:(id)arg2 withObject:(id)arg3;
-- (BOOL)isProxy;
-- (BOOL)isKindOfClass:(Class)arg1;
-- (BOOL)isMemberOfClass:(Class)arg1;
-- (BOOL)conformsToProtocol:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
-- (id)retain;
-- (oneway void)release;
-- (id)autorelease;
-- (unsigned int)retainCount;
-- (id)description;
 - (id)debugDescription;
+- (id)description;
+- (unsigned int)retainCount;
+- (id)autorelease;
+- (oneway void)release;
+- (id)retain;
+- (BOOL)respondsToSelector:(SEL)arg1;
+- (BOOL)conformsToProtocol:(id)arg1;
+- (BOOL)isMemberOfClass:(Class)arg1;
+- (BOOL)isKindOfClass:(Class)arg1;
+- (BOOL)isProxy;
+- (id)performSelector:(SEL)arg1 withObject:(id)arg2 withObject:(id)arg3;
+- (id)performSelector:(SEL)arg1 withObject:(id)arg2;
+- (id)performSelector:(SEL)arg1;
+- (struct _NSZone *)zone;
+- (id)self;
+- (Class)class;
+- (Class)superclass;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
 @end
 

@@ -9,10 +9,10 @@
 @class NSData, NSDate, NSNumber, NSString;
 
 @interface AVMetadataItem (AVMetadataItemTypeCoercion)
-@property(readonly) NSString *stringValue;
-@property(readonly) NSNumber *numberValue;
-@property(readonly) NSDate *dateValue;
-@property(readonly) NSData *dataValue;
 - (struct CGImage *)imageValue;
+@property(readonly) NSData *dataValue;
+@property(readonly) NSDate *dateValue;
+@property(readonly) NSNumber *numberValue;
+@property(readonly) NSString *stringValue;
 @end
 

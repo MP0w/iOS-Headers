@@ -139,6 +139,7 @@ typedef struct {
     unsigned int maxRecurrencesAllowed:1;
     unsigned int supportsAlarmTriggerIntervals:1;
     unsigned int supportsAlarmTriggerDates:1;
+    unsigned int supportsAlarmsTriggeringAfterStartDate:1;
     unsigned int organizerCanSeeAttendeeStatuses:1;
     unsigned int inviteesCanSeeAttendeeStatuses:1;
     unsigned int statusesAreAccurate:1;
@@ -171,7 +172,7 @@ typedef struct {
     unsigned int allowsEvents:1;
     unsigned int supportsURLField:1;
     unsigned int supportsAllDayDueDates:1;
-} CDStruct_8e1c7005;
+} CDStruct_2a8fb7a3;
 
 typedef struct {
     int year;

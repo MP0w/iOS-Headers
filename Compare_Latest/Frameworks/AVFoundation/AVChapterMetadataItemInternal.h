@@ -12,15 +12,15 @@
 {
     AVWeakReference *weakReference;
     struct OpaqueFigAsset *figAsset;
-    int chapterGroupIndex;
-    int chapterIndex;
+    long chapterGroupIndex;
+    long chapterIndex;
     NSString *chapterType;
     NSLocale *locale;
     id value;
     CDStruct_1b6d18a9 time;
     CDStruct_1b6d18a9 duration;
     int valueStatus;
-    int valueErrorCode;
+    long valueErrorCode;
     NSMutableArray *completions;
     struct dispatch_queue_s *readWriteQueue;
 }

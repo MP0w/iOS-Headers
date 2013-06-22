@@ -32,6 +32,23 @@ struct CGSize {
     float height;
 };
 
+struct CIContextInternal {
+    struct Context *_field1;
+    struct _opaque_pthread_mutex_t {
+        long _field1;
+        char _field2[40];
+    } _field2;
+    _Bool _field3;
+    id _field4;
+};
+
+struct Context {
+    void **_field1;
+    unsigned int _field2;
+    struct CGColorSpace *_field3;
+    struct CGColorSpace *_field4;
+};
+
 struct Data;
 
 struct FaceCoreAPI {

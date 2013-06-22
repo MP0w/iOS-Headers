@@ -9,7 +9,7 @@
 @class NSArray;
 
 @interface AVAsset (AVAssetChapterInspection)
-@property(readonly) NSArray *availableChapterLocales;
 - (id)chapterMetadataGroupsWithTitleLocale:(id)arg1 containingItemsWithCommonKeys:(id)arg2;
+@property(readonly) NSArray *availableChapterLocales;
 @end
 

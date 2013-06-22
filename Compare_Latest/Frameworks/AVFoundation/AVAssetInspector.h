@@ -14,28 +14,28 @@
 {
 }
 
-- (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) CDStruct_1b6d18a9 duration;
-@property(readonly, nonatomic) float preferredRate;
-@property(readonly, nonatomic) float preferredVolume;
-@property(readonly, nonatomic) struct CGAffineTransform preferredTransform;
-@property(readonly, nonatomic) struct CGSize naturalSize;
-@property(readonly, nonatomic) int naturalTimeScale;
-@property(readonly, nonatomic) BOOL providesPreciseDurationAndTiming;
-@property(readonly, nonatomic) int trackCount;
-@property(readonly, nonatomic) NSArray *trackIDs;
-@property(readonly, nonatomic) NSArray *alternateTrackGroups;
-@property(readonly, nonatomic) NSDictionary *trackReferences;
-@property(readonly, nonatomic) NSArray *mediaSelectionGroups;
-@property(readonly, nonatomic) AVMetadataItem *creationDate;
-@property(readonly, nonatomic) NSString *lyrics;
-@property(readonly, nonatomic) NSArray *commonMetadata;
-@property(readonly, nonatomic) NSArray *availableMetadataFormats;
-- (id)metadataForFormat:(id)arg1;
-- (BOOL)hasProtectedContent;
-@property(readonly, nonatomic, getter=isExportable) BOOL exportable;
-@property(readonly, nonatomic, getter=isReadable) BOOL readable;
 @property(readonly, nonatomic, getter=isComposable) BOOL composable;
+@property(readonly, nonatomic, getter=isReadable) BOOL readable;
+@property(readonly, nonatomic, getter=isExportable) BOOL exportable;
+- (BOOL)hasProtectedContent;
+- (id)metadataForFormat:(id)arg1;
+@property(readonly, nonatomic) NSArray *availableMetadataFormats;
+@property(readonly, nonatomic) NSArray *commonMetadata;
+@property(readonly, nonatomic) NSString *lyrics;
+@property(readonly, nonatomic) AVMetadataItem *creationDate;
+@property(readonly, nonatomic) NSArray *mediaSelectionGroups;
+@property(readonly, nonatomic) NSDictionary *trackReferences;
+@property(readonly, nonatomic) NSArray *alternateTrackGroups;
+@property(readonly, nonatomic) NSArray *trackIDs;
+@property(readonly, nonatomic) long trackCount;
+@property(readonly, nonatomic) BOOL providesPreciseDurationAndTiming;
+@property(readonly, nonatomic) int naturalTimeScale;
+@property(readonly, nonatomic) struct CGSize naturalSize;
+@property(readonly, nonatomic) struct CGAffineTransform preferredTransform;
+@property(readonly, nonatomic) float preferredVolume;
+@property(readonly, nonatomic) float preferredRate;
+@property(readonly, nonatomic) CDStruct_1b6d18a9 duration;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

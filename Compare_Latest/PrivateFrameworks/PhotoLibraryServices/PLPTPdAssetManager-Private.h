@@ -12,7 +12,6 @@
 - (id)_ptpInformationForAllAssets;
 - (id)_allAssetObjectIDs;
 - (id)assetsInAlbumWithObjectID:(id)arg1;
-- (void)_albumDidChange:(id)arg1;
 - (BOOL)_isPTPAlbum:(id)arg1;
 @property(readonly, nonatomic) NSArray *albumObjectIDs;
 @property(readonly) PLManagedObjectContext *managedObjectContext;

@@ -11,14 +11,14 @@
     void *_impl;
 }
 
-@property(readonly) int channels;
-@property(readonly) int bytesCapacity;
-@property int bytesDataSize;
-@property(readonly) void *data;
-@property(readonly) int packetDescriptionCapacity;
-@property(readonly) int packetDescriptionCount;
-@property(readonly) struct AudioStreamPacketDescription *packetDescriptions;
 - (void)setPacketDescriptions:(const struct AudioStreamPacketDescription *)arg1 count:(int)arg2;
+@property(readonly) struct AudioStreamPacketDescription *packetDescriptions;
+@property(readonly) int packetDescriptionCount;
+@property(readonly) int packetDescriptionCapacity;
+@property(readonly) void *data;
+@property int bytesDataSize;
+@property(readonly) int bytesCapacity;
+@property(readonly) int channels;
 
 @end
 

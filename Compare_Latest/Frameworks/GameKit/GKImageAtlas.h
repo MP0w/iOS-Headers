@@ -22,11 +22,14 @@
 @property(retain, nonatomic) NSMutableDictionary *imageLookup; // @synthesize imageLookup=_imageLookup;
 @property(retain, nonatomic) NSCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
+- (struct GKImageAtlasImageInfo)infoForImageNamed:(id)arg1;
+- (id)imageNames;
 - (void)clearCache;
 - (id)imageNamed:(id)arg1;
 - (void)processHeader;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 inBundle:(id)arg2;
+- (id)initWithPath:(id)arg1 inBundle:(id)arg2;
 
 @end
 

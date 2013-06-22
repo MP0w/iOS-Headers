@@ -18,13 +18,13 @@
     BOOL _timerQueueIsPlayerStateDispatchQueue;
 }
 
-- (id)initWithPlayer:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (void)invalidate;
-- (void)itemTimeJumped;
-- (id)player;
 @property(readonly, nonatomic, getter=_weakReference) AVWeakReference *weakReference; // @synthesize weakReference=_weakReference;
+- (id)player;
+- (void)itemTimeJumped;
+- (void)invalidate;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithPlayer:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
 
 @end
 

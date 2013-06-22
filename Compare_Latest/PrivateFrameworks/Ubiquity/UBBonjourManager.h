@@ -25,6 +25,7 @@
     struct __CFRunLoop *_runloop;
     unsigned char _uuid[16];
     int _port;
+    void *_network_change_cb;
     void *_notify_cb;
     void *_mme_set_token_cb;
     void *_mme_push_cb;
@@ -59,6 +60,7 @@
         NSMutableDictionary *_preferredFQDN;
         NSMutableDictionary *_collectionUUIDs;
     } _serviceState;
+    struct __SCNetworkReachability *_reachabilityRef;
 }
 
 - (void)connection:(id)arg1 didReceiveMessageForTopic:(id)arg2 userInfo:(id)arg3;
@@ -82,10 +84,11 @@
 - (void)setupMMeEnvironment:(id)arg1 mme_set_token_cb:(void *)arg2 mme_push_cb:(void *)arg3;
 - (void)removeIdentity:(id)arg1;
 - (void)updateIdentity:(id)arg1 collections:(id)arg2;
-- (void)setupClient:(unsigned char [16])arg1 port:(int)arg2 use_ssl:(_Bool)arg3 notify_cb:(void *)arg4 notify_ctx:(void *)arg5 domain:(id)arg6 vlans:(id)arg7;
+- (void)setupClient:(unsigned char [16])arg1 port:(int)arg2 use_ssl:(_Bool)arg3 network_change_cb:(void *)arg4 notify_cb:(void *)arg5 notify_ctx:(void *)arg6 domain:(id)arg7 vlans:(id)arg8;
 - (void)_rearmPeriodicPushTimer;
 - (void)sendMMePush:(id)arg1;
 - (void)_refetchMMeConfig;
+- (void)_setNetworkReachable:(BOOL)arg1;
 - (void)_updateServicesForIdentity:(id)arg1;
 - (id)_serviceDataForIdentity:(id)arg1 prependedID:(id)arg2;
 - (id)_getIdentityForNetService:(id)arg1 rnd:(unsigned int *)arg2;
@@ -98,6 +101,8 @@
 - (void)dealloc;
 - (void)_initNetworkState;
 - (void)_deallocNetworkState;
+- (void)_initReachability;
+- (void)_deallocReachability;
 - (void)_initPushState;
 - (void)_deallocPushState;
 - (void)_initServiceState;

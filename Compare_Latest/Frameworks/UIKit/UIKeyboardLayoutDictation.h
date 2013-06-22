@@ -6,22 +6,18 @@
 
 #import <UIKit/UIKeyboardLayout.h>
 
-@class UIDictationView;
-
 @interface UIKeyboardLayoutDictation : UIKeyboardLayout
 {
-    UIDictationView *_dictationView;
 }
 
 + (float)landscapeHeight;
 + (float)portraitHeight;
++ (struct CGSize)dictationLayoutSize;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)showKeyboardType:(int)arg1 withAppearance:(int)arg2;
 - (BOOL)visible;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (struct CGRect)dictationLayoutFrameForStandardKeyboardLayoutFrame:(struct CGRect)arg1;
 
 @end
 

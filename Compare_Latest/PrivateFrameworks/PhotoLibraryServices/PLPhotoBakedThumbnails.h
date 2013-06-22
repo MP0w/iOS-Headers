@@ -17,6 +17,7 @@
     NSData *_thumbnailData;
     NSMutableArray *_thumbnailImages;
     NSMutableDictionary *_options;
+    NSData *_optionsData;
     BOOL _optionsAccessed;
     BOOL _missingHeader;
     struct CGSize _size;
@@ -31,6 +32,7 @@
 @property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) int bytesPerPixel;
 @property(readonly, nonatomic) int bitsPerComponent;
+@property(readonly, nonatomic) NSData *optionsData;
 @property(readonly, nonatomic) NSMutableDictionary *options;
 @property(readonly, nonatomic) int format;
 - (struct CGImage *)thumbnailImageAtIndex:(int)arg1;

@@ -6,14 +6,14 @@
 
 #import "UIView.h"
 
-@class SBBulletinBlurredShadowLabel, SBBulletinListTouchEater, SBBulletinTableView, UIStatusBar;
+@class SBBulletinBlurredShadowLabel, SBBulletinListTouchEater, SBBulletinTableView, UIImageView, UIStatusBar;
 
 @interface SBBulletinListView : UIView
 {
     int _orientation;
     float _currentY;
     UIView *_slidingView;
-    UIView *_linenView;
+    UIImageView *_linenView;
     struct CGSize _linenSize;
     SBBulletinTableView *_tableView;
     UIStatusBar *_statusBar;
@@ -26,6 +26,7 @@
     UIView *_linenMask;
     UIView *_linenGradient;
     UIView *_linenRim;
+    UIView *_linenContainer;
     UIView *_wholeShadowView;
     UIView *_sideShadowView[2];
     float _tableViewContentHeight;

@@ -21,6 +21,11 @@ struct CGSize {
     float _field2;
 };
 
+struct _NSRange {
+    unsigned int _field1;
+    unsigned int _field2;
+};
+
 struct __sbuf {
     char *_base;
     int _size;

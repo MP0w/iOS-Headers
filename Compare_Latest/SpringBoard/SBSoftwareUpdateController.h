@@ -20,6 +20,7 @@
     BOOL _showOrScheduleForcedInstallAlertAfterNextUnlock;
     BOOL _scheduleForcedInstallAlertAfterNextUnlock;
     BOOL _scheduleForcedInstallAlertWhenAble;
+    BOOL _settingsResetPrefsBadgedFlag;
 }
 
 + (id)sharedInstance;
@@ -31,6 +32,8 @@
 - (void)delayForcedInstallUntilAble;
 - (void)delayForcedInstallWithDefaultDurationFromNow;
 - (void)delayForcedInstallWithDefaultDurationAfterNextUnlock;
+- (void)_prepareMigrationForSettingsReset;
+- (void)_completeMigrationForSettingsReset;
 - (void)_syncWillStart:(id)arg1;
 - (void)_syncDidEnd:(id)arg1;
 - (void)_callCountChanged:(id)arg1;
@@ -59,8 +62,11 @@
 - (BOOL)_isSettingsActive;
 - (void)_resetState;
 - (void)_autoDownloadUnknownToUserFailedForDescriptor:(id)arg1 error:(id)arg2;
+- (void)_savePreferencesBadgeFlag:(id)arg1;
+- (id)_stringForCurrentVersionPreference;
+- (void)_saveLastKnownVersionPreference:(id)arg1;
 - (void)_migrateForNewOSVersionIfNecessary;
-- (void)_clearLegacyBadgePreferenceIfNecessary;
+- (void)_clearLegacyBadgeIfNecessary:(id)arg1;
 - (BOOL)_isSettingsBadgedForSoftwareUpdate;
 - (void)_toggleSettingsBadge:(BOOL)arg1;
 

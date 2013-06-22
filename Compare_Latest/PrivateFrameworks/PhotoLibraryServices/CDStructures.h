@@ -108,6 +108,11 @@ typedef struct {
 } CDStruct_32410e63;
 
 typedef struct {
+    CDStruct_c3b9c2ee _field1;
+    CDStruct_c3b9c2ee _field2;
+} CDStruct_90e2a262;
+
+typedef struct {
     int _field1;
     struct CGSize _field2;
     struct CGRect _field3;

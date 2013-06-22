@@ -11,11 +11,11 @@
     CDStruct_82206317 _timeMapping;
 }
 
-- (id)_initWithTimeMapping:(CDStruct_82206317)arg1;
-@property(readonly, nonatomic, getter=isEmpty) BOOL empty;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
 @property(readonly, nonatomic) CDStruct_82206317 timeMapping; // @synthesize timeMapping=_timeMapping;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic, getter=isEmpty) BOOL empty;
+- (id)_initWithTimeMapping:(CDStruct_82206317)arg1;
 
 @end
 

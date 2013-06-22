@@ -14,16 +14,16 @@
 }
 
 + (id)assetCacheWithURL:(id)arg1;
-- (id)initWithURL:(id)arg1;
-- (void)dealloc;
-- (void)finalize;
-@property(nonatomic) long long maxSize;
-@property(nonatomic) long long maxEntrySize;
-@property(readonly, nonatomic) long long currentSize;
-@property(readonly, copy, nonatomic) NSURL *URL;
-- (void)removeEntryForKey:(id)arg1;
-- (long long)sizeOfEntryForKey:(id)arg1;
 - (id)allKeys;
+- (long long)sizeOfEntryForKey:(id)arg1;
+- (void)removeEntryForKey:(id)arg1;
+@property(readonly, nonatomic) NSURL *URL;
+@property(readonly, nonatomic) long long currentSize;
+@property(nonatomic) long long maxEntrySize;
+@property(nonatomic) long long maxSize;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithURL:(id)arg1;
 
 @end
 

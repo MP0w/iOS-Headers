@@ -6,59 +6,48 @@
 
 #import <UIKit/UIView.h>
 
-@class CADisplayLink, CALayer, NSMutableArray, NSMutableDictionary, NSTimer, UIImage, UIImageView;
+@class CADisplayLink, CALayer, NSMutableArray, NSTimer, UIImageView;
 
 @interface UIDictationMeterView : UIView
 {
     UIImageView *_background;
     UIImageView *_overlay;
     NSMutableArray *_micListeningImages;
-    NSMutableDictionary *_micFullImageDict;
-    UIImage *_micThinkingOnImage;
     CALayer *_micImageLayer;
     CALayer *_animatingLayer;
-    CALayer *_fullRingLayer;
     NSTimer *_fillTimer;
     int _phase;
     int _state;
     float _runningPowerLevels[5];
     unsigned int _powerPointer;
     CADisplayLink *_displayLink;
+    double _releaseStart;
+    float _releaseLevel;
 }
 
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (BOOL)_isSuitableStoppingPhase:(int)arg1;
-- (void)_handleThinkingResolve;
-- (void)_handleThinkingEnd;
-- (void)_handleThinking;
-- (void)_handleThinkingBegin;
-- (void)_handleListeningEnd;
-- (void)_handleListening;
+- (void)_startListening;
 - (void)_clearDisplayLink;
-- (void)_displayLinkCallback:(id)arg1;
-- (void)_handleListeningBegin;
-- (void)_handleListeningStart;
-- (void)_handleBeginning;
-- (id)_thinkingResolveKeyFrameAnimation;
-- (id)_thinkingEndKeyFrameAnimation;
-- (id)_basicAnimationForOpacityFrom:(unsigned int)arg1 to:(unsigned int)arg2 duration:(double)arg3;
-- (id)_thinkingRingAnimation;
-- (id)_thinkingBeginKeyFrameAnimation;
-- (id)_listeningEndKeyFrameAnimation;
-- (id)_listeningBeginKeyFrameAnimation;
-- (id)_beginningKeyFrameAnimation;
+- (void)_updateListeningAnimation:(id)arg1;
+- (void)_startRelease;
+- (void)_updateReleaseAnimation:(id)arg1;
+- (void)_startSustain;
+- (id)_sustainKeyFrameAnimation;
+- (void)_startDecay;
+- (id)_decayKeyFrameAnimation;
+- (void)_startAttack;
+- (id)_attackKeyFrameAnimation;
+- (id)imageForMicLevel:(float)arg1;
 - (id)_keyframeAnimationForCGImages:(id)arg1 duration:(double)arg2;
 - (void)_removeAnimationsAndClearLayers;
 - (float)_adjustedDuration:(float)arg1;
 - (float)_currentMicPowerLevel;
 - (float)_powerLevelForMicPower:(float)arg1;
 - (float)_updateMedianWithNewValue:(float)arg1;
+- (void)_resetRunningPowerLevels;
 - (void)_reset;
-- (void)setState:(int)arg1;
-- (id)_currentMicPowerImage;
-- (id)_fullMicImage;
 - (id)_emptyMicImage;
-- (id)_imageForMicFullIndex:(unsigned int)arg1;
+- (void)setState:(int)arg1;
 - (double)_animationInterval;
 - (void)layoutSubviews;
 - (void)dealloc;

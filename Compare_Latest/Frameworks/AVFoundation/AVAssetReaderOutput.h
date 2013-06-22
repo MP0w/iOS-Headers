@@ -14,29 +14,29 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, nonatomic) NSString *mediaType;
-@property(nonatomic) BOOL alwaysCopiesSampleData;
-- (id)_asset;
-- (struct OpaqueFigAssetReader *)_figAssetReader;
-- (void)_setFigAssetReader:(struct OpaqueFigAssetReader *)arg1;
-@property(readonly, nonatomic, getter=_weakReferenceToAssetReader) AVWeakReference *weakReferenceToAssetReader;
-- (void)_attachToWeakReferenceToAssetReader:(id)arg1;
-@property(readonly, getter=_status) int status;
-@property(nonatomic, getter=_extractionID, setter=_setExtractionID:) int extractionID;
-@property(readonly, nonatomic, getter=_figAssetReaderExtractionOptions) NSDictionary *figAssetReaderExtractionOptions;
-@property(readonly, nonatomic, getter=_trimsSampleDurations) BOOL trimsSampleDurations;
-- (BOOL)_prepareForReadingReturningError:(id *)arg1;
-- (BOOL)_enableTrackExtractionReturningError:(id *)arg1;
-- (BOOL)_isFinished;
-- (void)_markAsFinished;
-- (void)_cancelReading;
-- (struct opaqueCMSampleBuffer *)copyNextSampleBuffer;
-- (void)_figAssetReaderSampleBufferDidBecomeAvailableForExtractionID:(int)arg1;
-- (void)_figAssetReaderDecodeError;
 - (void)_figAssetReaderFailed;
+- (void)_figAssetReaderDecodeError;
+- (void)_figAssetReaderSampleBufferDidBecomeAvailableForExtractionID:(int)arg1;
+- (struct opaqueCMSampleBuffer *)copyNextSampleBuffer;
+- (void)_cancelReading;
+- (void)_markAsFinished;
+- (BOOL)_isFinished;
+- (BOOL)_enableTrackExtractionReturningError:(id *)arg1;
+- (BOOL)_prepareForReadingReturningError:(id *)arg1;
+@property(readonly, nonatomic, getter=_trimsSampleDurations) BOOL trimsSampleDurations;
+@property(readonly, nonatomic, getter=_figAssetReaderExtractionOptions) NSDictionary *figAssetReaderExtractionOptions;
+@property(nonatomic, getter=_extractionID, setter=_setExtractionID:) int extractionID;
+@property(readonly, getter=_status) int status;
+- (void)_attachToWeakReferenceToAssetReader:(id)arg1;
+@property(readonly, nonatomic, getter=_weakReferenceToAssetReader) AVWeakReference *weakReferenceToAssetReader;
+- (void)_setFigAssetReader:(struct OpaqueFigAssetReader *)arg1;
+- (struct OpaqueFigAssetReader *)_figAssetReader;
+- (id)_asset;
+@property(nonatomic) BOOL alwaysCopiesSampleData;
+@property(readonly, nonatomic) NSString *mediaType;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
 
 @end
 

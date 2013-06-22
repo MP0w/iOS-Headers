@@ -29,6 +29,7 @@
 - (void)resetServerStateForPersonID:(id)arg1;
 - (void)refreshServerSideConfigurationForPersonID:(id)arg1;
 - (id)serverSideConfigurationForPersonID:(id)arg1;
+- (void)deleteAssetCollections:(id)arg1 personID:(id)arg2;
 - (void)removeShare:(id)arg1 fromPersonID:(id)arg2;
 - (void)modifyShare:(id)arg1 forPersonID:(id)arg2;
 - (void)sendInvitationsForShares:(id)arg1 forPersonID:(id)arg2;

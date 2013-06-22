@@ -20,8 +20,6 @@
 }
 
 + (id)wrapperWithURL:(id)arg1 delegate:(id)arg2 connections:(id)arg3;
-- (id)initWithURL:(id)arg1 delegate:(id)arg2 connections:(id)arg3;
-- (void)dealloc;
 @property(readonly) NSArray *connections; // @synthesize connections=_connections;
 @property(retain) NSArray *metadata; // @synthesize metadata=_metadata;
 @property(copy) NSString *didStopRecordingReason; // @synthesize didStopRecordingReason=_didStopRecordingReason;
@@ -29,6 +27,8 @@
 @property BOOL receivedDidStartRecording; // @synthesize receivedDidStartRecording=_receivedDidStartRecording;
 @property(readonly) NSURL *outputFileURL; // @synthesize outputFileURL=_outputFileURL;
 @property(readonly) id <AVCaptureFileOutputRecordingDelegate><AVCaptureFileOutputPauseResumeDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)dealloc;
+- (id)initWithURL:(id)arg1 delegate:(id)arg2 connections:(id)arg3;
 
 @end
 

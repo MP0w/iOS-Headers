@@ -35,10 +35,10 @@
     BOOL _backupNeeded;
     BOOL _hasEverConnectedToDatabase;
     id _mcSettingsObserver;
-    struct dispatch_queue_s *_artworkQueue;
-    int _artworkBlobFD;
     struct dispatch_queue_s *_nondurableConcurrentQueue;
     ML3NondurableWriteSet *_nondurableWriteSet;
+    NSString *_artworkDirectory;
+    char _artworkDirectoryFilesystemRepresentation[1024];
 }
 
 + (unsigned int)readableArtworkFormatIDForArtworkFormatID:(unsigned int)arg1;
@@ -76,14 +76,17 @@
 - (id)appleIDForDSID:(unsigned long long)arg1;
 - (BOOL)setAppleID:(id)arg1 forDSID:(unsigned long long)arg2;
 - (void)_accessAccountCacheDBForSQL:(id)arg1 usingBlock:(id)arg2;
+- (BOOL)migrateLegacyArtworkFromArtworkBlobFilePath:(id)arg1;
 - (BOOL)compactArtwork;
 - (BOOL)deleteArtworkForCacheID:(id)arg1;
 - (BOOL)deleteAllArtwork;
 - (BOOL)insertArtworkWithImageData:(id)arg1 forCacheID:(id)arg2;
 - (BOOL)_insertImageBytes:(const void *)arg1 length:(unsigned long)arg2 forCacheID:(id)arg3 formatID:(unsigned int)arg4 imageSubRect:(struct CGRect)arg5;
+- (BOOL)_writeImageBytes:(const void *)arg1 length:(unsigned long)arg2 formatID:(unsigned int)arg3 cacheID:(id)arg4;
+- (BOOL)hasArtworkForCacheID:(id)arg1 ensureArtworkFileExists:(BOOL)arg2;
 - (BOOL)hasArtworkForCacheID:(id)arg1;
 - (void)loadArtworkForCacheID:(id)arg1 formatID:(unsigned int)arg2 completionHandler:(id)arg3;
-- (void)_accessArtworkBlobFDWithBlock:(id)arg1;
+- (id)artworkDataForCacheID:(id)arg1 formatID:(unsigned int)arg2;
 - (long long)deleteAutoFilledTracksOfAtLeastTotalSize:(long long)arg1;
 @property(readonly) long long autoFilledTracksTotalSize;
 - (void)enumeratePersistentIDsAfterRevision:(long long)arg1 usingBlock:(id)arg2;
@@ -132,7 +135,6 @@
 - (void)reconnectMainDatabaseContext;
 - (id)backgroundQueue_backgroundDatabaseContext;
 - (id)mainDatabaseContext;
-- (void)incrementalVaccuumIfAppropriate;
 - (BOOL)populateStaticItemsOfDynamicContainers;
 - (BOOL)executeSQL:(id)arg1;
 @property(readonly) BOOL requiresPostProcessing;

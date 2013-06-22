@@ -29,5 +29,8 @@
 @optional
 - (id)pushToken;
 - (id)pushTokenForPersonID:(id)arg1;
+- (BOOL)policyMaySendDelete;
+- (void)didDetectUnrecoverableCondition;
+- (Class)deletePluginClass;
 @end
 

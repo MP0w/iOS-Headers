@@ -12,8 +12,9 @@
 {
     UITableView *_tableView;
     UIView *_tableContainerView;
-    UIView *_tableMaskView;
     UIView *_tableBackgroundView;
+    UIView *_tableTopFadeOverlay;
+    UIView *_tableBottomFadeOverlay;
     UITableView *_firstAlertTableView;
     UIView *_firstAlertBGView;
     float _firstAlertTableHeight;
@@ -43,7 +44,6 @@
 @property(nonatomic) float firstAlertTableHeight; // @synthesize firstAlertTableHeight=_firstAlertTableHeight;
 - (BOOL)floatingAlertNeedsMainUnlockAction;
 - (void)clearFloatingAlertButtonHandler;
-- (id)_tableMaskView;
 - (id)_tableHeaderView;
 - (id)_tableFooterView;
 @property(nonatomic) id <SBFloatingAlertGrabberDelegate> grabDelegate; // @synthesize grabDelegate=_grabDelegate;

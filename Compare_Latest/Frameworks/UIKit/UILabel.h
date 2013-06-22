@@ -24,6 +24,7 @@
     int _numberOfLines;
     float _lastLineBaseline;
     int _lineSpacing;
+    float _shadowBlur;
     struct {
         unsigned int lineBreakMode:3;
         unsigned int highlighted:1;
@@ -72,6 +73,9 @@
 @property(nonatomic) int numberOfLines;
 @property(nonatomic) int lineBreakMode;
 @property(nonatomic, getter=isHighlighted) BOOL highlighted;
+- (BOOL)_usesCGToDrawShadow;
+- (float)shadowBlur;
+- (void)setShadowBlur:(float)arg1;
 @property(nonatomic) struct CGSize shadowOffset;
 - (void)_setShadowUIOffset:(struct UIOffset)arg1;
 @property(retain, nonatomic) UIColor *shadowColor;

@@ -23,6 +23,7 @@
 - (void)retainPowerAssertion;
 - (void)stop;
 - (void)start;
+- (void)deleteAssetCollections:(id)arg1 forPersonID:(id)arg2;
 - (void)didReceiveNewServerSideConfigurationForPersonID:(id)arg1;
 - (void)refreshServerSideConfigurationForPersonID:(id)arg1;
 - (void)didReceiveServerSideConfigurationVersion:(id)arg1 forPersonID:(id)arg2;
@@ -52,6 +53,7 @@
 - (void)abortAllActivityForPersonID:(id)arg1;
 - (void)retryOutstandingActivities;
 - (id)_boundServerSideConfigManagerForPersonID:(id)arg1;
+- (id)_boundDeleterForPersonID:(id)arg1;
 - (id)_boundSharingManagerForPersonID:(id)arg1;
 - (id)_boundSubscriberForPersonID:(id)arg1;
 - (id)_boundPublisherForPersonID:(id)arg1;

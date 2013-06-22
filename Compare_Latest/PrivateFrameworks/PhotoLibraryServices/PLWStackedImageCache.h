@@ -15,6 +15,7 @@
     NSLock *_lock;
 }
 
++ (void)preheatStackedImageWithKey:(id)arg1;
 + (id)absolutePathToCachedStackedImagesDirectory;
 + (id)absolutePathToCachesDirectory;
 + (id)sharedInstance;
@@ -24,7 +25,7 @@
 - (void)invalidateAll;
 - (void)setInMemoryStackedImage:(id)arg1 forKey:(id)arg2 options:(id)arg3;
 - (void)setStackedImage:(id)arg1 forKey:(id)arg2 options:(id)arg3;
-- (void)prefetchStackedImagesWithKey1:(id)arg1 key2:(id)arg2 key3:(id)arg3 key4:(id)arg4;
+- (void)prefetchStackedImagesWithKeys:(id)arg1;
 - (id)stackedImageWithKey:(id)arg1 options:(id *)arg2;
 - (void)dealloc;
 - (id)init;

@@ -18,6 +18,7 @@
 - (void)endGeneratingGeniusClusterItems;
 - (id)geniusClusterItemsWithCount:(unsigned int)arg1 error:(id *)arg2;
 - (BOOL)beginGeneratingGeniusClusterItemsWithSeedItems:(id)arg1 error:(id *)arg2;
+- (void)populateWithSeedItem:(id)arg1 queue:(struct dispatch_queue_s *)arg2 completionBlock:(id)arg3;
 - (void)populateWithSeedItem:(id)arg1 completionBlock:(id)arg2;
 - (void)moveItemFromIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2 completionBlock:(id)arg3;
 - (void)removeAllItems;

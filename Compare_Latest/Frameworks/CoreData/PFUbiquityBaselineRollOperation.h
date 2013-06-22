@@ -4,34 +4,19 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSOperation.h"
+#import <CoreData/PFUbiquityBaselineOperation.h>
 
-@class NSManagedObjectModel, NSObject<PFUbiquityBaselineRollOperationDelegate>, NSPersistentStore, NSString, PFUbiquityLocation;
+@class NSObject<PFUbiquityBaselineRollOperationDelegate>;
 
-@interface PFUbiquityBaselineRollOperation : NSOperation
+@interface PFUbiquityBaselineRollOperation : PFUbiquityBaselineOperation
 {
-    NSString *_localPeerID;
-    NSString *_storeName;
-    NSString *_modelVersionHash;
-    NSManagedObjectModel *_model;
-    PFUbiquityLocation *_ubiquityRootLocation;
-    NSPersistentStore *_store;
-    NSObject<PFUbiquityBaselineRollOperationDelegate> *_delegate;
 }
 
-- (id)initWithStore:(id)arg1 andLocalPeerID:(id)arg2;
-- (void)dealloc;
-- (id)description;
+@property NSObject<PFUbiquityBaselineRollOperationDelegate> *delegate;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)haveConsistentStateForBaselineRoll;
+- (BOOL)rollBaselineWithError:(id *)arg1;
 - (void)main;
-@property(nonatomic) NSObject<PFUbiquityBaselineRollOperationDelegate> *delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSPersistentStore *store; // @synthesize store=_store;
-@property(readonly, nonatomic) NSString *modelVersionHash; // @synthesize modelVersionHash=_modelVersionHash;
-@property(readonly, nonatomic) NSManagedObjectModel *model; // @synthesize model=_model;
-@property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootLocation; // @synthesize ubiquityRootLocation=_ubiquityRootLocation;
-@property(readonly, nonatomic) NSString *storeName; // @synthesize storeName=_storeName;
-@property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 
 @end
 

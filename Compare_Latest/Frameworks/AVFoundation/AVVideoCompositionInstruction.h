@@ -18,23 +18,23 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, nonatomic) CDStruct_e83c9415 timeRange;
-- (void)setTimeRange:(CDStruct_e83c9415)arg1;
-@property(retain, nonatomic) struct CGColor *backgroundColor;
-@property(readonly, copy, nonatomic) NSArray *layerInstructions;
-- (void)setLayerInstructions:(id)arg1;
-@property(readonly, nonatomic) BOOL enablePostProcessing;
-- (void)setEnablePostProcessing:(BOOL)arg1;
-- (id)dictionaryRepresentation;
-- (void)_setValuesFromDictionary:(id)arg1;
 - (id)description;
+- (void)_setValuesFromDictionary:(id)arg1;
+- (id)dictionaryRepresentation;
+- (void)setEnablePostProcessing:(BOOL)arg1;
+@property(readonly, nonatomic) BOOL enablePostProcessing;
+- (void)setLayerInstructions:(id)arg1;
+@property(readonly, nonatomic) NSArray *layerInstructions;
+@property(retain, nonatomic) struct CGColor *backgroundColor;
+- (void)setTimeRange:(CDStruct_e83c9415)arg1;
+@property(readonly, nonatomic) CDStruct_e83c9415 timeRange;
+- (void)finalize;
+- (void)dealloc;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)init;
 
 @end
 

@@ -6,14 +6,11 @@
 
 #import <CoreDAV/CoreDAVPostOrPutTask.h>
 
-@class NSData;
-
 @interface CoreDAVPostTask : CoreDAVPostOrPutTask
 {
 }
 
 - (void)finishCoreDAVTaskWithError:(id)arg1;
-@property(readonly) NSData *responseBodyPayload;
 - (id)httpMethod;
 - (id)initWithDataPayload:(id)arg1 dataContentType:(id)arg2 atURL:(id)arg3 previousETag:(id)arg4;
 

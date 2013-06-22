@@ -47,6 +47,7 @@
 @property(nonatomic) unsigned int operationRetryCount;
 @property(nonatomic) double operationRetryDelay;
 @property(nonatomic) double operationTimeout;
+@property(readonly, nonatomic, getter=isAccountModificationRestricted) BOOL accountModificationRestricted;
 @property(readonly, nonatomic, getter=isAppInstallationRestricted) BOOL appInstallationRestricted;
 @property(readonly, nonatomic, getter=isAddingFriendsRestricted) BOOL addingFriendsRestricted;
 @property(readonly, nonatomic, getter=isMultiplayerGamingRestricted) BOOL multiplayerGamingRestricted;

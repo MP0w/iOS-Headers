@@ -31,6 +31,7 @@
 - (id)init;
 - (void)dealloc;
 @property(retain, nonatomic) NSArray *transactionHistory; // @synthesize transactionHistory=_transactionHistory;
+- (id)_newNormalizedSnapshot:(id)arg1 forObject:(id)arg2;
 - (BOOL)resolveMergeConflictForLogContent:(id)arg1 previousSnapshot:(id)arg2 andAncestorSnapshot:(id)arg3 withOldVersion:(unsigned int)arg4 andNewVersion:(unsigned int)arg5 error:(id *)arg6;
 - (BOOL)resolveConflict:(id *)arg1;
 - (id)createSnapshotFromManagedObject:(id)arg1;

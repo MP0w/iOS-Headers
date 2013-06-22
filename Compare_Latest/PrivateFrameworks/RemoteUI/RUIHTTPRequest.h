@@ -27,7 +27,7 @@
 - (void)setDelegate:(id)arg1;
 - (void)_startedLoading;
 - (void)_finishedLoading;
-- (BOOL)_loggingEnabled;
+- (BOOL)loggingEnabled;
 - (void)loadRequest:(id)arg1;
 - (void)cancel;
 - (BOOL)isLoading;

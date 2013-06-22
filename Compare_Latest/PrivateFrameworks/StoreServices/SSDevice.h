@@ -12,12 +12,15 @@
 
 @interface SSDevice : NSObject <SSRequestDelegate>
 {
+    int _deviceType;
     struct dispatch_queue_s *_dispatchQueue;
     NSMutableArray *_loadStoreFrontHandlers;
     SSRequest *_loadStoreFrontRequest;
     NSString *_localStoreFrontIdentifier;
     BOOL _localStoreFrontIsTransient;
     id _mediaLibraryIdentifier;
+    NSString *_productType;
+    NSString *_productVersion;
     NSMutableArray *_simpleRequests;
     id _softwareLibraryIdentifier;
     NSString *_synchedStoreFrontIdentifier;
@@ -36,23 +39,33 @@
 - (void)_reloadStoreFrontIdentifier;
 - (void)_reloadAfterStoreFrontChange;
 - (void)_postStoreFrontDidChangeNotification;
+- (BOOL)_is1080pCapable;
+- (BOOL)_is720pCapable;
 - (void)_invalidateSoftwareCUID;
 - (void)_finishRequestWithError:(id)arg1;
+- (int)_deviceType;
+- (id)_copyProductType;
+- (id)_copyGSCapabilityValueForKey:(struct __CFString *)arg1;
 - (void)_cleanupSimpleRequest:(id)arg1;
 - (void)setStoreFrontIdentifierWithInfo:(id)arg1;
 - (void)resetStoreFrontForSignOut;
 - (void)requestDidFinish:(id)arg1;
 - (void)request:(id)arg1 didFailWithError:(id)arg2;
+@property(readonly) NSString *userAgentDeviceIdentifier;
 - (void)unionAutomaticDownloadKinds:(id)arg1 withCompletionBlock:(id)arg2;
 - (void)synchronizeAutomaticDownloadKinds;
 @property(readonly) NSString *synchedStoreFrontIdentifier;
+- (BOOL)supportsDeviceCapability:(int)arg1;
 - (void)setStoreFrontIdentifier:(id)arg1 isTransient:(BOOL)arg2;
 @property(copy) NSString *softwareLibraryIdentifier;
 @property(copy) NSString *mediaLibraryIdentifier;
 - (void)setAutomaticDownloadKinds:(id)arg1 withCompletionBlock:(id)arg2;
 - (void)reloadStoreFrontIdentifier;
+@property(readonly) NSString *productVersion;
+@property(readonly) NSString *productType;
 - (void)minusAutomaticDownloadKinds:(id)arg1 withCompletionBlock:(id)arg2;
 @property(readonly, getter=isStoreFrontIdentifierTransient) BOOL storeFrontIdentifierTransient;
+@property(readonly) int deviceType;
 @property(readonly) NSString *storeFrontIdentifier;
 - (void)showPromptWithIdentifier:(id)arg1 completionHandler:(id)arg2;
 - (void)setStoreFrontWithResponseHeaders:(id)arg1;

@@ -16,17 +16,17 @@
     struct dispatch_queue_s *_listenerObjectsQueue;
 }
 
-+ (void)initialize;
 + (id)notificationDispatcherForCMNotificationCenter:(struct opaqueCMNotificationCenter *)arg1;
-- (id)initWithCMNotificationCenter:(struct opaqueCMNotificationCenter *)arg1;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, nonatomic, getter=_callbackRegistry) AVCallbackRegistry *callbackRegistry;
-@property(readonly, nonatomic) struct opaqueCMNotificationCenter *CMNotificationCenter;
-- (void)addListenerWithWeakReference:(id)arg1 callback:(void *)arg2 name:(struct __CFString *)arg3 object:(const void *)arg4 flags:(unsigned long)arg5;
-- (void)removeListenerWithWeakReference:(id)arg1 callback:(void *)arg2 name:(struct __CFString *)arg3 object:(const void *)arg4;
-- (void)_addListenerAndCallback:(id)arg1 forWeakReferenceToListener:(id)arg2 callback:(void *)arg3 name:(struct __CFString *)arg4 object:(const void *)arg5;
++ (void)initialize;
 - (id)_copyAndRemoveListenerAndCallbackForWeakReferenceToListener:(id)arg1 callback:(void *)arg2 name:(struct __CFString *)arg3 object:(const void *)arg4;
+- (void)_addListenerAndCallback:(id)arg1 forWeakReferenceToListener:(id)arg2 callback:(void *)arg3 name:(struct __CFString *)arg4 object:(const void *)arg5;
+- (void)removeListenerWithWeakReference:(id)arg1 callback:(void *)arg2 name:(struct __CFString *)arg3 object:(const void *)arg4;
+- (void)addListenerWithWeakReference:(id)arg1 callback:(void *)arg2 name:(struct __CFString *)arg3 object:(const void *)arg4 flags:(unsigned long)arg5;
+@property(readonly, nonatomic) struct opaqueCMNotificationCenter *CMNotificationCenter;
+@property(readonly, nonatomic, getter=_callbackRegistry) AVCallbackRegistry *callbackRegistry;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithCMNotificationCenter:(struct opaqueCMNotificationCenter *)arg1;
 
 @end
 

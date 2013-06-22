@@ -28,11 +28,20 @@
     float _edgeInset;
 }
 
++ (void)initialize;
 + (id)backgroundColor;
 + (id)alternateBackgroundColor;
 + (id)lineColor;
 + (id)alternateLineColor;
 + (id)topLineShadowColor;
++ (id)outer2xShadowColor;
++ (id)inner2xShadowColor;
++ (id)outer2xLineColor;
++ (id)inner2xLineColor;
++ (id)outer2xAlternateShadowColor;
++ (id)inner2xAlternateShadowColor;
++ (id)outer2xAlternateLineColor;
++ (id)inner2xAlternateLineColor;
 - (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
 - (void)dealloc;
 - (void)clearContents;

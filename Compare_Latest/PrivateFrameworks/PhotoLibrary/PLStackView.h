@@ -10,7 +10,7 @@
 #import "UITableViewDataSource-Protocol.h"
 #import "UITableViewDelegate-Protocol.h"
 
-@class CADynamicsBehavior, NSArray, NSIndexSet, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSString, PLAutoScroller, PLStackItemViewCell, PLStackedImageView, PLTableView, UIGestureRecognizer, UIImage, UILongPressGestureRecognizer, UIView;
+@class CADynamicsBehavior, NSArray, NSData, NSIndexSet, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSString, PLAutoScroller, PLStackItemViewCell, PLStackedImageView, PLTableView, UIGestureRecognizer, UIImage, UILongPressGestureRecognizer, UIView;
 
 @interface PLStackView : PLExpandableView <UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
 {
@@ -19,7 +19,8 @@
     UIView *_tableFooterView;
     CADynamicsBehavior *_behavior;
     NSMutableArray *_springs;
-    NSMutableArray *_bakedAngles;
+    NSData *_imageOptions;
+    NSArray *_bakedAngles;
     UILongPressGestureRecognizer *_pressRecognizer;
     UIGestureRecognizer *_tapRecognizer;
     PLExpandableView *_forwardingView;
@@ -44,6 +45,7 @@
     float _verticalSpacing;
     unsigned int _numColumns;
     unsigned int _layoutCols;
+    unsigned int _maxRowsOnScreen;
     unsigned int _layoutRows;
     struct CGSize _collapsedImageSize;
     struct CGSize _expandedImageSize;
@@ -88,6 +90,7 @@
         unsigned int dataSourceImplementsTextBadgeStringForImage:1;
         unsigned int dataSourceImplementsLabelForItem:1;
         unsigned int dataSourceImplementsPreheatImagesInRange:1;
+        unsigned int dataSourcePrefersLazyPreheating:1;
         unsigned int dataSourceImplementsEditingOptionsForItemAtIndex:1;
         unsigned int dataSourceImplementsRemoveItemAtIndex:1;
         unsigned int dataSourceImplementsCollapsedIndexesForCount:1;
@@ -127,12 +130,14 @@
 @property(readonly, nonatomic) unsigned int numberOfColumns; // @synthesize numberOfColumns=_numColumns;
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
-- (void)_preheatImageDataForDownwardScroll:(BOOL)arg1;
+- (void)_preheatScrollingDataForRow:(int)arg1;
+- (void)_preheatImageDataForDownwardScroll:(BOOL)arg1 windowSize:(unsigned int)arg2;
 - (id)_jiggleAnimation;
 - (void)_layoutItemCellsFromIndex:(unsigned int)arg1 toIndex:(unsigned int)arg2 inTableCell:(id)arg3 animated:(BOOL)arg4;
 - (void)pulseItemAtIndex:(unsigned int)arg1 fromZero:(BOOL)arg2 completion:(id)arg3;
 - (void)scrollToVisibleWithMotionBlurItemAtIndex:(unsigned int)arg1;
 - (void)scrollToVisibleItemAtIndex:(unsigned int)arg1 animated:(BOOL)arg2;
+@property(readonly, nonatomic) BOOL isScrollingDownward;
 - (id)tableView;
 - (void)_setTableView:(id)arg1;
 @property(nonatomic) BOOL expandingItemImagesLoadSynchronously;
@@ -224,6 +229,7 @@
 - (id)collapsedStackIndexes;
 - (id)stackedItemCells;
 - (id)_stackedImage;
+@property(retain, nonatomic) NSArray *bakedAngles;
 - (id)_createStackedImageWithViews:(id)arg1;
 - (BOOL)_stackedImageShouldBeSquare;
 - (id)stackedImageView;
@@ -247,6 +253,7 @@
 - (unsigned int)_numberOfRowsForNItems:(unsigned int)arg1;
 - (unsigned int)itemCount;
 - (void)_updateItemCount;
+- (void)preheatImageDataAroundCurrentScrollLocation;
 - (void)endUpdates;
 - (void)beginUpdates;
 - (void)removeItemsAtIndexes:(id)arg1 withItemAnimation:(int)arg2;

@@ -32,6 +32,7 @@
 - (void)shuffleItemsWithInitialIndex:(unsigned int)arg1;
 - (void)shuffleAlbumsWithInitialIndex:(unsigned int)arg1;
 - (id)objectAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) NSArray *items;
 - (void)invalidateSourceMediaQueryAndLoadItems;
 - (unsigned int)indexOfObject:(id)arg1;
 - (unsigned int)indexOfItemWithPersistentID:(unsigned long long)arg1;

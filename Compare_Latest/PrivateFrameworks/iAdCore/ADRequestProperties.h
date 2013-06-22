@@ -94,6 +94,7 @@
 @property(retain, nonatomic) NSString *appID; // @synthesize appID=_appID;
 @property(retain, nonatomic) NSString *deviceModel; // @synthesize deviceModel=_deviceModel;
 @property(retain, nonatomic) NSString *deviceID; // @synthesize deviceID=_deviceID;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
@@ -101,9 +102,11 @@
 - (id)iTunesStorefrontAtIndex:(unsigned int)arg1;
 - (unsigned int)iTunesStorefrontsCount;
 - (void)addITunesStorefront:(id)arg1;
+- (void)clearITunesStorefronts;
 - (id)userKeyboardAtIndex:(unsigned int)arg1;
 - (unsigned int)userKeyboardsCount;
 - (void)addUserKeyboard:(id)arg1;
+- (void)clearUserKeyboards;
 @property(readonly, nonatomic) BOOL hasContentRestrictions;
 @property(readonly, nonatomic) BOOL hasCurrentCarrierMCC;
 @property(readonly, nonatomic) BOOL hasCurrentCarrierMNC;

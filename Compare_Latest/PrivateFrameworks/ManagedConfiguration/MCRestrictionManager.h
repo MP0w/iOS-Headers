@@ -89,6 +89,7 @@
 - (BOOL)_setUserSettings:(id)arg1;
 - (id)_effectiveUserSettings;
 - (id)effectiveUserSettings;
+- (void)setBoolValue:(BOOL)arg1 forSetting:(id)arg2;
 - (BOOL)_setEffectiveUserSettings:(id)arg1;
 - (BOOL)_recomputeEffectiveUserSettings;
 - (BOOL)setParametersForSettingsByType:(id)arg1;

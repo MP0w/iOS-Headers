@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSString *context; // @synthesize context=_context;
 @property(nonatomic) unsigned long long timestampEvent; // @synthesize timestampEvent=_timestampEvent;
 @property(nonatomic) BOOL hasTimestampEvent; // @synthesize hasTimestampEvent=_hasTimestampEvent;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

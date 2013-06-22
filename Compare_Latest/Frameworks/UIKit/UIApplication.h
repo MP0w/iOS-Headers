@@ -78,8 +78,6 @@
         unsigned int isHeadsetButtonDown:1;
         unsigned int isFastForwardActive:1;
         unsigned int isRewindActive:1;
-        unsigned int disableViewGroupOpacity:1;
-        unsigned int disableViewEdgeAntialiasing:1;
         unsigned int shakeToEdit:1;
         unsigned int isClassic:1;
         unsigned int zoomInClassicMode:1;
@@ -95,6 +93,7 @@
         unsigned int delegateWantsNextResponder:1;
         unsigned int isRunningInApplicationSwitcher:1;
         unsigned int isSendingEventForProgrammaticTouchCancellation:1;
+        unsigned int calledInitializationDelegates:1;
     } _applicationFlags;
 }
 
@@ -137,8 +136,6 @@
 - (void)_setShouldZoom:(BOOL)arg1;
 - (BOOL)_shouldZoom;
 - (BOOL)_isClassic;
-- (BOOL)_isViewEdgeAntialiasingDisabled;
-- (BOOL)_isViewGroupOpacityDisabled;
 - (id)scheduledLocalNotifications;
 - (void)setScheduledLocalNotifications:(id)arg1;
 - (void)cancelAllLocalNotifications;

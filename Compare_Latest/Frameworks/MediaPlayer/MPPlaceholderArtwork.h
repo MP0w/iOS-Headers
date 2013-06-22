@@ -14,12 +14,13 @@
 + (unsigned int)currentScreenFormatIDFrom1XFormatID:(unsigned int)arg1;
 + (id)noArtPlaceholderImageForMediaType:(int)arg1 withFormat:(unsigned int)arg2;
 + (id)scaleImage:(id)arg1 withFormat:(unsigned int)arg2;
-+ (id)wildcatNoArtPlaceholderImageForMediaType:(int)arg1;
-+ (id)wildcatNoArtPlaceholderVideoImage;
-+ (id)wildcatNoArtPlaceholderAudioBookImage;
-+ (id)wildcatNoArtPlaceholderPodcastImage;
-+ (id)wildcatNoArtPlaceholderMusicImage;
++ (id)padNoArtPlaceholderImageForMediaType:(int)arg1 size:(struct CGSize)arg2;
++ (id)padNoArtPlaceholderVideoImageForSize:(struct CGSize)arg1;
++ (id)padNoArtPlaceholderAudioBookImageForSize:(struct CGSize)arg1;
++ (id)padNoArtPlaceholderPodcastImageForSize:(struct CGSize)arg1;
++ (id)padNoArtPlaceholderMusicImageForSize:(struct CGSize)arg1;
 + (id)noArtPlaceholderImageForMediaType:(int)arg1;
++ (id)noArtPlaceholderImageForMediaType:(int)arg1 size:(struct CGSize)arg2;
 + (id)scaledNoArtPlaceholderVideoImageWithFormat:(unsigned int)arg1;
 + (id)noArtPlaceholderVideoImage;
 + (id)scaledNoArtPlaceholderAudioBookImageWithFormat:(unsigned int)arg1;

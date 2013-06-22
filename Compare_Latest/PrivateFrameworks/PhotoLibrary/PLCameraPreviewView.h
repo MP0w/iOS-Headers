@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class PLCameraFaceDetectionView, PLCameraFocusLockView, PLCameraFocusPointView, PLCameraFocusView;
+@class NSMutableDictionary, PLCameraFocusLockView, PLCameraFocusPointView, PLCameraFocusView;
 
 @interface PLCameraPreviewView : UIView
 {
@@ -14,21 +14,26 @@
     PLCameraFocusPointView *_focusView;
     PLCameraFocusView *_autoFocusView;
     PLCameraFocusLockView *_lockFocusView;
-    PLCameraFaceDetectionView *_faceDetectionView;
+    NSMutableDictionary *_faceIDsToViews;
     UIView *_disabledView;
     UIView *_snapshotView;
+    UIView *_dimmingView;
+    float _dimmingStrength;
     unsigned int _canShowFocus:1;
     unsigned int _controlsAreVisible:1;
 }
 
 + (struct CGAffineTransform)defaultAffineTransform;
-- (void)showFaceRectangleWithRect:(struct CGRect)arg1;
+@property(nonatomic) float dimmingStrength; // @synthesize dimmingStrength=_dimmingStrength;
+- (void)fadeOutFaceTrackingViews;
+- (void)showFaceTrackingViewsForFaces:(id)arg1;
+- (void)setDimmingStrength:(float)arg1 duration:(double)arg2;
 - (void)setControlsAreVisible:(BOOL)arg1;
 - (void)setShouldShowFocus:(BOOL)arg1;
 - (void)focusDidEnd;
+- (void)removeAutofocusView;
 - (void)showAutofocusView;
-- (void)removeFocusView;
-- (void)dealloc;
+- (void)removeAllFocusViews;
 - (void)setCameraIsChangingModes:(BOOL)arg1;
 - (void)motionEnded:(int)arg1 withEvent:(id)arg2;
 - (void)zoomFromFactor:(float)arg1 toFactor:(float)arg2 transform:(struct CGAffineTransform)arg3;
@@ -36,6 +41,7 @@
 - (void)animateFocusLock;
 - (void)showLockFocusAtPoint:(struct CGPoint)arg1;
 - (void)showFocusAtPoint:(struct CGPoint)arg1;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

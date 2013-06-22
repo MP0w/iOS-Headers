@@ -6,7 +6,7 @@
 
 #import "SBAlert.h"
 
-@class NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSTimeZone, NSTimer, PCPersistentTimer, PLCameraPageController, SBAlertItem, SBApplication, SBAwayBulletinListController, SBAwayView, SBShowcaseController, SBUIController, UIImageView, UIView;
+@class NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSTimeZone, NSTimer, PCPersistentTimer, PLCameraPageController, SBAlertItem, SBApplication, SBAwayBulletinListController, SBAwayView, SBShowcaseController, SBUIController, UIImageView, UIView, _UIDynamicValueAnimation;
 
 @interface SBAwayController : SBAlert
 {
@@ -51,18 +51,24 @@
     NSMutableDictionary *_awayViewPluginControllers;
     NSString *_alwaysFullscreenAwayPluginName;
     NSMutableArray *_lockScreenBundlesToDisableAfterUnlock;
+    BOOL _cameraModeActive;
     BOOL _cameraVisible;
     BOOL _animatingCameraIn;
+    _UIDynamicValueAnimation *_dynamicCameraAnimation;
     BOOL _cancelCameraAnimation;
     PLCameraPageController *_cameraViewController;
     UIImageView *_cameraDefaultImageView;
     UIView *_cameraBackgroundView;
     UIView *_cameraContainerView;
+    UIView *_cameraSlidingSnapshotView;
+    UIView *_cameraSlidingContainerView;
     BOOL _dimTimerDisabledForCamera;
     BOOL _exitingCameraToPasscodeUI;
     NSDate *_lastCameraSessionID;
     BOOL _exitedCameraForAlert;
     BOOL _restartCameraAfterCall;
+    BOOL _disableGracePeriodForCamera;
+    struct dispatch_queue_s *_prewarmQueue;
     int _gracePeriodWhenLocked;
     NSString *_currentTestName;
 }
@@ -81,17 +87,33 @@
 - (id)awayView;
 - (id)alertDisplayViewWithSize:(struct CGSize)arg1;
 - (void)alertDisplayWillBecomeVisible;
+- (void)_prewarmCamera;
+- (void)_cancelCameraPrewarm;
+- (void)_setupCameraSlideUpAnimation;
+- (void)_cleanupFromCameraPanGesture;
+- (void)_cleanupFromCanceledCameraDismissGesture;
+- (void)_setupCameraSlideDownAnimation;
+- (void)_translateSlidingViewByY:(float)arg1;
+- (id)_dynamicAnimationForCameraStart:(BOOL)arg1 targetValue:(double)arg2 withInitialVelocity:(double)arg3;
+- (void)_handleCameraPanGestureEndedWithVelocity:(float)arg1;
+- (void)handleCameraPanGesture:(id)arg1;
+- (void)handleCameraTapGesture:(id)arg1;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (void)_createCameraViewControllerWithNewSessionID:(BOOL)arg1;
 - (void)_createCameraViewControllerWithNewSessionID;
 - (void)_createCameraViewControllerWithOldSessionID;
-- (void)activateCameraWithNewSessionID:(BOOL)arg1 afterCall:(BOOL)arg2;
+- (void)activateCameraWithNewSessionID:(BOOL)arg1 afterCall:(BOOL)arg2 duringPan:(BOOL)arg3;
 - (void)activateCamera;
 - (void)_activateCameraAfterCall;
+- (void)_tearDownCameraPreview;
+- (BOOL)allowDismissCameraSystemGesture;
+- (void)handleDismissCameraSystemGesture:(id)arg1;
 - (void)dismissCameraAnimated:(BOOL)arg1;
 - (void)_setCameraAsWindowDelegate;
 - (void)_restoreWindowOrientationAndDelegate;
 - (void)tearDownCameraUIImmediately;
 - (BOOL)cameraIsActive;
+- (BOOL)cameraIsVisible;
 - (BOOL)cameraIsInPreviewMode;
 - (void)takePicture;
 - (id)cameraBackgroundViewIfOnscreen;
@@ -107,6 +129,7 @@
 - (void)simulateDeactivateAssistant;
 - (void)_blockingViewHit:(id)arg1;
 - (void)_releaseAwayView;
+- (void)reactivatePendingAlertItemsWithBulletinController:(id)arg1;
 - (void)reactivatePendingAlertItems;
 - (void)playLockSound;
 - (void)_sendLockStateChangedNotification;
@@ -174,7 +197,8 @@
 - (void)cancelReturnToCameraAfterCall;
 - (BOOL)shouldReturnToCameraAfterCall;
 - (void)prepareToReturnFromCall;
-- (void)unlockFromPhoneCallIfNeeded;
+- (void)cleanupFromPhoneCallIfNeeded;
+- (id)activeOrPendingBulletinController;
 - (BOOL)awayBulletinControllerIsActive;
 - (id)restoreFromSavedBulletinController;
 - (double)_undimInterval;
@@ -225,6 +249,7 @@
 - (BOOL)wantsToHandleAlert:(id)arg1;
 - (void)deactivateAlertItem:(id)arg1;
 - (void)updateInCallUI;
+- (BOOL)shouldShowInCallUI;
 - (void)_batteryStatusChanged;
 - (BOOL)isShowingMediaControls;
 - (void)hideMediaControls;

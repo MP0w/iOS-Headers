@@ -48,6 +48,7 @@
 - (struct CGRect)closestCaretRectForPoint:(struct CGPoint)arg1 inSelection:(BOOL)arg2;
 - (id)selectedText;
 - (id)wordContainingCaretSelection;
+- (struct CGRect)caretRectAtBeginOfDocument;
 - (struct CGRect)caretRectAtEndOfDocument;
 - (struct CGRect)caretRect;
 - (id)selectionRects;

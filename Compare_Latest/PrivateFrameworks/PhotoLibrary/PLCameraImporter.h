@@ -21,6 +21,7 @@
     PLCameraImportQueue *_importQueue;
     PLCameraImportQueue *_deleteQueue;
     NSMutableArray *_orphanItems;
+    NSMutableArray *_coalescedDeletedItems;
     BOOL _importInProgress;
     NSMutableDictionary *_parentFolderMapping;
     BOOL _autosplitEvents;
@@ -40,6 +41,7 @@
 - (void)cameraDevice:(id)arg1 didReceiveMetadata:(id)arg2 forItem:(id)arg3 error:(id)arg4;
 - (void)cameraDevice:(id)arg1 didReceiveThumbnail:(struct CGImage *)arg2 forItem:(id)arg3 error:(id)arg4;
 - (void)cameraDevice:(id)arg1 didRemoveItems:(id)arg2;
+- (void)_coalescedRemoveImportItems;
 - (void)cameraDevice:(id)arg1 didAddItems:(id)arg2;
 - (void)device:(id)arg1 didEncounterError:(id)arg2;
 - (void)device:(id)arg1 didCloseSessionWithError:(id)arg2;
@@ -76,7 +78,6 @@
 - (void)readImportItems;
 - (id)importItemForCameraFile:(id)arg1;
 - (void)removeImportItemsForCameraFiles:(id)arg1;
-- (void)_removeImportItemForCameraFile:(id)arg1;
 - (void)addImportItemsFromCameraFiles:(id)arg1;
 - (void)_addImportItemFromCameraFile:(id)arg1;
 - (id)allImportItems;

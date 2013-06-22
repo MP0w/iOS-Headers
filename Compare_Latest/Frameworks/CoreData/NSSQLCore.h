@@ -32,7 +32,7 @@
     NSMutableSet *_missingObjectGIDs;
     NSMutableDictionary *_storeMetadata;
     NSMutableArray *_externalDataReferencesToSave;
-    NSMutableArray *_externalDataReferencesToDelete;
+    NSMutableSet *_externalDataReferencesToDelete;
     NSString *_externalDataReferencesDirectory;
     NSString *_externalDataLinksDirectory;
     int _transactionInMemorySequence;
@@ -58,6 +58,7 @@
 + (BOOL)SQLGenerationV1Default;
 + (void)initialize;
 + (Class)migrationManagerClass;
++ (id)_figureOutWhereExternalReferencesEndedUpRelativeTo:(id)arg1;
 + (BOOL)sanityCheckFileAtURL:(id)arg1 error:(id *)arg2;
 + (id)metadataForPersistentStoreWithURL:(id)arg1 error:(id *)arg2;
 + (BOOL)setMetadata:(id)arg1 forPersistentStoreWithURL:(id)arg2 error:(id *)arg3;

@@ -7,8 +7,8 @@
 #import <AVFoundation/AVAudioBuffer.h>
 
 @interface AVAudioBuffer (AVAudioBufferPriv)
-- (void)finalize;
-- (void)dealloc;
 - (id)initWithAudioQueueBuffer:(struct MyAudioQueueBuffer *)arg1 channels:(int)arg2;
+- (void)dealloc;
+- (void)finalize;
 @end
 

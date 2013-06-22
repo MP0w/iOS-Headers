@@ -18,6 +18,14 @@
     int _emptyState;
 }
 
++ (BOOL)contextShouldIgnoreChangesForFetchRequest;
++ (BOOL)contextShouldIgnoreChangesForFetchedAssetsSet;
++ (BOOL)contextShouldIgnoreChangesForFetchedAssets;
+@property(readonly, nonatomic) BOOL hasAssetsCache;
+- (void)updateSnapshotAndClearCaches:(id)arg1;
+- (void)setKeyAsset:(id)arg1;
+- (id)keyAsset;
+- (void)batchFetchAssets:(id)arg1;
 - (BOOL)canPerformEditOperation:(int)arg1;
 - (unsigned int)countForAssetsOfKind:(int)arg1;
 - (unsigned int)_fetchedCountForAssetsOfKind:(int)arg1;

@@ -12,8 +12,10 @@
 - (id)iconListViewAtIndex:(unsigned int)arg1 inFolder:(id)arg2 createIfNecessary:(BOOL)arg3;
 - (void)setOpenFolder:(id)arg1;
 - (BOOL)hasOpenFolder;
+- (void)_noteFolderAnimationStateDidChange;
 - (void)_setHasAnimatingFolder:(BOOL)arg1;
 - (void)_setFolderToOpenAfterScrolling:(id)arg1;
+- (void)_setAnimatingFolderCreation:(BOOL)arg1;
 - (BOOL)hasAnimatingFolder;
 - (void)setFolderToReopenWhenSwitcherCloses:(id)arg1;
 - (void)saveFolderToReopenWhenSwitcherCloses;

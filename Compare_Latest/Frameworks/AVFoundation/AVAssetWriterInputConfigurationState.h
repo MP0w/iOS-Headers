@@ -21,7 +21,6 @@
     BOOL _expectsMediaDataInRealTime;
 }
 
-- (void)dealloc;
 @property(nonatomic) BOOL expectsMediaDataInRealTime; // @synthesize expectsMediaDataInRealTime=_expectsMediaDataInRealTime;
 @property(nonatomic) int mediaTimeScale; // @synthesize mediaTimeScale=_mediaTimeScale;
 @property(nonatomic) struct CGAffineTransform transform; // @synthesize transform=_transform;
@@ -31,6 +30,7 @@
 @property(retain, nonatomic) struct opaqueCMFormatDescription *sampleBufferFormatHint; // @synthesize sampleBufferFormatHint=_sampleBufferFormatHint;
 @property(copy, nonatomic) AVOutputSettings *outputSettings; // @synthesize outputSettings=_outputSettings;
 @property(copy, nonatomic) NSString *mediaType; // @synthesize mediaType=_mediaType;
+- (void)dealloc;
 
 @end
 

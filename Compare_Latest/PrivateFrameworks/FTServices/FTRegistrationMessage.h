@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSArray, NSData, NSString;
+@class NSArray, NSData, NSNumber, NSString;
 
 @interface FTRegistrationMessage : FTIDSMessage <NSCopying>
 {
@@ -19,8 +19,10 @@
     NSArray *_capabilities;
     NSString *_softwareVersion;
     NSString *_protocolVersion;
+    NSNumber *_responseNextHBI;
 }
 
+@property(copy) NSNumber *responseNextHBI; // @synthesize responseNextHBI=_responseNextHBI;
 @property(copy) NSString *protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(copy) NSString *softwareVersion; // @synthesize softwareVersion=_softwareVersion;
 @property(copy) NSArray *capabilities; // @synthesize capabilities=_capabilities;

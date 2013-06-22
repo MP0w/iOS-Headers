@@ -16,6 +16,7 @@
 
 + (void)clearCachedWallpaper;
 + (id)cachedWallpaperDataForVariant:(int)arg1;
++ (void)preheatWallpaperDataForVariant:(int)arg1;
 - (id)initWithVariant:(int)arg1;
 - (void)dealloc;
 - (BOOL)isEqual:(id)arg1;

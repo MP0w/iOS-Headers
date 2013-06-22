@@ -32,6 +32,7 @@
     BOOL _sentPhoto;
     double _playStartTime;
     unsigned int _features;
+    struct dispatch_queue_s *_resolveQueue;
 }
 
 + (void)endNetworkAssertion;

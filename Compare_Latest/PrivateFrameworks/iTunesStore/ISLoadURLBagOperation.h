@@ -16,7 +16,11 @@
 }
 
 @property(readonly) SSURLBagContext *context; // @synthesize context=_context;
+- (void)_writeURLBagToDiskCache:(id)arg1;
 - (void)_loadURLBagFromURL:(id)arg1;
+- (id)_diskCachePath;
+- (struct __CFString *)_diskCacheExpirationTimeKey;
+- (id)_copyURLBagFromDiskCache;
 - (id)_copySandboxBootstrapURLs;
 - (id)_copyProductionBootstrapURLs;
 - (id)_copyBootstrapURLs;

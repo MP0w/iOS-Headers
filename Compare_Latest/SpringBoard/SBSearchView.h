@@ -19,6 +19,7 @@
     UIView *_contentView;
     BOOL _isKeyboardAnimatingRotation;
     BOOL _hidesEmptyTableFooter;
+    BOOL _translatedKbForScatter;
 }
 
 - (id)initWithFrame:(struct CGRect)arg1;
@@ -43,6 +44,8 @@
 - (void)setShowingNoResultsText:(BOOL)arg1;
 - (void)_setDistantContentViewTransform;
 - (void)_resetContentViewTransform;
+- (void)_resetKeyboardTransformForScatter;
+- (void)cleanupKeyboardForScatterIfNecessary;
 - (void)scatter:(BOOL)arg1 startTime:(double)arg2;
 - (void)unscatter:(BOOL)arg1 startTime:(double)arg2;
 - (void)unscatterAnimationDidStop;

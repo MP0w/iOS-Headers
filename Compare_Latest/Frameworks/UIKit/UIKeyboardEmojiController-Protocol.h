@@ -6,7 +6,7 @@
 
 @protocol UIKeyboardEmojiController
 - (void)setKeyboardDefault;
-- (id)emojiForPrivateCodePoint:(id)arg1;
+- (id)emojiWithString:(id)arg1;
 - (id)recents;
 - (void)emojiSelected:(id)arg1;
 @end

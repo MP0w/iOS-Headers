@@ -23,6 +23,7 @@
 - (id)initWithKnowledgeVectorString:(id)arg1;
 - (id)initWithKnowledgeVectorDictionary:(id)arg1;
 - (id)initWithStoreKnowledgeVectorDictionary:(id)arg1;
+- (id)initWithPeerStatesFromStoreMetadata:(id)arg1;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
@@ -33,7 +34,9 @@
 @property(readonly, nonatomic) unsigned int length;
 - (void)_updateSum;
 - (void)_updateHash;
+- (BOOL)isDescendantOfKnowledgeVector:(id)arg1;
 - (BOOL)isAncestorOfKnowledgeVector:(id)arg1;
+- (BOOL)isZeroVector;
 - (id)createKnowledgeVectorString;
 - (id)transactionNumberForPeerID:(id)arg1;
 - (id)allPeerIDs;

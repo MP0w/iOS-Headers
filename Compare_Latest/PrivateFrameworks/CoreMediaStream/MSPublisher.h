@@ -19,6 +19,7 @@
     int _state;
     MSObjectQueue *_uploadQueue;
     NSMutableArray *_requestAuthQueue;
+    unsigned int _sendingQueueCount;
     NSMutableArray *_sendingQueue;
     NSMutableDictionary *_fileHashToAssetMap;
     MSPublishStreamsProtocol *_protocol;

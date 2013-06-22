@@ -14,25 +14,25 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (void)dealloc;
-- (BOOL)isTheOnlyDataOutput;
-- (void)setSession:(id)arg1;
-- (void)setSampleBufferDelegate:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
-@property(readonly, nonatomic) id <AVCaptureVideoDataOutputSampleBufferDelegate> sampleBufferDelegate;
-@property(readonly, nonatomic) struct dispatch_queue_s *sampleBufferCallbackQueue;
-@property(readonly, nonatomic) NSArray *availableVideoCVPixelFormatTypes;
-@property(readonly, nonatomic) NSArray *availableVideoCodecTypes;
-@property(copy, nonatomic) NSDictionary *videoSettings;
-@property(nonatomic) CDStruct_1b6d18a9 minFrameDuration;
-@property(nonatomic) BOOL alwaysDiscardsLateVideoFrames;
-- (id)connectionMediaTypes;
-- (id)addConnection:(id)arg1 error:(id *)arg2;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
-- (void)handleEnabledChangedForConnection:(id)arg1;
-- (void)didStopForSession:(id)arg1 error:(id)arg2;
-- (void)didStartForSession:(id)arg1;
 - (void)_AVCaptureVideoDataOutput_VideoDataBecameReady;
+- (void)didStartForSession:(id)arg1;
+- (void)didStopForSession:(id)arg1 error:(id)arg2;
+- (void)handleEnabledChangedForConnection:(id)arg1;
+- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (id)addConnection:(id)arg1 error:(id *)arg2;
+- (id)connectionMediaTypes;
+@property(nonatomic) BOOL alwaysDiscardsLateVideoFrames;
+@property(nonatomic) CDStruct_1b6d18a9 minFrameDuration;
+@property(copy, nonatomic) NSDictionary *videoSettings;
+@property(readonly, nonatomic) NSArray *availableVideoCodecTypes;
+@property(readonly, nonatomic) NSArray *availableVideoCVPixelFormatTypes;
+@property(readonly, nonatomic) struct dispatch_queue_s *sampleBufferCallbackQueue;
+@property(readonly, nonatomic) id <AVCaptureVideoDataOutputSampleBufferDelegate> sampleBufferDelegate;
+- (void)setSampleBufferDelegate:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
+- (void)setSession:(id)arg1;
+- (BOOL)isTheOnlyDataOutput;
+- (void)dealloc;
+- (id)init;
 
 @end
 

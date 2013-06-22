@@ -39,8 +39,6 @@
 - (BOOL)endCustomizingAnimated:(BOOL)arg1;
 - (void)beginCustomizingItems:(id)arg1;
 - (void)layoutSubviews;
-- (void)setBounds:(struct CGRect)arg1;
-- (void)setFrame:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setItems:(id)arg1 animated:(BOOL)arg2;
 - (void)_finishSetItems:(id)arg1 finished:(id)arg2 context:(void *)arg3;

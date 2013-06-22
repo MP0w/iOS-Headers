@@ -12,7 +12,14 @@
 {
 }
 
++ (id)entityInManagedObjectContext:(id)arg1;
++ (id)entityName;
 + (id)insertIntoPhotoLibrary:(id)arg1 withImageURL:(id)arg2 thumbnailURL:(id)arg3;
+- (void)setURL:(id)arg1 forKey:(id)arg2;
+- (id)urlForKey:(id)arg1;
+- (id)_thumbnailImage;
+- (id)_image;
+- (id)objectID;
 - (id)newFullScreenImage:(const struct __CFDictionary **)arg1;
 - (id)wallpaperFullScreenImage;
 - (void)prepareForDeletion;

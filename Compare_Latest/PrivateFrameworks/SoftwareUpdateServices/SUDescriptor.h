@@ -24,9 +24,12 @@
     unsigned long long _installationSize;
     int _updateType;
     BOOL _autoDownloadAllowableForCellular;
+    BOOL _downloadAllowableForCellular;
     BOOL _downloadable;
+    BOOL _downloadableOverCellular;
 }
 
+@property(nonatomic, getter=isDownloadableOverCellular) BOOL downloadableOverCellular; // @synthesize downloadableOverCellular=_downloadableOverCellular;
 @property(nonatomic, getter=isDownloadable) BOOL downloadable; // @synthesize downloadable=_downloadable;
 @property(nonatomic) BOOL autoDownloadAllowableForCellular; // @synthesize autoDownloadAllowableForCellular=_autoDownloadAllowableForCellular;
 @property(retain, nonatomic) SUDocumentation *documentation; // @synthesize documentation=_documentation;

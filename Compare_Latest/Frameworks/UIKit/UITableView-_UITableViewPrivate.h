@@ -97,8 +97,6 @@
 - (void)_removeTableViewGestureRecognizers;
 - (void)_installTableViewGestureRecognizers;
 - (id)_swipeGestureRecognizer;
-- (void)_scroll;
-- (void)_performScrollTest:(id)arg1 iterations:(int)arg2 delta:(int)arg3 length:(int)arg4;
-- (void)_performScrollTest:(id)arg1 iterations:(int)arg2 delta:(int)arg3;
+- (id)_scrollTestExtraResults;
 @end
 

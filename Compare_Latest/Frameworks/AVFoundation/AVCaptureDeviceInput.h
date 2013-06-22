@@ -14,21 +14,21 @@
 }
 
 + (id)deviceInputWithDevice:(id)arg1 error:(id *)arg2;
-- (id)initWithDevice:(id)arg1 error:(id *)arg2;
-- (id)init;
-- (void)dealloc;
-- (id)description;
-@property(readonly, nonatomic) AVCaptureDevice *device;
-- (void)setDevice:(id)arg1;
-- (void)_setDevice:(id)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (id)notReadyError;
-- (id)ports;
-- (void)setSession:(id)arg1;
-- (void)willStartForSession:(id)arg1;
-- (void)didStartForSession:(id)arg1;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
+- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (void)didStartForSession:(id)arg1;
+- (void)willStartForSession:(id)arg1;
+- (void)setSession:(id)arg1;
+- (id)ports;
+- (id)notReadyError;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_setDevice:(id)arg1;
+- (void)setDevice:(id)arg1;
+@property(readonly, nonatomic) AVCaptureDevice *device;
+- (id)description;
+- (void)dealloc;
+- (id)init;
+- (id)initWithDevice:(id)arg1 error:(id *)arg2;
 
 @end
 

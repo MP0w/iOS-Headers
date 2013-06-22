@@ -9,14 +9,14 @@
 @class NSDate;
 
 @interface AVPlayerItem (AVPlayerItemProtectedContentPrivate)
-+ (id)_initializeProtectedContentPlaybackSupportSessionAsynchronouslyForProvider:(id)arg1 withOptions:(id)arg2;
 + (void)_uninitializeProtectedContentPlaybackSupportSession:(id)arg1;
-@property(nonatomic, getter=_isExternalProtectionRequiredForPlayback, setter=_setExternalProtectionRequiredForPlayback:) BOOL _externalProtectionRequiredForPlayback;
-@property(readonly, nonatomic, getter=_isRental) BOOL _rental;
-@property(readonly, nonatomic) NSDate *_rentalStartDate;
-@property(readonly, nonatomic) NSDate *_rentalExpirationDate;
-@property(readonly, nonatomic, getter=_isRentalPlaybackStarted) BOOL _rentalPlaybackStarted;
-@property(readonly, nonatomic) NSDate *_rentalPlaybackStartedDate;
++ (id)_initializeProtectedContentPlaybackSupportSessionAsynchronouslyForProvider:(id)arg1 withOptions:(id)arg2;
 @property(readonly, nonatomic) NSDate *_rentalPlaybackExpirationDate;
+@property(readonly, nonatomic) NSDate *_rentalPlaybackStartedDate;
+@property(readonly, nonatomic, getter=_isRentalPlaybackStarted) BOOL _rentalPlaybackStarted;
+@property(readonly, nonatomic) NSDate *_rentalExpirationDate;
+@property(readonly, nonatomic) NSDate *_rentalStartDate;
+@property(readonly, nonatomic, getter=_isRental) BOOL _rental;
+@property(nonatomic, getter=_isExternalProtectionRequiredForPlayback, setter=_setExternalProtectionRequiredForPlayback:) BOOL _externalProtectionRequiredForPlayback;
 @end
 

@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreDAV/CoreDAVTask.h>
+#import <CoreDAV/CoreDAVActionBackedTask.h>
 
 @class NSData, NSString, NSURL;
 
-@interface CoreDAVPostOrPutTask : CoreDAVTask
+@interface CoreDAVPostOrPutTask : CoreDAVActionBackedTask
 {
     BOOL _forceToServer;
     NSString *_previousETag;
@@ -25,7 +25,6 @@
 @property(retain) NSString *requestDataContentType; // @synthesize requestDataContentType=_requestDataContentType;
 @property(retain) NSString *previousETag; // @synthesize previousETag=_previousETag;
 @property BOOL forceToServer; // @synthesize forceToServer=_forceToServer;
-- (id)copyDefaultParserForContentType:(id)arg1;
 - (id)requestBody;
 - (id)additionalHeaderValues;
 - (id)description;

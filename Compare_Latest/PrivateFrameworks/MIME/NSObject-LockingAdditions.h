@@ -9,6 +9,7 @@
 @interface NSObject (LockingAdditions)
 + (void)mf_clearLocks;
 - (id)_mf_lockOrderingForType:(int)arg1;
+- (void)_mf_dumpLockCallStacks:(unsigned int)arg1 ordering:(id)arg2;
 - (void)_mf_checkToAllowOrderingWithLock:(id)arg1;
 - (void)_mf_checkToAllowStrictProgressionWithLock:(id)arg1;
 - (void)_mf_checkToAllowExclusiveLocksWithLock:(id)arg1;

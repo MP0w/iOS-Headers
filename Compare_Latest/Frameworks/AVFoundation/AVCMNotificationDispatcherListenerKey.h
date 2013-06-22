@@ -15,15 +15,15 @@
     AVWeakReference *_weakReferenceToListener;
     void *_callback;
     NSString *_name;
-    void *_object;
+    const void *_object;
 }
 
 + (id)listenerKeyWithWeakReferenceToListener:(id)arg1 callback:(void *)arg2 name:(id)arg3 object:(const void *)arg4;
-- (id)initWithWeakReferenceToListener:(id)arg1 callback:(void *)arg2 name:(id)arg3 object:(const void *)arg4;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithWeakReferenceToListener:(id)arg1 callback:(void *)arg2 name:(id)arg3 object:(const void *)arg4;
 
 @end
 

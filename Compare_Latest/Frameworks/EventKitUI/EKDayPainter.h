@@ -36,10 +36,14 @@
 - (id)outOfMonthTextColor;
 - (id)outOfMonthBackgroundColor;
 - (id)dayNumberFont;
+- (struct CGPoint)todayBackgroundInset;
 - (float)heatmapFillInset;
 - (float)digitHeight;
 - (float)twoDigitWidth;
 - (float)oneDigitWidth;
+- (void)drawNumberIntoContext:(struct CGContext *)arg1 atZero:(BOOL)arg2;
+- (void)getDayWidth:(float *)arg1 height:(float *)arg2 x:(float *)arg3 y:(float *)arg4;
+- (void)drawBackground:(struct CGContext *)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)drawInspectedHighlight;
 - (id)initWithDate:(CDStruct_b0fa4487)arg1 inMonth:(CDStruct_b0fa4487)arg2;

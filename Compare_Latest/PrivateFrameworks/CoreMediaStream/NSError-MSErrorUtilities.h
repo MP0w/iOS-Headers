@@ -20,7 +20,7 @@
 - (BOOL)MSNeedsBackoff;
 - (BOOL)MSCanBeIgnored;
 - (BOOL)MSIsTemporaryNetworkError;
-- (id)MSFindErrorWithDomain:(id)arg1;
+- (void)_MSApplyBlock:(id)arg1;
 - (id)MSFindPrimaryError;
 - (id)MSMakePrimaryError;
 - (id)MSVerboseDescription;

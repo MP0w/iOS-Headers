@@ -6,17 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSManagedObjectContext, NSMutableDictionary, NSPersistentStoreCoordinator, NSString, NSURL, PFUbiquityLocation;
+@class NSManagedObjectContext, NSMutableDictionary, NSPersistentStore, NSPersistentStoreCoordinator, NSString, PFUbiquityLocation;
 
 @interface _PFUbiquityStack : NSObject
 {
     NSManagedObjectContext *_metadataMOC;
     NSPersistentStoreCoordinator *_metadataPSC;
+    NSPersistentStore *_metadataStore;
     NSMutableDictionary *_peerRangeCache;
     NSMutableDictionary *_objectHistoryCache;
     NSString *_localPeerID;
     PFUbiquityLocation *_ubiquityRootURL;
-    NSURL *_metadataContainerURL;
+    PFUbiquityLocation *_metadataStoreFileLocation;
 }
 
 + (void)initialize;
@@ -26,14 +27,16 @@
 + (id)defaultUbiquityLocationForPeerID:(id)arg1 andBundleIdentifier:(id)arg2 createIfMissing:(BOOL)arg3;
 + (id)defaultUbiquityLocationForBundleIdentifier:(id)arg1 createIfMissing:(BOOL)arg2;
 + (id)defaultUbiquityRootLocation;
-+ (BOOL)doBasicSanityCheckWithError:(id *)arg1 forUbiquityRootURL:(id)arg2;
 + (BOOL)shouldRecoverStackMetadataForStore:(id)arg1 withLocalPeerID:(id)arg2;
-+ (BOOL)recoverMetadataForStore:(id)arg1 withLocalPeerID:(id)arg2 withError:(id *)arg3;
 - (id)init;
 - (id)initWithLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
+- (BOOL)initializeMetadataStoreWithError:(id *)arg1;
 - (void)dealloc;
 - (id)description;
+- (BOOL)purgeAndInitializeMetadataStoreFileWithError:(id *)arg1;
+- (BOOL)purgeMetadataForStoreMetadata:(id)arg1 withError:(id *)arg2;
 - (void)cachePeerRanges;
+- (id)createLocalIDURIForLocalPeerGlobalID:(id)arg1 withPeerRangeCache:(id)arg2 andStoreMetadata:(id)arg3 importContext:(id)arg4;
 - (id)createMapOfGlobalObjectIDsToLocalIDURIs:(id)arg1 forStoreSaveSnapshot:(id)arg2 withPersistentStoreCoordinator:(id)arg3 andImportContext:(id)arg4;
 - (void)createNewPeerRangesForFakeManagedObjects:(id)arg1 withPeerEntityNameRangeStartSetDictionary:(id)arg2 andStoreNameToFetchedMetadata:(id)arg3;
 - (unsigned int)localPrimaryKeyForPeerID:(id)arg1 inStoreNamed:(id)arg2 andPrimaryKey:(unsigned int)arg3 forEntityNamed:(id)arg4;
@@ -48,7 +51,7 @@
 - (BOOL)shouldProcessTransactionLogAtLocation:(id)arg1 error:(id *)arg2;
 - (void)cacheTransactionHistoryWithPeerState:(id)arg1 andTransactionDate:(id)arg2 forStoreName:(id)arg3 andImportingPeerID:(id)arg4;
 - (id)cachedTransactionEntryHistoryForLocalIDString:(id)arg1;
-@property(readonly, nonatomic) NSURL *metadataContainerURL; // @synthesize metadataContainerURL=_metadataContainerURL;
+@property(readonly, nonatomic) PFUbiquityLocation *metadataStoreFileLocation; // @synthesize metadataStoreFileLocation=_metadataStoreFileLocation;
 @property(readonly, nonatomic) PFUbiquityLocation *ubiquityRootURL; // @synthesize ubiquityRootURL=_ubiquityRootURL;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) NSPersistentStoreCoordinator *metadataPSC; // @synthesize metadataPSC=_metadataPSC;

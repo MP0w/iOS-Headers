@@ -20,6 +20,7 @@
     struct __CFReadStream *_readStream;
     BOOL authenticationRequired;
     unsigned int basePlaylistContainerID;
+    NSString *buildIdentifier;
     NSDictionary *cookies;
     unsigned int databaseID;
     unsigned int databaseRevision;
@@ -42,6 +43,7 @@
 @property(copy) NSDictionary *cookies; // @synthesize cookies;
 @property(readonly) int connectionType; // @synthesize connectionType=_connectionType;
 @property int connectionState; // @synthesize connectionState=_connectionState;
+@property(copy) NSString *buildIdentifier; // @synthesize buildIdentifier;
 @property unsigned int basePlaylistContainerID; // @synthesize basePlaylistContainerID;
 @property(getter=isAuthenticationRequired) BOOL authenticationRequired; // @synthesize authenticationRequired;
 @property(retain) SSAccount *account; // @synthesize account=_account;

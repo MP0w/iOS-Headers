@@ -6,6 +6,8 @@
 
 #import <UIKit/UITabBar.h>
 
+@class UIView;
+
 @interface UITabBar (PrivateCustomizationSPI)
 - (void)_setLabelShadowOffset:(struct CGSize)arg1;
 - (void)_setLabelShadowColor:(id)arg1;
@@ -14,5 +16,6 @@
 - (void)_setSelectionIndicatorImage:(id)arg1;
 - (void)_setBackgroundImage:(id)arg1;
 - (id)_appearanceStorage;
+@property(retain, nonatomic, setter=_setBackgroundView:) UIView *_backgroundView;
 @end
 

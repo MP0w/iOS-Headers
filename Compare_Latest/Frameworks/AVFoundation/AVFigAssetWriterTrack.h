@@ -21,27 +21,27 @@
 }
 
 + (id)assetWriterTrackWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 outputSettings:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
-- (id)init;
-- (id)initWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 outputSettings:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, nonatomic) struct __CVPixelBufferPool *pixelBufferPool;
-- (void)_figAssetWriterDidDropBelowLowWaterLevelForTrackID:(int)arg1;
-- (void)_refreshAboveHighWaterLevel;
-@property(readonly, getter=isAboveHighWaterLevel) BOOL aboveHighWaterLevel;
-- (BOOL)addSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 error:(id *)arg2;
-- (BOOL)addPixelBuffer:(struct __CVBuffer *)arg1 atPresentationTime:(CDStruct_1b6d18a9)arg2 error:(id *)arg3;
-- (void)prepareToEndSession;
-- (BOOL)markEndOfDataReturningError:(id *)arg1;
-- (void)setFigMetadata:(id)arg1;
-- (void)setFigTrackMatrix:(id)arg1;
-- (void)setMediaTimeScale:(int)arg1;
-- (int)_attachToFigAssetWriterUsingOutputSettings:(id)arg1 sourcePixelBufferAttributes:(id)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) AVMediaFileType *mediaFileType; // @synthesize mediaFileType=_mediaFileType;
 @property(readonly, nonatomic) NSString *mediaType; // @synthesize mediaType=_mediaType;
 @property(readonly, nonatomic) int trackID; // @synthesize trackID=_trackID;
 @property(readonly, nonatomic) struct OpaqueFigAssetWriter *figAssetWriter; // @synthesize figAssetWriter=_figAssetWriter;
 @property(nonatomic) CDStruct_1b6d18a9 sampleBufferCoalescingInterval; // @synthesize sampleBufferCoalescingInterval=_sampleBufferCoalescingInterval;
+- (int)_attachToFigAssetWriterUsingOutputSettings:(id)arg1 sourcePixelBufferAttributes:(id)arg2 error:(id *)arg3;
+- (void)setMediaTimeScale:(int)arg1;
+- (void)setFigTrackMatrix:(id)arg1;
+- (void)setFigMetadata:(id)arg1;
+- (BOOL)markEndOfDataReturningError:(id *)arg1;
+- (void)prepareToEndSession;
+- (BOOL)addPixelBuffer:(struct __CVBuffer *)arg1 atPresentationTime:(CDStruct_1b6d18a9)arg2 error:(id *)arg3;
+- (BOOL)addSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 error:(id *)arg2;
+@property(readonly, getter=isAboveHighWaterLevel) BOOL aboveHighWaterLevel;
+- (void)_refreshAboveHighWaterLevel;
+- (void)_figAssetWriterDidDropBelowLowWaterLevelForTrackID:(int)arg1;
+@property(readonly, nonatomic) struct __CVPixelBufferPool *pixelBufferPool;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithFigAssetWriter:(struct OpaqueFigAssetWriter *)arg1 mediaType:(id)arg2 mediaFileType:(id)arg3 outputSettings:(id)arg4 sourcePixelBufferAttributes:(id)arg5 error:(id *)arg6;
+- (id)init;
 
 @end
 

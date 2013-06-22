@@ -135,10 +135,12 @@
     float _hysteresis;
     unsigned int _zoomAnimationCount;
     struct CADoublePoint _zoomAnchorPoint;
+    id _scrollTestParameters;
 }
 
 + (SEL)_pinchGestureAction;
 + (SEL)_panGestureAction;
+@property(retain, nonatomic) id scrollTestParameters; // @synthesize scrollTestParameters=_scrollTestParameters;
 @property(readonly, nonatomic) UIPinchGestureRecognizer *pinchGestureRecognizer; // @synthesize pinchGestureRecognizer=_pinch;
 @property(readonly, nonatomic) UIPanGestureRecognizer *panGestureRecognizer; // @synthesize panGestureRecognizer=_pan;
 @property(nonatomic) id <UIScrollViewDelegate> delegate; // @synthesize delegate=_delegate;

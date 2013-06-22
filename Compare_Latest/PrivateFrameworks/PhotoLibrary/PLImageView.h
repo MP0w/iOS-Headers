@@ -30,6 +30,8 @@
 @property(nonatomic) float transitionProgress; // @synthesize transitionProgress=_transitionProgress;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) PLVideoView *videoView;
+- (void)setTextBadgeString:(id)arg1;
+- (id)textBadgeString;
 - (void)setEdgeAntialiasingEnabled:(BOOL)arg1;
 @property(nonatomic, getter=isDimmed) BOOL dimmed;
 - (void)setBorderWidthScale:(float)arg1 heightScale:(float)arg2;
@@ -47,8 +49,6 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 allowRounding:(BOOL)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)setTextBadgeString:(id)arg1;
-- (id)textBadgeString;
 
 @end
 

@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreDAV/CoreDAVTask.h>
+#import <CoreDAV/CoreDAVActionBackedTask.h>
 
 @class CoreDAVResponseItem, NSSet, NSURL;
 
-@interface CoreDAVPropPatchTask : CoreDAVTask
+@interface CoreDAVPropPatchTask : CoreDAVActionBackedTask
 {
     NSSet *_propPatchRemoveElements;
     NSSet *_propPatchSetElements;

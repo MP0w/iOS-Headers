@@ -15,6 +15,11 @@
     NSMutableArray *_workItems;
 }
 
++ (void)persistString:(id)arg1 forKey:(id)arg2 fileURL:(id)arg3 completion:(id)arg4;
++ (void)persistMetadata:(id)arg1 fileURL:(id)arg2;
++ (void)persistString:(id)arg1 forKey:(id)arg2 fileURL:(id)arg3;
++ (void)persistUInt16:(unsigned short)arg1 forKey:(id)arg2 fileURL:(id)arg3;
++ (void)persistUUIDString:(id)arg1 forKey:(id)arg2 fileURL:(id)arg3;
 + (id)persistedAttributesForFileAtURL:(id)arg1;
 + (void)persistData:(id)arg1 forKey:(id)arg2 fileURL:(id)arg3 completion:(id)arg4;
 + (id)sharedInstance;

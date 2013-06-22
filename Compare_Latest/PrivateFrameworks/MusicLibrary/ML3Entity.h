@@ -26,7 +26,7 @@
 + (id)persistentIDColumnForTable:(id)arg1;
 + (id)extraTablesToInsert;
 + (id)extraTablesToDelete;
-+ (BOOL)deleteFromLibrary:(id)arg1 persistentIDs:(const long long *)arg2 count:(unsigned int)arg3;
++ (BOOL)deleteFromLibrary:(id)arg1 deletionType:(int)arg2 persistentIDs:(const long long *)arg3 count:(unsigned int)arg4;
 + (BOOL)_deleteRowForPersistentIDs:(const long long *)arg1 count:(unsigned int)arg2 library:(id)arg3 table:(id)arg4 usingColumn:(id)arg5;
 + (BOOL)libraryContentsChangeForProperty:(id)arg1;
 + (id)foreignPropertyForProperty:(id)arg1 entityClass:(Class)arg2;
@@ -41,7 +41,7 @@
 + (id)subselectPropertyForProperty:(id)arg1;
 + (id)subselectStatementForProperty:(id)arg1;
 + (BOOL)insertionChangesLibraryContents;
-+ (BOOL)incrementRevisionWithLibrary:(id)arg1 persistentID:(long long)arg2 deleted:(BOOL)arg3;
++ (BOOL)incrementRevisionWithLibrary:(id)arg1 persistentID:(long long)arg2 deletionType:(int)arg3;
 + (id)unsettableProperties;
 + (BOOL)insertValues:(id)arg1 intoTable:(id)arg2 persistentID:(long long)arg3 library:(id)arg4;
 @property(readonly) long long persistentID; // @synthesize persistentID=_persistentID;

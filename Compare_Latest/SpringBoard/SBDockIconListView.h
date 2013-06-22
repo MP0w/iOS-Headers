@@ -15,7 +15,6 @@
 + (id)backgroundImageForOrientation:(int)arg1;
 - (id)initForOrientation:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)_updateForOrientationAnimationStopped;
 - (void)_updateForOrientation:(int)arg1 duration:(double)arg2;
 - (BOOL)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)setOrientation:(int)arg1;

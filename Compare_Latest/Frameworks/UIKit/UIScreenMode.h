@@ -9,15 +9,17 @@
 @interface UIScreenMode : NSObject
 {
     id _mode;
+    BOOL _mainScreen;
 }
 
-+ (id)screenModeForDisplayMode:(id)arg1;
++ (id)_screenModeForDisplayMode:(id)arg1 mainScreen:(BOOL)arg2;
+@property BOOL _mainScreen; // @synthesize _mainScreen;
 - (id)description;
 - (id)_displayMode;
 - (BOOL)_isNTSCOrPAL;
 @property(readonly, nonatomic) float pixelAspectRatio;
 @property(readonly, nonatomic) struct CGSize size;
-- (id)initWithDisplayMode:(id)arg1;
+- (id)initWithDisplayMode:(id)arg1 mainScreen:(BOOL)arg2;
 
 @end
 

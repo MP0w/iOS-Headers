@@ -13,9 +13,9 @@
     AVMutableTimedMetadataGroupInternal *_mutablePriv;
 }
 
-@property CDStruct_e83c9415 timeRange;
-@property(copy) NSArray *items;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(copy) NSArray *items;
+@property CDStruct_e83c9415 timeRange;
 
 @end
 

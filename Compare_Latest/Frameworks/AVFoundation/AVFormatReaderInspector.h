@@ -13,31 +13,31 @@
     BOOL hasSaveRestriction;
 }
 
-- (id)initWithFormatReader:(struct OpaqueFigFormatReader *)arg1;
-- (void)dealloc;
-- (void)finalize;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-@property(retain, nonatomic, getter=_formatReader, setter=_setFormatReader:) struct OpaqueFigFormatReader *formatReader;
-- (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
-- (CDStruct_1b6d18a9)duration;
-- (float)preferredRate;
-- (float)preferredVolume;
-- (struct CGAffineTransform)preferredTransform;
-- (struct CGSize)naturalSize;
-- (int)naturalTimeScale;
-- (BOOL)providesPreciseDurationAndTiming;
-- (long)trackCount;
-- (id)alternateTrackGroups;
-- (id)trackReferences;
-- (id)lyrics;
-- (id)commonMetadata;
-- (id)availableMetadataFormats;
-- (id)metadataForFormat:(id)arg1;
-- (BOOL)_hasQTSaveRestriction;
-- (BOOL)isExportable;
-- (BOOL)isReadable;
 - (BOOL)isComposable;
+- (BOOL)isReadable;
+- (BOOL)isExportable;
+- (BOOL)_hasQTSaveRestriction;
+- (id)metadataForFormat:(id)arg1;
+- (id)availableMetadataFormats;
+- (id)commonMetadata;
+- (id)lyrics;
+- (id)trackReferences;
+- (id)alternateTrackGroups;
+- (long)trackCount;
+- (BOOL)providesPreciseDurationAndTiming;
+- (int)naturalTimeScale;
+- (struct CGSize)naturalSize;
+- (struct CGAffineTransform)preferredTransform;
+- (float)preferredVolume;
+- (float)preferredRate;
+- (CDStruct_1b6d18a9)duration;
+- (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
+@property(retain, nonatomic, getter=_formatReader, setter=_setFormatReader:) struct OpaqueFigFormatReader *formatReader;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithFormatReader:(struct OpaqueFigFormatReader *)arg1;
 
 @end
 

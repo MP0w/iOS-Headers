@@ -12,12 +12,15 @@
     BOOL _watchingOrientationChanges;
     int _orientation;
     float _hitRectExtension;
+    BOOL _isInButtonBar;
+    BOOL _isAnimatingAlpha;
     BOOL _animatingOrientationChange;
     float _endCapRadius;
     struct CGPoint _defaultAnchorCenter;
     struct CGAffineTransform _defaultAnchorTransform;
 }
 
+@property(nonatomic) BOOL isInButtonBar; // @synthesize isInButtonBar=_isInButtonBar;
 @property(nonatomic) float endCapRadius; // @synthesize endCapRadius=_endCapRadius;
 @property(nonatomic) float hitRectExtension; // @synthesize hitRectExtension=_hitRectExtension;
 - (int)_modeForRotationFromOrientation:(int)arg1 toOrientation:(int)arg2;
@@ -29,10 +32,13 @@
 - (void)_deviceOrientationChanged:(id)arg1;
 - (void)stopWatchingDeviceOrientationChanges;
 - (void)startWatchingDeviceOrientationChanges;
+- (void)setHidden:(BOOL)arg1;
+- (void)setHidden:(BOOL)arg1 animationDuration:(double)arg2;
 - (BOOL)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGRect)hitRect;
 @property(nonatomic) BOOL autorotationEnabled; // @synthesize autorotationEnabled=_autorotationEnabled;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 isInButtonBar:(BOOL)arg2;
 
 @end
 

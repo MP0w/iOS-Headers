@@ -9,9 +9,9 @@
 @class NSString;
 
 @interface AVVoiceController (AVVoiceController_Priv)
-@property(readonly) NSString *recordRoute;
-@property(readonly) unsigned long long lastRecordStartTime;
-@property(getter=isBargeInDetectEnabled) BOOL bargeInDetectEnabled;
 @property(getter=isStopOnBargeInEnabled) BOOL stopOnBargeInEnabled;
+@property(getter=isBargeInDetectEnabled) BOOL bargeInDetectEnabled;
+@property(readonly) unsigned long long lastRecordStartTime;
+@property(readonly) NSString *recordRoute;
 @end
 

@@ -37,6 +37,7 @@
 - (BOOL)imageNeedsRefresh:(id)arg1 imageBrush:(id)arg2;
 - (id)defaultImageWithImageBrush:(id)arg1;
 - (id)renderedImageWithImage:(id)arg1 imageBrush:(id)arg2;
+- (id)renderedImageWithImage:(id)arg1 imageBrush:(id)arg2 returnContext:(id *)arg3;
 - (void)loadRawImageForImageID:(id)arg1 withCompletionHandler:(id)arg2;
 - (unsigned int)cacheCostForImage:(id)arg1;
 - (id)fileNameWithIdentifierForImageBrush:(id)arg1;

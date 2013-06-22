@@ -19,6 +19,7 @@
 + (void)garbageCollectNow;
 + (void)purgeInactiveFontData;
 + (void)drainLayerPool;
++ (BOOL)isCharacterSmartReplaceExempt:(unsigned short)arg1 isPreviousCharacter:(BOOL)arg2;
 + (void)_registerPluginMIMEType:(id)arg1;
 + (void)_unregisterPluginMIMEType:(id)arg1;
 + (BOOL)_viewClass:(Class *)arg1 andRepresentationClass:(Class *)arg2 forMIMEType:(id)arg3 allowingPlugins:(BOOL)arg4;

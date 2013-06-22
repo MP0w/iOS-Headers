@@ -8,6 +8,6 @@
 
 @interface UIWindow (UITextEffectsWindow)
 - (void)matchDeviceOrientation;
-- (void)updateForOrientation:(int)arg1;
+- (void)setupForOrientation:(int)arg1;
 @end
 

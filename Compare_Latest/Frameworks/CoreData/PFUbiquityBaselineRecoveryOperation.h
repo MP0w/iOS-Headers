@@ -4,15 +4,15 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <CoreData/PFUbiquityBaselineRollOperation.h>
+#import <CoreData/PFUbiquityBaselineOperation.h>
 
 @class NSObject<PFUbiquityBaselineRecoveryOperationDelegate>;
 
-@interface PFUbiquityBaselineRecoveryOperation : PFUbiquityBaselineRollOperation
+@interface PFUbiquityBaselineRecoveryOperation : PFUbiquityBaselineOperation
 {
 }
 
-@property(nonatomic) NSObject<PFUbiquityBaselineRecoveryOperationDelegate> *delegate;
+@property NSObject<PFUbiquityBaselineRecoveryOperationDelegate> *delegate;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)hasCurrentBaseline;
 - (BOOL)conflictsExistForBaseline:(id)arg1;

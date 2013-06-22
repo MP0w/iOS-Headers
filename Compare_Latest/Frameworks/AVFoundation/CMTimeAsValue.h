@@ -12,25 +12,25 @@
 }
 
 + (id)valueWithCMTime:(CDStruct_1b6d18a9)arg1;
-- (CDStruct_1b6d18a9)CMTimeValue;
-- (void)getValue:(void *)arg1;
-- (const char *)objCType;
-- (float)floatValue;
-- (double)doubleValue;
-- (BOOL)charValue;
-- (unsigned char)unsignedCharValue;
-- (short)shortValue;
-- (unsigned short)unsignedShortValue;
-- (int)intValue;
-- (unsigned int)unsignedIntValue;
-- (long)longValue;
-- (unsigned long)unsignedLongValue;
-- (long long)longLongValue;
-- (unsigned long long)unsignedLongLongValue;
-- (BOOL)boolValue;
-- (int)integerValue;
-- (unsigned int)unsignedIntegerValue;
 - (id)description;
+- (unsigned int)unsignedIntegerValue;
+- (int)integerValue;
+- (BOOL)boolValue;
+- (unsigned long long)unsignedLongLongValue;
+- (long long)longLongValue;
+- (unsigned long)unsignedLongValue;
+- (long)longValue;
+- (unsigned int)unsignedIntValue;
+- (int)intValue;
+- (unsigned short)unsignedShortValue;
+- (short)shortValue;
+- (unsigned char)unsignedCharValue;
+- (BOOL)charValue;
+- (double)doubleValue;
+- (float)floatValue;
+- (const char *)objCType;
+- (void)getValue:(void *)arg1;
+- (CDStruct_1b6d18a9)CMTimeValue;
 
 @end
 

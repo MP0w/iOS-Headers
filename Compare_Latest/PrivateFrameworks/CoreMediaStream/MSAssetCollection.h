@@ -16,10 +16,12 @@
     MSAsset *_masterAsset;
     NSArray *_derivedAssets;
     NSString *_fileName;
+    BOOL _wasDeleted;
 }
 
 + (id)collectionWithMasterAsset:(id)arg1 fileName:(id)arg2 derivedAssets:(id)arg3;
 + (id)collectionWithMasterAsset:(id)arg1 fileName:(id)arg2;
+@property(nonatomic) BOOL wasDeleted; // @synthesize wasDeleted=_wasDeleted;
 @property(retain, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(retain, nonatomic) MSAsset *masterAsset; // @synthesize masterAsset=_masterAsset;
 @property(retain, nonatomic) NSString *assetCollectionID; // @synthesize assetCollectionID=_assetCollectionID;

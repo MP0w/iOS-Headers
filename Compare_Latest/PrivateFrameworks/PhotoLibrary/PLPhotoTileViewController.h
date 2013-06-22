@@ -86,7 +86,6 @@
 - (void)_updateZoomScalesForView:(id)arg1;
 - (void)_setDefaultZoomScale;
 - (void)setOrientationDelegate:(id)arg1;
-- (struct CGRect)frameForImageAtDefaultScale;
 - (BOOL)isZoomedOut;
 - (float)currentToDefaultZoomRatio;
 - (float)defaultZoomScale;
@@ -132,8 +131,8 @@
 - (void)_setImage:(id)arg1 isThumbnail:(BOOL)arg2;
 - (void)_updateModelPhotoWithImage:(id)arg1;
 - (void)_updateGradientImageForOrientation:(int)arg1;
-- (void)_adjustScrollViewVerticalContentOffset;
-- (void)_adjustScrollViewContentInsetWithContentSize:(struct CGSize)arg1;
+- (void)_updateContentInset;
+- (void)_adjustScrollViewContentOffsetForInsets;
 - (void)_centerImageInScrollView;
 - (void)_configureViews;
 - (void)setHDRBadgeVisible:(BOOL)arg1;

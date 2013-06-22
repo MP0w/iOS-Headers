@@ -23,7 +23,6 @@
     BOOL _iconsAreElsewhere;
     BOOL _recyclesIconViewsWhenNotShowing;
     NSMutableSet *_notShownIconViews;
-    NSMutableArray *_rasterizedIcons;
     BOOL _showingCloseBoxes;
 }
 
@@ -68,7 +67,6 @@
 - (void)scatterWithDuration:(double)arg1 startTime:(double)arg2;
 - (void)unscatterAnimationDidStop;
 - (void)unscatterWithDuration:(double)arg1 startTime:(double)arg2;
-- (void)setShouldRasterizeAllIcons:(BOOL)arg1;
 - (void)removeAllIconAnimations;
 - (struct CGSize)defaultIconSize;
 - (struct CGPoint)originForIconAtIndex:(int)arg1;

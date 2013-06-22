@@ -15,18 +15,18 @@
     AVPlayerItemErrorLogEventInternal *_playerItemErrorLogEvent;
 }
 
-- (id)init;
-- (id)initWithDictionary:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)finalize;
-- (void)dealloc;
-@property(readonly, nonatomic) NSDate *date;
-@property(readonly, nonatomic) NSString *URI;
-@property(readonly, nonatomic) NSString *serverAddress;
-@property(readonly, nonatomic) NSString *playbackSessionID;
-@property(readonly, nonatomic) int errorStatusCode;
-@property(readonly, nonatomic) NSString *errorDomain;
 @property(readonly, nonatomic) NSString *errorComment;
+@property(readonly, nonatomic) NSString *errorDomain;
+@property(readonly, nonatomic) int errorStatusCode;
+@property(readonly, nonatomic) NSString *playbackSessionID;
+@property(readonly, nonatomic) NSString *serverAddress;
+@property(readonly, nonatomic) NSString *URI;
+@property(readonly, nonatomic) NSDate *date;
+- (void)dealloc;
+- (void)finalize;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithDictionary:(id)arg1;
+- (id)init;
 
 @end
 

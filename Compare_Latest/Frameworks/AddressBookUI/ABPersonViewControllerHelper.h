@@ -64,7 +64,6 @@
     UITableView *_controllerTableView;
     unsigned int _modelDatabaseExternalChangeCancellationCount;
     unsigned int _modelDatabaseLocalChangeCancellationCount;
-    BOOL _ignoresReloadData;
     NSIndexPath *_popoverCellIndexPath;
     NSIndexPath *_popoverViewInCellIndexPath;
     UIViewController *_savedPopoverContentViewController;
@@ -332,7 +331,6 @@
 @property(nonatomic) BOOL savesNewContactOnSuspend; // @synthesize savesNewContactOnSuspend=_savesNewContactOnSuspend;
 @property(retain, nonatomic) NSIndexPath *popoverViewInCellIndexPath; // @synthesize popoverViewInCellIndexPath=_popoverViewInCellIndexPath;
 @property(retain, nonatomic) NSIndexPath *popoverCellIndexPath; // @synthesize popoverCellIndexPath=_popoverCellIndexPath;
-@property(nonatomic) BOOL ignoresReloadData; // @synthesize ignoresReloadData=_ignoresReloadData;
 @property(copy, nonatomic) NSString *addToPersonButtonTitle; // @synthesize addToPersonButtonTitle=_addToPersonButtonTitle;
 
 @end

@@ -10,7 +10,7 @@
 
 @interface UIStatusBarComposedData : NSObject
 {
-    CDStruct_34da3f48 _rawData;
+    CDStruct_074cde39 _rawData;
     char _itemEnabled[23];
     NSString *_doubleHeightStatus;
 }
@@ -18,9 +18,9 @@
 @property(copy, nonatomic) NSString *doubleHeightStatus; // @synthesize doubleHeightStatus=_doubleHeightStatus;
 - (void)setItem:(int)arg1 enabled:(BOOL)arg2;
 - (BOOL)isItemEnabled:(int)arg1;
-@property(readonly, nonatomic) CDStruct_34da3f48 *rawData;
+@property(readonly, nonatomic) CDStruct_074cde39 *rawData;
 - (void)dealloc;
-- (id)initWithRawData:(CDStruct_34da3f48)arg1;
+- (id)initWithRawData:(CDStruct_074cde39)arg1;
 
 @end
 

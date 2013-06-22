@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSData, NSString, NSURL;
+@class NSData, NSString, NSURL, PLManagedAsset;
 
 @interface PLItem : NSObject
 {
@@ -35,7 +35,7 @@
 - (id)initWithURL:(id)arg1 typeHint:(id)arg2;
 - (id)initWithURL:(id)arg1;
 @property(readonly, nonatomic) NSURL *URL;
-- (id)asset;
+@property(readonly, nonatomic) PLManagedAsset *asset;
 
 @end
 

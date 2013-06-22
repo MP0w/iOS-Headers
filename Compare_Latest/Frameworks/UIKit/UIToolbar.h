@@ -39,8 +39,6 @@
 - (void)animateToolbarItemIndex:(unsigned int)arg1 duration:(double)arg2 target:(id)arg3 didFinishSelector:(SEL)arg4;
 - (void)layoutSubviews;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
-- (void)setFrame:(struct CGRect)arg1;
-- (void)setBounds:(struct CGRect)arg1;
 - (BOOL)isMinibar;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)defaultSizeForOrientation:(int)arg1;

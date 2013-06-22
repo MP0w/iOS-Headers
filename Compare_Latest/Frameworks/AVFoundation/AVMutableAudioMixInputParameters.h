@@ -13,11 +13,11 @@
     AVMutableAudioMixInputParametersInternal *_mutableInputParameters;
 }
 
-+ (id)audioMixInputParametersWithTrack:(id)arg1;
 + (id)audioMixInputParameters;
-@property(nonatomic) int trackID;
-- (void)setVolumeRampFromStartVolume:(float)arg1 toEndVolume:(float)arg2 timeRange:(CDStruct_e83c9415)arg3;
++ (id)audioMixInputParametersWithTrack:(id)arg1;
 - (void)setVolume:(float)arg1 atTime:(CDStruct_1b6d18a9)arg2;
+- (void)setVolumeRampFromStartVolume:(float)arg1 toEndVolume:(float)arg2 timeRange:(CDStruct_e83c9415)arg3;
+@property(nonatomic) int trackID;
 
 @end
 

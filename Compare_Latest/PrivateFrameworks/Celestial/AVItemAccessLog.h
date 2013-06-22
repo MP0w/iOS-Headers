@@ -15,15 +15,15 @@
     AVItemAccessLogInternal *_playerItemAccessLog;
 }
 
-- (id)init;
-- (id)initWithLogArray:(id)arg1;
-- (id)description;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)finalize;
-- (void)dealloc;
-- (id)extendedLogData;
-- (unsigned int)extendedLogDataStringEncoding;
 @property(readonly, nonatomic) NSArray *events;
+- (unsigned int)extendedLogDataStringEncoding;
+- (id)extendedLogData;
+- (void)dealloc;
+- (void)finalize;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)description;
+- (id)initWithLogArray:(id)arg1;
+- (id)init;
 
 @end
 

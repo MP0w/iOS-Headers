@@ -45,7 +45,6 @@
 - (void)_handleMessage:(id)arg1 forSession:(id)arg2 userInfo:(id)arg3;
 - (void)xpcConnection:(id)arg1 receivedMessage:(id)arg2 userInfo:(id)arg3;
 - (void)xpcConnectionFailed:(id)arg1;
-- (id)_sessionForConnection:(id)arg1 create:(BOOL)arg2;
 - (void)_handleListenConnectionEvent:(void *)arg1;
 - (void)_handleAppStateChanged:(id)arg1;
 - (id)init;

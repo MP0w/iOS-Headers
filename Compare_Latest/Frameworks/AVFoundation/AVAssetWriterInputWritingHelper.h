@@ -16,21 +16,21 @@
 }
 
 + (id)keyPathsForValuesAffectingReadyForMoreMediaData;
-- (id)initWithConfigurationState:(id)arg1;
-- (id)initWithConfigurationState:(id)arg1 assetWriterTrack:(id)arg2 error:(id *)arg3;
-- (void)dealloc;
-- (void)finalize;
-- (int)status;
-- (BOOL)isReadyForMoreMediaData;
-- (void)requestMediaDataWhenReadyOnQueue:(struct dispatch_queue_s *)arg1 usingBlock:(id)arg2;
-- (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
-- (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
-- (void)prepareToEndSession;
-- (BOOL)prepareToFinishWritingReturningError:(id *)arg1;
-- (void)markAsFinished;
-- (void)transitionToTerminalStatus:(int)arg1;
-- (struct __CVPixelBufferPool *)pixelBufferPool;
 @property(readonly, nonatomic, getter=_assetWriterTrack) AVFigAssetWriterTrack *assetWriterTrack; // @synthesize assetWriterTrack=_assetWriterTrack;
+- (struct __CVPixelBufferPool *)pixelBufferPool;
+- (void)transitionToTerminalStatus:(int)arg1;
+- (void)markAsFinished;
+- (BOOL)prepareToFinishWritingReturningError:(id *)arg1;
+- (void)prepareToEndSession;
+- (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
+- (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
+- (void)requestMediaDataWhenReadyOnQueue:(struct dispatch_queue_s *)arg1 usingBlock:(id)arg2;
+- (BOOL)isReadyForMoreMediaData;
+- (int)status;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithConfigurationState:(id)arg1 assetWriterTrack:(id)arg2 error:(id *)arg3;
+- (id)initWithConfigurationState:(id)arg1;
 
 @end
 

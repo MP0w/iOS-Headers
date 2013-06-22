@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSNumber, NSString, NSURL, SSAuthenticationContext, SSURLBagContext;
+@class ISOperation, NSNumber, NSString, NSURL, SSAuthenticationContext, SSURLBagContext;
 
 @interface ISDataProvider : NSObject <NSCopying>
 {
@@ -18,11 +18,13 @@
     long long _contentLength;
     NSString *_contentType;
     id _output;
+    ISOperation *_parentOperation;
     NSURL *_redirectURL;
 }
 
 + (id)provider;
 @property(retain) NSURL *redirectURL; // @synthesize redirectURL=_redirectURL;
+@property ISOperation *parentOperation; // @synthesize parentOperation=_parentOperation;
 @property(retain) id output; // @synthesize output=_output;
 @property(retain) NSString *contentType; // @synthesize contentType=_contentType;
 @property long long contentLength; // @synthesize contentLength=_contentLength;

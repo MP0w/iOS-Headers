@@ -12,6 +12,13 @@
 }
 
 + (id)assertion;
+- (void)_setupHeartBeatForConnection:(struct _xpc_connection_s *)arg1;
+- (void)_tearDownConnection;
+- (void)_setupConnection;
+- (void)_applicationWillResignActive:(id)arg1;
+- (void)_applicationDidBecomeActive:(id)arg1;
+- (void)_unregisterForAppActiveNotifications;
+- (void)_registerForAppActiveNotifications;
 - (void)dealloc;
 - (id)init;
 

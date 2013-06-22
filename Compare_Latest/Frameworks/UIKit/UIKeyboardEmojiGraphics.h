@@ -25,8 +25,13 @@
     struct CGGradient *_backgroundGradient;
 }
 
-+ (id)emojiWithName:(id)arg1;
-+ (void)mapImagesIfNecessary;
++ (struct CGPoint)padding:(BOOL)arg1;
++ (struct CGPoint)margin:(BOOL)arg1;
++ (unsigned char)colCount:(BOOL)arg1;
++ (unsigned char)rowCount:(BOOL)arg1;
++ (struct CGSize)emojiSize:(BOOL)arg1;
++ (struct __CFDictionary *)emojiFontAttributes;
++ (struct __CFDictionary *)createEmojiFontAttributes:(BOOL)arg1;
 + (id)imageWithRect:(struct CGRect)arg1 name:(id)arg2 pressed:(BOOL)arg3;
 + (id)sharedInstance;
 - (id)categoryKeyGenerator:(BOOL)arg1 rect:(struct CGRect)arg2;

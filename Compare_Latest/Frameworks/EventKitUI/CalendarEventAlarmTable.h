@@ -20,8 +20,10 @@
     id <CalendarEventAlarmTableDelegate> _alarmTableDelegate;
     id <EKStyleProvider> _styleProvider;
     BOOL _useAllDayAlarms;
+    BOOL _shouldAllowAlarmsTriggeringAfterStartDate;
 }
 
+@property(nonatomic) BOOL shouldAllowAlarmsTriggeringAfterStartDate; // @synthesize shouldAllowAlarmsTriggeringAfterStartDate=_shouldAllowAlarmsTriggeringAfterStartDate;
 @property(nonatomic) BOOL useAllDayAlarms; // @synthesize useAllDayAlarms=_useAllDayAlarms;
 @property(retain, nonatomic) id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(nonatomic) id <CalendarEventAlarmTableDelegate> alarmTableDelegate; // @synthesize alarmTableDelegate=_alarmTableDelegate;

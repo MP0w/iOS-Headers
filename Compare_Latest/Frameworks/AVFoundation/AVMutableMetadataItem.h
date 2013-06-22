@@ -14,14 +14,14 @@
 }
 
 + (id)metadataItem;
-@property(copy) id <NSObject><NSCopying> key;
-@property(copy) NSString *keySpace;
-@property(copy) NSLocale *locale;
-@property CDStruct_1b6d18a9 time;
-@property CDStruct_1b6d18a9 duration;
-@property(copy) id <NSObject><NSCopying> value;
-@property(copy) NSDictionary *extraAttributes;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(copy) NSDictionary *extraAttributes;
+@property(copy) id <NSObject><NSCopying> value;
+@property CDStruct_1b6d18a9 duration;
+@property CDStruct_1b6d18a9 time;
+@property(copy) NSLocale *locale;
+@property(copy) NSString *keySpace;
+@property(copy) id <NSObject><NSCopying> key;
 
 @end
 

@@ -45,7 +45,7 @@
 - (void)setKeyboardDefault;
 - (id)recents;
 - (void)emojiSelected:(id)arg1;
-- (id)emojiForPrivateCodePoint:(id)arg1;
+- (id)emojiWithString:(id)arg1;
 - (id)defaultsDictionary;
 - (void)layoutSubviews;
 - (SEL)handlerForNotification:(id)arg1;

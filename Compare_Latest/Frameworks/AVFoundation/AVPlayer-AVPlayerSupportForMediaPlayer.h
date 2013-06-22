@@ -7,14 +7,14 @@
 #import <AVFoundation/AVPlayer.h>
 
 @interface AVPlayer (AVPlayerSupportForMediaPlayer)
-- (void)_setWantsVolumeChangesWhenPausedOrInactive:(BOOL)arg1;
-- (void)_setEQPreset:(int)arg1;
-- (void)_setStoppingFadeOutDuration:(float)arg1;
-- (id)_clientName;
-- (void)_setClientName:(id)arg1;
-- (void)_setCALayerDestinationIsTVOut:(BOOL)arg1;
-- (BOOL)_CALayerDestinationIsTVOut;
-- (void)_setPreferredLanguageList:(id)arg1;
 - (BOOL)_resumePlayback:(double)arg1 error:(id *)arg2;
+- (void)_setPreferredLanguageList:(id)arg1;
+- (BOOL)_CALayerDestinationIsTVOut;
+- (void)_setCALayerDestinationIsTVOut:(BOOL)arg1;
+- (void)_setClientName:(id)arg1;
+- (id)_clientName;
+- (void)_setStoppingFadeOutDuration:(float)arg1;
+- (void)_setEQPreset:(int)arg1;
+- (void)_setWantsVolumeChangesWhenPausedOrInactive:(BOOL)arg1;
 @end
 

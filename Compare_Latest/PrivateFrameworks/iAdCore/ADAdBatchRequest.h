@@ -22,6 +22,7 @@
 @property(retain, nonatomic) NSMutableArray *requesterIdentifiers; // @synthesize requesterIdentifiers=_requesterIdentifiers;
 @property(retain, nonatomic) ADAdSpecification *specification; // @synthesize specification=_specification;
 @property(retain, nonatomic) ADRequestProperties *requestProperties; // @synthesize requestProperties=_requestProperties;
+- (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
@@ -31,6 +32,7 @@
 - (id)requesterIdentifierAtIndex:(unsigned int)arg1;
 - (unsigned int)requesterIdentifiersCount;
 - (void)addRequesterIdentifier:(id)arg1;
+- (void)clearRequesterIdentifiers;
 @property(readonly, nonatomic) BOOL hasSpecification;
 @property(readonly, nonatomic) BOOL hasRequestProperties;
 - (void)dealloc;

@@ -10,6 +10,9 @@
 {
 }
 
++ (id)entityInManagedObjectContext:(id)arg1;
++ (id)entityName;
++ (id)insertInManagedObjectContext:(id)arg1;
 @property(nonatomic) int keyAssetFaceThumbnailIndex;
 @property(nonatomic) short keyAssetFaceIdentifier;
 

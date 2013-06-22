@@ -24,9 +24,12 @@
 - (void)startAnimating;
 - (id)_createBoundsAnimation;
 - (id)_createContentsAnimation;
+- (double)fadeOutDuration;
+- (double)fadeInDuration;
 - (void)scaleFrame:(float)arg1 reposition:(BOOL)arg2;
 - (id)nameForDarkImage;
 - (id)nameForLightImage;
+- (void)_loadImagesWithImageSize:(struct CGSize *)arg1;
 - (void)dealloc;
 - (id)init;
 

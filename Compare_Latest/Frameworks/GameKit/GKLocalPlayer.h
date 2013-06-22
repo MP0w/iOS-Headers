@@ -33,9 +33,13 @@
     NSDictionary *_authenticateAlertDictionary;
     NSError *_authenticateError;
     GKAuthenticatePlayerRequest *_authenticateRequest;
+    int _lastAuthResult;
+    BOOL _alreadyShown;
 }
 
 + (id)localPlayer;
+@property(nonatomic) BOOL alreadyShown; // @synthesize alreadyShown=_alreadyShown;
+@property(nonatomic) int lastAuthResult; // @synthesize lastAuthResult=_lastAuthResult;
 @property(retain, nonatomic) GKAuthenticatePlayerRequest *authenticateRequest; // @synthesize authenticateRequest=_authenticateRequest;
 @property(retain, nonatomic) NSError *authenticateError; // @synthesize authenticateError=_authenticateError;
 @property(retain, nonatomic) NSDictionary *authenticateAlertDictionary; // @synthesize authenticateAlertDictionary=_authenticateAlertDictionary;
@@ -107,12 +111,15 @@
 - (void)showAlertForTag:(unsigned int)arg1;
 - (void)showAlertWithDictionary:(id)arg1;
 - (void)showAuthenticateAlert;
+- (void)showEditAccountRestrictedAlert;
+- (void)showCreateAccountRestrictedAlert;
 - (void)loginFailedForUsername:(id)arg1;
 - (void)removeAccountViewController;
 - (void)showAccountViewControllerForMode:(int)arg1 withEmail:(id)arg2;
 - (void)removeViewControllerWithCompletionHandler:(id)arg1;
 - (void)showViewController:(id)arg1 wrapInNavController:(BOOL)arg2;
 - (void)applicationWillEnterForeground:(id)arg1;
+- (void)applicationDidEnterBackground:(id)arg1;
 - (void)loadFriendsWithCompletionHandler:(id)arg1;
 - (void)addPlayerAsFriend:(id)arg1;
 - (BOOL)isPlayerAFriend:(id)arg1;

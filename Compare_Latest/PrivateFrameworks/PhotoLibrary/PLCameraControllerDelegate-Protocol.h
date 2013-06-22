@@ -10,6 +10,7 @@
 
 @optional
 - (void)cameraControllerTorchAvailabilityChanged:(id)arg1;
+- (void)cameraController:(id)arg1 faceMetadataDidChange:(id)arg2;
 - (void)cameraControllerFocusDidEnd:(id)arg1;
 - (void)cameraControllerFocusDidStart:(id)arg1;
 - (void)cameraControllerWillStartAutofocus:(id)arg1;

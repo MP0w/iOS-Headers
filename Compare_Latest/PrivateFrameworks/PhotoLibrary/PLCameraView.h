@@ -13,7 +13,7 @@
 #import "UIAccelerometerDelegate-Protocol.h"
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class AVCaptureVideoPreviewLayer, CADisplayLink, CALayer, NSData, NSDictionary, NSMutableArray, NSString, NSTimer, PLCameraController, PLCameraElapsedTimeView, PLCameraFlashButton, PLCameraGuideView, PLCameraIrisAnimationView, PLCameraOptionsButton, PLCameraOverlayTextLabelView, PLCameraPanoramaView, PLCameraPreviewView, PLCameraProgressView, PLCameraSettingsView, PLCameraToggleButton, PLCameraZoomSlider, PLCropOverlay, PLCropOverlayBottomBarButton, PLLowDiskSpaceAlertView, PLPhotoLibrary, PLPhotoTileViewController, PLPreviewOverlayView, PLSyncProgressView, PLVideoView, UIAlertView, UIImage, UIImageView, UILongPressGestureRecognizer, UIToolbar;
+@class AVCaptureVideoPreviewLayer, CADisplayLink, CALayer, NSData, NSDictionary, NSMutableArray, NSString, NSTimer, PLCameraController, PLCameraElapsedTimeView, PLCameraFlashButton, PLCameraFloatingShutterButton, PLCameraFloatingShutterButtonView, PLCameraGuideView, PLCameraIrisAnimationView, PLCameraOptionsButton, PLCameraOverlayTextLabelView, PLCameraPanoramaView, PLCameraPreviewView, PLCameraProgressView, PLCameraSettingsView, PLCameraToggleButton, PLCameraZoomSlider, PLCropOverlay, PLCropOverlayBottomBarButton, PLLowDiskSpaceAlertView, PLPhotoLibrary, PLPhotoTileViewController, PLPreviewOverlayView, PLSyncProgressView, PLVideoView, UIAlertView, UIImage, UIImageView, UILongPressGestureRecognizer, UIToolbar;
 
 @interface PLCameraView : UIView <PLCameraControllerDelegate, PLVideoViewDelegate, PLCameraFlashButtonDelegate, PLCameraSettingsViewDelegate, UIGestureRecognizerDelegate, UIAccelerometerDelegate>
 {
@@ -29,6 +29,7 @@
     PLPhotoLibrary *_library;
     UIView *_previewContainerView;
     PLPreviewOverlayView *_overlayView;
+    PLCameraFloatingShutterButtonView *_floatingShutterButtonView;
     AVCaptureVideoPreviewLayer *_previewLayer;
     CALayer *_panoramaPreviewLayer;
     PLCameraPanoramaView *_panoramaView;
@@ -39,6 +40,8 @@
     BOOL _previewOriginShouldBeZero;
     struct CGRect _unzoomedPreviewFrame;
     int _previewViewAspectMode;
+    BOOL _useFloatingShutterButton;
+    PLCameraFloatingShutterButton *_floatingShutterButton;
     PLCameraFlashButton *_flashButton;
     int _flashModeBeforeCapture;
     int _flashModeBeforeHDR;
@@ -63,6 +66,9 @@
     BOOL _focusIsLocked;
     BOOL _focusTapIsDown;
     BOOL _shouldEndFocusOnTapUp;
+    BOOL _showFaceTracking;
+    unsigned int _currentFacesCount;
+    NSTimer *_faceFadeOutTimer;
     PLSyncProgressView *_rebuildProgressView;
     PLCameraGuideView *_guideView;
     NSMutableArray *_viewsToBounce;
@@ -147,6 +153,7 @@
 - (void)toggleSettings:(id)arg1;
 - (void)hideSettings;
 - (void)_showSettings:(BOOL)arg1;
+- (void)_showSettings:(BOOL)arg1 sender:(id)arg2;
 - (void)_removeSettingsView;
 - (BOOL)optionsAreVisible;
 - (void)_cameraOrientationChanged:(id)arg1;
@@ -212,10 +219,17 @@
 - (void)_clearAEAFLockTimer;
 - (void)aeafLockTimerDidFire;
 - (BOOL)_previewView:(id)arg1 shouldFocusAtPoint:(struct CGPoint)arg2;
+- (void)cameraController:(id)arg1 faceMetadataDidChange:(id)arg2;
 - (void)cameraControllerFocusDidEnd:(id)arg1;
 - (void)cameraControllerFocusDidStart:(id)arg1;
+- (void)_fadeOutFaceRects;
+- (void)_startFaceFadeOutTimerWithTimeInterval:(double)arg1;
+- (void)_clearFaceFadeOutTimer;
+- (struct CGRect)aspectFaceRectFromSquareFaceRect:(struct CGRect)arg1 angle:(float)arg2;
 - (void)cameraControllerWillStartAutofocus:(id)arg1;
 - (BOOL)isFocusAllowed;
+- (void)_resetFaceTracking;
+- (void)_clearFocusViews;
 - (void)_clearAEAFLock;
 - (void)_setShouldShowFocus:(BOOL)arg1;
 - (void)lockFocus;
@@ -248,6 +262,7 @@
 - (void)_animateZoomSliderToValue:(float)arg1;
 - (void)_clearZoomAnimationDisplayLink;
 - (void)_setZoomFactor:(float)arg1;
+- (void)hideZoomSlider;
 - (void)showZoomSlider;
 - (void)_loadZoomSliderResources;
 - (void)_cancelZoomSliderTimer;
@@ -301,8 +316,11 @@
 - (void)_inCallStatusChanged:(id)arg1;
 - (id)imageTile;
 - (void)setAllowsMultipleCameraModes:(BOOL)arg1;
+- (id)_toggleButton;
+- (id)_optionsButton;
 - (id)_shutterButton;
 - (id)_modeSwitch;
+- (struct CGRect)_floatingShutterButtonFrame;
 - (struct CGRect)_bottomBarFrame;
 - (id)_bottomBar;
 - (id)buttonBar;
@@ -320,6 +338,7 @@
 - (void)setEnabledGestures:(int)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)_registerForSystemSound;
+- (void)_windowDidRotate:(id)arg1;
 - (void)_windowWillAnimateRotation:(id)arg1;
 - (void)_windowWillAnimateRotationToOrientation:(int)arg1;
 - (void)_setShadowViewVisible:(BOOL)arg1;

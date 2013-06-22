@@ -9,6 +9,7 @@
 @interface ML3MusicLibrary (HomeSharingAdditions)
 + (void)buildDatabaseFromHomeSharingConnection:(id)arg1 atPath:(id)arg2 completionHandler:(id)arg3 progressHandler:(void)arg4;
 + (void)buildDatabaseFromHomeSharingConnection:(id)arg1 atPath:(id)arg2 completionHandler:(id)arg3;
+- (void)clearTrackAndCollectionCloudStatus;
 - (void)checkForChangesOnConnection:(id)arg1 completionHandler:(id)arg2;
 - (void)fillContainerForHomeSharingConnection:(id)arg1 containerID:(long long)arg2 completionHandler:(id)arg3;
 @end

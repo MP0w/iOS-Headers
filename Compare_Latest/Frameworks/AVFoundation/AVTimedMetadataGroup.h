@@ -15,17 +15,17 @@
     AVTimedMetadataGroupInternal *_priv;
 }
 
-- (id)init;
-- (id)initWithItems:(id)arg1 timeRange:(CDStruct_e83c9415)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+@property(readonly) NSArray *items;
 @property(readonly) CDStruct_e83c9415 timeRange;
-@property(readonly, copy) NSArray *items;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)description;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithItems:(id)arg1 timeRange:(CDStruct_e83c9415)arg2;
+- (id)init;
 
 @end
 

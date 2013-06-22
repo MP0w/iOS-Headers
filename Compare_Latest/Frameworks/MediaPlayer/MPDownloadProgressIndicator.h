@@ -24,9 +24,9 @@
     float _value;
 }
 
-+ (id)_nonstopImageForStyle:(int)arg1;
 + (id)_stopImageForStyle:(int)arg1;
 + (struct CGSize)_sizeForStyle:(int)arg1;
++ (id)_nonstopImageForStyle:(int)arg1;
 + (id)_fillImageForStyle:(int)arg1;
 + (id)_baseImageForStyle:(int)arg1;
 @property(nonatomic) float value; // @synthesize value=_value;
@@ -34,6 +34,7 @@
 @property(nonatomic) BOOL canCancel; // @synthesize canCancel=_canCancel;
 - (void)_setInternalHidden:(BOOL)arg1;
 - (struct CGRect)_fillFrameForSize:(struct CGSize)arg1 inBounds:(struct CGRect)arg2;
+- (struct CGRect)_centerImageViewFrame:(struct CGRect)arg1 inBounds:(struct CGRect)arg2 forStyle:(int)arg3;
 - (struct CGRect)_baseFrameForSize:(struct CGSize)arg1 inBounds:(struct CGRect)arg2;
 - (void)_animateValueOnDisplayLink:(id)arg1;
 - (void)updateFromObserver:(id)arg1 animated:(BOOL)arg2;

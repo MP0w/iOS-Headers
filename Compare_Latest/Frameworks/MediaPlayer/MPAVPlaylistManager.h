@@ -50,6 +50,7 @@
 - (int)_prepareToQueuePlaybackIndex:(int)arg1 selectionDirection:(int)arg2;
 - (id)_feederItemForIndex:(int)arg1;
 @property(nonatomic) BOOL forceSynchronousQueueFilling;
+- (void)_networkTypeDidChangeNotification:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)init;

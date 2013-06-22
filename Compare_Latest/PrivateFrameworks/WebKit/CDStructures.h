@@ -2293,7 +2293,7 @@ typedef struct {
         _Bool _field19;
         _Bool _field20;
         _Bool _field21;
-        _Bool _field22;
+        int _field22;
         _Bool _field23;
         _Bool _field24;
         struct RefPtr<WebCore::SerializedScriptValue> _field25;
@@ -2491,7 +2491,7 @@ typedef struct {
     _Bool _field37;
     _Bool _field38;
     int _field39;
-} Frame_49cc9839;
+} Frame_6affac24;
 
 typedef struct {
     int _field1;
@@ -2520,7 +2520,7 @@ typedef struct {
         _Bool m_isExecutingJavaScriptFormAction;
         _Bool m_didCallImplicitClose;
         _Bool m_wasUnloadEventEmitted;
-        _Bool m_pageDismissalEventBeingDispatched;
+        int m_pageDismissalEventBeingDispatched;
         _Bool m_isComplete;
         _Bool m_isLoadingMainResource;
         struct RefPtr<WebCore::SerializedScriptValue> m_pendingStateObject;
@@ -2654,7 +2654,7 @@ typedef struct {
     _Bool _field37;
     _Bool _field38;
     int _field39;
-} Frame_dd7f3145;
+} Frame_7b826bcf;
 
 #endif
 

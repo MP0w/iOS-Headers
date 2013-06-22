@@ -18,27 +18,27 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, nonatomic) int trackID;
-- (void)setTrackID:(int)arg1;
-- (void)_setTransformRamps:(id)arg1;
-- (void)_setOpacityRamps:(id)arg1;
-- (void)_setTransformRampFromStartTransform:(struct CGAffineTransform)arg1 toEndTransform:(struct CGAffineTransform)arg2 timeRange:(CDStruct_e83c9415)arg3 selector:(SEL)arg4;
-- (void)setTransform:(struct CGAffineTransform)arg1 atTime:(CDStruct_1b6d18a9)arg2;
-- (void)setTransformRampFromStartTransform:(struct CGAffineTransform)arg1 toEndTransform:(struct CGAffineTransform)arg2 timeRange:(CDStruct_e83c9415)arg3;
-- (BOOL)getTransformRampForTime:(CDStruct_1b6d18a9)arg1 startTransform:(struct CGAffineTransform *)arg2 endTransform:(struct CGAffineTransform *)arg3 timeRange:(CDStruct_e83c9415 *)arg4;
-- (void)_setOpacityRampFromStartOpacity:(float)arg1 toEndOpacity:(float)arg2 timeRange:(CDStruct_e83c9415)arg3 selector:(SEL)arg4;
-- (void)setOpacity:(float)arg1 atTime:(CDStruct_1b6d18a9)arg2;
-- (void)setOpacityRampFromStartOpacity:(float)arg1 toEndOpacity:(float)arg2 timeRange:(CDStruct_e83c9415)arg3;
-- (BOOL)getOpacityRampForTime:(CDStruct_1b6d18a9)arg1 startOpacity:(float *)arg2 endOpacity:(float *)arg3 timeRange:(CDStruct_e83c9415 *)arg4;
-- (id)dictionaryRepresentationWithTimeRange:(CDStruct_e83c9415)arg1;
 - (void)_setValuesFromDictionary:(id)arg1 timeRange:(CDStruct_e83c9415)arg2;
+- (id)dictionaryRepresentationWithTimeRange:(CDStruct_e83c9415)arg1;
+- (BOOL)getOpacityRampForTime:(CDStruct_1b6d18a9)arg1 startOpacity:(float *)arg2 endOpacity:(float *)arg3 timeRange:(CDStruct_e83c9415 *)arg4;
+- (void)setOpacityRampFromStartOpacity:(float)arg1 toEndOpacity:(float)arg2 timeRange:(CDStruct_e83c9415)arg3;
+- (void)setOpacity:(float)arg1 atTime:(CDStruct_1b6d18a9)arg2;
+- (void)_setOpacityRampFromStartOpacity:(float)arg1 toEndOpacity:(float)arg2 timeRange:(CDStruct_e83c9415)arg3 selector:(SEL)arg4;
+- (BOOL)getTransformRampForTime:(CDStruct_1b6d18a9)arg1 startTransform:(struct CGAffineTransform *)arg2 endTransform:(struct CGAffineTransform *)arg3 timeRange:(CDStruct_e83c9415 *)arg4;
+- (void)setTransformRampFromStartTransform:(struct CGAffineTransform)arg1 toEndTransform:(struct CGAffineTransform)arg2 timeRange:(CDStruct_e83c9415)arg3;
+- (void)setTransform:(struct CGAffineTransform)arg1 atTime:(CDStruct_1b6d18a9)arg2;
+- (void)_setTransformRampFromStartTransform:(struct CGAffineTransform)arg1 toEndTransform:(struct CGAffineTransform)arg2 timeRange:(CDStruct_e83c9415)arg3 selector:(SEL)arg4;
+- (void)_setOpacityRamps:(id)arg1;
+- (void)_setTransformRamps:(id)arg1;
+- (void)setTrackID:(int)arg1;
+@property(readonly, nonatomic) int trackID;
+- (void)finalize;
+- (void)dealloc;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)init;
 
 @end
 

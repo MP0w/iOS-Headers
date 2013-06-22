@@ -8,23 +8,25 @@
 
 #import "NSCoding-Protocol.h"
 
-@class NSDictionary, NSString, PFUbiquityKnowledgeVector;
+@class NSDictionary, NSString, PFUbiquityKnowledgeVector, PFUbiquityLocation;
 
 @interface PFUbiquityBaselineMetadata : NSObject <NSCoding>
 {
     NSString *_storeName;
     NSString *_authorPeerID;
     NSString *_modelVersionHash;
+    PFUbiquityLocation *_rootLocation;
     PFUbiquityKnowledgeVector *_pKV;
     PFUbiquityKnowledgeVector *_kv;
     NSDictionary *_peerRanges;
 }
 
 - (id)init;
-- (id)initWithStoreMetadata:(id)arg1 forLocalPeerID:(id)arg2;
+- (id)initWithLocalPeerID:(id)arg1 storeName:(id)arg2 modelVersionHash:(id)arg3 andUbiquityRootLocation:(id)arg4;
 - (void)dealloc;
 - (id)description;
 - (BOOL)isEqual:(id)arg1;
+- (BOOL)gatherMetadataWithStoreMetadata:(id)arg1 andError:(id *)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)setPreviousKnowledgeVectorFromCurrentMetadata:(id)arg1;
@@ -32,6 +34,7 @@
 @property(readonly) NSDictionary *peerRanges; // @synthesize peerRanges=_peerRanges;
 @property(readonly) PFUbiquityKnowledgeVector *knowledgeVector; // @synthesize knowledgeVector=_kv;
 @property(readonly, nonatomic) PFUbiquityKnowledgeVector *previousKnowledgeVector; // @synthesize previousKnowledgeVector=_pKV;
+@property(readonly) PFUbiquityLocation *rootLocation; // @synthesize rootLocation=_rootLocation;
 @property(readonly) NSString *modelVersionHash; // @synthesize modelVersionHash=_modelVersionHash;
 @property(readonly) NSString *authorPeerID; // @synthesize authorPeerID=_authorPeerID;
 @property(readonly) NSString *storeName; // @synthesize storeName=_storeName;

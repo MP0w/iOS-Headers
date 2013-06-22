@@ -58,6 +58,7 @@
 - (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(int)arg2;
+@property(readonly, nonatomic) BOOL appeared; // @synthesize appeared=_appeared;
 @property(retain, nonatomic) CNFRegController *regController; // @synthesize regController=_regController;
 @property(nonatomic) BOOL shouldRerootPreferences; // @synthesize shouldRerootPreferences=_shouldRerootPreferences;
 @property(nonatomic) BOOL showingChildController; // @synthesize showingChildController=_showingChildController;

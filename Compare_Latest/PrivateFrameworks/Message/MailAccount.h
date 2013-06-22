@@ -120,6 +120,7 @@
 - (void)resetMailboxTimer;
 - (id)uniqueIdForPersistentConnection;
 - (BOOL)isValidAccountWithError:(id)arg1 accountBeingEdited:(id)arg2 userCanOverride:(char *)arg3;
+- (void)_invalidateCachedMailboxen;
 - (void)_setAccountProperties:(id)arg1;
 - (id)initWithProperties:(id)arg1;
 - (id)initWithLibrary:(id)arg1 properties:(id)arg2;

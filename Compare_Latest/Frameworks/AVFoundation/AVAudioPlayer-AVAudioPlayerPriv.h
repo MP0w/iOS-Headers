@@ -7,12 +7,12 @@
 #import <AVFoundation/AVAudioPlayer.h>
 
 @interface AVAudioPlayer (AVAudioPlayerPriv)
-- (struct AudioPlayerImpl *)impl;
-- (id)baseInit;
-- (void)finishedPlaying;
-- (void)decodeError;
-- (void)beginInterruption;
-- (void)endInterruptionWithFlags;
 - (void)endInterruption;
+- (void)endInterruptionWithFlags;
+- (void)beginInterruption;
+- (void)decodeError;
+- (void)finishedPlaying;
+- (id)baseInit;
+- (struct AudioPlayerImpl *)impl;
 @end
 

@@ -27,7 +27,6 @@
     struct CGPoint _renderOffset;
     BOOL _paused;
     NSMutableDictionary *_objects;
-    id _foregroundObserver;
 }
 
 @property(retain, nonatomic) NSString *attributionString; // @synthesize attributionString=_attributionString;
@@ -38,6 +37,7 @@
 @property(nonatomic) CDStruct_c3b9c2ee coordinate; // @synthesize coordinate=_coordinate;
 @property(retain, nonatomic) id requester; // @synthesize requester=_requester;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
+- (void)_restartLoadingAfterPause:(id)arg1;
 - (void)tileRequesterFailedWithError:(id)arg1;
 - (void)tileRequesterCompleted;
 - (void)stopLoading;

@@ -14,19 +14,19 @@
 }
 
 + (id)assetReaderVideoCompositionOutputWithVideoTracks:(id)arg1 videoSettings:(id)arg2;
-- (id)init;
-- (id)initWithVideoTracks:(id)arg1 videoSettings:(id)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (BOOL)alwaysCopiesSampleData;
-- (id)description;
-@property(readonly, nonatomic) NSArray *videoTracks;
-@property(readonly, nonatomic) NSDictionary *videoSettings;
-@property(copy, nonatomic) AVVideoComposition *videoComposition;
-- (id)mediaType;
-- (id)_asset;
-- (BOOL)_prepareForReadingReturningError:(id *)arg1;
 - (BOOL)_enableTrackExtractionReturningError:(id *)arg1;
+- (BOOL)_prepareForReadingReturningError:(id *)arg1;
+- (id)_asset;
+- (id)mediaType;
+@property(copy, nonatomic) AVVideoComposition *videoComposition;
+@property(readonly, nonatomic) NSDictionary *videoSettings;
+@property(readonly, nonatomic) NSArray *videoTracks;
+- (id)description;
+- (BOOL)alwaysCopiesSampleData;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithVideoTracks:(id)arg1 videoSettings:(id)arg2;
+- (id)init;
 
 @end
 

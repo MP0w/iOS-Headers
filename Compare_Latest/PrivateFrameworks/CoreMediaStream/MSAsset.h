@@ -42,6 +42,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned long long)_fileSizeOnDisk;
 - (unsigned long long)_fileSize;
 - (id)description;
 - (void)dealloc;

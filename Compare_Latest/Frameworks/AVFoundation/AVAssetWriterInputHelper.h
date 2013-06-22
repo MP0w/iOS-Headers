@@ -14,29 +14,29 @@
     AVWeakReference *_weakReferenceToAssetWriterInput;
 }
 
-- (id)initWithConfigurationState:(id)arg1;
-- (void)dealloc;
-@property(readonly, nonatomic) int status;
-- (void)transitionToTerminalStatus:(int)arg1;
-- (void)transitionAssetWriterAndAllInputsToFailedStatusWithError:(id)arg1;
-@property(readonly, nonatomic) NSString *mediaType;
-@property(readonly, nonatomic) AVOutputSettings *outputSettings;
-@property(retain, nonatomic) struct opaqueCMFormatDescription *sampleBufferFormatHint;
-@property(nonatomic) struct CGAffineTransform transform;
-@property(copy, nonatomic) NSArray *metadata;
-@property(nonatomic) int mediaTimeScale;
-@property(readonly, nonatomic, getter=isReadyForMoreMediaData) BOOL readyForMoreMediaData;
-@property(nonatomic) BOOL expectsMediaDataInRealTime;
-- (void)requestMediaDataWhenReadyOnQueue:(struct dispatch_queue_s *)arg1 usingBlock:(id)arg2;
-- (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
-- (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
-- (void)prepareToEndSession;
-- (BOOL)prepareToFinishWritingReturningError:(id *)arg1;
-- (void)markAsFinished;
-@property(copy, nonatomic) NSDictionary *sourcePixelBufferAttributes;
-@property(readonly, nonatomic) struct __CVPixelBufferPool *pixelBufferPool;
 @property(retain) AVWeakReference *weakReferenceToAssetWriterInput; // @synthesize weakReferenceToAssetWriterInput=_weakReferenceToAssetWriterInput;
 @property(readonly, nonatomic) AVAssetWriterInputConfigurationState *configurationState; // @synthesize configurationState=_configurationState;
+@property(readonly, nonatomic) struct __CVPixelBufferPool *pixelBufferPool;
+@property(copy, nonatomic) NSDictionary *sourcePixelBufferAttributes;
+- (void)markAsFinished;
+- (BOOL)prepareToFinishWritingReturningError:(id *)arg1;
+- (void)prepareToEndSession;
+- (BOOL)appendPixelBuffer:(struct __CVBuffer *)arg1 withPresentationTime:(CDStruct_1b6d18a9)arg2;
+- (BOOL)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
+- (void)requestMediaDataWhenReadyOnQueue:(struct dispatch_queue_s *)arg1 usingBlock:(id)arg2;
+@property(nonatomic) BOOL expectsMediaDataInRealTime;
+@property(readonly, nonatomic, getter=isReadyForMoreMediaData) BOOL readyForMoreMediaData;
+@property(nonatomic) int mediaTimeScale;
+@property(copy, nonatomic) NSArray *metadata;
+@property(nonatomic) struct CGAffineTransform transform;
+@property(retain, nonatomic) struct opaqueCMFormatDescription *sampleBufferFormatHint;
+@property(readonly, nonatomic) AVOutputSettings *outputSettings;
+@property(readonly, nonatomic) NSString *mediaType;
+- (void)transitionAssetWriterAndAllInputsToFailedStatusWithError:(id)arg1;
+- (void)transitionToTerminalStatus:(int)arg1;
+@property(readonly, nonatomic) int status;
+- (void)dealloc;
+- (id)initWithConfigurationState:(id)arg1;
 
 @end
 

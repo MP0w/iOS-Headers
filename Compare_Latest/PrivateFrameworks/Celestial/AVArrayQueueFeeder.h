@@ -13,16 +13,16 @@
     NSMutableArray *_items;
 }
 
-- (id)init;
-- (id)initWithArray:(id)arg1;
-- (void)dealloc;
-- (id)itemForIndex:(unsigned int)arg1;
-- (unsigned int)itemCount;
-- (unsigned int)numberOfPaths;
-- (id)pathAtIndex:(unsigned int)arg1;
-- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)removeObjectAtIndex:(unsigned int)arg1;
 - (void)shuffleWithCurrentIndex:(unsigned int)arg1;
+- (void)removeObjectAtIndex:(unsigned int)arg1;
+- (void)insertObject:(id)arg1 atIndex:(unsigned int)arg2;
+- (id)pathAtIndex:(unsigned int)arg1;
+- (unsigned int)numberOfPaths;
+- (unsigned int)itemCount;
+- (id)itemForIndex:(unsigned int)arg1;
+- (void)dealloc;
+- (id)initWithArray:(id)arg1;
+- (id)init;
 
 @end
 

@@ -15,13 +15,17 @@
     struct CGContext *_CGContext;
 }
 
++ (id)imageFromRawPixelsAtURL:(id)arg1;
++ (id)drawWithSize:(struct CGSize)arg1 scale:(float)arg2 opaque:(BOOL)arg3 usingBlock:(id)arg4;
 @property(readonly, nonatomic) struct CGContext *CGContext; // @synthesize CGContext=_CGContext;
 @property(readonly, nonatomic) float scale; // @synthesize scale=_scale;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
+- (BOOL)writeRawPixelsToURL:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) UIImage *image;
 - (void)dealloc;
 - (id)initMaskContextWithSize:(struct CGSize)arg1 scale:(float)arg2;
 - (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 opaque:(BOOL)arg3;
+- (id)initWithSize:(struct CGSize)arg1 scale:(float)arg2 opaque:(BOOL)arg3 data:(void *)arg4;
 
 @end
 

@@ -27,6 +27,7 @@
     BOOL _shouldDismissAfterUnlock;
     BOOL _shouldDisplayAsTopMost;
     BOOL _shouldHideButtonsInAwayView;
+    BOOL _shouldPendInSetupIfNotAllowed;
     NSArray *_textFields;
     NSString *_title;
     int _unlockActionButtonIndex;
@@ -37,6 +38,7 @@
 @property int unlockActionButtonIndex; // @synthesize unlockActionButtonIndex=_unlockActionButtonIndex;
 @property(retain) NSString *title; // @synthesize title=_title;
 @property(retain) NSArray *textFields; // @synthesize textFields=_textFields;
+@property BOOL shouldPendInSetupIfNotAllowed; // @synthesize shouldPendInSetupIfNotAllowed=_shouldPendInSetupIfNotAllowed;
 @property BOOL shouldHideButtonsInAwayView; // @synthesize shouldHideButtonsInAwayView=_shouldHideButtonsInAwayView;
 @property BOOL shouldDisplayAsTopMost; // @synthesize shouldDisplayAsTopMost=_shouldDisplayAsTopMost;
 @property BOOL shouldDismissAfterUnlock; // @synthesize shouldDismissAfterUnlock=_shouldDismissAfterUnlock;

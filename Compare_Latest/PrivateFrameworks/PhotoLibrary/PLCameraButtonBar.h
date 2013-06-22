@@ -6,19 +6,27 @@
 
 #import "UIToolbar.h"
 
-@class PLCameraButton;
+@class PLCameraButton, PLCameraOptionsButton, PLCameraToggleButton;
 
 @interface PLCameraButtonBar : UIToolbar
 {
+    PLCameraOptionsButton *_optionsButton;
     PLCameraButton *_cameraButton;
+    PLCameraToggleButton *_toggleButton;
+    int _buttonBarStyle;
 }
 
 + (float)defaultHeight;
 + (id)backgroundImage;
++ (id)backgroundImageForButtonBarStyle:(int)arg1;
+@property(nonatomic) int buttonBarStyle; // @synthesize buttonBarStyle=_buttonBarStyle;
+@property(retain, nonatomic) PLCameraToggleButton *toggleButton; // @synthesize toggleButton=_toggleButton;
 @property(retain, nonatomic) PLCameraButton *cameraButton; // @synthesize cameraButton=_cameraButton;
+@property(retain, nonatomic) PLCameraOptionsButton *optionsButton; // @synthesize optionsButton=_optionsButton;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 buttonBarStyle:(int)arg2;
 - (id)initInView:(id)arg1 withItems:(CDStruct_dbaf35c5 *)arg2 withCount:(int)arg3;
 
 @end

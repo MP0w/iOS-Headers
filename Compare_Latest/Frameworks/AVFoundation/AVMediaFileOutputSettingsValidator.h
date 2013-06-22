@@ -15,14 +15,14 @@
     AVMediaFileType *_fileType;
 }
 
-+ (void)initialize;
 + (id)mediaFileOutputSettingsValidatorForFileType:(id)arg1;
-- (id)init;
-- (id)initWithFileType:(id)arg1;
-- (void)dealloc;
-@property(readonly, nonatomic) AVMediaFileType *fileType;
-- (BOOL)validateAudioOutputSettings:(id)arg1 reason:(id *)arg2;
++ (void)initialize;
 - (BOOL)validateVideoOutputSettings:(id)arg1 reason:(id *)arg2;
+- (BOOL)validateAudioOutputSettings:(id)arg1 reason:(id *)arg2;
+@property(readonly, nonatomic) AVMediaFileType *fileType;
+- (void)dealloc;
+- (id)initWithFileType:(id)arg1;
+- (id)init;
 
 @end
 

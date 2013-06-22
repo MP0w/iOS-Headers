@@ -9,6 +9,7 @@
 @interface NSString (ABVCardAdditions)
 - (id)copyABVCardDataRepresentation;
 - (id)abEscapeStringForUnichar:(unsigned short)arg1 and:(unsigned short)arg2 advance:(int *)arg3;
+- (id)stringByStrippingControlCharacters;
 - (id)abVCardKoshify;
 @end
 

@@ -16,8 +16,9 @@
 - (void)saveSyncedAssets:(id)arg1 completionBlock:(id)arg2;
 - (void)_saveSyncedVideoAtPath:(id)arg1 properties:(id)arg2 completionBlock:(id)arg3;
 - (void)importFilesWithMasterPath:(id)arg1 sidecarFileInfo:(id)arg2 intoEventWithName:(id)arg3 importSessionIdentifier:(id)arg4 isPhotoStreamsPublishCandidate:(BOOL)arg5;
-- (void)savePhotoStreamImageAtPathToCameraRoll:(id)arg1 completionBlock:(id)arg2;
+- (void)saveImageAtPathToCameraRoll:(id)arg1 creationDate:(id)arg2 completionBlock:(id)arg3;
 - (void)reenqueueAssetUUIDsForPhotoStreamPublication:(id)arg1;
+- (void)deletePhotoStreamAssetsWithUUIDs:(id)arg1 streamID:(id)arg2;
 - (void)deletePhotoStreamDataForStreamID:(id)arg1;
 - (void)saveOneWayATCSyncedImage:(id)arg1 imageData:(id)arg2 eventUUID:(id)arg3 properties:(id)arg4 completionBlock:(id)arg5;
 - (void)savePhotoStreamVideoAtPath:(id)arg1 properties:(id)arg2 completionBlock:(id)arg3;

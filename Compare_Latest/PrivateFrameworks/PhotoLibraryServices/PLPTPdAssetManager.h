@@ -8,13 +8,14 @@
 
 #import "PLManagedObjectContextPTPNotificationDelegate-Protocol.h"
 
-@class NSArray, NSFileManager, NSObject<PhotoLibraryPTPDelegate>, NSString, PLPhotoLibrary;
+@class NSArray, NSFileManager, NSMutableArray, NSObject<PhotoLibraryPTPDelegate>, NSString, PLPhotoLibrary;
 
 @interface PLPTPdAssetManager : NSObject <PLManagedObjectContextPTPNotificationDelegate>
 {
     NSObject<PhotoLibraryPTPDelegate> *_delegate;
     NSArray *_albumObjectIDs;
     NSString *_firstDCIMFolderServiced;
+    NSMutableArray *_inflightAssets;
     NSFileManager *fileManager;
     PLPhotoLibrary *photoLibrary;
 }

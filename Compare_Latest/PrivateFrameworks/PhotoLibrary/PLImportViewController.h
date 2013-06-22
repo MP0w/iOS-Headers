@@ -47,7 +47,7 @@
 - (void)importer:(id)arg1 didCopyOriginalForItem:(id)arg2 error:(id)arg3;
 - (void)importer:(id)arg1 didChangeImportItem:(id)arg2 changeType:(int)arg3 error:(id)arg4;
 - (void)importerDidFinishReadingImportItems:(id)arg1 error:(id)arg2;
-- (void)importer:(id)arg1 didRemoveImportItem:(id)arg2 atIndex:(unsigned int)arg3;
+- (void)importer:(id)arg1 didRemoveImportItems:(id)arg2 atIndexes:(id)arg3;
 - (void)importer:(id)arg1 didAddImportItem:(id)arg2 atIndex:(unsigned int)arg3;
 - (void)stopImport;
 - (void)importSelected;

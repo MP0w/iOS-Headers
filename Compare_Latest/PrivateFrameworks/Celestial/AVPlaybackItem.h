@@ -27,36 +27,6 @@
 }
 
 + (id)convertFigTimeDictionaryToTimeIntervalWithKey:(id)arg1 stringURLToNSURLWithKey:(id)arg2 inArrayOfDictionaries:(id)arg3;
-- (id)initWithDelegate:(id)arg1 item:(id)arg2;
-- (void)release;
-- (void)dealloc;
-@property(readonly) BOOL isPreparingForInspection;
-- (void)cacheCurrentSize;
-- (void)cacheCurrentDuration;
-- (id)formatDetailsForTracks;
-- (id)attributeForKey:(id)arg1;
-- (id)itemAttribute:(id)arg1 forKey:(id)arg2;
-- (void)setAttribute:(id)arg1 forKey:(id)arg2;
-- (void)setItemAttribute:(id)arg1 value:(id)arg2 forKey:(id)arg3 error:(id *)arg4;
-- (id)fpNotificationNames;
-- (void)addFPListeners;
-- (void)removeFPListeners;
-- (void)applyAttributesFromAVItemToFPItem:(id)arg1;
-- (id)propertiesNeededForInspection;
-- (void)applyBookmarkTime;
-- (void)ensureFPItem;
-- (void)makeReadyForInspection;
-- (BOOL)addToPlayQueue:(struct OpaqueFigPlayer *)arg1 afterItem:(struct OpaqueFigPlaybackItem *)arg2;
-- (void)removeFromPlayQueue:(struct OpaqueFigPlayer *)arg1;
-- (void)fpItemNotificationName:(id)arg1 userInfo:(id)arg2;
-- (void)fpItemNotificationInfo:(id)arg1;
-- (id)avItem;
-- (struct OpaqueFigPlaybackItem *)fpItem;
-- (void)setBookmarkTime:(double)arg1;
-- (void)stealControlOfAVItem;
-- (id)chapterImageForImageID:(int)arg1;
-- (id)nextThumbnailTimesStartingAt:(double)arg1 minimumInterval:(double)arg2 forwards:(BOOL)arg3 maxCount:(int)arg4;
-- (id)evenlySpacedThumbnailTimesFromStartTime:(double)arg1 toEndTime:(double)arg2 maxCount:(int)arg3;
 @property BOOL isPreparingForInspectionAccurateDuration; // @synthesize isPreparingForInspectionAccurateDuration=_isPreparingForInspectionAccurateDuration;
 @property BOOL isPreparingForInspectionInitialSamples; // @synthesize isPreparingForInspectionInitialSamples=_isPreparingForInspectionInitialSamples;
 @property BOOL isInPlayQueue; // @synthesize isInPlayQueue=_isInPlayQueue;
@@ -64,6 +34,36 @@
 @property(retain) NSDictionary *streamStateNotificationInfo; // @synthesize streamStateNotificationInfo=_streamStateNotificationInfo;
 @property(retain) NSDictionary *playToEndNotificationInfo; // @synthesize playToEndNotificationInfo=_playToEndNotificationInfo;
 @property(retain) NSDictionary *inspectionNotificationInfo; // @synthesize inspectionNotificationInfo=_inspectionNotificationInfo;
+- (id)evenlySpacedThumbnailTimesFromStartTime:(double)arg1 toEndTime:(double)arg2 maxCount:(int)arg3;
+- (id)nextThumbnailTimesStartingAt:(double)arg1 minimumInterval:(double)arg2 forwards:(BOOL)arg3 maxCount:(int)arg4;
+- (id)chapterImageForImageID:(int)arg1;
+- (void)stealControlOfAVItem;
+- (void)setBookmarkTime:(double)arg1;
+- (struct OpaqueFigPlaybackItem *)fpItem;
+- (id)avItem;
+- (void)fpItemNotificationInfo:(id)arg1;
+- (void)fpItemNotificationName:(id)arg1 userInfo:(id)arg2;
+- (void)removeFromPlayQueue:(struct OpaqueFigPlayer *)arg1;
+- (BOOL)addToPlayQueue:(struct OpaqueFigPlayer *)arg1 afterItem:(struct OpaqueFigPlaybackItem *)arg2;
+- (void)makeReadyForInspection;
+- (void)ensureFPItem;
+- (void)applyBookmarkTime;
+- (id)propertiesNeededForInspection;
+- (void)applyAttributesFromAVItemToFPItem:(id)arg1;
+- (void)removeFPListeners;
+- (void)addFPListeners;
+- (id)fpNotificationNames;
+- (void)setItemAttribute:(id)arg1 value:(id)arg2 forKey:(id)arg3 error:(id *)arg4;
+- (void)setAttribute:(id)arg1 forKey:(id)arg2;
+- (id)itemAttribute:(id)arg1 forKey:(id)arg2;
+- (id)attributeForKey:(id)arg1;
+- (id)formatDetailsForTracks;
+- (void)cacheCurrentDuration;
+- (void)cacheCurrentSize;
+@property(readonly) BOOL isPreparingForInspection;
+- (void)dealloc;
+- (void)release;
+- (id)initWithDelegate:(id)arg1 item:(id)arg2;
 
 @end
 

@@ -68,7 +68,7 @@
 - (void)setSelected:(BOOL)arg1;
 - (void)setHighlighted:(BOOL)arg1;
 - (void)setEnabled:(BOOL)arg1;
-- (void)_setAlpha:(float)arg1 remember:(BOOL)arg2;
+- (void)_updateAppearanceForEnabled:(BOOL)arg1;
 - (void)didMoveToWindow;
 - (void)_layoutSubviewsForBoundsChange:(BOOL)arg1;
 - (void)layoutSubviews;

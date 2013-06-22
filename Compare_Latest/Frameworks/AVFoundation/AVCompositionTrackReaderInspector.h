@@ -11,12 +11,12 @@
     struct OpaqueFigMutableComposition *_figMutableComposition;
 }
 
-- (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, nonatomic, getter=_mutableComposition) struct OpaqueFigMutableComposition *mutableComposition;
-- (id)segments;
 - (id)segmentForTrackTime:(CDStruct_1b6d18a9)arg1;
+- (id)segments;
+@property(readonly, nonatomic, getter=_mutableComposition) struct OpaqueFigMutableComposition *mutableComposition;
+- (void)finalize;
+- (void)dealloc;
+- (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
 
 @end
 

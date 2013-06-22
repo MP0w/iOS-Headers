@@ -34,10 +34,6 @@
 - (id)_nameForDeleteButton;
 - (void)prepareEditItems;
 - (id)_editItems;
-- (void)applicationDidResume;
-- (void)viewDidUnload;
-- (void)viewDidLoad;
-- (void)_wifiStatusDidChange:(id)arg1;
 - (void)loadView;
 - (void)dealloc;
 @property(retain, nonatomic) EKReminder *reminder;

@@ -22,7 +22,6 @@
     UIBarButtonItem *_copyItem;
     UIBarButtonItem *_addToFromItem;
     UIBarButtonItem *_deleteItem;
-    UIBarButtonItem *_savePhotoItem;
     UIBarButtonItem *_doneItem;
     NSMutableArray *_shareButtonTitles;
     UINavigationController *_composeNavigationController;
@@ -112,13 +111,12 @@
 - (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)_dismissActionSheet;
 - (void)_presentActionSheet;
-- (void)_addPhotos:(id)arg1 toAlbum:(struct NSObject *)arg2 removeFromCurrentAlbum:(BOOL)arg3;
 - (void)_showCreateAlbumDialogWithPhotos:(id)arg1;
 - (void)_showAlbumPickerToAddPhotos:(id)arg1 removeFromCurrentAlbum:(BOOL)arg2;
 - (void)_showDeleteConfirmation:(id)arg1;
 - (void)_removeSelectedItems:(id)arg1;
 - (void)_deleteSelectedItems:(id)arg1;
-- (void)_saveSelectedItems:(id)arg1;
+- (void)_saveAssetsToCameraRoll:(id)arg1;
 - (void)_printSelectedItems:(id)arg1;
 - (void)_cancelAlbumPicker:(id)arg1;
 - (void)_showMoveActions:(id)arg1;
@@ -145,6 +143,7 @@
 - (void)copy:(id)arg1;
 - (void)_filterWasToggled:(id)arg1;
 - (BOOL)_isPerformingModalTransitionFromCamera;
+- (BOOL)_allowSavingToCameraRoll;
 - (int)_allowedDeleteOperation;
 - (BOOL)_canAddAssets;
 - (BOOL)_isCameraAlbum;

@@ -13,13 +13,11 @@
 #import "UITableViewDelegate-Protocol.h"
 #import "UITextViewDelegate-Protocol.h"
 
-@class ABPeoplePickerNavigationController, GKImageBackgroundView, GKRecipientGenerator, GKRecipientSelectionView, GKUITheme, NSDictionary, NSMutableArray, NSNumber, NSString, UIImageView, UINavigationItem, UIPopoverController, UIResponder, UITextView, UIView;
+@class ABPeoplePickerNavigationController, GKComposeControllerBackgroundView, GKComposeMessageView, GKRecipientGenerator, GKRecipientSelectionView, GKUITheme, NSDictionary, NSMutableArray, NSNumber, NSString, UINavigationItem, UIPopoverController, UIResponder, UIView;
 
 @interface GKAbstractComposeController : GKViewController <UIActionSheetDelegate, UIModalViewDelegate, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate, UITextViewDelegate, UIPopoverControllerDelegate>
 {
     UINavigationItem *_navItem;
-    GKImageBackgroundView *_backgroundView;
-    UIImageView *_messageView;
     struct _NSRange _lastSelectedRange;
     id _composeDelegate;
     NSMutableArray *_recipients;
@@ -30,8 +28,8 @@
     NSDictionary *_abPropertiesCache;
     GKUITheme *_theme;
     GKRecipientSelectionView *_recipientSelectionView;
-    UIView *_beneathMessageView;
-    UITextView *_messageEntryView;
+    GKComposeControllerBackgroundView *_backgroundView;
+    GKComposeMessageView *_messageView;
     ABPeoplePickerNavigationController *_peoplePickerController;
     UIPopoverController *_composePopoverController;
     UIResponder *_savedFirstResponder;
@@ -58,8 +56,8 @@
 @property(retain, nonatomic) UIResponder *savedFirstResponder; // @synthesize savedFirstResponder=_savedFirstResponder;
 @property(retain, nonatomic) UIPopoverController *composePopoverController; // @synthesize composePopoverController=_composePopoverController;
 @property(readonly, nonatomic) ABPeoplePickerNavigationController *peoplePickerController; // @synthesize peoplePickerController=_peoplePickerController;
-@property(readonly, nonatomic) UITextView *messageEntryView; // @synthesize messageEntryView=_messageEntryView;
-@property(readonly, nonatomic) UIView *beneathMessageView; // @synthesize beneathMessageView=_beneathMessageView;
+@property(retain, nonatomic) GKComposeMessageView *messageView; // @synthesize messageView=_messageView;
+@property(retain, nonatomic) GKComposeControllerBackgroundView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(readonly, nonatomic) GKRecipientSelectionView *recipientSelectionView; // @synthesize recipientSelectionView=_recipientSelectionView;
 @property(nonatomic) id composeDelegate; // @synthesize composeDelegate=_composeDelegate;
 @property(retain, nonatomic) GKUITheme *theme; // @synthesize theme=_theme;

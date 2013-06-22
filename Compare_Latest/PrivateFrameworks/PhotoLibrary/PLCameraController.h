@@ -116,6 +116,7 @@
         unsigned int delegateWillStartAutofocus:1;
         unsigned int delegateFocusDidStart:1;
         unsigned int delegateFocusDidEnd:1;
+        unsigned int delegateFaceMetadataDidChange:1;
         unsigned int delegateTorchAvailabilityChanged:1;
     } _cameraFlags;
     id postSessionSetupBlock;
@@ -154,6 +155,7 @@
 - (void)_setFlashMode:(int)arg1 force:(BOOL)arg2;
 - (void)_torchLevelChanged;
 - (void)_flashStateChanged;
+- (void)_faceMetadataDidChange:(id)arg1;
 - (void)_faceRectangleChanged;
 - (struct CGRect)faceRectangle;
 - (BOOL)isFocusingOnFace;
@@ -207,9 +209,11 @@
 - (void)captureOutput:(id)arg1 didFinishRecordingToOutputFileAtURL:(id)arg2 fromConnections:(id)arg3 error:(id)arg4;
 - (void)captureOutput:(id)arg1 didStartRecordingToOutputFileAtURL:(id)arg2 fromConnections:(id)arg3;
 - (void)_movieFileRecordingCompleted:(id)arg1;
+- (void)_verifyVideoConsolidationForVideoAtPath:(id)arg1 outUserInfo:(id *)arg2;
 - (void)_removeVideoCaptureFileAndDirectoryAtPath:(id)arg1;
 - (BOOL)isCapturingVideo;
 - (void)capturePhoto;
+- (BOOL)imageWriterQueueIsAvailable;
 - (BOOL)canCapturePhoto;
 - (void)_didTakePhoto;
 - (void)_willTakePhoto;
@@ -225,6 +229,7 @@
 - (void)_recoverFromServerError;
 - (void)stopPreview;
 - (void)_previewStarted:(id)arg1;
+- (void)_clearPreviewLayer;
 - (void)startPreview;
 - (void)_startPreviewWithCameraDevice:(int)arg1 cameraMode:(int)arg2;
 - (id)delegate;
@@ -233,6 +238,7 @@
 - (void)_sessionStopped:(id)arg1;
 - (void)_sessionStarted:(id)arg1;
 - (void)_deviceStarted:(id)arg1;
+- (void)tearDownCaptureSession;
 - (void)_tearDownCamera;
 - (void)_setDelaySuspend:(BOOL)arg1;
 - (void)_forceDelaySuspendTimeout;

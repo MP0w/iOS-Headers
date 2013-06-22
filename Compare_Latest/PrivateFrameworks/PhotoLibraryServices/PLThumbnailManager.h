@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSIndexSet, NSLock, NSMutableOrderedSet, PLImageTable, PLPhotoLibrary;
+@class NSArray, NSDictionary, NSIndexSet, NSLock, NSManagedObjectContext, NSMutableOrderedSet, PLImageTable, PLPhotoLibrary;
 
 @interface PLThumbnailManager : NSObject
 {
@@ -16,10 +16,12 @@
     NSIndexSet *_occupiedIndexes;
     NSDictionary *_changedPhotosMap;
     NSArray *_changedPhotos;
+    NSManagedObjectContext *_preheatMOC;
     PLImageTable *_indexSheetThumbs;
     PLImageTable *_wildcatScrubberThumbs;
     PLImageTable *_wildcatIndexThumbs;
     PLImageTable *_wildcatStackThumbs;
+    NSArray *_thumbTables;
     NSMutableOrderedSet *_assetUUIDsWithThumbnails;
 }
 
@@ -39,7 +41,7 @@
 - (BOOL)entryAtIndexIsPlaceholder:(int)arg1;
 - (void)ensureIndexExists:(int)arg1;
 - (void)deleteThumbnailsForPhoto:(id)arg1;
-- (void)deleteThumbnailsAtIndex:(int)arg1;
+- (void)deleteThumbnailsAtIndex:(int)arg1 withUUID:(id)arg2;
 - (void)updateThumbnailsForPhoto:(id)arg1 previewImage:(id)arg2 thumbnailImage:(id)arg3 generatePreviewImage:(BOOL)arg4 assignNewIndex:(BOOL)arg5;
 - (void)updateThumbnailsForPhoto:(id)arg1 previewImage:(id)arg2 thumbnailImage:(id)arg3 generatePreviewImage:(BOOL)arg4;
 - (void)setThumbnails:(struct __CFDictionary *)arg1 forPhoto:(id)arg2;
@@ -47,6 +49,7 @@
 - (struct __CFDictionary *)assetUUIDToThumbnailIndexMappingForFormat:(int)arg1;
 - (void)preheatImageDataForAssets:(id)arg1 format:(int)arg2;
 - (id)dataForPhoto:(id)arg1 format:(int)arg2 width:(int *)arg3 height:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;
+@property(readonly, nonatomic) NSArray *thumbTables;
 @property(readonly, nonatomic) PLImageTable *wildcatStackThumbs;
 @property(readonly, nonatomic) PLImageTable *wildcatIndexThumbs;
 @property(readonly, nonatomic) PLImageTable *wildcatScrubberThumbs;

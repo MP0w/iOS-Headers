@@ -4,9 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
+#import "NSObject-Protocol.h"
+
 @class NSDictionary, NSMutableOrderedSet, NSNumber, NSOrderedSet, NSString, NSURL, PLManagedAsset, UIImage;
 
-@protocol PLAssetContainer
+@protocol PLAssetContainer <NSObject>
 @property(nonatomic) unsigned int pendingItemsType;
 @property(nonatomic) unsigned int pendingItemsCount;
 @property(readonly, nonatomic) NSURL *groupURL;
@@ -30,6 +32,7 @@
 @property(readonly, nonatomic) int kindValue;
 @property(readonly, nonatomic) NSNumber *kind;
 @property(readonly, nonatomic) NSString *uuid;
+- (void)batchFetchAssets:(id)arg1;
 - (void)updateStackedImage;
 - (void)reducePendingItemsCountBy:(unsigned int)arg1;
 - (id)displayableIndexesForCount:(unsigned int)arg1;

@@ -11,16 +11,18 @@
     BOOL _appHasPolledOnceThisForegroundSession;
 }
 
++ (BOOL)canInitiateDistributedPhotoStreamDeletionForAssetUUID:(id)arg1;
 + (BOOL)writeBreadcrumbContent:(id)arg1 forHashString:(id)arg2;
 + (id)publishBreadcrumbsPath;
 + (id)photoStreamAccount;
 + (BOOL)photoStreamsEnabled;
 + (id)sharedPhotoStreamsHelper;
+- (void)initiateDeletionOfPhotoStreamAssets:(id)arg1;
 - (void)resume_mstreamd:(id)arg1;
 - (id)pause_mstreamd;
 - (void)resetServerState;
-- (void)assetsWithNames:(id)arg1 willBeDeletedForStreamID:(id)arg2;
-- (void)assetWithFileHash:(id)arg1 metadata:(id)arg2 wasSavedToPath:(id)arg3;
+- (void)cleanupPhotoStreamMetadataForAssetsWithUUIDs:(id)arg1 forStreamID:(id)arg2;
+- (void)savePhotoStreamMetadata:(id)arg1 forAsset:(id)arg2;
 - (id)pathToSavedMetadataForAssetHash:(id)arg1 streamID:(id)arg2 createIntermediateDirs:(BOOL)arg3;
 - (void)resetMstreamdStateForPersonID:(id)arg1;
 - (id)derivedAssetForMasterAsset:(id)arg1;

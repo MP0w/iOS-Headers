@@ -15,6 +15,9 @@
 + (BOOL)formatWasSynced:(int)arg1;
 + (BOOL)formatHasJPEGFile:(int)arg1;
 + (BOOL)formatIsCropped:(int)arg1;
++ (unsigned int)maxLongSideForFullSizeFormat:(int)arg1;
++ (unsigned int)minShortSideForFullSizeFormat:(int)arg1;
++ (unsigned int)desiredLongSideForFullSizeFormat:(int)arg1;
 + (struct CGSize)sizeForFormat:(int)arg1;
 
 @end

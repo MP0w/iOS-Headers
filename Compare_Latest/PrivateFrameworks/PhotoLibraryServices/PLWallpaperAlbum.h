@@ -13,6 +13,7 @@
 + (id)wallpaperAlbumInLibrary:(id)arg1;
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
+- (id)_kindDescription;
 - (id)posterImage;
 - (id)localizedTitle;
 - (void)awakeFromInsert;

@@ -15,11 +15,11 @@
     AVTrackGroupInternal *_trackGroup;
 }
 
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
 @property(readonly, nonatomic) NSArray *trackIDs; // @dynamic trackIDs;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

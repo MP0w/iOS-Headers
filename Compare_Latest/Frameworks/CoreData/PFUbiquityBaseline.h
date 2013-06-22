@@ -22,14 +22,14 @@
     _PFZipFileArchive *_baselineArchive;
 }
 
-+ (BOOL)enoughTransactionsHavePassedToRollBaselineForStoreMetadata:(id)arg1 withStack:(id)arg2;
-+ (BOOL)logsConsumeEnoughDiskSpaceToRollBaselineForStoreMetadata:(id)arg1;
-+ (BOOL)canRollBaselineForStoreMetadata:(id)arg1 withStack:(id)arg2 andManagedObjectModel:(id)arg3;
-+ (BOOL)checkRemotePeerStates:(id)arg1 forAgreementWithLocalPeerState:(id)arg2;
++ (BOOL)enoughTransactionsHavePassedToRollBaseline:(id)arg1 withLocalPeerID:(id)arg2 error:(id *)arg3;
++ (BOOL)logsConsumeEnoughDiskSpaceToRollBaseline:(id)arg1 withLocalPeerID:(id)arg2 andStoreURL:(id)arg3 error:(id *)arg4;
++ (BOOL)canRollBaselineForStoreMetadata:(id)arg1 withStack:(id)arg2 andManagedObjectModel:(id)arg3 error:(id *)arg4;
++ (BOOL)checkPeerReceiptsUnderRootLocation:(id)arg1 forAgreementWithLocalPeerID:(id)arg2 storeName:(id)arg3 modelVersionHash:(id)arg4 error:(id *)arg5;
 + (id)createBaselineOptimizedModelForStoreName:(id)arg1 modelVersionHash:(id)arg2 andUbiquityRootLocation:(id)arg3;
 + (id)createBaselineGCModelForStoreName:(id)arg1 modelVersionHash:(id)arg2 andUbiquityRootLocation:(id)arg3;
 + (id)createModelFromBaselineModelWithStoreMetadata:(id)arg1;
-+ (id)metadataFromCurrentBaselineForStoreWithName:(id)arg1 modelVersionHash:(id)arg2 andUbiquityRootLocation:(id)arg3;
++ (id)metadataFromCurrentBaselineForStoreWithName:(id)arg1 modelVersionHash:(id)arg2 andUbiquityRootLocation:(id)arg3 withError:(id *)arg4;
 + (unsigned int)numRequiredTransactionsForBaselineRoll;
 + (void)setNumRequiredTransactionsForBaselineRoll:(unsigned int)arg1;
 + (long double)requiredFractionOfDiskSpaceUsedForLogs;
@@ -56,6 +56,7 @@
 - (id)optimizedModelData;
 - (id)regularModelData;
 - (id)storeData;
+- (id)createManagedObjectModel;
 @property(readonly) _PFZipFileArchive *baselineArchive; // @synthesize baselineArchive=_baselineArchive;
 @property(readonly) NSString *modelVersionHash; // @synthesize modelVersionHash=_modelVersionHash;
 @property(readonly) NSString *storeName; // @synthesize storeName=_storeName;

@@ -12,16 +12,16 @@
 {
 }
 
-+ (id)registeredOutputSettingsClasses;
-+ (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
-+ (id)audioOutputSettingsWithAudioSettingsDictionary:(id)arg1;
-+ (id)_audioOutputSettingsWithAudioSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
-+ (id)defaultAudioOutputSettings;
 + (id)audioConverterPropertiesForAudioSettingsDictionary:(id)arg1;
-- (id)initWithAudioSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
-- (id)compatibleMediaTypes;
-@property(readonly, nonatomic) NSDictionary *audioSettingsDictionary;
++ (id)defaultAudioOutputSettings;
++ (id)_audioOutputSettingsWithAudioSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
++ (id)audioOutputSettingsWithAudioSettingsDictionary:(id)arg1;
++ (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
++ (id)registeredOutputSettingsClasses;
 - (BOOL)validateUsingOutputSettingsValidator:(id)arg1 reason:(id *)arg2;
+@property(readonly, nonatomic) NSDictionary *audioSettingsDictionary;
+- (id)compatibleMediaTypes;
+- (id)initWithAudioSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 
 @end
 

@@ -30,6 +30,7 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name;
 @property(nonatomic) int type; // @synthesize type;
 - (BOOL)renderAsStringKey;
+- (BOOL)renderAsStringKeyExcludingPunctuation:(BOOL)arg1;
 - (id)cacheDisplayString;
 - (BOOL)shouldCacheKey;
 - (id)variantDisplayString;
@@ -77,6 +78,7 @@
 - (id)keySet;
 - (BOOL)looksLike:(id)arg1;
 - (BOOL)supportsType:(int)arg1;
+- (BOOL)isLetters;
 - (BOOL)looksLikeShiftAlternate;
 - (BOOL)usesKeyCharging;
 - (BOOL)usesAdaptiveKeys;

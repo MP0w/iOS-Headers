@@ -12,9 +12,7 @@
 {
     id <MSStreamsProtocolDelegate> _delegate;
     NSString *_personID;
-    NSURL *_baseURL;
     NSURL *_URL;
-    int _lastURLType;
 }
 
 + (id)deviceInfoDictForPersonID:(id)arg1;
@@ -25,6 +23,7 @@
 - (void)_didFindServerSideConfigurationVersion:(id)arg1;
 - (id)deviceInfoDict;
 - (void)abort;
+@property(readonly, nonatomic) NSURL *deleteURL;
 @property(readonly, nonatomic) NSURL *uploadCompleteURL;
 @property(readonly, nonatomic) NSURL *reauthorizeURL;
 @property(readonly, nonatomic) NSURL *resetURL;

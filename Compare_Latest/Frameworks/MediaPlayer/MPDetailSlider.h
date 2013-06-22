@@ -51,6 +51,7 @@
 - (void)_updateForAvailableDuraton;
 - (void)_commitValue;
 - (void)_resetScrubInfo;
+- (struct CGRect)_thumbHitFrame;
 - (id)_stringForInverseCurrentTime:(double)arg1;
 - (id)_stringForCurrentTime:(double)arg1;
 - (id)_stringForTime:(double)arg1;
@@ -82,9 +83,9 @@
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (id)currentThumbImage;
 - (id)createThumbView;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 style:(int)arg2;

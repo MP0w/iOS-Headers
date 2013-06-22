@@ -8,10 +8,12 @@
 
 @interface CalDAVAccountPropertyRefreshOperation : CalDAVOperation
 {
+    BOOL _fetchPrincipalSearchProperties;
 }
 
 - (void)refreshProperties;
 - (void)getAccountPropertiesTask:(id)arg1 completedWithError:(id)arg2;
+@property BOOL fetchPrincipalSearchProperties; // @synthesize fetchPrincipalSearchProperties=_fetchPrincipalSearchProperties;
 
 // Remaining properties
 @property(nonatomic) id <CalDAVAccountPropertyRefreshDelegate> delegate; // @dynamic delegate;

@@ -7,33 +7,45 @@
 #import "NSObject.h"
 
 #import "NSCoding-Protocol.h"
+#import "NSCopying-Protocol.h"
+#import "SSDownloadManagerObserver-Protocol.h"
 
-@class MPMediaPlaylist, MPMediaQuery, NSArray, NSMutableArray, NSString;
+@class MPMediaPlaylist, MPMediaQuery, NSArray, NSString;
 
-@interface MPGeniusMix : NSObject <NSCoding>
+@interface MPGeniusMix : NSObject <SSDownloadManagerObserver, NSCoding, NSCopying>
 {
     MPMediaPlaylist *_playlist;
     MPMediaQuery *_seedTracksQuery;
     NSArray *_representativeArtists;
-    NSMutableArray *_representativeImageItems;
+    NSArray *_representativeImageItems;
 }
 
-+ (id)artworkCacheDirectoryPath;
 + (id)artworkImageForMediaItem:(id)arg1;
++ (id)artworkCacheDirectoryPath;
 @property(readonly, nonatomic) MPMediaPlaylist *playlist; // @synthesize playlist=_playlist;
+- (id)_representativeImageItemsWithMaxCount:(unsigned int)arg1;
+- (unsigned long long)_entityArtworkCacheHashForRepresentativeItems:(id)arg1;
 - (id)_cachedRepresentativeImagePath;
 - (id)_cacheDirectoryPath;
+@property(readonly, nonatomic) MPMediaQuery *seedTracksQuery;
 - (struct CGImage *)representativeImageWithSize:(struct CGSize)arg1 count:(unsigned int)arg2 cacheOnly:(BOOL)arg3;
 - (struct CGImage *)representativeImageWithSize:(struct CGSize)arg1 count:(unsigned int)arg2;
-- (unsigned int)countOfRepresentativeImagesWithMaxCount:(unsigned int)arg1;
 @property(readonly, nonatomic) NSArray *representativeArtists;
-@property(readonly, nonatomic) MPMediaQuery *seedTracksQuery;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) BOOL isDownloading;
+@property(readonly, nonatomic) BOOL isCloudMix;
+@property(readonly, nonatomic) float downloadProgress;
+- (void)downloadMixWithCompletionHandler:(id)arg1;
+- (unsigned int)countOfRepresentativeImagesWithMaxCount:(unsigned int)arg1;
+- (BOOL)canPlayUsingNetworkType:(int)arg1;
+- (void)cancelDownload;
+- (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)description;
-- (unsigned int)hash;
 - (BOOL)isEqual:(id)arg1;
+- (unsigned int)hash;
+- (id)description;
 - (void)dealloc;
 - (id)initWithMPMediaPlaylist:(id)arg1;
 

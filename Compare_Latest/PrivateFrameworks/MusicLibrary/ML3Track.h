@@ -20,7 +20,7 @@
 + (id)unsettableProperties;
 + (void)populateSortOrdersOfPropertyValues:(id)arg1 inLibrary:(id)arg2 cachedNameOrders:(id)arg3;
 + (BOOL)trackWithPersistentID:(long long)arg1 existsInLibrary:(id)arg2;
-+ (BOOL)deleteFromLibrary:(id)arg1 persistentIDs:(const long long *)arg2 count:(unsigned int)arg3;
++ (BOOL)deleteFromLibrary:(id)arg1 deletionType:(int)arg2 persistentIDs:(const long long *)arg3 count:(unsigned int)arg4;
 + (BOOL)libraryContentsChangeForProperty:(id)arg1;
 + (id)persistentIDColumnForTable:(id)arg1;
 + (id)extraTablesToInsert;

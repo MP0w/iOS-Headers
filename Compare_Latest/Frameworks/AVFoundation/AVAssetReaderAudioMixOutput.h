@@ -14,19 +14,19 @@
 }
 
 + (id)assetReaderAudioMixOutputWithAudioTracks:(id)arg1 audioSettings:(id)arg2;
-- (id)init;
-- (id)initWithAudioTracks:(id)arg1 audioSettings:(id)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (id)description;
-@property(readonly, nonatomic) NSArray *audioTracks;
-@property(readonly, nonatomic) NSDictionary *audioSettings;
-- (id)_audioVolumeCurveForTrack:(id)arg1;
-- (void)_setAudioVolumeCurve:(id)arg1 forTrack:(id)arg2;
-@property(copy, nonatomic) AVAudioMix *audioMix;
-- (id)mediaType;
-- (id)_asset;
 - (BOOL)_enableTrackExtractionReturningError:(id *)arg1;
+- (id)_asset;
+- (id)mediaType;
+@property(copy, nonatomic) AVAudioMix *audioMix;
+- (void)_setAudioVolumeCurve:(id)arg1 forTrack:(id)arg2;
+- (id)_audioVolumeCurveForTrack:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *audioSettings;
+@property(readonly, nonatomic) NSArray *audioTracks;
+- (id)description;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithAudioTracks:(id)arg1 audioSettings:(id)arg2;
+- (id)init;
 
 @end
 

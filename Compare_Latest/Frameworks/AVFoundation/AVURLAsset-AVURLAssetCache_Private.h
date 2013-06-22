@@ -9,11 +9,11 @@
 @class AVAssetCache, NSString;
 
 @interface AVURLAsset (AVURLAssetCache_Private)
-@property(readonly, nonatomic) AVAssetCache *assetCache;
-@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly;
-@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
-@property(readonly, nonatomic) NSString *cacheKey;
-- (id)resolvedURL;
 - (id)downloadDestinationURL;
+- (id)resolvedURL;
+@property(readonly, nonatomic) NSString *cacheKey;
+@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
+@property(readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly;
+@property(readonly, nonatomic) AVAssetCache *assetCache;
 @end
 

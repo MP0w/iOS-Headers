@@ -7,10 +7,10 @@
 #import <AVFoundation/AVMetadataItem.h>
 
 @interface AVMetadataItem (AVMetadataItem_Local)
-- (void)_makeValueReady;
-- (void)_makePropertiesReady;
-- (void)_updateCommonKey;
-- (void)_extractPropertiesFromDictionary:(id)arg1;
 - (id)_keyAsString;
+- (void)_extractPropertiesFromDictionary:(id)arg1;
+- (void)_updateCommonKey;
+- (void)_makePropertiesReady;
+- (void)_makeValueReady;
 @end
 

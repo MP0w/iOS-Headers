@@ -41,6 +41,7 @@
 - (void)unlock;
 @property(copy) NSArray *serializationLockIdentifiers;
 - (void)sendProgressToDelegate;
+- (void)sendDidTakeSerializationLocks;
 - (void)run:(BOOL)arg1;
 - (void)lock;
 - (id)copySerializationLocks;

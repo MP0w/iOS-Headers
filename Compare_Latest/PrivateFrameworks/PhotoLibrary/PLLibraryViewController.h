@@ -33,7 +33,6 @@
     } _lvcFlags;
 }
 
-+ (void)initialize;
 @property(retain, nonatomic) PLPhotosPickerSession *currentPickerSession; // @synthesize currentPickerSession=_currentPickerSession;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(nonatomic) id <PLLibraryViewControllerDelegate> delegate; // @synthesize delegate=_delegate;

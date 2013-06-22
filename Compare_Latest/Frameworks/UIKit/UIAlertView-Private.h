@@ -14,6 +14,7 @@
 - (BOOL)_isSBAlert;
 - (void)_nukeOldTextFields;
 - (void)_addSubview:(id)arg1 positioned:(int)arg2 relativeTo:(id)arg3;
+- (void)removeFromSuperview;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
 - (BOOL)canBecomeFirstResponder;

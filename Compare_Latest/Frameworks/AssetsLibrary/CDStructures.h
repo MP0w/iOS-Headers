@@ -6,6 +6,11 @@
 
 #pragma mark Named Structures
 
+struct CGSize {
+    float _field1;
+    float _field2;
+};
+
 struct NSObject {
     Class _field1;
 };

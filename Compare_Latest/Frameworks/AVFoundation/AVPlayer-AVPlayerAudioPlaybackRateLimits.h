@@ -7,9 +7,9 @@
 #import <AVFoundation/AVPlayer.h>
 
 @interface AVPlayer (AVPlayerAudioPlaybackRateLimits)
-- (void)removeAudioPlaybackRateLimits;
-@property(readonly, nonatomic, getter=isAudioPlaybackEnabledAtAllRates) BOOL audioPlaybackEnabledAtAllRates;
-@property(nonatomic) float minRateForAudioPlayback;
 @property(nonatomic) float maxRateForAudioPlayback;
+@property(nonatomic) float minRateForAudioPlayback;
+@property(readonly, nonatomic, getter=isAudioPlaybackEnabledAtAllRates) BOOL audioPlaybackEnabledAtAllRates;
+- (void)removeAudioPlaybackRateLimits;
 @end
 

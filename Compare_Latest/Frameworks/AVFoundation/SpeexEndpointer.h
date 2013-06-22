@@ -14,20 +14,20 @@
     double mInterspeechWaitTime;
     double mEndWaitTime;
     int mEndpointMode;
-    unsigned int mFrameRate;
+    unsigned long mFrameRate;
     int mLastStatus;
     void *_impl;
 }
 
-- (id)init;
-- (void)dealloc;
-- (BOOL)configureWithSampleRate:(double)arg1 andFrameRate:(unsigned long)arg2;
-- (int)getStatus:(struct AudioQueueBuffer *)arg1;
-- (void)reset;
-@property int endpointMode;
-@property double startWaitTime;
-@property double interspeechWaitTime;
 @property double endWaitTime;
+@property double interspeechWaitTime;
+@property double startWaitTime;
+@property int endpointMode;
+- (void)reset;
+- (int)getStatus:(struct AudioQueueBuffer *)arg1;
+- (BOOL)configureWithSampleRate:(double)arg1 andFrameRate:(unsigned long)arg2;
+- (void)dealloc;
+- (id)init;
 
 @end
 

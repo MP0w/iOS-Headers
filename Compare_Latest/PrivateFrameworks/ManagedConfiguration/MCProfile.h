@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSString;
+@class NSArray, NSData, NSDate, NSDictionary, NSString;
 
 @interface MCProfile : NSObject
 {
@@ -30,7 +30,7 @@
     BOOL _trustHasBeenEvaluated;
     struct dispatch_queue_s *_trustEvaluationQueue;
     NSString *_signerSummary;
-    NSMutableArray *_signerCertificates;
+    NSArray *_signerCertificates;
     BOOL _signerHasBeenEvaluated;
     struct dispatch_queue_s *_signerEvaluationQueue;
     NSDictionary *_context;

@@ -9,12 +9,11 @@
 #import "AVAudioSessionDelegateMediaPlayerOnly-Protocol.h"
 #import "MPAVErrorResolverDelegate-Protocol.h"
 
-@class CALayer, MPAVControllerToAggregateDCommunicator, MPAVDestinationBrowser, MPAVErrorResolver, MPAVItem, MPAVPlaylistManager, MPAudioDeviceController, MPQueueFeeder, MPQueuePlayer, MPVideoView, NSArray, NSDictionary, NSMutableArray, NSNotification, NSString, NSTimer;
+@class AVAudioSessionMediaPlayerOnly, CALayer, MPAVControllerToAggregateDCommunicator, MPAVDestinationBrowser, MPAVErrorResolver, MPAVItem, MPAVPlaylistManager, MPAudioDeviceController, MPQueueFeeder, MPQueuePlayer, MPVideoView, NSArray, NSDictionary, NSMutableArray, NSNotification, NSString, NSTimer;
 
 @interface MPAVController : NSObject <AVAudioSessionDelegateMediaPlayerOnly, MPAVErrorResolverDelegate>
 {
     MPAVPlaylistManager *_avPlaylistManager;
-    double _connectionFailTime;
     BOOL _forceSynchronousQueueFilling;
     unsigned int _valid:1;
     int _playbackMode;
@@ -127,6 +126,7 @@
 - (void)_setValid:(BOOL)arg1;
 - (void)_setVideoLayerOnAVController:(id)arg1 force:(BOOL)arg2;
 - (void)_setVideoLayerOnAVController:(id)arg1 force:(BOOL)arg2 pauseIfNecessary:(BOOL)arg3;
+- (BOOL)_isVideoLayerAttachedToPlayer;
 - (void)_setState:(unsigned int)arg1;
 - (void)_setItemErrorResolver:(id)arg1;
 - (void)_clearResetRateAfterSeeking;
@@ -236,6 +236,7 @@
 - (void)switchToAudioPlayback:(BOOL)arg1 forItem:(id)arg2;
 - (void)setCurrentTime:(double)arg1 options:(int)arg2;
 - (void)reloadFeederWithStartQueueIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) AVAudioSessionMediaPlayerOnly *_playerAVAudioSession;
 - (void)feederChangedContents:(id)arg1;
 - (void)switchToFeeder:(id)arg1 mode:(int)arg2 index:(unsigned int)arg3 play:(BOOL)arg4;
 - (void)_switchToFeeder:(id)arg1 mode:(int)arg2 index:(unsigned int)arg3 play:(BOOL)arg4 configureFeederBlock:(id)arg5;

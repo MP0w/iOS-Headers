@@ -16,21 +16,21 @@
     AVMediaSelectionOption *_defaultOption;
 }
 
-- (id)initWithAsset:(id)arg1 dictionary:(id)arg2;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)asset;
-- (id)options;
-- (BOOL)allowsEmptySelection;
-- (id)dictionary;
-- (BOOL)_isKeyValueGroup;
-- (id)_defaultOption;
-- (id)_groupID;
-- (id)_mediaType;
-- (BOOL)_matchesGroupID:(id)arg1 mediaType:(id)arg2;
-- (id)_optionWithID:(id)arg1;
 - (id)mediaSelectionOptionWithPropertyList:(id)arg1;
+- (id)_optionWithID:(id)arg1;
+- (BOOL)_matchesGroupID:(id)arg1 mediaType:(id)arg2;
+- (id)_mediaType;
+- (id)_groupID;
+- (id)_defaultOption;
+- (BOOL)_isKeyValueGroup;
+- (id)dictionary;
+- (BOOL)allowsEmptySelection;
+- (id)options;
+- (id)asset;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)initWithAsset:(id)arg1 dictionary:(id)arg2;
 
 @end
 

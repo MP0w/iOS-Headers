@@ -16,6 +16,7 @@
 
 @property(retain, nonatomic) NSMutableArray *events; // @synthesize events=_events;
 @property(retain, nonatomic) ADLogMetaData *metaData; // @synthesize metaData=_metaData;
+- (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
@@ -25,6 +26,7 @@
 - (id)eventAtIndex:(unsigned int)arg1;
 - (unsigned int)eventsCount;
 - (void)addEvent:(id)arg1;
+- (void)clearEvents;
 @property(readonly, nonatomic) BOOL hasMetaData;
 - (void)dealloc;
 

@@ -12,14 +12,14 @@
 {
     MPMediaEntity *_entity;
     NSString *_anchor;
-    BOOL _deleted;
+    int _deletionType;
 }
 
-@property(readonly, nonatomic, getter=isDeleted) BOOL deleted; // @synthesize deleted=_deleted;
+@property(readonly, nonatomic) int deletionType; // @synthesize deletionType=_deletionType;
 @property(readonly, nonatomic) NSString *anchor; // @synthesize anchor=_anchor;
 @property(readonly, nonatomic) MPMediaEntity *entity; // @synthesize entity=_entity;
 - (void)dealloc;
-- (id)initWithEntity:(id)arg1 anchor:(id)arg2 deleted:(BOOL)arg3;
+- (id)initWithEntity:(id)arg1 anchor:(id)arg2 deletionType:(int)arg3;
 
 @end
 

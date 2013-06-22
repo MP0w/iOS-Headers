@@ -6,9 +6,11 @@
 
 #import <UIKit/UIView.h>
 
+#import "UIKBCacheableView-Protocol.h"
+
 @class NSString;
 
-@interface UIKBBackgroundView : UIView
+@interface UIKBBackgroundView : UIView <UIKBCacheableView>
 {
     int _visualStyle;
     NSString *_layoutName;
@@ -17,6 +19,7 @@
     struct CGRect _splitRight;
 }
 
+@property(readonly, nonatomic) BOOL cacheDeferable;
 - (void)displayLayer:(id)arg1;
 - (id)cacheKey;
 - (void)drawRect:(struct CGRect)arg1;

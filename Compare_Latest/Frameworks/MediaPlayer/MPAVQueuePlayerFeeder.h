@@ -6,18 +6,22 @@
 
 #import "NSObject.h"
 
-@class MPAVItem, MPQueuePlayer, NSArray, NSMutableArray, NSMutableSet;
+#import "SSDownloadManagerObserver-Protocol.h"
 
-@interface MPAVQueuePlayerFeeder : NSObject
+@class MPAVItem, MPDownloadManager, MPQueuePlayer, NSArray, NSMutableArray, NSMutableSet;
+
+@interface MPAVQueuePlayerFeeder : NSObject <SSDownloadManagerObserver>
 {
     BOOL _forceSynchronousQueueFilling;
     NSMutableArray *_items;
-    NSMutableSet *_reusableItems;
+    MPDownloadManager *_downloadManager;
+    BOOL _fillQueueActive;
+    int _nextFillQueueToken;
+    NSMutableSet *_pausedDownloads;
     MPQueuePlayer *_player;
     struct dispatch_queue_s *_playerQueue;
     id <MPAVQueuePlayerFeederSource> _playlistItemSource;
-    int _nextFillQueueToken;
-    BOOL _fillQueueActive;
+    NSMutableSet *_reusableItems;
     int _desiredQueueDepth;
 }
 
@@ -26,6 +30,7 @@
 - (void)_updateQueueDepthForRateChange;
 - (void)_updatePlayerQueueWithRemovedItems:(id)arg1 addedItems:(id)arg2 removeCurrentItem:(BOOL)arg3;
 - (void)_removeInvalidItems:(id)arg1;
+- (void)_pauseOrResumeDownloads:(id)arg1 currentDownloadID:(long long)arg2;
 - (void)invalidate;
 - (void)advanceToNextItem;
 - (void)reloadQueueKeepingCurrentItem:(BOOL)arg1;
@@ -34,9 +39,11 @@
 - (void)_markIsReusable:(BOOL)arg1 item:(id)arg2;
 @property(readonly, nonatomic) NSArray *items;
 @property(readonly, nonatomic) MPAVItem *currentItem;
-- (void)_fillInQueue;
-- (id)_fillInQueueWithExtraSpace:(int)arg1;
+- (void)downloadManager:(id)arg1 downloadStatesDidChange:(id)arg2;
+- (id)_fillInQueueWithExtraSpace:(int)arg1 ignoreExistingItems:(BOOL)arg2 removeCurrentItem:(BOOL)arg3;
 - (id)_fillInQueueWithExtraSpace:(int)arg1 ignoreExistingItems:(BOOL)arg2;
+- (id)_fillInQueueWithExtraSpace:(int)arg1;
+- (void)_fillInQueue;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_removeCurrentItem;
 - (id)description;

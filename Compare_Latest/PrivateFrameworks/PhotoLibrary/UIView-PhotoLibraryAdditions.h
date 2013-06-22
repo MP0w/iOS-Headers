@@ -7,6 +7,7 @@
 #import "UIView.h"
 
 @interface UIView (PhotoLibraryAdditions)
+- (void)pl_debugSetLayerNames;
 - (BOOL)pl_isOnScreen:(id)arg1;
 @end
 

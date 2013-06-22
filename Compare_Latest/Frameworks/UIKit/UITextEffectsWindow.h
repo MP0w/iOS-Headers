@@ -18,7 +18,9 @@
 - (BOOL)isInternalWindow;
 - (void)matchDeviceOrientation;
 - (void)updateSubviewOrdering;
+- (void)resetTransform;
 - (void)updateForOrientation:(int)arg1;
+- (void)updateForOrientation:(int)arg1 forceResetTransform:(BOOL)arg2;
 - (void)sortSubviews;
 - (void)sendSubviewToBack:(id)arg1;
 - (void)bringSubviewToFront:(id)arg1;

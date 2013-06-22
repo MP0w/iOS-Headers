@@ -9,8 +9,9 @@
 @interface CIContext (Internal)
 + (id)clContextOptions:(id)arg1;
 + (id)glesContextOptions:(id)arg1;
++ (struct Context *)glesInternalContextOptions:(id)arg1;
+- (void)_gpuContextCheck;
 - (struct CGColorSpace *)_colorspace;
-- (void *)_internalRepresentation;
 - (id)_initWithInternalRepresentation:(void *)arg1;
 @end
 

@@ -13,9 +13,11 @@
     PLImageTableSegment *_segment;
     void *_bytes;
     unsigned long _length;
+    BOOL _freeBytes;
 }
 
 - (void)dealloc;
+- (unsigned int)pl_advisoryLength;
 @property(nonatomic) BOOL isPlaceholder;
 @property(copy, nonatomic) NSString *photoUUID;
 @property(nonatomic) unsigned int imageHeight;
@@ -25,6 +27,7 @@
 - (void *)mutableBytes;
 - (const void *)bytes;
 - (struct PLImageTableEntryFooter_s *)_footer;
+- (id)brokencopy;
 - (id)initWithImageTableSegment:(id)arg1 bytes:(void *)arg2 length:(unsigned long)arg3;
 
 @end

@@ -7,7 +7,7 @@
 #import <AVFoundation/AVPlayerItem.h>
 
 @interface AVPlayerItem (AVPlayerItemLogging)
-- (id)accessLog;
 - (id)errorLog;
+- (id)accessLog;
 @end
 

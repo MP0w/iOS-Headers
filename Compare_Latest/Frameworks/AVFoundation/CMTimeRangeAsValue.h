@@ -12,10 +12,10 @@
 }
 
 + (id)valueWithCMTimeRange:(CDStruct_e83c9415)arg1;
-- (CDStruct_e83c9415)CMTimeRangeValue;
-- (void)getValue:(void *)arg1;
-- (const char *)objCType;
 - (id)description;
+- (const char *)objCType;
+- (void)getValue:(void *)arg1;
+- (CDStruct_e83c9415)CMTimeRangeValue;
 
 @end
 

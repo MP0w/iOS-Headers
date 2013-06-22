@@ -43,6 +43,7 @@
 - (void)startAutoscroll:(struct CGPoint)arg1;
 - (void)selectionChanged;
 - (struct CGRect)selectionClipRect;
+- (BOOL)isEditing;
 - (id)interactionAssistant;
 - (id)selectionView;
 - (BOOL)mouseEventsChangeSelection;

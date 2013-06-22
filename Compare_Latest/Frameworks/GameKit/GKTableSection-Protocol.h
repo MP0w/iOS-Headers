@@ -30,6 +30,7 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (int)tableView:(id)arg1 numberOfColumnsForRow:(int)arg2;
+- (void)tableView:(id)arg1 refreshCellAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 prepareExpensiveContentAtIndexPaths:(id)arg2 withCompletionHandler:(id)arg3;
 - (void)refreshDataWithCompletionHandlerAndError:(id)arg1;
 - (id)tableView:(id)arg1 objectForIndexPath:(id)arg2;

@@ -22,6 +22,7 @@
     _Bool _pendingChanges;
     _Bool _ubiquitousGatherComplete;
     int _queryState;
+    int _previousQueryState;
     BOOL _synchronous;
     NSArray *_values;
     NSArray *_sortingAttributes;
@@ -45,7 +46,6 @@
     NSThread *_executeThread;
     struct dispatch_source_s *_notifyTimer;
     unsigned long long _notifyInterval;
-    _Bool _pendingNote;
     long long _disableCount;
     NSMutableDictionary *_created;
     NSPredicate *_predicate;
@@ -78,6 +78,7 @@
 - (id)attributeValueForName:(id)arg1 forResultAtIndex:(int)arg2;
 - (unsigned char)executeWithOptions:(unsigned long)arg1;
 - (void)_runQuery;
+- (void)startObserver;
 - (void)updateQueryResultForURL:(id)arg1 info:(id)arg2 updateType:(int)arg3;
 - (void)addChangeToURL:(id)arg1 withInfo:(id)arg2;
 - (void)addCreatedURL:(id)arg1 withInfo:(id)arg2 makeLive:(_Bool)arg3;
@@ -91,9 +92,7 @@
 - (void)disableUpdates;
 - (void)_disableUpdates;
 - (id)valuesOfAttribute:(id)arg1;
-- (void)finalize;
 - (void)dealloc;
-- (void)_real_dealloc;
 - (id)initWithQuery:(id)arg1 values:(id)arg2 sortingAttributes:(id)arg3 items:(struct __CFArray *)arg4;
 
 @end

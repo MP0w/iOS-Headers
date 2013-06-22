@@ -19,8 +19,11 @@
 - (BOOL)handleTestURL:(id)arg1;
 - (void)failedTest:(id)arg1 withResults:(id)arg2;
 - (void)failedTest:(id)arg1;
-- (void)finishedTest:(id)arg1;
+- (void)finishedTest:(id)arg1 extraResults:(id)arg2 waitForNotification:(id)arg3;
+- (void)finishedTest:(id)arg1 extraResults:(id)arg2 withTeardownBlock:(id)arg3;
 - (void)finishedTest:(id)arg1 extraResults:(id)arg2;
+- (void)finishedTest:(id)arg1;
+- (void)finishedTest:(id)arg1 extraResults:(id)arg2 waitForNotification:(id)arg3 withTeardownBlock:(id)arg4;
 - (void)_reportResults:(id)arg1;
 - (struct __CFMessagePort *)_purplePPTServerPort;
 - (void)finishedSubTest:(id)arg1 forTest:(id)arg2;

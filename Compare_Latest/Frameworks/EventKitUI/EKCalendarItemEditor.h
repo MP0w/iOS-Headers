@@ -94,6 +94,7 @@
 - (void)done:(id)arg1;
 - (void)cancel:(id)arg1;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (void)applicationDidResume;
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)arg1;

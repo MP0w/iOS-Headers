@@ -8,8 +8,6 @@
 
 @interface UIImage (MPUtilities)
 + (id)imageFromAlbumArtData:(id)arg1 artworkInfo:(struct MLArtworkInstanceInfo *)arg2;
-- (struct CGRect)imageRectFromBitmapRect:(struct CGRect)arg1;
 - (struct CGRect)bitmapRectFromImageRect:(struct CGRect)arg1;
-- (id)imageWithRect:(struct CGRect)arg1;
 @end
 

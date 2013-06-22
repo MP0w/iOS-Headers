@@ -25,7 +25,6 @@
 - (void)_setOnColor:(id)arg1;
 - (void)setEnabled:(BOOL)arg1;
 - (void)setAlpha:(float)arg1;
-- (void)_setAlpha:(float)arg1 remember:(BOOL)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_onAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;

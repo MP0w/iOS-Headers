@@ -13,32 +13,32 @@
     AVCaptureMovieFileOutputInternal *_internal;
 }
 
-+ (void)initialize;
-+ (id)recorderCommonMetadataForAVMetadataItemArray:(id)arg1;
-+ (BOOL)updateMovieMetadataInFile:(id)arg1 withMetadata:(id)arg2 error:(id *)arg3;
 + (BOOL)consolidateMovieFragmentsInFile:(id)arg1 error:(id *)arg2;
-- (BOOL)getRecorderBoolForKey:(id)arg1 withDefault:(BOOL)arg2;
-- (id)init;
-- (void)dealloc;
-- (id)connectionMediaTypes;
-- (BOOL)isRecording;
-- (BOOL)isRecordingPaused;
-- (void)pauseRecording;
-- (void)resumeRecording;
-- (id)outputFileURL;
-- (void)startRecordingToOutputFileURL:(id)arg1 recordingDelegate:(id)arg2;
-- (void)stopRecording;
-- (void)didStopForSession:(id)arg1 error:(id)arg2;
-- (void)handleEnabledChangedForConnection:(id)arg1;
-@property(nonatomic) CDStruct_1b6d18a9 movieFragmentInterval;
-- (void)setSendsLastVideoPreviewFrame:(BOOL)arg1;
-- (BOOL)sendsLastVideoPreviewFrame;
-@property(copy, nonatomic) NSArray *metadata;
-- (long)_avErrorForDidStopRecordingReason:(id)arg1;
-- (void)_handleStartRecordingErrorWithDomain:(id)arg1 code:(long)arg2 info:(id)arg3;
-- (void)handleNotification:(id)arg1 payload:(id)arg2;
-- (long)_startRecording:(id)arg1;
++ (BOOL)updateMovieMetadataInFile:(id)arg1 withMetadata:(id)arg2 error:(id *)arg3;
++ (id)recorderCommonMetadataForAVMetadataItemArray:(id)arg1;
++ (void)initialize;
 - (long)_stopRecording;
+- (long)_startRecording:(id)arg1;
+- (void)handleNotification:(id)arg1 payload:(id)arg2;
+- (void)_handleStartRecordingErrorWithDomain:(id)arg1 code:(long)arg2 info:(id)arg3;
+- (long)_avErrorForDidStopRecordingReason:(id)arg1;
+@property(copy, nonatomic) NSArray *metadata;
+- (BOOL)sendsLastVideoPreviewFrame;
+- (void)setSendsLastVideoPreviewFrame:(BOOL)arg1;
+@property(nonatomic) CDStruct_1b6d18a9 movieFragmentInterval;
+- (void)handleEnabledChangedForConnection:(id)arg1;
+- (void)didStopForSession:(id)arg1 error:(id)arg2;
+- (void)stopRecording;
+- (void)startRecordingToOutputFileURL:(id)arg1 recordingDelegate:(id)arg2;
+- (id)outputFileURL;
+- (void)resumeRecording;
+- (void)pauseRecording;
+- (BOOL)isRecordingPaused;
+- (BOOL)isRecording;
+- (id)connectionMediaTypes;
+- (void)dealloc;
+- (id)init;
+- (BOOL)getRecorderBoolForKey:(id)arg1 withDefault:(BOOL)arg2;
 
 @end
 

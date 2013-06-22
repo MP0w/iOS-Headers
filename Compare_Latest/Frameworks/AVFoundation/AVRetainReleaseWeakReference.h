@@ -14,11 +14,11 @@
     id _weakStorage;
 }
 
-- (id)initWithReferencedObject:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (id)description;
 - (id)referencedObject;
+- (id)description;
+- (void)dealloc;
+- (id)init;
+- (id)initWithReferencedObject:(id)arg1;
 
 @end
 

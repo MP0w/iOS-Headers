@@ -62,9 +62,8 @@
 - (id)_optionsBackgroundImage;
 - (void)_setOptionsBackgroundImage:(id)arg1;
 - (void)setAlpha:(float)arg1;
-- (void)_setAlpha:(float)arg1 remember:(BOOL)arg2;
 - (void)setEnabled:(BOOL)arg1;
-- (void)_setEnabled:(BOOL)arg1 forced:(BOOL)arg2;
+- (void)_setEnabled:(BOOL)arg1 forcePropagateToSegments:(BOOL)arg2;
 - (BOOL)useBlockyMagnificationInClassic;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;

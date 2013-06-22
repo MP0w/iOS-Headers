@@ -9,8 +9,8 @@
 @class NSArray;
 
 @interface AVPlayer (AVPlayerProtectedContentPrivate)
-- (id)_playbackDisplaysForFigPlayer;
-@property(copy, nonatomic, setter=_setDisplaysUsedForPlayback:) NSArray *_displaysUsedForPlayback;
 @property(readonly, nonatomic) int _externalProtectionStatus;
+@property(copy, nonatomic, setter=_setDisplaysUsedForPlayback:) NSArray *_displaysUsedForPlayback;
+- (id)_playbackDisplaysForFigPlayer;
 @end
 

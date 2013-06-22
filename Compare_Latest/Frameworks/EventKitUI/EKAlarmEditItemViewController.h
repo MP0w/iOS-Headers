@@ -16,8 +16,10 @@
     EKAlarm *_alarm;
     int _alarmIndex;
     BOOL _allDay;
+    BOOL _shouldAllowAlarmsTriggeringAfterStartDate;
 }
 
+@property(nonatomic) BOOL shouldAllowAlarmsTriggeringAfterStartDate; // @synthesize shouldAllowAlarmsTriggeringAfterStartDate=_shouldAllowAlarmsTriggeringAfterStartDate;
 @property(nonatomic) BOOL allDay; // @synthesize allDay=_allDay;
 - (void)alarmTableDidChangeAlarm:(id)arg1;
 @property(nonatomic) int presetIdentifier;

@@ -88,8 +88,9 @@
 - (float)videoBubbleWidth;
 - (float)videoBubbleHeight;
 @property(readonly, nonatomic) BOOL shouldShowContactPhotos;
-@property(readonly, nonatomic) float contactPhotoSize;
+@property(readonly, nonatomic) struct CGSize contactPhotoSize;
 @property(readonly, nonatomic) float contactPhotoBorderThickness;
+@property(readonly, nonatomic) float contactPhotoCornerRadius;
 @property(readonly, nonatomic) float contactPhotoOutsideMargin;
 @property(readonly, nonatomic) float contactPhotoInsideMargin;
 @property(readonly, nonatomic) float bubbleIndentationDuringEditMode;

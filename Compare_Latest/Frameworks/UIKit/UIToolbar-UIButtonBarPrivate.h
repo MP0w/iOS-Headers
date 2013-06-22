@@ -22,6 +22,7 @@
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
+- (void)setAutoresizingMask:(unsigned int)arg1;
 - (void)animateWithDuration:(float)arg1 forButton:(int)arg2;
 - (void)setOnStateForButton:(BOOL)arg1 forButton:(int)arg2;
 - (BOOL)onStateForButton:(int)arg1;

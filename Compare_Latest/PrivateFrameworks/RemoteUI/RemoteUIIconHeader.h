@@ -8,7 +8,7 @@
 
 #import "RemoteUITableHeader-Protocol.h"
 
-@class NSURL, UIImageView, UILabel;
+@class UIImageView, UILabel;
 
 @interface RemoteUIIconHeader : UIView <RemoteUITableHeader>
 {
@@ -16,11 +16,10 @@
     UILabel *_subHeader;
     UIImageView *_iconView;
     BOOL _isFirstSection;
-    NSURL *_iconURL;
 }
 
 - (id)initWithAttributes:(id)arg1;
-- (void)imageLoaded;
+- (void)setIconImage:(id)arg1;
 - (void)setSectionIsFirst:(BOOL)arg1;
 - (void)dealloc;
 - (void)layoutSubviews;

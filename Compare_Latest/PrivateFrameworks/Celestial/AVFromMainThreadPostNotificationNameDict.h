@@ -14,11 +14,11 @@
 }
 
 + (id)dict;
-- (id)init;
-- (void)dealloc;
-- (void)release;
-- (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
+- (void)setObject:(id)arg1 forKey:(id)arg2;
+- (void)release;
+- (void)dealloc;
+- (id)init;
 
 @end
 

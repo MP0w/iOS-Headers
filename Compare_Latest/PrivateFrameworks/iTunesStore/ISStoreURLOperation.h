@@ -42,7 +42,7 @@
 - (void)run;
 - (id)newRequestWithURL:(id)arg1;
 - (void)handleResponse:(id)arg1;
-- (BOOL)handleRedirectFromDataProvider:(id)arg1;
+- (BOOL)handleRedirectFromDataProvider:(id)arg1 error:(id *)arg2;
 - (id)_copyAuthenticationContext;
 - (id)authenticatedAccountDSID;
 @property BOOL canSendGUIDParameter;

@@ -15,6 +15,10 @@
 
 - (void)populatePostbackDictionary:(id)arg1;
 - (void)dealloc;
+- (id)imageAttributeAndScale:(float *)arg1;
+- (void)imageLoaded:(id)arg1;
+- (BOOL)loadImage;
+- (void)setImage:(id)arg1;
 @property(retain, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
 
 @end

@@ -10,7 +10,6 @@
 {
 }
 
-- (id)itemAtIndex:(int)arg1 subitemIndex:(int *)arg2;
 - (id)itemAtIndex:(int)arg1;
 
 @end

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CoreDAVRequestLogger, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableDictionary, NSURL, NSURLConnection, NSURLRequest;
+@class CoreDAVRequestLogger, NSData, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableDictionary, NSURL, NSURLConnection, NSURLRequest;
 
 @interface CoreDAVTask : NSObject
 {
@@ -46,9 +46,13 @@
     unsigned int _totalBytesReceived;
     NSMutableDictionary *_overriddenHeaders;
     NSMutableArray *_redirectHistory;
+    NSDictionary *_requestProperties;
+    NSData *_fakeResponseData;
+    BOOL _haveParsedFakeResponseData;
 }
 
 + (unsigned int)uniqueQueryID;
+@property(retain) NSDictionary *requestProperties; // @synthesize requestProperties=_requestProperties;
 @property(nonatomic) BOOL allowAutomaticRedirects; // @synthesize allowAutomaticRedirects=_allowAutomaticRedirects;
 @property(nonatomic) unsigned int totalBytesReceived; // @synthesize totalBytesReceived=_totalBytesReceived;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;

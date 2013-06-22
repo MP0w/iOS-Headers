@@ -4,11 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "UIImageView.h"
+#import "UIView.h"
 
-@class NSString, UILabel;
+@class NSString, UIImageView, UILabel;
 
-@interface MPVideoDestinationBackgroundView : UIImageView
+@interface MPVideoDestinationBackgroundView : UIView
 {
     NSString *_destinationName;
     UILabel *_destinationSubtitleLabel;
@@ -19,9 +19,10 @@
 
 @property(copy, nonatomic) NSString *destinationName; // @synthesize destinationName=_destinationName;
 @property(nonatomic) int style; // @synthesize style=_style;
-- (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)layoutSubviews;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

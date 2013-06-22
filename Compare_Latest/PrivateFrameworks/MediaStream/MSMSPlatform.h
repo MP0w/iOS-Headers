@@ -26,6 +26,7 @@
 - (id)baseURLForPersonID:(id)arg1;
 - (id)authTokenForPersonID:(id)arg1;
 - (id)_accountForPersonID:(id)arg1;
+- (void)didDetectUnrecoverableCondition;
 - (id)socketOptions;
 - (BOOL)policyMayDownload;
 - (BOOL)policyMayUpload;
@@ -35,6 +36,7 @@
 - (id)OSVersion;
 - (id)UDID;
 - (void)setPushToken:(id)arg1 production:(BOOL)arg2;
+- (Class)deletePluginClass;
 - (Class)sharingPluginClass;
 - (Class)subscriberPluginClass;
 - (Class)publisherPluginClass;

@@ -50,6 +50,7 @@
 - (id)viewPortHeaderValue;
 - (id)securityHeaderValue;
 - (id)serviceHeaderValue;
+- (id)interfaceLayoutHeaderValue;
 - (id)bagKey;
 - (void)cancelTapped;
 - (void)doHandoffWithStatus:(int)arg1 appleID:(id)arg2 authID:(id)arg3 authToken:(id)arg4;

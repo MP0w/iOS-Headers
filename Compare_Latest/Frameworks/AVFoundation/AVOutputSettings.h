@@ -15,23 +15,23 @@
     NSDictionary *_outputSettingsDictionary;
 }
 
-+ (id)registeredOutputSettingsClasses;
-+ (id)eligibleOutputSettingsDictionaryKeys;
-+ (unsigned int)validateOutputSettingsDictionary:(id)arg1;
-+ (unsigned int)_validateOutputSettingsDictionary:(id)arg1 compatibilityDescription:(id *)arg2;
-+ (id)outputSettingsWithOutputSettingsDictionary:(id)arg1;
-+ (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 + (id)defaultOutputSettingsForMediaType:(id)arg1;
-- (id)init;
-- (id)initWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)description;
-@property(readonly, nonatomic) NSSet *compatibleMediaTypes;
-@property(readonly, nonatomic) BOOL willYieldCompressedSamples;
-@property(readonly, nonatomic, getter=isDictionaryFullyFormed) BOOL dictionaryFullyFormed;
-- (BOOL)validateUsingOutputSettingsValidator:(id)arg1 reason:(id *)arg2;
++ (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
++ (id)outputSettingsWithOutputSettingsDictionary:(id)arg1;
++ (unsigned int)_validateOutputSettingsDictionary:(id)arg1 compatibilityDescription:(id *)arg2;
++ (unsigned int)validateOutputSettingsDictionary:(id)arg1;
++ (id)eligibleOutputSettingsDictionaryKeys;
++ (id)registeredOutputSettingsClasses;
 @property(readonly, nonatomic) NSDictionary *outputSettingsDictionary; // @synthesize outputSettingsDictionary=_outputSettingsDictionary;
+- (BOOL)validateUsingOutputSettingsValidator:(id)arg1 reason:(id *)arg2;
+@property(readonly, nonatomic, getter=isDictionaryFullyFormed) BOOL dictionaryFullyFormed;
+@property(readonly, nonatomic) BOOL willYieldCompressedSamples;
+@property(readonly, nonatomic) NSSet *compatibleMediaTypes;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
+- (id)init;
 
 @end
 

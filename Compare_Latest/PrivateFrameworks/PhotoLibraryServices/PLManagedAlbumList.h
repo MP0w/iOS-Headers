@@ -7,16 +7,25 @@
 #import <PhotoLibraryServices/_PLManagedAlbumList.h>
 
 #import "PLAlbumContainer-Protocol.h"
+#import "PLIndexMappersDataOrigin-Protocol.h"
 
 @class NSMutableOrderedSet, NSString, PLFilteredAlbumList;
 
-@interface PLManagedAlbumList : _PLManagedAlbumList <PLAlbumContainer>
+@interface PLManagedAlbumList : _PLManagedAlbumList <PLAlbumContainer, PLIndexMappersDataOrigin>
 {
     PLFilteredAlbumList *_filteredAlbumLists[5];
     BOOL isRegisteredForChanges;
     BOOL didRegisteredWithUserInterfaceContext;
 }
 
++ (id)photoStreamAlbumListInManagedObjectContext:(id)arg1;
++ (id)placesAlbumListInManagedObjectContext:(id)arg1;
++ (id)facesAlbumListInManagedObjectContext:(id)arg1;
++ (id)eventListInManagedObjectContext:(id)arg1;
++ (id)albumListInManagedObjectContext:(id)arg1;
++ (void)addSingletonObjectsToContext:(id)arg1;
++ (id)_albumListWithType:(int)arg1 inManagedObjectContext:(id)arg2;
++ (id)_typeDescriptionForAlbumListType:(int)arg1;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (id)photoStreamAlbumListInPhotoLibrary:(id)arg1;
 + (id)placesAlbumListInPhotoLibrary:(id)arg1;
@@ -26,6 +35,12 @@
 + (void)initialize;
 @property(nonatomic) BOOL didRegisteredWithUserInterfaceContext; // @synthesize didRegisteredWithUserInterfaceContext;
 @property(nonatomic) BOOL isRegisteredForChanges; // @synthesize isRegisteredForChanges;
+- (void)unregisterForChanges;
+- (void)registerForChanges;
+- (void)enumerateDerivedIndexMappers:(id)arg1;
+- (void)enumerateFilteredAlbumLists:(id)arg1;
+- (void)unregisterAllFilteredAlbums;
+- (void)registerFilteredAlbumList:(id)arg1;
 @property(readonly, nonatomic) NSString *_typeDescription;
 @property(readonly, nonatomic) NSString *_prettyDescription;
 - (BOOL)albumHasFixedOrder:(struct NSObject *)arg1;

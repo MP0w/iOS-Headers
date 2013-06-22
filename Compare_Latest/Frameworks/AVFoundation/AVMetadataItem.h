@@ -17,34 +17,34 @@
     AVMetadataItemInternal *_priv;
 }
 
-+ (id)metadataItemsFromArray:(id)arg1 withLocale:(id)arg2;
-+ (id)metadataItemsFromArray:(id)arg1 withKey:(id)arg2 keySpace:(id)arg3;
-+ (id)metadataItemsFromArray:(id)arg1 withStringValue:(id)arg2;
 + (id)_figMetadataPropertyFromMetadataItems:(id)arg1;
-- (id)init;
-- (id)_initWithReader:(struct OpaqueFigMetadataReader *)arg1 itemIndex:(long)arg2;
-- (id)_initWithFigMetadataDictionary:(id)arg1;
-- (void)dealloc;
-- (void)finalize;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (id)description;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)_figMetadataDictionary;
-- (id)_figMetadataProperties;
-- (id)_figMetadataFormat;
-@property(readonly, copy) id <NSObject><NSCopying> key;
-@property(readonly, copy) NSString *commonKey;
-@property(readonly, copy) NSString *keySpace;
-@property(readonly, copy) NSLocale *locale;
-@property(readonly) CDStruct_1b6d18a9 time;
-@property(readonly) CDStruct_1b6d18a9 duration;
-@property(readonly, copy) id <NSObject><NSCopying> value;
-@property(readonly, copy) NSDictionary *extraAttributes;
-- (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
-- (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
++ (id)metadataItemsFromArray:(id)arg1 withStringValue:(id)arg2;
++ (id)metadataItemsFromArray:(id)arg1 withKey:(id)arg2 keySpace:(id)arg3;
++ (id)metadataItemsFromArray:(id)arg1 withLocale:(id)arg2;
 - (void)cancelLoading;
+- (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(id)arg2;
+- (int)statusOfValueForKey:(id)arg1 error:(id *)arg2;
+@property(readonly) NSDictionary *extraAttributes;
+@property(readonly) id <NSObject><NSCopying> value;
+@property(readonly) CDStruct_1b6d18a9 duration;
+@property(readonly) CDStruct_1b6d18a9 time;
+@property(readonly) NSLocale *locale;
+@property(readonly) NSString *keySpace;
+@property(readonly) NSString *commonKey;
+@property(readonly) id <NSObject><NSCopying> key;
+- (id)_figMetadataFormat;
+- (id)_figMetadataProperties;
+- (id)_figMetadataDictionary;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)description;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (id)_initWithFigMetadataDictionary:(id)arg1;
+- (id)_initWithReader:(struct OpaqueFigMetadataReader *)arg1 itemIndex:(long)arg2;
+- (id)init;
 
 @end
 

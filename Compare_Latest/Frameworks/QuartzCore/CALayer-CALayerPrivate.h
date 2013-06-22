@@ -53,6 +53,8 @@
 - (BOOL)doubleSided;
 - (BOOL)isFlipped;
 - (void)setFlipped:(BOOL)arg1;
+@property BOOL allowsEdgeAntialiasing;
+@property BOOL allowsGroupOpacity;
 @property BOOL allowsHitTesting;
 @property BOOL canDrawConcurrently;
 @property BOOL clearsContext;

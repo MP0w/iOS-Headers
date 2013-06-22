@@ -10,15 +10,15 @@
 {
 }
 
-- (id)init;
-- (unsigned int)numberOfPaths;
-- (unsigned int)itemCount;
-- (id)pathAtIndex:(unsigned int)arg1;
-- (id)playbackInfoAtIndex:(unsigned int)arg1;
-- (void)contentsDidChangeByInsertingRange:(struct _NSRange)arg1;
-- (void)contentsDidChangeByRemovingRange:(struct _NSRange)arg1;
-- (void)contentInvalidatedWithCurrentItemMovedToIndex:(unsigned int)arg1;
 - (double)bookmarkTimeForIndex:(unsigned int)arg1;
+- (void)contentInvalidatedWithCurrentItemMovedToIndex:(unsigned int)arg1;
+- (void)contentsDidChangeByRemovingRange:(struct _NSRange)arg1;
+- (void)contentsDidChangeByInsertingRange:(struct _NSRange)arg1;
+- (id)playbackInfoAtIndex:(unsigned int)arg1;
+- (id)pathAtIndex:(unsigned int)arg1;
+- (unsigned int)itemCount;
+- (unsigned int)numberOfPaths;
+- (id)init;
 
 @end
 

@@ -30,6 +30,7 @@
 - (void)slurpDataFromFile:(id)arg1;
 - (void)logString:(id)arg1;
 - (void)logData:(id)arg1;
+- (void)dealloc;
 - (id)initWithFilename:(id)arg1;
 - (void)_statFileIfNecessaryForRollingCheck;
 - (void)_rollLogs;

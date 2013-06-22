@@ -17,14 +17,14 @@
     id _params;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)setCallbackParams:(id)arg1;
-- (id)waitForCallbackParams;
-- (BOOL)hasParams;
 @property SEL mainThreadAction; // @synthesize mainThreadAction=_mainThreadAction;
 @property SEL action; // @synthesize action=_action;
 @property id target; // @synthesize target=_target;
+- (BOOL)hasParams;
+- (id)waitForCallbackParams;
+- (void)setCallbackParams:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

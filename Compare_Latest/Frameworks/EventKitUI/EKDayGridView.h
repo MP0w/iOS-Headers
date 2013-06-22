@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class EKCurrentTimeMarkerView, NSMutableArray, NSTimer, UIColor, UIImageView;
+@class EKCurrentTimeMarkerView, NSMutableArray, NSTimer, UIColor;
 
 @interface EKDayGridView : UIView
 {
@@ -20,7 +20,6 @@
     unsigned int _showsTimeLine:1;
     int _selected;
     float _fixedDayWidth;
-    UIImageView *_background;
     int _orientation;
     struct CGRect _lastBounds;
     BOOL _rightBorderInsetsOccurrences;
@@ -28,6 +27,10 @@
     UIView *_leftBorderView;
     NSMutableArray *_middleBorderViews;
     UIView *_rightBorderView;
+    UIView *_topGrayView;
+    UIView *_bottomGrayView;
+    UIView *_topPattern;
+    UIView *_bottomPattern;
     unsigned int _daysToDisplay;
     EKCurrentTimeMarkerView *_timeMarker;
     NSTimer *_timeMarkerTimer;

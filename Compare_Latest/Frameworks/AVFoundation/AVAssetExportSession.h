@@ -13,35 +13,35 @@
     AVAssetExportSessionInternal *_exportSession;
 }
 
-+ (id)allExportPresets;
-+ (id)exportPresetsCompatibleWithAsset:(id)arg1;
-+ (id)exportSessionWithAsset:(id)arg1 presetName:(id)arg2;
-+ (CDStruct_1b6d18a9)maximumDurationForPreset:(id)arg1 properties:(id)arg2;
 + (long long)estimatedOutputFileLengthForPreset:(id)arg1 duration:(CDStruct_1b6d18a9)arg2 properties:(id)arg3;
-- (id)init;
-- (id)initWithAsset:(id)arg1 presetName:(id)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (id)description;
-@property(readonly, retain, nonatomic) AVAsset *asset;
-@property(readonly, nonatomic) NSString *presetName;
-@property(readonly, nonatomic) NSArray *supportedFileTypes;
-@property(copy, nonatomic) NSString *outputFileType;
-@property(copy, nonatomic) NSURL *outputURL;
-@property(readonly, nonatomic) int status;
-@property(readonly, nonatomic) NSError *error;
-- (void)_updateProgress;
-@property(readonly, nonatomic) float progress;
-- (void)exportAsynchronouslyWithCompletionHandler:(id)arg1;
-- (void)cancelExport;
-@property(nonatomic) CDStruct_e83c9415 timeRange;
-@property(readonly, nonatomic) CDStruct_1b6d18a9 maxDuration;
-@property(readonly, nonatomic) long long estimatedOutputFileLength;
-@property(copy, nonatomic) NSArray *metadata;
-@property(nonatomic) long long fileLengthLimit;
-@property(copy, nonatomic) AVAudioMix *audioMix;
-@property(copy, nonatomic) AVVideoComposition *videoComposition;
++ (CDStruct_1b6d18a9)maximumDurationForPreset:(id)arg1 properties:(id)arg2;
++ (id)exportSessionWithAsset:(id)arg1 presetName:(id)arg2;
++ (id)exportPresetsCompatibleWithAsset:(id)arg1;
++ (id)allExportPresets;
 @property(nonatomic) BOOL shouldOptimizeForNetworkUse;
+@property(copy, nonatomic) AVVideoComposition *videoComposition;
+@property(copy, nonatomic) AVAudioMix *audioMix;
+@property(nonatomic) long long fileLengthLimit;
+@property(copy, nonatomic) NSArray *metadata;
+@property(readonly, nonatomic) long long estimatedOutputFileLength;
+@property(readonly, nonatomic) CDStruct_1b6d18a9 maxDuration;
+@property(nonatomic) CDStruct_e83c9415 timeRange;
+- (void)cancelExport;
+- (void)exportAsynchronouslyWithCompletionHandler:(id)arg1;
+@property(readonly, nonatomic) float progress;
+- (void)_updateProgress;
+@property(readonly, nonatomic) NSError *error;
+@property(readonly, nonatomic) int status;
+@property(copy, nonatomic) NSURL *outputURL;
+@property(copy, nonatomic) NSString *outputFileType;
+@property(readonly, nonatomic) NSArray *supportedFileTypes;
+@property(readonly, nonatomic) NSString *presetName;
+@property(readonly, nonatomic) AVAsset *asset;
+- (id)description;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithAsset:(id)arg1 presetName:(id)arg2;
+- (id)init;
 
 @end
 

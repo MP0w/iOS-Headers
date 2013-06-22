@@ -122,8 +122,9 @@
 - (void)setMarkedText:(id)arg1;
 - (unsigned short)characterBeforeCaretSelection;
 - (unsigned short)characterInRelationToCaretSelection:(int)arg1;
-- (void)removeDictationResultPlaceholder:(id)arg1 willInsertText:(BOOL)arg2;
-- (id)insertDictationResultPlaceholder:(struct CGSize)arg1;
+- (struct CGRect)frameForDictationResultPlaceholder:(id)arg1;
+- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
+- (id)insertDictationResultPlaceholder;
 - (id)metadataDictionariesForDictationResults;
 - (void)insertDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
 - (id)uiWebDocumentView;

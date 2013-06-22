@@ -6,15 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSCache;
+@class CPLRUDictionary;
 
 @interface SBGestureViewVendor : NSObject
 {
-    NSCache *m_cache;
+    CPLRUDictionary *m_cache;
 }
 
 + (id)sharedInstance;
 - (id)viewForApp:(id)arg1 gestureType:(int)arg2 includeStatusBar:(BOOL)arg3;
+- (id)viewForApp:(id)arg1 gestureType:(int)arg2 includeStatusBar:(BOOL)arg3 decodeImage:(BOOL)arg4;
 - (void)clearCacheForApp:(id)arg1 reason:(id)arg2;
 - (void)clearCacheForReason:(id)arg1;
 - (id)init;

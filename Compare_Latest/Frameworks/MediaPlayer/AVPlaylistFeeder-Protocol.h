@@ -7,8 +7,9 @@
 #import "NSObject-Protocol.h"
 
 @protocol AVPlaylistFeeder <NSObject>
-- (unsigned int)itemCount;
+- (BOOL)shouldReloadForChangeFromNetworkType:(int)arg1 toNetworkType:(int)arg2;
 - (id)itemForIndex:(unsigned int)arg1;
+- (unsigned int)itemCount;
 - (void)assumeOwnershipOfItems:(id)arg1;
 @end
 

@@ -16,15 +16,15 @@
     AVAudioMixInternal *_audioMix;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)finalize;
-- (id)description;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-@property(readonly, copy, nonatomic) NSArray *inputParameters;
-- (void)setInputParameters:(id)arg1;
 - (id)_audioVolumeCurveForTrackID:(int)arg1;
+- (void)setInputParameters:(id)arg1;
+@property(readonly, nonatomic) NSArray *inputParameters;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)description;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
 
 @end
 

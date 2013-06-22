@@ -91,6 +91,12 @@
 - (void)updateUbiquityKnowledgeForPeerWithID:(id)arg1 andTransactionNumber:(id)arg2;
 - (void)addPeerRangeForPeerID:(id)arg1 entityName:(id)arg2 rangeStart:(id)arg3 rangeEnd:(id)arg4 peerRangeStart:(id)arg5 peerRangeEnd:(id)arg6;
 - (id)allPeerRanges;
+- (id)createMapOfEntityNameToPKMaxForEntitiesFromUBRangeTable:(id)arg1;
+- (id)createMapOfEntityNameToPKMaxForEntitiesFromPKTable:(id)arg1;
+- (id)createMapOfEntityNameToPKMaxForEntities:(id)arg1;
+- (void)setUbiquityTableValue:(id)arg1 forKey:(id)arg2;
+- (id)ubiquityTableKeysAndValues;
+- (id)ubiquityTableValueForKey:(id)arg1;
 
 @end
 

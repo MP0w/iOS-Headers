@@ -13,14 +13,14 @@
     FigVideoLayerInternal *_videoLayer;
 }
 
-- (id)init;
-- (id)initWithLayer:(id)arg1;
-- (void)dealloc;
-- (void)finalize;
-- (void)layerDidBecomeVisible:(BOOL)arg1;
-- (BOOL)isVideoLayerBeingServiced;
-- (void)notificationBarrier;
 - (void)_sendVideoLayerIsBeingServicedNotification;
+- (void)notificationBarrier;
+- (BOOL)isVideoLayerBeingServiced;
+- (void)layerDidBecomeVisible:(BOOL)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithLayer:(id)arg1;
+- (id)init;
 
 @end
 

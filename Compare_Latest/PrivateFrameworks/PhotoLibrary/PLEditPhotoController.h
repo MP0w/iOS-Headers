@@ -51,6 +51,7 @@
     id _didEndZoomingBlock;
     id _editCompletionBlock;
     id _actionCompletionBlock;
+    unsigned int _redEyeCycleCount;
     unsigned int _didInitializeNavigationItem:1;
     unsigned int _toolbarWasHidden:1;
     unsigned int _isUserAction:1;
@@ -130,7 +131,7 @@
 - (void)didRedoNotification:(id)arg1;
 - (void)didUndoNotification:(id)arg1;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 willDismissWithButtonIndex:(int)arg2;
 - (void)willPresentAlertView:(id)arg1;
 - (BOOL)_dismissPopoverViews;
 - (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;

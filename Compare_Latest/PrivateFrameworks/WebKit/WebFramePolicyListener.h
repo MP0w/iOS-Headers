@@ -11,7 +11,7 @@
 
 @interface WebFramePolicyListener : NSObject <WebPolicyDecisionListener, WebFormSubmissionListener>
 {
-    Frame_dd7f3145 *m_frame;
+    Frame_7b826bcf *m_frame;
 }
 
 + (void)initialize;

@@ -14,18 +14,18 @@
 }
 
 + (id)assetReaderTrackOutputWithTrack:(id)arg1 outputSettings:(id)arg2;
-- (id)init;
-- (id)initWithTrack:(id)arg1 outputSettings:(id)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (id)description;
-@property(readonly, nonatomic) AVAssetTrack *track;
-@property(readonly, nonatomic) NSDictionary *outputSettings;
-- (id)mediaType;
-- (id)_asset;
-- (BOOL)_trimsSampleDurations;
-- (id)_figAssetReaderExtractionOptions;
 - (BOOL)_enableTrackExtractionReturningError:(id *)arg1;
+- (id)_figAssetReaderExtractionOptions;
+- (BOOL)_trimsSampleDurations;
+- (id)_asset;
+- (id)mediaType;
+@property(readonly, nonatomic) NSDictionary *outputSettings;
+@property(readonly, nonatomic) AVAssetTrack *track;
+- (id)description;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithTrack:(id)arg1 outputSettings:(id)arg2;
+- (id)init;
 
 @end
 

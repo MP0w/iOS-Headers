@@ -144,7 +144,6 @@
 - (void)viewDidMoveToWindow:(id)arg1 shouldAppearOrDisappear:(BOOL)arg2;
 - (void)dismissPreviewController;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)_getRotationContentSettings:(CDStruct_af7d35ee *)arg1;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)_entryViewWillRotate:(id)arg1;
 - (void)_reflowTranscriptCells;
@@ -158,6 +157,7 @@
 - (void)_screenLocked:(id)arg1;
 - (void)_screenUnlocked:(id)arg1;
 - (void)_changedStatusBarFrame:(id)arg1;
+- (id)_abPropertyTypesForCurrentConversation;
 - (void)_performResume:(BOOL)arg1;
 - (void)prepareForSuspend;
 - (void)prepareForResume;

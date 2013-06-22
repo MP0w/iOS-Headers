@@ -68,6 +68,7 @@
 - (id)tabbarIconGamesActive:(BOOL)arg1;
 - (id)tabbarIconFriendsActive:(BOOL)arg1;
 - (id)tabbarActiveTabImage;
+- (id)tabbarCornerImage;
 - (id)tabbarShadowImage;
 - (id)tabbarLandscapeImage;
 - (id)tabbarPortraitImage;
@@ -89,6 +90,8 @@
 - (id)achievementsNotStartedIconiPad;
 - (id)achievementsDefaultIcon;
 - (id)achievementsNotStartedIcon;
+- (id)navbarSplitCornerImage;
+- (id)navbarCornerImage;
 - (id)navbarShadowImage;
 - (id)navbarLandscapeImage;
 - (id)navbarPortraitImage;
@@ -146,7 +149,6 @@
 @property(readonly, nonatomic) UIImage *inviteButtonImage;
 @property(readonly, nonatomic) UIImage *interactiveRatingStarsBackground;
 @property(readonly, nonatomic) UIImage *interactiveRatingStarsForeground;
-@property(readonly, nonatomic) UIImage *multiplayerBadgeImage;
 @property(readonly, nonatomic) UIImage *ratingStarsLargeForegroundOnHeaderImage;
 @property(readonly, nonatomic) UIImage *ratingStarsLargeBackgroundOnHeaderImage;
 @property(readonly, nonatomic) UIImage *ratingStarsForegroundOnHeaderImage;

@@ -8,14 +8,16 @@
 
 #import "SSCoding-Protocol.h"
 
-@class NSNumber;
+@class NSNumber, NSString;
 
 @interface SSAuthorizationRequest : SSRequest <SSCoding>
 {
     NSNumber *_accountIdentifier;
+    NSString *_keybagPath;
     id _token;
 }
 
+@property(copy) NSString *keybagPath; // @synthesize keybagPath=_keybagPath;
 - (BOOL)issueRequestForIdentifier:(id)arg1 error:(id *)arg2;
 - (BOOL)handleFinishResponse:(id)arg1 error:(id *)arg2;
 - (id)initWithXPCEncoding:(void *)arg1;

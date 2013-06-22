@@ -31,6 +31,7 @@
     NSMutableArray *_repeatQueue;
     NSMutableSet *_modalRequesters;
     NSMutableSet *_snippetsToToss;
+    NSMutableSet *_snippetsToFadeAfterToss;
     unsigned int _tableAnimationCount;
     NSString *_spokenLanguageCode;
     BOOL _pendingRecord;
@@ -71,6 +72,8 @@
     BOOL _endVoiceSessionWhenDoneSpeaking;
     NSString *_currentAddViewsIdentifier;
     int _networkErrorIndex;
+    BOOL _displayErrorWhenVisible;
+    BOOL _didDisplayNotReadyError;
     SBAssistantNavigationController *_viewController;
     NSMutableArray *_nextRecognitionAudioInputPaths;
     BOOL _shouldRouteToReceiver;
@@ -84,15 +87,14 @@
 + (BOOL)preferenceEnabled;
 + (BOOL)supportedAndEnabled;
 + (BOOL)shouldEnterAssistant;
-+ (BOOL)hasUserBeenEducated;
-+ (void)setUserHasBeenEducated;
-+ (void)educateUserAboutAssistantWhenAppropriate;
 + (BOOL)canActivateWithActiveTouchesUsingOptions:(id)arg1;
 - (id)init;
 - (void)dealloc;
 - (float)bottomBarHeight;
+- (void)_displayNotReadyError;
 - (id)_connection;
 - (void)_clearConnection;
+- (id)_connectionIfExists;
 - (void)_cleanUpConnectionIfNeeded;
 - (id)view;
 - (id)_extraSpace;
@@ -110,6 +112,7 @@
 - (void)_registerForActiveNotifications:(BOOL)arg1;
 - (void)_registerForCallNotification:(BOOL)arg1;
 @property(nonatomic) BOOL willOpenTelURL; // @synthesize willOpenTelURL=_delayConnectionEndUntilPhoneCall;
+- (void)_pickableAudioRoutesChanged:(id)arg1;
 - (void)_updateCurrentAudioRoute;
 - (void)updateCurrentAudioRoute;
 - (void)_setExpectsFaceContact:(BOOL)arg1;
@@ -121,6 +124,7 @@
 - (BOOL)assistantVisibleAndRequiresPasscodeUnlockForOpenURL:(id)arg1 withDisplay:(id)arg2;
 - (void)passcodeUnlockWithCompletion:(id)arg1;
 - (BOOL)preventGesture;
+- (id)spokenLanguageCode;
 - (void)_keyboardWillShow:(id)arg1;
 - (void)_keyboardDidShow:(id)arg1;
 - (void)_keyboardWillHide:(id)arg1;
@@ -197,6 +201,8 @@
 - (id)_tableCellIndexPathForSnippet:(id)arg1;
 - (void)_addSnippetToToss:(id)arg1;
 - (void)_processSnippetTosses;
+- (void)_addSnippetToFadeAfterToss:(id)arg1;
+- (void)_snippetAnimationFinished:(id)arg1;
 - (void)_tellUserAboutGesture;
 - (struct CGSize)_rowSize:(unsigned int)arg1;
 - (struct CGSize)_rowSize:(unsigned int)arg1 suggestedHeight:(float)arg2;
@@ -232,7 +238,7 @@
 - (unsigned int)_lastNonSpaceSnippetIndex;
 - (id)_lastNonSpaceSnippet;
 - (unsigned int)_lastNonTemporarySnippetAbsentFrom:(id)arg1;
-- (id)_lastNonStaticSnippet;
+- (id)_lastNonStaticSnippetAfterUserUtterance;
 - (void)_tossOutLastSnippetAndRemoveFollowingViews;
 - (id)_snippetsOfPhase:(int)arg1;
 - (BOOL)_shouldActAsIfInConfirmationPhase;
@@ -280,6 +286,7 @@
 - (void)assistantViewAnimatedIn:(id)arg1;
 - (void)assistantViewAnimatedOut:(id)arg1;
 - (float)assistantViewAudioLevel:(id)arg1;
+- (BOOL)assistantViewAffectsMagicPocket:(int)arg1;
 - (void)assistantTableViewCellDidRemoveFromSuperview:(id)arg1;
 - (void)snippetController:(id)arg1 changeSizeTo:(struct CGSize)arg2;
 - (void)snippetControllerRemoveView:(id)arg1;

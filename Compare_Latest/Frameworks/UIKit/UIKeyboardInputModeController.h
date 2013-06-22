@@ -29,6 +29,7 @@
 - (id)defaultEnabledInputModesForCurrentLocale:(BOOL)arg1;
 - (void)clearCachedValues;
 @property(retain) UIKeyboardInputMode *currentInputMode;
+@property(readonly, nonatomic) BOOL containsDictationSupportedInputMode;
 - (id)activeInputModes;
 - (id)inputModeWithIdentifier:(id)arg1;
 - (void)dealloc;

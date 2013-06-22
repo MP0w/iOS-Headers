@@ -14,7 +14,7 @@
     id _badgeNumberOrString;
     unsigned int _isRevealable:1;
     unsigned int _uninstalled:1;
-    UIImage *_cachedIconImages[13];
+    UIImage *_cachedIconImages[12];
     id <SBIconDelegate> _delegate;
 }
 

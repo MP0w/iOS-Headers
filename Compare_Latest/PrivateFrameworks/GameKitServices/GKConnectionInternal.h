@@ -44,10 +44,12 @@
     NSMutableDictionary *_pidToRelayUpdateInfoMap;
     NSMutableDictionary *_initRelayQueue;
     NSMutableDictionary *_updateRelayQueue;
+    id _awdMetricsCallback;
     int _fPreReleased;
 }
 
 - (id)initWithParticipantID:(id)arg1;
+- (id)initWithParticipantID:(id)arg1 withOptions:(id)arg2;
 - (void)preRelease;
 - (void)dealloc;
 - (struct dispatch_queue_s *)timerQueue;
@@ -82,6 +84,7 @@
 - (id)networkStatisticsDictionaryForGCKStats:(void *)arg1;
 - (id)networkStatistics;
 @property(retain) NSMutableDictionary *cdxSessions; // @synthesize cdxSessions=_cdxSessions;
+@property id awdMetricsCallback; // @synthesize awdMetricsCallback=_awdMetricsCallback;
 @property(retain) NSMutableDictionary *pidToConnectTimeoutSource; // @synthesize pidToConnectTimeoutSource=_pidToConnectTimeoutSource;
 
 @end

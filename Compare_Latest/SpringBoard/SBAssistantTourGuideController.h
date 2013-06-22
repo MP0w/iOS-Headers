@@ -19,6 +19,7 @@
     SBAssistantGuideModel *_model;
 }
 
++ (float)_calculatePeekAmount;
 + (float)peekAmount;
 - (void)dealloc;
 - (id)_view;

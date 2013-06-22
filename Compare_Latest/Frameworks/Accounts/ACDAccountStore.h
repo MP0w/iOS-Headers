@@ -42,9 +42,10 @@
 - (void)accountTypesWithHandler:(id)arg1;
 - (void)accountsWithHandler:(id)arg1;
 - (void)accountWithIdentifier:(id)arg1 handler:(id)arg2;
+- (void)setDefaultPermissionIfNecessaryForCallerOnAccountType:(id)arg1;
 - (void)noteAccountStoredDidSaveAccounts:(id)arg1 account:(id)arg2;
 - (void)setAccountManagedObjectRelationships:(id)arg1 withAccount:(id)arg2;
-- (BOOL)callerHasPermissionToAddAccount:(id)arg1;
+- (BOOL)callerWithPID:(id)arg1 hasPermissionToAddAccount:(id)arg2;
 - (BOOL)callerHasPermissionToRemoveAccount:(id)arg1;
 - (BOOL)callerHasPermissionToAccessAccount:(id)arg1;
 - (BOOL)callerHasPermissionToAccessAccountType:(id)arg1;

@@ -10,8 +10,8 @@
 {
 }
 
-- (id)initWithConfigurationState:(id)arg1;
 - (void)transitionToFailedStatusWithError:(id)arg1;
+- (id)initWithConfigurationState:(id)arg1;
 
 @end
 

@@ -79,7 +79,7 @@
 - (void)_tapFailedGesture:(id)arg1;
 - (void)_tapGesture:(id)arg1;
 - (void)_updateInstalledGestureRecognizers;
-- (void)menuDidHideNotification:(id)arg1;
+- (void)_menuDidHideNotification:(id)arg1;
 - (void)rotationDidStart;
 - (void)rotationWillStart;
 @property(readonly, nonatomic) unsigned int calloutPhotoIndex;
@@ -120,7 +120,6 @@
 - (void)reloadPhotoAtIndex:(unsigned int)arg1;
 - (void)reloadData;
 @property(nonatomic) id <PLAlbumViewDelegate> delegate;
-- (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
@@ -130,11 +129,9 @@
 - (unsigned int)_cellPhotoIndexForPhotoIndex:(unsigned int)arg1;
 - (unsigned int)_tableRowForPhotoIndex:(unsigned int)arg1;
 - (void)_preheatImageDataForDownwardScroll:(BOOL)arg1;
-- (void)_setupTableView;
-- (void)_updateTableViewRowCount;
+- (void)_updateRowAndColumnCount;
 - (void)_updateFooterView;
 - (void)_updatePhotoCount;
-- (void)_updateColumnsPerRow;
 - (unsigned int)_leftPaddingForCellWidth:(float)arg1;
 - (struct CGSize)_cellSize;
 

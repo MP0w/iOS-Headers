@@ -7,9 +7,9 @@
 #import <AVFoundation/AVURLAsset.h>
 
 @interface AVURLAsset (AVAssetChapterInspection)
-- (id)_chapterGroupInfo;
-- (id)availableChapterLocales;
-- (unsigned int)_addChapterMetadataItem:(id)arg1 withDuration:(CDStruct_1b6d18a9)arg2 timeRange:(CDStruct_e83c9415)arg3 toChapters:(id)arg4 fromIndex:(unsigned int)arg5;
 - (id)chapterMetadataGroupsWithTitleLocale:(id)arg1 containingItemsWithCommonKeys:(id)arg2;
+- (unsigned int)_addChapterMetadataItem:(id)arg1 withDuration:(CDStruct_1b6d18a9)arg2 timeRange:(CDStruct_e83c9415)arg3 toChapters:(id)arg4 fromIndex:(unsigned int)arg5;
+- (id)availableChapterLocales;
+- (id)_chapterGroupInfo;
 @end
 

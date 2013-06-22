@@ -35,8 +35,9 @@
 - (id)nextUnperturbedDictationResultBoundaryFromPosition:(id)arg1;
 - (id)previousUnperturbedDictationResultBoundaryFromPosition:(id)arg1;
 - (id)metadataDictionariesForDictationResults;
-- (void)removeDictationResultPlaceholder:(id)arg1 willInsertText:(BOOL)arg2;
-- (id)insertDictationResultPlaceholder:(struct CGSize)arg1;
+- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
+- (struct CGRect)frameForDictationResultPlaceholder:(id)arg1;
+- (id)insertDictationResultPlaceholder;
 - (void)insertDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
 - (id)automaticallySelectedOverlay;
 - (void)setBottomBufferHeight:(float)arg1;

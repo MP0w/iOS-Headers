@@ -38,9 +38,11 @@
 - (void)_setDictionary:(id)arg1;
 - (id)_networkConstraintsCachePath;
 - (BOOL)_loadFromSignedDictionary:(id)arg1 returningError:(id *)arg2;
+- (struct __CFString *)_diskCacheExpirationTimeKey;
 - (id)_copyHeaderPatternsFromDictionary:(id)arg1;
 - (id)_copyGUIDSchemesFromDictionary:(id)arg1;
 - (id)_copyGUIDPatternsFromDictionary:(id)arg1;
+- (BOOL)writeToFile:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) NSDictionary *URLBagDictionary;
 @property(copy, nonatomic) SSURLBagContext *URLBagContext;
 - (id)sanitizedURLForURL:(id)arg1;
@@ -59,6 +61,7 @@
 - (void)dealloc;
 - (id)initWithURLBagContext:(id)arg1;
 - (id)initWithRawDictionary:(id)arg1;
+- (id)initWithContentsOfFile:(id)arg1;
 - (id)init;
 
 @end

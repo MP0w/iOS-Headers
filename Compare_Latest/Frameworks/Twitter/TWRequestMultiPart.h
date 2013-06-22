@@ -16,6 +16,7 @@
 }
 
 + (id)multipartBoundary;
++ (id)multiPartWithName:(id)arg1 payload:(id)arg2 type:(id)arg3;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
 @property(retain, nonatomic) NSData *payload; // @synthesize payload=_payload;

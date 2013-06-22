@@ -29,6 +29,7 @@
 - (void)_applyConfiguration;
 - (void)updatePreviewWellImage:(id)arg1;
 - (void)prepareForDefaultImageSnapshot;
+- (void)tearDownCaptureSession;
 - (void)animateIrisForSuspension;
 - (BOOL)shouldAnimateIrisForSuspension;
 - (void)stopCameraPreviewAnimated:(BOOL)arg1;

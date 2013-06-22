@@ -8,8 +8,10 @@
 
 @interface PLThumbnailIndexes (Private)
 + (id)sharedInstance;
+- (id)fetchOccupiedThumbnailIndexesWithLibrary:(id)arg1;
 - (void)recycleThumbnailIndex:(unsigned int)arg1;
 - (void)recycleThumbnailIndexes:(id)arg1;
+- (void)getAvailableThumbnailIndexesFromDatabase;
 - (void)getAvailableThumbnailIndexesWithCount:(unsigned int)arg1 handler:(id)arg2;
 @end
 

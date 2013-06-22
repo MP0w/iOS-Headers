@@ -38,6 +38,7 @@
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(nonatomic) BOOL denyExplicit; // @synthesize denyExplicit=_denyExplicit;
 @property(nonatomic) BOOL hasDenyExplicit; // @synthesize hasDenyExplicit=_hasDenyExplicit;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

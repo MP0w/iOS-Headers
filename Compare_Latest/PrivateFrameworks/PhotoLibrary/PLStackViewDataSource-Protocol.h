@@ -13,6 +13,7 @@
 - (int)stackViewItemCount:(id)arg1;
 
 @optional
+- (BOOL)stackViewPrefersLazyPreheating:(id)arg1;
 - (void)stackView:(id)arg1 preheatImagesInRange:(struct _NSRange)arg2;
 - (void)stackView:(id)arg1 tappedItemAtIndex:(unsigned int)arg2;
 - (id)stackView:(id)arg1 collapsedIndexesForCount:(unsigned int)arg2;

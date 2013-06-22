@@ -22,7 +22,6 @@
     struct BTAccessoryManagerImpl *_accessoryManager;
     NSMutableDictionary *_btAddrDict;
     NSMutableDictionary *_btDeviceDict;
-    NSMutableDictionary *_seekingInProgressDict;
 }
 
 + (id)sharedInstance;
@@ -83,10 +82,6 @@
 - (void)setAudioConnected:(BOOL)arg1;
 - (void)startVoiceCommand:(id)arg1;
 - (void)endVoiceCommand:(id)arg1;
-- (void)_sendSeekStart:(id)arg1 forDevice:(id)arg2;
-- (void)_stopSeeking:(id)arg1 forDevice:(id)arg2;
-- (void)sendContact:(id)arg1 toDevice:(id)arg2;
-- (void)sendAllContactsToDevice:(id)arg1;
 - (BOOL)isServiceSupported:(unsigned int)arg1;
 - (void)enableTestMode;
 

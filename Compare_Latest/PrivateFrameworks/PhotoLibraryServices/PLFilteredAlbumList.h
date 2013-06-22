@@ -7,10 +7,12 @@
 #import "NSObject.h"
 
 #import "PLAlbumContainer-Protocol.h"
+#import "PLIndexMapperDataSource-Protocol.h"
+#import "PLIndexMappingCache-Protocol.h"
 
-@class NSMutableIndexSet, NSMutableOrderedSet, NSPredicate, NSString, PLIndexMapper, PLManagedAlbumList, PLPhotoLibrary;
+@class NSIndexSet, NSMutableIndexSet, NSMutableOrderedSet, NSPredicate, NSString, PLIndexMapper, PLManagedAlbumList, PLPhotoLibrary;
 
-@interface PLFilteredAlbumList : NSObject <PLAlbumContainer>
+@interface PLFilteredAlbumList : NSObject <PLAlbumContainer, PLIndexMapperDataSource, PLIndexMappingCache>
 {
     PLIndexMapper *_indexMapper;
     NSMutableIndexSet *_filteredIndexes;
@@ -25,6 +27,22 @@
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate;
 @property(nonatomic) int filter; // @synthesize filter;
 @property(retain, nonatomic) PLManagedAlbumList *backingAlbumList; // @synthesize backingAlbumList;
+- (void)replaceFilteredAlbumsAtIndexes:(id)arg1 withFilteredValues:(id)arg2;
+- (void)replaceObjectInFilteredAlbumsAtIndex:(unsigned int)arg1 withObject:(id)arg2;
+- (void)removeFilteredAlbumsAtIndexes:(id)arg1;
+- (void)insertFilteredAlbums:(id)arg1 atIndexes:(id)arg2;
+- (void)removeObjectFromFilteredAlbumsAtIndex:(unsigned int)arg1;
+- (void)insertObject:(id)arg1 inFilteredAlbumsAtIndex:(unsigned int)arg2;
+- (void)getFilteredAlbums:(id *)arg1 range:(struct _NSRange)arg2;
+- (id)filteredAlbumsAtIndexes:(id)arg1;
+- (id)objectInFilteredAlbumsAtIndex:(unsigned int)arg1;
+- (unsigned int)indexInFilteredAlbumsOfObject:(id)arg1;
+- (unsigned int)countOfFilteredAlbums;
+- (void)mappedDataSourceChanged:(id)arg1;
+- (BOOL)shouldIncludeObjectAtIndex:(unsigned int)arg1;
+@property(readonly, nonatomic) id <NSObject><NSCopying> cachedIndexMapState;
+@property(readonly, nonatomic) NSIndexSet *filteredIndexes;
+@property(readonly, nonatomic) PLIndexMapper *indexMapper;
 - (void)_invalidateFilteredIndexes;
 @property(readonly, nonatomic) NSString *_prettyDescription;
 @property(readonly, nonatomic) NSString *_typeDescription;

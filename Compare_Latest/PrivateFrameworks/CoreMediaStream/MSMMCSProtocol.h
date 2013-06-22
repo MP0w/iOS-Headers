@@ -8,7 +8,7 @@
 
 #import "MSStorageProtocol-Protocol.h"
 
-@class NSMutableDictionary, NSString;
+@class NSString;
 
 @interface MSMMCSProtocol : NSObject <MSStorageProtocol>
 {
@@ -16,8 +16,6 @@
     NSString *_MMCSDirPath;
     struct __MMCSEngine *_engine;
     NSString *_engineDirPath;
-    NSString *_manifestPath;
-    NSMutableDictionary *_manifest;
 }
 
 + (id)computeItemIDForAsset:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSString, UIImage, UIImageView, UILabel;
+@class NSObject<PLAssetContainer>, NSString, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer;
 
 @interface PLEmptyAlbumView : UIView
 {
@@ -18,6 +18,7 @@
     UIImageView *_imageView;
     UILabel *_titleLabel;
     UILabel *_messageLabel;
+    UILongPressGestureRecognizer *_longPressRecognizer;
     int _filter;
     BOOL _isCameraAlbum;
     BOOL _useLargeImages;
@@ -26,21 +27,26 @@
     struct UIEdgeInsets _edgeInsets;
 }
 
+@property(retain, nonatomic) NSObject<PLAssetContainer> *album; // @synthesize album=_album;
 @property(nonatomic) struct UIEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 @property(nonatomic) int filter; // @synthesize filter=_filter;
-- (void)_sizeLabelToFitView:(id)arg1;
+- (BOOL)canBecomeFirstResponder;
+- (void)paste:(id)arg1;
+- (BOOL)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)_longPressGesture:(id)arg1;
 - (id)_newTextViewWithText:(id)arg1;
 - (id)_newLabelWithText:(id)arg1;
 - (id)_messageForAlbum:(struct NSObject *)arg1;
 - (id)_titleForAlbum:(struct NSObject *)arg1;
 - (id)_emptyRollImageForAlbum:(struct NSObject *)arg1 interfaceOrientation:(int)arg2;
+- (void)_sizeLabelToFitView:(id)arg1;
 - (void)layoutSubviews;
 - (void)setIsCameraAlbum:(BOOL)arg1;
 - (void)setPortraitImage:(id)arg1 landscapeImage:(id)arg2;
 - (void)setImage:(id)arg1;
 - (void)setMessage:(id)arg1;
 - (void)setTitle:(id)arg1;
-- (void)setAlbum:(struct NSObject *)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 useLargeImages:(BOOL)arg2;

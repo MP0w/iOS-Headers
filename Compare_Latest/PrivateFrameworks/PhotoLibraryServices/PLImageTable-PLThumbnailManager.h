@@ -8,6 +8,8 @@
 
 @interface PLImageTable (PLThumbnailManager)
 - (void)preheatImageDataAtIndexex:(id)arg1;
+- (id)_getAndClearPreheatIndexes;
+- (void)_addPreheatIndexes:(id)arg1;
 - (id)imageDataAtIndex:(int)arg1 width:(int *)arg2 height:(int *)arg3 bytesPerRow:(int *)arg4 dataWidth:(int *)arg5 dataHeight:(int *)arg6 dataOffset:(int *)arg7;
 - (BOOL)thumbnailForAsset:(id)arg1 existsAtIndex:(int)arg2;
 - (struct __CFDictionary *)currentAssetUUIDsToIndexesMapping;

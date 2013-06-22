@@ -6,18 +6,21 @@
 
 #import "UIView.h"
 
-@class UIImage, UIImageView;
+@class CAShapeLayer, UIImage, UIImageView;
 
 @interface PLCameraImageWellView : UIView
 {
     UIImage *_thumbnailImage;
+    int _buttonBarStyle;
     UIImageView *_containerImageView;
     UIImageView *_thumbnailImageView;
     UIView *_thumbnailOverlayView;
+    CAShapeLayer *_thumbnailMaskLayer;
     BOOL _watchingOrientationChanges;
     int _deviceOrientation;
 }
 
++ (float)imageWellCornerRadius;
 - (void)setButtonOrientation:(int)arg1 animated:(BOOL)arg2;
 - (void)_deviceOrientationChanged:(id)arg1;
 - (void)_stopWatchingDeviceOrientationChanges;
@@ -37,7 +40,7 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setEnabled:(BOOL)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2 buttonBarStyle:(int)arg3;
 
 @end
 

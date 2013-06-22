@@ -15,25 +15,25 @@
     AVItemAccessLogEventInternal *_playerItemAccessLogEvent;
 }
 
-- (id)init;
-- (id)initWithDictionary:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)finalize;
-- (void)dealloc;
-@property(readonly, nonatomic) int numberOfSegmentsDownloaded;
-@property(readonly, nonatomic) NSDate *playbackStartDate;
-@property(readonly, nonatomic) NSString *URI;
-@property(readonly, nonatomic) NSString *serverAddress;
-@property(readonly, nonatomic) int numberOfServerAddressChanges;
-@property(readonly, nonatomic) NSString *playbackSessionID;
-@property(readonly, nonatomic) double playbackStartOffset;
-@property(readonly, nonatomic) double segmentsDownloadedDuration;
-@property(readonly, nonatomic) double durationWatched;
-@property(readonly, nonatomic) int numberOfStalls;
-@property(readonly, nonatomic) long long numberOfBytesTransferred;
-@property(readonly, nonatomic) double observedBitrate;
-@property(readonly, nonatomic) double indicatedBitrate;
 @property(readonly, nonatomic) int numberOfDroppedVideoFrames;
+@property(readonly, nonatomic) double indicatedBitrate;
+@property(readonly, nonatomic) double observedBitrate;
+@property(readonly, nonatomic) long long numberOfBytesTransferred;
+@property(readonly, nonatomic) int numberOfStalls;
+@property(readonly, nonatomic) double durationWatched;
+@property(readonly, nonatomic) double segmentsDownloadedDuration;
+@property(readonly, nonatomic) double playbackStartOffset;
+@property(readonly, nonatomic) NSString *playbackSessionID;
+@property(readonly, nonatomic) int numberOfServerAddressChanges;
+@property(readonly, nonatomic) NSString *serverAddress;
+@property(readonly, nonatomic) NSString *URI;
+@property(readonly, nonatomic) NSDate *playbackStartDate;
+@property(readonly, nonatomic) int numberOfSegmentsDownloaded;
+- (void)dealloc;
+- (void)finalize;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithDictionary:(id)arg1;
+- (id)init;
 
 @end
 

@@ -10,10 +10,10 @@
 {
     int _maxAlarms;
     int _maxRecurrences;
-    CDStruct_8e1c7005 _flags;
+    CDStruct_2a8fb7a3 _flags;
 }
 
-@property(nonatomic) CDStruct_8e1c7005 flags; // @synthesize flags=_flags;
+@property(nonatomic) CDStruct_2a8fb7a3 flags; // @synthesize flags=_flags;
 @property(nonatomic) int maxRecurrencesAllowed; // @synthesize maxRecurrencesAllowed=_maxRecurrences;
 @property(nonatomic) int maxAlarmsAllowed; // @synthesize maxAlarmsAllowed=_maxAlarms;
 @property(nonatomic) BOOL supportsAllDayDueDates;
@@ -48,6 +48,7 @@
 @property(nonatomic) BOOL statusesAreAccurate;
 @property(nonatomic) BOOL inviteesCanSeeAttendeeStatuses;
 @property(nonatomic) BOOL organizerCanSeeAttendeeStatuses;
+@property(nonatomic) BOOL supportsAlarmsTriggeringAfterStartDate;
 @property(nonatomic) BOOL supportsAlarmTriggerDates;
 @property(nonatomic) BOOL supportsAlarmTriggerIntervals;
 - (id)initWithMaxAlarms:(int)arg1 maxRecurrences:(int)arg2 constraintFlags:(unsigned long long)arg3;

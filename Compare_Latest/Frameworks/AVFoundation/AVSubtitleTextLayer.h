@@ -15,14 +15,14 @@
     BOOL _nonForcedSubtitleDisplayEnabled;
 }
 
-- (id)init;
-- (void)finalize;
-- (void)dealloc;
-- (void)setSerialQueue:(struct dispatch_queue_s *)arg1;
-- (void)setCurrentSubtitleSample:(struct __CFAttributedString *)arg1;
-- (void)drawInContext:(struct CGContext *)arg1;
 @property BOOL nonForcedSubtitleDisplayEnabled; // @synthesize nonForcedSubtitleDisplayEnabled=_nonForcedSubtitleDisplayEnabled;
 @property BOOL currentSubtitleSampleIsForced; // @synthesize currentSubtitleSampleIsForced=_currentSubtitleSampleIsForced;
+- (void)drawInContext:(struct CGContext *)arg1;
+- (void)setCurrentSubtitleSample:(struct __CFAttributedString *)arg1;
+- (void)setSerialQueue:(struct dispatch_queue_s *)arg1;
+- (void)dealloc;
+- (void)finalize;
+- (id)init;
 
 @end
 

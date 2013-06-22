@@ -6,8 +6,11 @@
 
 #import <EventKitUI/EKReminderEditItem.h>
 
+@class NSString;
+
 @interface EKReminderAlertEditItem : EKReminderEditItem
 {
+    NSString *_lastSeenFooterString;
 }
 
 - (BOOL)editItemViewControllerCommit:(id)arg1;
@@ -18,7 +21,9 @@
 - (id)_footerString;
 - (id)cellForSubitemAtIndex:(int)arg1;
 - (void)addStylingToCell:(id)arg1 forSubitemAtIndex:(int)arg2;
+- (BOOL)applicationDidResume;
 - (BOOL)configureForCalendarConstraints:(id)arg1;
+- (void)dealloc;
 
 @end
 

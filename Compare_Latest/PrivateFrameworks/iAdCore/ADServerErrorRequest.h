@@ -22,6 +22,7 @@
 @property(nonatomic) int errorCode; // @synthesize errorCode=_errorCode;
 @property(nonatomic) BOOL hasErrorCode; // @synthesize hasErrorCode=_hasErrorCode;
 @property(retain, nonatomic) ADLogMetaData *metaData; // @synthesize metaData=_metaData;
+- (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
@@ -31,6 +32,7 @@
 - (id)urlWithErrorAtIndex:(unsigned int)arg1;
 - (unsigned int)urlWithErrorsCount;
 - (void)addUrlWithError:(id)arg1;
+- (void)clearUrlWithErrors;
 @property(readonly, nonatomic) BOOL hasBadResponse;
 @property(readonly, nonatomic) BOOL hasMetaData;
 - (void)dealloc;

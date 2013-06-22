@@ -14,32 +14,32 @@
     AVWeakReference *_weakReferenceToAssetWriter;
 }
 
-- (id)init;
-- (id)initWithConfigurationState:(id)arg1;
-- (void)dealloc;
-@property(readonly, nonatomic) NSURL *outputURL;
-@property(readonly, nonatomic) AVMediaFileType *mediaFileType;
-@property(readonly, nonatomic) NSArray *availableMediaTypes;
-@property(readonly, nonatomic) int status;
-@property(readonly, nonatomic) NSError *error;
-@property(nonatomic) CDStruct_1b6d18a9 movieFragmentInterval;
-@property(nonatomic) BOOL shouldOptimizeForNetworkUse;
-@property(nonatomic) int movieTimeScale;
-@property(copy, nonatomic) NSArray *metadata;
-@property(readonly, nonatomic) NSArray *inputs;
-- (BOOL)_canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2 exceptionReason:(id *)arg3;
-- (BOOL)canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2;
-- (BOOL)canAddInput:(id)arg1;
-- (void)addInput:(id)arg1;
-- (void)startWriting;
-- (void)startSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
-- (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
-- (void)cancelWriting;
-- (void)finishWriting;
-- (void)_transitionToClientInitiatedTerminalStatus:(int)arg1;
-- (void)transitionToFailedStatusWithError:(id)arg1;
 @property(retain) AVWeakReference *weakReferenceToAssetWriter; // @synthesize weakReferenceToAssetWriter=_weakReferenceToAssetWriter;
 @property(readonly, nonatomic) AVAssetWriterConfigurationState *configurationState; // @synthesize configurationState=_configurationState;
+- (void)transitionToFailedStatusWithError:(id)arg1;
+- (void)_transitionToClientInitiatedTerminalStatus:(int)arg1;
+- (void)finishWriting;
+- (void)cancelWriting;
+- (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
+- (void)startSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
+- (void)startWriting;
+- (void)addInput:(id)arg1;
+- (BOOL)canAddInput:(id)arg1;
+- (BOOL)canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2;
+- (BOOL)_canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2 exceptionReason:(id *)arg3;
+@property(readonly, nonatomic) NSArray *inputs;
+@property(copy, nonatomic) NSArray *metadata;
+@property(nonatomic) int movieTimeScale;
+@property(nonatomic) BOOL shouldOptimizeForNetworkUse;
+@property(nonatomic) CDStruct_1b6d18a9 movieFragmentInterval;
+@property(readonly, nonatomic) NSError *error;
+@property(readonly, nonatomic) int status;
+@property(readonly, nonatomic) NSArray *availableMediaTypes;
+@property(readonly, nonatomic) AVMediaFileType *mediaFileType;
+@property(readonly, nonatomic) NSURL *outputURL;
+- (void)dealloc;
+- (id)initWithConfigurationState:(id)arg1;
+- (id)init;
 
 @end
 

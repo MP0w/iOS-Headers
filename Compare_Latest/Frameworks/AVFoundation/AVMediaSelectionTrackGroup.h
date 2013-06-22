@@ -16,17 +16,17 @@
     BOOL _allowsEmptySelection;
 }
 
-- (id)initWithAsset:(id)arg1 alternateTrackIDs:(id)arg2;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)options;
-- (id)trackIDs;
-- (id)asset;
-- (BOOL)allowsEmptySelection;
-- (BOOL)_isAlternateTrackGroup;
-- (id)_optionForTrackID:(int)arg1 displaysNonForcedSubtitles:(BOOL)arg2;
 - (id)mediaSelectionOptionWithPropertyList:(id)arg1;
+- (id)_optionForTrackID:(int)arg1 displaysNonForcedSubtitles:(BOOL)arg2;
+- (BOOL)_isAlternateTrackGroup;
+- (BOOL)allowsEmptySelection;
+- (id)asset;
+- (id)trackIDs;
+- (id)options;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)initWithAsset:(id)arg1 alternateTrackIDs:(id)arg2;
 
 @end
 

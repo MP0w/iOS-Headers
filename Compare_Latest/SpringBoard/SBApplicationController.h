@@ -15,7 +15,7 @@
     NSMutableDictionary *_applicationsByBundleIdentifer;
     NSMutableSet *_applicationsPlayingMutedAudioSinceLastLock;
     SBProcess *_processCurrentlyRecordingAudio;
-    BOOL _isLocationInUse;
+    int _locationStatusBarIconType;
     NSDictionary *_backgroundDisplayDict;
     unsigned int _ignoreUninstallationEventCount;
     CPDistributedNotificationCenter *_appStateNotificationCenter;
@@ -37,7 +37,7 @@
 - (void)_lockStateChanged:(id)arg1;
 - (void)_updateLocationState;
 - (void)buildLocationState;
-- (BOOL)isLocationInUse;
+- (int)locationStatusBarIconType;
 - (id)allApplications;
 - (id)applicationsWithBundleIdentifier:(id)arg1;
 - (id)applicationsWithPid:(int)arg1;

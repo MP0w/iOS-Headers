@@ -13,11 +13,11 @@
     AVCaptureAudioChannelInternal *_internal;
 }
 
-- (id)initWithConnection:(id)arg1;
-- (void)dealloc;
-- (void)invalidate;
-@property(readonly, nonatomic) float averagePowerLevel;
 @property(readonly, nonatomic) float peakHoldLevel;
+@property(readonly, nonatomic) float averagePowerLevel;
+- (void)invalidate;
+- (void)dealloc;
+- (id)initWithConnection:(id)arg1;
 
 @end
 

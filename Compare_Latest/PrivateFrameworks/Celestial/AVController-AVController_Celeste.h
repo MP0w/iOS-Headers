@@ -7,9 +7,9 @@
 #import <Celestial/AVController.h>
 
 @interface AVController (AVController_Celeste)
-- (BOOL)vibrationEnabled;
-- (void)setVibrationEnabled:(BOOL)arg1;
-- (void)setVibrationPattern:(id)arg1;
 - (id)vibrationPattern;
+- (void)setVibrationPattern:(id)arg1;
+- (void)setVibrationEnabled:(BOOL)arg1;
+- (BOOL)vibrationEnabled;
 @end
 

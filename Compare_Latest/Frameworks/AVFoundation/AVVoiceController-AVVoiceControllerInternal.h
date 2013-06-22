@@ -7,23 +7,23 @@
 #import <AVFoundation/AVVoiceController.h>
 
 @interface AVVoiceController (AVVoiceControllerInternal)
-- (struct ControllerImpl *)impl;
-- (id)init;
-- (void)hardwareConfigChanged;
-- (void)beganRecording;
-- (void)recordBufferReceived:(struct MyAudioQueueBuffer *)arg1;
-- (void)finishedRecording;
-- (void)startpointDetected;
-- (void)interspeechPointDetected;
-- (void)endpointDetected;
-- (void)encodeError;
-- (void)beganPlaying;
-- (void)playbackBufferReceived:(struct MyAudioQueueBuffer *)arg1;
-- (void)finishedPlaying;
-- (void)decodeError;
-- (void)beginRecordInterruption;
-- (void)endRecordInterruption;
-- (void)beginPlaybackInterruption;
 - (void)endPlaybackInterruption;
+- (void)beginPlaybackInterruption;
+- (void)endRecordInterruption;
+- (void)beginRecordInterruption;
+- (void)decodeError;
+- (void)finishedPlaying;
+- (void)playbackBufferReceived:(struct MyAudioQueueBuffer *)arg1;
+- (void)beganPlaying;
+- (void)encodeError;
+- (void)endpointDetected;
+- (void)interspeechPointDetected;
+- (void)startpointDetected;
+- (void)finishedRecording;
+- (void)recordBufferReceived:(struct MyAudioQueueBuffer *)arg1;
+- (void)beganRecording;
+- (void)hardwareConfigChanged;
+- (id)init;
+- (struct ControllerImpl *)impl;
 @end
 

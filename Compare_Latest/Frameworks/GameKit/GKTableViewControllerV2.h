@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate-Protocol.h"
 
-@class GKMultiColumnTableViewCell, UIView<GKTableViewCellContents>;
+@class GKInviteButton, GKMultiColumnTableViewCell, UIView, UIView<GKTableViewCellContents>;
 
 @interface GKTableViewControllerV2 : GKTableViewController <UIGestureRecognizerDelegate>
 {
@@ -21,8 +21,12 @@
     id <GKTableViewControllerDataSource> _sectionDataSource;
     id <GKTableViewControllerDataSource> _retainedSectionDataSource;
     UIView<GKTableViewCellContents> *_editingContentView;
+    GKInviteButton *_confirmationButton;
+    UIView *_confirmationClipView;
 }
 
+@property(retain, nonatomic) UIView *confirmationClipView; // @synthesize confirmationClipView=_confirmationClipView;
+@property(retain, nonatomic) GKInviteButton *confirmationButton; // @synthesize confirmationButton=_confirmationButton;
 @property(retain, nonatomic) UIView<GKTableViewCellContents> *editingContentView; // @synthesize editingContentView=_editingContentView;
 @property(retain, nonatomic) id <GKTableViewControllerDataSource> retainedSectionDataSource; // @synthesize retainedSectionDataSource=_retainedSectionDataSource;
 @property(nonatomic) id <GKTableViewControllerDataSource> sectionDataSource; // @synthesize sectionDataSource=_sectionDataSource;
@@ -35,6 +39,7 @@
 - (id)swipeConfirmationButtonForView:(id)arg1 withTitle:(id)arg2;
 - (void)cancelSwipeToDeleteConfirmation;
 - (id)tableView:(id)arg1 indexPathWithColumnForCell:(id)arg2 withIndexPath:(id)arg3 atPoint:(struct CGPoint)arg4;
+- (id)tableView:(id)arg1 indexPathWithColumnForCell:(id)arg2 withIndexPath:(id)arg3 atPoint:(struct CGPoint)arg4 extendEdgeColumnsToInfinity:(BOOL)arg5;
 - (void)tableView:(id)arg1 refreshCellAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 prepareContentViewsForCell:(id)arg2 atIndexPath:(id)arg3;

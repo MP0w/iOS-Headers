@@ -12,6 +12,7 @@
 
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 isInButtonBar:(BOOL)arg2;
 
 @end
 

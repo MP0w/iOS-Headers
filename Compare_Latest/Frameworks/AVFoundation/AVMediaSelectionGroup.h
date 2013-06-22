@@ -15,25 +15,25 @@
     AVMediaSelectionGroupInternal *_mediaSelectionGroup;
 }
 
-+ (id)mediaSelectionGroupWithAsset:(id)arg1 alternateTrackIDs:(id)arg2;
-+ (id)mediaSelectionGroupWithAsset:(id)arg1 trackID:(int)arg2;
-+ (id)mediaSelectionGroupWithAsset:(id)arg1 dictionary:(id)arg2;
-+ (id)playableMediaSelectionOptionsFromArray:(id)arg1;
-+ (id)mediaSelectionOptionsFromArray:(id)arg1 withLocale:(id)arg2;
-+ (id)mediaSelectionOptionsFromArray:(id)arg1 withMediaCharacteristics:(id)arg2;
 + (id)mediaSelectionOptionsFromArray:(id)arg1 withoutMediaCharacteristics:(id)arg2;
-- (id)init;
-- (id)_weakReference;
-- (void)dealloc;
-- (void)finalize;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)description;
-- (id)asset;
-@property(readonly, nonatomic) NSArray *options;
-@property(readonly, nonatomic) BOOL allowsEmptySelection;
-- (BOOL)_isAlternateTrackGroup;
-- (BOOL)_isKeyValueGroup;
++ (id)mediaSelectionOptionsFromArray:(id)arg1 withMediaCharacteristics:(id)arg2;
++ (id)mediaSelectionOptionsFromArray:(id)arg1 withLocale:(id)arg2;
++ (id)playableMediaSelectionOptionsFromArray:(id)arg1;
++ (id)mediaSelectionGroupWithAsset:(id)arg1 dictionary:(id)arg2;
++ (id)mediaSelectionGroupWithAsset:(id)arg1 trackID:(int)arg2;
++ (id)mediaSelectionGroupWithAsset:(id)arg1 alternateTrackIDs:(id)arg2;
 - (id)mediaSelectionOptionWithPropertyList:(id)arg1;
+- (BOOL)_isKeyValueGroup;
+- (BOOL)_isAlternateTrackGroup;
+@property(readonly, nonatomic) BOOL allowsEmptySelection;
+@property(readonly, nonatomic) NSArray *options;
+- (id)asset;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (id)_weakReference;
+- (id)init;
 
 @end
 

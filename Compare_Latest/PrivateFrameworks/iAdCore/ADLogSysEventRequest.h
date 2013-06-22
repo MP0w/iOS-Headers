@@ -24,6 +24,7 @@
 @property(nonatomic) int eventType; // @synthesize eventType=_eventType;
 @property(nonatomic) BOOL hasEventType; // @synthesize hasEventType=_hasEventType;
 @property(retain, nonatomic) ADLogMetaData *metaData; // @synthesize metaData=_metaData;
+- (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;

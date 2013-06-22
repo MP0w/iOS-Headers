@@ -15,8 +15,12 @@
     struct __CFDictionary *_indexMaps;
 }
 
++ (struct __CFDictionary *)_createIndexMapsSnapshotForManagedObject:(id)arg1 changeNotificationCenter:(id)arg2;
 + (id)snapshotForManagedObject:(id)arg1 changeNotificationCenter:(id)arg2 useCommitedValues:(BOOL)arg3;
 @property(readonly, nonatomic) PLManagedObject *managedObject; // @synthesize managedObject=_managedObject;
+- (void)setAssetsSnapshot:(id)arg1;
+- (id)_allSnapshotValuesDescription;
+- (id)_snapshotValueForProperty:(id)arg1;
 - (id)description;
 - (id)filteredIndexesForFilter:(id)arg1;
 - (BOOL)hasSnapshotValueForProperty:(id)arg1;

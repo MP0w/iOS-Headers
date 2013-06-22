@@ -16,7 +16,18 @@
     unsigned long long _lastKnownChangeHubEventIndex;
 }
 
++ (id)localChangeEventFromChangeHubEvent:(void *)arg1;
++ (id)_descriptionForEvent:(void *)arg1;
 + (id)sharedNode;
+- (void)_processDeletionsFromChangeHubEvent:(const void *)arg1;
+- (void)forceUserInterfaceReload;
+- (BOOL)isEventOriginatingFromHere:(void *)arg1;
+- (void)processRemoteEvents:(void *)arg1;
+- (void)fetchNewEventsFromChangeHub;
+- (void)handleRemoteChangeHubRequest:(const void *)arg1;
+- (void)setupHubConnection;
+- (void)sendEventToChangeHub:(void *)arg1;
+- (void)sendChangeHubEventForDidSaveNotification:(id)arg1;
 - (void)disconnectManagedObjectContext:(id)arg1;
 - (void)connectManagedObjectContext:(id)arg1;
 - (void)distributeLocalEvent:(void *)arg1;

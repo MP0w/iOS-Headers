@@ -14,22 +14,22 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (void)dealloc;
-@property(readonly, nonatomic) NSURL *outputFileURL;
-@property(readonly, nonatomic, getter=isRecording) BOOL recording;
-- (void)startRecordingToOutputFileURL:(id)arg1 recordingDelegate:(id)arg2;
-- (void)stopRecording;
-- (BOOL)isRecordingPaused;
-- (void)pauseRecording;
-- (void)resumeRecording;
-- (BOOL)pausesRecordingOnInterruption;
-- (void)setPausesRecordingOnInterruption:(BOOL)arg1;
-@property(readonly, nonatomic) CDStruct_1b6d18a9 recordedDuration;
-@property(readonly, nonatomic) long long recordedFileSize;
-@property(nonatomic) CDStruct_1b6d18a9 maxRecordedDuration;
-@property(nonatomic) long long maxRecordedFileSize;
 @property(nonatomic) long long minFreeDiskSpaceLimit;
+@property(nonatomic) long long maxRecordedFileSize;
+@property(nonatomic) CDStruct_1b6d18a9 maxRecordedDuration;
+@property(readonly, nonatomic) long long recordedFileSize;
+@property(readonly, nonatomic) CDStruct_1b6d18a9 recordedDuration;
+- (void)setPausesRecordingOnInterruption:(BOOL)arg1;
+- (BOOL)pausesRecordingOnInterruption;
+- (void)resumeRecording;
+- (void)pauseRecording;
+- (BOOL)isRecordingPaused;
+- (void)stopRecording;
+- (void)startRecordingToOutputFileURL:(id)arg1 recordingDelegate:(id)arg2;
+@property(readonly, nonatomic, getter=isRecording) BOOL recording;
+@property(readonly, nonatomic) NSURL *outputFileURL;
+- (void)dealloc;
+- (id)init;
 
 @end
 

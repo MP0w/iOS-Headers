@@ -28,6 +28,7 @@
 - (void)dealloc;
 - (struct CGImage *)copyImageForKey:(id)arg1;
 - (struct CGImage *)copyAndStoreImageForKey:(id)arg1 inGroup:(id)arg2 withSize:(struct CGSize)arg3 opaque:(BOOL)arg4 scale:(float)arg5 draw:(id)arg6;
+- (void)storeImageForKey:(id)arg1 inGroup:(id)arg2 opaque:(BOOL)arg3 image:(struct CGImage *)arg4;
 - (id)allGroups;
 - (void)removeImagesInGroups:(id)arg1;
 - (BOOL)findImageWithKey:(id)arg1 andInfo:(struct _img *)arg2;

@@ -7,6 +7,7 @@
 #import <UIKit/UIView.h>
 
 @interface UIView (FastModeAdditions)
+- (void)_reconsiderFastModeGivenScrollViewInNotification:(id)arg1;
 - (void)_setContainerLayoutViewForFastMode:(id)arg1;
 - (id)_containerLayoutViewForFastMode;
 - (BOOL)_wantsCornerSnapshotsForScrolling;

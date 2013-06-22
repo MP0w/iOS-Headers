@@ -7,8 +7,7 @@
 #import <UIKit/UIColor.h>
 
 @interface UIColor (UIColorSystemColorsPrivate)
-+ (id)whitePaperTextureColor;
-+ (id)translucentPaperTextureColor;
++ (id)_translucentPaperTextureColor;
 + (id)noContentDarkGradientBackgroundColor;
 + (id)noContentLightGradientBackgroundColor;
 @end

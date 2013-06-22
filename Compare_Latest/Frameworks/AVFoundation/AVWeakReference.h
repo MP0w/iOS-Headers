@@ -10,10 +10,10 @@
 {
 }
 
-+ (void)initialize;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (id)initWithReferencedObject:(id)arg1;
++ (void)initialize;
 - (id)referencedObject;
+- (id)initWithReferencedObject:(id)arg1;
 
 @end
 

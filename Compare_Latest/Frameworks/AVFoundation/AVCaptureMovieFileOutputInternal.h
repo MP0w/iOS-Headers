@@ -16,8 +16,8 @@
     BOOL sendLastVideoPreviewFrame;
 }
 
-- (id)init;
 - (void)dealloc;
+- (id)init;
 
 @end
 

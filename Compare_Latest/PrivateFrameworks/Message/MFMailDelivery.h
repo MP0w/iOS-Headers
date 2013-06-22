@@ -46,6 +46,8 @@
 - (int)deliveryStatus;
 - (id)originalHeaders;
 - (id)headersForDelivery;
+- (BOOL)shouldSignMessage;
+- (BOOL)shouldEncryptMessage;
 - (void)deliverAsynchronously;
 - (int)deliverSynchronously;
 - (int)deliverMessageData:(id)arg1 toRecipients:(id)arg2;

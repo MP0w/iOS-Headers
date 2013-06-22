@@ -4,30 +4,29 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSOperation.h"
+#import <CoreData/PFUbiquityImportOperation.h>
 
-@class NSSet, NSString, PFUbiquityLocation;
+@class NSObject<PFUbiquityImportScanOperationDelegate>, NSSet, NSString, PFUbiquityLocation;
 
-@interface PFUbiquityImportScanOperation : NSOperation
+@interface PFUbiquityImportScanOperation : PFUbiquityImportOperation
 {
     PFUbiquityLocation *_rootLocationToScan;
     NSString *_localPeerID;
     NSSet *_activeStoreNames;
     BOOL _includeLocalPeerLogs;
     BOOL _isFirstImport;
-    id <PFUbiquityImportScanOperationDelegate> _delegate;
 }
 
 - (id)init;
 - (id)initWithLocalPeerID:(id)arg1 ubiquityRootLocation:(id)arg2 activeStoreNames:(id)arg3 includingLocalPeerLogs:(BOOL)arg4;
 - (void)dealloc;
 - (BOOL)isEqual:(id)arg1;
-- (void)cancel;
+@property NSObject<PFUbiquityImportScanOperationDelegate> *delegate;
 - (void)main;
+- (BOOL)batchDownloadTransactionLogsAtLocations:(id)arg1 error:(id *)arg2;
 @property(nonatomic) BOOL isFirstImport; // @synthesize isFirstImport=_isFirstImport;
 @property(readonly, nonatomic) BOOL includeLocalPeerLogs; // @synthesize includeLocalPeerLogs=_includeLocalPeerLogs;
 @property(readonly, nonatomic) NSSet *activeStoreNames; // @synthesize activeStoreNames=_activeStoreNames;
-@property(nonatomic) id <PFUbiquityImportScanOperationDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) PFUbiquityLocation *rootLocationToScan; // @synthesize rootLocationToScan=_rootLocationToScan;
 

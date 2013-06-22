@@ -11,17 +11,25 @@
 @interface UIDictationLandingView : UIView
 {
     int _highlighted;
-    float _diameter;
     NSTimer *_timer;
     UITextRange *_range;
     id _placeholder;
-    BOOL _willInsertText;
+    BOOL _willInsertResult;
+    float _diameter;
+    float _margin;
 }
 
++ (id)activeInstance;
 + (id)sharedInstance;
-@property(nonatomic) BOOL willInsertText; // @synthesize willInsertText=_willInsertText;
++ (float)widthForLineHeight:(float)arg1;
++ (float)diameterForLineHeight:(float)arg1;
+@property(nonatomic) BOOL willInsertResult; // @synthesize willInsertResult=_willInsertResult;
+- (void)stopLandingForError;
+- (void)errorAnimationDidFinish;
 - (void)stopLanding;
 - (void)startLanding;
+- (void)updatePosition;
+- (void)placeDots;
 - (void)advanceLanding:(id)arg1;
 - (void)dealloc;
 - (void)drawRect:(struct CGRect)arg1;

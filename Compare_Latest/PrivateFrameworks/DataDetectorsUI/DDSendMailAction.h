@@ -8,11 +8,8 @@
 
 #import "MFMailComposeViewControllerDelegate-Protocol.h"
 
-@class NSString;
-
 @interface DDSendMailAction : DDAction <MFMailComposeViewControllerDelegate>
 {
-    NSString *_recipient;
 }
 
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(int)arg2 error:(id)arg3;
@@ -20,7 +17,6 @@
 - (void)perform;
 - (int)interactionType;
 - (id)localizedName;
-- (void)dealloc;
 - (id)initWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 
 @end

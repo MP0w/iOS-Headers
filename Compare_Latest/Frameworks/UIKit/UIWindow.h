@@ -208,7 +208,6 @@
 - (void)addRootViewControllerViewIfPossible;
 - (unsigned int)_contextId;
 - (BOOL)_disableViewScaling;
-- (BOOL)_disableEdgeAntialiasing;
 - (BOOL)_disableGroupOpacity;
 - (BOOL)_ignoresHitTest;
 - (void)_setLayerHidden:(BOOL)arg1;

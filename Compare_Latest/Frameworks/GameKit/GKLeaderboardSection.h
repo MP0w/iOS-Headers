@@ -58,6 +58,7 @@
 - (id)tableView:(id)arg1 prepareContents:(id)arg2 forItem:(id)arg3 column:(int)arg4;
 - (id)tableView:(id)arg1 prepareContents:(id)arg2 forItem:(id)arg3;
 - (id)tableView:(id)arg1 prepareContents:(id)arg2 forCell:(id)arg3 atIndexPath:(id)arg4;
+- (void)tableView:(id)arg1 refreshCellAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 prepareExpensiveContentAtIndexPaths:(id)arg2 withCompletionHandler:(id)arg3;
 - (BOOL)_shouldApplyExpensiveContentsFromLeaderboard:(id)arg1 toTableView:(id)arg2;
 - (id)tableView:(id)arg1 reuseIdentifierForRow:(int)arg2;

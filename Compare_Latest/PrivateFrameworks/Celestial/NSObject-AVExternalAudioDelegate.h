@@ -7,7 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (AVExternalAudioDelegate)
-- (long)becomeActive;
 - (long)becomeInactive;
+- (long)becomeActive;
 @end
 

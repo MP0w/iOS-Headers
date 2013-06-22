@@ -50,6 +50,7 @@
 - (BOOL)isBeingQuiet;
 - (void)endInput;
 - (void)setSearchText:(id)arg1;
+- (int)_lastCellToAffectMagicPocket;
 - (void)_updateMagicPocketAlpha;
 - (void)_updateAlphaForSnippets;
 - (struct CGRect)statusBarFrame;

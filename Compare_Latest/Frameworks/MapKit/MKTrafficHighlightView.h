@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSTimer;
+@class NSOperation, NSOperationQueue, NSTimer;
 
 @interface MKTrafficHighlightView : UIView
 {
@@ -16,10 +16,12 @@
     unsigned int _zoomLevel;
     unsigned char _tileType;
     NSTimer *_showTimer;
+    NSOperation *_drawOperation;
+    NSOperationQueue *_drawOperationQueue;
 }
 
 - (void)dealloc;
-- (void)drawRect:(struct CGRect)arg1;
+- (id)_imageForRect:(struct CGRect)arg1;
 - (void)setHidden:(BOOL)arg1;
 - (void)_show;
 - (void)willMoveToWindow:(id)arg1;

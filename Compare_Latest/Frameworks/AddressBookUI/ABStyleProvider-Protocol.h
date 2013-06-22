@@ -95,6 +95,8 @@
 - (struct UIEdgeInsets)cardCellBackgroundInsetsWhenEditing:(BOOL)arg1;
 - (float)cardDeleteButtonHeight;
 - (struct UIEdgeInsets)cardDeleteButtonInsets;
+- (id)cardDeleteButtonImage;
+- (id)cardDeleteButtonImagePressed;
 - (int)dialogStyleForDeleteConfirmation;
 - (Class)customCardCellClass;
 - (Class)customCardActionCellClass;

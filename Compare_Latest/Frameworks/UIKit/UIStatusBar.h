@@ -20,7 +20,7 @@
     UIStatusBarForegroundView *_foregroundView;
     UILabel *_doubleHeightLabel;
     NSString *_currentDoubleHeightText;
-    CDStruct_34da3f48 _currentRawData;
+    CDStruct_074cde39 _currentRawData;
     UIStatusBarBackgroundView *_newStyleBackgroundView;
     UIStatusBarForegroundView *_newStyleForegroundView;
     UIStatusBar *_slidingStatusBar;
@@ -37,7 +37,7 @@
 }
 
 + (int)lowBatteryLevel;
-+ (CDStruct_34da3f48)dataForRequestedData:(CDStruct_34da3f48)arg1 overrides:(CDStruct_99f73b7c)arg2;
++ (CDStruct_074cde39)dataForRequestedData:(CDStruct_074cde39)arg1 overrides:(CDStruct_4a2025ae)arg2;
 + (int)cornerStyleForRequestedStyle:(int)arg1 effectiveStyle:(int)arg2 alignment:(int)arg3;
 + (int)defaultStyleForRequestedStyle:(int)arg1 styleOverrides:(int)arg2;
 + (int)defaultStatusBarStyle;
@@ -54,7 +54,7 @@
 - (void)statusBarServer:(id)arg1 didReceiveDoubleHeightStatusString:(id)arg2 forStyle:(int)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveGlowAnimationState:(BOOL)arg2 forStyle:(int)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveStyleOverrides:(int)arg2;
-- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(CDStruct_34da3f48 *)arg2 withActions:(int)arg3;
+- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(CDStruct_074cde39 *)arg2 withActions:(int)arg3;
 - (void)_willEnterForeground:(id)arg1;
 - (void)_didEnterBackground:(id)arg1;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;

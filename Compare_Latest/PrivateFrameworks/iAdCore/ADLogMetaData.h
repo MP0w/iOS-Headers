@@ -36,6 +36,7 @@
 @property(nonatomic) int messageSequence; // @synthesize messageSequence=_messageSequence;
 @property(nonatomic) BOOL hasMessageSequence; // @synthesize hasMessageSequence=_hasMessageSequence;
 @property(retain, nonatomic) NSString *batchId; // @synthesize batchId=_batchId;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

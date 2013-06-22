@@ -91,6 +91,7 @@
 - (struct CGRect)availableTitleArea;
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)setAutoresizingMask:(unsigned int)arg1;
 - (void)_updateBackgroundImage;
 - (void)showHideBackButtomAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (void)showBackButton:(BOOL)arg1 animated:(BOOL)arg2;

@@ -7,11 +7,11 @@
 #import <AVFoundation/AVPlayerItem.h>
 
 @interface AVPlayerItem (AVPlayerItemSupportForMediaPlayer)
-- (void)_setRampInOutInfo:(id)arg1;
-- (void)_setAudibleDRMInfo:(id)arg1;
-- (void)_quietlySetEQPreset:(int)arg1;
-- (void)_setEQPreset:(int)arg1;
-- (long long)_fileSize;
 - (long long)_availableFileSize;
+- (long long)_fileSize;
+- (void)_setEQPreset:(int)arg1;
+- (void)_quietlySetEQPreset:(int)arg1;
+- (void)_setAudibleDRMInfo:(id)arg1;
+- (void)_setRampInOutInfo:(id)arg1;
 @end
 

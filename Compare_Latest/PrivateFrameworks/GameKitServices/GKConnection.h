@@ -15,9 +15,11 @@
 + (id)externalAddressForCDXSelfConnectionData:(id)arg1;
 + (BOOL)isRelayEnabled;
 - (id)initWithParticipantID:(id)arg1;
+- (id)initWithParticipantID:(id)arg1 withOptions:(id)arg2;
 - (void)preRelease;
 - (struct OpaqueGCKSession *)gckSession;
 @property id eventDelegate;
+@property id awdMetricsCallback;
 - (unsigned int)gckPID;
 - (void)connect;
 - (void)getLocalConnectionDataWithCompletionHandler:(id)arg1;

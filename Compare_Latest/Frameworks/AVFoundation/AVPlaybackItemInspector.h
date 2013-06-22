@@ -14,23 +14,23 @@
     NSArray *_trackIDs;
 }
 
-- (id)initWithPlaybackItem:(struct OpaqueFigPlaybackItem *)arg1 trackIDs:(id)arg2;
-- (void)dealloc;
-- (void)finalize;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-@property(retain, nonatomic, getter=_playbackItem, setter=_setPlaybackItem:) struct OpaqueFigPlaybackItem *playbackItem;
-- (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
-- (CDStruct_1b6d18a9)duration;
-- (struct CGSize)naturalSize;
-- (BOOL)providesPreciseDurationAndTiming;
-- (long)trackCount;
-- (id)trackIDs;
-- (id)lyrics;
-- (id)commonMetadata;
-- (id)availableMetadataFormats;
-- (id)metadataForFormat:(id)arg1;
 - (id)compatibleTrackForCompositionTrack:(id)arg1;
+- (id)metadataForFormat:(id)arg1;
+- (id)availableMetadataFormats;
+- (id)commonMetadata;
+- (id)lyrics;
+- (id)trackIDs;
+- (long)trackCount;
+- (BOOL)providesPreciseDurationAndTiming;
+- (struct CGSize)naturalSize;
+- (CDStruct_1b6d18a9)duration;
+- (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
+@property(retain, nonatomic, getter=_playbackItem, setter=_setPlaybackItem:) struct OpaqueFigPlaybackItem *playbackItem;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithPlaybackItem:(struct OpaqueFigPlaybackItem *)arg1 trackIDs:(id)arg2;
 
 @end
 

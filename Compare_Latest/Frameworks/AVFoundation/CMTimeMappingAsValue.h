@@ -12,10 +12,10 @@
 }
 
 + (id)valueWithCMTimeMapping:(CDStruct_82206317)arg1;
-- (CDStruct_82206317)CMTimeMappingValue;
-- (void)getValue:(void *)arg1;
-- (const char *)objCType;
 - (id)description;
+- (const char *)objCType;
+- (void)getValue:(void *)arg1;
+- (CDStruct_82206317)CMTimeMappingValue;
 
 @end
 

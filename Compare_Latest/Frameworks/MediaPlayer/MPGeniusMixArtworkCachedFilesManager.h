@@ -12,8 +12,7 @@
 }
 
 + (id)sharedInstance;
-- (void)cleanupIfNecessaryWithCompletionBlock:(id)arg1;
-- (void)onQueueSetCurrentSyncGeneration:(unsigned long long)arg1;
+- (void)cleanupIfNecessaryWithCompletionHandler:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

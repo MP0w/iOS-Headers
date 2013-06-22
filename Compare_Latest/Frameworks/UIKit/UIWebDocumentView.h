@@ -13,7 +13,7 @@
 #import "UITextInputTokenizer-Protocol.h"
 #import <UIKit/UITextSelection-Protocol.h>
 
-@class CALayer, DOMElement, DOMHTMLElement, DOMNode, NSArray, NSDictionary, NSMutableSet, NSTimer, UIAutoscroll, UIColor, UIImage, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPopoverController, UIReferenceLibraryViewController, UIResponder<UITextSelection>, UITapGestureRecognizer, UITextChecker, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSelectionView, UIView, UIView<UITextSelectingContent>, UIWebRotatingSheet, UIWebSelectionAssistant, WebThreadSafeUndoManager, WebView, WebViewReachabilityObserver;
+@class CALayer, DOMElement, DOMHTMLElement, DOMNode, DOMRange, NSArray, NSDictionary, NSMutableSet, NSTimer, UIAutoscroll, UIColor, UIImage, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPopoverController, UIReferenceLibraryViewController, UIResponder<UITextSelection>, UITapGestureRecognizer, UITextChecker, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSelectionView, UIView, UIView<UITextSelectingContent>, UIWebRotatingSheet, UIWebSelectionAssistant, WebThreadSafeUndoManager, WebView, WebViewReachabilityObserver;
 
 @interface UIWebDocumentView : UIWebTiledView <UIGestureRecognizerDelegate, UIKeyboardInput, UIKeyInput, UIModalViewDelegate, UITextInputTokenizer, UITextSelection>
 {
@@ -135,12 +135,14 @@
     UIReferenceLibraryViewController *_defineViewController;
     DOMElement *_dictationResultPlaceholder;
     id _dictationResultPlaceholderRemovalObserver;
+    DOMRange *_rangeToRestoreAfterDictation;
 }
 
 + (id)standardTextViewPreferences;
 + (void)initialize;
 + (double)getTimestamp;
 + (Class)layerClass;
+@property(retain, nonatomic) DOMRange *rangeToRestoreAfterDictation; // @synthesize rangeToRestoreAfterDictation=_rangeToRestoreAfterDictation;
 - (int)documentType;
 - (id)_documentUrl;
 @property(readonly, nonatomic) UIResponder<UITextSelection> *textDocument;
@@ -300,9 +302,10 @@
 - (void)replaceRangeWithText:(struct _NSRange)arg1 replacementText:(id)arg2;
 - (void)replaceRangeWithTextWithoutClosingTyping:(id)arg1 replacementText:(id)arg2;
 - (id)dictationInterpretations;
-- (void)removeDictationResultPlaceholder:(id)arg1 willInsertText:(BOOL)arg2;
+- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
 - (void)_finishedUsingDictationPlaceholder;
-- (id)insertDictationResultPlaceholder:(struct CGSize)arg1;
+- (struct CGRect)frameForDictationResultPlaceholder:(id)arg1;
+- (id)insertDictationResultPlaceholder;
 - (BOOL)_dictationPlaceholderHasBeenRemoved;
 - (BOOL)hasRangedSelection;
 - (id)dictationResultMetadataForRange:(id)arg1;

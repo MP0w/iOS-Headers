@@ -43,7 +43,7 @@
 - (void)_connectionProgressDisplayLinkCallback:(id)arg1;
 - (id)_collectionsForQueryCriteria:(id)arg1;
 - (void)_clearPendingDisconnection;
-- (id)_itemsForQueryCriteria:(id)arg1;
+- (id)_itemsForQueryCriteria:(id)arg1 immediate:(BOOL)arg2;
 - (BOOL)playlistExistsWithPersistentID:(unsigned long long)arg1;
 - (BOOL)itemExistsWithPersistentID:(unsigned long long)arg1;
 - (void)setFilteringDisabled:(BOOL)arg1;

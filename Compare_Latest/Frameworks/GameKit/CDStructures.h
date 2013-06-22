@@ -31,6 +31,16 @@ struct GKGameInfo {
     unsigned int _field7;
 };
 
+struct GKImageAtlasImageInfo {
+    unsigned int _field1;
+    long long _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    float _field5;
+    unsigned char _field6;
+    char _field7;
+};
+
 struct UIEdgeInsets {
     float top;
     float left;

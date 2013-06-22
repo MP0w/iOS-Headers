@@ -7,8 +7,8 @@
 #import <PhotoLibraryServices/PLWStackedImageCache.h>
 
 @interface PLWStackedImageCache (Internal)
++ (id)_pathToBakedCachedStackedImageWithKey:(id)arg1;
++ (id)_bakedStackedImageFilenameForWithKey:(id)arg1;
 - (BOOL)_createBaseDirectoryForStackedImagesCache;
-- (id)_pathToBakedCachedStackedImageWithKey:(id)arg1;
-- (id)_bakedStackedImageFilenameForWithKey:(id)arg1;
 @end
 

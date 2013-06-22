@@ -55,6 +55,7 @@
 - (void)setTitle:(id)arg1;
 - (void)setTitle:(id)arg1 okButtonTitle:(id)arg2;
 - (struct CGRect)cropRect;
+- (struct CGRect)visibleCropRect;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)setEnabled:(BOOL)arg1;
 - (void)_pauseButtonPressed:(id)arg1;

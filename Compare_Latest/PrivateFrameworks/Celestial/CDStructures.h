@@ -4,8 +4,6 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-@class AVCallbackHandler, AVExternalAudioDelegate, AVPlaybackItem, AVPlaybackQueue, AVQueue, AVQueueFeeder, CALayer, NSDate, NSDictionary, NSMutableDictionary, NSNumber, NSObject, NSRecursiveLock, NSString, NSURL;
-
 #pragma mark Named Structures
 
 struct AVCapturePrivate {
@@ -13,28 +11,28 @@ struct AVCapturePrivate {
 };
 
 struct AVControllerPrivate {
-    NSString *_field1;
-    NSString *_field2;
-    NSNumber *_field3;
+    id _field1;
+    id _field2;
+    id _field3;
     id _field4;
     Class _field5;
-    AVQueueFeeder *_field6;
+    id _field6;
     int _field7;
     int _field8;
     float _field9;
     float _field10;
     int _field11;
     char _field12;
-    NSString *_field13;
+    id _field13;
     float _field14;
     struct __CFString *_field15;
-    CALayer *_field16;
+    id _field16;
     char _field17;
     char _field18;
     char _field19;
-    NSObject *_field20;
+    id _field20;
     struct OpaqueFigVisualContext *_field21;
-    NSString *_field22;
+    id _field22;
     struct __CFRunLoop *_field23;
     unsigned int _field24;
     int _field25;
@@ -44,15 +42,15 @@ struct AVControllerPrivate {
     char _field29;
     char _field30;
     char _field31;
-    NSMutableDictionary *_field32;
+    id _field32;
     struct OpaqueFigPlayer *_field33;
-    AVQueue *_field34;
-    AVPlaybackQueue *_field35;
-    AVPlaybackItem *_field36;
+    id _field34;
+    id _field35;
+    id _field36;
     char _field37;
     char _field38;
-    NSDictionary *_field39;
-    NSRecursiveLock *_field40;
+    id _field39;
+    id _field40;
     char _field41;
     char _field42;
     char _field43;
@@ -63,24 +61,24 @@ struct AVControllerPrivate {
 struct AVExternalAudioPrivate {
     char _field1;
     struct OpaqueFigPlayer *_field2;
-    AVExternalAudioDelegate *_field3;
+    id _field3;
     char _field4;
 };
 
 struct AVFileValidatorPrivate {
-    NSURL *_field1;
-    NSDictionary *_field2;
+    id _field1;
+    id _field2;
     struct FigOpaqueMediaValidator *_field3;
     struct FigMediaValidatorDataLocation _field4;
     struct OpaqueCMByteStream *_field5;
     char _field6;
     char _field7;
-    AVCallbackHandler *_field8;
+    id _field8;
 };
 
 struct AVItemPrivate {
     id _field1;
-    NSString *_field2;
+    id _field2;
     double _field3;
     float _field4;
     float _field5;
@@ -88,39 +86,39 @@ struct AVItemPrivate {
     unsigned int _field7;
     char _field8;
     char _field9;
-    NSDictionary *_field10;
+    id _field10;
     int _field11;
     long long _field12;
     long long _field13;
     char _field14;
-    NSDictionary *_field15;
-    NSURL *_field16;
-    NSURL *_field17;
+    id _field15;
+    id _field16;
+    id _field17;
     char _field18;
     char _field19;
-    NSDictionary *_field20;
-    NSURL *_field21;
+    id _field20;
+    id _field21;
     struct OpaqueFigThread *_field22;
     struct OpaqueCMByteStream *_field23;
     int _field24;
-    NSDate *_field25;
-    NSDate *_field26;
+    id _field25;
+    id _field26;
 };
 
 struct AVRecorderPrivate {
-    NSMutableDictionary *_field1;
+    id _field1;
     id _field2;
 };
 
 struct AVRemakerPrivate {
     struct OpaqueFigRemaker *_field1;
     char _field2;
-    NSURL *_field3;
-    NSURL *_field4;
-    NSString *_field5;
-    NSDictionary *_field6;
-    NSDictionary *_field7;
-    NSDictionary *_field8;
+    id _field3;
+    id _field4;
+    id _field5;
+    id _field6;
+    id _field7;
+    id _field8;
     double _field9;
 };
 
@@ -133,7 +131,7 @@ struct AVSystemControllerPrivate {
     char _field1;
     char _field2;
     float _field3;
-    NSString *_field4;
+    id _field4;
     struct OpaqueFigPlayer *_field5;
 };
 
@@ -191,8 +189,8 @@ struct CGSize {
 };
 
 struct FigMediaValidatorDataLocation {
-    unsigned long long offset;
-    unsigned long long size;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct FigOpaqueMediaValidator;

@@ -14,14 +14,14 @@
     NSMutableDictionary *_propertyStorage;
 }
 
-- (id)init;
-- (void)dealloc;
-- (void)finalize;
-- (void)setObject:(id)arg1 forKey:(id)arg2;
-- (id)objectForKey:(id)arg1 defaultObjectBlock:(id)arg2;
-- (id)objectForKey:(id)arg1;
-- (void)willAccessKVOForKey:(id)arg1;
 - (void)didAccessKVOForKey:(id)arg1;
+- (void)willAccessKVOForKey:(id)arg1;
+- (id)objectForKey:(id)arg1;
+- (id)objectForKey:(id)arg1 defaultObjectBlock:(id)arg2;
+- (void)setObject:(id)arg1 forKey:(id)arg2;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
 
 @end
 

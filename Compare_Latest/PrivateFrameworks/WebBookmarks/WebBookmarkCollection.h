@@ -19,12 +19,16 @@
 }
 
 + (id)safariDirectoryPath;
++ (id)safariBookmarkCollectionCheckingIntegrity:(BOOL)arg1;
 + (id)safariBookmarkCollection;
+- (id)initWithPath:(id)arg1 checkIntegrity:(BOOL)arg2;
 - (id)initWithPath:(id)arg1;
-- (BOOL)_openDatabaseAtPath:(id)arg1 error:(id *)arg2;
+- (BOOL)_openDatabaseAtPath:(id)arg1 checkIntegrity:(BOOL)arg2 error:(id *)arg3;
+- (id)initWithPath:(id)arg1 migratingBookmarksPlist:(id)arg2 syncAnchorPlist:(id)arg3 checkIntegrity:(BOOL)arg4;
 - (id)initWithPath:(id)arg1 migratingBookmarksPlist:(id)arg2 syncAnchorPlist:(id)arg3;
 - (void)dealloc;
 - (BOOL)vacuum;
+- (BOOL)_databaseIsCorrupt;
 - (void)localeSettingsChanged;
 - (id)bookmarkWithID:(unsigned int)arg1;
 - (id)bookmarkWithUUID:(id)arg1;

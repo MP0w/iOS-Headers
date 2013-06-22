@@ -13,16 +13,16 @@
     AVMutableVideoCompositionInternal *_mutableVideoComposition;
 }
 
-+ (id)videoComposition;
-+ (id)videoCompositionForAsset:(id)arg1;
 + (id)videoCompositionForAsset:(id)arg1 videoGravity:(id)arg2;
-- (id)compositor;
-- (void)setCompositor:(id)arg1;
-@property(nonatomic) CDStruct_1b6d18a9 frameDuration;
-@property(nonatomic) struct CGSize renderSize;
-@property(nonatomic) float renderScale;
-@property(copy, nonatomic) NSArray *instructions;
++ (id)videoCompositionForAsset:(id)arg1;
++ (id)videoComposition;
 @property(retain, nonatomic) AVVideoCompositionCoreAnimationTool *animationTool;
+@property(copy, nonatomic) NSArray *instructions;
+@property(nonatomic) float renderScale;
+@property(nonatomic) struct CGSize renderSize;
+@property(nonatomic) CDStruct_1b6d18a9 frameDuration;
+- (void)setCompositor:(id)arg1;
+- (id)compositor;
 
 @end
 

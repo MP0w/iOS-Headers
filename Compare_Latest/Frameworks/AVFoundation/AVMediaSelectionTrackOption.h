@@ -15,26 +15,26 @@
     BOOL _displaysNonForcedSubtitles;
 }
 
-- (id)initWithAssetTrack:(id)arg1 group:(id)arg2 displaysNonForcedSubtitles:(BOOL)arg3;
-- (id)initWithAssetTrack:(id)arg1 group:(id)arg2;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)group;
-- (id)_ancillaryDescription;
-- (id)track;
-- (BOOL)displaysNonForcedSubtitles;
-- (int)trackID;
-- (id)mediaType;
-- (id)mediaSubTypes;
-- (BOOL)hasMediaCharacteristic:(id)arg1;
-- (BOOL)isPlayable;
-- (id)locale;
-- (id)commonMetadata;
-- (id)availableMetadataFormats;
-- (id)metadataForFormat:(id)arg1;
-- (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
 - (id)propertyList;
+- (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
+- (id)metadataForFormat:(id)arg1;
+- (id)availableMetadataFormats;
+- (id)commonMetadata;
+- (id)locale;
+- (BOOL)isPlayable;
+- (BOOL)hasMediaCharacteristic:(id)arg1;
+- (id)mediaSubTypes;
+- (id)mediaType;
+- (int)trackID;
+- (BOOL)displaysNonForcedSubtitles;
+- (id)track;
+- (id)_ancillaryDescription;
+- (id)group;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)initWithAssetTrack:(id)arg1 group:(id)arg2;
+- (id)initWithAssetTrack:(id)arg1 group:(id)arg2 displaysNonForcedSubtitles:(BOOL)arg3;
 
 @end
 

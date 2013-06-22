@@ -19,6 +19,7 @@
 + (id)identifierForNewStoreAtURL:(id)arg1;
 + (id)metadataForPersistentStoreWithURL:(id)arg1 error:(id *)arg2;
 + (BOOL)setMetadata:(id)arg1 forPersistentStoreWithURL:(id)arg2 error:(id *)arg3;
+- (void)dealloc;
 - (BOOL)load:(id *)arg1;
 - (id)metadata;
 - (void)setMetadata:(id)arg1;

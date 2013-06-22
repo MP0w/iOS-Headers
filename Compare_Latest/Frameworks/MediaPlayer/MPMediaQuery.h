@@ -62,6 +62,7 @@
 @property(nonatomic) int groupingType;
 @property(readonly, nonatomic) NSArray *collections;
 @property(readonly, nonatomic) NSArray *items;
+- (id)_itemsImmediately:(BOOL)arg1;
 @property(retain, nonatomic) MPMediaLibrary *mediaLibrary;
 - (void)removeFilterPredicate:(id)arg1;
 - (void)addFilterPredicate:(id)arg1;

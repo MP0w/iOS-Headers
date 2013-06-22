@@ -21,7 +21,6 @@
 - (void)setViewController:(id)arg1;
 - (void)setSectionsController:(id)arg1;
 @property(readonly) SUScriptSectionsController *sectionsController;
-- (void)showMediaPlayerWithURLString:(id)arg1 orientation:(id)arg2 title:(id)arg3 subtitle:(id)arg4 bookmarkID:(id)arg5 duration:(id)arg6 type:(id)arg7 imageURL:(id)arg8;
 - (void)selectSectionWithIdentifier:(id)arg1;
 - (void)reloadFooterSection:(id)arg1 withURL:(id)arg2;
 - (void)redeemCode:(id)arg1;

@@ -44,6 +44,7 @@
 - (int)numberOfSubitems;
 - (BOOL)shouldAppearForCalendarItem:(id)arg1;
 - (BOOL)shouldAppearWithVisibility:(int)arg1;
+- (BOOL)applicationDidResume;
 - (BOOL)requiresReconfigurationOnCommit;
 - (BOOL)canBeConfiguredForCalendarConstraints:(id)arg1;
 - (BOOL)configureForCalendarConstraints:(id)arg1;

@@ -31,7 +31,6 @@
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
 - (void)didMoveToPhotoAtIndex:(unsigned int)arg1;
-- (void)controllerWasOrderedOut:(id)arg1;
 - (void)dealloc;
 - (id)initWithPhoto:(id)arg1 inAlbum:(struct NSObject *)arg2;
 - (id)initWithPhoto:(id)arg1 inAlbum:(struct NSObject *)arg2 lockStatusBar:(BOOL)arg3 delayImageLoading:(BOOL)arg4;

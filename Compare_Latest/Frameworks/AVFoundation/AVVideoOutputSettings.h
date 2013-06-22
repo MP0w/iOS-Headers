@@ -12,20 +12,20 @@
 {
 }
 
-+ (id)_validValuesForScalingMode;
-+ (id)registeredOutputSettingsClasses;
-+ (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
-+ (id)videoOutputSettingsWithVideoSettingsDictionary:(id)arg1;
-+ (id)_videoOutputSettingsWithVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 + (id)defaultVideoOutputSettings;
-- (id)initWithVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
-- (id)compatibleMediaTypes;
-@property(readonly, nonatomic) NSDictionary *videoSettingsDictionary;
-@property(readonly, nonatomic) int width;
-@property(readonly, nonatomic) int height;
-@property(readonly, nonatomic) NSDictionary *pixelTransferProperties;
-@property(readonly, nonatomic) BOOL dimensionsAreBoundingBox;
++ (id)_videoOutputSettingsWithVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
++ (id)videoOutputSettingsWithVideoSettingsDictionary:(id)arg1;
++ (id)_outputSettingsWithOutputSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
++ (id)registeredOutputSettingsClasses;
++ (id)_validValuesForScalingMode;
 - (BOOL)validateUsingOutputSettingsValidator:(id)arg1 reason:(id *)arg2;
+@property(readonly, nonatomic) BOOL dimensionsAreBoundingBox;
+@property(readonly, nonatomic) NSDictionary *pixelTransferProperties;
+@property(readonly, nonatomic) int height;
+@property(readonly, nonatomic) int width;
+@property(readonly, nonatomic) NSDictionary *videoSettingsDictionary;
+- (id)compatibleMediaTypes;
+- (id)initWithVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
 
 @end
 

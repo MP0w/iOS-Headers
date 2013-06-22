@@ -17,12 +17,14 @@
     NSString *_localFilePath;
     struct CC_MD5state_st _md5Context;
     long long _numberOfBytesToHash;
+    BOOL _shouldResumeFromLocalBytes;
     long long _totalBytesWritten;
     long long _validatedBytes;
 }
 
 @property long long validatedBytes; // @synthesize validatedBytes=_validatedBytes;
 @property long long streamedBytes; // @synthesize streamedBytes=_totalBytesWritten;
+@property BOOL shouldResumeFromLocalBytes; // @synthesize shouldResumeFromLocalBytes=_shouldResumeFromLocalBytes;
 @property long long numberOfBytesToHash; // @synthesize numberOfBytesToHash=_numberOfBytesToHash;
 @property(retain) NSString *localFilePath; // @synthesize localFilePath=_localFilePath;
 @property(retain) NSArray *hashes; // @synthesize hashes=_hashes;

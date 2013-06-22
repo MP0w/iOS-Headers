@@ -102,6 +102,7 @@
 @property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(retain, nonatomic) NSString *bannerWebArchiveURL; // @synthesize bannerWebArchiveURL=_bannerWebArchiveURL;
 @property(retain, nonatomic) NSString *bannerURL; // @synthesize bannerURL=_bannerURL;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
@@ -113,6 +114,7 @@
 - (id)parametersAtIndex:(unsigned int)arg1;
 - (unsigned int)parametersCount;
 - (void)addParameters:(id)arg1;
+- (void)clearParameters;
 @property(readonly, nonatomic) BOOL hasContinueLabelForExitDialog;
 @property(readonly, nonatomic) BOOL hasCancelLabelForExitDialog;
 @property(readonly, nonatomic) BOOL hasMessageForExitDialog;
@@ -125,6 +127,7 @@
 - (id)trackingURLAtIndex:(unsigned int)arg1;
 - (unsigned int)trackingURLsCount;
 - (void)addTrackingURL:(id)arg1;
+- (void)clearTrackingURLs;
 @property(readonly, nonatomic) BOOL hasHumanReadableName;
 @property(readonly, nonatomic) BOOL hasImpressionIdentifierData;
 @property(readonly, nonatomic) BOOL hasUniqueIdentifier;

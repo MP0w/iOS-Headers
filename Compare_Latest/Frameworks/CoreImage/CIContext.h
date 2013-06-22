@@ -8,11 +8,7 @@
 
 @interface CIContext : NSObject
 {
-    void *_priv;
-    struct _opaque_pthread_mutex_t {
-        long __sig;
-        char __opaque[40];
-    } _mutex;
+    struct CIContextInternal *_priv;
 }
 
 + (id)contextWithEAGLContext:(id)arg1 options:(id)arg2;
@@ -20,7 +16,6 @@
 + (id)contextWithOptions:(id)arg1;
 + (id)context;
 + (id)_singletonContext;
-- (id).cxx_construct;
 - (struct CGSize)outputImageMaximumSize;
 - (struct CGSize)inputImageMaximumSize;
 - (unsigned long)maximumOutputImageSize;

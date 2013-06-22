@@ -4,19 +4,18 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSOperation.h"
+#import <CoreData/PFUbiquityImportOperation.h>
 
 #import "NSManagedObjectContextFaultingDelegate-Protocol.h"
 
-@class NSDictionary, NSManagedObjectContext, NSMutableDictionary, NSMutableSet, NSPersistentStoreCoordinator, NSString, PFUbiquityImportContext, PFUbiquityTransactionLog;
+@class NSDictionary, NSManagedObjectContext, NSMutableDictionary, NSMutableSet, NSObject<_PFUbiquityRecordImportOperationDelegate>, NSPersistentStoreCoordinator, NSString, PFUbiquityImportContext, PFUbiquityTransactionLog;
 
-@interface _PFUbiquityRecordImportOperation : NSOperation <NSManagedObjectContextFaultingDelegate>
+@interface _PFUbiquityRecordImportOperation : PFUbiquityImportOperation <NSManagedObjectContextFaultingDelegate>
 {
     NSManagedObjectContext *_moc;
     NSPersistentStoreCoordinator *_psc;
     PFUbiquityTransactionLog *_transactionLog;
     NSString *_localPeerID;
-    id _delegate;
     NSMutableSet *_insertedObjectIDs;
     NSMutableSet *_updatedObjectIDs;
     NSMutableSet *_deletedObjectIDs;
@@ -34,11 +33,12 @@
 - (id)initWithTransactionLog:(id)arg1 withLocalPeerID:(id)arg2;
 - (void)dealloc;
 - (id)copy;
+@property NSObject<_PFUbiquityRecordImportOperationDelegate> *delegate;
 - (void)notifyDelegateOfError:(id)arg1;
-- (void)applyChangesFromStoreSaveSnapshot:(id)arg1 withImportContext:(id)arg2 withError:(id *)arg3;
+- (BOOL)applyChangesFromStoreSaveSnapshot:(id)arg1 withImportContext:(id)arg2 withError:(id *)arg3;
 - (void)main;
-- (void)processObjects:(id)arg1 withState:(int)arg2 withGlobalIDIndexesToLocalURIMap:(id)arg3 andImportContext:(id)arg4 outError:(id *)arg5;
-- (void)fillManagedObject:(id)arg1 fromUbiquityDictionary:(id)arg2 missingObjects:(id)arg3 withStoreSaveSnapshot:(id)arg4 andGlobalObjectIDToLocalIDURIMap:(id)arg5;
+- (BOOL)processObjects:(id)arg1 withState:(int)arg2 andImportContext:(id)arg3 outError:(id *)arg4;
+- (BOOL)fillManagedObject:(id)arg1 fromUbiquityDictionary:(id)arg2 missingObjects:(id)arg3 importContext:(id)arg4 withError:(id *)arg5;
 - (void)addManagedObject:(id)arg1 missingObjectWithID:(id)arg2 atKey:(id)arg3 toMissingObjects:(id)arg4;
 - (id)checkPSCForStoreIdentifiedByImportContext:(id)arg1;
 - (void)initializePersistentStoreCoordinatorForImportContext:(id)arg1;
@@ -52,7 +52,6 @@
 @property(readonly, nonatomic) PFUbiquityImportContext *importContext; // @synthesize importContext=_importContext;
 @property(readonly) NSDictionary *initialStoreKnowledgeVector; // @synthesize initialStoreKnowledgeVector=_initialStoreKnowledgeVector;
 @property BOOL lockedExistingCoord; // @synthesize lockedExistingCoord=_lockedExistingCoord;
-@property id delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSDictionary *logScore; // @synthesize logScore=_logScore;
 @property(readonly, nonatomic) NSMutableDictionary *resolvedConflicts; // @synthesize resolvedConflicts=_resolvedConflicts;
 @property(readonly, nonatomic) NSMutableSet *deletedObjectIDs; // @synthesize deletedObjectIDs=_deletedObjectIDs;

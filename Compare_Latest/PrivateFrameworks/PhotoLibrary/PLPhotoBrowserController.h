@@ -68,6 +68,7 @@
     BOOL _scrubbingStarted;
     PLCropOverlay *_cropOverlay;
     SEL _photoAction;
+    id _photoActionInvoker;
     PLManagedAsset *_pendingPhoto;
     void *_person;
     UIWindow *_tvOutWindow;
@@ -308,7 +309,6 @@
 - (BOOL)isEditingVideo;
 - (void)setVideoEditingMode:(BOOL)arg1 animated:(BOOL)arg2;
 - (void)setVideoEditingMode:(BOOL)arg1;
-- (BOOL)_shouldShowVideoPlayOverlay;
 @property(readonly, nonatomic) BOOL canEditVideo;
 - (void)_dismissModalViewControllerAnimated:(BOOL)arg1;
 - (void)smsComposeControllerSendStarted:(id)arg1;
@@ -448,6 +448,7 @@
 @property(nonatomic) unsigned int currentTileIndex;
 - (void)_showImageAtIndex:(unsigned int)arg1;
 - (BOOL)_canTrimCurrentVideoInPlace;
+- (id)_playbackVideoView;
 - (id)_currentTVOutVideoView;
 @property(readonly, nonatomic) PLVideoView *currentVideoView;
 @property(nonatomic) PLManagedAsset *currentAsset;
@@ -465,7 +466,6 @@
 - (void)_updateAfterAnimation;
 - (void)_updateTVOutAfterAnimation;
 - (void)updateAfterCollapse;
-- (struct CGRect)frameForCurrentImageAtDefaultScale;
 - (void)_stopVideoPlaybackForIndex:(int)arg1;
 - (void)_fadeIn;
 - (void)_fadeToViewContents;
@@ -487,6 +487,7 @@
 - (BOOL)setNextSlideshowState:(int)arg1;
 - (void)_endSlideshow;
 - (void)togglePlayPause:(id)arg1;
+- (BOOL)_slideshowNotRunning;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear;
 - (void)viewDidAppear;

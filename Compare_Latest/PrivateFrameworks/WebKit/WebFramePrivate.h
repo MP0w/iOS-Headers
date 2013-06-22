@@ -10,7 +10,7 @@
 
 @interface WebFramePrivate : NSObject
 {
-    Frame_dd7f3145 *coreFrame;
+    Frame_7b826bcf *coreFrame;
     WebFrameView *webFrameView;
     struct WebScriptDebugger *scriptDebugger;
     id internalLoadDelegate;

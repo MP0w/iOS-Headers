@@ -15,6 +15,7 @@
     BOOL isAppAudioSession;
     BOOL isActive;
     NSString *category;
+    NSString *mode;
     id <AVAudioSessionDelegateMediaPlayerOnly> delegate;
 }
 

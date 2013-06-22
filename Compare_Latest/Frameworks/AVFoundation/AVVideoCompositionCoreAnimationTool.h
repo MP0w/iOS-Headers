@@ -13,17 +13,17 @@
     AVVideoCompositionCoreAnimationToolInternal *_videoCompositionTool;
 }
 
-+ (id)videoCompositionCoreAnimationToolWithAdditionalLayer:(id)arg1 asTrackID:(int)arg2;
 + (id)videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:(id)arg1 inLayer:(id)arg2;
-- (id)initWithMagicTrackID:(int)arg1 animationLayer:(id)arg2 videoLayer:(id)arg3;
-- (void)dealloc;
-- (void)finalize;
-- (BOOL)_hasLayerAsAuxiliaryTrack;
-- (id)_auxiliaryTrackLayer;
-- (int)_auxiliaryTrackID;
-- (BOOL)_hasPostProcessingLayers;
-- (id)_postProcessingRootLayer;
++ (id)videoCompositionCoreAnimationToolWithAdditionalLayer:(id)arg1 asTrackID:(int)arg2;
 - (id)_postProcessingVideoLayer;
+- (id)_postProcessingRootLayer;
+- (BOOL)_hasPostProcessingLayers;
+- (int)_auxiliaryTrackID;
+- (id)_auxiliaryTrackLayer;
+- (BOOL)_hasLayerAsAuxiliaryTrack;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithMagicTrackID:(int)arg1 animationLayer:(id)arg2 videoLayer:(id)arg3;
 
 @end
 

@@ -4,9 +4,10 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "PFUbiquityBaselineRollOperationDelegate-Protocol.h"
+#import "NSObject-Protocol.h"
 
-@protocol PFUbiquityBaselineRecoveryOperationDelegate <PFUbiquityBaselineRollOperationDelegate>
+@protocol PFUbiquityBaselineRecoveryOperationDelegate <NSObject>
 - (void)recoveryOperation:(id)arg1 didReplaceLocalStoreFileWithBaseline:(id)arg2;
+- (void)recoveryOperation:(id)arg1 encounteredAnError:(id)arg2 duringRecoveryOfBaseline:(id)arg3;
 @end
 

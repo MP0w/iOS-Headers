@@ -10,7 +10,6 @@
 
 @interface ADBannerController : NSObject
 {
-    BOOL _closeInProgress;
     UIView<ADBannerControllerDelegate> *_delegate;
     ADHostWindowController *_hostWindowController;
     BOOL _isOpen;

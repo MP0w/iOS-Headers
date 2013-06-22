@@ -29,6 +29,7 @@
 - (id)_newDateFormatter;
 - (id)_newImageCollectionWithURLString:(id)arg1;
 - (id)_dateValueForValue:(id)arg1;
+- (id)_assetDictionary;
 - (id)valueForMetadataKey:(id)arg1;
 - (id)valueForFirstAvailableKey:(id)arg1;
 @property(retain) NSArray *sinfs;

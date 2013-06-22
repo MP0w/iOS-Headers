@@ -17,6 +17,7 @@
     BOOL _isAssetLoaded;
     MPQueueFeeder *_feeder;
     MPAVController *_player;
+    float _soundCheckVolumeNormalization;
     NSArray *_chapterTimeMarkers;
     NSArray *_artworkTimeMarkers;
     NSArray *_urlTimeMarkers;
@@ -43,13 +44,14 @@
 + (void)setDefaultScaleMode:(unsigned int)arg1;
 + (unsigned int)defaultScaleMode;
 @property(retain, nonatomic) NSArray *urlTimeMarkers; // @synthesize urlTimeMarkers=_urlTimeMarkers;
-@property(retain, nonatomic) NSArray *artworkTimeMarkers; // @synthesize artworkTimeMarkers=_artworkTimeMarkers;
-@property(retain, nonatomic) NSArray *chapterTimeMarkers; // @synthesize chapterTimeMarkers=_chapterTimeMarkers;
-@property(nonatomic) unsigned int indexInQueueFeeder; // @synthesize indexInQueueFeeder=_indexInQueueFeeder;
+@property(nonatomic) float soundCheckVolumeNormalization; // @synthesize soundCheckVolumeNormalization=_soundCheckVolumeNormalization;
 @property(nonatomic) MPAVController *player; // @synthesize player=_player;
 @property BOOL isAssetLoaded; // @synthesize isAssetLoaded=_isAssetLoaded;
+@property(nonatomic) unsigned int indexInQueueFeeder; // @synthesize indexInQueueFeeder=_indexInQueueFeeder;
 @property(nonatomic) float defaultPlaybackRate; // @synthesize defaultPlaybackRate=_defaultPlaybackRate;
 @property(nonatomic) MPQueueFeeder *feeder; // @synthesize feeder=_feeder;
+@property(retain, nonatomic) NSArray *chapterTimeMarkers; // @synthesize chapterTimeMarkers=_chapterTimeMarkers;
+@property(retain, nonatomic) NSArray *artworkTimeMarkers; // @synthesize artworkTimeMarkers=_artworkTimeMarkers;
 @property(readonly, nonatomic) MPAlternateTracks *alternateTracks; // @synthesize alternateTracks=_alternateTracks;
 - (id)blockForDirectAVControllerNotificationReferencingItem:(SEL)arg1;
 - (struct CGSize)naturalSize;
@@ -113,6 +115,7 @@
 @property(readonly, nonatomic) NSString *composer;
 @property(readonly, nonatomic) NSString *artworkMIMEType;
 @property(readonly, nonatomic) NSData *artworkImageData;
+- (void)applyVolumeNormalizationForQueuedItems:(id)arg1;
 @property(readonly, nonatomic) unsigned int albumTrackCount;
 @property(readonly, nonatomic) unsigned int albumTrackNumber;
 @property(readonly, nonatomic) NSString *albumArtist;

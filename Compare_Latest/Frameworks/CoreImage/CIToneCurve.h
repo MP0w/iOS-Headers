@@ -16,6 +16,7 @@
     CIVector *inputPoint2;
     CIVector *inputPoint3;
     CIVector *inputPoint4;
+    CIImage *_curveImage;
 }
 
 + (void)splineCurveTable:(float *)arg1 tableSize:(int)arg2 gamma:(float)arg3 from:(const struct CGPoint *)arg4;
@@ -33,6 +34,7 @@
 - (id)_kernel16;
 - (id)_kernel8;
 - (void)setDefaults;
+- (void)dealloc;
 
 @end
 

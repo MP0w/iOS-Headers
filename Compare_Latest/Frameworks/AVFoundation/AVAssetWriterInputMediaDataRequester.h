@@ -15,16 +15,16 @@
     id _requestBlock;
 }
 
-- (id)initWithAssetWriterInputWritingHelper:(id)arg1 requestQueue:(struct dispatch_queue_s *)arg2 requestBlock:(id)arg3;
-- (id)init;
-- (void)dealloc;
-- (void)finalize;
-- (void)startRequestingMediaData;
-- (void)invalidate;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)_requestMediaDataIfReady;
 @property(readonly, nonatomic) id requestBlock; // @synthesize requestBlock=_requestBlock;
 @property(readonly, nonatomic) struct dispatch_queue_s *requestQueue; // @synthesize requestQueue=_requestQueue;
+- (void)_requestMediaDataIfReady;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)invalidate;
+- (void)startRequestingMediaData;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
+- (id)initWithAssetWriterInputWritingHelper:(id)arg1 requestQueue:(struct dispatch_queue_s *)arg2 requestBlock:(id)arg3;
 
 @end
 

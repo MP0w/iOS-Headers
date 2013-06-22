@@ -6,7 +6,7 @@
 
 #import "UIWebView.h"
 
-@class NSMapTable, NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSString;
 
 @interface ADWebView : UIWebView
 {
@@ -14,7 +14,6 @@
     NSMutableDictionary *_resourceLoadStartDates;
     BOOL _shouldReportResourceTiming;
     BOOL _shouldReportScriptErrors;
-    NSMapTable *_scriptSources;
     BOOL _webGLEnabled;
     BOOL _paused;
     NSString *_userAgent;
@@ -26,14 +25,10 @@
 @property(copy) NSString *userAgent; // @synthesize userAgent=_userAgent;
 @property(nonatomic) BOOL paused; // @synthesize paused=_paused;
 @property(nonatomic) BOOL webGLEnabled; // @synthesize webGLEnabled=_webGLEnabled;
-@property(retain, nonatomic) NSMapTable *scriptSources; // @synthesize scriptSources=_scriptSources;
 @property(nonatomic) BOOL shouldReportScriptErrors; // @synthesize shouldReportScriptErrors=_shouldReportScriptErrors;
 @property(nonatomic) BOOL shouldReportResourceTiming; // @synthesize shouldReportResourceTiming=_shouldReportResourceTiming;
 @property(retain, nonatomic) NSMutableDictionary *resourceLoadStartDates; // @synthesize resourceLoadStartDates=_resourceLoadStartDates;
 @property(nonatomic) id <UIWebViewDelegate><ADWebViewDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)webView:(id)arg1 exceptionWasRaised:(id)arg2 hasHandler:(BOOL)arg3 sourceId:(long)arg4 line:(int)arg5 forWebFrame:(id)arg6;
-- (void)webView:(id)arg1 failedToParseSource:(id)arg2 baseLineNumber:(unsigned int)arg3 fromURL:(id)arg4 withError:(id)arg5 forWebFrame:(id)arg6;
-- (void)webView:(id)arg1 didParseSource:(id)arg2 baseLineNumber:(unsigned int)arg3 fromURL:(id)arg4 sourceId:(long)arg5 forWebFrame:(id)arg6;
 - (void)webThreadWebView:(id)arg1 resource:(id)arg2 didFinishLoadingFromDataSource:(id)arg3;
 - (void)webThreadWebView:(id)arg1 resource:(id)arg2 didReceiveResponse:(id)arg3 fromDataSource:(id)arg4;
 - (id)webThreadWebView:(id)arg1 resource:(id)arg2 willSendRequest:(id)arg3 redirectResponse:(id)arg4 fromDataSource:(id)arg5;

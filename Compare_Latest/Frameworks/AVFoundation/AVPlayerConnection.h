@@ -18,17 +18,17 @@
     AVPlayerItem *_previousPlayerItem;
 }
 
-- (id)initWithWeakReferenceToPlayer:(id)arg1 weakReferenceToPlayerItem:(id)arg2 shouldAppendItem:(BOOL)arg3;
-- (void)dealloc;
-- (id)description;
-@property(readonly, nonatomic) AVPlayer *player;
-@property(readonly, nonatomic) AVPlayerItem *playerItem;
-- (BOOL)addItemToPlayQueue;
-- (void)ensureItemAddedToPlayQueueWithCompletionHandler:(id)arg1;
-- (void)removeItemFromPlayQueue;
-@property(readonly, nonatomic) int status;
-@property(readonly, nonatomic) NSError *error;
 @property(readonly, nonatomic) struct dispatch_queue_s *serializationQueue;
+@property(readonly, nonatomic) NSError *error;
+@property(readonly, nonatomic) int status;
+- (void)removeItemFromPlayQueue;
+- (void)ensureItemAddedToPlayQueueWithCompletionHandler:(id)arg1;
+- (BOOL)addItemToPlayQueue;
+@property(readonly, nonatomic) AVPlayerItem *playerItem;
+@property(readonly, nonatomic) AVPlayer *player;
+- (id)description;
+- (void)dealloc;
+- (id)initWithWeakReferenceToPlayer:(id)arg1 weakReferenceToPlayerItem:(id)arg2 shouldAppendItem:(BOOL)arg3;
 
 @end
 

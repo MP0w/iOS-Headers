@@ -39,6 +39,7 @@
 - (void)setMigrationManager:(id)arg1;
 - (id)mappingModelForSourceModel:(id)arg1 destinationModel:(id)arg2 error:(id *)arg3;
 - (id)destinationURLForMigration:(id)arg1 sourceURL:(id)arg2 sourceMetadata:(id)arg3 error:(id *)arg4;
+- (id)externalDataReferencesURLForDestination:(id)arg1 forStoreOfType:(id)arg2;
 - (id)destinationTypeForMigration:(id)arg1 sourceMetadata:(id)arg2 error:(id *)arg3;
 - (id)destinationConfigurationForMigration:(id)arg1 sourceMetadata:(id)arg2 error:(id *)arg3;
 - (id)destinationOptionsForMigration:(id)arg1 sourceMetadata:(id)arg2 error:(id *)arg3;

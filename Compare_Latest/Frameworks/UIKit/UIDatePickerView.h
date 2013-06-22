@@ -131,8 +131,9 @@
 - (int)hour;
 - (void)setDate:(id)arg1 animated:(BOOL)arg2;
 - (void)_setDate:(id)arg1 animated:(BOOL)arg2 forced:(BOOL)arg3;
+- (struct __CFDateFormatter *)_properlyConfiguredSharedDateFormatter;
 @property(readonly, nonatomic, getter=_hasCustomCalendar) BOOL hasCustomCalendar;
-- (void)_updateBitsForDate:(id)arg1 andReload:(BOOL)arg2 animateIfNeeded:(BOOL)arg3;
+- (void)_updateBitsForDate:(id)arg1 forced:(BOOL)arg2 andReload:(BOOL)arg3 animateIfNeeded:(BOOL)arg4;
 - (void)_updateReferenceBits;
 - (int)_numberOfDaysInDate:(id)arg1;
 - (BOOL)_showingDate;

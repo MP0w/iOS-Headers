@@ -58,6 +58,7 @@
 @property(nonatomic) BOOL hasBannerVisibilityTestInterval; // @synthesize hasBannerVisibilityTestInterval=_hasBannerVisibilityTestInterval;
 @property(nonatomic) BOOL downloadWebArchivesBeforeShowingBanner; // @synthesize downloadWebArchivesBeforeShowingBanner=_downloadWebArchivesBeforeShowingBanner;
 @property(nonatomic) BOOL hasDownloadWebArchivesBeforeShowingBanner; // @synthesize hasDownloadWebArchivesBeforeShowingBanner=_hasDownloadWebArchivesBeforeShowingBanner;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

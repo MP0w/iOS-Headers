@@ -11,7 +11,7 @@
     id <SBAssistantEducationAlertItemDelegate> _delegate;
 }
 
-- (id)initWithDelegate:(id)arg1;
+- (id)initWithType:(int)arg1 language:(id)arg2 delegate:(id)arg3;
 - (void)dealloc;
 - (void)didDeactivateForReason:(int)arg1;
 - (void)_assistantActivationChanged:(id)arg1;

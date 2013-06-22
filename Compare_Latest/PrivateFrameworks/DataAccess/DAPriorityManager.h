@@ -15,6 +15,7 @@
 
 + (id)sharedManager;
 + (void)vendPriorityManagers;
+@property(readonly) int currentPriority; // @synthesize currentPriority=_currentPriority;
 @property(readonly) struct __CFDictionary *clientsToPriorityRequests; // @synthesize clientsToPriorityRequests=_clientsToPriorityRequests;
 - (void)bumpDataclassesToUIPriority:(int)arg1;
 - (void)requestPriority:(int)arg1 forClient:(id)arg2 dataclasses:(int)arg3;

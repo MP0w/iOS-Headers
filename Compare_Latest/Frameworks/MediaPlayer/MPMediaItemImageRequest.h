@@ -18,8 +18,10 @@
     BOOL _usePlaceholderAsFallback;
     BOOL _crop;
     BOOL _fillToSquareAspectRatio;
+    BOOL _canUseSurfaceBackedImage;
 }
 
+@property(nonatomic) BOOL canUseSurfaceBackedImage; // @synthesize canUseSurfaceBackedImage=_canUseSurfaceBackedImage;
 @property(nonatomic) int placeHolderMediaType; // @synthesize placeHolderMediaType=_placeHolderMediaType;
 @property(nonatomic) BOOL usePlaceholderAsFallback; // @synthesize usePlaceholderAsFallback=_usePlaceholderAsFallback;
 @property(nonatomic) double retrievalTime; // @synthesize retrievalTime=_retrievalTime;

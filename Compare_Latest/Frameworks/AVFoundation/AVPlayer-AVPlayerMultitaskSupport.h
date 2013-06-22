@@ -7,12 +7,12 @@
 #import <AVFoundation/AVPlayer.h>
 
 @interface AVPlayer (AVPlayerMultitaskSupport)
-- (BOOL)_applicationHasExternallyDisplayedAVPlayerLayerAndIsUnderDeviceLock;
-- (BOOL)_hasAssociatedOnscreenAVPlayerLayer;
-- (BOOL)_iapdExtendedModeIsActive;
-- (int)_itemOkayToPlayWhileTransitioningToBackground:(id)arg1;
-- (BOOL)_shouldDetachContentLayersFromFigPlayer;
-- (void)_didFinishSuspension:(id)arg1;
 - (void)_willEnterForeground:(id)arg1;
+- (void)_didFinishSuspension:(id)arg1;
+- (BOOL)_shouldDetachContentLayersFromFigPlayer;
+- (int)_itemOkayToPlayWhileTransitioningToBackground:(id)arg1;
+- (BOOL)_iapdExtendedModeIsActive;
+- (BOOL)_hasAssociatedOnscreenAVPlayerLayer;
+- (BOOL)_applicationHasExternallyDisplayedAVPlayerLayerAndIsUnderDeviceLock;
 @end
 

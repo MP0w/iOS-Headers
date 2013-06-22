@@ -14,17 +14,35 @@
     UIDictationMeterView *_meterView;
     UIButton *_endpointButton;
     UIButton *_endpointButtonLandscape;
+    int _state;
+    BOOL _keyboardInTransition;
+    BOOL _automaticAppearanceWasEnabled;
 }
 
++ (struct CGSize)layoutSize;
++ (id)activeInstance;
++ (id)sharedInstance;
++ (Class)dictationViewClass;
 - (BOOL)visible;
 - (void)endpointButtonPressed;
 - (void)dealloc;
 - (void)layoutSubviews;
-- (void)setState:(int)arg1;
+- (BOOL)drawsOwnBackground;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)setState:(int)arg1;
 - (void)returnToKeyboard;
-- (id)createButtonWithKeyType:(int)arg1 rect:(struct CGRect)arg2 action:(SEL)arg3;
-- (id)buttonImageForKeyType:(int)arg1 rect:(struct CGRect)arg2 pressed:(BOOL)arg3;
+- (void)finishReturnToKeyboard;
+- (void)prepareForReturnToKeyboard;
+- (void)keyboardDidShow:(id)arg1;
+- (struct CGPoint)backgroundOffset;
+- (struct CGPoint)contentOffset;
+- (struct CGPoint)positionForShow;
+- (void)show;
+- (void)applicationEnteredBackground;
+- (struct CGSize)currentScreenSize;
+- (id)createEndpointButtonWithRect:(struct CGRect)arg1 action:(SEL)arg2;
+- (id)endpointButton;
+- (id)endpointButtonImageWithRect:(struct CGRect)arg1 pressed:(BOOL)arg2;
 
 @end
 

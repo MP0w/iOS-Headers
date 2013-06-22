@@ -95,10 +95,9 @@
     UIColor *_selectionTintColor;
     UIColor *_accessoryTintColor;
     UIImage *_reorderControlImage;
-    UILongPressGestureRecognizer *longPressGesture;
+    UILongPressGestureRecognizer *_menuGesture;
 }
 
-@property(retain, nonatomic) UILongPressGestureRecognizer *longPressGesture; // @synthesize longPressGesture;
 - (void)setSectionLocation:(int)arg1 animated:(BOOL)arg2;
 - (void)setSectionLocation:(int)arg1;
 - (void)_setupSelectedBackgroundView;

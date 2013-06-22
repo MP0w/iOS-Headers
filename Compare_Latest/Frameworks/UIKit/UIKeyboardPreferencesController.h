@@ -28,6 +28,7 @@
 - (void)clearSynchronizePreferencesTimer;
 - (BOOL)boolForKey:(int)arg1;
 - (id)valueForKey:(int)arg1;
+@property(readonly) BOOL isInternalInstall;
 - (id)defaultForKey:(int)arg1;
 - (CDStruct_ab713c7a *)domainForType:(int)arg1;
 - (void)dealloc;

@@ -87,6 +87,7 @@
 - (void)showEDGEActivationFailureAlert:(id)arg1 reason:(id)arg2 forMMS:(BOOL)arg3;
 - (void)_effectiveSettingsDidChange;
 - (void)_assistantPreferenceDidChange:(id)arg1;
+- (void)_profileListDidChange;
 - (void)userDefaultsDidChange:(id)arg1;
 - (void)_lockdownActivationChanged:(id)arg1;
 - (void)_testPhoneAlerts;
@@ -97,7 +98,8 @@
 - (BOOL)shouldRunFieldTestScript;
 - (BOOL)iapIsInExtendedMode;
 - (BOOL)canShowLockScreenHUDControls;
-- (BOOL)canShowLockScreenCameraButton;
+- (BOOL)lockScreenCameraSupported;
+- (BOOL)canShowLockScreenCameraKnob;
 - (BOOL)canShowNowPlayingControls;
 - (void)setAppDisabledNowPlayingHUD:(BOOL)arg1 bundleIdentifier:(id)arg2;
 - (BOOL)respondImmediatelyToMenuSingleTapAllowingDoubleTap:(char *)arg1;

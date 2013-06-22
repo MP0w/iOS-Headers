@@ -19,7 +19,6 @@
     EKReminderLocationPickerModel *_locationPickerModel;
     UILabel *_explanatoryLabel;
     UIView *_explanatoryLabelContainer;
-    BOOL _locationRestricted;
     BOOL _locationAlertsAvailable;
     UIAlertView *_wifiDisabledAlert;
     NSDate *_date;
@@ -61,8 +60,6 @@
 - (void)_wifiStatusDidChange:(id)arg1;
 - (void)_showWifiAlertIfNecessary;
 - (void)_removeExistingWifiAlert;
-- (void)_applicationWillEnterForeground:(id)arg1;
-- (void)_updateLocationRestricted;
 - (void)_applyStylesToCell:(id)arg1;
 - (void)_datePickerDateChanged:(id)arg1;
 - (void)_setDate:(id)arg1 updateDatePicker:(BOOL)arg2;

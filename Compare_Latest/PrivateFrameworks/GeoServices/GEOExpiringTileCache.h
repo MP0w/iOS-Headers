@@ -21,8 +21,7 @@
 - (void)setTile:(id)arg1 forKey:(const struct _GEOTileKey *)arg2 cost:(unsigned int)arg3;
 - (id)tileForKey:(const struct _GEOTileKey *)arg1;
 - (id)expireTilesWithType:(unsigned char)arg1 provider:(unsigned short)arg2 olderThan:(double)arg3;
-- (void)cache:(id)arg1 willEvictObject:(id)arg2;
-- (void)setDelegate:(id)arg1;
+- (void)willEvictObject:(id)arg1;
 - (void)dealloc;
 - (void)_removeAllEntries;
 - (id)init;

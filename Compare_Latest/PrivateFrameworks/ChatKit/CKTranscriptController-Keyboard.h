@@ -13,11 +13,12 @@
 - (void)_keyboardDidChangeFrame:(id)arg1;
 - (BOOL)_keyboardScreenFrameIsOnScreen:(struct CGRect)arg1;
 - (BOOL)_keyboardIsOnScreen;
-- (BOOL)_keyboardUndocked;
+- (BOOL)_keyboardIsUndocked;
 - (struct CGRect)_keyboardFrameForKeyboardScreenFrame:(struct CGRect)arg1;
 - (struct CGRect)_keyboardFrame;
 - (float)_distanceFromBottomOfScreenToTopEdgeOfKeyboardScreenFrame:(struct CGRect)arg1 orientation:(int)arg2;
 - (float)_distanceFromBottomOfScreenToTopEdgeOfKeyboard;
+- (float)_heightOfKeyboardScreenFrame:(struct CGRect)arg1 orientation:(int)arg2;
 - (float)_heightOfKeyboardScreenFrame:(struct CGRect)arg1;
 - (float)_heightOfKeyboard;
 - (struct CGRect)_keyboardScreenFrame:(struct CGRect)arg1 withoutAccessoryViewOfHeight:(float)arg2 orientation:(int)arg3;

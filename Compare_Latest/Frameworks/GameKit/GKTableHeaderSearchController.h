@@ -18,9 +18,11 @@
     UISearchDisplayController *_searchController;
     UISearchBar *_searchBar;
     NSArray *_searchTableSections;
+    BOOL _searchBarHidden;
 }
 
 + (id)searchControllerForTableView:(id)arg1 withController:(id)arg2;
+@property(nonatomic) BOOL searchBarHidden; // @synthesize searchBarHidden=_searchBarHidden;
 @property(retain, nonatomic) NSArray *searchTableSections; // @synthesize searchTableSections=_searchTableSections;
 @property(retain, nonatomic) UISearchBar *searchBar; // @synthesize searchBar=_searchBar;
 @property(retain, nonatomic) UISearchDisplayController *searchDisplayController; // @synthesize searchDisplayController=_searchController;

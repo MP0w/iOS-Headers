@@ -6,17 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
-
 @interface UIKeyboardEmojiFactory : NSObject
 {
-    NSMutableDictionary *emojiMap;
 }
 
-- (id)emojiWithKey:(id)arg1;
-- (id)emojiWithPrivateCodePoint:(id)arg1;
-- (void)dealloc;
-- (id)init;
+- (id)emojiWithString:(id)arg1;
 
 @end
 

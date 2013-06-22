@@ -13,18 +13,18 @@
     AVCompositionTrackSegmentInternal *_priv;
 }
 
-+ (id)compositionTrackSegmentWithURL:(id)arg1 trackID:(int)arg2 sourceTimeRange:(CDStruct_e83c9415)arg3 targetTimeRange:(CDStruct_e83c9415)arg4;
 + (id)compositionTrackSegmentWithTimeRange:(CDStruct_e83c9415)arg1;
-- (id)init;
-- (id)initWithURL:(id)arg1 trackID:(int)arg2 sourceTimeRange:(CDStruct_e83c9415)arg3 targetTimeRange:(CDStruct_e83c9415)arg4;
-- (id)initWithTimeRange:(CDStruct_e83c9415)arg1;
-- (void)dealloc;
-- (void)finalize;
-@property(readonly, nonatomic, getter=isEmpty) BOOL empty;
-@property(readonly, nonatomic) NSURL *sourceURL;
-@property(readonly, nonatomic) int sourceTrackID;
-- (BOOL)isEqual:(id)arg1;
++ (id)compositionTrackSegmentWithURL:(id)arg1 trackID:(int)arg2 sourceTimeRange:(CDStruct_e83c9415)arg3 targetTimeRange:(CDStruct_e83c9415)arg4;
 - (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) int sourceTrackID;
+@property(readonly, nonatomic) NSURL *sourceURL;
+@property(readonly, nonatomic, getter=isEmpty) BOOL empty;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithTimeRange:(CDStruct_e83c9415)arg1;
+- (id)initWithURL:(id)arg1 trackID:(int)arg2 sourceTimeRange:(CDStruct_e83c9415)arg3 targetTimeRange:(CDStruct_e83c9415)arg4;
+- (id)init;
 
 @end
 

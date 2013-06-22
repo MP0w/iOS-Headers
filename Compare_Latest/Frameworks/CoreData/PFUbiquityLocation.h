@@ -27,9 +27,14 @@
 + (id)createUbiquityLocationForURL:(id)arg1 withUbiquityRootURL:(id)arg2;
 + (id)createUbiquityLocationForURL:(id)arg1 withUbiquityRootPath:(id)arg2;
 + (id)createUbiquityLocationForSubpath:(id)arg1 ofUbiquityRootPath:(id)arg2;
++ (id)createUbiquityLocationForSubpath:(id)arg1 ofPath:(id)arg2 withUbiquityRootPath:(id)arg3;
 + (id)createUbiquityLocationForPath:(id)arg1 withUbiquityRootPath:(id)arg2;
 + (id)createVersionHashStringForModel:(id)arg1;
++ (id)createMetadataRootLocationForUbiquityRootLocation:(id)arg1;
 + (id)createMetadataStoreLocationForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
++ (id)createMetadataPeerLocationForLocalPeerID:(id)arg1 andUbiquityRootLocation:(id)arg2;
++ (id)createMetadataPeerStoreLocationForLocalPeerID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3;
++ (id)createMetadataUUIDLocationForLocalPeerID:(id)arg1 storeName:(id)arg2 UUID:(id)arg3 andUbiquityRootLocation:(id)arg4;
 + (id)createBaselineLocation:(int)arg1 forStoreName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
 + (id)createBaselineStagingLocation:(int)arg1 forStoreName:(id)arg2 modelVersionHash:(id)arg3 andFilename:(id)arg4 withUbiquityRootLocation:(id)arg5;
 + (id)createCurrentBaselineLocation:(int)arg1 forStoreName:(id)arg2 andModelVersionHash:(id)arg3 forFileNamed:(id)arg4 withUbiquityRootLocation:(id)arg5;
@@ -44,9 +49,11 @@
 + (id)createUbiquityExternalDataReferenceFileLocationForUUID:(id)arg1 andStore:(id)arg2;
 + (id)createUbiquityExternalDataReferenceFileLocationForUUID:(id)arg1 andLog:(id)arg2;
 + (id)createUbiquityExternalDataReferenceFileLocationForUUID:(id)arg1 storeName:(id)arg2 andUbiquityRootLocation:(id)arg3;
++ (id)createUbiquityPeerReceiptFileLocationForPeerWithID:(id)arg1 storeName:(id)arg2 andModelVersionHash:(id)arg3 withUbiquityRootLocation:(id)arg4;
 + (id)createMapOfLocationsForOldManagedObjectModel:(id)arg1 andNewManagedObjectModel:(id)arg2 inUbiquityPeerStoreLocation:(id)arg3;
 + (id)pathByTruncatingBeforeLibraryMobileDocuments:(id)arg1;
 + (BOOL)isUbiquityLocationPath:(id)arg1 equalToPath:(id)arg2;
++ (id)createArrayOfSubLocationsAtLocation:(id)arg1 error:(id *)arg2;
 - (id)init;
 - (id)initWithUbiquityRootPath:(id)arg1;
 - (id)initWithUbiquityRootURL:(id)arg1;

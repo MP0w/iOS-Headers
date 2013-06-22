@@ -16,34 +16,34 @@
     AVVideoCompositionInternal *_videoComposition;
 }
 
-+ (id)videoCompositionForAsset:(id)arg1;
 + (id)videoCompositionForAsset:(id)arg1 videoGravity:(id)arg2;
-- (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (void)finalize;
-- (id)compositor;
-- (void)setCompositor:(id)arg1;
-@property(readonly, nonatomic) CDStruct_1b6d18a9 frameDuration;
-- (void)setFrameDuration:(CDStruct_1b6d18a9)arg1;
-@property(readonly, nonatomic) struct CGSize renderSize;
-- (void)setRenderSize:(struct CGSize)arg1;
-@property(readonly, nonatomic) float renderScale;
-- (void)setRenderScale:(float)arg1;
-@property(readonly, copy, nonatomic) NSArray *instructions;
-- (void)setInstructions:(id)arg1;
-- (BOOL)_hasLayerAsAuxiliaryTrack;
-- (id)_auxiliaryTrackLayer;
-- (int)_auxiliaryTrackID;
-- (BOOL)_hasPostProcessingLayers;
-- (id)_postProcessingVideoLayer;
-- (id)_postProcessingRootLayer;
-@property(readonly, retain, nonatomic) AVVideoCompositionCoreAnimationTool *animationTool;
-- (void)setAnimationTool:(id)arg1;
-- (id)_serializableInstructions;
-- (BOOL)_isValidReturningExceptionReason:(id *)arg1;
++ (id)videoCompositionForAsset:(id)arg1;
 - (BOOL)isValidForAsset:(id)arg1 timeRange:(CDStruct_e83c9415)arg2 validationDelegate:(id)arg3;
+- (BOOL)_isValidReturningExceptionReason:(id *)arg1;
+- (id)_serializableInstructions;
+- (void)setAnimationTool:(id)arg1;
+@property(readonly, nonatomic) AVVideoCompositionCoreAnimationTool *animationTool;
+- (id)_postProcessingRootLayer;
+- (id)_postProcessingVideoLayer;
+- (BOOL)_hasPostProcessingLayers;
+- (int)_auxiliaryTrackID;
+- (id)_auxiliaryTrackLayer;
+- (BOOL)_hasLayerAsAuxiliaryTrack;
+- (void)setInstructions:(id)arg1;
+@property(readonly, nonatomic) NSArray *instructions;
+- (void)setRenderScale:(float)arg1;
+@property(readonly, nonatomic) float renderScale;
+- (void)setRenderSize:(struct CGSize)arg1;
+@property(readonly, nonatomic) struct CGSize renderSize;
+- (void)setFrameDuration:(CDStruct_1b6d18a9)arg1;
+@property(readonly, nonatomic) CDStruct_1b6d18a9 frameDuration;
+- (void)setCompositor:(id)arg1;
+- (id)compositor;
+- (void)finalize;
+- (void)dealloc;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

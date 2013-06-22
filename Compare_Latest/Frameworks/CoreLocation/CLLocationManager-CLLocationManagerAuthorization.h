@@ -10,6 +10,7 @@
 + (void)setEntityAuthorized:(BOOL)arg1 forLocationDictionary:(id)arg2;
 + (BOOL)isEntityAuthorizedForLocationDictionary:(id)arg1;
 + (id)dateLocationLastUsedForLocationDictionary:(id)arg1;
++ (unsigned int)activeLocationServiceTypesForLocationDictionary:(id)arg1;
 + (BOOL)isLocationActiveForLocationDictionary:(id)arg1;
 + (unsigned int)entityClassesForLocationDictionary:(id)arg1;
 + (unsigned int)primaryEntityClassForLocationDictionary:(id)arg1;

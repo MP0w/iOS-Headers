@@ -6,22 +6,22 @@
 
 #import "NSObject.h"
 
-#import "GKRibbonSegmentedControlDelegate-Protocol.h"
+#import "GKHeaderSegmentedControlDelegate-Protocol.h"
 #import <GameKit/GKTableSection-Protocol.h>
 
-@class GKRibbonSegmentedControl, UIView;
+@class GKHeaderSegmentedControl, UIView;
 
-@interface GKLeaderboardControlSection : NSObject <GKTableSection, GKRibbonSegmentedControlDelegate>
+@interface GKLeaderboardControlSection : NSObject <GKTableSection, GKHeaderSegmentedControlDelegate>
 {
-    GKRibbonSegmentedControl *_timeScopeSegmentedControl;
+    GKHeaderSegmentedControl *_timeScopeSegmentedControl;
     UIView *_controlContainer;
     BOOL _visible;
 }
 
 @property(nonatomic, getter=isVisible) BOOL visible; // @synthesize visible=_visible;
 @property(retain, nonatomic) UIView *controlContainer; // @synthesize controlContainer=_controlContainer;
-@property(retain, nonatomic) GKRibbonSegmentedControl *timeScopeSegmentedControl; // @synthesize timeScopeSegmentedControl=_timeScopeSegmentedControl;
-- (void)ribbonSegmentedControlChanged:(id)arg1;
+@property(retain, nonatomic) GKHeaderSegmentedControl *timeScopeSegmentedControl; // @synthesize timeScopeSegmentedControl=_timeScopeSegmentedControl;
+- (void)headerSegmentedControlChanged:(id)arg1;
 - (float)sectionHeaderHeightInTableView:(id)arg1;
 - (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (int)sectionRowCountInTableView:(id)arg1;

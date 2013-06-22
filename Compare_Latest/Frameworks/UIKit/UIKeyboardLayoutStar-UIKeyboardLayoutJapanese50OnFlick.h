@@ -11,6 +11,7 @@
 - (void)activateCompositeKey:(id)arg1 direction:(int)arg2 flickString:(id)arg3 popupInfo:(id)arg4;
 - (void)showPopupView:(int)arg1 withKey:(id)arg2 popupInfo:(id)arg3 force:(BOOL)arg4;
 - (void)setKeyboardDim:(BOOL)arg1;
+- (void)setKeyboardDim:(BOOL)arg1 amount:(float)arg2 withDuration:(float)arg3;
 - (void)handleDismissFlickView:(id)arg1;
 - (void)handlePopupView:(id)arg1;
 - (id)overlayCharacterImageForKey:(id)arg1 direction:(int)arg2 rect:(struct CGRect)arg3 flickString:(id)arg4 popupInfo:(id)arg5;

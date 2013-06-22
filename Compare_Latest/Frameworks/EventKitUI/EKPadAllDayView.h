@@ -31,6 +31,7 @@
     BOOL _allDayLabelHighlighted;
     NSMutableArray *_eventFaders;
     NSMutableArray *_dividerFaders;
+    float _eventFaderInset;
     UIImageView *_splitterView;
     int _outlineStyle;
     EKDayOccurrenceView *_selectedOccurrenceView;
@@ -81,8 +82,6 @@
 @property(readonly, nonatomic) float firstEventYOffset;
 - (unsigned int)_calendarOrderForCalendar:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
-- (id)_dividerFaderImage;
-- (id)_eventFaderImage;
 - (void)setLeftMarginIncludesTimeView:(BOOL)arg1;
 @property(readonly, nonatomic) float faderInset;
 - (float)_faderWidth;
@@ -118,6 +117,7 @@
 @property(copy, nonatomic) NSTimeZone *timeZone;
 - (float)bottomInset;
 - (void)setOrientation:(int)arg1;
+- (void)_loadFadersIfNeeded;
 - (void)updateDayLabels;
 - (void)_removeDayLabels;
 - (void)buildDayLabel;

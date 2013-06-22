@@ -7,6 +7,6 @@
 #import "UIImage.h"
 
 @interface UIImage (_iAd_Extras)
-+ (id)_iAd_imageNamed:(id)arg1;
++ (id)_iAdCore_imageNamed:(id)arg1;
 @end
 

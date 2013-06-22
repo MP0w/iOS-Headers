@@ -32,6 +32,7 @@
     unsigned int _showsAddToCalendar:1;
     unsigned int _icsPreview:1;
     unsigned int _needsReload:1;
+    unsigned int _showsDoneButton:1;
     NSArray *_items;
     NSArray *_currentSections;
     int _scrollToSection;
@@ -95,6 +96,8 @@
 - (int)scrollToSection;
 - (void)setScrollToSection:(int)arg1;
 - (void)completeWithAction:(int)arg1;
+- (void)setShowsDoneButton:(BOOL)arg1;
+- (BOOL)showsDoneButton;
 - (void)setShowsAddToCalendar:(BOOL)arg1;
 - (BOOL)showsAddToCalendar;
 - (void)setICSPreview:(BOOL)arg1;

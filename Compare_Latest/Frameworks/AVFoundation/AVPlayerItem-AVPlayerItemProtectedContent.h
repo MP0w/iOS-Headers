@@ -7,8 +7,8 @@
 #import <AVFoundation/AVPlayerItem.h>
 
 @interface AVPlayerItem (AVPlayerItemProtectedContent)
-@property(readonly, nonatomic, getter=isAuthorizationRequiredForPlayback) BOOL authorizationRequiredForPlayback;
-@property(readonly, nonatomic, getter=isApplicationAuthorizedForPlayback) BOOL applicationAuthorizedForPlayback;
 @property(readonly, nonatomic, getter=isContentAuthorizedForPlayback) BOOL contentAuthorizedForPlayback;
+@property(readonly, nonatomic, getter=isApplicationAuthorizedForPlayback) BOOL applicationAuthorizedForPlayback;
+@property(readonly, nonatomic, getter=isAuthorizationRequiredForPlayback) BOOL authorizationRequiredForPlayback;
 @end
 

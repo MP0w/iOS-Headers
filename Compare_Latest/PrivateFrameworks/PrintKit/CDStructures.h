@@ -65,11 +65,6 @@ struct sockaddr_in {
     char sin_zero[8];
 };
 
-struct timeval {
-    int tv_sec;
-    int tv_usec;
-};
-
 #pragma mark Typedef'd Structures
 
 typedef struct {

@@ -12,7 +12,7 @@
 {
     NSMutableArray *stillImageRequests;
     struct CGSize previewImageSize;
-    unsigned int imageDataFormatType;
+    unsigned long imageDataFormatType;
     long long imageMaxDataSize;
     BOOL HDRCaptureEnabled;
     BOOL EV0CaptureEnabled;
@@ -22,8 +22,8 @@
     BOOL isCapturingPhoto;
 }
 
-- (id)init;
 - (void)dealloc;
+- (id)init;
 
 @end
 

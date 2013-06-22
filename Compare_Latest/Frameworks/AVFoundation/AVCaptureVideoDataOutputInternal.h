@@ -12,14 +12,14 @@
 {
     id <AVCaptureVideoDataOutputSampleBufferDelegate> delegate;
     struct dispatch_queue_s *clientQueue;
-    unsigned int pixelFormatType;
+    unsigned long pixelFormatType;
     NSDictionary *videoSettings;
     CDStruct_1b6d18a9 deprecatedMinFrameDuration;
     BOOL alwaysDiscardsLateVideoFrames;
 }
 
-- (id)init;
 - (void)dealloc;
+- (id)init;
 
 @end
 

@@ -6,27 +6,44 @@
 
 #import "NSObject.h"
 
-@class NSTimer, SBAssistantEducationAlertItem;
+@class NSMutableSet, NSString, NSTimer, SBAssistantEducationAlertItem;
 
 @interface SBAssistantEducationAlertManager : NSObject
 {
-    int _notifyToken;
+    int _syncFinishedToken;
     id _unlockHandler;
     NSTimer *_unlockTimer;
+    BOOL _userHasBeenEducated;
     BOOL _waitingOnUserDataSync;
+    BOOL _assistantSupported;
+    BOOL _dictationSupported;
+    BOOL _assistantHasBeenActivated;
+    NSString *_syncDidFinishLanguage;
+    NSMutableSet *_newlyAvailableLanguages;
+    int _type;
+    NSString *_language;
     SBAssistantEducationAlertItem *_item;
 }
 
-+ (BOOL)isUserEducated;
-+ (void)setUserHasBeenEducated;
-+ (void)pleaseEducateTheUserWhenYouGetAChance;
++ (id)sharedInstance;
 - (id)init;
 - (void)dealloc;
 - (void)_invalidate;
-- (void)_showEducationAlertIfPossible;
+- (void)_setEducated;
+- (void)_showEducationAlert;
 - (void)_startUnlockTimer;
 - (void)_clearUnlockTimer;
 - (void)_unlockTimerFired:(id)arg1;
+- (void)_afSyncDidFinish;
+- (void)_languageActivated:(id)arg1;
+- (id)_currentAssistantLanguage;
+- (BOOL)_availableForLanguage:(id)arg1;
+- (BOOL)_availableForCurrentLanguage;
+- (BOOL)_shouldAcceptNewLanguage:(id)arg1;
+- (void)_assistantActivationChanged:(id)arg1;
+- (BOOL)_shouldShowReadyForLanguageCode:(id)arg1;
+- (void)_calculateTypeAndLanguage;
+- (void)_waitForUnlockToDisplayAlert;
 - (void)educationAlertWasDeactivated:(id)arg1;
 
 @end

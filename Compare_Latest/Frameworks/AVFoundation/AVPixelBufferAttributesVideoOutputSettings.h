@@ -14,14 +14,14 @@
 {
 }
 
-+ (id)eligibleOutputSettingsDictionaryKeys;
 + (id)_videoOutputSettingsWithVideoSettingsDictionary:(id)arg1 exceptionReason:(id *)arg2;
-- (id)initWithPixelBufferAttributes:(id)arg1 exceptionReason:(id *)arg2;
-- (int)width;
-- (int)height;
-- (BOOL)willYieldCompressedSamples;
-- (BOOL)isDictionaryFullyFormed;
++ (id)eligibleOutputSettingsDictionaryKeys;
 @property(readonly, nonatomic) NSDictionary *pixelBufferAttributes;
+- (BOOL)isDictionaryFullyFormed;
+- (BOOL)willYieldCompressedSamples;
+- (int)height;
+- (int)width;
+- (id)initWithPixelBufferAttributes:(id)arg1 exceptionReason:(id *)arg2;
 
 @end
 

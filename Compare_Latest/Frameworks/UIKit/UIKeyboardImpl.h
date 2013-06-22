@@ -81,7 +81,6 @@
     BOOL m_shiftLockedEnabled;
     BOOL m_settingShift;
     BOOL m_shouldSkipCandidateSelection;
-    BOOL m_usesCandidateSelection;
     BOOL m_updatingPreferences;
     BOOL m_changingGeometryWithSameOrientation;
     BOOL m_suppressGeometryChangeNotifications;
@@ -113,6 +112,7 @@
     NSString *m_currentUsedInputMode;
     NSString *m_lastUsedInputMode;
     BOOL m_needsCandidates;
+    BOOL m_shouldSkipCandidateGeneration;
     BOOL m_updateLayoutOnShowKeyboard;
     int _currentAlertReason;
     id <UIKeyboardTypology> typologyRecorder;
@@ -125,6 +125,10 @@
 
 + (void)hardwareKeyboardAvailabilityChanged;
 + (int)orientationForSize:(struct CGSize)arg1;
++ (struct CGPoint)persistentDictationWindowOffset;
++ (void)setPersistentDictationWindowOffset:(struct CGPoint)arg1;
++ (void)setPersistentDictationTargetZone:(int)arg1;
++ (int)persistentDictationTargetZone;
 + (struct CGPoint)persistentOffset;
 + (void)setPersistentOffset:(struct CGPoint)arg1;
 + (void)suppressSetPersistentOffset:(BOOL)arg1;
@@ -357,6 +361,7 @@
 - (void)setChangeNotificationDisabled:(BOOL)arg1;
 - (BOOL)changeNotificationDisabled;
 - (void)setChanged;
+- (void)textFrameChanged:(id)arg1;
 - (void)callChanged;
 - (void)callChangedSelection;
 - (BOOL)callShouldDeleteWithWordCountForRapidDelete:(int)arg1 characterCountForRapidDelete:(int)arg2;

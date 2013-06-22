@@ -13,17 +13,17 @@
     AVCaptureInputInternal *_inputInternal;
 }
 
-- (id)init;
-- (void)dealloc;
-@property(readonly, nonatomic) NSArray *ports;
-- (id)session;
-- (void)setSession:(id)arg1;
-- (id)notReadyError;
-- (void)willStartForSession:(id)arg1;
-- (void)didStartForSession:(id)arg1;
-- (void)didStopForSession:(id)arg1 error:(id)arg2;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
+- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (void)didStopForSession:(id)arg1 error:(id)arg2;
+- (void)didStartForSession:(id)arg1;
+- (void)willStartForSession:(id)arg1;
+- (id)notReadyError;
+- (void)setSession:(id)arg1;
+- (id)session;
+@property(readonly, nonatomic) NSArray *ports;
+- (void)dealloc;
+- (id)init;
 
 @end
 

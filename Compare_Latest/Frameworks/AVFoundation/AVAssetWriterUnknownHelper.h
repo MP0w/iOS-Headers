@@ -10,18 +10,18 @@
 {
 }
 
-- (id)initWithConfigurationState:(id)arg1;
-- (id)initWithURL:(id)arg1 fileType:(id)arg2;
-- (int)status;
-- (void)setMovieFragmentInterval:(CDStruct_1b6d18a9)arg1;
-- (void)setShouldOptimizeForNetworkUse:(BOOL)arg1;
-- (void)setMetadata:(id)arg1;
-- (void)setMovieTimeScale:(int)arg1;
-- (BOOL)_canAddInput:(id)arg1 exceptionReason:(id *)arg2;
-- (BOOL)canAddInput:(id)arg1;
-- (void)addInput:(id)arg1;
-- (void)startWriting;
 - (void)cancelWriting;
+- (void)startWriting;
+- (void)addInput:(id)arg1;
+- (BOOL)canAddInput:(id)arg1;
+- (BOOL)_canAddInput:(id)arg1 exceptionReason:(id *)arg2;
+- (void)setMovieTimeScale:(int)arg1;
+- (void)setMetadata:(id)arg1;
+- (void)setShouldOptimizeForNetworkUse:(BOOL)arg1;
+- (void)setMovieFragmentInterval:(CDStruct_1b6d18a9)arg1;
+- (int)status;
+- (id)initWithURL:(id)arg1 fileType:(id)arg2;
+- (id)initWithConfigurationState:(id)arg1;
 
 @end
 

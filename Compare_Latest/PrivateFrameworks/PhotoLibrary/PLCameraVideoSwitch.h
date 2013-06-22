@@ -15,6 +15,7 @@
     UIImageView *_cameraImageView;
     UIImageView *_videoImageView;
     UIImageView *_backgroundImageView;
+    int _buttonBarStyle;
     UIImage *_backgroundImage;
     UIImage *_wellImage;
     UIImage *_handleImage;
@@ -57,6 +58,7 @@
 - (void)_loadInitialResources;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 buttonBarStyle:(int)arg2;
 
 @end
 

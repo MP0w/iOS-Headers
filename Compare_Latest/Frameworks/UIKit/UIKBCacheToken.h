@@ -21,8 +21,10 @@
 + (id)tokenTemplateForKey:(id)arg1 name:(id)arg2 style:(int)arg3 size:(struct CGSize)arg4;
 + (id)tokenTemplateForKey:(id)arg1 style:(int)arg2 size:(struct CGSize)arg3;
 + (id)tokenForKey:(id)arg1 style:(int)arg2 state:(int)arg3;
++ (id)tokenForKeyplane:(id)arg1;
 @property(nonatomic) int emptyFields; // @synthesize emptyFields=_emptyFields;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+- (id)stringForSplitState:(BOOL)arg1;
 - (id)stringForState:(int)arg1;
 - (id)stringForKey:(id)arg1 state:(int)arg2;
 @property(readonly, nonatomic) BOOL hasKey;

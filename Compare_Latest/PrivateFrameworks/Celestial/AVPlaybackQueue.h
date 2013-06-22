@@ -21,26 +21,26 @@
     int _repeatMode;
 }
 
-- (id)initWithDelegate:(id)arg1 figPlayer:(struct OpaqueFigPlayer *)arg2;
-- (void)dealloc;
-- (void)setDelegate:(id)arg1;
-- (void)checkQueueConsistency;
-- (void)clearPBItemQueueFromIndex:(int)arg1;
-- (void)fillInPBItemQueue;
-- (void)setAVItemQueue:(id)arg1;
-- (void)ensurePlaybackQueue;
-- (id)currentPlaybackItem;
-- (void)setRepeatMode:(int)arg1;
-- (void)updateBookmarkTimesIncludeFirst:(BOOL)arg1 updateFirst:(BOOL)arg2;
-- (void)beginAVQueueTransaction;
-- (void)endAVQueueTransaction;
-- (void)queueItemWasAddedNotification:(id)arg1;
-- (void)queueItemWillBeRemovedNotification:(id)arg1;
-- (void)removeItemsNoLongerInPlayQueue;
-- (void)scheduleRemoveItemsNoLongerInPlayQueue;
-- (void)playbackItemWasRemovedFromPlayQueue:(id)arg1;
-- (void)ensurePlaybackQueueImmed;
 - (void)playbackItemInspectionComplete:(id)arg1;
+- (void)ensurePlaybackQueueImmed;
+- (void)playbackItemWasRemovedFromPlayQueue:(id)arg1;
+- (void)scheduleRemoveItemsNoLongerInPlayQueue;
+- (void)removeItemsNoLongerInPlayQueue;
+- (void)queueItemWillBeRemovedNotification:(id)arg1;
+- (void)queueItemWasAddedNotification:(id)arg1;
+- (void)endAVQueueTransaction;
+- (void)beginAVQueueTransaction;
+- (void)updateBookmarkTimesIncludeFirst:(BOOL)arg1 updateFirst:(BOOL)arg2;
+- (void)setRepeatMode:(int)arg1;
+- (id)currentPlaybackItem;
+- (void)ensurePlaybackQueue;
+- (void)setAVItemQueue:(id)arg1;
+- (void)fillInPBItemQueue;
+- (void)clearPBItemQueueFromIndex:(int)arg1;
+- (void)checkQueueConsistency;
+- (void)setDelegate:(id)arg1;
+- (void)dealloc;
+- (id)initWithDelegate:(id)arg1 figPlayer:(struct OpaqueFigPlayer *)arg2;
 
 @end
 

@@ -16,20 +16,20 @@
 }
 
 + (void)initialize;
-- (long)_createEmptyMutableCompositionIfNeeded;
-- (id)_initWithComposition:(id)arg1;
-- (id)init;
-- (void)dealloc;
-- (void)finalize;
-- (struct OpaqueFigMutableComposition *)_mutableComposition;
-- (id)_assetInspector;
-- (struct OpaqueFigFormatReader *)_formatReader;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (id)_newTrackForIndex:(long)arg1;
-- (id)_mutableTracks;
-@property(readonly, nonatomic) NSArray *tracks;
-@property(readonly, nonatomic) struct CGSize naturalSize;
 - (void)_setNaturalSize:(struct CGSize)arg1;
+@property(readonly, nonatomic) struct CGSize naturalSize;
+@property(readonly, nonatomic) NSArray *tracks;
+- (id)_mutableTracks;
+- (id)_newTrackForIndex:(long)arg1;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (struct OpaqueFigFormatReader *)_formatReader;
+- (id)_assetInspector;
+- (struct OpaqueFigMutableComposition *)_mutableComposition;
+- (void)finalize;
+- (void)dealloc;
+- (id)init;
+- (id)_initWithComposition:(id)arg1;
+- (long)_createEmptyMutableCompositionIfNeeded;
 
 @end
 

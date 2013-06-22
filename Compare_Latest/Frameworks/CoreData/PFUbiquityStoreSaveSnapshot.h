@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNumber;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNumber, NSString;
 
 @interface PFUbiquityStoreSaveSnapshot : NSObject
 {
@@ -25,13 +25,15 @@
     NSMutableDictionary *_deletedObjects;
     NSMutableDictionary *_peerStates;
     NSNumber *_transactionNumber;
+    NSString *_localPeerID;
     NSDictionary *_storeOptions;
     NSMutableArray *_filesInsertedInTransaction;
     NSArray *_filesDeletedInTransaction;
 }
 
 - (id)init;
-- (id)initWithPersistentStoreOptions:(id)arg1;
+- (id)initWithLocalPeerID:(id)arg1;
+- (id)initWithPersistentStoreOptions:(id)arg1 andLocalPeerID:(id)arg2;
 - (void)dealloc;
 - (id)description;
 - (id)filesInsertedInTransaction;
@@ -44,6 +46,7 @@
 - (id)addManagedObject:(id)arg1 withTransactionType:(int)arg2 andStoreExportContext:(id)arg3 withError:(id *)arg4;
 - (void)reserveTransactionNumberWithStoreExportContext:(id)arg1;
 - (void)generatePeerStatesWithStoreExportContext:(id)arg1;
+- (id)createKnowledgeVectorFromPeerStates;
 - (void)setTransactionNumber:(id)arg1 peerStates:(id)arg2 andPeerIDs:(id)arg3;
 - (void)setEntityNames:(id)arg1 globalObjectIDs:(id)arg2 primaryKeys:(id)arg3 forStoreWithName:(id)arg4;
 - (void)setInsertedObjects:(id)arg1;
@@ -57,6 +60,7 @@
 @property(readonly, nonatomic) NSDictionary *entityNameToIndex; // @synthesize entityNameToIndex=_entityNameToIndex;
 @property(readonly, nonatomic) NSDictionary *managedObjectIDToGlobalObjectID; // @synthesize managedObjectIDToGlobalObjectID=_managedObjectIDToGlobalObjectID;
 @property(readonly, nonatomic) NSDictionary *storeOptions; // @synthesize storeOptions=_storeOptions;
+@property(retain, nonatomic) NSString *localPeerID; // @synthesize localPeerID=_localPeerID;
 @property(readonly, nonatomic) NSNumber *transactionNumber; // @synthesize transactionNumber=_transactionNumber;
 @property(readonly, nonatomic) NSDictionary *peerStates; // @synthesize peerStates=_peerStates;
 @property(readonly, nonatomic) NSDictionary *deletedObjects; // @synthesize deletedObjects=_deletedObjects;

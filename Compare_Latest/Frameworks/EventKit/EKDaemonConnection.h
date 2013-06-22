@@ -20,6 +20,7 @@
     unsigned int _nextID;
     struct dispatch_source_s *_replySource;
     struct dispatch_queue_s *_replyHandlerLock;
+    BOOL _registeredForStartNote;
 }
 
 @property id delegate; // @synthesize delegate=_delegate;

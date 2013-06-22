@@ -8,7 +8,7 @@
 
 #import "SSDownloadManagerObserverPrivate-Protocol.h"
 
-@class NSMutableDictionary, SSDownloadManager;
+@class NSArray, NSMutableDictionary, SSDownloadManager;
 
 @interface MPDownloadManager : NSObject <SSDownloadManagerObserverPrivate>
 {
@@ -18,6 +18,7 @@
     struct __CFArray *_observers;
 }
 
++ (BOOL)isCellularDataRestricted;
 - (void)_rebuildCacheIfNecessary;
 - (id)_copyObservers;
 - (void)_applyBlockToObservers:(id)arg1;
@@ -27,6 +28,7 @@
 - (void)downloadManager:(id)arg1 downloadsDidChange:(id)arg2;
 - (void)removeObserver:(id)arg1;
 - (id)downloadWithIdentifier:(long long)arg1;
+@property(readonly, nonatomic) NSArray *downloads;
 - (void)cancelDownloads:(id)arg1 completionBlock:(id)arg2;
 - (void)addObserver:(id)arg1;
 - (void)dealloc;

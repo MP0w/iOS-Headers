@@ -9,6 +9,8 @@
 @class NSURL;
 
 @interface PFUbiquityTransactionEntry (UbiquityMethods)
++ (id)newTransactionEntryForObjectWithCompressedGlobalID:(id)arg1 withTransactionType:(int)arg2 importContext:(id)arg3;
++ (id)createTransactionEntriesForCompressedObjectIDs:(id)arg1 withTransactionType:(int)arg2 withImportContext:(id)arg3;
 + (id)createKnowledgeVectorByAddingKnowledgeVector:(id)arg1 toKnowledgeVector:(id)arg2;
 + (id)createKnowledgeVectorStringFromPeerDictionary:(id)arg1;
 + (id)createSumForKnowlegeVectorString:(id)arg1;

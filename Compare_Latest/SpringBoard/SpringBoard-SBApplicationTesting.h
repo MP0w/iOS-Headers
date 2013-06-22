@@ -12,6 +12,7 @@
 - (void)startLaunchTestNamed:(id)arg1 options:(id)arg2;
 - (void)startResumeTestNamed:(id)arg1 options:(id)arg2;
 - (void)endLaunchTest;
+- (void)runRotationTest:(int)arg1;
 - (void)finishedTest:(id)arg1 extraResults:(id)arg2;
 @end
 

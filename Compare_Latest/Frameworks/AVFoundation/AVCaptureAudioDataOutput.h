@@ -14,19 +14,19 @@
 }
 
 + (void)initialize;
-- (id)init;
-- (void)dealloc;
-- (BOOL)isTheOnlyDataOutput;
-- (void)setSession:(id)arg1;
-- (void)setSampleBufferDelegate:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
-@property(readonly, nonatomic) id <AVCaptureAudioDataOutputSampleBufferDelegate> sampleBufferDelegate;
-@property(readonly, nonatomic) struct dispatch_queue_s *sampleBufferCallbackQueue;
-- (id)connectionMediaTypes;
-- (id)_applyOverridesToCaptureOptions:(id)arg1;
-- (void)handleEnabledChangedForConnection:(id)arg1;
-- (void)didStopForSession:(id)arg1 error:(id)arg2;
-- (void)didStartForSession:(id)arg1;
 - (void)_AVCaptureAudioDataOutput_AudioDataBecameReady;
+- (void)didStartForSession:(id)arg1;
+- (void)didStopForSession:(id)arg1 error:(id)arg2;
+- (void)handleEnabledChangedForConnection:(id)arg1;
+- (id)_applyOverridesToCaptureOptions:(id)arg1;
+- (id)connectionMediaTypes;
+@property(readonly, nonatomic) struct dispatch_queue_s *sampleBufferCallbackQueue;
+@property(readonly, nonatomic) id <AVCaptureAudioDataOutputSampleBufferDelegate> sampleBufferDelegate;
+- (void)setSampleBufferDelegate:(id)arg1 queue:(struct dispatch_queue_s *)arg2;
+- (void)setSession:(id)arg1;
+- (BOOL)isTheOnlyDataOutput;
+- (void)dealloc;
+- (id)init;
 
 @end
 

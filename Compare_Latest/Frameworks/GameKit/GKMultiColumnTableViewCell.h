@@ -41,7 +41,6 @@
 - (void)_updateHighlightColorsForView:(id)arg1 highlighted:(BOOL)arg2;
 - (void)multiColumnHighlight:(BOOL)arg1 view:(id)arg2;
 - (void)_multiColumnHighlight:(BOOL)arg1 view:(id)arg2;
-- (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
 - (void)dealloc;

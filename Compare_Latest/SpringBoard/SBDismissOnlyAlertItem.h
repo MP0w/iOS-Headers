@@ -12,6 +12,7 @@
 {
     NSString *_title;
     NSString *_body;
+    NSString *_buttonTitle;
     double _autoDismissInterval;
 }
 
@@ -23,6 +24,7 @@
 - (void)setBodyText:(id)arg1;
 - (id)title;
 - (id)bodyText;
+@property(copy, nonatomic) NSString *buttonTitle; // @synthesize buttonTitle=_buttonTitle;
 - (void)performUnlockAction;
 - (void)configure:(BOOL)arg1 requirePasscodeForActions:(BOOL)arg2;
 - (id)lockLabel;

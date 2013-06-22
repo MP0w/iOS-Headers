@@ -9,12 +9,13 @@
 #import "NSManagedObjectContextFaultingDelegate-Protocol.h"
 #import "PFUbiquityBaselineRecoveryOperationDelegate-Protocol.h"
 #import "PFUbiquityBaselineRollOperationDelegate-Protocol.h"
+#import "PFUbiquityBaselineRollResponseOperationDelegate-Protocol.h"
 #import "PFUbiquityImportScanOperationDelegate-Protocol.h"
 #import "_PFUbiquityRecordImportOperationDelegate-Protocol.h"
 
 @class NSDictionary, NSMutableDictionary, NSOperationQueue, NSRecursiveLock, NSString, PFUbiquityLocation, PFUbiquityMetadataQueryMonitor;
 
-@interface _PFUbiquityRecordsImporter : NSObject <_PFUbiquityRecordImportOperationDelegate, NSManagedObjectContextFaultingDelegate, PFUbiquityImportScanOperationDelegate, PFUbiquityBaselineRollOperationDelegate, PFUbiquityBaselineRecoveryOperationDelegate>
+@interface _PFUbiquityRecordsImporter : NSObject <_PFUbiquityRecordImportOperationDelegate, NSManagedObjectContextFaultingDelegate, PFUbiquityImportScanOperationDelegate, PFUbiquityBaselineRollOperationDelegate, PFUbiquityBaselineRecoveryOperationDelegate, PFUbiquityBaselineRollResponseOperationDelegate>
 {
     NSOperationQueue *_importQueue;
     NSMutableDictionary *_ubiquityLocationToMonitoringDictionary;
@@ -65,8 +66,13 @@
 - (int)compareScoreDictionary:(id)arg1 withScoreDictionary:(id)arg2;
 - (int)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
 - (void)requestBaselineRollForStore:(id)arg1;
+- (void)scheduleBaselineRollResponseOperationForBaselineAtLocation:(id)arg1;
+- (void)scheduleBaselineRecoveryOperationWithActiveBaselineOperation:(id)arg1;
 - (void)baselineRollOperationEncounteredAnInconsistentBaselineState:(id)arg1;
 - (void)recoveryOperation:(id)arg1 didReplaceLocalStoreFileWithBaseline:(id)arg2;
+- (void)rollResponseOperation:(id)arg1 successfullyAdoptedBaseline:(id)arg2;
+- (void)rollResponseOperation:(id)arg1 encounteredAnError:(id)arg2 whileTryingToAdoptBaseline:(id)arg3;
+- (void)recoveryOperation:(id)arg1 encounteredAnError:(id)arg2 duringRecoveryOfBaseline:(id)arg3;
 @property BOOL allowBaselineRoll; // @synthesize allowBaselineRoll=_allowBaselineRoll;
 @property BOOL importOnlyActiveStores; // @synthesize importOnlyActiveStores=_importOnlyActiveStores;
 @property(readonly) PFUbiquityMetadataQueryMonitor *queryMonitor; // @synthesize queryMonitor=_queryMonitor;

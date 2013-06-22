@@ -26,6 +26,7 @@
 - (BOOL)_shouldShowRecurrence;
 - (void)refreshFromCalendarItemAndStore;
 - (void)setCalendarItem:(id)arg1 store:(id)arg2;
+- (BOOL)applicationDidResume;
 - (BOOL)configureForCalendarConstraints:(id)arg1;
 - (void)reset;
 - (void)setStyleProvider:(id)arg1;

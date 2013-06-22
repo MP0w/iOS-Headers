@@ -17,6 +17,7 @@
 - (id)init;
 - (Class)_customHeaderClass;
 @property(retain, nonatomic) UIView<RemoteUITableHeader> *headerView; // @synthesize headerView=_header;
+- (void)setImage:(id)arg1;
 - (BOOL)hasCustomHeader;
 - (void)populatePostbackDictionary:(id)arg1;
 - (void)dealloc;

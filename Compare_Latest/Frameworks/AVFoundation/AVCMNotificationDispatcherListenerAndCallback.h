@@ -14,10 +14,10 @@
     void *_callback;
 }
 
-- (id)initWithWeakReferenceToListener:(id)arg1 callback:(void *)arg2;
-- (void)dealloc;
-@property(readonly, nonatomic) id listener;
 @property(readonly, nonatomic) void *callback; // @synthesize callback=_callback;
+@property(readonly, nonatomic) id listener;
+- (void)dealloc;
+- (id)initWithWeakReferenceToListener:(id)arg1 callback:(void *)arg2;
 
 @end
 

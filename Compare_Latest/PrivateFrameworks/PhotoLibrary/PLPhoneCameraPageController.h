@@ -14,7 +14,7 @@
 
 - (id)_doneButtonItem;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(BOOL)arg3;
-- (void)dismissCameraAlbumAnimated:(BOOL)arg1;
+- (void)dismissCameraAlbumAnimated:(BOOL)arg1 forSuspension:(BOOL)arg2;
 - (void)didRotateFromInterfaceOrientation:(int)arg1;
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;

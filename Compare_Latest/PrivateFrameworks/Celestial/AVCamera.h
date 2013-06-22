@@ -13,9 +13,9 @@
     NSString *_mode;
 }
 
-- (void)dealloc;
-@property(readonly, retain) NSArray *capabilities;
 @property(retain) NSString *mode; // @synthesize mode=_mode;
+@property(readonly) NSArray *capabilities;
+- (void)dealloc;
 
 @end
 

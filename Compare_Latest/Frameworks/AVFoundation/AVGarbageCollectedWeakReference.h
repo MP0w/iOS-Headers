@@ -14,10 +14,10 @@
     NSString *_cachedReferencedObjectDescription;
 }
 
-- (id)initWithReferencedObject:(id)arg1;
-- (id)init;
-- (id)description;
 - (id)referencedObject;
+- (id)description;
+- (id)init;
+- (id)initWithReferencedObject:(id)arg1;
 
 @end
 

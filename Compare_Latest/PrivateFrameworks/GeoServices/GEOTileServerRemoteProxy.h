@@ -19,6 +19,7 @@
     struct _xpc_connection_s *_conn;
     NSLock *_connLock;
     int _suspendCount;
+    unsigned long long _handleCounter;
 }
 
 - (void)flushPendingWrites;

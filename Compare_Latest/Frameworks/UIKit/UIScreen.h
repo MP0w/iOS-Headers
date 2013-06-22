@@ -53,6 +53,7 @@
 - (float)rawBrightnessForBacklightLevel:(float)arg1;
 - (id)_lazySoftwareDimmingWindow;
 - (void)_setScale:(float)arg1;
+- (float)_scale;
 @property(readonly, nonatomic) float scale; // @synthesize scale=_scale;
 - (id)displayLinkWithTarget:(id)arg1 selector:(SEL)arg2;
 - (void)_prepareForWindow;

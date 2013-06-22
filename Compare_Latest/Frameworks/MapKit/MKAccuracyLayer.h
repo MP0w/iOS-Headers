@@ -4,29 +4,24 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "CALayer.h"
+#import "CAShapeLayer.h"
 
-@interface MKAccuracyLayer : CALayer
+@interface MKAccuracyLayer : CAShapeLayer
 {
+    float _accuracy;
 }
 
 + (BOOL)needsDisplayForKey:(id)arg1;
 + (struct CGRect)accuracyRectForPosition:(struct CGPoint)arg1 accuracy:(float)arg2;
-+ (struct CGRect)boundsForAccuracy:(float)arg1;
 + (id)defaultValueForKey:(id)arg1;
-- (void)drawInContext:(struct CGContext *)arg1;
+@property(readonly, nonatomic) float accuracy; // @synthesize accuracy=_accuracy;
+- (void)setAccuracy:(float)arg1;
 - (BOOL)sizeToFitAccuracy:(float)arg1 animated:(BOOL)arg2;
 - (BOOL)isAccuracyBounded:(float)arg1;
 - (BOOL)isAccuracyMaxBounded:(float)arg1;
 - (BOOL)isAccuracyMinBounded:(float)arg1;
 - (BOOL)sizeToFitAccuracy;
 - (BOOL)isHoveringAnimation:(id *)arg1;
-
-// Remaining properties
-@property float accuracy; // @dynamic accuracy;
-@property struct CGColor *fillColor; // @dynamic fillColor;
-@property float lineWidth; // @dynamic lineWidth;
-@property struct CGColor *strokeColor; // @dynamic strokeColor;
 
 @end
 

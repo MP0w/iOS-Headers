@@ -17,7 +17,7 @@
 }
 
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithSnapshotFrame:(struct CGRect)arg1 image:(id)arg2 originalImageOrientation:(int)arg3 currentImageOrientation:(int)arg4 interfaceOrientation:(int)arg5 doubleHeightStatusBar:(BOOL)arg6 preventSplit:(BOOL)arg7 chrome:(id)arg8 chromeStatusBarHidden:(BOOL)arg9 needsZoomFilter:(BOOL)arg10;
+- (id)initWithSnapshotFrame:(struct CGRect)arg1 image:(id)arg2 originalImageOrientation:(int)arg3 currentImageOrientation:(int)arg4 interfaceOrientation:(int)arg5 doubleHeightStatusBar:(BOOL)arg6 preventSplit:(BOOL)arg7 chrome:(id)arg8 chromeStatusBarHidden:(BOOL)arg9 needsZoomFilter:(BOOL)arg10 asyncDecodeImage:(BOOL)arg11;
 - (id)initWithSnapshotFrame:(struct CGRect)arg1 ioSurface:(void *)arg2 snapshotTransform:(struct CGAffineTransform)arg3;
 - (id)initWithImage:(id)arg1;
 - (void)dealloc;

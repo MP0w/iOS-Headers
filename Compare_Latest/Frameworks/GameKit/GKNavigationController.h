@@ -6,25 +6,34 @@
 
 #import "UINavigationController.h"
 
-@class NSMutableArray, UIView;
+@class NSMutableArray, UIImageView, UIView;
 
 @interface GKNavigationController : UINavigationController
 {
+    unsigned int _roundedCorners;
     NSMutableArray *_deferredTransitions;
+    UIImageView *_leftCornerView;
+    UIImageView *_rightCornerView;
 }
 
+@property(retain, nonatomic) UIImageView *rightCornerView; // @synthesize rightCornerView=_rightCornerView;
+@property(retain, nonatomic) UIImageView *leftCornerView; // @synthesize leftCornerView=_leftCornerView;
 @property(retain, nonatomic) NSMutableArray *deferredTransitions; // @synthesize deferredTransitions=_deferredTransitions;
+@property(nonatomic) unsigned int roundedBarCorners; // @synthesize roundedBarCorners=_roundedCorners;
 - (void)pushViewController:(id)arg1 animated:(BOOL)arg2;
 - (id)popToRootViewControllerAnimated:(BOOL)arg1;
 - (id)popToViewController:(id)arg1 animated:(BOOL)arg2;
 - (id)popViewControllerAnimated:(BOOL)arg1;
-@property(readonly) UIView *topShadowView;
 - (void)_deferTransitionOfType:(int)arg1 withViewController:(id)arg2 animated:(BOOL)arg3;
 - (void)_performDeferredTransition;
 - (void)didShowViewController:(id)arg1 animated:(BOOL)arg2;
+- (void)loadView;
+@property(readonly) UIView *topShadowView;
 - (void)dealloc;
+- (void)setupGKNavigationController;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithRootViewController:(id)arg1;
+- (id)init;
 
 @end
 

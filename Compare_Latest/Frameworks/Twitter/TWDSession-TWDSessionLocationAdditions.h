@@ -9,6 +9,9 @@
 #import "CLLocationManagerDelegate-Protocol.h"
 
 @interface TWDSession (TWDSessionLocationAdditions) <CLLocationManagerDelegate>
+- (void)showGeotagDisabledForAccountAlert:(id)arg1;
+- (void)enableGeotagAccountSetting:(id)arg1;
+- (void)fetchGeotagAccountSetting:(id)arg1;
 - (void)locateOverridenGeotagInfo;
 - (void)setOverrideGeotagInfo:(id)arg1;
 - (void)notifyClientOfLocationInfoChange;

@@ -22,6 +22,7 @@
 @property(copy, setter=setURI:) NSString *uri; // @synthesize uri=_uri;
 - (void)handleResponseDictionary:(id)arg1;
 - (void)handleResponseHeaders:(id)arg1;
+- (BOOL)hasRequiredKeys:(id *)arg1;
 - (id)messageBody;
 - (id)requiredKeys;
 - (id)bagKey;

@@ -16,6 +16,7 @@
 
 @property(retain, nonatomic) NSString *value; // @synthesize value=_value;
 @property(retain, nonatomic) NSString *key; // @synthesize key=_key;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

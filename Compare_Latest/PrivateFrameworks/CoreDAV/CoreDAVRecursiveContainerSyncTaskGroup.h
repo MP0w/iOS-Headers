@@ -28,7 +28,6 @@
     void *_context;
     unsigned int _multiGetBatchSize;
     NSMutableArray *_unsubmittedTasks;
-    unsigned int _maxIndependentTasks;
     NSURL *_addMemberURL;
     BOOL _useMultiGet;
     NSMutableSet *_syncReportDeletedURLs;
@@ -48,7 +47,6 @@
 @property BOOL preflightCTag; // @synthesize preflightCTag=_preflightCTag;
 @property(readonly) NSString *previousCTag; // @synthesize previousCTag=_previousCTag;
 @property(readonly) NSURL *folderURL; // @synthesize folderURL=_folderURL;
-@property unsigned int maxIndependentTasks; // @synthesize maxIndependentTasks=_maxIndependentTasks;
 @property unsigned int multiGetBatchSize; // @synthesize multiGetBatchSize=_multiGetBatchSize;
 - (BOOL)shouldSyncChildWithResourceType:(id)arg1;
 - (id)dataContentType;
@@ -65,6 +63,7 @@
 - (void)_folderModTask:(id)arg1 parsedPropStats:(id)arg2 error:(id)arg3;
 - (void)_postTask:(id)arg1 didFinishWithError:(id)arg2;
 - (void)putTask:(id)arg1 completedWithNewETag:(id)arg2 error:(id)arg3;
+- (BOOL)isWhitelistedError:(id)arg1;
 - (void)syncAway;
 - (void)startTaskGroup;
 - (void)_getDataPayloads;

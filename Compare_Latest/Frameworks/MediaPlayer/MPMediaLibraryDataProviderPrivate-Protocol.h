@@ -37,6 +37,7 @@
 - (void)loadCoverFlowArtworkImageForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
 - (void)loadBestTimedArtworkImageForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 atPlaybackTime:(double)arg3 completionBlock:(id)arg4;
 - (void)loadBestArtworkImageForSize:(struct CGSize)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
+- (void)loadArtworkImageForFormat:(int)arg1 ofItemWithArtworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3 completionBlock:(id)arg4;
 - (void)loadArtworkImageForFormat:(int)arg1 ofItemWithArtworkCacheID:(id)arg2 completionBlock:(id)arg3;
 - (void)loadArtworkImageForFormat:(int)arg1 ofItemWithIdentifier:(long long)arg2 completionBlock:(id)arg3;
 - (BOOL)playlistExistsWithPersistentID:(unsigned long long)arg1;

@@ -6,9 +6,11 @@
 
 #import <UIKit/UIViewController.h>
 
-@class NSArray, NSString, UIBarButtonItem, UIPopoverController, UIView;
+#import "UIGestureRecognizerDelegate-Protocol.h"
 
-@interface UISplitViewController : UIViewController
+@class NSArray, NSString, UIBarButtonItem, UIPanGestureRecognizer, UIPopoverController, UIView;
+
+@interface UISplitViewController : UIViewController <UIGestureRecognizerDelegate>
 {
     id _delegate;
     UIBarButtonItem *_barButtonItem;
@@ -23,9 +25,14 @@
     struct CGRect _rotatingFromMasterViewFrame;
     struct CGRect _rotatingToMasterViewFrame;
     NSArray *_cornerImageViews;
+    unsigned int _slideTransitionCount;
     UIView *_masterBackgroundView;
+    BOOL _presentsInFadingPopover;
+    BOOL _presentsWithGesture;
+    UIPanGestureRecognizer *_masterViewPresentationGestureRecognizer;
+    UIPanGestureRecognizer *_dimmingViewGestureRecognizer;
     struct {
-        unsigned int hidesMasterViewInPortrait:1;
+        unsigned int delegateHiddenMasterOrientations:5;
         unsigned int delegateImplementsShouldHide:1;
         unsigned int hidden:3;
         unsigned int delegateHandlesTogglingMaster:1;
@@ -34,11 +41,14 @@
         unsigned int masterOnSlide:1;
         unsigned int delegateWantsWillShowCallback:1;
         unsigned int delegateWantsWillHideCallback:1;
+        unsigned int delegateWantsWillPresentCallback:1;
     } _splitViewControllerFlags;
-    unsigned int _slideTransitionCount;
 }
 
 + (BOOL)_optsOutOfPopoverControllerHierarchyCheck;
++ (BOOL)_forcePresentsWithGesture;
++ (BOOL)_forcePresentsInSlidingPopover;
+@property(nonatomic) BOOL presentsWithGesture; // @synthesize presentsWithGesture=_presentsWithGesture;
 @property(nonatomic) id <UISplitViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_getRotationContentSettings:(CDStruct_19ba41f1 *)arg1;
 - (void)__viewWillLayoutSubviews;
@@ -51,15 +61,25 @@
 - (void)willRotateToInterfaceOrientation:(int)arg1 duration:(double)arg2;
 - (BOOL)hidesMasterViewDuringRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
 - (BOOL)revealsMasterViewDuringRotationFromInterfaceOrientation:(int)arg1 toInterfaceOrientation:(int)arg2;
-- (BOOL)isRotating;
+- (BOOL)_isRotating;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)purgeMemoryForReason:(int)arg1;
+- (void)_swipeMasterView:(id)arg1;
+- (BOOL)_gestureRecognizer:(id)arg1 shouldBeRequiredToFailByGestureRecognizer:(id)arg2;
+- (BOOL)_gestureRecognizerShouldBegin:(id)arg1;
+- (void)dismissPresentedViewController;
+- (void)presentHiddenViewController;
+- (void)_dismissMasterView:(id)arg1;
 - (void)toggleMasterVisible:(id)arg1;
-- (void)_toggleVisibilityOfViewController:(id)arg1;
+- (void)_toggleMasterVisible;
+- (void)_dismissMasterViewController;
+- (void)_presentMasterViewController;
+- (void)purgeMemoryForReason:(int)arg1;
 - (void)viewDidDisappear:(BOOL)arg1;
 - (void)viewWillDisappear:(BOOL)arg1;
 - (void)viewDidAppear:(BOOL)arg1;
 - (void)viewWillAppear:(BOOL)arg1;
+- (BOOL)_effectivePresentsWithGesture;
+@property(nonatomic, setter=_setPresentsInFadingPopover:) BOOL _presentsInFadingPopover;
 - (void)setGutterWidth:(float)arg1;
 - (float)gutterWidth;
 - (void)setMasterColumnWidth:(float)arg1;
@@ -71,7 +91,10 @@
 - (id)masterViewController;
 @property(copy, nonatomic) NSArray *viewControllers;
 - (void)_slideIn:(BOOL)arg1 viewController:(id)arg2 animated:(BOOL)arg3 totalDuration:(double)arg4 completion:(id)arg5;
+- (void)_addMasterViewPresentationGestureRecognizer:(BOOL)arg1;
 - (BOOL)_canSlideMaster;
+- (BOOL)_canDisplayHostedMaster;
+- (BOOL)_delegateUsesLegacySlideSPI;
 - (void)setLeftColumnWidth:(float)arg1;
 - (float)leftColumnWidth;
 - (void)_viewControllerHiding:(id)arg1;
@@ -79,7 +102,9 @@
 - (void)_setupRoundedCorners;
 - (struct CGRect)_detailViewFrame;
 - (struct CGRect)_masterViewFrame;
-- (BOOL)_masterViewShown;
+- (void)_calculateDelegateHiddenMasterOrientations;
+- (BOOL)_isMasterViewShown;
+- (BOOL)_isMasterViewShownByDefault;
 - (void)unloadViewForced:(BOOL)arg1;
 - (BOOL)_isLandscape;
 - (void)loadView;
@@ -87,6 +112,7 @@
 - (void)_loadNewSubviews:(id)arg1;
 - (void)loadSubviews;
 - (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)_commonInit;

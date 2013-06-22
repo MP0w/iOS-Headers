@@ -10,6 +10,14 @@ struct CFURLConnectionClient_V1;
 
 struct _CFURLConnection;
 
+struct _MSDSPCContext {
+    struct __MSSPCContext _super;
+    void *finishedCallback;
+    void *authFailedCallback;
+    void *didReceiveServerSideConfigurationVersionCallback;
+    void *didReceiveRetryAfterCallback;
+};
+
 struct __CFData;
 
 struct __CFString;

@@ -26,6 +26,7 @@
 - (id)_imageData;
 - (unsigned int)getBytes:(char *)arg1 fromOffset:(long long)arg2 length:(unsigned int)arg3 error:(id *)arg4;
 - (long long)size;
+- (struct CGSize)dimensions;
 - (int)_fileDescriptor;
 - (id)UTI;
 - (BOOL)isValid;

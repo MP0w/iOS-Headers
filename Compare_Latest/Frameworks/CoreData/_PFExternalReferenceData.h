@@ -31,9 +31,10 @@
 + (BOOL)_updateFileDescriptorsInUseReserveNew:(BOOL)arg1;
 + (BOOL)_reserveMapFileDescriptor;
 + (BOOL)_releaseReservedMapFileDescriptor;
+- (id)constructSafeguardStringFromString:(id)arg1;
 - (id)initForUbiquityDictionary:(id)arg1 store:(id)arg2;
 - (id)initForExternalLocation:(id)arg1 safeguardLocation:(id)arg2 data:(id)arg3 protectionLevel:(int)arg4;
-- (id)initWithStoreBytes:(const void *)arg1 length:(unsigned int)arg2 externalLocation:(id)arg3 safeguardLocation:(id)arg4 hardlink:(BOOL)arg5 protectionLevel:(int)arg6;
+- (id)initWithStoreBytes:(const void *)arg1 length:(unsigned int)arg2 externalLocation:(id)arg3 safeguardLocation:(id)arg4 protectionLevel:(int)arg5;
 - (void)_doCleanup;
 - (Class)classForCoder:(id)arg1;
 - (void)dealloc;

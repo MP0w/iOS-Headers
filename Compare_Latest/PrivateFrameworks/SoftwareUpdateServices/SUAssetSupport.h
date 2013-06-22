@@ -19,6 +19,7 @@
 + (void)cleanupUpdateAndDocumentationForAsset:(struct __MobileAsset *)arg1;
 + (void)cleanupAssets:(id)arg1;
 + (void)cleanupAsset:(struct __MobileAsset *)arg1;
++ (void)cancelDownloadIfNecessary:(struct __MobileAsset *)arg1;
 + (id)tryCreateDocumentationFromAsset:(struct __MobileAsset *)arg1;
 + (id)createDescriptorFromAsset:(struct __MobileAsset *)arg1 state:(id)arg2;
 + (id)tryCreateDescriptorFromAsset:(struct __MobileAsset *)arg1;

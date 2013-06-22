@@ -63,6 +63,9 @@
     UITextFieldAtomBackgroundView *_atomBackgroundView;
     UIPopoverController *_definitionPopoverController;
     UIViewController *_definitionModalViewController;
+    UIColor *_shadowColor;
+    struct CGSize _shadowOffset;
+    float _shadowBlur;
     struct {
         unsigned int secureTextChanged:1;
         unsigned int guard:1;
@@ -128,8 +131,9 @@
 - (id)textInRange:(id)arg1;
 - (BOOL)hasText;
 - (id)metadataDictionariesForDictationResults;
-- (void)removeDictationResultPlaceholder:(id)arg1 willInsertText:(BOOL)arg2;
-- (id)insertDictationResultPlaceholder:(struct CGSize)arg1;
+- (struct CGRect)frameForDictationResultPlaceholder:(id)arg1;
+- (void)removeDictationResultPlaceholder:(id)arg1 willInsertResult:(BOOL)arg2;
+- (id)insertDictationResultPlaceholder;
 - (void)insertDictationResult:(id)arg1 withCorrectionIdentifier:(id)arg2;
 - (void)insertText:(id)arg1;
 - (void)deleteBackward;
@@ -265,6 +269,12 @@
 - (void)setContentVerticalAlignment:(int)arg1;
 @property(nonatomic) int textAlignment;
 @property(retain, nonatomic) UIFont *font;
+- (float)shadowBlur;
+- (void)setShadowBlur:(float)arg1;
+- (struct CGSize)shadowOffset;
+- (void)setShadowOffset:(struct CGSize)arg1;
+- (id)shadowColor;
+- (void)setShadowColor:(id)arg1;
 @property(retain, nonatomic) UIColor *textColor;
 - (void)_updateTextColor;
 @property(copy, nonatomic) NSString *text;

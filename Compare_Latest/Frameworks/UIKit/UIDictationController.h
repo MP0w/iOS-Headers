@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSTimer, UIDictationView;
+@class NSArray, NSTimer, UIAlertView;
 
 @interface UIDictationController : NSObject
 {
-    UIDictationView *_view;
     NSArray *_availableLanguages;
     NSTimer *_recordingLimitTimer;
     void *_callCenterFrameworkFileHandle;
@@ -18,13 +17,17 @@
     void *_facetimeCallFrameworkFileHandle;
     id _facetimeCallManager;
     BOOL _disabledDueToTelephonyActivity;
+    UIAlertView *_dictationAvailableSoonAlert;
+    BOOL dictationStartedFromGesture;
 }
 
++ (void)updateLandingView;
 + (id)prunedDictationResultForSingleLineEditor:(id)arg1;
 + (id)bestInterpretationForDictationResult:(id)arg1;
 + (id)serializedDictationPhrases:(id)arg1;
 + (id)serializedDictationPhrases:(id)arg1 fromKeyboard:(BOOL)arg2;
 + (id)serializedInterpretationFromTokens:(id)arg1;
++ (void)networkReachableCallback;
 + (void)applicationDidChangeStatusBarFrame;
 + (void)applicationWillResignActive;
 + (void)applicationDidBecomeActive;
@@ -42,7 +45,7 @@
 + (void)preheatIfNecessary;
 + (id)sharedInstance;
 + (id)activeInstance;
-@property(retain, nonatomic) UIDictationView *view; // @synthesize view=_view;
+@property(nonatomic) BOOL dictationStartedFromGesture; // @synthesize dictationStartedFromGesture;
 - (void)dictationConnection:(id)arg1 speechRecognitionDidFail:(id)arg2;
 - (void)dictationConnection:(id)arg1 speechRecordingDidFail:(id)arg2;
 - (void)dictationConnectionSpeechRecordingDidCancel:(id)arg1;
@@ -50,7 +53,7 @@
 - (void)dictationConnectionSpeechRecordingDidBegin:(id)arg1;
 - (void)dictationConnectionSpeechRecordingWillBegin:(id)arg1;
 - (void)dictationConnection:(id)arg1 didRecognizeSpeechPhrases:(id)arg2 correctionIdentifier:(id)arg3;
-- (void)showDialogForError:(id)arg1;
+- (id)dictationPhraseArrayFromDictationResult:(id)arg1;
 - (void)stopDictation;
 - (void)cancelDictation;
 - (void)startDictation;
@@ -60,6 +63,7 @@
 - (void)cancelRecordingLimitTimer;
 - (void)dealloc;
 - (int)state;
+- (void)errorAnimationDidFinish;
 - (void)setState:(int)arg1;
 - (void)startConnection;
 - (id)selectedTextForInputDelegate:(id)arg1;
@@ -71,6 +75,7 @@
 - (id)inputModeThatInvokedDictation;
 - (BOOL)supportsInputMode:(id)arg1 error:(id *)arg2;
 - (id)assistantCompatibleLanguageCodeForLanguage:(id)arg1 region:(id)arg2;
+- (void)enableProximity;
 - (void)proximityStateChanged:(id)arg1;
 - (void)disableAutorotation;
 - (void)reenableAutorotation;

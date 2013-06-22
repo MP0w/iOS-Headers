@@ -57,7 +57,8 @@
         struct __CFArray *_field36;
         void *_field37;
         void *_field38;
-        struct timeval _field39;
+        double _field39;
+        int _field40;
     } *job_http;
     NSMutableDictionary *privateData;
     NSMutableSet *mediaReady;

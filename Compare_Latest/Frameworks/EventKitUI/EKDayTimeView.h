@@ -10,6 +10,8 @@
 
 @interface EKDayTimeView : UIView
 {
+    UIView *_topContentView;
+    UIView *_bottomContentView;
     unsigned int _leftBorder:1;
     unsigned int _rightBorder:1;
     BOOL _useLightText;
@@ -41,12 +43,14 @@
 - (void)_updateMarkerPosition;
 - (void)_invalidateMarkerTimer;
 - (void)_startMarkerTimer;
-- (void)drawRect:(struct CGRect)arg1;
+- (void)drawRect:(struct CGRect)arg1 forContentView:(id)arg2 withHourRange:(struct _NSRange)arg3;
+- (void)setFrame:(struct CGRect)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setOrientation:(int)arg1;
 @property(nonatomic) double highlightedHour;
 @property(nonatomic) BOOL showsRightBorder;
 @property(nonatomic) BOOL showsLeftBorder;
+- (void)setOpaque:(BOOL)arg1;
 - (float)timeInset;
 - (float)topPadding;
 - (void)_localeChanged;

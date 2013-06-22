@@ -15,20 +15,20 @@
     NSString *_uti;
 }
 
-+ (void)initialize;
-+ (id)allFileTypeIdentifiers;
-+ (id)mediaFileTypeWithFileTypeIdentifier:(id)arg1;
 + (id)_mediaFileTypeWithFileTypeIdentifier:(id)arg1 exceptionReason:(id *)arg2;
-- (id)initWithFileTypeIdentifier:(id)arg1 exceptionReason:(id *)arg2;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)description;
-@property(readonly, nonatomic) NSString *defaultFileExtension;
-@property(readonly, nonatomic) NSSet *supportedMediaTypes;
-@property(readonly, nonatomic) NSString *UTI;
-@property(readonly, nonatomic) NSString *figFormatReaderFileFormat;
-@property(readonly, nonatomic) unsigned int audioFileTypeID;
++ (id)mediaFileTypeWithFileTypeIdentifier:(id)arg1;
++ (id)allFileTypeIdentifiers;
++ (void)initialize;
 - (BOOL)supportsOutputSettings:(id)arg1 reason:(id *)arg2;
+@property(readonly, nonatomic) unsigned long audioFileTypeID;
+@property(readonly, nonatomic) NSString *figFormatReaderFileFormat;
+@property(readonly, nonatomic) NSString *UTI;
+@property(readonly, nonatomic) NSSet *supportedMediaTypes;
+@property(readonly, nonatomic) NSString *defaultFileExtension;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)initWithFileTypeIdentifier:(id)arg1 exceptionReason:(id *)arg2;
 
 @end
 

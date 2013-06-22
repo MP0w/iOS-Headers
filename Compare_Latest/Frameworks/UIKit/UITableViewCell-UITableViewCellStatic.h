@@ -23,7 +23,7 @@
 - (void)_updateTopShadowView:(BOOL)arg1;
 - (void)_updateContentClip;
 - (void)_longPressGestureRecognized:(id)arg1;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
+- (BOOL)_gestureRecognizerShouldBegin:(id)arg1;
 - (void)_editingTransitionAnimationDidStop:(id)arg1 finished:(id)arg2 context:(void *)arg3;
 - (struct CGSize)_imageInsetSize;
 - (struct CGSize)_textInsetSize;

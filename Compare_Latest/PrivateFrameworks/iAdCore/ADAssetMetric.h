@@ -20,6 +20,7 @@
 @property(nonatomic) BOOL hasTime; // @synthesize hasTime=_hasTime;
 @property(retain, nonatomic) NSString *url; // @synthesize url=_url;
 @property(retain, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (BOOL)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;

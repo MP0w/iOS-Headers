@@ -7,8 +7,8 @@
 #import <AVFoundation/AVPlayerItem.h>
 
 @interface AVPlayerItem (AVPlayerItemExternalSubtitles_Private)
-@property(readonly, nonatomic) BOOL canDisplayExternalSubtitles;
-@property(nonatomic) BOOL displaysExternalSubtitles;
 - (void)displayExternalSubtitleString:(id)arg1 forced:(BOOL)arg2;
+@property(nonatomic) BOOL displaysExternalSubtitles;
+@property(readonly, nonatomic) BOOL canDisplayExternalSubtitles;
 @end
 

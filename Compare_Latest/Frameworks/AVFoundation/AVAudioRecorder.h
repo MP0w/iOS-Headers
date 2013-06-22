@@ -13,32 +13,31 @@
     void *_impl;
 }
 
-- (struct AudioRecorderImpl *)impl;
-- (void)finishedRecording;
-- (void)privCommonCleanup;
-- (void)finalize;
-- (void)dealloc;
-- (id)baseInit;
-- (void)baseInitFailed;
-- (id)initWithURL:(id)arg1 settings:(id)arg2 error:(id *)arg3;
-@property(readonly, getter=isRecording) BOOL recording; // @dynamic recording;
-@property(readonly) NSURL *url; // @dynamic url;
-@property(readonly) NSDictionary *settings; // @dynamic settings;
-- (BOOL)prepareToRecord;
-- (BOOL)record;
-- (BOOL)recordForDuration:(double)arg1;
-- (void)pause;
-- (void)stop;
-- (BOOL)deleteRecording;
-@property(readonly) double currentTime; // @dynamic currentTime;
-@property id <AVAudioRecorderDelegate> delegate; // @dynamic delegate;
-@property(getter=isMeteringEnabled) BOOL meteringEnabled; // @dynamic meteringEnabled;
-- (void)updateMeters;
-- (float)peakPowerForChannel:(unsigned int)arg1;
-- (float)averagePowerForChannel:(unsigned int)arg1;
-- (void)beginInterruption;
-- (void)endInterruptionWithFlags;
 - (void)endInterruption;
+- (void)endInterruptionWithFlags;
+- (void)beginInterruption;
+- (float)averagePowerForChannel:(unsigned int)arg1;
+- (float)peakPowerForChannel:(unsigned int)arg1;
+- (void)updateMeters;
+@property(getter=isMeteringEnabled) BOOL meteringEnabled; // @dynamic meteringEnabled;
+@property id <AVAudioRecorderDelegate> delegate; // @dynamic delegate;
+@property(readonly) double currentTime; // @dynamic currentTime;
+- (BOOL)deleteRecording;
+- (void)stop;
+- (void)pause;
+- (BOOL)recordForDuration:(double)arg1;
+- (BOOL)record;
+- (BOOL)prepareToRecord;
+@property(readonly) NSDictionary *settings; // @dynamic settings;
+@property(readonly) NSURL *url; // @dynamic url;
+@property(readonly, getter=isRecording) BOOL recording; // @dynamic recording;
+- (id)initWithURL:(id)arg1 settings:(id)arg2 error:(id *)arg3;
+- (id)baseInit;
+- (void)dealloc;
+- (void)finalize;
+- (void)privCommonCleanup;
+- (void)finishedRecording;
+- (struct AudioRecorderImpl *)impl;
 
 @end
 

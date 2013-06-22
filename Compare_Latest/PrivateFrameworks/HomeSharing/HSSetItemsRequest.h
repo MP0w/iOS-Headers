@@ -10,10 +10,11 @@
 {
 }
 
++ (id)requestWithDatabaseID:(unsigned int)arg1 itemIDs:(id)arg2 properties:(id)arg3;
 + (id)requestWithDatabaseID:(unsigned int)arg1 itemID:(unsigned int)arg2 properties:(id)arg3;
 - (id)_propertyCodeForPropertyName:(id)arg1 valueLength:(unsigned int *)arg2;
-- (id)_bodyDataForItemID:(unsigned int)arg1 properties:(id)arg2;
-- (id)initWithDatabaseID:(unsigned int)arg1 itemID:(unsigned int)arg2 properties:(id)arg3;
+- (id)_bodyDataForItemIDs:(id)arg1 properties:(id)arg2;
+- (id)initWithDatabaseID:(unsigned int)arg1 itemIDs:(id)arg2 properties:(id)arg3;
 
 @end
 

@@ -22,6 +22,7 @@
     UIView *_videoOverlayBackgroundView;
     PLVideoEditingOverlayView *_trimMessageView;
     UIImage *_posterFrameImage;
+    UIImage *_snapshotImage;
     float _scrubberWidth;
     unsigned int _scaleMode;
     UIImageView *_scrubberBackgroundView;
@@ -84,7 +85,6 @@
     unsigned int _isMoviePlayerDelegate:1;
     unsigned int _moviePlayerIsReady:1;
     unsigned int _moviePlayerDidBuffer:1;
-    unsigned int _hidePosterImage:1;
     unsigned int _showingOverlay:1;
     unsigned int _showingScrubber:1;
     unsigned int _showScrubberWhenMovieIsReady:1;
@@ -136,6 +136,8 @@
 @property(nonatomic) BOOL showsPlayOverlay;
 - (void)_updatePosterFrameVisibility;
 - (void)_updatePosterImageView;
+- (void)_invalidateSnapshotImage;
+- (void)_updateSnapshotImage;
 @property(readonly, nonatomic) UIImage *posterFrameImage;
 - (void)setPosterFrameImage:(id)arg1;
 @property(nonatomic) BOOL showsPosterFrame;
@@ -155,13 +157,14 @@
 - (void)playButtonClicked:(id)arg1;
 - (void)_verifyPlaybackHasBegun;
 - (void)_didBeginPlayback;
-- (void)_delayedHidePosterFrame;
+- (void)_delayedAddAirPlayBackground;
 - (BOOL)isPlaying;
 - (void)handleDoubleTap;
 - (void)toggleScaleMode:(float)arg1;
 @property(nonatomic) PLPhotoTileViewController *imageTile;
 @property(readonly, nonatomic) PLManagedAsset *videoCameraImage;
 @property(readonly, nonatomic) UIImageView *previewImageView;
+- (id)_videoSnapshot;
 @property(readonly, nonatomic) UIImage *currentFrameImage;
 - (id)newPreviewImageData:(id *)arg1 fullScreenImage:(id *)arg2;
 @property(retain, nonatomic) PLManagedAsset *trimmedVideoClip;
@@ -240,7 +243,7 @@
 - (void)_savePreviewPosterFrameImage:(struct CGImage *)arg1;
 - (void)_requestPreviewPosterFrameForVideoSize:(struct CGSize)arg1;
 - (void)moviePlayerPlaybackDidEnd:(id)arg1;
-- (void)moviePlayerPlaybackStateDidChange:(id)arg1;
+- (void)moviePlayerPlaybackStateDidChange:(id)arg1 fromPlaybackState:(unsigned int)arg2;
 - (void)moviePlayerPlaybackRateDidChange:(id)arg1;
 - (void)moviePlayerBufferingStateDidChange:(id)arg1;
 - (BOOL)moviePlayerExitRequest:(id)arg1 exitReason:(int)arg2;
@@ -248,7 +251,7 @@
 - (void)_setNeedsReloadScrubberThumbnails:(BOOL)arg1;
 - (void)layoutSubviews;
 - (BOOL)_canCreateMetadata;
-- (void)_setScaleModeForSize:(struct CGSize)arg1;
+- (void)_updateScaleModeForSize:(struct CGSize)arg1;
 - (void)_hideTrimMessageView:(BOOL)arg1;
 - (void)removeVideoOverlay;
 - (void)_hideVideoOverlay:(BOOL)arg1;

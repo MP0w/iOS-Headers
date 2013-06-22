@@ -13,34 +13,34 @@
     void *_impl;
 }
 
-- (void)privCommonCleanup;
-- (void)finalize;
-- (void)dealloc;
-- (id)initWithContentsOfURL:(id)arg1 error:(id *)arg2;
-- (id)initWithData:(id)arg1 error:(id *)arg2;
-- (BOOL)prepareToPlay;
-- (BOOL)play;
-- (BOOL)playAtTime:(double)arg1;
-- (void)pause;
-- (void)stop;
-@property(readonly, getter=isPlaying) BOOL playing; // @dynamic playing;
-@property(readonly) NSURL *url; // @dynamic url;
-@property(readonly) NSData *data; // @dynamic data;
-@property id <AVAudioPlayerDelegate> delegate; // @dynamic delegate;
-@property(readonly) NSDictionary *settings; // @dynamic settings;
-@property(readonly) double duration;
-@property float volume; // @dynamic volume;
-@property BOOL enableRate; // @dynamic enableRate;
-@property float rate; // @dynamic rate;
-@property float pan; // @dynamic pan;
-@property(readonly) unsigned int numberOfChannels; // @dynamic numberOfChannels;
+- (float)averagePowerForChannel:(unsigned int)arg1;
+- (float)peakPowerForChannel:(unsigned int)arg1;
+- (void)updateMeters;
+@property(getter=isMeteringEnabled) BOOL meteringEnabled; // @dynamic meteringEnabled;
+@property int numberOfLoops; // @dynamic numberOfLoops;
 @property double currentTime; // @dynamic currentTime;
 @property(readonly) double deviceCurrentTime; // @dynamic deviceCurrentTime;
-@property int numberOfLoops; // @dynamic numberOfLoops;
-@property(getter=isMeteringEnabled) BOOL meteringEnabled; // @dynamic meteringEnabled;
-- (void)updateMeters;
-- (float)peakPowerForChannel:(unsigned int)arg1;
-- (float)averagePowerForChannel:(unsigned int)arg1;
+@property(readonly) unsigned int numberOfChannels; // @dynamic numberOfChannels;
+@property float pan; // @dynamic pan;
+@property float rate; // @dynamic rate;
+@property BOOL enableRate; // @dynamic enableRate;
+@property float volume; // @dynamic volume;
+@property(readonly) double duration;
+@property(readonly) NSDictionary *settings; // @dynamic settings;
+@property id <AVAudioPlayerDelegate> delegate; // @dynamic delegate;
+@property(readonly) NSData *data; // @dynamic data;
+@property(readonly) NSURL *url; // @dynamic url;
+@property(readonly, getter=isPlaying) BOOL playing; // @dynamic playing;
+- (void)stop;
+- (void)pause;
+- (BOOL)playAtTime:(double)arg1;
+- (BOOL)play;
+- (BOOL)prepareToPlay;
+- (id)initWithData:(id)arg1 error:(id *)arg2;
+- (id)initWithContentsOfURL:(id)arg1 error:(id *)arg2;
+- (void)dealloc;
+- (void)finalize;
+- (void)privCommonCleanup;
 
 @end
 

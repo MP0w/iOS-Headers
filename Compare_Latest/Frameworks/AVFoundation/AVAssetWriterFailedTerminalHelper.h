@@ -13,14 +13,14 @@
     NSError *_terminalError;
 }
 
-- (id)initWithConfigurationState:(id)arg1;
-- (id)initWithConfigurationState:(id)arg1 terminalError:(id)arg2;
-- (void)dealloc;
-- (int)status;
-- (id)error;
-- (void)startSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
-- (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
 - (void)finishWriting;
+- (void)endSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
+- (void)startSessionAtSourceTime:(CDStruct_1b6d18a9)arg1;
+- (id)error;
+- (int)status;
+- (void)dealloc;
+- (id)initWithConfigurationState:(id)arg1 terminalError:(id)arg2;
+- (id)initWithConfigurationState:(id)arg1;
 
 @end
 

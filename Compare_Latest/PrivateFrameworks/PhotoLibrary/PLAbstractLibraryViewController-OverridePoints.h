@@ -14,7 +14,7 @@
 - (BOOL)updateInterfaceForDeletedAlbumIndexes:(id)arg1 addedIndexes:(id)arg2 changedIndexes:(id)arg3 needsFullReload:(BOOL)arg4;
 - (void)updateInterfaceForHasContentChange;
 - (void)scrollToAlbumAtIndex:(unsigned int)arg1 animated:(BOOL)arg2 select:(BOOL)arg3;
-- (void)beginAddPhotosSessionForAlbum:(struct NSObject *)arg1 completionHandler:(id)arg2;
+- (void)beginAddPhotosSessionForAlbum:(id)arg1 completionHandler:(id)arg2;
 - (void)navigateToRevealAlbum:(struct NSObject *)arg1 animated:(BOOL)arg2;
 - (void)navigateToAlbum:(struct NSObject *)arg1 animated:(BOOL)arg2 completion:(id)arg3;
 - (void)hideAlbum:(struct NSObject *)arg1;

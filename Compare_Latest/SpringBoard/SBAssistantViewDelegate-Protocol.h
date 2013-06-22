@@ -12,5 +12,6 @@
 - (void)assistantViewAnimatedIn:(id)arg1;
 - (void)assistantViewAnimatedOut:(id)arg1;
 - (float)assistantViewAudioLevel:(id)arg1;
+- (BOOL)assistantViewAffectsMagicPocket:(int)arg1;
 @end
 

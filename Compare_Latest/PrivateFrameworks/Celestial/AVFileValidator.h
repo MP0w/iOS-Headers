@@ -14,21 +14,21 @@
     NSString *_validationRules;
 }
 
-- (id)initWithURL:(id)arg1;
-- (id)initWithURL:(id)arg1 options:(id)arg2;
-- (void)dealloc;
-- (id)url;
-- (BOOL)isStreaming;
-- (id)notificationForFileCheckResult:(id)arg1;
-- (void)postNotificationForCallback:(id)arg1;
-- (id)validateBlocking:(BOOL)arg1;
-- (void)validateForCameraRoll;
-- (void)validate;
-- (BOOL)validateSyncWithError:(id *)arg1;
-- (void)cancel;
-- (BOOL)isCompleted;
-- (float)progress;
 @property(retain) NSString *validationRules; // @synthesize validationRules=_validationRules;
+- (float)progress;
+- (BOOL)isCompleted;
+- (void)cancel;
+- (BOOL)validateSyncWithError:(id *)arg1;
+- (void)validate;
+- (void)validateForCameraRoll;
+- (id)validateBlocking:(BOOL)arg1;
+- (void)postNotificationForCallback:(id)arg1;
+- (id)notificationForFileCheckResult:(id)arg1;
+- (BOOL)isStreaming;
+- (id)url;
+- (void)dealloc;
+- (id)initWithURL:(id)arg1 options:(id)arg2;
+- (id)initWithURL:(id)arg1;
 
 @end
 

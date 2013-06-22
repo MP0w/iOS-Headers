@@ -14,16 +14,16 @@
 }
 
 + (id)portWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription *)arg3 enabled:(BOOL)arg4;
-- (id)init;
-- (id)initWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription *)arg3 enabled:(BOOL)arg4;
-- (void)dealloc;
-- (void)setOwner:(id)arg1;
-- (id)description;
-@property(readonly, nonatomic) AVCaptureInput *input;
-@property(readonly, nonatomic) NSString *mediaType;
-@property(readonly, nonatomic) struct opaqueCMFormatDescription *formatDescription;
-- (void)_setFormatDescription:(struct opaqueCMFormatDescription *)arg1;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
+- (void)_setFormatDescription:(struct opaqueCMFormatDescription *)arg1;
+@property(readonly, nonatomic) struct opaqueCMFormatDescription *formatDescription;
+@property(readonly, nonatomic) NSString *mediaType;
+@property(readonly, nonatomic) AVCaptureInput *input;
+- (id)description;
+- (void)setOwner:(id)arg1;
+- (void)dealloc;
+- (id)initWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription *)arg3 enabled:(BOOL)arg4;
+- (id)init;
 
 @end
 

@@ -22,6 +22,7 @@
 + (struct NSObject *)unshuffledAlbum:(struct NSObject *)arg1;
 + (struct NSObject *)shuffledAlbum:(struct NSObject *)arg1 startingAsset:(id)arg2;
 @property(retain, nonatomic) NSMutableOrderedSet *_assets; // @synthesize _assets;
+- (void)batchFetchAssets:(id)arg1;
 - (id)displayableIndexesForCount:(unsigned int)arg1;
 @property(readonly, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;

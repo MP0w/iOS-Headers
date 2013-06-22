@@ -30,6 +30,7 @@
 @property(nonatomic) int errorType; // @synthesize errorType=_errorType;
 @property(nonatomic) BOOL hasErrorType; // @synthesize hasErrorType=_hasErrorType;
 @property(retain, nonatomic) ADLogMetaData *metaData; // @synthesize metaData=_metaData;
+- (void)copyTo:(id)arg1;
 - (Class)responseClass;
 - (unsigned int)requestTypeCode;
 - (void)writeTo:(id)arg1;
@@ -39,9 +40,11 @@
 - (id)functionNamesAtIndex:(unsigned int)arg1;
 - (unsigned int)functionNamesCount;
 - (void)addFunctionNames:(id)arg1;
+- (void)clearFunctionNames;
 - (id)linesAtIndex:(unsigned int)arg1;
 - (unsigned int)linesCount;
 - (void)addLines:(id)arg1;
+- (void)clearLines;
 @property(readonly, nonatomic) BOOL hasURL;
 @property(readonly, nonatomic) BOOL hasErrorMessage;
 @property(readonly, nonatomic) BOOL hasMetaData;

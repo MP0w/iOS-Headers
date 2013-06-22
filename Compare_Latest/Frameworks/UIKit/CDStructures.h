@@ -233,7 +233,8 @@ typedef struct {
     unsigned int bluetoothConnected:1;
     unsigned int displayRawGSMSignal:1;
     unsigned int displayRawWifiSignal:1;
-} CDStruct_34da3f48;
+    unsigned int locationIconType:1;
+} CDStruct_074cde39;
 
 typedef struct {
     char animateContentRotation;
@@ -334,6 +335,7 @@ typedef struct {
     unsigned int overrideWifiSignalStrengthRaw:1;
     unsigned int overrideWifiSignalStrengthBars:1;
     unsigned int overrideDataNetworkType:1;
+    unsigned int disallowsCellularDataNetworkTypes:1;
     unsigned int overrideBatteryCapacity:1;
     unsigned int overrideBatteryState:1;
     unsigned int overrideBluetoothBatteryCapacity:1;
@@ -343,8 +345,8 @@ typedef struct {
     unsigned int overrideBluetoothConnected:1;
     unsigned int overrideDisplayRawGSMSignal:1;
     unsigned int overrideDisplayRawWifiSignal:1;
-    CDStruct_34da3f48 values;
-} CDStruct_99f73b7c;
+    CDStruct_074cde39 values;
+} CDStruct_4a2025ae;
 
 typedef struct {
     CDStruct_d5a6e384 _field1[4];

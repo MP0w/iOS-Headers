@@ -10,19 +10,22 @@
 #import "SSCoding-Protocol.h"
 #import "SSXPCCoding-Protocol.h"
 
+@class NSMutableDictionary;
+
 @interface SSNetworkConstraints : NSObject <SSCoding, SSXPCCoding, NSCopying>
 {
     struct dispatch_queue_s *_dispatchQueue;
-    long long _sizeLimit2G;
-    long long _sizeLimit3G;
-    long long _sizeLimitWiFi;
+    NSMutableDictionary *_sizeLimits;
 }
 
 + (id)_newModernNetworkConstraintsWithArray:(id)arg1;
 + (id)_newLegacyNetworkConstraintsWithDictionary:(id)arg1;
 + (void)_addNetworkConstraintsToDictionary:(id)arg1 forNetworkType:(int)arg2 legacyDictionary:(id)arg3;
 + (id)newNetworkConstraintsByDownloadKindFromURLBag:(id)arg1;
+- (long long)_sizeLimitForNetworkType:(int)arg1;
 - (void)_setSizeLimit:(long long)arg1 forNetworkType:(int)arg2;
+- (void)_disableAllNetworkTypes;
+- (id)_copySizeLimits;
 - (void)setSizeLimitsWithStoreConstraintDictionary:(id)arg1;
 - (void *)copyXPCEncoding;
 - (id)copyPropertyListEncoding;
@@ -35,6 +38,7 @@
 - (void)setSizeLimit:(long long)arg1 forNetworkType:(int)arg2;
 - (void)setAllNetworkTypesDisabled;
 @property(readonly, getter=isAnyNetworkTypeEnabled) BOOL anyNetworkTypeEnabled;
+- (void)disableCellularNetworkTypes;
 - (void)dealloc;
 - (id)init;
 

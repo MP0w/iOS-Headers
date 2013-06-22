@@ -10,8 +10,8 @@
 {
 }
 
-+ (void)prewarm;
 + (void)cancel;
++ (void)prewarm;
 
 @end
 

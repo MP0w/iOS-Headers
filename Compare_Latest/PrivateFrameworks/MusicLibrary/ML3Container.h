@@ -12,7 +12,9 @@
 {
 }
 
++ (void)populateDynamicContainersWithTrackPersistentID:(id)arg1 inLibrary:(id)arg2 createBuiltinSmartPlaylists:(BOOL)arg3;
 + (void)populateDynamicContainersWithTrackPersistentID:(id)arg1 inLibrary:(id)arg2;
++ (void)populateDynamicContainersInLibrary:(id)arg1 createBuiltinSmartPlaylists:(BOOL)arg2;
 + (void)populateDynamicContainersInLibrary:(id)arg1;
 + (void)populateStaticItemsOfDynamicContainersOnHandle:(struct sqlite3 *)arg1;
 + (void)deleteAutoCreatedBuiltInSmartPlaylistsPIDs:(id)arg1 inLibrary:(id)arg2;
@@ -59,7 +61,6 @@
 @property(readonly) NSString *limitingProperty;
 - (BOOL)isCustomContainerOrderingDescending;
 @property(readonly, getter=isLimitOrderingDescending) BOOL limitOrderingDescending;
-- (BOOL)_isDescendingForTrackOrderProperty:(id)arg1 reverseOrderProperty:(id)arg2;
 @property(readonly, getter=isLimitedByCount) BOOL limitedByCount;
 @property(readonly) ML3Predicate *dynamicPredicate;
 @property(readonly) ML3Predicate *staticPredicate;

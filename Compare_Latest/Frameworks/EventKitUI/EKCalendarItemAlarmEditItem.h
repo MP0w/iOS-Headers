@@ -19,6 +19,7 @@
 - (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(int)arg2;
 - (id)cellForSubitemAtIndex:(int)arg1;
 - (int)numberOfSubitems;
+- (void)setCalendarItem:(id)arg1 store:(id)arg2;
 - (id)init;
 
 @end

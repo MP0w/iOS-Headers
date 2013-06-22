@@ -214,6 +214,8 @@
 - (struct UIEdgeInsets)cardCellBackgroundInsetsWhenEditing:(BOOL)arg1;
 - (float)cardDeleteButtonHeight;
 - (struct UIEdgeInsets)cardDeleteButtonInsets;
+- (id)cardDeleteButtonImage;
+- (id)cardDeleteButtonImagePressed;
 @property(readonly, nonatomic) UIColor *cardCellBackgroundColor;
 @property(readonly, nonatomic) UIColor *cardCellDisabledBackgroundColor;
 - (id)cardCellDividerColorVertical:(BOOL)arg1;

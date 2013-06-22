@@ -37,6 +37,7 @@
 
 @optional
 - (void)setReturnKeyEnabled:(BOOL)arg1 withDisplayName:(id)arg2 withType:(int)arg3;
+- (void)deactivateActiveKeysClearingTouchInfo:(BOOL)arg1 clearingDimming:(BOOL)arg2;
 - (void)deactivateActiveKeysClearingTouchInfo:(BOOL)arg1;
 @end
 

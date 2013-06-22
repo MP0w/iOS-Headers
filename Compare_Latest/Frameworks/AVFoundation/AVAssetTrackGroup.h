@@ -14,13 +14,13 @@
     NSArray *_trackIDs;
 }
 
-- (id)initWithAsset:(id)arg1 trackIDs:(id)arg2;
-- (id)init;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
+- (id)trackIDs;
 - (id)_assetComparisonToken;
-@property(readonly, nonatomic) NSArray *trackIDs; // @synthesize trackIDs=_trackIDs;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)init;
+- (id)initWithAsset:(id)arg1 trackIDs:(id)arg2;
 
 @end
 

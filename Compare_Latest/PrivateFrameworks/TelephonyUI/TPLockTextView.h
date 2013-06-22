@@ -18,6 +18,7 @@
     UIFont *_labelFont;
     float _deltaFromDefaultTrackWidth;
     float _fps;
+    BOOL _hasReverseShine;
 }
 
 - (void)dealloc;
@@ -28,6 +29,7 @@
 - (void)stopAnimation;
 - (void)setFPS:(float)arg1;
 - (BOOL)isAnimating;
+- (void)setHasReverseShine:(BOOL)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)movedFromWindow:(id)arg1;
 

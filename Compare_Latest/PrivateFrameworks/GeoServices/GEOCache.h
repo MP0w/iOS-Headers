@@ -10,16 +10,16 @@
 
 @interface GEOCache : NSCache
 {
-    id <NSCacheDelegate> _proxiedDelegate;
-    BOOL _proxiedDelegateListens;
     NSLock *_hotseatLock;
     void *_hotseatCache;
     unsigned long long _hotseatTouch;
     unsigned int _minCapacity;
+    BOOL _caresAboutEvictions;
 }
 
 @property(readonly, nonatomic) unsigned int minCapacity; // @synthesize minCapacity=_minCapacity;
 - (void)dealloc;
+- (void)willEvictObject:(id)arg1;
 - (void)cache:(id)arg1 willEvictObject:(id)arg2;
 - (void)_enteredBackground:(id)arg1;
 - (void)removeAllObjects;
@@ -28,7 +28,6 @@
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
 - (id)_addHotseatValue:(id)arg1 forKey:(id)arg2;
-- (id)delegate;
 - (void)setDelegate:(id)arg1;
 - (id)initWithMinCapacity:(unsigned int)arg1;
 - (id)init;

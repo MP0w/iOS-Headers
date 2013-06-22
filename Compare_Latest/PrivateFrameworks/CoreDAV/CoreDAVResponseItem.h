@@ -16,8 +16,10 @@
     CoreDAVErrorItem *_errorItem;
     CoreDAVLeafItem *_responseDescription;
     CoreDAVItemWithHrefChildItem *_location;
+    CoreDAVLeafItem *_serverUID;
 }
 
+@property(retain) CoreDAVLeafItem *serverUID; // @synthesize serverUID=_serverUID;
 @property(retain) CoreDAVItemWithHrefChildItem *location; // @synthesize location=_location;
 @property(retain) CoreDAVLeafItem *responseDescription; // @synthesize responseDescription=_responseDescription;
 @property(retain, nonatomic) CoreDAVErrorItem *errorItem; // @synthesize errorItem=_errorItem;

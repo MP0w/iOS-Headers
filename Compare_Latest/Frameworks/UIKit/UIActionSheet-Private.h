@@ -15,6 +15,7 @@
 - (void)setSelectedButtonGlyphHighlightedImage:(id)arg1;
 - (void)setSelectedButtonGlyphImage:(id)arg1;
 - (void)setIndexOfSelectedButton:(int)arg1;
+- (void)removeFromSuperview;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
 - (BOOL)canBecomeFirstResponder;

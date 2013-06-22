@@ -9,6 +9,7 @@
 @class NSMutableArray, UIInputViewSet, UIKeyboard, UIResponder, UIView;
 
 @interface UIPeripheralHost (UIKitInternal)
++ (float)gridViewRubberBandValueForValue:(float)arg1 target:(float)arg2 timeInterval:(float)arg3 velocity:(float *)arg4;
 + (struct CGRect)visiblePeripheralFrame;
 - (void)updateInputAccessoryViewVisibility:(BOOL)arg1 withDuration:(float)arg2;
 - (void)updateCandidateHeight:(float)arg1 withDuration:(float)arg2;
@@ -73,6 +74,7 @@
 - (BOOL)_isPinningInputViewsOnBehalfOfResponder:(id)arg1;
 - (void)_stopPinningInputViewsOnBehalfOfResponder:(id)arg1;
 - (void)_beginPinningInputViewsOnBehalfOfResponder:(id)arg1;
+- (void)_clearPinningResponders;
 - (void)_reloadInputViewsForResponder:(id)arg1;
 - (void)_setReloadInputViewsForcedIsAllowed:(BOOL)arg1;
 - (void)prepareForPinning;

@@ -10,7 +10,6 @@
 {
 }
 
-+ (id)renderedImageWithImage:(id)arg1 brush:(id)arg2;
 - (void)drawInRect:(struct CGRect)arg1 withContext:(struct CGContext *)arg2 input:(id)arg3;
 - (float)scaleForInput:(id)arg1;
 - (struct CGSize)sizeForInput:(id)arg1;

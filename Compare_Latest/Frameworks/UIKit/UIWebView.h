@@ -16,6 +16,7 @@
     UIWebViewInternal *_internal;
 }
 
++ (void)_updatePersistentStoragePaths;
 - (void)_define:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)select:(id)arg1;

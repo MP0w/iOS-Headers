@@ -30,6 +30,7 @@
     unsigned int _hasIsEmpty:1;
     unsigned int _hasStartedLoadingIsEmpty:1;
     unsigned int _hasStartedLoadingEntities:1;
+    unsigned int _isImmediate:1;
 }
 
 @property(readonly, nonatomic) MPMediaQueryCriteria *queryCriteria; // @synthesize queryCriteria=_queryCriteria;
@@ -50,6 +51,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+- (id)initWithEntityType:(int)arg1 queryCriteria:(id)arg2 library:(id)arg3 immediate:(BOOL)arg4;
 - (id)initWithEntityType:(int)arg1 queryCriteria:(id)arg2 library:(id)arg3;
 - (void)_commonInitMPMediaEntityStreamArray;
 - (id)init;

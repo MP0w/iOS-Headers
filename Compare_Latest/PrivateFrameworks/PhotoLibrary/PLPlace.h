@@ -36,6 +36,9 @@
 @property(retain, nonatomic) NSSet *assetsSet; // @synthesize assetsSet;
 @property(nonatomic) unsigned int numberOfVideos; // @synthesize numberOfVideos;
 @property(nonatomic) unsigned int numberOfPhotos; // @synthesize numberOfPhotos;
+- (void)_updateAnnotationTitle;
+- (id)_annotationTitle;
+- (CDStruct_c3b9c2ee)_placeLocation;
 - (BOOL)hasSameEffectiveLocationAs:(CDStruct_c3b9c2ee)arg1;
 - (CDStruct_c3b9c2ee)effectiveLocation;
 - (BOOL)isEqual:(id)arg1;
@@ -46,6 +49,7 @@
 - (BOOL)hasPhoto:(id)arg1;
 - (void)removePhoto:(id)arg1;
 - (void)addPhoto:(id)arg1;
+- (void)batchFetchAssets:(id)arg1;
 - (id)displayableIndexesForCount:(unsigned int)arg1;
 @property(readonly, nonatomic) NSURL *groupURL;
 @property(retain, nonatomic) NSString *importSessionID;

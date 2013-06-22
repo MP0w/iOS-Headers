@@ -16,26 +16,26 @@
     AVWeakReference *_weakReferenceToGroup;
 }
 
-- (id)initWithDictionary:(id)arg1 group:(id)arg2;
-- (void)dealloc;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)hash;
-- (id)_ancillaryDescription;
-- (id)group;
-- (id)dictionary;
-- (id)groupID;
-- (id)optionID;
-- (id)mediaType;
-- (id)mediaSubTypes;
-- (BOOL)hasMediaCharacteristic:(id)arg1;
-- (BOOL)isPlayable;
-- (BOOL)_isDesignatedDefault;
-- (id)locale;
-- (id)commonMetadata;
-- (id)availableMetadataFormats;
-- (id)metadataForFormat:(id)arg1;
-- (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
 - (id)propertyList;
+- (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
+- (id)metadataForFormat:(id)arg1;
+- (id)availableMetadataFormats;
+- (id)commonMetadata;
+- (id)locale;
+- (BOOL)_isDesignatedDefault;
+- (BOOL)isPlayable;
+- (BOOL)hasMediaCharacteristic:(id)arg1;
+- (id)mediaSubTypes;
+- (id)mediaType;
+- (id)optionID;
+- (id)groupID;
+- (id)dictionary;
+- (id)group;
+- (id)_ancillaryDescription;
+- (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (void)dealloc;
+- (id)initWithDictionary:(id)arg1 group:(id)arg2;
 
 @end
 

@@ -46,7 +46,7 @@
 - (void)_getFromCacheAnyPropertyValue:(id *)arg1 andLabel:(id *)arg2 forRecordInfoDictionary:(id)arg3;
 - (void)_clearAllCachedInfo;
 - (BOOL)_propertyIsDate;
-- (id)_newLocalizedPlaceholder;
+- (id)_newLocalizedPlaceholderForKey:(id)arg1;
 - (BOOL)_isEmptyValue:(id)arg1 isPreinserted:(BOOL)arg2;
 - (id)_stringRepresentationOfPropertyValue:(id)arg1;
 - (id)_newLocalizedCountryNameForCountryCode:(id)arg1;

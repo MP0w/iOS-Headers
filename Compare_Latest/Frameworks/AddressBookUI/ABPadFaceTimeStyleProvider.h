@@ -75,6 +75,8 @@
 - (id)cardCellDividerShadowColorVertical:(BOOL)arg1;
 - (id)newCardDividerViewVertical:(BOOL)arg1;
 - (int)cardCellSelectionStyle;
+- (id)cardDeleteButtonImage;
+- (id)cardDeleteButtonImagePressed;
 - (BOOL)cardTableUsesRowFadeAnimation;
 - (float)cardTableViewSectionHeaderHeightWhenEditing:(BOOL)arg1;
 - (float)cardTableViewSectionFooterHeightWhenEditing:(BOOL)arg1;

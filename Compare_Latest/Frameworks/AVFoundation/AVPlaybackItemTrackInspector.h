@@ -12,34 +12,34 @@
 {
     struct OpaqueFigPlaybackItem *_playbackItem;
     int _trackID;
-    unsigned int _mediaType;
+    unsigned long _mediaType;
     AVWeakReference *_weakReferenceToAsset;
 }
 
-- (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
-- (void)dealloc;
-- (void)finalize;
-- (id)asset;
-- (int)trackID;
-- (id)mediaType;
-- (struct OpaqueFigPlaybackItem *)_playbackItem;
-- (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
-- (id)formatDescriptions;
-- (BOOL)isEnabled;
-- (BOOL)isSelfContained;
-- (long long)totalSampleDataLength;
-- (CDStruct_e83c9415)timeRange;
-- (int)naturalTimeScale;
-- (float)estimatedDataRate;
-- (id)languageCode;
-- (id)extendedLanguageTag;
-- (struct CGSize)naturalSize;
-- (struct CGAffineTransform)preferredTransform;
-- (float)preferredVolume;
-- (float)nominalFrameRate;
-- (CDStruct_1b6d18a9)samplePresentationTimeForTrackTime:(CDStruct_1b6d18a9)arg1;
-- (BOOL)isEqual:(id)arg1;
 - (unsigned int)hash;
+- (BOOL)isEqual:(id)arg1;
+- (CDStruct_1b6d18a9)samplePresentationTimeForTrackTime:(CDStruct_1b6d18a9)arg1;
+- (float)nominalFrameRate;
+- (float)preferredVolume;
+- (struct CGAffineTransform)preferredTransform;
+- (struct CGSize)naturalSize;
+- (id)extendedLanguageTag;
+- (id)languageCode;
+- (float)estimatedDataRate;
+- (int)naturalTimeScale;
+- (CDStruct_e83c9415)timeRange;
+- (long long)totalSampleDataLength;
+- (BOOL)isSelfContained;
+- (BOOL)isEnabled;
+- (id)formatDescriptions;
+- (void *)_valueAsCFTypeForProperty:(struct __CFString *)arg1;
+- (struct OpaqueFigPlaybackItem *)_playbackItem;
+- (id)mediaType;
+- (int)trackID;
+- (id)asset;
+- (void)finalize;
+- (void)dealloc;
+- (id)_initWithAsset:(id)arg1 trackID:(int)arg2 trackIndex:(long)arg3;
 
 @end
 

@@ -13,10 +13,15 @@
 
 + (id)sharedInstance;
 @property(nonatomic) struct _xpc_connection_s *connection; // @synthesize connection;
+- (void)cleanupForStoreDemoMode;
+- (void)createPhotostreamAlbumWithStreamID:(id)arg1;
+- (void)recoverFromCrashIfNeeded;
 - (void)clearChangeStore;
 - (void)recalculateCachedAlbumCounts;
 - (void)notifyAboutTerminationDueToUncaughtException:(id)arg1;
 - (void)dataMigrationWillFinish;
+- (void)cleanupDualCameraRollAfterTellurideCorruption;
+- (unsigned int)secondsNeededToCleanupDualCameraRollAfterTellurideCorruption;
 - (void)cleanupModelAfteriTunesRestore;
 - (unsigned int)secondsNeededToCleanupModelAfteriTunesRestore;
 - (void)writeDataInBackground:(id)arg1 toFileURL:(id)arg2;
@@ -27,9 +32,6 @@
 - (void)updateCameraPreviewWellImage:(id)arg1;
 - (void)updateThumbnailsForPhoto:(id)arg1 generatePreviewImage:(BOOL)arg2 waitForReply:(BOOL)arg3 assignNewIndex:(BOOL)arg4;
 - (void)updateThumbnailsForPhoto:(id)arg1 generatePreviewImage:(BOOL)arg2 waitForReply:(BOOL)arg3;
-- (void)recycleUnusedThumbnailIndexes:(id)arg1;
-- (void)getNextThumbnailIndexWithHandler:(id)arg1;
-- (void)getUnusedThumbnailIndexesWithCount:(unsigned int)arg1 handler:(id)arg2;
 - (void)getPhotosAndVideosCountWithHandler:(id)arg1;
 - (void)launchAssetsd;
 - (void)importFileSystemAssetsWaitingForReply:(BOOL)arg1;

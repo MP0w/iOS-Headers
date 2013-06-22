@@ -14,25 +14,25 @@
 }
 
 + (id)sharedInstance;
-@property id <AVAudioSessionDelegate> delegate; // @dynamic delegate;
-@property(readonly) NSString *category; // @dynamic category;
-- (BOOL)setCategory:(id)arg1 error:(id *)arg2;
-- (BOOL)setActive:(BOOL)arg1 error:(id *)arg2;
-- (BOOL)setActive:(BOOL)arg1 withFlags:(int)arg2 error:(id *)arg3;
-- (BOOL)setPreferredHardwareSampleRate:(double)arg1 error:(id *)arg2;
-- (BOOL)setPreferredIOBufferDuration:(double)arg1 error:(id *)arg2;
-@property(readonly) BOOL inputIsAvailable; // @dynamic inputIsAvailable;
-@property(readonly) double currentHardwareSampleRate; // @dynamic currentHardwareSampleRate;
-@property(readonly) double preferredHardwareSampleRate; // @dynamic preferredHardwareSampleRate;
-@property(readonly) double preferredIOBufferDuration; // @dynamic preferredIOBufferDuration;
-@property(readonly) int currentHardwareInputNumberOfChannels; // @dynamic currentHardwareInputNumberOfChannels;
-@property(readonly) int currentHardwareOutputNumberOfChannels; // @dynamic currentHardwareOutputNumberOfChannels;
-@property(readonly) NSString *mode; // @dynamic mode;
-- (BOOL)setMode:(id)arg1 error:(id *)arg2;
-- (void)privateInputIsAvailableChanged:(id)arg1;
-- (void)privateBeginInterruption;
-- (void)privateEndInterruption;
 - (void)privateEndInterruptionWithFlags:(id)arg1;
+- (void)privateEndInterruption;
+- (void)privateBeginInterruption;
+- (void)privateInputIsAvailableChanged:(id)arg1;
+- (BOOL)setMode:(id)arg1 error:(id *)arg2;
+@property(readonly) NSString *mode; // @dynamic mode;
+@property(readonly) int currentHardwareOutputNumberOfChannels; // @dynamic currentHardwareOutputNumberOfChannels;
+@property(readonly) int currentHardwareInputNumberOfChannels; // @dynamic currentHardwareInputNumberOfChannels;
+@property(readonly) double preferredIOBufferDuration; // @dynamic preferredIOBufferDuration;
+@property(readonly) double preferredHardwareSampleRate; // @dynamic preferredHardwareSampleRate;
+@property(readonly) double currentHardwareSampleRate; // @dynamic currentHardwareSampleRate;
+@property(readonly) BOOL inputIsAvailable; // @dynamic inputIsAvailable;
+- (BOOL)setPreferredIOBufferDuration:(double)arg1 error:(id *)arg2;
+- (BOOL)setPreferredHardwareSampleRate:(double)arg1 error:(id *)arg2;
+- (BOOL)setActive:(BOOL)arg1 withFlags:(int)arg2 error:(id *)arg3;
+- (BOOL)setActive:(BOOL)arg1 error:(id *)arg2;
+- (BOOL)setCategory:(id)arg1 error:(id *)arg2;
+@property(readonly) NSString *category; // @dynamic category;
+@property id <AVAudioSessionDelegate> delegate; // @dynamic delegate;
 
 @end
 

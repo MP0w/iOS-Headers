@@ -24,8 +24,12 @@
     NSMutableDictionary *_hrefToETag;
     NSMutableDictionary *_uuidToErrorItems;
     NSMutableDictionary *_hrefToErrorItems;
+    NSMutableDictionary *_uuidToStatus;
+    NSMutableDictionary *_hrefToStatus;
 }
 
+@property(readonly) NSDictionary *hrefToStatus; // @synthesize hrefToStatus=_hrefToStatus;
+@property(readonly) NSDictionary *uuidToStatus; // @synthesize uuidToStatus=_uuidToStatus;
 @property(readonly) NSDictionary *hrefToErrorItems; // @synthesize hrefToErrorItems=_hrefToErrorItems;
 @property(readonly) NSDictionary *uuidToErrorItems; // @synthesize uuidToErrorItems=_uuidToErrorItems;
 @property(readonly) NSDictionary *hrefToETag; // @synthesize hrefToETag=_hrefToETag;

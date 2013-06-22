@@ -34,6 +34,7 @@
     NSString *_plainBody;
     CDStruct_9d69e73c *_madridChatRecord;
     NSAttributedString *_madridAttributedBody;
+    NSString *_voicemailString;
 }
 
 - (id)initWithMadridMessageGUID:(id)arg1;
@@ -63,6 +64,7 @@
 - (BOOL)_madridHasAttachments;
 - (struct __IMDMadridAttachmentRecord *)_copyMadridAttachmentRecordForGUID:(id)arg1;
 @property(readonly, nonatomic) BOOL isMessageFullyLoaded;
+- (id)voicemailString;
 - (BOOL)senderIsVoicemail;
 - (id)alertImageData;
 - (id)previewText;

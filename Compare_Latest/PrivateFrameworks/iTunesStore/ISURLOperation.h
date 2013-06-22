@@ -65,7 +65,7 @@
 - (BOOL)shouldFollowRedirectWithRequest:(id)arg1 returningError:(id *)arg2;
 - (id)newRequestWithURL:(id)arg1;
 - (void)handleResponse:(id)arg1;
-- (BOOL)handleRedirectFromDataProvider:(id)arg1;
+- (BOOL)handleRedirectFromDataProvider:(id)arg1 error:(id *)arg2;
 - (void)run;
 @property(copy) SSURLRequestProperties *requestProperties;
 - (void)setRequest:(id)arg1;

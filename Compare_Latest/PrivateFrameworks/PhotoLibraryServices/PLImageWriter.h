@@ -38,6 +38,7 @@
 - (void)_processIngestedSyncedAssetJob:(id)arg1;
 - (void)_processSavePhotoStreamImageToCameraRollJob:(id)arg1;
 - (void)_processReenqueueAssetUUIDsToPhotoStreamJob:(id)arg1;
+- (void)_processDeletePhotoStreamAssetsWithUUIDs:(id)arg1;
 - (void)_processDeletePhotoStreamDataJob:(id)arg1;
 - (void)_processImportImageJob:(id)arg1;
 - (void)_processImageJob:(id)arg1;

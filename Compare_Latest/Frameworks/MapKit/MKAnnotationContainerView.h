@@ -110,6 +110,7 @@
 - (void)_showBubbleForAnnotationView:(id)arg1 bounce:(BOOL)arg2 scrollToFit:(BOOL)arg3 avoid:(struct CGRect)arg4;
 - (void)_addCallout:(id)arg1 forAnnotationView:(id)arg2 anchorPoint:(struct CGPoint)arg3 boundaryRect:(struct CGRect)arg4 animated:(BOOL)arg5;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)removeAnnotationViewsRotationAnimations;
 - (void)setAnnotationViewsRotationRadians:(float)arg1 animation:(id)arg2;
 - (void)setMapTransform:(struct CGAffineTransform)arg1;
 - (struct CGAffineTransform)mapTransform;

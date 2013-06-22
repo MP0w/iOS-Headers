@@ -68,6 +68,7 @@
 - (void)applyAdditionalPropertiesFromPostTask:(id)arg1;
 - (void)putTask:(id)arg1 completedWithNewETag:(id)arg2 error:(id)arg3;
 - (void)applyAdditionalPropertiesFromPutTask:(id)arg1;
+- (BOOL)isWhitelistedError:(id)arg1;
 - (void)syncAway;
 - (void)startTaskGroup;
 - (void)_getDataPayloads;

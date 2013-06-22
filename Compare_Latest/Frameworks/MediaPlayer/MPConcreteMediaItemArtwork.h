@@ -27,9 +27,9 @@
 - (id)imageWithSize:(struct CGSize)arg1 atPlaybackTime:(double)arg2;
 - (id)albumImageDataWithSize:(struct CGSize)arg1;
 - (id)albumImageWithSize:(struct CGSize)arg1;
+- (id)albumImageWithFormat:(int)arg1 artworkCacheID:(id)arg2 canUseSurfaceBackedImage:(BOOL)arg3;
 - (id)albumImageWithFormat:(int)arg1 artworkCacheID:(id)arg2;
 - (id)albumImageWithFormat:(int)arg1;
-- (void)_fixupBoundsForImage:(id)arg1;
 - (BOOL)hasArtworkAvailable;
 - (void)dealloc;
 - (id)_initWithItem:(id)arg1;

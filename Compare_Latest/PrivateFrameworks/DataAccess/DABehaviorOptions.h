@@ -19,14 +19,13 @@
 + (BOOL)allIMAPServersSupportNotesSearch;
 + (id)mobileMeServerURL;
 + (id)APSEnv;
++ (BOOL)compressRequests;
 + (BOOL)promptForAllCerts;
 + (BOOL)calDAVRemindersForAll;
-+ (BOOL)icalserverHack;
-+ (BOOL)googleHack;
 + (BOOL)cookiesEnabled;
 + (BOOL)_shouldForceCookies:(char *)arg1;
 + (id)whitelistedEASProtocols;
-+ (int)calDAVTimeout;
++ (double)defaultDAVProbeTimeout;
 + (double)defaultEASTaskTimeoutOutWasFound:(char *)arg1;
 + (BOOL)ignoreBadLDAPCerts;
 + (int)refreshThrottleTime;

@@ -7,7 +7,7 @@
 #import <Celestial/AVItem.h>
 
 @interface AVItem (AVItemLogging)
-- (id)accessLog;
 - (id)errorLog;
+- (id)accessLog;
 @end
 

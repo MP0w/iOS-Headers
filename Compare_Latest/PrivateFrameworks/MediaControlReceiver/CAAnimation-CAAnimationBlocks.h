@@ -7,7 +7,7 @@
 #import "CAAnimation.h"
 
 @interface CAAnimation (CAAnimationBlocks)
-@property(copy, nonatomic) id animationDidStartBlock;
 @property(copy, nonatomic) id animationDidStopBlock;
+@property(copy, nonatomic) id animationDidStartBlock;
 @end
 

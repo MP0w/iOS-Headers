@@ -14,30 +14,30 @@
 }
 
 + (id)assetImageGeneratorWithAsset:(id)arg1;
-- (id)init;
-- (id)initWithAsset:(id)arg1;
-- (void)dealloc;
-- (void)finalize;
-- (void)_ensureFigAssetImageGenerator;
-- (struct __CFDictionary *)_createPixelBufferAttributesWithSize:(struct CGSize)arg1;
-- (id)_makeAutoreleasedAssetReader;
-- (struct CGImage *)copyCGImageAtTime:(CDStruct_1b6d18a9)arg1 actualTime:(CDStruct_1b6d18a9 *)arg2 error:(id *)arg3;
-- (void)generateCGImagesAsynchronouslyForTimes:(id)arg1 completionHandler:(id)arg2;
-- (void)cancelAllCGImageGeneration;
-@property(nonatomic) BOOL appliesPreferredTrackTransform;
-@property(nonatomic) struct CGSize maximumSize;
-@property(copy, nonatomic) NSString *apertureMode;
-@property(copy, nonatomic) AVVideoComposition *videoComposition;
-@property(nonatomic) CDStruct_1b6d18a9 requestedTimeToleranceBefore;
-@property(nonatomic) CDStruct_1b6d18a9 requestedTimeToleranceAfter;
-- (id)_optionsDictionary;
-- (void)_didGenerateCGImage:(id)arg1;
-- (void)_failedToGenerateCGImage:(id)arg1;
-- (void)_serverDied;
-- (id)_requestWithRequestID:(id)arg1;
-- (struct CGSize)_scaledSizeForRenderSize:(struct CGSize)arg1;
-- (struct CGImage *)_copyCGImageAtTime:(CDStruct_1b6d18a9)arg1 usingAssetReader:(id)arg2 error:(id *)arg3;
 - (id)_NSErrorForError:(long)arg1;
+- (struct CGImage *)_copyCGImageAtTime:(CDStruct_1b6d18a9)arg1 usingAssetReader:(id)arg2 error:(id *)arg3;
+- (struct CGSize)_scaledSizeForRenderSize:(struct CGSize)arg1;
+- (id)_requestWithRequestID:(id)arg1;
+- (void)_serverDied;
+- (void)_failedToGenerateCGImage:(id)arg1;
+- (void)_didGenerateCGImage:(id)arg1;
+- (id)_optionsDictionary;
+@property(nonatomic) CDStruct_1b6d18a9 requestedTimeToleranceAfter;
+@property(nonatomic) CDStruct_1b6d18a9 requestedTimeToleranceBefore;
+@property(copy, nonatomic) AVVideoComposition *videoComposition;
+@property(copy, nonatomic) NSString *apertureMode;
+@property(nonatomic) struct CGSize maximumSize;
+@property(nonatomic) BOOL appliesPreferredTrackTransform;
+- (void)cancelAllCGImageGeneration;
+- (void)generateCGImagesAsynchronouslyForTimes:(id)arg1 completionHandler:(id)arg2;
+- (struct CGImage *)copyCGImageAtTime:(CDStruct_1b6d18a9)arg1 actualTime:(CDStruct_1b6d18a9 *)arg2 error:(id *)arg3;
+- (id)_makeAutoreleasedAssetReader;
+- (struct __CFDictionary *)_createPixelBufferAttributesWithSize:(struct CGSize)arg1;
+- (void)_ensureFigAssetImageGenerator;
+- (void)finalize;
+- (void)dealloc;
+- (id)initWithAsset:(id)arg1;
+- (id)init;
 
 @end
 

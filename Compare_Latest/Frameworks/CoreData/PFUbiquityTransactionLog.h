@@ -33,6 +33,7 @@
 + (int)transactionLogTypeFromLocation:(id)arg1;
 + (id)generateTransactionLogFilename;
 + (void)updateModificationTimesForLocation:(id)arg1;
+- (id)init;
 - (id)initWithTransactionLogURL:(id)arg1 andUbiquityRootLocation:(id)arg2;
 - (id)initWithTransactionLogLocation:(id)arg1;
 - (id)initWithStoreName:(id)arg1 andSaveSnapshot:(id)arg2;

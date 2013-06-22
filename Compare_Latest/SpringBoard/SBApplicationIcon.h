@@ -37,7 +37,6 @@
 - (id)folderTitleOptions;
 - (id)folderFallbackTitle;
 - (id)applicationBundleID;
-- (BOOL)shouldCacheImageForFormat:(int)arg1;
 
 @end
 

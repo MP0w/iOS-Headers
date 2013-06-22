@@ -12,7 +12,8 @@
 {
     EKEventStore *_eventStore;
     id _objectID;
-    NSMutableDictionary *_loadedProperties;
+    struct __CFDictionary *_loadedProperties;
+    NSMutableDictionary *_referencers;
     NSMutableSet *_dirtyProperties;
     unsigned int _flags;
     NSMutableDictionary *_committedProperties;
@@ -55,8 +56,14 @@
 - (id)primitiveRelationValueForKey:(id)arg1;
 - (id)committedValueForKey:(id)arg1;
 - (void)unloadPropertyForKey:(id)arg1;
+- (void)_clearWeakRelations;
+- (void)_clearReferences;
+- (void)_removeReference:(id)arg1 forKey:(id)arg2;
+- (void)_addReference:(id)arg1 forKey:(id)arg2;
+- (void)_releaseLoadedProperties;
 - (void)_setProperty:(id)arg1 forKey:(id)arg2;
 - (id)_propertyForKey:(id)arg1;
+- (BOOL)_shouldRetainPropertyForKey:(id)arg1;
 - (id)_relationForKey:(id)arg1;
 - (BOOL)_areDefaultPropertiesLoaded;
 - (void)_setDefaultPropertiesLoaded:(BOOL)arg1;
@@ -77,6 +84,7 @@
 - (BOOL)isPropertyDirty:(id)arg1;
 - (BOOL)refreshExcludingProperties:(id)arg1;
 - (BOOL)refresh;
+- (id)_loadedPropertyKeys;
 - (void)changed;
 - (BOOL)isDirty;
 - (BOOL)isNew;

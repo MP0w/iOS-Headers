@@ -33,6 +33,7 @@
 - (void)_addOAuthSignerProxy:(id)arg1;
 - (void)_removeAccountStoreProxy:(id)arg1;
 - (void)_addAccountStoreProxy:(id)arg1;
+- (void)_sanityCheckAccountStore:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -19,7 +19,6 @@
     NSArray *_inputs;
 }
 
-- (void)dealloc;
 @property(copy, nonatomic) NSArray *inputs; // @synthesize inputs=_inputs;
 @property(nonatomic) int movieTimeScale; // @synthesize movieTimeScale=_movieTimeScale;
 @property(copy, nonatomic) NSArray *metadataItems; // @synthesize metadataItems=_metadataItems;
@@ -27,6 +26,7 @@
 @property(nonatomic) CDStruct_1b6d18a9 movieFragmentInterval; // @synthesize movieFragmentInterval=_movieFragmentInterval;
 @property(copy, nonatomic) AVMediaFileType *mediaFileType; // @synthesize mediaFileType=_mediaFileType;
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+- (void)dealloc;
 
 @end
 
